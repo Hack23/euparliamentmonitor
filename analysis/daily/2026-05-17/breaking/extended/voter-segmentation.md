@@ -62,3 +62,113 @@ EU voters can be segmented by their primary concerns and how the April 2026 EP d
 | SME/export voters | MIXED | Battleground remains contested |
 | Pro-European young voters | POSITIVE | Reinforces EU identification |
 | Eurosceptic national-populist | NEGATIVE | Mobilizing material for opposition |
+
+## VOTER SEGMENTATION FRAMEWORK
+
+```mermaid
+pie title EP Constituency Groups (Approximate)
+    "Pro-European Federalists" : 28
+    "Regulated Market Pragmatists" : 22
+    "National Conservative" : 18
+    "Green Progressive" : 12
+    "Eurosceptic Anti-Establishment" : 14
+    "Technocratic Moderate" : 6
+```
+
+### Voter Response Matrix
+
+| Policy Area | Pro-EU Federalists | Pragmatists | Conservatives | Greens | Eurosceptics |
+|------------|-------------------|------------|--------------|--------|--------------|
+| DMA Enforcement | 🟢 Strong Support | 🟢 Support | 🟡 Neutral | 🟢 Support | 🔴 Oppose |
+| Ukraine Resolution | 🟢 Strong Support | 🟢 Support | 🟡 Split | 🟢 Support | 🔴 Oppose |
+| 2027 Budget Ambition | 🟢 Strong Support | 🟡 Cautious | 🔴 Oppose | 🟢 Support | 🔴 Oppose |
+| Armenia Support | 🟢 Support | 🟢 Support | 🟡 Neutral | 🟢 Support | 🔴 Oppose |
+| Cyberbullying Law | 🟢 Support | 🟢 Support | 🟡 Cautious | 🟢 Strong | 🔴 Oppose |
+
+## DETAILED VOTER SEGMENTATION ANALYSIS
+
+### Segment 1: Digital Economy Stakeholders (EU Population: ~45M active users)
+
+**Profile**: EU citizens and businesses who regularly use services from designated DMA gatekeepers. Includes e-commerce users (Amazon), smartphone users (Apple/Android), social media users (Meta), search users (Google).
+
+**Impact from DMA enforcement**: Potentially positive — more choice, lower prices, better interoperability. App store competition expected to reduce app prices 10-30% in EU markets.
+
+**Policy sensitivity**: Moderate — users care about platform choice and data privacy more than abstract competition law. The DMA's consumer-visible benefits (sideloading on iOS, WhatsApp interoperability, Google search alternatives) create tangible voter impact.
+
+**EP resonance**: Renew Europe, Greens, and S&D most resonant with this segment's priorities.
+
+### Segment 2: Ukraine Solidarity Bloc (EU Population: ~80-100M engaged citizens)
+
+**Profile**: EU citizens who actively support Ukraine — follow news, donate, support Ukrainian refugees, attend solidarity events. Higher concentration in Eastern/Northern EU member states (Poland, Baltic states, Finland, Sweden, Romania).
+
+**Impact from Ukraine accountability resolution**: Strongly positive — EP action signals continued EU commitment. Validates the moral position of the solidarity bloc.
+
+**Policy sensitivity**: HIGH — this segment punishes parties perceived as "soft on Putin." Vote-switching data from 2024 EP elections shows Ukraine as a top-5 issue for Eastern EU constituencies.
+
+**EP resonance**: EPP, Renew, S&D's pro-Ukraine wings. ECR is split (Polish PiS faction very pro-Ukraine; some Italian/Hungarian ECR elements less so).
+
+### Segment 3: Fiscal Conservatives / Net Payer Electorates (EU Population: ~30M core)
+
+**Profile**: German, Dutch, Austrian, Swedish, Danish, Finnish voters who prioritize EU budget discipline. Often vote CDU/CSU, VVD, FPÖ/ÖVP, SD, DF, PS equivalent parties.
+
+**Impact from 2027 budget guidelines**: NEGATIVE — EP's EUR 1.25T ambition seen as future tax burden. Net payer member states (Germany contributes EUR 17B+/year net) fear higher contributions.
+
+**Policy sensitivity**: HIGH for EP elections in Germany, Netherlands, Scandinavia. Net contributor calculation is a salient political issue.
+
+**EP resonance**: EPP right wing and some Renew Europe (particularly Dutch VVD, German FDP). ECR fiscal hawks.
+
+### Segment 4: Eastern Partnership Citizens (External segment: ~50M)
+
+**Profile**: Citizens in Armenia, Georgia, Moldova, Ukraine who track EU political signals. EP resolutions directly affect perceptions of EU as a reliable partner.
+
+**Impact from Armenia resilience and Ukraine accountability resolutions**: STRONGLY POSITIVE — signals EU solidarity and continued engagement. Affects public opinion in these countries toward EU accession and EU-aligned governance.
+
+**EP resonance**: Not direct voters but influential in partner-country elections where EU-affiliation is a political platform.
+
+### Aggregated Voter Impact Matrix
+
+```mermaid
+xychart-beta
+    title Voter Segment Impact (positive = favourable)
+    x-axis ["Digital users", "Ukraine solidarity", "Fiscal conservatives", "Eastern partners", "Business", "Youth"]
+    y-axis "Impact score" -5 --> 10
+    bar [7, 9, -3, 9, 5, 6]
+```
+
+---
+
+*Voter segmentation produced 2026-05-17. Population estimates are approximate. Political sensitivity ratings based on EP election data patterns. Admiralty Grade B3.*
+
+## SUPPLEMENTAL VOTER SEGMENTATION
+
+### Segment 5: EU Business Community
+
+**Profile**: EU businesses operating in digital markets, external trade, and financial markets. Includes tech SMEs, e-commerce retailers, app developers, and multinational corporations with EU operations.
+
+**Sub-segment 5a: EU Digital SMEs (beneficiaries of DMA)**:
+- Size: ~50,000+ EU app developers and digital services companies
+- Impact: POSITIVE — DMA contestability requirements create market access opportunities previously blocked by gatekeepers' self-preferencing
+- Key metric: App Store alternative distribution access = potential EUR 2-5B in reduced commission payments across EU app economy annually
+
+**Sub-segment 5b: Large non-EU corporations (cost bearers of DMA)**:
+- Impact: NEGATIVE — compliance costs; potential fines; business model constraints
+- Political response: Lobbying Council and Commission; US government pressure on EU
+
+**Sub-segment 5c: Financial sector**:
+- Impact: NEUTRAL-POSITIVE — DMA does not directly target financial services; EIB report (TA-10-2026-0119) positive for investment environment
+- Budget guidelines: Positive for EU infrastructure investment (EIB capitalization discussion)
+
+### Segment 6: Youth and Future Generation Vote
+
+**Profile**: EU citizens 18-30; most engaged with climate, digital rights, and geopolitical security
+
+**Impact from April 2026 package**:
+- DMA enforcement: STRONGLY POSITIVE — generational support for breaking up big tech monopolies is higher among 18-30 than any other age cohort (Eurobarometer data pattern)
+- Ukraine accountability: POSITIVE — youth cohort in Eastern/Northern EU strongly supports Ukraine
+- Budget ambition: MIXED — supports climate/education spending; skeptical of defence spending increases
+
+**Electoral significance**: Youth voter turnout in EP elections 2024 was 41% (up from 28% in 2019). The EP's April 2026 agenda aligns well with youth priorities — this is a retention strategy for a newly mobilized voter cohort.
+
+---
+
+*Supplemental voter segmentation produced 2026-05-17. Admiralty Grade B3.*

@@ -80,3 +80,48 @@ The Patriots for Europe group (84 seats, third-largest) represents the most sign
 - **Emerging trend**: Progressive bloc (S&D+Greens+Left) increasingly using budget and oversight resolutions to embed climate and social conditionality, forcing EPP to choose between coalition harmony and its centre-right base
 
 *For quantitative coalition modelling, see extended/coalition-mathematics.md*
+
+## COALITION ALIGNMENT DIAGRAM
+
+```mermaid
+quadrantChart
+    title Political Group Alignment on April 2026 Votes
+    x-axis Pro-Regulation --> Anti-Regulation
+    y-axis Anti-GeopoliticalAction --> Pro-GeopoliticalAction
+    quadrant-1 EPP Core
+    quadrant-2 S&D/Greens
+    quadrant-3 ECR
+    quadrant-4 ID/PfE
+    EPP: [0.4, 0.6]
+    S&D: [0.2, 0.8]
+    Greens: [0.1, 0.9]
+    Renew: [0.3, 0.7]
+    ECR: [0.7, 0.4]
+    PfE: [0.8, 0.2]
+```
+
+## EXTENDED COALITION DYNAMICS
+
+### Coalition Stability Indicators (April 2026)
+
+**Stabilizing factors**:
+1. EPP-S&D "grand coalition" anchor maintained for 24+ months without major fracture
+2. DMA enforcement enjoys rare cross-ideological consensus: EPP (market competition), S&D (consumer protection), Renew (liberal digital values), Greens (anti-monopoly) — all support enforcement for different reasons
+3. Ukraine solidarity remains cross-partisan (EPP hawks, S&D values-based, Renew liberal internationalist, Greens human rights)
+4. Budget coalition is less stable but structurally coherent: ambitious spending bloc (S&D+Greens+Left) + moderate centrists (EPP+Renew) > austerity bloc (ECR+PfE+ESN)
+
+**Destabilizing factors**:
+1. EPP internal tension: Orbán-aligned EPP members (few but vocal) resist Ukraine accountability maximalism
+2. ECR fragmentation: Polish PiS (strongly pro-Ukraine) vs Italian/Flemish ECR members (less enthusiastic on accountability)
+3. Budget: Net-payer EPP members from Germany, Netherlands apply internal pressure to limit spending ambition
+4. Immigration policy: Could fracture Greens support on asylum reform trade-offs in broader package negotiations
+
+### WEP Band Assessment — Coalition Durability
+
+🟡 **ROUGHLY EVEN** chance of significant coalition fracture within 12 months
+
+**Rationale**: The April 2026 output demonstrates the coalition's current strength, but the year ahead brings higher-risk legislative tests (AI liability, supply chain due diligence, migration pact implementation, defence procurement). Each of these has higher potential for coalition-fracturing trade-offs than DMA/Ukraine resolutions.
+
+---
+
+*Extended coalition dynamics produced 2026-05-17. Admiralty Grade B2 for coalition composition; C3 for stability forecast.*

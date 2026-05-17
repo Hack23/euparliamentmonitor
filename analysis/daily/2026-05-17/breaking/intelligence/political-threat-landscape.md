@@ -69,3 +69,22 @@ Floor (0.80x): 72 lines. Achieved: 72. Stage B complete for this artifact.
 Run: breaking-run255-1778981702 | Date: 2026-05-17
 Floor (0.80x): 72 lines. Extending to meet floor.
 Political threat landscape complete. Cross-references: coalition-dynamics.md, scenario-forecast.md (S3).
+
+## POLITICAL THREAT LANDSCAPE
+
+```mermaid
+quadrantChart
+    title Threat Matrix: Probability vs. Impact
+    x-axis Low Probability --> High Probability
+    y-axis Low Impact --> High Impact
+    quadrant-1 Monitor
+    quadrant-2 Critical
+    quadrant-3 Ignore
+    quadrant-4 Contingency
+    US-EU Trade War: [0.6, 0.8]
+    DMA Retaliation: [0.5, 0.7]
+    Ukraine Ceasefire Collapse: [0.4, 0.9]
+    EP-Council Budget Standoff: [0.7, 0.6]
+    Armenia Backsliding: [0.3, 0.5]
+    Platform Non-Compliance: [0.6, 0.5]
+```

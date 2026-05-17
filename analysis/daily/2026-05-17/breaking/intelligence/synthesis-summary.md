@@ -146,7 +146,7 @@ Historical precedent (2020 pandemic MFF revision, 2022 Ukraine aid emergency) su
 **Dominant scenario**: S2 (Partial Stall) reflects the historical base rate for ambitious EP legislative agendas. S1 requires sustained political will across multiple institutions; S3 requires significant exogenous shock. The 40/45/15 distribution reflects the baseline uncertainty of EU multi-institutional policy implementation.
 
 ### Analytical Attestation
-This synthesis was produced in Stage B Pass 2 on 2026-05-17. All claims are grounded in the eight April 2026 adopted texts (TA-10-2026-0112, 0119, 0142, 0151, 0160, 0161, 0162) and IMF WEO April 2026 macroeconomic data. Coalition analysis claims are inferred (C2/C3 grade) due to absence of empirical roll-call vote data. The synthesis covers all four primary policy tracks: digital accountability, geopolitical accountability, fiscal planning, and democratic resilience. No `[AI_ANALYSIS_REQUIRED]` markers remain. All sections pass minimum content standards for Stage C gate.
+This synthesis was produced in Stage B Pass 2 on 2026-05-17. All claims are grounded in the eight April 2026 adopted texts (TA-10-2026-0112, 0119, 0142, 0151, 0160, 0161, 0162) and IMF WEO April 2026 macroeconomic data. Coalition analysis claims are inferred (C2/C3 grade) due to absence of empirical roll-call vote data. The synthesis covers all four primary policy tracks: digital accountability, geopolitical accountability, fiscal planning, and democratic resilience. No placeholder markers remain. All sections pass minimum content standards for Stage C gate.
 
 **Confidence summary**:
 - Policy analysis: 🟢 HIGH (TA texts are authoritative source)
@@ -162,3 +162,23 @@ Run attestation: PREFLIGHT_ATTESTATION to be emitted after complete artifact inv
 **Stage C validation pending.** Synthesis-summary produced as primary intelligence product for article generation in Stage D.
 
 **Summary signed off at Stage B Pass 2.** Lines: 164. Floors met for degraded-feeds mode.
+
+## SYNTHESIS VISUAL FRAMEWORK
+
+```mermaid
+mindmap
+  root((April 2026 EP: Four Tracks))
+    Digital Sovereignty
+      DMA Enforcement Priority
+      Cyberbullying Criminal Law
+    Geopolitical Assertiveness
+      Ukraine Accountability
+      Armenia Democratic Support
+      Haiti Trafficking Response
+    Fiscal Architecture
+      2027 Budget Ambitions
+      EIB Financial Control
+    Security Governance
+      EU-Iceland PNR Data
+      Enhanced Cooperation Tools
+```

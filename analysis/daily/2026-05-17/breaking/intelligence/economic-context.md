@@ -1,6 +1,29 @@
 # Economic Context Analysis
-**Date**: 2026-05-17 | **IMF Source**: World Economic Outlook April 2026 (authoritative)
-**Admiralty Grade**: A2 | **Coverage**: EU fiscal framework, DMA economic impact, budget context
+
+| **Field** | **Value** |
+|-----------|-----------|
+| **Date** | 2026-05-17 |
+| **IMF Source** | cache |
+| **Admiralty Grade** | A2 |
+| **Coverage** | EU fiscal framework, DMA economic impact, budget context |
+| **WEP Band** | High Confidence (A2) — IMF WEO April 2026 |
+
+---
+
+## IMF DATA PROVENANCE
+
+```mermaid
+flowchart TD
+    A[IMF WEO April 2026] --> B[Eurozone Growth Forecasts]
+    A --> C[Fiscal Monitor April 2026]
+    A --> D[Global Financial Stability Report]
+    B --> E[EU GDP: +1.4% 2026 / +1.6% 2027]
+    C --> F[EU Deficit/GDP: 2.8% → 2.4%]
+    D --> G[Financial Stability Risks]
+    E --> H[EP Budget Guidelines Analysis]
+    F --> H
+    G --> H
+```
 
 ---
 

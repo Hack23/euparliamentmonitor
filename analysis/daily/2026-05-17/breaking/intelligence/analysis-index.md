@@ -107,3 +107,22 @@
 
 Analysis index complete. Stage B Pass 2. Floor (0.80x): 128 lines.
 All artifacts inventoried. Cross-run-diff baseline set.
+
+## ANALYSIS FRAMEWORK DIAGRAM
+
+```mermaid
+mindmap
+  root((April 2026 EP Plenary))
+    Digital
+      DMA Enforcement
+      Cyberbullying Rules
+    Geopolitical
+      Ukraine Accountability
+      Armenia Support
+      Haiti Trafficking
+    Fiscal
+      2027 Budget Guidelines
+      EIB Report
+    Security
+      EU-Iceland PNR
+```

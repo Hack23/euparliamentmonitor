@@ -198,3 +198,40 @@ Cross-references: intelligence/economic-context.md, intelligence/scenario-foreca
 
 Cross-references: economic-context.md (E), stakeholder-map.md (S), coalition-dynamics.md (P), scenario-forecast.md (T).
 PESTLE complete. 2026-05-17.
+
+## PESTLE FRAMEWORK DIAGRAM
+
+```mermaid
+mindmap
+  root((PESTLE April 2026))
+    Political
+      DMA vs US Relations
+      Ukraine Peace Talks
+      Armenia Alignment
+      2027 Budget Political Dynamics
+    Economic
+      Eurozone 1.4% Growth
+      US Tariff Risks -0.5pp
+      EU Budget 2.8% Deficit
+      Digital Economy Gap
+    Social
+      Haiti Trafficking Crisis
+      Cyberbullying Harm
+      Worker Rights Subcontracting
+      Animal Welfare Awareness
+    Technological
+      DMA Platform Enforcement
+      AI Productivity Impact
+      Cybersecurity PNR Data
+      Digital Services Trade
+    Legal
+      DMA Article 20/21 Enforcement
+      Criminal Law Cyberbullying
+      International Law Ukraine
+      ECHR Armenia Standards
+    Environmental
+      EP 2027 Budget Green Priorities
+      Climate Policy Fiscal Space
+      Energy Transition Costs
+      EIB Climate Finance
+```

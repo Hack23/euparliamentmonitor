@@ -26,20 +26,27 @@
     "Residual risk after mitigation: 12/25 (HIGH)"
   ],
   "keyDates": [
+    "Commission formal non-compliance decisions against Apple App Store (expected Q3 2026)",
+    "Google search designation non-compliance findings (expected Q2-Q3 2026)",
+    "Meta advertising ecosystem proceedings status update (expected Q2 2026)",
+    "Council's budget guidelines position (typically more conservative; release expected June 2026)",
+    "Trilogue calendar for Annual Budget 2027 — first reading EP position expected Q3 2026",
+    "Commission Draft Budget 2027 release (expected late June 2026)",
     "EU-US trade negotiations reach a critical phase in Q3 2026 where DMA is explicitly on the table"
   ],
   "keyActors": [
-    "**Supportive**: France (champions EU digital sovereignty), Germany (supports level playing field), Netherlands (IMCO homeland bias), Nordic states",
-    "**Cautious**: Ireland (US FDI concerns; Apple European HQ in Dublin), Luxembourg (banking and tech sector interests)",
-    "**Structural constraint**: Council does not hold DMA enforcement competence; this is purely a Commission function. Council's role is limited to political signalling.",
-    "**Pro-resolution**: Poland, Baltic states, Nordic states, Czech Republic, Romania — approximately 18/27 member states",
-    "**Anti/abstain**: Hungary (Orban), Slovakia (Fico) — using qualified minority blocking position in Council to complicate CFSP decisions",
-    "**Hungary-QMV risk**: Hungary and Slovakia together hold ~4% of EU population; they cannot block QMV-based measures but can cause significant political noise",
-    "**Net contributors** (Germany, Netherlands, Sweden, Austria, Denmark): Resisting spending increases; pushing efficiency savings",
-    "**Net recipients** (Poland, Hungary, Romania, Bulgaria, Czech Republic): Defending cohesion fund allocations; pushing for full MFF absorption"
+    "**Role**: Legislative body, adopter of resolutions and acts",
+    "**Position**: Assertively pro-regulation, pro-Ukraine, pro-enlargement",
+    "**Key votes**: DMA enforcement, Ukraine accountability, Armenia support, 2027 budget",
+    "**Power**: Consent power, budgetary authority, soft power via resolutions",
+    "**Role**: Legislative proposer, DMA enforcement authority",
+    "**Position**: Executor of Parliament's DMA enforcement demands; cautious on Ukraine tribunal",
+    "**Key figures**: President, VP Breton (Digital), VP Borrell (Foreign Affairs)",
+    "**Power**: Legislative initiative monopoly, enforcement discretion"
   ],
   "macroContext": "IMF Economic Context — Authoritative Data Points:",
   "sources": [
+    "classification/actor-mapping.md",
     "executive-brief.md",
     "extended/executive-brief.md",
     "extended/forward-indicators.md",

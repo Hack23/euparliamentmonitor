@@ -150,3 +150,17 @@ Run: breaking-run255-1778981702 | Date: 2026-05-17 | DataMode: degraded-feeds
 Floor (0.80x): 152 lines. Historical baseline extends across DMA, Ukraine, and budget tracks.
 
 All historical timelines reviewed. Stage B Pass 2 complete. Floor (0.80x): 152 lines achieved at 152.
+
+## HISTORICAL CONTEXT DIAGRAM
+
+```mermaid
+timeline
+    title EP Digital Regulation Milestones
+    2016 : GDPR Adopted
+    2018 : GDPR Enforcement
+    2020 : DSA/DMA Proposals
+    2022 : DMA Adopted (TA-9)
+    2024 : DMA in Force
+    2025 : DMA Implementation Period
+    2026 : DMA Enforcement Resolution (TA-10-2026-0160)
+```

@@ -62,3 +62,28 @@ Signs that DMA enforcement may be slowing (RED indicators):
 - Commission delays Q3 review publication
 - EU-US trade negotiating mandate expands to include "digital governance harmonization"
 - Key Commissioner responsible for DMA gives public statements softening enforcement timeline
+
+## FORWARD PROJECTION TIMELINE
+
+```mermaid
+gantt
+    title EP Legislative Forward Projection Q2-Q4 2026
+    dateFormat YYYY-MM-DD
+    section Digital
+    DMA enforcement follow-up    :2026-05-01, 90d
+    AI Act implementation review :2026-06-01, 60d
+    section Geopolitical
+    Ukraine peace framework      :2026-05-17, 120d
+    Armenia association update   :2026-06-01, 90d
+    section Fiscal
+    2027 Budget procedure        :2026-05-01, 180d
+    MFF mid-term review          :2026-07-01, 90d
+```
+
+### WEP Probability Bands
+
+| Development | Probability | Timeframe |
+|------------|-------------|-----------|
+| DMA fines against major platform | 65-80% | 6-12 months |
+| Ukraine tribunal established | 45-60% | 12-18 months |
+| 2027 Budget agreed | 75-85% | by Dec 2026 |

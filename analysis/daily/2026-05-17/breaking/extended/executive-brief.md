@@ -1,30 +1,150 @@
-# Extended Executive Brief — EU Parliament Breaking News
-**Date**: 2026-05-17 | **Extends**: executive-brief.md | **Admiralty Grade**: B2 | **WEP Band**: Likely (65–85%)
+# Extended Executive Brief
 
-## Extended Analysis: Digital Markets Act Enforcement
+**Date**: 2026-05-17 | **Classification**: Public | **Distribution**: Open
 
-The DMA enforcement resolution (TA-10-2026-0160) represents the culmination of a six-year legislative and political process that began with the 2020 Digital Services Act proposal. The April 2026 resolution is qualitatively different from prior EP calls for DMA enforcement in that it: (1) specifies concrete compliance failures by named gatekeeper categories, (2) sets a timeframe (Q3 2026 review) as a political milestone, and (3) invokes the EP's accountability mechanisms over the Commission in explicit terms.
+## KEY DEVELOPMENTS (April 28–30, 2026 Plenary)
 
-**Extended geopolitical reading**: The resolution lands in the context of a transformative shift in EU-US tech relations. The US government's position on EU digital regulation has hardened from concerned observation (2019–2021) to active diplomatic resistance (2022–2024) to explicit trade linkage (2025–2026). The EP's defiance of this pressure — adopting a stronger enforcement resolution despite the trade context — signals that EU digital sovereignty has crossed a threshold from policy preference to strategic doctrine. This threshold-crossing has institutional permanence: once a political consensus crystallizes as strategic doctrine, reversing it requires a level of political crisis (Scenario A2 conditions) that is currently not in view.
+```mermaid
+mindmap
+  root((Key Developments))
+    Digital
+      DMA Enforcement Priority
+      Cyberbullying Criminal Law
+    Geopolitical
+      Ukraine Tribunal Push
+      Armenia Support
+      Haiti Trafficking Response
+    Fiscal
+      2027 Budget EUR 1.25T ambition
+      EIB Oversight Enhanced
+    Security
+      EU-Iceland PNR Agreement
+```
 
-**Extended economic analysis**: The DMA enforcement trajectory has an underappreciated fiscal dimension. DMA fines are paid directly to the EU budget (unlike national competition authority fines which go to national treasuries). If Apple faces a fine of 10% global annual turnover (~$38 billion US) and Google ($32 billion US), the EU budget would receive sums equivalent to 25–35% of a full annual EU budget. Even at the lower end (50% fine reduction for partial compliance), these sums represent a novel EU fiscal resource that could partially fund the 2027 budget's priority spending increases without requiring increased member state GNI contributions. This fiscal arithmetic has not been publicly discussed in EP budget debates — an analytical gap in EU institutional thinking.
+## Executive Summary for Senior Leadership
 
-## Extended Analysis: Ukraine — EP's Constitutional Foreign Policy Role
+The European Parliament's April 28–30, 2026 Strasbourg plenary session delivered eight consequential adopted texts that collectively signal a Parliament asserting stronger institutional prerogatives across digital, geopolitical, and fiscal domains. The most significant development is the DMA enforcement resolution (TA-10-2026-0160), which instructs the Commission to accelerate Article 20/21 enforcement actions against designated gatekeepers — placing the EU on a collision course with US technology interests at a time of broader transatlantic trade friction (IMF WEO April 2026 estimates -0.4 to -0.6 pp EU growth if tariff escalation persists).
 
-The EP's role in EU foreign policy has been a persistent constitutional controversy since the Lisbon Treaty (2009). Article 36 TEU requires the High Representative to "consult" the EP regularly and "ensure that the EP's views are duly taken into consideration." The April 2026 accountability resolution is the EP's most assertive interpretation of this consultation right: it is not just expressing a view but establishing a political precondition for its future consent to any Russia-normalization framework.
+The Ukraine accountability resolution (TA-10-2026-0161) demonstrates the Parliament's determination to use its institutional voice to shape the justice track of any eventual peace settlement, including calls for a Special Tribunal backed by EU resources. This positioning constrains the Council's diplomatic flexibility. The Armenia support resolution (TA-10-2026-0162) and Haiti trafficking resolution (TA-10-2026-0151) extend the EP's human rights activism to the broader neighbourhood and global South.
 
-This constitutional reading is contested by Council lawyers who argue that CFSP decisions are in the Council's exclusive competence. But the EP's leverage is real: the Article 218 consent power for international agreements creates a veto point on any formal peace or normalization framework that would require EU Treaty-level commitment. The EP's Ukraine resolution has therefore pre-positioned the Parliament to exercise a genuine foreign policy veto — not through CFSP formal channels, but through its consent power.
+The 2027 budget guidelines (TA-10-2026-0112) set up a constitutional confrontation: the EP's EUR 1.2–1.25 trillion ambitions for the next MFF period exceed fiscally sustainable levels under IMF-endorsed constraints (EU avg. deficit 2.8% GDP in 2026) and will require either painful trade-offs or creative financing mechanisms.
 
-**Extended strategic assessment**: If a US-brokered ceasefire is presented to EU institutions in H2 2026, the EP's April resolution will be the decisive variable in determining whether the EU can endorse the ceasefire framework or whether the EP's accountability preconditions create an EU institutional veto. This scenario (Scenario B3 in the scenario forecast) is the most consequential possible outcome of the April resolution — it would force a constitutional question about democratic legitimacy in EU foreign policy that has been deferred for 15 years.
+**Strategic Assessment (Admiralty Grade B2)**: The EP is operating at the outer edge of its institutional prerogatives, using resolutions and budget guidelines as strategic leverage to shape Council and Commission positions. The risk of institutional overreach is real but calculated — the Parliament has consistently secured concessions when it enters budget and legislative negotiations with politically coherent, publicly supported positions.
 
-## Extended Analysis: 2027 Budget — Structural Transformation of EU Fiscal Capacity
+## STRATEGIC INTELLIGENCE BRIEF
 
-The 2027 budget guidelines (TA-10-2026-0112) embed three structural innovations that deserve extended analysis:
+**Classification**: OPEN SOURCE ANALYSIS | Admiralty Grade B2
 
-**Innovation 1: Defence as normal EU budget line**. The EP's call for increased European Defence Fund spending in 2027 completes a normalization process begun in 2021. If adopted, the 2027 budget will have defence as an established, growing EU budget category alongside Cohesion, Agriculture, and Research. This represents a structural transformation of EU fiscal architecture that was unimaginable in the 2014–2020 MFF period.
+**Bottom Line Up Front (BLUF)**: The European Parliament's April 28-30, 2026 Strasbourg plenary produced a high-density legislative and resolution output. Eight significant adopted texts span digital market regulation (DMA enforcement), geopolitics (Ukraine accountability, Armenia resilience, Haiti trafficking), fiscal policy (2027 budget guidelines), and institutional governance (EIB oversight, animal welfare, PNR agreement). The combined effect positions the EP 10th term as the most consequential digital-governance and geopolitical-EU session in EP history.
 
-**Innovation 2: CBAM revenue as EU own resource**. The EP's budget guidelines implicitly count on CBAM revenue (expected €3–5 billion/year from 2026) as a new own resource that reduces member state GNI contributions. This is the first EU own resource tied to environmental policy — a structural connection between EU revenue and climate policy objectives.
+## Key Intelligence Lines
 
-**Innovation 3: Cohesion fund performance conditionality**. The EP's guidelines include language on result-based cohesion fund disbursements, building on the 2021–2027 MFF's "enabling conditions." This represents a shift from input-based (we commit the money) to output-based (you demonstrate the results) fiscal governance, with implications for how €70+ billion/year of cohesion funds are managed.
+**Digital Governance**: The DMA enforcement resolution (TA-10-2026-0160) signals that the EP is prepared to escalate if Commission enforcement remains procedurally active but substantively weak. The resolution was passed with a strong majority (~450+ seats estimated), giving it the moral authority of near-supermajority backing. Expected US diplomatic pushback will be significant.
 
-**IMF perspective (authoritative)**: The IMF's Article IV consultations with the EU (2026) note that EU fiscal capacity remains "constrained by the intergovernmental nature of own resources decisions." The April 2026 budget guidelines' implicit reliance on CBAM revenue and possible DMA fine revenues to fund new priorities represents an attempt to expand EU fiscal capacity without requiring politically contentious own resources decisions. This is a strategically important workaround whose legal and fiscal sufficiency will be tested in the 2027 budget negotiation.
+**Ukraine and Eastern Security**: The Ukraine accountability resolution (TA-10-2026-0161) maintains EP's position as the strongest institutional advocate for an international tribunal among EU institutions. The Armenia resilience resolution (TA-10-2026-0162) and Haiti trafficking resolution (TA-10-2026-0151) demonstrate a portfolio approach to external solidarity — not limited to Ukraine.
+
+**Fiscal Policy**: The 2027 budget guidelines (TA-10-2026-0112) at EUR 1.25T (estimated range) establish an ambitious baseline for MFF 2028-2034 negotiations. Historical track record suggests ~90% of EP's aspirational position survives to final agreement. Defence, climate, and innovation are the three pillars of increased spending ambition.
+
+## Threat and Opportunity Matrix
+
+| Domain | Primary Threat | Primary Opportunity |
+|--------|---------------|-------------------|
+| Digital | US trade retaliation; ECJ appeals | Global DMA adoption; competitive digital market |
+| Geopolitical | Russian counter-pressure; peace talks without justice | Accountability architecture; deterrence credibility |
+| Fiscal | Net-payer resistance; German fiscal constraints | MFF with defence/climate components |
+| Institutional | EP-Council CFSP friction | EP emerging as geopolitical actor |
+
+## Decision Recommendations for Tracking
+
+1. **Monitor**: Commission's next DMA non-compliance decision (expected Q2-Q3 2026)
+2. **Monitor**: Ukraine Core Group founding conference date announcement
+3. **Monitor**: Council's budget guidelines (expected June 2026) — gap vs EP position is the key variable
+4. **Alert**: Any US executive action targeting DMA enforcement (tariff threats, diplomatic notes)
+5. **Alert**: Russian retaliation against member states following Ukraine accountability EP resolution
+
+---
+
+*Executive brief produced 2026-05-17. For public accountability journalism use. Admiralty Grade B2.*
+
+## POLITICAL LANDSCAPE OVERVIEW
+
+**EP 10th Term — Power Map as of May 2026**:
+
+The European Parliament's 10th term (2024-2029) is characterized by two structural realities:
+1. **Centre-right anchor**: EPP (188 seats) remains the largest group and the pivot of virtually every governing coalition. Its position determines whether digital, geopolitical, and fiscal legislation passes.
+2. **Grand coalition durability**: The EPP-S&D-Renew+Greens supermajority (~454 seats) has been stable for 24+ months. Despite periodic tensions (migration, fiscal policy), it has not fractured on core digital governance or geopolitical votes.
+
+**The right-wing challenge (PfE+ECR+ESN = ~187 seats)**:
+- These groups have blocked or weakened several proposals but cannot form a governing majority
+- On Ukraine/Eastern policy, ECR (especially Polish PiS) frequently joins the grand coalition, expanding pro-Ukraine majority to 500+ seats
+- On digital regulation, PfE-ECR-ESN bloc is consistently in the minority
+
+## Intelligence Consumer Guidance
+
+**For policymakers**: The April 2026 plenary output is a reliable guide to EP's 2026-2027 legislative agenda. DMA enforcement, Ukraine accountability, and budget ambition are the three pillars. Council and Commission should expect EP pressure on all three.
+
+**For business**: DMA enforcement is not theoretical — it is imminent. Digital market compliance reviews should be underway. US tech companies operating in EU markets face significant regulatory risk in H2 2026.
+
+**For civil society**: EP's external solidarity resolutions (Ukraine, Armenia, Haiti) demonstrate consistent values-based engagement. Advocacy organizations in these domains should track EP committee work for emerging legislative vehicles.
+
+**For investors**: EU digital market regulatory risk is high for US-exposed tech stocks. EU-listed digital infrastructure and challenger platform companies benefit from DMA contestability.
+
+---
+
+*Executive brief (full version) produced 2026-05-17. Admiralty Grade B2. For open-source accountability journalism.*
+
+## STAKEHOLDER ACTION MATRIX
+
+| Stakeholder | Recommended Action | Priority | Deadline |
+|------------|-------------------|----------|---------|
+| Commission DG CNECT | Issue first DMA non-compliance decision | HIGH | Q3 2026 |
+| Commission DG RELEX | Respond to Ukraine tribunal Core Group progress | MEDIUM | Q3 2026 |
+| Council (ECOFIN) | Prepare counter-position on 2027 budget guidelines | HIGH | June 2026 |
+| US Government (USTR) | Decide on Section 301 DMA investigation | HIGH | H2 2026 |
+| Tech gatekeepers | Review DMA compliance status across all products | CRITICAL | Ongoing |
+| Ukrainian government | Accelerate Core Group founding conference | HIGH | Q3 2026 |
+| Armenian government | Respond to EU resilience package offer | MEDIUM | H2 2026 |
+
+## Risk Register Summary
+
+| Risk | Probability | Impact | Owner | Monitor Point |
+|------|-----------|--------|-------|--------------|
+| US DMA trade retaliation | 35-40% | HIGH | Commission | Q3 2026 |
+| Ukraine accountability stalls | 40% | MEDIUM | Council/MS | Q4 2026 |
+| Budget coalition fracture | 40% | MEDIUM | EPP leadership | June 2026 |
+| DMA enforcement delay | 30% | MEDIUM | DG CNECT | Q3 2026 |
+
+---
+
+*Executive brief complete. Total: 3 priority topics, 7 stakeholder recommendations, 4 tracked risks. Produced 2026-05-17. Admiralty Grade B2.*
+
+## EMERGING SIGNALS — 30-DAY WATCH LIST
+
+**Signal 1: Commission-Apple DMA Proceedings**
+Watch for: Any Commission press release on DMA proceedings outcome
+Threshold: Non-compliance finding issued → UPDATE significance assessment to CONFIRMED_ENFORCEMENT
+Current status: Preliminary findings issued 2025; formal decision pending
+
+**Signal 2: Ukraine Core Group State Count**
+Watch for: New state signatures on Core Group declaration
+Threshold: 50+ states → tribunal founding conference near-term viable
+Current status: ~43 states as of May 2026
+
+**Signal 3: Council Budget Counterproposal**
+Watch for: ECOFIN informal meeting conclusions on 2027 budget / MFF
+Threshold: Council counter below EUR 1.0T → HIGH budget conflict risk
+Current status: EP guidelines just adopted; Council response pending June
+
+
+**Signal 4: Russian Diplomatic Response**
+Watch for: Russian foreign ministry statements on EP Ukraine accountability resolution
+Threshold: Official retaliation against EP or specific MEPs → DIPLOMATIC_INCIDENT flag
+Current status: Routine condemnation expected; no material retaliation anticipated
+
+**Signal 5: US Congress Ukraine Funding Vote**
+Watch for: US Congressional vote on Ukraine military/financial support
+Threshold: Vote failure → EU must increase burden sharing significantly; budget guidelines become critical
+Current status: Bipartisan US Ukraine support maintained as of May 2026
+
+*Monitoring brief closes 2026-06-17 or when threshold signals trigger.*
+
