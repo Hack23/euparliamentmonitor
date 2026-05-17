@@ -314,8 +314,13 @@ For each queue entry, in order:
 
 1. **Read the source brief in full** (`sourcePath`).
 2. **Count source headings BEFORE writing any translation**
-   (use the `sourcePath` value from the queue entry):
+   (assign `sourcePath` from the current queue entry first):
    ```bash
+   sourcePath="<current queue entry sourcePath>"
+   if [ -z "${sourcePath:-}" ] || [ ! -f "$sourcePath" ]; then
+     echo "Missing or invalid sourcePath: $sourcePath" >&2
+     exit 1
+   fi
    echo "Source H1: $(grep -cE '^# [^#]' "$sourcePath")"
    echo "Source H2: $(grep -cE '^## [^#]' "$sourcePath")"
    echo "Source H3: $(grep -cE '^### ' "$sourcePath")"
