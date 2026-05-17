@@ -455,11 +455,12 @@ PY
    last H2). Fix the translation NOW; do not continue to the next
    language until this exits 0.
 
-   ```bash
-   set -euo pipefail
-   src_h2=$(grep -cE '^## ' "$sourcePath" || echo 0)
-   out_h2=$(grep -cE '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" || echo 0)
-   if [ "$src_h2" != "$out_h2" ]; then
+    ```bash
+    set -euo pipefail
+    BRIEF_DIR=$(dirname "$sourcePath")
+    src_h2=$(grep -cE '^## ' "$sourcePath" || echo 0)
+    out_h2=$(grep -cE '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" || echo 0)
+    if [ "$src_h2" != "$out_h2" ]; then
      echo "❌ H2 MISMATCH for ${lang}: source=${src_h2} translation=${out_h2}" >&2
      echo "Source H2 titles:" >&2
      grep -E '^## ' "$sourcePath" >&2

@@ -129,7 +129,7 @@ describe('news-translate workflow contract', () => {
     // The workflow must mention heredoc in the Never / forbidden section.
     expect(workflow).toMatch(/heredoc/i);
     // Must direct the agent to use the create tool exclusively.
-    expect(workflow).toMatch(/create.*tool.*exclusively|exclusively.*create.*tool/i);
+    expect(workflow).toMatch(/create[\s\S]*tool[\s\S]*exclusively|exclusively[\s\S]*create[\s\S]*tool/i);
   });
 
   it('requires a per-language H2 spot-check immediately after each file creation', () => {
