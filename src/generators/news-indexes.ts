@@ -198,10 +198,7 @@ export function healJsonLdDescriptionCorruption(filenames: readonly string[]): n
     const filepath = path.join(NEWS_DIR, filename);
     const html = readArticleHtml(filepath);
     if (!html) continue;
-    const next = html.replace(
-      /("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u,
-      '$1$2'
-    );
+    const next = html.replace(/("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u, '$1$2');
     if (next === html) continue;
     atomicWrite(filepath, next);
     updated++;
@@ -499,10 +496,7 @@ export function applyArticleSeoBackfill(
   // the next known field (`,"datePublished"`). The pattern is
   // idempotent: when there is no orphan, `[^,]*` matches the empty
   // string and the file is unchanged.
-  next = next.replace(
-    /("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u,
-    '$1$2'
-  );
+  next = next.replace(/("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u, '$1$2');
   return next;
 }
 
