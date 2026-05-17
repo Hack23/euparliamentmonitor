@@ -217,6 +217,47 @@ describe('news-translate workflow contract', () => {
     expect(workflow).not.toMatch(/news\/translate-briefs-\$\{RUN_ID\}/);
     expect(workflow).not.toMatch(/github\.run_attempt/);
   });
+
+  it('records WORKFLOW_START_EPOCH for wall-clock budget tracking', () => {
+    // Regression hardening for run #26002434035 — the copilot engine
+    // terminated unexpectedly after writing 10/13 sibling translations
+    // (ar, he done; ja, ko, zh missing) and NO safe-output PR was
+    // emitted, losing ~25 minutes of translation work. Step 0 MUST
+    // anchor an epoch that later bash blocks can read to fire an
+    // emergency partial flush before the 60-min cap.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    // Must contain the exact bash assignment that records the epoch value.
+    expect(workflow).toMatch(/WORKFLOW_START_EPOCH=\$\(date -u \+%s\)/);
+    // Must redirect the epoch value into the temp file, not just mention the path.
+    expect(workflow).toMatch(/echo "\$\{WORKFLOW_START_EPOCH\}" > \/tmp\/gh-aw\/workflow-start-epoch/);
+  });
+
+  it('contains an emergency partial-flush safety net (Step 4b wall-clock guard)', () => {
+    // Same regression: the workflow MUST instruct the agent to flush
+    // whatever is on disk when wall-clock budget is exhausted, even if
+    // the current brief is only partially translated. A partial-brief
+    // PR is always preferable to a zero-PR engine termination.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    // The bash block MUST contain the exact conditional that compares elapsed
+    // and remaining minutes before triggering the emergency flush. Checking
+    // individual tokens (ELAPSED_MIN, -ge, 50) is insufficient — a regression
+    // that removes the `||` branch or rearranges the test would still satisfy
+    // token-only assertions.
+    expect(workflow).toMatch(
+      /if \[ "\$\{ELAPSED_MIN\}" -ge 50 \] \|\| \[ "\$\{REMAINING_MIN\}" -le 10 \]/,
+    );
+    // The bash block MUST write the emergency-flush marker file so later
+    // post-step diagnostics can detect the early flush.
+    expect(workflow).toMatch(/emergency-flush-\$\{RUN_ID\}\.marker/);
+    // The prompt body must explicitly authorize partial-progress flushes
+    // (cancelling the legacy "Never flush before 13 langs complete" rule).
+    expect(workflow).toMatch(/emergency partial flush|emergency-flush|EMERGENCY FLUSH/i);
+    expect(workflow).toMatch(/partial[- ]progress/i);
+    // The legacy "Never flush before all 13 languages" rule must be gone.
+    expect(workflow).not.toMatch(
+      /\*\*Never\*\* call `safeoutputs___create_pull_request` before at least one\s*brief has all 13 languages/,
+    );
+  });
 });
 
 describe('translation pipeline foundation', () => {
