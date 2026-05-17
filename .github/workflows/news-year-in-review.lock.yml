@@ -782,6 +782,11 @@ jobs:
                         "default": "2",
                         "description": "Maximum number of source briefs to translate this run (1-4). Default 2.",
                         "type": "string"
+                      },
+                      "mode": {
+                        "default": "fresh-then-backlog",
+                        "description": "Discovery prioritisation: fresh-then-backlog (default) | backlog-only | newest-first.",
+                        "type": "string"
                       }
                     },
                     "type": "object"
