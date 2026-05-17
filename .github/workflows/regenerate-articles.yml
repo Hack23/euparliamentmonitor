@@ -1,0 +1,73 @@
+name: Regenerate Articles
+
+# Deterministically regenerate every analysis-run article.md and the full
+# 14-language news/*.html set by running `npm run generate-article:all`,
+# then commit any changed files directly to the default branch.
+#
+# Pairs with the aggregator pipeline documented in Article-Generation.md.
+# Modeled on .github/workflows/compile-agentic-workflows.yml.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  regenerate:
+    name: Regenerate all article.md and HTML output
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '26'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Regenerate all articles (article.md + 14-language HTML)
+        run: npm run generate-article:all
+
+      - name: Commit regenerated articles
+        run: |
+          # The aggregator writes:
+          # - analysis/daily/<date>/<slug>/article.md
+          # - analysis/daily/<date>/<slug>/article.meta.json
+          # - news/<date>-<slug>-<lang>.md   (14 languages)
+          # - news/<date>-<slug>-<lang>.html (14 languages)
+          git add 'analysis/daily/**/article.md' \
+                  'analysis/daily/**/article.meta.json' \
+                  'news/*.md' \
+                  'news/*.html'
+
+          if git diff --cached --quiet; then
+            echo "ℹ️ No regenerated article changes to commit"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git diff --cached --stat
+            git commit \
+              -m "chore(articles): regenerate all article.md and 14-language HTML output" \
+              -m "Deterministic rerun of \`npm run generate-article:all\` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement)." \
+              -m "Workflow: .github/workflows/regenerate-articles.yml" \
+              -m "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            git push
+            echo "✅ Committed and pushed regenerated articles"
+          fi
