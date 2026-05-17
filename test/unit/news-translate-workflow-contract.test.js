@@ -226,8 +226,10 @@ describe('news-translate workflow contract', () => {
     // anchor an epoch that later bash blocks can read to fire an
     // emergency partial flush before the 60-min cap.
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
-    expect(workflow).toContain('WORKFLOW_START_EPOCH');
-    expect(workflow).toMatch(/\/tmp\/gh-aw\/workflow-start-epoch/);
+    // Must contain the exact bash assignment that records the epoch value.
+    expect(workflow).toMatch(/WORKFLOW_START_EPOCH=\$\(date -u \+%s\)/);
+    // Must redirect the epoch value into the temp file, not just mention the path.
+    expect(workflow).toMatch(/echo "\$\{WORKFLOW_START_EPOCH\}" > \/tmp\/gh-aw\/workflow-start-epoch/);
   });
 
   it('contains an emergency partial-flush safety net (Step 4b wall-clock guard)', () => {
@@ -236,12 +238,17 @@ describe('news-translate workflow contract', () => {
     // the current brief is only partially translated. A partial-brief
     // PR is always preferable to a zero-PR engine termination.
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
-    // The wall-clock guard bash block must compute elapsed minutes and
-    // compare against the 50-minute emergency threshold.
-    expect(workflow).toMatch(/ELAPSED_MIN/);
-    expect(workflow).toMatch(/REMAINING_MIN/);
-    // The workflow uses bash's `-ge` comparison for the 50-min threshold.
-    expect(workflow).toMatch(/-ge\s+50\b/);
+    // The bash block MUST contain the exact conditional that compares elapsed
+    // and remaining minutes before triggering the emergency flush. Checking
+    // individual tokens (ELAPSED_MIN, -ge, 50) is insufficient — a regression
+    // that removes the `||` branch or rearranges the test would still satisfy
+    // token-only assertions.
+    expect(workflow).toMatch(
+      /if \[ "\$\{ELAPSED_MIN\}" -ge 50 \] \|\| \[ "\$\{REMAINING_MIN\}" -le 10 \]/,
+    );
+    // The bash block MUST write the emergency-flush marker file so later
+    // post-step diagnostics can detect the early flush.
+    expect(workflow).toMatch(/emergency-flush-\$\{RUN_ID\}\.marker/);
     // The prompt body must explicitly authorize partial-progress flushes
     // (cancelling the legacy "Never flush before 13 langs complete" rule).
     expect(workflow).toMatch(/emergency partial flush|emergency-flush|EMERGENCY FLUSH/i);

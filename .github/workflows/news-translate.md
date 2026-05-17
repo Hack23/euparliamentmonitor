@@ -229,7 +229,7 @@ engine:
 | Read `/tmp/gh-aw/discovery/queue.json` | Read other unrelated repository files |
 | Run `node scripts/validate-brief-translations.js --paths …` to self-check | Use `sed`/`awk`/regex/`tr` to translate narrative content |
 | Call `safeoutputs___create_pull_request` after each fully-translated brief | Call `safeoutputs___create_pull_request` with zero translations produced (no files on disk) |
-| Emergency partial flush when wall-clock budget is exhausted (≥ 50 min elapsed OR `<10 min remaining`) — see § Step 2.6b | Silently let the engine time out / terminate without flushing any progress |
+| Emergency partial flush when wall-clock budget is exhausted (≥ 50 min elapsed OR `<10 min remaining`) — see § Step 4b | Silently let the engine time out / terminate without flushing any progress |
 
 > **Why a flush-before-timeout safety net matters**: prior runs have died
 > mid-brief (e.g. 10/13 languages written, engine terminated) and lost
@@ -287,7 +287,7 @@ mkdir -p "${ANALYSIS_DIR}"
 
 # Wall-clock budget tracking — every later bash block checks elapsed
 # minutes against this anchor to decide when to fire the emergency
-# partial flush (Step 2.6b). Stored in /tmp so subsequent agent steps
+# partial flush (Step 4b). Stored in /tmp so subsequent agent steps
 # can re-source it without re-exporting from this block.
 WORKFLOW_START_EPOCH=$(date -u +%s)
 echo "${WORKFLOW_START_EPOCH}" > /tmp/gh-aw/workflow-start-epoch
@@ -494,8 +494,11 @@ PY
    whatever files are already on disk — even if the current brief is
    only partially translated (e.g. 10/13 languages). A partial-brief
    PR is **always** preferable to an engine timeout that loses all
-   work. The validator post-step will flag the gaps in the PR
-   comment; reviewers can re-queue the missing languages on the next
+   work. Record the missing language codes in the emergency-flush
+   marker and in the PR body (the validator only checks files that
+   exist — it cannot flag absent siblings, so the gap list must come
+   from the marker and the `PARTIAL_LANG_COUNT` bookkeeping vars in
+   Step 6). Reviewers can re-queue the missing languages on the next
    cron tick.
 
    ```bash
@@ -507,10 +510,29 @@ PY
    echo "⏱️  Elapsed: ${ELAPSED_MIN} min | Remaining: ${REMAINING_MIN} min"
    if [ "${ELAPSED_MIN}" -ge 50 ] || [ "${REMAINING_MIN}" -le 10 ]; then
      echo "🚨 EMERGENCY FLUSH WINDOW REACHED — call safeoutputs___create_pull_request NOW with partial progress, then end the run." >&2
-     # Record a breadcrumb so post-step diagnostics can correlate the early flush.
-     printf 'emergency_flush_triggered_at=%s\nelapsed_min=%s\n' \
+     # Record a breadcrumb so post-step diagnostics can correlate the early
+     # flush. Include the missing-language list because the validator only
+     # checks files that exist and cannot detect absent siblings.
+     BRIEF_DIR=$(dirname "$sourcePath")
+     WRITTEN_LANGS=$(ls "${BRIEF_DIR}"/executive-brief_*.md 2>/dev/null | \
+       sed 's|.*executive-brief_||;s|\.md$||' | tr '\n' ',' | sed 's/,$//')
+     ALL_LANGS="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
+     MISSING_LANGS=""
+     for lang in $(printf '%s' "${ALL_LANGS}" | tr ',' '\n'); do
+       if [ ! -f "${BRIEF_DIR}/executive-brief_${lang}.md" ]; then
+         if [ -z "${MISSING_LANGS}" ]; then
+           MISSING_LANGS="${lang}"
+         else
+           MISSING_LANGS="${MISSING_LANGS},${lang}"
+         fi
+       fi
+     done
+     printf 'emergency_flush_triggered_at=%s\nelapsed_min=%s\nwritten_langs=%s\nmissing_langs=%s\n' \
        "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "${ELAPSED_MIN}" \
+       "${WRITTEN_LANGS}" "${MISSING_LANGS}" \
        > "${ANALYSIS_DIR}/emergency-flush-${RUN_ID}.marker"
+     echo "Written languages: ${WRITTEN_LANGS}" >&2
+     echo "Missing languages: ${MISSING_LANGS}" >&2
    fi
    ```
 
@@ -602,7 +624,7 @@ PY
    ```javascript
    safeoutputs___create_pull_request({
      title: `[news] Translate executive briefs — ${RUN_DATE} (PARTIAL: ${COMPLETED_COUNT} complete + ${PARTIAL_LANG_COUNT}/13 in progress)`,
-     body: `Emergency partial flush at wall-clock budget exhaustion.\n\nCompleted briefs: ${COMPLETED_COUNT}/${QUEUED_COUNT}. Partial brief (${PARTIAL_BRIEF_PATH}): ${PARTIAL_LANG_COUNT}/13 languages written. The next scheduled cron run will resume the missing languages automatically via the discovery queue.\n\nSee analysis/translation-runs/${RUN_DATE}/emergency-flush-${RUN_ID}.marker and the validator report in the post-step logs.`,
+     body: `Emergency partial flush at wall-clock budget exhaustion.\n\nCompleted briefs: ${COMPLETED_COUNT}/${QUEUED_COUNT}. Partial brief (${PARTIAL_BRIEF_PATH}): ${PARTIAL_LANG_COUNT}/13 languages written.\n\n**Missing languages** (not validated by post-step — listed here because the validator only checks files that exist): ${MISSING_LANGS}\n\nThe next scheduled cron run will resume the missing languages automatically via the discovery queue.\n\nSee analysis/translation-runs/${RUN_DATE}/emergency-flush-${RUN_ID}.marker for the full gap record (written_langs + missing_langs fields).`,
      base: "main",
      head: `news/translate-briefs-${RUN_DATE}`,
    })
@@ -659,11 +681,12 @@ emergency partial flush instead of letting the engine time out with no PR.
   in particular**: `IMF blijft IMF`; `WEO blijft WEO` — never localise to
   `IMV` / `Wereldwijde Economische Vooruitzichten`. Run validator gate #5
   in Step 2.4 to catch token drift before flush.
-- **Never** call `safeoutputs___create_pull_request` with **zero** files
-  written to disk — an empty PR is the only flush that is always
-  worse than no flush. Partial-brief flushes are explicitly **allowed**
-  by Step 4b's emergency safety net (≥ 1 language file on disk is
-  sufficient).
+- **Never** call `safeoutputs___create_pull_request` with **zero
+  `executive-brief_<lang>.md` translation files** written — the run
+  marker written by Step 0 does not count. An empty-translation PR is
+  the only flush that is always worse than no flush. Partial-brief
+  flushes are explicitly **allowed** by Step 4b's emergency safety net
+  (≥ 1 `executive-brief_<lang>.md` file on disk is sufficient).
 - **Never** let the engine time out or terminate without flushing
   whatever translations are already on disk. The Step 4b wall-clock
   guard fires at ≥ 50 elapsed minutes (or ≤ 10 remaining); when it
