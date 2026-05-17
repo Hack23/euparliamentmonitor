@@ -228,11 +228,18 @@ engine:
 | Read any artifact in `analysis/daily/**/` for terminology context | Edit `news/**/*.html`, `.github/**`, `src/**`, `scripts/**`, `package.json` |
 | Read `/tmp/gh-aw/discovery/queue.json` | Read other unrelated repository files |
 | Run `node scripts/validate-brief-translations.js --paths …` to self-check | Use `sed`/`awk`/regex/`tr` to translate narrative content |
-| Call `safeoutputs___create_pull_request` after each fully-translated brief | Call `safeoutputs___create_pull_request` before at least one brief is fully translated (= all 13 missing languages produced and validator-clean) |
+| Call `safeoutputs___create_pull_request` after each fully-translated brief | Call `safeoutputs___create_pull_request` with zero translations produced (no files on disk) |
+| Emergency partial flush when wall-clock budget is exhausted (≥ 50 min elapsed OR `<10 min remaining`) — see § Step 2.6b | Silently let the engine time out / terminate without flushing any progress |
 
-> **Why the safeoutputs deferral matters**: an empty PR or a PR with a
-> half-translated brief is worse than no PR. The validator rejects partial
-> coverage, and reviewers should never see a "1/13 languages done" PR.
+> **Why a flush-before-timeout safety net matters**: prior runs have died
+> mid-brief (e.g. 10/13 languages written, engine terminated) and lost
+> ~15-25 minutes of translation work because no PR was ever created. The
+> safe-outputs system requires the agent to explicitly call
+> `create_pull_request`; if the engine dies without that call, **all
+> uncommitted translations are discarded**. Therefore: prefer a partial-
+> brief PR (flagged by the validator post-step) over zero output. An empty
+> PR is still worse than no PR — the safety net only fires when ≥ 1
+> translation file has been written to disk.
 
 ## 🛡️ Seven Quality Gates (auto-enforced before the PR is created)
 
@@ -277,6 +284,14 @@ BRANCH="news/translate-briefs-${RUN_DATE}"
 
 ANALYSIS_DIR="analysis/translation-runs/${RUN_DATE}"
 mkdir -p "${ANALYSIS_DIR}"
+
+# Wall-clock budget tracking — every later bash block checks elapsed
+# minutes against this anchor to decide when to fire the emergency
+# partial flush (Step 2.6b). Stored in /tmp so subsequent agent steps
+# can re-source it without re-exporting from this block.
+WORKFLOW_START_EPOCH=$(date -u +%s)
+echo "${WORKFLOW_START_EPOCH}" > /tmp/gh-aw/workflow-start-epoch
+echo "Workflow start epoch: ${WORKFLOW_START_EPOCH}"
 
 # Record a run marker so safeoutputs always sees ≥1 working-directory change
 # when the agent decides to flush. The marker file is intentionally outside
@@ -471,6 +486,41 @@ PY
    echo "✅ H2 spot-check OK for ${lang}: ${out_h2}/${src_h2}"
    ```
 
+   **4b. Wall-clock safety net — emergency partial flush.** After every
+   language file is written and H2-checked, compute elapsed minutes
+   from `WORKFLOW_START_EPOCH`. If **≥ 50 minutes** have elapsed (or
+   `<10 minutes` remain of the 60-minute cap), **STOP translating
+   immediately** and call `safeoutputs___create_pull_request` with
+   whatever files are already on disk — even if the current brief is
+   only partially translated (e.g. 10/13 languages). A partial-brief
+   PR is **always** preferable to an engine timeout that loses all
+   work. The validator post-step will flag the gaps in the PR
+   comment; reviewers can re-queue the missing languages on the next
+   cron tick.
+
+   ```bash
+   set -euo pipefail
+   START_EPOCH=$(cat /tmp/gh-aw/workflow-start-epoch)
+   NOW_EPOCH=$(date -u +%s)
+   ELAPSED_MIN=$(( (NOW_EPOCH - START_EPOCH) / 60 ))
+   REMAINING_MIN=$(( 60 - ELAPSED_MIN ))
+   echo "⏱️  Elapsed: ${ELAPSED_MIN} min | Remaining: ${REMAINING_MIN} min"
+   if [ "${ELAPSED_MIN}" -ge 50 ] || [ "${REMAINING_MIN}" -le 10 ]; then
+     echo "🚨 EMERGENCY FLUSH WINDOW REACHED — call safeoutputs___create_pull_request NOW with partial progress, then end the run." >&2
+     # Record a breadcrumb so post-step diagnostics can correlate the early flush.
+     printf 'emergency_flush_triggered_at=%s\nelapsed_min=%s\n' \
+       "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "${ELAPSED_MIN}" \
+       > "${ANALYSIS_DIR}/emergency-flush-${RUN_ID}.marker"
+   fi
+   ```
+
+   When the emergency-flush marker is written, call
+   `safeoutputs___create_pull_request` immediately with the
+   partial-progress title format (see Step 6 alternative below) and
+   **do not start another language**. The next scheduled cron run
+   will pick up the remaining languages via the discovery queue
+   (missing-language detection is automatic).
+
 5. **Self-validate** the brief you just finished. **This is a hard gate.
     Do not call `safeoutputs___create_pull_request` until this step
     reports zero violations for the brief's siblings.**
@@ -508,8 +558,15 @@ PY
       probably a stub or contains untranslated paragraphs; redo it.
 
     Only after the validator returns exit 0 may you proceed to the
-    flush step.
-6. **Flush** — after step 5 reported `✅`, call
+    flush step. **Exception**: when the Step 4b emergency-flush
+    marker file exists at
+    `${ANALYSIS_DIR}/emergency-flush-${RUN_ID}.marker`, you MAY skip
+    this hard gate and proceed directly to the partial-progress flush
+    (Step 6, alternative title). Validator failures will surface in
+    the post-step report and the PR comment — that is intended; do
+    not let strict validation block the emergency rescue.
+6. **Flush** — after step 5 reported `✅` (or after the emergency-flush
+    marker was written in Step 4b), call
     `safeoutputs___create_pull_request`. The template literal below uses
     two bookkeeping variables you maintain in your own head as you
     iterate over the queue:
@@ -530,8 +587,23 @@ PY
    })
    ```
 
+   **Alternative title — partial-progress / emergency flush** (use when
+   the Step 4b marker was written or the current brief is partially
+   translated):
+
+   ```javascript
+   safeoutputs___create_pull_request({
+     title: `[news] Translate executive briefs — ${RUN_DATE} (PARTIAL: ${COMPLETED_COUNT} complete + ${PARTIAL_LANG_COUNT}/13 in progress)`,
+     body: `Emergency partial flush at wall-clock budget exhaustion.\n\nCompleted briefs: ${COMPLETED_COUNT}/${QUEUED_COUNT}. Partial brief (${PARTIAL_BRIEF_PATH}): ${PARTIAL_LANG_COUNT}/13 languages written. The next scheduled cron run will resume the missing languages automatically via the discovery queue.\n\nSee analysis/translation-runs/${RUN_DATE}/emergency-flush-${RUN_ID}.marker and the validator report in the post-step logs.`,
+     base: "main",
+     head: `news/translate-briefs-${RUN_DATE}`,
+   })
+   ```
+
 7. **Move to the next queue entry** until the queue is empty OR you've
-   used ≥ 50 minutes of the 60-minute cap.
+   used ≥ 50 minutes of the 60-minute cap (the Step 4b check enforces
+   this automatically — when the marker is written, end the run after
+   the emergency flush).
 
 ### Step 3 — Final flush
 
@@ -549,15 +621,18 @@ When the queue is empty (or the wall-clock budget is exhausted):
 
 | Minutes | Action |
 |---------|--------|
-| 0-1 | Step 0 date context; Step 1 read queue |
+| 0-1 | Step 0 date context (records `WORKFLOW_START_EPOCH`); Step 1 read queue |
 | 1-25 | Translate brief #1 (13 languages, Pass 1 + Pass 2). First flush at ~25. |
-| 25-50 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~50. |
-| 50-55 | Step 3 summary + final flush |
-| 55-60 | Buffer for retry and graceful exit |
+| 25-48 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~48. |
+| 48-50 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 50. |
+| 50-55 | Step 3 summary + final flush. **Final flush must land by minute ≤ 55.** |
+| 55-60 | Buffer for retry and graceful exit. |
 
 Stretch: if `max_briefs` is overridden to 3 or 4 (catch-up mode), tighten
 each per-brief window proportionally. The script-level discovery already
-caps the queue; the AI does not need to ration its own work.
+caps the queue; the AI does not need to ration its own work. The Step 4b
+wall-clock guard is the failsafe — if anything overruns, it forces an
+emergency partial flush instead of letting the engine time out with no PR.
 
 ## 🚫 Never
 
@@ -576,8 +651,16 @@ caps the queue; the AI does not need to ration its own work.
   in particular**: `IMF blijft IMF`; `WEO blijft WEO` — never localise to
   `IMV` / `Wereldwijde Economische Vooruitzichten`. Run validator gate #5
   in Step 2.4 to catch token drift before flush.
-- **Never** call `safeoutputs___create_pull_request` before at least one
-  brief has all 13 languages produced and is validator-clean.
+- **Never** call `safeoutputs___create_pull_request` with **zero** files
+  written to disk — an empty PR is the only flush that is always
+  worse than no flush. Partial-brief flushes are explicitly **allowed**
+  by Step 4b's emergency safety net (≥ 1 language file on disk is
+  sufficient).
+- **Never** let the engine time out or terminate without flushing
+  whatever translations are already on disk. The Step 4b wall-clock
+  guard fires at ≥ 50 elapsed minutes (or ≤ 10 remaining); when it
+  does, call `safeoutputs___create_pull_request` immediately with the
+  partial-progress title — even mid-brief — and end the run.
 - **Never** skip a queue entry because its date is old; backlog parity is
   the workflow's primary KPI. The `fresh-then-backlog` discovery policy
   guarantees slot 0 is always the day's newest brief, so slots 1+ exist

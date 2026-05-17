@@ -217,6 +217,39 @@ describe('news-translate workflow contract', () => {
     expect(workflow).not.toMatch(/news\/translate-briefs-\$\{RUN_ID\}/);
     expect(workflow).not.toMatch(/github\.run_attempt/);
   });
+
+  it('records WORKFLOW_START_EPOCH for wall-clock budget tracking', () => {
+    // Regression hardening for run #26002434035 — the copilot engine
+    // terminated unexpectedly after writing 10/13 sibling translations
+    // (ar, he done; ja, ko, zh missing) and NO safe-output PR was
+    // emitted, losing ~25 minutes of translation work. Step 0 MUST
+    // anchor an epoch that later bash blocks can read to fire an
+    // emergency partial flush before the 60-min cap.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toContain('WORKFLOW_START_EPOCH');
+    expect(workflow).toMatch(/\/tmp\/gh-aw\/workflow-start-epoch/);
+  });
+
+  it('contains an emergency partial-flush safety net (Step 4b wall-clock guard)', () => {
+    // Same regression: the workflow MUST instruct the agent to flush
+    // whatever is on disk when wall-clock budget is exhausted, even if
+    // the current brief is only partially translated. A partial-brief
+    // PR is always preferable to a zero-PR engine termination.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    // The wall-clock guard bash block must compute elapsed minutes and
+    // compare against the 50-minute emergency threshold.
+    expect(workflow).toMatch(/ELAPSED_MIN/);
+    expect(workflow).toMatch(/REMAINING_MIN/);
+    expect(workflow).toMatch(/-ge 50|>=\s*50/);
+    // The prompt body must explicitly authorize partial-progress flushes
+    // (cancelling the legacy "Never flush before 13 langs complete" rule).
+    expect(workflow).toMatch(/emergency partial flush|emergency-flush|EMERGENCY FLUSH/i);
+    expect(workflow).toMatch(/partial[- ]progress/i);
+    // The legacy "Never flush before all 13 languages" rule must be gone.
+    expect(workflow).not.toMatch(
+      /\*\*Never\*\* call `safeoutputs___create_pull_request` before at least one\s*brief has all 13 languages/,
+    );
+  });
 });
 
 describe('translation pipeline foundation', () => {
