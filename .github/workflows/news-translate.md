@@ -250,12 +250,17 @@ that fail ANY gate will be flagged in the PR comment:
 5. **Fixed-token preservation** — every `IMF`, `WEO`, `World Bank`,
    `data-vintage="WEO-…"`, EP adopted-text ID (`TA-NN-YYYY-NNNN`), and
    procedure ID (`YYYY/NNNN(COD|INI|NLE)`) in the source MUST appear
-   verbatim in the translation.
+   verbatim in the translation. The discovery queue exposes the exact
+   per-token count for every queued source as `sourceFixedTokens`; treat
+   that map as your verbatim-preserve budget per brief.
 6. **Heading parity** — H1 and H2 counts must match the source **exactly**
    (zero tolerance for either); H3 counts may differ by at most one
    heading. Dropping or merging a `## Section` — including a
    duplicate-titled addendum such as `## IMF Economic Context — May 2026
-   Update` — is rejected.
+   Update` — is rejected. When the validator flags an H2 mismatch it
+   quotes the full source H2 title list back at you, and (when the
+   mismatch is exactly one section) names the **Likely dropped** title
+   directly so you know what to re-translate.
 7. **Mermaid block parity** — every source ```` ```mermaid ```` opener must
    appear in the translation so diagrams remain renderable.
 
@@ -308,9 +313,31 @@ Each queue entry has the shape:
   "sourcePath": "analysis/daily/2026-05-15/breaking/executive-brief.md",
   "missingLangs": ["sv","da","no","fi","de","fr","es","nl","ar","he","ja","ko","zh"],
   "missingCount": 13,
-  "isExtended": false
+  "isExtended": false,
+  "sourceH2Count": 8,
+  "sourceH2Titles": [
+    { "line": 7,   "title": "Headline Intelligence" },
+    { "line": 96,  "title": "IMF Economic Context" },
+    { "line": 146, "title": "IMF Economic Context — May 2026 Update" }
+  ],
+  "sourceFixedTokens": { "IMF": 17, "WEO": 2, "TA-id": 4 }
 }
 ```
+
+> **`sourceH2Titles` is the single most important field to scan before
+> translating.** If two H2 titles share a common prefix (e.g.
+> `IMF Economic Context` and `IMF Economic Context — May 2026 Update`),
+> they are **distinct sections**. Never collapse them. The validator's
+> heading-parity gate (`H2_TOLERANCE = 0`) will reject a translation that
+> drops or merges any source H2 — and the violation message will quote
+> the missing title back at you.
+
+> **`sourceFixedTokens` is your verbatim-preservation budget.** Every
+> count listed here MUST appear at least that many times in every
+> translation. If the source has `IMF: 17`, every `executive-brief_<lang>.md`
+> must contain the exact token `IMF` at least 17 times. Translating
+> `IMF` to `IMV` / `صندوق النقد` / `IWF` is forbidden — copy the Latin-
+> script token verbatim.
 
 **Queue ordering (`fresh-then-backlog`, default):** slot 0 is the newest
 source with any missing language ("fresh slice"); slots 1+ are the
@@ -399,19 +426,48 @@ PY
      emoji (`🟢 HIGH` / `🟡 MEDIUM` / `🔴 LOW`), classification stamps.
    - Apply per-language register from § 4 of the translator guide
      (Nordic / EU-core / RTL / CJK).
-5. **Self-validate** the brief you just finished:
+5. **Self-validate** the brief you just finished. **This is a hard gate.
+    Do not call `safeoutputs___create_pull_request` until this step
+    reports zero violations for the brief's siblings.**
+
     ```bash
-    node scripts/validate-brief-translations.js \
-      --paths <source-directory>/executive-brief_*.md
+    set -euo pipefail
+    BRIEF_DIR=$(dirname "$sourcePath")
+    if node scripts/validate-brief-translations.js \
+         --paths "${BRIEF_DIR}/executive-brief_*.md" \
+         --report "${ANALYSIS_DIR}/validator-${BRIEF_DIR//\//_}.json"; then
+      echo "✅ Brief at ${BRIEF_DIR} is validator-clean — safe to flush."
+    else
+      echo "❌ Validator violations remain in ${BRIEF_DIR}. Re-translate before flush." >&2
+      node -e 'const r=require(process.argv[1]); for (const v of r.violations) console.error("•", v.translationPath, "["+v.gate+"]", v.message);' \
+        "${ANALYSIS_DIR}/validator-${BRIEF_DIR//\//_}.json"
+      exit 1
+    fi
     ```
-   If any gate flags a translation, **re-translate it now**, do not let it
-   slip into the PR. Heading-parity violations almost always mean a
-   missing `##` section — go back and add the missing translation.
-6. **Flush** — after all 13 languages for this brief are produced AND the
-   self-validator returns zero violations for this brief's `_<lang>.md`
-   files, call `safeoutputs___create_pull_request`. The template literal
-   below uses two bookkeeping variables you maintain in your own head as
-   you iterate over the queue:
+
+    If any gate flagged a translation, **re-translate it now** — do not
+    let it slip into the PR. Common diagnoses and fixes:
+
+    - `heading-parity` H2 mismatch → re-read the validator's
+      `Source H2 titles: [...]` list. If it includes `Likely dropped:
+      [...]`, that section literally needs to be added back to the
+      translation. Duplicate-titled H2s (e.g. `IMF Economic Context` AND
+      `IMF Economic Context — May 2026 Update`) are **distinct
+      sections** — never collapse them.
+    - `fixed-token-preservation` → search the translation for every
+      missing token; re-insert it verbatim (never localised). Cross-
+      check against `sourceFixedTokens` from the discovery queue.
+    - `mermaid-parity` → copy every ```` ```mermaid ```` block from the
+      source unchanged; never translate diagram node text.
+    - `length-floor` / `english-fallthrough` → the translation is
+      probably a stub or contains untranslated paragraphs; redo it.
+
+    Only after the validator returns exit 0 may you proceed to the
+    flush step.
+6. **Flush** — after step 5 reported `✅`, call
+    `safeoutputs___create_pull_request`. The template literal below uses
+    two bookkeeping variables you maintain in your own head as you
+    iterate over the queue:
 
    - `COMPLETED_COUNT` — number of briefs whose 13 language siblings have
      all been written AND validator-clean (incremented after step 5 of

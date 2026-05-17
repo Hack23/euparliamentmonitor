@@ -108,6 +108,36 @@ describe('news-translate workflow contract', () => {
     expect(validatorBlock).not.toMatch(/\|\|\s*true/);
   });
 
+  it('surfaces the discovery sourceH2Titles / sourceFixedTokens fields in the prompt body', () => {
+    // Regression hardening for run #25983007788 — the prompt MUST tell
+    // the translator agent to read these queue fields, otherwise it
+    // will silently collapse duplicate-titled H2 sections (the failure
+    // mode that produced 13 broken sibling translations of
+    // 2026-05-16/breaking/executive-brief.md).
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toContain('sourceH2Titles');
+    expect(workflow).toContain('sourceFixedTokens');
+    expect(workflow).toMatch(/distinct sections/i);
+  });
+
+  it('makes the in-agent self-validator a hard pre-flush gate', () => {
+    // Regression hardening: in run #25983007788 the agent flushed a PR
+    // without re-running the validator on the brief it had just
+    // written, and the post-step validator caught 26 violations after
+    // the fact. The prompt must enforce a `set -euo pipefail`-style
+    // gate that exits non-zero if the validator reports any
+    // violations BEFORE the agent calls safeoutputs.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toMatch(/hard gate/i);
+    expect(workflow).toMatch(/validator-clean/i);
+    // The bash gate must explicitly bail (`exit 1`) when the
+    // validator returns non-zero so the agent cannot accidentally
+    // flush an invalid brief.
+    const selfValidateBlock = workflow.match(/Self-validate[\s\S]*?(?=\n\d+\.\s+\*\*Flush)/)?.[0] ?? '';
+    expect(selfValidateBlock).toContain('node scripts/validate-brief-translations.js');
+    expect(selfValidateBlock).toContain('exit 1');
+  });
+
   it('imports the shared common-settings and MCP-servers configs', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     expect(workflow).toMatch(/- shared\/config\/news-common-settings\.md/);
