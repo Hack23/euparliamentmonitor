@@ -439,7 +439,7 @@ PY
       echo "✅ Brief at ${BRIEF_DIR} is validator-clean — safe to flush."
     else
       echo "❌ Validator violations remain in ${BRIEF_DIR}. Re-translate before flush." >&2
-      node -e 'const r=require(process.argv[1]); for (const v of r.violations) console.error("•", v.translationPath, "["+v.gate+"]", v.message);' \
+      node -e 'const r=require(process.argv[2]); for (const v of r.violations) console.error("•", v.translationPath, "["+v.gate+"]", v.message);' \
         "${ANALYSIS_DIR}/validator-${BRIEF_DIR//\//_}.json"
       exit 1
     fi

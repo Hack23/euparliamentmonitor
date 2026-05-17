@@ -138,6 +138,17 @@ describe('news-translate workflow contract', () => {
     expect(selfValidateBlock).toContain('exit 1');
   });
 
+  it('diagnostic node -e helper uses process.argv[2] not process.argv[1]', () => {
+    // Regression guard: for `node -e 'script' arg1`, Node sets process.argv[1]
+    // to '[eval]', so require(process.argv[1]) throws "Cannot find module '[eval]'"
+    // every time the validator fails — exactly when the diagnostic is most needed.
+    // The correct index is process.argv[2].
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).not.toMatch(/process\.argv\[1\]/);
+    const selfValidateBlock = workflow.match(/Self-validate[\s\S]*?(?=\n\d+\.\s+\*\*Flush)/)?.[0] ?? '';
+    expect(selfValidateBlock).toContain('process.argv[2]');
+  });
+
   it('imports the shared common-settings and MCP-servers configs', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     expect(workflow).toMatch(/- shared\/config\/news-common-settings\.md/);
