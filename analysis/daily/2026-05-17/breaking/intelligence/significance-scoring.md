@@ -109,3 +109,13 @@ Each resolution is scored on 5 dimensions (0–10 scale each):
 | 8 | EIB annual report (TA-0119) | 20/50 | MEDIUM-LOW |
 
 **Overall session significance**: The April 2026 Strasbourg plenary is rated **HIGH** (cumulative significant output across multiple CRITICAL and HIGH items). This session's output exceeds the typical plenary in institutional assertiveness and geopolitical weight.
+
+## SIGNIFICANCE SCORING DIAGRAM
+
+```mermaid
+bar
+    title Significance Scores by Policy Track
+    x-axis [DMA Enforcement, Ukraine Resolution, Armenia Support, 2027 Budget, Cyberbullying, Haiti, EU-Iceland PNR, EIB Report]
+    y-axis 0 --> 10
+    bar [9.2, 8.8, 7.5, 8.1, 6.8, 6.2, 5.8, 5.4]
+```

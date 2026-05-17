@@ -306,3 +306,15 @@ This MCP reliability audit was produced during Stage B Pass 2 on 2026-05-17. All
 **MCP session integrity**: Confirmed — no `session not found` errors during this run. Gateway v0.3.9 maintained session throughout.
 **Data mode declared**: `degraded-feeds` — validated against `data/prefetch-status.json` and live Stage A results.
 **Audit signed at**: Stage B Pass 2 — `2026-05-17T02:45 UTC (approx.)`
+
+## MCP RELIABILITY AUDIT DIAGRAM
+
+```mermaid
+pie title EP API Endpoint Status (Stage A)
+    "Adopted Texts Feed" : 1
+    "MEPs Feed" : 1
+    "Events Feed (404)" : 1
+    "Procedures Feed (404)" : 1
+    "Committee Docs (404)" : 1
+    "Documents Feed (404)" : 1
+```
