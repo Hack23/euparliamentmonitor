@@ -328,7 +328,7 @@ try:
     queue = payload.get("queue", [])
     idx = int(sys.argv[1])
     print(queue[idx].get("sourcePath", ""))
-except Exception as exc:  # noqa: BLE001
+except (FileNotFoundError, json.JSONDecodeError, ValueError, IndexError, TypeError) as exc:
     print(f"Failed to resolve sourcePath from {queue_path}: {exc}", file=sys.stderr)
     sys.exit(1)
 PY
