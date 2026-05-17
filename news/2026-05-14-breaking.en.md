@@ -211,6 +211,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/coalition-mathematics.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -8168,6 +8169,2321 @@ flowchart TD
 
 **[EXTEND-FROM-PRIOR: intelligence/methodology-reflection.md prior=222L → new=257L (+35)]**
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-14 | **التصنيف:** تحليل استخباراتي عام
+**نوع المقالة:** آخر الأخبار | **الثقة:** 🟢 عالية (البيانات المفتوحة للبرلمان الأوروبي كمصدر أولي)
+
+---
+
+### القصة الرئيسية: البرلمان الأوروبي يتبنى حزمة تشريعية مهمة — الجلسة العامة 28–30 أبريل 2026
+
+أسفرت الجلسة العامة للبرلمان الأوروبي خلال الفترة 28–30 أبريل 2026 في بروكسل عن نتائج تشريعية ذات كثافة استثنائية تضمنت التقرير المرحلي للإطار المالي متعدد السنوات (MFF) 2028–2034، وجولة واسعة من قرارات الإبراء لعام 2024، وتفويضات لتطبيق قانون الأسواق الرقمية، وسلسلة من قرارات السياسة الخارجية المهمة. يمثل هذا أكثر أسابيع البرلمان التشريعية اتساقاً منذ فبراير 2026.
+
+---
+
+### أبرز المستجدات (مرتبة حسب الأولوية)
+
+#### 1. اعتماد التقرير المرحلي للإطار المالي متعدد السنوات 2028–2034 (28 أبريل — TA-10-2026-0111) 🔴 حرج
+اعتمد البرلمان تقريره المرحلي حول الإطار المالي متعدد السنوات 2028–2034، مرسياً بذلك الأساس التشريعي لدورة الميزانية الأوروبية السبعية القادمة. يُشير التصويت إلى الموقف التفاوضي الأولي للبرلمان قبل المقترحات الرسمية من المجلس والمفوضية المتوقعة في أواخر 2026. يُعدّ التقرير المرحلي خطوة حاسمة في توازن القوى: إذ يُحدد الخطوط الحمراء، وأولويات التمويل، والنفوذ المؤسسي الذي سيستخدمه البرلمان خلال مفاوضات ثلاثية الأطراف.
+
+**الأهمية الاستراتيجية:** يغطي الإطار المالي ما يُقدّر بـ 1.2–1.4 تريليون يورو من نفقات الاتحاد، تشمل صناديق التماسك، والدعم الزراعي، والاستثمارات المناخية، والقدرات الدفاعية، وأدوات العمل الخارجي والجوار. سيُحدد موقف البرلمان بشأن الموارد الذاتية (الرسوم الرقمية، وعائدات آلية تعديل حدود الكربون، وضريبة المعاملات المالية) ما إذا كان الاتحاد قادراً على تمويل أجندته السياسية الطموحة دون تعميق الاعتماد على المساهمات الوطنية.
+
+**ديناميكيات الائتلاف:** تعني هيمنة حزب الشعب الأوروبي EPP على لجنة الميزانية (BUDG) أن التقرير المرحلي يعكس حذراً مالياً من يمين الوسط مقروناً باستثمارات مستهدفة. حرصت مجموعتا S&D وRenew على صياغات تتعلق بالتماسك الاجتماعي والتحول الأخضر. تُشير الامتناعات أو الأصوات المعارضة من ECR وPfE إلى الضغط اليميني المستمر لتحويل الأموال نحو أمن الحدود والاستقلالية الاستراتيجية.
+
+#### 2. حزمة الإبراء 2024 — أسبوع المساءلة (29 أبريل — قرارات TA متعددة) 🟡 عالية
+وافق البرلمان على مجموعة واسعة من قرارات الإبراء لدورة ميزانية الاتحاد الأوروبي لعام 2024. تضمنت القرارات الرئيسية:
+- **TA-10-2026-0125**: إبراء ذمة المفوضية — ممنوح بشروط وملاحظات نقدية
+- **TA-10-2026-0126**: إبراء ذمة البرلمان ذاته — تمرين رقابي ذاتي
+- **TA-10-2026-0130**: الخدمة الخارجية الأوروبية (EEAS)
+- **TA-10-2026-0132**: لجنة المناطق
+- **TA-10-2026-0133**: المحقق الأوروبي
+- **TA-10-2026-0135**: المدعي العام الأوروبي (EPPO)
+- **TA-10-2026-0136**: وكالات الاتحاد الأوروبي (مجمّعة)
+- **TA-10-2026-0137**: المشاريع المشتركة (شراكات البحث والتطوير)
+
+يمثل إجراء الإبراء أكثر صلاحيات الرقابة الدستورية مباشرةً للبرلمان على مؤسسات الاتحاد. تُشير الملاحظات النقدية المرتبطة بإبراء المفوضية إلى مخاوف قائمة تتعلق بمكافحة الغش، والميزنة المراعية للنوع الاجتماعي، وتطبيق شرط سيادة القانون.
+
+#### 3. تطبيق قانون الأسواق الرقمية — البرلمان يتخذ موقفاً حازماً (30 أبريل — TA-10-2026-0160) 🟡 عالية
+اعتمد البرلمان قراراً بشأن تطبيق قانون الأسواق الرقمية (DMA)، مطالباً المفوضية باتخاذ إجراءات أكثر صرامة ضد حراس البوابات من كبار شركات التكنولوجيا. التوقيت ذو دلالة: إجراءات تطبيق قانون DMA ضد Alphabet (Google) وApple وMeta وAmazon تقف عند نقاط تحول حرجة. يضغط البرلمان للحصول على جداول زمنية أسرع، وغرامات أعلى، وتدابير علاجية هيكلية تشمل اشتراطات قابلية التشغيل البيني.
+
+**السياق الاقتصادي:** يؤثر تطبيق DMA مباشرةً على السوق الرقمية الموحدة للاتحاد الأوروبي — المقدرة بـ 415 مليار يورو سنوياً. يمكن للتطبيق الفعّال تحرير مكاسب تنافسية للشركات الرقمية الأوروبية مع حماية المستهلكين من تأثيرات الإغلاق.
+
+#### 4. تقرير سيادة القانون 2025 وتقييم الحقوق الأساسية (29 أبريل) 🟡 عالية
+تعكس القرارات المتتالية حول تقرير المفوضية عن سيادة القانون 2025 (TA-10-2026-0147) ووضع الحقوق الأساسية في 2024–2025 (TA-10-2026-0146) تصاعد رقابة البرلمان على مخاطر التراجع الديمقراطي داخل الاتحاد. أشار تقرير سيادة القانون إلى مخاوف تتعلق بالمجر وسلوفاكيا وأجزاء من وسط وشرق أوروبا، مع تسليط الضوء على تراجع حرية الصحافة في عدة دول أعضاء.
+
+#### 5. الحماية من المنافسة غير العادلة من الدول الثالثة (29 أبريل — TA-10-2026-0149) 🟡 متوسطة-عالية
+أيّد البرلمان قراراً بشأن حماية الشركات الأوروبية والوظائف والمنتجات من المنافسة غير العادلة من الدول الثالثة. يرتبط هذا مباشرةً بالتوترات التجارية المستمرة بين الاتحاد الأوروبي والولايات المتحدة في أعقاب تصاعد الرسوم الجمركية عام 2025، والمخاوف المتعلقة بالصادرات الصينية الصناعية المدعومة حكومياً التي يُلقى بها في الأسواق الأوروبية.
+
+#### 6. قرار المساءلة عن أوكرانيا ودعم أرمينيا (30 أبريل) 🟡 متوسطة
+- **TA-10-2026-0161**: ضمان المساءلة والعدالة رداً على الهجمات الروسية المستمرة على المدنيين الأوكرانيين — يدعو إلى آليات جنائية دولية قوية وأطر لمصادرة الأصول
+- **TA-10-2026-0162**: دعم الصمود الديمقراطي في أرمينيا — يُشير إلى قلق الاتحاد من الضغط الروسي على سيادة أرمينيا بعد انتخابات 2024
+
+---
+
+### نظرة عامة على المشهد السياسي (بتاريخ 2026-05-14)
+
+| المجموعة | المقاعد | الحصة | الاتجاه |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25.5% | مهيمنة؛ تقود مواقف MFF وDMA وسيادة القانون |
+| S&D | 136 | 19.0% | قوية في الشؤون الاجتماعية وملاحظات الإبراء |
+| PfE | 85 | 11.9% | صوّتت ضد عدة إجراءات لسيادة القانون |
+| ECR | 81 | 11.3% | مختلطة؛ دعم حماية التجارة، معارضة لسيادة القانون |
+| Renew | 77 | 10.7% | كتلة محورية في DMA والسوق الرقمية الموحدة |
+| Greens/EFA | 53 | 7.4% | قوية لتطبيق DMA وسيادة القانون |
+| اليسار | 45 | 6.3% | دعمت ملاحظات الإبراء النقدية |
+| NI | 30 | 4.2% | مجزأة؛ تصويت تكتيكي |
+| ESN | 27 | 3.8% | أقصى اليمين؛ مقاومة لإجراءات سيادة القانون |
+
+**عتبة الأغلبية:** 360 مقعداً. لا توجد أغلبية طبيعية ثنائية الكتلة؛ التحالف الكبير EPP-S&D (319 مقعداً) يقصر عن الأغلبية. تستلزم معظم الأغلبيات التشريعية على الأقل تشكيلة EPP + S&D + Renew.
+
+---
+
+### التقييم التحليلي
+
+تعكس الجلسة العامة 28–30 أبريل برلماناً يعمل بثقة مؤسسية ملحوظة: إذ يُحدد في آنٍ واحد هيكل ميزانية 2028–2034، ويُحاسب المؤسسات التنفيذية عبر آلية الإبراء، ويضغط لتنظيم كبرى شركات التكنولوجيا، ويُطلق إشارات سياسية خارجية موجهة بشأن أوكرانيا وأرمينيا وسيادة القانون. تُؤكد الكثافة التشريعية والاتساع الموضوعي أن البرلمان العاشر عثر على إيقاعه التشريعي في منتصف ولايته.
+
+**المخاطر:** ستهيمن مفاوضات MFF 2028–2034 على ما تبقى من هذه الدورة البرلمانية. من المرجح أن تواجه مواقف التقرير المرحلي للبرلمان معارضة صارمة من المجلس بشأن الموارد الذاتية، ولا سيما ضريبة المعاملات المالية. الرسوم الرقمية وتدفقات إيرادات آلية CBAM كموارد ذاتية تمثل أكثر ساحات المعارك السياسية إثارةً للجدل.
+
+**الفرصة:** الضغط لتطبيق DMA، إذا واكبه تحرك من المفوضية، قد يُعيد تموضع الاتحاد الأوروبي بوصفه مُحدداً عالمياً لمعايير تنظيم المنصات — مولداً ما بين 15 و30 مليار يورو سنوياً من تكاليف الامتثال المُعاد توزيعها على المستهلكين والمنافسين.
+
+---
+
+*المصادر: بوابة البيانات المفتوحة للبرلمان الأوروبي — خلاصة النصوص المعتمدة (سلسلة TA-10-2026)؛ تحليل المشهد السياسي (تشكيل EP10)؛ analysis/daily/2026-05-14/breaking/data/*
+*الثقة: 🟢 عالية — سجل تشريعي مباشر للبرلمان الأوروبي*
+
+---
+
+### الملخص التنفيذي الموسّع (الجذر) — الجولة الثانية
+
+#### الرسائل الرئيسية للقيادة العليا
+
+**الرسالة الرئيسية:** تمثل الجلسة العامة للبرلمان الأوروبي 28–30 أبريل 2026 أهم نتاج تشريعي للبرلمان العاشر حتى الآن. إن تقاطع إصلاح الميزانية، وتطبيق التنظيم الرقمي، وهيكل سيادة القانون، والمساءلة الأوكرانية في جلسة واحدة يخلق زخماً سياسياً متراكماً.
+
+**المسار الحرج:** نقاش MFF هو العملية السياسية الأكثر مخاطرةً في حوكمة الاتحاد الأوروبي خلال الأشهر الأربعة والعشرين القادمة. القرارات التي ستُتخذ في مقترح المفوضية لشهر سبتمبر 2026 والمفاوضات اللاحقة في المجلس ستُشكّل هيكل التمويل العام الأوروبي لمدة 7 سنوات (2028–2034).
+
+---
+
+#### الأولويات الاستراتيجية
+
+**فوري (مايو–يونيو 2026):**
+1. رصد جدول إعداد MFF للمفوضية — أي تأخير يُشير إلى تردد سياسي
+2. تتبع إجراءات تطبيق DMA — النتائج الأولية ضد Apple وMeta وGoogle هي المحفز على المدى القصير
+3. قمة G7 في كانانسكيس (يونيو 2026): ستكون المساءلة الأوكرانية وحماية التجارة على جدول الأعمال
+4. جدول جلسات الاستماع في لجان البرلمان الأوروبي: لجنتا BUDG وECON تعقدان جلسات متابعة حول MFF وDMA
+
+**المدى المتوسط (الربع الثالث–الرابع 2026):**
+1. مقترح MFF من المفوضية (سبتمبر) — المقارنة مع مواقف التقرير المرحلي للبرلمان
+2. العلاقة التجارية بين الاتحاد الأوروبي والولايات المتحدة: مفاوضات التعريفات الثنائية؛ بُعد الخدمات الرقمية
+3. الاشتراطية المجرية: تقييم المفوضية للتقدم في استقلالية القضاء
+4. جاهزية تطبيق قانون الذكاء الاصطناعي: أغسطس 2026 هو أول معلم تطبيقي
+
+---
+
+#### مخاطر القرار والتخفيف
+
+**المخاطرة الأولى: الموارد الذاتية لـ MFF محجوبة في المجلس**
+*الاحتمالية: 70% | التأثير: عالٍ*
+التخفيف: ينبغي للبرلمان الأوروبي والدول الأعضاء الداعمة الآن بناء دعم غير رسمي في مجموعة عمل المجلس؛ تجنب جعل الموارد الذاتية خطاً أحمر ثنائياً يُعيق اعتماد MFF بأكمله.
+
+**المخاطرة الثانية: تأخر تطبيق DMA تحت الضغط الأمريكي**
+*الاحتمالية: 40% | التأثير: عالٍ*
+التخفيف: ينبغي للمفوضية الإشارة إلى استقلاليتها عن الضغط الدبلوماسي الأمريكي؛ مفاوضات التجارة الرقمية الموازية بين الاتحاد الأوروبي والولايات المتحدة يمكنها استيعاب بعض التوتر دون المساومة على التطبيق.
+
+**المخاطرة الثالثة: إجراءات إبراء البرلمان الأوروبي تتصاعد إلى تصويت بحجب الثقة**
+*الاحتمالية: 15% | التأثير: مرتفع جداً*
+التخفيف: يجب على المفوضية الرد بشكل جوهري على الملاحظات النقدية للإبراء؛ دورة الإبراء 2025 (تبدأ مارس 2027) ستكون نقطة الضعف الأكثر أهمية.
+
+---
+
+#### مستويات الثقة التحليلية
+
+| الموضوع | الثقة | الأساس |
+|-------|-----------|-------|
+| السجل التشريعي (النصوص المعتمدة) | 🟢 HIGH | بيانات مفتوحة مباشرة من البرلمان الأوروبي |
+| التفسير السياسي | 🟡 MEDIUM | استدلال هيكلي |
+| التوقعات الاقتصادية | 🟡 MEDIUM | قاعدة بيانات IMF WEO |
+| تحليل السيناريوهات المستقبلية | 🔴 LOW-MEDIUM | نمذجة احتمالية |
+
+*الملخص التنفيذي الموسّع (الجذر) — 2026-05-14 الجولة الثانية | الثقة: 🟢 عالية*
+
+#### السياق التكميلي لكبار صانعي القرار
+
+##### لماذا هذه الجلسة أهم من الجلسات العامة النموذجية
+
+جلسة 28–30 أبريل ليست جلسة تشريعية روتينية. إنها لافتة لثلاثة أسباب هيكلية:
+
+**1. التزامن:** خمسة مجالات سياسية رئيسية (المالية، والرقمية، وسيادة القانون، والأمن، والمساءلة) تقدمت بالتزامن. هذا نادر الحدوث — معظم الجلسات العامة تدفع بقضية أو قضيتين رئيسيتين.
+
+**2. التماسك:** القضايا الخمس ليست مجمّعة عشوائياً — فهي تشترك في منطق ضمني مشترك (التمكين المؤسسي للاتحاد الأوروبي مقابل السيادة الوطنية / القوة التكنولوجية الأمريكية / العدوان الروسي). يمنح هذا التماسكُ الجلسةَ ثقلاً استراتيجياً يفوق مجموع الأعمال الفردية.
+
+**3. خلق السوابق:** عناصر عدة تُنشئ سوابق قانونية أو سياسية ستُشكّل الإجراءات المستقبلية: سابقة تطبيق DMA، وصياغات الملاحظات النقدية للإبراء، والموارد الذاتية لـ MFF كموقف تفاوضي.
+
+**ملخص لصانعي القرار:** تعامل مع 28–30 أبريل 2026 بوصفها إعلاناً عن نوايا البرلمان الأوروبي الاستراتيجية لبقية فترة EP10 (2024–2029). كل نشاط تشريعي لاحق سيقع في ظل طموح هذه الجلسة.
+
+*الملخص التنفيذي للجذر الموسع — 2026-05-14 الجولة الثانية*
+
+#### الملاحظة التنفيذية النهائية
+
+**ثلاثة قرارات ستُحدد ما إذا كان طموح 28–30 أبريل سيتحقق:**
+
+1. **موقف وزارة المالية الفيدرالية الألمانية بشأن الموارد الذاتية لـ MFF** (يونيو–سبتمبر 2026): ستحدد مرونة ألمانيا المحسوبة أو مقاومتها السقفَ لمفاوضات MFF بأكملها. لا يوجد متغير آخر أكثر أهمية.
+
+2. **قرارات المفوضية بشأن تطبيق DMA على Apple** (الربع الثالث–الرابع 2026): أول قرار ناجح بعدم الامتثال لـ DMA سيُرسّخ مصداقية التطبيق. الفشل أو التأخير سيشجع حراس البوابات الآخرين على عدم الامتثال.
+
+3. **صياغة G7 في كانانسكيس بشأن المساءلة الأوكرانية** (يونيو 2026): الصياغة الدقيقة لـ G7 بشأن المساءلة ستُحدد ما إذا كان يمكن بناء الهيكل القانوني لمحكمة خلال 2026–2027 أم يتعين الانتظار لتغيير المناخ الدولي.
+
+هذه القرارات الثلاثة هي مؤشرات الإنذار المبكر للمسار الكامل لتنفيذ حزمة تشريعات 28–30 أبريل.
+
+*ملخص الجذر النهائي — 2026-05-14 الجولة الثانية*
+
+**ملاحظة للقراء:** أُنتج هذا التحليل في ظل قيود الوقت والبيانات. ينبغي التعامل مع جميع التوقعات باعتبارها إرشادية لا قاطعة. للاستخدام الرسمي في رسم السياسات، تحقق من التوقعات الاقتصادية بالاستناد إلى بيانات IMF/ECB الحديثة.
+
+*الملخص التنفيذي — مكتمل*
+
+**الملحق النهائي للملخص التنفيذي:**
+
+لكل صانع قرار لن يقرأ أي شيء آخر في هذه الحزمة التحليلية: أثبتت الجلسة العامة 28–30 أبريل في البرلمان الأوروبي أن المركز السياسي للاتحاد (EPP+S&D+Renew) لا يزال قادراً على تبني تشريعات طموحة متعددة المجالات حتى في برلمان مُجزأ. المركز يصمد. هل سيصمد خلال الفترة التنفيذية الصعبة — تلك هي المسألة الحرجة للمرحلة 2026–2029.
+
+**ملخص الجذر التنفيذي — التحديث النهائي:**
+جميع القضايا الخمس ذات الأولوية في الجلسة العامة 28–30 أبريل مُحللة الآن بالكامل في الحزمة التحليلية المكونة من 39 قطعة. صانعو القرار الذين يحتاجون إلى تحليل أعمق في مسألة بعينها يُحالون إلى القطعة المقابلة: MFF ← executive-brief.md + pestle-analysis.md؛ DMA ← threat-model.md + intelligence-assessment.md؛ أوكرانيا ← political-threat-landscape.md + scenario-forecast.md؛ سيادة القانون ← coalition-dynamics.md + historical-parallels.md؛ الإبراء ← document-analysis-index.md + reference-analysis-quality.md.
+
+*ملخص الجذر التنفيذي — نهائي، الجولة الثانية مكتملة*
+
+### Executive Brief Da
+
+### TOPHISTORIE: EP vedtager stort lovgivningspakke — plenarmødet 28.–30. april 2026
+
+Europa-Parlamentets plenarmøde 28.–30. april 2026 i Bruxelles producerede et usædvanligt tæt lovgivningsoutput, der omfattede den flerårige finansielle ramme (FFR) 2028–2034 interimsrapport, en bred runde af dechargeafstemninger for 2024, mandater for håndhævelse af lov om digitale markeder og en serie betydningsfulde udenrigspolitiske beslutninger. Dette repræsenterer parlamentets mest konsekvente lovgivningsuge siden februar 2026.
+
+---
+
+### VIGTIGSTE UDVIKLINGER (prioriteret)
+
+#### 1. FFR 2028–2034 Interimsrapport vedtaget (28. april — TA-10-2026-0111) 🔴 KRITISK
+Parlamentet vedtog sin interimsrapport om den flerårige finansielle ramme for 2028–2034 og lagde dermed det lovgivningsmæssige grundlag for den næste syvårige EU-budgetcyklus. Afstemningen signalerer parlamentets indledende forhandlingsposition forud for formelle Råds- og Kommissionsforslag, der forventes i slutningen af 2026. Interimsrapporten er et kritisk magtskak: den fastlægger røde linjer, finansieringsprioriteter og den institutionelle indflydelse, parlamentet vil anvende under triloget.
+
+**Strategisk betydning:** FFR dækker ca. 1,2–1,4 billioner EUR (forventet) i unionens udgifter, herunder samhørighedsfonde, landbrugsstøtte, klimainvesteringer, forsvarskapacitet og Naboskabs-/Eksterne aktionsinstrumenter. Parlamentets position om egne indtægter (digital afgift, indtægter fra mekanismen for kulstofgrænsetilpasning, afgift på finansielle transaktioner) vil afgøre, om EU kan finansiere sin ambitiøse politiske dagsorden uden at uddybe afhængigheden af nationale bidrag.
+
+**Koalitionsdynamik:** EPP's dominans i Budgetudvalget (BUDG) betyder, at interimsrapporten afspejler center-højre finanspolitisk forsigtighed kombineret med målrettede investeringer. S&D og Renew sikrede formuleringer om social samhørighed og grøn omstilling. ECR's og PfE's undladelse af at stemme eller stemning imod signalerer det igangværende højreorienterede pres for at omdirigere midler til grænse­sikkerhed og strategisk autonomi.
+
+#### 2. Dechargepakken 2024 — ansvarlighedsugen (29. april — Multipelt TA) 🟡 HØJ
+Parlamentet godkendte et bredt sæt dechargeavstemninger for 2024-EU-budgetcyklussen. Vigtige afstemninger inkluderede:
+- **TA-10-2026-0125**: Kommissionens decharge — bevilget med betingelser og kritiske bemærkninger
+- **TA-10-2026-0126**: Parlamentets egen decharge — selvregulerende ansvarlighedsøvelse
+- **TA-10-2026-0130**: Den Europæiske Udenrigstjeneste (EEAS)
+- **TA-10-2026-0132**: Regionsudvalget
+- **TA-10-2026-0133**: Den Europæiske Ombudsmand
+- **TA-10-2026-0135**: Den Europæiske Anklagemyndighed (EPPO)
+- **TA-10-2026-0136**: EU-agenturer (samlet)
+- **TA-10-2026-0137**: Fællesforetagender (FoU-partnerskaber)
+
+Dechargeproceduren repræsenterer parlamentets mest direkte konstitutionelle tilsynsbeføjelse over for EU-institutionerne. Kritiske bemærkninger knyttet til Kommissionens decharge signalerer vedvarende bekymringer om forebyggelse af svig, kønsmæssig budgettering og gennemførelse af retsstatsbetingelse.
+
+#### 3. Håndhævelse af lov om digitale markeder — EP indtager fast holdning (30. april — TA-10-2026-0160) 🟡 HØJ
+Parlamentet vedtog en beslutning om håndhævelse af lov om digitale markeder (DMA) og krævede strengere kommissionshandlinger mod Big Tech-gatekeepers. Tidspunktet er vigtigt: DMA-håndhævelsesprocedurer mod Alphabet (Google), Apple, Meta og Amazon befinder sig ved kritiske knudepunkter. Parlamentet presser på for hurtigere tidsrammer, højere bøder og strukturelle afhjælpninger, herunder interoperabilitetsmandater.
+
+**Økonomisk kontekst:** DMA-håndhævelse påvirker direkte EU's digitale indre marked — estimeret til 415 milliarder EUR årligt. Effektiv håndhævelse kan frigøre konkurrencefordele for europæiske digitale virksomheder, mens forbrugerne beskyttes mod lock-in-effekter.
+
+#### 4. Retsstatlig rapport 2025 og vurdering af grundlæggende rettigheder (29. april) 🟡 HØJ
+Back-to-back beslutninger om Kommissionens retsstatlige rapport 2025 (TA-10-2026-0147) og situationen for grundlæggende rettigheder i 2024–2025 (TA-10-2026-0146) afspejler parlamentets intensiverede tilsyn med risici for demokratisk tilbagegang inden for EU. Den retsstatlige rapport påpegede bekymringer i Ungarn, Slovakiet og dele af Central- og Østeuropa, mens den også markerede forværret pressefrihed i flere medlemsstater.
+
+#### 5. Beskyttelse mod unfair konkurrence fra tredjelande (29. april — TA-10-2026-0149) 🟡 MEDIUM-HØJ
+Parlamentet støttede en beslutning om beskyttelse af EU-virksomheder, job og produkter mod unfair konkurrence fra tredjelande. Dette er direkte relateret til igangværende EU-US-handelssspændinger efter tariff-eskaleringerne i 2025 og bekymringer om kinesiske statssubsidierede industrieksporter, der dumpes på EU-markederne.
+
+#### 6. Ukraina ansvarsutkrævningsbeslutning og armenistøtte (30. april) 🟡 MEDIUM
+- **TA-10-2026-0161**: Sikring af ansvarsutkrævning og retfærdighed som reaktion på Ruslands fortsatte angreb mod ukrainske civile — opfordrer til robuste internationale strafferetlige mekanismer og rammer for aktivinddragelse
+- **TA-10-2026-0162**: Støtte til demokratisk robusthed i Armenien — signalerer EU's bekymring over russisk pres på armensk suverænitet efter valget i 2024
+
+---
+
+### POLITISK LANDSKABSOVERSIGT (pr. 2026-05-14)
+
+| Gruppe | Pladser | Andel | Retningstrend |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25,5% | Dominerende; leder FFR, DMA, retsstatlige holdninger |
+| S&D | 136 | 19,0% | Stærk på sociale, dechargeiagtagelser |
+| PfE | 85 | 11,9% | Stemte imod adskillige retsstatlige foranstaltninger |
+| ECR | 81 | 11,3% | Blandet; handelsbeskyttelsesstøtte, retsstatopposition |
+| Renew | 77 | 10,7% | Nøglesvingblok ved DMA og digitalt indre marked |
+| Greens/EFA | 53 | 7,4% | Stærkt for DMA-håndhævelse, retsstat |
+| Venstre | 45 | 6,3% | Støttede kritiske dechargeiagtagelser |
+| NI | 30 | 4,2% | Fragmenteret; taktisk afstemning |
+| ESN | 27 | 3,8% | Yderste højre; modstand mod retsstatlige foranstaltninger |
+
+**Majoritetstærskel:** 360 pladser. Der eksisterer ingen naturlig to-bloc-majoritet; EPP-S&D storkoalition (319 pladser) falder kort. De fleste lovgivningsmæssige flertal kræver minimum EPP + S&D + Renew-konfiguration.
+
+---
+
+### ANALYTISK VURDERING
+
+Plenarmødet 28.–30. april afspejler et parlament, der opererer med bemærkelsesværdig institutionel selvtillid: det sætter simultant arkitekturen for budgettet 2028–2034, holder udøvende institutioner ansvarlige via decharge, presser på for Big Tech-regulering og udsender målrettede udenrigspolitiske signaler om Ukraine, Armenien og retsstat. Lovgivningstætheden og den tematiske bredde bekræfter, at det 10. parlament har fundet sin lovgivningsrytme ved midtvejsmærket.
+
+**Risiko:** FFR 2028–2034-forhandlingerne vil dominere resten af denne parlamentsperiode. Parlamentets interimsrapportpositioner vil sandsynligvis møde resolut Rådsmodstand om egne indtægter, særligt skatten på finansielle transaktioner. Den digitale afgift og CBAM-indtægtsstrømme som egne indtægter repræsenterer det politisk mest kontroversielle kampfelt.
+
+**Mulighed:** DMA-håndhævelsespushen, hvis den matches af Kommissionshandlinger, kan ompositionere EU som global standardsætter for platformsregulering — genererer 15–30 milliarder EUR årligt i overholdelses­omkostninger omfordelt til forbrugere og konkurrenter.
+
+---
+
+*Kilder: EP's åbne dataportal — Vedtagne tekster-feed (TA-10-2026-serien); Analyse af det politiske landskab (EP10-sammensætning); analysis/daily/2026-05-14/breaking/data/*
+*Konfidens: 🟢 Høj — Direkt EP-lovgivningsrekord*
+
+---
+
+### UDVIDET EKSEKUTIV RESUMÉ (ROD) — RUNDE 2
+
+#### NØGLEBUDSKABER TIL SENIOR LEDELSE
+
+**Topbudskab:** Europa-Parlamentets plenarmøde 28.–30. april 2026 repræsenterer det 10. parlaments hidtil mest betydningsfulde lovgivningsoutput. Konvergensen af budgetreform, håndhævelse af digital regulering, retsstatlig arkitektur og ukrainsk ansvarsutkrævning i en enkelt session skaber sammensatte politiske momentum.
+
+**Kritisk sti:** FFR-debatten er den højest-stakes politiske proces i EU's styring de næste 24 måneder. Beslutninger truffet i Kommissionens september 2026-forslag og efterfølgende Rådsforhandlinger vil forme den europæiske offentlige finansarkitektur i 7 år (2028–2034).
+
+---
+
+#### STRATEGISKE IMPERATIVER
+
+**Umiddelbart (maj–juni 2026):**
+1. Overvåg Kommissionens FFR-forberedelsestidslinje — enhver forsinkelse signalerer politisk tøven
+2. Spor DMA-håndhævelsesprocedurer — Apples/Metas/Googles foreløbige resultater er den nærliggende katalysator
+3. G7 Kananaskis (juni 2026): Ukraina-ansvarsutkrævning og handelsbeskyttelse vil stå på dagsordenen
+4. EP-udvalgs-høringsskema: BUDG/ECON-udvalg holder opfølgningshøringer om FFR og DMA
+
+**Mellemfristet (Q3–Q4 2026):**
+1. Kommissionens FFR-forslag (september) — sammenlign med EP's interimsrapportpositioner
+2. EU-US handelsrelation: Bilaterale forhandlinger om told; digital servicesdimension
+3. Ungarsk betingelse: Kommissionens vurdering af fremskridt for retslig uafhængighed
+4. AI-rettens håndhævelsesberedskab: August 2026 er første anvendelsesmilesten
+
+---
+
+#### BESLUTNINGSRISICI OG BEGRÆNSNING
+
+**Risiko 1: FFR egne indtægter blokeret i Rådet**
+*Sandsynlighed: 70% | Påvirkning: HØJ*
+Begrænsning: EP og støttende medlemsstater bør nu opbygge uformel støtte i Rådets arbejdsgruppe; undgå at gøre egne indtægter til en binær rød linje, der blokerer hele FFR-vedtagelsen.
+
+**Risiko 2: DMA-håndhævelsesforsinkelse under US-pres**
+*Sandsynlighed: 40% | Påvirkning: HØJ*
+Begrænsning: Kommissionen bør signalere uafhængighed fra US diplomatisk pres; parallelle EU-US digitale handelsforhandlinger kan absorbere noget spænding uden at kompromittere håndhævelsen.
+
+**Risiko 3: EP dechargeprocedurer eskalerer til mistillidsvotum**
+*Sandsynlighed: 15% | Påvirkning: MEGET HØJ*
+Begrænsning: Kommissionen skal reagere substantielt på kritiske dechargeiagtagelser; 2025-dechargecyklussen (begynder marts 2027) vil være det vigtigste sårbarhedsmoment.
+
+---
+
+#### ANALYTISKE KONFIDENSNIVEAUER
+
+| Emne | Konfidens | Basis |
+|-------|-----------|-------|
+| Lovgivningsrekord (vedtagne tekster) | 🟢 HIGH | Direkte EP's åbne data |
+| Politisk fortolkning | 🟡 MEDIUM | Strukturel inferens |
+| Økonomiske projektioner | 🟡 MEDIUM | IMF WEO vidensbase |
+| Fremtidsscenarioanalyse | 🔴 LOW-MEDIUM | Probabilistisk modellering |
+
+*Udvidet eksekutiv resumé (rod) — 2026-05-14 Runde 2 | Konfidens: 🟢 Høj*
+
+#### SUPPLERENDE KONTEKST FOR SENIOR BESLUTNINGSTAGERE
+
+##### Hvorfor denne session betyder mere end typiske plenarmøder
+
+Mødet 28.–30. april er ikke en rutinemæssig lovgivningssession. Det er bemærkelsesværdigt af tre strukturelle årsager:
+
+**1. Simultanitet:** Fem store politikdomæner (finansiel, digital, retsstat, sikkerhed, ansvarsutkrævning) avancerede simultant. Dette sker sjældent — de fleste plenarmøder driver 1–2 store spørgsmål.
+
+**2. Koherens:** De fem spørgsmål er ikke tilfældigt samlet — de deler en underliggende logik (EU's institutionelle selvhævdelse vs. national suverænitet / US teknikmagt / russisk aggression). Denne koherens giver sessionen mere strategisk vægt end summen af individuelle akter.
+
+**3. Præcedensafstikken:** Adskillige elementer skaber juridiske eller politiske præcedenser, der vil forme fremtidige handlinger: DMA-håndhævelsespredicens, decharge-kritiske observationsformuleringer, FFR's egne indtægter som forhandlingsposition.
+
+**Beslutningstageroversigt:** Behandl 28.–30. april 2026 som EP's strategiske hensigtsafgivelse for resten af EP10 (2024–2029). Al efterfølgende lovgivningsaktivitet vil stå i skyggen af denne sessions ambition.
+
+*Udvidet rod eksekutiv resumé — 2026-05-14 Runde 2*
+
+#### ENDELIG EKSEKUTIV NOTE
+
+**Tre beslutninger, der vil afgøre, om 28.–30. aprils ambition realiseres:**
+
+1. **Det tyske Finansministeriums FFR-egne-indtægtsstilling** (juni–september 2026): Tysklands beregnede åbenhed eller modstand vil sætte loftet for hele FFR-forhandlingen. Ingen anden variabel betyder mere.
+
+2. **Kommissionens DMA-håndhævelsesbeslutninger om Apple** (Q3–Q4 2026): Den første vellykkede DMA-ikke-overholdelsesafgørelse vil etablere håndhævelsesskredabilitet. Fiasko eller forsinkelse vil opmuntre andre gatekeepers til ikke-overholdelse.
+
+3. **G7 Kananaskis Ukraine-ansvarsutkrævningssprog** (juni 2026): Det præcise G7-sprog om ansvarsutkrævning vil afgøre, om den juridiske arkitektur for en tribunal kan opbygges i 2026–2027 eller skal vente på et ændret internationalt miljø.
+
+Disse tre beslutninger er de tidlige advarselsindikatorer for hele 28.–30. aprils lovgivningspakkes gennemførelsesbane.
+
+*Rod eksekutiv resumé slutgyldig — 2026-05-14 Runde 2*
+
+**Note til læserne:** Denne analyse er fremstillet under tids- og databegrænsninger. Alle projektioner bør behandles som vejledende snarere end definitive. Til formelle politikanvendelser, verificer økonomiske projektioner mod aktuelle IMF/ECB-data.
+
+*Eksekutiv resumé — komplet*
+
+**Eksekutiv resumé Endelig tilføjelse:**
+
+For enhver beslutningstager, der ikke læser andet i denne analytiske pakke: plenarmødet 28.–30. april i Europa-Parlamentet fastslår, at EU's politiske centrum (EPP+S&D+Renew) forbliver i stand til at vedtage ambitiøs, multi-domain lovgivning selv i et fragmenteret parlament. Centrum holder. Om det holder igennem den svære gennemførselsperiode er det kritiske 2026–2029-spørgsmål.
+
+**Rod eksekutiv resumé — endelig opdatering:**
+Alle fem prioritetsspørgsmål fra plenarmødet 28.–30. april er nu fuldt analyseret i den 39-artefakt analytiske pakke. Beslutningstagere, der kræver dybere analyse af et enkelt spørgsmål, henvises til den tilsvarende artefakt: FFR → executive-brief.md + pestle-analysis.md; DMA → threat-model.md + intelligence-assessment.md; Ukraine → political-threat-landscape.md + scenario-forecast.md; Retsstat → coalition-dynamics.md + historical-parallels.md; Decharge → document-analysis-index.md + reference-analysis-quality.md.
+
+*Rod eksekutiv resumé — endegyldig, Runde 2 komplet*
+
+### Executive Brief De
+
+### TOPNACHRICHT: EP verabschiedet bedeutendes Gesetzgebungspaket — Plenarsitzung 28.–30. April 2026
+
+Die Plenarsitzung des Europäischen Parlaments vom 28.–30. April 2026 in Brüssel brachte ein außergewöhnlich dichtes Gesetzgebungsergebnis hervor, das den Interimsbericht zum Mehrjährigen Finanzrahmen (MFR) 2028–2034, eine breite Runde von Entlastungsbeschlüssen für 2024, Mandate für die Durchsetzung des Gesetzes über digitale Märkte sowie eine Reihe bedeutender außenpolitischer Entschließungen umfasste. Dies stellt die konsequenteste Gesetzgebungswoche des Parlaments seit Februar 2026 dar.
+
+---
+
+### WICHTIGSTE ENTWICKLUNGEN (nach Priorität geordnet)
+
+#### 1. MFR 2028–2034 Interimsbericht angenommen (28. April — TA-10-2026-0111) 🔴 KRITISCH
+Das Parlament nahm seinen Interimsbericht zum Mehrjährigen Finanzrahmen 2028–2034 an und legte damit das gesetzliche Fundament für den nächsten siebenjährigen EU-Haushaltszyklus. Die Abstimmung signalisiert die anfängliche Verhandlungsposition des Parlaments vor den formellen Vorschlägen des Rates und der Kommission, die für Ende 2026 erwartet werden. Der Interimsbericht ist ein kritischer Machtzug: Er setzt rote Linien, Finanzierungsprioritäten und den institutionellen Einfluss fest, den das Parlament im Trilog einsetzen wird.
+
+**Strategische Bedeutung:** Der MFR umfasst schätzungsweise 1,2–1,4 Billionen EUR Unionsausgaben, einschließlich Kohäsionsfonds, Agrarsubventionen, Klimainvestitionen, Verteidigungskapazitäten und Nachbarschafts-/Außenaktionsinstrumenten. Die Position des Parlaments zu Eigenmitteln (Digitalabgabe, Einnahmen aus dem Kohlenstoffgrenzausgleichsmechanismus, Finanztransaktionssteuer) bestimmt, ob die EU ihre ehrgeizige politische Agenda finanzieren kann, ohne die Abhängigkeit von nationalen Beiträgen zu vertiefen.
+
+**Koalitionsdynamik:** EPPs Dominanz im Haushaltsausschuss (BUDG) bedeutet, dass der Interimsbericht eine center-rechte fiskalpolitische Vorsicht kombiniert mit gezielten Investitionen widerspiegelt. S&D und Renew sicherten Formulierungen zu sozialer Kohäsion und dem grünen Wandel. Die Enthaltungen oder Gegenstimmen von ECR und PfE signalisieren den anhaltenden rechten Druck, Mittel in Richtung Grenzsicherheit und strategische Autonomie umzuleiten.
+
+#### 2. Entlastungspaket 2024 — Rechenschaftswoche (29. April — Multiple TAs) 🟡 HOCH
+Das Parlament genehmigte einen breiten Satz von Entlastungsbeschlüssen für den EU-Haushaltszyklus 2024. Wichtige Entscheidungen umfassten:
+- **TA-10-2026-0125**: Entlastung der Kommission — erteilt mit Bedingungen und kritischen Bemerkungen
+- **TA-10-2026-0126**: Eigene Entlastung des Parlaments — selbstregulierende Rechenschaftsübung
+- **TA-10-2026-0130**: Europäischer Auswärtiger Dienst (EAD)
+- **TA-10-2026-0132**: Ausschuss der Regionen
+- **TA-10-2026-0133**: Europäischer Bürgerbeauftragter
+- **TA-10-2026-0135**: Europäische Staatsanwaltschaft (EPPO)
+- **TA-10-2026-0136**: EU-Agenturen (gesamt)
+- **TA-10-2026-0137**: Gemeinsame Unternehmen (FuE-Partnerschaften)
+
+Das Entlastungsverfahren stellt die unmittelbarste verfassungsrechtliche Aufsichtsbefugnis des Parlaments gegenüber den EU-Institutionen dar. Kritische Bemerkungen zur Entlastung der Kommission signalisieren anhaltende Bedenken hinsichtlich Betrugsprävention, geschlechtsorientierter Haushaltsführung und Umsetzung der Rechtsstaatlichkeitsbedingung.
+
+#### 3. Durchsetzung des Gesetzes über digitale Märkte — EP bezieht feste Haltung (30. April — TA-10-2026-0160) 🟡 HOCH
+Das Parlament nahm eine Entschließung zur Durchsetzung des Gesetzes über digitale Märkte (DMA) an und forderte strengere Kommissionsmaßnahmen gegen die Big-Tech-Gatekeeper. Der Zeitpunkt ist bedeutsam: DMA-Durchsetzungsverfahren gegen Alphabet (Google), Apple, Meta und Amazon befinden sich an kritischen Knotenpunkten. Das Parlament drängt auf schnellere Zeitrahmen, höhere Bußgelder und strukturelle Abhilfemaßnahmen einschließlich Interoperabilitätsmandaten.
+
+**Wirtschaftlicher Kontext:** Die DMA-Durchsetzung beeinflusst direkt den digitalen EU-Binnenmarkt — geschätzt auf 415 Milliarden EUR jährlich. Eine wirksame Durchsetzung kann Wettbewerbsgewinne für europäische Digitalunternehmen freisetzen und gleichzeitig Verbraucher vor Einschließungseffekten schützen.
+
+#### 4. Rechtstaatlichkeitsbericht 2025 und Grundrechtsbewertung (29. April) 🟡 HOCH
+Aufeinanderfolgende Entschließungen zum Rechtsstaatlichkeitsbericht der Kommission 2025 (TA-10-2026-0147) und zur Situation der Grundrechte 2024–2025 (TA-10-2026-0146) spiegeln die intensivierte Aufsicht des Parlaments über Risiken demokratischer Rückschritte innerhalb der EU wider. Der Rechtsstaatlichkeitsbericht verwies auf Bedenken in Ungarn, der Slowakei und Teilen Mittel- und Osteuropas und kennzeichnete zugleich die verschlechterte Pressefreiheit in mehreren Mitgliedstaaten.
+
+#### 5. Schutz vor unlauterem Wettbewerb aus Drittländern (29. April — TA-10-2026-0149) 🟡 MITTEL-HOCH
+Das Parlament unterstützte eine Entschließung zum Schutz von EU-Unternehmen, Arbeitsplätzen und Produkten vor unlauterem Wettbewerb aus Drittländern. Dies steht in direktem Zusammenhang mit den anhaltenden EU-US-Handelsstreitigkeiten nach den Zollerhöhungen 2025 und den Bedenken hinsichtlich chinesischer staatlich subventionierter Industrieexporte, die auf EU-Märkten gedumpt werden.
+
+#### 6. Entschließung zur Ukraine-Rechenschaftspflicht und Unterstützung für Armenien (30. April) 🟡 MITTEL
+- **TA-10-2026-0161**: Gewährleistung von Rechenschaftspflicht und Gerechtigkeit als Reaktion auf Russlands anhaltende Angriffe gegen ukrainische Zivilisten — fordert robuste internationale strafrechtliche Mechanismen und Rahmen für die Vermögensbeschlagnahme
+- **TA-10-2026-0162**: Unterstützung der demokratischen Resilienz in Armenien — signalisiert EU-Besorgnis über russischen Druck auf die armenische Souveränität nach den Wahlen 2024
+
+---
+
+### ÜBERBLICK ÜBER DIE POLITISCHE LANDSCHAFT (Stand 2026-05-14)
+
+| Fraktion | Sitze | Anteil | Richtungstrend |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25,5% | Dominant; führt MFR-, DMA-, Rechtsstaatlichkeitspositionen |
+| S&D | 136 | 19,0% | Stark bei sozialen Themen, Entlastungsanmerkungen |
+| PfE | 85 | 11,9% | Stimmte gegen mehrere Rechtsstaatlichkeitsmaßnahmen |
+| ECR | 81 | 11,3% | Gemischt; Unterstützung für Handelsschutz, Opposition zur Rechtsstaatlichkeit |
+| Renew | 77 | 10,7% | Wichtiger Schwingblock bei DMA und digitalem Binnenmarkt |
+| Greens/EFA | 53 | 7,4% | Stark für DMA-Durchsetzung, Rechtsstaatlichkeit |
+| Linke | 45 | 6,3% | Unterstützte kritische Entlastungsanmerkungen |
+| NI | 30 | 4,2% | Fragmentiert; taktisches Abstimmungsverhalten |
+| ESN | 27 | 3,8% | Äußerste Rechte; Widerstand gegen Rechtsstaatlichkeitsmaßnahmen |
+
+**Mehrheitsschwelle:** 360 Sitze. Es besteht keine natürliche Zwei-Block-Mehrheit; die EPP-S&D-Große Koalition (319 Sitze) verfehlt die Schwelle. Die meisten gesetzgebenden Mehrheiten erfordern mindestens die EPP + S&D + Renew-Konfiguration.
+
+---
+
+### ANALYTISCHE BEWERTUNG
+
+Die Plenarsitzung vom 28.–30. April spiegelt ein Parlament wider, das mit bemerkenswertem institutionellem Selbstvertrauen agiert: Es legt gleichzeitig die Architektur für den Haushalt 2028–2034 fest, hält Exekutivinstitutionen durch Entlastung verantwortlich, drängt auf Big-Tech-Regulierung und sendet gezielte außenpolitische Signale zu Ukraine, Armenien und Rechtsstaatlichkeit. Die Gesetzgebungsdichte und die thematische Breite bestätigen, dass das 10. Parlament zur Halbzeit seinen Gesetzgebungsrhythmus gefunden hat.
+
+**Risiko:** Die MFR 2028–2034-Verhandlungen werden den Rest dieser Legislaturperiode dominieren. Die Interimsbericht-Positionen des Parlaments werden voraussichtlich auf entschlossenen Ratswiderstand hinsichtlich der Eigenmittel stoßen, insbesondere bei der Finanztransaktionssteuer. Die Digitalabgabe und CBAM-Einnahmequellen als Eigenmittel stellen das politisch umstrittenste Schlachtfeld dar.
+
+**Gelegenheit:** Der DMA-Durchsetzungsdruck kann, wenn er mit Kommissionsmaßnahmen übereinstimmt, die EU als globalen Standard­setzer für Plattformregulierung neu positionieren — generiert jährlich 15–30 Milliarden EUR an Compliance-Kosten, die an Verbraucher und Konkurrenten umverteilt werden.
+
+---
+
+*Quellen: EP-Offene Datenverwaltungsportal — Feed der angenommenen Texte (TA-10-2026-Serie); Analyse der politischen Landschaft (EP10-Zusammensetzung); analysis/daily/2026-05-14/breaking/data/*
+*Konfidenz: 🟢 Hoch — Direktes EP-Gesetzgebungsregister*
+
+---
+
+### ERWEITERTE ZUSAMMENFASSUNG (ROOT) — RUNDE 2
+
+#### KERNBOTSCHAFTEN AN DIE SENIOR-FÜHRUNG
+
+**Hauptbotschaft:** Die Plenarsitzung des Europäischen Parlaments vom 28.–30. April 2026 stellt das bisher bedeutendste Gesetzgebungsergebnis des 10. Parlaments dar. Die Konvergenz von Haushaltreform, Durchsetzung digitaler Regulierung, Rechtsstaatlichkeitsarchitektur und ukrainischer Rechenschaftspflicht in einer einzigen Sitzung schafft zusammengesetzten politischen Schwung.
+
+**Kritischer Pfad:** Die MFR-Debatte ist der hochrisikoreichste politische Prozess in der EU-Governance in den nächsten 24 Monaten. Entscheidungen im Kommissionsvorschlag vom September 2026 und den anschließenden Ratsverhandlungen werden die europäische öffentliche Finanzierungsarchitektur für 7 Jahre (2028–2034) prägen.
+
+---
+
+#### STRATEGISCHE IMPERATIVE
+
+**Unmittelbar (Mai–Juni 2026):**
+1. Kommissions-MFR-Vorbereitungszeitlinie überwachen — jede Verzögerung signalisiert politische Unentschlossenheit
+2. DMA-Durchsetzungsverfahren verfolgen — vorläufige Ergebnisse gegen Apple/Meta/Google sind der kurzfristige Auslöser
+3. G7 Kananaskis (Juni 2026): Ukraine-Rechenschaftspflicht und Handelsschutz stehen auf der Tagesordnung
+4. EP-Ausschuss-Anhörungsplan: BUDG/ECON-Ausschüsse halten Folgeanhörungen zu MFR und DMA ab
+
+**Mittelfristig (Q3–Q4 2026):**
+1. Kommissions-MFR-Vorschlag (September) — mit den Interimsbericht-Positionen des EP vergleichen
+2. EU-US-Handelsbeziehung: Bilaterale Zollverhandlungen; Dimension digitaler Dienste
+3. Ungarische Konditionalität: Bewertung der Kommission über Fortschritte bei der richterlichen Unabhängigkeit
+4. KI-Gesetz-Durchsetzungsbereitschaft: August 2026 ist der erste Anwendungsmeilenstein
+
+---
+
+#### ENTSCHEIDUNGSRISIKEN UND MINDERUNG
+
+**Risiko 1: MFR-Eigenmittel im Rat blockiert**
+*Wahrscheinlichkeit: 70% | Auswirkung: HOCH*
+Minderung: EP und unterstützende Mitgliedstaaten sollten jetzt informelle Unterstützung in der Ratsarbeitsgruppe aufbauen; vermeiden Sie, Eigenmittel zu einem binären roten Strich zu machen, der die gesamte MFR-Annahme blockiert.
+
+**Risiko 2: DMA-Durchsetzungsverzögerung unter US-Druck**
+*Wahrscheinlichkeit: 40% | Auswirkung: HOCH*
+Minderung: Die Kommission sollte Unabhängigkeit vom US-diplomatischen Druck signalisieren; parallele EU-US-Digitalhandelsverhandlungen können etwas Spannung abfedern, ohne die Durchsetzung zu gefährden.
+
+**Risiko 3: EP-Entlastungsverfahren eskaliert zu Misstrauensvotum**
+*Wahrscheinlichkeit: 15% | Auswirkung: SEHR HOCH*
+Minderung: Die Kommission muss substantiell auf kritische Entlastungsanmerkungen reagieren; der Entlastungszyklus 2025 (beginnt März 2027) wird der kritischste Schwachpunkt sein.
+
+---
+
+#### ANALYTISCHE KONFIDENZNIVEAUS
+
+| Thema | Konfidenz | Grundlage |
+|-------|-----------|-------|
+| Gesetzgebungsregister (angenommene Texte) | 🟢 HIGH | Direktes EP-offene Daten |
+| Politische Interpretation | 🟡 MEDIUM | Strukturelle Inferenz |
+| Wirtschaftliche Projektionen | 🟡 MEDIUM | IMF WEO-Wissensbasis |
+| Zukunftsszenarioanalyse | 🔴 LOW-MEDIUM | Probabilistisches Modellieren |
+
+*Erweiterte Zusammenfassung (Root) — 2026-05-14 Runde 2 | Konfidenz: 🟢 Hoch*
+
+#### ERGÄNZENDER KONTEXT FÜR SENIOR-ENTSCHEIDUNGSTRÄGER
+
+##### Warum diese Sitzung mehr bedeutet als typische Plenarsitzungen
+
+Die Sitzung vom 28.–30. April ist keine Routinegesetzgebungssitzung. Sie ist aus drei strukturellen Gründen bemerkenswert:
+
+**1. Simultaneität:** Fünf große Politikdomänen (Haushalt, Digital, Rechtsstaatlichkeit, Sicherheit, Rechenschaftspflicht) haben gleichzeitig Fortschritte gemacht. Dies geschieht selten — die meisten Plenarsitzungen treiben 1–2 Hauptthemen voran.
+
+**2. Kohärenz:** Die fünf Themen sind nicht zufällig zusammengestellt — sie teilen eine zugrunde liegende Logik (EU-institutionelle Selbstbehauptung vs. nationale Souveränität / US-Technologiemacht / russische Aggression). Diese Kohärenz gibt der Sitzung mehr strategisches Gewicht als die Summe der einzelnen Akte.
+
+**3. Präzedenzfallschaffung:** Mehrere Elemente schaffen rechtliche oder politische Präzedenzfälle, die künftige Maßnahmen prägen werden: DMA-Durchsetzungspräzedenz, kritische Entlastungsbeobachtungsformulierungen, MFR-Eigenmittel als Verhandlungsposition.
+
+**Zusammenfassung für Entscheidungsträger:** Behandeln Sie den 28.–30. April 2026 als strategische Absichtserklärung des EP für den Rest von EP10 (2024–2029). Alle nachfolgenden Gesetzgebungsaktivitäten werden im Schatten des Ehrgeizes dieser Sitzung stehen.
+
+*Erweiterte Root-Zusammenfassung — 2026-05-14 Runde 2*
+
+#### ABSCHLIESSENDE EXEKUTIVE NOTIZ
+
+**Drei Entscheidungen, die bestimmen, ob der Ehrgeiz vom 28.–30. April verwirklicht wird:**
+
+1. **Die MFR-Eigenmittel-Position des Deutschen Bundesfinanzministeriums** (Juni–September 2026): Die kalkulierte Offenheit oder der Widerstand Deutschlands wird die Obergrenze für die gesamte MFR-Verhandlung setzen. Keine andere Variable ist bedeutsamer.
+
+2. **Kommissions-DMA-Durchsetzungsentscheidungen gegen Apple** (Q3–Q4 2026): Die erste erfolgreiche DMA-Nichteinhaltungsentscheidung wird Durchsetzungsglaubwürdigkeit etablieren. Scheitern oder Verzögerung wird andere Gatekeeper zur Nichteinhaltung ermutigen.
+
+3. **G7 Kananaskis-Ukraine-Rechenschaftspflichtssprache** (Juni 2026): Die genaue G7-Formulierung zur Rechenschaftspflicht wird bestimmen, ob die rechtliche Architektur für ein Tribunal 2026–2027 aufgebaut werden kann oder auf ein verändertes internationales Klima warten muss.
+
+Diese drei Entscheidungen sind die Frühwarnindikatoren für die gesamte Umsetzungsbahn des Gesetzgebungspakets vom 28.–30. April.
+
+*Root-Zusammenfassung endgültig — 2026-05-14 Runde 2*
+
+**Hinweis an die Leser:** Diese Analyse wurde unter Zeit- und Datenbeschränkungen erstellt. Alle Prognosen sollten als orientierend und nicht als endgültig behandelt werden. Für den formellen politischen Gebrauch sollten wirtschaftliche Projektionen mit aktuellen IMF/EZB-Daten verifiziert werden.
+
+*Zusammenfassung — vollständig*
+
+**Zusammenfassung Endgültige Anlage:**
+
+Für jeden Entscheidungsträger, der nichts anderes in diesem Analysepaket liest: Die Plenarsitzung des Europäischen Parlaments vom 28.–30. April legt fest, dass das politische Zentrum der EU (EPP+S&D+Renew) auch in einem fragmentierten Parlament in der Lage bleibt, ehrgeizige, domänenübergreifende Gesetzgebung zu verabschieden. Das Zentrum hält. Ob es die schwierige Umsetzungsphase übersteht, ist die entscheidende Frage für 2026–2029.
+
+**Root-Zusammenfassung — endgültige Aktualisierung:**
+Alle fünf Prioritätsthemen der Plenarsitzung vom 28.–30. April sind nun vollständig im 39-Artefakt-Analysepaket analysiert. Entscheidungsträger, die eine tiefere Analyse eines einzelnen Themas benötigen, werden auf das entsprechende Artefakt verwiesen: MFR → executive-brief.md + pestle-analysis.md; DMA → threat-model.md + intelligence-assessment.md; Ukraine → political-threat-landscape.md + scenario-forecast.md; Rechtsstaatlichkeit → coalition-dynamics.md + historical-parallels.md; Entlastung → document-analysis-index.md + reference-analysis-quality.md.
+
+*Root-Zusammenfassung — endgültig, Runde 2 abgeschlossen*
+
+### Executive Brief Es
+
+### NOTICIA PRINCIPAL: El PE adopta un importante paquete legislativo — sesión plenaria 28–30 de abril de 2026
+
+La sesión plenaria del Parlamento Europeo del 28 al 30 de abril de 2026 en Bruselas produjo un resultado legislativo de densidad excepcional que incluía el informe intermedio sobre el marco financiero plurianual (MFP) 2028–2034, una amplia ronda de decisiones de aprobación de la gestión para 2024, mandatos para la aplicación de la Ley de Mercados Digitales y una serie de importantes resoluciones de política exterior. Esto representa la semana legislativa más productiva del Parlamento desde febrero de 2026.
+
+---
+
+### PRINCIPALES DESARROLLOS (por orden de prioridad)
+
+#### 1. Informe intermedio MFP 2028–2034 adoptado (28 de abril — TA-10-2026-0111) 🔴 CRÍTICO
+El Parlamento adoptó su informe intermedio sobre el Marco Financiero Plurianual 2028–2034, estableciendo así la base legislativa para el próximo ciclo presupuestario septenal de la UE. La votación señala la posición de negociación inicial del Parlamento antes de las propuestas formales del Consejo y la Comisión esperadas a finales de 2026. El informe intermedio es un movimiento de poder crítico: establece las líneas rojas, las prioridades de financiación y la influencia institucional que el Parlamento utilizará durante el trílogo.
+
+**Importancia estratégica:** El MFP cubre aproximadamente 1,2–1,4 billones EUR (estimado) en gastos de la Unión, incluidos los fondos de cohesión, subvenciones agrícolas, inversiones climáticas, capacidades de defensa e instrumentos de acción exterior y vecindad. La posición del Parlamento sobre recursos propios (tasa digital, ingresos del mecanismo de ajuste en frontera por carbono, impuesto sobre transacciones financieras) determinará si la UE puede financiar su ambiciosa agenda política sin profundizar la dependencia de las contribuciones nacionales.
+
+**Dinámica de coalición:** La dominancia del PPE en la Comisión de Presupuestos (BUDG) significa que el informe intermedio refleja una prudencia fiscal de centro-derecha combinada con inversiones específicas. S&D y Renew aseguraron formulaciones sobre cohesión social y transición verde. Las abstenciones o votos en contra de ECR y PfE señalan la continua presión de la derecha para redirigir fondos hacia la seguridad fronteriza y la autonomía estratégica.
+
+#### 2. Paquete de aprobación de gestión 2024 — semana de rendición de cuentas (29 de abril — Múltiples TAs) 🟡 ALTA
+El Parlamento aprobó un amplio conjunto de decisiones de aprobación de gestión para el ciclo presupuestario 2024 de la UE. Las decisiones clave incluyeron:
+- **TA-10-2026-0125**: Aprobación de la gestión de la Comisión — concedida con condiciones y observaciones críticas
+- **TA-10-2026-0126**: Propia aprobación de gestión del Parlamento — ejercicio de rendición de cuentas autorregulatoria
+- **TA-10-2026-0130**: Servicio Europeo de Acción Exterior (SEAE)
+- **TA-10-2026-0132**: Comité de las Regiones
+- **TA-10-2026-0133**: Defensor del Pueblo Europeo
+- **TA-10-2026-0135**: Fiscalía Europea (EPPO)
+- **TA-10-2026-0136**: Agencias de la UE (en conjunto)
+- **TA-10-2026-0137**: Empresas comunes (asociaciones de I+D)
+
+El procedimiento de aprobación de gestión representa el poder de control constitucional más directo del Parlamento sobre las instituciones de la UE. Las observaciones críticas vinculadas a la aprobación de la gestión de la Comisión señalan preocupaciones persistentes sobre la prevención del fraude, la presupuestación con perspectiva de género y la implementación de la condicionalidad del Estado de derecho.
+
+#### 3. Aplicación de la Ley de Mercados Digitales — El PE adopta una posición firme (30 de abril — TA-10-2026-0160) 🟡 ALTA
+El Parlamento adoptó una resolución sobre la aplicación de la Ley de Mercados Digitales (DMA) exigiendo acciones más estrictas de la Comisión contra los controladores de acceso de Big Tech. El momento es significativo: los procedimientos de aplicación de la DMA contra Alphabet (Google), Apple, Meta y Amazon se encuentran en puntos nodales críticos. El Parlamento presiona por plazos más rápidos, multas más elevadas y medidas correctoras estructurales incluidas las obligaciones de interoperabilidad.
+
+**Contexto económico:** La aplicación de la DMA afecta directamente al mercado único digital de la UE — estimado en 415 mil millones EUR anuales. Una aplicación efectiva puede liberar ganancias de competitividad para las empresas digitales europeas mientras protege a los consumidores de los efectos de bloqueo.
+
+#### 4. Informe sobre el Estado de Derecho 2025 y evaluación de los derechos fundamentales (29 de abril) 🟡 ALTA
+Las resoluciones consecutivas sobre el informe 2025 de la Comisión sobre el Estado de Derecho (TA-10-2026-0147) y la situación de los derechos fundamentales en 2024–2025 (TA-10-2026-0146) reflejan el intensificado control del Parlamento sobre los riesgos de retroceso democrático dentro de la UE. El informe sobre el Estado de Derecho citó preocupaciones sobre Hungría, Eslovaquia y partes de Europa Central y Oriental, al tiempo que señaló el deterioro de la libertad de prensa en varios Estados miembros.
+
+#### 5. Protección contra la competencia desleal de terceros países (29 de abril — TA-10-2026-0149) 🟡 MEDIA-ALTA
+El Parlamento respaldó una resolución sobre la protección de las empresas, empleos y productos de la UE contra la competencia desleal de terceros países. Esto está directamente relacionado con las tensiones comerciales UE-EE.UU. en curso tras las escaladas arancelarias de 2025 y las preocupaciones sobre las exportaciones industriales chinas subsidiadas por el Estado que se vierten en los mercados de la UE.
+
+#### 6. Resolución de rendición de cuentas sobre Ucrania y apoyo a Armenia (30 de abril) 🟡 MEDIA
+- **TA-10-2026-0161**: Garantizar la rendición de cuentas y la justicia en respuesta a los continuos ataques de Rusia contra civiles ucranianos — exige mecanismos penales internacionales robustos y marcos de confiscación de activos
+- **TA-10-2026-0162**: Apoyo a la resiliencia democrática en Armenia — señala la preocupación de la UE por la presión rusa sobre la soberanía armenia después de las elecciones de 2024
+
+---
+
+### PANORAMA DEL PAISAJE POLÍTICO (a 2026-05-14)
+
+| Grupo | Escaños | Cuota | Tendencia direccional |
+|-------|-------|-------|-------------------|
+| PPE | 183 | 25,5 % | Dominante; lidera posiciones del MFP, DMA, Estado de Derecho |
+| S&D | 136 | 19,0 % | Fuerte en lo social, observaciones de aprobación de gestión |
+| PfE | 85 | 11,9 % | Votó en contra de varias medidas del Estado de Derecho |
+| ECR | 81 | 11,3 % | Mixto; apoyo a la protección comercial, oposición al Estado de Derecho |
+| Renew | 77 | 10,7 % | Bloque bisagra clave en DMA y mercado único digital |
+| Greens/EFA | 53 | 7,4 % | Fuerte apoyo a la aplicación de la DMA, Estado de Derecho |
+| La Izquierda | 45 | 6,3 % | Apoyó observaciones críticas de aprobación de gestión |
+| NI | 30 | 4,2 % | Fragmentado; votación táctica |
+| ESN | 27 | 3,8 % | Extrema derecha; resistencia a medidas del Estado de Derecho |
+
+**Umbral de mayoría:** 360 escaños. No existe mayoría natural de dos bloques; la gran coalición PPE-S&D (319 escaños) se queda corta. La mayoría de las mayorías legislativas requieren como mínimo la configuración PPE + S&D + Renew.
+
+---
+
+### EVALUACIÓN ANALÍTICA
+
+La sesión plenaria del 28–30 de abril refleja un Parlamento que opera con notable confianza institucional: establece simultáneamente la arquitectura del presupuesto 2028–2034, hace rendir cuentas a las instituciones ejecutivas mediante la aprobación de gestión, presiona por la regulación del Big Tech y emite señales de política exterior dirigidas sobre Ucrania, Armenia y el Estado de Derecho. La densidad legislativa y la amplitud temática confirman que el 10.º Parlamento ha encontrado su ritmo legislativo a mitad de mandato.
+
+**Riesgo:** Las negociaciones sobre el MFP 2028–2034 dominarán el resto de esta legislatura. Las posiciones del informe intermedio del Parlamento probablemente encontrarán una firme oposición del Consejo en cuanto a los recursos propios, en particular el impuesto sobre las transacciones financieras. La tasa digital y los flujos de ingresos del CBAM como recursos propios representan el campo de batalla políticamente más controvertido.
+
+**Oportunidad:** El impulso para la aplicación de la DMA, si va acompañado de acciones de la Comisión, puede reposicionar a la UE como regulador global de referencia en materia de plataformas — generando 15–30 mil millones EUR anuales en costes de cumplimiento redistribuidos a consumidores y competidores.
+
+---
+
+*Fuentes: Portal de datos abiertos del PE — Flujo de textos adoptados (serie TA-10-2026); Análisis del paisaje político (composición EP10); analysis/daily/2026-05-14/breaking/data/*
+*Confianza: 🟢 Alta — Registro legislativo directo del PE*
+
+---
+
+### RESUMEN EJECUTIVO AMPLIADO (RAÍZ) — RONDA 2
+
+#### MENSAJES CLAVE PARA LA ALTA DIRECCIÓN
+
+**Mensaje principal:** La sesión plenaria del Parlamento Europeo del 28–30 de abril de 2026 representa el resultado legislativo más significativo del 10.º Parlamento hasta la fecha. La convergencia de la reforma presupuestaria, la aplicación de la regulación digital, la arquitectura del Estado de Derecho y la rendición de cuentas ucraniana en una sola sesión crea un impulso político acumulado.
+
+**Ruta crítica:** El debate del MFP es el proceso político de mayor riesgo en la gobernanza de la UE durante los próximos 24 meses. Las decisiones tomadas en la propuesta de la Comisión de septiembre de 2026 y las subsiguientes negociaciones del Consejo darán forma a la arquitectura de financiación pública europea durante 7 años (2028–2034).
+
+---
+
+#### IMPERATIVOS ESTRATÉGICOS
+
+**Inmediato (mayo–junio 2026):**
+1. Monitorear el calendario de preparación del MFP por parte de la Comisión — cualquier retraso señala vacilación política
+2. Seguir los procedimientos de aplicación de la DMA — los resultados preliminares contra Apple/Meta/Google son el desencadenante a corto plazo
+3. G7 Kananaskis (junio 2026): La rendición de cuentas de Ucrania y la protección comercial estarán en la agenda
+4. Calendario de audiencias de comités del PE: Las comisiones BUDG/ECON celebran audiencias de seguimiento sobre el MFP y la DMA
+
+**Medio plazo (T3–T4 2026):**
+1. Propuesta del MFP de la Comisión (septiembre) — comparar con las posiciones del informe intermedio del PE
+2. Relación comercial UE-EE.UU.: Negociaciones arancelarias bilaterales; dimensión de servicios digitales
+3. Condicionalidad húngara: Evaluación de la Comisión sobre los avances en la independencia judicial
+4. Preparación para la aplicación de la Ley de IA: Agosto de 2026 es el primer hito de aplicación
+
+---
+
+#### RIESGOS DE DECISIÓN Y MITIGACIÓN
+
+**Riesgo 1: Recursos propios del MFP bloqueados en el Consejo**
+*Probabilidad: 70% | Impacto: ALTO*
+Mitigación: El PE y los Estados miembros favorables deben ahora construir apoyo informal en el grupo de trabajo del Consejo; evitar hacer de los recursos propios una línea roja binaria que bloquee toda la adopción del MFP.
+
+**Riesgo 2: Retraso en la aplicación de la DMA bajo presión estadounidense**
+*Probabilidad: 40% | Impacto: ALTO*
+Mitigación: La Comisión debe señalar independencia de la presión diplomática estadounidense; las negociaciones comerciales digitales paralelas UE-EE.UU. pueden absorber cierta tensión sin comprometer la aplicación.
+
+**Riesgo 3: Los procedimientos de aprobación de gestión del PE escalan hacia una moción de censura**
+*Probabilidad: 15% | Impacto: MUY ALTO*
+Mitigación: La Comisión debe responder de manera sustantiva a las observaciones críticas de aprobación de gestión; el ciclo de aprobación de gestión 2025 (comienza marzo 2027) será el punto de vulnerabilidad más crítico.
+
+---
+
+#### NIVELES DE CONFIANZA ANALÍTICA
+
+| Tema | Confianza | Base |
+|-------|-----------|-------|
+| Registro legislativo (textos adoptados) | 🟢 HIGH | Datos abiertos directos del PE |
+| Interpretación política | 🟡 MEDIUM | Inferencia estructural |
+| Proyecciones económicas | 🟡 MEDIUM | Base de conocimiento IMF WEO |
+| Análisis de escenarios futuros | 🔴 LOW-MEDIUM | Modelización probabilística |
+
+*Resumen ejecutivo ampliado (Raíz) — 2026-05-14 Ronda 2 | Confianza: 🟢 Alta*
+
+#### CONTEXTO COMPLEMENTARIO PARA RESPONSABLES DE NIVEL SUPERIOR
+
+##### Por qué esta sesión importa más que las sesiones plenarias típicas
+
+La sesión del 28–30 de abril no es una sesión legislativa de rutina. Es notable por tres razones estructurales:
+
+**1. Simultaneidad:** Cinco grandes dominios políticos (presupuestario, digital, Estado de Derecho, seguridad, rendición de cuentas) avanzaron simultáneamente. Esto rara vez ocurre — la mayoría de las sesiones plenarias impulsan 1–2 temas principales.
+
+**2. Coherencia:** Los cinco temas no están reunidos al azar — comparten una lógica subyacente (autoafirmación institucional de la UE vs. soberanía nacional / poder tecnológico estadounidense / agresión rusa). Esta coherencia da a la sesión más peso estratégico que la suma de los actos individuales.
+
+**3. Creación de precedentes:** Varios elementos crean precedentes jurídicos o políticos que darán forma a acciones futuras: precedente de aplicación de la DMA, formulaciones de observaciones críticas de aprobación de gestión, recursos propios del MFP como posición de negociación.
+
+**Resumen para responsables de la toma de decisiones:** Considerar el 28–30 de abril de 2026 como la declaración de intención estratégica del PE para el resto del EP10 (2024–2029). Toda actividad legislativa posterior estará a la sombra de la ambición de esta sesión.
+
+*Resumen ejecutivo raíz ampliado — 2026-05-14 Ronda 2*
+
+#### NOTA EJECUTIVA FINAL
+
+**Tres decisiones que determinarán si la ambición del 28–30 de abril se materializa:**
+
+1. **La posición del Ministerio Federal de Finanzas alemán sobre los recursos propios del MFP** (junio–septiembre 2026): La apertura calculada o la resistencia de Alemania fijará el techo de toda la negociación del MFP. Ninguna otra variable importa más.
+
+2. **Las decisiones de aplicación de la DMA de la Comisión contra Apple** (T3–T4 2026): La primera decisión exitosa de incumplimiento de la DMA establecerá la credibilidad de la aplicación. El fracaso o el retraso alentará a otros controladores de acceso al incumplimiento.
+
+3. **El lenguaje del G7 Kananaskis sobre rendición de cuentas de Ucrania** (junio 2026): El lenguaje preciso del G7 sobre rendición de cuentas determinará si la arquitectura jurídica para un tribunal puede construirse en 2026–2027 o debe esperar a un entorno internacional modificado.
+
+Estas tres decisiones son los indicadores de alerta temprana para la trayectoria de implementación de todo el paquete legislativo del 28–30 de abril.
+
+*Resumen raíz final — 2026-05-14 Ronda 2*
+
+**Nota a los lectores:** Este análisis se ha producido bajo restricciones de tiempo y datos. Todas las proyecciones deben tratarse como orientativas y no definitivas. Para uso político formal, verificar las proyecciones económicas con datos actuales del IMF/BCE.
+
+*Resumen ejecutivo — completo*
+
+**Anexo final del resumen ejecutivo:**
+
+Para cualquier responsable de la toma de decisiones que no lea nada más en este paquete analítico: la sesión plenaria del Parlamento Europeo del 28–30 de abril establece que el centro político de la UE (PPE+S&D+Renew) sigue siendo capaz de adoptar legislación ambiciosa y multidimensional incluso en un Parlamento fragmentado. El centro se mantiene. Si se mantendrá durante el difícil período de implementación es la pregunta crítica para 2026–2029.
+
+**Resumen ejecutivo raíz — actualización final:**
+Las cinco preguntas prioritarias de la sesión plenaria del 28–30 de abril están ahora plenamente analizadas en el paquete analítico de 39 artefactos. Los responsables que necesiten análisis más profundos sobre una sola cuestión son remitidos al artefacto correspondiente: MFP → executive-brief.md + pestle-analysis.md; DMA → threat-model.md + intelligence-assessment.md; Ucrania → political-threat-landscape.md + scenario-forecast.md; Estado de Derecho → coalition-dynamics.md + historical-parallels.md; Aprobación de gestión → document-analysis-index.md + reference-analysis-quality.md.
+
+*Resumen ejecutivo raíz — definitivo, Ronda 2 completa*
+
+### Executive Brief Fi
+
+### PÄÄUUTINEN: EP hyväksyy tärkeän lainsäädäntöpaketin — täysistunto 28.–30. huhtikuuta 2026
+
+Euroopan parlamentin täysistunto 28.–30. huhtikuuta 2026 Brysselissä tuotti poikkeuksellisen tiiviin lainsäädäntökokonaisuuden, joka kattoi monivuotisen rahoituskehyksen (MFF) 2028–2034 väliaikaraportin, laajan kierroksen vastuuvapauspäätöksiä vuodelle 2024, toimeksiantoja digitaalisia markkina-alustoja koskevan lain täytäntöönpanolle sekä sarjan merkittäviä ulkopoliittisia päätöslauselmia. Tämä edustaa parlamentin peräkkäisintä lainsäädäntöviikkoa helmikuun 2026 jälkeen.
+
+---
+
+### TÄRKEIMMÄT TAPAHTUMAT (tärkeysjärjestyksessä)
+
+#### 1. MFF 2028–2034 Väliaikaraportti hyväksytty (28. huhtikuuta — TA-10-2026-0111) 🔴 KRIITTINEN
+Parlamentti hyväksyi väliaikaraporttinsa vuosien 2028–2034 monivuotisesta rahoituskehyksestä ja loi siten lainsäädäntöperustan seuraavalle seitsenvuotiselle EU-budjettisyklille. Äänestys ilmoittaa parlamentin alustavasta neuvottelupositiosta ennen virallisia neuvoston ja komission ehdotuksia, joita odotetaan vuoden 2026 loppupuolella. Väliaikaraportti on kriittinen valtasiirto: se asettaa punaiset viivat, rahoitusprioriteetteja ja institutionaalista vaikutusvaltaa, jota parlamentti käyttää kolmikantaneuvotteluissa.
+
+**Strateginen merkitys:** MFF kattaa arviolta 1,2–1,4 biljoonaa euroa unionin menoissa, mukaan lukien koheesiorahastot, maataloustuet, ilmastosijoitukset, puolustuskapasiteetti sekä naapuruus-/ulkoiset toimintainstrumentit. Parlamentin kanta omiin varoihin (digitaalinen maksu, hiiliraja-asetus, rahoitustransaktiovero) määrittää, voiko EU rahoittaa kunnianhimoisen politiikkaohjelmansa syventämättä riippuvuutta kansallisista maksuosuuksista.
+
+**Koalitionäkymät:** EPP:n valta-asema talousarviokomiteassa (BUDG) tarkoittaa, että väliaikaraportti heijastaa oikeistokeskustan finanssipoliittista varovaisuutta yhdistettynä kohdennettuihin investointeihin. S&D ja Renew varmistivat sosiaalista koheesiota ja vihreää siirtymää koskevat muotoilut. ECR:n ja PfE:n pidättäytyminen tai vastustaminen osoittavat jatkuvan oikeistopaineen ohjata varoja rajojen turvallisuuteen ja strategiseen autonomiaan.
+
+#### 2. Vastuuvapauspaketti 2024 — vastuullisuusviikko (29. huhtikuuta — Useita TAs-sopimuksia) 🟡 KORKEA
+Parlamentti hyväksyi laajan joukon vastuuvapauspäätöksiä vuoden 2024 EU-budjettisyklille. Keskeisiä päätöksiä olivat:
+- **TA-10-2026-0125**: Komission vastuuvapaus — myönnetty ehdoilla ja kriittisillä huomioilla
+- **TA-10-2026-0126**: Parlamentin oma vastuuvapaus — itsesäätelevä vastuullisuusharjoitus
+- **TA-10-2026-0130**: Euroopan ulkosuhdehallinto (EEAS)
+- **TA-10-2026-0132**: Alueiden komitea
+- **TA-10-2026-0133**: Euroopan oikeusasiamies
+- **TA-10-2026-0135**: Euroopan syyttäjänvirasto (EPPO)
+- **TA-10-2026-0136**: EU:n virastot (kokonaisuudessaan)
+- **TA-10-2026-0137**: Yhteisyritykset (T&K-kumppanuudet)
+
+Vastuuvapausmenettelyä edustaa parlamentin suorimmat perustuslailliset valvontavaltuudet EU-instituutioita kohtaan. Komission vastuuvapauteen liittyvät kriittiset huomiot osoittavat jatkuvia huolia petosvalvonnasta, sukupuolibudjetoinnista ja oikeusvaltioperiaatteen toteutumisesta.
+
+#### 3. Digitaalisia markkina-alustoja koskevan lain täytäntöönpano — EP ottaa tiukan kannan (30. huhtikuuta — TA-10-2026-0160) 🟡 KORKEA
+Parlamentti hyväksyi päätöslauselman digitaalisia markkina-alustoja koskevan lain (DMA) täytäntöönpanosta ja vaati tiukempia komission toimia suurten teknologiayritystenportinvartijoita vastaan. Ajoitus on tärkeä: DMA-täytäntöönpanomenettelyt Alphabetia (Google), Applea, Metaa ja Amazonia vastaan ovat kriittisessä vaiheessa. Parlamentti painostaa nopeampia aikatauluja, suurempia sakkoja ja rakenteellisia korjaustoimenpiteitä, mukaan lukien yhteentoimivuusvaatimukset.
+
+**Taloudellinen konteksti:** DMA:n täytäntöönpano vaikuttaa suoraan EU:n digitaalisiin sisämarkkinoihin — arviolta 415 miljardia euroa vuosittain. Tehokas täytäntöönpano voi vapauttaa kilpailuetuja eurooppalaisille digitaalisille yrityksille samalla, kun kuluttajia suojataan lukkiutumisvaikutuksilta.
+
+#### 4. Oikeusvaltioperiaateraportti 2025 ja perusoikeuksien arviointi (29. huhtikuuta) 🟡 KORKEA
+Peräkkäiset päätöslauselmat komission oikeusvaltioperiaateraportista 2025 (TA-10-2026-0147) ja perusoikeuksien tilanteesta 2024–2025 (TA-10-2026-0146) heijastavat parlamentin tehostunutta valvontaa demokratian taantumisen riskien suhteen EU:ssa. Oikeusvaltioperiaateraportissa nostettiin esiin huolia Unkarista, Slovakiasta ja osista Keski- ja Itä-Eurooppaa, samalla kun se merkitsi pahenevaa lehdistönvapautta useissa jäsenvaltioissa.
+
+#### 5. Suoja epäreilulta kolmansien maiden kilpailulta (29. huhtikuuta — TA-10-2026-0149) 🟡 KESKI-KORKEA
+Parlamentti tuki päätöslauselmaa EU-yritysten, työpaikkojen ja tuotteiden suojaamisesta epäreilulta kolmansien maiden kilpailulta. Tämä liittyy suoraan EU:n ja USA:n kauppajännitteisiin tullien eskaloitumisen jälkeen vuonna 2025 sekä huoliin Kiinan valtion tukemien teollisuusvientien dumpaamisesta EU-markkinoille.
+
+#### 6. Ukrainan vastuupäätöslauselma ja Armenian tuki (30. huhtikuuta) 🟡 KESKI
+- **TA-10-2026-0161**: Vastuuvelvollisuuden ja oikeuden varmistaminen vastauksena Venäjän jatkuviin hyökkäyksiin ukrainalaisia siviileitä vastaan — vaatii vahvoja kansainvälisiä rikosasioiden mekanismeja ja omaisuuden takavarikointia koskevia puitteita
+- **TA-10-2026-0162**: Demokraattisen kestävyyden tukeminen Armeniassa — osoittaa EU:n huolen Venäjän paineesta Armenian suvereniteettiin vuoden 2024 vaalien jälkeen
+
+---
+
+### POLIITTISEN MAISEMAN YLEISKATSAUS (2026-05-14 tietoihin perustuen)
+
+| Ryhmä | Paikat | Osuus | Suuntaus |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25,5% | Hallitseva; johtaa MFF-, DMA-, oikeusvaltiokantoja |
+| S&D | 136 | 19,0% | Vahva sosiaalisissa asioissa, vastuuvapaushuomioissa |
+| PfE | 85 | 11,9% | Äänesti useita oikeusvaltiomenettelyjä vastaan |
+| ECR | 81 | 11,3% | Hajanainen; kauppasuojan tuki, oikeusvaltion vastustus |
+| Renew | 77 | 10,7% | Keskeinen kääntöblokki DMA:ssa ja digitaalisissa sisämarkkinoissa |
+| Greens/EFA | 53 | 7,4% | Vahvasti DMA:n täytäntöönpanon ja oikeusvaltion puolesta |
+| Vasemmisto | 45 | 6,3% | Tuki kriittisiä vastuuvapaushuomioita |
+| NI | 30 | 4,2% | Hajanainen; taktinen äänestys |
+| ESN | 27 | 3,8% | Äärioikeisto; vastustaa oikeusvaltiomenettelyjä |
+
+**Enemmistökynnys:** 360 paikkaa. Luonnollista kahden lohkon enemmistöä ei ole; EPP-S&D suurkoalitio (319 paikkaa) jää vajaaksi. Useimmat lainsäädännölliset enemmistöt edellyttävät vähintään EPP + S&D + Renew-kokoonpanoa.
+
+---
+
+### ANALYYTTINEN ARVIO
+
+Täysistunto 28.–30. huhtikuuta heijastaa parlamenttia, joka toimii huomattavalla institutionaalisella itsevarmuudella: se asettaa samanaikaisesti arkkitehtuurin budjetille 2028–2034, pitää toimeenpanevat elimet vastuullisina vastuuvapausmenettelyn kautta, painostaa suurten teknologiayritysten sääntelyssä ja antaa kohdennettuja ulkopoliittisia signaaleja Ukrainasta, Armeniasta ja oikeusvaltiosta. Lainsäädäntötiheys ja temaattinen laajuus vahvistavat, että 10. parlamentti on löytänyt lainsäädäntörytminsä puolivälissä.
+
+**Riski:** MFF 2028–2034-neuvottelut hallitsevat tämän parlamenttikauden lopputulosta. Parlamentin väliaikaraportin kannat kohtaavat todennäköisesti määrätietoisen neuvoston vastustuksen omien varojen suhteen, erityisesti rahoitustransaktioveron osalta. Digitaalinen maksu ja CBAM-tulovirrat omina varoina edustavat poliittisesti kiistanalaisinta taistelukenttää.
+
+**Mahdollisuus:** DMA-täytäntöönpanopaine, jos komission toimet vastaavat siihen, voi uudelleen positioida EU:n globaaliksi alustasääntelyn standardiasettajaksi — tuottaen 15–30 miljardia euroa vuosittain vaatimustenmukaisuuskustannuksina, jotka jaetaan uudelleen kuluttajille ja kilpailijoille.
+
+---
+
+*Lähteet: EP:n avoin dataporttaali — Hyväksyttyjen tekstien syöte (TA-10-2026-sarja); Poliittisen maiseman analyysi (EP10:n kokoonpano); analysis/daily/2026-05-14/breaking/data/*
+*Luottamus: 🟢 Korkea — Suora EP:n lainsäädäntörekisteri*
+
+---
+
+### LAAJENNETTU JOHTOTIIVISTELMÄ (JUURI) — KIERROS 2
+
+#### AVAINVIESTIT YLIMMÄLLE JOHDOLLE
+
+**Pääviesti:** Euroopan parlamentin täysistunto 28.–30. huhtikuuta 2026 edustaa 10. parlamentin tähän mennessä merkittävintä lainsäädäntötuotantoa. Budjettireformin, digitaalisen sääntelyn täytäntöönpanon, oikeusvaltiollisen arkkitehtuurin ja ukrainalaisen vastuullisuuden konvergenssi yhdessä istunnossa luo yhdistynyttä poliittista momentumia.
+
+**Kriittinen polku:** MFF-debatti on korkeasuhdanteisin poliittinen prosessi EU:n hallinnossa seuraavien 24 kuukauden aikana. Komission syyskuun 2026 ehdotuksessa tehdyt päätökset ja sitä seuraavat neuvostoneuvottelut muovaavat eurooppalaisen julkisen rahoituksen arkkitehtuuria 7 vuodeksi (2028–2034).
+
+---
+
+#### STRATEGISET IMPERATIIVIT
+
+**Välittömästi (toukokuu–kesäkuu 2026):**
+1. Seuraa komission MFF-valmisteluaikataulua — viivästys merkitsee poliittista epävarmuutta
+2. Seuraa DMA-täytäntöönpanomenettelyjä — Applen/Metan/Googlen alustavat tulokset ovat lähiajan katalysaattori
+3. G7 Kananaskis (kesäkuu 2026): Ukrainan vastuullisuus ja kauppasuoja ovat asialistalla
+4. EP-valiokunnan kuulemisaikataulu: BUDG/ECON-valiokunnat järjestävät seurantakuulemisia MFF:stä ja DMA:sta
+
+**Keskipitkä aika (Q3–Q4 2026):**
+1. Komission MFF-ehdotus (syyskuu) — vertaa EP:n väliaikaraportin kantoihin
+2. EU-USA kauppasuhteet: Kahdenväliset tullineuvottelut; digitaalisten palvelujen ulottuvuus
+3. Unkarin ehdollisuus: Komission arviointi oikeudellisen riippumattomuuden edistymisestä
+4. Tekoälylain täytäntöönpanovalmiudet: Elokuu 2026 on ensimmäinen soveltamisvaihe
+
+---
+
+#### PÄÄTÖSRISKIT JA LIEVENTÄMISTOIMET
+
+**Riski 1: MFF:n omat varat blokattu neuvostossa**
+*Todennäköisyys: 70% | Vaikutus: KORKEA*
+Lieventäminen: EP:n ja tukevien jäsenvaltioiden tulisi nyt rakentaa epävirallista tukea neuvoston työryhmässä; vältä tekemästä omista varoista binaaristä punaista viivaa, joka estää koko MFF:n hyväksymisen.
+
+**Riski 2: DMA-täytäntöönpanoviivästys USA:n painostuksen alla**
+*Todennäköisyys: 40% | Vaikutus: KORKEA*
+Lieventäminen: Komission tulisi ilmoittaa riippumattomuutensa USA:n diplomaattisesta paineesta; rinnakkaiset EU-USA digitaaliset kauppaneuvottelut voivat absorboida jonkin verran jännitystä heikentämättä täytäntöönpanoa.
+
+**Riski 3: EP:n vastuuvapausmenettely eskaloituu epäluottamuksen äänestäjäksi**
+*Todennäköisyys: 15% | Vaikutus: ERITTÄIN KORKEA*
+Lieventäminen: Komission on vastattava perustellusti kriittisiin vastuuvapaushuomioihin; vastuuvapaussykli 2025 (alkaa maaliskuussa 2027) on kriittisin haavoittuvuuspiste.
+
+---
+
+#### ANALYYTTINEN LUOTTAMUSTASO
+
+| Aihe | Luottamus | Perusta |
+|-------|-----------|-------|
+| Lainsäädäntörekisteri (hyväksytyt tekstit) | 🟢 HIGH | Suoraan EP:n avoin data |
+| Poliittinen tulkinta | 🟡 MEDIUM | Rakenteellinen päättely |
+| Taloudelliset ennusteet | 🟡 MEDIUM | IMF WEO-tietokanta |
+| Tulevaisuuden skenaarioanalyysi | 🔴 LOW-MEDIUM | Todennäköisyysmalli |
+
+*Laajennettu johtotiivistelmä (juuri) — 2026-05-14 Kierros 2 | Luottamus: 🟢 Korkea*
+
+#### TÄYDENTÄVÄ KONTEKSTI YLIMMÄLLE JOHDOLLE
+
+##### Miksi tämä istunto merkitsee enemmän kuin tyypilliset täysistunnot
+
+Istunto 28.–30. huhtikuuta ei ole tavanomainen lainsäädäntöistunto. Se on huomionarvoinen kolmesta rakenteellisesta syystä:
+
+**1. Samanaikaisuus:** Viisi suurta politiikka-aluetta (taloudellinen, digitaalinen, oikeusvaltiollinen, turvallisuus, vastuullisuus) edistyivät samanaikaisesti. Tämä tapahtuu harvoin — useimmat täysistunnot käsittelevät 1–2 pääasiaa.
+
+**2. Koherenssi:** Viisi kysymystä ei ole sattumanvaraisesti koottu yhteen — ne jakavat taustalla olevan logiikan (EU:n institutionaalinen itsepuolustus vs. kansallinen suvereniteetti / USA:n teknologiavalta / Venäjän aggressio). Tämä koherenssi antaa istunnolle enemmän strategista painoa kuin yksittäisten toimien summa.
+
+**3. Ennakkoaapon luominen:** Useat elementit luovat oikeudellisia tai poliittisia ennakkotapauksia, jotka muovaavat tulevia toimia: DMA-täytäntöönpanoennakkotapaus, vastuuvapausarvion kriittiset huomiomuotoilut, MFF:n omat varat neuvotteluasemana.
+
+**Päättäjien yhteenveto:** Käsittele 28.–30. huhtikuuta 2026 EP:n strategisena aikomusilmoituksena EP10:n (2024–2029) loppuosalle. Kaikki myöhempi lainsäädäntötoiminta on tämän istunnon kunnianhimon varjossa.
+
+*Laajennettu juuri johtotiivistelmä — 2026-05-14 Kierros 2*
+
+#### LOPULLINEN JOHTOHUOMAUTUS
+
+**Kolme päätöstä, jotka ratkaisevat, toteutuuko 28.–30. huhtikuun kunnianhimo:**
+
+1. **Saksan valtiovarainministeriön MFF:n omia varoja koskeva kanta** (kesäkuu–syyskuu 2026): Saksan arvioitu avoimuus tai vastustus asettaa katon koko MFF-neuvottelulle. Mikään muu muuttuja ei merkitse enemmän.
+
+2. **Komission DMA-täytäntöönpanopäätökset Applea vastaan** (Q3–Q4 2026): Ensimmäinen onnistunut DMA-noudattamattomuuspäätös luo täytäntöönpanon uskottavuuden. Epäonnistuminen tai viivästys rohkaisee muita portinvartijoita noudattamattomuuteen.
+
+3. **G7 Kananaskis Ukrainan vastuusopimuksen sanamuoto** (kesäkuu 2026): Tarkka G7-sanamuoto vastuullisuudesta ratkaisee, voidaanko tuomioistuimen oikeudellinen arkkitehtuuri rakentaa 2026–2027 vai onko odotettava muuttunutta kansainvälistä ilmapiiriä.
+
+Nämä kolme päätöstä ovat koko 28.–30. huhtikuun lainsäädäntöpaketin toimeenpanon varhaisia varoitusindikaattoreita.
+
+*Juuri johtotiivistelmä lopullinen — 2026-05-14 Kierros 2*
+
+**Huomautus lukijoille:** Tämä analyysi on tuotettu aika- ja datarajoitusten alaisena. Kaikkia ennusteita tulee käsitellä ohjeellisina, ei lopullisina. Virallista politiikkakäyttöä varten tarkista taloudelliset ennusteet ajantasaisesta IMF/EKP-datasta.
+
+*Johtotiivistelmä — täydellinen*
+
+**Johtotiivistelmän lopullinen lisäys:**
+
+Kaikille päättäjille, jotka eivät lue mitään muuta tässä analyysipakkauksessa: Euroopan parlamentin täysistunto 28.–30. huhtikuuta vahvistaa, että EU:n poliittinen keskusta (EPP+S&D+Renew) pystyy edelleen hyväksymään kunnianhimoista, monia alueita kattavaa lainsäädäntöä jopa hajanaisessa parlamentissa. Keskusta pitää. Se, pitääkö se vaikean toimeenpanokauden läpi, on kriittinen 2026–2029-kysymys.
+
+**Juuri johtotiivistelmä — lopullinen päivitys:**
+Kaikki viisi täysistunnon 28.–30. huhtikuuta prioriteettikysymystä on nyt täysin analysoitu 39-artefaktin analyysipakkauksessa. Päättäjät, jotka tarvitsevat syvempää analyysiä yhdestä kysymyksestä, viittaavat vastaavaan artefaktiin: MFF → executive-brief.md + pestle-analysis.md; DMA → threat-model.md + intelligence-assessment.md; Ukraina → political-threat-landscape.md + scenario-forecast.md; Oikeusvaltioperiaate → coalition-dynamics.md + historical-parallels.md; Vastuuvapaus → document-analysis-index.md + reference-analysis-quality.md.
+
+*Juuri johtotiivistelmä — lopullinen, Kierros 2 valmis*
+
+### Executive Brief Fr
+
+### ÉVÉNEMENT PRINCIPAL : Le PE adopte un important paquet législatif — session plénière 28–30 avril 2026
+
+La session plénière du Parlement européen du 28 au 30 avril 2026 à Bruxelles a produit un résultat législatif d'une densité exceptionnelle comprenant le rapport intérimaire sur le cadre financier pluriannuel (CFP) 2028–2034, un large cycle de décisions de décharge pour 2024, des mandats pour l'application de la loi sur les marchés numériques ainsi qu'une série de résolutions de politique étrangère importantes. Cela représente la semaine législative la plus productive du Parlement depuis février 2026.
+
+---
+
+### PRINCIPAUX ÉVÉNEMENTS (par ordre de priorité)
+
+#### 1. Rapport intérimaire CFP 2028–2034 adopté (28 avril — TA-10-2026-0111) 🔴 CRITIQUE
+Le Parlement a adopté son rapport intérimaire sur le cadre financier pluriannuel 2028–2034, posant ainsi la base législative pour le prochain cycle budgétaire septennal de l'UE. Le vote signale la position de négociation initiale du Parlement avant les propositions formelles du Conseil et de la Commission attendues fin 2026. Le rapport intérimaire constitue un coup de force institutionnel critique : il fixe les lignes rouges, les priorités de financement et l'influence institutionnelle que le Parlement mobilisera lors du trilogue.
+
+**Importance stratégique :** Le CFP couvre environ 1 200–1 400 milliards EUR (estimé) de dépenses de l'Union, incluant les fonds de cohésion, les aides agricoles, les investissements climatiques, les capacités de défense et les instruments d'action extérieure. La position du Parlement sur les ressources propres (taxe numérique, recettes du mécanisme d'ajustement carbone aux frontières, taxe sur les transactions financières) déterminera si l'UE peut financer son ambitieux programme politique sans approfondir la dépendance aux contributions nationales.
+
+**Dynamique de coalition :** La domination du PPE au sein de la commission des budgets (BUDG) signifie que le rapport intérimaire reflète une prudence budgétaire de centre-droit associée à des investissements ciblés. Les délégations S&D et Renew ont obtenu des formulations sur la cohésion sociale et la transition verte. Les abstentions ou votes contre de l'ECR et de PfE signalent la pression continue de la droite pour réorienter les fonds vers la sécurité aux frontières et l'autonomie stratégique.
+
+#### 2. Paquet de décharge 2024 — semaine de responsabilité (29 avril — Multiples TAs) 🟡 ÉLEVÉE
+Le Parlement a approuvé un large ensemble de décisions de décharge pour le cycle budgétaire 2024 de l'UE. Les décisions clés comprennent :
+- **TA-10-2026-0125** : Décharge de la Commission — accordée avec des conditions et des observations critiques
+- **TA-10-2026-0126** : Propre décharge du Parlement — exercice d'autocontrôle de responsabilité
+- **TA-10-2026-0130** : Service européen pour l'action extérieure (SEAE)
+- **TA-10-2026-0132** : Comité des régions
+- **TA-10-2026-0133** : Médiateur européen
+- **TA-10-2026-0135** : Parquet européen (EPPO)
+- **TA-10-2026-0136** : Agences de l'UE (ensemble)
+- **TA-10-2026-0137** : Entreprises communes (partenariats R&D)
+
+La procédure de décharge représente le pouvoir de contrôle constitutionnel le plus direct du Parlement sur les institutions de l'UE. Les observations critiques liées à la décharge de la Commission signalent des préoccupations persistantes concernant la lutte contre la fraude, la budgétisation sensible au genre et la mise en œuvre de la conditionnalité liée à l'état de droit.
+
+#### 3. Application de la loi sur les marchés numériques — Le PE adopte une position ferme (30 avril — TA-10-2026-0160) 🟡 ÉLEVÉE
+Le Parlement a adopté une résolution sur l'application de la loi sur les marchés numériques (DMA) en exigeant des mesures plus strictes de la Commission contre les contrôleurs d'accès Big Tech. Le calendrier est significatif : les procédures d'application de la DMA contre Alphabet (Google), Apple, Meta et Amazon se trouvent à des nœuds critiques. Le Parlement pousse pour des délais plus courts, des amendes plus élevées et des mesures correctives structurelles incluant des obligations d'interopérabilité.
+
+**Contexte économique :** L'application du DMA affecte directement le marché numérique unique de l'UE — estimé à 415 milliards EUR par an. Une application effective peut libérer des gains de compétitivité pour les entreprises numériques européennes tout en protégeant les consommateurs des effets de verrouillage.
+
+#### 4. Rapport sur l'état de droit 2025 et évaluation des droits fondamentaux (29 avril) 🟡 ÉLEVÉE
+Des résolutions consécutives sur le rapport 2025 sur l'état de droit de la Commission (TA-10-2026-0147) et la situation des droits fondamentaux en 2024–2025 (TA-10-2026-0146) reflètent le contrôle intensifié du Parlement sur les risques de recul démocratique au sein de l'UE. Le rapport sur l'état de droit a cité des préoccupations concernant la Hongrie, la Slovaquie et des parties de l'Europe centrale et orientale, tout en signalant une dégradation de la liberté de la presse dans plusieurs États membres.
+
+#### 5. Protection contre la concurrence déloyale de pays tiers (29 avril — TA-10-2026-0149) 🟡 MOYEN-ÉLEVÉE
+Le Parlement a soutenu une résolution sur la protection des entreprises, des emplois et des produits de l'UE contre la concurrence déloyale de pays tiers. Cela est directement lié aux tensions commerciales UE-États-Unis persistantes après les escalades tarifaires de 2025 et aux préoccupations concernant les exportations industrielles chinoises subventionnées par l'État qui sont déversées sur les marchés de l'UE.
+
+#### 6. Résolution sur la responsabilité de l'Ukraine et soutien à l'Arménie (30 avril) 🟡 MOYEN
+- **TA-10-2026-0161** : Garantir la responsabilité et la justice en réponse aux attaques continues de la Russie contre des civils ukrainiens — appelle à des mécanismes pénaux internationaux robustes et des cadres de confiscation d'actifs
+- **TA-10-2026-0162** : Soutien à la résilience démocratique en Arménie — signale la préoccupation de l'UE face à la pression russe sur la souveraineté arménienne après les élections de 2024
+
+---
+
+### APERÇU DU PAYSAGE POLITIQUE (au 2026-05-14)
+
+| Groupe | Sièges | Part | Tendance directionnelle |
+|-------|-------|-------|-------------------|
+| PPE | 183 | 25,5 % | Dominant ; dirige les positions CFP, DMA, état de droit |
+| S&D | 136 | 19,0 % | Fort sur le social, les observations de décharge |
+| PfE | 85 | 11,9 % | A voté contre plusieurs mesures d'état de droit |
+| ECR | 81 | 11,3 % | Mixte ; soutien à la protection commerciale, opposition à l'état de droit |
+| Renew | 77 | 10,7 % | Bloc pivot clé sur la DMA et le marché numérique unique |
+| Greens/EFA | 53 | 7,4 % | Fortement pour l'application de la DMA, l'état de droit |
+| La Gauche | 45 | 6,3 % | A soutenu les observations critiques de décharge |
+| NI | 30 | 4,2 % | Fragmenté ; votes tactiques |
+| ESN | 27 | 3,8 % | Extrême droite ; résistance aux mesures d'état de droit |
+
+**Seuil de majorité :** 360 sièges. Il n'existe pas de majorité naturelle à deux blocs ; la grande coalition PPE-S&D (319 sièges) est insuffisante. La plupart des majorités législatives nécessitent au minimum la configuration PPE + S&D + Renew.
+
+---
+
+### ÉVALUATION ANALYTIQUE
+
+La session plénière du 28–30 avril reflète un Parlement qui opère avec une remarquable confiance institutionnelle : il fixe simultanément l'architecture du budget 2028–2034, tient les institutions exécutives responsables via la décharge, pousse à la régulation du Big Tech et émet des signaux de politique étrangère ciblés sur l'Ukraine, l'Arménie et l'état de droit. La densité législative et la largeur thématique confirment que le 10e Parlement a trouvé son rythme législatif à mi-mandat.
+
+**Risque :** Les négociations sur le CFP 2028–2034 domineront le reste de cette législature. Les positions du rapport intérimaire du Parlement rencontreront probablement une opposition ferme du Conseil sur les ressources propres, en particulier la taxe sur les transactions financières. La taxe numérique et les flux de revenus CBAM comme ressources propres représentent le terrain de bataille politiquement le plus controversé.
+
+**Opportunité :** La pression pour l'application de la DMA, si elle est associée aux actions de la Commission, peut repositionner l'UE comme normalisateur mondial de la régulation des plateformes — générant 15–30 milliards EUR par an en coûts de mise en conformité redistribués aux consommateurs et concurrents.
+
+---
+
+*Sources : Portail des données ouvertes du PE — Flux des textes adoptés (série TA-10-2026) ; Analyse du paysage politique (composition EP10) ; analysis/daily/2026-05-14/breaking/data/*
+*Confiance : 🟢 Élevée — Registre législatif direct du PE*
+
+---
+
+### RÉSUMÉ EXÉCUTIF ÉTENDU (RACINE) — TOUR 2
+
+#### MESSAGES CLÉS À LA DIRECTION GÉNÉRALE
+
+**Message principal :** La session plénière du Parlement européen du 28–30 avril 2026 représente le résultat législatif le plus important du 10e Parlement à ce jour. La convergence de la réforme budgétaire, de l'application de la réglementation numérique, de l'architecture de l'état de droit et de la responsabilité ukrainienne en une seule session crée un élan politique cumulatif.
+
+**Chemin critique :** Le débat sur le CFP est le processus politique à plus hauts enjeux dans la gouvernance de l'UE au cours des 24 prochains mois. Les décisions prises dans la proposition de la Commission de septembre 2026 et les négociations du Conseil qui suivent façonneront l'architecture de financement public européen pour 7 ans (2028–2034).
+
+---
+
+#### IMPÉRATIFS STRATÉGIQUES
+
+**Immédiat (mai–juin 2026) :**
+1. Surveiller le calendrier de préparation du CFP par la Commission — tout retard signale une hésitation politique
+2. Suivre les procédures d'application de la DMA — les résultats préliminaires contre Apple/Meta/Google sont le déclencheur à court terme
+3. G7 Kananaskis (juin 2026) : La responsabilité ukrainienne et la protection commerciale seront à l'ordre du jour
+4. Calendrier d'auditions des commissions du PE : les commissions BUDG/ECON tiennent des auditions de suivi sur le CFP et la DMA
+
+**Moyen terme (T3–T4 2026) :**
+1. Proposition CFP de la Commission (septembre) — comparer avec les positions du rapport intérimaire du PE
+2. Relation commerciale UE-États-Unis : Négociations bilatérales sur les tarifs ; dimension des services numériques
+3. Conditionnalité hongroise : Évaluation par la Commission des progrès pour l'indépendance judiciaire
+4. Préparation à l'application de la loi sur l'IA : Août 2026 est le premier jalon d'application
+
+---
+
+#### RISQUES DE DÉCISION ET ATTÉNUATION
+
+**Risque 1 : Ressources propres du CFP bloquées au Conseil**
+*Probabilité : 70 % | Impact : ÉLEVÉ*
+Atténuation : Le PE et les États membres favorables devraient maintenant constituer un soutien informel dans le groupe de travail du Conseil ; éviter de faire des ressources propres une ligne rouge binaire qui bloquerait l'adoption globale du CFP.
+
+**Risque 2 : Retard dans l'application de la DMA sous pression américaine**
+*Probabilité : 40 % | Impact : ÉLEVÉ*
+Atténuation : La Commission devrait signaler son indépendance vis-à-vis de la pression diplomatique américaine ; les négociations commerciales numériques UE-États-Unis parallèles peuvent absorber une partie de la tension sans compromettre l'application.
+
+**Risque 3 : Les procédures de décharge du PE escaladent vers une motion de censure**
+*Probabilité : 15 % | Impact : TRÈS ÉLEVÉ*
+Atténuation : La Commission doit répondre de manière substantielle aux observations critiques de décharge ; le cycle de décharge 2025 (commençant mars 2027) sera le moment de vulnérabilité le plus critique.
+
+---
+
+#### NIVEAUX DE CONFIANCE ANALYTIQUE
+
+| Sujet | Confiance | Base |
+|-------|-----------|-------|
+| Registre législatif (textes adoptés) | 🟢 HIGH | Données ouvertes directes du PE |
+| Interprétation politique | 🟡 MEDIUM | Inférence structurelle |
+| Projections économiques | 🟡 MEDIUM | Base de connaissances IMF WEO |
+| Analyse de scénarios futurs | 🔴 LOW-MEDIUM | Modélisation probabiliste |
+
+*Résumé exécutif étendu (Racine) — 2026-05-14 Tour 2 | Confiance : 🟢 Élevée*
+
+#### CONTEXTE COMPLÉMENTAIRE POUR LES DÉCIDEURS SENIORS
+
+##### Pourquoi cette session est plus importante que les sessions plénières typiques
+
+La session du 28–30 avril n'est pas une session législative de routine. Elle est remarquable pour trois raisons structurelles :
+
+**1. Simultanéité :** Cinq grands domaines politiques (budget, numérique, état de droit, sécurité, responsabilité) ont progressé simultanément. Cela arrive rarement — la plupart des sessions plénières font avancer 1–2 questions principales.
+
+**2. Cohérence :** Les cinq questions ne sont pas réunies aléatoirement — elles partagent une logique sous-jacente (auto-affirmation institutionnelle de l'UE vs. souveraineté nationale / puissance technologique américaine / agression russe). Cette cohérence donne à la session plus de poids stratégique que la somme des actes individuels.
+
+**3. Création de précédents :** Plusieurs éléments créent des précédents juridiques ou politiques qui façonneront les actions futures : précédent d'application de la DMA, formulations des observations critiques de décharge, ressources propres du CFP comme position de négociation.
+
+**Résumé pour les décideurs :** Traitez le 28–30 avril 2026 comme la déclaration d'intention stratégique du PE pour le reste de l'EP10 (2024–2029). Toute activité législative ultérieure s'inscrira dans l'ombre de l'ambition de cette session.
+
+*Résumé racine exécutif étendu — 2026-05-14 Tour 2*
+
+#### NOTE EXÉCUTIVE FINALE
+
+**Trois décisions qui détermineront si l'ambition du 28–30 avril se réalise :**
+
+1. **La position du Ministère fédéral des finances allemand sur les ressources propres du CFP** (juin–septembre 2026) : L'ouverture calculée ou la résistance de l'Allemagne fixera le plafond de toute la négociation CFP. Aucune autre variable n'importe davantage.
+
+2. **Les décisions d'application de la DMA de la Commission contre Apple** (T3–T4 2026) : La première décision de non-conformité DMA réussie établira la crédibilité d'application. Un échec ou un retard encouragera les autres contrôleurs d'accès à ne pas se conformer.
+
+3. **Le libellé de responsabilité ukrainienne du G7 Kananaskis** (juin 2026) : Le libellé précis du G7 sur la responsabilité déterminera si l'architecture juridique d'un tribunal peut être construite en 2026–2027 ou devra attendre un environnement international modifié.
+
+Ces trois décisions sont les indicateurs d'alerte précoce pour la trajectoire de mise en œuvre de l'ensemble du paquet législatif du 28–30 avril.
+
+*Résumé racine final — 2026-05-14 Tour 2*
+
+**Note aux lecteurs :** Cette analyse a été produite sous des contraintes de temps et de données. Toutes les projections doivent être traitées comme indicatives plutôt que définitives. Pour une utilisation politique formelle, vérifier les projections économiques par rapport aux données actuelles du IMF/BCE.
+
+*Résumé exécutif — complet*
+
+**Annexe finale du résumé exécutif :**
+
+Pour tout décideur ne lisant rien d'autre dans ce paquet analytique : la session plénière du Parlement européen du 28–30 avril établit que le centre politique de l'UE (PPE+S&D+Renew) reste capable d'adopter une législation ambitieuse et multi-domaines même dans un Parlement fragmenté. Le centre tient. Savoir s'il tiendra tout au long de la difficile période de mise en œuvre est la question critique pour 2026–2029.
+
+**Résumé racine exécutif — mise à jour finale :**
+Les cinq questions prioritaires de la session plénière du 28–30 avril sont maintenant pleinement analysées dans le paquet analytique de 39 artefacts. Les décideurs nécessitant une analyse plus approfondie d'une seule question sont renvoyés à l'artefact correspondant : CFP → executive-brief.md + pestle-analysis.md ; DMA → threat-model.md + intelligence-assessment.md ; Ukraine → political-threat-landscape.md + scenario-forecast.md ; État de droit → coalition-dynamics.md + historical-parallels.md ; Décharge → document-analysis-index.md + reference-analysis-quality.md.
+
+*Résumé racine exécutif — définitif, Tour 2 complet*
+
+### Executive Brief He
+
+**תאריך:** 2026-05-14 | **סיווג:** ניתוח מודיעיני ציבורי
+**סוג מאמר:** חדשות אחרונות | **אמינות:** 🟢 גבוהה (נתונים פתוחים של הפרלמנט האירופי כמקור ראשוני)
+
+---
+
+### הכותרת הראשית: הפרלמנט האירופי מאמץ חבילה חקיקתית חשובה — מליאה 28–30 באפריל 2026
+
+ישיבת המליאה של הפרלמנט האירופי ב-28–30 באפריל 2026 בבריסל הניבה תוצר חקיקתי בעל צפיפות יוצאת דופן שכלל את הדו"ח הביניים על המסגרת הפיננסית הרב-שנתית (MFF) 2028–2034, סבב רחב של החלטות אישור לתקציב 2024, מנדטים ליישום חוק השווקים הדיגיטליים וסדרת החלטות מדיניות חוץ משמעותיות. זה מייצג את שבוע החקיקה העקבי ביותר של הפרלמנט מאז פברואר 2026.
+
+---
+
+### ההתפתחויות העיקריות (מדורגות לפי עדיפות)
+
+#### 1. אישור הדו"ח הביניים על MFF 2028–2034 (28 באפריל — TA-10-2026-0111) 🔴 קריטי
+הפרלמנט אימץ את הדו"ח הביניים שלו על המסגרת הפיננסית הרב-שנתית 2028–2034, ובכך הניח את הבסיס החקיקתי למחזור התקציב השבע-שנתי הבא של האיחוד האירופי. ההצבעה מסמנת את עמדת המשא ומתן הראשונית של הפרלמנט לפני ההצעות הרשמיות של המועצה והנציבות הצפויות בסוף 2026. הדו"ח הביניים הוא מהלך כוח קריטי: הוא קובע קווים אדומים, עדיפויות מימון ומינוף מוסדי שהפרלמנט ישתמש בהם במשא ומתן משולש.
+
+**חשיבות אסטרטגית:** ה-MFF מכסה בערך 1.2–1.4 טריליון יורו (מוערך) בהוצאות האיחוד, כולל קרנות לכידות, סובסידיות חקלאיות, השקעות אקלים, יכולות הגנה ומכשירי פעולה חיצוניים ושכנות. עמדת הפרלמנט על משאבים עצמיים (מס דיגיטלי, הכנסות ממנגנון התאמת גבול הפחמן, מס עסקאות פיננסיות) תקבע האם האיחוד האירופי יכול לממן את אגנדת המדיניות השאפתנית שלו מבלי להעמיק את התלות בתרומות לאומיות.
+
+**דינמיקת קואליציה:** הדומיננטיות של EPP בוועדת התקציב (BUDG) אומרת שהדו"ח הביניים משקף זהירות פיסקלית של מרכז-ימין בשילוב השקעות ממוקדות. S&D ו-Renew הבטיחו ניסוחים על לכידות חברתית ומעבר ירוק. הימנעות ECR ו-PfE מהצבעה או הצבעות נגד מסמנות את הלחץ הימני המתמשך להסיט כספים לביטחון גבולות ואוטונומיה אסטרטגית.
+
+#### 2. חבילת האישור 2024 — שבוע האחריות (29 באפריל — TAs מרובות) 🟡 גבוה
+הפרלמנט אישר מכלול רחב של החלטות אישור למחזור התקציב 2024 של האיחוד האירופי. החלטות מרכזיות כללו:
+- **TA-10-2026-0125**: אישור הנציבות — ניתן עם תנאים והערות ביקורתיות
+- **TA-10-2026-0126**: האישור העצמי של הפרלמנט — תרגיל אחריות עצמי-רגולטורי
+- **TA-10-2026-0130**: השירות האירופי לפעולה חיצונית (EEAS)
+- **TA-10-2026-0132**: ועדת האזורים
+- **TA-10-2026-0133**: המבקר האירופי
+- **TA-10-2026-0135**: התביעה האירופית (EPPO)
+- **TA-10-2026-0136**: סוכנויות האיחוד האירופי (מצטבר)
+- **TA-10-2026-0137**: מפעלים משותפים (שותפויות מחקר ופיתוח)
+
+נוהל האישור מייצג את סמכות הפיקוח החוקתית הישירה ביותר של הפרלמנט על מוסדות האיחוד האירופי. הערות ביקורתיות הקשורות לאישור הנציבות מסמנות דאגות מתמשכות לגבי מניעת הונאה, תקצוב מגדרי ויישום תנאיות שלטון החוק.
+
+#### 3. יישום חוק השווקים הדיגיטליים — הפרלמנט נוקט עמדה נחרצת (30 באפריל — TA-10-2026-0160) 🟡 גבוה
+הפרלמנט אימץ החלטה על יישום חוק השווקים הדיגיטליים (DMA), ודרש צעדים נחרצים יותר מהנציבות נגד שומרי הסף של חברות הטכנולוגיה הגדולות. העיתוי הוא משמעותי: הליכי יישום ה-DMA נגד Alphabet (Google), Apple, Meta ו-Amazon נמצאים בצמתים קריטיים. הפרלמנט לוחץ על לוחות זמנים מהירים יותר, קנסות גבוהים יותר ותרופות מבניות כולל מנדטי יכולת פעולה הדדית.
+
+**הקשר כלכלי:** יישום ה-DMA משפיע ישירות על השוק הדיגיטלי המאוחד של האיחוד האירופי — מוערך ב-415 מיליארד יורו בשנה. יישום אפקטיבי יכול לשחרר רווחי תחרותיות עבור חברות דיגיטליות אירופאיות תוך הגנה על צרכנים מפני אפקטי נעילה.
+
+#### 4. דו"ח שלטון החוק 2025 והערכת זכויות יסוד (29 באפריל) 🟡 גבוה
+החלטות עוקבות על דו"ח שלטון החוק 2025 של הנציבות (TA-10-2026-0147) ומצב זכויות יסוד 2024–2025 (TA-10-2026-0146) משקפות את הפיקוח המוגבר של הפרלמנט על סיכוני נסיגה דמוקרטית בתוך האיחוד האירופי. דו"ח שלטון החוק ציין חששות לגבי הונגריה, סלובקיה וחלקים ממזרח-מרכז אירופה, תוך שהוא מצביע על החמרה בחופש העיתונות במדינות חברות אחדות.
+
+#### 5. הגנה מפני תחרות בלתי הוגנת ממדינות שלישיות (29 באפריל — TA-10-2026-0149) 🟡 בינוני-גבוה
+הפרלמנט תמך בהחלטה על הגנת חברות, מקומות עבודה ומוצרים אירופאיים מפני תחרות בלתי הוגנת ממדינות שלישיות. זה קשור ישירות למתחים הסחר האירופאי-אמריקאי המתמשכים בעקבות הסלמת המכסים של 2025 ולחששות מייצוא תעשייתי סיני מסובסד ממשלתית שמוצף לשוקי האיחוד האירופי.
+
+#### 6. החלטת אחריות אוקראינה ותמיכה בארמניה (30 באפריל) 🟡 בינוני
+- **TA-10-2026-0161**: הבטחת אחריות וצדק בתגובה להתקפות הרוסיות המתמשכות על אזרחים אוקראינים — קורא למנגנונים פליליים בינלאומיים חזקים ומסגרות להחרמת נכסים
+- **TA-10-2026-0162**: תמיכה בחוסן דמוקרטי בארמניה — מסמן את דאגת האיחוד האירופי מהלחץ הרוסי על ריבונות ארמניה לאחר בחירות 2024
+
+---
+
+### סקירת הנוף הפוליטי (נכון ל-2026-05-14)
+
+| קבוצה | מנדטים | נתח | מגמה |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25.5% | דומיננטי; מוביל עמדות MFF, DMA, שלטון חוק |
+| S&D | 136 | 19.0% | חזק בנושאים חברתיים, הערות אישור |
+| PfE | 85 | 11.9% | הצביע נגד מספר אמצעי שלטון חוק |
+| ECR | 81 | 11.3% | מעורב; תמיכה בהגנת סחר, התנגדות לשלטון חוק |
+| Renew | 77 | 10.7% | גוש ציר מפתח ב-DMA ובשוק דיגיטלי מאוחד |
+| Greens/EFA | 53 | 7.4% | חזק עבור יישום DMA, שלטון חוק |
+| שמאל | 45 | 6.3% | תמך בהערות אישור ביקורתיות |
+| NI | 30 | 4.2% | מפוצל; הצבעה טקטית |
+| ESN | 27 | 3.8% | קיצוני ימני; התנגדות לאמצעי שלטון חוק |
+
+**סף רוב:** 360 מנדטים. אין רוב טבעי של שני גושים; הקואליציה הגדולה EPP-S&D (319 מנדטים) אינה מספקת. מרבית הרוב החקיקתי דורשים לפחות תצורה של EPP + S&D + Renew.
+
+---
+
+### הערכה אנליטית
+
+מושב המליאה 28–30 באפריל משקף פרלמנט הפועל עם ביטחון מוסדי מרשים: הוא קובע בו-זמנית את הארכיטקטורה של תקציב 2028–2034, מחייב מוסדות מבצעים לאחריות דרך האישור, לוחץ על ויסות חברות הטכנולוגיה הגדולות ושולח אותות מדיניות חוץ ממוקדים על אוקראינה, ארמניה ושלטון החוק. הצפיפות החקיקתית והרוחב הנושאי מאשרים שהפרלמנט העשירי מצא את הקצב החקיקתי שלו בנקודת האמצע.
+
+**סיכון:** משאומות MFF 2028–2034 ישלטו בשארית כהונה פרלמנטרית זו. עמדות הדו"ח הביניים של הפרלמנט ייתקלו ככל הנראה בהתנגדות נחרצת של המועצה על משאבים עצמיים, בפרט מס העסקאות הפיננסיות. המס הדיגיטלי וזרמי הכנסות CBAM כמשאבים עצמיים מייצגים את שדה הקרב הפוליטי השנוי במחלוקת ביותר.
+
+**הזדמנות:** הלחץ ליישום DMA, אם יותאם לפעולות הנציבות, יכול לממצב מחדש את האיחוד האירופי כקובע סטנדרטים גלובלי לרגולציה של פלטפורמות — מייצר 15–30 מיליארד יורו בשנה בעלויות ציות המחולקות מחדש לצרכנים ומתחרים.
+
+---
+
+*מקורות: פורטל הנתונים הפתוחים של הפרלמנט האירופי — עדכון טקסטים מאומצים (סדרת TA-10-2026); ניתוח הנוף הפוליטי (הרכב EP10); analysis/daily/2026-05-14/breaking/data/*
+*אמינות: 🟢 גבוהה — רישום חקיקתי ישיר של הפרלמנט האירופי*
+
+---
+
+### סיכום מנהלי מורחב (שורש) — סבב 2
+
+#### מסרים מרכזיים להנהלה הבכירה
+
+**מסר עיקרי:** מושב המליאה של הפרלמנט האירופי 28–30 באפריל 2026 מייצג את התוצר החקיקתי המשמעותי ביותר של הפרלמנט העשירי עד כה. ההתכנסות של רפורמת תקציב, אכיפת ויסות דיגיטלי, ארכיטקטורת שלטון חוק ואחריות אוקראינית במושב אחד יוצרת מומנטום פוליטי מצטבר.
+
+**מסלול קריטי:** ויכוח ה-MFF הוא התהליך הפוליטי בעל הסיכון הגבוה ביותר בממשל האיחוד האירופי ב-24 החודשים הקרובים. החלטות שיתקבלו בהצעת הנציבות לספטמבר 2026 ובמשא ומתן המועצה שלאחר מכן יעצבו את ארכיטקטורת המימון הציבורי האירופי ל-7 שנים (2028–2034).
+
+---
+
+#### אימפרטיבים אסטרטגיים
+
+**מיידי (מאי–יוני 2026):**
+1. לעקוב אחר לוח הזמנים להכנת MFF של הנציבות — כל עיכוב מסמן היסוס פוליטי
+2. לעקוב אחר הליכי יישום DMA — תוצאות ראשוניות נגד Apple/Meta/Google הן הזרז לטווח הקצר
+3. G7 קאנאנסקיס (יוני 2026): אחריות אוקראינה והגנת סחר יעמדו על סדר היום
+4. לוח שמיעות ועדות הפרלמנט האירופי: ועדות BUDG/ECON מקיימות שמיעות מעקב על MFF ו-DMA
+
+**טווח בינוני (Q3–Q4 2026):**
+1. הצעת MFF של הנציבות (ספטמבר) — השוואה עם עמדות הדו"ח הביניים של הפרלמנט
+2. יחסי הסחר האירופאי-אמריקאי: משא ומתן דו-צדדי על מכסים; ממד שירותים דיגיטליים
+3. תנאיות הונגרית: הערכת הנציבות לגבי התקדמות לעצמאות שיפוטית
+4. מוכנות אכיפת חוק הבינה המלאכותית: אוגוסט 2026 הוא אבן דרך הישום הראשונה
+
+---
+
+#### סיכוני החלטה ומיתון
+
+**סיכון 1: משאבים עצמיים של MFF חסומים במועצה**
+*הסתברות: 70% | השפעה: גבוהה*
+מיתון: הפרלמנט האירופי ומדינות חברות תומכות צריכות לבנות כעת תמיכה בלתי פורמלית בקבוצת העבודה של המועצה; להימנע מהפיכת משאבים עצמיים לקו אדום בינארי שחוסם את כל אימוץ MFF.
+
+**סיכון 2: עיכוב ביישום DMA תחת לחץ אמריקאי**
+*הסתברות: 40% | השפעה: גבוהה*
+מיתון: הנציבות צריכה לאותת על עצמאות מלחץ דיפלומטי אמריקאי; משא ומתן מסחרי דיגיטלי מקביל אירופאי-אמריקאי יכול לספוג חלק מהמתח מבלי לפגוע ביישום.
+
+**סיכון 3: הליכי אישור הפרלמנט מסלימים להצבעת אי-אמון**
+*הסתברות: 15% | השפעה: גבוהה מאוד*
+מיתון: הנציבות חייבת להגיב בצורה מהותית להערות האישור הביקורתיות; מחזור האישור 2025 (מתחיל מרץ 2027) יהיה נקודת הפגיעות הקריטית ביותר.
+
+---
+
+#### רמות אמינות אנליטית
+
+| נושא | אמינות | בסיס |
+|-------|-----------|-------|
+| רישום חקיקתי (טקסטים מאומצים) | 🟢 HIGH | נתונים פתוחים ישירים של הפרלמנט האירופי |
+| פרשנות פוליטית | 🟡 MEDIUM | הסקה מבנית |
+| תחזיות כלכליות | 🟡 MEDIUM | בסיס ידע IMF WEO |
+| ניתוח תרחישים עתידיים | 🔴 LOW-MEDIUM | מודלינג הסתברותי |
+
+*סיכום מנהלי מורחב (שורש) — 2026-05-14 סבב 2 | אמינות: 🟢 גבוהה*
+
+#### הקשר משלים לקובעי מדיניות בכירים
+
+##### מדוע מושב זה חשוב יותר ממושבי מליאה טיפוסיים
+
+מושב 28–30 באפריל אינו מושב חקיקתי שגרתי. הוא יוצא דופן משלושה טעמים מבניים:
+
+**1. בו-זמניות:** חמישה תחומי מדיניות גדולים (פיננסי, דיגיטלי, שלטון חוק, ביטחון, אחריות) התקדמו בו-זמנית. זה נדיר — רוב מושבי המליאה מקדמים 1–2 נושאים עיקריים.
+
+**2. קוהרנטיות:** חמשת הנושאים אינם מאורגנים באקראי — הם חולקים היגיון בסיסי (קביעת עמדה מוסדית של האיחוד האירופי מול ריבונות לאומית / כוח טכנולוגי אמריקאי / תוקפנות רוסית). קוהרנטיות זו מעניקה למושב משקל אסטרטגי הגדול מסכום הפעולות הפרטניות.
+
+**3. יצירת תקדימים:** מספר אלמנטים יוצרים תקדימים משפטיים או פוליטיים שיעצבו פעולות עתידיות: תקדים יישום DMA, ניסוחי הערות האישור הביקורתיות, משאבים עצמיים של MFF כעמדת משא ומתן.
+
+**סיכום לקובעי מדיניות:** התייחסו ל-28–30 באפריל 2026 כהצהרת הכוונות האסטרטגית של הפרלמנט האירופי לשארית EP10 (2024–2029). כל פעילות חקיקתית עוקבת תעמוד בצלה של שאיפות מושב זה.
+
+*סיכום מנהלי שורש מורחב — 2026-05-14 סבב 2*
+
+#### הערת מנהלים סופית
+
+**שלושה החלטות שיקבעו אם שאיפות 28–30 באפריל מתממשות:**
+
+1. **עמדת משרד האוצר הגרמני הפדרלי על משאבים עצמיים של MFF** (יוני–ספטמבר 2026): פתיחות גרמניה המחושבת או התנגדותה תקבע את התקרה לכל משא ומתן MFF. אין משתנה אחר בעל חשיבות רבה יותר.
+
+2. **החלטות הנציבות ליישום DMA נגד Apple** (Q3–Q4 2026): ההחלטה הראשונה המוצלחת בנושא אי-ציות ל-DMA תקבע אמינות ביצוע. כישלון או עיכוב יעודד שומרי סף אחרים לאי-ציות.
+
+3. **ניסוח G7 קאנאנסקיס בנושא אחריות אוקראינה** (יוני 2026): הניסוח המדויק של G7 בנושא אחריות יקבע האם ניתן לבנות את הארכיטקטורה המשפטית לבית דין ב-2026–2027 או שיש להמתין לאקלים בינלאומי משתנה.
+
+שלוש החלטות אלה הן מחווני האזהרה המוקדמים למסלול היישום המלא של חבילת החקיקה מ-28–30 באפריל.
+
+*סיכום שורש סופי — 2026-05-14 סבב 2*
+
+**הערה לקוראים:** ניתוח זה הופק תחת מגבלות זמן ונתונים. יש להתייחס לכל התחזיות כמנחות ולא כסופיות. לשימוש מדיני רשמי, בדקו תחזיות כלכליות מול נתוני IMF/ECB הנוכחיים.
+
+*סיכום מנהלי — מלא*
+
+**נספח סיכום מנהלי סופי:**
+
+לכל קובע מדיניות שלא יקרא דבר אחר בחבילה אנליטית זו: מושב המליאה 28–30 באפריל בפרלמנט האירופי קובע שהמרכז הפוליטי של האיחוד האירופי (EPP+S&D+Renew) נותר מסוגל לאמץ חקיקה שאפתנית, רב-תחומית גם בפרלמנט מפוצל. המרכז מחזיק. האם יחזיק לאורך תקופת היישום הקשה — זאת השאלה הקריטית לשנים 2026–2029.
+
+**סיכום מנהלי שורש — עדכון סופי:**
+כל חמשת הנושאים בעדיפות גבוהה מהמליאה 28–30 באפריל מנותחים כעת במלואם בחבילה האנליטית בת 39 חפצים. קובעי מדיניות שדורשים ניתוח עמוק יותר על נושא בודד מופנים לחפץ המתאים: MFF ← executive-brief.md + pestle-analysis.md; DMA ← threat-model.md + intelligence-assessment.md; אוקראינה ← political-threat-landscape.md + scenario-forecast.md; שלטון חוק ← coalition-dynamics.md + historical-parallels.md; אישור ← document-analysis-index.md + reference-analysis-quality.md.
+
+*סיכום מנהלי שורש — סופי, סבב 2 הושלם*
+
+### Executive Brief Ja
+
+**日付:** 2026-05-14 | **分類:** 公開インテリジェンス分析
+**記事タイプ:** 最新ニュース | **信頼度:** 🟢 高（欧州議会オープンデータを主要情報源として使用）
+
+---
+
+### 主要ニュース：欧州議会が重要な立法パッケージを採択 — 2026年4月28〜30日本会議
+
+2026年4月28〜30日にブリュッセルで開催された欧州議会本会議は、2028〜2034年多年度財政枠組み（MFF）の中間報告、2024年度の予算執行承認決定の広範な一括採択、デジタル市場法の執行マンデート、および一連の重要な外交政策決議を含む、例外的に密度の高い立法成果を生み出した。これは2026年2月以降、議会で最も一貫した立法週となっている。
+
+---
+
+### 主な動向（優先度順）
+
+#### 1. MFF 2028〜2034 中間報告を採択（4月28日 — TA-10-2026-0111）🔴 重大
+議会は2028〜2034年多年度財政枠組みに関する中間報告を採択し、次の7年間のEU予算サイクルの立法的基礎を築いた。この採決は、2026年末に予定されている理事会・欧州委員会の正式提案に先立つ、議会の交渉上の初期立場を示している。中間報告は重要な権力上の動きであり、三者協議で議会が活用する交渉のレッドライン、資金優先事項、機関的影響力を確立する。
+
+**戦略的意義：** MFFはEUの全支出の約1.2〜1.4兆ユーロ（推定）を対象としており、凝集基金、農業補助金、気候投資、防衛能力、近隣諸国・対外行動手段が含まれる。独自財源（デジタル税、炭素国境調整メカニズムからの収益、金融取引税）に関する議会の立場が、EUが国家拠出金への依存を深めることなく野心的な政策アジェンダを資金調達できるかどうかを決定する。
+
+**連立のダイナミクス：** 予算委員会（BUDG）におけるEPPの優位性は、中間報告が目標投資を組み合わせた中道右派の財政的慎重さを反映していることを意味する。S&DとRenewは社会的凝集と緑の転換に関する文言を確保した。ECRとPfEの棄権または反対票は、資金を国境安全保障と戦略的自律性に向けるための継続的な右派圧力を示している。
+
+#### 2. 2024年度予算執行承認パッケージ — 説明責任の週（4月29日 — 複数のTA）🟡 高
+議会は2024年EUの予算サイクルについて、広範な予算執行承認決定を承認した。主な決定は以下を含む：
+- **TA-10-2026-0125**：欧州委員会への承認 — 条件付き・批判的意見を伴って付与
+- **TA-10-2026-0126**：議会自身への承認 — 自律的な説明責任の実施
+- **TA-10-2026-0130**：欧州対外活動サービス（EEAS）
+- **TA-10-2026-0132**：地域委員会
+- **TA-10-2026-0133**：欧州オンブズマン
+- **TA-10-2026-0135**：欧州検察庁（EPPO）
+- **TA-10-2026-0136**：EU機関（総合）
+- **TA-10-2026-0137**：合弁企業（研究開発パートナーシップ）
+
+予算執行承認手続きは、EU機関に対する議会の最も直接的な憲法上の監督権限を表している。欧州委員会の承認に関連する批判的意見は、詐欺防止、ジェンダー配慮型予算策定、法の支配条件付けの実施に関する継続的な懸念を示している。
+
+#### 3. デジタル市場法の執行 — 欧州議会が確固たる立場（4月30日 — TA-10-2026-0160）🟡 高
+議会はデジタル市場法（DMA）の執行に関する決議を採択し、Big Techゲートキーパーに対する欧州委員会のより厳格な行動を要求した。タイミングは重要だ：Alphabet（Google）、Apple、Meta、Amazonに対するDMA執行手続きは重大な分岐点にある。議会は、より迅速なタイムライン、より高い罰金、相互運用性義務を含む構造的救済措置を推進している。
+
+**経済的文脈：** DMAの執行はEUのデジタル単一市場に直接影響を与え、年間4,150億ユーロと推定される。効果的な執行は、欧州デジタル企業に競争上の利益をもたらすとともに、消費者をロックイン効果から守ることができる。
+
+#### 4. 2025年法の支配報告と基本権評価（4月29日）🟡 高
+欧州委員会の2025年法の支配報告（TA-10-2026-0147）および2024〜2025年の基本権状況（TA-10-2026-0146）に関する連続決議は、EU内の民主主義後退リスクに対する議会の強化された監視を反映している。法の支配報告は、ハンガリー、スロバキア、中東欧の一部に関する懸念を挙げ、複数の加盟国における報道の自由の悪化も指摘した。
+
+#### 5. 第三国からの不公正競争に対する保護（4月29日 — TA-10-2026-0149）🟡 中〜高
+議会は、第三国からの不公正競争からEU企業、雇用、製品を守る決議を支持した。これは2025年の関税エスカレーション後のEU-米国貿易緊張の継続と、EU市場にダンピングされている中国の国家補助を受けた産業輸出への懸念に直接関連している。
+
+#### 6. ウクライナ説明責任決議とアルメニア支援（4月30日）🟡 中
+- **TA-10-2026-0161**：ロシアのウクライナ市民への継続的な攻撃に対応した説明責任と正義の確保 — 堅牢な国際刑事メカニズムと資産押収枠組みを要求
+- **TA-10-2026-0162**：アルメニアの民主的回復力への支援 — 2024年選挙後のアルメニア主権に対するロシアの圧力に関するEUの懸念を示す
+
+---
+
+### 政治情勢概観（2026-05-14時点）
+
+| グループ | 議席 | 割合 | 動向 |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25.5% | 主導的；MFF・DMA・法の支配の立場をリード |
+| S&D | 136 | 19.0% | 社会問題・承認所見で強力 |
+| PfE | 85 | 11.9% | 法の支配に関する複数の措置に反対票 |
+| ECR | 81 | 11.3% | 混合；貿易保護支持、法の支配反対 |
+| Renew | 77 | 10.7% | DMAとデジタル単一市場の主要スイングブロック |
+| Greens/EFA | 53 | 7.4% | DMA執行・法の支配に強く賛成 |
+| 左派 | 45 | 6.3% | 批判的な承認所見を支持 |
+| NI | 30 | 4.2% | 分裂；戦術的投票 |
+| ESN | 27 | 3.8% | 極右；法の支配措置への抵抗 |
+
+**過半数基準：** 360議席。自然な二ブロック過半数は存在しない；EPP-S&D大連立（319議席）は不足。ほとんどの立法多数はEPP + S&D + Renewの最低限の組み合わせが必要。
+
+---
+
+### 分析的評価
+
+4月28〜30日の本会議は、注目すべき機関的自信をもって行動する議会を反映している：2028〜2034年の予算のアーキテクチャを同時に確立し、予算執行承認を通じて行政機関に説明責任を求め、Big Tech規制を推進し、ウクライナ、アルメニア、法の支配について的を絞った外交政策シグナルを発している。立法の密度と主題の幅は、第10議会が中間点で立法リズムを見つけたことを確認している。
+
+**リスク：** MFF 2028〜2034交渉はこの会期の残りを支配することになる。議会の中間報告の立場は、独自財源に関して、特に金融取引税について、断固とした理事会の反対に直面する可能性が高い。独自財源としてのデジタル税とCBAM収入源は、政治的に最も論争的な戦場となっている。
+
+**機会：** DMAの執行圧力は、欧州委員会の行動と組み合わされれば、EUをプラットフォーム規制のグローバルな標準設定者として再定置する可能性がある — 消費者と競合他社に再分配される年間150〜300億ユーロのコンプライアンスコストを生み出す。
+
+---
+
+*出典：欧州議会オープンデータポータル — 採択テキストフィード（TA-10-2026シリーズ）；政治情勢分析（EP10の構成）；analysis/daily/2026-05-14/breaking/data/*
+*信頼度: 🟢 高 — 欧州議会の直接立法記録*
+
+---
+
+### 拡張エグゼクティブサマリー（ルート）— ラウンド2
+
+#### 上級管理職へのキーメッセージ
+
+**主要メッセージ：** 欧州議会2026年4月28〜30日本会議は、第10議会のこれまでで最も重要な立法成果を表している。予算改革、デジタル規制の執行、法の支配のアーキテクチャ、ウクライナの説明責任が一つの会期に収束することで、複合的な政治的勢いが生まれる。
+
+**重要な経路：** MFF論争は今後24ヶ月のEUガバナンスで最も高い賭けの政治プロセスだ。2026年9月の欧州委員会提案と後続の理事会交渉で行われる決定は、7年間（2028〜2034年）のヨーロッパの公的資金調達アーキテクチャを形成することになる。
+
+---
+
+#### 戦略的優先事項
+
+**即時（2026年5〜6月）：**
+1. 欧州委員会のMFF準備タイムラインを監視 — いかなる遅延も政治的躊躇を示す
+2. DMA執行手続きを追跡 — Apple/Meta/Googleに対する予備的結果が短期的な引き金
+3. G7カナナスキス（2026年6月）：ウクライナの説明責任と貿易保護がアジェンダに
+4. 欧州議会委員会ヒアリングスケジュール：BUDG/ECON委員会がMFFとDMAのフォローアップ公聴会を開催
+
+**中期（Q3〜Q4 2026）：**
+1. 欧州委員会のMFF提案（9月）— 欧州議会の中間報告立場と比較
+2. EU-米国貿易関係：関税に関する二国間交渉；デジタルサービスの側面
+3. ハンガリーの条件付き：司法独立に向けた進展の欧州委員会評価
+4. AI法の執行準備：2026年8月が最初の適用マイルストーン
+
+---
+
+#### 意思決定リスクと緩和策
+
+**リスク1：理事会でのMFF独自財源のブロック**
+*確率：70% | 影響：高*
+緩和策：欧州議会と支持加盟国は今すぐ理事会作業部会での非公式支持を構築する必要がある；独自財源をMFF採択全体をブロックする二分法的レッドラインにしないこと。
+
+**リスク2：米国の圧力下でのDMA執行遅延**
+*確率：40% | 影響：高*
+緩和策：欧州委員会は米国外交圧力からの独立性を示すべきだ；並行するEU-米国デジタル貿易交渉は、執行を損なうことなくある程度の緊張を吸収できる。
+
+**リスク3：欧州議会の予算執行承認手続きが不信任投票にエスカレート**
+*確率：15% | 影響：非常に高*
+緩和策：欧州委員会は批判的な承認所見に実質的に対応しなければならない；2025年の承認サイクル（2027年3月に開始）が最も重要な脆弱性の瞬間となる。
+
+---
+
+#### 分析的信頼度水準
+
+| テーマ | 信頼度 | 根拠 |
+|-------|-----------|-------|
+| 立法記録（採択テキスト） | 🟢 HIGH | 欧州議会のオープンデータ直接使用 |
+| 政治的解釈 | 🟡 MEDIUM | 構造的推論 |
+| 経済予測 | 🟡 MEDIUM | IMF WEO知識ベース |
+| 将来シナリオ分析 | 🔴 LOW-MEDIUM | 確率論的モデリング |
+
+*拡張エグゼクティブサマリー（ルート）— 2026-05-14 ラウンド2 | 信頼度: 🟢 高*
+
+#### 上級意思決定者向け補足コンテキスト
+
+##### なぜこの会期は典型的な本会議より重要なのか
+
+4月28〜30日の会期は、定例の立法会期ではない。三つの構造的理由から注目に値する：
+
+**1. 同時性：** 五つの主要政策領域（財政、デジタル、法の支配、安全保障、説明責任）が同時に前進した。これは稀だ — ほとんどの本会議は1〜2つの主要問題を推進する。
+
+**2. 一貫性：** 五つの問題は無作為に集まっているわけではない — EUの機関的自己主張対国家主権 / 米国の技術力 / ロシアの侵略という共通の根底的論理を共有している。この一貫性は会期に個々の行為の総和を超える戦略的重みを与える。
+
+**3. 先例の創出：** いくつかの要素は将来の行動を形成する法的または政治的先例を創出する：DMA執行先例、批判的承認観察の文言、交渉立場としてのMFFの独自財源。
+
+**意思決定者向けサマリー：** 2026年4月28〜30日をEP10（2024〜2029年）の残余期間に対する欧州議会の戦略的意図宣言として扱うこと。その後のすべての立法活動はこの会期の野心の影の中に立つことになる。
+
+*拡張ルートエグゼクティブサマリー — 2026-05-14 ラウンド2*
+
+#### 最終エグゼクティブノート
+
+**4月28〜30日の野心が実現するかを決定する三つの決定：**
+
+1. **ドイツ連邦財務省のMFF独自財源に関する立場**（2026年6〜9月）：ドイツの計算された開放性または抵抗がMFF交渉全体の上限を設定する。他のいかなる変数もこれほど重要ではない。
+
+2. **欧州委員会のAppleに対するDMA執行決定**（Q3〜Q4 2026）：最初の成功したDMA不遵守決定が執行の信頼性を確立する。失敗または遅延は他のゲートキーパーによる不遵守を促す。
+
+3. **G7カナナスキスのウクライナ説明責任に関する文言**（2026年6月）：説明責任に関するG7の正確な文言が、法廷のための法的アーキテクチャが2026〜2027年に構築できるか、変化した国際環境を待たなければならないかを決定する。
+
+これら三つの決定は、4月28〜30日の立法パッケージ全体の実施軌道の早期警告指標だ。
+
+*ルートサマリー最終 — 2026-05-14 ラウンド2*
+
+**読者への注記：** この分析は時間的・データ的制約のもとで作成された。すべての予測は定義的ではなく指針的なものとして扱うべきだ。正式な政策利用には、最新のIMF/ECBデータで経済予測を検証すること。
+
+*エグゼクティブブリーフ — 完全*
+
+**エグゼクティブブリーフ最終補足：**
+
+この分析パッケージで他に何も読まない意思決定者へ：欧州議会4月28〜30日本会議は、EUの政治的中心（EPP+S&D+Renew）が断片化した議会でも意欲的な多領域立法を採択できることを確認した。中心は保っている。困難な実施期間を通じて保ち続けるかどうかが2026〜2029年の重要な問いだ。
+
+**ルートエグゼクティブサマリー — 最終更新：**
+4月28〜30日本会議の五つの優先課題はすべて、39アーティファクトの分析パッケージで完全に分析されている。単一の問題に対してより深い分析が必要な意思決定者は、対応するアーティファクトを参照：MFF → executive-brief.md + pestle-analysis.md；DMA → threat-model.md + intelligence-assessment.md；ウクライナ → political-threat-landscape.md + scenario-forecast.md；法の支配 → coalition-dynamics.md + historical-parallels.md；承認 → document-analysis-index.md + reference-analysis-quality.md。
+
+*ルートエグゼクティブサマリー — 最終、ラウンド2完了*
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-14 | **분류:** 공개 인텔리전스 분석
+**기사 유형:** 최신 뉴스 | **신뢰도:** 🟢 높음 (유럽의회 공개 데이터를 주요 출처로 사용)
+
+---
+
+### 주요 뉴스: 유럽의회, 중요 입법 패키지 채택 — 2026년 4월 28~30일 본회의
+
+2026년 4월 28~30일 브뤼셀에서 개최된 유럽의회 본회의는 2028~2034년 다년도 재정 프레임워크(MFF) 중간 보고서, 2024년도 예산 집행 승인 결정의 광범위한 일괄 채택, 디지털 시장법 집행 위임권, 그리고 일련의 중요한 외교 정책 결의안을 포함하는 이례적으로 높은 밀도의 입법 성과를 달성했다. 이는 2026년 2월 이후 의회의 가장 일관된 입법 주간을 나타낸다.
+
+---
+
+### 주요 동향 (우선순위별)
+
+#### 1. MFF 2028~2034 중간 보고서 채택 (4월 28일 — TA-10-2026-0111) 🔴 중대
+의회는 2028~2034년 다년도 재정 프레임워크에 관한 중간 보고서를 채택하여 다음 7년간의 EU 예산 주기를 위한 입법적 기반을 마련했다. 이 투표는 2026년 말 예상되는 이사회 및 유럽위원회의 공식 제안에 앞선 의회의 초기 협상 입장을 나타낸다. 중간 보고서는 결정적인 권력 행사다: 삼자 협상에서 의회가 활용할 레드라인, 자금 우선순위, 기관적 영향력을 확립한다.
+
+**전략적 중요성:** MFF는 응집 기금, 농업 보조금, 기후 투자, 방어 역량, 인접국/대외 행동 수단을 포함하여 EU 지출의 약 1.2~1.4조 유로(추정)를 포괄한다. 자체 재원(디지털세, 탄소국경조정메커니즘 수익, 금융거래세)에 관한 의회의 입장은 EU가 국가 기여금에 대한 의존을 심화하지 않고 야심 찬 정책 의제를 자금 조달할 수 있는지를 결정할 것이다.
+
+**연립 동학:** 예산위원회(BUDG)에서 EPP의 지배적 위치는 중간 보고서가 목표 투자와 결합된 중도 우파의 재정적 신중함을 반영한다는 것을 의미한다. S&D와 Renew는 사회적 응집과 녹색 전환에 관한 표현을 확보했다. ECR과 PfE의 기권 또는 반대표는 자금을 국경 안보와 전략적 자율성으로 돌리려는 지속적인 우파 압력을 시사한다.
+
+#### 2. 2024년 예산 집행 승인 패키지 — 책임 주간 (4월 29일 — 다수의 TAs) 🟡 높음
+의회는 2024년 EU 예산 주기에 대한 광범위한 예산 집행 승인 결정을 승인했다. 주요 결정들은 다음을 포함한다:
+- **TA-10-2026-0125**: 유럽위원회 승인 — 조건과 비판적 소견과 함께 부여됨
+- **TA-10-2026-0126**: 의회 자체 승인 — 자율 규제적 책임 이행
+- **TA-10-2026-0130**: 유럽대외관계청(EEAS)
+- **TA-10-2026-0132**: 지역위원회
+- **TA-10-2026-0133**: 유럽 옴부즈만
+- **TA-10-2026-0135**: 유럽 검찰청(EPPO)
+- **TA-10-2026-0136**: EU 기관들 (합산)
+- **TA-10-2026-0137**: 합작 기업 (R&D 파트너십)
+
+예산 집행 승인 절차는 EU 기관에 대한 의회의 가장 직접적인 헌법적 감독 권한을 나타낸다. 유럽위원회 승인과 관련된 비판적 소견은 사기 방지, 성 인지 예산 편성, 법치주의 조건성 이행에 관한 지속적인 우려를 시사한다.
+
+#### 3. 디지털 시장법 집행 — 유럽의회 확고한 입장 (4월 30일 — TA-10-2026-0160) 🟡 높음
+의회는 디지털 시장법(DMA) 집행에 관한 결의안을 채택하여 빅테크 게이트키퍼에 대한 유럽위원회의 보다 엄격한 조치를 요구했다. 타이밍은 중요하다: Alphabet(구글), Apple, Meta, Amazon에 대한 DMA 집행 절차는 결정적인 분기점에 있다. 의회는 더 빠른 타임라인, 더 높은 벌금, 상호운용성 의무를 포함한 구조적 구제 조치를 추진하고 있다.
+
+**경제적 맥락:** DMA 집행은 연간 4,150억 유로로 추정되는 EU 디지털 단일 시장에 직접적인 영향을 미친다. 효과적인 집행은 소비자를 잠금 효과에서 보호하면서 유럽 디지털 기업의 경쟁 이익을 해방할 수 있다.
+
+#### 4. 2025년 법치주의 보고서 및 기본권 평가 (4월 29일) 🟡 높음
+유럽위원회의 2025년 법치주의 보고서(TA-10-2026-0147)와 2024~2025년 기본권 상황(TA-10-2026-0146)에 관한 연속 결의안은 EU 내 민주적 퇴행 위험에 대한 의회의 강화된 감시를 반영한다. 법치주의 보고서는 헝가리, 슬로바키아 및 중동부 유럽 일부에 대한 우려를 언급했으며, 여러 회원국에서의 악화된 언론 자유도 지적했다.
+
+#### 5. 제3국의 불공정 경쟁으로부터의 보호 (4월 29일 — TA-10-2026-0149) 🟡 중~높음
+의회는 제3국의 불공정 경쟁으로부터 EU 기업, 일자리, 제품을 보호하기 위한 결의안을 지지했다. 이는 2025년 관세 에스컬레이션 이후의 EU-미국 무역 긴장 지속과 EU 시장에 덤핑되는 중국의 국가 보조를 받은 산업 수출에 대한 우려와 직접 관련이 있다.
+
+#### 6. 우크라이나 책임 결의안 및 아르메니아 지원 (4월 30일) 🟡 중간
+- **TA-10-2026-0161**: 러시아의 우크라이나 민간인에 대한 지속적인 공격에 대응한 책임과 정의 보장 — 강력한 국제 형사 메커니즘과 자산 몰수 프레임워크 요구
+- **TA-10-2026-0162**: 아르메니아의 민주적 회복력 지원 — 2024년 선거 이후 아르메니아 주권에 대한 러시아의 압력에 대한 EU의 우려 표명
+
+---
+
+### 정치적 지형 개요 (2026-05-14 기준)
+
+| 그룹 | 의석 | 비율 | 방향 추세 |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25.5% | 지배적; MFF, DMA, 법치주의 입장 주도 |
+| S&D | 136 | 19.0% | 사회 문제, 승인 소견에서 강력 |
+| PfE | 85 | 11.9% | 여러 법치주의 조치에 반대표 |
+| ECR | 81 | 11.3% | 혼합; 무역 보호 지지, 법치주의 반대 |
+| Renew | 77 | 10.7% | DMA 및 디지털 단일 시장의 핵심 스윙 블록 |
+| Greens/EFA | 53 | 7.4% | DMA 집행, 법치주의에 강력히 찬성 |
+| 좌파 | 45 | 6.3% | 비판적 승인 소견 지지 |
+| NI | 30 | 4.2% | 분열; 전술적 투표 |
+| ESN | 27 | 3.8% | 극우; 법치주의 조치에 저항 |
+
+**과반수 기준:** 360석. 자연적인 2블록 과반수 없음; EPP-S&D 대연정(319석)은 부족. 대부분의 입법 과반수는 최소한 EPP + S&D + Renew 구성이 필요.
+
+---
+
+### 분석적 평가
+
+4월 28~30일 본회의는 주목할 만한 기관적 자신감으로 행동하는 의회를 반영한다: 2028~2034년 예산 구조를 동시에 확립하고, 예산 집행 승인을 통해 집행 기관에 책임을 묻고, 빅테크 규제를 추진하며, 우크라이나, 아르메니아, 법치주의에 관한 표적화된 외교 정책 신호를 보내고 있다. 입법의 밀도와 주제적 광범위함은 제10의회가 중간 지점에서 입법 리듬을 찾았음을 확인한다.
+
+**위험:** MFF 2028~2034 협상이 이 회기의 나머지를 지배할 것이다. 의회의 중간 보고서 입장은 독자적 재원에 관해, 특히 금융거래세에 대해 이사회의 단호한 반대에 직면할 가능성이 높다. 독자적 재원으로서의 디지털세와 CBAM 수익 흐름은 정치적으로 가장 논쟁적인 전쟁터를 나타낸다.
+
+**기회:** DMA 집행 압력은 유럽위원회 조치와 연계된다면 EU를 플랫폼 규제의 글로벌 표준 설정자로 재포지셔닝할 수 있다 — 소비자와 경쟁자에게 재분배되는 연간 150~300억 유로의 컴플라이언스 비용을 창출한다.
+
+---
+
+*출처: 유럽의회 공개 데이터 포털 — 채택 텍스트 피드 (TA-10-2026 시리즈); 정치적 지형 분석 (EP10 구성); analysis/daily/2026-05-14/breaking/data/*
+*신뢰도: 🟢 높음 — 유럽의회 직접 입법 기록*
+
+---
+
+### 확장 집행부 요약 (루트) — 라운드 2
+
+#### 고위 경영진을 위한 주요 메시지
+
+**주요 메시지:** 유럽의회 2026년 4월 28~30일 본회의는 제10의회의 가장 중요한 입법 성과를 나타낸다. 예산 개혁, 디지털 규제 집행, 법치주의 구조, 우크라이나 책임이 하나의 회기에 수렴됨으로써 복합적인 정치적 모멘텀이 형성된다.
+
+**중요 경로:** MFF 논쟁은 향후 24개월간 EU 거버넌스에서 가장 높은 이해관계가 걸린 정치적 과정이다. 2026년 9월 유럽위원회 제안과 그 후의 이사회 협상에서 내려지는 결정들이 7년간(2028~2034) 유럽 공공 재정 구조를 형성할 것이다.
+
+---
+
+#### 전략적 우선 과제
+
+**즉각적 (2026년 5~6월):**
+1. 유럽위원회의 MFF 준비 타임라인 모니터링 — 어떤 지연도 정치적 망설임을 시사
+2. DMA 집행 절차 추적 — Apple/Meta/Google에 대한 예비 결과가 단기 촉발 요인
+3. G7 카나나스키스 (2026년 6월): 우크라이나 책임과 무역 보호가 의제에 포함될 것
+4. 유럽의회 위원회 청문 일정: BUDG/ECON 위원회가 MFF와 DMA에 관한 후속 청문을 개최
+
+**중기 (Q3~Q4 2026):**
+1. 유럽위원회 MFF 제안 (9월) — 유럽의회 중간 보고서 입장과 비교
+2. EU-미국 무역 관계: 관세에 관한 양자 협상; 디지털 서비스 차원
+3. 헝가리 조건부: 사법 독립을 향한 진전에 대한 유럽위원회 평가
+4. AI법 집행 준비: 2026년 8월이 첫 번째 적용 마일스톤
+
+---
+
+#### 의사 결정 위험 및 완화
+
+**위험 1: 이사회에서의 MFF 독자적 재원 차단**
+*확률: 70% | 영향: 높음*
+완화: 유럽의회와 지지 회원국들은 지금 이사회 작업 그룹에서 비공식 지원을 구축해야 한다; 독자적 재원을 MFF 전체 채택을 차단하는 이진적 레드라인으로 만들지 않도록 한다.
+
+**위험 2: 미국 압력 하의 DMA 집행 지연**
+*확률: 40% | 영향: 높음*
+완화: 유럽위원회는 미국 외교적 압력으로부터의 독립성을 표명해야 한다; 병행하는 EU-미국 디지털 무역 협상이 집행을 손상하지 않고 일부 긴장을 흡수할 수 있다.
+
+**위험 3: 유럽의회 예산 집행 승인 절차가 불신임 투표로 에스컬레이션**
+*확률: 15% | 영향: 매우 높음*
+완화: 유럽위원회는 비판적인 승인 소견에 실질적으로 대응해야 한다; 2025년 승인 주기(2027년 3월 시작)가 가장 중요한 취약성 시점이 될 것이다.
+
+---
+
+#### 분석적 신뢰도 수준
+
+| 주제 | 신뢰도 | 근거 |
+|-------|-----------|-------|
+| 입법 기록 (채택된 텍스트) | 🟢 HIGH | 유럽의회 공개 데이터 직접 활용 |
+| 정치적 해석 | 🟡 MEDIUM | 구조적 추론 |
+| 경제 전망 | 🟡 MEDIUM | IMF WEO 지식 기반 |
+| 미래 시나리오 분석 | 🔴 LOW-MEDIUM | 확률론적 모델링 |
+
+*확장 집행부 요약 (루트) — 2026-05-14 라운드 2 | 신뢰도: 🟢 높음*
+
+#### 고위급 의사 결정자를 위한 보완 맥락
+
+##### 왜 이 회기가 일반적인 본회의보다 중요한가
+
+4월 28~30일 회기는 일상적인 입법 회기가 아니다. 세 가지 구조적 이유로 주목할 만하다:
+
+**1. 동시성:** 다섯 개의 주요 정책 영역 (재정, 디지털, 법치주의, 안보, 책임)이 동시에 진전되었다. 이는 드문 일이다 — 대부분의 본회의는 1~2개의 주요 이슈를 추진한다.
+
+**2. 일관성:** 다섯 가지 이슈는 무작위로 모인 것이 아니다 — EU의 기관적 자기 주장 대 국가 주권 / 미국 기술 권력 / 러시아 공격성이라는 공통적인 기저 논리를 공유한다. 이 일관성은 회기에 개별 행위들의 합보다 더 큰 전략적 무게를 부여한다.
+
+**3. 선례 창출:** 여러 요소들이 미래 행동을 형성할 법적 또는 정치적 선례를 창출한다: DMA 집행 선례, 비판적 승인 관찰 표현, 협상 입장으로서의 MFF 독자적 재원.
+
+**의사 결정자 요약:** 2026년 4월 28~30일을 EP10 (2024~2029년) 나머지 기간에 대한 유럽의회의 전략적 의도 표명으로 간주하라. 그 후의 모든 입법 활동은 이 회기의 야심찬 그림자 속에 서게 될 것이다.
+
+*확장 루트 집행부 요약 — 2026-05-14 라운드 2*
+
+#### 최종 집행부 주석
+
+**4월 28~30일의 야심이 실현될지를 결정하는 세 가지 결정:**
+
+1. **MFF 독자적 재원에 관한 독일 연방재무부의 입장** (2026년 6~9월): 독일의 계산된 개방성 또는 저항이 MFF 협상 전체의 상한선을 설정할 것이다. 다른 어떤 변수도 이것만큼 중요하지 않다.
+
+2. **Apple에 대한 유럽위원회의 DMA 집행 결정** (Q3~Q4 2026): 첫 번째 성공적인 DMA 불준수 결정이 집행 신뢰성을 확립할 것이다. 실패 또는 지연은 다른 게이트키퍼들이 불준수하도록 장려할 것이다.
+
+3. **G7 카나나스키스 우크라이나 책임 언어** (2026년 6월): 책임에 관한 G7의 정확한 언어가 법원을 위한 법적 구조가 2026~2027년에 구축될 수 있는지 또는 변화된 국제 환경을 기다려야 하는지를 결정할 것이다.
+
+이 세 가지 결정은 4월 28~30일 입법 패키지 전체의 이행 궤적에 대한 조기 경보 지표다.
+
+*루트 요약 최종 — 2026-05-14 라운드 2*
+
+**독자에게 드리는 말씀:** 이 분석은 시간적, 데이터적 제약 하에 작성되었습니다. 모든 전망은 확정적이지 않고 지침적인 것으로 취급해야 합니다. 공식 정책 사용을 위해서는 최신 IMF/ECB 데이터로 경제 전망을 검증하십시오.
+
+*집행부 브리핑 — 완전*
+
+**집행부 브리핑 최종 부록:**
+
+이 분석 패키지에서 다른 것을 읽지 않을 모든 의사 결정자에게: 유럽의회 4월 28~30일 본회의는 EU의 정치적 중심(EPP+S&D+Renew)이 분열된 의회에서도 야심 찬 다영역 입법을 채택할 수 있음을 확인한다. 중심은 유지되고 있다. 어려운 이행 기간 동안 유지될지가 2026~2029년의 중요한 질문이다.
+
+**루트 집행부 요약 — 최종 업데이트:**
+4월 28~30일 본회의의 다섯 가지 우선 과제는 이제 39개 아티팩트 분석 패키지에서 완전히 분석되었다. 단일 이슈에 대해 더 깊은 분석이 필요한 의사 결정자는 해당 아티팩트를 참조: MFF → executive-brief.md + pestle-analysis.md; DMA → threat-model.md + intelligence-assessment.md; 우크라이나 → political-threat-landscape.md + scenario-forecast.md; 법치주의 → coalition-dynamics.md + historical-parallels.md; 승인 → document-analysis-index.md + reference-analysis-quality.md.
+
+*루트 집행부 요약 — 최종, 라운드 2 완료*
+
+### Executive Brief Nl
+
+### TOPBERICHT: EP neemt belangrijk wetgevingspakket aan — plenaire vergadering 28–30 april 2026
+
+De plenaire vergadering van het Europees Parlement van 28 tot 30 april 2026 in Brussel produceerde een uitzonderlijk dicht wetgevingsresultaat dat het tussentijdse rapport over het meerjarig financieel kader (MFK) 2028–2034, een brede ronde kwijting­besluiten voor 2024, mandaten voor de handhaving van de Wet digitale markten en een reeks belangrijke buitenlands-beleidresoluties omvatte. Dit vertegenwoordigt de meest consistente wetgevingsweek van het Parlement sinds februari 2026.
+
+---
+
+### BELANGRIJKSTE ONTWIKKELINGEN (naar prioriteit gerangschikt)
+
+#### 1. MFK 2028–2034 Tussentijds rapport aangenomen (28 april — TA-10-2026-0111) 🔴 KRITISCH
+Het Parlement nam zijn tussentijdse rapport over het Meerjarig Financieel Kader 2028–2034 aan en legde daarmee de wetgevende basis voor de volgende zevenjarige EU-begrotingscyclus. De stemming geeft het aanvankelijke onderhandelingsstandpunt van het Parlement aan vóór formele Raads- en Commissievoorstellen die laat in 2026 worden verwacht. Het tussentijdse rapport is een kritieke machtsgreep: het stelt rode lijnen, financieringsprioriteiten en de institutionele invloed vast die het Parlement tijdens de triloog zal inzetten.
+
+**Strategisch belang:** Het MFK bestrijkt ongeveer 1,2–1,4 biljoen EUR (geschat) aan Uniebrede uitgaven, inclusief cohesiefondsen, landbouwsubsidies, klimaatinvesteringen, defensiecapaciteiten en het nabuurschaps-/externe actie-instrument. Het standpunt van het Parlement over eigen middelen (digitale heffing, opbrengsten uit het koolstofgrensaanpassingsmechanisme, belasting op financiële transacties) bepaalt of de EU haar ambitieuze beleidsagenda kan financieren zonder de afhankelijkheid van nationale bijdragen te verdiepen.
+
+**Coalitiedynamiek:** De dominantie van de EVP in de Begrotingscommissie (BUDG) betekent dat het tussentijdse rapport een centrum-rechtse begrotingspolitieke voorzichtigheid gecombineerd met gerichte investeringen weerspiegelt. S&D en Renew zorgden voor formuleringen over sociale cohesie en groene transitie. Onthoudingen of tegenstemmen van ECR en PfE signaleren de voortdurende rechtse druk om middelen te herverdelen naar grensveiligheid en strategische autonomie.
+
+#### 2. Kwijtingspakket 2024 — Verantwoordingsweek (29 april — Meerdere TAs) 🟡 HOOG
+Het Parlement keurde een brede reeks kwijtingsbesluiten goed voor de EU-begrotingscyclus 2024. Belangrijke besluiten omvatten:
+- **TA-10-2026-0125**: Kwijting Commissie — verleend met voorwaarden en kritische opmerkingen
+- **TA-10-2026-0126**: Eigen kwijting van het Parlement — zelfregulerende verantwoordingsoefening
+- **TA-10-2026-0130**: Europese Dienst voor Extern Optreden (EDEO)
+- **TA-10-2026-0132**: Comité van de Regio's
+- **TA-10-2026-0133**: Europese Ombudsman
+- **TA-10-2026-0135**: Europees Openbaar Ministerie (EPPO)
+- **TA-10-2026-0136**: EU-agentschappen (samengevoegd)
+- **TA-10-2026-0137**: Gemeenschappelijke ondernemingen (O&O-partnerschappen)
+
+De kwijtingsprocedure vertegenwoordigt de meest directe grondwettelijke toezichtsbevoegdheid van het Parlement over de EU-instellingen. Kritische opmerkingen verbonden aan de kwijting van de Commissie signaleren aanhoudende zorgen over fraudepreventie, gendergevoelige budgettering en de uitvoering van de rechtsstaat­conditionaliteit.
+
+#### 3. Handhaving van de Wet digitale markten — EP neemt vaste positie in (30 april — TA-10-2026-0160) 🟡 HOOG
+Het Parlement nam een resolutie aan over de handhaving van de Wet digitale markten (DMA) en eiste strengere Commissiemaatregelen tegen Big Tech-poortwachters. De timing is significant: DMA-handhavingsprocedures tegen Alphabet (Google), Apple, Meta en Amazon bevinden zich op kritieke knooppunten. Het Parlement dringt aan op snellere tijdlijnen, hogere boetes en structurele remedies inclusief interoperabiliteitsverplichtingen.
+
+**Economische context:** DMA-handhaving beïnvloedt direct de digitale interne markt van de EU — geschat op 415 miljard EUR per jaar. Effectieve handhaving kan concurrentievoordelen vrijmaken voor Europese digitale bedrijven terwijl consumenten worden beschermd tegen lock-in-effecten.
+
+#### 4. Rechtsstaatrapport 2025 en beoordeling van grondrechten (29 april) 🟡 HOOG
+Opeenvolgende resoluties over het rechtsstaatrapport 2025 van de Commissie (TA-10-2026-0147) en de situatie van grondrechten in 2024–2025 (TA-10-2026-0146) weerspiegelen het intensieve toezicht van het Parlement op risico's van democratische achteruitgang binnen de EU. Het rechtsstaatrapport noemde zorgen over Hongarije, Slowakije en delen van Midden- en Oost-Europa, terwijl het ook de verslechterende persvrijheid in verschillende lidstaten markeerde.
+
+#### 5. Bescherming tegen oneerlijke concurrentie van derde landen (29 april — TA-10-2026-0149) 🟡 MEDIUM-HOOG
+Het Parlement steunde een resolutie over de bescherming van EU-bedrijven, banen en producten tegen oneerlijke concurrentie van derde landen. Dit heeft directe samenhang met de aanhoudende EU-VS-handelsspanningen na de tariefescalaties van 2025 en de zorgen over door de Chinese staat gesubsidieerde industriële uitvoer die op EU-markten wordt gedumpt.
+
+#### 6. Resolutie over verantwoording Oekraïne en steun Armenië (30 april) 🟡 MEDIUM
+- **TA-10-2026-0161**: Waarborgen van verantwoording en gerechtigheid als antwoord op de voortdurende aanvallen van Rusland op Oekraïense burgers — vraagt om robuuste internationale strafrechtelijke mechanismen en kaders voor inbeslagname van activa
+- **TA-10-2026-0162**: Steun voor democratische weerbaarheid in Armenië — signaleert EU-bezorgdheid over Russische druk op de Armeense soevereiniteit na de verkiezingen van 2024
+
+---
+
+### OVERZICHT VAN HET POLITIEKE LANDSCHAP (per 2026-05-14)
+
+| Groep | Zetels | Aandeel | Richtingstrend |
+|-------|-------|-------|-------------------|
+| EVP | 183 | 25,5% | Dominant; leidt MFK-, DMA-, rechtsstaat­standpunten |
+| S&D | 136 | 19,0% | Sterk op sociaal vlak, kwijtingsopmerkingen |
+| PfE | 85 | 11,9% | Stemde tegen verschillende rechtsstaatmaatregelen |
+| ECR | 81 | 11,3% | Gemengd; handelsbeschermingssteun, rechtsstaatoppositie |
+| Renew | 77 | 10,7% | Sleutelblok bij DMA en digitale interne markt |
+| Greens/EFA | 53 | 7,4% | Sterk voor DMA-handhaving, rechtsstaat |
+| Linkse | 45 | 6,3% | Steunde kritische kwijtingsopmerkingen |
+| NI | 30 | 4,2% | Gefragmenteerd; tactische stemming |
+| ESN | 27 | 3,8% | Uiterst rechts; verzet tegen rechtsstaatmaatregelen |
+
+**Meerderheidsdrempel:** 360 zetels. Er bestaat geen natuurlijke twee-blokken-meerderheid; de EVP-S&D grote coalitie (319 zetels) valt tekort. De meeste wetgevende meerderheden vereisen minimaal de EVP + S&D + Renew-configuratie.
+
+---
+
+### ANALYTISCHE BEOORDELING
+
+De plenaire vergadering van 28–30 april weerspiegelt een Parlement dat met opmerkelijk institutioneel zelfvertrouwen opereert: het stelt tegelijkertijd de architectuur voor de begroting 2028–2034 vast, houdt uitvoerende instellingen verantwoordelijk via kwijting, dringt aan op Big Tech-regulering en stuurt gerichte buitenlandse beleidssignalen over Oekraïne, Armenië en de rechtsstaat. De wetgevingsdichtheid en thematische breedte bevestigen dat het 10e Parlement halverwege zijn wetgevingsritme heeft gevonden.
+
+**Risico:** De MFK 2028–2034-onderhandelingen zullen de rest van deze parlementaire termijn domineren. De standpunten van het tussentijdse rapport van het Parlement zullen waarschijnlijk op vastberaden Raadsverzet stuiten op het punt van eigen middelen, met name de belasting op financiële transacties. De digitale heffing en CBAM-inkomsten­stromen als eigen middelen vormen het politiek meest controversiële strijdterrein.
+
+**Kans:** De DMA-handhavingsdruk kan, als die wordt afgestemd met Commissiemaatregelen, de EU herpositioneren als wereldwijde standaardsteller voor platformregulering — genererende 15–30 miljard EUR per jaar aan nalevingskosten die worden herverdeeld aan consumenten en concurrenten.
+
+---
+
+*Bronnen: EP-open dataportal — Feed van aangenomen teksten (TA-10-2026-serie); Analyse van het politieke landschap (EP10-samenstelling); analysis/daily/2026-05-14/breaking/data/*
+*Vertrouwen: 🟢 Hoog — Directe EP-wetgevingsregistratie*
+
+---
+
+### UITGEBREIDE SAMENVATTING (ROOT) — RONDE 2
+
+#### KERNBOODSCHAPPEN VOOR SENIOR LEIDERSCHAP
+
+**Topboodschap:** De plenaire vergadering van het Europees Parlement van 28–30 april 2026 vertegenwoordigt het meest significante wetgevingsresultaat van het 10e Parlement tot nu toe. De convergentie van begrotingshervormingen, handhaving van digitale regelgeving, rechtsstaatarchitectuur en Oekraïense verantwoording in één enkele zitting creëert gecombineerd politiek momentum.
+
+**Kritisch pad:** Het MFK-debat is het politieke proces met de hoogste inzet in de EU-governance de komende 24 maanden. Beslissingen genomen in het Commissievoorstel van september 2026 en de daaropvolgende Raadsonderhandelingen zullen de Europese openbare financieringsarchitectuur voor 7 jaar (2028–2034) vormgeven.
+
+---
+
+#### STRATEGISCHE IMPERATIEVEN
+
+**Onmiddellijk (mei–juni 2026):**
+1. Monitor de tijdlijn voor MFK-voorbereiding van de Commissie — elke vertraging signaleert politieke terughoudendheid
+2. Volg DMA-handhavingsprocedures — voorlopige resultaten tegen Apple/Meta/Google zijn de kortetermijntrigger
+3. G7 Kananaskis (juni 2026): Oekraïense verantwoording en handelsbescherming staan op de agenda
+4. EP-commissieverhoorrooster: BUDG/ECON-commissies houden vervolghoorzittingen over MFK en DMA
+
+**Middellange termijn (Q3–Q4 2026):**
+1. Commissie MFK-voorstel (september) — vergelijk met standpunten uit het tussentijdse rapport van het EP
+2. EU-VS-handelsrelatie: Bilaterale tariefonderhandelingen; dimensie van digitale diensten
+3. Hongaarse conditionaliteit: Beoordeling van de Commissie over vooruitgang bij rechterlijke onafhankelijkheid
+4. AI-acte handhavingsgereedheid: Augustus 2026 is de eerste toepassingsmijlpaal
+
+---
+
+#### BESLISSINGSRISICO'S EN MITIGATIE
+
+**Risico 1: MFK eigen middelen geblokkeerd in de Raad**
+*Waarschijnlijkheid: 70% | Impact: HOOG*
+Mitigatie: EP en ondersteunende lidstaten moeten nu informele steun opbouwen in de Raadswerkgroep; vermijd eigen middelen te maken tot een binaire rode lijn die de gehele MFK-aanneming blokkeert.
+
+**Risico 2: DMA-handhavingsvertraging onder VS-druk**
+*Waarschijnlijkheid: 40% | Impact: HOOG*
+Mitigatie: De Commissie moet onafhankelijkheid van VS-diplomatieke druk signaleren; parallelle EU-VS digitale handelsonderhandelingen kunnen enige spanning absorberen zonder de handhaving te compromitteren.
+
+**Risico 3: EP-kwijtingsprocedures escaleren naar motie van wantrouwen**
+*Waarschijnlijkheid: 15% | Impact: ZEER HOOG*
+Mitigatie: De Commissie moet substantieel reageren op kritische kwijtingsopmerkingen; de kwijtingscyclus 2025 (begint maart 2027) zal het meest kritieke kwetsbaarheidsmoment zijn.
+
+---
+
+#### ANALYTISCHE VERTROUWENSNIVEAUS
+
+| Onderwerp | Vertrouwen | Basis |
+|-------|-----------|-------|
+| Wetgevingsregistratie (aangenomen teksten) | 🟢 HIGH | Directe EP open data |
+| Politieke interpretatie | 🟡 MEDIUM | Structurele inferentie |
+| Economische projecties | 🟡 MEDIUM | IMF WEO-kennisbasis |
+| Toekomstige scenario-analyse | 🔴 LOW-MEDIUM | Probabilistische modellering |
+
+*Uitgebreide samenvatting (Root) — 2026-05-14 Ronde 2 | Vertrouwen: 🟢 Hoog*
+
+#### AANVULLENDE CONTEXT VOOR SENIOR BESLUITVORMERS
+
+##### Waarom deze zitting meer betekent dan typische plenaire vergaderingen
+
+De zitting van 28–30 april is geen routinematige wetgevingsvergadering. Ze is opmerkelijk om drie structurele redenen:
+
+**1. Gelijktijdigheid:** Vijf grote beleidsdomeinen (begrotingsbeleid, digitaal, rechtsstaat, veiligheid, verantwoording) vorderden tegelijkertijd. Dit gebeurt zelden — de meeste plenaire vergaderingen drijven 1–2 hoofdonderwerpen voort.
+
+**2. Coherentie:** De vijf onderwerpen zijn niet willekeurig samengebracht — ze delen een onderliggende logica (EU-institutionele zelfbevestiging vs. nationale soevereiniteit / VS-technologiemacht / Russische agressie). Deze coherentie geeft de zitting meer strategisch gewicht dan de som van afzonderlijke handelingen.
+
+**3. Precedentvorming:** Meerdere elementen creëren juridische of politieke precedenten die toekomstige acties zullen vormgeven: DMA-handhavingsprecedent, kritische kwijtingsobservatie-formuleringen, MFK eigen middelen als onderhandelingspositie.
+
+**Samenvatting voor besluitvormers:** Behandel 28–30 april 2026 als de strategische intentie­verklaring van het EP voor de rest van EP10 (2024–2029). Alle latere wetgevingsactiviteit staat in de schaduw van de ambitie van deze zitting.
+
+*Uitgebreide root samenvatting — 2026-05-14 Ronde 2*
+
+#### DEFINITIEVE UITVOERENDE NOOT
+
+**Drie beslissingen die bepalen of de ambitie van 28–30 april werkelijkheid wordt:**
+
+1. **De positie van het Duitse Federale Ministerie van Financiën over de eigen middelen van het MFK** (juni–september 2026): De berekende openheid of tegenstand van Duitsland zal het plafond stellen voor de volledige MFK-onderhandeling. Geen andere variabele is van groter belang.
+
+2. **Commissie DMA-handhavingsbeslissingen over Apple** (Q3–Q4 2026): De eerste succesvolle DMA-niet-naleving­sbeslissing zal handhavingscredibiliteit vestigen. Mislukking of vertraging zal andere poortwachters aanmoedigen tot niet-naleving.
+
+3. **G7 Kananaskis Oekraïne-verantwoordingstaal** (juni 2026): De precieze G7-formulering over verantwoording zal bepalen of de juridische architectuur voor een tribunaal kan worden gebouwd in 2026–2027 of moet wachten op een gewijzigd internationaal klimaat.
+
+Deze drie beslissingen zijn de vroegtijdige waarschuwingsindicatoren voor de volledige implementatiebaan van het wetgevingspakket van 28–30 april.
+
+*Root samenvatting definitief — 2026-05-14 Ronde 2*
+
+**Noot aan de lezers:** Deze analyse is geproduceerd onder tijds- en databeperkingen. Alle projecties dienen als richtinggevend en niet als definitief te worden beschouwd. Voor formeel beleidsgebruik dienen economische projecties te worden geverifieerd met actuele IMF/ECB-data.
+
+*Uitvoerend overzicht — volledig*
+
+**Uitvoerend overzicht Definitieve bijlage:**
+
+Voor elke besluitvormer die niets anders in dit analytisch pakket leest: de plenaire vergadering van het Europees Parlement van 28–30 april stelt vast dat het politieke centrum van de EU (EVP+S&D+Renew) ook in een gefragmenteerd Parlement in staat blijft ambitieuze, multi-domein wetgeving aan te nemen. Het centrum houdt stand. Of het stand houdt tijdens de moeilijke implementatieperiode is de kritische vraag voor 2026–2029.
+
+**Root uitvoerende samenvatting — definitieve update:**
+Alle vijf prioriteitsvragen van de plenaire vergadering van 28–30 april zijn nu volledig geanalyseerd in het 39-artefact analytisch pakket. Besluitvormers die diepere analyse van één enkelvoudige kwestie vereisen, worden verwezen naar het bijbehorende artefact: MFK → executive-brief.md + pestle-analysis.md; DMA → threat-model.md + intelligence-assessment.md; Oekraïne → political-threat-landscape.md + scenario-forecast.md; Rechtsstaat → coalition-dynamics.md + historical-parallels.md; Kwijting → document-analysis-index.md + reference-analysis-quality.md.
+
+*Root uitvoerende samenvatting — definitief, Ronde 2 voltooid*
+
+### Executive Brief No
+
+### TOPPHISTORIE: EP vedtar viktig lovgivningspakke — plenarsession 28.–30. april 2026
+
+Europaparlamentets plenarsession 28.–30. april 2026 i Brussel produserte et usedvanlig tett lovgivningsresultat som inkluderte den flerårige finansielle rammen (MFF) 2028–2034 interimsrapport, en bred runde av dechargevedtak for 2024, mandat for håndhevelse av lov om digitale markeder og en serie betydningsfulle utenrikspolitiske beslutninger. Dette representerer parlamentets mest konsekvente lovgivningsuke siden februar 2026.
+
+---
+
+### VIKTIGSTE HENDELSER (rangert etter prioritet)
+
+#### 1. MFF 2028–2034 Interimsrapport vedtatt (28. april — TA-10-2026-0111) 🔴 KRITISK
+Parlamentet vedtok sin interimsrapport om den flerårige finansielle rammen for 2028–2034 og la dermed det lovgivningsmessige grunnlaget for neste syvårige EU-budsjettsyklus. Avstemningen signaliserer parlamentets innledende forhandlingsposisjon foran formelle råds- og kommisjonsforslag som forventes sent i 2026. Interimsrapporten er et kritisk maktgrep: den fastlegger røde linjer, finansieringsprioriteringer og den institusjonelle innflytelsen som parlamentet vil bruke under trialoget.
+
+**Strategisk betydning:** MFF dekker ca. 1,2–1,4 billioner EUR (anslått) i unionens utgifter, inkludert samhørighetsfond, landbruksstøtte, klimainvesteringer, forsvarskapasitet og nabolags-/eksterne aksjonsinstrumenter. Parlamentets posisjon om egne midler (digital avgift, inntekter fra karbongrensejusteringsmekanisme, avgift på finansielle transaksjoner) avgjør om EU kan finansiere sin ambisiøse politiske dagsorden uten å fordype avhengigheten av nasjonale bidrag.
+
+**Koalitionsdynamikk:** EPP's dominans i Budsjettkomitéen (BUDG) betyr at interimsrapporten gjenspeiler center-høyre finanspolitisk forsiktighet kombinert med målrettede investeringer. S&D og Renew sikret formuleringer om sosial samhørighet og grønn omstilling. ECR's og PfE's stemmeunnlatelse eller motstand signaliserer det pågående høyreorienterte presset for å omdirigere midler mot grensesikkerhet og strategisk autonomi.
+
+#### 2. Dechargepakken 2024 — ansvarsuken (29. april — Multiple TAs) 🟡 HØY
+Parlamentet godkjente et bredt sett av dechargevedtak for 2024 EU-budsjettsyklusen. Viktige vedtak inkluderte:
+- **TA-10-2026-0125**: Kommisjonens decharge — innvilget med betingelser og kritiske merknader
+- **TA-10-2026-0126**: Parlamentets egen decharge — selvregulerende ansvarlighetsøvelse
+- **TA-10-2026-0130**: Den europeiske utenrikstjenesten (EEAS)
+- **TA-10-2026-0132**: Regionsutvalget
+- **TA-10-2026-0133**: Den europeiske ombudsmannen
+- **TA-10-2026-0135**: Den europeiske påtalemyndigheten (EPPO)
+- **TA-10-2026-0136**: EU-byråer (samlet)
+- **TA-10-2026-0137**: Fellesforetak (FoU-partnerskap)
+
+Dechargeprosedyren representerer parlamentets mest direkte konstitusjonelle tilsynsmyndighet overfor EU-institusjonene. Kritiske merknader knyttet til Kommisjonens decharge signaliserer vedvarende bekymringer om svindelprevensjon, kjønnsbudsjetting og gjennomføring av rettsstatsvilkår.
+
+#### 3. Håndhevelse av lov om digitale markeder — EP inntar fast posisjon (30. april — TA-10-2026-0160) 🟡 HØY
+Parlamentet vedtok en beslutning om håndhevelse av lov om digitale markeder (DMA) og krevde strengere kommisjonshandlinger mot Big Tech-portvakter. Timingen er viktig: DMA-håndhevingsprosedyrer mot Alphabet (Google), Apple, Meta og Amazon befinner seg ved kritiske knutepunkter. Parlamentet presser på for raskere tidsrammer, høyere bøter og strukturelle avhjelpningstiltak inkludert interoperabilitetsmandater.
+
+**Økonomisk kontekst:** DMA-håndhevelse påvirker direkte EU's digitale indre marked — anslått til 415 milliarder EUR årlig. Effektiv håndhevelse kan frigjøre konkurransefordeler for europeiske digitale selskaper, mens forbrukerne beskyttes mot innelåsingseffekter.
+
+#### 4. Rettsstatlig rapport 2025 og grunnleggende rettigheter (29. april) 🟡 HØY
+Back-to-back beslutninger om Kommisjonens rettsstatrapport 2025 (TA-10-2026-0147) og situasjonen for grunnleggende rettigheter i 2024–2025 (TA-10-2026-0146) gjenspeiler parlamentets intensiverte tilsyn med risiko for demokratisk tilbakegang innenfor EU. Rettsstattrapporten pekte på bekymringer i Ungarn, Slovakia og deler av Sentral- og Øst-Europa, mens den også flagget forverret pressefrihet i flere medlemsstater.
+
+#### 5. Beskyttelse mot urettferdig konkurranse fra tredjeland (29. april — TA-10-2026-0149) 🟡 MEDIUM-HØY
+Parlamentet støttet en beslutning om beskyttelse av EU-selskaper, jobber og produkter mot urettferdig konkurranse fra tredjeland. Dette er direkte relatert til pågående EU-US-handelsspenninger etter tariffopptrappingene i 2025 og bekymringer om kinesiske statssubsidierte industrieksporter som dumpes i EU-markedene.
+
+#### 6. Ukraina ansvarsresolusjon og armenierstøtte (30. april) 🟡 MEDIUM
+- **TA-10-2026-0161**: Sikre ansvarlighet og rettferdighet som svar på Russlands fortsatte angrep mot ukrainske sivile — krever robuste internasjonale strafferettslige mekanismer og rammer for eiendomsbeslagleggelse
+- **TA-10-2026-0162**: Støtte til demokratisk motstandskraft i Armenia — signaliserer EU's bekymring over russisk press på armensk suverenitet etter valget i 2024
+
+---
+
+### OVERSIKT OVER DET POLITISKE LANDSKAP (per 2026-05-14)
+
+| Gruppe | Seter | Andel | Retningstrend |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25,5% | Dominerende; leder MFF, DMA, rettsstatsposisjoner |
+| S&D | 136 | 19,0% | Sterk i sosiale spørsmål, dechargemerknader |
+| PfE | 85 | 11,9% | Stemte mot flere rettsstatsforanstaltninger |
+| ECR | 81 | 11,3% | Blandet; handelsbeskyttelsesstøtte, rettstatsopposisjon |
+| Renew | 77 | 10,7% | Nøkkelsvingblokk for DMA og digitalt indre marked |
+| Greens/EFA | 53 | 7,4% | Sterk for DMA-håndhevelse, rettsstat |
+| Venstre | 45 | 6,3% | Støttet kritiske dechargemerknader |
+| NI | 30 | 4,2% | Fragmentert; taktisk avstemning |
+| ESN | 27 | 3,8% | Ytre høyre; motstand mot rettsstatsforanstaltninger |
+
+**Majoriteterskel:** 360 seter. Det finnes ingen naturlig to-blokksmajoritet; EPP-S&D storkoalisjon (319 seter) er ikke nok. De fleste lovgivningsmessige flertall krever minimum EPP + S&D + Renew-konfigurasjon.
+
+---
+
+### ANALYTISK VURDERING
+
+Plenarsession 28.–30. april gjenspeiler et parlament som opererer med bemerkelsesverdig institusjonell selvtillit: det fastlegger simultant arkitekturen for budsjettet 2028–2034, holder utøvende institusjoner ansvarlige via decharge, presser på for Big Tech-regulering og sender ut målrettede utenrikspolitiske signaler om Ukraina, Armenia og rettsstat. Lovgivningstyngden og den tematiske bredden bekrefter at det 10. parlamentet har funnet sin lovgivningsrytme ved halvgangsmerkingen.
+
+**Risiko:** MFF 2028–2034-forhandlingene vil dominere resten av denne parlamentsperioden. Parlamentets interimsrapportposisjoner vil sannsynligvis møte fast Rådsopposisjon om egne midler, særlig avgiften på finansielle transaksjoner. Den digitale avgiften og CBAM-inntektsstrømmer som egne midler representerer det politisk mest kontroversielle slagfeltet.
+
+**Mulighet:** DMA-håndhevelses­pushen, dersom den matches av Kommisjonshandlinger, kan omposisjonere EU som global standardsetter for plattformsregulering — genererer 15–30 milliarder EUR årlig i samsvarskostnader som omfordeles til forbrukere og konkurrenter.
+
+---
+
+*Kilder: EP's åpne dataportal — Vedtatte tekster-feed (TA-10-2026-serien); Analyse av det politiske landskap (EP10-sammensetning); analysis/daily/2026-05-14/breaking/data/*
+*Konfidens: 🟢 Høy — Direkte EP-lovgivningsrekord*
+
+---
+
+### UTVIDET SAMMENDRAG (ROT) — RUNDE 2
+
+#### NØKKELBUDSKAP TIL SENIOR LEDELSE
+
+**Toppbudskap:** Europaparlamentets plenarsession 28.–30. april 2026 representerer det 10. parlamentets hittil mest betydningsfulle lovgivningsresultat. Konvergensen av budsjettreform, håndhevelse av digital regulering, rettsstatlig arkitektur og ukrainsk ansvarliggjøring i én enkelt session skaper sammensatt politisk momentum.
+
+**Kritisk sti:** MFF-debatten er den høyest-stakes politiske prosessen i EU's styresmakt de neste 24 månedene. Beslutninger tatt i Kommisjonens september 2026-forslag og etterfølgende rådsforhandlinger vil forme den europeiske offentlige finansieringsarkitekturen i 7 år (2028–2034).
+
+---
+
+#### STRATEGISKE IMPERATIVER
+
+**Umiddelbart (mai–juni 2026):**
+1. Overvåk Kommisjonens MFF-forberedelsestidslinje — enhver forsinkelse signaliserer politisk nøling
+2. Spor DMA-håndhevingsprosedyrer — Apples/Metas/Googles foreløpige resultater er den nær­forestående katalysatoren
+3. G7 Kananaskis (juni 2026): Ukraina-ansvar og handelsbeskyttelse vil stå på agendaen
+4. EP-utvalgshoringsskjema: BUDG/ECON-utvalg holder oppfølgingsutvalg om MFF og DMA
+
+**Mellomlang sikt (Q3–Q4 2026):**
+1. Kommisjonens MFF-forslag (september) — sammenlign med EP's interimsrapportposisjoner
+2. EU-US handelsrelasjon: Bilaterale forhandlinger om toll; digital tjenestesdimensjon
+3. Ungarsk vilkår: Kommisjonens vurdering av fremskritt for rettslig uavhengighet
+4. AI-aktens håndhevelsesberedskap: August 2026 er første anvendelses­milepæl
+
+---
+
+#### BESLUTNINGSRISIKOER OG AVBØTENDE TILTAK
+
+**Risiko 1: MFF egne midler blokkert i Rådet**
+*Sannsynlighet: 70% | Påvirkning: HØY*
+Avbøtende tiltak: EP og støttende medlemsstater bør nå bygge uformell støtte i Rådets arbeidsgruppe; unngå å gjøre egne midler til en binær rød linje som blokkerer hele MFF-vedtaket.
+
+**Risiko 2: DMA-håndhevelsesforsinkelse under US-press**
+*Sannsynlighet: 40% | Påvirkning: HØY*
+Avbøtende tiltak: Kommisjonen bør signalisere uavhengighet fra US diplomatisk press; parallelle EU-US digitale handelsforhandlinger kan absorbere noe spenning uten å kompromittere håndhevelse.
+
+**Risiko 3: EP decharge­prosedyrer eskalerer til mistillitsvotum**
+*Sannsynlighet: 15% | Påvirkning: SVÆRT HØY*
+Avbøtende tiltak: Kommisjonen må svare substantielt på kritiske decharge­merknader; 2025-dechargecyklusen (begynner mars 2027) vil være det viktigste sårbarhetsmomentet.
+
+---
+
+#### ANALYTISKE KONFIDENSNIVÅER
+
+| Emne | Konfidens | Grunnlag |
+|-------|-----------|-------|
+| Lovgivningsrekord (vedtatte tekster) | 🟢 HIGH | Direkte EP åpne data |
+| Politisk tolkning | 🟡 MEDIUM | Strukturell inferens |
+| Økonomiske fremskrivninger | 🟡 MEDIUM | IMF WEO kunnskapsbase |
+| Fremtidsscenarioanalyse | 🔴 LOW-MEDIUM | Probabilistisk modellering |
+
+*Utvidet sammendrag (rot) — 2026-05-14 Runde 2 | Konfidens: 🟢 Høy*
+
+#### SUPPLERENDE KONTEKST FOR BESLUTNINGSTAKERE PÅ SENIORNIVÅ
+
+##### Hvorfor denne sesjonen betyr mer enn typiske plenarsessions
+
+Sesjonen 28.–30. april er ikke en rutinemessig lovgivningssession. Den er bemerkelsesverdig av tre strukturelle årsaker:
+
+**1. Samtidighet:** Fem store politikkdomener (finansiell, digital, rettsstat, sikkerhet, ansvarliggjøring) avanserte simultant. Dette skjer sjelden — de fleste plenarsessions driver 1–2 store spørsmål.
+
+**2. Koherens:** De fem spørsmålene er ikke tilfeldig satt sammen — de deler en underliggende logikk (EU's institusjonelle selvhevdelse vs. nasjonal suverenitet / US teknologimakt / russisk aggresjon). Denne koherensen gir sesjonen mer strategisk vekt enn summen av individuelle akter.
+
+**3. Prejudikatskaping:** Flere elementer skaper juridiske eller politiske prejudikater som vil forme fremtidige handlinger: DMA-håndhevelsespresidens, decharge-kritiske observasjonsformuleringer, MFF's egne midler som forhandlingsposisjon.
+
+**Beslutningstakersammendrag:** Behandle 28.–30. april 2026 som EP's strategiske intensjonserklæring for resten av EP10 (2024–2029). All etterfølgende lovgivningsaktivitet vil stå i skyggen av denne sesjonens ambisjon.
+
+*Utvidet rot eksekutivsammendrag — 2026-05-14 Runde 2*
+
+#### ENDELIG EKSEKUTIV NOTE
+
+**Tre beslutninger som avgjør om 28.–30. aprils ambisjon realiseres:**
+
+1. **Det tyske Finansdepartementets MFF-egne-midler-posisjon** (juni–september 2026): Tysklands beregnede åpenhet eller motstand vil sette taket for hele MFF-forhandlingen. Ingen annen variabel betyr mer.
+
+2. **Kommisjonens DMA-håndhevelsesbeslutninger om Apple** (Q3–Q4 2026): Den første vellykkede DMA-ikke-overholdelsesbeslutningen vil etablere håndhevelseskredibilitet. Fiasko eller forsinkelse vil oppmuntre andre portvakter til ikke-overholdelse.
+
+3. **G7 Kananaskis Ukraina-ansvarsspråk** (juni 2026): Det presise G7-språket om ansvarliggjøring avgjør om den juridiske arkitekturen for en tribunal kan bygges i 2026–2027 eller må vente på et endret internasjonalt klima.
+
+Disse tre beslutningene er de tidlige varselsindikatorer for hele 28.–30. aprils lovgivningspakkes gjennomføringsbane.
+
+*Rot eksekutivsammendrag endelig — 2026-05-14 Runde 2*
+
+**Merknad til leserne:** Denne analysen er produsert under tids- og databegrensninger. Alle fremskrivninger bør behandles som veiledende snarere enn definitive. Til formell politikkbruk, verifiser økonomiske fremskrivninger mot gjeldende IMF/ECB-data.
+
+*Eksekutivsammendrag — komplett*
+
+**Eksekutivsammendrag Endelig tillegg:**
+
+For enhver beslutningstaker som ikke leser noe annet i denne analytiske pakken: plenarsession 28.–30. april i Europaparlamentet fastslår at EU's politiske sentrum (EPP+S&D+Renew) forblir i stand til å vedta ambisiøs, fler-domene lovgivning selv i et fragmentert parlament. Sentrum holder. Om det holder gjennom den vanskelige gjennomføringsperioden er det kritiske 2026–2029-spørsmålet.
+
+**Rot eksekutivsammendrag — endelig oppdatering:**
+Alle fem prioritetsspørsmål fra plenarsession 28.–30. april er nå fullt analysert i den 39-artefakt analytiske pakken. Beslutningstakere som krever dypere analyse av ett enkelt spørsmål, henvises til den tilsvarende artefakten: MFF → executive-brief.md + pestle-analysis.md; DMA → threat-model.md + intelligence-assessment.md; Ukraina → political-threat-landscape.md + scenario-forecast.md; Rettsstat → coalition-dynamics.md + historical-parallels.md; Decharge → document-analysis-index.md + reference-analysis-quality.md.
+
+*Rot eksekutivsammendrag — endelig, Runde 2 komplett*
+
+### Executive Brief Sv
+
+### TOPPNYHET: EP antar viktigt lagstiftningspaket — plenarsessionen 28–30 april 2026
+
+Europaparlamentets plenarsession 28–30 april 2026 i Bryssel producerade ett exceptionellt tätt lagstiftningsresultat som omfattade den fleråriga budgetramen (FBR) 2028–2034 interimsrapport, en bred omgång ansvarsfrihetsbeslut för 2024, mandat för tillämpning av lagen om digitala marknader och en serie betydande utrikes­politiska resolutioner. Detta representerar parlamentets mest konsekventa lagstiftningsvecka sedan februari 2026.
+
+---
+
+### VIKTIGASTE HÄNDELSERNA (rangordnade efter prioritet)
+
+#### 1. FBR 2028–2034 interimsrapport antagen (28 april — TA-10-2026-0111) 🔴 KRITISK
+Parlamentet antog sin interimsrapport om den fleråriga budgetramen för 2028–2034 och lade därmed den lagstiftande grunden för nästa sjuåriga EU-budgetcykel. Omröstningen signalerar parlamentets inledande förhandlingsposition inför formella råds- och kommissionsförslag som förväntas i slutet av 2026. Interimsrapporten är ett kritiskt maktdrag: den fastställer gränser, finansieringsprioriteringar och det institutionella inflytande som parlamentet kommer att använda under trilogen.
+
+**Strategisk betydelse:** FBR täcker ungefär 1,2–1,4 biljoner EUR (beräknat) i unionens utgifter, inklusive sammanhållningsfonder, jordbrukssubventioner, klimatinvesteringar, försvarsförmåga och grannskaps-/externa åtgärdsinstrument. Parlamentets ståndpunkt om egna medel (digital avgift, intäkter från mekanismen för koldioxidgränsjustering, skatt på finansiella transaktioner) avgör om EU kan finansiera sin ambitiösa politiska agenda utan att fördjupa beroendet av nationella bidrag.
+
+**Koalitionsdynamik:** EPP:s dominans i budgetutskottet (BUDG) innebär att interimsrapporten speglar konservativ finanspolitisk försiktighet jämte riktade investeringar. S&D och Renew säkrade formuleringar om social sammanhållning och grön omställning. ECR:s och PfE:s nedlagda röster eller röster emot signalerar det pågående högeristiska trycket för att omdirigera medel mot gränssäkerhet och strategisk autonomi.
+
+#### 2. Ansvarsfrihetspaketet 2024 — ansvarighetsvecka (29 april — Multipla TAs) 🟡 HÖG
+Parlamentet godkände en bred uppsättning ansvarsfrihetsbeslut för 2024 års EU-budgetcykel. Viktigaste besluten inkluderade:
+- **TA-10-2026-0125**: Kommissionens ansvarsfrihet — beviljad med villkor och kritiska iakttagelser
+- **TA-10-2026-0126**: Parlamentets egen ansvarsfrihet — självreglerande ansvarsskyldighetsövning
+- **TA-10-2026-0130**: Europeiska utrikestjänsten (EEAS)
+- **TA-10-2026-0132**: Regionkommittén
+- **TA-10-2026-0133**: Europeiska ombudsmannen
+- **TA-10-2026-0135**: Europeiska åklagarmyndigheten (EPPO)
+- **TA-10-2026-0136**: EU:s byråer (sammantagna)
+- **TA-10-2026-0137**: Gemensamma företag (FoU-partnerskap)
+
+Ansvarsfrihetsproceduren representerar parlamentets mest direkta konstitutionella tillsynsmakt över EU-institutionerna. Kritiska iakttagelser kopplade till kommissionens ansvarsfrihet signalerar kvarstående oro för bedrägeribevakning, jämställdhetsbudgetering och genomförande av rättsstatsbetingelse.
+
+#### 3. Tillämpning av lagen om digitala marknader — EP intar fast ståndpunkt (30 april — TA-10-2026-0160) 🟡 HÖG
+Parlamentet antog en resolution om tillämpning av lagen om digitala marknader (DMA) och krävde strängare kommissionsåtgärder mot Big Tech-grindvakter. Tidpunkten är viktig: DMA-tillämpningsförfaranden mot Alphabet (Google), Apple, Meta och Amazon befinner sig vid kritiska knutpunkter. Parlamentet kräver snabbare tidsramar, högre böter och strukturella åtgärder inklusive interoperabilitetskrav.
+
+**Ekonomisk kontext:** DMA-tillämpning påverkar direkt EU:s digitala inre marknad — uppskattad till 415 miljarder EUR årligen. Effektiv tillämpning kan frigöra konkurrensvinster för europeiska digitala företag samtidigt som konsumenterna skyddas från inlåsningseffekter.
+
+#### 4. Rättsstatlig rapport 2025 och grundläggande rättighetsbedömning (29 april) 🟡 HÖG
+Tillbaka-till-rygg resolutioner om kommissionens rapport om rättsstaten 2025 (TA-10-2026-0147) och situationen för grundläggande rättigheter 2024–2025 (TA-10-2026-0146) speglar parlamentets intensifierade tillsyn av risker för demokratisk bakgång inom EU. Rapporten om rättsstaten citerade oro i Ungern, Slovakien och delar av Central- och Östeuropa, samtidigt som den flaggade för försämrad mediefrihet i flera medlemsstater.
+
+#### 5. Skydd mot orättvis konkurrens från tredjeländer (29 april — TA-10-2026-0149) 🟡 MEDIUM-HÖG
+Parlamentet stödde en resolution om att skydda EU-företag, jobb och produkter mot orättvis konkurrens från tredjeländer. Detta är direkt kopplat till pågående EU-US-handelsspänningar efter tariffupptrappningarna 2025 och oro för kinesiska statssubventionerade industriexporter som dumpas på EU-marknaderna.
+
+#### 6. Ukraina ansvarsutkrävningsresolution och Armenien-stöd (30 april) 🟡 MEDIUM
+- **TA-10-2026-0161**: Säkerställande av ansvarsutkrävning och rättvisa som svar på Rysslands fortsatta attacker mot ukrainska civila — kräver robusta internationella straffrättsliga mekanismer och ramverk för tillgångsinbeslagtagning
+- **TA-10-2026-0162**: Stöd för demokratisk motståndskraft i Armenien — signalerar EU:s oro för ryskt tryck på armenisk suveränitet efter valen 2024
+
+---
+
+### POLITISK LANDSKAPSÖVERSIKT (per 2026-05-14)
+
+| Grupp | Mandat | Andel | Riktningstrend |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25,5% | Dominant; leder FBR, DMA, rättsstatliga ståndpunkter |
+| S&D | 136 | 19,0% | Stark i sociala frågor, ansvarsfrihetsiakttagelser |
+| PfE | 85 | 11,9% | Röstade mot flera rättsstatliga åtgärder |
+| ECR | 81 | 11,3% | Blandat; stöd för handelsskydd, opposition mot rättsstat |
+| Renew | 77 | 10,7% | Nyckelsvängblock för DMA och digital inre marknad |
+| Greens/EFA | 53 | 7,4% | Starkt för DMA-tillämpning, rättsstat |
+| Vänstern | 45 | 6,3% | Stödde kritiska ansvarsfrihetsiakttagelser |
+| NI | 30 | 4,2% | Splittrat; taktisk röstning |
+| ESN | 27 | 3,8% | Yttersta höger; motstånd mot rättsstatliga åtgärder |
+
+**Majoritetströskel:** 360 mandat. Ingen naturlig tvåblockmajoritet finns; EPP-S&D storkoalition (319 mandat) faller kort. De flesta lagstiftande majoriteter kräver minst EPP + S&D + Renew-konfiguration.
+
+---
+
+### ANALYTISK BEDÖMNING
+
+Plenarsessionen 28–30 april speglar ett parlament som verkar med anmärkningsvärt institutionellt självförtroende: det fastställer simultant arkitekturen för budgeten 2028–2034, håller exekutiva institutioner ansvariga genom ansvarsfrihet, pressar på för Big Tech-reglering och utfärdar riktade utrikespolitiska signaler om Ukraina, Armenien och rättsstaten. Lagstiftningstätheten och den tematiska bredden bekräftar att det 10:e parlamentet har hittat sin lagstiftningsrytm vid halvtidsmärket.
+
+**Risk:** FBR 2028–2034-förhandlingarna kommer att dominera resten av denna parlamentsperiod. Parlamentets interimsrapportpositioner möter troligen resolut rådsmotsättning i fråga om egna medel, särskilt skatten på finansiella transaktioner. Den digitala avgiften och CBAM-intäktsströmmar som egna medel representerar det politiskt mest kontroversiella slagfältet.
+
+**Möjlighet:** DMA-tillämpningspushen, om den matchas av kommissionsåtgärder, kan ompositionera EU som global standardsättare för plattformsreglering — genererar 15–30 miljarder EUR årligen i efterlevnadskostnader som omfördelade till konsumenter och konkurrenter.
+
+---
+
+*Källor: EP:s öppna dataportal — Flöde för antagna texter (serien TA-10-2026); Analys av det politiska landskapet (EP10:s sammansättning); analysis/daily/2026-05-14/breaking/data/*
+*Konfidens: 🟢 Hög — Direkt EP-lagstiftningsrekord*
+
+---
+
+### UTVIDGAD EXEKUTIV SAMMANFATTNING (ROT) — OMGÅNG 2
+
+#### NYCKELBUDSKAP TILL SENIOR LEDNING
+
+**Toppbudskap:** Europaparlamentets plenarsession 28–30 april 2026 representerar det 10:e parlamentets mest betydelsefulla lagstiftningsresultat hittills. Sammankopplingen av budgetreform, tillämpning av digital reglering, rättsstatlig arkitektur och ukrainska ansvarsutkrävningsmekanismer i en enda session skapar sammansatt politiskt momentum.
+
+**Kritisk väg:** FBR-debatten är den mest riskfyllda politiska processen i EU:s styrning under de nästa 24 månaderna. Beslut i kommissionens förslag i september 2026 och efterföljande rådsförhandlingar kommer att forma den europeiska offentliga finansieringsarkitekturen i 7 år (2028–2034).
+
+---
+
+#### STRATEGISKA IMPERATIV
+
+**Omedelbart (maj–juni 2026):**
+1. Bevaka kommissionens FBR-förberedelsestidslinje — eventuell försening signalerar politisk tveksamhet
+2. Följ DMA-tillämpningsförfaranden — preliminära resultat mot Apple/Meta/Google är den närtids utlösande faktorn
+3. G7 Kananaskis (juni 2026): Ukraina-ansvarsutkrävning och handelsskydd kommer att stå på agendan
+4. EP-utskottsutfrågningsschema: BUDG/ECON-utskotten håller uppföljningsutfrågningar om FBR och DMA
+
+**Medellång sikt (kvartal 3–4 2026):**
+1. Kommissionens FBR-förslag (september) — jämför med EP:s interimsrapportpositioner
+2. EU-US handelsrelation: Bilaterala förhandlingar om tullar; digital servicesdimension
+3. Ungersk betingelse: Kommissionens bedömning av framsteg för rättslig oberoende
+4. AI-aktens tillämpningsberedskap: Augusti 2026 är första tillämpningsmilstolpen
+
+---
+
+#### BESLUT RISKER OCH BEGRÄNSNING
+
+**Risk 1: FBR egna medel blockeras i rådet**
+*Sannolikhet: 70% | Påverkan: HÖG*
+Begränsning: EP och stödjande medlemsstater bör nu bygga informellt stöd i rådets arbetsgrupp; undvik att göra egna medel till ett binärt rött streck som blockerar hela FBR-antagandet.
+
+**Risk 2: DMA-tillämpningsfördröjning under USA-tryck**
+*Sannolikhet: 40% | Påverkan: HÖG*
+Begränsning: Kommissionen bör signalera oberoende från USA:s diplomatiska tryck; parallella EU-US digitala handelsförhandlingar kan absorbera en del spänning utan att kompromissa med tillämpningen.
+
+**Risk 3: EP ansvarsfrihetsprövning eskalerar till misstroendevotum**
+*Sannolikhet: 15% | Påverkan: MYCKET HÖG*
+Begränsning: Kommissionen måste svara substantiellt på kritiska ansvarsfrihetsiakttagelser; ansvarsfrihetscykeln 2025 (börjar mars 2027) blir den viktigaste sårbarhetspunkten.
+
+---
+
+#### ANALYTISKA KONFIDENSNIVÅER
+
+| Ämne | Konfidens | Underlag |
+|-------|-----------|-------|
+| Lagstiftningsrekord (antagna texter) | 🟢 HIGH | Direkt EP:s öppna data |
+| Politisk tolkning | 🟡 MEDIUM | Strukturellt slutledande |
+| Ekonomiska prognoser | 🟡 MEDIUM | IMF WEO kunskapsbas |
+| Framtidsscenarieanalys | 🔴 LOW-MEDIUM | Sannolikhetsmodellering |
+
+*Utvidgad exekutiv sammanfattning (rot) — 2026-05-14 Omgång 2 | Konfidens: 🟢 Hög*
+
+#### KOMPLETTERANDE KONTEXT FÖR BESLUTSFATTARE PÅ HÖG NIVÅ
+
+##### Varför denna session är viktigare än typiska plenarsessioner
+
+Sessionen 28–30 april är inte en rutinmässig lagstiftningssession. Den är anmärkningsvärd av tre strukturella skäl:
+
+**1. Simultanitet:** Fem stora politikdomäner (finansiellt, digitalt, rättsstatlighet, säkerhet, ansvarsutkrävning) avancerade simultant. Detta händer sällan — de flesta plenarsessioner driver 1–2 huvudfrågor.
+
+**2. Koherens:** De fem frågorna är inte slumpmässigt sammanslagna — de delar en underliggande logik (EU:s institutionella ambition kontra nationell suveränitet / USA:s teknikmakt / Rysslands aggression). Denna koherens ger sessionen mer strategisk tyngd än summan av enskilda akter.
+
+**3. Prejudikatskapande:** Flera element skapar rättsliga eller politiska prejudikat som kommer att forma framtida handlingar: DMA-tillämpningsprejudikat, formulering av kritiska ansvarsfrihetsiakttagelser, FBR:s egna medel som förhandlingsposition.
+
+**Sammanfattning för beslutsfattare:** Betrakta 28–30 april 2026 som EP:s strategiska avsiktsförklaring för resten av EP10 (2024–2029). All efterföljande lagstiftningsaktivitet kommer att stå i skuggan av denna sessions ambition.
+
+*Utvidgad rot exekutiv sammanfattning — 2026-05-14 Omgång 2*
+
+#### SISTA EXEKUTIV NOT
+
+**Tre beslut som avgör om 28–30 aprils ambitioner förverkligas:**
+
+1. **Tyska finansministeriets ståndpunkt om FBR:s egna medel** (juni–september 2026): Tysklands beräknade öppenhet eller motstånd sätter taket för hela FBR-förhandlingen. Ingen annan variabel spelar större roll.
+
+2. **Kommissionens DMA-tillämpningsbeslut om Apple** (kvartal 3–4 2026): Det första framgångsrika DMA-beslutet om bristande efterlevnad etablerar tillämpningskredibilitet. Misslyckande eller fördröjning kommer att uppmuntra andra grindvakter till bristande efterlevnad.
+
+3. **G7 Kananaskis Ukraina ansvarsutkrävningsformulering** (juni 2026): Den exakta G7-formuleringen om ansvarsutkrävning avgör om den rättsliga arkitekturen för en tribunal kan byggas 2026–2027 eller måste vänta på ett förändrat internationellt klimat.
+
+Dessa tre beslut är de tidiga varningsindikatorer för hela 28–30 aprils lagstiftningspaketes genomförandebana.
+
+*Rotexekutiv sammanfattning slutgiltig — 2026-05-14 Omgång 2*
+
+**Not till läsarna:** Denna analys producerades under tids- och databegränsningar. Alla prognoser bör behandlas som vägledande snarare än definitiva. För formell policyanvändning, verifiera ekonomiska prognoser mot aktuell IMF/ECB-data.
+
+*Exekutiv sammanfattning — komplett*
+
+**Exekutiv sammanfattning Slutlig bilaga:**
+
+För varje beslutsfattare som inte läser något annat i detta analytiska paket: plenarsessionen 28–30 april i Europaparlamentet fastslår att EU:s politiska centrum (EPP+S&D+Renew) förblir kapabelt att anta ambitiös, flerdomänlig lagstiftning även i ett fragmenterat parlament. Centrumet håller. Huruvida det håller genom den svåra genomförandeperioden är den kritiska frågan för 2026–2029.
+
+**Rotexekutiv sammanfattning — slutgiltig uppdatering:**
+Alla fem prioritetsfrågor från plenarsessionen 28–30 april är nu fullt analyserade i det analytiska paketet med 39 artefakter. Beslutsfattare som kräver djupare analys om en enskild fråga hänvisas till motsvarande artefakt: FBR → executive-brief.md + pestle-analysis.md; DMA → threat-model.md + intelligence-assessment.md; Ukraina → political-threat-landscape.md + scenario-forecast.md; Rättsstaten → coalition-dynamics.md + historical-parallels.md; Ansvarsfrihet → document-analysis-index.md + reference-analysis-quality.md.
+
+*Rotexekutiv sammanfattning — slutgiltig, Omgång 2 klar*
+
+### Executive Brief Zh
+
+**日期:** 2026-05-14 | **分类:** 公开情报分析
+**文章类型:** 最新新闻 | **可信度:** 🟢 高（以欧洲议会公开数据为主要来源）
+
+---
+
+### 头条新闻：欧洲议会通过重要立法一揽子方案 — 2026年4月28-30日全体会议
+
+2026年4月28-30日在布鲁塞尔举行的欧洲议会全体会议产生了密度异常高的立法成果，涵盖2028-2034年多年期财务框架（MFF）中期报告、2024年度预算执行批准决定的广泛一揽子通过、数字市场法执行授权，以及一系列重要的外交政策决议。这是议会自2026年2月以来最为密集的立法周。
+
+---
+
+### 主要动态（按优先级排列）
+
+#### 1. MFF 2028-2034 中期报告获批（4月28日 — TA-10-2026-0111）🔴 关键
+议会通过了2028-2034年多年期财务框架中期报告，为下一个七年EU预算周期奠定了立法基础。此次投票标志着议会在理事会和委员会于2026年底提出正式方案之前的初始谈判立场。中期报告是关键的权力博弈：它确立了议会将在三方谈判中运用的红线、资金优先事项和机构影响力。
+
+**战略意义：** MFF涵盖约1.2-1.4万亿欧元（估计）的欧盟支出，包括凝聚力基金、农业补贴、气候投资、防务能力以及睦邻/对外行动工具。议会在自有资源（数字税、碳边界调整机制收益、金融交易税）上的立场将决定欧盟能否在不加深对国家供款依赖的情况下为其雄心勃勃的政策议程提供资金。
+
+**联盟动态：** EPP在预算委员会（BUDG）的主导地位意味着中期报告反映了中右翼财政审慎与定向投资相结合的立场。S&D和Renew确保了社会凝聚力和绿色转型的相关表述。ECR和PfE的弃权或反对票表明，右翼持续施压，要求将资金转向边境安全和战略自主。
+
+#### 2. 2024年预算执行批准一揽子方案 — 责任周（4月29日 — 多项TAs）🟡 高
+议会批准了一批广泛的2024年EU预算周期预算执行批准决定。主要决定包括：
+- **TA-10-2026-0125**：欧洲委员会批准 — 附条件和批评性意见予以批准
+- **TA-10-2026-0126**：议会自身批准 — 自我监管问责实践
+- **TA-10-2026-0130**：欧洲对外行动局（EEAS）
+- **TA-10-2026-0132**：地区委员会
+- **TA-10-2026-0133**：欧洲监察专员
+- **TA-10-2026-0135**：欧洲检察官署（EPPO）
+- **TA-10-2026-0136**：欧盟机构（综合）
+- **TA-10-2026-0137**：合资企业（研发合作伙伴关系）
+
+预算执行批准程序代表议会对欧盟机构最直接的宪法性监督权力。与委员会预算执行批准相关的批评性意见表明，各方对欺诈防范、性别预算编制和法治条件性执行的担忧依然存在。
+
+#### 3. 数字市场法执行 — 欧洲议会采取坚定立场（4月30日 — TA-10-2026-0160）🟡 高
+议会通过了关于数字市场法（DMA）执行的决议，要求委员会对大型科技守门人采取更严格的行动。时机意义重大：针对Alphabet（谷歌）、Apple、Meta和Amazon的DMA执行程序正处于关键节点。议会推动更快的时间表、更高的罚款以及包括互操作性义务在内的结构性补救措施。
+
+**经济背景：** DMA执行直接影响估计年产值达4150亿欧元的欧盟数字单一市场。有效执行可释放欧洲数字企业的竞争收益，同时保护消费者免受锁定效应影响。
+
+#### 4. 2025年法治报告与基本权利评估（4月29日）🟡 高
+就委员会2025年法治报告（TA-10-2026-0147）和2024-2025年基本权利状况（TA-10-2026-0146）相继通过的决议，反映了议会对欧盟内民主倒退风险的加强监督。法治报告提出了对匈牙利、斯洛伐克及中东欧部分地区的关切，同时指出多个成员国新闻自由恶化的问题。
+
+#### 5. 保护欧盟免受第三国不公平竞争（4月29日 — TA-10-2026-0149）🟡 中高
+议会支持一项关于保护欧盟企业、就业和产品免受第三国不公平竞争的决议。这与2025年关税升级后持续的欧美贸易紧张关系，以及对被倾销至欧盟市场的中国国家补贴工业出口的担忧直接相关。
+
+#### 6. 乌克兰责任决议和对亚美尼亚的支持（4月30日）🟡 中等
+- **TA-10-2026-0161**：确保责任追究与正义，以回应俄罗斯持续袭击乌克兰平民——呼吁建立强有力的国际刑事机制和资产没收框架
+- **TA-10-2026-0162**：支持亚美尼亚的民主韧性——表明欧盟对2024年选举后俄罗斯向亚美尼亚主权施压的担忧
+
+---
+
+### 政治格局概览（截至2026-05-14）
+
+| 集团 | 席位 | 占比 | 趋势 |
+|-------|-------|-------|-------------------|
+| EPP | 183 | 25.5% | 主导；引领MFF、DMA、法治立场 |
+| S&D | 136 | 19.0% | 社会议题、批准意见方面表现强劲 |
+| PfE | 85 | 11.9% | 反对多项法治措施 |
+| ECR | 81 | 11.3% | 立场不一；支持贸易保护，反对法治 |
+| Renew | 77 | 10.7% | DMA和数字单一市场的关键摆动集团 |
+| Greens/EFA | 53 | 7.4% | 强力支持DMA执行和法治 |
+| 左翼 | 45 | 6.3% | 支持批评性批准意见 |
+| NI | 30 | 4.2% | 分散；战术性投票 |
+| ESN | 27 | 3.8% | 极右翼；抵制法治措施 |
+
+**多数门槛：** 360席。不存在自然的双集团多数；EPP-S&D大联盟（319席）不足。大多数立法多数至少需要EPP + S&D + Renew的组合配置。
+
+---
+
+### 分析评估
+
+4月28-30日全体会议反映出一个以令人瞩目的机构自信运作的议会：它同时确立2028-2034年预算架构，通过批准程序追究行政机构责任，推动大型科技监管，并就乌克兰、亚美尼亚和法治发出针对性的外交政策信号。立法密度和主题广度证实，第十届议会在中期已找到其立法节奏。
+
+**风险：** MFF 2028-2034谈判将主导本届会期余下时间。议会中期报告立场很可能在自有资源问题上遭遇理事会的坚决反对，尤其是金融交易税。作为自有资源的数字税和碳边界调整机制收益代表政治上最具争议的战场。
+
+**机会：** DMA执行压力若与委员会行动相配套，可将欧盟重新定位为平台监管的全球标准制定者——每年产生150-300亿欧元的合规成本，并将其重新分配给消费者和竞争者。
+
+---
+
+*来源：欧洲议会公开数据门户 — 已通过文本信息源（TA-10-2026系列）；政治格局分析（EP10构成）；analysis/daily/2026-05-14/breaking/data/*
+*可信度: 🟢 高 — 欧洲议会直接立法记录*
+
+---
+
+### 扩展执行摘要（根节点）— 第2轮
+
+#### 高级管理层的核心信息
+
+**核心信息：** 欧洲议会2026年4月28-30日全体会议代表第十届议会迄今最重要的立法成果。预算改革、数字监管执行、法治架构和乌克兰问责在单一会期内的融合创造了复合的政治动力。
+
+**关键路径：** MFF辩论是未来24个月内欧盟治理中风险最高的政治进程。2026年9月委员会方案及随后理事会谈判中所作决定将塑造7年（2028-2034年）的欧洲公共融资架构。
+
+---
+
+#### 战略要务
+
+**即时行动（2026年5-6月）：**
+1. 监控委员会MFF准备时间表——任何延迟均表明政治犹豫
+2. 跟踪DMA执行程序——针对Apple/Meta/谷歌的初步结果是短期触发因素
+3. G7卡纳纳斯基斯峰会（2026年6月）：乌克兰问责和贸易保护将列入议程
+4. 欧洲议会委员会听证日程：BUDG/ECON委员会举行MFF和DMA后续听证
+
+**中期行动（2026年第3-4季度）：**
+1. 委员会MFF提案（9月）——与欧洲议会中期报告立场比较
+2. 欧美贸易关系：关税双边谈判；数字服务维度
+3. 匈牙利条件性：委员会对司法独立进展的评估
+4. 人工智能法执行准备：2026年8月是第一个适用里程碑
+
+---
+
+#### 决策风险与缓解措施
+
+**风险1：MFF自有资源在理事会遭阻**
+*概率：70% | 影响：高*
+缓解措施：欧洲议会和支持成员国现应在理事会工作组建立非正式支持；避免将自有资源变成阻碍整个MFF通过的二元红线。
+
+**风险2：美国压力下DMA执行延迟**
+*概率：40% | 影响：高*
+缓解措施：委员会应表明对美国外交压力的独立性；平行的欧美数字贸易谈判可在不损害执行的情况下吸收部分紧张局势。
+
+**风险3：欧洲议会批准程序升级为不信任投票**
+*概率：15% | 影响：极高*
+缓解措施：委员会必须对批评性批准意见作出实质性回应；2025年批准周期（2027年3月启动）将是最关键的脆弱时刻。
+
+---
+
+#### 分析可信度水平
+
+| 主题 | 可信度 | 依据 |
+|-------|-----------|-------|
+| 立法记录（已通过文本） | 🟢 HIGH | 直接来源于欧洲议会公开数据 |
+| 政治解读 | 🟡 MEDIUM | 结构性推断 |
+| 经济预测 | 🟡 MEDIUM | IMF WEO知识库 |
+| 未来情景分析 | 🔴 LOW-MEDIUM | 概率建模 |
+
+*扩展执行摘要（根节点）— 2026-05-14 第2轮 | 可信度: 🟢 高*
+
+#### 高级决策者补充背景
+
+##### 为何此次会议比典型全体会议更为重要
+
+4月28-30日会议并非常规立法会议。它因三个结构性原因而引人注目：
+
+**1. 同步性：** 五大政策领域（财政、数字、法治、安全、问责）同步推进。这种情况罕见——大多数全体会议推动1-2个主要议题。
+
+**2. 连贯性：** 五个议题并非随机汇聚——它们共享一个潜在逻辑（欧盟机构自我主张 vs. 国家主权/美国科技权力/俄罗斯侵略）。这种连贯性赋予会议比各项单独行为总和更大的战略分量。
+
+**3. 先例创立：** 多个要素创立了将塑造未来行动的法律或政策先例：DMA执行先例、批评性批准意见措辞、MFF自有资源作为谈判立场。
+
+**决策者总结：** 将2026年4月28-30日视为欧洲议会对EP10（2024-2029年）余下任期的战略意图宣示。此后所有立法活动都将处于本次会议雄心的阴影之下。
+
+*扩展根节点执行摘要 — 2026-05-14 第2轮*
+
+#### 最终执行说明
+
+**决定4月28-30日雄心能否实现的三项决策：**
+
+1. **德国联邦财政部关于MFF自有资源的立场**（2026年6-9月）：德国经过计算的开放性或阻力将为整个MFF谈判设定上限。没有任何其他变量比这更重要。
+
+2. **委员会对Apple的DMA执行决定**（2026年第3-4季度）：第一个成功的DMA不合规决定将建立执行公信力。失败或延误将鼓励其他守门人效仿不合规行为。
+
+3. **G7卡纳纳斯基斯峰会乌克兰问责措辞**（2026年6月）：G7在问责问题上的确切措辞将决定法庭的法律架构能否在2026-2027年建立，还是必须等待国际环境发生变化。
+
+这三项决策是4月28-30日立法一揽子方案整体执行轨迹的早期预警指标。
+
+*根节点摘要最终版 — 2026-05-14 第2轮*
+
+**读者说明：** 本分析在时间和数据约束下产生。所有预测均应视为指导性而非确定性内容。如用于正式政策目的，请以最新IMF/欧洲央行数据核实经济预测。
+
+*执行简报 — 完整版*
+
+**执行简报最终附录：**
+
+对于不会阅读本分析包其他内容的决策者：欧洲议会4月28-30日全体会议证实，欧盟政治中心（EPP+S&D+Renew）在碎片化议会中仍能通过雄心勃勃的多领域立法。中心在坚守。它能否在艰难的执行期坚守，是2026-2029年的关键问题。
+
+**根节点执行摘要 — 最终更新：**
+4月28-30日全体会议的五项优先议题现已在39件文物分析包中得到全面分析。需要深度分析单一议题的决策者请参阅相应文物：MFF → executive-brief.md + pestle-analysis.md；DMA → threat-model.md + intelligence-assessment.md；乌克兰 → political-threat-landscape.md + scenario-forecast.md；法治 → coalition-dynamics.md + historical-parallels.md；预算执行批准 → document-analysis-index.md + reference-analysis-quality.md。
+
+*根节点执行摘要 — 最终版，第2轮完成*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `breaking`
@@ -8264,6 +10580,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Seo Headers Policy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/seo-headers-policy.md)
 - [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
@@ -8316,4 +10633,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 
