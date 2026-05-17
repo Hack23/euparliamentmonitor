@@ -47,11 +47,11 @@ jobs:
         run: |
           # The aggregator writes:
           # - analysis/daily/<date>/<slug>/article.md
-          # - analysis/daily/<date>/<slug>/article.meta.json
-          # - news/<date>-<slug>-<lang>.md   (14 languages)
-          # - news/<date>-<slug>-<lang>.html (14 languages)
+          # - analysis/daily/<date>/<slug>/article-meta.json
+          # - news/<date>-<slug>.en.md          (English source Markdown)
+          # - news/<date>-<slug>-<lang>.html    (14 language HTML variants)
           git add 'analysis/daily/**/article.md' \
-                  'analysis/daily/**/article.meta.json' \
+                  'analysis/daily/**/article-meta.json' \
                   'news/*.md' \
                   'news/*.html'
 
