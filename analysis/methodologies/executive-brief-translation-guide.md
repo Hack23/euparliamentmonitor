@@ -100,13 +100,19 @@ truly needs them — most modern Markdown renderers handle this automatically).
 
 The Markdown structure of the translation MUST mirror the source:
 
-1. **Same number of `#`/`##`/`###` headings, same order.**
+1. **Same number of `#` and `##` headings, same order** — H1 and H2
+   counts are enforced strictly by the heading-parity gate (zero
+   tolerance). `###` (H3) counts may drift by one to accommodate
+   legitimate sub-bullet fusion in CJK languages.
 2. **Same number of list items per list.**
 3. **Same number of table rows and columns; column headers are translated,
    numeric cells are preserved.**
 4. **Same number of horizontal-rule `---` separators.**
 5. **Same number of `> blockquote` lines.**
-6. **No new sections, no merged sections, no deletions.**
+6. **No new sections, no merged sections, no deletions.** Watch for
+   duplicate-titled sections (e.g. two `## IMF Economic Context …`
+   blocks). They are intentional and must both round-trip — do NOT
+   collapse them into one.
 7. Emoji markers (🎯, 📋, 🔑, 🟢, 🟡, 🔴, ⏱️, 🛡️, 📊) stay in identical
    positions.
 8. **Frontmatter**: if the source file has YAML frontmatter (`--- ... ---`),
@@ -246,9 +252,12 @@ Automated gates that block PR creation when violated:
    `scripts/validate-brief-translations.js`).
 5. **Fixed-token preservation** — every IMF/WEO/EP/data-vintage token in
    the source must appear in the translation.
-6. **Heading parity** — H1 count must match the source exactly; H2/H3
-   counts may differ by at most `HEADING_TOLERANCE` (1). Catches the
-   common AI failure of collapsing or skipping sub-sections.
+6. **Heading parity** — H1 and H2 counts must match the source exactly
+   (`H2_TOLERANCE = 0`); H3 counts may differ by at most `H3_TOLERANCE`
+   (1). Catches the single most common AI failure: silently dropping a
+   `## Section` heading (often a duplicate-titled section such as a
+   `## IMF Economic Context — May 2026 Update` addendum that the
+   translator collapses into the earlier `## IMF Economic Context`).
 7. **Mermaid block parity** — every \`\`\`mermaid block opener in the
    source must appear at least once in the translation. Diagrams are
    machine-readable and round-trip verbatim.
@@ -288,6 +297,7 @@ Operating-model highlights:
 | Translating EP adopted-text IDs (`TA-10-2026-0160`) | Fixed-token preservation gate |
 | Localising `data-vintage="WEO-April-2026"` to `data-vintage="WEO-abril-2026"` | Fixed-token preservation gate |
 | Dropping 3 of 4 `## Section` headings or merging them into prose | Heading-parity gate |
+| Dropping a single `## Section` heading (e.g. a duplicate-titled addendum) | Heading-parity gate (`H2_TOLERANCE = 0`) |
 | Omitting a ```` ```mermaid ```` diagram or replacing it with a prose summary | Mermaid block parity gate |
 | Reorganising section order | Structural fidelity rule § 3.1 |
 | Adding a new section ("Translator's note") | Structural fidelity rule § 3.6 |
