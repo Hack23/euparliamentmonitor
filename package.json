@@ -168,6 +168,7 @@
     "eslint-plugin-jsdoc": "62.9.0",
     "eslint-plugin-security": "4.0.0",
     "eslint-plugin-sonarjs": "4.0.3",
+    "fast-check": "^3.23.2",
     "happy-dom": "20.9.0",
     "html-minifier-terser": "^7.2.0",
     "htmlhint": "1.9.2",

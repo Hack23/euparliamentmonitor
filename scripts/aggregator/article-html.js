@@ -1071,7 +1071,7 @@ export function wrapArticleHtml(options) {
   <meta name="referrer" content="no-referrer">
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(options.description)}">
-${keywordsMeta}  <meta name="robots" content="index, follow, max-image-preview:large">
+${keywordsMeta}  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="${PUBLISHER_NAME}">
   <meta name="publisher" content="${PUBLISHER_NAME}">
   <meta name="date" content="${options.date}">

@@ -371,7 +371,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
   <meta name="referrer" content="no-referrer">
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(description)}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="keywords" content="${escapeHTML(copy.seoKeywords)}">
   <meta name="author" content="Hack23 AB">
   <meta name="publisher" content="Hack23 AB">

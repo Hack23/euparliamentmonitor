@@ -1,6 +1,5 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-
 /**
  * @module Constants/Seo
  * @description Bounded-context barrel for the SEO-header constants
@@ -19,12 +18,6 @@
  * The drift-guard unit test in `test/unit/bounded-contexts.test.js`
  * enforces this contract.
  */
-
-export { OG_LOCALES, getOgLocale, buildOgLocaleTags } from './og-locales.js';
-
-export {
-  TWITTER_SITE_HANDLE,
-  TWITTER_CREATOR_HANDLE,
-  ORG_SAME_AS,
-  buildTwitterAttributionTags,
-} from './social-handles.js';
+export { OG_LOCALES, getOgLocale, buildOgLocaleTags, } from './og-locales.js';
+export { TWITTER_SITE_HANDLE, TWITTER_CREATOR_HANDLE, ORG_SAME_AS, buildTwitterAttributionTags, } from './social-handles.js';
+//# sourceMappingURL=index.js.map
