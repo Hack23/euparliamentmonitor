@@ -226,6 +226,43 @@ describe('markdown bounded context', () => {
   });
 });
 
+describe('seo constants bounded context', () => {
+  it('barrel re-exports OG locale helpers', async () => {
+    const seo = await import('../../scripts/constants/seo/index.js');
+    expect(seo.OG_LOCALES).toBeDefined();
+    expect(typeof seo.getOgLocale).toBe('function');
+    expect(typeof seo.buildOgLocaleTags).toBe('function');
+    expect(seo.getOgLocale('en')).toBe('en_GB');
+    expect(seo.getOgLocale('sv')).toBe('sv_SE');
+  });
+
+  it('barrel re-exports publisher / handle helpers', async () => {
+    const seo = await import('../../scripts/constants/seo/index.js');
+    expect(Array.isArray(seo.ORG_SAME_AS)).toBe(true);
+    expect(seo.ORG_SAME_AS.length).toBeGreaterThan(0);
+    expect(typeof seo.TWITTER_SITE_HANDLE).toBe('string');
+    expect(typeof seo.TWITTER_CREATOR_HANDLE).toBe('string');
+    expect(typeof seo.buildTwitterAttributionTags).toBe('function');
+  });
+
+  it('legacy import paths still resolve via re-export shim', async () => {
+    const ogShim = await import('../../scripts/constants/og-locales.js');
+    const handlesShim = await import('../../scripts/constants/social-handles.js');
+    expect(ogShim.getOgLocale('de')).toBe('de_DE');
+    expect(Array.isArray(handlesShim.ORG_SAME_AS)).toBe(true);
+  });
+
+  it('buildOgLocaleTags emits primary + 13 alternates', async () => {
+    const { buildOgLocaleTags } = await import('../../scripts/constants/seo/index.js');
+    const tags = buildOgLocaleTags('en');
+    // Match og:locale" *not* followed by :alternate
+    const primaryCount = (tags.match(/og:locale"(?!:)/g) ?? []).length;
+    const altCount = (tags.match(/og:locale:alternate"/g) ?? []).length;
+    expect(primaryCount).toBe(1);
+    expect(altCount).toBe(13);
+  });
+});
+
 describe('metadata bounded context', () => {
   it('stripInlineMarkdown removes bold/italic markers', () => {
     expect(stripInlineMarkdown('**bold** and *italic*')).toBe('bold and italic');

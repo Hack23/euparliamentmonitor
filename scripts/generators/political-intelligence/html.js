@@ -15,6 +15,7 @@
 import { BASE_URL, BUILD_SHORT, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
 import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
+import { buildOgLocaleTags, ORG_SAME_AS, buildTwitterAttributionTags, } from '../../constants/seo/index.js';
 import { FOOTER_SITEMAP_LABELS } from '../../constants/language-ui.js';
 import { buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
 import { escapeHTML } from '../../utils/file-utils.js';
@@ -251,7 +252,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         : '';
     const seo = getPoliticalIntelligenceSeo(safeLang);
     const publisher = {
-        '@type': 'Organization',
+        '@type': 'NewsMediaOrganization',
         '@id': `${BASE_URL}/#organization`,
         name: 'Hack23 AB',
         url: 'https://hack23.com',
@@ -333,7 +334,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     const organizationJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
         ...publisher,
-        sameAs: ['https://github.com/Hack23', 'https://hack23.com'],
+        sameAs: [...ORG_SAME_AS],
     }).replace(/</g, '\\u003c');
     const faqJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
@@ -356,6 +357,9 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         .join('\n        ')}
       </div>
     </section>`;
+    const ogLocaleTags = buildOgLocaleTags(safeLang);
+    const twitterAttribution = buildTwitterAttributionTags();
+    const twitterAttributionBlock = twitterAttribution ? `\n${twitterAttribution}` : '';
     return `<!DOCTYPE html>
 <html lang="${safeLang}" dir="${dir}">
 <head>
@@ -366,26 +370,30 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
   <meta name="referrer" content="no-referrer">
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(description)}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="keywords" content="${escapeHTML(copy.seoKeywords)}">
   <meta name="author" content="Hack23 AB">
   <meta name="publisher" content="Hack23 AB">
   <link rel="canonical" href="${canonicalUrl}">
 ${hreflangLinks}
+  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
+  <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHTML(copy.title)}">
   <meta property="og:description" content="${escapeHTML(description)}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
-  <meta property="og:locale" content="${safeLang}">
+${ogLocaleTags}
 ${buildResponsiveSocialImageMeta(seo.ogImageAlt)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHTML(copy.title)}">
-  <meta name="twitter:description" content="${escapeHTML(description)}">
+  <meta name="twitter:description" content="${escapeHTML(description)}">${twitterAttributionBlock}
   <!-- Favicons -->
 ${buildResponsiveIconLinks('')}
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#003399">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#003399" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a1a38" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="styles.css?v=${BUILD_SHORT}">
 ${buildHeadFreshnessTags('')}
   <script type="application/ld+json">${websiteJsonLd}</script>

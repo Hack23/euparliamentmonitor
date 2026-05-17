@@ -102,10 +102,10 @@ describe('generateSitemapHTML', () => {
     expect(raw).toContain('"numberOfItems":1');
   });
 
-  it('embeds the four expected JSON-LD blocks (WebSite/Organization/CollectionPage/FAQPage)', () => {
+  it('embeds the four expected JSON-LD blocks (WebSite/NewsMediaOrganization/CollectionPage/FAQPage)', () => {
     const html = generateSitemapHTML('en', [fixtureArticle], false);
     expect(html).toContain('"@type":"WebSite"');
-    expect(html).toContain('"@type":"Organization"');
+    expect(html).toContain('"@type":"NewsMediaOrganization"');
     expect(html).toContain('"@type":"CollectionPage"');
     expect(html).toContain('"@type":"FAQPage"');
     // Organization MUST carry a logo for Google rich-result eligibility

@@ -14,6 +14,7 @@ import { PROJECT_ROOT, APP_VERSION, BUILD_SHORT, NEWS_DIR, BASE_URL } from '../c
 import { getNewsIndexSeo } from './seo-copy.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { buildOgLocaleTags, ORG_SAME_AS, buildTwitterAttributionTags, } from '../constants/seo/index.js';
 import { buildResponsiveBannerPicture, buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, } from '../templates/section-builders.js';
 import { getNewsArticles, groupArticlesByLanguage, formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomicWrite, } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
@@ -117,6 +118,39 @@ function backfillLegacyArticleSeo(filenames) {
     for (const filename of filenames) {
         if (backfillOneLegacyArticleSeo(filename, descriptions))
             updated++;
+    }
+    return updated;
+}
+/**
+ * Heal JSON-LD `description` field corruption left behind by a prior
+ * version of {@link applyArticleSeoBackfill}. The old regex
+ * `"description":"[^"]*"` terminated at the first JSON-escaped quote
+ * (`\"`), so every rebuild prepended a new value in front of the
+ * previous description's tail — producing an unparseable JSON-LD
+ * block whose `description` value was followed by a run of repeated
+ * fragments before `,"datePublished"`.
+ *
+ * This pass is idempotent: when the JSON-LD is already well-formed,
+ * the regex `[^,]*` matches the empty string and the file is left
+ * unchanged. It runs unconditionally because the original backfill
+ * path skips files whose `<meta name="description">` is already
+ * clean, even when their JSON-LD is corrupted.
+ *
+ * @param filenames - News article filenames to inspect
+ * @returns Number of HTML files updated
+ */
+export function healJsonLdDescriptionCorruption(filenames) {
+    let updated = 0;
+    for (const filename of filenames) {
+        const filepath = path.join(NEWS_DIR, filename);
+        const html = readArticleHtml(filepath);
+        if (!html)
+            continue;
+        const next = html.replace(/("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u, '$1$2');
+        if (next === html)
+            continue;
+        atomicWrite(filepath, next);
+        updated++;
     }
     return updated;
 }
@@ -321,12 +355,19 @@ function requireFsRead(filepath) {
 /**
  * Apply SEO meta tag replacements to a complete article HTML document.
  *
+ * Exported for the regression test in
+ * `test/unit/news-indexes-jsonld-description-regex.test.js`, which
+ * locks in the JSON-LD description regex against the duplicate-tail
+ * bug (the legacy `"description":"[^"]*"` pattern terminated at the
+ * first JSON-escaped quote `\"` and left the previous description's
+ * tail in place, accumulating duplicates on every prebuild run).
+ *
  * @param html - Existing article HTML
  * @param description - Backfilled meta description
  * @param keywords - Backfilled keyword list
  * @returns Updated HTML
  */
-function applyArticleSeoBackfill(html, description, keywords) {
+export function applyArticleSeoBackfill(html, description, keywords) {
     const safeDescription = escapeHTML(description);
     const safeKeywords = escapeHTML(keywords.join(', '));
     let next = html
@@ -340,7 +381,19 @@ function applyArticleSeoBackfill(html, description, keywords) {
         next = next.replace(/(<meta name="description" content="[^"]*">\n)/u, `$1  <meta name="keywords" content="${safeKeywords}">\n`);
     }
     const jsonDescription = JSON.stringify(description).slice(1, -1).replace(/</g, '\\u003c');
-    next = next.replace(/"description":"[^"]*"/u, `"description":"${jsonDescription}"`);
+    // Match a JSON string value safely: every `"` inside the description
+    // is JSON-escaped as `\"`, so the inner pattern must accept either an
+    // escape sequence (`\\.`) or a non-quote/non-backslash character —
+    // otherwise the match terminates at the first `\"` and leaves the
+    // tail of the previous description in place, which on subsequent
+    // prebuild runs appears to "duplicate" the description fragment.
+    next = next.replace(/"description":"(?:\\.|[^"\\])*"/u, `"description":"${jsonDescription}"`);
+    // Heal any previously-corrupted JSON-LD where the old buggy regex
+    // left an orphan tail between the description's closing quote and
+    // the next known field (`,"datePublished"`). The pattern is
+    // idempotent: when there is no orphan, `[^,]*` matches the empty
+    // string and the file is unchanged.
+    next = next.replace(/("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u, '$1$2');
     return next;
 }
 /**
@@ -500,7 +553,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     }).replace(/</g, '\\u003c');
     const organizationJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
-        '@type': 'Organization',
+        '@type': 'NewsMediaOrganization',
         '@id': `${BASE_URL}/#organization`,
         name: 'Hack23 AB',
         url: 'https://hack23.com',
@@ -510,7 +563,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
             width: 192,
             height: 192,
         },
-        sameAs: ['https://github.com/Hack23', 'https://hack23.com'],
+        sameAs: [...ORG_SAME_AS],
     }).replace(/</g, '\\u003c');
     const collectionPageJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
@@ -578,6 +631,9 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         siteTitle: heroTitle,
         languageSwitcherHtml: buildLangSwitcher(lang),
     });
+    const ogLocaleTags = buildOgLocaleTags(lang);
+    const twitterAttribution = buildTwitterAttributionTags();
+    const twitterAttributionBlock = twitterAttribution ? `\n${twitterAttribution}` : '';
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -594,16 +650,17 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta http-equiv="Content-Language" content="${lang}">
   <link rel="canonical" href="${canonicalUrl}">
+  <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="${heroTitle}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
-  <meta property="og:locale" content="${lang}">
+${ogLocaleTags}
 ${buildResponsiveSocialImageMeta(seo.ogImageAlt)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${heroTitle}">
-  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:description" content="${description}">${twitterAttributionBlock}
   ${buildHreflangTags()}
   <!-- Favicons -->
 ${buildResponsiveIconLinks('')}
@@ -690,6 +747,10 @@ function main() {
     const backfilled = backfillLegacyArticleSeo(articles);
     if (backfilled > 0) {
         console.log(`🔎 Backfilled SEO metadata for ${backfilled} legacy article file(s)`);
+    }
+    const healed = healJsonLdDescriptionCorruption(articles);
+    if (healed > 0) {
+        console.log(`🩹 Healed JSON-LD description corruption in ${healed} article file(s)`);
     }
     const hreflangBackfilled = backfillArticleHreflang(articles);
     if (hreflangBackfilled > 0) {

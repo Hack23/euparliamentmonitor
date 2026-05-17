@@ -280,5 +280,5 @@ async function main(): Promise<void> {
 
 // Only run main when executed directly (not when imported)
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  main();
+  void main();
 }

@@ -29,7 +29,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { extractFirstH1, extractLedeAfterHeading, extractStrongProseLine, isGenericHeading, stripArtifactCategoryAffix, truncateTitle, } from './article-metadata.js';
+import { extractFirstH1, extractLedeAfterHeading, extractExtendedLedeAfterHeading, extractStrongProseLine, isGenericHeading, stripArtifactCategoryAffix, truncateTitle, } from './article-metadata.js';
 /**
  * Run-relative candidate paths for a translated brief, in precedence
  * order. Mirrors the `executive-brief.md` → `extended/executive-brief.md`
@@ -177,10 +177,12 @@ export function resolveLocalizedBriefHighlight(runDir, lang, articleType, date) 
         const headline = deriveHeadline(body, articleType, date);
         const lede = extractLedeAfterHeading(body);
         const summary = lede || extractStrongProseLine(body);
+        const extendedSummary = extractExtendedLedeAfterHeading(body);
         if (headline || summary) {
             return {
                 headline,
                 summary,
+                extendedSummary,
                 sourceFile: rel,
                 sourceLang: lang,
             };

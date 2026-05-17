@@ -23,6 +23,7 @@ import { BASE_URL, BUILD_SHORT, THEME_TOGGLE_SCRIPT } from '../../constants/conf
 import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import { getSitemapSeo } from '../seo-copy.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
+import { buildOgLocaleTags, ORG_SAME_AS, buildTwitterAttributionTags, } from '../../constants/seo/index.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { detectCategory } from '../../utils/article-category.js';
 import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, } from '../../constants/language-ui.js';
@@ -231,7 +232,7 @@ ${items}
     }).replace(/</g, '\\u003c');
     const organizationJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
-        '@type': 'Organization',
+        '@type': 'NewsMediaOrganization',
         '@id': `${BASE_URL}/#organization`,
         name: 'Hack23 AB',
         url: 'https://hack23.com',
@@ -241,7 +242,7 @@ ${items}
             width: 192,
             height: 192,
         },
-        sameAs: ['https://github.com/Hack23', 'https://hack23.com'],
+        sameAs: [...ORG_SAME_AS],
     }).replace(/</g, '\\u003c');
     const faqJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
@@ -264,6 +265,9 @@ ${items}
         .join('\n        ')}
       </div>
     </section>`;
+    const ogLocaleTags = buildOgLocaleTags(lang);
+    const twitterAttribution = buildTwitterAttributionTags();
+    const twitterAttributionBlock = twitterAttribution ? `\n${twitterAttribution}` : '';
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -280,20 +284,24 @@ ${items}
   <meta http-equiv="Content-Language" content="${lang}">
   <link rel="canonical" href="${canonicalUrl}">
 ${hreflangLinks}
+  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
+  <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHTML(sitemapTitle)}">
   <meta property="og:description" content="${escapeHTML(description)}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
-  <meta property="og:locale" content="${lang}">
+${ogLocaleTags}
 ${buildResponsiveSocialImageMeta(seo.ogImageAlt)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHTML(sitemapTitle)}">
-  <meta name="twitter:description" content="${escapeHTML(description)}">
+  <meta name="twitter:description" content="${escapeHTML(description)}">${twitterAttributionBlock}
   <!-- Favicons -->
 ${buildResponsiveIconLinks('')}
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#003399">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#003399" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a1a38" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="styles.css?v=${BUILD_SHORT}">
 ${buildHeadFreshnessTags('')}
   <script type="application/ld+json">${websiteJsonLd}</script>
