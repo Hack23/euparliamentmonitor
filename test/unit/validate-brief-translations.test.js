@@ -28,6 +28,7 @@ import {
   countHeadings,
   countMermaidBlocks,
   aggregateByKey,
+  expandPathGlobs,
   main,
 } from '../../scripts/validate-brief-translations.js';
 
@@ -555,6 +556,37 @@ describe('validate-brief-translations', () => {
       expect(report.totals.byLang.de).toBeGreaterThanOrEqual(1);
       const onDisk = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
       expect(onDisk.totals.byGate).toEqual(report.totals.byGate);
+    });
+  });
+
+  describe('expandPathGlobs', () => {
+    it('expands glob patterns into matching file paths', () => {
+      writeSource('2026-05-16', 'breaking', REALISTIC_SOURCE);
+      writeTranslation('2026-05-16', 'breaking', 'sv', '# Svensk\n\nText.');
+      writeTranslation('2026-05-16', 'breaking', 'de', '# Deutsch\n\nText.');
+      const briefDir = path.join(tmpRoot, 'analysis', 'daily', '2026-05-16', 'breaking');
+      const results = expandPathGlobs(
+        [`${briefDir}/executive-brief_*.md`],
+        tmpRoot
+      );
+      expect(results.length).toBe(2);
+      expect(results.every((r) => r.endsWith('.md'))).toBe(true);
+    });
+
+    it('passes through literal paths unchanged', () => {
+      writeSource('2026-05-16', 'breaking', REALISTIC_SOURCE);
+      writeTranslation('2026-05-16', 'breaking', 'sv', '# Svensk\n\nText.');
+      const literal = path.join(tmpRoot, 'analysis', 'daily', '2026-05-16', 'breaking', 'executive-brief_sv.md');
+      const results = expandPathGlobs([literal], tmpRoot);
+      expect(results).toEqual([literal]);
+    });
+
+    it('returns empty array when glob matches nothing', () => {
+      const results = expandPathGlobs(
+        [path.join(tmpRoot, 'no-such-dir', '*.md')],
+        tmpRoot
+      );
+      expect(results).toEqual([]);
     });
   });
 });

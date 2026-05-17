@@ -573,6 +573,24 @@ export function validateTranslation(translationPath, repoRoot) {
   return violations;
 }
 
+/**
+ * Expand a list of paths that may contain glob patterns into resolved file paths.
+ * Uses Node's built-in fs.globSync (Node 22+) for any entry containing `*` or `?`.
+ */
+export function expandPathGlobs(rawPaths, repoRoot) {
+  const expanded = [];
+  for (const p of rawPaths) {
+    const resolved = path.resolve(repoRoot, p);
+    if (/[*?]/.test(resolved)) {
+      const matches = fs.globSync(resolved);
+      expanded.push(...matches);
+    } else {
+      expanded.push(resolved);
+    }
+  }
+  return expanded;
+}
+
 /** Run validation against a list of translation paths. */
 export function runValidation(translationPaths, repoRoot, { quiet = false } = {}) {
   const allViolations = [];
@@ -598,7 +616,7 @@ export function runValidation(translationPaths, repoRoot, { quiet = false } = {}
 export function main(argv) {
   const opts = parseArgs(argv);
   const paths = opts.paths.length > 0
-    ? opts.paths.map((p) => path.resolve(opts.repoRoot, p))
+    ? expandPathGlobs(opts.paths, opts.repoRoot)
     : findAllTranslations(opts.repoRoot);
 
   const violations = runValidation(paths, opts.repoRoot, { quiet: opts.quiet });
