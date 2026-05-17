@@ -199,7 +199,12 @@ function countMatches(text, regex) {
   return counts;
 }
 
-/** Quote an argument for safe copy/paste in POSIX shells. */
+/**
+ * Quote one shell argument for safe copy/paste in POSIX shells.
+ *
+ * @param {string} arg
+ * @returns {string}
+ */
 function shellQuote(arg) {
   return `'${String(arg).replace(/'/g, `'\"'\"'`)}'`;
 }
