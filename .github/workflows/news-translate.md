@@ -317,7 +317,22 @@ For each queue entry, in order:
    (assign `sourcePath` from the current queue entry first):
    ```bash
    # Example: resolve sourcePath for the current queue index ($entryIndex)
-   sourcePath="$(node -e 'const fs=require("node:fs");const q=JSON.parse(fs.readFileSync("/tmp/gh-aw/discovery/queue.json","utf8"));const i=Number(process.argv[1]);console.log(q.queue?.[i]?.sourcePath ?? "");' "$entryIndex")"
+   sourcePath="$(python3 - "$entryIndex" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+queue_path = Path("/tmp/gh-aw/discovery/queue.json")
+try:
+    payload = json.loads(queue_path.read_text(encoding="utf-8"))
+    queue = payload.get("queue", [])
+    idx = int(sys.argv[1])
+    print(queue[idx].get("sourcePath", ""))
+except Exception as exc:  # noqa: BLE001
+    print(f"Failed to resolve sourcePath from {queue_path}: {exc}", file=sys.stderr)
+    sys.exit(1)
+PY
+)" || exit 1
    if [ -z "${sourcePath:-}" ] || [ ! -f "$sourcePath" ]; then
      echo "Missing or invalid sourcePath: $sourcePath" >&2
      exit 1
