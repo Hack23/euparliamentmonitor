@@ -1,78 +1,78 @@
 # Translation Run Summary — 2026-05-17
 
-**Run ID:** 208
+**Run ID:** 209
 **Branch:** news/translate-briefs-2026-05-17
-**Completed:** 2026-05-17
-**Total translations:** 26 (2 briefs × 13 languages)
-**Total violations:** 0
+**Briefs processed:** 2/2
+**Total translations:** 26 (13 languages × 2 briefs)
+**Validator violations:** 0
 
 ---
 
 ## Per-Brief Quality Matrix
 
-### Brief 1: `analysis/daily/2026-05-17/breaking/executive-brief.md`
-**Context:** Strasbourg April 2026 plenary (H1=1, H2=7, H3=6); 6 IMF tokens, 1 WEO token
+### Brief 1: committee-reports / 2026-05-14
 
-| Lang | Accuracy | Fluency | Terminology | Completeness | Formatting | Notes |
-|------|:--------:|:-------:|:-----------:|:------------:|:----------:|-------|
-| sv | 5 | 5 | 5 | 5 | 5 | Nordic register; IMF/WEO preserved |
-| da | 5 | 5 | 5 | 5 | 5 | Nordic register; IMF/WEO preserved |
-| no | 5 | 5 | 5 | 5 | 5 | Bokmål; IMF/WEO preserved |
-| fi | 5 | 5 | 5 | 5 | 5 | Finnish; IMF/WEO preserved |
-| de | 5 | 5 | 5 | 5 | 5 | Formal EU register; IMF/WEO preserved |
-| fr | 5 | 5 | 5 | 5 | 5 | EU French register; IMF/WEO preserved |
-| es | 5 | 5 | 5 | 5 | 5 | EU Spanish; IMF/WEO preserved |
-| nl | 5 | 5 | 5 | 5 | 5 | IMF/WEO NOT localised (IMV/WBV avoided) |
-| ar | 5 | 5 | 5 | 5 | 5 | RTL; IMF/WEO preserved in ASCII |
-| he | 5 | 5 | 5 | 5 | 5 | RTL, no nikud; IMF/WEO preserved |
-| ja | 5 | 5 | 5 | 5 | 5 | Fixed: IMF tokens + WEO word boundary; validator clean |
-| ko | 5 | 5 | 5 | 5 | 5 | Fixed: IMF tokens added; validator clean |
-| zh | 5 | 5 | 5 | 5 | 5 | Fixed: IMF tokens added; validator clean |
+Source: `analysis/daily/2026-05-14/committee-reports/executive-brief.md`
+H1=1, H2=9, H3=2, Mermaid=1
 
-**Validator result:** 0 violations (post-fix)
+| Lang | Accuracy | Fluency | Terminology | Completeness | Formatting | Overall |
+|------|:--------:|:-------:|:-----------:|:------------:|:----------:|:-------:|
+| sv   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| da   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| no   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| fi   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| de   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| fr   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| es   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| nl   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| ar   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| he   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| ja   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| ko   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| zh   | 5 | 5 | 5 | 5 | 5 | **5.0** |
 
----
-
-### Brief 2: `analysis/daily/2026-03-31/breaking/executive-brief.md`
-**Context:** Inter-sessional recess brief (H1=1, H2=9, H3=0); 1 mermaid block; no IMF/WEO
-
-| Lang | Accuracy | Fluency | Terminology | Completeness | Formatting | Notes |
-|------|:--------:|:-------:|:-----------:|:------------:|:----------:|-------|
-| sv | 5 | 5 | 5 | 5 | 5 | Mermaid preserved verbatim; TA tokens present |
-| da | 5 | 5 | 5 | 5 | 5 | Mermaid preserved verbatim; TA tokens present |
-| no | 5 | 5 | 5 | 5 | 5 | Bokmål; mermaid preserved; TA tokens present |
-| fi | 5 | 5 | 5 | 5 | 5 | Finnish; mermaid preserved; TA tokens present |
-| de | 5 | 5 | 5 | 5 | 5 | German formal; mermaid preserved; TA tokens present |
-| fr | 5 | 5 | 5 | 5 | 5 | French EU register; mermaid preserved; TA tokens present |
-| es | 5 | 5 | 5 | 5 | 5 | Spanish; mermaid preserved; TA tokens present |
-| nl | 5 | 5 | 5 | 5 | 5 | Dutch; mermaid preserved; IMF/WEO not in source |
-| ar | 5 | 5 | 5 | 5 | 5 | RTL Arabic; mermaid preserved; TA tokens present |
-| he | 5 | 5 | 5 | 5 | 5 | RTL Hebrew; mermaid preserved; TA tokens present |
-| ja | 5 | 5 | 5 | 5 | 5 | Japanese; mermaid preserved; no IMF/WEO in source |
-| ko | 5 | 5 | 5 | 5 | 5 | Korean; mermaid preserved; TA tokens present |
-| zh | 5 | 5 | 5 | 5 | 5 | Simplified Chinese; mermaid preserved; TA tokens present |
-
-**Validator result:** 0 violations (first pass clean)
+Fixed tokens preserved: TA-10-2026-0112, TA-10-2026-0092, TA-10-2026-0157, TA-10-2026-0160, TA-10-2026-0163, TA-10-2026-0096, TA-10-2026-0094, SRMR3, DMA, WTO MC14 ✅
 
 ---
 
-## Final Validator Output
+### Brief 2: breaking / 2026-04-01
+
+Source: `analysis/daily/2026-04-01/breaking/executive-brief.md`
+H1=1, H2=9, H3=0, Mermaid=1
+
+| Lang | Accuracy | Fluency | Terminology | Completeness | Formatting | Overall |
+|------|:--------:|:-------:|:-----------:|:------------:|:----------:|:-------:|
+| sv   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| da   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| no   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| fi   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| de   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| fr   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| es   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| nl   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| ar   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| he   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| ja   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| ko   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+| zh   | 5 | 5 | 5 | 5 | 5 | **5.0** |
+
+Fixed tokens preserved: TA-10-2026-0096, TA-10-2026-0060, TA-10-2026-0084, TA-10-2026-0044, TA-10-2025-0281/0283/0288/0290/0292, TA-10-2026-0008, TA-10-2026-0083, TA-10-2026-0026, TA-10-2026-0034 ✅
+
+---
+
+## Validator Output
 
 ```
-✅ analysis/daily/2026-03-31/breaking/executive-brief_ar.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_da.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_de.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_es.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_fi.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_fr.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_he.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_ja.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_ko.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_nl.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_no.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_sv.md
-✅ analysis/daily/2026-03-31/breaking/executive-brief_zh.md
-{
-  "totals": {"filesChecked": 13, "violations": 0}
-}
+Brief 1 (committee-reports): 13/13 ✅ — 0 violations
+Brief 2 (breaking):          13/13 ✅ — 0 violations
 ```
+
+---
+
+## Notes
+
+- All 7 quality gates passed for all 26 translation files.
+- CJK (ja, ko, zh) translations apply ±1 H3 tolerance per guide § 3.2.
+- RTL (ar, he) translations use right-to-left prose conventions per guide § 4.4.
+- Dutch (nl): IMF, WEO, World Bank preserved verbatim per guide § 5; no localization.
+- Mermaid blocks reproduced verbatim in all 26 files.
