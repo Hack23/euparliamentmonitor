@@ -199,6 +199,78 @@ export function countMermaidBlocks(text) {
   return countGlobal(text, MERMAID_OPENER);
 }
 
+/**
+ * Extract H2 section titles from markdown text. Mirrors the shape returned
+ * by `scripts/discover-untranslated-briefs.js#extractH2Titles` so the
+ * validator can produce a precise "likely-dropped section" diagnostic when
+ * the heading-parity gate fires.
+ *
+ * @param {string} text
+ * @returns {string[]}
+ */
+export function extractH2Titles(text) {
+  const lines = text.split('\n');
+  const out = [];
+  for (const line of lines) {
+    const match = /^##\s+(\S.*)$/.exec(line);
+    if (match) out.push(match[1].trim());
+  }
+  return out;
+}
+
+/**
+ * Compute the set of source H2 titles that have no fuzzy match in the
+ * translation. We do NOT require translated titles to be identical — they
+ * are localised — but every source H2 should map to *some* translation
+ * H2. We treat two titles as "potentially matched" when they share any
+ * fixed-token prefix (`IMF`, `WEO`, `TA-…`, `data-vintage="…"`) or when
+ * the translation has exactly the same count of H2s. The output is purely
+ * advisory: the gate itself still fires on count mismatch.
+ *
+ * Heuristic: a source title is reported as "likely dropped" only when
+ *   (a) it contains at least one FIXED_TOKEN_PATTERNS match, AND
+ *   (b) no translation title contains that same token, AND
+ *   (c) the H2 count mismatch is exactly 1 (so we're confident a single
+ *       section vanished rather than a wholesale restructure).
+ *
+ * @param {string[]} sourceTitles
+ * @param {string[]} targetTitles
+ * @returns {string[]}
+ */
+function detectLikelyDroppedH2s(sourceTitles, targetTitles) {
+  if (sourceTitles.length - targetTitles.length !== 1) return [];
+  const dropped = [];
+  // Count, per FIXED TOKEN, how many source H2 titles contain it vs how
+  // many target H2 titles contain it. When a source H2 contains a token
+  // whose translation-side count is strictly smaller, that source H2 is
+  // very likely the dropped section.
+  for (const title of sourceTitles) {
+    const tokens = [];
+    for (const re of FIXED_TOKEN_PATTERNS) {
+      const m = new RegExp(re.source).exec(title);
+      if (m) tokens.push(m[0]);
+    }
+    if (tokens.length === 0) continue;
+    let lostToken = false;
+    for (const tok of tokens) {
+      const sourceHits = sourceTitles.filter((t) => t.includes(tok)).length;
+      const targetHits = targetTitles.filter((t) => t.includes(tok)).length;
+      if (targetHits < sourceHits) {
+        lostToken = true;
+        break;
+      }
+    }
+    if (lostToken) dropped.push(title);
+  }
+  // If the heuristic flagged multiple, prefer the *last-occurring* source
+  // title with a lost token — the second-of-two duplicate-titled section
+  // is the prototypical regression (run #25983007788). When no token
+  // signal at all is available, we return [] so the message stays clean
+  // rather than guessing.
+  if (dropped.length > 1) return [dropped[dropped.length - 1]];
+  return dropped;
+}
+
 
 /** Count exact token occurrences returned by one fixed-token pattern. */
 function countMatches(text, regex) {
@@ -448,6 +520,24 @@ export function validateTranslation(translationPath, repoRoot) {
     else if (level === 2) tolerance = H2_TOLERANCE;
     else tolerance = H3_TOLERANCE;
     if (Math.abs(sourceCount - targetCount) > tolerance) {
+      let detail = '';
+      if (level === 2) {
+        // Surface the actual H2 titles so reviewers/agents can pinpoint
+        // which section was dropped — regression hardening from run
+        // #25983007788 where 13 sibling translations identically dropped
+        // `## IMF Economic Context — May 2026 Update` and the validator
+        // report only said "8 vs 7 H2".
+        const sourceTitles = extractH2Titles(sourceText);
+        const targetTitles = extractH2Titles(targetText);
+        const dropped = detectLikelyDroppedH2s(sourceTitles, targetTitles);
+        const sourceList = sourceTitles.map((t) => `"${t}"`).join(', ');
+        detail = ` Source H2 titles: [${sourceList}].`;
+        if (dropped.length > 0) {
+          detail +=
+            ` Likely dropped: [${dropped.map((t) => `"${t}"`).join(', ')}].` +
+            ` Re-translate the missing section and keep its FIXED TOKEN(S) verbatim.`;
+        }
+      }
       violations.push({
         translationPath: rel,
         sourcePath: sourceRel,
@@ -455,7 +545,8 @@ export function validateTranslation(translationPath, repoRoot) {
         gate: 'heading-parity',
         message:
           `Translation has ${targetCount} H${level} heading(s); source has ${sourceCount} ` +
-          `(tolerance ±${tolerance}). Whole subsections appear to be missing or merged.`,
+          `(tolerance ±${tolerance}). Whole subsections appear to be missing or merged.` +
+          detail,
       });
     }
   }
@@ -480,6 +571,24 @@ export function validateTranslation(translationPath, repoRoot) {
   }
 
   return violations;
+}
+
+/**
+ * Expand a list of paths that may contain glob patterns into resolved file paths.
+ * Uses Node's built-in fs.globSync (Node 22+) for any entry containing `*` or `?`.
+ */
+export function expandPathGlobs(rawPaths, repoRoot) {
+  const expanded = [];
+  for (const p of rawPaths) {
+    const resolved = path.resolve(repoRoot, p);
+    if (/[*?]/.test(resolved)) {
+      const matches = fs.globSync(resolved);
+      expanded.push(...matches);
+    } else {
+      expanded.push(resolved);
+    }
+  }
+  return expanded;
 }
 
 /** Run validation against a list of translation paths. */
@@ -507,7 +616,7 @@ export function runValidation(translationPaths, repoRoot, { quiet = false } = {}
 export function main(argv) {
   const opts = parseArgs(argv);
   const paths = opts.paths.length > 0
-    ? opts.paths.map((p) => path.resolve(opts.repoRoot, p))
+    ? expandPathGlobs(opts.paths, opts.repoRoot)
     : findAllTranslations(opts.repoRoot);
 
   const violations = runValidation(paths, opts.repoRoot, { quiet: opts.quiet });

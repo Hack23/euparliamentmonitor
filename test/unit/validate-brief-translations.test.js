@@ -28,6 +28,7 @@ import {
   countHeadings,
   countMermaidBlocks,
   aggregateByKey,
+  expandPathGlobs,
   main,
 } from '../../scripts/validate-brief-translations.js';
 
@@ -397,6 +398,55 @@ describe('validate-brief-translations', () => {
       const violations = validateTranslation(target, tmpRoot);
       expect(violations.some((v) => v.gate === 'heading-parity' && v.message.includes('H1'))).toBe(true);
     });
+
+    it('quotes the source H2 title list back in the violation message', () => {
+      // Regression hardening for run #25983007788 — the heading-parity
+      // message must contain the source H2 titles verbatim so reviewers
+      // and the translator agent can pinpoint the dropped section
+      // without re-reading the source file.
+      const src = [
+        '# Brief',
+        '## Headline Intelligence',
+        'body A ' + 'filler '.repeat(40),
+        '## Political Landscape Context',
+        'body B ' + 'filler '.repeat(40),
+        '## IMF Economic Context',
+        'IMF data IMF growth IMF outlook.',
+        '## Assessment',
+        'body D ' + 'filler '.repeat(40),
+        '## IMF Economic Context — May 2026 Update',
+        'IMF WEO update body ' + 'filler '.repeat(40),
+      ].join('\n');
+      writeSource('2026-05-15', 'breaking', src);
+      // Translation drops the second `IMF Economic Context — May 2026
+      // Update` H2 — the regression observed in run #25983007788.
+      const tx = [
+        '# Resumé',
+        '## Headline Intelligence — vertaling',
+        'IMF body ' + 'utfyllnad '.repeat(40),
+        '## Politiek Landschap',
+        'utfyllnad '.repeat(40),
+        '## IMF Economische Context',
+        'IMF data IMF growth IMF outlook.',
+        '## Beoordeling',
+        'utfyllnad '.repeat(40),
+      ].join('\n');
+      const target = writeTranslation('2026-05-15', 'breaking', 'nl', tx);
+      const violations = validateTranslation(target, tmpRoot);
+      const h2Violation = violations.find(
+        (v) => v.gate === 'heading-parity' && v.message.includes('H2'),
+      );
+      expect(h2Violation).toBeDefined();
+      // The source title list must be quoted verbatim — agent reads
+      // this exact format.
+      expect(h2Violation.message).toContain('Source H2 titles:');
+      expect(h2Violation.message).toContain('"IMF Economic Context"');
+      expect(h2Violation.message).toContain('"IMF Economic Context — May 2026 Update"');
+      // And when the mismatch is exactly one section, the dropped
+      // section is named explicitly.
+      expect(h2Violation.message).toContain('Likely dropped:');
+      expect(h2Violation.message).toContain('"IMF Economic Context — May 2026 Update"');
+    });
   });
 
   describe('mermaid-parity gate', () => {
@@ -506,6 +556,37 @@ describe('validate-brief-translations', () => {
       expect(report.totals.byLang.de).toBeGreaterThanOrEqual(1);
       const onDisk = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
       expect(onDisk.totals.byGate).toEqual(report.totals.byGate);
+    });
+  });
+
+  describe('expandPathGlobs', () => {
+    it('expands glob patterns into matching file paths', () => {
+      writeSource('2026-05-16', 'breaking', REALISTIC_SOURCE);
+      writeTranslation('2026-05-16', 'breaking', 'sv', '# Svensk\n\nText.');
+      writeTranslation('2026-05-16', 'breaking', 'de', '# Deutsch\n\nText.');
+      const briefDir = path.join(tmpRoot, 'analysis', 'daily', '2026-05-16', 'breaking');
+      const results = expandPathGlobs(
+        [`${briefDir}/executive-brief_*.md`],
+        tmpRoot
+      );
+      expect(results.length).toBe(2);
+      expect(results.every((r) => r.endsWith('.md'))).toBe(true);
+    });
+
+    it('passes through literal paths unchanged', () => {
+      writeSource('2026-05-16', 'breaking', REALISTIC_SOURCE);
+      writeTranslation('2026-05-16', 'breaking', 'sv', '# Svensk\n\nText.');
+      const literal = path.join(tmpRoot, 'analysis', 'daily', '2026-05-16', 'breaking', 'executive-brief_sv.md');
+      const results = expandPathGlobs([literal], tmpRoot);
+      expect(results).toEqual([literal]);
+    });
+
+    it('returns empty array when glob matches nothing', () => {
+      const results = expandPathGlobs(
+        [path.join(tmpRoot, 'no-such-dir', '*.md')],
+        tmpRoot
+      );
+      expect(results).toEqual([]);
     });
   });
 });

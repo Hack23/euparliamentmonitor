@@ -21,6 +21,8 @@ import {
   findExecutiveBriefSources,
   findMissingLangs,
   buildQueue,
+  extractH2Titles,
+  countFixedTokens,
   main,
 } from '../../scripts/discover-untranslated-briefs.js';
 import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
@@ -400,6 +402,121 @@ describe('discover-untranslated-briefs', () => {
       expect(parsed.queue[0].missingLangs).toEqual([...TARGET_LANGS]);
       expect(parsed.totals.queuedTranslations).toBe(13);
       expect(payload.totals.queuedTranslations).toBe(13);
+    });
+  });
+
+  describe('extractH2Titles', () => {
+    it('returns each H2 with its 1-based line number and visible title', () => {
+      const dir = path.join(tmpRoot, 'analysis', 'daily', '2026-05-16', 'breaking');
+      fs.mkdirSync(dir, { recursive: true });
+      const briefPath = path.join(dir, 'executive-brief.md');
+      fs.writeFileSync(
+        briefPath,
+        [
+          '# Executive Brief',
+          '',
+          '## Headline Intelligence',
+          'body',
+          '',
+          '## IMF Economic Context',
+          'body',
+          '',
+          '## IMF Economic Context — May 2026 Update',
+          'body',
+        ].join('\n'),
+      );
+      const titles = extractH2Titles(briefPath);
+      expect(titles).toEqual([
+        { line: 3, title: 'Headline Intelligence' },
+        { line: 6, title: 'IMF Economic Context' },
+        { line: 9, title: 'IMF Economic Context — May 2026 Update' },
+      ]);
+    });
+
+    it('returns an empty array when the file does not exist', () => {
+      expect(extractH2Titles(path.join(tmpRoot, 'missing.md'))).toEqual([]);
+    });
+  });
+
+  describe('countFixedTokens', () => {
+    it('counts every IMF/WEO/World Bank/TA-id/procedure-id token in the source', () => {
+      const dir = path.join(tmpRoot, 'analysis', 'daily', '2026-05-16', 'breaking');
+      fs.mkdirSync(dir, { recursive: true });
+      const briefPath = path.join(dir, 'executive-brief.md');
+      fs.writeFileSync(
+        briefPath,
+        [
+          'IMF says IMF data IMF growth',
+          'WEO and WEO',
+          'World Bank report',
+          'Fiscal Monitor',
+          'data-vintage="WEO-April-2026"',
+          'TA-10-2026-0160 and TA-9-2024-0001',
+          '2024/0001(COD)',
+          'IMFinity is not IMF; WEOlogical is not WEO',
+        ].join('\n'),
+      );
+      expect(countFixedTokens(briefPath)).toEqual({
+        IMF: 4,
+        WEO: 4,
+        'World Bank': 1,
+        'Fiscal Monitor': 1,
+        'data-vintage': 1,
+        'TA-id': 2,
+        'procedure-id': 1,
+      });
+    });
+
+    it('omits classes with zero matches so the queue stays compact', () => {
+      const dir = path.join(tmpRoot, 'analysis', 'daily', '2026-05-16', 'committee-reports');
+      fs.mkdirSync(dir, { recursive: true });
+      const briefPath = path.join(dir, 'executive-brief.md');
+      fs.writeFileSync(briefPath, 'No economic markers in this committee brief.');
+      expect(countFixedTokens(briefPath)).toEqual({});
+    });
+  });
+
+  describe('buildQueue: per-entry structural metadata', () => {
+    // Regression hardening for run #25983007788 — every queue entry must
+    // surface the source's H2 title list and fixed-token counts so the
+    // translator agent can spot duplicate-titled sections and verbatim-
+    // preserve token budgets before any translation work begins.
+    it('attaches sourceH2Titles, sourceH2Count, and sourceFixedTokens to each queue entry', () => {
+      const dir = path.join(tmpRoot, 'analysis', 'daily', '2026-05-15', 'breaking');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(
+        path.join(dir, 'executive-brief.md'),
+        [
+          '# Brief',
+          '## Headline Intelligence',
+          'Body mentions IMF and IMF and WEO.',
+          '## IMF Economic Context',
+          'IMF growth forecast.',
+          '## IMF Economic Context — May 2026 Update',
+          'Updated IMF WEO outlook.',
+        ].join('\n'),
+      );
+      const sources = findExecutiveBriefSources(tmpRoot, {
+        includeExtended: false,
+        maxAgeDays: 180,
+      });
+      const result = buildQueue(sources, 1);
+      expect(result.queue).toHaveLength(1);
+      const entry = result.queue[0];
+      expect(entry.sourceH2Count).toBe(3);
+      expect(entry.sourceH2Titles.map((h) => h.title)).toEqual([
+        'Headline Intelligence',
+        'IMF Economic Context',
+        'IMF Economic Context — May 2026 Update',
+      ]);
+      // Each H2 entry carries a line number so the translator agent can
+      // open the file at the right offset.
+      for (const h of entry.sourceH2Titles) {
+        expect(typeof h.line).toBe('number');
+        expect(h.line).toBeGreaterThan(0);
+      }
+      expect(entry.sourceFixedTokens.IMF).toBeGreaterThanOrEqual(4);
+      expect(entry.sourceFixedTokens.WEO).toBeGreaterThanOrEqual(2);
     });
   });
 });
