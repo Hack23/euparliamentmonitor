@@ -458,14 +458,14 @@ PY
     ```bash
     set -euo pipefail
     BRIEF_DIR=$(dirname "$sourcePath")
-    src_h2=$(grep -cE '^## ' "$sourcePath" || echo 0)
-    out_h2=$(grep -cE '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" || echo 0)
+    src_h2=$(grep -cE '^## ' "$sourcePath" || true)
+    out_h2=$(grep -cE '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" || true)
     if [ "$src_h2" != "$out_h2" ]; then
      echo "❌ H2 MISMATCH for ${lang}: source=${src_h2} translation=${out_h2}" >&2
      echo "Source H2 titles:" >&2
-     grep -E '^## ' "$sourcePath" >&2
+     grep -E '^## ' "$sourcePath" >&2 || true
      echo "Translation H2 titles:" >&2
-     grep -E '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" >&2
+     grep -E '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" >&2 || true
      exit 1
    fi
    echo "✅ H2 spot-check OK for ${lang}: ${out_h2}/${src_h2}"
