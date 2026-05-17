@@ -88,7 +88,10 @@ export default [
       'security/detect-buffer-noassert': 'error',
       'security/detect-eval-with-expression': 'error',
 
-      // Code Smell Detection
+      // Code Smell Detection. `sonarjs/cognitive-complexity` is a
+      // superior gauge to the classic McCabe cyclomatic count (it
+      // weights nesting and short-circuits), so we enforce that and
+      // skip the duplicate `complexity` rule from core ESLint.
       'sonarjs/cognitive-complexity': ['error', 15],
       'sonarjs/no-duplicate-string': ['error', { threshold: 3 }],
       'sonarjs/no-identical-functions': 'error',
@@ -97,6 +100,11 @@ export default [
       'sonarjs/no-redundant-boolean': 'error',
       'sonarjs/no-unused-collection': 'error',
       'sonarjs/prefer-immediate-return': 'error',
+
+      // Async hygiene — every Promise must be awaited, returned, or
+      // explicitly voided. Catches forgotten `await` on `fs.promises.*`,
+      // unhandled rejections in CLI scripts, and missing `void` markers.
+      '@typescript-eslint/no-floating-promises': 'error',
 
       // Documentation
       'jsdoc/check-alignment': 'error',

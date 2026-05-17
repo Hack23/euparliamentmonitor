@@ -18,6 +18,6 @@
  * The drift-guard unit test in `test/unit/bounded-contexts.test.js`
  * enforces this contract.
  */
-export { OG_LOCALES, getOgLocale, buildOgLocaleTags, } from './og-locales.js';
+export { OG_LOCALES, getOgLocale, buildOgLocaleTags } from './og-locales.js';
 export { TWITTER_SITE_HANDLE, TWITTER_CREATOR_HANDLE, ORG_SAME_AS, buildTwitterAttributionTags, } from './social-handles.js';
 //# sourceMappingURL=index.js.map
