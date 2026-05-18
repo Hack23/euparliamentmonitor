@@ -127,7 +127,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiles.md` |
 | [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
@@ -774,6 +774,1377 @@ Analysis of coalition stability patterns across multiple plenary sessions.
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+**التصنيف:** OSINT | سجل برلماني عام
+**مستوى الثقة:** 🟢 مرتفع (تقييم هيكلي في فترة الاستراحة)
+**تاريخ الإنشاء:** 2026-04-01T00:00:00Z (موجز استعادي)
+**نوع المقال:** مقترحات
+**معرّف الجلسة:** `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc`
+**المصدر:** بوابة البيانات المفتوحة للبرلمان الأوروبي
+
+---
+
+### 🎯 BLUF
+
+**لم تُفهرَس أي مقترحات جديدة للمفوضية أو ملفات مبادرة ذاتية للبرلمان الأوروبي بتاريخ 2026-04-01.** أسفرت جلسة التحليل `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` عن **0 جهة مصنّفة** وأهمية **روتينية** في جميع الأبعاد. يُفسَّر الفراغ المعلوماتي بالعطلة البرلمانية بين الدورتين (27 مارس → 26 أبريل) وخطأ `get_procedures_feed` 404 المتزامن (الموثّق في تقرير الأخبار العاجلة المصاحب). وبالتالي فإن خط الأساس الفعلي للمقترحات هو البنية التحتية الموروثة: إطار أرصدة انبعاثات المركبات ثقيلة الحمولة 2025–2029 (TA-10-2026-0084)، إجراءات نائب رئيس البنك المركزي الأوروبي (TA-10-2026-0060)، تقرير التشريع الأفضل (TA-10-2026-0063)، والإحالة الجارية لاتفاقية الاتحاد الأوروبي-ميركوسور إلى محكمة العدل (TA-10-2026-0008). **🟢 ثقة مرتفعة** في أن الحالة الفارغة مدفوعة بالتقويم وتوافر البيانات وليست انحداراً في البنية التحتية.
+
+---
+
+### 🧭 3 قرارات يدعمها هذا الموجز
+
+| # | القرار | صاحب القرار | الموعد النهائي | الأدلة |
+|:-:|--------|------------|:--------------:|--------|
+| 1 | **تحريري:** تخطّي المقترحات اليومية؛ تأجيل حتى الجلسة النشطة التالية | المحرر | +24 ساعة | مخرجات التشغيل الفارغة |
+| 2 | **المراقبة:** التحقق من صحة `get_procedures_feed` في الدورة التالية | البنية التحتية للبيانات | 2026-04-02 | 404 بتاريخ 2026-04-01 |
+| 3 | **المراقبة الاستشرافية:** تتبع مراسلات أسبوع أبريل للمفوضية بحثاً عن مقترحات جديدة | قائد التحليل | 2026-04-13 | إيقاع إدراج المفوضية |
+
+---
+
+### 📰 قراءة من 60 ثانية
+
+- 🔴 **لم تُفتتَح إجراءات جديدة** بتاريخ 2026-04-01؛ `get_procedures_feed` 404 في تشغيل موازٍ. (🟡 متوسط — توافر نقطة النهاية هو التحفظ)
+- 🟠 **0 جهات مصنّفة**؛ لم يُحدَّد أي مفوض أو مديرية عامة أو مقرر. (🟢 مرتفع)
+- 🟢 **ترحيل البنية التحتية** — انبعاثات المركبات الثقيلة، نائب رئيس البنك المركزي الأوروبي، التشريع الأفضل، إحالة ميركوسور تبقى المخزون النشط للمقترحات الداخلة في أبريل. (🟢 مرتفع)
+- 🟡 **جميع أبعاد المخاطر "لا شيء"** — لم تُرصَد مخاطر حادة في مرحلة المقترحات اليوم. (🟢 مرتفع)
+- 🔵 **السياق الاقتصادي:** تبقى مقترحات المفوضية للربع الثاني المتوقعة بشأن لوائح تنفيذ قانون الذكاء الاصطناعي واستراتيجية الصناعة الدفاعية والمراسلات التحضيرية للإطار المالي متعدد السنوات على قائمة المراقبة. (🟡 متوسط — إيقاع إدراج المفوضية)
+- 🟣 **الإسناد المتقاطع:** يوثّق التقرير المصاحب 2026-04-01/breaking نمط 6/8 من تغذيات 404 الاستشارية. (🟢 مرتفع)
+- 🩷 **ناقل الاضطراب:** قد يجبر الضغط التجاري الأمريكي على تقديم مقترح بمسار سريع من المفوضية في أبريل. (🟡 متوسط)
+- ⚪ **الترحيل:** رأي محكمة العدل الأوروبية بشأن ميركوسور هو أعلى المشغّلات المنتظرة تأثيراً في المقترحات.
+
+---
+
+### 🗂️ أبرز الوثائق / الإجراءات — مراقبة المقترحات
+
+| الترتيب | المرجع البرلماني | العنوان (مختصر) | الأهمية | الثقة | الحالة |
+|:-------:|-----------------|-----------------|:-------:|:-----:|--------|
+| 1 | — | لا مقترحات جديدة بتاريخ 2026-04-01 | 0.0 | 🟢 مرتفعة | استراحة + تغذية 404 |
+| 2 | TA-10-2026-0008 | إحالة EU-Mercosur إلى محكمة العدل (معلّقة) | 8.0 | 🟡 متوسطة | رأي المحكمة متوقع |
+| 3 | TA-10-2026-0084 | أرصدة انبعاثات المركبات الثقيلة 2025–2029 | 7.0 | 🟢 مرتفعة | بنية تحتية للنقل |
+| 4 | TA-10-2026-0063 | التشريع الأفضل (الخط الأساسي التنظيمي) | 6.0 | 🟢 مرتفعة | إطار شامل |
+
+---
+
+### ⚠️ لقطة المخاطر والتهديدات
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 تغذية الإجراءات 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["إعادة التحقيق 2026-04-02"]
+    R2["🟠 مقترح المسار السريع للتجارة الأمريكية<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 طوارئ رأي ميركوسور<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| المخاطرة | L | I | النتيجة | المشغّل | المصدر | Admiralty |
+|---------|:-:|:-:|:-------:|---------|--------|:---------:|
+| موثوقية `get_procedures_feed` | 3 | 3 | 9 | استمرار 404 | تقرير الأخبار العاجلة المصاحب | B2 |
+| مقترح المسار السريع للتجارة الأمريكية | 3 | 4 | 12 | إجراء أمريكي يُفعّل إدراج المفوضية | TA-10-2026-0096 | A1 |
+| طوارئ رأي ميركوسور | 3 | 3 | 9 | نشر المحكمة | TA-10-2026-0008 | A2 |
+| احتكاك الاستعداد للإطار المالي | 3 | 4 | 12 | مراسلة المفوضية للربع الثاني | إيقاع المفوضية | B2 |
+
+---
+
+### 🔮 أبرز المشغّلات المستقبلية
+
+**تستأنف دورة اجتماعات يوم الثلاثاء للمفوضية في 7 أبريل 2026.** تُدرَج أولى مقترحات المفوضية ما بعد عيد الفصح عادةً في اجتماع الكوليجيوم مطلع أبريل؛ ويُعيّن المزيج الموضوعي (دفاع/رقمي/تجارة/مناخ) قائمة مراقبة مقترحات الربع الثاني.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **المصادر الأولية:** بوابة البيانات المفتوحة للبرلمان الأوروبي — جلسة التحليل `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` ومخزون الوثائق الخارجية لشهر مارس.
+- **قيود البيانات:** `get_procedures_feed` 404 بتاريخ 2026-04-01 يحول دون التحقق المستقل من "عدم افتتاح إجراءات جديدة اليوم".
+- **الثقة في حالة الخمول المرتبطة بالتقويم:** 🟢 مرتفعة.
+
+---
+
+### 📎 الروابط
+
+| الرابط | المسار |
+|--------|--------|
+| المقال | `./article.md` |
+| التصنيف (فارغ) | `./classification/` |
+| التشغيلات المصاحبة | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| الجرد | `./manifest.json` |
+
+---
+
+### 🔄 الإسناد المتقاطع
+
+**تشغيلات قوالب فارغة متزامنة:** breaking وcommittee-reports وmonth-ahead وmotions لتاريخ 2026-04-01 جميعها تُظهر حالة فارغة متطابقة — مما يؤكد ظروف الاستراحة الشاملة للنظام + شروط API التغذية، وليس انحداراً خاصاً بالمقترحات.
+
+---
+
+**التحكم في الوثيقة**
+- **القالب:** `/analysis/templates/executive-brief.md`
+- **مسار المنتج:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **التصنيف:** عام
+- **الإنشاء الاستعادي:** جلسة ملء استعادية.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Ingen nye Kommissions-forslag eller EP-egne initiativsager indekseret den 2026-04-01.** Analyskørsel `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` returnerede **0 klassificerede aktører** og **RUTINE**-betydning på tværs af alle dimensioner. EP's intersessionelle recess (27. marts → 26. april) og den samtidige `get_procedures_feed` 404-fejl (dokumenteret i søsterkørslen om seneste nyheder) forklarer datatomrummet. Det substantielle forslagsbaseline er derfor den arvede pipeline: HDV-emissionskreditter 2025–2029-ramme (TA-10-2026-0084), ECB-næstformandsprocedure (TA-10-2026-0060), rapport om bedre lovgivning (TA-10-2026-0063) og den igangværende EU-Mercosur-domstolshenvisning (TA-10-2026-0008). **🟢 HØJ konfidens** om at den tomme tilstand er kalender- og feedtilgængeligheds-drevet, ikke en pipeline-regression.
+
+---
+
+### 🧭 3 Beslutninger som denne resumé understøtter
+
+| # | Beslutning | Beslutningstagere | Deadline | Dokumentation |
+|:-:|------------|------------------|:--------:|--------------|
+| 1 | **Redaktion:** SPRING daglige forslag over; udskyd til næste aktive session | Redaktør | +24t | Tom kørselsoutput |
+| 2 | **Overvågning:** verificer `get_procedures_feed`-sundhed i næste cyklus | Datapipeline | 2026-04-02 | 404 den 2026-04-01 |
+| 3 | **Fremadrettet bevakning:** spor Kommissionens april-uge-kommunikationer for nye forslag | Analyseansvarlig | 2026-04-13 | Kommissionens tabellerings-kadence |
+
+---
+
+### 📰 60-sekunders læsning
+
+- 🔴 **Ingen nye procedurer åbnet** den 2026-04-01; `get_procedures_feed` 404 i parallel kørsel. (🟡 Medium — endepunkttilgængelighed er forbeholdet)
+- 🟠 **0 aktører klassificeret**; ingen kommissær, GD eller rapportør identificeret. (🟢 Høj)
+- 🟢 **Pipeline-videreførelse** — HDV-emissioner, ECB-næstformand, bedre lovgivning, Mercosur-henvisning forbliver den aktive forslags-beholdning i april. (🟢 Høj)
+- 🟡 **Alle risikodimensioner "ingen"** — ingen akut forslagsfase-risiko markeret i dag. (🟢 Høj)
+- 🔵 **Økonomisk sammenhæng:** forventede Kommissions-kvartal-2-forslag om AI-lovens gennemførelsesforordninger, strategi for forsvarsindustri og MFF-forberedende kommunikationer forbliver på bevakningslisten. (🟡 Medium — Kommissionens tabellerings-kadence)
+- 🟣 **Krydshenvisning:** søsterrapporten 2026-04-01/breaking dokumenterer mønstret 6/8 rådgivende feeds 404. (🟢 Høj)
+- 🩷 **Forstyrrelsesvektorer:** US-handelspres kan tvinge hurtigsporet Kommissions-forslag frem i april. (🟡 Medium)
+- ⚪ **Overføring:** Mercosur ECJ-udtalelse er den højest-impact afventende forslagsudløser.
+
+---
+
+### 🗂️ Top-dokumenter / procedurer — Forslagsbevakning
+
+| Rang | EP-reference | Titel (kort) | Betydning | Konfidens | Status |
+|:----:|--------------|--------------|:---------:|:---------:|--------|
+| 1 | — | Ingen nye forslag den 2026-04-01 | 0,0 | 🟢 HØJ | Recess + feed 404 |
+| 2 | TA-10-2026-0008 | EU-Mercosur ECJ-henvisning (afventende) | 8,0 | 🟡 MEDIUM | Domstolsudtalelse forventet |
+| 3 | TA-10-2026-0084 | HDV-emissionskreditter 2025–2029 | 7,0 | 🟢 HØJ | Transpositionspipeline |
+| 4 | TA-10-2026-0063 | Bedre lovgivning (regulatorisk baseline) | 6,0 | 🟢 HØJ | Tværgående ramme |
+
+---
+
+### ⚠️ Risiko- og trusselsbillede
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 Procedurefeed 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["Gensond 2026-04-02"]
+    R2["🟠 US-handel hurtigspor-forslag<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Mercosur-udtalelse kontingent<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risiko | L | I | Score | Udløser | Kilde | Admiralty |
+|--------|:-:|:-:|:-----:|---------|-------|:---------:|
+| `get_procedures_feed`-pålidelighed | 3 | 3 | 9 | Vedvarende 404 | Søster-breaking-kørsel | B2 |
+| US-handel hurtigspor-forslag | 3 | 4 | 12 | US-handling udløser Kommissions-tabelläring | TA-10-2026-0096 | A1 |
+| Mercosur-udtalelse kontingent | 3 | 3 | 9 | Domstolen offentliggør | TA-10-2026-0008 | A2 |
+| MFF-forberedende friktion | 3 | 4 | 12 | Kvartal-2 Kommissions-kommunikation | Kommissions-kadence | B2 |
+
+---
+
+### 🔮 Vigtigste fremadrettede udløser
+
+**Kommissionens tirsdagsmøde-cyklus genoptages 7. april 2026.** Første post-påske-Kommissions-forslag tabelläres typisk ved det tidlige april-kollegiemøde; den aktuelle blanding (forsvar/digitalt/handel/klima) kalibrerer kvartal-2-forslagsbevaknlisten.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **Primære kilder:** EP's åbne dataportal — analyskørsel `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` og ekstern-dokument-beholdningen for marts.
+- **Databegrænsninger:** `get_procedures_feed` 404 den 2026-04-01 forhindrer uafhængig korroboration af "ingen nye procedurer åbnet i dag".
+- **Konfidens for kalender-drevet inaktivitet:** 🟢 HØJ.
+
+---
+
+### 📎 Links
+
+| Link | Sti |
+|------|-----|
+| Artikel | `./article.md` |
+| Klassifikation (tom) | `./classification/` |
+| Søsterkørsler | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| Manifest | `./manifest.json` |
+
+---
+
+### 🔄 Krydshenvisning
+
+**Samtidige tomme skabelon-kørsler:** breaking, committee-reports, month-ahead, motions for 2026-04-01 viser alle identisk tom tilstand — bekræfter systemdækkende recess + feed-API-vilkår, ikke forslags-specifik regression.
+
+---
+
+**Dokumentstyring**
+- **Skabelon:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **Klassifikation:** Offentlig
+- **Retrospektiv generering:** Tilbage-fyldningssession.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Keine neuen Kommissionsvorschläge oder EP-Eigeninitiativdossiers am 2026-04-01 indiziert.** Analyselauf `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` lieferte **0 klassifizierte Akteure** und **ROUTINE**-Bedeutung in allen Dimensionen. Die intersessionelle EP-Pause (27. März → 26. April) und der gleichzeitige `get_procedures_feed` 404-Fehler (im Parallelreport zu aktuellen Meldungen dokumentiert) erklären die Datenlücke. Die inhaltliche Vorschlagsbaseline ist daher die übernommene Pipeline: HDV-Emissionskredite 2025–2029-Rahmen (TA-10-2026-0084), EZB-Vizepräsidentenverfahren (TA-10-2026-0060), Bericht über bessere Rechtsetzung (TA-10-2026-0063) und die laufende EU-Mercosur-Gerichtsverweisung (TA-10-2026-0008). **🟢 HOHE Konfidenz**, dass der leere Zustand kalender- und feedverfügbarkeitsbedingt ist, keine Pipeline-Regression.
+
+---
+
+### 🧭 3 Entscheidungen, die diese Kurzinformation unterstützt
+
+| # | Entscheidung | Entscheider | Frist | Belege |
+|:-:|--------------|-------------|:-----:|--------|
+| 1 | **Redaktion:** ÜBERSPRINGEN täglich Vorschläge; Verschiebung bis zur nächsten aktiven Sitzung | Redakteur | +24h | Leere Laufausgabe |
+| 2 | **Überwachung:** `get_procedures_feed`-Gesundheit beim nächsten Zyklus prüfen | Datenpipeline | 2026-04-02 | 404 am 2026-04-01 |
+| 3 | **Vorausschau:** Kommissions-April-Wochenkommunikationen auf neue Vorschläge beobachten | Analyseleitung | 2026-04-13 | Kommissions-Tabellierkadenz |
+
+---
+
+### 📰 60-Sekunden-Lesestoff
+
+- 🔴 **Keine neuen Verfahren eröffnet** am 2026-04-01; `get_procedures_feed` 404 im Parallellauf. (🟡 Mittel — Endpunktverfügbarkeit ist der Vorbehalt)
+- 🟠 **0 Akteure klassifiziert**; kein Kommissar, GD oder Berichterstatter identifiziert. (🟢 Hoch)
+- 🟢 **Pipeline-Übertrag** — HDV-Emissionen, EZB-Vizepräsident, bessere Rechtsetzung, Mercosur-Verweisung bleiben der aktive Vorschlagsbestand für April. (🟢 Hoch)
+- 🟡 **Alle Risikodimensionen „keine"** — kein akutes Vorschlagsphasenrisiko heute markiert. (🟢 Hoch)
+- 🔵 **Wirtschaftlicher Kontext:** erwartete Kommissions-Q2-Vorschläge zu KI-Gesetz-Durchführungsverordnungen, Verteidigungsindustriestrategie und MFF-Vorbereitungsmitteilungen bleiben auf der Beobachtungsliste. (🟡 Mittel — Kommissions-Tabellierkadenz)
+- 🟣 **Querverweis:** Schwesterbericht 2026-04-01/breaking dokumentiert das Muster 6/8 beratender Feeds 404. (🟢 Hoch)
+- 🩷 **Störungsvektor:** US-Handelsdruck könnte im April einen Schnellspurvorschlag der Kommission erzwingen. (🟡 Mittel)
+- ⚪ **Übertrag:** Mercosur-EuGH-Gutachten ist der hochwertigste ausstehende Vorschlagsauslöser.
+
+---
+
+### 🗂️ Top-Dokumente / Verfahren — Vorschlagsüberwachung
+
+| Rang | EP-Referenz | Titel (kurz) | Bedeutung | Konfidenz | Status |
+|:----:|-------------|--------------|:---------:|:---------:|--------|
+| 1 | — | Keine neuen Vorschläge am 2026-04-01 | 0,0 | 🟢 HOCH | Pause + Feed 404 |
+| 2 | TA-10-2026-0008 | EU-Mercosur-EuGH-Verweisung (ausstehend) | 8,0 | 🟡 MITTEL | Gerichtsgutachten erwartet |
+| 3 | TA-10-2026-0084 | HDV-Emissionskredite 2025–2029 | 7,0 | 🟢 HOCH | Transpositionspipeline |
+| 4 | TA-10-2026-0063 | Bessere Rechtsetzung (regulatorische Basislinie) | 6,0 | 🟢 HOCH | Querschnittsrahmen |
+
+---
+
+### ⚠️ Risiko- und Bedrohungsübersicht
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 Verfahrensfeed 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["Neusondierung 2026-04-02"]
+    R2["🟠 US-Handel-Schnellspurvorschlag<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Mercosur-Gutachten Kontingenz<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risiko | L | I | Wertung | Auslöser | Quelle | Admiralty |
+|--------|:-:|:-:|:-------:|----------|--------|:---------:|
+| `get_procedures_feed`-Zuverlässigkeit | 3 | 3 | 9 | Anhaltender 404 | Schwesterbericht breaking | B2 |
+| US-Handel-Schnellspurvorschlag | 3 | 4 | 12 | US-Maßnahme löst Kommissionstabellieru ng aus | TA-10-2026-0096 | A1 |
+| Mercosur-Gutachten Kontingenz | 3 | 3 | 9 | Gericht veröffentlicht | TA-10-2026-0008 | A2 |
+| MFF-Vorbereitungsreibung | 3 | 4 | 12 | Q2-Kommissionsmitteilung | Kommissionskadenz | B2 |
+
+---
+
+### 🔮 Wichtigster Vorausauslöser
+
+**Kommissionsdienstagssitzungszyklus wird am 7. April 2026 wieder aufgenommen.** Erste Post-Oster-Kommissionsvorschläge werden typischerweise beim frühen April-Kollegiumstreffen tabelliert; der thematische Mix (Verteidigung/Digital/Handel/Klima) kalibriert die Q2-Vorschlagsbeobachtungsliste.
+
+---
+
+### 🛡️ Quellqualitätsbewertung
+
+- **Primärquellen:** EP-Datenportal — Analyselauf `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` und Externe-Dokumente-Inventar für März.
+- **Datenbeschränkungen:** `get_procedures_feed` 404 am 2026-04-01 verhindert unabhängige Bestätigung von „heute keine neuen Verfahren eröffnet".
+- **Konfidenz für kalenderbedingte Inaktivität:** 🟢 HOCH.
+
+---
+
+### 📎 Links
+
+| Link | Pfad |
+|------|------|
+| Artikel | `./article.md` |
+| Klassifizierung (leer) | `./classification/` |
+| Schwesterkäufe | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| Manifest | `./manifest.json` |
+
+---
+
+### 🔄 Querverweis
+
+**Gleichzeitige leere Vorlagenläufe:** breaking, committee-reports, month-ahead, motions für 2026-04-01 zeigen alle identischen Leerzustand — bestätigt systemweite Pause- + Feed-API-Bedingungen, keine vorschlagsspezifische Regression.
+
+---
+
+**Dokumentenkontrolle**
+- **Vorlage:** `/analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **Klassifizierung:** Öffentlich
+- **Retrospektive Erstellung:** Rückwirkende Auffüllsitzung.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**No se indexaron nuevas propuestas de la Comisión ni expedientes de iniciativa propia del PE el 2026-04-01.** La ejecución de análisis `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` devolvió **0 actores clasificados** y significación **RUTINARIA** en todas las dimensiones. El receso intersesional del PE (27 de marzo → 26 de abril) y el error `get_procedures_feed` 404 simultáneo (documentado en la ejecución paralela de últimas noticias) explican el vacío de datos. La base sustantiva de proposiciones es, por tanto, la canalización heredada: marco de créditos de emisiones HDV 2025–2029 (TA-10-2026-0084), procedimiento del vicepresidente del BCE (TA-10-2026-0060), informe de mejora legislativa (TA-10-2026-0063) y la remisión pendiente EU-Mercosur ante el Tribunal de Justicia (TA-10-2026-0008). **🟢 ALTA confianza** en que el estado vacío es consecuencia del calendario y la disponibilidad del flujo, no de una regresión de la canalización.
+
+---
+
+### 🧭 3 Decisiones que apoya este resumen
+
+| # | Decisión | Responsable | Plazo | Evidencia |
+|:-:|----------|------------|:-----:|-----------|
+| 1 | **Editorial:** OMITIR proposiciones diarias; posponer a la próxima sesión activa | Editor | +24h | Salida de ejecución vacía |
+| 2 | **Supervisión:** verificar el estado de `get_procedures_feed` en el próximo ciclo | Tubería de datos | 2026-04-02 | 404 el 2026-04-01 |
+| 3 | **Vigilancia prospectiva:** rastrear las comunicaciones semanales de abril de la Comisión para nuevas propuestas | Responsable de análisis | 2026-04-13 | Cadencia de tabulación de la Comisión |
+
+---
+
+### 📰 Lectura de 60 segundos
+
+- 🔴 **No se abrieron nuevos procedimientos** el 2026-04-01; `get_procedures_feed` 404 en ejecución paralela. (🟡 Medio — la disponibilidad del punto final es la salvedad)
+- 🟠 **0 actores clasificados**; ningún comisario, DG ni ponente identificado. (🟢 Alto)
+- 🟢 **Traslado de canalización** — emisiones HDV, vicepresidente BCE, mejora legislativa, remisión Mercosur siguen siendo el inventario activo de proposiciones en abril. (🟢 Alto)
+- 🟡 **Todas las dimensiones de riesgo "ninguna"** — ningún riesgo agudo en la fase de proposiciones marcado hoy. (🟢 Alto)
+- 🔵 **Contexto económico:** las propuestas de la Comisión T2 previstas sobre reglamentos de ejecución de la Ley de IA, la Estrategia Industrial de Defensa y las comunicaciones preparatorias del MFF siguen en la lista de seguimiento. (🟡 Medio — cadencia de tabulación de la Comisión)
+- 🟣 **Referencia cruzada:** el informe paralelo 2026-04-01/breaking documenta el patrón 6/8 de flujos consultivos 404. (🟢 Alto)
+- 🩷 **Vector de perturbación:** la presión comercial de EE. UU. podría forzar una propuesta de vía rápida de la Comisión en abril. (🟡 Medio)
+- ⚪ **Traslado:** la opinión del TJUE sobre Mercosur es el desencadenante pendiente de mayor impacto en proposiciones.
+
+---
+
+### 🗂️ Principales documentos / procedimientos — Seguimiento de proposiciones
+
+| Rango | Referencia PE | Título (abreviado) | Importancia | Confianza | Estado |
+|:-----:|---------------|-------------------|:-----------:|:---------:|--------|
+| 1 | — | No hay nuevas proposiciones el 2026-04-01 | 0,0 | 🟢 ALTA | Receso + flujo 404 |
+| 2 | TA-10-2026-0008 | Remisión EU-Mercosur ante el TJUE (pendiente) | 8,0 | 🟡 MEDIA | Opinión del Tribunal esperada |
+| 3 | TA-10-2026-0084 | Créditos de emisiones HDV 2025–2029 | 7,0 | 🟢 ALTA | Canalización de transposición |
+| 4 | TA-10-2026-0063 | Mejora legislativa (base regulatoria) | 6,0 | 🟢 ALTA | Marco transversal |
+
+---
+
+### ⚠️ Instantánea de riesgos y amenazas
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 Flujo de procedimientos 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["Resondeo 2026-04-02"]
+    R2["🟠 Propuesta vía rápida comercio EE.UU.<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Opinión Mercosur contingente<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Riesgo | L | I | Puntuación | Desencadenante | Fuente | Admiralty |
+|--------|:-:|:-:|:----------:|----------------|--------|:---------:|
+| Fiabilidad `get_procedures_feed` | 3 | 3 | 9 | 404 persistente | Informe sœur breaking | B2 |
+| Propuesta vía rápida comercio EE.UU. | 3 | 4 | 12 | Acción EE.UU. activa tabulación Comisión | TA-10-2026-0096 | A1 |
+| Opinión Mercosur contingente | 3 | 3 | 9 | Tribunal publica | TA-10-2026-0008 | A2 |
+| Fricción preparatoria MFF | 3 | 4 | 12 | Comunicación Comisión T2 | Cadencia Comisión | B2 |
+
+---
+
+### 🔮 Principal desencadenante prospectivo
+
+**El ciclo de reuniones de los martes de la Comisión se reanuda el 7 de abril de 2026.** Las primeras propuestas post-Semana Santa de la Comisión se suelen tabular en la reunión del Colegio de principios de abril; el mix temático (defensa/digital/comercio/clima) calibra la lista de seguimiento de proposiciones del T2.
+
+---
+
+### 🛡️ Evaluación de la calidad de las fuentes
+
+- **Fuentes primarias:** Portal de datos abiertos del PE — ejecución de análisis `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` e inventario de documentos externos de marzo.
+- **Limitaciones de datos:** `get_procedures_feed` 404 el 2026-04-01 impide la corroboración independiente de "no se abrieron nuevos procedimientos hoy".
+- **Confianza en la inactividad por motivos de calendario:** 🟢 ALTA.
+
+---
+
+### 📎 Enlaces
+
+| Enlace | Ruta |
+|--------|------|
+| Artículo | `./article.md` |
+| Clasificación (vacía) | `./classification/` |
+| Ejecuciones hermanas | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| Manifiesto | `./manifest.json` |
+
+---
+
+### 🔄 Referencia cruzada
+
+**Ejecuciones de plantillas vacías simultáneas:** breaking, committee-reports, month-ahead, motions del 2026-04-01 muestran todas un estado vacío idéntico — confirma condiciones de receso a nivel de sistema + API de flujo, sin regresión específica de proposiciones.
+
+---
+
+**Control del documento**
+- **Plantilla:** `/analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **Clasificación:** Pública
+- **Generación retrospectiva:** Sesión de relleno retroactivo.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Uusia komission ehdotuksia tai EP:n omia aloitekäsittelyjä ei indeksoitu 2026-04-01.** Analyysiajoitus `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` palautti **0 luokiteltua toimijaa** ja **RUTIINITASON** merkityksen kaikissa ulottuvuuksissa. EP:n istuntojen välinen tauko (27. maaliskuuta → 26. huhtikuuta) ja samanaikainen `get_procedures_feed` 404-virhe (dokumentoitu rinnakkaisessa breaking-ajossa) selittävät datavajeen. Substantiaalinen ehdotusten peruslinja on siksi peritty putkisto: HDV-päästöhyvitykset 2025–2029-kehys (TA-10-2026-0084), EKP:n varapuheenjohtajamenettely (TA-10-2026-0060), paremman lainsäädännön raportti (TA-10-2026-0063) ja käynnissä oleva EU:n ja Mercosur-maiden tuomioistuinviittaus (TA-10-2026-0008). **🟢 KORKEA luotettavuus** siitä, että tyhjä tila johtuu kalenterista ja syötteiden saatavuudesta, ei putkiston regressiosta.
+
+---
+
+### 🧭 3 Päätöstä, joita tämä yhteenveto tukee
+
+| # | Päätös | Päätöksentekijä | Määräaika | Näyttö |
+|:-:|--------|----------------|:---------:|--------|
+| 1 | **Toimituksellinen:** OHITA päivittäiset ehdotukset; lykkää seuraavaan aktiiviseen istuntoon | Toimittaja | +24h | Tyhjä ajotulos |
+| 2 | **Seuranta:** varmista `get_procedures_feed`-terveys seuraavalla syklillä | Dataputkisto | 2026-04-02 | 404 päivänä 2026-04-01 |
+| 3 | **Eteenpäin katsova seuranta:** seuraa komission huhtikuun viikkotiedotteita uusien ehdotusten varalta | Analyysipäällikkö | 2026-04-13 | Komission taulukointi-kadenssi |
+
+---
+
+### 📰 60 sekunnin lukeminen
+
+- 🔴 **Uusia menettelyjä ei avattu** 2026-04-01; `get_procedures_feed` 404 rinnakkaisajossa. (🟡 Keskitaso — päätepisteiden saatavuus on varaus)
+- 🟠 **0 toimijaa luokiteltu**; yhtään komissaaria, pääosastoa tai esittelijää ei tunnistettu. (🟢 Korkea)
+- 🟢 **Putkiston siirtymä** — HDV-päästöt, EKP:n varapuheenjohtaja, parempi lainsäädäntö, Mercosur-viittaus pysyvät aktiivisena ehdotusten varastona huhtikuulle. (🟢 Korkea)
+- 🟡 **Kaikki riskin ulottuvuudet "ei mitään"** — yhtään akuuttia ehdotusvaiheen riskiä ei merkitty tänään. (🟢 Korkea)
+- 🔵 **Taloudellinen konteksti:** odotetut komission 2. neljänneksen ehdotukset tekoälylain täytäntöönpanosäädöksistä, puolustusteollisuuden strategiasta ja MFF-valmisteluviesteistä pysyvät seurantalistalla. (🟡 Keskitaso — komission taulukointi-kadenssi)
+- 🟣 **Ristiviittaus:** sisarjulkaisu 2026-04-01/breaking dokumentoi 6/8 neuvoa-antavien syötteiden 404-mallin. (🟢 Korkea)
+- 🩷 **Häiriövektori:** yhdysvaltalainen kauppapaine voi pakottaa komission pikakäsittely-ehdotuksen huhtikuussa. (🟡 Keskitaso)
+- ⚪ **Siirtymä:** Mercosur EYT-lausunto on korkein vaikutteinen odottava ehdotusten käynnistin.
+
+---
+
+### 🗂️ Huippuasiakirjat / menettelyt — Ehdotusten seuranta
+
+| Sija | EP-viite | Otsikko (lyhyt) | Merkitys | Luotettavuus | Tila |
+|:----:|----------|-----------------|:--------:|:------------:|------|
+| 1 | — | Ei uusia ehdotuksia 2026-04-01 | 0,0 | 🟢 KORKEA | Tauko + syöte 404 |
+| 2 | TA-10-2026-0008 | EU:n ja Mercosur-maiden EYT-viittaus (odottava) | 8,0 | 🟡 KESKITASO | Tuomioistuinlausunto odotetaan |
+| 3 | TA-10-2026-0084 | HDV-päästöhyvitykset 2025–2029 | 7,0 | 🟢 KORKEA | Täytäntöönpanoputkisto |
+| 4 | TA-10-2026-0063 | Parempi lainsäädäntö (sääntelypohja) | 6,0 | 🟢 KORKEA | Läpileikkaava kehys |
+
+---
+
+### ⚠️ Riski- ja uhka-arvio
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 Menettelysyöte 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["Uudelleenkokeilu 2026-04-02"]
+    R2["🟠 USA:n kaupan pikakäsittely-ehdotus<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Mercosur-lausunto kontingenssi<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Riski | L | I | Pistemäärä | Käynnistin | Lähde | Admiralty |
+|-------|:-:|:-:|:----------:|------------|-------|:---------:|
+| `get_procedures_feed`-luotettavuus | 3 | 3 | 9 | Jatkuva 404 | Sisarjulkaisu breaking-ajo | B2 |
+| USA:n kaupan pikakäsittely-ehdotus | 3 | 4 | 12 | USA:n toimet käynnistävät komission taulukoinnin | TA-10-2026-0096 | A1 |
+| Mercosur-lausunto kontingenssi | 3 | 3 | 9 | Tuomioistuin julkaisee | TA-10-2026-0008 | A2 |
+| MFF-valmistelun kitka | 3 | 4 | 12 | 2. neljänneksen komission tiedote | Komission kadenssi | B2 |
+
+---
+
+### 🔮 Tärkein eteenpäin katsova käynnistin
+
+**Komission tiistaikokousten sykli jatkuu 7. huhtikuuta 2026.** Ensimmäiset pääsiäisen jälkeiset komission ehdotukset taulukoidaan tyypillisesti huhtikuun alussa pidettävässä kollegiokokouksessa; aihejakauma (puolustus/digitaalisuus/kauppa/ilmasto) kalibroi 2. neljänneksen ehdotusten seurantalistan.
+
+---
+
+### 🛡️ Lähdekvaliteettiarvio
+
+- **Ensisijaiset lähteet:** EP:n avoin dataportti — analyysiajoitus `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` ja ulkoisten asiakirjojen varasto maaliskuulta.
+- **Datarajoitukset:** `get_procedures_feed` 404 päivänä 2026-04-01 estää riippumattoman vahvistuksen "uusia menettelyjä ei avattu tänään".
+- **Luotettavuus kalenteriohjatusta passiivisuudesta:** 🟢 KORKEA.
+
+---
+
+### 📎 Linkit
+
+| Linkki | Polku |
+|--------|-------|
+| Artikkeli | `./article.md` |
+| Luokitus (tyhjä) | `./classification/` |
+| Sisarajot | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| Manifesti | `./manifest.json` |
+
+---
+
+### 🔄 Ristiviittaus
+
+**Samanaikaiset tyhjät malliajoitukset:** breaking, committee-reports, month-ahead, motions 2026-04-01 osoittavat kaikki identtisen tyhjän tilan — vahvistaa järjestelmänlaajuiset tauko- ja syöte-API-olosuhteet, ei ehdotuskohtaista regressiota.
+
+---
+
+**Asiakirjan hallinta**
+- **Malli:** `/analysis/templates/executive-brief.md`
+- **Artefaktipolku:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **Luokitus:** Julkinen
+- **Takautuva luonti:** Täyttöistunto.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**Aucune nouvelle proposition de la Commission ni dossier d'initiative propre du PE n'a été indexé le 2026-04-01.** La session d'analyse `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` a renvoyé **0 acteur classifié** et un niveau de signification **ROUTINIER** dans toutes les dimensions. La session intersessionnelle du PE (27 mars → 26 avril) et l'erreur `get_procedures_feed` 404 simultanée (consignée dans l'exécution sœur relative aux informations en cours) expliquent le vide de données. La base substantielle des propositions est donc la pipeline héritée : cadre de crédits d'émissions HDV 2025–2029 (TA-10-2026-0084), procédure du vice-président de la BCE (TA-10-2026-0060), rapport Mieux légiférer (TA-10-2026-0063) et le renvoi en cours EU-Mercosur devant la Cour de justice (TA-10-2026-0008). **🟢 Confiance ÉLEVÉE** que l'état vide est lié au calendrier et à la disponibilité du flux, et non à une régression de la pipeline.
+
+---
+
+### 🧭 3 Décisions que cette synthèse soutient
+
+| # | Décision | Décideur | Échéance | Éléments de preuve |
+|:-:|----------|----------|:--------:|-------------------|
+| 1 | **Éditorial :** IGNORER les propositions quotidiennes ; reporter à la prochaine session active | Éditeur | +24h | Sortie d'exécution vide |
+| 2 | **Surveillance :** vérifier la santé de `get_procedures_feed` au prochain cycle | Pipeline de données | 2026-04-02 | 404 le 2026-04-01 |
+| 3 | **Veille prospective :** suivre les communications hebdomadaires d'avril de la Commission pour de nouvelles propositions | Responsable analyse | 2026-04-13 | Cadence de tabellarisation de la Commission |
+
+---
+
+### 📰 Lecture de 60 secondes
+
+- 🔴 **Aucune nouvelle procédure ouverte** le 2026-04-01 ; `get_procedures_feed` 404 lors de l'exécution parallèle. (🟡 Moyen — la disponibilité du point de terminaison est le caveat)
+- 🟠 **0 acteur classifié** ; aucun commissaire, DG ou rapporteur identifié. (🟢 Élevé)
+- 🟢 **Report de pipeline** — émissions HDV, vice-président BCE, Mieux légiférer, renvoi Mercosur constituent le stock actif de propositions entrant en avril. (🟢 Élevé)
+- 🟡 **Toutes les dimensions de risque « aucune »** — aucun risque aigu au stade des propositions signalé aujourd'hui. (🟢 Élevé)
+- 🔵 **Contexte économique :** les propositions attendues de la Commission au T2 concernant les règlements d'application de l'IA Act, la Stratégie industrielle de défense et les communications préparatoires au CFP restent dans la liste de surveillance. (🟡 Moyen — cadence de tabellarisation de la Commission)
+- 🟣 **Référence croisée :** le rapport sœur 2026-04-01/breaking documente le schéma 6/8 flux consultatifs 404. (🟢 Élevé)
+- 🩷 **Vecteur de perturbation :** la pression commerciale américaine pourrait forcer une proposition rapide de la Commission en avril. (🟡 Moyen)
+- ⚪ **Report :** l'avis Mercosur de la CJE est le déclencheur de propositions en attente à impact le plus élevé.
+
+---
+
+### 🗂️ Principaux documents / procédures — Veille des propositions
+
+| Rang | Référence PE | Titre (court) | Signification | Confiance | Statut |
+|:----:|--------------|---------------|:-------------:|:---------:|--------|
+| 1 | — | Aucune nouvelle proposition le 2026-04-01 | 0,0 | 🟢 ÉLEVÉE | Recess + flux 404 |
+| 2 | TA-10-2026-0008 | Renvoi EU-Mercosur devant la CJE (en attente) | 8,0 | 🟡 MOYEN | Avis de la Cour attendu |
+| 3 | TA-10-2026-0084 | Crédits d'émissions HDV 2025–2029 | 7,0 | 🟢 ÉLEVÉE | Pipeline de transposition |
+| 4 | TA-10-2026-0063 | Mieux légiférer (base réglementaire) | 6,0 | 🟢 ÉLEVÉE | Cadre transversal |
+
+---
+
+### ⚠️ Tableau des risques et menaces
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 Flux de procédures 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["Nouvelle sonde 2026-04-02"]
+    R2["🟠 Proposition rapide commerce US<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Avis Mercosur contingent<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risque | L | I | Score | Déclencheur | Source | Admiralty |
+|--------|:-:|:-:|:-----:|-------------|--------|:---------:|
+| Fiabilité `get_procedures_feed` | 3 | 3 | 9 | 404 persistant | Rapport sœur breaking | B2 |
+| Proposition rapide commerce US | 3 | 4 | 12 | Action US déclenche la tabellarisation Commission | TA-10-2026-0096 | A1 |
+| Avis Mercosur contingent | 3 | 3 | 9 | La Cour publie | TA-10-2026-0008 | A2 |
+| Friction préparatoire CFP | 3 | 4 | 12 | Communication Commission T2 | Cadence Commission | B2 |
+
+---
+
+### 🔮 Principal déclencheur prospectif
+
+**Le cycle de réunions du mardi de la Commission reprend le 7 avril 2026.** Les premières propositions post-Pâques de la Commission sont généralement tabellarisées lors de la réunion du collège de début avril ; le mix thématique (défense/numérique/commerce/climat) calibre la liste de surveillance des propositions T2.
+
+---
+
+### 🛡️ Évaluation de la qualité des sources
+
+- **Sources primaires :** Portail de données ouvert du PE — session d'analyse `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` et inventaire des documents externes pour mars.
+- **Limites des données :** `get_procedures_feed` 404 le 2026-04-01 empêche la corroboration indépendante de « aucune nouvelle procédure ouverte aujourd'hui ».
+- **Confiance pour l'inactivité due au calendrier :** 🟢 ÉLEVÉE.
+
+---
+
+### 📎 Liens
+
+| Lien | Chemin |
+|------|--------|
+| Article | `./article.md` |
+| Classification (vide) | `./classification/` |
+| Exécutions sœurs | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| Manifeste | `./manifest.json` |
+
+---
+
+### 🔄 Référence croisée
+
+**Exécutions de modèles vides simultanées :** breaking, committee-reports, month-ahead, motions pour le 2026-04-01 affichent tous un état vide identique — confirme les conditions de recess à l'échelle du système + API de flux, pas de régression spécifique aux propositions.
+
+---
+
+**Contrôle du document**
+- **Modèle :** `/analysis/templates/executive-brief.md`
+- **Chemin d'artefact :** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **Classification :** Publique
+- **Génération rétrospective :** Session de remplissage rétroactif.
+
+### Executive Brief He
+
+**סיווג:** OSINT | רשומה פרלמנטרית ציבורית
+**רמת אמינות:** 🟢 גבוהה (הערכה מבנית בתקופת הפגרה)
+**נוצר:** 2026-04-01T00:00:00Z (תקציר רטרואקטיבי)
+**סוג המאמר:** הצעות
+**מזהה ריצה:** `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc`
+**מקור:** פורטל הנתונים הפתוח של הפרלמנט האירופי
+
+---
+
+### 🎯 BLUF
+
+**לא נוספו הצעות חדשות של הנציבות או תיקים ביוזמה עצמאית של הפרלמנט האירופי בתאריך 2026-04-01.** ריצת הניתוח `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` החזירה **0 שחקנים מסווגים** ומשמעות **שגרתית** בכל הממדים. פגרת הפרלמנט בין-מושבית (27 במרץ → 26 באפריל) והשגיאה המקבילה `get_procedures_feed` 404 (מתועדת בדוח האחים על חדשות שוטפות) מסבירים את ריק הנתונים. בסיס ההצעות המהותי הוא לפיכך הצינור הירוש: מסגרת זיכויי פליטות רכבים כבדים 2025–2029 (TA-10-2026-0084), הליך סגן נשיא הבנק המרכזי האירופי (TA-10-2026-0060), דוח חקיקה טובה יותר (TA-10-2026-0063) והפנייה הפעילה לבית המשפט EU-Mercosur (TA-10-2026-0008). **🟢 אמינות גבוהה** שהמצב הריק נובע מלוח זמנים ותפקוד הזרם, לא מנסיגה בצינור.
+
+---
+
+### 🧭 3 החלטות שתקציר זה תומך בהן
+
+| # | החלטה | מקבל ההחלטה | מועד אחרון | ראיות |
+|:-:|-------|------------|:-----------:|------|
+| 1 | **עריכה:** דלג על הצעות יומיות; דחה למושב הפעיל הבא | עורך | +24 שעות | פלט ריצה ריק |
+| 2 | **ניטור:** אמת את תקינות `get_procedures_feed` במחזור הבא | צינור נתונים | 2026-04-02 | 404 ב-2026-04-01 |
+| 3 | **מעקב צופה פני עתיד:** עקוב אחר תקשורת שבוע אפריל של הנציבות להצעות חדשות | ראש ניתוח | 2026-04-13 | קצב הטבלה של הנציבות |
+
+---
+
+### 📰 קריאה של 60 שניות
+
+- 🔴 **לא נפתחו הליכים חדשים** ב-2026-04-01; `get_procedures_feed` 404 בריצה מקבילה. (🟡 בינוני — זמינות נקודת הקצה היא ההסתייגות)
+- 🟠 **0 שחקנים מסווגים**; לא זוהו נציב, מנכ"ל או מדווח. (🟢 גבוה)
+- 🟢 **העברת צינור** — פליטות רכבים כבדים, סגן נשיא הבנק המרכזי האירופי, חקיקה טובה יותר, הפנייה Mercosur נשארים המלאי הפעיל של ההצעות לאפריל. (🟢 גבוה)
+- 🟡 **כל ממדי הסיכון "אין"** — לא סומן סיכון חריף בשלב ההצעות היום. (🟢 גבוה)
+- 🔵 **הקשר כלכלי:** הצעות רבעון 2 הצפויות של הנציבות לגבי תקנות יישום חוק הבינה המלאכותית, אסטרטגיית התעשייה הביטחונית ותקשורת ההכנה ל-MFF נותרות ברשימת המעקב. (🟡 בינוני — קצב הטבלה של הנציבות)
+- 🟣 **הפניה צולבת:** הדוח האחים 2026-04-01/breaking מתעד את תבנית 6/8 של זרמי 404 ייעוציים. (🟢 גבוה)
+- 🩷 **וקטור שיבוש:** לחץ סחר אמריקאי עלול לאלץ הצעה במסלול מהיר מהנציבות באפריל. (🟡 בינוני)
+- ⚪ **העברה:** חוות דעת בית המשפט האירופי בנושא Mercosur היא ה-Trigger המצפה בעל ההשפעה הגבוהה ביותר על ההצעות.
+
+---
+
+### 🗂️ מסמכים מובילים / הליכים — מעקב הצעות
+
+| דירוג | אסמכתא לפרלמנט | כותרת (קצרה) | חשיבות | אמינות | סטטוס |
+|:------:|----------------|--------------|:------:|:------:|-------|
+| 1 | — | אין הצעות חדשות ב-2026-04-01 | 0.0 | 🟢 גבוהה | פגרה + זרם 404 |
+| 2 | TA-10-2026-0008 | הפנייה EU-Mercosur לבית המשפט (ממתינה) | 8.0 | 🟡 בינונית | חוות דעת המשפט מצופה |
+| 3 | TA-10-2026-0084 | זיכויי פליטות רכבים כבדים 2025–2029 | 7.0 | 🟢 גבוהה | צינור טרנספוזיציה |
+| 4 | TA-10-2026-0063 | חקיקה טובה יותר (בסיס רגולטורי) | 6.0 | 🟢 גבוהה | מסגרת חוצת-נושאים |
+
+---
+
+### ⚠️ תמונת מצב סיכונים ואיומים
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 זרם הליכים 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["בדיקה חוזרת 2026-04-02"]
+    R2["🟠 הצעת מסלול מהיר סחר ארה\"ב<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 מקרה חירום חוות דעת Mercosur<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| סיכון | L | I | ציון | טריגר | מקור | Admiralty |
+|------|:-:|:-:|:----:|-------|------|:---------:|
+| אמינות `get_procedures_feed` | 3 | 3 | 9 | 404 מתמשך | דוח אחים breaking | B2 |
+| הצעת מסלול מהיר סחר ארה"ב | 3 | 4 | 12 | פעולה אמריקאית מפעילה טבלה של הנציבות | TA-10-2026-0096 | A1 |
+| מקרה חירום חוות דעת Mercosur | 3 | 3 | 9 | בית המשפט פרסם | TA-10-2026-0008 | A2 |
+| חיכוך הכנה ל-MFF | 3 | 4 | 12 | תקשורת נציבות רבעון 2 | קצב הנציבות | B2 |
+
+---
+
+### 🔮 הטריגר העתידי הראשי
+
+**מחזור ישיבות יום שלישי של הנציבות מתחדש ב-7 באפריל 2026.** ההצעות הראשונות של הנציבות לאחר חג הפסחא מוטבלות בדרך כלל בישיבת הקולגיום של תחילת אפריל; המיקס הנושאי (ביטחון/דיגיטלי/סחר/אקלים) מכייל את רשימת מעקב הצעות רבעון 2.
+
+---
+
+### 🛡️ הערכת איכות המקורות
+
+- **מקורות ראשוניים:** פורטל הנתונים הפתוח של הפרלמנט האירופי — ריצת ניתוח `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` ומלאי מסמכים חיצוניים לחודש מרץ.
+- **מגבלות נתונים:** `get_procedures_feed` 404 ב-2026-04-01 מונע אימות עצמאי של "לא נפתחו הליכים חדשים היום".
+- **אמינות לחוסר פעילות מונע לוח זמנים:** 🟢 גבוהה.
+
+---
+
+### 📎 קישורים
+
+| קישור | נתיב |
+|-------|------|
+| מאמר | `./article.md` |
+| סיווג (ריק) | `./classification/` |
+| ריצות אחים | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| מניפסט | `./manifest.json` |
+
+---
+
+### 🔄 הפניה צולבת
+
+**ריצות תבנית ריקות בו-זמניות:** breaking, committee-reports, month-ahead, motions ל-2026-04-01 כולן מציגות מצב ריק זהה — מאשש תנאי פגרה ו-API זרם ברמת המערכת, לא נסיגה ספציפית להצעות.
+
+---
+
+**בקרת מסמכים**
+- **תבנית:** `/analysis/templates/executive-brief.md`
+- **נתיב תוצר:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **סיווג:** ציבורי
+- **יצירה רטרואקטיבית:** מושב מילוי לאחור.
+
+### Executive Brief Ja
+
+**分類：** OSINT | 公開議会記録
+**信頼度：** 🟢 高（休会期間の構造的評価）
+**作成日：** 2026-04-01T00:00:00Z（遡及ブリーフ）
+**記事種別：** 提案
+**実行ID：** `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc`
+**出典：** 欧州議会オープンデータポータル
+
+---
+
+### 🎯 BLUF
+
+**2026-04-01 付けで欧州委員会の新規提案および欧州議会独自イニシアティブ案件はインデックスされませんでした。** 分析実行 `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` は**分類済み主体 0 件**、全次元にわたる**定型的（ROUTINE）**重要度を返しました。欧州議会の会期間休会（3月27日→4月26日）および並行実行中の `get_procedures_feed` 404 エラー（関連する速報実行に記録済み）がデータ空白を説明しています。したがって、実質的な提案ベースラインは引き継がれたパイプライン、すなわち HDV 排出クレジット 2025–2029 フレームワーク（TA-10-2026-0084）、ECB 副総裁手続き（TA-10-2026-0060）、より良い法律作りレポート（TA-10-2026-0063）、および進行中の EU-メルコスール欧州司法裁判所付託（TA-10-2026-0008）です。空の状態がカレンダーとフィード可用性に起因し、パイプライン後退ではないことについての**🟢 高い信頼度**があります。
+
+---
+
+### 🧭 このブリーフが支援する 3 つの意思決定
+
+| # | 意思決定 | 決定者 | 期限 | 根拠 |
+|:-:|---------|-------|:----:|------|
+| 1 | **編集：** 日次提案をスキップ；次の活動会期まで延期 | 編集者 | +24時間 | 空の実行出力 |
+| 2 | **監視：** 次サイクルで `get_procedures_feed` の健全性を検証 | データパイプライン | 2026-04-02 | 2026-04-01 の 404 |
+| 3 | **前向き監視：** 新提案について欧州委員会の4月週次通信を追跡 | 分析リード | 2026-04-13 | 欧州委員会の提出ケイデンス |
+
+---
+
+### 📰 60 秒の要約
+
+- 🔴 **2026-04-01 に新規手続き開始なし**；並行実行で `get_procedures_feed` 404 発生。（🟡 中 — エンドポイント可用性が注意事項）
+- 🟠 **分類済み主体 0 件**；委員、DG、報告者いずれも特定されず。（🟢 高）
+- 🟢 **パイプライン持ち越し** — HDV 排出、ECB 副総裁、より良い法律作り、メルコスール付託は4月に向けたアクティブな提案在庫のまま。（🟢 高）
+- 🟡 **すべてのリスク次元「なし」** — 本日、提案フェーズでの急性リスクなし。（🟢 高）
+- 🔵 **経済的文脈：** AI 法実施規則、防衛産業戦略、MFF 準備通信に関する欧州委員会 Q2 提案（予定）はウォッチリストに残存。（🟡 中 — 欧州委員会の提出ケイデンス）
+- 🟣 **クロスリファレンス：** 関連レポート 2026-04-01/breaking が 6/8 の諮問フィード 404 パターンを記録。（🟢 高）
+- 🩷 **混乱ベクター：** 米国の貿易圧力が4月中に欧州委員会の迅速提案を強制する可能性あり。（🟡 中）
+- ⚪ **持ち越し：** メルコスール欧州司法裁判所意見書は最も影響の大きい保留中の提案トリガー。
+
+---
+
+### 🗂️ 主要文書 / 手続き — 提案ウォッチ
+
+| 順位 | EP 参照 | 表題（略称） | 重要度 | 信頼度 | 状況 |
+|:---:|---------|------------|:-----:|:-----:|------|
+| 1 | — | 2026-04-01 に新規提案なし | 0.0 | 🟢 高 | 休会＋フィード 404 |
+| 2 | TA-10-2026-0008 | EU-メルコスール ECJ 付託（保留中） | 8.0 | 🟡 中 | 裁判所意見書待ち |
+| 3 | TA-10-2026-0084 | HDV 排出クレジット 2025–2029 | 7.0 | 🟢 高 | 転置パイプライン |
+| 4 | TA-10-2026-0063 | より良い法律作り（規制ベースライン） | 6.0 | 🟢 高 | 横断的フレームワーク |
+
+---
+
+### ⚠️ リスク・脅威スナップショット
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 手続きフィード 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["再調査 2026-04-02"]
+    R2["🟠 米国貿易ファストトラック提案<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 メルコスール意見書コンティンジェンシー<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| リスク | L | I | スコア | トリガー | 出典 | Admiralty |
+|--------|:-:|:-:|:------:|---------|------|:---------:|
+| `get_procedures_feed` 信頼性 | 3 | 3 | 9 | 持続的 404 | 関連速報実行 | B2 |
+| 米国貿易ファストトラック提案 | 3 | 4 | 12 | 米国の行動が欧州委員会の提出を引き起こす | TA-10-2026-0096 | A1 |
+| メルコスール意見書コンティンジェンシー | 3 | 3 | 9 | 裁判所が公表 | TA-10-2026-0008 | A2 |
+| MFF 準備摩擦 | 3 | 4 | 12 | Q2 欧州委員会通信 | 欧州委員会ケイデンス | B2 |
+
+---
+
+### 🔮 主要な先行トリガー
+
+**欧州委員会の火曜日会議サイクルが 2026年4月7日に再開。** 復活祭後最初の欧州委員会提案は通常4月上旬のコレジウム会議で提出される；テーマの組み合わせ（防衛/デジタル/貿易/気候）が Q2 提案ウォッチリストを較正する。
+
+---
+
+### 🛡️ 情報源品質評価
+
+- **一次情報源：** 欧州議会オープンデータポータル — 分析実行 `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` と3月の外部文書在庫。
+- **データ制限：** 2026-04-01 の `get_procedures_feed` 404 により「本日、新規手続き開始なし」の独立確認が不可能。
+- **カレンダー起因の不活動に関する信頼度：** 🟢 高。
+
+---
+
+### 📎 リンク
+
+| リンク | パス |
+|--------|------|
+| 記事 | `./article.md` |
+| 分類（空） | `./classification/` |
+| 関連実行 | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| マニフェスト | `./manifest.json` |
+
+---
+
+### 🔄 クロスリファレンス
+
+**同時発生の空テンプレート実行：** 2026-04-01 の breaking、committee-reports、month-ahead、motions はすべて同一の空の状態を示す — システム全体の休会＋フィード API 状況を確認、提案固有の後退ではない。
+
+---
+
+**文書管理**
+- **テンプレート：** `/analysis/templates/executive-brief.md`
+- **成果物パス：** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **分類：** 公開
+- **遡及生成：** バックフィルセッション。
+
+### Executive Brief Ko
+
+**분류:** OSINT | 공개 의회 기록
+**신뢰도:** 🟢 높음 (휴회 기간 구조적 평가)
+**생성일:** 2026-04-01T00:00:00Z (소급 브리핑)
+**기사 유형:** 제안
+**실행 ID:** `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc`
+**출처:** 유럽의회 오픈 데이터 포털
+
+---
+
+### 🎯 BLUF
+
+**2026-04-01 기준으로 새로운 집행위원회 제안 또는 유럽의회 자체 이니셔티브 파일이 인덱스되지 않았습니다.** 분석 실행 `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc`는 **분류된 행위자 0명**, 모든 차원에서 **일상적(ROUTINE)** 중요도를 반환했습니다. 유럽의회 회기 간 휴회(3월 27일→4월 26일)와 동시 발생한 `get_procedures_feed` 404 오류(속보 병행 실행에 기록됨)가 데이터 공백을 설명합니다. 실질적인 제안 기준선은 따라서 승계된 파이프라인, 즉 HDV 배출 크레딧 2025–2029 프레임워크(TA-10-2026-0084), ECB 부총재 절차(TA-10-2026-0060), 더 나은 입법 보고서(TA-10-2026-0063), 진행 중인 EU-메르코수르 유럽사법재판소 회부(TA-10-2026-0008)입니다. 빈 상태가 달력 및 피드 가용성에 기인하며 파이프라인 회귀가 아니라는 **🟢 높은 신뢰도**가 있습니다.
+
+---
+
+### 🧭 이 브리핑이 지원하는 3가지 의사결정
+
+| # | 결정 | 결정자 | 기한 | 근거 |
+|:-:|------|-------|:----:|------|
+| 1 | **편집:** 일일 제안 건너뜀; 다음 활성 회의까지 연기 | 편집자 | +24시간 | 빈 실행 출력 |
+| 2 | **모니터링:** 다음 주기에 `get_procedures_feed` 상태 확인 | 데이터 파이프라인 | 2026-04-02 | 2026-04-01의 404 |
+| 3 | **전향적 감시:** 새 제안에 대한 집행위원회 4월 주간 통신 추적 | 분석 리드 | 2026-04-13 | 집행위원회 상정 케이던스 |
+
+---
+
+### 📰 60초 요약
+
+- 🔴 **2026-04-01에 새 절차 미개시**; 병행 실행에서 `get_procedures_feed` 404 발생. (🟡 중간 — 엔드포인트 가용성이 주의 사항)
+- 🟠 **분류된 행위자 0명**; 집행위원, DG, 보고관 누구도 미파악. (🟢 높음)
+- 🟢 **파이프라인 이월** — HDV 배출, ECB 부총재, 더 나은 입법, 메르코수르 회부가 4월 기준 활성 제안 재고로 유지. (🟢 높음)
+- 🟡 **모든 위험 차원 "없음"** — 오늘 제안 단계의 급박한 위험 없음. (🟢 높음)
+- 🔵 **경제적 맥락:** AI법 시행 규정, 방산 전략, MFF 준비 통신에 관한 집행위원회 2분기 제안(예정)이 감시 목록에 유지. (🟡 중간 — 집행위원회 상정 케이던스)
+- 🟣 **교차 참조:** 자매 보고서 2026-04-01/breaking이 6/8 자문 피드 404 패턴을 기록. (🟢 높음)
+- 🩷 **혼란 벡터:** 미국 무역 압력이 4월에 집행위원회 신속 제안을 강제할 수 있음. (🟡 중간)
+- ⚪ **이월:** 메르코수르 ECJ 의견서는 영향력이 가장 높은 대기 중인 제안 트리거.
+
+---
+
+### 🗂️ 주요 문서 / 절차 — 제안 감시
+
+| 순위 | EP 참조 | 제목 (약칭) | 중요도 | 신뢰도 | 상태 |
+|:---:|---------|-----------|:-----:|:-----:|------|
+| 1 | — | 2026-04-01에 새 제안 없음 | 0.0 | 🟢 높음 | 휴회＋피드 404 |
+| 2 | TA-10-2026-0008 | EU-메르코수르 ECJ 회부 (대기 중) | 8.0 | 🟡 중간 | 재판소 의견서 대기 |
+| 3 | TA-10-2026-0084 | HDV 배출 크레딧 2025–2029 | 7.0 | 🟢 높음 | 전치 파이프라인 |
+| 4 | TA-10-2026-0063 | 더 나은 입법 (규제 기준선) | 6.0 | 🟢 높음 | 횡단적 프레임워크 |
+
+---
+
+### ⚠️ 위험·위협 스냅샷
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 절차 피드 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["재조사 2026-04-02"]
+    R2["🟠 미국 무역 신속 제안<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 메르코수르 의견서 우발사태<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| 위험 | L | I | 점수 | 트리거 | 출처 | Admiralty |
+|-----|:-:|:-:|:---:|-------|------|:---------:|
+| `get_procedures_feed` 신뢰성 | 3 | 3 | 9 | 지속적 404 | 자매 속보 실행 | B2 |
+| 미국 무역 신속 제안 | 3 | 4 | 12 | 미국 조치가 집행위원회 상정 유발 | TA-10-2026-0096 | A1 |
+| 메르코수르 의견서 우발사태 | 3 | 3 | 9 | 재판소 발표 | TA-10-2026-0008 | A2 |
+| MFF 준비 마찰 | 3 | 4 | 12 | 2분기 집행위원회 통신 | 집행위원회 케이던스 | B2 |
+
+---
+
+### 🔮 주요 전향적 트리거
+
+**집행위원회 화요일 회의 주기가 2026년 4월 7일 재개.** 부활절 이후 첫 집행위원회 제안은 통상 4월 초 대학 회의에서 상정됨; 주제 조합(방산/디지털/무역/기후)이 2분기 제안 감시 목록을 보정합니다.
+
+---
+
+### 🛡️ 출처 품질 평가
+
+- **1차 출처:** 유럽의회 오픈 데이터 포털 — 분석 실행 `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc`와 3월 외부 문서 목록.
+- **데이터 한계:** 2026-04-01의 `get_procedures_feed` 404로 "오늘 새 절차 미개시"에 대한 독립 확인 불가.
+- **달력 기인 비활성에 대한 신뢰도:** 🟢 높음.
+
+---
+
+### 📎 링크
+
+| 링크 | 경로 |
+|------|------|
+| 기사 | `./article.md` |
+| 분류 (비어 있음) | `./classification/` |
+| 자매 실행 | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| 매니페스트 | `./manifest.json` |
+
+---
+
+### 🔄 교차 참조
+
+**동시 빈 템플릿 실행:** 2026-04-01의 breaking, committee-reports, month-ahead, motions 모두 동일한 빈 상태 표시 — 시스템 전반의 휴회＋피드 API 조건을 확인, 제안 특정 회귀 아님.
+
+---
+
+**문서 관리**
+- **템플릿:** `/analysis/templates/executive-brief.md`
+- **산출물 경로:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **분류:** 공개
+- **소급 생성:** 소급 채움 세션.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**Geen nieuwe Commissievoorstellen of EP-eigen-initiatiefbestanden geïndexeerd op 2026-04-01.** Analyserun `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` retourneerde **0 geclassificeerde actoren** en **ROUTINEMATIGE** betekenis in alle dimensies. Het intersessionele EP-reces (27 maart → 26 april) en de gelijktijdige `get_procedures_feed` 404-fout (gedocumenteerd in de nevenrun over nieuws) verklaren het datalek. De substantiële voorstellenbaseline is daarom de geërfde pijplijn: HDV-emissiekredieten 2025–2029-raamwerk (TA-10-2026-0084), ECB-vicepresident-procedure (TA-10-2026-0060), Beter wetgeven-rapport (TA-10-2026-0063) en de lopende EU-Mercosur-rechtbankverwijzing (TA-10-2026-0008). **🟢 HOGE betrouwbaarheid** dat de lege toestand kalender- en feed-beschikbaarheidsgedreven is, geen pipeline-regressie.
+
+---
+
+### 🧭 3 Beslissingen die dit overzicht ondersteunt
+
+| # | Beslissing | Beslisser | Deadline | Bewijs |
+|:-:|------------|----------|:--------:|--------|
+| 1 | **Redactie:** SLAAG OVER dagelijkse voorstellen; uitstellen tot volgende actieve sessie | Redacteur | +24u | Lege runoutput |
+| 2 | **Monitoring:** verifieer `get_procedures_feed`-gezondheid bij volgende cyclus | Datapijplijn | 2026-04-02 | 404 op 2026-04-01 |
+| 3 | **Vooruitziende bewaking:** volg Commissie-april-weekcommunicaties op nieuwe voorstellen | Analyselead | 2026-04-13 | Commissie-tabelleringskadentie |
+
+---
+
+### 📰 60-secondenlezing
+
+- 🔴 **Geen nieuwe procedures geopend** op 2026-04-01; `get_procedures_feed` 404 in parallelle run. (🟡 Gemiddeld — eindpunt-beschikbaarheid is het voorbehoud)
+- 🟠 **0 actoren geclassificeerd**; geen commissaris, DG of rapporteur geïdentificeerd. (🟢 Hoog)
+- 🟢 **Pijplijn-overdracht** — HDV-emissies, ECB-vicepresident, Beter wetgeven, Mercosur-verwijzing blijven de actieve voorraad voorstellen voor april. (🟢 Hoog)
+- 🟡 **Alle risicondimensies "geen"** — geen acuut voorstellenfase-risico vandaag gemarkeerd. (🟢 Hoog)
+- 🔵 **Economische context:** verwachte Commissie-Q2-voorstellen over AI-verordening-uitvoeringsbepalingen, Defensie-industriestrategie en MFF-voorbereidende communicaties blijven op de bewakingslijst. (🟡 Gemiddeld — Commissie-tabelleringskadentie)
+- 🟣 **Kruisreferentie:** nevenrapport 2026-04-01/breaking documenteert het patroon 6/8 adviserende feeds 404. (🟢 Hoog)
+- 🩷 **Verstoringsvector:** US-handelsdruk kan een snelspoor-Commissievoorstel in april forceren. (🟡 Gemiddeld)
+- ⚪ **Overdracht:** Mercosur ECJ-advies is de hoogst-impact wachtende voorstellen-trigger.
+
+---
+
+### 🗂️ Topdocumenten / procedures — Voorstellenbewaking
+
+| Rang | EP-referentie | Titel (kort) | Betekenis | Betrouwbaarheid | Status |
+|:----:|---------------|--------------|:---------:|:---------------:|--------|
+| 1 | — | Geen nieuwe voorstellen op 2026-04-01 | 0,0 | 🟢 HOOG | Reces + feed 404 |
+| 2 | TA-10-2026-0008 | EU-Mercosur ECJ-verwijzing (hangende) | 8,0 | 🟡 GEMIDDELD | Hof advies verwacht |
+| 3 | TA-10-2026-0084 | HDV-emissiekredieten 2025–2029 | 7,0 | 🟢 HOOG | Transpositiepijplijn |
+| 4 | TA-10-2026-0063 | Beter wetgeven (regulatoire basislijn) | 6,0 | 🟢 HOOG | Transversaal kader |
+
+---
+
+### ⚠️ Risico- en dreigingsoverzicht
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 Procedurefeed 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["Heronderzoek 2026-04-02"]
+    R2["🟠 US-handel snelspoorvoorstel<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Mercosur-advies contingent<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risico | L | I | Score | Trigger | Bron | Admiralty |
+|--------|:-:|:-:|:-----:|---------|------|:---------:|
+| `get_procedures_feed`-betrouwbaarheid | 3 | 3 | 9 | Aanhoudende 404 | Nevenrapport breaking | B2 |
+| US-handel snelspoorvoorstel | 3 | 4 | 12 | US-actie triggert Commissie-tabelläring | TA-10-2026-0096 | A1 |
+| Mercosur-advies contingent | 3 | 3 | 9 | Hof publiceert | TA-10-2026-0008 | A2 |
+| MFF-voorbereidende wrijving | 3 | 4 | 12 | Q2-Commissie-communicatie | Commissie-kadentie | B2 |
+
+---
+
+### 🔮 Voornaamste vooruitziende trigger
+
+**Commissie-dinsdagvergaderingscyclus hervat op 7 april 2026.** Eerste post-Pasen-Commissievoorstellen worden doorgaans getabelleerd bij de vroeg-april-collegezitting; de thematische mix (defensie/digitaal/handel/klimaat) kalibreert de Q2-voorstellenbewakingslijst.
+
+---
+
+### 🛡️ Bronkwaliteitsbeoordeling
+
+- **Primaire bronnen:** EP-open dataportaal — analyserun `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` en externe-documenteninventaris voor maart.
+- **Databeperkingen:** `get_procedures_feed` 404 op 2026-04-01 verhindert onafhankelijke corroboratie van "vandaag geen nieuwe procedures geopend".
+- **Betrouwbaarheid voor kalendergedreven inactiviteit:** 🟢 HOOG.
+
+---
+
+### 📎 Links
+
+| Link | Pad |
+|------|-----|
+| Artikel | `./article.md` |
+| Classificatie (leeg) | `./classification/` |
+| Nevenruns | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| Manifest | `./manifest.json` |
+
+---
+
+### 🔄 Kruisreferentie
+
+**Gelijktijdige lege sjabloonruns:** breaking, committee-reports, month-ahead, motions voor 2026-04-01 tonen alle identieke lege toestand — bevestigt systeembrede reces + feed-API-omstandigheden, geen voorstellen-specifieke regressie.
+
+---
+
+**Documentbeheer**
+- **Sjabloon:** `/analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectieve generatie:** Terugvulsessie.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Ingen nye Kommisjonsproposisjoner eller EP-egne initiativsaker indeksert den 2026-04-01.** Analyskjøring `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` returnerte **0 klassifiserte aktører** og **RUTINE**-betydning på tvers av alle dimensjoner. EPs intersesjonelle resess (27. mars → 26. april) og den samtidige `get_procedures_feed` 404-feilen (dokumentert i søsterkjøringen om siste nytt) forklarer datatomrommet. Det substantielle proposisjonsbaseline er derfor den arvede pipelinen: HDV-utslippskreditter 2025–2029-rammeverk (TA-10-2026-0084), ECB-visepresidentprosedyre (TA-10-2026-0060), rapport om bedre lovgivning (TA-10-2026-0063) og den pågående EU-Mercosur-domstolshenvisningen (TA-10-2026-0008). **🟢 HØY konfidens** om at den tomme tilstanden er kalender- og feedtilgjengelighets-drevet, ikke en pipeline-regresjon.
+
+---
+
+### 🧭 3 Beslutninger dette sammendraget støtter
+
+| # | Beslutning | Beslutningstaker | Frist | Dokumentasjon |
+|:-:|------------|-----------------|:-----:|--------------|
+| 1 | **Redaksjon:** HOPP OVER daglige proposisjoner; utsett til neste aktive sesjon | Redaktør | +24t | Tom kjøringsutdata |
+| 2 | **Overvåking:** verifiser `get_procedures_feed`-helse i neste syklus | Datapipeline | 2026-04-02 | 404 den 2026-04-01 |
+| 3 | **Fremover-overvåking:** spor Kommisjonens april-uke-kommunikasjoner for nye proposisjoner | Analyseansvarlig | 2026-04-13 | Kommisjonens tabellerings-kadence |
+
+---
+
+### 📰 60-sekunders lesning
+
+- 🔴 **Ingen nye prosedyrer åpnet** den 2026-04-01; `get_procedures_feed` 404 i parallell kjøring. (🟡 Medium — endepunkttilgjengelighet er forbeholdet)
+- 🟠 **0 aktører klassifisert**; ingen kommissær, GD eller rapportør identifisert. (🟢 Høy)
+- 🟢 **Pipeline-videreføring** — HDV-utslipp, ECB-visepresident, bedre lovgivning, Mercosur-henvisning forblir den aktive proposisjonsbeholdningen inn i april. (🟢 Høy)
+- 🟡 **Alle risikodimensjoner "ingen"** — ingen akutt proposisjonsfase-risiko flagget i dag. (🟢 Høy)
+- 🔵 **Økonomisk sammenheng:** forventede Kommisjons-kvartal-2-proposisjoner om AI-lovens gjennomføringsforordninger, strategi for forsvarsindustri og MFF-forberedende kommunikasjoner forblir på overvåkingslisten. (🟡 Medium — Kommisjonens tabellerings-kadence)
+- 🟣 **Kryssreferanse:** søsterrapporten 2026-04-01/breaking dokumenterer mønstret 6/8 rådgivende feeds 404. (🟢 Høy)
+- 🩷 **Forstyrrelsesvektor:** US-handelstrykk kan tvinge frem en hurtigspors-Kommisjons-proposisjon i april. (🟡 Medium)
+- ⚪ **Videreføring:** Mercosur ECJ-uttalelse er den høyest-impact ventende proposisjonsutløseren.
+
+---
+
+### 🗂️ Topp-dokumenter / prosedyrer — Proposisjonsovervåking
+
+| Rang | EP-referanse | Tittel (kort) | Betydning | Konfidens | Status |
+|:----:|--------------|---------------|:---------:|:---------:|--------|
+| 1 | — | Ingen nye proposisjoner den 2026-04-01 | 0,0 | 🟢 HØY | Resess + feed 404 |
+| 2 | TA-10-2026-0008 | EU-Mercosur ECJ-henvisning (ventende) | 8,0 | 🟡 MEDIUM | Domstolsuttalelse forventet |
+| 3 | TA-10-2026-0084 | HDV-utslippskreditter 2025–2029 | 7,0 | 🟢 HØY | Transponeringspipeline |
+| 4 | TA-10-2026-0063 | Bedre lovgivning (regulatorisk baseline) | 6,0 | 🟢 HØY | Tverrgående ramme |
+
+---
+
+### ⚠️ Risiko- og trusselbilde
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 Prosedyrefeed 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["Re-sjekk 2026-04-02"]
+    R2["🟠 US-handel hurtigspors-proposisjon<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Mercosur-uttalelse kontingent<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risiko | L | I | Score | Utløser | Kilde | Admiralty |
+|--------|:-:|:-:|:-----:|---------|-------|:---------:|
+| `get_procedures_feed`-pålitelighet | 3 | 3 | 9 | Vedvarende 404 | Søster-breaking-kjøring | B2 |
+| US-handel hurtigspors-proposisjon | 3 | 4 | 12 | US-handling utløser Kommisjonens tabelläring | TA-10-2026-0096 | A1 |
+| Mercosur-uttalelse kontingent | 3 | 3 | 9 | Domstolen publiserer | TA-10-2026-0008 | A2 |
+| MFF-forberedende friksjon | 3 | 4 | 12 | Kvartal-2-Kommisjons-kommunikasjon | Kommisjonskadence | B2 |
+
+---
+
+### 🔮 Viktigste fremoverpekende utløser
+
+**Kommisjonens tirsdagsmøte-syklus gjenopptas 7. april 2026.** Første post-påske-Kommisjons-proposisjoner tabelleres typisk ved det tidlige april-kollegiemøtet; den aktuelle blandingen (forsvar/digitalt/handel/klima) kalibrerer kvartal-2-proposisjonsovervåkingslisten.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **Primærkilder:** EPs åpne dataportal — analyskjøring `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` og ekstern-dokument-beholdningen for mars.
+- **Databegrensninger:** `get_procedures_feed` 404 den 2026-04-01 hindrer uavhengig korroborering av "ingen nye prosedyrer åpnet i dag".
+- **Konfidens for kalender-drevet inaktivitet:** 🟢 HØY.
+
+---
+
+### 📎 Lenker
+
+| Lenke | Sti |
+|-------|-----|
+| Artikkel | `./article.md` |
+| Klassifisering (tom) | `./classification/` |
+| Søsterkjøringer | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| Manifest | `./manifest.json` |
+
+---
+
+### 🔄 Kryssreferanse
+
+**Samtidige tomme mal-kjøringer:** breaking, committee-reports, month-ahead, motions for 2026-04-01 viser alle identisk tom tilstand — bekrefter systemomfattende resess + feed-API-vilkår, ikke proposisjonsspesifikk regresjon.
+
+---
+
+**Dokumentkontroll**
+- **Mal:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv generering:** Tilbakefyllingsøkt.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Inga nya kommissionspropositioner eller EP-egna initiativärenden indexerades den 2026-04-01.** Analyskörning `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` returnerade **0 klassificerade aktörer** och **RUTINMÄSSIG** betydelse inom samtliga dimensioner. Europaparlamentets intersessionella recess (27 mars → 26 april) och det parallella `get_procedures_feed` 404-felet (dokumenterat i systerrapporten om aktuella händelser) förklarar dataavbrottet. Det substantiella propositionsbasläget är därför den ärvda pipelinen: HDV-utsläppskrediter 2025–2029-ramen (TA-10-2026-0084), ECB:s vice-ordförandeförfarande (TA-10-2026-0060), rapporten om bättre lagstiftning (TA-10-2026-0063) och den pågående EU-Mercosur-domstolshänvisningen (TA-10-2026-0008). **🟢 HÖG konfidensgrad** att det tomma tillståndet är kalender- och flödestillgänglighetsdrivet, inte en pipeline-regression.
+
+---
+
+### 🧭 3 Beslut som denna sammanfattning stöder
+
+| # | Beslut | Beslutsfattare | Deadline | Underlag |
+|:-:|--------|----------------|:--------:|---------|
+| 1 | **Redaktion:** HOPPA ÖVER dagliga propositioner; skjut upp till nästa aktiva session | Redaktör | +24h | Tom körningsutdata |
+| 2 | **Övervakning:** verifiera `get_procedures_feed`-hälsa nästa cykel | Datapipeline | 2026-04-02 | 404 den 2026-04-01 |
+| 3 | **Framåtbevakning:** spåra kommissionens april-veckokommunikationer för nya propositioner | Analysansvarig | 2026-04-13 | Kommissionens tabelleringstakt |
+
+---
+
+### 📰 60-sekundersläsning
+
+- 🔴 **Inga nya förfaranden öppnade** den 2026-04-01; `get_procedures_feed` 404 i parallell körning. (🟡 Medium — slutpunktens tillgänglighet är förbehållet)
+- 🟠 **0 aktörer klassificerade**; ingen kommissionär, GD eller föredragande identifierad. (🟢 Hög)
+- 🟢 **Pipeline-övertag** — HDV-utsläpp, ECB:s vice-ordförande, bättre lagstiftning, Mercosur-hänvisning kvarstår som aktivt propositionslager inför april. (🟢 Hög)
+- 🟡 **Alla riskdimensioner "ingen"** — ingen akut propositionsfasrisk flaggad idag. (🟢 Hög)
+- 🔵 **Ekonomiskt sammanhang:** förväntade kommissionspropositioner för kvartal 2 om AI-aktens genomförandebestämmelser, försvarsindustrins strategi och MFF-förberedande kommunikationer kvarstår på bevakningslistan. (🟡 Medium — kommissionens tabelleringstakt)
+- 🟣 **Korsreferens:** syskonrapporten 2026-04-01/aktuellt dokumenterar mönstret 6/8 rådgivande flöden 404. (🟢 Hög)
+- 🩷 **Störningsvektor:** amerikanskt handelstryck kan tvinga fram en snabbspårsproposition från kommissionen under april. (🟡 Medium)
+- ⚪ **Överföring:** Mercosur ECJ-yttrandet är den mest impaktfulla väntande propositionsutlösaren.
+
+---
+
+### 🗂️ Topp-dokument / förfaranden — Propositionsbevakning
+
+| Rang | EP-referens | Titel (kort) | Betydelse | Konfidensgrad | Status |
+|:----:|-------------|--------------|:---------:|:-------------:|--------|
+| 1 | — | Inga nya propositioner den 2026-04-01 | 0,0 | 🟢 HÖG | Recess + flöde 404 |
+| 2 | TA-10-2026-0008 | EU-Mercosur ECJ-hänvisning (pågående) | 8,0 | 🟡 MEDIUM | Domstolsyttrande förväntat |
+| 3 | TA-10-2026-0084 | HDV-utsläppskrediter 2025–2029 | 7,0 | 🟢 HÖG | Transpositionspipeline |
+| 4 | TA-10-2026-0063 | Bättre lagstiftning (regulatorisk baslinje) | 6,0 | 🟢 HÖG | Övergripande ram |
+
+---
+
+### ⚠️ Risk- och hotbild
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 Procedurflöde 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["Återprova 2026-04-02"]
+    R2["🟠 Snabbspårsproposition US-handel<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Mercosur-yttrande kontingent<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risk | L | I | Poäng | Utlösare | Källa | Admiralty |
+|------|:-:|:-:|:-----:|----------|-------|:---------:|
+| `get_procedures_feed`-tillförlitlighet | 3 | 3 | 9 | Ihållande 404 | Syskonutbrottsrapport | B2 |
+| Snabbspårsproposition US-handel | 3 | 4 | 12 | USA:s åtgärd utlöser kommissionens tabelläring | TA-10-2026-0096 | A1 |
+| Mercosur-yttrande kontingent | 3 | 3 | 9 | Domstolen publicerar | TA-10-2026-0008 | A2 |
+| MFF-förberedande friktion | 3 | 4 | 12 | Kvartal 2-kommissionsmeddelande | Kommissionstakt | B2 |
+
+---
+
+### 🔮 Främsta framåtutlösaren
+
+**Kommissionens tisdagssammanträdescykel återupptas 7 april 2026.** Första post-påsk-kommissionspropositionerna tabelläras vanligtvis vid det tidiga april-kollegiemötet; den aktuella blandningen (försvar/digitalt/handel/klimat) kalibrerar kvartal 2-propositionsbevakningslistan.
+
+---
+
+### 🛡️ Källkvalitetsbedömning
+
+- **Primärkällor:** EP:s öppna dataportal — analyskörning `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` och externdokumentinventariet för mars.
+- **Databegränsningar:** `get_procedures_feed` 404 den 2026-04-01 hindrar oberoende korroborering av "inga nya förfaranden öppnade idag".
+- **Konfidensgrad för kalenderdriven inaktivitet:** 🟢 HÖG.
+
+---
+
+### 📎 Länkar
+
+| Länk | Sökväg |
+|------|--------|
+| Artikel | `./article.md` |
+| Klassificering (tom) | `./classification/` |
+| Systonkörningar | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| Manifest | `./manifest.json` |
+
+---
+
+### 🔄 Korsreferens
+
+**Parallella tomma mall-körningar:** breaking, committee-reports, month-ahead, motions för 2026-04-01 visar alla identiskt tomt tillstånd — bekräftar systemövergripande recess + flödes-API-villkor, inte propositionsspecifik regression.
+
+---
+
+**Dokumentkontroll**
+- **Mall:** `/analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv generering:** Bakåtfyllningssession.
+
+### Executive Brief Zh
+
+**分类：** OSINT | 公开议会记录
+**置信度：** 🟢 高（休会期结构性评估）
+**生成时间：** 2026-04-01T00:00:00Z（回溯简报）
+**文章类型：** 提案
+**运行ID：** `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc`
+**来源：** 欧洲议会开放数据门户
+
+---
+
+### 🎯 BLUF
+
+**2026-04-01 未索引任何欧盟委员会新提案或欧洲议会自主倡议文件。** 分析运行 `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` 返回**0 名分类行为者**及所有维度的**例行（ROUTINE）**重要性。欧洲议会会期间休会（3月27日→4月26日）以及同期 `get_procedures_feed` 404 错误（已记录于突发新闻并行运行）解释了数据空白。因此，实质性提案基准为继承管线：重型商用车排放信用额度 2025–2029 框架（TA-10-2026-0084）、欧洲央行副行长程序（TA-10-2026-0060）、更好立法报告（TA-10-2026-0063），以及进行中的欧盟-南方共同市场欧洲法院提交（TA-10-2026-0008）。**🟢 高置信度**认为空状态由日历及信息流可用性驱动，而非管线回归。
+
+---
+
+### 🧭 本简报支持的 3 项决策
+
+| # | 决策 | 决策者 | 截止时间 | 依据 |
+|:-:|------|-------|:-------:|------|
+| 1 | **编辑：** 跳过每日提案；推迟至下次活跃会议 | 编辑 | +24小时 | 空运行输出 |
+| 2 | **监控：** 在下一周期验证 `get_procedures_feed` 健康状态 | 数据管线 | 2026-04-02 | 2026-04-01 的 404 |
+| 3 | **前瞻监视：** 追踪欧盟委员会四月周度通信以获取新提案 | 分析负责人 | 2026-04-13 | 欧盟委员会提交节奏 |
+
+---
+
+### 📰 60 秒速读
+
+- 🔴 **2026-04-01 未开启任何新程序**；并行运行中 `get_procedures_feed` 404。（🟡 中等 — 端点可用性为警告条件）
+- 🟠 **0 名行为者被分类**；未识别任何专员、总司或报告员。（🟢 高）
+- 🟢 **管线延续** — 重型商用车排放、欧洲央行副行长、更好立法、南方共同市场提交仍是进入四月的活跃提案库存。（🟢 高）
+- 🟡 **所有风险维度"无"** — 今日未标记提案阶段急性风险。（🟢 高）
+- 🔵 **经济背景：** 预期欧盟委员会第二季度关于人工智能法实施法规、国防工业战略和多年期财务框架准备通信的提案仍在监视列表中。（🟡 中等 — 欧盟委员会提交节奏）
+- 🟣 **交叉参考：** 姊妹报告 2026-04-01/breaking 记录了 6/8 咨询信息流 404 模式。（🟢 高）
+- 🩷 **干扰向量：** 美国贸易压力可能在四月迫使欧盟委员会提出快速通道提案。（🟡 中等）
+- ⚪ **延续：** 南方共同市场欧洲法院意见书是影响最大的待定提案触发因素。
+
+---
+
+### 🗂️ 顶级文件 / 程序 — 提案监视
+
+| 排名 | EP 参考号 | 标题（简称） | 重要性 | 置信度 | 状态 |
+|:---:|----------|------------|:-----:|:-----:|------|
+| 1 | — | 2026-04-01 无新提案 | 0.0 | 🟢 高 | 休会 + 信息流 404 |
+| 2 | TA-10-2026-0008 | 欧盟-南方共同市场欧洲法院提交（待定） | 8.0 | 🟡 中等 | 法院意见书待出 |
+| 3 | TA-10-2026-0084 | 重型商用车排放信用额度 2025–2029 | 7.0 | 🟢 高 | 转置管线 |
+| 4 | TA-10-2026-0063 | 更好立法（监管基准） | 6.0 | 🟢 高 | 横跨性框架 |
+
+---
+
+### ⚠️ 风险与威胁快照
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 程序信息流 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["重新探查 2026-04-02"]
+    R2["🟠 美国贸易快速通道提案<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 南方共同市场意见书应急<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| 风险 | L | I | 评分 | 触发因素 | 来源 | Admiralty |
+|------|:-:|:-:|:---:|---------|------|:---------:|
+| `get_procedures_feed` 可靠性 | 3 | 3 | 9 | 持续 404 | 姊妹突发新闻运行 | B2 |
+| 美国贸易快速通道提案 | 3 | 4 | 12 | 美国行动触发欧盟委员会提交 | TA-10-2026-0096 | A1 |
+| 南方共同市场意见书应急 | 3 | 3 | 9 | 法院公布 | TA-10-2026-0008 | A2 |
+| 多年期财务框架准备摩擦 | 3 | 4 | 12 | 第二季度欧盟委员会通信 | 欧盟委员会节奏 | B2 |
+
+---
+
+### 🔮 主要前瞻触发因素
+
+**欧盟委员会周二例会周期于 2026 年 4 月 7 日恢复。** 复活节后首批欧盟委员会提案通常在四月初委员会会议上提交；主题组合（国防/数字/贸易/气候）将校准第二季度提案监视列表。
+
+---
+
+### 🛡️ 信息来源质量评估
+
+- **主要来源：** 欧洲议会开放数据门户 — 分析运行 `4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc` 及三月外部文件目录。
+- **数据限制：** 2026-04-01 的 `get_procedures_feed` 404 阻碍了对"今日未开启新程序"的独立核实。
+- **日历驱动停滞的置信度：** 🟢 高。
+
+---
+
+### 📎 链接
+
+| 链接 | 路径 |
+|------|------|
+| 文章 | `./article.md` |
+| 分类（空） | `./classification/` |
+| 姊妹运行 | `analysis/daily/2026-04-01/breaking/`, `committee-reports/`, `month-ahead/`, `motions/` |
+| 清单 | `./manifest.json` |
+
+---
+
+### 🔄 交叉参考
+
+**同期空模板运行：** 2026-04-01 的 breaking、committee-reports、month-ahead、motions 均呈现相同空状态 — 证实系统级休会 + 信息流 API 条件，而非提案特定回归。
+
+---
+
+**文件控制**
+- **模板：** `/analysis/templates/executive-brief.md`
+- **产物路径：** `analysis/daily/2026-04-01/propositions/executive-brief.md`
+- **分类：** 公开
+- **回溯生成：** 回填会话。
+
 ### Coalition Analysis
 
 ### Overview
@@ -952,6 +2323,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/existing/cross-session-intelligence.md) | `existing/cross-session-intelligence.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/existing/deep-analysis.md) | `existing/deep-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [coalition-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/existing/coalition-analysis.md) | `existing/coalition-analysis.md` |
 | section-supplementary-intelligence | [stakeholder-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/propositions/existing/stakeholder-analysis.md) | `existing/stakeholder-analysis.md` |
 
