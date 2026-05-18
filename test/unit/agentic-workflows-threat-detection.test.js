@@ -293,6 +293,15 @@ describe('agentic workflow threat detection policy', () => {
     const sharedContent = fs.readFileSync(sharedFile, 'utf8');
     // Shared file must wire the safe-outputs-result short-circuit env var.
     expect(sharedContent).toContain('GH_AW_SAFE_OUTPUTS_RESULT: ${{ needs.safe_outputs.result }}');
+    // Shared file must ALSO wire the code_push_failure_count output so the
+    // fallback runs even when safe_outputs reports job-level success while
+    // its internal create_pull_request push fell back to a review issue
+    // (regression run #26017383773 — propositions 2026-05-18 — where the
+    // bundle push failed silently because this env var was missing and
+    // the script took the success short-circuit path).
+    expect(sharedContent).toContain(
+      'GH_AW_CODE_PUSH_FAILURE_COUNT: ${{ needs.safe_outputs.outputs.code_push_failure_count }}',
+    );
     // Shared file must declare the import-schema inputs.
     expect(sharedContent).toMatch(/^import-schema:/m);
     expect(sharedContent).toContain('slug:');

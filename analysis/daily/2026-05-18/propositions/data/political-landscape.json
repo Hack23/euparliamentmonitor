@@ -1,0 +1,66 @@
+{
+  "parliament": {
+    "totalMEPs": 717,
+    "politicalGroups": 9,
+    "countriesRepresented": 27
+  },
+  "groups": [
+    {
+      "name": "EPP",
+      "memberCount": 183,
+      "seatShare": 25.52
+    },
+    {
+      "name": "S&D",
+      "memberCount": 136,
+      "seatShare": 18.97
+    },
+    {
+      "name": "PfE",
+      "memberCount": 85,
+      "seatShare": 11.85
+    },
+    {
+      "name": "ECR",
+      "memberCount": 81,
+      "seatShare": 11.3
+    },
+    {
+      "name": "Renew",
+      "memberCount": 77,
+      "seatShare": 10.74
+    },
+    {
+      "name": "Greens/EFA",
+      "memberCount": 53,
+      "seatShare": 7.39
+    },
+    {
+      "name": "The Left",
+      "memberCount": 45,
+      "seatShare": 6.28
+    },
+    {
+      "name": "NI",
+      "memberCount": 30,
+      "seatShare": 4.18
+    },
+    {
+      "name": "ESN",
+      "memberCount": 27,
+      "seatShare": 3.77
+    }
+  ],
+  "powerDynamics": {
+    "largestGroup": "EPP",
+    "majorityThreshold": 360,
+    "grandCoalitionSize": 319,
+    "progressiveBloc": 234,
+    "conservativeBloc": 166
+  },
+  "computedAttributes": {
+    "fragmentationIndex": "HIGH",
+    "majorityType": "MULTI_COALITION_REQUIRED",
+    "politicalBalance": "PROGRESSIVE_LEANING"
+  }
+}
