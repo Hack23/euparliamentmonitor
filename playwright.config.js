@@ -14,9 +14,15 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   // CI workers tuned for the 4-vCPU GitHub-hosted ubuntu-latest runner used
-  // by release.yml / e2e.yml / test-and-report.yml. Local dev keeps 2 to
-  // avoid overwhelming workstations.
-  workers: process.env.CI ? 4 : 2,
+  // by release.yml / e2e.yml / test-and-report.yml. 3 (not 4) leaves CPU
+  // headroom for axe-core scans on the large political-intelligence pages
+  // (~60 k lines of HTML) — running 4 axe scans in parallel on the same
+  // runner caused 30 s timeouts in run #26050940168.
+  workers: process.env.CI ? 3 : 2,
+  // Default per-test timeout. axe-core analysis on PI pages legitimately
+  // takes 30-45 s under CI load; 30 s (the Playwright default) is too
+  // tight and produced flakes that exhausted all retries.
+  timeout: 60_000,
   reporter: [
     ['html', { outputFolder: 'builds/playwright-report' }],
     ['junit', { outputFile: 'builds/test-results/e2e-junit.xml' }],
