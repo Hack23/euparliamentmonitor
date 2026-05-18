@@ -82,14 +82,37 @@ esac
 # bundle PR due to a salt-format drift). The safe_outputs job result is
 # the authoritative success signal — when it reports success, no
 # recovery is needed full stop.
-if [ "${GH_AW_SAFE_OUTPUTS_RESULT:-}" = "success" ]; then
+#
+# Exception (regression run #26015261142): safe_outputs reports job-level
+# success even when the internal git push for create_pull_request fails
+# and the safe_outputs handler creates a fallback review issue instead.
+# In that case it emits the GraphQL/exec failure to its log and bumps
+# its `code_push_failure_count` job output (wired in by gh-aw as the
+# GH_AW_CODE_PUSH_FAILURE_COUNT env on this fallback step). When that
+# count is > 0 we must NOT short-circuit — the bundle path did not
+# actually publish a PR, and the downstream branch-pattern API check at
+# lines ~200-219 will verify on GitHub whether a PR exists before
+# proceeding with recovery.
+code_push_failure_count=0
+case "${GH_AW_CODE_PUSH_FAILURE_COUNT:-}" in
+  ''|0) code_push_failure_count=0 ;;
+  *[!0-9]*) code_push_failure_count=0 ;;
+  *) code_push_failure_count="${GH_AW_CODE_PUSH_FAILURE_COUNT}" ;;
+esac
+
+if [ "${GH_AW_SAFE_OUTPUTS_RESULT:-}" = "success" ] && [ "$code_push_failure_count" -eq 0 ]; then
   log "safe_outputs job reported success; fallback skipped (no recovery needed)"
   exit 0
 fi
 
+if [ "${GH_AW_SAFE_OUTPUTS_RESULT:-}" = "success" ] && [ "$code_push_failure_count" -gt 0 ]; then
+  log "safe_outputs job reported success but code_push_failure_count=${code_push_failure_count}; proceeding with fallback (bundle push fell back to review issue)"
+fi
+
 if [ ! -f "$stdio_log" ]; then
   if [ "$has_recovery_patch" = false ] && { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_patch" = false ]; } && \
-     { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_bundle" = false ]; }; then
+     { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_bundle" = false ]; } && \
+     { [ "$code_push_failure_count" -eq 0 ] || { [ "$has_safeoutputs_patch" = false ] && [ "$has_safeoutputs_bundle" = false ]; }; }; then
     log "agent stdio log not found and no recovery/failed-safeoutputs patch or bundle; fallback skipped"
     exit 0
   fi
@@ -107,6 +130,12 @@ fi
 # Trigger 4: safe_outputs failed and a bundle artifact exists (bundle-only case
 # where gh-aw did not generate a separate patch; recovery comes from
 # aw-agent-recovery.patch written by gh-aw-capture-agent-patch.sh).
+# Trigger 5: safe_outputs reported success but its internal create_pull_request
+# git push failed (code_push_failure_count > 0) and fell back to a review issue
+# — same regression that motivated the exception in the primary guard above
+# (run #26015261142). When this happens with a safeoutputs patch or bundle on
+# disk, treat it as a recoverable bundle/patch failure even though the job
+# reported success at the JobResult level.
 # Activate when any trigger condition is met.
 should_run=false
 if [ "$session_not_found" = true ]; then
@@ -116,6 +145,10 @@ elif [ "$has_recovery_patch" = true ]; then
 elif [ "$safe_outputs_failed" = true ] && [ "$has_safeoutputs_patch" = true ]; then
   should_run=true
 elif [ "$safe_outputs_failed" = true ] && [ "$has_safeoutputs_bundle" = true ]; then
+  should_run=true
+elif [ "$code_push_failure_count" -gt 0 ] && [ "$has_safeoutputs_patch" = true ]; then
+  should_run=true
+elif [ "$code_push_failure_count" -gt 0 ] && [ "$has_safeoutputs_bundle" = true ]; then
   should_run=true
 fi
 

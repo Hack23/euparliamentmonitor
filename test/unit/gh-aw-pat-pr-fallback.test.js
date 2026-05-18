@@ -143,4 +143,59 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
       /analysis\/daily\/\*\|news\/\*\|analysis\/translation-runs\/\*/,
     );
   });
+
+  // Regression: run #26015261142 (news-committee-reports 2026-05-18) — the
+  // safe_outputs job reported job-level success because creating the
+  // fallback review issue succeeded, but its internal create_pull_request
+  // git push failed (GraphQL signed push: "Resource not accessible by
+  // integration"; subsequent `git push origin` exited 1). The PAT fallback
+  // skipped because GH_AW_SAFE_OUTPUTS_RESULT=success, leaving the analysis
+  // artifacts and 14 rendered news HTMLs unpublished. gh-aw now also
+  // surfaces a code_push_failure_count job output that is wired into this
+  // step as GH_AW_CODE_PUSH_FAILURE_COUNT — when > 0 the success short-
+  // circuit must NOT trigger, and the fallback must proceed.
+  it('proceeds when safe_outputs reported success but code_push_failure_count > 0 (push fell back to review issue)', () => {
+    fs.writeFileSync(path.join(ghAwDir, 'aw-news-2026-05-18-committee-reports-run262.bundle'), 'bundle-placeholder\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CODE_PUSH_FAILURE_COUNT: '1',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).not.toContain('safe_outputs job reported success; fallback skipped');
+    expect(result.stdout).toContain('code_push_failure_count=1');
+    // It must reach token resolution (proving it did not early-exit on the
+    // success guard) and stop there because the test harness provides no PAT.
+    expect(result.stdout).toContain('no fallback token available; fallback skipped');
+  });
+
+  it('proceeds when safe_outputs reported success but code_push_failure_count > 0 with only a safeoutputs patch', () => {
+    fs.writeFileSync(path.join(ghAwDir, 'aw-create-pull-request.patch'), 'diff --git a/x b/x\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CODE_PUSH_FAILURE_COUNT: '2',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).not.toContain('safe_outputs job reported success; fallback skipped');
+    expect(result.stdout).toContain('code_push_failure_count=2');
+    expect(result.stdout).toContain('no fallback token available; fallback skipped');
+  });
+
+  it('treats non-numeric code_push_failure_count as 0 (defensive parse)', () => {
+    fs.writeFileSync(path.join(ghAwDir, 'aw-agent-recovery.patch'), 'diff --git a/x b/x\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CODE_PUSH_FAILURE_COUNT: 'not-a-number',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('safe_outputs job reported success; fallback skipped');
+  });
 });
