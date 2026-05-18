@@ -91,6 +91,17 @@ jobs:
           GH_AW_PAT_PR_FALLBACK_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           GH_AW_PAT_FALLBACK_SLUG: "${{ github.aw.import-inputs.slug }}"
           GH_AW_SAFE_OUTPUTS_RESULT: ${{ needs.safe_outputs.result }}
+          # Wire safe_outputs job outputs so the fallback can detect the case
+          # where safe_outputs reports job-level success but its internal
+          # create_pull_request push failed and fell back to a review issue
+          # (gh-aw bumps code_push_failure_count). Without this env wiring the
+          # script defaults the count to 0 and short-circuits on
+          # GH_AW_SAFE_OUTPUTS_RESULT=success, leaving the bundle stranded in
+          # an issue comment — root cause of regression run #26017383773
+          # (propositions 2026-05-18) where the bundle push failed but the
+          # PAT fallback never ran because this env var was missing.
+          GH_AW_CODE_PUSH_FAILURE_COUNT: ${{ needs.safe_outputs.outputs.code_push_failure_count }}
+          GH_AW_CODE_PUSH_FAILURE_ERRORS: ${{ needs.safe_outputs.outputs.code_push_failure_errors }}
           GH_AW_PAT_FALLBACK_WORKFLOW_NAME: "${{ github.aw.import-inputs.workflowName }}"
           GH_AW_PAT_FALLBACK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: bash scripts/gh-aw-pat-pr-fallback.sh

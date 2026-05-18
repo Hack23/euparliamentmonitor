@@ -1618,6 +1618,8 @@ jobs:
       - name: Run host-side PAT PR fallback
         run: bash scripts/gh-aw-pat-pr-fallback.sh
         env:
+          GH_AW_CODE_PUSH_FAILURE_COUNT: ${{ needs.safe_outputs.outputs.code_push_failure_count }}
+          GH_AW_CODE_PUSH_FAILURE_ERRORS: ${{ needs.safe_outputs.outputs.code_push_failure_errors }}
           GH_AW_PAT_FALLBACK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_PAT_FALLBACK_SLUG: translate-briefs
           GH_AW_PAT_FALLBACK_WORKFLOW_NAME: "News: Translate Executive Briefs"
