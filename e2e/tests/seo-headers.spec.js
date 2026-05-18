@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { test, expect } from '@playwright/test';
-import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
+import { SAMPLE_LANGUAGES } from './_sample-languages.js';
 import { getPoliticalIntelligenceFilename } from '../../scripts/generators/political-intelligence.js';
 import { getOgLocale } from '../../scripts/constants/seo/index.js';
 
@@ -15,7 +15,10 @@ import { getOgLocale } from '../../scripts/constants/seo/index.js';
  * served by the static-site preview. Catches build-time generator drift
  * that escapes the unit matrix.
  *
- * Per locale, asserts on the political-intelligence landing page:
+ * E2E samples representative locales (see `_sample-languages.js`); the
+ * unit matrix above provides full 14-locale coverage.
+ *
+ * Per sampled locale, asserts on the political-intelligence landing page:
  *  - `<html lang="…">` matches the locale
  *  - exactly one `og:locale` matching the BCP-47 mapping
  *  - exactly 13 `og:locale:alternate`
@@ -25,7 +28,7 @@ import { getOgLocale } from '../../scripts/constants/seo/index.js';
  *  - localized `<meta name="keywords">` (non-en locales must not equal en)
  */
 
-const PI_PAGES = ALL_LANGUAGES.map((lang) => ({
+const PI_PAGES = SAMPLE_LANGUAGES.map((lang) => ({
   lang,
   path: `/${getPoliticalIntelligenceFilename(lang)}`,
 }));

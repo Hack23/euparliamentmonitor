@@ -6,10 +6,27 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './e2e',
-  fullyParallel: false, // Run serially for better stability and resource management
+  // Parallel execution: each Playwright test gets a fresh `page` context, so
+  // there is no shared state between tests. Running in parallel cuts the
+  // suite from ~25 min → ~3-5 min on the CI runner. `retries: 2` masks the
+  // tiny class of timing-sensitive flakes that surface under load.
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: 1, // Single worker for consistent, fast execution
+  // CI workers tuned for the 4-vCPU GitHub-hosted ubuntu-latest runner used
+  // by release.yml / e2e.yml / test-and-report.yml. 3 (not 4) leaves CPU
+  // headroom for axe-core scans on the large political-intelligence pages
+  // (~60 k lines of HTML) — running 4 axe scans in parallel on the same
+  // runner caused 30 s timeouts in run #26050940168.
+  workers: process.env.CI ? 3 : 2,
+  // Default per-test timeout kept at the Playwright default of 30 s so that
+  // genuinely hung tests (e.g. a stuck `waitForLoadState('networkidle')` or
+  // a missing element on `toBeVisible()`) surface fast instead of blocking
+  // a worker for 60 s × 3 retries = 3 min on red runs. axe-heavy tests on
+  // the 60 k-line political-intelligence pages opt in to a longer 60 s
+  // budget via `test.setTimeout(60_000)` inside their `test(...)` body —
+  // see `horizon-nav.spec.js` and `accessibility.spec.js`.
+  timeout: 30_000,
   reporter: [
     ['html', { outputFolder: 'builds/playwright-report' }],
     ['junit', { outputFile: 'builds/test-results/e2e-junit.xml' }],

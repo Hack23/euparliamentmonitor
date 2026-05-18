@@ -20,16 +20,20 @@
  * `test/unit/horizon-pi-html.test.js`, which builds a temp analysis tree
  * from `test/fixtures/horizons/` without polluting `analysis/daily/`.
  *
- * Test count: 14 pages × 5 tests = 70
+ * E2E iterates a representative *sample* of languages (see
+ * `_sample-languages.js`) rather than all 14 — the unit tests above
+ * already cover the full matrix, and `hreflang.spec.js` keeps a
+ * cumulative HTTP-200 smoke for every PI variant.
  */
 
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
+import { SAMPLE_LANGUAGES } from './_sample-languages.js';
 import { getRunTypeInfo } from '../../scripts/generators/political-intelligence-descriptions.js';
 
-// ─── PI page variants (derived from shared ALL_LANGUAGES constant) ────────────
-const PI_PAGES = ALL_LANGUAGES.map((lang) => ({
+// ─── PI page variants (sampled — see _sample-languages.js) ────────────────────
+const PI_PAGES = SAMPLE_LANGUAGES.map((lang) => ({
   lang,
   path: lang === 'en' ? '/political-intelligence.html' : `/political-intelligence_${lang}.html`,
 }));
@@ -66,6 +70,11 @@ for (const { lang, path: pagePath } of PI_PAGES) {
     });
 
     test('passes WCAG 2.1 AA accessibility scan', async ({ page }) => {
+      // axe-core on the 60 k-line political-intelligence page legitimately
+      // takes 30-45 s under CI load — opt this single test into a longer
+      // budget instead of raising the global default (which would mask
+      // genuinely hung tests).
+      test.setTimeout(60_000);
       await page.goto(pagePath);
       await page.waitForLoadState('networkidle');
 
