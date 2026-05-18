@@ -136,7 +136,12 @@ describe('agentic workflow threat detection policy', () => {
       expect(combined, workflow).toContain('timeout: 180');
       expect(combined, workflow).toContain('startup-timeout: 180');
       expect(combined, workflow).not.toContain('repo-memory:');
-      expect(combined, workflow).not.toContain('max-continuations: 1');
+      // news-translate.md intentionally uses max-continuations: 1 to prevent
+      // post-flush engine timeout (run #219 regression). Article workflows
+      // need higher continuations for crash recovery of complex pipelines.
+      if (workflow !== 'news-translate.md') {
+        expect(combined, workflow).not.toContain('max-continuations: 1');
+      }
     }
   });
 

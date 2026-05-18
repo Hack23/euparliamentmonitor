@@ -88,6 +88,18 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/\n  model:\s*claude-sonnet-4\.6\b/);
   });
 
+  it('limits max-continuations to 1 to prevent post-flush engine timeout', () => {
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toMatch(/max-continuations:\s*1\b/);
+  });
+
+  it('includes a graceful termination section to prevent engine timeout after PR creation', () => {
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toMatch(/Graceful Termination/i);
+    expect(workflow).toMatch(/STOP/);
+    expect(workflow).toMatch(/Do NOT start any new translation work/);
+  });
+
   it('delegates discovery to scripts/discover-untranslated-briefs.js', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     expect(workflow).toMatch(
@@ -244,7 +256,7 @@ describe('news-translate workflow contract', () => {
     // that removes the `||` branch or rearranges the test would still satisfy
     // token-only assertions.
     expect(workflow).toMatch(
-      /if \[ "\$\{ELAPSED_MIN\}" -ge 50 \] \|\| \[ "\$\{REMAINING_MIN\}" -le 10 \]/,
+      /if \[ "\$\{ELAPSED_MIN\}" -ge 45 \] \|\| \[ "\$\{REMAINING_MIN\}" -le 15 \]/,
     );
     // The bash block MUST write the emergency-flush marker file so later
     // post-step diagnostics can detect the early flush.

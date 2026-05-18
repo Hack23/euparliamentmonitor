@@ -207,7 +207,7 @@ post-steps:
 engine:
   id: copilot
   model: claude-sonnet-4.6
-  max-continuations: 3
+  max-continuations: 1
 ---
 # 🌐 Executive-Brief Translation Workflow
 
@@ -499,8 +499,8 @@ PY
 
    **4b. Wall-clock safety net — emergency partial flush.** After every
    language file is written and H2-checked, compute elapsed minutes
-   from `WORKFLOW_START_EPOCH`. If **≥ 50 minutes** have elapsed (or
-   `<10 minutes` remain of the 60-minute cap), **STOP translating
+   from `WORKFLOW_START_EPOCH`. If **≥ 45 minutes** have elapsed (or
+   `<15 minutes` remain of the 60-minute cap), **STOP translating
    immediately** and call `safeoutputs___create_pull_request` with
    whatever files are already on disk — even if the current brief is
    only partially translated (e.g. 10/13 languages). A partial-brief
@@ -519,7 +519,7 @@ PY
    ELAPSED_MIN=$(( (NOW_EPOCH - START_EPOCH) / 60 ))
    REMAINING_MIN=$(( 60 - ELAPSED_MIN ))
    echo "⏱️  Elapsed: ${ELAPSED_MIN} min | Remaining: ${REMAINING_MIN} min"
-   if [ "${ELAPSED_MIN}" -ge 50 ] || [ "${REMAINING_MIN}" -le 10 ]; then
+   if [ "${ELAPSED_MIN}" -ge 45 ] || [ "${REMAINING_MIN}" -le 15 ]; then
      echo "🚨 EMERGENCY FLUSH WINDOW REACHED — call safeoutputs___create_pull_request NOW with partial progress, then end the run." >&2
      # Record a breadcrumb so post-step diagnostics can correlate the early
      # flush. Include the missing-language list because the validator only
@@ -642,7 +642,7 @@ PY
    ```
 
 7. **Move to the next queue entry** until the queue is empty OR you've
-   used ≥ 50 minutes of the 60-minute cap (the Step 4b check enforces
+   used ≥ 45 minutes of the 60-minute cap (the Step 4b check enforces
    this automatically — when the marker is written, end the run after
    the emergency flush).
 
@@ -656,18 +656,21 @@ When the queue is empty (or the wall-clock budget is exhausted):
    accuracy, fluency, terminology, completeness, formatting.
 2. Run the validator one last time and copy its output into the summary.
 3. Call `safeoutputs___create_pull_request` with the finalised title and
-   body. Same branch. **Final flush must land by minute ≤ 55.**
+   body. Same branch. **Final flush must land by minute ≤ 50.**
+4. **STOP IMMEDIATELY — do not execute any further commands.**
+   Output a one-line confirmation (e.g. "PR created. Exiting.") and terminate.
+   Do not continue processing — the run is complete.
 
 ## ⏱️ Time Budget (60-minute hard cap)
 
 | Minutes | Action |
 |---------|--------|
 | 0-1 | Step 0 date context (records `WORKFLOW_START_EPOCH`); Step 1 read queue |
-| 1-25 | Translate brief #1 (13 languages, Pass 1 + Pass 2). First flush at ~25. |
-| 25-48 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~48. |
-| 48-50 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 50. |
-| 50-55 | Step 3 summary + final flush. **Final flush must land by minute ≤ 55.** |
-| 55-60 | Buffer for retry and graceful exit. |
+| 1-22 | Translate brief #1 (13 languages, Pass 1 + Pass 2). First flush at ~22. |
+| 22-43 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~43. |
+| 43-45 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 45. |
+| 45-50 | Step 3 summary + final flush. **Final flush must land by minute ≤ 50.** |
+| 50-60 | Buffer for safe-outputs bundle application and graceful exit. **Do NOT start new work after minute 45.** |
 
 Stretch: if `max_briefs` is overridden to 3 or 4 (catch-up mode), tighten
 each per-brief window proportionally. The script-level discovery already
@@ -700,7 +703,7 @@ emergency partial flush instead of letting the engine time out with no PR.
   (≥ 1 `executive-brief_<lang>.md` file on disk is sufficient).
 - **Never** let the engine time out or terminate without flushing
   whatever translations are already on disk. The Step 4b wall-clock
-  guard fires at ≥ 50 elapsed minutes (or ≤ 10 remaining); when it
+  guard fires at ≥ 45 elapsed minutes (or ≤ 15 remaining); when it
   does, call `safeoutputs___create_pull_request` immediately with the
   partial-progress title — even mid-brief — and end the run.
 - **Never** skip a queue entry because its date is old; backlog parity is
@@ -716,12 +719,33 @@ emergency partial flush instead of letting the engine time out with no PR.
 - **MCP gateway** is configured by `shared/mcp/news-mcp-servers.md`. The
   EP MCP server is *not* required for translation (translations read
   on-disk markdown). Skip MCP health checks; spend the budget on AI work.
-- **`max-continuations: 3`** lets the agent restart up to 3 times if the
-  session is suspended. Each restart resumes from the last successful
-  flush (cache-memory key `news-translate-briefs-…`).
+- **`max-continuations: 1`** — after the final PR flush, the engine MUST
+  NOT restart. One continuation is allowed only for crash recovery (resume
+  from cache-memory). If the PR was already created, there is nothing left
+  to do — terminate immediately.
 - **Bounded data loss**: at any session failure between flushes, at most
   one brief's 13 files are lost — the prior brief's flush already landed
   in the PR.
+
+## 🛑 Graceful Termination (MANDATORY after final flush)
+
+After calling `safeoutputs___create_pull_request` for the **last time**
+(either the final flush in Step 3 or the emergency flush in Step 4b):
+
+1. **Do NOT start any new translation work.**
+2. **Do NOT read additional files or run exploratory commands.**
+3. **Output a single summary line** confirming the PR was created, e.g.:
+   `"PR created. All translations complete. Exiting."` or
+   `"Emergency flush complete. Partial translations submitted. Exiting."`
+4. **Stop.** The run is done. Any further activity wastes tokens and risks
+   an engine timeout that marks the entire workflow as "failure" even though
+   the PR was successfully created.
+
+> **Why this matters**: In run #219 (2026-05-18), the agent completed all
+> 26 translations and created the PR at minute 41, but the engine continued
+> running for another 14 minutes until it was forcibly terminated — marking
+> the run as "failure" despite complete success. This costs rerun budget
+> and generates spurious failure issues.
 
 ## 🔗 Related References
 
