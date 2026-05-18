@@ -102,8 +102,11 @@ jobs:
       - name: Run linter
         run: npm run lint
 
-      - name: Validate HTML
-        run: npm run htmlhint || echo "HTML validation completed"
+      # NOTE: htmlhint is not re-run here. It is already gated on every PR
+      # and on push-to-main by `test-and-report.yml` (`Validate generated
+      # HTML` step). Re-running it on release added ~2 min wall-clock for
+      # no extra signal — the HTML hasn't changed between merge-to-main
+      # and tag.
 
       - name: Set Version for release
         if: github.event_name == 'workflow_dispatch'
@@ -124,13 +127,22 @@ jobs:
           npm run lint:report || true
           npm run lint:report:html || true
 
-      - name: Run E2E tests
-        run: npm run test:e2e
+      # NOTE: E2E tests are intentionally NOT re-run here. By the time a tag
+      # exists (push event) or `workflow_dispatch` fires, the code has
+      # already been validated by `e2e.yml` and `test-and-report.yml` on
+      # the merge to main. Re-running the full Playwright suite at release
+      # time added ~25 min wall-clock to every release without producing new
+      # signal. If you need a last-mile smoke before release, add a single
+      # `playwright test e2e/tests/homepage.spec.js` invocation here rather
+      # than the entire suite.
 
       - name: Clean old documentation
         run: |
           echo "🧹 Cleaning old documentation..."
-          rm -rf docs/api docs/coverage docs/test-results docs/playwright-report
+          rm -rf docs/api docs/coverage docs/test-results
+          # NOTE: docs/playwright-report is preserved from previous run
+          # because E2E is not re-run on release (see comment above) — the
+          # latest report from the merge-to-main CI is the authoritative one.
 
       - name: Generate API documentation
         run: |
@@ -151,8 +163,10 @@ jobs:
         run: |
           echo "🔍 Verifying documentation structure..."
           
-          # Check required directories exist
-          for dir in docs/api docs/coverage docs/test-results docs/playwright-report; do
+          # Check required directories exist (playwright-report is optional
+          # because E2E is not re-run on release — see comment in
+          # "Clean old documentation" step above)
+          for dir in docs/api docs/coverage docs/test-results; do
             if [ -d "$dir" ]; then
               echo "✅ $dir exists"
             else
@@ -162,7 +176,7 @@ jobs:
           done
           
           # Check required files exist
-          for file in docs/index.html docs/api/index.html docs/coverage/index.html docs/playwright-report/index.html docs/test-results/index.html; do
+          for file in docs/index.html docs/api/index.html docs/coverage/index.html docs/test-results/index.html; do
             if [ -f "$file" ]; then
               echo "✅ $file exists"
             else
@@ -170,6 +184,13 @@ jobs:
               exit 1
             fi
           done
+
+          # Playwright report carried from main-branch CI is optional here
+          if [ -f "docs/playwright-report/index.html" ]; then
+            echo "✅ docs/playwright-report/index.html exists (from prior run)"
+          else
+            echo "⚠️  docs/playwright-report/index.html not found (E2E not re-run on release)"
+          fi
           
           # Check optional but expected report files
           for file in docs/test-results/results.json docs/test-results/junit.xml docs/test-results/eslint-report.html docs/test-results/eslint-report.json; do

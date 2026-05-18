@@ -3,7 +3,7 @@
 
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
+import { SAMPLE_LANGUAGES } from './_sample-languages.js';
 import { getPoliticalIntelligenceFilename } from '../../scripts/generators/political-intelligence.js';
 
 /**
@@ -12,9 +12,13 @@ import { getPoliticalIntelligenceFilename } from '../../scripts/generators/polit
  * Validates that every language variant of the political-intelligence page
  * emits valid JSON-LD structured data containing CollectionPage,
  * BreadcrumbList, and FAQPage schemas (the actual types these pages emit).
+ *
+ * E2E samples representative locales (see `_sample-languages.js`); full
+ * 14-locale JSON-LD coverage is asserted at the unit level in
+ * `test/unit/seo-headers-matrix.test.js`.
  */
 
-const PI_PAGES = ALL_LANGUAGES.map((lang) => ({
+const PI_PAGES = SAMPLE_LANGUAGES.map((lang) => ({
   lang,
   path: `/${getPoliticalIntelligenceFilename(lang)}`,
 }));

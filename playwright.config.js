@@ -6,10 +6,17 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './e2e',
-  fullyParallel: false, // Run serially for better stability and resource management
+  // Parallel execution: each Playwright test gets a fresh `page` context, so
+  // there is no shared state between tests. Running in parallel cuts the
+  // suite from ~25 min → ~3-5 min on the CI runner. `retries: 2` masks the
+  // tiny class of timing-sensitive flakes that surface under load.
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: 1, // Single worker for consistent, fast execution
+  // CI workers tuned for the 4-vCPU GitHub-hosted ubuntu-latest runner used
+  // by release.yml / e2e.yml / test-and-report.yml. Local dev keeps 2 to
+  // avoid overwhelming workstations.
+  workers: process.env.CI ? 4 : 2,
   reporter: [
     ['html', { outputFolder: 'builds/playwright-report' }],
     ['junit', { outputFile: 'builds/test-results/e2e-junit.xml' }],

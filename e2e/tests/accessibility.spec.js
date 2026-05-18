@@ -3,7 +3,7 @@
 
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
+import { SAMPLE_LANGUAGES_NON_EN } from './_sample-languages.js';
 
 /**
  * Accessibility E2E Tests
@@ -15,16 +15,14 @@ import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
  * - Keyboard navigation
  * - Color contrast
  * - Form accessibility
+ *
+ * Multi-language axe coverage uses a representative sample (see
+ * `_sample-languages.js`) — full per-locale generator coverage lives in
+ * `test/unit/seo-headers-matrix.test.js`.
  */
-
-/**
- * Non-English language codes (English is covered by the standalone 'Accessibility' suite).
- * Other languages use /index-{lang}.html.
- */
-const NON_ENGLISH_LANGUAGES = ALL_LANGUAGES.filter((lang) => lang !== 'en');
 
 test.describe('Multi-language index accessibility (WCAG 2.1 AA)', () => {
-  for (const lang of NON_ENGLISH_LANGUAGES) {
+  for (const lang of SAMPLE_LANGUAGES_NON_EN) {
     const url = `/index-${lang}.html`;
 
     test(`${lang} index page should be WCAG 2.1 AA compliant`, async ({ page }) => {

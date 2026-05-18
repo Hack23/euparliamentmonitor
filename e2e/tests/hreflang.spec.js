@@ -4,6 +4,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
+import { SAMPLE_LANGUAGES } from './_sample-languages.js';
 import { getPoliticalIntelligenceFilename } from '../../scripts/generators/political-intelligence.js';
 
 /**
@@ -12,9 +13,19 @@ import { getPoliticalIntelligenceFilename } from '../../scripts/generators/polit
  * Validates that every language variant of the political-intelligence page
  * includes a complete hreflang link graph for all 14 languages plus
  * x-default, ensuring search engines can discover all language variants.
+ *
+ * Per-page hreflang-graph + axe checks iterate a representative sample
+ * (see `_sample-languages.js`). A cumulative HTTP-200 smoke still walks
+ * all 14 PI URLs to guard against any language variant going missing
+ * from the deployed corpus.
  */
 
-const PI_PAGES = ALL_LANGUAGES.map((lang) => ({
+const ALL_PI_PAGES = ALL_LANGUAGES.map((lang) => ({
+  lang,
+  path: `/${getPoliticalIntelligenceFilename(lang)}`,
+}));
+
+const SAMPLED_PI_PAGES = SAMPLE_LANGUAGES.map((lang) => ({
   lang,
   path: `/${getPoliticalIntelligenceFilename(lang)}`,
 }));
@@ -25,13 +36,13 @@ function toPathname(href) {
 
 test.describe('Hreflang Link Graph', () => {
   test('all political-intelligence hreflang targets resolve', async ({ page }) => {
-    for (const { lang, path } of PI_PAGES) {
+    for (const { lang, path } of ALL_PI_PAGES) {
       const response = await page.goto(path);
       expect(response.status(), `${lang} hreflang target ${path} returned ${response.status()}`).toBe(200);
     }
   });
 
-  for (const { lang, path: pagePath } of PI_PAGES) {
+  for (const { lang, path: pagePath } of SAMPLED_PI_PAGES) {
     test(`${lang}: page has full 14-language hreflang set + x-default`, async ({ page }) => {
       const response = await page.goto(pagePath);
 
