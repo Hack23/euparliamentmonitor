@@ -258,6 +258,35 @@ describe('news-translate workflow contract', () => {
       /\*\*Never\*\* call `safeoutputs___create_pull_request` before at least one\s*brief has all 13 languages/,
     );
   });
+
+  it('imports shared/config/news-pat-pr-fallback.md with translate-briefs slug', () => {
+    // Regression guard for run #26005838669: safe_outputs git push was
+    // rejected ("refusing to allow a GitHub App to create or update workflow
+    // `.github/workflows/agentics-maintenance.yml` without `workflows`
+    // permission") because main advanced during the 60-min run and the
+    // bundle's parent commit had stale workflow files. fallback-as-issue
+    // then created an issue instead of a PR. The host-side PAT fallback
+    // mechanism that the 14 article workflows use must also cover
+    // news-translate so a future push rejection recovers automatically.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toMatch(
+      /-\s+uses:\s+shared\/config\/news-pat-pr-fallback\.md\b/,
+    );
+    expect(workflow).toMatch(/slug:\s+translate-briefs\b/);
+    expect(workflow).toMatch(
+      /workflowName:\s+"News:\s+Translate Executive Briefs"/,
+    );
+    // The duplicate "Capture agent recovery patch" post-step that used to
+    // live inline must be removed — the shared import provides it. A
+    // duplicate would cause two recovery patches to be written and ship
+    // contradictory artifacts to the fallback job. The assertion targets
+    // an actual `- name:` step declaration, not the explanatory comment
+    // that documents why the inline copy was removed.
+    const postSteps = workflow.split('post-steps:')[1] ?? '';
+    expect(
+      postSteps.match(/^\s*-\s+name:\s+Capture agent recovery patch/gm) ?? [],
+    ).toHaveLength(0);
+  });
 });
 
 describe('translation pipeline foundation', () => {

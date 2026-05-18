@@ -198,6 +198,10 @@ fi
 # A successful safe_outputs run will have an open PR for the salted branch;
 # absence of that PR is a reliable signal that the bundle apply failed.
 if [ -f "$gh_aw_dir/safeoutputs.jsonl" ] && grep -q 'create_pull_request' "$gh_aw_dir/safeoutputs.jsonl"; then
+  # safe_outputs branch pattern is "news/<slug>-<date>-<salt>" for article
+  # workflows and "news/translate-briefs-<date>-<salt>" for news-translate.
+  # Both happen to be covered by "news/${slug}-${today}-*" because the
+  # translate workflow passes slug="translate-briefs".
   gh_stderr=$(mktemp)
   bundle_pr=$(gh pr list --repo "$repo" --state open \
     --json number,headRefName \
@@ -238,6 +242,20 @@ workflow_name="$slug"
 if [ -n "${GH_AW_PAT_FALLBACK_WORKFLOW_NAME:-}" ]; then
   workflow_name="$GH_AW_PAT_FALLBACK_WORKFLOW_NAME"
 fi
+
+# The news-translate workflow does not have a per-slug analysis directory or
+# article.md — it writes per-language translation files alongside each source
+# brief and a run summary under analysis/translation-runs/<date>/. Override
+# the article-workflow defaults so the fallback's path filter, manifest probe,
+# and headline lookup all behave correctly for translate-briefs.
+is_translate_slug=false
+case "$slug" in
+  translate-briefs|translate)
+    is_translate_slug=true
+    branch="news/translate-briefs-$today"
+    analysis_dir="analysis/translation-runs/$today"
+    ;;
+esac
 
 run_url="$server_url/$repo/actions/runs/${GITHUB_RUN_ID:-}"
 if [ -n "${GH_AW_PAT_FALLBACK_RUN_URL:-}" ]; then
@@ -292,7 +310,7 @@ while IFS= read -r file; do
   fi
 
   case "$file" in
-    analysis/daily/*|news/*)
+    analysis/daily/*|news/*|analysis/translation-runs/*)
       case "$file" in
         *.lock|.github/*|.github/workflows/*.lock.yml|node_modules/*)
           printf '%s\n' "$file" >> "$disallowed_changed"
@@ -353,7 +371,14 @@ if [ -f "$article_md" ]; then
 fi
 
 if [ -z "$headline" ]; then
-  headline="EU Parliament $slug update for $today"
+  if [ "$is_translate_slug" = true ]; then
+    # Count translation files actually staged for the PR so the headline
+    # reflects the real recovery payload rather than a generic placeholder.
+    translation_count=$(grep -cE '^analysis/daily/.+/executive-brief_[a-z]+\.md$' "$eligible_changed" || true)
+    headline="Translate executive briefs ($translation_count files) for $today"
+  else
+    headline="EU Parliament $slug update for $today"
+  fi
 fi
 
 title="[news] $headline"
@@ -385,7 +410,7 @@ Changed file summary:
 $(cat "$stat_file")
 \`\`\`
 
-The fallback stages only eligible \`analysis/daily/**\` and \`news/**\` paths, leaves protected paths unstaged, and reuses an existing open PR for this branch when present.
+The fallback stages only eligible \`analysis/daily/**\`, \`analysis/translation-runs/**\`, and \`news/**\` paths, leaves protected paths unstaged, and reuses an existing open PR for this branch when present.
 EOF_BODY
 
 git commit -m "news: publish $slug fallback output for $today"

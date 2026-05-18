@@ -54,6 +54,19 @@ timeout-minutes: 60
 imports:
   - shared/config/news-common-settings.md
   - shared/mcp/news-mcp-servers.md
+  # Host-side PAT PR fallback. When safe_outputs's gh-aw bundle push fails —
+  # e.g. because main moved during the 60-min run and the agent's branch tree
+  # now differs from main's workflow files (GitHub App push without
+  # `workflows: write` permission is then rejected) — this fallback re-pushes
+  # the translation payload via COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN and
+  # opens the PR, replacing the previous fallback-as-issue path. The shared
+  # script is translate-aware (slug=translate-briefs ⇒ branch
+  # `news/translate-briefs-<date>` and eligible
+  # `analysis/translation-runs/**` paths).
+  - uses: shared/config/news-pat-pr-fallback.md
+    with:
+      slug: translate-briefs
+      workflowName: "News: Translate Executive Briefs"
 
 # Concurrency uses one workflow-wide lease so scheduled runs and re-runs cannot
 # race while targeting the shared daily `news/translate-briefs-<date>` branch.
@@ -174,10 +187,8 @@ steps:
       node -e 'const q=require("/tmp/gh-aw/discovery/queue.json");console.log(JSON.stringify(q.totals,null,2));'
 
 post-steps:
-  - name: Capture agent recovery patch
-    if: always()
-    continue-on-error: true
-    run: bash scripts/gh-aw-capture-agent-patch.sh
+  # The "Capture agent recovery patch" post-step is provided by the imported
+  # shared/config/news-pat-pr-fallback.md — do not duplicate it here.
 
   # Always run the validator on whatever the agent produced. The script
   # exits non-zero on any violation; preserve that status so invalid
