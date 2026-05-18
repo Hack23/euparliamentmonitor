@@ -29,11 +29,7 @@
  * @see ./lookup.ts        — helper functions
  */
 
-import {
-  ArticleCategory,
-  CATEGORY_PERSPECTIVE,
-  CATEGORY_TIME_PERIOD,
-} from '../../types/index.js';
+import { ArticleCategory, CATEGORY_PERSPECTIVE, CATEGORY_TIME_PERIOD } from '../../types/index.js';
 import {
   A_ACTOR_MAP,
   A_COALITION,
@@ -70,11 +66,7 @@ import {
   RETROSPECTIVE_MANDATORY,
   STANDARD_FEEDS,
 } from './artifact-paths.js';
-import {
-  ELECTORAL_BUDGETS,
-  PROSPECTIVE_BUDGETS,
-  RETROSPECTIVE_BUDGETS,
-} from './stage-budgets.js';
+import { ELECTORAL_BUDGETS, PROSPECTIVE_BUDGETS, RETROSPECTIVE_BUDGETS } from './stage-budgets.js';
 import type { ArticleHorizonConfig } from './types.js';
 
 /**
