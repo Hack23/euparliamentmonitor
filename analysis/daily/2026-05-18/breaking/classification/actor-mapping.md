@@ -70,3 +70,33 @@ All three companies have distinct motivations that require differentiated enforc
 5. Azerbaijan → EU energy desk: Gas supply assurance messaging
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Additional Actor Analysis (Run 268)
+
+### 7. Tech Industry Actors (DMA-specific)
+
+| Actor | Primary Interest | Power Level | Stance on DMA |
+|-------|-----------------|-------------|---------------|
+| Apple Inc. | App Store revenue model defence | 🔴 Very High | Oppose enforcement |
+| Alphabet/Google | Search & ad revenue defence | 🔴 Very High | Oppose enforcement |
+| Meta Platforms | Social media data model | 🔴 Very High | Oppose enforcement |
+| ByteDance/TikTok | Algorithm transparency | 🟠 High | Partial concern |
+| European tech SMEs | Level playing field | 🟡 Medium | Support DMA |
+| EU tech startups (e.g., DeepL) | Market access | 🟡 Medium | Strong support |
+
+### 8. Civil Society Actors
+
+| Actor | Primary Interest | Power Level | Stance |
+|-------|-----------------|-------------|--------|
+| BEUC (EU consumer org.) | Consumer protection; fair markets | 🟠 High | Strong support (DMA, cyberbullying) |
+| Amnesty International | Human rights enforcement | 🟠 High | Support (Ukraine, Armenia, Haiti) |
+| Human Rights Watch | Accountability mechanisms | 🟡 Medium | Support Ukraine tribunal |
+| Access Now (digital rights) | Privacy; platform accountability | 🟡 Medium | Mixed (PNR concerns) |
+
+### 9. Actor Interaction Summary
+
+**Key observation:** The April 28–30 plenary activated five distinct actor coalitions simultaneously: (1) tech regulation, (2) Eastern European foreign policy, (3) defence budget, (4) social protection, (5) international law. This multi-front legislative push is rare and reflects deliberate EP agenda management by EPP/S&D leadership.
+
+[EXTEND-FROM-PRIOR: classification/actor-mapping.md prior=72L → new=103L (+31)]

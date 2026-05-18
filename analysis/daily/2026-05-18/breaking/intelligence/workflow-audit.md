@@ -1,71 +1,81 @@
 <!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
-# Workflow Audit — Breaking News Run
-**Date:** 2026-05-18 | **Run ID:** breaking-run262-1779068047
+# Workflow Audit — breaking-run268
+**Date:** 2026-05-18 | **Article Type:** breaking
+**Run ID:** breaking-run268-1779092389
 
 ---
 
-## Stage Timing Log
+## 1. Run Configuration Audit
 
-| Stage | Start (approx.) | End (approx.) | Duration | Status |
-|-------|---------------|-------------|---------|--------|
-| Pre-agent prefetch | ~01:31 | ~01:31 | ~30s | ✅ Complete |
-| Setup + date context | ~01:33 | ~01:34 | ~1m | ✅ Complete |
-| Stage A (data collection) | ~01:34 | ~01:36 | ~2m | ✅ Complete |
-| Stage B Pass 1 (analysis) | ~01:37 | ongoing | ~ongoing | 🔄 In progress |
-
----
-
-## Invocation Tracking
-
-| Phase | Tool calls | EP MCP calls | Notes |
-|-------|-----------|-------------|-------|
-| Stage A | 6 EP MCP + 1 prefetch script | 6 | Cap: 5 standard + 1 acknowledged exception |
-| Stage B | File writes (no new MCP) | 0 | Writing from existing data |
-| Stage C | validate-analysis script | 0 | |
+| Parameter | Value | Status |
+|-----------|-------|--------|
+| Article type slug | breaking | ✅ |
+| Stage C tripwire | minute 36 | ✅ configured |
+| PR deadline | minute ≤ 45 | ✅ |
+| dataMode | degraded-feeds | ✅ declared |
+| lineFloorFactor | 0.80 | ✅ applied |
+| EP MCP calls (Stage A) | 4 (≤5 budget) | ✅ within budget |
+| Prior run | breaking-run262 | ✅ detected |
+| Re-run merge rule | applied | ✅ |
+| Invocation cap | ≤100 (discipline applied) | ✅ |
 
 ---
 
-## Data Mode: degraded-feeds
+## 2. Stage Timeline
 
-- Prefetch: full (6/6 files, all empty)
-- Events feed: UNAVAILABLE (404)
-- Voting data: UNAVAILABLE (no DOCEO XML for week)
-- Adopted texts: AVAILABLE (direct endpoint, 31 texts)
-- Line floor factor: 0.80
+| Stage | Start Min | Duration | Status |
+|-------|-----------|----------|--------|
+| Stage A (Data) | ~0 | ~6 min | ✅ COMPLETE |
+| Stage B Pass 1 | ~6 | ~20 min | ✅ COMPLETE (43 artifacts) |
+| Stage B Pass 2 | ~26 | ~8 min | IN PROGRESS |
+| Stage C Gate | ~36 | ≤4 min | PENDING |
+| Stage D Render | ~40 | ≤2 min | PENDING |
+| Stage E PR | ~42 | ≤3 min | PENDING |
 
 ---
 
-## Artifacts Written (Pass 1 progress)
+## 3. Data Source Audit
 
-1. ✅ executive-brief.md
-2. ✅ intelligence/synthesis-summary.md
-3. ✅ intelligence/analysis-index.md
-4. ✅ intelligence/mcp-reliability-audit.md
-5. ✅ intelligence/coalition-dynamics.md
-6. ✅ intelligence/stakeholder-map.md
-7. ✅ intelligence/pestle-analysis.md
-8. ✅ intelligence/scenario-forecast.md
-9. ✅ intelligence/wildcards-blackswans.md
-10. ✅ intelligence/threat-model.md
-11. ✅ intelligence/economic-context.md
-12. ✅ intelligence/historical-baseline.md
-13. ✅ intelligence/political-threat-landscape.md
-14. ✅ intelligence/significance-scoring.md
-15. ✅ intelligence/cross-run-diff.md
-16. ✅ intelligence/cross-session-intelligence.md
-17. ✅ intelligence/reference-analysis-quality.md
-18. ✅ intelligence/voting-patterns.degraded.md
-19. ✅ risk-scoring/risk-matrix.md
-20. ✅ risk-scoring/quantitative-swot.md
-21. ✅ classification/significance-classification.md
-22. ✅ documents/document-analysis-index.md
-23. ✅ intelligence/workflow-audit.md (this file)
-24. ⏳ intelligence/methodology-reflection.md
-25. ⏳ data-availability-assessment.md
-26. ⏳ intelligence/procedures-proxy.md
-27. ⏳ extended/* (13 extended artifacts)
-28. ⏳ manifest.json
+| Feed | Status | Rows | Note |
+|------|--------|------|------|
+| events-feed | ❌ 404 | 0 | Known recurring failure |
+| procedures-feed | ⚠️ STALENESS_WARNING | degraded | Historical-tail ordering |
+| adopted-texts-feed | ✅ | 116 items | One-week window |
+| adopted-texts (direct) | ✅ | 20 full texts | Primary source |
+| meps-feed | ✅ | OK | |
+| get_latest_votes | ⚠️ | 0 | Non-plenary week; no data |
+| IMF API | ❌ unavailable | 0 | Fallback to WEO April 2026 |
 
-*Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+---
+
+## 4. Artifact Compliance
+
+| Category | Required | Produced | Pass Rate |
+|----------|----------|----------|-----------|
+| Core intelligence/ | 22 | 22 | 100% |
+| Extended/ | 12 | 12 | 100% |
+| Risk-scoring/ | 2 | 2 | 100% |
+| Classification/ | 4 | 4 | 100% |
+| Documents/ | 1 | 1 | 100% |
+| Root-level | 2 | 2 | 100% |
+| **Total** | **43** | **43** | **100%** |
+
+---
+
+## 5. Anomalies and Exceptions
+
+1. `events-feed` HTTP 404 — consistent failure; no impact on analysis (content derived from adopted texts)
+2. `procedures-feed` STALENESS_WARNING — all procedure references inferred; logged in procedures-proxy.md
+3. `get_latest_votes` no data — expected; May 18 is non-plenary; April roll-call data has 3–5 week lag; logged in voting-patterns.degraded.md
+4. IMF API unavailable — fallback activated; economic-context.fallback.md produced
+5. Prior run `invocationCapException=true` on breaking-run262 — this run disciplined to ≤5 EP MCP calls
+
+---
+
+## 6. Run Classification
+
+**Run quality:** GOOD with DATA_GAPS
+**Article render recommendation:** FULL ARTICLE (subject to Stage C GREEN gate)
+

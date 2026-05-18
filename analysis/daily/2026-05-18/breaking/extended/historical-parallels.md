@@ -110,3 +110,76 @@ Historical analysis of EP own-initiative resolutions since 2010 shows a 25-40% "
 | Budget 2027 | Budget guidelines consistently influence final votes | 80% (budget parameters) |
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Historical Parallels Extension (Run 268)
+
+### 5. DMA Historical Parallel: GDPR (2018)
+
+**Parallel:** General Data Protection Regulation (GDPR) adoption, enforcement, and global impact
+
+**Timeline comparison:**
+- GDPR: Proposal (2012) → Adopted (2016) → Enforcement (2018) → First major fines (2019–2020) → Global adoption wave (CCPA 2020, PIPL 2021, PDPB 2023)
+- DMA: Proposal (2020) → Adopted (2022) → Initial enforcement (2024) → Fine mechanism strengthened (April 2026)
+
+**What the GDPR parallel predicts for DMA:**
+1. First 2 years: large gatekeepers will lobby for narrow interpretation; Commission will issue limited guidance
+2. Years 3–5: first major enforcement action; major fine (likely €5–15B); legal challenge to CJEU
+3. Years 5–10: CJEU upholds (or narrows) DMA; enforcement becomes routine; global equivalents emerge (UK DMU regime already operational)
+
+**Key difference:** DMA is more structurally threatening to US companies than GDPR was. GDPR compliance was largely operational; DMA requires structural business model changes (interoperability, data sharing, self-preferencing prohibition). This increases legal challenge probability.
+
+**Historical lesson:** GDPR survived all legal challenges and became global standard. DMA will likely follow same arc, but timeline may be longer.
+
+---
+
+### 6. Ukraine Accountability Historical Parallel: Nuremberg Tribunal (1945–1946)
+
+**Why this parallel matters:** EP AFET members explicitly invoked Nuremberg in drafting the accountability resolution. Understanding where the parallel holds and breaks is critical for assessment.
+
+**Where Nuremberg parallel holds:**
+- Post-war accountability for crimes against civilian population
+- International legal architecture created ad hoc for specific conflict
+- Crimes against humanity, war crimes: shared charges
+- Occupying forces / state actor accountability: shared principle
+
+**Where Nuremberg parallel breaks:**
+- Nuremberg had occupied Germany physically in the dock; Ukraine tribunal has Russia on opposite side with ongoing conflict
+- Nuremberg was victor's justice; Ukraine tribunal aims for multi-lateral legitimacy
+- Nuremberg took place post-conflict; Ukraine tribunal is wartime (more legally complex)
+- No Security Council backing possible for Ukraine tribunal (Russian veto)
+
+**Historical lesson:** Nuremberg succeeded because it had physical custody and political unanimity among major powers. Ukraine tribunal will face institutional design challenges Nuremberg didn't face. The "hybrid tribunal" model (closer to ICTY than Nuremberg) is the more apt historical comparison.
+
+---
+
+### 7. Armenia Integration Historical Parallel: Western Balkans (2003–present)
+
+**Parallel:** EU enlargement track for former Yugoslavia successor states
+
+**Timeline:** Western Balkans SAP launched 2003; Serbia EU candidate status 2012; no full membership achieved as of 2026
+
+**What Western Balkans predicts for Armenia:**
+1. Association agreement upgrade: 6–12 months if Council agrees
+2. Candidate status application: 2–4 years
+3. Full membership: Minimum 10–15 years; more likely 20+ years
+4. Risk of accession fatigue: EU already struggling with Western Balkans; Armenia adds new track
+
+**Key difference:** Western Balkans enlargement was post-conflict reconciliation with clear EU framework. Armenia's path requires navigating: active Azerbaijani pressure, Russian influence, Turkish opposition (Armenia-Turkey normalization not complete), and Hungary veto.
+
+**Historical lesson:** Integration aspirations are durable; timelines are rarely met. The EP April 30 resolution starts a process, not an outcome.
+
+
+---
+
+### 8. Cross-Parallel Summary
+
+| EP Action | Best Historical Parallel | Outcome Prediction |
+|-----------|------------------------|-------------------|
+| DMA enforcement | GDPR (2018) | Long-term success; 5–10 year normalization arc |
+| Ukraine tribunal | ICTY (1993) + Nuremberg elements | Institutional success possible; custody challenge chronic |
+| Armenia integration | Western Balkans SAP (2003) | 10–20 year timeline; accession not guaranteed |
+| Budget supplement | Post-Cold War NATO expansion funding | Durable if threat perception maintained |
+| Cyberbullying directive | GDPR Article 17 (right to erasure) | Successful; platform compliance manageable |
+

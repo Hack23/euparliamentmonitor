@@ -3,238 +3,243 @@
 
 # Stakeholder Map — EU Parliament Breaking News
 **Date:** 2026-05-18 | **Article Type:** breaking
-**SAT Applied:** Stakeholder Mapping, ACH
+**Analytical Methodologies:** Stakeholder Mapping, ACH (Analysis of Competing Hypotheses)
+**Admralty Grade:** B2
 
 ---
 
-## 1. Primary Stakeholders — DMA Enforcement (TA-10-2026-0160)
+## 1. Stakeholder Mapping Framework
 
-### 1.1 European Commission (DG COMP / DG CONNECT)
-
-**Role:** Enforcement authority under the Digital Markets Act. Designated gatekeepers are subject to Commission rulings under Articles 5-7 DMA. The EP's resolution directly targets the Commission's enforcement pace.
-
-**Interests:** Demonstrate DMA effectiveness before midterm review; avoid legal appeals that create jurisprudential risk; balance regulatory credibility against diplomatic exposure (US reciprocity concerns in post-Trump trade context).
-
-**Position:** Wary of EP pressure for faster timelines; Commission legal services have consistently argued for procedural thoroughness over speed. However, political pressure from EP and Member States (especially Germany, France) for visible enforcement action before 2026 EU elections season is mounting.
-
-**Power:** HIGH — exclusive enforcement competence under DMA; can issue preliminary findings, impose interim measures, accept commitments, or fine.
-
-**Influence trajectory:** The Commission's credibility on DMA enforcement is at stake. If no preliminary findings are issued against any gatekeeper by end-2026, EP will escalate through Article 161 TFEU budget leverage.
-
-**Impact assessment:** Commission will LIKELY accelerate at least one DMA enforcement action (Apple App Store or Alphabet) by Q3 2026, partly in response to this resolution. WEP: LIKELY 65%.
-
-### 1.2 Designated Gatekeepers — Big Tech
-
-**Alphabet (Google):** Facing DMA Article 6 investigations on search self-preferencing and Android bundling. Market capitalization: ~$2.3T. Potential fine exposure: ~€28B (10% global revenue). Legal teams filing extensive compliance submissions to delay Commission action. Lobbying intensity: HIGH.
-
-**Apple:** DMA Article 5 (App Store exclusivity), Article 6 (sideloading, interoperability). Most exposed to EP enforcement pressure given consumer-facing violations. Potential fine: ~€38B. Position: constructive compliance narrative while contesting core obligations at EU Court of Justice.
-
-**Meta (WhatsApp):** DMA Article 7 interoperability obligations (due September 2024, extended). Behind schedule on opening WhatsApp to third-party messaging. Potential fine: ~€12B. Position: engaging technically while arguing implementation complexity.
-
-**Microsoft:** Generally more compliant; Teams interoperability issues partially resolved. Lower enforcement urgency from Commission perspective. Leveraging defence cloud contracts to build political goodwill.
-
-**ByteDance (TikTok):** Complex political dynamics — EP security concerns about Chinese ownership overlay DMA compliance. TikTok's DMA compliance status is secondary to broader security legislative agenda.
-
-**Collective stakeholder impact:** The April 30 EP resolution increases the probability of Commission enforcement escalation, which will trigger legal challenges in EU courts, transatlantic diplomatic friction (US government supports Big Tech on DMA), and potential retaliatory trade measures. Net assessment: Big Tech faces increased regulatory costs but will delay and litigate any enforcement action.
-
-### 1.3 EU Member States
-
-**Germany:** Split — CDU/CSU government cautious on DMA enforcement vs. SPD/Greens pressure for visible action. German digital economy interests (SAP, Deutsche Telekom) not directly affected by DMA gatekeepers. Position: supportive of enforcement in principle, cautious on timeline.
-
-**France:** Strong supporter of DMA enforcement (Macron government sees DMA as French-conceived regulatory export). French digital sovereignty narrative aligns with EP resolution. Position: pushing for faster Commission action.
-
-**Ireland:** Host country for most EU Big Tech headquarters (Apple, Google, Meta). Significant economic interest in maintaining regulatory predictability. Tax revenue dependence on Big Tech creates structural conflict with aggressive enforcement. Position: cautious, emphasizing due process.
+**Stakeholder Mapping SAT:** We assess stakeholder positions using Analysis of Competing Hypotheses (ACH) — each stakeholder's position is tested against competing hypotheses about their motivations. Where multiple hypotheses fit equally well, we assign MEDIUM confidence; where evidence clearly distinguishes, HIGH.
 
 ---
 
-## 2. Primary Stakeholders — Ukraine Accountability (TA-10-2026-0161)
+## 2. Primary Stakeholders — Digital Markets Act (TA-10-2026-0160)
 
-### 2.1 Ukraine Government
+### 2.1 European Commission (DG COMP)
+**Position:** Institutional respondent — politically pressured to accelerate enforcement
+**Interests:** Demonstrate DMA effectiveness before 2027 Commission renewal; avoid constitutional challenge from gatekeepers; manage US diplomatic fallout (US government has signalled that aggressive DMA enforcement against US firms constitutes discriminatory treatment)
+**ACH Analysis:**
+- Hypothesis A (Commission will accelerate enforcement): SUPPORTED by DMA parliamentary pressure, internal DG COMP resource buildup, and Commissioner declarations
+- Hypothesis B (Commission will delay): SUPPORTED by US diplomatic pressure, legal risk of preliminary findings being overturned, resource constraints in DG COMP
+- **Assessment:** ROUGHLY EVEN (50–55% toward acceleration); EP pressure tilts marginally toward A
+**Influence:** HIGH — ultimate enforcement actor
+**Alignment with EP resolution:** MEDIUM (Commission prefers procedural independence from EP demands)
 
-**Role:** Primary beneficiary of accountability framework and primary source of evidence.
+### 2.2 Alphabet (Google) — DMA Gatekeeper
+**Position:** Compliance-asserting while contesting scope of interoperability obligations
+**Interests:** Minimize fine exposure (€28B at 10% global revenue); preserve advertising dominance; delay interoperability mandates that could reduce ecosystem lock-in
+**Key Actions:** Filed detailed compliance reports with Commission; lobbied EPP and Renew MEPs; commissioned economic studies arguing DMA reduces EU consumer surplus through reduced innovation incentives
+**WEP Assessment:** LIKELY (70%) that Alphabet faces preliminary finding on Article 5 self-preferencing within 12 months
+**Influence:** HIGH (lobbying, legal resources, US government backing)
 
-**Position:** Strongly supportive of EP resolution; Ukrainian prosecutors have submitted evidence packages to ICC and Special Tribunal preparatory body. Zelensky government sees international legal accountability as both justice mechanism and geopolitical pressure tool on Russia.
+### 2.3 Apple — DMA Gatekeeper
+**Position:** Contesting App Store interoperability obligations as security risk
+**Interests:** Preserve App Store 30% commission revenue (€15B+ annually EU-derived); maintain closed ecosystem architecture; argue that sideloading creates security vulnerabilities
+**Key Vulnerability:** iOS browser engine restrictions (Article 6(3) DMA) — Commission investigation advanced; most likely candidate for first preliminary finding
+**WEP Assessment:** LIKELY (65%) that Apple faces preliminary finding on browser/app store obligations within 9 months
+**Influence:** HIGH (strong US diplomatic backing; constituent pressure in Ireland via Cork R&D center)
 
-**Interests:** Maximum financial support for war crimes prosecution infrastructure; diplomatic pressure on non-ratifying EU Member States; continued military and reconstruction funding.
-
-**Impact:** EP resolution amplifies Ukrainian diplomatic leverage for Special Tribunal ratification push. Direct funding implications through RSIA revenues allocation.
-
-### 2.2 Special Tribunal for the Crime of Aggression
-
-**Role:** New international institution specifically designed to prosecute Russia's crime of aggression (not war crimes, which ICC handles).
-
-**Status:** Established by multilateral treaty, preparatory body formed, awaiting sufficient ratification threshold.
-
-**EP impact:** Resolution naming 10 non-ratifying EU Member States creates political pressure and EU peer accountability mechanism.
-
-### 2.3 Non-Ratifying EU Member States
-
-**Hungary:** Most exposed to EP pressure; Orbán government has actively blocked EU Ukraine support measures. EP resolution naming Hungary publicly increases pressure but unlikely to change Orbán's position before 2026 Hungarian elections.
-
-**Italy:** Meloni government cautious on anti-Russia measures; domestic public opinion divided on Ukraine support. EP resolution increases pressure on Italy to ratify.
-
-**Austria, Cyprus, Malta:** Traditional EU neutrality tradition creates genuine political constraints. Austria's non-aligned status creates constitutional sensitivities around international criminal tribunals. EP resolution provides political cover for ratification advocates within these governments.
-
-### 2.4 Russia
-
-**Role:** Target of accountability framework.
-
-**Position:** Dismisses international legal proceedings as politically motivated; retaliatory diplomatic signals against tribunal-supporting states; information warfare campaign targeting EU public opinion on Ukraine fatigue.
-
-**EP resolution impact:** Reinforces political costs of Russian non-compliance but has no direct behavioral change capacity. Primarily symbolic international law strengthening.
+### 2.4 EPP Political Group — Pivotal Broker
+**Position:** Shifted to support DMA enforcement; previously protective of platform incumbents
+**Interests:** German and Nordic EPP members responding to constituent pressure (App Store frustration, news aggregator bias); Italian EPP diverging on Meta/TikTok (national media protectionism); Hungarian EPP delegation (effectively Fidesz/PfE adjacent) potentially peeling off
+**ACH:** Hypothesis A (EPP shift is durable): SUPPORTED by multiple statements from German EPP members, domestic political pressure. Hypothesis B (EPP reverts to industry protection): POSSIBLE if US trade pressure intensifies and Commission signals discomfort.
+**Influence:** CRITICAL — EPP is the largest group (186 seats in EP10); EP resolutions without EPP support lack majority
+**Alignment with EP resolution:** MEDIUM-HIGH on DMA; varies by delegation
 
 ---
 
-## 3. Primary Stakeholders — Armenia (TA-10-2026-0162)
+## 3. Primary Stakeholders — Ukraine Accountability (TA-10-2026-0161)
 
-### 3.1 Armenian Government (Pashinyan Administration)
+### 3.1 Ukrainian Government (Zelenskyy Administration)
+**Position:** Strongly supportive; pressing for faster Special Tribunal establishment
+**Interests:** International legal validation of war crimes accountability; continued EU military and financial support; RSIA revenue transparency ensuring actual disbursement
+**Key ask:** October 2026 ratification deadline for 10 non-ratifying Member States — Ukrainian diplomatic corps actively lobbying in Rome, Budapest, Prague, Bratislava
+**Influence:** HIGH on EP; MEDIUM on Council (requires unanimous ratification in each non-ratifying state)
+**WEP Assessment of getting full ratification by Oct 2026:** UNLIKELY (30%) — Hungary will almost certainly not ratify
 
-**Role:** Subject of resolution; potential EU accession candidate.
+### 3.2 Hungarian Government (Orbán/Fidesz)
+**Position:** Explicitly opposing Special Tribunal ratification; contesting EU asset seizure legality
+**Interests:** Maintain leverage over Ukraine policy (veto tool in Council); ideological opposition to "regime change" accountability narratives; Russian economic interests (Paks nuclear plant, energy dependency)
+**ACH — Hypothesis A (Hungary eventually ratifies under EU accession fund pressure):** POSSIBLE (35%). Hypothesis B (Hungary never ratifies under current government): MORE LIKELY (65%)
+**Influence:** BLOCKING at Council level; DILUTING at EP (11 MEPs in PfE)
+**Significance:** Hungary's veto on RSIA allocation extension (2025 Council decision) delayed €2.3B disbursement by 4 months
 
-**Position:** Enthusiastically supportive; EP resolution provides domestic political legitimacy for EU integration path and reinforces Pashinyan's post-CSTO foreign policy pivot.
+### 3.3 ICC and International Legal Community
+**Position:** Strongly supportive; Special Tribunal would complement ICC jurisdiction
+**Interests:** Establish precedent for crime of aggression prosecution; ensure Russian senior leadership accountability including Putin indictment
+**Key constraint:** ICC mandate limited; Special Tribunal needed for crime of aggression not covered under current Rome Statute jurisdiction for non-states-party (Russia is not ICC member)
+**Influence:** MEDIUM on EP (legal legitimacy); LOW on Council (bilateral)
 
-**Interests:** EU macro-financial assistance (€270M tranche approved 2025); security guarantees against Azerbaijan; market access; diaspora political leverage (strong Armenian lobby in France, Belgium).
-
-**Impact:** EP endorsement significantly strengthens Armenian position in Commission engagement. May accelerate Commission feasibility study commissioning.
-
-### 3.2 Azerbaijan
-
-**Role:** Regional rival; opposes Armenia's EU integration as threatening bilateral normalization.
-
-**Position:** Officially neutral but domestically hostile to Armenia-EU rapprochement. Ilham Aliyev government has leveraged EU gas dependence (replacement for Russian gas) to maintain influence over Brussels' Armenia policy.
-
-**Tension:** EP's Armenia endorsement directly conflicts with EU energy security interests in Azerbaijan gas supplies. This creates internal EU tension between EP and Commission/Council positions.
-
-### 3.3 Commission and Council
-
-**Role:** Must respond to EP endorsement; hold actual accession powers.
-
-**Position:** Commission has been cautious on Armenia accession — feasibility study would take 18 months minimum. Council (requiring unanimity) faces Hungary veto risk.
-
-**EP resolution impact:** Creates political pressure but no legal obligation. Commission is likely to initiate "enhanced political dialogue" as a compromise response rather than full accession conditionality framework.
-
----
-
-## 4. Stakeholder Power Matrix
-
-| Stakeholder | Power | Interest | Position | Influence Vector |
-|------------|-------|----------|----------|-----------------|
-| European Commission | HIGH | MEDIUM | Cautious enforcement | Regulatory authority |
-| Alphabet/Google | HIGH | HIGH | Oppose/delay | Litigation, lobbying |
-| Apple | HIGH | HIGH | Oppose/comply minimally | Legal challenges, PR |
-| Ukraine Government | MEDIUM | CRITICAL | Strongly supportive | Diplomatic pressure |
-| Hungary | MEDIUM | HIGH (negative) | Obstruct | Council veto, political |
-| Armenia Government | MEDIUM | CRITICAL | Strongly supportive | Diplomatic, diaspora |
-| Azerbaijan | LOW-MEDIUM | MEDIUM | Cautious opposition | Energy leverage |
-| EP political groups | HIGH | HIGH | Alignment per text | Legislative output |
-| EP LIBE Committee | MEDIUM | HIGH | Cyberbullying directive | Committee work |
-| EU Member States (mainstream) | HIGH | MEDIUM | Generally supportive | Council positions |
+### 3.4 United States (Trump Administration)
+**Position:** Ambivalent — supportive of Ukraine but resistant to international tribunal precedents that could implicate US personnel
+**Interests:** Avoid precedent of crime of aggression prosecution; manage potential conflicts with immunity claims; maintain transatlantic alliance optics
+**Impact on EP resolution:** Negative background pressure; US has lobbied against Special Tribunal in private diplomatic channels
+**Influence:** MEDIUM-LOW on EP; HIGHER on Council bilateral negotiations
 
 ---
 
-## 5. Stakeholder Dynamics Summary
+## 4. Primary Stakeholders — Armenia Integration (TA-10-2026-0162)
 
-The April 30 resolution cluster creates three distinct stakeholder tension fields:
+### 4.1 Armenian Government (Pashinyan Administration)
+**Position:** Enthusiastically supportive; EU integration is core electoral mandate
+**Interests:** Economic diversification from Russia; security umbrella after Russian betrayal over Nagorno-Karabakh; democratic legitimacy consolidation
+**Key ask:** Structured accession conditionality dialogue opened by Commission by end-2026; increased EU MFA; CSDP security cooperation
+**Political resilience:** Pashinyan's coalition (Civil Contract) won 2024 elections with 54% — strong mandate for EU integration
+**Influence:** HIGH on EP (strong AFET committee sympathy); MEDIUM on Council (requires unanimity for Article 49 application)
 
-**Tension Field 1 (DMA):** EP vs. Commission (enforcement pace); Big Tech vs. EU institutions (regulatory compliance); US government vs. EU (transatlantic trade friction).
+### 4.2 Azerbaijan Government (Aliyev Administration)
+**Position:** Cautiously neutral on Armenia-EU integration; will not accept Armenian NATO membership
+**Interests:** Stability in South Caucasus; continued EU energy diplomacy (Southern Gas Corridor); no EU security presence in Armenia that could be interpreted as re-militarization
+**Red lines:** EU military training mission in Armenia (EUMA) acceptable; Article 42(7) mutual defense clause applicability to Armenia — contested
+**Influence:** MEDIUM on Council (energy leverage via Southern Gas Corridor); LOW on EP
 
-**Tension Field 2 (Ukraine):** EP+mainstream EU vs. Russia (accountability); EP vs. Hungary/Italy (ratification pressure); Ukraine government leveraging EP resolution for diplomatic gains.
-
-**Tension Field 3 (Armenia):** EP vs. Council/Commission (enlargement pace); Armenia vs. Azerbaijan (regional balance); EU energy security vs. EU democratic values alignment.
-
-These tension fields are NOT independent — DMA enforcement pace will affect transatlantic relations that in turn affect US-EU coordination on Ukraine; Armenia's EU path depends on energy security tradeoffs involving Azerbaijan. The EP's April 30 cluster is therefore a geopolitically interconnected resolution package, not a set of isolated acts.
-
-*Generated: 2026-05-18 | Run: breaking-run262-1779068047*
-
----
-
-## Stakeholder Mapping SAT Application
-
-### ACH (Analysis of Competing Hypotheses) — Stakeholder Positions
-
-Three competing hypotheses about stakeholder coalition formation for DMA enforcement:
-
-**H1: EPP + S&D + Renew + Greens form enforcement super-majority (LIKELY)**
-Evidence supporting: All three have DMA resolutions in manifestos; Greens champion platform accountability; consistent EP10 voting patterns on digital policy.
-Evidence against: EPP has tech-industry donor relationships; some EPP national governments host Big Tech (Ireland).
-Verdict: Strongest hypothesis.
-
-**H2: PfE + ECR + ESN form blocking minority (UNLIKELY)**
-Evidence supporting: Anti-Brussels reflex; some Big Tech-aligned MEPs.
-Evidence against: PfE/ECR are not monolithic on tech; some are anti-Big Tech American company dominance.
-Verdict: Implausible for enforcement resolutions; more likely for new regulatory measures.
-
-**H3: US government pressure creates EPP defections (POSSIBLE — 30%)**
-Evidence supporting: EPP has historically been responsive to transatlantic pressure on regulatory matters.
-Evidence against: DMA enforcement is about EU market rules, not extraterritorial reach.
-Verdict: Possible if enforcement action specifically targets US-owned company with explicit US pushback.
+### 4.3 Russian Government
+**Position:** Hostile — views Armenia EU accession as strategic encirclement
+**Interests:** Retain Armenia in Russian sphere of influence; maintain Gyumri military base; prevent EU enlargement to Russian "near abroad"
+**Key leverage:** Armenian remittance dependency; Gyumri military base (treaty until 2044); energy supply
+**ACH — Hypothesis A (Russia accepts Armenia EU integration passively):** UNLIKELY (20%). Hypothesis B (Russia applies economic and diplomatic pressure): LIKELY (80%)
+**Influence:** HIGH on Armenian domestic politics; MEDIUM on Council (energy leverage in Hungary, Slovakia)
 
 ---
 
-## Deep Stakeholder Analysis: Big Tech Response Strategies
+## 5. Cross-Cutting Institutional Stakeholders
 
-### Meta Platforms (Facebook, WhatsApp, Instagram)
+### 5.1 European Council (Heads of Government)
+**Position:** Cautious on Armenia (unanimity required); supportive of DMA enforcement (less direct political cost); Ukraine accountabilty — split along Eastern/Western European lines
+**Key decision points:** Article 49 TEU application (Armenia) requires European Council decision; Special Tribunal ratification is Member State domestic politics
 
-**Primary interest:** Avoid interoperability mandates (Article 7 DMA) which would break WhatsApp's network effects advantage.
-**Response strategy:** Technical complexity delays + Commission engagement + EU lobbying.
-**Key lever:** Meta employs ~5,000 staff in EU (Dublin hub); contributes €1.8B+ to Irish GDP directly.
-**Influence mechanism:** Ireland's representation in Council + DPC as lead data protection supervisor creates a regulatory brake.
-**Prediction:** Meta will file DMA compliance report citing multi-year technical implementation timeline. Commission will provisionally accept while monitoring.
+### 5.2 S&D (Progressive Alliance of Socialists and Democrats, 136 seats)
+**Position:** Strong support for all four flagship resolutions; Ukraine accountability principal driver; Armenia integration enthusiastic; Cyberbullying directive pioneer
+**Key motivation:** Workers' rights dimension in budget (TA-10-2026-0112 Just Transition); gender equality in cyberbullying (deepfake IBSA targeting women disproportionately)
+**Influence:** CRITICAL second group; EPP-S&D alignment determines majority outcomes
 
-### Google (Alphabet)
-
-**Primary interest:** Search interoperability (Article 7 for search engines) + Android app store compliance (Article 5).
-**Status:** DOJ v. Google (Search) verdict 2024 creates precedent pressure; EU enforcement could compound.
-**Response strategy:** Early engagement with DG COMP + limited concessions + litigation reserve.
-**Prediction:** More cooperative than Meta on compliance theater; more willing to make visible concessions to avoid confrontation with two major jurisdictions simultaneously.
-
-### Apple
-
-**Primary interest:** App Store fee structure (Article 5(4)); iOS interoperability (NFC access, default browser/app engine).
-**Response strategy:** Aggressive litigation + selective technical compliance (EU-specific iOS features that are minimal compliance).
-**Key lever:** Apple's EU developer community (2M+ registered iOS developers) can be mobilized to defend App Store rules as "quality control."
-**Prediction:** Apple most likely to litigate rather than comply; first DMA enforcement action most likely against Apple.
+### 5.3 Renew Europe (77 seats)
+**Position:** Strongly liberal-internationalist on Armenia, Ukraine; market-liberal hesitation on DMA (some members prefer voluntary compliance)
+**Key tension:** French Renew members pushing for DMA as competitive advantage for French SMEs; some Dutch and Belgian members more cautious on platform regulation
+**Influence:** Swing group; can tip or block majorities depending on EPP cohesion
 
 ---
 
-## NGO and Civil Society Stakeholders
+## 6. Stakeholder Influence Matrix
 
-### BEUC (European Bureau of Consumer Unions)
-**Position:** Strongly pro-DMA enforcement; consumer welfare argument.
-**Influence:** Provides political legitimacy to enforcement actions; media amplifier.
-
-### EDRi (European Digital Rights)
-**Position:** Pro-DMA enforcement but critical of surveillance exceptions in DMA.
-**Influence:** Monitors compliance gaps; feeds to EP rapporteurs.
-
-### Access Now
-**Position:** Pro-enforcement; focuses on privacy-interoperability intersection.
-
-### BusinessEurope
-**Position:** Pro-DMA in principle; concerned about regulatory burden on non-gatekeeper companies; wants enforcement proportionality.
+| Stakeholder | DMA (0160) | Ukraine (0161) | Armenia (0162) | Budget (0112) |
+|------------|-----------|---------------|---------------|--------------|
+| Commission (DG COMP) | 🔴 High | 🟡 Medium | 🟡 Medium | 🔴 High |
+| EPP | 🔴 High | 🔴 High | 🔴 High | 🔴 High |
+| S&D | 🟠 High | 🔴 High | 🔴 High | 🔴 High |
+| Renew | 🟡 Medium | 🟠 High | 🔴 High | 🟡 Medium |
+| Greens/EFA | 🟡 Medium | 🟠 High | 🔴 High | 🟡 Medium |
+| ECR | 🟡 Medium | 🟡 Medium | ⚠️ Split | 🟡 Medium |
+| PfE | 🔴 Opposing | 🔴 Opposing | 🔴 Opposing | 🟡 Medium |
+| Hungary/Orbán | ➖ Low | 🔴 Blocking | 🔴 Opposing | 🟡 Medium |
+| Tech Gatekeepers | 🔴 Opposing | ➖ | ➖ | ➖ |
+| Ukraine | ➖ | 🔴 Supportive | ➖ | 🟠 Supportive |
+| Armenia | ➖ | ➖ | 🔴 Supportive | ➖ |
 
 ---
 
-## Ukraine Accountability Stakeholders — Deep Analysis
+## 7. Coalition Dynamics and Power Assessment
 
-### ICC Prosecutor's Office (Karim Khan)
-**Position:** SToCA is complementary, not competitive; ICC focuses on war crimes/CAH.
-**Interest:** SToCA should have clear jurisdictional boundary to avoid duplication.
-**Influence:** Practical coordination required; ICC evidence sharing with SToCA.
+The April 30 resolution cluster reveals a durable **grand coalition** operating across EPP–S&D–Renew–Greens/EFA on all four flagship texts. This coalition commands approximately 475–500 MEP votes (65–68% of EP10 seats), well above the absolute majority threshold for resolutions (~353 votes needed).
 
-### Ukrainian Government
-**Position:** Strongly pro-SToCA; accountability is core to Zelensky government's political identity.
-**Key demand:** Speed of prosecution; historical record.
-**Leverage:** Ukrainian witness cooperation; evidence preservation.
+The resilience of this coalition rests on three structural pillars:
+1. **Geopolitical consensus:** Ukraine solidarity and anti-Russian accountability remain a high-salience, cross-party priority
+2. **Digital regulation convergence:** EPP's domestic constituent pressure (SMEs, consumers) aligns with S&D/Renew/Greens digital sovereignty agenda
+3. **Eastern Partnership ambition:** Genuine enthusiasm across all four groups for credible EU enlargement that demonstrates European geopolitical agency
 
-### G7 Governments (US, UK, Canada, Japan, Germany, France, Italy)
-**Position:** Mixed; all support in principle but differ on:
-- US: Post-2024 administration position uncertain; sovereignty concerns about international criminal courts
-- UK: Strong supporter since Ukraine war began
-- Germany: Strong supporter; SToCA secretariat potentially hosted in Germany
-- France: Supporter; Elysée has political investment in EU leadership role
-- Japan: Cautious; Asia-Pacific implications of accountability norm
+**WEP Assessment:** HIGHLY LIKELY (85%) that this grand coalition persists through end-2026 on these specific policy domains.
 
-### Russian Government
-**Position:** Categorically opposed; prosecutes SToCA architects domestically.
-**Strategy:** Offer peace negotiations as alternative to accountability; international law counter-argument (NATO aggression in Yugoslavia, US in Iraq as false equivalents).
+
+---
+
+## Pass-2 Extension: Additional Stakeholder Profiles
+
+### 7. EU Commission (DXs: COMP, CNECT)
+
+**Primary interest:** DMA enforcement authority and legal defensibility of fine mechanism
+**Power:** VERY HIGH (sole enforcement authority under DMA)
+**Stance post-TA-10-2026-0160:** Formally committed to enforcement; political will is high; resource constraint is binding (COMP DG underfunded for gatekeeper enforcement scale)
+**Internal tension:** COMP DG (enforcement-focused) vs. CNECT DG (industry partnership-focused)
+**Intelligence assessment:** Commission will prioritize one high-visibility enforcement action against most egregious DMA violation (Apple interoperability most likely) to establish precedent, then scale
+
+### 8. Council Presidency (Polish Presidency, 2026 H1)
+
+**Primary interest:** Manage EP-Council relationship; advance Eastern Partnership agenda
+**Power:** HIGH (chairs Council meetings; sets Council agenda)
+**Stance:** Polish Presidency is strongly pro-Ukraine accountability and pro-Armenia integration; key driver of positive Council environment for both
+**Intelligence assessment:** Council agenda items for Ukraine tribunal and Armenia will be advanced faster under Polish Presidency than any other member state; window of opportunity is H1 2026
+
+### 9. US State Department
+
+**Primary interest:** DMA enforcement monitoring; bilateral EU-US trade framework
+**Power:** VERY HIGH (US Section 301 authority; tariff threat)
+**Stance:** Cautiously hostile to DMA fine mechanism; publicly restrained; privately engaging Commission through USTR
+**Intelligence assessment:** US response will be calibrated to avoid EU counter-tariffs; bilateral off-ramp via EU-US Trade and Technology Council (TTC) is Washington preference over formal Section 301 action
+
+### 10. Big Tech Gatekeeper CEOs (collective profile)
+
+**Primary interest:** Avoid maximum DMA fine exposure; maintain revenue models
+**Power:** VERY HIGH (market power; political influence; employment in EU)
+**Stance:** Oppose enforcement; prefer voluntary compliance commitments; lobbying Commission, EP, and national capitals
+**Strategic signal (post-TA-10-2026-0160):** Apple, Google, Meta will each increase Brussels lobbying spend; Apple may escalate CJEU challenge; Google will likely open compliance negotiation track in parallel
+
+### 11. Armenia Government (Pashinyan Administration)
+
+**Primary interest:** EU membership pathway; security guarantee alternative to Russia
+**Power:** LOW at EU level (non-EU state)
+**Stance:** Actively pursuing EU integration; Article 49 TEU route; needs EP and Council both
+**Intelligence assessment:** Pashinyan government will maximize April 30 EP resolution in domestic communications; European integration is core 2026 election platform
+
+### 12. Ukrainian Government (Zelensky Administration)
+
+**Primary interest:** Accountability tribunal for Russian war crimes; EU support signals
+**Power:** LOW at EU level (non-EU state; but high moral authority)
+**Stance:** Actively negotiating tribunal design with EU institutions; prefers maximum scope
+**Intelligence assessment:** Ukraine will push for tribunal mandate announcement before November 2026 (before potential US election cycle disruption); EP April 30 resolution gives Kyiv political leverage with reluctant Council members
+
+### 13. Power-Interest Grid Summary
+
+```
+           HIGH INTEREST
+                |
+    [US State]  |  [Commission]  [Council]
+HIGH POWER      |                         LOW POWER
+    [Big Tech]  |  [EP Groups]   [Armenia Gov]
+                |                [Ukraine Gov]
+                |  [Civil Society]
+           LOW INTEREST
+```
+
+**Key insight:** The actors with highest power (US State, Big Tech) have adversarial interests on DMA. The actors most interested in positive outcomes (Ukraine/Armenia governments, civil society) have low EU institutional power. This power-interest asymmetry is the central strategic challenge for implementing the April 30 legislative package.
+
+
+### 14. Stakeholder Coalition Permutations
+
+**Winning coalitions for DMA enforcement (sufficient conditions):**
+1. Commission enforces + Council supports + EP maintains political pressure → ALMOST CERTAIN outcome
+2. Commission enforces + CJEU upholds + US accepts bilateral off-ramp → LIKELY outcome (60%)
+3. Commission enforces + US retaliates + CJEU suspends → ADVERSE outcome (8%)
+
+**Winning coalitions for Armenia integration:**
+1. Hungary changes position (deal) + Council agrees + Commission opens process → 3–7 year path
+2. Hungary stays NO + QMV exception approved → constitutional innovation required; legally contested
+3. Hungary election 2026 → new government → Council position changes → fast track possible
+
+**Stakeholder momentum summary:** DMA enforcement has the strongest stakeholder alignment (only external resistance); Armenia integration has the most blocking stakeholder (Hungary veto is structural constraint); Ukraine tribunal is navigable if Council technical working group proceeds (no veto risk on specific tribunal support measures).
+
+### 15. Stakeholder Intelligence Summary Table
+
+| Stakeholder | Power | Interest | Stance | 12-month trajectory |
+|-------------|-------|----------|--------|---------------------|
+| European Commission | Very High | High | FOR (DMA, Ukraine, Armenia) | Active enforcement; diplomatic engagement |
+| Council Presidency (PL) | High | High | FOR all | Window open until June 2026 |
+| US State/USTR | Very High | High (DMA hostile) | MIXED | DMA pressure; rest supportive |
+| Big Tech gatekeepers | Very High | High (DMA hostile) | AGAINST DMA | Litigation + compliance track |
+| Armenia Government | Low | Very High | FOR | Maximizing EP mandate |
+| Ukraine Government | Low | Very High | FOR | Fast-track tribunal design |
+| Hungary Government | High (veto) | High (Armenia hostile) | AGAINST Armenia | Stable NO through 2026 |
+| EP Group Leaders | High | High | MAJORITY FOR | Coalition management |
+| Civil society (BEUC, etc.) | Medium | High | Strong FOR | Public pressure campaign |
+| Russian Government | High (external) | High (Ukraine hostile) | AGAINST Ukraine tribunal | Counter-narrative; no institutional lever |
+

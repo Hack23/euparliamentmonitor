@@ -121,3 +121,48 @@ The US has no federal cyberbullying or online harassment law. Section 230 CDA pr
 **EU distinctiveness:** The EU's multi-year MFF plus annual budget system creates a two-layer process that provides medium-term predictability (MFF) but annual political battles (annual budget). The April 2026 guidelines resolution is the EP's opening position in the annual budget cycle — a routine but important procedural step.
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Comparative International Extension (Run 268)
+
+### 5. Japan Digital Markets Comparison
+
+**Japan Digital Platform Transparency Act (2021):**
+- Applies to: App stores, EC platforms, online advertising, search, social media
+- Fine mechanism: Up to 6% of Japan domestic revenue (vs. DMA 10% global)
+- Enforcement: Japan Fair Trade Commission (JFTC)
+- Gatekeeper designation: Annual review by Ministry of Economy, Trade and Industry
+- Status: Active enforcement since 2022
+
+**Key difference from DMA:** Japan regime is narrower (domestic revenue only; 6% cap) and less prescriptive on interoperability. DMA is the most comprehensive digital markets regulation globally. The EP's strengthening of DMA fine mechanisms in TA-10-2026-0160 puts EU ahead of Japan in enforcement capacity.
+
+### 6. Australia Digital Platform Services Act Comparison
+
+**Australia's approach:**
+- ACCC Digital Platform Services Inquiry (2022–2024)
+- Code-of-conduct approach (voluntary + mandatory backstop)
+- Narrower scope than DMA; focused on bargaining power with news publishers
+- No gatekeeper fine mechanism equivalent to DMA
+
+**What Australia illustrates:** Code-of-conduct approach (Australia) vs. mandatory gatekeeper obligations (EU/DMA). DMA is the more ambitious regulatory intervention; Australian model shows the alternative path major jurisdictions could have taken.
+
+### 7. Cross-Jurisdictional Accountability Tribunal Comparison
+
+**International Criminal Tribunals:**
+
+| Tribunal | Established | Type | Status |
+|----------|-------------|------|--------|
+| ICTY (Yugoslavia) | 1993 | Ad hoc UN | Completed 2017 |
+| ICTR (Rwanda) | 1994 | Ad hoc UN | Completed 2015 |
+| ICC | 1998 | Permanent multilateral | Active |
+| Lebanon STL | 2009 | Hybrid (Lebanese + UN) | Active |
+| Proposed Ukraine HIT | 2026 (pending) | Hybrid (Ukrainian + multilateral) | Proposed |
+
+**What ICTY/STL experience predicts for Ukraine:**
+- Hybrid model (Lebanon STL) is the relevant comparison
+- STL took 4 years from proposal to first indictment
+- Funding was secured through voluntary contributions (not UN assessed budget)
+- Custody challenge: Lebanon STL never achieved suspect in dock for Hariri trial
+- **Ukraine parallel:** No physical custody guaranteed; Russia won't extradite; in absentia proceedings likely
+

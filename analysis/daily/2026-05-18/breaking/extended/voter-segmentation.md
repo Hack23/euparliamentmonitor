@@ -145,3 +145,21 @@ EP10 was elected in June 2024 on an electorate that polling identified as organi
 - S&D most vulnerable on budget orthodoxy (left wing critical of defense spending reallocation)
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Voter Segmentation Extension (Run 268)
+
+### 6. Salience by Voter Segment — Summary Table
+
+| Segment | DMA Salience | Ukraine Salience | Armenia Salience | Budget Salience |
+|---------|-------------|-----------------|-----------------|-----------------|
+| Urban digital professionals | HIGH | HIGH | LOW | MEDIUM |
+| Rural traditional conservatives | LOW | HIGH | LOW | MEDIUM |
+| Young voters (18–30) | MEDIUM (cyberbullying HIGH) | HIGH | LOW | LOW |
+| Small business owners | HIGH (level playing field) | MEDIUM | LOW | MEDIUM |
+| Defence industry workers | LOW | MEDIUM | LOW | HIGH |
+| Environmental activists | LOW | MEDIUM | LOW | HIGH (negative — climate tradeoff) |
+
+**Key observation:** The April 28–30 plenary's acts collectively reach across all six voter segments. This multi-segment salience pattern is rare and supports the CRITICAL-tier significance classification for the plenary as a whole.
+

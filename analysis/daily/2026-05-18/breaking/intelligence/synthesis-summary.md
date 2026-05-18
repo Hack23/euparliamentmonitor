@@ -141,3 +141,27 @@ No prior same-day analysis run exists for this date. Bayesian baseline establish
 5. **Data quality is degraded** — absent voting data and events feed reduce confidence; next run should prioritize DOCEO XML retrieval and adopted text full-text access
 
 WEP Band assessment: findings 1, 2, 4 are LIKELY (60-80%); finding 3 is ROUGHLY EVEN ODDS (50%); finding 5 is ALMOST CERTAIN (95%+)
+
+---
+
+## Pass-2 Extension: Synthesis Deepening
+
+### 5. Intelligence Confidence Matrix
+
+| Judgment | Confidence | Evidence Base | WEP Band |
+|----------|-----------|---------------|---------|
+| DMA enforcement will proceed | HIGH | EP mandate; Commission political will; legal basis solid | ALMOST CERTAIN (85%) |
+| Ukraine tribunal will be designed | HIGH | Council working groups active; Polish Presidency driving | LIKELY (65%) |
+| Armenia integration timeline: 3–7 years | HIGH | Hungary veto structural; process real but slow | ALMOST CERTAIN (85%) |
+| DMA will face US counter-pressure | HIGH | USTR briefings; tech industry lobbying | LIKELY (70%) |
+| Budget supplement will enter Council | HIGH | EP resolution; NATO context | ALMOST CERTAIN (90%) |
+| Cyberbullying directive will be transposed | HIGH | Low controversy; Council supportive | LIKELY (75%) |
+
+### 6. Three Synthesis Headlines
+
+1. **The DMA Century:** April 30 may be the inflection point at which EU regulators permanently changed the global tech industry. Not through one fine but through establishing the precedent that interoperability, access, and transparency are non-negotiable.
+
+2. **Eastern Frontier Governance:** Ukraine and Armenia resolutions together signal EP10's defining foreign policy ambition: a Europe that expands its accountability architecture and integration offer simultaneously eastward. The gap between ambition and Council capacity is the central tension of EP10's remaining 3 years.
+
+3. **Defence-Climate Bargain:** The budget supplement resolution is the opening bid in a 12–18 month negotiation over EU fiscal priorities. The Greens/EFA partial support signals they have a price; EPP and Renew know the price; the bargain will define MFF 2027.
+

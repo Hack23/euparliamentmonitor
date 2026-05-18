@@ -108,3 +108,37 @@ Forward indicators are observable, measurable signals that will confirm or disco
 | FI-B27-2 | 2026-07-15 | Council EU press | Monthly |
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Forward Indicators Extension (Run 268)
+
+### 5. 30-Day Forward Indicators (May 2026)
+
+| Indicator | Signal Type | Watch For | Significance |
+|-----------|------------|-----------|-------------|
+| EU-US DMA diplomatic contacts | Leading | Emergency bilateral meeting request from USTR | HIGH: signals US retaliation concern |
+| Council Armenia agenda | Leading | Armenia item added to Council Foreign Affairs agenda | HIGH: integration progress signal |
+| Ukraine tribunal design group | Leading | Commission drafts tribunal mandate text | HIGH: institutional momentum signal |
+| Big Tech DMA compliance filings | Leading | Apple/Google/Meta submitting revised compliance plans | HIGH: enforcement trajectory |
+| EP10 coalition voting April → May | Lagging | Coalition stability; Greens/EFA defection on climate-defence | MEDIUM: trend signal |
+
+### 6. 90-Day Forward Indicators (July 2026)
+
+| Indicator | Signal Type | Watch For | Significance |
+|-----------|------------|-----------|-------------|
+| Commission DMA formal enforcement action | Milestone | First formal investigation opened post-TA-0160 | CRITICAL: signals enforcement clock started |
+| Council vote on Armenia | Milestone | Council Foreign Affairs vote | CRITICAL: integration pathway confirmed or blocked |
+| Ukraine tribunal framework text | Milestone | Legal basis framework text published | HIGH: institutional design signal |
+| 2027 MFF supplement Council position | Lagging | Council counter-proposal on budget | HIGH: defence funding reality check |
+| CJEU DMA preliminary reference | Risk indicator | First Art. 267 TFEU reference to CJEU | MEDIUM: legal challenge signal |
+
+### 7. 180-Day Leading Indicators (November 2026)
+
+| Indicator | Signal Type | Watch For |
+|-----------|------------|-----------|
+| First DMA fine issued | Milestone | Commission issues first fine; size vs. theoretical maximum |
+| Armenia candidate status | Milestone | Commission opens candidate status process |
+| Ukraine tribunal mandate | Milestone | Mandate adopted by Council; first staff recruited |
+| EP10 mid-term assessment | Review | Plenary significance average across H1 2026 vs. EP9 baseline |
+

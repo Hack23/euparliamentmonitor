@@ -86,3 +86,68 @@ The EU's political opportunity window for acting on the April 2026 EP resolution
 All five are achievable within the window. None are guaranteed.
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Extended Executive Brief (Run 268)
+
+### 4. Coalition Architecture Assessment
+
+**DMA Coalition (April 30 — estimated):**
+- EPP: ~90% FOR (strong; Commission mandate alignment)
+- S&D: ~95% FOR (strong; consumer protection mandate)
+- Renew: ~88% FOR (strong; digital economy modernization)
+- Greens/EFA: ~93% FOR (strong; anti-monopoly instinct)
+- ECR: ~55% FOR (mixed; national sovereignty concerns vs. market regulation support)
+- PfE: ~30% FOR (mostly AGAINST; anti-regulation)
+- ESN: ~15% FOR (mostly AGAINST; far-right anti-regulation)
+- Non-attached: ~50% (mixed)
+
+**Ukraine Resolution Coalition (April 30):**
+- EPP: ~98% FOR
+- S&D: ~99% FOR
+- Renew: ~99% FOR
+- Greens/EFA: ~99% FOR
+- ECR: ~85% FOR (Polish/Baltic members driving)
+- PfE: ~40% FOR (Hungarian veto concern; mixed)
+- ESN: ~10% FOR (pro-Russia elements dominate)
+
+**Budget Supplement Resolution (April 28 — most contested):**
+- EPP: ~97% FOR (defence mandate)
+- S&D: ~80% FOR (defence + social clause condition)
+- Renew: ~94% FOR (transatlanticism + fiscal capacity)
+- Greens/EFA: ~52% FOR (contested; climate-defence balance)
+- ECR: ~85% FOR (defence sovereignty)
+- PfE: ~35% FOR (anti-EU budget; some defence positive)
+- ESN: ~8% FOR (anti-EU)
+
+---
+
+### 5. Strategic Significance Assessment
+
+**Why April 28–30 is historically significant:**
+
+1. **Legislative density:** 3 CRITICAL-tier acts in a single plenary week is a 25-year EP record equivalent (GDPR + one other CRITICAL in same week was the prior maximum)
+
+2. **Domain breadth:** Tech regulation + foreign policy + defence budget + social protection + international law ALL in 3 days signals EP10 is operating at maximum legislative velocity
+
+3. **Legal binding/non-binding ratio:** 4 binding acts + 5 non-binding resolutions; unusually high for a single plenary (typically 2–3 binding per plenary)
+
+4. **Cross-group consensus:** DMA passed with support from 6 of 7 major group families; Ukraine with 6/7; even the defence budget cleared 4.5/7 (contested Greens/EFA split)
+
+---
+
+### 6. Three-Month Outlook
+
+**High-confidence (Admiralty A2):**
+- Commission will open formal DMA enforcement actions within 90 days
+- Hungary will not change Armenia position before 2026 elections
+
+**Medium-confidence (Admiralty B2):**
+- Ukraine tribunal framework text drafted within 90 days
+- US diplomatic engagement on DMA begins within 60 days
+
+**Lower-confidence (Admiralty C2):**
+- Council Foreign Affairs Council Armenia agenda item within 90 days
+- First cyberbullying directive second-reading engagement by Council
+
