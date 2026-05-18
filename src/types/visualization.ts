@@ -61,8 +61,4 @@ export type {
   IntelligenceMindmap,
 } from './visualization/mindmap.js';
 
-export type {
-  VotingBloc,
-  VoteHighlight,
-  CoalitionMetrics,
-} from './visualization/voting-bloc.js';
+export type { VotingBloc, VoteHighlight, CoalitionMetrics } from './visualization/voting-bloc.js';

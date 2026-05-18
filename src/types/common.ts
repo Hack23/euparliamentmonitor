@@ -38,15 +38,9 @@ export {
   CATEGORY_TIME_PERIOD,
 } from './article-category.js';
 
-export type {
-  ArticleCategoryLabels,
-  LangTitleSubtitle,
-} from './article-category.js';
+export type { ArticleCategoryLabels, LangTitleSubtitle } from './article-category.js';
 
-export type {
-  PropositionsStrings,
-  EditorialStrings,
-} from './article-strings/propositions.js';
+export type { PropositionsStrings, EditorialStrings } from './article-strings/propositions.js';
 
 export type { MotionsStrings } from './article-strings/motions.js';
 
@@ -68,14 +62,9 @@ export type {
   DeepAnalysisStrings,
 } from './article-strings/breaking.js';
 
-export type {
-  CommitteeAnalysisContentStrings,
-} from './article-strings/committee.js';
+export type { CommitteeAnalysisContentStrings } from './article-strings/committee.js';
 
 // Legacy convenience re-exports — kept for callers that historically
 // reached `StakeholderPerspective` / `StakeholderOutcomeMatrix` via
 // `types/common.js` rather than `types/stakeholder.js`.
-export type {
-  StakeholderPerspective,
-  StakeholderOutcomeMatrix,
-} from './stakeholder.js';
+export type { StakeholderPerspective, StakeholderOutcomeMatrix } from './stakeholder.js';

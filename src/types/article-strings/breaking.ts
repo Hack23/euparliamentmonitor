@@ -11,10 +11,7 @@
  * consumer.
  */
 
-import type {
-  StakeholderPerspective,
-  StakeholderOutcomeMatrix,
-} from '../stakeholder.js';
+import type { StakeholderPerspective, StakeholderOutcomeMatrix } from '../stakeholder.js';
 
 /** Localized section heading strings for breaking news articles */
 export interface BreakingStrings {
