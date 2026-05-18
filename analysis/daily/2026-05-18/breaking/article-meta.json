@@ -1,0 +1,47 @@
+{
+  "date": "2026-05-18",
+  "articleType": "breaking",
+  "runId": "breaking-run262-1779068047",
+  "gateResult": "PENDING",
+  "slug": "2026-05-18-breaking",
+  "articlePath": "analysis/daily/2026-05-18/breaking/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Article 5** (self-preferencing prohibition) — active investigations against Alphabet (Google Shopping) and Apple (App Store) remain unresolved",
+    "**Article 6** (interoperability) — Meta's WhatsApp interoperability obligations are behind schedule",
+    "**Article 7** (core platform obligations) — ByteDance TikTok compliance submissions contested by Commission staff",
+    "**Post-Nagorno-Karabakh consolidation**: Armenia's territorial settlement with Azerbaijan (late 2023) removed the principal obstacle to EU-Armenia normalization, and the EP is now rewarding this geopolitical realignment with a formal integration endorsement",
+    "**Anti-CSTO signal**: Armenia's withdrawal from the Collective Security Treaty Organization (CSTO) in 2024 is treated as an accession conditionality milestone already met in the resolution's preambular language",
+    "**EaP+**: The resolution implicitly endorses a differentiated Eastern Partnership track that would allow frontrunner countries (Armenia, Georgia if democratized) to access candidate status without full Article 49 TEU procedures",
+    "April 2026 EP plenary week analysis (if available in cache): N/A"
+  ],
+  "topRisks": [
+    "**DMA enforcement domain:** MEDIUM-HIGH (legal challenges unavoidable even with robust enforcement design)",
+    "**Ukraine accountability domain:** MEDIUM (ratification progress feasible but Tribunal operationalization remains uncertain)",
+    "**Armenia domain:** HIGH (Russian destabilization and Azerbaijan leverage are structurally difficult to mitigate)",
+    "**Institutional domain:** MEDIUM (coalition stability adequate for EP10 mainstream agenda)",
+    "**Informational domain:** LOW-MEDIUM (data quality gaps are acknowledged and bounded)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "US: Post-2024 administration position uncertain; sovereignty concerns about international criminal courts",
+    "UK: Strong supporter since Ukraine war began",
+    "Germany: Strong supporter; SToCA secretariat potentially hosted in Germany",
+    "France: Supporter; Elysée has political investment in EU leadership role",
+    "Japan: Cautious; Asia-Pacific implications of accountability norm"
+  ],
+  "macroContext": "The European Union enters the spring 2026 legislative session in a period of modest recovery following the 2024-2025 growth slowdown driven by energy costs, trade uncertainty from US tariff policies, and the persistent drag of Ukraine war economic spillovers.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
