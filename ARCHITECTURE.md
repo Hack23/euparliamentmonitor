@@ -1493,8 +1493,15 @@ The aggregator (`src/aggregator/article-metadata.ts` via `getHorizonConfig(slug)
 
 **Implementation:**
 
-- [`src/config/article-horizons.ts`](src/config/article-horizons.ts) — registry module (added in PR #1561).
+- [`src/config/article-horizons.ts`](src/config/article-horizons.ts) — thin re-export barrel (split in Refactor 2/8, issue #2030; original 603-LOC module decomposed into the focused sub-modules below).
+- [`src/config/horizons/types.ts`](src/config/horizons/types.ts) — `ArticleHorizonConfig`, `StageBudgetConfig`, `CadenceConfig`, `DataWindow*` types.
+- [`src/config/horizons/registry.ts`](src/config/horizons/registry.ts) — `ARTICLE_HORIZONS` constant (pure data, no helpers; ≤350 LOC).
+- [`src/config/horizons/artifact-paths.ts`](src/config/horizons/artifact-paths.ts) — co-located artifact-path constants and shared mandatory-list groups (`PROSPECTIVE_MANDATORY`, `RETROSPECTIVE_MANDATORY`, etc.).
+- [`src/config/horizons/stage-budgets.ts`](src/config/horizons/stage-budgets.ts) — shared `*_BUDGETS` shapes and `PR_CALL_DEADLINE_BY_SLUG` (42 / 45 / 47-min targets, per `.github/prompts/02-analysis-protocol.md` §3).
+- [`src/config/horizons/forward-projection.ts`](src/config/horizons/forward-projection.ts) — `getForwardStatementsHorizonDays`, `getScenarioMaxHorizonMonths`, `getForwardStatementsHorizonMap`, `getForwardProjectionSlugs`.
+- [`src/config/horizons/lookup.ts`](src/config/horizons/lookup.ts) — `getHorizonConfig`, `getProspectiveSlugs`, `getElectoralOverlaySlugs`, `getMandatoryArtifacts`.
 - [`test/unit/horizon-registry.test.js`](test/unit/horizon-registry.test.js) — drift-guard tests (stage-budget sum, electoral-overlay invariants, slug round-trip).
+- [`test/unit/horizon-registry-split.test.js`](test/unit/horizon-registry-split.test.js) — barrel-parity drift guard + new stage-budget / forward-projection assertions added in Refactor 2/8.
 - [`test/unit/horizon-snapshot.test.js`](test/unit/horizon-snapshot.test.js) — golden-snapshot test (use `npx vitest run -u` to regenerate after intentional registry edits).
 - [`src/aggregator/article-metadata.ts`](src/aggregator/article-metadata.ts) — consumes `getHorizonConfig(slug)` for window resolution.
 - [`scripts/aggregator/forward-statements-registry.js`](scripts/aggregator/forward-statements-registry.js) — consumes `forwardStatementsHorizonDays` for carry-forward decay.
