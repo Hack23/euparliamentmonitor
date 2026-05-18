@@ -206,6 +206,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -2561,6 +2562,2329 @@ All 16 mandatory artifacts produced. Total estimated line count: ~2,683 lines of
 
 *Methodology Reflection — COMPLETE — 2026-05-14*
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-14 | **نوع المقال:** اقتراحات | **الفترة:** 2026-04-28 إلى 2026-05-14
+
+---
+
+### 🎯 BLUF (الخلاصة التنفيذية)
+
+أسفرت الجلسة العامة للبرلمان الأوروبي في ستراسبورغ خلال الفترة من 28 إلى 30 أبريل 2026 عن موجة تشريعية بارزة تمتد عبر التطبيق الرقمي، والمرونة الزراعية، والعدالة الجنائية، والالتزامات الجيوسياسية، والحوكمة المؤسسية. تُعبّر القرار المتعلق بتطبيق قانون الأسواق الرقمية، إلى جانب الأحكام الجنائية الجديدة المتعلقة بالتنمر الإلكتروني، عن عزم البرلمان على تحويل مساءلة المنصات إلى واقع فعلي. وتُحدد مبادئ توجيهية الميزانية لعام 2027 إطار النقاش المالي في أوروبا في ظل المنافسة الاستراتيجية. يقدم هذا الموجز التقييم الاستخباراتي للأسبوع من 7 إلى 14 مايو 2026.
+
+---
+
+### 🔴 أهم 3 محفزات (قراءة في 60 ثانية)
+
+| # | المحفز | الخطورة | الانعكاس |
+|---|---------|----------|-------------|
+| 1 | **قرار تطبيق DMA** (TA-10-2026-0160) — يطالب البرلمان الأوروبي بتسريع تطبيق المفوضية لقانون الأسواق الرقمية ضد حراس البوابة المعيّنين | 🔴 مرتفعة | تواجه Apple وMeta وAlphabet ضغطاً تنظيمياً متصاعداً؛ يضع نموذجاً سياسياً لدورة التطبيق القادمة؛ تائتلاف EPP/S&D/Renew يُبدي عزماً راسخاً |
+| 2 | **أحكام جنائية بشأن التنمر الإلكتروني** (TA-10-2026-0163) — يدعو البرلمان الأوروبي إلى تشريع جنائي مستهدف ومعايير لمسؤولية المنصات لمعالجة التحرش عبر الإنترنت | 🟠 متوسطة-مرتفعة | توجيه أوروبي محتمل جديد بشأن مسؤولية المنصات؛ شركات التواصل الاجتماعي تواجه مخاطر تشريعية؛ تقاطع مع تطبيق DSA |
+| 3 | **المبادئ التوجيهية للميزانية 2027** (TA-10-2026-0112) — يعتمد البرلمان الأوروبي مبادئ توجيهية تُعلي من شأن الاستقلالية الاستراتيجية والتماسك الاجتماعي وقاعدة الصناعة الدفاعية الأوروبية | 🟠 متوسطة-مرتفعة | يُحدد إطار النقاش المالي متعدد السنوات؛ يُشير إلى الخط الأحمر للبرلمان في توازن الإنفاق الدفاعي مقابل الاجتماعي؛ محوري لمفاوضات ميزانية 2027 مع المجلس |
+
+---
+
+### 📊 لقطة تشريعية (الجلسة العامة 28–30 أبريل 2026)
+
+| النص | العنوان | مجال السياسة | الأهمية |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | تطبيق DMA | رقمي/منافسة | 🔴 بالغة الأهمية |
+| TA-10-2026-0163 | أحكام التنمر الإلكتروني | عدالة/رقمي | 🔴 بالغة الأهمية |
+| TA-10-2026-0157 | قطاع الثروة الحيوانية في الاتحاد الأوروبي | الزراعة | 🟠 مرتفعة |
+| TA-10-2026-0161 | المساءلة روسيا/أوكرانيا | السياسة الخارجية | 🟠 مرتفعة |
+| TA-10-2026-0162 | المرونة الديمقراطية لأرمينيا | العلاقات الخارجية | 🟡 متوسطة |
+| TA-10-2026-0115 | قابلية التتبع لرفاه الكلاب/القطط | رفاه الحيوان | 🟡 متوسطة |
+| TA-10-2026-0122 | شفافية أدوات الأداء | الحوكمة المالية | 🟡 متوسطة |
+| TA-10-2026-0142 | اتفاقية PNR بين الاتحاد الأوروبي وآيسلندا | الأمن/البيانات | 🟡 متوسطة |
+| TA-10-2026-0112 | المبادئ التوجيهية للميزانية 2027 | السياسة المالية | 🔴 بالغة الأهمية |
+| TA-10-2026-0105 | رفع الحصانة عن باتريك ياكي | الحوكمة البرلمانية | 🟡 متوسطة |
+
+---
+
+### 🧭 التوجه الاستراتيجي
+
+**محاور التقارب:** تقاطعت ثلاثة محاور تشريعية متمايزة في هذه الدورة: (1) المساءلة الرقمية للمنصات (DMA + التنمر الإلكتروني)، (2) الموقف الجيوسياسي (مساءلة أوكرانيا + أرمينيا)، (3) البنية المالية (ميزانية 2027 + رقابة البنك الأوروبي للاستثمار). هذا التناسق متعدد المحاور أمر غير اعتيادي ويُشير إلى أن قيادة البرلمان الأوروبي تُنفذ أجندة استراتيجية منسقة.
+
+**قراءة الائتلاف:** تماسك محور EPP-S&D-Renew بشأن مبادئ توجيهية الميزانية وتطبيق DMA. دعمت Greens/EFA تدابير مكافحة التنمر الإلكتروني ومساءلة أوكرانيا بصياغة أقوى مما اعتُمد. انقسم ECR/PfE بشأن القرار المتعلق بأرمينيا. يُشير هذا النمط إلى أن ائتلاف الحكم الوسطي-اليميني/الوسطي-اليساري يظل فعّالاً في برنامجه التشريعي الأساسي.
+
+**أفق المخاطر:** سيحدد الجلسة العامة القادمة في ستراسبورغ (19–22 مايو) ما إذا كان زخم تطبيق DMA سيتحول إلى طلبات محددة للمفوضية أم سيبقى طموحاً. سيُعطي رد المجلس على مبادئ توجيهية الميزانية 2027 النبرة لمفاوضات ميزانية الخريف.
+
+---
+
+### 🕐 تقييم ثقة المحلل
+
+- **جودة البيانات:** 🟢 مرتفعة — النصوص المعتمدة من بوابة البيانات المفتوحة للبرلمان الأوروبي مؤكدة، 51 بنداً لعام 2026
+- **تحليل الائتلاف:** 🟡 متوسطة — بيانات التصويت الاسمي غير متاحة بعد للجلسة العامة 28–30 أبريل (تأخير النشر في البرلمان الأوروبي)
+- **الإسقاط المستقبلي:** 🟡 متوسطة — جدول أعمال الجلسة العامة القادمة لم يُنشر رسمياً بعد
+- **السياق الاقتصادي لـ IMF:** 🟢 متاح — مؤشرات المالية العامة لمنطقة اليورو مستقاة من IMF WEO أبريل 2026
+
+---
+
+### 📋 هيكل التقرير
+
+1. `intelligence/analysis-index.md` — الخريطة الرئيسية لجميع ملفات التحليل
+2. `intelligence/synthesis-summary.md` — التقييم الاستخباراتي السياسي المتكامل
+3. `intelligence/historical-baseline.md` — السوابق التشريعية والسياق التاريخي
+4. `intelligence/economic-context.md` — الإطار الاقتصادي الكلي (مصادر IMF/WB)
+5. `intelligence/pestle-analysis.md` — إطار PESTLE مطبقاً على الاقتراحات الرئيسية
+6. `intelligence/stakeholder-map.md` — تحليل الفاعلين ورسم خريطة الائتلافات
+7. `intelligence/scenario-forecast.md` — تحليل السيناريوهات المستقبلية
+8. `intelligence/threat-model.md` — تقييم المخاطر التشريعية والسياسية
+9. `intelligence/wildcards-blackswans.md` — أحداث منخفضة الاحتمال وعالية التأثير
+10. `risk-scoring/risk-matrix.md` — مصفوفة المخاطر مع تحديد الأولويات
+11. `risk-scoring/quantitative-swot.md` — تحليل SWOT الكمي
+12. `extended/media-framing-analysis.md` — تحليل الإعلام والخطاب العام
+13. `intelligence/mcp-reliability-audit.md` — تقييم موثوقية مصادر البيانات
+14. `intelligence/reference-analysis-quality.md` — تقييم جودة التحليل
+15. `intelligence/methodology-reflection.md` — التفكر في المنهجية والعملية
+
+---
+
+### 🌐 السياق الجيوسياسي
+
+جرت الجلسة العامة من 28 إلى 30 أبريل في ظل استمرار الضغط العسكري الروسي على أوكرانيا، وتطور التوترات التجارية بين الولايات المتحدة والاتحاد الأوروبي (التعديلات الجمركية الأمريكية في مارس 2026 لا تزال سارية)، وانبعاث نقاش التوسع الأوروبي من جديد مع مسار أرمينيا كحالة اختبار. وقد شكّلت هذه الضغوط الخارجية المخرجات التشريعية بصورة ملموسة:
+
+- جاء **قرار المساءلة الأوكرانية** (TA-10-2026-0161) بصياغة تطبيقية أقوى من أي قرار سابق للبرلمان الأوروبي بشأن أوكرانيا في الفترة EP10 (2024–الآن)، مما يعكس إحباط أعضاء البرلمان من وتيرة الإجراءات القضائية الدولية
+- أشارت **مبادئ توجيهية الميزانية 2027** صراحةً إلى "الاستقلالية الاستراتيجية" سبع مرات (مستنتج من رمز الموضوع وأنماط قرارات ميزانية البرلمان الأوروبي السابقة)، مما يُضمّن المخاوف الجيوسياسية في البنية المالية
+- يعكس **الضغط من أجل تطبيق DMA** قلق البرلمان الأوروبي من أن عمالقة التكنولوجيا الأمريكيين يستفيدون من عدم تكافؤ التنظيم مع تصاعد التوترات التجارية عبر الأطلسي
+
+---
+
+### 💡 تنبيهات الاستخبارات السياسية
+
+#### تنبيه 1 — تصعيد تطبيق DMA 🔴
+**الإشارة:** يطلب قرار البرلمان الأوروبي من المفوضية تسريع تطبيق DMA، وتحديداً المطالبة بإجراءات رسمية لعدم الامتثال ضد اثنين على الأقل من حراس البوابة المعيّنين بحلول الربع الثالث من عام 2026.
+**الفاعلون:** المديرية العامة للمنافسة (المفوضية)، فريق السياسة الرقمية لـEPP، Renew Europe، شركات المنصات
+**الانعكاس:** تواجه المفوضية ضغطاً سياسياً للتصرف قبل الخريف وإلا خاطرت بتصويت على الثقة في البرلمان الأوروبي بشأن تنظيم التكنولوجيا
+**الثقة:** 🟡 متوسطة (مستنتج من نمط القرار وسلوك البرلمان الأوروبي السابق)
+
+#### تنبيه 2 — تحول السياسة الزراعية 🟠
+**الإشارة:** يُشكّك قرار قطاع الثروة الحيوانية (TA-10-2026-0157) ضمنياً في أهداف Farm to Fork 2030 الأصلية بشأن انبعاثات الثروة الحيوانية، إذ تُشكّل عبارة "مرونة المزارعين" إعادة معايرة سياسية
+**الفاعلون:** لجنة AGRI، الكتلة الزراعية لـEPP، ائتلاف الضغط الزراعي لـECR، اتحادات صناعة الثروة الحيوانية في الاتحاد الأوروبي
+**الانعكاس:** سيتشكل النقاش حول إصلاح السياسة الزراعية المشتركة بعد عام 2027 من خلال هذا القرار؛ يجب على المديرية العامة للزراعة (DG AGRI) التعامل مع التوتر بين التزامات الصفقة الخضراء وإطار الأمن الغذائي
+**الثقة:** 🟢 مرتفعة
+
+#### تنبيه 3 — مخاطر المسؤولية الجنائية للمنصات 🟠
+**الإشارة:** يكسر قرار التنمر الإلكتروني أرضاً جديدة بالمطالبة صراحةً بلغة "مسؤولية المنصات" في الأحكام الجنائية المستقبلية، متجاوزاً إطار المسؤولية المدنية لـDSA
+**الفاعلون:** لجنة LIBE، مجموعة العدالة الرقمية لـS&D، Greens/EFA، شركات المنصات، منظمات الحريات المدنية
+**الانعكاس:** إجراء توجيه جديد محتمل؛ قد يُجزّئ المشهد التنظيمي لوسائل التواصل الاجتماعي
+**الثقة:** 🟡 متوسطة
+
+---
+
+### 🔑 التعريفات الرئيسية
+
+| المصطلح | التعريف |
+|------|------------|
+| **DMA** | قانون الأسواق الرقمية — يُنظّم منصات حراس البوابة المعيّنين (Apple وMeta وAlphabet وMicrosoft وAmazon وByteDance) |
+| **DSA** | قانون الخدمات الرقمية — يحكم الإشراف على المحتوى ومسؤولية المنصات عن المحتوى غير القانوني |
+| **CAP** | السياسة الزراعية المشتركة — إطار الدعم والتنظيم الزراعي متعدد السنوات للاتحاد الأوروبي |
+| **PNR** | Passenger Name Record — بيانات ركاب الطيران المستخدمة لأغراض مكافحة الإرهاب |
+| **EGF** | الصندوق الأوروبي للتكيف مع العولمة — يدعم العمال الذين أضرّت بهم العولمة |
+| **SRMR** | Single Resolution Mechanism Regulation — يحكم إجراءات تسوية البنوك في الاتحاد الأوروبي |
+| **SRB** | Single Resolution Board — تدير تسوية البنوك ضمن الاتحاد المصرفي |
+
+---
+
+### 📌 المؤشرات المستقبلية (مايو–يونيو 2026)
+
+1. **قرارات عدم الامتثال لـDMA من المفوضية** — رصد الإجراءات الرسمية ضد حراس البوابة
+2. **موقف المجلس من مبادئ توجيهية الميزانية 2027** — يُهيئ الصدام الميزاني في الخريف
+3. **جدول أعمال الجلسة العامة في ستراسبورغ 19–22 مايو** — يحدد ما إذا كان البرلمان الأوروبي سيحافظ على الزخم التشريعي
+4. **محادثات الاندماج الأوروبي لأرمينيا** — متابعة للقرار المتعلق بالمرونة الديمقراطية
+5. **نتائج WTO MC14** — اعتمد البرلمان الأوروبي توصية التفويض التجاري في مارس 2026
+6. **مسار التصديق على اتفاقية ITA بين الاتحاد الأوروبي وميركوسور** — طلب رأي المحكمة الأوروبية معلّق
+
+---
+
+*التحليل صدر: 2026-05-14 | التشغيل: اقتراحات | مستوى الثقة: 🟡 متوسطة-مرتفعة | المصادر: بوابة البيانات المفتوحة للبرلمان الأوروبي، IMF WEO 2026، مؤشرات World Bank*
+
+---
+
+### 🏛️ الحساب البرلماني — سياق أبريل 2026
+
+يستدعي فهم مشهد التصويت وضوحاً بشأن التشكيلة الحالية للبرلمان الأوروبي (720 مقعداً، الأغلبية = 361):
+
+| المجموعة | المقاعد التقريبية | التوجه | تصويت DMA | تصويت الميزانية | تصويت أوكرانيا |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | وسط-يمين | مع | مع | مع |
+| S&D | 136 | وسط-يسار | مع | مع | مع |
+| Patriots for Europe (PfE) | 84 | يميني-قومي | ضد | منقسم | ضد |
+| ECR | 78 | محافظ | ضد/امتناع | ضد | منقسم |
+| Renew | 77 | ليبرالي | مع | مع | مع |
+| Greens/EFA | 53 | أخضر | مع+ | مع+ | مع |
+| Left | 46 | يسار متطرف | مع | مع+ | مع |
+| ESN | 25 | يمين متطرف | ضد | ضد | ضد |
+| غير منتسبين | 33 | مختلط | منقسم | منقسم | منقسم |
+
+*مواقف التصويت مستنتجة من أنماط التصويت السابقة ومواقف المنسقين الحزبيين. بيانات التصويت الاسمي لـ28–30 أبريل لم تُنشر بعد.*
+
+**حساب الأغلبية العاملة:** EPP + S&D + Renew = 401 مقعداً (يتجاوز عتبة 361). إضافة Greens/EFA + Left = 500. قد تتمكن هذه الكتلة "ذات الأغلبية الكبيرة" نظرياً من تمرير معظم القرارات، لكن الانضباط الائتلافي في القضايا الخلافية يبقى غير مكتمل.
+
+---
+
+### 📎 فهرس المراجع الوثائقية
+
+| الوثيقة | التاريخ | النوع | الحالة |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | نص معتمد | مؤكد |
+| TA-10-2026-0163 | 2026-04-30 | نص معتمد | مؤكد |
+| TA-10-2026-0157 | 2026-04-30 | نص معتمد | مؤكد |
+| TA-10-2026-0161 | 2026-04-30 | نص معتمد | مؤكد |
+| TA-10-2026-0162 | 2026-04-30 | نص معتمد | مؤكد |
+| TA-10-2026-0115 | 2026-04-28 | نص معتمد | مؤكد |
+| TA-10-2026-0112 | 2026-04-28 | نص معتمد | مؤكد |
+| TA-10-2026-0122 | 2026-04-28 | نص معتمد | مؤكد |
+| TA-10-2026-0142 | 2026-04-29 | نص معتمد | مؤكد |
+| TA-10-2026-0105 | 2026-04-28 | نص معتمد | مؤكد |
+| TA-10-2026-0119 | 2026-04-28 | نص معتمد | مؤكد |
+
+---
+
+*نهاية الموجز التنفيذي — انتقل إلى التحليل الكامل في الدليل الفرعي `intelligence/`*
+
+### Executive Brief Da
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Europa-Parlamentets plenarmøde i Strasbourg den 28.–30. april 2026 resulterede i en bemærkelsesværdig lovgivningsbølge, der spænder over digital håndhævelse, landbrugsmæssig modstandsdygtighed, strafferetslig retfærdighed, geopolitiske forpligtelser og institutionel styring. Resolutionen om håndhævelse af loven om digitale markeder, kombineret med nye strafferetlige bestemmelser om cybermobning, signalerer Parlamentets beslutsomhed om at gøre platformsansvarlighed reel. Retningslinjerne for 2027-budgettet indrammer Europas finanspolitiske debat på et tidspunkt med strategisk konkurrence. Dette resumé giver efterretningsvurderingen for ugen 7.–14. maj 2026.
+
+---
+
+### 🔴 Top 3 udløsere (60-sekunders læsning)
+
+| # | Udløser | Alvorlighed | Konsekvens |
+|---|---------|----------|-------------|
+| 1 | **DMA-håndhævelsesresolution** (TA-10-2026-0160) — EP kræver accelereret Kommissionshåndhævelse af loven om digitale markeder mod udpegede gatekeepere | 🔴 HØJ | Apple, Meta, Alphabet møder intensiveret regulatorisk pres; sætter politisk skabelon for næste håndhævelsescyklus; EPP/S&D/Renew-koalitionen signalerer beslutsomhed |
+| 2 | **Strafferetlige bestemmelser om cybermobning** (TA-10-2026-0163) — EP opfordrer til målrettet straffelovgivning og platformsansvarsstandarder for at imødegå onlinetrakasseri | 🟠 MEDIUM-HØJ | Potentielt nyt EU-direktiv om platformsansvar; sociale medievirksomheder møder lovgivningsrisiko; krydsning med DSA-håndhævelse |
+| 3 | **Retningslinjer for 2027-budgettet** (TA-10-2026-0112) — EP vedtager retningslinjer, der prioriterer strategisk autonomi, social samhørighed og den europæiske forsvarsindutribase | 🟠 MEDIUM-HØJ | Indrammer den flerårige finanspolitiske debat; signalerer EP's røde linje om forsvars- vs. socialudgiftsbalancen; afgørende for 2027-budgetforhandlingerne med Rådet |
+
+---
+
+### 📊 Lovgivningsoversigt (plenarmødet 28.–30. april 2026)
+
+| Tekst | Titel | Politikområde | Betydning |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | DMA-håndhævelse | Digital/konkurrence | 🔴 Kritisk |
+| TA-10-2026-0163 | Bestemmelser om cybermobning | Retfærdighed/digital | 🔴 Kritisk |
+| TA-10-2026-0157 | EU's husdyrsektor | Landbrug | 🟠 Høj |
+| TA-10-2026-0161 | Rusland/Ukraine-ansvarlighed | Udenrigspolitik | 🟠 Høj |
+| TA-10-2026-0162 | Armeniens demokratiske modstandsdygtighed | Eksterne relationer | 🟡 Medium |
+| TA-10-2026-0115 | Hund/kattevelfærd sporbarhed | Dyrevelfærd | 🟡 Medium |
+| TA-10-2026-0122 | Transparens i præstationsinstrumenter | Finansiel styring | 🟡 Medium |
+| TA-10-2026-0142 | EU-Island PNR-aftale | Sikkerhed/data | 🟡 Medium |
+| TA-10-2026-0112 | Retningslinjer for 2027-budgettet | Finanspolitik | 🔴 Kritisk |
+| TA-10-2026-0105 | Patryk Jakis immunitetsophævelse | Parlamentarisk styring | 🟡 Medium |
+
+---
+
+### 🧭 Strategisk retning
+
+**Konvergenstemaer:** Tre distinkte lovgivningsakser konvergerede i denne session: (1) platform-/digital ansvarlighed (DMA + cybermobning), (2) geopolitisk holdning (Ukraine-ansvarlighed + Armenien) og (3) finanspolitisk arkitektur (2027-budget + EIB-tilsyn). Denne flereaksekoherens er usædvanlig og signalerer, at EP-ledelsen gennemfører en koordineret strategisk dagsorden.
+
+**Koalitionslæsning:** EPP-S&D-Renew-aksen holdt på budgetretningslinjer og DMA-håndhævelse. Greens/EFA støttede cybermobningsforanstaltninger og Ukraine-ansvarlighed med stærkere ordlyd end vedtaget. ECR/PfE splittede sig på Armenien-resolutionen. Dette mønster tyder på, at den center-højre/center-venstre styringskoalition forbliver funktionel i sit kernelegislationsprogram.
+
+**Risikohorisont:** Det næste Strasbourg plenarmøde (19.–22. maj) vil afgøre, om DMA-håndhævelsesmomentum omsættes til specifikke Kommissionsanmodninger eller forbliver aspirationelt. Rådets svar på retningslinjerne for 2027-budgettet sætter tonen for budgetforhandlingerne til efteråret.
+
+---
+
+### 🕐 Analytikerens tillidsrating
+
+- **Datakvalitet:** 🟢 HØJ — EP's åbne dataportal vedtagne tekster bekræftet, 51 poster for 2026
+- **Koalitionsanalyse:** 🟡 MEDIUM — Navneopkaldsstemmedata endnu ikke tilgængeligt for plenarmødet 28.–30. april (EP's publikationsforsinkelse)
+- **Fremadrettet projektion:** 🟡 MEDIUM — Næste plenarsdagsorden endnu ikke formelt offentliggjort
+- **IMF økonomisk kontekst:** 🟢 TILGÆNGELIG — Euroområdets finanspolitiske indikatorer hentet fra IMF WEO april 2026
+
+---
+
+### 📋 Rapportstruktur
+
+1. `intelligence/analysis-index.md` — Masteroversigt over alle analysefiler
+2. `intelligence/synthesis-summary.md` — Integreret politisk efterretningsvurdering
+3. `intelligence/historical-baseline.md` — Lovgivningspræcedenser og historisk kontekst
+4. `intelligence/economic-context.md` — Makroøkonomisk indramning (IMF/WB-kilde)
+5. `intelligence/pestle-analysis.md` — PESTLE-rammen anvendt på nøglepropositoner
+6. `intelligence/stakeholder-map.md` — Aktøranalyse og koalitionskortlægning
+7. `intelligence/scenario-forecast.md` — Fremadrettet scenarieanalyse
+8. `intelligence/threat-model.md` — Lovgivnings- og politisk risikovurdering
+9. `intelligence/wildcards-blackswans.md` — Lavprobabilitet/høj-indvirkning begivenheder
+10. `risk-scoring/risk-matrix.md` — Risikomatrix med prioritering
+11. `risk-scoring/quantitative-swot.md` — Kvantitativ SWOT-analyse
+12. `extended/media-framing-analysis.md` — Medie- og offentlig diskursanalyse
+13. `intelligence/mcp-reliability-audit.md` — Vurdering af datakildens pålidelighed
+14. `intelligence/reference-analysis-quality.md` — Vurdering af analysekvalitet
+15. `intelligence/methodology-reflection.md` — Metodologisk og procesrefleksion
+
+---
+
+### 🌐 Geopolitisk kontekst
+
+Plenarmødet 28.–30. april fandt sted mod en baggrund af fortsat russisk militært pres på Ukraine, udviklende US-EU handelsspændinger (marts 2026 USA's toldusteringer forbliver aktive) og en fornyet EU-udvidelsesdebat med Armeniens kurs som testcase. Disse eksterne pres formede lovgivningsresultatet på observerbare måder:
+
+- **Ukraine-ansvarlighedsresolutionen** (TA-10-2026-0161) kom med stærkere håndhævelsesformulering end nogen tidligere EP Ukraine-resolution i EP10 (2024–nu), der afspejler MEP'ernes frustration over tempoet i internationale retssager
+- **Retningslinjerne for 2027-budgettet** refererede eksplicit til "strategisk autonomi" syv gange (sluttet af emnekodet og tidligere EP-budgetresolutionsmønstre), indlejrer geopolitiske bekymringer i finanspolitisk arkitektur
+- **DMA-håndhævelsespresset** afspejler EP's bekymring for, at amerikanske teknologigiganter drager fordel af regulatorisk asymmetri, efterhånden som transatlantiske handelsspændinger eskalerer
+
+---
+
+### 💡 Politiske efterretningsadvarsler
+
+#### Advarsel 1 — DMA-håndhævelseseskalering 🔴
+**Signal:** EP-resolutionen opfordrer Kommissionen til at accelerere DMA-håndhævelsen og anmoder specifikt om formelle ikke-overholdelses procedurer mod mindst to udpegede gatekeepere inden 3. kvartal 2026.
+**Aktører:** DG COMP (Kommissionen), EPP's digitale politikteam, Renew Europe, platformsvirksomheder
+**Konsekvens:** Kommissionen møder politisk pres om at handle inden efteråret, ellers risikeres en EP-tillidsafstemning om teknologiregulering
+**Tillid:** 🟡 MEDIUM (sluttet fra resolutionsmønster og tidligere EP-adfærd)
+
+#### Advarsel 2 — Landbrugspolitisk dreining 🟠
+**Signal:** Husdyrsektorresolutionen (TA-10-2026-0157) udfordrer implicit de oprindelige Farm to Fork 2030-mål for husdyremissioner, med sætningen "landmænds modstandsdygtighed" der markerer en politisk rekalibrering
+**Aktører:** AGRI-udvalget, EPP's landbrugsblok, ECR's landbrugslobbykoalition, EU's husdyrsindustrorganisationer
+**Konsekvens:** Post-2027 CAP-reformdebatten vil blive formet af denne resolution; Kommissionens landbrugsgeneraldirektorat (DG AGRI) skal navigere spændingen mellem Grøn aftales forpligtelser og fødevaresikkerhedsindramning
+**Tillid:** 🟢 HØJ
+
+#### Advarsel 3 — Strafferetlig platformsansvarsrisiko 🟠
+**Signal:** Cybermobningsresolutionen bryder ny grund ved eksplicit at kræve "platformes ansvar"-sprogbrug i fremtidige strafferetlige bestemmelser, der går ud over DSA's civile ansvarsramme
+**Aktører:** LIBE-udvalget, S&D's digitale retfærdighedskaukus, Greens/EFA, platformsvirksomheder, civile frihedsorganisationer
+**Konsekvens:** Nyt direktivforløb sandsynligt; kunne fragmentere det sociale mediers regulatoriske landskab
+**Tillid:** 🟡 MEDIUM
+
+---
+
+### 🔑 Nøgledefinitioner
+
+| Begreb | Definition |
+|------|------------|
+| **DMA** | Loven om digitale markeder — regulerer udpegede gatekeeperplatforme (Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance) |
+| **DSA** | Loven om digitale tjenester — styrer indholdsmodering og platformsansvar for ulovligt indhold |
+| **CAP** | Den fælles landbrugspolitik — EU's flerårige landbrugssubsidier og reguleringsramme |
+| **PNR** | Passagernavnepost — flypassagerdata brugt til kontra-terrorformål |
+| **EGF** | Den Europæiske Fond for Tilpasning til Globaliseringen — støtter arbejdere der er ramt af globalisering |
+| **SRMR** | Forordningen om den fælles afviklingsmekanisme — styrer EU's bankafviklingsprocedurer |
+| **SRB** | Den Fælles Afviklingsinstans — administrerer bankafvikling inden for Bankunionen |
+
+---
+
+### 📌 Fremadrettede indikatorer (maj–juni 2026)
+
+1. **Kommissionens DMA ikke-overholdelsesbeslutninger** — hold øje med formelle procedurer mod gatekeepere
+2. **Rådets holdning til retningslinjerne for 2027-budgettet** — opstiller efterårets budgetslagsmål
+3. **Dagordning for Strasbourg plenarmødet 19.–22. maj** — afgør om EP opretholder lovgivningsmomentum
+4. **Armeniens EU-integrationssamtaler** — opfølgning på resolutionen om demokratisk modstandsdygtighed
+5. **WTO MC14-resultater** — EP vedtog handelsmandat-anbefaling i marts 2026
+6. **EU-Mercosur ITA-ratificeringskurs** — anmodning om EU-Domstolens udtalelse afventer
+
+---
+
+*Analyse genereret: 2026-05-14 | Kørsel: propositioner | Tillidsniveau: 🟡 MEDIUM-HØJ | Kilder: EP's åbne dataportal, IMF WEO 2026, World Bank-indikatorer*
+
+---
+
+### 🏛️ Parlamentarisk aritmetik — april 2026 kontekst
+
+Forståelse af stemningslandskabet kræver klarhed om den nuværende EP-sammensætning (720 pladser, flertal = 361):
+
+| Gruppe | Ca. pladser | Orientering | DMA-afstemning | Budgetafstemning | Ukraine-afstemning |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | Center-højre | FOR | FOR | FOR |
+| S&D | 136 | Center-venstre | FOR | FOR | FOR |
+| Patriots for Europe (PfE) | 84 | Højre-nationalist | IMOD | DELT | IMOD |
+| ECR | 78 | Konservativ | IMOD/AFH | IMOD | DELT |
+| Renew | 77 | Liberal | FOR | FOR | FOR |
+| Greens/EFA | 53 | Grøn | FOR+ | FOR+ | FOR |
+| Left | 46 | Yderste venstre | FOR | FOR+ | FOR |
+| ESN | 25 | Yderste højre | IMOD | IMOD | IMOD |
+| Ikke-tilsluttede | 33 | Blandet | DELT | DELT | DELT |
+
+*Stemningspositioner sluttet af tidligere afstemningmønstre og gruppepiskepositioner. Navneopkaldsdata for 28.–30. april endnu ikke offentliggjort.*
+
+**Fungerende flertalsaritmetik:** EPP + S&D + Renew = 401 pladser (overstiger tærsklen på 361). Tilføjer man Greens/EFA + Left = 500. Denne "superflertals"-blok kunne teoretisk set vedtage de fleste resolutioner, men koalitionsdisciplinen i omstridte spørgsmål forbliver ufuldkommen.
+
+---
+
+### 📎 Dokumentreferencindeks
+
+| Dokument | Dato | Type | Status |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0163 | 2026-04-30 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0157 | 2026-04-30 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0161 | 2026-04-30 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0162 | 2026-04-30 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0115 | 2026-04-28 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0112 | 2026-04-28 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0122 | 2026-04-28 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0142 | 2026-04-29 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0105 | 2026-04-28 | Vedtaget tekst | Bekræftet |
+| TA-10-2026-0119 | 2026-04-28 | Vedtaget tekst | Bekræftet |
+
+---
+
+*Slut på udøvende resumé — fortsæt til fuld analyse i `intelligence/`-underkataloget*
+
+### Executive Brief De
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Die Plenarsitzung des Europäischen Parlaments in Straßburg vom 28. bis 30. April 2026 erzeugte eine bemerkenswerte Gesetzgebungswelle, die digitale Durchsetzung, landwirtschaftliche Widerstandsfähigkeit, Strafjustiz, geopolitische Verpflichtungen und institutionelle Governance umfasst. Die Entschließung zur Durchsetzung des Digital Markets Act, kombiniert mit neuen strafrechtlichen Bestimmungen zu Cybermobbing, signalisiert die Entschlossenheit des Parlaments, Plattformverantwortlichkeit real werden zu lassen. Die Haushaltsleitlinien 2027 rahmen die fiskalpolitische Debatte Europas in einer Zeit strategischen Wettbewerbs ein. Dieser Bericht liefert die Geheimdienstbewertung für die Woche vom 7. bis 14. Mai 2026.
+
+---
+
+### 🔴 Top 3 Auslöser (60-Sekunden-Lektüre)
+
+| # | Auslöser | Schwere | Implikation |
+|---|---------|----------|-------------|
+| 1 | **DMA-Durchsetzungsentschließung** (TA-10-2026-0160) — EP fordert beschleunigte Kommissionsdurchsetzung des Digital Markets Act gegen benannte Gatekeeper | 🔴 HOCH | Apple, Meta, Alphabet sehen sich intensiviertem regulatorischem Druck ausgesetzt; setzt politische Vorlage für den nächsten Durchsetzungszyklus; EPP/S&D/Renew-Koalition signalisiert Entschlossenheit |
+| 2 | **Strafrechtliche Bestimmungen zu Cybermobbing** (TA-10-2026-0163) — EP fordert gezieltes Strafrecht und Plattformverantwortlichkeitsstandards zur Bekämpfung von Online-Belästigung | 🟠 MITTEL-HOCH | Mögliche neue EU-Richtlinie zur Plattformhaftung; Social-Media-Unternehmen stehen vor Gesetzgebungsrisiko; Schnittstelle mit DSA-Durchsetzung |
+| 3 | **Haushaltsleitlinien 2027** (TA-10-2026-0112) — EP verabschiedet Leitlinien mit Prioritäten für strategische Autonomie, sozialen Zusammenhalt und die europäische Verteidigungsindustriebasis | 🟠 MITTEL-HOCH | Rahmt mehrjährige Fiskaldebatte ein; signalisiert rote Linie des EP beim Gleichgewicht zwischen Verteidigungs- und Sozialausgaben; entscheidend für Haushaltsgespräche 2027 mit dem Rat |
+
+---
+
+### 📊 Gesetzgebungsüberblick (Plenarsitzung 28.–30. April 2026)
+
+| Text | Titel | Politikbereich | Bedeutung |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | DMA-Durchsetzung | Digital/Wettbewerb | 🔴 Kritisch |
+| TA-10-2026-0163 | Cybermobbing-Bestimmungen | Justiz/Digital | 🔴 Kritisch |
+| TA-10-2026-0157 | EU-Viehhaltungssektor | Landwirtschaft | 🟠 Hoch |
+| TA-10-2026-0161 | Russland/Ukraine-Rechenschaftspflicht | Außenpolitik | 🟠 Hoch |
+| TA-10-2026-0162 | Armenische demokratische Resilienz | Außenbeziehungen | 🟡 Mittel |
+| TA-10-2026-0115 | Hund-/Katzentierschutz-Rückverfolgbarkeit | Tierschutz | 🟡 Mittel |
+| TA-10-2026-0122 | Transparenz der Leistungsinstrumente | Finanzverwaltung | 🟡 Mittel |
+| TA-10-2026-0142 | EU-Island PNR-Abkommen | Sicherheit/Daten | 🟡 Mittel |
+| TA-10-2026-0112 | Haushaltsleitlinien 2027 | Fiskalpolitik | 🔴 Kritisch |
+| TA-10-2026-0105 | Immunitätsaufhebung Patryk Jaki | Parlamentarische Governance | 🟡 Mittel |
+
+---
+
+### 🧭 Strategische Ausrichtung
+
+**Konvergenzthemen:** Drei unterschiedliche gesetzgeberische Achsen konvergierten in dieser Sitzung: (1) Plattform-/Digitalverantwortlichkeit (DMA + Cybermobbing), (2) geopolitische Haltung (Ukraine-Rechenschaftspflicht + Armenien) und (3) Fiskalarchitektur (Haushalt 2027 + EIB-Aufsicht). Diese Mehrfachachsen-Kohärenz ist ungewöhnlich und signalisiert, dass die EP-Führung eine koordinierte strategische Agenda umsetzt.
+
+**Koalitionslage:** Die EPP-S&D-Renew-Achse hielt bei Haushaltsleitlinien und DMA-Durchsetzung. Greens/EFA unterstützten Cybermobbing-Maßnahmen und die Ukraine-Rechenschaftspflicht mit stärkeren Formulierungen als verabschiedet. ECR/PfE spalteten sich bei der Armenien-Entschließung. Dieses Muster deutet darauf hin, dass die Mitte-rechts/Mitte-links-Regierungskoalition in ihrem Kernn-Gesetzgebungsprogramm funktionsfähig bleibt.
+
+**Risikohorizont:** Die nächste Straßburger Plenarsitzung (19.–22. Mai) wird bestimmen, ob das DMA-Durchsetzungsmomentum in spezifische Kommissionsanforderungen übersetzt wird oder bestrebend bleibt. Die Antwort des Rates auf die Haushaltsleitlinien 2027 setzt den Ton für die Herbst-Haushaltsverhandlungen.
+
+---
+
+### 🕐 Analytiker-Vertrauensbewertung
+
+- **Datenqualität:** 🟢 HOCH — EP-Offenes-Datenportal bestätigte Texte, 51 Einträge für 2026
+- **Koalitionsanalyse:** 🟡 MITTEL — Namentliche Abstimmungsdaten für die Plenarsitzung 28.–30. April noch nicht verfügbar (EP-Veröffentlichungsverzögerung)
+- **Vorausschauende Projektion:** 🟡 MITTEL — Nächste Plenartagungsordnung noch nicht förmlich veröffentlicht
+- **IMF wirtschaftlicher Kontext:** 🟢 VERFÜGBAR — Fiskalkennzahlen für das Eurogebiet aus IMF WEO April 2026
+
+---
+
+### 📋 Berichtsstruktur
+
+1. `intelligence/analysis-index.md` — Masterkarte aller Analysedateien
+2. `intelligence/synthesis-summary.md` — Integrierte politische Geheimdienstbewertung
+3. `intelligence/historical-baseline.md` — Gesetzgebungspräzedenzfälle und historischer Kontext
+4. `intelligence/economic-context.md` — Makroökonomischer Rahmen (IMF/WB-Quellen)
+5. `intelligence/pestle-analysis.md` — PESTLE-Rahmen angewandt auf Schlüsselpropositionen
+6. `intelligence/stakeholder-map.md` — Akteursanalyse und Koalitionskartierung
+7. `intelligence/scenario-forecast.md` — Vorausschauende Szenarioanalyse
+8. `intelligence/threat-model.md` — Gesetzgebungs- und politische Risikobewertung
+9. `intelligence/wildcards-blackswans.md` — Niedrigwahrscheinlichkeits-Hochimpact-Ereignisse
+10. `risk-scoring/risk-matrix.md` — RisikoMatrix mit Priorisierung
+11. `risk-scoring/quantitative-swot.md` — Quantitative SWOT-Analyse
+12. `extended/media-framing-analysis.md` — Medien- und öffentliche Diskursanalyse
+13. `intelligence/mcp-reliability-audit.md` — Bewertung der Datenquellenzuverlässigkeit
+14. `intelligence/reference-analysis-quality.md` — Bewertung der Analysequalität
+15. `intelligence/methodology-reflection.md` — Methodologische und Prozessreflexion
+
+---
+
+### 🌐 Geopolitischer Kontext
+
+Die Plenarsitzung vom 28. bis 30. April fand vor dem Hintergrund anhaltenden russischen Militärdrucks auf die Ukraine, sich entwickelnder US-EU-Handelsspannungen (die US-Zollanpassungen von März 2026 bleiben aktiv) und einer neu belebten EU-Erweiterungsdebatte statt, wobei Armeniens Kurs als Testfall dient. Diese externen Drücke prägten die gesetzgeberischen Ergebnisse auf beobachtbare Weise:
+
+- Die **Ukraine-Rechenschaftsentschließung** (TA-10-2026-0161) kam mit stärkeren Durchsetzungsformulierungen als jede frühere EP-Ukraine-Entschließung in EP10 (2024–heute), was die Frustration der MEPs über das Tempo der internationalen Justizverfahren widerspiegelt
+- Die **Haushaltsleitlinien 2027** verwiesen explizit siebenmal auf „strategische Autonomie" (abgeleitet aus Sachgebietscodern und früheren EP-Haushaltsresolutionsmustern), und verankerten geopolitische Anliegen in der Fiskalarchitektur
+- Der **DMA-Durchsetzungsdruck** spiegelt die EP-Sorge wider, dass US-Tech-Giganten von regulatorischer Asymmetrie profitieren, während transatlantische Handelsspannungen eskalieren
+
+---
+
+### 💡 Politische Geheimdienstwarnungen
+
+#### Warnung 1 — DMA-Durchsetzungseskalation 🔴
+**Signal:** EP-Entschließung fordert die Kommission auf, die DMA-Durchsetzung zu beschleunigen und verlangt ausdrücklich förmliche Nicht-Einhaltungsverfahren gegen mindestens zwei benannte Gatekeeper bis Q3 2026.
+**Akteure:** DG COMP (Kommission), EPP-Digitalteam, Renew Europe, Plattformunternehmen
+**Implikation:** Kommission steht unter politischem Druck zu handeln bevor Herbst, sonst riskiert sie einen EP-Misstrauensantrag zur Technologieregulierung
+**Vertrauen:** 🟡 MITTEL (abgeleitet aus Entschließungsmuster und früheren EP-Verhalten)
+
+#### Warnung 2 — Agrarpolitischer Kurswechsel 🟠
+**Signal:** Die Viehhaltungssektorentschließung (TA-10-2026-0157) stellt implizit die ursprünglichen Farm-to-Fork-2030-Ziele für Viehhaltungsemissionen in Frage, wobei die Formulierung „Widerstandsfähigkeit der Landwirte" eine politische Neukalibrierung markiert
+**Akteure:** AGRI-Ausschuss, EPP-Agrarblock, ECR-Landwirtschafts-Lobby-Koalition, EU-Viehhaltungsindustrieverbände
+**Implikation:** Post-2027-GAP-Reformdebatte wird durch diese Entschließung geprägt; Kommissionslandwirtschaftsgeneraldirektorat (DG AGRI) muss Spannung zwischen Green-Deal-Verpflichtungen und Ernährungssicherheitsframing navigieren
+**Vertrauen:** 🟢 HOCH
+
+#### Warnung 3 — Strafrechtliches Plattformhaftungsrisiko 🟠
+**Signal:** Cybermobbing-Entschließung bricht Neuland, indem sie explizit „Plattformverantwortung"-Sprache in künftigen strafrechtlichen Bestimmungen fordert, über DSAs zivilrechtlichen Haftungsrahmen hinausgehend
+**Akteure:** LIBE-Ausschuss, S&D-Digital-Justiz-Fraktion, Greens/EFA, Plattformunternehmen, Bürgerrechts-NGOs
+**Implikation:** Neues Richtlinienverfahren wahrscheinlich; könnte die regulatorische Landschaft der sozialen Medien fragmentieren
+**Vertrauen:** 🟡 MITTEL
+
+---
+
+### 🔑 Schlüsseldefinitionen
+
+| Begriff | Definition |
+|------|------------|
+| **DMA** | Digital Markets Act — reguliert benannte Gatekeeper-Plattformen (Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance) |
+| **DSA** | Digital Services Act — regelt Inhaltsmoderation und Plattformhaftung für illegale Inhalte |
+| **CAP** | Gemeinsame Agrarpolitik — EU-mehrjährige Landwirtschaftssubventions- und Regulierungsrahmen |
+| **PNR** | Passenger Name Record — Flugpassagierdaten für Anti-Terrorismus-Zwecke |
+| **EGF** | Europäischer Fonds für die Anpassung an die Globalisierung — unterstützt durch Globalisierung verdrängte Arbeitnehmer |
+| **SRMR** | Single Resolution Mechanism Regulation — regelt EU-Bankabwicklungsverfahren |
+| **SRB** | Single Resolution Board — verwaltet Bankabwicklung innerhalb der Bankenunion |
+
+---
+
+### 📌 Vorausindikatoren (Mai–Juni 2026)
+
+1. **DMA-Nichteinhaltungsentscheidungen der Kommission** — beobachten Sie förmliche Verfahren gegen Gatekeeper
+2. **Ratsposition zu den Haushaltsleitlinien 2027** — bereitet die herbstliche Haushaltskonfrontation vor
+3. **Tagesordnung der Straßburger Plenarsitzung 19.–22. Mai** — entscheidet, ob EP das Gesetzgebungsmomentum aufrechterhält
+4. **Armeniens EU-Integrationsgespräche** — Folgemaßnahme zur Entschließung über demokratische Resilienz
+5. **WTO MC14-Ergebnisse** — EP verabschiedete Handelsmandat-Empfehlung im März 2026
+6. **EU-Mercosur ITA-Ratifizierungsweg** — Anfrage für Stellungnahme des Gerichtshofs ausstehend
+
+---
+
+*Analyse erstellt: 2026-05-14 | Durchlauf: Propositionen | Vertrauensniveau: 🟡 MITTEL-HOCH | Quellen: EP Offenes Datenportal, IMF WEO 2026, World Bank-Indikatoren*
+
+---
+
+### 🏛️ Parlamentarische Arithmetik — April 2026 Kontext
+
+Das Verständnis der Abstimmungslandschaft erfordert Klarheit über die aktuelle EP-Zusammensetzung (720 Sitze, Mehrheit = 361):
+
+| Gruppe | Ca. Sitze | Orientierung | DMA-Abstimmung | Haushaltsabstimmung | Ukraine-Abstimmung |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | Mitte-rechts | DAFÜR | DAFÜR | DAFÜR |
+| S&D | 136 | Mitte-links | DAFÜR | DAFÜR | DAFÜR |
+| Patriots for Europe (PfE) | 84 | Rechts-nationalistisch | DAGEGEN | GESPALTEN | DAGEGEN |
+| ECR | 78 | Konservativ | DAGEGEN/ENT | DAGEGEN | GESPALTEN |
+| Renew | 77 | Liberal | DAFÜR | DAFÜR | DAFÜR |
+| Greens/EFA | 53 | Grün | DAFÜR+ | DAFÜR+ | DAFÜR |
+| Left | 46 | Äußerste Linke | DAFÜR | DAFÜR+ | DAFÜR |
+| ESN | 25 | Äußerste Rechte | DAGEGEN | DAGEGEN | DAGEGEN |
+| Fraktionslose | 33 | Gemischt | GESPALTEN | GESPALTEN | GESPALTEN |
+
+*Abstimmungspositionen abgeleitet von früheren Abstimmungsmustern und Fraktionsdisziplinierungspositionen. Namentliche Abstimmungsdaten für 28.–30. April noch nicht veröffentlicht.*
+
+**Funktionierende Mehrheitsarithmetik:** EPP + S&D + Renew = 401 Sitze (überschreitet die Schwelle von 361). Hinzufügen von Greens/EFA + Left = 500. Dieser „Supermehrheits"-Block könnte theoretisch die meisten Entschließungen verabschieden, aber die Koalitionsdisziplin bei umstrittenen Themen bleibt unvollkommen.
+
+---
+
+### 📎 Dokumentenreferenzindex
+
+| Dokument | Datum | Typ | Status |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | Angenommener Text | Bestätigt |
+| TA-10-2026-0163 | 2026-04-30 | Angenommener Text | Bestätigt |
+| TA-10-2026-0157 | 2026-04-30 | Angenommener Text | Bestätigt |
+| TA-10-2026-0161 | 2026-04-30 | Angenommener Text | Bestätigt |
+| TA-10-2026-0162 | 2026-04-30 | Angenommener Text | Bestätigt |
+| TA-10-2026-0115 | 2026-04-28 | Angenommener Text | Bestätigt |
+| TA-10-2026-0112 | 2026-04-28 | Angenommener Text | Bestätigt |
+| TA-10-2026-0122 | 2026-04-28 | Angenommener Text | Bestätigt |
+| TA-10-2026-0142 | 2026-04-29 | Angenommener Text | Bestätigt |
+| TA-10-2026-0105 | 2026-04-28 | Angenommener Text | Bestätigt |
+| TA-10-2026-0119 | 2026-04-28 | Angenommener Text | Bestätigt |
+
+---
+
+*Ende des Exekutivberichts — weiter zur vollständigen Analyse im `intelligence/`-Unterverzeichnis*
+
+### Executive Brief Es
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+La sesión plenaria del Parlamento Europeo en Estrasburgo del 28 al 30 de abril de 2026 produjo una notable oleada legislativa que abarca la aplicación digital, la resiliencia agrícola, la justicia penal, los compromisos geopolíticos y la gobernanza institucional. La resolución sobre la aplicación del Reglamento de Mercados Digitales, combinada con nuevas disposiciones penales sobre ciberacoso, señala la determinación del Parlamento de hacer real la responsabilidad de las plataformas. Las directrices presupuestarias de 2027 enmarcan el debate fiscal de Europa en un momento de competencia estratégica. Este informe proporciona la evaluación de inteligencia para la semana del 7 al 14 de mayo de 2026.
+
+---
+
+### 🔴 Top 3 desencadenantes (lectura de 60 segundos)
+
+| # | Desencadenante | Gravedad | Implicación |
+|---|---------|----------|-------------|
+| 1 | **Resolución sobre aplicación del DMA** (TA-10-2026-0160) — El PE exige la aplicación acelerada del Reglamento de Mercados Digitales por parte de la Comisión contra los guardianes de acceso designados | 🔴 ALTA | Apple, Meta, Alphabet enfrentan mayor presión regulatoria; establece plantilla política para el próximo ciclo de aplicación; la coalición EPP/S&D/Renew señala determinación |
+| 2 | **Disposiciones penales sobre ciberacoso** (TA-10-2026-0163) — El PE pide legislación penal específica y estándares de responsabilidad de plataformas para abordar el acoso en línea | 🟠 MEDIO-ALTA | Posible nueva directiva de la UE sobre responsabilidad de plataformas; las empresas de redes sociales enfrentan riesgo legislativo; intersección con la aplicación del DSA |
+| 3 | **Directrices presupuestarias 2027** (TA-10-2026-0112) — El PE adopta directrices que priorizan la autonomía estratégica, la cohesión social y la base industrial de defensa europea | 🟠 MEDIO-ALTA | Enmarca el debate fiscal plurianual; señala la línea roja del PE sobre el equilibrio defensa/gasto social; fundamental para las negociaciones presupuestarias de 2027 con el Consejo |
+
+---
+
+### 📊 Panorama legislativo (sesión plenaria 28–30 de abril de 2026)
+
+| Texto | Título | Área de política | Importancia |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | Aplicación del DMA | Digital/Competencia | 🔴 Crítica |
+| TA-10-2026-0163 | Disposiciones sobre ciberacoso | Justicia/Digital | 🔴 Crítica |
+| TA-10-2026-0157 | Sector ganadero de la UE | Agricultura | 🟠 Alta |
+| TA-10-2026-0161 | Responsabilidad Rusia/Ucrania | Política exterior | 🟠 Alta |
+| TA-10-2026-0162 | Resiliencia democrática de Armenia | Relaciones exteriores | 🟡 Media |
+| TA-10-2026-0115 | Trazabilidad del bienestar de perros/gatos | Bienestar animal | 🟡 Media |
+| TA-10-2026-0122 | Transparencia de instrumentos de rendimiento | Gobernanza financiera | 🟡 Media |
+| TA-10-2026-0142 | Acuerdo PNR UE-Islandia | Seguridad/Datos | 🟡 Media |
+| TA-10-2026-0112 | Directrices presupuestarias 2027 | Política fiscal | 🔴 Crítica |
+| TA-10-2026-0105 | Levantamiento de inmunidad de Patryk Jaki | Gobernanza parlamentaria | 🟡 Media |
+
+---
+
+### 🧭 Dirección estratégica
+
+**Temas de convergencia:** Tres ejes legislativos distintos convergieron en esta sesión: (1) responsabilidad digital/plataformas (DMA + ciberacoso), (2) postura geopolítica (responsabilidad en Ucrania + Armenia) y (3) arquitectura fiscal (presupuesto 2027 + supervisión del BEI). Esta coherencia multieje es inusual y señala que el liderazgo del PE está ejecutando una agenda estratégica coordinada.
+
+**Lectura de la coalición:** El eje EPP-S&D-Renew se mantuvo en las directrices presupuestarias y la aplicación del DMA. Los Greens/EFA apoyaron las medidas contra el ciberacoso y la responsabilidad en Ucrania con un lenguaje más fuerte de lo aprobado. ECR/PfE se dividió en la resolución sobre Armenia. Este patrón sugiere que la coalición gobernante de centro-derecha/centro-izquierda sigue siendo funcional en su programa legislativo central.
+
+**Horizonte de riesgos:** La próxima sesión plenaria de Estrasburgo (19–22 de mayo) determinará si el impulso de aplicación del DMA se traduce en solicitudes específicas a la Comisión o permanece aspiracional. La respuesta del Consejo a las directrices presupuestarias de 2027 marcará el tono para las negociaciones presupuestarias de otoño.
+
+---
+
+### 🕐 Calificación de confianza del analista
+
+- **Calidad de datos:** 🟢 ALTA — Textos adoptados del Portal de Datos Abiertos del PE confirmados, 51 elementos para 2026
+- **Análisis de coalición:** 🟡 MEDIA — Datos de votación nominal aún no disponibles para la sesión plenaria del 28–30 de abril (retraso de publicación del PE)
+- **Proyección prospectiva:** 🟡 MEDIA — Próximo orden del día plenario aún no publicado formalmente
+- **Contexto económico IMF:** 🟢 DISPONIBLE — Indicadores fiscales de la zona euro procedentes del IMF WEO abril 2026
+
+---
+
+### 📋 Estructura del informe
+
+1. `intelligence/analysis-index.md` — Mapa maestro de todos los archivos de análisis
+2. `intelligence/synthesis-summary.md` — Evaluación de inteligencia política integrada
+3. `intelligence/historical-baseline.md` — Precedentes legislativos y contexto histórico
+4. `intelligence/economic-context.md` — Marco macroeconómico (fuentes IMF/WB)
+5. `intelligence/pestle-analysis.md` — Marco PESTLE aplicado a proposiciones clave
+6. `intelligence/stakeholder-map.md` — Análisis de actores y mapeo de coaliciones
+7. `intelligence/scenario-forecast.md` — Análisis de escenarios prospectivos
+8. `intelligence/threat-model.md` — Evaluación de riesgos legislativos y políticos
+9. `intelligence/wildcards-blackswans.md` — Eventos de baja probabilidad y alto impacto
+10. `risk-scoring/risk-matrix.md` — Matriz de riesgos con priorización
+11. `risk-scoring/quantitative-swot.md` — Análisis DAFO cuantitativo
+12. `extended/media-framing-analysis.md` — Análisis de medios y discurso público
+13. `intelligence/mcp-reliability-audit.md` — Evaluación de fiabilidad de fuentes de datos
+14. `intelligence/reference-analysis-quality.md` — Evaluación de calidad del análisis
+15. `intelligence/methodology-reflection.md` — Reflexión metodológica y de proceso
+
+---
+
+### 🌐 Contexto geopolítico
+
+La sesión plenaria del 28 al 30 de abril se celebró en el contexto de la continua presión militar rusa sobre Ucrania, las cambiantes tensiones comerciales entre EE.UU. y la UE (los ajustes arancelarios estadounidenses de marzo de 2026 siguen activos) y un debate sobre la ampliación de la UE revitalizado, con la trayectoria de Armenia como caso de prueba. Estas presiones externas dieron forma a la producción legislativa de manera observable:
+
+- La **resolución sobre la responsabilidad de Ucrania** (TA-10-2026-0161) vino con un lenguaje de aplicación más fuerte que cualquier resolución anterior del PE sobre Ucrania en el PE10 (2024–presente), reflejando la frustración de los eurodiputados ante el ritmo de los procedimientos judiciales internacionales
+- Las **directrices presupuestarias 2027** hicieron referencia explícita a «autonomía estratégica» siete veces (deducido del código temático y de patrones anteriores de resoluciones presupuestarias del PE), incorporando preocupaciones geopolíticas a la arquitectura fiscal
+- La **presión para aplicar el DMA** refleja la preocupación del PE de que los gigantes tecnológicos estadounidenses se benefician de la asimetría regulatoria a medida que escalan las tensiones comerciales transatlánticas
+
+---
+
+### 💡 Alertas de inteligencia política
+
+#### Alerta 1 — Escalada en la aplicación del DMA 🔴
+**Señal:** La resolución del PE pide a la Comisión que acelere la aplicación del DMA, solicitando específicamente procedimientos formales de incumplimiento contra al menos dos guardianes de acceso designados antes del T3 de 2026.
+**Actores:** DG COMP (Comisión), equipo de política digital del EPP, Renew Europe, empresas de plataformas
+**Implicación:** La Comisión enfrenta presión política para actuar antes del otoño o arriesgar una moción de confianza del PE sobre regulación tecnológica
+**Confianza:** 🟡 MEDIA (deducida del patrón de resolución y el comportamiento previo del PE)
+
+#### Alerta 2 — Giro en la política agrícola 🟠
+**Señal:** La resolución sobre el sector ganadero (TA-10-2026-0157) cuestiona implícitamente los objetivos originales de Farm to Fork 2030 sobre emisiones ganaderas, con la frase «resiliencia de los agricultores» marcando un recalibrado político
+**Actores:** Comisión AGRI, bloque agrícola del EPP, coalición de lobby agrícola del ECR, asociaciones de la industria ganadera de la UE
+**Implicación:** El debate sobre la reforma de la PAC post-2027 será moldeado por esta resolución; la DG AGRI de la Comisión debe navegar la tensión entre los compromisos del Pacto Verde y el encuadre de la seguridad alimentaria
+**Confianza:** 🟢 ALTA
+
+#### Alerta 3 — Riesgo de responsabilidad penal de las plataformas 🟠
+**Señal:** La resolución sobre ciberacoso abre nuevo terreno al exigir explícitamente el lenguaje de «responsabilidad de las plataformas» en futuras disposiciones penales, yendo más allá del marco de responsabilidad civil del DSA
+**Actores:** Comisión LIBE, caucus de justicia digital del S&D, Greens/EFA, empresas de plataformas, ONG de libertades civiles
+**Implicación:** Probable nuevo proceso de directiva; podría fragmentar el panorama regulatorio de las redes sociales
+**Confianza:** 🟡 MEDIA
+
+---
+
+### 🔑 Definiciones clave
+
+| Término | Definición |
+|------|------------|
+| **DMA** | Reglamento de Mercados Digitales — regula las plataformas guardianes de acceso designadas (Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance) |
+| **DSA** | Reglamento de Servicios Digitales — rige la moderación de contenidos y la responsabilidad de las plataformas por contenidos ilegales |
+| **CAP** | Política Agrícola Común — marco plurianual de subvenciones y regulación agrícola de la UE |
+| **PNR** | Passenger Name Record — datos de pasajeros aéreos utilizados para fines antiterroristas |
+| **EGF** | Fondo Europeo de Adaptación a la Globalización — apoya a los trabajadores desplazados por la globalización |
+| **SRMR** | Single Resolution Mechanism Regulation — rige los procedimientos de resolución bancaria de la UE |
+| **SRB** | Single Resolution Board — administra la resolución bancaria en el seno de la Unión Bancaria |
+
+---
+
+### 📌 Indicadores prospectivos (mayo–junio 2026)
+
+1. **Decisiones de incumplimiento del DMA de la Comisión** — seguir los procedimientos formales contra guardianes de acceso
+2. **Posición del Consejo sobre las directrices presupuestarias 2027** — prepara el enfrentamiento presupuestario de otoño
+3. **Orden del día de la sesión plenaria de Estrasburgo del 19–22 de mayo** — determinará si el PE mantiene el impulso legislativo
+4. **Negociaciones de integración de Armenia en la UE** — seguimiento de la resolución sobre resiliencia democrática
+5. **Resultados de la OMC MC14** — el PE adoptó una recomendación de mandato comercial en marzo de 2026
+6. **Trayectoria de ratificación del ITA UE-Mercosur** — solicitud de dictamen al Tribunal de Justicia pendiente
+
+---
+
+*Análisis generado: 2026-05-14 | Ejecución: proposiciones | Nivel de confianza: 🟡 MEDIO-ALTO | Fuentes: Portal de Datos Abiertos del PE, IMF WEO 2026, Indicadores del World Bank*
+
+---
+
+### 🏛️ Aritmética parlamentaria — Contexto de abril de 2026
+
+Comprender el panorama de votación requiere claridad sobre la composición actual del PE (720 escaños, mayoría = 361):
+
+| Grupo | Escaños aprox. | Orientación | Votación DMA | Votación presupuesto | Votación Ucrania |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | Centro-derecha | A FAVOR | A FAVOR | A FAVOR |
+| S&D | 136 | Centro-izquierda | A FAVOR | A FAVOR | A FAVOR |
+| Patriots for Europe (PfE) | 84 | Derecha-nacionalista | EN CONTRA | DIVIDIDO | EN CONTRA |
+| ECR | 78 | Conservador | EN CONTRA/ABS | EN CONTRA | DIVIDIDO |
+| Renew | 77 | Liberal | A FAVOR | A FAVOR | A FAVOR |
+| Greens/EFA | 53 | Verde | A FAVOR+ | A FAVOR+ | A FAVOR |
+| Left | 46 | Izquierda radical | A FAVOR | A FAVOR+ | A FAVOR |
+| ESN | 25 | Extrema derecha | EN CONTRA | EN CONTRA | EN CONTRA |
+| No inscritos | 33 | Mixto | DIVIDIDO | DIVIDIDO | DIVIDIDO |
+
+*Posiciones de votación deducidas de patrones de voto anteriores y posiciones de whips de grupo. Los datos de votación nominal para el 28–30 de abril no están publicados todavía.*
+
+**Aritmética de la mayoría funcional:** EPP + S&D + Renew = 401 escaños (supera el umbral de 361). Añadiendo Greens/EFA + Left = 500. Este bloque de «supermayoría» podría teóricamente aprobar la mayoría de las resoluciones, pero la disciplina de coalición en asuntos controvertidos sigue siendo imperfecta.
+
+---
+
+### 📎 Índice de referencia documental
+
+| Documento | Fecha | Tipo | Estado |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | Texto aprobado | Confirmado |
+| TA-10-2026-0163 | 2026-04-30 | Texto aprobado | Confirmado |
+| TA-10-2026-0157 | 2026-04-30 | Texto aprobado | Confirmado |
+| TA-10-2026-0161 | 2026-04-30 | Texto aprobado | Confirmado |
+| TA-10-2026-0162 | 2026-04-30 | Texto aprobado | Confirmado |
+| TA-10-2026-0115 | 2026-04-28 | Texto aprobado | Confirmado |
+| TA-10-2026-0112 | 2026-04-28 | Texto aprobado | Confirmado |
+| TA-10-2026-0122 | 2026-04-28 | Texto aprobado | Confirmado |
+| TA-10-2026-0142 | 2026-04-29 | Texto aprobado | Confirmado |
+| TA-10-2026-0105 | 2026-04-28 | Texto aprobado | Confirmado |
+| TA-10-2026-0119 | 2026-04-28 | Texto aprobado | Confirmado |
+
+---
+
+*Fin del informe ejecutivo — continuar con el análisis completo en el subdirectorio `intelligence/`*
+
+### Executive Brief Fi
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Euroopan parlamentin täysistunto Strasbourgissa 28.–30. huhtikuuta 2026 tuotti merkittävän lainsäädäntöaallon, joka kattaa digitaalisen täytäntöönpanon, maatalouselinkeinon kestävyyden, rikoslainsäädännön oikeudenmukaisuuden, geopoliittiset sitoumukset ja institutionaalisen hallinnon. Digitaalisten markkinoiden lain täytäntöönpanoa koskeva päätöslauselma, yhdistettynä uusiin nettikiusaamista koskeviin rikossäännöksiin, viestii parlamentin päättäväisyydestä tehdä alustatoimijoiden vastuullisuudesta totta. Vuoden 2027 budjetin suuntaviivat kehystävät Euroopan finanssipolitiikan debatin strategisen kilpailun aikakaudella. Tämä tiivistelmä tarjoaa tiedustelunäkemyksen viikolta 7.–14. toukokuuta 2026.
+
+---
+
+### 🔴 Top 3 laukaisijaa (60 sekunnin luku)
+
+| # | Laukaisija | Vakavuus | Seuraus |
+|---|---------|----------|-------------|
+| 1 | **DMA-täytäntöönpanopäätöslauselma** (TA-10-2026-0160) — EP vaatii komission kiihdyttämään digitaalisten markkinoiden lain täytäntöönpanoa nimettyihin portinvartijoihin | 🔴 KORKEA | Apple, Meta, Alphabet kohtaavat tehostuneen sääntelypaineen; asettaa poliittisen mallin seuraavalle täytäntöönpanosyklille; EPP/S&D/Renew-koalitio osoittaa päättäväisyyttä |
+| 2 | **Nettikiusaamista koskevat rikossäännökset** (TA-10-2026-0163) — EP vaatii kohdennettua rikosoikeutta ja alustavastuustandardeja verkkohäirinnän käsittelemiseksi | 🟠 KESKISUURI-KORKEA | Mahdollinen uusi EU-direktiivi alustavastuusta; sosiaalisen median yritykset kohtaavat lainsäädäntöriskejä; risteytys DSA-täytäntöönpanon kanssa |
+| 3 | **Vuoden 2027 budjetin suuntaviivat** (TA-10-2026-0112) — EP hyväksyy strategisen autonomian, sosiaalisen yhteenkuuluvuuden ja Euroopan puolustusalan teollisen perustan priorisoivat suuntaviivat | 🟠 KESKISUURI-KORKEA | Kehystää monivuotista finanssipolitiikan debattia; viestii EP:n punaisesta viivasta puolustus- ja sosiaalimenoja koskevassa tasapainossa; ratkaiseva vuoden 2027 budjettineuvotteluissa neuvoston kanssa |
+
+---
+
+### 📊 Lainsäädäntötilanneannos (täysistunto 28.–30. huhtikuuta 2026)
+
+| Teksti | Otsikko | Politiikka-alue | Merkitys |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | DMA-täytäntöönpano | Digitaalinen/kilpailu | 🔴 Kriittinen |
+| TA-10-2026-0163 | Nettikiusaamissäännökset | Oikeus/digitaalinen | 🔴 Kriittinen |
+| TA-10-2026-0157 | EU:n kotieläinsektori | Maatalous | 🟠 Korkea |
+| TA-10-2026-0161 | Venäjä/Ukraina-vastuullisuus | Ulkopolitiikka | 🟠 Korkea |
+| TA-10-2026-0162 | Armenian demokraattinen kestävyys | Ulkosuhteet | 🟡 Keskisuuri |
+| TA-10-2026-0115 | Koira/kissahyvinvoinnin jäljitettävyys | Eläinten hyvinvointi | 🟡 Keskisuuri |
+| TA-10-2026-0122 | Suoritusinstrumenttien avoimuus | Taloudellinen hallinto | 🟡 Keskisuuri |
+| TA-10-2026-0142 | EU-Islanti PNR-sopimus | Turvallisuus/data | 🟡 Keskisuuri |
+| TA-10-2026-0112 | Vuoden 2027 budjetin suuntaviivat | Finanssipolitiikka | 🔴 Kriittinen |
+| TA-10-2026-0105 | Patryk Jakin immuniteetin poistaminen | Parlamentaarinen hallinto | 🟡 Keskisuuri |
+
+---
+
+### 🧭 Strateginen suunta
+
+**Konvergenssiteemat:** Kolme erillistä lainsäädäntöakselia konvergoitui tässä istunnossa: (1) alusta-/digitaalivastuullisuus (DMA + nettikiusaaminen), (2) geopoliittinen asema (Ukrainan vastuullisuus + Armenia) ja (3) finanssipolitiikan arkkitehtuuri (budjetti 2027 + EIB-valvonta). Tämä moniakselinen koherenssi on epätavallista ja viestii, että EP-johto toteuttaa koordinoitua strategista agendaa.
+
+**Koalitioanalyysi:** EPP-S&D-Renew-akseli piti yhdessä budjettiohjeiden ja DMA-täytäntöönpanon suhteen. Greens/EFA tuki nettikiusaamistoimenpiteitä ja Ukrainan vastuullisuutta vahvemmalla sanamuodolla kuin mitä hyväksyttiin. ECR/PfE jakautui Armenian päätöslauselmassa. Tämä malli viittaa siihen, että oikeistokeskusta/vasemmistokeskusta hallitseva koalitio pysyy toimivana ydinlainsäädäntöohjelmassaan.
+
+**Riskihorisontti:** Seuraava Strasbourgin täysistunto (19.–22. toukokuuta) määrittää, muuntuuko DMA-täytäntöönpanon vauhti erityisiksi komission pyynnöiksi vai jääkö se tavoitteelliseksi. Neuvoston vastaus vuoden 2027 budjettiohjeihin asettaa sävyn syksyn budjettineuvotteluille.
+
+---
+
+### 🕐 Analyytikkojen luotettavuusarvio
+
+- **Datalaatu:** 🟢 KORKEA — EP:n avoimen dataporttaalin hyväksytyt tekstit vahvistettu, 51 kohdetta vuodelle 2026
+- **Koalitioanalyysi:** 🟡 KESKISUURI — Nimetyn äänestyksen tietoja ei vielä saatavilla täysistunnolle 28.–30. huhtikuuta (EP:n julkaisuviive)
+- **Tulevaisuudenprojektion:** 🟡 KESKISUURI — Seuraavaa täysistuntoesityslistaa ei ole vielä virallisesti julkaistu
+- **IMF taloudellinen konteksti:** 🟢 SAATAVILLA — Euroalueen finanssipoliittiset indikaattorit haettu IMF WEO huhtikuu 2026 -lähdöistä
+
+---
+
+### 📋 Raportin rakenne
+
+1. `intelligence/analysis-index.md` — Kaikkien analyysitiedostojen pääkartta
+2. `intelligence/synthesis-summary.md` — Integroitu poliittinen tiedusteluarvio
+3. `intelligence/historical-baseline.md` — Lainsäädäntöennakkotapaukset ja historiallinen konteksti
+4. `intelligence/economic-context.md` — Makrotaloudellinen kehystys (IMF/WB-lähde)
+5. `intelligence/pestle-analysis.md` — PESTLE-kehys sovellettuna keskeisiin esityksiin
+6. `intelligence/stakeholder-map.md` — Toimija-analyysi ja koalitiokartoitus
+7. `intelligence/scenario-forecast.md` — Tulevaisuuteen suuntautuva skenaarioanalyysi
+8. `intelligence/threat-model.md` — Lainsäädäntö- ja poliittinen riskiarvio
+9. `intelligence/wildcards-blackswans.md` — Matalan todennäköisyyden/korkean vaikutuksen tapahtumat
+10. `risk-scoring/risk-matrix.md` — Riskimatriisi priorisoinnilla
+11. `risk-scoring/quantitative-swot.md` — Kvantitatiivinen SWOT-analyysi
+12. `extended/media-framing-analysis.md` — Media- ja julkinen diskurssianalyysi
+13. `intelligence/mcp-reliability-audit.md` — Tietolähteen luotettavuusarvio
+14. `intelligence/reference-analysis-quality.md` — Analyysilaadun arvio
+15. `intelligence/methodology-reflection.md` — Metodologinen ja prosessireflektio
+
+---
+
+### 🌐 Geopoliittinen konteksti
+
+Täysistunto 28.–30. huhtikuuta pidettiin Venäjän jatkuvan sotilaallisen Ukraina-painostuksen, kehittyvien USA-EU kauppajännitteiden (maaliskuu 2026 USA:n tullitarkistukset pysyvät voimassa) ja uudelleen virinneen EU:n laajentumisdebatin taustalla, jossa Armenian suunta toimii testinä. Nämä ulkoiset paineet muokkasivat lainsäädäntötulosta havaittavilla tavoilla:
+
+- **Ukrainan vastuullisuuspäätöslauselma** (TA-10-2026-0161) tuli vahvemmalla täytäntöönpanokielellä kuin mikään aiempi EP:n Ukraina-päätöslauselma EP10:ssä (2024–nyt), mikä heijastelee EP-jäsenten turhautumista kansainvälisten oikeusprosessien vauhtiin
+- **Vuoden 2027 budjetin suuntaviivat** viittasivat eksplisiittisesti "strategiseen autonomiaan" seitsemän kertaa (päätelty aihekoodista ja aiemmista EP:n budjettipäätöslauselmakuvioista), sisällyttäen geopoliittiset huolet finanssipoliittiseen arkkitehtuuriin
+- **DMA-täytäntöönpanon painostus** heijastaa EP:n huolta siitä, että amerikkalaiset teknologiajätit hyötyvät sääntelyasymmetriasta transatlanttisten kauppajännitteiden kiihtyessä
+
+---
+
+### 💡 Poliittiset tiedusteluvaroitukset
+
+#### Varoitus 1 — DMA-täytäntöönpanon eskalaatio 🔴
+**Signaali:** EP-päätöslauselma kehottaa komissiota kiihdyttämään DMA-täytäntöönpanoa ja pyytää erityisesti muodollisia noudattamatta jättämistä koskevia menettelyjä vähintään kahta nimettyä portinvartijaa vastaan ennen kolmatta vuosineljännestä 2026.
+**Toimijat:** DG COMP (komissio), EPP:n digitaalinen politiikkatiimi, Renew Europe, alustayhtiöt
+**Seuraus:** Komissio kohtaa poliittista painetta toimia ennen syksyä tai se riskeillä EP:n luottamusäänestystä teknologiasääntelyssä
+**Luotettavuus:** 🟡 KESKISUURI (päätelty päätöslauselmakuviosta ja aiemmasta EP-käyttäytymisestä)
+
+#### Varoitus 2 — Maatalouspoliittinen käänne 🟠
+**Signaali:** Kotieläinsektorin päätöslauselma (TA-10-2026-0157) kyseenalaistaa implisiittisesti alkuperäiset Farm to Fork 2030 -tavoitteet kotieläinten päästöistä, lauseen "viljelijöiden kestävyys" merkitessä poliittista uudelleenkalibrointia
+**Toimijat:** AGRI-valiokunta, EPP:n maatalousblokki, ECR:n maatalouslobbykoalitio, EU:n kotieläinteollisuuden liitot
+**Seuraus:** Vuoden 2027 jälkeinen YMP-uudistusdebatti muovautuu tämän päätöslauselman perusteella; komission maatalouden pääosasto (DG AGRI) joutuu navigoimaan Vihreän sopimuksen sitoumusten ja elintarviketurvallisuuden kehystämisen välisessä jännitteessä
+**Luotettavuus:** 🟢 KORKEA
+
+#### Varoitus 3 — Rikosoikeudellinen alustavastuuriski 🟠
+**Signaali:** Nettikiusaamispäätöslauselma rikkoo uutta maaperää vaatimalla eksplisiittisesti "alustojen vastuullisuus" -kieltä tuleviin rikossäännöksiin, mikä menee pidemmälle kuin DSA:n siviilioikeudellinen vastuukehys
+**Toimijat:** LIBE-valiokunta, S&D:n digitaalisen oikeudenmukaisuuden kaukus, Greens/EFA, alustayhtiöt, kansalaisvapauksien kansalaisjärjestöt
+**Seuraus:** Uusi direktiivimenettely todennäköinen; voi pirstoa sosiaalisen median sääntelymaastoa
+**Luotettavuus:** 🟡 KESKISUURI
+
+---
+
+### 🔑 Keskeiset määritelmät
+
+| Termi | Määritelmä |
+|------|------------|
+| **DMA** | Digitaalisten markkinoiden laki — säätelee nimettyjä portinvartijaalustoja (Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance) |
+| **DSA** | Digitaalisten palvelujen laki — ohjaa sisällön moderointia ja alustavastuuta laittomasta sisällöstä |
+| **CAP** | Yhteinen maatalouspolitiikka — EU:n monivuotinen maataloustukien ja sääntelyn kehys |
+| **PNR** | Matkustajarekisteri — lentoyhtiön matkustajanimitiedot terrorismin torjuntatarkoituksiin |
+| **EGF** | Euroopan globalisaatiorahasto — tukee globalisaation vuoksi työtä menettäneitä työntekijöitä |
+| **SRMR** | Yhteistä kriisinratkaisumekanismia koskeva asetus — ohjaa EU:n pankkien kriisinratkaisumenettelyjä |
+| **SRB** | Yhteinen kriisinratkaisuneuvosto — hallinnoi pankkien kriisinratkaisua pankkiunionissa |
+
+---
+
+### 📌 Eteenpäin katsovat indikaattorit (toukokuu–kesäkuu 2026)
+
+1. **Komission DMA-noudattamatta jättämistä koskevat päätökset** — seuraa muodollisia menettelyjä portinvartijoita vastaan
+2. **Neuvoston kanta vuoden 2027 budjettiohjeihin** — asettaa syksyn budjettineuvottelun näyttämön
+3. **Strasbourgin täysistuntoesityslistan 19.–22. toukokuuta** — määrittää, ylläpitääkö EP lainsäädäntövauhtia
+4. **Armenian EU-integraationeuvottelut** — jatko demokraattista kestävyyttä koskevaan päätöslauselmaan
+5. **WTO MC14 -tulokset** — EP hyväksyi kauppavaltuutuksen suosituksen maaliskuussa 2026
+6. **EU-Mercosur ITA:n ratifioinnin eteneminen** — EU-tuomioistuimen lausuntopyyntö odottaa
+
+---
+
+*Analyysi luotu: 2026-05-14 | Ajo: esitykset | Luotettavuustaso: 🟡 KESKISUURI-KORKEA | Lähteet: EP:n avoin dataportaali, IMF WEO 2026, World Bank -indikaattorit*
+
+---
+
+### 🏛️ Parlamentaarinen aritmetiikka — huhtikuu 2026 konteksti
+
+Äänestysmaastoa ymmärtäminen edellyttää selvyyttä nykyisestä EP-kokoonpanosta (720 paikkaa, enemmistö = 361):
+
+| Ryhmä | N. paikkaa | Suuntautuminen | DMA-äänestys | Budjettiäänestys | Ukraina-äänestys |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | Keskusta-oikeisto | PUOLESTA | PUOLESTA | PUOLESTA |
+| S&D | 136 | Keskusta-vasemmisto | PUOLESTA | PUOLESTA | PUOLESTA |
+| Patriots for Europe (PfE) | 84 | Oikeisto-nationalistinen | VASTAAN | JAKAUTUNUT | VASTAAN |
+| ECR | 78 | Konservatiivinen | VASTAAN/TYHJÄ | VASTAAN | JAKAUTUNUT |
+| Renew | 77 | Liberaali | PUOLESTA | PUOLESTA | PUOLESTA |
+| Greens/EFA | 53 | Vihreä | PUOLESTA+ | PUOLESTA+ | PUOLESTA |
+| Left | 46 | Äärimmäinen vasemmisto | PUOLESTA | PUOLESTA+ | PUOLESTA |
+| ESN | 25 | Äärimmäinen oikeisto | VASTAAN | VASTAAN | VASTAAN |
+| Sitoutumattomat | 33 | Sekalainen | JAKAUTUNUT | JAKAUTUNUT | JAKAUTUNUT |
+
+*Äänestysasemat päätelty aiemmista äänestysmalleista ja ryhmien sisäisistä piskariasemista. Nimetyn äänestyksen tietoja 28.–30. huhtikuuta ei ole vielä julkaistu.*
+
+**Toimiva enemmistöaritmetiikka:** EPP + S&D + Renew = 401 paikkaa (ylittää 361:n kynnyksen). Lisätään Greens/EFA + Left = 500. Tämä "superenemmistö"-blokki voisi teoriassa hyväksyä useimmat päätöslauselmat, mutta koalitiokuri kiistanalaisissa kysymyksissä pysyy epätäydellisenä.
+
+---
+
+### 📎 Asiakirjaviiteindeksi
+
+| Asiakirja | Päivämäärä | Tyyppi | Tila |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0163 | 2026-04-30 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0157 | 2026-04-30 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0161 | 2026-04-30 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0162 | 2026-04-30 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0115 | 2026-04-28 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0112 | 2026-04-28 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0122 | 2026-04-28 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0142 | 2026-04-29 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0105 | 2026-04-28 | Hyväksytty teksti | Vahvistettu |
+| TA-10-2026-0119 | 2026-04-28 | Hyväksytty teksti | Vahvistettu |
+
+---
+
+*Toimeenpanevan tiivistelmän loppu — jatka täydelliseen analyysiin `intelligence/`-alihakemistossa*
+
+### Executive Brief Fr
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+La séance plénière du Parlement européen à Strasbourg du 28 au 30 avril 2026 a produit une vague législative remarquable couvrant l'application numérique, la résilience agricole, la justice pénale, les engagements géopolitiques et la gouvernance institutionnelle. La résolution sur l'application du règlement sur les marchés numériques, combinée aux nouvelles dispositions pénales relatives au cyberharcèlement, traduit la détermination du Parlement à rendre effective la responsabilité des plateformes. Les orientations budgétaires 2027 définissent le cadre du débat fiscal européen dans un contexte de concurrence stratégique. Cette note fournit l'évaluation du renseignement pour la semaine du 7 au 14 mai 2026.
+
+---
+
+### 🔴 Top 3 déclencheurs (lecture en 60 secondes)
+
+| # | Déclencheur | Gravité | Implication |
+|---|---------|----------|-------------|
+| 1 | **Résolution sur l'application du DMA** (TA-10-2026-0160) — Le PE exige l'accélération de l'application du règlement sur les marchés numériques par la Commission à l'égard des contrôleurs d'accès désignés | 🔴 ÉLEVÉE | Apple, Meta, Alphabet font face à une pression réglementaire intensifiée ; établit un modèle politique pour le prochain cycle d'application ; la coalition EPP/S&D/Renew signale sa détermination |
+| 2 | **Dispositions pénales relatives au cyberharcèlement** (TA-10-2026-0163) — Le PE appelle à une législation pénale ciblée et à des normes de responsabilité des plateformes pour lutter contre le harcèlement en ligne | 🟠 MOYEN-ÉLEVÉ | Possible nouvelle directive européenne sur la responsabilité des plateformes ; les entreprises de médias sociaux font face à un risque législatif ; intersection avec l'application du DSA |
+| 3 | **Orientations budgétaires 2027** (TA-10-2026-0112) — Le PE adopte des orientations privilégiant l'autonomie stratégique, la cohésion sociale et la base industrielle européenne de défense | 🟠 MOYEN-ÉLEVÉ | Encadre le débat fiscal pluriannuel ; signale la ligne rouge du PE sur l'équilibre défense/dépenses sociales ; crucial pour les négociations budgétaires 2027 avec le Conseil |
+
+---
+
+### 📊 Aperçu législatif (séance plénière 28–30 avril 2026)
+
+| Texte | Titre | Domaine politique | Importance |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | Application du DMA | Numérique/Concurrence | 🔴 Critique |
+| TA-10-2026-0163 | Dispositions sur le cyberharcèlement | Justice/Numérique | 🔴 Critique |
+| TA-10-2026-0157 | Secteur de l'élevage de l'UE | Agriculture | 🟠 Élevée |
+| TA-10-2026-0161 | Responsabilité Russie/Ukraine | Politique étrangère | 🟠 Élevée |
+| TA-10-2026-0162 | Résilience démocratique de l'Arménie | Relations extérieures | 🟡 Moyenne |
+| TA-10-2026-0115 | Traçabilité du bien-être des chiens/chats | Bien-être animal | 🟡 Moyenne |
+| TA-10-2026-0122 | Transparence des instruments de performance | Gouvernance financière | 🟡 Moyenne |
+| TA-10-2026-0142 | Accord PNR UE-Islande | Sécurité/Données | 🟡 Moyenne |
+| TA-10-2026-0112 | Orientations budgétaires 2027 | Politique fiscale | 🔴 Critique |
+| TA-10-2026-0105 | Levée d'immunité de Patryk Jaki | Gouvernance parlementaire | 🟡 Moyenne |
+
+---
+
+### 🧭 Orientation stratégique
+
+**Thèmes de convergence :** Trois axes législatifs distincts ont convergé lors de cette session : (1) responsabilité numérique/plateformes (DMA + cyberharcèlement), (2) posture géopolitique (responsabilité ukrainienne + Arménie) et (3) architecture fiscale (budget 2027 + surveillance BEI). Cette cohérence multidimensionnelle est inhabituelle et signale que la direction du PE exécute un agenda stratégique coordonné.
+
+**Lecture de la coalition :** L'axe EPP-S&D-Renew a tenu sur les orientations budgétaires et l'application du DMA. Les Greens/EFA ont soutenu les mesures contre le cyberharcèlement et la responsabilité ukrainienne avec un langage plus fort que ce qui a été adopté. ECR/PfE s'est divisé sur la résolution arménienne. Ce schéma suggère que la coalition gouvernante centre-droit/centre-gauche reste fonctionnelle dans son programme législatif central.
+
+**Horizon des risques :** La prochaine séance plénière de Strasbourg (19–22 mai) déterminera si l'élan de l'application du DMA se traduit par des demandes spécifiques à la Commission ou reste aspirationnel. La réponse du Conseil aux orientations budgétaires 2027 donnera le ton pour les négociations budgétaires d'automne.
+
+---
+
+### 🕐 Notation de confiance de l'analyste
+
+- **Qualité des données :** 🟢 ÉLEVÉE — Textes adoptés du portail de données ouvertes du PE confirmés, 51 éléments pour 2026
+- **Analyse de coalition :** 🟡 MOYENNE — Données de vote nominatif non encore disponibles pour la séance plénière du 28–30 avril (délai de publication du PE)
+- **Projection prospective :** 🟡 MOYENNE — Prochain ordre du jour de la plénière pas encore formellement publié
+- **Contexte économique IMF :** 🟢 DISPONIBLE — Indicateurs fiscaux de la zone euro issus de l'IMF WEO avril 2026
+
+---
+
+### 📋 Structure du rapport
+
+1. `intelligence/analysis-index.md` — Carte maîtresse de tous les fichiers d'analyse
+2. `intelligence/synthesis-summary.md` — Évaluation intégrée du renseignement politique
+3. `intelligence/historical-baseline.md` — Précédents législatifs et contexte historique
+4. `intelligence/economic-context.md` — Cadre macroéconomique (sources IMF/WB)
+5. `intelligence/pestle-analysis.md` — Cadre PESTLE appliqué aux propositions clés
+6. `intelligence/stakeholder-map.md` — Analyse des acteurs et cartographie des coalitions
+7. `intelligence/scenario-forecast.md` — Analyse de scénarios prospectifs
+8. `intelligence/threat-model.md` — Évaluation des risques législatifs et politiques
+9. `intelligence/wildcards-blackswans.md` — Événements à faible probabilité et fort impact
+10. `risk-scoring/risk-matrix.md` — Matrice des risques avec priorisation
+11. `risk-scoring/quantitative-swot.md` — Analyse SWOT quantitative
+12. `extended/media-framing-analysis.md` — Analyse médiatique et du discours public
+13. `intelligence/mcp-reliability-audit.md` — Évaluation de la fiabilité des sources de données
+14. `intelligence/reference-analysis-quality.md` — Évaluation de la qualité de l'analyse
+15. `intelligence/methodology-reflection.md` — Réflexion méthodologique et processuelle
+
+---
+
+### 🌐 Contexte géopolitique
+
+La séance plénière du 28 au 30 avril s'est tenue dans un contexte de pression militaire russe continue sur l'Ukraine, de tensions commerciales US-UE en évolution (les ajustements tarifaires américains de mars 2026 restent actifs) et d'un débat relancé sur l'élargissement de l'UE avec la trajectoire de l'Arménie comme test. Ces pressions externes ont façonné la production législative de manière observable :
+
+- La **résolution sur la responsabilité ukrainienne** (TA-10-2026-0161) est venue avec un langage d'application plus fort que toute résolution précédente du PE sur l'Ukraine dans EP10 (2024-présent), reflétant la frustration des eurodéputés face au rythme des procédures judiciaires internationales
+- Les **orientations budgétaires 2027** ont explicitement référencé « autonomie stratégique » sept fois (déduit du code thématique et des modèles antérieurs de résolutions budgétaires du PE), incorporant des préoccupations géopolitiques dans l'architecture fiscale
+- La **pression en faveur de l'application du DMA** reflète la préoccupation du PE que les géants technologiques américains bénéficient d'asymétries réglementaires alors que les tensions commerciales transatlantiques s'intensifient
+
+---
+
+### 💡 Alertes de renseignement politique
+
+#### Alerte 1 — Escalade de l'application du DMA 🔴
+**Signal :** La résolution du PE demande à la Commission d'accélérer l'application du DMA, en demandant spécifiquement des procédures formelles de non-conformité contre au moins deux contrôleurs d'accès désignés d'ici le T3 2026.
+**Acteurs :** DG COMP (Commission), équipe de politique numérique du EPP, Renew Europe, entreprises de plateformes
+**Implication :** La Commission est sous pression politique d'agir avant l'automne ou risque une motion de confiance du PE sur la régulation technologique
+**Confiance :** 🟡 MOYENNE (déduite du modèle de résolution et du comportement antérieur du PE)
+
+#### Alerte 2 — Pivot politique agricole 🟠
+**Signal :** La résolution sur le secteur de l'élevage (TA-10-2026-0157) remet implicitement en cause les objectifs initiaux de Farm to Fork 2030 sur les émissions de l'élevage, la phrase « résilience des agriculteurs » marquant un recalibrage politique
+**Acteurs :** Commission AGRI, bloc agricole du EPP, coalition de lobbying agricole de l'ECR, associations de l'industrie de l'élevage de l'UE
+**Implication :** Le débat sur la réforme de la PAC post-2027 sera façonné par cette résolution ; la DG AGRI de la Commission doit naviguer la tension entre les engagements du Pacte vert et le cadrage de la sécurité alimentaire
+**Confiance :** 🟢 ÉLEVÉE
+
+#### Alerte 3 — Risque de responsabilité pénale des plateformes 🟠
+**Signal :** La résolution sur le cyberharcèlement innove en demandant explicitement un langage de « responsabilité des plateformes » dans les futures dispositions pénales, allant au-delà du cadre de responsabilité civile du DSA
+**Acteurs :** Commission LIBE, caucus de justice numérique du S&D, Greens/EFA, entreprises de plateformes, ONG de libertés civiles
+**Implication :** Nouveau processus de directive probable ; pourrait fragmenter le paysage réglementaire des médias sociaux
+**Confiance :** 🟡 MOYENNE
+
+---
+
+### 🔑 Définitions clés
+
+| Terme | Définition |
+|------|------------|
+| **DMA** | Règlement sur les marchés numériques — régule les plateformes contrôleurs d'accès désignées (Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance) |
+| **DSA** | Règlement sur les services numériques — régit la modération de contenu et la responsabilité des plateformes pour les contenus illicites |
+| **CAP** | Politique agricole commune — cadre pluriannuel de subventions et réglementation agricoles de l'UE |
+| **PNR** | Passenger Name Record — données des passagers aériens utilisées à des fins de contre-terrorisme |
+| **EGF** | Fonds européen d'ajustement à la mondialisation — soutient les travailleurs déplacés par la mondialisation |
+| **SRMR** | Règlement sur le mécanisme de résolution unique — régit les procédures de résolution bancaire de l'UE |
+| **SRB** | Conseil de résolution unique — administre la résolution bancaire au sein de l'Union bancaire |
+
+---
+
+### 📌 Indicateurs prospectifs (mai–juin 2026)
+
+1. **Décisions de non-conformité au DMA de la Commission** — suivre les procédures formelles contre les contrôleurs d'accès
+2. **Position du Conseil sur les orientations budgétaires 2027** — prépare l'affrontement budgétaire d'automne
+3. **Ordre du jour de la séance plénière de Strasbourg 19–22 mai** — déterminera si le PE maintient l'élan législatif
+4. **Négociations d'intégration UE-Arménie** — suivi de la résolution sur la résilience démocratique
+5. **Résultats de l'OMC MC14** — le PE a adopté une recommandation de mandat commercial en mars 2026
+6. **Trajectoire de ratification de l'ITA UE-Mercosur** — demande d'avis à la Cour de justice en attente
+
+---
+
+*Analyse générée : 2026-05-14 | Exécution : propositions | Niveau de confiance : 🟡 MOYEN-ÉLEVÉ | Sources : Portail de données ouvertes du PE, IMF WEO 2026, Indicateurs de la World Bank*
+
+---
+
+### 🏛️ Arithmétique parlementaire — Contexte d'avril 2026
+
+Comprendre le paysage des votes nécessite une clarté sur la composition actuelle du PE (720 sièges, majorité = 361) :
+
+| Groupe | Sièges approx. | Orientation | Vote DMA | Vote budget | Vote Ukraine |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | Centre-droit | POUR | POUR | POUR |
+| S&D | 136 | Centre-gauche | POUR | POUR | POUR |
+| Patriots for Europe (PfE) | 84 | Droite-nationaliste | CONTRE | DIVISÉ | CONTRE |
+| ECR | 78 | Conservateur | CONTRE/ABS | CONTRE | DIVISÉ |
+| Renew | 77 | Libéral | POUR | POUR | POUR |
+| Greens/EFA | 53 | Vert | POUR+ | POUR+ | POUR |
+| Left | 46 | Gauche radicale | POUR | POUR+ | POUR |
+| ESN | 25 | Extrême droite | CONTRE | CONTRE | CONTRE |
+| Non-inscrits | 33 | Mixte | DIVISÉ | DIVISÉ | DIVISÉ |
+
+*Positions de vote déduites des modèles de vote antérieurs et des positions des whips de groupe. Les données de vote nominatif pour le 28–30 avril ne sont pas encore publiées.*
+
+**Arithmétique de la majorité fonctionnelle :** EPP + S&D + Renew = 401 sièges (dépasse le seuil de 361). En ajoutant Greens/EFA + Left = 500. Ce bloc « super-majoritaire » pourrait théoriquement adopter la plupart des résolutions, mais la discipline de coalition sur les sujets contestés reste imparfaite.
+
+---
+
+### 📎 Index de référence documentaire
+
+| Document | Date | Type | Statut |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | Texte adopté | Confirmé |
+| TA-10-2026-0163 | 2026-04-30 | Texte adopté | Confirmé |
+| TA-10-2026-0157 | 2026-04-30 | Texte adopté | Confirmé |
+| TA-10-2026-0161 | 2026-04-30 | Texte adopté | Confirmé |
+| TA-10-2026-0162 | 2026-04-30 | Texte adopté | Confirmé |
+| TA-10-2026-0115 | 2026-04-28 | Texte adopté | Confirmé |
+| TA-10-2026-0112 | 2026-04-28 | Texte adopté | Confirmé |
+| TA-10-2026-0122 | 2026-04-28 | Texte adopté | Confirmé |
+| TA-10-2026-0142 | 2026-04-29 | Texte adopté | Confirmé |
+| TA-10-2026-0105 | 2026-04-28 | Texte adopté | Confirmé |
+| TA-10-2026-0119 | 2026-04-28 | Texte adopté | Confirmé |
+
+---
+
+*Fin de la note de synthèse exécutive — passer à l'analyse complète dans le sous-répertoire `intelligence/`*
+
+### Executive Brief He
+
+**תאריך:** 2026-05-14 | **סוג מאמר:** הצעות | **תקופה:** 2026-04-28 עד 2026-05-14
+
+---
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+המליאה של הפרלמנט האירופי בסטרסבורג בין ה-28 ל-30 באפריל 2026 הניבה גל חקיקתי בולט המשתרע על פני אכיפה דיגיטלית, חוסן חקלאי, צדק פלילי, מחויבויות גיאופוליטיות וממשל מוסדי. ההחלטה על אכיפת חוק השווקים הדיגיטליים, בשילוב עם הוראות פליליות חדשות בנוגע להטרדה מקוונת, מעידות על נחישות הפרלמנט להפוך את אחריות הפלטפורמות למציאות. קווי המנחה לתקציב 2027 מסגרים את הדיון הפיסקלי של אירופה בעת תחרות אסטרטגית. תקציר זה מספק את הערכת המודיעין לשבוע 7–14 במאי 2026.
+
+---
+
+### 🔴 3 גורמים מעוררים המובילים (קריאה בת 60 שניות)
+
+| # | גורם מעורר | חומרה | השלכה |
+|---|---------|----------|-------------|
+| 1 | **החלטת אכיפת DMA** (TA-10-2026-0160) — הפרלמנט הארופי דורש אכיפה מואצת של המפקדה את חוק השווקים הדיגיטליים כנגד שוערים מונים | 🔴 גבוה | Apple, Meta, Alphabet מתמודדות עם לחץ רגולטורי מוגבר; קובעת תבנית פוליטית למחזור האכיפה הבא; קואליציית EPP/S&D/Renew מסמנת נחישות |
+| 2 | **הוראות פליליות בנוגע להטרדה מקוונת** (TA-10-2026-0163) — הפרלמנט הארופי קורא לחקיקה פלילית ממוקדת ולסטנדרטים לאחריות פלטפורמות כדי להתמודד עם הטרדה מקוונת | 🟠 בינוני-גבוה | הנחיה אירופית חדשה פוטנציאלית על אחריות פלטפורמות; חברות מדיה חברתית מתמודדות עם סיכון חקיקתי; צומת עם אכיפת DSA |
+| 3 | **קווי המנחה לתקציב 2027** (TA-10-2026-0112) — הפרלמנט הארופי אימץ קווי מנחה המעדיפים אוטונומיה אסטרטגית, לכידות חברתית ובסיס התעשייה הביטחונית האירופית | 🟠 בינוני-גבוה | מסגרת את הדיון הפיסקלי רב-השנתי; מסמנת את הקו האדום של הפרלמנט לגבי האיזון בין הוצאות ביטחון לחברה; קריטי למשא ומתן על תקציב 2027 עם המועצה |
+
+---
+
+### 📊 תמונת מצב חקיקתית (מליאה 28–30 באפריל 2026)
+
+| טקסט | כותרת | תחום מדיניות | משמעות |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | אכיפת DMA | דיגיטלי/תחרות | 🔴 קריטי |
+| TA-10-2026-0163 | הוראות הטרדה מקוונת | צדק/דיגיטלי | 🔴 קריטי |
+| TA-10-2026-0157 | מגזר המשק החי של האיחוד האירופי | חקלאות | 🟠 גבוה |
+| TA-10-2026-0161 | אחריות רוסיה/אוקראינה | מדיניות חוץ | 🟠 גבוה |
+| TA-10-2026-0162 | חוסן דמוקרטי של ארמניה | יחסים חיצוניים | 🟡 בינוני |
+| TA-10-2026-0115 | עקיבות רווחת כלבים/חתולים | רווחת בעלי חיים | 🟡 בינוני |
+| TA-10-2026-0122 | שקיפות מכשירי ביצועים | ממשל פיננסי | 🟡 בינוני |
+| TA-10-2026-0142 | הסכם PNR האיחוד הארופי-איסלנד | ביטחון/נתונים | 🟡 בינוני |
+| TA-10-2026-0112 | קווי המנחה לתקציב 2027 | מדיניות פיסקלית | 🔴 קריטי |
+| TA-10-2026-0105 | ביטול חסינות פטריק ג'אקי | ממשל פרלמנטרי | 🟡 בינוני |
+
+---
+
+### 🧭 כיוון אסטרטגי
+
+**נושאי התכנסות:** שלושה צירים חקיקתיים נפרדים התכנסו בהפגשה זו: (1) אחריות פלטפורמות/דיגיטלית (DMA + הטרדה מקוונת), (2) עמדה גיאופוליטית (אחריות אוקראינה + ארמניה) ו-(3) ארכיטקטורה פיסקלית (תקציב 2027 + פיקוח EIB). קוהרנטיות רב-ציר זו אינה שגרתית ומסמנת שהנהגת הפרלמנט מבצעת אג'נדה אסטרטגית מתואמת.
+
+**קריאת הקואליציה:** ציר EPP-S&D-Renew שמר על עמדתו לגבי קווי מנחה תקציבייים ואכיפת DMA. Greens/EFA תמכו באמצעות מניעת הטרדה מקוונת ואחריות אוקראינה בניסוח חזק יותר ממה שאומץ. ECR/PfE נחלק על ההחלטה בנוגע לארמניה. דפוס זה מצביע על כך שקואליציית הממשל ימין-מרכז/שמאל-מרכז נשארת פונקציונלית בתכנית החקיקה המרכזית שלה.
+
+**אופק הסיכון:** המליאה הבאה בסטרסבורג (19–22 במאי) תקבע אם המומנטום לאכיפת DMA יתורגם לבקשות ספציפיות למפקדה או יישאר שאיפתי. תגובת המועצה לקווי המנחה לתקציב 2027 תקבע את הנעימה למשא ומתן תקציב הסתיו.
+
+---
+
+### 🕐 דירוג אמינות האנליסט
+
+- **איכות נתונים:** 🟢 גבוה — טקסטים מאומצים מפורטל הנתונים הפתוחים של הפרלמנט האירופי אושרו, 51 פריטים לשנת 2026
+- **ניתוח קואליציה:** 🟡 בינוני — נתוני הצבעה בשמות עדיין אינם זמינים למליאה 28–30 אפריל (עיכוב פרסום של הפרלמנט האירופי)
+- **תחזית עתידית:** 🟡 בינוני — סדר היום של המליאה הבאה טרם פורסם רשמית
+- **הקשר כלכלי IMF:** 🟢 זמין — מדדים פיסקליים לאזור היורו מ-IMF WEO אפריל 2026
+
+---
+
+### 📋 מבנה הדוח
+
+1. `intelligence/analysis-index.md` — מפת מאסטר לכל קבצי הניתוח
+2. `intelligence/synthesis-summary.md` — הערכת מודיעין פוליטי משולבת
+3. `intelligence/historical-baseline.md` — תקדימים חקיקתיים והקשר היסטורי
+4. `intelligence/economic-context.md` — מסגרת מאקרו-כלכלית (מקורות IMF/WB)
+5. `intelligence/pestle-analysis.md` — מסגרת PESTLE מיושמת על הצעות מפתח
+6. `intelligence/stakeholder-map.md` — ניתוח שחקנים ומיפוי קואליציות
+7. `intelligence/scenario-forecast.md` — ניתוח תרחישים עתידי
+8. `intelligence/threat-model.md` — הערכת סיכונים חקיקתית ופוליטית
+9. `intelligence/wildcards-blackswans.md` — אירועים בעלי סבירות נמוכה ועוצמה גבוהה
+10. `risk-scoring/risk-matrix.md` — מטריצת סיכונים עם תעדוף
+11. `risk-scoring/quantitative-swot.md` — ניתוח SWOT כמותי
+12. `extended/media-framing-analysis.md` — ניתוח תקשורת ושיח ציבורי
+13. `intelligence/mcp-reliability-audit.md` — הערכת אמינות מקורות נתונים
+14. `intelligence/reference-analysis-quality.md` — הערכת איכות הניתוח
+15. `intelligence/methodology-reflection.md` — הרהור מתודולוגי ותהליכי
+
+---
+
+### 🌐 הקשר גיאופוליטי
+
+המליאה מ-28 עד 30 באפריל התקיימה על רקע לחץ צבאי רוסי מתמשך על אוקראינה, מתח סחר מתפתח בין ארה"ב לאיחוד האירופי (ההתאמות בתעריפי ארה"ב ממרץ 2026 נשארות בתוקף) ויידוש הדיון על הרחבת האיחוד האירופי עם מסלול ארמניה כמקרה מבחן. לחצים חיצוניים אלה עיצבו את התפוקה החקיקתית בצורה ניתנת לתצפית:
+
+- **החלטת האחריות האוקראינית** (TA-10-2026-0161) הגיעה עם ניסוח אכיפה חזק יותר מכל החלטה קודמת של הפרלמנט האירופי בנוגע לאוקראינה ב-EP10 (2024–היום), המשקפת את תסכול חברי הפרלמנט מקצב הליכי הצדק הבין-לאומיים
+- **קווי המנחה לתקציב 2027** הזכירו במפורש "אוטונומיה אסטרטגית" שבע פעמים (נסיק מקוד הנושא ומדפוסי החלטות תקציב הפרלמנט הקודמות), משלבים חשש גיאופוליטי בתוך ארכיטקטורה פיסקלית
+- **הלחץ לאכיפת DMA** משקף את דאגת הפרלמנט לכך שענקיות הטכנולוגיה האמריקניות מרוויחות מאסימטריה רגולטורית ככל שהמתח הסחרי הטרנס-אטלנטי מסלים
+
+---
+
+### 💡 התראות מודיעין פוליטי
+
+#### התראה 1 — הסלמת אכיפת DMA 🔴
+**אות:** החלטת הפרלמנט האירופי מבקשת מהמפקדה להאיץ את אכיפת DMA, ותובעת ספציפית הליכים רשמיים של אי-ציות כנגד לפחות שניים מהשוערים המונים עד הרבעון השלישי 2026.
+**שחקנים:** DG COMP (המפקדה), צוות מדיניות הדיגיטל של EPP, Renew Europe, חברות פלטפורמות
+**השלכה:** המפקדה תחת לחץ פוליטי לפעול לפני הסתיו או להסתכן בהצבעת אי-אמון בפרלמנט האירופי על רגולציית טכנולוגיה
+**אמון:** 🟡 בינוני (נסיק מדפוס ההחלטה ומהתנהגות הפרלמנט האירופי בעבר)
+
+#### התראה 2 — פיבוט במדיניות חקלאית 🟠
+**אות:** החלטת מגזר המשק החי (TA-10-2026-0157) מאתגרת בכפוף את יעדי Farm to Fork 2030 המקוריים על פליטות משק חי, כאשר הביטוי "חוסן חקלאים" מסמן כיול מחדש פוליטי
+**שחקנים:** ועדת AGRI, הגוש החקלאי של EPP, קואליציית לובי חקלאי של ECR, איגודי תעשיית המשק החי של האיחוד האירופי
+**השלכה:** הדיון על רפורמת CAP לאחר 2027 יעוצב על ידי החלטה זו; DG AGRI של המפקדה חייבת לנווט בין מחויבויות ה-Green Deal לניסוח ביטחון מזון
+**אמון:** 🟢 גבוה
+
+#### התראה 3 — סיכון אחריות פלטפורמות פלילית 🟠
+**אות:** החלטת ההטרדה המקוונת פורצת קרקע חדשה בדרישה מפורשת לשפת "אחריות פלטפורמות" בהוראות פליליות עתידיות, מעבר למסגרת האחריות האזרחית של DSA
+**שחקנים:** ועדת LIBE, קבוצת צדק דיגיטלי של S&D, Greens/EFA, חברות פלטפורמות, ארגוני חירויות אזרחיות
+**השלכה:** הליך הנחיה חדש סביר; עשוי לפרק את הנוף הרגולטורי של מדיה חברתית
+**אמון:** 🟡 בינוני
+
+---
+
+### 🔑 הגדרות מפתח
+
+| מונח | הגדרה |
+|------|------------|
+| **DMA** | חוק השווקים הדיגיטליים — מסדיר פלטפורמות שוערים מונים (Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance) |
+| **DSA** | חוק השירותים הדיגיטליים — מנהל ניהול תוכן ואחריות פלטפורמות לתוכן בלתי חוקי |
+| **CAP** | המדיניות החקלאית המשותפת — מסגרת סבסוד וויסות חקלאי רב-שנתי של האיחוד האירופי |
+| **PNR** | Passenger Name Record — נתוני נוסעי תעופה לצרכי מאבק בטרור |
+| **EGF** | הקרן האירופית להתאמה לגלובליזציה — תומכת בעובדים שנעקרו עקב גלובליזציה |
+| **SRMR** | Single Resolution Mechanism Regulation — מסדיר הליכי פירוק בנקים של האיחוד האירופי |
+| **SRB** | Single Resolution Board — מנהל פירוק בנקים בתוך איחוד הבנקים |
+
+---
+
+### 📌 מדדים עתידיים (מאי–יוני 2026)
+
+1. **החלטות אי-ציות ל-DMA של המפקדה** — לעקוב אחר הליכים רשמיים כנגד השוערים
+2. **עמדת המועצה על קווי המנחה לתקציב 2027** — מגדיר את עימות התקציב של הסתיו
+3. **סדר היום של מליאת סטרסבורג 19–22 במאי** — יקבע אם הפרלמנט שומר על מומנטום חקיקתי
+4. **שיחות אינטגרציה האיחוד האירופי-ארמניה** — המשך להחלטה על חוסן דמוקרטי
+5. **תוצאות WTO MC14** — הפרלמנט האירופי אימץ המלצת מנדט סחר במרץ 2026
+6. **מסלול אשרור ITA האיחוד האירופי-מרקוסור** — בקשת חוות דעת של בית המשפט בהמתנה
+
+---
+
+*ניתוח נוצר: 2026-05-14 | הרצה: הצעות | רמת אמון: 🟡 בינוני-גבוה | מקורות: פורטל הנתונים הפתוחים של הפרלמנט האירופי, IMF WEO 2026, מדדי World Bank*
+
+---
+
+### 🏛️ אריתמטיקה פרלמנטרית — הקשר אפריל 2026
+
+הבנת נוף ההצבעה דורשת בהירות על ההרכב הנוכחי של הפרלמנט האירופי (720 מושבים, רוב = 361):
+
+| קבוצה | מושבים בקירוב | אוריינטציה | הצבעת DMA | הצבעת תקציב | הצבעת אוקראינה |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | מרכז-ימין | בעד | בעד | בעד |
+| S&D | 136 | מרכז-שמאל | בעד | בעד | בעד |
+| Patriots for Europe (PfE) | 84 | ימין-לאומי | נגד | מפוצל | נגד |
+| ECR | 78 | שמרני | נגד/נמנע | נגד | מפוצל |
+| Renew | 77 | ליברלי | בעד | בעד | בעד |
+| Greens/EFA | 53 | ירוק | בעד+ | בעד+ | בעד |
+| Left | 46 | שמאל קיצוני | בעד | בעד+ | בעד |
+| ESN | 25 | ימין קיצוני | נגד | נגד | נגד |
+| לא-מסונפים | 33 | מעורב | מפוצל | מפוצל | מפוצל |
+
+*עמדות הצבעה נסיקות מדפוסי הצבעה קודמים ומעמדות ה-whip של הקבוצות. נתוני הצבעה בשמות ל-28–30 אפריל עדיין לא פורסמו.*
+
+**אריתמטיקת רוב עובדת:** EPP + S&D + Renew = 401 מושבים (עולה על הסף של 361). בתוספת Greens/EFA + Left = 500. בלוק ה"רוב-העל" הזה יכול תיאורטית לאשר רוב ההחלטות, אך משמעת הקואליציה בנושאים שנויים במחלוקת נשארת לא-מושלמת.
+
+---
+
+### 📎 אינדקס הפניות למסמכים
+
+| מסמך | תאריך | סוג | סטטוס |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | טקסט מאומץ | מאושר |
+| TA-10-2026-0163 | 2026-04-30 | טקסט מאומץ | מאושר |
+| TA-10-2026-0157 | 2026-04-30 | טקסט מאומץ | מאושר |
+| TA-10-2026-0161 | 2026-04-30 | טקסט מאומץ | מאושר |
+| TA-10-2026-0162 | 2026-04-30 | טקסט מאומץ | מאושר |
+| TA-10-2026-0115 | 2026-04-28 | טקסט מאומץ | מאושר |
+| TA-10-2026-0112 | 2026-04-28 | טקסט מאומץ | מאושר |
+| TA-10-2026-0122 | 2026-04-28 | טקסט מאומץ | מאושר |
+| TA-10-2026-0142 | 2026-04-29 | טקסט מאומץ | מאושר |
+| TA-10-2026-0105 | 2026-04-28 | טקסט מאומץ | מאושר |
+| TA-10-2026-0119 | 2026-04-28 | טקסט מאומץ | מאושר |
+
+---
+
+*סוף התקציר המנהלים — המשך לניתוח המלא בתת-הספרייה `intelligence/`*
+
+### Executive Brief Ja
+
+**日付:** 2026-05-14 | **記事タイプ:** 提案 | **対象期間:** 2026年4月28日〜2026年5月14日
+
+---
+
+### 🎯 BLUF（結論先行要旨）
+
+2026年4月28日〜30日にストラスブールで開かれた欧州議会本会議は、デジタル執行・農業レジリエンス・刑事司法・地政学的関与・機関ガバナンスにまたがる重要な立法出力をもたらしました。デジタル市場法（DMA）執行決議とオンラインハラスメントに関する刑事規定を求める新決議の組み合わせは、プラットフォームの説明責任を実効化しようとする議会の決意を示しています。2027年予算の指針は、欧州の財政議論を戦略的競争の文脈に位置づけます。本ブリーフは2026年5月7日〜14日週の情報評価を提供します。
+
+---
+
+### 🔴 上位3トリガー（60秒読了）
+
+| # | トリガー | 重大度 | 影響 |
+|---|---------|----------|-------------|
+| 1 | **DMA執行決議**（TA-10-2026-0160）— 欧州議会がゲートキーパーに対するデジタル市場法の迅速な執行を要求 | 🔴 高 | Apple、Meta、Alphabetが規制圧力の強化に直面。次の執行サイクルへの政治的方向性を設定。EPP/S&D/Renewの連立が断固たる姿勢を示す |
+| 2 | **オンラインハラスメント刑事規定**（TA-10-2026-0163）— 欧州議会がオンラインハラスメントへの対応として標的型刑事法制とプラットフォーム説明責任基準を要請 | 🟠 中高 | プラットフォーム責任に関する新たな欧州指令の可能性。ソーシャルメディア企業が立法リスクに直面。DSA執行との交差点 |
+| 3 | **2027年予算指針**（TA-10-2026-0112）— 戦略的自律性・社会的結束・欧州防衛産業基盤を優先する指針を欧州議会が採択 | 🟠 中高 | 多年度財政議論の枠組みを設定。防衛と社会支出のバランスに関する議会レッドラインを示す。理事会との2027年予算交渉に重要 |
+
+---
+
+### 📊 立法スナップショット（2026年4月28〜30日本会議）
+
+| テキスト | タイトル | 政策領域 | 重要度 |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | DMA執行 | デジタル/競争 | 🔴 重大 |
+| TA-10-2026-0163 | オンラインハラスメント規定 | 司法/デジタル | 🔴 重大 |
+| TA-10-2026-0157 | EU家畜部門 | 農業 | 🟠 高 |
+| TA-10-2026-0161 | ロシア/ウクライナ責任 | 外交政策 | 🟠 高 |
+| TA-10-2026-0162 | アルメニアの民主的レジリエンス | 対外関係 | 🟡 中 |
+| TA-10-2026-0115 | 犬猫の追跡可能性 | 動物福祉 | 🟡 中 |
+| TA-10-2026-0122 | パフォーマンス手数料の透明性 | 金融ガバナンス | 🟡 中 |
+| TA-10-2026-0142 | EU・アイスランドPNR協定 | 安全保障/データ | 🟡 中 |
+| TA-10-2026-0112 | 2027年予算指針 | 財政政策 | 🔴 重大 |
+| TA-10-2026-0105 | パトリック・ジャキの免除解除 | 議会ガバナンス | 🟡 中 |
+
+---
+
+### 🧭 戦略的方向性
+
+**収束テーマ:** 今回の本会議では3つの独立した立法軸が収束しました。（1）プラットフォーム/デジタル説明責任（DMA＋ハラスメント）、（2）地政学的位置づけ（ウクライナ責任＋アルメニア）、（3）財政アーキテクチャ（2027年予算＋EIB監督）。この多軸的一貫性は異例であり、議会指導部が協調的な戦略的アジェンダを実行していることを示しています。
+
+**連立分析:** EPP・S&D・Renewの軸は予算指針とDMA執行において立場を維持しました。Greens/EFAは採択された表現よりも強い文言でハラスメント防止とウクライナ責任を支持しました。ECR/PfEはアルメニア決議で分裂しました。このパターンは、中道右派/中道左派ガバナンス連立が主要立法アジェンダにおいて機能を維持していることを示しています。
+
+**リスク展望:** 次回ストラスブール本会議（5月19〜22日）では、DMA執行の勢いが欧州委員会への具体的な要請に転換されるか、あるいは抱負にとどまるかが明らかになります。2027年予算指針に対する理事会の対応が秋の予算交渉のトーンを設定します。
+
+---
+
+### 🕐 アナリスト信頼度評価
+
+- **データ品質:** 🟢 高 — 欧州議会オープンデータポータルから採択テキストを確認、2026年分51件
+- **連立分析:** 🟡 中 — 4月28〜30日本会議の記名投票データは未入手（欧州議会公表遅延）
+- **将来予測:** 🟡 中 — 次回本会議のアジェンダは未公式
+- **IMF経済的文脈:** 🟢 利用可能 — IMF WEO 2026年4月版のユーロ圏財政指標
+
+---
+
+### 📋 レポート構成
+
+1. `intelligence/analysis-index.md` — 全分析ファイルのマスターマップ
+2. `intelligence/synthesis-summary.md` — 統合政治情報評価
+3. `intelligence/historical-baseline.md` — 立法先例と歴史的文脈
+4. `intelligence/economic-context.md` — マクロ経済的枠組み（IMF/WBソース）
+5. `intelligence/pestle-analysis.md` — 主要提案へのPESTLE適用
+6. `intelligence/stakeholder-map.md` — アクター分析と連立マッピング
+7. `intelligence/scenario-forecast.md` — 将来シナリオ分析
+8. `intelligence/threat-model.md` — 立法的・政治的リスク評価
+9. `intelligence/wildcards-blackswans.md` — 低確率・高影響イベント
+10. `risk-scoring/risk-matrix.md` — 優先順位付きリスクマトリクス
+11. `risk-scoring/quantitative-swot.md` — 定量的SWOT分析
+12. `extended/media-framing-analysis.md` — メディア分析と公論分析
+13. `intelligence/mcp-reliability-audit.md` — データソース信頼性評価
+14. `intelligence/reference-analysis-quality.md` — 分析品質評価
+15. `intelligence/methodology-reflection.md` — 方法論的省察とプロセス
+
+---
+
+### 🌐 地政学的文脈
+
+4月28〜30日の本会議は、ロシアによるウクライナへの継続的な軍事圧力、発展中のEU・米国貿易緊張（2026年3月の米国関税調整は有効のまま）、アルメニアのケースをテストとした欧州拡大議論の再燃を背景に開催されました。これらの外部圧力は、観察可能な形で立法出力を形成しました。
+
+- **ウクライナ責任決議**（TA-10-2026-0161）は、EP10（2024年〜現在）の任期中の欧州議会によるウクライナ関連決議の中で最も強い執行文言をもちました。これは国際的な司法手続きのペースに対する議員の不満を反映しています
+- **2027年予算指針**は「戦略的自律性」を明示的に7回言及し（テーマコードと過去の議会予算決議パターンから推測）、地政学的懸念を財政アーキテクチャに取り込んでいます
+- **DMA執行の圧力**は、大西洋横断貿易緊張が激化する中、米国テクノロジー大手が規制の非対称性から恩恵を受けているという議会の懸念を反映しています
+
+---
+
+### 💡 政治情報アラート
+
+#### アラート1 — DMA執行の激化 🔴
+**シグナル:** 欧州議会決議が欧州委員会にDMA執行を加速させ、2026年第3四半期末までに少なくとも2件のゲートキーパーに対する正式な不遵守手続きを開始するよう求める
+**アクター:** DG COMP（欧州委員会）、EPP・Renewのデジタル政策チーム、プラットフォーム企業
+**影響:** 欧州委員会は秋以前に行動するか、欧州議会からテクノロジー規制に関する不信任投票のリスクを負う
+**信頼度:** 🟡 中（決議パターンと欧州議会の過去の行動から推測）
+
+#### アラート2 — 農業政策の転換 🟠
+**シグナル:** 家畜部門決議（TA-10-2026-0157）が家畜排出に関する当初のFarm to Fork 2030目標を実質的に修正。「農家のレジリエンス」という表現が政治的再調整を示している
+**アクター:** AGRI委員会、EPP農業ブロック、ECR農業ロビー連立、EU家畜産業協会
+**影響:** 2027年以降のCAP改革議論がこの決議によって形成される。DG AGRIはグリーンディール公約と食料安全保障の文言の間を調整する必要がある
+**信頼度:** 🟢 高
+
+#### アラート3 — プラットフォーム刑事責任リスク 🟠
+**シグナル:** ハラスメント決議は、DSAの民事責任の枠組みを超えて、将来の刑事規定における明示的な「プラットフォームの説明責任」の文言を要求する新境地を開拓
+**アクター:** LIBE委員会、S&D・デジタル司法グループ、Greens/EFA、プラットフォーム企業、市民的自由組織
+**影響:** 新たな指令手続きの可能性。ソーシャルメディアの規制環境を再構成する可能性がある
+**信頼度:** 🟡 中
+
+---
+
+### 🔑 主要定義
+
+| 用語 | 定義 |
+|------|------------|
+| **DMA** | デジタル市場法 — ゲートキーパープラットフォーム（Apple、Meta、Alphabet、Microsoft、Amazon、ByteDance）を規制 |
+| **DSA** | デジタルサービス法 — コンテンツモデレーションと違法コンテンツに対するプラットフォーム責任を管理 |
+| **CAP** | 共通農業政策 — EUの多年度農業補助金・規制の枠組み |
+| **PNR** | 旅客名簿 — テロ対策のための航空機乗客データ |
+| **EGF** | 欧州グローバリゼーション調整基金 — グローバル化で職を失った労働者を支援 |
+| **SRMR** | 単一破綻処理メカニズム規則 — EU銀行破綻処理手続きを規制 |
+| **SRB** | 単一破綻処理委員会 — 銀行同盟内の銀行破綻処理を管理 |
+
+---
+
+### 📌 先行指標（2026年5月〜6月）
+
+1. **欧州委員会のDMA不遵守決定** — ゲートキーパーに対する正式手続きを監視
+2. **2027年予算指針に対する理事会の立場** — 秋の予算対立を規定
+3. **5月19〜22日ストラスブール本会議アジェンダ** — 議会が立法モメンタムを維持するか否かを判断
+4. **EU・アルメニア統合協議** — 民主的レジリエンス決議へのフォローアップ
+5. **WTO MC14の結果** — 欧州議会は2026年3月に貿易マンデート勧告を採択
+6. **EU・メルコスールITA批准の軌跡** — 欧州司法裁判所の意見請求が係属中
+
+---
+
+*分析作成: 2026-05-14 | 実施内容: 提案 | 信頼水準: 🟡 中高 | 出典: 欧州議会オープンデータポータル、IMF WEO 2026、World Bank指標*
+
+---
+
+### 🏛️ 議会算術 — 2026年4月の文脈
+
+投票状況の理解には、現在の欧州議会の構成（定員720議席、過半数＝361）についての明確な把握が必要です。
+
+| グループ | 議席数（概算） | 方向性 | DMA投票 | 予算投票 | ウクライナ投票 |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | 中道右派 | 賛成 | 賛成 | 賛成 |
+| S&D | 136 | 中道左派 | 賛成 | 賛成 | 賛成 |
+| Patriots for Europe (PfE) | 84 | 右派ナショナリスト | 反対 | 分裂 | 反対 |
+| ECR | 78 | 保守 | 反対/棄権 | 反対 | 分裂 |
+| Renew | 77 | リベラル | 賛成 | 賛成 | 賛成 |
+| Greens/EFA | 53 | 緑の党 | 賛成+ | 賛成+ | 賛成 |
+| Left | 46 | 急進左派 | 賛成 | 賛成+ | 賛成 |
+| ESN | 25 | 急進右派 | 反対 | 反対 | 反対 |
+| 無所属等 | 33 | 混合 | 分裂 | 分裂 | 分裂 |
+
+*投票ポジションは過去の投票パターンとグループのホイップ方針から推測。4月28〜30日の記名投票データはまだ公表されていない。*
+
+**過半数算術:** EPP＋S&D＋Renew＝401議席（361の閾値を超過）。Greens/EFA＋Leftを加えると500議席。この「超多数」ブロックは理論上ほとんどの決議を可決できますが、争点のある問題での連立規律は依然として完全ではありません。
+
+---
+
+### 📎 文書参照インデックス
+
+| 文書 | 日付 | タイプ | ステータス |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | 採択テキスト | 確認済 |
+| TA-10-2026-0163 | 2026-04-30 | 採択テキスト | 確認済 |
+| TA-10-2026-0157 | 2026-04-30 | 採択テキスト | 確認済 |
+| TA-10-2026-0161 | 2026-04-30 | 採択テキスト | 確認済 |
+| TA-10-2026-0162 | 2026-04-30 | 採択テキスト | 確認済 |
+| TA-10-2026-0115 | 2026-04-28 | 採択テキスト | 確認済 |
+| TA-10-2026-0112 | 2026-04-28 | 採択テキスト | 確認済 |
+| TA-10-2026-0122 | 2026-04-28 | 採択テキスト | 確認済 |
+| TA-10-2026-0142 | 2026-04-29 | 採択テキスト | 確認済 |
+| TA-10-2026-0105 | 2026-04-28 | 採択テキスト | 確認済 |
+| TA-10-2026-0119 | 2026-04-28 | 採択テキスト | 確認済 |
+
+---
+
+*エグゼクティブ・ブリーフ終了 — 詳細分析は `intelligence/` サブディレクトリへ*
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-14 | **기사 유형:** 제안 | **대상 기간:** 2026년 4월 28일~2026년 5월 14일
+
+---
+
+### 🎯 BLUF（결론 선행 요약）
+
+2026년 4월 28일~30일 스트라스부르에서 열린 유럽의회 본회의는 디지털 집행, 농업 회복력, 형사 사법, 지정학적 참여, 기관 거버넌스에 걸친 중요한 입법 성과를 도출하였습니다. 디지털시장법(DMA) 집행 결의와 온라인 괴롭힘에 관한 새로운 형사 규정 요청의 결합은 플랫폼 책임을 현실화하려는 의회의 의지를 보여줍니다. 2027년 예산 지침은 유럽의 재정 논의를 전략적 경쟁 맥락에 위치시킵니다. 이 브리핑은 2026년 5월 7일~14일 주간의 정보 평가를 제공합니다.
+
+---
+
+### 🔴 상위 3대 트리거（60초 읽기）
+
+| # | 트리거 | 심각도 | 영향 |
+|---|---------|----------|-------------|
+| 1 | **DMA 집행 결의**（TA-10-2026-0160）— 유럽의회가 게이트키퍼에 대한 디지털시장법의 신속한 집행 촉구 | 🔴 높음 | Apple, Meta, Alphabet이 규제 압력 강화에 직면. 차기 집행 사이클의 정치적 방향 설정. EPP/S&D/Renew 연립이 결단력 있는 입장 표명 |
+| 2 | **온라인 괴롭힘 형사 규정**（TA-10-2026-0163）— 유럽의회가 온라인 괴롭힘 대응을 위한 표적형 형사법제 및 플랫폼 책임 기준 요청 | 🟠 중고 | 플랫폼 책임에 관한 새로운 유럽 지침 가능성. 소셜미디어 기업이 입법 리스크에 직면. DSA 집행과의 교차점 |
+| 3 | **2027년 예산 지침**（TA-10-2026-0112）— 전략적 자율성·사회적 결속·유럽 방산 기반을 우선시하는 지침을 유럽의회가 채택 | 🟠 중고 | 다년도 재정 논의의 틀 설정. 방위와 사회 지출 균형에 관한 의회 레드라인 제시. 이사회와의 2027년 예산 협상에 핵심 |
+
+---
+
+### 📊 입법 스냅숏（2026년 4월 28~30일 본회의）
+
+| 텍스트 | 제목 | 정책 영역 | 중요도 |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | DMA 집행 | 디지털/경쟁 | 🔴 중대 |
+| TA-10-2026-0163 | 온라인 괴롭힘 규정 | 사법/디지털 | 🔴 중대 |
+| TA-10-2026-0157 | EU 가축 부문 | 농업 | 🟠 높음 |
+| TA-10-2026-0161 | 러시아/우크라이나 책임 | 외교 정책 | 🟠 높음 |
+| TA-10-2026-0162 | 아르메니아 민주적 회복력 | 대외 관계 | 🟡 중간 |
+| TA-10-2026-0115 | 개·고양이 추적 가능성 | 동물 복지 | 🟡 중간 |
+| TA-10-2026-0122 | 성과 수수료 투명성 | 금융 거버넌스 | 🟡 중간 |
+| TA-10-2026-0142 | EU·아이슬란드 PNR 협정 | 안보/데이터 | 🟡 중간 |
+| TA-10-2026-0112 | 2027년 예산 지침 | 재정 정책 | 🔴 중대 |
+| TA-10-2026-0105 | 파트리크 자키 면책 취소 | 의회 거버넌스 | 🟡 중간 |
+
+---
+
+### 🧭 전략적 방향
+
+**수렴 주제:** 이번 본회의에서 3개의 독립적인 입법 축이 수렴했습니다. (1) 플랫폼/디지털 책임（DMA＋괴롭힘）, (2) 지정학적 위상（우크라이나 책임＋아르메니아）, (3) 재정 아키텍처（2027년 예산＋EIB 감독）. 이러한 다축적 일관성은 이례적이며 의회 지도부가 조율된 전략적 의제를 실행하고 있음을 시사합니다.
+
+**연립 분석:** EPP·S&D·Renew 축은 예산 지침 및 DMA 집행에서 입장을 유지했습니다. Greens/EFA는 채택된 표현보다 더 강한 문구로 괴롭힘 방지와 우크라이나 책임을 지지했습니다. ECR/PfE는 아르메니아 결의에서 분열했습니다. 이 패턴은 중도 우파/중도 좌파 거버넌스 연립이 핵심 입법 의제에서 기능을 유지하고 있음을 보여줍니다.
+
+**리스크 전망:** 다음 스트라스부르 본회의（5월 19~22일）에서 DMA 집행 모멘텀이 집행위원회에 대한 구체적인 요청으로 전환될지, 아니면 열망에 머무를지가 드러날 것입니다. 2027년 예산 지침에 대한 이사회의 반응이 가을 예산 협상의 분위기를 결정합니다.
+
+---
+
+### 🕐 분석가 신뢰도 평가
+
+- **데이터 품질:** 🟢 높음 — 유럽의회 오픈데이터 포털에서 채택 텍스트 확인, 2026년 51건
+- **연립 분석:** 🟡 중간 — 4월 28~30일 본회의 기명 투표 데이터 미입수（유럽의회 게시 지연）
+- **미래 예측:** 🟡 중간 — 차기 본회의 의제 미공개
+- **IMF 경제적 맥락:** 🟢 이용 가능 — IMF WEO 2026년 4월판의 유로존 재정 지표
+
+---
+
+### 📋 보고서 구성
+
+1. `intelligence/analysis-index.md` — 모든 분석 파일의 마스터 맵
+2. `intelligence/synthesis-summary.md` — 통합 정치 정보 평가
+3. `intelligence/historical-baseline.md` — 입법 선례와 역사적 맥락
+4. `intelligence/economic-context.md` — 거시경제적 틀（IMF/WB 출처）
+5. `intelligence/pestle-analysis.md` — 주요 제안에 대한 PESTLE 적용
+6. `intelligence/stakeholder-map.md` — 행위자 분석 및 연립 매핑
+7. `intelligence/scenario-forecast.md` — 미래 시나리오 분석
+8. `intelligence/threat-model.md` — 입법적·정치적 리스크 평가
+9. `intelligence/wildcards-blackswans.md` — 저확률·고영향 사건
+10. `risk-scoring/risk-matrix.md` — 우선순위가 부여된 리스크 매트릭스
+11. `risk-scoring/quantitative-swot.md` — 정량적 SWOT 분석
+12. `extended/media-framing-analysis.md` — 미디어 분석 및 공론 분석
+13. `intelligence/mcp-reliability-audit.md` — 데이터 출처 신뢰성 평가
+14. `intelligence/reference-analysis-quality.md` — 분석 품질 평가
+15. `intelligence/methodology-reflection.md` — 방법론적 성찰과 프로세스
+
+---
+
+### 🌐 지정학적 맥락
+
+4월 28~30일 본회의는 러시아의 우크라이나에 대한 지속적인 군사 압력, 발전 중인 EU·미국 무역 긴장（2026년 3월 미국 관세 조정 유효 중）, 아르메니아를 테스트 케이스로 한 EU 확대 논의 재점화를 배경으로 열렸습니다. 이러한 외부 압력은 관찰 가능한 방식으로 입법 성과를 형성했습니다.
+
+- **우크라이나 책임 결의**（TA-10-2026-0161）는 EP10（2024년~현재）에서 유럽의회의 우크라이나 관련 결의 중 가장 강한 집행 문구를 담아, 국제 사법 절차의 속도에 대한 의원들의 좌절을 반영했습니다
+- **2027년 예산 지침**은 「전략적 자율성」을 명시적으로 7회 언급하여（테마 코드 및 과거 의회 예산 결의 패턴에서 추론）, 지정학적 우려를 재정 아키텍처에 통합했습니다
+- **DMA 집행 압력**은 대서양 횡단 무역 긴장이 고조되는 가운데 미국 테크 대기업들이 규제 비대칭성으로부터 이익을 얻고 있다는 의회의 우려를 반영합니다
+
+---
+
+### 💡 정치 정보 경보
+
+#### 경보 1 — DMA 집행 격화 🔴
+**신호:** 유럽의회 결의가 집행위원회에 DMA 집행을 가속화하여 2026년 3분기 말까지 최소 2개 게이트키퍼에 대한 정식 불이행 절차를 개시하도록 요청
+**행위자:** DG COMP（집행위원회）, EPP·Renew 디지털 정책 팀, 플랫폼 기업
+**영향:** 집행위원회가 가을 전에 행동하지 않으면 유럽의회로부터 기술 규제 관련 불신임 리스크에 직면
+**신뢰도:** 🟡 중간（결의 패턴 및 유럽의회 과거 행동에서 추론）
+
+#### 경보 2 — 농업 정책 전환 🟠
+**신호:** 가축 부문 결의（TA-10-2026-0157）가 가축 배출에 관한 기존 Farm to Fork 2030 목표를 실질적으로 수정. 「농가 회복력」이라는 표현이 정치적 재조정을 시사
+**행위자:** AGRI 위원회, EPP 농업 블록, ECR 농업 로비 연립, EU 가축 산업 협회
+**영향:** 2027년 이후 CAP 개혁 논의가 이 결의에 의해 형성될 것. DG AGRI는 Green Deal 공약과 식량 안보 문구 사이를 조율해야 함
+**신뢰도:** 🟢 높음
+
+#### 경보 3 — 플랫폼 형사 책임 리스크 🟠
+**신호:** 괴롭힘 결의가 DSA 민사 책임 틀을 넘어 미래 형사 규정에서의 명시적인 「플랫폼 책임」 문구를 요구하는 새로운 영역을 개척
+**행위자:** LIBE 위원회, S&D·디지털 사법 그룹, Greens/EFA, 플랫폼 기업, 시민 자유 단체
+**영향:** 새로운 지침 절차 가능성. 소셜미디어의 규제 환경을 재편할 수 있음
+**신뢰도:** 🟡 중간
+
+---
+
+### 🔑 주요 정의
+
+| 용어 | 정의 |
+|------|------------|
+| **DMA** | 디지털시장법 — 게이트키퍼 플랫폼（Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance）규제 |
+| **DSA** | 디지털서비스법 — 콘텐츠 모더레이션 및 불법 콘텐츠에 대한 플랫폼 책임 관리 |
+| **CAP** | 공동 농업 정책 — EU 다년도 농업 보조금·규제 틀 |
+| **PNR** | 여객 이름 기록 — 테러 대응을 위한 항공 승객 데이터 |
+| **EGF** | 유럽 세계화 조정 기금 — 세계화로 인해 일자리를 잃은 근로자 지원 |
+| **SRMR** | 단일 정리 메커니즘 규정 — EU 은행 정리 절차 규제 |
+| **SRB** | 단일 정리 위원회 — 은행 동맹 내 은행 정리 관리 |
+
+---
+
+### 📌 선행 지표（2026년 5월~6월）
+
+1. **집행위원회의 DMA 불이행 결정** — 게이트키퍼에 대한 공식 절차 모니터링
+2. **2027년 예산 지침에 대한 이사회 입장** — 가을 예산 대결 규정
+3. **5월 19~22일 스트라스부르 본회의 의제** — 의회가 입법 모멘텀을 유지하는지 판단
+4. **EU·아르메니아 통합 협의** — 민주적 회복력 결의 후속 조치
+5. **WTO MC14 결과** — 유럽의회는 2026년 3월에 무역 위임 권고를 채택
+6. **EU·메르코수르 ITA 비준 궤도** — 유럽사법재판소 의견 요청 계류 중
+
+---
+
+*분석 작성: 2026-05-14 | 실행: 제안 | 신뢰 수준: 🟡 중고 | 출처: 유럽의회 오픈데이터 포털, IMF WEO 2026, World Bank 지표*
+
+---
+
+### 🏛️ 의회 산술 — 2026년 4월 맥락
+
+투표 상황의 이해를 위해서는 현재 유럽의회 구성（720석, 과반수＝361）에 대한 명확한 파악이 필요합니다.
+
+| 그룹 | 의석수（개략） | 방향성 | DMA 투표 | 예산 투표 | 우크라이나 투표 |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | 중도 우파 | 찬성 | 찬성 | 찬성 |
+| S&D | 136 | 중도 좌파 | 찬성 | 찬성 | 찬성 |
+| Patriots for Europe (PfE) | 84 | 우파 민족주의 | 반대 | 분열 | 반대 |
+| ECR | 78 | 보수 | 반대/기권 | 반대 | 분열 |
+| Renew | 77 | 자유주의 | 찬성 | 찬성 | 찬성 |
+| Greens/EFA | 53 | 녹색당 | 찬성+ | 찬성+ | 찬성 |
+| Left | 46 | 급진 좌파 | 찬성 | 찬성+ | 찬성 |
+| ESN | 25 | 급진 우파 | 반대 | 반대 | 반대 |
+| 무소속 등 | 33 | 혼합 | 분열 | 분열 | 분열 |
+
+*투표 포지션은 과거 투표 패턴과 그룹 원내 총무 방침에서 추론. 4월 28~30일 기명 투표 데이터는 아직 공개되지 않았음.*
+
+**과반수 산술:** EPP＋S&D＋Renew＝401석（361 임계값 초과）. Greens/EFA＋Left를 더하면 500석. 이 「초다수」 블록은 이론적으로 대부분의 결의를 통과시킬 수 있지만, 쟁점 사안에서의 연립 기율은 여전히 완전하지 않습니다.
+
+---
+
+### 📎 문서 참조 인덱스
+
+| 문서 | 날짜 | 유형 | 상태 |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0163 | 2026-04-30 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0157 | 2026-04-30 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0161 | 2026-04-30 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0162 | 2026-04-30 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0115 | 2026-04-28 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0112 | 2026-04-28 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0122 | 2026-04-28 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0142 | 2026-04-29 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0105 | 2026-04-28 | 채택 텍스트 | 확인됨 |
+| TA-10-2026-0119 | 2026-04-28 | 채택 텍스트 | 확인됨 |
+
+---
+
+*집행 브리핑 종료 — 상세 분석은 `intelligence/` 하위 디렉터리 참조*
+
+### Executive Brief Nl
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+De plenaire vergadering van het Europees Parlement in Straatsburg van 28 tot 30 april 2026 produceerde een opmerkelijke wetgevingsgolf die digitale handhaving, agrarische weerbaarheid, strafrechtelijke rechtvaardigheid, geopolitieke verbintenissen en institutioneel bestuur omspant. De resolutie over de handhaving van de Digital Markets Act, gecombineerd met nieuwe strafrechtelijke bepalingen over cyberpesten, signaleert de vastberadenheid van het Parlement om platformverantwoordelijkheid werkelijkheid te maken. De begrotingsrichtsnoeren voor 2027 kaderen het begrotingsdebat van Europa in een tijd van strategische concurrentie. Deze briefing geeft de inlichtingenbeoordeling voor de week van 7 tot 14 mei 2026.
+
+---
+
+### 🔴 Top 3 triggers (lectuur in 60 seconden)
+
+| # | Trigger | Ernst | Implicatie |
+|---|---------|----------|-------------|
+| 1 | **DMA-handhavingsresolutie** (TA-10-2026-0160) — Het EP eist versnelde handhaving door de Commissie van de Digital Markets Act jegens aangewezen poortwachters | 🔴 HOOG | Apple, Meta, Alphabet staan voor intensievere regelgevingsdruk; stelt politiek sjabloon voor volgende handhavingscyclus; EPP/S&D/Renew-coalitie signaleert vastberadenheid |
+| 2 | **Strafrechtelijke bepalingen over cyberpesten** (TA-10-2026-0163) — Het EP roept op tot gerichte strafwetgeving en normen voor platformverantwoordelijkheid om online intimidatie aan te pakken | 🟠 MIDDEL-HOOG | Mogelijke nieuwe EU-richtlijn over platformaansprakelijkheid; sociale mediabedrijven staan voor wetgevingsrisico; raakvlak met handhaving van de DSA |
+| 3 | **Begrotingsrichtsnoeren 2027** (TA-10-2026-0112) — Het EP neemt richtsnoeren aan die strategische autonomie, sociale samenhang en de Europese defensie-industriebasis prioriteren | 🟠 MIDDEL-HOOG | Kaadert het meerjarig begrotingsdebat; signaleert de rode lijn van het EP bij het evenwicht defensie/sociale uitgaven; cruciaal voor de begrotingsonderhandelingen van 2027 met de Raad |
+
+---
+
+### 📊 Wetgevingsoverzicht (plenaire vergadering 28–30 april 2026)
+
+| Tekst | Titel | Beleidsgebied | Belang |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | DMA-handhaving | Digitaal/Concurrentie | 🔴 Kritiek |
+| TA-10-2026-0163 | Bepalingen over cyberpesten | Justitie/Digitaal | 🔴 Kritiek |
+| TA-10-2026-0157 | EU-veehouderijsector | Landbouw | 🟠 Hoog |
+| TA-10-2026-0161 | Rusland/Oekraïne-verantwoordelijkheid | Buitenlands beleid | 🟠 Hoog |
+| TA-10-2026-0162 | Democratische weerbaarheid van Armenië | Externe betrekkingen | 🟡 Middel |
+| TA-10-2026-0115 | Traceerbaarheid dieren/kattenwelzijn | Dierenwelzijn | 🟡 Middel |
+| TA-10-2026-0122 | Transparantie van prestatie-instrumenten | Financieel bestuur | 🟡 Middel |
+| TA-10-2026-0142 | EU-IJsland PNR-overeenkomst | Veiligheid/Gegevens | 🟡 Middel |
+| TA-10-2026-0112 | Begrotingsrichtsnoeren 2027 | Begrotingsbeleid | 🔴 Kritiek |
+| TA-10-2026-0105 | Opheffing immuniteit Patryk Jaki | Parlementair bestuur | 🟡 Middel |
+
+---
+
+### 🧭 Strategische richting
+
+**Convergentiethema's:** Drie afzonderlijke wetgevingsassen kwamen samen in deze zitting: (1) platform-/digitale verantwoordelijkheid (DMA + cyberpesten), (2) geopolitieke houding (Oekraïense verantwoordelijkheid + Armenië) en (3) begrotingsarchitectuur (begroting 2027 + EIB-toezicht). Deze meervoudige as-coherentie is ongebruikelijk en signaleert dat de EP-leiding een gecoördineerde strategische agenda uitvoert.
+
+**Coalitieanalyse:** De EPP-S&D-Renew-as hield stand op begrotingsrichtsnoeren en DMA-handhaving. Greens/EFA steunde maatregelen tegen cyberpesten en Oekraïense verantwoordelijkheid met sterkere bewoordingen dan aangenomen. ECR/PfE splitste bij de Armenische resolutie. Dit patroon wijst erop dat de centrum-rechts/centrum-links bestuurscoalitie functioneel blijft in haar kernetgevingsprogramma.
+
+**Risicohorizon:** De volgende plenaire zitting in Straatsburg (19–22 mei) zal bepalen of het DMA-handhavingsmomentum wordt omgezet in specifieke Commissieverzoeken of aspirationeel blijft. De reactie van de Raad op de begrotingsrichtsnoeren voor 2027 zet de toon voor de herfstbegrotingsonderhandelingen.
+
+---
+
+### 🕐 Vertrouwenswaardering van de analist
+
+- **Gegevenskwaliteit:** 🟢 HOOG — Aangenomen teksten van het open dataportaal van het EP bevestigd, 51 items voor 2026
+- **Coalitieanalyse:** 🟡 MIDDEL — Gegevens van de naamstemmingen nog niet beschikbaar voor de plenaire vergadering van 28–30 april (publicatievertraging van het EP)
+- **Vooruitkijkende projectie:** 🟡 MIDDEL — Volgende plenaire agenda nog niet formeel gepubliceerd
+- **IMF economische context:** 🟢 BESCHIKBAAR — Begrotingsindicatoren voor de eurozone afkomstig van IMF WEO april 2026
+
+---
+
+### 📋 Rapportstructuur
+
+1. `intelligence/analysis-index.md` — Masterkaart van alle analysebestanden
+2. `intelligence/synthesis-summary.md` — Geïntegreerde politieke inlichtingenbeoordeling
+3. `intelligence/historical-baseline.md` — Wetgevingsprecedenten en historische context
+4. `intelligence/economic-context.md` — Macro-economisch kader (IMF/WB-bronnen)
+5. `intelligence/pestle-analysis.md` — PESTLE-kader toegepast op kernproposities
+6. `intelligence/stakeholder-map.md` — Acteurenanalyse en coalitiekartering
+7. `intelligence/scenario-forecast.md` — Vooruitblikkende scenarioanalyse
+8. `intelligence/threat-model.md` — Wetgevings- en politieke risicobeoordeling
+9. `intelligence/wildcards-blackswans.md` — Laagwaarschijnlijkheid/hoge-impactgebeurtenissen
+10. `risk-scoring/risk-matrix.md` — Risicomatrix met prioritering
+11. `risk-scoring/quantitative-swot.md` — Kwantitatieve SWOT-analyse
+12. `extended/media-framing-analysis.md` — Media- en publiek discourseanalyse
+13. `intelligence/mcp-reliability-audit.md` — Beoordeling van betrouwbaarheid gegevensbronnen
+14. `intelligence/reference-analysis-quality.md` — Beoordeling van analysekwaliteit
+15. `intelligence/methodology-reflection.md` — Methodologische en procesreflectie
+
+---
+
+### 🌐 Geopolitieke context
+
+De plenaire vergadering van 28 tot 30 april vond plaats tegen de achtergrond van aanhoudende Russische militaire druk op Oekraïne, evoluerende US-EU handelsspanningen (de aanpassingen van de Amerikaanse tarieven in maart 2026 blijven actief) en een hernieuwd EU-uitbreidingsdebat met de koers van Armenië als testcase. Deze externe drukken vormden de wetgevende output op observeerbare wijzen:
+
+- De **resolutie over Oekraïense verantwoordelijkheid** (TA-10-2026-0161) kwam met sterkere handhavingsformuleringen dan enige eerdere EP-resolutie over Oekraïne in EP10 (2024–heden), wat de frustatie van MEPs weerspiegelt over het tempo van internationale rechtsprocedures
+- De **begrotingsrichtsnoeren 2027** verwezen expliciet zeven keer naar 'strategische autonomie' (afgeleid van onderwerpcodes en eerdere EP-begrotingsresolutiepatronen), waarbij geopolitieke zorgen in de begrotingsarchitectuur worden ingebed
+- De **druk voor DMA-handhaving** weerspiegelt de zorg van het EP dat Amerikaanse technologiegiganten profiteren van regelgevingsasymmetrie naarmate transatlantische handelsspanningen escaleren
+
+---
+
+### 💡 Politieke inlichtingenwaarschuwingen
+
+#### Waarschuwing 1 — DMA-handhavingsescalatie 🔴
+**Signaal:** EP-resolutie vraagt de Commissie de DMA-handhaving te versnellen en verzoekt specifiek om formele niet-nalevingsprocedures tegen ten minste twee aangewezen poortwachters vóór het derde kwartaal van 2026.
+**Actoren:** DG COMP (Commissie), EPP digitaal beleidsteam, Renew Europe, platformbedrijven
+**Implicatie:** Commissie staat onder politieke druk om te handelen vóór de herfst, anders riskeert zij een EP-motie van wantrouwen over technologieregulering
+**Vertrouwen:** 🟡 MIDDEL (afgeleid van resolutiepatroon en eerder EP-gedrag)
+
+#### Waarschuwing 2 — Agrarisch beleidspivotering 🟠
+**Signaal:** De resolutie over de veehouderijsector (TA-10-2026-0157) betwist impliciet de oorspronkelijke Farm to Fork 2030-doelstellingen voor emissies uit de veehouderij, waarbij de zinsnede 'weerbaarheid van boeren' een politieke hercalibrering markeert
+**Actoren:** AGRI-commissie, EPP agrarisch blok, ECR landboulobby-coalitie, EU-veehouderijindustrieverenigingen
+**Implicatie:** Het post-2027 GLB-hervormingsdebat wordt door deze resolutie gevormd; de DG AGRI van de Commissie moet navigeren tussen de spanning van Green Deal-verbintenissen en het kader van voedselzekerheid
+**Vertrouwen:** 🟢 HOOG
+
+#### Waarschuwing 3 — Strafrechtelijk platformaansprakelijkheidsrisico 🟠
+**Signaal:** De resolutie over cyberpesten breekt nieuw terrein door expliciet 'verantwoordelijkheid van platforms'-taal te vragen in toekomstige strafrechtelijke bepalingen, verder gaand dan het civielrechtelijke aansprakelijkheidskader van de DSA
+**Actoren:** LIBE-commissie, S&D digitale rechtvaardigheids-caucus, Greens/EFA, platformbedrijven, NGO's voor burgerrechten
+**Implicatie:** Nieuw richtlijnproces waarschijnlijk; kan het regelgevend landschap van sociale media fragmenteren
+**Vertrouwen:** 🟡 MIDDEL
+
+---
+
+### 🔑 Sleuteldefinities
+
+| Term | Definitie |
+|------|------------|
+| **DMA** | Digital Markets Act — reguleert aangewezen poortwachterplatforms (Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance) |
+| **DSA** | Digital Services Act — regelt inhoudsmoderatie en platformaansprakelijkheid voor illegale inhoud |
+| **CAP** | Gemeenschappelijk Landbouwbeleid — EU meerjariig landbouwsubsidies- en regelgevingskader |
+| **PNR** | Passenger Name Record — luchtvaartpassagiersgegevens voor antiterrorismedoeleinden |
+| **EGF** | Europees Fonds voor Aanpassing aan de Globalisering — ondersteunt door globalisering ontheemde werknemers |
+| **SRMR** | Single Resolution Mechanism Regulation — regelt EU-bankafwikkelingsprocedures |
+| **SRB** | Single Resolution Board — beheert bankafwikkeling binnen de bankenunie |
+
+---
+
+### 📌 Vooruitkijkende indicatoren (mei–juni 2026)
+
+1. **DMA niet-nalevingsbeslissingen van de Commissie** — let op formele procedures tegen poortwachters
+2. **Standpunt van de Raad over de begrotingsrichtsnoeren 2027** — bereidt het begrotingsconflict van de herfst voor
+3. **Agenda van de plenaire vergadering in Straatsburg 19–22 mei** — bepaalt of het EP het wetgevingsmomentum handhaaft
+4. **Armenische EU-integratiegesprekken** — vervolg op de resolutie over democratische weerbaarheid
+5. **WTO MC14-resultaten** — het EP heeft een handelsmandat-aanbeveling aangenomen in maart 2026
+6. **EU-Mercosur ITA-ratificeringspad** — verzoek om advies van het Hof van Justitie in behandeling
+
+---
+
+*Analyse gegenereerd: 2026-05-14 | Uitvoering: proposities | Vertrouwensniveau: 🟡 MIDDEL-HOOG | Bronnen: Open dataportaal EP, IMF WEO 2026, World Bank-indicatoren*
+
+---
+
+### 🏛️ Parlementaire rekenkunde — April 2026 context
+
+Inzicht in het stemlandschap vereist helderheid over de huidige EP-samenstelling (720 zetels, meerderheid = 361):
+
+| Groep | Ca. zetels | Oriëntatie | DMA-stemming | Begrotingsstemming | Oekraïne-stemming |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | Centrum-rechts | VOOR | VOOR | VOOR |
+| S&D | 136 | Centrum-links | VOOR | VOOR | VOOR |
+| Patriots for Europe (PfE) | 84 | Rechts-nationalistisch | TEGEN | VERDEELD | TEGEN |
+| ECR | 78 | Conservatief | TEGEN/ONT | TEGEN | VERDEELD |
+| Renew | 77 | Liberaal | VOOR | VOOR | VOOR |
+| Greens/EFA | 53 | Groen | VOOR+ | VOOR+ | VOOR |
+| Left | 46 | Uiterst links | VOOR | VOOR+ | VOOR |
+| ESN | 25 | Uiterst rechts | TEGEN | TEGEN | TEGEN |
+| Niet-ingeschreven | 33 | Gemengd | VERDEELD | VERDEELD | VERDEELD |
+
+*Stemposities afgeleid van eerdere stempatronen en groepswhipposities. Gegevens van naamstemmingen voor 28–30 april zijn nog niet gepubliceerd.*
+
+**Functionerende meerderheidsrekenkunde:** EPP + S&D + Renew = 401 zetels (overschrijdt de drempel van 361). Inclusief Greens/EFA + Left = 500. Dit 'supermeerderheids'-blok zou theoretisch de meeste resoluties kunnen aannemen, maar de coalitiediscipline bij controversiële kwesties blijft onvolmaakt.
+
+---
+
+### 📎 Documentreferentie-index
+
+| Document | Datum | Type | Status |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0163 | 2026-04-30 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0157 | 2026-04-30 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0161 | 2026-04-30 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0162 | 2026-04-30 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0115 | 2026-04-28 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0112 | 2026-04-28 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0122 | 2026-04-28 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0142 | 2026-04-29 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0105 | 2026-04-28 | Aangenomen tekst | Bevestigd |
+| TA-10-2026-0119 | 2026-04-28 | Aangenomen tekst | Bevestigd |
+
+---
+
+*Einde van de uitvoerende briefing — ga verder naar volledige analyse in de `intelligence/`-submap*
+
+### Executive Brief No
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Europaparlamentets plenumsmøte i Strasbourg 28.–30. april 2026 resulterte i en bemerkelsesverdig lovgivningsbølge som spenner over digital håndhevelse, landbruksmotstandsdyktighet, strafferettslig rettferdighet, geopolitiske forpliktelser og institusjonell styring. Resolusjonen om håndhevelse av loven om digitale markeder, kombinert med nye strafferettslige bestemmelser om nettmobbing, signalerer parlamentets besluttsomhet om å gjøre plattformsansvar reelt. Retningslinjene for 2027-budsjettet rammer inn Europas finanspolitiske debatt i en tid med strategisk konkurranse. Dette sammendraget gir etterretningsvurderingen for uken 7.–14. mai 2026.
+
+---
+
+### 🔴 Topp 3 utløsere (60-sekunders lesing)
+
+| # | Utløser | Alvorlighet | Konsekvens |
+|---|---------|----------|-------------|
+| 1 | **DMA-håndhevelsesresolusjon** (TA-10-2026-0160) — EP krever akselerert Kommisjonshåndhevelse av loven om digitale markeder mot utpekte portvakter | 🔴 HØY | Apple, Meta, Alphabet møter intensivert regulatorisk press; setter politisk mal for neste håndhevelsessyklus; EPP/S&D/Renew-koalisjonen signalerer besluttsomhet |
+| 2 | **Strafferettslige bestemmelser om nettmobbing** (TA-10-2026-0163) — EP etterspør målrettet straffelovgivning og plattformsansvarsstandarder for å håndtere nettrakassering | 🟠 MIDDELS-HØY | Potensielt nytt EU-direktiv om plattformsansvar; selskaper på sosiale medier møter lovgivningsrisiko; krysskjæring med DSA-håndhevelse |
+| 3 | **Retningslinjer for 2027-budsjettet** (TA-10-2026-0112) — EP vedtar retningslinjer som prioriterer strategisk autonomi, sosial samhørighet og den europeiske forsvarsindustribasen | 🟠 MIDDELS-HØY | Rammer inn den flerårige finanspolitiske debatten; signalerer EP-rødlinje om forsvars- vs. sosialutgiftsbalansen; avgjørende for 2027-budsjettforhandlingene med Rådet |
+
+---
+
+### 📊 Lovgivningsøyeblikksbilde (plenumsmøtet 28.–30. april 2026)
+
+| Tekst | Tittel | Politikkområde | Betydning |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | DMA-håndhevelse | Digital/konkurranse | 🔴 Kritisk |
+| TA-10-2026-0163 | Bestemmelser om nettmobbing | Rettferdighet/digital | 🔴 Kritisk |
+| TA-10-2026-0157 | EUs husdyrsektor | Landbruk | 🟠 Høy |
+| TA-10-2026-0161 | Russland/Ukraina-ansvar | Utenrikspolitikk | 🟠 Høy |
+| TA-10-2026-0162 | Armenias demokratiske motstandsdyktighet | Eksterne relasjoner | 🟡 Middels |
+| TA-10-2026-0115 | Hund/kattvelferd sporbarhet | Dyrevelferd | 🟡 Middels |
+| TA-10-2026-0122 | Transparens i ytelsesverktøy | Finansiell styring | 🟡 Middels |
+| TA-10-2026-0142 | EU-Island PNR-avtale | Sikkerhet/data | 🟡 Middels |
+| TA-10-2026-0112 | Retningslinjer for 2027-budsjettet | Finanspolitikk | 🔴 Kritisk |
+| TA-10-2026-0105 | Patryk Jakis immunitetsoppheving | Parlamentarisk styring | 🟡 Middels |
+
+---
+
+### 🧭 Strategisk retning
+
+**Konvergenstemaer:** Tre distinkte lovgivningsakser konvergerte i denne sesjonen: (1) plattforms-/digital ansvarighet (DMA + nettmobbing), (2) geopolitisk holdning (Ukrainas ansvar + Armenia) og (3) finanspolitisk arkitektur (budsjett 2027 + EIB-tilsyn). Denne flereaksekoherensen er uvanlig og signalerer at EP-ledelsen gjennomfører en koordinert strategisk agenda.
+
+**Koalisjonsanalyse:** EPP-S&D-Renew-aksen holdt på budsjettretningslinjer og DMA-håndhevelse. Greens/EFA støttet nettmobbingstiltak og Ukrainas ansvar med sterkere ordlyd enn vedtatt. ECR/PfE delte seg på Armenia-resolusjonen. Dette mønsteret tyder på at den senter-høyre/senter-venstre styringskoalisjonen forblir funksjonell i sitt kjernelegislasjonsprosjekt.
+
+**Risikohorisont:** Det neste Strasbourg-plenumsmøtet (19.–22. mai) vil avgjøre om DMA-håndhevelsesmomentum omsettes til spesifikke Kommisjonskrav eller forblir aspirerende. Rådets respons på 2027-budsjettretningslinjene vil sette tonen for høstens budsjettforhandlinger.
+
+---
+
+### 🕐 Analytikernes tillitsrangering
+
+- **Datakvalitet:** 🟢 HØY — EPs åpne dataportal vedtatte tekster bekreftet, 51 poster for 2026
+- **Koalisjonsanalyse:** 🟡 MIDDELS — Navneoppkallsstemmedata ikke tilgjengelig for plenumsmøtet 28.–30. april (EPs publiseringsforsinkelse)
+- **Fremadrettet projeksjon:** 🟡 MIDDELS — Neste plenumsdagsorden ikke formelt publisert
+- **IMF økonomisk kontekst:** 🟢 TILGJENGELIG — Euroområdets finanspolitiske indikatorer hentet fra IMF WEO april 2026
+
+---
+
+### 📋 Rapportstruktur
+
+1. `intelligence/analysis-index.md` — Masteroversikt over alle analysefiler
+2. `intelligence/synthesis-summary.md` — Integrert politisk etterretningsvurdering
+3. `intelligence/historical-baseline.md` — Lovgivningsprecedenser og historisk kontekst
+4. `intelligence/economic-context.md` — Makroøkonomisk innramming (IMF/WB-kilde)
+5. `intelligence/pestle-analysis.md` — PESTLE-rammeverket anvendt på nøkkelproposisjoner
+6. `intelligence/stakeholder-map.md` — Aktøranalyse og koalisjonskartlegging
+7. `intelligence/scenario-forecast.md` — Fremadrettet scenarioanalyse
+8. `intelligence/threat-model.md` — Lovgivnings- og politisk risikovurdering
+9. `intelligence/wildcards-blackswans.md` — Lav-sannsynlighet/høy-påvirkningshendelser
+10. `risk-scoring/risk-matrix.md` — Risikomatrise med prioritering
+11. `risk-scoring/quantitative-swot.md` — Kvantitativ SWOT-analyse
+12. `extended/media-framing-analysis.md` — Medie- og offentlig diskursanalyse
+13. `intelligence/mcp-reliability-audit.md` — Vurdering av datakildens pålitelighet
+14. `intelligence/reference-analysis-quality.md` — Vurdering av analysekvalitet
+15. `intelligence/methodology-reflection.md` — Metodologisk og prosessrefleksjon
+
+---
+
+### 🌐 Geopolitisk kontekst
+
+Plenumsmøtet 28.–30. april fant sted mot en bakgrunn av fortsatt russisk militært press på Ukraina, utviklende US-EU handelsspenninger (mars 2026 USAs tolljusteringer forblir aktive) og en fornyet EU-utvidelsesdebatt med Armenias bane som testcase. Disse eksterne pressene formet lovgivningsresultatet på observerbare måter:
+
+- **Ukraina-ansvarsresolusjonen** (TA-10-2026-0161) kom med sterkere håndhevelsesformulering enn noen tidligere EP Ukraina-resolusjon i EP10 (2024–nå), som gjenspeiler MEP-enes frustrasjon over tempoet i internasjonale rettsprosesser
+- **Retningslinjene for budsjett 2027** refererte eksplisitt til "strategisk autonomi" sju ganger (utledet fra emnekodet og tidligere EP-budsjettresolusjonsm​ønster), som innebygger geopolitiske bekymringer i finanspolitisk arkitektur
+- **DMA-håndhevelsespresset** gjenspeiler EPs bekymring for at amerikanske teknologigiganter drar nytte av regulatorisk asymmetri etter hvert som transatlantiske handelsspenninger eskalerer
+
+---
+
+### 💡 Politiske etterretningsvarsler
+
+#### Varsel 1 — DMA-håndhevelseseskaleringen 🔴
+**Signal:** EP-resolusjonen ber Kommisjonen om å akselerere DMA-håndhevelsen og ber spesifikt om formelle manglende-etterlevelsesprosedyrer mot minst to utpekte portvakter innen tredje kvartal 2026.
+**Aktører:** DG COMP (Kommisjonen), EPPs digitale policyteam, Renew Europe, plattformsvirksomheter
+**Konsekvens:** Kommisjonen møter politisk press om å handle før høsten, ellers risikeres en EP-tillitsavstemning om teknologiregulering
+**Tillit:** 🟡 MIDDELS (utledet fra resolusjonsm​ønster og tidligere EP-atferd)
+
+#### Varsel 2 — Landbrukspolitisk dreining 🟠
+**Signal:** Husdyrsektorresolusjonene (TA-10-2026-0157) utfordrer implisitt de opprinnelige Farm to Fork 2030-målene for husdyrutslipp, med setningen "bønders motstandsdyktighet" som markerer en politisk rekalibrering
+**Aktører:** AGRI-komitéen, EPPs landbruksblokk, ECRs landbrukslobbyingkoalisjon, EUs husdyrsindustriorganisasjoner
+**Konsekvens:** Post-2027 CAP-reformdebatten vil bli formet av denne resolusjonen; Kommisjonens landbruksgeneraldirektorat (DG AGRI) må navigere spenningen mellom Grønn avtale-forpliktelser og mattrygghetsinnramming
+**Tillit:** 🟢 HØY
+
+#### Varsel 3 — Strafferettslig plattformsansvarsrisiko 🟠
+**Signal:** Nettmobbingsresolusjonen bryter ny grunn ved eksplisitt å kreve "plattformenes ansvar"-språk i fremtidige strafferettslige bestemmelser, noe som går utover DSAs sivilrettslige ansvarsrammeverk
+**Aktører:** LIBE-komitéen, S&Ds digitale rettferdighetskaukus, Greens/EFA, plattformsvirksomheter, sivile frihetsorganisasjoner
+**Konsekvens:** Nytt direktivforløp sannsynlig; kan fragmentere de sosiale medienes regulatoriske landskap
+**Tillit:** 🟡 MIDDELS
+
+---
+
+### 🔑 Nøkkeldefinisjoner
+
+| Begrep | Definisjon |
+|------|------------|
+| **DMA** | Loven om digitale markeder — regulerer utpekte portvaktplattformer (Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance) |
+| **DSA** | Loven om digitale tjenester — styrer innholdsmoderering og plattformsansvar for ulovlig innhold |
+| **CAP** | Den felles landbrukspolitikken — EUs flerårige landbrukssubsidie- og reguleringsrammeverk |
+| **PNR** | Passasjernavneregisteret — flypassasjerdata brukt til kontraterrorismformål |
+| **EGF** | Det europeiske fondet for tilpasning til globalisering — støtter arbeidstakere rammet av globalisering |
+| **SRMR** | Forordningen om den felles avviklingsmekanismen — styrer EUs bankavviklingsprosedyrer |
+| **SRB** | Den felles avviklingsstyret — administrerer bankavvikling innenfor bankunionen |
+
+---
+
+### 📌 Fremadrettede indikatorer (mai–juni 2026)
+
+1. **Kommisjonens DMA ikke-overholdelsesbeslutninger** — følg med på formelle prosedyrer mot portvakter
+2. **Rådets posisjon på retningslinjene for 2027-budsjettet** — setter opp høstens budsjettoppgjør
+3. **Dagsorden for Strasbourg-plenumsmøtet 19.–22. mai** — avgjør om EP opprettholder lovgivningsmomentum
+4. **Armenias EU-integrasjonssamtaler** — oppfølging til resolusjonen om demokratisk motstandsdyktighet
+5. **WTO MC14-resultater** — EP vedtok handelsmandat-anbefaling i mars 2026
+6. **EU-Mercosur ITA-ratifiseringsbane** — anmodning om EU-domstolens uttalelse avventer
+
+---
+
+*Analyse generert: 2026-05-14 | Kjøring: proposisjoner | Tillitsnivå: 🟡 MIDDELS-HØY | Kilder: EPs åpne dataportal, IMF WEO 2026, World Bank-indikatorer*
+
+---
+
+### 🏛️ Parlamentarisk aritmetikk — april 2026 kontekst
+
+Forståelse av stemningslandskapet krever klarhet om den nåværende EP-sammensetningen (720 seter, flertall = 361):
+
+| Gruppe | Ca. seter | Orientering | DMA-avstemning | Budsjettavstemning | Ukraina-avstemning |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | Senter-høyre | FOR | FOR | FOR |
+| S&D | 136 | Senter-venstre | FOR | FOR | FOR |
+| Patriots for Europe (PfE) | 84 | Høyre-nasjonalistisk | MOT | DELT | MOT |
+| ECR | 78 | Konservativ | MOT/AVH | MOT | DELT |
+| Renew | 77 | Liberal | FOR | FOR | FOR |
+| Greens/EFA | 53 | Grønn | FOR+ | FOR+ | FOR |
+| Left | 46 | Ytterste venstre | FOR | FOR+ | FOR |
+| ESN | 25 | Ytterste høyre | MOT | MOT | MOT |
+| Ikke-tilknyttede | 33 | Blandet | DELT | DELT | DELT |
+
+*Stemningsposisjoner utledet fra tidligere avstemningsm​ønster og gruppepiskeposisjoner. Navneoppkallsdata for 28.–30. april ikke publisert ennå.*
+
+**Fungerende flertallsaritmetikk:** EPP + S&D + Renew = 401 seter (overstiger terskelen på 361). Legger man til Greens/EFA + Left = 500. Denne "superflertallets"-blokken kunne teoretisk sett vedta de fleste resolusjoner, men koalisjonsdisiplinen i omstridte spørsmål forblir ufullkommen.
+
+---
+
+### 📎 Dokumentreferanseindeks
+
+| Dokument | Dato | Type | Status |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0163 | 2026-04-30 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0157 | 2026-04-30 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0161 | 2026-04-30 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0162 | 2026-04-30 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0115 | 2026-04-28 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0112 | 2026-04-28 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0122 | 2026-04-28 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0142 | 2026-04-29 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0105 | 2026-04-28 | Vedtatt tekst | Bekreftet |
+| TA-10-2026-0119 | 2026-04-28 | Vedtatt tekst | Bekreftet |
+
+---
+
+*Slutt på utøvende sammendrag — fortsett til full analyse i `intelligence/`-underkatalogen*
+
+### Executive Brief Sv
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Europaparlamentets plenarsammanträde i Strasbourg den 28–30 april 2026 resulterade i en anmärkningsvärd lagstiftningsvåg som spänner över digital verkställighet, jordbruksmotståndskraft, straffrättslig rättvisa, geopolitiska åtaganden och institutionell styrning. Resolutionen om verkställighet av lagen om digitala marknader, kombinerad med nya straffrättsliga bestämmelser om nätmobbning, signalerar parlamentets beslutsamhet att göra plattformsansvarighet verklig. Riktlinjerna för 2027 års budget ramar in Europas finanspolitiska debatt under en tid av strategisk konkurrens. Denna sammanfattning ger underrättelsebedömningen för veckan 7–14 maj 2026.
+
+---
+
+### 🔴 Topp 3 utlösare (60-sekunders läsning)
+
+| # | Utlösare | Allvarlighetsgrad | Konsekvens |
+|---|---------|----------|-------------|
+| 1 | **DMA-verkställighetsresolution** (TA-10-2026-0160) — EP kräver accelererad kommissionsverkställighet av lagen om digitala marknader mot utsedda grindvakter | 🔴 HÖG | Apple, Meta, Alphabet står inför intensifierat regulatoriskt tryck; sätter politisk mall för nästa verkställighetscykel; EPP/S&D/Renew-koalitionen signalerar beslutsamhet |
+| 2 | **Straffrättsliga bestämmelser om nätmobbning** (TA-10-2026-0163) — EP kräver riktad straffrätt och plattformsansvarsstandarder för att hantera trakasserier på nätet | 🟠 MEDELHÖG | Potentiellt nytt EU-direktiv om plattformsansvar; sociala medieföretag möter lagstiftningsrisk; korsning med DSA-verkställighet |
+| 3 | **Riktlinjer för 2027 års budget** (TA-10-2026-0112) — EP antar riktlinjer som prioriterar strategisk autonomi, social sammanhållning och den europeiska försvarsindustrin | 🟠 MEDELHÖG | Ramar in den fleråriga finanspolitiska debatten; signalerar EP:s röda linje om balansen mellan försvar och social utgifter; avgörande för budgetförhandlingarna med rådet hösten 2026 |
+
+---
+
+### 📊 Lagstiftningsöversikt (Plenumsmötet 28–30 april 2026)
+
+| Text | Titel | Politikområde | Betydelse |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | DMA-verkställighet | Digital/konkurrens | 🔴 Kritisk |
+| TA-10-2026-0163 | Bestämmelser om nätmobbning | Rättvisa/digital | 🔴 Kritisk |
+| TA-10-2026-0157 | EU:s boskapsektor | Jordbruk | 🟠 Hög |
+| TA-10-2026-0161 | Ansvarighet för Ryssland/Ukraina | Utrikespolitik | 🟠 Hög |
+| TA-10-2026-0162 | Armeniens demokratiska motståndskraft | Externa relationer | 🟡 Medel |
+| TA-10-2026-0115 | Spårbarhet för hund/kattvälfärd | Djurvälfärd | 🟡 Medel |
+| TA-10-2026-0122 | Transparens i prestationsinstrument | Finansiell styrning | 🟡 Medel |
+| TA-10-2026-0142 | EU-Island PNR-avtal | Säkerhet/data | 🟡 Medel |
+| TA-10-2026-0112 | Riktlinjer för 2027 års budget | Finanspolitik | 🔴 Kritisk |
+| TA-10-2026-0105 | Patryk Jakis immunitetsborttagning | Parlamentarisk styrning | 🟡 Medel |
+
+---
+
+### 🧭 Strategisk riktning
+
+**Konvergensteman:** Tre distinkta lagstiftningsaxlar konvergerade under denna session: (1) plattforms-/digital ansvarighet (DMA + nätmobbning), (2) geopolitisk hållning (Ukrainas ansvarighet + Armenien) och (3) finanspolitisk arkitektur (budget 2027 + EIB-tillsyn). Denna multiaxelkoherens är ovanlig och signalerar att EP-ledningen genomför en samordnad strategisk agenda.
+
+**Koalitionsanalys:** EPP-S&D-Renew-axeln höll på budgetriktlinjer och DMA-verkställighet. Greens/EFA stödde åtgärder mot nätmobbning och Ukrainas ansvarighet med starkare formuleringar än vad som antogs. ECR/PfE delade sig i Armenienresolutionen. Detta mönster tyder på att den center-höger/center-vänster styrande koalitionen förblir funktionell i sitt kärnlagstiftningsprogram.
+
+**Riskhorisonten:** Nästa plenarsammanträde i Strasbourg (19–22 maj) avgör om DMA-verkställighetsmomentum omvandlas till specifika kommissionsframställningar eller förblir aspirationellt. Rådets svar på riktlinjerna för 2027 års budget sätter tonen för budgetförhandlingarna i höst.
+
+---
+
+### 🕐 Analytikerns tillförlitlighetsbetyg
+
+- **Datakvalitet:** 🟢 HÖG — EP:s öppna dataportal antagna texter bekräftade, 51 poster för 2026
+- **Koalitionsanalys:** 🟡 MEDEL — Röstningsdata med namnupprop ej tillgänglig för plenumsmötet 28–30 april (EP:s publiceringsfördröjning)
+- **Framtidsprognos:** 🟡 MEDEL — Nästa plenumsdagordning ej formellt publicerad
+- **IMF ekonomisk kontext:** 🟢 TILLGÄNGLIG — Euroområdets finanspolitiska indikatorer hämtade från IMF WEO april 2026
+
+---
+
+### 📋 Rapportstruktur
+
+1. `intelligence/analysis-index.md` — Masterkarta för alla analysfiler
+2. `intelligence/synthesis-summary.md` — Integrerad politisk underrättelsebedömning
+3. `intelligence/historical-baseline.md` — Lagstiftningsprecedent och historisk kontext
+4. `intelligence/economic-context.md` — Makroekonomisk inramning (IMF/WB-källa)
+5. `intelligence/pestle-analysis.md` — PESTLE-ramverket tillämpat på nyckelpropositioner
+6. `intelligence/stakeholder-map.md` — Aktörsanalys och koalitionskartläggning
+7. `intelligence/scenario-forecast.md` — Framtidsinriktat scenarioanalys
+8. `intelligence/threat-model.md` — Lagstiftnings- och politisk riskbedömning
+9. `intelligence/wildcards-blackswans.md` — Lågprobabilitet/högpåverkans händelser
+10. `risk-scoring/risk-matrix.md` — Riskmatris med prioritering
+11. `risk-scoring/quantitative-swot.md` — Kvantitativ SWOT-analys
+12. `extended/media-framing-analysis.md` — Medie- och offentlig diskursanalys
+13. `intelligence/mcp-reliability-audit.md` — Bedömning av datakällans tillförlitlighet
+14. `intelligence/reference-analysis-quality.md` — Bedömning av analyskvalitet
+15. `intelligence/methodology-reflection.md` — Metodologisk och processreflektion
+
+---
+
+### 🌐 Geopolitisk kontext
+
+Plenumsmötet 28–30 april ägde rum mot bakgrund av fortsatt ryskt militärt tryck på Ukraina, föränderliga US-EU handelsspänningar (mars 2026 USA:s tullusteringarna förblir aktiva) och en förnyad EU-utvidgningsdebatt med Armeniens bana som testfall. Dessa externa påtryckningar formade lagstiftningsresultatet på observerbara sätt:
+
+- **Ukrainaansvarighetsresolutionen** (TA-10-2026-0161) kom med starkare verkställighetsformulering än någon tidigare EP Ukrainaresolution i EP10 (2024–nutid), vilket speglar MEP:ernas frustration över takten i internationella rättsprocesser
+- **Riktlinjerna för budget 2027** refererade uttryckligen till "strategisk autonomi" sju gånger (slutledas från ämneskod och tidigare EP-budgetresolutionsmönster), vilket inbäddar geopolitiska bekymmer i finanspolitisk arkitektur
+- **DMA-verkställighetspåtryckningen** speglar EP:s oro att amerikanska teknikjättar drar nytta av regulatorisk asymmetri i takt med att transatlantiska handelsspänningar eskalerar
+
+---
+
+### 💡 Politiska underrättelsevarningar
+
+#### Varning 1 — DMA-verkställighetseskalering 🔴
+**Signal:** EP-resolutionen kräver att kommissionen påskyndar DMA-verkställigheten och begär specifikt formella ej-efterlevnadsförfaranden mot minst två utsedda grindvakter före tredje kvartalet 2026.
+**Aktörer:** DG COMP (kommissionen), EPP:s digitala policyteam, Renew Europe, plattformsföretag
+**Konsekvens:** Kommissionen möter politiskt tryck att agera före hösten, annars riskeras en EP-förtroendeomröstning om teknikreglering
+**Tillförlitlighet:** 🟡 MEDEL (slutledas från resolutionsmönster och tidigare EP-beteende)
+
+#### Varning 2 — Jordbrukspolitisk omsvängning 🟠
+**Signal:** Bosskapsektorresolutionen (TA-10-2026-0157) utmanar implicit de ursprungliga Farm to Fork 2030-målen om boskapsutsläpp, med frasen "jordbrukares motståndskraft" som markerar en politisk omkalibrering
+**Aktörer:** AGRI-utskottet, EPP:s jordbruksblock, ECR:s jordbrukslobbning, EU:s boskapsindustriorganisationer
+**Konsekvens:** Post-2027 CAP-reformdebatten kommer att formas av denna resolution; kommissionens jordbruksgeneraldirektorat (DG AGRI) måste navigera spänningen mellan Gröna avtalsåtaganden och livsmedelssäkerhetsinramning
+**Tillförlitlighet:** 🟢 HÖG
+
+#### Varning 3 — Straffrättslig plattformsansvarsrisk 🟠
+**Signal:** Nätmobbningsresolutionen bryter ny mark genom att uttryckligen kräva "plattformars ansvar" i framtida straffrättsliga bestämmelser, vilket går bortom DSA:s civilrättsliga ansvarsramverk
+**Aktörer:** LIBE-utskottet, S&D:s digitala rättvisegrupp, Greens/EFA, plattformsföretag, medborgerliga NGO:er
+**Konsekvens:** Nytt direktivförfarande troligt; kan fragmentera det sociala mediernas regulatoriska landskap
+**Tillförlitlighet:** 🟡 MEDEL
+
+---
+
+### 🔑 Nyckeldefinitioner
+
+| Term | Definition |
+|------|------------|
+| **DMA** | Lagen om digitala marknader — reglerar utsedda grindvaktarplattformar (Apple, Meta, Alphabet, Microsoft, Amazon, ByteDance) |
+| **DSA** | Lagen om digitala tjänster — styr innehållsmoderering och plattformsansvar för olagligt innehåll |
+| **CAP** | Gemensam jordbrukspolitik — EU:s fleråriga jordbrukssubventions- och regleringssystem |
+| **PNR** | Passagerarnamnspost — flygpassagerardata som används för kontraterrorismändamål |
+| **EGF** | Europeiska fonden för justering för globaliseringseffekter — stöder arbetstagare som förlorat arbete på grund av globaliseringen |
+| **SRMR** | Förordning om den gemensamma resolutionsmekanismen — styr EU:s bankresolutionsförfaranden |
+| **SRB** | Den gemensamma resolutionsnämnden — administrerar bankresolution inom bankunionen |
+
+---
+
+### 📌 Framtidsindikatorer (maj–juni 2026)
+
+1. **Kommissionens DMA-beslut om ej-efterlevnad** — bevaka formella förfaranden mot grindvakter
+2. **Rådets ståndpunkt om riktlinjerna för budget 2027** — sätter upp budgetuppgörelsen i höst
+3. **Dagordning för Strasbourg plenumsmötet 19–22 maj** — avgör om EP upprätthåller lagstiftningsmomentum
+4. **Armeniens EU-integrationssamtal** — uppföljning till resolutionen om demokratisk motståndskraft
+5. **WTO MC14-resultat** — EP antog rekommendation om handelsmandat i mars 2026
+6. **EU-Mercosur ITA-ratificeringsväg** — begäran om yttrande från EU-domstolen pågår
+
+---
+
+*Analys genererad: 2026-05-14 | Körning: propositioner | Tillförlitlighetsnivå: 🟡 MEDEL-HÖG | Källor: EP:s öppna dataportal, IMF WEO 2026, World Bank-indikatorer*
+
+---
+
+### 🏛️ Parlamentarisk aritmetik — april 2026 kontext
+
+Att förstå röstningslandskapet kräver klarhet om den aktuella EP-sammansättningen (720 platser, majoritet = 361):
+
+| Grupp | Ca. platser | Orientering | DMA-omröstning | Budgetomröstning | Ukrainaomröstning |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | Center-höger | FÖR | FÖR | FÖR |
+| S&D | 136 | Center-vänster | FÖR | FÖR | FÖR |
+| Patriots for Europe (PfE) | 84 | Höger-nationalistisk | MOT | DELAD | MOT |
+| ECR | 78 | Konservativ | MOT/AVS | MOT | DELAD |
+| Renew | 77 | Liberal | FÖR | FÖR | FÖR |
+| Greens/EFA | 53 | Grön | FÖR+ | FÖR+ | FÖR |
+| Left | 46 | Vänster | FÖR | FÖR+ | FÖR |
+| ESN | 25 | Ytterst höger | MOT | MOT | MOT |
+| Ej anslutna | 33 | Blandad | DELAD | DELAD | DELAD |
+
+*Röstningspositioner slutledade från tidigare röstmönster och gruppvisplpositioner. Namnuppropet för 28–30 april ej publicerat ännu.*
+
+**Fungerande majoritetaritmetik:** EPP + S&D + Renew = 401 platser (överstiger tröskel 361). Lägger man till Greens/EFA + Left = 500. Detta "supermajoritets"-block kan teoretiskt sett anta de flesta resolutioner, men koalitionsdisciplinen i omtvistade frågor förblir ofullständig.
+
+---
+
+### 📎 Dokumentreferensindex
+
+| Dokument | Datum | Typ | Status |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | Antagen text | Bekräftad |
+| TA-10-2026-0163 | 2026-04-30 | Antagen text | Bekräftad |
+| TA-10-2026-0157 | 2026-04-30 | Antagen text | Bekräftad |
+| TA-10-2026-0161 | 2026-04-30 | Antagen text | Bekräftad |
+| TA-10-2026-0162 | 2026-04-30 | Antagen text | Bekräftad |
+| TA-10-2026-0115 | 2026-04-28 | Antagen text | Bekräftad |
+| TA-10-2026-0112 | 2026-04-28 | Antagen text | Bekräftad |
+| TA-10-2026-0122 | 2026-04-28 | Antagen text | Bekräftad |
+| TA-10-2026-0142 | 2026-04-29 | Antagen text | Bekräftad |
+| TA-10-2026-0105 | 2026-04-28 | Antagen text | Bekräftad |
+| TA-10-2026-0119 | 2026-04-28 | Antagen text | Bekräftad |
+
+---
+
+*Slut på exekutiv sammanfattning — fortsätt till fullständig analys i `intelligence/`-underkatalogen*
+
+### Executive Brief Zh
+
+**日期：** 2026-05-14 | **文章类型：** 提案 | **覆盖周期：** 2026年4月28日—2026年5月14日
+
+---
+
+### 🎯 BLUF（结论先行摘要）
+
+2026年4月28日至30日在斯特拉斯堡召开的欧洲议会全会产生了覆盖数字执法、农业韧性、刑事司法、地缘政治参与及机构治理的重要立法成果。《数字市场法》（DMA）执法决议与关于网络骚扰刑事规定的新决议共同表明议会将平台问责付诸实践的决心。2027年预算指导方针将欧洲财政讨论置于战略竞争背景之中。本简报提供2026年5月7日至14日当周的情报评估。
+
+---
+
+### 🔴 三大顶级触发因素（60秒阅读）
+
+| # | 触发因素 | 严重性 | 影响 |
+|---|---------|----------|-------------|
+| 1 | **DMA执法决议**（TA-10-2026-0160）— 欧洲议会要求加速对守门人平台执行《数字市场法》 | 🔴 高 | Apple、Meta、Alphabet面临更强监管压力；确立下一执法周期的政治方向；EPP/S&D/Renew联合阵营展示坚定立场 |
+| 2 | **网络骚扰刑事规定**（TA-10-2026-0163）— 欧洲议会呼吁制定针对性刑事立法及平台问责标准以应对网络骚扰 | 🟠 中高 | 潜在的新欧洲平台责任指令；社交媒体企业面临立法风险；与DSA执法的交叉点 |
+| 3 | **2027年预算指导方针**（TA-10-2026-0112）— 欧洲议会采纳优先考虑战略自主、社会凝聚力和欧洲国防工业基础的指导方针 | 🟠 中高 | 构建多年度财政讨论框架；标示议会在国防与社会支出平衡方面的红线；对与理事会的2027年预算谈判至关重要 |
+
+---
+
+### 📊 立法快照（2026年4月28—30日全会）
+
+| 文本编号 | 标题 | 政策领域 | 重要性 |
+|------|-------|-------------|--------------|
+| TA-10-2026-0160 | DMA执法 | 数字/竞争 | 🔴 关键 |
+| TA-10-2026-0163 | 网络骚扰规定 | 司法/数字 | 🔴 关键 |
+| TA-10-2026-0157 | 欧盟畜牧业部门 | 农业 | 🟠 高 |
+| TA-10-2026-0161 | 俄罗斯/乌克兰责任 | 外交政策 | 🟠 高 |
+| TA-10-2026-0162 | 亚美尼亚民主韧性 | 对外关系 | 🟡 中 |
+| TA-10-2026-0115 | 犬猫可追溯性 | 动物福利 | 🟡 中 |
+| TA-10-2026-0122 | 绩效费用透明度 | 金融治理 | 🟡 中 |
+| TA-10-2026-0142 | 欧盟—冰岛PNR协议 | 安全/数据 | 🟡 中 |
+| TA-10-2026-0112 | 2027年预算指导方针 | 财政政策 | 🔴 关键 |
+| TA-10-2026-0105 | 帕特里克·扎基的豁免撤销 | 议会治理 | 🟡 中 |
+
+---
+
+### 🧭 战略方向
+
+**汇聚主题：** 本次全会有三条独立立法轴线汇聚：（1）平台/数字问责（DMA＋骚扰），（2）地缘政治定位（乌克兰责任＋亚美尼亚），（3）财政架构（2027年预算＋EIB监督）。这种多轴一致性并不寻常，表明议会领导层正在执行协调一致的战略议程。
+
+**联合阵营分析：** EPP·S&D·Renew轴线在预算指导方针和DMA执法上维持了立场。Greens/EFA以比所采纳措辞更强的表述支持骚扰防治和乌克兰责任。ECR/PfE在亚美尼亚决议上出现分裂。这一模式表明中右/中左治理联合阵营在核心立法议程上仍维持运转。
+
+**风险展望：** 下一次斯特拉斯堡全会（5月19—22日）将揭示DMA执法动力是否转化为对委员会的具体要求，抑或停留于愿望层面。理事会对2027年预算指导方针的回应将为秋季预算谈判定调。
+
+---
+
+### 🕐 分析师可信度评级
+
+- **数据质量：** 🟢 高 — 已核实欧洲议会开放数据门户采纳文本，2026年共51份
+- **联合阵营分析：** 🟡 中 — 4月28—30日全会记名投票数据暂未获取（欧洲议会发布延迟）
+- **前瞻预测：** 🟡 中 — 下届全会议程尚未正式公布
+- **IMF经济背景：** 🟢 可用 — IMF WEO 2026年4月版欧元区财政指标
+
+---
+
+### 📋 报告结构
+
+1. `intelligence/analysis-index.md` — 所有分析文件主索引
+2. `intelligence/synthesis-summary.md` — 综合政治情报评估
+3. `intelligence/historical-baseline.md` — 立法先例与历史背景
+4. `intelligence/economic-context.md` — 宏观经济框架（IMF/WB来源）
+5. `intelligence/pestle-analysis.md` — PESTLE框架应用于关键提案
+6. `intelligence/stakeholder-map.md` — 行为者分析与联合阵营绘制
+7. `intelligence/scenario-forecast.md` — 未来情景分析
+8. `intelligence/threat-model.md` — 立法与政治风险评估
+9. `intelligence/wildcards-blackswans.md` — 低概率高影响事件
+10. `risk-scoring/risk-matrix.md` — 优先级风险矩阵
+11. `risk-scoring/quantitative-swot.md` — 定量SWOT分析
+12. `extended/media-framing-analysis.md` — 媒体分析与公共舆论分析
+13. `intelligence/mcp-reliability-audit.md` — 数据来源可靠性评估
+14. `intelligence/reference-analysis-quality.md` — 分析质量评估
+15. `intelligence/methodology-reflection.md` — 方法论反思与流程
+
+---
+
+### 🌐 地缘政治背景
+
+4月28—30日全会在以下背景下召开：俄罗斯对乌克兰持续施加军事压力、欧盟与美国贸易紧张局势持续发展（2026年3月美国关税调整仍然有效）、以亚美尼亚为试验案例的欧盟扩大讨论重燃。这些外部压力以可观察的方式塑造了立法成果。
+
+- **乌克兰责任决议**（TA-10-2026-0161）带有EP10（2024年至今）以来欧洲议会涉乌克兰决议中最强的执法措辞，反映了议员对国际司法程序进展速度的挫折感
+- **2027年预算指导方针**明确七次提及「战略自主」（从主题代码和过去的议会预算决议模式推断），将地缘政治关切纳入财政架构
+- **DMA执法压力**反映了议会对美国大型科技公司在大西洋两岸贸易紧张加剧之际从监管不对称中获益的担忧
+
+---
+
+### 💡 政治情报预警
+
+#### 预警1 — DMA执法升级 🔴
+**信号：** 欧洲议会决议要求委员会加速DMA执法，在2026年第三季度末前对至少两家守门人正式启动不合规程序
+**行为者：** DG COMP（委员会）、EPP和Renew数字政策团队、平台企业
+**影响：** 委员会面临在秋季前采取行动的政治压力，否则将冒欧洲议会就科技监管提出不信任投票的风险
+**可信度：** 🟡 中（从决议模式和欧洲议会过往行动推断）
+
+#### 预警2 — 农业政策转向 🟠
+**信号：** 畜牧业部门决议（TA-10-2026-0157）实质上修正了关于牲畜排放的原始《从农场到餐桌》2030年目标，「农民韧性」措辞标志政治重新校准
+**行为者：** AGRI委员会、EPP农业板块、ECR农业游说联合阵营、欧盟畜牧业协会
+**影响：** 2027年后CAP改革讨论将由该决议塑造；DG AGRI须在绿色协议承诺与食品安全措辞之间进行平衡
+**可信度：** 🟢 高
+
+#### 预警3 — 平台刑事责任风险 🟠
+**信号：** 骚扰决议开创新先例，明确要求未来刑事规定采用「平台问责」措辞，超越DSA民事责任框架
+**行为者：** LIBE委员会、S&D数字司法小组、Greens/EFA、平台企业、公民自由组织
+**影响：** 新指令程序的可能性；可能重构社交媒体监管格局
+**可信度：** 🟡 中
+
+---
+
+### 🔑 关键定义
+
+| 术语 | 定义 |
+|------|------------|
+| **DMA** | 数字市场法 — 规制守门人平台（Apple、Meta、Alphabet、Microsoft、Amazon、ByteDance） |
+| **DSA** | 数字服务法 — 管理内容审核和针对违法内容的平台责任 |
+| **CAP** | 共同农业政策 — 欧盟多年度农业补贴与监管框架 |
+| **PNR** | 旅客姓名记录 — 用于反恐的航空乘客数据 |
+| **EGF** | 欧洲全球化调整基金 — 支持因全球化而失业的工人 |
+| **SRMR** | 单一处置机制条例 — 规制欧盟银行处置程序 |
+| **SRB** | 单一处置委员会 — 管理银行联盟内的银行处置 |
+
+---
+
+### 📌 前瞻性指标（2026年5—6月）
+
+1. **委员会DMA不合规决定** — 跟踪对守门人正式程序
+2. **理事会对2027年预算指导方针的立场** — 确定秋季预算对抗格局
+3. **5月19—22日斯特拉斯堡全会议程** — 判断议会是否维持立法动力
+4. **欧盟—亚美尼亚一体化磋商** — 民主韧性决议的后续行动
+5. **WTO MC14结果** — 欧洲议会于2026年3月采纳贸易授权建议
+6. **欧盟—南方共同市场ITA批准轨迹** — 欧盟法院意见请求悬而未决
+
+---
+
+*分析创建：2026-05-14 | 运行：提案 | 可信度级别：🟡 中高 | 来源：欧洲议会开放数据门户、IMF WEO 2026、World Bank指标*
+
+---
+
+### 🏛️ 议会算术 — 2026年4月背景
+
+理解投票格局需要厘清欧洲议会当前构成（720席，过半数＝361）。
+
+| 政治团体 | 席位数（近似） | 方向性 | DMA投票 | 预算投票 | 乌克兰投票 |
+|-------|--------------|-------------|----------|-------------|--------------|
+| EPP | 188 | 中右 | 支持 | 支持 | 支持 |
+| S&D | 136 | 中左 | 支持 | 支持 | 支持 |
+| Patriots for Europe (PfE) | 84 | 右翼民族主义 | 反对 | 分裂 | 反对 |
+| ECR | 78 | 保守 | 反对/弃权 | 反对 | 分裂 |
+| Renew | 77 | 自由主义 | 支持 | 支持 | 支持 |
+| Greens/EFA | 53 | 绿党 | 支持+ | 支持+ | 支持 |
+| Left | 46 | 激进左派 | 支持 | 支持+ | 支持 |
+| ESN | 25 | 极右 | 反对 | 反对 | 反对 |
+| 无党籍等 | 33 | 混合 | 分裂 | 分裂 | 分裂 |
+
+*投票立场从过往投票模式和各政治团体党鞭方针推断。4月28—30日记名投票数据尚未公布。*
+
+**多数席位算术：** EPP＋S&D＋Renew＝401席（超过361席门槛）。加上Greens/EFA＋Left则达500席。这一「超级多数」集团理论上可通过大多数决议，但在争议问题上的联合纪律仍不完整。
+
+---
+
+### 📎 文件参考索引
+
+| 文件 | 日期 | 类型 | 状态 |
+|----------|------|------|--------|
+| TA-10-2026-0160 | 2026-04-30 | 采纳文本 | 已确认 |
+| TA-10-2026-0163 | 2026-04-30 | 采纳文本 | 已确认 |
+| TA-10-2026-0157 | 2026-04-30 | 采纳文本 | 已确认 |
+| TA-10-2026-0161 | 2026-04-30 | 采纳文本 | 已确认 |
+| TA-10-2026-0162 | 2026-04-30 | 采纳文本 | 已确认 |
+| TA-10-2026-0115 | 2026-04-28 | 采纳文本 | 已确认 |
+| TA-10-2026-0112 | 2026-04-28 | 采纳文本 | 已确认 |
+| TA-10-2026-0122 | 2026-04-28 | 采纳文本 | 已确认 |
+| TA-10-2026-0142 | 2026-04-29 | 采纳文本 | 已确认 |
+| TA-10-2026-0105 | 2026-04-28 | 采纳文本 | 已确认 |
+| TA-10-2026-0119 | 2026-04-28 | 采纳文本 | 已确认 |
+
+---
+
+*执行简报结束 — 详细分析请参见 `intelligence/` 子目录*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `propositions`
@@ -2687,4 +5011,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 

@@ -4302,6 +4302,2463 @@ This data availability assessment was produced following the methodology in `ana
 
 **Analyst note**: The degraded-feeds condition does not prevent meaningful analysis of the EP10 propositions landscape at the institutional and political level. It does prevent procedure-by-procedure tracking, which should be acknowledged as a limitation in the final article.
 
+### Executive Brief Ar
+
+### التاريخ: 2026-05-18 | التصنيف: تحليل | وضع البيانات: مصادر متدهورة
+
+**نطاقات WEP المطبقة** | **مقياس الأدميرالية المستخدم** | **توثيق SAT أدناه**
+
+---
+
+### 1. تقييم الوضع — المستوى الأعلى
+
+يعمل البرلمان الأوروبي في دورته التشريعية العاشرة بأعلى سرعة تشريعية (+46.2% على أساس سنوي في التشريعات المُقرَّة) في ظل ظروف ائتلافية هشة هيكلياً (هامش 16 صوتاً للكتلة اليمينية؛ مؤشر هيرفيندال-هيرشمان للتشرذم 0.1514 — رقم قياسي للدورة EP10). ثلاث أولويات تشريعية عليا تهيمن على مسار المقترحات: البرنامج الأوروبي للصناعة الدفاعية (EDIP)، وصفقة الصناعة النظيفة (CID)، والأعمال المفوَّضة لقانون الذكاء الاصطناعي. كل ذلك يتطلب إدارة أغلبية تتجاوز الكتل ولا تترك هامشاً للانشقاقات.
+
+**التقييم الشامل**: 🟢 جدول الأعمال التشريعي **في المسار الصحيح** لكنه يعمل عند حدود تحمُّل المخاطر السياسية. مستوى الصمود أدنى مما تُوحي به الأرقام الرئيسية.
+
+---
+
+### 2. الاستنتاجات التحليلية الرئيسية (KAC)
+
+#### KAC-1: الأغلبية العظمى في الدفاع فريدة هيكلياً [أدميرالية A1، 🟢 ثقة عالية]
+**WEP: 75% — من المرجح تقدُّم EDIP بشكل ما بحلول الربع الرابع 2026**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 برلمانياً أوروبياً يدعمون EDIP من حيث المبدأ، ما يمثل 66.5% من أصل 717 مقعداً في البرلمان — متجاوزاً عتبة أغلبية الثلثين. هذا التقارب العابر للأيديولوجيات حول التصنيع الدفاعي لا سابق له تاريخياً في دورات البرلمان الأوروبي. لقد أذاب الإطار القومي الاقتصادي الانقسام التقليدي بين اليسار واليمين في مسألة الدفاع: لم يعد بإمكان نواب S&D من الدوائر المعتمدة على الدفاع (الفرنسية والبولندية والإيطالية) معارضة EDIP دون تبعات سياسية في الداخل.
+
+**الافتراض المحوري قيد الفحص (KAC-1 KA-1)**: أن انضباط S&D في ملف EDIP يصمد رغم ضغوط الخضر/اليسار/المجتمع المدني. معدل الانشقاق التاريخي لـ S&D في ملفات الدفاع: 12-18% في الدورة EP9. إذا انشق 20% من S&D (27 نائباً)، تتحول الأغلبية العظمى إلى أغلبية بسيطة — منتصرة بعد، لكن دون إطار التواصل "الأغلبية الديمقراطية العظمى".
+
+#### KAC-2: حساب الائتلاف غير مستقر عند الهامش [أدميرالية A2، 🟢 ثقة عالية]
+**WEP: 60% — الأرجح ألا أقل من تصويت واحد بفارق ≤ 10 أصوات في 2026**
+
+الائتلاف اليميني (EPP+ECR+PfE+ESN = 376) يعمل بـ 16 صوتاً فوق عتبة الأغلبية. انشقاق منسَّق لـ 9 نواب من PfE (9 من 85 مقعداً = 10.6%) يُسقط أي اقتراح يستلزم الكتلة اليمينية. البديل الوسطي الكبير (EPP+S&D+Renew = 396) بهامش 36 صوتاً، لكنه يستلزم تنازلات S&D تُخفف المحتوى السياسي المفضَّل لدى EPP، لا سيما في الزراعة والقواعد المالية والهجرة.
+
+**الافتراض المحوري قيد الفحص (KAC-2 KA-1)**: أن EPP يستطيع الحفاظ على استراتيجية "الائتلاف المتأرجح" — استخدام الكتلة اليمينية لبعض الملفات والائتلاف الوسطي لملفات أخرى — دون أن يسحب أي شريك ائتلافي تعاونه بذريعة الخيانة. سابقة المجر في الدورة EP9 أثبتت إمكانية ذلك لكنها تُولِّد ضغطاً مؤسسياً.
+
+#### KAC-3: الإنتاجية التشريعية القياسية تُخفي توترات هيكلية [أدميرالية A2، 🟡 ثقة متوسطة]
+**WEP: 55% — متقاربة الاحتمال استمرار طفرة الإنتاجية خلال النصف الثاني من 2026**
+
+935 إجراءً نشطاً و114 تشريعاً متوقعاً (2026) يمثلان ناتجاً مؤسسياً حقيقياً. غير أن نسبة قمع اللجان إلى الجلسة العامة (43.8%) تُشير إلى اختناقات محتملة: اللجان تُنتج حجماً تشريعياً أسرع مما يمكن للجلسة العامة استيعابه. ستُحدد قدرة الرئاسة الدنماركية على إدارة الأجندة التشريعية للمجلس في النصف الثاني من 2026 ما إذا كانت إنتاجية EP10 ستتحول إلى قانون مُقرَّ أم ستتعثر في المفاوضات بين المؤسسات.
+
+#### KAC-4: بيانات السياق الاقتصادي من IMF غير متاحة [قيد بيانات — 🔴 غائبة]
+**التأثير: معتدل — يُقلل الثقة في تحليل الحوكمة المالية**
+
+بيانات World Economic Outlook الصادرة عن IMF غير متاحة في هذا الإصدار (مصادر متدهورة). لذا تعتمد التقييمات المالية والاقتصادية الكلية على البيانات الإحصائية المصدرها البرلمان الأوروبي والإشارات الاقتصادية من المصادر المفتوحة بدلاً من توقعات IMF السلطوية الخاصة بكل دولة. ينبغي للمحللين معاملة جميع الادعاءات الاقتصادية الكلية في هذا الموجز باعتبارها درجة ثقة أدنى مما هو مُشار إليه (أدميرالية A→B، B→C).
+
+---
+
+### 3. توثيق الأسلوب التحليلي المنظم (SAT)
+
+#### SAT-1: فحص الافتراضات المحورية (KAC) — مطبَّق على KAC-1 إلى KAC-3
+
+**المنهجية**: خُضع كل استنتاج تحليلي أعلاه لصياغة صريحة للافتراضات واختبار الإجهاد. يتتبع التحليل كل KAC إلى مصادر بياناته (المرحلة A) ويُحدد الافتراض الذي لو كان خاطئاً لأحدث أكبر تأثير على التقييم.
+
+| KAC | الثقة | شرط التفنيد | الاحتمال |
+|-----|-----------|---------------------|-------------|
+| KAC-1: صمود الأغلبية العظمى في الدفاع | عالية | انشقاق S&D >20% أو تشقق PfE | 20% |
+| KAC-2: الائتلاف عند الهامش | عالية | اتفاقية ائتلافية رسمية EPP-ECR | 15% |
+| KAC-3: استمرار الإنتاجية | متوسطة | إعاقة المجلس من الرئاسة الدنماركية | 40% |
+
+#### SAT-2: تحليل الفرضيات المتنافسة (ACH) — استراتيجية الائتلاف للمقترحات الرئيسية
+
+**الفرضيات المتنافسة المختبَرة**:
+- H1: EPP يستخدم الكتلة اليمينية (EPP+ECR+PfE+ESN) لجميع المقترحات الكبرى في 2026
+- H2: EPP يستخدم الائتلاف الوسطي (EPP+S&D+Renew) لجميع المقترحات الكبرى
+- H3: EPP يستخدم استراتيجية الائتلاف المتأرجح — الكتلة اليمينية لبعض الملفات والوسطيين لأخرى
+
+**مصفوفة الأدلة**:
+
+| الدليل | H1 | H2 | H3 |
+|----------|----|----|-----|
+| ديناميكيات التصويت على EDIP (الدفاع) | +++ | + | ++ |
+| الأحكام الاجتماعية لـ CID | -- | +++ | ++ |
+| أحكام العمل في قانون الذكاء الاصطناعي | -- | +++ | ++ |
+| SGP/القواعد المالية | + | ++ | +++ |
+| الزراعة/المبيدات | ++ | - | +++ |
+| الهجرة/تنفيذ الميثاق | +++ | -- | + |
+
+**الخلاصة**: H3 (الائتلاف المتأرجح) الأكثر اتساقاً مع الأدلة. سيستخدم EPP الكتلة اليمينية للهجرة والدفاع والزراعة؛ والائتلاف الوسطي للملفات الاجتماعية والبيئية.
+
+#### SAT-3: عجلة السيناريوهات — مطبَّقة على توقعات نتيجة EDIP
+
+**السيناريو A (WEP 35%)**: إقرار EDIP بموافقة الأغلبية العظمى البالغة 477 مقعداً — يصبح تشريع الإرث الأيقوني للدورة EP10
+**السيناريو B (WEP 35%)**: إقرار EDIP بأغلبية بسيطة (360-400 صوتاً) بعد انشقاق جزئي من S&D — مُقرَّ لكن دون إطار تواصل الأغلبية العظمى
+**السيناريو C (WEP 20%)**: تأجيل EDIP حتى 2027 بسبب انهيار محادثات ثلاثية مع المجلس حول قواعد المشتريات
+**السيناريو D (WEP 10%)**: انهيار EDIP — تهدئة جيوسياسية أو ضمان أمني أمريكي يُزيل الحاجة الملحة
+
+**الأهمية السياسية**: B و C الأكثر احتمالاً وفق WEP؛ لكن A سيكون ذا أهمية مؤسسية بالغة. إعداد الرسائل لسيناريو B هو المهمة الأكثر أهمية تشغيلياً.
+
+#### SAT-4: محامي الشيطان — تحدي KAC-3 (الإنتاجية التشريعية)
+
+**موقف محامي الشيطان**: طفرة الإنتاجية *ليست* دليلاً على الكفاءة المؤسسية بل دليل على تضخم تشريعي — يُقرّ نواب البرلمان مزيداً من التشريعات بالتحديد *لأن* كل تشريع أقل أهمية. التشرذم العالي بمؤشر HHI يعني أن التشريع الوحيد الذي يُقرَّ هو التشريع الذي لا يهدد المصالح الجوهرية لأي مجموعة. التشريع الرائد هو بالضبط ما يعلق.
+
+**قوة موقف DA**: 🟡 متوسطة. نسبة +46.2% على أساس سنوي في الأعمال القانونية مهمة. لكن دون تصنيف الجودة/الأهمية لكل عمل تشريعي لا يمكن دحض DA بشكل كامل.
+
+**الرد التحليلي**: معترف به بوصفه حالة عدم يقين حقيقية. يُقرّ الموجز بهذا (KAC-3) دون حله.
+
+#### SAT-5: تحليل القبعة الحمراء (منظور الخصم)
+
+**من منظور معارضة ECR/PfE**:
+السردية التي تبنيها EPP/المفوضية حول "المقترحات" هي أجندة تكامل أوروبي أقصى متنكرة في هيئة استجابة للأزمة. الدفاع (EDIP) والأخضر (CID) والرقمي (قانون الذكاء الاصطناعي) والمالي (إصلاح SGP) تشكل معاً أكثر أجندة فيدرالية طموحة في تاريخ الاتحاد الأوروبي — وتُدفع من خلال مبرر "الضرورة/الضرورة الجيوسياسية" بدلاً من التداول الديمقراطي.
+
+**لماذا لهذا المنظور صلة تحليلية**: السردية المضادة لـ ECR/PfE تمتلك 193 مقعداً ودعم حكومي وطني كبير (إيطاليا والمجر وتشيكيا وسلوفاكيا). إذا حصلت أي من هذه الحكومات على أقلية حاجبة في المجلس على ملفات محددة، ستتوقف مقترحات البرلمان الأوروبي في المفاوضات الثلاثية. يكشف تحليل القبعة الحمراء عن الهشاشة الهيكلية في أجندة مقترحات البرلمان التي يُقلل منها المنظور المؤسسي.
+
+#### SAT-6: مسح التناقضات — فحص الاتساق الداخلي
+
+**التناقض مُحدَّد ومحلول**:
+- C1: يدّعي الموجز "إنتاجية تشريعية قياسية" (قوة) و"هشاشة ائتلافية هيكلية" (ضعف). قد تبدو متناقضة — كيف يمكن أن تكون الإنتاجية عالية إذا كانت الائتلافات هشة؟
+- **الحل**: تحققت الإنتاجية القياسية في EP10 بشكل رئيسي عبر تشريعات غير مثيرة للجدل (أعمال تفويضية تقنية، قواعد تنفيذ الذكاء الاصطناعي، تعديلات طفيفة على الإطار المالي). التشريعات الرائدة المثيرة للجدل (EDIP وCID وتنفيذ ميثاق الهجرة) هي تحديداً حيث تُحسم الهشاشة الائتلافية. كلا الادعاءين صحيح في آن واحد.
+
+#### SAT-7: فحص جودة المعلومات (QIC)
+
+| مصدر البيانات | الدرجة | التغطية | الموثوقية |
+|------------|-------|----------|------------|
+| المشهد السياسي (A1) | A1 | كاملة | عالية |
+| إحصاءات البرلمان 2024-2026 (A2) | A2 | كاملة | عالية |
+| تغذية النصوص المُعتمَدة (B2) | B2 | جزئية (المعرفات فقط) | متوسطة |
+| تغذية الإجراءات | F — غير متاحة | لا شيء | غير قابل للتطبيق |
+| البيانات الاقتصادية من IMF | F — غير متاحة | لا شيء | غير قابل للتطبيق |
+| تحليل الإعلام/الإطار | B3 | نوعية | متوسطة |
+
+**الدرجة الإجمالية للبيانات في هذا الموجز**: 🟡 **B2** — موثوقة بشأن البنية المؤسسية وإحصاءات البرلمان؛ محدودة بشأن الملفات التشريعية المحددة والسياق الاقتصادي الكلي.
+
+#### SAT-8: التحليل السابق للوفاة (Premortem)
+
+**السيناريو**: نحن في ديسمبر 2026 وفشلت الدورة EP10 في إقرار أي من أولوياتها التشريعية الثلاث العليا (EDIP وCID والأعمال المفوَّضة لقانون الذكاء الاصطناعي). ما الذي ساء؟
+
+**أكثر أنماط الفشل احتمالاً** (مُرجَّحة باحتمالية):
+1. EDIP: أقلية حاجبة في المجلس (إيطاليا+المجر+النمسا) بشأن قواعد المشتريات (30%)
+2. CID: انشقاق S&D بشأن الأحكام الاجتماعية يُزيل الأغلبية (25%)
+3. الأعمال المفوَّضة لقانون الذكاء الاصطناعي: تسحب المفوضية أحكاماً مثيرة للجدل تحت الضغط الصناعي (20%)
+4. تأخير الثلاثة بسبب حالة طوارئ جيوسياسية تستلزم أجندة تشريعية طارئة (15%)
+5. التشرذم الداخلي للبرلمان يُفشل الثلاثة في آن واحد (10%)
+
+**الرؤية الاستباقية**: العامل الأعلى خطورة هو الأقلية الحاجبة في المجلس لا هشاشة الائتلاف في البرلمان. هذا يُحوِّل تركيز الاستخبارات الموصى به من إدارة الائتلاف داخل البرلمان إلى الديناميكيات المؤسسية بين البرلمان والمجلس.
+
+#### SAT-9: التتبع الزمني للأحداث
+
+| التاريخ | الحدث | الاستتباع التحليلي |
+|------|-------|----------------------|
+| بداية EP10 (2024-07) | 717 برلمانياً، HHI 0.1514 | التشرذم التاريخي مؤكَّد |
+| طوال 2025 | 5% تجديد في صفوف البرلمانيين | إشارة استقرار مؤسسي |
+| 2026-01 | 567 تصويتاً بالاقتراع المسمى متوقعاً | إنتاجية تشريعية قياسية |
+| 2026-05-18 | تاريخ التحليل الراهن | EDIP/CID في مرحلة اللجان النشطة |
+| 2026-07 | بدء الرئاسة الدنماركية | تسريع التقويم التشريعي |
+| 2026-H2 | مفاوضات ما قبل الإطار المالي | تحول في البيئة السياسية |
+
+#### SAT-10: المستقبليات البديلة (بناء السيناريوهات)
+
+**الخط الأساسي (WEP 40%)**: تُقرّ الدورة EP10 EDIP وCID والأعمال المفوَّضة للذكاء الاصطناعي بأغلبيات بسيطة قبل الربع الرابع 2026. إرث تشريعي قياسي. 
+
+**متفائل (WEP 25%)**: EDIP يُقرَّ بأغلبية عظمى، CID يُختتم في مفاوضات ثلاثية، حوكمة الذكاء الاصطناعي تضع معياراً عالمياً. تُصبح الدورة EP10 أكثر البرلمانات الأوروبية إنتاجية في التاريخ الحديث.
+
+**متشائم (WEP 25%)**: المجلس يُعيق أحكام مشتريات EDIP، CID يتأخر بسبب سياسة أسعار الطاقة الألمانية، قانون الذكاء الاصطناعي يُشعل احتكاكات تجارية بين الاتحاد الأوروبي والولايات المتحدة. أجندة EP10 تتعثر جزئياً.
+
+**أزمة (WEP 10%)**: أزمة جيوسياسية أو اقتصادية كبرى تفرض أجندة طارئة، تُزيح جميع المقترحات المُدرجة. يهيمن الإرث التشريعي باستجابة الأزمة.
+
+---
+
+### 4. مؤشرات المراقبة
+
+#### مجموعة المؤشرات A — استقرار الائتلاف (مراقبة أسبوعية)
+- درجات تماسك مجموعة EPP في التصويتات الرئيسية (المصدر: سجلات الأصوات عند توفرها)
+- توافق النواب المجريين في PfE مع EPP
+- معدل انشقاق S&D في ملفات الدفاع
+
+#### مجموعة المؤشرات B — التقدم التشريعي (مراقبة شهرية)
+- الإجراءات التي تصل إلى مرحلة الجلسة العامة (الهدف: 35+ مقترحاً رئيسياً بحلول الربع الرابع 2026)
+- تواريخ افتتاح المفاوضات الثلاثية لـ EDIP وCID والأعمال المفوَّضة لقانون الذكاء الاصطناعي
+- تعيينات المقررين في اللجان لبرنامج التشريع 2027
+
+#### مجموعة المؤشرات C — المخاطر الخارجية (مراقبة مستمرة)
+- إشارات التصعيد الجيوسياسي (أوكرانيا وتايوان والشرق الأوسط)
+- مؤشرات أسعار الطاقة (الكهرباء الأساسية الألمانية)
+- توقعات نمو الاتحاد الأوروبي من IMF (WEO القادم في أبريل/أكتوبر)
+- إشارات السياسة النقدية للبنك المركزي الأوروبي (البيئة المالية)
+
+---
+
+### 5. التقدير الاستخباراتي الختامي
+
+**الوضع**: 🟢 مسار إيجابي مع ثغرات هيكلية كبيرة
+
+**الثقة**: 🟡 متوسطة — مقيَّدة بغياب بيانات IMF وتدهور تغذية الإجراءات
+
+**الحساسية الزمنية**: عالية — مفاوضات ما قبل الإطار المالي بدءاً من النصف الثاني 2026 ستُعيد تشكيل البيئة السياسية
+
+**الإجراءات الموصى بها**:
+1. مراقبة تواريخ افتتاح المفاوضات الثلاثية لـ EDIP وCID — هذه المتغيرات الأكثر حسماً على المدى القصير
+2. تتبع انضباط مجموعة S&D في ملفات الدفاع أسبوعياً
+3. الحصول على بيانات مشاورات المادة IV من IMF لألمانيا وفرنسا وإيطاليا عند توفرها — ستُحدِّث تحليل حوكمة المالية العامة بشكل كبير
+4. إعداد رسائل سيناريو B (EDIP مُقرَّ بأغلبية بسيطة) بوصفه السيناريو التشغيلي الأساسي
+
+### Executive Brief Da
+
+### Dato: 2026-05-18 | Klassificering: ANALYSE | Datatilstand: degraderede feeds
+
+**WEP-bånd anvendt** | **Admiralitetsskala anvendt** | **SAT-dokumentation nedenfor**
+
+---
+
+### 1. Situationsvurdering — Toppniveau
+
+Europa-Parlamentets 10. valgperiode opererer med toppfart i lovgivningsarbejdet (+46,2 % år-over-år i vedtagne love) under strukturelt skrøbelige koalitionsforhold (16-stemmers margin for højreblokken; HHI-fragmentering 0,1514 — EP10-rekord). Tre lovgivende superprioriteter dominerer propositionspipelinen: det europæiske forsvarsindustriprogramme (EDIP), den rene industriaftale (CID) og AI-lovens delegerede retsakter. Alle tre kræver blokoverskridende majoritetsforvaltning, der ikke efterlader plads til defektioner.
+
+**Samlet vurdering**: 🟢 Lovgivningsdagsordenen er **PÅ RETTE SPOR** men opererer ved grænsen for politisk risikotolerance. Modstandskraften er lavere, end overskriftstallene antyder.
+
+---
+
+### 2. Centrale analytiske konklusioner (KAC)
+
+#### KAC-1: Forsvarssupermajoriteten er strukturelt unik [Admiralitet A1, 🟢 HØJ KONFIDENSGRAD]
+**WEP: 75 % — SANDSYNLIGT at EDIP avancerer i en eller anden form inden Q4 2026**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 MEP'er støtter EDIP i princippet, hvilket repræsenterer 66,5 % af parlamentets 717 pladser — og overstiger tærsklen for 2/3 supermajoritet. Denne tværideologiske konvergens om forsvarsindustrialisering er historisk uden fortilfælde i EP-mandatperioder. Den økonomiske nationalistiske ramme har opløst den traditionelle venstre-højre-kløft om forsvar: S&D-MEP'er fra forsvarsafhængige valgkredse (franske, polske, italienske) kan ikke længere modsætte sig EDIP uden politiske omkostninger hjemme.
+
+**Nøgleantagelse under kontrol (KAC-1 KA-1)**: At S&D's disciplin om EDIP holder trods Greens/Left/civilsamfundets pres. Historisk defektionsrate for S&D i forsvarssager: 12–18 % i EP9. Hvis 20 % af S&D (27 MEP'er) defekterer, bliver supermajoriteten til en simpel majoritet — stadig vindende, men uden kommunikationsrammen "demokratisk supermajoritet".
+
+#### KAC-2: Koalitionsaritetik er ustabil ved marginen [Admiralitet A2, 🟢 HØJ KONFIDENSGRAD]
+**WEP: 60 % — MERE SANDSYNLIGT END IKKE at mindst én stor afstemning afgøres med ≤ 10 stemmer i 2026**
+
+Højreblokskoalitionen (EPP+ECR+PfE+ESN = 376) opererer med 16 stemmer over majoritetstærsklen. En koordineret 9-MEP-deflektion fra PfE (9 af 85 pladser = 10,6 %) besejrer ethvert forslag, der kræver højreblokken. Det store centriste alternativ (EPP+S&D+Renew = 396) har 36-stemmers margin men kræver S&D-kompromiser, der udvander EPP's foretrukne politikindhold, navnlig om landbrug, finansregler og indvandring.
+
+**Nøgleantagelse under kontrol (KAC-2 KA-1)**: At EPP kan opretholde "svingkoalitions"-strategien — bruge højreblokken til nogle sager, centristisk koalition til andre — uden at en koalitionspartner trækker samarbejdet tilbage med narrativet om forræderi. Det ungarske præcedens i EP9 viste, at dette er muligt, men genererer institutionel stress.
+
+#### KAC-3: Rekordlovgivningsproduktivitet skjuler strukturelle spændinger [Admiralitet A2, 🟡 MIDDEL KONFIDENSGRAD]
+**WEP: 55 % — OMTRENT LIGEVÆGTIGT at produktivitetsstigningen fortsætter gennem H2 2026**
+
+935 aktive procedurer og 114 projekterede lovgivningsakter (2026) repræsenterer genuint institutionelt output. Dog antyder udvalg-til-plenum-tragtforholdet (43,8 %) potentielle flaskehalse: udvalgene genererer lovgivningsvolumen hurtigere end plenum kan absorbere. Det danske formandskabs evne til at styre Rådets lovgivningsdagsorden i H2 2026 vil afgøre, om EP10's produktivitet omsættes til vedtaget lov eller går i stå i interinstitutionelle forhandlinger.
+
+#### KAC-4: IMF-økonomiisk kontekstdata utilgængelige [DATABEGRÆNSNING — 🔴 FRAVÆRENDE]
+**Indvirkning: Moderat — reducerer konfidensgraden i analyse af finanspolitisk styring**
+
+IMF World Economic Outlook-data er ikke tilgængelige i denne kørsel (degraderede feeds). Finansielle og makroøkonomiske vurderinger er derfor afhængige af EP-baserede statistiske data og åbne kildeøkonomiske signaler snarere end autoritative IMF-landsspecifikke projektioner. Analytikere bør behandle alle makroøkonomiske påstande i dette resumé som havende én konfidensgrad lavere end angivet (Admiralitet A→B, B→C).
+
+---
+
+### 3. Dokumentation af struktureret analytisk teknik (SAT)
+
+#### SAT-1: Kontrol af nøgleantagelser (KAC) — Anvendt på KAC-1 til KAC-3
+
+**Metodik**: Enhver analytisk konklusion ovenfor er underkastet eksplicit antagelsesformulering og stresstestning. Analysen sporer hvert KAC til sine datakilder (Trin A) og identificerer den antagelse, som, hvis den er forkert, mest ville ændre vurderingen.
+
+| KAC | Konfidensgrad | Falsificeringsbetingelse | Sandsynlighed |
+|-----|-----------|---------------------|-------------|
+| KAC-1: Forsvarssupermajoriteten holder | HØJ | S&D >20 % deflektion eller PfE-brud | 20 % |
+| KAC-2: Koalition ved marginen | HØJ | EPP-ECR formel koalitionsaftale | 15 % |
+| KAC-3: Produktiviteten fortsætter | MIDDEL | Dansk formandskabs rådsblokering | 40 % |
+
+#### SAT-2: Analyse af konkurrerende hypoteser (ACH) — Koalitionsstrategi for centrale propositioner
+
+**Konkurrerende hypoteser testet**:
+- H1: EPP bruger højreblokken (EPP+ECR+PfE+ESN) til alle større propositioner i 2026
+- H2: EPP bruger centristisk koalition (EPP+S&D+Renew) til alle større propositioner
+- H3: EPP bruger svingkoalitionsstrategi — højreblokken til nogle, centristerne til andre
+
+**Bevismatrix**:
+
+| Bevis | H1 | H2 | H3 |
+|----------|----|----|-----|
+| EDIP-afstemningsdynamik (forsvar) | +++ | + | ++ |
+| CID's sociale bestemmelser | -- | +++ | ++ |
+| AI-lovens arbejdsmarkedsbestemmelser | -- | +++ | ++ |
+| SGP/finansregler | + | ++ | +++ |
+| Landbrug/pesticider | ++ | - | +++ |
+| Migration/paktimplementering | +++ | -- | + |
+
+**Konklusion**: H3 (svingkoalition) er mest konsistent med evidensen. EPP vil bruge højreblokken til migration, forsvar og landbrug; centristisk koalition til sociale og miljømæssige sager.
+
+#### SAT-3: Scenariehjul — Anvendt på EDIP-udfaldsforecast
+
+**Scenario A (WEP 35 %)**: EDIP vedtages med 477-pladser supermajoritetsopbakning — bliver flagskibslovgivning for EP10's arv
+**Scenario B (WEP 35 %)**: EDIP vedtages med simpel majoritet (360–400 stemmer) efter S&D's delvise deflektion — vedtages men uden supermajoritetskommunikationsramme
+**Scenario C (WEP 20 %)**: EDIP forsinkes til 2027 på grund af trilogue-sammenbrud med Rådet om udbudsregler
+**Scenario D (WEP 10 %)**: EDIP kollapser — geopolitisk de-eskalering eller amerikansk sikkerhedsgaranti fjerner presserende karakter
+
+**Politisk betydning**: B og C er de sandsynligste udfald efter WEP; men A ville have uforholdsmæssig institutionel betydning. At forberede budskaber til B-scenariet er den operationelt vigtigste opgave.
+
+#### SAT-4: Djævelens advokat — Udfordring af KAC-3 (Lovgivningsproduktivitet)
+
+**Djævelens advokat-position**: Produktivitetsstigningen er *ikke* bevis på institutionel effektivitet men bevis på lovgivningsinflation — MEP'erne vedtager mere lovgivning netop *fordi* hvert stykke lovgivning er mindre betydningsfuldt. Høj HHI-fragmentering betyder, at den eneste lovgivning, der vedtages, er lovgivning, der er så uskadelig, at den ikke truer nogen gruppes kerneinteresse. Visionær lovgivning er præcis det, der sidder fast.
+
+**Styrken af DA-positionen**: 🟡 MIDDEL. De +46,2 % år-over-år i retsakter er signifikante. Men uden kvalitets-/signifikansscore for hver lovgivningsakt kan DA ikke fuldt ud gendribes.
+
+**Analytisk svar**: Anerkendt som en reel usikkerhed. Resuméet anerkender dette (KAC-3) uden at løse det.
+
+#### SAT-5: Rød hatanalyse (Modstanderperspektiv)
+
+**Fra ECR/PfE-oppositionens perspektiv**:
+Det "propositions"-narrativ, som EPP/Kommissionen bygger op, er en maksimal EU-integrationsagenda forklædt som kriserespons. Forsvar (EDIP), grønt (CID), digitalt (AI-loven) og finanspolitisk (SGP-reform) udgør tilsammen den mest ambitiøse føderaliserende dagsorden i EU's historie — og den drives igennem med "nødvendighed/geopolitisk nødvendighed"-begrundelsen snarere end demokratisk deliberation.
+
+**Hvorfor dette perspektiv har analytisk relevans**: ECR/PfE-modnarrativet har 193 pladser og betydelig national regeringsopbakning (Italien, Ungarn, Tjekkiet, Slovakiet). Hvis nogen af disse regeringer opnår blokerende minoritet i Rådet på specifikke sager, vil EP-propositioner gå i stå i trilogue. Rød hatanalyse afslører den strukturelle skrøbelighed i EP's propositionsdagsorden, som det institutionelle syn minimerer.
+
+#### SAT-6: Modsætningsscanning — Intern konsistenstjek
+
+**Modsætning identificeret og løst**:
+- C1: Resuméet hævder "rekordlovgivningsproduktivitet" (styrke) og "strukturel koalitionsskrøbelighed" (svaghed). Disse kan se ud til at modsige hinanden — hvordan kan produktiviteten være høj, hvis koalitionerne er skrøbelige?
+- **Løsning**: Rekordproduktivitet i EP10 er primært opnået gennem ikke-kontroversiel lovgivning (tekniske delegerede retsakter, AI-implementeringsregler, mindre MFF-justeringer). Kontroversiel flagskibslovgivning (EDIP, CID, migrationspaktimplementering) er præcis der, hvor koalitionsskrøbelighed betyder mest. Begge påstande er sande på samme tid.
+
+#### SAT-7: Informationskvalitetstjek (QIC)
+
+| Datakilde | Karakter | Dækning | Pålidelighed |
+|------------|-------|----------|------------|
+| Politisk landskab (A1) | A1 | Komplet | Høj |
+| EP-statistik 2024–2026 (A2) | A2 | Komplet | Høj |
+| Vedtagne tekster-feed (B2) | B2 | Delvis (ID'er kun) | Middel |
+| Procedurfeed | F — utilgængeligt | Ingen | N/A |
+| IMF-økonomidata | F — utilgængeligt | Ingen | N/A |
+| Medie-/rammesætningsanalyse | B3 | Kvalitativ | Middel |
+
+**Samlet datakarakter for dette resumé**: 🟡 **B2** — pålidelig om EP's institutionelle struktur og statistik; begrænset om specifikke lovgivningssager og makroøkonomisk kontekst.
+
+#### SAT-8: Forhåndsobduktion
+
+**Scenario**: Det er december 2026, og EP10 har ikke formået at vedtage nogen af sine tre lovgivende superprioriteter (EDIP, CID, AI-lovens delegerede retsakter). Hvad gik galt?
+
+**Sandsynligste fiaskoformer** (sandsynlighedsvægtede):
+1. EDIP: Rådets blokerende minoritet (Italien+Ungarn+Østrig) om udbudsregler (30 %)
+2. CID: S&D's deflektion om sociale bestemmelser fjerner majoriteten (25 %)
+3. AI-lovens delegerede retsakter: Kommissionen trækker kontroversielle bestemmelser tilbage under industripres (20 %)
+4. Alle tre forsinket af geopolitisk nødsituation, der kræver nødlovgivningsdagsorden (15 %)
+5. EP's interne fragmentering får alle tre til at mislykkes simultant (10 %)
+
+**Forhåndsobduktionsindsigtm**: Den enkelt højeste risikofaktor er Rådets blokerende minoritet, ikke EP's koalitionsinstabilitet. Dette skifter anbefalet efterretningsfokus fra intra-EP koalitionsforvaltning til interinstitutionel EP-Råds-dynamik.
+
+#### SAT-9: Kronologisk hændelsessporing
+
+| Dato | Hændelse | Analytisk implikation |
+|------|-------|----------------------|
+| EP10-start (2024-07) | 717 MEP'er, HHI 0,1514 | Historisk fragmentering bekræftet |
+| Hele 2025 | 5 % MEP-rotation | Institutionel stabilitetsignal |
+| 2026-01 | 567 RCV-afstemninger projekteret | Rekordlovgivningsproduktivitet |
+| 2026-05-18 | Aktuelt analysedato | EDIP/CID i aktivt udvalgsstadium |
+| 2026-07 | Dansk formandskabsstart | Acceleration af lovgivningskalender |
+| 2026-H2 | MFF-forforhandlinger | Politisk miljøændring |
+
+#### SAT-10: Alternative fremtider (Scenarieopbygning)
+
+**Grundlinje (WEP 40 %)**: EP10 vedtager EDIP, CID og AI-delegerede retsakter med simple majoriteter inden Q4 2026. Rekordlovgivningsarv. 
+
+**Optimistisk (WEP 25 %)**: EDIP vedtages med supermajoritet, CID afsluttes i trilogue, AI-styring sætter global standard. EP10 bliver det mest produktive EP i moderne historie.
+
+**Pessimistisk (WEP 25 %)**: Rådet blokerer EDIP's udbudsbestemmelser, CID forsinkes af tysk energipolitik, AI-loven udløser USA-EU handelsfriktioner. EP10's dagsorden går delvis i stå.
+
+**Krise (WEP 10 %)**: Stor geopolitisk eller økonomisk krise tvinger nøddagsorden frem og trænger alle planlagte propositioner til side. Lovgivningsarvet domineres af kriserespons.
+
+---
+
+### 4. Overvågningsindikatorer
+
+#### Indikatorset A — Koalitionsstabilitet (Overvåg ugentligt)
+- EPP-gruppens kohæsionsscorer ved centrale afstemninger (kilde: afstemningsoptegnelser når tilgængelige)
+- PfE's ungarske MEP-tilpasning vs. EPP
+- S&D's defektionsrate i forsvarssager
+
+#### Indikatorset B — Lovgivningsmæssige fremskridt (Overvåg månedligt)
+- Procedurer, der når plenumstadiet (mål: 35+ større propositioner inden Q4 2026)
+- Trilogue-åbningsdatoer for EDIP, CID, AI-lovens delegerede retsakter
+- Udvalgsordførerudnævnelser for 2027-lovgivningsprogrammet
+
+#### Indikatorset C — Eksterne risici (Overvåg kontinuerligt)
+- Geopolitiske eskaleringsignaler (Ukraine, Taiwan, Mellemøsten)
+- Energiprisindeks (tysk grundlaststrøm)
+- IMF's EU-vækstforecasts (næste WEO april/oktober)
+- ECB's pengepolitiske signaler (finanspolitisk miljø)
+
+---
+
+### 5. Samlet efterretningsvurdering
+
+**Status**: 🟢 POSITIV TRAJEKTORIE med betydelige strukturelle sårbarheder
+
+**Konfidensgrad**: 🟡 MIDDEL — begrænset af IMF-dataabsens og procedurefeed-degradering
+
+**Tidsfølsomhed**: HØJ — MFF-forforhandlinger startende 2026-H2 vil omforme det politiske miljø
+
+**Anbefalede handlinger**:
+1. Overvåg trilogue-åbningsdatoer for EDIP og CID — disse er de mest afgørende kortsigtede variable
+2. Spor S&D-gruppedisciplin i forsvarssager ugentligt
+3. Indhent IMF's Artikel IV-konsultationsdata for Tyskland/Frankrig/Italien, når tilgængelige — det vil opdatere finanspolitisk styringsanalyse betydeligt
+4. Forbered B-scenariebeskeder (EDIP vedtages med simpel majoritet) som operationelt basiscenario
+
+### Executive Brief De
+
+### Datum: 2026-05-18 | Klassifizierung: ANALYSE | Datenmodus: degradierte Feeds
+
+**WEP-Bänder angewendet** | **Admiralitätsskala verwendet** | **SAT-Dokumentation unten**
+
+---
+
+### 1. Lagebeurteilung — Überblick
+
+Die 10. Legislaturperiode des Europäischen Parlaments operiert mit Höchstgeschwindigkeit bei der Gesetzgebung (+46,2 % YoY bei in Kraft getretenen Rechtsvorschriften) unter strukturell fragilen Koalitionsbedingungen (16-Stimmen-Marge für den Rechtsblock; HHI-Fragmentierung 0,1514 — EP10-Rekord). Drei legislative Superprioritäten dominieren die Vorschlagspipeline: das Europäische Verteidigungsindustrieprogramm (EDIP), das Saubere Industrieabkommen (CID) und delegierte Rechtsakte des KI-Gesetzes. Alle drei erfordern eine blockübergreifende Mehrheitsverwaltung, die keinen Spielraum für Abweichungen lässt.
+
+**Gesamtbewertung**: 🟢 Die Gesetzgebungsagenda ist **AUF KURS**, operiert jedoch an den Grenzen der politischen Risikotoleranz. Die Resilienz ist geringer, als die Schlagzeilen vermuten lassen.
+
+---
+
+### 2. Zentrale analytische Schlussfolgerungen (KAC)
+
+#### KAC-1: Die Verteidigungssupermajorität ist strukturell einzigartig [Admiralität A1, 🟢 HOHE KONFIDENZ]
+**WEP: 75 % — WAHRSCHEINLICH, dass EDIP in irgendeiner Form bis Q4 2026 voranschreitet**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 MdEP unterstützen EDIP grundsätzlich und repräsentieren 66,5 % des 717-Sitze-Parlaments — über der 2/3-Supermajoritätsschwelle. Diese ideologieübergreifende Konvergenz bei der Verteidigungsindustrialisierung ist in EP-Legislaturperioden historisch beispiellos. Der wirtschafts-nationalistische Rahmen hat die traditionelle Links-Rechts-Kluft bei der Verteidigung aufgelöst: S&D-MdEP aus verteidigungsabhängigen Wahlkreisen (französische, polnische, italienische) können EDIP nicht mehr ohne politische Kosten in der Heimat ablehnen.
+
+**Überprüfte Schlüsselannahme (KAC-1 KA-1)**: Dass die S&D-Disziplin bei EDIP trotz Greens/Left/Zivilgesellschaftsdruck hält. Historische Abweichungsrate der S&D bei Verteidigungsakten: 12–18 % in EP9. Wenn 20 % der S&D (27 MdEP) abweichen, wird die Supermajorität zu einer einfachen Mehrheit — immer noch gewinnend, aber ohne den Kommunikationsrahmen "demokratische Supermajorität".
+
+#### KAC-2: Die Koalitionsarithmetik ist an der Marge instabil [Admiralität A2, 🟢 HOHE KONFIDENZ]
+**WEP: 60 % — WAHRSCHEINLICHER ALS NICHT, dass mindestens eine wichtige Abstimmung 2026 mit ≤ 10 Stimmen entschieden wird**
+
+Die Rechtsblockkoalition (EPP+ECR+PfE+ESN = 376) operiert mit 16 Stimmen über der Mehrheitsschwelle. Eine koordinierte 9-MdEP-Abweichung von PfE (9 von 85 Sitzen = 10,6 %) besiegt jeden Vorschlag, der den Rechtsblock benötigt. Die große zentristische Alternative (EPP+S&D+Renew = 396) hat eine 36-Stimmen-Marge, erfordert aber S&D-Kompromisse, die EPPs bevorzugten Politikinhalt verwässern, insbesondere bei Landwirtschaft, Fiskalregeln und Immigration.
+
+**Überprüfte Schlüsselannahme (KAC-2 KA-1)**: Dass die EPP die "Schaukelkoalitions"-Strategie aufrechterhalten kann — den Rechtsblock für einige Akten, die zentristische Koalition für andere nutzend — ohne dass ein Koalitionspartner die Zusammenarbeit mit dem Narrativ des Verrats zurückzieht. Der ungarische Präzedenzfall in EP9 zeigte, dass dies möglich ist, aber institutionellen Stress erzeugt.
+
+#### KAC-3: Rekord-Gesetzgebungsproduktivität verdeckt strukturelle Spannungen [Admiralität A2, 🟡 MITTLERE KONFIDENZ]
+**WEP: 55 % — ANNÄHERND AUSGEGLICHEN, ob der Produktivitätsschub durch H2 2026 anhält**
+
+935 aktive Verfahren und 114 projizierte Gesetzgebungsakte (2026) stellen echten institutionellen Output dar. Das Ausschuss-zu-Plenum-Trichterverhältnis (43,8 %) deutet jedoch auf mögliche Engpässe hin: Ausschüsse erzeugen Gesetzgebungsvolumen schneller als das Plenum absorbieren kann. Die Fähigkeit der dänischen Ratspräsidentschaft, die Gesetzgebungsagenda des Rates in H2 2026 zu steuern, bestimmt, ob EP10s Produktivität in verabschiedetes Recht umgewandelt wird oder in interinstitutionellen Verhandlungen ins Stocken gerät.
+
+#### KAC-4: IMF-Wirtschaftskontextdaten nicht verfügbar [DATENBESCHRÄNKUNG — 🔴 NICHT VORHANDEN]
+**Auswirkung: Moderat — verringert die Konfidenz in der Analyse der Haushaltspolitik**
+
+IMF World Economic Outlook-Daten sind in diesem Durchlauf nicht verfügbar (degradierte Feeds). Finanz- und makroökonomische Bewertungen stützen sich daher auf EP-basierte Statistikdaten und wirtschaftliche Open-Source-Signale statt auf maßgebliche IMF-länderspezifische Projektionen. Analysten sollten alle makroökonomischen Aussagen in diesem Bericht als eine Konfidenzstufe niedriger als angegeben behandeln (Admiralität A→B, B→C).
+
+---
+
+### 3. Dokumentation der strukturierten analytischen Technik (SAT)
+
+#### SAT-1: Schlüsselannahmenprüfung (KAC) — Angewendet auf KAC-1 bis KAC-3
+
+**Methodik**: Jede oben genannte analytische Schlussfolgerung wurde einer expliziten Annahmenformulierung und Stresstestung unterzogen. Die Analyse verfolgt jedes KAC zu seinen Datenquellen (Stufe A) und identifiziert die Annahme, deren Falschheit die Bewertung am stärksten ändern würde.
+
+| KAC | Konfidenz | Falsifizierungsbedingung | Wahrscheinlichkeit |
+|-----|-----------|---------------------|-------------|
+| KAC-1: Verteidigungssupermajorität hält | HOCH | S&D >20 % Abweichung oder PfE-Bruch | 20 % |
+| KAC-2: Koalition an der Marge | HOCH | EPP-ECR formales Koalitionsabkommen | 15 % |
+| KAC-3: Produktivität setzt sich fort | MITTEL | Dänische Ratspräsidentschaft Ratsblock | 40 % |
+
+#### SAT-2: Analyse konkurrierender Hypothesen (ACH) — Koalitionsstrategie für zentrale Vorschläge
+
+**Getestete konkurrierende Hypothesen**:
+- H1: EPP nutzt den Rechtsblock (EPP+ECR+PfE+ESN) für alle großen Vorschläge 2026
+- H2: EPP nutzt die zentristische Koalition (EPP+S&D+Renew) für alle großen Vorschläge
+- H3: EPP nutzt eine Schaukelkoalitionsstrategie — Rechtsblock für einige, Zentrismus für andere
+
+**Beweismatrix**:
+
+| Beweis | H1 | H2 | H3 |
+|----------|----|----|-----|
+| EDIP-Abstimmungsdynamik (Verteidigung) | +++ | + | ++ |
+| CIDs soziale Bestimmungen | -- | +++ | ++ |
+| KI-Gesetzes-Arbeitsmarktbestimmungen | -- | +++ | ++ |
+| SGP/Fiskalregeln | + | ++ | +++ |
+| Landwirtschaft/Pestizide | ++ | - | +++ |
+| Migration/Paktimplementierung | +++ | -- | + |
+
+**Schlussfolgerung**: H3 (Schaukelkoalition) ist am konsistentesten mit den Beweisen. EPP wird den Rechtsblock für Migration, Verteidigung und Landwirtschaft nutzen; zentristische Koalition für soziale und umweltbezogene Akten.
+
+#### SAT-3: Szenario-Rad — Angewendet auf EDIP-Ergebnisprognose
+
+**Szenario A (WEP 35 %)**: EDIP wird mit 477-Sitze-Supermajoritätsbilligung verabschiedet — wird zur Flagship-EP10-Legacygesetzgebung
+**Szenario B (WEP 35 %)**: EDIP wird mit einfacher Mehrheit (360–400 Stimmen) nach S&Ds Teilabweichung verabschiedet — wird verabschiedet, aber ohne Supermajoritätskommunikationsrahmen
+**Szenario C (WEP 20 %)**: EDIP verzögert sich bis 2027 aufgrund eines Trilogeabbruchs mit dem Rat über Beschaffungsregeln
+**Szenario D (WEP 10 %)**: EDIP bricht zusammen — geopolitische Deeskalierung oder US-Sicherheitsgarantie beseitigt die Dringlichkeit
+
+**Politische Bedeutung**: B und C sind die wahrscheinlichsten Ergebnisse nach WEP; aber A hätte überproportionale institutionelle Bedeutung. Die Vorbereitung von Botschaften für Szenario B ist die operativ wichtigste Aufgabe.
+
+#### SAT-4: Advocatus Diaboli — Herausforderung von KAC-3 (Gesetzgebungsproduktivität)
+
+**Advocatus-Diaboli-Position**: Der Produktivitätsschub ist *kein* Beweis institutioneller Effektivität, sondern Beweis einer Gesetzgebungsinflation — MdEP verabschieden mehr Gesetze gerade *weil* jedes Gesetz weniger bedeutend ist. Hohe HHI-Fragmentierung bedeutet, dass die einzige Gesetzgebung, die verabschiedet wird, so harmlos ist, dass sie keine Kerninteressen einer Gruppe bedroht. Wegweisende Gesetzgebung steckt genau dann fest.
+
+**Stärke der DA-Position**: 🟡 MITTEL. Die +46,2 % YoY bei Rechtsakten sind signifikant. Ohne Qualitäts-/Signifikanzwertung jedes Gesetzgebungsakts kann DA jedoch nicht vollständig widerlegt werden.
+
+**Analytische Antwort**: Als genuine Unsicherheit anerkannt. Das Briefing erkennt dies an (KAC-3) ohne es aufzulösen.
+
+#### SAT-5: Rote-Hut-Analyse (Gegnerische Perspektive)
+
+**Aus der Perspektive der ECR/PfE-Opposition**:
+Das "Vorschläge"-Narrativ, das von EPP/Kommission aufgebaut wird, ist eine maximale EU-Integrationsagenda, getarnt als Krisenreaktion. Verteidigung (EDIP), Grünes (CID), Digitales (KI-Gesetz) und Fiskalisches (SGP-Reform) bilden zusammen die ehrgeizigste Föderalisierungsagenda in der EU-Geschichte — und wird mit der "Notwendigkeit/geopolitische Notwendigkeit"-Begründung statt demokratischer Deliberation durchgedrückt.
+
+**Warum diese Perspektive analytische Relevanz hat**: Das ECR/PfE-Gegennarrativ hat 193 Sitze und erhebliche nationale Regierungsunterstützung (Italien, Ungarn, Tschechien, Slowakei). Wenn eine dieser Regierungen eine Sperrminorität im Rat bei bestimmten Akten erlangt, werden EP-Vorschläge in der Triloge stecken bleiben. Die Rote-Hut-Analyse enthüllt die strukturelle Fragilität in der EP-Vorschlagsagenda, die die institutionelle Sicht minimiert.
+
+#### SAT-6: Widerspruchsscan — Interne Konsistenzprüfung
+
+**Widerspruch identifiziert und aufgelöst**:
+- C1: Das Briefing behauptet "Rekord-Gesetzgebungsproduktivität" (Stärke) und "strukturelle Koalitionsfragilität" (Schwäche). Diese können widersprüchlich erscheinen — wie kann die Produktivität hoch sein, wenn die Koalitionen fragil sind?
+- **Auflösung**: Die Rekordproduktivität in EP10 wurde primär durch nicht-kontroverse Gesetzgebung erreicht (technische delegierte Rechtsakte, KI-Implementierungsregeln, kleine MFF-Anpassungen). Kontroverse Flaggschiff-Gesetzgebung (EDIP, CID, Migrationspaktimplementierung) ist genau dort, wo Koalitionsfragilität am stärksten zählt. Beide Behauptungen sind gleichzeitig wahr.
+
+#### SAT-7: Informationsqualitätsprüfung (QIC)
+
+| Datenquelle | Note | Abdeckung | Zuverlässigkeit |
+|------------|-------|----------|------------|
+| Politische Landschaft (A1) | A1 | Vollständig | Hoch |
+| EP-Statistiken 2024–2026 (A2) | A2 | Vollständig | Hoch |
+| Angenommene-Texte-Feed (B2) | B2 | Partiell (nur IDs) | Mittel |
+| Verfahrens-Feed | F — nicht verfügbar | Keine | N/A |
+| IMF-Wirtschaftsdaten | F — nicht verfügbar | Keine | N/A |
+| Medien-/Framinganalyse | B3 | Qualitativ | Mittel |
+
+**Gesamtdatennote für dieses Briefing**: 🟡 **B2** — zuverlässig bei EP-Institutionsstruktur und Statistiken; begrenzt bei spezifischen Gesetzgebungsakten und makroökonomischem Kontext.
+
+#### SAT-8: Vorweggenommene Autopsie (Premortem)
+
+**Szenario**: Es ist Dezember 2026 und EP10 hat keine seiner drei legislativen Superprioritäten (EDIP, CID, KI-Gesetz delegierte Rechtsakte) verabschiedet. Was ist schiefgelaufen?
+
+**Wahrscheinlichste Versagensmodi** (wahrscheinlichkeitsgewichtet):
+1. EDIP: Ratsblockierende Minderheit (Italien+Ungarn+Österreich) bei Beschaffungsregeln (30 %)
+2. CID: S&D-Abweichung bei sozialen Bestimmungen entfernt Mehrheit (25 %)
+3. KI-Gesetz delegierte Rechtsakte: Kommission zieht umstrittene Bestimmungen unter Industriedruck zurück (20 %)
+4. Alle drei verzögert durch geopolitischen Notfall, der eine Notgesetzgebungsagenda erfordert (15 %)
+5. EP-interne Fragmentierung bringt alle drei gleichzeitig zum Scheitern (10 %)
+
+**Premortem-Erkenntnis**: Der einzig höchste Risikofaktor ist die Ratsblockierende Minderheit, nicht die EP-Koalitionsfragilität. Dies verlagert den empfohlenen Geheimdienstfokus von der intra-EP-Koalitionsverwaltung zur interinstitutionellen EP-Rats-Dynamik.
+
+#### SAT-9: Chronologische Ereignisverfolgung
+
+| Datum | Ereignis | Analytische Implikation |
+|------|-------|----------------------|
+| EP10-Beginn (2024-07) | 717 MdEP, HHI 0,1514 | Historische Fragmentierung bestätigt |
+| Gesamtes 2025 | 5 % MdEP-Fluktuation | Institutionelles Stabilitätssignal |
+| 2026-01 | 567 namentliche Abstimmungen projiziert | Rekord-Gesetzgebungsproduktivität |
+| 2026-05-18 | Aktuelles Analysedatum | EDIP/CID in aktiver Ausschussphase |
+| 2026-07 | Dänischer Ratspräsidentschaftsbeginn | Beschleunigung des Gesetzgebungskalenders |
+| 2026-H2 | MFF-Vorverhandlungen | Politische Umfeldänderung |
+
+#### SAT-10: Alternative Zukünfte (Szenarioerstellung)
+
+**Basislinie (WEP 40 %)**: EP10 verabschiedet EDIP, CID und KI-delegierte Rechtsakte mit einfachen Mehrheiten bis Q4 2026. Rekord-Gesetzgebungserbe. 
+
+**Optimistisch (WEP 25 %)**: EDIP wird mit Supermajorität verabschiedet, CID in Triloge finalisiert, KI-Governance setzt globalen Standard. EP10 wird das produktivste Europäische Parlament der modernen Geschichte.
+
+**Pessimistisch (WEP 25 %)**: Rat blockiert EDIP-Beschaffungsbestimmungen, CID verzögert durch deutsche Energiepreispolitik, KI-Gesetz löst USA-EU-Handelsfriktionen aus. EP10-Agenda stockt teilweise.
+
+**Krise (WEP 10 %)**: Großer geopolitischer oder wirtschaftlicher Notfall erzwingt Notfallplanung und verdrängt alle geplanten Vorschläge. Gesetzgebungserbe wird von Krisenreaktion dominiert.
+
+---
+
+### 4. Beobachtungsindikatoren
+
+#### Indikatorset A — Koalitionsstabilität (Wöchentlich beobachten)
+- EPP-Gruppenkohäsionswerte bei Schlüsselabstimmungen (Quelle: Abstimmungsaufzeichnungen wenn verfügbar)
+- PfE-ungarische MdEP-Ausrichtung vs. EPP
+- S&D-Abweichungsrate bei Verteidigungsakten
+
+#### Indikatorset B — Legislativer Fortschritt (Monatlich beobachten)
+- Verfahren, die die Plenarebene erreichen (Ziel: 35+ große Vorschläge bis Q4 2026)
+- Triloge-Eröffnungsdaten für EDIP, CID, KI-Gesetz delegierte Rechtsakte
+- Ausschussberichterstatterernennungen für das Gesetzgebungsprogramm 2027
+
+#### Indikatorset C — Externe Risiken (Kontinuierlich beobachten)
+- Geopolitische Eskalationssignale (Ukraine, Taiwan, Naher Osten)
+- Energiepreisindizes (Deutsche Grundlaststrompreise)
+- IMF-EU-Wachstumsprognosen (nächster WEO April/Oktober)
+- EZB-Geldpolitiksignale (fiskalisches Umfeld)
+
+---
+
+### 5. Zusammenfassende Geheimdiensteinschätzung
+
+**Status**: 🟢 POSITIVE TRAJEKTORIE mit erheblichen strukturellen Verwundbarkeiten
+
+**Konfidenz**: 🟡 MITTEL — begrenzt durch IMF-Datenabwesenheit und Verfahrensfeed-Degradierung
+
+**Zeitempfindlichkeit**: HOCH — MFF-Vorverhandlungen ab 2026-H2 werden das politische Umfeld neu gestalten
+
+**Empfohlene Maßnahmen**:
+1. Triloge-Eröffnungsdaten für EDIP und CID beobachten — dies sind die wichtigsten kurzfristigen Variablen
+2. S&D-Gruppendisziplin bei Verteidigungsakten wöchentlich verfolgen
+3. IMF-Artikel-IV-Konsultationsdaten für Deutschland/Frankreich/Italien erwerben, wenn verfügbar — dies wird die Fiskalgovernance-Analyse erheblich aktualisieren
+4. B-Szenario-Botschaften vorbereiten (EDIP wird mit einfacher Mehrheit verabschiedet) als operatives Basisszenario
+
+### Executive Brief Es
+
+### Fecha: 2026-05-18 | Clasificación: ANÁLISIS | Modo de datos: fuentes degradadas
+
+**Bandas WEP aplicadas** | **Escala de Almirantazgo utilizada** | **Documentación SAT a continuación**
+
+---
+
+### 1. Evaluación de la situación — Línea principal
+
+La 10.ª legislatura del Parlamento Europeo opera a velocidad legislativa máxima (+46,2 % interanual en legislación promulgada) bajo condiciones de coalición estructuralmente frágiles (margen de 16 votos para el bloque de derecha; fragmentación HHI 0,1514 — récord EP10). Tres superprioridades legislativas dominan el canal de propuestas: el Programa Europeo para la Industria de Defensa (EDIP), el Pacto Industrial Limpio (CID) y los actos delegados de la Ley de IA. Los tres requieren una gestión de mayoría interbloques que no deja margen para las defecciones.
+
+**Evaluación general**: 🟢 La agenda legislativa está **EN CURSO**, pero opera en los límites de la tolerancia al riesgo político. La resiliencia es menor de lo que sugieren las cifras principales.
+
+---
+
+### 2. Conclusiones analíticas clave (KAC)
+
+#### KAC-1: La supermayoría de defensa es estructuralmente única [Almirantazgo A1, 🟢 ALTA CONFIANZA]
+**WEP: 75 % — PROBABLE que el EDIP avance de alguna forma antes del T4 2026**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 eurodiputados apoyan el EDIP en principio, representando el 66,5 % de los 717 escaños del Parlamento — superando el umbral de la supermayoría de 2/3. Esta convergencia transideológica sobre la industrialización de la defensa no tiene precedentes históricos en las legislaturas del PE. El marco del nacionalismo económico ha disuelto la brecha tradicional izquierda-derecha en defensa: los eurodiputados del S&D procedentes de circunscripciones dependientes de la defensa (franceses, polacos, italianos) ya no pueden oponerse al EDIP sin costes políticos en casa.
+
+**Supuesto clave verificado (KAC-1 KA-1)**: Que la disciplina del S&D en el EDIP se mantiene a pesar de la presión de los Verdes/Izquierda/sociedad civil. Tasa histórica de defección del S&D en asuntos de defensa: 12–18 % en PE9. Si el 20 % del S&D (27 eurodiputados) defecciona, la supermayoría se convierte en mayoría simple — todavía ganando, pero perdiendo el marco de comunicación "supermayoría democrática".
+
+#### KAC-2: La aritmética de la coalición es inestable en el margen [Almirantazgo A2, 🟢 ALTA CONFIANZA]
+**WEP: 60 % — MÁS PROBABLE QUE NO que al menos una votación importante sea decidida con ≤ 10 votos en 2026**
+
+La coalición del bloque de derecha (EPP+ECR+PfE+ESN = 376) opera con 16 votos sobre el umbral de mayoría. Una defección coordinada de 9 eurodiputados del PfE (9 de 85 escaños = 10,6 %) derrota cualquier propuesta que requiera el bloque de derecha. La gran alternativa centrista (EPP+S&D+Renew = 396) tiene un margen de 36 votos, pero requiere compromisos del S&D que diluyen el contenido político preferido del EPP, especialmente en agricultura, reglas fiscales e inmigración.
+
+**Supuesto clave verificado (KAC-2 KA-1)**: Que el EPP puede mantener la estrategia de "coalición oscilante" — usando el bloque de derecha para algunos asuntos, la coalición centrista para otros — sin que ningún socio de coalición retire su cooperación con el narrativo de traición. El precedente húngaro en PE9 mostró que esto es posible pero genera tensión institucional.
+
+#### KAC-3: La productividad legislativa récord enmascara tensiones estructurales [Almirantazgo A2, 🟡 CONFIANZA MEDIA]
+**WEP: 55 % — APROXIMADAMENTE EQUILIBRADO respecto a si el aumento de productividad continúa a lo largo del S2 2026**
+
+935 procedimientos activos y 114 actos legislativos proyectados (2026) representan un rendimiento institucional genuino. Sin embargo, la relación del embudo comité-pleno (43,8 %) sugiere posibles cuellos de botella: los comités generan volumen legislativo más rápido de lo que el pleno puede absorber. La capacidad de la Presidencia danesa para gestionar la agenda legislativa del Consejo en el S2 2026 determinará si la productividad del PE10 se traduce en ley adoptada o se estanca en negociaciones interinstitucionales.
+
+#### KAC-4: Datos de contexto económico del IMF no disponibles [LIMITACIÓN DE DATOS — 🔴 AUSENTE]
+**Impacto: Moderado — reduce la confianza en el análisis de la gobernanza fiscal**
+
+Los datos del World Economic Outlook del IMF no están disponibles en esta ejecución (fuentes degradadas). Las evaluaciones fiscales y macroeconómicas se basan por tanto en datos estadísticos de origen PE y señales económicas de fuentes abiertas en lugar de proyecciones específicas por país del IMF de referencia. Los analistas deben tratar todas las afirmaciones macroeconómicas en este resumen como teniendo un grado de confianza inferior al indicado (Almirantazgo A→B, B→C).
+
+---
+
+### 3. Documentación de la técnica analítica estructurada (SAT)
+
+#### SAT-1: Verificación de supuestos clave (KAC) — Aplicada a KAC-1 a KAC-3
+
+**Metodología**: Cada conclusión analítica anterior ha sido sometida a una formulación explícita de supuestos y pruebas de estrés. El análisis rastrea cada KAC hasta sus fuentes de datos (Paso A) e identifica el supuesto que, de ser erróneo, más cambiaría la evaluación.
+
+| KAC | Confianza | Condición falsificadora | Probabilidad |
+|-----|-----------|---------------------|-------------|
+| KAC-1: Supermayoría de defensa se mantiene | ALTA | S&D >20 % defección o fractura PfE | 20 % |
+| KAC-2: Coalición en el margen | ALTA | Acuerdo de coalición formal EPP-ECR | 15 % |
+| KAC-3: La productividad continúa | MEDIA | Bloqueo del Consejo por la presidencia danesa | 40 % |
+
+#### SAT-2: Análisis de hipótesis competidoras (ACH) — Estrategia de coalición para propuestas clave
+
+**Hipótesis competidoras probadas**:
+- H1: El EPP usa el bloque de derecha (EPP+ECR+PfE+ESN) para todas las grandes propuestas de 2026
+- H2: El EPP usa la coalición centrista (EPP+S&D+Renew) para todas las grandes propuestas
+- H3: El EPP usa una estrategia de coalición oscilante — bloque de derecha para algunas, centristas para otras
+
+**Matriz de evidencias**:
+
+| Evidencia | H1 | H2 | H3 |
+|----------|----|----|-----|
+| Dinámica de votación EDIP (defensa) | +++ | + | ++ |
+| Disposiciones sociales del CID | -- | +++ | ++ |
+| Disposiciones laborales de la Ley de IA | -- | +++ | ++ |
+| SGP/reglas fiscales | + | ++ | +++ |
+| Agricultura/pesticidas | ++ | - | +++ |
+| Migración/implementación del pacto | +++ | -- | + |
+
+**Conclusión**: H3 (coalición oscilante) es la más coherente con la evidencia. El EPP utilizará el bloque de derecha para migración, defensa y agricultura; coalición centrista para asuntos sociales y medioambientales.
+
+#### SAT-3: Rueda de escenarios — Aplicada a la previsión del resultado EDIP
+
+**Escenario A (WEP 35 %)**: El EDIP se adopta con el respaldo de la supermayoría de 477 escaños — se convierte en la legislación emblemática del legado EP10
+**Escenario B (WEP 35 %)**: El EDIP se adopta por mayoría simple (360–400 votos) tras la defección parcial del S&D — se adopta pero sin el marco de comunicación de supermayoría
+**Escenario C (WEP 20 %)**: El EDIP se retrasa hasta 2027 debido al colapso del trílogo con el Consejo sobre las normas de contratación
+**Escenario D (WEP 10 %)**: El EDIP colapsa — la desescalada geopolítica o la garantía de seguridad de EE. UU. elimina la urgencia
+
+**Importancia política**: B y C son los resultados más probables según WEP; pero A tendría una importancia institucional desproporcionada. La preparación de mensajes para el escenario B es la tarea operativamente más importante.
+
+#### SAT-4: Abogado del diablo — Desafío a KAC-3 (Productividad legislativa)
+
+**Posición del abogado del diablo**: El aumento de productividad *no* es evidencia de eficacia institucional sino evidencia de inflación legislativa — los eurodiputados aprueban más legislación precisamente *porque* cada pieza legislativa es menos significativa. La alta fragmentación HHI significa que la única legislación que se adopta es legislación tan anodina que no amenaza el interés fundamental de ningún grupo. La legislación emblemática es precisamente lo que se queda atascado.
+
+**Fortaleza de la posición DA**: 🟡 MEDIA. El +46,2 % interanual en actos es significativo. Sin embargo, sin puntuación de calidad/importancia de cada acto legislativo, la DA no puede refutarse completamente.
+
+**Respuesta analítica**: Admitido como una incertidumbre genuina. El resumen reconoce esto (KAC-3) sin resolverlo.
+
+#### SAT-5: Análisis del sombrero rojo (Perspectiva adversarial)
+
+**Desde la perspectiva de la oposición ECR/PfE**:
+El narrativo de "propuestas" que construye EPP/Comisión es una agenda de máxima integración de la UE disfrazada de respuesta a la crisis. Defensa (EDIP), verde (CID), digital (Ley de IA) y fiscal (reforma SGP) constituyen juntos la agenda federalizante más ambiciosa de la historia de la UE — y se está impulsando con la justificación de "necesidad/necesidad geopolítica" en lugar de deliberación democrática.
+
+**Por qué esta perspectiva tiene relevancia analítica**: El contranarrativo ECR/PfE tiene 193 escaños y un apoyo gubernamental nacional significativo (Italia, Hungría, República Checa, Eslovaquia). Si alguno de estos gobiernos obtiene una minoría de bloqueo en el Consejo sobre archivos específicos, las propuestas del PE se estancarán en el trílogo. El análisis del sombrero rojo revela la fragilidad estructural en la agenda de propuestas del PE que la visión institucional minimiza.
+
+#### SAT-6: Análisis de contradicciones — Verificación de coherencia interna
+
+**Contradicción identificada y resuelta**:
+- C1: El resumen afirma "productividad legislativa récord" (fortaleza) y "fragilidad estructural de coalición" (debilidad). Estas podrían parecer contradictorias — ¿cómo puede ser alta la productividad si las coaliciones son frágiles?
+- **Resolución**: La productividad récord en EP10 se ha logrado principalmente a través de legislación no controvertida (actos delegados técnicos, reglas de implementación de IA, pequeños ajustes del MFP). La legislación emblemática controvertida (EDIP, CID, implementación del pacto migratorio) es precisamente donde más importa la fragilidad de la coalición. Ambas afirmaciones son simultáneamente ciertas.
+
+#### SAT-7: Verificación de calidad de la información (QIC)
+
+| Fuente de datos | Nota | Cobertura | Fiabilidad |
+|------------|-------|----------|------------|
+| Panorama político (A1) | A1 | Completa | Alta |
+| Estadísticas PE 2024–2026 (A2) | A2 | Completa | Alta |
+| Fuente de textos adoptados (B2) | B2 | Parcial (solo IDs) | Media |
+| Fuente de procedimientos | F — no disponible | Ninguna | N/A |
+| Datos económicos IMF | F — no disponible | Ninguna | N/A |
+| Análisis de medios/encuadre | B3 | Cualitativo | Media |
+
+**Nota global de datos para este resumen**: 🟡 **B2** — fiable sobre la estructura institucional y las estadísticas del PE; limitada sobre asuntos legislativos específicos y contexto macroeconómico.
+
+#### SAT-8: Análisis premortem
+
+**Escenario**: Es diciembre de 2026 y el PE10 no ha logrado aprobar ninguna de sus tres superprioridades legislativas (EDIP, CID, actos delegados de la Ley de IA). ¿Qué salió mal?
+
+**Modos de fallo más probables** (ponderados por probabilidad):
+1. EDIP: Minoría de bloqueo en el Consejo (Italia+Hungría+Austria) sobre normas de contratación (30 %)
+2. CID: La defección del S&D sobre disposiciones sociales elimina la mayoría (25 %)
+3. Actos delegados de la Ley de IA: La Comisión retira disposiciones controvertidas bajo presión de la industria (20 %)
+4. Los tres retrasados por una emergencia geopolítica que requiere una agenda legislativa de emergencia (15 %)
+5. La fragmentación interna del PE hace que los tres fallen simultáneamente (10 %)
+
+**Percepción premortem**: El único factor de riesgo más elevado es la minoría de bloqueo del Consejo, no la fragilidad de la coalición del PE. Esto desplaza el foco de inteligencia recomendado desde la gestión de coalición intra-PE hacia la dinámica interinstitucional PE-Consejo.
+
+#### SAT-9: Seguimiento cronológico de eventos
+
+| Fecha | Evento | Implicación analítica |
+|------|-------|----------------------|
+| Inicio EP10 (2024-07) | 717 eurodiputados, HHI 0,1514 | Fragmentación histórica confirmada |
+| Todo 2025 | 5 % de rotación de eurodiputados | Señal de estabilidad institucional |
+| 2026-01 | 567 votaciones nominales proyectadas | Productividad legislativa récord |
+| 2026-05-18 | Fecha de análisis actual | EDIP/CID en fase activa de comité |
+| 2026-07 | Inicio de la presidencia danesa | Aceleración del calendario legislativo |
+| 2026-S2 | Pre-negociaciones del MFP | Cambio del entorno político |
+
+#### SAT-10: Futuros alternativos (Construcción de escenarios)
+
+**Base (WEP 40 %)**: El PE10 aprueba EDIP, CID y actos delegados de IA con mayorías simples antes del T4 2026. Legado legislativo récord. 
+
+**Optimista (WEP 25 %)**: El EDIP se aprueba con supermayoría, el CID se finaliza en trílogo, la gobernanza de la IA establece un estándar global. El PE10 se convierte en el PE más productivo de la historia moderna.
+
+**Pesimista (WEP 25 %)**: El Consejo bloquea las disposiciones de contratación del EDIP, el CID se retrasa por la política de precios energéticos alemana, la Ley de IA desencadena fricciones comerciales UE-EE. UU. La agenda EP10 se estanca parcialmente.
+
+**Crisis (WEP 10 %)**: Una gran crisis geopolítica o económica fuerza una agenda de emergencia, desplazando todas las propuestas planificadas. El legado legislativo está dominado por la respuesta a la crisis.
+
+---
+
+### 4. Indicadores de seguimiento
+
+#### Conjunto de indicadores A — Estabilidad de la coalición (Monitorear semanalmente)
+- Puntuaciones de cohesión del grupo EPP en votaciones clave (fuente: registros de votación cuando disponibles)
+- Alineación de los eurodiputados húngaros del PfE vs. EPP
+- Tasa de defección del S&D en asuntos de defensa
+
+#### Conjunto de indicadores B — Progreso legislativo (Monitorear mensualmente)
+- Procedimientos que alcanzan la etapa plenaria (objetivo: 35+ propuestas importantes antes del T4 2026)
+- Fechas de apertura de trílogos para EDIP, CID, actos delegados de la Ley de IA
+- Nombramientos de ponentes de comités para el programa legislativo 2027
+
+#### Conjunto de indicadores C — Riesgos externos (Monitorear continuamente)
+- Señales de escalada geopolítica (Ucrania, Taiwán, Oriente Próximo)
+- Índices de precios de la energía (electricidad de carga base alemana)
+- Previsiones de crecimiento de la UE del IMF (próximo WEO abril/octubre)
+- Señales de política monetaria del BCE (entorno fiscal)
+
+---
+
+### 5. Evaluación de inteligencia resumida
+
+**Estado**: 🟢 TRAYECTORIA POSITIVA con vulnerabilidades estructurales significativas
+
+**Confianza**: 🟡 MEDIA — limitada por la ausencia de datos del IMF y la degradación de la fuente de procedimientos
+
+**Sensibilidad temporal**: ALTA — las pre-negociaciones del MFP que comienzan en S2 2026 reformarán el entorno político
+
+**Acciones recomendadas**:
+1. Monitorear las fechas de apertura de trílogos para EDIP y CID — estas son las variables a corto plazo más decisivas
+2. Hacer seguimiento semanal de la disciplina del grupo S&D en asuntos de defensa
+3. Obtener datos de consulta del Artículo IV del IMF para Alemania/Francia/Italia cuando estén disponibles — actualizará significativamente el análisis de gobernanza fiscal
+4. Preparar mensajes del escenario B (EDIP se aprueba por mayoría simple) como escenario de base operativo
+
+### Executive Brief Fi
+
+### Päivämäärä: 2026-05-18 | Luokittelu: ANALYYSI | Datatila: heikentyneet syötteet
+
+**WEP-alueet sovellettu** | **Admiraliteetin asteikko käytetty** | **SAT-dokumentaatio alla**
+
+---
+
+### 1. Tilannearvio — Ylätaso
+
+Euroopan parlamentin 10. vaalikausi toimii lainsäädäntötyön huippuvauhdilla (+46,2 % vuotuinen kasvu hyväksytyssä lainsäädännössä) rakenteellisesti hauraissa koalitio-olosuhteissa (16 äänen marginaali oikeistolohkolle; HHI-pirstoutuminen 0,1514 — EP10-ennätys). Kolme lainsäädännöllistä superprioriteettiä hallitsee ehdotusputkea: Euroopan puolustusalan teollisuusohjelma (EDIP), puhdas teollisuussopimus (CID) ja tekoälylain delegoidut säädökset. Kaikki kolme vaativat lohkojen välisen enemmistönhallinnan, joka ei jätä varaa katoamisille.
+
+**Kokonaisarvio**: 🟢 Lainsäädäntöohjelma on **OIKEALLA RAITEELLA**, mutta toimii poliittisen riskinsieto-raja-arvon rajoilla. Vastustuskyky on matalampi kuin otsikoluvut viittaavat.
+
+---
+
+### 2. Keskeiset analyyttiset johtopäätökset (KAC)
+
+#### KAC-1: Puolustusten supermajoriteetti on rakenteellisesti ainutlaatuinen [Admiraliteetti A1, 🟢 KORKEA LUOTTAMUSASTE]
+**WEP: 75 % — TODENNÄKÖISTÄ, että EDIP etenee jossakin muodossa Q4 2026 mennessä**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 europarlamentaarikkoa kannattaa EDIPiä periaatteessa, mikä edustaa 66,5 % parlamentin 717 paikasta — ylittäen 2/3 supermajoriteettikynnyksen. Tämä aaterajat ylittävä yhteisymmärrys puolustuksen teollistumisesta on historiallisesti ennennäkemätön EP-kausilla. Taloudellinen nationalistinen kehys on liuottanut perinteisen vasemmisto-oikeisto-kuilun puolustuksessa: S&D:n europarlamentaarikot puolustuksesta riippuvaisista vaalipiireistä (Ranskan, Puolan, Italian) eivät enää voi vastustaa EDIPiä ilman poliittisia kustannuksia kotona.
+
+**Tarkistettava keskeinen oletus (KAC-1 KA-1)**: Että S&D:n kurinalaisuus EDIPissä pitää huolimatta Greens/Left/kansalaisyhteiskunnan paineesta. S&D:n historiallinen katoamisaste puolustustiedostoissa: 12–18 % EP9:ssä. Jos 20 % S&D:stä (27 europarlamentaarikkoa) hajaantuu, supermajoriteetista tulee yksinkertainen enemmistö — silti voittava, mutta ilman "demokraattinen supermajoriteetti" -viestintäkehystä.
+
+#### KAC-2: Koalition aritmetiikka on epävakaa marginaalilla [Admiraliteetti A2, 🟢 KORKEA LUOTTAMUSASTE]
+**WEP: 60 % — TODENNÄKÖISEMPÄÄ KUIN EI, että ainakin yksi tärkeä äänestys ratkaistaan ≤ 10 äänellä vuonna 2026**
+
+Oikeistolohkon koalitio (EPP+ECR+PfE+ESN = 376) toimii 16 äänellä enemmistökynnyksen yli. Koordinoitu 9 europarlamentaarikon katoaminen PfE:stä (9/85 paikkaa = 10,6 %) kukistaa minkä tahansa ehdotuksen, joka vaatii oikeistolohkoa. Suuri sentristinen vaihtoehto (EPP+S&D+Renew = 396) on 36 äänen marginaali, mutta vaatii S&D-kompromisseja, jotka laimentavat EPP:n suosimaa politiikkasisältöä erityisesti maatalouden, finanssisääntöjen ja maahanmuuton osalta.
+
+**Tarkistettava keskeinen oletus (KAC-2 KA-1)**: Että EPP pystyy ylläpitämään "heiluri-koalitio"-strategiaa — käyttäen oikeistolohkoa joillekin tiedostoille, sentrististä koalitiota toisille — ilman, että yksikään koaltiokumppani vetää yhteistyönsä pois petosnarratiivin perusteella. Unkarilainen ennakkotapaus EP9:ssä osoitti, että tämä on mahdollista, mutta tuottaa institutionaalista stressiä.
+
+#### KAC-3: Ennätyslainsäädäntötuottavuus peittää rakenteelliset jännitteet [Admiraliteetti A2, 🟡 KESKIMÄÄRÄINEN LUOTTAMUSASTE]
+**WEP: 55 % — SUUNNILLEEN TASAVÄKISTÄ, että tuottavuuden kasvu jatkuu H2 2026 läpi**
+
+935 aktiivista menettelyä ja 114 suunniteltua lainsäädäntösäädöstä (2026) edustaa aitoa institutionaalista tuotosta. Valiokunta-plenum-suppiloluvun (43,8 %) perusteella on kuitenkin mahdollisia pullonkauloja: valiokunnat tuottavat lainsäädäntövolyymiä nopeammin kuin täysistunto pystyy omaksumaan. Tanskan puheenjohtajuuden kyky hallita neuvoston lainsäädäntöohjelmaa H2 2026:ssa ratkaisee, muuttuuko EP10:n tuottavuus hyväksytyksi lainsäädännöksi vai pysähtyykö se toimielinten välisiin neuvotteluihin.
+
+#### KAC-4: IMF-taloudellisen kontekstin tiedot ovat saatavilla [TIETORAJOITUS — 🔴 PUUTTUU]
+**Vaikutus: Kohtuullinen — vähentää luottamusastetta finanssipolitiikan hallinta-analyysissä**
+
+IMF World Economic Outlook -tiedot eivät ole saatavilla tässä ajossa (heikentyneet syötteet). Finanssi- ja makrotaloudelliset arviot perustuvat siksi EP-pohjaisiin tilastotietoihin ja avoimen lähdekoodin taloudellisiin signaaleihin pikemminkin kuin IMF:n auktoritatiivisiin maakohtaisiin projektioihin. Analyytikoiden tulisi käsitellä tämän tiivistelmän kaikkia makrotaloudellisia väitteitä yhtä luottamusastetta alempana kuin on ilmoitettu (Admiraliteetti A→B, B→C).
+
+---
+
+### 3. Strukturoidun analyyttisen tekniikan (SAT) dokumentaatio
+
+#### SAT-1: Keskeisten oletusten tarkistus (KAC) — Sovellettu KAC-1:stä KAC-3:een
+
+**Metodologia**: Jokainen yllä oleva analyyttinen johtopäätös on alistettu eksplisiittiselle olettamusmuotoilulle ja stressitestaukselle. Analyysi jäljittää jokaisen KAC:n tietolähteisiinsä (Vaihe A) ja tunnistaa oletuksen, joka väärin ollessaan muuttaisi arviota eniten.
+
+| KAC | Luottamusaste | Falsifioiva ehto | Todennäköisyys |
+|-----|-----------|---------------------|-------------|
+| KAC-1: Puolustuksen supermajoriteetti pitää | KORKEA | S&D >20 % katoaminen tai PfE-murtuma | 20 % |
+| KAC-2: Koalitio marginaalilla | KORKEA | EPP-ECR muodollinen koalitiosopimus | 15 % |
+| KAC-3: Tuottavuus jatkuu | KESKIMÄÄRÄINEN | Tanskan neuvoston estoblokki | 40 % |
+
+#### SAT-2: Kilpailevien hypoteesien analyysi (ACH) — Keskeisten ehdotusten koalitiostrategi
+
+**Testatut kilpailevat hypoteesit**:
+- H1: EPP käyttää oikeistolohkoa (EPP+ECR+PfE+ESN) kaikkiin tärkeisiin ehdotuksiin 2026
+- H2: EPP käyttää sentrististä koalitiota (EPP+S&D+Renew) kaikkiin tärkeisiin ehdotuksiin
+- H3: EPP käyttää heiluri-koalitiostrategiaa — oikeistolohko joillekin, sentristeille toisille
+
+**Todistusmatriisi**:
+
+| Todistus | H1 | H2 | H3 |
+|----------|----|----|-----|
+| EDIPin äänestysdinamiikka (puolustus) | +++ | + | ++ |
+| CID:n sosiaaliset määräykset | -- | +++ | ++ |
+| Tekoälylain työvoimamääräykset | -- | +++ | ++ |
+| SGP/finanssisäännöt | + | ++ | +++ |
+| Maatalous/torjunta-aineet | ++ | - | +++ |
+| Maahanmuutto/sopimuksen toimeenpano | +++ | -- | + |
+
+**Johtopäätös**: H3 (heiluri-koalitio) on johdonmukaisin todisteiden kanssa. EPP käyttää oikeistolohkoa maahanmuutossa, puolustuksessa ja maataloudessa; sentrististä koalitiota sosiaali- ja ympäristötiedostoissa.
+
+#### SAT-3: Skenaariopaikka — Sovellettu EDIP-tuloksen ennusteeseen
+
+**Skenaario A (WEP 35 %)**: EDIP hyväksytään 477 paikan supermajoriteetilla — tulee EP10:n perintölainsäädännön lippulaivaksi
+**Skenaario B (WEP 35 %)**: EDIP hyväksytään yksinkertaisella enemmistöllä (360–400 ääntä) S&D:n osittaisen katoamisen jälkeen — hyväksytään, mutta ilman supermajoriteetin viestintäkehystä
+**Skenaario C (WEP 20 %)**: EDIP lykkääntyy vuoteen 2027 trilogineuvottelujen kaaduttua neuvoston kanssa hankintasääntöjen takia
+**Skenaario D (WEP 10 %)**: EDIP romahtaa — geopoliittinen de-eskalaatio tai Yhdysvaltojen turvallisuustakuu poistaa kiireellisyyden
+
+**Poliittinen merkitys**: B ja C ovat todennäköisimmät tulokset WEP:n mukaan; mutta A:lla olisi suhteettoman suuri institutionaalinen merkitys. B-skenaarion viestien valmistelu on operatiivisesti tärkein tehtävä.
+
+#### SAT-4: Paholaisen asianajaja — KAC-3:n haastaminen (Lainsäädäntötuottavuus)
+
+**Paholaisen asianajajan kanta**: Tuottavuussurge *ei* ole todiste institutionaalisesta tehokkuudesta vaan todiste lainsäädäntöinflaatiosta — europarlamentaarikot hyväksyvät enemmän lainsäädäntöä nimenomaan *koska* jokainen lainsäädäntö on vähemmän merkittävä. Korkea HHI-pirstoutuminen tarkoittaa, että ainoa lainsäädäntö, joka hyväksytään, on lainsäädäntöä, joka on niin harmitonta, ettei se uhkaa minkään ryhmän ydinetua. Merkittävä lainsäädäntö on juuri se, mikä jää jumiin.
+
+**DA-kannan vahvuus**: 🟡 KESKIMÄÄRÄINEN. +46,2 % vuotuinen kasvu säädöksissä on merkittävä. Ilman laatu-/merkittävyyspisteytystä jokaiselle lainsäädäntösäädökselle DA:ta ei kuitenkaan voida täysin kumota.
+
+**Analyyttinen vastaus**: Myönnetty aidoksi epävarmuudeksi. Tiivistelmä tunnustaa tämän (KAC-3) ratkaisematta sitä.
+
+#### SAT-5: Punainen hattu -analyysi (Vastustajaperspektiivi)
+
+**ECR/PfE-opposition näkökulmasta**:
+EPP:n/komission rakentama "ehdotukset"-narratiivi on maksimaalinen EU-integraatioohjelma naamioituna kriisivastaukseksi. Puolustus (EDIP), vihreä (CID), digitaalinen (tekoälylaki) ja finanssipolitiikka (SGP-uudistus) muodostavat yhdessä kunnianhimoisimman federalisointiohjelman EU:n historiassa — ja se viedään läpi "välttämättömyys/geopoliittinen välttämättömyys" -perusteella pikemminkin kuin demokraattisella harkinnalla.
+
+**Miksi tällä näkökulmalla on analyyttistä merkitystä**: ECR/PfE-vastanarratiivilla on 193 paikkaa ja merkittävä kansallinen hallituksen tuki (Italia, Unkari, Tšekki, Slovakia). Jos jokin näistä hallituksista saa neuvoston estovähemmistön tietyissä tiedostoissa, EP-ehdotukset pysähtyvät trilogeen. Punainen hattu -analyysi paljastaa EP:n ehdotusohjelman rakenteellisen haurauden, jonka institutionaalinen näkemys minimoi.
+
+#### SAT-6: Ristiriitaskannaus — Sisäinen johdonmukaisuustarkistus
+
+**Ristiriita tunnistettu ja ratkaistu**:
+- C1: Tiivistelmä väittää "ennätyslainsäädäntötuottavuutta" (vahvuus) ja "rakenteellista koalitiohaurautusta" (heikkous). Nämä voivat näyttää ristiriitaisilta — kuinka tuottavuus voi olla korkea, jos koalitiot ovat hauraita?
+- **Ratkaisu**: EP10:n ennätystuottavuus on saavutettu ensisijaisesti ei-kiistanalaisen lainsäädännön kautta (tekniset delegoidut säädökset, tekoälyn täytäntöönpanosäännöt, pienet MFF-muutokset). Kiistanalainen lippulaivakirjallisuus (EDIP, CID, muuttosopimusten toimeenpano) on juuri se, missä koalitioinstabiliteetti vaikuttaa eniten. Molemmat väitteet ovat samanaikaisesti totta.
+
+#### SAT-7: Tiedon laadun tarkistus (QIC)
+
+| Tietolähde | Arvosana | Kattavuus | Luotettavuus |
+|------------|-------|----------|------------|
+| Poliittinen maisema (A1) | A1 | Täydellinen | Korkea |
+| EP-tilastot 2024–2026 (A2) | A2 | Täydellinen | Korkea |
+| Hyväksyttyjen tekstien syöte (B2) | B2 | Osittainen (vain ID:t) | Keskimääräinen |
+| Menettelyjen syöte | F — ei saatavilla | Ei mitään | N/A |
+| IMF-talousdata | F — ei saatavilla | Ei mitään | N/A |
+| Mediaframing-analyysi | B3 | Laadullinen | Keskimääräinen |
+
+**Tämän tiivistelmän kokonaisaineiston arvosana**: 🟡 **B2** — luotettava EP:n institutionaalisen rakenteen ja tilastojen suhteen; rajoitettu tiettyjen lainsäädäntötiedostojen ja makrotaloudellisen kontekstin osalta.
+
+#### SAT-8: Ennakkokuolemansyyntutkinta
+
+**Skenaario**: On joulukuu 2026 ja EP10 ei ole onnistunut hyväksymään yhtään kolmesta lainsäädäntösuperprioriteetistaan (EDIP, CID, tekoälylain delegoidut säädökset). Mikä meni pieleen?
+
+**Todennäköisimmät epäonnistumismuodot** (todennäköisyyspainotteiset):
+1. EDIP: Neuvoston estovähemmistö (Italia+Unkari+Itävalta) hankintasäännöissä (30 %)
+2. CID: S&D:n katoaminen sosiaalisissa määräyksissä poistaa enemmistön (25 %)
+3. Tekoälylain delegoidut säädökset: Komissio peruuttaa kiistanalaiset määräykset teollisuuspaineen alla (20 %)
+4. Kaikki kolme viivästyivät geopoliittisen hätätilanteen takia, joka vaatii hätälainsäädäntöohjelmaa (15 %)
+5. EP:n sisäinen pirstoutuminen saa kaikki kolme epäonnistumaan samanaikaisesti (10 %)
+
+**Ennakkokuolemansyyntutkinnon oivallus**: Yksittäisin korkein riskitekijä on neuvoston estovähemmistö, ei EP:n koalitioinstabiliteetti. Tämä siirtää suositellun tiedustelupanotuksen EP:n sisäisestä koalitiohallinnasta toimielinten väliseen EP-neuvosto-dynamiikkaan.
+
+#### SAT-9: Kronologinen tapahtumanseuranta
+
+| Päivämäärä | Tapahtuma | Analyyttinen implikaatio |
+|------|-------|----------------------|
+| EP10-alku (2024-07) | 717 europarlamentaarikkoa, HHI 0,1514 | Historiallinen pirstoutuminen vahvistettu |
+| Koko 2025 | 5 % europarlamentaarikkokierto | Institutionaalinen vakauden signaali |
+| 2026-01 | 567 RCV-äänestystä suunniteltu | Ennätyslainsäädäntötuottavuus |
+| 2026-05-18 | Nykyinen analyysipäivä | EDIP/CID aktiivisessa valiokuntavaiheessa |
+| 2026-07 | Tanskan puheenjohtajuuskauden alku | Lainsäädäntökalenterin kiihtyminen |
+| 2026-H2 | MFF-esineuvottelut | Poliittisen ympäristön muutos |
+
+#### SAT-10: Vaihtoehtoiset tulevaisuudet (Skenaariorakentaminen)
+
+**Peruslinja (WEP 40 %)**: EP10 hyväksyy EDIP:n, CID:n ja tekoälyn delegoidut säädökset yksinkertaisilla enemmistöillä ennen Q4 2026. Ennätyslainsäädäntöperintö. 
+
+**Optimistinen (WEP 25 %)**: EDIP hyväksytään supermajoriteetilla, CID saadaan päätökseen trilogeissa, tekoälyhallinto asettaa globaalin standardin. EP10:stä tulee modernin historian tuottavin EP.
+
+**Pessimistinen (WEP 25 %)**: Neuvosto estää EDIP:n hankintamääräykset, CID viivästyy Saksan energiapolitiikan takia, tekoälylaki käynnistää USA-EU kauppakitkaa. EP10:n ohjelma osittain pysähtyy.
+
+**Kriisi (WEP 10 %)**: Suuri geopoliittinen tai taloudellinen kriisi pakottaa hätäohjelman, syrjäyttäen kaikki suunnitellut ehdotukset. Lainsäädäntöperintöä hallitsee kriisivastaus.
+
+---
+
+### 4. Seurantaindikaattorit
+
+#### Indikaattorijoukko A — Koalitiostabiilisuus (Seuraa viikoittain)
+- EPP-ryhmän koheesiopisteet avainäänestyksissä (lähde: äänestyspöytäkirjat kun saatavilla)
+- PfE:n unkarilaisten europarlamentaarikkojien linjaus vs. EPP
+- S&D:n katoamisaste puolustustiedostoissa
+
+#### Indikaattorijoukko B — Lainsäädäntöedistyminen (Seuraa kuukausittain)
+- Täysistuntovaiheeseen päätyvät menettelyt (tavoite: 35+ tärkeää ehdotusta ennen Q4 2026)
+- Trilogin avaamispäivämäärät EDIP:lle, CID:lle, tekoälylain delegoiduille säädöksille
+- Valiokuntaraportöörinnimitykset 2027 lainsäädäntöohjelmaan
+
+#### Indikaattorijoukko C — Ulkoiset riskit (Seuraa jatkuvasti)
+- Geopoliittiset eskalaatiosignaalit (Ukraina, Taiwan, Lähi-idän)
+- Energiahintaindeksit (Saksan peruslastisähkö)
+- IMF:n EU-kasvuennusteet (seuraava WEO huhtikuu/lokakuu)
+- EKP:n rahapolitiikan signaalit (finanssipoliittinen ympäristö)
+
+---
+
+### 5. Yhteenveto tiedustelun arviosta
+
+**Tila**: 🟢 POSITIIVINEN KEHITYSSUUNTA merkittävillä rakenteellisilla haavoittuvuuksilla
+
+**Luottamusaste**: 🟡 KESKIMÄÄRÄINEN — rajoitettu IMF-tietojen puuttumisesta ja menettelysyötteen heikentymisestä
+
+**Aikaherkkkyys**: KORKEA — MFF-esineuvottelut alkaen 2026-H2 muokkaavat poliittista ympäristöä
+
+**Suositellut toimenpiteet**:
+1. Seuraa EDIP:n ja CID:n trilogin avaamispäivämääriä — nämä ovat tärkeimmät lyhyen aikavälin muuttujat
+2. Seuraa S&D-ryhmäkuria puolustustiedostoissa viikoittain
+3. Hanki IMF:n artikla IV -konsultaatiotiedot Saksalle/Ranskalle/Italialle kun saatavilla — se päivittää finanssipolitiikan hallinta-analyysit merkittävästi
+4. Valmistele B-skenaarion viestit (EDIP hyväksytään yksinkertaisella enemmistöllä) operatiivisena perusskenaariossa
+
+### Executive Brief Fr
+
+### Date : 2026-05-18 | Classification : ANALYSE | Mode de données : flux dégradés
+
+**Bandes WEP appliquées** | **Échelle Admirauté utilisée** | **Documentation SAT ci-dessous**
+
+---
+
+### 1. Évaluation de la situation — Niveau supérieur
+
+La 10e législature du Parlement européen fonctionne à une vitesse législative maximale (+46,2 % en glissement annuel pour la législation adoptée) dans des conditions de coalition structurellement fragiles (marge de 16 voix pour le bloc de droite ; fragmentation HHI 0,1514 — record EP10). Trois superpriorités législatives dominent le pipeline des propositions : le Programme européen pour l'industrie de la défense (EDIP), le Pacte industriel propre (CID) et les actes délégués de la loi sur l'IA. Les trois exigent une gestion de majorité interblocs qui ne laisse aucune marge pour les défections.
+
+**Évaluation globale** : 🟢 L'agenda législatif est **EN BONNE VOIE**, mais fonctionne aux limites de la tolérance au risque politique. La résilience est plus faible que ne le suggèrent les chiffres en manchette.
+
+---
+
+### 2. Conclusions analytiques clés (KAC)
+
+#### KAC-1 : La supermajorité pour la défense est structurellement unique [Admirauté A1, 🟢 HAUTE CONFIANCE]
+**WEP : 75 % — PROBABLE qu'EDIP progresse sous une forme ou une autre d'ici le T4 2026**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 députés soutiennent EDIP en principe, représentant 66,5 % des 717 sièges du Parlement — dépassant le seuil des 2/3 de supermajorité. Cette convergence transidéologique sur l'industrialisation de la défense est historiquement sans précédent dans les mandats du PE. Le cadre du nationalisme économique a dissous la clivage gauche-droite traditionnel sur la défense : les députés S&D issus de circonscriptions dépendantes de la défense (françaises, polonaises, italiennes) ne peuvent plus s'opposer à EDIP sans coûts politiques dans leur pays.
+
+**Hypothèse clé vérifiée (KAC-1 KA-1)** : Que la discipline S&D sur EDIP tient malgré la pression des Verts/Gauche/société civile. Taux de défection historique de S&D sur les dossiers de défense : 12–18 % au PE9. Si 20 % de S&D (27 députés) font défection, la supermajorité devient une majorité simple — gagnant toujours, mais perdant le cadre de communication "supermajorité démocratique".
+
+#### KAC-2 : L'arithmétique de coalition est instable en marge [Admirauté A2, 🟢 HAUTE CONFIANCE]
+**WEP : 60 % — PLUS PROBABLE QUE NON qu'au moins un vote majeur soit décidé avec ≤ 10 voix en 2026**
+
+La coalition du bloc de droite (EPP+ECR+PfE+ESN = 376) opère avec 16 voix au-dessus du seuil de majorité. Une défection coordonnée de 9 députés de PfE (9 sur 85 sièges = 10,6 %) défait toute proposition nécessitant le bloc de droite. La grande alternative centriste (EPP+S&D+Renew = 396) a une marge de 36 voix, mais nécessite des compromis S&D qui diluent le contenu politique préféré de l'EPP, notamment sur l'agriculture, les règles budgétaires et l'immigration.
+
+**Hypothèse clé vérifiée (KAC-2 KA-1)** : Que l'EPP peut maintenir la stratégie de "coalition pivotante" — utilisant le bloc de droite pour certains dossiers, la coalition centriste pour d'autres — sans qu'un partenaire de coalition ne retire sa coopération avec le narratif de trahison. Le précédent hongrois au PE9 a montré que c'est possible mais génère un stress institutionnel.
+
+#### KAC-3 : La productivité législative record masque des tensions structurelles [Admirauté A2, 🟡 CONFIANCE MOYENNE]
+**WEP : 55 % — ENVIRON ÉQUILIBRÉ quant à la poursuite de la hausse de productivité au S2 2026**
+
+935 procédures actives et 114 actes législatifs projetés (2026) représentent un résultat institutionnel authentique. Cependant, le ratio entonnoir comité-plénière (43,8 %) suggère des goulets d'étranglement potentiels : les commissions génèrent un volume législatif plus vite que la plénière ne peut absorber. La capacité de la présidence danoise à gérer l'agenda législatif du Conseil au S2 2026 déterminera si la productivité du PE10 se traduit en droit adopté ou s'enlise dans des négociations interinstitutionnelles.
+
+#### KAC-4 : Données de contexte économique IMF non disponibles [LIMITATION DE DONNÉES — 🔴 ABSENT]
+**Impact : Modéré — réduit la confiance dans l'analyse de la gouvernance budgétaire**
+
+Les données du World Economic Outlook du IMF ne sont pas disponibles dans cette exécution (flux dégradés). Les évaluations budgétaires et macroéconomiques s'appuient donc sur des données statistiques d'origine PE et des signaux économiques en source ouverte plutôt que sur les projections nationales spécifiques de l'IMF faisant autorité. Les analystes devraient traiter toutes les affirmations macroéconomiques dans cette note comme ayant un degré de confiance inférieur à celui indiqué (Admirauté A→B, B→C).
+
+---
+
+### 3. Documentation sur la technique analytique structurée (SAT)
+
+#### SAT-1 : Vérification des hypothèses clés (KAC) — Appliquée aux KAC-1 à KAC-3
+
+**Méthodologie** : Chaque conclusion analytique ci-dessus a été soumise à une formulation explicite des hypothèses et à des tests de résistance. L'analyse retrace chaque KAC à ses sources de données (Étape A) et identifie l'hypothèse qui, si elle était fausse, modifierait le plus l'évaluation.
+
+| KAC | Confiance | Condition falsifiante | Probabilité |
+|-----|-----------|---------------------|-------------|
+| KAC-1 : Supermajorité de défense tient | HAUTE | S&D >20 % défection ou fracture PfE | 20 % |
+| KAC-2 : Coalition en marge | HAUTE | Accord de coalition formel EPP-ECR | 15 % |
+| KAC-3 : Productivité continue | MOYENNE | Bloc du Conseil par la présidence danoise | 40 % |
+
+#### SAT-2 : Analyse des hypothèses concurrentes (ACH) — Stratégie de coalition pour les propositions clés
+
+**Hypothèses concurrentes testées** :
+- H1 : L'EPP utilise le bloc de droite (EPP+ECR+PfE+ESN) pour toutes les grandes propositions de 2026
+- H2 : L'EPP utilise la coalition centriste (EPP+S&D+Renew) pour toutes les grandes propositions
+- H3 : L'EPP utilise une stratégie de coalition pivotante — bloc de droite pour certains, centristes pour d'autres
+
+**Matrice des preuves** :
+
+| Preuve | H1 | H2 | H3 |
+|----------|----|----|-----|
+| Dynamique de vote EDIP (défense) | +++ | + | ++ |
+| Dispositions sociales du CID | -- | +++ | ++ |
+| Dispositions du travail de la loi IA | -- | +++ | ++ |
+| SGP/règles budgétaires | + | ++ | +++ |
+| Agriculture/pesticides | ++ | - | +++ |
+| Migration/mise en œuvre du pacte | +++ | -- | + |
+
+**Conclusion** : H3 (coalition pivotante) est la plus cohérente avec les preuves. L'EPP utilisera le bloc de droite pour la migration, la défense et l'agriculture ; coalition centriste pour les dossiers sociaux et environnementaux.
+
+#### SAT-3 : Roue des scénarios — Appliquée à la prévision du résultat EDIP
+
+**Scénario A (WEP 35 %)** : EDIP adopté avec l'approbation de la supermajorité de 477 sièges — devient la législation phare de l'héritage EP10
+**Scénario B (WEP 35 %)** : EDIP adopté à la majorité simple (360–400 voix) après la défection partielle de S&D — adopté mais sans le cadre de communication de supermajorité
+**Scénario C (WEP 20 %)** : EDIP retardé jusqu'en 2027 en raison de l'échec des trilogues avec le Conseil sur les règles de passation de marchés
+**Scénario D (WEP 10 %)** : EDIP s'effondre — désescalade géopolitique ou garantie de sécurité américaine supprime l'urgence
+
+**Importance politique** : B et C sont les résultats les plus probables selon WEP ; mais A aurait une signification institutionnelle disproportionnée. La préparation de messages pour le scénario B est la tâche opérationnellement la plus importante.
+
+#### SAT-4 : Avocat du diable — Défi à KAC-3 (Productivité législative)
+
+**Position de l'avocat du diable** : La hausse de productivité n'est *pas* une preuve d'efficacité institutionnelle mais une preuve d'inflation législative — les députés adoptent plus de législation précisément *parce que* chaque texte législatif est moins significatif. La forte fragmentation HHI signifie que la seule législation adoptée est une législation si anodine qu'elle ne menace les intérêts fondamentaux d'aucun groupe. La législation phare est précisément ce qui est bloqué.
+
+**Force de la position DA** : 🟡 MOYENNE. Les +46,2 % en glissement annuel en actes sont significatifs. Cependant, sans notation qualité/importance de chaque acte législatif, DA ne peut être pleinement réfutée.
+
+**Réponse analytique** : Admis comme une incertitude authentique. La note reconnaît cela (KAC-3) sans le résoudre.
+
+#### SAT-5 : Analyse du chapeau rouge (Perspective adversariale)
+
+**Du point de vue de l'opposition ECR/PfE** :
+Le narratif "propositions" construit par l'EPP/Commission est un agenda d'intégration maximale de l'UE déguisé en réponse à la crise. Défense (EDIP), vert (CID), numérique (loi IA) et budgétaire (réforme SGP) constituent ensemble l'agenda fédéralisant le plus ambitieux de l'histoire de l'UE — et il est poussé à travers la justification de "nécessité/nécessité géopolitique" plutôt que par la délibération démocratique.
+
+**Pourquoi cette perspective a une pertinence analytique** : Le contre-narratif ECR/PfE compte 193 sièges et un soutien gouvernemental national significatif (Italie, Hongrie, République tchèque, Slovaquie). Si l'un de ces gouvernements obtient une minorité de blocage au Conseil sur des dossiers spécifiques, les propositions du PE seront bloquées en trilogue. L'analyse du chapeau rouge révèle la fragilité structurelle dans l'agenda de propositions du PE que la vision institutionnelle minimise.
+
+#### SAT-6 : Analyse des contradictions — Vérification de cohérence interne
+
+**Contradiction identifiée et résolue** :
+- C1 : La note affirme "productivité législative record" (force) et "fragilité structurelle des coalitions" (faiblesse). Celles-ci pourraient sembler contradictoires — comment la productivité peut-elle être élevée si les coalitions sont fragiles ?
+- **Résolution** : La productivité record dans EP10 a été atteinte principalement par une législation non controversée (actes délégués techniques, règles de mise en œuvre de l'IA, ajustements mineurs du CFP). La législation phare controversée (EDIP, CID, mise en œuvre du pacte migratoire) est précisément là où la fragilité des coalitions compte le plus. Les deux affirmations sont simultanément vraies.
+
+#### SAT-7 : Vérification de la qualité de l'information (QIC)
+
+| Source de données | Note | Couverture | Fiabilité |
+|------------|-------|----------|------------|
+| Paysage politique (A1) | A1 | Complète | Élevée |
+| Statistiques PE 2024–2026 (A2) | A2 | Complète | Élevée |
+| Flux textes adoptés (B2) | B2 | Partielle (ID uniquement) | Moyenne |
+| Flux de procédures | F — non disponible | Aucune | N/A |
+| Données économiques IMF | F — non disponible | Aucune | N/A |
+| Analyse médias/cadrage | B3 | Qualitative | Moyenne |
+
+**Note globale des données pour cette note** : 🟡 **B2** — fiable sur la structure institutionnelle et les statistiques du PE ; limitée sur les dossiers législatifs spécifiques et le contexte macroéconomique.
+
+#### SAT-8 : Analyse prémortem
+
+**Scénario** : Nous sommes en décembre 2026 et EP10 n'a pas réussi à adopter l'une de ses trois superpriorités législatives (EDIP, CID, actes délégués de la loi IA). Qu'est-ce qui a mal tourné ?
+
+**Modes de défaillance les plus probables** (pondérés par probabilité) :
+1. EDIP : Minorité de blocage au Conseil (Italie+Hongrie+Autriche) sur les règles de passation des marchés (30 %)
+2. CID : La défection S&D sur les dispositions sociales supprime la majorité (25 %)
+3. Actes délégués de la loi IA : La Commission retire des dispositions controversées sous pression de l'industrie (20 %)
+4. Les trois retardés par une urgence géopolitique nécessitant un agenda législatif d'urgence (15 %)
+5. La fragmentation interne du PE fait échouer les trois simultanément (10 %)
+
+**Éclairage prémortem** : Le seul facteur de risque le plus élevé est la minorité de blocage au Conseil, pas la fragilité de la coalition au PE. Cela déplace le focus de renseignement recommandé de la gestion intra-PE de la coalition vers la dynamique interinstitutionnelle PE-Conseil.
+
+#### SAT-9 : Suivi chronologique des événements
+
+| Date | Événement | Implication analytique |
+|------|-------|----------------------|
+| Début EP10 (2024-07) | 717 MdEP, HHI 0,1514 | Fragmentation historique confirmée |
+| Toute l'année 2025 | Rotation de 5 % des MdEP | Signal de stabilité institutionnelle |
+| 2026-01 | 567 votes par appel nominal projetés | Productivité législative record |
+| 2026-05-18 | Date d'analyse actuelle | EDIP/CID en stade de commission active |
+| 2026-07 | Début de la présidence danoise | Accélération du calendrier législatif |
+| 2026-S2 | Pré-négociations CFP | Changement de l'environnement politique |
+
+#### SAT-10 : Futurs alternatifs (Construction de scénarios)
+
+**Base (WEP 40 %)** : EP10 adopte EDIP, CID et actes délégués IA à la majorité simple avant le T4 2026. Héritage législatif record. 
+
+**Optimiste (WEP 25 %)** : EDIP adopté à la supermajorité, CID finalisé en trilogue, la gouvernance de l'IA établit une norme mondiale. EP10 devient le PE le plus productif de l'histoire moderne.
+
+**Pessimiste (WEP 25 %)** : Le Conseil bloque les dispositions de passation des marchés EDIP, CID retardé par la politique énergétique allemande, la loi IA déclenche des frictions commerciales UE-États-Unis. L'agenda EP10 s'enlise partiellement.
+
+**Crise (WEP 10 %)** : Une grande crise géopolitique ou économique impose un agenda d'urgence, écartant toutes les propositions planifiées. L'héritage législatif est dominé par la réponse à la crise.
+
+---
+
+### 4. Indicateurs de surveillance
+
+#### Ensemble d'indicateurs A — Stabilité de la coalition (Surveiller hebdomadairement)
+- Scores de cohésion du groupe EPP lors des votes clés (source : listes de votes quand disponibles)
+- Alignement des MdEP hongrois de PfE vs. EPP
+- Taux de défection S&D sur les dossiers de défense
+
+#### Ensemble d'indicateurs B — Progrès législatif (Surveiller mensuellement)
+- Procédures atteignant l'étape plénière (objectif : 35+ grandes propositions avant le T4 2026)
+- Dates d'ouverture des trilogues pour EDIP, CID, actes délégués de la loi IA
+- Nominations de rapporteurs de commissions pour le programme législatif 2027
+
+#### Ensemble d'indicateurs C — Risques externes (Surveiller en continu)
+- Signaux d'escalade géopolitique (Ukraine, Taïwan, Moyen-Orient)
+- Indices de prix de l'énergie (électricité de base allemande)
+- Prévisions de croissance UE de l'IMF (prochain WEO avril/octobre)
+- Signaux de politique monétaire BCE (environnement budgétaire)
+
+---
+
+### 5. Évaluation de renseignement récapitulative
+
+**Statut** : 🟢 TRAJECTOIRE POSITIVE avec des vulnérabilités structurelles significatives
+
+**Confiance** : 🟡 MOYENNE — limitée par l'absence de données IMF et la dégradation du flux de procédures
+
+**Sensibilité temporelle** : ÉLEVÉE — les pré-négociations CFP débutant en S2 2026 remodèleront l'environnement politique
+
+**Actions recommandées** :
+1. Surveiller les dates d'ouverture des trilogues pour EDIP et CID — ce sont les variables à court terme les plus décisives
+2. Suivre hebdomadairement la discipline du groupe S&D sur les dossiers de défense
+3. Acquérir les données de consultation Article IV de l'IMF pour l'Allemagne/France/Italie quand disponibles — cela mettra à jour significativement l'analyse de gouvernance budgétaire
+4. Préparer les messages du scénario B (EDIP adopté à la majorité simple) comme scénario de base opérationnel
+
+### Executive Brief He
+
+### תאריך: 2026-05-18 | סיווג: ניתוח | מצב נתונים: מקורות בלויים
+
+**יחידות WEP מיושמות** | **סולם האדמירלות בשימוש** | **תיעוד SAT להלן**
+
+---
+
+### 1. הערכת מצב — הרמה הראשית
+
+הפרלמנט האירופי פועל בתקופת הכהונה העשירית בקצב חקיקתי גבוה (+46.2% בשנה לחוקים שאושרו) בתנאים קואליציוניים שבירים מבנית (שולי 16 קולות לגוש הימני; מדד הרפינדל-הירשמן לריסוק 0.1514 — שיא כהונת EP10). שלוש עדיפויות חקיקתיות עליונות שולטות בצינור ההצעות: התכנית האירופית לתעשיית הביטחון (EDIP), עסקת התעשייה הנקייה (CID) ומעשים המוסמכים של חוק הבינה המלאכותית. כל אלה דורשים ניהול רוב חוצה-גושים ללא שוליים לסטייות.
+
+**הערכה כוללת**: 🟢 סדר יום חקיקתי **על המסלול** אך פועל בסף סובלנות סיכונים פוליטיים. רמת העמידות נמוכה ממה שהמספרים הכותרתיים מציעים.
+
+---
+
+### 2. מסקנות אנליטיות מרכזיות (KAC)
+
+#### KAC-1: הרוב הגדול בביטחון ייחודי מבנית [אדמירלות A1, 🟢 אמינות גבוהה]
+**WEP: 75% — EDIP צפוי להתקדם בצורה כלשהי עד הרבעון הרביעי 2026**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 חברי פרלמנט אירופי תומכים ב-EDIP עקרונית, המייצגים 66.5% מ-717 מושבים — מעל סף רוב שני שלישים. הקונסנסוס הבין-אידיאולוגי הזה סביב ייצור ביטחוני חסר תקדים היסטורי בתקופות כהונה של הפרלמנט האירופי. המסגרת הכלכלה-לאומית התיכה את הפיצול שמאל-ימין המסורתי בסוגיית הביטחון: חברי S&D מאזורי בחירה תלויי ביטחון (צרפת, פולין, איטליה) אינם יכולים עוד להתנגד ל-EDIP ללא השלכות פוליטיות מקומיות.
+
+**הנחת מפתח הנבחנת (KAC-1 KA-1)**: משמעת S&D בתיק EDIP מחזיקה למרות לחץ Greens/Left/חברה אזרחית. שיעור הסטייה ההיסטורי של S&D בתיקי ביטחון: 12-18% ב-EP9. אם 20% מ-S&D ייסטו (27 חברים), הרוב הגדול הופך לרוב פשוט — עדיין מנצח, אך ללא מסגרת התקשורת "הרוב הדמוקרטי הגדול".
+
+#### KAC-2: חשבון הקואליציה אינו יציב בשוליים [אדמירלות A2, 🟢 אמינות גבוהה]
+**WEP: 60% — סביר שיתרחש לפחות הצבעה אחת בהפרש ≤ 10 קולות ב-2026**
+
+הגוש הימני (EPP+ECR+PfE+ESN = 376) פועל ב-16 קולות מעל סף הרוב. סטייה מתואמת של 9 חברים PfE (9 מ-85 מושבים = 10.6%) מפילה כל הצעה הדורשת את הגוש הימני. הגלובוס האמצעי הגדול (EPP+S&D+Renew = 396) עם שוליים של 36 קולות, אך דורש ויתורים S&D שמרককים תוכן מדיניות מועדף EPP, במיוחד בחקלאות, כללים פיסקליים, הגירה.
+
+**הנחת מפתח הנבחנת (KAC-2 KA-1)**: EPP יכול לשמר אסטרטגיית "קואליציה מתנדנדת" — שימוש בגוש ימני לחלק מהתיקים ובגוש מרכז לאחרים — מבלי שאף שותף קואליציוני יסיג שיתוף פעולה בטענת בגידה. התקדים ההונגרי ב-EP9 הוכיח שזה אפשרי אך יוצר לחץ מוסדי.
+
+#### KAC-3: פריון חקיקתי שיאי מסתיר מתחים מבניים [אדמירלות A2, 🟡 אמינות בינונית]
+**WEP: 55% — סיכוי שווה שקצב הפריון ימשך בחצי השני של 2026**
+
+935 הליכים פעילים ו-114 חקיקות צפויות (2026) מייצגות תפוקה מוסדית אמיתית. אולם יחס דיכוי ועדה-למליאה (43.8%) מרמז על צווארי בקבוק פוטנציאליים: ועדות מייצרות נפח חקיקתי מהיר מכפי שהמליאה יכולה לעכל. הכישרון הניהולי של הנשיאות הדנית לסדר היום החקיקתי של המועצה בחצי השני של 2026 יקבע אם הפריון של EP10 יתרגם לחוק שנחקק או יתקע במשא ומתן בין-מוסדי.
+
+#### KAC-4: נתוני הקשר כלכלי מ-IMF אינם זמינים [אילוץ נתונים — 🔴 חסרים]
+**השפעה: בינונית — מפחית אמינות בניתוח ממשל פיסקלי**
+
+נתוני World Economic Outlook של IMF אינם זמינים בגרסה זו (מקורות בלויים). לכן הערכות פיסקליות ומאקרו-כלכליות נשענות על נתוני סטטיסטיקה מקור הפרלמנט האירופי ואותות כלכליים ממקורות פתוחים במקום תחזיות IMF סמכותיות ספציפיות-ארצות. אנליסטים צריכים להתייחס לכל טענות מאקרו-כלכליות בדוח זה כבעלות אמינות נמוכה ממה שמסומן (אדמירלות A→B, B→C).
+
+---
+
+### 3. תיעוד טכניקות אנליזה מובנות (SAT)
+
+#### SAT-1: בחינת הנחות מרכזיות (KAC) — מיושמת על KAC-1 עד KAC-3
+
+**מתודולוגיה**: כל מסקנה אנליטית לעיל עברה ניסוח מפורש של הנחות ובדיקת עמידות. הניתוח עוקב אחר כל KAC למקורות הנתונים שלו (שלב A) ומזהה את ההנחה שאם תהיה שגויה תייצר את ההשפעה הגדולה ביותר על ההערכה.
+
+| KAC | אמינות | תנאי הפרכה | הסתברות |
+|-----|-----------|---------------------|-------------|
+| KAC-1: עמידות הרוב הגדול בביטחון | גבוהה | סטיית S&D >20% או סדק PfE | 20% |
+| KAC-2: קואליציה בשוליים | גבוהה | הסכם קואליציוני רשמי EPP-ECR | 15% |
+| KAC-3: המשך פריון | בינונית | עיכוב המועצה על-ידי הנשיאות הדנית | 40% |
+
+#### SAT-2: ניתוח השערות מתחרות (ACH) — אסטרטגיית קואליציה להצעות מרכזיות
+
+**השערות מתחרות שנבדקו**:
+- H1: EPP משתמשת בגוש הימני (EPP+ECR+PfE+ESN) לכל ההצעות המרכזיות ב-2026
+- H2: EPP משתמשת בגוש מרכזי (EPP+S&D+Renew) לכל ההצעות המרכזיות
+- H3: EPP משתמשת באסטרטגיית קואליציה מתנדנדת — גוש ימני לחלק מהתיקים ומרכזיים לאחרים
+
+**מטריצת ראיות**:
+
+| ראיה | H1 | H2 | H3 |
+|----------|----|----|-----|
+| דינמיקת הצבעת EDIP (ביטחון) | +++ | + | ++ |
+| הוראות חברתיות CID | -- | +++ | ++ |
+| הוראות עבודה בחוק AI | -- | +++ | ++ |
+| SGP/כללים פיסקליים | + | ++ | +++ |
+| חקלאות/חומרי הדברה | ++ | - | +++ |
+| הגירה/יישום האמנה | +++ | -- | + |
+
+**מסקנה**: H3 (קואליציה מתנדנדת) עקבית ביותר עם הראיות. EPP תשתמש בגוש ימני להגירה, ביטחון, חקלאות; ובגוש מרכזי לתיקים חברתיים וסביבתיים.
+
+#### SAT-3: גלגל תרחישים — מיושם על תחזיות תוצאת EDIP
+
+**תרחיש A (WEP 35%)**: EDIP מאושר ברוב גדול של 477 מושבים — הופך לחקיקת מורשת אייקונית של EP10
+**תרחיש B (WEP 35%)**: EDIP מאושר ברוב פשוט (360-400 קולות) לאחר סטייה חלקית מ-S&D — מאושר אך ללא מסגרת תקשורת רוב גדול
+**תרחיש C (WEP 20%)**: EDIP נדחה ל-2027 עקב קריסת דיונים משולשים עם המועצה סביב כללי רכש
+**תרחיש D (WEP 10%)**: EDIP מתמוטט — הרגעה גיאו-פוליטית או ערובת ביטחון אמריקנית מסירה את הדחיפות
+
+**משמעות מדיניותית**: B ו-C הם הצפויים ביותר לפי WEP; אבל A יהיה בעל משמעות מוסדית גדולה. הכנת מסרים לתרחיש B היא המשימה הפעילה בעדיפות גבוהה ביותר.
+
+#### SAT-4: עורך דין השטן — מאתגר KAC-3 (פריון חקיקתי)
+
+**עמדת עורך דין השטן**: גל הפריון *אינו* ראיה לרוב מוסדי אלא ראיה לניפוח חקיקתי — חברי פרלמנט מאשרים חקיקה רבה יותר בדיוק *מפני* שכל חקיקה פחות חשובה. HHI גבוה של ריסוק פירושו שהחקיקה היחידה שעוברת היא כזו שאינה מאיימת על אינטרסים מהותיים של כל קבוצה. חקיקה פורצת דרך היא בדיוק מה שנתקע.
+
+**חוזק עמדת DA**: 🟡 בינוני. מספרי +46.2% לשנה בפעולות משפטיות הם משמעותיים. אך ללא דירוג איכות/חשיבות לכל פעולה חקיקתית לא ניתן להפריך DA לחלוטין.
+
+**תגובה אנליטית**: מוכר כאי-ודאות אמיתית. הדוח מוכר זאת (KAC-3) מבלי לפתור אותו.
+
+#### SAT-5: ניתוח כובע אדום (פרספקטיבת יריב)
+
+**מנקודת מבט אופוזיציית ECR/PfE**:
+הנרטיב שבנו EPP/הנציבות סביב "הצעות" הוא אג'נדת אינטגרציה אירופית מקסימלית המחופשת לתגובת משבר. ביטחון (EDIP), ירוק (CID), דיגיטל (חוק AI), ופיסקלי (רפורמת SGP) יחד מהווים את האג'נדה הפדרלית שאפתנית ביותר בתולדות האיחוד האירופי — ומונעים דרך הצדקת "הכרח/הכרח גיאו-פוליטי" במקום דיון דמוקרטי.
+
+**מדוע פרספקטיבה זו רלוונטית אנליטית**: הנרטיב הנגדי של ECR/PfE מחזיק 193 מושבים ותמיכת ממשלות לאומיות ענקיות (איטליה, הונגריה, צ'כיה, סלובקיה). אם אחת מממשלות אלה תשיג מיעוט חוסם במועצה בנושאים ספציפיים, הצעות הפרלמנט האירופי ייתקעו בדיונים המשולשים. ניתוח כובע אדום חושף שבירות מבנית בסדר יום ההצעות של הפרלמנט שהפרספקטיבה המוסדית ממעיטה בה.
+
+#### SAT-6: סקר סתירות — בדיקת עקביות פנימית
+
+**סתירה זוהתה ונפתרה**:
+- C1: הדוח טוען "פריון חקיקתי שיאי" (חוזק) ו"שבירות קואליציונית מבנית" (חולשה). עשוי להיראות סתרני — איך יכול הפריון להיות גבוה אם הקואליציות שבירות?
+- **פתרון**: הפריון השיאי ב-EP10 הושג בעיקר דרך חקיקה שאינה שנויה במחלוקת (פעולות ייעוד טכניות, כללי יישום AI, תיקונים שוליים למסגרת פיסקלית). חקיקה פורצת דרך שנויה במחלוקת (EDIP, CID, יישום אמנת הגירה) היא בדיוק כאשר השבירות הקואליציונית מוכרעת. שתי הטענות נכונות בו-זמנית.
+
+#### SAT-7: בדיקת איכות מידע (QIC)
+
+| מקור נתונים | דרגה | כיסוי | אמינות |
+|------------|-------|----------|------------|
+| נוף פוליטי (A1) | A1 | מלא | גבוהה |
+| סטטיסטיקות פרלמנט 2024-2026 (A2) | A2 | מלא | גבוהה |
+| פיד טקסטים מאומצים (B2) | B2 | חלקי (מזהים בלבד) | בינונית |
+| פיד נהלים | F — לא זמין | כלום | לא ישים |
+| נתוני IMF כלכליים | F — לא זמין | כלום | לא ישים |
+| ניתוח מדיה/מסגור | B3 | איכותי | בינונית |
+
+**ציון נתונים כולל לדוח זה**: 🟡 **B2** — אמין לגבי מבנה מוסדי וסטטיסטיקות פרלמנט; מוגבל לגבי תיקים חקיקתיים ספציפיים והקשר מאקרו-כלכלי.
+
+#### SAT-8: ניתוח לפני המוות (Premortem)
+
+**תרחיש**: אנחנו בדצמבר 2026 ו-EP10 כשלה לאשר איזושהי מהעדיפויות החקיקתיות הגבוהות שלה (EDIP, CID, פעולות מוסמכות חוק AI). מה הלך לא כשורה?
+
+**דפוסי כישלון הסבירים ביותר** (ממוקמים באפשרות):
+1. EDIP: מיעוט חוסם במועצה (איטליה+הונגריה+אוסטריה) בכללי רכש (30%)
+2. CID: סטיית S&D בהוראות חברתיות מסירה רוב (25%)
+3. פעולות מוסמכות חוק AI: הנציבות מושכת הוראות שנויות במחלוקת תחת לחץ תעשייתי (20%)
+4. שלושתם מתעכבים בשל מצב חירום גיאו-פוליטי הדורש סדר יום חקיקתי חירום (15%)
+5. ריסוק פנימי של הפרלמנט מכשיל את שלושתם בו-זמנית (10%)
+
+**תובנת הקדמה**: הגורם בסיכון הגבוה ביותר הוא מיעוט חוסם במועצה לא שבירות קואליציה בפרלמנט. זה מעביר את מיקוד מעקב מומלץ מניהול קואליציה בפרלמנט לדינמיקות הבין-מוסדיות פרלמנט-מועצה.
+
+#### SAT-9: מעקב ציר זמן אירועים
+
+| תאריך | אירוע | השלכה אנליטית |
+|------|-------|----------------------|
+| תחילת EP10 (2024-07) | 717 חברים, HHI 0.1514 | ריסוק היסטורי מאושר |
+| לאורך 2025 | 5% חידוש חברות | אות יציבות מוסדית |
+| 2026-01 | 567 הצבעות בקול רם צפויות | פריון חקיקתי שיאי |
+| 2026-05-18 | תאריך ניתוח נוכחי | EDIP/CID בשלב ועדות פעיל |
+| 2026-07 | תחילת הנשיאות הדנית | האצת לוח חקיקתי |
+| 2026-H2 | משא ומתן לפני מסגרת פיסקלית | שינוי סביבה פוליטית |
+
+#### SAT-10: עתידות חלופיות (בניית תרחישים)
+
+**בסיס (WEP 40%)**: EP10 מאשרת EDIP, CID ופעולות מוסמכות AI ברוב פשוט לפני הרבעון הרביעי 2026. מורשת חקיקתית שיאית.
+
+**אופטימי (WEP 25%)**: EDIP עובר ברוב גדול, CID מסתיים במשא ומתן משולש, ממשל AI מציב סטנדרט גלובלי. EP10 הופכת לפרלמנט האירופי הפרודוקטיבי ביותר בהיסטוריה המודרנית.
+
+**פסימי (WEP 25%)**: המועצה חוסמת הוראות רכש EDIP, CID מתעכב עקב מדיניות מחירי אנרגיה גרמנית, חוק AI מצית חיכוכי סחר בין האיחוד האירופי לארה"ב. אג'נדת EP10 נתקעת חלקית.
+
+**משבר (WEP 10%)**: משבר גיאו-פוליטי או כלכלי גדול כופה סדר יום חירום, מעקר את כל ההצעות המתוכננות. מורשת חקיקתית נשלטת על-ידי תגובת משבר.
+
+---
+
+### 4. מחווני מעקב
+
+#### קבוצת מחוון A — יציבות קואליציה (מעקב שבועי)
+- ציוני לכידות קבוצת EPP בהצבעות מרכזיות (מקור: רישומי הצבעות כשזמינים)
+- הסכמת חברי המועצה ההונגרית ב-PfE עם EPP
+- שיעור סטיית S&D בתיקי ביטחון
+
+#### קבוצת מחוון B — התקדמות חקיקתית (מעקב חודשי)
+- הליכים מגיעים לשלב מליאה (יעד: 35+ הצעות מרכזיות עד הרבעון הרביעי 2026)
+- תאריכי פתיחת משא ומתן משולש ל-EDIP, CID, פעולות מוסמכות חוק AI
+- מינויי מדווחים ועדות לתכנית חקיקה 2027
+
+#### קבוצת מחוון C — סיכונים חיצוניים (מעקב מתמיד)
+- אותות הסלמה גיאו-פוליטיים (אוקראינה, טייוואן, המזרח התיכון)
+- מחוון מחירי אנרגיה (חשמל בסיסי גרמני)
+- תחזיות צמיחה של האיחוד האירופי מ-IMF (WEO הבא אפריל/אוקטובר)
+- אותות מדיניות מוניטרית של הבנק המרכזי האירופי (סביבה פיסקלית)
+
+---
+
+### 5. הערכת מודיעין מסכמת
+
+**מצב**: 🟢 מסלול חיובי עם פגיעויות מבניות משמעותיות
+
+**אמינות**: 🟡 בינונית — מוגבלת על-ידי היעדר נתוני IMF ועיצוב פיד נהלים
+
+**רגישות זמן**: גבוהה — משא ומתן לפני מסגרת פיסקלית החל מחצי שני 2026 יעצב מחדש הסביבה הפוליטית
+
+**פעולות מומלצות**:
+1. מעקב אחר תאריכי פתיחת משא ומתן משולש ל-EDIP ו-CID — אלה משתני הגדולה ביותר בטווח הקצר
+2. מעקב שבועי אחר משמעת קבוצת S&D בתיקי ביטחון
+3. שרשור התייעצויות סעיף IV של IMF לגרמניה, צרפת, איטליה כשיהיו זמינים — יעדכנו ניתוח ממשל פיסקלי באופן משמעותי
+4. הכנת מסרים לתרחיש B (EDIP מאושר ברוב פשוט) כתרחיש הפעילות הבסיסי
+
+### Executive Brief Ja
+
+### 日付: 2026-05-18 | 分類: 分析 | データモード: フィード劣化
+
+**適用WEPユニット** | **使用提督評価スケール** | **SAT文書は以下のとおり**
+
+---
+
+### 1. 状況評価 — 最上位レベル
+
+欧州議会は第10会期において、構造的に脆弱な連立条件下（右派ブロックの票差は16票；断片化ハーフィンダール・ハーシュマン指数0.1514 — EP10会期記録）で最高水準の立法ペース（可決法令前年比+46.2%）で稼働している。3つの最優先立法課題が提案パイプラインを主導する：欧州防衛産業計画（EDIP）、クリーン産業取引（CID）、AI法委任行為。いずれも離反の余地なくブロックを超えた過半数管理を必要とする。
+
+**総合評価**: 🟢 立法アジェンダは**軌道上**だが、政治リスク許容度の限界で運用されている。実際の安定性は見出し数字が示すより低い。
+
+---
+
+### 2. 主要分析上の結論（KAC）
+
+#### KAC-1: 防衛における超過半数は構造的に独自 [提督A1、🟢 高信頼度]
+**WEP: 75% — EDIPは何らかの形で2026年Q4までに進展する見込み**
+
+EPP（183）+ ECR（81）+ S&D（136）+ Renew（77）= 欧州議員477名が原則としてEDIPを支持、717議席の66.5%を代表 — 3分の2多数決基準超え。防衛製造を巡るこのイデオロギー横断的合意は欧州議会会期において歴史的前例がない。経済ナショナリスト的フレーミングが防衛問題における伝統的左右分断を解消した：防衛依存選挙区（フランス、ポーランド、イタリア）のS&D議員はもはや国内政治的影響なしにEDIPに反対できない。
+
+**検証中の主要仮定（KAC-1 KA-1）**: S&DのEDIP規律がGreens/Left/市民社会の圧力にもかかわらず維持されること。EP9でのS&D歴史的離反率：防衛問題で12-18%。S&Dの20%（27議員）が離反すれば、超過半数は単純多数へ転落 — 依然勝利だが「大きな民主的多数」の対外発信フレームはない。
+
+#### KAC-2: 連立計算は周縁で不安定 [提督A2、🟢 高信頼度]
+**WEP: 60% — 2026年中に少なくとも1回≤10票差の採決が起きる可能性が高い**
+
+右派ブロック（EPP+ECR+PfE+ESN = 376）は過半数基準の16票上で運用。PfEの9議員（85議席中9 = 10.6%）の協調離反が右派ブロックを必要とするすべての提案を否決する。大中間連立（EPP+S&D+Renew = 396）は36票差だが、EPP優先政策内容を希薄化するS&D側の譲歩、特に農業、財政規律、移民での妥協を必要とする。
+
+**検証中の主要仮定（KAC-2 KA-1）**: EPPが「揺れ連立」戦略 — 一部議題に右派ブロック、別の議題に中間連立を使い分ける — を、どの連立パートナーも裏切りを理由に協力を撤回せずに維持できること。EP9のハンガリーの先例はこれが可能だと示したが制度的圧力をもたらす。
+
+#### KAC-3: 記録的立法生産性が構造的緊張を隠蔽 [提督A2、🟡 中信頼度]
+**WEP: 55% — 2026年後半に生産性ブームが続く確率は五分五分**
+
+935の活動中手続きと114の予想立法（2026年）は真の制度的産出量を表す。しかし委員会・本会議抑制比率（43.8%）は潜在的ボトルネックを示唆：委員会は本会議が吸収できる以上の速さで立法量を生産している。2026年後半のデンマーク議長国の理事会立法アジェンダ管理能力が、EP10の生産性が可決法律に転換するか機関間交渉で停滞するかを決定する。
+
+#### KAC-4: IMF経済コンテキストデータが利用不能 [データ制約 — 🔴 欠如]
+**影響: 中程度 — 財政ガバナンス分析の信頼度が低下**
+
+IMFのWorld Economic Outlookデータはこのリリースでは利用不能（フィード劣化）。そのため財政・マクロ経済評価は権威的な国別IMF予測でなく欧州議会統計ソースデータとオープンソース経済シグナルに依存。分析者はこのブリーフのマクロ経済的主張はすべて表示より低い信頼度（提督A→B、B→C）として扱うべき。
+
+---
+
+### 3. 構造的分析技法（SAT）文書
+
+#### SAT-1: 主要仮定チェック（KAC） — KAC-1からKAC-3に適用
+
+**方法論**: 上記各分析結論は仮定の明示的表現と耐性テストを受けた。分析はデータソース（フェーズA）まで各KACを追跡し、誤りだった場合に評価への最大影響をもたらす仮定を特定する。
+
+| KAC | 信頼度 | 反証条件 | 確率 |
+|-----|-----------|---------------------|-------------|
+| KAC-1: 防衛超過半数の維持 | 高 | S&D離反>20%またはPfE亀裂 | 20% |
+| KAC-2: 周縁での連立 | 高 | 正式なEPP-ECR連立協定 | 15% |
+| KAC-3: 生産性継続 | 中 | デンマーク議長国による理事会阻害 | 40% |
+
+#### SAT-2: 競合仮説分析（ACH） — 主要提案の連立戦略
+
+**検証された競合仮説**:
+- H1: EPPが2026年すべての主要提案に右派ブロック（EPP+ECR+PfE+ESN）を使用
+- H2: EPPがすべての主要提案に中間連立（EPP+S&D+Renew）を使用
+- H3: EPPが揺れ連立戦略 — 一部議題に右派ブロック、別議題に中間連立
+
+**証拠マトリックス**:
+
+| 証拠 | H1 | H2 | H3 |
+|----------|----|----|-----|
+| EDIP投票ダイナミクス（防衛） | +++ | + | ++ |
+| CID社会条項 | -- | +++ | ++ |
+| AI法雇用条項 | -- | +++ | ++ |
+| SGP/財政規則 | + | ++ | +++ |
+| 農業/農薬 | ++ | - | +++ |
+| 移民/憲章実施 | +++ | -- | + |
+
+**結論**: H3（揺れ連立）が証拠と最も整合性が高い。EPPは移民、防衛、農業に右派ブロック；社会・環境議題に中間連立を使用する。
+
+#### SAT-3: シナリオホイール — EDIP結果予測に適用
+
+**シナリオA（WEP 35%）**: EDIPが477議席の超過半数で可決 — EP10の象徴的な遺産立法に
+**シナリオB（WEP 35%）**: S&Dの部分的離反後、単純多数（360-400票）でEDIP可決 — 可決だが大多数通信フレームなし
+**シナリオC（WEP 20%）**: 調達規則を巡る理事会との三者交渉崩壊でEDIPが2027に延期
+**シナリオD（WEP 10%）**: EDIP崩壊 — 地政学的緩和または米国安全保障保証が緊急性除去
+
+**政策的含意**: BとCがWEP上最も確率が高い；しかしAは制度的に極めて重要。シナリオBへのメッセージング準備が最高優先度の実践的課題。
+
+#### SAT-4: 悪魔の弁護人 — KAC-3への挑戦（立法生産性）
+
+**悪魔の弁護人の立場**: 生産性ブームは制度的効率の証拠では*なく*立法膨張の証拠 — 議員は各立法が重要でないからこそ*より多くを*可決している。HHI高断片化は通過できる唯一の立法がどのグループの実質的利益も脅かさないものであることを意味する。画期的立法は正確に行き詰まるものだ。
+
+**DA立場の強度**: 🟡 中程度。法律行為年率+46.2%の数字は重要。しかし各立法行為の品質/重要度評価なしにDAを完全論駁はできない。
+
+**分析的対応**: 真の不確実性として認識。ブリーフはこれを（KAC-3）解決せず承認。
+
+#### SAT-5: レッドハット分析（対手の視点）
+
+**ECR/PfE反対派の視点から**:
+EPP/欧州委員会が「提案」の周囲に構築したナラティブは、危機対応に偽装された最大限ヨーロッパ統合アジェンダだ。防衛（EDIP）、グリーン（CID）、デジタル（AI法）、財政（SGP改革）は合わせてEU史上最も野心的な連邦制アジェンダを形成 — 民主的討議でなく「必要/地政学的必要性」の正当化によって推進されている。
+
+**なぜこの視点が分析的に関連するか**: ECR/PfEの対抗ナラティブは193議席と主要国政府支持（イタリア、ハンガリー、チェコ、スロバキア）を持つ。これらの政府のいずれかが特定議題で理事会の阻止少数を確保すれば、欧州議会の提案は三者交渉で行き詰まる。レッドハット分析は制度的視点が軽視する提案アジェンダの構造的脆弱性を露呈する。
+
+#### SAT-6: 矛盾調査 — 内的一貫性チェック
+
+**矛盾特定・解消**:
+- C1: ブリーフは「記録的立法生産性」（強み）と「構造的連立脆弱性」（弱み）を主張。矛盾するように見えるかもしれない — 連立が脆弱なら生産性はいかに高くなれるか？
+- **解消**: EP10の記録的生産性は主に争点のない立法（技術的委任行為、AI実施規則、財政枠組みへの軽微修正）で達成された。争点のある画期的立法（EDIP、CID、移民憲章実施）は正確に連立脆弱性が解消される場所だ。両方の主張が同時に真実。
+
+#### SAT-7: 情報品質チェック（QIC）
+
+| データソース | グレード | カバレッジ | 信頼性 |
+|------------|-------|----------|------------|
+| 政治的景観（A1） | A1 | 完全 | 高 |
+| 議会統計2024-2026（A2） | A2 | 完全 | 高 |
+| 採択テキストフィード（B2） | B2 | 部分（IDのみ） | 中 |
+| 手続きフィード | F — 利用不能 | なし | 該当なし |
+| IMF経済データ | F — 利用不能 | なし | 該当なし |
+| メディア/フレーミング分析 | B3 | 定性的 | 中 |
+
+**このブリーフの総合データグレード**: 🟡 **B2** — 制度的構造と議会統計について信頼性あり；特定立法ファイルとマクロ経済コンテキストについて限定的。
+
+#### SAT-8: 事前遡及分析（Premortem）
+
+**シナリオ**: 2026年12月、EP10は最優先立法（EDIP、CID、AI法委任行為）いずれも可決できなかった。何が問題だったか？
+
+**最も確率が高い失敗パターン**（確率加重）:
+1. EDIP: 調達規則で理事会の阻止少数（イタリア+ハンガリー+オーストリア）（30%）
+2. CID: 社会条項でのS&D離反が過半数除去（25%）
+3. AI法委任行為: 欧州委員会が産業圧力下で争点条項を撤回（20%）
+4. 緊急立法アジェンダを要する地政学的緊急事態により3つすべて延期（15%）
+5. 議会内部断片化が3つを同時に否決（10%）
+
+**先見の明の洞察**: 最高リスク要因は欧州議会内の連立脆弱性でなく理事会での阻止少数。これはインテリジェンス監視の焦点推奨を議会内連立管理から欧州議会-理事会間機関間ダイナミクスへシフトする。
+
+#### SAT-9: イベントタイムライン追跡
+
+| 日付 | イベント | 分析的含意 |
+|------|-------|----------------------|
+| EP10開始（2024-07） | 717議員、HHI 0.1514 | 歴史的断片化確認 |
+| 2025年通期 | 議員5%刷新 | 制度的安定シグナル |
+| 2026-01 | 567回記名投票予測 | 記録的立法生産性 |
+| 2026-05-18 | 現在の分析日 | EDIP/CIDが活発な委員会段階 |
+| 2026-07 | デンマーク議長国開始 | 立法カレンダー加速 |
+| 2026-H2 | 財政枠組み前交渉 | 政治環境シフト |
+
+#### SAT-10: 代替的未来（シナリオ構築）
+
+**ベースライン（WEP 40%）**: EP10がEDIP、CID、AI委任行為を2026年Q4前に単純多数で可決。記録的立法遺産。
+
+**楽観的（WEP 25%）**: EDIPが超過半数で可決、CIDが三者交渉で完了、AIガバナンスがグローバル基準設定。EP10が近現代史で最も生産的な欧州議会に。
+
+**悲観的（WEP 25%）**: 理事会がEDIP調達条項を阻止、ドイツのエネルギー価格政策でCID延期、AI法がEU-米国貿易摩擦点火。EP10アジェンダ部分的停滞。
+
+**危機（WEP 10%）**: 大規模地政学・経済危機が緊急アジェンダを強制、全計画提案を迂回。立法遺産は危機対応に支配される。
+
+---
+
+### 4. 監視指標
+
+#### 指標グループA — 連立安定性（週次監視）
+- 主要採決でのEPPグループ結束スコア（出典：利用可能な場合の投票記録）
+- PfEのハンガリー議員のEPPとの整合度
+- 防衛ファイルでのS&D離反率
+
+#### 指標グループB — 立法進展（月次監視）
+- 本会議段階に到達する手続き（目標：2026年Q4までに主要提案35+）
+- EDIP、CID、AI法委任行為の三者交渉開始日
+- 2027立法計画の委員会報告者任命
+
+#### 指標グループC — 外部リスク（継続的監視）
+- 地政学的エスカレーションシグナル（ウクライナ、台湾、中東）
+- エネルギー価格指標（ドイツ基準電力）
+- IMFのEU成長予測（次回WEO 4月/10月）
+- ECB金融政策シグナル（財政環境）
+
+---
+
+### 5. 要約インテリジェンス評価
+
+**状況**: 🟢 重大な構造的脆弱性を伴う前向きな軌道
+
+**信頼度**: 🟡 中程度 — IMFデータ欠如と手続きフィード劣化により制約
+
+**時間的感度**: 高 — 2026年後半からの財政枠組み前交渉が政治環境を再形成
+
+**推奨行動**:
+1. EDIPとCIDの三者交渉開始日を監視 — これらが最短期間の最重要変数
+2. 防衛ファイルでのS&Dグループ規律を週次追跡
+3. 利用可能になり次第ドイツ、フランス、イタリアのIMF第IV条協議を確保 — 財政ガバナンス分析を大幅更新
+4. シナリオB（単純多数でEDIP可決）のメッセージング準備をベースライン運用シナリオとして
+
+### Executive Brief Ko
+
+### 날짜: 2026-05-18 | 분류: 분석 | 데이터 모드: 피드 저하
+
+**적용된 WEP 단위** | **사용 제독 신뢰 척도** | **SAT 문서는 아래 참조**
+
+---
+
+### 1. 상황 평가 — 최상위 수준
+
+유럽의회는 제10기에서 구조적으로 취약한 연립 조건(우파 블록 표차 16석; 파편화 허핀달-허쉬만 지수 0.1514 — EP10기 기록) 하에 최고 수준의 입법 속도(승인 법률 전년 대비 +46.2%)로 운영되고 있다. 세 가지 최우선 입법 과제가 발의안 파이프라인을 주도하고 있다: 유럽방위산업계획(EDIP), 청정산업거래(CID), AI법 위임 행위. 이 모두는 이탈 여지 없이 블록을 초월한 과반수 관리를 필요로 한다.
+
+**총체적 평가**: 🟢 입법 아젠다는 **궤도 유지** 중이나 정치적 리스크 허용 한계에서 운영 중. 실질 안정성은 주요 수치가 시사하는 것보다 낮다.
+
+---
+
+### 2. 핵심 분석 결론(KAC)
+
+#### KAC-1: 방위 분야의 초과반수는 구조적으로 독특함 [제독 A1, 🟢 높은 신뢰도]
+**WEP: 75% — EDIP는 어떤 형태로든 2026년 Q4까지 진전될 것으로 예상**
+
+EPP(183) + ECR(81) + S&D(136) + Renew(77) = 477명의 유럽의원이 원칙적으로 EDIP를 지지, 717석의 66.5% 대표 — 3분의 2 과반수 기준 초과. 방위 제조를 둘러싼 이념 횡단적 합의는 유럽의회 회기 역사상 전례가 없다. 경제 민족주의적 프레이밍이 방위 문제에서의 전통적 좌우 분열을 녹였다: 방위 의존 선거구(프랑스, 폴란드, 이탈리아)의 S&D 의원들은 더 이상 국내 정치적 결과 없이 EDIP에 반대할 수 없다.
+
+**검증 중인 핵심 가정(KAC-1 KA-1)**: S&D의 EDIP 규율이 Greens/Left/시민사회 압력에도 불구하고 유지되는 것. EP9에서의 S&D 역사적 이탈률: 방위 의제에서 12-18%. S&D의 20%(27명 의원)가 이탈하면 초과반수는 단순 과반수로 전락 — 여전히 승리지만 "큰 민주적 다수" 대외 소통 프레임은 없다.
+
+#### KAC-2: 연립 계산은 주변부에서 불안정 [제독 A2, 🟢 높은 신뢰도]
+**WEP: 60% — 2026년 중 ≤10표 차이의 표결이 최소 1회 발생할 가능성이 높음**
+
+우파 블록(EPP+ECR+PfE+ESN = 376)은 과반수 기준의 16석 위에서 운영. PfE 의원 9명(85석 중 9 = 10.6%)의 조율된 이탈이 우파 블록을 필요로 하는 모든 발의안을 부결시킨다. 대형 중도 연립(EPP+S&D+Renew = 396)은 36석 여유이나, EPP 선호 정책 내용을 희석시키는 S&D측 양보, 특히 농업, 재정 규정, 이민 분야의 타협을 필요로 한다.
+
+**검증 중인 핵심 가정(KAC-2 KA-1)**: EPP가 "진자 연립" 전략 — 일부 의제에 우파 블록, 다른 의제에 중도 연립 사용 — 을 어느 연립 파트너도 배신을 이유로 협력을 철회하지 않고 유지할 수 있는 것. EP9의 헝가리 선례는 이것이 가능함을 보였지만 제도적 압력을 만들어냈다.
+
+#### KAC-3: 기록적 입법 생산성이 구조적 긴장을 은폐 [제독 A2, 🟡 중간 신뢰도]
+**WEP: 55% — 2026년 하반기에 생산성 호황이 지속될 확률은 반반**
+
+935개의 활성 절차와 114개의 예상 입법(2026년)은 실질적인 제도적 산출물을 나타낸다. 그러나 위원회-본회의 억제 비율(43.8%)은 잠재적 병목 현상을 시사한다: 위원회가 본회의가 소화할 수 있는 것보다 빠른 속도로 입법 물량을 생산하고 있다. 2026년 하반기 덴마크 의장국의 이사회 입법 아젠다 관리 능력이 EP10의 생산성이 승인된 법률로 전환될지 기관 간 협상에서 정체될지를 결정할 것이다.
+
+#### KAC-4: IMF 경제적 맥락 데이터 이용 불가 [데이터 제약 — 🔴 부재]
+**영향: 중간 — 재정 거버넌스 분석의 신뢰도 감소**
+
+IMF의 World Economic Outlook 데이터는 이 릴리스에서 이용 불가(피드 저하). 따라서 재정 및 거시경제적 평가는 권위 있는 국가별 IMF 예측 대신 유럽의회 통계 소스 데이터와 오픈소스 경제 신호에 의존한다. 분석가들은 이 브리핑의 모든 거시경제적 주장을 표시된 것보다 낮은 신뢰도(제독 A→B, B→C)로 취급해야 한다.
+
+---
+
+### 3. 구조적 분석 기법(SAT) 문서
+
+#### SAT-1: 핵심 가정 점검(KAC) — KAC-1에서 KAC-3에 적용
+
+**방법론**: 위의 각 분석 결론은 가정의 명시적 표현과 내성 테스트를 거쳤다. 분석은 각 KAC를 데이터 소스(Phase A)까지 추적하고 잘못된 경우 평가에 가장 큰 영향을 미칠 가정을 식별한다.
+
+| KAC | 신뢰도 | 반증 조건 | 확률 |
+|-----|-----------|---------------------|-------------|
+| KAC-1: 방위 초과반수 유지 | 높음 | S&D 이탈>20% 또는 PfE 균열 | 20% |
+| KAC-2: 주변부 연립 | 높음 | 공식 EPP-ECR 연립 협약 | 15% |
+| KAC-3: 생산성 지속 | 중간 | 덴마크 의장국에 의한 이사회 방해 | 40% |
+
+#### SAT-2: 경쟁 가설 분석(ACH) — 주요 발의안에 대한 연립 전략
+
+**검증된 경쟁 가설들**:
+- H1: EPP가 2026년 모든 주요 발의안에 우파 블록(EPP+ECR+PfE+ESN) 사용
+- H2: EPP가 모든 주요 발의안에 중도 연립(EPP+S&D+Renew) 사용
+- H3: EPP가 진자 연립 전략 — 일부 의제에 우파 블록, 다른 의제에 중도파
+
+**증거 매트릭스**:
+
+| 증거 | H1 | H2 | H3 |
+|----------|----|----|-----|
+| EDIP 표결 역학(방위) | +++ | + | ++ |
+| CID 사회 조항 | -- | +++ | ++ |
+| AI법 고용 조항 | -- | +++ | ++ |
+| SGP/재정 규정 | + | ++ | +++ |
+| 농업/농약 | ++ | - | +++ |
+| 이민/헌장 이행 | +++ | -- | + |
+
+**결론**: H3(진자 연립)이 증거와 가장 일관성 있다. EPP는 이민, 방위, 농업에 우파 블록을; 사회·환경 의제에 중도 연립을 사용할 것이다.
+
+#### SAT-3: 시나리오 휠 — EDIP 결과 예측에 적용
+
+**시나리오 A(WEP 35%)**: EDIP가 477석 초과반수로 가결 — EP10의 상징적 유산 입법이 됨
+**시나리오 B(WEP 35%)**: S&D 부분 이탈 후 단순 과반수(360-400표)로 EDIP 가결 — 가결되나 대다수 소통 프레임 없음
+**시나리오 C(WEP 20%)**: 조달 규정을 둘러싼 이사회와의 삼자 협상 붕괴로 EDIP가 2027년으로 연기
+**시나리오 D(WEP 10%)**: EDIP 붕괴 — 지정학적 완화 또는 미국 안보 보장이 긴급성 제거
+
+**정책적 함의**: WEP 기준으로 B와 C가 가장 확률이 높다; 그러나 A는 제도적으로 매우 중요. 시나리오 B에 대한 메시징 준비가 가장 높은 우선순위의 실천적 과제다.
+
+#### SAT-4: 악마의 변호인 — KAC-3에 도전(입법 생산성)
+
+**악마의 변호인 입장**: 생산성 호황은 제도적 효율성의 증거가 *아니라* 입법 비대화의 증거 — 의원들은 각 입법이 덜 중요하기 때문에 *더 많이* 통과시키고 있다. 높은 HHI 파편화는 통과되는 유일한 입법이 어느 그룹의 실질적 이익도 위협하지 않는 것임을 의미한다. 획기적 입법은 정확히 정체되는 것이다.
+
+**DA 입장의 강도**: 🟡 중간. 법률 행위 연율 +46.2%는 중요하다. 그러나 각 입법 행위에 대한 품질/중요도 등급 없이 DA를 완전히 반박할 수 없다.
+
+**분석적 대응**: 진정한 불확실성으로 인정. 브리핑은 이것을 (KAC-3) 해결하지 않고 인정한다.
+
+#### SAT-5: 레드햇 분석(적대적 관점)
+
+**ECR/PfE 반대파 시각에서**:
+EPP/EU집행위원회가 "발의안" 주변에 구축한 내러티브는 위기 대응으로 위장한 최대 유럽 통합 아젠다다. 방위(EDIP), 녹색(CID), 디지털(AI법), 재정(SGP 개혁)은 합쳐서 EU 역사상 가장 야심찬 연방제 아젠다를 형성 — 민주적 숙의가 아닌 "필요성/지정학적 필요성" 정당화에 의해 추진된다.
+
+**왜 이 관점이 분석적으로 관련 있는가**: ECR/PfE 반대 내러티브는 193석과 주요 국가 정부 지지(이탈리아, 헝가리, 체코, 슬로바키아)를 보유한다. 이 정부들 중 하나라도 특정 의제에서 이사회 거부 소수를 확보하면 유럽의회의 발의안은 삼자 협상에서 정체된다. 레드햇 분석은 제도적 관점이 과소평가하는 발의안 아젠다의 구조적 취약성을 드러낸다.
+
+#### SAT-6: 모순 조사 — 내적 일관성 점검
+
+**모순 확인 및 해소**:
+- C1: 브리핑이 "기록적 입법 생산성"(강점)과 "구조적 연립 취약성"(약점)을 주장. 모순되어 보일 수 있다 — 연립이 취약하다면 생산성은 어떻게 높을 수 있는가?
+- **해소**: EP10의 기록적 생산성은 주로 논쟁이 없는 입법(기술적 위임 행위, AI 이행 규정, 재정 틀에 대한 소폭 수정)을 통해 달성됐다. 논쟁적인 획기적 입법(EDIP, CID, 이민 헌장 이행)은 정확히 연립 취약성이 결정되는 곳이다. 두 주장 모두 동시에 사실이다.
+
+#### SAT-7: 정보 품질 점검(QIC)
+
+| 데이터 소스 | 등급 | 커버리지 | 신뢰성 |
+|------------|-------|----------|------------|
+| 정치적 지형(A1) | A1 | 완전 | 높음 |
+| 의회 통계 2024-2026(A2) | A2 | 완전 | 높음 |
+| 채택 텍스트 피드(B2) | B2 | 부분(ID만) | 중간 |
+| 절차 피드 | F — 이용 불가 | 없음 | 해당 없음 |
+| IMF 경제 데이터 | F — 이용 불가 | 없음 | 해당 없음 |
+| 미디어/프레이밍 분석 | B3 | 정성적 | 중간 |
+
+**이 브리핑의 총 데이터 등급**: 🟡 **B2** — 제도적 구조와 의회 통계에 대해 신뢰할 수 있음; 특정 입법 파일과 거시경제적 맥락에 대해서는 제한적.
+
+#### SAT-8: 사전 사후 분석(Premortem)
+
+**시나리오**: 2026년 12월, EP10이 최우선 입법(EDIP, CID, AI법 위임 행위) 중 어느 것도 통과시키지 못했다. 무엇이 잘못됐는가?
+
+**가장 확률이 높은 실패 패턴** (확률 가중):
+1. EDIP: 조달 규정에서 이사회 거부 소수(이탈리아+헝가리+오스트리아)(30%)
+2. CID: 사회 조항에서 S&D 이탈이 과반수 제거(25%)
+3. AI법 위임 행위: EU집행위원회가 산업 압력 하에 논쟁적 조항 철회(20%)
+4. 긴급 입법 아젠다를 요하는 지정학적 비상사태로 셋 모두 연기(15%)
+5. 의회 내부 파편화가 셋을 동시에 무산(10%)
+
+**선제적 통찰**: 가장 높은 위험 요인은 유럽의회 내 연립 취약성이 아니라 이사회 내 거부 소수다. 이는 권장 인텔리전스 감시 초점을 의회 내 연립 관리에서 유럽의회-이사회 기관 간 역학으로 이동시킨다.
+
+#### SAT-9: 이벤트 타임라인 추적
+
+| 날짜 | 이벤트 | 분석적 함의 |
+|------|-------|----------------------|
+| EP10 시작(2024-07) | 의원 717명, HHI 0.1514 | 역사적 파편화 확인 |
+| 2025년 내내 | 의원 5% 교체 | 제도적 안정 신호 |
+| 2026-01 | 567회 기명 투표 예상 | 기록적 입법 생산성 |
+| 2026-05-18 | 현재 분석 날짜 | EDIP/CID가 활성 위원회 단계 |
+| 2026-07 | 덴마크 의장국 시작 | 입법 일정 가속 |
+| 2026-H2 | 재정 틀 이전 협상 | 정치적 환경 변화 |
+
+#### SAT-10: 대안적 미래(시나리오 구축)
+
+**기준선(WEP 40%)**: EP10이 2026년 Q4 이전에 EDIP, CID, AI 위임 행위를 단순 과반수로 통과시킴. 기록적 입법 유산.
+
+**낙관적(WEP 25%)**: EDIP가 초과반수로 통과, CID가 삼자 협상에서 완료, AI 거버넌스가 글로벌 기준 설정. EP10이 현대사에서 가장 생산적인 유럽의회가 됨.
+
+**비관적(WEP 25%)**: 이사회가 EDIP 조달 조항 차단, 독일 에너지 가격 정책으로 CID 지연, AI법이 EU-미국 무역 마찰 점화. EP10 아젠다 부분적 정체.
+
+**위기(WEP 10%)**: 대규모 지정학·경제 위기가 긴급 아젠다 강제, 모든 계획된 발의안 우회. 입법 유산은 위기 대응에 의해 지배됨.
+
+---
+
+### 4. 감시 지표
+
+#### 지표 그룹 A — 연립 안정성(주간 모니터링)
+- 주요 표결에서 EPP 그룹 결속 점수(출처: 이용 가능시 표결 기록)
+- PfE 내 헝가리 의원들과 EPP의 일치도
+- 방위 파일에서의 S&D 이탈률
+
+#### 지표 그룹 B — 입법 진전(월간 모니터링)
+- 본회의 단계에 도달하는 절차(목표: 2026년 Q4까지 주요 발의안 35+)
+- EDIP, CID, AI법 위임 행위의 삼자 협상 개시 날짜
+- 2027 입법 계획을 위한 위원회 보고자 임명
+
+#### 지표 그룹 C — 외부 위험(지속적 모니터링)
+- 지정학적 고조 신호(우크라이나, 대만, 중동)
+- 에너지 가격 지표(독일 기준 전력)
+- IMF의 EU 성장 예측(다음 WEO 4월/10월)
+- ECB 통화정책 신호(재정 환경)
+
+---
+
+### 5. 요약 인텔리전스 평가
+
+**상황**: 🟢 중요한 구조적 취약성을 가진 긍정적 궤적
+
+**신뢰도**: 🟡 중간 — IMF 데이터 부재와 절차 피드 저하로 제한됨
+
+**시간적 민감도**: 높음 — 2026년 하반기부터의 재정 틀 이전 협상이 정치 환경을 재형성
+
+**권장 행동**:
+1. EDIP와 CID의 삼자 협상 개시 날짜 모니터링 — 이것들이 단기 가장 중요한 변수
+2. 방위 파일에서 S&D 그룹 규율을 주간 추적
+3. 이용 가능해지면 독일, 프랑스, 이탈리아의 IMF 4조 협의 확보 — 재정 거버넌스 분석을 크게 업데이트
+4. 시나리오 B(단순 과반수로 EDIP 가결)에 대한 메시징 준비를 기준선 운용 시나리오로
+
+### Executive Brief Nl
+
+### Datum: 2026-05-18 | Classificatie: ANALYSE | Gegevensmodus: gedegradeerde feeds
+
+**WEP-banden toegepast** | **Admiraliteitsschaal gebruikt** | **SAT-documentatie hieronder**
+
+---
+
+### 1. Situatiebeoordeling — Overzicht
+
+De 10e zittingsperiode van het Europees Parlement opereert op maximale wetgevingssnelheid (+46,2 % jaar-op-jaar in aangenomen wetgeving) onder structureel fragiele coalitieomsrandigheden (marge van 16 stemmen voor het rechterblok; HHI-fragmentatie 0,1514 — EP10-record). Drie wetgevende superprioriteiten domineren de voorstellenpijplijn: het Europees programma voor de defensie-industrie (EDIP), de Schone Industriële Deal (CID) en gedelegeerde handelingen van de AI-wet. Alle drie vereisen blokoverschrijdend meerderheidsbeheer dat geen ruimte laat voor defecties.
+
+**Algehele beoordeling**: 🟢 De wetgevingsagenda is **OP KOERS**, maar opereert op de grenzen van de politieke risicotolerantie. De veerkracht is lager dan de kopregelcijfers suggereren.
+
+---
+
+### 2. Centrale analytische conclusies (KAC)
+
+#### KAC-1: De defensie-supermeerderheid is structureel uniek [Admiraliteit A1, 🟢 HOOG VERTROUWEN]
+**WEP: 75 % — WAARSCHIJNLIJK dat EDIP in een of andere vorm vóór Q4 2026 voortgang boekt**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 EP-leden steunen EDIP in principe, wat 66,5 % van de 717 zetels van het Parlement vertegenwoordigt — boven de 2/3 supermeerderheidsdrempel. Deze trans-ideologische convergentie over defensie-industrialisatie is historisch gezien ongekend in EP-zittingsperioden. Het economisch-nationalistische kader heeft de traditionele links-rechts-kloof over defensie opgelost: S&D-EP-leden uit defensie-afhankelijke kiesdistricten (Franse, Poolse, Italiaanse) kunnen EDIP niet langer tegenwerken zonder politieke kosten thuis.
+
+**Gecontroleerde sleutelaanname (KAC-1 KA-1)**: Dat de S&D-discipline op EDIP standhoudt ondanks druk van Greens/Left/maatschappelijk middenveld. Historisch defectiepercentage van S&D op defensiedossiers: 12–18 % in EP9. Als 20 % van S&D (27 EP-leden) defecteert, wordt de supermeerderheid een gewone meerderheid — nog steeds winnend, maar zonder het communicatiekader "democratische supermeerderheid".
+
+#### KAC-2: De coalitie-rekenkunde is instabiel aan de marge [Admiraliteit A2, 🟢 HOOG VERTROUWEN]
+**WEP: 60 % — WAARSCHIJNLIJKER DAN NIET dat ten minste één grote stemming in 2026 wordt beslist met ≤ 10 stemmen**
+
+De rechterblokcoalitie (EPP+ECR+PfE+ESN = 376) opereert met 16 stemmen boven de meerderheidsdrempel. Een gecoördineerde 9-EP-lid-defectie van PfE (9 van 85 zetels = 10,6 %) verslaat elk voorstel dat het rechterblok vereist. Het grote centristische alternatief (EPP+S&D+Renew = 396) heeft een marge van 36 stemmen, maar vereist S&D-compromissen die de door EPP geprefereerde politieke inhoud verwatert, met name op het gebied van landbouw, begrotingsregels en immigratie.
+
+**Gecontroleerde sleutelaanname (KAC-2 KA-1)**: Dat EPP de "slingercoalitie"-strategie kan handhaven — het rechterblok voor sommige dossiers gebruiken, de centristische coalitie voor andere — zonder dat een coalitiegenoot de samenwerking intrekt met het narratief van verraad. Het Hongaarse precedent in EP9 toonde aan dat dit mogelijk is maar institutionele stress genereert.
+
+#### KAC-3: Recordwetgevingsproductiviteit maskeert structurele spanningen [Admiraliteit A2, 🟡 GEMIDDELD VERTROUWEN]
+**WEP: 55 % — ONGEVEER GELIJK of de productiviteitsstijging doorzet gedurende H2 2026**
+
+935 actieve procedures en 114 geprojecteerde wetgevingshandelingen (2026) vertegenwoordigen echte institutionele output. Het commissie-naar-plenaire-trechterverhoudling (43,8 %) suggereert echter potentiële knelpunten: commissies genereren wetgevingsvolume sneller dan de plenaire vergadering kan absorberen. Het vermogen van het Deense voorzitterschap om de wetgevingsagenda van de Raad in H2 2026 te beheren, bepaalt of de productiviteit van EP10 vertaald wordt naar aangenomen wetgeving of vastloopt in interinstitutionele onderhandelingen.
+
+#### KAC-4: IMF-economische contextgegevens niet beschikbaar [GEGEVENSLIMITATIE — 🔴 AFWEZIG]
+**Impact: Matig — vermindert het vertrouwen in de analyse van begrotingsbestuur**
+
+IMF World Economic Outlook-gegevens zijn niet beschikbaar in deze uitvoering (gedegradeerde feeds). Begrotings- en macro-economische beoordelingen zijn derhalve afhankelijk van EP-gebaseerde statistische gegevens en open-source economische signalen in plaats van gezaghebbende IMF-landspecifieke projecties. Analisten dienen alle macro-economische beweringen in dit overzicht te behandelen als één betrouwbaarheidsniveau lager dan aangegeven (Admiraliteit A→B, B→C).
+
+---
+
+### 3. Documentatie van gestructureerde analytische techniek (SAT)
+
+#### SAT-1: Controle van sleutelaannames (KAC) — Toegepast op KAC-1 tot KAC-3
+
+**Methodologie**: Elke analytische conclusie hierboven is onderworpen aan expliciete aanname-articulatie en stresstesting. De analyse traceert elk KAC naar zijn gegevensbronnen (Stap A) en identificeert de aanname die, indien onjuist, de beoordeling het meest zou veranderen.
+
+| KAC | Vertrouwen | Falsificerende voorwaarde | Waarschijnlijkheid |
+|-----|-----------|---------------------|-------------|
+| KAC-1: Defensie-supermeerderheid houdt stand | HOOG | S&D >20 % defectie of PfE-breuk | 20 % |
+| KAC-2: Coalitie aan de marge | HOOG | EPP-ECR formeel coalitieakkoord | 15 % |
+| KAC-3: Productiviteit zet door | GEMIDDELD | Deens voorzitterschap raadsblok | 40 % |
+
+#### SAT-2: Analyse van concurrerende hypothesen (ACH) — Coalitiestrategie voor kernvoorstellen
+
+**Getoetste concurrerende hypothesen**:
+- H1: EPP gebruikt het rechterblok (EPP+ECR+PfE+ESN) voor alle grote voorstellen van 2026
+- H2: EPP gebruikt de centristische coalitie (EPP+S&D+Renew) voor alle grote voorstellen
+- H3: EPP gebruikt een slingercoalitiestrategie — rechterblok voor sommige, centristen voor andere
+
+**Bewijsmatrix**:
+
+| Bewijs | H1 | H2 | H3 |
+|----------|----|----|-----|
+| EDIP-stemmingsdynamiek (defensie) | +++ | + | ++ |
+| CID-sociale bepalingen | -- | +++ | ++ |
+| AI-wet-arbeidsmarktbepalingen | -- | +++ | ++ |
+| SGP/begrotingsregels | + | ++ | +++ |
+| Landbouw/pesticiden | ++ | - | +++ |
+| Migratie/pactimplementatie | +++ | -- | + |
+
+**Conclusie**: H3 (slingercoalitie) is het meest consistent met het bewijs. EPP zal het rechterblok gebruiken voor migratie, defensie en landbouw; centristische coalitie voor sociale en milieudossiers.
+
+#### SAT-3: Scenariowiel — Toegepast op de EDIP-uitkomstprognose
+
+**Scenario A (WEP 35 %)**: EDIP aangenomen met goedkeuring van de 477-zetels-supermeerderheid — wordt de vlaggenschip EP10-erfeniswetgeving
+**Scenario B (WEP 35 %)**: EDIP aangenomen met gewone meerderheid (360–400 stemmen) na gedeeltelijke S&D-defectie — aangenomen maar zonder supermeerderheid-communicatiekader
+**Scenario C (WEP 20 %)**: EDIP vertraagd tot 2027 door mislukking van trilogie met de Raad over aanbestedingsregels
+**Scenario D (WEP 10 %)**: EDIP instort — geopolitische de-escalatie of Amerikaanse veiligheidsgarantie neemt de urgentie weg
+
+**Politieke betekenis**: B en C zijn de meest waarschijnlijke uitkomsten per WEP; maar A zou onevenredig grote institutionele betekenis hebben. Het voorbereiden van berichten voor scenario B is de operationeel meest belangrijke taak.
+
+#### SAT-4: Advocaat van de duivel — Uitdaging van KAC-3 (Wetgevingsproductiviteit)
+
+**Positie van de advocaat van de duivel**: De productiviteitsstijging is *geen* bewijs van institutionele effectiviteit maar bewijs van wetgevingsinflatie — EP-leden nemen meer wetgeving aan juist *omdat* elk stuk wetgeving minder betekenisvol is. Hoge HHI-fragmentatie betekent dat de enige wetgeving die wordt aangenomen wetgeving is die zo onschuldig is dat het de kernbelangen van geen enkele groep bedreigt. Baanbrekende wetgeving is precies wat vastloopt.
+
+**Kracht van de DA-positie**: 🟡 GEMIDDELD. De +46,2 % jaar-op-jaar in handelingen is significant. Echter, zonder kwaliteits-/significantiescoring van elke wetgevingshandeling kan DA niet volledig worden weerlegd.
+
+**Analytisch antwoord**: Erkend als een echte onzekerheid. Het overzicht erkent dit (KAC-3) zonder het op te lossen.
+
+#### SAT-5: Rode-hoed-analyse (Tegenstander perspectief)
+
+**Vanuit het perspectief van de ECR/PfE-oppositie**:
+Het "voorstellen"-narratief dat door EPP/Commissie wordt opgebouwd is een maximale EU-integratie-agenda vermomd als crisisrespons. Defensie (EDIP), groen (CID), digitaal (AI-wet) en begrotingspolitiek (SGP-hervorming) vormen samen de meest ambitieuze federaliserende agenda in de EU-geschiedenis — en die wordt doorgedrukt met de "noodzaak/geopolitieke noodzaak"-rechtvaardiging in plaats van democratische deliberatie.
+
+**Waarom dit perspectief analytische relevantie heeft**: Het ECR/PfE-tegennarratief heeft 193 zetels en significante nationale regeringssteun (Italië, Hongarije, Tsjechië, Slowakije). Als een van deze regeringen een blokkerende minderheid in de Raad krijgt op specifieke dossiers, zullen EP-voorstellen vastlopen in de trilogie. De rode-hoed-analyse onthult de structurele fragiliteit in de EP-voorstellenagenda die de institutionele visie minimaliseert.
+
+#### SAT-6: Contradictiescan — Interne consistentiecheck
+
+**Contradictie geïdentificeerd en opgelost**:
+- C1: Het overzicht beweert "recordwetgevingsproductiviteit" (sterkte) en "structurele coalitiebroosheid" (zwakte). Deze kunnen tegenstrijdig lijken — hoe kan de productiviteit hoog zijn als de coalities fragiel zijn?
+- **Oplossing**: Recordproductiviteit in EP10 is primair bereikt via niet-controversiële wetgeving (technische gedelegeerde handelingen, AI-implementatieregels, kleine MFK-aanpassingen). Controversiële vlaggenschipwetgeving (EDIP, CID, migratiepackimplementatie) is precies daar waar coalitiebroosheid het meest telt. Beide beweringen zijn tegelijkertijd waar.
+
+#### SAT-7: Informatiekwaliteitscheck (QIC)
+
+| Gegevensbron | Beoordeling | Dekking | Betrouwbaarheid |
+|------------|-------|----------|------------|
+| Politiek landschap (A1) | A1 | Compleet | Hoog |
+| EP-statistieken 2024–2026 (A2) | A2 | Compleet | Hoog |
+| Feed aangenomen teksten (B2) | B2 | Gedeeltelijk (alleen ID's) | Gemiddeld |
+| Procedurefeed | F — niet beschikbaar | Geen | N/A |
+| IMF-economische gegevens | F — niet beschikbaar | Geen | N/A |
+| Media-/framinganalyse | B3 | Kwalitatief | Gemiddeld |
+
+**Totale databeoordeling voor dit overzicht**: 🟡 **B2** — betrouwbaar over EP-institutionele structuur en statistieken; beperkt over specifieke wetgevingsdossiers en macro-economische context.
+
+#### SAT-8: Vooroverlijdensanalyse (Premortem)
+
+**Scenario**: Het is december 2026 en EP10 heeft geen van zijn drie wetgevende superprioriteiten (EDIP, CID, AI-wet gedelegeerde handelingen) aangenomen. Wat is er misgegaan?
+
+**Meest waarschijnlijke faalwijzen** (kansgewogen):
+1. EDIP: Blokkerende minderheid in de Raad (Italië+Hongarije+Oostenrijk) over aanbestedingsregels (30 %)
+2. CID: S&D-defectie over sociale bepalingen verwijdert de meerderheid (25 %)
+3. AI-wet gedelegeerde handelingen: Commissie trekt controversiële bepalingen terug onder industriedruk (20 %)
+4. Alle drie vertraagd door geopolitieke noodsituatie die een noodwetgevingsagenda vereist (15 %)
+5. EP-interne fragmentatie doet alle drie simultaan mislukken (10 %)
+
+**Premortem-inzicht**: De enkel hoogste risicofactor is de blokkerende minderheid in de Raad, niet de EP-coalitiefragiliteit. Dit verschuift de aanbevolen inlichtingenfocus van intra-EP coalitiebeheer naar interinstitutionele EP-Raad-dynamiek.
+
+#### SAT-9: Chronologische gebeurtenisvolging
+
+| Datum | Gebeurtenis | Analytische implicatie |
+|------|-------|----------------------|
+| EP10-start (2024-07) | 717 EP-leden, HHI 0,1514 | Historische fragmentatie bevestigd |
+| Heel 2025 | 5 % EP-lid-verloop | Institutioneel stabiliteitssignaal |
+| 2026-01 | 567 RCV-stemmingen geprojecteerd | Recordwetgevingsproductiviteit |
+| 2026-05-18 | Huidig analysedatum | EDIP/CID in actieve commissiefase |
+| 2026-07 | Start Deens voorzitterschap | Versnelling wetgevingskalender |
+| 2026-H2 | MFK-pre-onderhandelingen | Politieke omgevingsverandering |
+
+#### SAT-10: Alternatieve toekomsten (Scenariobouw)
+
+**Basisscenario (WEP 40 %)**: EP10 neemt EDIP, CID en AI-gedelegeerde handelingen aan met gewone meerderheden vóór Q4 2026. Recordwetgevingserfenis. 
+
+**Optimistisch (WEP 25 %)**: EDIP aangenomen met supermeerderheid, CID afgerond in trilogie, AI-governance stelt mondiale standaard. EP10 wordt het meest productieve EP in de moderne geschiedenis.
+
+**Pessimistisch (WEP 25 %)**: Raad blokkeert EDIP-aanbestedingsbepalingen, CID vertraagd door Duits energieprijsbeleid, AI-wet veroorzaakt EU-VS handelsfricties. EP10-agenda loopt gedeeltelijk vast.
+
+**Crisis (WEP 10 %)**: Grote geopolitieke of economische crisis forceert noodagenda, alle geplande voorstellen verdringend. Wetgevingserfenis gedomineerd door crisisrespons.
+
+---
+
+### 4. Bewakingsindicatoren
+
+#### Indicatorset A — Coalitiesstabiliteit (Wekelijks bewaken)
+- EPP-groepscohesiescores bij sleutelstemmen (bron: stemregistraties indien beschikbaar)
+- PfE-Hongaarse EP-lid-afstemming vs. EPP
+- S&D-defectiepercentage bij defensiedossiers
+
+#### Indicatorset B — Wetgevende voortgang (Maandelijks bewaken)
+- Procedures die de plenaire fase bereiken (doel: 35+ grote voorstellen vóór Q4 2026)
+- Trilogie-openingsdata voor EDIP, CID, AI-wet gedelegeerde handelingen
+- Commissieverslaggeversbenoemingen voor het wetgevingsprogramma 2027
+
+#### Indicatorset C — Externe risico's (Continu bewaken)
+- Geopolitieke escalatiesignalen (Oekraïne, Taiwan, Midden-Oosten)
+- Energieprijsindices (Duits basislaststroomvermogen)
+- IMF EU-groeiprognoses (volgende WEO april/oktober)
+- ECB-monetairbeleidssignalen (begrotingspolitieke omgeving)
+
+---
+
+### 5. Samenvattende inlichtingenbeoordeling
+
+**Status**: 🟢 POSITIEVE TRAJECT met aanzienlijke structurele kwetsbaarheden
+
+**Vertrouwen**: 🟡 GEMIDDELD — beperkt door afwezigheid van IMF-gegevens en procedurefeed-degradatie
+
+**Tijdsgevoeligheid**: HOOG — MFK-pre-onderhandelingen die beginnen in H2 2026 zullen de politieke omgeving hervormen
+
+**Aanbevolen acties**:
+1. Bewak trilogie-openingsdata voor EDIP en CID — dit zijn de meest beslissende kortetermijnvariabelen
+2. Volg wekelijks de S&D-groepsdiscipline op defensiedossiers
+3. Verkrijg IMF-Artikel IV-consultatiegegevens voor Duitsland/Frankrijk/Italië wanneer beschikbaar — dit zal de begrotingsbestuur-analyse aanzienlijk bijwerken
+4. Bereid berichten van scenario B voor (EDIP aangenomen met gewone meerderheid) als operationeel basisscenario
+
+### Executive Brief No
+
+### Dato: 2026-05-18 | Klassifisering: ANALYSE | Datatilstand: degraderte strømmer
+
+**WEP-bånd anvendt** | **Admiralitetsskala brukt** | **SAT-dokumentasjon nedenfor**
+
+---
+
+### 1. Situasjonsvurdering — Toppnivå
+
+Europaparlamentets 10. parlamentsperiode opererer med toppfart i lovgivningsarbeidet (+46,2 % år over år i vedtatte lover) under strukturelt skjøre koalisjonsforhold (16-stemmers margin for høyreblokken; HHI-fragmentering 0,1514 — EP10-rekord). Tre lovgivende superprioriteringer dominerer proposisjonspipelinen: det europeiske forsvarsindustriprogrammet (EDIP), den rene industriavtalen (CID) og AI-lovens delegerte rettsakter. Alle tre krever blokoverskridende majoritetsforvaltning som ikke gir rom for defeksjoner.
+
+**Samlet vurdering**: 🟢 Lovgivningsagendaen er **PÅ RIKTIG SPOR** men opererer ved grensene for politisk risikotoleranse. Motstandskraften er lavere enn overskriftstallene antyder.
+
+---
+
+### 2. Sentrale analytiske konklusjoner (KAC)
+
+#### KAC-1: Forsvars-supermajoriteten er strukturelt unik [Admiralitet A1, 🟢 HØY KONFIDENS]
+**WEP: 75 % — SANNSYNLIG at EDIP avanserer i en eller annen form innen Q4 2026**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 MEP-er støtter EDIP i prinsippet, noe som representerer 66,5 % av parlamentets 717 seter — og overstiger terskelen for 2/3 supermajoritet. Denne tverrideologiske konvergensen om forsvarsindustrialisering er historisk uten sidestykke i EP-perioder. Den økonomisk-nasjonalistiske rammen har oppløst den tradisjonelle venstre-høyre-kløften om forsvar: S&D-MEP-er fra forsvarsavhengige valgkretser (franske, polske, italienske) kan ikke lenger motsi seg EDIP uten politiske kostnader hjemme.
+
+**Nøkkelantagelse under kontroll (KAC-1 KA-1)**: At S&D:s disiplin om EDIP holder tross Greens/Left/sivilsamfunnets press. Historisk defeksjonsrate for S&D på forsvarsfiler: 12–18 % i EP9. Hvis 20 % av S&D (27 MEP-er) defekterer, blir supermajoriteten til en enkel majoritet — fortsatt vinnende, men uten kommunikasjonsrammen "demokratisk supermajoritet".
+
+#### KAC-2: Koalisjonsaritmetikken er ustabil ved marginen [Admiralitet A2, 🟢 HØY KONFIDENS]
+**WEP: 60 % — MER SANNSYNLIG ENN IKKE at minst én viktig avstemning avgjøres med ≤ 10 stemmer i 2026**
+
+Høyreblokkskoalisjonen (EPP+ECR+PfE+ESN = 376) opererer med 16 stemmer over majoritetsterskelen. En koordinert 9-MEP-defeksjon fra PfE (9 av 85 seter = 10,6 %) bestemmer ethvert forslag som krever høyreblokken. Det store sentristiske alternativet (EPP+S&D+Renew = 396) har 36-stemmers margin men krever S&D-kompromisser som utvanner EPP:s foretrukne politikkinnhold, særlig om landbruk, finansregler og innvandring.
+
+**Nøkkelantagelse under kontroll (KAC-2 KA-1)**: At EPP kan opprettholde "sving-koalisjons"-strategien — bruke høyreblokken til noen filer, sentristisk koalisjon til andre — uten at en koalisjonspartner trekker samarbeidet tilbake med narrativet om forræderi. Det ungarske prejudikatet i EP9 viste at dette er mulig, men genererer institusjonell stress.
+
+#### KAC-3: Rekordlovgivningsproduktivitet skjuler strukturelle spenninger [Admiralitet A2, 🟡 MIDDELS KONFIDENS]
+**WEP: 55 % — OMTRENT JEVNT at produktivitetsøkningen fortsetter gjennom H2 2026**
+
+935 aktive prosedyrer og 114 prosjekterte lovgivningsakter (2026) representerer genuint institusjonelt utput. Imidlertid antyder komité-til-plenum-traktforholdet (43,8 %) potensielle flaskehalser: komiteene genererer lovgivningsvolum raskere enn plenum kan absorbere. Det danske formannskapets evne til å styre Rådets lovgivningsagenda i H2 2026 vil avgjøre om EP10:s produktivitet omsettes til vedtatt lov eller stopper opp i interinstitusjonelle forhandlinger.
+
+#### KAC-4: IMF-økonomiisk kontekstdata utilgjengelige [DATABEGRENSNING — 🔴 FRAVÆRENDE]
+**Innvirkning: Moderat — reduserer konfidensgraden i analyse av finanspolitisk styring**
+
+IMF World Economic Outlook-data er ikke tilgjengelige i denne kjøringen (degraderte strømmer). Finansielle og makroøkonomiske vurderinger er derfor avhengige av EP-baserte statistiske data og åpne kilde-økonomiske signaler snarere enn autoritative IMF-landsspecifikke projeksjoner. Analytikere bør behandle alle makroøkonomiske påstander i dette sammendraget som å ha én konfidensgrad lavere enn angitt (Admiralitet A→B, B→C).
+
+---
+
+### 3. Dokumentasjon av strukturert analytisk teknikk (SAT)
+
+#### SAT-1: Kontroll av nøkkelantagelser (KAC) — Anvendt på KAC-1 til KAC-3
+
+**Metode**: Enhver analytisk konklusjon ovenfor er underkastet eksplisitt antagelsesformulering og stresstesting. Analysen sporer hvert KAC til sine datakilder (Trinn A) og identifiserer antagelsen som, hvis den er feil, mest ville endre vurderingen.
+
+| KAC | Konfidens | Falsifiseringsbetingelse | Sannsynlighet |
+|-----|-----------|---------------------|-------------|
+| KAC-1: Forsvars-supermajoriteten holder | HØY | S&D >20 % defeksjon eller PfE-bruddd | 20 % |
+| KAC-2: Koalisjon ved marginen | HØY | EPP-ECR formell koalisjonsavtale | 15 % |
+| KAC-3: Produktiviteten fortsetter | MIDDELS | Dansk formannskaps rådsblokering | 40 % |
+
+#### SAT-2: Analyse av konkurrerende hypoteser (ACH) — Koalisjonsstrategi for sentrale proposisjoner
+
+**Konkurrerende hypoteser testet**:
+- H1: EPP bruker høyreblokken (EPP+ECR+PfE+ESN) til alle større proposisjoner i 2026
+- H2: EPP bruker sentristisk koalisjon (EPP+S&D+Renew) til alle større proposisjoner
+- H3: EPP bruker sving-koalisjonsstrategi — høyreblokken til noen, sentrister til andre
+
+**Bevismatrise**:
+
+| Bevis | H1 | H2 | H3 |
+|----------|----|----|-----|
+| EDIP-avstemningsdynamikk (forsvar) | +++ | + | ++ |
+| CID:s sosiale bestemmelser | -- | +++ | ++ |
+| AI-lovens arbeidsmarkedsbestemmelser | -- | +++ | ++ |
+| SGP/finansregler | + | ++ | +++ |
+| Landbruk/pesticider | ++ | - | +++ |
+| Migrasjon/pakteimplementering | +++ | -- | + |
+
+**Konklusjon**: H3 (sving-koalisjon) er mest konsistent med bevisene. EPP vil bruke høyreblokken til migrasjon, forsvar og landbruk; sentristisk koalisjon til sosiale og miljømessige filer.
+
+#### SAT-3: Scenariohjul — Anvendt på EDIP-utfallsprognose
+
+**Scenario A (WEP 35 %)**: EDIP vedtas med 477-seters supermajoritetsendorsering — blir flaggskips-EP10-arvslovgivning
+**Scenario B (WEP 35 %)**: EDIP vedtas med enkel majoritet (360–400 stemmer) etter S&D:s delvise defeksjon — vedtas men uten supermajoritetskommunikasjonsramme
+**Scenario C (WEP 20 %)**: EDIP forsinkes til 2027 på grunn av trilogue-sammenbrudd med Rådet om innkjøpsregler
+**Scenario D (WEP 10 %)**: EDIP kollapser — geopolitisk de-eskalering eller amerikansk sikkerhetsgaranti fjerner hastebehovet
+
+**Politisk betydning**: B og C er de mest sannsynlige utfallene per WEP; men A vil ha uforholdsmessig institusjonell betydning. Å forberede meldinger for B-scenariet er den operativt viktigste oppgaven.
+
+#### SAT-4: Djevelens advokat — Utfordring av KAC-3 (Lovgivningsproduktivitet)
+
+**Djevelens advokat-posisjon**: Produktivitetssurgen er *ikke* bevis på institusjonell effektivitet men bevis på lovgivningsinflasjon — MEP-er vedtar mer lovgivning nettopp *fordi* hvert stykke lovgivning er mindre betydningsfullt. Høy HHI-fragmentering betyr at den eneste lovgivningen som vedtas er lovgivning som er så ukontroversiell at den ikke truer noen gruppes kjerneinteresse. Banebrytende lovgivning er nettopp det som sitter fast.
+
+**Styrken til DA-posisjonen**: 🟡 MIDDELS. De +46,2 % år over år i akter er signifikante. Men uten kvalitets-/signifikansscore for hver lovgivningsakt kan DA ikke fullt ut tilbakevises.
+
+**Analytisk svar**: Erkjent som en reell usikkerhet. Sammendraget anerkjenner dette (KAC-3) uten å løse det.
+
+#### SAT-5: Rød hatt-analyse (Motstanderperspektiv)
+
+**Fra ECR/PfE-opposisjonens perspektiv**:
+Det "proposisjoner"-narrativet som bygges opp av EPP/Kommisjonen er en maksimal EU-integrasjonsagenda forkledd som kriserespons. Forsvar (EDIP), grønt (CID), digitalt (AI-loven) og finanspolitisk (SGP-reform) utgjør til sammen den mest ambisiøse føderaliseringsagendaen i EU:s historie — og den drives gjennom med begrunnelsen "nødvendighet/geopolitisk nødvendighet" snarere enn demokratisk deliberasjon.
+
+**Hvorfor dette perspektivet har analytisk relevans**: ECR/PfE-motnarrativet har 193 seter og betydelig nasjonal regjeringsstøtte (Italia, Ungarn, Tsjekkia, Slovakia). Hvis noen av disse regjeringene oppnår blokkerende minoritet i Rådet på spesifikke filer, vil EP-proposisjoner stoppe opp i trilogue. Rød hatt-analyse avslører den strukturelle skjørheten i EP:s proposisjonsagenda som det institusjonelle synet minimerer.
+
+#### SAT-6: Motsigelsesskanning — Intern konsistenssjekk
+
+**Motsigelse identifisert og løst**:
+- C1: Sammendraget hevder "rekordlovgivningsproduktivitet" (styrke) og "strukturell koalisjonsinstabilitet" (svakhet). Disse kan virke motstridende — hvordan kan produktiviteten være høy hvis koalisjonene er skjøre?
+- **Løsning**: Rekordproduktivitet i EP10 er primært oppnådd gjennom ikke-kontroversiell lovgivning (tekniske delegerte akter, AI-implementeringsregler, mindre MFF-justeringer). Kontroversiell flaggskipslovgivning (EDIP, CID, migrasjonspakteimplementering) er nettopp der koalisjonsinstabilitet betyr mest. Begge påstander er sanne samtidig.
+
+#### SAT-7: Informasjonskvalitetssjekk (QIC)
+
+| Datakilde | Karakter | Dekning | Pålitelighet |
+|------------|-------|----------|------------|
+| Politisk landskap (A1) | A1 | Komplett | Høy |
+| EP-statistikk 2024–2026 (A2) | A2 | Komplett | Høy |
+| Vedtatte tekster-strøm (B2) | B2 | Delvis (ID-er kun) | Middels |
+| Prosedyrstrøm | F — utilgjengelig | Ingen | N/A |
+| IMF-økonomidata | F — utilgjengelig | Ingen | N/A |
+| Medie-/rammesettingsanalyse | B3 | Kvalitativ | Middels |
+
+**Samlet datakarakter for dette sammendraget**: 🟡 **B2** — pålitelig om EP:s institusjonelle struktur og statistikk; begrenset om spesifikke lovgivningsfiler og makroøkonomisk kontekst.
+
+#### SAT-8: Forhåndsobduksjon
+
+**Scenario**: Det er desember 2026 og EP10 har ikke klart å vedta noen av sine tre lovgivende superprioriteringer (EDIP, CID, AI-lovens delegerte akter). Hva gikk galt?
+
+**Mest sannsynlige fiaskomåter** (sannsynlighetsvektede):
+1. EDIP: Rådets blokkerende minoritet (Italia+Ungarn+Østerrike) om innkjøpsregler (30 %)
+2. CID: S&D:s defeksjon om sosiale bestemmelser fjerner majoriteten (25 %)
+3. AI-lovens delegerte akter: Kommisjonen trekker tilbake kontroversielle bestemmelser under industripress (20 %)
+4. Alle tre forsinket av geopolitisk nødsituasjon som krever nødlovgivningsagenda (15 %)
+5. EP:s interne fragmentering gjør at alle tre mislykkes simultant (10 %)
+
+**Forhåndsobduksjonsinsikt**: Den enkelt høyeste risikofaktoren er Rådets blokkerende minoritet, ikke EP:s koalisjonsinstabilitet. Dette skifter anbefalt etterretningsfokus fra intra-EP koalisjonsforvaltning til interinstitusjonell EP-Råds-dynamikk.
+
+#### SAT-9: Kronologisk hendelsesporing
+
+| Dato | Hendelse | Analytisk implikasjon |
+|------|-------|----------------------|
+| EP10-start (2024-07) | 717 MEP-er, HHI 0,1514 | Historisk fragmentering bekreftet |
+| Hele 2025 | 5 % MEP-omsetning | Institusjonelt stabilitetsignal |
+| 2026-01 | 567 RCV-avstemninger prosjektert | Rekordlovgivningsproduktivitet |
+| 2026-05-18 | Nåværende analysedato | EDIP/CID i aktivt komitéstadium |
+| 2026-07 | Dansk formannskapsstart | Akselerasjon av lovgivningskalender |
+| 2026-H2 | MFF-forforhandlinger | Politisk miljøendring |
+
+#### SAT-10: Alternative fremtider (Scenariobygging)
+
+**Grunnlinje (WEP 40 %)**: EP10 vedtar EDIP, CID og AI-delegerte akter med enkle majoriteter innen Q4 2026. Rekordlovgivningsarv. 
+
+**Optimistisk (WEP 25 %)**: EDIP vedtas med supermajoritet, CID avsluttes i trilogue, AI-styring setter global standard. EP10 blir det mest produktive EP i moderne historie.
+
+**Pessimistisk (WEP 25 %)**: Rådet blokkerer EDIP:s innkjøpsbestemmelser, CID forsinkes av tysk energipolitikk, AI-loven utløser USA-EU handelsfriksjoner. EP10:s agenda stopper delvis opp.
+
+**Krise (WEP 10 %)**: Stor geopolitisk eller økonomisk krise tvinger frem nødagenda og fortrenger alle planlagte proposisjoner. Lovgivningsarvet domineres av kriserespons.
+
+---
+
+### 4. Overvåkingsindikatorer
+
+#### Indikatorsett A — Koalisjonsstabilitet (Overvåk ukentlig)
+- EPP-gruppens kohesjonsscore ved sentrale avstemninger (kilde: stemmebøker når tilgjengelige)
+- PfE:s ungarske MEP-tilpasning vs. EPP
+- S&D:s defeksjonsrate på forsvarsfiler
+
+#### Indikatorsett B — Lovgivningsmessige fremskritt (Overvåk månedlig)
+- Prosedyrer som når plenumstadiet (mål: 35+ større proposisjoner innen Q4 2026)
+- Trilogue-åpningsdatoer for EDIP, CID, AI-lovens delegerte akter
+- Komitérapportørutnevnelser for 2027-lovgivningsprogrammet
+
+#### Indikatorsett C — Eksterne risikoer (Overvåk kontinuerlig)
+- Geopolitiske eskaleringssignaler (Ukraina, Taiwan, Midtøsten)
+- Energiprisindekser (tysk grunnlaststrøm)
+- IMF:s EU-vekstprognoser (neste WEO april/oktober)
+- ECB:s pengepolitiske signaler (finanspolitisk miljø)
+
+---
+
+### 5. Samlet etterretningsvurdering
+
+**Status**: 🟢 POSITIV BANE med betydelige strukturelle sårbarheter
+
+**Konfidens**: 🟡 MIDDELS — begrenset av IMF-datafravær og prosedyrstrømdegradation
+
+**Tidssensitivitet**: HØY — MFF-forforhandlinger som starter 2026-H2 vil omforme det politiske miljøet
+
+**Anbefalte handlinger**:
+1. Overvåk trilogue-åpningsdatoer for EDIP og CID — disse er de viktigste kortsiktige variablene
+2. Spor S&D-gruppdisiplin på forsvarsfiler ukentlig
+3. Anskaff IMF:s Artikkel IV-konsultasjonsdata for Tyskland/Frankrike/Italia når tilgjengelige — det vil oppdatere finanspolitisk styringsanalyse vesentlig
+4. Forbered B-scenariemeldinger (EDIP vedtas med enkel majoritet) som operativt grunnscenario
+
+### Executive Brief Sv
+
+### Datum: 2026-05-18 | Klassificering: ANALYS | Dataläge: degraderade flöden
+
+**WEP-band tillämpade** | **Admiralitetsskala använd** | **SAT-dokumentation nedan**
+
+---
+
+### 1. Lägesanalys — Toppnivå
+
+Europaparlamentets 10:e mandatperiod arbetar med toppfart i lagstiftningsarbetet (+46,2 % år för år i antagna lagar) under strukturellt bräckliga koalitionsförhållanden (16 rösters marginal för högerblocket; HHI-fragmentering 0,1514 — EP10-rekord). Tre lagstiftande superprioriteter dominerar propositionspipelinen: det europeiska försvarsindistriprogrammet (EDIP), den rena industriaffären (CID) och AI-aktens delegerade akter. Alla tre kräver koalitionshantering med blocköverskridande majoritet som inte lämnar utrymme för defektioner.
+
+**Övergripande bedömning**: 🟢 Lagstiftningsagendan är **PÅ RÄTT SPÅR** men opererar vid gränserna för politisk risktolerans. Motståndskraften är lägre än rubriksiffrorna antyder.
+
+---
+
+### 2. Centrala analytiska slutsatser (KAC)
+
+#### KAC-1: Försvarssupermajoriteten är strukturellt unik [Admiralitet A1, 🟢 HÖG KONFIDENSGRAD]
+**WEP: 75 % — TROLIGT att EDIP avancerar i någon form till Q4 2026**
+
+EPP (183) + ECR (81) + S&D (136) + Renew (77) = 477 ledamöter stöder EDIP i princip, vilket utgör 66,5 % av parlamentets 717 platser — över tröskeln för 2/3 supermajoritet. Denna tväridologiska konvergens kring försvarsindistri är historiskt oöverträffad under EP:s mandatperioder. Den ekonomiska nationalistiska ramen har upplöst den traditionella vänster-höger-klyvningen kring försvar: S&D-ledamöter från försvarsberoendevaldistrikt (franska, polska, italienska) kan inte längre motsätta sig EDIP utan politiska kostnader hemma.
+
+**Nyckelforutsättning som kontrolleras (KAC-1 KA-1)**: Att S&D:s disciplin kring EDIP håller trots Greens/Left/civilsamhällets tryck. Historisk defektionsfrekvens för S&D i försvarsfiler: 12–18 % under EP9. Om 20 % av S&D (27 ledamöter) defekterar, blir supermajoriteten en enkel majoritet — fortfarande vinnande, men utan kommunikationsramen "demokratisk supermajoritet".
+
+#### KAC-2: Koalitionsaritmetiken är instabil vid marginalen [Admiralitet A2, 🟢 HÖG KONFIDENSGRAD]
+**WEP: 60 % — MER TROLIGT ÄN INTE att minst en viktig omröstning avgörs med ≤ 10 röster under 2026**
+
+Högerblockets koalition (EPP+ECR+PfE+ESN = 376) opererar med 16 röster över majoritetströskeln. En samordnad deflektion av 9 ledamöter från PfE (9 av 85 platser = 10,6 %) besegrar varje förslag som kräver högerblocket. Det stora centristiska alternativet (EPP+S&D+Renew = 396) har 36 rösters marginal men kräver S&D-kompromisser som urvattnar EPP:s föredragna politikinnehåll, särskilt kring jordbruk, finansregler och invandring.
+
+**Nyckelforutsättning som kontrolleras (KAC-2 KA-1)**: Att EPP kan upprätthålla strategin med "svängkoalition" — använda högerblocket för vissa filer, centristisk koalition för andra — utan att någon koalitionspartner drar tillbaka samarbetet med narrativet om förräderi. Det ungerska prejudikatet i EP9 visade att detta är möjligt men genererar institutionell stress.
+
+#### KAC-3: Rekordlagstiftningsproduktivitet döljer strukturella spänningar [Admiralitet A2, 🟡 MEDEL KONFIDENSGRAD]
+**WEP: 55 % — UNGEFÄR JÄMNT att produktivitetsökningen fortsätter under H2 2026**
+
+935 aktiva procedurer och 114 projekterade lagstiftningsakter (2026) representerar genuint institutionellt utflöde. Dock tyder utskott-till-plenum-trattförhållandet (43,8 %) på möjliga flaskhalsar: utskotten genererar lagstiftningsvolym snabbare än plenum kan absorbera. Det danska ordförandeskapets förmåga att hantera rådets lagstiftningsagenda under H2 2026 avgör om EP10:s produktivitet omvandlas till antagen lag eller stannar upp i interinstitutionella förhandlingar.
+
+#### KAC-4: IMF ekonomiska kontextdata otillgängliga [DATABEGRÄNSNING — 🔴 FRÅNVARANDE]
+**Inverkan: Måttlig — minskar konfidensgraden i analys av finanspolitisk styrning**
+
+IMF:s World Economic Outlook-data är inte tillgängliga i detta körning (degraderade flöden). Finansiella och makroekonomiska bedömningar förlitar sig därför på EP-baserade statistiska data och öppen källkod för ekonomiska signaler snarare än auktoritativa IMF-landsspecifika projektioner. Analytiker bör behandla alla makroekonomiska påståenden i denna kortfattning som att ha en konfidensgrad lägre än angiven (Admiralitet A→B, B→C).
+
+---
+
+### 3. Dokumentation av strukturerad analytisk teknik (SAT)
+
+#### SAT-1: Kontroll av nyckelforutsättningar (KAC) — Tillämpat på KAC-1 till KAC-3
+
+**Metodik**: Varje analytisk slutsats ovan har underkastats explicit förutsättningsformulering och stresstestning. Analysen spårar varje KAC till sina datakällor (Steg A) och identifierar den förutsättning som, om den vore felaktig, mest skulle förändra bedömningen.
+
+| KAC | Konfidensgrad | Falsifieringsvillkor | Sannolikhet |
+|-----|-----------|---------------------|-------------|
+| KAC-1: Försvarssupermajoriteten håller | HÖG | S&D >20 % deflektion eller PfE-fraktur | 20 % |
+| KAC-2: Koalition vid marginalen | HÖG | EPP-ECR formellt koalitionsavtal | 15 % |
+| KAC-3: Produktiviteten fortsätter | MEDEL | Danskt ordförandeskaps rådsblock | 40 % |
+
+#### SAT-2: Analys av konkurrerande hypoteser (ACH) — Koalitionsstrategi för viktiga propositioner
+
+**Konkurrerande hypoteser testade**:
+- H1: EPP använder högerblocket (EPP+ECR+PfE+ESN) för alla större propositioner 2026
+- H2: EPP använder centristisk koalition (EPP+S&D+Renew) för alla större propositioner
+- H3: EPP använder svängkoalitionsstrategi — högerblocket för vissa, centristerna för andra
+
+**Bevismatris**:
+
+| Bevis | H1 | H2 | H3 |
+|----------|----|----|-----|
+| EDIP-omröstningstendenser (försvar) | +++ | + | ++ |
+| CID:s sociala bestämmelser | -- | +++ | ++ |
+| AI-aktens arbetsmarknadsbestämmelser | -- | +++ | ++ |
+| SGP/finansregler | + | ++ | +++ |
+| Jordbruk/bekämpningsmedel | ++ | - | +++ |
+| Migration/paktimplementering | +++ | -- | + |
+
+**Slutsats**: H3 (svängkoalition) är mest konsistent med bevisen. EPP kommer att använda högerblocket för migration, försvar och jordbruk; centristisk koalition för sociala och miljömässiga filer.
+
+#### SAT-3: Scenariohjul — Tillämpat på EDIP-utfallsprognos
+
+**Scenario A (WEP 35 %)**: EDIP antas med 477-platser supermajoritetsstöd — blir flaggskepp EP10-arvslagstiftning
+**Scenario B (WEP 35 %)**: EDIP antas med enkel majoritet (360–400 röster) efter S&D:s partiella deflektion — antas men utan supermajoritetskommunikationsram
+**Scenario C (WEP 20 %)**: EDIP fördröjs till 2027 på grund av trepartitsamtal-haveri med rådet om upphandlingsregler
+**Scenario D (WEP 10 %)**: EDIP kollapsar — geopolitisk deeskalering eller USA:s säkerhetsgaranti tar bort brådskan
+
+**Politisk betydelse**: B och C är de troligaste utfallen per WEP; men A skulle ha oproportionerlig institutionell betydelse. Att förbereda budskap för B-scenariot är den operativt viktigaste uppgiften.
+
+#### SAT-4: Djävulens advokat — Utmaning av KAC-3 (Lagstiftningsproduktivitet)
+
+**Djävulens advokat-position**: Produktivitetssurgen är *inte* bevis på institutionell effektivitet utan bevis på lagstiftningsinflation — ledamöterna antar mer lagstiftning specifikt *för* att varje lag är mindre betydelsefull. Hög HHI-fragmentering innebär att den enda lagstiftning som antas är lagstiftning som är så okontroversiell att den inte hotar någon grupps kärnintresse. Grundläggande lagstiftning är precis det som fastnar.
+
+**Styrka hos DA-positionen**: 🟡 MEDEL. De +46,2 % år för år i akter är signifikanta. Utan kvalitets-/signifikanspoäng för varje lagstiftningsakt kan dock DA inte fullt ut vederläggas.
+
+**Analytiskt svar**: Erkänt som en genuint osäkerhetsfaktor. Kortfattningen erkänner detta (KAC-3) utan att lösa det.
+
+#### SAT-5: Röd hattanalys (Motperspektiv)
+
+**Ur ECR/PfE-oppositionens perspektiv**:
+Det "propositions"-narrativ som byggs upp av EPP/kommissionen är en maximal EU-integrationsagenda förklädda som krissvar. Försvar (EDIP), grönt (CID), digitalt (AI-akten) och finanspolitiskt (SGP-reform) bildar tillsammans den mest ambitiösa federaliseringsagendan i EU:s historia — och den drivs igenom under motivet "nödvändighet/geopolitisk nödvändighet" snarare än demokratisk deliberation.
+
+**Varför detta perspektiv har analytisk relevans**: ECR/PfE-motnarrativet har 193 platser och betydande nationellt regeringsstöd (Italien, Ungern, Tjeckien, Slovakien). Om någon av dessa regeringar får blockerande minoritet i rådet på specifika filer, stannar EP-propositioner upp i trepartitsamtal. Röd hattanalys avslöjar den strukturella skörhet i EP:s propositionsagenda som den institutionella synen minimerar.
+
+#### SAT-6: Kontradiktionsskanning — Intern konsekvenscheck
+
+**Kontradiktion identifierad och löst**:
+- C1: Kortfattningen hävdar "rekordlagstiftningsproduktivitet" (styrka) och "strukturell koalitionsinstabilitet" (svaghet). Dessa kan verka motstridiga — hur kan produktiviteten vara hög om koalitionerna är bräckliga?
+- **Lösning**: Rekordproduktiviteten i EP10 har uppnåtts primärt genom icke-kontroversiell lagstiftning (tekniska delegerade akter, AI-implementeringsregler, mindre MFF-justeringar). Kontroversiell flaggskeppslagstiftning (EDIP, CID, migrationspaktimplementering) är precis där koalitionsskörhet spelar störst roll. Båda påståendena är sanna samtidigt.
+
+#### SAT-7: Informationskvalitetskontroll (QIC)
+
+| Datakälla | Betyg | Täckning | Tillförlitlighet |
+|------------|-------|----------|------------|
+| Politiskt landskap (A1) | A1 | Fullständigt | Hög |
+| EP-statistik 2024–2026 (A2) | A2 | Fullständigt | Hög |
+| Antagna texter-flöde (B2) | B2 | Partiellt (ID:n endast) | Medel |
+| Procedurflöde | F — ej tillgängligt | Inget | N/A |
+| IMF ekonomiska data | F — ej tillgängligt | Inget | N/A |
+| Media-/ramningsanalys | B3 | Kvalitativ | Medel |
+
+**Övergripande databetyg för denna kortfattning**: 🟡 **B2** — tillförlitlig kring EP:s institutionella struktur och statistik; begränsad kring specifika lagstiftningsfiler och makroekonomisk kontext.
+
+#### SAT-8: Förhandsobduktion
+
+**Scenario**: Det är december 2026 och EP10 har inte lyckats anta någon av sina tre lagstiftande superprioriteter (EDIP, CID, AI-aktens delegerade akter). Vad gick fel?
+
+**Troligaste misslyckandessätt** (sannolikhetsviktade):
+1. EDIP: Rådets blockerande minoritet (Italien+Ungern+Österrike) om upphandlingsregler (30 %)
+2. CID: S&D:s deflektion om sociala bestämmelser tar bort majoriteten (25 %)
+3. AI-aktens delegerade akter: Kommissionen drar tillbaka kontroversiella bestämmelser under industritryck (20 %)
+4. Alla tre försenade av geopolitisk nödsituation som kräver nödlagstiftningsagenda (15 %)
+5. EP:s interna fragmentering gör att alla tre misslyckas simultant (10 %)
+
+**Förhandsobduktionsinsikt**: Den enskilt högsta riskfaktorn är rådets blockerande minoritet, inte EP:s koalitionsinstabilitet. Detta skiftar rekommenderat underrättelsefokus från intra-EP koalitionshantering till interinstitutionell EP-råds-dynamik.
+
+#### SAT-9: Kronologisk händelsespårning
+
+| Datum | Händelse | Analytisk implikation |
+|------|-------|----------------------|
+| EP10-start (2024-07) | 717 ledamöter, HHI 0,1514 | Historisk fragmentering bekräftad |
+| Hela 2025 | 5 % ledamotsrotation | Signal om institutionell stabilitet |
+| 2026-01 | 567 OFR-omröstningar projekterade | Rekordlagstiftningsproduktivitet |
+| 2026-05-18 | Aktuellt analysdatum | EDIP/CID i aktivt utskottsskede |
+| 2026-07 | Danskt ordförandeskapsstart | Accelerering av lagstiftningskalender |
+| 2026-H2 | MFF-förförhandlingar | Politisk miljöförändring |
+
+#### SAT-10: Alternativa framtider (Scenariobyggande)
+
+**Baslinje (WEP 40 %)**: EP10 antar EDIP, CID och AI-delegerade akter med enkla majoriteter före Q4 2026. Rekordlagstiftningsarv. 
+
+**Optimistisk (WEP 25 %)**: EDIP antas med supermajoritet, CID slutförs i trepartitsamtal, AI-styrning sätter global standard. EP10 blir det mest produktiva EP i modern historia.
+
+**Pessimistisk (WEP 25 %)**: Rådet blockerar EDIP:s upphandlingsbestämmelser, CID fördröjs av tysk energipolitik, AI-akten utlöser USA-EU handelsfriktioner. EP10:s agenda stannar delvis upp.
+
+**Kris (WEP 10 %)**: Stor geopolitisk eller ekonomisk kris tvingar fram nödagenda, och tränger undan alla planerade propositioner. Lagstiftningsarvet domineras av krissvar.
+
+---
+
+### 4. Bevakningsindikatorer
+
+#### Indikatoruppsättning A — Koalitionsstabilitet (Bevaka veckovis)
+- EPP:s grupphäsionskäpoäng vid viktiga omröstningar (källa: rösttabeller när tillgängliga)
+- PfE:s ungerska ledamöters anpassning vs. EPP
+- S&D:s defektionsfrekvens vid försvarsrelaterade filer
+
+#### Indikatoruppsättning B — Lagstiftningsframsteg (Bevaka månadsvis)
+- Procedurer som når plenumskedet (mål: 35+ viktiga propositioner till Q4 2026)
+- Datum för trepartitsförhandlingsöppning för EDIP, CID, AI-aktens delegerade akter
+- Utskottsföredragandeutnämningar för 2027 års lagstiftningsprogram
+
+#### Indikatoruppsättning C — Externa risker (Bevaka kontinuerligt)
+- Geopolitiska eskaleringssignaler (Ukraina, Taiwan, Mellanöstern)
+- Energiprisindex (tysk grundlastström)
+- IMF:s EU-tillväxtprognoser (nästa WEO april/oktober)
+- ECB:s penningpolitiska signaler (finanspolitisk miljö)
+
+---
+
+### 5. Sammantagen underrättelsebedömning
+
+**Status**: 🟢 POSITIV TRAJEKTORIA med betydande strukturella sårbarheter
+
+**Konfidensgrad**: 🟡 MEDEL — begränsad av IMF-datafrånvaro och procedurflödesdegradation
+
+**Tidskänslighet**: HÖG — MFF-förförhandlingar som startar 2026-H2 kommer att omforma den politiska miljön
+
+**Rekommenderade åtgärder**:
+1. Bevaka datum för trepartitssamtalsöppning för EDIP och CID — dessa är de viktigaste kortsiktiga variablerna
+2. Spåra S&D:s gruppdisciplin vid försvarsrelaterade filer veckovis
+3. Skaffa IMF:s Artikel IV-konsultationsdata för Tyskland/Frankrike/Italien när tillgängliga — det uppdaterar finanspolitisk styrningsanalys avsevärt
+4. Förbered B-scenariemeddelanden (EDIP antas med enkel majoritet) som operativt basscenario
+
+### Executive Brief Zh
+
+### 日期: 2026-05-18 | 分类: 分析 | 数据模式: 数据源降级
+
+**已应用WEP单位** | **使用提督可信度量表** | **SAT文档见下文**
+
+---
+
+### 1. 形势评估 — 最高层级
+
+欧洲议会第十届会期在结构性脆弱的联合条件下（右翼集团票差16席；碎片化赫芬达尔-赫希曼指数0.1514 — EP10届记录）以最高立法速度（通过法律同比+46.2%）运行。三项最高优先级立法议题主导提案管道：欧洲防务工业计划（EDIP）、清洁工业协议（CID）、人工智能法委托行为。上述所有议题都需要在不留离轨余地的情况下跨集团管理多数。
+
+**综合评估**: 🟢 立法议程**在轨运行**但在政治风险承受临界点运营。实际稳健性低于主要数字所暗示的水平。
+
+---
+
+### 2. 关键分析结论（KAC）
+
+#### KAC-1: 防务领域的超级多数在结构上具有独特性 [提督A1，🟢 高可信度]
+**WEP: 75% — EDIP预计以某种形式在2026年Q4前取得进展**
+
+EPP（183）+ ECR（81）+ S&D（136）+ Renew（77）= 477名欧洲议员原则上支持EDIP，代表717席位的66.5% — 超过三分之二多数门槛。这种围绕防务制造业的跨意识形态共识在欧洲议会届期历史上史无前例。经济民族主义框架消融了防务问题上的传统左右分歧：来自防务依赖选区（法国、波兰、意大利）的S&D议员不再能在没有国内政治后果的情况下反对EDIP。
+
+**待验证核心假设（KAC-1 KA-1）**: S&D在EDIP议题上的纪律在绿色党/左翼/公民社会压力下仍能维持。EP9中S&D历史性离叛率：防务议题12-18%。若S&D的20%（27名议员）离叛，超级多数转变为简单多数 — 仍可获胜，但失去"大民主多数"对外传播框架。
+
+#### KAC-2: 联盟计算在边缘处不稳定 [提督A2，🟢 高可信度]
+**WEP: 60% — 2026年很可能至少发生一次≤10票差距的表决**
+
+右翼集团（EPP+ECR+PfE+ESN = 376）在多数门槛上方16席运营。9名PfE议员（85席中9人 = 10.6%）的协调离叛将否决任何需要右翼集团的提案。大中间联盟（EPP+S&D+Renew = 396）有36席余量，但需要S&D方面的让步来稀释EPP偏好的政策内容，尤其是农业、财政规则、移民领域。
+
+**待验证核心假设（KAC-2 KA-1）**: EPP能够维持"钟摆联盟"策略 — 对部分议题使用右翼集团、对其他议题使用中间联盟 — 而不会有任何联盟伙伴以背叛为由撤回合作。EP9的匈牙利先例表明这是可能的，但会产生制度性压力。
+
+#### KAC-3: 创纪录的立法生产力掩盖结构性张力 [提督A2，🟡 中等可信度]
+**WEP: 55% — 生产力繁荣在2026年下半年持续的概率五五开**
+
+935个活跃程序和114项预期立法（2026年）代表真实的制度性产出。然而委员会-全体会议抑制比率（43.8%）暗示潜在瓶颈：委员会产生立法量的速度超过了全体会议能够消化的速度。丹麦主席国2026年下半年管理理事会立法议程的能力将决定EP10的生产力是转化为已通过法律还是在机构间谈判中停滞。
+
+#### KAC-4: IMF经济背景数据不可用 [数据约束 — 🔴 缺失]
+**影响: 中等 — 降低财政治理分析的可信度**
+
+IMF世界经济展望（WEO）数据在此版本中不可用（数据源降级）。因此财政和宏观经济评估依赖欧洲议会统计来源数据和开源经济信号，而非权威的国家级IMF预测。分析师应将本简报中所有宏观经济主张视为可信度低于标注水平（提督A→B，B→C）。
+
+---
+
+### 3. 结构分析技术（SAT）文档
+
+#### SAT-1: 关键假设检验（KAC） — 应用于KAC-1至KAC-3
+
+**方法论**: 上述每项分析结论均经过了假设的明确表述和压力测试。分析将每个KAC追溯至其数据来源（阶段A），并识别一旦错误将对评估产生最大影响的假设。
+
+| KAC | 可信度 | 证伪条件 | 概率 |
+|-----|-----------|---------------------|-------------|
+| KAC-1: 防务超级多数维持 | 高 | S&D离叛>20%或PfE裂变 | 20% |
+| KAC-2: 边缘处的联盟 | 高 | 正式EPP-ECR联盟协议 | 15% |
+| KAC-3: 生产力延续 | 中等 | 丹麦主席国阻挠理事会 | 40% |
+
+#### SAT-2: 竞争假说分析（ACH） — 主要提案的联盟策略
+
+**已测试的竞争假说**:
+- H1: EPP对2026年所有重大提案使用右翼集团（EPP+ECR+PfE+ESN）
+- H2: EPP对所有重大提案使用中间联盟（EPP+S&D+Renew）
+- H3: EPP使用钟摆联盟策略 — 对部分议题用右翼集团，对其他议题用中间派
+
+**证据矩阵**:
+
+| 证据 | H1 | H2 | H3 |
+|----------|----|----|-----|
+| EDIP投票动态（防务） | +++ | + | ++ |
+| CID社会条款 | -- | +++ | ++ |
+| AI法就业条款 | -- | +++ | ++ |
+| SGP/财政规则 | + | ++ | +++ |
+| 农业/农药 | ++ | - | +++ |
+| 移民/宪章执行 | +++ | -- | + |
+
+**结论**: H3（钟摆联盟）与证据最为一致。EPP将在移民、防务、农业上使用右翼集团；在社会和环境议题上使用中间联盟。
+
+#### SAT-3: 情景轮 — 应用于EDIP结果预测
+
+**情景A（WEP 35%）**: EDIP以477席超级多数通过 — 成为EP10的标志性遗产立法
+**情景B（WEP 35%）**: S&D部分离叛后以简单多数（360-400票）通过EDIP — 通过但无大多数传播框架
+**情景C（WEP 20%）**: 采购规则方面与理事会三方谈判崩溃导致EDIP推迟至2027年
+**情景D（WEP 10%）**: EDIP崩溃 — 地缘政治缓和或美国安全保证消除紧迫性
+
+**政策含义**: 按WEP计B和C概率最高；但A在制度上将极为重要。为情景B准备信息传播是最高优先级的实际任务。
+
+#### SAT-4: 魔鬼辩护人 — 挑战KAC-3（立法生产力）
+
+**魔鬼辩护人立场**: 生产力繁荣*不是*制度效率的证据，而是立法膨胀的证据 — 议员通过更多立法恰恰因为每项立法*不那么*重要。高HHI碎片化意味着唯一能通过的立法是不威胁任何群体实质利益的立法。突破性立法正是停滞的那些。
+
+**DA立场强度**: 🟡 中等。法律行为年化+46.2%的数字是重要的。但没有每项立法行为的质量/重要性评级，无法完全反驳DA。
+
+**分析性回应**: 认定为真实的不确定性。简报承认这一点（KAC-3）而不加解决。
+
+#### SAT-5: 红帽分析（对手视角）
+
+**从ECR/PfE反对派视角看**:
+EPP/欧委会围绕"提案"构建的叙事是伪装成危机应对的最大化欧洲一体化议程。防务（EDIP）、绿色（CID）、数字（AI法）和财政（SGP改革）合在一起构成EU历史上最雄心勃勃的联邦制议程 — 不是通过民主审议而是通过"必要性/地缘政治必要性"论证推动。
+
+**为何此视角具有分析相关性**: ECR/PfE的反叙事拥有193席和主要国家政府支持（意大利、匈牙利、捷克、斯洛伐克）。如果这些政府中的任何一个在特定议题上在理事会获得阻止性少数，欧洲议会的提案将在三方谈判中停滞。红帽分析揭示了制度视角所低估的提案议程的结构性脆弱性。
+
+#### SAT-6: 矛盾调查 — 内部一致性检验
+
+**矛盾识别并解决**:
+- C1: 简报同时主张"创纪录立法生产力"（优势）和"结构性联盟脆弱性"（劣势）。可能看起来矛盾 — 如果联盟脆弱，生产力怎么能高？
+- **解决**: EP10的创纪录生产力主要通过无争议立法（技术性委托行为、AI执行规则、财政框架小幅修订）实现。有争议的突破性立法（EDIP、CID、移民宪章执行）正是联盟脆弱性得到检验的地方。两项主张同时为真。
+
+#### SAT-7: 信息质量检验（QIC）
+
+| 数据来源 | 等级 | 覆盖范围 | 可靠性 |
+|------------|-------|----------|------------|
+| 政治格局（A1） | A1 | 完整 | 高 |
+| 议会统计2024-2026（A2） | A2 | 完整 | 高 |
+| 通过文本数据流（B2） | B2 | 部分（仅ID） | 中等 |
+| 程序数据流 | F — 不可用 | 无 | 不适用 |
+| IMF经济数据 | F — 不可用 | 无 | 不适用 |
+| 媒体/框架分析 | B3 | 定性 | 中等 |
+
+**本简报总数据等级**: 🟡 **B2** — 关于制度结构和议会统计可靠；关于具体立法档案和宏观经济背景有限。
+
+#### SAT-8: 事前验尸（Premortem）
+
+**情景**: 2026年12月，EP10未能通过任何最高优先级立法（EDIP、CID、AI法委托行为）。出了什么问题？
+
+**最可能的失败模式**（概率加权）:
+1. EDIP: 理事会阻止性少数（意大利+匈牙利+奥地利）在采购规则上（30%）
+2. CID: 社会条款上S&D离叛消除多数（25%）
+3. AI法委托行为: 欧委会在行业压力下撤回有争议条款（20%）
+4. 地缘政治紧急情况需要紧急立法议程导致三者全部推迟（15%）
+5. 议会内部碎片化同时否决三者（10%）
+
+**前瞻洞察**: 最高风险因素是理事会阻止性少数，而非欧洲议会内的联盟脆弱性。这将建议的情报监视重点从议会内部联盟管理转向欧洲议会-理事会机构间动态。
+
+#### SAT-9: 事件时间线追踪
+
+| 日期 | 事件 | 分析含义 |
+|------|-------|----------------------|
+| EP10开始（2024-07） | 717名议员，HHI 0.1514 | 历史性碎片化确认 |
+| 整个2025年 | 议员5%更替 | 制度稳定信号 |
+| 2026-01 | 预计567次记名投票 | 创纪录立法生产力 |
+| 2026-05-18 | 当前分析日期 | EDIP/CID处于活跃委员会阶段 |
+| 2026-07 | 丹麦主席国开始 | 立法日历加速 |
+| 2026-H2 | 财政框架前谈判 | 政治环境转变 |
+
+#### SAT-10: 另类未来（情景构建）
+
+**基准（WEP 40%）**: EP10在2026年Q4前以简单多数通过EDIP、CID和AI委托行为。创纪录的立法遗产。
+
+**乐观（WEP 25%）**: EDIP以超级多数通过，CID在三方谈判中完成，AI治理树立全球标准。EP10成为现代史上最具生产力的欧洲议会。
+
+**悲观（WEP 25%）**: 理事会阻止EDIP采购条款，德国能源价格政策推迟CID，AI法点燃欧美贸易摩擦。EP10议程部分停滞。
+
+**危机（WEP 10%）**: 重大地缘政治或经济危机强制执行紧急议程，绕过所有计划提案。立法遗产由危机应对主导。
+
+---
+
+### 4. 监测指标
+
+#### 指标组A — 联盟稳定性（每周监测）
+- 主要投票中EPP集团凝聚力得分（来源：可用时的投票记录）
+- PfE内匈牙利议员与EPP的对齐度
+- 防务档案中S&D离叛率
+
+#### 指标组B — 立法进展（每月监测）
+- 到达全体会议阶段的程序数（目标：2026年Q4前35+项主要提案）
+- EDIP、CID、AI法委托行为的三方谈判开始日期
+- 2027立法计划委员会报告员任命
+
+#### 指标组C — 外部风险（持续监测）
+- 地缘政治升级信号（乌克兰、台湾、中东）
+- 能源价格指标（德国基准电力）
+- IMF对EU增长预测（下一期WEO 4月/10月）
+- 欧洲央行货币政策信号（财政环境）
+
+---
+
+### 5. 综合情报评估
+
+**状况**: 🟢 具有重大结构性脆弱性的积极轨迹
+
+**可信度**: 🟡 中等 — 受IMF数据缺失和程序数据流降级制约
+
+**时间敏感性**: 高 — 2026年下半年起的财政框架前谈判将重塑政治环境
+
+**建议行动**:
+1. 监测EDIP和CID的三方谈判开始日期 — 这些是近期最重要的变量
+2. 每周追踪S&D集团在防务档案上的纪律
+3. 可用时获取德国、法国、意大利的IMF第四条磋商数据 — 将大幅更新财政治理分析
+4. 将情景B（以简单多数通过EDIP）的信息传播准备作为基准运营情景
+
 ### Economic Context.Fallback
 
 ### Date: 2026-05-18 | ArticleType: propositions | DataMode: degraded-feeds
@@ -4632,6 +7089,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [economic-context.fallback](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/intelligence/economic-context.fallback.md) | `intelligence/economic-context.fallback.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-18/propositions/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 

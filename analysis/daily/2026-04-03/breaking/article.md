@@ -655,6 +655,798 @@ graph LR
 - EP Open Data Portal: adopted texts (60+ items, Q1 2026)
 - Precomputed statistics: EP10 group composition, fragmentation indices
 
+### Executive Brief Ar
+
+**التصنيف:** OSINT | السجل البرلماني العام
+**مستوى الثقة:** 🟡 متوسط (تماسك مستند إلى نسبة حجم المقاعد؛ لا توجد بيانات تصويت اسمي)
+**تاريخ التوليد:** 2026-04-03T00:00:00Z (توليف استرجاعي)
+**نوع المقال:** أخبار عاجلة — تقييم ديناميكيات الائتلاف
+**المصدر:** بوابة البيانات المفتوحة للبرلمان الأوروبي
+
+---
+
+### 🎯 BLUF
+
+**تكشف الحسابات الائتلافية للبرلمان الأوروبي EP10 عن برلمان غير متماثل هيكلياً يتمحور حول حزب الشعب الأوروبي (38 % من المقاعد المُستعانة بها) مع إشارة تماسك لافتة بين Renew وECR بمقدار 0,95.** تستلزم جميع الأغلبيات القابلة للحياة (>51 %) حزبَ الشعب الأوروبي: الائتلاف الكبير (حزب الشعب + الاشتراكيون والديمقراطيون = 60 %)، الائتلاف الأعظم (حزب الشعب + الاشتراكيون + Renew = 65 %)، البديل وسط اليمين (حزب الشعب + ECR + PfE = 57 %)، اليمين الموسع (حزب الشعب + ECR + PfE + Renew = 62 %). انخفض مؤشر التشتت في EP10 إلى **~4,4 أحزاب فعلية** (EP9 ≈ 5,2) — تعزّز تركّز السلطة. الاكتشاف البارز هو **تماسك Renew–ECR البالغ 0,95 (في تصاعد)**، الذي لو ترجم إلى توافق تصويتي فعلي لأعلن عن محور جديد وسط ليبرالي/محافظ يتجاوز الائتلاف الكبير التقليدي. **🟡 ثقة متوسطة** — يُستمد التماسك من نسب حجم المقاعد لا من أدلة تصويتية؛ درجات أزواج حزب الشعب الأوروبي تقترب رياضياً من الصفر بحكم أثر النموذج ويجب تخفيضها.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | القرار | صاحب القرار | الموعد | الأدلة |
+|:-:|--------|------------|:-------:|--------|
+| 1 | **تحريري:** نشر مقال عن ديناميكيات الائتلاف مع تنبيه صريح «وكيل هيكلي» | رئيس التحرير | +24 ساعة | تقييم 28 زوجاً ائتلافياً؛ إشارة Renew–ECR 0,95 |
+| 2 | **رصد:** التحقق من تماسك Renew–ECR في مقابل بيانات التصويت عند نشرها (تأخر 4 أسابيع في API البرلمان الأوروبي) | محلل | 2026-05-01 | نشر سجلات التصويت نهاية مايو |
+| 3 | **استخبارات استباقية:** تصويتات الجلسة العامة في ستراسبورغ أبريل ستؤكد أو تنفي فرضية محور Renew–ECR | مسؤول التحليل | 2026-04-30 | الجلسة العامة 27–30 أبريل |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **تماسك Renew–ECR 0,95 (في تصاعد)** — أقوى إشارة في مصفوفة 28 زوجاً؛ محور محتمل جديد. (🟡 متوسط)
+- 🟠 **الهيمنة الهيكلية لحزب الشعب الأوروبي (38 %)** تعني أن كل أغلبية قابلة للحياة تمر عبره؛ المعارضة مضطرة للتفاوض من موقع غير متماثل هيكلياً. (🟢 عالٍ)
+- 🟢 **الائتلاف الكبير (حزب الشعب + الاشتراكيون والديمقراطيون = 60 %)** يظل الخيار الافتراضي؛ الائتلاف الأعظم (60 %+Renew = 65 %) يوفر حاجزاً أمام الانشقاقات. (🟢 عالٍ)
+- 🟡 **مؤشر التشتت ~4,4 أحزاب فعلية** — *أدنى* من EP9 (~5,2)؛ التعزيز يُيسّر تشكيل الأغلبية لكنه يُركّز السلطة. (🟡 متوسط)
+- 🔵 **يسار–NI 0,65، الاشتراكيون–ECR 0,60، Renew–يسار 0,60** — إشارات تحالف ثانوية تُظهر توافقات براغماتية عابرة لمعسكر مناهضة المؤسسة. (🟡 متوسط)
+- 🟣 **تحفظ منهجي:** درجات أزواج حزب الشعب الأوروبي كلها 0,00 في نموذج نسبة الحجم — أثر رياضي، وليس غياباً للتعاون. 🔴 ثقة منخفضة لقيم أزواج حزب الشعب الأوروبي. (🟢 عالٍ)
+- 🩷 **عامل الاضطراب:** تبلور محور Renew–ECR قد يُقلّص تأثير الاشتراكيين والديمقراطيين على حزب الشعب الأوروبي في ملفات التجارة والرقمنة. (🟡 متوسط)
+- ⚪ **المتابعة:** التحقق من بيانات التصويت في الدورة القادمة عند نشر أصوات الربع الأول.
+
+---
+
+### 🗂️ Top Findings Table
+
+| الترتيب | الاكتشاف | التماسك / الحصة | مستوى الثقة | الحالة |
+|:-------:|---------|:---------------:|:-----------:|--------|
+| 1 | إشارة تحالف Renew–ECR | 0,95 (في تصاعد) | 🟡 متوسط | انتظار التحقق التصويتي |
+| 2 | الائتلاف الكبير (حزب الشعب + الاشتراكيون والديمقراطيون) | 60 % | 🟢 عالٍ | الأغلبية الافتراضية |
+| 3 | البديل وسط اليمين (حزب الشعب + ECR + PfE) | 57 % | 🟢 عالٍ | لدى حزب الشعب خيار هيكلي |
+| 4 | مؤشر التشتت | 4,4 أحزاب فعلية | 🟡 متوسط | منخفض عن ~5,2 (EP9) |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=79669653) -->
+
+| المخاطرة | L | I | الدرجة | المشغّل | المصدر | رمز الأميرالية |
+|---------|:-:|:-:|:------:|---------|--------|:--------------:|
+| الهيمنة الهيكلية لحزب الشعب الأوروبي | 5 | 4 | 20 | كل الأغلبيات تستلزم حزب الشعب الأوروبي | الحسابات الائتلافية | A1 |
+| تبلور محور Renew–ECR | 3 | 4 | 12 | التأكيد عبر التصويت | مصفوفة التماسك | B2 |
+| وكيل منهجي (لا تصويت اسمي) | 4 | 3 | 12 | نموذج التماسك مضلل | قيود API البرلمان الأوروبي | A2 |
+| تصدع الائتلاف الكبير | 2 | 5 | 10 | الاشتراكيون والديمقراطيون يرفضون تنازل حزب الشعب الأوروبي | الحسابات الائتلافية | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**تصويتات الجلسة العامة في ستراسبورغ 27–30 أبريل (تُنشر بعد ~4 أسابيع، ~نهاية مايو).** ستتحقق من إشارة تماسك Renew–ECR أو تنفيها. إذا أكد توافق الأصوات بعد النشر تماسكاً فعلياً ≥0,7 بين Renew وECR على الملفات من المستوى الأول، ترقية فرضية «المحور الجديد» إلى ثقة عالية وإعادة معايرة لوحة مراقبة الائتلافات.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **المصادر الأولية:** EP MCP `analyze_coalition_dynamics`، `generate_political_landscape`؛ عينة من 8 مجموعات / 28 زوجاً.
+- **قيود البيانات:** لا توجد بيانات تصويت اسمي متاحة (يُنشر بتأخر 4 أسابيع)؛ التماسك وكيل هيكلي لنسبة حجم المقاعد. درجات أزواج حزب الشعب الأوروبي تتدهور بحكم بناء النموذج.
+- **الثقة في إشارة Renew–ECR:** 🟡 متوسط.
+- **الثقة في درجات أزواج حزب الشعب الأوروبي:** 🔴 منخفض (أثر النموذج).
+
+---
+
+### 📎 Links
+
+| الرابط | المسار |
+|--------|--------|
+| المقال | `./article.md` |
+| الجلسات الشقيقة | `analysis/daily/2026-04-03/breaking-2/` (موثوقية API البرلمان الأوروبي)، `breaking-3/` (مكافحة الفساد) |
+| الملفّ التعريفي | `./manifest.json` |
+
+---
+
+### 🔄 Cross-Reference
+
+**السابق:** الأسبوع الأول بعد ركود مارس. الحسابات الائتلافية المشار إليها في 2026-04-01/breaking مُرسّمة الآن على 28 زوجاً في هذه الجلسة.
+
+**المتزامن:** 2026-04-03/breaking-2 يوثّق مشكلات موثوقية API البرلمان الأوروبي؛ 2026-04-03/breaking-3 يغطي حزمة توجيهات مكافحة الفساد.
+
+---
+
+**ضبط الوثيقة**
+- **النموذج:** `/analysis/templates/executive-brief.md`
+- **مسار الأداء:** `analysis/daily/2026-04-03/breaking/executive-brief.md`
+- **التصنيف:** عام
+- **التوليد الاسترجاعي:** جلسة ملء استرجاعية.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**La aritmética de coalición de EP10 revela un Parlamento estructuralmente asimétrico centrado en el PPE (38 % de los escaños muestreados) con una notable señal de cohesión Renew–ECR de 0,95.** Todas las mayorías viables (>51 %) requieren al PPE: Gran coalición (PPE + S&D = 60 %), Súper-Gran coalición (PPE + S&D + Renew = 65 %), Alternativa centro-derecha (PPE + ECR + PfE = 57 %) y Derecha ampliada (PPE + ECR + PfE + Renew = 62 %). El índice de fragmentación de EP10 ha **disminuido** a ~4,4 partidos efectivos (EP9 ≈ 5,2) — el poder se ha consolidado. El hallazgo más destacado es la **cohesión Renew–ECR de 0,95 (en aumento)** que, si se traduce en una alineación real de votaciones, anunciaría un nuevo eje centroliberal/conservador que circunvalaría la gran coalición tradicional. **🟡 Confianza MEDIA** — la cohesión se deriva de ratios de tamaño de escaños, no de pruebas de votación; las puntuaciones de pares del PPE son matemáticamente cercanas a cero por artefacto del modelo y deben descontarse.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decisión | Decisor | Plazo | Evidencia |
+|:-:|---------|---------|:-----:|-----------|
+| 1 | **Editorial:** PUBLICAR artículo sobre dinámica de coaliciones con la advertencia explícita «proxy estructural» | Editor | +24h | 28 pares de coalición evaluados; señal Renew–ECR 0,95 |
+| 2 | **Seguimiento:** verificar cohesión Renew–ECR frente a datos de votación cuando se publiquen (retraso API PE de 4 semanas) | Analista | 2026-05-01 | Publicación de registros de votación a finales de mayo |
+| 3 | **Inteligencia anticipada:** los votos plenarios de Estrasburgo de abril confirmarán o refutarán la hipótesis del eje Renew–ECR | Responsable de análisis | 2026-04-30 | Plenario 27–30 de abril |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Cohesión Renew–ECR 0,95 (en aumento)** — señal más fuerte en la matriz de 28 pares; potencial nuevo eje. (🟡 Medio)
+- 🟠 **Dominancia estructural del PPE (38 %)** significa que toda mayoría viable pasa por el PPE; la oposición está obligada a negociar desde una posición estructuralmente asimétrica. (🟢 Alto)
+- 🟢 **Gran coalición (PPE+S&D = 60 %)** sigue siendo el valor por defecto; Súper-Gran coalición (PPE+S&D+Renew = 65 %) ofrece protección frente a defecciones. (🟢 Alto)
+- 🟡 **Índice de fragmentación ~4,4 partidos efectivos** — *inferior* a EP9 (~5,2); la consolidación favorece la formación de mayoría pero concentra el poder. (🟡 Medio)
+- 🔵 **Left–NI 0,65, S&D–ECR 0,60, Renew–Left 0,60** — señales de alianza secundarias que muestran alineaciones pragmáticas transversales antiestablishment. (🟡 Medio)
+- 🟣 **Advertencia metodológica:** las puntuaciones de pares del PPE son todas 0,00 en el modelo de ratio de tamaño de escaños — artefacto matemático, NO ausencia de cooperación. 🔴 Confianza baja para los valores de pares del PPE. (🟢 Alto)
+- 🩷 **Vector de perturbación:** la materialización del eje Renew–ECR podría reducir la influencia del S&D sobre el PPE en los expedientes comerciales y digitales. (🟡 Medio)
+- ⚪ **Seguimiento:** validar frente a los datos de votación del próximo ciclo cuando se publiquen los votos del T1.
+
+---
+
+### 🗂️ Top Findings Table
+
+| Rango | Hallazgo | Cohesión / Cuota | Confianza | Estado |
+|:-----:|---------|:----------------:|:---------:|--------|
+| 1 | Señal de alianza Renew–ECR | 0,95 (en aumento) | 🟡 MEDIO | Validación de votación pendiente |
+| 2 | Gran coalición (PPE+S&D) | 60 % | 🟢 ALTO | Mayoría por defecto |
+| 3 | Alternativa centro-derecha (PPE+ECR+PfE) | 57 % | 🟢 ALTO | El PPE tiene elección estructural |
+| 4 | Índice de fragmentación | 4,4 partidos efectivos | 🟡 MEDIO | A la baja desde ~5,2 (EP9) |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=79669653) -->
+
+| Riesgo | L | I | Puntuación | Desencadenante | Fuente | Almirantazgo |
+|--------|:-:|:-:|:----------:|--------------|--------|:------------:|
+| Dominancia estructural del PPE | 5 | 4 | 20 | Todas las mayorías viables requieren al PPE | Aritmética de coalición | A1 |
+| Eje Renew–ECR materializándose | 3 | 4 | 12 | Confirmación mediante votación | Matriz de cohesión | B2 |
+| Proxy metodológico (sin votación nominal) | 4 | 3 | 12 | El modelo de cohesión induce a error | Limitaciones API PE | A2 |
+| Fractura de la Gran coalición | 2 | 5 | 10 | El S&D rechaza el compromiso con el PPE | Aritmética de coalición | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**Votos plenarios de Estrasburgo 27–30 de abril (publicados ~4 semanas más tarde, ~finales de mayo).** Validará o falsificará la señal de cohesión Renew–ECR. Si el alineamiento de votos tras la publicación confirma ≥0,7 de cohesión efectiva entre Renew y ECR en los expedientes de nivel 1, elevar la hipótesis de «nuevo eje» a confianza ALTA y recalibrar el panel de seguimiento de coaliciones.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **Fuentes primarias:** EP MCP `analyze_coalition_dynamics`, `generate_political_landscape`; muestra de 8 grupos / 28 pares.
+- **Limitaciones de los datos:** Sin datos de votación nominal disponibles (el PE publica con 4 semanas de retraso); la cohesión es un proxy estructural de ratio de tamaño de escaños. Las puntuaciones de pares del PPE degeneran por construcción del modelo.
+- **Confianza para la señal Renew–ECR:** 🟡 MEDIA.
+- **Confianza para las puntuaciones de pares del PPE:** 🔴 BAJA (artefacto del modelo).
+
+---
+
+### 📎 Links
+
+| Enlace | Ruta |
+|--------|------|
+| Artículo | `./article.md` |
+| Sesiones hermanas | `analysis/daily/2026-04-03/breaking-2/` (fiabilidad API PE), `breaking-3/` (anticorrupción) |
+| Manifiesto | `./manifest.json` |
+
+---
+
+### 🔄 Cross-Reference
+
+**Precedente:** Primera semana post-recesión de marzo. La aritmética de coaliciones referenciada en 2026-04-01/breaking ahora se formaliza en 28 pares en esta sesión.
+
+**Concomitante:** 2026-04-03/breaking-2 documenta los problemas de fiabilidad de la API PE; 2026-04-03/breaking-3 cubre el paquete de directivas anticorrupción.
+
+---
+
+**Control documental**
+- **Plantilla:** `/analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-03/breaking/executive-brief.md`
+- **Clasificación:** Público
+- **Generación retrospectiva:** Sesión de relleno retrospectivo.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**L'arithmétique de coalition d'EP10 révèle un Parlement structurellement asymétrique centré sur le PPE (38 % des sièges échantillonnés) avec un remarquable signal de cohésion Renew–ECR à 0,95.** Toutes les majorités viables (>51 %) requièrent le PPE : Grande coalition (PPE + S&D = 60 %), Super-Grande coalition (PPE + S&D + Renew = 65 %), Alternative centre-droit (PPE + ECR + PfE = 57 %) et Droite large (PPE + ECR + PfE + Renew = 62 %). L'indice de fragmentation d'EP10 a **diminué** à ~4,4 partis effectifs (EP9 ≈ 5,2) — le pouvoir s'est consolidé. La découverte marquante est la **cohésion Renew–ECR à 0,95 (en renforcement)** qui, si elle se traduit par un alignement réel des votes, annoncerait un nouvel axe centrolibéral/conservateur contournant la grande coalition traditionnelle. **🟡 Confiance MOYENNE** — la cohésion est dérivée des ratios de taille de siège, non des preuves de vote ; les scores de pairs PPE sont mathématiquement proches de zéro par artefact du modèle et doivent être décotés.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Décision | Décideur | Délai | Preuve |
+|:-:|---------|---------|:-----:|--------|
+| 1 | **Éditorial :** PUBLIER un article sur la dynamique des coalitions avec la réserve explicite « proxy structurel » | Rédacteur | +24h | 28 paires de coalition évaluées ; signal Renew–ECR à 0,95 |
+| 2 | **Surveillance :** vérifier la cohésion Renew–ECR par rapport aux données de vote à leur publication (délai de 4 semaines EP API) | Analyste | 2026-05-01 | Publication des registres de vote fin mai |
+| 3 | **Veille prospective :** les votes de la plénière d'avril à Strasbourg confirmeront ou infirmeront l'hypothèse de l'axe Renew–ECR | Responsable analyse | 2026-04-30 | Plénière 27–30 avril |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Cohésion Renew–ECR 0,95 (en renforcement)** — signal le plus fort dans la matrice de 28 paires ; potentiel nouvel axe. (🟡 Moyen — proxy structurel)
+- 🟠 **Dominance structurelle du PPE (38 %)** signifie que toute majorité viable transite par le PPE ; l'opposition est contrainte de négocier depuis une position structurellement asymétrique. (🟢 Élevé)
+- 🟢 **Grande coalition (PPE+S&D = 60 %)** reste la valeur par défaut ; Super-Grande coalition (PPE+S&D+Renew = 65 %) offre un coussin contre les défections. (🟢 Élevé)
+- 🟡 **Indice de fragmentation ~4,4 partis effectifs** — *inférieur* à EP9 (~5,2) ; la consolidation favorise la formation de majorité mais concentre le pouvoir. (🟡 Moyen)
+- 🔵 **Left–NI 0,65, S&D–ECR 0,60, Renew–Left 0,60** — signaux d'alliance secondaires montrant des alignements anti-establishment/pragmatiques transversaux. (🟡 Moyen)
+- 🟣 **Réserve méthodologique :** les scores de paires PPE sont tous à 0,00 dans le modèle de ratio de taille de siège — artefact mathématique, PAS absence de coopération. 🔴 Faible confiance pour les valeurs de paires PPE. (🟢 Élevé)
+- 🩷 **Vecteur de perturbation :** la matérialisation de l'axe Renew–ECR pourrait réduire l'influence du S&D sur le PPE dans les dossiers commerciaux et numériques. (🟡 Moyen)
+- ⚪ **Suivi :** valider contre les données de vote du prochain cycle lors de la publication des votes de Q1.
+
+---
+
+### 🗂️ Top Findings Table
+
+| Rang | Résultat | Cohésion / Part | Confiance | Statut |
+|:----:|---------|:---------------:|:---------:|--------|
+| 1 | Signal d'alliance Renew–ECR | 0,95 (en renforcement) | 🟡 MOYEN | Validation de vote en attente |
+| 2 | Grande coalition (PPE+S&D) | 60 % | 🟢 ÉLEVÉ | Majorité par défaut |
+| 3 | Alternative centre-droit (PPE+ECR+PfE) | 57 % | 🟢 ÉLEVÉ | Le PPE a un choix structurel |
+| 4 | Indice de fragmentation | 4,4 partis effectifs | 🟡 MOYEN | En baisse par rapport à ~5,2 (EP9) |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=79669653) -->
+
+| Risque | L | I | Score | Déclencheur | Source | Amirauté |
+|--------|:-:|:-:|:-----:|-----------|--------|:--------:|
+| Dominance structurelle du PPE | 5 | 4 | 20 | Toutes les majorités viables requièrent le PPE | Arithmétique des coalitions | A1 |
+| Axe Renew–ECR se matérialisant | 3 | 4 | 12 | Confirmation par vote | Matrice de cohésion | B2 |
+| Proxy méthodologique (pas de vote nominatif) | 4 | 3 | 12 | Le modèle de cohésion induit en erreur | Limites API du PE | A2 |
+| Fracture de la Grande coalition | 2 | 5 | 10 | Le S&D refuse le compromis PPE | Arithmétique des coalitions | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**Votes de la plénière de Strasbourg 27–30 avril (publiés ~4 semaines plus tard, ~fin mai).** Validera ou falsifiera le signal de cohésion Renew–ECR. Si l'alignement des votes après publication confirme ≥0,7 de cohésion effective entre Renew et ECR sur les dossiers de niveau 1, escalader l'hypothèse de « nouvel axe » à une confiance ÉLEVÉE et recalibrer le tableau de bord de surveillance des coalitions.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **Sources primaires :** EP MCP `analyze_coalition_dynamics`, `generate_political_landscape` ; échantillon de 8 groupes / 28 paires.
+- **Limites des données :** Aucune donnée de vote nominatif disponible (le PE publie avec un délai de 4 semaines) ; la cohésion est un proxy structurel de ratio de taille de siège. Les scores de paires PPE dégénèrent par construction du modèle.
+- **Confiance pour le signal Renew–ECR :** 🟡 MOYEN.
+- **Confiance pour les scores de paires PPE :** 🔴 FAIBLE (artefact du modèle).
+
+---
+
+### 📎 Links
+
+| Lien | Chemin |
+|------|--------|
+| Article | `./article.md` |
+| Sessions sœurs | `analysis/daily/2026-04-03/breaking-2/` (fiabilité API PE), `breaking-3/` (anti-corruption) |
+| Manifeste | `./manifest.json` |
+
+---
+
+### 🔄 Cross-Reference
+
+**Précédent :** Première semaine post-récession de mars. L'arithmétique des coalitions référencée dans 2026-04-01/breaking est maintenant formalisée sur 28 paires dans cette session.
+
+**Concomitant :** 2026-04-03/breaking-2 documente les problèmes de fiabilité de l'API PE ; 2026-04-03/breaking-3 couvre le paquet de directives anti-corruption.
+
+---
+
+**Contrôle documentaire**
+- **Modèle :** `/analysis/templates/executive-brief.md`
+- **Chemin de l'artefact :** `analysis/daily/2026-04-03/breaking/executive-brief.md`
+- **Classification :** Public
+- **Génération rétrospective :** Session de remplissage rétrospectif.
+
+### Executive Brief He
+
+**סיווג:** OSINT | מרשם פרלמנטרי ציבורי
+**רמת ביטחון:** 🟡 בינוני (לכידות לפי יחס גודל מושבים; ללא נתוני הצבעה נומינלית)
+**תאריך יצירה:** 2026-04-03T00:00:00Z (סינתזה רטרואקטיבית)
+**סוג המאמר:** חדשות שוטפות — הערכת דינמיקת קואליציות
+**מקור:** פורטל הנתונים הפתוחים של הפרלמנט האירופי
+
+---
+
+### 🎯 BLUF
+
+**אריתמטיקת הקואליציה של EP10 חושפת פרלמנט בעל עיוות מבני הממוקד סביב ה-EPP (38% מהמושבים שנדגמו) עם אות לכידות בולט בין Renew ל-ECR בעוצמה של 0.95.** כל הרוב הכשיר (>51%) דורשים את ה-EPP: קואליציה גדולה (EPP + S&D = 60%), קואליציה סופר-גדולה (EPP + S&D + Renew = 65%), חלופה מרכז-ימנית (EPP + ECR + PfE = 57%) וימין מורחב (EPP + ECR + PfE + Renew = 62%). מדד הפיצול של EP10 **ירד** ל-~4.4 מפלגות יעילות (EP9 ≈ 5.2) — הכוח התגבש. הממצא הבולט ביותר הוא **לכידות Renew–ECR בגובה 0.95 (עולה)** שאם תתורגם ליישור הצבעה אמיתי, תבשר על ציר ליברלי-מרכזי/שמרני חדש שיעקוף את הקואליציה הגדולה המסורתית. **🟡 ביטחון בינוני** — הלכידות נגזרת מיחסי גודל מושבים ולא מעדויות הצבעה; ציוני הזוגות של EPP קרובים אפס מתמטית בגלל ארטיפקט של המודל ויש להוריד את ערכם.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | החלטה | מקבל ההחלטה | מועד אחרון | ראיות |
+|:-:|-------|------------|:-----------:|------|
+| 1 | **עריכה:** לפרסם מאמר על דינמיקת קואליציות עם הסתייגות מפורשת "פרוקסי מבני" | עורך | +24 שעות | 28 זוגות קואליציה הוערכו; אות Renew–ECR 0.95 |
+| 2 | **ניטור:** לאמת לכידות Renew–ECR מול נתוני הצבעה עם פרסומם (עיכוב 4 שבועות ב-API של PE) | אנליסט | 2026-05-01 | פרסום מרשמי הצבעה סוף מאי |
+| 3 | **מודיעין מוקדם:** הצבעות מליאה באפריל בשטרסבורג יאשרו או יפריכו את השערת ציר Renew–ECR | ראש ניתוח | 2026-04-30 | מליאה 27–30 באפריל |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **לכידות Renew–ECR 0.95 (עולה)** — האות החזק ביותר במטריצת 28 הזוגות; ציר פוטנציאלי חדש. (🟡 בינוני)
+- 🟠 **דומיננטיות מבנית של EPP (38%)** — כל רוב כשיר עובר דרך ה-EPP; האופוזיציה מחויבת להתמקח ממצב מוטה מבנית. (🟢 גבוה)
+- 🟢 **קואליציה גדולה (EPP+S&D = 60%)** נשארת ברירת המחדל; קואליציה סופר-גדולה (EPP+S&D+Renew = 65%) מספקת כרית נגד עריקות. (🟢 גבוה)
+- 🟡 **מדד פיצול ~4.4 מפלגות יעילות** — *נמוך* מ-EP9 (~5.2); גיבוש מסייע להשגת רוב אך מרכז כוח. (🟡 בינוני)
+- 🔵 **שמאל–NI 0.65, S&D–ECR 0.60, Renew–שמאל 0.60** — אותות ברית משניים המציגים יישורים פרגמטיים חוצי-גבולות אנטי-ממסדיים. (🟡 בינוני)
+- 🟣 **הסתייגות מתודולוגית:** ציוני זוגות EPP הם כולם 0.00 במודל יחס גודל מושבים — ארטיפקט מתמטי, לא היעדר שיתוף פעולה. 🔴 ביטחון נמוך לערכי זוגות EPP. (🟢 גבוה)
+- 🩷 **וקטור שיבוש:** מימוש ציר Renew–ECR עשוי לצמצם השפעת S&D על EPP בתיקי סחר ודיגיטל. (🟡 בינוני)
+- ⚪ **מעקב:** לאמת מול נתוני הצבעה של המחזור הבא עם פרסום הצבעות Q1.
+
+---
+
+### 🗂️ Top Findings Table
+
+| דירוג | ממצא | לכידות / נתח | רמת ביטחון | סטטוס |
+|:-----:|------|:------------:|:----------:|-------|
+| 1 | אות ברית Renew–ECR | 0.95 (עולה) | 🟡 בינוני | אימות הצבעה ממתין |
+| 2 | קואליציה גדולה (EPP+S&D) | 60% | 🟢 גבוה | רוב ברירת מחדל |
+| 3 | חלופה מרכז-ימנית (EPP+ECR+PfE) | 57% | 🟢 גבוה | ל-EPP יש בחירה מבנית |
+| 4 | מדד פיצול | 4.4 מפלגות יעילות | 🟡 בינוני | יורד מ-~5.2 (EP9) |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=79669653) -->
+
+| סיכון | L | I | ציון | גורם מפעיל | מקור | קוד אדמירליות |
+|------|:-:|:-:|:----:|-----------|------|:--------------:|
+| דומיננטיות מבנית של EPP | 5 | 4 | 20 | כל הרוב הכשיר דורשים EPP | אריתמטיקת קואליציה | A1 |
+| ציר Renew–ECR מתגבש | 3 | 4 | 12 | אישור דרך הצבעה | מטריצת לכידות | B2 |
+| פרוקסי מתודולוגי (ללא הצבעה נומינלית) | 4 | 3 | 12 | מודל הלכידות מטעה | מגבלות API PE | A2 |
+| פיצוץ הקואליציה הגדולה | 2 | 5 | 10 | S&D מסרבים לפשרה עם EPP | אריתמטיקת קואליציה | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**הצבעות מליאה בשטרסבורג 27–30 באפריל (מתפרסמות כ-4 שבועות לאחר מכן, ~סוף מאי).** יאמתו או יפריכו את אות לכידות Renew–ECR. אם יישור ההצבעה לאחר הפרסום יאשר ≥0.7 לכידות יעילה בין Renew ל-ECR בתיקי רמה 1, לשדרג את השערת "הציר החדש" לביטחון גבוה ולכייל מחדש את לוח הניטור של קואליציות.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **מקורות ראשוניים:** EP MCP `analyze_coalition_dynamics`, `generate_political_landscape`; מדגם של 8 קבוצות / 28 זוגות.
+- **מגבלות נתונים:** אין נתוני הצבעה נומינלית זמינים (PE מפרסם בעיכוב 4 שבועות); הלכידות היא פרוקסי מבני ליחס גודל מושבים. ציוני זוגות EPP מתדרדרים לפי בנית המודל.
+- **ביטחון לאות Renew–ECR:** 🟡 בינוני.
+- **ביטחון לציוני זוגות EPP:** 🔴 נמוך (ארטיפקט מודל).
+
+---
+
+### 📎 Links
+
+| קישור | נתיב |
+|-------|------|
+| מאמר | `./article.md` |
+| סשנים אחיים | `analysis/daily/2026-04-03/breaking-2/` (אמינות API PE), `breaking-3/` (אנטי-שחיתות) |
+| מניפסט | `./manifest.json` |
+
+---
+
+### 🔄 Cross-Reference
+
+**קדם:** השבוע הראשון לאחר המיתון של מרץ. אריתמטיקת הקואליציה שהוזכרה ב-2026-04-01/breaking מפורמלת כעת על 28 זוגות בסשן זה.
+
+**בו-זמנית:** 2026-04-03/breaking-2 מתעד בעיות אמינות API של PE; 2026-04-03/breaking-3 מכסה חבילת הנחיות אנטי-שחיתות.
+
+---
+
+**בקרת מסמך**
+- **תבנית:** `/analysis/templates/executive-brief.md`
+- **נתיב ארטיפקט:** `analysis/daily/2026-04-03/breaking/executive-brief.md`
+- **סיווג:** ציבורי
+- **יצירה רטרואקטיבית:** סשן מילוי רטרואקטיבי.
+
+### Executive Brief Ja
+
+**分類:** OSINT | 公開議会記録
+**信頼度:** 🟡 中程度（議席規模比率による結束度；名簿式投票データなし）
+**作成日時:** 2026-04-03T00:00:00Z（遡及的総合）
+**記事種別:** 速報ニュース — 連合力学評価
+**出典:** 欧州議会オープンデータポータル
+
+---
+
+### 🎯 BLUF
+
+**EP10の連合算術は、サンプリング議席の38%を占めるEPP中心の構造的非対称議会を明らかにし、Renew–ECR間に顕著な結束シグナル0.95を示す。** 実行可能なすべての過半数（>51%）にはEPPが必要：大連合（EPP + S&D = 60%）、超大連合（EPP + S&D + Renew = 65%）、中道右派代替（EPP + ECR + PfE = 57%）、広範な右派（EPP + ECR + PfE + Renew = 62%）。EP10の断片化指数は実効政党数**約4.4まで低下**（EP9 ≈ 5.2）— 権力は集中した。最も注目すべき発見は**Renew–ECR結束度0.95（上昇傾向）**であり、実際の投票整合に転換されれば、伝統的な大連合を迂回する新たな中道自由主義・保守主義の枢軸を告知するものとなる。**🟡 信頼度中程度** — 結束度は議席規模比率から導出されており、投票証拠ではない；EPPペアスコアはモデルのアーティファクトにより数学的にゼロに近く、割り引く必要がある。
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | 決定事項 | 意思決定者 | 期限 | 根拠 |
+|:-:|---------|----------|:----:|------|
+| 1 | **編集:** 「構造的プロキシ」という明示的な留保を付けて連合力学記事を**掲載** | 編集者 | +24時間 | 28連合ペア評価済；Renew–ECRシグナル0.95 |
+| 2 | **監視:** 公開時（EP API 4週間遅延）に投票データに対してRenew–ECR結束度を検証 | アナリスト | 2026-05-01 | 5月末に投票記録公開予定 |
+| 3 | **先読み情報:** 4月ストラスブール本会議票決がRenew–ECR枢軸仮説を確認または否定 | 分析責任者 | 2026-04-30 | 4月27〜30日本会議 |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Renew–ECR結束度0.95（上昇傾向）** — 28ペア行列で最強シグナル；潜在的な新枢軸。（🟡 中程度）
+- 🟠 **EPPの構造的優位（38%）** — 実行可能なすべての過半数はEPPを経由；野党は構造的に非対称な立場から交渉を余儀なくされる。（🟢 高）
+- 🟢 **大連合（EPP+S&D = 60%）** はデフォルト；超大連合（EPP+S&D+Renew = 65%）は離反に対する緩衝を提供。（🟢 高）
+- 🟡 **断片化指数 約4.4実効政党** — EP9（〜5.2）より*低い*；集中化は多数派形成を促進するが権力を集中させる。（🟡 中程度）
+- 🔵 **左派–NI 0.65、S&D–ECR 0.60、Renew–左派 0.60** — 反体制・実用主義的な横断的整合を示す二次的な同盟シグナル。（🟡 中程度）
+- 🟣 **方法論的留保:** EPPペアスコアはすべて議席規模比率モデルで0.00 — 数学的アーティファクト、協力の欠如ではない。EPPペア値の信頼度🔴低。（🟢 高）
+- 🩷 **混乱ベクトル:** Renew–ECR枢軸の実現化により、貿易・デジタル分野でのEPPへのS&D影響力が低下しうる。（🟡 中程度）
+- ⚪ **フォローアップ:** Q1票決公開時に次サイクルの投票データで検証。
+
+---
+
+### 🗂️ Top Findings Table
+
+| 順位 | 発見 | 結束度 / 割合 | 信頼度 | 状況 |
+|:---:|------|:-----------:|:------:|------|
+| 1 | Renew–ECR同盟シグナル | 0.95（上昇） | 🟡 中程度 | 投票検証待ち |
+| 2 | 大連合（EPP+S&D） | 60% | 🟢 高 | デフォルト多数派 |
+| 3 | 中道右派代替（EPP+ECR+PfE） | 57% | 🟢 高 | EPPは構造的選択肢を持つ |
+| 4 | 断片化指数 | 4.4実効政党 | 🟡 中程度 | EP9の〜5.2から低下 |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=79669653) -->
+
+| リスク | L | I | スコア | トリガー | 出典 | アドミラルティコード |
+|--------|:-:|:-:|:-----:|---------|------|:------------------:|
+| EPPの構造的優位 | 5 | 4 | 20 | 実行可能な全過半数がEPPを必要 | 連合算術 | A1 |
+| Renew–ECR枢軸の具体化 | 3 | 4 | 12 | 投票による確認 | 結束度行列 | B2 |
+| 方法論的プロキシ（名簿式投票なし） | 4 | 3 | 12 | 結束度モデルが誤解を招く | EP API制限 | A2 |
+| 大連合の亀裂 | 2 | 5 | 10 | S&DがEPPの妥協を拒否 | 連合算術 | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**ストラスブール本会議票決4月27〜30日（約4週間後〜5月末頃公開）。** Renew–ECR結束度シグナルを検証または反証する。公開後の投票整合が第1階ファイルでRenewとECR間の実効結束度≥0.7を確認した場合、「新枢軸」仮説を高信頼度に格上げし、連合監視ダッシュボードを再較正する。
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **一次資料:** EP MCP `analyze_coalition_dynamics`、`generate_political_landscape`；8グループ/28ペアのサンプル。
+- **データ制限:** 名簿式投票データなし（EUPは4週間遅延で公開）；結束度は議席規模比率の構造的プロキシ。EPPペアスコアはモデル構造上劣化する。
+- **Renew–ECRシグナルの信頼度:** 🟡 中程度。
+- **EPPペアスコアの信頼度:** 🔴 低（モデルアーティファクト）。
+
+---
+
+### 📎 Links
+
+| リンク | パス |
+|--------|------|
+| 記事 | `./article.md` |
+| 姉妹セッション | `analysis/daily/2026-04-03/breaking-2/`（EP API信頼性）、`breaking-3/`（腐敗防止） |
+| マニフェスト | `./manifest.json` |
+
+---
+
+### 🔄 Cross-Reference
+
+**先行:** 3月景気後退後の最初の週。2026-04-01/breakingで参照された連合算術は、本セッションで28ペアに正式化された。
+
+**同時進行:** 2026-04-03/breaking-2がEP API信頼性問題を記録；2026-04-03/breaking-3が腐敗防止指令パッケージをカバー。
+
+---
+
+**文書管理**
+- **テンプレート:** `/analysis/templates/executive-brief.md`
+- **アーティファクトパス:** `analysis/daily/2026-04-03/breaking/executive-brief.md`
+- **分類:** 公開
+- **遡及生成:** 遡及的補充セッション。
+
+### Executive Brief Ko
+
+**분류:** OSINT | 공개 의회 기록
+**신뢰도:** 🟡 보통 (의석 규모 비율 기반 결속도; 명단 투표 데이터 없음)
+**생성일시:** 2026-04-03T00:00:00Z (소급 합성)
+**기사 유형:** 속보 뉴스 — 연합 역학 평가
+**출처:** 유럽의회 오픈 데이터 포털
+
+---
+
+### 🎯 BLUF
+
+**EP10의 연합 산술은 표본 의석의 38%를 차지하는 EPP 중심의 구조적 비대칭 의회를 드러내며, Renew–ECR 간 두드러진 결속 신호 0.95를 보인다.** 실행 가능한 모든 다수결(>51%)은 EPP를 필요로 한다: 대연합(EPP + S&D = 60%), 초대연합(EPP + S&D + Renew = 65%), 중도우파 대안(EPP + ECR + PfE = 57%), 광범위 우파(EPP + ECR + PfE + Renew = 62%). EP10의 분열 지수는 실효 정당 수 **~4.4로 하락**했다(EP9 ≈ 5.2) — 권력이 집중되었다. 가장 두드러진 발견은 **Renew–ECR 결속도 0.95(상승 추세)**로, 실제 투표 정렬로 이어질 경우 전통적인 대연합을 우회하는 새로운 중도자유주의·보수 축을 예고한다. **🟡 신뢰도 보통** — 결속도는 의석 규모 비율에서 도출되었으며 투표 증거가 아님; EPP 쌍 점수는 모델 아티팩트로 인해 수학적으로 0에 가까워 할인이 필요하다.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | 결정 사항 | 의사결정자 | 기한 | 근거 |
+|:-:|---------|----------|:----:|------|
+| 1 | **편집:** "구조적 프록시"라는 명시적 유보 조건과 함께 연합 역학 기사 **게재** | 편집장 | +24시간 | 28개 연합 쌍 평가 완료; Renew–ECR 신호 0.95 |
+| 2 | **모니터링:** 공개 시(EP API 4주 지연) 투표 데이터 대비 Renew–ECR 결속도 검증 | 분석가 | 2026-05-01 | 5월 말 투표 기록 공개 예정 |
+| 3 | **선행 정보:** 4월 스트라스부르 본회의 투표가 Renew–ECR 축 가설을 확인하거나 반증 | 분석 책임자 | 2026-04-30 | 4월 27~30일 본회의 |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Renew–ECR 결속도 0.95(상승)** — 28쌍 행렬에서 가장 강한 신호; 잠재적 새 축. (🟡 보통)
+- 🟠 **EPP의 구조적 지배(38%)** — 실행 가능한 모든 다수결은 EPP를 경유; 야권은 구조적으로 비대칭적 위치에서 협상하도록 강제된다. (🟢 높음)
+- 🟢 **대연합(EPP+S&D = 60%)** 이 기본값으로 유지; 초대연합(EPP+S&D+Renew = 65%)은 이탈에 대한 완충을 제공. (🟢 높음)
+- 🟡 **분열 지수 ~4.4 실효 정당** — EP9(~5.2)보다 *낮음*; 통합은 다수결 형성을 촉진하지만 권력을 집중시킨다. (🟡 보통)
+- 🔵 **좌파–NI 0.65, S&D–ECR 0.60, Renew–좌파 0.60** — 반기득권·실용주의 횡단 정렬을 보여주는 이차적 동맹 신호. (🟡 보통)
+- 🟣 **방법론적 유보:** EPP 쌍 점수는 의석 규모 비율 모델에서 모두 0.00 — 수학적 아티팩트, 협력 부재가 아님. EPP 쌍 값 신뢰도 🔴 낮음. (🟢 높음)
+- 🩷 **파괴 벡터:** Renew–ECR 축 실현화로 무역·디지털 분야에서 S&D의 EPP 영향력이 감소할 수 있음. (🟡 보통)
+- ⚪ **후속 조치:** Q1 투표 공개 시 다음 주기 투표 데이터로 검증.
+
+---
+
+### 🗂️ Top Findings Table
+
+| 순위 | 발견 | 결속도 / 지분 | 신뢰도 | 상태 |
+|:---:|------|:-----------:|:------:|------|
+| 1 | Renew–ECR 동맹 신호 | 0.95 (상승) | 🟡 보통 | 투표 검증 대기 중 |
+| 2 | 대연합(EPP+S&D) | 60% | 🟢 높음 | 기본 다수결 |
+| 3 | 중도우파 대안(EPP+ECR+PfE) | 57% | 🟢 높음 | EPP에 구조적 선택지 있음 |
+| 4 | 분열 지수 | 4.4 실효 정당 | 🟡 보통 | EP9의 ~5.2에서 하락 |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=79669653) -->
+
+| 위험 | L | I | 점수 | 트리거 | 출처 | 해군 코드 |
+|-----|:-:|:-:|:---:|-------|------|:--------:|
+| EPP 구조적 지배 | 5 | 4 | 20 | 실행 가능한 모든 다수결은 EPP 필요 | 연합 산술 | A1 |
+| Renew–ECR 축 구체화 | 3 | 4 | 12 | 투표를 통한 확인 | 결속도 행렬 | B2 |
+| 방법론적 프록시(명단 투표 없음) | 4 | 3 | 12 | 결속도 모델이 오해를 유발 | EP API 제한 | A2 |
+| 대연합 균열 | 2 | 5 | 10 | S&D가 EPP 타협 거부 | 연합 산술 | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**스트라스부르 본회의 투표 4월 27~30일(약 4주 후 ~5월 말 공개).** Renew–ECR 결속도 신호를 검증하거나 반증할 것이다. 공개 후 투표 정렬이 1차 파일에서 Renew와 ECR 간 ≥0.7의 실효 결속도를 확인하면, "새로운 축" 가설을 높은 신뢰도로 격상하고 연합 모니터링 대시보드를 재보정한다.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **1차 출처:** EP MCP `analyze_coalition_dynamics`, `generate_political_landscape`; 8개 그룹/28쌍 표본.
+- **데이터 제한:** 명단 투표 데이터 없음(EP는 4주 지연 공개); 결속도는 의석 규모 비율의 구조적 프록시. EPP 쌍 점수는 모델 구조상 저하된다.
+- **Renew–ECR 신호 신뢰도:** 🟡 보통.
+- **EPP 쌍 점수 신뢰도:** 🔴 낮음(모델 아티팩트).
+
+---
+
+### 📎 Links
+
+| 링크 | 경로 |
+|------|------|
+| 기사 | `./article.md` |
+| 자매 세션 | `analysis/daily/2026-04-03/breaking-2/`(EP API 신뢰성), `breaking-3/`(반부패) |
+| 매니페스트 | `./manifest.json` |
+
+---
+
+### 🔄 Cross-Reference
+
+**선행:** 3월 경기침체 후 첫 번째 주. 2026-04-01/breaking에서 참조된 연합 산술이 이 세션에서 28쌍으로 공식화되었다.
+
+**동시 진행:** 2026-04-03/breaking-2가 EP API 신뢰성 문제를 기록; 2026-04-03/breaking-3이 반부패 지침 패키지를 다룬다.
+
+---
+
+**문서 관리**
+- **템플릿:** `/analysis/templates/executive-brief.md`
+- **아티팩트 경로:** `analysis/daily/2026-04-03/breaking/executive-brief.md`
+- **분류:** 공개
+- **소급 생성:** 소급 보완 세션.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**De coalitie-arithmetiek van EP10 onthult een structureel asymmetrisch Parlement dat gecentreerd is op de EVP (38 % van de bemonsterde zetels) met een opmerkelijk Renew–ECR-cohesiesignaal van 0,95.** Alle levensvatbare meerderheden (>51 %) vereisen de EVP: Grote coalitie (EVP + S&D = 60 %), Super-grote coalitie (EVP + S&D + Renew = 65 %), Centrumrechts alternatief (EVP + ECR + PfE = 57 %) en Brede rechts (EVP + ECR + PfE + Renew = 62 %). De fragmentatie-index van EP10 is **gedaald** naar ~4,4 effectieve partijen (EP9 ≈ 5,2) — macht is geconsolideerd. De meest opvallende bevinding is de **Renew–ECR-cohesie van 0,95 (stijgend)** die, als ze vertaald wordt naar daadwerkelijke stemafstemming, een nieuwe centroliberale/conservatieve as zou aankondigen die de traditionele grote coalitie omzeilt. **🟡 Gemiddeld vertrouwen** — cohesie is afgeleid van zetelgrootteratios, niet van stembewijzen; EVP-paarscores zijn wiskundig dicht bij nul door modelartefact en moeten worden gedisconteerd.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Beslissing | Beslisser | Deadline | Bewijs |
+|:-:|-----------|---------|:--------:|--------|
+| 1 | **Redactioneel:** PUBLICEER artikel over coalitiedynamiek met expliciete vermelding «structurele proxy» | Redacteur | +24u | 28 coaliteparen beoordeeld; Renew–ECR-signaal 0,95 |
+| 2 | **Monitoring:** verifieer Renew–ECR-cohesie aan de hand van stemdata bij publicatie (4 weken EP API-vertraging) | Analist | 2026-05-01 | Publicatie stemregisters eind mei |
+| 3 | **Vooruitblikkende inlichtingen:** plenaire stemmen Straatsburg april bevestigen of weerleggen de Renew–ECR-ashypothese | Hoofd analyse | 2026-04-30 | Plenaire vergadering 27–30 april |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Renew–ECR-cohesie 0,95 (stijgend)** — sterkste signaal in de 28-parenmatrix; potentiële nieuwe as. (🟡 Gemiddeld)
+- 🟠 **Structurele dominantie van de EVP (38 %)** betekent dat elke levensvatbare meerderheid via de EVP loopt; de oppositie is gedwongen te onderhandelen vanuit een structureel asymmetrische positie. (🟢 Hoog)
+- 🟢 **Grote coalitie (EVP+S&D = 60 %)** blijft de standaard; Super-grote coalitie (EVP+S&D+Renew = 65 %) biedt buffer tegen afhakers. (🟢 Hoog)
+- 🟡 **Fragmentatie-index ~4,4 effectieve partijen** — *lager* dan EP9 (~5,2); consolidatie bevordert meerderheidvorming maar concentreert macht. (🟡 Gemiddeld)
+- 🔵 **Links–NI 0,65, S&D–ECR 0,60, Renew–Links 0,60** — secundaire alliantiesignalen die dwarsverbanden tonen met anti-establishment/pragmatische afstemming. (🟡 Gemiddeld)
+- 🟣 **Methodologische kanttekening:** EVP-paarscores zijn allemaal 0,00 in het zetelgrootteratiomodel — wiskundig artefact, GEEN afwezigheid van samenwerking. 🔴 Laag vertrouwen voor EVP-paarswaarden. (🟢 Hoog)
+- 🩷 **Verstoringsector:** materialisatie van de Renew–ECR-as kan de invloed van de S&D op de EVP bij handel- en digitale dossiers verminderen. (🟡 Gemiddeld)
+- ⚪ **Follow-up:** valideer aan de hand van stemdata van de volgende cyclus bij publicatie van Q1-stemmen.
+
+---
+
+### 🗂️ Top Findings Table
+
+| Rang | Bevinding | Cohesie / Aandeel | Vertrouwen | Status |
+|:----:|---------|:-----------------:|:----------:|--------|
+| 1 | Renew–ECR-alliantiesignaal | 0,95 (stijgend) | 🟡 GEMIDDELD | Stemvalidatie in behandeling |
+| 2 | Grote coalitie (EVP+S&D) | 60 % | 🟢 HOOG | Standaardmeerderheid |
+| 3 | Centrumrechts alternatief (EVP+ECR+PfE) | 57 % | 🟢 HOOG | EVP heeft structurele keuze |
+| 4 | Fragmentatie-index | 4,4 effectieve partijen | 🟡 GEMIDDELD | Dalend van ~5,2 (EP9) |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=79669653) -->
+
+| Risico | L | I | Score | Trigger | Bron | Admiraliteitscode |
+|--------|:-:|:-:|:-----:|---------|------|:-----------------:|
+| Structurele dominantie EVP | 5 | 4 | 20 | Alle levensvatbare meerderheden vereisen EVP | Coalitie-arithmetiek | A1 |
+| Renew–ECR-as materialiseert | 3 | 4 | 12 | Bevestiging via stemming | Cohesiematrix | B2 |
+| Methodologische proxy (geen hoofdelijk stemmen) | 4 | 3 | 12 | Cohesiemodel misleidt | API-beperkingen EP | A2 |
+| Breuk grote coalitie | 2 | 5 | 10 | S&D weigert EVP-compromis | Coalitie-arithmetiek | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**Plenaire stemmen Straatsburg 27–30 april (gepubliceerd ~4 weken later, ~eind mei).** Zal het Renew–ECR-cohesiesignaal valideren of falsificeren. Als stemafstemming na publicatie ≥0,7 effectieve cohesie bevestigt tussen Renew en ECR op niveau-1-dossiers, de «nieuwe as»-hypothese opschalen naar HOOG vertrouwen en het coalitietoezichtdashboard herijken.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **Primaire bronnen:** EP MCP `analyze_coalition_dynamics`, `generate_political_landscape`; steekproef van 8 groepen / 28 paren.
+- **Databeperkingen:** Geen hoofdelijke stemdata beschikbaar (EP publiceert met 4 weken vertraging); cohesie is een structurele proxy via zetelgrootteratio. EVP-paarscores degenereren door modelconstructie.
+- **Vertrouwen voor Renew–ECR-signaal:** 🟡 GEMIDDELD.
+- **Vertrouwen voor EVP-paarscores:** 🔴 LAAG (modelartefact).
+
+---
+
+### 📎 Links
+
+| Link | Pad |
+|------|-----|
+| Artikel | `./article.md` |
+| Zusterzittingen | `analysis/daily/2026-04-03/breaking-2/` (EP API-betrouwbaarheid), `breaking-3/` (anticorruptie) |
+| Manifest | `./manifest.json` |
+
+---
+
+### 🔄 Cross-Reference
+
+**Voorafgaand:** Eerste week na de recessie van maart. De coalitie-arithmetiek waarnaar wordt verwezen in 2026-04-01/breaking is nu geformaliseerd in 28 paren in deze sessie.
+
+**Gelijktijdig:** 2026-04-03/breaking-2 documenteert EP API-betrouwbaarheidsproblemen; 2026-04-03/breaking-3 behandelt het anticorruptie-richtlijnenpakket.
+
+---
+
+**Documentbeheer**
+- **Sjabloon:** `/analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-03/breaking/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retroactieve generatie:** Retroactieve opvulsessie.
+
+### Executive Brief Zh
+
+**分类：** OSINT | 公开议会记录
+**可信度：** 🟡 中等（基于席位规模比率的凝聚力；无点名投票数据）
+**生成时间：** 2026-04-03T00:00:00Z（溯源综合）
+**文章类型：** 突发新闻 — 联合动态评估
+**来源：** 欧洲议会开放数据门户
+
+---
+
+### 🎯 BLUF
+
+**EP10联合算术揭示了一个以欧洲人民党（EPP）为中心的结构性不对称议会（占样本席位38%），Renew–ECR之间呈现显著结盟信号0.95。** 所有可行多数（>51%）均需要EPP：大联合（EPP + S&D = 60%）、超大联合（EPP + S&D + Renew = 65%）、中右翼替代方案（EPP + ECR + PfE = 57%）以及广泛右翼（EPP + ECR + PfE + Renew = 62%）。EP10碎片化指数已**降至**约4.4个有效政党（EP9 ≈ 5.2）——权力得到巩固。最引人注目的发现是**Renew–ECR凝聚力0.95（上升趋势）**，若转化为实际投票一致性，将预示一个绕过传统大联合的新中道自由主义/保守主义轴心出现。**🟡 中等可信度** — 凝聚力源自席位规模比率，而非投票证据；EPP配对分数因模型工件在数学上接近零，需予以折扣。
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | 决定事项 | 决策者 | 截止期限 | 证据 |
+|:-:|---------|-------|:-------:|------|
+| 1 | **编辑：** 以明确"结构代理"声明**发布**联合动态文章 | 编辑 | +24小时 | 28对联合评估完成；Renew–ECR信号0.95 |
+| 2 | **监测：** 公开时（欧洲议会API 4周延迟）根据投票数据验证Renew–ECR凝聚力 | 分析师 | 2026-05-01 | 五月底投票记录公开 |
+| 3 | **预判情报：** 4月斯特拉斯堡全会投票将确认或否定Renew–ECR轴心假设 | 分析负责人 | 2026-04-30 | 4月27日至30日全会 |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Renew–ECR凝聚力0.95（上升）** — 28对矩阵中最强信号；潜在新轴心。（🟡 中等）
+- 🟠 **EPP结构性主导（38%）** — 所有可行多数均须经过EPP；反对派被迫从结构性不对称位置谈判。（🟢 高）
+- 🟢 **大联合（EPP+S&D = 60%）** 仍是默认选项；超大联合（EPP+S&D+Renew = 65%）提供缓冲以防背叛。（🟢 高）
+- 🟡 **碎片化指数约4.4有效政党** — *低于* EP9（约5.2）；整合有利于多数形成但集中权力。（🟡 中等）
+- 🔵 **左翼–NI 0.65，S&D–ECR 0.60，Renew–左翼 0.60** — 显示反建制/务实横向联合的次级盟约信号。（🟡 中等）
+- 🟣 **方法论警告：** EPP配对分数在席位规模比率模型中均为0.00 — 数学工件，并非缺乏合作。EPP配对值可信度🔴低。（🟢 高）
+- 🩷 **颠覆向量：** Renew–ECR轴心实现可能削减S&D在贸易和数字议题上对EPP的影响力。（🟡 中等）
+- ⚪ **后续：** 第一季度投票公开时，对照下一周期投票数据验证。
+
+---
+
+### 🗂️ Top Findings Table
+
+| 排名 | 发现 | 凝聚力 / 占比 | 可信度 | 状态 |
+|:---:|------|:-----------:|:------:|------|
+| 1 | Renew–ECR联盟信号 | 0.95（上升） | 🟡 中等 | 投票验证待定 |
+| 2 | 大联合（EPP+S&D） | 60% | 🟢 高 | 默认多数 |
+| 3 | 中右翼替代方案（EPP+ECR+PfE） | 57% | 🟢 高 | EPP拥有结构性选择 |
+| 4 | 碎片化指数 | 4.4有效政党 | 🟡 中等 | 从EP9约5.2下降 |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=79669653) -->
+
+| 风险 | L | I | 评分 | 触发因素 | 来源 | 海军评级 |
+|-----|:-:|:-:|:---:|---------|------|:-------:|
+| EPP结构性主导 | 5 | 4 | 20 | 所有可行多数均需要EPP | 联合算术 | A1 |
+| Renew–ECR轴心具体化 | 3 | 4 | 12 | 通过投票确认 | 凝聚力矩阵 | B2 |
+| 方法论代理（无点名投票） | 4 | 3 | 12 | 凝聚力模型产生误导 | 欧洲议会API限制 | A2 |
+| 大联合破裂 | 2 | 5 | 10 | S&D拒绝向EPP妥协 | 联合算术 | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**斯特拉斯堡全会投票4月27日至30日（约4周后公开，约5月底）。** 将验证或证伪Renew–ECR凝聚力信号。如果公开后的投票一致性在第一级议题上确认Renew与ECR之间有效凝聚力≥0.7，则将"新轴心"假设升级为高可信度并重新校准联合监测仪表板。
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **主要来源：** EP MCP `analyze_coalition_dynamics`、`generate_political_landscape`；8个集团/28对样本。
+- **数据局限：** 无点名投票数据（欧洲议会发布延迟4周）；凝聚力是席位规模比率的结构代理。EPP配对分数因模型结构而退化。
+- **Renew–ECR信号可信度：** 🟡 中等。
+- **EPP配对分数可信度：** 🔴 低（模型工件）。
+
+---
+
+### 📎 Links
+
+| 链接 | 路径 |
+|------|------|
+| 文章 | `./article.md` |
+| 姊妹会话 | `analysis/daily/2026-04-03/breaking-2/`（欧洲议会API可靠性），`breaking-3/`（反腐败） |
+| 清单 | `./manifest.json` |
+
+---
+
+### 🔄 Cross-Reference
+
+**前置：** 三月衰退后第一周。2026-04-01/breaking中参考的联合算术现在在本次会话中被正式化为28对。
+
+**同步：** 2026-04-03/breaking-2记录欧洲议会API可靠性问题；2026-04-03/breaking-3涵盖反腐败指令包。
+
+---
+
+**文档控制**
+- **模板：** `/analysis/templates/executive-brief.md`
+- **制品路径：** `analysis/daily/2026-04-03/breaking/executive-brief.md`
+- **分类：** 公开
+- **溯源生成：** 溯源补充会话。
+
 ### Intelligence Brief
 
 | Field | Value |
@@ -2144,6 +2936,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [coalition-dynamics-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/coalition-dynamics-assessment.md) | `coalition-dynamics-assessment.md` |
 | section-supplementary-intelligence | [coalition-threat-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/coalition-threat-assessment.md) | `coalition-threat-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/intelligence-brief.md) | `intelligence-brief.md` |
 | section-supplementary-intelligence | [political-landscape-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/political-landscape-assessment.md) | `political-landscape-assessment.md` |
 | section-supplementary-intelligence | [recent-legislation-review](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/recent-legislation-review.md) | `recent-legislation-review.md` |

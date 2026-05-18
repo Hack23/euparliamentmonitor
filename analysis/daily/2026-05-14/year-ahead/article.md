@@ -99,7 +99,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `forward-projection.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -4374,6 +4374,863 @@ No third-party unverified sources; no AI hallucinated citations; no placeholder 
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-14 | **النوع:** year-ahead | **التصنيف:** عام
+**الفترة:** مايو 2026 – مايو 2027 | **درجة الثقة:** 🟡 متوسطة (بيانات هيكلية، بيانات تصويت محدودة)
+
+---
+
+### 🎯 60-Second Read
+
+يتكشّف العام التشريعي 2026–2027 للبرلمان الأوروبي في ظل ثلاث حقائق هيكلية: كتلة يهيمن عليها حزب الشعب الأوروبي EPP (25,5 % من المقاعد، 183 عضواً) تستلزم بناء ائتلافات متعددة؛ وزخم تشريعي نشط في مجالات إعادة التسلح الدفاعي وتكيّف الصفقة الخضراء وتطبيق قواعد السوق الرقمية الموحدة؛ وتحدٍّ متصاعد لتوطيد اليمين المتطرف ينبثق من محور ECR–PfE (23,1 % مجتمعَين). البرلمان مستقر (stabilityScore: 84) لكنه مجزَّأ (6,58 حزبًا فعليًا) — إذ تستلزم كل تصويت رئيسي أن يتفاوض EPP مع اثنَين على الأقل من: S&D أو Renew أو ECR.
+
+**أبرز ثلاثة قرارات متوقعة في العام القادم:**
+1. **ميزانية الاتحاد الأوروبي 2027** — اعتُمدت التوجيهات في أبريل 2026؛ تبدأ المفاوضات الكاملة مع المجلس في خريف 2026
+2. **تشريع اتحاد الدفاع** — صادق البرلمان على التعاون المعزَّز بشأن القرض لأوكرانيا؛ أدوات الصناعة الدفاعية الإضافية لا تزال قيد الانتظار
+3. **تطبيق قانون الأسواق الرقمية** — اعتُمد قرار الجلسة العامة في أبريل 2026؛ ستحرك قضايا تطبيق DMA ضد كبرى المنصات التقنية النقاش السياسي
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | النتيجة | الثقة | المصدر |
+|---|---------|------|--------|
+| 1 | يظل EPP المجموعة المهيمنة بلا منازع (183 مقعدًا، 25,5 %) لكنه يفتقر إلى 41 مقعدًا للأغلبية المطلقة، مما يُجبره على التفاوض ائتلافًا بائتلاف | 🟢 مرتفع | بيانات EP المفتوحة، سجلات أعضاء البرلمان الأوروبي |
+| 2 | يمتلك محور اليمين/المحافظين ECR–PfE 166 مقعدًا (23,1 %) — أقلية معرقِلة في كثير من الأعمال التشريعية التي تستوجب أغلبية موصوفة بـ 360 صوتًا | 🟢 مرتفع | بيانات EP المفتوحة، المشهد السياسي |
+| 3 | يبلغ مجموع الكتلة التقدمية (S&D + Renew + Greens/EFA + Left) ~311 مقعدًا — كافية للقرارات الأوروبية المؤيدة، غير أنها عاجزة عن حمل التشريعات دون دعم EPP أو ECR | 🟡 متوسط | تحليل نسبة أحجام الائتلافات |
+| 4 | يُعدّ دورة ميزانية الاتحاد الأوروبي 2027 القيد السياسي-التشريعي السائد: تشير توجيهات أبريل 2026 إلى ضغوط تقشف وطلبات دفاعية تكميلية ونزاعات حول صناديق التماسك | 🟢 مرتفع | TA-10-2026-0112، تقديرات ميزانية البرلمان الأوروبي |
+| 5 | يضع تطبيق DMA وتنفيذ قانون الذكاء الاصطناعي ونشر قانون حوكمة البيانات السوقَ الرقمية الموحدة باعتبارها ساحة المعركة التنظيمية الرئيسية لعامَي 2026–2027 | 🟢 مرتفع | TA-10-2026-0160، سلسلة النصوص المعتمدة |
+| 6 | تهيمن حرب أوكرانيا على السياسة الخارجية: اعتُمدت آلية القرض، ومُررت قرارات المساءلة، في حين لا يزال نزاع التوافق مع ميركوسور قائمًا | 🟢 مرتفع | TA-10-2026-0010، TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| المخاطرة | الاحتمالية | الأثر | الأفق الزمني |
+|---------|----------|------|--------------|
+| يستقطب ECR–PfE مزيدًا من المنشقين عن NI موسّعًا كتلة اليمين المتطرف | 🟡 متوسط (45 %) | مرتفع | الربع الثالث 2026 |
+| الجمود الميزاني 2027 يُفضي إلى اثنَي عشر مؤقتًا | 🔴 منخفض-متوسط (25 %) | بالغ الخطورة | الربع الرابع 2026 |
+| انهيار تصديق اتفاقية الاتحاد الأوروبي–ميركوسور عقب رأي محكمة العدل الأوروبية | 🟡 متوسط (40 %) | مرتفع | النصف الأول 2027 |
+| يُفضي DMA إلى إجراءات انتقامية من كبرى شركات التكنولوجيا في المفاوضات التجارية | 🔴 منخفض (20 %) | متوسط | مستمر |
+| تنقسم Greens/EFA تحت ضغط التوترات المناخية-الاقتصادية | 🟡 متوسط (35 %) | متوسط | الربع الرابع 2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| الفترة | الحدث الرئيسي | الأهمية السياسية |
+|--------|-------------|----------------|
+| مايو 2026 | أسبوع الجلسة العامة الحالية — موسم المعالم البارزة في اللجان | تُستكمل تعيينات مقرري اللجان |
+| يونيو 2026 | جلسة ستراسبورغ العامة 9–12 يونيو | هجوم تشريعي عقب الاستراحة |
+| سبتمبر 2026 | انطلاق موسم الجلسات العامة الخريفية | تبدأ قراءة الميزانية؛ مراجعة أولويات المفوضية |
+| أكتوبر–نوفمبر 2026 | القراءة الأولى لميزانية 2027 | تصويت رهاناته عالية عبر جميع المجموعات |
+| يناير 2027 | إشارات مراجعة المنتصف المؤسسي | يُقيّم البرلمان برنامج عمل المفوضية 2027 |
+| مارس–أبريل 2027 | سباق تشريعي ربيعي | استكمال التوجيهات المتعثرة قبل الصيف |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **البرلمان:** 717 عضوًا | 9 مجموعات سياسية | 27 دولة
+- **عتبة الأغلبية:** 360 صوتًا (أغلبية مطلقة)
+- **الائتلاف الكبير (EPP+S&D):** 319 مقعدًا — غير كافٍ منفردًا؛ 41 صوتًا دون العتبة
+- **مؤشر التجزؤ:** مرتفع (6,58 حزبًا فعليًا)
+- **درجة الاستقرار:** 84/100 — مستقر لكن معقد
+- **حداثة البيانات:** بوابة البيانات المفتوحة للبرلمان الأوروبي، سجلات الأعضاء في الوقت الفعلي، مايو 2026
+
+---
+
+*BLUF: يدخل البرلمان عامه التشريعي 2026–2027 مؤسسةً مجزَّأة لكنها فاعلة. يُشكّل الأولوية الهيكلية لـ EPP كل تصويت. التحدي الشعبوي اليميني حقيقي لكنه لم يبلغ حد زعزعة الاستقرار بعد. يُحدد الرابط المالي-الرقمي — ميزانية 2027 + تطبيق DMA — معالم العام التشريعي. يبقى دعم أوكرانيا توافقيًا. سياق IMF: تعافي النمو الأوروبي هش؛ يُقيّد التوطيد المالي طلبات الإنفاق الدفاعي التكميلية.*
+
+### Executive Brief Da
+
+### 🎯 60-Second Read
+
+Europa-Parlamentets lovgivningsår 2026–2027 udspiller sig inden for tre strukturelle realiteter: et EPP-domineret blok (25,5 % af mandaterne, 183 MEP'er), der kræver flerkoalitionsopbygning; aktiv lovgivningsmæssig fremdrift om forsvarsoprustning, tilpasning af Green Deal og håndhævelse af det digitale indre marked; og en fremvoksende yrehøjrekonsolideringsudfordring fra ECR–PfE-aksen (23,1 % tilsammen). Parlamentet er stabilt (stabilityScore: 84) men fragmenteret (6,58 effektive partier) — enhver større afstemning kræver, at EPP forhandler med mindst to af: S&D, Renew eller ECR.
+
+**De tre vigtigste forventede beslutninger i det kommende år:**
+1. **EU-budgettet 2027** — Retningslinjer vedtaget april 2026; fuld forhandling med Rådet begynder efteråret 2026
+2. **Lovgivning om forsvarsunionen** — Udvidet samarbejde om lån til Ukraine ratificeret; yderligere forsvarsindustrielle instrumenter afventer
+3. **Håndhævelse af lov om digitale markeder** — Plenarresolution vedtaget april 2026; DMA-gennemførselsager mod store teknologiplatforme vil drive den politiske debat
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | Konstatering | Konfidens | Kilde |
+|---|-------------|----------|-------|
+| 1 | EPP forbliver den ubestridte dominerende gruppe (183 mandater, 25,5 %) men mangler 41 mandater til absolut flertal, hvilket tvinger til koalitionsaftaler fra sag til sag | 🟢 Høj | EP Open Data MEP-register |
+| 2 | ECR–PfE's højre-/konservative akse har 166 mandater (23,1 %) — et blokerende mindretal i mange lovgivningsakter, der kræver 360-stemmes supermajoritet | 🟢 Høj | EP Open Data, politisk landskab |
+| 3 | Det progressive blok (S&D + Renew + Greens/EFA + Left) udgør ~311 mandater — levedygtigt på pro-europæiske beslutninger, men kan ikke bære lovgivning uden EPP's eller ECR's støtte | 🟡 Medium | Koalitionsstørrelsesanalyse |
+| 4 | EU's budgetcyklus 2027 er den dominerende politisk-lovgivningsmæssige begrænsning: retningslinjerne for april 2026 signalerer nedskæringspres, supplerende forsvarsanmodninger og stridigheder om samhørighedsfonden | 🟢 Høj | TA-10-2026-0112, EP's budgetestimater |
+| 5 | DMA-håndhævelse, implementering af AI-loven og udrulning af dataforvaltningsloven placerer det digitale indre marked som det primære regulatoriske kampområde for 2026–2027 | 🟢 Høj | TA-10-2026-0160, vedtagne tekster |
+| 6 | Ukrainekrigen dominerer udenrigspolitikken: lånemekanismen vedtaget, ansvarsresolutioner vedtaget, Mercosur-kompatibilitetskonflikt udestående | 🟢 Høj | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| Risiko | Sandsynlighed | Konsekvens | Tidshorisont |
+|--------|--------------|-----------|--------------|
+| ECR–PfE vinder yderligere NI-afhoppere og udvider det yrehøjre blok | 🟡 Medium (45 %) | HØJ | Kv3 2026 |
+| Budget 2027-dødvande udløser provisoriske tolvtedele | 🔴 Lav-Medium (25 %) | KRITISK | Kv4 2026 |
+| EU–Mercosur-ratificering kollapser efter EUD-udtalelse | 🟡 Medium (40 %) | HØJ | H1 2027 |
+| DMA udløser Big Tech-modforanstaltninger i handelsforhandlinger | 🔴 Lav (20 %) | MIDDEL | Løbende |
+| Greens/EFA splintres under klima-økonomisk spænding | 🟡 Medium (35 %) | MIDDEL | Kv4 2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| Periode | Nøglebegivenh. | Politisk betydning |
+|---------|---------------|-------------------|
+| Maj 2026 | Igangværende plenarmødeuge — udvalgsmilestætte-sæson | Udvalgs-ordførerudnævnelser afsluttes |
+| Juni 2026 | Strasbourg-plenum 9.–12. juni | Lovgivningsoffensiv efter ferie |
+| Sept 2026 | Efterårsplenumperioden åbner | Budgetlæsning begynder; gennemgang af Kommissionens prioriteter |
+| Okt–nov 2026 | Første læsning af budgettet 2027 | Afgørende afstemning på tværs af alle grupper |
+| Jan 2027 | Signaler om midtvejsinstitionel gennemgang | EP evaluerer Kommissionens arbejdsprogram 2027 |
+| Mar–apr 2027 | Forårenes lovgivningssprint | Forudgående sommerrensning af strandede direktiver |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **Parlamentet:** 717 MEP'er | 9 politiske grupper | 27 lande
+- **Flertalsgrænse:** 360 stemmer (absolut flertal)
+- **Storkoalition (EPP+S&D):** 319 mandater — UTILSTRÆKKELIGT alene; 41 stemmer under loftet
+- **Fragmenteringsindeks:** HØJ (6,58 effektive partier)
+- **Stabilitetscore:** 84/100 — stabilt men komplekst
+- **Dataaktualitet:** EP Open Data Portal, realtids MEP-register, maj 2026
+
+---
+
+*BLUF: Parlamentet træder ind i sit lovgivningsår 2026–2027 som en fragmenteret, men funktionel institution. EPP's strukturelle primat former enhver afstemning. Den højrepopulistiske udfordring er reel, men endnu ikke destabiliserende. Den fiskal-digitale nexus — budget 2027 + DMA-håndhævelse — definerer lovgivningsåret. Ukraine-støtte forbliver bipartistisk. IMF-kontekst: EU's vækstopsving er skrøbeligt; finanspolitisk konsolidering begrænser supplerende forsvarsudgiftsanmodninger.*
+
+### Executive Brief De
+
+### 🎯 60-Second Read
+
+Das Gesetzgebungsjahr 2026–2027 des Europäischen Parlaments entfaltet sich vor dem Hintergrund drei struktureller Realitäten: ein EVP-dominierter Block (25,5 % der Sitze, 183 Abgeordnete), der Multi-Koalitionsbildung erfordert; aktiver legislativer Schwung bei Verteidigungsaufrüstung, Green-Deal-Anpassung und Durchsetzung des digitalen Binnenmarktes; sowie eine aufkommende Rechtskonsolidierungsherausforderung durch die ECR–PfE-Achse (23,1 % zusammen). Das Parlament ist stabil (stabilityScore: 84), aber fragmentiert (6,58 effektive Parteien) — jede wichtige Abstimmung erfordert, dass die EVP mit mindestens zwei der folgenden verhandelt: S&D, Renew oder ECR.
+
+**Die drei wichtigsten erwarteten Entscheidungen im kommenden Jahr:**
+1. **EU-Haushalt 2027** — Leitlinien im April 2026 verabschiedet; vollständige Verhandlungen mit dem Rat beginnen Herbst 2026
+2. **Gesetzgebung zur Verteidigungsunion** — Verstärkte Zusammenarbeit beim Darlehen für die Ukraine ratifiziert; weitere verteidigungsindustrielle Instrumente stehen aus
+3. **Durchsetzung des Gesetzes über digitale Märkte** — Plenarbeschluss im April 2026 verabschiedet; DMA-Durchsetzungsverfahren gegen große Technologieplattformen treiben die politische Debatte voran
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | Feststellung | Konfidenz | Quelle |
+|---|-------------|----------|--------|
+| 1 | Die EVP bleibt die unangefochtene dominierende Fraktion (183 Sitze, 25,5 %), fehlt aber 41 Sitze zur absoluten Mehrheit, was eine koalitionsweise Verhandlungsführung erzwingt | 🟢 Hoch | EP Open Data, Abgeordnetendatensätze |
+| 2 | Die rechte/konservative ECR–PfE-Achse hält 166 Sitze (23,1 %) — eine Sperrminorität bei vielen Gesetzgebungsakten, die 360-Stimmen-Supermehrheiten erfordern | 🟢 Hoch | EP Open Data, politische Landschaft |
+| 3 | Der progressive Block (S&D + Renew + Greens/EFA + Left) umfasst ~311 Sitze — tragfähig bei pro-europäischen Entschließungen, kann aber keine Gesetzgebung ohne Unterstützung von EVP oder ECR durchsetzen | 🟡 Mittel | Koalitionsgrößen-Verhältnisanalyse |
+| 4 | Der EU-Haushaltszyklus 2027 ist die dominierende politisch-gesetzgeberische Einschränkung: Die Leitlinien vom April 2026 signalisieren Spardruck, ergänzende Verteidigungsanträge und Kohäsionsfondsstreitigkeiten | 🟢 Hoch | TA-10-2026-0112, EP-Haushaltspläne |
+| 5 | DMA-Durchsetzung, KI-Gesetz-Implementierung und Rollout des Datenverwaltungsgesetzes positionieren den digitalen Binnenmarkt als primäres regulatorisches Schlachtfeld 2026–2027 | 🟢 Hoch | TA-10-2026-0160, angenommene Texte |
+| 6 | Der Ukraine-Krieg dominiert die Außenpolitik: Darlehensmechanismus verabschiedet, Rechenschaftspflicht-Entschließungen verabschiedet, Mercosur-Kompatibilitätsstreit ausstehend | 🟢 Hoch | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| Risiko | Wahrscheinlichkeit | Auswirkung | Zeithorizont |
+|--------|-------------------|-----------|--------------|
+| ECR–PfE gewinnt weitere NI-Überläufer und vergrößert den Rechtsaußen-Block | 🟡 Mittel (45 %) | HOCH | Q3 2026 |
+| Haushalt-2027-Patt löst vorläufige Zwölftelung aus | 🔴 Niedrig-Mittel (25 %) | KRITISCH | Q4 2026 |
+| EU–Mercosur-Ratifizierung scheitert nach EuGH-Gutachten | 🟡 Mittel (40 %) | HOCH | H1 2027 |
+| DMA löst Big-Tech-Gegenmaßnahmen in Handelsverhandlungen aus | 🔴 Niedrig (20 %) | MITTEL | Laufend |
+| Greens/EFA zerbricht unter Klima-Wirtschafts-Spannung | 🟡 Mittel (35 %) | MITTEL | Q4 2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| Zeitraum | Schlüsselereignis | Politische Bedeutung |
+|----------|------------------|---------------------|
+| Mai 2026 | Laufende Plenumwoche — Ausschuss-Meilensteinphase | Ausschussberichterstatter-Ernennungen werden abgeschlossen |
+| Juni 2026 | Straßburger Plenum 9.–12. Juni | Legislativer Schwung nach der Pause |
+| Sept 2026 | Herbst-Plenumsaison beginnt | Haushaltslesung beginnt; Überprüfung der Kommissionsprioritäten |
+| Okt–Nov 2026 | Erste Lesung Haushalt 2027 | Hochrisikoabstimmung in allen Fraktionen |
+| Jan 2027 | Signale zur institutionellen Halbzeitüberprüfung | EP bewertet das Arbeitsprogramm der Kommission 2027 |
+| März–Apr 2027 | Legislativer Frühjahrssprint | Vorsommerliches Abräumen stagnierender Richtlinien |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **Parlament:** 717 Abgeordnete | 9 politische Fraktionen | 27 Länder
+- **Mehrheitsschwelle:** 360 Stimmen (absolute Mehrheit)
+- **Große Koalition (EVP+S&D):** 319 Sitze — ALLEIN UNZUREICHEND; 41 Stimmen unter der Schwelle
+- **Fragmentierungsindex:** HOCH (6,58 effektive Parteien)
+- **Stabilitätswert:** 84/100 — stabil, aber komplex
+- **Datenaktualität:** EP Open Data Portal, Echtzeit-Abgeordnetendatensätze, Mai 2026
+
+---
+
+*BLUF: Das Parlament tritt in sein Gesetzgebungsjahr 2026–2027 als fragmentierte, aber funktionsfähige Institution ein. Der strukturelle Primat der EVP prägt jede Abstimmung. Die rechtspopulistische Herausforderung ist real, aber noch nicht destabilisierend. Das fiskal-digitale Nexus — Haushalt 2027 + DMA-Durchsetzung — definiert das Gesetzgebungsjahr. Die Ukraine-Unterstützung bleibt überparteilich. IMF-Kontext: Die EU-Wachstumserholung ist fragil; die Haushaltskonsolidierung schränkt ergänzende Verteidigungsausgabenanträge ein.*
+
+### Executive Brief Es
+
+### 🎯 60-Second Read
+
+El año legislativo 2026–2027 del Parlamento Europeo se desarrolla en torno a tres realidades estructurales: un bloque dominado por el PPE (25,5 % de los escaños, 183 eurodiputados) que requiere la formación de múltiples coaliciones; un activo impulso legislativo en materia de rearme de defensa, adaptación del Pacto Verde y aplicación del mercado único digital; y un emergente desafío de consolidación de la extrema derecha procedente del eje ECR–PfE (23,1 % en conjunto). El Parlamento es estable (stabilityScore: 84) pero fragmentado (6,58 partidos efectivos) — cada votación importante exige que el PPE negocie con al menos dos de: S&D, Renew o ECR.
+
+**Las tres principales decisiones esperadas en el año próximo:**
+1. **Presupuesto de la UE 2027** — Orientaciones adoptadas en abril de 2026; las negociaciones completas con el Consejo comenzarán en otoño de 2026
+2. **Legislación sobre la Unión de Defensa** — Cooperación reforzada sobre el préstamo a Ucrania ratificada; otros instrumentos industriales de defensa pendientes
+3. **Aplicación del Reglamento de Mercados Digitales** — Resolución plenaria adoptada en abril de 2026; los casos de aplicación del DMA contra las grandes plataformas tecnológicas impulsarán el debate político
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | Hallazgo | Confianza | Fuente |
+|---|---------|----------|--------|
+| 1 | El PPE sigue siendo el grupo dominante indiscutible (183 escaños, 25,5 %) pero le faltan 41 escaños para la mayoría absoluta, lo que obliga a negociaciones coalición por coalición | 🟢 Alta | EP Open Data, registros de eurodiputados |
+| 2 | El eje derecha/conservador ECR–PfE tiene 166 escaños (23,1 %) — una minoría de bloqueo en muchos actos legislativos que requieren supermayorías de 360 votos | 🟢 Alta | EP Open Data, paisaje político |
+| 3 | El bloque progresista (S&D + Renew + Greens/EFA + Left) suma ~311 escaños — viable en resoluciones pro-europeas pero incapaz de impulsar legislación sin el apoyo del PPE o el ECR | 🟡 Media | Análisis de ratio de tamaño de coalición |
+| 4 | El ciclo presupuestario de la UE 2027 es la restricción político-legislativa dominante: las orientaciones de abril de 2026 señalan presión de austeridad, solicitudes de defensa suplementarias y disputas sobre los fondos de cohesión | 🟢 Alta | TA-10-2026-0112, estimaciones presupuestarias del PE |
+| 5 | La aplicación del DMA, la implementación del Reglamento de IA y el despliegue de la Ley de Gobernanza de Datos sitúan el mercado único digital como el principal campo de batalla regulatorio 2026–2027 | 🟢 Alta | TA-10-2026-0160, serie de textos adoptados |
+| 6 | La guerra de Ucrania domina la política exterior: mecanismo de préstamo adoptado, resoluciones de responsabilidad adoptadas, disputa sobre compatibilidad con Mercosur pendiente | 🟢 Alta | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| Riesgo | Probabilidad | Impacto | Horizonte |
+|--------|-------------|--------|----------|
+| ECR–PfE gana más tránsfugas de NI, ampliando el bloque de extrema derecha | 🟡 Media (45 %) | ALTO | T3 2026 |
+| El bloqueo presupuestario 2027 activa los dozavos provisionales | 🔴 Baja-Media (25 %) | CRÍTICO | T4 2026 |
+| La ratificación UE–Mercosur colapsa tras el dictamen del TJUE | 🟡 Media (40 %) | ALTO | S1 2027 |
+| El DMA desencadena represalias de las Big Tech en negociaciones comerciales | 🔴 Baja (20 %) | MEDIO | Continuo |
+| Greens/EFA se fractura bajo la tensión climático-económica | 🟡 Media (35 %) | MEDIO | T4 2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| Período | Evento clave | Relevancia política |
+|---------|-------------|---------------------|
+| Mayo 2026 | Semana plenaria actual — temporada de hitos en comisión | Se finalizan los nombramientos de ponentes en comisión |
+| Junio 2026 | Sesión plenaria de Estrasburgo 9–12 de junio | Ofensiva legislativa tras el receso |
+| Sept 2026 | Se abre la temporada plenaria de otoño | Comienza la lectura del presupuesto; revisión de las prioridades de la Comisión |
+| Oct–Nov 2026 | Primera lectura del Presupuesto 2027 | Votación de alto riesgo en todos los grupos |
+| Ene 2027 | Señales de revisión institucional a mitad de mandato | El PE evalúa el Programa de Trabajo de la Comisión 2027 |
+| Mar–Abr 2027 | Sprint legislativo de primavera | Desbloqueo prestiival de directivas estancadas |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **Parlamento:** 717 eurodiputados | 9 grupos políticos | 27 países
+- **Umbral de mayoría:** 360 votos (mayoría absoluta)
+- **Gran coalición (PPE+S&D):** 319 escaños — INSUFICIENTE por sí solo; 41 votos por debajo del umbral
+- **Índice de fragmentación:** ALTO (6,58 partidos efectivos)
+- **Puntuación de estabilidad:** 84/100 — estable pero complejo
+- **Actualidad de los datos:** Portal de Datos Abiertos del PE, registros de eurodiputados en tiempo real, mayo 2026
+
+---
+
+*BLUF: El Parlamento entra en su año legislativo 2026–2027 como una institución fragmentada pero funcional. El primado estructural del PPE condiciona cada votación. El desafío populista de derechas es real pero aún no desestabilizador. El nexo fiscal-digital — presupuesto 2027 + aplicación del DMA — define el año legislativo. El apoyo a Ucrania sigue siendo bipartidista. Contexto IMF: la recuperación del crecimiento de la UE es frágil; la consolidación fiscal limita las solicitudes suplementarias de gasto en defensa.*
+
+### Executive Brief Fi
+
+### 🎯 60-Second Read
+
+Euroopan parlamentin lainsäädäntövuosi 2026–2027 kehittyy kolmen rakenteellisen todellisuuden varassa: EPP-johtoinen blokki (25,5 % paikoista, 183 MEP:tä) edellyttää usean koalition rakentamista; aktiivinen lainsäädäntövauhti puolustuksen varustautumisessa, Green Deal -sopeutuksessa ja digitaalisten sisämarkkinoiden täytäntöönpanossa; sekä äärioikeiston konsolidointihaaste ECR–PfE-akselilta (23,1 % yhteensä). Parlamentti on vakaa (stabilityScore: 84) mutta hajanainen (6,58 tehokasta puoluetta) — jokainen merkittävä äänestys edellyttää, että EPP neuvottelee vähintään kahden seuraavista kanssa: S&D, Renew tai ECR.
+
+**Kolme tärkeintä ensi vuoden odotettua päätöstä:**
+1. **EU:n talousarvio 2027** — Suuntaviivat hyväksyttiin huhtikuussa 2026; täydelliset neuvottelut neuvoston kanssa alkavat syksyllä 2026
+2. **Puolustusunionin lainsäädäntö** — Laajennettu yhteistyö Ukrainan lainasta ratifioitu; lisää puolustusalan teollisuusinstrumentteja odottaa
+3. **Digitaalisia markkinoita koskevan lain täytäntöönpano** — Täysistuntoresoluutio hyväksyttiin huhtikuussa 2026; DMA:n toimeenpanoasiat suuria teknologia-alustoja vastaan ohjaavat poliittista keskustelua
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | Havainto | Luotettavuus | Lähde |
+|---|---------|-------------|-------|
+| 1 | EPP pysyy kiistattomana hallitsevana ryhmänä (183 paikkaa, 25,5 %), mutta puuttuu 41 paikkaa absoluuttiseen enemmistöön, mikä pakottaa tapauskohtaiseen koalioneuvotteluun | 🟢 Korkea | EP:n avoin data, MEP-tietueet |
+| 2 | ECR–PfE:n oikeisto-/konservatiivinen akseli hallitsee 166 paikkaa (23,1 %) — estävä vähemmistö monissa lainsäätämistoimissa, jotka vaativat 360 äänen supermajoriteetin | 🟢 Korkea | EP:n avoin data, poliittinen maisema |
+| 3 | Edistyksellinen blokki (S&D + Renew + Greens/EFA + Left) yhteensä ~311 paikkaa — elinkelpoinen eurooppalaisissa päätöslauselmissa, mutta ei pysty kantamaan lainsäädäntöä ilman EPP:n tai ECR:n tukea | 🟡 Keskitaso | Koalition kokosuhdeanalyysi |
+| 4 | EU:n talousarviokierto 2027 on hallitseva poliittis-lainsäädännöllinen rajoite: huhtikuun 2026 suuntaviivat viittaavat säästöpaineeseen, täydentäviin puolustusvaatimuksiin ja koheesiorahastokonflikteihin | 🟢 Korkea | TA-10-2026-0112, EP:n talousarvioarviot |
+| 5 | DMA:n täytäntöönpano, tekoälylain soveltaminen ja datahallintolain käyttöönotto asettavat digitaaliset sisämarkkinat keskeiseksi sääntelykamppailualueeksi 2026–2027 | 🟢 Korkea | TA-10-2026-0160, hyväksyttyjen tekstien sarja |
+| 6 | Ukrainan sota hallitsee ulkopolitiikkaa: lainamekanismi hyväksytty, vastuullisuu­späätöslauselmat hyväksytty, Mercosur-yhteensopivuuskiista ratkaisematta | 🟢 Korkea | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| Riski | Todennäköisyys | Vaikutus | Aikahorisontti |
+|-------|---------------|---------|----------------|
+| ECR–PfE houkuttelee lisää NI-loikkareita ja laajentaa äärioikeiston blokkia | 🟡 Keskitaso (45 %) | KORKEA | Neljännes 3/2026 |
+| Talousarvio 2027 -umpikuja johtaa väliaikaisiin kahdestoista­osiin | 🔴 Matala–Keskitaso (25 %) | KRIITTINEN | Neljännes 4/2026 |
+| EU–Mercosur-ratifiointi kaatuu EUT:n lausunnon jälkeen | 🟡 Keskitaso (40 %) | KORKEA | H1 2027 |
+| DMA laukaisee Big Techin vastatoimet kauppaneuvotteluissa | 🔴 Matala (20 %) | KESKITASO | Jatkuva |
+| Greens/EFA hajoaa ilmasto-taloudellisen jännitteen alla | 🟡 Keskitaso (35 %) | KESKITASO | Neljännes 4/2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| Kausi | Keskeinen tapahtuma | Poliittinen merkitys |
+|-------|---------------------|---------------------|
+| Toukokuu 2026 | Kuluva täysistuntoviikko — valiokuntavirstanpylväskausi | Valiokuntaesittelijöiden nimitykset viimeistellään |
+| Kesäkuu 2026 | Strasbourgin täysistunto 9.–12. kesäkuuta | Lainsäädäntöoffensiivi loman jälkeen |
+| Syyskuu 2026 | Syksyn täysistuntokausi alkaa | Talousarvion käsittely alkaa; komission prioriteettien arviointi |
+| Loka–marraskuu 2026 | Talousarvion 2027 ensimmäinen käsittely | Korkean panoksen äänestys kaikissa ryhmissä |
+| Tammikuu 2027 | Puolivälin institutionaalinen tarkistelu | EP arvioi komission työohjelman 2027 |
+| Maalis–huhtikuu 2027 | Kevään lainsäädäntösprint | Jumissa olevien direktiivien ennen-kesää-siivous |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **Parlamentti:** 717 MEP:tä | 9 poliittista ryhmää | 27 maata
+- **Enemmistökynnys:** 360 ääntä (absoluuttinen enemmistö)
+- **Suurkoalitio (EPP+S&D):** 319 paikkaa — RIITTÄMÄTÖN yksin; 41 ääntä alle katon
+- **Hajanaisuusindeksi:** KORKEA (6,58 tehokasta puoluetta)
+- **Vakauspistemäärä:** 84/100 — vakaa mutta monimutkainen
+- **Datan tuoreus:** EP:n avoin dataporttaali, reaaliaikaiset MEP-tietueet, toukokuu 2026
+
+---
+
+*BLUF: Parlamentti astuu lainsäädäntövuoteen 2026–2027 hajallaan olevana mutta toiminnallisena instituutiona. EPP:n rakenteellinen ensisijaisuus muovaa jokaista äänestystä. Oikeistopopulistinen haaste on todellinen, mutta ei vielä horjuttava. Fiskalis-digitaalinen nexus — talousarvio 2027 + DMA:n täytäntöönpano — määrittää lainsäädäntövuoden. Ukrainan tuki pysyy kaksi­puoluetukena. IMF-konteksti: EU:n kasvuun­palautuminen on hauras; finanssipoliittinen konsolidointi rajoittaa täydentäviä puolustusmenopyyntöjä.*
+
+### Executive Brief Fr
+
+### 🎯 60-Second Read
+
+L'année législative 2026–2027 du Parlement européen se déroule dans le contexte de trois réalités structurelles : un bloc dominé par le PPE (25,5 % des sièges, 183 députés) qui nécessite la constitution de coalitions multiples ; une dynamique législative active sur le réarmement en matière de défense, l'adaptation du Pacte vert et l'application du marché unique numérique ; et un défi de consolidation de l'extrême droite émanant de l'axe ECR–PfE (23,1 % au total). Le Parlement est stable (stabilityScore : 84) mais fragmenté (6,58 partis effectifs) — tout vote majeur exige que le PPE négocie avec au moins deux des groupes suivants : S&D, Renew ou ECR.
+
+**Les trois principales décisions attendues au cours de l'année à venir :**
+1. **Budget UE 2027** — Orientations adoptées en avril 2026 ; les négociations complètes avec le Conseil commencent à l'automne 2026
+2. **Législation sur l'Union de la défense** — Coopération renforcée sur le prêt à l'Ukraine ratifiée ; d'autres instruments industriels de défense en attente
+3. **Application du règlement sur les marchés numériques** — Résolution en séance plénière adoptée en avril 2026 ; les affaires de mise en œuvre du DMA contre les grandes plateformes technologiques alimenteront le débat politique
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | Constat | Confiance | Source |
+|---|---------|----------|--------|
+| 1 | Le PPE demeure le groupe dominant incontesté (183 sièges, 25,5 %) mais manque 41 sièges pour la majorité absolue, ce qui impose des négociations coalition par coalition | 🟢 Élevé | EP Open Data, registres des députés |
+| 2 | L'axe droite/conservateur ECR–PfE détient 166 sièges (23,1 %) — une minorité de blocage sur de nombreux actes législatifs nécessitant des super-majorités de 360 voix | 🟢 Élevé | EP Open Data, paysage politique |
+| 3 | Le bloc progressiste (S&D + Renew + Greens/EFA + Left) totalise ~311 sièges — viable pour les résolutions pro-européennes mais incapable de porter la législation sans le soutien du PPE ou de l'ECR | 🟡 Moyen | Analyse du ratio des tailles de coalitions |
+| 4 | Le cycle budgétaire 2027 de l'UE est la contrainte politico-législative dominante : les orientations d'avril 2026 signalent des pressions d'austérité, des demandes supplémentaires de défense et des litiges sur les fonds de cohésion | 🟢 Élevé | TA-10-2026-0112, estimations budgétaires du PE |
+| 5 | L'application du DMA, la mise en œuvre de l'IA Act et le déploiement de la loi sur la gouvernance des données font du marché unique numérique le principal champ de bataille réglementaire 2026–2027 | 🟢 Élevé | TA-10-2026-0160, série de textes adoptés |
+| 6 | La guerre en Ukraine domine la politique étrangère : mécanisme de prêt adopté, résolutions sur la responsabilité adoptées, litige sur la compatibilité avec le Mercosur en cours | 🟢 Élevé | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| Risque | Probabilité | Impact | Horizon |
+|--------|------------|--------|---------|
+| ECR–PfE gagne d'autres transfuges NI, élargissant le bloc d'extrême droite | 🟡 Moyen (45 %) | ÉLEVÉ | T3 2026 |
+| Blocage budgétaire 2027 entraîne des douzièmes provisoires | 🔴 Faible-Moyen (25 %) | CRITIQUE | T4 2026 |
+| La ratification UE–Mercosur s'effondre après l'avis de la CJUE | 🟡 Moyen (40 %) | ÉLEVÉ | S1 2027 |
+| Le DMA déclenche des représailles des Big Tech dans les négociations commerciales | 🔴 Faible (20 %) | MOYEN | Continu |
+| Greens/EFA se fracture sous la tension climat-économie | 🟡 Moyen (35 %) | MOYEN | T4 2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| Période | Événement clé | Importance politique |
+|---------|--------------|---------------------|
+| Mai 2026 | Semaine plénière en cours — saison des jalons en commission | Les nominations de rapporteurs en commission se finalisent |
+| Juin 2026 | Séance plénière de Strasbourg 9–12 juin | Offensive législative post-pause |
+| Sept 2026 | La saison plénière d'automne s'ouvre | La lecture du budget commence ; révision des priorités de la Commission |
+| Oct–Nov 2026 | Première lecture du budget 2027 | Vote à enjeux élevés dans tous les groupes |
+| Jan 2027 | Signaux de révision institutionnelle à mi-parcours | Le PE évalue le programme de travail 2027 de la Commission |
+| Mars–Avr 2027 | Sprint législatif de printemps | Déblocage avant l'été des directives en souffrance |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **Parlement :** 717 députés | 9 groupes politiques | 27 pays
+- **Seuil de majorité :** 360 voix (majorité absolue)
+- **Grande coalition (PPE+S&D) :** 319 sièges — INSUFFISANT seul ; 41 voix en dessous du seuil
+- **Indice de fragmentation :** ÉLEVÉ (6,58 partis effectifs)
+- **Score de stabilité :** 84/100 — stable mais complexe
+- **Fraîcheur des données :** Portail de données ouvertes du PE, registres des députés en temps réel, mai 2026
+
+---
+
+*BLUF : Le Parlement entame son année législative 2026–2027 en tant qu'institution fragmentée mais fonctionnelle. La primauté structurelle du PPE conditionne chaque vote. Le défi populiste de droite est réel mais pas encore déstabilisateur. Le nexus fiscal-numérique — budget 2027 + application du DMA — définit l'année législative. Le soutien à l'Ukraine reste bipartisan. Contexte IMF : la reprise de la croissance de l'UE est fragile ; la consolidation budgétaire contraint les demandes supplémentaires de dépenses de défense.*
+
+### Executive Brief He
+
+**תאריך:** 2026-05-14 | **סוג:** year-ahead | **סיווג:** ציבורי
+**תקופה:** מאי 2026 – מאי 2027 | **רמת אמינות:** 🟡 בינונית (נתונים מבניים, נתוני הצבעה מוגבלים)
+
+---
+
+### 🎯 60-Second Read
+
+שנת החקיקה 2026–2027 של הפרלמנט האירופי מתפתחת בצל שלוש מציאויות מבניות: גוש בהובלת EPP (25.5% מהמושבים, 183 חברי פרלמנט) המחייב בניית קואליציות מרובות; תנופה חקיקתית פעילה בנושאי חימוש מחדש בתחום הביטחון, התאמת ה-Green Deal ואכיפת השוק הדיגיטלי המאוחד; ואתגר גובר לגיבוש הימין הקיצוני מציר ECR–PfE (23.1% ביחד). הפרלמנט יציב (stabilityScore: 84) אך מפוצל (6.58 מפלגות אפקטיביות) — כל הצבעה מרכזית מחייבת את EPP לנהל משא ומתן עם לפחות שתיים מ: S&D, Renew או ECR.
+
+**שלושת ההחלטות המרכזיות הצפויות בשנה הקרובה:**
+1. **תקציב האיחוד האירופי 2027** — הנחיות אומצו באפריל 2026; משא ומתן מלא עם המועצה יחל בסתיו 2026
+2. **חקיקת איחוד הביטחון** — שיתוף פעולה מוגבר על ההלוואה לאוקראינה אושרר; כלים נוספים לתעשיית הביטחון ממתינים
+3. **אכיפת חוק השווקים הדיגיטליים** — החלטת המליאה אומצה באפריל 2026; תיקי יישום DMA נגד פלטפורמות הטכנולוגיה הגדולות ינהלו את הדיון הפוליטי
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | ממצא | אמינות | מקור |
+|---|------|--------|------|
+| 1 | EPP נשאר הקבוצה הדומיננטית ללא עוררין (183 מושבים, 25.5%) אך חסרים לו 41 מושבים לרוב מוחלט, מה שמאלץ משא ומתן קואליציה-אחר-קואליציה | 🟢 גבוה | EP Open Data, רשומות חברי הפרלמנט |
+| 2 | ציר הימין/שמרנים ECR–PfE מחזיק 166 מושבים (23.1%) — מיעוט חוסם בפעולות חקיקה רבות הדורשות רוב מיוחד של 360 קולות | 🟢 גבוה | EP Open Data, הנוף הפוליטי |
+| 3 | הגוש הפרוגרסיבי (S&D + Renew + Greens/EFA + Left) מסתכם ב-~311 מושבים — בר-קיימא בהחלטות פרו-אירופיות אך אינו יכול לקדם חקיקה ללא תמיכת EPP או ECR | 🟡 בינוני | ניתוח יחס גודל קואליציות |
+| 4 | מחזור התקציב 2027 של האיחוד הוא האילוץ הפוליטי-חקיקתי הדומיננטי: הנחיות אפריל 2026 מסמנות לחץ צנע, בקשות ביטחון משלימות וסכסוכים סביב קרנות הלכידות | 🟢 גבוה | TA-10-2026-0112, הערכות תקציב הפרלמנט |
+| 5 | אכיפת DMA, יישום חוק הבינה המלאכותית ופריסת חוק ממשל הנתונים מציבים את השוק הדיגיטלי המאוחד כזירת הקרב הרגולטורית העיקרית ל-2026–2027 | 🟢 גבוה | TA-10-2026-0160, סדרת טקסטים שאומצו |
+| 6 | מלחמת אוקראינה שולטת במדיניות החוץ: מנגנון ההלוואה אומץ, החלטות אחריות עברו, מחלוקת תאימות מרקוסור תלויה ועומדת | 🟢 גבוה | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| סיכון | סבירות | השפעה | אופק זמן |
+|-------|--------|-------|---------|
+| ECR–PfE מגייסים עוד עריקים מ-NI ומרחיבים את גוש הימין הקיצוני | 🟡 בינוני (45%) | גבוה | רבעון 3 2026 |
+| מבוי סתום בתקציב 2027 מוביל לשניות זמניות | 🔴 נמוך-בינוני (25%) | קריטי | רבעון 4 2026 |
+| אשרור EU–Mercosur מתמוטט לאחר חוות-דעת בית-הדין האירופי | 🟡 בינוני (40%) | גבוה | מחצית 1 2027 |
+| DMA מעורר צעדי נגול של Big Tech במשא ומתן סחר | 🔴 נמוך (20%) | בינוני | מתמשך |
+| Greens/EFA נשברת תחת מתח אקלימי-כלכלי | 🟡 בינוני (35%) | בינוני | רבעון 4 2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| תקופה | אירוע מרכזי | משמעות פוליטית |
+|-------|------------|----------------|
+| מאי 2026 | שבוע מליאה נוכחי — עונת אבני דרך בוועדות | מינויי מדווחי ועדות מסתיימים |
+| יוני 2026 | מליאת שטרסבורג 9–12 ביוני | מתקפה חקיקתית לאחר הפסקה |
+| ספטמבר 2026 | עונת המליאה הסתווית נפתחת | קריאת התקציב מתחילה; סקירת עדיפויות הנציבות |
+| אוקטובר–נובמבר 2026 | קריאה ראשונה תקציב 2027 | הצבעה בסיכון גבוה בכל הקבוצות |
+| ינואר 2027 | אותות סקירה מוסדית באמצע הקדנציה | הפרלמנט מעריך את תוכנית העבודה של הנציבות 2027 |
+| מרץ–אפריל 2027 | ספרינט חקיקה אביבי | פינוי הנחיות תקועות לפני הקיץ |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **הפרלמנט:** 717 חברי פרלמנט | 9 קבוצות פוליטיות | 27 מדינות
+- **סף הרוב:** 360 קולות (רוב מוחלט)
+- **קואליציה גדולה (EPP+S&D):** 319 מושבים — בלתי מספיק לבד; 41 קולות מתחת לסף
+- **מדד הפיצול:** גבוה (6.58 מפלגות אפקטיביות)
+- **ציון יציבות:** 84/100 — יציב אך מורכב
+- **עדכניות נתונים:** פורטל הנתונים הפתוחים של הפרלמנט, רשומות חברים בזמן אמת, מאי 2026
+
+---
+
+*BLUF: הפרלמנט נכנס לשנת החקיקה שלו 2026–2027 כמוסד מפוצל אך פונקציונלי. עדיפותו המבנית של EPP מעצבת כל הצבעה. האתגר הפופוליסטי הימני אמיתי אך טרם הגיע לרמה מערערת. הנקסוס הפיסקלי-דיגיטלי — תקציב 2027 + אכיפת DMA — מגדיר את שנת החקיקה. התמיכה באוקראינה נשארת דו-מפלגתית. הקשר IMF: התאוששות הצמיחה של האיחוד שברירית; גיבוש פיסקלי מגביל בקשות להוצאות ביטחון משלימות.*
+
+### Executive Brief Ja
+
+**日付：** 2026-05-14 | **種類：** year-ahead | **分類：** 公開
+**期間：** 2026年5月 – 2027年5月 | **信頼度：** 🟡 中程度（構造的データ、議決記録は限定的）
+
+---
+
+### 🎯 60-Second Read
+
+欧州議会の2026–2027年立法年度は、三つの構造的現実のもとで展開される。第一に、EPP主導のブロック（全議席の25.5%、183名のMEP）が複数連立の構築を必要としていること。第二に、防衛増強、グリーンディール見直し、デジタル単一市場の執行に関する活発な立法的勢い。第三に、ECR–PfEの軸（合計23.1%）からの台頭する極右統合の挑戦。議会は安定（stabilityScore: 84）しているが断片化しており（有効政党数6.58）、重要な採決はすべてEPPがS&D、Renew、ECRのうち少なくとも二者と交渉することを要する。
+
+**翌年に予想される主要3決定事項：**
+1. **EU 2027年予算** — 方針が2026年4月に採択済み；理事会との本格交渉は2026年秋に開始
+2. **防衛連合立法** — ウクライナへの融資に関する強化協力が批准済み；さらなる防衛産業手段が保留中
+3. **デジタル市場法の執行** — 本会議決議が2026年4月に採択；大手テック・プラットフォームに対するDMA施行事案が政治的議論を牽引
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | 所見 | 信頼度 | 出典 |
+|---|------|--------|------|
+| 1 | EPPは依然として異論なき最大勢力（183議席、25.5%）だが、絶対多数には41議席不足しており、毎回の連立交渉を余儀なくされている | 🟢 高 | EP公開データ、MEP記録 |
+| 2 | ECR–PfE右派/保守連合は166議席（23.1%）を保有 — 360票の特別多数が必要な多くの立法行為において阻止少数派 | 🟢 高 | EP公開データ、政治的情勢 |
+| 3 | 進歩ブロック（S&D + Renew + Greens/EFA + Left）は合計約311議席 — 親欧州決議には有効だが、EPPまたはECRの支持なしには立法を前進させられない | 🟡 中 | 連立規模比率分析 |
+| 4 | EU 2027年予算サイクルが支配的な政治立法上の制約：2026年4月の方針は財政緊縮圧力、補足防衛支出要求、結束基金をめぐる紛争を示唆 | 🟢 高 | TA-10-2026-0112、欧州議会予算見積 |
+| 5 | DMA執行、AI法の施行、データガバナンス法の展開により、デジタル単一市場が2026–2027年の主要な規制的戦場となっている | 🟢 高 | TA-10-2026-0160、採択文書シリーズ |
+| 6 | ウクライナ戦争が外交政策を支配：融資メカニズム採択、説明責任決議採択、メルコスール適合性紛争継続 | 🟢 高 | TA-10-2026-0010、TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| リスク | 可能性 | 影響 | 時間軸 |
+|--------|--------|------|--------|
+| ECR–PfEがNI離脱者をさらに取り込み、極右ブロクを拡大 | 🟡 中程度（45%） | 高 | 2026年Q3 |
+| 2027年予算の行き詰まりが暫定十二分の一制度を発動 | 🔴 低～中（25%） | 危機的 | 2026年Q4 |
+| EU–メルコスール批准がEU司法裁判所意見後に崩壊 | 🟡 中程度（40%） | 高 | 2027年上半期 |
+| DMAが貿易交渉においてBig Techの報復措置を誘発 | 🔴 低（20%） | 中 | 継続的 |
+| Greens/EFAが気候経済的緊張により亀裂 | 🟡 中程度（35%） | 中 | 2026年Q4 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| 時期 | 主要イベント | 政治的意義 |
+|------|------------|----------|
+| 2026年5月 | 現行本会議週 — 委員会マイルストーン期 | 委員会報告者任命の確定 |
+| 2026年6月 | ストラスブール本会議 6月9–12日 | 休会明けの立法攻勢 |
+| 2026年9月 | 秋の本会議期間開幕 | 予算審議開始；欧州委員会優先事項の見直し |
+| 2026年10–11月 | 2027年予算第一読会 | 全グループにわたる高賭け採決 |
+| 2027年1月 | 中間機関見直しのシグナル | EPPが欧州委員会2027年作業計画を評価 |
+| 2027年3–4月 | 春の立法スプリント | 停滞指令の夏前クリアランス |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **議会：** 717名のMEP | 9会派 | 27カ国
+- **多数決閾値：** 360票（絶対多数）
+- **大連立（EPP+S&D）：** 319議席 — 単独では不十分；閾値まで41票不足
+- **断片化指数：** 高（有効政党数6.58）
+- **安定性スコア：** 84/100 — 安定しているが複雑
+- **データの鮮度：** EP公開データポータル、MEPリアルタイム記録、2026年5月
+
+---
+
+*BLUF：議会は断片化しているが機能的な機関として2026–2027年立法年度に入る。EPPの構造的優位性はすべての採決を規定する。右翼ポピュリストの挑戦は現実的だが、まだ不安定化には至っていない。財政・デジタルのネクサス — 2027年予算 + DMA執行 — が立法年度を定義する。ウクライナ支持は超党派的に維持。IMF文脈：EUの成長回復は脆弱；財政再建が補足防衛支出要求を制約している。*
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-14 | **유형:** year-ahead | **분류:** 공개
+**기간:** 2026년 5월 – 2027년 5월 | **신뢰도:** 🟡 보통 (구조적 데이터, 표결 기록 제한적)
+
+---
+
+### 🎯 60-Second Read
+
+유럽의회의 2026–2027년 입법 연도는 세 가지 구조적 현실 속에서 전개된다. 첫째, EPP가 주도하는 블록(전체 의석의 25.5%, 183명의 MEP)으로 다중 연립 구성이 필요하다. 둘째, 방위 재무장, 그린딜 조정, 디지털 단일 시장 집행에 관한 활발한 입법 추진력이 있다. 셋째, ECR–PfE 축(합산 23.1%)에서 발생하는 극우 결집 도전이 증가하고 있다. 의회는 안정적(stabilityScore: 84)이지만 파편화(유효 정당 수 6.58)되어 있어, 모든 주요 표결은 EPP가 S&D, Renew, ECR 중 최소 두 그룹과 협상해야 한다.
+
+**내년에 예상되는 주요 3대 결정 사항:**
+1. **EU 2027년 예산** — 2026년 4월 지침 채택 완료; 이사회와의 본격 협상은 2026년 가을 시작
+2. **방위연합 입법** — 우크라이나 차관에 관한 강화된 협력 비준 완료; 추가 방위산업 수단 계류 중
+3. **디지털 시장법 집행** — 2026년 4월 본회의 결의 채택; 주요 테크 플랫폼 대상 DMA 집행 사건이 정치 논의 주도
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | 주요 발견 | 신뢰도 | 출처 |
+|---|---------|--------|------|
+| 1 | EPP는 최대 그룹(183석, 25.5%) 지위를 유지하나 절대 과반수에 41석 부족하여 매번 연립 협상을 강요받음 | 🟢 높음 | EP 공개 데이터, MEP 기록 |
+| 2 | ECR–PfE 우파/보수 축은 166석(23.1%) 보유 — 360표 초과 다수결이 필요한 많은 입법 행위에서 저지 소수 | 🟢 높음 | EP 공개 데이터, 정치 지형 |
+| 3 | 진보 블록(S&D + Renew + Greens/EFA + Left)은 약 311석 합산 — 친유럽 결의에는 유효하나 EPP 또는 ECR 지원 없이는 입법 불가 | 🟡 보통 | 연립 규모 비율 분석 |
+| 4 | EU 2027년 예산 주기가 지배적 정치-입법적 제약: 2026년 4월 지침은 긴축 압력, 방위 추가 요청, 결속 기금 분쟁을 시사 | 🟢 높음 | TA-10-2026-0112, 유럽의회 예산 추정치 |
+| 5 | DMA 집행, AI법 시행, 데이터 거버넌스법 출범으로 디지털 단일 시장이 2026–2027년의 주요 규제 전장으로 부상 | 🟢 높음 | TA-10-2026-0160, 채택 텍스트 시리즈 |
+| 6 | 우크라이나 전쟁이 외교 정책을 지배: 대출 메커니즘 채택, 책임 결의 채택, 메르코수르 호환성 분쟁 미해결 | 🟢 높음 | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| 위험 | 가능성 | 영향 | 시간 범위 |
+|------|--------|------|---------|
+| ECR–PfE가 NI 이탈자를 추가 영입하여 극우 블록 확대 | 🟡 보통 (45%) | 높음 | 2026년 3분기 |
+| 2027년 예산 교착으로 잠정 12분의 1 체제 발동 | 🔴 낮음-보통 (25%) | 심각 | 2026년 4분기 |
+| EU-메르코수르 비준 EU 사법재판소 의견 이후 붕괴 | 🟡 보통 (40%) | 높음 | 2027년 상반기 |
+| DMA로 인해 무역 협상에서 Big Tech 보복 조치 유발 | 🔴 낮음 (20%) | 보통 | 지속적 |
+| Greens/EFA 기후-경제 갈등으로 균열 | 🟡 보통 (35%) | 보통 | 2026년 4분기 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| 기간 | 주요 행사 | 정치적 중요성 |
+|------|---------|------------|
+| 2026년 5월 | 현재 본회의 주간 — 위원회 이정표 시즌 | 위원회 보고자 임명 완료 |
+| 2026년 6월 | 스트라스부르 본회의 6월 9–12일 | 휴회 이후 입법 공세 |
+| 2026년 9월 | 가을 본회의 시즌 개막 | 예산 심의 시작; 집행위원회 우선 사항 검토 |
+| 2026년 10–11월 | 2027년 예산 1차 심의 | 모든 그룹에 걸친 고위험 표결 |
+| 2027년 1월 | 중간 기관 검토 신호 | EP가 집행위원회 2027년 작업 계획 평가 |
+| 2027년 3–4월 | 봄 입법 스프린트 | 여름 전 교착 지침 정리 |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **의회:** 717명의 MEP | 9개 정치 그룹 | 27개국
+- **과반수 기준:** 360표 (절대 과반수)
+- **대연립 (EPP+S&D):** 319석 — 단독 불충분; 기준까지 41표 부족
+- **파편화 지수:** 높음 (유효 정당 수 6.58)
+- **안정성 점수:** 84/100 — 안정적이나 복잡
+- **데이터 최신성:** EP 공개 데이터 포털, MEP 실시간 기록, 2026년 5월
+
+---
+
+*BLUF: 의회는 파편화되었지만 기능적인 기관으로 2026–2027년 입법 연도에 진입한다. EPP의 구조적 우위가 모든 표결을 규정한다. 우파 포퓰리즘 도전은 현실적이지만 아직 불안정화에는 이르지 않았다. 재정-디지털 넥서스 — 2027년 예산 + DMA 집행 — 가 입법 연도를 정의한다. 우크라이나 지원은 초당파적으로 유지된다. IMF 맥락: EU 성장 회복은 취약; 재정 건전화가 추가 방위 지출 요청을 제약하고 있다.*
+
+### Executive Brief Nl
+
+### 🎯 60-Second Read
+
+Het wetgevingsjaar 2026–2027 van het Europees Parlement ontvouwt zich binnen drie structurele realiteiten: een door de EVP gedomineerd blok (25,5 % van de zetels, 183 EU-parlementariërs) dat meerderheidscoalitievorming vereist; actief wetgevend momentum op het gebied van defensieherbewapening, aanpassing van de Green Deal en handhaving van de digitale interne markt; en een opkomende verdere rechtsconsolidatieuitdaging vanuit de ECR–PfE-as (23,1 % gecombineerd). Het Parlement is stabiel (stabilityScore: 84) maar gefragmenteerd (6,58 effectieve partijen) — elke belangrijke stemming vereist dat de EVP onderhandelt met minstens twee van: S&D, Renew of ECR.
+
+**De drie belangrijkste verwachte besluiten in het komende jaar:**
+1. **EU-begroting 2027** — Richtsnoeren aangenomen in april 2026; volledige onderhandelingen met de Raad beginnen in de herfst van 2026
+2. **Wetgeving over de Defensie-unie** — Versterkte samenwerking over de lening aan Oekraïne geratificeerd; verdere defensie-industriële instrumenten in behandeling
+3. **Handhaving van de Wet inzake digitale markten** — Plenaire resolutie aangenomen in april 2026; DMA-handhavingszaken tegen grote technologieplatformen zullen het politieke debat aansturen
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | Bevinding | Betrouwbaarheid | Bron |
+|---|---------|----------------|------|
+| 1 | De EVP blijft de onbetwiste dominante fractie (183 zetels, 25,5 %), maar mist 41 zetels voor een absolute meerderheid, wat coalitie-per-coalitie-onderhandelen afdwingt | 🟢 Hoog | EP Open Data, EU-parlementariërsregisters |
+| 2 | De rechts-/conservatieve ECR–PfE-as heeft 166 zetels (23,1 %) — een blokkerende minderheid bij veel wetgevingshandelingen die supermeerderheid van 360 stemmen vereisen | 🟢 Hoog | EP Open Data, politiek landschap |
+| 3 | Het progressieve blok (S&D + Renew + Greens/EFA + Left) telt ~311 zetels — levensvatbaar voor pro-Europese resoluties maar niet in staat wetgeving door te voeren zonder steun van EVP of ECR | 🟡 Gemiddeld | Coalitiegrootte-ratio-analyse |
+| 4 | De EU-begrotingscyclus 2027 is de dominante politiek-wetgevende beperking: de richtsnoeren van april 2026 signaleren bezuinigingsdruk, aanvullende defensieverzoeken en geschillen over het cohesiefonds | 🟢 Hoog | TA-10-2026-0112, EP-begrotingsramingen |
+| 5 | DMA-handhaving, implementatie van de AI-verordening en uitrol van de Wet inzake datagovernance positioneren de digitale interne markt als het primaire regelgevende strijdtoneel 2026–2027 | 🟢 Hoog | TA-10-2026-0160, reeks aangenomen teksten |
+| 6 | De oorlog in Oekraïne domineert het buitenlandbeleid: leenmechanisme aangenomen, aansprakelijkheidsresoluties aangenomen, Mercosur-compatibiliteitsgeschil openstaand | 🟢 Hoog | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| Risico | Waarschijnlijkheid | Impact | Tijdshorizon |
+|--------|-------------------|--------|-------------|
+| ECR–PfE wint meer NI-overlopers en vergroot het extreemrechtse blok | 🟡 Gemiddeld (45 %) | HOOG | Kw3 2026 |
+| Begrotingsdepasse 2027 leidt tot voorlopige twaalfden | 🔴 Laag-Gemiddeld (25 %) | KRITIEK | Kw4 2026 |
+| EU–Mercosur-ratificering mislukt na HvJ-advies | 🟡 Gemiddeld (40 %) | HOOG | H1 2027 |
+| DMA lokt Big Tech-tegenmaatregelen uit in handelsonderhandelingen | 🔴 Laag (20 %) | GEMIDDELD | Doorlopend |
+| Greens/EFA scheurt onder klimaat-economische spanning | 🟡 Gemiddeld (35 %) | GEMIDDELD | Kw4 2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| Periode | Sleutelevenement | Politieke betekenis |
+|---------|-----------------|---------------------|
+| Mei 2026 | Lopende plenaire week — commissiemijlpalenperiode | Benoemingen van commissieverslaggevers worden afgerond |
+| Juni 2026 | Straatsburgse plenaire vergadering 9–12 juni | Wetgevingsoffensief na reces |
+| Sept 2026 | Herfstplenaire seizoen opent | Begrotingslezing begint; evaluatie van Commissieprioriteiten |
+| Okt–Nov 2026 | Eerste lezing begroting 2027 | Hoge-inzet-stemming in alle fracties |
+| Jan 2027 | Signalen voor institutionele halftime-evaluatie | EP evalueert Commissie-werkprogramma 2027 |
+| Mar–Apr 2027 | Wetgevende lentesprint | Ruimen van vastgelopen richtlijnen voor de zomer |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **Parlement:** 717 EU-parlementariërs | 9 politieke fracties | 27 landen
+- **Meerderheidsdrempel:** 360 stemmen (absolute meerderheid)
+- **Grote coalitie (EVP+S&D):** 319 zetels — ONVOLDOENDE alleen; 41 stemmen onder de drempel
+- **Fragmentatie-index:** HOOG (6,58 effectieve partijen)
+- **Stabiliteitsscore:** 84/100 — stabiel maar complex
+- **Dataversheid:** EP Open Data Portal, realtime EU-parlementariërsregisters, mei 2026
+
+---
+
+*BLUF: Het Parlement betreedt zijn wetgevingsjaar 2026–2027 als een gefragmenteerde maar functionele instelling. De structurele primauteit van de EVP bepaalt elke stemming. De rechtspopulistische uitdaging is reëel maar nog niet destabiliserend. De fiscaal-digitale nexus — begroting 2027 + DMA-handhaving — definieert het wetgevingsjaar. Steun voor Oekraïne blijft bipartijdig. IMF-context: het EU-groepsherstel is kwetsbaar; begrotingsconsolidatie beperkt aanvullende defensie-uitgavenverzoeken.*
+
+### Executive Brief No
+
+### 🎯 60-Second Read
+
+Europaparlamentets lovgivningsår 2026–2027 utspiller seg innenfor tre strukturelle realiteter: et EPP-dominert blokk (25,5 % av setene, 183 MEP-er) som krever flerkoalisjonsbygging; aktiv lovgivningsmessig fremdrift om forsvarsoprustning, tilpasning av Green Deal og håndhevelse av det digitale indre marked; og en fremvoksende høyrekonsolideringsutfordring fra ECR–PfE-aksen (23,1 % samlet). Parlamentet er stabilt (stabilityScore: 84) men fragmentert (6,58 effektive partier) — enhver større avstemning krever at EPP forhandler med minst to av: S&D, Renew eller ECR.
+
+**De tre viktigste forventede beslutningene i det kommende året:**
+1. **EU-budsjettet 2027** — Retningslinjer vedtatt april 2026; fullstendige forhandlinger med Rådet begynner høsten 2026
+2. **Lovgivning om forsvarsunionen** — Utvidet samarbeid om lån til Ukraina ratifisert; ytterligere forsvarsindustrielle instrumenter avventes
+3. **Håndhevelse av loven om digitale markeder** — Plenarresolusjon vedtatt april 2026; DMA-gjennomførelsessaker mot store teknologiplattformer vil drive den politiske debatten
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | Funn | Konfidensgrad | Kilde |
+|---|------|--------------|-------|
+| 1 | EPP forblir den ubestridte dominerende gruppen (183 seter, 25,5 %) men mangler 41 seter til absolutt flertall, noe som tvinger fram koalisjonsavtaler fra sak til sak | 🟢 Høy | EP Open Data MEP-register |
+| 2 | ECR–PfE's høyre-/konservative akse har 166 seter (23,1 %) — et blokkerende mindretall i mange lovgivningsakter som krever 360-stemmer supermajoritet | 🟢 Høy | EP Open Data, politisk landskap |
+| 3 | Det progressive blokket (S&D + Renew + Greens/EFA + Left) utgjør ~311 seter — levedyktig på pro-europeiske resolusjoner, men kan ikke bære lovgivning uten EPP's eller ECR's støtte | 🟡 Medium | Koalisjons-størrelsesanalyse |
+| 4 | EU's budsjettsyklus 2027 er den dominerende politisk-lovgivningsmessige begrensningen: retningslinjene for april 2026 signaliserer innstrammingspress, supplerende forsvarsanmodninger og tvister om samhørighetsfondet | 🟢 Høy | TA-10-2026-0112, EP's budsjettestimater |
+| 5 | DMA-håndhevelse, implementering av AI-loven og utrulling av styringsloven for data plasserer det digitale indre markedet som det primære regulatoriske kamparenaen for 2026–2027 | 🟢 Høy | TA-10-2026-0160, vedtatte tekster |
+| 6 | Ukraina-krigen dominerer utenrikspolitikken: lånemekanismen vedtatt, ansvarsresolusjoner vedtatt, Mercosur-kompatibilitetskonflikt utestående | 🟢 Høy | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| Risiko | Sannsynlighet | Konsekvens | Tidshorisont |
+|--------|--------------|-----------|--------------|
+| ECR–PfE vinner ytterligere NI-avhoppere og utvider det ytre høyre-blokket | 🟡 Medium (45 %) | HØY | Kv3 2026 |
+| Budsjett 2027-dødvande utløser provisoriske tolvdeler | 🔴 Lav-Medium (25 %) | KRITISK | Kv4 2026 |
+| EU–Mercosur-ratifisering kollapser etter EUD-uttalelse | 🟡 Medium (40 %) | HØY | H1 2027 |
+| DMA utløser Big Tech-mottiltak i handelsforhandlinger | 🔴 Lav (20 %) | MIDDELS | Løpende |
+| Greens/EFA splittes under klima-økonomisk spenning | 🟡 Medium (35 %) | MIDDELS | Kv4 2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| Periode | Nøkkelhendelse | Politisk betydning |
+|---------|---------------|-------------------|
+| Mai 2026 | Inneværende plenumuke — komitémilepælssesong | Komitéordførerutnevnelser ferdigstilles |
+| Juni 2026 | Strasbourg-plenum 9.–12. juni | Lovgivningsoffensiv etter ferie |
+| Sept 2026 | Høstplenumperioden åpner | Budsjettlesning begynner; gjennomgang av Kommisjonens prioriteringer |
+| Okt–nov 2026 | Første lesning av budsjettet 2027 | Høyinnsatsavstemning på tvers av alle grupper |
+| Jan 2027 | Signaler om midtveisgjennomgang | EP evaluerer Kommisjonens arbeidsprogram 2027 |
+| Mar–apr 2027 | Vårens lovgivningssprint | Rydding av strandede direktiver før sommeren |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **Parlamentet:** 717 MEP-er | 9 politiske grupper | 27 land
+- **Flertallsgrense:** 360 stemmer (absolutt flertall)
+- **Storkoalisjon (EPP+S&D):** 319 seter — UTILSTREKKELIG alene; 41 stemmer under taket
+- **Fragmenteringsindeks:** HØY (6,58 effektive partier)
+- **Stabilitetspoeng:** 84/100 — stabilt men komplekst
+- **Dataaktualitet:** EP Open Data Portal, sanntids MEP-register, mai 2026
+
+---
+
+*BLUF: Parlamentet går inn i lovgivningsåret 2026–2027 som en fragmentert, men funksjonell institusjon. EPP's strukturelle primat former enhver avstemning. Den høyrepopulistiske utfordringen er reell, men ennå ikke destabiliserende. Den fiskal-digitale nexusen — budsjett 2027 + DMA-håndhevelse — definerer lovgivningsåret. Ukraina-støtten forblir bipartistisk. IMF-kontekst: EU's vekstgjenoppretting er skjør; finanspolitisk konsolidering begrenser supplerende forsvarsutgiftsanmodninger.*
+
+### Executive Brief Sv
+
+### 🎯 60-Second Read
+
+Europaparlamentets lagstiftningsår 2026–2027 präglas av tre strukturella realiteter: ett EPP-dominerat block (25,5 % av mandaten, 183 ledamöter) som kräver koalitionsbyggande; aktivt lagstiftningsmomentum kring försvarsupprustning, Green Deal-anpassning och genomdrivande av den digitala inre marknaden; samt en framväxande högerkonsolideringsutmaning från ECR–PfE-axeln (23,1 % sammantaget). Parlamentet är stabilt (stabilityScore: 84) men fragmenterat (6,58 effektiva partier) — varje viktig omröstning kräver att EPP förhandlar med minst två av: S&D, Renew eller ECR.
+
+**Tre viktigaste beslut under det kommande året:**
+1. **EU:s budget 2027** — Riktlinjer antogs april 2026; fullständiga förhandlingar med rådet inleds hösten 2026
+2. **Lagstiftning om försvarsunionen** — Utökat samarbete om lån till Ukraina ratificerat; ytterligare försvarsindustriella instrument avvaktar
+3. **Genomdrivande av lagen om digitala marknader** — Plenarresolution antagen april 2026; DMA-genomförandeärenden mot stora teknikplattformar driver den politiska debatten
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | Iakttagelse | Konfidensgrad | Källa |
+|---|-------------|--------------|-------|
+| 1 | EPP förblir den obestridda dominerande gruppen (183 mandat, 25,5 %) men saknar 41 mandat för absolut majoritet, vilket tvingar fram koalitionsavtal från fall till fall | 🟢 Hög | EP:s öppna dataregister, ledamotsuppgifter |
+| 2 | ECR–PfE:s höger-/konservativa axel innehar 166 mandat (23,1 %) — en blockerande minoritet i många lagstiftningsakter som kräver 360-rösters supermajoritet | 🟢 Hög | EP:s öppna data, politiskt landskap |
+| 3 | Det progressiva blocket (S&D + Renew + Greens/EFA + Left) uppgår till ~311 mandat — bärkraftigt för pro-europeiska resolutioner men kan inte bära lagstiftning utan EPP:s eller ECR:s stöd | 🟡 Medium | Koalitionsstorleksanalys |
+| 4 | EU:s budgetcykel 2027 är den dominerande politisk-legislativa begränsningen: riktlinjerna för april 2026 signalerar åtstramningspress, kompletterande försvarsanspråk och konflikter kring sammanhållningsfonden | 🟢 Hög | TA-10-2026-0112, EP:s budgetuppskattningar |
+| 5 | DMA-genomförande, AI Act-implementering och utrullning av datastyrningslagen gör den digitala inre marknaden till det primära regulatoriska stridsområdet 2026–2027 | 🟢 Hög | TA-10-2026-0160, serie av antagna texter |
+| 6 | Kriget i Ukraina dominerar utrikespolitiken: lånemekanismen antagen, resolutioner om ansvarsutkrävande antagna, Mercosur-kompatibilitetskonflikt kvarstår | 🟢 Hög | TA-10-2026-0010, TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| Risk | Sannolikhet | Påverkan | Tidshorisont |
+|------|------------|---------|--------------|
+| ECR–PfE lockar fler NI-avhoppare och utökar det högerextremistiska blocket | 🟡 Medium (45 %) | HÖG | Kv3 2026 |
+| Budget 2027-dödläge leder till provisoriska tvolvtedelar | 🔴 Låg-Medium (25 %) | KRITISK | Kv4 2026 |
+| EU–Mercosur-ratificering kollapsar efter EUD-yttrande | 🟡 Medium (40 %) | HÖG | H1 2027 |
+| DMA utlöser storteknologins motåtgärder i handelsförhandlingar | 🔴 Låg (20 %) | MEDEL | Löpande |
+| Greens/EFA splittras under klimat-ekonomisk spänning | 🟡 Medium (35 %) | MEDEL | Kv4 2026 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| Period | Viktig händelse | Politisk betydelse |
+|--------|-----------------|-------------------|
+| Maj 2026 | Innevarande plenarvecka — utskottsmilstolpeperiod | Utskottsföredragandes utnämningar slutförs |
+| Juni 2026 | Strasbourg-plenum 9–12 juni | Lagstiftningsoffensiv efter sommaruppehåll |
+| Sept 2026 | Höstplenumperioden inleds | Budgetläsning börjar; granskning av kommissionens prioriteringar |
+| Okt–nov 2026 | Förstaläsning av budget 2027 | Höginsatsomröstning i samtliga grupper |
+| Jan 2027 | Signaler om halvtidsöversyn | EP utvärderar kommissionens arbetsprogram 2027 |
+| Mars–apr 2027 | Vårens lagstiftningssprint | Rensning av strandade direktiv före sommaren |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **Parlamentet:** 717 ledamöter | 9 politiska grupper | 27 länder
+- **Majoritetströskel:** 360 röster (absolut majoritet)
+- **Storkoalition (EPP+S&D):** 319 mandat — OTILLRÄCKLIGT ensamt; 41 röster under taket
+- **Fragmenteringsindex:** HÖG (6,58 effektiva partier)
+- **Stabilitetspoäng:** 84/100 — stabilt men komplext
+- **Dataaktualitet:** EP:s öppna dataportal, realtidsuppgifter om ledamöter, maj 2026
+
+---
+
+*BLUF: Parlamentet träder in i sitt lagstiftningsår 2026–2027 som en fragmenterad men funktionell institution. EPP:s strukturella primat formar varje omröstning. Den högerpopulistiska utmaningen är reell men ännu inte destabiliserande. Den fiskal-digitala nexusen — budget 2027 + DMA-genomförande — definierar lagstiftningsåret. Ukrainastödet är bipartistiskt. IMF-kontext: EU:s tillväxtåterhämtning är skör; finanspolitisk konsolidering begränsar kompletterande försvarsutgiftsanspråk.*
+
+### Executive Brief Zh
+
+**日期：** 2026-05-14 | **类型：** year-ahead | **分类：** 公开
+**时期：** 2026年5月 – 2027年5月 | **置信度：** 🟡 中等（结构性数据，表决记录有限）
+
+---
+
+### 🎯 60-Second Read
+
+欧洲议会2026–2027年立法年度在三大结构性现实中展开：一是由EPP主导的议席集团（占总议席25.5%，183名欧洲议员），需要组建多方联合；二是在防务再武装、绿色协议调整和数字单一市场执法方面积极推进的立法势头；三是来自ECR–PfE轴心（合计23.1%）的极右翼整合挑战日益凸显。议会总体稳定（stabilityScore: 84），但存在高度碎片化（有效政党数6.58）——每次重要表决都要求EPP至少与以下两方进行谈判：S&D、Renew或ECR。
+
+**来年预期的三大关键决策：**
+1. **2027年欧盟预算** — 指导方针于2026年4月通过；与理事会的全面谈判将于2026年秋季开始
+2. **防务联盟立法** — 为乌克兰提供贷款的强化合作已获批准；更多防务工业手段有待通过
+3. **数字市场法执法** — 全体会议决议于2026年4月通过；针对大型科技平台的DMA执法案件将推动政治辩论
+
+---
+
+### 📊 Top Findings (ICD 203 BLUF)
+
+| # | 发现 | 置信度 | 来源 |
+|---|------|--------|------|
+| 1 | EPP仍是无可争议的最大党团（183席，25.5%），但距绝对多数还差41席，迫使其逐一进行联合谈判 | 🟢 高 | EP公开数据，欧洲议员记录 |
+| 2 | ECR–PfE右翼/保守主义轴心拥有166席（23.1%）——在许多需要360票绝对多数的立法行为中构成阻止性少数 | 🟢 高 | EP公开数据，政治格局 |
+| 3 | 进步派联盟（S&D + Renew + Greens/EFA + Left）合计约311席——在亲欧决议中具有可行性，但若无EPP或ECR支持则无法推进立法 | 🟡 中等 | 联盟规模比例分析 |
+| 4 | 2027年欧盟预算周期是主导性的政治立法约束：2026年4月指导方针显示紧缩压力、补充防务支出请求及凝聚基金争端 | 🟢 高 | TA-10-2026-0112，欧洲议会预算估算 |
+| 5 | DMA执法、人工智能法实施和数据治理法展开将数字单一市场确立为2026–2027年的主要监管战场 | 🟢 高 | TA-10-2026-0160，通过文本系列 |
+| 6 | 乌克兰战争主导外交政策：贷款机制已通过，问责决议已通过，与南方共同市场兼容性争端悬而未决 | 🟢 高 | TA-10-2026-0010，TA-10-2026-0161 |
+
+---
+
+### ⚡ Key Political Risks (Next 12 Months)
+
+| 风险 | 可能性 | 影响 | 时间范围 |
+|------|--------|------|---------|
+| ECR–PfE吸引更多NI叛逃者，扩大极右翼集团 | 🟡 中等 (45%) | 高 | 2026年第三季度 |
+| 2027年预算僵局触发临时十二分之一制度 | 🔴 低至中 (25%) | 严重 | 2026年第四季度 |
+| EU-南方共同市场批准在欧盟法院意见后崩溃 | 🟡 中等 (40%) | 高 | 2027年上半年 |
+| DMA在贸易谈判中引发大型科技公司报复 | 🔴 低 (20%) | 中等 | 持续 |
+| Greens/EFA在气候-经济张力下发生分裂 | 🟡 中等 (35%) | 中等 | 2026年第四季度 |
+
+---
+
+### 🗓️ Legislative Calendar Highlights (2026-2027)
+
+| 时期 | 关键事件 | 政治意义 |
+|------|---------|---------|
+| 2026年5月 | 本周全体会议——委员会里程碑季节 | 委员会报告员任命最终确定 |
+| 2026年6月 | 斯特拉斯堡全体会议6月9–12日 | 休会后立法攻势 |
+| 2026年9月 | 秋季全体会议期开幕 | 预算审读开始；审议欧盟委员会优先事项 |
+| 2026年10–11月 | 2027年预算一读 | 跨所有党团的高风险表决 |
+| 2027年1月 | 中期机构审查信号 | 欧洲议会评估欧盟委员会2027年工作计划 |
+| 2027年3–4月 | 春季立法冲刺 | 暑期前清理搁置指令 |
+
+---
+
+### 🏛️ Institutional Configuration
+
+- **议会：** 717名欧洲议员 | 9个政治党团 | 27个国家
+- **多数票门槛：** 360票（绝对多数）
+- **大联合（EPP+S&D）：** 319席——单独不足；距门槛差41票
+- **碎片化指数：** 高（有效政党数6.58）
+- **稳定性评分：** 84/100——稳定但复杂
+- **数据时效：** EP公开数据门户网站，欧洲议员实时记录，2026年5月
+
+---
+
+*BLUF：议会以碎片化但具备功能性的机构姿态进入2026–2027年立法年度。EPP的结构性主导地位决定每次表决走向。右翼民粹主义挑战真实存在，但尚未造成不稳定。财政-数字联系——2027年预算 + DMA执法——定义了本立法年度。对乌克兰的支持维持跨党派一致。IMF背景：欧盟增长复苏脆弱；财政整合制约了补充防务支出请求。*
+
 ### Forward Projection
 
 ### Forward Projection Framework
@@ -4887,6 +5744,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [forward-projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/forward-projection.md) | `forward-projection.md` |
 | section-supplementary-intelligence | [legislative-pipeline-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/legislative-pipeline-forecast.md) | `legislative-pipeline-forecast.md` |
 | section-supplementary-intelligence | [parliamentary-calendar-projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/year-ahead/parliamentary-calendar-projection.md) | `parliamentary-calendar-projection.md` |

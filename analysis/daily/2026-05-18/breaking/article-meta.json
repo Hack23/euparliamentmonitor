@@ -2,7 +2,7 @@
   "date": "2026-05-18",
   "articleType": "breaking",
   "runId": "breaking-run262-1779068047",
-  "gateResult": "PENDING",
+  "gateResult": "ANALYSIS_ONLY",
   "slug": "2026-05-18-breaking",
   "articlePath": "analysis/daily/2026-05-18/breaking/article.md",
   "topFinding": "---",
@@ -16,21 +16,26 @@
     "April 2026 EP plenary week analysis (if available in cache): N/A"
   ],
   "topRisks": [
-    "**DMA enforcement domain:** MEDIUM-HIGH (legal challenges unavoidable even with robust enforcement design)",
-    "**Ukraine accountability domain:** MEDIUM (ratification progress feasible but Tribunal operationalization remains uncertain)",
-    "**Armenia domain:** HIGH (Russian destabilization and Azerbaijan leverage are structurally difficult to mitigate)",
-    "**Institutional domain:** MEDIUM (coalition stability adequate for EP10 mainstream agenda)",
-    "**Informational domain:** LOW-MEDIUM (data quality gaps are acknowledged and bounded)"
+    "**Magnitude** (1–10): How significant is this factor?",
+    "**Certainty** (1–10): How confident are we this factor exists?",
+    "**Weighted Score** = Magnitude × Certainty / 10"
   ],
-  "keyDates": [],
+  "keyDates": [
+    "Commission issues preliminary DMA findings against Apple and/or Alphabet by October 2026",
+    "Ukraine conflict enters a negotiated ceasefire/freeze by Q4 2026 without final peace settlement",
+    "DMA preliminary finding: Alphabet (Google Search/Shopping self-preferencing) — Q3 2026",
+    "Cyberbullying: Commission tables directive proposal by Q1 2027",
+    "Commission delays DMA preliminary findings past Q3 2026 due to US diplomatic pressure",
+    "Budget 2027: Provisional twelfths operation through Q1 2027; delayed agreement",
+    "Major DMA enforcement action (preliminary finding + interim measures) against a gatekeeper by Q2 2026",
+    "Gatekeeper preliminary finding with interim measures: Apple (iOS browser engine) by August 2026"
+  ],
   "keyActors": [
-    "US: Post-2024 administration position uncertain; sovereignty concerns about international criminal courts",
-    "UK: Strong supporter since Ukraine war began",
-    "Germany: Strong supporter; SToCA secretariat potentially hosted in Germany",
-    "France: Supporter; Elysée has political investment in EU leadership role",
-    "Japan: Cautious; Asia-Pacific implications of accountability norm"
+    "Hypothesis A (Commission will accelerate enforcement): SUPPORTED by DMA parliamentary pressure, internal DG COMP resource buildup, and Commissioner declarations",
+    "Hypothesis B (Commission will delay): SUPPORTED by US diplomatic pressure, legal risk of preliminary findings being overturned, resource constraints in DG COMP",
+    "**Assessment:** ROUGHLY EVEN (50–55% toward acceleration); EP pressure tilts marginally toward A"
   ],
-  "macroContext": "The European Union enters the spring 2026 legislative session in a period of modest recovery following the 2024-2025 growth slowdown driven by energy costs, trade uncertainty from US tariff policies, and the persistent drag of Ukraine war economic spillovers.",
+  "macroContext": "The European Union's aggregate economic performance in 2026 reflects a fragile recovery trajectory shaped by persistent structural pressures from energy costs, defence spending demands, and trade policy uncertainty.",
   "sources": [
     "classification/actor-mapping.md",
     "executive-brief.md",
