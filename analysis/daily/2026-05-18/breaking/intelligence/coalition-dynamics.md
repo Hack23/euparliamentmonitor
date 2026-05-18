@@ -3,100 +3,136 @@
 
 # Coalition Dynamics — EU Parliament Breaking News
 **Date:** 2026-05-18 | **Article Type:** breaking
-**SAT Applied:** ACH (Analysis of Competing Hypotheses), Indicators
-**Note:** Roll-call data unavailable — all coalition positions inferred from historical patterns
+**Data limitation:** Roll-call voting data for April 28–30 unavailable (DOCEO XML lag); coalition dynamics inferred from historical voting patterns and pre-vote declarations.
 
 ---
 
-## 1. April 2026 Coalition Landscape
+## 1. EP10 Political Group Composition (May 2026)
 
-The 10th European Parliament (2024–2029) operates under a complex coalition arithmetic significantly different from EP9. The EPP's hegemonic position (188 seats) requires S&D (136), Renew (77), or ECR (78) cooperation to reach the simple majority of 361 (out of 720 seats). For constitutional majorities (absolute majority: 361), EPP needs at least two of S&D, Renew, or ECR.
+| Political Group | Seats | % | Ideological Family |
+|----------------|-------|---|--------------------|
+| EPP (European People's Party) | 186 | 25.5% | Christian Democracy, Centre-Right |
+| S&D (Socialists and Democrats) | 136 | 18.6% | Social Democracy, Centre-Left |
+| Patriots for Europe (PfE) | 84 | 11.5% | National Conservatism, Populist Right |
+| ECR (European Conservatives and Reformists) | 78 | 10.7% | Conservatism, Eurosceptic |
+| Renew Europe | 77 | 10.5% | Liberalism, Pro-European |
+| Greens/EFA | 53 | 7.3% | Ecology, Regionalism |
+| The Left (GUE/NGL) | 46 | 6.3% | Left-wing, Communist |
+| ESN (Europe of Sovereign Nations) | 25 | 3.4% | Nationalist, Far-Right |
+| Non-Attached (NI) | 45 | 6.2% | Various |
+| **TOTAL** | **730** | **100%** | |
 
-**Seat distribution (EP10, May 2026):**
-
-| Group | Seats | Share |
-|-------|-------|-------|
-| EPP | 188 | 26.1% |
-| S&D | 136 | 18.9% |
-| ECR | 78 | 10.8% |
-| Renew | 77 | 10.7% |
-| Greens/EFA | 53 | 7.4% |
-| PfE | 84 | 11.7% |
-| ESN | 25 | 3.5% |
-| The Left (GUE/NGL) | 46 | 6.4% |
-| Non-attached | 33 | 4.6% |
-
----
-
-## 2. ACH — Coalition Hypotheses for April 30 Texts
-
-### 2.1 DMA Enforcement (TA-10-2026-0160)
-
-**Hypothesis A:** Broad pro-digital-regulation coalition (EPP + S&D + Renew + Greens/EFA) — ~454 seats (HIGHLY LIKELY)
-**Hypothesis B:** S&D-led majority without EPP (S&D + Renew + Greens/EFA + Left + PfE) — less plausible, PfE unlikely to support DMA enforcement
-**Hypothesis C:** EPP-S&D-Renew tripartite (EPP base coalition) — ~401 seats (LIKELY as minimum)
-
-**ACH Matrix:**
-
-| Evidence | H-A | H-B | H-C |
-|---------|-----|-----|-----|
-| DMA historically had EPP champion rapporteur | ++ | — | ++ |
-| EPP Germany delegation supportive of DMA enforcement (known positions) | ++ | N/A | ++ |
-| PfE (France-Le Pen bloc) typically opposes EU regulatory expansion | ++ (not needed) | — | ++ (not needed) |
-| Greens strong DMA supporters | ++ | ++ | neutral |
-
-**Most supported hypothesis: H-A** (broad pro-regulation majority)
-
-### 2.2 Ukraine Accountability (TA-10-2026-0161)
-
-**Hypothesis A:** Broad Ukraine solidarity coalition (EPP + S&D + Renew + Greens/EFA + ECR-partial) — ~480 seats
-**Hypothesis B:** EPP-S&D-Renew core plus ECR (excluding Hungary/Italy fringe) — ~400 seats
-**Hypothesis C:** Near-unanimous except PfE + ESN + some ECR — ~500+ seats
-
-Ukraine resolutions in EP10 have consistently passed with very high margins (often 450–500 votes). The Special Tribunal language may have attracted fewer ECR votes than standard Ukraine solidarity resolutions. **Most supported: H-B or H-C** — both plausible, near-consensus likely.
-
-### 2.3 Armenia Democratic Resilience (TA-10-2026-0162)
-
-**Hypothesis A:** EPP + S&D + Renew + Greens/EFA majority (~454 seats) strongly in favor; ECR split
-**Hypothesis B:** Narrower majority (~380–400 seats) if EPP eastern flank (Hungary, Slovakia delegations within Fidesz, SNS) defects
-
-Given Hungary's known opposition to Armenia accession narratives (Orbán's Azerbaijan alignment), and Slovakia's cautious Eastern Partnership stance, some EPP defections are likely. **Most supported: H-A with EPP minor defections (~10–15 EPP votes against)**. Still comfortably passed.
+**Absolute majority threshold:** 366 votes (required for EP resolutions with qualified majority clauses)
+**Simple majority available for resolutions:** 50%+1 of votes cast
 
 ---
 
-## 3. Coalition Stability Indicators (SAT — Indicators)
+## 2. Coalition Analysis for April 30 Resolutions
 
-**Indicator 1 — EPP-S&D-Renew "Grand Coalition" stability:** STABLE as of Q2 2026. All three groups have aligned on: DMA enforcement, Ukraine, digital sovereignty, and budget expansion. Stress point: 2027 budget negotiations where EPP agriculture lobby vs. S&D social spending priorities create friction.
+### 2.1 DMA Enforcement (TA-10-2026-0160) — Estimated Voting Coalition
 
-**Indicator 2 — ECR fragmentation:** ECR's internal split between pro-Ukraine (Poland PiS-successor, Baltic delegations) and pro-Russia/neutral (Italy FdI, Hungary-adjacent) factions is a structural instability indicator. On Ukraine texts, ECR fractures predictably along this axis.
+**Likely YES votes:**
+- EPP: ~160/186 (85%) — German/Nordic contingent enthusiastic; some southern MEPs abstaining
+- S&D: ~130/136 (96%) — digital rights, consumer protection alignment
+- Renew: ~65/77 (84%) — generally supportive; minor market-liberal hesitation
+- Greens/EFA: ~50/53 (94%) — strong digital sovereignty advocates
+- The Left: ~35/46 (76%) — anti-big tech, some procedural concerns
+- **ESTIMATED YES: ~440–460 votes (60–63%)**
 
-**Indicator 3 — PfE consolidation risk:** The Patriots for Europe group (Orbán's coalition) has shown increasing discipline on EU institutional votes, opposing most EP oversight resolutions. Their 84 seats represent a structural opposition bloc that complicates absolute majority arithmetic on contested texts.
+**Likely NO/Abstain votes:**
+- PfE: ~60/84 NO (anti-regulatory; some supporting DMA on economic nationalist grounds)
+- ECR: ~55/78 NO (Eurosceptic; regulatory autonomy concerns)
+- ESN: ~20/25 NO (anti-EU regulation)
+- NI: mixed
 
-**Indicator 4 — Greens/EFA leverage:** Despite declining from EP9, the Greens/EFA's 53 seats give them meaningful leverage when EPP-S&D-Renew arithmetic falls short. On environmental and digital rights texts, their votes can substitute for ECR defectors.
+**Coalition Cohesion Assessment:** STRONG — This is a broad cross-party consensus with EPP leading. The EPP shift is the decisive analytical factor.
+
+### 2.2 Ukraine Accountability (TA-10-2026-0161) — Estimated Voting Coalition
+
+**Likely YES votes:**
+- EPP: ~175/186 (94%) — Ukraine solidarity is EPP core position
+- S&D: ~134/136 (99%) — near-unanimous
+- Renew: ~75/77 (97%) — francophone and Baltic members driving
+- Greens/EFA: ~52/53 (98%) — near-unanimous
+- ECR: ~55/78 (71%) — Polish and Baltic delegations strongly supportive; Hungarian ECR-adjacent abstaining
+- The Left: ~25/46 (54%) — split: Baltic members yes; Western European pacifist tendency abstaining
+- **ESTIMATED YES: ~516–530 votes (71–73%)**
+
+**Likely NO:**
+- PfE: ~75/84 NO (Fidesz-aligned; anti-Ukraine accountability framing)
+- ESN: ~22/25 NO (pro-Russian)
+- NI Fidesz: ~11 NO
+
+**Coalition Cohesion Assessment:** VERY STRONG — This is the EP's most consistent voting coalition; Ukraine solidarity commands near-supermajority.
+
+### 2.3 Armenia Integration (TA-10-2026-0162) — Estimated Voting Coalition
+
+**Likely YES votes:**
+- EPP: ~155/186 (83%) — Baltic and Central European enthusiastic; Hungarian opposition strong; some skepticism in Caucasus-adjacent delegations
+- S&D: ~128/136 (94%) — principled enlargement supporters
+- Renew: ~72/77 (94%) — ENP+ enthusiasts; French Renew backing Armenian diaspora interests
+- Greens/EFA: ~48/53 (91%) — ENP democracy support
+- The Left: ~28/46 (61%) — mixed; anti-NATO enlargement concerns from some
+- **ESTIMATED YES: ~431–445 votes (59–61%)**
+
+**Likely NO:**
+- PfE: ~80/84 NO (Hungarian led; explicitly anti-enlargement)
+- ECR: ~50/78 NO/Abstain (divided; Polish YES vs. Hungarian-adjacent NO)
+- ESN: ~24/25 NO
+
+**Coalition Cohesion Assessment:** STRONG — but weaker than Ukraine text; ECR split reduces headline number.
 
 ---
 
-## 4. Alliance Signal Analysis
+## 3. Structural Coalition Patterns
 
-**Strong alliances (correlated voting bloc, Q1-Q2 2026):**
+### 3.1 The Grand Coalition Architecture
+The EPP–S&D–Renew–Greens/EFA "grand coalition" that has governed EP10's legislative output since July 2024 operates on:
+- **Explicit grand bargain:** EPP accepts climate transition financing (Greens demand); Greens accept EPP domestic immigration control (EPP demand); S&D accepts fiscal consolidation language (EPP demand); EPP accepts digital regulation (all other groups)
+- **Tacit understanding on geopolitics:** Ukraine solidarity and anti-Russian posture are treated as outside political competition; this maintains the coalition across foreign policy domains
+- **Size:** 452 seats combined (62% of EP); routinely delivers 60–65% supermajorities on key votes
 
-| Alliance | Texts | Coherence Proxy |
-|---------|-------|----------------|
-| EPP-S&D-Renew (EU institutional mainstream) | DMA, Ukraine, Armenia, Budget | 0.85+ |
-| EPP-ECR-partial (security/defence) | Defence spending, external borders | 0.65 |
-| S&D-Renew-Greens (social/digital rights) | Cyberbullying directive, social rights | 0.78 |
-| PfE-ESN (sovereignist) | Anti-EU oversight resolutions | 0.90 |
+### 3.2 EPP Internal Tensions
+The EPP's position in May 2026 contains structural tensions:
+- **Digital regulation:** German/Nordic EPP vs. industry lobbying (stabilizing toward enforcement support)
+- **Defence vs. climate:** Central European EPP (pro-defence, skeptical climate) vs. Western European EPP (climate architecture protective)
+- **Armenia:** Hungarian EPP (Fidesz-adjacent, opposing) vs. Baltic/Central European EPP (supporting)
+- **ECR potential coalition:** Some EPP members in Italy and France continue to explore EPP-PfE-ECR cooperation, which von der Leyen's coalition excludes
 
-**Key cross-party defection pattern:** EPP's eastern European delegations (Poland, Czech Republic, Baltic states) consistently align with EPP mainstream on Ukraine but diverge on: (a) digital regulation (cautious), (b) Armenia accession (supportive, especially Baltics, Poland), (c) budget expansion (reluctant).
+### 3.3 PfE (Patriots for Europe) Internal Fractures
+PfE's 84 seats contain:
+- Fidesz (Hungary, 11 seats): Core driver; anti-Ukraine, anti-enlargement, pro-Russian
+- RN (France, 30 seats): Anti-enlargement but pro-Ukraine; internal PfE tension
+- FPÖ (Austria, 6 seats): Pro-Russia tilt but less extreme than Fidesz
+- Others: Italian Lega, Portuguese Chega — varying positions
+
+The April 30 votes likely saw RN and some Italian Lega members diverge from Fidesz/FPÖ on Ukraine text.
 
 ---
 
-## 5. Bayesian Update — Coalition Trajectory
+## 4. Coalition Mathematics Summary
 
-**Prior belief (Q1 2026):** EPP-S&D-Renew coalition functional on EU institutional texts; fragile on contentious geopolitical texts.
+| Text | YES Estimate | NO/Abstain | Coalition Type | Cohesion |
+|------|------------|----------|----------------|---------|
+| TA-10-2026-0160 (DMA) | ~450 (62%) | ~280 | Grand coalition + ECR split | STRONG |
+| TA-10-2026-0161 (Ukraine) | ~525 (72%) | ~205 | Grand coalition + most ECR | VERY STRONG |
+| TA-10-2026-0162 (Armenia) | ~438 (60%) | ~292 | Grand coalition; ECR split | STRONG |
+| TA-10-2026-0163 (Cyberbullying) | ~460 (63%) | ~270 | Grand coalition; Left + Renew | STRONG |
+| TA-10-2026-0112 (Budget) | ~470 (64%) | ~260 | Grand coalition; ECR split | STRONG |
 
-**Evidence from April 30 cluster:** Nine texts adopted — all apparently with comfortable majorities (no MEP request for roll-call recount reported in EP records). This is consistent with a functional broad coalition.
+---
 
-**Posterior:** Coalition stability for EU mainstream legislative agenda remains HIGH. Stress scenarios: (1) MFF mid-term review split between EPP and S&D on agricultural vs. social spending; (2) Eastern Partnership enlargement if EPP eastern flank defects en masse on Armenia/Georgia; (3) DMA enforcement if EPP's tech industry lobbying overcomes current reform consensus.
+## 5. Forward-Looking Coalition Scenarios (6 months)
 
-*Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+**WEP: LIKELY (70%)** — Grand coalition maintains stability through end-2026 on all five policy domains analyzed.
+
+**Key risk factors:**
+1. EPP-Commission tension over DMA enforcement independence (small probability of EPP withdrawing confidence)
+2. Budget negotiations creating Eastern vs. Western EPP fracture line
+3. US pressure on individual EPP delegations via US corporations in their constituencies
+
+**Key stabilizing factors:**
+1. No viable alternative majority available (PfE + ECR = insufficient without EPP or S&D)
+2. von der Leyen Commission has institutional interest in maintaining EP majority
+3. EP elections are 3+ years away (June 2029) — no immediate electoral pressure
+

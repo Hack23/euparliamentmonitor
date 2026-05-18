@@ -90,3 +90,41 @@ quadrantChart
 - Energy supply risk: Russia reduces Armenia gas supply as punishment
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Impact Matrix Extension (Run 268)
+
+### 5. Second-Order Impact Analysis
+
+**DMA → Second-Order Effects:**
+- If enforcement proceeds: EU becomes de facto global tech regulation standard (Brussels Effect 2.0)
+- App store pricing reform → app developer ecosystem shift → EU tech startup opportunity
+- Fines reinvested in EU digital infrastructure → multiplier effect
+
+**Ukraine Tribunal → Second-Order Effects:**
+- If tribunal established: precedent for future international accountability mechanisms
+- Russian leadership calculation on future escalation changes
+- International law community energized around novel hybrid tribunal model
+
+**Armenia Integration → Second-Order Effects:**
+- If Council approves: triggers Azerbaijan reassessment of European engagement strategy
+- Georgia, Moldova integration momentum increased
+- Russia–South Caucasus influence map redrawn
+
+**Budget 2027 Supplement → Second-Order Effects:**
+- If adopted: EU defence industrial base investment boom (French, German defence contractors)
+- NATO 3% burden-sharing argument settled at EU level
+- Climate investment squeeze → Green parties electoral pressure
+
+### 6. Impact Timeline Matrix
+
+| Act | 6-Month Impact | 12-Month Impact | 3-Year Impact |
+|-----|----------------|-----------------|---------------|
+| DMA | First enforcement actions; US political response | Full fine regime; first CJEU challenge | European tech sector restructured or DMA frozen |
+| Ukraine | Tribunal design finalized | First investigations (if established) | First indictments or stalemate |
+| Armenia | Council negotiations stalled (Hungary) | Potential EU-Armenia association agreement upgrade | Membership candidate status or process halted |
+| Budget | Council debate begins | MFF supplement adopted or rejected | EU defence spending at 2.5–3% GDP |
+| Cyberbullying | Directive enters Council | Second reading outcome | Transposed in member states |
+
+[EXTEND-FROM-PRIOR: classification/impact-matrix.md prior=92L → new=131L (+39)]

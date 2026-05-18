@@ -64,3 +64,65 @@ IMF data was not retrieved in Stage A. The `economic-context.md` artifact uses s
 All analysis artifacts in `analysis/daily/2026-05-18/breaking/` directory are the data files for article rendering. No raw EP API response files are persisted (Stage A data was used in-memory for artifact writing).
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Data Download Manifest Extension (Run 268)
+
+### 3. Live MCP Call Data Files
+
+| Call | Endpoint | Items | File | Reliability |
+|------|----------|-------|------|-------------|
+| get_adopted_texts_feed (one-week) | EP Open Data | 116 | data/adopted-texts-feed-oneweek.json | B2 |
+| get_procedures_feed (one-week) | EP Open Data | degraded | data/procedures-feed-oneweek.json | C2 |
+| get_adopted_texts (year=2026, limit=20) | EP Open Data | 20 full | data/adopted-texts-2026-full.json | A2 |
+| get_latest_votes (current week) | EP DOCEO XML | 0 | data/latest-votes-current.json | B2 (empty; non-plenary) |
+
+### 4. Pre-fetched Feed Files
+
+| Feed | File | Status | Items |
+|------|------|--------|-------|
+| events-feed | data/events-feed.json | ❌ 404 | 0 |
+| procedures-feed | data/procedures-feed.json | ⚠️ degraded | historical-tail |
+| adopted-texts-feed | data/adopted-texts-feed.json | ✅ | 116 |
+| meps-feed | data/meps-feed.json | ✅ | OK |
+| plenary-session-docs | data/plenary-session-docs.json | ✅ | OK |
+| committee-docs | data/committee-docs.json | ✅ | OK |
+
+### 5. Data Quality Summary
+
+| Category | Coverage | Quality | Impact on Analysis |
+|----------|----------|---------|-------------------|
+| Adopted texts | 20/21 confirmed | HIGH (A2) | PRIMARY data source; complete for April 28–30 |
+| Procedures | Inferred only | LOW (C2) | procedures-proxy.md; not blocking |
+| Events | None | N/A | No impact; replaced by adopted texts analysis |
+| Voting records | None | N/A | voting-patterns.degraded.md; analysis limited |
+| Economic (IMF) | WEO fallback | MEDIUM (B3) | economic-context.fallback.md; adequate for analysis |
+| Coalition data | Estimated matrices | MEDIUM (B2) | coalition-dynamics.md; roll-call will confirm |
+
+### 6. Provenance Chain
+
+**Primary chain:** EP Open Data Portal → get_adopted_texts API → data/adopted-texts-2026-full.json → documents/document-analysis-index.md → all analysis artifacts → news/2026-05-18-breaking.en.md
+
+**Secondary chain:** EP Open Data Portal → adopted-texts-feed API → data/adopted-texts-feed-oneweek.json → cross-validation → no conflicts found
+
+**Fallback chain (IMF):** IMF WEO April 2026 (public report) → analyst synthesis → intelligence/economic-context.fallback.md → intelligence/economic-context.md (IMF section)
+
+### 7. Data Integrity Attestation
+
+All 20 retrieved adopted texts cross-validated between two independent API responses (feed + direct endpoint). No conflicts detected. All April 28–30 date attributions confirmed. Data provenance chain is intact.
+
+
+---
+
+*Data download manifest compiled: 2026-05-18 | Run ID: breaking-run268-1779092389*
+*All data files stored under: analysis/daily/2026-05-18/breaking/data/*
+*Prefetch step executed by: scripts/prefetch-ep-feeds.sh breaking*
+*Prefetch status file: data/prefetch-status.json → {"prefetchMode":"full","fetched":6,"placeholders":1,"total":7}*
+*Note: "full" prefetch mode but events-feed 404 and procedures-feed staleness → effective dataMode: degraded-feeds (lineFloorFactor: 0.80)*
+
+
+
+
+
+

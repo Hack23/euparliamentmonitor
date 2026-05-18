@@ -178,3 +178,44 @@ The April 2026 resolution cluster creates specific disinformation vulnerability 
 4. **Budget 2027**: Claims that EU budget increases "take money from national citizens." Counter: net EU budget beneficiary calculations by Member State.
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Media Framing Extension (Run 268)
+
+### 7. Social Media Discourse Framing
+
+**X (Twitter) expected dominant frames:**
+- Tech sector accounts: DMA as regulatory overreach; "innovation-killing"; EU vs. innovation
+- Digital rights accounts: DMA as landmark consumer protection; platforms accountability
+- Far-right accounts: Armenia resolution as "EU expansion agenda"; sovereignty concern
+- Pro-Ukraine accounts: accountability resolution as justice victory
+
+**LinkedIn expected dominant frames:**
+- Tech industry professionals: compliance cost and timeline focus
+- Policy/legal professionals: enforcement mechanism analysis; precedent-setting
+- Defence/security professionals: budget supplement as strategic milestone
+
+### 8. Bias Risk Assessment
+
+| Outlet Type | Coverage Risk | Direction of Potential Bias |
+|-------------|--------------|----------------------------|
+| US tech industry press | High | AGAINST DMA (commercial interest; US regulatory nationalism) |
+| Far-right European press | Medium | AGAINST Armenia; AGAINST Ukraine tribunal |
+| Russian state media | High | AGAINST Ukraine tribunal; AGAINST Armenia integration |
+| Progressive European press | Low | SUPPORTIVE across all acts |
+| German quality press (FAZ, SZ) | Low-Medium | Balanced; scrutinizing fine mechanism; budget concerns |
+
+### 9. Headline Test
+
+**What front-page headline best captures the April 28–30 plenary?**
+
+Options and their framing implications:
+1. "EU Parliament Strikes at Big Tech with Landmark DMA Fine Power" — Tech/regulatory frame
+2. "European Parliament Demands Justice for Ukraine War Crimes" — Foreign policy/justice frame
+3. "Parliament Opens Door to Armenia EU Membership" — Enlargement/geopolitical frame
+4. "EU Votes to Spend €70B on Defence" — Budget/defence frame
+5. "Unprecedented Legislative Session: EU Acts on Tech, War, Enlargement in One Day" — Process/institutional frame
+
+**Best headline:** Option 5 (or hybrid of 1 + 3) — captures the multi-domain significance that is the session's defining characteristic. Single-issue headlines undersell the plenary's historical breadth.
+

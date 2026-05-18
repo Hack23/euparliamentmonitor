@@ -152,3 +152,12 @@ Commission's 2026 legislative agenda is already congested. Civil liberties group
 *Score key: H=High(5), MH=Medium-High(4), M=Medium(3), LM=Low-Medium(2), L=Low(1)*
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Implementation Feasibility Extension (Run 268)
+
+### 6. Cross-Act Implementation Dependencies
+
+**Critical path:** DMA enforcement actions will be monitored by all other regulators. If Commission delays on DMA enforcement following TA-10-2026-0160, it weakens the credibility of all other EP mandates (Ukraine tribunal, cyberbullying) by signaling EP resolutions are aspirational rather than operational. **Implementation of DMA enforcement is the keystone act for the April 28–30 plenary's overall credibility.**
+

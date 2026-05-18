@@ -81,3 +81,39 @@ graph LR
 **Net Force Assessment:** RESTRAINING forces dominate in short term. Driving forces have longer time horizon.
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Forces Analysis Extension (Run 268)
+
+### 6. Countervailing Forces
+
+**Forces AGAINST DMA enforcement effectiveness:**
+- US retaliatory trade pressure (external; high intensity)
+- CJEU legal challenge risk (internal; medium probability)
+- Big Tech lobbying in Commission (persistent; moderate intensity)
+- Member state implementation divergence (internal; structural)
+
+**Forces AGAINST Armenia integration:**
+- Hungary veto power (internal; critical; certain)
+- Russian influence pressure on Azerbaijan (external; moderate)
+- EU enlargement fatigue (structural; moderate; cross-party)
+
+**Forces AGAINST Ukraine tribunal:**
+- Russian propaganda and legal counter-narrative (external)
+- Institutional complexity (jurisdiction, funding, staffing) (structural)
+- Political will maintenance in Council (uncertain trajectory)
+
+### 7. Force Vector Summary Assessment
+
+```
+Net force direction (DMA enforcement): → FORWARD (drivers stronger than resistors in 12-month horizon)
+Net force direction (Armenia integration): ← STALLED (Hungary veto blocks Council for now)
+Net force direction (Ukraine accountability): → FORWARD with obstacles (legal/political barriers manageable)
+Net force direction (budget supplement): → FORWARD (defence consensus holding)
+Net force direction (cyberbullying): → FORWARD (low resistance; Council likely agrees)
+```
+
+**Overall plenary outcomes force balance:** 🟢 POSITIVE — more forces propelling outcomes forward than blocking them, though DMA and Armenia face the most significant resistance.
+
+[EXTEND-FROM-PRIOR: classification/forces-analysis.md prior=83L → new=116L (+33)]

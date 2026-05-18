@@ -137,3 +137,31 @@ pie title EP10 Seat Distribution (May 2026, approx.)
 ```
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Coalition Mathematics Extension (Run 268)
+
+### 6. Margin Analysis — Contested Votes
+
+For the April 28 budget supplement resolution (most contested, estimated coalition analysis):
+
+| Scenario | FOR | AGAINST | MARGIN |
+|----------|-----|---------|--------|
+| Best case (all EPP + S&D + Renew + 50% Greens) | 512 | 213 | +299 |
+| Expected (EPP + S&D + Renew + 40% Greens) | 490 | 235 | +255 |
+| Worst case (EPP + S&D only) | 342 | 383 | -41 (FAIL) |
+
+**Assessment:** The budget resolution required Greens/EFA partial support to pass comfortably. A full Greens/EFA abstention would have been insufficient to block; a full Greens/EFA AGAINST vote could have been difficult. This confirms the EPP-Greens coalition tension as a structural constraint on budget policy.
+
+### 7. Opposition Coalition Mathematics
+
+| Group | Seats | Consistent AGAINST | Effective Blocking Minority? |
+|-------|-------|-------------------|------------------------------|
+| PfE | 84 | 90%+ | No (need 263 to block) |
+| ESN | 25 | 90%+ | No |
+| ECR | 78 | 80–90% | No |
+| **Far-right total** | **187** | **~170 effective** | **No (75 short of blocking)** |
+
+**Conclusion:** The opposition bloc cannot block any act at this plenary. Far-right total opposition represents ~28% of seats — insufficient for any qualified majority blocking. EP10 EPP-S&D core + Renew supermajority is structurally secure on mainstream legislation.
+

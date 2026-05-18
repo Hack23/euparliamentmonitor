@@ -1,52 +1,78 @@
 <!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
-# Political Threat Landscape — Breaking News
+# Political Threat Landscape — EU Parliament Breaking News
 **Date:** 2026-05-18 | **Article Type:** breaking
-**SAT Applied:** Key Assumptions Check, Red Team, Indicators
-**Admiralty Grade:** B2 | **WEP Band:** per threat
+**Admiralty Grade:** B2 | **WEP Band:** varies per threat
 
 ---
 
 ## 1. Overview
 
-The political threat landscape analysis identifies the primary political actors, narratives, and structural forces that could undermine the policy agenda implied by the April 28-30, 2026 EP plenary outputs.
+The political threat landscape for the April 28–30, 2026 plenary outputs operates across three distinct domains: internal EP coalition threats, external geopolitical threats, and regulatory governance threats.
 
 ---
 
-## 2. Primary Political Threats
+## 2. Internal Coalition Threats
 
-### PT-1: Sovereignist Counter-Narrative (PfE + ESN)
-**WEP:** HIGHLY LIKELY (85%) that this threat persists | **Impact:** MEDIUM
+### T-INT-1: EPP Fracture on Enlargement
+**WEP: POSSIBLE (30%)** that EPP loses cohesion on Armenia integration within 6 months
+**Mechanism:** Hungarian EPP-adjacent members + Italian right-wing delegates form blocking minority within EPP on EaP+ enlargement; forces EPP group to either accommodate or face internal governance crisis
+**Current indicators:** 83% estimated EPP FOR on Armenia resolution (vs. 94% on Ukraine) signals existing fracture line
+**Severity:** MEDIUM — would slow rather than stop Armenia integration track
 
-The Patriots for Europe (Orbán's group, 84 seats) and European Sovereignists/ESN (25 seats) constitute a 109-seat bloc that consistently frames EP regulatory resolutions as EU overreach, anti-democratic centralization, and violation of national sovereignty. Their counter-narrative on the April 30 texts: DMA enforcement = "EU technocrats attacking American innovation to benefit European bureaucrats"; Ukraine accountability = "escalation agenda that prolongs war rather than seeking peace"; Armenia = "EU enlargement without democratic mandate."
+### T-INT-2: Budget Coalition Fracture
+**WEP: POSSIBLE (35%)** that EPP-Greens tension on defence vs. climate breaks 2027 budget coalition
+**Mechanism:** Central/Eastern European EPP (Poland, Czech Republic) conditions defence supplement support on Just Transition freeze; Greens/EFA withdraws from budget coalition
+**Severity:** MEDIUM — delays budget; creates precedent for Green Deal erosion
 
-This narrative has limited success in the EP plenary (insufficient votes) but significant success in member state domestic politics (particularly Hungary, Italy, Slovakia, Austria where sovereignist parties are in government or strong opposition).
-
-**Red Team:** How effective is this counter-narrative? Evidence: In Austria's 2024 elections, FPÖ (ESN-aligned) won the first round citing EU Ukraine fatigue. In Italy, Meloni's government is increasingly cautious on EU enlargement despite FdI's ECR membership. The sovereignist narrative's domestic penetration is greater than its EP institutional impact.
-
-### PT-2: ECR Fracture on Foreign Policy
-**WEP:** LIKELY (65%) that ECR fractures on key foreign policy votes | **Impact:** MEDIUM
-
-ECR's internal division between pro-Ukraine (Poland, Czech Republic, Sweden, Baltic states delegations) and cautious/pro-Russia-accommodation (Hungary-adjacent members, some Italian FdI MEPs) creates a structural fracture that EP leadership must navigate carefully. When ECR fractures on Ukraine or Armenia votes, the anti-EU narrative gains credibility by showing that even "conservative" MEPs are divided.
-
-**Indicators:** ECR group coordination meeting outcomes; Polish PiS-successor (PiS+, ECR) position on Armenia; Italian FdI position on Special Tribunal.
-
-### PT-3: EPP Business-Lobby Pressure on DMA
-**WEP:** POSSIBLE (40%) that EPP softens on DMA enforcement | **Impact:** HIGH
-
-EPP's traditional alignment with European business interests creates structural pressure to moderate DMA enforcement demands when Big Tech lobbying intensifies. Historical pattern: EPP internal market committee MEPs have occasionally sided with industry on technical DMA implementation issues. If DMA enforcement creates visible business disruption in Germany (SAP ecosystem, German SME app developers), EPP may moderate its enforcement position in coordination with Commission.
+### T-INT-3: Renew-EPP DMA Tension
+**WEP: UNLIKELY (20%)** that Renew reverses DMA support under tech industry pressure
+**Mechanism:** French Renew members experiencing pressure from Paris tech hub; Belgian Renew from Brussels tech sector; potential diluting amendment push
+**Severity:** LOW — insufficient votes to reverse; mainly nuisance risk
 
 ---
 
-## 3. Summary Table
+## 3. External Geopolitical Threats
 
-| Threat | Actor | WEP | Impact |
-|-------|-------|-----|--------|
-| Sovereignist counter-narrative | PfE + ESN | HIGHLY LIKELY | MEDIUM |
-| ECR fracture on foreign policy | ECR internal | LIKELY | MEDIUM |
-| EPP DMA business-lobby pressure | EPP + Big Tech | POSSIBLE | HIGH |
-| Russia disinformation on accountability | Russia/FSB | HIGHLY LIKELY | HIGH |
-| Azerbaijan energy leverage on Armenia | Azerbaijan | POSSIBLE | HIGH |
+### T-EXT-1: US Transatlantic Trade Pressure
+**WEP: POSSIBLE (40%)** that US formally links DMA enforcement to tariff negotiations
+**Mechanism:** US USTR formal Section 301 investigation into DMA as discriminatory; bilateral framework forces Commission to pause enforcement
+**Severity:** HIGH if occurs — directly undermines April 30 EP mandate
+**Time horizon:** 3–9 months
 
-*Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+### T-EXT-2: Russian Escalation in Ukraine Theatre
+**WEP: UNLIKELY (25%)** of major escalation (new front, nuclear rhetoric operational level)
+**Mechanism:** Russian tactical success or military setback triggers escalatory response; NATO Article 5 proximity incidents increase
+**Severity:** CATASTROPHIC if nuclear; HIGH if conventional escalation
+**Time horizon:** Ongoing; 6–12 month window elevated
+
+### T-EXT-3: Azerbaijan Military Pressure on Armenia
+**WEP: VERY UNLIKELY (10%)** of renewed military operations
+**Mechanism:** Post-resolution Armenian diplomatic success triggers Azerbaijani nationalist response; corridor demarcation dispute escalates to military incident
+**Severity:** HIGH — directly undercuts Armenia integration momentum
+**Time horizon:** 12–18 months
+
+---
+
+## 4. Regulatory Governance Threats
+
+### T-REG-1: DMA Constitutional Challenge
+**WEP: POSSIBLE (45%)** of CJEU preliminary finding suspension
+**Mechanism:** Gatekeeper files Art. 263 + Art. 279 TFEU challenge; CJEU grants interim suspension pending full proceedings
+**Severity:** HIGH — 2–4 year enforcement delay
+
+### T-REG-2: Subsidiarity Rebalancing Push
+**WEP: UNLIKELY (20%)** that cyberbullying directive fails subsidiarity principle test
+**Mechanism:** National parliaments (Netherlands, Germany) issue yellow card (subsidiarity challenge); Commission forced to review; dilutes directive scope
+**Severity:** MEDIUM — delays directive by 6–12 months
+
+---
+
+## 5. Threat Landscape Summary Assessment
+
+**Overall political threat level:** 🟡 ELEVATED
+**Primary threat cluster:** Hungarian veto + DMA legal challenges (compounding effect if both materialize)
+**Most urgent threat:** US DMA counter-pressure (3–9 month window; highest agency from external actor)
+**Most consequential risk:** DMA constitutional challenge (if preliminary finding issued; potential 4-year reversal)
+

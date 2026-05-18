@@ -3,200 +3,222 @@
 
 # Scenario Forecast — EU Parliament Breaking News
 **Date:** 2026-05-18 | **Article Type:** breaking
-**SAT Applied:** Scenario Analysis, Pre-Mortem, Key Assumptions Check, Indicators
-**Admiralty Grade:** B2 | **WEP Band per scenario: specified below**
+**Analytical Methodologies:** Scenario Analysis, Pre-Mortem Analysis, WEP Bands
+**Admiralty Grade:** B2 (Reliable source framework, probably true) | **WEP Band:** LIKELY for primary scenarios
 
 ---
 
 ## 1. Scenario Framework
 
-Three scenarios are developed per major breaking news story from the April 2026 EP plenary. Each scenario includes a WEP probability band, key driving assumptions, leading indicators to watch, and a pre-mortem analysis.
+**Scenario Analysis SAT:** We construct scenarios by varying two key independent variables:
+- **Variable A:** Commission DMA enforcement pace (Accelerated vs. Delayed)
+- **Variable B:** Ukraine war trajectory (Armistice/Freeze vs. Continued Conflict)
+
+These two variables generate four primary scenarios across which the April 2026 plenary outputs play out differently.
+
+**Pre-Mortem Analysis SAT:** For each primary scenario, we identify the key failure modes — the conditions under which the anticipated outcome does NOT occur. This is the standard Pre-Mortem methodology: imagine the failure has occurred and work backward to identify causes.
 
 ---
 
-## 2. DMA Enforcement Scenarios
+## 2. Primary Scenarios (12-Month Horizon: May 2026 – May 2027)
 
-### Scenario DMA-1: Accelerated Enforcement (LIKELY — 60%)
-**WEP Band:** LIKELY (60–80%)
-**Time horizon:** By December 31, 2026
+### Scenario 1: "Digital Acceleration + Frozen Conflict" — LIKELY (55%)
+**WEP: LIKELY (55%)** | **Time horizon: May 2026 – May 2027**
 
-**Narrative:** Responding to EP resolution pressure and pre-electoral political dynamics, the European Commission issues preliminary DMA enforcement findings against at least two gatekeepers (Alphabet and Apple) by Q3 2026. The Commission's DMA enforcement team, under political direction from the DG COMP Commissioner, accelerates investigation timelines and issues Article 26 preliminary findings citing persistent non-compliance with Article 6(3) interoperability and Article 5(2) self-preferencing obligations. Apple and Alphabet file injunction requests at the EU Court of Justice, but interim enforcement proceeds.
+**Conditions:**
+- Commission issues preliminary DMA findings against Apple and/or Alphabet by October 2026
+- Ukraine conflict enters a negotiated ceasefire/freeze by Q4 2026 without final peace settlement
+- Armenia receives EU accession conditionality dialogue launch by end-2026
+- 2027 EU budget adopted with modest defence funding increase (below EP demand)
 
-**Key assumptions:**
-- Commission political leadership prioritizes visible enforcement action over procedural caution
-- No breakthrough US-EU trade deal that makes DMA enforcement diplomatically costly
-- EP pressure through budget oversight translates into Commission political calculus
+**Narrative:** This is the "reformist momentum maintained" scenario. The DMA enforcement breakthrough, while modest, demonstrates EU regulatory capacity. The Ukraine freeze removes the most acute geopolitical pressure, allowing EU policy bandwidth to refocus on institutional and neighbourhood policy. The Armenia integration track gains credibility. The grand coalition holds.
 
-**Leading indicators:**
-- Commission DMA enforcement unit job postings (indicates capacity buildup)
-- Commissioner statements on DMA enforcement timeline
-- Commission Article 18 DMA investigation openings (public register)
-- US government trade representative statements on DMA vs. WTO obligations
+**Key Outcomes:**
+- DMA preliminary finding: Alphabet (Google Search/Shopping self-preferencing) — Q3 2026
+- Special Tribunal: 3–4 additional EU Member States ratify; Hungary remains outside
+- Armenia: Commission opens structured accession dialogue; no formal candidate status yet
+- Budget 2027: Agreed at €218–222B (below EP €226B demand); defence supplement via separate vehicle
+- Cyberbullying: Commission tables directive proposal by Q1 2027
 
-**Pre-mortem:** This scenario fails if: (1) US-EU trade negotiations in H1 2026 produce a deal that includes DMA enforcement freeze; (2) Commission legal services finds procedural defects requiring case restart; (3) new Commission leadership (if reshuffled) is less enforcement-inclined.
-
-### Scenario DMA-2: Enforcement Stagnation (POSSIBLE — 30%)
-**WEP Band:** POSSIBLE (40–60%)
-**Time horizon:** 6–18 months
-
-**Narrative:** Despite EP resolution, Commission enforcement remains in investigation phase through 2026 due to legal caution, US diplomatic pressure, and resource constraints. Gatekeepers achieve compliance extensions through procedural engagement. No preliminary findings issued in 2026. EP responds with Article 161 budget pressure.
-
-**Pre-mortem:** This scenario is supported by Commission DG COMP's track record — Google Shopping investigation took 7 years; DMA Article 26 proceedings are new and untested. Legal teams at Big Tech have extensively prepared procedural challenge strategies.
-
-### Scenario DMA-3: Fine Issued and Appealed (UNLIKELY — 10%)
-**WEP Band:** UNLIKELY (<20%)
-**Time horizon:** By December 2026
-
-**Narrative:** Commission reaches final finding AND issues fine against one gatekeeper within the calendar year 2026. Extremely compressed timeline that would require an existing investigation already at advanced stage.
+**Pre-Mortem:** This scenario fails if: (a) US tariff escalation forces EU-US Digital Trade Agreement negotiations that require DMA enforcement freeze; (b) Ukraine ceasefire collapses immediately, requiring sustained mobilization that absorbs EU policy capacity.
 
 ---
 
-## 3. Ukraine Accountability Scenarios
+### Scenario 2: "Enforcement Stalemate + Prolonged Conflict" — POSSIBLE (25%)
+**WEP: POSSIBLE (25%)** | **Time horizon: May 2026 – May 2027**
 
-### Scenario UA-1: Incremental Ratification Progress (LIKELY — 65%)
-**WEP Band:** LIKELY
-**Time horizon:** By mid-2027
+**Conditions:**
+- Commission delays DMA preliminary findings past Q3 2026 due to US diplomatic pressure
+- Ukraine conflict continues at high intensity through 2026–2027 (no ceasefire)
+- Hungary blocks Special Tribunal ratification for all non-ratified EU members by coercion/precedent
+- EU budget negotiations stall; 2027 budget extended via provisional twelfths
 
-**Narrative:** EP resolution's named-shaming list of 10 non-ratifying EU Member States produces 3–5 additional ratifications over the 12 months following April 2026. Likely ratifiers: Czech Republic, Romania, Bulgaria (pro-Ukraine governments with EU compliance pressure), Malta (small state, low political cost). Hungary remains holdout; Italy ratifies after 2025 election review.
+**Narrative:** This is the "attrition and fragmentation" scenario. EU regulatory ambition is frustrated by external pressures (US trade threats) and internal vetoes (Hungary). The grand coalition shows strain as EPP members under US government lobbying pressure backtrack on DMA enforcement demands. Ukraine conflict continuation creates fiscal pressure that crowds out neighbourhood and domestic policy.
 
-**Key assumptions:**
-- EP resolution creates peer pressure mechanism that functions within EU Council dynamics
-- Special Tribunal treaty technical requirements resolved (some states have constitutional questions)
-- Russian escalation does not trigger political backlash against accountability framework
+**Key Outcomes:**
+- DMA: No preliminary findings; Commission announces extended "enhanced monitoring" phase
+- Special Tribunal: Stuck at current ratification level; EP calls emergency resolution
+- Armenia: Commission feasibility study delayed; accession conditionality dialogue postponed
+- Budget 2027: Provisional twelfths operation through Q1 2027; delayed agreement
+- Cyberbullying: Commission consultation launched but no legislative proposal
 
-**Leading indicators:**
-- Parliamentary debates on tribunal ratification in Czech Republic, Romania, Bulgaria
-- EU Council Justice ministers agenda items on Special Tribunal
-- ICC cooperation with Special Tribunal preparatory body announced
-
-### Scenario UA-2: Tribunal Stalls (POSSIBLE — 25%)
-
-**Narrative:** Hungary's Council obstruction combined with Italian domestic political complications prevents reaching the ratification threshold needed for tribunal operational status. EP resolutions multiply but produce no legal change.
-
-### Scenario UA-3: Full Tribunal Activation (UNLIKELY — 10%)
-
-**Narrative:** Sufficient ratifications achieved (20+ EU Member States plus non-EU partners) to activate tribunal before end of current military conflict, enabling charges to be prepared against Russian state leadership while hostilities continue.
+**Pre-Mortem:** This scenario fails (i.e., the better scenario occurs instead) if: EP escalates to Article 265 TFEU action for Commission failure to act; Member State coalition bypasses Hungary via enhanced cooperation on Special Tribunal.
 
 ---
 
-## 4. Armenia Integration Scenarios
+### Scenario 3: "DMA Breakthrough + Ukraine Resolution" — UNLIKELY (12%)
+**WEP: UNLIKELY (12%)** | **Time horizon: May 2026 – May 2027**
 
-### Scenario AR-1: Structured Dialogue Launched (LIKELY — 55%)
-**WEP Band:** LIKELY
-**Time horizon:** By mid-2027
+**Conditions:**
+- Major DMA enforcement action (preliminary finding + interim measures) against a gatekeeper by Q2 2026
+- Ukraine peace agreement or durable ceasefire with territorial delineation by H1 2027
+- Armenian candidate status application submitted
+- Enlarged MFF revision incorporating €30B annual defence funding
 
-**Narrative:** Responding to EP resolution, Commission launches a structured EU-Armenia dialogue on "EU integration pathway" — stopping short of formal accession conditionality but creating a political process with annual progress reviews. This is the Commission's preferred face-saving response that acknowledges EP demands while preserving Council control over actual accession decisions.
+**Narrative:** The optimistic scenario. Multiple positive developments reinforce each other. DMA enforcement success demonstrates EU regulatory credibility globally. Ukraine resolution removes the acute war emergency framing. Armenia moves quickly through accession conditionality. EU political bandwidth is high, governance capacity is high.
 
-**Key assumptions:**
-- No new armed conflict between Armenia and Azerbaijan
-- Pashinyan government sustains democratic reform trajectory
-- Commission finds political space within Council mandate to launch structured dialogue
-- Azerbaijan energy leverage does not translate into formal EU Council veto of dialogue
+**Key Outcomes:**
+- Gatekeeper preliminary finding with interim measures: Apple (iOS browser engine) by August 2026
+- Ukraine ceasefire: Monitored by OSCE/EU; reconstruction financing unlocked at scale
+- Armenia: Candidate status granted December 2026; accession negotiations begin 2027
+- Budget 2027: MFF mid-term revision II; defence supplemental instrument adopted
+- Cyberbullying directive: Fast-tracked; proposal by Q4 2026
 
-**Leading indicators:**
-- Commissioner for Enlargement visit to Yerevan (H2 2026)
-- EU-Armenia Association Council meeting agenda: "EU integration pathway" item
-- Commission communication on Eastern Partnership differentiation (foreshadowed in 2024 EaP communication)
-
-**Pre-mortem:** Fails if: (1) Azerbaijan energy leverage drives France/Germany to block Commission initiative; (2) Armenian domestic politics destabilize under Russian pressure; (3) Council unanimity requirement used by Hungary to block structured dialogue mandate.
-
-### Scenario AR-2: Accession Process Formally Initiated (UNLIKELY — 20%)
-
-**Narrative:** Commission receives Council mandate to prepare accession feasibility opinion within 2 years — a formal Article 49 TEU process initiation. Requires Council unanimous decision and political breakthrough.
-
-### Scenario AR-3: Status Quo with EP Pressure Ignored (POSSIBLE — 25%)
-
-**Narrative:** Commission and Council provide symbolic acknowledgment of EP resolution but no structural process change. EU-Armenia relations advance through Association Agreement implementation only. EP passes follow-up resolutions but without institutional leverage to compel acceleration.
+**Pre-Mortem:** This scenario fails if: DMA finding is judicially suspended by CJEU interim measure; Ukraine ceasefire collapses within 3 months; MFF revision blocked by German/Dutch frugality coalition.
 
 ---
 
-## 5. Cyberbullying Directive Scenarios
+### Scenario 4: "Regulatory Rollback + Geopolitical Escalation" — VERY UNLIKELY (8%)
+**WEP: VERY UNLIKELY (8%)** | **Time horizon: May 2026 – May 2027**
 
-### Scenario CY-1: Commission Directive Proposal within 18 months (POSSIBLE — 45%)
-**WEP Band:** POSSIBLE
-**Time horizon:** By end-2027
+**Conditions:**
+- US-EU trade war escalates; DMA enforcement paused as part of bilateral trade negotiations
+- Ukraine-Russia conflict escalation (Russian use of chemical/biological weapons or nuclear rhetoric escalation to operational level)
+- Hungarian veto paralyzes EU foreign and security policy decisions
+- EP grand coalition fractures over defence spending vs. climate trade-offs
 
-**Narrative:** Commission includes a cyberbullying/IBSA criminal directive in its 2027 work programme, building on EP resolution and existing Victims' Rights Directive review. LIBE committee begins preparatory work in autumn 2026. Directive proposal covers AI deepfakes, coordinated harassment, and hate speech with minimum harmonized criminal standards.
+**Narrative:** The pessimistic scenario. Multiple negative shocks compound. The DMA is effectively suspended under a transatlantic trade agreement concession. The Ukraine conflict intensifies, requiring emergency EU policy responses that crowd out legislative agenda. Hungarian veto paralysis becomes a full constitutional crisis.
 
-**Pre-mortem:** Delayed by: subsidiary concerns (criminal law is primarily Member State competence under TFEU Article 83 requiring "serious cross-border dimension" justification); Big Tech industry opposition to mandatory content moderation standards that exceed DSA framework; risk of conflicting with the Digital Services Act provisions already being implemented.
+**Key Outcomes:**
+- DMA: Enforcement freeze; 3-year review clause triggered
+- Special Tribunal: Effectively suspended; RSIA revenues diverted to emergency military aid
+- Armenia: EU integration talks suspended pending security normalization
+- Budget: Emergency supplemental; 2027 MFF revision forced; €50B+ defence mobilization
+- Cyberbullying: Deprioritized; legislative agenda dominated by security
 
-### Scenario CY-2: Non-Legislative Commission Communication Only (POSSIBLE — 35%)
-
-**Narrative:** Commission responds to EP resolution with a communication rather than a directive, commissioning impact assessment for future legislative action. Real legislative output delayed by 3–4 years.
-
-### Scenario CY-3: Directive Fast-Tracked (UNLIKELY — 20%)
-
-**Narrative:** Given strong EP and civil society momentum and visibility of high-profile cyberbullying cases, Commission fast-tracks a simplified directive by end-2026.
-
----
-
-## 6. 2027 Budget Scenarios
-
-### Scenario BU-1: Negotiated Compromise at 2–3% Increase (LIKELY — 60%)
-**WEP Band:** LIKELY
-
-**Narrative:** The interinstitutional budget negotiation between EP's 4.2% demand and Council's lower counter-position produces a compromise increase of 2–3% in commitment appropriations, with defence industrial co-financing partially met through off-budget mechanisms. Historical budget negotiation pattern: EP demand vs. Council position, final text at midpoint.
-
-### Scenario BU-2: EP-Council Budget Conflict and Conciliation (POSSIBLE — 30%)
-
-**Narrative:** EP and Council fail to reach agreement in normal procedure, triggering 21-day conciliation committee under TFEU Article 314. Budget adopted late (December), affecting programme implementation.
+**Pre-Mortem:** This scenario fails (i.e., better scenario occurs) if: US tariff escalation proves modest; NATO deterrence stabilizes Ukraine without escalation; Article 7 TEU proceedings against Hungary reach conclusion.
 
 ---
 
-## 7. Scenario Probability Summary
+## 3. DMA-Specific Sub-Scenarios (6-Month Horizon)
 
-| Story | Scenario 1 | P | Scenario 2 | P | Scenario 3 | P |
-|-------|-----------|---|-----------|---|-----------|---|
-| DMA enforcement | Accelerated | 60% | Stagnation | 30% | Fine issued | 10% |
-| Ukraine tribunal | Incremental ratification | 65% | Stalls | 25% | Full activation | 10% |
-| Armenia | Structured dialogue | 55% | Accession formal | 20% | Status quo | 25% |
-| Cyberbullying | Directive proposal | 45% | Communication only | 35% | Fast-track | 20% |
-| Budget 2027 | Negotiated 2-3% | 60% | Conflict/conciliation | 30% | EP wins 4.2% | 10% |
+### Sub-Scenario A: Apple Preliminary Finding (Q3 2026) — LIKELY (65%)
+**Evidence:** Commission investigation into Apple's iOS browser engine restrictions is most advanced; internal leak reports (Reuters, April 2026) indicate DG COMP has reached preliminary assessment; Article 17 DMA right to be heard process reportedly initiated in March 2026.
+**Impact:** €2–5B fine range (preliminary finding → formal decision → fine); iOS sideloading mandate implemented under interim measures; US government issues diplomatic protest.
 
-*Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+### Sub-Scenario B: Alphabet Preliminary Finding (Q4 2026) — POSSIBLE (50%)
+**Evidence:** Google Shopping and Google Search self-preferencing investigations; 2025 DMA non-compliance finding in Google Play case provides precedent.
+**Impact:** Structural remedy demand (fair ranking obligations); fine up to €28.8B but likely settled for €5–10B; US congressional hearing on DMA as trade barrier.
 
----
-
-## Scenario Mathematics and Probability Update
-
-### Pre-Mortem SAT Application
-
-**Pre-Mortem: Assume DMA enforcement FAILS by December 2026 — what caused it?**
-
-Most likely failure causes ranked:
-1. (40%) US government formally threatens retaliatory tariffs if DMA enforcement action filed against US tech company → Commission suspends enforcement pending trade negotiation
-2. (25%) Commission DG COMP finds technical compliance filings adequate under DMA Article 7 framework → No preliminary finding issued
-3. (20%) EU Court of Justice grants interim measures suspending DMA enforcement following appeal from gatekeeper → Enforcement paused pending full hearing
-4. (15%) Political coalition shifts — Renew pulls support from enforcement coalition following French government pressure (gas/trade calculus) → EP loses enforcement mandate in new resolution
-
-**Pre-Mortem conclusion:** Risk 1 (US counterpressure) is the dominant failure mode. Mitigation requires Commission to explicitly decouple DMA enforcement from US-EU trade negotiations.
+### Sub-Scenario C: Meta WhatsApp Interoperability (Q1 2027) — POSSIBLE (45%)
+**Evidence:** Article 7 DMA interoperability obligation enforcement against WhatsApp is complex due to end-to-end encryption compatibility concerns; Meta has submitted partial compliance plans.
+**Impact:** Technical interoperability requirements with Signal, Telegram protocols; €10B+ fine potential; cross-platform messaging market structural change.
 
 ---
 
-## Scenario Probability Matrix (Updated Post-Devil's Advocate)
+## 4. Armenia Integration Timeline Scenarios
 
-| Scenario | Base Probability | Devil's Advocate Adjustment | Final Probability |
-|----------|-----------------|---------------------------|------------------|
-| D1 Active Enforcement H2 2026 | 55% | -10% (GDPR parallel, US pressure) | 45% |
-| D2 Compliance Theater | 30% | +5% | 35% |
-| D3 Enforcement Suspension | 15% | +5% | 20% |
-| A1 SToCA Ratification On Track | 60% | -5% | 55% |
-| A2 Ratification Delay | 25% | +5% | 30% |
-| A3 Asset Seizure Challenge | 15% | 0% | 15% |
-| ARM1 Armenia Candidate Status 2027-2028 | 25% | -5% | 20% |
-| ARM2 Structured Dialogue Only | 50% | 0% | 50% |
-| ARM3 CSTO/EAEU Barrier Blocks Progress | 25% | +5% | 30% |
-| B1 Budget Negotiated Agreement | 65% | 0% | 65% |
-| B2 Contested Budget | 25% | 0% | 25% |
-| B3 Budget Crisis | 10% | 0% | 10% |
+### Track A: Accelerated Integration (2027–2029) — WEP: POSSIBLE (30%)
+- Commission feasibility study: Q4 2026
+- Candidate status: Q2 2027
+- Accession negotiations opened: 2028
+- Provisional membership (limited): 2031–2032
+**Requires:** Unanimous Council approval; Armenian constitutional reform; border security normalization
 
-**Key Assumptions Check (SAT):**
-1. Assumption: EP governing coalition holds for DMA enforcement → VALID (no evidence to contrary)
-2. Assumption: Russia has not engaged seriously in peace negotiations → VALID (no evidence available in data)
-3. Assumption: Armenia has not exited CSTO as of April 2026 → VALID (no evidence to contrary)
-4. Assumption: 2027 EU budget negotiations follow standard timeline → VALID (standard annual cycle)
+### Track B: Standard Eastern Partnership Plus (2028–2035) — WEP: LIKELY (55%)
+- Accession conditionality dialogue: 2026
+- Candidate status application: 2028
+- Accession negotiations: 2030–2035
+- Provisional membership: 2036
+**Requires:** Staged approach; Association Agreement full implementation first; no fast-track
 
-**Indicators SAT:** Forward Indicators FI-DMA-1 through FI-B27-2 defined in extended/forward-indicators.md will confirm or disconfirm these probability estimates within 30-90 days.
+### Track C: Stalled (indefinite) — WEP: POSSIBLE (15%)
+- Russian economic pressure derails Armenian domestic politics
+- Pashinyan government loses 2028 elections to pro-Russian opposition
+- EU integration reversed; CSTO re-entry considered
+**Trigger:** Major Armenian economic shock + Russian energy leverage application
 
-WEP Band summary: D1 is ROUGHLY EVEN ODDS; A1 is LIKELY; ARM2 is ROUGHLY EVEN ODDS; B1 is LIKELY.
-Admiralty grade for this forecast: B3 (usually reliable source; possibly true — probabilities are estimates, not confirmed intelligence)
+---
+
+## 5. 24-Month Horizon Key Indicators to Watch
+
+| Indicator | Significance | Watch Timeline |
+|-----------|-------------|---------------|
+| Commission DMA preliminary finding | DMA enforcement credibility | Q3 2026 |
+| Special Tribunal ratification count | Ukraine accountability progress | October 2026 |
+| Armenia Commission feasibility study publication | EaP+ architecture signal | Q4 2026 |
+| EU 2027 budget agreement date | EP-Council balance | Q4 2026 – Q1 2027 |
+| Cyberbullying directive proposal | DSA gap closure | Q1–Q2 2027 |
+| Hungarian Article 7 proceedings status | EU rule of law architecture | Ongoing |
+| Russia-Ukraine ceasefire talks (if any) | Geopolitical macro-context | Any point |
+| US-EU trade agreement framework | DMA enforcement environment | H1 2027 |
+
+
+---
+
+## Pass-2 Extension: Additional Scenarios and Evidence
+
+### 4. Scenario Probability Recalibration (Post-TA-10-2026-0160 Adoption)
+
+Before April 30 adoption, the baseline scenario assumed DMA enforcement would proceed under existing 2022 DMA text. The adoption of TA-10-2026-0160 shifts the probability distribution:
+
+| Metric | Pre-adoption | Post-adoption |
+|--------|-------------|---------------|
+| Baseline enforcement probability (12 months) | 70% | 87% |
+| Adverse (enforcement blocked) | 25% | 10% |
+| Optimistic (rapid US-EU DMA deal) | 5% | 7% |
+
+**Reason for shift:** TA-10-2026-0160 strengthens the legal basis for enforcement, creating clearer parliamentary mandate; reduces Commission discretion to delay; increases stakeholder accountability.
+
+### 5. Cross-Scenario Intelligence — Ukraine Track
+
+**Key uncertainty:** Ukraine tribunal timing relative to any ceasefire negotiations
+- If ceasefire negotiations begin before tribunal established → Russia conditions ceasefire on no tribunal (WEP: POSSIBLE 30%)
+- If tribunal established before ceasefire → Russia cannot use it as bargaining chip (WEP: POSSIBLE 35%)
+- If war continues without ceasefire → tribunal proceeds regardless (WEP: POSSIBLE 40%)
+
+**Cross-scenario implication:** The window for establishing the tribunal without Russian counter-leverage is NOW (while war continues). EP April 30 resolution creates political urgency for Council to act within 6 months. *WEP: POSSIBLE (40%) that Council formal mandate is agreed by December 2026.*
+
+### 6. Scenario Sensitivity Analysis
+
+**Most sensitive variable:** US retaliation posture on DMA (±20% probability swing)
+**Second most sensitive:** Hungary government position on Armenia (±15% swing)
+**Most stable variable:** EP10 core coalition coherence (±5% swing; very stable)
+
+**Scenario trigger events to watch:**
+- US USTR public statement on DMA → shifts adversarial scenario probability +15%
+- CJEU Art. 267 reference filed → shifts adverse scenario probability +10%
+- Hungarian election 2026 result → could shift Armenia integration probability ±20%
+- Ceasefire negotiations announcement → shifts Ukraine tribunal timing by 6–12 months
+
+### 7. 180-Day Scenario Outlook Summary
+
+**WEP: LIKELY (65%)** — DMA enforcement actions begin; Ukraine tribunal design proceeds; Armenia stuck at Council; budget supplement enters Council negotiations
+**WEP: POSSIBLE (25%)** — US counter-pressure delays DMA; Armenia process begins despite Hungary; Ukraine tribunal delayed
+**WEP: UNLIKELY (10%)** — Multiple adverse events compound; DMA frozen; Armenia blocked; Ukraine tribunal stalled
+
+
+### 8. Scenario-to-Article Mapping
+
+| Scenario | Article Treatment | Key Signal Events |
+|----------|-----------------|------------------|
+| Baseline | Primary analysis thread; DMA enforcement as lead story | Commission enforcement action; Council Ukraine meeting |
+| Adverse | Risk section; note DMA legal/US risk; maintain Ukraine/Armenia positive | CJEU reference; US USTR statement |
+| Optimistic | Forward-look section; US-EU DMA framework; fast Armenia | Bilateral summit; Hungarian election |
+
+*Scenario forecast produced per alternative futures analysis methodology. All WEP band estimates validated against intelligence/coalition-dynamics.md and intelligence/stakeholder-map.md. Admiralty Grade B2. Analysis date: 2026-05-18.*
+
+---
+
+*This scenario forecast is the primary forward-looking intelligence product for the April 28–30 plenary analysis. It informs the article's "Outlook" section via extended/forward-indicators.md. The three scenarios (baseline, adverse, optimistic) should be read as a probability-weighted distribution, not mutually exclusive alternatives.*
+

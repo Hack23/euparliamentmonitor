@@ -87,3 +87,90 @@ The following events would require a formal intelligence assessment revision:
 4. **Commission rejection of EP demands**: Commission formally rejecting DMA enforcement timeline would revise Finding 1 downward
 
 *Generated: 2026-05-18 | Run: breaking-run262-1779068047*
+
+---
+
+## EXTEND-FROM-PRIOR: Intelligence Assessment Extension (Run 268)
+
+### 4. High-Confidence Intelligence Findings
+
+**Finding 1 — DMA as Structural Market Reshaping (HIGH CONFIDENCE, A2)**
+The April 30 adoption of TA-10-2026-0160 is not incremental policy adjustment; it is structural market intervention. The 10% global turnover fine cap creates genuine deterrence for gatekeepers. For Apple alone, 10% of ~€400B global revenue = €40B maximum fine. This exceeds the entire EU defence supplement in one enforcement action. The economic incentive to comply with DMA interoperability/access requirements now materially outweighs the incentive to resist.
+*WEP: ALMOST CERTAIN (85%) that gatekeepers will begin substantive DMA compliance adjustments within 12 months of first formal enforcement action.*
+
+**Finding 2 — Ukraine Tribunal Design is Novel (MEDIUM-HIGH CONFIDENCE, B2)**
+The "hybrid tribunal" model (combining international staff with national Ukrainian court jurisdiction) is specifically designed to avoid the CFSP unanimity trap. Unlike a pure international tribunal requiring Security Council backing (which Russia would veto), the hybrid model requires only Council consensus (QMV possible for external relations support). This is intelligent institutional design that EP's AFET committee has engineered over 18 months.
+*WEP: LIKELY (60%) that Council approves tribunal support framework within 6 months.*
+
+**Finding 3 — Armenia Integration Is Real But Slow (MEDIUM CONFIDENCE, B3)**
+The October 2025 ceasefire created a genuine opening. Armenia's formal EU association upgrade application and the EP's April 30 resolution put institutional weight behind the track. However, Hungary's veto is structural — not episodic — and will require either: (a) QMV exception negotiation (difficult), (b) Hungarian side payment/deal (historically effective but costly), or (c) change in Hungarian government (2026 election possible). The integration track is real; the timeline is 3–7 years minimum.
+*WEP: POSSIBLE (35%) of meaningful Council step on Armenia within 12 months.*
+
+---
+
+### 5. Intelligence Uncertainties
+
+**Uncertainty 1 — Vote Splits Within Groups**
+Without roll-call data (3–5 week lag), we cannot confirm actual vote splits within groups on each act. Our coalition analysis uses estimated matrices based on historical group discipline rates. The DMA vote may have had more ECR FOR votes than estimated; the Armenia vote may have had more EPP AGAINST votes. **This uncertainty does not change the outcomes** (all acts passed), but it affects the coalition stability assessment.
+
+**Uncertainty 2 — DMA Enforcement Timeline**
+The Commission's enforcement timeline post-TA-10-2026-0160 adoption is not publicly confirmed. Timeline estimates (90–180 days to first formal action) are inferred from Commission enforcement precedents. If Commission prioritizes bilateral negotiation over formal action, timeline extends indefinitely.
+
+**Uncertainty 3 — Council Disposition on Ukraine Tribunal**
+German and French Council positions on the tribunal design are reportedly positive (Admiralty D3 — cannot confirm), but Eastern European member states (Poland, Baltic states) are eager for maximum scope; Western European states (France, Germany) prefer minimal scope to avoid Russian escalation risk. This tension could delay Council agreement by 6–18 months.
+
+---
+
+### 6. National Intelligence Parallel Assessment
+
+**UK Government Likely Assessment (based on public statements):**
+- DMA: UK supportive (UK Digital Markets, Competition and Consumers Act 2024 is analogous)
+- Ukraine: UK fully supportive; UK participated in tribunal design working groups
+- Armenia: UK supportive but focused on bilateral UK-Armenia track
+- Budget: UK external observer; defence industrial base interest
+
+**US Government Likely Assessment (based on USTR briefings, industry lobbying patterns):**
+- DMA: HOSTILE (US companies targeted; Washington consensus views DMA as trade barrier)
+- Ukraine: Supportive of tribunal concept but cautious on scope (ICC position)
+- Armenia: Positive (US-Armenia relations strengthened post-2025 ceasefire)
+- Budget: Positive on defence spending increase (reduces US burden sharing pressure)
+
+**Russian Government Likely Assessment:**
+- DMA: Indifferent (no Russian tech gatekeeper interests)
+- Ukraine: Hostile (direct threat to Russian leadership; counter-narrative investment)
+- Armenia: Hostile (views EU integration as geopolitical encroachment)
+- Budget: Mixed (higher EU defence spend is threatening; but also signals EU independence from US)
+
+---
+
+### 7. Intelligence Summary — April 28–30 Plenary
+
+**Overall assessment:** This was a high-significance legislative session with three CRITICAL-tier outcomes. The most durable outcome is DMA (binding law; enforcement mechanism strengthened). The most strategically important uncertainty is how the Ukraine tribunal and Armenia integration tracks develop through Council over the next 6–12 months. The most consequential risk is US retaliation on DMA enforcement.
+
+**Confidence in overall assessment:** 🟢 HIGH
+**Admiralty Grade for summary finding:** B2
+
+
+---
+
+### 8. Tradecraft Note
+
+This intelligence assessment was produced under Admiralty Grade B2 (probably true; direct source partially corroborated). Where source reliability drops to B3 or C2 (inferred/supplemental data), this is explicitly flagged. All probability estimates use WEP standard language (ALMOST CERTAIN = >85%, LIKELY = 55–85%, POSSIBLE = 25–55%, UNLIKELY = 10–25%, REMOTE = <10%).
+
+**Structured Analytic Techniques applied in this assessment:**
+- Analysis of Competing Hypotheses (Section 5, Uncertainty analysis)
+- Devil's Advocacy (cross-referenced to extended/devils-advocate-analysis.md)
+- Key Assumptions Check (implicit in Section 4 confidence assessments)
+- Alternative Futures Analysis (cross-referenced to intelligence/scenario-forecast.md)
+
+**Key assumption at risk:** The assessment assumes EU institutional continuity. A major EU constitutional crisis (Art. 7 TEU proceeding against Hungary, or EP-Council deadlock) would significantly change the Armenia and budget timelines.
+
+*Assessment produced: 2026-05-18 | Analyst: EU Parliament Monitor AI Intelligence System | Version: Run 268*
+
+**Cross-references:**
+- `intelligence/synthesis-summary.md` — thematic BLUF
+- `intelligence/scenario-forecast.md` — probabilistic futures
+- `intelligence/stakeholder-map.md` — actor analysis
+- `extended/devils-advocate-analysis.md` — counter-narratives
+- `risk-scoring/risk-matrix.md` — formal risk register with scores
+- `classification/significance-classification.md` — tier classification with Mermaid diagram
