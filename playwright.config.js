@@ -19,10 +19,14 @@ export default defineConfig({
   // (~60 k lines of HTML) — running 4 axe scans in parallel on the same
   // runner caused 30 s timeouts in run #26050940168.
   workers: process.env.CI ? 3 : 2,
-  // Default per-test timeout. axe-core analysis on PI pages legitimately
-  // takes 30-45 s under CI load; 30 s (the Playwright default) is too
-  // tight and produced flakes that exhausted all retries.
-  timeout: 60_000,
+  // Default per-test timeout kept at the Playwright default of 30 s so that
+  // genuinely hung tests (e.g. a stuck `waitForLoadState('networkidle')` or
+  // a missing element on `toBeVisible()`) surface fast instead of blocking
+  // a worker for 60 s × 3 retries = 3 min on red runs. axe-heavy tests on
+  // the 60 k-line political-intelligence pages opt in to a longer 60 s
+  // budget via `test.setTimeout(60_000)` inside their `test(...)` body —
+  // see `horizon-nav.spec.js` and `accessibility.spec.js`.
+  timeout: 30_000,
   reporter: [
     ['html', { outputFolder: 'builds/playwright-report' }],
     ['junit', { outputFile: 'builds/test-results/e2e-junit.xml' }],

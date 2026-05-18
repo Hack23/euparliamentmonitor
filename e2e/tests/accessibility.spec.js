@@ -26,6 +26,10 @@ test.describe('Multi-language index accessibility (WCAG 2.1 AA)', () => {
     const url = `/index-${lang}.html`;
 
     test(`${lang} index page should be WCAG 2.1 AA compliant`, async ({ page }) => {
+      // Multi-language index pages are large; axe-core scans take 30-45 s
+      // under CI load. Opt in to a longer budget instead of raising the
+      // global default.
+      test.setTimeout(60_000);
       const response = await page.goto(url);
       expect(response, `Failed to load ${url} for language '${lang}'`).not.toBeNull();
       expect(
