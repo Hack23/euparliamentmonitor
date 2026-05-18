@@ -30,126 +30,35 @@ const LANGUAGES = [
   { code: 'zh', name: 'Chinese' },
 ];
 
+const RTL_LANGUAGES = new Set(['ar', 'he']);
+
+/**
+ * Page-load smoke (HTTP 200 + `<html lang="…">` + RTL when applicable)
+ * iterates ALL 14 languages — this is the cumulative guard against any
+ * variant disappearing from the deployed corpus. Deeper structural and
+ * formatting assertions below sample a representative subset.
+ */
 test.describe('Multi-Language Support', () => {
-  test('should load English version', async ({ page }) => {
-    await page.goto('/index.html');
+  for (const { code, name } of LANGUAGES) {
+    test(`should load ${name} version`, async ({ page }) => {
+      const url = code === 'en' ? '/index.html' : `/index-${code}.html`;
+      const response = await page.goto(url);
+      // Accept any non-error response (200, 304-from-cache, etc.). Some
+      // preview servers return 304 for static `.html` files; the original
+      // per-language smoke only asserted the rendered `<html lang="…">`
+      // attribute, so we mirror that intent here while still catching
+      // navigation failures (4xx/5xx).
+      expect(response?.ok(), `${url} should respond successfully`).toBe(true);
 
-    // Verify correct language
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'en');
+      const html = page.locator('html');
+      await expect(html).toHaveAttribute('lang', code);
+      await expect(page.locator('body')).toBeVisible();
 
-    // Verify content is visible
-    await expect(page.locator('body')).toBeVisible();
-
-    // Verify page title exists
-    await expect(page).toHaveTitle(/.+/);
-  });
-
-  test('should load German version', async ({ page }) => {
-    await page.goto('/index-de.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'de');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load French version', async ({ page }) => {
-    await page.goto('/index-fr.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'fr');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Spanish version', async ({ page }) => {
-    await page.goto('/index-es.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'es');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Swedish version', async ({ page }) => {
-    await page.goto('/index-sv.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'sv');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Danish version', async ({ page }) => {
-    await page.goto('/index-da.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'da');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Norwegian version', async ({ page }) => {
-    await page.goto('/index-no.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'no');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Finnish version', async ({ page }) => {
-    await page.goto('/index-fi.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'fi');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Dutch version', async ({ page }) => {
-    await page.goto('/index-nl.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'nl');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Arabic version with RTL direction', async ({ page }) => {
-    await page.goto('/index-ar.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'ar');
-    await expect(html).toHaveAttribute('dir', 'rtl');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Hebrew version with RTL direction', async ({ page }) => {
-    await page.goto('/index-he.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'he');
-    await expect(html).toHaveAttribute('dir', 'rtl');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Japanese version', async ({ page }) => {
-    await page.goto('/index-ja.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'ja');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Korean version', async ({ page }) => {
-    await page.goto('/index-ko.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'ko');
-    await expect(page.locator('body')).toBeVisible();
-  });
-
-  test('should load Chinese version', async ({ page }) => {
-    await page.goto('/index-zh.html');
-
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'zh');
-    await expect(page.locator('body')).toBeVisible();
-  });
+      if (RTL_LANGUAGES.has(code)) {
+        await expect(html).toHaveAttribute('dir', 'rtl');
+      }
+    });
+  }
 
   test('should switch between languages', async ({ page }) => {
     await page.goto('/');

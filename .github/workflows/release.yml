@@ -102,8 +102,11 @@ jobs:
       - name: Run linter
         run: npm run lint
 
-      - name: Validate HTML
-        run: npm run htmlhint || echo "HTML validation completed"
+      # NOTE: htmlhint is not re-run here. It is already gated on every PR
+      # and on push-to-main by `test-and-report.yml` (`Validate generated
+      # HTML` step). Re-running it on release added ~2 min wall-clock for
+      # no extra signal — the HTML hasn't changed between merge-to-main
+      # and tag.
 
       - name: Set Version for release
         if: github.event_name == 'workflow_dispatch'
@@ -124,8 +127,22 @@ jobs:
           npm run lint:report || true
           npm run lint:report:html || true
 
-      - name: Run E2E tests
-        run: npm run test:e2e
+      # Minimal Playwright smoke at release time. The full E2E suite has
+      # already been validated by `e2e.yml` and `test-and-report.yml` on
+      # the merge to main — re-running it here added ~25 min wall-clock
+      # without producing new signal. We keep one fast spec (homepage)
+      # so that `docs/playwright-report/` is refreshed every release;
+      # without this step, the report would freeze at whatever was last
+      # committed because neither `e2e.yml` nor `test-and-report.yml`
+      # commits `docs/**` to main — only this release job does (via the
+      # `Commit documentation updates` step below). The published release
+      # notes and docs index card link to this report as the canonical
+      # E2E report.
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright homepage smoke (refreshes docs/playwright-report)
+        run: npx playwright test e2e/tests/homepage.spec.js
 
       - name: Clean old documentation
         run: |
@@ -162,7 +179,7 @@ jobs:
           done
           
           # Check required files exist
-          for file in docs/index.html docs/api/index.html docs/coverage/index.html docs/playwright-report/index.html docs/test-results/index.html; do
+          for file in docs/index.html docs/api/index.html docs/coverage/index.html docs/test-results/index.html docs/playwright-report/index.html; do
             if [ -f "$file" ]; then
               echo "✅ $file exists"
             else
@@ -170,7 +187,7 @@ jobs:
               exit 1
             fi
           done
-          
+
           # Check optional but expected report files
           for file in docs/test-results/results.json docs/test-results/junit.xml docs/test-results/eslint-report.html docs/test-results/eslint-report.json; do
             if [ -f "$file" ]; then

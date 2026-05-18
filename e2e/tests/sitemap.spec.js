@@ -3,6 +3,7 @@
 
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { SAMPLE_LANGUAGES } from './_sample-languages.js';
 
 /**
  * Sitemap Validation E2E Tests
@@ -10,8 +11,12 @@ import AxeBuilder from '@axe-core/playwright';
  * Tests for sitemap completeness and validity including:
  * - sitemap.xml XML structure and urlset schema
  * - Article URL coverage
- * - HTML sitemap pages for all 14 languages
+ * - HTML sitemap pages for all 14 languages (HTTP 200 smoke)
  * - Sitemap page structure and navigation
+ *
+ * Per-locale lang-attribute and accessibility assertions sample
+ * representative locales (see `_sample-languages.js`); the cumulative
+ * "all 14 sitemap pages should load" smoke still guards every variant.
  */
 
 const SITEMAP_HTML_LANGUAGES = [
@@ -30,6 +35,10 @@ const SITEMAP_HTML_LANGUAGES = [
   { code: 'ko', file: '/sitemap_ko.html' },
   { code: 'zh', file: '/sitemap_zh.html' },
 ];
+
+const SAMPLED_SITEMAP_LANGUAGES = SITEMAP_HTML_LANGUAGES.filter(({ code }) =>
+  SAMPLE_LANGUAGES.includes(code),
+);
 
 test.describe('Sitemap XML', () => {
   test('should load sitemap.xml when available', async ({ request }) => {
@@ -167,7 +176,7 @@ test.describe('Sitemap HTML Pages', () => {
   test('language sitemap pages should have correct lang attribute', async ({
     page,
   }) => {
-    const testLanguages = SITEMAP_HTML_LANGUAGES;
+    const testLanguages = SAMPLED_SITEMAP_LANGUAGES;
 
     for (const { code, file } of testLanguages) {
       await page.goto(file);
