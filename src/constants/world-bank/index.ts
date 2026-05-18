@@ -8,7 +8,8 @@
  *
  * Split by data dimension:
  * - {@link Constants/WorldBank/IndicatorCatalog} — the 34 curated `WB_INDICATORS`
- *   records (id, units, display name) plus shared `PRI`/`SEC` priority constants
+ *   records (id-only map; human-readable names are in the `N` table; per-indicator
+ *   units appear in inline JSDoc) plus shared `PRI`/`SEC` priority constants
  * - {@link Constants/WorldBank/CommitteeMap} — EP committee code → indicator-id arrays
  * - {@link Constants/WorldBank/CategoryMap} — `ArticleCategory` → indicator-id arrays
  *
@@ -19,7 +20,7 @@
  * assume the embedded list is exhaustive.
  */
 
-import { ArticleCategory } from '../../types/common.js';
+import { ArticleCategory } from '../../types/index.js';
 import { PRI, type WBIndicatorId } from './indicator-catalog.js';
 import { COMMITTEE_INDICATOR_MAP, type IndicatorMapping } from './committee-map.js';
 import { CATEGORY_INDICATOR_MAP, type CategoryIndicatorEntry } from './category-map.js';

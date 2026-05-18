@@ -136,7 +136,7 @@ export const DEEP_ANALYSIS_LABELS = {
     ko: '심층 분석',
     zh: '深度分析',
 };
-/** Localized "View source code on GitHub" labels */
+/** Localized "AI-Driven Analysis Guide" labels */
 export const AI_ANALYSIS_GUIDE_LABELS = {
     en: 'AI-Driven Analysis Guide',
     sv: 'AI-driven analysguide',

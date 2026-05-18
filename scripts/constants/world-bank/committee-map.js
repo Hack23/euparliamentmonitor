@@ -10,7 +10,7 @@
  * - Secondary indicators (useful context)
  * - Analysis perspectives for editorial framing
  */
-import { AnalysisPerspective } from '../../types/common.js';
+import { AnalysisPerspective } from '../../types/index.js';
 import { WB_INDICATORS, N, PRI, SEC } from './indicator-catalog.js';
 /**
  * Maps EP committee abbreviations to their World Bank indicator mappings.

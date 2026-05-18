@@ -12,7 +12,7 @@
  * - Analysis perspectives for editorial framing
  */
 
-import { AnalysisPerspective } from '../../types/common.js';
+import { AnalysisPerspective } from '../../types/index.js';
 import { WB_INDICATORS, N, PRI, SEC, type WBIndicatorId } from './indicator-catalog.js';
 
 // ─── Committee → Indicator Mapping ───────────────────────────────────────────

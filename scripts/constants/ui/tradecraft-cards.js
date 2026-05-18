@@ -156,7 +156,7 @@ export const ANALYSIS_INDEX_COL_PATH_LABELS = {
     ko: '경로',
     zh: '路径',
 };
-/** Localized heading for Key Takeaways */
+/** Localized "View source code on GitHub" label for the source-link UI */
 export const VIEW_SOURCE_LABELS = {
     en: 'View source code on GitHub',
     sv: 'Visa källkod på GitHub',

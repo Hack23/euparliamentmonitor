@@ -33,8 +33,8 @@ export const TOC_ARIA_LABELS = {
     ko: '목차',
     zh: '目录',
 };
-/* ─── Tradecraft References & Analysis Index section localisation ── */
-/** Localized heading for the Tradecraft References appendix */
+/* ─── Language selector localisation ──────────────────────────────────────── */
+/** Aria-label for the language selector control */
 export const LANGUAGE_SELECTION_ARIA_LABELS = {
     en: 'Language selection',
     sv: 'Språkval',

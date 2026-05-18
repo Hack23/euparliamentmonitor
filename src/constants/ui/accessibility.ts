@@ -42,9 +42,9 @@ export const TOC_ARIA_LABELS: LanguageMap = {
   zh: '目录',
 };
 
-/* ─── Tradecraft References & Analysis Index section localisation ── */
+/* ─── Language selector localisation ──────────────────────────────────────── */
 
-/** Localized heading for the Tradecraft References appendix */
+/** Aria-label for the language selector control */
 export const LANGUAGE_SELECTION_ARIA_LABELS: LanguageMap = {
   en: 'Language selection',
   sv: 'Språkval',

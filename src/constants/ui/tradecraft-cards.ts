@@ -172,7 +172,7 @@ export const ANALYSIS_INDEX_COL_PATH_LABELS: LanguageMap = {
   zh: '路径',
 };
 
-/** Localized heading for Key Takeaways */
+/** Localized "View source code on GitHub" label for the source-link UI */
 export const VIEW_SOURCE_LABELS: LanguageMap = {
   en: 'View source code on GitHub',
   sv: 'Visa källkod på GitHub',

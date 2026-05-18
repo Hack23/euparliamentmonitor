@@ -15,7 +15,7 @@
  * - **DEEP_ANALYSIS**: High value — analytical depth benefits from data
  */
 
-import { ArticleCategory } from '../../types/common.js';
+import { ArticleCategory } from '../../types/index.js';
 import { WB_INDICATORS, N, PRI, SEC } from './indicator-catalog.js';
 import type { IndicatorMapping } from './committee-map.js';
 

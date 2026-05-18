@@ -151,7 +151,7 @@ export const DEEP_ANALYSIS_LABELS: LanguageMap = {
   zh: '深度分析',
 };
 
-/** Localized "View source code on GitHub" labels */
+/** Localized "AI-Driven Analysis Guide" labels */
 export const AI_ANALYSIS_GUIDE_LABELS: LanguageMap = {
   en: 'AI-Driven Analysis Guide',
   sv: 'AI-driven analysguide',

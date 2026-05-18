@@ -10,7 +10,9 @@
  * - `world-bank/indicator-catalog.ts` — the 34 curated `WB_INDICATORS` records
  * - `world-bank/committee-map.ts`     — EP committee code → indicator-id arrays
  * - `world-bank/category-map.ts`      — `ArticleCategory` → indicator-id arrays
- * - `world-bank/index.ts`             — barrel + `getIndicatorsFor*` helpers
+ * - `world-bank/index.ts`             — barrel + `getCommitteeIndicators` /
+ *   `getCommitteePrimaryIndicators` / `getCategoryIndicators` /
+ *   `getIndicatorIdsForCommittees` / `getAllCategoryIndicatorIds` helpers
  *
  * New code should import from `../constants/world-bank/index.js` directly.
  *
