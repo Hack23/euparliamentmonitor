@@ -125,4 +125,22 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
     expect(result.stderr).toBe('');
     expect(result.stdout).toContain('safe_outputs job reported success; fallback skipped');
   });
+
+  it('is translate-aware: news-translate slug "translate-briefs" appears in the script body with the expected branch + analysis_dir', () => {
+    // Regression guard for run #26005838669: the news-translate workflow
+    // now imports shared/config/news-pat-pr-fallback.md, which routes
+    // through this script with slug=translate-briefs. The script must
+    // produce branch=news/translate-briefs-<date> (matching the
+    // news-translate.md branch contract) and analysis_dir=
+    // analysis/translation-runs/<date> (since news-translate has no
+    // per-slug analysis/daily directory). It must also treat
+    // analysis/translation-runs/* as an eligible path.
+    const script = fs.readFileSync(SCRIPT, 'utf8');
+    expect(script).toMatch(/translate-briefs\|translate\)/);
+    expect(script).toMatch(/branch="news\/translate-briefs-\$today"/);
+    expect(script).toMatch(/analysis_dir="analysis\/translation-runs\/\$today"/);
+    expect(script).toMatch(
+      /analysis\/daily\/\*\|news\/\*\|analysis\/translation-runs\/\*/,
+    );
+  });
 });

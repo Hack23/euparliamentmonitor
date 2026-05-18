@@ -1,51 +1,19 @@
 # Translation Run Summary — 2026-05-17
 
-Run ID: 213 | Branch: news/translate-briefs-2026-05-17 | Mode: backlog-only
+**Run date:** 2026-05-17  
+**Branch:** news/translate-briefs-2026-05-17  
+**Status:** Partial — Brief #1 complete, Brief #2 not attempted (time budget exhausted)
 
-## Run 213 Additional Briefs (2026-04-01 backlog)
+## Completed Translations
 
-### Brief: 2026-04-01/month-ahead (9 H2, backlog) — Validator: ✅ 13/13 PASS
-### Brief: 2026-04-01/motions (9 H2, backlog) — Validator: ✅ 13/13 PASS
+### Brief #1: `analysis/daily/2026-05-14/election-cycle/`
+- **Languages translated:** sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh (13/13)
+- **Validator result:** ✅ 0 violations, all 7 quality gates passed
+- **H2 parity:** 9/9 in all 13 files
 
-All 26 translations passed 7 quality gates. Fixed tokens (IMF, WEO, TA-IDs) preserved verbatim.
+## Not Attempted
 
----
-
-## Run 212 Brief 1: 2026-05-16/breaking (8 H2, fresh slot)
-All 13 languages translated and validator-clean.
-| Lang | Accuracy | Fluency | Terminology | Completeness | Formatting |
-|------|:--------:|:-------:|:-----------:|:------------:|:----------:|
-| sv   | 5 | 5 | 5 | 5 | 5 |
-| da   | 5 | 5 | 5 | 5 | 5 |
-| no   | 5 | 5 | 5 | 5 | 5 |
-| fi   | 5 | 5 | 5 | 5 | 5 |
-| de   | 5 | 5 | 5 | 5 | 5 |
-| fr   | 5 | 5 | 5 | 5 | 5 |
-| es   | 5 | 5 | 5 | 5 | 5 |
-| nl   | 5 | 5 | 5 | 5 | 5 |
-| ar   | 5 | 5 | 5 | 5 | 5 |
-| he   | 5 | 5 | 5 | 5 | 5 |
-| ja   | 5 | 5 | 5 | 5 | 5 |
-| ko   | 5 | 5 | 5 | 5 | 5 |
-| zh   | 5 | 5 | 5 | 5 | 5 |
-
-## Brief 2: 2026-04-01/committee-reports (9 H2, backlog slot)
-All 13 languages translated and validator-clean.
-| Lang | Accuracy | Fluency | Terminology | Completeness | Formatting |
-|------|:--------:|:-------:|:-----------:|:------------:|:----------:|
-| sv   | 5 | 5 | 5 | 5 | 5 |
-| da   | 5 | 5 | 5 | 5 | 5 |
-| no   | 5 | 5 | 5 | 5 | 5 |
-| fi   | 5 | 5 | 5 | 5 | 5 |
-| de   | 5 | 5 | 5 | 5 | 5 |
-| fr   | 5 | 5 | 5 | 5 | 5 |
-| es   | 5 | 5 | 5 | 5 | 5 |
-| nl   | 5 | 5 | 5 | 5 | 5 |
-| ar   | 5 | 5 | 5 | 5 | 5 |
-| he   | 5 | 5 | 5 | 5 | 5 |
-| ja   | 5 | 5 | 5 | 5 | 5 |
-| ko   | 5 | 5 | 5 | 5 | 5 |
-| zh   | 5 | 5 | 5 | 5 | 5 |
-
-## Validator Results
-Both briefs: 0 violations across all 7 gates.
+### Brief #2: `analysis/daily/2026-04-01/propositions/`
+- **Reason:** 49 minutes elapsed when Brief #1 completed — emergency flush threshold reached
+- **Missing languages:** sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh (13/13)
+- **Will be picked up by next scheduled cron run via discovery queue**
