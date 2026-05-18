@@ -83,7 +83,7 @@ esac
 # the authoritative success signal — when it reports success, no
 # recovery is needed full stop.
 #
-# Exception (regression run #26015261142): safe_outputs reports job-level
+# Exception 1 (regression run #26015261142): safe_outputs reports job-level
 # success even when the internal git push for create_pull_request fails
 # and the safe_outputs handler creates a fallback review issue instead.
 # In that case it emits the GraphQL/exec failure to its log and bumps
@@ -93,6 +93,18 @@ esac
 # actually publish a PR, and the downstream branch-pattern API check at
 # lines ~200-219 will verify on GitHub whether a PR exists before
 # proceeding with recovery.
+#
+# Exception 2 (regression runs #26019545674 motions / #26017383773
+# propositions, both 2026-05-18): safe_outputs reports job-level success
+# AND code_push_failure_count is 0 even when the internal create_pull_request
+# git push failed and fell back to a review issue. gh-aw treats the
+# successful issue-fallback as a non-failure for counting purposes, so
+# code_push_failure_count stays at 0. The reliable signal is gh-aw's
+# `created_pr_number` job output (wired here as GH_AW_CREATED_PR_NUMBER):
+# it is populated only when an actual PR was created on GitHub; it is empty
+# when the bundle push fell back to an issue. Treat success + empty
+# created_pr_number + a bundle/patch artifact on disk as a silent push
+# failure and run the fallback.
 code_push_failure_count=0
 case "${GH_AW_CODE_PUSH_FAILURE_COUNT:-}" in
   ''|0) code_push_failure_count=0 ;;
@@ -100,7 +112,31 @@ case "${GH_AW_CODE_PUSH_FAILURE_COUNT:-}" in
   *) code_push_failure_count="${GH_AW_CODE_PUSH_FAILURE_COUNT}" ;;
 esac
 
-if [ "${GH_AW_SAFE_OUTPUTS_RESULT:-}" = "success" ] && [ "$code_push_failure_count" -eq 0 ]; then
+# Strip surrounding whitespace from created_pr_number — GitHub Actions can
+# render numeric outputs with leading/trailing whitespace when the safe_outputs
+# step uses `core.setOutput`. An empty value means the bundle path did not
+# publish a PR (either it fell back to a review issue, or safe_outputs never
+# ran the create_pull_request handler).
+created_pr_number=""
+if [ -n "${GH_AW_CREATED_PR_NUMBER:-}" ]; then
+  created_pr_number=$(printf '%s' "${GH_AW_CREATED_PR_NUMBER}" | tr -d '[:space:]')
+fi
+
+silent_push_failure=false
+has_recoverable_artifact=false
+if [ "$has_safeoutputs_patch" = true ] || [ "$has_safeoutputs_bundle" = true ] || [ "$has_recovery_patch" = true ]; then
+  has_recoverable_artifact=true
+fi
+if [ "${GH_AW_SAFE_OUTPUTS_RESULT:-}" = "success" ] && \
+   [ "$code_push_failure_count" -eq 0 ] && \
+   [ -z "$created_pr_number" ] && \
+   [ "$has_recoverable_artifact" = true ]; then
+  silent_push_failure=true
+fi
+
+if [ "${GH_AW_SAFE_OUTPUTS_RESULT:-}" = "success" ] && \
+   [ "$code_push_failure_count" -eq 0 ] && \
+   [ "$silent_push_failure" = false ]; then
   log "safe_outputs job reported success; fallback skipped (no recovery needed)"
   exit 0
 fi
@@ -109,10 +145,15 @@ if [ "${GH_AW_SAFE_OUTPUTS_RESULT:-}" = "success" ] && [ "$code_push_failure_cou
   log "safe_outputs job reported success but code_push_failure_count=${code_push_failure_count}; proceeding with fallback (bundle push fell back to review issue)"
 fi
 
+if [ "$silent_push_failure" = true ]; then
+  log "safe_outputs job reported success but created_pr_number is empty and a safeoutputs/recovery artifact is on disk; proceeding with fallback (silent bundle push failure — see runs #26019545674 motions and #26017383773 propositions 2026-05-18)"
+fi
+
 if [ ! -f "$stdio_log" ]; then
   if [ "$has_recovery_patch" = false ] && { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_patch" = false ]; } && \
      { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_bundle" = false ]; } && \
-     { [ "$code_push_failure_count" -eq 0 ] || { [ "$has_safeoutputs_patch" = false ] && [ "$has_safeoutputs_bundle" = false ]; }; }; then
+     { [ "$code_push_failure_count" -eq 0 ] || { [ "$has_safeoutputs_patch" = false ] && [ "$has_safeoutputs_bundle" = false ]; }; } && \
+     [ "$silent_push_failure" = false ]; then
     log "agent stdio log not found and no recovery/failed-safeoutputs patch or bundle; fallback skipped"
     exit 0
   fi
@@ -136,6 +177,12 @@ fi
 # (run #26015261142). When this happens with a safeoutputs patch or bundle on
 # disk, treat it as a recoverable bundle/patch failure even though the job
 # reported success at the JobResult level.
+# Trigger 6: safe_outputs reported success AND code_push_failure_count is 0
+# but created_pr_number is empty and a safeoutputs/recovery artifact is on
+# disk — i.e. gh-aw silently fell back to a review issue without bumping
+# the counter (regression runs #26019545674 motions / #26017383773
+# propositions, both 2026-05-18). The empty created_pr_number is the
+# authoritative signal that the bundle path never published a PR.
 # Activate when any trigger condition is met.
 should_run=false
 if [ "$session_not_found" = true ]; then
@@ -149,6 +196,8 @@ elif [ "$safe_outputs_failed" = true ] && [ "$has_safeoutputs_bundle" = true ]; 
 elif [ "$code_push_failure_count" -gt 0 ] && [ "$has_safeoutputs_patch" = true ]; then
   should_run=true
 elif [ "$code_push_failure_count" -gt 0 ] && [ "$has_safeoutputs_bundle" = true ]; then
+  should_run=true
+elif [ "$silent_push_failure" = true ]; then
   should_run=true
 fi
 
