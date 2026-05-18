@@ -77,6 +77,11 @@ export default defineConfig({
         // Exclude language string maps (pure data/config, 500+ arrow fns across 14 languages)
         'scripts/constants/language-articles.js',
         'scripts/constants/languages.js',
+        // Split-out per-article language string modules (originally in
+        // language-articles.js — same pure-data rationale). Some files
+        // (breaking, swot, extended-horizons) contain large 14-language
+        // factor-function maps not exercised by unit tests.
+        'scripts/constants/articles/**',
         // Exclude barrel re-export entry points (no testable logic)
         'scripts/index.js',
         // Pure CLI entry-point with no exports — cannot be imported for testing
