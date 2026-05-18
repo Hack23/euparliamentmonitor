@@ -60,6 +60,21 @@ safe-outputs:
   # from shared/config/news-safe-outputs-head.md and -domains.md. Add domains
   # globally there; declare slug-specific overrides here only if needed.
   create-pull-request:
+    # Use the org PAT so the bundle push has `workflows: write` permission.
+    # The default GITHUB_TOKEN cannot push a branch whose tree differs from
+    # main on ANY `.github/workflows/*` file — GitHub'''s pre-receive hook
+    # compares the new branch'''s tree against main (not just the pushed
+    # commits), so a stale base ref alone is enough to trigger
+    # "refusing to allow a GitHub App to create or update workflow
+    # .github/workflows/<other>.lock.yml without workflows permission".
+    # The same token also gates the GraphQL `createCommitOnBranch` call
+    # which 403s on the App token. Root cause of regression runs
+    # #26019545674 (motions) and #26017383773 (propositions), both
+    # 2026-05-18. The pat-pr-fallback path (PR #1903 / this PR) stays as
+    # belt-and-braces; this wiring eliminates the need for it in the
+    # happy path. Falls back to GITHUB_TOKEN for forks/dispatched runs
+    # where the org secret isn'''t available.
+    github-token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
     title-prefix: "[news] "
     labels: [agentic-news, analysis-data, "type:year-in-review"]
     draft: false

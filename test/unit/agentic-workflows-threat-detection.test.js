@@ -338,6 +338,96 @@ describe('agentic workflow threat detection policy', () => {
     }
   });
 
+  it('wires the org PAT into safe-outputs.create-pull-request for every article workflow', () => {
+    // Root-cause fix for the silent-bundle-push regressions of 2026-05-18
+    // (motions run #26019545674, propositions run #26017383773). The
+    // safe_outputs PR-bundle push uses a GitHub App token (GITHUB_TOKEN /
+    // GH_AW_GITHUB_TOKEN) by default. That token (a) cannot POST to
+    // /repos/.../git/refs to create the bundle branch via the GraphQL
+    // signed-push path (403 "Resource not accessible by integration"),
+    // AND (b) is blocked by GitHub's `workflows: write` pre-receive hook
+    // when the new branch tree differs from main on ANY
+    // `.github/workflows/*` file — the hook compares full trees, not just
+    // the pushed commits, so even a stale base ref (which is the common
+    // case when news workflows merge concurrently) is enough to trigger
+    // "refusing to allow a GitHub App to create or update workflow
+    // .github/workflows/<other>.lock.yml without workflows permission".
+    //
+    // Fix: declare `github-token: COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN`
+    // under each workflow's `safe-outputs.create-pull-request:` block so
+    // gh-aw plumbs the PAT into both the GraphQL signed-push path AND the
+    // `git push` fallback path. The PAT carries `workflows` scope and
+    // bypasses both failure modes. The pat-pr-fallback job (PR #1902 /
+    // #1903 / this PR) stays as belt-and-braces for any remaining
+    // edge case.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+
+    for (const workflow of articleWorkflows) {
+      const mdContent = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      // Source workflow must declare the PAT on the create-pull-request
+      // block (allow GITHUB_TOKEN as a forks/dispatch fallback).
+      expect(
+        mdContent,
+        `${workflow} must wire github-token under create-pull-request:`,
+      ).toMatch(
+        /create-pull-request:[\s\S]{0,2000}?github-token:\s*\$\{\{\s*secrets\.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN\s*\|\|\s*secrets\.GITHUB_TOKEN\s*\}\}/,
+      );
+
+      // Compiled lock file must propagate the PAT into both the
+      // GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG JSON (so the GraphQL
+      // signed-push path uses it) and the Process Safe Outputs step env
+      // (so the `git push` fallback inherits it as GITHUB_TOKEN).
+      const lockPath = path.join(
+        WORKFLOWS_DIR,
+        workflow.replace(/\.md$/, '.lock.yml'),
+      );
+      expect(
+        fs.existsSync(lockPath),
+        `${workflow} must have a compiled .lock.yml`,
+      ).toBe(true);
+      const lockContent = fs.readFileSync(lockPath, 'utf8');
+      // gh-aw v0.74.4 emits the safe-outputs handler config in TWO places
+      // in the compiled lock: (1) a heredoc'd config.json that references
+      // an env var via shell expansion (gh-aw picks either
+      // `${GITHUB_TOKEN}` or `${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}`
+      // depending on its env-binding heuristic — both env vars are wired
+      // to the same `secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN ||
+      // secrets.GITHUB_TOKEN` expression on the surrounding step), and
+      // (2) the Process Safe Outputs step's GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG
+      // env which carries the literal `${{ secrets.* }}` expression
+      // (with quotes JSON-escaped). Both must mention the PAT for the
+      // token to flow into the GraphQL signed-push path AND the git push
+      // fallback.
+      expect(
+        lockContent,
+        `${path.basename(lockPath)} must wire the PAT-or-fallback expression to COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN env on the Generate Safe Outputs Config step`,
+      ).toMatch(
+        /COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN:\s*\$\{\{\s*secrets\.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN\s*\|\|\s*secrets\.GITHUB_TOKEN\s*\}\}/,
+      );
+      expect(
+        lockContent,
+        `${path.basename(lockPath)} must reference one of the PAT-bearing env vars under "github-token" in the safeoutputs/config.json heredoc`,
+      ).toMatch(
+        /"github-token":\s*"\$\{(?:COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN|GITHUB_TOKEN)\}"/,
+      );
+      expect(
+        lockContent,
+        `${path.basename(lockPath)} must embed the PAT in GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG`,
+      ).toMatch(
+        /\\"github-token\\":\s*\\"\$\{\{\s*secrets\.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN\s*\|\|\s*secrets\.GITHUB_TOKEN\s*\}\}\\"/,
+      );
+    }
+  });
+
   it('imports the shared parameterized tools component in every article workflow', () => {
     // Phase C of the agentic-workflow refactor extracted the structurally
     // identical `tools:` block (timeout / startup-timeout / github.toolsets
