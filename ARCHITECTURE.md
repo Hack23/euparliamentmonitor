@@ -848,10 +848,22 @@ src/                                   → scripts/                          (ts
 │   ├── political-intelligence-descriptions.ts  Per-language methodology descriptions
 │   └── seo-copy.ts                    SEO meta tag copy tables (14 languages)
 ├── types/                             → types/
-│   ├── analysis.ts, common.ts, generation.ts, imf.ts, intelligence.ts, mcp.ts,
+│   ├── analysis.ts, generation.ts, imf.ts, intelligence.ts,
 │   │   parliament.ts, political-classification.ts, political-risk.ts,
 │   │   political-threats.ts, quality.ts, significance.ts, stakeholder.ts,
-│   │   visualization.ts, world-bank.ts, index.ts
+│   │   world-bank.ts, index.ts
+│   ├── languages.ts                   LanguageCode / RTLLanguageCode / LanguageMap
+│   ├── article-category.ts            ArticleCategory + ArticlePerspective + CATEGORY_* maps
+│   ├── article-strings/               Per-article-type localized string interfaces
+│   │   ├── propositions.ts, motions.ts, week-ahead.ts,
+│   │   │   breaking.ts (incl. DeepAnalysis), committee.ts
+│   ├── visualization/                 Visualization bounded contexts
+│   │   ├── swot.ts, charts.ts, dashboard.ts,
+│   │   │   mindmap.ts, voting-bloc.ts
+│   ├── mcp/                           MCP transport + per-tool option shapes
+│   │   ├── client.ts, ep-tools.ts,
+│   │   │   ep-feeds.ts, reports.ts
+│   └── common.ts, visualization.ts, mcp.ts   Thin re-export barrels (transitional)
 └── utils/                             → utils/
     ├── article-category.ts            ArticleCategory enum helpers and slug mapping
     ├── content-metadata.ts            Content metadata extraction from HTML/Markdown

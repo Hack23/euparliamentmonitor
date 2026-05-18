@@ -1,0 +1,483 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
+/**
+ * @module Types/MCP/EPTools
+ * @description Option / result interfaces for the European-Parliament MCP
+ * one-shot tool calls exposed through `EuropeanParliamentMCPClient`
+ * (i.e. everything except the `/feed` endpoints, which live in
+ * {@link ./ep-feeds.ts}).
+ *
+ * Grouped here because each tool's option shape is small (≤ 10 fields)
+ * and individual per-tool files would add more import noise than they save.
+ *
+ * Transport types live in {@link ./client.ts}; report-generation tool
+ * options live in {@link ./reports.ts}.
+ */
+
+/** Options for getMEPs */
+export interface GetMEPsOptions {
+  country?: string | undefined;
+  group?: string | undefined;
+  committee?: string | undefined;
+  active?: boolean | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getPlenarySessions */
+export interface GetPlenarySessionsOptions {
+  /** Meeting event ID for single meeting lookup */
+  eventId?: string | undefined;
+  /** Filter by calendar year (recommended for annual counts) */
+  year?: number | undefined;
+  /** Start date in YYYY-MM-DD format */
+  dateFrom?: string | undefined;
+  /** End date in YYYY-MM-DD format */
+  dateTo?: string | undefined;
+  /** Session location (e.g., "Strasbourg", "Brussels") */
+  location?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for searchDocuments */
+export interface SearchDocumentsOptions {
+  /** Document ID for single document lookup (bypasses keyword search) */
+  docId?: string | undefined;
+  /** Search keyword or phrase */
+  keyword?: string | undefined;
+  /** Document type: REPORT, RESOLUTION, DECISION, DIRECTIVE, REGULATION, OPINION, AMENDMENT */
+  documentType?: string | undefined;
+  committee?: string | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getParliamentaryQuestions */
+export interface GetParliamentaryQuestionsOptions {
+  /** Document ID for single question lookup */
+  docId?: string | undefined;
+  /** Question type: WRITTEN or ORAL */
+  type?: string | undefined;
+  /** MEP identifier or name of question author */
+  author?: string | undefined;
+  /** Question topic or keyword to search */
+  topic?: string | undefined;
+  /** Question status: PENDING or ANSWERED */
+  status?: string | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getCommitteeInfo */
+export interface GetCommitteeInfoOptions {
+  /** Committee identifier */
+  id?: string | undefined;
+  /** Committee abbreviation (e.g., "ENVI", "AGRI") */
+  abbreviation?: string | undefined;
+  /** If true, returns all current active corporate bodies */
+  showCurrent?: boolean | undefined;
+}
+
+/** Options for monitorLegislativePipeline */
+export interface MonitorLegislativePipelineOptions {
+  committeeId?: string | undefined;
+  status?: string | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  limit?: number | undefined;
+}
+
+/** Options for assessMEPInfluence */
+export interface AssessMEPInfluenceOptions {
+  mepId: string;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+}
+
+/** Options for analyzeCoalitionDynamics */
+export interface AnalyzeCoalitionDynamicsOptions {
+  /** Political group identifiers to analyze (omit for all groups) */
+  groupIds?: string[] | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  /** Minimum cohesion threshold for alliance detection (0-1) */
+  minimumCohesion?: number | undefined;
+}
+
+/** Options for detectVotingAnomalies */
+export interface DetectVotingAnomaliesOptions {
+  mepId?: string | undefined;
+  /** Political group to analyze */
+  groupId?: string | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  /** Anomaly sensitivity (0-1, lower = more anomalies detected) */
+  sensitivityThreshold?: number | undefined;
+}
+
+/** Options for comparePoliticalGroups */
+export interface ComparePoliticalGroupsOptions {
+  /** Political group identifiers to compare (minimum 2, maximum 10) */
+  groupIds: string[];
+  /** Comparison dimensions: voting_discipline, activity_level, legislative_output, attendance, cohesion */
+  dimensions?: string[] | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+}
+
+/** Options for analyzeLegislativeEffectiveness */
+export interface AnalyzeLegislativeEffectivenessOptions {
+  subjectId: string;
+  subjectType: 'MEP' | 'COMMITTEE';
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+}
+
+/** Options for getting voting records */
+export interface VotingRecordsOptions {
+  mepId?: string | undefined;
+  sessionId?: string | undefined;
+  topic?: string | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for analyzing voting patterns */
+export interface VotingPatternsOptions {
+  mepId: string;
+  dateFrom?: string | undefined;
+  compareWithGroup?: boolean | undefined;
+}
+
+/** Options for analyzeCommitteeActivity */
+export interface AnalyzeCommitteeActivityOptions {
+  committeeId?: string | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+}
+
+/** Options for trackMEPAttendance */
+export interface TrackMEPAttendanceOptions {
+  mepId?: string | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+}
+
+/** Options for analyzeCountryDelegation */
+export interface AnalyzeCountryDelegationOptions {
+  country: string;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+}
+
+/** Options for generatePoliticalLandscape */
+export interface GeneratePoliticalLandscapeOptions {
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  includeDetails?: boolean | undefined;
+}
+
+/** Options for getCurrentMEPs */
+export interface GetCurrentMEPsOptions {
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getSpeeches — v1.2.13 removed `year` (EP API ignores it for /speeches) */
+export interface GetSpeechesOptions {
+  speechId?: string | undefined;
+  /** Filter by sitting date start (maps to sitting-date in EP API) */
+  dateFrom?: string | undefined;
+  /** Filter by sitting date end (maps to sitting-date-end in EP API) */
+  dateTo?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getProcedures — v1.2.13 removed `year` (EP API ignores it for /procedures) */
+export interface GetProceduresOptions {
+  processId?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getAdoptedTexts */
+export interface GetAdoptedTextsOptions {
+  docId?: string | undefined;
+  year?: number | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getEvents — v1.2.13 removed `year`, `dateFrom`, `dateTo` (EP API /events has no date filtering) */
+export interface GetEventsOptions {
+  eventId?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getMeetingActivities */
+export interface GetMeetingActivitiesOptions {
+  sittingId: string;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getMeetingDecisions */
+export interface GetMeetingDecisionsOptions {
+  sittingId: string;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getMEPDeclarations */
+export interface GetMEPDeclarationsOptions {
+  docId?: string | undefined;
+  year?: number | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getIncomingMEPs */
+export interface GetIncomingMEPsOptions {
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getOutgoingMEPs */
+export interface GetOutgoingMEPsOptions {
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getHomonymMEPs */
+export interface GetHomonymMEPsOptions {
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getLatestVotes (DOCEO-backed near-real-time vote enrichment, new in v1.3.1) */
+export interface GetLatestVotesOptions {
+  /** Maximum number of recent vote records to return (default: 50) */
+  limit?: number | undefined;
+  /** Pagination offset */
+  offset?: number | undefined;
+}
+
+/** Options for getPlenaryDocuments */
+export interface GetPlenaryDocumentsOptions {
+  docId?: string | undefined;
+  year?: number | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getCommitteeDocuments — v1.2.13 removed `year` (EP API ignores it for /committee-documents) */
+export interface GetCommitteeDocumentsOptions {
+  docId?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getPlenarySessionDocuments */
+export interface GetPlenarySessionDocumentsOptions {
+  docId?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getPlenarySessionDocumentItems */
+export interface GetPlenarySessionDocumentItemsOptions {
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getControlledVocabularies */
+export interface GetControlledVocabulariesOptions {
+  vocId?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getExternalDocuments — v1.2.13 removed `year` (EP API ignores it for /external-documents) */
+export interface GetExternalDocumentsOptions {
+  docId?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getMeetingForeseenActivities */
+export interface GetMeetingForeseenActivitiesOptions {
+  sittingId: string;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getProcedureEvents */
+export interface GetProcedureEventsOptions {
+  processId: string;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getMeetingPlenarySessionDocuments */
+export interface GetMeetingPlenarySessionDocumentsOptions {
+  sittingId: string;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for getMeetingPlenarySessionDocumentItems */
+export interface GetMeetingPlenarySessionDocumentItemsOptions {
+  sittingId: string;
+  limit?: number | undefined;
+  offset?: number | undefined;
+}
+
+/** Options for networkAnalysis */
+export interface NetworkAnalysisOptions {
+  mepId?: number | undefined;
+  analysisType?: 'committee' | 'voting' | 'combined' | undefined;
+  depth?: number | undefined;
+}
+
+/** Options for sentimentTracker */
+export interface SentimentTrackerOptions {
+  groupId?: string | undefined;
+  timeframe?: 'last_month' | 'last_quarter' | 'last_year' | undefined;
+}
+
+/** Options for earlyWarningSystem */
+export interface EarlyWarningSystemOptions {
+  sensitivity?: 'low' | 'medium' | 'high' | undefined;
+  focusArea?: 'coalitions' | 'attendance' | 'all' | undefined;
+}
+
+/** Options for comparativeIntelligence */
+export interface ComparativeIntelligenceOptions {
+  mepIds: number[];
+  dimensions?: ('voting' | 'committee' | 'legislative' | 'attendance')[] | undefined;
+}
+
+/** Options for correlateIntelligence */
+export interface CorrelateIntelligenceOptions {
+  /** MEP identifiers to cross-correlate (1-5 MEPs, required) */
+  mepIds: string[];
+  /** Political groups for coalition fracture analysis (max 8, omit for all) */
+  groups?: string[] | undefined;
+  /** Alert sensitivity: HIGH, MEDIUM, or LOW */
+  sensitivityLevel?: 'HIGH' | 'MEDIUM' | 'LOW' | undefined;
+  /** Run network centrality analysis (increases response time) */
+  includeNetworkAnalysis?: boolean | undefined;
+}
+
+/** Allowed category values for getAllGeneratedStats */
+export type GeneratedStatsCategory =
+  | 'all'
+  | 'plenary_sessions'
+  | 'legislative_acts'
+  | 'roll_call_votes'
+  | 'committee_meetings'
+  | 'parliamentary_questions'
+  | 'resolutions'
+  | 'speeches'
+  | 'adopted_texts'
+  | 'political_groups'
+  | 'procedures'
+  | 'events'
+  | 'documents'
+  | 'mep_turnover'
+  | 'declarations';
+
+/** Options for getAllGeneratedStats */
+export interface GetAllGeneratedStatsOptions {
+  yearFrom?: number | undefined;
+  yearTo?: number | undefined;
+  category?: GeneratedStatsCategory | undefined;
+  includePredictions?: boolean | undefined;
+  includeMonthlyBreakdown?: boolean | undefined;
+  includeRankings?: boolean | undefined;
+}
+
+/** Options for getProcedureEventById */
+export interface GetProcedureEventByIdOptions {
+  /** Procedure process ID (required) */
+  processId: string;
+  /** Event identifier (required) */
+  eventId: string;
+}
+
+/**
+ * A single normalised procedure item returned by `EuropeanParliamentMCPClient.getFreshProcedures`.
+ * Fields mirror the EP `/procedures` JSON schema; all string fields may be empty when
+ * the EP API has not yet populated them (see upstream indexing-lag issue).
+ */
+export interface FreshProcedureItem {
+  /** Procedure identifier (e.g. `"2026-0042"`) */
+  id: string;
+  /** Human-readable title / reference string (e.g. `"2026/0042(COD)"`) */
+  title: string;
+  /** Procedure reference code */
+  reference: string;
+  /** Procedure type (COD, CNS, NLE, …) */
+  type: string;
+  /** Subject matter / policy area */
+  subjectMatter: string;
+  /** Current legislative stage */
+  stage: string;
+  /** Current status */
+  status: string;
+  /** ISO date the procedure was initiated (`YYYY-MM-DD` or empty) */
+  dateInitiated: string;
+  /** ISO date of the most recent activity (`YYYY-MM-DD` or empty) */
+  dateLastActivity: string;
+  /** Code of the responsible committee */
+  responsibleCommittee: string;
+  /** Rapporteur name */
+  rapporteur: string;
+  /** Associated document references */
+  documents: unknown[];
+}
+
+/**
+ * Options for `EuropeanParliamentMCPClient.getFreshProcedures`.
+ *
+ * Fresh-procedure discovery routes through `get_procedures(limit, offset=0)` and
+ * applies client-side sorting by `dateLastActivity` DESC (falling back to
+ * `dateInitiated`) because the EP `/procedures/feed` timeframe filter is
+ * currently returning historical-tail pagination (regression since 2026-04-19,
+ * reported to open-data-helpdesk@europarl.europa.eu).
+ */
+export interface GetFreshProceduresOptions {
+  /**
+   * How many procedures to fetch from the EP API in a single page
+   * (passed as `limit` to `get_procedures`). Default: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Look-back window in days for the `dateLastActivity >= today-N` filter.
+   * Procedures whose most-recent activity date (or initiation date when
+   * `dateLastActivity` is empty) falls before this window are excluded.
+   * Default: 30.
+   */
+  windowDays?: number | undefined;
+  /**
+   * Maximum number of procedures to return after sorting and filtering.
+   * When omitted all procedures that pass the window filter are returned.
+   */
+  topN?: number | undefined;
+  /**
+   * Override path for the procedure-seen-cache JSON file. Intended for test
+   * isolation only — leave unset in production to use the default
+   * `data/procedure-seen-cache.json` path.
+   */
+  seenCacheStorePath?: string | undefined;
+}
