@@ -95,6 +95,11 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
 
     const result = runFallback(ghAwDir, {
       GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      // When safe_outputs really succeeded the bundle path published a PR
+      // and gh-aw populates created_pr_number. Required to keep this test
+      // exercising the original duplicate-PR guard (PR #1902/#1903) rather
+      // than the new silent-push-failure trigger.
+      GH_AW_CREATED_PR_NUMBER: '1902',
     });
 
     expect(result.code).toBe(0);
@@ -107,6 +112,7 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
 
     const result = runFallback(ghAwDir, {
       GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CREATED_PR_NUMBER: '1902',
     });
 
     expect(result.code).toBe(0);
@@ -119,6 +125,7 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
 
     const result = runFallback(ghAwDir, {
       GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CREATED_PR_NUMBER: '1902',
     });
 
     expect(result.code).toBe(0);
@@ -192,6 +199,128 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
     const result = runFallback(ghAwDir, {
       GH_AW_SAFE_OUTPUTS_RESULT: 'success',
       GH_AW_CODE_PUSH_FAILURE_COUNT: 'not-a-number',
+      // Populate created_pr_number so the new silent-push-failure trigger
+      // does not fire — this test exercises only the non-numeric count
+      // parser, not the silent-failure path.
+      GH_AW_CREATED_PR_NUMBER: '1902',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('safe_outputs job reported success; fallback skipped');
+  });
+
+  // Regression: runs #26019545674 (motions 2026-05-18) and #26017383773
+  // (propositions 2026-05-18) — both runs had safe_outputs report job-level
+  // success because creating the fallback review issue succeeded, but the
+  // internal create_pull_request git push failed (GraphQL signed push:
+  // "Resource not accessible by integration"; `git push origin` exited 1).
+  // Unlike run #26015261142, gh-aw did NOT increment code_push_failure_count
+  // (it treats the successful issue-fallback as a non-failure for counting),
+  // so the count remained at 0 and the script took the success short-circuit.
+  // The reliable signal is gh-aw's `created_pr_number` job output (wired here
+  // as GH_AW_CREATED_PR_NUMBER): empty when the bundle push fell back to an
+  // issue, populated when an actual PR was created. When success + count=0 +
+  // empty created_pr_number + a bundle/patch artifact is on disk, the script
+  // must NOT short-circuit and must proceed with the fallback.
+  it('proceeds when safe_outputs reported success with empty created_pr_number and a bundle artifact (silent push failure)', () => {
+    fs.writeFileSync(path.join(ghAwDir, 'aw-news-2026-05-18-motions-run261.bundle'), 'bundle-placeholder\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CODE_PUSH_FAILURE_COUNT: '0',
+      GH_AW_CREATED_PR_NUMBER: '',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).not.toContain('safe_outputs job reported success; fallback skipped');
+    expect(result.stdout).toContain('silent bundle push failure');
+    // Must reach token resolution, proving it did not early-exit on the
+    // success guard. The harness provides no PAT so it stops there.
+    expect(result.stdout).toContain('no fallback token available; fallback skipped');
+  });
+
+  it('proceeds when safe_outputs reported success with empty created_pr_number and a safeoutputs patch (silent push failure)', () => {
+    fs.writeFileSync(path.join(ghAwDir, 'aw-create-pull-request.patch'), 'diff --git a/x b/x\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CODE_PUSH_FAILURE_COUNT: '0',
+      GH_AW_CREATED_PR_NUMBER: '',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).not.toContain('safe_outputs job reported success; fallback skipped');
+    expect(result.stdout).toContain('silent bundle push failure');
+    expect(result.stdout).toContain('no fallback token available; fallback skipped');
+  });
+
+  it('proceeds when safe_outputs reported success with empty created_pr_number and only a recovery patch (silent push failure)', () => {
+    // Bundle/patch artifacts may be cleaned up before the fallback step runs;
+    // the recovery patch captured by gh-aw-capture-agent-patch.sh is the
+    // last-resort signal that the agent did produce work.
+    fs.writeFileSync(path.join(ghAwDir, 'aw-agent-recovery.patch'), 'diff --git a/x b/x\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CODE_PUSH_FAILURE_COUNT: '0',
+      GH_AW_CREATED_PR_NUMBER: '',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).not.toContain('safe_outputs job reported success; fallback skipped');
+    expect(result.stdout).toContain('silent bundle push failure');
+    expect(result.stdout).toContain('no fallback token available; fallback skipped');
+  });
+
+  it('skips fallback when safe_outputs reported success with a populated created_pr_number (real PR created)', () => {
+    // Sanity check: when created_pr_number is non-empty the bundle path did
+    // publish a PR, so the fallback MUST short-circuit even if a bundle/patch
+    // artifact happens to be on disk.
+    fs.writeFileSync(path.join(ghAwDir, 'aw-news-2026-05-18-motions-run261.bundle'), 'bundle-placeholder\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CODE_PUSH_FAILURE_COUNT: '0',
+      GH_AW_CREATED_PR_NUMBER: '1934',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('safe_outputs job reported success; fallback skipped');
+  });
+
+  it('treats whitespace-only created_pr_number as empty (defensive parse)', () => {
+    // GitHub Actions can render numeric outputs with leading/trailing
+    // whitespace when the safe_outputs step uses core.setOutput. The script
+    // must normalize this so a numerically-empty value triggers the
+    // silent-push-failure path rather than skipping by accident.
+    fs.writeFileSync(path.join(ghAwDir, 'aw-create-pull-request.patch'), 'diff --git a/x b/x\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CODE_PUSH_FAILURE_COUNT: '0',
+      GH_AW_CREATED_PR_NUMBER: '   \t\n',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).not.toContain('safe_outputs job reported success; fallback skipped');
+    expect(result.stdout).toContain('silent bundle push failure');
+  });
+
+  it('still short-circuits on success when no safeoutputs/recovery artifact is on disk and created_pr_number is empty', () => {
+    // Defensive: when there's no artifact to recover from, an empty
+    // created_pr_number is most likely a workflow that never produced a PR
+    // intentionally (e.g. detection skipped). Don't trigger the silent-push
+    // path in that case — keep the standard success short-circuit.
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+      GH_AW_CODE_PUSH_FAILURE_COUNT: '0',
+      GH_AW_CREATED_PR_NUMBER: '',
     });
 
     expect(result.code).toBe(0);

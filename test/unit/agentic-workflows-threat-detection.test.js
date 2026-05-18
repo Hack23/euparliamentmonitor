@@ -302,6 +302,18 @@ describe('agentic workflow threat detection policy', () => {
     expect(sharedContent).toContain(
       'GH_AW_CODE_PUSH_FAILURE_COUNT: ${{ needs.safe_outputs.outputs.code_push_failure_count }}',
     );
+    // Shared file must ALSO wire created_pr_number so the fallback can detect
+    // the silent-push-failure case where safe_outputs reports success AND
+    // code_push_failure_count is 0 but the bundle push fell back to a review
+    // issue (gh-aw treats the issue-fallback as a non-failure for counting).
+    // An empty created_pr_number with success + count=0 + a bundle/patch
+    // artifact on disk is the authoritative signal — root cause of regression
+    // runs #26019545674 (motions) and #26017383773 (propositions), both
+    // 2026-05-18, where the bundle push failed silently and the PAT fallback
+    // short-circuited because the count never went above 0.
+    expect(sharedContent).toContain(
+      'GH_AW_CREATED_PR_NUMBER: ${{ needs.safe_outputs.outputs.created_pr_number }}',
+    );
     // Shared file must declare the import-schema inputs.
     expect(sharedContent).toMatch(/^import-schema:/m);
     expect(sharedContent).toContain('slug:');

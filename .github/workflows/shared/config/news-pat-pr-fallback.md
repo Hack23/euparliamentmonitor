@@ -102,6 +102,17 @@ jobs:
           # PAT fallback never ran because this env var was missing.
           GH_AW_CODE_PUSH_FAILURE_COUNT: ${{ needs.safe_outputs.outputs.code_push_failure_count }}
           GH_AW_CODE_PUSH_FAILURE_ERRORS: ${{ needs.safe_outputs.outputs.code_push_failure_errors }}
+          # Additional silent-failure signal: gh-aw populates created_pr_number
+          # only when the bundle path actually published a PR to GitHub. If the
+          # push fell back to a review issue this output is empty even though
+          # the job result is "success" and code_push_failure_count stays at 0
+          # (gh-aw treats the issue-fallback as a non-failure for counting).
+          # Wiring it here lets the recovery script trigger when success +
+          # count=0 + empty created_pr_number + a bundle/patch artifact is on
+          # disk — root cause of regression runs #26019545674 (motions) and
+          # #26017383773 (propositions), both 2026-05-18, where the bundle
+          # push failed silently and the PAT fallback short-circuited.
+          GH_AW_CREATED_PR_NUMBER: ${{ needs.safe_outputs.outputs.created_pr_number }}
           GH_AW_PAT_FALLBACK_WORKFLOW_NAME: "${{ github.aw.import-inputs.workflowName }}"
           GH_AW_PAT_FALLBACK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: bash scripts/gh-aw-pat-pr-fallback.sh

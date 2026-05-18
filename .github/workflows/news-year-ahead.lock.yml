@@ -1822,6 +1822,7 @@ jobs:
         env:
           GH_AW_CODE_PUSH_FAILURE_COUNT: ${{ needs.safe_outputs.outputs.code_push_failure_count }}
           GH_AW_CODE_PUSH_FAILURE_ERRORS: ${{ needs.safe_outputs.outputs.code_push_failure_errors }}
+          GH_AW_CREATED_PR_NUMBER: ${{ needs.safe_outputs.outputs.created_pr_number }}
           GH_AW_PAT_FALLBACK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_PAT_FALLBACK_SLUG: year-ahead
           GH_AW_PAT_FALLBACK_WORKFLOW_NAME: "News: EU Parliament Year Ahead — Unified"
