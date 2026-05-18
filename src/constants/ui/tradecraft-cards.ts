@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
- 
-
 /**
  * @module Constants/UI/TradecraftCards
  * @description Localized tradecraft and analysis-index card labels surfaced on the methodology / analysis-index pages.

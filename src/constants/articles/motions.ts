@@ -80,7 +80,7 @@ export const MOTIONS_TITLES: LanguageMap<(date: string) => LangTitleSubtitle> = 
   }),
 };
 
-/** Breaking news title templates per language */
+/** Motions article localized strings per language */
 export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
   en: {
     lede: 'Recent parliamentary activities reveal key voting patterns, party cohesion trends, and notable political dynamics in the European Parliament.',

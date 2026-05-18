@@ -79,7 +79,7 @@ export const MONTHLY_REVIEW_TITLES: LanguageMap<(month: string) => LangTitleSubt
   }),
 };
 
-/** Quarter ahead title templates per language. `quarter` is a label like "Q2 2026". */
+/** Month-in-review localized strings per language */
 export const MONTH_IN_REVIEW_STRINGS: LanguageMap<{
   readonly overview: string;
   readonly keyVotes: string;

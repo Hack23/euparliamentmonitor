@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
- 
-
 /**
  * @module Constants/UI/ArticleCategoryLabels
  * @description Localized labels and icons for every `ArticleCategory` value.
@@ -255,7 +253,7 @@ export const ARTICLE_TYPE_LABELS: LanguageMap<ArticleCategoryLabels> = {
   },
 };
 
-/** Read time label formatters per language */
+/** Emoji icons per article category */
 export const ARTICLE_TYPE_ICONS: Readonly<Record<ArticleCategory, string>> = {
   [ArticleCategory.WEEK_AHEAD]: '📅',
   [ArticleCategory.MONTH_AHEAD]: '🗓️',

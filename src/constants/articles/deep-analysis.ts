@@ -38,7 +38,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     severityMedium: 'Medium',
     severityHigh: 'High',
     severityCritical: 'Critical',
-     
+
     executiveSummaryHeading: 'Executive Summary',
     confidenceHigh: 'High Confidence',
     confidenceMedium: 'Medium Confidence',
@@ -1002,7 +1002,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationSynthesis: '综合',
     overallConfidenceLabel: '整体置信度',
     pendingNotice: '分析待定 — 本节将由编辑分析工作流完成。',
-     
+
     perspectivesHeading: '利益相关方视角',
     outcomeMatrixHeading: '利益相关方结果矩阵',
     confidenceLabel: '置信度',

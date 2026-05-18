@@ -58,7 +58,7 @@ export const MOTIONS_TITLES = {
         subtitle: '欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测',
     }),
 };
-/** Breaking news title templates per language */
+/** Motions article localized strings per language */
 export const MOTIONS_STRINGS = {
     en: {
         lede: 'Recent parliamentary activities reveal key voting patterns, party cohesion trends, and notable political dynamics in the European Parliament.',

@@ -20,6 +20,7 @@
  */
 
 import { ArticleCategory } from '../../types/common.js';
+import { PRI, type WBIndicatorId } from './indicator-catalog.js';
 import { COMMITTEE_INDICATOR_MAP, type IndicatorMapping } from './committee-map.js';
 import { CATEGORY_INDICATOR_MAP, type CategoryIndicatorEntry } from './category-map.js';
 
@@ -53,7 +54,7 @@ export function getCommitteeIndicators(abbreviation: string): readonly Indicator
  * @returns Array of primary indicator mappings
  */
 export function getCommitteePrimaryIndicators(abbreviation: string): readonly IndicatorMapping[] {
-  return getCommitteeIndicators(abbreviation).filter((i) => i.priority === 'primary');
+  return getCommitteeIndicators(abbreviation).filter((i) => i.priority === PRI);
 }
 
 /**
@@ -81,8 +82,8 @@ export function getCategoryIndicators(category: ArticleCategory): CategoryIndica
 export function getIndicatorIdsForCommittees(
   abbreviations: readonly string[],
   primaryOnly: boolean = false
-): readonly string[] {
-  const ids = new Set<string>();
+): readonly WBIndicatorId[] {
+  const ids = new Set<WBIndicatorId>();
   for (const abbr of abbreviations) {
     const indicators = primaryOnly
       ? getCommitteePrimaryIndicators(abbr)
@@ -101,9 +102,9 @@ export function getIndicatorIdsForCommittees(
  * @param category - Article category
  * @returns Deduplicated array of World Bank indicator IDs
  */
-export function getAllCategoryIndicatorIds(category: ArticleCategory): readonly string[] {
+export function getAllCategoryIndicatorIds(category: ArticleCategory): readonly WBIndicatorId[] {
   const entry = getCategoryIndicators(category);
-  const ids = new Set<string>();
+  const ids = new Set<WBIndicatorId>();
   for (const ind of entry.primaryIndicators) {
     ids.add(ind.indicatorId);
   }

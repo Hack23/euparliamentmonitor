@@ -9,7 +9,11 @@
  * for this article type without touching any other article type.
  */
 
-import type { LanguageMap, LangTitleSubtitle, CommitteeAnalysisContentStrings } from '../../types/index.js';
+import type {
+  LanguageMap,
+  LangTitleSubtitle,
+  CommitteeAnalysisContentStrings,
+} from '../../types/index.js';
 import {
   BRK_IMPACT_ECONOMIC,
   BRK_IMPACT_SOCIAL,

@@ -16,7 +16,7 @@ export const SKIP_LINK_TEXTS = {
     ko: '본문으로 건너뛰기',
     zh: '跳至主要内容',
 };
-/** Article category labels per language — covers all ArticleCategory values */
+/** Table-of-contents ARIA label per language */
 export const TOC_ARIA_LABELS = {
     en: 'Table of contents',
     sv: 'Innehållsförteckning',

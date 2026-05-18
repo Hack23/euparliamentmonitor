@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
- 
-
 /**
  * @module Constants/UI/Accessibility
  * @description Localized accessibility chrome — skip-link text, language switcher ARIA labels, TOC labels, and footer trust-badge ARIA labels.
@@ -26,7 +24,7 @@ export const SKIP_LINK_TEXTS: LanguageMap = {
   zh: '跳至主要内容',
 };
 
-/** Article category labels per language — covers all ArticleCategory values */
+/** Table-of-contents ARIA label per language */
 export const TOC_ARIA_LABELS: LanguageMap = {
   en: 'Table of contents',
   sv: 'Innehållsförteckning',

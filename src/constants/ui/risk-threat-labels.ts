@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
- 
-
 /**
  * @module Constants/UI/RiskThreatLabels
  * @description Localized labels for the detailed risk / threat / stakeholder analysis blocks (actor mapping, forces analysis, impact matrix, consequence trees, risk matrix, voting patterns, etc.) shown on deep-analysis pages.

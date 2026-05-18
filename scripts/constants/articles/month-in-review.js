@@ -58,7 +58,7 @@ export const MONTHLY_REVIEW_TITLES = {
         subtitle: '欧洲议会综合分析 — 立法成果、联盟动态和政策趋势',
     }),
 };
-/** Quarter ahead title templates per language. `quarter` is a label like "Q2 2026". */
+/** Month-in-review localized strings per language */
 export const MONTH_IN_REVIEW_STRINGS = {
     en: {
         overview: 'Monthly Overview',

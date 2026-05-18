@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
- 
-
 /**
  * @module Constants/UI/AIContent
  * @description Per-language AI methodology disclosure section (`AISection`) shown on every article page.

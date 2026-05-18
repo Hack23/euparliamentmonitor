@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
- 
-
 /**
  * @module Constants/UI/PWALabels
  * @description Localized labels for the PWA install/update prompts, offline shell, and build-info footer line.

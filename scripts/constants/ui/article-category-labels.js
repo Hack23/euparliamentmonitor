@@ -243,7 +243,7 @@ export const ARTICLE_TYPE_LABELS = {
         [ArticleCategory.DEEP_ANALYSIS]: '深度分析',
     },
 };
-/** Read time label formatters per language */
+/** Emoji icons per article category */
 export const ARTICLE_TYPE_ICONS = {
     [ArticleCategory.WEEK_AHEAD]: '📅',
     [ArticleCategory.MONTH_AHEAD]: '🗓️',

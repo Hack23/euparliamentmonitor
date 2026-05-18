@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
- 
-
 /**
  * @module Constants/UI/RelatedAnalysis
  * @description Localized labels for the analysis-artifact cross-reference UI — section titles and related-analysis card strings.

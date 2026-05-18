@@ -9,7 +9,12 @@
  * for this article type without touching any other article type.
  */
 
-import type { LanguageMap, LangTitleSubtitle, WeekAheadStrings, WeekAheadStakeholderStrings } from '../../types/index.js';
+import type {
+  LanguageMap,
+  LangTitleSubtitle,
+  WeekAheadStrings,
+  WeekAheadStakeholderStrings,
+} from '../../types/index.js';
 export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => LangTitleSubtitle> = {
   en: (start, end) => ({
     title: `Week Ahead: ${start} to ${end}`,
@@ -75,7 +80,7 @@ export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => Lang
   }),
 };
 
-/** Month ahead title templates per language */
+/** Week-ahead localized strings per language */
 export const WEEK_AHEAD_STRINGS: LanguageMap<WeekAheadStrings> = {
   en: {
     lede: 'The European Parliament prepares for an active week ahead with multiple committee meetings and plenary sessions scheduled',

@@ -58,7 +58,7 @@ export const WEEK_AHEAD_TITLES = {
         subtitle: '欧洲议会日历、委员会会议和全体辩论',
     }),
 };
-/** Month ahead title templates per language */
+/** Week-ahead localized strings per language */
 export const WEEK_AHEAD_STRINGS = {
     en: {
         lede: 'The European Parliament prepares for an active week ahead with multiple committee meetings and plenary sessions scheduled',

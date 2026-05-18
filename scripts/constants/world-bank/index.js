@@ -18,6 +18,7 @@
  * assume the embedded list is exhaustive.
  */
 import { ArticleCategory } from '../../types/common.js';
+import { PRI } from './indicator-catalog.js';
 import { COMMITTEE_INDICATOR_MAP } from './committee-map.js';
 import { CATEGORY_INDICATOR_MAP } from './category-map.js';
 // ─── Re-exports ──────────────────────────────────────────────────────────────
@@ -42,7 +43,7 @@ export function getCommitteeIndicators(abbreviation) {
  * @returns Array of primary indicator mappings
  */
 export function getCommitteePrimaryIndicators(abbreviation) {
-    return getCommitteeIndicators(abbreviation).filter((i) => i.priority === 'primary');
+    return getCommitteeIndicators(abbreviation).filter((i) => i.priority === PRI);
 }
 /**
  * Get World Bank indicators relevant to an article category.

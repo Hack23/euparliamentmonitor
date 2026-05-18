@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
- 
-
 /**
  * @module Constants/UI/MethodologyFrameworkLabels
  * @description Localized labels for the analytical framework explanation blocks (transparency, summary, methodology, SWOT framework, risk methodology, threat framework, classification, style guide) shown alongside deep-analysis articles.
