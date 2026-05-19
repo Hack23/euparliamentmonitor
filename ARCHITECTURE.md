@@ -845,7 +845,16 @@ src/                                   → scripts/                          (ts
 │   └── procedure-seen-cache.ts        Dedup cache for legislative procedures across runs
 ├── templates/                         → templates/
 │   ├── icons.ts                       SVG icon library (moon, sun, link, etc.)
-│   └── section-builders.ts            buildSiteHeader, buildSiteFooter (single source of truth, 14-lang), buildPageBanner
+│   ├── section-builders.ts            Thin barrel — re-exports per-section builders from sections/
+│   └── sections/                      Per-section builders (Refactor 8/8):
+│       ├── banner.ts                  buildPageBanner — top-of-page editorial banner
+│       ├── comparison.ts              Before/after comparison table builder
+│       ├── footer.ts                  buildSiteFooter — Hack23 AB footer (single source of truth, 14-lang)
+│       ├── header.ts                  buildSiteHeader — stacked site header + nav
+│       ├── key-figures.ts             Key-figures bar builder
+│       ├── quality-score.ts           Quality scoring + badge rendering
+│       ├── timeline.ts                Timeline section builder
+│       └── toc.ts                     TOC entry builder (TOCEntry, TOC_ARIA_LABELS consumer)
 ├── aggregator/                        → aggregator/  ⭐ Deterministic article renderer
 │   ├── article-generator.ts           Entry point CLI (`npm run generate-article -- --run <dir>` or `--all`)
 │   ├── analysis-aggregator.ts         aggregateAnalysisRun() — manifest discovery, .md filter, Provenance & Audit block
@@ -865,12 +874,26 @@ src/                                   → scripts/                          (ts
 │   ├── slug/                          Article URL slug generation (slug.ts)
 │   └── infra/                         GitHub URL helpers (github-urls.ts)
 ├── generators/                        → generators/
-│   ├── news-indexes.ts                Per-language news index pages (news/index-<lang>.html)
+│   ├── news-indexes.ts                Top-level orchestrator + barrel (was 959-LOC; split Refactor 8/8)
+│   ├── news-indexes/                  Sub-modules: per-language.ts (HTML composer), backfill.ts (SEO/hreflang/JSON-LD healing)
 │   ├── sitemap.ts                     Orchestrator: writes sitemap.xml, rss.xml, 14 sitemap_<lang>.html, 14 political-intelligence pages
 │   ├── sitemap/                       Sitemap sub-modules: xml.ts, html.ts, rss.ts, xml-utils.ts, copy.ts
 │   ├── political-intelligence.ts      Political Intelligence Hub generator entry point
-│   ├── political-intelligence/        Sub-modules: html.ts, data.ts, copy.ts, icons.ts, markdown.ts, types.ts
-│   ├── political-intelligence-descriptions.ts  Per-language methodology descriptions
+│   ├── political-intelligence/        Sub-modules: html.ts, data.ts, icons.ts, markdown.ts, types.ts
+│   │   ├── copy.ts                    Thin barrel re-exporting from copy/ (was 617-LOC; split Refactor 8/8)
+│   │   ├── copy/                      Per-language-group landing-page copy: types.ts, eu-core.ts, nordic.ts, other.ts, index.ts
+│   │   └── descriptions/              Per-category curated descriptions + titles (Refactor 8/8 — was a single 3324-LOC file):
+│   │       ├── desc-{methodologies,templates,references}.ts  Per-file English description + 14-language overlays
+│   │       ├── titles-{methodologies,references,templates-a,templates-b}.ts  Per-file English title + 14-language overlays
+│   │       ├── run-types-{titles,descriptions}.ts            Localized titles + descriptions for canonical run-type slugs
+│   │       ├── curated-{descriptions,titles}.ts              Aggregators producing CURATED_DESCRIPTIONS / CURATED_TITLES
+│   │       ├── fallback.ts            Per-language kind words + buildGenericFallback / stripEmojiAndPunct
+│   │       ├── lookup.ts              Public resolver API: getCuratedDescription / getCuratedTitle (+ has* predicates)
+│   │       ├── run-types.ts           parseRunSlug, getRunTypeInfo, canonicalizeArtifactStem
+│   │       ├── artifact-info.ts       FEED_PREFIX_LABELS + ORPHAN_ARTIFACT_INFO + getArtifactInfo resolver
+│   │       ├── types.ts               Shared TextI18n / CuratedDescription types
+│   │       └── index.ts               Barrel re-exporting the full public API
+│   ├── political-intelligence-descriptions.ts  Thin 25-line barrel re-exporting from political-intelligence/descriptions/
 │   └── seo-copy.ts                    SEO meta tag copy tables (14 languages)
 ├── types/                             → types/
 │   ├── analysis.ts, generation.ts, imf.ts, intelligence.ts,
