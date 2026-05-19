@@ -1,0 +1,904 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/constants/ui/article-category-labels.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/constants/ui</a> article-category-labels.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>3/3</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>3/3</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a>
+<a name='L202'></a><a href='#L202'>202</a>
+<a name='L203'></a><a href='#L203'>203</a>
+<a name='L204'></a><a href='#L204'>204</a>
+<a name='L205'></a><a href='#L205'>205</a>
+<a name='L206'></a><a href='#L206'>206</a>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a>
+<a name='L210'></a><a href='#L210'>210</a>
+<a name='L211'></a><a href='#L211'>211</a>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a>
+<a name='L237'></a><a href='#L237'>237</a>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a>
+<a name='L272'></a><a href='#L272'>272</a>
+<a name='L273'></a><a href='#L273'>273</a>
+<a name='L274'></a><a href='#L274'>274</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+&nbsp;
+/**
+ * @module Constants/UI/ArticleCategoryLabels
+ * @description Localized labels and icons for every `ArticleCategory` value.
+ */
+&nbsp;
+import type { ArticleCategoryLabels, LanguageMap } from '../../types/index.js';
+import { ArticleCategory } from '../../types/index.js';
+&nbsp;
+/** Hebrew "Deep analysis" — shared across ARTICLE_TYPE_LABELS, RELATED_ANALYSIS_LABELS, and DEEP_ANALYSIS_LABELS */
+export const HE_DEEP_ANALYSIS = 'ניתוח מעמיק';
+&nbsp;
+export const ARTICLE_TYPE_LABELS: LanguageMap&lt;ArticleCategoryLabels&gt; = {
+  en: {
+    [ArticleCategory.WEEK_AHEAD]: 'Week Ahead',
+    [ArticleCategory.MONTH_AHEAD]: 'Month Ahead',
+    [ArticleCategory.QUARTER_AHEAD]: 'Quarter Ahead',
+    [ArticleCategory.YEAR_AHEAD]: 'Year Ahead',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'Week in Review',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'Month in Review',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'Quarter in Review',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'Year in Review',
+    [ArticleCategory.BREAKING_NEWS]: 'Breaking News',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'Committee Activity',
+    [ArticleCategory.MOTIONS]: 'Plenary Votes &amp; Resolutions',
+    [ArticleCategory.PROPOSITIONS]: 'Legislative Procedures',
+    [ArticleCategory.TERM_OUTLOOK]: 'Term Outlook',
+    [ArticleCategory.ELECTION_CYCLE]: 'Election Cycle',
+    [ArticleCategory.DEEP_ANALYSIS]: 'Deep Analysis',
+  },
+  sv: {
+    [ArticleCategory.WEEK_AHEAD]: 'Vecka Framåt',
+    [ArticleCategory.MONTH_AHEAD]: 'Månad Framåt',
+    [ArticleCategory.QUARTER_AHEAD]: 'Kvartal Framåt',
+    [ArticleCategory.YEAR_AHEAD]: 'År Framåt',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'Veckans Sammanfattning',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'Månadens Sammanfattning',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'Kvartalets Sammanfattning',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'Årets Sammanfattning',
+    [ArticleCategory.BREAKING_NEWS]: 'Senaste Nytt',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'Utskottsverksamhet',
+    [ArticleCategory.MOTIONS]: 'Omröstningar &amp; Resolutioner',
+    [ArticleCategory.PROPOSITIONS]: 'Lagstiftningsförfaranden',
+    [ArticleCategory.TERM_OUTLOOK]: 'Mandatperiodens Utsikt',
+    [ArticleCategory.ELECTION_CYCLE]: 'Valcykel',
+    [ArticleCategory.DEEP_ANALYSIS]: 'Djupanalys',
+  },
+  da: {
+    [ArticleCategory.WEEK_AHEAD]: 'Ugen Fremover',
+    [ArticleCategory.MONTH_AHEAD]: 'Måneden Fremover',
+    [ArticleCategory.QUARTER_AHEAD]: 'Kvartalet Fremover',
+    [ArticleCategory.YEAR_AHEAD]: 'Året Fremover',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'Ugens Overblik',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'Månedens Overblik',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'Kvartalets Overblik',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'Årets Overblik',
+    [ArticleCategory.BREAKING_NEWS]: 'Seneste Nyt',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'Udvalgsaktivitet',
+    [ArticleCategory.MOTIONS]: 'Plenar-afstemninger &amp; Beslutninger',
+    [ArticleCategory.PROPOSITIONS]: 'Lovgivningsprocedurer',
+    [ArticleCategory.TERM_OUTLOOK]: 'Valgperiodens Udsigt',
+    [ArticleCategory.ELECTION_CYCLE]: 'Valgcyklus',
+    [ArticleCategory.DEEP_ANALYSIS]: 'Dybdeanalyse',
+  },
+  no: {
+    [ArticleCategory.WEEK_AHEAD]: 'Uken Fremover',
+    [ArticleCategory.MONTH_AHEAD]: 'Måneden Fremover',
+    [ArticleCategory.QUARTER_AHEAD]: 'Kvartalet Fremover',
+    [ArticleCategory.YEAR_AHEAD]: 'Året Fremover',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'Ukens Oppsummering',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'Månedens Oppsummering',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'Kvartalets Oppsummering',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'Årets Oppsummering',
+    [ArticleCategory.BREAKING_NEWS]: 'Siste Nytt',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'Komitéaktivitet',
+    [ArticleCategory.MOTIONS]: 'Plenaravstemninger &amp; Vedtak',
+    [ArticleCategory.PROPOSITIONS]: 'Lovgivningsprosedyrer',
+    [ArticleCategory.TERM_OUTLOOK]: 'Valgperiodens Utsikt',
+    [ArticleCategory.ELECTION_CYCLE]: 'Valgsyklus',
+    [ArticleCategory.DEEP_ANALYSIS]: 'Dybdeanalyse',
+  },
+  fi: {
+    [ArticleCategory.WEEK_AHEAD]: 'Tuleva Viikko',
+    [ArticleCategory.MONTH_AHEAD]: 'Tuleva Kuukausi',
+    [ArticleCategory.QUARTER_AHEAD]: 'Tuleva Vuosineljännes',
+    [ArticleCategory.YEAR_AHEAD]: 'Tuleva Vuosi',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'Viikon Katsaus',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'Kuukauden Katsaus',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'Vuosineljänneksen Katsaus',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'Vuoden Katsaus',
+    [ArticleCategory.BREAKING_NEWS]: 'Uusimmat Uutiset',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'Valiokuntatoiminta',
+    [ArticleCategory.MOTIONS]: 'Täysistuntoäänestykset &amp; Päätöslauselmat',
+    [ArticleCategory.PROPOSITIONS]: 'Lainsäädäntömenettelyt',
+    [ArticleCategory.TERM_OUTLOOK]: 'Vaalikauden Näkymät',
+    [ArticleCategory.ELECTION_CYCLE]: 'Vaalisykli',
+    [ArticleCategory.DEEP_ANALYSIS]: 'Syväanalyysi',
+  },
+  de: {
+    [ArticleCategory.WEEK_AHEAD]: 'Woche Voraus',
+    [ArticleCategory.MONTH_AHEAD]: 'Monat Voraus',
+    [ArticleCategory.QUARTER_AHEAD]: 'Quartal Voraus',
+    [ArticleCategory.YEAR_AHEAD]: 'Jahr Voraus',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'Wochenrückblick',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'Monatsrückblick',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'Quartalsrückblick',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'Jahresrückblick',
+    [ArticleCategory.BREAKING_NEWS]: 'Eilmeldung',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'Ausschusstätigkeit',
+    [ArticleCategory.MOTIONS]: 'Plenar-Abstimmungen &amp; Entschließungen',
+    [ArticleCategory.PROPOSITIONS]: 'Gesetzgebungsverfahren',
+    [ArticleCategory.TERM_OUTLOOK]: 'Wahlperioden-Ausblick',
+    [ArticleCategory.ELECTION_CYCLE]: 'Wahlzyklus',
+    [ArticleCategory.DEEP_ANALYSIS]: 'Tiefenanalyse',
+  },
+  fr: {
+    [ArticleCategory.WEEK_AHEAD]: 'Semaine à Venir',
+    [ArticleCategory.MONTH_AHEAD]: 'Mois à Venir',
+    [ArticleCategory.QUARTER_AHEAD]: 'Trimestre à Venir',
+    [ArticleCategory.YEAR_AHEAD]: 'Année à Venir',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'Bilan de la Semaine',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'Bilan du Mois',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'Bilan du Trimestre',
+    [ArticleCategory.YEAR_IN_REVIEW]: "Bilan de l'Année",
+    [ArticleCategory.BREAKING_NEWS]: 'Dernières Nouvelles',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'Travaux des Commissions',
+    [ArticleCategory.MOTIONS]: 'Votes &amp; Résolutions en Plénière',
+    [ArticleCategory.PROPOSITIONS]: 'Procédures Législatives',
+    [ArticleCategory.TERM_OUTLOOK]: 'Perspective de Législature',
+    [ArticleCategory.ELECTION_CYCLE]: 'Cycle Électoral',
+    [ArticleCategory.DEEP_ANALYSIS]: 'Analyse Approfondie',
+  },
+  es: {
+    [ArticleCategory.WEEK_AHEAD]: 'Semana Próxima',
+    [ArticleCategory.MONTH_AHEAD]: 'Mes Próximo',
+    [ArticleCategory.QUARTER_AHEAD]: 'Trimestre Próximo',
+    [ArticleCategory.YEAR_AHEAD]: 'Año Próximo',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'Resumen de la Semana',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'Resumen del Mes',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'Resumen del Trimestre',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'Resumen del Año',
+    [ArticleCategory.BREAKING_NEWS]: 'Noticias de Última Hora',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'Actividad de Comisiones',
+    [ArticleCategory.MOTIONS]: 'Votaciones y Resoluciones Plenarias',
+    [ArticleCategory.PROPOSITIONS]: 'Procedimientos Legislativos',
+    [ArticleCategory.TERM_OUTLOOK]: 'Perspectiva de Legislatura',
+    [ArticleCategory.ELECTION_CYCLE]: 'Ciclo Electoral',
+    [ArticleCategory.DEEP_ANALYSIS]: 'Análisis Profundo',
+  },
+  nl: {
+    [ArticleCategory.WEEK_AHEAD]: 'Week Vooruit',
+    [ArticleCategory.MONTH_AHEAD]: 'Maand Vooruit',
+    [ArticleCategory.QUARTER_AHEAD]: 'Kwartaal Vooruit',
+    [ArticleCategory.YEAR_AHEAD]: 'Jaar Vooruit',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'Weekoverzicht',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'Maandoverzicht',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'Kwartaaloverzicht',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'Jaaroverzicht',
+    [ArticleCategory.BREAKING_NEWS]: 'Laatste Nieuws',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'Commissieactiviteiten',
+    [ArticleCategory.MOTIONS]: 'Plenaire Stemmingen &amp; Resoluties',
+    [ArticleCategory.PROPOSITIONS]: 'Wetgevingsprocedures',
+    [ArticleCategory.TERM_OUTLOOK]: 'Zittingsperiode Vooruitzicht',
+    [ArticleCategory.ELECTION_CYCLE]: 'Verkiezingscyclus',
+    [ArticleCategory.DEEP_ANALYSIS]: 'Diepgaande Analyse',
+  },
+  ar: {
+    [ArticleCategory.WEEK_AHEAD]: 'الأسبوع القادم',
+    [ArticleCategory.MONTH_AHEAD]: 'الشهر القادم',
+    [ArticleCategory.QUARTER_AHEAD]: 'الربع القادم',
+    [ArticleCategory.YEAR_AHEAD]: 'العام القادم',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'مراجعة الأسبوع',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'مراجعة الشهر',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'مراجعة الربع',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'مراجعة العام',
+    [ArticleCategory.BREAKING_NEWS]: 'أخبار عاجلة',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'نشاط اللجان',
+    [ArticleCategory.MOTIONS]: 'التصويتات والقرارات العامة',
+    [ArticleCategory.PROPOSITIONS]: 'الإجراءات التشريعية',
+    [ArticleCategory.TERM_OUTLOOK]: 'آفاق الدورة البرلمانية',
+    [ArticleCategory.ELECTION_CYCLE]: 'الدورة الانتخابية',
+    [ArticleCategory.DEEP_ANALYSIS]: 'تحليل معمّق',
+  },
+  he: {
+    [ArticleCategory.WEEK_AHEAD]: 'השבוע הקרוב',
+    [ArticleCategory.MONTH_AHEAD]: 'החודש הקרוב',
+    [ArticleCategory.QUARTER_AHEAD]: 'הרבעון הקרוב',
+    [ArticleCategory.YEAR_AHEAD]: 'השנה הקרובה',
+    [ArticleCategory.WEEK_IN_REVIEW]: 'סיכום השבוע',
+    [ArticleCategory.MONTH_IN_REVIEW]: 'סיכום החודש',
+    [ArticleCategory.QUARTER_IN_REVIEW]: 'סיכום הרבעון',
+    [ArticleCategory.YEAR_IN_REVIEW]: 'סיכום השנה',
+    [ArticleCategory.BREAKING_NEWS]: 'חדשות דחופות',
+    [ArticleCategory.COMMITTEE_REPORTS]: 'פעילות ועדות',
+    [ArticleCategory.MOTIONS]: 'הצבעות והחלטות מליאה',
+    [ArticleCategory.PROPOSITIONS]: 'הליכי חקיקה',
+    [ArticleCategory.TERM_OUTLOOK]: 'תחזית כהונה',
+    [ArticleCategory.ELECTION_CYCLE]: 'מחזור בחירות',
+    [ArticleCategory.DEEP_ANALYSIS]: HE_DEEP_ANALYSIS,
+  },
+  ja: {
+    [ArticleCategory.WEEK_AHEAD]: '今週の予定',
+    [ArticleCategory.MONTH_AHEAD]: '今月の予定',
+    [ArticleCategory.QUARTER_AHEAD]: '四半期展望',
+    [ArticleCategory.YEAR_AHEAD]: '年間展望',
+    [ArticleCategory.WEEK_IN_REVIEW]: '週間レビュー',
+    [ArticleCategory.MONTH_IN_REVIEW]: '月間レビュー',
+    [ArticleCategory.QUARTER_IN_REVIEW]: '四半期レビュー',
+    [ArticleCategory.YEAR_IN_REVIEW]: '年間レビュー',
+    [ArticleCategory.BREAKING_NEWS]: '速報',
+    [ArticleCategory.COMMITTEE_REPORTS]: '委員会活動',
+    [ArticleCategory.MOTIONS]: '本会議投票・決議',
+    [ArticleCategory.PROPOSITIONS]: '立法手続',
+    [ArticleCategory.TERM_OUTLOOK]: '会期展望',
+    [ArticleCategory.ELECTION_CYCLE]: '選挙サイクル',
+    [ArticleCategory.DEEP_ANALYSIS]: '深層分析',
+  },
+  ko: {
+    [ArticleCategory.WEEK_AHEAD]: '다음 주 일정',
+    [ArticleCategory.MONTH_AHEAD]: '다음 달 일정',
+    [ArticleCategory.QUARTER_AHEAD]: '분기 전망',
+    [ArticleCategory.YEAR_AHEAD]: '연간 전망',
+    [ArticleCategory.WEEK_IN_REVIEW]: '주간 리뷰',
+    [ArticleCategory.MONTH_IN_REVIEW]: '월간 리뷰',
+    [ArticleCategory.QUARTER_IN_REVIEW]: '분기 리뷰',
+    [ArticleCategory.YEAR_IN_REVIEW]: '연간 리뷰',
+    [ArticleCategory.BREAKING_NEWS]: '속보',
+    [ArticleCategory.COMMITTEE_REPORTS]: '위원회 활동',
+    [ArticleCategory.MOTIONS]: '본회의 투표 및 결의',
+    [ArticleCategory.PROPOSITIONS]: '입법 절차',
+    [ArticleCategory.TERM_OUTLOOK]: '의회 임기 전망',
+    [ArticleCategory.ELECTION_CYCLE]: '선거 주기',
+    [ArticleCategory.DEEP_ANALYSIS]: '심층 분석',
+  },
+  zh: {
+    [ArticleCategory.WEEK_AHEAD]: '下周预告',
+    [ArticleCategory.MONTH_AHEAD]: '下月预告',
+    [ArticleCategory.QUARTER_AHEAD]: '季度展望',
+    [ArticleCategory.YEAR_AHEAD]: '年度展望',
+    [ArticleCategory.WEEK_IN_REVIEW]: '每周回顾',
+    [ArticleCategory.MONTH_IN_REVIEW]: '每月回顾',
+    [ArticleCategory.QUARTER_IN_REVIEW]: '季度回顾',
+    [ArticleCategory.YEAR_IN_REVIEW]: '年度回顾',
+    [ArticleCategory.BREAKING_NEWS]: '突发新闻',
+    [ArticleCategory.COMMITTEE_REPORTS]: '委员会活动',
+    [ArticleCategory.MOTIONS]: '全体投票与决议',
+    [ArticleCategory.PROPOSITIONS]: '立法程序',
+    [ArticleCategory.TERM_OUTLOOK]: '议会任期展望',
+    [ArticleCategory.ELECTION_CYCLE]: '选举周期',
+    [ArticleCategory.DEEP_ANALYSIS]: '深度分析',
+  },
+};
+&nbsp;
+/** Emoji icons per article category */
+export const ARTICLE_TYPE_ICONS: Readonly&lt;Record&lt;ArticleCategory, string&gt;&gt; = {
+  [ArticleCategory.WEEK_AHEAD]: '📅',
+  [ArticleCategory.MONTH_AHEAD]: '🗓️',
+  [ArticleCategory.QUARTER_AHEAD]: '📊',
+  [ArticleCategory.YEAR_AHEAD]: '🔭',
+  [ArticleCategory.WEEK_IN_REVIEW]: '📋',
+  [ArticleCategory.MONTH_IN_REVIEW]: '📰',
+  [ArticleCategory.QUARTER_IN_REVIEW]: '📈',
+  [ArticleCategory.YEAR_IN_REVIEW]: '🏛️',
+  [ArticleCategory.BREAKING_NEWS]: '⚡',
+  [ArticleCategory.COMMITTEE_REPORTS]: '📑',
+  [ArticleCategory.MOTIONS]: '🗳️',
+  [ArticleCategory.PROPOSITIONS]: '📜',
+  [ArticleCategory.TERM_OUTLOOK]: '🔮',
+  [ArticleCategory.ELECTION_CYCLE]: '🗳️',
+  [ArticleCategory.DEEP_ANALYSIS]: '🔬',
+};
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-05-19T21:26:45.478Z
+            </div>
+        <script src="../../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
+    </body>
+</html>
+    

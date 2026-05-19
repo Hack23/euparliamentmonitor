@@ -192,7 +192,7 @@ jobs:
           npm run test:coverage
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v5.3.1
+        uses: codecov/codecov-action@e79a6962e0d4c0c17b229090214935d2e33f8354 # v5.3.1
         with:
           files: ./coverage/lcov.info
           flags: unittests
@@ -249,12 +249,13 @@ jobs:
           echo "🔍 Validating generated HTML..."
           npm run htmlhint || echo "HTML validation completed"
 
-      - name: Run accessibility tests (WCAG 2.1 AA)
-        run: |
-          echo "♿ Running WCAG 2.1 AA accessibility tests..."
-          npm run test:e2e -- e2e/tests/accessibility.spec.js
-        env:
-          CI: true
+      # NOTE: WCAG 2.1 AA accessibility tests are covered by the full
+      # `e2e.yml` workflow (which runs the entire Playwright suite, including
+      # `accessibility.spec.js`, in parallel). Running it again here just
+      # duplicates ~3-5 minutes of wall-clock per PR for the same coverage.
+      # If you need to gate merges on accessibility specifically, prefer a
+      # required-check on the `e2e.yml` workflow rather than re-running the
+      # suite in this job.
 
       - name: Upload test artifacts
         if: always()
@@ -266,17 +267,6 @@ jobs:
             index-*.html
             sitemap.xml
           if-no-files-found: warn
-
-      - name: Upload accessibility report
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: accessibility-report
-          path: |
-            builds/playwright-report/
-            builds/test-results/
-          if-no-files-found: warn
-          retention-days: 30
 
   performance:
     name: Performance Testing
@@ -491,6 +481,11 @@ jobs:
 
   node-next:
     name: Node.js Nightly Compatibility
+    # Informational-only canary — run on push (main) and scheduled runs, but
+    # skip on PRs to keep the per-PR critical path lean. Failures don't gate
+    # merges (continue-on-error: true) and rerunning on every PR provides no
+    # extra signal.
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     continue-on-error: true
     permissions:
