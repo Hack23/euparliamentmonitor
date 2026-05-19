@@ -390,11 +390,43 @@ export class IMFMCPClient {
         }
         catch (err) {
             const error = err instanceof Error ? err : new Error(String(err));
-            return { kind: 'error', error };
+            return { kind: 'error', error: this._redactSubscriptionKeys(error) };
         }
         finally {
             clearTimeout(timer);
         }
+    }
+    /**
+     * Remove any configured IMF subscription keys from an Error's message and
+     * stack so that downstream `console.warn` / fallback envelopes cannot leak
+     * the secret even if the underlying fetch implementation (or proxy) embeds
+     * request headers in its thrown error.
+     *
+     * @param error - Error returned by `_fetchImpl` or constructed from a non-Error throw.
+     * @returns A new {@link Error} whose `message` (and `stack` when present) have
+     *   each configured subscription key replaced with `[REDACTED]`. Returns the
+     *   original error untouched when no keys are configured.
+     * @internal
+     */
+    _redactSubscriptionKeys(error) {
+        if (this._imfSubscriptionKeys.length === 0)
+            return error;
+        const redact = (s) => {
+            let out = s;
+            for (const key of this._imfSubscriptionKeys) {
+                if (!key)
+                    continue;
+                // Escape regex metacharacters in the key
+                const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                out = out.replace(new RegExp(escaped, 'g'), '[REDACTED]');
+            }
+            return out;
+        };
+        const redacted = new Error(redact(error.message));
+        if (error.stack) {
+            redacted.stack = redact(error.stack);
+        }
+        return redacted;
     }
     /**
      * Fetch a URL via the MCP fetch-proxy gateway (JSON-RPC 2.0 over HTTP).

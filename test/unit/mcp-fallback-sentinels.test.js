@@ -29,6 +29,8 @@ import {
   FEED_UNAVAILABLE_REASON,
   CONTENT_NOT_YET_AVAILABLE_SUBSTRING,
 } from '../../scripts/mcp/ep-mcp-client.js';
+import { IMF_FALLBACK } from '../../scripts/mcp/imf-mcp-client.js';
+import { EMPTY_VOTES_FALLBACK } from '../../scripts/mcp/ep-open-data-client.js';
 
 describe('EP MCP fallback sentinel constants', () => {
   describe('string sentinels', () => {
@@ -99,5 +101,26 @@ describe('EP MCP fallback sentinel constants', () => {
         'document indexed but content not yet available'
       );
     });
+  });
+});
+
+describe('IMF MCP fallback sentinel constants', () => {
+  it('IMF_FALLBACK matches expected MCPToolResult literal', () => {
+    expect(IMF_FALLBACK).toEqual({
+      content: [{ type: 'text', text: '' }],
+    });
+  });
+});
+
+describe('EP Open Data fallback sentinel constants', () => {
+  it('EMPTY_VOTES_FALLBACK matches expected MCPToolResult literal', () => {
+    expect(EMPTY_VOTES_FALLBACK).toEqual({
+      content: [{ type: 'text', text: '{"votes":[]}' }],
+    });
+  });
+
+  it('EMPTY_VOTES_FALLBACK inner text parses to an empty votes array', () => {
+    const text = EMPTY_VOTES_FALLBACK.content?.[0]?.text ?? '';
+    expect(JSON.parse(text)).toEqual({ votes: [] });
   });
 });

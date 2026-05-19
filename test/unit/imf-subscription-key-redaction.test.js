@@ -204,4 +204,28 @@ describe('IMF client key redaction on failure paths', () => {
 
     consoleSpy.mockRestore();
   });
+
+  it('redacts subscription key embedded in a thrown fetch Error message', async () => {
+    const { IMFMCPClient } = await import('../../scripts/mcp/imf-mcp-client.js');
+    // Simulate a fetch impl / proxy that leaks the subscription key in its
+    // thrown Error message (e.g. by echoing request headers).
+    const leakedMessage = `fetch failed: ECONNREFUSED — sent header Ocp-Apim-Subscription-Key: ${SECRET_PRIMARY}`;
+    const mockFetch = vi.fn().mockRejectedValue(new Error(leakedMessage));
+    const client = new IMFMCPClient({ fetchImpl: mockFetch });
+    const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    await client.connect();
+    const result = await client.listDatabases();
+
+    for (const call of consoleSpy.mock.calls) {
+      const msg = call.join(' ');
+      expect(msg).not.toContain(SECRET_PRIMARY);
+      expect(msg).not.toContain(SECRET_SECONDARY);
+    }
+
+    const text = result?.content?.[0]?.text ?? '';
+    expect(text).not.toContain(SECRET_PRIMARY);
+    expect(text).not.toContain(SECRET_SECONDARY);
+
+    consoleSpy.mockRestore();
+  });
 });
