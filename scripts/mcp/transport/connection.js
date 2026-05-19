@@ -239,9 +239,11 @@ export class MCPConnection {
             }
         }
         catch (e) {
-            if (e instanceof Error && e.message.includes('MCP gateway')) {
-                throw e;
+            if (e instanceof SyntaxError) {
+                // Non-JSON body — not a protocol error, safe to ignore
+                return;
             }
+            throw e;
         }
     }
     /**

@@ -1866,8 +1866,14 @@ export async function getEPMCPClient(
   options: MCPClientOptions = {}
 ): Promise<EuropeanParliamentMCPClient> {
   if (!clientInstance) {
-    clientInstance = new EuropeanParliamentMCPClient(options);
-    await clientInstance.connect();
+    const client = new EuropeanParliamentMCPClient(options);
+    try {
+      await client.connect();
+      clientInstance = client;
+    } catch (error) {
+      clientInstance = null;
+      throw error;
+    }
   }
   return clientInstance;
 }

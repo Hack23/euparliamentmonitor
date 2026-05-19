@@ -1389,8 +1389,15 @@ let clientInstance = null;
  */
 export async function getEPMCPClient(options = {}) {
     if (!clientInstance) {
-        clientInstance = new EuropeanParliamentMCPClient(options);
-        await clientInstance.connect();
+        const client = new EuropeanParliamentMCPClient(options);
+        try {
+            await client.connect();
+            clientInstance = client;
+        }
+        catch (error) {
+            clientInstance = null;
+            throw error;
+        }
     }
     return clientInstance;
 }
