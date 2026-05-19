@@ -7,7 +7,7 @@
  * icon), the page-title separator that respects bidi direction, and the
  * Schema.org-compatible truncated headline used in JSON-LD.
  */
-import { ARTICLE_TYPE_LABELS, ARTICLE_TYPE_ICONS, getLocalizedString, getTextDirection } from '../../constants/languages.js';
+import { ARTICLE_TYPE_LABELS, ARTICLE_TYPE_ICONS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
 import { ArticleCategory } from '../../types/index.js';
 /**
  * Resolve a localized article type label *without* the leading icon
