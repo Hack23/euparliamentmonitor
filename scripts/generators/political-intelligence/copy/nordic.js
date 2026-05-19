@@ -1,5 +1,8 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
+/** Shared "artefakter" count labels reused across the closely-related Scandinavian copies (sv/da/no). */
+const ARTEFAKTER_COUNT = '{count} artefakter';
+const ARTEFAKT_SINGULAR = '1 artefakt';
 export const SV_COPY = {
     title: 'Politisk underrättelse',
     intro: 'Varje politisk analys som publiceras på denna webbplats stöds av en transparent kedja av metodologier, artefaktmallar och analysdata på körningsnivå. Denna sida ger dig ett enda, fullt länkat index till all tradecraft som används för att producera nyheterna. Alla källor öppnas i GitHub så att du kan granska analysen bakom texten.',
@@ -21,8 +24,8 @@ export const SV_COPY = {
     statRunsLabel: 'Analyskörningar',
     statArtifactsLabel: 'Artefakter',
     viewOnGitHub: 'Visa på GitHub',
-    artifactCountLabel: '{count} artefakter',
-    artifactCountLabelSingular: '1 artefakt',
+    artifactCountLabel: ARTEFAKTER_COUNT,
+    artifactCountLabelSingular: ARTEFAKT_SINGULAR,
     runsCountLabel: '{count} körningar',
     runsCountLabelSingular: '1 körning',
     artifactsToggleLabel: 'Visa alla {count} artefaktfiler',
@@ -51,8 +54,8 @@ export const DA_COPY = {
     statRunsLabel: 'Analysekørsler',
     statArtifactsLabel: 'Artefakter',
     viewOnGitHub: 'Vis på GitHub',
-    artifactCountLabel: '{count} artefakter',
-    artifactCountLabelSingular: '1 artefakt',
+    artifactCountLabel: ARTEFAKTER_COUNT,
+    artifactCountLabelSingular: ARTEFAKT_SINGULAR,
     runsCountLabel: '{count} kørsler',
     runsCountLabelSingular: '1 kørsel',
     artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
@@ -81,8 +84,8 @@ export const NO_COPY = {
     statRunsLabel: 'Analysekjøringer',
     statArtifactsLabel: 'Artefakter',
     viewOnGitHub: 'Vis på GitHub',
-    artifactCountLabel: '{count} artefakter',
-    artifactCountLabelSingular: '1 artefakt',
+    artifactCountLabel: ARTEFAKTER_COUNT,
+    artifactCountLabelSingular: ARTEFAKT_SINGULAR,
     runsCountLabel: '{count} kjøringer',
     runsCountLabelSingular: '1 kjøring',
     artifactsToggleLabel: 'Vis alle {count} artefaktfiler',

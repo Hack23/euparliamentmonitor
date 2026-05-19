@@ -39,7 +39,7 @@ const KNOWN_BASELINE = new Set([
   'aggregator/html/shell.ts::../../generators/sitemap/index.js',
   'aggregator/html/tradecraft-cards.ts::../../generators/political-intelligence-descriptions.js',
   'aggregator/html/analysis-index-cards.ts::../../generators/political-intelligence-descriptions.js',
-  'generators/news-indexes.ts::../aggregator/article-metadata.js',
+  'generators/news-indexes/backfill.ts::../../aggregator/article-metadata.js',
   'generators/political-intelligence/html.ts::../../aggregator/infra/github-urls.js',
 ]);
 
