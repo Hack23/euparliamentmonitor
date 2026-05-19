@@ -30,14 +30,15 @@ const SRC = new URL('../../src/', import.meta.url).pathname;
 
 // Pre-existing cross-context imports (May 2026). Sorted; each entry is
 // `<importer relative to src/>::<specifier>`. Driven by `src/aggregator/
-// article-html.ts` needing filename helpers from the generators and by
+// html/*.ts` needing filename helpers from the generators and by
 // `src/generators/news-indexes.ts` needing the metadata resolver. Both
 // will be cleaned up by the planned article-html/article-metadata
 // splits documented in the SEO-headers follow-up issue.
 const KNOWN_BASELINE = new Set([
-  'aggregator/article-html.ts::../generators/political-intelligence.js',
-  'aggregator/article-html.ts::../generators/sitemap/index.js',
-  'aggregator/article-html.ts::../generators/political-intelligence-descriptions.js',
+  'aggregator/html/shell.ts::../../generators/political-intelligence.js',
+  'aggregator/html/shell.ts::../../generators/sitemap/index.js',
+  'aggregator/html/tradecraft-cards.ts::../../generators/political-intelligence-descriptions.js',
+  'aggregator/html/analysis-index-cards.ts::../../generators/political-intelligence-descriptions.js',
   'generators/news-indexes.ts::../aggregator/article-metadata.js',
   'generators/political-intelligence/html.ts::../../aggregator/infra/github-urls.js',
 ]);

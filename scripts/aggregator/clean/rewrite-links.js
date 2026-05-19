@@ -34,12 +34,13 @@ export function githubRawUrl(relPath) {
  * @returns Absolute URL (or the original target for anchors/absolute links)
  */
 export function resolveLink(target, artifactRelPath, raw) {
+    const lower = target.toLowerCase();
     if (/^[a-z][a-z0-9+.-]*:\/\//i.test(target) ||
         target.startsWith('//') ||
         target.startsWith('#') ||
-        target.startsWith('mailto:') ||
-        target.startsWith('tel:') ||
-        target.startsWith('data:')) {
+        lower.startsWith('mailto:') ||
+        lower.startsWith('tel:') ||
+        lower.startsWith('data:')) {
         return target;
     }
     const artifactDir = artifactRelPath.split('/').slice(0, -1).join('/');
@@ -82,11 +83,22 @@ function posixResolve(baseDir, rel) {
 export function rewriteLinks(md, artifactRelPath) {
     const lines = md.split('\n');
     let inFence = false;
+    let fenceMarker = '';
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i] ?? '';
-        if (/^\s*(```+|~~~+)/.test(line)) {
-            inFence = !inFence;
-            continue;
+        const fenceMatch = /^\s*(`{3,}|~{3,})/.exec(line);
+        if (fenceMatch?.[1]) {
+            const marker = fenceMatch[1];
+            if (!inFence) {
+                inFence = true;
+                fenceMarker = marker;
+                continue;
+            }
+            if (marker.charAt(0) === fenceMarker.charAt(0) && marker.length >= fenceMarker.length) {
+                inFence = false;
+                fenceMarker = '';
+                continue;
+            }
         }
         if (inFence)
             continue;
