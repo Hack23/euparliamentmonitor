@@ -808,12 +808,37 @@ src/                                   → scripts/                          (ts
 │   ├── language-articles.ts           Per-language article-type labels
 │   ├── language-ui.ts                 Per-language UI strings
 │   └── languages.ts                   Language metadata (name, flag, direction)
-├── mcp/                               → mcp/
-│   ├── ep-mcp-client.ts               EP MCP stdio client (60+ tools); exports EP_MCP_TOOLS; safeCallTool + callToolWithRetry
-│   ├── ep-open-data-client.ts         EP Open Data Portal fallback (getVotingRecordsWithFallback three-state)
+├── mcp/                               → mcp/   ⭐ Layered after Refactor 5/8 (#2033)
+│   ├── transport/                     Shared JSON-RPC transport (stdio + HTTP gateway)
+│   │   ├── errors.ts                  MCPSessionExpiredError, MCPRateLimitError
+│   │   ├── retry-policy.ts            isRetriableError, formatRetryAfter, parseRetryAfterMs, RECONNECT_MAX_DELAY_MS
+│   │   ├── sse-parser.ts              parseSSEResponse — extracts JSON-RPC from SSE data: lines
+│   │   └── connection.ts              MCPConnection class (stdio + gateway transport, request lifecycle)
+│   ├── ep/                            European Parliament MCP client (split from ep-mcp-client.ts)
+│   │   ├── fallbacks.ts               *_FALLBACK sentinel JSON payloads (EFFECTIVENESS, MEPS, DOCUMENTS, …)
+│   │   ├── parse.ts                   _parseResultPayload, _isEmptyStringSentinel, content-not-yet-available
+│   │   ├── error-classifier.ts        classifyToolError, isFeedUnavailable
+│   │   ├── staleness.ts               detectProceduresFeedStaleTail + PROCEDURES_STALENESS_YEAR_THRESHOLD
+│   │   ├── reliability.ts             TOOL_RELIABILITY_TIMEOUT_MS / _RETRIES — consumed by mcp:probe CLI
+│   │   ├── election-calendar.ts       getElectionCalendarContext, ElectionImminentTier (T-180/T-90/T-30)
+│   │   └── client.ts                  EuropeanParliamentMCPClient class — extends MCPConnection
+│   ├── imf/                           IMF REST/SDMX-3.0 client (split from imf-mcp-client.ts)
+│   │   ├── config.ts                  DEFAULT_IMF_API_BASE_URL, IMF_REQUEST_HEADERS, IMF_SUBSCRIPTION_KEY_HEADER
+│   │   ├── types.ts                   SDMX* interfaces (Dataflow, Dimension, Concept, ObservationSeries, …)
+│   │   ├── sdmx.ts                    parseSDMXUrn, resolveCodelistUrn, resolveCodelistCodes, resolveAgency
+│   │   ├── observations.ts            countIMFSDMXObservations
+│   │   ├── utils.ts                   IMF_DATAFLOW_AGENCY agency-map + DEFAULT_IMF_AGENCY
+│   │   └── client.ts                  IMFMCPClient class + IMFClientOptions + IMF_FALLBACK sentinel
+│   ├── ep-open-data/                  EP Open Data Portal REST client (split from ep-open-data-client.ts)
+│   │   ├── types.ts                   VotingDataSource, VotingRecordsFallbackResult, VotingRecordsFallbackOptions
+│   │   ├── config.ts                  Endpoint URL builders + EP_OPEN_DATA_TOOLS
+│   │   ├── utils.ts                   Response-shape guards / schema validation
+│   │   └── client.ts                  EPOpenDataClient class + getVotingRecordsWithFallback (three-state)
+│   ├── ep-mcp-client.ts               BARREL → ./ep/*
+│   ├── ep-open-data-client.ts         BARREL → ./ep-open-data/*
+│   ├── imf-mcp-client.ts              BARREL → ./imf/*
+│   ├── mcp-connection.ts              BARREL → ./transport/*
 │   ├── wb-mcp-client.ts               World Bank MCP client; exports WORLD_BANK_MCP_TOOLS (7 tools)
-│   ├── imf-mcp-client.ts              IMFMCPClient class (native fetch to SDMX 3.0); exports IMF_MCP_TOOLS (5 tools)
-│   ├── mcp-connection.ts              Base JSON-RPC 2.0 transport (stdio + HTTP gateway modes)
 │   ├── mcp-health.ts                  Health probes for MCP backends
 │   ├── mcp-retry.ts                   Exponential backoff retry with jitter
 │   ├── pending-documents.ts           Pending-document tracking for reprobe/escalation
