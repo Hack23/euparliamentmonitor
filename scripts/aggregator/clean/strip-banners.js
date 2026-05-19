@@ -14,7 +14,7 @@
 const BANNER_LINE_PATTERNS = [
     /^\s*<p\s+align="center">/i,
     /^\s*<\/p>\s*$/i,
-    /^\s*<img\s+[^>]*hack23\.com\/icon-/i,
+    /^\s*<img\s+[^>]{0,200}hack23\.com\/icon-/i,
     /^\s*<h1\s+align="center">/i,
     /^\s*<\/h1>\s*$/i,
     /^\s*<a\s+href="#"><img\s+src="https:\/\/img\.shields\.io\//i,
@@ -22,8 +22,6 @@ const BANNER_LINE_PATTERNS = [
     /^\s*\*\*\s*🔄\s*Review Cycle/i,
     /^\s*\*\*\s*🏢\s*Owner/i,
     /^\s*<strong>\s*(?:📋|🔄|🏢)/i,
-    // Standalone center-aligned block closings
-    /^\s*<\/p>\s*$/,
 ];
 /**
  * Line-level matcher for a standalone horizontal rule. Used to drop the

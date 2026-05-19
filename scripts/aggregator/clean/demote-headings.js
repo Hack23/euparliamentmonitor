@@ -18,7 +18,7 @@
  *          fence boundary (and should therefore be passed through verbatim)
  */
 function advanceFenceState(line, inFence, fenceMarker) {
-    const fenceMatch = /^(\s*)(```+|~~~+)(.*)$/.exec(line);
+    const fenceMatch = /^(\s*)(`{3,}|~{3,})[^`~]*$/.exec(line);
     if (!fenceMatch?.[2])
         return { inFence, fenceMarker, matched: false };
     const marker = fenceMatch[2];
