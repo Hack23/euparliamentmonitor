@@ -9,7 +9,12 @@
  * Schema.org-compatible truncated headline used in JSON-LD.
  */
 
-import { ARTICLE_TYPE_LABELS, ARTICLE_TYPE_ICONS, getLocalizedString, getTextDirection } from '../../constants/languages.js';
+import {
+  ARTICLE_TYPE_LABELS,
+  ARTICLE_TYPE_ICONS,
+  getLocalizedString,
+  getTextDirection,
+} from '../../constants/languages.js';
 import type { LanguageCode } from '../../types/index.js';
 import { ArticleCategory } from '../../types/index.js';
 

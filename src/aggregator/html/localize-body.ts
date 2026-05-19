@@ -163,7 +163,11 @@ export function localizeArticleBody(bodyHtml: string, lang: LanguageCode): strin
  * @param replacement - Literal replacement text (no `$` escaping needed)
  * @returns Modified string, or `haystack` unchanged when `needle` is absent
  */
-export function replaceFirstStringIn(haystack: string, needle: string, replacement: string): string {
+export function replaceFirstStringIn(
+  haystack: string,
+  needle: string,
+  replacement: string
+): string {
   const idx = haystack.indexOf(needle);
   if (idx === -1) return haystack;
   return haystack.slice(0, idx) + replacement + haystack.slice(idx + needle.length);

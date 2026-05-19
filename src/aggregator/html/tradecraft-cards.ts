@@ -202,7 +202,11 @@ export function extractTradecraftLinks(html: string, expectedPrefix: string): Ex
  * @param ctaLabel - Pre-resolved localised CTA text (kind-aware)
  * @returns HTML fragment for one `<li class="pi-card">…</li>` element
  */
-export function renderTradecraftCard(link: ExtractedLink, lang: LanguageCode, ctaLabel: string): string {
+export function renderTradecraftCard(
+  link: ExtractedLink,
+  lang: LanguageCode,
+  ctaLabel: string
+): string {
   const stem = link.repoRelPath.split('/').pop()?.replace(/\.md$/i, '') ?? link.repoRelPath;
   const fallbackTitle = humanizeStem(stem);
   const title = getCuratedTitle(link.repoRelPath, lang, fallbackTitle);

@@ -22,7 +22,10 @@ import {
 import { escapeHTML } from '../../utils/file-utils.js';
 import type { LanguageCode } from '../../types/index.js';
 import { READER_GUIDE_SECTION_ID } from '../reader-guide-constants.js';
-import { READER_GUIDE_TITLE_LABELS, getReaderGuideSectionIcon } from '../reader-intelligence-guide.js';
+import {
+  READER_GUIDE_TITLE_LABELS,
+  getReaderGuideSectionIcon,
+} from '../reader-intelligence-guide.js';
 import {
   TRADECRAFT_SECTION_ID,
   MANIFEST_SECTION_ID,

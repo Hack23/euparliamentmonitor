@@ -46,7 +46,11 @@ import {
   getLocalizedArticleType,
   getLocalizedArticleTypePlain,
 } from './headline.js';
-import { getArticleFilename, buildArticleHreflangLinks, buildLanguageSwitcher } from './hreflang.js';
+import {
+  getArticleFilename,
+  buildArticleHreflangLinks,
+  buildLanguageSwitcher,
+} from './hreflang.js';
 import { buildArticleToc, type ArticleTocEntry } from './toc.js';
 
 export type { ArticleTocEntry } from './toc.js';
