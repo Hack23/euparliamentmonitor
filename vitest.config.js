@@ -84,6 +84,15 @@ export default defineConfig({
         'scripts/constants/articles/**',
         // Exclude barrel re-export entry points (no testable logic)
         'scripts/index.js',
+        // Aggregator bounded-context barrels and type-only modules
+        // (pure re-exports / interface definitions — no runtime logic)
+        'scripts/aggregator/clean-artifact.js',
+        'scripts/aggregator/artifacts/index.js',
+        'scripts/aggregator/artifacts/types.js',
+        'scripts/aggregator/content/index.js',
+        'scripts/aggregator/content/types.js',
+        'scripts/aggregator/markdown/index.js',
+        'scripts/aggregator/metadata/types.js',
         // Pure CLI entry-point with no exports — cannot be imported for testing
         'scripts/generators/build-info.js',
       ],

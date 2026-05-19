@@ -12,113 +12,14 @@
 import fs from 'fs';
 import path from 'path';
 import { ARTIFACT_SECTIONS, MANIFEST_SECTION_ID, MANIFEST_SECTION_TITLE, SUPPLEMENTARY_SECTION_ID, SUPPLEMENTARY_SECTION_TITLE, TRADECRAFT_SECTION_ID, TRADECRAFT_SECTION_TITLE, } from './artifact-order.js';
-import { cleanArtifact, githubBlobUrl } from './clean-artifact.js';
-import { treeUrl } from './infra/github-urls.js';
+import { cleanArtifact } from './clean-artifact.js';
 import { buildKeyTakeaways, KEY_TAKEAWAYS_SECTION_ID, KEY_TAKEAWAYS_SECTION_TITLE, } from './key-takeaways.js';
-import { flattenManifestFiles as _flattenManifestFiles, latestGateResult as _latestGateResult, resolveArticleType as _resolveArticleType, resolveRunId as _resolveRunId, } from './manifest/index.js';
-import { READER_GUIDE_SECTION_ID, READER_GUIDE_SECTION_IDS, READER_GUIDE_SECTION_TITLE, } from './reader-guide-constants.js';
+import { resolveRunId } from './manifest/index.js';
+import { READER_GUIDE_SECTION_ID, READER_GUIDE_SECTION_TITLE } from './reader-guide-constants.js';
+import { expandSectionArtifacts, flattenManifestFiles, guessDateFromRunDir, humanizeStem, latestGateResult, renderAnalysisIndex, renderProvenanceBlock, renderReaderIntelligenceGuide, renderTradecraftAppendix, discoverTradecraftFiles, resolveArticleTypeFromManifest, } from './run/index.js';
 export { READER_GUIDE_SECTION_ID, READER_GUIDE_SECTION_IDS, READER_GUIDE_SECTION_TITLE, } from './reader-guide-constants.js';
-const TRADECRAFT_EXCLUDED_FILES = new Set([
-    'analysis/methodologies/executive-brief-translation-guide.md',
-    'analysis/templates/executive-brief-translation-template.md',
-]);
-/**
- * Normalise `manifest.files` into a flat list of `runRelPath` strings.
- *
- * Thin re-export of {@link _flattenManifestFiles} from
- * `aggregator/manifest/index.js`; preserved here so external callers
- * (`backport-article-seo`, curator scripts) keep resolving.
- *
- * @param files - Manifest `files` section (nested or flat)
- * @returns De-duplicated list of run-relative artifact paths
- */
-export function flattenManifestFiles(files) {
-    return _flattenManifestFiles(files);
-}
-/**
- * Pick the latest non-PENDING gateResult from `manifest.history[]`, falling
- * back to `PENDING` if none is recorded.
- *
- * Thin re-export of {@link _latestGateResult} from
- * `aggregator/manifest/index.js`.
- *
- * @param manifest - Parsed manifest object
- * @returns The latest non-PENDING gate result, or `"PENDING"` when none found
- */
-export function latestGateResult(manifest) {
-    return _latestGateResult(manifest);
-}
-/**
- * Expand an `artifacts` entry from {@link ArtifactSection} into a list of
- * concrete artifact paths. Exact paths are kept as-is; directory prefixes
- * ending in `/` expand to every remaining `.md` under that directory
- * (lexical order), excluding files already claimed by higher-priority
- * sections.
- *
- * @param section - Canonical section descriptor from {@link ARTIFACT_SECTIONS}
- * @param available - Set of every known artifact path (run-relative)
- * @param consumed - Mutable set of paths already claimed by earlier sections
- * @returns Ordered list of artifact paths that belong to this section
- */
-export function expandSectionArtifacts(section, available, consumed) {
-    const out = [];
-    for (const entry of section.artifacts) {
-        if (entry.endsWith('/')) {
-            const prefix = entry;
-            const matching = [...available]
-                .filter((p) => p.startsWith(prefix) && !consumed.has(p))
-                .sort();
-            for (const p of matching) {
-                out.push(p);
-                consumed.add(p);
-            }
-        }
-        else if (available.has(entry) && !consumed.has(entry)) {
-            out.push(entry);
-            consumed.add(entry);
-            if (section.id === 'executive-brief')
-                break;
-        }
-    }
-    return out;
-}
-/**
- * Discover tradecraft files (methodologies + templates) under a repo root.
- * Returned paths are repo-relative with POSIX separators and sorted
- * lexically.
- *
- * @param repoRoot - Absolute path of the repo root
- * @returns Sorted list of `analysis/methodologies/*.md` + `analysis/templates/*.md`
- */
-export function discoverTradecraftFiles(repoRoot) {
-    const result = [];
-    for (const sub of ['analysis/methodologies', 'analysis/templates']) {
-        const dir = path.join(repoRoot, sub);
-        if (!fs.existsSync(dir))
-            continue;
-        const entries = fs.readdirSync(dir, { withFileTypes: true });
-        for (const entry of entries) {
-            const rel = `${sub}/${entry.name}`;
-            if (entry.isFile() && entry.name.endsWith('.md') && !TRADECRAFT_EXCLUDED_FILES.has(rel)) {
-                result.push(rel);
-            }
-        }
-    }
-    return result.sort();
-}
-/**
- * Return `true` when a `.md` filename should be excluded from the run
- * artifact set. Keeps the walk closure under the cognitive-complexity limit.
- *
- * Excluded names:
- *  - `article.md` and translated variants (`article.sv.md`, etc.) — these are
- *    outputs of the aggregator, not inputs.
- *  - `README.md` (case-insensitive) — required for the analysis gate but not
- *    relevant to the published article.
- *
- * @param name - Bare filename (no directory prefix)
- * @returns `true` when the file should be skipped
- */
+export * from './run/index.js';
+// Excludes aggregator outputs (article.md + translated article.*.md) and README.md (gate input).
 function isExcludedArtifact(name) {
     if (name.toLowerCase() === 'readme.md')
         return true;
@@ -155,265 +56,15 @@ function collectRunArtifacts(runDir) {
     return result.sort();
 }
 /**
- * Human-friendly title derived from a file stem (kebab/snake → Title Case).
- *
- * @param stem - File stem (e.g. `synthesis-summary.md`)
- * @returns Humanised title (e.g. `Synthesis Summary`)
- */
-function humanize(stem) {
-    return stem
-        .replace(/[-_]+/g, ' ')
-        .replace(/\.md$/i, '')
-        .replace(/\b([a-z])/g, (_, c) => c.toUpperCase())
-        .trim();
-}
-/**
- * Render the provenance block shown at the very top of the aggregated
- * document. Shows run metadata, gate result, and a direct link to the
- * manifest on GitHub so the reader can audit the full artifact set.
- *
- * @param params - Provenance metadata for the aggregated run
- * @param params.articleType - Article type slug (e.g. `breaking`)
- * @param params.date - ISO date of the run (`YYYY-MM-DD`)
- * @param params.runId - Stable identifier for the run
- * @param params.gateResult - Latest non-PENDING gate result
- * @param params.runDirRelPath - Repo-relative path of the run directory
- * @param params.manifestRelPath - Repo-relative path of `manifest.json`
- * @returns Markdown blockquote ready to be concatenated into the aggregate
- */
-export function renderProvenanceBlock(params) {
-    const manifestUrl = githubBlobUrl(params.manifestRelPath);
-    const treeHref = treeUrl(params.runDirRelPath);
-    return [
-        '> **Provenance & Audit**',
-        '>',
-        `> - **Article type:** \`${params.articleType}\``,
-        `> - **Run date:** ${params.date}`,
-        `> - **Run id:** \`${params.runId}\``,
-        `> - **Gate result:** \`${params.gateResult}\``,
-        `> - **Analysis tree:** [${params.runDirRelPath}](${treeHref})`,
-        `> - **Manifest:** [manifest.json](${manifestUrl})`,
-        '',
-    ].join('\n');
-}
-/**
- * Render the tradecraft-references appendix — one bullet per
- * methodology/template file with a GitHub blob link.
- *
- * @param files - Repo-relative paths under `analysis/methodologies/` and
- *                `analysis/templates/`
- * @returns Markdown block with two subsections (methodologies, templates)
- */
-export function renderTradecraftAppendix(files) {
-    const methods = files.filter((f) => f.startsWith('analysis/methodologies/'));
-    const templates = files.filter((f) => f.startsWith('analysis/templates/'));
-    const block = [
-        `<h2 id="${TRADECRAFT_SECTION_ID}">${TRADECRAFT_SECTION_TITLE}</h2>`,
-        '',
-        'This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.',
-        '',
-    ];
-    if (templates.length > 0) {
-        block.push('### Artifact templates');
-        block.push('');
-        for (const rel of templates) {
-            const stem = rel.split('/').pop()?.replace(/\.md$/i, '') ?? rel;
-            block.push(`- [${humanize(stem)}](${githubBlobUrl(rel)})`);
-        }
-        block.push('');
-    }
-    if (methods.length > 0) {
-        block.push('### Methodologies');
-        block.push('');
-        for (const rel of methods) {
-            const stem = rel.split('/').pop()?.replace(/\.md$/i, '') ?? rel;
-            block.push(`- [${humanize(stem)}](${githubBlobUrl(rel)})`);
-        }
-        block.push('');
-    }
-    return block.join('\n');
-}
-/**
- * Public re-export of the internal `humanize` helper so other aggregator
- * modules (in particular `article-html.ts`) can derive the same display
- * title from a file stem when no curated title is available. Keeping the
- * single canonical implementation here avoids duplicate humanisation
- * rules drifting across modules.
- *
- * @param stem - File stem (e.g. `electoral-cycle-methodology`)
- * @returns Humanised title (e.g. `Electoral Cycle Methodology`)
- */
-export function humanizeStem(stem) {
-    return humanize(stem);
-}
-/**
- * Render the analysis-index appendix — a compact table of every included
- * artifact and its section, plus a direct link to the manifest.
- *
- * @param included - Artifacts that contributed to the aggregated document
- * @param manifestRelPath - Repo-relative path of `manifest.json`
- * @returns Markdown block with the index table
- */
-export function renderAnalysisIndex(included, manifestRelPath) {
-    const rows = included.map((a) => {
-        const stem = a.runRelPath.split('/').pop()?.replace(/\.md$/i, '') ?? a.runRelPath;
-        return `| ${a.sectionId} | [${stem}](${githubBlobUrl(a.repoRelPath)}) | \`${a.runRelPath}\` |`;
-    });
-    return [
-        `<h2 id="${MANIFEST_SECTION_ID}">${MANIFEST_SECTION_TITLE}</h2>`,
-        '',
-        `Every artifact below was read by the aggregator and contributed to this article. The raw [manifest.json](${githubBlobUrl(manifestRelPath)}) carries the full machine-readable list, including gate-result history.`,
-        '',
-        '| Section | Artifact | Path |',
-        '|---|---|---|',
-        ...rows,
-        '',
-    ].join('\n');
-}
-/**
- * English-only reader-guide copy for the Markdown guide embedded in the
- * aggregated source document. Section membership is gated by
- * `READER_GUIDE_SECTION_IDS` (imported from `reader-guide-constants.ts`)
- * so both renderers stay in sync automatically.
- */
-const READER_GUIDE_EN = {
-    'section-executive-brief': {
-        need: 'BLUF and editorial decisions',
-        value: 'fast answer to what happened, why it matters, who is accountable, and the next dated trigger',
-    },
-    'section-synthesis': {
-        need: 'Integrated thesis',
-        value: 'the lead political reading that connects facts, actors, risks, and confidence',
-    },
-    'section-significance': {
-        need: 'Significance scoring',
-        value: 'why this story outranks or trails other same-day European Parliament signals',
-    },
-    'section-actors-forces': {
-        need: 'Actors and forces',
-        value: 'who is driving the story, what political forces line up behind them, and which institutional levers they can pull',
-    },
-    'section-coalitions-voting': {
-        need: 'Coalitions and voting',
-        value: 'political group alignment, voting evidence, and coalition pressure points',
-    },
-    'section-stakeholder-map': {
-        need: 'Stakeholder impact',
-        value: 'who gains, who loses, and which institutions or citizens feel the policy effect',
-    },
-    'section-economic-context': {
-        need: 'IMF-backed economic context',
-        value: 'macro, fiscal, trade, or monetary evidence that changes the political interpretation',
-    },
-    'section-scenarios': {
-        need: 'Forward indicators',
-        value: 'dated watch items that let readers verify or falsify the assessment later',
-    },
-    'section-risk': {
-        need: 'Risk assessment',
-        value: 'policy, institutional, coalition, communications, and implementation risk register',
-    },
-    'section-threat': {
-        need: 'Threat landscape',
-        value: 'hostile actors, attack vectors, consequence trees, and legislative-disruption pathways',
-    },
-    'section-forward-projection': {
-        need: 'What to watch',
-        value: 'dated trigger events, calendar dependencies, and legislative-pipeline forecasts',
-    },
-    'section-electoral-arc': {
-        need: 'Electoral arc and mandate',
-        value: 'where the story sits in the EP term, mandate fulfilment, seat projection, and presidency-trio context',
-    },
-    'section-pestle-context': {
-        need: 'PESTLE and structural context',
-        value: 'political, economic, social, technological, legal, and environmental forces plus the historical baseline',
-    },
-    'section-continuity': {
-        need: 'Cross-run continuity',
-        value: 'what changed since prior sessions and how confidence shifted between runs',
-    },
-    'section-deep-analysis': {
-        need: 'Deep analysis',
-        value: 'long-form Economist-style explanation for readers who want the full argument',
-    },
-    'section-documents': {
-        need: 'Document trail',
-        value: 'the document index and per-file analysis behind the public judgement',
-    },
-    'section-extended-intel': {
-        need: 'Extended intelligence',
-        value: "devil's-advocate critique, comparative parallels, historical precedents, and media framing",
-    },
-    'section-mcp-reliability': {
-        need: 'MCP data reliability',
-        value: 'which feeds were healthy, which were degraded, and how data limits bound conclusions',
-    },
-    'section-quality-reflection': {
-        need: 'Analytical quality and reflection',
-        value: 'self-assessment scores, methodology audit, structured analytic techniques, and known limitations',
-    },
-    'section-supplementary-intelligence': {
-        need: 'Supplementary intelligence',
-        value: 'additional markdown discovered in the run that has not yet been assigned to a canonical section',
-    },
-};
-/**
- * Render the generated reader-intelligence guide that appears before the
- * artifact sections. It gives readers a Riksdagsmonitor-style navigation layer
- * without requiring agents to hand-author another artifact.
- *
- * Section membership is checked against `READER_GUIDE_SECTION_IDS` (the
- * canonical list shared with the HTML renderer in `reader-intelligence-guide.ts`)
- * to prevent drift between the two renderers.
- *
- * @param sections - Emitted section TOC entries, in document order
- * @param included - Included artifacts, used to name each section's source
- * @returns Markdown block containing the guide table
- */
-export function renderReaderIntelligenceGuide(sections, included) {
-    const rows = sections
-        .map((section) => {
-        if (!READER_GUIDE_SECTION_IDS.includes(section.id))
-            return '';
-        const copy = Object.getOwnPropertyDescriptor(READER_GUIDE_EN, section.id)?.value;
-        if (!copy)
-            return '';
-        const source = included.find((artifact) => artifact.sectionId === section.id)?.runRelPath;
-        const label = source ? `\`${source}\`` : section.title;
-        return `| [${copy.need}](#${section.id}) | ${copy.value} | ${label} |`;
-    })
-        .filter(Boolean);
-    if (rows.length === 0)
-        return '';
-    return [
-        `<h2 id="${READER_GUIDE_SECTION_ID}">${READER_GUIDE_SECTION_TITLE}</h2>`,
-        '',
-        'Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.',
-        '',
-        "| Reader need | What you'll get | Source artifact |",
-        '|---|---|---|',
-        ...rows,
-        '',
-    ].join('\n');
-}
-/**
- * Read a single artifact, clean it, and return the Markdown lines that
- * should be appended to the aggregated document along with the provenance
- * metadata. Split out so {@link aggregateAnalysisRun} stays under the
- * cognitive-complexity budget.
- *
- * @param runDir - Absolute path to the analysis run directory
- * @param runRel - Run-relative POSIX path of the artifact
- * @param runDirRelPath - Repo-relative POSIX path of the run directory
- * @param seenMermaid - Shared mermaid-body hash set for dedup
- * @param sectionId - Identifier of the owning section (for the index)
- * @param suppressHeader - When `true`, omit the `### {humanize(stem)}` heading
- *        (used when the section has a single artifact whose name already
- *        matches the section title, to avoid a redundant H3 immediately
- *        under the section H2)
- * @returns `{ lines, included }` ready to be appended; `null` when the file
- *          doesn't exist on disk
+ * Read a single artifact, clean it, and return the Markdown lines plus
+ * provenance metadata to append. Returns `null` when the file is missing.
+ * @param runDir - Absolute path to the run directory
+ * @param runRel - Run-relative artifact path
+ * @param runDirRelPath - Repo-relative path to the run directory
+ * @param seenMermaid - Hashes of mermaid blocks already emitted
+ * @param sectionId - Canonical (un-prefixed) section id for provenance
+ * @param suppressHeader - Omit the `### {humanize(stem)}` sub-heading
+ * @returns `{ lines, included }` or `null` when the artifact doesn't exist
  */
 function renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sectionId, suppressHeader) {
     const abs = path.join(runDir, runRel);
@@ -426,7 +77,7 @@ function renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sect
         seenMermaidHashes: seenMermaid,
     });
     const stem = runRel.split('/').pop()?.replace(/\.md$/i, '') ?? runRel;
-    const headerLines = suppressHeader ? [] : ['', `### ${humanize(stem)}`];
+    const headerLines = suppressHeader ? [] : ['', `### ${humanizeStem(stem)}`];
     const lines = [...headerLines, '', cleaned.markdown];
     const included = {
         runRelPath: runRel,
@@ -436,16 +87,11 @@ function renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sect
     return { lines, included };
 }
 /**
- * Decide whether the `### {humanize(stem)}` sub-heading can be suppressed
- * for a single-artifact section. The rule: when a section contains exactly
- * one artifact AND the humanised stem matches the section title
- * (case-insensitive), the sub-heading would restate the section H2 and is
- * dropped. This fixes the visible `<h2>Synthesis Summary</h2><h3>Synthesis
- * Summary</h3>` duplication seen in first-pass aggregates.
- *
- * @param paths - Run-relative artifact paths that belong to the section
- * @param sectionTitle - Display title of the owning section
- * @returns `true` when the single-artifact header should be suppressed
+ * Suppress the `### {humanizeStem(stem)}` sub-heading for single-artifact
+ * sections whose stem matches the section title (avoids duplicate H2/H3).
+ * @param paths - Run-relative artifact paths for the section
+ * @param sectionTitle - Canonical section H2 title
+ * @returns `true` when the sub-heading should be omitted
  */
 function shouldSuppressFragmentHeader(paths, sectionTitle) {
     if (paths.length !== 1)
@@ -454,43 +100,29 @@ function shouldSuppressFragmentHeader(paths, sectionTitle) {
     if (!onlyPath)
         return false;
     const stem = onlyPath.split('/').pop()?.replace(/\.md$/i, '') ?? onlyPath;
-    return humanize(stem).toLowerCase() === sectionTitle.toLowerCase();
+    return humanizeStem(stem).toLowerCase() === sectionTitle.toLowerCase();
 }
-/**
- * Append one canonical section to `sectionMarkdown`, reading every
- * fragment through {@link renderArtifactFragment}. Extracted so
- * {@link aggregateAnalysisRun} stays under the cognitive-complexity budget.
- *
- * @param runDir - Absolute run directory
- * @param runDirRelPath - Repo-relative run directory
- * @param sectionId - Section identifier
- * @param sectionTitle - Section title
- * @param paths - Run-relative paths to include
- * @param seenMermaid - Shared mermaid dedup set
- * @param sectionMarkdown - Mutable output buffer
- * @param included - Mutable list of included-artifact metadata
- * @param emittedSections - Mutable list of `(id, title)` pairs for the
- *        article-level TOC; a section is recorded only when at least one
- *        of its artifacts was actually rendered
- */
-/**
- * Prefix applied to every article-level section id to avoid collisions
- * with artifact-generated heading anchors. A section like `stakeholder-map`
- * becomes `#section-stakeholder-map`, leaving the bare `#stakeholder-map`
- * slug free for an artifact that happens to contain a `### Stakeholder
- * Map` heading (which `markdown-it-anchor` will slug verbatim).
- */
+// Prefix for canonical section ids (e.g. `section-stakeholder-map`) so anchors
+// don't collide with artifact heading slugs produced by `markdown-it-anchor`.
 const SECTION_ID_PREFIX = 'section-';
-/**
- * Namespace a canonical section id so it cannot collide with an artifact
- * heading slug produced downstream by markdown-it-anchor.
- *
- * @param sectionId - Raw section identifier from `ARTIFACT_SECTIONS`
- * @returns Namespaced id like `section-stakeholder-map`
- */
+// Namespace a canonical section id.
 function namespacedSectionId(sectionId) {
     return `${SECTION_ID_PREFIX}${sectionId}`;
 }
+/**
+ * Append one canonical section to `sectionMarkdown`, reading every fragment
+ * through {@link renderArtifactFragment}. Records the section in
+ * `emittedSections` only when ≥1 of its artifacts was rendered.
+ * @param runDir - Absolute path to the run directory
+ * @param runDirRelPath - Repo-relative path to the run directory
+ * @param sectionId - Canonical (un-prefixed) section id
+ * @param sectionTitle - Section H2 title
+ * @param paths - Run-relative artifact paths to include
+ * @param seenMermaid - Hashes of mermaid blocks already emitted
+ * @param sectionMarkdown - Output buffer for section markdown (mutated)
+ * @param included - Provenance accumulator (mutated)
+ * @param emittedSections - TOC accumulator (mutated)
+ */
 function appendSection(runDir, runDirRelPath, sectionId, sectionTitle, paths, seenMermaid, sectionMarkdown, included, emittedSections) {
     if (paths.length === 0)
         return;
@@ -510,19 +142,6 @@ function appendSection(runDir, runDirRelPath, sectionId, sectionTitle, paths, se
     sectionMarkdown.push(...fragments);
     emittedSections.push({ id: emittedId, title: sectionTitle });
     sectionMarkdown.push('');
-}
-/**
- * Resolve the article-type slug from a manifest, tolerating historic schemas.
- *
- * Thin re-export of {@link _resolveArticleType} from
- * `aggregator/manifest/index.js`. Resolution order: `articleType` →
- * `articleTypeSlug` → `articleTypes[0]` → `runType` → `'unknown'`.
- *
- * @param manifest - Parsed manifest (any of the supported schemas)
- * @returns Article-type slug usable as a filename component
- */
-export function resolveArticleTypeFromManifest(manifest) {
-    return _resolveArticleType(manifest);
 }
 /**
  * Read, clean, and concatenate every artifact declared by the run's manifest
@@ -577,10 +196,10 @@ export function aggregateAnalysisRun(options) {
     const tradecraftFiles = options.tradecraftFiles ?? discoverTradecraftFiles(repoRoot);
     const articleType = resolveArticleTypeFromManifest(manifest);
     const date = manifest.date ?? guessDateFromRunDir(runDirRelPath);
-    const runId = _resolveRunId(manifest, path.basename(runDir));
+    const runId = resolveRunId(manifest, path.basename(runDir));
     const gateResult = latestGateResult(manifest);
     const manifestRelPath = `${runDirRelPath}/manifest.json`;
-    const documentTitle = `${humanize(articleType)} — ${date}`;
+    const documentTitle = `${humanizeStem(articleType)} — ${date}`;
     const provenance = renderProvenanceBlock({
         articleType,
         date,
@@ -639,17 +258,5 @@ export function aggregateAnalysisRun(options) {
         gateResult,
         sectionToc: emittedSections,
     };
-}
-/**
- * Extract a `YYYY-MM-DD` date from a path like
- * `analysis/daily/2026-01-15/run`. Falls back to the epoch date when no
- * ISO date is embedded in the path.
- *
- * @param runDirRelPath - Repo-relative path of the run directory
- * @returns ISO date string in `YYYY-MM-DD` form
- */
-export function guessDateFromRunDir(runDirRelPath) {
-    const match = /(\d{4}-\d{2}-\d{2})/.exec(runDirRelPath);
-    return match ? (match[1] ?? '1970-01-01') : '1970-01-01';
 }
 //# sourceMappingURL=analysis-aggregator.js.map
