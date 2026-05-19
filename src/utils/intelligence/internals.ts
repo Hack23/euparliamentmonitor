@@ -108,11 +108,13 @@ export function addIdToMap(
  * @returns Slugified string (never empty)
  */
 export function slugify(text: string): string {
-  const slug = text
-    .toLowerCase()
-    .replace(/[^\p{L}\p{N}]+/gu, '-')
-    .replace(/^-+/u, '')
-    .replace(/-+$/u, '');
+  const replaced = text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-');
+  // Trim leading/trailing dashes without regex to avoid polynomial backtracking
+  let start = 0;
+  while (start < replaced.length && replaced[start] === '-') start++;
+  let end = replaced.length;
+  while (end > start && replaced[end - 1] === '-') end--;
+  const slug = replaced.slice(start, end);
   if (slug.length > 0) return slug;
   let hash = 5381;
   for (let i = 0; i < text.length; i++) {
