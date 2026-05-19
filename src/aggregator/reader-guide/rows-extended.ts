@@ -285,4 +285,5 @@ export const READER_GUIDE_ROWS_EXTENDED: Readonly<Record<string, GuideRowData>> 
       ko: '실행에서 발견되었지만 아직 표준 섹션에 할당되지 않은 추가 마크다운',
       zh: '运行中发现但尚未分配到规范章节的附加Markdown',
     },
+  },
 };
