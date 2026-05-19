@@ -11,7 +11,7 @@
 import { TOC_ARIA_LABELS, TRADECRAFT_HEADING_LABELS, ANALYSIS_INDEX_HEADING_LABELS, KEY_TAKEAWAYS_HEADING_LABELS, SUPPLEMENTARY_HEADING_LABELS, SECTION_TITLE_LABELS, getLocalizedString, } from '../../constants/languages.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { READER_GUIDE_SECTION_ID } from '../reader-guide-constants.js';
-import { READER_GUIDE_TITLE_LABELS, getReaderGuideSectionIcon } from '../reader-intelligence-guide.js';
+import { READER_GUIDE_TITLE_LABELS, getReaderGuideSectionIcon, } from '../reader-intelligence-guide.js';
 import { TRADECRAFT_SECTION_ID, MANIFEST_SECTION_ID, SUPPLEMENTARY_SECTION_ID, } from '../artifact-order.js';
 import { KEY_TAKEAWAYS_SECTION_ID } from '../key-takeaways.js';
 /**

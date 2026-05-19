@@ -8,7 +8,7 @@
  * nav rendered in the article header.
  */
 import { BASE_URL } from '../../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString } from '../../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, } from '../../constants/languages.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 /**
  * Build the canonical filename for an article in a given language. English

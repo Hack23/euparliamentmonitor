@@ -21,7 +21,7 @@ import { buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFoot
 import { getPoliticalIntelligenceFilename } from '../../generators/political-intelligence.js';
 import { getSitemapFilename } from '../../generators/sitemap/index.js';
 import { truncateHeadline, getTitleSeparator, getLocalizedArticleType, getLocalizedArticleTypePlain, } from './headline.js';
-import { getArticleFilename, buildArticleHreflangLinks, buildLanguageSwitcher } from './hreflang.js';
+import { getArticleFilename, buildArticleHreflangLinks, buildLanguageSwitcher, } from './hreflang.js';
 import { buildArticleToc } from './toc.js';
 /** Publisher organization name used in JSON-LD, meta tags. */
 export const PUBLISHER_NAME = 'Hack23 AB';
