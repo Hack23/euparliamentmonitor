@@ -59,10 +59,12 @@ describe('EP MCP tool surface (drift guard)', () => {
   });
 
   it('EP_MCP_TOOLS equals the set of tools actually wrapped by ep-mcp-client.ts', () => {
-    const clientSource = fs.readFileSync(
-      path.join(REPO_ROOT, 'src', 'mcp', 'ep-mcp-client.ts'),
-      'utf8'
-    );
+    // After the submodule refactor, actual tool calls live in src/mcp/ep/client.ts.
+    // ep-mcp-client.ts is now a barrel re-export, so we read the real implementation.
+    const implPath = fs.existsSync(path.join(REPO_ROOT, 'src', 'mcp', 'ep', 'client.ts'))
+      ? path.join(REPO_ROOT, 'src', 'mcp', 'ep', 'client.ts')
+      : path.join(REPO_ROOT, 'src', 'mcp', 'ep-mcp-client.ts');
+    const clientSource = fs.readFileSync(implPath, 'utf8');
     const wrapped = extractWrappedToolNames(clientSource);
 
     const exported = new Set(EP_MCP_TOOLS);

@@ -118,14 +118,15 @@ describe('mcp-connection extended', () => {
       ).toThrow('MCP gateway initialization error');
     });
 
-    it('should not throw for JSON body with non-gateway error message', () => {
-      // Non-MCP-gateway errors are swallowed by the catch block
+    it('should throw for JSON body with any JSON-RPC error message (including non-gateway)', () => {
+      // All JSON-RPC errors must be surfaced — previous behavior of swallowing
+      // non-gateway messages produced false "connected" states.
       expect(() =>
         client._validateGatewayResponseBody(
           'application/json',
           '{"jsonrpc":"2.0","id":1,"error":{"message":"Init failed"}}'
         )
-      ).not.toThrow();
+      ).toThrow('Init failed');
     });
 
     it('should throw for SSE body with error field', () => {
