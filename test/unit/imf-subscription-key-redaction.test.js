@@ -111,9 +111,8 @@ describe('IMF client key redaction on failure paths', () => {
       text: async () => 'Unauthorized',
     });
     const client = new IMFMCPClient({ fetchImpl: mockFetch });
-    await client.connect();
-
     const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    await client.connect();
     const result = await client.listDatabases();
 
     for (const call of consoleSpy.mock.calls) {
@@ -134,9 +133,8 @@ describe('IMF client key redaction on failure paths', () => {
     const { IMFMCPClient } = await import('../../scripts/mcp/imf-mcp-client.js');
     const mockFetch = vi.fn().mockRejectedValue(new Error('fetch failed: ECONNREFUSED'));
     const client = new IMFMCPClient({ fetchImpl: mockFetch });
-    await client.connect();
-
     const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    await client.connect();
     const result = await client.listDatabases();
 
     for (const call of consoleSpy.mock.calls) {
@@ -161,9 +159,8 @@ describe('IMF client key redaction on failure paths', () => {
       text: async () => 'Forbidden',
     });
     const client = new IMFMCPClient({ fetchImpl: mockFetch });
-    await client.connect();
-
     const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    await client.connect();
     const result = await client.listDatabases();
 
     for (const call of consoleSpy.mock.calls) {
@@ -188,9 +185,8 @@ describe('IMF client key redaction on failure paths', () => {
       text: async () => 'Unauthorized',
     });
     const client = new IMFMCPClient({ fetchImpl: mockFetch });
-    await client.connect();
-
     const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    await client.connect();
     const result = await client.fetchData({
       databaseId: 'WEO',
       filters: { COUNTRY: ['US'], INDICATOR: ['NGDP_RPCH'] },
