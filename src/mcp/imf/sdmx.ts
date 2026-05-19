@@ -93,9 +93,9 @@ export function resolveAgency(databaseId: string): string {
   if (direct) return direct;
   const vintageIdx = upper.indexOf('_VINTAGE');
   if (vintageIdx > 0) {
-    const trimmed = upper.slice(0, vintageIdx).split('_').slice(0, -2).join('_');
-    if (trimmed) {
-      const fromBase = Object.entries(IMF_DATAFLOW_AGENCY).find(([k]) => k === trimmed)?.[1];
+    const baseId = upper.slice(0, vintageIdx);
+    if (baseId) {
+      const fromBase = Object.entries(IMF_DATAFLOW_AGENCY).find(([k]) => k === baseId)?.[1];
       if (fromBase) return fromBase;
     }
   }

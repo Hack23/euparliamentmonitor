@@ -43,59 +43,61 @@ describe('EP MCP fallback sentinel constants', () => {
     });
   });
 
-  describe('JSON fallback shapes', () => {
-    const jsonFallbacks = [
-      { name: 'EFFECTIVENESS_FALLBACK', value: EFFECTIVENESS_FALLBACK },
-      { name: 'MEPS_FALLBACK', value: MEPS_FALLBACK },
-      { name: 'DOCUMENTS_FALLBACK', value: DOCUMENTS_FALLBACK },
-      { name: 'EVENTS_FALLBACK', value: EVENTS_FALLBACK },
-      { name: 'ACTIVITIES_FALLBACK', value: ACTIVITIES_FALLBACK },
-      { name: 'ITEMS_FALLBACK', value: ITEMS_FALLBACK },
-      { name: 'INTELLIGENCE_FALLBACK', value: INTELLIGENCE_FALLBACK },
-      { name: 'STATS_FALLBACK', value: STATS_FALLBACK },
-      { name: 'PROCEDURE_EVENT_FALLBACK', value: PROCEDURE_EVENT_FALLBACK },
-      { name: 'SERVER_HEALTH_FALLBACK', value: SERVER_HEALTH_FALLBACK },
-      { name: 'ADOPTED_TEXTS_FALLBACK', value: ADOPTED_TEXTS_FALLBACK },
-    ];
-
-    for (const { name, value } of jsonFallbacks) {
-      it(`${name} is a non-empty string`, () => {
-        expect(typeof value).toBe('string');
-        expect(value.length).toBeGreaterThan(0);
-      });
-
-      it(`${name} parses as valid JSON`, () => {
-        expect(() => JSON.parse(value)).not.toThrow();
-      });
-    }
-
-    it('MEPS_FALLBACK JSON contains meps array', () => {
-      const parsed = JSON.parse(MEPS_FALLBACK);
-      expect(parsed).toHaveProperty('meps');
-      expect(Array.isArray(parsed.meps)).toBe(true);
+  describe('JSON fallback deep-equality snapshots', () => {
+    it('EFFECTIVENESS_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(EFFECTIVENESS_FALLBACK)).toEqual({ effectiveness: null });
     });
 
-    it('DOCUMENTS_FALLBACK JSON contains documents array', () => {
-      const parsed = JSON.parse(DOCUMENTS_FALLBACK);
-      expect(parsed).toHaveProperty('documents');
-      expect(Array.isArray(parsed.documents)).toBe(true);
+    it('MEPS_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(MEPS_FALLBACK)).toEqual({ meps: [] });
     });
 
-    it('EVENTS_FALLBACK JSON contains events array', () => {
-      const parsed = JSON.parse(EVENTS_FALLBACK);
-      expect(parsed).toHaveProperty('events');
-      expect(Array.isArray(parsed.events)).toBe(true);
+    it('DOCUMENTS_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(DOCUMENTS_FALLBACK)).toEqual({ documents: [] });
     });
 
-    it('ADOPTED_TEXTS_FALLBACK JSON contains texts array', () => {
-      const parsed = JSON.parse(ADOPTED_TEXTS_FALLBACK);
-      expect(parsed).toHaveProperty('texts');
-      expect(Array.isArray(parsed.texts)).toBe(true);
+    it('EVENTS_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(EVENTS_FALLBACK)).toEqual({ events: [] });
     });
 
-    it('SERVER_HEALTH_FALLBACK JSON contains server field', () => {
-      const parsed = JSON.parse(SERVER_HEALTH_FALLBACK);
-      expect(parsed).toHaveProperty('server');
+    it('ACTIVITIES_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(ACTIVITIES_FALLBACK)).toEqual({ activities: [] });
+    });
+
+    it('ITEMS_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(ITEMS_FALLBACK)).toEqual({ items: [] });
+    });
+
+    it('INTELLIGENCE_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(INTELLIGENCE_FALLBACK)).toEqual({ analysis: null });
+    });
+
+    it('STATS_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(STATS_FALLBACK)).toEqual({ stats: null });
+    });
+
+    it('PROCEDURE_EVENT_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(PROCEDURE_EVENT_FALLBACK)).toEqual({ event: null });
+    });
+
+    it('SERVER_HEALTH_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(SERVER_HEALTH_FALLBACK)).toEqual({ server: null, feeds: [] });
+    });
+
+    it('ADOPTED_TEXTS_FALLBACK matches expected literal', () => {
+      expect(JSON.parse(ADOPTED_TEXTS_FALLBACK)).toEqual({ texts: [] });
+    });
+  });
+
+  describe('string sentinel exact values', () => {
+    it('FEED_UNAVAILABLE_REASON matches expected value', () => {
+      expect(FEED_UNAVAILABLE_REASON).toBe('feed unavailable');
+    });
+
+    it('CONTENT_NOT_YET_AVAILABLE_SUBSTRING matches expected value', () => {
+      expect(CONTENT_NOT_YET_AVAILABLE_SUBSTRING).toBe(
+        'document indexed but content not yet available'
+      );
     });
   });
 });

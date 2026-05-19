@@ -823,16 +823,16 @@ src/                                   → scripts/                          (ts
 │   │   ├── election-calendar.ts       getElectionCalendarContext, ElectionImminentTier (T-180/T-90/T-30)
 │   │   └── client.ts                  EuropeanParliamentMCPClient class — extends MCPConnection
 │   ├── imf/                           IMF REST/SDMX-3.0 client (split from imf-mcp-client.ts)
-│   │   ├── config.ts                  DEFAULT_IMF_API_BASE_URL, IMF_REQUEST_HEADERS, IMF_SUBSCRIPTION_KEY_HEADER
-│   │   ├── types.ts                   SDMX* interfaces (Dataflow, Dimension, Concept, ObservationSeries, …)
+│   │   ├── config.ts                  DEFAULT_IMF_API_BASE_URL, IMF_REQUEST_HEADERS, IMF_SUBSCRIPTION_KEY_HEADER, IMF_DATAFLOW_AGENCY, DEFAULT_IMF_AGENCY, IMF_FALLBACK, IMF_MCP_TOOLS
+│   │   ├── types.ts                   SDMX* interfaces (Dataflow, Dimension, Concept, ObservationSeries, …) + IMFClientOptions
 │   │   ├── sdmx.ts                    parseSDMXUrn, resolveCodelistUrn, resolveCodelistCodes, resolveAgency
 │   │   ├── observations.ts            countIMFSDMXObservations
-│   │   ├── utils.ts                   IMF_DATAFLOW_AGENCY agency-map + DEFAULT_IMF_AGENCY
-│   │   └── client.ts                  IMFMCPClient class + IMFClientOptions + IMF_FALLBACK sentinel
+│   │   ├── utils.ts                   readBaseAndTimeout, stripTrailingSlashes, readImfSubscriptionKeysFromEnv
+│   │   └── client.ts                  IMFMCPClient class + singleton lifecycle (getIMFMCPClient / closeIMFMCPClient)
 │   ├── ep-open-data/                  EP Open Data Portal REST client (split from ep-open-data-client.ts)
 │   │   ├── types.ts                   VotingDataSource, VotingRecordsFallbackResult, VotingRecordsFallbackOptions
-│   │   ├── config.ts                  Endpoint URL builders + EP_OPEN_DATA_TOOLS
-│   │   ├── utils.ts                   Response-shape guards / schema validation
+│   │   ├── config.ts                  Endpoint URL constants, EP_OPEN_DATA_TOOLS, EMPTY_VOTES_FALLBACK, EP_OPEN_DATA_ATTRIBUTION
+│   │   ├── utils.ts                   unwrapLabel, wrapAsMCPResult, extractIdentifier helpers
 │   │   └── client.ts                  EPOpenDataClient class + getVotingRecordsWithFallback (three-state)
 │   ├── ep-mcp-client.ts               BARREL → ./ep/*
 │   ├── ep-open-data-client.ts         BARREL → ./ep-open-data/*
