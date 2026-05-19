@@ -24,7 +24,7 @@ function advanceFenceState(
   inFence: boolean,
   fenceMarker: string
 ): { inFence: boolean; fenceMarker: string; matched: boolean } {
-  const fenceMatch = /^(\s*)(```+|~~~+)(.*)$/.exec(line);
+  const fenceMatch = /^(\s*)(`{3,}|~{3,})[^`~]*$/.exec(line);
   if (!fenceMatch?.[2]) return { inFence, fenceMarker, matched: false };
   const marker = fenceMatch[2];
   if (!inFence) {

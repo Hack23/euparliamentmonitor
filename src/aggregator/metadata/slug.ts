@@ -10,9 +10,9 @@
  */
 
 /**
- * Humanise an `article-type` slug the same way the aggregator does (see
- * `src/aggregator/analysis-aggregator.ts:humanize`). Kept in sync by value
- * — we deliberately do not import the private helper.
+ * Humanise an `article-type` slug the same way `humanizeStem` does in
+ * `src/aggregator/analysis-aggregator.ts`. Kept in sync by value — we
+ * deliberately do not import the private helper.
  *
  * @param slug - Slug like `week-ahead` or `breaking_news`
  * @returns Title-cased humanised form (`Week Ahead`, `Breaking News`)
