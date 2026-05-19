@@ -166,7 +166,14 @@ export function defaultDimensionOrder(databaseId) {
  * @internal
  */
 export function defaultFrequency(databaseId) {
-    switch (databaseId.toUpperCase()) {
+    // Normalize vintage dataflows (e.g. WEO_VINTAGE_2026_04 → WEO) so they
+    // inherit the same default frequency as their base dataflow.
+    let normalized = databaseId.toUpperCase();
+    const vintageIdx = normalized.indexOf('_VINTAGE');
+    if (vintageIdx > 0) {
+        normalized = normalized.slice(0, vintageIdx);
+    }
+    switch (normalized) {
         case 'WEO':
         case 'FM':
         case 'DOT':

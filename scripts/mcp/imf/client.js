@@ -384,7 +384,7 @@ export class IMFMCPClient {
                 }
                 return { kind: 'ok', text: await response.text() };
             }
-            const error = new Error(`HTTP ${response.status} ${response.statusText} for ${url}`);
+            const error = this._redactSubscriptionKeys(new Error(`HTTP ${response.status} ${response.statusText} for ${url}`));
             const isAuthFailure = response.status === 401 || response.status === 403;
             return { kind: isAuthFailure ? 'auth' : 'error', error };
         }

@@ -205,6 +205,33 @@ describe('IMF client key redaction on failure paths', () => {
     consoleSpy.mockRestore();
   });
 
+  it('does not leak subscription key in HTTP error status text path', async () => {
+    const { IMFMCPClient } = await import('../../scripts/mcp/imf-mcp-client.js');
+    // Simulate a proxy that echoes the subscription key in the status text
+    const mockFetch = vi.fn().mockResolvedValue({
+      ok: false,
+      status: 500,
+      statusText: `Internal Server Error — echoed key: ${SECRET_PRIMARY}`,
+      text: async () => 'error',
+    });
+    const client = new IMFMCPClient({ fetchImpl: mockFetch });
+    const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    await client.connect();
+    const result = await client.listDatabases();
+
+    for (const call of consoleSpy.mock.calls) {
+      const msg = call.join(' ');
+      expect(msg).not.toContain(SECRET_PRIMARY);
+      expect(msg).not.toContain(SECRET_SECONDARY);
+    }
+
+    const text = result?.content?.[0]?.text ?? '';
+    expect(text).not.toContain(SECRET_PRIMARY);
+    expect(text).not.toContain(SECRET_SECONDARY);
+
+    consoleSpy.mockRestore();
+  });
+
   it('redacts subscription key embedded in a thrown fetch Error message', async () => {
     const { IMFMCPClient } = await import('../../scripts/mcp/imf-mcp-client.js');
     // Simulate a fetch impl / proxy that leaks the subscription key in its
