@@ -25,20 +25,22 @@ short-cycle workflows (`breaking`, `motions`, `propositions`,
 `committee-reports`) **do not** import this module — they only need
 the universal contract in `01-data-collection.md`.
 
-## 1 · Forward-Statements Registry Seed (week-ahead / month-ahead)
+## 1 · Forward-Statements Registry Seed (forward-looking workflows)
 
-For `week-ahead` and `month-ahead` workflows, Stage A **must** read the
-persistent forward-statements registry and seed the synthesis with any open
-items in scope:
+For all forward-looking workflows (`week-ahead`, `month-ahead`,
+`quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`),
+Stage A **must** read the persistent forward-statements registry and
+seed the synthesis with any open items in scope:
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
 # Derive forward-statements horizon from the article-horizons registry
-# (src/config/horizons/registry.ts → forwardStatementsHorizonDays per slug).
+# (src/config/horizons/registry.ts → forwardStatementsHorizonDays per slug,
+# compiled to scripts/config/horizons/forward-projection.js as ESM).
 # Each slug has its own value: week-ahead=14, month-ahead=60,
 # quarter-ahead=180, year-ahead=730, term-outlook=1500, election-cycle=1825.
-HORIZON_DAYS=$(node -e "
-  const {getForwardStatementsHorizonDays} = require('./src/config/horizons/forward-projection.js');
+HORIZON_DAYS=$(node --input-type=module -e "
+  import {getForwardStatementsHorizonDays} from './scripts/config/horizons/forward-projection.js';
   const d = getForwardStatementsHorizonDays(process.env.ARTICLE_TYPE_SLUG || '');
   console.log(d || 30);
 ")
@@ -146,20 +148,21 @@ iterate forward from today; for retrospective articles, iterate backward.
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
 # Derive DATA_WINDOW_DAYS and DATA_WINDOW_DIRECTION from the article-horizons
-# registry (src/config/horizons/registry.ts → dataWindow.days / dataWindow.direction).
+# registry (src/config/horizons/registry.ts → dataWindow.days / dataWindow.direction,
+# compiled to scripts/config/article-horizons.js as ESM).
 # These are exported in Stage A's horizon-config lookup step (01-data-collection.md §2)
-# via: node -e "const {getHorizonConfig} = require('./src/config/article-horizons.js'); ..."
+# via: node --input-type=module -e "import {getHorizonConfig} from './scripts/config/article-horizons.js'; ..."
 # If not already set, derive them now as a defensive fallback:
 if [ -z "${DATA_WINDOW_DAYS:-}" ]; then
-  DATA_WINDOW_DAYS=$(node -e "
-    const {getHorizonConfig} = require('./src/config/article-horizons.js');
+  DATA_WINDOW_DAYS=$(node --input-type=module -e "
+    import {getHorizonConfig} from './scripts/config/article-horizons.js';
     const cfg = getHorizonConfig(process.env.ARTICLE_TYPE_SLUG || '');
     console.log(cfg ? cfg.dataWindow.days : 90);
   ")
 fi
 if [ -z "${DATA_WINDOW_DIRECTION:-}" ]; then
-  DATA_WINDOW_DIRECTION=$(node -e "
-    const {getHorizonConfig} = require('./src/config/article-horizons.js');
+  DATA_WINDOW_DIRECTION=$(node --input-type=module -e "
+    import {getHorizonConfig} from './scripts/config/article-horizons.js';
     const cfg = getHorizonConfig(process.env.ARTICLE_TYPE_SLUG || '');
     console.log(cfg ? cfg.dataWindow.direction : 'forward');
   ")
