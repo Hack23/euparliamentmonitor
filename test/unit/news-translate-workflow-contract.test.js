@@ -120,6 +120,30 @@ describe('news-translate workflow contract', () => {
     expect(validatorBlock).not.toMatch(/\|\|\s*true/);
   });
 
+  it('scopes the post-step validator to the current run\'s discovery queue', () => {
+    // Regression hardening for the failure pattern in runs #206, #207, #208,
+    // #209, #210, #214, #219, #220, #221, #223: the validator was invoked
+    // with no --paths argument and therefore scanned every translation in
+    // the repo, including older briefs whose source H2 layout was extended
+    // AFTER the translations were merged. The translation agent has bounded
+    // scope and cannot fix those legacy defects, so they MUST NOT fail a
+    // current run. The post-step now derives sibling globs from the
+    // discovery queue (one per brief THIS run was asked to translate) and
+    // passes them via --paths.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    const validatorBlock = workflow.match(/- name: Validate brief translations[\s\S]*?\n\nengine:/)?.[0] ?? '';
+    expect(validatorBlock).toMatch(/\/tmp\/gh-aw\/discovery\/queue\.json/);
+    // The validator is invoked with --paths populated from the queue, not
+    // with the repo-wide default fallback (findAllTranslations).
+    expect(validatorBlock).toMatch(/--paths "\$\{glob_args\[@\]\}"/);
+    // Sibling glob shape: every brief's `executive-brief.md` source maps
+    // to its `executive-brief_*.md` sibling translations.
+    expect(validatorBlock).toMatch(/executive-brief_\*\.md/);
+    // Empty-queue defensive: if the queue is empty/missing, skip validation
+    // cleanly rather than running unscoped against the whole repo.
+    expect(validatorBlock).toMatch(/skipping validator/);
+  });
+
   it('surfaces the discovery sourceH2Titles / sourceFixedTokens fields in the prompt body', () => {
     // Regression hardening for run #25983007788 — the prompt MUST tell
     // the translator agent to read these queue fields, otherwise it
