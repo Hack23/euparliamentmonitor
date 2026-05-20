@@ -74,6 +74,7 @@ imports:
 # preventing zombie stacked runs from accumulating compute (learned from
 # riksdagsmonitor which uses per-input concurrency with cancel-in-progress).
 concurrency:
+  group: "news-translate"
   job-discriminator: translate-briefs
   cancel-in-progress: true
 
