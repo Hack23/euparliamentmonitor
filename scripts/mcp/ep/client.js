@@ -405,9 +405,9 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      *
      * @remarks
      * This repository is currently documented/configured against
-     * `european-parliament-mcp-server@1.3.6`.
+     * `european-parliament-mcp-server@1.3.9`.
      *
-     * **Upstream date-filter contract (v1.2.14+, active on the pinned v1.3.6 server):** the upstream server
+     * **Upstream date-filter contract (v1.2.14+, active on the pinned v1.3.9 server):** the upstream server
      * applies a server-side post-filter on `dateFrom`/`dateTo` before serialisation, because the
      * EP Open Data Portal `/meetings` endpoint silently ignores its `date-from`/`date-to` query
      * parameters (Defect #5). Under this contract:
@@ -416,7 +416,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * - Per-window session counts are reproducible because the EP-side regression is masked by
      *   the upstream post-filter.
      *
-     * No local post-filter is applied here. The repository is pinned to v1.3.6, so the
+     * No local post-filter is applied here. The repository is pinned to v1.3.9, so the
      * date-filter guarantees above apply; consumers running against an older server image
      * (pre-v1.2.14) must not assume them.
      */
