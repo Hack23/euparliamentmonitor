@@ -9,7 +9,7 @@
  * for this article type without touching any other article type.
  */
 
-import type { LanguageMap, DeepAnalysisStrings } from '../../types/index.js';
+import type { LanguageMap } from '../../types/index.js';
 import { DEEP_ANALYSIS_STRINGS } from './deep-analysis/index.js';
 
 export { DEEP_ANALYSIS_STRINGS };

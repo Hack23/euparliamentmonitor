@@ -6,7 +6,7 @@
  * @description Week-ahead strings for all 14 languages — assembled from EU and global sub-modules.
  */
 
-import type { LanguageMap, WeekAheadStrings, WeekAheadStakeholderStrings } from '../../types/index.js';
+import type { LanguageMap, LangTitleSubtitle, WeekAheadStrings, WeekAheadStakeholderStrings } from '../../types/index.js';
 import {
   WEEK_AHEAD_TITLES_EU,
   WEEK_AHEAD_STRINGS_EU,
@@ -19,7 +19,7 @@ import {
 } from './week-ahead-global.js';
 
 /** Week-ahead titles for all 14 languages */
-export const WEEK_AHEAD_TITLES: LanguageMap<(n: number) => string> = {
+export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => LangTitleSubtitle> = {
   ...WEEK_AHEAD_TITLES_EU,
   ...WEEK_AHEAD_TITLES_GLOBAL,
 };

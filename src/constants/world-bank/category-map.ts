@@ -6,8 +6,7 @@
  * @description Category indicator map — assembled from legislative, periodic, and analysis sub-modules.
  */
 
-import { ArticleCategory } from '../../types/index.js';
-import { WB_INDICATORS, N, PRI, SEC } from './indicator-catalog.js';
+import type { ArticleCategory } from '../../types/index.js';
 import type { IndicatorMapping } from './committee-map.js';
 
 export interface CategoryIndicatorEntry {
@@ -33,11 +32,9 @@ import {
   CATEGORY_INDICATOR_MAP_ANALYSIS,
 } from './category-map-analysis.js';
 
-export type { CategoryIndicatorEntry };
-
 /** Full category indicator map for all article categories */
-export const CATEGORY_INDICATOR_MAP: Record<ArticleCategory, IndicatorMapping> = {
+export const CATEGORY_INDICATOR_MAP: Readonly<Record<ArticleCategory, CategoryIndicatorEntry>> = {
   ...CATEGORY_INDICATOR_MAP_LEGISLATIVE,
   ...CATEGORY_INDICATOR_MAP_PERIODIC,
   ...CATEGORY_INDICATOR_MAP_ANALYSIS,
-} as Record<ArticleCategory, IndicatorMapping>;
+} satisfies Readonly<Record<ArticleCategory, CategoryIndicatorEntry>>;

@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 /* eslint-disable sonarjs/no-duplicate-string -- Intentional keyword duplication across language groups */
+import { ArticleCategory } from '../../types/index.js';
 /** Central localized keyword arrays */
 export const LOCALIZED_KEYWORDS_CENTRAL = {
     de: {

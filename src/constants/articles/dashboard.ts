@@ -9,7 +9,7 @@
  * for this article type without touching any other article type.
  */
 
-import type { LanguageMap, DashboardStrings, DashboardBuilderStrings } from '../../types/index.js';
+import type { LanguageMap, DashboardStrings } from '../../types/index.js';
 export const DASHBOARD_STRINGS: LanguageMap<DashboardStrings> = {
   en: {
     sectionHeading: 'Dashboard',

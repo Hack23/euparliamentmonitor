@@ -9,7 +9,7 @@
 import type { LanguageMap, SwotBuilderStrings } from '../../types/index.js';
 
 /** Central SWOT-builder strings */
-export const SWOT_BUILDER_STRINGS_CENTRAL: Pick<LanguageMap<SwotBuilderStrings>, 'de', 'fr'> = {
+export const SWOT_BUILDER_STRINGS_CENTRAL: Pick<LanguageMap<SwotBuilderStrings>, 'de' | 'fr'> = {
   de: {
     votingHighCohesion: (n) =>
       `${n} Fraktionen mit Kohäsion über 80 % — disziplinierte Abstimmungsblöcke`,
