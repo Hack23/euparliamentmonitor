@@ -70,8 +70,12 @@ imports:
 
 # Concurrency uses one workflow-wide lease so scheduled runs and re-runs cannot
 # race while targeting the shared daily `news/translate-briefs-<date>` branch.
+# cancel-in-progress: true kills a stale cron run when the next tick fires,
+# preventing zombie stacked runs from accumulating compute (learned from
+# riksdagsmonitor which uses per-input concurrency with cancel-in-progress).
 concurrency:
   job-discriminator: translate-briefs
+  cancel-in-progress: true
 
 tools:
   timeout: 180            # per-tool-call cap
@@ -92,10 +96,16 @@ tools:
 safe-outputs:
   threat-detection:
     continue-on-error: true
+  # Translation failures retry on the next cron tick (3×/day); auto-created
+  # failure issues are noise. Suppress them (learned from riksdagsmonitor).
+  report-failure-as-issue: false
   # Per-run patch ≈ 300-450 KB of markdown (no HTML, no Chart.js, no images).
   # The gh-aw default 1024 KB is plenty but we leave headroom for catch-up
   # days when an operator overrides max_briefs=4 (push closer to 600 KB).
   max-patch-size: 4096
+  # Explicit file ceiling: max_briefs=4 × 13 langs = 52 files per flush.
+  # 100 gives headroom for validator reports and retry flushes.
+  max-patch-files: 100
   steps:
     - name: Fetch triggering commit for bundle prerequisites
       # The safe_outputs job checks out the current branch tip with
