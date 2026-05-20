@@ -518,6 +518,44 @@ PY
    - Apply per-language register from § 4 of the translator guide
      (Nordic / EU-core / RTL / CJK).
 
+   **Pre-loop: scan existing translations (transient-error recovery)**
+   Before writing the first language for this brief, check which sibling
+   files already exist on disk. A transient API error during a `create`
+   call causes the gh-aw framework to retry the inference — when it does,
+   the agent must NOT re-create files that were already successfully
+   written in an earlier attempt. Run this once per brief, right after
+   the H2 checklist above:
+
+   ```bash
+   set -euo pipefail
+   BRIEF_DIR=$(dirname "$sourcePath")
+   echo "=== Translations already on disk for this brief ==="
+   ls "${BRIEF_DIR}"/executive-brief_*.md 2>/dev/null || echo "(none yet)"
+   echo "===================================================="
+   ```
+
+   For any `lang` from `missingLangs` where the output file already
+   exists, **skip the `create` call and jump directly to the H2
+   spot-check (step 4a)**. Overwriting with an identical `create` call
+   is harmless but wastes tokens; skipping and spot-checking is correct.
+
+   **Per-language pre-write check** — run immediately before every
+   `create` call (defends against transient-API-error retry loops where
+   the agent re-announces the same language but the file was already
+   written in the previous attempt):
+
+   ```bash
+   BRIEF_DIR=$(dirname "$sourcePath")
+   if [ -f "${BRIEF_DIR}/executive-brief_${lang}.md" ]; then
+     echo "skip_create=true  # ${lang} already on disk"
+   else
+     echo "skip_create=false  # ${lang} needs create"
+   fi
+   ```
+
+   When the file exists on disk, do NOT call the `create` tool; proceed
+   directly to **step 4a** (H2 spot-check).
+
    **4a. Mandatory H2 spot-check per language** — run immediately after
    creating each `executive-brief_<lang>.md`, BEFORE moving to the next
    language. A mismatch means a section was dropped (almost always the
