@@ -153,10 +153,10 @@ export const DASHBOARD_STRINGS: LanguageMap<DashboardStrings> = {
   },
 };
 
-// ─── SWOT Builder Strings ────────────────────────────────────────────────────
+// ─── Dashboard Builder Strings ──────────────────────────────────────────────────
 
 /**
- * Localized strings used by the 5 SWOT builder functions in analysis-builders.
+ * Localized strings used by the dashboard builder functions in analysis-builders.
  * Template functions accept dynamic counts; plain strings are static prose.
  */
 import { DASHBOARD_BUILDER_STRINGS } from './dashboard/index.js';

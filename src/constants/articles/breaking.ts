@@ -76,7 +76,7 @@ export const BREAKING_NEWS_TITLES: LanguageMap<(date: string) => LangTitleSubtit
   }),
 };
 
-/** Committee reports titles per language */
+/** Breaking news titles per language */
 import { BREAKING_STRINGS_NORDIC } from './breaking-strings-nordic.js';
 import { BREAKING_STRINGS_CENTRAL } from './breaking-strings-central.js';
 import { BREAKING_STRINGS_WEST } from './breaking-strings-west.js';
@@ -89,4 +89,4 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
   ...BREAKING_STRINGS_EAST,
 };
 
-/** Localized body-text strings for the committee-analysis deep-analysis section */
+/** Localized body-text strings for breaking news articles */

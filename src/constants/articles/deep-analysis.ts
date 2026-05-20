@@ -14,7 +14,7 @@ import { DEEP_ANALYSIS_STRINGS } from './deep-analysis/index.js';
 
 export { DEEP_ANALYSIS_STRINGS };
 
-/** Localized section heading strings for motions articles */
+/** Analysis quality labels for deep-analysis articles */
 export const ANALYSIS_QUALITY_LABELS: LanguageMap<{
   readonly dataCompleteness: string;
   readonly sourceReliability: string;

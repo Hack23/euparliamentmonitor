@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { DEEP_ANALYSIS_STRINGS } from './deep-analysis/index.js';
 export { DEEP_ANALYSIS_STRINGS };
-/** Localized section heading strings for motions articles */
+/** Analysis quality labels for deep-analysis articles */
 export const ANALYSIS_QUALITY_LABELS = {
     en: {
         dataCompleteness: 'Data Completeness',

@@ -33,8 +33,9 @@ import {
 } from './category-map-analysis.js';
 
 /** Full category indicator map for all article categories */
-export const CATEGORY_INDICATOR_MAP: Readonly<Record<ArticleCategory, CategoryIndicatorEntry>> = {
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- sub-modules are Partial; combined map is guaranteed complete
+export const CATEGORY_INDICATOR_MAP = {
   ...CATEGORY_INDICATOR_MAP_LEGISLATIVE,
   ...CATEGORY_INDICATOR_MAP_PERIODIC,
   ...CATEGORY_INDICATOR_MAP_ANALYSIS,
-} satisfies Readonly<Record<ArticleCategory, CategoryIndicatorEntry>>;
+} as Readonly<Record<ArticleCategory, CategoryIndicatorEntry>>;
