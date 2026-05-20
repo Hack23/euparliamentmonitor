@@ -41,7 +41,11 @@ declare module './client.js' {
 
 // \u2500\u2500\u2500 Type helper for accessing protected internals from prototype methods \u2500\u2500\u2500\u2500
 type ClientInternal = {
-  safeCallTool(name: string, args: object | (() => object), fallback: string): Promise<MCPToolResult>;
+  safeCallTool(
+    name: string,
+    args: object | (() => object),
+    fallback: string
+  ): Promise<MCPToolResult>;
   callToolWithRetry(name: string, args: object, maxRetries?: number): Promise<MCPToolResult>;
   _calledTools: Set<string>;
   _failedTools: Map<string, string>;
@@ -98,8 +102,7 @@ EuropeanParliamentMCPClient.prototype.getFreshProcedures = async function (
   const cache = new ProcedureSeenCache(seenCacheStorePath);
   for (const p of result) {
     const id = typeof p['id'] === 'string' ? p['id'] : '';
-    const dateLastActivity =
-      typeof p['dateLastActivity'] === 'string' ? p['dateLastActivity'] : '';
+    const dateLastActivity = typeof p['dateLastActivity'] === 'string' ? p['dateLastActivity'] : '';
     if (id.length > 0) {
       cache.upsert(id, dateLastActivity);
     }

@@ -9,8 +9,6 @@
  * for this article type without touching any other article type.
  */
 
-/* eslint-disable sonarjs/no-duplicate-string -- Localized keyword dictionaries have intentional repetition across categories */
-
 import type { LanguageMap } from '../../types/index.js';
 import { LOCALIZED_KEYWORDS_EU } from './localized-keywords-eu.js';
 import { LOCALIZED_KEYWORDS_GLOBAL } from './localized-keywords-global.js';
@@ -19,6 +17,5 @@ export const LOCALIZED_KEYWORDS: LanguageMap<Record<string, readonly string[]>> 
   ...LOCALIZED_KEYWORDS_EU,
   ...LOCALIZED_KEYWORDS_GLOBAL,
 };
-/* eslint-enable sonarjs/no-duplicate-string */
 
 /** Week ahead title templates per language */

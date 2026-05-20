@@ -7,9 +7,25 @@
  */
 
 import type { LanguageMap, CommitteeAnalysisContentStrings } from '../../types/index.js';
-import { BRK_IMPACT_ECONOMIC, BRK_IMPACT_SOCIAL, BRK_IMPACT_GEO_NORMAL, CMT_WHY, CMT_NO_DOCS, CMT_IMPACT_POLITICAL, CMT_IMPACT_LEGAL, CMT_ACTION_CONSEQUENCE, CMT_MISTAKE_DESC, CMT_MISTAKE_ALT, CMT_OUTLOOK_GOOD, CMT_OUTLOOK_CONCERN } from './_shared.js';
+import {
+  BRK_IMPACT_ECONOMIC,
+  BRK_IMPACT_SOCIAL,
+  BRK_IMPACT_GEO_NORMAL,
+  CMT_WHY,
+  CMT_NO_DOCS,
+  CMT_IMPACT_POLITICAL,
+  CMT_IMPACT_LEGAL,
+  CMT_ACTION_CONSEQUENCE,
+  CMT_MISTAKE_DESC,
+  CMT_MISTAKE_ALT,
+  CMT_OUTLOOK_GOOD,
+  CMT_OUTLOOK_CONCERN,
+} from './_shared.js';
 
-export const COMMITTEE_ANALYSIS_CONTENT_STRINGS_GLOBAL: Pick<LanguageMap<CommitteeAnalysisContentStrings>, 'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'> = {
+export const COMMITTEE_ANALYSIS_CONTENT_STRINGS_GLOBAL: Pick<
+  LanguageMap<CommitteeAnalysisContentStrings>,
+  'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'
+> = {
   es: {
     what: 'Informe de actividad de las comisiones a fecha {date}: {total} comisiones supervisadas, {docs} documentos procesados, {active} comisiones con actividad reciente.',
     whatNoData:

@@ -24,11 +24,7 @@ import type {
 } from '../../types/index.js';
 import { MCPRateLimitError, MCPSessionExpiredError } from './errors.js';
 import { isRetriableError, RECONNECT_MAX_DELAY_MS } from './retry-policy.js';
-import {
-  attemptGatewayConnection,
-  sendGatewayRequest,
-  type GatewayContext,
-} from './gateway.js';
+import { attemptGatewayConnection, sendGatewayRequest, type GatewayContext } from './gateway.js';
 
 /** npm binary name for the European Parliament MCP server */
 const BINARY_NAME = 'european-parliament-mcp-server';
@@ -258,7 +254,13 @@ export class MCPConnection {
     }
   }
 
-  /** Build a {@link GatewayContext} adapter for delegating to gateway helpers. */
+  /**
+   * Build a {@link GatewayContext} adapter for delegating to gateway helpers.
+   *
+   * @returns A context adapter exposing the connection-level fields the
+   *   gateway helpers need (URL, API key, session ID accessors, request-ID
+   *   counter, connection-state setter).
+   */
   private _gatewayContext(): GatewayContext {
     return {
       gatewayUrl: this.gatewayUrl,
@@ -266,8 +268,12 @@ export class MCPConnection {
       serverLabel: this.serverLabel,
       getMcpSessionId: () => this.mcpSessionId,
       nextRequestId: () => ++this.requestId,
-      setMcpSessionId: (id) => { this.mcpSessionId = id; },
-      setConnected: (v) => { this.connected = v; },
+      setMcpSessionId: (id) => {
+        this.mcpSessionId = id;
+      },
+      setConnected: (v) => {
+        this.connected = v;
+      },
     };
   }
 

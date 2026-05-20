@@ -6,8 +6,8 @@
  * @description Type definitions for committee → indicator mapping.
  */
 
-import { AnalysisPerspective } from "../../types/index.js";
-import { type WBIndicatorId } from "./indicator-catalog.js";
+import { type AnalysisPerspective } from '../../types/index.js';
+import { type WBIndicatorId } from './indicator-catalog.js';
 
 /**
  * Describes why a specific World Bank indicator is relevant to a committee

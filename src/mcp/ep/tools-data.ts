@@ -66,7 +66,11 @@ declare module './client.js' {
 
 // \u2500\u2500\u2500 Type helper for accessing protected internals from prototype methods \u2500\u2500\u2500\u2500
 type ClientInternal = {
-  safeCallTool(name: string, args: object | (() => object), fallback: string): Promise<MCPToolResult>;
+  safeCallTool(
+    name: string,
+    args: object | (() => object),
+    fallback: string
+  ): Promise<MCPToolResult>;
   safeCallToolWithReliabilityTimeout(
     name: string,
     args: object | (() => object),
@@ -227,9 +231,7 @@ EuropeanParliamentMCPClient.prototype.analyzeVotingPatterns = async function (
   options: VotingPatternsOptions
 ): Promise<MCPToolResult> {
   if (typeof options.mepId !== 'string' || options.mepId.trim().length === 0) {
-    console.warn(
-      'analyze_voting_patterns called without valid mepId (non-empty string required)'
-    );
+    console.warn('analyze_voting_patterns called without valid mepId (non-empty string required)');
     return { content: [{ type: 'text', text: '{"patterns": null}' }] };
   }
   return _self(this).safeCallTool(
@@ -244,9 +246,7 @@ EuropeanParliamentMCPClient.prototype.trackLegislation = async function (
   procedureId: string
 ): Promise<MCPToolResult> {
   if (typeof procedureId !== 'string' || procedureId.trim().length === 0) {
-    console.warn(
-      'track_legislation called without valid procedureId (non-empty string required)'
-    );
+    console.warn('track_legislation called without valid procedureId (non-empty string required)');
     return { content: [{ type: 'text', text: '{"procedure": null}' }] };
   }
   return _self(this).safeCallTool(

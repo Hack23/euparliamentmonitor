@@ -10,15 +10,13 @@
  * artifact-highlight.ts when an artefact has no usable H1.
  */
 
-import {
-  normaliseHeadingText,
-} from "./heading-rules.js";
+import { normaliseHeadingText } from './heading-rules.js';
 import {
   DESCRIPTION_MAX_LENGTH,
   shouldSkipDescriptionLine,
   stripInlineMarkdown,
   truncateDescription,
-} from "./text-utils.js";
+} from './text-utils.js';
 
 /**
  * Section headings inside the executive brief that introduce the

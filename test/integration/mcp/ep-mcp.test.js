@@ -59,12 +59,21 @@ describe('EP MCP tool surface (drift guard)', () => {
   });
 
   it('EP_MCP_TOOLS equals the set of tools actually wrapped by ep-mcp-client.ts', () => {
-    // After the submodule refactor, actual tool calls live in src/mcp/ep/client.ts.
-    // ep-mcp-client.ts is now a barrel re-export, so we read the real implementation.
-    const implPath = fs.existsSync(path.join(REPO_ROOT, 'src', 'mcp', 'ep', 'client.ts'))
-      ? path.join(REPO_ROOT, 'src', 'mcp', 'ep', 'client.ts')
-      : path.join(REPO_ROOT, 'src', 'mcp', 'ep-mcp-client.ts');
-    const clientSource = fs.readFileSync(implPath, 'utf8');
+    // After the submodule refactor, tool calls are distributed across multiple
+    // files in src/mcp/ep/ (client.ts, tools-data.ts, tools-documents.ts,
+    // tools-feeds.ts, tools-procedures.ts). Scan all of them so the drift
+    // guard tracks the full surface, not just the orchestrator class.
+    const epDir = path.join(REPO_ROOT, 'src', 'mcp', 'ep');
+    let clientSource = '';
+    if (fs.existsSync(epDir) && fs.statSync(epDir).isDirectory()) {
+      const candidates = fs
+        .readdirSync(epDir)
+        .filter((f) => f.endsWith('.ts'))
+        .map((f) => path.join(epDir, f));
+      clientSource = candidates.map((p) => fs.readFileSync(p, 'utf8')).join('\n');
+    } else {
+      clientSource = fs.readFileSync(path.join(REPO_ROOT, 'src', 'mcp', 'ep-mcp-client.ts'), 'utf8');
+    }
     const wrapped = extractWrappedToolNames(clientSource);
 
     const exported = new Set(EP_MCP_TOOLS);

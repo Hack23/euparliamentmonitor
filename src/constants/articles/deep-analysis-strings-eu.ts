@@ -8,7 +8,10 @@
 
 import type { LanguageMap, DeepAnalysisStrings } from '../../types/index.js';
 
-export const DEEP_ANALYSIS_STRINGS_EU: Pick<LanguageMap<DeepAnalysisStrings>, 'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr'> = {
+export const DEEP_ANALYSIS_STRINGS_EU: Pick<
+  LanguageMap<DeepAnalysisStrings>,
+  'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr'
+> = {
   en: {
     sectionHeading: 'Deep Political Analysis',
     whatHeading: 'What Happened',

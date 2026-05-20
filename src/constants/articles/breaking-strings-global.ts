@@ -7,9 +7,24 @@
  */
 
 import type { LanguageMap, BreakingStrings } from '../../types/index.js';
-import { BRK_WHY_ANOMALIES, BRK_WHY_NORMAL, BRK_NEUTRAL_REASON, BRK_LEGAL_CONSEQUENCE, BRK_PROC_CONSEQUENCE, BRK_IMPACT_ECONOMIC, BRK_IMPACT_SOCIAL, BRK_IMPACT_GEO_COALITION, BRK_IMPACT_GEO_NORMAL, BRK_MISTAKE_DESC, BRK_MISTAKE_ALT } from './_shared.js';
+import {
+  BRK_WHY_ANOMALIES,
+  BRK_WHY_NORMAL,
+  BRK_NEUTRAL_REASON,
+  BRK_LEGAL_CONSEQUENCE,
+  BRK_PROC_CONSEQUENCE,
+  BRK_IMPACT_ECONOMIC,
+  BRK_IMPACT_SOCIAL,
+  BRK_IMPACT_GEO_COALITION,
+  BRK_IMPACT_GEO_NORMAL,
+  BRK_MISTAKE_DESC,
+  BRK_MISTAKE_ALT,
+} from './_shared.js';
 
-export const BREAKING_STRINGS_GLOBAL: Pick<LanguageMap<BreakingStrings>, 'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'> = {
+export const BREAKING_STRINGS_GLOBAL: Pick<
+  LanguageMap<BreakingStrings>,
+  'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'
+> = {
   es: {
     breakingBanner: '⚡ ÚLTIMA HORA',
     votingAnomalyIntel: 'Anomalías de Votación — Análisis de Inteligencia',

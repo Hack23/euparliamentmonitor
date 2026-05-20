@@ -70,7 +70,11 @@ declare module './client.js' {
 
 // \u2500\u2500\u2500 Type helper for accessing protected internals from prototype methods \u2500\u2500\u2500\u2500
 type ClientInternal = {
-  safeCallTool(name: string, args: object | (() => object), fallback: string): Promise<MCPToolResult>;
+  safeCallTool(
+    name: string,
+    args: object | (() => object),
+    fallback: string
+  ): Promise<MCPToolResult>;
   safeCallToolWithReliabilityTimeout(
     name: string,
     args: object | (() => object),
@@ -133,7 +137,10 @@ EuropeanParliamentMCPClient.prototype.getEventsFeed = async function (
       const warningMsg = `SLOW_FEED: ${message.slice(0, 200)}`;
       internals._failedTools.delete('get_events_feed');
       internals._slowFeedWarnings.set('get_events_feed', warningMsg);
-      console.warn('\ud83d\udfe1 get_events_feed slow-feed warning [SLOW_FEED]:', message.slice(0, 200));
+      console.warn(
+        '\ud83d\udfe1 get_events_feed slow-feed warning [SLOW_FEED]:',
+        message.slice(0, 200)
+      );
       return { content: [{ type: 'text', text: '{"feed":[],"slowFeedWarning":true}' }] };
     }
 

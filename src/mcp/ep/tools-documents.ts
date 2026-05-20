@@ -86,7 +86,11 @@ declare module './client.js' {
 
 // \u2500\u2500\u2500 Type helper for accessing protected internals from prototype methods \u2500\u2500\u2500\u2500
 type ClientInternal = {
-  safeCallTool(name: string, args: object | (() => object), fallback: string): Promise<MCPToolResult>;
+  safeCallTool(
+    name: string,
+    args: object | (() => object),
+    fallback: string
+  ): Promise<MCPToolResult>;
   safeCallToolWithReliabilityTimeout(
     name: string,
     args: object | (() => object),
@@ -244,9 +248,7 @@ EuropeanParliamentMCPClient.prototype.getProcedureEvents = async function (
   options: GetProcedureEventsOptions
 ): Promise<MCPToolResult> {
   if (typeof options.processId !== 'string' || options.processId.trim().length === 0) {
-    console.warn(
-      'get_procedure_events called without valid processId (non-empty string required)'
-    );
+    console.warn('get_procedure_events called without valid processId (non-empty string required)');
     return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
   }
   return _self(this).safeCallTool(

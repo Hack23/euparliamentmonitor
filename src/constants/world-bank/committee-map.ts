@@ -10,10 +10,10 @@
  * committee-map-part2.ts (second half) to keep individual files under 600 LOC.
  */
 
-export type { IndicatorMapping, CommitteeIndicatorEntry } from "./committee-map-types.js";
-import type { CommitteeIndicatorEntry } from "./committee-map-types.js";
-import { COMMITTEE_INDICATOR_MAP_PART1 } from "./committee-map-part1.js";
-import { COMMITTEE_INDICATOR_MAP_PART2 } from "./committee-map-part2.js";
+export type { IndicatorMapping, CommitteeIndicatorEntry } from './committee-map-types.js';
+import type { CommitteeIndicatorEntry } from './committee-map-types.js';
+import { COMMITTEE_INDICATOR_MAP_PART1 } from './committee-map-part1.js';
+import { COMMITTEE_INDICATOR_MAP_PART2 } from './committee-map-part2.js';
 
 /**
  * Combined committee → indicator map. Merges both parts at module load.

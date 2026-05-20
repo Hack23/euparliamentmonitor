@@ -8,7 +8,10 @@
 
 import type { LanguageMap, DashboardBuilderStrings } from '../../types/index.js';
 
-export const DASHBOARD_BUILDER_STRINGS_GLOBAL: Pick<LanguageMap<DashboardBuilderStrings>, 'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'> = {
+export const DASHBOARD_BUILDER_STRINGS_GLOBAL: Pick<
+  LanguageMap<DashboardBuilderStrings>,
+  'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'
+> = {
   es: {
     votingOverview: 'Resumen de votaciones',
     totalVotes: 'Total de votos',

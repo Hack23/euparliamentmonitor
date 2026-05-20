@@ -6,10 +6,15 @@
  * @description Per-language entries (es, nl, ar, he, ja, ko, zh) for LOCALIZED_KEYWORDS.
  */
 
+/* eslint-disable sonarjs/no-duplicate-string -- Localized keyword dictionaries have intentional repetition across categories */
+
 import type { LanguageMap } from '../../types/index.js';
 import { ArticleCategory } from '../../types/index.js';
 
-export const LOCALIZED_KEYWORDS_GLOBAL: Pick<LanguageMap<Record<string, readonly string[]>>, 'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'> = {
+export const LOCALIZED_KEYWORDS_GLOBAL: Pick<
+  LanguageMap<Record<string, readonly string[]>>,
+  'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'
+> = {
   es: {
     [ArticleCategory.WEEK_AHEAD]: [
       'Parlamento Europeo',

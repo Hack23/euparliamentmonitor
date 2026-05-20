@@ -20,13 +20,8 @@ import path from 'path';
 import { ALL_LANGUAGES } from '../../constants/language-core.js';
 import { extractFirstH1 } from './h1-extractor.js';
 import { extractLedeAfterHeading, extractStrongProseLine } from './lede-extractor.js';
-import {
-  isGenericHeading,
-  stripArtifactCategoryAffix,
-} from './heading-rules.js';
-import {
-  truncateTitle,
-} from './text-utils.js';
+import { isGenericHeading, stripArtifactCategoryAffix } from './heading-rules.js';
+import { truncateTitle } from './text-utils.js';
 
 /** Ordered list of artefact filenames that typically carry the editorial H1. */
 const EDITORIAL_ARTEFACT_CANDIDATES: readonly string[] = [
@@ -225,8 +220,8 @@ function probeCandidateForHighlight(
   return { summary };
 }
 
-export { extractPriorityFindingHighlight } from "./priority-finding-highlight.js";
-import { extractPriorityFindingHighlight } from "./priority-finding-highlight.js";
+export { extractPriorityFindingHighlight } from './priority-finding-highlight.js';
+import { extractPriorityFindingHighlight } from './priority-finding-highlight.js';
 
 /**
  * Read an artefact file, skipping any SPDX HTML-comment header rows so the
@@ -273,4 +268,3 @@ function safeReaddir(dir: string): string[] {
     return [];
   }
 }
-

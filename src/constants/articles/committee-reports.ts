@@ -9,7 +9,11 @@
  * for this article type without touching any other article type.
  */
 
-import type { LanguageMap, LangTitleSubtitle, CommitteeAnalysisContentStrings } from '../../types/index.js';
+import type {
+  LanguageMap,
+  LangTitleSubtitle,
+  CommitteeAnalysisContentStrings,
+} from '../../types/index.js';
 export const COMMITTEE_REPORTS_TITLES: LanguageMap<(committee: string) => LangTitleSubtitle> = {
   en: (committee) => ({
     title: `EU Parliament Committee Activity Report: ${committee}`,

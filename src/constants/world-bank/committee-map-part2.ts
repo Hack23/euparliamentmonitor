@@ -7,9 +7,9 @@
  * Merged with part1 in committee-map.ts.
  */
 
-import { WB_INDICATORS, N, PRI, SEC} from "./indicator-catalog.js";
-import { AnalysisPerspective } from "../../types/index.js";
-import type { CommitteeIndicatorEntry } from "./committee-map-types.js";
+import { WB_INDICATORS, N, PRI, SEC } from './indicator-catalog.js';
+import { AnalysisPerspective } from '../../types/index.js';
+import type { CommitteeIndicatorEntry } from './committee-map-types.js';
 
 export const COMMITTEE_INDICATOR_MAP_PART2: Readonly<Record<string, CommitteeIndicatorEntry>> = {
   PECH: {
