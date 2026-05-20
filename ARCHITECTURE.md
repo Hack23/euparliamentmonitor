@@ -814,8 +814,7 @@ src/                                   → scripts/                          (ts
 │   │   ├── errors.ts                  MCPSessionExpiredError, MCPRateLimitError
 │   │   ├── gateway.ts                 HTTP SSE gateway transport helpers
 │   │   ├── retry-policy.ts            isRetriableError, formatRetryAfter, parseRetryAfterMs, RECONNECT_MAX_DELAY_MS
-│   │   └── sse-parser.ts              parseSSEResponse — extracts JSON-RPC from SSE data: lines
-│   ├── ep/                            European Parliament MCP client (split from ep-mcp-client.ts)
+│   │   └── sse-parser.ts              parseSSEResponse — extracts JSON-RPC from SSE data: lines│   ├── ep/                            European Parliament MCP client (split from ep-mcp-client.ts)
 │   │   ├── fallbacks.ts               *_FALLBACK sentinel JSON payloads (EFFECTIVENESS, MEPS, DOCUMENTS, …)
 │   │   ├── parse.ts                   _parseResultPayload, _isEmptyStringSentinel, content-not-yet-available
 │   │   ├── error-classifier.ts        classifyToolError, isFeedUnavailable

@@ -106,14 +106,16 @@ export default [
       // unhandled rejections in CLI scripts, and missing `void` markers.
       '@typescript-eslint/no-floating-promises': 'error',
 
-      // File-size ceiling — hard 600-line cap on every TypeScript source
-      // file under src/. Blank lines and comment-only lines are excluded
-      // from the count so that SPDX headers and JSDoc blocks don't eat
-      // into the budget. Per-area tighter ceilings (400 LOC) are layered
-      // as separate override blocks below. This enforces the acceptance
-      // gate from the Refactor series (#2029-#2036) and prevents silent
-      // regression to the >600 LOC anti-pattern (ISO 27001 A.8.28 / A.8.32,
-      // NIST CSF 2.0 PR.PS-01, CIS Controls v8.1 § 16).
+      // File-size ceiling — hard 600 **code-line** cap on every TypeScript
+      // source file under src/ (blank lines and comment-only lines excluded
+      // so that SPDX headers and JSDoc blocks don't eat into the budget).
+      // A complementary drift-guard in test/unit/source-file-size.test.js
+      // enforces the stricter 600 **raw-line** ceiling using `wc -l` semantics
+      // (the canonical acceptance gate from the Refactor series #2029-#2036).
+      // Per-area tighter 400-code-line ceilings are layered as separate
+      // override blocks below. Together these prevent silent regression to
+      // the >600 LOC anti-pattern (ISO 27001 A.8.28 / A.8.32, NIST CSF 2.0
+      // PR.PS-01, CIS Controls v8.1 § 16).
       'max-lines': ['error', { max: 600, skipBlankLines: true, skipComments: true }],
 
       // Documentation

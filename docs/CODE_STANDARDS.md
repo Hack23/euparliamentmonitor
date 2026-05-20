@@ -47,7 +47,8 @@ npm run lint:report
 
 #### File Size
 
-- **`max-lines`**: Every `src/**/*.ts` file must be ≤ **600 LOC (raw lines)** — matching the acceptance gate of the Refactor 8/8 series (#2029–#2036). Blank lines and comment-only lines are excluded from the ESLint count (`skipBlankLines: true, skipComments: true`), so the raw-lines drift-guard in `test/unit/source-file-size.test.js` is the canonical ceiling. Per-area sub-ceilings of **400 code lines** apply to bounded-context sub-directories (`src/types/**`, `src/config/**`, `src/aggregator/{clean,run,html,generator}/**`, `src/templates/sections/**`, `src/mcp/transport/**`) enforced by ESLint per-area overrides in `eslint.config.js`.
+- **`max-lines` (drift-guard test)**: Every `src/**/*.ts` file must be ≤ **600 raw lines** (including blank lines and comments — `wc -l` semantics). This is the canonical acceptance gate from the Refactor 8/8 series (#2029–#2036), enforced by `test/unit/source-file-size.test.js`.
+- **`max-lines` (ESLint)**: ESLint additionally enforces a **600 code-line** ceiling (blank lines and comment-only lines excluded via `skipBlankLines: true, skipComments: true`). Per-area sub-ceilings of **400 code lines** apply to bounded-context sub-directories: `src/types/**`, `src/config/**`, `src/aggregator/{clean,run,html,generator}/**`, `src/templates/sections/**`, and `src/mcp/transport/**` — see per-area overrides in `eslint.config.js`.
 
 #### Best Practices
 
