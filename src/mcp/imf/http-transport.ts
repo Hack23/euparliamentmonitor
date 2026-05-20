@@ -11,6 +11,7 @@
  */
 
 import { IMF_REQUEST_HEADERS, IMF_SUBSCRIPTION_KEY_HEADER } from './config.js';
+import { parseSSEResponse } from '../transport/sse-parser.js';
 
 // ─── Context interface ────────────────────────────────────────────────────────
 
@@ -218,6 +219,14 @@ export async function fetchViaGateway(url: string, ctx: IMFHttpContext): Promise
     Accept: 'application/json, text/event-stream',
   };
   if (ctx.fetchProxyApiKey) {
+    // Reject CR/LF in the API key to prevent HTTP header injection (mirrors
+    // buildAuthorizationHeader in transport/gateway.ts).
+    if (/[\r\n]/.test(ctx.fetchProxyApiKey)) {
+      console.warn(
+        'Invalid IMF fetch-proxy API key: control characters (CR/LF) are not allowed; skipping gateway fallback.'
+      );
+      return null;
+    }
     headers['Authorization'] = `Bearer ${ctx.fetchProxyApiKey}`;
   }
 
@@ -232,17 +241,25 @@ export async function fetchViaGateway(url: string, ctx: IMFHttpContext): Promise
     });
     if (!response.ok) return null;
 
-    let body = await response.text();
-    if (body.trimStart().startsWith('data:')) {
-      const lines = body.split('\n').filter((l: string) => l.startsWith('data:'));
-      body = lines.map((l: string) => l.slice(5).trim()).join('');
-    }
-
-    const parsed = JSON.parse(body) as {
+    const body = await response.text();
+    // Use the shared SSE parser to extract the first valid JSON-RPC message
+    // (matches MCP Streamable HTTP protocol expectation of one response per
+    // request). Falls back to plain JSON parsing for non-SSE responses.
+    type ProxyResponse = {
       result?: { content?: Array<{ text?: string }> };
       error?: { message?: string };
     };
-    if (parsed.error) return null;
+    let parsed: ProxyResponse | null = null;
+    if (body.trimStart().startsWith('data:') || body.trimStart().startsWith('event:')) {
+      parsed = parseSSEResponse(body) as ProxyResponse | null;
+    } else {
+      try {
+        parsed = JSON.parse(body) as ProxyResponse;
+      } catch {
+        return null;
+      }
+    }
+    if (!parsed || parsed.error) return null;
     const text = parsed.result?.content?.[0]?.text;
     return text && text.length > 0 ? text : null;
   } catch {

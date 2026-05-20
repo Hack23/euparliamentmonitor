@@ -228,7 +228,11 @@ export class MCPConnection {
     };
   }
 
-  /** Build a {@link SpawnContext} adapter for process.ts spawn helpers. */
+  /**
+   * Build a {@link SpawnContext} adapter for process.ts spawn helpers.
+   *
+   * @returns Context adapter for stdio spawn helpers
+   */
   private _spawnContext(): SpawnContext {
     return {
       serverPath: this.serverPath,
@@ -253,6 +257,8 @@ export class MCPConnection {
   /**
    * Attempt a single connection via stdio (spawns server binary).
    * Delegates to {@link attemptStdioConnection} in process.ts.
+   *
+   * @returns Resolves when the spawn has completed (or rejects on spawn failure)
    */
   private async _attemptConnection(): Promise<void> {
     return attemptStdioConnection(this._spawnContext());
@@ -347,7 +353,11 @@ export class MCPConnection {
     return this.sendRequest<MCPToolResult>('tools/call', { name, arguments: args });
   }
 
-  /** Build a {@link ReconnectOps} adapter for reconnect.ts helpers. */
+  /**
+   * Build a {@link ReconnectOps} adapter for reconnect.ts helpers.
+   *
+   * @returns Context adapter for reconnect/retry helpers
+   */
   private _reconnectOps(): ReconnectOps {
     return {
       maxConnectionAttempts: this.maxConnectionAttempts,
