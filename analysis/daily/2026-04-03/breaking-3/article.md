@@ -319,6 +319,1268 @@ graph LR
 
 This analysis applies the **EP Document Analysis Framework** (5-dimension analysis per document), **Political Classification Guide** (significance scoring), and the **Diamond Model** (actor-capability-infrastructure-victim analysis for corruption threats). Coalition analysis is inferred from political group policy positions and historical voting patterns, not roll-call data (unavailable from EP API). Directive provisions are inferred from procedure reference and political context — full legislative text not available in structured data format from the MCP server.
 
+### Executive Brief Ar
+
+**التصنيف:** OSINT | سجل برلماني عام
+**مستوى الثقة:** 🟡 متوسط (تركيب استعادي لقرارات الجلسة العامة لمارس 2026)
+**تاريخ الإنشاء:** 2026-04-03T00:00:00Z (ملخص استعادي)
+**نوع المقال:** عاجل — استخبارات مكافحة الفساد والإصلاح المؤسسي
+**المصدر:** بوابة البيانات المفتوحة للبرلمان الأوروبي
+
+---
+
+### 🎯 BLUF
+
+**أسفرت الجلسات العامة لمارس 2026 عن حزمة إصلاح مؤسسي متماسكة مكونة من أربعة نصوص — وهو أهم تجمع من هذا النوع منذ أزمة قطرغيت في ديسمبر 2022.** النص المحوري هو **توجيه مكافحة الفساد (TA-10-2026-0094، الإجراء 2023/0135، الذي اعتُمد في 26 مارس 2026)** — ثلاث سنوات من اقتراح المفوضية إلى اعتماد البرلمان الأوروبي، مما يعكس الحساسية السياسية للملف وتعقيد توحيد معايير مكافحة الفساد عبر 27 دولة عضو. النصوص المصاحبة: **رفع الحصانة عن براون (TA-10-2026-0088، الإجراء 2025/2192، الذي اعتُمد في 26 مارس)**، **تقرير التشريع الأفضل (TA-10-2026-0063، الإجراء 2025/2015، الذي اعتُمد في 10 مارس)** و**مراجعة الوصول العام إلى الوثائق (TA-10-2026-0065، الإجراء 2025/2137، التي اعتُمدت في 10 مارس)**. تعزز هذه النصوص مجتمعةً قوس استعادة المصداقية المؤسسية للبرلمان الأوروبي في الدورة العاشرة. **ثقة 🟡 متوسطة** في إطار "الحزمة المتماسكة" (نشأت النصوص من إجراءات مستقلة؛ التماسك تفسيري وليس إجرائياً).
+
+---
+
+### 🧭 3 قرارات يدعمها هذا الملخص
+
+| # | القرار | من يقرر | الموعد النهائي | الدليل |
+|:-:|--------|---------|:--------------:|--------|
+| 1 | **تحريري:** نشر مقالة مطولة عن الإصلاح المؤسسي تتتبع مسار قطرغيت → 2026 | رئيس التحرير | +48 ساعة | مجموعة 4 نصوص + جدول زمني لإجراءات 3 سنوات |
+| 2 | **المراقبة:** تتبع المواعيد النهائية للتحويل الوطني لـ TA-10-2026-0094 (نافذة عامين نموذجية) | المحلل | ربع سنوي | تقارير تنفيذ الدول الأعضاء |
+| 3 | **الرصد الاستشرافي:** تمييز إجراءات الحصانة التالية كحالات اختبار لسابقة براون | مدير التحليل | 2026-04-30 | مراقبة LIBE/JURI |
+
+---
+
+### 📰 قراءة في 60 ثانية
+
+- 🔴 **TA-10-2026-0094 (توجيه مكافحة الفساد)** — اعتُمد في 26 مارس 2026 بعد ثلاث سنوات في الإجراء (مقترح عام 2023). توحيد أساسي على مستوى الاتحاد الأوروبي. (🟢 عالٍ عند الاعتماد؛ 🟡 متوسط في أهمية الإطار)
+- 🟠 **TA-10-2026-0088 (رفع حصانة براون)** — اعتُمد في نفس الجلسة العامة؛ يضع سابقة حديثة لرفع حصانة أعضاء البرلمان الأوروبي الذين يواجهون إجراءات جنائية وطنية. (🟢 عالٍ)
+- 🟢 **TA-10-2026-0063 (تقرير التشريع الأفضل)** — اعتُمد في 10 مارس؛ يحدد خط الأساس لمناقشة جودة التنظيم لبقية الدورة العاشرة. (🟢 عالٍ)
+- 🟡 **TA-10-2026-0065 (مراجعة الوصول العام إلى الوثائق)** — اعتُمدت في 10 مارس؛ تكمل توجيه مكافحة الفساد على محور الشفافية. (🟢 عالٍ)
+- 🔵 **السياق الاقتصادي:** يقلل توحيد توجيه مكافحة الفساد من تباين تكاليف الامتثال للشركات العابرة للحدود؛ إشارة إيجابية للسوق الداخلية. (🟡 متوسط)
+- 🟣 **الإسناد المتقاطع:** كان قطرغيت (ديسمبر 2022) صدمة الفساد السياسي المحفزة التي بدأت قوس الإصلاح الذي بلغ ذروته في مجموعة مارس 2026. (🟡 متوسط)
+- 🩷 **ناقل الاضطراب:** امتداد سابقة براون إلى أعضاء البرلمان الأوروبي الآخرين الذين يواجهون تحقيقات وطنية (ما تأكد استعادياً برفع حصانة ياكي TA-10-2026-0105 في أبريل). (🟡 متوسط في ذلك الوقت)
+- ⚪ **الترحيل:** يتطلب التحويل الوطني لـ TA-10-2026-0094 عادةً 24 شهراً؛ أول تقارير امتثال تستحق ~الربع الأول 2028.
+
+---
+
+### 🗂️ الوثائق والإجراءات الرئيسية
+
+| الترتيب | المرجع البرلماني | العنوان (مختصر) | الإجراء | الأهمية | الثقة |
+|:-------:|-----------------|----------------|---------|:-------:|:------:|
+| 1 | TA-10-2026-0094 | توجيه مكافحة الفساد | 2023/0135 | 9.0 | 🟢 عالية |
+| 2 | TA-10-2026-0088 | رفع حصانة براون | 2025/2192 | 7.0 | 🟢 عالية |
+| 3 | TA-10-2026-0063 | تقرير التشريع الأفضل | 2025/2015 | 7.0 | 🟢 عالية |
+| 4 | TA-10-2026-0065 | مراجعة الوصول العام إلى الوثائق | 2025/2137 | 7.0 | 🟢 عالية |
+
+---
+
+### ⚠️ لقطة المخاطر والتهديدات
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| الخطر | ل | ت | الدرجة | المحفز | المصدر | درجة الأدميرالية |
+|-------|:-:|:-:|:------:|--------|--------|:----------------:|
+| تجزئة التحويل الوطني | 4 | 4 | 16 | عدم امتثال دولة عضو | TA-10-2026-0094 | A1 |
+| التداعيات القضائية البولندية في البرلمان الأوروبي | 4 | 3 | 12 | حالات حصانة إضافية | TA-10-2026-0088 | A1 |
+| المبالغة في إطار تجمع الإصلاح | 3 | 2 | 6 | مبالغة تحريرية | تركيب هذه الجلسة | B3 |
+| تشغيل التشريع الأفضل | 3 | 3 | 9 | احتكاك بين المؤسسات | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 المحفز الاستشرافي الرئيسي
+
+**التقارير الوطنية الفصلية للتحويل لـ TA-10-2026-0094 خلال 2026–2028.** يعتمد نجاح التوجيه على معايير تنفيذ متسقة عبر جميع الدول الأعضاء الـ 27 — أول تقرير تحويل متباين (من المرجح من إحدى الولايات القضائية ذات دولة القانون الأدنى) سيكون المؤشر الاستشرافي الرئيسي لما إذا كان تجمع إصلاح مارس 2026 يحقق استعادة المصداقية المؤسسية فعلياً.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **المصادر الأولية:** تغذية النصوص المعتمدة للبرلمان الأوروبي (احتياطي أسبوع واحد نشط نظراً لحالة API المتدهورة)؛ سجل الإجراءات للمراجع 2023/0135 و2025/2015 و2025/2137 و2025/2192.
+- **الثقة في الاعتمادات:** 🟢 عالية.
+- **الثقة في إطار "المجموعة":** 🟡 متوسطة — استقلالية الإجراءات للنصوص الأربعة حقيقية؛ التماسك استنتاج تحليلي وليس حقيقة مؤسسية.
+
+---
+
+### 📎 الروابط
+
+| الرابط | المسار |
+|--------|--------|
+| المقالة | `./article.md` |
+| التشغيلات الأخت | `analysis/daily/2026-04-03/breaking/` (التحالف)، `breaking-2/` (موثوقية API البرلمان الأوروبي) |
+| البيان | `./manifest.json` |
+| المصدر — الاعتمادات | `analysis/daily/2026-03-10/` (التشريع الأفضل، الوصول العام)، `analysis/daily/2026-03-26/` (مكافحة الفساد، براون) |
+
+---
+
+### 🔄 الإسناد المتقاطع
+
+**الحدث المحفز السابق:** قطرغيت (ديسمبر 2022) — صدمة الفساد السياسي التي بدأت قوس الإصلاح المؤسسي للدورة العاشرة للبرلمان الأوروبي.
+
+**التطور اللاحق:** رفع حصانة ياكي (TA-10-2026-0105، أبريل 2026) يؤكد فرضية امتداد سابقة براون.
+
+---
+
+**ضبط الوثيقة**
+- **القالب:** `/analysis/templates/executive-brief.md`
+- **مسار العنصر:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **التصنيف:** عام
+- **الإنشاء الاستعادي:** جلسة الملء.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Mars 2026 plenarmøderne frembragte en sammenhængende firetekstsinstituionel reformpakke — den mest betydningsfulde sådanne klynge siden Qatargate-krisen i december 2022.** Ankerteksten er **antikorruptionsdirektivet (TA-10-2026-0094, procedure 2023/0135, vedtaget 26. marts 2026)** — tre år fra Kommissionens forslag til EP-vedtagelse, hvilket afspejler både den politiske følsomhed i sagen og kompleksiteten ved at harmonisere antikorruptionsstandarder på tværs af 27 medlemsstater. Omgivende tekster: **Brauns immunitetsophævelse (TA-10-2026-0088, procedure 2025/2192, vedtaget 26. marts)**, **rapporten om bedre lovgivning (TA-10-2026-0063, procedure 2025/2015, vedtaget 10. marts)** og **gennemgang af offentlig adgang til dokumenter (TA-10-2026-0065, procedure 2025/2137, vedtaget 10. marts)**. Tilsammen styrker disse EP10's bue mod genoprettelse af institutionel troværdighed. **🟡 MIDDEL-tillid** til indramningen "sammenhængende pakke" (teksterne opstod fra uafhængige procedurer; sammenhæng er fortolkende, ikke proceduremæssigt).
+
+---
+
+### 🧭 3 Beslutninger Dette Notat Understøtter
+
+| # | Beslutning | Hvem beslutter | Deadline | Bevis |
+|:-:|------------|----------------|:--------:|-------|
+| 1 | **Redaktionelt:** UDGIV langt institutionelt reformstykke, der sporer Qatargate → reformbue 2026 | Redaktør | +48t | 4-tekstsklynge + 3-årig proceduretidslinje |
+| 2 | **Overvågning:** spor nationale gennemførelsesfrister for TA-10-2026-0094 (2-årsvindue typisk) | Analytiker | kvartalsvis | Gennemførselsrapporter for medlemsstater |
+| 3 | **Fremtidsovervågning:** markér opfølgende immunitetsforhandlinger som testcases for Braun-præcedens | Analysechef | 2026-04-30 | LIBE/JURI-overvågning |
+
+---
+
+### 📰 60-sekunders læsning
+
+- 🔴 **TA-10-2026-0094 (antikorruptionsdirektivet)** — vedtaget 26. marts 2026 efter tre år i proceduren (foreslået 2023). Grundlæggende EU-dækkende harmonisering. (🟢 Høj ved vedtagelse; 🟡 Middel ved indrammingsignifikans)
+- 🟠 **TA-10-2026-0088 (Brauns immunitetsophævelse)** — vedtaget på samme plenarmøde; sætter ny præcedens for ophævelser af MEP'er over for nationale straffesager. (🟢 Høj)
+- 🟢 **TA-10-2026-0063 (rapporten om bedre lovgivning)** — vedtaget 10. marts; fastsætter basislinjen for debat om regelkvalitet for resten af EP10. (🟢 Høj)
+- 🟡 **TA-10-2026-0065 (gennemgang af offentlig adgang til dokumenter)** — vedtaget 10. marts; komplementerer antikorruptionsdirektivet på transparensvektoren. (🟢 Høj)
+- 🔵 **Økonomisk kontekst:** harmonisering af antikorruptionsdirektivet reducerer variansen i efterlevelsesomkostninger for grænseoverskridende virksomheder; positiv signal for det indre marked. (🟡 Middel)
+- 🟣 **Krydsreference:** Qatargate (december 2022) var det katalyserende politiske korruptionschok, der begyndte reformbuen, som kulminerede i denne marts 2026-klynge. (🟡 Middel)
+- 🩷 **Forstyrrelsesvektor:** Braun-præcedens spredning til andre MEP'er over for nationale undersøgelser (bekræftet retrospektivt ved Jakis immunitetsophævelse TA-10-2026-0105 i april). (🟡 Middel på det tidspunkt)
+- ⚪ **Fremføring:** nationalt gennemførelse af TA-10-2026-0094 kræver typisk 24 måneder; første efterlevelsesrapporter forfaldne ~Q1 2028.
+
+---
+
+### 🗂️ Toptekster / Proceduretabel
+
+| Rang | EP-reference | Titel (kort) | Procedure | Betydning | Tillid |
+|:----:|--------------|--------------|-----------|:---------:|:------:|
+| 1 | TA-10-2026-0094 | Antikorruptionsdirektiv | 2023/0135 | 9,0 | 🟢 HØJ |
+| 2 | TA-10-2026-0088 | Brauns immunitetsophævelse | 2025/2192 | 7,0 | 🟢 HØJ |
+| 3 | TA-10-2026-0063 | Rapport om bedre lovgivning | 2025/2015 | 7,0 | 🟢 HØJ |
+| 4 | TA-10-2026-0065 | Gennemgang af offentlig adgang til dokumenter | 2025/2137 | 7,0 | 🟢 HØJ |
+
+---
+
+### ⚠️ Risiko- og trusselsbillede
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| Risiko | L | I | Score | Udløser | Kilde | Admiralitet |
+|--------|:-:|:-:|:-----:|---------|-------|:-----------:|
+| National gennemførelsesfragmentering | 4 | 4 | 16 | Manglende overholdelse i medlemsstat | TA-10-2026-0094 | A1 |
+| EP-polsk retsligspilover | 4 | 3 | 12 | Yderligere immunitetstilfælde | TA-10-2026-0088 | A1 |
+| Overdrivelse af reformklyngeindramning | 3 | 2 | 6 | Redaktionel overdrivelse | Denne sessions syntese | B3 |
+| Operationalisering af bedre lovgivning | 3 | 3 | 9 | Interinstitutionel friktion | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 Vigtigste Fremadrettede Udløser
+
+**Kvartalsvise nationale gennemførselsrapporter for TA-10-2026-0094 i 2026–2028.** Direktivets succes afhænger af ensartede håndhævelsesstandarder på tværs af alle 27 medlemsstater — den første afvigende gennemførselsrapport (sandsynligvis fra en af jurisdiktionerne med lavere retsstatsprincipper) vil være den vigtigste fremadrettede indikator for, om marts 2026-reformklyngen faktisk leverer genoprettelse af institutionel troværdighed i praksis.
+
+---
+
+### 🛡️ Kildekvakitetsvurdering
+
+- **Primære kilder:** EP's vedtagne tekst-feed (en uges reserv aktiv givet FORRINGET API-tilstand); procedureregistret for citerede 2023/0135, 2025/2015, 2025/2137, 2025/2192.
+- **Tillid til vedtagelser:** 🟢 HØJ.
+- **Tillid til "klynge"-indramning:** 🟡 MIDDEL — de fire teksters proceduremæssige uafhængighed er reel; sammenhæng er analytisk inferens, ikke institutionel kendsgerning.
+
+---
+
+### 📎 Links
+
+| Link | Sti |
+|------|-----|
+| Artikel | `./article.md` |
+| Søsterkørsler | `analysis/daily/2026-04-03/breaking/` (koalition), `breaking-2/` (EP API-pålidelighed) |
+| Manifest | `./manifest.json` |
+| Kilde — vedtagelser | `analysis/daily/2026-03-10/` (Bedre lovgivning, offentlig adgang), `analysis/daily/2026-03-26/` (antikorruption, Braun) |
+
+---
+
+### 🔄 Krydsreference
+
+**Katalyserende forudgående begivenhed:** Qatargate (december 2022) — det politiske korruptionschok, der begyndte EP10's institutionelle reformbue.
+
+**Efterfølgende opfølgning:** Jakis immunitetsophævelse (TA-10-2026-0105, april 2026) bekræfter hypotesen om Braun-præcedens spredning.
+
+---
+
+**Dokumentkontrol**
+- **Skabelon:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **Klassifikation:** Offentlig
+- **Retrospektiv generering:** Tilbagefyldningssession.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Die Plenarsitzungen im März 2026 produzierten ein kohärentes Vier-Texte-Paket zur institutionellen Reform — das bedeutsamste derartige Cluster seit der Qatargate-Krise im Dezember 2022.** Der Ankertext ist die **Anti-Korruptionsrichtlinie (TA-10-2026-0094, Verfahren 2023/0135, angenommen am 26. März 2026)** — drei Jahre vom Kommissionsvorschlag bis zur EP-Annahme, was sowohl die politische Empfindlichkeit der Akte als auch die Komplexität der Harmonisierung von Antikorruptionsstandards in 27 Mitgliedstaaten widerspiegelt. Begleitende Texte: **Immunitätsaufhebung Braun (TA-10-2026-0088, Verfahren 2025/2192, angenommen 26. März)**, **Bericht über bessere Rechtsetzung (TA-10-2026-0063, Verfahren 2025/2015, angenommen 10. März)** und **Überprüfung des öffentlichen Zugangs zu Dokumenten (TA-10-2026-0065, Verfahren 2025/2137, angenommen 10. März)**. Zusammen stärken diese den Bogen von EP10 zur Wiederherstellung institutioneller Glaubwürdigkeit. **🟡 MITTLERE Konfidenz** bei der Rahmung "kohärentes Paket" (die Texte entstanden aus unabhängigen Verfahren; Kohärenz ist interpretativ, nicht verfahrensmäßig).
+
+---
+
+### 🧭 3 Entscheidungen, die dieser Bericht unterstützt
+
+| # | Entscheidung | Wer entscheidet | Frist | Nachweis |
+|:-:|--------------|-----------------|:-----:|----------|
+| 1 | **Redaktionell:** VERÖFFENTLICHE umfangreichen institutionellen Reformartikel, der den Bogen Qatargate → 2026 nachzeichnet | Redakteur | +48h | 4-Texte-Cluster + 3-jährige Verfahrenstimeline |
+| 2 | **Überwachung:** Nationale Umsetzungsfristen für TA-10-2026-0094 verfolgen (2-Jahres-Fenster typisch) | Analyst | vierteljährlich | Umsetzungsberichte der Mitgliedstaaten |
+| 3 | **Vorausschau:** Folge-Immunitätsverfahren als Testfälle für Braun-Präzedenz markieren | Analyselead | 2026-04-30 | LIBE/JURI-Überwachung |
+
+---
+
+### 📰 60-Sekunden-Lektüre
+
+- 🔴 **TA-10-2026-0094 (Anti-Korruptionsrichtlinie)** — angenommen 26. März 2026 nach drei Jahren im Verfahren (vorgeschlagen 2023). Grundlegende EU-weite Harmonisierung. (🟢 Hoch bei Annahme; 🟡 Mittel bei Rahmungsbedeutung)
+- 🟠 **TA-10-2026-0088 (Immunitätsaufhebung Braun)** — auf derselben Plenarsitzung angenommen; schafft neuen Präzedenzfall für Immunitätsaufhebungen bei MdEP, die nationalen Strafverfahren gegenüberstehen. (🟢 Hoch)
+- 🟢 **TA-10-2026-0063 (Bericht über bessere Rechtsetzung)** — angenommen 10. März; legt die Basislinie für die Regulierungsqualitätsdebatte für den Rest von EP10 fest. (🟢 Hoch)
+- 🟡 **TA-10-2026-0065 (Überprüfung des öffentlichen Zugangs zu Dokumenten)** — angenommen 10. März; ergänzt die Anti-Korruptionsrichtlinie auf dem Transparenzvektor. (🟢 Hoch)
+- 🔵 **Wirtschaftlicher Kontext:** Harmonisierung der Anti-Korruptionsrichtlinie reduziert die Varianz der Compliance-Kosten für grenzüberschreitende Unternehmen; positives Signal für den Binnenmarkt. (🟡 Mittel)
+- 🟣 **Querverweise:** Qatargate (Dezember 2022) war der katalysierende politische Korruptionsschock, der den Reformbogen einleitete, der in diesem März-2026-Cluster gipfelte. (🟡 Mittel)
+- 🩷 **Störungsvektor:** Ausweitung des Braun-Präzedenzfalls auf andere MdEP, die nationalen Ermittlungen gegenüberstehen (retrospektiv bestätigt durch Immunitätsaufhebung Jaki TA-10-2026-0105 im April). (🟡 Mittel zum damaligen Zeitpunkt)
+- ⚪ **Übertrag:** Nationale Umsetzung von TA-10-2026-0094 erfordert typischerweise 24 Monate; erste Compliance-Berichte fällig ~Q1 2028.
+
+---
+
+### 🗂️ Top-Dokumente / Verfahrenstabelle
+
+| Rang | EP-Referenz | Titel (kurz) | Verfahren | Bedeutung | Konfidenz |
+|:----:|-------------|--------------|-----------|:---------:|:---------:|
+| 1 | TA-10-2026-0094 | Anti-Korruptionsrichtlinie | 2023/0135 | 9,0 | 🟢 HOCH |
+| 2 | TA-10-2026-0088 | Immunitätsaufhebung Braun | 2025/2192 | 7,0 | 🟢 HOCH |
+| 3 | TA-10-2026-0063 | Bericht über bessere Rechtsetzung | 2025/2015 | 7,0 | 🟢 HOCH |
+| 4 | TA-10-2026-0065 | Überprüfung öffentlicher Dokumentenzugang | 2025/2137 | 7,0 | 🟢 HOCH |
+
+---
+
+### ⚠️ Risiko- und Bedrohungsschnappschuss
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| Risiko | L | I | Wert | Auslöser | Quelle | Admiralität |
+|--------|:-:|:-:|:----:|----------|--------|:-----------:|
+| Nationale Umsetzungsfragmentierung | 4 | 4 | 16 | Nichteinhaltung durch Mitgliedstaat | TA-10-2026-0094 | A1 |
+| EP-Polnisches Justiz-Spillover | 4 | 3 | 12 | Weitere Immunitätsfälle | TA-10-2026-0088 | A1 |
+| Übertreibung der Reformcluster-Rahmung | 3 | 2 | 6 | Redaktionelle Übertreibung | Synthese dieser Sitzung | B3 |
+| Operationalisierung besserer Rechtsetzung | 3 | 3 | 9 | Interinstitutionelle Reibung | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 Wichtigster Vorwärtstrigger
+
+**Vierteljährliche nationale Umsetzungsberichte für TA-10-2026-0094 in den Jahren 2026–2028.** Der Erfolg der Richtlinie hängt von einheitlichen Durchsetzungsstandards in allen 27 Mitgliedstaaten ab — der erste abweichende Umsetzungsbericht (wahrscheinlich aus einer der Rechtssysteme mit niedrigerer Rechtsstaatlichkeit) wird der wichtigste Vorwärtsindikator dafür sein, ob das März-2026-Reformcluster in der Praxis die Wiederherstellung institutioneller Glaubwürdigkeit liefert.
+
+---
+
+### 🛡️ Quellenqualitätsbewertung
+
+- **Primärquellen:** EP-Feed für angenommene Texte (ein-Wochen-Fallback aktiv angesichts des DEGRADIERTEN API-Zustands); Verfahrensregister für zitierte 2023/0135, 2025/2015, 2025/2137, 2025/2192.
+- **Konfidenz bei Annahmen:** 🟢 HOCH.
+- **Konfidenz bei "Cluster"-Rahmung:** 🟡 MITTEL — die verfahrensmäßige Unabhängigkeit der vier Texte ist real; Kohärenz ist analytische Inferenz, kein institutionelles Faktum.
+
+---
+
+### 📎 Links
+
+| Link | Pfad |
+|------|------|
+| Artikel | `./article.md` |
+| Schwestervorgänge | `analysis/daily/2026-04-03/breaking/` (Koalition), `breaking-2/` (EP API-Zuverlässigkeit) |
+| Manifest | `./manifest.json` |
+| Quelle — Annahmen | `analysis/daily/2026-03-10/` (Bessere Rechtsetzung, öffentlicher Zugang), `analysis/daily/2026-03-26/` (Antikorruption, Braun) |
+
+---
+
+### 🔄 Querverweis
+
+**Katalysierendes Vorereignis:** Qatargate (Dezember 2022) — der politische Korruptionsschock, der den institutionellen Reformbogen von EP10 einleitete.
+
+**Nachfolgende Entwicklung:** Immunitätsaufhebung Jaki (TA-10-2026-0105, April 2026) bestätigt die Hypothese der Braun-Präzedenz-Ausbreitung.
+
+---
+
+**Dokumentenkontrolle**
+- **Vorlage:** `/analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **Klassifizierung:** Öffentlich
+- **Retrospektive Erstellung:** Auffüllungssitzung.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**Las sesiones plenarias de marzo de 2026 produjeron un coherente paquete de cuatro textos de reforma institucional — el grupo más significativo desde la crisis del Qatargate en diciembre de 2022.** El texto ancla es la **directiva anticorrupción (TA-10-2026-0094, procedimiento 2023/0135, adoptada el 26 de marzo de 2026)** — tres años desde la propuesta de la Comisión hasta la adopción por el PE, lo que refleja tanto la sensibilidad política del expediente como la complejidad de armonizar las normas anticorrupción en 27 estados miembros. Textos complementarios: **levantamiento de la inmunidad de Braun (TA-10-2026-0088, procedimiento 2025/2192, adoptado el 26 de marzo)**, **informe sobre la mejora de la legislación (TA-10-2026-0063, procedimiento 2025/2015, adoptado el 10 de marzo)** y **revisión del acceso público a los documentos (TA-10-2026-0065, procedimiento 2025/2137, adoptada el 10 de marzo)**. En conjunto, estos textos refuerzan el arco de restauración de la credibilidad institucional del PE10. **Confianza 🟡 MEDIA** en el encuadre de "paquete coherente" (los textos surgieron de procedimientos independientes; la coherencia es interpretativa, no procedimental).
+
+---
+
+### 🧭 3 Decisiones que apoya este informe
+
+| # | Decisión | Quién decide | Plazo | Evidencia |
+|:-:|----------|--------------|:-----:|-----------|
+| 1 | **Editorial:** PUBLICAR un extenso artículo de reforma institucional que rastree el arco Qatargate → 2026 | Editor | +48h | Grupo de 4 textos + cronología de procedimiento de 3 años |
+| 2 | **Seguimiento:** rastrear los plazos de transposición nacional para TA-10-2026-0094 (ventana de 2 años típica) | Analista | trimestral | Informes de implementación de los estados miembros |
+| 3 | **Vigilancia prospectiva:** marcar los procedimientos de inmunidad de seguimiento como casos de prueba del precedente Braun | Responsable de análisis | 2026-04-30 | Vigilancia LIBE/JURI |
+
+---
+
+### 📰 Lectura de 60 segundos
+
+- 🔴 **TA-10-2026-0094 (directiva anticorrupción)** — adoptada el 26 de marzo de 2026 tras tres años en procedimiento (propuesta en 2023). Armonización fundamental a escala de la UE. (🟢 Alta en adopción; 🟡 Media en significado del encuadre)
+- 🟠 **TA-10-2026-0088 (levantamiento de inmunidad de Braun)** — adoptado en la misma sesión plenaria; establece un precedente reciente para el levantamiento de la inmunidad de eurodiputados que afrontan procesos penales nacionales. (🟢 Alta)
+- 🟢 **TA-10-2026-0063 (informe sobre la mejora de la legislación)** — adoptado el 10 de marzo; establece la línea base para el debate sobre la calidad regulatoria para el resto del PE10. (🟢 Alta)
+- 🟡 **TA-10-2026-0065 (revisión del acceso público a los documentos)** — adoptada el 10 de marzo; complementa la directiva anticorrupción en el vector de transparencia. (🟢 Alta)
+- 🔵 **Contexto económico:** la armonización de la directiva anticorrupción reduce la varianza de los costes de cumplimiento para las empresas transfronterizas; señal positiva para el mercado único. (🟡 Media)
+- 🟣 **Referencia cruzada:** el Qatargate (diciembre de 2022) fue el shock de corrupción política catalizador que inició el arco de reforma que culminó en este grupo de marzo de 2026. (🟡 Media)
+- 🩷 **Vector de perturbación:** extensión del precedente Braun a otros eurodiputados que afrontan investigaciones nacionales (confirmada retrospectivamente por el levantamiento de inmunidad de Jaki TA-10-2026-0105 en abril). (🟡 Media en el momento)
+- ⚪ **Arrastre:** la transposición nacional de TA-10-2026-0094 requiere típicamente 24 meses; primeros informes de cumplimiento previstos ~T1 2028.
+
+---
+
+### 🗂️ Principales documentos / Tabla de procedimientos
+
+| Rango | Referencia PE | Título (corto) | Procedimiento | Importancia | Confianza |
+|:-----:|---------------|----------------|---------------|:-----------:|:---------:|
+| 1 | TA-10-2026-0094 | Directiva anticorrupción | 2023/0135 | 9,0 | 🟢 ALTA |
+| 2 | TA-10-2026-0088 | Levantamiento de inmunidad de Braun | 2025/2192 | 7,0 | 🟢 ALTA |
+| 3 | TA-10-2026-0063 | Informe sobre la mejora de la legislación | 2025/2015 | 7,0 | 🟢 ALTA |
+| 4 | TA-10-2026-0065 | Revisión del acceso público a los documentos | 2025/2137 | 7,0 | 🟢 ALTA |
+
+---
+
+### ⚠️ Instantánea de riesgos y amenazas
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| Riesgo | L | I | Puntuación | Desencadenante | Fuente | Almirantazgo |
+|--------|:-:|:-:|:----------:|----------------|--------|:------------:|
+| Fragmentación de la transposición nacional | 4 | 4 | 16 | Incumplimiento de un estado miembro | TA-10-2026-0094 | A1 |
+| Desbordamiento judicial EP-Polonia | 4 | 3 | 12 | Nuevos casos de inmunidad | TA-10-2026-0088 | A1 |
+| Sobredimensionamiento del encuadre del grupo de reforma | 3 | 2 | 6 | Sobredimensionamiento editorial | Síntesis de esta sesión | B3 |
+| Operacionalización de la mejora legislativa | 3 | 3 | 9 | Fricción interinstitucional | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 Principal desencadenante prospectivo
+
+**Informes trimestrales de transposición nacional para TA-10-2026-0094 durante 2026–2028.** El éxito de la directiva depende de normas de aplicación coherentes en los 27 estados miembros — el primer informe de transposición divergente (probablemente de una de las jurisdicciones con menor Estado de Derecho) será el principal indicador avanzado de si el grupo de reformas de marzo de 2026 logra la restauración de la credibilidad institucional en la práctica.
+
+---
+
+### 🛡️ Evaluación de la calidad de las fuentes
+
+- **Fuentes primarias:** fuente de textos adoptados del PE (reserva de una semana activa dado el estado DEGRADADO de la API); registro de procedimientos para los procedimientos 2023/0135, 2025/2015, 2025/2137, 2025/2192 citados.
+- **Confianza en las adopciones:** 🟢 ALTA.
+- **Confianza en el encuadre de "grupo":** 🟡 MEDIA — la independencia procedimental de los cuatro textos es real; la coherencia es inferencia analítica, no hecho institucional.
+
+---
+
+### 📎 Enlaces
+
+| Enlace | Ruta |
+|--------|------|
+| Artículo | `./article.md` |
+| Ejecuciones hermanas | `analysis/daily/2026-04-03/breaking/` (coalición), `breaking-2/` (fiabilidad API PE) |
+| Manifiesto | `./manifest.json` |
+| Fuente — adopciones | `analysis/daily/2026-03-10/` (Mejora de la legislación, acceso público), `analysis/daily/2026-03-26/` (anticorrupción, Braun) |
+
+---
+
+### 🔄 Referencia cruzada
+
+**Evento previo catalizador:** Qatargate (diciembre de 2022) — el shock de corrupción política que inició el arco de reforma institucional del PE10.
+
+**Seguimiento posterior:** Levantamiento de inmunidad de Jaki (TA-10-2026-0105, abril de 2026) confirma la hipótesis de extensión del precedente Braun.
+
+---
+
+**Control documental**
+- **Plantilla:** `/analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **Clasificación:** Público
+- **Generación retrospectiva:** Sesión de relleno.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Maaliskuun 2026 täysistunnot tuottivat johdonmukaisen neljän asiakirjan institutionaalisen uudistuspaketin — merkittävimmän tällaisen ryhmän sitten joulukuun 2022 Qatargate-kriisin.** Ankkuriteksti on **korruption vastainen direktiivi (TA-10-2026-0094, menettely 2023/0135, hyväksytty 26. maaliskuuta 2026)** — kolme vuotta komission ehdotuksesta EP:n hyväksyntään, mikä heijastaa sekä asian poliittista herkkyyttä että 27 jäsenvaltion korruption vastaisten standardien yhdenmukaistamisen monimutkaisuutta. Ympäröivät tekstit: **Braunin koskemattomuuden peruuttaminen (TA-10-2026-0088, menettely 2025/2192, hyväksytty 26. maaliskuuta)**, **raportti paremmasta lainsäädännöstä (TA-10-2026-0063, menettely 2025/2015, hyväksytty 10. maaliskuuta)** ja **julkisen asiakirjoihin pääsyn tarkistelu (TA-10-2026-0065, menettely 2025/2137, hyväksytty 10. maaliskuuta)**. Yhdessä nämä vahvistavat EP10:n kaaren kohti institutionaalisen uskottavuuden palauttamista. **🟡 KOHTALAINEN luotettavuus** "johdonmukaiselle paketille" -kehystyksessä (tekstit syntyivät itsenäisistä menettelyistä; johdonmukaisuus on tulkitseva, ei menettelyllinen).
+
+---
+
+### 🧭 3 Päätöstä, Joita Tämä Tiivistelmä Tukee
+
+| # | Päätös | Kuka päättää | Määräaika | Todisteet |
+|:-:|--------|--------------|:---------:|-----------|
+| 1 | **Toimituksellinen:** JULKAISE pitkä institutionaalinen uudistusartikkeli, joka jäljittää Qatargate → uudistuskaari 2026 | Toimittaja | +48h | 4-asiakirjaryhmä + 3-vuotinen menettelyaikajana |
+| 2 | **Seuranta:** seuraa kansallisia täytäntöönpanoaikatauluja TA-10-2026-0094 (2-vuotinen ikkuna tyypillinen) | Analyytikko | neljännesvuosittain | Jäsenvaltioiden täytäntöönpanoraportit |
+| 3 | **Ennakkokatse:** merkitse jatkotoimet koskemattomuusmenettelyt Braun-ennakkotapauksen testitapauksiksi | Analyysipäällikkö | 2026-04-30 | LIBE/JURI-seuranta |
+
+---
+
+### 📰 60 sekunnin lukeminen
+
+- 🔴 **TA-10-2026-0094 (korruption vastainen direktiivi)** — hyväksytty 26. maaliskuuta 2026 kolmen vuoden menettelyn jälkeen (ehdotettu 2023). Perustavanlaatuinen EU:n laajuinen yhdenmukaistaminen. (🟢 Korkea hyväksynnässä; 🟡 Kohtalainen kehystysmerkityksessä)
+- 🟠 **TA-10-2026-0088 (Braunin koskemattomuuden peruuttaminen)** — hyväksytty samassa täysistunnossa; asettaa uuden ennakkotapauksen koskemattomuuden peruuttamiselle MEP:ille, jotka kohtaavat kansallisia rikossyytteitä. (🟢 Korkea)
+- 🟢 **TA-10-2026-0063 (raportti paremmasta lainsäädännöstä)** — hyväksytty 10. maaliskuuta; asettaa peruslinjan sääntelylaatukeskustelulle EP10:n lopulle. (🟢 Korkea)
+- 🟡 **TA-10-2026-0065 (julkisen asiakirjoihin pääsyn tarkistelu)** — hyväksytty 10. maaliskuuta; täydentää korruption vastaista direktiiviä avoimuusvektorilla. (🟢 Korkea)
+- 🔵 **Taloudellinen konteksti:** korruption vastaisen direktiivin yhdenmukaistaminen vähentää vaatimustenmukaisuuskustannusten varianssia rajat ylittäville yrityksille; myönteinen signaali sisämarkkinoille. (🟡 Kohtalainen)
+- 🟣 **Ristiviittaus:** Qatargate (joulukuu 2022) oli katalysoiva poliittinen korruptiosokki, joka aloitti uudistuskaaren, joka kulminoitui tähän maaliskuun 2026 ryhmään. (🟡 Kohtalainen)
+- 🩷 **Häiriövektori:** Braunin ennakkotapauksen leviäminen muihin MEP:eihin, jotka kohtaavat kansallisia tutkimuksia (vahvistettu retrospektiivisesti Jakin koskemattomuuden peruuttamisella TA-10-2026-0105 huhtikuussa). (🟡 Kohtalainen silloin)
+- ⚪ **Eteenpäin vieminen:** kansallinen TA-10-2026-0094:n täytäntöönpano vaatii tyypillisesti 24 kuukautta; ensimmäiset vaatimustenmukaisuusraportit erääntyvät ~Q1 2028.
+
+---
+
+### 🗂️ Tärkeimmät Asiakirjat / Menettelytaulukko
+
+| Sijoitus | EP-viite | Otsikko (lyhyt) | Menettely | Merkitys | Luotettavuus |
+|:--------:|----------|-----------------|-----------|:--------:|:------------:|
+| 1 | TA-10-2026-0094 | Korruption vastainen direktiivi | 2023/0135 | 9,0 | 🟢 KORKEA |
+| 2 | TA-10-2026-0088 | Braunin koskemattomuuden peruuttaminen | 2025/2192 | 7,0 | 🟢 KORKEA |
+| 3 | TA-10-2026-0063 | Raportti paremmasta lainsäädännöstä | 2025/2015 | 7,0 | 🟢 KORKEA |
+| 4 | TA-10-2026-0065 | Julkisen asiakirjoihin pääsyn tarkistelu | 2025/2137 | 7,0 | 🟢 KORKEA |
+
+---
+
+### ⚠️ Riski- ja uhkatilannekuva
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| Riski | L | I | Pisteet | Laukaisija | Lähde | Admiraliteetti |
+|-------|:-:|:-:|:-------:|------------|-------|:--------------:|
+| Kansallinen täytäntöönpanosplittautuminen | 4 | 4 | 16 | Jäsenvaltion noudattamatta jättäminen | TA-10-2026-0094 | A1 |
+| EP-puolalainen oikeuslaitosleviäminen | 4 | 3 | 12 | Lisää koskemattomuustapauksia | TA-10-2026-0088 | A1 |
+| Uudistusryhmän kehystyksen liioittelu | 3 | 2 | 6 | Toimituksellinen liioittelu | Tämän istunnon synteesi | B3 |
+| Paremman lainsäädännön operationalisointi | 3 | 3 | 9 | Toimielinten välinen kitka | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 Tärkein Eteenpäin Katsova Laukaisija
+
+**Neljännesvuosittaiset kansalliset täytäntöönpanoraportit TA-10-2026-0094:lle vuosina 2026–2028.** Direktiivin menestys riippuu yhdenmukaisista täytäntöönpanostandardeista kaikissa 27 jäsenvaltiossa — ensimmäinen poikkeava täytäntöönpanoraportti (todennäköisesti jostakin alhaisemman oikeusvaltioperiaatteen lainkäyttöalueelta) on tärkein eteenpäin katsova indikaattori siitä, toimittaako maaliskuun 2026 uudistusryhmä institutionaalisen uskottavuuden palauttamisen käytännössä.
+
+---
+
+### 🛡️ Lähteen Laadun Arviointi
+
+- **Ensisijaiset lähteet:** EP:n hyväksyttyjen tekstien syöte (yhden viikon varasuunnitelma aktiivinen HEIKENTYNEEN API-tilan vuoksi); menettelyrekisteri siteeratuille 2023/0135, 2025/2015, 2025/2137, 2025/2192.
+- **Luotettavuus hyväksynnöissä:** 🟢 KORKEA.
+- **Luotettavuus "ryhmä"-kehystyksessä:** 🟡 KOHTALAINEN — neljän tekstin menettelyllinen riippumattomuus on todellinen; johdonmukaisuus on analyyttinen päättely, ei institutionaalinen tosiasia.
+
+---
+
+### 📎 Linkit
+
+| Linkki | Polku |
+|--------|-------|
+| Artikkeli | `./article.md` |
+| Sisarsuoritukset | `analysis/daily/2026-04-03/breaking/` (koalitio), `breaking-2/` (EP API-luotettavuus) |
+| Manifesti | `./manifest.json` |
+| Lähde — hyväksynnät | `analysis/daily/2026-03-10/` (Parempi lainsäädäntö, julkinen pääsy), `analysis/daily/2026-03-26/` (korruption vastainen, Braun) |
+
+---
+
+### 🔄 Ristiviittaus
+
+**Katalysoiva aiempi tapahtuma:** Qatargate (joulukuu 2022) — poliittinen korruptiosokki, joka aloitti EP10:n institutionaalisen uudistuskaaren.
+
+**Myöhempi jatkotoimenpide:** Jakin koskemattomuuden peruuttaminen (TA-10-2026-0105, huhtikuu 2026) vahvistaa hypoteesin Braunin ennakkotapauksen leviämisestä.
+
+---
+
+**Asiakirjavalvonta**
+- **Malli:** `/analysis/templates/executive-brief.md`
+- **Artefaktipolku:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **Luokitus:** Julkinen
+- **Retrospektiivinen luominen:** Täyttöistunto.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**Les sessions plénières de mars 2026 ont produit un ensemble cohérent de quatre textes de réforme institutionnelle — le regroupement le plus significatif depuis la crise du Qatargate en décembre 2022.** Le texte de référence est la **directive anticorruption (TA-10-2026-0094, procédure 2023/0135, adoptée le 26 mars 2026)** — trois ans entre la proposition de la Commission et l'adoption par le PE, reflétant à la fois la sensibilité politique du dossier et la complexité de l'harmonisation des normes anticorruption dans 27 États membres. Textes associés : **levée de l'immunité de Braun (TA-10-2026-0088, procédure 2025/2192, adoptée le 26 mars)**, **rapport sur l'amélioration de la législation (TA-10-2026-0063, procédure 2025/2015, adopté le 10 mars)** et **réexamen de l'accès public aux documents (TA-10-2026-0065, procédure 2025/2137, adopté le 10 mars)**. Ensemble, ces textes renforcent l'arc de restauration de la crédibilité institutionnelle du PE10. **Confiance 🟡 MOYENNE** sur le cadrage "ensemble cohérent" (les textes sont issus de procédures indépendantes ; la cohérence est interprétative, non procédurale).
+
+---
+
+### 🧭 3 Décisions que cette note soutient
+
+| # | Décision | Qui décide | Échéance | Preuves |
+|:-:|----------|------------|:--------:|---------|
+| 1 | **Éditorial :** PUBLIER un long article sur la réforme institutionnelle retraçant l'arc Qatargate → 2026 | Rédacteur en chef | +48h | Groupe de 4 textes + chronologie de procédure de 3 ans |
+| 2 | **Surveillance :** suivre les délais de transposition nationaux pour TA-10-2026-0094 (fenêtre de 2 ans typique) | Analyste | trimestriel | Rapports de mise en œuvre des États membres |
+| 3 | **Veille prospective :** signaler les procédures d'immunité de suivi comme cas tests du précédent Braun | Responsable analyse | 2026-04-30 | Veille LIBE/JURI |
+
+---
+
+### 📰 Lecture en 60 secondes
+
+- 🔴 **TA-10-2026-0094 (directive anticorruption)** — adoptée le 26 mars 2026 après trois ans de procédure (proposée en 2023). Harmonisation fondamentale à l'échelle de l'UE. (🟢 Haute à l'adoption ; 🟡 Moyenne sur l'importance du cadrage)
+- 🟠 **TA-10-2026-0088 (levée d'immunité de Braun)** — adoptée lors de la même séance plénière ; crée un précédent récent pour les levées d'immunité des eurodéputés faisant face à des poursuites pénales nationales. (🟢 Haute)
+- 🟢 **TA-10-2026-0063 (rapport sur l'amélioration de la législation)** — adopté le 10 mars ; établit la base de référence pour le débat sur la qualité réglementaire pour le reste du PE10. (🟢 Haute)
+- 🟡 **TA-10-2026-0065 (réexamen de l'accès public aux documents)** — adopté le 10 mars ; complète la directive anticorruption sur le vecteur de transparence. (🟢 Haute)
+- 🔵 **Contexte économique :** l'harmonisation de la directive anticorruption réduit la variance des coûts de conformité pour les entreprises transfrontalières ; signal positif pour le marché unique. (🟡 Moyenne)
+- 🟣 **Référence croisée :** le Qatargate (décembre 2022) fut le choc de corruption politique catalyseur qui initia l'arc de réforme culminant dans ce groupe de mars 2026. (🟡 Moyenne)
+- 🩷 **Vecteur de perturbation :** extension du précédent Braun à d'autres eurodéputés faisant face à des enquêtes nationales (confirmée rétrospectivement par la levée d'immunité de Jaki TA-10-2026-0105 en avril). (🟡 Moyenne à l'époque)
+- ⚪ **Report :** la transposition nationale de TA-10-2026-0094 nécessite généralement 24 mois ; premiers rapports de conformité prévus ~T1 2028.
+
+---
+
+### 🗂️ Documents principaux / Tableau des procédures
+
+| Rang | Référence PE | Titre (court) | Procédure | Importance | Confiance |
+|:----:|--------------|---------------|-----------|:----------:|:---------:|
+| 1 | TA-10-2026-0094 | Directive anticorruption | 2023/0135 | 9,0 | 🟢 HAUTE |
+| 2 | TA-10-2026-0088 | Levée d'immunité de Braun | 2025/2192 | 7,0 | 🟢 HAUTE |
+| 3 | TA-10-2026-0063 | Rapport sur l'amélioration de la législation | 2025/2015 | 7,0 | 🟢 HAUTE |
+| 4 | TA-10-2026-0065 | Réexamen de l'accès public aux documents | 2025/2137 | 7,0 | 🟢 HAUTE |
+
+---
+
+### ⚠️ Instantané des risques et menaces
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| Risque | L | I | Score | Déclencheur | Source | Amirauté |
+|--------|:-:|:-:|:-----:|-------------|--------|:--------:|
+| Fragmentation de la transposition nationale | 4 | 4 | 16 | Non-conformité d'un État membre | TA-10-2026-0094 | A1 |
+| Répercussion EP-judiciaire polonaise | 4 | 3 | 12 | Nouveaux cas d'immunité | TA-10-2026-0088 | A1 |
+| Suraffirmation du cadrage du groupe de réforme | 3 | 2 | 6 | Suraffirmation éditoriale | Synthèse de cette session | B3 |
+| Opérationnalisation de l'amélioration législative | 3 | 3 | 9 | Friction interinstitutionnelle | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 Déclencheur prospectif prioritaire
+
+**Rapports trimestriels de transposition nationale pour TA-10-2026-0094 sur 2026–2028.** Le succès de la directive dépend de normes d'application cohérentes dans l'ensemble des 27 États membres — le premier rapport de transposition divergent (provenant probablement de l'une des juridictions à plus faible État de droit) sera le principal indicateur avancé permettant de savoir si le groupe de réformes de mars 2026 délivre concrètement le rétablissement de la crédibilité institutionnelle.
+
+---
+
+### 🛡️ Évaluation de la qualité des sources
+
+- **Sources primaires :** flux des textes adoptés du PE (repli d'une semaine actif en raison de l'état API DÉGRADÉ) ; registre des procédures pour les références citées 2023/0135, 2025/2015, 2025/2137, 2025/2192.
+- **Confiance sur les adoptions :** 🟢 HAUTE.
+- **Confiance sur le cadrage "groupe" :** 🟡 MOYENNE — l'indépendance procédurale des quatre textes est réelle ; la cohérence est une inférence analytique, pas un fait institutionnel.
+
+---
+
+### 📎 Liens
+
+| Lien | Chemin |
+|------|--------|
+| Article | `./article.md` |
+| Exécutions sœurs | `analysis/daily/2026-04-03/breaking/` (coalition), `breaking-2/` (fiabilité API PE) |
+| Manifeste | `./manifest.json` |
+| Source — adoptions | `analysis/daily/2026-03-10/` (Amélioration de la législation, accès public), `analysis/daily/2026-03-26/` (anticorruption, Braun) |
+
+---
+
+### 🔄 Référence croisée
+
+**Événement précédent catalyseur :** Qatargate (décembre 2022) — le choc de corruption politique qui initia l'arc de réforme institutionnelle du PE10.
+
+**Suite consécutive :** Levée d'immunité de Jaki (TA-10-2026-0105, avril 2026) confirme l'hypothèse d'extension du précédent Braun.
+
+---
+
+**Contrôle documentaire**
+- **Modèle :** `/analysis/templates/executive-brief.md`
+- **Chemin artefact :** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **Classification :** Public
+- **Génération rétrospective :** Session de remplissage.
+
+### Executive Brief He
+
+**סיווג:** OSINT | תיעוד פרלמנטרי ציבורי
+**אמינות:** 🟡 בינונית (סינתזה רטרוספקטיבית של אישורים במושב המליאה מרץ 2026)
+**נוצר:** 2026-04-03T00:00:00Z (סיכום רטרוספקטיבי)
+**סוג מאמר:** בהול — מודיעין מאבק בשחיתות ורפורמה מוסדית
+**מקור:** פורטל הנתונים הפתוחים של הפרלמנט האירופי
+
+---
+
+### 🎯 BLUF
+
+**מושבי המליאה של מרץ 2026 הניבו חבילת רפורמה מוסדית מגובשת הכוללת ארבעה טקסטים — האשכול המשמעותי ביותר מאז משבר הקטרגייט בדצמבר 2022.** הטקסט העוגן הוא **הנחיית מאבק בשחיתות (TA-10-2026-0094, נוהל 2023/0135, אושר ב-26 מרץ 2026)** — שלוש שנים מהצעת הנציבות עד לאישור הפרלמנט האירופי, המשקף הן את הרגישות הפוליטית של התיק והן את מורכבות הרמוניזציה של תקני מאבק בשחיתות ב-27 מדינות חברות. טקסטים נלווים: **ביטול חסינות בראון (TA-10-2026-0088, נוהל 2025/2192, אושר 26 מרץ)**, **דוח שיפור חקיקה (TA-10-2026-0063, נוהל 2025/2015, אושר 10 מרץ)** ו**סקירת גישה ציבורית למסמכים (TA-10-2026-0065, נוהל 2025/2137, אושר 10 מרץ)**. יחד, אלה מחזקים את קשת שיקום האמינות המוסדית של PE10. **אמינות 🟡 בינונית** על המסגור "חבילה מגובשת" (הטקסטים נוצרו מנהלים עצמאיים; הגיבוש הוא פרשני, לא נהלי).
+
+---
+
+### 🧭 3 החלטות שסיכום זה תומך בהן
+
+| # | החלטה | מי מחליט | מועד אחרון | ראיות |
+|:-:|-------|----------|:----------:|-------|
+| 1 | **עיתונאי:** פרסם מאמר רחב היקף על רפורמה מוסדית המתחקה אחר מסלול קטרגייט → 2026 | עורך | +48 שעות | אשכול 4 טקסטים + ציר זמן נהלי של 3 שנים |
+| 2 | **מעקב:** עקוב אחר מועדי ההטמעה הלאומיים עבור TA-10-2026-0094 (חלון של שנתיים טיפוסי) | אנליסט | רבעוני | דוחות יישום של מדינות חברות |
+| 3 | **צפייה קדימה:** סמן הליכי חסינות המשך כמקרי מבחן לתקדים בראון | מוביל ניתוח | 2026-04-30 | מעקב LIBE/JURI |
+
+---
+
+### 📰 קריאה של 60 שניות
+
+- 🔴 **TA-10-2026-0094 (הנחיית מאבק בשחיתות)** — אושר ב-26 מרץ 2026 לאחר שלוש שנים בנוהל (הוצע 2023). הרמוניזציה בסיסית ברחבי האיחוד האירופי. (🟢 גבוה באישור; 🟡 בינוני על חשיבות המסגור)
+- 🟠 **TA-10-2026-0088 (ביטול חסינות בראון)** — אושר באותה ישיבת מליאה; קובע תקדים עדכני לביטולי חסינות של חברי הפרלמנט האירופי העומדים בפני הליכים פליליים לאומיים. (🟢 גבוה)
+- 🟢 **TA-10-2026-0063 (דוח שיפור חקיקה)** — אושר 10 מרץ; קובע בסיס ייחוס לדיון על איכות רגולציה לשארית PE10. (🟢 גבוה)
+- 🟡 **TA-10-2026-0065 (סקירת גישה ציבורית למסמכים)** — אושר 10 מרץ; משלים את הנחיית מאבק בשחיתות על וקטור השקיפות. (🟢 גבוה)
+- 🔵 **הקשר כלכלי:** הרמוניזציה של הנחיית מאבק בשחיתות מפחיתה שונות בעלויות ציות לחברות חוצות גבולות; אות חיובי לשוק הפנימי. (🟡 בינוני)
+- 🟣 **הפניה צולבת:** הקטרגייט (דצמבר 2022) היה זעזוע שחיתות פוליטי מזרז שהחל את קשת הרפורמה שהגיעה לשיאה באשכול מרץ 2026. (🟡 בינוני)
+- 🩷 **וקטור שיבוש:** התפשטות תקדים בראון לחברי הפרלמנט האירופי האחרים העומדים בפני חקירות לאומיות (אושר רטרוספקטיבית על ידי ביטול חסינות יאקי TA-10-2026-0105 באפריל). (🟡 בינוני באותו זמן)
+- ⚪ **המשך:** הטמעה לאומית של TA-10-2026-0094 דורשת בדרך כלל 24 חודשים; דוחות ציות ראשונים יגיעו לפדיון ~ר1 2028.
+
+---
+
+### 🗂️ מסמכים ונהלים עיקריים
+
+| דירוג | אסמכתא PE | כותרת (קצרה) | נוהל | חשיבות | אמינות |
+|:------:|-----------|--------------|------|:-------:|:------:|
+| 1 | TA-10-2026-0094 | הנחיית מאבק בשחיתות | 2023/0135 | 9.0 | 🟢 גבוהה |
+| 2 | TA-10-2026-0088 | ביטול חסינות בראון | 2025/2192 | 7.0 | 🟢 גבוהה |
+| 3 | TA-10-2026-0063 | דוח שיפור חקיקה | 2025/2015 | 7.0 | 🟢 גבוהה |
+| 4 | TA-10-2026-0065 | סקירת גישה ציבורית למסמכים | 2025/2137 | 7.0 | 🟢 גבוהה |
+
+---
+
+### ⚠️ תמונת מצב סיכונים ואיומים
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| סיכון | ל | ת | ניקוד | מפעיל | מקור | דרגת אדמירלות |
+|-------|:-:|:-:|:-----:|--------|------|:--------------:|
+| פיצול הטמעה לאומית | 4 | 4 | 16 | אי-ציות של מדינה חברה | TA-10-2026-0094 | A1 |
+| גלישה שיפוטית PE-פולנית | 4 | 3 | 12 | מקרי חסינות נוספים | TA-10-2026-0088 | A1 |
+| הגזמה במסגור אשכול הרפורמה | 3 | 2 | 6 | הגזמה עיתונאית | סינתזת מפגש זה | B3 |
+| הפעלה של שיפור חקיקה | 3 | 3 | 9 | חיכוך בין-מוסדי | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 המפעיל העתידי העיקרי
+
+**דוחות הטמעה לאומיים רבעוניים עבור TA-10-2026-0094 במהלך 2026–2028.** הצלחת ההנחיה תלויה בסטנדרטים אחידים של אכיפה בכל 27 המדינות החברות — דוח ההטמעה הסוטה הראשון (ככל הנראה מאחת מהסמכויות שיפוטיות עם שלטון חוק נמוך יותר) יהיה המדד הקדימה-הסתכלות העיקרי לשאלה האם אשכול הרפורמה של מרץ 2026 מספק בפועל שיקום אמינות מוסדית.
+
+---
+
+### 🛡️ הערכת איכות מקורות
+
+- **מקורות ראשוניים:** עדכון הטקסטים המאושרים של הפרלמנט האירופי (גיבוי שבוע אחד פעיל בהתחשב במצב API הנחות); רישום נהלים עבור הנהלים המצוטטים 2023/0135, 2025/2015, 2025/2137, 2025/2192.
+- **אמינות על אישורים:** 🟢 גבוהה.
+- **אמינות על מסגור "אשכול":** 🟡 בינונית — העצמאות הנהלית של ארבעת הטקסטים אמיתית; גיבוש הוא הסקה אנליטית, לא עובדה מוסדית.
+
+---
+
+### 📎 קישורים
+
+| קישור | נתיב |
+|-------|------|
+| מאמר | `./article.md` |
+| ריצות אחיות | `analysis/daily/2026-04-03/breaking/` (קואליציה), `breaking-2/` (אמינות API של הפרלמנט האירופי) |
+| מניפסט | `./manifest.json` |
+| מקור — אישורים | `analysis/daily/2026-03-10/` (שיפור חקיקה, גישה ציבורית), `analysis/daily/2026-03-26/` (מאבק בשחיתות, בראון) |
+
+---
+
+### 🔄 הפניה צולבת
+
+**אירוע מוקדם מזרז:** הקטרגייט (דצמבר 2022) — זעזוע השחיתות הפוליטי שהחל את קשת הרפורמה המוסדית של PE10.
+
+**המשך עוקב:** ביטול חסינות יאקי (TA-10-2026-0105, אפריל 2026) מאשש את ההשערה בדבר התפשטות תקדים בראון.
+
+---
+
+**בקרת מסמכים**
+- **תבנית:** `/analysis/templates/executive-brief.md`
+- **נתיב ארטיפקט:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **סיווג:** ציבורי
+- **יצירה רטרוספקטיבית:** מושב מילוי.
+
+### Executive Brief Ja
+
+**分類:** OSINT | 公開議会記録
+**信頼度:** 🟡 中程度（2026年3月本会議採択の遡及的分析）
+**作成日:** 2026-04-03T00:00:00Z（遡及ブリーフ）
+**記事タイプ:** 速報 — 汚職対策・制度改革インテリジェンス
+**情報源:** 欧州議会オープンデータポータル
+
+---
+
+### 🎯 BLUF
+
+**2026年3月の本会議は、2022年12月のカタルゲート危機以来最も重要な一連の制度改革テキストを生み出した。** 中核となるのは**汚職対策指令（TA-10-2026-0094、手続き2023/0135、2026年3月26日採択）**で、欧州委員会の提案から欧州議会採択まで3年を要したことは、27加盟国における汚職対策基準の調和の政治的敏感さと複雑さを示している。関連テキスト：**ブラウン議員の不逮捕特権剥奪（TA-10-2026-0088、手続き2025/2192、3月26日採択）**、**規制改善報告書（TA-10-2026-0063、手続き2025/2015、3月10日採択）**、**文書への公的アクセス見直し（TA-10-2026-0065、手続き2025/2137、3月10日採択）**。これらは総合して、EP10の制度的信頼回復への道筋を強化する。「一貫したパッケージ」という枠組みに対する**信頼度🟡中程度**（テキストは独立した手続きから生まれており、一貫性は解釈的で手続き的ではない）。
+
+---
+
+### 🧭 このブリーフが支援する3つの意思決定
+
+| # | 意思決定 | 決定者 | 期限 | 根拠 |
+|:-:|---------|--------|:----:|------|
+| 1 | **編集:** カタルゲート → 2026改革の弧を追う詳細な制度改革記事の**掲載** | 編集長 | +48時間 | 4テキストのクラスター + 3年手続きタイムライン |
+| 2 | **監視:** TA-10-2026-0094の国内移行期限の追跡（通常2年の期間） | アナリスト | 四半期ごと | 加盟国実施報告書 |
+| 3 | **先行注視:** ブラウン先例のテストケースとして後続の特権剥奪手続きをフラグ | 分析責任者 | 2026-04-30 | LIBE/JURI監視 |
+
+---
+
+### 📰 60秒リード
+
+- 🔴 **TA-10-2026-0094（汚職対策指令）** — 2026年3月26日に採択（2023年提案から3年）。EU全体の基本的調和。（採択で🟢高；枠組みの重要性で🟡中程度）
+- 🟠 **TA-10-2026-0088（ブラウン特権剥奪）** — 同本会議で採択；国内刑事手続きに直面する欧州議員の特権剥奪に関する新たな先例を確立。（🟢高）
+- 🟢 **TA-10-2026-0063（規制改善報告書）** — 3月10日採択；EP10の残りの規制品質議論の基準線を設定。（🟢高）
+- 🟡 **TA-10-2026-0065（文書への公的アクセス見直し）** — 3月10日採択；透明性の観点から汚職対策指令を補完。（🟢高）
+- 🔵 **経済的文脈:** 汚職対策指令の調和により、国境を越えた企業のコンプライアンスコストの分散が低下；域内市場への肯定的シグナル。（🟡中程度）
+- 🟣 **相互参照:** カタルゲート（2022年12月）は、2026年3月のクラスターで結実した改革の弧を開始させた政治的汚職ショックだった。（🟡中程度）
+- 🩷 **混乱ベクター:** 国内捜査に直面する他の欧州議員へのブラウン先例の波及（4月のヤキ特権剥奪TA-10-2026-0105によって遡及的に確認）。（当時🟡中程度）
+- ⚪ **繰越し:** TA-10-2026-0094の国内移行には通常24ヶ月；最初のコンプライアンス報告書は~2028年Q1。
+
+---
+
+### 🗂️ 主要文書・手続きテーブル
+
+| 順位 | EP参照 | タイトル（短縮） | 手続き | 重要性 | 信頼度 |
+|:---:|--------|-----------------|--------|:------:|:------:|
+| 1 | TA-10-2026-0094 | 汚職対策指令 | 2023/0135 | 9.0 | 🟢 高 |
+| 2 | TA-10-2026-0088 | ブラウン特権剥奪 | 2025/2192 | 7.0 | 🟢 高 |
+| 3 | TA-10-2026-0063 | 規制改善報告書 | 2025/2015 | 7.0 | 🟢 高 |
+| 4 | TA-10-2026-0065 | 文書への公的アクセス見直し | 2025/2137 | 7.0 | 🟢 高 |
+
+---
+
+### ⚠️ リスク・脅威スナップショット
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| リスク | L | I | スコア | トリガー | 出典 | 確度 |
+|--------|:-:|:-:|:------:|----------|------|:----:|
+| 国内移行の断片化 | 4 | 4 | 16 | 加盟国の不遵守 | TA-10-2026-0094 | A1 |
+| EP-ポーランド司法への波及 | 4 | 3 | 12 | さらなる特権剥奪案件 | TA-10-2026-0088 | A1 |
+| 改革クラスターの枠組みの誇張 | 3 | 2 | 6 | 編集上の誇張 | 本セッションの総合 | B3 |
+| 規制改善の運用化 | 3 | 3 | 9 | 制度間摩擦 | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 主要な将来トリガー
+
+**2026〜2028年のTA-10-2026-0094に関する四半期国内移行報告書。** 指令の成功は、全27加盟国における一貫した執行基準にかかっている。最初の乖離移行報告書（法の支配が低い法域からの可能性が高い）は、2026年3月改革クラスターが実際に制度的信頼回復を達成しているかどうかを示す主要な先行指標となる。
+
+---
+
+### 🛡️ 情報源品質評価
+
+- **一次情報源:** 欧州議会採択テキストフィード（API状態DEGRADED（低下）のため1週間フォールバック有効）；引用された手続き2023/0135、2025/2015、2025/2137、2025/2192の手続きレジストリ。
+- **採択に関する信頼度:** 🟢 高。
+- **"クラスター"枠組みに関する信頼度:** 🟡 中程度 — 4つのテキストの手続き的独立性は実在；一貫性は分析的推論であり、制度的事実ではない。
+
+---
+
+### 📎 リンク
+
+| リンク | パス |
+|--------|------|
+| 記事 | `./article.md` |
+| 兄弟実行 | `analysis/daily/2026-04-03/breaking/`（連立）、`breaking-2/`（EP APIの信頼性） |
+| マニフェスト | `./manifest.json` |
+| 情報源 — 採択 | `analysis/daily/2026-03-10/`（規制改善、公的アクセス）、`analysis/daily/2026-03-26/`（汚職対策、ブラウン） |
+
+---
+
+### 🔄 相互参照
+
+**触媒的先行事象:** カタルゲート（2022年12月）— EP10の制度改革の弧を開始させた政治的汚職ショック。
+
+**その後の後続事象:** ヤキ特権剥奪（TA-10-2026-0105、2026年4月）によりブラウン先例波及の仮説が確認された。
+
+---
+
+**文書管理**
+- **テンプレート:** `/analysis/templates/executive-brief.md`
+- **成果物パス:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **分類:** 公開
+- **遡及生成:** バックフィルセッション。
+
+### Executive Brief Ko
+
+**분류:** OSINT | 공개 의회 기록
+**신뢰도:** 🟡 보통 (2026년 3월 본회의 채택 소급 분석)
+**생성일:** 2026-04-03T00:00:00Z (소급 요약)
+**기사 유형:** 속보 — 반부패 및 제도 개혁 인텔리전스
+**출처:** 유럽의회 공개 데이터 포털
+
+---
+
+### 🎯 BLUF
+
+**2026년 3월 본회의는 2022년 12월 카타르게이트 위기 이후 가장 중요한 4개 텍스트로 구성된 일관된 제도 개혁 패키지를 생산했다.** 핵심 텍스트는 **반부패 지침(TA-10-2026-0094, 절차 2023/0135, 2026년 3월 26일 채택)**으로, 유럽위원회 제안에서 유럽의회 채택까지 3년이 걸린 것은 해당 파일의 정치적 민감성과 27개 회원국에 걸친 반부패 기준 조화의 복잡성을 반영한다. 관련 텍스트: **브라운 의원 면책특권 해제(TA-10-2026-0088, 절차 2025/2192, 3월 26일 채택)**, **규제 개선 보고서(TA-10-2026-0063, 절차 2025/2015, 3월 10일 채택)**, **문서에 대한 공개 접근 검토(TA-10-2026-0065, 절차 2025/2137, 3월 10일 채택)**. 이 텍스트들은 EP10의 제도적 신뢰 회복 궤적을 강화한다. "일관된 패키지" 프레이밍에 대한 **신뢰도 🟡 보통** (텍스트들은 독립적인 절차에서 생겨났으며, 일관성은 해석적이고 절차적이지 않다).
+
+---
+
+### 🧭 이 요약이 지원하는 3가지 결정
+
+| # | 결정 | 결정자 | 기한 | 근거 |
+|:-:|------|--------|:----:|------|
+| 1 | **편집:** 카타르게이트 → 2026 개혁 궤적을 추적하는 심층 제도 개혁 기사 **출판** | 편집장 | +48시간 | 4개 텍스트 클러스터 + 3년 절차 타임라인 |
+| 2 | **모니터링:** TA-10-2026-0094의 국내 이행 기한 추적 (일반적으로 2년 기간) | 분석가 | 분기별 | 회원국 이행 보고서 |
+| 3 | **선행 감시:** 브라운 선례의 테스트 케이스로 후속 면책특권 절차 표시 | 분석 책임자 | 2026-04-30 | LIBE/JURI 감시 |
+
+---
+
+### 📰 60초 읽기
+
+- 🔴 **TA-10-2026-0094 (반부패 지침)** — 2026년 3월 26일 채택 (2023년 제안 후 3년). EU 전체 기본 조화. (채택에서 🟢 높음; 프레이밍 중요성에서 🟡 보통)
+- 🟠 **TA-10-2026-0088 (브라운 면책특권 해제)** — 같은 본회의에서 채택; 국내 형사 절차를 직면하는 유럽의회 의원들의 면책특권 해제에 대한 최근 선례 수립. (🟢 높음)
+- 🟢 **TA-10-2026-0063 (규제 개선 보고서)** — 3월 10일 채택; EP10 나머지 기간의 규제 품질 논의 기준선 설정. (🟢 높음)
+- 🟡 **TA-10-2026-0065 (문서에 대한 공개 접근 검토)** — 3월 10일 채택; 투명성 벡터에서 반부패 지침 보완. (🟢 높음)
+- 🔵 **경제적 맥락:** 반부패 지침 조화로 국경을 초월한 기업들의 규정 준수 비용 분산 감소; 역내시장에 긍정적 신호. (🟡 보통)
+- 🟣 **상호 참조:** 카타르게이트(2022년 12월)는 2026년 3월 클러스터에서 결실을 맺은 개혁 궤적을 시작한 정치적 부패 충격이었다. (🟡 보통)
+- 🩷 **혼란 벡터:** 국내 조사에 직면한 다른 유럽의회 의원들로의 브라운 선례 파급 (4월 야키 면책특권 해제 TA-10-2026-0105로 소급 확인). (당시 🟡 보통)
+- ⚪ **이월:** TA-10-2026-0094의 국내 이행에는 일반적으로 24개월 소요; 첫 준수 보고서 ~2028년 Q1 예정.
+
+---
+
+### 🗂️ 주요 문서 / 절차 테이블
+
+| 순위 | EP 참조 | 제목 (단축) | 절차 | 중요성 | 신뢰도 |
+|:---:|---------|-------------|------|:------:|:------:|
+| 1 | TA-10-2026-0094 | 반부패 지침 | 2023/0135 | 9.0 | 🟢 높음 |
+| 2 | TA-10-2026-0088 | 브라운 면책특권 해제 | 2025/2192 | 7.0 | 🟢 높음 |
+| 3 | TA-10-2026-0063 | 규제 개선 보고서 | 2025/2015 | 7.0 | 🟢 높음 |
+| 4 | TA-10-2026-0065 | 문서에 대한 공개 접근 검토 | 2025/2137 | 7.0 | 🟢 높음 |
+
+---
+
+### ⚠️ 리스크 및 위협 스냅샷
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| 리스크 | L | I | 점수 | 트리거 | 출처 | 해군 등급 |
+|--------|:-:|:-:|:---:|--------|------|:---------:|
+| 국내 이행 단편화 | 4 | 4 | 16 | 회원국 불이행 | TA-10-2026-0094 | A1 |
+| EP-폴란드 사법 파급 | 4 | 3 | 12 | 추가 면책특권 사례 | TA-10-2026-0088 | A1 |
+| 개혁 클러스터 프레이밍 과장 | 3 | 2 | 6 | 편집 과장 | 이 세션의 종합 | B3 |
+| 규제 개선 운영화 | 3 | 3 | 9 | 기관 간 마찰 | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 주요 선행 트리거
+
+**2026~2028년 TA-10-2026-0094에 대한 분기별 국내 이행 보고서.** 지침의 성공은 27개 회원국 전체에 걸친 일관된 집행 기준에 달려 있다. 첫 번째 이탈 이행 보고서(법치주의가 낮은 법역 중 하나에서 나올 가능성이 높음)는 2026년 3월 개혁 클러스터가 실제로 제도적 신뢰 회복을 달성하고 있는지를 보여주는 주요 선행 지표가 될 것이다.
+
+---
+
+### 🛡️ 정보원 품질 평가
+
+- **1차 출처:** 유럽의회 채택 텍스트 피드 (API 상태 저하로 1주일 대체 활성화); 인용된 2023/0135, 2025/2015, 2025/2137, 2025/2192 절차 레지스트리.
+- **채택에 대한 신뢰도:** 🟢 높음.
+- **"클러스터" 프레이밍에 대한 신뢰도:** 🟡 보통 — 4개 텍스트의 절차적 독립성은 실재; 일관성은 분석적 추론으로 제도적 사실이 아님.
+
+---
+
+### 📎 링크
+
+| 링크 | 경로 |
+|------|------|
+| 기사 | `./article.md` |
+| 자매 실행 | `analysis/daily/2026-04-03/breaking/` (연정), `breaking-2/` (EP API 신뢰성) |
+| 매니페스트 | `./manifest.json` |
+| 출처 — 채택 | `analysis/daily/2026-03-10/` (규제 개선, 공개 접근), `analysis/daily/2026-03-26/` (반부패, 브라운) |
+
+---
+
+### 🔄 상호 참조
+
+**촉매적 선행 사건:** 카타르게이트 (2022년 12월) — EP10의 제도 개혁 궤적을 시작한 정치적 부패 충격.
+
+**후속 진행:** 야키 면책특권 해제 (TA-10-2026-0105, 2026년 4월)로 브라운 선례 파급 가설이 확인됨.
+
+---
+
+**문서 관리**
+- **템플릿:** `/analysis/templates/executive-brief.md`
+- **산출물 경로:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **분류:** 공개
+- **소급 생성:** 백필 세션.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**De plenaire vergaderingen van maart 2026 produceerden een coherent pakket van vier teksten over institutionele hervorming — het meest significante dergelijke cluster sinds de Qatargate-crisis in december 2022.** De ankertekst is de **antikorruptierichtlijn (TA-10-2026-0094, procedure 2023/0135, aangenomen op 26 maart 2026)** — drie jaar van het Commissievoorstel tot EP-aanname, wat zowel de politieke gevoeligheid van het dossier als de complexiteit van de harmonisatie van antikorruptienormen in 27 lidstaten weerspiegelt. Begeleidende teksten: **opheffing van de immuniteit van Braun (TA-10-2026-0088, procedure 2025/2192, aangenomen 26 maart)**, **rapport over betere wetgeving (TA-10-2026-0063, procedure 2025/2015, aangenomen 10 maart)** en **herziening van de openbare toegang tot documenten (TA-10-2026-0065, procedure 2025/2137, aangenomen 10 maart)**. Samen versterken deze de boog van EP10 naar herstel van institutionele geloofwaardigheid. **🟡 GEMIDDELDE betrouwbaarheid** op de omschrijving "coherent pakket" (de teksten kwamen voort uit onafhankelijke procedures; samenhang is interpretatief, niet procedureel).
+
+---
+
+### 🧭 3 Beslissingen die dit rapport ondersteunt
+
+| # | Beslissing | Wie beslist | Deadline | Bewijs |
+|:-:|------------|-------------|:--------:|--------|
+| 1 | **Redactioneel:** PUBLICEER uitgebreid institutioneel hervormingsartikel dat het Qatargate → 2026-hervormboog traceert | Redacteur | +48u | Cluster van 4 teksten + 3-jarige proceduretijdlijn |
+| 2 | **Monitoring:** volg nationale omzettingstermijnen voor TA-10-2026-0094 (2-jaarsvenster typisch) | Analist | kwartaallijks | Uitvoeringsrapporten van lidstaten |
+| 3 | **Prospectieve bewaking:** markeer opvolgde immuniteitsprocedures als testcases voor Braun-precedent | Analyselead | 2026-04-30 | LIBE/JURI-bewaking |
+
+---
+
+### 📰 60-secondenlezing
+
+- 🔴 **TA-10-2026-0094 (antikorruptierichtlijn)** — aangenomen op 26 maart 2026 na drie jaar in de procedure (voorgesteld in 2023). Fundamentele EU-brede harmonisatie. (🟢 Hoog bij aanname; 🟡 Gemiddeld bij omschrijvingsbetekenis)
+- 🟠 **TA-10-2026-0088 (opheffing immuniteit Braun)** — aangenomen tijdens dezelfde plenaire vergadering; creëert een recent precedent voor immuniteitsheffingen van EP-leden die nationale strafrechtelijke procedures ondergaan. (🟢 Hoog)
+- 🟢 **TA-10-2026-0063 (rapport over betere wetgeving)** — aangenomen op 10 maart; stelt de basislijn in voor het debat over regelgevingskwaliteit voor de rest van EP10. (🟢 Hoog)
+- 🟡 **TA-10-2026-0065 (herziening openbare toegang tot documenten)** — aangenomen op 10 maart; complementeert de antikorruptierichtlijn op de transparantievector. (🟢 Hoog)
+- 🔵 **Economische context:** harmonisatie van de antikorruptierichtlijn vermindert de variantie van nalevingskosten voor grensoverschrijdende bedrijven; positief signaal voor de interne markt. (🟡 Gemiddeld)
+- 🟣 **Kruisreferentie:** Qatargate (december 2022) was de katalyserende politieke corruptieschok die de hervormingsboog inleidde die culmineerde in dit cluster van maart 2026. (🟡 Gemiddeld)
+- 🩷 **Verstoringsvector:** verspreiding van het Braun-precedent naar andere EP-leden die nationale onderzoeken ondergaan (retrospectief bevestigd door Jaki-immuniteitsheffing TA-10-2026-0105 in april). (🟡 Gemiddeld op dat moment)
+- ⚪ **Voortgezet:** nationale omzetting van TA-10-2026-0094 vereist doorgaans 24 maanden; eerste nalevingsrapporten vervallen ~Q1 2028.
+
+---
+
+### 🗂️ Topdocumenten / Proceduretabel
+
+| Rang | EP-referentie | Titel (kort) | Procedure | Belang | Betrouwbaarheid |
+|:----:|---------------|--------------|-----------|:------:|:---------------:|
+| 1 | TA-10-2026-0094 | Antikorruptierichtlijn | 2023/0135 | 9,0 | 🟢 HOOG |
+| 2 | TA-10-2026-0088 | Opheffing immuniteit Braun | 2025/2192 | 7,0 | 🟢 HOOG |
+| 3 | TA-10-2026-0063 | Rapport over betere wetgeving | 2025/2015 | 7,0 | 🟢 HOOG |
+| 4 | TA-10-2026-0065 | Herziening openbare toegang tot documenten | 2025/2137 | 7,0 | 🟢 HOOG |
+
+---
+
+### ⚠️ Risico- en dreigingsoverzicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| Risico | L | I | Score | Uitloper | Bron | Admiraalsgraad |
+|--------|:-:|:-:|:-----:|----------|------|:--------------:|
+| Nationale omzettingsfragmentatie | 4 | 4 | 16 | Niet-naleving door lidstaat | TA-10-2026-0094 | A1 |
+| EP-Poolse rechtswetenschappelijke spillover | 4 | 3 | 12 | Verdere immuniteitszaken | TA-10-2026-0088 | A1 |
+| Overdrijving van de hervormingsclusteromschrijving | 3 | 2 | 6 | Redactionele overdrijving | Synthese van deze sessie | B3 |
+| Operationalisering betere wetgeving | 3 | 3 | 9 | Interinstitutionele wrijving | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 Belangrijkste Prospectieve Uitloper
+
+**Kwartaallijkse nationale omzettingsrapporten voor TA-10-2026-0094 over 2026–2028.** Het succes van de richtlijn hangt af van consistente handhavingsnormen in alle 27 lidstaten — het eerste afwijkende omzettingsrapport (waarschijnlijk uit een van de rechtsstelsels met lagere rechtsstaat) zal de voornaamste indicator zijn of het hervormingscluster van maart 2026 in de praktijk institutionele geloofwaardigheidsherstel oplevert.
+
+---
+
+### 🛡️ Beoordeling bronkwaliteit
+
+- **Primaire bronnen:** EP-feed voor aangenomen teksten (één-weekse terugvalactief gezien GEDEGRADEERDE API-toestand); procedureregister voor geciteerde 2023/0135, 2025/2015, 2025/2137, 2025/2192.
+- **Betrouwbaarheid bij aannames:** 🟢 HOOG.
+- **Betrouwbaarheid bij "cluster"-omschrijving:** 🟡 GEMIDDELD — de procedurele onafhankelijkheid van de vier teksten is reëel; samenhang is analytische inferentie, geen institutioneel feit.
+
+---
+
+### 📎 Links
+
+| Link | Pad |
+|------|-----|
+| Artikel | `./article.md` |
+| Zusterruns | `analysis/daily/2026-04-03/breaking/` (coalitie), `breaking-2/` (EP API-betrouwbaarheid) |
+| Manifest | `./manifest.json` |
+| Bron — aannames | `analysis/daily/2026-03-10/` (Betere wetgeving, openbare toegang), `analysis/daily/2026-03-26/` (antikorruptie, Braun) |
+
+---
+
+### 🔄 Kruisreferentie
+
+**Katalyserend voorafgaand evenement:** Qatargate (december 2022) — de politieke corruptieschok die de institutionele hervormingsboog van EP10 inleidde.
+
+**Opvolgende ontwikkeling:** Jaki-immuniteitsheffing (TA-10-2026-0105, april 2026) bevestigt de hypothese van Braun-precedentverspreiding.
+
+---
+
+**Documentbeheer**
+- **Sjabloon:** `/analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectieve generatie:** Terugvulsessie.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Mars 2026 plenumsmøtene produserte en sammenhengende firetekstsinstituisjonell reformpakke — den mest betydningsfulle slike klyngen siden Qatargate-krisen i desember 2022.** Ankerteksten er **antikorrupsjonsdirektivet (TA-10-2026-0094, prosedyre 2023/0135, vedtatt 26. mars 2026)** — tre år fra Kommisjonens forslag til EP-vedtak, noe som gjenspeiler både den politiske følsomheten i saken og kompleksiteten med å harmonisere antikorrupsjonsstandarder på tvers av 27 medlemsland. Omkringliggende tekster: **Brauns immunitetsopphevelse (TA-10-2026-0088, prosedyre 2025/2192, vedtatt 26. mars)**, **rapporten om bedre lovgivning (TA-10-2026-0063, prosedyre 2025/2015, vedtatt 10. mars)** og **gjennomgang av offentlig tilgang til dokumenter (TA-10-2026-0065, prosedyre 2025/2137, vedtatt 10. mars)**. Samlet styrker disse EP10s bue mot gjenoppretting av institusjonell troverdighet. **🟡 MIDDELS konfidens** på "sammenhengende pakke"-innrammingen (tekstene oppstod fra uavhengige prosedyrer; sammenheng er tolkningsmessig, ikke prosedyremessig).
+
+---
+
+### 🧭 3 Beslutninger Dette Notatet Støtter
+
+| # | Beslutning | Hvem bestemmer | Frist | Bevis |
+|:-:|------------|----------------|:-----:|-------|
+| 1 | **Redaksjonelt:** PUBLISER langt institusjonelt reformstykke som sporer Qatargate → reformbue 2026 | Redaktør | +48t | 4-tekstsklynge + 3-årig prosedyretidslinje |
+| 2 | **Overvåking:** spor nasjonale gjennomføringsfrister for TA-10-2026-0094 (2-årsvindu typisk) | Analytiker | kvartalsvis | Gjennomføringsrapporter for medlemsland |
+| 3 | **Fremtidsovervåking:** merk oppfølgende immunitetssaker som testtilfeller for Braun-presedens | Analyseansvarlig | 2026-04-30 | LIBE/JURI-overvåking |
+
+---
+
+### 📰 60-sekunders lesning
+
+- 🔴 **TA-10-2026-0094 (antikorrupsjonsdirektivet)** — vedtatt 26. mars 2026 etter tre år i prosedyren (foreslått 2023). Grunnleggende EU-dekkende harmonisering. (🟢 Høy ved vedtak; 🟡 Middels ved innrammingsbetydning)
+- 🟠 **TA-10-2026-0088 (Brauns immunitetsopphevelse)** — vedtatt på samme plenumsmøte; setter ny presedens for opphevelser av MEP-er overfor nasjonale straffesaker. (🟢 Høy)
+- 🟢 **TA-10-2026-0063 (rapporten om bedre lovgivning)** — vedtatt 10. mars; fastlegger basislinjen for debatt om regelkvalitet for resten av EP10. (🟢 Høy)
+- 🟡 **TA-10-2026-0065 (gjennomgang av offentlig tilgang til dokumenter)** — vedtatt 10. mars; utfyller antikorrupsjonsdirektivet på transparensvektoren. (🟢 Høy)
+- 🔵 **Økonomisk kontekst:** harmonisering av antikorrupsjonsdirektivet reduserer variansen i samsvarskostnader for grenseoverskridende virksomheter; positivt signal for det indre marked. (🟡 Middels)
+- 🟣 **Kryssreferanse:** Qatargate (desember 2022) var det katalyserende politiske korrupsjonssjokket som begynte reformbuen som kulminerte i denne mars 2026-klyngen. (🟡 Middels)
+- 🩷 **Forstyrrelsesvektor:** Braun-presedens spredning til andre MEP-er overfor nasjonale undersøkelser (bekreftet retrospektivt ved Jakis immunitetsopphevelse TA-10-2026-0105 i april). (🟡 Middels på den tiden)
+- ⚪ **Fremføring:** nasjonal gjennomføring av TA-10-2026-0094 krever typisk 24 måneder; første samsvarrapporter forfaller ~Q1 2028.
+
+---
+
+### 🗂️ Topphandlinger / Prosedyretabell
+
+| Rang | EP-referanse | Tittel (kort) | Prosedyre | Betydning | Konfidens |
+|:----:|--------------|---------------|-----------|:---------:|:---------:|
+| 1 | TA-10-2026-0094 | Antikorrupsjonsdirektiv | 2023/0135 | 9,0 | 🟢 HØY |
+| 2 | TA-10-2026-0088 | Brauns immunitetsopphevelse | 2025/2192 | 7,0 | 🟢 HØY |
+| 3 | TA-10-2026-0063 | Rapport om bedre lovgivning | 2025/2015 | 7,0 | 🟢 HØY |
+| 4 | TA-10-2026-0065 | Gjennomgang av offentlig tilgang til dokumenter | 2025/2137 | 7,0 | 🟢 HØY |
+
+---
+
+### ⚠️ Risiko- og trusselbilde
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| Risiko | L | I | Score | Utløser | Kilde | Admiralitet |
+|--------|:-:|:-:|:-----:|---------|-------|:-----------:|
+| Nasjonal gjennomføringsfragmentering | 4 | 4 | 16 | Manglende overholdelse i medlemsland | TA-10-2026-0094 | A1 |
+| EP-polsk rettsligsmitte | 4 | 3 | 12 | Ytterligere immunitetstilfeller | TA-10-2026-0088 | A1 |
+| Overdrivelse av reformklyngeinnramming | 3 | 2 | 6 | Redaksjonell overdrivelse | Denne sesjonens syntese | B3 |
+| Operasjonalisering av bedre lovgivning | 3 | 3 | 9 | Interinstitusjonell friksjon | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 Viktigste Fremoverrettede Utløser
+
+**Kvartalsvise nasjonale gjennomføringsrapporter for TA-10-2026-0094 i 2026–2028.** Direktivets suksess avhenger av konsekvente håndhevelsesstandarder på tvers av alle 27 medlemsland — den første avvikende gjennomføringsrapporten (sannsynligvis fra en av jurisdiksjonene med lavere rettsstatsprinsipper) vil være den viktigste fremadrettede indikatoren for om mars 2026-reformklyngen faktisk leverer gjenoppretting av institusjonell troverdighet i praksis.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **Primære kilder:** EPs vedtatte tekst-feed (én ukes reserv aktiv gitt FORRINGET API-tilstand); prosedyreregisteret for siterte 2023/0135, 2025/2015, 2025/2137, 2025/2192.
+- **Konfidens ved vedtak:** 🟢 HØY.
+- **Konfidens ved "klynge"-innramming:** 🟡 MIDDELS — de fire tekstenes prosedyremessige uavhengighet er reell; sammenheng er analytisk slutning, ikke institusjonelt faktum.
+
+---
+
+### 📎 Lenker
+
+| Lenke | Sti |
+|-------|-----|
+| Artikkel | `./article.md` |
+| Søsterkjøringer | `analysis/daily/2026-04-03/breaking/` (koalisjon), `breaking-2/` (EP API-pålitelighet) |
+| Manifest | `./manifest.json` |
+| Kilde — vedtak | `analysis/daily/2026-03-10/` (Bedre lovgivning, offentlig tilgang), `analysis/daily/2026-03-26/` (antikorrupsjon, Braun) |
+
+---
+
+### 🔄 Kryssreferanse
+
+**Katalyserende forutgående hendelse:** Qatargate (desember 2022) — det politiske korrupsjonssjokket som begynte EP10s institusjonelle reformbue.
+
+**Etterfølgende oppfølging:** Jakis immunitetsopphevelse (TA-10-2026-0105, april 2026) bekrefter hypotesen om Braun-presedens spredning.
+
+---
+
+**Dokumentkontroll**
+- **Mal:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv generering:** Tilbakefyllingssesjon.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Mars 2026 plenarsammanträdena producerade ett sammanhängande fyratexts institutionellt reformpaket — det mest betydelsefulla sådana klustret sedan Qatargate-krisen i december 2022.** Ankartexten är **direktivet om antikorruption (TA-10-2026-0094, förfarande 2023/0135, antaget 26 mars 2026)** — tre år från kommissionens förslag till EP:s antagande, vilket återspeglar både den politiska känsligheten i ärendet och komplexiteten i att harmonisera antikorruptionsstandarder i 27 medlemsstater. Omgivande texter: **Brauns immunitetsupphävande (TA-10-2026-0088, förfarande 2025/2192, antaget 26 mars)**, **rapporten om bättre lagstiftning (TA-10-2026-0063, förfarande 2025/2015, antagen 10 mars)** och **översyn av allmänhetens tillgång till handlingar (TA-10-2026-0065, förfarande 2025/2137, antagen 10 mars)**. Sammantaget förstärker dessa EP10:s bana mot återupprättelse av institutionell trovärdighet. **🟡 MEDEL-tillförlitlighet** på framställningen "sammanhängande paket" (texterna uppstod ur oberoende förfaranden; sammanhang är tolkande, inte procedurellt).
+
+---
+
+### 🧭 3 Beslut Detta Kort Stöder
+
+| # | Beslut | Vem beslutar | Deadline | Bevis |
+|:-:|--------|--------------|:--------:|-------|
+| 1 | **Redaktionellt:** PUBLICERA långt institutionellt reformstycke som spårar Qatargate → reformbåge 2026 | Redaktör | +48h | 4-textskluster + 3-årig förfarandetidslinje |
+| 2 | **Övervakning:** spåra nationella genomförandefrister för TA-10-2026-0094 (2-årsfönster typiskt) | Analytiker | kvartalsvis | Genomföranderapporter för medlemsstater |
+| 3 | **Framåtbevakning:** markera uppföljande immunitetsförfaranden som testfall för Braun-prejudikat | Analysansvarig | 2026-04-30 | LIBE/JURI-bevakning |
+
+---
+
+### 📰 60-sekundersläsning
+
+- 🔴 **TA-10-2026-0094 (direktivet om antikorruption)** — antaget 26 mars 2026 efter tre år i förfarandet (föreslagit 2023). Grundläggande EU-övergripande harmonisering. (🟢 Hög vid antagande; 🟡 Medel vid inramning av betydelse)
+- 🟠 **TA-10-2026-0088 (Brauns immunitetsupphävande)** — antaget under samma plenumssammanträde; sätter nytt prejudikat för upphävanden av parlamentsledamöter som står inför nationella straffrättsliga förfaranden. (🟢 Hög)
+- 🟢 **TA-10-2026-0063 (rapporten om bättre lagstiftning)** — antagen 10 mars; fastlägger baslinjen för debatt om regelkvalitet för resten av EP10. (🟢 Hög)
+- 🟡 **TA-10-2026-0065 (översyn av allmänhetens tillgång till handlingar)** — antagen 10 mars; kompletterar antikorruptionsdirektivet på transparensvektorn. (🟢 Hög)
+- 🔵 **Ekonomisk kontext:** harmonisering av antikorruptionsdirektivet minskar variansen i efterlevnadskostnader för gränsöverskridande företag; positivt signal för inre marknaden. (🟡 Medel)
+- 🟣 **Korsreferens:** Qatargate (december 2022) var det katalyserande politiska korruptionschocken som inledde reformbågen som kulminerade i detta mars 2026-kluster. (🟡 Medel)
+- 🩷 **Störningsvektor:** Braun-prejudikatets spridning till andra parlamentsledamöter som möter nationella utredningar (bekräftad retroaktivt av Jakis immunitetsupphävande TA-10-2026-0105 i april). (🟡 Medel vid tillfället)
+- ⚪ **Framtida åtgärder:** nationellt genomförande av TA-10-2026-0094 kräver vanligtvis 24 månader; första efterlevnadsrapporter förfaller ~Q1 2028.
+
+---
+
+### 🗂️ Topphandlingar / Förfarandetabell
+
+| Rang | EP-referens | Titel (kort) | Förfarande | Betydelse | Tillförlitlighet |
+|:----:|-------------|--------------|------------|:---------:|:----------------:|
+| 1 | TA-10-2026-0094 | Antikorruptionsdirektiv | 2023/0135 | 9,0 | 🟢 HÖG |
+| 2 | TA-10-2026-0088 | Brauns immunitetsupphävande | 2025/2192 | 7,0 | 🟢 HÖG |
+| 3 | TA-10-2026-0063 | Rapport om bättre lagstiftning | 2025/2015 | 7,0 | 🟢 HÖG |
+| 4 | TA-10-2026-0065 | Översyn av allmänhetens tillgång till handlingar | 2025/2137 | 7,0 | 🟢 HÖG |
+
+---
+
+### ⚠️ Risk- och hotögonblicksbild
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| Risk | L | I | Poäng | Utlösare | Källa | Admiralitet |
+|------|:-:|:-:|:-----:|----------|-------|:-----------:|
+| Nationell genomförandefragmentering | 4 | 4 | 16 | Bristande efterlevnad i medlemsstat | TA-10-2026-0094 | A1 |
+| EP-polsk rättsväsendes spridning | 4 | 3 | 12 | Ytterligare immunitetsfall | TA-10-2026-0088 | A1 |
+| Överdrift av reformklusterinramning | 3 | 2 | 6 | Redaktionell överdrift | Denna sessions syntes | B3 |
+| Operationalisering av bättre lagstiftning | 3 | 3 | 9 | Mellaninstitutionell friktion | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 Viktigaste Framåtutlösare
+
+**Kvartalsvisa nationella genomföranderapporter för TA-10-2026-0094 under 2026–2028.** Direktivets framgång beror på enhetliga tillämpningsstandarder i alla 27 medlemsstater — den första avvikande genomföranderapporten (troligen från en av jurisdiktionerna med lägre rättsstatsprinciper) kommer att vara det viktigaste framåtindikatorn för om mars 2026-reformklustret faktiskt levererar återupprättelse av institutionell trovärdighet i praktiken.
+
+---
+
+### 🛡️ Källkvalitetsbedömning
+
+- **Primära källor:** EP:s feed för antagna texter (en veckas reserv aktiv med tanke på FÖRSÄMRAT API-tillstånd); förfaranderegistret för citerade 2023/0135, 2025/2015, 2025/2137, 2025/2192.
+- **Tillförlitlighet vid antaganden:** 🟢 HÖG.
+- **Tillförlitlighet vid "kluster"-inramning:** 🟡 MEDEL — de fyra texternas procedurella oberoende är verkligt; sammanhang är analytisk slutledning, inte institutionellt faktum.
+
+---
+
+### 📎 Länkar
+
+| Länk | Sökväg |
+|------|--------|
+| Artikel | `./article.md` |
+| Systerundersökningar | `analysis/daily/2026-04-03/breaking/` (koalition), `breaking-2/` (EP API-tillförlitlighet) |
+| Manifest | `./manifest.json` |
+| Källa — antaganden | `analysis/daily/2026-03-10/` (Bättre lagstiftning, allmänhetens tillgång), `analysis/daily/2026-03-26/` (antikorruption, Braun) |
+
+---
+
+### 🔄 Korsreferens
+
+**Katalyserande tidigare händelse:** Qatargate (december 2022) — den politiska korruptionschocken som inledde EP10:s institutionella reformbåge.
+
+**Efterföljande uppföljning:** Jakis immunitetsupphävande (TA-10-2026-0105, april 2026) bekräftar hypotesen om Braun-prejudikatets spridning.
+
+---
+
+**Dokumentkontroll**
+- **Mall:** `/analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retroaktiv generering:** Bakfyllningssession.
+
+### Executive Brief Zh
+
+**分类：** OSINT | 公开议会记录
+**可信度：** 🟡 中等（2026年3月全体会议通过决议的回顾性综合分析）
+**生成日期：** 2026-04-03T00:00:00Z（回顾性摘要）
+**文章类型：** 速报 — 反腐败与制度改革情报
+**来源：** 欧洲议会开放数据门户
+
+---
+
+### 🎯 BLUF
+
+**2026年3月全体会议产生了一套连贯的四文件制度改革方案——这是自2022年12月卡塔尔门危机以来最重要的此类组合。** 核心文件是**反腐败指令（TA-10-2026-0094，程序2023/0135，2026年3月26日通过）**——从欧盟委员会提案到欧洲议会通过历时三年，反映了该文件的政治敏感性以及在27个成员国间协调反腐败标准的复杂性。配套文件：**布劳恩议员豁免权撤销（TA-10-2026-0088，程序2025/2192，3月26日通过）**、**更好立法报告（TA-10-2026-0063，程序2025/2015，3月10日通过）**和**公众查阅文件权审查（TA-10-2026-0065，程序2025/2137，3月10日通过）**。这些文件共同强化了EP10恢复制度公信力的轨迹。"连贯方案"这一定性的**可信度🟡中等**（这些文件源于独立程序；连贯性是解释性判断，而非程序性事实）。
+
+---
+
+### 🧭 本摘要支持的3项决策
+
+| # | 决策 | 决策者 | 期限 | 依据 |
+|:-:|------|--------|:----:|------|
+| 1 | **编辑：** 发表追溯卡塔尔门→2026改革弧的深度制度改革文章 | 主编 | +48小时 | 4文件组合 + 3年程序时间轴 |
+| 2 | **监测：** 跟踪TA-10-2026-0094的各国国内转化期限（通常为2年窗口期） | 分析师 | 季度 | 成员国执行报告 |
+| 3 | **前瞻监视：** 将后续豁免权程序标记为布劳恩先例测试案例 | 分析负责人 | 2026-04-30 | LIBE/JURI监视 |
+
+---
+
+### 📰 60秒速读
+
+- 🔴 **TA-10-2026-0094（反腐败指令）** — 2026年3月26日通过（2023年提案后历时三年）。欧盟范围内的基础性协调。（通过时🟢高；框架重要性🟡中等）
+- 🟠 **TA-10-2026-0088（布劳恩豁免权撤销）** — 同次全体会议通过；为面临国内刑事诉讼的欧洲议员豁免权撤销创立最新先例。（🟢高）
+- 🟢 **TA-10-2026-0063（更好立法报告）** — 3月10日通过；为EP10其余任期的监管质量讨论设定基准。（🟢高）
+- 🟡 **TA-10-2026-0065（公众查阅文件权审查）** — 3月10日通过；从透明度维度补充反腐败指令。（🟢高）
+- 🔵 **经济背景：** 反腐败指令协调降低了跨境企业合规成本的差异；对内部市场发出积极信号。（🟡中等）
+- 🟣 **交叉参考：** 卡塔尔门（2022年12月）是催化性政治腐败冲击，引发了在2026年3月组合中达到顶点的改革弧。（🟡中等）
+- 🩷 **扰动矢量：** 布劳恩先例向其他面临国内调查的欧洲议员扩散（4月亚基豁免权撤销TA-10-2026-0105事后证实）。（当时🟡中等）
+- ⚪ **延续：** TA-10-2026-0094的国内转化通常需要24个月；首份合规报告预计于~2028年Q1到期。
+
+---
+
+### 🗂️ 主要文件 / 程序表
+
+| 排名 | 欧洲议会参考号 | 标题（简短） | 程序 | 重要性 | 可信度 |
+|:---:|--------------|-------------|------|:------:|:------:|
+| 1 | TA-10-2026-0094 | 反腐败指令 | 2023/0135 | 9.0 | 🟢 高 |
+| 2 | TA-10-2026-0088 | 布劳恩豁免权撤销 | 2025/2192 | 7.0 | 🟢 高 |
+| 3 | TA-10-2026-0063 | 更好立法报告 | 2025/2015 | 7.0 | 🟢 高 |
+| 4 | TA-10-2026-0065 | 公众查阅文件权审查 | 2025/2137 | 7.0 | 🟢 高 |
+
+---
+
+### ⚠️ 风险与威胁快照
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=41f7dbf5) -->
+
+| 风险 | L | I | 分值 | 触发因素 | 来源 | 可靠性 |
+|------|:-:|:-:|:---:|----------|------|:------:|
+| 国内转化碎片化 | 4 | 4 | 16 | 成员国违规 | TA-10-2026-0094 | A1 |
+| EP-波兰司法溢出 | 4 | 3 | 12 | 更多豁免权案例 | TA-10-2026-0088 | A1 |
+| 改革组合框架夸大 | 3 | 2 | 6 | 编辑夸大 | 本次会话综合 | B3 |
+| 更好立法实施运营化 | 3 | 3 | 9 | 机构间摩擦 | TA-10-2026-0063 | A2 |
+
+---
+
+### 🔮 最重要的前瞻性触发因素
+
+**2026至2028年TA-10-2026-0094的季度国内转化报告。** 该指令的成功取决于27个成员国全体一致的执法标准——首份出现偏差的转化报告（可能来自法治水平较低的司法管辖区）将是判断2026年3月改革组合能否切实推动制度公信力恢复的主要前瞻指标。
+
+---
+
+### 🛡️ 信息源质量评估
+
+- **主要来源：** 欧洲议会通过文本供稿（鉴于API状态降级，启用一周备用机制）；已引用程序2023/0135、2025/2015、2025/2137、2025/2192的程序登记册。
+- **通过决议的可信度：** 🟢 高。
+- **"组合"框架的可信度：** 🟡 中等——四个文件在程序上确实独立；连贯性是分析推断，而非制度事实。
+
+---
+
+### 📎 链接
+
+| 链接 | 路径 |
+|------|------|
+| 文章 | `./article.md` |
+| 同期运行 | `analysis/daily/2026-04-03/breaking/`（联盟），`breaking-2/`（EP API可靠性） |
+| 清单 | `./manifest.json` |
+| 来源——通过决议 | `analysis/daily/2026-03-10/`（更好立法、公众查阅），`analysis/daily/2026-03-26/`（反腐败、布劳恩） |
+
+---
+
+### 🔄 交叉参考
+
+**催化性先前事件：** 卡塔尔门（2022年12月）——引发EP10制度改革弧的政治腐败冲击。
+
+**后续跟进：** 亚基豁免权撤销（TA-10-2026-0105，2026年4月）证实了布劳恩先例扩散的假设。
+
+---
+
+**文件管控**
+- **模板：** `/analysis/templates/executive-brief.md`
+- **成果物路径：** `analysis/daily/2026-04-03/breaking-3/executive-brief.md`
+- **分类：** 公开
+- **回顾性生成：** 回填会话。
+
 ### Intelligence Brief
 
 | Field | Value |
@@ -1119,6 +2381,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [anti-corruption-reform-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/anti-corruption-reform-intelligence.md) | `anti-corruption-reform-intelligence.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/intelligence-brief.md) | `intelligence-brief.md` |
 | section-supplementary-intelligence | [strategic-recess-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/strategic-recess-assessment.md) | `strategic-recess-assessment.md` |
 | section-supplementary-intelligence | [trade-policy-deep-dive](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/trade-policy-deep-dive.md) | `trade-policy-deep-dive.md` |

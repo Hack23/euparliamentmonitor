@@ -98,7 +98,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `intelligence/political-intelligence.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 
@@ -2246,6 +2246,864 @@ Stage D will use the `npm run generate-article -- --run "${ANALYSIS_DIR}"` deter
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+### BLUF (Bottom Line Up Front)
+
+تمثّل أسبوع 6–13 مايو 2026 أوضح تأكيد أسبوعي منفرد حتى الآن على أن EP10 قد انتقل من **مرحلة التوسع** في التشريعات الأوروبية (موجة الاتفاقية الخضراء / قانون الذكاء الاصطناعي / CSDDD في EP9) إلى **مرحلة التوحيد والمراجعة**. يدفع نظام اللجان في الوقت ذاته: (i) أكبر أداة صناعية دفاعية أوروبية على الإطلاق (EDIS، ≈€150 مليار)، (ii) إعادة فتح سياسية لا رجعة فيها للاتفاقية الخضراء (عتبات CSRD المعتمدة عبر TA-10-2026-0160، وتطبيق NRL موضع خلاف، ومراجعة UWWTD جارية)، (iii) إصلاحين منهجيين في حوكمة الخدمات المالية (AMLA، CMU المرحلة 2)، و(iv) المرحلة التشغيلية لتطبيق قانون الذكاء الاصطناعي — كل ذلك في ظل برلمان **دون أغلبية موسّعة دائمة**. الاتجاه الإجمالي، لا أي ملف بعينه، هو الإشارة الاستراتيجية: **انعطاف نحو اليمين في التشريع البيئي والمالي؛ نهج صقري تجاه الدفاع؛ حذر إزاء الذكاء الاصطناعي؛ مؤسساتية حازمة تجاه بنية الاتحاد الأوروبي**. *مستوى الثقة: مرتفع.*
+
+### Three Decisions Riding On This Week
+
+1. **الحدّ الأدنى لمراجعة الاتفاقية الخضراء هو الآن المسألة الوحيدة المفتوحة.** أرست المصادقة في أبريل على عتبات CSRD المعدّلة، إلى جانب استمرار عمل لجنة ENVI على UWWTD والنقاش الدائر حول تطبيق NRL، *الاتجاهَ* — إذ ستُعاد هيكلة المكتسبات البيئية لـ EP9 جوهريًا. لن تستطيع المجموعات التقدمية (S&D + Greens + Left) قلب هذا المسار؛ إذ يبقى هامش مناورتها دفاعيًا بحتًا، ينصبّ على وضع حد أدنى للبقاء فيما يخص عتبات الإفصاح، وإدراج الملوثات الدقيقة، وصياغة تطبيق التنوع البيولوجي. *مستوى الثقة: مرتفع.*
+
+2. **سيحدد اختبار استقلالية AMLA مصداقية الاتحاد الأوروبي في مكافحة غسل الأموال لعقد كامل.** تجد مجموعة S&D + Renew + Greens التي دفعت باتجاه استقلالية تشغيلية حقيقية نفسها في تحالف رابح عدديًا لكنه هش سياسيًا: جمود المجلس حول موقع المقرّ ينعكس الآن على الجوهر، وكلما امتدت المفاوضات إلى ما بعد 2027، ظلّ إطار مكافحة غسل الأموال الأوروبي يتوافق مع استنتاج FinCEN لعام 2025 الذي يصف الاتحاد الأوروبي بأنه الولاية القضائية في مجموعة G7 الأكثر إخفاقًا في التطبيق. الخلاف داخل اللجان حول صلاحيات AMLA (لا سيما نطاق الإشراف المباشر) هو القرار الفعلي، لا المقرّ. *مستوى الثقة: متوسط-مرتفع.*
+
+3. **ستحدد EDIS السابقة للرقابة البرلمانية على سياسة الصناعة الدفاعية لبقية دورة EP10.** أداة بقيمة €150 مليار تمر عبر نقاش مثير للجدل حول الاختصاص (ITRE / SEDE / AFET) تمثل أكبر سابقة مؤسسية في هذا البرلمان. إذا قصرت البنية النهائية دور البرلمان على الاستشارة عوضًا عن المشاركة في صنع القرار بشأن تخصيصات الصناعة الدفاعية التشغيلية، يحصل المجلس والمفوضية على قالب للالتفاف الحكومي الدولي في كل ملف دفاعي يأتي بعد ذلك. المصلحة المؤسسية عبر الأطياف (S&D + Renew + الأجنحة المؤسسية للـ EPP) هي التحالف الوحيد القادر على منع ذلك. *مستوى الثقة: متوسط.*
+
+### 60-Second Read
+
+يمثّل أسبوع اللجان مفارقة: ناتج تشريعي مرتفع يرتكز على برلمان منخفض التماسك. الصورة العددية تفسّر ذلك. تتضاعف حصة EPP البالغة 25.7% من المقاعد بفعل **رئاسة خمس لجان رئيسية** تمنحه ميزة تأطير السيناريو كمحرك أول، ومقرونة بـ ECR والدعم غير الرسمي من PfE تُنتج أغلبية يمين-وسط في التشريع التنظيمي والتنافسية وملفات الهجرة تتجاوز الحصة الخام لـ EPP. غير أن الهيكل ذاته **لا يوفر أغلبية بشأن الحد الأدنى البيئي أو الحقوق الاجتماعية أو التصميم المؤسسي لـ AMLA**، حيث تشكّل S&D + Greens + أجزاء من Renew + Left أحيانًا كتلة مضادة دائمة.
+
+لهذا السبب يمتلك كل ملف رئيسي هذا الأسبوع **تحالفًا مخصصًا**: EPP + Renew في CMU وChips II ووضع أرضية CSRD؛ S&D + Renew في استقلالية AMLA وضمانات الحقوق الأساسية للذكاء الاصطناعي؛ تحالف عابر للأطياف في إشراف EDIS. موقع المحور لـ 77 مقعدًا لـ Renew هو المتغير الأهم والوحيد في EP10 — إذ إن خياراته على مستوى اللجان، أكثر من تصويته في الجلسة العامة، يحدد أي من المنطقتين السياسيتين المتعارضتين تنتصر في كل ملف.
+
+في العمق، تُعدّ **أطروحة دورة التنظيم** (Majone, Radaelli) عملية بوضوح: أفرز EP9 أكبر ناتج تشريعي لبرلمان واحد في تاريخ الاتحاد الأوروبي؛ أما EP10 فهو برلمان التوحيد. مراجعة عتبات CSRD هي أوضح دليل تجريبي — للمرة الأولى منذ 2019 صوّت البرلمان على *تقليص* نطاق تطبيق أحد ملفاته البيئية الرائدة. هذه هي الحقيقة الهيكلية، بصرف النظر عن نتائج تعديلات الأسبوع.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | المخاطرة | الاحتمالية | الأثر | الصافي |
+|---|------|------------:|------:|----:|
+| 1 | انهيار تنفيذ NRL (أقلية حاجبة في المجلس، تعرض لمحكمة العدل الأوروبية) | مرتفعة | مرتفع | **الأعلى** |
+| 2 | جمود AMLA يمتد إلى ما بعد 2027 (ثغرة مكافحة غسل الأموال المتبقية في G7) | متوسطة-مرتفعة | مرتفع | **الأعلى** |
+| 3 | حوكمة EDIS تُقصي المشاركة البرلمانية في صنع القرار (مخاطر السابقة في جميع ملفات الدفاع) | متوسطة | مرتفع جدًا | **الأعلى** |
+| 4 | إلغاء محكمة العدل الأوروبية لمراجعة Omnibus/CSRD لعدم كفاية التعليل | منخفضة-متوسطة | مرتفع | مراقبة |
+| 5 | انهيار CMU المرحلة 2 بسبب الإرهاق السياسي قبل الاعتماد | مرتفعة | متوسط | مراقبة |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **نتيجة المفاوضات الثلاثية لـ CSRD:** تحدد النص التفاوضي النهائي بين المجلس والبرلمان ما إذا كان الحد الأدنى يُحدد عند ≥500 موظف (حد أدنى تقدمي) أو ≥1000 (سقف EPP-ECR).
+- **تحركات الرئاسة الدورية للمجلس بشأن AMLA:** أي بيان للمجلس يعيد ربط المقرّ + الصلاحيات يُشير إلى أن المفاوضات الجوهرية باتت مسيّسة.
+- **قرار اختصاص EDIS:** قيادة ITRE مقابل قيادة SEDE هو المعيار الإجرائي لتحديد ما إذا كان البرلمان يحصل على المشاركة في صنع القرار أم الوضع الاستشاري فحسب.
+- **رسائل المخالفات لـ NRL:** رسالة المخالفة من المفوضية إلى المجر أو بولندا بشأن عدم تنفيذ NRL ستنقل الملف من الجمود السياسي إلى الجمود القانوني.
+- **أولى التعيينات الوطنية لهيئات الإشراف على قانون الذكاء الاصطناعي:** الموعد النهائي أواخر مايو/أوائل يونيو يكشف الدول الأعضاء المستعدة تشغيليًا وتلك المتأخرة.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| الفرضية | الأدلة الداعمة | الأدلة المعارضة | التقييم |
+|---|---|---|---|
+| H1: EP10 برلمان توحيد مُفرِّط في تخفيف القواعد | خفض عتبات CSRD، Omnibus، هيمنة EPP على الرئاسات، تعاون ECR | طموح AMLA، ضغط رقابة EDIS، تطبيق قانون الذكاء الاصطناعي على المسار الصحيح | **مدعومة جزئيًا** — صحيحة بيئيًا وماليًا، لا هيكليًا |
+| H2: الكتلة التقدمية لا تزال قادرة على رسم حدود طموحة | الحفاظ على الملوثات الدقيقة في UWWTD، تحالف استقلالية AMLA | خفض أرضية CSRD، إضعاف تطبيق NRL | **مدعومة بشكل ضعيف** — انتصارات دفاعية فقط |
+| H3: المؤسساتية عبر الأطياف هي هوية EP10 الدائمة | ضغط رقابة EDIS، نقاش صلاحيات AMLA، ضمانات حقوق الذكاء الاصطناعي الأساسية | تحالفات مخصصة لكل ملف، لا توجد أغلبية موسّعة | **مدعومة بشكل معتدل** — السمة الهيكلية الأكثر تقليلًا من شأنها |
+
+### Source Quality (Admiralty grading)
+
+- موجزات بوابة البيانات المفتوحة للبرلمان الأوروبي (وثائق اللجان، النصوص المعتمدة TA-10-2026-0160): **A2** (مؤسسة موثوقة، مؤكدة)
+- التقاطات التصويت في XML لـ DOCEO (حيثما توفرت): **A2**
+- الإطار الأكاديمي السياسي المُركَّب (نظرية دورة التنظيم لـ Majone وRadaelli): **B2** (مصدر أكاديمي موثوق عادةً، سياق يرجح صحته)
+- توقعات التحالفات المستقبلية (الأسابيع الـ 2–6 القادمة): **C3** (موثوق إلى حد ما، محتمل الصحة — احتمالي بطبيعته)
+
+### Provenance
+
+- التشغيل: `committee-reports-run249-1778650040` (2026-05-13)
+- الملفات الأولية المُطالَعة لإعداد هذا الموجز: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- حداثة البيانات: 13 مايو 2026.
+- جميع التقييمات مستمدة حصرًا من موجزات بوابة البيانات المفتوحة للبرلمان الأوروبي وبيانات التصويت. متوافق مع اللائحة الأوروبية لحماية البيانات GDPR؛ لا يوجد تنميط شخصي لأعضاء البرلمان الأوروبي.
+
+---
+
+*الحياد التحليلي: يرصد هذا الموجز الحسابات الائتلافية الملحوظة والحالة الإجرائية، دون أحكام حزبية. كل ادعاء اتجاهي مقترن بمستوى ثقة صريح ومعالجة للفرضيات المتنافسة.*
+
+### Executive Brief Da
+
+### BLUF (Bottom Line Up Front)
+
+Ugen 6.–13. maj 2026 er den hidtil klareste enkeltuge-bekræftelse på, at EP10 har bevæget sig fra **ekspansionsfasen** af EU-regulering (EP9's Grønne Pagt / AI-forordning / CSDDD-bølge) til en **konsoliderings- og revisionsfase**. Udvalgssystemet driver sideløbende (i) det hidtil største EU-forsvarsindustrielle instrument (EDIS, ≈€150 mia.), (ii) en politisk irreversibel genåbning af den Grønne Pagt (CSRD-tærskler vedtaget via TA-10-2026-0160, NRL-håndhævelse bestridt, UWWTD-revision i gang), (iii) to systemiske reformer af finansiel styring (AMLA, CMU fase 2) samt (iv) den operationelle fase af AI-forordningens implementering — alt under et Parlament med **ingen holdbar supermajoritet**. Den samlede retning, ikke noget enkelt dossier, er det strategiske signal: **højredrejet på miljø- og finansregulering; haukagtig på forsvar; forsigtig på AI; bestemt institutionalistisk på EU's arkitektur**. *Konfidens: HØJ.*
+
+### Three Decisions Riding On This Week
+
+1. **Gulvet i den Grønne Pagts revision er nu det eneste åbne spørgsmål.** Aprilvedtagelsen af reviderede CSRD-tærskler kombineret med fortsat ENVI-arbejde om UWWTD og den igangværende NRL-håndhævelsesdebat har fastlåst *retningen* — EP9's miljøretslige acquis vil blive væsentligt genåbnet. Progressive grupper (S&D + Greens + Left) kan ikke vende dette forløb; deres tilbageværende indflydelse er rent defensiv, forankret i at sætte et overlevelsesminimum for videregivelsestærskler, inkludering af mikro-forurenende stoffer og biodiversitetshåndhævelsessprog. *Konfidens: HØJ.*
+
+2. **AMLA's uafhængighedstest vil definere EU's AML-troværdighed i et årti.** Klyngen S&D + Renew + Greens, der pressede på for ægte operationel uafhængighed, befinder sig i en numerisk vindende, men politisk skrøbelig koalition: Rådets dødvande om sædets placering bløder nu ind i substansen, og jo længere forhandlingerne strækker sig ud over 2027, desto mere vil EU's AML-ramme fortsætte med at svare til 2025 Fincen-rapporten, der beskriver EU som G7's jurisdiktion med størst håndhævelsesmangler. Udvalgsstriden om AMLA's beføjelser (især direkte tilsynsomfang) er den faktiske afgørelse, ikke sædet. *Konfidens: MODERAT–HØJ.*
+
+3. **EDIS vil sætte præcedensen for parlamentarisk tilsyn med forsvarsindustripolitik for resten af EP10.** Et €150 mia.-instrument, der passerer en omstridt jurisdiktionsdebat (ITRE / SEDE / AFET), er dette Parlaments største institutionelle præcedens. Hvis den endelige arkitektur reducerer Parlamentet til konsultation frem for medbeslutning om operationelle forsvarsindustrielle allokeringer, får Rådet og Kommissionen en skabelon for mellemstatslig omgåelse på alle forsvarsdossierer, der følger. Tværspektret institutionel interesse (S&D + Renew + EPP's institutionelle fløje) er den eneste koalition, der kan forhindre dette. *Konfidens: MODERAT.*
+
+### 60-Second Read
+
+Udvalgsuge er et paradoks: høj lovgivningsmæssig produktion oven på et parlament med lav kohæsion. Det numeriske billede forklarer det. EPP's 25,7 % andel af mandaterne forstærkes af **fem store udvalgsformandskaber**, der giver det rammesættende førstemoverfordele, og kombineret med ECR plus uformel PfE-støtte producerer en center-højre-majoritet om deregulering, konkurrenceevne og migrationsdossierer, der overskrider EPP's rå andel. Men den samme arkitektur **leverer ikke en majoritet om miljøgulvet, sociale rettigheder eller AMLA's institutionelle design**, hvor S&D + Greens + dele af Renew + lejlighedsvis Left danner en holdbar modblok.
+
+Det er grunden til, at hvert større dossier denne uge har en **skræddersyet koalition**: EPP + Renew om CMU, Chips II og CSRD-gulvsætning; S&D + Renew om AMLA's uafhængighed og AI's grundlæggende rettighedsgarantier; tværspektret om EDIS-tilsyn. Renews 77-mandats svingposition er den eneste mest afgørende variabel i EP10 — dens udvalgsvalg, mere end dens afstemninger i plenum, afgør, hvilken af to modsatrettede politiske logikker der vinder hvert dossier.
+
+Bag dette er **reguleringscyklus-tesen** (Majone, Radaelli) nu tydeligt operativ: EP9 producerede den største enkeltparlaments lovgivningsoutput i EU's historie; EP10 er konsolideringsparlamentet. CSRD-tærskelrevisionen er det reneste empiriske bevis — for første gang siden 2019 har Parlamentet stemt for at *reducere* anvendelsesomfanget af et af sine egne flagskibs-miljødossierer. Det er det strukturelle faktum, uanset ugens ændringsresultater.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | Risiko | Sandsynlighed | Konsekvens | Netto |
+|---|------|------------:|------:|----:|
+| 1 | NRL-implementeringssammenbrud (rådsblokerende minoritet, EU-Domstolseksponering) | HØJ | HØJ | **Top** |
+| 2 | AMLA-dødvande strækker sig ud over 2027 (resterende G7 AML-hul) | MED–HØJ | HØJ | **Top** |
+| 3 | EDIS-styring udelukker parlamentarisk medbeslutning (præcedensrisiko på alle forsvarsdossierer) | MED | MEGET HØJ | **Top** |
+| 4 | EU-Domstolen annullerer Omnibus/CSRD-revision for utilstrækkelig begrundelse | LAV–MED | HØJ | Observér |
+| 5 | CMU fase 2 kollapser i politisk udmattelse inden vedtagelse | HØJ | MED | Observér |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **CSRD-triloguens udfald:** den endelige Råd–Parlament-kompromistekst afgør, om gulvet sættes ved ≥500 ansatte (progressivt gulv) eller ≥1 000 (EPP–ECR-loft).
+- **AMLA Rådsformandskabets træk:** ethvert rådsudtalelse, der rebundter sæde + beføjelser, signalerer, at den substantielle forhandling nu er politiseret.
+- **EDIS's jurisdiktionsbeslutning:** ITRE-ledelse kontra SEDE-ledelse er den proceduremæssige proxy for, om Parlamentet opnår medbeslutning eller blot rådgivende status.
+- **NRL-overtrædelsesbreve:** et Kommissionsbrev om NRL-manglende gennemførelse til Ungarn eller Polen ville flytte dossieret fra politisk dødvande til juridisk dødvande.
+- **AI-forordningens første nationale tilsynsudpegninger:** sen maj/tidlig juni-deadline afslører, hvilke medlemsstater der er operationelt klar, og hvilke der halter bagud.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| Hypotese | Understøttende beviser | Modbeviser | Vurdering |
+|---|---|---|---|
+| H1: EP10 er et deregulerende konsolideringsparlament | CSRD-tærskelsænkning, Omnibus, EPP-formandsdominans, ECR-samarbejde | AMLA-ambition, EDIS-tilsynspres, AI-forordningens håndhævelse på rette spor | **Delvist understøttet** — sand om miljø og finans, ikke om institutionel arkitektur |
+| H2: Progressiv blok kan stadig sætte ambitiøse gulve | UWWTD-mikro-forureningsretention, AMLA-uafhængighedskoalition | CSRD-gulv sænket, NRL-håndhævelse svækket | **Svagt understøttet** — kun defensive sejre |
+| H3: Tværspektret institutionalisme er EP10's holdbare identitet | EDIS-tilsynspres, AMLA-magtdebat, AI-forordningens grundlæggende rettighedsgarantier | Skræddersyede per-dossier-koalitioner, ingen supermajoritet | **Moderat understøttet** — det mest undervurderede strukturelle træk |
+
+### Source Quality (Admiralty grading)
+
+- EP Åbne Dataportalfeeds (udvalgs­dokumenter, vedtagne tekster TA-10-2026-0160): **A2** (pålidelig institution, bekræftet)
+- DOCEO XML-afstemningsfangster (hvor tilgængeligt): **A2**
+- Syntetiseret politisk-videnskabelig indramning (Majone, Radaelli reguleringscikelteori): **B2** (normalt pålidelig akademisk kilde, sandsynligvis sand kontekstualisering)
+- Fremadblikkende koalitionsprognoser (næste 2–6 uger): **C3** (ret pålidelig, muligvis sand — iboende sandsynlighedsbaseret)
+
+### Provenance
+
+- Kørsel: `committee-reports-run249-1778650040` (2026-05-13)
+- Primære artefakter læst til dette sammendrag: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- Datakurrency: 13. maj 2026.
+- Alle vurderinger er afledt udelukkende af offentlige EP Åbne Dataportalfeeds og afstemningsdata. GDPR-kompatibel; ingen personlig MEP-profilering.
+
+---
+
+*Analytisk neutralitet: dette sammendrag rapporterer observerbar koalitionsaritmetik og procedurestatus, ikke partipolitisk vurdering. Hvert retningsbestemt udsagn er afdæmpet med eksplicit konfidens og konkurrerende-hypotesbehandling.*
+
+### Executive Brief De
+
+### BLUF (Bottom Line Up Front)
+
+Die Woche vom 6.–13. Mai 2026 ist die bisher deutlichste Einzelwochenbestätigung dafür, dass EP10 von der **Expansionsphase** der EU-Regulierung (EP9s Grüner Deal / KI-Rechtsakt / CSDDD-Welle) in eine **Konsolidierungs- und Revisionsphase** übergegangen ist. Das Ausschusssystem treibt gleichzeitig voran: (i) das bisher größte EU-verteidigungsindustrielle Instrument (EDIS, ≈€150 Mrd.), (ii) eine politisch irreversible Wiederöffnung des Grünen Deals (CSRD-Schwellenwerte angenommen via TA-10-2026-0160, NRL-Durchsetzung bestritten, UWWTD-Revision läuft), (iii) zwei systemische Reformen der Finanzaufsicht (AMLA, CMU Phase 2) sowie (iv) die operative Phase der KI-Rechtsakt-Umsetzung — alles unter einem Parlament **ohne stabile Supermehrheit**. Die aggregierte Entwicklungsrichtung, nicht ein einzelnes Dossier, ist das strategische Signal: **Rechtsruck bei Umwelt- und Finanzregulierung; falkenhafte Haltung bei Verteidigung; vorsichtig bei KI; entschlossen institutionalistisch bei der EU-Architektur**. *Konfidenz: HOCH.*
+
+### Three Decisions Riding On This Week
+
+1. **Die Untergrenze der Grüner-Deal-Revision ist nun die einzige offene Frage.** Die April-Annahme revidierter CSRD-Schwellenwerte kombiniert mit anhaltender ENVI-Arbeit zur UWWTD und der laufenden NRL-Durchsetzungsdebatte hat die *Richtung* festgelegt — das Umweltacquis von EP9 wird wesentlich neu geöffnet. Progressive Gruppen (S&D + Greens + Left) können diese Entwicklung nicht umkehren; ihr verbleibender Einfluss ist rein defensiv, verankert in der Festlegung einer Mindestuntergrenze für Offenlegungsschwellenwerte, Einbeziehung von Mikroschadstoffstoffen und Formulierungen zur Biodiversitätsdurchsetzung. *Konfidenz: HOCH.*
+
+2. **AMLAs Unabhängigkeitstest wird die AML-Glaubwürdigkeit der EU für ein Jahrzehnt definieren.** Das Cluster S&D + Renew + Greens, das auf echte operative Unabhängigkeit drängte, befindet sich in einer numerisch gewinnbaren, aber politisch fragilen Koalition: Der Ratsdurchbruchmangel beim Standort blutet nun in die Substanz ein, und je länger die Verhandlungen über 2027 hinausgehen, desto mehr wird der AML-Rahmen der EU weiterhin dem 2025-Fincen-Befund entsprechen, der die EU als die G7-Rechtsordnung mit den größten Durchsetzungslücken beschreibt. Der Ausschusskampf um AMLA-Befugnisse (insbesondere Direktaufsichtsumfang) ist die eigentliche Entscheidung, nicht der Sitz. *Konfidenz: MODERAT–HOCH.*
+
+3. **EDIS wird den Präzedenzfall für die parlamentarische Aufsicht der Verteidigungsindustriepolitik für den Rest von EP10 setzen.** Ein €150 Mrd.-Instrument, das eine umstrittene Zuständigkeitsdebatte (ITRE / SEDE / AFET) durchläuft, ist der größte institutionelle Präzedenzfall dieses Parlaments. Wenn die endgültige Architektur das Parlament auf Konsultation statt Mitentscheidung bei operativen Verteidigungsindustrieallokatoren beschränkt, erhält der Rat eine Vorlage für zwischenstaatliche Umgehung bei jedem folgenden Verteidigungsdossier. Übergreifendes institutionelles Interesse (S&D + Renew + institutionelle Flügel der EPP) ist die einzige Koalition, die dies verhindern kann. *Konfidenz: MODERAT.*
+
+### 60-Second Read
+
+Die Ausschusswoche ist ein Paradoxon: hoher legislativer Output bei einem Parlament mit geringer Kohäsion. Das numerische Bild erklärt es. EPPs 25,7 % Sitzanteil wird durch **fünf große Ausschussvorsitze** verstärkt, die ihm framing-Erstmovervorteile verschaffen, und in Kombination mit ECR sowie informeller PfE-Unterstützung ergibt sich eine Mitte-Rechts-Mehrheit bei Deregulierung, Wettbewerbsfähigkeit und Migrationsdossiers, die EPPs Rohanteil übersteigt. Aber dieselbe Architektur **liefert keine Mehrheit bei Umweltuntergrenze, sozialen Rechten oder AMLA-Institutionsdesign**, wo S&D + Greens + Teile von Renew + gelegentlich Left einen dauerhaften Gegenblock bilden.
+
+Deshalb hat jedes wichtige Dossier dieser Woche eine **maßgeschneiderte Koalition**: EPP + Renew bei CMU, Chips II und CSRD-Bodenbildung; S&D + Renew bei AMLA-Unabhängigkeit und KI-Grundrechtsgarantien; übergreifend bei EDIS-Aufsicht. Renews 77-Sitze-Scharnierposition ist die einzige ausschlaggebendste Variable in EP10 — seine Ausschussentscheidungen, mehr als seine Plenarwahlgänge, bestimmen, welche der zwei entgegengesetzten politischen Logiken bei jedem Dossier gewinnt.
+
+Darunter ist die **Regulierungszyklusthese** (Majone, Radaelli) nun klar operativ: EP9 produzierte den größten parlamentarischen Regulierungsoutput in der EU-Geschichte; EP10 ist das Konsolidierungsparlament. Die CSRD-Schwellenrevision ist das klarste empirische Beleg — zum ersten Mal seit 2019 hat das Parlament dafür gestimmt, den Anwendungsbereich eines seiner eigenen Umwelt-Leuchtturmwerke zu *reduzieren*. Das ist die strukturelle Tatsache, ungeachtet wöchentlicher Änderungsantragsergebnisse.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | Risiko | Wahrscheinlichkeit | Auswirkung | Netto |
+|---|------|------------:|------:|----:|
+| 1 | NRL-Umsetzungszusammenbruch (Ratssperrminorität, EuGH-Exponierung) | HOCH | HOCH | **Top** |
+| 2 | AMLA-Stillstand über 2027 hinaus (verbleibende G7-AML-Lücke) | MED–HOCH | HOCH | **Top** |
+| 3 | EDIS-Governance schließt parlamentarische Mitentscheidung aus (Präzedenzrisiko bei allen Verteidigungsdossiers) | MED | SEHR HOCH | **Top** |
+| 4 | EuGH hebt Omnibus/CSRD-Revision wegen unzureichender Begründung auf | NIEDRIG–MED | HOCH | Beobachten |
+| 5 | CMU Phase 2 bricht vor Annahme an politischer Erschöpfung zusammen | HOCH | MED | Beobachten |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **CSRD-Trilograusgang:** der endgültige Rat–Parlament-Kompromisstext bestimmt, ob der Boden bei ≥500 Beschäftigten (progressiver Boden) oder ≥1 000 (EPP–ECR-Decke) gesetzt wird.
+- **AMLA-Ratspräsidentschaftsschritte:** jede Ratsäußerung, die Sitz + Befugnisse wieder bündelt, signalisiert, dass die substanzielle Verhandlung nun politisiert ist.
+- **EDIS-Zuständigkeitsentscheidung:** ITRE-Führung versus SEDE-Führung ist der prozedurale Proxy dafür, ob das Parlament Mitentscheidungs- oder nur Beratungsstatus erhält.
+- **NRL-Vertragsverletzungsschreiben:** ein Kommissionsschreiben an Ungarn oder Polen wegen NRL-Nichtumsetzung würde das Dossier von politischer Sackgasse in rechtliche Sackgasse verschieben.
+- **KI-Rechtsakt — erste nationale Aufsichtsbehördenbezeichnungen:** Ende-Mai/Anfang-Juni-Frist offenbart, welche Mitgliedstaaten operativ bereit sind und welche in Verzug geraten.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| Hypothese | Stützende Belege | Gegenbelege | Bewertung |
+|---|---|---|---|
+| H1: EP10 ist ein deregulierendes Konsolidierungsparlament | CSRD-Schwellensenkung, Omnibus, EPP-Vorsitzdominanz, ECR-Kooperation | AMLA-Ambitionen, EDIS-Aufsichtsdruck, KI-Rechtsakt-Durchsetzung im Plan | **Teilweise gestützt** — stimmt für Umwelt und Finanzen, nicht für institutionelle Architektur |
+| H2: Progressiver Block kann noch ehrgeizige Untergrenzen setzen | UWWTD-Mikroschadstoffretention, AMLA-Unabhängigkeitskoalition | CSRD-Boden abgesenkt, NRL-Durchsetzung geschwächt | **Schwach gestützt** — nur defensive Gewinne |
+| H3: Spektrumübergreifender Institutionalismus ist EP10s dauerhaftige Identität | EDIS-Aufsichtsdruck, AMLA-Befugnisdebatte, KI-Rechtsakt-Grundrechtsgarantien | Maßgeschneiderte Per-Dossier-Koalitionen, keine Supermehrheit | **Moderat gestützt** — das am meisten unterschätzte Strukturmerkmal |
+
+### Source Quality (Admiralty grading)
+
+- EP-Offene-Datenportal-Feeds (Ausschussdokumente, angenommene Texte TA-10-2026-0160): **A2** (zuverlässige Institution, bestätigt)
+- DOCEO-XML-Abstimmungserfassungen (wo verfügbar): **A2**
+- Synthetisierter politikwissenschaftlicher Rahmen (Majone, Radaellis Regulierungszyklustheorie): **B2** (üblicherweise zuverlässige akademische Quelle, wahrscheinlich wahre Kontextualisierung)
+- Vorausblickende Koalitionsprognosen (nächste 2–6 Wochen): **C3** (ziemlich zuverlässig, möglicherweise wahr — inhärent probabilistisch)
+
+### Provenance
+
+- Lauf: `committee-reports-run249-1778650040` (2026-05-13)
+- Für dieses Briefing gelesene Primärartefakte: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- Datenaktualität: 13. Mai 2026.
+- Alle Bewertungen basieren ausschließlich auf öffentlichen EP-Offene-Datenportal-Feeds und Abstimmungsdaten. DSGVO-konform; kein persönliches MEP-Profiling.
+
+---
+
+*Analytische Neutralität: dieses Briefing berichtet beobachtbare Koalitionsarithmetik und prozeduralen Stand, kein parteipolitisches Urteil. Jede gerichtete Aussage ist mit expliziter Konfidenz und konkurrierender Hypothesenbehandlung abgesichert.*
+
+### Executive Brief Es
+
+### BLUF (Bottom Line Up Front)
+
+La semana del 6 al 13 de mayo de 2026 es la confirmación semanal más clara hasta la fecha de que el EP10 ha transitado de la **fase de expansión** de la regulación de la UE (ola Pacto Verde / Reglamento de IA / CSDDD del EP9) a una **fase de consolidación y revisión**. El sistema de comisiones impulsa simultáneamente (i) el mayor instrumento de política industrial de defensa de la UE jamás creado (EDIS, ≈€150 MM), (ii) una reapertura políticamente irreversible del Pacto Verde (umbrales CSRD adoptados mediante TA-10-2026-0160, aplicación del NRL impugnada, revisión de la DEAU en curso), (iii) dos reformas sistémicas de la gobernanza financiera (AMLA, CMU Fase 2) y (iv) la fase operacional de implementación del Reglamento de IA — todo ello en un Parlamento **sin supermayoría duradera**. La dirección de conjunto, y no ningún expediente concreto, es la señal estratégica: **desplazamiento hacia la derecha en la regulación medioambiental y financiera; postura de halcón en defensa; cautela en IA; institucionalismo resuelto en la arquitectura de la UE**. *Nivel de confianza: ALTO.*
+
+### Three Decisions Riding On This Week
+
+1. **El suelo de la revisión del Pacto Verde es ahora la única cuestión abierta.** La adopción en abril de los umbrales CSRD revisados, combinada con el trabajo continuo de la comisión ENVI sobre la DEAU y el debate en curso sobre la aplicación del NRL, ha fijado la *dirección* — el acervo medioambiental del EP9 será reabierto sustancialmente. Los grupos progresistas (S&D + Greens + Left) no pueden revertir esta trayectoria; su margen de maniobra residual es puramente defensivo, anclado en establecer un suelo mínimo para los umbrales de divulgación, la inclusión de microcontaminantes y el lenguaje de aplicación en materia de biodiversidad. *Nivel de confianza: ALTO.*
+
+2. **La prueba de independencia de la AMLA definirá la credibilidad de la UE en materia de LBC/FT durante una década.** El conglomerado S&D + Renew + Greens que impulsó una independencia operativa genuina se encuentra en una coalición numéricamente ganadora pero políticamente frágil: el bloqueo del Consejo en la sede está contaminando ahora el fondo, y cuanto más se prolonguen las negociaciones más allá de 2027, más continuará el marco LBC/FT de la UE respondiendo al hallazgo del FinCEN de 2025 que describe a la UE como la jurisdicción del G7 con mayores brechas de aplicación. El debate en comisión sobre los poderes de la AMLA (especialmente el alcance de la supervisión directa) es la verdadera decisión, no la sede. *Nivel de confianza: MODERADO–ALTO.*
+
+3. **EDIS establecerá el precedente para la supervisión parlamentaria de la política industrial de defensa durante el resto del EP10.** Un instrumento de €150 MM que atraviesa un debate de competencias contestado (ITRE / SEDE / AFET) es el mayor precedente institucional de esta legislatura. Si la arquitectura final relega al Parlamento a la consulta en lugar de la codecisión sobre las asignaciones operativas de la industria de defensa, el Consejo y la Comisión obtienen un modelo para la elusión intergubernamental en cada expediente de defensa posterior. El interés institucional transversal (S&D + Renew + alas institucionales del PPE) es la única coalición que puede impedirlo. *Nivel de confianza: MODERADO.*
+
+### 60-Second Read
+
+La semana de comisiones es una paradoja: alta producción legislativa sobre un Parlamento de baja cohesión. La imagen numérica lo explica. La cuota del 25,7 % de escaños del PPE se ve amplificada por **cinco presidencias de comisiones clave** que le otorgan ventaja de primer movimiento en el encuadre, y combinada con el ECR más el apoyo informal del PfE produce una mayoría de centroderecha en desregulación, competitividad y expedientes de migración que supera la cuota bruta del PPE. Pero esa misma arquitectura **no produce mayoría sobre el suelo medioambiental, los derechos sociales o el diseño institucional de la AMLA**, donde S&D + Greens + partes de Renew + ocasionalmente The Left forman un contraBloque duradero.
+
+Por eso cada expediente importante de esta semana tiene una **coalición a medida**: PPE + Renew en CMU, Chips II y establecimiento del suelo CSRD; S&D + Renew en la independencia de la AMLA y las garantías de derechos fundamentales en IA; transversal en la supervisión de EDIS. La posición bisagra de los 77 escaños de Renew es la variable singular más determinante del EP10 — sus elecciones a nivel de comisión, más que sus votos en el Pleno, determinan cuál de las dos lógicas políticas opuestas gana en cada expediente.
+
+En el trasfondo, la **tesis del ciclo regulatorio** (Majone, Radaelli) está ahora claramente operativa: el EP9 produjo el mayor volumen de producción regulatoria de un solo Parlamento en la historia de la UE; el EP10 es el Parlamento de la consolidación. La revisión de los umbrales CSRD es la prueba empírica más clara — por primera vez desde 2019 el Parlamento ha votado para *reducir* el ámbito de aplicación de uno de sus propios expedientes medioambientales insignia. Ese es el hecho estructural, independientemente de los resultados de enmiendas semanales.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | Riesgo | Probabilidad | Impacto | Neto |
+|---|------|------------:|------:|----:|
+| 1 | Colapso de la implementación del NRL (minoría de bloqueo en el Consejo, exposición al TJUE) | ALTA | ALTO | **Crítico** |
+| 2 | Bloqueo de la AMLA más allá de 2027 (brecha residual LBC/FT del G7) | MED–ALTA | ALTO | **Crítico** |
+| 3 | La gobernanza de EDIS excluye la codecisión parlamentaria (riesgo de precedente en todos los expedientes de defensa) | MED | MUY ALTO | **Crítico** |
+| 4 | El TJUE anula la revisión Omnibus/CSRD por motivación insuficiente | BAJA–MED | ALTO | Vigilar |
+| 5 | CMU Fase 2 colapsa por agotamiento político antes de la adopción | ALTA | MED | Vigilar |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **Resultado del trílogo CSRD:** el texto de compromiso final Consejo–Parlamento determina si el suelo se fija en ≥500 empleados (suelo progresista) o ≥1 000 (techo PPE–ECR).
+- **Movimientos de la Presidencia del Consejo sobre la AMLA:** cualquier declaración del Consejo que reempaquete sede + poderes señala que la negociación sustantiva está ahora politizada.
+- **Decisión de competencia de EDIS:** la dirección ITRE frente a la dirección SEDE es el proxy procedimental para determinar si el Parlamento obtiene codecisión o mero estatus consultivo.
+- **Cartas de infracción del NRL:** una carta de infracción de la Comisión a Hungría o Polonia por incumplimiento del NRL desplazaría el expediente del bloqueo político al bloqueo jurídico.
+- **Primeras designaciones nacionales de supervisores del Reglamento de IA:** el plazo de finales de mayo/principios de junio revela qué Estados miembros están operativamente listos y cuáles se están retrasando.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| Hipótesis | Pruebas de apoyo | Pruebas contrarias | Evaluación |
+|---|---|---|---|
+| H1: El EP10 es un Parlamento de consolidación desregulatoria | Reducción de umbrales CSRD, Omnibus, dominio del PPE en presidencias, cooperación ECR | Ambición AMLA, presión de supervisión EDIS, aplicación del Reglamento de IA en curso | **Parcialmente apoyada** — cierta en medioambiente y finanzas, no en arquitectura institucional |
+| H2: El bloque progresista aún puede fijar suelos ambiciosos | Retención de microcontaminantes en la DEAU, coalición de independencia de la AMLA | Suelo CSRD rebajado, aplicación NRL debilitada | **Débilmente apoyada** — solo victorias defensivas |
+| H3: El institucionalismo transversal es la identidad duradera del EP10 | Presión de supervisión EDIS, debate sobre poderes de la AMLA, garantías de derechos fundamentales del Reglamento de IA | Coaliciones ad hoc por expediente, sin supermayoría | **Moderadamente apoyada** — la característica estructural más subestimada |
+
+### Source Quality (Admiralty grading)
+
+- Flujos del Portal de Datos Abiertos del PE (documentos de comisiones, textos adoptados TA-10-2026-0160): **A2** (institución fiable, confirmada)
+- Capturas XML DOCEO de votaciones nominales (cuando disponibles): **A2**
+- Encuadre politológico de síntesis (teoría del ciclo regulatorio de Majone y Radaelli): **B2** (fuente académica habitualmente fiable, contextualización probablemente verdadera)
+- Proyecciones prospectivas de coaliciones (próximas 2 a 6 semanas): **C3** (bastante fiable, posiblemente verdadera — inherentemente probabilista)
+
+### Provenance
+
+- Ejecución: `committee-reports-run249-1778650040` (2026-05-13)
+- Artefactos primarios leídos para este informe: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- Actualidad de los datos: 13 de mayo de 2026.
+- Todas las evaluaciones se derivan exclusivamente de los flujos públicos del Portal de Datos Abiertos del PE y los datos de votación. Conforme al RGPD; sin perfilado personal de eurodiputados.
+
+---
+
+*Neutralidad analítica: este informe recoge la aritmética observable de coaliciones y el estado procedimental, sin juicio partidista. Cada afirmación direccional está matizada con un nivel de confianza explícito y un tratamiento de hipótesis alternativas.*
+
+### Executive Brief Fi
+
+### BLUF (Bottom Line Up Front)
+
+Viikko 6.–13. toukokuuta 2026 on selkein yksittäisen viikon vahvistus tähän mennessä siitä, että EP10 on siirtynyt EU-sääntelyn **laajentamisvaiheesta** (EP9:n vihreän kehityksen ohjelma / tekoälylaki / CSDDD-aalto) **konsolidointi- ja uudistusvaiheeseen**. Valiokuntajärjestelmä ajaa samanaikaisesti (i) tähänastista suurinta EU:n puolustusalan välinettä (EDIS, ≈€150 mrd.), (ii) poliittisesti peruuttamatonta vihreän kehityksen uudelleenavaamista (CSRD-kynnysarvot hyväksytty asiakirjan TA-10-2026-0160 kautta, NRL:n täytäntöönpano kiistelty, UWWTD-uudistus käynnissä), (iii) kahta systeemistä rahoitushallinnon uudistusta (AMLA, CMU vaihe 2) sekä (iv) tekoälylain täytäntöönpanovaihetta — kaiken tämän parlamentissa, jolla ei ole **kestävää superenemmistöä**. Kehityksen yleinen suunta, ei yksittäiset asiakirjat, on strateginen signaali: **oikealle ympäristö- ja rahoitussääntelyssä; puolustuksessa tiukka linja; tekoälyssä varovainen; EU:n rakenteiden suhteen päättäväisen institutionalistinen**. *Luottamustaso: KORKEA.*
+
+### Three Decisions Riding On This Week
+
+1. **Vihreän kehityksen uudistuksen lattiataso on nyt ainoa avoin kysymys.** Huhtikuussa hyväksytyt tarkistetut CSRD-kynnysarvot yhdistettynä ENVI:n jatkuvaan UWWTD-työskentelyyn ja käynnissä olevaan NRL-täytäntöönpanokeskusteluun ovat vakiinnuttaneet *suunnan* — EP9:n ympäristölainsäädännön acquis avataan olennaisilta osin uudelleen. Progressiiviset ryhmät (S&D + Greens + Left) eivät pysty kääntämään tätä kehityskulkua; niiden jäljellä oleva vaikutusvalta on puhtaasti puolustuksellista, ankkuroituneena selviytymislattian asettamiseen tiedonantokynnysarvoille, mikroepäpuhtauksien sisällyttämiselle ja biodiversiteetin täytäntöönpanokieltä koskevaan kielenkäyttöön. *Luottamustaso: KORKEA.*
+
+2. **AMLA:n riippumattomuuskoe määrittää EU:n AML-uskottavuuden vuosikymmeneksi.** Aitoa operatiivista riippumattomuutta ajanut S&D + Renew + Greens -ryhmittymä on numeraalisesti voittavassa mutta poliittisesti hauraassa koalitiossa: neuvoston umpikuja sijaintipaikkakysymyksessä valuu nyt sisältöön, ja mitä kauemmas neuvottelut ulottuvat vuoden 2027 jälkeen, sitä paremmin EU:n AML-kehys vastaa vuoden 2025 Fincen-raporttia, joka kuvaa EU:ta G7-maiden eniten täytäntöönpanovajauksia omaavaksi lainkäyttöalueeksi. Valiokunnassa käytävä taistelu AMLA:n toimivaltuuksista (erityisesti suoran valvonnan laajuudesta) on todellinen päätös, ei sijoittamispaikka. *Luottamustaso: KOHTALAINEN–KORKEA.*
+
+3. **EDIS asettaa ennakkotapauksen parlamentaarisen valvonnan roolille puolustusalan teollisuuspolitiikassa EP10:n loppukaudeksi.** Kiistanalaisen toimivaltakeskustelun (ITRE / SEDE / AFET) läpi kulkeva €150 mrd. -väline on tämän parlamentin suurin institutionaalinen ennakkotapaus. Mikäli lopullinen rakenne rajoittaa parlamentin neuvoa-antavaan asemaan yhteispäätösmenettelyksi jäämisen sijaan puolustusalan teollisuuden operatiivisten määrärahojen osalta, neuvosto ja komissio saavat mallin valtioiden väliseen ohitukseen kaikissa seuraavissa puolustusasiakirjoissa. Monipoliittinen institutionaalinen etu (S&D + Renew + EPP:n institutionaaliset siivet) on ainoa koalitio, joka voi estää tämän. *Luottamustaso: KOHTALAINEN.*
+
+### 60-Second Read
+
+Valiokuntaviikko on paradoksi: lainsäädännöllisesti tuotteliaan työn alla on heikon yhtenäisyyden parlamentti. Numeerinen kuva selittää tämän. EPP:n 25,7 prosentin osuutta mandaateista vahvistaa **viisi merkittävää valiokunnan puheenjohtajapaikkaa**, jotka antavat sille viitekehyksen asettajan edun, ja yhdistettynä ECR:ään sekä epäviralliseen PfE-tukeen tämä tuottaa oikeisto-keskustaenemmistön deregulaatiossa, kilpailukyvyssä ja muuttoliikeasiakirjoissa, joka ylittää EPP:n raakaosuuden. Mutta sama rakenne **ei tuota enemmistöä ympäristölattiaa, sosiaalisia oikeuksia tai AMLA:n institutionaalista suunnittelua koskevissa kysymyksissä**, joissa S&D + Greens + osia Renewistä + ajoittain Left muodostaa kestävän vastarintaryhmittymän.
+
+Siksi jokaisella tällä viikolla merkittävällä asiakirjalla on **räätälöity koalitio**: EPP + Renew CMU:ssa, Chips II:ssa ja CSRD:n lattiatason asettamisessa; S&D + Renew AMLA:n riippumattomuudessa ja tekoälyn perusoikeustakeissa; monipoliittinen EDIS-valvonnassa. Renewin 77 paikan valinnan ratkaiseva asema on EP10:n yksittäisesti merkittävin muuttuja — sen valinnat valiokuntatasolla, enemmän kuin täysistuntoäänestykset, ratkaisevat kumpi kahdesta vastakkaisesta poliittisesta logiikasta voittaa kussakin asiakirjassa.
+
+Tämän taustalla **sääntelyn sykliteoria** (Majone, Radaelli) on nyt selvästi operatiivinen: EP9 tuotti suurimman yksittäisen parlamentin lainsäädäntötuotoksen EU:n historiassa; EP10 on konsolidointiparlamentti. CSRD-kynnysarvojen uudistus on puhtain empiirinen todiste — ensimmäistä kertaa sitten vuoden 2019 parlamentti on äänestänyt *supistamaan* yhden omista lippulaivaympäristöasiakirjoistaan soveltamisalaa. Tämä on rakenteellinen tosiasia viikon muutostulosten riippumatta.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | Riski | Todennäköisyys | Vaikutus | Netto |
+|---|------|------------:|------:|----:|
+| 1 | NRL:n täytäntöönpanon romahtaminen (neuvoston estävä vähemmistö, EU-tuomioistuinriski) | KORKEA | KORKEA | **Kärki** |
+| 2 | AMLA-umpikuja jatkuu vuoden 2027 yli (jäljelle jäävä G7 AML-aukko) | KESKI–KORKEA | KORKEA | **Kärki** |
+| 3 | EDIS-hallinto sulkee pois parlamentin yhteispäätösvaltuudet (ennakkotapausriski kaikissa puolustusasiakirjoissa) | KESKI | ERITTÄIN KORKEA | **Kärki** |
+| 4 | EU-tuomioistuin kumoaa Omnibus/CSRD-uudistuksen riittämättömien perustelujen vuoksi | MATALA–KESKI | KORKEA | Seurattava |
+| 5 | CMU vaihe 2 romahtaa poliittiseen väsymykseen ennen hyväksyntää | KORKEA | KESKI | Seurattava |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **CSRD:n trilogin tulos:** lopullinen neuvosto–parlamentti-kompromissiteksti ratkaisee, asetetaanko lattia ≥500 työtekijään (progressiivinen lattia) vai ≥1 000 (EPP–ECR-katto).
+- **AMLA:n neuvoston puheenjohtajuuden siirrot:** mikä tahansa neuvoston lausuma, joka niputtaa sijainnin + toimivaltuudet uudelleen, signaloi, että substantiiviset neuvottelut ovat nyt politisoituneet.
+- **EDIS:n toimivaltapäätös:** ITRE-johto vs SEDE-johto on menettelyllinen välitysmuuttuja sille, saavatko parlamentti yhteispäätöksen vai ainoastaan neuvoa-antavan aseman.
+- **NRL-rikkomuskirjeet:** komission rikkomuskirje Unkarille tai Puolalle NRL:n täytäntöönpanon laiminlyönnistä siirtäisi asiakirjan poliittisesta umpikujasta oikeudelliseen umpikujaan.
+- **Tekoälylain ensimmäiset kansalliset valvontaviranomaisten nimitykset:** toukokuun lopun / kesäkuun alun määräaika paljastaa, mitkä jäsenvaltiot ovat operatiivisesti valmiita ja mitkä jäävät jälkeen.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| Hypoteesi | Tukeva näyttö | Vastanäyttö | Arvio |
+|---|---|---|---|
+| H1: EP10 on dereguloiva konsolidointiparlamentti | CSRD-kynnysarvojen lasku, Omnibus, EPP:n valiokunnan puheenjohtajaherruus, ECR-yhteistyö | AMLA-kunnianhimo, EDIS-valvontapaine, tekoälylain täytäntöönpano oikealla raiteella | **Osittain tuettu** — totta ympäristössä ja rahoituksessa, ei institutionaalisessa arkkitehtuurissa |
+| H2: Progressiivinen ryhmittymä voi vielä asettaa kunnianhimoisia lattioita | UWWTD:n mikroepäpuhtauksien säilyttäminen, AMLA:n riippumattomuuskoalitio | CSRD-lattia laskettu, NRL:n täytäntöönpano heikentynyt | **Heikosti tuettu** — vain defensiiviset voitot |
+| H3: Monipoliittinen institutionalismi on EP10:n kestävä identiteetti | EDIS-valvontapaine, AMLA:n toimivaltakeskustelu, tekoälylain perusoikeustakeet | Räätälöidyt per-asiakirja-koalitiot, ei superenemmistöä | **Kohtuullisesti tuettu** — aliarvioituin rakenteellinen piirre |
+
+### Source Quality (Admiralty grading)
+
+- EP:n avoimien tietoportaalien syötteet (valiokunta-asiakirjat, hyväksytyt tekstit TA-10-2026-0160): **A2** (luotettava instituutio, vahvistettu)
+- DOCEO XML-äänestyskaappaukset (saatavilla olevissa tapauksissa): **A2**
+- Syntetisoitu poliittistieteellinen kehystys (Majone, Radaellin sääntelyn sykliteoria): **B2** (yleensä luotettava akateeminen lähde, todennäköisesti tosi kontekstualisointi)
+- Ennakoivat koalitioennusteet (seuraavat 2–6 viikkoa): **C3** (melko luotettava, mahdollisesti tosi — luonteeltaan todennäköisyyspohjainen)
+
+### Provenance
+
+- Ajo: `committee-reports-run249-1778650040` (2026-05-13)
+- Ensisijaiset artefaktit luettu tätä yhteenvetoa varten: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- Tietojen ajankohtaisuus: 13. toukokuuta 2026.
+- Kaikki arviot perustuvat yksinomaan EP:n avoimien tietoportaalien julkisiin syötteisiin ja äänestystietoihin. GDPR-yhteensopiva; ei henkilökohtaista europarlamentaarikon profilointia.
+
+---
+
+*Analyyttinen neutraalisuus: tämä yhteenveto raportoi havaittavaa koalitioaritmetiikkaa ja menettelyllistä tilaa, ei puoluepoliittista arviota. Jokainen suuntaa-antava väite on suhteellistettu eksplisiittisellä luottamustasolla ja kilpailevien hypoteesien käsittelyllä.*
+
+### Executive Brief Fr
+
+### BLUF (Bottom Line Up Front)
+
+La semaine du 6 au 13 mai 2026 constitue la confirmation hebdomadaire la plus nette à ce jour que le EP10 a franchi le passage de la **phase d'expansion** de la réglementation européenne (vague Pacte vert / règlement IA / CSDDD de l'EP9) vers une **phase de consolidation et de révision**. Le système des commissions pilote simultanément (i) le plus grand instrument européen de politique industrielle de défense jamais créé (EDIS, ≈€150 Md), (ii) une réouverture politiquement irréversible du Pacte vert (seuils CSRD adoptés via TA-10-2026-0160, application du NRL contestée, révision de la DTEAU en cours), (iii) deux réformes systémiques de la gouvernance financière (AMLA, CMU Phase 2) et (iv) la phase opérationnelle de mise en œuvre du règlement IA — le tout dans un Parlement sans **supermajorité durable**. La direction d'ensemble, et non un dossier particulier, constitue le signal stratégique : **orientation à droite sur la réglementation environnementale et financière ; posture de fermeté sur la défense ; prudence sur l'IA ; institutionnalisme résolu sur l'architecture européenne**. *Niveau de confiance : ÉLEVÉ.*
+
+### Three Decisions Riding On This Week
+
+1. **Le plancher de la révision du Pacte vert est désormais la seule question ouverte.** L'adoption en avril de seuils CSRD révisés, combinée aux travaux continus de la commission ENVI sur la DTEAU et au débat en cours sur l'application du NRL, a arrêté la *direction* — l'acquis environnemental de l'EP9 sera substantiellement rouvert. Les groupes progressistes (S&D + Greens + Left) ne peuvent pas inverser cette trajectoire ; leur marge de manœuvre résiduelle est purement défensive, ancrée dans la définition d'un plancher minimal pour les seuils de divulgation, l'inclusion des micropolluants et le langage de l'application en matière de biodiversité. *Niveau de confiance : ÉLEVÉ.*
+
+2. **Le test d'indépendance de l'AMLA définira la crédibilité de l'UE en matière de LBC/FT pour une décennie.** Le regroupement S&D + Renew + Greens qui a milité pour une indépendance opérationnelle réelle se trouve dans une coalition numériquement gagnante mais politiquement fragile : le blocage du Conseil sur le siège contamine désormais le fond, et plus les négociations se prolongeront au-delà de 2027, plus le cadre LBC/FT de l'UE continuera de correspondre au constat 2025 du FinCEN décrivant l'UE comme la juridiction du G7 présentant les lacunes d'application les plus importantes. Le débat en commission sur les pouvoirs de l'AMLA (notamment la portée de la supervision directe) est la véritable décision, non le siège. *Niveau de confiance : MODÉRÉ–ÉLEVÉ.*
+
+3. **EDIS établira le précédent pour la surveillance parlementaire de la politique industrielle de défense pour le reste de l'EP10.** Un instrument de €150 Md traversant un débat de compétences contesté (ITRE / SEDE / AFET) est le précédent institutionnel le plus significatif de cette législature. Si l'architecture finale cantonne le Parlement à la consultation plutôt qu'à la codécision sur les allocations industrielles de défense opérationnelles, le Conseil obtient un modèle pour un contournement intergouvernemental sur tous les dossiers de défense suivants. L'intérêt institutionnel transpartisan (S&D + Renew + ailes institutionnelles du PPE) est la seule coalition capable de l'empêcher. *Niveau de confiance : MODÉRÉ.*
+
+### 60-Second Read
+
+La semaine des commissions est un paradoxe : un rendement législatif élevé sur fond d'un Parlement à faible cohésion. L'image numérique l'explique. La part de 25,7 % de sièges du PPE est amplifiée par **cinq présidences de commissions majeures** qui lui confèrent un pouvoir d'encadrement de premier arrivant, et combinée avec les Conservateurs et Réformistes européens (ECR) ainsi que le soutien informel des Patriotes pour l'Europe (PfE), cela produit une majorité de centre-droite sur la déréglementation, la compétitivité et les dossiers migratoires qui dépasse la part brute du PPE. Mais la même architecture **ne livre pas de majorité sur le plancher environnemental, les droits sociaux ou la conception institutionnelle de l'AMLA**, où S&D + Greens + une partie de Renew + ponctuellement The Left forment un contre-bloc durable.
+
+C'est pourquoi chaque grand dossier de cette semaine dispose d'une **coalition sur mesure** : PPE + Renew sur l'UMC, Chips II et le plancher CSRD ; S&D + Renew sur l'indépendance de l'AMLA et les garanties relatives aux droits fondamentaux en matière d'IA ; transpartisan sur la surveillance EDIS. La position charnière des 77 sièges de Renew est la variable unique la plus déterminante de l'EP10 — ses choix en commission, plus que ses votes en séance plénière, déterminent laquelle des deux logiques politiques opposées l'emporte sur chaque dossier.
+
+Sous-jacente, la **thèse du cycle réglementaire** (Majone, Radaelli) est désormais clairement opérative : l'EP9 a produit le plus grand volume d'output réglementaire d'un seul Parlement dans l'histoire de l'UE ; l'EP10 est le Parlement de la consolidation. La révision des seuils CSRD en est la preuve empirique la plus claire — pour la première fois depuis 2019, le Parlement a voté pour *réduire* le champ d'application d'un de ses propres dossiers environnementaux phares. Voilà le fait structurel, quelle que soit l'issue des amendements de la semaine.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | Risque | Probabilité | Impact | Net |
+|---|------|------------:|------:|----:|
+| 1 | Effondrement de la mise en œuvre du NRL (minorité de blocage au Conseil, exposition à la CJUE) | ÉLEVÉE | ÉLEVÉ | **Critique** |
+| 2 | Blocage de l'AMLA au-delà de 2027 (lacune résiduelle LBC/FT G7) | MOY–ÉLEVÉE | ÉLEVÉ | **Critique** |
+| 3 | La gouvernance EDIS exclut la codécision parlementaire (risque de précédent sur tous les dossiers de défense) | MOY | TRÈS ÉLEVÉ | **Critique** |
+| 4 | La CJUE annule la révision Omnibus/CSRD pour insuffisance de motivation | FAIBLE–MOY | ÉLEVÉ | À surveiller |
+| 5 | CMU Phase 2 s'effondre par épuisement politique avant adoption | ÉLEVÉE | MOY | À surveiller |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **Issue du trilogue CSRD :** le texte de compromis final Conseil–Parlement détermine si le plancher est fixé à ≥500 employés (plancher progressiste) ou ≥1 000 (plafond PPE–ECR).
+- **Mouvements de la Présidence du Conseil sur l'AMLA :** toute déclaration du Conseil qui regroupe à nouveau siège + pouvoirs signale que la négociation de fond est désormais politisée.
+- **Décision de compétence EDIS :** la direction ITRE contre la direction SEDE est le proxy procédural pour déterminer si le Parlement obtient la codécision ou un statut purement consultatif.
+- **Lettres de mise en demeure NRL :** une lettre de mise en demeure de la Commission à la Hongrie ou à la Pologne pour non-transposition du NRL déplacerait le dossier d'une impasse politique à une impasse juridique.
+- **Premières désignations nationales de superviseurs au titre du règlement IA :** la date limite de fin mai / début juin révèle quels États membres sont opérationnellement prêts et lesquels prennent du retard.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| Hypothèse | Preuves à l'appui | Preuves contraires | Évaluation |
+|---|---|---|---|
+| H1 : L'EP10 est un Parlement de consolidation déréglementaire | Réduction des seuils CSRD, Omnibus, dominance du PPE aux présidences, coopération ECR | Ambitions AMLA, pression de surveillance EDIS, application du règlement IA en bonne voie | **Partiellement étayée** — vraie sur l'environnement et les finances, pas sur l'architecture institutionnelle |
+| H2 : Le bloc progressiste peut encore fixer des planchers ambitieux | Rétention des micropolluants DTEAU, coalition pour l'indépendance de l'AMLA | Plancher CSRD abaissé, application NRL affaiblie | **Faiblement étayée** — seules des victoires défensives |
+| H3 : L'institutionnalisme transpartisan est l'identité durable de l'EP10 | Pression de surveillance EDIS, débat sur les pouvoirs de l'AMLA, garanties droits fondamentaux règlement IA | Coalitions sur mesure par dossier, pas de supermajorité | **Modérément étayée** — le trait structurel le plus sous-estimé |
+
+### Source Quality (Admiralty grading)
+
+- Flux du Portail de données ouvertes du PE (documents des commissions, textes adoptés TA-10-2026-0160) : **A2** (institution fiable, confirmée)
+- Captures XML DOCEO des votes nominatifs (lorsque disponibles) : **A2**
+- Cadrage politologique de synthèse (théorie du cycle réglementaire de Majone et Radaelli) : **B2** (source académique généralement fiable, contextualisation probablement vraie)
+- Projections prospectives de coalitions (2 à 6 semaines à venir) : **C3** (assez fiable, possiblement vraie — par nature probabiliste)
+
+### Provenance
+
+- Exécution : `committee-reports-run249-1778650040` (2026-05-13)
+- Artefacts primaires lus pour ce rapport : `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- Actualité des données : 13 mai 2026.
+- Toutes les évaluations sont dérivées exclusivement des flux publics du Portail de données ouvertes du PE et des données de vote. Conforme au RGPD ; aucun profilage personnel de député européen.
+
+---
+
+*Neutralité analytique : ce rapport rend compte de l'arithmétique observable des coalitions et de l'état procédural, sans jugement partisan. Toute affirmation directionnelle est assortie d'un niveau de confiance explicite et d'un traitement des hypothèses concurrentes.*
+
+### Executive Brief He
+
+### BLUF (Bottom Line Up Front)
+
+שבוע 6–13 במאי 2026 הוא האישור השבועי הברור ביותר עד כה לכך ש-EP10 עבר משלב **ההרחבה** של הרגולציה האירופית (גל הסכם ירוק / חוק בינה מלאכותית / CSDDD של EP9) לשלב **איחוד ותיקון**. מערכת הוועדות מניעה בו-זמנית: (i) את כלי המדיניות הגדול ביותר של התעשייה הביטחונית האירופית אי פעם (EDIS, ≈€150 מיליארד), (ii) פתיחה מחדש בלתי הפיכה מבחינה פוליטית של ההסכם הירוק (סף CSRD שאומץ באמצעות TA-10-2026-0160, אכיפת NRL במחלוקת, תיקון UWWTD בתהליך), (iii) שתי רפורמות מערכתיות בממשל הפיננסי (AMLA, CMU שלב 2), ו-(iv) שלב היישום התפעולי של חוק הבינה המלאכותית — כל זאת בפרלמנט **ללא רוב-על יציב**. כיוון ההתפתחות הכולל, לא קובץ בודד, הוא האות האסטרטגי: **ימנה בתחום הרגולציה הסביבתית והפיננסית; גישת נשרים בנושא ביטחון; זהירות בבינה מלאכותית; מוסדיות נחושה לגבי ארכיטקטורת האיחוד האירופי**. *רמת ביטחון: גבוהה.*
+
+### Three Decisions Riding On This Week
+
+1. **הרצפה של תיקון ההסכם הירוק היא עכשיו השאלה הפתוחה היחידה.** אישור סף CSRD המתוקן באפריל, יחד עם עבודת ENVI המתמשכת על UWWTD והדיון השוטף על אכיפת NRL, קבעו את *הכיוון* — המכלול הסביבתי של EP9 ייפתח מחדש בצורה מהותית. קבוצות פרוגרסיביות (S&D + Greens + Left) אינן יכולות לשנות מסלול זה; השפעתן הנותרת היא הגנתית בלבד, ממוקדת בקביעת רצפת מינימום לסף הגילוי, הכללת מזהמים זעירים, ושפת אכיפת מגוון ביולוגי. *רמת ביטחון: גבוהה.*
+
+2. **מבחן העצמאות של AMLA יגדיר את אמינות האיחוד האירופי בתחום מניעת הלבנת הון לעשור.** אשכול S&D + Renew + Greens שדחף לעצמאות תפעולית אמיתית נמצא בקואליציה המנצחת מבחינה מספרית אך שבירה פוליטית: קיפאון המועצה בנוגע למיקום המושב מתדלף כעת לתוכן, וככל שהמשא ומתן יימשך מעבר ל-2027, כך ימשיך מסגרת מניעת הלבנת הון של האיחוד להתאים לממצא FinCEN משנת 2025 המתאר את האיחוד האירופי כשיפוט G7 עם הפערים הגדולים ביותר באכיפה. המאבק ברמת הוועדה על סמכויות AMLA (במיוחד היקף פיקוח ישיר) הוא ההחלטה הממשית, לא המושב. *רמת ביטחון: בינונית-גבוהה.*
+
+3. **EDIS תקבע את התקדים לפיקוח פרלמנטרי על מדיניות תעשיית הביטחון לשארית EP10.** מכשיר של €150 מיליארד העובר דרך ויכוח שנוי במחלוקת על סמכות (ITRE / SEDE / AFET) הוא התקדים המוסדי הגדול ביותר של הפרלמנט הזה. אם הארכיטקטורה הסופית תגביל את הפרלמנט להתייעצות במקום קו-החלטה על הקצאות תעשיית הביטחון התפעוליות, מקבלים המועצה והנציבות תבנית לעקיפה בין-ממשלתית בכל קובץ ביטחון שיבוא לאחר מכן. עניין מוסדי חוצה-קשת (S&D + Renew + כנפיים מוסדיות של EPP) הוא הקואליציה היחידה שיכולה למנוע זאת. *רמת ביטחון: בינונית.*
+
+### 60-Second Read
+
+שבוע הוועדות הוא פרדוקס: תפוקה חקיקתית גבוהה על רקע פרלמנט עם אחידות נמוכה. התמונה המספרית מסבירה זאת. 25.7% ממושבי EPP מוגברים על ידי **חמישה יו"רות ועדות מרכזיות** המעניקים לו יתרון מסגור של מניע ראשון, ובשילוב ECR ותמיכת PfE בלתי-רשמית, מניבים רוב מרכז-ימין בהסרת רגולציה, תחרותיות וקבצי הגירה החורג מהנתח הגולמי של EPP. אולם אותה ארכיטקטורה **אינה מספקת רוב לגבי הרצפה הסביבתית, זכויות חברתיות, או תכנון מוסדי של AMLA**, שם S&D + Greens + חלקים מ-Renew + Left לעתים מרכיבים מול-קבוצה יציבה.
+
+לכן לכל קובץ מרכזי השבוע יש **קואליציה מותאמת**: EPP + Renew ב-CMU, Chips II, וקביעת רצפת CSRD; S&D + Renew בעצמאות AMLA ובאחריות זכויות יסוד בבינה מלאכותית; חוצה-קשת בפיקוח EDIS. עמדת הציר של 77 מושבי Renew היא המשתנה המכריע ביותר ב-EP10 — הבחירות שלה ברמת הוועדה, יותר מהצבעותיה במליאה, קובעות איזה משתי הלוגיקות הפוליטיות המנוגדות מנצחת בכל קובץ.
+
+בבסיס, **תזת מחזור הרגולציה** (Majone, Radaelli) פעילה כעת בבירור: EP9 הניב את תפוקת הרגולציה הגדולה ביותר של פרלמנט יחיד בהיסטוריה האירופית; EP10 הוא פרלמנט האיחוד. תיקון סף CSRD הוא הראיה האמפירית הברורה ביותר — לראשונה מאז 2019 הצביע הפרלמנט ל*צמצום* תחולת אחד מקבצי הסביבה הדגליים שלו. זוהי העובדה המבנית, ללא קשר לתוצאות התיקונים השבועיים.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | סיכון | הסתברות | השפעה | נטו |
+|---|------|------------:|------:|----:|
+| 1 | קריסת יישום NRL (מיעוט חוסם במועצה, חשיפה לבית הדין האירופי) | גבוהה | גבוהה | **עליון** |
+| 2 | קיפאון AMLA מעבר ל-2027 (פער מניעת הלבנת הון G7 שיורי) | בינונית-גבוהה | גבוהה | **עליון** |
+| 3 | ממשל EDIS מוציא פיקוח פרלמנטרי משותף מהמשוואה (סיכון תקדים לכל קבצי הביטחון) | בינונית | גבוהה מאוד | **עליון** |
+| 4 | בית הדין האירופי מבטל תיקון Omnibus/CSRD בשל נימוקים לא מספקים | נמוכה-בינונית | גבוהה | לתצפית |
+| 5 | CMU שלב 2 קורס מתשישות פוליטית לפני אימוץ | גבוהה | בינונית | לתצפית |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **תוצאת טרילוג CSRD:** נוסח הפשרה הסופי בין המועצה לפרלמנט קובע אם הרצפה נקבעת ב-≥500 עובדים (רצפה פרוגרסיבית) או ≥1,000 (תקרת EPP–ECR).
+- **מהלכי יו"ר המועצה בנושא AMLA:** כל הצהרת מועצה המרכזת מחדש מושב + סמכויות מאותתת שהמשא ומתן המהותי מפוליטיזד כעת.
+- **החלטת סמכות EDIS:** הובלת ITRE מול הובלת SEDE היא המדד הפרוצדורלי לשאלה אם הפרלמנט יקבל קו-החלטה או מעמד ייעוצי בלבד.
+- **מכתבי הפרת NRL:** מכתב הפרה של הנציבות להונגריה או לפולין על אי-יישום NRL יעביר את הקובץ מקיפאון פוליטי לקיפאון משפטי.
+- **מינויי פיקוח לאומיים ראשונים לחוק הבינה המלאכותית:** מועד הגשה בסוף מאי/תחילת יוני חושף אילו מדינות חברות מוכנות תפעולית ואילו נגררות מאחור.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| היפותזה | עדויות תומכות | עדויות מנוגדות | הערכה |
+|---|---|---|---|
+| H1: EP10 הוא פרלמנט איחוד מקל-רגולציה | הפחתת סף CSRD, Omnibus, שליטת EPP ביו"ר, שיתוף פעולה ECR | שאיפת AMLA, לחץ פיקוח EDIS, יישום חוק הבינה המלאכותית על המסלול | **נתמכת חלקית** — נכון לגבי סביבה ופיננסים, לא לגבי ארכיטקטורה מוסדית |
+| H2: הגוש הפרוגרסיבי עדיין יכול לקבוע רצפות שאפתניות | שמירת מזהמים זעירים ב-UWWTD, קואליציית עצמאות AMLA | רצפת CSRD הורדה, אכיפת NRL נחלשה | **נתמכת בחולשה** — ניצחונות הגנתיים בלבד |
+| H3: מוסדיות חוצה-קשת היא זהות EP10 הקבועה | לחץ פיקוח EDIS, ויכוח סמכויות AMLA, ערבויות זכויות יסוד לבינה מלאכותית | קואליציות מותאמות לקובץ, ללא רוב-על | **נתמכת באופן מתון** — המאפיין המבני הכי מוּמעָט |
+
+### Source Quality (Admiralty grading)
+
+- עדכוני פורטל הנתונים הפתוח של הפרלמנט האירופי (מסמכי ועדות, טקסטים שאומצו TA-10-2026-0160): **A2** (מוסד אמין, מאושר)
+- לכידות הצבעה ב-XML של DOCEO (כאשר זמין): **A2**
+- מסגרת פוליטולוגית מסונתזת (תיאוריית מחזור הרגולציה של Majone ו-Radaelli): **B2** (מקור אקדמי אמין בדרך כלל, הקשר כנראה נכון)
+- תחזיות קואליציה פרוספקטיביות (2–6 שבועות הקרובים): **C3** (אמין למדי, אפשרי — הסתברותי מטבעו)
+
+### Provenance
+
+- הרצה: `committee-reports-run249-1778650040` (2026-05-13)
+- ממצאים ראשוניים שנקראו לצורך סיכום זה: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- עדכניות הנתונים: 13 במאי 2026.
+- כל ההערכות נגזרות אך ורק מעדכוני פורטל הנתונים הפתוח הציבורי של הפרלמנט האירופי ונתוני ההצבעה. תואם GDPR; ללא פרופיל אישי של חברי הפרלמנט האירופי.
+
+---
+
+*ניטרליות אנליטית: סיכום זה מדווח על חשבון קואליציה נצפה ומצב פרוצדורלי, ללא שיפוט מפלגתי. כל טענה כיוונית מגובה ברמת ביטחון מפורשת וטיפול בהיפותזות מתחרות.*
+
+### Executive Brief Ja
+
+### BLUF (Bottom Line Up Front)
+
+2026年5月6日〜13日の週は、EP10がEU規制の**拡張局面**（EP9のグリーンディール／AI規則／CSDDD波）から**統合・見直し局面**へと移行したことを、これまでで最も明確に単週で示す証拠となりました。委員会システムは同時に以下を推進しています。(i) 史上最大のEU防衛産業政策手段（EDIS、≈€150億）、(ii) グリーンディールの政治的に不可逆な再開（CSRD閾値がTA-10-2026-0160を通じて採択、NRL執行が争われ、UWWTD改正が進行中）、(iii) 金融ガバナンスの2つの体系的改革（AMLA、CMU第2フェーズ）、(iv) AI規則実施の運用局面 — これらすべてが**持続的な超多数決を持たない**議会のもとで進んでいます。個別のファイルではなく、全体としての方向性が戦略的シグナルです：**環境・金融規制で右傾化；防衛でタカ派；AIで慎重；EU機構設計で断固とした制度主義**。*信頼度：高。*
+
+### Three Decisions Riding On This Week
+
+1. **グリーンディール改正の下限設定が今や唯一の未決事項です。** 4月に採択された改正CSRD閾値と、UWWTDに関するENVIの継続作業、および進行中のNRL執行議論が組み合わさり、*方向性*が確定しました—EP9の環境法的アキは大幅に再開されることになります。進歩的グループ（S&D + Greens + Left）はこの軌道を逆転させることができません；残された影響力は純粋に防御的であり、開示閾値の下限設定、微小汚染物質の包含、生物多様性執行の文言にかかっています。*信頼度：高。*
+
+2. **AMLAの独立性テストは、EUのマネーロンダリング対策の信頼性を10年間にわたって規定します。** 真の運営上の独立性を求めたS&D + Renew + Greensのクラスターは、数的には優位だが政治的に脆弱な連立に置かれています：所在地に関する理事会の行き詰まりが現在、実質的な議論に波及しており、交渉が2027年以降に延びるほど、EU-AML枠組みは2025年のFinCEN調査報告（EUをG7で最も執行格差の大きい法域と説明）に合致し続けることになります。AML権限に関する委員会レベルの争い（特に直接監督の範囲）が実際の決定であり、所在地ではありません。*信頼度：中〜高。*
+
+3. **EDISはEP10の残り期間における防衛産業政策への議会監督の先例を設定します。** 争われた管轄議論（ITRE / SEDE / AFET）を通過しつつある€150億の手段は、この議会における最大の制度的先例です。最終的な設計が防衛産業運用配分に関して議会を共同決定ではなく協議に限定するなら、理事会と欧州委員会はその後のすべての防衛ファイルにおける政府間迂回の雛形を得ることになります。超党派の制度的利益（S&D + Renew + EPP制度的翼）だけがこれを防ぐことができる唯一の連立です。*信頼度：中。*
+
+### 60-Second Read
+
+委員会週は逆説です：低結束力の議会の上に高い立法アウトプットが積み重なっています。数字が説明します。EPPの25.7%議席占有率は**主要5委員会の委員長職**によって増幅され、枠組み設定の先行者優位を与えており、ECRおよびPfEの非公式支援と組み合わさって、規制緩和・競争力・移民ファイルにおいてEPPの数的比率を超える中道右派多数派を形成しています。しかし同じ設計では**環境下限・社会的権利・AMLA制度設計において多数派を形成できません**。そこではS&D + Greens + Renewの一部 + 時にLeftが持続的な対抗勢力を形成しています。
+
+そのため今週の主要ファイルはそれぞれ**専用連立**を有しています：CMU・Chips II・CSRD下限設定にEPP + Renew；AMLA独立性・AI基本権保護にS&D + Renew；EDIS監督に超党派。Renewの77議席の枢軸的立場がEP10で唯一最も重要な変数です—委員会レベルでの選択が、本会議投票以上に、2つの対立する政治論理のどちらが各ファイルで勝つかを決定します。
+
+その背後で、**規制サイクル論**（Majone、Radaelli）が今や明確に機能しています：EP9はEU史上単一議会として最大の規制アウトプットを生産しました；EP10は統合の議会です。CSRD閾値改正は最も明確な経験的証拠—2019年以降初めて議会が自らの旗艦環境ファイルの一つの適用範囲を*縮小*することに投票しました。それが週次改正の結果に関わらず、構造的事実です。
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | リスク | 確率 | 影響 | 総合 |
+|---|------|------------:|------:|----:|
+| 1 | NRL実施崩壊（理事会阻止少数派、EU司法裁判所露出） | 高 | 高 | **最上位** |
+| 2 | AMLA行き詰まりが2027年以降に延長（残存G7 AMLギャップ） | 中〜高 | 高 | **最上位** |
+| 3 | EDISガバナンスが議会共同決定を排除（全防衛ファイルへの先例リスク） | 中 | 非常に高 | **最上位** |
+| 4 | EU司法裁判所がOmnibus/CSRD改正を理由不足で無効化 | 低〜中 | 高 | 監視 |
+| 5 | CMU第2フェーズが採択前に政治的疲弊で崩壊 | 高 | 中 | 監視 |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **CSRD三者協議の結果：** 最終的な理事会〜議会の妥協テキストが下限を≥500名従業員（進歩的下限）か≥1,000名（EPP〜ECR上限）に設定するかを決定します。
+- **AMLA理事会議長国の動向：** 所在地+権限を再度束ねる理事会声明はすべて、実質的交渉が今や政治化されているシグナルです。
+- **EDIS管轄決定：** ITRE主導対SEDE主導は議会が共同決定権か単なる諮問的地位を得るかの手続的代替指標です。
+- **NRL違反通知：** NRL不実施に関して欧州委員会がハンガリーまたはポーランドへ送る違反通知書は、ファイルを政治的行き詰まりから法的行き詰まりに移行させます。
+- **AI規則初の国内監督当局指定：** 5月末〜6月初旬の期限により、どの加盟国が運用準備できているかが明らかになります。
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| 仮説 | 支持証拠 | 反証 | 評価 |
+|---|---|---|---|
+| H1：EP10は規制緩和的統合議会 | CSRD閾値削減、Omnibus、EPP委員長支配、ECR協力 | AMLA野心、EDIS監督圧力、AI規則執行順調 | **部分的支持** — 環境・財政については正しいが制度設計については否 |
+| H2：進歩的ブロックが依然として野心的な下限を設定できる | UWWTD微小汚染物質保持、AMLA独立性連立 | CSRD下限引き下げ、NRL執行弱体化 | **弱い支持** — 防御的勝利のみ |
+| H3：超党派制度主義がEP10の持続的アイデンティティ | EDIS監督圧力、AMLA権限議論、AI規則基本権保護 | ファイルごとの専用連立、超多数決なし | **中程度の支持** — 最も過小評価された構造的特徴 |
+
+### Source Quality (Admiralty grading)
+
+- EP公開データポータルフィード（委員会文書、採択テキスト TA-10-2026-0160）：**A2**（信頼できる機関、確認済み）
+- DOCEO XML記名投票記録（利用可能な場合）：**A2**
+- 合成政治学的枠組み（Majone、Radaelli規制サイクル理論）：**B2**（通常信頼できる学術的情報源、おそらく正確な文脈化）
+- 前向き連立予測（今後2〜6週間）：**C3**（かなり信頼できる、おそらく正しい — 本質的に確率論的）
+
+### Provenance
+
+- 実行：`committee-reports-run249-1778650040`（2026-05-13）
+- このブリーフのために読んだ主要成果物：`intelligence/synthesis-summary.md`、`intelligence/coalition-dynamics.md`、`risk-scoring/risk-matrix.md`、`extended/media-framing-analysis.md`、`classification/significance-classification.md`、`classification/actor-mapping.md`。
+- データの鮮度：2026年5月13日。
+- すべての評価はEP公開データポータルの公開フィードおよび投票データのみから導出。GDPR準拠；MEPの個人プロファイリングなし。
+
+---
+
+*分析的中立性：このブリーフは観察可能な連立算術と手続状態を報告するものであり、政党的判断を行うものではありません。すべての方向性のある主張は明示的な信頼度と競合仮説処理とともに表現されています。*
+
+### Executive Brief Ko
+
+### BLUF (Bottom Line Up Front)
+
+2026년 5월 6일~13일 주간은 EP10이 EU 규제의 **확장 단계**(EP9의 그린 딜 / AI 규정 / CSDDD 물결)에서 **통합 및 개정 단계**로 전환했음을 지금까지 가장 명확하게 단일 주간으로 확인해 주는 사례입니다. 위원회 시스템은 동시에 다음을 추진하고 있습니다. (i) 역대 최대의 EU 방위산업 정책 수단(EDIS, ≈€1,500억), (ii) 그린 딜의 정치적으로 불가역적인 재개방(CSRD 임계치가 TA-10-2026-0160을 통해 채택, NRL 집행 분쟁, UWWTD 개정 진행 중), (iii) 금융 거버넌스의 두 가지 체계적 개혁(AMLA, CMU 2단계), (iv) AI 규정 시행의 운영 단계 — 이 모든 것이 **지속적인 초다수결 없이** 진행되고 있습니다. 개별 파일이 아닌 전체적인 방향이 전략적 신호입니다: **환경·금융 규제에서 우경화; 방위에서 매파적; AI에서 신중; EU 구조에서 단호한 제도주의**. *신뢰도: 높음.*
+
+### Three Decisions Riding On This Week
+
+1. **그린 딜 개정의 하한선 설정이 이제 유일한 미결 사항입니다.** 4월에 채택된 개정 CSRD 임계치와 UWWTD에 관한 ENVI의 지속적인 작업, 그리고 진행 중인 NRL 집행 논의가 결합하여 *방향*이 확정되었습니다—EP9의 환경 법적 아키는 대폭 재개방될 것입니다. 진보 그룹(S&D + Greens + Left)은 이 궤도를 되돌릴 수 없습니다. 잔여 영향력은 순전히 방어적이며, 공개 임계치, 미세 오염 물질 포함, 생물다양성 집행 언어에 대한 최소 하한선 설정에 집중되어 있습니다. *신뢰도: 높음.*
+
+2. **AMLA의 독립성 테스트는 EU의 자금 세탁 방지 신뢰성을 10년간 규정할 것입니다.** 진정한 운영상 독립성을 촉구한 S&D + Renew + Greens 클러스터는 수적으로는 우위에 있지만 정치적으로 취약한 연립에 있습니다. 본부 위치에 관한 이사회의 교착 상태가 현재 실질 내용으로 번지고 있으며, 협상이 2027년 이후로 연장될수록 EU AML 체제는 EU를 G7에서 가장 집행 격차가 큰 법역으로 설명한 2025년 FinCEN 결과에 계속 부합하게 됩니다. AML 권한(특히 직접 감독 범위)에 관한 위원회 수준의 분쟁이 실제 결정이며, 본부가 아닙니다. *신뢰도: 보통~높음.*
+
+3. **EDIS는 EP10 나머지 기간의 방위산업 정책에 대한 의회 감독 선례를 설정할 것입니다.** 논쟁적인 관할권 논쟁(ITRE / SEDE / AFET)을 통과하는 €1,500억 수단은 이 의회의 가장 큰 제도적 선례입니다. 최종 구조가 운영 방위 산업 배분에 대해 의회를 공동 결정이 아닌 협의로 제한한다면, 이사회와 집행위원회는 이후의 모든 방위 파일에 대해 정부간 우회의 틀을 확보하게 됩니다. 초당파적 제도적 이해(S&D + Renew + EPP 제도적 날개)만이 이를 막을 수 있는 유일한 연립입니다. *신뢰도: 보통.*
+
+### 60-Second Read
+
+위원회 주간은 역설입니다. 낮은 결속력의 의회 위에 높은 입법 산출이 쌓여 있습니다. 수치가 이를 설명합니다. EPP의 25.7% 의석 점유율은 **5개 주요 위원회 위원장직**에 의해 증폭되어 프레임 설정의 선점 우위를 제공하며, ECR과 PfE의 비공식 지원과 결합하여 규제 완화, 경쟁력, 이민 파일에서 EPP 원시 비율을 초과하는 중도우파 다수결을 만들어냅니다. 그러나 동일한 구조로는 **환경 하한선, 사회적 권리, AMLA 제도적 설계에 대한 다수결이 형성되지 않습니다**. 여기서는 S&D + Greens + Renew의 일부 + 때로는 Left가 지속적인 대항 세력을 형성합니다.
+
+따라서 이번 주 모든 주요 파일은 **맞춤형 연립**을 갖습니다. CMU, Chips II, CSRD 하한선 설정에서 EPP + Renew; AMLA 독립성과 AI 기본권 보장에서 S&D + Renew; EDIS 감독에서 초당파적. Renew의 77석 중추적 위치는 EP10에서 단일로 가장 결정적인 변수입니다—위원회 수준에서의 선택이 본회의 표결보다 더 많이, 두 가지 반대 정치 논리 중 어느 것이 각 파일에서 이기는지를 결정합니다.
+
+그 아래에서 **규제 사이클 이론**(Majone, Radaelli)이 이제 명확하게 작동하고 있습니다. EP9는 EU 역사상 단일 의회의 가장 큰 규제 산출을 만들어냈습니다. EP10은 통합의 의회입니다. CSRD 임계치 개정은 가장 명확한 경험적 증거입니다—2019년 이후 처음으로 의회가 자신의 주력 환경 파일 중 하나의 적용 범위를 *축소*하기 위해 투표했습니다. 주간 수정안 결과에 관계없이 그것이 구조적 사실입니다.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | 위험 | 확률 | 영향 | 종합 |
+|---|------|------------:|------:|----:|
+| 1 | NRL 이행 붕괴(이사회 차단 소수, EU 사법재판소 노출) | 높음 | 높음 | **최상위** |
+| 2 | AMLA 교착 상태 2027년 이후 연장(잔존 G7 AML 격차) | 보통~높음 | 높음 | **최상위** |
+| 3 | EDIS 거버넌스가 의회 공동 결정 배제(모든 방위 파일에 대한 선례 위험) | 보통 | 매우 높음 | **최상위** |
+| 4 | EU 사법재판소가 Omnibus/CSRD 개정을 이유 불충분으로 무효화 | 낮음~보통 | 높음 | 모니터링 |
+| 5 | CMU 2단계가 채택 전 정치적 피로로 붕괴 | 높음 | 보통 | 모니터링 |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **CSRD 삼자 협의 결과:** 최종 이사회~의회 타협 텍스트가 하한선을 ≥500명 직원(진보적 하한선)으로 설정하는지 ≥1,000명(EPP~ECR 상한)으로 설정하는지 결정합니다.
+- **AMLA 이사회 의장국 움직임:** 본부+권한을 재결합하는 이사회 성명은 실질적 협상이 이제 정치화되었음을 나타냅니다.
+- **EDIS 관할권 결정:** ITRE 주도 대 SEDE 주도는 의회가 공동 결정권을 얻는지 단순 자문 지위만 얻는지에 대한 절차적 대리 지표입니다.
+- **NRL 위반 서한:** NRL 미이행에 관한 집행위원회의 헝가리 또는 폴란드 위반 서한은 파일을 정치적 교착에서 법적 교착으로 이동시킵니다.
+- **AI 규정 첫 번째 국내 감독 기관 지정:** 5월 말/6월 초 마감이 어느 회원국이 운영 준비가 되어 있고 어느 국가가 지연되고 있는지를 보여줍니다.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| 가설 | 지지 증거 | 반증 | 평가 |
+|---|---|---|---|
+| H1: EP10은 규제 완화적 통합 의회 | CSRD 임계치 삭감, Omnibus, EPP 위원장 지배, ECR 협력 | AMLA 야망, EDIS 감독 압력, AI 규정 집행 순항 | **부분적 지지** — 환경·금융에서 맞지만 제도적 구조에서는 아님 |
+| H2: 진보 블록이 여전히 야심 있는 하한선 설정 가능 | UWWTD 미세 오염 물질 보유, AMLA 독립성 연립 | CSRD 하한선 하향, NRL 집행 약화 | **약한 지지** — 방어적 승리만 |
+| H3: 초당파 제도주의가 EP10의 지속적 정체성 | EDIS 감독 압력, AMLA 권한 논쟁, AI 규정 기본권 보장 | 파일별 맞춤형 연립, 초다수결 없음 | **중간 지지** — 가장 과소평가된 구조적 특성 |
+
+### Source Quality (Admiralty grading)
+
+- EP 공개 데이터 포털 피드(위원회 문서, 채택 텍스트 TA-10-2026-0160): **A2**(신뢰할 수 있는 기관, 확인됨)
+- DOCEO XML 기명투표 캡처(이용 가능한 경우): **A2**
+- 합성 정치학적 프레이밍(Majone, Radaelli 규제 사이클 이론): **B2**(일반적으로 신뢰할 수 있는 학술 출처, 맥락화가 아마도 정확)
+- 전향적 연립 예측(향후 2~6주): **C3**(상당히 신뢰할 수 있음, 아마도 맞음 — 본질적으로 확률적)
+
+### Provenance
+
+- 실행: `committee-reports-run249-1778650040` (2026-05-13)
+- 이 브리핑을 위해 읽은 주요 아티팩트: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- 데이터 최신성: 2026년 5월 13일.
+- 모든 평가는 EP 공개 데이터 포털의 공개 피드 및 투표 데이터에서만 도출됩니다. GDPR 준수; MEP의 개인 프로파일링 없음.
+
+---
+
+*분석적 중립성: 이 브리핑은 관찰 가능한 연립 산술과 절차적 상태를 보고하는 것으로, 정당 판단이 아닙니다. 모든 방향성 있는 주장은 명시적 신뢰도와 경쟁 가설 처리와 함께 제시됩니다.*
+
+### Executive Brief Nl
+
+### BLUF (Bottom Line Up Front)
+
+De week van 6–13 mei 2026 is de duidelijkste enkeleweeks-bevestiging tot nu toe dat het EP10 is overgegaan van de **expansiefase** van EU-regulering (EP9's Europese Green Deal / AI-verordening / CSDDD-golf) naar een **consolidatie- en herzieningsfase**. Het commissiesysteem drijft tegelijkertijd (i) het grootste EU-defensie-industriële instrument ooit (EDIS, ≈€150 mrd.), (ii) een politiek onomkeerbare heropening van de Europese Green Deal (CSRD-drempels aangenomen via TA-10-2026-0160, NRL-handhaving betwist, UWWTD-herziening in uitvoering), (iii) twee systemische hervormingen van het financieel bestuur (AMLA, CMU Fase 2) en (iv) de operationele fase van de implementatie van de AI-verordening — alles in een Parlement **zonder duurzame supermeerderheid**. De totale richting, niet één enkel dossier, is het strategische signaal: **rechtse wending op milieu- en financiële regelgeving; havikachtig op defensie; voorzichtig op AI; vastbesloten institutionalistisch op de EU-architectuur**. *Betrouwbaarheidsniveau: HOOG.*
+
+### Three Decisions Riding On This Week
+
+1. **De ondergrens van de herziening van de Europese Green Deal is nu de enige openstaande kwestie.** De goedkeuring in april van herziene CSRD-drempels gecombineerd met voortgaand ENVI-werk aan de UWWTD en het lopende debat over NRL-handhaving heeft de *richting* vastgesteld — het milieu-acquis van EP9 zal wezenlijk worden heropend. Progressieve groepen (S&D + Greens + Left) kunnen deze koers niet keren; hun resterende invloed is puur defensief, verankerd in het vaststellen van een overlevingsbodem voor openbaarmakingsdrempels, inclusie van microverontreinigingen en handhavingstaal op het gebied van biodiversiteit. *Betrouwbaarheidsniveau: HOOG.*
+
+2. **De onafhankelijkheidstest van de AMLA zal de AML-geloofwaardigheid van de EU voor een decennium bepalen.** Het cluster S&D + Renew + Greens dat aandrong op echte operationele onafhankelijkheid bevindt zich in een numeriek winnende maar politiek fragiele coalitie: de impasse van de Raad over de vestigingsplaats loopt nu over in de inhoud, en hoe langer de onderhandelingen voortduren na 2027, hoe meer het AML-kader van de EU zal blijven passen bij de FinCEN-bevinding van 2025 die de EU omschrijft als de G7-jurisdictie met de grootste handhavingslacunes. De strijd in de commissie over AMLA-bevoegdheden (met name de reikwijdte van rechtstreeks toezicht) is de feitelijke beslissing, niet de zetel. *Betrouwbaarheidsniveau: MATIG–HOOG.*
+
+3. **EDIS zal het precedent stellen voor parlementair toezicht op defensie-industriebeleid voor de rest van EP10.** Een instrument van €150 mrd. dat een omstreden bevoegdheidsdebat doorloopt (ITRE / SEDE / AFET) is het grootste institutionele precedent van dit Parlement. Als de definitieve architectuur het Parlement beperkt tot raadpleging in plaats van medebesluiting over operationele defensie-industriële allocaties, verkrijgen de Raad en de Commissie een sjabloon voor intergouvernementele omzeiling bij elk volgend defensiedossier. Breed institutioneel belang (S&D + Renew + institutionele vleugels van EVP) is de enige coalitie die dit kan verhinderen. *Betrouwbaarheidsniveau: MATIG.*
+
+### 60-Second Read
+
+De commissieweek is een paradox: hoge wetgevingsproductie bovenop een Parlement met lage cohesie. Het numerieke beeld verklaart dit. Het 25,7 % zetelpercentage van de EVP wordt versterkt door **vijf grote commissievoorzitterschappen** die het een eerste-mover-inkadringsvoordeel geven, en gecombineerd met ECR plus informele PfE-steun levert dit een centrumsrechtse meerderheid op bij deregulering, concurrentievermogen en migratiedossiers die het ruwe aandeel van de EVP overstijgt. Maar diezelfde architectuur **levert geen meerderheid op voor de milieubodem, sociale rechten of het institutionele ontwerp van de AMLA**, waar S&D + Greens + delen van Renew + af en toe The Left een duurzame tegenmacht vormen.
+
+Dat is waarom elk groot dossier van deze week een **maatwerkcoalitie** kent: EVP + Renew bij CMU, Chips II en het vaststellen van de CSRD-bodem; S&D + Renew bij de onafhankelijkheid van de AMLA en de AI-grondrechtsgaranties; transpartijdig bij EDIS-toezicht. De 77-zetels-scharnierpositie van Renew is de enige meest bepalende variabele in EP10 — zijn keuzes op commissieniveau, meer dan zijn stemmingen in de plenaire vergadering, bepalen welke van de twee tegengestelde politieke logica's elk dossier wint.
+
+Hieronder is de **reguleringsciclus-these** (Majone, Radaelli) nu duidelijk operationeel: EP9 produceerde de grootste wetgevingsoutput van één enkel Parlement in de EU-geschiedenis; EP10 is het consolidatieparlement. De CSRD-drempelherziening is het duidelijkste empirische bewijs — voor het eerst sinds 2019 heeft het Parlement gestemd voor *verlaging* van de toepassingsreikwijdte van een van zijn eigen vlaggenschip-milieudossiers. Dat is het structurele feit, ongeacht de uitkomst van amendementen deze week.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | Risico | Waarschijnlijkheid | Impact | Netto |
+|---|------|------------:|------:|----:|
+| 1 | Instorting van de NRL-implementatie (blokkerende minderheid in de Raad, blootstelling aan het HvJEU) | HOOG | HOOG | **Kritiek** |
+| 2 | AMLA-impasse tot na 2027 (resterende G7-AML-lacune) | MED–HOOG | HOOG | **Kritiek** |
+| 3 | EDIS-governance sluit parlementaire medebesluiting uit (precedentrisico voor alle defensiedossiers) | MED | ZEER HOOG | **Kritiek** |
+| 4 | HvJEU vernietigt Omnibus/CSRD-herziening wegens ontoereikende motivering | LAAG–MED | HOOG | Bewaken |
+| 5 | CMU Fase 2 bezwijkt voor politieke vermoeidheid vóór aanname | HOOG | MED | Bewaken |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **Uitkomst van het CSRD-triloog:** de definitieve Raad–Parlement-compromistekst bepaalt of de bodem wordt gesteld op ≥500 werknemers (progressieve bodem) of ≥1 000 (EVP–ECR-plafond).
+- **Bewegingen van het Raadsvoorzitterschap over de AMLA:** elke Raadsverklaring die zetel + bevoegdheden opnieuw koppelt, signaleert dat de inhoudelijke onderhandeling nu gepolitiseerd is.
+- **EDIS-bevoegdheidsbesluit:** ITRE-leiding versus SEDE-leiding is de procedurele proxy voor de vraag of het Parlement medebesluiting of slechts een adviserende status krijgt.
+- **NRL-inbreukbrieven:** een inbreukbrief van de Commissie aan Hongarije of Polen over niet-implementatie van de NRL zou het dossier van politieke impasse naar juridische impasse verschuiven.
+- **Eerste nationale toezichthouderbenoemingen ingevolge de AI-verordening:** de deadline eind mei / begin juni onthult welke lidstaten operationeel gereed zijn en welke achterlopen.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| Hypothese | Ondersteunend bewijs | Tegenbewijzen | Beoordeling |
+|---|---|---|---|
+| H1: EP10 is een dereglementair consolidatieparlement | CSRD-drempelverlaging, Omnibus, EVP-voorzittersdominantie, ECR-samenwerking | AMLA-ambitie, EDIS-toezichtsdruk, AI-verordening op schema | **Gedeeltelijk ondersteund** — waar voor milieu en financiën, niet voor institutionele architectuur |
+| H2: Progressief blok kan nog steeds ambitieuze bodems stellen | UWWTD-micro-verontreinigingsretentie, AMLA-onafhankelijkheidscoalitie | CSRD-bodem verlaagd, NRL-handhaving verzwakt | **Zwak ondersteund** — alleen defensieve winsten |
+| H3: Transpartijdig institutionalisme is de duurzame identiteit van EP10 | EDIS-toezichtsdruk, AMLA-bevoegdheidsdebat, AI-verordening grondrechtsgaranties | Maatwerkcoalities per dossier, geen supermeerderheid | **Matig ondersteund** — het meest onderschatte structurele kenmerk |
+
+### Source Quality (Admiralty grading)
+
+- EP Open Data Portal-feeds (commissiedocumenten, aangenomen teksten TA-10-2026-0160): **A2** (betrouwbare instelling, bevestigd)
+- DOCEO XML-stemopnames (waar beschikbaar): **A2**
+- Gesynthetiseerde politicologische inkadering (Majone, Radaelli reguleringsciclus-theorie): **B2** (doorgaans betrouwbare academische bron, waarschijnlijk juiste contextualisering)
+- Vooruitblikkende coalitieprognoses (komende 2–6 weken): **C3** (redelijk betrouwbaar, mogelijk juist — inherent probabilistisch)
+
+### Provenance
+
+- Uitvoering: `committee-reports-run249-1778650040` (2026-05-13)
+- Primaire artefacten gelezen voor dit briefing: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- Gegevensactualiteit: 13 mei 2026.
+- Alle beoordelingen zijn uitsluitend afgeleid van openbare EP Open Data Portal-feeds en stemdata. AVG-conform; geen persoonlijke profilering van EP-leden.
+
+---
+
+*Analytische neutraliteit: dit briefing rapporteert waarneembare coalitie-arithmetiek en procedurele status, geen partijpolitiek oordeel. Elke richtinggevende bewering is afgedekt met een expliciete betrouwbaarheidsgraad en behandeling van concurrerende hypothesen.*
+
+### Executive Brief No
+
+### BLUF (Bottom Line Up Front)
+
+Uken 6.–13. mai 2026 er den klareste enkeltukesbekreftelsen til dags dato på at EP10 har gått fra **ekspansjonsfasen** av EU-regulering (EP9s grønne giv / AI-forordning / CSDDD-bølge) til en **konsoliderings- og revisjonsfase**. Komitésystemet driver samtidig (i) det hittil største EU-forsvarsindustrielle instrumentet (EDIS, ≈€150 mrd.), (ii) en politisk uomgjørelig gjenåpning av den grønne given (CSRD-terskler vedtatt via TA-10-2026-0160, NRL-håndhevelse bestridt, UWWTD-revisjon i gang), (iii) to systemiske reformer av finansiell styring (AMLA, CMU fase 2) og (iv) gjennomføringsfasen av AI-forordningen — alt under et Parlament med **ingen varig supermajoritet**. Den samlede retningen, ikke noe enkelt dossier, er det strategiske signalet: **høyredreiet på miljø- og finansregulering; haukaktig på forsvar; forsiktig på AI; bestemt institusjonalistisk på EU-arkitekturen**. *Konfidens: HØY.*
+
+### Three Decisions Riding On This Week
+
+1. **Gulvet i den grønne givens revisjon er nå det eneste åpne spørsmålet.** Aprilvedtakelsen av reviderte CSRD-terskler kombinert med fortsatt ENVI-arbeid om UWWTD og den pågående NRL-håndhevelsesdebatten har fastslått *retningen* — EP9s miljørettslige acquis vil bli vesentlig gjenåpnet. Progressive grupper (S&D + Greens + Left) kan ikke snu dette forløpet; deres gjenværende innflytelse er rent defensiv, forankret i å sette et overlevelsesminimum for opplysingsterskler, inkludering av mikro-forurensende stoffer og biologisk mangfold-håndhevelsesspråk. *Konfidens: HØY.*
+
+2. **AMLA-uavhengighetstesten vil definere EU-AML-troverdigheten for et tiår.** Klyngen S&D + Renew + Greens som presset på for ekte operasjonell uavhengighet, befinner seg i en numerisk vinnende, men politisk skjør koalisjon: Rådets fastlåsning om setets beliggenhet bløder nå inn i substansen, og jo lenger forhandlingene strekker seg utover 2027, desto mer vil EU-AML-rammen fortsette å passe til 2025 Fincen-rapporten som beskriver EU som G7-jurisdiksjonen med størst håndhevingshull. Komitéstriden om AMLA-fullmakter (særlig direkte tilsynsomfang) er den faktiske avgjørelsen, ikke setet. *Konfidens: MODERAT–HØY.*
+
+3. **EDIS vil sette presedens for parlamentarisk tilsyn med forsvarsindustripolitikk for resten av EP10.** Et €150 mrd.-instrument som passerer en omstridt jurisdiksjonsdebatt (ITRE / SEDE / AFET) er dette Parlamentets største institusjonelle presedens. Dersom den endelige arkitekturen begrenser Parlamentet til konsultasjon fremfor medbeslutning om operative forsvarsindustrielle tildelinger, anskaffer Rådet og Kommisjonen en mal for mellomstatlig omgåelse på alle forsvarsdossierene som følger. Tverrpolitisk institusjonell interesse (S&D + Renew + EPP-institusjonelle fløyer) er den eneste koalisjonen som kan forhindre dette. *Konfidens: MODERAT.*
+
+### 60-Second Read
+
+Komitéuken er et paradoks: høy lovgivningsmessig produksjon oppå et parlament med lav kohesjon. Det numeriske bildet forklarer det. EPP-andelen på 25,7 % av mandatene forsterkes av **fem store komitélederseter** som gir det rammesettende førstemoverfordeler, og kombinert med ECR pluss uformell PfE-støtte produserer en sentrumshøyremajoritet på deregulering, konkurranseevne og migrasjonsdossierer som overstiger EPP-rå andelen. Men den samme arkitekturen **leverer ikke en majoritet om miljøgulvet, sosiale rettigheter eller AMLA-institusjonell design**, der S&D + Greens + deler av Renew + av og til Left danner et varig motblokk.
+
+Derfor har hvert større dossier denne uken en **skreddersydd koalisjon**: EPP + Renew om CMU, Chips II og CSRD-gulvsetting; S&D + Renew om AMLA-uavhengighet og AI-grunnleggende rettighetsgarantier; tverrpolitisk om EDIS-tilsyn. Renews 77-setes svingposisjon er den eneste mest avgjørende variabelen i EP10 — dens valg på komiténivå, mer enn plenaravstemningene, avgjør hvilken av to motsatte politiske logikker som vinner hvert dossier.
+
+Under dette er **reguleringsyklusetesen** (Majone, Radaelli) nå tydelig operativ: EP9 produserte den største enkeltparlaments lovgivningsoutput i EU-historien; EP10 er konsolideringsparlamentet. CSRD-terskelrevisjonen er det reneste empiriske beviset — for første gang siden 2019 har Parlamentet stemt for å *redusere* anvendelsesomfanget av ett av sine egne flaggskips-miljødossierene. Det er det strukturelle faktum, uavhengig av ukens endringsresultater.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | Risiko | Sannsynlighet | Konsekvens | Netto |
+|---|------|------------:|------:|----:|
+| 1 | NRL-gjennomføringssammenbrudd (rådsblokerende minoritet, EU-domstolseksponering) | HØY | HØY | **Topp** |
+| 2 | AMLA-fastlåsning strekker seg utover 2027 (gjenværende G7 AML-gap) | MED–HØY | HØY | **Topp** |
+| 3 | EDIS-styring ekskluderer parlamentarisk medbeslutning (presedensrisiko på alle forsvarsdossierene) | MED | SVÆRT HØY | **Topp** |
+| 4 | EU-Domstolen annullerer Omnibus/CSRD-revisjon for utilstrekkelig begrunnelse | LAV–MED | HØY | Overvåk |
+| 5 | CMU fase 2 kollapser i politisk utmattelse før vedtakelse | HØY | MED | Overvåk |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **CSRD-triloguens utfall:** den endelige Råd–Parlament-kompromisteksten avgjør om gulvet settes ved ≥500 ansatte (progressivt gulv) eller ≥1 000 (EPP–ECR-tak).
+- **AMLA Rådsformannskapets trekk:** ethvert rådsuttalelse som rebundler sete + fullmakter signalerer at den substantielle forhandlingen nå er politisert.
+- **EDIS-jurisdiksjonsbeslutningen:** ITRE-ledelse kontra SEDE-ledelse er den prosessuelle proxyen for om Parlamentet oppnår medbeslutning eller kun rådgivende status.
+- **NRL-overtredelsesbrever:** et Kommisjonsovertredelsesbrev til Ungarn eller Polen om NRL-manglende gjennomføring ville flytte dossieret fra politisk fastlåsning til juridisk fastlåsning.
+- **AI-forordningens første nasjonale tilsynsutnevnelser:** sen mai/tidlig juni-fristen avslører hvilke medlemsstater som er operasjonelt klare og hvilke som sakker etter.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| Hypotese | Støttende bevis | Motbevis | Vurdering |
+|---|---|---|---|
+| H1: EP10 er et deregulerende konsolideringsparlament | CSRD-terskelnedsettelse, Omnibus, EPP-formandsdominans, ECR-samarbeid | AMLA-ambisjon, EDIS-tilsynspress, AI-forordningens håndhevelse på rett spor | **Delvis støttet** — sant om miljø og finans, ikke om institusjonell arkitektur |
+| H2: Progressiv blokk kan fortsatt sette ambisiøse gulv | UWWTD-mikroforurensningsretensjon, AMLA-uavhengighetskoalisjon | CSRD-gulv senket, NRL-håndhevelse svekket | **Svakt støttet** — kun defensive seirer |
+| H3: Tverrpolitisk institusjonalisme er EP10s varige identitet | EDIS-tilsynspress, AMLA-maktdebatt, AI-forordningens grunnleggende rettighetsgarantier | Skreddersydde per-dossier-koalisjoner, ingen supermajoritet | **Moderat støttet** — det mest undervurderte strukturelle trekket |
+
+### Source Quality (Admiralty grading)
+
+- EP Åpne dataportalfeeder (komitédokumenter, vedtatte tekster TA-10-2026-0160): **A2** (pålitelig institusjon, bekreftet)
+- DOCEO XML-avstemningsfangster (der tilgjengelig): **A2**
+- Syntetisert politisk-vitenskapelig innramming (Majone, Radaelli reguleringssykelteori): **B2** (vanligvis pålitelig akademisk kilde, sannsynligvis sann kontekstualisering)
+- Fremadrettede koalisjonsprognoser (neste 2–6 uker): **C3** (ganske pålitelig, muligens sann — iboende sannsynlighetsbasert)
+
+### Provenance
+
+- Kjøring: `committee-reports-run249-1778650040` (2026-05-13)
+- Primære artefakter lest for dette sammendraget: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- Datakurrency: 13. mai 2026.
+- Alle vurderinger er avledet utelukkende fra offentlige EP Åpne dataportalfeeder og avstemningsdata. GDPR-kompatibel; ingen personlig MEP-profilering.
+
+---
+
+*Analytisk nøytralitet: dette sammendraget rapporterer observerbar koalisjonsaritmetikk og prosessuell tilstand, ikke partipolitisk vurdering. Hvert retningsrettet utsagn er dempet med eksplisitt konfidens og konkurrerende-hypotesebehandling.*
+
+### Executive Brief Sv
+
+### BLUF (Bottom Line Up Front)
+
+Veckan 6–13 maj 2026 är den tydligaste bekräftelsen hittills av att EP10 har övergått från **expansionsfasen** av EU-reglering (EP9:s gröna giv / AI-förordning / CSDDD-våg) till en **konsoliderings- och revisionsfas**. Utskottssystemet driver samtidigt (i) det hittills största EU-instrumentet för försvarsindustri (EDIS, ≈€150 md), (ii) en politiskt oåterkallelig omöppning av den gröna given (CSRD-trösklar antagna via TA-10-2026-0160, NRL-tillämpning ifrågasatt, UWWTD-revision pågår), (iii) två systemiska reformer av finansiell styrning (AMLA, CMU fas 2) samt (iv) genomförandefasen av AI-förordningen — allt under ett parlament med **ingen hållbar supermajoritet**. Den samlade riktningen, inte enskilda ärenden, är den strategiska signalen: **höger om centrum på miljö- och finansreglering; hökaktig om försvar; försiktig om AI; bestämt institutionalistisk om EU:s arkitektur**. *Konfidens: HÖG.*
+
+### Three Decisions Riding On This Week
+
+1. **Golvet i den gröna givens revision är nu den enda öppna frågan.** Apriladoptionen av reviderade CSRD-trösklar kombinerat med fortsatt ENVI-arbete om UWWTD och den pågående NRL-tillämpningsdebatten har fastställt *riktningen* — EP9:s miljörättsliga regelverk kommer att omöppnas väsentligt. Progressiva grupper (S&D + Greens + Left) kan inte vända denna bana; deras kvarvarande inflytande är enbart defensivt, förankrat i att sätta ett överlevnadsgolv för upplysningströsklar, inkludering av mikrföroreningar och språk om biologisk mångfald. *Konfidens: HÖG.*
+
+2. **AMLA:s självständighetstest kommer att definiera EU:s AML-trovärdighet under ett decennium.** Klustret S&D + Renew + Greens som drivit på genuint operationell självständighet befinner sig i en numerärt vinnande men politiskt skör koalition: rådets dödläge om sätets lokalisering blöder nu in i substansen, och ju längre förhandlingarna sträcker sig bortom 2027, desto mer kommer EU:s AML-ramverk att passa in i 2025 Fincen-rapporten som beskriver EU som G7:s jurisdiktion med störst tillämpningsluckor. Utskottsstriden om AMLA:s befogenheter (särskilt direkt tillsynsomfattning) är det faktiska avgörandet, inte sätet. *Konfidens: MODERAT–HÖG.*
+
+3. **EDIS kommer att sätta prejudikatet för parlamentets tillsyn av försvarsindustripolitik under resten av EP10.** Ett €150 md-instrument som passerar en omtvistad jurisdiktionsdebatt (ITRE / SEDE / AFET) är det största institutionella prejudikatet i detta parlament. Om den slutliga arkitekturen begränsar parlamentet till samråd snarare än medbeslutande om operationella försvarsindustriallokeringar, skaffar rådet och kommissionen en mall för mellanstatlig förbikoppling på varje försvarsfil som följer. Tvärpolitiskt institutionellt intresse (S&D + Renew + EPP:s institutionella vingar) är den enda koalitionen som kan förhindra detta. *Konfidens: MODERAT.*
+
+### 60-Second Read
+
+Utskottsveckan är en paradox: hög produktion av lagstiftning ovanpå ett parlament med låg kohesion. Den numeriska bilden förklarar det. EPP:s 25,7 % andel av mandaten förstärks av **fem stora utskottsordförandeposter** som ger det förstahandsram och kombinerat med ECR plus informellt PfE-stöd producerar en centersäger-majoritet om avreglering, konkurrenskraft och migrationsfiler som överstiger EPP:s råa andel. Men samma arkitektur **ger inte en majoritet om miljögolvet, sociala rättigheter eller AMLA:s institutionella design**, där S&D + Greens + delar av Renew + emellanåt Left bildar ett hållbart motblock.
+
+Det är därför varje stor fil denna vecka har en **skräddarsydd koalition**: EPP + Renew om CMU, Chips II och CSRD:s golvsättning; S&D + Renew om AMLA:s självständighet och AI:s grundläggande rättighetsgarantier; tvärpolitisk om EDIS-tillsyn. Renews 77-platsspelares svängposition är den enda mest avgörande variabeln i EP10 — dess val på utskottsnivå, mer än omröstningarna i plenarsalen, avgör vilken av två motsatta politiska logiker som vinner varje fil.
+
+Bakom detta är **cyklustesen om reglering** (Majone, Radaelli) nu tydligt operativ: EP9 producerade det största enskilda parlamentets lagstiftningsresultat i EU:s historia; EP10 är konsolideringspartamentet. CSRD-tröskelrevisionen är det renaste empiriska beviset — för första gången sedan 2019 har parlamentet röstat för att *minska* tillämpningsomfattningen av ett av sina egna flaggskeppsmiljöärenden. Det är det strukturella faktum, oavsett veckans utfall av ändringsförslag.
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | Risk | Sannolikhet | Konsekvens | Netto |
+|---|------|------------:|------:|----:|
+| 1 | NRL-genomförandesammanbrott (rådsblockering, EG-domstolsexponering) | HÖG | HÖG | **Topp** |
+| 2 | AMLA-dödläge sträcker sig bortom 2027 (kvarvarande G7 AML-lucka) | MED–HÖG | HÖG | **Topp** |
+| 3 | EDIS-styrning exkluderar parlamentets medbeslutande (prejudikatrisk på alla försvarsfiler) | MED | MYCKET HÖG | **Topp** |
+| 4 | EG-domstolen ogiltigförklarar Omnibus/CSRD-revision för otillräcklig motivering | LÅG–MED | HÖG | Bevaka |
+| 5 | CMU fas 2 kollapsar i politisk utmattning före antagande | HÖG | MED | Bevaka |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **CSRD:s trilogutfall:** den slutliga råds–parlamentskompromissen avgör om golvet sätts vid ≥500 anställda (progressivt golv) eller ≥1 000 (EPP–ECR-tak).
+- **AMLA:s rådsordföranderörelser:** varje rådsuttalande som återbuntar säte + befogenheter signalerar att den substantiella förhandlingen nu är politiserad.
+- **EDIS:s jurisdiktionsbeslut:** ITRE-ledning kontra SEDE-ledning är den procedurmässiga proxyn för om parlamentet får medbeslutstatus eller enbart rådgivande status.
+- **NRL-överträdelsebrev:** ett kommissionsöverträdelsebrev till Ungern eller Polen om NRL-missimplementering skulle flytta filen från politiskt dödläge till rättsligt dödläge.
+- **AI-förordningens första nationella tillsynsbeteckningar:** sena maj/tidiga juni-deadlinen avslöjar vilka medlemsstater som är operationellt redo och vilka som halkar efter.
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| Hypotes | Stödjande bevis | Motbevis | Bedömning |
+|---|---|---|---|
+| H1: EP10 är ett avreglerande konsoliderings­parlament | CSRD-tröskelssänkning, Omnibus, EPP:s ordföranddominans, ECR-samarbete | AMLA-ambition, EDIS-tillsynsdrivning, AI-förordningens tillämpning på rätt spår | **Delvis stödd** — sant om miljö och finans, inte om institutionell arkitektur |
+| H2: Progressivt block kan fortfarande sätta ambitiösa golv | UWWTD:s retention av mikroföroreningar, AMLA:s självständighetskoalition | CSRD-golvet sänktes, NRL-tillämpning försvagades | **Svagt stödd** — enbart defensiva vinster |
+| H3: Tvärpolitisk institutionalism är EP10:s hållbara identitet | EDIS-tillsynsdrivning, AMLA:s maktdebatt, AI-förordningens grundläggande rättighetsgarantier | Skräddarsydda per-filen-koalitioner, ingen supermajoritet | **Måttligt stödd** — det mest underskattade strukturella draget |
+
+### Source Quality (Admiralty grading)
+
+- EP:s öppna dataportalflöden (utskottsdokument, antagna texter TA-10-2026-0160): **A2** (tillförlitlig institution, bekräftad)
+- DOCEO XML-omröstningsfångster (där tillgängliga): **A2**
+- Syntetiserad politisk-vetenskaplig inramning (Majone, Radaelli regleringscikelteori): **B2** (vanligen tillförlitlig akademisk källa, troligtvis sann kontextualisering)
+- Framåtblickande koalitionsprognoser (nästa 2–6 veckor): **C3** (ganska tillförlitlig, möjligen sann — inneboende sannolikhetsbetonad)
+
+### Provenance
+
+- Körning: `committee-reports-run249-1778650040` (2026-05-13)
+- Primärartiklar lästa för detta sammandrag: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`, `classification/significance-classification.md`, `classification/actor-mapping.md`.
+- Datakurrency: 13 maj 2026.
+- Alla bedömningar härrör från offentliga EP:s öppna dataportalflöden och omröstningsdata. GDPR-kompatibel; ingen personlig MEP-profilering.
+
+---
+
+*Analytisk neutralitet: detta sammandrag rapporterar observerbar koalitionsaritmetik och procedurstatus, inte partipolitisk bedömning. Varje direkt påstående är hedgat med explicit konfidens och konkurrerande-hypotesbehandling.*
+
+### Executive Brief Zh
+
+### BLUF (Bottom Line Up Front)
+
+2026年5月6日至13日这一周，是迄今最为清晰地表明EP10已从欧盟监管的**扩张阶段**（EP9的绿色新政 / 人工智能法规 / CSDDD浪潮）过渡到**整合与修订阶段**的单周证据。委员会系统正在同时推动：(i) 欧盟有史以来最大的国防工业政策工具（EDIS，≈€1500亿），(ii) 绿色新政在政治上不可逆转的重新启动（CSRD门槛通过TA-10-2026-0160获得通过，NRL执法存在争议，UWWTD修订正在进行），(iii) 两项系统性金融治理改革（AMLA，CMU第二阶段），(iv) 人工智能法规实施的运营阶段——所有这些都在一个**没有持久超级多数席位**的议会中进行。整体方向，而非任何单一文件，才是战略信号：**在环境和金融监管上右倾；在防务上强硬；在人工智能上谨慎；在欧盟架构上坚定秉持制度主义**。*置信度：高。*
+
+### Three Decisions Riding On This Week
+
+1. **绿色新政修订的底线现在是唯一悬而未决的问题。** 4月通过修订后的CSRD门槛，加上ENVI在UWWTD上的持续工作以及正在进行的NRL执法辩论，已经确定了*方向*——EP9的环境法律成就将被大幅重新开放。进步团体（S&D + Greens + Left）无法扭转这一轨迹；其剩余影响力纯属防御性，专注于为信息披露门槛、微型污染物纳入和生物多样性执法语言设定最低生存底线。*置信度：高。*
+
+2. **AMLA的独立性测试将定义欧盟的反洗钱公信力长达十年。** 推动真正运营独立性的S&D + Renew + Greens集团处于数字上占优但政治上脆弱的联盟中：理事会在总部地点上的僵局现在正渗入实质内容，谈判延伸至2027年后越久，欧盟反洗钱框架就越会继续符合2025年FinCEN调查结论——该报告将欧盟描述为G7中执法差距最大的司法管辖区。委员会层面关于AMLA权力（尤其是直接监管范围）的博弈才是真正的决策，而非总部所在地。*置信度：中高。*
+
+3. **EDIS将为EP10剩余任期内的国防工业政策议会监督树立先例。** 一个价值€1500亿的工具正在通过存在争议的管辖权辩论（ITRE / SEDE / AFET），是本届议会最大的制度性先例。如果最终架构将议会限定为就运营国防工业拨款提供咨询而非共同决策，理事会和委员会就获得了此后每项防务档案政府间绕行的模板。跨越政治光谱的制度性利益（S&D + Renew + EPP制度性翼）是唯一能阻止这一情况的联盟。*置信度：中等。*
+
+### 60-Second Read
+
+委员会周是一个悖论：高立法产出叠加在低凝聚力的议会之上。数字图景解释了这一点。EPP的25.7%席位占比因**五个主要委员会主席职位**而放大，赋予其先到先得的议题框架优势，加上ECR以及PfE的非正式支持，在放松管制、竞争力和移民档案上形成超过EPP原始席位比例的中右翼多数。但同样的架构**在环境底线、社会权利或AMLA制度设计方面无法形成多数**，在这些领域，S&D + Greens + Renew的部分 + 偶尔的Left形成了持久的反对阵营。
+
+这就是为何本周每项主要档案都有一个**量身定制的联盟**：EPP + Renew主导CMU、Chips II和CSRD底线设定；S&D + Renew主导AMLA独立性和人工智能基本权利保障；跨党派应对EDIS监督。Renew的77席枢纽地位是EP10中单一最具决定性的变量——其委员会层面的选择，比其全体会议投票更能决定哪种对立的政治逻辑在每个档案中胜出。
+
+在此之下，**监管周期论**（Majone、Radaelli）现在已明显发挥作用：EP9产生了欧盟历史上单届议会最大的监管产出；EP10是整合的议会。CSRD门槛修订是最清晰的经验证据——自2019年以来议会首次投票*缩减*其旗舰环境档案之一的适用范围。无论本周修正案结果如何，这都是结构性事实。
+
+### Risk Snapshot (5-year horizon, ranked by Probability × Impact)
+
+| # | 风险 | 概率 | 影响 | 综合 |
+|---|------|------------:|------:|----:|
+| 1 | NRL实施崩溃（理事会阻止少数，欧盟法院风险敞口） | 高 | 高 | **首要** |
+| 2 | AMLA僵局延伸至2027年后（G7反洗钱剩余差距） | 中高 | 高 | **首要** |
+| 3 | EDIS治理排除议会共同决策（对所有防务档案的先例风险） | 中 | 极高 | **首要** |
+| 4 | 欧盟法院以理由不充分为由撤销Omnibus/CSRD修订 | 低中 | 高 | 关注 |
+| 5 | CMU第二阶段在通过前因政治疲劳崩溃 | 高 | 中 | 关注 |
+
+### Forward Triggers (what to watch in the next 2–6 weeks)
+
+- **CSRD三方谈判结果：** 最终理事会~议会妥协文本决定底线是定在≥500名员工（进步底线）还是≥1,000名（EPP~ECR上限）。
+- **AMLA理事会轮值主席国动向：** 任何将总部+权力重新捆绑的理事会声明，都表明实质性谈判现已政治化。
+- **EDIS管辖权决定：** ITRE主导与SEDE主导的对比，是议会能否获得共同决策权还是仅获顾问地位的程序性代理指标。
+- **NRL违规通知函：** 欧盟委员会就未实施NRL向匈牙利或波兰发送的违规通知函，将使该档案从政治僵局转变为法律僵局。
+- **人工智能法规首批国内监管机构指定：** 五月末/六月初的截止日期揭示哪些成员国已运营准备就绪，哪些正在落后。
+
+### ACH (Analysis of Competing Hypotheses) — Strategic Reading
+
+| 假设 | 支持证据 | 反驳证据 | 评估 |
+|---|---|---|---|
+| H1：EP10是放松管制的整合议会 | CSRD门槛削减、Omnibus、EPP委员会主席主导、ECR合作 | AMLA雄心、EDIS监督压力、人工智能法规执法如期推进 | **部分支持** — 在环境和金融方面正确，在制度架构方面则否 |
+| H2：进步阵营仍能设定有雄心的底线 | UWWTD微型污染物保留、AMLA独立性联盟 | CSRD底线下调，NRL执法减弱 | **弱支持** — 仅防御性胜利 |
+| H3：跨党派制度主义是EP10的持久认同 | EDIS监督压力、AMLA权力辩论、人工智能法规基本权利保障 | 档案定制化联盟，无超级多数 | **中等支持** — 最被低估的结构性特征 |
+
+### Source Quality (Admiralty grading)
+
+- 欧洲议会开放数据门户信息流（委员会文件、已采用文本 TA-10-2026-0160）：**A2**（可靠机构，已确认）
+- DOCEO XML记名投票数据（如有）：**A2**
+- 综合政治学框架（Majone、Radaelli监管周期理论）：**B2**（通常可靠的学术来源，背景化可能准确）
+- 前瞻性联盟预测（未来2~6周）：**C3**（相当可靠，可能准确——本质上属于概率性）
+
+### Provenance
+
+- 运行：`committee-reports-run249-1778650040`（2026-05-13）
+- 为本简报读取的主要文件：`intelligence/synthesis-summary.md`、`intelligence/coalition-dynamics.md`、`risk-scoring/risk-matrix.md`、`extended/media-framing-analysis.md`、`classification/significance-classification.md`、`classification/actor-mapping.md`。
+- 数据时效：2026年5月13日。
+- 所有评估均仅源自欧洲议会开放数据门户公开信息流和投票数据。符合GDPR；不对欧洲议会议员进行个人画像。
+
+---
+
+*分析中立性：本简报报告可观察到的联盟运算和程序状态，不作党派判断。每项方向性主张均附有明确置信度和竞争假设处理。*
+
 ### Political Intelligence
 
 ### Executive Summary
@@ -2712,6 +3570,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [political-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/intelligence/political-intelligence.md) | `intelligence/political-intelligence.md` |
 | section-supplementary-intelligence | [stakeholder-perspectives](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/intelligence/stakeholder-perspectives.md) | `intelligence/stakeholder-perspectives.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/committee-reports/intelligence/swot-analysis.md) | `intelligence/swot-analysis.md` |
