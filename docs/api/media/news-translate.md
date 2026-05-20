@@ -193,12 +193,55 @@ post-steps:
   # Always run the validator on whatever the agent produced. The script
   # exits non-zero on any violation; preserve that status so invalid
   # translations are rejected instead of slipping into the safe-output PR.
+  #
+  # IMPORTANT: scope validation to the briefs THIS RUN was asked to translate
+  # (the entries in /tmp/gh-aw/discovery/queue.json). Pre-existing defects in
+  # older, unrelated briefs (e.g. a source brief whose H2 layout was extended
+  # AFTER its translations were already merged) must NOT fail this run — the
+  # translation agent has bounded scope and cannot fix them anyway. See the
+  # regression analysis in the PR that introduced this scoping (failure
+  # pattern: runs #206, #207, #208, #209, #210, #214, #219, #220, #221, #223).
   - name: Validate brief translations
     if: always()
     run: |
       mkdir -p /tmp/gh-aw/validation
+      # Derive sibling globs from the discovery queue (one per brief the
+      # agent was asked to translate). If the queue is missing or empty,
+      # there is nothing this run produced to validate — exit cleanly.
+      node -e '
+        const fs = require("node:fs");
+        const queuePath = "/tmp/gh-aw/discovery/queue.json";
+        if (!fs.existsSync(queuePath)) {
+          fs.writeFileSync("/tmp/gh-aw/validation/paths.txt", "");
+          process.exit(0);
+        }
+        const q = JSON.parse(fs.readFileSync(queuePath, "utf8"));
+        const entries = Array.isArray(q.queue) ? q.queue : [];
+        const globs = entries
+          .map((e) => typeof e.sourcePath === "string" ? e.sourcePath : "")
+          .filter((p) => p.endsWith("/executive-brief.md"))
+          .map((p) => p.replace(/\/executive-brief\.md$/, "/executive-brief_*.md"));
+        fs.writeFileSync("/tmp/gh-aw/validation/paths.txt", globs.join("\n"));
+        console.log("Validator scope (" + globs.length + " brief sibling glob(s)):");
+        for (const g of globs) console.log("  " + g);
+      '
+      # Read globs (one per line) into a bash array without nested expansion.
+      PATHS_FILE="/tmp/gh-aw/validation/paths.txt"
+      glob_args=()
+      if [ -s "$PATHS_FILE" ]; then
+        while IFS= read -r line; do
+          if [ -n "$line" ]; then
+            glob_args+=("$line")
+          fi
+        done < "$PATHS_FILE"
+      fi
+      if [ "${#glob_args[@]}" -eq 0 ]; then
+        echo "No briefs in discovery queue — skipping validator (nothing this run produced to validate)."
+        exit 0
+      fi
       set +e
       node scripts/validate-brief-translations.js \
+        --paths "${glob_args[@]}" \
         --report /tmp/gh-aw/validation/report.json
       VALIDATION_STATUS=$?
       node -e 'const r=require("/tmp/gh-aw/validation/report.json");console.log("Translations checked:",r.totals.filesChecked,"violations:",r.totals.violations);if(r.violations.length){for(const v of r.violations.slice(0,20)){console.log("•",v.translationPath,"["+v.gate+"]",v.message);}}'
