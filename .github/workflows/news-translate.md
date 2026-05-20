@@ -70,8 +70,12 @@ imports:
 
 # Concurrency uses one workflow-wide lease so scheduled runs and re-runs cannot
 # race while targeting the shared daily `news/translate-briefs-<date>` branch.
+# cancel-in-progress: true kills a stale cron run when the next tick fires,
+# preventing zombie stacked runs from accumulating compute (learned from
+# riksdagsmonitor which uses per-input concurrency with cancel-in-progress).
 concurrency:
   job-discriminator: translate-briefs
+  cancel-in-progress: true
 
 tools:
   timeout: 180            # per-tool-call cap
@@ -92,10 +96,16 @@ tools:
 safe-outputs:
   threat-detection:
     continue-on-error: true
+  # Translation failures retry on the next cron tick (3×/day); auto-created
+  # failure issues are noise. Suppress them (learned from riksdagsmonitor).
+  report-failure-as-issue: false
   # Per-run patch ≈ 300-450 KB of markdown (no HTML, no Chart.js, no images).
   # The gh-aw default 1024 KB is plenty but we leave headroom for catch-up
   # days when an operator overrides max_briefs=4 (push closer to 600 KB).
   max-patch-size: 4096
+  # Explicit file ceiling: max_briefs=4 × 13 langs = 52 files per flush.
+  # 100 gives headroom for validator reports and retry flushes.
+  max-patch-files: 100
   steps:
     - name: Fetch triggering commit for bundle prerequisites
       # The safe_outputs job checks out the current branch tip with
@@ -517,6 +527,44 @@ PY
      emoji (`🟢 HIGH` / `🟡 MEDIUM` / `🔴 LOW`), classification stamps.
    - Apply per-language register from § 4 of the translator guide
      (Nordic / EU-core / RTL / CJK).
+
+   **Pre-loop: scan existing translations (transient-error recovery)**
+   Before writing the first language for this brief, check which sibling
+   files already exist on disk. A transient API error during a `create`
+   call causes the gh-aw framework to retry the inference — when it does,
+   the agent must NOT re-create files that were already successfully
+   written in an earlier attempt. Run this once per brief, right after
+   the H2 checklist above:
+
+   ```bash
+   set -euo pipefail
+   BRIEF_DIR=$(dirname "$sourcePath")
+   echo "=== Translations already on disk for this brief ==="
+   ls "${BRIEF_DIR}"/executive-brief_*.md 2>/dev/null || echo "(none yet)"
+   echo "===================================================="
+   ```
+
+   For any `lang` from `missingLangs` where the output file already
+   exists, **skip the `create` call and jump directly to the H2
+   spot-check (step 4a)**. Overwriting with an identical `create` call
+   is harmless but wastes tokens; skipping and spot-checking is correct.
+
+   **Per-language pre-write check** — run immediately before every
+   `create` call (defends against transient-API-error retry loops where
+   the agent re-announces the same language but the file was already
+   written in the previous attempt):
+
+   ```bash
+   BRIEF_DIR=$(dirname "$sourcePath")
+   if [ -f "${BRIEF_DIR}/executive-brief_${lang}.md" ]; then
+     echo "skip_create=true  # ${lang} already on disk"
+   else
+     echo "skip_create=false  # ${lang} needs create"
+   fi
+   ```
+
+   When the file exists on disk, do NOT call the `create` tool; proceed
+   directly to **step 4a** (H2 spot-check).
 
    **4a. Mandatory H2 spot-check per language** — run immediately after
    creating each `executive-brief_<lang>.md`, BEFORE moving to the next

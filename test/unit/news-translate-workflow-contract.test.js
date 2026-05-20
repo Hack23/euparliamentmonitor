@@ -60,7 +60,7 @@ describe('news-translate workflow contract', () => {
     // ensures we never accidentally re-bloat it back to the legacy 1.7K-line
     // HTML-translation behemoth.
     expect(workflow.length).toBeGreaterThan(2000);
-    expect(workflow.length).toBeLessThan(40000);
+    expect(workflow.length).toBeLessThan(42000);
   });
 
   it('runs 3×/day on cron and is workflow_dispatch-enabled', () => {
@@ -266,6 +266,39 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/WORKFLOW_START_EPOCH=\$\(date -u \+%s\)/);
     // Must redirect the epoch value into the temp file, not just mention the path.
     expect(workflow).toMatch(/echo "\$\{WORKFLOW_START_EPOCH\}" > \/tmp\/gh-aw\/workflow-start-epoch/);
+  });
+
+  it('contains a pre-write existence check to break transient-API-error retry loops', () => {
+    // Regression hardening for run #26166719293 (and similar runs
+    // #26148044780, #26033025615, #26030252646, #26027101797): the agent
+    // repeatedly re-announced "I'll write Swedish first" and hit the same
+    // transient API error on every retry, making zero progress.
+    //
+    // The root cause: when gh-aw retries the inference call after a
+    // transient API error, the agent's model state rewinds to just before
+    // the `create` tool call — it has no memory of whether the file was
+    // actually written. Without an explicit on-disk existence check the
+    // agent enters an infinite retry loop producing zero output.
+    //
+    // The fix: a per-language pre-write bash block that checks if the
+    // target file already exists on disk before calling `create`. If it
+    // does, the agent skips the `create` call and proceeds to the H2
+    // spot-check. This breaks the loop on any retry.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    // The workflow must instruct the agent to check for an existing file
+    // before calling the create tool — using the exact heading from the
+    // workflow so this cannot silently pass on an unrelated substring.
+    expect(workflow).toContain('Per-language pre-write check');
+    // The bash block must reference the exact target file path so it actually
+    // guards the right file (not just any markdown).
+    expect(workflow).toMatch(/executive-brief_.*\.md/);
+    // The check must tell the agent to skip the create call when the file is
+    // already on disk — match the explicit echo written in the bash block.
+    expect(workflow).toContain('skip_create=true');
+    // There must also be a brief-level pre-loop scan that surfaces already-
+    // written siblings so the agent can resume mid-brief after a retry.
+    // Match the exact heading text from the workflow.
+    expect(workflow).toContain('Pre-loop: scan existing translations');
   });
 
   it('contains an emergency partial-flush safety net (Step 4b wall-clock guard)', () => {
