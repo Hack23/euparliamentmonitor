@@ -46,7 +46,7 @@ imports:
 
 concurrency:
   group: "news-week-ahead"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 # tools: inherited from shared/config/news-tools.md (parameterized by slug).
 
@@ -55,6 +55,10 @@ safe-outputs:
   # safe-outputs.max-patch-size via imports (resets to default 1024).
   # 10 MB ceiling prevents legitimate analysis-only patches from being rejected.
   max-patch-size: 10240
+  # Explicit file ceiling — analysis + article + artifact files can reach 50+.
+  max-patch-files: 100
+  # Cron retries handle failures; auto-created failure issues are noise.
+  report-failure-as-issue: false
   # threat-detection + bundle-prerequisite steps + allowed-domains are inherited
   # from shared/config/news-safe-outputs-head.md and -domains.md. Add domains
   # globally there; declare slug-specific overrides here only if needed.
@@ -146,9 +150,9 @@ engine:
 - Mine prior-run forward statements (per `01-data-collection.md` §8) and carry ≥ 3 forward statements forward with status updates.
 - Include `intelligence/scenario-forecast.md` in the analysis set; render probability-labelled scenario cards.
 - **`intelligence/forward-projection.md` is mandatory** (§9.4): produce a WEP-banded probability table, structural-break tripwires, and reference-class table scoped to the 7-day horizon. Floor: 80 lines.
-- **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.
-- **Multi-day foreseen activities fan-out** (per `01-data-collection.md` §8b): call `get_meeting_foreseen_activities` for each of the 4 session days, not just day 1.
-- **Monday urgency motion sweep** (per `01-data-collection.md` §8c): when running on a Monday, poll `get_adopted_texts_feed` + `get_procedures_feed` for Rule 132 urgency motions.
+- **Seed synthesis from forward-statements registry** (per [`01a-data-fanout.md` §1](../prompts/01a-data-fanout.md)): read open items from `analysis/forward-statements/` before Stage B.
+- **Multi-day foreseen activities fan-out** (per [`01a-data-fanout.md` §2](../prompts/01a-data-fanout.md)): call `get_meeting_foreseen_activities` for each of the 4 session days, not just day 1.
+- **Monday urgency motion sweep** (per [`01a-data-fanout.md` §3](../prompts/01a-data-fanout.md)): when running on a Monday, poll `get_adopted_texts_feed` + `get_procedures_feed` for Rule 132 urgency motions.
 
 
 ### Stage A — Data Collection (Ref: 01, 07)

@@ -48,7 +48,7 @@ Every horizon-aware workflow starts Stage A with the canonical sequence:
 For `quarter-ahead+` horizons (≥ 90 days), the Stage-A fan-out additionally
 runs `get_plenary_sessions` per-month inside the data window and pulls
 Trio Presidency / Commission Work Programme entries from
-`get_external_documents`. See [`01-data-collection.md` §8d](01-data-collection.md).
+`get_external_documents`. See [`01a-data-fanout.md` §4](01a-data-fanout.md).
 
 ## 3 · Stage-B Mandatory Artifacts (registry-driven)
 
