@@ -46,7 +46,7 @@ imports:
 
 concurrency:
   group: "news-week-in-review"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 # tools: inherited from shared/config/news-tools.md (parameterized by slug).
 
@@ -55,6 +55,10 @@ safe-outputs:
   # safe-outputs.max-patch-size via imports (resets to default 1024).
   # 10 MB ceiling prevents legitimate analysis-only patches from being rejected.
   max-patch-size: 10240
+  # Explicit file ceiling — analysis + article + artifact files can reach 50+.
+  max-patch-files: 100
+  # Cron retries handle failures; auto-created failure issues are noise.
+  report-failure-as-issue: false
   # threat-detection + bundle-prerequisite steps + allowed-domains are inherited
   # from shared/config/news-safe-outputs-head.md and -domains.md. Add domains
   # globally there; declare slug-specific overrides here only if needed.

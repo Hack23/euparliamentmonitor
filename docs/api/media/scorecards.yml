@@ -21,6 +21,9 @@ jobs:
   analysis:
     name: Scorecard analysis
     runs-on: ubuntu-latest
+    # Explicit cap (default is 360 min). OSSF Scorecard analysis typically
+    # completes in <5 min; 15 min bounds runaway API-rate-limit retries.
+    timeout-minutes: 15
     permissions:
       # Needed to upload the results to code-scanning dashboard.
       security-events: write

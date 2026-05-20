@@ -486,8 +486,8 @@ is empty (recess period or no matching documents), the standard feed fallback
 ## 14 · Recess-Mode Handling for Long-Horizon Queries
 
 EP plenary sessions follow a fixed calendar with recesses (August, Christmas,
-Easter). When a long-horizon fan-out (§8d of
-[`01-data-collection.md`](01-data-collection.md)) hits months with zero
+Easter). When a long-horizon fan-out ([`01a-data-fanout.md` §4](01a-data-fanout.md))
+hits months with zero
 plenary sessions:
 
 **Detection:** `get_plenary_sessions({ dateFrom, dateTo })` returns an empty
