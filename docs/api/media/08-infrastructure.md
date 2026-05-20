@@ -263,6 +263,37 @@ echo "ANALYSIS_DIR=$ANALYSIS_DIR" >> "$GITHUB_ENV"
 Workflows pass this path to `npm run generate-article -- --run "$ANALYSIS_DIR"`,
 which reads the committed analysis artifacts and renders the article HTML.
 
+## 4c · Elapsed-Time Awareness Helper
+
+Every 60-min news workflow exports `WORKFLOW_START_EPOCH` from its Stage A
+Date-Context block (see `shared/prompts/news-unified-stages.md`). The
+`scripts/gh-aw-workflow-elapsed.sh` helper consumes that env var and emits
+elapsed-minute bookkeeping in three modes — use it instead of inlining the
+two-line `NOW_EPOCH=… ; ELAPSED_MIN=…` snippet:
+
+```bash
+# Eval-friendly assignments (use anywhere you need the numbers):
+eval "$(bash scripts/gh-aw-workflow-elapsed.sh env)"
+# → ELAPSED_MIN, REMAINING_MIN, WORKFLOW_TIMEOUT_MIN
+
+# Structured log line (drop between stages so the run log shows time pressure):
+bash scripts/gh-aw-workflow-elapsed.sh status --stage C --tripwire 36 --name stage-c-exit
+# → TIME_STATUS: elapsed=30m remaining=30m timeout=60m stage=C tripwire=stage-c-exit:36m budget=6m
+
+# Guard mode (exits 1 when the tripwire is crossed — short-circuit slow ops):
+bash scripts/gh-aw-workflow-elapsed.sh guard --tripwire 36 --name stage-c-exit \
+  || { echo "Stage C tripwire crossed — force GATE_RESULT=ANALYSIS_ONLY"; export GATE_RESULT=ANALYSIS_ONLY; }
+```
+
+Per-slug tripwires (look up in `src/config/article-horizons.ts`):
+short/mid prospective & retrospective → **36 min**; long-horizon prospective
+→ **39 min**; long-horizon retrospective → **38 min**; electoral overlay →
+**42 min**. The PR-call hard deadline is **45 min** (target ≤ 42 standard,
+≤ 47 electoral). All news workflows hard-cap at **60 min**
+(`timeout-minutes: 60`) regardless of MCP gateway state. The helper is
+shell-safety compliant (no nested expansions, no `eval` of arbitrary
+strings — see [§47 of `00-scope-and-ground-rules.md`](00-scope-and-ground-rules.md)).
+
 ## 5 · EP MCP TypeScript Client
 
 Source: [`src/mcp/ep-mcp-client.ts`](../../src/mcp/ep-mcp-client.ts) → compiled

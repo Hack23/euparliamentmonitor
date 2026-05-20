@@ -47,7 +47,7 @@ imports:
 
 concurrency:
   group: "news-quarter-ahead"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 # tools: inherited from shared/config/news-tools.md (parameterized by slug).
 
@@ -56,6 +56,10 @@ safe-outputs:
   # safe-outputs.max-patch-size via imports (resets to default 1024).
   # 10 MB ceiling prevents legitimate analysis-only patches from being rejected.
   max-patch-size: 10240
+  # Explicit file ceiling — analysis + article + artifact files can reach 50+.
+  max-patch-files: 100
+  # Cron retries handle failures; auto-created failure issues are noise.
+  report-failure-as-issue: false
   # threat-detection + bundle-prerequisite steps + allowed-domains are inherited
   # from shared/config/news-safe-outputs-head.md and -domains.md. Add domains
   # globally there; declare slug-specific overrides here only if needed.
@@ -147,8 +151,8 @@ engine:
 - Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Forward-projection lens: apply [`.github/prompts/11-forward-projection.md`](../prompts/11-forward-projection.md) during Stage B; produces `forward-projection.md`, `legislative-pipeline-forecast.md`, `parliamentary-calendar-projection.md`, `presidency-trio-context.md`, `commission-wp-alignment.md`.
 - Mine prior-run forward statements (per `01-data-collection.md` §8); horizon window = 180 days for carry-forward filter.
-- **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.
-- **Multi-day foreseen activities fan-out** (per `01-data-collection.md` §8b): for each plenary session in the next 90 days, call `get_meeting_foreseen_activities` for all session days (Mon–Thu for Strasbourg, Wed–Thu for Brussels mini-sessions).
+- **Seed synthesis from forward-statements registry** (per [`01a-data-fanout.md` §1](../prompts/01a-data-fanout.md)): read open items from `analysis/forward-statements/` before Stage B.
+- **Multi-day foreseen activities fan-out** (per [`01a-data-fanout.md` §2](../prompts/01a-data-fanout.md)): for each plenary session in the next 90 days, call `get_meeting_foreseen_activities` for all session days (Mon–Thu for Strasbourg, Wed–Thu for Brussels mini-sessions).
 
 
 ### Stage A — Data Collection (Ref: 01, 07)
