@@ -98,7 +98,74 @@ while IFS= read -r ref; do
 done < <(git for-each-ref --sort=-refname --sort=-committerdate --format='%(refname)' refs/heads/news/)
 
 if [ -z "$candidate" ]; then
-  log "no news/* branch ahead of $base_ref; nothing to capture"
+  log "no news/* branch ahead of $base_ref; checking for uncommitted analysis artifacts"
+
+  # Crash-recovery fallback: agent wrote files to analysis/daily/ or news/
+  # but crashed (or was reaped) before running `git checkout -b news/...` or
+  # `git commit`. Without this fallback, the workspace artifacts are lost
+  # entirely when the runner is reclaimed.
+  #
+  # Restrict to specific path globs so we never capture stray edits made by
+  # a non-agent step. The agent's only authoritative output locations are
+  # `analysis/daily/**` (Stage B artifacts) and `news/**` (Stage D rendered
+  # articles, untracked until staged). Tracked changes elsewhere are
+  # ignored — they're almost certainly the runner's own bookkeeping (build
+  # output, lock-file regeneration, etc.) and committing them as
+  # "agent recovery" would be misleading.
+  recovery_globs="analysis/daily/ news/"
+
+  # Stage ONLY the recovery globs (never `git add .` — that would catch any
+  # incidental dirty file in the workspace). `git add` silently no-ops on
+  # missing paths via 2>/dev/null, and recursively adds untracked files
+  # under tracked directories — exactly what we need.
+  for prefix in $recovery_globs; do
+    git add -- "$prefix" 2>/dev/null || true
+  done
+
+  # Detect whether anything actually got staged. `git diff --cached --quiet`
+  # exits 0 when there is NO staged diff, non-zero otherwise. We invert.
+  if git diff --cached --quiet "$base_ref" -- $recovery_globs 2>/dev/null; then
+    log "no news/* branch and no uncommitted analysis/daily/ or news/ artifacts; nothing to capture"
+    # Reset any stray staging the add may have applied so the post-step
+    # leaves the workspace state untouched for subsequent steps/tests.
+    for prefix in $recovery_globs; do
+      git reset -q -- "$prefix" 2>/dev/null || true
+    done
+    exit 0
+  fi
+
+  log "found uncommitted recovery artifacts; emitting synthetic crash-recovery patch"
+
+  # Build the patch from the staged index against base_ref. We deliberately
+  # do NOT create a synthetic commit — the host-side fallback only needs the
+  # diff, and skipping the commit step avoids polluting the local branch
+  # state (which the next post-step or test may inspect).
+  mkdir -p "$out_dir"
+  if git diff --binary --cached "$base_ref" -- $recovery_globs > "$out_file" 2>/dev/null; then
+    size=$(stat -c '%s' "$out_file" 2>/dev/null || stat -f '%z' "$out_file" 2>/dev/null || printf '0')
+    if [ "$size" -gt 0 ]; then
+      log "captured crash-recovery patch from uncommitted artifacts -> $out_file ($size bytes)"
+      {
+        printf 'branch=<uncommitted>\n'
+        printf 'base_ref=%s\n' "$base_ref"
+        printf 'commits_ahead=0\n'
+        printf 'recovery_kind=crash-recovery\n'
+        printf 'capture_run_id=%s\n' "${GITHUB_RUN_ID:-unknown}"
+      } > "$out_file.meta"
+    else
+      log "staged diff was empty (likely deletes only); removing zero-byte patch"
+      rm -f "$out_file"
+    fi
+  else
+    log "git diff --cached failed; crash-recovery patch not written"
+    rm -f "$out_file"
+  fi
+
+  # Unstage what we just staged so the workspace state matches what the
+  # rest of the post-steps (and tests) expect: dirty-but-unstaged.
+  for prefix in $recovery_globs; do
+    git reset -q -- "$prefix" 2>/dev/null || true
+  done
   exit 0
 fi
 

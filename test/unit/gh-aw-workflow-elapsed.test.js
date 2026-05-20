@@ -14,20 +14,30 @@
  * (asserts the file exists, is executable, and exposes all three modes).
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HELPER = path.join(REPO_ROOT, 'scripts', 'gh-aw-workflow-elapsed.sh');
 
+// Per-test isolated state file — the helper caches the fallback start epoch
+// here, and stale values from previous test runs cause order-dependent
+// failures in the "no start epoch provided" case.
+let stateFile;
+beforeEach(() => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gh-aw-elapsed-'));
+  stateFile = path.join(dir, 'start-epoch');
+});
+
 function run(args, extraEnv = {}) {
   const env = {
     PATH: process.env.PATH,
     HOME: process.env.HOME,
-    // Isolate state file so concurrent tests don't pollute each other.
-    GH_AW_WORKFLOW_START_FILE: '/tmp/gh-aw-workflow-elapsed-test/start-epoch',
+    GH_AW_WORKFLOW_START_FILE: stateFile,
     ...extraEnv,
   };
   try {
