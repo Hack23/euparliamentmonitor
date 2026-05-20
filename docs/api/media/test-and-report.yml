@@ -16,6 +16,9 @@ jobs:
   prepare:
     name: Prepare Environment
     runs-on: ubuntu-latest
+    # Explicit job cap (default is 360 min). npm ci + cache warming;
+    # <5 min typical. 15 min bounds runaway npm registry retries.
+    timeout-minutes: 15
     permissions:
       contents: read
     steps:
@@ -57,6 +60,9 @@ jobs:
     name: Validate Code
     needs: prepare
     runs-on: ubuntu-latest
+    # Explicit job cap (default is 360 min). Lint + format + typecheck;
+    # <10 min typical. 30 min bounds runaway eslint/tsc retries.
+    timeout-minutes: 30
     permissions:
       contents: read
       pull-requests: write # For posting comments
@@ -135,6 +141,10 @@ jobs:
     name: Functional Tests
     needs: [prepare, validation]
     runs-on: ubuntu-latest
+    # Explicit job cap (default is 360 min). Vitest + Playwright E2E across
+    # chromium/firefox/webkit; <45 min typical on the pre-baked image.
+    # 60 min bounds runaway browser hangs.
+    timeout-minutes: 60
     # Pre-baked Playwright image: chromium + firefox + webkit + OS deps + fonts.
     # Eliminates ~170 MB cold browser download and the `playwright install-deps`
     # apt-get flake class. Image tag MUST track @playwright/test version in
@@ -272,6 +282,9 @@ jobs:
     name: Performance Testing
     needs: [prepare, validation]
     runs-on: ubuntu-latest
+    # Explicit job cap (default is 360 min). Lighthouse CI on key routes;
+    # <15 min typical. 30 min bounds runaway browser hangs.
+    timeout-minutes: 30
     # Lighthouse CI requires headless Chrome — reuse the Playwright image so
     # we don't pay a separate Chrome install cost. NOTE: harden-runner is
     # incompatible with container jobs and is omitted.
@@ -381,6 +394,9 @@ jobs:
     name: Security Check
     needs: prepare
     runs-on: ubuntu-latest
+    # Explicit job cap (default is 360 min). npm audit + license check;
+    # <5 min typical. 15 min bounds runaway audit DB retries.
+    timeout-minutes: 15
     permissions:
       contents: read
       security-events: write
@@ -488,6 +504,9 @@ jobs:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     continue-on-error: true
+    # Explicit job cap (default is 360 min). Lint + unit tests on nightly
+    # Node; <15 min typical. 30 min bounds runaway nightly-Node regressions.
+    timeout-minutes: 30
     permissions:
       contents: read
     steps:
@@ -532,6 +551,9 @@ jobs:
     needs: [validation, functional-tests, security-check, performance, node-next]
     runs-on: ubuntu-latest
     if: always()
+    # Explicit job cap (default is 360 min). Aggregates artifacts + posts
+    # PR comment; <5 min typical. 15 min bounds runaway upload retries.
+    timeout-minutes: 15
     permissions:
       contents: read
       pull-requests: write

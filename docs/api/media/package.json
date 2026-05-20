@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "0.9.18",
+  "version": "0.9.19",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -158,15 +158,15 @@
     "@types/papaparse": "5.5.2",
     "@typescript-eslint/eslint-plugin": "8.59.4",
     "@typescript-eslint/parser": "8.59.4",
-    "@vitest/coverage-v8": "4.1.6",
-    "@vitest/ui": "4.1.6",
+    "@vitest/coverage-v8": "4.1.7",
+    "@vitest/ui": "4.1.7",
     "chart.js": "4.5.1",
     "chartjs-plugin-annotation": "3.1.0",
     "clean-css": "^5.3.3",
     "d3": "7.9.0",
     "eslint": "10.4.0",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-jsdoc": "62.9.0",
+    "eslint-plugin-jsdoc": "63.0.0",
     "eslint-plugin-security": "4.0.0",
     "eslint-plugin-sonarjs": "4.0.3",
     "fast-check": "^4.8.0",
@@ -187,7 +187,7 @@
     "tsx": "4.22.3",
     "typedoc": "0.28.19",
     "typescript": "6.0.3",
-    "vitest": "4.1.6"
+    "vitest": "4.1.7"
   },
   "engines": {
     "node": ">=26"

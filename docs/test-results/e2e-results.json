@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c37b6c4481a12c06954d28884889679eae7c0387",
-        "commitHash": "c37b6c4481a12c06954d28884889679eae7c0387",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26156891104"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/21fefeca056aeed608d58e12b657ad023c6e8e10",
+        "commitHash": "21fefeca056aeed608d58e12b657ad023c6e8e10",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26194545501"
       },
       "gitCommit": {
-        "shortHash": "c37b6c4481",
-        "hash": "c37b6c4481a12c06954d28884889679eae7c0387",
-        "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
-        "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26155510618\n",
+        "shortHash": "21fefeca05",
+        "hash": "21fefeca056aeed608d58e12b657ad023c6e8e10",
+        "subject": "Merge pull request #2081 from Hack23/copilot/complete-refactor-validation",
+        "body": "Merge pull request #2081 from Hack23/copilot/complete-refactor-validation\n\nValidate and complete refactor for >600 LOC files",
         "author": {
-          "name": "github-actions[bot]",
-          "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1779271516000
+          "name": "James Pether Sörling",
+          "email": "pethers@users.noreply.github.com",
+          "time": 1779313201000
         },
         "committer": {
-          "name": "github-actions[bot]",
-          "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1779271516000
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "time": 1779313201000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c37b6c4481a12c06954d28884889679eae7c0387",
-            "commitHash": "c37b6c4481a12c06954d28884889679eae7c0387",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26156891104"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/21fefeca056aeed608d58e12b657ad023c6e8e10",
+            "commitHash": "21fefeca056aeed608d58e12b657ad023c6e8e10",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26194545501"
           },
           "gitCommit": {
-            "shortHash": "c37b6c4481",
-            "hash": "c37b6c4481a12c06954d28884889679eae7c0387",
-            "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
-            "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26155510618\n",
+            "shortHash": "21fefeca05",
+            "hash": "21fefeca056aeed608d58e12b657ad023c6e8e10",
+            "subject": "Merge pull request #2081 from Hack23/copilot/complete-refactor-validation",
+            "body": "Merge pull request #2081 from Hack23/copilot/complete-refactor-validation\n\nValidate and complete refactor for >600 LOC files",
             "author": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1779271516000
+              "name": "James Pether Sörling",
+              "email": "pethers@users.noreply.github.com",
+              "time": 1779313201000
             },
             "committer": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1779271516000
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1779313201000
             },
             "branch": "main"
           },
@@ -148,12 +148,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1539,
+                      "duration": 1524,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T10:38:17.176Z",
+                      "startTime": "2026-05-20T22:57:32.642Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,12 +182,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1145,
+                      "duration": 1209,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T10:38:17.189Z",
+                      "startTime": "2026-05-20T22:57:32.580Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -216,12 +216,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1168,
+                      "duration": 1219,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T10:38:17.163Z",
+                      "startTime": "2026-05-20T22:57:32.642Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -247,15 +247,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1010,
+                      "duration": 982,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T10:38:18.616Z",
+                      "startTime": "2026-05-20T22:57:34.116Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -281,15 +281,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1200,
+                      "duration": 1111,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T10:38:18.632Z",
+                      "startTime": "2026-05-20T22:57:34.133Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -318,12 +318,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 933,
+                      "duration": 1492,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T10:38:19.025Z",
+                      "startTime": "2026-05-20T22:57:34.431Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -343,8 +343,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-20T10:38:15.520Z",
-    "duration": 4518.076,
+    "startTime": "2026-05-20T22:57:30.963Z",
+    "duration": 5024.071,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
