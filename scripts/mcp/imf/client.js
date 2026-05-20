@@ -300,7 +300,11 @@ export class IMFMCPClient {
         }
     }
     // ─── private HTTP context factory ─────────────────────────────────────────
-    /** Build an {@link IMFHttpContext} adapter for http-transport.ts helpers. */
+    /**
+     * Build an {@link IMFHttpContext} adapter for http-transport.ts helpers.
+     *
+     * @returns Context adapter for IMF HTTP transport helpers
+     */
     _httpCtx() {
         return {
             apiBaseUrl: this._apiBaseUrl,

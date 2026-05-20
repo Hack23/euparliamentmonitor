@@ -29,7 +29,7 @@ export const REQUEST_TIMEOUT_MS = (() => {
     const envVal = process.env['EP_REQUEST_TIMEOUT_MS'];
     if (envVal) {
         const parsed = Number(envVal);
-        if (!Number.isNaN(parsed) && parsed > 0)
+        if (Number.isFinite(parsed) && parsed > 0)
             return parsed;
     }
     return DEFAULT_REQUEST_TIMEOUT_MS;
@@ -48,9 +48,17 @@ export async function attemptStdioConnection(ctx) {
         const command = isJavaScriptFile ? process.execPath : ctx.serverPath;
         const args = isJavaScriptFile ? [ctx.serverPath] : [];
         const childEnv = { ...process.env };
-        const effectiveTimeoutMs = childEnv['EP_REQUEST_TIMEOUT_MS']
-            ? Number(childEnv['EP_REQUEST_TIMEOUT_MS'])
-            : ctx.requestTimeoutMs;
+        const envVal = childEnv['EP_REQUEST_TIMEOUT_MS'];
+        let effectiveTimeoutMs = ctx.requestTimeoutMs;
+        if (envVal !== undefined && envVal !== '') {
+            const parsed = Number(envVal);
+            if (Number.isFinite(parsed) && parsed > 0) {
+                effectiveTimeoutMs = parsed;
+            }
+            else {
+                console.warn(`Invalid EP_REQUEST_TIMEOUT_MS value "${envVal}"; falling back to ${ctx.requestTimeoutMs}ms`);
+            }
+        }
         childEnv['EP_REQUEST_TIMEOUT_MS'] = String(effectiveTimeoutMs);
         if (!isJavaScriptFile) {
             args.push('--timeout', String(effectiveTimeoutMs));

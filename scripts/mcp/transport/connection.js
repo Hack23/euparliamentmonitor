@@ -139,22 +139,37 @@ export class MCPConnection {
                 return;
             }
             catch (error) {
-                if (error instanceof MCPSessionExpiredError)
-                    throw error;
-                this.connectionAttempts++;
-                if (this.connectionAttempts >= this.maxConnectionAttempts) {
-                    console.error('❌ Failed to connect to MCP server after', this.maxConnectionAttempts, 'attempts');
-                    throw error;
-                }
-                const delay = error instanceof MCPRateLimitError && error.retryAfterMs > 0
-                    ? error.retryAfterMs
-                    : this.connectionRetryDelay * Math.pow(2, this.connectionAttempts - 1);
+                const delay = this._nextConnectionDelay(error);
                 console.warn(`⚠️ Connection attempt ${this.connectionAttempts} failed. Retrying in ${delay}ms...`);
                 await new Promise((resolve) => setTimeout(resolve, delay));
             }
         }
     }
-    /** Build a {@link GatewayContext} adapter for gateway.ts helpers. */
+    /**
+     * Advance the attempt counter and compute the next retry delay.
+     * Throws immediately for non-retriable errors or when exhausted.
+     *
+     * @param error - The error from the failed attempt
+     * @returns Delay in milliseconds to wait before the next attempt
+     */
+    _nextConnectionDelay(error) {
+        if (error instanceof MCPSessionExpiredError)
+            throw error;
+        this.connectionAttempts++;
+        if (this.connectionAttempts >= this.maxConnectionAttempts) {
+            console.error('❌ Failed to connect to MCP server after', this.maxConnectionAttempts, 'attempts');
+            throw error;
+        }
+        if (error instanceof MCPRateLimitError && error.retryAfterMs > 0) {
+            return error.retryAfterMs;
+        }
+        return this.connectionRetryDelay * Math.pow(2, this.connectionAttempts - 1);
+    }
+    /**
+     * Build a {@link GatewayContext} adapter for gateway.ts helpers.
+     *
+     * @returns Context adapter for gateway.ts helpers
+     */
     _gatewayContext() {
         return {
             gatewayUrl: this.gatewayUrl,
@@ -170,7 +185,11 @@ export class MCPConnection {
             },
         };
     }
-    /** Build a {@link SpawnContext} adapter for process.ts spawn helpers. */
+    /**
+     * Build a {@link SpawnContext} adapter for process.ts spawn helpers.
+     *
+     * @returns Context adapter for stdio spawn helpers
+     */
     _spawnContext() {
         return {
             serverPath: this.serverPath,
@@ -194,6 +213,8 @@ export class MCPConnection {
     /**
      * Attempt a single connection via stdio (spawns server binary).
      * Delegates to {@link attemptStdioConnection} in process.ts.
+     *
+     * @returns Resolves when the spawn has completed (or rejects on spawn failure)
      */
     async _attemptConnection() {
         return attemptStdioConnection(this._spawnContext());
@@ -275,7 +296,11 @@ export class MCPConnection {
         }
         return this.sendRequest('tools/call', { name, arguments: args });
     }
-    /** Build a {@link ReconnectOps} adapter for reconnect.ts helpers. */
+    /**
+     * Build a {@link ReconnectOps} adapter for reconnect.ts helpers.
+     *
+     * @returns Context adapter for reconnect/retry helpers
+     */
     _reconnectOps() {
         return {
             maxConnectionAttempts: this.maxConnectionAttempts,

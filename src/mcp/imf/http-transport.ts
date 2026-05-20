@@ -249,8 +249,9 @@ export async function fetchViaGateway(url: string, ctx: IMFHttpContext): Promise
       result?: { content?: Array<{ text?: string }> };
       error?: { message?: string };
     };
+    const trimmed = body.trimStart();
     let parsed: ProxyResponse | null = null;
-    if (body.trimStart().startsWith('data:') || body.trimStart().startsWith('event:')) {
+    if (trimmed.startsWith('data:') || trimmed.startsWith('event:')) {
       parsed = parseSSEResponse(body) as ProxyResponse | null;
     } else {
       try {

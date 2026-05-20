@@ -9,6 +9,7 @@
  * Operates on an explicit {@link IMFHttpContext} adapter rather than `this`.
  */
 import { IMF_REQUEST_HEADERS, IMF_SUBSCRIPTION_KEY_HEADER } from './config.js';
+import { parseSSEResponse } from '../transport/sse-parser.js';
 // ─── Public helpers ────────────────────────────────────────────────────────────
 /**
  * Build a full URL from `path` and GET it as text, applying the configured
@@ -183,6 +184,12 @@ export async function fetchViaGateway(url, ctx) {
         Accept: 'application/json, text/event-stream',
     };
     if (ctx.fetchProxyApiKey) {
+        // Reject CR/LF in the API key to prevent HTTP header injection (mirrors
+        // buildAuthorizationHeader in transport/gateway.ts).
+        if (/[\r\n]/.test(ctx.fetchProxyApiKey)) {
+            console.warn('Invalid IMF fetch-proxy API key: control characters (CR/LF) are not allowed; skipping gateway fallback.');
+            return null;
+        }
         headers['Authorization'] = `Bearer ${ctx.fetchProxyApiKey}`;
     }
     const controller = new AbortController();
@@ -196,13 +203,21 @@ export async function fetchViaGateway(url, ctx) {
         });
         if (!response.ok)
             return null;
-        let body = await response.text();
-        if (body.trimStart().startsWith('data:')) {
-            const lines = body.split('\n').filter((l) => l.startsWith('data:'));
-            body = lines.map((l) => l.slice(5).trim()).join('');
+        const body = await response.text();
+        const trimmed = body.trimStart();
+        let parsed = null;
+        if (trimmed.startsWith('data:') || trimmed.startsWith('event:')) {
+            parsed = parseSSEResponse(body);
         }
-        const parsed = JSON.parse(body);
-        if (parsed.error)
+        else {
+            try {
+                parsed = JSON.parse(body);
+            }
+            catch {
+                return null;
+            }
+        }
+        if (!parsed || parsed.error)
             return null;
         const text = parsed.result?.content?.[0]?.text;
         return text && text.length > 0 ? text : null;

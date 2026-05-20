@@ -41,7 +41,7 @@ export const REQUEST_TIMEOUT_MS: number = (() => {
   const envVal = process.env['EP_REQUEST_TIMEOUT_MS'];
   if (envVal) {
     const parsed = Number(envVal);
-    if (!Number.isNaN(parsed) && parsed > 0) return parsed;
+    if (Number.isFinite(parsed) && parsed > 0) return parsed;
   }
   return DEFAULT_REQUEST_TIMEOUT_MS;
 })();
