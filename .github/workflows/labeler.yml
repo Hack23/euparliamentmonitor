@@ -14,6 +14,9 @@ jobs:
   labeler:
     name: Label Pull Request
     runs-on: ubuntu-latest
+    # Explicit cap (default is 360 min). Labeling a PR is a single API call;
+    # 5 min is generous and bounds runaway transient failures.
+    timeout-minutes: 5
     # Minimal permissions for label management (least privilege)
     permissions:
       contents: read # Required to check out the code

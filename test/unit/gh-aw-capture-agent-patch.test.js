@@ -210,4 +210,127 @@ describe('gh-aw-capture-agent-patch.sh', () => {
     const meta = fs.readFileSync(path.join(outDir, 'aw-agent-recovery.patch.meta'), 'utf8');
     expect(meta).toMatch(/^branch=refs\/heads\/news\/2026-04-28-new$/m);
   });
+
+  // --- Crash-recovery path (no news/* branch, but uncommitted artifacts) ---
+
+  it('captures uncommitted analysis/daily/ artifacts when no news/* branch exists (crash-recovery)', () => {
+    // Scenario: agent crashed (or was reaped) BEFORE running
+    // `git checkout -b news/...` or `git commit`. Workspace has artifacts
+    // sitting on `main` as untracked files. Without crash-recovery this
+    // entire run's work is lost when the runner is reclaimed.
+    fs.mkdirSync(path.join(workspace, 'analysis/daily/2026-05-20/breaking'), { recursive: true });
+    fs.writeFileSync(
+      path.join(workspace, 'analysis/daily/2026-05-20/breaking/synthesis-summary.md'),
+      '# Pre-crash work\n',
+    );
+    fs.writeFileSync(
+      path.join(workspace, 'analysis/daily/2026-05-20/breaking/key-actors.md'),
+      '# Actors\n',
+    );
+
+    const result = runCapture(workspace, outDir);
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+
+    const patchPath = path.join(outDir, 'aw-agent-recovery.patch');
+    const metaPath = path.join(outDir, 'aw-agent-recovery.patch.meta');
+    expect(fs.existsSync(patchPath), 'crash-recovery patch must be emitted').toBe(true);
+
+    const patch = fs.readFileSync(patchPath, 'utf8');
+    expect(patch).toContain('analysis/daily/2026-05-20/breaking/synthesis-summary.md');
+    expect(patch).toContain('analysis/daily/2026-05-20/breaking/key-actors.md');
+    expect(patch).toContain('+# Pre-crash work');
+
+    const meta = fs.readFileSync(metaPath, 'utf8');
+    expect(meta).toMatch(/^branch=<uncommitted>$/m);
+    expect(meta).toMatch(/^recovery_kind=crash-recovery$/m);
+    expect(meta).toMatch(/^commits_ahead=0$/m);
+  });
+
+  it('crash-recovery patch applies cleanly on a fresh main checkout', () => {
+    fs.mkdirSync(path.join(workspace, 'analysis/daily/2026-05-20/motions'), { recursive: true });
+    fs.writeFileSync(
+      path.join(workspace, 'analysis/daily/2026-05-20/motions/timeline.md'),
+      'timeline content\n',
+    );
+
+    runCapture(workspace, outDir);
+    const patchPath = path.join(outDir, 'aw-agent-recovery.patch');
+    expect(fs.existsSync(patchPath)).toBe(true);
+
+    const fresh = fs.mkdtempSync(path.join(os.tmpdir(), 'aw-crash-fresh-'));
+    try {
+      git(fresh, 'init', '-b', 'main', '-q');
+      git(fresh, 'config', 'user.email', 't@t');
+      git(fresh, 'config', 'user.name', 't');
+      fs.writeFileSync(path.join(fresh, 'README.md'), 'base\n');
+      git(fresh, 'add', '.');
+      git(fresh, 'commit', '-qm', 'base');
+
+      // Same apply path used by gh-aw-pat-pr-fallback.sh.
+      execFileSync('git', ['apply', '--whitespace=nowarn', patchPath], { cwd: fresh });
+
+      const recovered = path.join(fresh, 'analysis/daily/2026-05-20/motions/timeline.md');
+      expect(fs.readFileSync(recovered, 'utf8')).toBe('timeline content\n');
+    } finally {
+      fs.rmSync(fresh, { recursive: true, force: true });
+    }
+  });
+
+  it('crash-recovery ignores dirty files OUTSIDE analysis/daily/ and news/', () => {
+    // Scoping guard: the recovery globs are intentionally narrow. A dirty
+    // package-lock.json or src/ change must NOT show up as "agent recovery".
+    fs.writeFileSync(path.join(workspace, 'src-touched.txt'), 'unrelated\n');
+    fs.writeFileSync(path.join(workspace, 'README.md'), 'modified\n'); // tracked
+    fs.writeFileSync(path.join(workspace, 'package-lock.json'), '{}\n'); // untracked
+
+    const result = runCapture(workspace, outDir);
+    expect(result.code).toBe(0);
+    // No analysis/daily or news/ artifacts → silent no-op.
+    expect(fs.readdirSync(outDir)).toEqual([]);
+  });
+
+  it('crash-recovery DOES capture untracked news/<date>-<slug>.en.md', () => {
+    // Stage D writes rendered article markdown under news/. If the agent
+    // crashed after Stage D but before staging, that file is recoverable.
+    fs.mkdirSync(path.join(workspace, 'news'), { recursive: true });
+    fs.writeFileSync(
+      path.join(workspace, 'news/2026-05-20-breaking.en.md'),
+      '# Article\n',
+    );
+
+    runCapture(workspace, outDir);
+    const patchPath = path.join(outDir, 'aw-agent-recovery.patch');
+    expect(fs.existsSync(patchPath)).toBe(true);
+    const patch = fs.readFileSync(patchPath, 'utf8');
+    expect(patch).toContain('news/2026-05-20-breaking.en.md');
+  });
+
+  it('crash-recovery leaves the workspace index clean after capture', () => {
+    // The script stages files to compute the diff but must reset them
+    // afterwards, otherwise subsequent post-steps see a polluted index.
+    fs.mkdirSync(path.join(workspace, 'analysis/daily/2026-05-20/breaking'), { recursive: true });
+    fs.writeFileSync(
+      path.join(workspace, 'analysis/daily/2026-05-20/breaking/x.md'),
+      'content\n',
+    );
+
+    runCapture(workspace, outDir);
+
+    // After capture, the file must still be untracked (not staged). Git
+    // rolls up entirely-untracked directories to `?? analysis/` rather than
+    // listing each file, so we accept either form. The critical assertion
+    // is the negative one: nothing must be staged (no "A " or "M " prefix).
+    const status = spawnSync('git', ['status', '--porcelain'], { cwd: workspace, encoding: 'utf8' }).stdout;
+    expect(status).toMatch(/^\?\?\s+analysis\//m);
+    // It must NOT show up with an "A " or "M " prefix (which mean staged).
+    expect(status).not.toMatch(/^A\s+analysis\//m);
+    expect(status).not.toMatch(/^M\s+analysis\//m);
+    // And critically — the artifact content must still be on disk after
+    // the post-capture `git reset` unstages. We are NOT allowed to lose
+    // the agent's work in the act of capturing it.
+    const artifactPath = path.join(workspace, 'analysis/daily/2026-05-20/breaking/x.md');
+    expect(fs.existsSync(artifactPath)).toBe(true);
+    expect(fs.readFileSync(artifactPath, 'utf8')).toBe('content\n');
+  });
 });

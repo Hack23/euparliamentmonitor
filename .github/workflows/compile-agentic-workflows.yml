@@ -6,14 +6,22 @@ name: Compile Agentic Workflows
 on:
   workflow_dispatch:
 
+# Serialize manual compile runs so two clicks of "Run workflow" cannot race the
+# final `git push` to the default branch and produce a conflicting commit.
+# cancel-in-progress: false — never cancel a run that may have already pushed
+# partial state; let it finish and the next run will recompile cleanly.
+concurrency:
+  group: compile-agentic-workflows
+  cancel-in-progress: false # never cancel; in-flight run may have pushed partial state
+
 permissions:
   contents: write
-  actions: write
 
 jobs:
   compile:
     name: Compile Agentic Workflows
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Harden Runner
@@ -25,6 +33,10 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+          # Required true: the final "Commit all generated files" step needs the
+          # token persisted in git config to push the recompiled lock files back
+          # to the default branch.
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
@@ -46,58 +58,23 @@ jobs:
         run: find .github/workflows -name "*.lock.yml" -type f -delete
 
       - name: Compile all workflows
-        run: gh aw compile
+        # --validate runs the JSON-schema + actionlint checks at compile time
+        # so a schema error (e.g. missing concurrency.group) fails fast here
+        # instead of producing a broken lock file that only the scheduled
+        # validate-agentic-workflows job catches hours later.
+        run: gh aw compile --validate
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
-      - name: Patch safe_outputs fetch-depth for bundle compatibility
-        # The gh-aw compiler emits fetch-depth: 1 on BOTH safe_outputs Checkout steps:
-        #   (a) the comment-event path (ref: default_branch), and
-        #   (b) the main path (ref: extract-base-branch.outputs.base-branch || …),
-        #     which is the one used by workflow_dispatch and schedule triggers.
-        # Two failure modes — both fixed by switching to fetch-depth: 0:
-        #   1. Bundle-apply detects a shallow clone (depth=1) and runs
-        #      `git fetch --unshallow origin` mid-job. On this repo it takes 13+ min
-        #      and trips the 15-min safe_outputs job timeout (see run #26151926742).
-        #   2. When main advances during the agent run, depth=1 loses the
-        #      prerequisite commit the bundle was created from, causing
-        #      "Repository lacks these prerequisite commits" and a failed
-        #      create_pull_request safe output.
-        # The pattern uniquely targets the safe_outputs checkouts: they have
-        # `persist-credentials: false` immediately before `fetch-depth: 1`. The
-        # agent checkout has `sparse-checkout-cone-mode: true` before its
-        # `fetch-depth: 1`, so it is intentionally NOT patched (agent uses sparse
-        # checkout and does not apply bundles).
-        # NOTE: no replacement count is passed — both occurrences must be patched.
-        # An earlier version used `replace(..., 1)` which left the main-path
-        # checkout (occurrence #2) untouched and broke every workflow_dispatch /
-        # scheduled news run.
-        run: |
-          python3 - << 'PYEOF'
-          import glob
-          PATTERN     = '          persist-credentials: false\n          fetch-depth: 1'
-          REPLACEMENT = '          persist-credentials: false\n          fetch-depth: 0'
-          files = glob.glob('.github/workflows/news-*.lock.yml')
-          exit_code = 0
-          for f in sorted(files):
-              with open(f) as fp:
-                  content = fp.read()
-              count = content.count(PATTERN)
-              if count == 0:
-                  print(f'WARN: pattern not found in {f}')
-                  continue
-              # Each news lock file MUST have exactly 2 safe_outputs checkouts.
-              if count != 2:
-                  print(f'ERROR: {f} has {count} occurrences of safe_outputs Checkout pattern (expected 2)')
-                  exit_code = 1
-                  continue
-              with open(f, 'w') as fp:
-                  fp.write(content.replace(PATTERN, REPLACEMENT))
-              print(f'Patched {f} ({count} occurrences)')
-          if exit_code:
-              raise SystemExit(exit_code)
-          PYEOF
-
+      # NOTE: This workflow intentionally does NOT mutate the generated
+      # `.lock.yml` files. The previous fetch-depth: 1 → 0 post-compile patch
+      # was replaced by the shared `news-safe-outputs-head.md` pre-step
+      # ("Fetch triggering commit for bundle prerequisites"), which fetches
+      # the exact GITHUB_SHA the bundle was built against and unshallows
+      # on demand only if that fetch fails. Bundle-apply then never has to
+      # auto-unshallow the whole repo (the 13-min stall that motivated the
+      # original patch). Drift-guarded by
+      # `test/unit/compile-workflow-no-patching.test.js`.
       - name: Enforce prompt-module architecture
         run: |
           set -e
