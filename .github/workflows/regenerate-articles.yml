@@ -20,6 +20,10 @@ jobs:
   regenerate:
     name: Regenerate all article.md and HTML output
     runs-on: ubuntu-latest
+    # Explicit cap (default is 360 min). Regenerating every article spans
+    # ~14 languages × dozens of dates; historic runs complete in <20 min.
+    # 60 min bounds runaway and matches the news-* agentic cap.
+    timeout-minutes: 60
 
     steps:
       - name: Harden Runner
