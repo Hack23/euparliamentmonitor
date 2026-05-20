@@ -58,9 +58,11 @@ describe('news-translate workflow contract', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     // The new contract is intentionally lean (~300 lines). The drift-guard
     // ensures we never accidentally re-bloat it back to the legacy 1.7K-line
-    // HTML-translation behemoth.
+    // HTML-translation behemoth. Cap raised from 42 KB → 45 KB to admit
+    // the largeSource 2-phase strategy section added after the cancelled
+    // run #26181499722 (Plan A: discovery flag + agent prompt guidance).
     expect(workflow.length).toBeGreaterThan(2000);
-    expect(workflow.length).toBeLessThan(42000);
+    expect(workflow.length).toBeLessThan(45000);
   });
 
   it('runs 3×/day on cron and is workflow_dispatch-enabled', () => {
@@ -107,8 +109,30 @@ describe('news-translate workflow contract', () => {
     );
     expect(workflow).toMatch(/--mode "\$DISCOVERY_MODE"/);
     expect(workflow).toMatch(/--run-number "\$RUN_NUMBER"/);
+    // Plan A — pass MAX_SOURCE_LINES so briefs whose source exceeds the
+    // threshold are flagged `largeSource: true` in the queue. The agent
+    // then switches to the 2-phase skeleton-then-edit strategy below.
+    expect(workflow).toMatch(/--max-source-lines "\$MAX_SOURCE_LINES"/);
+    expect(workflow).toMatch(/MAX_SOURCE_LINES:/);
     // The queue is consumed from a deterministic temp path.
     expect(workflow).toMatch(/\/tmp\/gh-aw\/discovery\/queue\.json/);
+  });
+
+  it('documents the largeSource 2-phase translation strategy in the prompt body', () => {
+    // Regression hardening for run #26181499722 — cancelled after 5×
+    // transient-API-error loops on the first translation `create` for a
+    // 385-line source brief. When `largeSource: true` is set on a
+    // queue entry, the agent MUST switch to a skeleton-then-edit
+    // strategy that bounds each inference call's output size.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toMatch(/largeSource/);
+    expect(workflow).toMatch(/sourceLineCount/);
+    // The strategy is described in the prompt body so the agent
+    // actually applies it (the discovery flag alone is invisible to
+    // the LLM otherwise).
+    expect(workflow).toMatch(/skeleton/i);
+    expect(workflow).toMatch(/Phase A/);
+    expect(workflow).toMatch(/Phase B/);
   });
 
   it('runs the validator as a post-step against the produced translations', () => {
