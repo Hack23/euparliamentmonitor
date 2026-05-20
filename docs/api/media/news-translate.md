@@ -70,8 +70,13 @@ imports:
 
 # Concurrency uses one workflow-wide lease so scheduled runs and re-runs cannot
 # race while targeting the shared daily `news/translate-briefs-<date>` branch.
+# cancel-in-progress: true kills a stale cron run when the next tick fires,
+# preventing zombie stacked runs from accumulating compute (learned from
+# riksdagsmonitor which uses per-input concurrency with cancel-in-progress).
 concurrency:
+  group: "news-translate"
   job-discriminator: translate-briefs
+  cancel-in-progress: true
 
 tools:
   timeout: 180            # per-tool-call cap
@@ -92,10 +97,16 @@ tools:
 safe-outputs:
   threat-detection:
     continue-on-error: true
+  # Translation failures retry on the next cron tick (3×/day); auto-created
+  # failure issues are noise. Suppress them (learned from riksdagsmonitor).
+  report-failure-as-issue: false
   # Per-run patch ≈ 300-450 KB of markdown (no HTML, no Chart.js, no images).
   # The gh-aw default 1024 KB is plenty but we leave headroom for catch-up
   # days when an operator overrides max_briefs=4 (push closer to 600 KB).
   max-patch-size: 4096
+  # Explicit file ceiling: max_briefs=4 × 13 langs = 52 files per flush.
+  # 100 gives headroom for validator reports and retry flushes.
+  max-patch-files: 100
   steps:
     - name: Fetch triggering commit for bundle prerequisites
       # The safe_outputs job checks out the current branch tip with
@@ -168,6 +179,14 @@ steps:
       INCLUDE_EXTENDED: ${{ github.event.inputs.include_extended || 'false' }}
       DISCOVERY_MODE: ${{ github.event.inputs.mode || 'fresh-then-backlog' }}
       RUN_NUMBER: ${{ github.run_number }}
+      # Briefs whose source markdown exceeds MAX_SOURCE_LINES are flagged
+      # `largeSource: true` in the queue, and the translator agent
+      # switches to a 2-phase skeleton-then-edit strategy for them
+      # (Step 2 below). 300 lines is the conservative cutoff that
+      # corresponds to the empirically-observed failure point in run
+      # #26181499722 (385-line election-cycle brief stalled the first
+      # Swedish `create` after 5× transient-API-error loops).
+      MAX_SOURCE_LINES: ${{ github.event.inputs.max_source_lines || '300' }}
     run: |
       set -euo pipefail
       mkdir -p /tmp/gh-aw/discovery
@@ -181,6 +200,7 @@ steps:
         --max-age-days "$MAX_AGE_DAYS" \
         --mode "$DISCOVERY_MODE" \
         --run-number "$RUN_NUMBER" \
+        --max-source-lines "$MAX_SOURCE_LINES" \
         --output /tmp/gh-aw/discovery/queue.json \
         $EXTENDED_FLAG
       echo "Discovery queue summary:"
@@ -485,6 +505,58 @@ PY
    > context, causing the last H2 section(s) to vanish without any
    > error. Use `edit` only for files that already exist on disk.
 
+   > **🐘 LARGE-SOURCE 2-PHASE STRATEGY** — when the current queue
+   > entry has `largeSource: true` (source `sourceLineCount` >
+   > `MAX_SOURCE_LINES`, default 300; the cancelled run #26181499722
+   > had a 385-line brief that stalled the first `create` with 5×
+   > transient-API-error loops), do **not** attempt to write the
+   > full translation in one `create` call. Instead, for **each
+   > language**:
+   >
+   > 1. **Phase A — skeleton `create`**: write only the H1 line, the
+   >    full ordered list of `## H2` headings copied verbatim from
+   >    the source (translated where appropriate but with the same
+   >    count and order), and a one-sentence BLUF placeholder under
+   >    each H2 (`<!-- pending -->` is fine). This is a small,
+   >    bounded output that the model can emit reliably even when
+   >    the source is 400+ lines.
+   > 2. **Phase B — section-by-section `edit`**: iterate the H2
+   >    sections in order. For each one, call `edit` once with the
+   >    placeholder line as `oldText` and the fully translated
+   >    section body as `newText`. Each `edit` call is bounded to
+   >    one section's worth of output, which the model emits
+   >    reliably.
+   > 3. **Phase C — H2 spot-check (step 4a)**: unchanged — runs once
+   >    the file is complete.
+   >
+   > Small briefs (`largeSource: false`, the common case) continue
+   > to use the one-shot `create` documented below.
+
+   Read the `largeSource` and `sourceLineCount` fields of the current
+   queue entry before choosing your strategy:
+   ```bash
+   set -euo pipefail
+   if [ -z "${entryIndex:-}" ]; then
+     echo "Missing entryIndex for current queue entry" >&2; exit 1
+   fi
+   LARGE_SOURCE=$(node -e '
+     const q = require("/tmp/gh-aw/discovery/queue.json");
+     const idx = Number(process.argv[2]);
+     const e = (q.queue || [])[idx] || {};
+     process.stdout.write(e.largeSource ? "true" : "false");
+   ' "$entryIndex")
+   SOURCE_LINE_COUNT=$(node -e '
+     const q = require("/tmp/gh-aw/discovery/queue.json");
+     const idx = Number(process.argv[2]);
+     const e = (q.queue || [])[idx] || {};
+     process.stdout.write(String(e.sourceLineCount || 0));
+   ' "$entryIndex")
+   echo "📏 Source line count: ${SOURCE_LINE_COUNT} | largeSource: ${LARGE_SOURCE}"
+   if [ "$LARGE_SOURCE" = "true" ]; then
+     echo "⚠️  Using 2-phase skeleton-then-edit strategy for this brief."
+   fi
+   ```
+
    Before writing the first word of any translation, enumerate the
    source H2 titles so you know the full checklist (`$sourcePath` is
    already set by step 2's bash block):
@@ -517,6 +589,44 @@ PY
      emoji (`🟢 HIGH` / `🟡 MEDIUM` / `🔴 LOW`), classification stamps.
    - Apply per-language register from § 4 of the translator guide
      (Nordic / EU-core / RTL / CJK).
+
+   **Pre-loop: scan existing translations (transient-error recovery)**
+   Before writing the first language for this brief, check which sibling
+   files already exist on disk. A transient API error during a `create`
+   call causes the gh-aw framework to retry the inference — when it does,
+   the agent must NOT re-create files that were already successfully
+   written in an earlier attempt. Run this once per brief, right after
+   the H2 checklist above:
+
+   ```bash
+   set -euo pipefail
+   BRIEF_DIR=$(dirname "$sourcePath")
+   echo "=== Translations already on disk for this brief ==="
+   ls "${BRIEF_DIR}"/executive-brief_*.md 2>/dev/null || echo "(none yet)"
+   echo "===================================================="
+   ```
+
+   For any `lang` from `missingLangs` where the output file already
+   exists, **skip the `create` call and jump directly to the H2
+   spot-check (step 4a)**. Overwriting with an identical `create` call
+   is harmless but wastes tokens; skipping and spot-checking is correct.
+
+   **Per-language pre-write check** — run immediately before every
+   `create` call (defends against transient-API-error retry loops where
+   the agent re-announces the same language but the file was already
+   written in the previous attempt):
+
+   ```bash
+   BRIEF_DIR=$(dirname "$sourcePath")
+   if [ -f "${BRIEF_DIR}/executive-brief_${lang}.md" ]; then
+     echo "skip_create=true  # ${lang} already on disk"
+   else
+     echo "skip_create=false  # ${lang} needs create"
+   fi
+   ```
+
+   When the file exists on disk, do NOT call the `create` tool; proceed
+   directly to **step 4a** (H2 spot-check).
 
    **4a. Mandatory H2 spot-check per language** — run immediately after
    creating each `executive-brief_<lang>.md`, BEFORE moving to the next
