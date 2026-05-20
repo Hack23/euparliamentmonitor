@@ -60,7 +60,7 @@ describe('news-translate workflow contract', () => {
     // ensures we never accidentally re-bloat it back to the legacy 1.7K-line
     // HTML-translation behemoth. Cap raised from 42 KB → 45 KB to admit
     // the largeSource 2-phase strategy section added after the cancelled
-    // run #26181499722 (Plan A: discovery flag + agent prompt guidance).
+    // run #26181499722 (discovery flag + agent prompt guidance).
     expect(workflow.length).toBeGreaterThan(2000);
     expect(workflow.length).toBeLessThan(45000);
   });

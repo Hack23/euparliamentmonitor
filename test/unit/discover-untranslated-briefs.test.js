@@ -589,10 +589,10 @@ describe('discover-untranslated-briefs', () => {
       // newest-first within the same date sorts largeSource:false BEFORE
       // largeSource:true (Plan A small-first tie-break).
       expect(queue[0].slug).toBe('small');
-      expect(queue[0].sourceLineCount).toBeLessThanOrEqual(60);
+      expect(queue[0].sourceLineCount).toBe(50);
       expect(queue[0].largeSource).toBe(false);
       expect(queue[1].slug).toBe('large');
-      expect(queue[1].sourceLineCount).toBeGreaterThanOrEqual(400);
+      expect(queue[1].sourceLineCount).toBe(400);
       expect(queue[1].largeSource).toBe(true);
       expect(totals.largeSourceCount).toBe(1);
       expect(totals.maxSourceLines).toBe(300);

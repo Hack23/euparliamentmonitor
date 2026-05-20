@@ -335,8 +335,9 @@ const FIXED_TOKEN_CLASSES = Object.freeze([
  * file is missing. Used by `buildQueue` to populate `sourceLineCount` and
  * the derived `largeSource` flag — the translator agent uses these
  * signals to choose between a one-shot `create` per language and a
- * 2-phase skeleton-then-edit strategy when the source is too large to
- * translate reliably in a single inference call.
+ * 2-phase skeleton-then-edit strategy (Phase A / Phase B / Phase C
+ * documented in `.github/workflows/news-translate.md` Step 2) when the
+ * source is too large to translate reliably in a single inference call.
  *
  * @param {string} absPath
  * @returns {number}
