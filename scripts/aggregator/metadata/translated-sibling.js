@@ -21,7 +21,7 @@ import { ALL_LANGUAGES } from '../../constants/language-core.js';
  *
  * Matching is case-insensitive to handle uppercase variants.
  */
-const TRANSLATED_SIBLING_SUFFIX_RE = new RegExp(`_(${ALL_LANGUAGES.join('|')})\\.md$`, 'i');
+export const TRANSLATED_SIBLING_SUFFIX_RE = new RegExp(`_(${ALL_LANGUAGES.join('|')})\\.md$`, 'i');
 /**
  * Return `true` when a top-level `.md` filename looks like a translated
  * sibling of a canonical editorial artefact (e.g.

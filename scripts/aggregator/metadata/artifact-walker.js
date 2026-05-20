@@ -6,10 +6,12 @@
  * walker, file-existence guards, lede + H1 helper composition. Extracted
  * from `artifact-highlight.ts` to keep individual file sizes under 400 LOC.
  *
- * Internal helpers (`probeCandidateForHighlight`) are not exported — only
- * the composed surface (`scanCandidatesForHighlight`) is exposed so that
- * `editorial-highlight.ts` can call it without depending on the lower-level
- * per-file probe logic.
+ * Exported surface: `EDITORIAL_ARTEFACT_CANDIDATES` (ordered candidate list),
+ * `readArtefactBody` (SPDX-aware file reader), `safeReaddir` (fault-tolerant
+ * directory listing), and `scanCandidatesForHighlight` (composed walker).
+ * Internal helper `probeCandidateForHighlight` is not exported so that
+ * `editorial-highlight.ts` can call the walker without depending on the
+ * lower-level per-file probe logic.
  */
 import fs from 'fs';
 import path from 'path';
