@@ -56,6 +56,10 @@
  *     [--max-age-days <n>]    # default 180; older briefs are skipped
  *     [--mode <name>]         # fresh-then-backlog | backlog-only | newest-first
  *     [--run-number <n>]      # parity selector when --max-briefs 1
+ *     [--max-source-lines <n>] # default 300; briefs above this threshold are
+ *                              #   flagged largeSource:true and the agent
+ *                              #   switches to a 2-phase skeleton-then-edit
+ *                              #   translation strategy (see news-translate.md)
  *     [--output <path>]       # default stdout
  *     [--include-extended]    # also scan extended/executive-brief.md
  *
@@ -95,7 +99,9 @@
  *           { "line": 96, "title": "IMF Economic Context" },
  *           { "line": 146, "title": "IMF Economic Context — May 2026 Update" }
  *         ],
- *         "sourceFixedTokens": { "IMF": 17, "WEO": 2, "TA-id": 4 }
+ *         "sourceFixedTokens": { "IMF": 17, "WEO": 2, "TA-id": 4 },
+ *         "sourceLineCount": 380,
+ *         "largeSource": true
  *       },
  *       ...
  *     ]
@@ -113,6 +119,23 @@ export const TARGET_LANGS = Object.freeze(ALL_LANGUAGES.filter((lang) => lang !=
 
 /** Manual-dispatch upper bound that keeps one 60-minute run inside budget. */
 export const MAX_BRIEFS_LIMIT = 4;
+
+/**
+ * Source-brief line-count threshold above which a brief is flagged as
+ * `largeSource: true` in the queue. The translator agent uses this signal
+ * to switch from a one-shot `create` per language to a 2-phase
+ * skeleton-then-edit strategy that bounds each inference call's output
+ * size — a one-shot `create` of a ~385-line translated file is what
+ * triggered the unrecoverable transient-API-error loop in run
+ * #26181499722 (the queue contained
+ * `analysis/daily/2026-05-13/election-cycle/executive-brief.md` at 385
+ * lines; the first Swedish `create` retried 5× then stalled until manual
+ * cancel). 300 lines is the conservative cutoff: every brief that has
+ * translated cleanly in recent successful runs has been <250 lines, and
+ * the largest one-shot output we have empirical evidence of completing
+ * reliably is ~280 lines.
+ */
+export const DEFAULT_MAX_SOURCE_LINES = 300;
 
 /** Discovery prioritisation modes. */
 export const DISCOVERY_MODES = Object.freeze([
@@ -134,6 +157,7 @@ export function parseArgs(argv) {
     includeExtended: false,
     mode: 'fresh-then-backlog',
     runNumber: 0,
+    maxSourceLines: DEFAULT_MAX_SOURCE_LINES,
   };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -165,6 +189,10 @@ export function parseArgs(argv) {
         opts.runNumber = Number(argv[i + 1]);
         i += 1;
         break;
+      case '--max-source-lines':
+        opts.maxSourceLines = Number.parseInt(argv[i + 1], 10);
+        i += 1;
+        break;
       case '--help':
       case '-h':
         printHelp();
@@ -194,6 +222,9 @@ export function parseArgs(argv) {
   if (!Number.isInteger(opts.runNumber) || opts.runNumber < 0) {
     throw new Error('--run-number must be a non-negative integer');
   }
+  if (!Number.isFinite(opts.maxSourceLines) || opts.maxSourceLines < 1) {
+    throw new Error('--max-source-lines must be a positive integer');
+  }
   return opts;
 }
 
@@ -201,7 +232,7 @@ function printHelp() {
   process.stdout.write(
     'Usage: discover-untranslated-briefs.js [--repo-root <path>] ' +
       '[--max-briefs <n>] [--max-age-days <n>] [--mode <name>] ' +
-      '[--run-number <n>] [--output <path>] [--include-extended]\n',
+      '[--run-number <n>] [--max-source-lines <n>] [--output <path>] [--include-extended]\n',
   );
 }
 
@@ -300,6 +331,28 @@ const FIXED_TOKEN_CLASSES = Object.freeze([
 ]);
 
 /**
+ * Count the number of lines in a markdown source file. Returns 0 if the
+ * file is missing. Used by `buildQueue` to populate `sourceLineCount` and
+ * the derived `largeSource` flag — the translator agent uses these
+ * signals to choose between a one-shot `create` per language and a
+ * 2-phase skeleton-then-edit strategy (Phase A / Phase B / Phase C
+ * documented in `.github/workflows/news-translate.md` Step 2) when the
+ * source is too large to translate reliably in a single inference call.
+ *
+ * @param {string} absPath
+ * @returns {number}
+ */
+export function countLines(absPath) {
+  if (!fs.existsSync(absPath)) return 0;
+  const text = fs.readFileSync(absPath, 'utf8');
+  if (text.length === 0) return 0;
+  // Match `wc -l` semantics on POSIX: count newlines. A file with content
+  // but no trailing newline still has 1 logical line.
+  const newlines = (text.match(/\n/g) || []).length;
+  return text.endsWith('\n') ? newlines : newlines + 1;
+}
+
+/**
  * Extract H2 section titles from a markdown source file. Returns the
  * 1-based line number and the visible title (with the leading `## `
  * stripped). The agent uses this to spot duplicate-titled sections such
@@ -349,18 +402,26 @@ export function countFixedTokens(absPath) {
  * Build the prioritised queue. See module docstring for ordering rules.
  *
  * @param {ReturnType<typeof findExecutiveBriefSources>} sources
- * @param {number | { maxBriefs: number, mode?: string, runNumber?: number }} options
+ * @param {number | { maxBriefs: number, mode?: string, runNumber?: number, maxSourceLines?: number }} options
  *   Numeric form retained for backward compatibility — equivalent to
- *   `{ maxBriefs, mode: 'fresh-then-backlog', runNumber: 0 }`.
+ *   `{ maxBriefs, mode: 'fresh-then-backlog', runNumber: 0, maxSourceLines: DEFAULT_MAX_SOURCE_LINES }`.
  */
 export function buildQueue(sources, options) {
   const opts =
     typeof options === 'number'
-      ? { maxBriefs: options, mode: 'fresh-then-backlog', runNumber: 0 }
+      ? {
+          maxBriefs: options,
+          mode: 'fresh-then-backlog',
+          runNumber: 0,
+          maxSourceLines: DEFAULT_MAX_SOURCE_LINES,
+        }
       : {
           maxBriefs: options.maxBriefs,
           mode: options.mode || 'fresh-then-backlog',
           runNumber: Number.isFinite(options.runNumber) ? options.runNumber : 0,
+          maxSourceLines: Number.isFinite(options.maxSourceLines)
+            ? options.maxSourceLines
+            : DEFAULT_MAX_SOURCE_LINES,
         };
   if (!DISCOVERY_MODES.includes(opts.mode)) {
     throw new Error(
@@ -388,6 +449,8 @@ export function buildQueue(sources, options) {
     // agent treated it as a duplicate of `## IMF Economic Context`.
     const sourceH2Titles = extractH2Titles(source.absPath);
     const sourceFixedTokens = countFixedTokens(source.absPath);
+    const sourceLineCount = countLines(source.absPath);
+    const largeSource = sourceLineCount > opts.maxSourceLines;
     withGaps.push({
       date: source.date,
       slug: source.slug,
@@ -398,12 +461,21 @@ export function buildQueue(sources, options) {
       sourceH2Titles,
       sourceH2Count: sourceH2Titles.length,
       sourceFixedTokens,
+      sourceLineCount,
+      largeSource,
     });
   }
 
-  // Two canonical orderings drive the three modes.
+  // Two canonical orderings drive the three modes. Within the same date,
+  // small briefs sort BEFORE large ones (`largeSource: false` first) — a
+  // large brief in the fresh slot triggered the unrecoverable transient-
+  // API-error loop in run #26181499722. The translator agent can still
+  // handle large briefs via the 2-phase skeleton-then-edit strategy
+  // (step 4-large in news-translate.md), but exposing a small candidate
+  // to the fresh slot first keeps the common case fast.
   const newestFirst = (a, b) => {
     if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+    if (a.largeSource !== b.largeSource) return a.largeSource ? 1 : -1;
     if (a.missingCount !== b.missingCount) return b.missingCount - a.missingCount;
     if (a.slug !== b.slug) return a.slug < b.slug ? -1 : 1;
     if (a.isExtended !== b.isExtended) return a.isExtended ? 1 : -1;
@@ -411,6 +483,7 @@ export function buildQueue(sources, options) {
   };
   const oldestFirstFinishPartial = (a, b) => {
     if (a.date !== b.date) return a.date < b.date ? -1 : 1;
+    if (a.largeSource !== b.largeSource) return a.largeSource ? 1 : -1;
     // Within the same date, finish briefs that are closer to completion
     // first (fewer missing languages → ascending).
     if (a.missingCount !== b.missingCount) return a.missingCount - b.missingCount;
@@ -465,9 +538,11 @@ export function buildQueue(sources, options) {
   // backlog is empty.
   let freshNewestDate = null;
   let backlogOldestDate = null;
+  let largeSourceCount = 0;
   for (const entry of withGaps) {
     if (freshNewestDate === null || entry.date > freshNewestDate) freshNewestDate = entry.date;
     if (backlogOldestDate === null || entry.date < backlogOldestDate) backlogOldestDate = entry.date;
+    if (entry.largeSource) largeSourceCount += 1;
   }
 
   return {
@@ -480,6 +555,8 @@ export function buildQueue(sources, options) {
       freshNewestDate,
       backlogOldestDate,
       topMissingLangs,
+      largeSourceCount,
+      maxSourceLines: opts.maxSourceLines,
     },
     queue,
   };
@@ -499,6 +576,7 @@ export function main(argv) {
     maxBriefs: opts.maxBriefs,
     mode: opts.mode,
     runNumber: opts.runNumber,
+    maxSourceLines: opts.maxSourceLines,
   });
   const payload = {
     generatedAt: new Date().toISOString(),
@@ -508,6 +586,7 @@ export function main(argv) {
       includeExtended: opts.includeExtended,
       mode: opts.mode,
       runNumber: opts.runNumber,
+      maxSourceLines: opts.maxSourceLines,
     },
     totals,
     queue,

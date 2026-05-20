@@ -16,6 +16,7 @@ import path from 'node:path';
 import {
   TARGET_LANGS,
   MAX_BRIEFS_LIMIT,
+  DEFAULT_MAX_SOURCE_LINES,
   DISCOVERY_MODES,
   parseArgs,
   findExecutiveBriefSources,
@@ -23,6 +24,7 @@ import {
   buildQueue,
   extractH2Titles,
   countFixedTokens,
+  countLines,
   main,
 } from '../../scripts/discover-untranslated-briefs.js';
 import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
@@ -78,6 +80,7 @@ describe('discover-untranslated-briefs', () => {
       expect(opts.output).toBe(null);
       expect(opts.mode).toBe('fresh-then-backlog');
       expect(opts.runNumber).toBe(0);
+      expect(opts.maxSourceLines).toBe(300);
     });
 
     it('parses every supported flag', () => {
@@ -89,6 +92,7 @@ describe('discover-untranslated-briefs', () => {
         '--include-extended',
         '--mode', 'backlog-only',
         '--run-number', '17',
+        '--max-source-lines', '250',
       ]);
       expect(opts.repoRoot).toBe('/tmp/x');
       expect(opts.maxBriefs).toBe(4);
@@ -97,6 +101,17 @@ describe('discover-untranslated-briefs', () => {
       expect(opts.includeExtended).toBe(true);
       expect(opts.mode).toBe('backlog-only');
       expect(opts.runNumber).toBe(17);
+      expect(opts.maxSourceLines).toBe(250);
+    });
+
+    it('defaults --max-source-lines to 300 (the documented large-brief threshold)', () => {
+      const opts = parseArgs([]);
+      expect(opts.maxSourceLines).toBe(300);
+    });
+
+    it('rejects non-positive --max-source-lines', () => {
+      expect(() => parseArgs(['--max-source-lines', '0'])).toThrow(/positive integer/);
+      expect(() => parseArgs(['--max-source-lines', 'abc'])).toThrow(/positive integer/);
     });
 
     it('throws on unknown flag', () => {
@@ -517,6 +532,110 @@ describe('discover-untranslated-briefs', () => {
       }
       expect(entry.sourceFixedTokens.IMF).toBeGreaterThanOrEqual(4);
       expect(entry.sourceFixedTokens.WEO).toBeGreaterThanOrEqual(2);
+    });
+  });
+
+  // Regression hardening for run #26181499722 — that run was cancelled
+  // after 5× transient-API-error loops on the first translation `create`
+  // for a 385-line source brief. Surfacing the source line count and a
+  // `largeSource` flag at discovery time lets the translator agent
+  // switch to a 2-phase skeleton-then-edit strategy that bounds each
+  // inference call's output size, so transient errors can recover
+  // within the harness's 3-attempt backoff.
+  describe('large-source detection', () => {
+    function makeBriefWithLines(date, slug, lineCount) {
+      const dir = path.join(tmpRoot, 'analysis', 'daily', date, slug);
+      fs.mkdirSync(dir, { recursive: true });
+      const body = ['# Brief', '## Section A'];
+      for (let i = body.length; i < lineCount; i += 1) body.push(`line ${i}`);
+      fs.writeFileSync(path.join(dir, 'executive-brief.md'), `${body.join('\n')}\n`);
+    }
+
+    it('exports DEFAULT_MAX_SOURCE_LINES as 300', () => {
+      expect(DEFAULT_MAX_SOURCE_LINES).toBe(300);
+    });
+
+    it('countLines matches wc -l semantics for a trailing-newline file', () => {
+      const file = path.join(tmpRoot, 'three.md');
+      fs.writeFileSync(file, 'a\nb\nc\n');
+      expect(countLines(file)).toBe(3);
+    });
+
+    it('countLines counts the final unterminated line', () => {
+      const file = path.join(tmpRoot, 'three-no-nl.md');
+      fs.writeFileSync(file, 'a\nb\nc');
+      expect(countLines(file)).toBe(3);
+    });
+
+    it('countLines returns 0 for empty / missing files', () => {
+      const empty = path.join(tmpRoot, 'empty.md');
+      fs.writeFileSync(empty, '');
+      expect(countLines(empty)).toBe(0);
+      expect(countLines(path.join(tmpRoot, 'does-not-exist.md'))).toBe(0);
+    });
+
+    it('attaches sourceLineCount and largeSource to every queue entry', () => {
+      makeBriefWithLines('2026-05-13', 'small', 50);
+      makeBriefWithLines('2026-05-13', 'large', 400);
+      const sources = findExecutiveBriefSources(tmpRoot, {
+        includeExtended: false,
+        maxAgeDays: 180,
+      });
+      const { queue, totals } = buildQueue(sources, {
+        maxBriefs: 2,
+        mode: 'newest-first',
+        maxSourceLines: 300,
+      });
+      // newest-first within the same date sorts largeSource:false BEFORE
+      // largeSource:true (Plan A small-first tie-break).
+      expect(queue[0].slug).toBe('small');
+      expect(queue[0].sourceLineCount).toBe(50);
+      expect(queue[0].largeSource).toBe(false);
+      expect(queue[1].slug).toBe('large');
+      expect(queue[1].sourceLineCount).toBe(400);
+      expect(queue[1].largeSource).toBe(true);
+      expect(totals.largeSourceCount).toBe(1);
+      expect(totals.maxSourceLines).toBe(300);
+    });
+
+    it('largeSource boundary is strictly greater than maxSourceLines', () => {
+      makeBriefWithLines('2026-05-13', 'edge', 300);
+      const sources = findExecutiveBriefSources(tmpRoot, {
+        includeExtended: false,
+        maxAgeDays: 180,
+      });
+      const { queue } = buildQueue(sources, { maxBriefs: 1, maxSourceLines: 300 });
+      expect(queue[0].sourceLineCount).toBe(300);
+      // 300 == threshold ⇒ not flagged (>, not >=). One additional line
+      // flips the flag.
+      expect(queue[0].largeSource).toBe(false);
+
+      const dir2 = path.join(tmpRoot, 'analysis', 'daily', '2026-05-14', 'edge-over');
+      fs.mkdirSync(dir2, { recursive: true });
+      const body = ['# Brief'];
+      for (let i = 1; i < 301; i += 1) body.push(`line ${i}`);
+      fs.writeFileSync(path.join(dir2, 'executive-brief.md'), `${body.join('\n')}\n`);
+      const sources2 = findExecutiveBriefSources(tmpRoot, {
+        includeExtended: false,
+        maxAgeDays: 180,
+      });
+      const { queue: q2 } = buildQueue(sources2, { maxBriefs: 1, maxSourceLines: 300 });
+      // newest-first by default picks 2026-05-14/edge-over (301 lines).
+      expect(q2[0].slug).toBe('edge-over');
+      expect(q2[0].sourceLineCount).toBe(301);
+      expect(q2[0].largeSource).toBe(true);
+    });
+
+    it('payload from main() carries the new fields into options and totals', () => {
+      makeBriefWithLines('2026-05-13', 'small', 50);
+      const outPath = path.join(tmpRoot, 'q.json');
+      main(['--repo-root', tmpRoot, '--max-briefs', '1', '--output', outPath]);
+      const payload = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+      expect(payload.options.maxSourceLines).toBe(300);
+      expect(payload.totals.maxSourceLines).toBe(300);
+      expect(typeof payload.totals.largeSourceCount).toBe('number');
+      expect(payload.queue[0]).toHaveProperty('sourceLineCount');
+      expect(payload.queue[0]).toHaveProperty('largeSource');
     });
   });
 });
