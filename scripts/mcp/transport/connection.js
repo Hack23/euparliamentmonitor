@@ -13,9 +13,9 @@
 import { spawn } from 'child_process';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { MCPSessionExpiredError, MCPRateLimitError } from './errors.js';
-import { parseRetryAfterMs, isRetriableError, formatRetryAfter, RECONNECT_MAX_DELAY_MS, RETRY_AFTER_HEADER, RATE_LIMIT_MSG, } from './retry-policy.js';
-import { parseSSEResponse } from './sse-parser.js';
+import { MCPRateLimitError, MCPSessionExpiredError } from './errors.js';
+import { isRetriableError, RECONNECT_MAX_DELAY_MS } from './retry-policy.js';
+import { attemptGatewayConnection, sendGatewayRequest } from './gateway.js';
 /** npm binary name for the European Parliament MCP server */
 const BINARY_NAME = 'european-parliament-mcp-server';
 /** Platform-specific binary filename (Windows uses .cmd shim) */
@@ -216,121 +216,30 @@ export class MCPConnection {
         }
     }
     /**
-     * Validate a gateway response body, throwing on JSON-RPC errors.
+     * Build a {@link GatewayContext} adapter for delegating to gateway helpers.
      *
-     * @param contentType - Response content-type header
-     * @param body - Raw response body text
+     * @returns A context adapter exposing the connection-level fields the
+     *   gateway helpers need (URL, API key, session ID accessors, request-ID
+     *   counter, connection-state setter).
      */
-    _validateGatewayResponseBody(contentType, body) {
-        if (contentType.includes('text/event-stream')) {
-            const parsed = parseSSEResponse(body);
-            if (parsed?.error) {
-                throw new Error(parsed.error.message ?? 'MCP gateway initialization error');
-            }
-            return;
-        }
-        if (!body) {
-            return;
-        }
-        try {
-            const jsonResponse = JSON.parse(body);
-            if (jsonResponse.error) {
-                throw new Error(jsonResponse.error.message ?? 'MCP gateway initialization error');
-            }
-        }
-        catch (e) {
-            if (e instanceof SyntaxError) {
-                // Non-JSON body — not a protocol error, safe to ignore
-                return;
-            }
-            throw e;
-        }
+    _gatewayContext() {
+        return {
+            gatewayUrl: this.gatewayUrl,
+            gatewayApiKey: this.gatewayApiKey,
+            serverLabel: this.serverLabel,
+            getMcpSessionId: () => this.mcpSessionId,
+            nextRequestId: () => ++this.requestId,
+            setMcpSessionId: (id) => {
+                this.mcpSessionId = id;
+            },
+            setConnected: (v) => {
+                this.connected = v;
+            },
+        };
     }
-    /**
-     * Build the Authorization header value for gateway requests.
-     * Keys that already contain a valid RFC 7235 scheme token followed by
-     * whitespace (e.g. "Bearer …", "Token …", "AWS4-HMAC-SHA256 …") are passed
-     * through unchanged. Otherwise the raw key is sent directly unless
-     * EP_MCP_GATEWAY_AUTH_SCHEME is set to a valid token, in which case that
-     * scheme prefix is prepended. The EP MCP gateway expects raw-token auth by
-     * default (no "Bearer " prefix).
-     *
-     * @param apiKey - Raw or pre-prefixed gateway API key
-     * @returns The full Authorization header value, or empty string for empty keys
-     * @throws {Error} When the API key contains CR or LF characters (header injection risk)
-     */
-    _buildAuthorizationHeader(apiKey) {
-        const trimmedKey = apiKey.trim();
-        if (!trimmedKey) {
-            return '';
-        }
-        if (/[\r\n]/.test(trimmedKey)) {
-            throw new Error('Invalid gateway API key: control characters (CR/LF) are not allowed in Authorization header values.');
-        }
-        const tokenRegex = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
-        const firstSpaceIndex = trimmedKey.indexOf(' ');
-        if (firstSpaceIndex > 0) {
-            const possibleScheme = trimmedKey.slice(0, firstSpaceIndex);
-            if (tokenRegex.test(possibleScheme)) {
-                return trimmedKey;
-            }
-        }
-        const rawScheme = typeof process !== 'undefined' && process.env?.['EP_MCP_GATEWAY_AUTH_SCHEME'];
-        const scheme = typeof rawScheme === 'string' ? rawScheme.trim() : '';
-        if (scheme && tokenRegex.test(scheme)) {
-            return `${scheme} ${trimmedKey}`;
-        }
-        return trimmedKey;
-    }
-    /**
-     * Attempt a single connection via MCP Gateway (HTTP transport)
-     */
+    /** Attempt a single connection via MCP Gateway (HTTP transport). */
     async _attemptGatewayConnection() {
-        if (!this.gatewayUrl) {
-            throw new Error('Gateway URL not configured. Set the EP_MCP_GATEWAY_URL environment variable or provide the gatewayUrl constructor option.');
-        }
-        try {
-            const headers = {
-                'Content-Type': 'application/json',
-                Accept: 'application/json, text/event-stream',
-            };
-            if (this.gatewayApiKey) {
-                headers['Authorization'] = this._buildAuthorizationHeader(this.gatewayApiKey);
-            }
-            const initRequest = {
-                jsonrpc: '2.0',
-                id: ++this.requestId,
-                method: 'initialize',
-                params: {
-                    protocolVersion: '2024-11-05',
-                    capabilities: {},
-                    clientInfo: { name: 'ep-mcp-client', version: '1.0.0' },
-                },
-            };
-            const response = await fetch(this.gatewayUrl, {
-                method: 'POST',
-                headers,
-                body: JSON.stringify(initRequest),
-                signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-            });
-            if (!response.ok) {
-                this._throwGatewayResponseError(response);
-            }
-            const sessionId = response.headers.get('mcp-session-id');
-            if (sessionId) {
-                this.mcpSessionId = sessionId;
-            }
-            const contentType = response.headers.get('content-type') ?? '';
-            const body = await response.text();
-            this._validateGatewayResponseBody(contentType, body);
-            this.connected = true;
-            console.log(`✅ Connected to ${this.serverLabel} via gateway`);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.error('❌ Failed to connect to MCP gateway:', message);
-            throw error;
-        }
+        await attemptGatewayConnection(this._gatewayContext());
     }
     /**
      * Attempt a single connection via stdio (spawns server binary)
@@ -441,89 +350,15 @@ export class MCPConnection {
         }
     }
     /**
-     * Throw an appropriate error for a non-OK gateway response.
-     * Extracted to keep `_sendGatewayRequest` within cognitive-complexity limits.
-     *
-     * @param response - The non-OK fetch Response
-     */
-    _throwGatewayResponseError(response) {
-        if (response.status === 401) {
-            this.mcpSessionId = null;
-            this.connected = false;
-            throw new MCPSessionExpiredError(response.statusText);
-        }
-        if (response.status === 429) {
-            const rawRetryAfter = response.headers.get(RETRY_AFTER_HEADER) ?? response.headers.get('Retry-After');
-            const retryAfter = (rawRetryAfter ?? '').trim();
-            if (retryAfter !== '') {
-                const retryMessage = formatRetryAfter(retryAfter);
-                const retryAfterMs = parseRetryAfterMs(retryAfter);
-                console.warn(`⏳ ${RATE_LIMIT_MSG} ${retryMessage}`);
-                throw new MCPRateLimitError(retryAfterMs, `${RATE_LIMIT_MSG} ${retryMessage}`);
-            }
-            const statusText = response.statusText || 'Too Many Requests';
-            throw new MCPRateLimitError(0, `${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; ${RETRY_AFTER_HEADER}/Retry-After header missing)`);
-        }
-        throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
-    }
-    /**
-     * Send a request via MCP Gateway (HTTP transport)
+     * Send a request via MCP Gateway (HTTP transport). Delegates to the
+     * gateway helper module.
      *
      * @param method - RPC method name
      * @param params - Method parameters
-     * @returns Server response
+     * @returns Server response result payload
      */
     async _sendGatewayRequest(method, params = {}) {
-        if (!this.gatewayUrl) {
-            throw new Error('Gateway URL not configured. Set EP_MCP_GATEWAY_URL or provide gatewayUrl in MCP client options.');
-        }
-        const id = ++this.requestId;
-        const request = {
-            jsonrpc: '2.0',
-            id,
-            method,
-            params,
-        };
-        const headers = {
-            'Content-Type': 'application/json',
-            Accept: 'application/json, text/event-stream',
-        };
-        if (this.gatewayApiKey) {
-            headers['Authorization'] = this._buildAuthorizationHeader(this.gatewayApiKey);
-        }
-        if (this.mcpSessionId) {
-            headers['Mcp-Session-Id'] = this.mcpSessionId;
-        }
-        const response = await fetch(this.gatewayUrl, {
-            method: 'POST',
-            headers,
-            body: JSON.stringify(request),
-            signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-        });
-        if (!response.ok) {
-            this._throwGatewayResponseError(response);
-        }
-        const sessionId = response.headers.get('mcp-session-id');
-        if (sessionId) {
-            this.mcpSessionId = sessionId;
-        }
-        const contentType = response.headers.get('content-type') ?? '';
-        const body = await response.text();
-        if (contentType.includes('text/event-stream')) {
-            const parsed = parseSSEResponse(body);
-            if (!parsed) {
-                throw new Error('Failed to parse SSE response from gateway');
-            }
-            if (parsed.error) {
-                throw new Error(parsed.error.message ?? 'MCP gateway error');
-            }
-            return parsed.result;
-        }
-        const jsonResponse = JSON.parse(body);
-        if (jsonResponse.error) {
-            throw new Error(jsonResponse.error.message ?? 'MCP gateway error');
-        }
-        return jsonResponse.result;
+        return sendGatewayRequest(method, params, this._gatewayContext());
     }
     /**
      * Send a request to the MCP server

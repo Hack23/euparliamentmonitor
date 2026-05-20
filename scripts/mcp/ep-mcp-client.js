@@ -18,4 +18,9 @@ export * from './ep/staleness.js';
 export * from './ep/reliability.js';
 export * from './ep/election-calendar.js';
 export * from './ep/client.js';
+// Side-effect mixin imports (augment EuropeanParliamentMCPClient prototype)
+import './ep/tools-data.js';
+import './ep/tools-procedures.js';
+import './ep/tools-documents.js';
+import './ep/tools-feeds.js';
 //# sourceMappingURL=ep-mcp-client.js.map

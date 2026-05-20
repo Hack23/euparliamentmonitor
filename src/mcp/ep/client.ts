@@ -456,8 +456,7 @@ export async function closeEPMCPClient(): Promise<void> {
   }
 }
 
-// \u2500\u2500\u2500 Side-effect imports: mix domain methods into the prototype \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-import './tools-data.js';
-import './tools-procedures.js';
-import './tools-documents.js';
-import './tools-feeds.js';
+// Side-effect mixin imports live in the barrel (ep-mcp-client.ts) to avoid
+// circular-dependency issues. ES module static imports are hoisted, so
+// importing tools-*.ts from here causes the class to be accessed before it
+// is initialised. See ep-mcp-client.ts for the actual imports.
