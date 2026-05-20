@@ -101,22 +101,33 @@ jobs:
       - name: Enforce prompt-module architecture
         run: |
           set -e
+          # news-translate.md is the sole legitimate exemption from the
+          # body-line and single-PR caps. It implements a scheduled multi-call
+          # flush translator (see scripts/lint-prompts.js EXEMPT_FROM_*),
+          # not the standard article pipeline. All other news workflows
+          # MUST stay within the single-PR / 200-body-line contract.
+          EXEMPT_NEWS="news-translate.md"
           echo "🔍 Checking .github/prompts/ module line caps (≤ 550)…"
           FAIL=0
           for f in .github/prompts/*.md .github/prompts/ext/*.md; do
             [ -f "$f" ] || continue
             LINES=$(wc -l < "$f")
             if [ "$LINES" -gt 550 ]; then
-              echo "  ❌ $f has $LINES lines (> 450)"
+              echo "  ❌ $f has $LINES lines (> 550)"
               FAIL=1
             else
               echo "  ✅ $f ($LINES lines)"
             fi
           done
           echo ""
-          echo "🔍 Checking .github/workflows/news-*.md body line caps (≤ 200 excluding frontmatter)…"
+          echo "🔍 Checking .github/workflows/news-*.md body line caps (≤ 200 excluding frontmatter, news-translate.md exempt)…"
           for f in .github/workflows/news-*.md; do
             [ -f "$f" ] || continue
+            base=$(basename "$f")
+            if [ "$base" = "$EXEMPT_NEWS" ]; then
+              echo "  ⏭️  $f (exempt: multi-call flush translator)"
+              continue
+            fi
             # Body = content after the second "^---$" line
             BODY_LINES=$(awk 'BEGIN{c=0;out=0} /^---$/{c++;if(c==2){out=1;next}} out==1{print}' "$f" | wc -l)
             if [ "$BODY_LINES" -gt 200 ]; then
@@ -127,9 +138,14 @@ jobs:
             fi
           done
           echo ""
-          echo "🔍 Enforcing safe-outputs.create-pull-request.max: 1 on all news workflows (source .md)…"
+          echo "🔍 Enforcing safe-outputs.create-pull-request.max: 1 on all news workflows (source .md, news-translate.md exempt)…"
           for f in .github/workflows/news-*.md; do
             [ -f "$f" ] || continue
+            base=$(basename "$f")
+            if [ "$base" = "$EXEMPT_NEWS" ]; then
+              echo "  ⏭️  $f (exempt: multi-call flush translator uses max: 10)"
+              continue
+            fi
             # Extract max value directly under create-pull-request block
             MAX=$(awk '
               /^  create-pull-request:/ {in_block=1; next}
@@ -147,33 +163,50 @@ jobs:
             fi
           done
           echo ""
-          echo "🔍 Enforcing create_pull_request.max: 1 on compiled .lock.yml (safe-outputs config)…"
-          for lf in .github/workflows/news-*.lock.yml; do
-            [ -f "$lf" ] || continue
-            # safe-outputs config appears in two forms in the compiled file:
-            #   (a) a plain-JSON block (e.g. in prompt heredocs): "create_pull_request":{...,"max":N,...}
-            #   (b) the runtime env var GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG, a YAML-quoted string
-            #       that encodes JSON with backslash-escaped quotes: \"create_pull_request\":{...,\"max\":N,...}
-            # Normalise by stripping backslashes so a single grep pattern matches both forms.
-            BAD=0
-            NORM=$(tr -d '\\' < "$lf")
-            OCCURS=$(printf '%s' "$NORM" | grep -oE '"create_pull_request"[[:space:]]*:[[:space:]]*\{[^}]*"max"[[:space:]]*:[[:space:]]*[0-9]+' | grep -oE '"max"[[:space:]]*:[[:space:]]*[0-9]+' | grep -oE '[0-9]+$' || true)
-            COUNT_ANY=$(printf '%s' "$NORM" | grep -cE '"create_pull_request"[[:space:]]*:[[:space:]]*\{' || true)
-            if [ -z "$OCCURS" ] || [ "$COUNT_ANY" -eq 0 ]; then
-              echo "  ❌ $lf has no create_pull_request config with max (checked both plain and backslash-escaped JSON)"
-              FAIL=1
-              continue
-            fi
-            while IFS= read -r v; do
-              [ "$v" = "1" ] || BAD=1
-            done <<< "$OCCURS"
-            if [ "$BAD" -eq 1 ]; then
-              echo "  ❌ $lf has create_pull_request.max != 1 (found: $(echo "$OCCURS" | tr '\n' ' '))"
-              FAIL=1
-            else
-              echo "  ✅ $lf (create_pull_request.max: 1, $COUNT_ANY occurrence(s))"
-            fi
-          done
+          echo "🔍 Enforcing create_pull_request.max: 1 on compiled .lock.yml (safe-outputs config, news-translate exempt)…"
+          # The safe-outputs config appears in two places in each compiled lock:
+          #   (a) a plain-JSON block embedded in a prompt heredoc:
+          #         "create_pull_request":{...,"max":N,...}
+          #   (b) the runtime env var GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG, a
+          #       YAML-quoted JSON string with backslash-escaped quotes:
+          #         \"create_pull_request\":{...,\"max\":N,...}
+          # Both forms can contain `}` characters INSIDE string values (e.g.
+          # the `${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}` env reference),
+          # which broke the previous `[^}]*` grep regex. Use Python with a
+          # non-greedy regex anchored on the first `"max":N` after the
+          # `"create_pull_request":{` opener — and exempt news-translate.lock.yml,
+          # which legitimately encodes max: 10.
+          if ! python3 - <<'PYEOF'
+          import glob, re, sys
+          EXEMPT = {'news-translate.lock.yml'}
+          PATTERN = re.compile(r'"create_pull_request"\s*:\s*\{.*?"max"\s*:\s*(\d+)', re.DOTALL)
+          fail = 0
+          for lf in sorted(glob.glob('.github/workflows/news-*.lock.yml')):
+              base = lf.rsplit('/', 1)[-1]
+              if base in EXEMPT:
+                  print(f'  ⏭️  {lf} (exempt: multi-call flush translator uses max: 10)')
+                  continue
+              with open(lf, encoding='utf-8') as fp:
+                  text = fp.read()
+              # Strip backslashes so the YAML-escaped JSON form matches the
+              # same regex as the plain JSON form.
+              norm = text.replace('\\', '')
+              matches = PATTERN.findall(norm)
+              if not matches:
+                  print(f'  ❌ {lf} has no create_pull_request config with max (plain or backslash-escaped JSON)')
+                  fail = 1
+                  continue
+              bad = [m for m in matches if m != '1']
+              if bad:
+                  print(f'  ❌ {lf} has create_pull_request.max != 1 (found: {" ".join(matches)})')
+                  fail = 1
+              else:
+                  print(f'  ✅ {lf} (create_pull_request.max: 1, {len(matches)} occurrence(s))')
+          sys.exit(fail)
+          PYEOF
+          then
+            FAIL=1
+          fi
           echo ""
           echo "🔍 Scanning for banned multi-PR / heartbeat / keep-alive strings…"
           BANNED='Heartbeat|keep-alive pinger|post-heartbeat rebase|🫀'
