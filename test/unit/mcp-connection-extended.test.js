@@ -13,6 +13,7 @@ import {
   MCPSessionExpiredError,
   MCPRateLimitError,
   parseSSEResponse,
+  validateGatewayResponseBody,
 } from '../../scripts/mcp/mcp-connection.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
@@ -97,12 +98,12 @@ describe('mcp-connection extended', () => {
 
   describe('_validateGatewayResponseBody', () => {
     it('should not throw for empty body', () => {
-      expect(() => client._validateGatewayResponseBody('application/json', '')).not.toThrow();
+      expect(() => validateGatewayResponseBody('application/json', '')).not.toThrow();
     });
 
     it('should not throw for valid JSON without error', () => {
       expect(() =>
-        client._validateGatewayResponseBody(
+        validateGatewayResponseBody(
           'application/json',
           '{"jsonrpc":"2.0","id":1,"result":{}}'
         )
@@ -111,7 +112,7 @@ describe('mcp-connection extended', () => {
 
     it('should throw for JSON body with error containing MCP gateway message', () => {
       expect(() =>
-        client._validateGatewayResponseBody(
+        validateGatewayResponseBody(
           'application/json',
           '{"jsonrpc":"2.0","id":1,"error":{"message":"MCP gateway initialization error"}}'
         )
@@ -122,7 +123,7 @@ describe('mcp-connection extended', () => {
       // All JSON-RPC errors must be surfaced — previous behavior of swallowing
       // non-gateway messages produced false "connected" states.
       expect(() =>
-        client._validateGatewayResponseBody(
+        validateGatewayResponseBody(
           'application/json',
           '{"jsonrpc":"2.0","id":1,"error":{"message":"Init failed"}}'
         )
@@ -132,20 +133,20 @@ describe('mcp-connection extended', () => {
     it('should throw for SSE body with error field', () => {
       const body = 'data: {"jsonrpc":"2.0","id":1,"error":{"message":"SSE init error"}}\n';
       expect(() =>
-        client._validateGatewayResponseBody('text/event-stream', body)
+        validateGatewayResponseBody('text/event-stream', body)
       ).toThrow('SSE init error');
     });
 
     it('should not throw for SSE body without error', () => {
       const body = 'data: {"jsonrpc":"2.0","id":1,"result":{}}\n';
       expect(() =>
-        client._validateGatewayResponseBody('text/event-stream', body)
+        validateGatewayResponseBody('text/event-stream', body)
       ).not.toThrow();
     });
 
     it('should not throw for non-JSON body (plain text)', () => {
       expect(() =>
-        client._validateGatewayResponseBody('text/plain', 'OK')
+        validateGatewayResponseBody('text/plain', 'OK')
       ).not.toThrow();
     });
 
@@ -153,7 +154,7 @@ describe('mcp-connection extended', () => {
       // When error.message is undefined, it uses 'MCP gateway initialization error'
       // which contains 'MCP gateway' so the catch-block re-throws it
       expect(() =>
-        client._validateGatewayResponseBody(
+        validateGatewayResponseBody(
           'application/json',
           '{"jsonrpc":"2.0","id":1,"error":{"code":-1}}'
         )
@@ -163,7 +164,7 @@ describe('mcp-connection extended', () => {
     it('should use default error message when error.message is missing in SSE', () => {
       const body = 'data: {"jsonrpc":"2.0","id":1,"error":{"code":-1}}\n';
       expect(() =>
-        client._validateGatewayResponseBody('text/event-stream', body)
+        validateGatewayResponseBody('text/event-stream', body)
       ).toThrow('MCP gateway initialization error');
     });
   });

@@ -8,9 +8,11 @@
  * @see ./transport/retry-policy.js
  * @see ./transport/sse-parser.js
  * @see ./transport/connection.js
+ * @see ./transport/gateway.js
  */
 
 export * from './transport/errors.js';
 export * from './transport/retry-policy.js';
 export * from './transport/sse-parser.js';
 export * from './transport/connection.js';
+export * from './transport/gateway.js';
