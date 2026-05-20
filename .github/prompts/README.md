@@ -16,6 +16,7 @@ gh-aw workflow. This replaces the 1,789-line `SHARED_PROMPT_PATTERNS.md` monolit
 |---|------|---------|
 | 00 | [`00-scope-and-ground-rules.md`](00-scope-and-ground-rules.md) | Workspace scope, forbidden/allowed edits, neutrality, one-PR rule |
 | 01 | [`01-data-collection.md`](01-data-collection.md) | EP MCP feeds + direct fallbacks, deep-fetch, IMF primary economic + WB non-economic |
+| 01a | [`01a-data-fanout.md`](01a-data-fanout.md) | Stage-A fan-out helpers — forward-statements registry seed, multi-day foreseen activities, Monday urgency sweep, quarter+ horizon fan-out (imported only by forward-looking / long-horizon workflows) |
 | 02 | [`02-analysis-protocol.md`](02-analysis-protocol.md) | Pipeline, methodologies/templates, mandatory 2-pass |
 | 02a | [`02a-rerun-merge.md`](02a-rerun-merge.md) | Re-run improve/extend rule (same-day folder resume) |
 | 03 | [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) | Agent-side completeness gate over artifacts, IMF evidence, and metadata readiness |

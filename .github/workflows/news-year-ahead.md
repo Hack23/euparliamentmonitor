@@ -148,7 +148,7 @@ engine:
 - Forward-projection lens: apply [`.github/prompts/11-forward-projection.md`](../prompts/11-forward-projection.md) during Stage B; produces `forward-projection.md`, `legislative-pipeline-forecast.md`, `parliamentary-calendar-projection.md`, `presidency-trio-context.md`, `commission-wp-alignment.md`.
 - Forces `electoralOverlay=true` when run within 12 months of next EP election (computed from `getElectionCalendarContext()`); when armed, additionally apply [`.github/prompts/12-electoral-cycle.md`](../prompts/12-electoral-cycle.md).
 - Mine prior-run forward statements (per `01-data-collection.md` §8); horizon window = **730 days** (2 years) for carry-forward filter.
-- **Multi-month foreseen activities fan-out** (per `01-data-collection.md` §8b + §8d): for each plenary session in the next 365 days, call `get_meeting_foreseen_activities` for all session days.
+- **Multi-month foreseen activities fan-out** (per [`01a-data-fanout.md` §2 + §4](../prompts/01a-data-fanout.md)): for each plenary session in the next 365 days, call `get_meeting_foreseen_activities` for all session days.
 
 
 ### Stage A — Data Collection (Ref: 01, 07)

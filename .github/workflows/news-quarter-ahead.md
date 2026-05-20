@@ -147,8 +147,8 @@ engine:
 - Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Forward-projection lens: apply [`.github/prompts/11-forward-projection.md`](../prompts/11-forward-projection.md) during Stage B; produces `forward-projection.md`, `legislative-pipeline-forecast.md`, `parliamentary-calendar-projection.md`, `presidency-trio-context.md`, `commission-wp-alignment.md`.
 - Mine prior-run forward statements (per `01-data-collection.md` §8); horizon window = 180 days for carry-forward filter.
-- **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.
-- **Multi-day foreseen activities fan-out** (per `01-data-collection.md` §8b): for each plenary session in the next 90 days, call `get_meeting_foreseen_activities` for all session days (Mon–Thu for Strasbourg, Wed–Thu for Brussels mini-sessions).
+- **Seed synthesis from forward-statements registry** (per [`01a-data-fanout.md` §1](../prompts/01a-data-fanout.md)): read open items from `analysis/forward-statements/` before Stage B.
+- **Multi-day foreseen activities fan-out** (per [`01a-data-fanout.md` §2](../prompts/01a-data-fanout.md)): for each plenary session in the next 90 days, call `get_meeting_foreseen_activities` for all session days (Mon–Thu for Strasbourg, Wed–Thu for Brussels mini-sessions).
 
 
 ### Stage A — Data Collection (Ref: 01, 07)
