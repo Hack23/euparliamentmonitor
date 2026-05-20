@@ -326,5 +326,11 @@ describe('gh-aw-capture-agent-patch.sh', () => {
     // It must NOT show up with an "A " or "M " prefix (which mean staged).
     expect(status).not.toMatch(/^A\s+analysis\//m);
     expect(status).not.toMatch(/^M\s+analysis\//m);
+    // And critically — the artifact content must still be on disk after
+    // the post-capture `git reset` unstages. We are NOT allowed to lose
+    // the agent's work in the act of capturing it.
+    const artifactPath = path.join(workspace, 'analysis/daily/2026-05-20/breaking/x.md');
+    expect(fs.existsSync(artifactPath)).toBe(true);
+    expect(fs.readFileSync(artifactPath, 'utf8')).toBe('content\n');
   });
 });
