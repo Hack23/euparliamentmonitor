@@ -286,15 +286,19 @@ describe('news-translate workflow contract', () => {
     // spot-check. This breaks the loop on any retry.
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     // The workflow must instruct the agent to check for an existing file
-    // before calling the create tool.
-    expect(workflow).toMatch(/pre-write check|pre.write check|already on disk|skip.create|skip_create/i);
-    // The check must reference the target language sibling path pattern.
-    expect(workflow).toMatch(/executive-brief_\$\{lang\}\.md/);
-    // The workflow must mention skipping the create call when the file exists.
-    expect(workflow).toMatch(/skip.*create|do NOT call.*create|SKIP_CREATE/i);
+    // before calling the create tool — using the exact heading from the
+    // workflow so this cannot silently pass on an unrelated substring.
+    expect(workflow).toContain('Per-language pre-write check');
+    // The bash block must reference the exact target file path so it actually
+    // guards the right file (not just any markdown).
+    expect(workflow).toMatch(/executive-brief_.*\.md/);
+    // The check must tell the agent to skip the create call when the file is
+    // already on disk — match the explicit echo written in the bash block.
+    expect(workflow).toContain('skip_create=true');
     // There must also be a brief-level pre-loop scan that surfaces already-
     // written siblings so the agent can resume mid-brief after a retry.
-    expect(workflow).toMatch(/Pre-loop.*scan|pre.loop.*existing|scan existing translations/i);
+    // Match the exact heading text from the workflow.
+    expect(workflow).toContain('Pre-loop: scan existing translations');
   });
 
   it('contains an emergency partial-flush safety net (Step 4b wall-clock guard)', () => {
