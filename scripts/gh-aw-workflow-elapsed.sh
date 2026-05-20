@@ -88,7 +88,12 @@ done
 START_EPOCH="${WORKFLOW_START_EPOCH:-}"
 START_FILE="${GH_AW_WORKFLOW_START_FILE:-/tmp/gh-aw/workflow-start-epoch}"
 if [ -z "$START_EPOCH" ] && [ -r "$START_FILE" ]; then
-  # Single-step substitution; no nested $().
+  # Read first non-whitespace line of the cache file. We pipe through `cat`
+  # rather than using `$(head -n1 < "$START_FILE")` because input redirection
+  # inside `$(...)` is blocked by the AWF sandbox shell-safety filter
+  # (`scripts/gh-aw-workflow-elapsed.sh` is invoked from agentic-workflow
+  # post-steps that run under the same filter). See
+  # `.github/prompts/00-scope-and-ground-rules.md` §47.
   START_EPOCH=$(cat "$START_FILE" 2>/dev/null | head -n1 | tr -d '[:space:]')
 fi
 if [ -z "$START_EPOCH" ]; then

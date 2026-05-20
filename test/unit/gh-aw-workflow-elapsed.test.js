@@ -163,7 +163,6 @@ describe('gh-aw-workflow-elapsed.sh — guard mode', () => {
 
 describe('gh-aw-workflow-elapsed.sh — shell-safety', () => {
   it('uses no forbidden bash patterns (nested expansions, eval, $(cmd <file))', () => {
-    const fs = require('node:fs');
     const body = fs.readFileSync(HELPER, 'utf8');
     // Mirror the patterns from test/unit/workflow-shell-safety.test.js.
     expect(body).not.toMatch(/\$\{!\w+/); // indirect expansion

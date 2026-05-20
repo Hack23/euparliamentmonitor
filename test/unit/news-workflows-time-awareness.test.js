@@ -58,9 +58,12 @@ describe('agentic news workflows — 60-min timeout drift-guard', () => {
     .filter((f) => /^news-.*\.md$/.test(f))
     .sort();
 
-  it('covers all 15 news workflows', () => {
-    // Sanity check: keeps the test honest if a workflow is added or removed.
-    expect(newsFiles.length).toBeGreaterThanOrEqual(15);
+  it('covers exactly 15 news workflows (14 unified article slugs + news-translate)', () => {
+    // Exact count: catches both additions AND removals. If a new article
+    // slug is added (e.g. news-quarter-in-review.md), update this assertion
+    // together with src/config/article-horizons.ts and per-slug tripwire
+    // tables in .github/prompts/02-analysis-protocol.md.
+    expect(newsFiles.length).toBe(15);
   });
 
   for (const file of newsFiles) {

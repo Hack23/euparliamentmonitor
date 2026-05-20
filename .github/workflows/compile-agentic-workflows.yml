@@ -12,7 +12,7 @@ on:
 # partial state; let it finish and the next run will recompile cleanly.
 concurrency:
   group: compile-agentic-workflows
-  cancel-in-progress: false
+  cancel-in-progress: false # never cancel; in-flight run may have pushed partial state
 
 permissions:
   contents: write
