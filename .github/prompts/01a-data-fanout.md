@@ -33,12 +33,15 @@ items in scope:
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
-# week-ahead: 7-day horizon; month-ahead: 30-day horizon
-if [ "${ARTICLE_TYPE_SLUG}" = "week-ahead" ]; then
-  HORIZON_DAYS=7
-else
-  HORIZON_DAYS=30
-fi
+# Derive forward-statements horizon from the article-horizons registry
+# (src/config/horizons/registry.ts → forwardStatementsHorizonDays per slug).
+# Each slug has its own value: week-ahead=14, month-ahead=60,
+# quarter-ahead=180, year-ahead=730, term-outlook=1500, election-cycle=1825.
+HORIZON_DAYS=$(node -e "
+  const {getForwardStatementsHorizonDays} = require('./src/config/horizons/forward-projection.js');
+  const d = getForwardStatementsHorizonDays(process.env.ARTICLE_TYPE_SLUG || '');
+  console.log(d || 30);
+")
 HORIZON_END=$(date -u -d "${HORIZON_DAYS} days" +%Y-%m-%d)
 node scripts/aggregator/forward-statements-registry.js read \
   --status open \
@@ -142,17 +145,38 @@ iterate forward from today; for retrospective articles, iterate backward.
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
-# Use dataWindow.days from the article-horizons registry (NOT FORWARD_HORIZON_DAYS)
-HORIZON_DAYS="${DATA_WINDOW_DAYS:-90}"
+# Derive DATA_WINDOW_DAYS and DATA_WINDOW_DIRECTION from the article-horizons
+# registry (src/config/horizons/registry.ts → dataWindow.days / dataWindow.direction).
+# These are exported in Stage A's horizon-config lookup step (01-data-collection.md §2)
+# via: node -e "const {getHorizonConfig} = require('./src/config/article-horizons.js'); ..."
+# If not already set, derive them now as a defensive fallback:
+if [ -z "${DATA_WINDOW_DAYS:-}" ]; then
+  DATA_WINDOW_DAYS=$(node -e "
+    const {getHorizonConfig} = require('./src/config/article-horizons.js');
+    const cfg = getHorizonConfig(process.env.ARTICLE_TYPE_SLUG || '');
+    console.log(cfg ? cfg.dataWindow.days : 90);
+  ")
+fi
+if [ -z "${DATA_WINDOW_DIRECTION:-}" ]; then
+  DATA_WINDOW_DIRECTION=$(node -e "
+    const {getHorizonConfig} = require('./src/config/article-horizons.js');
+    const cfg = getHorizonConfig(process.env.ARTICLE_TYPE_SLUG || '');
+    console.log(cfg ? cfg.dataWindow.direction : 'forward');
+  ")
+fi
+HORIZON_DAYS="${DATA_WINDOW_DAYS}"
 if [ "${HORIZON_DAYS}" -ge 90 ]; then
   MONTHS_TO_COVER=$(( (HORIZON_DAYS + 29) / 30 ))
-  # direction: +N months for prospective, -N months for retrospective
-  DIRECTION="${DATA_WINDOW_DIRECTION:-forward}"
+  DIRECTION="${DATA_WINDOW_DIRECTION}"
+  # Anchor to month boundary to avoid GNU date month-arithmetic overflow
+  # (e.g., "Jan 31 +1 month" → March). Always compute from the 1st of the
+  # current month so month additions/subtractions are stable.
+  THIS_MONTH_START=$(date -u +%Y-%m-01)
   for i in $(seq 0 "$MONTHS_TO_COVER"); do
     if [ "$DIRECTION" = "backward" ]; then
-      MONTH_START=$(date -u -d "$TODAY -${i} months" +%Y-%m-01)
+      MONTH_START=$(date -u -d "${THIS_MONTH_START} -${i} months" +%Y-%m-01)
     else
-      MONTH_START=$(date -u -d "$TODAY +${i} months" +%Y-%m-01)
+      MONTH_START=$(date -u -d "${THIS_MONTH_START} +${i} months" +%Y-%m-01)
     fi
     MONTH_END=$(date -u -d "$MONTH_START +1 month -1 day" +%Y-%m-%d)
     echo "Fetching plenary sessions: $MONTH_START → $MONTH_END"
