@@ -159,13 +159,9 @@ export const DASHBOARD_STRINGS: LanguageMap<DashboardStrings> = {
  * Localized strings used by the 5 SWOT builder functions in analysis-builders.
  * Template functions accept dynamic counts; plain strings are static prose.
  */
-import { DASHBOARD_BUILDER_STRINGS_EU } from './dashboard-builder-eu.js';
-import { DASHBOARD_BUILDER_STRINGS_GLOBAL } from './dashboard-builder-global.js';
+import { DASHBOARD_BUILDER_STRINGS } from './dashboard/index.js';
 
-export const DASHBOARD_BUILDER_STRINGS: LanguageMap<DashboardBuilderStrings> = {
-  ...DASHBOARD_BUILDER_STRINGS_EU,
-  ...DASHBOARD_BUILDER_STRINGS_GLOBAL,
-};
+export { DASHBOARD_BUILDER_STRINGS };
 
 // ─── Month-in-Review section heading strings ──────────────────────────────────
 

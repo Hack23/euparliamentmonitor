@@ -205,11 +205,13 @@ export const SWOT_STRINGS: LanguageMap<SwotStrings> = {
  * language code. Consumed by the dashboard builder when rendering Chart.js
  * widgets in each of the 14 supported article languages.
  */
-import { SWOT_BUILDER_STRINGS_EU } from './swot-builder-eu.js';
+import { SWOT_BUILDER_STRINGS_NORDIC } from './swot-builder-nordic.js';
+import { SWOT_BUILDER_STRINGS_CENTRAL } from './swot-builder-central.js';
 import { SWOT_BUILDER_STRINGS_GLOBAL } from './swot-builder-global.js';
 
 export const SWOT_BUILDER_STRINGS: LanguageMap<SwotBuilderStrings> = {
-  ...SWOT_BUILDER_STRINGS_EU,
+  ...SWOT_BUILDER_STRINGS_NORDIC,
+  ...SWOT_BUILDER_STRINGS_CENTRAL,
   ...SWOT_BUILDER_STRINGS_GLOBAL,
 };
 

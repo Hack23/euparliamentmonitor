@@ -10,13 +10,9 @@
  */
 
 import type { LanguageMap, DeepAnalysisStrings } from '../../types/index.js';
-import { DEEP_ANALYSIS_STRINGS_EU } from './deep-analysis-strings-eu.js';
-import { DEEP_ANALYSIS_STRINGS_GLOBAL } from './deep-analysis-strings-global.js';
+import { DEEP_ANALYSIS_STRINGS } from './deep-analysis/index.js';
 
-export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
-  ...DEEP_ANALYSIS_STRINGS_EU,
-  ...DEEP_ANALYSIS_STRINGS_GLOBAL,
-};
+export { DEEP_ANALYSIS_STRINGS };
 
 /** Localized section heading strings for motions articles */
 export const ANALYSIS_QUALITY_LABELS: LanguageMap<{

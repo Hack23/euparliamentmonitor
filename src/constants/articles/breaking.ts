@@ -77,12 +77,16 @@ export const BREAKING_NEWS_TITLES: LanguageMap<(date: string) => LangTitleSubtit
 };
 
 /** Committee reports titles per language */
-import { BREAKING_STRINGS_EU } from './breaking-strings-eu.js';
-import { BREAKING_STRINGS_GLOBAL } from './breaking-strings-global.js';
+import { BREAKING_STRINGS_NORDIC } from './breaking-strings-nordic.js';
+import { BREAKING_STRINGS_CENTRAL } from './breaking-strings-central.js';
+import { BREAKING_STRINGS_WEST } from './breaking-strings-west.js';
+import { BREAKING_STRINGS_EAST } from './breaking-strings-east.js';
 
 export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
-  ...BREAKING_STRINGS_EU,
-  ...BREAKING_STRINGS_GLOBAL,
+  ...BREAKING_STRINGS_NORDIC,
+  ...BREAKING_STRINGS_CENTRAL,
+  ...BREAKING_STRINGS_WEST,
+  ...BREAKING_STRINGS_EAST,
 };
 
 /** Localized body-text strings for the committee-analysis deep-analysis section */

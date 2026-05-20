@@ -2,16 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * @module swot-builder-eu
- * @description Per-language entries (en, sv, da, no, fi, de, fr) for SWOT_BUILDER_STRINGS.
+ * @module Constants/Articles/SwotBuilderNordic
+ * @description Nordic SWOT-builder strings.
  */
 
 import type { LanguageMap, SwotBuilderStrings } from '../../types/index.js';
 
-export const SWOT_BUILDER_STRINGS_EU: Pick<
-  LanguageMap<SwotBuilderStrings>,
-  'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr'
-> = {
+/** Nordic SWOT-builder strings */
+export const SWOT_BUILDER_STRINGS_NORDIC: Pick<LanguageMap<SwotBuilderStrings>, 'en', 'sv', 'da', 'no', 'fi'> = {
   en: {
     votingHighCohesion: (n) =>
       `${n} political groups with cohesion above 80% — disciplined voting blocs`,
@@ -303,142 +301,5 @@ export const SWOT_BUILDER_STRINGS_EU: Pick<
       'Matala valiokuntatoiminta uhkaa lainsäädännöllisiä pullonkauloja jatkovaiheessa',
     committeeCompetingPriorities:
       'Kilpailevat poliittiset prioriteetit voivat laimentaa valiokunnan fokusta',
-  },
-  de: {
-    votingHighCohesion: (n) =>
-      `${n} Fraktionen mit Kohäsion über 80 % — disziplinierte Abstimmungsblöcke`,
-    votingAdopted: (n) => `${n} Texte angenommen — zeigt gesetzgeberische Produktivität`,
-    votingActiveVotes: (n) => `${n} Abstimmungen erfasst — aktives Plenarengagement`,
-    votingLowCohesion: (n) =>
-      `${n} Fraktionen mit Kohäsion unter 50 % — interne Spaltungen schwächen Verhandlungsmacht`,
-    votingAnomalies: (n) =>
-      `${n} Abstimmungsanomalien erkannt — signalisiert unvorhersehbares Koalitionsverhalten`,
-    votingCrossParty:
-      'Fraktionsübergreifende Allianzen bei spezifischer Gesetzgebung können breiteren Konsens schaffen',
-    votingDiverseGroups: (n) =>
-      `${n} aktive Fraktionen — vielfältige Koalitionsbildungsmöglichkeiten`,
-    votingHighSeverity: (n) =>
-      `${n} schwerwiegende Anomalien — Risiko der Koalitionsfragmentierung`,
-    votingShiftingAlliances:
-      'Wechselnde Allianzen können den Gesetzgebungsfortschritt bei wichtigen Dossiers verzögern',
-    prospectiveEvents: (n) => `${n} Plenarveranstaltungen geplant — aktive Gesetzgebungsagenda`,
-    prospectiveCommittees: (n) => `${n} Ausschusssitzungen — breites politisches Engagement`,
-    prospectiveBottlenecks: (n) => `${n} Gesetzgebungsverfahren mit Engpassrisiko`,
-    prospectiveHighDensity: (n) =>
-      `Hohe Veranstaltungsdichte (${n}) birgt Risiko komprimierter Debattenzeit`,
-    prospectiveDocuments: (n) => `${n} Dokumente in Beratung — gesetzgeberisches Momentum`,
-    prospectiveQuestions: (n) =>
-      `${n} parlamentarische Anfragen — MdEP-Engagement für Bürgeranliegen`,
-    prospectiveBottleneckRisk:
-      'Engpassverfahren können zu Verfahrensabkürzungen zwingen oder wichtige Dossiers verzögern',
-    prospectiveSchedulingRisk:
-      'Terminierungsdichte erhöht das Risiko von Last-Minute-Änderungsanträgen',
-    breakingAdopted: (n) => `${n} Texte angenommen — Parlament demonstriert Gesetzgebungskapazität`,
-    breakingEvents: (n) =>
-      `${n} parlamentarische Veranstaltungen — aktives institutionelles Engagement`,
-    breakingAnomalyWeakness: 'Abstimmungsanomalien erkannt — potenzielle Koalitionsinstabilität',
-    breakingNoProcedures: 'Keine neuen Gesetzgebungsverfahren — begrenztes Pipeline-Momentum',
-    breakingProceduresActive: (n) => `${n} Verfahren schreiten voran — Gesetzgebungspipeline aktiv`,
-    breakingCoalitionOpportunity:
-      'Koalitionsdynamik verschiebt sich — neue Allianzmöglichkeiten entstehen',
-    breakingAnomalyThreat:
-      'Erkannte Anomalien könnten tiefere politische Neuausrichtung signalisieren',
-    breakingRapidEvents:
-      'Sich schnell entwickelnde Ereignisse könnten die Gesetzgebungskapazität übersteigen',
-    propositionsHealthStrong: (pct) =>
-      `Pipeline-Gesundheit bei ${pct} % — starkes Gesetzgebungsmanagement`,
-    propositionsThroughputGood: (n) => `Durchsatz ${n} — gesundes Verarbeitungstempo`,
-    propositionsHealthWeak: (pct) =>
-      `Pipeline-Gesundheit bei ${pct} % — Risiko gesetzgeberischer Stauung`,
-    propositionsThroughputLow: (n) =>
-      `Niedriger Durchsatz (${n}) — langsame Verarbeitung verzögert politische Maßnahmen`,
-    propositionsPrioritisation:
-      'Priorisierung von Leuchtturm-Dossiers kann die Pipeline-Effizienz verbessern',
-    propositionsTrilogueAcceleration:
-      'Trilog-Beschleunigung reifer Dossiers kann den Durchsatz steigern',
-    propositionsCriticalCongestion:
-      'Kritische Pipeline-Stauung kann zum Aufgeben von Gesetzgebungsdossiers führen',
-    propositionsOverlapping:
-      'Überlappende Umsetzungszeitpläne belasten die Umsetzungskapazität der Mitgliedstaaten',
-    committeeActive: (active, total) =>
-      `${active} von ${total} Ausschüssen produzieren aktiv Dokumente`,
-    committeeDocuments: (n) => `${n} Dokumente produziert — starke gesetzgeberische Produktion`,
-    committeeInactive: (n) => `${n} Ausschüsse ohne jüngste Dokumentenaktivität`,
-    committeeCrossCollaboration:
-      'Ausschussübergreifende Zusammenarbeit bei horizontalen Politikdossiers kann die Wirkung erhöhen',
-    committeeHearings: 'Ausschussanhörungen bieten Plattform für Experten-Stakeholder-Engagement',
-    committeeLowActivity:
-      'Niedrige Ausschussaktivität birgt Risiko gesetzgeberischer Engpässe im weiteren Verlauf',
-    committeeCompetingPriorities:
-      'Konkurrierende politische Prioritäten können den Ausschussfokus verwässern',
-  },
-  fr: {
-    votingHighCohesion: (n) =>
-      `${n} groupes politiques avec cohésion supérieure à 80 % — blocs de vote disciplinés`,
-    votingAdopted: (n) => `${n} textes adoptés — démontre la productivité législative`,
-    votingActiveVotes: (n) => `${n} votes enregistrés — engagement actif en plénière`,
-    votingLowCohesion: (n) =>
-      `${n} groupes avec cohésion inférieure à 50 % — divisions internes affaiblissent le pouvoir de négociation`,
-    votingAnomalies: (n) =>
-      `${n} anomalies de vote détectées — signale un comportement de coalition imprévisible`,
-    votingCrossParty:
-      'Les alliances transpartisanes sur des législations spécifiques peuvent construire un consensus plus large',
-    votingDiverseGroups: (n) =>
-      `${n} groupes politiques actifs — possibilités diverses de formation de coalition`,
-    votingHighSeverity: (n) =>
-      `${n} anomalies de haute gravité — risque de fragmentation de la coalition`,
-    votingShiftingAlliances:
-      'Les alliances mouvantes peuvent retarder les progrès législatifs sur les dossiers clés',
-    prospectiveEvents: (n) => `${n} événements pléniers programmés — agenda législatif actif`,
-    prospectiveCommittees: (n) => `${n} réunions de commission — large engagement politique`,
-    prospectiveBottlenecks: (n) =>
-      `${n} procédures législatives confrontées à des risques de goulot d'étranglement`,
-    prospectiveHighDensity: (n) =>
-      `Haute densité d'événements (${n}) risque de comprimer le temps de débat`,
-    prospectiveDocuments: (n) => `${n} documents en examen — momentum législatif`,
-    prospectiveQuestions: (n) =>
-      `${n} questions parlementaires — engagement des députés envers les préoccupations citoyennes`,
-    prospectiveBottleneckRisk:
-      "Les procédures en goulot d'étranglement peuvent forcer des raccourcis ou reporter des dossiers clés",
-    prospectiveSchedulingRisk:
-      "La densité de programmation augmente le risque d'amendements de dernière minute",
-    breakingAdopted: (n) => `${n} textes adoptés — le Parlement démontre sa capacité législative`,
-    breakingEvents: (n) => `${n} événements parlementaires — engagement institutionnel actif`,
-    breakingAnomalyWeakness:
-      'Anomalies de vote détectées — instabilité potentielle de la coalition',
-    breakingNoProcedures: 'Pas de nouvelles procédures législatives — momentum limité du pipeline',
-    breakingProceduresActive: (n) => `${n} procédures en cours — pipeline législatif actif`,
-    breakingCoalitionOpportunity:
-      "La dynamique de coalition évolue — de nouvelles opportunités d'alliance émergent",
-    breakingAnomalyThreat:
-      'Les anomalies détectées peuvent signaler un réalignement politique plus profond',
-    breakingRapidEvents:
-      'Les événements à évolution rapide peuvent dépasser la capacité de réponse législative',
-    propositionsHealthStrong: (pct) => `Santé du pipeline à ${pct} % — gestion législative solide`,
-    propositionsThroughputGood: (n) => `Débit ${n} — rythme de traitement sain`,
-    propositionsHealthWeak: (pct) =>
-      `Santé du pipeline à ${pct} % — risque de congestion législative`,
-    propositionsThroughputLow: (n) =>
-      `Faible débit (${n}) — le traitement lent retarde la mise en œuvre des politiques`,
-    propositionsPrioritisation:
-      "La priorisation des dossiers phares peut améliorer l'efficacité du pipeline",
-    propositionsTrilogueAcceleration:
-      "L'accélération des trilogues sur les dossiers mûrs peut augmenter le débit",
-    propositionsCriticalCongestion:
-      "Une congestion critique du pipeline peut forcer l'abandon de dossiers législatifs",
-    propositionsOverlapping:
-      'Les calendriers de mise en œuvre qui se chevauchent mettent à rude épreuve la capacité de transposition des États membres',
-    committeeActive: (active, total) =>
-      `${active} sur ${total} commissions produisent activement des documents`,
-    committeeDocuments: (n) => `${n} documents produits — forte production législative`,
-    committeeInactive: (n) => `${n} commissions sans activité documentaire récente`,
-    committeeCrossCollaboration:
-      "La collaboration inter-commissions sur les dossiers politiques horizontaux peut accroître l'impact",
-    committeeHearings:
-      "Les auditions en commission offrent une plateforme pour l'engagement des parties prenantes expertes",
-    committeeLowActivity:
-      "Une faible activité des commissions risque de créer des goulots d'étranglement législatifs en aval",
-    committeeCompetingPriorities:
-      'Les priorités politiques concurrentes peuvent diluer la concentration des commissions',
   },
 };
