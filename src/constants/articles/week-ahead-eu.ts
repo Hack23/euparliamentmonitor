@@ -6,10 +6,18 @@
  * @description EU language week-ahead strings (en, sv, da, no, fi, de, fr).
  */
 
-import type { LanguageMap, LangTitleSubtitle, WeekAheadStrings, WeekAheadStakeholderStrings } from '../../types/index.js';
+import type {
+  LanguageMap,
+  LangTitleSubtitle,
+  WeekAheadStrings,
+  WeekAheadStakeholderStrings,
+} from '../../types/index.js';
 
 /** EU language week-ahead titles */
-export const WEEK_AHEAD_TITLES_EU: Pick<LanguageMap<(start: string, end: string) => LangTitleSubtitle>, 'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr'> = {
+export const WEEK_AHEAD_TITLES_EU: Pick<
+  LanguageMap<(start: string, end: string) => LangTitleSubtitle>,
+  'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr'
+> = {
   en: (start, end) => ({
     title: `Week Ahead: ${start} to ${end}`,
     subtitle:
@@ -45,7 +53,10 @@ export const WEEK_AHEAD_TITLES_EU: Pick<LanguageMap<(start: string, end: string)
 };
 
 /** EU language week-ahead strings */
-export const WEEK_AHEAD_STRINGS_EU: Pick<LanguageMap<WeekAheadStrings>, 'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr'> = {
+export const WEEK_AHEAD_STRINGS_EU: Pick<
+  LanguageMap<WeekAheadStrings>,
+  'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr'
+> = {
   en: {
     lede: 'The European Parliament prepares for an active week ahead with multiple committee meetings and plenary sessions scheduled',
     plenarySessions: 'Plenary Sessions',
@@ -126,7 +137,10 @@ export const WEEK_AHEAD_STRINGS_EU: Pick<LanguageMap<WeekAheadStrings>, 'en' | '
 };
 
 /** EU language week-ahead stakeholder strings */
-export const WEEK_AHEAD_STAKEHOLDER_STRINGS_EU: Pick<LanguageMap<WeekAheadStakeholderStrings>, 'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr'> = {
+export const WEEK_AHEAD_STAKEHOLDER_STRINGS_EU: Pick<
+  LanguageMap<WeekAheadStakeholderStrings>,
+  'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr'
+> = {
   en: {
     heading: 'Stakeholder Impact Analysis',
     temperatureLabel: 'Political Temperature',

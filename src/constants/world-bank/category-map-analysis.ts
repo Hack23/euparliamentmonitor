@@ -11,7 +11,9 @@ import { WB_INDICATORS, N, PRI, SEC } from './indicator-catalog.js';
 import type { CategoryIndicatorEntry } from './category-map.js';
 
 /** Analytical category indicator mappings */
-export const CATEGORY_INDICATOR_MAP_ANALYSIS: Partial<Record<ArticleCategory, CategoryIndicatorEntry>> = {
+export const CATEGORY_INDICATOR_MAP_ANALYSIS: Partial<
+  Record<ArticleCategory, CategoryIndicatorEntry>
+> = {
   [ArticleCategory.DEEP_ANALYSIS]: {
     category: ArticleCategory.DEEP_ANALYSIS,
     enrichmentStrategy:

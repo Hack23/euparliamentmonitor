@@ -9,7 +9,10 @@
 import type { LanguageMap, SwotBuilderStrings } from '../../types/index.js';
 
 /** Nordic SWOT-builder strings */
-export const SWOT_BUILDER_STRINGS_NORDIC: Pick<LanguageMap<SwotBuilderStrings>, 'en' | 'sv' | 'da' | 'no' | 'fi'> = {
+export const SWOT_BUILDER_STRINGS_NORDIC: Pick<
+  LanguageMap<SwotBuilderStrings>,
+  'en' | 'sv' | 'da' | 'no' | 'fi'
+> = {
   en: {
     votingHighCohesion: (n) =>
       `${n} political groups with cohesion above 80% — disciplined voting blocs`,

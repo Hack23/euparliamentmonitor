@@ -11,7 +11,10 @@ import type { LanguageMap } from '../../types/index.js';
 import { ArticleCategory } from '../../types/index.js';
 
 /** Central localized keyword arrays */
-export const LOCALIZED_KEYWORDS_CENTRAL: Pick<LanguageMap<Record<string, readonly string[]>>, 'de' | 'fr'> = {
+export const LOCALIZED_KEYWORDS_CENTRAL: Pick<
+  LanguageMap<Record<string, readonly string[]>>,
+  'de' | 'fr'
+> = {
   de: {
     [ArticleCategory.WEEK_AHEAD]: [
       'EU-Parlament',

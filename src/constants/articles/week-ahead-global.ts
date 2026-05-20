@@ -6,10 +6,18 @@
  * @description Global language week-ahead strings (es, nl, ar, he, ja, ko, zh).
  */
 
-import type { LanguageMap, LangTitleSubtitle, WeekAheadStrings, WeekAheadStakeholderStrings } from '../../types/index.js';
+import type {
+  LanguageMap,
+  LangTitleSubtitle,
+  WeekAheadStrings,
+  WeekAheadStakeholderStrings,
+} from '../../types/index.js';
 
 /** Global language week-ahead titles */
-export const WEEK_AHEAD_TITLES_GLOBAL: Pick<LanguageMap<(start: string, end: string) => LangTitleSubtitle>, 'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'> = {
+export const WEEK_AHEAD_TITLES_GLOBAL: Pick<
+  LanguageMap<(start: string, end: string) => LangTitleSubtitle>,
+  'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'
+> = {
   es: (start, end) => ({
     title: `Semana Próxima: ${start} a ${end}`,
     subtitle:
@@ -43,7 +51,10 @@ export const WEEK_AHEAD_TITLES_GLOBAL: Pick<LanguageMap<(start: string, end: str
 };
 
 /** Global language week-ahead strings */
-export const WEEK_AHEAD_STRINGS_GLOBAL: Pick<LanguageMap<WeekAheadStrings>, 'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'> = {
+export const WEEK_AHEAD_STRINGS_GLOBAL: Pick<
+  LanguageMap<WeekAheadStrings>,
+  'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'
+> = {
   es: {
     lede: 'El Parlamento Europeo se prepara para una semana activa con múltiples reuniones de comisión y sesiones plenarias programadas',
     plenarySessions: 'Sesiones Plenarias',
@@ -124,7 +135,10 @@ export const WEEK_AHEAD_STRINGS_GLOBAL: Pick<LanguageMap<WeekAheadStrings>, 'es'
 };
 
 /** Global language week-ahead stakeholder strings */
-export const WEEK_AHEAD_STAKEHOLDER_STRINGS_GLOBAL: Pick<LanguageMap<WeekAheadStakeholderStrings>, 'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'> = {
+export const WEEK_AHEAD_STAKEHOLDER_STRINGS_GLOBAL: Pick<
+  LanguageMap<WeekAheadStakeholderStrings>,
+  'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh'
+> = {
   es: {
     heading: 'Análisis de Impacto en Partes Interesadas',
     temperatureLabel: 'Temperatura Política',

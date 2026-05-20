@@ -22,7 +22,10 @@ import {
 } from './_shared.js';
 
 /** East breaking-news strings */
-export const BREAKING_STRINGS_EAST: Pick<LanguageMap<BreakingStrings>, 'he' | 'ja' | 'ko' | 'zh'> = {
+export const BREAKING_STRINGS_EAST: Pick<
+  LanguageMap<BreakingStrings>,
+  'he' | 'ja' | 'ko' | 'zh'
+> = {
   he: {
     breakingBanner: '⚡ חדשות דחופות',
     votingAnomalyIntel: 'חריגות הצבעה — ניתוח מודיעיני',
