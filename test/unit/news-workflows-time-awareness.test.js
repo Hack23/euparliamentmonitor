@@ -17,7 +17,15 @@
  *      short-running utility workflows in this repo and lets transient
  *      network failures hold a runner indefinitely.
  *
- *   3. The reusable elapsed-time helper `scripts/gh-aw-workflow-elapsed.sh`
+ *   3. Every `news-*.md` agentic workflow declares a non-empty
+ *      `concurrency.group` whenever it sets `cancel-in-progress: true`.
+ *      GitHub Actions silently rejects `cancel-in-progress: true` without a
+ *      `group:` — the workflow fails at startup with 0 jobs and no log
+ *      output (see origin/main run #227 of news-translate.lock.yml on
+ *      2026-05-20). Drift-guarding here prevents the next `gh aw compile`
+ *      from re-introducing the same regression.
+ *
+ *   4. The reusable elapsed-time helper `scripts/gh-aw-workflow-elapsed.sh`
  *      exists and is executable. The shared news-unified-stages prompt
  *      (Stage A bash block) exports the `WORKFLOW_START_EPOCH` env var
  *      the helper consumes.
@@ -74,6 +82,34 @@ describe('agentic news workflows — 60-min timeout drift-guard', () => {
         fm['timeout-minutes'],
         `${file} must declare timeout-minutes: 60 (agent reasons about a 60-min cap)`,
       ).toBe(60);
+    });
+
+    it(`${file} declares concurrency.group (cancel-in-progress requires group, else GitHub rejects the workflow at startup)`, () => {
+      // Regression: on 2026-05-20 origin/main run #227 of news-translate.lock.yml
+      // failed at startup with 0 jobs because the recompiled lock file had
+      // `concurrency: { cancel-in-progress: true }` WITHOUT a `group:` key.
+      // GitHub Actions rejects this configuration silently — the workflow
+      // never starts and no failed-job logs are produced. Every news-*.md
+      // workflow must therefore declare BOTH `group:` AND `cancel-in-progress`
+      // so the compiled lock file is accepted by GitHub.
+      const fm = readFrontmatter(path.join(WORKFLOWS_DIR, file));
+      expect(fm, `${file} has no YAML frontmatter`).toBeTruthy();
+      expect(
+        fm.concurrency,
+        `${file} must declare a concurrency block`,
+      ).toBeTruthy();
+      expect(
+        fm.concurrency.group,
+        `${file} concurrency block must include "group:" — cancel-in-progress without group is rejected by GitHub Actions at startup`,
+      ).toBeTruthy();
+      expect(
+        typeof fm.concurrency.group,
+        `${file} concurrency.group must be a string`,
+      ).toBe('string');
+      expect(
+        fm.concurrency.group.length,
+        `${file} concurrency.group must be non-empty`,
+      ).toBeGreaterThan(0);
     });
   }
 });
