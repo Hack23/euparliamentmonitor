@@ -28,10 +28,7 @@ import {
   attemptStdioConnection,
   handleIncomingMessage,
 } from './process.js';
-import {
-  type ReconnectOps,
-  runWithRetry,
-} from './reconnect.js';
+import { type ReconnectOps, runWithRetry } from './reconnect.js';
 
 /**
  * Base MCP connection managing JSON-RPC 2.0 transport over stdio or HTTP gateway.
@@ -181,7 +178,9 @@ export class MCPConnection {
         return;
       } catch (error) {
         const delay = this._nextConnectionDelay(error);
-        console.warn(`⚠️ Connection attempt ${this.connectionAttempts} failed. Retrying in ${delay}ms...`);
+        console.warn(
+          `⚠️ Connection attempt ${this.connectionAttempts} failed. Retrying in ${delay}ms...`
+        );
         await new Promise((resolve) => setTimeout(resolve, delay));
       }
     }
@@ -198,7 +197,11 @@ export class MCPConnection {
     if (error instanceof MCPSessionExpiredError) throw error;
     this.connectionAttempts++;
     if (this.connectionAttempts >= this.maxConnectionAttempts) {
-      console.error('❌ Failed to connect to MCP server after', this.maxConnectionAttempts, 'attempts');
+      console.error(
+        '❌ Failed to connect to MCP server after',
+        this.maxConnectionAttempts,
+        'attempts'
+      );
       throw error;
     }
     if (error instanceof MCPRateLimitError && error.retryAfterMs > 0) {

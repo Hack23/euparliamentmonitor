@@ -26,11 +26,7 @@ import {
   stripTrailingSlashes,
   readImfSubscriptionKeysFromEnv,
 } from './utils.js';
-import {
-  type IMFHttpContext,
-  getText,
-  getJSON,
-} from './http-transport.js';
+import { type IMFHttpContext, getText, getJSON } from './http-transport.js';
 
 export class IMFMCPClient {
   private readonly _apiBaseUrl: string;

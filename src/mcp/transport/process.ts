@@ -95,7 +95,7 @@ export async function attemptStdioConnection(ctx: SpawnContext): Promise<void> {
         effectiveTimeoutMs = parsed;
       } else {
         console.warn(
-          `Invalid EP_REQUEST_TIMEOUT_MS value "${envVal}"; falling back to ${ctx.requestTimeoutMs}ms`
+          `Invalid EP_REQUEST_TIMEOUT_MS value (non-finite or ≤0); falling back to ${ctx.requestTimeoutMs}ms`
         );
       }
     }
@@ -167,10 +167,7 @@ export async function attemptStdioConnection(ctx: SpawnContext): Promise<void> {
  * @param line - Single JSON-RPC message line (no trailing newline)
  * @param pending - In-flight request map maintained by {@link MCPConnection}
  */
-export function handleIncomingMessage(
-  line: string,
-  pending: Map<number, PendingRequest>
-): void {
+export function handleIncomingMessage(line: string, pending: Map<number, PendingRequest>): void {
   try {
     const message = JSON.parse(line) as JSONRPCResponse;
 

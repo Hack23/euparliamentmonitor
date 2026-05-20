@@ -4,7 +4,7 @@ import { IMF_FALLBACK } from './config.js';
 import { resolveAgency, resolveCodelistCodes, defaultDimensionOrder, buildSDMXKey, withDefaultFrequency, } from './sdmx.js';
 import { unwrapLocalisedLabel, wrapAsMCPResult } from './observations.js';
 import { readBaseAndTimeout, stripTrailingSlashes, readImfSubscriptionKeysFromEnv, } from './utils.js';
-import { getText, getJSON, } from './http-transport.js';
+import { getText, getJSON } from './http-transport.js';
 export class IMFMCPClient {
     _apiBaseUrl;
     _timeoutMs;

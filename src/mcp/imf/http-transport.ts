@@ -96,7 +96,10 @@ export async function getJSON<T>(path: string, ctx: IMFHttpContext): Promise<T> 
  * @returns Response body text on success.
  * @throws The last HTTP/network error when all configured keys are exhausted.
  */
-export async function fetchDirectWithKeyRotation(url: string, ctx: IMFHttpContext): Promise<string> {
+export async function fetchDirectWithKeyRotation(
+  url: string,
+  ctx: IMFHttpContext
+): Promise<string> {
   const attempts: (string | undefined)[] =
     ctx.imfSubscriptionKeys.length > 0 ? [...ctx.imfSubscriptionKeys] : [undefined];
   let lastError: unknown;

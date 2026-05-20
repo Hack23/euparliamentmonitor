@@ -56,7 +56,7 @@ export async function attemptStdioConnection(ctx) {
                 effectiveTimeoutMs = parsed;
             }
             else {
-                console.warn(`Invalid EP_REQUEST_TIMEOUT_MS value "${envVal}"; falling back to ${ctx.requestTimeoutMs}ms`);
+                console.warn(`Invalid EP_REQUEST_TIMEOUT_MS value (non-finite or ≤0); falling back to ${ctx.requestTimeoutMs}ms`);
             }
         }
         childEnv['EP_REQUEST_TIMEOUT_MS'] = String(effectiveTimeoutMs);

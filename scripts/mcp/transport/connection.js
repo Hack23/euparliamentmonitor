@@ -3,7 +3,7 @@
 import { MCPRateLimitError, MCPSessionExpiredError } from './errors.js';
 import { attemptGatewayConnection, sendGatewayRequest } from './gateway.js';
 import { REQUEST_TIMEOUT_MS, DEFAULT_SERVER_BINARY, attemptStdioConnection, handleIncomingMessage, } from './process.js';
-import { runWithRetry, } from './reconnect.js';
+import { runWithRetry } from './reconnect.js';
 /**
  * Base MCP connection managing JSON-RPC 2.0 transport over stdio or HTTP gateway.
  * Extended by domain-specific clients to add tool wrapper methods.
