@@ -158,8 +158,8 @@
     "@types/papaparse": "5.5.2",
     "@typescript-eslint/eslint-plugin": "8.59.4",
     "@typescript-eslint/parser": "8.59.4",
-    "@vitest/coverage-v8": "4.1.6",
-    "@vitest/ui": "4.1.6",
+    "@vitest/coverage-v8": "4.1.7",
+    "@vitest/ui": "4.1.7",
     "chart.js": "4.5.1",
     "chartjs-plugin-annotation": "3.1.0",
     "clean-css": "^5.3.3",
@@ -187,7 +187,7 @@
     "tsx": "4.22.3",
     "typedoc": "0.28.19",
     "typescript": "6.0.3",
-    "vitest": "4.1.6"
+    "vitest": "4.1.7"
   },
   "engines": {
     "node": ">=26"
