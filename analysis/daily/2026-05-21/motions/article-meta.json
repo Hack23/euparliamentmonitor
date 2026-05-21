@@ -1,0 +1,52 @@
+{
+  "date": "2026-05-21",
+  "articleType": "motions",
+  "runId": "motions-run264-1779348036",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-05-21-motions",
+  "articlePath": "analysis/daily/2026-05-21/motions/article.md",
+  "topFinding": "The European Parliament adopted eight texts in its May 19-20 Strasbourg plenary, with the AI strategy for EU trade (TA-10-2026-0183) as the most strategically consequential — the first time any major legislature has formally connected AI governance with international trade policy.",
+  "keyTakeaways": [
+    "EU–Uzbekistan Partnership Agreement signals EP's role in the EU's Central Asia Strategy (adopted by Council in 2019, but now operationalised through consent procedures)",
+    "EU–Lebanon Eurojust agreement represents incremental rebuilding of judicial cooperation following the 2020 Beirut explosion crisis",
+    "UNGA 81st session recommendation positions the EP as a multilateral actor advocating for rule of law, Ukraine accountability, and AI governance frameworks",
+    "Forest reproductive material regulation (2023-0228 procedure, three years in the making) represents the EP's role as co-legislator on biodiversity-adjacent topics",
+    "Fisheries Partnership Agreements (São Tomé and Cook Islands) maintain the EP's oversight role on external fisheries agreements — a jealously guarded parliamentary competence since the Constitutional Treaty",
+    "Nikos Pappas immunity waiver (JURI/PRIV jurisdiction) — routine but politically sensitive given Syriza's declining influence in the European left bloc",
+    "Export AI standards through trade agreements (FTA digital chapters)"
+  ],
+  "topRisks": [
+    "**Geopolitical risks (R01-R02, R05):** Low appetite — these threaten EU strategic interests",
+    "**Coalition risks (R04, R10):** Medium appetite — some parliamentary friction is normal",
+    "**Wildcard/black swan risks (R08-R09):** Cannot be fully mitigated; accepted with monitoring",
+    "WTO challenge (R3) → If successful → AI/trade doctrine failure (R5)",
+    "AI standards fragmentation (R4) → Reduces WTO challenge leverage for EU",
+    "Industry capture (R6) → Weakens AI/trade provisions → Reduces WTO challenge risk but also benefit",
+    "Human rights deterioration (R8) → Triggers suspension clause → Reduces trade benefit",
+    "Regime change (R9) → Could go either way (reform acceleration or reversion)"
+  ],
+  "keyDates": [
+    "India WTO position paper (expected Q3 2026) rejects EU-style AI regulation requirements",
+    "Council delays EPCA ratification beyond December 2026"
+  ],
+  "keyActors": [
+    "Manfred Weber (Group Chair) — sets strategic direction",
+    "David McAllister (AFET Chair, EPP) — leads foreign policy committee output including UNGA recommendation",
+    "Siegfried Mureşan (BUDG rapporteur) — budget guidelines architecture",
+    "AI/trade (TA-10-2026-0183): 🟢 Strongly supportive — competitiveness framing dominant",
+    "Uzbekistan (TA-10-2026-0174): 🟢 Supportive — Central Asia strategy champion",
+    "UNGA recommendation (TA-10-2026-0182): 🟢 Supportive with NATO framing emphasis",
+    "Iratxe García Pérez (Group Chair) — leads S&D strategic positioning",
+    "Bernd Lange (INTA former chair, S&D influence) — trade expertise"
+  ],
+  "macroContext": "AI Strategy for EU Trade (TA-10-2026-0183)",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

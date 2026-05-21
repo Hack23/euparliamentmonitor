@@ -1,0 +1,2817 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/doc/TA-9-2023-0056",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0056",
+      "label": "T9-0056/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0177",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0177",
+      "label": "T10-0177/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0028",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0028",
+      "label": "T9-0028/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0302",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0302",
+      "label": "T9-0302/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0041",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0041",
+      "label": "T9-0041/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0071",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0071",
+      "label": "T9-0071/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0019",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0019",
+      "label": "T9-0019/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0047",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0047",
+      "label": "T9-0047/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0065",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0065",
+      "label": "T10-0065/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0062",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0062",
+      "label": "T9-0062/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0029",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0029",
+      "label": "T9-0029/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0033",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0033",
+      "label": "T9-0033/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0306",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0306",
+      "label": "T9-0306/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0067",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0067",
+      "label": "T9-0067/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0167",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0167",
+      "label": "T10-0167/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0310",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0310",
+      "label": "T9-0310/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0061",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0061",
+      "label": "T9-0061/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0075",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0075",
+      "label": "T10-0075/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0038",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0038",
+      "label": "T9-0038/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0176",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0176",
+      "label": "T10-0176/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0077",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0077",
+      "label": "T9-0077/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0032",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0032",
+      "label": "T9-0032/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0083",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0083",
+      "label": "T10-0083/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0085",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0085",
+      "label": "T9-0085/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0301",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0301",
+      "label": "T9-0301/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0046",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0046",
+      "label": "T9-0046/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0012",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0012",
+      "label": "T9-0012/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0057",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0057",
+      "label": "T9-0057/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0171",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0171",
+      "label": "T10-0171/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0066",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0066",
+      "label": "T10-0066/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0040",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0040",
+      "label": "T9-0040/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0080",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0080",
+      "label": "T9-0080/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0011",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0011",
+      "label": "T9-0011/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0092",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0092",
+      "label": "T10-0092/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0104",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0104",
+      "label": "T10-0104/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0089",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0089",
+      "label": "T10-0089/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0022",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0022",
+      "label": "T9-0022/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0002",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0002",
+      "label": "T9-0002/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0170",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0170",
+      "label": "T10-0170/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0064",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0064",
+      "label": "T10-0064/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0172",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0172",
+      "label": "T10-0172/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0066",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0066",
+      "label": "T9-0066/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0013",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0013",
+      "label": "T9-0013/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0068",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0068",
+      "label": "T9-0068/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0291",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0291",
+      "label": "T9-0291/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0023",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0023",
+      "label": "T9-0023/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0290",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0290",
+      "label": "T9-0290/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0182",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0182",
+      "label": "T10-0182/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0088",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0088",
+      "label": "T10-0088/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0168",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0168",
+      "label": "T10-0168/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0181",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0181",
+      "label": "T10-0181/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0314",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0314",
+      "label": "T9-0314/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0166",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0166",
+      "label": "T10-0166/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0034",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0034",
+      "label": "T9-0034/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0037",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0037",
+      "label": "T9-0037/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0073",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0073",
+      "label": "T10-0073/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0073",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0073",
+      "label": "T9-0073/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0184",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0184",
+      "label": "T10-0184/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0048",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0048",
+      "label": "T9-0048/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0017",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0017",
+      "label": "T9-0017/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0007",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0007",
+      "label": "T9-0007/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0055",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0055",
+      "label": "T9-0055/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0178",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0178",
+      "label": "T10-0178/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0307",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0307",
+      "label": "T9-0307/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0075",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0075",
+      "label": "T9-0075/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0295",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0295",
+      "label": "T9-0295/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0061",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0061",
+      "label": "T10-0061/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0010",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0010",
+      "label": "T9-0010/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0079",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0079",
+      "label": "T10-0079/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0084",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0084",
+      "label": "T9-0084/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0071",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0071",
+      "label": "T10-0071/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0094",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0094",
+      "label": "T9-0094/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0001",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0001",
+      "label": "T9-0001/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0009",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0009",
+      "label": "T9-0009/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0303",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0303",
+      "label": "T9-0303/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0063",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0063",
+      "label": "T9-0063/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0304",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0304",
+      "label": "T9-0304/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0025",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0025",
+      "label": "T9-0025/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0077",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0077",
+      "label": "T10-0077/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0289",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0289",
+      "label": "T9-0289/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0096",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0096",
+      "label": "T10-0096/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0098",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0098",
+      "label": "T9-0098/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0030",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0030",
+      "label": "T9-0030/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0084",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0084",
+      "label": "T10-0084/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0297",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0297",
+      "label": "T9-0297/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0003",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0003",
+      "label": "T9-0003/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0086",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0086",
+      "label": "T9-0086/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0005",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0005",
+      "label": "T9-0005/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0051",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0051",
+      "label": "T9-0051/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0098",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0098",
+      "label": "T10-0098/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0164",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0164",
+      "label": "T10-0164/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0100",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0100",
+      "label": "T10-0100/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0094",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0094",
+      "label": "T10-0094/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0082",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0082",
+      "label": "T10-0082/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0096",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0096",
+      "label": "T9-0096/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0027",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0027",
+      "label": "T9-0027/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0312",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0312",
+      "label": "T9-0312/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0080",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0080",
+      "label": "T10-0080/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-8-2018-0348",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-8-2018-0348",
+      "label": "T8-0348/2018"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0064",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0064",
+      "label": "T9-0064/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0036",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0036",
+      "label": "T9-0036/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0313",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0313",
+      "label": "T9-0313/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0053",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0053",
+      "label": "T9-0053/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0082",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0082",
+      "label": "T9-0082/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0293",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0293",
+      "label": "T9-0293/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0062",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0062",
+      "label": "T10-0062/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0059",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0059",
+      "label": "T9-0059/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0044",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0044",
+      "label": "T9-0044/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0138",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0138",
+      "label": "T9-0138/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0299",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0299",
+      "label": "T9-0299/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0092",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0092",
+      "label": "T9-0092/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0026",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0026",
+      "label": "T9-0026/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0068",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0068",
+      "label": "T10-0068/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0020",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0020",
+      "label": "T9-0020/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0294",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0294",
+      "label": "T9-0294/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0309",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0309",
+      "label": "T9-0309/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0058",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0058",
+      "label": "T10-0058/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0063",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0063",
+      "label": "T10-0063/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0102",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0102",
+      "label": "T10-0102/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0065",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0065",
+      "label": "T9-0065/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0085",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0085",
+      "label": "T10-0085/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0087",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0087",
+      "label": "T9-0087/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0091",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0091",
+      "label": "T9-0091/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0079",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0079",
+      "label": "T9-0079/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0173",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0173",
+      "label": "T10-0173/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0089",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0089",
+      "label": "T9-0089/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0078",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0078",
+      "label": "T10-0078/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0087",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0087",
+      "label": "T10-0087/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0014",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0014",
+      "label": "T9-0014/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0067",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0067",
+      "label": "T10-0067/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0021",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0021",
+      "label": "T9-0021/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0015",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0015",
+      "label": "T9-0015/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0308",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0308",
+      "label": "T9-0308/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0035",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0035",
+      "label": "T9-0035/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0088",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0088",
+      "label": "T9-0088/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0043",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0043",
+      "label": "T9-0043/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0086",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0086",
+      "label": "T10-0086/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0300",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0300",
+      "label": "T9-0300/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0058",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0058",
+      "label": "T9-0058/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0090",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0090",
+      "label": "T9-0090/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0069",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0069",
+      "label": "T10-0069/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0057",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0057",
+      "label": "T10-0057/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0174",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0174",
+      "label": "T10-0174/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0090",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0090",
+      "label": "T10-0090/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0180",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0180",
+      "label": "T10-0180/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0052",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0052",
+      "label": "T9-0052/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0060",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0060",
+      "label": "T9-0060/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0070",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0070",
+      "label": "T10-0070/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0311",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0311",
+      "label": "T9-0311/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0042",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0042",
+      "label": "T9-0042/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0045",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0045",
+      "label": "T9-0045/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0093",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0093",
+      "label": "T9-0093/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0076",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0076",
+      "label": "T10-0076/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0018",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0018",
+      "label": "T9-0018/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0070",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0070",
+      "label": "T9-0070/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0292",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0292",
+      "label": "T9-0292/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0006",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0006",
+      "label": "T9-0006/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0081",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0081",
+      "label": "T9-0081/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0078",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0078",
+      "label": "T9-0078/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0179",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0179",
+      "label": "T10-0179/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0111",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0111",
+      "label": "T10-0111/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0117",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0117",
+      "label": "T9-0117/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0016",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0016",
+      "label": "T9-0016/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0175",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0175",
+      "label": "T10-0175/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0183",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0183",
+      "label": "T10-0183/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0024",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0024",
+      "label": "T9-0024/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0097",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0097",
+      "label": "T10-0097/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0099",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0099",
+      "label": "T10-0099/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0069",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0069",
+      "label": "T9-0069/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0054",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0054",
+      "label": "T9-0054/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0099",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0099",
+      "label": "T9-0099/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0091",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0091",
+      "label": "T10-0091/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0101",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0101",
+      "label": "T10-0101/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0305",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0305",
+      "label": "T9-0305/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0081",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0081",
+      "label": "T10-0081/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0039",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0039",
+      "label": "T9-0039/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0093",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0093",
+      "label": "T10-0093/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0097",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0097",
+      "label": "T9-0097/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0103",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0103",
+      "label": "T10-0103/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0095",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0095",
+      "label": "T10-0095/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0050",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0050",
+      "label": "T9-0050/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0028",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0028",
+      "label": "T10-0028/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0072",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0072",
+      "label": "T10-0072/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0060",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0060",
+      "label": "T10-0060/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0004",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0004",
+      "label": "T9-0004/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0296",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0296",
+      "label": "T9-0296/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0059",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0059",
+      "label": "T10-0059/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0095",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0095",
+      "label": "T9-0095/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0288",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0288",
+      "label": "T9-0288/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0031",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0031",
+      "label": "T9-0031/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0008",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0008",
+      "label": "T9-0008/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0165",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0165",
+      "label": "T10-0165/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0169",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0169",
+      "label": "T10-0169/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0074",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0074",
+      "label": "T9-0074/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0049",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0049",
+      "label": "T9-0049/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0076",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0076",
+      "label": "T9-0076/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0072",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0072",
+      "label": "T9-0072/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0298",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0298",
+      "label": "T9-0298/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0083",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0083",
+      "label": "T9-0083/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0074",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0074",
+      "label": "T10-0074/2026"
+    }
+  ],
+  "@context": [
+    {
+      "@base": "https://data.europarl.europa.eu/",
+      "data": "@graph"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ],
+  "status": "operational",
+  "generatedAt": "2026-05-21T07:22:58.577Z",
+  "items": [
+    {
+      "id": "eli/dl/doc/TA-9-2023-0056",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0056",
+      "label": "T9-0056/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0177",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0177",
+      "label": "T10-0177/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0028",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0028",
+      "label": "T9-0028/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0302",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0302",
+      "label": "T9-0302/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0041",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0041",
+      "label": "T9-0041/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0071",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0071",
+      "label": "T9-0071/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0019",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0019",
+      "label": "T9-0019/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0047",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0047",
+      "label": "T9-0047/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0065",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0065",
+      "label": "T10-0065/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0062",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0062",
+      "label": "T9-0062/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0029",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0029",
+      "label": "T9-0029/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0033",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0033",
+      "label": "T9-0033/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0306",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0306",
+      "label": "T9-0306/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0067",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0067",
+      "label": "T9-0067/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0167",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0167",
+      "label": "T10-0167/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0310",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0310",
+      "label": "T9-0310/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0061",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0061",
+      "label": "T9-0061/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0075",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0075",
+      "label": "T10-0075/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0038",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0038",
+      "label": "T9-0038/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0176",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0176",
+      "label": "T10-0176/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0077",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0077",
+      "label": "T9-0077/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0032",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0032",
+      "label": "T9-0032/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0083",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0083",
+      "label": "T10-0083/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0085",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0085",
+      "label": "T9-0085/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0301",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0301",
+      "label": "T9-0301/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0046",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0046",
+      "label": "T9-0046/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0012",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0012",
+      "label": "T9-0012/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0057",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0057",
+      "label": "T9-0057/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0171",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0171",
+      "label": "T10-0171/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0066",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0066",
+      "label": "T10-0066/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0040",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0040",
+      "label": "T9-0040/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0080",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0080",
+      "label": "T9-0080/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0011",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0011",
+      "label": "T9-0011/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0092",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0092",
+      "label": "T10-0092/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0104",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0104",
+      "label": "T10-0104/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0089",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0089",
+      "label": "T10-0089/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0022",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0022",
+      "label": "T9-0022/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0002",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0002",
+      "label": "T9-0002/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0170",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0170",
+      "label": "T10-0170/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0064",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0064",
+      "label": "T10-0064/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0172",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0172",
+      "label": "T10-0172/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0066",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0066",
+      "label": "T9-0066/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0013",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0013",
+      "label": "T9-0013/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0068",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0068",
+      "label": "T9-0068/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0291",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0291",
+      "label": "T9-0291/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0023",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0023",
+      "label": "T9-0023/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0290",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0290",
+      "label": "T9-0290/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0182",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0182",
+      "label": "T10-0182/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0088",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0088",
+      "label": "T10-0088/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0168",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0168",
+      "label": "T10-0168/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0181",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0181",
+      "label": "T10-0181/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0314",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0314",
+      "label": "T9-0314/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0166",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0166",
+      "label": "T10-0166/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0034",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0034",
+      "label": "T9-0034/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0037",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0037",
+      "label": "T9-0037/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0073",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0073",
+      "label": "T10-0073/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0073",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0073",
+      "label": "T9-0073/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0184",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0184",
+      "label": "T10-0184/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0048",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0048",
+      "label": "T9-0048/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0017",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0017",
+      "label": "T9-0017/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0007",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0007",
+      "label": "T9-0007/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0055",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0055",
+      "label": "T9-0055/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0178",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0178",
+      "label": "T10-0178/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0307",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0307",
+      "label": "T9-0307/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0075",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0075",
+      "label": "T9-0075/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0295",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0295",
+      "label": "T9-0295/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0061",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0061",
+      "label": "T10-0061/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0010",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0010",
+      "label": "T9-0010/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0079",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0079",
+      "label": "T10-0079/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0084",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0084",
+      "label": "T9-0084/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0071",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0071",
+      "label": "T10-0071/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0094",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0094",
+      "label": "T9-0094/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0001",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0001",
+      "label": "T9-0001/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0009",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0009",
+      "label": "T9-0009/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0303",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0303",
+      "label": "T9-0303/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0063",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0063",
+      "label": "T9-0063/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0304",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0304",
+      "label": "T9-0304/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0025",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0025",
+      "label": "T9-0025/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0077",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0077",
+      "label": "T10-0077/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0289",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0289",
+      "label": "T9-0289/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0096",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0096",
+      "label": "T10-0096/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0098",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0098",
+      "label": "T9-0098/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0030",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0030",
+      "label": "T9-0030/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0084",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0084",
+      "label": "T10-0084/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0297",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0297",
+      "label": "T9-0297/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0003",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0003",
+      "label": "T9-0003/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0086",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0086",
+      "label": "T9-0086/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0005",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0005",
+      "label": "T9-0005/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0051",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0051",
+      "label": "T9-0051/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0098",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0098",
+      "label": "T10-0098/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0164",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0164",
+      "label": "T10-0164/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0100",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0100",
+      "label": "T10-0100/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0094",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0094",
+      "label": "T10-0094/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0082",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0082",
+      "label": "T10-0082/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0096",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0096",
+      "label": "T9-0096/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0027",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0027",
+      "label": "T9-0027/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0312",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0312",
+      "label": "T9-0312/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0080",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0080",
+      "label": "T10-0080/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-8-2018-0348",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-8-2018-0348",
+      "label": "T8-0348/2018"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0064",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0064",
+      "label": "T9-0064/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0036",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0036",
+      "label": "T9-0036/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0313",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0313",
+      "label": "T9-0313/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0053",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0053",
+      "label": "T9-0053/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0082",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0082",
+      "label": "T9-0082/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0293",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0293",
+      "label": "T9-0293/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0062",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0062",
+      "label": "T10-0062/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0059",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0059",
+      "label": "T9-0059/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0044",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0044",
+      "label": "T9-0044/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0138",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0138",
+      "label": "T9-0138/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0299",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0299",
+      "label": "T9-0299/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0092",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0092",
+      "label": "T9-0092/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0026",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0026",
+      "label": "T9-0026/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0068",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0068",
+      "label": "T10-0068/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0020",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0020",
+      "label": "T9-0020/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0294",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0294",
+      "label": "T9-0294/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0309",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0309",
+      "label": "T9-0309/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0058",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0058",
+      "label": "T10-0058/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0063",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0063",
+      "label": "T10-0063/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0102",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0102",
+      "label": "T10-0102/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0065",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0065",
+      "label": "T9-0065/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0085",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0085",
+      "label": "T10-0085/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0087",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0087",
+      "label": "T9-0087/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0091",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0091",
+      "label": "T9-0091/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0079",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0079",
+      "label": "T9-0079/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0173",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0173",
+      "label": "T10-0173/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0089",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0089",
+      "label": "T9-0089/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0078",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0078",
+      "label": "T10-0078/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0087",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0087",
+      "label": "T10-0087/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0014",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0014",
+      "label": "T9-0014/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0067",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0067",
+      "label": "T10-0067/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0021",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0021",
+      "label": "T9-0021/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0015",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0015",
+      "label": "T9-0015/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0308",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0308",
+      "label": "T9-0308/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0035",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0035",
+      "label": "T9-0035/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0088",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0088",
+      "label": "T9-0088/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0043",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0043",
+      "label": "T9-0043/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0086",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0086",
+      "label": "T10-0086/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0300",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0300",
+      "label": "T9-0300/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0058",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0058",
+      "label": "T9-0058/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0090",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0090",
+      "label": "T9-0090/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0069",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0069",
+      "label": "T10-0069/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0057",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0057",
+      "label": "T10-0057/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0174",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0174",
+      "label": "T10-0174/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0090",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0090",
+      "label": "T10-0090/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0180",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0180",
+      "label": "T10-0180/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0052",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0052",
+      "label": "T9-0052/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0060",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0060",
+      "label": "T9-0060/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0070",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0070",
+      "label": "T10-0070/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0311",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0311",
+      "label": "T9-0311/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0042",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0042",
+      "label": "T9-0042/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0045",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0045",
+      "label": "T9-0045/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0093",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0093",
+      "label": "T9-0093/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0076",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0076",
+      "label": "T10-0076/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0018",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0018",
+      "label": "T9-0018/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0070",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0070",
+      "label": "T9-0070/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0292",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0292",
+      "label": "T9-0292/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0006",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0006",
+      "label": "T9-0006/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0081",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0081",
+      "label": "T9-0081/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0078",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0078",
+      "label": "T9-0078/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0179",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0179",
+      "label": "T10-0179/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0111",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0111",
+      "label": "T10-0111/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0117",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0117",
+      "label": "T9-0117/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0016",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0016",
+      "label": "T9-0016/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0175",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0175",
+      "label": "T10-0175/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0183",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0183",
+      "label": "T10-0183/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0024",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0024",
+      "label": "T9-0024/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0097",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0097",
+      "label": "T10-0097/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0099",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0099",
+      "label": "T10-0099/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0069",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0069",
+      "label": "T9-0069/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0054",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0054",
+      "label": "T9-0054/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0099",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0099",
+      "label": "T9-0099/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0091",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0091",
+      "label": "T10-0091/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0101",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0101",
+      "label": "T10-0101/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0305",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0305",
+      "label": "T9-0305/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0081",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0081",
+      "label": "T10-0081/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0039",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0039",
+      "label": "T9-0039/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0093",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0093",
+      "label": "T10-0093/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0097",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0097",
+      "label": "T9-0097/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0103",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0103",
+      "label": "T10-0103/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0095",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0095",
+      "label": "T10-0095/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0050",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0050",
+      "label": "T9-0050/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0028",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0028",
+      "label": "T10-0028/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0072",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0072",
+      "label": "T10-0072/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0060",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0060",
+      "label": "T10-0060/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0004",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0004",
+      "label": "T9-0004/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0296",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0296",
+      "label": "T9-0296/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0059",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0059",
+      "label": "T10-0059/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0095",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0095",
+      "label": "T9-0095/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0288",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0288",
+      "label": "T9-0288/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0031",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0031",
+      "label": "T9-0031/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0008",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0008",
+      "label": "T9-0008/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0165",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0165",
+      "label": "T10-0165/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0169",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0169",
+      "label": "T10-0169/2026"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0074",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0074",
+      "label": "T9-0074/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0049",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0049",
+      "label": "T9-0049/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0076",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0076",
+      "label": "T9-0076/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0072",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0072",
+      "label": "T9-0072/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2024-0298",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2024-0298",
+      "label": "T9-0298/2024"
+    },
+    {
+      "id": "eli/dl/doc/TA-9-2023-0083",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-9-2023-0083",
+      "label": "T9-0083/2023"
+    },
+    {
+      "id": "eli/dl/doc/TA-10-2026-0074",
+      "type": "Work",
+      "work_type": "def/ep-document-types/TEXT_ADOPTED",
+      "identifier": "TA-10-2026-0074",
+      "label": "T10-0074/2026"
+    }
+  ],
+  "itemCount": 200,
+  "dataQualityWarnings": []
+}
