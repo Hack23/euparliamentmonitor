@@ -638,4 +638,199 @@ describe('discover-untranslated-briefs', () => {
       expect(payload.queue[0]).toHaveProperty('largeSource');
     });
   });
+
+  describe('parseTargetBriefSpec', () => {
+    // Imported lazily so the rest of the file keeps a single import block.
+    // (Verified: re-importing the module from within a describe block is
+    // free in vitest — modules are cached.)
+    /* eslint-disable-next-line vitest/no-conditional-tests */
+    it('accepts the short YYYY-MM-DD/<slug> form', async () => {
+      const { parseTargetBriefSpec } = await import(
+        '../../scripts/discover-untranslated-briefs.js'
+      );
+      expect(parseTargetBriefSpec('2026-05-21/propositions')).toEqual({
+        date: '2026-05-21',
+        slug: 'propositions',
+        isExtended: false,
+      });
+    });
+
+    it('accepts the YYYY-MM-DD/<slug>/extended legacy form', async () => {
+      const { parseTargetBriefSpec } = await import(
+        '../../scripts/discover-untranslated-briefs.js'
+      );
+      expect(parseTargetBriefSpec('2026-05-21/breaking/extended')).toEqual({
+        date: '2026-05-21',
+        slug: 'breaking',
+        isExtended: true,
+      });
+    });
+
+    it('accepts the full analysis/daily/.../executive-brief.md path', async () => {
+      const { parseTargetBriefSpec } = await import(
+        '../../scripts/discover-untranslated-briefs.js'
+      );
+      expect(
+        parseTargetBriefSpec(
+          'analysis/daily/2026-05-21/week-ahead/executive-brief.md',
+        ),
+      ).toEqual({ date: '2026-05-21', slug: 'week-ahead', isExtended: false });
+      expect(
+        parseTargetBriefSpec(
+          'analysis/daily/2026-05-21/week-ahead/extended/executive-brief.md',
+        ),
+      ).toEqual({ date: '2026-05-21', slug: 'week-ahead', isExtended: true });
+    });
+
+    it('rejects path-traversal and absolute-path attempts', async () => {
+      const { parseTargetBriefSpec } = await import(
+        '../../scripts/discover-untranslated-briefs.js'
+      );
+      for (const bad of [
+        '../etc/passwd',
+        '/absolute/path',
+        '2026-05-21/../escape',
+        '2026-05-21/foo\\bar',
+        '2026-05-21/null\u0000byte',
+      ]) {
+        expect(() => parseTargetBriefSpec(bad), bad).toThrow();
+      }
+    });
+
+    it('rejects malformed dates and slugs', async () => {
+      const { parseTargetBriefSpec } = await import(
+        '../../scripts/discover-untranslated-briefs.js'
+      );
+      expect(() => parseTargetBriefSpec('2026-5-21/foo')).toThrow(
+        /YYYY-MM-DD/u,
+      );
+      expect(() => parseTargetBriefSpec('2026-05-21/UPPERCASE')).toThrow(
+        /a-z0-9/u,
+      );
+      expect(() => parseTargetBriefSpec('2026-05-21')).toThrow(
+        /expected "YYYY-MM-DD/u,
+      );
+      expect(() => parseTargetBriefSpec('2026-05-21/foo/bar')).toThrow(
+        /expected "YYYY-MM-DD/u,
+      );
+    });
+  });
+
+  describe('parseArgs --target-brief', () => {
+    it('treats empty / whitespace / "none" as no override', () => {
+      expect(parseArgs(['--target-brief', '']).targetBrief).toBe(null);
+      expect(parseArgs(['--target-brief', '   ']).targetBrief).toBe(null);
+      expect(parseArgs(['--target-brief', 'none']).targetBrief).toBe(null);
+    });
+
+    it('parses a valid spec into a target-brief object', () => {
+      const opts = parseArgs(['--target-brief', '2026-05-21/breaking']);
+      expect(opts.targetBrief).toEqual({
+        date: '2026-05-21',
+        slug: 'breaking',
+        isExtended: false,
+      });
+    });
+
+    it('propagates parse errors through parseArgs', () => {
+      expect(() => parseArgs(['--target-brief', '../etc/passwd'])).toThrow(
+        /path-traversal/u,
+      );
+    });
+  });
+
+  describe('buildQueue with targetBrief override', () => {
+    it('queues only the targeted brief and ignores mode / maxBriefs', () => {
+      makeBrief('2026-05-15', 'breaking', { existing: ['sv'] });
+      makeBrief('2026-05-16', 'week-ahead', { existing: ['sv'] });
+      makeBrief('2026-05-16', 'breaking', { existing: ['sv'] });
+      const sources = findExecutiveBriefSources(tmpRoot, {
+        includeExtended: false,
+        maxAgeDays: 180,
+      });
+      const { queue, totals } = buildQueue(sources, {
+        maxBriefs: 99,
+        mode: 'fresh-then-backlog',
+        targetBrief: {
+          date: '2026-05-15',
+          slug: 'breaking',
+          isExtended: false,
+        },
+      });
+      expect(queue).toHaveLength(1);
+      expect(queue[0].date).toBe('2026-05-15');
+      expect(queue[0].slug).toBe('breaking');
+      expect(queue[0].isExtended).toBe(false);
+      // The totals still reflect the whole backlog (operators want to see
+      // total scope even when targeting one brief).
+      expect(totals.sourcesScanned).toBe(3);
+      expect(totals.queued).toBe(1);
+    });
+
+    it('returns an empty queue when the targeted brief has no missing translations', () => {
+      // Fully-translated brief: all 13 target languages present.
+      makeBrief('2026-05-15', 'breaking', { existing: TARGET_LANGS });
+      const sources = findExecutiveBriefSources(tmpRoot, {
+        includeExtended: false,
+        maxAgeDays: 180,
+      });
+      const { queue } = buildQueue(sources, {
+        maxBriefs: 5,
+        targetBrief: {
+          date: '2026-05-15',
+          slug: 'breaking',
+          isExtended: false,
+        },
+      });
+      expect(queue).toEqual([]);
+    });
+
+    it('returns an empty queue when the targeted brief does not exist', () => {
+      makeBrief('2026-05-15', 'breaking', { existing: ['sv'] });
+      const sources = findExecutiveBriefSources(tmpRoot, {
+        includeExtended: false,
+        maxAgeDays: 180,
+      });
+      const { queue } = buildQueue(sources, {
+        maxBriefs: 5,
+        targetBrief: {
+          date: '2099-01-01',
+          slug: 'nonexistent',
+          isExtended: false,
+        },
+      });
+      expect(queue).toEqual([]);
+    });
+
+    it('distinguishes extended from primary brief in the same slug', () => {
+      makeBrief('2026-05-15', 'breaking', {
+        existing: ['sv'],
+        extended: true,
+      });
+      const sources = findExecutiveBriefSources(tmpRoot, {
+        includeExtended: true,
+        maxAgeDays: 180,
+      });
+      const { queue: primaryQueue } = buildQueue(sources, {
+        maxBriefs: 5,
+        targetBrief: {
+          date: '2026-05-15',
+          slug: 'breaking',
+          isExtended: false,
+        },
+      });
+      const { queue: extendedQueue } = buildQueue(sources, {
+        maxBriefs: 5,
+        targetBrief: {
+          date: '2026-05-15',
+          slug: 'breaking',
+          isExtended: true,
+        },
+      });
+      expect(primaryQueue).toHaveLength(1);
+      expect(primaryQueue[0].isExtended).toBe(false);
+      expect(extendedQueue).toHaveLength(1);
+      expect(extendedQueue[0].isExtended).toBe(true);
+    });
+  });
 });

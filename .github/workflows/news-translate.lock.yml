@@ -103,6 +103,10 @@ on:
         default: fresh-then-backlog
         description: "Discovery prioritisation: fresh-then-backlog (default) | backlog-only | newest-first."
         required: false
+      target_brief:
+        default: ""
+        description: "Operator override \u2014 queue ONLY this brief and ignore mode/max_briefs/max_age_days. Accepted forms: `YYYY-MM-DD/<slug>` (short, e.g. `2026-05-21/propositions`), `YYYY-MM-DD/<slug>/extended` (legacy extended path), or the full repo path `analysis/daily/YYYY-MM-DD/<slug>/executive-brief.md`. Leave blank for the normal scheduled fresh-then-backlog behaviour."
+        required: false
 
 permissions: {}
 
@@ -449,9 +453,10 @@ jobs:
           MAX_BRIEFS: ${{ github.event.inputs.max_briefs || '2' }}
           MAX_SOURCE_LINES: ${{ github.event.inputs.max_source_lines || '300' }}
           RUN_NUMBER: ${{ github.run_number }}
+          TARGET_BRIEF: ${{ github.event.inputs.target_brief || '' }}
         id: discover
         name: Discover untranslated executive briefs
-        run: "set -euo pipefail\nmkdir -p /tmp/gh-aw/discovery\nEXTENDED_FLAG=\"\"\nif [ \"$INCLUDE_EXTENDED\" = \"true\" ]; then\n  EXTENDED_FLAG=\"--include-extended\"\nfi\n# shellcheck disable=SC2086\nnode scripts/discover-untranslated-briefs.js \\\n  --max-briefs \"$MAX_BRIEFS\" \\\n  --max-age-days \"$MAX_AGE_DAYS\" \\\n  --mode \"$DISCOVERY_MODE\" \\\n  --run-number \"$RUN_NUMBER\" \\\n  --max-source-lines \"$MAX_SOURCE_LINES\" \\\n  --output /tmp/gh-aw/discovery/queue.json \\\n  $EXTENDED_FLAG\necho \"Discovery queue summary:\"\nnode -e 'const q=require(\"/tmp/gh-aw/discovery/queue.json\");console.log(JSON.stringify(q.totals,null,2));'\n"
+        run: "set -euo pipefail\nmkdir -p /tmp/gh-aw/discovery\nEXTENDED_FLAG=\"\"\nif [ \"$INCLUDE_EXTENDED\" = \"true\" ]; then\n  EXTENDED_FLAG=\"--include-extended\"\nfi\n# shellcheck disable=SC2086\nnode scripts/discover-untranslated-briefs.js \\\n  --max-briefs \"$MAX_BRIEFS\" \\\n  --max-age-days \"$MAX_AGE_DAYS\" \\\n  --mode \"$DISCOVERY_MODE\" \\\n  --run-number \"$RUN_NUMBER\" \\\n  --max-source-lines \"$MAX_SOURCE_LINES\" \\\n  --target-brief \"$TARGET_BRIEF\" \\\n  --output /tmp/gh-aw/discovery/queue.json \\\n  $EXTENDED_FLAG\necho \"Discovery queue summary:\"\nnode -e 'const q=require(\"/tmp/gh-aw/discovery/queue.json\");console.log(JSON.stringify(q.totals,null,2));'\n"
 
       # Cache memory file share configuration from frontmatter processed below
       - name: Create cache-memory directory

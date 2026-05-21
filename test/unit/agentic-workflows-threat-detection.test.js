@@ -249,13 +249,14 @@ describe('agentic workflow threat detection policy', () => {
       ).toBe(true);
     }
 
-    // Specifically assert the five caller-facing knobs are declared.
+    // Specifically assert the six caller-facing knobs are declared.
     for (const required of [
       'max_briefs',
       'max_age_days',
       'include_extended',
       'mode',
       'max_source_lines',
+      'target_brief',
     ]) {
       expect(
         declaredInputs.has(required),
