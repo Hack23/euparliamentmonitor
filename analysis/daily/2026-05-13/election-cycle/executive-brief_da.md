@@ -43,7 +43,7 @@ Europaparlamentets tiende valgperiode (EP10, 2024–2029) har indledt sit afgør
 Det mest konsistente EP10-tema er europæisk strategisk autonomi og forsvarsopbygning. Vedtagelsen i 2026 af Loan for Ukraine (TA-10-2026-0010) og debatterne om European Defence Industrial Strategy signalerer parlamentarisk konsensus usædvanlig i EP's historie — med EPP, S&D, Renew og endda visse ECR-medlemmer koordineret om forsvarsudgifter, hvilket markerer et strukturelt skifte fra den kolde krigs efterkrigstids-fredsdividende-era.
 
 ### Drivkraft 2: Konkurrenceevne kontra grøn spænding
-Clean Industrial Deal (Competitiveness Compass) repræsenterer et styret tilbagetræk fra Green Deal's regulatoriske ambitioner. Kulstofgrænsejusteringsmekanismer, støtte til afkarboniseringsindutri og sikkerhed for kritiske råmaterialer defineres nu som konkurrenceevnespørgsmål — ikke miljøspørgsmål. Denne omramning, konstrueret af EPP, har sikret ECR's accept og låst en holdbar flertal ind i mindst til 2027.
+Clean Industrial Deal (Competitiveness Compass) repræsenterer et styret tilbagetræk fra Green Deal's regulatoriske ambitioner. Kulstofgrænsejusteringsmekanismer, støtte til afkarboniseringsindustri og sikkerhed for kritiske råmaterialer defineres nu som konkurrenceevnespørgsmål — ikke miljøspørgsmål. Denne omramning, konstrueret af EPP, har sikret ECR's accept og låst en holdbar flertal ind i mindst til 2027.
 
 ### Drivkraft 3: Demokratisk modstandsdygtighed under pres
 Ungarns igangværende artikel 7-procedure, demokratisk tilbagegang i Slovakiet og trusler mod uafhængigheden af public service-medier (som i Litauen — TA-10-2026-0024) er vedvarende dagsordenspunkter. Parlamentet har konsekvent vedtaget resolutioner, der hævder retsstatsbetingelsesprincippet. Det lovgivningsmæssige instrument er dog svagt — EP kan ikke selvstændigt pålægge sanktioner, men skaber politiske forudsætninger for rådsforanstaltninger.
@@ -188,7 +188,7 @@ EP10-valgperioden åbnede med en centristisk storkoalitionsmajoritet på 401 (EP
 | Retsstat (Ungarn, Slovakiet, Slovenien) | 25% — Artikel 7 fastlåst; betingelsesprincippet anvendes selektivt | Usandsynligt at avancere pre-2029 |
 | Migrationspaktens implementering | 50% — udrulningsforsinkelser, udvidet tilbagesendelses­politik | Højreforskydning forventet; paktramme holder |
 | Industriel konkurrenceevne (Draghi/Letta-dagsorden) | 40% — STEP-fonden operationel, Single Market Act stagneret | Afgørende EP11-spørgsmål |
-| Udvidelse (Ukraine, Moldova, Vestbalkan) | 30% — tiltrædelsesforhandlinger åbne, ingen kapitelafslutnign mulig til 2029 | Symbolsk bevægelse, strukturel blindgyde |
+| Udvidelse (Ukraine, Moldova, Vestbalkan) | 30% — tiltrædelsesforhandlinger åbne, ingen kapitelafslutning mulig til 2029 | Symbolsk bevægelse, strukturel blindgyde |
 | Socialpillar (mindsteløn, platformsarbejdere) | 70% — direktivet transponeret i de fleste MS | Implementationsgennemgang alene i EP11 |
 | Digitalt (DSA, DMA, AI Act) | 80% — rammer operationelle, implementeringstest | Finpudsning, ikke ny arkitektur, i EP11 |
 
@@ -271,7 +271,7 @@ xychart-beta
 
 ### EP10-sammensætningsøjebliksbillede — 2026-05-13
 
-EP10-sammensætningen trukket i dag viser **717 MEP'er over 9 politiske grupper** der spænder 27 medlemsstater. Dagens `early_warning_system` returnerede **stabilityScore = 84/100** med tre strukturelle advarsler — `HIGH_FRAGMENTATION` (MEDIUM), `DOMINANT_GROUP_RISK` (HØJ, EPP 19× mindste gruppe) og `SMALL_GROUP_QUORUM_RISK` (LAV). **Δ = 0**: ingen todagsforslechring i strukturel stabilitet.
+EP10-sammensætningen trukket i dag viser **717 MEP'er over 9 politiske grupper** der spænder 27 medlemsstater. Dagens `early_warning_system` returnerede **stabilityScore = 84/100** med tre strukturelle advarsler — `HIGH_FRAGMENTATION` (MEDIUM), `DOMINANT_GROUP_RISK` (HØJ, EPP 19× mindste gruppe) og `SMALL_GROUP_QUORUM_RISK` (LAV). **Δ = 0**: ingen todages forværring i strukturel stabilitet.
 
 ### Opdateret koalitionsmatematik (dagens MCP-indsamling)
 

@@ -6,7 +6,7 @@
 
 ## 🎯 Overskriftsvurdering
 
-Europaparlamentets tiende valgperiode (EP10, 2024–2029) har innledet sitt avgjørende andre år med et strukturelt høyreforskjøvet parlament som navigerer i en historisk kriselkonvergens: europeisk strategisk autonomi, forsvarsindustriell opprustning, konkurranseevnestress og demokratisk tilbakegang. Den EPP-ledede fleksible majoritetsmodellen — som selektivt trekker inn ECR og PfE ved forsvars- og migrasjonsavstemninger, men støtter seg på S&D og Renew ved regulatorisk lovgivning — er det definerende strukturelle trekket i denne valgperioden. **Sannsynlighet: 70% (Sannsynlig)** at det EPP-ledede sentrum-høyreblokket vil dominere lovgivningsresultatene frem til 2027. **Sannsynlighet: 60% (Sannsynlig)** at Clean Industrial Deal og European Defence Industrial Strategy vil definere EP10's arv.
+Europaparlamentets tiende valgperiode (EP10, 2024–2029) har innledet sitt avgjørende andre år med et strukturelt høyreforskjøvet parlament som navigerer i en historisk krisekonvergens: europeisk strategisk autonomi, forsvarsindustriell opprustning, konkurranseevnestress og demokratisk tilbakegang. Den EPP-ledede fleksible majoritetsmodellen — som selektivt trekker inn ECR og PfE ved forsvars- og migrasjonsavstemninger, men støtter seg på S&D og Renew ved regulatorisk lovgivning — er det definerende strukturelle trekket i denne valgperioden. **Sannsynlighet: 70% (Sannsynlig)** at det EPP-ledede sentrum-høyreblokket vil dominere lovgivningsresultatene frem til 2027. **Sannsynlighet: 60% (Sannsynlig)** at Clean Industrial Deal og European Defence Industrial Strategy vil definere EP10's arv.
 
 ## 📊 EP10 Sammensetning (mai 2026)
 
@@ -31,19 +31,19 @@ Europaparlamentets tiende valgperiode (EP10, 2024–2029) har innledet sitt avgj
 
 2. **Stor koalisjon fortsatt funksjonell men presset (Sannsynlig, 65%):** EPP+S&D+Renew = 398 plasser (+37 over grense). Risikerer frafall ved suverenitetssensitive spørsmål.
 
-3. **Høyreokkens vetoblokk vokser frem (Realistisk mulighet, 45%):** EPP+PfE+ECR+ESN = 378 plasser. Kan vedta lovgivning om forsvar/grenser/deregulering uten progressiv støtte.
+3. **Høyreblokkens vetoblokk vokser frem (Realistisk mulighet, 45%):** EPP+PfE+ECR+ESN = 378 plasser. Kan vedta lovgivning om forsvar/grenser/deregulering uten progressiv støtte.
 
 4. **Lovgivningsproduksjon i rekordtempo (Svært sannsynlig, 85%):** 114 lovgivningsakter i 2026 — opp 46% fra 2025. Forsvarskonsensus og Clean Industrial Deal driver volumet.
 
 5. **Valgperiode avsluttes med omstridt klimatarv (Sannsynlig, 65%):** Green Deal-tilbakerulling under EPP+ECR-press pågår; taksonomifortynning og svekkelse av metanregulering.
 
-## ��️ De tre strukturelle drivkreftene
+## ⚙️ De tre strukturelle drivkreftene
 
 ### Drivkraft 1: Forsvarsindustriell omlegging
 Vedtakelsen av Loan for Ukraine (TA-10-2026-0010) og European Defence Industrial Strategy signalerer parlamentarisk konsensus uvanlig i EP's historie — EPP, S&D, Renew og visse ECR-medlemmer koordinert om forsvarsutgifter, strukturelt skifte fra fredsdividende-era.
 
 ### Drivkraft 2: Konkurranseevne kontra grønn spenning
-Clean Industrial Deal representerer et styrt tilbaketrekk fra Green Deal. Karbongrensejustering, støtte til dekarnoniseringsindustri og sikkerhet for kritiske råmaterialer defineres nå som konkurranseevnespørsmål — ikke miljøspørsmål.
+Clean Industrial Deal representerer et styrt tilbaketrekk fra Green Deal. Karbongrensejustering, støtte til dekarboniseringsindustri og sikkerhet for kritiske råmaterialer defineres nå som konkurranseevnespørsmål — ikke miljøspørsmål.
 
 ### Drivkraft 3: Demokratisk motstandsdyktighet under press
 Ungarns artikkel 7-prosedyre, demokratisk tilbakegang i Slovakia og trusler mot uavhengigheten til public service-medier (TA-10-2026-0024) er vedvarende dagsordenpunkter. EP vedtar resolusjoner for rettsstatsbetingelsesprinsippet men mangler selvstendig sanksjonskraft.
@@ -59,7 +59,7 @@ IMF SDMX 3.0-endepunktet var utilgjengelig (nettverksbegrensning). Kontekst avle
 - Spania: **+3,5%** (robust; turisme, Nextgen EU)
 - Polen: **+3,0%** (sterk; CEE-integrering)
 
-EP10 preget av **divergens**: nordvestlig avindustrialiseringskorridoor vs sør-østlig vekstperiferi. Denne geografien former koalisjonspolitikken.
+EP10 preget av **divergens**: nordvestlig avindustrialiseringskorridor vs sør-østlig vekstperiferi. Denne geografien former koalisjonspolitikken.
 
 ## ⚠️ Mandatperiodens risikooversikt
 
