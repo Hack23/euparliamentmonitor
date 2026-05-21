@@ -381,6 +381,10 @@ export function aggregateByKey(items, key) {
  * @property {string} lang
  * @property {string} gate
  * @property {string} message
+ * @property {'error'|'warning'} [severity] - When present, controls
+ *   blocking semantics: `'warning'` entries (e.g. `skeleton-incomplete`)
+ *   do not cause a non-zero exit unless `--strict-skeletons` is passed.
+ *   Omitted entries default to blocking (`'error'` equivalent).
  */
 
 /** Parse CLI argv. Exported for unit tests. */

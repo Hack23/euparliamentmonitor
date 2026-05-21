@@ -68,11 +68,10 @@ describe('news-translate workflow contract', () => {
     // again 46 KB → 47 KB to admit the `target_brief` operator-override
     // workflow_dispatch input + the TARGET_BRIEF env wiring + the env
     // comment block explaining its security model. Cap raised 47 KB →
-    // 55 KB to admit (a) the 60→90-min timeout extension rationale,
-    // (b) the skeleton-marker contract added to Phase A after the
-    // skeleton-cascade failure #26235374860, (c) the Python-heredoc ban
-    // and edit-recovery guidance, (d) the rescaled 90-min Time Budget
-    // table with the transient-API-error retry-loop budget paragraph.
+    // 55 KB to admit (a) the skeleton-marker contract added to Phase A
+    // after the skeleton-cascade failure #26235374860, (b) the Python-
+    // heredoc ban and edit-recovery guidance, (c) the 60-min Time Budget
+    // table with the transient-API-error mitigation strategy paragraph.
     expect(workflow.length).toBeGreaterThan(2000);
     expect(workflow.length).toBeLessThan(55000);
   });
@@ -108,15 +107,13 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/\btarget_brief:/);
   });
 
-  it('keeps the 90-minute hard cap', () => {
+  it('keeps the 60-minute hard cap', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
-    // The cap was raised 60 → 90 minutes after run #26235374860, where two
-    // consecutive transient-API-error retry loops at the start of Phase B
-    // consumed 25 minutes of wall-clock before any translation was written.
-    // 30 minutes of additional headroom absorbs one retry loop with margin
-    // and Step 4b's emergency-flush guard still protects against runaway
-    // runs (now fires at ≥ 70 elapsed / ≤ 20 remaining instead of 45/15).
-    expect(workflow).toMatch(/^timeout-minutes:\s*90$/m);
+    // The 60-min cap is the fleet default for all news-*.md workflows.
+    // Better time management (prepare to commit at 40 min) and root-cause
+    // fixes for transient-API errors remove the need for a longer cap.
+    // Step 4b's emergency-flush guard fires at ≥ 40 elapsed / ≤ 20 remaining.
+    expect(workflow).toMatch(/^timeout-minutes:\s*60$/m);
   });
 
   it('uses claude-sonnet-4.6 as the engine (per approved allow-list)', () => {
@@ -369,10 +366,10 @@ describe('news-translate workflow contract', () => {
     // and remaining minutes before triggering the emergency flush. Checking
     // individual tokens (ELAPSED_MIN, -ge, 50) is insufficient — a regression
     // that removes the `||` branch or rearranges the test would still satisfy
-    // token-only assertions. Thresholds were rescaled from 45/15 to 70/20
-    // after the 60→90 min cap extension (run #26235374860 follow-up).
+    // token-only assertions. Thresholds: 40 min elapsed / 20 min remaining
+    // (prepare to commit at minute 40 of the 60-min cap).
     expect(workflow).toMatch(
-      /if \[ "\$\{ELAPSED_MIN\}" -ge 70 \] \|\| \[ "\$\{REMAINING_MIN\}" -le 20 \]/,
+      /if \[ "\$\{ELAPSED_MIN\}" -ge 40 \] \|\| \[ "\$\{REMAINING_MIN\}" -le 20 \]/,
     );
     // The bash block MUST write the emergency-flush marker file so later
     // post-step diagnostics can detect the early flush.
@@ -425,17 +422,17 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/Never.*heredoc|heredoc.*banned|heredocs of any/i);
   });
 
-  it('declares a transient-API-error retry-loop time budget', () => {
-    // Regression guard for run #26235374860: the agent had no
-    // documented budget for the gh-aw harness's transient-API-error
-    // retry loop, which historically costs 12-13 min per occurrence.
-    // Two consecutive retries consumed 25 min of wall-clock with no
-    // progress, leaving Phase B unable to complete a single largeSource
-    // brief. The §"⏱️ Time Budget" section must explicitly call out
-    // the retry-loop cost so the agent can budget defensively.
+  it('declares a transient-API-error mitigation strategy', () => {
+    // Regression guard for run #26235374860: the agent had no documented
+    // strategy for the gh-aw harness's transient-API-error retry loops.
+    // Rather than budgeting extra time (which led to the 90-min cap
+    // experiment), the workflow now documents detection heuristics (two
+    // consecutive edit calls > 5 min = retry loop) and triggers Step 4b
+    // immediately. The §"⏱️ Time Budget" section must explicitly call out
+    // transient-API-error handling so the agent can respond defensively.
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     expect(workflow).toMatch(/transient[- ]?API[- ]?error/i);
-    expect(workflow).toMatch(/12[- ]?13\s*min/i);
+    expect(workflow).toMatch(/retry.loop/i);
   });
 
   it('imports shared/config/news-pat-pr-fallback.md with translate-briefs slug', () => {

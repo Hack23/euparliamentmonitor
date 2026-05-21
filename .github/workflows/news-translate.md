@@ -54,17 +54,15 @@ permissions:
   discussions: read
   security-events: read
 
-# 90-minute hard cap. Per-run budget: MAX_BRIEFS × 13 languages × ~12 KB ≈
+# 60-minute hard cap. Per-run budget: MAX_BRIEFS × 13 languages × ~12 KB ≈
 # 26-39 markdown files / 300-450 KB of generated content. Comfortably inside
 # the gh-aw safe-outputs 10 MB patch ceiling and the model's invocation
-# budget. The cap was raised from 60 → 90 minutes after run #26235374860,
-# where two consecutive transient-API-error retry loops at the start of
-# Phase B consumed 25 minutes of wall-clock before any translation was
-# written (full-edition election-cycle brief, 385 lines = `largeSource:
-# true`). 30 minutes of additional budget absorbs one retry loop with
-# 5+ minutes of headroom, and Step 4b's emergency-flush guard still
-# protects against runaway runs.
-timeout-minutes: 90
+# budget. Time management: start preparing to commit after 40 min elapsed;
+# emergency-flush fires at ≥ 40 min elapsed or ≤ 20 min remaining. This
+# leaves 20 min for the flush + safe-outputs bundle application. Root-cause
+# fixes for transient-API errors (model downgrade, retry-loop detection)
+# remove the need for a longer cap.
+timeout-minutes: 60
 
 imports:
   - shared/config/news-common-settings.md
@@ -348,7 +346,7 @@ engine:
 | Read `/tmp/gh-aw/discovery/queue.json` | Read other unrelated repository files |
 | Run `node scripts/validate-brief-translations.js --paths …` to self-check | Use `sed`/`awk`/regex/`tr` to translate narrative content |
 | Call `safeoutputs___create_pull_request` after each fully-translated brief | Call `safeoutputs___create_pull_request` with zero translations produced (no files on disk) |
-| Emergency partial flush when wall-clock budget is exhausted (≥ 50 min elapsed OR `<10 min remaining`) — see § Step 4b | Silently let the engine time out / terminate without flushing any progress |
+| Emergency partial flush when wall-clock budget is exhausted (≥ 40 min elapsed OR <20 min remaining) — see § Step 4b | Silently let the engine time out / terminate without flushing any progress |
 
 > **Why a flush-before-timeout safety net matters**: prior runs have died
 > mid-brief (e.g. 10/13 languages written, engine terminated) and lost
@@ -735,8 +733,8 @@ PY
 
    **4b. Wall-clock safety net — emergency partial flush.** After every
    language file is written and H2-checked, compute elapsed minutes
-   from `WORKFLOW_START_EPOCH`. If **≥ 70 minutes** have elapsed (or
-   `≤ 20 minutes` remain of the 90-minute cap), **STOP translating
+   from `WORKFLOW_START_EPOCH`. If **≥ 40 minutes** have elapsed (or
+   `≤ 20 minutes` remain of the 60-minute cap), **STOP translating
    immediately** and call `safeoutputs___create_pull_request` with
    whatever files are already on disk — even if the current brief is
    only partially translated (e.g. 10/13 languages). A partial-brief
@@ -755,9 +753,9 @@ PY
    START_EPOCH=$(cat /tmp/gh-aw/workflow-start-epoch)
    NOW_EPOCH=$(date -u +%s)
    ELAPSED_MIN=$(( (NOW_EPOCH - START_EPOCH) / 60 ))
-   REMAINING_MIN=$(( 90 - ELAPSED_MIN ))
+   REMAINING_MIN=$(( 60 - ELAPSED_MIN ))
    echo "⏱️  Elapsed: ${ELAPSED_MIN} min | Remaining: ${REMAINING_MIN} min"
-   if [ "${ELAPSED_MIN}" -ge 70 ] || [ "${REMAINING_MIN}" -le 20 ]; then
+   if [ "${ELAPSED_MIN}" -ge 40 ] || [ "${REMAINING_MIN}" -le 20 ]; then
      echo "🚨 EMERGENCY FLUSH WINDOW REACHED — call safeoutputs___create_pull_request NOW with partial progress, then end the run." >&2
      # Record a breadcrumb so post-step diagnostics can correlate the early
      # flush. Include the missing-language list because the validator only
@@ -880,7 +878,7 @@ PY
    ```
 
 7. **Move to the next queue entry** until the queue is empty OR you've
-   used ≥ 45 minutes of the 60-minute cap (the Step 4b check enforces
+   used ≥ 40 minutes of the 60-minute cap (the Step 4b check enforces
    this automatically — when the marker is written, end the run after
    the emergency flush).
 
@@ -899,18 +897,17 @@ When the queue is empty (or the wall-clock budget is exhausted):
    Output a one-line confirmation (e.g. "PR created. Exiting.") and terminate.
    Do not continue processing — the run is complete.
 
-## ⏱️ Time Budget (90-minute hard cap)
+## ⏱️ Time Budget (60-minute hard cap)
 
 | Minutes | Action |
 |---------|--------|
 | 0-1 | Step 0 date context (records `WORKFLOW_START_EPOCH`); Step 1 read queue |
 | 1-2 | Step 2 read sources, count headings, choose 1-phase vs 2-phase strategy |
-| 2-32 | Translate brief #1 (13 languages, Pass 1 + Pass 2; largeSource = Phase A + Phase B). First per-brief flush at ~32. |
-| 32-62 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~62. |
-| 62-70 | Buffer for one transient-API-error retry loop (run #26235374860 burned 25 min on two consecutive retries; budget for at least one to recur). |
-| 70-75 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 75. |
-| 75-80 | Step 3 summary + final flush. **Final flush must land by minute ≤ 80.** |
-| 80-90 | Buffer for safe-outputs bundle application and graceful exit. **Do NOT start new work after minute 70.** |
+| 2-30 | Translate brief #1 (13 languages, Pass 1 + Pass 2; largeSource = Phase A + Phase B). First per-brief flush at ~30. |
+| 30-40 | Translate brief #2 (if queue has one). Second flush at ~40. |
+| 40-45 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 45. |
+| 45-50 | Step 3 summary + final flush. **Final flush must land by minute ≤ 50.** |
+| 50-60 | Buffer for safe-outputs bundle application and graceful exit. **Do NOT start new work after minute 40.** |
 
 Stretch: if `max_briefs` is overridden to 3 or 4 (catch-up mode), tighten
 each per-brief window proportionally. The script-level discovery already
@@ -918,14 +915,13 @@ caps the queue; the AI does not need to ration its own work. The Step 4b
 wall-clock guard is the failsafe — if anything overruns, it forces an
 emergency partial flush instead of letting the engine time out with no PR.
 
-**Transient-API-error budget**: a single transient-API-error retry loop
-historically costs **12-13 minutes** of wall-clock (the gh-aw harness
-re-runs the entire inference). Run #26235374860 hit two retry loops
-back-to-back (25 min lost) before Phase B even started, leaving no time
-for a full 13-language translation of a `largeSource: true` brief.
-Plan for **one** retry loop per run; if two consecutive Phase B `edit`
-calls take > 5 min each, you are inside a retry loop — trigger Step 4b
-immediately even if the elapsed threshold has not fired yet.
+**Transient-API-error mitigation**: rather than budgeting extra time for
+retry loops, the root cause is addressed by (1) using a lower-cost model
+(`claude-sonnet-4` instead of `claude-sonnet-4.6`) to reduce rate limiting,
+(2) detecting retry loops early (two consecutive `edit` calls > 5 min each
+= retry loop → trigger Step 4b immediately), and (3) aggressive 40-min
+commit preparation threshold that ensures at least partial output is saved
+even if a retry loop consumed early minutes.
 
 ## 🚫 Never
 
@@ -976,8 +972,8 @@ immediately even if the elapsed threshold has not fired yet.
   (≥ 1 `executive-brief_<lang>.md` file on disk is sufficient).
 - **Never** let the engine time out or terminate without flushing
   whatever translations are already on disk. The Step 4b wall-clock
-  guard fires at ≥ 70 elapsed minutes (or ≤ 20 remaining of the
-  90-minute cap); when it does, call
+  guard fires at ≥ 40 elapsed minutes (or ≤ 20 remaining of the
+  60-minute cap); when it does, call
   `safeoutputs___create_pull_request` immediately with the
   partial-progress title — even mid-brief — and end the run.
 - **Never** skip a queue entry because its date is old; backlog parity is

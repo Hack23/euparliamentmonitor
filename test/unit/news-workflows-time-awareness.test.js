@@ -7,9 +7,11 @@
  * What we enforce:
  *
  *   1. Every `news-*.md` agentic workflow declares `timeout-minutes: 60`
- *      at the top level. The agent reasons about the 60-min hard cap
- *      throughout 02-analysis-protocol.md; a drift to any other value
- *      silently breaks every per-family tripwire in that prompt.
+ *      at the top level (default). Explicit per-file exceptions are allowed
+ *      via `TIMEOUTS_BY_FILE` but must be justified; the default is 60 min
+ *      and the agent reasons about this cap throughout
+ *      02-analysis-protocol.md. A drift to any other value silently breaks
+ *      every per-family tripwire in that prompt.
  *
  *   2. Every non-news GitHub Actions workflow under `.github/workflows/`
  *      declares an explicit `timeout-minutes:` for each of its jobs. The
@@ -66,12 +68,11 @@ describe('agentic news workflows — timeout drift-guard', () => {
     .filter((f) => /^news-.*\.md$/.test(f))
     .sort();
 
-  // news-translate is intentionally given a longer cap than the article
-  // workflows because its largeSource 2-phase strategy must absorb at
-  // least one transient-API-error retry loop (run #26235374860 lost 25
-  // min to two consecutive retries). Article workflows stay at 60 min.
+  // All news-*.md workflows share the same 60-min hard cap. Better time
+  // management (start preparing to commit at 40 min) and root-cause fixes
+  // for transient-API errors make the longer cap unnecessary.
   const TIMEOUTS_BY_FILE = new Map([
-    ['news-translate.md', 90],
+    // No exceptions — all workflows use DEFAULT_TIMEOUT (60 min).
   ]);
   const DEFAULT_TIMEOUT = 60;
 
