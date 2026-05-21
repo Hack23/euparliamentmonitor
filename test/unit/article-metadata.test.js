@@ -1478,6 +1478,26 @@ describe('extractPriorityFindingHighlight', () => {
     }
   });
 
+  it('strips a leading `**WEP:** ...` confidence-band line from the priority-finding summary (regression: run #26223932441)', () => {
+    // Regression guard: `intelligence/synthesis-summary.md` opens each
+    // Key Judgement with `**WEP: ALMOST CERTAINLY (>95%)** | Admiralty:
+    // A1`. That line leaked verbatim into `<meta description>` and
+    // tripped the html-article-pipeline test that forbids all-caps
+    // prose-label openers (SITUATION:, BLUF:, WEP:, …).
+    const md = [
+      '## Key Judgements',
+      '',
+      '### KJ-1: AI Trade Policy Is Becoming the Dominant Battleground',
+      '**WEP: ALMOST CERTAINLY (>95%)** | Admiralty: A1 (adopted text as primary evidence)',
+      '',
+      'The adoption of T10-0183/2026 establishes Parliament position on AI-trade instruments and signals an inflection point for EU digital trade diplomacy.',
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    expect(result?.headline).toBe('AI Trade Policy Is Becoming the Dominant Battleground');
+    expect(result?.summary ?? '').not.toMatch(/^[A-Z][A-Z0-9 -]{1,40}:\s/);
+    expect(result?.summary ?? '').toContain('T10-0183/2026');
+  });
+
   it('returns null when the body has no priority section AND no H2 story heading', () => {
     const md = [
       '# Executive Brief — Something',

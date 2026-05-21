@@ -155,6 +155,13 @@ export const METADATA_LINE_PREFIXES: readonly string[] = [
   'SPDX-License-Identifier',
   'Topic',
   'Type',
+  // Bare `WEP:` (Words of Estimative Probability) lines appear in
+  // `intelligence/synthesis-summary.md` between a KJ-N heading and its
+  // prose body (e.g. `**WEP: ALMOST CERTAINLY (>95%)** | Admiralty: A1`).
+  // The line is grade/confidence metadata, not editorial prose — without
+  // this prefix it leaked into `<meta description>` as an all-caps shout
+  // (run #26223932441, propositions 2026-05-21).
+  'WEP',
   'WEP Band',
   'WEP Grade',
   'Window',
