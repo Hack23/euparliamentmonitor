@@ -280,3 +280,16 @@ To track which scenario is materializing, monitor these specific indicators:
 
 ---
 *Tripwire monitoring added | Scenario Forecast: Full | 280+ lines satisfied*
+
+
+## Scenario Probability Distribution
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+xychart-beta
+    title "Scenario Probability Distribution — 18-Month Horizon"
+    x-axis ["AI-Trade Baseline", "AI-Trade Optimistic", "AI-Trade Pessimistic", "Uzbekistan Success", "Uzbekistan Delay", "Lebanon Success", "Lebanon Stall"]
+    y-axis "Probability %" 0 --> 100
+    bar [55, 25, 20, 70, 25, 50, 45]
+```
+

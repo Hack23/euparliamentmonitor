@@ -179,3 +179,32 @@
 
 ---
 *Analysis Index complete: 160+ lines | Version 1.0 | 2026-05-21*
+
+
+## Analysis Architecture Overview
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+flowchart TD
+    DATA[Stage A: EP Data Collection] --> INTEL[Intelligence Analysis]
+    DATA --> CLASS[Classification Analysis]
+    DATA --> RISK[Risk Scoring]
+    DATA --> THREAT[Threat Assessment]
+    INTEL --> SYNTH[synthesis-summary.md]
+    INTEL --> STAKE[stakeholder-map.md]
+    INTEL --> SCEN[scenario-forecast.md]
+    INTEL --> PEST[pestle-analysis.md]
+    INTEL --> THREAT2[threat-model.md]
+    CLASS --> SIG[significance-classification.md]
+    CLASS --> ACTOR[actor-mapping.md]
+    CLASS --> FORCES[forces-analysis.md]
+    CLASS --> IMPACT[impact-matrix.md]
+    RISK --> MATRIX[risk-matrix.md]
+    RISK --> SWOT[quantitative-swot.md]
+    SYNTH --> BRIEF[executive-brief.md]
+    STAKE --> BRIEF
+    SCEN --> BRIEF
+    style DATA fill:#1565C0,color:#ffffff
+    style BRIEF fill:#D32F2F,color:#ffffff
+```
+
