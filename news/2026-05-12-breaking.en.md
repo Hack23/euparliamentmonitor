@@ -148,6 +148,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/coalition-mathematics.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -8895,6 +8896,1476 @@ Quality thresholds: `analysis/methodologies/reference-quality-thresholds.json`
 Artifact catalog: `analysis/methodologies/artifact-catalog.md`
 Run data: `intelligence/mcp-reliability-audit.md`
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-12 | **نوع المقال:** breaking | **مستوى الثقة:** 🟡 متوسط
+**BLUF (الخلاصة الفورية):** أسفرت الجلسة العامة للبرلمان الأوروبي في الفترة من 28 أبريل إلى 1 مايو 2026 عن أكثر من 30 نتيجة تشريعية وسياسية مهمة في خمس مجموعات استراتيجية: (1) تقرير مرحلي عن الإطار المالي متعدد السنوات 2028–2034 يُشير إلى إعادة توجيه تحويلية للميزانية نحو الدفاع والقدرة التنافسية، (2) موافقات شاملة على منح إبراء الذمة لعام 2024 تغطي المفوضية والبرلمان والوكالات والمشاريع المشتركة، (3) تقييمات سنوية لسيادة القانون والحقوق الأساسية مع انتقادات صريحة للدول الأعضاء، (4) تسريع الحوكمة الرقمية عبر قانون الأسواق الرقمية/الذكاء الاصطناعي، و(5) قرارات المساءلة الجيوسياسية (محكمة أوكرانيا الخاصة، أرمينيا). يُعدّ التقرير المرحلي للإطار المالي متعدد السنوات البنداً الأكثر أهمية، إذ يُشير إلى موقف البرلمان الأوروبي التفاوضي لدورة الميزانية 2027+ بمطالب غير مسبوقة لدمج القدرات الدفاعية.
+
+---
+
+### القراءة في 60 ثانية
+
+**ما الذي جرى:** أسفرت الجلسة العامة للبرلمان الأوروبي في أواخر أبريل 2026 عن نتائج تشريعية متراصة بشكل تاريخي. في غضون خمسة أيام، اعتمد أعضاء البرلمان تقريراً مرحلياً عن الإطار المالي متعدد السنوات 2028–2034، ومنحوا إبراء الذمة لعام 2024 للمفوضية وجميع الهيئات الأوروبية الكبرى، وأقروا تقييمات جوهرية لسيادة القانون والحقوق الأساسية، وعززوا الحوكمة الرقمية عبر قانون الذكاء الاصطناعي الشامل وتطبيق قانون الأسواق الرقمية، وأصدروا قرارات جيوسياسية بشأن المساءلة الجنائية الروسية في أوكرانيا ومرونة أرمينيا الديمقراطية.
+
+**لماذا يهم هذا:** يُعدّ التقرير المرحلي للإطار المالي متعدد السنوات 2028–2034 وثيقةً تحوّلية. فهو يُشير إلى أن البرلمان الأوروبي مستعد للمصادقة على هيكل ميزانية مختلف جذرياً عن الإطار المالي 2021–2027؛ هيكل يدمج تمويل القدرات الدفاعية (الأول في تاريخ ميزانية الاتحاد الأوروبي)، ويُقلّص حصص صناديق الزراعة والتماسك لصالح القدرة التنافسية والاستقلالية الاستراتيجية، ويُحتمل إدخال موارد ذاتية جديدة للاتحاد الأوروبي بما فيها ضريبة رقمية. أتمّت دورة إبراء الذمة في الوقت ذاته مراجعة مساءلة شاملة لكيفية إدارة أكثر من 200 مليار يورو من الأموال الأوروبية في عام 2024، مع منح إبراء ذمة المفوضية بفارق ضيق وفق شروط تتعلق بتطبيق مشروطية سيادة القانون.
+
+**الخريطة السياسية:** قادت الأغلبية البنّاءة (حزب الشعب الأوروبي+التحالف التقدمي للاشتراكيين والديمقراطيين+تجديد أوروبا = 396 مقعداً) جميع التصويتات المهمة. أظهر التصويت على الإطار المالي توافقاً عابراً للكتل حول دمج الدفاع رغم الاختلافات الأيديولوجية في الإنفاق الاجتماعي. طعن PfE+ECR في قرارات سيادة القانون ولغة مشروطية إبراء الذمة. صوّت الخضر واليسار مع التيار الرئيسي في قضايا المساءلة والحقوق، لكنهم عارضوا أحكام توسيع الدفاع.
+
+**الأرقام الرئيسية:**
+- 717 نائباً في 9 مجموعات سياسية
+- أكثر من 30 قانوناً وقراراً مُعتمداً في الفترة 28–30 أبريل
+- الإطار المالي متعدد السنوات 2028–2034: غلاف مقترح بقيمة 2,0–2,4 تريليون يورو (تقدير)
+- إبراء ذمة المفوضية 2024: مُعتمد وفق شروط
+- 164 نصاً مُعتمداً تراكمياً في الدورة العاشرة للبرلمان الأوروبي حتى الآن (2025–2026)
+- مؤشر الاستقرار: 84/100 (نظام الإنذار المبكر للبرلمان الأوروبي)
+
+---
+
+### أبرز 5 تطورات عاجلة (مُصنّفة حسب الأهمية)
+
+#### 1. 🔴 التقرير المرحلي للإطار المالي متعدد السنوات 2028–2034 (TA-10-2026-0111) — بالغ الأهمية
+**تاريخ الاعتماد:** 2026-04-28 | **الأهمية:** 9.5/10
+
+يُعدّ التقرير المرحلي للبرلمان الأوروبي حول الإطار المالي متعدد السنوات 2028–2034 الوثيقة السياسية الأكثر أثراً التي أصدرها البرلمان في الربع الأول من عام 2026. فهو يمثل عرض الافتتاح من جانب البرلمان في مفاوضات ستمتد 18–24 شهراً مع المفوضية والمجلس حول الهيكل الميزاني للاتحاد الأوروبي للسنوات السبع المقبلة.
+
+أبرز مطالب البرلمان الأوروبي في التقرير المرحلي:
+- **دمج الدفاع**: للمرة الأولى، يقبل البرلمان الأوروبي أن تدعم أموال ميزانية الاتحاد الأوروبي تطوير القدرات الدفاعية إلى جانب أطر الدفاع الوطنية/الناتو القائمة — تحوّل نموذجي عن نموذج الميزانية كـ"قوة مدنية"
+- **إصلاح الموارد الذاتية**: يطالب البرلمان الأوروبي بموارد ذاتية جديدة للاتحاد الأوروبي تشمل ضريبة على الخدمات الرقمية (موجّهة لنفس شركات التكنولوجيا الكبرى الخاضعة لقانون الأسواق الرقمية) وضريبة على المعاملات المالية
+- **الحفاظ على صندوق التماسك**: ضمنت مجموعة التحالف التقدمي والمجموعات الإقليمية صياغةً تحفظ مبدأ التماسك الإقليمي، وإن ظل الحجم الكمي موضع خلاف
+- **مشروطية المناخ**: ينبغي أن تكون جميع بنود الميزانية الرئيسية "متوافقة مع اتفاقية باريس" بحد أدنى 30% للإنفاق المناخي
+- **مشروطية سيادة القانون**: يُعزّز البرلمان آليات المشروطية استناداً إلى السابقة المُرسّخة في قضية المجر
+
+**ديناميكيات الائتلاف:** أيّد حزب الشعب الأوروبي لغة دمج الدفاع؛ أيّد التحالف التقدمي التماسك الاجتماعي؛ أيّد تجديد أوروبا الضريبة الرقمية؛ أيّد الخضر مشروطية المناخ. توافق نادر بين أربع مجموعات حول الوثيقة الإجمالية رغم التوترات الداخلية بشأن الحجم الكمي للدفاع.
+
+**الانعكاس الاستراتيجي:** يُتوقع صدور مقترح المفوضية الرسمي للإطار المالي في الربع الرابع من 2026. يضع التقرير المرحلي للبرلمان خط الأساس التفاوضي. ستُقاوم الدول الأعضاء في المجلس أحكام دمج الدفاع وإصلاح الموارد الذاتية. ستكون مفاوضات 2027 أكثر العمليات المؤسسية أثراً سياسياً في الاتحاد الأوروبي على مدى العقد.
+
+---
+
+#### 2. 🟠 إبراء الذمة على الميزانية 2024 — هيكل المساءلة (نصوص TA متعددة) — مرتفع
+**تاريخ الاعتماد:** 2026-04-28–29 | **الأهمية:** 8.5/10
+
+اعتمد البرلمان الأوروبي مجموعة شاملة من قرارات إبراء الذمة على ميزانية 2024:
+- المفوضية (TA-10-2026-0125) — مُعتمد وفق شروط
+- البرلمان الأوروبي (TA-10-2026-0126) — مُعتمد
+- الخدمة الأوروبية للعمل الخارجي (TA-10-2026-0130) — مُعتمد
+- أمين المظالم الأوروبي (TA-10-2026-0133) — مُعتمد
+- المدعي العام الأوروبي (TA-10-2026-0135) — مُعتمد
+- الوكالات (TA-10-2026-0136) — مُعتمد
+- المشاريع المشتركة (TA-10-2026-0137) — مُعتمد
+
+**شروط إبراء ذمة المفوضية** هي الأكثر أهمية سياسياً. فرضت لجنة CONT (رقابة الميزانية) شروطاً تتعلق بـ:
+1. تطبيق مشروطية سيادة القانون — وضع المجر؛ توقيت الإفراج عن الأموال
+2. الرقابة على آلية التعافي والمرونة — ضمان تحقيق الدول الأعضاء للمعالم النهائية
+3. إدارة المساعدات الخارجية — محاسبة الدعم الثنائي لأوكرانيا المُقدَّم عبر أدوات الاتحاد الأوروبي
+4. إدارة صندوق التحول الرقمي — تخصيص الميزانية لتنفيذ قانون الذكاء الاصطناعي
+
+تعكس الموافقة على إبراء الذمة (بدلاً من الرفض) المصلحة الذاتية المؤسسية للبرلمان الأوروبي؛ إذ سيُفضي رفض إبراء ذمة المفوضية إلى أزمة دستورية. بيد أن الشروط تُنشئ آلية مساءلة سياسية يمكن للبرلمان الاستناد إليها في مسارات الرقابة المستقبلية.
+
+---
+
+#### 3. 🟠 التقارير السنوية حول سيادة القانون والحقوق الأساسية — مرتفع
+**تاريخ الاعتماد:** 2026-04-29 | **الأهمية:** 8.0/10
+
+اعتُمد تقييمان سنويان مهمان:
+- **تقرير المفوضية حول سيادة القانون 2025** (TA-10-2026-0147): أقرّ البرلمان تقييم المفوضية مع مطالب إضافية من البرلمان. المخاوف الرئيسية: المجر (تراجع مستمر في سيادة القانون رغم الإفراج المشروط عن الأموال)، بولندا (مسار إيجابي مُحتفظ به)، رومانيا، بلغاريا (تطبيق إصلاح القضاء)، سلوفاكيا (مخاوف جديدة إثر تغيير الحكومة).
+- **الحقوق الأساسية 2024–2025** (TA-10-2026-0146): وثّق البرلمان تدهور الأوضاع في المجر، والتعافي الجزئي لبولندا، والمخاوف الناشئة في إيطاليا وفرنسا بشأن حرية الصحافة والحوكمة الخوارزمية.
+
+**الأهمية السياسية:** تُشكّل هذه القرارات السجل الإثباتي لـ:
+1. الإجراءات المستقبلية بموجب المادة 7 من معاهدة الاتحاد الأوروبي (في حال أشعلت المجر التصعيد)
+2. قرارات مشروطية سيادة القانون المتعلقة بصرف الأموال الهيكلية
+3. تقييمات مشروطية انضمام دول الاتحاد الأوروبي (أوكرانيا، مولدوفا، البلقان الغربي)
+
+---
+
+#### 4. 🟡 الحوكمة الرقمية: قانون الذكاء الاصطناعي الشامل وتطبيق قانون الأسواق الرقمية — متوسط-مرتفع
+**تاريخ الاعتماد:** 2026-03-26 (قانون الذكاء الاصطناعي الشامل)؛ جارٍ (قانون الأسواق الرقمية) | **الأهمية:** 7.5/10
+
+يُبسّط قانون الذكاء الاصطناعي الرقمي الشامل (TA-10-2026-0098) تطبيق قانون الذكاء الاصطناعي على الشركات الصغيرة والمتوسطة والشركات الناشئة، بتخفيف عبء الامتثال للشركات ذات العائدات الأقل من 50 مليون يورو مع الحفاظ على التطبيق الكامل للشركات الكبيرة. يعكس ذلك إدراك البرلمان الأوروبي لخطر تركّز تكاليف الامتثال في قانون الذكاء الاصطناعي على الشركات الأوروبية دون عمالقة التكنولوجيا الأمريكيين.
+
+بالاقتران مع الدفاع عن تطبيق قانون الأسواق الرقمية (من التحليل السابق)، يُرسي هذا إطار حوكمة رقمية متماسكاً: تنظيم صارم لشركات التكنولوجيا الكبرى (قانون الأسواق الرقمية) + تطبيق مُبسَّط للمبتكرين الأوروبيين (قانون الذكاء الاصطناعي الشامل).
+
+---
+
+#### 5. 🟡 التقرير السنوي للاتحاد المصرفي وBRRD3 — متوسط
+**تاريخ الاعتماد:** 2026-04-30 و2026-03-26 | **الأهمية:** 7.0/10
+
+يُعزّز كل من التقرير السنوي للاتحاد المصرفي 2025 (TA-10-2026-0159) وBRRD3 (TA-10-2026-0091) إطار الاستقرار المالي للاتحاد الأوروبي ما بعد عام 2008. تُحدّث BRRD3 محفزات التدخل المبكر وشروط الإنقاذ، مستوعبةً دروس أزمة كريدي سويس عام 2023. يطالب تقرير الاتحاد المصرفي باستكمال نظام ضمان الودائع الأوروبي (EDIS) — لا يزال محظوراً بسبب المعارضة الألمانية والهولندية في المجلس.
+
+---
+
+### ملخص الاستخبارات السياسية
+
+**حالة الأغلبية البنّاءة:** 🟢 مستقرة
+صمد ائتلاف حزب الشعب الأوروبي+التحالف التقدمي+تجديد أوروبا (396 مقعداً) في جميع التصويتات المهمة بما فيها إبراء ذمة المفوضية المثير للجدل. تستمر ضغوط الائتلاف حول دمج الإنفاق الدفاعي (معارضة الخضر/اليسار) والسياسة المهاجراتية (خطر التوافق بين حزب الشعب الأوروبي وECR).
+
+**نقطة الضعف الرئيسية:** يمكن أن تُشقّ الائتلاف لغة دمج الدفاع في التقرير المرحلي للإطار المالي إذا أصبحت المشكلة المحورية في مفاوضات 2027؛ فالخضر واليسار سيعارضان تخصيص الأموال للدفاع حتى في إطار ميزانية الاتحاد الأوروبي.
+
+**تحديث استراتيجية PfE:** يُكثّف PfE حملته السردية حول إلغاء الشرعية المؤسسية (تدخل المفوضية في الانتخابات، نقاش 29 أبريل حول القاعدة 169). وبعجزه عن إعاقة التشريعات، يتموضع PfE لمفاوضات الإطار المالي متعدد السنوات 2027 لحظةَ رافعة. ستطالب الحكومات المنتسبة إلى PfE (المجر وإيطاليا والمكوّن الفرنسي NR) بتنازلات محددة في الإطار المالي مقابل اتفاق المجلس.
+
+**الطبقة الجيوسياسية:** يُشير كلٌّ من أجندة مساءلة أوكرانيا (المطالبة بمحكمة خاصة) وقرار أرمينيا إلى الموقف النشط للبرلمان الأوروبي في السياسة الخارجية. لا يُرتّب هذان القراران أثراً تشريعياً مباشراً، لكنهما يخلقان مساءلةً سياسية لتنفيذ المفوضية والمجلس للسياسة الخارجية.
+
+---
+
+### إحالة المصادر
+جُمعت البيانات من بوابة البيانات المفتوحة للبرلمان الأوروبي (النصوص المعتمدة، المشهد السياسي، نظام الإنذار المبكر، ديناميكيات الائتلاف)
+النطاق الزمني: 2026-01-01 إلى 2026-05-12 (164 نصاً مُعتمداً في الدورة العاشرة للبرلمان الأوروبي)
+الثقة: 🟡 متوسط (لا تتوفر بيانات التصويت الاسمي؛ تأخر نشر البرلمان الأوروبي 4–6 أسابيع)
+المنهجية: تركيب الاستخبارات السياسية باستخدام تقنيات تحليلية منظّمة
+
+### Executive Brief Da
+
+### 60-sekunders læsning
+
+**Hvad skete der:** EP's plenarsamling i slutningen af april 2026 producerede et historisk tæt lovgivningsresultat. I løbet af fem dage vedtog MEP'erne en interimsbetænkning om den flerårige finansielle ramme 2028–2034, godkendte 2024-decharge for Kommissionen og alle større EU-organer, vedtog store vurderinger af retsstatsprincippet og grundlæggende rettigheder, fremme digital styring via AI Digital Omnibus og DMA-håndhævelse, og udstedte geopolitiske resolutioner om Ukraines strafferetlige ansvar og Armeniens demokratiske modstandsdygtighed.
+
+**Hvorfor det betyder noget:** FFR 2028–2034-interimsbetænkningen er et inflexionsdokument. Den signalerer, at EP er parat til at godkende en grundlæggende anderledes budgetarkitektur end FFR 2021–2027 — en der integrerer forsvarscapacitetsfinansiering (en første i EU-budgethistorien), reducerer landbrugs- og samhørighedsfondandele til fordel for konkurrenceevne og strategisk autonomi, og potentielt indfører nye EU-egne ressourcer herunder en digital afgift. Bevillingscyklussen gennemførte samtidig en omfattende ansvarsgennemgang af, hvordan mere end 200 milliarder euro i EU-midler blev forvaltet i 2024, med Kommissions­decharge snævert godkendt med betingelser relateret til gennemførelse af retsstatskonditionalitet.
+
+**Det politiske kort:** Det konstruktive flertal (EPP+S&D+Renew = 396 pladser) drev alle vigtige afstemninger. FFR-afstemningen demonstrerede sektoroverskridende konvergens om forsvarsintegration på trods af ideologiske forskelle om sociale udgifter. PfE+ECR bestred retsstatsresolutioner og decharge-betingelsessprog. De Grønne og Venstrefløjen stemte med mainstream om ansvarighed og rettigheder, men imod forsvarsudvidelsesbestemmelserne.
+
+**Nøgletal:**
+- 717 MEP'er i 9 politiske grupper
+- 30+ retsakter og resolutioner vedtaget 28.–30. april
+- FFR 2028–2034: Foreslået ramme på 2,0–2,4 billioner euro (estimat)
+- 2024-Kommissions­decharge: Godkendt med betingelser
+- 164 vedtagne tekster kumulativt i EP10-mandatperioden til dato (2025–2026)
+- Stabilitetspoint: 84/100 (EP's tidlige varslingssystem)
+
+---
+
+### Top 5 Breaking Developments (Rangeret efter Betydning)
+
+#### 1. 🔴 FFR 2028–2034 Interimsbetænkning (TA-10-2026-0111) — KRITISK
+**Vedtagelsesdato:** 2026-04-28 | **Betydning:** 9,5/10
+
+EP's interimsbetænkning om den flerårige finansielle ramme for 2028–2034 er det mest konsekvente politiske dokument produceret af EP i første kvartal 2026. Det repræsenterer Parlamentets åbningsbud i, hvad der vil være en 18–24 måneders forhandling med Kommissionen og Rådet om EU's næste syvårige budgetarkitektur.
+
+Vigtige EP-krav indlejret i interimsbetænkningen:
+- **Forsvarsintegration**: For første gang accepterer EP, at EU-budgetmidler bør støtte forsvarskapacitetsudvikling side om side med eksisterende NATO/nationale forsvarsrammer — et paradigmeskifte fra EU-budgetmodellen som "civil magt"
+- **Reform af egne ressourcer**: EP kræver nye EU-egne ressourcer herunder en digital serviceafgift (rettet mod de samme Big Tech-virksomheder reguleret under DMA) og en skat på finansielle transaktioner
+- **Bevarelse af samhørighedsfonden**: S&D og regionale grupper sikrede sprogbrug, der bevarer princippet om territorial samhørighed, selvom kvantiteten forbliver omstridt
+- **Klimakonditionalitet**: Alle større budgetposter bør være "Paris-justerede" med mindst 30 % klimaudgifter
+- **Retsstatskondition**: EP styrker konditionalitetsmekanismerne efter Ungarn-sagen som præcedens
+
+**Koalitionsdynamik:** EPP støttede forsvarsintegrationssproget; S&D støttede social samhørighed; Renew støttede digital afgift; Grønne støttede klimakondition. En sjælden firegruppers konsensus om det overordnede dokument på trods af interne spændinger om forsvarskvantiteten.
+
+**Strategisk implikation:** Kommissionens formelle FFR-forslag forventes Q4 2026. EP's interimsbetænkning sætter forhandlingsbasislinje. Rådet (medlemsstater) vil modstå forsvarsintegrations­bestemmelserne og reform af egne ressourcer. Forhandlingen 2027 vil være det mest politisk afgørende EU-institutionelle forløb i årtiet.
+
+---
+
+#### 2. 🟠 Budgetdecharge 2024 — Ansvarsarkitektur (Flere TA) — HØJ
+**Vedtagelsesdato:** 2026-04-28–29 | **Betydning:** 8,5/10
+
+EP godkendte et omfattende sæt af 2024-budgetdecharge-beslutninger:
+- Kommissionen (TA-10-2026-0125) — godkendt med betingelser
+- Europa-Parlamentet (TA-10-2026-0126) — godkendt
+- Tjenesten for EU's Optræden Udadtil (TA-10-2026-0130) — godkendt
+- Den Europæiske Ombudsmand (TA-10-2026-0133) — godkendt
+- Den Europæiske Anklagemyndighed (TA-10-2026-0135) — godkendt
+- Agenturer (TA-10-2026-0136) — godkendt
+- Fællesforetagender (TA-10-2026-0137) — godkendt
+
+**Kommissionens decharge-betingelser** er de mest politisk betydningsfulde. CONT-udvalget (budgetkontrol) pålagde betingelser relateret til:
+1. Gennemførelse af retsstatskonditionalitet — Ungarn-situationen; timing af middelsfrigivelse
+2. Tilsyn med genopretnings- og resiliensfaciliteten — sikring af, at endelige milepæle opfyldes af medlemsstater
+3. Forvaltning af ekstern bistand — regnskab for bilateral Ukraine-støtte kanaliseret via EU-instrumenter
+4. Forvaltning af fonden for digital omstilling — AI-lovens implementeringsbudgetallokering
+
+Decharge-godkendelsen (snarere end afvisning) afspejler EP's institutionelle egeninteresse — at afvise Kommissions­decharge ville udløse en konstitutionel krise. Betingelserne skaber dog en politisk ansvarsmekanisme, som EP kan påberåbe sig i fremtidige kontrolprocesser.
+
+---
+
+#### 3. 🟠 Årsrapporter om Retsstaten og Grundlæggende Rettigheder — HØJ
+**Vedtagelsesdato:** 2026-04-29 | **Betydning:** 8,0/10
+
+To store årlige vurderinger blev vedtaget:
+- **Kommissionens rapport om retsstatsprincippet 2025** (TA-10-2026-0147): EP godkendte Kommissionens vurdering med yderligere EP-krav. Vigtige bekymringer: Ungarn (fortsat retsstatsforringelse trods betingede middelsfrigivelser), Polen (positiv bane opretholdt), Rumænien, Bulgarien (gennemførelse af domstolsreform), Slovakiet (nye bekymringer efter regeringsskift).
+- **Grundlæggende rettigheder 2024–2025** (TA-10-2026-0146): EP dokumenterede forværrede forhold i Ungarn, Polens delvise genopretning og fremvoksende bekymringer i Italien og Frankrig vedrørende mediefrihed og algoritmisk styring.
+
+**Politisk betydning:** Disse resolutioner skaber bevisgrundlag for:
+1. Fremtidige artikel 7 TEU-procedurer (hvis Ungarn udløser eskalering)
+2. Retsstatskonditions-beslutninger om strukturfondsudbetalinger
+3. EU-udvidelseskonditionalitetsvurderinger (Ukraine, Moldova, Vestbalkan)
+
+---
+
+#### 4. 🟡 Digital Styring: AI Omnibus og DMA Håndhævelse — MIDDEL-HØJ
+**Vedtagelsesdato:** 2026-03-26 (AI Omnibus); igangværende (DMA) | **Betydning:** 7,5/10
+
+AI Digital Omnibus (TA-10-2026-0098) forenkler implementeringen af AI-loven for SMV'er og startups — reducerer efterlevnelsesbyrden for virksomheder under 50 millioner euro i omsætning, mens fuld anvendelse opretholdes for store virksomheder. Dette afspejler EP's erkendelse af, at AI-lovens efterlevnelsesomkostninger risikerer at blive koncentreret hos EU-baserede virksomheder snarere end amerikanske tech-giganter.
+
+Kombineret med DMA-håndhævelsesadvokacy (fra foregående analysekørsel) skabes hermed en sammenhængende digital styringsramme: stærk regulering for Big Tech (DMA) + forenklet implementering for EU-innovatorer (AI Omnibus).
+
+---
+
+#### 5. 🟡 Bankunionens Årsrapport og BRRD3 — MIDDEL
+**Vedtagelsesdato:** 2026-04-30 og 2026-03-26 | **Betydning:** 7,0/10
+
+Bankunionens årsrapport 2025 (TA-10-2026-0159) og BRRD3 (TA-10-2026-0091) fremmer tilsammen EU's finansielle stabilitetsramme efter 2008. BRRD3 moderniserer tidlige interventionsudløsere og resolutionsbetingelser med læringer fra Credit Suisse-krisen 2023. Bankunionens rapport kræver fuldførelse af det europæiske indskudsgarantisystem (EDIS) — stadig blokeret af tysk og nederlandsk modstand i Rådet.
+
+---
+
+### Politisk Efterretningssammenfatning
+
+**Status for konstruktivt flertal:** 🟢 Stabilt
+EPP+S&D+Renew-koalitionen på 396 pladser holdt ved alle vigtige afstemninger herunder den omstridte Kommissions­decharge. Koalitionsstress vedvarer vedrørende integration af forsvarsudgifter (Grønne/Venstre-opposition) og migrationspolitik (EPP-ECR-tilpasningsrisiko).
+
+**Vigtig sårbarhed:** FFR-interimsbetænkningens forsvarsintegrationssprog kunne splitte koalitionen, hvis det bliver det centrale spørgsmål i 2027-forhandlingerne — Grønne og The Left vil modstå forsvarsfondsallokering selv inden for EU-budgetrammen.
+
+**PfE-strategiopdatering:** PfE intensiverer sin narrativkampagne om institutionel delegitimisering (Kommissions­indblanding i valg, 29. april regel 169-debat). Ude af stand til at blokere lovgivning positionerer PfE sig for FFR-forhandlingen 2027 som et gearingstidspunkt. PfE-tilknyttede regeringer (Ungarn, Italien, Frankrikes NR-komponent) vil kræve specifikke FFR-indrømmelser i bytte for Råds­aftale.
+
+**Geopolitisk overlay:** Ukraine-ansvarigheds­dagsordenen (krav om specialdomstol) og Armenien-resolutionen signalerer begge EP's aktivistiske udenrigspolitiske holdning. Disse resolutioner har ingen direkte lovgivningsmæssig effekt, men skaber politisk ansvarlighed for Kommissionens og Rådets gennemførelse af udenrigspolitikken.
+
+---
+
+### Kildehenvisning
+Data indsamlet fra EP's åbne dataportal (vedtagne tekster, politisk landskab, tidligt varslingssystem, koalitionsdynamik)
+Datointerval: 2026-01-01 til 2026-05-12 (164 vedtagne tekster i EP10-mandatperioden)
+Konfidens: 🟡 Middel (ingen afstemningsdata med navne tilgængelige; 4–6 ugers EP-publikationsforsinkelse)
+Metode: Politisk efterretningssyntese med strukturerede analytiske teknikker
+
+### Executive Brief De
+
+### 60-Sekunden-Lektüre
+
+**Was geschah:** Die EP-Plenartagung Ende April 2026 erbrachte eine historisch dichte Gesetzgebungsleistung. In fünf Tagen verabschiedeten die Abgeordneten einen Zwischenbericht über den Mehrjährigen Finanzrahmen 2028–2034, erteilten die Entlastung 2024 für die Kommission und alle wichtigen EU-Organe, nahmen wesentliche Bewertungen zur Rechtsstaatlichkeit und den Grundrechten an, förderten die digitale Governance über den KI-Digital-Omnibus und die DMA-Durchsetzung und erließen geopolitische Resolutionen zur strafrechtlichen Rechenschaft Russlands in der Ukraine sowie zur demokratischen Widerstandsfähigkeit Armeniens.
+
+**Warum es wichtig ist:** Der MFR-Zwischenbericht 2028–2034 ist ein Wendepunktdokument. Er signalisiert, dass das EP bereit ist, eine grundlegend andere Haushaltsarchitektur als der MFR 2021–2027 zu befürworten — eine, die Verteidigungskapazitätsfinanzierung integriert (zum ersten Mal in der EU-Haushaltsgeschichte), den Anteil der Landwirtschafts- und Kohäsionsfonds zugunsten von Wettbewerbsfähigkeit und strategischer Autonomie verringert und potenziell neue EU-Eigenmittel einführt, einschließlich einer Digitalabgabe. Der Entlastungszyklus schloss gleichzeitig eine umfassende Rechnungsprüfung darüber ab, wie mehr als 200 Milliarden Euro an EU-Mitteln im Jahr 2024 verwaltet wurden, wobei die Kommissionsentlastung knapp mit Bedingungen im Zusammenhang mit der Umsetzung der Rechtsstaatskonditionalität genehmigt wurde.
+
+**Die politische Landkarte:** Die konstruktive Mehrheit (EVP+S&D+Renew = 396 Sitze) trieb alle wichtigen Abstimmungen voran. Die MFR-Abstimmung demonstrierte eine fraktionsübergreifende Konvergenz zur Verteidigungsintegration trotz ideologischer Unterschiede bei den Sozialausgaben. PfE+ECR bestritten Rechtsstaatsresolutionen und die Bedingungssprache der Entlastung. Grüne und Linke stimmten mit dem Mainstream in Fragen der Rechenschaftspflicht und Rechten, aber gegen die Verteidigungserweiterungsbestimmungen.
+
+**Schlüsselzahlen:**
+- 717 MdEP in 9 politischen Fraktionen
+- Mehr als 30 Rechtsakte und Resolutionen am 28.–30. April angenommen
+- MFR 2028–2034: Vorgeschlagener Rahmen von 2,0–2,4 Billionen Euro (Schätzung)
+- Kommissionsentlastung 2024: Genehmigt mit Bedingungen
+- 164 angenommene Texte kumulativ in der EP10-Wahlperiode bisher (2025–2026)
+- Stabilitätswert: 84/100 (EP-Frühwarnsystem)
+
+---
+
+### Top 5 Breaking Developments (Nach Bedeutung gerankt)
+
+#### 1. 🔴 MFR 2028–2034 Zwischenbericht (TA-10-2026-0111) — KRITISCH
+**Annahmedatum:** 2026-04-28 | **Bedeutung:** 9,5/10
+
+Der EP-Zwischenbericht über den Mehrjährigen Finanzrahmen 2028–2034 ist das folgenreichste politische Dokument, das das EP im ersten Quartal 2026 produziert hat. Es repräsentiert das Eröffnungsangebot des Parlaments in einer 18–24-monatigen Verhandlung mit der Kommission und dem Rat über die nächste Sieben-Jahres-Haushaltsarchitektur der EU.
+
+Wichtige EP-Forderungen im Zwischenbericht:
+- **Verteidigungsintegration**: Zum ersten Mal akzeptiert das EP, dass EU-Haushaltsmittel die Entwicklung von Verteidigungskapazitäten neben bestehenden NATO/nationalen Verteidigungsrahmen unterstützen sollten — ein Paradigmenwechsel gegenüber dem EU-Haushaltsmodell als „Zivilmacht"
+- **Reform der Eigenmittel**: Das EP fordert neue EU-Eigenmittel einschließlich einer Digitaldienstleistungsabgabe (die auf dieselben Big-Tech-Unternehmen abzielt, die unter dem DMA reguliert werden) und einer Finanztransaktionssteuer
+- **Erhalt des Kohäsionsfonds**: S&D und regionale Gruppen sicherten eine Formulierung, die das Prinzip des territorialen Zusammenhalts bewahrt, obwohl der Umfang umstritten bleibt
+- **Klimakonditionalität**: Alle wesentlichen Haushaltslinien sollten „Paris-konform" sein, mit mindestens 30 % Klimaausgaben
+- **Rechtsstaatskonditionalität**: Das EP stärkt die Konditionalitätsmechanismen nach dem Ungarn-Präzedenzfall
+
+**Koalitionsdynamik:** EVP unterstützte die Sprache zur Verteidigungsintegration; S&D unterstützte den sozialen Zusammenhalt; Renew unterstützte die Digitalabgabe; Grüne unterstützten die Klimakonditionalität. Ein seltener Viergruppen-Konsens beim Gesamtdokument trotz interner Spannungen beim Verteidigungsvolumen.
+
+**Strategische Implikation:** Der formale MFR-Vorschlag der Kommission wird für Q4 2026 erwartet. Der EP-Zwischenbericht setzt die Verhandlungsausgangslinie. Der Rat (Mitgliedstaaten) wird den Verteidigungsintegrationsbestimmungen und der Reform der Eigenmittel widerstehen. Die Verhandlung 2027 wird der politisch folgenreichste EU-institutionelle Prozess des Jahrzehnts sein.
+
+---
+
+#### 2. 🟠 Haushaltsübertragung 2024 — Rechenschaftsarchitektur (Mehrere TA) — HOCH
+**Annahmedatum:** 2026-04-28–29 | **Bedeutung:** 8,5/10
+
+Das EP genehmigte eine umfassende Reihe von Haushaltsentlastungsbeschlüssen 2024:
+- Kommission (TA-10-2026-0125) — genehmigt mit Bedingungen
+- Europäisches Parlament (TA-10-2026-0126) — genehmigt
+- Europäischer Auswärtiger Dienst (TA-10-2026-0130) — genehmigt
+- Europäischer Bürgerbeauftragter (TA-10-2026-0133) — genehmigt
+- Europäische Staatsanwaltschaft (TA-10-2026-0135) — genehmigt
+- Agenturen (TA-10-2026-0136) — genehmigt
+- Gemeinsame Unternehmen (TA-10-2026-0137) — genehmigt
+
+**Bedingungen der Kommissionsentlastung** sind die politisch bedeutsamsten. Der CONT-Ausschuss (Haushaltskontrolle) verhängte Bedingungen in Bezug auf:
+1. Umsetzung der Rechtsstaatskonditionalität — Ungarn-Situation; Zeitpunkt der Mittelfreigabe
+2. Überwachung der Aufbau- und Resilienzfazilität — Sicherstellung, dass endgültige Meilensteine von den Mitgliedstaaten erreicht werden
+3. Verwaltung von Außenhilfe — Verbuchung bilateraler Ukraine-Unterstützung, die über EU-Instrumente geleitet wird
+4. Verwaltung des Fonds für den digitalen Wandel — Mittelzuweisung für die KI-Gesetz-Implementierung
+
+Die Entlastungsgenehmigung (statt Ablehnung) spiegelt das institutionelle Eigeninteresse des EP wider — die Ablehnung der Kommissionsentlastung würde eine Verfassungskrise auslösen. Die Bedingungen schaffen jedoch einen politischen Rechenschaftsmechanismus, auf den das EP in zukünftigen Kontrollprozessen zurückgreifen kann.
+
+---
+
+#### 3. 🟠 Jahresberichte zur Rechtsstaatlichkeit und zu Grundrechten — HOCH
+**Annahmedatum:** 2026-04-29 | **Bedeutung:** 8,0/10
+
+Zwei wichtige jährliche Bewertungen wurden angenommen:
+- **Bericht der Kommission zur Rechtsstaatlichkeit 2025** (TA-10-2026-0147): Das EP billigte die Bewertung der Kommission mit zusätzlichen EP-Forderungen. Hauptbedenken: Ungarn (anhaltende Rechtsstaatsrückschritte trotz bedingter Mittelfreigaben), Polen (positive Entwicklung aufrechterhalten), Rumänien, Bulgarien (Umsetzung der Justizreform), Slowakei (neue Bedenken nach Regierungswechsel).
+- **Grundrechte 2024–2025** (TA-10-2026-0146): Das EP dokumentierte verschlechternde Bedingungen in Ungarn, die teilweise Erholung Polens und aufkommende Bedenken in Italien und Frankreich bezüglich Pressefreiheit und algorithmischer Governance.
+
+**Politische Bedeutung:** Diese Resolutionen schaffen das Beweisfundament für:
+1. Künftige Artikel-7-TEU-Verfahren (falls Ungarn eine Eskalation auslöst)
+2. Rechtsstaats-Konditionalitätsentscheidungen über Strukturfondsauszahlungen
+3. EU-Beitrittskonditionsbewertungen (Ukraine, Moldau, Westbalkan)
+
+---
+
+#### 4. 🟡 Digitale Governance: KI-Omnibus und DMA-Durchsetzung — MITTEL-HOCH
+**Annahmedatum:** 2026-03-26 (KI-Omnibus); laufend (DMA) | **Bedeutung:** 7,5/10
+
+Der KI-Digital-Omnibus (TA-10-2026-0098) vereinfacht die Umsetzung des KI-Gesetzes für KMU und Startups — Reduzierung der Compliance-Belastung für Unternehmen mit weniger als 50 Millionen Euro Umsatz, bei Beibehaltung der vollständigen Anwendung für große Unternehmen. Dies spiegelt das Bewusstsein des EP wider, dass die Compliance-Kosten des KI-Gesetzes das Risiko tragen, sich bei EU-ansässigen Unternehmen zu konzentrieren statt bei US-Tech-Giganten.
+
+Kombiniert mit der DMA-Durchsetzungsadvokacy (aus dem vorherigen Analyselauf) schafft dies einen kohärenten digitalen Governance-Rahmen: starke Regulierung für Big Tech (DMA) + vereinfachte Implementierung für EU-Innovatoren (KI-Omnibus).
+
+---
+
+#### 5. 🟡 Bankenunion-Jahresbericht und BRRD3 — MITTEL
+**Annahmedatum:** 2026-04-30 und 2026-03-26 | **Bedeutung:** 7,0/10
+
+Der Bankenunion-Jahresbericht 2025 (TA-10-2026-0159) und BRRD3 (TA-10-2026-0091) fördern gemeinsam den EU-Finanzstabilitätsrahmen nach 2008. BRRD3 modernisiert frühzeitige Interventionsauslöser und Abwicklungsbedingungen, unter Einbeziehung der Lehren aus der Credit-Suisse-Krise 2023. Der Bankenunionsbericht fordert den Abschluss des Europäischen Einlagenversicherungssystems (EDIS) — nach wie vor durch deutschen und niederländischen Widerstand im Rat blockiert.
+
+---
+
+### Politische Geheimdienstanalyse
+
+**Status der konstruktiven Mehrheit:** 🟢 Stabil
+Die EVP+S&D+Renew-Koalition mit 396 Sitzen hielt bei allen wichtigen Abstimmungen einschließlich der umstrittenen Kommissionsentlastung. Koalitionsstress bleibt bei der Integration der Verteidigungsausgaben (Grüne/Linke-Opposition) und der Migrationspolitik (EVP-ECR-Ausrichtungsrisiko).
+
+**Wichtige Schwachstelle:** Die Verteidigungsintegrationssprache des MFR-Zwischenberichts könnte die Koalition spalten, wenn sie zum zentralen Thema bei den Verhandlungen 2027 wird — Grüne und Die Linke werden der Verteidigungsfondsallokation auch im EU-Haushaltsrahmen widerstehen.
+
+**PfE-Strategieupdate:** PfE intensiviert seine Narrativkampagne zur institutionellen Delegitimierung (Kommissionseinmischung in Wahlen, 29. April Regelung-169-Debatte). Unfähig, Gesetzgebung zu blockieren, positioniert sich PfE für die MFR-Verhandlung 2027 als Hebelmoment. PfE-verbundene Regierungen (Ungarn, Italien, Frankreichs NR-Komponente) werden spezifische MFR-Zugeständnisse im Austausch für eine Ratseinigung verlangen.
+
+**Geopolitische Überlagerung:** Die Ukraine-Rechenschaftsagenda (Forderung nach Sondergericht) und die Armenien-Resolution signalisieren beide die aktivistische außenpolitische Haltung des EP. Diese Resolutionen haben keine unmittelbare gesetzgeberische Wirkung, schaffen aber politische Verantwortlichkeit für die außenpolitische Umsetzung durch Kommission und Rat.
+
+---
+
+### Quellenangabe
+Daten aus dem Open-Data-Portal des EP gesammelt (angenommene Texte, politische Landschaft, Frühwarnsystem, Koalitionsdynamik)
+Datumsbereich: 2026-01-01 bis 2026-05-12 (164 angenommene Texte in der EP10-Wahlperiode)
+Konfidenzniveau: 🟡 Mittel (keine namentlichen Abstimmungsdaten verfügbar; 4–6 Wochen EP-Veröffentlichungsverzögerung)
+Methodik: Politische Geheimdienstsynthese unter Verwendung strukturierter analytischer Techniken
+
+### Executive Brief Es
+
+### Lectura de 60 segundos
+
+**Lo que ocurrió:** La sesión plenaria del PE de finales de abril de 2026 produjo un resultado legislativo históricamente denso. En cinco días, los eurodiputados adoptaron un informe provisional sobre el Marco Financiero Plurianual 2028–2034, aprobaron el descargo 2024 para la Comisión y todos los principales órganos de la UE, adoptaron evaluaciones importantes sobre el estado de derecho y los derechos fundamentales, avanzaron en la gobernanza digital a través del Ómnibus Digital de IA y la aplicación del DMA, y emitieron resoluciones geopolíticas sobre la responsabilidad penal de Rusia en Ucrania y la resiliencia democrática de Armenia.
+
+**Por qué importa:** El informe provisional sobre el MFP 2028–2034 es un documento de inflexión. Señala que el PE está dispuesto a respaldar una arquitectura presupuestaria fundamentalmente diferente al MFP 2021–2027: una que integre la financiación de capacidades de defensa (una primera en la historia presupuestaria de la UE), reduzca las participaciones de los fondos agrícolas y de cohesión en favor de la competitividad y la autonomía estratégica, e introduzca potencialmente nuevos recursos propios de la UE, incluido un impuesto digital. El ciclo de descargo completó simultáneamente una auditoría de rendición de cuentas exhaustiva sobre cómo se gestionaron más de 200.000 millones de euros de fondos de la UE en 2024, con el descargo de la Comisión aprobado por un margen estrecho con condiciones relacionadas con la implementación de la condicionalidad del estado de derecho.
+
+**El mapa político:** La mayoría constructiva (PPE+S&D+Renew = 396 escaños) impulsó todas las votaciones importantes. La votación sobre el MFP demostró convergencia entre bloques en la integración de la defensa a pesar de las diferencias ideológicas sobre el gasto social. PfE+ECR impugnaron las resoluciones sobre el estado de derecho y el lenguaje de condicionalidad del descargo. Los Verdes y La Izquierda votaron con el corriente principal en cuestiones de rendición de cuentas y derechos, pero en contra de las disposiciones de expansión de la defensa.
+
+**Cifras clave:**
+- 717 eurodiputados en 9 grupos políticos
+- Más de 30 actos legislativos y resoluciones adoptados del 28 al 30 de abril
+- MFP 2028–2034: Marco propuesto de 2,0–2,4 billones de euros (estimación)
+- Descargo de la Comisión 2024: Aprobado con condiciones
+- 164 textos adoptados de forma acumulativa en la legislatura EP10 hasta la fecha (2025–2026)
+- Puntuación de estabilidad: 84/100 (Sistema de alerta temprana del PE)
+
+---
+
+### Top 5 Breaking Developments (Clasificados por Importancia)
+
+#### 1. 🔴 Informe provisional MFP 2028–2034 (TA-10-2026-0111) — CRÍTICO
+**Fecha de adopción:** 2026-04-28 | **Importancia:** 9,5/10
+
+El informe provisional del PE sobre el Marco Financiero Plurianual 2028–2034 es el documento político más trascendente producido por el PE en el primer trimestre de 2026. Representa la oferta de apertura del Parlamento en lo que será una negociación de 18 a 24 meses con la Comisión y el Consejo sobre la próxima arquitectura presupuestaria septenal de la UE.
+
+Principales demandas del PE en el informe provisional:
+- **Integración de la defensa**: Por primera vez, el PE acepta que los fondos presupuestarios de la UE deben apoyar el desarrollo de capacidades de defensa junto con los marcos de defensa nacionales/OTAN existentes — un cambio de paradigma respecto al modelo presupuestario de la UE como «potencia civil»
+- **Reforma de los recursos propios**: El PE exige nuevos recursos propios de la UE incluido un gravamen sobre los servicios digitales (dirigido a las mismas empresas Big Tech reguladas bajo el DMA) y un impuesto sobre las transacciones financieras
+- **Preservación del Fondo de Cohesión**: S&D y los grupos regionales aseguraron un lenguaje que preserva el principio de cohesión territorial, aunque el quantum sigue siendo objeto de debate
+- **Condicionalidad climática**: Todas las principales líneas presupuestarias deben estar «alineadas con París» con un mínimo del 30 % de gasto climático
+- **Condicionalidad del estado de derecho**: El PE refuerza los mecanismos de condicionalidad siguiendo el precedente del caso húngaro
+
+**Dinámica de coalición:** El PPE respaldó el lenguaje sobre integración de la defensa; S&D respaldó la cohesión social; Renew respaldó el gravamen digital; Los Verdes respaldaron la condicionalidad climática. Un raro consenso de cuatro grupos en el documento global a pesar de las tensiones internas sobre el quantum de defensa.
+
+**Implicación estratégica:** La propuesta formal del MFP de la Comisión se espera para el T4 de 2026. El informe provisional del PE establece la línea de base de negociación. El Consejo (Estados miembros) se resistirá a las disposiciones sobre integración de la defensa y la reforma de recursos propios. La negociación de 2027 será el proceso institucional de la UE más políticamente trascendente de la década.
+
+---
+
+#### 2. 🟠 Descargo presupuestario 2024 — Arquitectura de rendición de cuentas (Múltiples TA) — ALTA
+**Fecha de adopción:** 2026-04-28–29 | **Importancia:** 8,5/10
+
+El PE aprobó un conjunto exhaustivo de decisiones de descargo presupuestario 2024:
+- Comisión (TA-10-2026-0125) — aprobado con condiciones
+- Parlamento Europeo (TA-10-2026-0126) — aprobado
+- Servicio Europeo de Acción Exterior (TA-10-2026-0130) — aprobado
+- Defensor del Pueblo Europeo (TA-10-2026-0133) — aprobado
+- Fiscalía Europea (TA-10-2026-0135) — aprobado
+- Agencias (TA-10-2026-0136) — aprobado
+- Empresas conjuntas (TA-10-2026-0137) — aprobado
+
+**Las condiciones del descargo de la Comisión** son las más políticamente significativas. La comisión CONT (control presupuestario) impuso condiciones relativas a:
+1. Implementación de la condicionalidad del estado de derecho — situación de Hungría; calendario de las liberaciones de fondos
+2. Supervisión del Mecanismo de Recuperación y Resiliencia — garantizar que los hitos finales sean alcanzados por los Estados miembros
+3. Gestión de la ayuda exterior — contabilidad del apoyo bilateral a Ucrania canalizado a través de instrumentos de la UE
+4. Gestión del fondo para la transición digital — asignación presupuestaria para la implementación de la Ley de IA
+
+La aprobación del descargo (en lugar del rechazo) refleja el interés institucional propio del PE — rechazar el descargo de la Comisión desencadenaría una crisis constitucional. Sin embargo, las condiciones crean un mecanismo de responsabilidad política que el PE puede invocar en futuros procesos de escrutinio.
+
+---
+
+#### 3. 🟠 Informes anuales sobre el Estado de Derecho y los Derechos Fundamentales — ALTA
+**Fecha de adopción:** 2026-04-29 | **Importancia:** 8,0/10
+
+Se adoptaron dos evaluaciones anuales importantes:
+- **Informe de la Comisión sobre el Estado de Derecho 2025** (TA-10-2026-0147): El PE respaldó la evaluación de la Comisión con demandas adicionales del PE. Principales preocupaciones: Hungría (continuo retroceso del estado de derecho a pesar de las liberaciones condicionales de fondos), Polonia (trayectoria positiva mantenida), Rumanía, Bulgaria (implementación de la reforma judicial), Eslovaquia (nuevas preocupaciones tras el cambio de gobierno).
+- **Derechos fundamentales 2024–2025** (TA-10-2026-0146): El PE documentó el deterioro de las condiciones en Hungría, la recuperación parcial de Polonia y las preocupaciones emergentes en Italia y Francia sobre la libertad de prensa y la gobernanza algorítmica.
+
+**Importancia política:** Estas resoluciones crean el registro probatorio para:
+1. Los futuros procedimientos del artículo 7 del TUE (si Hungría desencadena una escalada)
+2. Las decisiones de condicionalidad del estado de derecho sobre los pagos de los fondos estructurales
+3. Las evaluaciones de condicionalidad de adhesión a la UE (Ucrania, Moldavia, Balcanes Occidentales)
+
+---
+
+#### 4. 🟡 Gobernanza digital: Ómnibus de IA y Aplicación del DMA — MEDIA-ALTA
+**Fecha de adopción:** 2026-03-26 (Ómnibus de IA); en curso (DMA) | **Importancia:** 7,5/10
+
+El Ómnibus Digital de IA (TA-10-2026-0098) simplifica la implementación de la Ley de IA para las pymes y startups — reduciendo la carga de cumplimiento para las empresas con ingresos inferiores a 50 millones de euros, manteniendo la plena aplicación para las grandes empresas. Esto refleja el reconocimiento del PE de que los costes de cumplimiento de la Ley de IA corren el riesgo de concentrarse en las empresas con base en la UE en lugar de en los gigantes tecnológicos estadounidenses.
+
+Combinado con la defensa de la aplicación del DMA (del ciclo de análisis anterior), esto crea un marco de gobernanza digital coherente: regulación fuerte para Big Tech (DMA) + implementación simplificada para los innovadores de la UE (Ómnibus de IA).
+
+---
+
+#### 5. 🟡 Informe anual de la Unión Bancaria y BRRD3 — MEDIA
+**Fecha de adopción:** 2026-04-30 y 2026-03-26 | **Importancia:** 7,0/10
+
+El informe anual de la Unión Bancaria 2025 (TA-10-2026-0159) y la BRRD3 (TA-10-2026-0091) hacen avanzar conjuntamente el marco de estabilidad financiera posterior a 2008 de la UE. La BRRD3 moderniza los detonantes de intervención temprana y las condiciones de resolución, incorporando las lecciones de la crisis de Credit Suisse en 2023. El informe de la Unión Bancaria pide la finalización del Sistema Europeo de Garantía de Depósitos (SEGD) — todavía bloqueado por la resistencia alemana y neerlandesa en el Consejo.
+
+---
+
+### Resumen de inteligencia política
+
+**Estado de la mayoría constructiva:** 🟢 Estable
+La coalición PPE+S&D+Renew de 396 escaños se mantuvo en todas las votaciones importantes, incluido el controvertido descargo de la Comisión. El estrés de la coalición persiste en la integración del gasto en defensa (oposición de Los Verdes/Izquierda) y la política migratoria (riesgo de alineación PPE-ECR).
+
+**Vulnerabilidad clave:** El lenguaje de integración de la defensa en el informe provisional del MFP podría fracturar la coalición si se convierte en el problema central en las negociaciones de 2027 — Los Verdes y La Izquierda se resistirán a la asignación de fondos para la defensa incluso dentro del marco presupuestario de la UE.
+
+**Actualización de la estrategia de PfE:** PfE intensifica su campaña narrativa sobre la deslegitimización institucional (interferencia de la Comisión en las elecciones, debate del 29 de abril sobre la regla 169). Incapaz de bloquear la legislación, PfE se posiciona para la negociación del MFP 2027 como un momento de apalancamiento. Los gobiernos afiliados a PfE (Hungría, Italia, el componente NR de Francia) exigirán concesiones específicas sobre el MFP a cambio de un acuerdo en el Consejo.
+
+**Superposición geopolítica:** La agenda de responsabilidad en Ucrania (demanda de tribunal especial) y la resolución sobre Armenia señalan ambas la postura de política exterior activista del PE. Estas resoluciones no tienen efecto legislativo directo pero crean responsabilidad política para la ejecución de la política exterior por parte de la Comisión y el Consejo.
+
+---
+
+### Atribución de fuentes
+Datos recopilados del Portal de Datos Abiertos del PE (textos adoptados, panorama político, sistema de alerta temprana, dinámica de coalición)
+Período: 2026-01-01 a 2026-05-12 (164 textos adoptados en la legislatura EP10)
+Confianza: 🟡 Medio (no hay datos de votación nominal disponibles; retraso de publicación del PE de 4 a 6 semanas)
+Metodología: Síntesis de inteligencia política utilizando técnicas analíticas estructuradas
+
+### Executive Brief Fi
+
+### 60 sekunnin katsaus
+
+**Mitä tapahtui:** EP:n täysistunto huhtikuun lopussa 2026 tuotti historiallisen tiiviin lainsäädännöllisen tuloksen. Viiden päivän aikana EP:n jäsenet hyväksyivät väliraportin monivuotisesta rahoituskehyksestä 2028–2034, myönsivät vastuuvapauden komissiolle ja kaikille tärkeimmille EU-elimille vuodelta 2024, tekivät merkittäviä arviointeja oikeusvaltiosta ja perusoikeuksista, edistivät digitaalista hallintoa AI Digital Omnibus -aloitteen ja DMA-täytäntöönpanon kautta sekä antoivat geopoliittisia päätöslauselmia Ukrainan rikosoikeudellisesta vastuusta ja Armenian demokraattisesta selviytymiskyvystä.
+
+**Miksi sillä on merkitystä:** MFF 2028–2034 -väliraportti on käännekohta-asiakirja. Se merkitsee, että EP on valmis hyväksymään perusteellisesti erilaisen budjettiarkkitehtuurin kuin MFF 2021–2027 — sellaisen, joka integroi puolustuskapasiteetin rahoituksen (ensimmäistä kertaa EU:n budjettitoriassa), vähentää maatalouden ja koheesiorahastojen osuuksia kilpailukyvyn ja strategisen autonomian hyväksi sekä mahdollisesti ottaa käyttöön uusia EU:n omia varoja, mukaan lukien digitaalimaksu. Vastuuvapaussykli toteutti samalla kattavan tilintarkastuksen siitä, miten yli 200 miljardia euroa EU-varoja hallittiin vuonna 2024, komission vastuuvapaus hyväksyttiin niukasti oikeusvaltioehdollisuuden täytäntöönpanoon liittyvin ehdoin.
+
+**Poliittinen kartta:** Rakentava enemmistö (EPP+S&D+Renew = 396 paikkaa) ajoi kaikki tärkeimmät äänestykset. MFF-äänestys osoitti sektorirajat ylittävää yksimielisyyttä puolustusintegraatiosta ideologisista eroista sosiaalisissa menoissa huolimatta. PfE+ECR riitautti oikeusvaltioresoluutiot ja vastuuvapauden ehdollisuuskielen. Vihreät ja Vasen äänestivät valtavirran kanssa vastuukysymyksissä ja oikeuksissa, mutta vastustivat puolustuslaajennusmääräyksiä.
+
+**Avainluvut:**
+- 717 EP:n jäsentä 9 poliittisessa ryhmässä
+- Yli 30 säädöstä ja päätöslauselmaa hyväksyttiin 28.–30. huhtikuuta
+- MFF 2028–2034: Ehdotettu 2,0–2,4 biljoonan euron kehys (arvio)
+- Komission vastuuvapaus 2024: Hyväksytty ehdoin
+- 164 hyväksyttyä tekstiä kumulatiivisesti EP10-toimikaudella tähän mennessä (2025–2026)
+- Vakausluku: 84/100 (EP:n varhainen varoitusjärjestelmä)
+
+---
+
+### Top 5 Uutiset (Tärkeysjärjestyksessä)
+
+#### 1. 🔴 MFF 2028–2034 väliraportti (TA-10-2026-0111) — KRIITTINEN
+**Hyväksymispäivä:** 2026-04-28 | **Merkittävyys:** 9,5/10
+
+EP:n väliraportti monivuotisesta rahoituskehyksestä 2028–2034 on merkittävin poliittinen asiakirja, jonka EP on tuottanut ensimmäisellä vuosineljänneksellä 2026. Se edustaa parlamentin avausasemaa 18–24 kuukauden neuvotteluissa komission ja neuvoston kanssa EU:n seuraavasta seitsemänvuotisesta budjettiarkkitehtuurista.
+
+EP:n tärkeimmät vaatimukset väliraportissa:
+- **Puolustusintegraatio**: Ensimmäistä kertaa EP hyväksyy, että EU:n budjettivarat voivat tukea puolustuskapasiteetin kehittämistä olemassa olevien NATO/kansallisten puolustuskehysten rinnalla — paradigmamuutos EU:n "siviilivoima"-budjettimallista
+- **Omien varojen uudistus**: EP vaatii uusia EU:n omia varoja, mukaan lukien digitaalisten palvelujen maksu (kohdistettuna samoihin DMA:n alaisiin suurteknologiayrityksiin) ja finanssitransaktiovero
+- **Koheesiorahaston säilyttäminen**: S&D ja alueelliset ryhmät varmistivat kielen, joka säilyttää alueellisen koheesion periaatteen, vaikka määrä pysyy kiistanalaisena
+- **Ilmastoehdollisuus**: Kaikkien tärkeimpien budjettiratkaisujen tulee olla "Pariisin sopimuksen mukaisia" vähintään 30 %:n ilmastomenoilla
+- **Oikeusvaltioehdollisuus**: EP vahvistaa ehdollisuusmekanismeja Unkarin tapauksen ennakkopäätökseen perustuen
+
+**Koalitiodynamiikka:** EPP tuki puolustusintegraatiokieltä; S&D tuki sosiaalista koheesiota; Renew tuki digitaalimaksua; Vihreät tukivat ilmastoehdollisuutta. Harvinainen neljän ryhmän yksimielisyys kokonaisasiakirjasta puolustuksen määrää koskevista sisäisistä jännitteistä huolimatta.
+
+**Strateginen merkitys:** Komission virallinen MFF-ehdotus odotetaan Q4 2026. EP:n väliraportti asettaa neuvottelulähtötason. Neuvosto (jäsenvaltiot) vastustaa puolustusintegraatiomääräyksiä ja omien varojen uudistusta. Vuoden 2027 neuvottelu tulee olemaan vuosikymmenen tärkein EU-institutionaalinen prosessi.
+
+---
+
+#### 2. 🟠 Budjettivastuu 2024 — Vastuuarkkitehtuuri (Useita TA-tunnuksia) — KORKEA
+**Hyväksymispäivä:** 2026-04-28–29 | **Merkittävyys:** 8,5/10
+
+EP hyväksyi kattavan joukon budjettivastuu-päätöksiä vuodelta 2024:
+- Komissio (TA-10-2026-0125) — hyväksytty ehdoin
+- Euroopan parlamentti (TA-10-2026-0126) — hyväksytty
+- Euroopan ulkosuhdehallinto (TA-10-2026-0130) — hyväksytty
+- Euroopan oikeusasiamies (TA-10-2026-0133) — hyväksytty
+- Euroopan syyttäjänvirasto (TA-10-2026-0135) — hyväksytty
+- Virastot (TA-10-2026-0136) — hyväksytty
+- Yhteisyritykset (TA-10-2026-0137) — hyväksytty
+
+**Komission vastuuvapausehdot** ovat poliittisesti merkittävimmät. CONT-valiokunta (budjettivalvonta) asetti ehtoja liittyen:
+1. Oikeusvaltioehdollisuuden täytäntöönpano — Unkarin tilanne; varojen vapautuksen ajoitus
+2. Elpymis- ja palautumistukivälineen valvonta — varmistaminen, että jäsenvaltiot saavuttavat lopulliset välitavoitteet
+3. Ulkoisen avun hallinnointi — EU-instrumenttien kautta kanavoitujen kahdenvälisten Ukrainan tukien kirjanpito
+4. Digitaalisen siirtymän rahaston hallinnointi — tekoälylain täytäntöönpanon budjettimääräraha
+
+Vastuuvapauden myöntäminen (eikä hylkääminen) heijastaa EP:n institutionaalista omaa etua — komission vastuuvapauden hylkääminen laukaisi perustuslaillisen kriisin. Ehdot luovat kuitenkin poliittisen vastuumekanismin, johon EP voi vedota tulevissa valvontaprosesseissa.
+
+---
+
+#### 3. 🟠 Oikeusvaltioperiaatteen ja Perusoikeuksien Vuosiraportit — KORKEA
+**Hyväksymispäivä:** 2026-04-29 | **Merkittävyys:** 8,0/10
+
+Kaksi tärkeää vuotuista arviointia hyväksyttiin:
+- **Komission oikeusvaltioperiaatteen raportti 2025** (TA-10-2026-0147): EP hyväksyi komission arvioinnin lisävaatimuksilla. Tärkeimmät huolenaiheet: Unkari (jatkuva taantuminen oikeusvaltiossa ehdollisista varojen vapautuksista huolimatta), Puola (positiivinen kehityskulku ylläpidettiin), Romania, Bulgaria (tuomioistuinuudistuksen täytäntöönpano), Slovakia (uudet huolenaiheet hallitusvaihdoksen jälkeen).
+- **Perusoikeudet 2024–2025** (TA-10-2026-0146): EP dokumentoi heikentyneet olosuhteet Unkarissa, Puolan osittaisen elpymisen sekä kasvavat huolenaiheet Italiassa ja Ranskassa median vapauden ja algoritmisen hallinnon osalta.
+
+**Poliittinen merkitys:** Nämä päätöslauselmat luovat todisteperustan:
+1. Tuleville artikla 7 TEU -menettelyille (jos Unkari laukaisee eskalaation)
+2. Oikeusvaltioehdollisuuspäätöksille rakennerahastojen maksamisessa
+3. EU:n laajentumisen ehdollisuusarvioinneille (Ukraina, Moldova, Länsi-Balkan)
+
+---
+
+#### 4. 🟡 Digitaalinen Hallinto: AI Omnibus ja DMA-täytäntöönpano — KOHTALAINEN-KORKEA
+**Hyväksymispäivä:** 2026-03-26 (AI Omnibus); käynnissä (DMA) | **Merkittävyys:** 7,5/10
+
+AI Digital Omnibus (TA-10-2026-0098) yksinkertaistaa tekoälylain täytäntöönpanoa pk-yrityksille ja startup-yrityksille — vähentää vaatimustenmukaisuustaakkaa alle 50 miljoonan euron liikevaihdon yrityksille samalla kun täysimääräinen soveltaminen säilyy suurille yrityksille. Tämä heijastaa EP:n tunnistamista siitä, että tekoälylain vaatimustenmukaisuuskustannukset saattavat kohdistua EU-pohjaisiin yrityksiin enemmän kuin yhdysvaltalaisiin teknologiajätteihin.
+
+Yhdistettynä DMA-täytäntöönpanon edistämiseen (edellisestä analyysiajosta) tämä luo yhtenäisen digitaalisen hallintokehyksen: vahva sääntely Big Techille (DMA) + yksinkertaistettu täytäntöönpano EU-innovaattoreille (AI Omnibus).
+
+---
+
+#### 5. 🟡 Pankkiunionin Vuosikertomus ja BRRD3 — KOHTALAINEN
+**Hyväksymispäivä:** 2026-04-30 ja 2026-03-26 | **Merkittävyys:** 7,0/10
+
+Pankkiunionin vuosikertomus 2025 (TA-10-2026-0159) ja BRRD3 (TA-10-2026-0091) edistävät yhdessä EU:n vuoden 2008 jälkeistä rahoitusvakausjärjestelmää. BRRD3 modernisoi varhaisen intervention laukaisijoita ja kriisinratkaisuehtoja Credit Suisse -kriisin 2023 opetuksilla. Pankkiunionin kertomus vaatii eurooppalaisen talletussuojajärjestelmän (EDIS) viimeistelyä — edelleen Saksan ja Alankomaiden neuvostovastustuksen estämänä.
+
+---
+
+### Poliittinen Tiedusteluyhteenveto
+
+**Rakentavan enemmistön tila:** 🟢 Vakaa
+EPP+S&D+Renew -koalitio 396 paikalla piti kaikissa tärkeissä äänestyksissä, mukaan lukien kiistelty komission vastuuvapaus. Koalitiostressiä pysyy puolustusmenojen integraatiosta (Vihreät/Vasen -oppositio) ja maahanmuuttopolitiikasta (EPP-ECR-linjautumisriski).
+
+**Tärkeä haavoittuvuus:** MFF-väliraportin puolustusintegraatiokielen mahdollinen koalition hajottaminen, jos siitä tulee keskeinen kysymys vuoden 2027 neuvotteluissa — Vihreät ja The Left vastustavat puolustusrahastojen allokointia EU-budjettikehyksenkin puitteissa.
+
+**PfE-strategiapäivitys:** PfE tehostaa narratiivikampanjaansa institutionaalisesta delegitimoinnista (komission puuttuminen vaaleihin, 29. huhtikuuta sääntö 169 -debatti). Kyvyttömänä estämään lainsäädäntöä PfE asemoituu vuoden 2027 MFF-neuvotteluun vipuvaikutusmomentiksi. PfE:hen liittyvät hallitukset (Unkari, Italia, Ranskan NR-komponentti) vaativat erityisiä MFF-myönnytyksiä vastineeksi neuvostosopimuksesta.
+
+**Geopoliittinen kerrostuma:** Ukrainan vastuuagenda (erityistuomioistuimen vaatimus) ja Armenian resoluutio merkitsevät molemmat EP:n aktivistista ulkopoliittista asentoa. Näillä resoluutioilla ei ole suoraa lainsäädännöllistä vaikutusta, mutta ne luovat poliittisen vastuun komission ja neuvoston ulkopoliittisen toimeenpanon seurannalle.
+
+---
+
+### Lähdeattribuutio
+Tiedot kerätty EP:n avoimesta dataportaalista (hyväksytyt tekstit, poliittinen maisema, varhainen varoitusjärjestelmä, koalitiodynamiikka)
+Päivämääräväli: 2026-01-01 – 2026-05-12 (164 hyväksyttyä tekstiä EP10-toimikauden aikana)
+Luotettavuus: 🟡 Kohtalainen (nimelliset äänestystiedot eivät saatavilla; EP:n julkaisuissa 4–6 viikon viive)
+Metodologia: Poliittinen tiedustelusynteesi rakenteellisilla analyyttisillä tekniikoilla
+
+### Executive Brief Fr
+
+### Lecture en 60 secondes
+
+**Ce qui s'est passé :** La session plénière du PE fin avril 2026 a produit un résultat législatif historiquement dense. En cinq jours, les eurodéputés ont adopté un rapport intérimaire sur le cadre financier pluriannuel 2028–2034, approuvé la décharge 2024 pour la Commission et tous les principaux organes de l'UE, adopté des évaluations majeures de l'état de droit et des droits fondamentaux, avancé la gouvernance numérique via l'Omnibus numérique IA et l'application du DMA, et émis des résolutions géopolitiques sur la responsabilité pénale de la Russie pour l'Ukraine et la résilience démocratique de l'Arménie.
+
+**Pourquoi cela compte :** Le rapport intérimaire sur le CFP 2028–2034 est un document d'inflexion. Il signale que le PE est prêt à endosser une architecture budgétaire fondamentalement différente du CFP 2021–2027 — une qui intègre le financement des capacités de défense (une première dans l'histoire budgétaire de l'UE), réduit les parts des fonds agricoles et de cohésion au profit de la compétitivité et de l'autonomie stratégique, et introduit potentiellement de nouvelles ressources propres de l'UE dont une taxe numérique. Le cycle de décharge a simultanément achevé un audit de responsabilité complet sur la façon dont plus de 200 milliards d'euros de fonds de l'UE ont été gérés en 2024, avec la décharge de la Commission approuvée étroitement sous conditions liées à la mise en œuvre de la conditionnalité de l'état de droit.
+
+**La carte politique :** La majorité constructive (PPE+S&D+Renew = 396 sièges) a conduit tous les votes importants. Le vote sur le CFP a démontré une convergence inter-blocs sur l'intégration de la défense malgré les différences idéologiques sur les dépenses sociales. PfE+ECR ont contesté les résolutions sur l'état de droit et le langage de conditionnalité de la décharge. Les Verts et La Gauche ont voté avec le courant dominant sur la responsabilité et les droits mais contre les dispositions d'expansion de la défense.
+
+**Chiffres clés :**
+- 717 eurodéputés dans 9 groupes politiques
+- Plus de 30 actes législatifs et résolutions adoptés du 28 au 30 avril
+- CFP 2028–2034 : Enveloppe proposée de 2,0–2,4 billions d'euros (estimation)
+- Décharge de la Commission 2024 : approuvée sous conditions
+- 164 textes adoptés cumulativement dans la mandature EP10 à ce jour (2025–2026)
+- Score de stabilité : 84/100 (système d'alerte précoce du PE)
+
+---
+
+### Top 5 Breaking Developments (Classés par Importance)
+
+#### 1. 🔴 Rapport intérimaire CFP 2028–2034 (TA-10-2026-0111) — CRITIQUE
+**Date d'adoption :** 2026-04-28 | **Importance :** 9,5/10
+
+Le rapport intérimaire du PE sur le cadre financier pluriannuel 2028–2034 est le document politique le plus conséquent produit par le PE au premier trimestre 2026. Il représente la mise en enchère d'ouverture du Parlement dans une négociation de 18 à 24 mois avec la Commission et le Conseil sur la prochaine architecture budgétaire septennal de l'UE.
+
+Principales exigences du PE dans le rapport intérimaire :
+- **Intégration de la défense** : Pour la première fois, le PE accepte que les fonds budgétaires de l'UE soutiennent le développement des capacités de défense aux côtés des cadres de défense nationaux/OTAN existants — un changement de paradigme par rapport au modèle budgétaire de l'UE en tant que « puissance civile »
+- **Réforme des ressources propres** : Le PE demande de nouvelles ressources propres de l'UE notamment une taxe sur les services numériques (ciblant les mêmes entreprises Big Tech régulées sous le DMA) et une taxe sur les transactions financières
+- **Préservation du Fonds de cohésion** : S&D et les groupes régionaux ont sécurisé un langage préservant le principe de cohésion territoriale, bien que le quantum reste contesté
+- **Conditionnalité climatique** : Toutes les principales lignes budgétaires doivent être « alignées Paris » avec un minimum de 30 % de dépenses climatiques
+- **Conditionnalité état de droit** : Le PE renforce les mécanismes de conditionnalité à la suite du précédent de l'affaire hongroise
+
+**Dynamique de coalition :** Le PPE a soutenu le langage sur l'intégration de la défense ; S&D a soutenu la cohésion sociale ; Renew a soutenu la taxe numérique ; les Verts ont soutenu la conditionnalité climatique. Un rare consensus de quatre groupes sur le document global malgré les tensions internes sur le quantum de défense.
+
+**Implication stratégique :** La proposition formelle du CFP par la Commission est attendue au Q4 2026. Le rapport intérimaire du PE fixe la ligne de base de négociation. Le Conseil (États membres) résistera aux dispositions sur l'intégration de la défense et la réforme des ressources propres. La négociation 2027 sera le processus institutionnel de l'UE le plus politiquement conséquent de la décennie.
+
+---
+
+#### 2. 🟠 Décharge budgétaire 2024 — Architecture de responsabilité (Plusieurs TA) — ÉLEVÉE
+**Date d'adoption :** 2026-04-28–29 | **Importance :** 8,5/10
+
+Le PE a approuvé un ensemble complet de décisions de décharge budgétaire 2024 :
+- Commission (TA-10-2026-0125) — approuvée sous conditions
+- Parlement européen (TA-10-2026-0126) — approuvée
+- Service européen pour l'action extérieure (TA-10-2026-0130) — approuvée
+- Médiateur européen (TA-10-2026-0133) — approuvée
+- Parquet européen (TA-10-2026-0135) — approuvée
+- Agences (TA-10-2026-0136) — approuvée
+- Entreprises communes (TA-10-2026-0137) — approuvée
+
+**Les conditions de décharge de la Commission** sont les plus politiquement significatives. La commission CONT (contrôle budgétaire) a imposé des conditions relatives à :
+1. Mise en œuvre de la conditionnalité état de droit — situation hongroise ; calendrier des déblocages de fonds
+2. Supervision de la Facilité pour la reprise et la résilience — s'assurer que les étapes finales sont atteintes par les États membres
+3. Gestion de l'aide extérieure — comptabilisation du soutien bilatéral à l'Ukraine canalisé via les instruments de l'UE
+4. Gestion du fonds pour la transition numérique — allocation budgétaire pour la mise en œuvre de la Loi IA
+
+L'approbation de la décharge (plutôt que le rejet) reflète l'intérêt institutionnel propre du PE — rejeter la décharge de la Commission déclencherait une crise constitutionnelle. Cependant, les conditions créent un mécanisme de responsabilité politique que le PE peut invoquer dans les futurs processus de contrôle.
+
+---
+
+#### 3. 🟠 Rapports annuels sur l'État de droit et les Droits fondamentaux — ÉLEVÉE
+**Date d'adoption :** 2026-04-29 | **Importance :** 8,0/10
+
+Deux évaluations annuelles importantes ont été adoptées :
+- **Rapport 2025 de la Commission sur l'état de droit** (TA-10-2026-0147) : Le PE a approuvé l'évaluation de la Commission avec des exigences supplémentaires du PE. Principales préoccupations : Hongrie (recul continu de l'état de droit malgré les déblocages conditionnels de fonds), Pologne (trajectoire positive maintenue), Roumanie, Bulgarie (mise en œuvre de la réforme judiciaire), Slovaquie (nouvelles préoccupations après le changement de gouvernement).
+- **Droits fondamentaux 2024–2025** (TA-10-2026-0146) : Le PE a documenté des conditions se dégradant en Hongrie, la reprise partielle de la Pologne, et des préoccupations émergentes en Italie et en France concernant la liberté des médias et la gouvernance algorithmique.
+
+**Importance politique :** Ces résolutions créent le dossier probatoire pour :
+1. Les futures procédures de l'article 7 TUE (si la Hongrie déclenche une escalade)
+2. Les décisions de conditionnalité d'état de droit sur les versements des fonds structurels
+3. Les évaluations de conditionnalité d'adhésion à l'UE (Ukraine, Moldavie, Balkans occidentaux)
+
+---
+
+#### 4. 🟡 Gouvernance numérique : Omnibus IA et Application DMA — MOYEN-ÉLEVÉ
+**Date d'adoption :** 2026-03-26 (Omnibus IA) ; en cours (DMA) | **Importance :** 7,5/10
+
+L'Omnibus numérique IA (TA-10-2026-0098) simplifie la mise en œuvre de la Loi IA pour les PME et les startups — réduisant la charge de conformité pour les entreprises de moins de 50 millions d'euros de chiffre d'affaires tout en maintenant une application complète pour les grandes entreprises. Cela reflète la reconnaissance par le PE que les coûts de conformité de la Loi IA risquent de se concentrer sur les entreprises basées dans l'UE plutôt que sur les géants technologiques américains.
+
+Combiné avec la plaidoirie pour l'application du DMA (de l'analyse précédente), cela crée un cadre de gouvernance numérique cohérent : réglementation forte pour les Big Tech (DMA) + mise en œuvre simplifiée pour les innovateurs de l'UE (Omnibus IA).
+
+---
+
+#### 5. 🟡 Rapport annuel de l'Union bancaire et BRRD3 — MOYEN
+**Date d'adoption :** 2026-04-30 et 2026-03-26 | **Importance :** 7,0/10
+
+Le rapport annuel de l'Union bancaire 2025 (TA-10-2026-0159) et la BRRD3 (TA-10-2026-0091) font progresser ensemble le cadre de stabilité financière post-2008 de l'UE. La BRRD3 modernise les déclencheurs d'intervention précoce et les conditions de résolution, incorporant les enseignements de la crise Credit Suisse 2023. Le rapport de l'Union bancaire appelle à l'achèvement du Système européen d'assurance des dépôts (SEAD) — toujours bloqué par la résistance allemande et néerlandaise au Conseil.
+
+---
+
+### Résumé du renseignement politique
+
+**Statut de la majorité constructive :** 🟢 Stable
+La coalition PPE+S&D+Renew de 396 sièges a tenu lors de tous les votes importants, y compris la décharge controversée de la Commission. Les tensions de coalition persistent sur l'intégration des dépenses de défense (opposition des Verts/Gauche) et la politique migratoire (risque d'alignement PPE-ECR).
+
+**Vulnérabilité clé :** Le langage d'intégration de défense du rapport intérimaire sur le CFP pourrait fracturer la coalition si cela devient l'enjeu central lors des négociations 2027 — Les Verts et La Gauche résisteront à l'allocation de fonds pour la défense même dans le cadre du budget de l'UE.
+
+**Mise à jour de la stratégie PfE :** PfE intensifie sa campagne narrative sur la délégitimisation institutionnelle (interférence de la Commission dans les élections, débat du 29 avril sur la règle 169). Incapable de bloquer la législation, PfE se positionne pour la négociation sur le CFP 2027 comme moment de levier. Les gouvernements affiliés à PfE (Hongrie, Italie, composante NR française) exigeront des concessions spécifiques sur le CFP en échange d'un accord au Conseil.
+
+**Superposition géopolitique :** L'agenda de responsabilité pour l'Ukraine (demande de tribunal spécial) et la résolution sur l'Arménie signalent toutes deux la posture de politique étrangère activiste du PE. Ces résolutions n'ont pas d'effet législatif direct mais créent une responsabilité politique pour l'exécution de la politique étrangère par la Commission et le Conseil.
+
+---
+
+### Attribution des sources
+Données collectées depuis le Portail de données ouvertes du PE (textes adoptés, paysage politique, système d'alerte précoce, dynamique de coalition)
+Période : 2026-01-01 au 2026-05-12 (164 textes adoptés dans la mandature EP10)
+Confiance : 🟡 Moyen (aucune donnée de vote nominatif disponible ; délai de publication PE de 4 à 6 semaines)
+Méthodologie : Synthèse du renseignement politique utilisant des techniques analytiques structurées
+
+### Executive Brief He
+
+**תאריך:** 2026-05-12 | **סוג המאמר:** breaking | **רמת ביטחון:** 🟡 בינוני
+**BLUF (סיכום מהיר):** הישיבה המליאה של הפרלמנט האירופי מ-28 באפריל עד 1 במאי 2026 הניבה למעלה מ-30 תוצאות חקיקתיות ומדיניותיות חשובות בחמישה אשכולות אסטרטגיים: (1) דו"ח ביניים על המסגרת הפיננסית הרב-שנתית 2028–2034 המרמז על הפניה מהפכנית של התקציב לביטחון ותחרותיות, (2) אישורים מקיפים לפריקת אחריות 2024 המכסים את הנציבות, הפרלמנט, הסוכנויות ומיזמים משותפים, (3) הערכות שנתיות לשלטון החוק וזכויות יסוד עם ביקורות נוקבות כלפי מדינות חברות, (4) האצת ממשל דיגיטלי דרך DMA/AIA, ו-(5) החלטות אחריות גיאופוליטית (בית משפט מיוחד לאוקראינה, ארמניה). דו"ח הביניים על המסגרת הפיננסית הרב-שנתית הוא הפריט המשמעותי ביותר, הרומז על עמדת המיקוח של הפרלמנט האירופי למחזור התקציבי 2027+ עם דרישות חסרות תקדים לשילוב יכולות ביטחוניות.
+
+---
+
+### קריאה של 60 שניות
+
+**מה קרה:** הישיבה המליאה של הפרלמנט האירופי בסוף אפריל 2026 הניבה תפוקה חקיקתית צפופה באופן היסטורי. בחמישה ימים, אימצו חברי הפרלמנט דו"ח ביניים על מסגרת פיננסית רב-שנתית 2028–2034, העניקו פריקת אחריות 2024 לנציבות ולכל הגופים הגדולים האירופיים, אישרו הערכות מהותיות לשלטון החוק וזכויות יסוד, חיזקו ממשל דיגיטלי עם AIA מקיף ואכיפת DMA, ואישרו החלטות גיאופוליטיות בנוגע לאחריות פלילית רוסית באוקראינה וחוסן דמוקרטי ארמני.
+
+**מדוע זה חשוב:** דו"ח הביניים על המסגרת הפיננסית הרב-שנתית 2028–2034 הוא מסמך מהפכני. הוא מרמז שהפרלמנט האירופי מוכן לאשר מבנה תקציבי שונה מהותית מהמסגרת הפיננסית הרב-שנתית 2021–2027: מבנה המשלב מימון יכולות ביטחוניות (לראשונה בהיסטוריית תקציב האיחוד האירופי), מקצץ בנתחי חקלאות וקרנות לכידות לטובת תחרותיות ואוטונומיה אסטרטגית, ועשוי להכניס משאבים עצמיים חדשים של האיחוד האירופי כולל מס דיגיטלי. מחזור פריקת האחריות השלים במקביל ביקורת אחריות מקיפה על ניהול למעלה מ-200 מיליארד אירו של כספי האיחוד האירופי בשנת 2024, כאשר פריקת אחריות הנציבות אושרה בפער צר בתנאים הנוגעים ליישום מותנה שלטון החוק.
+
+**מפת הפוליטיקה:** הרוב הבנייתי (EPP+S&D+Renew = 396 מושבים) הוביל את כל ההצבעות המהותיות. הצבעת המסגרת הפיננסית הרב-שנתית הראתה קונצנזוס בין-קבוצתי לגבי שילוב ביטחוני למרות מחלוקות אידיאולוגיות בהוצאות חברתיות. PfE+ECR חלקו על שלטון החוק ועל שפת מותנה פריקת אחריות. הירוקים והשמאל הצביעו עם הזרם המרכזי בנושאי אחריות וזכויות, אך התנגדו להוראות הרחבה ביטחונית.
+
+**מספרים מרכזיים:**
+- 717 חברי פרלמנט ב-9 קבוצות פוליטיות
+- למעלה מ-30 חוקים והחלטות שאומצו ב-28–30 באפריל
+- מסגרת פיננסית רב-שנתית 2028–2034: מעטפת מוצעת של 2.0–2.4 טריליון אירו (אומדן)
+- פריקת אחריות נציבות 2024: אושרה בתנאים
+- 164 טקסטים מאומצים במצטבר במושב העשירי של הפרלמנט האירופי עד כה (2025–2026)
+- מדד יציבות: 84/100 (מערכת אזהרה מוקדמת של הפרלמנט האירופי)
+
+---
+
+### 5 ההתפתחויות החמות המובילות (מדורגות לפי משמעות)
+
+#### 1. 🔴 דו"ח ביניים על מסגרת פיננסית רב-שנתית 2028–2034 (TA-10-2026-0111) — קריטי
+**תאריך אימוץ:** 2026-04-28 | **משמעות:** 9.5/10
+
+דו"ח הביניים של הפרלמנט האירופי על המסגרת הפיננסית הרב-שנתית 2028–2034 הוא המסמך המדיניות המשפיע ביותר שהוציא הפרלמנט ברבעון הראשון של 2026. הוא מייצג את מהלך הפתיחה של הפרלמנט במשא ומתן בן 18–24 חודשים עם הנציבות והמועצה על מבנה התקציב של האיחוד האירופי לשבע השנים הבאות.
+
+דרישות עיקריות של הפרלמנט האירופי בדו"ח הביניים:
+- **שילוב ביטחוני**: לראשונה, הפרלמנט האירופי מסכים שכספי תקציב האיחוד האירופי יכולים לתמוך בפיתוח יכולות ביטחוניות לצד מסגרות ביטחון לאומי/נאט"ו קיימות — שינוי פרדיגמה ממודל התקציב כ"כוח אזרחי"
+- **רפורמת משאבים עצמיים**: הפרלמנט האירופי דורש משאבים עצמיים חדשים של האיחוד האירופי כולל מס שירותים דיגיטליים (המכוון לאותן חברות טק גדולות הכפופות ל-DMA) ומס עסקאות פיננסיות
+- **שמירה על קרן לכידות**: קבוצת S&D וקבוצות אזוריות הבטיחו ניסוח השומר על עיקרון הלכידות האזורית, אם כי הגודל הכמותי נותר שנוי במחלוקת
+- **מותנה אקלים**: כל שורות התקציב המרכזיות צריכות להיות "תואמות את הסכם פריז" עם 30% לפחות להוצאות אקלים
+- **מותנה שלטון החוק**: הפרלמנט מחזק מנגנוני מותנה בהסתמך על התקדים שנוצר בתיק הונגריה
+
+**דינמיקות קואליציה:** EPP תמכה בשפת שילוב ביטחוני; S&D תמכה בלכידות חברתית; Renew תמכה במס הדיגיטלי; הירוקים תמכו במותנה אקלים. קונצנזוס נדיר בין ארבע קבוצות על המסמך הכולל למרות מתחים פנימיים על הגודל הכמותי הביטחוני.
+
+**השתקפות אסטרטגית:** ההצעה הרשמית של הנציבות למסגרת הפיננסית הרב-שנתית צפויה ברבעון הרביעי של 2026. דו"ח הביניים של הפרלמנט מציב את קו הבסיס למשא ומתן. מדינות חברות במועצה יתנגדו לשילוב ביטחוני ולהוראות רפורמת משאבים עצמיים. משא ומתן 2027 יהיה התהליך המוסדי המשפיע ביותר פוליטית באיחוד האירופי בעשור.
+
+---
+
+#### 2. 🟠 פריקת אחריות תקציב 2024 — מבנה אחריות (טקסטי TA מרובים) — גבוה
+**תאריך אימוץ:** 2026-04-28–29 | **משמעות:** 8.5/10
+
+הפרלמנט האירופי אימץ חבילה מקיפה של החלטות פריקת אחריות תקציב 2024:
+- הנציבות (TA-10-2026-0125) — אושרה בתנאים
+- הפרלמנט האירופי (TA-10-2026-0126) — אושרה
+- השירות לפעולות חיצוניות (TA-10-2026-0130) — אושרה
+- המבקר האירופי (TA-10-2026-0133) — אושרה
+- התביעה הכללית האירופית (TA-10-2026-0135) — אושרה
+- סוכנויות (TA-10-2026-0136) — אושרה
+- מיזמים משותפים (TA-10-2026-0137) — אושרה
+
+**תנאי פריקת אחריות הנציבות** הם בעלי המשמעות הפוליטית הגדולה ביותר. ועדת CONT (בקרת תקציב) הטילה תנאים הנוגעים ל:
+1. יישום מותנה שלטון החוק — המצב בהונגריה; עיתוי שחרור הכספים
+2. פיקוח על מנגנון ההתאוששות והחוסן — להבטיח שמדינות חברות עומדות באבני דרך סופיות
+3. ניהול סיוע חיצוני — אחריות על תמיכה דו-צדדית באוקראינה שנמסרת דרך כלי האיחוד האירופי
+4. ניהול קרן מעבר דיגיטלי — הקצאת תקציב ליישום AIA
+
+הסכמת פריקת האחריות (במקום דחייה) משקפת אינטרס עצמי מוסדי של הפרלמנט האירופי; דחיית פריקת אחריות הנציבות תוביל למשבר חוקתי. אולם התנאים יוצרים מנגנון אחריות פוליטית שהפרלמנט יכול להסתמך עליו בנתיבי פיקוח עתידיים.
+
+---
+
+#### 3. 🟠 דו"חות שנתיים על שלטון החוק וזכויות יסוד — גבוה
+**תאריך אימוץ:** 2026-04-29 | **משמעות:** 8.0/10
+
+שתי הערכות שנתיות חשובות אומצו:
+- **דו"ח הנציבות על שלטון החוק 2025** (TA-10-2026-0147): הפרלמנט אישר את הערכת הנציבות עם דרישות נוספות מהפרלמנט. חששות עיקריים: הונגריה (ירידה מתמשכת בשלטון החוק למרות שחרור כספים מותנה), פולין (מסלול חיובי נשמר), רומניה, בולגריה (יישום רפורמות שיפוט), סלובקיה (חששות חדשים בעקבות שינוי ממשלה).
+- **זכויות יסוד 2024–2025** (TA-10-2026-0146): הפרלמנט תיעד הידרדרות בהונגריה, התאוששות חלקית בפולין, וחששות מתפתחים באיטליה ובצרפת לגבי חופש העיתונות וממשל אלגוריתמי.
+
+**משמעות פוליטית:** החלטות אלה מהוות את רישום הראיות עבור:
+1. פעולות עתידיות לפי סעיף 7 לאמנת האיחוד האירופי (אם הונגריה מעוררת הסלמה)
+2. החלטות מותנה שלטון החוק על שחרור כספים מבניים
+3. הערכות מותנה הצטרפות לאיחוד האירופי (אוקראינה, מולדובה, בלקן מערבי)
+
+---
+
+#### 4. 🟡 ממשל דיגיטלי: AIA מקיף ואכיפת DMA — בינוני-גבוה
+**תאריך אימוץ:** 2026-03-26 (AIA מקיף); מתמשך (DMA) | **משמעות:** 7.5/10
+
+AIA הנגיש (TA-10-2026-0098) מפשט את יישום חוק הבינה המלאכותית עבור SMEs וסטארט-אפים, מקל על עומס הציות לחברות עם הכנסות מתחת ל-50 מיליון אירו תוך שמירה על יישום מלא עבור שחקנים גדולים. זה משקף את ההכרה של הפרלמנט האירופי בסיכון לריכוז עלויות ציות AI-Act על חברות אירופיות מול ענקי טכנולוגיה אמריקניים.
+
+יחד עם הגנת אכיפת DMA (מניתוח קודם), זה מבסס מסגרת ממשל דיגיטלי קוהרנטית: ויסות נוקשה לטק גדול (DMA) + יישום מפושט למחדשים אירופיים (AIA מקיף).
+
+---
+
+#### 5. 🟡 הדו"ח השנתי על האיחוד הבנקאי ו-BRRD3 — בינוני
+**תאריך אימוץ:** 2026-04-30 ו-2026-03-26 | **משמעות:** 7.0/10
+
+גם הדו"ח השנתי על האיחוד הבנקאי 2025 (TA-10-2026-0159) וגם BRRD3 (TA-10-2026-0091) מחזקים את מסגרת יציבות פיננסית האיחוד האירופי שלאחר 2008. BRRD3 מעדכן טריגרים להתערבות מוקדמת ותנאי חילוץ פנימי, משלב לקחים ממשבר Credit Suisse של 2023. הדו"ח השנתי על האיחוד הבנקאי דורש השלמת EDIS — עדיין חסום בשל התנגדות גרמנית והולנדית במועצה.
+
+---
+
+### סיכום מודיעין פוליטי
+
+**מצב הרוב הבנייתי:** 🟢 יציב
+קואליציית EPP+S&D+Renew (396 מושבים) החזיקה מעמד בכל ההצבעות המהותיות כולל פריקת האחריות השנויה במחלוקת של הנציבות. לחצי קואליציה נמשכים סביב שילוב הוצאות ביטחוניות (התנגדות ירוקים/שמאל) ומדיניות הגירה (סיכון יישור EPP+ECR).
+
+**נקודת פגיעות עיקרית:** שפת שילוב ביטחוני בדו"ח הביניים על המסגרת הפיננסית הרב-שנתית עלולה לפצל את הקואליציה אם תהפוך לנושא המרכזי במשא ומתן 2027; הירוקים והשמאל יתנגדו להקצאות כספי ביטחון אפילו במסגרת תקציב האיחוד האירופי.
+
+**עדכון אסטרטגיית PfE:** PfE מגביר קמפיין הנרטיב שלו על ביטול לגיטימציה מוסדית (התערבות הנציבות בבחירות, דיון 29 אפריל על כלל 169). כשהוא אינו מסוגל לחסום חקיקה, PfE ממצב את עצמו לרגע המינוף של משא ומתן מסגרת פיננסית רב-שנתית 2027. ממשלות מסונפות ל-PfE (הונגריה, איטליה, מרכיב NR הצרפתי) ידרשו ויתורים ספציפיים במסגרת הפיננסית הרב-שנתית בתמורה להסכמת המועצה.
+
+**השכבה הגיאופוליטית:** אג'נדת אחריות אוקראינה (דרישה לבית משפט מיוחד) וההחלטה הארמנית מעידות על עמדה פעילה של הפרלמנט האירופי במדיניות חוץ. שתי ההחלטות הללו לא יוצרות השפעה חקיקתית ישירה, אך יוצרות אחריות פוליטית ליישום מדיניות החוץ של הנציבות והמועצה.
+
+---
+
+### ייחוס מקורות
+נתונים מאוחדו מפורטל הנתונים הפתוחים של הפרלמנט האירופי (טקסטים מאומצים, נוף פוליטי, מערכת אזהרה מוקדמת, דינמיקות קואליציה)
+טווח זמן: 2026-01-01 עד 2026-05-12 (164 טקסטים מאומצים במושב העשירי של הפרלמנט האירופי)
+ביטחון: 🟡 בינוני (אין נתוני הצבעה רשמיים; עיכוב פרסום פרלמנט אירופי 4–6 שבועות)
+מתודולוגיה: סינתזת מודיעין פוליטי תוך שימוש בטכניקות אנליטיקה מובנות
+
+### Executive Brief Ja
+
+**日付:** 2026-05-12 | **記事タイプ:** breaking | **信頼度:** 🟡 中程度
+**BLUF（60秒要約）:** 2026年4月28日〜5月1日の欧州議会本会議は、5つの戦略的クラスターにわたって30件超の重要な立法・政策成果をもたらした。(1) 防衛・競争力への予算転換を示す2028–2034年多年次財政枠組み中間報告書、(2) 欧州委員会・議会・機関・合同事業の2024年予算執行承認、(3) 加盟国への率直な批判を含む法の支配・基本的権利年次評価、(4) DMA/AI法を通じたデジタルガバナンスの加速、(5) 地政学的説明責任決議（ウクライナ特別法廷、アルメニア）の5クラスターである。MFF中間報告書は最も重要な議題であり、欧州議会が2027+予算サイクルに向けた交渉姿勢を、防衛能力統合という前例のない要求とともに示した文書である。
+
+---
+
+### 60秒で読む
+
+**何が起きたか:** 2026年4月末の欧州議会本会議は、歴史的に密度の高い立法アウトプットをもたらした。5日間で、欧州議員たちは2028–2034年多年次財政枠組み（MFF）中間報告書を採択し、欧州委員会および全主要欧州機関に2024年予算執行承認を付与し、法の支配・基本的権利に関する実質的な評価を承認し、包括的AI法とDMA執行を通じてデジタルガバナンスを強化し、ウクライナにおけるロシアの刑事責任とアルメニアの民主的強靭性に関する地政学的決議を採択した。
+
+**なぜ重要か:** 2028–2034年MFF中間報告書は変革的な文書である。欧州議会が2021–2027年MFFとは根本的に異なる予算構造を承認する準備があることを示している——防衛能力資金調達の統合（EU予算史上初）、農業・結束基金の競争力・戦略的自律性への再配分、欧州デジタル税を含む新たなEU固有財源の導入の可能性を含む構造である。予算執行承認サイクルは並行して、2024年に2000億ユーロ超のEU資金がどのように管理されたかについての包括的な説明責任審査を完了し、欧州委員会の承認は法の支配条件付けの適用に関する条件付きで僅差で可決された。
+
+**政治地図:** 建設的多数派（EPP+S&D+Renew = 396議席）が全ての実質的な採決をリードした。MFF採決は社会的支出に関するイデオロギー的相違にもかかわらず、防衛統合を巡る党派横断的なコンセンサスを示した。PfE+ECRは法の支配決議と予算執行承認の条件付き文言に反対した。緑の党と左翼は説明責任と権利の問題では主流と共に投票したが、防衛拡大条項には反対した。
+
+**主要数値:**
+- 9政治グループの717名の欧州議員
+- 4月28〜30日に30件超の法律・決議が採択
+- MFF 2028–2034: 提案上限 2.0〜2.4兆ユーロ（推定）
+- 2024年欧州委員会予算執行承認: 条件付き採択
+- 欧州議会第10会期の累計採択文書数164件（2025–2026）
+- 安定指数: 84/100（欧州議会早期警戒システム）
+
+---
+
+### 重要度別 上位5つの速報（重要度順）
+
+#### 1. 🔴 2028–2034年MFF中間報告書（TA-10-2026-0111）— 極めて重要
+**採択日:** 2026-04-28 | **重要度:** 9.5/10
+
+欧州議会の2028–2034年MFF中間報告書は、議会が2026年第1四半期に発表した最も影響力のある政策文書である。今後7年間のEU予算構造を巡る、欧州委員会および理事会との18〜24か月に及ぶ交渉における議会のオープニングムーブを表している。
+
+MFF中間報告書における欧州議会の主要要求:
+- **防衛統合**: 初めて、欧州議会はEU予算資金が既存の国防/NATO枠組みと並行して防衛能力開発を支援できることに同意——「民政的権力」予算モデルからのパラダイムシフト
+- **固有財源改革**: 欧州議会は、デジタルサービス税（DMA対象の大手テクノロジー企業に対象）と金融取引税を含む新たなEU固有財源を要求
+- **結束基金の維持**: S&Dグループと地域グループが地域結束の原則を保護する文言を確保したが、数量的規模は依然として議論中
+- **気候条件付け**: 主要な全予算ラインは「パリ協定適合」であり、最低30%の気候支出を要件とすべき
+- **法の支配条件付け**: 議会はハンガリー事例で確立された先例を基に条件付けメカニズムを強化
+
+**連立ダイナミクス:** EPPが防衛統合文言を支持；S&Dが社会的結束を支持；Renewがデジタル税を支持；緑の党が気候条件付けを支持。防衛数量規模を巡る内部緊張にもかかわらず、文書全体について4グループ間の稀な合意。
+
+**戦略的反射:** 欧州委員会の正式MFF提案は2026年第4四半期が見込まれる。議会の中間報告書が交渉のベースラインを設定する。理事会の加盟国は防衛統合と固有財源改革の条項に抵抗するだろう。2027年の交渉は、この10年でEUにおいて最も政治的に重要な制度的プロセスとなる。
+
+---
+
+#### 2. 🟠 2024年予算執行承認 — 説明責任構造（複数TA文書）— 高
+**採択日:** 2026-04-28–29 | **重要度:** 8.5/10
+
+欧州議会は2024年予算執行承認決議の包括的パッケージを採択した:
+- 欧州委員会（TA-10-2026-0125）— 条件付き採択
+- 欧州議会（TA-10-2026-0126）— 採択
+- 欧州対外行動局（TA-10-2026-0130）— 採択
+- 欧州オンブズマン（TA-10-2026-0133）— 採択
+- 欧州検察庁（TA-10-2026-0135）— 採択
+- 機関（TA-10-2026-0136）— 採択
+- 合同事業（TA-10-2026-0137）— 採択
+
+**欧州委員会の予算執行承認条件**は政治的に最も重要である。CONT委員会（予算管理）が以下に関する条件を課した:
+1. 法の支配条件付けの適用 — ハンガリーの状況；資金解放のタイミング
+2. 復興・強靭性メカニズムの監督 — 加盟国が最終マイルストーンを達成することの確認
+3. 対外援助管理 — EU手段を通じて提供されるウクライナへの二国間支援の説明責任
+4. デジタル移行基金管理 — AI法実施への予算配分
+
+予算執行承認の同意（否決ではなく）は欧州議会の制度的自己利益を反映している；欧州委員会の予算執行承認を否決すれば憲法的危機を引き起こす。しかし、条件は議会が将来の監督路線で依拠できる政治的説明責任メカニズムを生み出す。
+
+---
+
+#### 3. 🟠 法の支配・基本的権利年次報告書 — 高
+**採択日:** 2026-04-29 | **重要度:** 8.0/10
+
+2つの重要な年次評価が採択された:
+- **欧州委員会法の支配報告書 2025**（TA-10-2026-0147）: 議会は追加的な議会要求とともに欧州委員会の評価を承認。主要懸念事項: ハンガリー（条件付き資金解放にもかかわらず継続的な法の支配の劣化）、ポーランド（前向きな軌跡の維持）、ルーマニア、ブルガリア（司法改革の実施）、スロバキア（政権交代後の新たな懸念）。
+- **基本的権利 2024–2025**（TA-10-2026-0146）: 議会はハンガリーの悪化、ポーランドの部分的回復、イタリアとフランスにおける報道の自由とアルゴリズムガバナンスに関する新たな懸念を記録した。
+
+**政治的重要性:** これらの決議は以下の証拠記録を構成する:
+1. EU条約第7条に基づく将来の措置（ハンガリーが事態を激化させた場合）
+2. 構造基金支払いに関する法の支配条件付け決定
+3. EU加盟候補国の条件付け評価（ウクライナ、モルドバ、西バルカン）
+
+---
+
+#### 4. 🟡 デジタルガバナンス: 包括的AI法とDMA執行 — 中程度〜高
+**採択日:** 2026-03-26（包括的AI法）；継続中（DMA） | **重要度:** 7.5/10
+
+包括的AI法（TA-10-2026-0098）は、収益5000万ユーロ未満の企業へのコンプライアンス負担を軽減しながら大規模プレイヤーへの完全適用を維持し、SMEおよびスタートアップのためのAI法適用を簡素化する。これは欧州議会が、AI法のコンプライアンスコストが米国の大手テクノロジー企業よりも欧州企業に集中するリスクを認識していることを反映している。
+
+DMA執行の擁護（以前の分析から）と組み合わせると、これは一貫したデジタルガバナンスフレームワークを確立する: 大手テクノロジーへの厳格な規制（DMA）＋欧州イノベーターへの簡素化された適用（包括的AI法）。
+
+---
+
+#### 5. 🟡 銀行同盟年次報告書とBRRD3 — 中程度
+**採択日:** 2026-04-30 と 2026-03-26 | **重要度:** 7.0/10
+
+銀行同盟2025年次報告書（TA-10-2026-0159）とBRRD3（TA-10-2026-0091）の両方が、2008年以降のEU金融安定フレームワークを強化する。BRRD3は早期介入トリガーとベイルイン条件を更新し、2023年のクレディ・スイス危機からの教訓を組み込む。銀行同盟報告書はEDIS（欧州預金保険制度）の完成を要求している——理事会におけるドイツとオランダの反対により依然として阻まれている。
+
+---
+
+### 政治的インテリジェンスサマリー
+
+**建設的多数派の状況:** 🟢 安定
+EPP+S&D+Renew連立（396議席）は、欧州委員会の議論を呼ぶ予算執行承認を含む全ての実質的採決を維持した。防衛支出統合（緑の党/左翼の反対）と移民政策（EPP+ECR調整リスク）を巡る連立圧力が継続している。
+
+**主要脆弱性:** MFF中間報告書の防衛統合文言は、2027年交渉の中心的争点になれば連立を分裂させる可能性がある；緑の党と左翼はEU予算の枠組みであっても防衛資金配分に反対するだろう。
+
+**PfE戦略の更新:** PfEは制度的正当性失墜の語りキャンペーンを激化させている（欧州委員会の選挙介入、4月29日のルール169に関する討論）。立法を阻止できないPfEは、2027年MFF交渉のレバレッジポイントに向けて自らを位置づけている。PfE傘下の政府（ハンガリー、イタリア、フランスのNR成分）は理事会合意と引き換えにMFF内の具体的な譲歩を要求するだろう。
+
+**地政学的層:** ウクライナ説明責任アジェンダ（特別法廷の要求）とアルメニア決議は、欧州議会の対外政策における積極的な姿勢を示している。これら2つの決議は直接的な立法上の力を生み出すわけではないが、欧州委員会と理事会の対外政策執行に対する政治的説明責任を生み出す。
+
+---
+
+### ソース帰属
+欧州議会オープンデータポータル（採択文書、政治的景観、早期警戒システム、連立ダイナミクス）からデータを集約
+時間範囲: 2026-01-01〜2026-05-12（欧州議会第10会期の164採択文書）
+信頼度: 🟡 中程度（正式な記名投票データなし；欧州議会の公開遅延4〜6週間）
+方法論: 構造化分析技術を用いた政治的インテリジェンス合成
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-12 | **기사 유형:** breaking | **신뢰도:** 🟡 중간
+**BLUF (60초 요약):** 2026년 4월 28일~5월 1일 유럽의회 본회의는 5개 전략적 클러스터에서 30건 이상의 중요한 입법·정책 성과를 냈습니다: (1) 국방·경쟁력으로의 예산 전환을 시사하는 2028–2034년 다년도 재정 프레임워크 중간 보고서, (2) 집행위원회·의회·기관·합동사업에 대한 포괄적인 2024년 예산 집행 승인, (3) 회원국에 대한 직접적 비판을 포함한 법치주의·기본권 연례 평가, (4) DMA/AI법을 통한 디지털 거버넌스 가속화, (5) 지정학적 책임 결의(우크라이나 특별법원, 아르메니아)의 5개 클러스터입니다. MFF 중간 보고서는 가장 중요한 의제로, 유럽의회가 방위 역량 통합에 관한 전례 없는 요구와 함께 2027+ 예산 주기에 대한 협상 입장을 제시한 문서입니다.
+
+---
+
+### 60초 읽기
+
+**무슨 일이 있었나:** 2026년 4월 말 유럽의회 본회의는 역사적으로 밀도 높은 입법 성과를 냈습니다. 5일 동안 유럽의원들은 2028–2034년 다년도 재정 프레임워크(MFF) 중간 보고서를 채택하고, 집행위원회와 모든 주요 유럽 기관에 2024년 예산 집행 승인을 부여하며, 법치주의·기본권에 관한 실질적인 평가를 승인하고, 포괄적 AI법 및 DMA 집행을 통해 디지털 거버넌스를 강화하며, 우크라이나에서의 러시아 형사 책임과 아르메니아의 민주적 회복력에 관한 지정학적 결의를 채택했습니다.
+
+**왜 중요한가:** 2028–2034년 MFF 중간 보고서는 변혁적인 문서입니다. 유럽의회가 2021–2027년 MFF와는 근본적으로 다른 예산 구조를 승인할 준비가 되었음을 시사합니다——방위 역량 자금 조달 통합(EU 예산 역사상 최초), 농업·결속 기금의 경쟁력·전략적 자율성으로의 재배분, 디지털세를 포함한 새로운 EU 고유 재원 도입 가능성을 포함하는 구조입니다. 예산 집행 승인 주기는 병행하여 2024년 2000억 유로 이상의 EU 자금이 어떻게 관리되었는지에 대한 포괄적인 책임 검토를 완료했으며, 집행위원회 승인은 법치주의 조건 적용에 관한 조건부로 간신히 통과되었습니다.
+
+**정치 지형:** 건설적 다수파(EPP+S&D+Renew = 396석)가 모든 실질적 표결을 주도했습니다. MFF 표결은 사회적 지출에 관한 이념적 차이에도 불구하고 방위 통합을 둘러싼 초당적 합의를 보여줬습니다. PfE+ECR은 법치주의 결의와 예산 집행 승인의 조건부 문구에 반대했습니다. 녹색당과 좌파는 책임·권리 문제에서 주류와 함께 투표했지만 방위 확대 조항에는 반대했습니다.
+
+**주요 수치:**
+- 9개 정치 그룹의 유럽의원 717명
+- 4월 28~30일에 30건 이상의 법률·결의 채택
+- MFF 2028–2034: 제안 상한 2.0~2.4조 유로(추정)
+- 2024년 집행위원회 예산 집행 승인: 조건부 채택
+- 유럽의회 제10회기 누적 채택 문서 164건(2025–2026)
+- 안정 지수: 84/100(유럽의회 조기 경보 시스템)
+
+---
+
+### 중요도별 상위 5개 속보 (중요도 순)
+
+#### 1. 🔴 2028–2034년 MFF 중간 보고서 (TA-10-2026-0111) — 매우 중요
+**채택일:** 2026-04-28 | **중요도:** 9.5/10
+
+유럽의회의 2028–2034년 MFF 중간 보고서는 의회가 2026년 1분기에 발표한 가장 영향력 있는 정책 문서입니다. 향후 7년간의 EU 예산 구조를 둘러싼 집행위원회 및 이사회와의 18~24개월 협상에서 의회의 개막 수를 나타냅니다.
+
+MFF 중간 보고서에서 유럽의회의 주요 요구 사항:
+- **방위 통합**: 처음으로 유럽의회는 EU 예산 자금이 기존 국방/NATO 프레임워크와 함께 방위 역량 개발을 지원할 수 있다는 데 동의——"민사 권력" 예산 모델에서의 패러다임 전환
+- **고유 재원 개혁**: 유럽의회는 디지털 서비스세(DMA 대상 대형 기술 기업 대상)와 금융거래세를 포함한 새로운 EU 고유 재원을 요구
+- **결속 기금 유지**: S&D 그룹과 지역 그룹이 지역 결속 원칙을 보호하는 문구를 확보했지만 규모는 여전히 논란 중
+- **기후 조건부**: 모든 주요 예산 항목은 "파리협정 부합"이어야 하며 최소 30% 기후 지출 요건
+- **법치주의 조건부**: 의회는 헝가리 사례에서 확립된 선례를 바탕으로 조건부 메커니즘을 강화
+
+**연립 역학:** EPP가 방위 통합 문구를 지지; S&D가 사회적 결속 지지; Renew가 디지털세 지지; 녹색당이 기후 조건부 지지. 방위 규모를 둘러싼 내부 긴장에도 불구하고 전체 문서에 대한 4개 그룹 간의 드문 합의.
+
+**전략적 함의:** 집행위원회의 공식 MFF 제안은 2026년 4분기 예상. 의회 중간 보고서가 협상 기준선을 설정. 이사회 회원국은 방위 통합과 고유 재원 개혁 조항에 저항할 것. 2027년 협상은 이 10년 동안 EU에서 가장 정치적으로 중요한 제도적 프로세스가 될 것.
+
+---
+
+#### 2. 🟠 2024년 예산 집행 승인 — 책임 구조 (복수의 TA 문서) — 높음
+**채택일:** 2026-04-28–29 | **중요도:** 8.5/10
+
+유럽의회는 2024년 예산 집행 승인 결의의 포괄적 패키지를 채택했습니다:
+- 집행위원회(TA-10-2026-0125) — 조건부 채택
+- 유럽의회(TA-10-2026-0126) — 채택
+- 유럽대외관계청(TA-10-2026-0130) — 채택
+- 유럽 옴부즈맨(TA-10-2026-0133) — 채택
+- 유럽검찰청(TA-10-2026-0135) — 채택
+- 기관(TA-10-2026-0136) — 채택
+- 합동사업(TA-10-2026-0137) — 채택
+
+**집행위원회 예산 집행 승인 조건**이 정치적으로 가장 중요합니다. CONT위원회(예산 통제)가 다음에 관한 조건을 부과했습니다:
+1. 법치주의 조건부 적용 — 헝가리 상황; 자금 해제 시기
+2. 회복·회복력 메커니즘 감독 — 회원국이 최종 이정표를 달성하도록 보장
+3. 대외 원조 관리 — EU 수단을 통해 제공되는 우크라이나에 대한 양자 지원 책임
+4. 디지털 전환 기금 관리 — AI법 이행을 위한 예산 배정
+
+예산 집행 승인 동의(거부가 아닌)는 유럽의회의 제도적 자기 이익을 반영합니다; 집행위원회 예산 집행 승인 거부는 헌법적 위기를 초래할 것입니다. 그러나 조건들은 의회가 미래 감독 경로에서 의존할 수 있는 정치적 책임 메커니즘을 만들어냅니다.
+
+---
+
+#### 3. 🟠 법치주의·기본권 연례 보고서 — 높음
+**채택일:** 2026-04-29 | **중요도:** 8.0/10
+
+두 가지 중요한 연례 평가가 채택되었습니다:
+- **집행위원회 법치주의 보고서 2025** (TA-10-2026-0147): 의회는 추가적인 의회 요구와 함께 집행위원회 평가를 승인. 주요 우려: 헝가리(조건부 자금 해제에도 불구한 지속적인 법치주의 저하), 폴란드(긍정적 궤적 유지), 루마니아, 불가리아(사법 개혁 이행), 슬로바키아(정권 교체 후 새로운 우려).
+- **기본권 2024–2025** (TA-10-2026-0146): 의회는 헝가리의 악화, 폴란드의 부분적 회복, 이탈리아와 프랑스에서 언론 자유와 알고리즘 거버넌스에 관한 새로운 우려를 기록했습니다.
+
+**정치적 중요성:** 이러한 결의들은 다음을 위한 증거 기록을 구성합니다:
+1. EU조약 제7조에 따른 미래 조치(헝가리가 사태를 악화시킬 경우)
+2. 구조 기금 지급에 관한 법치주의 조건부 결정
+3. EU 가입 후보국 조건부 평가(우크라이나, 몰도바, 서발칸)
+
+---
+
+#### 4. 🟡 디지털 거버넌스: 포괄적 AI법 및 DMA 집행 — 중간~높음
+**채택일:** 2026-03-26(포괄적 AI법); 진행 중(DMA) | **중요도:** 7.5/10
+
+포괄적 AI법(TA-10-2026-0098)은 매출 5000만 유로 미만 기업의 준수 부담을 경감하면서 대형 플레이어에 대한 완전 적용을 유지하여 중소기업과 스타트업을 위한 AI법 적용을 간소화합니다. 이는 유럽의회가 AI법 준수 비용이 미국 대형 기술 기업보다 유럽 기업에 집중되는 위험을 인식하고 있음을 반영합니다.
+
+DMA 집행 옹호(이전 분석에서)와 결합하면, 이는 일관된 디지털 거버넌스 프레임워크를 확립합니다: 대형 기술에 대한 엄격한 규제(DMA) + 유럽 혁신가를 위한 간소화된 적용(포괄적 AI법).
+
+---
+
+#### 5. 🟡 은행 동맹 연례 보고서 및 BRRD3 — 중간
+**채택일:** 2026-04-30 및 2026-03-26 | **중요도:** 7.0/10
+
+은행 동맹 2025 연례 보고서(TA-10-2026-0159)와 BRRD3(TA-10-2026-0091) 모두 2008년 이후 EU 금융 안정 프레임워크를 강화합니다. BRRD3는 조기 개입 트리거와 구제금융 조건을 업데이트하여 2023년 크레디트 스위스 위기의 교훈을 반영합니다. 은행 동맹 보고서는 EDIS(유럽예금보험제도) 완성을 요구——이사회에서의 독일과 네덜란드의 반대로 여전히 차단됨.
+
+---
+
+### 정치 인텔리전스 요약
+
+**건설적 다수파 상태:** 🟢 안정
+EPP+S&D+Renew 연립(396석)은 논란이 많은 집행위원회 예산 집행 승인을 포함한 모든 실질적 표결에서 유지되었습니다. 방위 지출 통합(녹색당/좌파의 반대)과 이민 정책(EPP+ECR 조율 위험)을 둘러싼 연립 압력이 계속됩니다.
+
+**주요 취약점:** MFF 중간 보고서의 방위 통합 문구는 2027년 협상의 핵심 쟁점이 되면 연립을 분열시킬 수 있습니다; 녹색당과 좌파는 EU 예산 프레임워크 내에서도 방위 자금 배정에 반대할 것입니다.
+
+**PfE 전략 업데이트:** PfE는 제도적 정당성 박탈 서사 캠페인을 강화하고 있습니다(집행위원회의 선거 개입, 4월 29일 규칙 169 토론). 입법을 막을 수 없는 PfE는 2027년 MFF 협상의 레버리지 포인트를 향해 자신을 위치시키고 있습니다. PfE 산하 정부(헝가리, 이탈리아, 프랑스 NR 구성 요소)는 이사회 합의에 대한 대가로 MFF 내의 구체적인 양보를 요구할 것입니다.
+
+**지정학적 층:** 우크라이나 책임 아젠다(특별법원 요구)와 아르메니아 결의는 대외 정책에서의 유럽의회의 적극적 입장을 나타냅니다. 이 두 결의는 직접적인 입법적 힘을 만들어내지 않지만, 집행위원회와 이사회의 대외 정책 이행에 대한 정치적 책임을 만들어냅니다.
+
+---
+
+### 출처 귀속
+유럽의회 오픈데이터 포털(채택 문서, 정치적 지형, 조기 경보 시스템, 연립 역학)에서 데이터 집계
+기간: 2026-01-01~2026-05-12(유럽의회 제10회기 채택 문서 164건)
+신뢰도: 🟡 중간(공식 기명 투표 데이터 없음; 유럽의회 게시 지연 4~6주)
+방법론: 구조화된 분석 기술을 사용한 정치 인텔리전스 합성
+
+### Executive Brief Nl
+
+### 60-secondenlezing
+
+**Wat er is gebeurd:** De plenaire vergadering van het EP eind april 2026 leverde een historisch dicht wetgevingsresultaat op. In vijf dagen namen de EP-leden een tussentijds verslag aan over het meerjarig financieel kader 2028–2034, keurden ze de kwijting 2024 voor de Commissie en alle grote EU-organen goed, namen ze belangrijke evaluaties aan van de rechtsstaat en de grondrechten, bevorderden ze digitaal bestuur via de AI Digital Omnibus en de DMA-handhaving, en vaardigen ze geopolitieke resoluties uit over de strafrechtelijke verantwoordelijkheid van Rusland voor Oekraïne en de democratische weerbaarheid van Armenië.
+
+**Waarom het ertoe doet:** Het tussentijdse MFK-verslag 2028–2034 is een keerpuntdocument. Het signaleert dat het EP bereid is een fundamenteel andere begrotingsarchitectuur te onderschrijven dan het MFK 2021–2027 — een die defensiecapaciteitsfinanciering integreert (een eerste in de EU-begrotingsgeschiedenis), de aandelen van de landbouw- en cohesiefondsen vermindert ten gunste van concurrentievermogen en strategische autonomie, en potentieel nieuwe EU-eigen middelen introduceert, waaronder een digitale heffing. De kwijtingscyclus sloot tegelijkertijd een uitgebreide verantwoordingscontrole af over hoe meer dan 200 miljard euro aan EU-middelen in 2024 werd beheerd, waarbij de kwijting van de Commissie met een klein verschil werd goedgekeurd met voorwaarden betreffende de implementatie van de rechtsstaat-conditionaliteit.
+
+**De politieke kaart:** De constructieve meerderheid (EVP+S&D+Renew = 396 zetels) dreef alle belangrijke stemmen. De MFK-stemming demonstreerde trans-blok convergentie over defensie-integratie ondanks ideologische verschillen over sociale uitgaven. PfE+ECR betwistten rechtsstaatrresoluties en de conditionaliteitstaal van de kwijting. De Groenen en Extreemlinks stemden met de mainstream over verantwoording en rechten maar tegen de defensieuitbreidingsbepalingen.
+
+**Kerngetallen:**
+- 717 EP-leden in 9 politieke fracties
+- Meer dan 30 wettelijke en resoluties aangenomen van 28 tot 30 april
+- MFK 2028–2034: Voorgesteld kader van 2,0–2,4 biljoen euro (schatting)
+- Kwijting Commissie 2024: goedgekeurd met voorwaarden
+- 164 aangenomen teksten cumulatief in de EP10-zittingsperiode tot heden (2025–2026)
+- Stabiliteitsscore: 84/100 (EP vroeg waarschuwingssysteem)
+
+---
+
+### Top 5 Breaking Developments (Gerangschikt naar Significantie)
+
+#### 1. 🔴 MFK 2028–2034 Tussentijds verslag (TA-10-2026-0111) — KRITIEK
+**Aannamedatum:** 2026-04-28 | **Significantie:** 9,5/10
+
+Het tussentijdse verslag van het EP over het meerjarig financieel kader 2028–2034 is het meest consequente politieke document dat door het EP in het eerste kwartaal van 2026 is geproduceerd. Het vertegenwoordigt het openingsbod van het Parlement in een 18–24 maanden durende onderhandeling met de Commissie en de Raad over de volgende zevenjarige begrotingsarchitectuur van de EU.
+
+Belangrijke EP-eisen in het tussentijdse verslag:
+- **Defensie-integratie**: Voor het eerst accepteert het EP dat EU-begrotingsmiddelen de ontwikkeling van defensiecapaciteit moeten ondersteunen naast de bestaande NAVO/nationale defensiekaders — een paradigmaverschuiving van het EU-begrotingsmodel als 'civiele macht'
+- **Hervorming van eigen middelen**: Het EP vraagt om nieuwe EU-eigen middelen, waaronder een digitale dienstenheffing (gericht op dezelfde Big Tech-bedrijven die onder de DMA worden gereguleerd) en een belasting op financiële transacties
+- **Behoud van het Cohesiefonds**: S&D en regionale groepen zorgden voor taal die het principe van territoriale cohesie behoudt, hoewel het kwantum betwist blijft
+- **Klimaatconditionaliteit**: Alle belangrijke begrotingslijnen moeten 'Parijs-conform' zijn met minimaal 30% klimaatuitgaven
+- **Rechtsstaat-conditionaliteit**: Het EP versterkt de conditionaliteitsmechanismen na het Hongaarse zaakprecedent
+
+**Coalitiedynamiek:** EVP ondersteunde de taal voor defensie-integratie; S&D ondersteunde sociale cohesie; Renew ondersteunde de digitale heffing; Groenen ondersteunden klimaatconditionaliteit. Een zeldzame vier-groepsconsensus over het algehele document ondanks interne spanningen over het defensiekwantum.
+
+**Strategische implicatie:** Het formele MFK-voorstel van de Commissie wordt verwacht in Q4 2026. Het tussentijdse verslag van het EP stelt de onderhandelingsbasislijn. De Raad (lidstaten) zal de defensie-integratiebepalaingen en de hervorming van eigen middelen weerstaan. De onderhandeling in 2027 zal het meest politiek consequente EU-institutionele proces van het decennium zijn.
+
+---
+
+#### 2. 🟠 Begrotingskwijting 2024 — Verantwoordingsarchitectuur (Meerdere TA's) — HOOG
+**Aannamedatum:** 2026-04-28–29 | **Significantie:** 8,5/10
+
+Het EP keurde een uitgebreide reeks besluiten over de begrotingskwijting 2024 goed:
+- Commissie (TA-10-2026-0125) — goedgekeurd met voorwaarden
+- Europees Parlement (TA-10-2026-0126) — goedgekeurd
+- Europese Dienst voor Extern Optreden (TA-10-2026-0130) — goedgekeurd
+- Europese Ombudsman (TA-10-2026-0133) — goedgekeurd
+- Europees Openbaar Ministerie (TA-10-2026-0135) — goedgekeurd
+- Agentschappen (TA-10-2026-0136) — goedgekeurd
+- Gemeenschappelijke ondernemingen (TA-10-2026-0137) — goedgekeurd
+
+**Voorwaarden voor kwijting van de Commissie** zijn de meest politiek significante. De CONT-commissie (begrotingscontrole) legde voorwaarden op met betrekking tot:
+1. Implementatie van rechtsstaat-conditionaliteit — Hongaarse situatie; tijdstip van vrijgave van middelen
+2. Toezicht op de Herstel- en veerkrachtfaciliteit — zorgen dat eindmijlpalen worden gehaald door lidstaten
+3. Beheer van externe hulp — boekhouding van bilaterale Oekraïne-steun via EU-instrumenten
+4. Beheer van het fonds voor de digitale transitie — begrotingstoewijzing voor de AI-wetimplementatie
+
+De kwijtingsgoedkeuring (in plaats van afwijzing) weerspiegelt het institutionele eigenbelang van het EP — het afwijzen van de kwijting van de Commissie zou een constitutionele crisis veroorzaken. De voorwaarden creëren echter een politiek verantwoordingsmechanisme dat het EP in toekomstige controleprocessen kan inroepen.
+
+---
+
+#### 3. 🟠 Jaarverslagen over Rechtsstaat en Grondrechten — HOOG
+**Aannamedatum:** 2026-04-29 | **Significantie:** 8,0/10
+
+Twee grote jaarlijkse evaluaties werden aangenomen:
+- **Commissieverslag 2025 over de rechtsstaat** (TA-10-2026-0147): Het EP onderschreef de evaluatie van de Commissie met aanvullende EP-eisen. Belangrijkste zorgen: Hongarije (voortdurende achteruitgang in de rechtsstaat ondanks voorwaardelijke vrijgave van middelen), Polen (positieve koers gehandhaafd), Roemenië, Bulgarije (implementatie van justitiehervormingen), Slowakije (nieuwe zorgen na regeringswissel).
+- **Grondrechten 2024–2025** (TA-10-2026-0146): Het EP documenteerde verslechterende omstandigheden in Hongarije, het gedeeltelijke herstel van Polen en opkomende zorgen in Italië en Frankrijk over mediavrijheid en algoritmisch bestuur.
+
+**Politieke betekenis:** Deze resoluties vormen het bewijsdossier voor:
+1. Toekomstige artikel 7 VEU-procedures (als Hongarije een escalatie uitlokt)
+2. Rechtsstaat-conditionaliteitsbeslissingen over structuurfondsen-uitbetalingen
+3. EU-uitbreidingsconditionaliteitsbeoordelingen (Oekraïne, Moldavië, Westelijke Balkan)
+
+---
+
+#### 4. 🟡 Digitaal bestuur: AI Omnibus en DMA-handhaving — GEMIDDELD-HOOG
+**Aannamedatum:** 2026-03-26 (AI Omnibus); lopend (DMA) | **Significantie:** 7,5/10
+
+De AI Digital Omnibus (TA-10-2026-0098) vereenvoudigt de implementatie van de AI-wet voor kmo's en start-ups — vermindert de nalevingslast voor bedrijven met een omzet van minder dan 50 miljoen euro terwijl volledige toepassing voor grote bedrijven wordt gehandhaafd. Dit weerspiegelt de erkenning door het EP dat de nalevingskosten van de AI-wet het risico lopen geconcentreerd te worden bij EU-gebaseerde bedrijven in plaats van bij Amerikaanse technologiegiganten.
+
+Gecombineerd met de DMA-handhavingsbepleiting (van de vorige analyserun) schept dit een samenhangend digitaalbestuurskader: sterke regulering voor Big Tech (DMA) + vereenvoudigde implementatie voor EU-innovatoren (AI Omnibus).
+
+---
+
+#### 5. 🟡 Jaarverslag Bankenunie en BRRD3 — GEMIDDELD
+**Aannamedatum:** 2026-04-30 en 2026-03-26 | **Significantie:** 7,0/10
+
+Het jaarverslag Bankenunie 2025 (TA-10-2026-0159) en BRRD3 (TA-10-2026-0091) bevorderen samen het EU-kader voor financiële stabiliteit na 2008. BRRD3 moderniseert de triggers voor vroegtijdige interventie en resolutievoorwaarden, waarbij lessen uit de Credit Suisse-crisis van 2023 worden meegenomen. Het verslag van de Bankenunie pleit voor de voltooiing van het Europees depositoverzekeringsstelsel (EDIS) — nog steeds geblokkeerd door Duits en Nederlands verzet in de Raad.
+
+---
+
+### Samenvatting politieke inlichtingen
+
+**Status constructieve meerderheid:** 🟢 Stabiel
+De EVP+S&D+Renew-coalitie van 396 zetels hield stand bij alle belangrijke stemmingen, inclusief de betwiste kwijting van de Commissie. Coalitiedruk blijft bestaan over de integratie van defensie-uitgaven (Groenen/Extreemlinks-oppositie) en migratiebeleid (EVP-ECR-afstemmingsrisico).
+
+**Cruciale kwetsbaarheid:** De taal voor defensie-integratie in het tussentijdse MFK-verslag zou de coalitie kunnen splijten als het het centrale probleem wordt in de onderhandelingen van 2027 — de Groenen en Extreemlinks zullen defensiefondstoewijzing weerstaan, zelfs binnen het EU-begrotingskader.
+
+**PfE-strategieupdate:** PfE intensiveert zijn narratieve campagne over institutionele delegitimisering (inmenging van de Commissie in verkiezingen, 29 april Regel 169-debat). Niet in staat om wetgeving te blokkeren, positioneert PfE zich voor de MFK-onderhandeling van 2027 als een hefboommoment. Aan PfE verbonden regeringen (Hongarije, Italië, de NR-component van Frankrijk) zullen specifieke MFK-concessies eisen in ruil voor een Raadsakkoord.
+
+**Geopolitieke overlay:** De Oekraïense verantwoordingsagenda (eis voor bijzondere rechtbank) en de Armeense resolutie signaleren beiden de activistische buitenlandse beleidshouding van het EP. Deze resoluties hebben geen direct wetgevend effect maar scheppen politieke verantwoording voor de buitenlandsbeleidsuitvoering door de Commissie en de Raad.
+
+---
+
+### Bronvermelding
+Gegevens verzameld van het Open Data-portaal van het EP (aangenomen teksten, politiek landschap, vroeg waarschuwingssysteem, coalitiedynamiek)
+Datumsperiode: 2026-01-01 tot 2026-05-12 (164 aangenomen teksten in de EP10-zittingsperiode)
+Betrouwbaarheid: 🟡 Gemiddeld (geen naamstemgegevens beschikbaar; 4–6 weken EP-publicatievertraging)
+Methodologie: Politieke inlichtingensynthese met gestructureerde analytische technieken
+
+### Executive Brief No
+
+### 60-sekunders lesning
+
+**Hva skjedde:** EPs plenarmøte i slutten av april 2026 ga et historisk tett lovgivningsresultat. I løpet av fem dager vedtok parlamentarikerne en interimsrapport om det flerårige finansielle rammeverket 2028–2034, godkjente 2024-decharge for Kommisjonen og alle større EU-organer, vedtok store vurderinger av rettsstaten og grunnleggende rettigheter, fremmet digital styring via AI Digital Omnibus og DMA-håndheving, og utstedte geopolitiske resolusjoner om Ukrainas strafferettslige ansvarighet og Armenias demokratiske motstandskraft.
+
+**Hvorfor det betyr noe:** FFR 2028–2034-interimsrapporten er et vendepunktsdokument. Den signaliserer at EP er beredt til å godkjenne en fundamentalt annerledes budsjettarkitektur enn FFR 2021–2027 — en som integrerer finansiering av forsvarskapasitet (første gang i EUs budsjetthistorie), reduserer andeler for landbruk og samhørighetsfond til fordel for konkurransekraft og strategisk autonomi, og potensielt introduserer nye EU-egne ressurser inkludert en digital avgift. Decharge-syklusen gjennomførte samtidig en helhetlig ansvarsgransking av hvordan mer enn 200 milliarder euro i EU-midler ble forvaltet i 2024, med Kommisjonens decharge snevert godkjent med betingelser knyttet til gjennomføring av rettsstatskonditionalitet.
+
+**Det politiske kartet:** Det konstruktive flertallet (EPP+S&D+Renew = 396 plasser) drev alle viktige avstemninger. FFR-avstemningen demonstrerte sektoroverskridende konvergens om forsvarsintegrasjon til tross for ideologiske forskjeller om sosiale utgifter. PfE+ECR bestred rettstatsresolusjoner og decharge-betingelsesspråk. De Grønne og Venstrefløyen stemte med mainstream om ansvarighet og rettigheter, men mot forsvarsutvidelsesbestemmelsene.
+
+**Nøkkeltall:**
+- 717 parlamentarikere i 9 politiske grupper
+- Mer enn 30 rettsakter og resolusjoner vedtatt 28.–30. april
+- FFR 2028–2034: Foreslått ramme på 2,0–2,4 billioner euro (estimat)
+- 2024-Kommisjons­decharge: Godkjent med betingelser
+- 164 vedtatte tekster kumulativt i EP10-mandatperioden til dags dato (2025–2026)
+- Stabilitetspoeng: 84/100 (EPs tidligvarslingssystem)
+
+---
+
+### Topp 5 Breaking Developments (Rangert etter Betydning)
+
+#### 1. 🔴 FFR 2028–2034 Interimsrapport (TA-10-2026-0111) — KRITISK
+**Vedtaksdato:** 2026-04-28 | **Betydning:** 9,5/10
+
+EPs interimsrapport om det flerårige finansielle rammeverket for 2028–2034 er det mest konsekvente politiske dokumentet produsert av EP i første kvartal 2026. Det representerer Parlamentets åpningsbud i det som vil bli en 18–24 måneder lang forhandling med Kommisjonen og Rådet om EUs neste syvårige budsjettarkitektur.
+
+Viktige EP-krav innebygd i interimsrapporten:
+- **Forsvarsintegrasjon**: For første gang aksepterer EP at EU-budsjettmidler bør støtte forsvarskapasitetsutvikling parallelt med eksisterende NATO/nasjonale forsvarsrammer — et paradigmeskifte fra EU-budsjettmodellen som «sivil makt»
+- **Reform av egne ressurser**: EP krever nye EU-egne ressurser inkludert en digital tjenesteavgift (rettet mot de samme Big Tech-selskapene regulert under DMA) og en skatt på finansielle transaksjoner
+- **Bevaring av samhørighetsfondet**: S&D og regionale grupper sikret formulering som bevarer prinsippet om territoriell samhørighet, selv om kvantum forblir omstridt
+- **Klimakonditionalitet**: Alle større budsjettlinjene bør være «Paris-justerte» med minimum 30 % klimautgifter
+- **Rettstatskonditionalitet**: EP styrker konditionalitetsmekanismene i kjølvannet av Ungarn-saken som prejudikat
+
+**Koalisjonsdynamikk:** EPP støttet forsvarsintegrasjonsspråket; S&D støttet sosial samhørighet; Renew støttet digital avgift; Grønne støttet klimakonditionalitet. En sjelden firedelt gruppekonsensus om det overordnede dokumentet til tross for interne spenninger om forsvarskvantum.
+
+**Strategisk implikasjon:** Kommisjonens formelle FFR-forslag er forventet Q4 2026. EPs interimsrapport setter forhandlingsbasislinjene. Rådet (medlemsland) vil motsette seg forsvarsintegrasjonsbestemmelsene og reform av egne ressurser. Forhandlingen 2027 vil være den mest politisk avgjørende EU-institusjonelle prosessen i tiåret.
+
+---
+
+#### 2. 🟠 Budsjettdecharge 2024 — Ansvarsarkitektur (Flere TA) — HØY
+**Vedtaksdato:** 2026-04-28–29 | **Betydning:** 8,5/10
+
+EP godkjente et helhetlig sett med 2024-budsjettdecharge-beslutninger:
+- Kommisjonen (TA-10-2026-0125) — godkjent med betingelser
+- Europaparlamentet (TA-10-2026-0126) — godkjent
+- Den europeiske utenrikstjenesten (TA-10-2026-0130) — godkjent
+- Den europeiske ombudsmannen (TA-10-2026-0133) — godkjent
+- Det europeiske påtaleorganet (TA-10-2026-0135) — godkjent
+- Byråer (TA-10-2026-0136) — godkjent
+- Felles foretak (TA-10-2026-0137) — godkjent
+
+**Kommisjonens decharge-betingelser** er de mest politisk betydningsfulle. CONT-komiteen (budsjettkontroll) påla betingelser knyttet til:
+1. Gjennomføring av rettstatskonditionalitet — Ungarn-situasjonen; tidspunkt for frigjøring av midler
+2. Tilsyn med gjenopprettings- og resiliensfasiliteten — sikring av at endelige milepæler oppnås av medlemsland
+3. Forvaltning av ekstern bistand — regnskapsføring av bilateral Ukraina-støtte kanalisert via EU-instrumenter
+4. Forvaltning av fondet for digital omstilling — AI-lovens implementeringsbudsjettallokering
+
+Decharge-godkjenningen (snarere enn avvisning) gjenspeiler EPs institusjonelle egeninteresse — å avvise Kommisjonens decharge ville utløse en konstitusjonell krise. Betingelsene skaper imidlertid en politisk ansvarsmekanisme som EP kan påberope seg i fremtidige kontrollingsprosesser.
+
+---
+
+#### 3. 🟠 Årsrapporter om Rettsstaten og Grunnleggende Rettigheter — HØY
+**Vedtaksdato:** 2026-04-29 | **Betydning:** 8,0/10
+
+To store årlige vurderinger ble vedtatt:
+- **Kommisjonens rapport om rettsstaten 2025** (TA-10-2026-0147): EP godkjente Kommisjonens vurdering med ytterligere EP-krav. Viktige bekymringer: Ungarn (fortsatt rettsstatsnedgang til tross for betingede middelsfrigivelser), Polen (positiv bane opprettholdt), Romania, Bulgaria (gjennomføring av domstolsreform), Slovakia (nye bekymringer etter regjeringsskifte).
+- **Grunnleggende rettigheter 2024–2025** (TA-10-2026-0146): EP dokumenterte forverrede forhold i Ungarn, Polens delvise bedring og fremvoksende bekymringer i Italia og Frankrike vedrørende mediefrihet og algoritmisk styring.
+
+**Politisk betydning:** Disse resolusjonene skaper bevisgrunnlag for:
+1. Fremtidige artikkel 7 TEU-prosedyrer (hvis Ungarn utløser eskalering)
+2. Rettstatskonditionalitetsbeslutninger om strukturfondsutbetalinger
+3. EU-utvidelseskonditionalitetsvurderinger (Ukraina, Moldova, Vest-Balkan)
+
+---
+
+#### 4. 🟡 Digital Styring: AI Omnibus og DMA Håndheving — MIDDELS-HØY
+**Vedtaksdato:** 2026-03-26 (AI Omnibus); pågående (DMA) | **Betydning:** 7,5/10
+
+AI Digital Omnibus (TA-10-2026-0098) forenkler implementeringen av AI-loven for SMB og oppstartsselskaper — reduserer etterlevningsbyrden for selskaper under 50 millioner euro i omsetning, mens full anvendelse opprettholdes for store selskaper. Dette gjenspeiler EPs erkjennelse av at AI-lovens etterlevningskostnader risikerer å bli konsentrert hos EU-baserte selskaper snarere enn amerikanske teknologigiganter.
+
+Kombinert med DMA-håndhevingsadvokasjon (fra foregående analysekjøring) skaper dette et sammenhengende digitalt styringsrammeverk: sterk regulering for Big Tech (DMA) + forenklet implementering for EU-innovatører (AI Omnibus).
+
+---
+
+#### 5. 🟡 Bankunionens Årsrapport og BRRD3 — MIDDELS
+**Vedtaksdato:** 2026-04-30 og 2026-03-26 | **Betydning:** 7,0/10
+
+Bankunionens årsrapport 2025 (TA-10-2026-0159) og BRRD3 (TA-10-2026-0091) fremmer tilsammen EUs finansielle stabilitetsrammeverk etter 2008. BRRD3 moderniserer tidlige intervensjonstriggere og resolusjonsvilkår med lærdommer fra Credit Suisse-krisen 2023. Bankunionens rapport krever fullføring av det europeiske innskuddsgarantisystemet (EDIS) — fortsatt blokkert av tysk og nederlandsk motstand i Rådet.
+
+---
+
+### Politisk Etterretningssammendrag
+
+**Status for konstruktivt flertall:** 🟢 Stabilt
+EPP+S&D+Renew-koalisjonen på 396 plasser holdt ved alle viktige avstemninger inkludert den omstridte Kommisjonsdecharge. Koalisjonsstress vedvarer vedrørende integrasjon av forsvarsutgifter (Grønne/Venstre-opposisjon) og migrasjonspolitikk (EPP-ECR-tilpasningsrisiko).
+
+**Viktig sårbarhet:** FFR-interimsrapportens forsvarsintegrasjonsspråk kan splitte koalisjonen hvis det blir det sentrale spørsmålet i forhandlingene 2027 — Grønne og The Left vil motsette seg forsvarsfondsallokering selv innenfor EU-budsjettrammen.
+
+**PfE-strategioppdatering:** PfE intensiverer sin narrativkampanje om institusjonell delegitimisering (Kommisjonens innblanding i valg, 29. april regel 169-debatt). Ute av stand til å blokkere lovgivning posisjonerer PfE seg for FFR-forhandlingen 2027 som et girhendel-øyeblikk. PfE-tilknyttede regjeringer (Ungarn, Italia, Frankrikes NR-komponent) vil kreve spesifikke FFR-innrømmelser i bytte mot Rådsavtale.
+
+**Geopolitisk overlay:** Ukraina-ansvarsagendaen (krav om spesialdomstol) og Armenia-resolusjonen signaliserer begge EPs aktivistiske utenrikspolitiske holdning. Disse resolusjonene har ingen direkte lovgivningsmessig effekt, men skaper politisk ansvarighet for Kommisjonens og Rådets gjennomføring av utenrikspolitikken.
+
+---
+
+### Kildehenvisning
+Data innsamlet fra EPs åpne dataportal (vedtatte tekster, politisk landskap, tidligvarslingssystem, koalisjonsdynamikk)
+Datointerval: 2026-01-01 til 2026-05-12 (164 vedtatte tekster i EP10-mandatperioden)
+Konfidens: 🟡 Middels (ingen navngitte avstemningsdata tilgjengelige; 4–6 ukers EP-publikasjonsforsinkelse)
+Metodikk: Politisk etterretningssyntese med strukturerte analytiske teknikker
+
+### Executive Brief Sv
+
+### 60-sekunders läsning
+
+**Vad hände:** EP:s plenarsession i slutet av april 2026 producerade ett historiskt tätt lagstiftningsresultat. Under fem dagar antog ledamöterna en interimsrapport om den fleråriga budgetramen 2028–2034, godkände ansvarsfriheten för 2024 för kommissionen och alla större EU-organ, antog viktiga bedömningar av rättsstatsprincipen och grundläggande rättigheter, avancerade digital styrning via AI Digital Omnibus och DMA-genomdrivande, och utfärdade geopolitiska resolutioner om Ukrainas straffrättsliga ansvarighet och Armeniens demokratiska motståndskraft.
+
+**Varför det spelar roll:** MFF 2028–2034-interimsrapporten är ett inflexionsdokument. Den signalerar att EP är berett att godkänna en i grunden annorlunda budgetarkitektur jämfört med MFF 2021–2027 — en som integrerar finansiering av försvarskapacitet (ett första i EU:s budgethistoria), minskar andelarna för jordbruk och sammanhållningsfonder till förmån för konkurrenskraft och strategisk autonomi, och potentiellt introducerar nya EU-egna resurser inklusive en digital avgift. Ansvarsfriheten genomförde samtidigt en heltäckande ansvarsgranskning av hur mer än 200 miljarder euro i EU-medel förvaltades 2024, med kommissionens ansvarsfrihet snävt godkänd med villkor kopplade till genomförandet av rättsstatsprincipen.
+
+**Den politiska kartan:** Den konstruktiva majoriteten (EPP+S&D+Renew = 396 platser) drev alla viktiga omröstningar. MFF-omröstningen visade sektorsöverskridande konvergens om försvarsintegration trots ideologiska skillnader om sociala utgifter. PfE+ECR bestred resolutioner om rättsstatsprincipen och ansvarsfrihetens villkorsspråk. Gröna och The Left röstade med mainstream om ansvarighet och rättigheter men mot bestämmelserna om försvarsutökning.
+
+**Nyckeltal:**
+- 717 ledamöter i 9 politiska grupper
+- Mer än 30 rättsakter och resolutioner antagna 28–30 april
+- MFF 2028–2034: Föreslagen ram på 2,0–2,4 biljoner euro (uppskattning)
+- Ansvarsfrihet för kommissionen 2024: Godkänd med villkor
+- 164 antagna texter kumulativt under EP10-mandatperioden hittills (2025–2026)
+- Stabilitetspoäng: 84/100 (EP:s tidiga varningssystem)
+
+---
+
+### Topp 5 Breaking Developments (Rankade efter Betydelse)
+
+#### 1. 🔴 MFF 2028–2034 Interimsrapport (TA-10-2026-0111) — KRITISK
+**Antagandedatum:** 2026-04-28 | **Betydelse:** 9,5/10
+
+EP:s interimsrapport om den fleråriga budgetramen för 2028–2034 är det mest betydelsefulla politiska dokumentet som producerats av EP under första kvartalet 2026. Det representerar parlamentets öppningsbud i vad som blir en 18–24 månaders förhandling med kommissionen och rådet om EU:s nästa sjuåriga budgetarkitektur.
+
+Viktiga EP-krav inbäddade i interimsrapporten:
+- **Försvarsintegration**: För första gången accepterar EP att EU-budgetmedel ska stödja försvarsutveckling parallellt med befintliga NATO/nationella försvarsramar — ett paradigmskifte från EU-budgetmodellen som "civil makt"
+- **Reform av egna resurser**: EP efterfrågar nya EU-egna resurser inklusive en digital tjänsteavgift (riktad mot samma Big Tech-företag som regleras under DMA) och en finansiell transaktionsskatt
+- **Bevarande av sammanhållningsfonden**: S&D och regionala grupper säkrade formuleringar som bevarar principen om territoriell sammanhållning, även om kvantiteten förblir omtvistad
+- **Klimatkondition**: Alla viktiga budgetposter bör vara "Paris-anpassade" med minst 30 % klimatutgifter
+- **Rättsstatskondition**: EP stärker konditionalitetsmekanismerna till följd av prejudikatet från Ungernfallet
+
+**Koalitionsdynamik:** EPP stödde försvarsintegrationsspråket; S&D stödde social sammanhållning; Renew stödde digital avgift; Gröna stödde klimatkondition. En sällsynt fyrgruppers konsensus om det övergripande dokumentet trots interna spänningar om försvarskvantiteten.
+
+**Strategisk implikation:** Kommissionens formella MFF-förslag förväntas Q4 2026. EP:s interimsrapport sätter förhandlingsbaslinjen. Rådet (medlemsländer) kommer att motsätta sig bestämmelserna om försvarsintegration och reform av egna resurser. Förhandlingen 2027 blir den mest politiskt avgörande EU-institutionella processen under decenniet.
+
+---
+
+#### 2. 🟠 Ansvarsfrihet för budgeten 2024 — Ansvarsarkitektur (Flera TA) — HÖG
+**Antagandedatum:** 2026-04-28–29 | **Betydelse:** 8,5/10
+
+EP godkände en heltäckande uppsättning ansvarsfrihetsbeslutet för budgeten 2024:
+- Kommissionen (TA-10-2026-0125) — godkänd med villkor
+- Europaparlamentet (TA-10-2026-0126) — godkänd
+- Europeiska utrikestjänsten (TA-10-2026-0130) — godkänd
+- Europeiska ombudsmannen (TA-10-2026-0133) — godkänd
+- Europeiska åklagarmyndigheten (TA-10-2026-0135) — godkänd
+- Organ (TA-10-2026-0136) — godkänd
+- Gemensamma företag (TA-10-2026-0137) — godkänd
+
+**Villkor för kommissionens ansvarsfrihet** är de mest politiskt betydelsefulla. CONT-utskottet (budgetkontroll) lade villkor relaterade till:
+1. Genomförande av rättsstatskondition — Ungernfallet; tidpunkt för frisläppande av medel
+2. Tillsyn av återhämtnings- och resiliensfaciliteten — säkerställande av att slutmilstolpar uppnås av medlemsländer
+3. Hantering av externt bistånd — redovisning av bilateralt Ukrainastöd kanaliserat via EU-instrument
+4. Hantering av fonden för digital omställning — budgetfördelning för implementering av AI-lagen
+
+Ansvarsfrihetsbeslutet (snarare än avvisning) speglar EP:s institutionella egenintresse — att avvisa kommissionens ansvarsfrihet skulle utlösa en konstitutionell kris. Villkoren skapar dock en politisk ansvarsmekanism som EP kan åberopa i framtida granskningsprocesser.
+
+---
+
+#### 3. 🟠 Årsrapporter om Rättsstatsprincipen och Grundläggande Rättigheter — HÖG
+**Antagandedatum:** 2026-04-29 | **Betydelse:** 8,0/10
+
+Två viktiga årliga bedömningar antogs:
+- **Kommissionens rapport om rättsstatsprincipen 2025** (TA-10-2026-0147): EP godkände kommissionens bedömning med ytterligare EP-krav. Viktiga farhågor: Ungern (fortsatt bakslag för rättsstatsprincipen trots villkorliga medelsläpp), Polen (positiv bana upprätthållen), Rumänien, Bulgarien (genomförande av domstolsreform), Slovakien (nya farhågor efter regeringsskifte).
+- **Grundläggande rättigheter 2024–2025** (TA-10-2026-0146): EP dokumenterade försämrade förhållanden i Ungern, Polens partiella återhämtning och framväxande farhågor i Italien och Frankrike avseende mediefrihet och algoritmisk styrning.
+
+**Politisk betydelse:** Dessa resolutioner skapar bevisunderlaget för:
+1. Framtida artikel 7 TEU-förfaranden (om Ungern triggar eskalering)
+2. Beslut om rättsstatskondition för strukturfondsutbetalningar
+3. EU-utvidgningskonditionsbedömningar (Ukraina, Moldavien, Västra Balkan)
+
+---
+
+#### 4. 🟡 Digital Styrning: AI Omnibus och DMA Genomdrivande — MEDEL-HÖG
+**Antagandedatum:** 2026-03-26 (AI Omnibus); pågående (DMA) | **Betydelse:** 7,5/10
+
+AI Digital Omnibus (TA-10-2026-0098) förenklar implementeringen av AI-lagen för SME och startups — minskar efterlevnadsbördan för företag under 50 miljoner euro i omsättning, samtidigt som full tillämpning bibehålls för stora företag. Detta speglar EP:s insikt om att AI-lagens efterlevnadskostnader riskerar att koncentreras på EU-baserade företag snarare än amerikanska techgigantar.
+
+Kombinerat med DMA-genomdrivningsadvokati (från föregående analysomgång) skapar detta ett sammanhängande digitalt styrningsramverk: stark reglering för Big Tech (DMA) + förenklad implementering för EU-innovatörer (AI Omnibus).
+
+---
+
+#### 5. 🟡 Bankunionens Årsrapport och BRRD3 — MEDEL
+**Antagandedatum:** 2026-04-30 och 2026-03-26 | **Betydelse:** 7,0/10
+
+Bankunionens årsrapport 2025 (TA-10-2026-0159) och BRRD3 (TA-10-2026-0091) avancerar tillsammans EU:s finansiella stabilitetsramverk efter 2008. BRRD3 moderniserar tidiga interventionsutlösare och resolutionsvillkor med lärdomar från Credit Suisse-krisen 2023. Bankunionens rapport efterfrågar fullbordandet av det europeiska insättningsgarantisystemet (EDIS) — fortfarande blockerat av tyskt och nederländskt motstånd i rådet.
+
+---
+
+### Politisk Underrättelsesummering
+
+**Status för konstruktiv majoritet:** 🟢 Stabil
+EPP+S&D+Renew-koalitionen på 396 platser höll i alla viktiga omröstningar inklusive den omtvistade kommissionsansvarsfrihet. Koalitionsstress kvarstår avseende integration av försvarsutgifter (Gröna/Vänster-opposition) och migrationspolitik (EPP-ECR-anpassningsrisk).
+
+**Viktig sårbarhet:** MFF-interimsrapportens försvarsintegrationsspråk kan splittra koalitionen om det blir den centrala frågan i förhandlingarna 2027 — Gröna och The Left kommer att motsätta sig försvarsmedelfördelning även inom EU-budgetramen.
+
+**PfE-strategiuppdatering:** PfE intensifierar sin narrativkampanj om institutionell delegitimisering (kommissionsinterferens i val, 29 april regel 169-debatt). Oförmögen att blockera lagstiftning positionerar sig PfE för MFF-förhandlingen 2027 som ett hävstångstillfälle. PfE-anknutna regeringar (Ungern, Italien, Frankrikes NR-komponent) kommer att kräva specifika MFF-eftergifter i utbyte mot rådsavtal.
+
+**Geopolitisk överläggsning:** Ukrainaansvarighetsagendan (krav om specialdomstol) och Armenienresolutionen signalerar båda EP:s aktivistiska utrikespolitiska hållning. Dessa resolutioner har ingen direkt lagstiftningseffekt men skapar politisk ansvarighet för kommissionens och rådets genomförande av utrikespolitiken.
+
+---
+
+### Källhänvisning
+Data insamlat från EP:s öppna dataportalen (antagna texter, politisk miljö, tidigt varningssystem, koalitionsdynamik)
+Datumintervall: 2026-01-01 till 2026-05-12 (164 antagna texter under EP10-mandatperioden)
+Konfidens: 🟡 Medel (inga roll call-omröstningsdata tillgängliga; 4–6 veckors EP-publikationsfördröjning)
+Metodik: Politisk underrättelsesyntes med strukturerade analytiska tekniker
+
+### Executive Brief Zh
+
+**日期：** 2026-05-12 | **文章类型：** breaking | **置信度：** 🟡 中等
+**BLUF（60秒摘要）：** 2026年4月28日至5月1日欧洲议会全体会议在五个战略集群中产生了30多项重要立法和政策成果：（1）2028-2034年多年期财政框架中期报告，显示预算向防务和竞争力的变革性转移；（2）涵盖委员会、议会、机构和联合企业的全面2024年预算执行审批；（3）对成员国提出直接批评的法治和基本权利年度评估；（4）通过DMA/AI法加速数字治理；（5）地缘政治责任决议（乌克兰特别法庭、亚美尼亚）。MFF中期报告是最重要的议程项，显示欧洲议会为2027+预算周期提出了包含史无前例的防务能力整合要求的谈判立场。
+
+---
+
+### 60秒阅读
+
+**发生了什么：** 2026年4月底的欧洲议会全体会议产生了历史性的密集立法成果。五天内，欧洲议员采纳了2028-2034年多年期财政框架（MFF）中期报告，向委员会和所有主要欧洲机构授予2024年预算执行审批，批准了法治和基本权利的实质性评估，通过综合AI法和DMA执法强化了数字治理，并采纳了关于俄罗斯在乌克兰刑事责任和亚美尼亚民主韧性的地缘政治决议。
+
+**为什么重要：** 2028-2034年MFF中期报告是一份变革性文件。它表明欧洲议会已准备好批准与2021-2027年MFF根本不同的预算结构——整合防务能力资金（欧盟预算史上首次）、将农业和凝聚基金重新分配给竞争力和战略自主性，并可能引入包括数字税在内的新欧盟自有资源。预算执行审批周期同期完成了对2024年如何管理2000亿欧元以上欧盟资金的全面问责审查，委员会审批以法治条件适用为附件条件勉强通过。
+
+**政治格局：** 建设性多数派（EPP+S&D+Renew = 396席）主导了所有实质性表决。MFF表决显示，尽管在社会支出方面存在意识形态分歧，但就防务整合达成了跨党派共识。PfE+ECR对法治决议和预算执行审批的条件性措辞提出异议。绿党和左翼在问责和权利问题上与主流一起投票，但反对防务扩展条款。
+
+**关键数据：**
+- 9个政治团体的717名欧洲议员
+- 4月28-30日通过30多项法律和决议
+- MFF 2028-2034：拟议上限2.0-2.4万亿欧元（估计）
+- 2024年委员会预算执行审批：附条件通过
+- 欧洲议会第十届会期累计通过文件164件（2025-2026）
+- 稳定指数：84/100（欧洲议会早期预警系统）
+
+---
+
+### 最重要的5项突发进展（按重要性排序）
+
+#### 1. 🔴 2028-2034年MFF中期报告（TA-10-2026-0111）——极为重要
+**采纳日期：** 2026-04-28 | **重要性：** 9.5/10
+
+欧洲议会关于2028-2034年MFF的中期报告是议会在2026年第一季度发布的最具影响力的政策文件。它代表议会在与委员会和理事会就未来七年欧盟预算结构进行18-24个月谈判中的开局之招。
+
+MFF中期报告中欧洲议会的主要诉求：
+- **防务整合**：欧洲议会首次同意欧盟预算资金可以支持防务能力开发，与现有的国家防务/北约框架并行——从"民事力量"预算模式的范式转变
+- **自有资源改革**：欧洲议会要求新的欧盟自有资源，包括数字服务税（针对同样受DMA约束的大型科技公司）和金融交易税
+- **保持凝聚基金**：S&D集团和区域集团确保了保护区域凝聚原则的措辞，尽管规模仍有争议
+- **气候条件性**：所有主要预算项目应"符合巴黎协定"，气候支出至少占30%
+- **法治条件性**：议会基于匈牙利案例建立的先例强化条件性机制
+
+**联盟动态：** EPP支持防务整合措辞；S&D支持社会凝聚；Renew支持数字税；绿党支持气候条件性。尽管在防务规模上存在内部紧张，四个集团在整体文件上达成了难得的共识。
+
+**战略影响：** 委员会正式MFF提案预计将于2026年第四季度发布。议会中期报告确立了谈判基线。理事会成员国将抵制防务整合和自有资源改革条款。2027年的谈判将成为本十年欧盟最具政治影响力的制度进程。
+
+---
+
+#### 2. 🟠 2024年预算执行审批——问责结构（多项TA文本）——高
+**采纳日期：** 2026-04-28-29 | **重要性：** 8.5/10
+
+欧洲议会通过了一套全面的2024年预算执行审批决定：
+- 委员会（TA-10-2026-0125）——附条件通过
+- 欧洲议会（TA-10-2026-0126）——通过
+- 欧洲对外行动局（TA-10-2026-0130）——通过
+- 欧洲监察专员（TA-10-2026-0133）——通过
+- 欧洲检察官办公室（TA-10-2026-0135）——通过
+- 机构（TA-10-2026-0136）——通过
+- 联合企业（TA-10-2026-0137）——通过
+
+**委员会预算执行审批条件**在政治上最为重要。CONT委员会（预算控制）施加了以下条件：
+1. 法治条件性适用——匈牙利情况；资金释放时机
+2. 复苏与韧性机制监督——确保成员国实现最终里程碑
+3. 对外援助管理——通过欧盟工具提供的对乌克兰双边支持的问责
+4. 数字转型基金管理——AI法实施的预算分配
+
+批准免除（而非拒绝）反映了欧洲议会的制度自身利益；拒绝委员会免除将引发宪法危机。但这些条件创造了议会可在未来监督渠道中依赖的政治问责机制。
+
+---
+
+#### 3. 🟠 法治和基本权利年度报告——高
+**采纳日期：** 2026-04-29 | **重要性：** 8.0/10
+
+两项重要的年度评估获得通过：
+- **委员会2025年法治报告**（TA-10-2026-0147）：议会批准委员会评估，附加议会要求。主要关切：匈牙利（尽管有条件地释放资金，法治持续恶化）、波兰（保持积极轨迹）、罗马尼亚、保加利亚（司法改革实施）、斯洛伐克（政府更迭后出现新关切）。
+- **基本权利2024-2025**（TA-10-2026-0146）：议会记录匈牙利恶化、波兰部分恢复，以及意大利和法国在新闻自由和算法治理方面出现的新关切。
+
+**政治重要性：** 这些决议构成以下方面的证据记录：
+1. 依据欧盟条约第7条采取未来措施（如果匈牙利升级事态）
+2. 关于结构基金支付的法治条件性决定
+3. 欧盟入盟候选国条件性评估（乌克兰、摩尔多瓦、西巴尔干）
+
+---
+
+#### 4. 🟡 数字治理：综合AI法和DMA执法——中高
+**采纳日期：** 2026-03-26（综合AI法）；进行中（DMA） | **重要性：** 7.5/10
+
+综合AI法（TA-10-2026-0098）简化了AI法对中小企业和初创企业的适用，减轻收入不足5000万欧元公司的合规负担，同时对大型参与者保持完全适用。这反映了欧洲议会认识到AI法合规成本集中在欧洲企业而非美国大型科技公司的风险。
+
+与DMA执法辩护（来自之前的分析）相结合，这建立了一个连贯的数字治理框架：对大型科技的严格监管（DMA）+对欧洲创新者的简化适用（综合AI法）。
+
+---
+
+#### 5. 🟡 银行业联盟年度报告和BRRD3——中等
+**采纳日期：** 2026-04-30和2026-03-26 | **重要性：** 7.0/10
+
+银行业联盟2025年度报告（TA-10-2026-0159）和BRRD3（TA-10-2026-0091）都强化了2008年后的欧盟金融稳定框架。BRRD3更新了早期干预触发器和纾困条件，纳入了2023年瑞信危机的教训。银行业联盟报告要求完成EDIS（欧洲存款保险计划）——由于理事会中德国和荷兰的反对，仍然受阻。
+
+---
+
+### 政治情报摘要
+
+**建设性多数派状况：** 🟢 稳定
+EPP+S&D+Renew联盟（396席）在所有实质性表决中坚持，包括有争议的委员会预算执行审批。围绕防务支出整合（绿党/左翼反对）和移民政策（EPP+ECR协调风险）的联盟压力持续存在。
+
+**主要脆弱性：** MFF中期报告的防务整合措辞如果成为2027年谈判的核心问题，可能会分裂联盟；绿党和左翼将反对防务资金分配，即使在欧盟预算框架内也是如此。
+
+**PfE战略更新：** PfE正在加强其关于制度合法性失效的叙事运动（委员会选举干预，4月29日关于规则169的辩论）。无法阻止立法的PfE将自己定位为2027年MFF谈判的杠杆时刻。PfE旗下政府（匈牙利、意大利、法国NR成分）将要求以理事会协议换取MFF内的具体让步。
+
+**地缘政治层面：** 乌克兰问责议程（要求特别法庭）和亚美尼亚决议表明欧洲议会在对外政策中的积极立场。这两项决议不产生直接立法效力，但为委员会和理事会的对外政策执行创造了政治问责机制。
+
+---
+
+### 来源归属
+数据汇总自欧洲议会开放数据门户（已通过文本、政治格局、早期预警系统、联盟动态）
+时间范围：2026-01-01至2026-05-12（欧洲议会第十届会期164件已通过文本）
+置信度：🟡 中等（无正式记名投票数据；欧洲议会发布延迟4-6周）
+方法论：使用结构化分析技术的政治情报综合
+
 > **Provenance & Audit**
 >
 > - **Article type:** `breaking`
@@ -9057,4 +10528,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-quality-reflection | [article-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/article-index.md) | `article-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/methodology-reflection.md) | `methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 

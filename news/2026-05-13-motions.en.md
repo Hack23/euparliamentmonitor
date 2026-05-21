@@ -150,6 +150,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -2397,6 +2398,1572 @@ Pass 2 readback identified and addressed:
 
 **Residual improvement opportunity:** Individual MEP citation in actor-mapping.md is limited by roll-call data unavailability; flagged for post-DOCEO-publication update.
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التصنيف:** غير سري // للنشر العام
+**تاريخ الإصدار:** 2026-05-13 | **نوع المقالة:** motions | **مستوى الثقة:** 🟡 متوسط
+**مصادر البيانات:** بوابة البيانات المفتوحة للبرلمان الأوروبي (127 نصاً من التغذية؛ 51 سجلاً كاملاً بالعناوين)، IMF WEO سبتمبر 2025، API المشهد السياسي للبرلمان الأوروبي
+
+---
+
+### BLUF (قراءة 60 ثانية)
+
+تميّزت الجلسة العامة للبرلمان الأوروبي في أبريل 2026 (28–30 أبريل) بأربعة قرارات بالغة الأهمية تعالج تطبيق الأسواق الرقمية، والمساءلة الروسية إزاء أوكرانيا، والصمود الديمقراطي الأرمني، والمسؤولية عن التنمر الإلكتروني — يعكس كلٌّ منها ديناميكيات تحالف متميزة داخل بنية EP10 شديدة التشتت (6.58 أحزاب فعلية، يستلزم الأغلبية ≥360 صوتاً). يُشير قرار تطبيق قانون الأسواق الرقمية إلى تصلّب موقف البرلمان الأوروبي تجاه كبرى شركات التقنية في مسائل منافسة المنصات، فيما يُعلّم النص المتعلق بمساءلة أوكرانيا تصلّباً في توافق البرلمان الأوروبي حول توثيق جرائم الحرب الروسية. وفي الوقت ذاته، اعتمد البرلمان الأوروبي وثائق إطار الميزانية الحرجة (مبادئ توجيهية لميزانية 2027) وقرارات رفع الحصانة. تُثبت هذه القرارات مجتمعةً قدرة EP10 على إحراز توافق عابر للكتل في قضايا الحوكمة الجيوسياسية والرقمية، مع كشف خطوط صدع تتعلق بالهجرة والمسائل الاجتماعية.
+
+**أبرز 3 محفّزات:**
+1. 🔴 **تطبيق DMA** — يضغط البرلمان الأوروبي على المفوضية لاستخدام كامل أدوات DMA ضد حراس البوابات؛ الرهانات الاقتصادية: يُفضي تعديل التعرفة الجمركية على البضائع الأمريكية (TA-0096) إلى رافعة موازية على منصات التكنولوجيا الأمريكية
+2. 🟡 **مساءلة أوكرانيا** — يطالب البرلمان الأوروبي بإنشاء محكمة خاصة؛ إشارات تسبق قمة مجموعة السبع ومراجعة IMF لقرض أوكرانيا (TA-0010 أداة التعاون المعتمدة بالفعل في يناير 2026)
+3. 🟡 **المبادئ التوجيهية لميزانية 2027** — يُحدّد البرلمان موقفه قبيل مفاوضات الميزانية بين المؤسسات؛ يتوقع WEO الصادر عن IMF استمرار ضغوط المالية العامة في منطقة اليورو
+
+---
+
+### ملخص الاستخبارات الاستراتيجية
+
+#### الهيكل السياسي (EP10 — مايو 2026)
+- **717 عضواً** موزّعين على 9 كتل؛ الأغلبية = 360 صوتاً
+- **EPP (183, 25.5%)**: يمين الوسط المهيمن؛ يقود ملفات DMA والميزانية والسياسة الخارجية والأمنية المشتركة
+- **S&D (136, 19.0%)**: العمود الفقري التقدمي؛ يدفع ملفات أوكرانيا ومكافحة الفساد والشؤون الاجتماعية
+- **PfE (85, 11.9%)**: Patriotes pour l'Europe؛ اليمين الشعبوي؛ ينشق حول أوكرانيا وDMA
+- **ECR (81, 11.3%)**: المحافظون الأوروبيون؛ توافق معادي لأوكرانيا في تحول؛ ينافس PfE
+- **Renew (77, 10.7%)**: الوسط الليبرالي؛ توافق مع EPP على DMA؛ قوي في مجال السيادة الرقمية
+- **Greens/EFA (53, 7.4%)**: نقطة التقاء المناخ-الرقمنة-الحقوق؛ تطبيق DMA، أرمينيا
+- **The Left (45, 6.3%)**: مناهض للحرب، مؤيد للحقوق؛ أرمينيا، الاتجار بالبشر في هايتي، التنمر الإلكتروني
+- **NI (30, 4.2%)**: غير المنتسبين؛ متباينون، بما يشمل قضية حصانة براون
+- **ESN (27, 3.8%)**: السيادويون الأوروبيون؛ أقصى اليمين؛ ضد معظم القرارات
+
+**معادلة التحالف الرئيسية:** EPP + S&D = 319 (دون 360)؛ EPP + S&D + Renew = 396 (أغلبية عاملة في معظم التصويتات). تجاوزت نصوص DMA وأوكرانيا على الأرجح بأغلبيات EPP + S&D + Renew + Greens (~449 صوتاً). تميل قرارات رفع الحصانة نحو توافق متعدد الكتل.
+
+#### القرارات الحرجة — الجلسة العامة لأبريل 2026
+
+##### 1. تطبيق قانون الأسواق الرقمية (TA-10-2026-0160)
+- **نوع القرار:** RSP (المادة 132 طارئ/مبادرة في الجلسة العامة)
+- **الثقل السياسي:** عالٍ — يتحدى مباشرةً وتيرة تنفيذ المفوضية لتصنيفات حراس البوابات لشركات Apple وMeta وGoogle
+- **التحالف:** شكّل على الأرجح EPP + Renew (السيادة الرقمية) + S&D (حقوق المستهلك) + Greens (مساءلة المنصات) الأغلبية الجوهرية
+- **خطوط الصدع:** PfE وECR منقسمان — يدعم بعضهم من منطلق السيادة الوطنية، ويعارض آخرون سردية الإفراط في التنظيم
+- **السياق الاقتصادي (IMF):** نمو الناتج المحلي الإجمالي الأمريكي 2.32% في 2026 (WEO)، عجز مالي -7.5% من الناتج المحلي الإجمالي؛ تعديل التعرفة الأمريكي (TA-0096 مارس 2026) مُدمَج بالفعل كاحتكاك تجاري — يضيف تطبيق DMA ناقلاً ثانياً من الضغط التنظيمي على منصات التكنولوجيا الأمريكية
+- **المؤشر المستقبلي:** يتعيّن على المفوضية الرد بخطة عمل تنفيذية رسمية خلال 6 أشهر وفق النظام الداخلي للبرلمان الأوروبي
+
+##### 2. مساءلة أوكرانيا (TA-10-2026-0161)
+- **نوع القرار:** RSP
+- **الثقل السياسي:** حاسم — يدعو إلى إنشاء محكمة خاصة لجرائم العدوان؛ يبني على قرض أوكرانيا في يناير 2026 (50 مليار يورو تعاون معزَّز)
+- **التحالف:** EPP + S&D + Renew + Greens + The Left = أغلبية ساحقة؛ PfE غائب إلى حد بعيد أو ممتنع
+- **مخاطر الانشقاق:** توترات داخلية في ECR — الأعضاء البولنديون في ECR مؤيدون بشدة لأوكرانيا؛ القريبون من المجريين (المرتبطون بحزب فيدش) في NI يعارضون
+- **السياق الاقتصادي:** الذيل الاقتصادي لنزاع روسيا-أوكرانيا: يُسقط WEO الصادر عن IMF احتياجات إعادة الإعمار الأوكرانية بمئات المليارات؛ قرض الاتحاد الأوروبي البالغ 50 مليار يورو لأوكرانيا (TA-0010 يناير 2026) هو الوسيلة الرئيسية
+- **المؤشر المستقبلي:** يستلزم إنشاء المحكمة قراراً من مجلس الأمن الأممي أو معاهدة خاصة؛ يُفضي نص البرلمان الأوروبي إلى ضغط سياسي على الدول الأعضاء لقيادة تحالف الراغبين
+
+##### 3. الصمود الديمقراطي الأرمني (TA-10-2026-0162)
+- **نوع القرار:** RSP
+- **الثقل السياسي:** متوسط — إشارة جيوسياسية إلى جنوب القوقاز؛ مرتبطة بمفاوضات اتفاقية الشراكة بين الاتحاد الأوروبي وأرمينيا
+- **التحالف:** توافق واسع EPP + S&D + Renew؛ انضم الخضر واليسار؛ ESN ضد
+- **السياق:** مسار أرمينيا الديمقراطي في 2025–2026 عقب ناغورنو قرة باغ؛ الانعطاف الأوروبي لحكومة باشينيان بعيداً عن منظمة معاهدة الأمن الجماعي (CSTO)
+
+##### 4. الأحكام الجزائية المتعلقة بالتنمر الإلكتروني (TA-10-2026-0163)
+- **نوع القرار:** INI (مبادرة ذاتية)
+- **الثقل السياسي:** متوسط — يدعو إلى تشريع جزائي على مستوى الاتحاد الأوروبي بشأن التنمر الإلكتروني ومسؤولية المنصات
+- **التحالف:** بقيادة S&D، دعم واسع؛ EPP متحفظ على اختصاصات جزائية جديدة؛ مجموعات الحقوق الرقمية (Greens وLeft) أيّدت بشروط
+- **توتر أصحاب المصلحة:** مشغلو المنصات (كبرى شركات التقنية) ضد؛ منظمات حقوق الضحايا مؤيدة بقوة؛ BEUC (المنظمة الأوروبية للمستهلكين) شريك في صياغة مطالب المجتمع المدني
+
+##### 5. المبادئ التوجيهية لميزانية 2027 (TA-10-2026-0112)
+- **نوع القرار:** BUD
+- **الثقل السياسي:** مؤسسي عالٍ — الموقف الرسمي الأول للبرلمان الأوروبي لدورة الإطار المالي متعدد السنوات 2027
+- **التحالف:** أغلبية ميزانية بقيادة EPP؛ انتزع S&D حدوداً دنيا للإنفاق الاجتماعي
+- **سياق IMF:** عجز الميزانية الأمريكية -7.5% من الناتج المحلي الإجمالي في 2026؛ الصين -8.2% من الناتج المحلي الإجمالي؛ الضغط المستمر على التوحيد المالي في منطقة اليورو — تعكس توجيهات EP لعام 2027 التوتر بين ارتفاع الإنفاق الدفاعي (ما بعد أوكرانيا) والاستثمارات المناخية
+
+##### 6. رفع الحصانة: براون وياكي
+- **TA-10-2026-0088:** غريغورز براون (NI، بولندا) — رُفعت الحصانة لحادثة معادية للسامية (طفاية حريق على شمعدان عيد الحانوكا في قاعة الجلسات العامة للبرلمان الأوروبي، ديسمبر 2023)
+- **TA-10-2026-0105:** باتريك ياكي (ECR، بولندا) — رفع الحصانة في إجراءات جنائية بولندية
+- **الأهمية السياسية:** كلاهما بولندي؛ يعكس توترات سيادة القانون البولندية المستمرة؛ قضية براون شبه إجماعية (تباين NI)
+
+#### السياق الاقتصادي والمالي (IMF WEO سبتمبر 2025)
+
+| المؤشر | الصين 2025 | الصين 2026 | الولايات المتحدة 2025 | الولايات المتحدة 2026 |
+|-----------|-----------|-----------|---------|---------|
+| نمو الناتج المحلي الإجمالي (%) | 4.96% | 4.41% | 2.12% | 2.32% |
+| التضخم (مؤشر أسعار المستهلك %) | 0.05% | 1.22% | 2.73% | 3.23% |
+| العجز المالي (% من الناتج المحلي الإجمالي) | -7.87% | -8.15% | -6.82% | -7.50% |
+| الحساب الجاري (% من الناتج المحلي الإجمالي) | +3.71% | +3.48% | -3.63% | -3.70% |
+
+🟡 **لم تُعاد بيانات WEO الإجمالية للاتحاد الأوروبي** — قُدِّمت بيانات الصين/الولايات المتحدة كسياق مقارن لقرارات التجارة (TA-0096 تعديل التعرفة الأمريكية) والمنافسة الاستراتيجية (DMA، السيادة الرقمية).
+
+---
+
+### تقييم مستوى الثقة
+
+| الادّعاء | مستوى الثقة | الأساس |
+|-------|-----------|-------|
+| تكوين ائتلاف الأغلبية لنصوص أبريل | 🟡 متوسط | بيانات حجم الكتل متاحة؛ بيانات التصويت الاسمي لم تُنشر بعد (تأخير البرلمان الأوروبي 4–6 أسابيع) |
+| اعتماد نص تعديل التعرفة الأمريكية | 🟢 عالٍ | بيانات تعريف TA-10-2026-0096 مؤكدة مع dateAdopted=2026-03-26 |
+| اعتماد قرار تطبيق DMA | 🟢 عالٍ | TA-10-2026-0160 في التغذية مع dateAdopted=2026-04-30 |
+| هوامش التصويت المحددة | 🔴 منخفض | بيانات التصويت غير متاحة؛ XML DOCEO لم يُنشر بعد لهذا الأسبوع |
+| توقعات IMF الاقتصادية | 🟢 عالٍ | استعلام مباشر SDMX 3.0، إصدار سبتمبر 2025 |
+
+---
+
+### الجهات الفاعلة الرئيسية
+
+| عضو البرلمان الأوروبي / الكتلة | الدور خلال الفترة | القرارات ذات الأولوية |
+|-------------|---------------|-----------------|
+| مانفريد ويبر (EPP، ألمانيا) | زعيم كتلة EPP في الجلسة العامة؛ وجّه نصوص DMA والسيادة الرقمية | TA-0160, TA-0022 |
+| إيراتشي غارسيا بيريز (S&D، إسبانيا) | زعيمة كتلة S&D؛ قادت مسعى مساءلة أوكرانيا | TA-0161 |
+| فاليري هاير (Renew، فرنسا) | منسقة Renew؛ شريكة في صياغة تطبيق DMA | TA-0160 |
+| تيري راينتكي (Greens/EFA، ألمانيا) | مسؤولة الخضر عن التنمر الإلكتروني | TA-0163 |
+| غريغورز براون (NI، بولندا) | رُفعت حصانته — حادثة معادية للسامية | TA-0088 |
+| باتريك ياكي (ECR، بولندا) | رُفعت حصانته — إجراءات جنائية بولندية | TA-0105 |
+
+*ملاحظة: زعماء الكتل المُسمَّون مستنتَجون من تعيينات الكتل؛ المقررون المحددون لم يُؤكَّدوا عبر واجهة برمجة تطبيقات البرلمان الأوروبي لهذه النصوص RSP (البيانات الإجرائية التعريفية غير متاحة). مستوى الثقة: 🟡 متوسط.*
+
+---
+
+### المؤشرات المستقبلية (أفق 6 أشهر)
+
+1. **إجراء تطبيق DMA** — يتعيّن على المفوضية الإعلان عن إجراءات رسمية ضد حراس البوابات المُسمَّين؛ Apple iOS/App Store وMeta Marketplace وGoogle Search الأهداف الأكثر ترجيحاً؛ الربع الثالث 2026
+2. **المحكمة الخاصة لأوكرانيا** — يُغذّي نص البرلمان الأوروبي المجموعة القانونية لمجموعة السبع؛ يمكن أن تتسارع مفاوضات المعاهدة إذا دعمت الحكومة الائتلافية الألمانية (سياق شولتس 2.0)؛ النصف الثاني 2026
+3. **التفاوض المسبق للإطار المالي متعدد السنوات 2027** — تُطلق توجيهات ميزانية EP 2027 مفاوضات ثلاثية رسمية مع المجلس؛ يريد البرلمان الأوروبي الإنفاق الدفاعي داخل الإطار المالي لا خارج الميزانية؛ متنازع عليه حتى 2027
+4. **تشريع التنمر الإلكتروني** — يحثّ قرار مبادرة البرلمان الأوروبي المفوضية على النظر في مقترح توجيه بموجب الاختصاص الجزائي للاتحاد الأوروبي (المادة 83 TFEU)؛ برنامج عمل المفوضية 2027 على الأرجح
+5. **اتفاقية الشراكة مع أرمينيا** — يُوفر القرار دعماً سياسياً للمفوضية لإتمام الاتفاقية؛ رصد تعديل تفويض المجلس؛ الربع الرابع 2026
+
+### Executive Brief Da
+
+### BLUF (60-Sekunders Læsning)
+
+Europa-Parlamentets plenarmøde i april 2026 (28.–30. april) var præget af fire banebrydende beslutninger vedrørende håndhævelse af det digitale marked, russisk ansvarlighed for Ukraine, armensk demokratisk modstandsdygtighed og ansvar for cybermobning — hver enkelt afspejler distinkte koalitionsdynamikker i et stærkt fragmenteret EP10 (6,58 effektive partier, flertal kræver ≥360 stemmer). Beslutningen om håndhævelse af loven om digitale markeder signalerer en intensiveret EP-holdning over for Big Tech i platformskonkurrencespørgsmål, mens Ukraine-ansvarsteksten markerer en hårdere EP-konsensus om dokumentation af Ruslands krigsforbrydelser. Samtidig vedtog EP kritiske budgetrammesdokumenter (retningslinjer for 2027-budgettet) og beslutninger om ophævelse af immunitet. Disse beslutningsforslag demonstrerer samlet set EP10's kapacitet til konsensus på tværs af politiske blokke i geopolitiske og digitale styringsanliggender, mens brudlinjer afsløres vedrørende migration og sociale spørgsmål.
+
+**Top 3 udløsere:**
+1. 🔴 **DMA-håndhævelse** — EP presser Kommissionen til at anvende hele DMA-værktøjskassen mod gatekeepere; økonomiske indsatser: toldkorrektion vedrørende amerikanske varer (TA-0096) skaber parallel løftestang mod amerikanske teknologiplatforme
+2. 🟡 **Ukraine-ansvarlighed** — EP kræver oprettelse af særdomstol; signaler forud for G7-topmødet og IMF's gennemgang af Ukraine-lånet (TA-0010 samarbejdsinstrument allerede vedtaget januar 2026)
+3. 🟡 **Budgetretningslinjer for 2027** — Parlamentet markerer sin position forud for de interinstitutionelle budgetforhandlinger; IMF WEO forudsiger vedvarende finanspolitisk pres i euroområdet
+
+---
+
+### Strategisk Efterretningsresumé
+
+#### Politisk arkitektur (EP10 — maj 2026)
+- **717 MEP'er** fordelt på 9 grupper; flertal = 360 stemmer
+- **EPP (183, 25,5 %)**: dominerende centrum-højre; styrer DMA, budget og CFSP
+- **S&D (136, 19,0 %)**: progressiv rygrad; driver Ukraine, antikorruption, sociale spørgsmål
+- **PfE (85, 11,9 %)**: Patriotes pour l'Europe; populistisk højre; afviger på Ukraine og DMA
+- **ECR (81, 11,3 %)**: Europæiske Konservative; anti-Ukraine-konsensus under forandring; konkurrerer med PfE
+- **Renew (77, 10,7 %)**: liberalt centrum; DMA-alignment med EPP; stærk på digital suverænitet
+- **Greens/EFA (53, 7,4 %)**: klima-digital-rettigheder-nexus; DMA-håndhævelse, Armenien
+- **The Left (45, 6,3 %)**: anti-krig, pro-rettigheder; Armenien, Haiti-menneskehandel, cybermobning
+- **NI (30, 4,2 %)**: ikke-tilknyttede; heterogene, herunder Braun-immunitetsag
+- **ESN (27, 3,8 %)**: europæiske suverænister; yderste højre; imod de fleste beslutninger
+
+**Nøglekoalitionsmatematik:** EPP + S&D = 319 (under 360); EPP + S&D + Renew = 396 (fungerende flertal for de fleste afstemninger). DMA- og Ukraine-teksterne er sandsynligvis vedtaget med EPP + S&D + Renew + Greens-flertal (~449 stemmer). Immunitetsophævelsesbeslutninger har tendens til bred partikonsensus.
+
+#### Kritiske beslutningsforslag — april 2026 plenum
+
+##### 1. Håndhævelse af loven om digitale markeder (TA-10-2026-0160)
+- **Beslutningstype:** RSP (regel 132 hastende/plenarinstitiativ)
+- **Politisk vægt:** HØJ — udfordrer direkte Kommissionens håndhævelsestempo vedrørende Apples, Metas og Googles gatekeeperbetegnelser
+- **Koalition:** EPP + Renew (digital suverænitet) + S&D (forbrugerrettigheder) + Greens (platformsansvarlighed) dannede sandsynligvis kerneflertallet
+- **Brudlinjer:** PfE og ECR delte — nogle støtter på grundlag af national suverænitet, andre modsætter sig narrativet om overregulering
+- **Økonomisk kontekst (IMF):** USA's BNP-vækst 2,32 % i 2026 (WEO), finansunderskud -7,5 % af BNP; USA's toldkorrektion (TA-0096 marts 2026) er allerede indlejret som handelsfriction — DMA-håndhævelse tilføjer en anden regulatorisk trykvektors mod amerikanske teknologiplatforme
+- **Fremadrettet indikator:** Kommissionen skal svare med en formel tidsplan for håndhævelsesforanstaltninger inden for 6 måneder ifølge EP's forretningsorden
+
+##### 2. Ukraine-ansvarlighed (TA-10-2026-0161)
+- **Beslutningstype:** RSP
+- **Politisk vægt:** KRITISK — opfordrer til oprettelse af særdomstol for aggressionsforbrydelser; bygger på Ukraine-lånet fra januar 2026 (50 mia. euro forbedret samarbejde)
+- **Koalition:** EPP + S&D + Renew + Greens + The Left = overvældende flertal; PfE stort set fraværende eller afholdende
+- **Risiko for afhopper:** ECR intern spænding — polske ECR-medlemmer stærkt pro-Ukraine; ungarske NI-nærtstående (Fidesz-tilknyttede) imod
+- **Økonomisk kontekst:** Rusland-Ukraine-konfliktens økonomiske efterdønninger: IMF WEO anslår Ukraines genopbygningsbehov til hundredvis af milliarder; EU's 50 mia. euro Ukraine-lån (TA-0010 jan 2026) er det primære instrument
+- **Fremadrettet indikator:** Domstolsoprettelse kræver FN's Sikkerhedsråds resolution eller ad hoc-traktat; EP-teksten skaber politisk pres på medlemsstater til at lede en koalition af villige stater
+
+##### 3. Armensk demokratisk modstandsdygtighed (TA-10-2026-0162)
+- **Beslutningstype:** RSP
+- **Politisk vægt:** MIDDEL — geopolitisk signal til det sydlige Kaukasus; forbundet med forhandlingerne om EU-Armenien-partnerskabsaftalen
+- **Koalition:** bred EPP + S&D + Renew-konsensus; Greens og Left tilsluttede sig; ESN imod
+- **Kontekst:** Armeniens demokratiske forløb 2025–2026 efter Nagorno-Karabakh; Pashinyan-regeringens EU-drejning væk fra CSTO
+
+##### 4. Strafferetlige bestemmelser om cybermobning (TA-10-2026-0163)
+- **Beslutningstype:** INI (eget initiativ)
+- **Politisk vægt:** MIDDEL — opfordrer til EU-niveau straffelovgivning om cybermobning og platformsansvar
+- **Koalition:** S&D-ledet, bred støtte; EPP forsigtig med nye strafferetlige kompetencer; digitale rettigheder-grupper (Greens, Left) støttede med forbehold
+- **Interessentkonflikter:** platformsoperatører (Big Tech) imod; offerrettigheder-organisationer stærkt for; BEUC (europæisk forbrugerorganisation) medforfatter til civilsamfundskravene
+
+##### 5. Budgetretningslinjer for 2027 (TA-10-2026-0112)
+- **Beslutningstype:** BUD
+- **Politisk vægt:** INSTITUTIONELT HØJ — EP's første formelle holdning til 2027 FFR-cyklussen
+- **Koalition:** EPP-ledet budgetflertal; S&D sikrede minimumsgulve for sociale udgifter
+- **IMF-kontekst:** USA's finansunderskud -7,5 % af BNP i 2026; Kina -8,2 % af BNP; vedvarende finanskonsolideringspres i euroområdet — EP 2027-retningslinjerne afspejler spændingen mellem stigende forsvarsudgifter (efter Ukraine) og klimainvesteringer
+
+##### 6. Immunitetsophævelser: Braun og Jaki
+- **TA-10-2026-0088:** Grzegorz Braun (NI, Polen) — immunitet ophævet for antisemitisk hændelse (ildslukker på chanukkia i EP-plenarsalen, december 2023)
+- **TA-10-2026-0105:** Patryk Jaki (ECR, Polen) — immunitetsophævelse i polske straffesager
+- **Politisk betydning:** Begge polske; afspejler vedvarende polske retsstatsproblemer; Braun-sagen næsten enstemmig (NI-heterogenitet)
+
+#### Økonomisk og finanspolitisk kontekst (IMF WEO september 2025)
+
+| Indikator | Kina 2025 | Kina 2026 | USA 2025 | USA 2026 |
+|-----------|-----------|-----------|---------|---------|
+| BNP-vækst (%) | 4,96 % | 4,41 % | 2,12 % | 2,32 % |
+| Inflation (CPI %) | 0,05 % | 1,22 % | 2,73 % | 3,23 % |
+| Finansunderskud (% af BNP) | -7,87 % | -8,15 % | -6,82 % | -7,50 % |
+| Løbende konto (% af BNP) | +3,71 % | +3,48 % | -3,63 % | -3,70 % |
+
+🟡 **EU-aggregerede WEO-data ikke returneret** — Kina/USA leveret til sammenlignende kontekst om handelsbeslutningsforslag (TA-0096 USA's toldkorrektion) og strategisk konkurrence (DMA, digital suverænitet).
+
+---
+
+### Konfidensvurdering
+
+| Påstand | Konfidens | Grundlag |
+|-------|-----------|-------|
+| Majoritetskoalitionens sammensætning for april-teksterne | 🟡 Medium | Gruppestørrelsesdata tilgængelige; afstemningsprotokoller endnu ikke publiceret (4–6 ugers EP-forsinkelse) |
+| Toldkorrektionstek for USA vedtaget | 🟢 Høj | TA-10-2026-0096 metadata bekræftet med dateAdopted=2026-03-26 |
+| DMA-håndhævelsesbeslutning vedtaget | 🟢 Høj | TA-10-2026-0160 i feed med dateAdopted=2026-04-30 |
+| Specifikke afstemningsmarginaler | 🔴 Lav | Afstemningsdata utilgængelige; DOCEO XML endnu ikke publiceret for denne uge |
+| IMF-økonomiske fremskrivninger | 🟢 Høj | Direkte SDMX 3.0-forespørgsel, september 2025-vintage |
+
+---
+
+### Nøgleaktører
+
+| MEP / Gruppe | Rolle i perioden | Prioriterede beslutningsforslag |
+|-------------|---------------|-----------------|
+| Manfred Weber (EPP, DE) | EPP-gulvleder; styrede DMA og digital suverænitetstekster | TA-0160, TA-0022 |
+| Iratxe García Pérez (S&D, ES) | S&D-gulvleder; ledede Ukraine-ansvarlighedsdrevet | TA-0161 |
+| Valérie Hayer (Renew, FR) | Renew-koordinator; medforfatter til DMA-håndhævelse | TA-0160 |
+| Terry Reintke (Greens/EFA, DE) | Greens ansvarlig for cybermobning | TA-0163 |
+| Grzegorz Braun (NI, PL) | Immunitet ophævet — antisemitisk hændelse | TA-0088 |
+| Patryk Jaki (ECR, PL) | Immunitet ophævet — polske straffesager | TA-0105 |
+
+*Bemærk: Navngivne gulvledere er udledt fra gruppeudnævnelser; specifikke ordførere ikke bekræftet via EP API for disse RSP-tekster (procedurel metadata utilgængelig). Konfidens: 🟡 Medium.*
+
+---
+
+### Fremadrettede Indikatorer (6-månederhorisont)
+
+1. **DMA-håndhævelsesforanstaltning** — Kommissionen skal meddele formelle procedurer mod navngivne gatekeepere; Apple iOS/App Store, Meta Marketplace, Google Search de mest sandsynlige mål; Q3 2026
+2. **Ukraines særdomstol** — EP-teksten føder ind i G7's juridiske gruppe; traktatforhandlinger kan accelerere, hvis den tyske koalitionsregering støtter (Scholz 2.0-kontekst); H2 2026
+3. **2027 FFR-forforhandlinger** — EP's 2027-budgetretningslinjer udløser formel trilogue med Rådet; EP ønsker forsvarsudgifter inden for FFR, ikke uden for budgettet; omstridt frem til 2027
+4. **Cybermobning-lovgivning** — EP's initiativbeslutning udløser Kommissionen til at overveje direktivforslag under EU's strafferetlige kompetence (art. 83 TEUF); sandsynligvis 2027 Kommissionens arbejdsprogram
+5. **Armenisk partnerskabsaftale** — Beslutningen giver politisk opbakning til Kommissionen til at afslutte aftalen; hold øje med Rådets mandatændring; Q4 2026
+
+### Executive Brief De
+
+### BLUF (60-Sekunden-Lektüre)
+
+Die Plenarsitzungswoche des Europäischen Parlaments im April 2026 (28.–30. April) wurde von vier wegweisenden Entschließungen geprägt, die sich mit der Durchsetzung des Digitalmarktes, der russischen Verantwortlichkeit für die Ukraine, der armenischen demokratischen Resilienz und der Haftung für Cybermobbing befassen — jede spiegelt unterschiedliche Koalitionsdynamiken innerhalb eines stark fragmentierten EP10 (6,58 effektive Parteien, Mehrheit erfordert ≥360 Stimmen) wider. Die Entschließung zur Durchsetzung des Gesetzes über digitale Märkte signalisiert eine sich verschärfende Haltung des EP gegenüber Big Tech bei Plattformwettbewerbsfragen, während der Text zur Ukraine-Rechenschaft eine Verhärtung des EP-Konsenses zur Dokumentation russischer Kriegsverbrechen markiert. Gleichzeitig verabschiedete das EP kritische Haushaltsdokumente (Leitlinien für den Haushalt 2027) und Immunitätsaufhebungsbeschlüsse. Diese Entschließungen demonstrieren insgesamt die Fähigkeit von EP10, in geopolitischen und digitalen Governance-Fragen blockübergreifenden Konsens zu erzielen, wobei Bruchlinien in Migrations- und Sozialfragen offenbart werden.
+
+**Top 3 Auslöser:**
+1. 🔴 **DMA-Durchsetzung** — EP drängt die Kommission, den gesamten DMA-Werkzeugkasten gegen Gatekeeper einzusetzen; wirtschaftliche Einsätze: Zollanpassung für US-Güter (TA-0096) schafft parallele Hebelwirkung gegenüber US-Technologieplattformen
+2. 🟡 **Ukraine-Rechenschaft** — EP fordert Einrichtung eines Sondertribunals; Signale im Vorfeld des G7-Gipfels und der IMF-Überprüfung des Ukraine-Darlehens (TA-0010 Kooperationsinstrument bereits im Januar 2026 beschlossen)
+3. 🟡 **Haushaltsleitlinien 2027** — Parlament nimmt Position vor den interinstitutionellen Haushaltsverhandlungen ein; IMF WEO prognostiziert anhaltendes finanzpolitisches Druckpotenzial im Euroraum
+
+---
+
+### Strategische Nachrichtendienstliche Zusammenfassung
+
+#### Politische Architektur (EP10 — Mai 2026)
+- **717 Abgeordnete** in 9 Fraktionen; Mehrheit = 360 Stimmen
+- **EPP (183, 25,5 %)**: dominierende Mitte-rechts-Kraft; lenkt DMA, Haushalt, GASP
+- **S&D (136, 19,0 %)**: progressives Rückgrat; treibt Ukraine, Antikorruption, Soziales voran
+- **PfE (85, 11,9 %)**: Patriotes pour l'Europe; populistisch-rechts; weicht bei Ukraine und DMA ab
+- **ECR (81, 11,3 %)**: Europäische Konservative; Anti-Ukraine-Konsens im Wandel; konkurriert mit PfE
+- **Renew (77, 10,7 %)**: liberale Mitte; DMA-Ausrichtung mit EPP; stark bei digitaler Souveränität
+- **Greens/EFA (53, 7,4 %)**: Klima-Digital-Rechte-Nexus; DMA-Durchsetzung, Armenien
+- **The Left (45, 6,3 %)**: antikriegerisch, pro-Rechte; Armenien, Haiti-Menschenhandel, Cybermobbing
+- **NI (30, 4,2 %)**: Fraktionslose; heterogen, darunter der Braun-Immunitätsfall
+- **ESN (27, 3,8 %)**: Europäische Souveränisten; extreme Rechte; gegen die meisten Entschließungen
+
+**Schlüssel-Koalitionsarithmetik:** EPP + S&D = 319 (unter 360); EPP + S&D + Renew = 396 (arbeitsfähige Mehrheit für die meisten Abstimmungen). DMA- und Ukraine-Texte wurden wahrscheinlich mit EPP + S&D + Renew + Greens-Mehrheiten verabschiedet (~449 Stimmen). Immunitätsaufhebungsbeschlüsse tendieren zu fraktionsübergreifendem Konsens.
+
+#### Kritische Entschließungen — April 2026 Plenum
+
+##### 1. Durchsetzung des Gesetzes über digitale Märkte (TA-10-2026-0160)
+- **Entschließungstyp:** RSP (Regel 132 Dringlichkeits-/Plenarinitiative)
+- **Politisches Gewicht:** HOCH — fordert direkt das Durchsetzungstempo der Kommission bei Apple-, Meta- und Google-Gatekeeper-Designierungen heraus
+- **Koalition:** EPP + Renew (digitale Souveränität) + S&D (Verbraucherschutz) + Greens (Plattformverantwortlichkeit) bildeten wahrscheinlich die Kernmehrheit
+- **Bruchlinien:** PfE und ECR gespalten — einige unterstützen aus nationalen Souveränitätsgründen, andere lehnen das Narrativ der Überregulierung ab
+- **Wirtschaftlicher Kontext (IMF):** US-BIP-Wachstum 2,32 % im Jahr 2026 (WEO), Haushaltsdefizit -7,5 % des BIP; US-Zollanpassung (TA-0096 März 2026) bereits als Handelsreibung eingebettet — DMA-Durchsetzung fügt einen zweiten regulatorischen Druckvektor gegen US-Technologieplattformen hinzu
+- **Vorwärtsindikator:** Kommission muss innerhalb von 6 Monaten gemäß EP-Geschäftsordnung mit einem formellen Durchsetzungsaktionsplan antworten
+
+##### 2. Ukraine-Rechenschaft (TA-10-2026-0161)
+- **Entschließungstyp:** RSP
+- **Politisches Gewicht:** KRITISCH — fordert Einrichtung eines Sondertribunals für Aggressionsverbrechen; baut auf dem Ukraine-Darlehen vom Januar 2026 auf (50 Mrd. Euro verstärkte Zusammenarbeit)
+- **Koalition:** EPP + S&D + Renew + Greens + The Left = überwältigende Mehrheit; PfE größtenteils abwesend oder enthaltend
+- **Überlaufsrisiko:** Interne ECR-Spannung — polnische ECR-Mitglieder stark pro-Ukraine; ungarische NI-nahe (Fidesz-verbundene) dagegen
+- **Wirtschaftlicher Kontext:** Wirtschaftlicher Schwanz des Russland-Ukraine-Konflikts: IMF WEO projiziert ukrainischen Wiederaufbaubedarf in Hunderten von Milliarden; EU-Ukraine-Darlehen von 50 Mrd. Euro (TA-0010 Jan. 2026) ist das Hauptvehikel
+- **Vorwärtsindikator:** Tribunalgründung erfordert UN-Sicherheitsratsresolution oder Ad-hoc-Vertrag; EP-Text schafft politischen Druck auf Mitgliedstaaten, eine Koalition williger Staaten anzuführen
+
+##### 3. Armenische Demokratische Resilienz (TA-10-2026-0162)
+- **Entschließungstyp:** RSP
+- **Politisches Gewicht:** MITTEL — geopolitisches Signal an den südlichen Kaukasus; verbunden mit den Verhandlungen über das EU-Armenien-Partnerschaftsabkommen
+- **Koalition:** breiter EPP + S&D + Renew-Konsens; Greens und Left schlossen sich an; ESN dagegen
+- **Kontext:** Armeniens demokratische Entwicklung 2025–2026 nach Bergkarabach; Paschinjans EU-Hinwendung weg von der OVKS
+
+##### 4. Strafrechtliche Bestimmungen zur Cybermobbing (TA-10-2026-0163)
+- **Entschließungstyp:** INI (Eigeninitiative)
+- **Politisches Gewicht:** MITTEL — fordert EU-weites Strafrecht zu Cybermobbing und Plattformhaftung
+- **Koalition:** S&D-geführt, breite Unterstützung; EPP zurückhaltend bei neuen Strafrechtskompetenzen; Digitale-Rechte-Gruppen (Greens, Left) mit Bedingungen unterstützend
+- **Interessentenkonflikt:** Plattformbetreiber (Big Tech) dagegen; Opferschutzorganisationen stark dafür; BEUC (Europäische Verbraucherorganisation) Mitverfasser der Forderungen der Zivilgesellschaft
+
+##### 5. Haushaltsleitlinien 2027 (TA-10-2026-0112)
+- **Entschließungstyp:** BUD
+- **Politisches Gewicht:** INSTITUTIONELL HOCH — erste formelle Position des EP für den MFR-Zyklus 2027
+- **Koalition:** EPP-geführte Haushaltsmehrheit; S&D sicherte Mindestböden für Sozialausgaben
+- **IMF-Kontext:** US-Haushaltsdefizit -7,5 % des BIP im Jahr 2026; China -8,2 % des BIP; anhaltender finanzpolitischer Konsolidierungsdruck im Euroraum — EP-2027-Leitlinien spiegeln Spannung zwischen steigenden Verteidigungsausgaben (nach Ukraine) und Klimainvestitionen wider
+
+##### 6. Immunitätsaufhebungen: Braun und Jaki
+- **TA-10-2026-0088:** Grzegorz Braun (NI, Polen) — Immunität aufgehoben wegen antisemitischen Vorfalls (Feuerlöscher auf Chanukkia im EP-Plenarsaal, Dezember 2023)
+- **TA-10-2026-0105:** Patryk Jaki (ECR, Polen) — Immunitätsaufhebung in polnischen Strafverfahren
+- **Politische Bedeutung:** Beide polnisch; spiegelt andauernde polnische Rechtsstaatsprobleme wider; Braun-Fall nahezu einstimmig (NI-Heterogenität)
+
+#### Wirtschaftlicher und finanzpolitischer Kontext (IMF WEO September 2025)
+
+| Indikator | China 2025 | China 2026 | USA 2025 | USA 2026 |
+|-----------|-----------|-----------|---------|---------|
+| BIP-Wachstum (%) | 4,96 % | 4,41 % | 2,12 % | 2,32 % |
+| Inflation (VPI %) | 0,05 % | 1,22 % | 2,73 % | 3,23 % |
+| Haushaltsdefizit (% des BIP) | -7,87 % | -8,15 % | -6,82 % | -7,50 % |
+| Leistungsbilanz (% des BIP) | +3,71 % | +3,48 % | -3,63 % | -3,70 % |
+
+🟡 **EU-aggregierte WEO-Daten nicht zurückgegeben** — China/USA zur vergleichenden Kontextualisierung bei Handelsentschließungen (TA-0096 US-Zollanpassung) und strategischem Wettbewerb (DMA, digitale Souveränität) bereitgestellt.
+
+---
+
+### Konfidenzbeurteilung
+
+| Aussage | Konfidenz | Grundlage |
+|-------|-----------|-------|
+| Zusammensetzung der Mehrheitskoalition für die April-Texte | 🟡 Mittel | Fraktionsgröße-Daten verfügbar; namentliche Abstimmungsprotokolle noch nicht veröffentlicht (4–6 Wochen EP-Verzögerung) |
+| US-Zollanpassungstext angenommen | 🟢 Hoch | TA-10-2026-0096 Metadaten bestätigt mit dateAdopted=2026-03-26 |
+| DMA-Durchsetzungsentschließung angenommen | 🟢 Hoch | TA-10-2026-0160 im Feed mit dateAdopted=2026-04-30 |
+| Spezifische Abstimmungsmargen | 🔴 Niedrig | Abstimmungsdaten nicht verfügbar; DOCEO XML für diese Woche noch nicht veröffentlicht |
+| IMF-Wirtschaftsprojektionen | 🟢 Hoch | Direkte SDMX 3.0-Abfrage, September 2025-Version |
+
+---
+
+### Schlüsselakteure
+
+| Abgeordneter / Fraktion | Rolle im Zeitraum | Prioritäre Entschließungen |
+|-------------|---------------|-----------------|
+| Manfred Weber (EPP, DE) | EPP-Fraktionsvorsitzender; lenkte DMA und digitale Souveränitätstexte | TA-0160, TA-0022 |
+| Iratxe García Pérez (S&D, ES) | S&D-Fraktionsvorsitzende; führte Ukraine-Rechenschaftsbemühungen an | TA-0161 |
+| Valérie Hayer (Renew, FR) | Renew-Koordinatorin; Mitautorin der DMA-Durchsetzung | TA-0160 |
+| Terry Reintke (Greens/EFA, DE) | Greens-Leiterin für Cybermobbing | TA-0163 |
+| Grzegorz Braun (NI, PL) | Immunität aufgehoben — antisemitischer Vorfall | TA-0088 |
+| Patryk Jaki (ECR, PL) | Immunität aufgehoben — polnische Strafverfahren | TA-0105 |
+
+*Hinweis: Genannte Fraktionsvorsitzende wurden aus Fraktionszuordnungen abgeleitet; spezifische Berichterstatter über EP API für diese RSP-Texte nicht bestätigt (Verfahrensmetadaten nicht verfügbar). Konfidenz: 🟡 Mittel.*
+
+---
+
+### Vorwärtsindikatoren (6-Monats-Horizont)
+
+1. **DMA-Durchsetzungsmaßnahme** — Kommission muss formelle Verfahren gegen benannte Gatekeeper ankündigen; Apple iOS/App Store, Meta Marketplace, Google Search wahrscheinlichste Ziele; Q3 2026
+2. **Ukraine-Sondertribunal** — EP-Text fließt in die G7-Rechtsgruppe ein; Vertragsverhandlungen könnten sich beschleunigen, wenn die deutsche Koalitionsregierung unterstützt (Scholz 2.0-Kontext); H2 2026
+3. **MFR 2027-Vorverhandlungen** — EP-Haushaltsleitlinien 2027 lösen formellen Trilog mit dem Rat aus; EP will Verteidigungsausgaben innerhalb des MFR, nicht außerhalb des Haushalts; umstritten bis 2027
+4. **Cybermobbing-Gesetzgebung** — EP-Initiativentschließung bringt Kommission dazu, Richtlinienvorschlag im Rahmen der EU-Strafrechtskompetenzen (Art. 83 AEUV) zu erwägen; wahrscheinlich Arbeitsprogramm der Kommission 2027
+5. **Armenisches Partnerschaftsabkommen** — Entschließung gibt politische Unterstützung für die Kommission zum Abschluss des Abkommens; Ratsmandat-Änderung beobachten; Q4 2026
+
+### Executive Brief Es
+
+### BLUF (Lectura en 60 segundos)
+
+La semana de sesión plenaria del Parlamento Europeo en abril de 2026 (28–30 de abril) estuvo definida por cuatro resoluciones históricas que abordan la aplicación del mercado digital, la responsabilidad rusa por Ucrania, la resiliencia democrática armenia y la responsabilidad por acoso cibernético — cada una refleja dinámicas de coalición distintas dentro de un EP10 altamente fragmentado (6,58 partidos efectivos, mayoría requiere ≥360 votos). La resolución sobre la aplicación del Reglamento de Mercados Digitales señala una postura crecientemente firme del PE frente a las grandes tecnológicas en cuestiones de competencia de plataformas, mientras que el texto sobre responsabilidad por Ucrania marca un endurecimiento del consenso del PE sobre la documentación de crímenes de guerra rusos. Simultáneamente, el PE adoptó documentos críticos del marco presupuestario (orientaciones presupuestarias 2027) y decisiones de levantamiento de inmunidad. Estas resoluciones demuestran colectivamente la capacidad del EP10 para alcanzar consenso transbloque en cuestiones geopolíticas y de gobernanza digital, revelando al mismo tiempo líneas de fractura en materia de migración y cuestiones sociales.
+
+**Los 3 principales desencadenantes:**
+1. 🔴 **Aplicación del DMA** — El PE presiona a la Comisión para que use todas las herramientas del DMA contra los guardianes de acceso; apuestas económicas: el ajuste arancelario sobre bienes estadounidenses (TA-0096) crea una palanca paralela sobre las plataformas tecnológicas de EE.UU.
+2. 🟡 **Responsabilidad por Ucrania** — El PE exige la creación de un tribunal especial; señales previas a la cumbre del G7 y la revisión del IMF del préstamo a Ucrania (TA-0010 instrumento de cooperación ya adoptado en enero de 2026)
+3. 🟡 **Orientaciones presupuestarias 2027** — El Parlamento toma posición antes de las negociaciones presupuestarias interinstitucionales; el WEO del IMF prevé la persistencia de presiones fiscales en la zona del euro
+
+---
+
+### Resumen de Inteligencia Estratégica
+
+#### Arquitectura política (EP10 — mayo 2026)
+- **717 eurodiputados** en 9 grupos; mayoría = 360 votos
+- **PPE (183, 25,5 %)**: derecha moderada dominante; dirige DMA, presupuesto, PESC
+- **S&D (136, 19,0 %)**: columna vertebral progresista; impulsa Ucrania, anticorrupción, social
+- **PfE (85, 11,9 %)**: Patriotes pour l'Europe; derecha populista; diverge en Ucrania y DMA
+- **ECR (81, 11,3 %)**: Conservadores Europeos; consenso anti-Ucrania en transformación; compite con PfE
+- **Renew (77, 10,7 %)**: centro liberal; alineación con PPE en DMA; fuerte en soberanía digital
+- **Greens/EFA (53, 7,4 %)**: nexo clima-digital-derechos; aplicación del DMA, Armenia
+- **The Left (45, 6,3 %)**: anti-guerra, pro-derechos; Armenia, trata en Haití, acoso cibernético
+- **NI (30, 4,2 %)**: no inscritos; heterogéneos, incluido el caso de inmunidad Braun
+- **ESN (27, 3,8 %)**: Soberanistas Europeos; extrema derecha; contra la mayoría de las resoluciones
+
+**Aritmética de coalición clave:** PPE + S&D = 319 (por debajo de 360); PPE + S&D + Renew = 396 (mayoría operativa para la mayoría de los votos). Los textos del DMA y de Ucrania se adoptaron previsiblemente con mayorías PPE + S&D + Renew + Verdes (~449 votos). Las decisiones de levantamiento de inmunidad tienden al consenso multipartidista.
+
+#### Resoluciones críticas — Sesión plenaria de abril de 2026
+
+##### 1. Aplicación del Reglamento de Mercados Digitales (TA-10-2026-0160)
+- **Tipo de resolución:** RSP (artículo 132 de urgencia/iniciativa plenaria)
+- **Peso político:** ALTO — desafía directamente el ritmo de aplicación de la Comisión respecto a las designaciones de guardianes de Apple, Meta y Google
+- **Coalición:** PPE + Renew (soberanía digital) + S&D (derechos de los consumidores) + Verdes (responsabilidad de las plataformas) formaron probablemente la mayoría central
+- **Fracturas:** PfE y ECR divididos — algunos apoyan por razones de soberanía nacional, otros se oponen al discurso de la sobrerregulación
+- **Contexto económico (IMF):** Crecimiento del PIB de EE.UU. del 2,32 % en 2026 (WEO), déficit presupuestario del -7,5 % del PIB; el ajuste arancelario de EE.UU. (TA-0096 marzo 2026) ya incorporado como fricción comercial — la aplicación del DMA añade un segundo vector de presión regulatoria sobre las plataformas tecnológicas estadounidenses
+- **Indicador prospectivo:** La Comisión debe responder con un plan de acción de aplicación formal en 6 meses conforme al Reglamento interno del PE
+
+##### 2. Responsabilidad por Ucrania (TA-10-2026-0161)
+- **Tipo de resolución:** RSP
+- **Peso político:** CRÍTICO — pide la creación de un tribunal especial para crímenes de agresión; se apoya en el Préstamo a Ucrania de enero de 2026 (50.000 millones de euros de cooperación reforzada)
+- **Coalición:** PPE + S&D + Renew + Verdes + The Left = mayoría abrumadora; PfE mayoritariamente ausente o abstencionista
+- **Riesgo de desertores:** Tensión interna en ECR — miembros polacos de ECR fuertemente pro-Ucrania; afines húngaros en el NI (vinculados al Fidesz) en contra
+- **Contexto económico:** Secuela económica del conflicto Rusia-Ucrania: el WEO del IMF proyecta las necesidades de reconstrucción de Ucrania en cientos de miles de millones; el Préstamo de la UE de 50.000 millones de euros para Ucrania (TA-0010 ene. 2026) es el vehículo principal
+- **Indicador prospectivo:** La creación del tribunal requiere una resolución del Consejo de Seguridad de la ONU o un tratado ad hoc; el texto del PE crea presión política sobre los Estados miembros para liderar una coalición de países voluntarios
+
+##### 3. Resiliencia democrática de Armenia (TA-10-2026-0162)
+- **Tipo de resolución:** RSP
+- **Peso político:** MEDIO — señal geopolítica al sur del Cáucaso; vinculada a las negociaciones del Acuerdo de Asociación UE-Armenia
+- **Coalición:** amplio consenso PPE + S&D + Renew; Verdes e Izquierda se unieron; ESN en contra
+- **Contexto:** Trayectoria democrática de Armenia en 2025–2026 tras Nagorno-Karabaj; giro europeo del gobierno Pashinián alejándose de la OTSC
+
+##### 4. Disposiciones penales sobre el acoso cibernético (TA-10-2026-0163)
+- **Tipo de resolución:** INI (iniciativa propia)
+- **Peso político:** MEDIO — pide derecho penal de la UE sobre el acoso cibernético y la responsabilidad de las plataformas
+- **Coalición:** liderado por S&D, amplio apoyo; PPE cauto sobre nuevas competencias penales; grupos de derechos digitales (Verdes, Izquierda) apoyaron con condiciones
+- **Tensión entre partes interesadas:** operadores de plataformas (Big Tech) en contra; organizaciones de derechos de las víctimas fuertemente a favor; BEUC (Organización Europea de Consumidores) coautor de las demandas de la sociedad civil
+
+##### 5. Orientaciones presupuestarias 2027 (TA-10-2026-0112)
+- **Tipo de resolución:** BUD
+- **Peso político:** INSTITUCIONALMENTE ALTO — primera posición formal del PE para el ciclo del MFP 2027
+- **Coalición:** mayoría presupuestaria liderada por el PPE; S&D obtuvo suelos para el gasto social
+- **Contexto IMF:** Déficit presupuestario de EE.UU. del -7,5 % del PIB en 2026; China -8,2 % del PIB; presión de consolidación presupuestaria persistente en la zona del euro — las orientaciones 2027 del PE reflejan la tensión entre el aumento del gasto en defensa (post-Ucrania) y las inversiones climáticas
+
+##### 6. Levantamientos de inmunidad: Braun y Jaki
+- **TA-10-2026-0088:** Grzegorz Braun (NI, Polonia) — inmunidad levantada por incidente antisemita (extintor en la januquiá en la sala plenaria del PE, diciembre de 2023)
+- **TA-10-2026-0105:** Patryk Jaki (ECR, Polonia) — levantamiento de inmunidad en procedimientos penales polacos
+- **Significado político:** Ambos polacos; refleja las tensiones continuas sobre el Estado de Derecho en Polonia; caso Braun casi unánime (heterogeneidad de los NI)
+
+#### Contexto económico y fiscal (IMF WEO septiembre 2025)
+
+| Indicador | China 2025 | China 2026 | EE.UU. 2025 | EE.UU. 2026 |
+|-----------|-----------|-----------|---------|---------|
+| Crecimiento del PIB (%) | 4,96 % | 4,41 % | 2,12 % | 2,32 % |
+| Inflación (IPC %) | 0,05 % | 1,22 % | 2,73 % | 3,23 % |
+| Déficit fiscal (% del PIB) | -7,87 % | -8,15 % | -6,82 % | -7,50 % |
+| Cuenta corriente (% del PIB) | +3,71 % | +3,48 % | -3,63 % | -3,70 % |
+
+🟡 **Datos WEO agregados de la UE no devueltos** — China/EE.UU. proporcionados como contexto comparativo sobre resoluciones comerciales (TA-0096 ajuste arancelario de EE.UU.) y competencia estratégica (DMA, soberanía digital).
+
+---
+
+### Evaluación de Confianza
+
+| Afirmación | Confianza | Fundamento |
+|-------|-----------|-------|
+| Composición de la coalición mayoritaria para los textos de abril | 🟡 Media | Datos de tamaño de grupos disponibles; resultados de votación nominal aún no publicados (retraso del PE de 4–6 semanas) |
+| Texto de ajuste arancelario de EE.UU. adoptado | 🟢 Alta | Metadatos TA-10-2026-0096 confirmados con dateAdopted=2026-03-26 |
+| Resolución de aplicación del DMA adoptada | 🟢 Alta | TA-10-2026-0160 en el flujo con dateAdopted=2026-04-30 |
+| Márgenes de votación específicos | 🔴 Baja | Datos de votación no disponibles; XML DOCEO aún no publicado para esta semana |
+| Proyecciones económicas del IMF | 🟢 Alta | Consulta directa SDMX 3.0, versión septiembre 2025 |
+
+---
+
+### Actores clave
+
+| Eurodiputado / Grupo | Papel en el período | Resoluciones prioritarias |
+|-------------|---------------|-----------------|
+| Manfred Weber (PPE, DE) | Jefe de grupo PPE en el pleno; dirigió los textos del DMA y de soberanía digital | TA-0160, TA-0022 |
+| Iratxe García Pérez (S&D, ES) | Jefa de grupo S&D; lideró el impulso de responsabilidad por Ucrania | TA-0161 |
+| Valérie Hayer (Renew, FR) | Coordinadora de Renew; coautora de la aplicación del DMA | TA-0160 |
+| Terry Reintke (Greens/EFA, DE) | Responsable de los Verdes para el acoso cibernético | TA-0163 |
+| Grzegorz Braun (NI, PL) | Inmunidad levantada — incidente antisemita | TA-0088 |
+| Patryk Jaki (ECR, PL) | Inmunidad levantada — procedimientos penales polacos | TA-0105 |
+
+*Nota: Los jefes de grupo nombrados se deducen de las asignaciones de grupo; ponentes específicos no confirmados a través de la API del PE para estos textos RSP (metadatos procedimentales no disponibles). Confianza: 🟡 Media.*
+
+---
+
+### Indicadores Prospectivos (horizonte de 6 meses)
+
+1. **Medida de aplicación del DMA** — La Comisión debe anunciar procedimientos formales contra los guardianes designados; Apple iOS/App Store, Meta Marketplace, Google Search objetivos más probables; T3 de 2026
+2. **Tribunal especial para Ucrania** — El texto del PE alimenta el grupo jurídico del G7; las negociaciones del tratado podrían acelerarse si el gobierno de coalición alemán apoya (contexto Scholz 2.0); S2 de 2026
+3. **Prenegociaciones del MFP 2027** — Las orientaciones presupuestarias 2027 del PE desencadenan un trílogo formal con el Consejo; el PE quiere el gasto en defensa dentro del MFP, no fuera del presupuesto; en disputa hasta 2027
+4. **Legislación sobre acoso cibernético** — La resolución de iniciativa del PE impulsa a la Comisión a considerar una propuesta de directiva al amparo de las competencias penales de la UE (art. 83 del TFUE); probable programa de trabajo de la Comisión para 2027
+5. **Acuerdo de Asociación con Armenia** — La resolución da respaldo político a la Comisión para concluir el acuerdo; vigilar la modificación del mandato del Consejo; T4 de 2026
+
+### Executive Brief Fi
+
+### BLUF (60 Sekunnin Lukeminen)
+
+Euroopan parlamentin huhtikuun 2026 täysistuntoviikko (28.–30. huhtikuuta) määrittyi neljästä merkittävästä päätöslauselmasta, jotka käsittelevät digitaalisten markkinoiden täytäntöönpanoa, Venäjän vastuuta Ukrainasta, Armenian demokratiakestävyyttä ja nettikiusaamisen vastuuta — kukin heijastaa erillisiä koalitionaalisia dynamiikkoja erittäin pirstoutuneessa EP10:ssä (6,58 tehokasta puoluetta, enemmistö vaatii ≥360 ääntä). Digitaalisia markkinoita koskevan asetuksen täytäntöönpanoasetus signaloi EP:n tiukentuvaa asennetta suurteknologiaa kohtaan alustakilpailukysymyksissä, kun taas Ukrainaa koskeva vastuuteksti merkitsee EP:n konsensuksen lujittumista Venäjän sotarikosten dokumentoinnissa. Samanaikaisesti EP hyväksyi kriittiset talousarviokehysasiakirjat (vuoden 2027 talousarviota koskevat suuntaviivat) ja immuniteettia koskevat päätökset. Nämä päätöslauselmat osoittavat yhteisesti EP10:n kyvyn saavuttaa lohkojen välinen konsensus geopoliittisissa ja digitaalisen hallinnon kysymyksissä, samalla kun ne paljastavat halkeumalinjoja muuttoliike- ja sosiaalikysymyksissä.
+
+**Top 3 laukaisijaa:**
+1. 🔴 **DMA-täytäntöönpano** — EP painostaa komissiota käyttämään koko DMA-työkalupakkia portinvartijoita vastaan; taloudelliset panokset: tullioikaisu Yhdysvaltojen tavaroille (TA-0096) luo rinnakkaisen vipuvarren Yhdysvaltojen teknologia-alustoja vastaan
+2. 🟡 **Ukraina-vastuu** — EP vaatii erityistuomioistuimen perustamista; signaalit ennen G7-huippukokousta ja IMF:n Ukraina-lainan arviointia (TA-0010 yhteistyöinstrumentti jo hyväksytty tammikuussa 2026)
+3. 🟡 **Vuoden 2027 talousarvion suuntaviivat** — parlamentti ottaa kantaa ennen toimielinten välisiä talousarvioneuvotteluja; IMF WEO ennustaa euroalueen finanssipoliittisen paineen jatkuvan
+
+---
+
+### Strateginen Tiedusteluyhteenveto
+
+#### Poliittinen rakenne (EP10 — toukokuu 2026)
+- **717 jäsentä** yhdeksässä ryhmässä; enemmistö = 360 ääntä
+- **EPP (183, 25,5 %)**: hallitseva keskusta-oikeisto; ohjaa DMA:ta, talousarviota ja CFSP:tä
+- **S&D (136, 19,0 %)**: progressiivinen selkäranka; ajaa Ukrainaa, korruptionvastaisia ja sosiaalisia asioita
+- **PfE (85, 11,9 %)**: Patriotes pour l'Europe; populistinen oikeisto; poikkeaa Ukraina- ja DMA-kysymyksissä
+- **ECR (81, 11,3 %)**: Euroopan konservatiivit; Ukraina-vastainen konsensus muuttumassa; kilpailee PfE:n kanssa
+- **Renew (77, 10,7 %)**: liberaali keskusta; DMA-linjaus EPP:n kanssa; vahva digitaalisen suvereniteetin puolestapuhuja
+- **Greens/EFA (53, 7,4 %)**: ilmasto-digitaalinen-oikeudet-yhtymäkohta; DMA-täytäntöönpano, Armenia
+- **The Left (45, 6,3 %)**: sodan vastainen, ihmisoikeusmyönteinen; Armenia, Haitin ihmiskauppa, nettikiusaaminen
+- **NI (30, 4,2 %)**: sitoutumattomat; heterogeeniset, mukaan lukien Braun-immuniteettitapaus
+- **ESN (27, 3,8 %)**: eurooppalaiset suverenistit; äärioikeisto; vastaan useimpiin päätöslauselmiin
+
+**Keskeinen koalitiolaskenta:** EPP + S&D = 319 (alle 360); EPP + S&D + Renew = 396 (toimiva enemmistö useimmissa äänestyksissä). DMA- ja Ukraina-tekstit selvittiin todennäköisesti EPP + S&D + Renew + Greens-enemmistöillä (~449 ääntä). Immuniteettia koskevilla päätöksillä on taipumus puoluerajat ylittävään konsensukseen.
+
+#### Kriittiset päätöslauselmat — huhtikuu 2026 täysistunto
+
+##### 1. Digitaalisia markkinoita koskevan asetuksen täytäntöönpano (TA-10-2026-0160)
+- **Päätöslauselmatyyppi:** RSP (sääntö 132 kiireellinen/täysistuntoaloite)
+- **Poliittinen paino:** KORKEA — haastaa suoraan komission täytäntöönpanovauhdin Applen, Metan ja Googlen portinvartijamäärittelyjen osalta
+- **Koalitio:** EPP + Renew (digitaalinen suvereniteetti) + S&D (kuluttajansuoja) + Greens (alustavastuu) muodostivat todennäköisesti ydinjoukon
+- **Halkeumalinjat:** PfE ja ECR jakautuneet — osa tukee kansallisen suvereniteetin perusteella, toiset vastustavat ylisäätelyn narratiivia
+- **Taloudellinen konteksti (IMF):** Yhdysvaltojen BKT-kasvu 2,32 % vuonna 2026 (WEO), finanssivaje -7,5 % BKT:stä; Yhdysvaltojen tullioikaisu (TA-0096 maaliskuu 2026) jo sisällytetty kauppakitkana — DMA-täytäntöönpano lisää toisen sääntelypainevektorin Yhdysvaltojen teknologia-alustoja vastaan
+- **Tulevaisuusindikaattori:** komission on vastattava muodollisella täytäntöönpanotoimien aikataululla 6 kuukauden kuluessa EP:n työjärjestyksen mukaisesti
+
+##### 2. Ukraina-vastuu (TA-10-2026-0161)
+- **Päätöslauselmatyyppi:** RSP
+- **Poliittinen paino:** KRIITTINEN — vaatii erityistuomioistuimen perustamista aggressiorikosten käsittelyä varten; rakentuu tammikuun 2026 Ukraina-lainaan (50 miljardia euroa tiivistetty yhteistyö)
+- **Koalitio:** EPP + S&D + Renew + Greens + The Left = ylivoimainen enemmistö; PfE suurelta osin poissa tai pidättäytynyt
+- **Loikkausriski:** ECR:n sisäinen jännite — Puolan ECR-jäsenet vahvasti Ukrainan kannalla; Unkarin NI-läheiset (Fidesz-kytköksiset) vastaan
+- **Taloudellinen konteksti:** Venäjä-Ukraina-konfliktin taloudellinen häntä: IMF WEO arvioi Ukrainan jälleenrakennustarpeet satoihin miljardeihin; EU:n 50 miljardin euron Ukraina-laina (TA-0010 tammikuu 2026) on pääasiallinen väline
+- **Tulevaisuusindikaattori:** Tuomioistuimen perustaminen vaatii YK:n turvallisuusneuvoston päätöslauselman tai ad hoc -sopimuksen; EP-teksti luo poliittisen paineen jäsenvaltioille johtaa halukkuuskoalitiota
+
+##### 3. Armenian demokratiakestävyys (TA-10-2026-0162)
+- **Päätöslauselmatyyppi:** RSP
+- **Poliittinen paino:** KESKITASO — geopoliittinen signaali Etelä-Kaukasiaan; yhteydessä EU-Armenia-kumppanuussopimusta koskeviin neuvotteluihin
+- **Koalitio:** laaja EPP + S&D + Renew-konsensus; Greens ja Left liittyivät; ESN vastaan
+- **Asiayhteys:** Armenian demokratiakehitys 2025–2026 Vuoristo-Karabahin jälkeen; Pashinjanin hallituksen EU-käänne pois CSTO:sta
+
+##### 4. Nettikiusaamisen rikosoikeudelliset säännökset (TA-10-2026-0163)
+- **Päätöslauselmatyyppi:** INI (oma-aloitteinen)
+- **Poliittinen paino:** KESKITASO — vaatii EU-tason rikosoikeutta nettikiusaamisesta ja alustavastuusta
+- **Koalitio:** S&D:n johtama, laaja tuki; EPP varovainen uusista rikosoikeudellisista toimivaltuuksista; digitaalisten oikeuksien ryhmät (Greens, Left) tukivat ehdoin
+- **Sidosryhmäjännite:** alustaoperaattorit (suurteknologia) vastaan; uhrien oikeuksia ajavat järjestöt vahvasti puolesta; BEUC (eurooppalainen kuluttajajärjestö) kansalaisyhteiskunnan vaatimusten yhteiskirjoittaja
+
+##### 5. Vuoden 2027 talousarvion suuntaviivat (TA-10-2026-0112)
+- **Päätöslauselmatyyppi:** BUD
+- **Poliittinen paino:** INSTITUTIONAALISESTI KORKEA — EP:n ensimmäinen muodollinen kanta vuoden 2027 MKK-syklille
+- **Koalitio:** EPP:n johtama talousarvioenemmistö; S&D sai sosiaalimenojen lattiat
+- **IMF-asiayhteys:** Yhdysvaltojen finanssivaje -7,5 % BKT:stä vuonna 2026; Kiina -8,2 % BKT:stä; euroalueen finanssivakautuspaine jatkuu — EP:n vuoden 2027 suuntaviivat kuvastavat jännitettä puolustusmenojen lisäyksen (Ukrainan jälkeen) ja ilmastoinvestointien välillä
+
+##### 6. Immuniteetin poistaminen: Braun ja Jaki
+- **TA-10-2026-0088:** Grzegorz Braun (NI, Puola) — immuniteetti poistettu antisemistisestä tapauksesta (sammutin chanukka-kynttilänjalassa EP:n istuntosalissa, joulukuu 2023)
+- **TA-10-2026-0105:** Patryk Jaki (ECR, Puola) — immuniteetti poistettu Puolan rikosoikeudellisissa menettelyissä
+- **Poliittinen merkitys:** Molemmat puolalaisia; heijastaa Puolan jatkuvia oikeusvaltiohaasteita; Braun-tapaus lähes yksimielinen (NI-heterogeenisuus)
+
+#### Taloudellinen ja finanssipoliittinen asiayhteys (IMF WEO syyskuu 2025)
+
+| Indikaattori | Kiina 2025 | Kiina 2026 | USA 2025 | USA 2026 |
+|-----------|-----------|-----------|---------|---------|
+| BKT-kasvu (%) | 4,96 % | 4,41 % | 2,12 % | 2,32 % |
+| Inflaatio (KHI %) | 0,05 % | 1,22 % | 2,73 % | 3,23 % |
+| Finanssivaje (% BKT:stä) | -7,87 % | -8,15 % | -6,82 % | -7,50 % |
+| Vaihtotase (% BKT:stä) | +3,71 % | +3,48 % | -3,63 % | -3,70 % |
+
+🟡 **EU:n aggregaatti-WEO-data ei palautunut** — Kiina/USA toimitettu vertailevaksi kontekstiksi kauppapäätöslauselmille (TA-0096 Yhdysvaltojen tullioikaisu) ja strategiselle kilpailulle (DMA, digitaalinen suvereniteetti).
+
+---
+
+### Luotettavuusarviointi
+
+| Väite | Luotettavuus | Peruste |
+|-------|-----------|-------|
+| Enemmistökoalition kokoonpano huhtikuun teksteille | 🟡 Keskitaso | Ryhmäkokotiedot saatavilla; nimenhuutoäänestysdata ei vielä julkaistu (4–6 viikon EP-viive) |
+| Yhdysvaltojen tullioikaisuteksti hyväksytty | 🟢 Korkea | TA-10-2026-0096 metatiedot vahvistettu dateAdopted=2026-03-26 |
+| DMA-täytäntöönpanopäätöslauselma hyväksytty | 🟢 Korkea | TA-10-2026-0160 syötteessä dateAdopted=2026-04-30 |
+| Tarkat äänestymarginaalit | 🔴 Matala | Äänestysdata ei saatavilla; DOCEO XML ei vielä julkaistu tälle viikolle |
+| IMF:n taloudelliset ennusteet | 🟢 Korkea | Suora SDMX 3.0 -kysely, syyskuu 2025 -versio |
+
+---
+
+### Avaintoimijat
+
+| Jäsen / Ryhmä | Rooli kaudella | Prioriteetit päätöslauselmat |
+|-------------|---------------|-----------------|
+| Manfred Weber (EPP, DE) | EPP:n lattiajohtaja; ohjasi DMA- ja digitaalisen suvereniteetin tekstejä | TA-0160, TA-0022 |
+| Iratxe García Pérez (S&D, ES) | S&D:n lattiajohtaja; johti Ukraina-vastuuajoa | TA-0161 |
+| Valérie Hayer (Renew, FR) | Renew-koordinaattori; DMA-täytäntöönpanon yhteiskirjoittaja | TA-0160 |
+| Terry Reintke (Greens/EFA, DE) | Greensin nettikiusaamisvastaava | TA-0163 |
+| Grzegorz Braun (NI, PL) | Immuniteetti poistettu — antisemistinen tapaus | TA-0088 |
+| Patryk Jaki (ECR, PL) | Immuniteetti poistettu — Puolan rikosoikeudelliset menettelyt | TA-0105 |
+
+*Huom: Nimetyt lattiajohtajat on johdettu ryhmänimityksissä; erityisiä esittelijöitä ei vahvistettu EP API:n kautta näille RSP-teksteille (menettelymetatiedot eivät saatavilla). Luotettavuus: 🟡 Keskitaso.*
+
+---
+
+### Tulevaisuusindikaattorit (6 kuukauden horisontti)
+
+1. **DMA-täytäntöönpanotoimenpide** — komission on ilmoitettava muodolliset menettelyt nimettyjen portinvartijoiden kanssa; Apple iOS/App Store, Meta Marketplace, Google Search todennäköisimmät kohteet; Q3 2026
+2. **Ukrainan erityistuomioistuin** — EP-teksti syöttää G7:n oikeudelliseen ryhmään; sopimusneuvottelut voivat kiihtyä, jos Saksan koalitiohallitus tukee (Scholz 2.0 -asiayhteys); H2 2026
+3. **Vuoden 2027 MKK:n esineuvottelut** — EP:n 2027 talousarviosuuntaviivat käynnistävät muodollisen kolmikantaneuvottelun neuvoston kanssa; EP haluaa puolustusmenot MKK:n sisälle, ei budjettirahoituksen ulkopuolelle; kiisteltyä vuoteen 2027 asti
+4. **Nettikiusaamislainsäädäntö** — EP:n aloitepäätöslauselma käynnistää komission harkitsemaan direktiiviehdotusta EU:n rikosoikeudellisen toimivallan nojalla (art. 83 SEUT); todennäköisesti 2027 komission työohjelma
+5. **Armenian kumppanuussopimus** — päätöslauselma antaa poliittisen tuen komissiota sopimuksen päättämiseksi; seuraa neuvoston mandaattimuutosta; Q4 2026
+
+### Executive Brief Fr
+
+### BLUF (Lecture en 60 secondes)
+
+La semaine de session plénière du Parlement européen d'avril 2026 (28–30 avril) a été marquée par quatre résolutions majeures portant sur l'application du droit des marchés numériques, la responsabilité de la Russie pour l'Ukraine, la résilience démocratique de l'Arménie et la responsabilité en matière de cyberharcèlement — chacune reflétant des dynamiques de coalition distinctes au sein d'un EP10 très fragmenté (6,58 partis effectifs, majorité requise ≥360 voix). La résolution sur l'application du règlement sur les marchés numériques (DMA) signale une posture accrue du PE envers la Big Tech dans les questions de concurrence sur les plateformes, tandis que le texte sur la responsabilité ukrainienne marque un durcissement du consensus du PE sur la documentation des crimes de guerre russes. Parallèlement, le PE a adopté des documents critiques de cadre budgétaire (orientations budgétaires 2027) et des décisions de levée d'immunité. Ces résolutions démontrent collectivement la capacité de l'EP10 à atteindre un consensus transblocs sur les questions géopolitiques et de gouvernance numérique, tout en révélant des lignes de fracture sur les questions migratoires et sociales.
+
+**Top 3 des déclencheurs :**
+1. 🔴 **Application du DMA** — Le PE presse la Commission d'utiliser l'ensemble de la boîte à outils du DMA contre les contrôleurs d'accès ; enjeux économiques : l'ajustement tarifaire sur les produits américains (TA-0096) crée un levier parallèle sur les plateformes technologiques américaines
+2. 🟡 **Responsabilité pour l'Ukraine** — Le PE exige la création d'un tribunal spécial ; signaux à l'approche du sommet du G7 et de l'examen par le FMI du prêt à l'Ukraine (TA-0010 instrument de coopération déjà adopté en janvier 2026)
+3. 🟡 **Orientations budgétaires 2027** — Le Parlement prend position avant les négociations budgétaires interinstitutionnelles ; le WEO du IMF prévoit un maintien des pressions budgétaires dans la zone euro
+
+---
+
+### Résumé du renseignement stratégique
+
+#### Architecture politique (EP10 — mai 2026)
+- **717 eurodéputés** répartis en 9 groupes ; majorité = 360 voix
+- **PPE (183, 25,5 %)** : centre-droit dominant ; pilote le DMA, le budget, la PESC
+- **S&D (136, 19,0 %)** : épine dorsale progressiste ; impulse l'Ukraine, la lutte contre la corruption, le social
+- **PfE (85, 11,9 %)** : Patriotes pour l'Europe ; droite populiste ; diverge sur l'Ukraine et le DMA
+- **ECR (81, 11,3 %)** : Conservateurs européens ; consensus anti-Ukraine en mutation ; concurrence le PfE
+- **Renew (77, 10,7 %)** : centre libéral ; alignement sur le DMA avec le PPE ; fort en souveraineté numérique
+- **Greens/EFA (53, 7,4 %)** : nexus climat-numérique-droits ; application du DMA, Arménie
+- **The Left (45, 6,3 %)** : anti-guerre, pro-droits ; Arménie, traite en Haïti, cyberharcèlement
+- **NI (30, 4,2 %)** : non-inscrits ; hétérogènes, dont l'affaire d'immunité Braun
+- **ESN (27, 3,8 %)** : Souverainistes européens ; extrême droite ; contre la plupart des résolutions
+
+**Arithmétique coalitionnelle clé :** PPE + S&D = 319 (en dessous de 360) ; PPE + S&D + Renew = 396 (majorité opérationnelle pour la plupart des votes). Les textes sur le DMA et l'Ukraine ont vraisemblablement été adoptés avec des majorités PPE + S&D + Renew + Verts (~449 voix). Les décisions de levée d'immunité tendent vers un consensus multi-partites.
+
+#### Résolutions critiques — Séance plénière d'avril 2026
+
+##### 1. Application du règlement sur les marchés numériques (TA-10-2026-0160)
+- **Type de résolution :** RSP (article 132 d'urgence/initiative plénière)
+- **Poids politique :** ÉLEVÉ — remet directement en cause le rythme d'application de la Commission concernant les désignations de contrôleurs d'accès d'Apple, Meta et Google
+- **Coalition :** PPE + Renew (souveraineté numérique) + S&D (droits des consommateurs) + Verts (responsabilité des plateformes) ont vraisemblablement formé la majorité de base
+- **Lignes de fracture :** PfE et ECR divisés — certains soutiennent sur des bases de souveraineté nationale, d'autres s'opposent au narratif de surréglementation
+- **Contexte économique (IMF) :** Croissance du PIB américain 2,32 % en 2026 (WEO), déficit budgétaire -7,5 % du PIB ; l'ajustement tarifaire américain (TA-0096 mars 2026) déjà intégré comme friction commerciale — l'application du DMA ajoute un second vecteur de pression réglementaire sur les plateformes technologiques américaines
+- **Indicateur prospectif :** La Commission doit répondre avec un calendrier formel d'actions d'application dans les 6 mois conformément au règlement intérieur du PE
+
+##### 2. Responsabilité pour l'Ukraine (TA-10-2026-0161)
+- **Type de résolution :** RSP
+- **Poids politique :** CRITIQUE — appelle à la création d'un tribunal spécial pour les crimes d'agression ; s'appuie sur le Prêt à l'Ukraine de janvier 2026 (50 milliards d'euros de coopération renforcée)
+- **Coalition :** PPE + S&D + Renew + Verts + The Left = majorité écrasante ; PfE largement absent ou abstentionniste
+- **Risque de défection :** Tension interne au sein de l'ECR — les membres polonais de l'ECR sont fortement pro-Ukraine ; les proches hongrois (liés au Fidesz) dans les NI s'y opposent
+- **Contexte économique :** Traîne économique du conflit russo-ukrainien : le WEO du IMF projette les besoins de reconstruction de l'Ukraine dans les centaines de milliards ; le Prêt UE de 50 milliards d'euros pour l'Ukraine (TA-0010 janv. 2026) est l'instrument principal
+- **Indicateur prospectif :** La création du tribunal nécessite une résolution du Conseil de sécurité des Nations Unies ou un traité ad hoc ; le texte du PE crée une pression politique sur les États membres pour conduire une coalition de volontaires
+
+##### 3. Résilience démocratique de l'Arménie (TA-10-2026-0162)
+- **Type de résolution :** RSP
+- **Poids politique :** MOYEN — signal géopolitique au Caucase du Sud ; lié aux négociations sur l'accord de partenariat UE-Arménie
+- **Coalition :** large consensus PPE + S&D + Renew ; Verts et Left ont rejoint ; ESN contre
+- **Contexte :** Trajectoire démocratique de l'Arménie en 2025–2026 après le Haut-Karabakh ; pivot européen du gouvernement Pachinian loin de l'OTSC
+
+##### 4. Dispositions pénales sur le cyberharcèlement (TA-10-2026-0163)
+- **Type de résolution :** INI (initiative propre)
+- **Poids politique :** MOYEN — appelle à un droit pénal de l'UE sur le cyberharcèlement et la responsabilité des plateformes
+- **Coalition :** dirigé par S&D, large soutien ; PPE prudent sur les nouvelles compétences pénales ; groupes de droits numériques (Verts, Left) ont soutenu sous conditions
+- **Tension entre parties prenantes :** Opérateurs de plateformes (Big Tech) opposés ; organisations de défense des victimes fortement favorables ; BEUC (Organisation européenne des consommateurs) co-auteur des demandes de la société civile
+
+##### 5. Orientations budgétaires 2027 (TA-10-2026-0112)
+- **Type de résolution :** BUD
+- **Poids politique :** INSTITUTIONNELLEMENT ÉLEVÉ — première position formelle du PE pour le cycle CFP 2027
+- **Coalition :** majorité budgétaire dirigée par le PPE ; S&D a obtenu des planchers de dépenses sociales
+- **Contexte IMF :** Déficit budgétaire américain -7,5 % du PIB en 2026 ; Chine -8,2 % du PIB ; pression de consolidation budgétaire persistante dans la zone euro — les orientations 2027 du PE reflètent la tension entre l'augmentation des dépenses de défense (post-Ukraine) et les investissements climatiques
+
+##### 6. Levées d'immunité : Braun et Jaki
+- **TA-10-2026-0088 :** Grzegorz Braun (NI, Pologne) — immunité levée pour incident antisémite (extincteur sur la hanoukia dans la salle plénière du PE, décembre 2023)
+- **TA-10-2026-0105 :** Patryk Jaki (ECR, Pologne) — levée d'immunité dans des procédures pénales polonaises
+- **Signification politique :** Tous deux polonais ; reflète les tensions persistantes sur l'État de droit en Pologne ; affaire Braun presque unanime (hétérogénéité NI)
+
+#### Contexte économique et budgétaire (IMF WEO septembre 2025)
+
+| Indicateur | Chine 2025 | Chine 2026 | USA 2025 | USA 2026 |
+|-----------|-----------|-----------|---------|---------|
+| Croissance du PIB (%) | 4,96 % | 4,41 % | 2,12 % | 2,32 % |
+| Inflation (IPC %) | 0,05 % | 1,22 % | 2,73 % | 3,23 % |
+| Déficit budgétaire (% du PIB) | -7,87 % | -8,15 % | -6,82 % | -7,50 % |
+| Compte courant (% du PIB) | +3,71 % | +3,48 % | -3,63 % | -3,70 % |
+
+🟡 **Données WEO agrégées UE non retournées** — Chine/USA fournis pour contexte comparatif sur les résolutions commerciales (TA-0096 ajustement tarifaire américain) et la concurrence stratégique (DMA, souveraineté numérique). Les prévisions IMF couvrent la fenêtre 2025–2026 de l'édition WEO.
+
+---
+
+### Évaluation de la confiance
+
+| Affirmation | Confiance | Base |
+|-------|-----------|-------|
+| Composition de la coalition majoritaire pour les textes d'avril | 🟡 Moyen | Données sur la taille des groupes disponibles ; votes nominaux pas encore publiés (délai PE de 4 à 6 semaines) |
+| Texte sur l'ajustement tarifaire américain adopté | 🟢 Élevée | Métadonnées TA-10-2026-0096 confirmées avec dateAdopted=2026-03-26 |
+| Résolution sur l'application du DMA adoptée | 🟢 Élevée | TA-10-2026-0160 dans le flux avec dateAdopted=2026-04-30 |
+| Marges de vote spécifiques | 🔴 Faible | Données de vote non disponibles ; XML DOCEO pas encore publié pour cette semaine |
+| Projections économiques du IMF | 🟢 Élevée | Requête directe SDMX 3.0, version septembre 2025 |
+
+---
+
+### Acteurs clés
+
+| Eurodéputé / Groupe | Rôle dans la période | Résolutions prioritaires |
+|-------------|---------------|-----------------|
+| Manfred Weber (PPE, DE) | Chef de file PPE en séance ; a piloté les textes DMA et souveraineté numérique | TA-0160, TA-0022 |
+| Iratxe García Pérez (S&D, ES) | Chef de file S&D ; a mené la campagne sur la responsabilité pour l'Ukraine | TA-0161 |
+| Valérie Hayer (Renew, FR) | Coordinatrice Renew ; co-auteure de l'application du DMA | TA-0160 |
+| Terry Reintke (Greens/EFA, DE) | Responsable Verts pour le cyberharcèlement | TA-0163 |
+| Grzegorz Braun (NI, PL) | Immunité levée — incident antisémite | TA-0088 |
+| Patryk Jaki (ECR, PL) | Immunité levée — procédures pénales polonaises | TA-0105 |
+
+*Remarque : Les chefs de file nommés sont déduits des attributions de groupe ; les rapporteurs spécifiques non confirmés via l'API du PE pour ces textes RSP (métadonnées procédurales non disponibles). Confiance : 🟡 Moyen.*
+
+---
+
+### Indicateurs prospectifs (horizon 6 mois)
+
+1. **Mesure d'application du DMA** — La Commission doit annoncer des procédures formelles contre les contrôleurs d'accès désignés ; Apple iOS/App Store, Meta Marketplace, Google Search cibles les plus probables ; T3 2026
+2. **Tribunal spécial pour l'Ukraine** — Le texte du PE alimente le groupe juridique du G7 ; les négociations sur le traité pourraient s'accélérer si le gouvernement de coalition allemand soutient (contexte Scholz 2.0) ; S2 2026
+3. **Pré-négociations du CFP 2027** — Les orientations budgétaires 2027 du PE déclenchent un trilogue formel avec le Conseil ; le PE veut que les dépenses de défense soient à l'intérieur du CFP, pas hors budget ; contesté jusqu'en 2027
+4. **Législation sur le cyberharcèlement** — La résolution d'initiative du PE incite la Commission à envisager une proposition de directive au titre des compétences pénales de l'UE (art. 83 TFUE) ; probablement programme de travail de la Commission 2027
+5. **Accord de partenariat arménien** — La résolution apporte un soutien politique à la Commission pour conclure l'accord ; surveiller l'amendement du mandat du Conseil ; T4 2026
+
+### Executive Brief He
+
+**סיווג:** לא מסווג // לפרסום פומבי
+**הופק:** 2026-05-13 | **סוג מאמר:** motions | **רמת ביטחון:** 🟡 בינוני
+**מקורות נתונים:** פורטל הנתונים הפתוחים של הפרלמנט האירופי (127 טקסטים מהעדכון; 51 רשומות מלאות עם כותרות), IMF WEO ספטמבר 2025, API נוף פוליטי של הפרלמנט האירופי
+
+---
+
+### BLUF (קריאה של 60 שניות)
+
+שבוע המליאה של הפרלמנט האירופי באפריל 2026 (28–30 באפריל) הוגדר על ידי ארבע החלטות מכוננות העוסקות באכיפת שוק דיגיטלי, אחריות רוסיה בנוגע לאוקראינה, חוסן דמוקרטי ארמני, ואחריות בגין בריונות מקוונת — כל אחת משקפת דינמיקות קואליציוניות ייחודיות בתוך EP10 מפוצל מאוד (6.58 מפלגות אפקטיביות, רוב מחייב ≥360 קולות). ההחלטה בנוגע לאכיפת חוק שוקי הדיגיטל מאותתת על עמדת EP נחרצת יותר כלפי חברות הטכנולוגיה הגדולות בנושאי תחרות פלטפורמות, בעוד טקסט האחריות לאוקראינה מסמן קשיחת הקונצנזוס של הפרלמנט האירופי לגבי תיעוד פשעי המלחמה הרוסיים. במקביל, אימץ הפרלמנט האירופי מסמכי מסגרת תקציבית חיוניים (הנחיות לתקציב 2027) והחלטות על ביטול חסינות. החלטות אלה מדגימות בכלל את יכולתו של EP10 להגיע לקונצנזוס חוצה-גושים בסוגיות גיאו-פוליטיות וממשל דיגיטלי, תוך חשיפת קווי שבר בנושאי הגירה ועניינים חברתיים.
+
+**3 הגורמים המרכזיים:**
+1. 🔴 **אכיפת DMA** — הפרלמנט האירופי לוחץ על הנציבות להשתמש בכל כלי DMA נגד שומרי הסף; הימורים כלכליים: התאמת המכסים על סחורות אמריקאיות (TA-0096) יוצרת מינוף מקביל על פלטפורמות הטכנולוגיה האמריקאיות
+2. 🟡 **אחריות לאוקראינה** — הפרלמנט האירופי דורש הקמת בית משפט מיוחד; איתותים לפני פסגת ה-G7 ובדיקת IMF את הלוואת אוקראינה (TA-0010 מכשיר שיתוף פעולה שכבר אומץ בינואר 2026)
+3. 🟡 **הנחיות תקציב 2027** — הפרלמנט מציב עמדה לפני משא ומתן בין-מוסדי על התקציב; WEO של IMF צופה לחץ פיסקלי מתמשך באזור האירו
+
+---
+
+### סיכום מודיעין אסטרטגי
+
+#### ארכיטקטורה פוליטית (EP10 — מאי 2026)
+- **717 חברי פרלמנט** ב-9 סיעות; רוב = 360 קולות
+- **EPP (183, 25.5%)**: מרכז-ימין דומיננטי; מוביל DMA, תקציב, מדיניות חוץ ואבטחה משותפת
+- **S&D (136, 19.0%)**: עמוד השדרה הפרוגרסיבי; מניע אוקראינה, אנטי-שחיתות, ענייני רווחה
+- **PfE (85, 11.9%)**: Patriotes pour l'Europe; ימין פופוליסטי; חורג בנושאי אוקראינה ו-DMA
+- **ECR (81, 11.3%)**: שמרנים אירופאים; קונצנזוס אנטי-אוקראינה משתנה; מתחרה עם PfE
+- **Renew (77, 10.7%)**: מרכז ליברלי; יישור עם EPP על DMA; חזק בריבונות דיגיטלית
+- **Greens/EFA (53, 7.4%)**: צומת אקלים-דיגיטל-זכויות; אכיפת DMA, ארמניה
+- **The Left (45, 6.3%)**: אנטי-מלחמה, פרו-זכויות; ארמניה, סחר בבני אדם בהאיטי, בריונות מקוונת
+- **NI (30, 4.2%)**: לא-מסונפים; הטרוגניים, כולל פרשת חסינות בראון
+- **ESN (27, 3.8%)**: ריבונותנים אירופאים; קיצון ימין; נגד רוב ההחלטות
+
+**אריתמטיקת קואליציה מפתח:** EPP + S&D = 319 (מתחת ל-360); EPP + S&D + Renew = 396 (רוב פועל לרוב ההצבעות). טקסטי DMA ואוקראינה עברו ככל הנראה עם רוב EPP + S&D + Renew + Greens (~449 קולות). החלטות על ביטול חסינות נוטות לקונצנזוס רב-מפלגתי.
+
+#### החלטות קריטיות — מליאה אפריל 2026
+
+##### 1. אכיפת חוק שוקי הדיגיטל (TA-10-2026-0160)
+- **סוג החלטה:** RSP (כלל 132 דחוף/יוזמת מליאה)
+- **משקל פוליטי:** גבוה — מאתגר ישירות את קצב האכיפה של הנציבות על ייעוד שומרי הסף של Apple, Meta ו-Google
+- **קואליציה:** EPP + Renew (ריבונות דיגיטלית) + S&D (זכויות צרכנים) + Greens (אחריות פלטפורמות) היוו ככל הנראה את ליבת הרוב
+- **קווי שבר:** PfE ו-ECR מפולגים — חלקם תומכים מתוך ריבונות לאומית, אחרים מתנגדים לנרטיב הרגולציה המוגזמת
+- **הקשר כלכלי (IMF):** צמיחת תוצר ארה"ב 2.32% ב-2026 (WEO), גירעון פיסקלי -7.5% מהתוצר; התאמת המכסים האמריקאית (TA-0096 מרץ 2026) כבר מוטמעת כחיכוך מסחרי — אכיפת DMA מוסיפה וקטור לחץ רגולטורי שני על פלטפורמות הטכנולוגיה האמריקאיות
+- **מדד עתידי:** הנציבות חייבת להשיב עם תוכנית פעולה אכיפה רשמית תוך 6 חודשים לפי הנהלים הפנימיים של הפרלמנט האירופי
+
+##### 2. אחריות לאוקראינה (TA-10-2026-0161)
+- **סוג החלטה:** RSP
+- **משקל פוליטי:** קריטי — קורא להקמת בית משפט מיוחד לפשעי תוקפנות; מתבסס על הלוואת אוקראינה מינואר 2026 (50 מיליארד יורו שיתוף פעולה מוגבר)
+- **קואליציה:** EPP + S&D + Renew + Greens + The Left = רוב מוחץ; PfE נעדר ברובו או נמנע
+- **סיכון עריקים:** מתח פנימי ב-ECR — חברי ECR הפולנים בעד אוקראינה בחוזקה; הקרובים ההונגרים ב-NI (הקשורים לפידס) מתנגדים
+- **הקשר כלכלי:** הזנב הכלכלי של עימות רוסיה-אוקראינה: WEO של IMF מקרין צרכי שיקום אוקראינה במאות מיליארדים; הלוואת האיחוד האירופי של 50 מיליארד יורו לאוקראינה (TA-0010 ינואר 2026) היא הכלי העיקרי
+- **מדד עתידי:** הקמת בית המשפט מחייבת החלטת מועצת הביטחון של האו"ם או אמנה ייעודית; טקסט הפרלמנט האירופי יוצר לחץ פוליטי על המדינות החברות להוביל קואליציה של רצוניים
+
+##### 3. חוסן דמוקרטי ארמני (TA-10-2026-0162)
+- **סוג החלטה:** RSP
+- **משקל פוליטי:** בינוני — איתות גיאו-פוליטי לקווקז הדרומי; קשור למשא ומתן על הסכם השותפות EU-ארמניה
+- **קואליציה:** קונצנזוס רחב EPP + S&D + Renew; Greens ו-Left הצטרפו; ESN נגד
+- **הקשר:** מסלול ארמניה הדמוקרטי ב-2025–2026 לאחר נגורנו קרבאך; ציר האיחוד האירופי של ממשלת פשיניאן הרחק מה-CSTO
+
+##### 4. הוראות פליליות בדבר בריונות מקוונת (TA-10-2026-0163)
+- **סוג החלטה:** INI (יוזמה עצמית)
+- **משקל פוליטי:** בינוני — קורא לחוק פלילי ברמת האיחוד האירופי בנושא בריונות מקוונת ואחריות פלטפורמות
+- **קואליציה:** בהובלת S&D, תמיכה רחבה; EPP זהיר לגבי סמכויות פליליות חדשות; קבוצות זכויות דיגיטליות (Greens, Left) תמכו בתנאים
+- **מתח בין מחזיקי עניין:** מפעילי פלטפורמות (Big Tech) נגד; ארגוני זכויות קורבנות בעד בחוזקה; BEUC (הארגון האירופי של צרכנים) שותף בניסוח דרישות החברה האזרחית
+
+##### 5. הנחיות תקציב 2027 (TA-10-2026-0112)
+- **סוג החלטה:** BUD
+- **משקל פוליטי:** מוסדי גבוה — העמדה הרשמית הראשונה של הפרלמנט האירופי למחזור המסגרת הפיננסית רב-שנתית 2027
+- **קואליציה:** רוב תקציבי בהובלת EPP; S&D קיבל רצפות להוצאות סוציאליות
+- **הקשר IMF:** גירעון תקציבי אמריקאי -7.5% מהתוצר ב-2026; סין -8.2% מהתוצר; לחץ איחוד פיסקלי מתמשך באזור האירו — הנחיות ה-EP ל-2027 משקפות מתח בין הוצאות ביטחון עולות (לאחר אוקראינה) להשקעות אקלים
+
+##### 6. ביטול חסינות: בראון ויאקי
+- **TA-10-2026-0088:** גז'גוז' בראון (NI, פולין) — הוסרה חסינות עקב אירוע אנטישמי (מטף אש על חנוכיה בחדר המליאה של הפרלמנט האירופי, דצמבר 2023)
+- **TA-10-2026-0105:** פטריק יאקי (ECR, פולין) — ביטול חסינות בהליכים פליליים פולניים
+- **משמעות פוליטית:** שניהם פולנים; משקף מתחי שלטון החוק הפולניים המתמשכים; פרשת בראון כמעט פה אחד (הטרוגניות NI)
+
+#### הקשר כלכלי ופיסקלי (IMF WEO ספטמבר 2025)
+
+| מדד | סין 2025 | סין 2026 | ארה"ב 2025 | ארה"ב 2026 |
+|-----------|-----------|-----------|---------|---------|
+| צמיחת תוצר (%) | 4.96% | 4.41% | 2.12% | 2.32% |
+| אינפלציה (מדד המחירים לצרכן %) | 0.05% | 1.22% | 2.73% | 3.23% |
+| גירעון פיסקלי (% מהתוצר) | -7.87% | -8.15% | -6.82% | -7.50% |
+| חשבון שוטף (% מהתוצר) | +3.71% | +3.48% | -3.63% | -3.70% |
+
+🟡 **נתוני WEO מצטברים של האיחוד האירופי לא הוחזרו** — סין/ארה"ב סופקו כהקשר השוואתי להחלטות סחר (TA-0096 התאמת מכסים אמריקאית) ותחרות אסטרטגית (DMA, ריבונות דיגיטלית).
+
+---
+
+### הערכת ביטחון
+
+| טענה | ביטחון | בסיס |
+|-------|-----------|-------|
+| הרכב קואליציית הרוב עבור טקסטי אפריל | 🟡 בינוני | נתוני גודל סיעות זמינים; תוצאות הצבעה לפי שם טרם פורסמו (עיכוב 4–6 שבועות בפרלמנט האירופי) |
+| אימוץ טקסט התאמת מכסים אמריקאית | 🟢 גבוה | מטא-נתוני TA-10-2026-0096 אושרו עם dateAdopted=2026-03-26 |
+| אימוץ החלטת אכיפת DMA | 🟢 גבוה | TA-10-2026-0160 בעדכון עם dateAdopted=2026-04-30 |
+| שוליות הצבעה ספציפיות | 🔴 נמוך | נתוני הצבעה אינם זמינים; DOCEO XML טרם פורסם לשבוע זה |
+| תחזיות כלכליות של IMF | 🟢 גבוה | שאילתת SDMX 3.0 ישירה, גרסת ספטמבר 2025 |
+
+---
+
+### שחקנים מרכזיים
+
+| חבר פרלמנט / סיעה | תפקיד בתקופה | החלטות עדיפות |
+|-------------|---------------|-----------------|
+| מנפרד ובר (EPP, גרמניה) | מוביל סיעת EPP; הנחה טקסטים של DMA וריבונות דיגיטלית | TA-0160, TA-0022 |
+| אירטשה גרסיה פרס (S&D, ספרד) | מובילה סיעת S&D; הובילה מסע אחריות אוקראינה | TA-0161 |
+| ולרי אייר (Renew, צרפת) | מתאמת Renew; שותפה בניסוח אכיפת DMA | TA-0160 |
+| טרי ריינטקה (Greens/EFA, גרמניה) | אחראית Greens לבריונות מקוונת | TA-0163 |
+| גז'גוז' בראון (NI, פולין) | הוסרה חסינות — אירוע אנטישמי | TA-0088 |
+| פטריק יאקי (ECR, פולין) | הוסרה חסינות — הליכים פליליים פולניים | TA-0105 |
+
+*הערה: מובילי הסיעות הנקובים נגזרו מהקצאות הסיעות; מדווחים ספציפיים לא אושרו דרך ה-API של הפרלמנט האירופי עבור טקסטי RSP אלה (מטא-נתוני הליך לא זמינים). ביטחון: 🟡 בינוני.*
+
+---
+
+### מדדים עתידיים (אופק של 6 חודשים)
+
+1. **פעולת אכיפת DMA** — הנציבות חייבת להכריז על הליכים רשמיים נגד שומרי הסף הנקובים; Apple iOS/App Store, Meta Marketplace, Google Search יעדים סבירים ביותר; רבעון שלישי 2026
+2. **בית המשפט המיוחד לאוקראינה** — טקסט הפרלמנט האירופי מזין את הקבוצה המשפטית של ה-G7; משא ומתן על אמנה יכול להתאיץ אם ממשלת הקואליציה הגרמנית תתמוך (הקשר שולץ 2.0); מחצית שנייה 2026
+3. **טרום-משא ומתן למסגרת 2027** — הנחיות התקציב של EP ל-2027 מפעילות משא ומתן שלישי רשמי עם המועצה; הפרלמנט האירופי רוצה הוצאות ביטחון בתוך המסגרת, לא מחוץ לתקציב; שנוי במחלוקת עד 2027
+4. **חקיקה נגד בריונות מקוונת** — החלטת יוזמת הפרלמנט האירופי מניעה את הנציבות לשקול הצעת הנחיה תחת סמכות פלילית של האיחוד האירופי (סעיף 83 TFEU); תוכנית עבודה של הנציבות ל-2027 ככל הנראה
+5. **הסכם השותפות הארמני** — ההחלטה מספקת תמיכה פוליטית לנציבות לסיום ההסכם; מעקב אחר שינוי המנדט של המועצה; רבעון רביעי 2026
+
+### Executive Brief Ja
+
+**分類：** 非機密 // 公開情報
+**作成日：** 2026-05-13 | **記事タイプ：** motions | **信頼度レベル：** 🟡 中程度
+**データソース：** 欧州議会オープンデータポータル（更新より127件テキスト；51件完全記録＋タイトル付き）、IMF WEO 2025年9月版、欧州議会政治情勢API
+
+---
+
+### BLUF（60秒での要点）
+
+2026年4月の欧州議会本会議週（4月28〜30日）は、デジタル市場規制の執行、ロシアのウクライナに対する責任、アルメニアの民主的強靭性、オンラインいじめへの対応という4つの基軸的決議によって特徴付けられました。いずれも、高度に分散化したEP10（有効政党数6.58、可決に必要な票数≥360票）内における独自の連立ダイナミクスを反映しています。デジタル市場法（DMA）執行に関する決議は、プラットフォーム競争においてEPがビッグテック企業に対してより積極的な姿勢をとることを示しています。ウクライナ責任テキストは、ロシアの戦争犯罪記録に対するEPのコンセンサスの強化を象徴しています。また、欧州議会は2027年予算の指針および免責特権廃止に関する重要文書を採択しました。これらの決議は全体として、地政学的問題とデジタルガバナンスにおける超党派コンセンサスを形成するEP10の能力を示す一方、移民・社会問題での亀裂を露呈しています。
+
+**3つの核心的要因：**
+1. 🔴 **DMA執行** — EPは欧州委員会に対してすべてのDMAツールをゲートキーパーに対して行使するよう圧力をかけています；経済的賭け金：関税調整（TA-0096）が米国プラットフォームへの並行した規制圧力を形成
+2. 🟡 **ウクライナ責任** — EPは特別法廷の設置を要求；G7首脳会議前およびIMFのウクライナ融資審査前のシグナリング（TA-0010：2026年1月採択の連携機器）
+3. 🟡 **2027年予算指針** — EPはユーロ圏に対してIMF WEOが持続的財政圧力を予測する中で機関間交渉に先立ち立場を設定
+
+---
+
+### 戦略的インテリジェンス概要
+
+#### 政治的アーキテクチャ（EP10 — 2026年5月）
+- **717名の欧州議会議員**が9つの会派に所属；過半数 = 360票
+- **EPP（183席、25.5%）：** 中道右派の優位；DMA・予算・外交安全保障政策を主導
+- **S&D（136席、19.0%）：** 進歩派の中核；ウクライナ・汚職対策・福祉問題を推進
+- **PfE（85席、11.9%）：** Patriotes pour l'Europe；右翼ポピュリスト；ウクライナ・DMAで離反
+- **ECR（81席、11.3%）：** 欧州保守改革；ウクライナコンセンサスが変動；PfEと競合
+- **Renew（77席、10.7%）：** 中道リベラル；DMAでEPPと連携；デジタル主権に強い
+- **Greens/EFA（53席、7.4%）：** 気候・デジタル・権利の交差点；DMA執行・アルメニア
+- **The Left（45席、6.3%）：** 反戦・人権派；アルメニア・ハイチ人身売買・オンラインいじめ
+- **NI（30席、4.2%）：** 無所属；ブラウン免責特権問題を含む多様な構成
+- **ESN（27席、3.8%）：** 欧州主権者；極右；大多数の決議に反対
+
+**主要連立計算：** EPP + S&D = 319（360未満）；EPP + S&D + Renew = 396（大半の票決で機能する過半数）。DMAおよびウクライナテキストはEPP + S&D + Renew + Greens（〜449票）で可決。免責特権廃止は超党派コンセンサスになりやすい。
+
+#### 重要決議 — 2026年4月本会議
+
+##### 1. デジタル市場法執行（TA-10-2026-0160）
+- **決議種別：** RSP（規則132 緊急/本会議主導）
+- **政治的重み：** 高 — Apple・Meta・Googleのゲートキーパー指定に関する欧州委員会の執行ペースを直接挑戦
+- **連立：** EPP + Renew（デジタル主権）+ S&D（消費者権利）+ Greens（プラットフォーム責任）が過半数の中核を形成
+- **亀裂ライン：** PfEとECRは分裂 — 一部は国家主権の観点から支持、他は過剰規制ナラティブから反対
+- **経済的文脈（IMF）：** 米国GDP成長率2026年2.32%（WEO）、財政赤字-7.5%対GDP；関税調整（TA-0096：2026年3月）がすでに貿易摩擦として組み込まれており — DMA執行が米国テックプラットフォームへの第2の規制圧力ベクトルを付加
+- **将来指標：** 欧州委員会はEP内部手続きに従い6か月以内に正式な執行行動計画を提出する必要あり
+
+##### 2. ウクライナ責任（TA-10-2026-0161）
+- **決議種別：** RSP
+- **政治的重み：** 重大 — 侵略犯罪のための特別法廷設置を要求；2026年1月のウクライナ融資（500億ユーロ強化協力）に基づく
+- **連立：** EPP + S&D + Renew + Greens + The Left = 圧倒的多数；PfEの大半は欠席または棄権
+- **離反リスク：** ECR内部緊張 — ポーランドECR議員はウクライナに強く賛成；フィデスに近いNI議員（ハンガリー系）は反対
+- **経済的文脈：** ロシア・ウクライナ紛争の経済的テール：IMF WEOはウクライナの復興需要を数千億ドルと試算；EUの500億ユーロウクライナ融資（TA-0010：2026年1月）が主要手段
+- **将来指標：** 法廷設置には国連安保理決議または専用条約が必要；EP文書はG7などの「有志連合」に政治的圧力を作成
+
+##### 3. アルメニアの民主的強靭性（TA-10-2026-0162）
+- **決議種別：** RSP
+- **政治的重み：** 中程度 — 南コーカサスへの地政学的シグナリング；EU・アルメニア・パートナーシップ協定交渉と連携
+- **連立：** EPP + S&D + Renew の広範なコンセンサス；Greens と Left が参加；ESN は反対
+- **文脈：** ナゴルノ・カラバフ後の2025〜2026年のアルメニアの民主化軌跡；CSTO離脱に向けたパシニャン政権のEU軸
+
+##### 4. オンラインいじめへの刑事的措置（TA-10-2026-0163）
+- **決議種別：** INI（自主提案）
+- **政治的重み：** 中程度 — オンラインいじめとプラットフォーム責任に関するEUレベルの刑事法を要求
+- **連立：** S&Dが主導、広範な支持；EPPは新たな刑事権限について慎重；デジタル権利団体（Greens、Left）は条件付きで支持
+- **ステークホルダーの緊張：** プラットフォーム事業者（ビッグテック）は反対；被害者権利団体は強く支持；BEUC（欧州消費者組織）が市民社会要求の策定に参加
+
+##### 5. 2027年予算指針（TA-10-2026-0112）
+- **決議種別：** BUD
+- **政治的重み：** 機関的に高 — 2027年多年次財政枠組みサイクルに対するEPの最初の公式立場
+- **連立：** EPP主導の予算過半数；S&Dは社会支出の下限を確保
+- **IMF文脈：** 米国財政赤字2026年-7.5%対GDP；中国-8.2%対GDP；ユーロ圏に持続的財政統合圧力 — EPの2027年指針は上昇する防衛支出（ウクライナ後）と気候投資の間の緊張を反映
+
+##### 6. 免責特権廃止：ブラウンとヤキ
+- **TA-10-2026-0088：** ジェジウシュ・ブラウン（NI、ポーランド）— 反ユダヤ的事件（2023年12月の本会議場でのハヌカーメノラーへの消火器使用）で免責特権廃止
+- **TA-10-2026-0105：** パトリック・ヤキ（ECR、ポーランド）— ポーランドの刑事手続きで免責特権廃止
+- **政治的意義：** 両者ともポーランド人；ポーランドの継続的な法の支配の緊張を反映；ブラウン事件はほぼ全会一致（NI の異質性）
+
+#### 経済的・財政的文脈（IMF WEO 2025年9月版）
+
+| 指標 | 中国2025 | 中国2026 | 米国2025 | 米国2026 |
+|-----------|-----------|-----------|---------|---------|
+| GDP成長率（%） | 4.96% | 4.41% | 2.12% | 2.32% |
+| インフレ率（CPI %） | 0.05% | 1.22% | 2.73% | 3.23% |
+| 財政赤字（対GDP %） | -7.87% | -8.15% | -6.82% | -7.50% |
+| 経常収支（対GDP %） | +3.71% | +3.48% | -3.63% | -3.70% |
+
+🟡 **EUの集計WEOデータは返されませんでした** — 中国・米国は貿易決議（TA-0096：米国関税調整）と戦略的競争（DMA・デジタル主権）の決定に対する比較文脈として提供されました。
+
+---
+
+### 信頼度評価
+
+| 主張 | 信頼度 | 根拠 |
+|-------|-----------|-------|
+| 4月テキストの連立多数派構成 | 🟡 中程度 | 会派規模データ入手可；記名投票結果は未公開（EP公開遅延4〜6週間） |
+| 米国関税調整テキストの採択 | 🟢 高 | TA-10-2026-0096メタデータ：dateAdopted=2026-03-26 確認済み |
+| DMA執行決議の採択 | 🟢 高 | TA-10-2026-0160：更新のdateAdopted=2026-04-30 |
+| 特定の投票マージン | 🔴 低 | 投票データ未入手；DOCEO XMLは当週未公開 |
+| IMF経済予測 | 🟢 高 | 直接SDMX 3.0クエリ、2025年9月版 |
+
+---
+
+### 主要アクター
+
+| 欧州議会議員 / 会派 | 当期における役割 | 優先決議 |
+|-------------|---------------|-----------------|
+| マンフレート・ウェーバー（EPP、ドイツ） | EPP会派代表；DMAとデジタル主権テキストを主導 | TA-0160、TA-0022 |
+| イラツェ・ガルシア・ペレス（S&D、スペイン） | S&D会派代表；ウクライナ責任キャンペーンを主導 | TA-0161 |
+| ヴァレリー・エイアー（Renew、フランス） | Renew調整者；DMA執行策定の共同参加 | TA-0160 |
+| テリー・ラインテケ（Greens/EFA、ドイツ） | Greensのオンラインいじめ担当 | TA-0163 |
+| ジェジウシュ・ブラウン（NI、ポーランド） | 免責特権廃止 — 反ユダヤ的事件 | TA-0088 |
+| パトリック・ヤキ（ECR、ポーランド） | 免責特権廃止 — ポーランドの刑事手続き | TA-0105 |
+
+*注：記載の会派リーダーは会派の割り当てから導出；RSPテキストに対するEP APIを通じた具体的な報告者は確認されていない（手続きメタデータ未入手）。信頼度：🟡 中程度。*
+
+---
+
+### 将来指標（6か月のホライズン）
+
+1. **DMA執行措置** — 欧州委員会は指名されたゲートキーパーに対する正式手続きを発表する必要あり；Apple iOS/App Store・Meta Marketplace・Google Searchが最も可能性の高いターゲット；2026年第3四半期
+2. **ウクライナ特別法廷** — EPテキストがG7法律グループを刺激；ドイツ連立政権（シュルツ2.0文脈）が支持すれば条約交渉が加速する可能性；2026年下半期
+3. **2027年MFF事前交渉** — EPの2027年予算指針が理事会との第3正式交渉を始動；EPは予算外ではなくMFF内の防衛支出を要求；2027年まで論争が続く
+4. **オンラインいじめ立法** — EPの自主提案決議が欧州委員会に対してEU刑事権限（TFEU第83条）の下での指令提案を検討するよう促す；欧州委員会の2027年作業プログラムに入る可能性
+5. **アルメニア・パートナーシップ協定** — 決議が欧州委員会の協定完成への政治的支持を提供；理事会の権限改定を監視；2026年第4四半期
+
+### Executive Brief Ko
+
+**분류:** 비기밀 // 공개 배포
+**작성일:** 2026-05-13 | **기사 유형:** motions | **신뢰도 수준:** 🟡 보통
+**데이터 출처:** 유럽의회 공개 데이터 포털(업데이트에서 텍스트 127건; 타이틀 포함 완전 기록 51건), IMF WEO 2025년 9월, 유럽의회 정치 환경 API
+
+---
+
+### BLUF (60초 요약)
+
+2026년 4월 유럽의회 본회의 주간(4월 28~30일)은 디지털 시장 규제 집행, 러시아의 우크라이나 책임, 아르메니아 민주적 회복력, 온라인 괴롭힘 대응이라는 네 가지 핵심 결의로 특징지어졌습니다. 각 결의는 고도로 분산된 EP10(유효 정당 수 6.58, 가결 필요 득표 ≥360표) 내의 독특한 연립 역학을 반영합니다. 디지털 시장법(DMA) 집행 결의는 플랫폼 경쟁에서 EP가 빅테크 기업에 대해 보다 적극적인 입장을 취하고 있음을 시사합니다. 우크라이나 책임 텍스트는 러시아 전쟁 범죄 기록에 대한 EP 컨센서스 강화를 상징합니다. 유럽의회는 또한 2027년 예산 지침과 면책특권 해제에 관한 중요 문서를 채택했습니다. 이러한 결의들은 전체적으로 지정학적 문제와 디지털 거버넌스에서 초당파적 컨센서스를 형성하는 EP10의 능력을 보여주는 한편, 이민 및 사회 문제에서의 균열도 드러냅니다.
+
+**3가지 핵심 요인:**
+1. 🔴 **DMA 집행** — EP가 유럽위원회에 게이트키퍼에 대한 모든 DMA 도구 사용 압박；경제적 이해관계: 관세 조정(TA-0096)이 미국 플랫폼에 대한 병렬 규제 압력 형성
+2. 🟡 **우크라이나 책임** — EP가 특별 법원 설치 요구；G7 정상회담 및 IMF 우크라이나 대출 심사 전 신호 발송(TA-0010: 2026년 1월 채택 협력 수단)
+3. 🟡 **2027년 예산 지침** — EP가 IMF WEO의 유로존 지속적 재정 압력 예측 속에 기관 간 협상 앞두고 입장 설정
+
+---
+
+### 전략적 인텔리전스 요약
+
+#### 정치적 구조 (EP10 — 2026년 5월)
+- **유럽의회 의원 717명**이 9개 교섭단체에 소속; 과반수 = 360표
+- **EPP(183석, 25.5%):** 중도우파 주도; DMA·예산·외교안보 정책 주도
+- **S&D(136석, 19.0%):** 진보파 핵심; 우크라이나·반부패·복지 문제 추진
+- **PfE(85석, 11.9%):** Patriotes pour l'Europe; 우익 포퓰리스트; 우크라이나·DMA에서 이탈
+- **ECR(81석, 11.3%):** 유럽 보수 개혁; 우크라이나 컨센서스 변동; PfE와 경쟁
+- **Renew(77석, 10.7%):** 중도 자유주의; DMA에서 EPP와 연계; 디지털 주권에 강점
+- **Greens/EFA(53석, 7.4%):** 기후·디지털·권리 교차점; DMA 집행·아르메니아
+- **The Left(45석, 6.3%):** 반전·인권파; 아르메니아·아이티 인신매매·온라인 괴롭힘
+- **NI(30석, 4.2%):** 무소속; 브라운 면책특권 문제 포함 이질적 구성
+- **ESN(27석, 3.8%):** 유럽 주권주의자; 극우; 대부분의 결의에 반대
+
+**주요 연립 산술:** EPP + S&D = 319(360 미달); EPP + S&D + Renew = 396(대부분 표결에서 작동하는 과반수). DMA 및 우크라이나 텍스트는 EPP + S&D + Renew + Greens(~449표)로 가결. 면책특권 해제는 초당파적 컨센서스 경향.
+
+#### 주요 결의 — 2026년 4월 본회의
+
+##### 1. 디지털 시장법 집행 (TA-10-2026-0160)
+- **결의 유형:** RSP(규칙 132 긴급/본회의 주도)
+- **정치적 비중:** 높음 — Apple·Meta·Google의 게이트키퍼 지정에 대한 유럽위원회의 집행 속도에 직접 도전
+- **연립:** EPP + Renew(디지털 주권) + S&D(소비자 권리) + Greens(플랫폼 책임)가 과반수 핵심 형성
+- **균열 라인:** PfE와 ECR 분열 — 일부는 국가 주권 관점에서 지지, 다른 일부는 과잉 규제 서사에서 반대
+- **경제적 맥락(IMF):** 미국 GDP 성장률 2026년 2.32%(WEO), 재정 적자 -7.5% 대GDP; 관세 조정(TA-0096: 2026년 3월)이 이미 무역 마찰로 내재화 — DMA 집행이 미국 테크 플랫폼에 대한 제2의 규제 압력 벡터 추가
+- **미래 지표:** 유럽위원회는 EP 내부 절차에 따라 6개월 내 공식 집행 행동 계획 제출 필요
+
+##### 2. 우크라이나 책임 (TA-10-2026-0161)
+- **결의 유형:** RSP
+- **정치적 비중:** 매우 중요 — 침략 범죄를 위한 특별 법원 설치 요구; 2026년 1월 우크라이나 대출(500억 유로 강화 협력) 기반
+- **연립:** EPP + S&D + Renew + Greens + The Left = 압도적 다수; PfE 대부분 불참 또는 기권
+- **이탈 위험:** ECR 내부 긴장 — 폴란드 ECR 의원들은 강하게 우크라이나 지지; 피데스에 가까운 NI 의원(헝가리계) 반대
+- **경제적 맥락:** 러시아·우크라이나 분쟁의 경제적 여파: IMF WEO는 우크라이나 재건 수요를 수천억 달러로 추산; EU 500억 유로 우크라이나 대출(TA-0010: 2026년 1월)이 주요 수단
+- **미래 지표:** 법원 설치에는 UN 안전보장이사회 결의 또는 전용 조약 필요; EP 텍스트가 G7 등 '유지 연합'에 정치적 압력 생성
+
+##### 3. 아르메니아 민주적 회복력 (TA-10-2026-0162)
+- **결의 유형:** RSP
+- **정치적 비중:** 보통 — 남코카서스에 대한 지정학적 신호; EU·아르메니아 파트너십 협정 협상과 연계
+- **연립:** EPP + S&D + Renew의 광범위한 컨센서스; Greens와 Left 합류; ESN 반대
+- **맥락:** 나고르노-카라바흐 이후 2025~2026년 아르메니아의 민주화 궤적; CSTO 이탈을 향한 파시냔 정부의 EU 축
+
+##### 4. 온라인 괴롭힘에 대한 형사 규정 (TA-10-2026-0163)
+- **결의 유형:** INI(자주 제안)
+- **정치적 비중:** 보통 — 온라인 괴롭힘과 플랫폼 책임에 관한 EU 수준 형사법 요구
+- **연립:** S&D 주도, 광범위한 지지; EPP는 새로운 형사 권한에 신중; 디지털 권리 단체(Greens, Left)는 조건부 지지
+- **이해관계자 긴장:** 플랫폼 운영자(빅테크) 반대; 피해자 권리 단체 강력 지지; BEUC(유럽 소비자 조직)가 시민사회 요구 수립에 참여
+
+##### 5. 2027년 예산 지침 (TA-10-2026-0112)
+- **결의 유형:** BUD
+- **정치적 비중:** 기관적으로 높음 — 2027년 다년간 재정 프레임워크 주기에 대한 EP의 첫 공식 입장
+- **연립:** EPP 주도 예산 과반수; S&D가 사회 지출 하한 확보
+- **IMF 맥락:** 미국 재정 적자 2026년 -7.5% 대GDP; 중국 -8.2% 대GDP; 유로존에 지속적 재정 통합 압력 — EP의 2027년 지침은 상승하는 국방 지출(우크라이나 이후)과 기후 투자 간의 긴장 반영
+
+##### 6. 면책특권 해제: 브라운과 야키
+- **TA-10-2026-0088:** 제지우시 브라운(NI, 폴란드) — 반유대적 사건(2023년 12월 EP 본회의장에서 하누카 메노라에 소화기 사용)으로 면책특권 해제
+- **TA-10-2026-0105:** 파트리크 야키(ECR, 폴란드) — 폴란드 형사 절차로 면책특권 해제
+- **정치적 의미:** 두 명 모두 폴란드인; 폴란드의 지속적인 법치 긴장 반영; 브라운 사건은 거의 만장일치(NI의 이질성)
+
+#### 경제적·재정적 맥락 (IMF WEO 2025년 9월)
+
+| 지표 | 중국 2025 | 중국 2026 | 미국 2025 | 미국 2026 |
+|-----------|-----------|-----------|---------|---------|
+| GDP 성장률 (%) | 4.96% | 4.41% | 2.12% | 2.32% |
+| 인플레이션 (CPI %) | 0.05% | 1.22% | 2.73% | 3.23% |
+| 재정 적자 (% 대GDP) | -7.87% | -8.15% | -6.82% | -7.50% |
+| 경상수지 (% 대GDP) | +3.71% | +3.48% | -3.63% | -3.70% |
+
+🟡 **EU 집계 WEO 데이터가 반환되지 않음** — 중국·미국은 무역 결의(TA-0096: 미국 관세 조정)와 전략적 경쟁(DMA·디지털 주권)에 대한 비교 맥락으로 제공되었습니다.
+
+---
+
+### 신뢰도 평가
+
+| 주장 | 신뢰도 | 근거 |
+|-------|-----------|-------|
+| 4월 텍스트의 연립 과반수 구성 | 🟡 보통 | 교섭단체 규모 데이터 이용 가능; 기명 투표 결과 미공개(EP 공개 지연 4~6주) |
+| 미국 관세 조정 텍스트 채택 | 🟢 높음 | TA-10-2026-0096 메타데이터: dateAdopted=2026-03-26 확인 |
+| DMA 집행 결의 채택 | 🟢 높음 | TA-10-2026-0160: 업데이트의 dateAdopted=2026-04-30 |
+| 특정 투표 마진 | 🔴 낮음 | 투표 데이터 미입수; DOCEO XML 해당 주 미공개 |
+| IMF 경제 예측 | 🟢 높음 | 직접 SDMX 3.0 쿼리, 2025년 9월 |
+
+---
+
+### 주요 행위자
+
+| 유럽의회 의원 / 교섭단체 | 해당 기간 역할 | 우선 결의 |
+|-------------|---------------|-----------------|
+| 만프레트 베버(EPP, 독일) | EPP 교섭단체 대표; DMA 및 디지털 주권 텍스트 주도 | TA-0160, TA-0022 |
+| 이라체 가르시아 페레스(S&D, 스페인) | S&D 교섭단체 대표; 우크라이나 책임 캠페인 주도 | TA-0161 |
+| 발레리 에이에르(Renew, 프랑스) | Renew 조정자; DMA 집행 수립 공동 참여 | TA-0160 |
+| 테리 라인테케(Greens/EFA, 독일) | Greens의 온라인 괴롭힘 담당 | TA-0163 |
+| 제지우시 브라운(NI, 폴란드) | 면책특권 해제 — 반유대적 사건 | TA-0088 |
+| 파트리크 야키(ECR, 폴란드) | 면책특권 해제 — 폴란드 형사 절차 | TA-0105 |
+
+*참고: 기재된 교섭단체 리더들은 교섭단체 배정에서 도출; RSP 텍스트에 대한 EP API를 통한 구체적 보고관은 확인되지 않음(절차 메타데이터 미입수). 신뢰도: 🟡 보통.*
+
+---
+
+### 미래 지표 (6개월 전망)
+
+1. **DMA 집행 조치** — 유럽위원회는 지명된 게이트키퍼에 대한 공식 절차 발표 필요; Apple iOS/App Store·Meta Marketplace·Google Search가 가장 가능성 높은 대상; 2026년 3분기
+2. **우크라이나 특별 법원** — EP 텍스트가 G7 법률 그룹 자극; 독일 연립 정부(슐츠 2.0 맥락)가 지지하면 조약 협상 가속 가능; 2026년 하반기
+3. **2027년 MFF 사전 협상** — EP의 2027년 예산 지침이 이사회와의 제3 공식 협상 개시; EP는 예산 외가 아닌 MFF 내 국방 지출 요구; 2027년까지 논쟁 지속
+4. **온라인 괴롭힘 입법** — EP의 자주 제안 결의가 유럽위원회에 EU 형사 권한(TFEU 제83조) 하의 지침 제안 검토 촉구; 유럽위원회 2027년 작업 프로그램 포함 가능
+5. **아르메니아 파트너십 협정** — 결의가 유럽위원회의 협정 완성에 대한 정치적 지지 제공; 이사회 권한 개정 모니터링; 2026년 4분기
+
+### Executive Brief Nl
+
+### BLUF (60-Seconden Lezing)
+
+De plenaire week van het Europees Parlement in april 2026 (28–30 april) werd gekenmerkt door vier baanbrekende resoluties over handhaving van de digitale markt, Russische aansprakelijkheid voor Oekraïne, Armeense democratische veerkracht en aansprakelijkheid voor cyberpesten — elk weerspiegelt afzonderlijke coalitiedynamieken binnen een sterk gefragmenteerd EP10 (6,58 effectieve partijen, meerderheid vereist ≥360 stemmen). De resolutie over de handhaving van de Wet inzake digitale markten signaleert een verscherpende EP-houding tegenover Big Tech in platformconcurrentievraagstukken, terwijl de tekst over Oekraïne-aansprakelijkheid een verharding van het EP-consensus over de documentatie van Russische oorlogsmisdaden markeert. Tegelijkertijd nam het EP kritische begrotingskaderdocumenten aan (begrotingsrichtsnoeren 2027) en besluiten tot opheffing van immuniteit. Deze resoluties tonen gezamenlijk de capaciteit van EP10 voor consensus over blokgrenzen heen bij geopolitieke en digitale governance-kwesties, terwijl breuklijnen worden onthuld op het gebied van migratie en sociale vraagstukken.
+
+**Top 3 aanleidingen:**
+1. 🔴 **DMA-handhaving** — EP dringt er bij de Commissie op aan de volledige DMA-gereedschapskist in te zetten tegen poortwachters; economische inzet: tariefaanpassing voor Amerikaanse goederen (TA-0096) creëert parallele hefboom tegen Amerikaanse technologieplatforms
+2. 🟡 **Oekraïne-aansprakelijkheid** — EP eist oprichting van een speciaal tribunaal; signalen voor de G7-top en de IMF-evaluatie van de Oekraïnse lening (TA-0010 samenwerkingsinstrument al aangenomen in januari 2026)
+3. 🟡 **Begrotingsrichtsnoeren 2027** — Parlement neemt positie in voor de interinstitutionele begrotingsonderhandelingen; IMF WEO voorspelt aanhoudende begrotingsdruk in de eurozone
+
+---
+
+### Strategisch Inlichtingenoverzicht
+
+#### Politieke architectuur (EP10 — mei 2026)
+- **717 EP-leden** verdeeld over 9 fracties; meerderheid = 360 stemmen
+- **EVP (183, 25,5 %)**: dominant centrum-rechts; stuurt op DMA, begroting, GBVB
+- **S&D (136, 19,0 %)**: progressieve ruggengraat; drijft Oekraïne, anti-corruptie, sociale zaken aan
+- **PfE (85, 11,9 %)**: Patriotes pour l'Europe; populistisch-rechts; wijkt af bij Oekraïne en DMA
+- **ECR (81, 11,3 %)**: Europese Conservatieven; anti-Oekraïne-consensus verschuift; concurreert met PfE
+- **Renew (77, 10,7 %)**: liberaal centrum; DMA-afstemming met EVP; sterk op digitale soevereiniteit
+- **Greens/EFA (53, 7,4 %)**: klimaat-digitaal-rechten-nexus; DMA-handhaving, Armenië
+- **The Left (45, 6,3 %)**: anti-oorlog, pro-rechten; Armenië, mensenhandel in Haïti, cyberpesten
+- **NI (30, 4,2 %)**: niet-ingeschrevenen; heterogeen, inclusief de immuniteitsaffaire Braun
+- **ESN (27, 3,8 %)**: Europese Soevereinisten; extreemrechts; tegen de meeste resoluties
+
+**Sleutelcoalitie-rekenkunde:** EVP + S&D = 319 (onder 360); EVP + S&D + Renew = 396 (werkende meerderheid voor de meeste stemmingen). DMA- en Oekraïne-teksten zijn waarschijnlijk aangenomen met EVP + S&D + Renew + Groenen-meerderheden (~449 stemmen). Immuniteitopheffingsbesluiten neigen naar brede fractiebrede consensus.
+
+#### Kritieke resoluties — april 2026 plenaire vergadering
+
+##### 1. Handhaving van de Wet inzake digitale markten (TA-10-2026-0160)
+- **Resolutietype:** RSP (artikel 132 spoed/plenair initiatief)
+- **Politiek gewicht:** HOOG — daagt direct het handhavingstempo van de Commissie uit bij de poortwachter-aanwijzingen van Apple, Meta en Google
+- **Coalitie:** EVP + Renew (digitale soevereiniteit) + S&D (consumentenrechten) + Groenen (platformaansprakelijkheid) vormden waarschijnlijk de kernmeerderheid
+- **Breuklijnen:** PfE en ECR verdeeld — sommigen steunen vanuit nationaal soevereiniteitsstandpunt, anderen verzetten zich tegen het narratief van overregulering
+- **Economische context (IMF):** Bbp-groei VS 2,32 % in 2026 (WEO), begrotingstekort -7,5 % van het bbp; de tariefaanpassing van de VS (TA-0096 maart 2026) is al ingesloten als handelswrijving — DMA-handhaving voegt een tweede regulatoire drukvector toe tegen Amerikaanse technologieplatforms
+- **Vooruitblikkende indicator:** Commissie moet binnen 6 maanden reageren met een formeel handhavingsactieplan overeenkomstig het reglement van orde van het EP
+
+##### 2. Oekraïne-aansprakelijkheid (TA-10-2026-0161)
+- **Resolutietype:** RSP
+- **Politiek gewicht:** KRITISCH — roept op tot oprichting van een speciaal tribunaal voor agressiemisdaden; bouwt voort op de Oekraïnse lening van januari 2026 (50 miljard euro versterkte samenwerking)
+- **Coalitie:** EVP + S&D + Renew + Groenen + The Left = overweldigende meerderheid; PfE grotendeels afwezig of onthoudend
+- **Risico op overlopers:** Interne ECR-spanning — Poolse ECR-leden sterk pro-Oekraïne; Hongaarse NI-naasten (Fidesz-gelieerden) ertegen
+- **Economische context:** Economische nasleep van het Rusland-Oekraïne-conflict: IMF WEO projecteert Oekraïense wederopbouwbehoeften van honderden miljarden; EU-Oekraïnse lening van 50 miljard euro (TA-0010 jan. 2026) is het primaire instrument
+- **Vooruitblikkende indicator:** Oprichting van het tribunaal vereist een VN-Veiligheidsraadsresolutie of ad-hocverdrag; EP-tekst creëert politieke druk op lidstaten om een coalitie van bereidwillige staten te leiden
+
+##### 3. Armeense democratische veerkracht (TA-10-2026-0162)
+- **Resolutietype:** RSP
+- **Politiek gewicht:** GEMIDDELD — geopolitisch signaal naar de zuidelijke Kaukasus; verbonden met de onderhandelingen over de EU-Armenië-partnerschapsovereenkomst
+- **Coalitie:** brede EVP + S&D + Renew-consensus; Groenen en Left sloten zich aan; ESN ertegen
+- **Context:** Armenië's democratisch traject 2025–2026 na Nagorno-Karabach; Pasjinjans EU-pivot weg van het CSTO
+
+##### 4. Strafrechtelijke bepalingen inzake cyberpesten (TA-10-2026-0163)
+- **Resolutietype:** INI (eigen initiatief)
+- **Politiek gewicht:** GEMIDDELD — roept op tot EU-niveau strafrecht over cyberpesten en platformaansprakelijkheid
+- **Coalitie:** geleid door S&D, brede steun; EVP voorzichtig bij nieuwe strafrechtelijke bevoegdheden; digitale rechtengroepen (Groenen, Left) steunden onder voorwaarden
+- **Belanghebbende spanning:** platformoperators (Big Tech) ertegen; slachtofferrechtenorganisaties sterk vóór; BEUC (Europese Consumentenorganisatie) medeauteur van de eisen van het maatschappelijk middenveld
+
+##### 5. Begrotingsrichtsnoeren 2027 (TA-10-2026-0112)
+- **Resolutietype:** BUD
+- **Politiek gewicht:** INSTITUTIONEEL HOOG — eerste formele positie van het EP voor de MFK-cyclus 2027
+- **Coalitie:** door EVP geleide begrotingsmeerderheid; S&D haalde minimumvloeren voor sociale uitgaven
+- **IMF-context:** Begrotingstekort VS -7,5 % van het bbp in 2026; China -8,2 % van het bbp; aanhoudende druk op begrotingsconsolidatie in de eurozone — EP-2027-richtsnoeren weerspiegelen spanning tussen stijgende defensie-uitgaven (na Oekraïne) en klimaatinvesteringen
+
+##### 6. Opheffing van immuniteit: Braun en Jaki
+- **TA-10-2026-0088:** Grzegorz Braun (NI, Polen) — immuniteit opgeheven wegens antisemitisch incident (brandblusser op de chanoekkia in de EP-plenaire zaal, december 2023)
+- **TA-10-2026-0105:** Patryk Jaki (ECR, Polen) — opheffing van immuniteit in Poolse strafprocedures
+- **Politieke betekenis:** Beiden Pools; weerspiegelt voortdurende Poolse rechtsstaat-spanningen; zaak-Braun bijna unaniem (NI-heterogeniteit)
+
+#### Economische en budgettaire context (IMF WEO september 2025)
+
+| Indicator | China 2025 | China 2026 | VS 2025 | VS 2026 |
+|-----------|-----------|-----------|---------|---------|
+| Bbp-groei (%) | 4,96 % | 4,41 % | 2,12 % | 2,32 % |
+| Inflatie (CPI %) | 0,05 % | 1,22 % | 2,73 % | 3,23 % |
+| Begrotingstekort (% van het bbp) | -7,87 % | -8,15 % | -6,82 % | -7,50 % |
+| Lopende rekening (% van het bbp) | +3,71 % | +3,48 % | -3,63 % | -3,70 % |
+
+🟡 **EU-geaggregeerde WEO-gegevens niet geretourneerd** — China/VS verstrekt als vergelijkende context voor handelsresoluties (TA-0096 tariefaanpassing VS) en strategische concurrentie (DMA, digitale soevereiniteit).
+
+---
+
+### Betrouwbaarheidsbeoordeling
+
+| Bewering | Betrouwbaarheid | Basis |
+|-------|-----------|-------|
+| Samenstelling meerderheidcoalitie voor april-teksten | 🟡 Gemiddeld | Fractiegrootte-gegevens beschikbaar; hoofdelijke stemresultaten nog niet gepubliceerd (4–6 weken EP-vertraging) |
+| VS tariefaanpassingstekst aangenomen | 🟢 Hoog | TA-10-2026-0096 metadata bevestigd met dateAdopted=2026-03-26 |
+| DMA-handhavingsresolutie aangenomen | 🟢 Hoog | TA-10-2026-0160 in feed met dateAdopted=2026-04-30 |
+| Specifieke stemmingsmarges | 🔴 Laag | Stemgegevens niet beschikbaar; DOCEO XML nog niet gepubliceerd voor deze week |
+| IMF economische projecties | 🟢 Hoog | Directe SDMX 3.0-query, september 2025-versie |
+
+---
+
+### Sleutelactoren
+
+| EP-lid / Fractie | Rol in de periode | Prioritaire resoluties |
+|-------------|---------------|-----------------|
+| Manfred Weber (EVP, DE) | EVP-fractieleider; stuurde DMA en digitale soevereiniteits teksten | TA-0160, TA-0022 |
+| Iratxe García Pérez (S&D, ES) | S&D-fractieleider; leidde de Oekraïne-aansprakelijkheidsdrive | TA-0161 |
+| Valérie Hayer (Renew, FR) | Renew-coördinator; mede-auteur van DMA-handhaving | TA-0160 |
+| Terry Reintke (Groenen/EFA, DE) | Groenen-verantwoordelijke voor cyberpesten | TA-0163 |
+| Grzegorz Braun (NI, PL) | Immuniteit opgeheven — antisemitisch incident | TA-0088 |
+| Patryk Jaki (ECR, PL) | Immuniteit opgeheven — Poolse strafprocedures | TA-0105 |
+
+*Let op: Genoemde fractieleiders zijn afgeleid uit fractietoewijzingen; specifieke rapporteurs niet bevestigd via EP API voor deze RSP-teksten (procedurele metadata niet beschikbaar). Betrouwbaarheid: 🟡 Gemiddeld.*
+
+---
+
+### Vooruitblikkende Indicatoren (6-maandshorizon)
+
+1. **DMA-handhavingsmaatregel** — Commissie moet formele procedures aankondigen tegen genoemde poortwachters; Apple iOS/App Store, Meta Marketplace, Google Search meest waarschijnlijke doelwitten; Q3 2026
+2. **Speciaal tribunaal voor Oekraïne** — EP-tekst voedt de juridische groep van de G7; verdragsonderhandelingen kunnen versnellen als de Duitse coalitieregering steunt (Scholz 2.0-context); H2 2026
+3. **Vooronderhandelingen MFK 2027** — EP-begrotingsrichtsnoeren 2027 triggeren formeel triloog met de Raad; EP wil defensie-uitgaven binnen het MFK, niet buiten de begroting; omstreden tot 2027
+4. **Wetgeving inzake cyberpesten** — EP-initiatiefresolutie zet de Commissie ertoe aan een richtlijnvoorstel te overwegen op grond van de EU-strafrechtelijke bevoegdheden (art. 83 VWEU); waarschijnlijk Commissie-werkprogramma 2027
+5. **Armeense partnerschapsovereenkomst** — Resolutie biedt politieke steun aan de Commissie om de overeenkomst te concluderen; let op wijziging van het Raadsmandaat; Q4 2026
+
+### Executive Brief No
+
+### BLUF (60-Sekunders Lesning)
+
+Europaparlamentets plenumsmøte i april 2026 (28.–30. april) ble preget av fire banebrytende resolusjoner som omhandler håndheving av det digitale markedet, russisk ansvar for Ukraina, armensk demokratisk motstandskraft og straffeansvar for nettmobbing — hver av dem speiler distinkte koalisjonsforhold i et sterkt fragmentert EP10 (6,58 effektive partier, flertall krever ≥360 stemmer). Resolusjonen om håndheving av loven om digitale markeder signaliserer en intensivert EP-holdning overfor storteknologi i plattformskonkurranse, mens Ukraina-ansvarsteksten markerer en hardere EP-konsensus om dokumentasjon av Russlands krigsforbrytelser. Samtidig vedtok EP kritiske budgettrammesdokumenter (retningslinjer for budsjettet 2027) og beslutninger om opphevelse av immunitet. Disse resolusjonene demonstrerer samlet EP10s evne til konsensus på tvers av politiske blokker i geopolitiske og digitale styringsspørsmål, mens bruddlinjer avsløres vedrørende migrasjon og sosiale spørsmål.
+
+**Topp 3 utløsere:**
+1. 🔴 **DMA-håndheving** — EP presser Kommisjonen til å bruke hele DMA-verktøykassen mot portvakter; økonomiske innsatser: tolljustering for amerikanske varer (TA-0096) skaper parallell innflytelse overfor amerikanske teknologiplattformer
+2. 🟡 **Ukraina-ansvarlighet** — EP krever opprettelse av spesialtribunal; signaler foran G7-toppmøtet og IMF-gjennomgangen av Ukraina-lånet (TA-0010 samarbeidsinstrument allerede vedtatt januar 2026)
+3. 🟡 **Budsjettretningslinjer for 2027** — Parlamentet tar stilling foran de interinstitusjonelle budsjettforhandlingene; IMF WEO spår vedvarende finanspolitisk press i eurosonen
+
+---
+
+### Strategisk Etterretningssammendrag
+
+#### Politisk arkitektur (EP10 — mai 2026)
+- **717 parlamentsmedlemmer** fordelt på 9 grupper; flertall = 360 stemmer
+- **EPP (183, 25,5 %)**: dominerende sentrum-høyre; styrer DMA, budsjett og CFSP
+- **S&D (136, 19,0 %)**: progressiv ryggrad; driver Ukraina, antikorrupsjon, sosiale saker
+- **PfE (85, 11,9 %)**: Patriotes pour l'Europe; populistisk høyre; avviker på Ukraina og DMA
+- **ECR (81, 11,3 %)**: Europeiske Konservative; anti-Ukraina-konsensus i endring; konkurrerer med PfE
+- **Renew (77, 10,7 %)**: liberalt sentrum; DMA-samsvar med EPP; sterk på digital suverenitet
+- **Greens/EFA (53, 7,4 %)**: klima-digital-rettigheter-nexus; DMA-håndheving, Armenia
+- **The Left (45, 6,3 %)**: antikrigs-, pro-rettighets-orientert; Armenia, Haiti-menneskehandel, nettmobbing
+- **NI (30, 4,2 %)**: ikke-tilknyttede; heterogene, inkludert Braun-immunitetsaken
+- **ESN (27, 3,8 %)**: europeiske suverenister; ytterste høyre; mot de fleste resolusjoner
+
+**Nøkkelkoalisjonsmatematikk:** EPP + S&D = 319 (under 360); EPP + S&D + Renew = 396 (fungerende flertall for de fleste avstemninger). DMA- og Ukraina-tekstene ble sannsynligvis vedtatt med EPP + S&D + Renew + Greens-flertall (~449 stemmer). Immunitetsopphevelsesvedtak tenderer mot brei partikonsensus.
+
+#### Kritiske resolusjoner — april 2026 plenum
+
+##### 1. Håndheving av loven om digitale markeder (TA-10-2026-0160)
+- **Resolusjontype:** RSP (regel 132 haste-/plenumsinitiativ)
+- **Politisk tyngde:** HØY — utfordrer direkte Kommisjonens håndhevingstempo for Apples, Metas og Googles portvaktdesignasjoner
+- **Koalisjon:** EPP + Renew (digital suverenitet) + S&D (forbrukerrettigheter) + Greens (plattformsansvar) dannet sannsynligvis kjerneflertallet
+- **Bruddlinjer:** PfE og ECR delte — noen støtter på grunnlag av nasjonal suverenitet, andre motsetter seg narrativet om overregulering
+- **Økonomisk kontekst (IMF):** USAs BNP-vekst 2,32 % i 2026 (WEO), finansunderskudd -7,5 % av BNP; USAs tolljustering (TA-0096 mars 2026) allerede innbygd handelsfrikisjons — DMA-håndheving legger til en annen regulatorisk trykksvektor mot amerikanske teknologiplattformer
+- **Fremtidsindikator:** Kommisjonen må svare med en formell tidsplan for håndhevingstiltak innen 6 måneder i henhold til EPs forretningsorden
+
+##### 2. Ukraina-ansvarlighet (TA-10-2026-0161)
+- **Resolusjontype:** RSP
+- **Politisk tyngde:** KRITISK — oppfordrer til opprettelse av spesialtribunal for aggresjonsforbrytelser; bygger på Ukraina-lånet januar 2026 (50 mrd. euro styrket samarbeid)
+- **Koalisjon:** EPP + S&D + Renew + Greens + The Left = overveldende flertall; PfE stort sett fraværende eller avholdende
+- **Risiko for avhopper:** ECR intern spenning — polske ECR-medlemmer sterkt pro-Ukraina; ungarske NI-nærtstående (Fidesz-tilknyttede) mot
+- **Økonomisk kontekst:** Russland-Ukraina-konfliktens økonomiske etterfølger: IMF WEO anslår Ukrainas gjenoppbyggingsbehov til hundrevis av milliarder; EUs 50 mrd. euro Ukraina-lån (TA-0010 jan 2026) er det primære instrumentet
+- **Fremtidsindikator:** Tribunalopprettelse krever FNs Sikkerhetsråds resolusjon eller ad hoc-traktat; EP-teksten skaper politisk press på medlemsstater til å lede en koalisjon av villige stater
+
+##### 3. Armensk demokratisk motstandskraft (TA-10-2026-0162)
+- **Resolusjontype:** RSP
+- **Politisk tyngde:** MIDDELS — geopolitisk signal til det sørlige Kaukasus; knyttet til forhandlingene om EU-Armenia-partnerskapsavtalen
+- **Koalisjon:** brei EPP + S&D + Renew-konsensus; Greens og Left sluttet seg til; ESN mot
+- **Kontekst:** Armenias demokratiske forløp 2025–2026 etter Nagorno-Karabakh; Pasjinjans regjerings EU-dreining bort fra CSTO
+
+##### 4. Strafferettslige bestemmelser om nettmobbing (TA-10-2026-0163)
+- **Resolusjontype:** INI (eget initiativ)
+- **Politisk tyngde:** MIDDELS — oppfordrer til EU-nivå straffelovgivning om nettmobbing og plattformsansvar
+- **Koalisjon:** S&D-ledet, bred støtte; EPP forsiktig med nye strafferettslige kompetanser; digitale rettighets-grupper (Greens, Left) støttet med forbehold
+- **Interessentkonflikt:** plattformsoperatører (Big Tech) mot; offerrettighetsorganisasjoner sterkt for; BEUC (europeisk forbrukerorganisasjon) medforfatter til sivilsamfunnets krav
+
+##### 5. Budsjettretningslinjer for 2027 (TA-10-2026-0112)
+- **Resolusjontype:** BUD
+- **Politisk tyngde:** INSTITUSJONELT HØY — EPs første formelle posisjon for 2027 FFR-syklusen
+- **Koalisjon:** EPP-ledet budsjettflertall; S&D sikret minimumsgulv for sosiale utgifter
+- **IMF-kontekst:** USAs finansunderskudd -7,5 % av BNP i 2026; Kina -8,2 % av BNP; vedvarende finanskonsolideringspres i eurosonen — EP 2027-retningslinjer gjenspeiler spenningen mellom økte forsvarsutgifter (etter Ukraina) og klimainvesteringer
+
+##### 6. Immunitetsopphevelse: Braun og Jaki
+- **TA-10-2026-0088:** Grzegorz Braun (NI, Polen) — immunitet opphevet for antisemittisk hendelse (brannslukkingsapparat på chanukka-lysestake i EP-plenumssalen, desember 2023)
+- **TA-10-2026-0105:** Patryk Jaki (ECR, Polen) — immunitetsopphevelse i polske straffesaker
+- **Politisk betydning:** Begge polske; gjenspeiler pågående polske rettsstatsproblemer; Braun-saken nesten enstemmig (NI-heterogenitet)
+
+#### Økonomisk og finanspolitisk kontekst (IMF WEO september 2025)
+
+| Indikator | Kina 2025 | Kina 2026 | USA 2025 | USA 2026 |
+|-----------|-----------|-----------|---------|---------|
+| BNP-vekst (%) | 4,96 % | 4,41 % | 2,12 % | 2,32 % |
+| Inflasjon (KPI %) | 0,05 % | 1,22 % | 2,73 % | 3,23 % |
+| Finansunderskudd (% av BNP) | -7,87 % | -8,15 % | -6,82 % | -7,50 % |
+| Driftsbalanse (% av BNP) | +3,71 % | +3,48 % | -3,63 % | -3,70 % |
+
+🟡 **EU-aggregerte WEO-data ikke returnert** — Kina/USA levert for sammenlignende kontekst om handelsresolusjoner (TA-0096 USAs tolljustering) og strategisk konkurranse (DMA, digital suverenitet).
+
+---
+
+### Konfidensvurdering
+
+| Påstand | Konfidens | Grunnlag |
+|-------|-----------|-------|
+| Majoritetskoalisjonens sammensetning for april-tekstene | 🟡 Middels | Grupportørrelsesdata tilgjengelige; voteringsprotokoll ikke publisert ennå (4–6 ukers EP-forsinkelse) |
+| Tolljustering USA vedtatt | 🟢 Høy | TA-10-2026-0096 metadata bekreftet med dateAdopted=2026-03-26 |
+| DMA-håndhevelsesresolusjon vedtatt | 🟢 Høy | TA-10-2026-0160 i strøm med dateAdopted=2026-04-30 |
+| Spesifikke voteringsmarginaler | 🔴 Lav | Voteringsdata utilgjengelig; DOCEO XML ikke publisert for denne uken |
+| IMF-økonomiske fremskrivninger | 🟢 Høy | Direkte SDMX 3.0-spørring, september 2025-versjon |
+
+---
+
+### Nøkkelaktører
+
+| Parlamentsmedlem / Gruppe | Rolle i perioden | Prioriterte resolusjoner |
+|-------------|---------------|-----------------|
+| Manfred Weber (EPP, DE) | EPP-gulvleder; styrte DMA og digital suverenitetstekster | TA-0160, TA-0022 |
+| Iratxe García Pérez (S&D, ES) | S&D-gulvleder; ledet Ukraina-ansvarsdrivkraften | TA-0161 |
+| Valérie Hayer (Renew, FR) | Renew-koordinator; medforfatter til DMA-håndheving | TA-0160 |
+| Terry Reintke (Greens/EFA, DE) | Greens-ansvarlig for nettmobbing | TA-0163 |
+| Grzegorz Braun (NI, PL) | Immunitet opphevet — antisemittisk hendelse | TA-0088 |
+| Patryk Jaki (ECR, PL) | Immunitet opphevet — polske straffesaker | TA-0105 |
+
+*Merk: Navngitte gulvledere er utledet fra gruppeutnevnelser; spesifikke ordførere ikke bekreftet via EP API for disse RSP-tekstene (prosedyremetadata utilgjengelig). Konfidens: 🟡 Middels.*
+
+---
+
+### Fremtidsindikatorer (6-månedershorisonten)
+
+1. **DMA-håndhevingstiltak** — Kommisjonen må kunngjøre formelle prosedyrer mot navngitte portvakter; Apple iOS/App Store, Meta Marketplace, Google Search mest sannsynlige mål; Q3 2026
+2. **Ukrainas spesialtribunal** — EP-teksten mater inn i G7s juridiske gruppe; traktatforhandlinger kan akselerere hvis den tyske koalisjonsregjeringen støtter (Scholz 2.0-kontekst); H2 2026
+3. **2027 FFR-forforhandlinger** — EPs 2027-budsjettretningslinjer utløser formell trilogue med Rådet; EP ønsker forsvarsutgifter innenfor FFR, ikke utenfor budsjettet; omstridt frem til 2027
+4. **Nettmobbing-lovgivning** — EPs initiativresolusjon utløser Kommisjonen til å vurdere direktivforslag under EUs strafferettslige kompetanse (art. 83 TEUV); sannsynligvis 2027 Kommisjonens arbeidsprogram
+5. **Armenisk partnerskapsavtale** — Resolusjonen gir politisk støtte for Kommisjonen til å fullføre avtalen; hold øye med Rådets mandatendring; Q4 2026
+
+### Executive Brief Sv
+
+### BLUF (60-Sekunders Läsning)
+
+Europaparlamentets plenarvecka i april 2026 (28–30 april) präglades av fyra banbrytande resolutioner som behandlar digitalt marknadsgenomförande, ryskt ansvar för Ukraina, armenisk demokratisk motståndskraft och cybermobbing-ansvar — var och en speglar distinkta koalitionsdynamiker inom ett starkt fragmenterat EP10 (6,58 effektiva partier, majoritet kräver ≥360 röster). Resolutionen om genomförandet av lagen om digitala marknader signalerar en intensifierad EP-hållning gentemot storteknologiföretag i plattformskonkurrensfrågor, medan texten om Ukrainaansvar markerar en hårdnande EP-konsensus kring dokumentation av Rysslands krigsbrott. Samtidigt antog EP kritiska budgetramsdokument (riktlinjer för budgeten 2027) och beslut om immunitetsprövning. Dessa motioner visar sammantaget EP10:s förmåga till konsensus över blockgränserna i geopolitiska och digitala styrningsfrågor, medan spricklinjer avslöjas rörande migration och sociala frågor.
+
+**Topp 3 utlösare:**
+1. 🔴 **DMA-genomförande** — EP pressar kommissionen att använda hela DMA-verktygslådan mot grindvakter; ekonomiska insatser: tullkorrigering avseende USA-varor (TA-0096) skapar parallell hävstång mot amerikanska teknikplattformar
+2. 🟡 **Ukrainaansvar** — EP kräver inrättande av en specialdomstol; signaler inför G7-toppmötet och IMF:s granskning av Ukrainalånet (TA-0010 samarbetsinstrument redan antaget januari 2026)
+3. 🟡 **Riktlinjer för budget 2027** — Parlamentet tar ställning inför de interinstitutionella budgetförhandlingarna; IMF WEO prognostiserar kvarstående finanspolitiskt tryck i euroområdet
+
+---
+
+### Strategisk Underrättelsesammanfattning
+
+#### Politisk arkitektur (EP10 — maj 2026)
+- **717 ledamöter** fördelade på 9 grupper; majoritet = 360 röster
+- **EPP (183, 25,5 %)**: dominant centerger; styr i DMA-, budget- och CFSP-frågor
+- **S&D (136, 19,0 %)**: progressiv ryggrad; driver Ukraina, antikorruption, sociala frågor
+- **PfE (85, 11,9 %)**: Patriotes pour l'Europe; populistisk höger; avviker i Ukraina- och DMA-frågor
+- **ECR (81, 11,3 %)**: Europeiska konservativa; anti-Ukraina-konsensus förskjuts; konkurrerar med PfE
+- **Renew (77, 10,7 %)**: liberalt centrum; DMA-samordning med EPP; stark i digital suveränitet
+- **Greens/EFA (53, 7,4 %)**: klimat-digital-rättigheter-nexus; DMA-genomförande, Armenien
+- **The Left (45, 6,3 %)**: antikrigs-, pro-rättighets-inriktning; Armenien, Haitihandel, cybermobbing
+- **NI (30, 4,2 %)**: icke-anslutna; heterogena, inklusive Braun-immunitetsfallet
+- **ESN (27, 3,8 %)**: europeiska suveränister; yttersta högern; emot de flesta resolutioner
+
+**Nyckelkoalitionsmatematik:** EPP + S&D = 319 (under 360); EPP + S&D + Renew = 396 (fungerande majoritet för de flesta omröstningar). DMA- och Ukrainatexterna klarades sannolikt med EPP + S&D + Renew + Greens-majoriteterna (~449 röster). Immunitetsprövningsbeslut tenderar mot bred partikonsensus.
+
+#### Kritiska motioner — april 2026 plenum
+
+##### 1. Genomförande av lagen om digitala marknader (TA-10-2026-0160)
+- **Resolutionstyp:** RSP (brådskande/plenarinitieringsregel 132)
+- **Politisk tyngd:** HÖG — utmanar direkt kommissionens genomföringstakt avseende Apple, Meta, Googles grindvaktsdesignationer
+- **Koalition:** EPP + Renew (digital suveränitet) + S&D (konsumenträttigheter) + Greens (plattformsansvar) bildade sannolikt kärnmajoriteten
+- **Sprickor:** PfE och ECR delade — en del stöder utifrån nationell suveränitetsbas, andra motsätter sig narrativet om överreglering
+- **Ekonomisk kontext (IMF):** USA:s BNP-tillväxt 2,32 % 2026 (WEO), finansunderskott -7,5 % av BNP; USA:s tullkorrigering (TA-0096 mars 2026) inbäddad handelsfriktion — DMA-genomförande tillför en andra regulatorisk tryckvektors mot amerikanska teknikplattformar
+- **Framåtindikator:** Kommissionen måste svara med en formell tidsplan för genomförandeåtgärder inom 6 månader enligt EP:s arbetsordning
+
+##### 2. Ukrainaansvar (TA-10-2026-0161)
+- **Resolutionstyp:** RSP
+- **Politisk tyngd:** KRITISK — uppmanar till inrättande av specialdomstol för aggressionsbrott; bygger på Ukrainalånet januari 2026 (50 miljarder euro förstärkt samarbete)
+- **Koalition:** EPP + S&D + Renew + Greens + The Left = överväldigande majoritet; PfE till stor del frånvarande eller nedlagda röster
+- **Risk för avhoppare:** ECR intern spänning — polska ECR-ledamöter starkt pro-Ukraina; Fidesz-närstående NI (ungerska) emot
+- **Ekonomisk kontext:** Ryssland-Ukraina-konfliktens ekonomiska svans: IMF WEO beräknar Ukrainas återuppbyggnadsbehov till hundratals miljarder; EU:s 50 miljarder euro Ukrainalån (TA-0010 jan 2026) är det viktigaste instrumentet
+- **Framåtindikator:** Domstolsinrättande kräver FN:s säkerhetsrådsresolution eller ad hoc-fördrag; EP-texten skapar politiskt tryck på medlemsstater att leda en koalition av villiga stater
+
+##### 3. Armenisk demokratisk motståndskraft (TA-10-2026-0162)
+- **Resolutionstyp:** RSP
+- **Politisk tyngd:** MEDEL — geopolitisk signal till södra Kaukasus; kopplad till förhandlingarna om EU-Armenien-partnerskapsavtalet
+- **Koalition:** bred EPP + S&D + Renew-konsensus; Greens och Left anslöt sig; ESN emot
+- **Kontext:** Armeniens demokratiska bana 2025–2026 efter Nagorno-Karabach; Pasjinjans regerings EU-pivot bort från CSTO
+
+##### 4. Straffrättsliga bestämmelser om cybermobbing (TA-10-2026-0163)
+- **Resolutionstyp:** INI (eget initiativ)
+- **Politisk tyngd:** MEDEL — kräver EU-nivel straffrätt om cybermobbing och plattformsansvar
+- **Koalition:** S&D-lett, brett stöd; EPP försiktigt om nya straffrättsliga kompetenser; digitala rättighetsgrupper (Greens, Left) stödde med förbehåll
+- **Intressekonflikt:** plattformsoperatörer (storteknologi) emot; offersrättsorganisationer starkt för; BEUC (europeiska konsumentorganisationen) medförfattare av det civila samhällets krav
+
+##### 5. Riktlinjer för budget 2027 (TA-10-2026-0112)
+- **Resolutionstyp:** BUD
+- **Politisk tyngd:** INSTITUTIONELLT HÖG — EP:s första formella ståndpunkt för 2027 MFF-cykeln
+- **Koalition:** EPP-ledd budgetmajoritet; S&D extraherade golv för sociala utgifter
+- **IMF-kontext:** USA:s finansunderskott -7,5 % av BNP 2026; Kina -8,2 % av BNP; eurozonens finanskonsolideringstryck kvarstår — EP 2027-riktlinjer speglar spänningen mellan ökade försvarsutgifter (efter Ukraina) och klimatinvesteringar
+
+##### 6. Immunitetsprövningar: Braun och Jaki
+- **TA-10-2026-0088:** Grzegorz Braun (NI, Polen) — immunitet upphävd för antisemitisk incident (brandsläckare på chanukkaljusstake i EP-kammaren, december 2023)
+- **TA-10-2026-0105:** Patryk Jaki (ECR, Polen) — immunitetsprövning i polska straffrättsliga förfaranden
+- **Politisk betydelse:** Båda polska; speglar pågående polska rättsstatsproblem; Braun-fallet nästan enhälligt (NI-heterogenitet)
+
+#### Ekonomisk och finanspolitisk kontext (IMF WEO september 2025)
+
+| Indikator | Kina 2025 | Kina 2026 | USA 2025 | USA 2026 |
+|-----------|-----------|-----------|---------|---------|
+| BNP-tillväxt (%) | 4,96 % | 4,41 % | 2,12 % | 2,32 % |
+| Inflation (KPI %) | 0,05 % | 1,22 % | 2,73 % | 3,23 % |
+| Finansunderskott (% av BNP) | -7,87 % | -8,15 % | -6,82 % | -7,50 % |
+| Bytesbalans (% av BNP) | +3,71 % | +3,48 % | -3,63 % | -3,70 % |
+
+🟡 **EU-aggregerade WEO-data returnerades inte** — Kina/USA tillhandahölls för jämförande kontext avseende handelsmotioner (TA-0096 USA:s tullkorrigering) och strategisk konkurrens (DMA, digital suveränitet).
+
+---
+
+### Tillförlitlighetsbedömning
+
+| Påstående | Tillförlitlighet | Grund |
+|-------|-----------|-------|
+| Majoritetskoalitionens sammansättning för april-texterna | 🟡 Medium | Gruppstorlekar tillgängliga; omröstningsprotokoll ännu ej publicerade (4–6 veckors EP-fördröjning) |
+| Tullkorrigeringstext USA antagen | 🟢 Hög | TA-10-2026-0096 metadata bekräftad med dateAdopted=2026-03-26 |
+| DMA-genomföranderesolution antagen | 🟢 Hög | TA-10-2026-0160 i flödet med dateAdopted=2026-04-30 |
+| Specifika omröstningsmarginaler | 🔴 Låg | Omröstningsdata ej tillgänglig; DOCEO XML ej ännu publicerad för denna vecka |
+| IMF ekonomiska prognoser | 🟢 Hög | Direkt SDMX 3.0-fråga, september 2025-version |
+
+---
+
+### Nyckelpersoner
+
+| Ledamot / Grupp | Roll under perioden | Prioriterade motioner |
+|-------------|---------------|-----------------|
+| Manfred Weber (EPP, DE) | EPP-gruppledare i kammaren; styrde DMA och digital suveränitetstexterna | TA-0160, TA-0022 |
+| Iratxe García Pérez (S&D, ES) | S&D-gruppledare; ledde Ukrainaansvarsarbetet | TA-0161 |
+| Valérie Hayer (Renew, FR) | Renew-koordinator; medförfattare till DMA-genomförandet | TA-0160 |
+| Terry Reintke (Greens/EFA, DE) | Greens ansvarig för cybermobbing | TA-0163 |
+| Grzegorz Braun (NI, PL) | Immunitet upphävd — antisemitisk incident | TA-0088 |
+| Patryk Jaki (ECR, PL) | Immunitet upphävd — polska straffrättsliga förfaranden | TA-0105 |
+
+*Obs: Namngivna gruppledare är slutledda från gruppuppdrag; specifika rapportörer ej bekräftade via EP API för dessa RSP-texter (procedurell metadata ej tillgänglig). Tillförlitlighet: 🟡 Medium.*
+
+---
+
+### Framåtindikatorer (6-månadersprognos)
+
+1. **DMA-genomförandeåtgärd** — Kommissionen måste meddela formella förfaranden mot namngivna grindvakter; Apple iOS/App Store, Meta Marketplace, Google Search troligaste målen; Q3 2026
+2. **Ukrainas specialdomstol** — EP-texten matar in i G7:s rättsgrupp; fördragsförhandlingarna kan accelerera om den tyska koalitionsregeringen stöder (Scholz 2.0-kontext); H2 2026
+3. **2027 MFF-förförhandlingar** — EP:s 2027-budgetriktlinjer utlöser formell trepartsförhandling med rådet; EP vill ha försvarsutgifter inom MFF, inte utanför budgeten; omtvistat till 2027
+4. **Cybermobbing-lagstiftning** — EP:s initiativresolution triggar kommissionen att överväga direktivförslag under EU:s straffrättsliga kompetens (art. 83 FEUF); troligen 2027 kommissionens arbetsprogram
+5. **Armeniens partnerskapsavtal** — Resolutionen ger politiskt stöd för kommissionen att avsluta avtalet; bevaka rådets mandatändring; Q4 2026
+
+### Executive Brief Zh
+
+**分类：** 非机密 // 公开发布
+**生成日期：** 2026-05-13 | **文章类型：** motions | **置信度：** 🟡 中等
+**数据来源：** 欧洲议会开放数据门户（更新含127份文本；51条含标题完整记录），IMF WEO 2025年9月版，欧洲议会政治格局API
+
+---
+
+### BLUF（60秒速读）
+
+2026年4月欧洲议会全体会议周（4月28日至30日）以四项基础性决议为核心：数字市场监管执法、俄罗斯对乌克兰的责任、亚美尼亚民主韧性，以及网络欺凌应对措施。每项决议都反映了高度碎片化的EP10（有效政党数6.58，通过需≥360票）内独特的联盟动态。《数字市场法》（DMA）执法决议表明EP在平台竞争领域对大型科技公司采取更为强硬的立场。乌克兰责任文本标志着EP在记录俄罗斯战争罪行方面的共识进一步强化。此外，欧洲议会还通过了2027年预算指导方针及免疫豁免废除的关键文件。这些决议整体显示了EP10在地缘政治与数字治理领域构建跨党派共识的能力，同时也暴露了移民和社会议题上的分歧。
+
+**三大核心因素：**
+1. 🔴 **DMA执法** — EP向欧委会施压，要求对守门人使用一切DMA工具；经济赌注：关税调整（TA-0096）对美国平台形成并行监管压力
+2. 🟡 **乌克兰责任** — EP要求设立特别法庭；在G7峰会及IMF乌克兰贷款审查前发出信号（TA-0010：2026年1月通过的合作工具）
+3. 🟡 **2027年预算指导方针** — EP在IMF WEO预测欧元区持续财政压力的背景下，于机构间谈判前确立立场
+
+---
+
+### 战略情报摘要
+
+#### 政治格局（EP10 — 2026年5月）
+- **717名欧洲议员**分属9个议会党团；过半数 = 360票
+- **EPP（183席，25.5%）：** 中右翼主导；引领DMA、预算、外交与安全政策
+- **S&D（136席，19.0%）：** 进步派支柱；推动乌克兰、反腐、福利议题
+- **PfE（85席，11.9%）：** 欧洲爱国者；右翼民粹；在乌克兰与DMA议题上偏离
+- **ECR（81席，11.3%）：** 欧洲保守改革；乌克兰共识摇摆；与PfE竞争
+- **Renew（77席，10.7%）：** 中间自由派；在DMA上与EPP协调；数字主权领域具强势
+- **Greens/EFA（53席，7.4%）：** 气候-数字-权利交汇点；DMA执法、亚美尼亚
+- **The Left（45席，6.3%）：** 反战、人权导向；亚美尼亚、海地人口贩卖、网络欺凌
+- **NI（30席，4.2%）：** 无党籍；异质构成，包括布劳恩免疫豁免事件
+- **ESN（27席，3.8%）：** 欧洲主权主义者；极右；反对大多数决议
+
+**关键联盟算术：** EPP + S&D = 319（低于360）；EPP + S&D + Renew = 396（大多数表决的可用多数）。DMA和乌克兰文本可能以EPP + S&D + Renew + Greens（约449票）通过。免疫豁免废除倾向于多党共识。
+
+#### 关键决议 — 2026年4月全体会议
+
+##### 1. 数字市场法执法（TA-10-2026-0160）
+- **决议类型：** RSP（第132条紧急/全体会议主导）
+- **政治分量：** 高 — 直接挑战欧委会对Apple、Meta、Google守门人指定的执法节奏
+- **联盟：** EPP + Renew（数字主权）+ S&D（消费者权利）+ Greens（平台问责）构成多数核心
+- **分歧线：** PfE与ECR分化 — 部分基于国家主权支持，另一部分基于过度监管叙事反对
+- **经济背景（IMF）：** 美国GDP增长2026年2.32%（WEO），财政赤字-7.5%/GDP；关税调整（TA-0096：2026年3月）已内化为贸易摩擦 — DMA执法为美国科技平台增加第二个监管压力向量
+- **未来指标：** 欧委会须按EP内部程序于6个月内提交正式执法行动计划
+
+##### 2. 乌克兰责任（TA-10-2026-0161）
+- **决议类型：** RSP
+- **政治分量：** 关键 — 要求设立侵略罪特别法庭；以2026年1月乌克兰贷款（500亿欧元强化合作）为基础
+- **联盟：** EPP + S&D + Renew + Greens + The Left = 压倒性多数；PfE大部分缺席或弃权
+- **背叛风险：** ECR内部紧张 — 波兰ECR议员强力支持乌克兰；与菲德斯相近的NI议员（匈牙利系）反对
+- **经济背景：** 俄乌冲突的经济尾部：IMF WEO预测乌克兰重建需求达数千亿美元；欧盟500亿欧元乌克兰贷款（TA-0010：2026年1月）为主要工具
+- **未来指标：** 法庭设立需联合国安理会决议或专项条约；EP文本为G7等"志愿联盟"制造政治压力
+
+##### 3. 亚美尼亚民主韧性（TA-10-2026-0162）
+- **决议类型：** RSP
+- **政治分量：** 中等 — 向南高加索发出地缘政治信号；与欧盟-亚美尼亚伙伴关系协定谈判挂钩
+- **联盟：** EPP + S&D + Renew广泛共识；Greens与Left加入；ESN反对
+- **背景：** 纳卡冲突后2025至2026年亚美尼亚民主化轨迹；帕希尼扬政府脱离集安组织、转向欧盟轴心
+
+##### 4. 网络欺凌刑事条款（TA-10-2026-0163）
+- **决议类型：** INI（自主提案）
+- **政治分量：** 中等 — 要求欧盟层面针对网络欺凌与平台问责的刑事立法
+- **联盟：** S&D主导，获广泛支持；EPP对新刑事权限持谨慎态度；数字权利团体（Greens、Left）有条件支持
+- **利益相关方张力：** 平台运营商（大型科技公司）反对；受害者权利团体强力支持；BEUC（欧洲消费者组织）参与公民社会诉求的制定
+
+##### 5. 2027年预算指导方针（TA-10-2026-0112）
+- **决议类型：** BUD
+- **政治分量：** 机构层面高 — EP对2027年多年期财务框架周期的首份正式立场
+- **联盟：** EPP主导预算多数；S&D确保社会支出下限
+- **IMF背景：** 美国财政赤字2026年-7.5%/GDP；中国-8.2%/GDP；欧元区持续财政整合压力 — EP的2027年指导方针反映了上升的防务支出（乌克兰后）与气候投资之间的张力
+
+##### 6. 免疫豁免废除：布劳恩与亚基
+- **TA-10-2026-0088：** 格热戈日·布劳恩（NI，波兰）— 因反犹太事件（2023年12月在EP全体会议厅向光明节烛台喷射灭火器）废除免疫豁免
+- **TA-10-2026-0105：** 帕特里克·亚基（ECR，波兰）— 因波兰刑事程序废除免疫豁免
+- **政治意义：** 二人均为波兰人；反映波兰持续的法治紧张；布劳恩案近乎一致（NI的异质性）
+
+#### 经济与财政背景（IMF WEO 2025年9月）
+
+| 指标 | 中国2025 | 中国2026 | 美国2025 | 美国2026 |
+|-----------|-----------|-----------|---------|---------|
+| GDP增长率（%） | 4.96% | 4.41% | 2.12% | 2.32% |
+| 通胀率（CPI %） | 0.05% | 1.22% | 2.73% | 3.23% |
+| 财政赤字（%/GDP） | -7.87% | -8.15% | -6.82% | -7.50% |
+| 经常账户（%/GDP） | +3.71% | +3.48% | -3.63% | -3.70% |
+
+🟡 **未返回欧盟汇总WEO数据** — 中国/美国作为贸易决议（TA-0096：美国关税调整）和战略竞争（DMA、数字主权）决策的比较背景提供。
+
+---
+
+### 置信度评估
+
+| 主张 | 置信度 | 依据 |
+|-------|-----------|-------|
+| 4月文本的联盟多数构成 | 🟡 中等 | 党团规模数据可用；记名投票结果未公开（EP公开延迟4至6周） |
+| 美国关税调整文本的通过 | 🟢 高 | TA-10-2026-0096元数据：dateAdopted=2026-03-26已确认 |
+| DMA执法决议的通过 | 🟢 高 | TA-10-2026-0160：更新中dateAdopted=2026-04-30 |
+| 具体投票差距 | 🔴 低 | 投票数据未获取；DOCEO XML本周未发布 |
+| IMF经济预测 | 🟢 高 | 直接SDMX 3.0查询，2025年9月版 |
+
+---
+
+### 主要行为者
+
+| 欧洲议员 / 党团 | 本期角色 | 优先决议 |
+|-------------|---------------|-----------------|
+| 曼弗雷德·韦伯（EPP，德国） | EPP党团领袖；主导DMA与数字主权文本 | TA-0160，TA-0022 |
+| 伊拉切·加西亚·佩雷斯（S&D，西班牙） | S&D党团领袖；主导乌克兰问责运动 | TA-0161 |
+| 瓦莱丽·艾尔（Renew，法国） | Renew协调人；共同参与DMA执法制定 | TA-0160 |
+| 特里·莱因特克（Greens/EFA，德国） | Greens网络欺凌负责人 | TA-0163 |
+| 格热戈日·布劳恩（NI，波兰） | 免疫豁免废除 — 反犹太事件 | TA-0088 |
+| 帕特里克·亚基（ECR，波兰） | 免疫豁免废除 — 波兰刑事程序 | TA-0105 |
+
+*注：所列党团领袖从党团分配中得出；通过EP API确认的RSP文本具体报告员信息不可用（程序元数据未获取）。置信度：🟡 中等。*
+
+---
+
+### 未来指标（6个月展望）
+
+1. **DMA执法行动** — 欧委会须宣布对指定守门人的正式程序；Apple iOS/App Store、Meta Marketplace、Google Search最可能成为目标；2026年第三季度
+2. **乌克兰特别法庭** — EP文本推动G7法律工作组；如德国联合政府（舒尔茨2.0背景）支持则条约谈判可能加速；2026年下半年
+3. **2027年多年期财务框架预谈判** — EP的2027年预算指导方针启动与理事会的第三轮正式谈判；EP要求防务支出纳入框架而非预算外；争议持续至2027年
+4. **网络欺凌立法** — EP自主提案决议促使欧委会考虑依据欧盟刑事权限（TFEU第83条）提出指令提案；可能纳入欧委会2027年工作计划
+5. **亚美尼亚伙伴关系协定** — 决议为欧委会完成协定提供政治支持；关注理事会授权修订；2026年第四季度
+
 > **Provenance & Audit**
 >
 > - **Article type:** `motions`
@@ -2533,4 +4100,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/methodology-reflection.md) | `methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/motions/executive-brief_zh.md) | `executive-brief_zh.md` |
 
