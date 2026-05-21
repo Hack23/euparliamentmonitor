@@ -505,25 +505,32 @@ For each queue entry, in order:
      echo "Missing entryIndex for current queue entry" >&2
      exit 1
    fi
-   python3 - "$entryIndex" > /tmp/gh-aw/source-path.txt <<'PY' || exit 1
-import json
-import sys
-from pathlib import Path
-
-queue_path = Path("/tmp/gh-aw/discovery/queue.json")
-if len(sys.argv) < 2:
-    print("Missing required argument: entry index", file=sys.stderr)
-    sys.exit(1)
-raw_index = sys.argv[1]
-try:
-    payload = json.loads(queue_path.read_text(encoding="utf-8"))
-    queue = payload.get("queue", [])
-    idx = int(raw_index)
-    print(queue[idx].get("sourcePath", ""))
-except (FileNotFoundError, json.JSONDecodeError, ValueError, IndexError, TypeError) as exc:
-    print(f"Failed to read/parse queue or access entry index {raw_index} in {queue_path}: {exc}", file=sys.stderr)
-    sys.exit(1)
-PY
+   # Node.js (the repo-wide toolchain — see 00-scope-and-ground-rules.md §4).
+   # Matches the `node -e` pattern used 110 lines down to read `largeSource` /
+   # `sourceLineCount` from the same queue.json. Python heredocs are banned
+   # repo-wide (see §"🚫 Never" below and 00-scope-and-ground-rules.md).
+   node -e '
+     const fs = require("node:fs");
+     const queuePath = "/tmp/gh-aw/discovery/queue.json";
+     const raw = process.argv[2];
+     if (!raw) {
+       console.error("Missing required argument: entry index");
+       process.exit(1);
+     }
+     try {
+       const payload = JSON.parse(fs.readFileSync(queuePath, "utf8"));
+       const queue = Array.isArray(payload.queue) ? payload.queue : [];
+       const idx = Number(raw);
+       if (!Number.isInteger(idx) || idx < 0 || idx >= queue.length) {
+         throw new RangeError("entry index " + raw + " out of range (queue length " + queue.length + ")");
+       }
+       const entry = queue[idx] || {};
+       process.stdout.write((typeof entry.sourcePath === "string" ? entry.sourcePath : "") + "\n");
+     } catch (exc) {
+       console.error("Failed to read/parse queue or access entry index " + raw + " in " + queuePath + ": " + exc.message);
+       process.exit(1);
+     }
+   ' "$entryIndex" > /tmp/gh-aw/source-path.txt || exit 1
    IFS= read -r sourcePath < /tmp/gh-aw/source-path.txt
    if [ -z "${sourcePath:-}" ] || [ ! -f "$sourcePath" ]; then
      echo "Missing or invalid sourcePath: $sourcePath" >&2

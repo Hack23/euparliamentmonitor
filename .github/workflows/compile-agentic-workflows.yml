@@ -141,6 +141,7 @@ jobs:
           done
           echo ""
           echo "🔍 Enforcing create_pull_request.max: 1 on compiled .lock.yml (safe-outputs config, news-translate exempt)…"
+          # Repo-wide toolchain is Node.js (see .github/prompts/00-scope-and-ground-rules.md §4).
           # The safe-outputs config appears in two places in each compiled lock:
           #   (a) a plain-JSON block embedded in a prompt heredoc:
           #         "create_pull_request":{...,"max":N,...}
@@ -149,38 +150,47 @@ jobs:
           #         \"create_pull_request\":{...,\"max\":N,...}
           # Both forms can contain `}` characters INSIDE string values (e.g.
           # the `${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}` env reference),
-          # which broke the previous `[^}]*` grep regex. Use Python with a
-          # non-greedy regex anchored on the first `"max":N` after the
+          # which broke the previous `[^}]*` grep regex. Use a non-greedy
+          # regex anchored on the first `"max":N` after the
           # `"create_pull_request":{` opener — and exempt news-translate.lock.yml,
           # which legitimately encodes max: 10.
-          if ! python3 - <<'PYEOF'
-          import glob, re, sys
-          EXEMPT = {'news-translate.lock.yml'}
-          PATTERN = re.compile(r'"create_pull_request"\s*:\s*\{.*?"max"\s*:\s*(\d+)', re.DOTALL)
-          fail = 0
-          for lf in sorted(glob.glob('.github/workflows/news-*.lock.yml')):
-              base = lf.rsplit('/', 1)[-1]
-              if base in EXEMPT:
-                  print(f'  ⏭️  {lf} (exempt: multi-call flush translator uses max: 10)')
-                  continue
-              with open(lf, encoding='utf-8') as fp:
-                  text = fp.read()
-              # Strip backslashes so the YAML-escaped JSON form matches the
-              # same regex as the plain JSON form.
-              norm = text.replace('\\', '')
-              matches = PATTERN.findall(norm)
-              if not matches:
-                  print(f'  ❌ {lf} has no create_pull_request config with max (plain or backslash-escaped JSON)')
-                  fail = 1
-                  continue
-              bad = [m for m in matches if m != '1']
-              if bad:
-                  print(f'  ❌ {lf} has create_pull_request.max != 1 (found: {" ".join(matches)})')
-                  fail = 1
-              else:
-                  print(f'  ✅ {lf} (create_pull_request.max: 1, {len(matches)} occurrence(s))')
-          sys.exit(fail)
-          PYEOF
+          if ! node -e '
+            const fs = require("node:fs");
+            const path = require("node:path");
+            const EXEMPT = new Set(["news-translate.lock.yml"]);
+            const PATTERN = /"create_pull_request"\s*:\s*\{[\s\S]*?"max"\s*:\s*(\d+)/g;
+            const dir = ".github/workflows";
+            const files = fs.readdirSync(dir)
+              .filter((f) => f.startsWith("news-") && f.endsWith(".lock.yml"))
+              .map((f) => path.join(dir, f))
+              .sort();
+            let fail = 0;
+            for (const lf of files) {
+              const base = path.basename(lf);
+              if (EXEMPT.has(base)) {
+                console.log("  ⏭️  " + lf + " (exempt: multi-call flush translator uses max: 10)");
+                continue;
+              }
+              const text = fs.readFileSync(lf, "utf8");
+              // Strip backslashes so the YAML-escaped JSON form matches the
+              // same regex as the plain JSON form.
+              const norm = text.replace(/\\/g, "");
+              const matches = Array.from(norm.matchAll(PATTERN), (m) => m[1]);
+              if (matches.length === 0) {
+                console.log("  ❌ " + lf + " has no create_pull_request config with max (plain or backslash-escaped JSON)");
+                fail = 1;
+                continue;
+              }
+              const bad = matches.filter((m) => m !== "1");
+              if (bad.length > 0) {
+                console.log("  ❌ " + lf + " has create_pull_request.max != 1 (found: " + matches.join(" ") + ")");
+                fail = 1;
+              } else {
+                console.log("  ✅ " + lf + " (create_pull_request.max: 1, " + matches.length + " occurrence(s))");
+              }
+            }
+            process.exit(fail);
+          '
           then
             FAIL=1
           fi
