@@ -184,7 +184,7 @@ describe('mcp-connection extended', () => {
         })
       );
 
-      const result = await client._sendGatewayRequest('tools/list');
+      const result = await client.sendRequest('tools/list');
       expect(result).toEqual({ tools: ['a', 'b'] });
     });
 
@@ -202,7 +202,7 @@ describe('mcp-connection extended', () => {
         })
       );
 
-      const result = await client._sendGatewayRequest('tools/call', { name: 'test' });
+      const result = await client.sendRequest('tools/call', { name: 'test' });
       expect(result).toEqual({ data: 'hello' });
     });
 
@@ -220,7 +220,7 @@ describe('mcp-connection extended', () => {
         })
       );
 
-      await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+      await expect(client.sendRequest('tools/list')).rejects.toThrow(
         'Failed to parse SSE response'
       );
     });
@@ -239,7 +239,7 @@ describe('mcp-connection extended', () => {
         })
       );
 
-      await expect(client._sendGatewayRequest('tools/call')).rejects.toThrow('Tool not found');
+      await expect(client.sendRequest('tools/call')).rejects.toThrow('Tool not found');
     });
 
     it('should throw when JSON response contains an error', async () => {
@@ -256,7 +256,7 @@ describe('mcp-connection extended', () => {
         })
       );
 
-      await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow('Internal error');
+      await expect(client.sendRequest('tools/list')).rejects.toThrow('Internal error');
     });
 
     it('should update mcpSessionId from response headers', async () => {
@@ -273,16 +273,16 @@ describe('mcp-connection extended', () => {
         })
       );
 
-      await client._sendGatewayRequest('tools/list');
+      await client.sendRequest('tools/list');
       expect(client.getMcpSessionId()).toBe('new-session-42');
     });
 
-    it('should throw when gateway URL is not configured', async () => {
-      client.gatewayUrl = null;
-      client.connected = true;
+    it('should throw when not connected', async () => {
+      client.gatewayUrl = 'http://fake-gateway/mcp';
+      client.connected = false;
 
-      await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
-        'Gateway URL not configured'
+      await expect(client.sendRequest('tools/list')).rejects.toThrow(
+        'Not connected to MCP server'
       );
     });
 
@@ -299,7 +299,7 @@ describe('mcp-connection extended', () => {
       });
       vi.stubGlobal('fetch', fetchMock);
 
-      await client._sendGatewayRequest('tools/list');
+      await client.sendRequest('tools/list');
 
       const callArgs = fetchMock.mock.calls[0];
       expect(callArgs[1].headers['Mcp-Session-Id']).toBe('existing-session-1');
@@ -318,7 +318,7 @@ describe('mcp-connection extended', () => {
       });
       vi.stubGlobal('fetch', fetchMock);
 
-      await client._sendGatewayRequest('tools/list');
+      await client.sendRequest('tools/list');
 
       const callArgs = fetchMock.mock.calls[0];
       expect(callArgs[1].headers['Authorization']).toBe('my-secret-key');
@@ -331,15 +331,21 @@ describe('mcp-connection extended', () => {
       await expect(client.sendRequest('tools/list')).rejects.toThrow('Not connected');
     });
 
-    it('should delegate to _sendGatewayRequest when gatewayUrl is set', async () => {
+    it('should delegate to gateway when gatewayUrl is set', async () => {
       client.gatewayUrl = 'http://fake-gateway/mcp';
       client.connected = true;
 
-      const spy = vi.spyOn(client, '_sendGatewayRequest').mockResolvedValue({ tools: [] });
+      vi.stubGlobal(
+        'fetch',
+        vi.fn().mockResolvedValue({
+          ok: true,
+          headers: { get: () => 'application/json' },
+          text: async () => JSON.stringify({ jsonrpc: '2.0', id: 1, result: { tools: [] } }),
+        })
+      );
 
       const result = await client.sendRequest('tools/list', { foo: 'bar' });
       expect(result).toEqual({ tools: [] });
-      expect(spy).toHaveBeenCalledWith('tools/list', { foo: 'bar' });
     });
   });
 
@@ -414,52 +420,48 @@ describe('mcp-connection extended', () => {
     });
   });
 
-  describe('_computeConnectionDelay', () => {
+  describe('_nextConnectionDelay', () => {
     it('should use retryAfterMs from MCPRateLimitError', () => {
       const err = new MCPRateLimitError(45000, 'rate limited');
-      const delay = client._computeConnectionDelay(err, 1);
+      client.maxConnectionAttempts = 5;
+      client.connectionAttempts = 0;
+      const delay = client._nextConnectionDelay(err);
       expect(delay).toBe(45000);
     });
 
     it('should use exponential backoff for non-rate-limit errors', () => {
       const err = new Error('connection refused');
       client.connectionRetryDelay = 1000;
-      expect(client._computeConnectionDelay(err, 1)).toBe(1000); // 1000 * 2^0
-      expect(client._computeConnectionDelay(err, 2)).toBe(2000); // 1000 * 2^1
-      expect(client._computeConnectionDelay(err, 3)).toBe(4000); // 1000 * 2^2
+      client.maxConnectionAttempts = 10;
+      client.connectionAttempts = 0;
+      expect(client._nextConnectionDelay(err)).toBe(1000); // 1000 * 2^0
+      expect(client._nextConnectionDelay(err)).toBe(2000); // 1000 * 2^1
+      expect(client._nextConnectionDelay(err)).toBe(4000); // 1000 * 2^2
     });
   });
 
-  describe('_handleConnectionAttemptError', () => {
+  describe('_nextConnectionDelay error handling', () => {
     it('should throw MCPSessionExpiredError immediately', () => {
       const err = new MCPSessionExpiredError('Unauthorized');
-      expect(() => client._handleConnectionAttemptError(err)).toThrow(MCPSessionExpiredError);
+      expect(() => client._nextConnectionDelay(err)).toThrow(MCPSessionExpiredError);
     });
 
     it('should increment connection attempts', () => {
       client.maxConnectionAttempts = 5;
       client.connectionAttempts = 0;
-      const delay = client._handleConnectionAttemptError(new Error('fail'));
+      client._nextConnectionDelay(new Error('fail'));
       expect(client.connectionAttempts).toBe(1);
-      expect(delay).toBeGreaterThanOrEqual(0);
     });
 
     it('should throw after max attempts exhausted', () => {
       client.maxConnectionAttempts = 2;
       client.connectionAttempts = 1;
-      expect(() => client._handleConnectionAttemptError(new Error('fail'))).toThrow('fail');
+      expect(() => client._nextConnectionDelay(new Error('fail'))).toThrow('fail');
     });
   });
 
-  describe('_attemptGatewayConnection', () => {
-    it('should throw when gatewayUrl is null', async () => {
-      client.gatewayUrl = null;
-      await expect(client._attemptGatewayConnection()).rejects.toThrow(
-        'Gateway URL not configured'
-      );
-    });
-
-    it('should set connected=true on success', async () => {
+  describe('gateway connection via connect()', () => {
+    it('should set connected=true on gateway success', async () => {
       client.gatewayUrl = 'http://fake-gateway/mcp';
 
       vi.stubGlobal(
@@ -472,7 +474,7 @@ describe('mcp-connection extended', () => {
         })
       );
 
-      await client._attemptGatewayConnection();
+      await client.connect();
       expect(client.isConnected()).toBe(true);
     });
 
@@ -491,7 +493,7 @@ describe('mcp-connection extended', () => {
         })
       );
 
-      await client._attemptGatewayConnection();
+      await client.connect();
       expect(client.getMcpSessionId()).toBe('sess-abc');
     });
   });

@@ -28,7 +28,7 @@ import {
   attemptStdioConnection,
   handleIncomingMessage,
 } from './process.js';
-import { type ReconnectOps, runWithRetry } from './reconnect.js';
+import { type ReconnectOps, performReconnect, runWithRetry } from './reconnect.js';
 
 /**
  * Base MCP connection managing JSON-RPC 2.0 transport over stdio or HTTP gateway.
@@ -385,6 +385,16 @@ export class MCPConnection {
         this.timeoutCount = n;
       },
     };
+  }
+
+  /**
+   * Attempt to reconnect to the MCP server.
+   * Deduplicates concurrent calls — only one reconnect runs at a time.
+   *
+   * @returns Resolves when reconnect succeeds or all attempts are exhausted
+   */
+  async reconnect(): Promise<void> {
+    return performReconnect(this._reconnectOps());
   }
 
   /**
