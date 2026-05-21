@@ -1385,7 +1385,7 @@ jobs:
           GH_AW_FAILURE_REPORT_AS_ISSUE: "false"
           GH_AW_MISSING_TOOL_REPORT_AS_FAILURE: "true"
           GH_AW_MISSING_DATA_REPORT_AS_FAILURE: "true"
-          GH_AW_TIMEOUT_MINUTES: "90"
+          GH_AW_TIMEOUT_MINUTES: "60"
           GH_AW_MAX_EFFECTIVE_TOKENS: "25000000"
           GH_AW_CACHE_MEMORY_ENABLED: "true"
         with:
