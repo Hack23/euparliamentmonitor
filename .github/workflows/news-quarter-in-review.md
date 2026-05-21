@@ -4,14 +4,8 @@ description: Generates a single PR containing analysis artifacts and the rendere
 strict: false
 on:
   schedule:
-    - cron: "0 8 5 * *"  # 1st of each month around 08:00 UTC
+    - cron: "0 8 5 * *"  # 5th of each month around 08:00 UTC
   workflow_dispatch:
-    inputs:
-      force_generation:
-        description: Force generation even if recent analysis exists
-        type: boolean
-        required: false
-        default: true
 
 permissions:
   contents: read

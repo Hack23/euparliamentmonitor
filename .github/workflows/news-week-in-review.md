@@ -5,12 +5,6 @@ strict: false
 on:
   schedule: weekly on saturday around 9am  # fuzzy: scatters within ±1h of 09:00 UTC Saturdays to avoid load spikes
   workflow_dispatch:
-    inputs:
-      force_generation:
-        description: Force generation even if recent analysis exists
-        type: boolean
-        required: false
-        default: true
 
 permissions:
   contents: read

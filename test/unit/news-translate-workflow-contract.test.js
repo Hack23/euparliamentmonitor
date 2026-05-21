@@ -64,9 +64,12 @@ describe('news-translate workflow contract', () => {
     // again from 45 KB → 46 KB to admit per-language IMF/WEO fixed-token
     // examples for the Nordic + EU-core Latin-script languages after
     // failing run #26219157670 (Norwegian executive-brief_no.md missing
-    // 2 of 4 `IMF` tokens — gate #5 fixed-token-preservation).
+    // 2 of 4 `IMF` tokens — gate #5 fixed-token-preservation). Cap raised
+    // again 46 KB → 47 KB to admit the `target_brief` operator-override
+    // workflow_dispatch input + the TARGET_BRIEF env wiring + the env
+    // comment block explaining its security model.
     expect(workflow.length).toBeGreaterThan(2000);
-    expect(workflow.length).toBeLessThan(46000);
+    expect(workflow.length).toBeLessThan(47000);
   });
 
   it('runs 3×/day on cron and is workflow_dispatch-enabled', () => {
@@ -77,11 +80,27 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/workflow_dispatch:/);
   });
 
-  it('exposes max_briefs / max_age_days / include_extended dispatch inputs', () => {
+  it('exposes max_briefs / max_age_days / include_extended / mode / max_source_lines / target_brief dispatch inputs', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     expect(workflow).toMatch(/\bmax_briefs:/);
     expect(workflow).toMatch(/\bmax_age_days:/);
     expect(workflow).toMatch(/\binclude_extended:/);
+    expect(workflow).toMatch(/\bmode:/);
+    // Regression guard: `max_source_lines` is consumed by the discovery
+    // env block (`MAX_SOURCE_LINES: ${{ github.event.inputs.max_source_lines || '300' }}`),
+    // so it MUST be declared as a workflow_dispatch input — otherwise the
+    // GitHub Actions UI cannot override the 300-line default on a catch-up
+    // run and the env block always falls back. See the
+    // "parameter wired end-to-end" audit in the PR that introduced this
+    // assertion.
+    expect(workflow).toMatch(/\bmax_source_lines:/);
+    // Regression guard: `target_brief` lets operators (re)translate one
+    // specific brief on demand without waiting for the scheduled cadence
+    // to pick it up. The discovery script's queue must be filtered to the
+    // single brief at parse time so the env block, the CLI flag, and the
+    // dispatch UI all stay in sync. See parseTargetBriefSpec in
+    // scripts/discover-untranslated-briefs.js.
+    expect(workflow).toMatch(/\btarget_brief:/);
   });
 
   it('keeps the 60-minute hard cap', () => {

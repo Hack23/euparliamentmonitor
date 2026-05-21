@@ -37,6 +37,14 @@ on:
         description: "Discovery prioritisation: fresh-then-backlog (default) | backlog-only | newest-first."
         required: false
         default: "fresh-then-backlog"
+      max_source_lines:
+        description: "Source-brief line count above which the discovery script flags `largeSource: true` and the agent switches to the 2-phase skeleton-then-edit translation strategy. Default 300 (the empirical cutoff that produced the cancelled run #26181499722 at 385 lines)."
+        required: false
+        default: "300"
+      target_brief:
+        description: "Operator override — queue ONLY this brief and ignore mode/max_briefs/max_age_days. Accepted forms: `YYYY-MM-DD/<slug>` (short, e.g. `2026-05-21/propositions`), `YYYY-MM-DD/<slug>/extended` (legacy extended path), `analysis/daily/YYYY-MM-DD/<slug>/executive-brief.md`, or `analysis/daily/YYYY-MM-DD/<slug>/extended/executive-brief.md`. NOTE: targeting an extended brief also requires `include_extended: true` — otherwise discovery will not scan extended sources and the queue will be empty. Leave blank for the normal scheduled fresh-then-backlog behaviour."
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -187,6 +195,13 @@ steps:
       # #26181499722 (385-line election-cycle brief stalled the first
       # Swedish `create` after 5× transient-API-error loops).
       MAX_SOURCE_LINES: ${{ github.event.inputs.max_source_lines || '300' }}
+      # Operator override (workflow_dispatch only). Empty on scheduled runs
+      # so the normal fresh-then-backlog selection is used. When set, the
+      # discovery script queues ONLY this brief and ignores mode /
+      # max_briefs / max_age_days. Validated by parseTargetBriefSpec()
+      # against [a-z0-9-] slug + YYYY-MM-DD date — directory traversal is
+      # rejected at parse time.
+      TARGET_BRIEF: ${{ github.event.inputs.target_brief || '' }}
     run: |
       set -euo pipefail
       mkdir -p /tmp/gh-aw/discovery
@@ -201,6 +216,7 @@ steps:
         --mode "$DISCOVERY_MODE" \
         --run-number "$RUN_NUMBER" \
         --max-source-lines "$MAX_SOURCE_LINES" \
+        --target-brief "$TARGET_BRIEF" \
         --output /tmp/gh-aw/discovery/queue.json \
         $EXTENDED_FLAG
       echo "Discovery queue summary:"

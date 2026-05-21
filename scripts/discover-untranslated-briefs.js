@@ -60,6 +60,16 @@
  *                              #   flagged largeSource:true and the agent
  *                              #   switches to a 2-phase skeleton-then-edit
  *                              #   translation strategy (see news-translate.md)
+ *     [--target-brief <id>]   # optional operator override: when set, the
+ *                              #   queue contains ONLY this brief regardless
+ *                              #   of mode / max-briefs / max-age-days.
+ *                              #   Accepted forms:
+ *                              #     YYYY-MM-DD/<slug>
+ *                              #     YYYY-MM-DD/<slug>/extended
+ *                              #     analysis/daily/YYYY-MM-DD/<slug>/executive-brief.md
+ *                              #     analysis/daily/YYYY-MM-DD/<slug>/extended/executive-brief.md
+ *                              #   Used by operator-dispatched runs that need
+ *                              #   to (re)translate one specific brief.
  *     [--output <path>]       # default stdout
  *     [--include-extended]    # also scan extended/executive-brief.md
  *
@@ -145,6 +155,75 @@ export const DISCOVERY_MODES = Object.freeze([
 ]);
 
 /**
+ * Parse a `--target-brief` operator override into a `{ date, slug, isExtended }`
+ * triple. Accepts four equivalent operator-friendly forms so the same input
+ * works whether the operator copies a path out of the repo, a date/slug pair
+ * out of the discovery JSON, or types the canonical short form by hand:
+ *
+ *   1. `YYYY-MM-DD/<slug>`                                    — short form
+ *   2. `YYYY-MM-DD/<slug>/extended`                           — extended legacy path
+ *   3. `analysis/daily/YYYY-MM-DD/<slug>/executive-brief.md`  — full repo path
+ *   4. `analysis/daily/YYYY-MM-DD/<slug>/extended/executive-brief.md`
+ *
+ * Validation is intentionally strict (whitelisted character classes, fixed date
+ * format, slug character class) — the value flows from a workflow_dispatch
+ * string input into a filesystem lookup, so a permissive parser would be a
+ * directory-traversal foothold.
+ *
+ * Throws on any malformed spec; never returns null (callers must check for
+ * empty input BEFORE calling this helper).
+ *
+ * @param {string} spec — already-trimmed, non-empty operator input
+ * @returns {{ date: string, slug: string, isExtended: boolean }}
+ */
+export function parseTargetBriefSpec(spec) {
+  // Strip leading "analysis/daily/" prefix and trailing "/executive-brief.md"
+  // so all four accepted forms collapse to "<date>/<slug>" or
+  // "<date>/<slug>/extended".
+  let core = spec;
+  if (core.startsWith('analysis/daily/')) {
+    core = core.slice('analysis/daily/'.length);
+  }
+  if (core.endsWith('/executive-brief.md')) {
+    core = core.slice(0, -'/executive-brief.md'.length);
+  }
+  // Reject any path-traversal or absolute-path attempts up-front.
+  if (
+    core.startsWith('/') ||
+    core.includes('..') ||
+    core.includes('\\') ||
+    core.includes('\0')
+  ) {
+    throw new Error(
+      `--target-brief: refusing path-traversal or absolute path in "${spec}"`,
+    );
+  }
+  const parts = core.split('/');
+  let isExtended = false;
+  if (parts.length === 3 && parts[2] === 'extended') {
+    isExtended = true;
+  } else if (parts.length !== 2) {
+    throw new Error(
+      `--target-brief: expected "YYYY-MM-DD/<slug>" or "YYYY-MM-DD/<slug>/extended" (got "${spec}")`,
+    );
+  }
+  const [date, slug] = parts;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    throw new Error(
+      `--target-brief: date "${date}" is not in YYYY-MM-DD format (from "${spec}")`,
+    );
+  }
+  // Slug character class matches the existing on-disk convention used by
+  // src/config/article-horizons.ts (lowercase, digits, dashes).
+  if (!/^[a-z0-9][a-z0-9-]{0,63}$/.test(slug)) {
+    throw new Error(
+      `--target-brief: slug "${slug}" must match [a-z0-9][a-z0-9-]{0,63} (from "${spec}")`,
+    );
+  }
+  return { date, slug, isExtended };
+}
+
+/**
  * Parse CLI argv into an options object. Exported for unit tests.
  * @param {string[]} argv
  */
@@ -158,6 +237,7 @@ export function parseArgs(argv) {
     mode: 'fresh-then-backlog',
     runNumber: 0,
     maxSourceLines: DEFAULT_MAX_SOURCE_LINES,
+    targetBrief: null,
   };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -193,6 +273,21 @@ export function parseArgs(argv) {
         opts.maxSourceLines = Number.parseInt(argv[i + 1], 10);
         i += 1;
         break;
+      case '--target-brief': {
+        const raw = argv[i + 1];
+        i += 1;
+        // Normalize and validate. Empty / whitespace-only / the literal
+        // string "none" is treated as "no override" so the workflow can
+        // wire `TARGET_BRIEF: ${{ inputs.target_brief }}` without having
+        // to special-case the empty-default case in bash.
+        const trimmed = typeof raw === 'string' ? raw.trim() : '';
+        if (trimmed === '' || trimmed === 'none') {
+          opts.targetBrief = null;
+          break;
+        }
+        opts.targetBrief = parseTargetBriefSpec(trimmed);
+        break;
+      }
       case '--help':
       case '-h':
         printHelp();
@@ -232,7 +327,8 @@ function printHelp() {
   process.stdout.write(
     'Usage: discover-untranslated-briefs.js [--repo-root <path>] ' +
       '[--max-briefs <n>] [--max-age-days <n>] [--mode <name>] ' +
-      '[--run-number <n>] [--max-source-lines <n>] [--output <path>] [--include-extended]\n',
+      '[--run-number <n>] [--max-source-lines <n>] [--target-brief <YYYY-MM-DD/slug>] ' +
+      '[--output <path>] [--include-extended]\n',
   );
 }
 
@@ -402,9 +498,15 @@ export function countFixedTokens(absPath) {
  * Build the prioritised queue. See module docstring for ordering rules.
  *
  * @param {ReturnType<typeof findExecutiveBriefSources>} sources
- * @param {number | { maxBriefs: number, mode?: string, runNumber?: number, maxSourceLines?: number }} options
+ * @param {number | {
+ *   maxBriefs: number,
+ *   mode?: string,
+ *   runNumber?: number,
+ *   maxSourceLines?: number,
+ *   targetBrief?: { date: string, slug: string, isExtended: boolean } | null,
+ * }} options
  *   Numeric form retained for backward compatibility — equivalent to
- *   `{ maxBriefs, mode: 'fresh-then-backlog', runNumber: 0, maxSourceLines: DEFAULT_MAX_SOURCE_LINES }`.
+ *   `{ maxBriefs, mode: 'fresh-then-backlog', runNumber: 0, maxSourceLines: DEFAULT_MAX_SOURCE_LINES, targetBrief: null }`.
  */
 export function buildQueue(sources, options) {
   const opts =
@@ -414,6 +516,7 @@ export function buildQueue(sources, options) {
           mode: 'fresh-then-backlog',
           runNumber: 0,
           maxSourceLines: DEFAULT_MAX_SOURCE_LINES,
+          targetBrief: null,
         }
       : {
           maxBriefs: options.maxBriefs,
@@ -422,6 +525,7 @@ export function buildQueue(sources, options) {
           maxSourceLines: Number.isFinite(options.maxSourceLines)
             ? options.maxSourceLines
             : DEFAULT_MAX_SOURCE_LINES,
+          targetBrief: options.targetBrief || null,
         };
   if (!DISCOVERY_MODES.includes(opts.mode)) {
     throw new Error(
@@ -493,7 +597,20 @@ export function buildQueue(sources, options) {
   };
 
   let queue;
-  if (opts.mode === 'newest-first') {
+  if (opts.targetBrief) {
+    // Operator override: ignore mode / maxBriefs / parity and queue exactly
+    // the one brief the operator asked for, IF it has any missing languages.
+    // If the targeted brief is fully translated (no gaps), the queue is
+    // empty — the workflow's downstream validator handles the empty-queue
+    // case gracefully (skip with no work to do).
+    const tb = opts.targetBrief;
+    queue = withGaps.filter(
+      (entry) =>
+        entry.date === tb.date &&
+        entry.slug === tb.slug &&
+        entry.isExtended === tb.isExtended,
+    );
+  } else if (opts.mode === 'newest-first') {
     queue = [...withGaps].sort(newestFirst).slice(0, opts.maxBriefs);
   } else if (opts.mode === 'backlog-only') {
     queue = [...withGaps].sort(oldestFirstFinishPartial).slice(0, opts.maxBriefs);
@@ -577,6 +694,7 @@ export function main(argv) {
     mode: opts.mode,
     runNumber: opts.runNumber,
     maxSourceLines: opts.maxSourceLines,
+    targetBrief: opts.targetBrief,
   });
   const payload = {
     generatedAt: new Date().toISOString(),
@@ -587,6 +705,7 @@ export function main(argv) {
       mode: opts.mode,
       runNumber: opts.runNumber,
       maxSourceLines: opts.maxSourceLines,
+      targetBrief: opts.targetBrief,
     },
     totals,
     queue,
