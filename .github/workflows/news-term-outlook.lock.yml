@@ -442,29 +442,15 @@ jobs:
           
           ## 🚫 Never
           
-          - Never invoke the single-PR tool more than once per run.
-          - Never author article prose — the deterministic renderer owns Stage D.
-            Agent edits to `news/<date>-term-outlook.en.md` after `npm run generate-article`
-            exits are forbidden.
-          - Never edit anything under `news/**` outside of `npm run generate-article`.
-          - Never dispatch another workflow except via the `dispatch-workflow:`
-            safe output (`news-translate`, exactly once after merge).
-          - **Never** use `python3`, `ruby`, `perl`, or any non-Node language to
-            author files — the repo-wide toolchain is Node.js + TypeScript only.
-          - **Never** use `cat > file << 'EOF' … EOF` heredocs for analysis prose
-            (SWOT, stakeholder, risk, MCP audit, intelligence content). The
-            bash-safety filter rejects bodies containing political-analysis tokens
-            like *"kill"* (endemic in motions / amendments). Use the native
-            `create` tool instead. Heredocs remain safe only for short
-            keyword-free structured files (`manifest.json` via `jq`, SPDX stubs).
-          - **Never** check-then-extend (`wc -l` → `cat >> file`) — pre-size every
-            artifact to meet the floor on the first `create` call using
-            `runs/thresholds-cache.json`.
-          - See `shared/prompts/news-unified-runtime.md` §"📝 File Authoring Policy"
-            for the full priority order (native `create`/`edit` → `cat`+`jq` for
-            short structured files → never Python/heredoc-of-any-language for
-            prose).
-          - See `00-scope-and-ground-rules.md` for the full list.
+          Hard rules — violations fail Stage C or the safe-outputs bundle.
+          
+          - Call `safeoutputs___create_pull_request` exactly once, at Stage E.
+          - Stage D owns `news/**`; do not edit it outside `npm run generate-article`.
+          - Dispatch other workflows only via `dispatch-workflow:` (`news-translate`, once after merge).
+          - Write files with native `create` / `edit`. `cat > … << EOF` heredocs and `python3` / `ruby` / `perl` heredocs are banned for prose — they silently truncate at context limits and trip the bash-safety filter on tokens like *"kill"*. Heredocs stay legal only for short keyword-free structured writes (`jq` → `manifest.json`, SPDX stubs).
+          - Pre-size every artifact to its floor on the first `create` call from `runs/thresholds-cache.json`. No `wc -l` → `cat >>` extend loops.
+          
+          Full file-authoring priority order: `shared/prompts/news-unified-runtime.md` §"📝 File Authoring Policy". Workspace scope: `00-scope-and-ground-rules.md`.
           
           
           {{#runtime-import .github/agents/news-generation.agent.md}}
@@ -763,7 +749,7 @@ jobs:
           mkdir -p /tmp/gh-aw/safeoutputs
           mkdir -p /tmp/gh-aw/mcp-logs/safeoutputs
           cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << GH_AW_SAFE_OUTPUTS_CONFIG_5e67296677dcd024_EOF
-          {"create_pull_request":{"allowed_base_branches":["main"],"auto_close_issue":false,"draft":false,"excluded_files":["**/*.lock","node_modules/**",".github/workflows/*.lock.yml"],"expires":336,"fallback_as_issue":true,"github-token":"${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}","if_no_changes":"warn","labels":["agentic-news","analysis-data","type:term-outlook"],"max":1,"max_patch_files":100,"max_patch_size":10240,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"aw_context_workflows":["news-translate"],"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"report_incomplete":{}}
+          {"create_pull_request":{"allowed_base_branches":["main"],"auto_close_issue":false,"draft":false,"excluded_files":["**/*.lock","node_modules/**",".github/workflows/*.lock.yml"],"expires":336,"fallback_as_issue":true,"github-token":"${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}","if_no_changes":"warn","labels":["agentic-news","analysis-data","type:term-outlook"],"max":1,"max_patch_files":100,"max_patch_size":10240,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"report_incomplete":{}}
           GH_AW_SAFE_OUTPUTS_CONFIG_5e67296677dcd024_EOF
       - name: Generate Safe Outputs Tools
         env:
@@ -780,11 +766,6 @@ jobs:
                   "inputSchema": {
                     "additionalProperties": false,
                     "properties": {
-                      "aw_context": {
-                        "default": "",
-                        "description": "Agent caller context (used internally by Agentic Workflows).",
-                        "type": "string"
-                      },
                       "include_extended": {
                         "default": false,
                         "description": "Also process extended/executive-brief.md (legacy path). Default false.",
@@ -2014,7 +1995,7 @@ jobs:
           GH_AW_ALLOWED_DOMAINS: "*.euparliamentmonitor.com,*.europa.eu,*.githubusercontent.com,*.hack23.com,*.imf.org,*.riksdagsmonitor.com,*.worldbank.org,admin.data.europarl.europa.eu,api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.euparliamentmonitor.com,api.github.com,api.githubcopilot.com,api.imf.org,api.individual.githubcopilot.com,api.npms.io,api.snapcraft.io,api.worldbank.org,archive.ubuntu.com,auth.docker.io,azure.archive.ubuntu.com,blacktrigram.com,bun.sh,cdn.jsdelivr.net,ciacompliancemanager.com,codeload.github.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,data.consilium.europa.eu,data.ecb.europa.eu,data.europa.eu,data.europarl.europa.eu,data.imf.org,data.worldbank.org,dataservices.imf.org,deb.nodesource.com,deno.land,digital-strategy.ec.europa.eu,docker.io,docs.github.com,ec.europa.eu,esm.sh,euparliamentmonitor.com,eur-lex.europa.eu,europarl.europa.eu,get.pnpm.io,github-cloud.githubusercontent.com,github-cloud.s3.amazonaws.com,github.blog,github.com,github.githubassets.com,googleapis.deno.dev,googlechromelabs.github.io,hack23.com,hack23.github.io,host.docker.internal,iate.europa.eu,json-schema.org,json.schemastore.org,jsr.io,keyserver.ubuntu.com,lfs.github.com,localhost,multimedia.europarl.europa.eu,nodejs.org,npm.pkg.github.com,npmjs.com,npmjs.org,objects.githubusercontent.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,oeil.secure.europarl.europa.eu,packagecloud.io,packages.cloud.google.com,packages.microsoft.com,patch-diff.githubusercontent.com,ppa.launchpad.net,production.cloudflare.docker.com,raw.githubusercontent.com,registry-1.docker.io,registry.bower.io,registry.npmjs.com,registry.npmjs.org,registry.yarnpkg.com,repo.yarnpkg.com,riksdagsmonitor.com,s.symcb.com,s.symcd.com,sdmx.imf.org,security.ubuntu.com,skimdb.npmjs.com,storage.googleapis.com,telemetry.enterprise.githubcopilot.com,telemetry.vercel.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com,www.blacktrigram.com,www.ciacompliancemanager.com,www.euparliamentmonitor.com,www.europarl.europa.eu,www.googleapis.com,www.hack23.com,www.imf.org,www.npmjs.com,www.npmjs.org,www.riksdagsmonitor.com,www.worldbank.org,yarnpkg.com"
           GITHUB_SERVER_URL: ${{ github.server_url }}
           GITHUB_API_URL: ${{ github.api_url }}
-          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"create_pull_request\":{\"allowed_base_branches\":[\"main\"],\"auto_close_issue\":false,\"draft\":false,\"excluded_files\":[\"**/*.lock\",\"node_modules/**\",\".github/workflows/*.lock.yml\"],\"expires\":336,\"fallback_as_issue\":true,\"github-token\":\"${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}\",\"if_no_changes\":\"warn\",\"labels\":[\"agentic-news\",\"analysis-data\",\"type:term-outlook\"],\"max\":1,\"max_patch_files\":100,\"max_patch_size\":10240,\"protect_top_level_dot_folders\":true,\"protected_files\":[\"package.json\",\"bun.lockb\",\"bunfig.toml\",\"deno.json\",\"deno.jsonc\",\"deno.lock\",\"global.json\",\"NuGet.Config\",\"Directory.Packages.props\",\"mix.exs\",\"mix.lock\",\"go.mod\",\"go.sum\",\"stack.yaml\",\"stack.yaml.lock\",\"pom.xml\",\"build.gradle\",\"build.gradle.kts\",\"settings.gradle\",\"settings.gradle.kts\",\"gradle.properties\",\"package-lock.json\",\"yarn.lock\",\"pnpm-lock.yaml\",\"npm-shrinkwrap.json\",\"requirements.txt\",\"Pipfile\",\"Pipfile.lock\",\"pyproject.toml\",\"setup.py\",\"setup.cfg\",\"Gemfile\",\"Gemfile.lock\",\"uv.lock\",\"CODEOWNERS\",\"DESIGN.md\",\"README.md\",\"CONTRIBUTING.md\",\"CHANGELOG.md\",\"SECURITY.md\",\"CODE_OF_CONDUCT.md\",\"AGENTS.md\",\"CLAUDE.md\",\"GEMINI.md\"],\"title_prefix\":\"[news] \"},\"create_report_incomplete_issue\":{},\"dispatch_workflow\":{\"aw_context_workflows\":[\"news-translate\"],\"max\":1,\"workflow_files\":{\"news-translate\":\".lock.yml\"},\"workflows\":[\"news-translate\"]},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"true\"},\"report_incomplete\":{}}"
+          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"create_pull_request\":{\"allowed_base_branches\":[\"main\"],\"auto_close_issue\":false,\"draft\":false,\"excluded_files\":[\"**/*.lock\",\"node_modules/**\",\".github/workflows/*.lock.yml\"],\"expires\":336,\"fallback_as_issue\":true,\"github-token\":\"${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}\",\"if_no_changes\":\"warn\",\"labels\":[\"agentic-news\",\"analysis-data\",\"type:term-outlook\"],\"max\":1,\"max_patch_files\":100,\"max_patch_size\":10240,\"protect_top_level_dot_folders\":true,\"protected_files\":[\"package.json\",\"bun.lockb\",\"bunfig.toml\",\"deno.json\",\"deno.jsonc\",\"deno.lock\",\"global.json\",\"NuGet.Config\",\"Directory.Packages.props\",\"mix.exs\",\"mix.lock\",\"go.mod\",\"go.sum\",\"stack.yaml\",\"stack.yaml.lock\",\"pom.xml\",\"build.gradle\",\"build.gradle.kts\",\"settings.gradle\",\"settings.gradle.kts\",\"gradle.properties\",\"package-lock.json\",\"yarn.lock\",\"pnpm-lock.yaml\",\"npm-shrinkwrap.json\",\"requirements.txt\",\"Pipfile\",\"Pipfile.lock\",\"pyproject.toml\",\"setup.py\",\"setup.cfg\",\"Gemfile\",\"Gemfile.lock\",\"uv.lock\",\"CODEOWNERS\",\"DESIGN.md\",\"README.md\",\"CONTRIBUTING.md\",\"CHANGELOG.md\",\"SECURITY.md\",\"CODE_OF_CONDUCT.md\",\"AGENTS.md\",\"CLAUDE.md\",\"GEMINI.md\"],\"title_prefix\":\"[news] \"},\"create_report_incomplete_issue\":{},\"dispatch_workflow\":{\"max\":1,\"workflow_files\":{\"news-translate\":\".lock.yml\"},\"workflows\":[\"news-translate\"]},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"true\"},\"report_incomplete\":{}}"
           GH_AW_CI_TRIGGER_TOKEN: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
         with:

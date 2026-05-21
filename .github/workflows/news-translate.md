@@ -935,78 +935,18 @@ loop consumed early minutes.
 
 ## 🚫 Never
 
-> **📝 File Authoring Priority (gh-aw best practice — read first)**
->
-> **(1)** Use the native Copilot CLI **`create`** tool for every new
-> translation file (pass `path` and `file_text` explicitly on every
-> call). **(2)** Use the native Copilot CLI **`edit`** tool for any
-> file already on disk (Phase B section-by-section edits, marker
-> removal, recovery from partial writes). **(3)** `cat > file` is
-> reserved for short keyword-free structured outputs only
-> (`manifest.json` via `jq`, status flags) — **never** for translated
-> prose. **NEVER** use `python3`, `ruby`, `perl`, or any other language
-> heredoc to write any translation file: the repo-wide toolchain is
-> Node.js + TypeScript only, and heredocs of every flavour silently
-> truncate at the context-window boundary.
+Hard rules — keep tight. Full file-authoring priority lives in `shared/prompts/news-unified-runtime.md` §"📝 File Authoring Policy".
 
-- **Never** translate before reading the translator guide.
-- **Never** translate by running `sed`/`awk`/`tr` over the source.
-- **Never** use `cat > file << 'EOF'` shell heredocs to write translation
-  content. Heredocs silently truncate when the output fills the context
-  window, dropping the last H2 section(s) without any visible error —
-  this is the root cause of the recurring "7/8 H2" failures. Use the
-  `create` tool exclusively.
-- **Never** use `python3 << 'PYEOF'` (or any other language) heredocs to
-  write translation content either. The same context-window truncation
-  applies to every heredoc syntax; the Python variant was the fallback
-  the agent reached for in run #26235374860 after an `edit "No match
-  found"` failure on the Norwegian skeleton — and it works far less
-  reliably than re-reading the file with `view` and re-issuing the
-  `edit` with the exact placeholder string, or rewriting the whole
-  file via a single `create` call. When `edit` fails, use `view` to
-  recover the exact `oldText`, then retry `edit` or fall back to a
-  full-file `create` — never to a heredoc.
-- **Never** add new sections or merge sections — structural fidelity is
-  enforced by validator gates #6 (heading parity), #7 (Mermaid parity), and
-  human review.
-- **Never** translate FIXED TOKENS. `IMF` stays `IMF`; `World Bank` stays
-  `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`. **Latin-script
-  target languages (`nl`, `no`, `sv`, `da`, `fi`, `de`, `fr`, `es`) are
-  the highest-risk failure mode** because the target alphabet matches the
-  source and the model is tempted to localise the acronym:
-  - Dutch (`nl`): `IMF blijft IMF`; `WEO blijft WEO` — never `IMV` /
-    `Wereldwijde Economische Vooruitzichten`.
-  - Norwegian (`no`): `IMF` forblir `IMF`; `WEO` forblir `WEO` — aldri
-    `IPF` / `IMV` / `Det internasjonale valutafondet` /
-    `Pengefondet`.
-  - Swedish (`sv`): `IMF` förblir `IMF` — aldrig `IVF` /
-    `Internationella valutafonden`.
-  - Danish (`da`): `IMF` forbliver `IMF` — aldrig `IMV` / `Den
-    Internationale Valutafond`.
-  - Finnish (`fi`): `IMF` säilyy muodossa `IMF` — ei koskaan `KVR` /
-    `Kansainvälinen valuuttarahasto`.
-  - German / French / Spanish: `IMF` stays `IMF` — never `IWF` (de) or
-    `FMI` (fr / es). Run validator gate #5 in Step 2.4 to catch token
-    drift before flush.
-- **Never** call `safeoutputs___create_pull_request` with **zero
-  `executive-brief_<lang>.md` translation files** written — the run
-  marker written by Step 0 does not count. An empty-translation PR is
-  the only flush that is always worse than no flush. Partial-brief
-  flushes are explicitly **allowed** by Step 4b's emergency safety net
-  (≥ 1 `executive-brief_<lang>.md` file on disk is sufficient).
-- **Never** let the engine time out or terminate without flushing
-  whatever translations are already on disk. The Step 4b wall-clock
-  guard fires at ≥ 40 elapsed minutes (or ≤ 20 remaining of the
-  60-minute cap); when it does, call
-  `safeoutputs___create_pull_request` immediately with the
-  partial-progress title — even mid-brief — and end the run.
-- **Never** skip a queue entry because its date is old; backlog parity is
-  the workflow's primary KPI. The `fresh-then-backlog` discovery policy
-  guarantees slot 0 is always the day's newest brief, so slots 1+ exist
-  *specifically* to drain the long tail — translate them with the same
-  rigour as the fresh slot.
-- **Never** include `news/**`, `src/**`, `scripts/**`, or `.github/**` in
-  the PR. The `excluded-files` config blocks them; do not work around it.
+- **Write translation prose with the `create` tool exclusively.** Use `edit` for any file already on disk (Phase B section edits, marker removal, mid-brief recovery). `jq`+`cat > file` is reserved for `manifest.json` / status flags only.
+- **Heredocs of any language are banned** for translation output — `cat > file << 'EOF'` and `python3 << 'PYEOF'` (and any `ruby`/`perl` variant) silently truncate at the context-window boundary, which is the root cause of the recurring "7/8 H2" failures and skeleton-cascade regressions. When `edit` returns *"No match found"*, recover via `view` → retry `edit` → fall back to a single full-file `create`. Never to a heredoc.
+- **No scripted substitution.** Translate by reading and writing prose; `sed` / `awk` / `tr` over the source is forbidden (it cannot resolve FIXED TOKEN preservation, idiom, or tone).
+- **Read the translator guide first** — `analysis/methodologies/executive-brief-translation-guide.md`. No translation may begin before this read.
+- **Preserve structure.** No new sections, no merged sections — validator gates #6 (heading parity) and #7 (Mermaid parity) enforce this.
+- **Preserve FIXED TOKENS.** `IMF` stays `IMF`; `World Bank` stays `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`. Highest risk: Latin-script targets (`nl`, `no`, `sv`, `da`, `fi`, `de`, `fr`, `es`) — never localise (`IMV`, `IPF`, `IVF`, `KVR`, `IWF`, `FMI`, `Pengefondet`, `Internationella valutafonden`, …). Validator gate #5 catches drift; run it in Step 2.4 before flush.
+- **Every PR must contain at least one `executive-brief_<lang>.md`.** The Step 0 run marker alone is not a translation. Partial-brief flushes ARE allowed and ARE encouraged by Step 4b's emergency safety net (≥ 1 translation file on disk).
+- **Flush before the cap.** Step 4b's wall-clock guard fires at ≥ 40 elapsed min / ≤ 20 remaining (60-min cap). When it does, call `safeoutputs___create_pull_request` immediately — even mid-brief — and end the run. A partial-progress PR is always better than a zero-PR timeout.
+- **Drain the backlog.** `fresh-then-backlog` discovery guarantees slot 0 is the newest brief; slots 1+ are the long tail. Translate them with the same rigour — date age is not a skip reason.
+- **PR scope is `analysis/daily/**` only.** `news/**`, `src/**`, `scripts/**`, `.github/**` are blocked by `excluded-files`; do not work around it.
 
 ## 🛡️ MCP / Engine Notes
 

@@ -442,29 +442,15 @@ jobs:
           
           ## 🚫 Never
           
-          - Never invoke the single-PR tool more than once per run.
-          - Never author article prose — the deterministic renderer owns Stage D.
-            Agent edits to `news/<date>-year-ahead.en.md` after `npm run generate-article`
-            exits are forbidden.
-          - Never edit anything under `news/**` outside of `npm run generate-article`.
-          - Never dispatch another workflow except via the `dispatch-workflow:`
-            safe output (`news-translate`, exactly once after merge).
-          - **Never** use `python3`, `ruby`, `perl`, or any non-Node language to
-            author files — the repo-wide toolchain is Node.js + TypeScript only.
-          - **Never** use `cat > file << 'EOF' … EOF` heredocs for analysis prose
-            (SWOT, stakeholder, risk, MCP audit, intelligence content). The
-            bash-safety filter rejects bodies containing political-analysis tokens
-            like *"kill"* (endemic in motions / amendments). Use the native
-            `create` tool instead. Heredocs remain safe only for short
-            keyword-free structured files (`manifest.json` via `jq`, SPDX stubs).
-          - **Never** check-then-extend (`wc -l` → `cat >> file`) — pre-size every
-            artifact to meet the floor on the first `create` call using
-            `runs/thresholds-cache.json`.
-          - See `shared/prompts/news-unified-runtime.md` §"📝 File Authoring Policy"
-            for the full priority order (native `create`/`edit` → `cat`+`jq` for
-            short structured files → never Python/heredoc-of-any-language for
-            prose).
-          - See `00-scope-and-ground-rules.md` for the full list.
+          Hard rules — violations fail Stage C or the safe-outputs bundle.
+          
+          - Call `safeoutputs___create_pull_request` exactly once, at Stage E.
+          - Stage D owns `news/**`; do not edit it outside `npm run generate-article`.
+          - Dispatch other workflows only via `dispatch-workflow:` (`news-translate`, once after merge).
+          - Write files with native `create` / `edit`. `cat > … << EOF` heredocs and `python3` / `ruby` / `perl` heredocs are banned for prose — they silently truncate at context limits and trip the bash-safety filter on tokens like *"kill"*. Heredocs stay legal only for short keyword-free structured writes (`jq` → `manifest.json`, SPDX stubs).
+          - Pre-size every artifact to its floor on the first `create` call from `runs/thresholds-cache.json`. No `wc -l` → `cat >>` extend loops.
+          
+          Full file-authoring priority order: `shared/prompts/news-unified-runtime.md` §"📝 File Authoring Policy". Workspace scope: `00-scope-and-ground-rules.md`.
           
           
           {{#runtime-import .github/agents/news-generation.agent.md}}

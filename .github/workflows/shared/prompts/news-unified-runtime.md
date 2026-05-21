@@ -53,42 +53,22 @@ which is 38+ files × ~1.5 invocations/file. Total budget = ~57+ ~50
 
 ## 📝 File Authoring Policy (universal — gh-aw best practice)
 
-Every file the agent writes — analysis artifacts, manifests, SWOT
-matrices, stakeholder maps, risk registers, MCP audits, etc. — MUST
-follow this **strict priority order**. This applies to **every**
-agentic workflow without exception.
+Every file the agent writes follows this strict priority order:
 
-| Priority | Tool | When to use | Rationale |
-|----------|------|-------------|-----------|
-| **1 (primary)** | Native Copilot CLI **`create`** | Writing any new file (analysis prose, JSON manifests, templates) | Bypasses the bash-safety filter entirely; no context-window truncation; deterministic file_text contract |
-| **1 (primary)** | Native Copilot CLI **`edit`** | Modifying any file that already exists on disk | Atomic `oldText` → `newText` replacement; surgical changes; no risk of clobbering sibling content |
-| **2 (secondary)** | `cat > file` (NO heredoc) and `cat > file << 'EOF' … EOF` heredoc | **ONLY** short, keyword-free files: `manifest.json` written via `jq`, SPDX header stubs, status flags in `${ANALYSIS_DIR}/data/`. Body MUST NOT contain political-analysis prose (the bash-safety filter rejects bodies containing tokens like "kill"). | Cheap one-shot for trivial structured writes; **forbidden** for any prose or SWOT/risk/stakeholder content |
-| **3 (batch)** | `node scripts/extend-artifacts.js --spec-file <path>` | Stage B Pass 2 when extending multiple under-floor artifacts in one invocation | Eliminates per-artifact overhead; documented in [`.github/prompts/02-analysis-protocol.md` §2](.github/prompts/02-analysis-protocol.md) |
-| ❌ **NEVER** | `python3 - << 'PYEOF' … PYEOF` / `python3 -c` / any Python or Ruby or Perl for file authoring | — | Repo toolchain is Node.js + TypeScript only ([`00-scope-and-ground-rules.md` §4](.github/prompts/00-scope-and-ground-rules.md)); heredocs of every language silently truncate at the context window |
-| ❌ **NEVER** | `cat > file << 'EOF'` heredocs for analysis prose, SWOT, stakeholder, risk, or article content | — | Bash-safety filter false-positives on the literal word *"kill"* (endemic in political analysis); silent context-window truncation. See [`02-analysis-protocol.md` §2a](.github/prompts/02-analysis-protocol.md) |
-| ❌ **NEVER** | `echo "…" >> file` to extend a too-short artifact written earlier in the same session | — | Wastes 2+ invocations per artifact (check-then-extend pattern); pre-size every artifact to meet floor on the **first** `create` call using `runs/thresholds-cache.json` |
+1. **`create`** — every new file (analysis prose, JSON manifests, templates). Pass `path` + `file_text` explicitly. Bypasses the bash-safety filter; no context-window truncation.
+2. **`edit`** — every existing file. Atomic `oldText` → `newText`; no clobbering siblings.
+3. **`jq` → `cat > file`** — short keyword-free structured writes only (`manifest.json`, `prefetch-status.json`, status flags). Body must be JSON / SPDX header, never prose.
+4. **`node scripts/extend-artifacts.js --spec-file <path>`** — Stage B Pass 2 batch extend across multiple under-floor artifacts.
 
-**JSON & structured-data exception**: `jq` piped into `cat > file` is
-the canonical pattern for writing `manifest.json`, `prefetch-status.json`,
-and other small structured files. The body is JSON (no political-prose
-tokens) so the bash-safety filter never fires. Example:
-`echo "$payload" | jq '.' > "${ANALYSIS_DIR}/manifest.json"`.
+Banned:
 
-**Recovery from `edit "No match found"`**: do NOT escalate to a Python
-or shell heredoc. Instead: (a) re-read the file with the `view` tool,
-(b) copy the exact `oldText` including leading whitespace into a fresh
-`edit` call, OR (c) if multiple sections need repair, rewrite the whole
-file with a single `create` call passing the full `file_text`.
+- `python3` / `ruby` / `perl` heredocs for any file — toolchain is Node.js + TypeScript only and heredocs silently truncate at the context window.
+- `cat > file << 'EOF'` heredocs for prose / SWOT / stakeholder / risk / article content — the bash-safety filter false-positives on the literal *"kill"* (endemic in political analysis).
+- `echo "…" >> file` extend loops to fix a too-short artifact — pre-size every write to floor on the first `create` using `runs/thresholds-cache.json`.
 
-**Drift guards**: enforced repo-wide by
-[`.github/prompts/00-scope-and-ground-rules.md` §4](.github/prompts/00-scope-and-ground-rules.md)
-(forbidden practices table) and
-[`.github/prompts/02-analysis-protocol.md` §2a](.github/prompts/02-analysis-protocol.md)
-(heredoc kill-token false-positive). Test contracts:
-`test/unit/news-translate-workflow-contract.test.js` bans Python and
-shell heredocs for translation output;
-`test/unit/compile-workflow-no-patching.test.js` bans Python heredocs
-in the compile workflow.
+**`edit "No match found"` recovery**: re-read the file with `view`, copy the exact `oldText` (including leading whitespace) into a fresh `edit`, or rewrite the whole file with one `create`. Never escalate to a heredoc.
+
+Drift guards: `00-scope-and-ground-rules.md` §4; `02-analysis-protocol.md` §2a; `test/unit/news-translate-workflow-contract.test.js` and `test/unit/compile-workflow-no-patching.test.js`.
 
 ### Rule 1 — Pre-fetched feed data is already on disk before Stage A
 
