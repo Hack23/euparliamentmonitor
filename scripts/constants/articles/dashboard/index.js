@@ -1,0 +1,33 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+import { DASHBOARD_BUILDER_STRINGS_EN } from './en.js';
+import { DASHBOARD_BUILDER_STRINGS_SV } from './sv.js';
+import { DASHBOARD_BUILDER_STRINGS_DA } from './da.js';
+import { DASHBOARD_BUILDER_STRINGS_NO } from './no.js';
+import { DASHBOARD_BUILDER_STRINGS_FI } from './fi.js';
+import { DASHBOARD_BUILDER_STRINGS_DE } from './de.js';
+import { DASHBOARD_BUILDER_STRINGS_FR } from './fr.js';
+import { DASHBOARD_BUILDER_STRINGS_ES } from './es.js';
+import { DASHBOARD_BUILDER_STRINGS_NL } from './nl.js';
+import { DASHBOARD_BUILDER_STRINGS_AR } from './ar.js';
+import { DASHBOARD_BUILDER_STRINGS_HE } from './he.js';
+import { DASHBOARD_BUILDER_STRINGS_JA } from './ja.js';
+import { DASHBOARD_BUILDER_STRINGS_KO } from './ko.js';
+import { DASHBOARD_BUILDER_STRINGS_ZH } from './zh.js';
+export const DASHBOARD_BUILDER_STRINGS = {
+    en: DASHBOARD_BUILDER_STRINGS_EN,
+    sv: DASHBOARD_BUILDER_STRINGS_SV,
+    da: DASHBOARD_BUILDER_STRINGS_DA,
+    no: DASHBOARD_BUILDER_STRINGS_NO,
+    fi: DASHBOARD_BUILDER_STRINGS_FI,
+    de: DASHBOARD_BUILDER_STRINGS_DE,
+    fr: DASHBOARD_BUILDER_STRINGS_FR,
+    es: DASHBOARD_BUILDER_STRINGS_ES,
+    nl: DASHBOARD_BUILDER_STRINGS_NL,
+    ar: DASHBOARD_BUILDER_STRINGS_AR,
+    he: DASHBOARD_BUILDER_STRINGS_HE,
+    ja: DASHBOARD_BUILDER_STRINGS_JA,
+    ko: DASHBOARD_BUILDER_STRINGS_KO,
+    zh: DASHBOARD_BUILDER_STRINGS_ZH,
+};
+//# sourceMappingURL=index.js.map

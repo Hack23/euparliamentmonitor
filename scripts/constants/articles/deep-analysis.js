@@ -1,12 +1,8 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-import { DEEP_ANALYSIS_STRINGS_EU } from './deep-analysis-strings-eu.js';
-import { DEEP_ANALYSIS_STRINGS_GLOBAL } from './deep-analysis-strings-global.js';
-export const DEEP_ANALYSIS_STRINGS = {
-    ...DEEP_ANALYSIS_STRINGS_EU,
-    ...DEEP_ANALYSIS_STRINGS_GLOBAL,
-};
-/** Localized section heading strings for motions articles */
+import { DEEP_ANALYSIS_STRINGS } from './deep-analysis/index.js';
+export { DEEP_ANALYSIS_STRINGS };
+/** Analysis quality labels for deep-analysis articles */
 export const ANALYSIS_QUALITY_LABELS = {
     en: {
         dataCompleteness: 'Data Completeness',
