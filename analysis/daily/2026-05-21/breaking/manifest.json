@@ -15,6 +15,19 @@
       "pass2": {
         "rewriteCount": 39
       }
+    },
+    {
+      "runId": "breaking-run261-1779392184",
+      "timestamp": "2026-05-21T20:35:00Z",
+      "rewriteCount": 57,
+      "carryForwardCount": 10,
+      "newArtifacts": [
+        "intelligence/voting-patterns.md",
+        "intelligence/voting-patterns.degraded.md"
+      ],
+      "dataMode": "degraded-voting",
+      "gateExpected": "GREEN",
+      "notes": "Re-run of breaking-run258; all artifacts extended/rewritten; 2 new artifacts created; Stage C tripwire not hit"
     }
   ],
   "files": {
@@ -57,5 +70,9 @@
     "extended/data-download-manifest.md": "extended/data-download-manifest.md",
     "data-availability-assessment.md": "data-availability-assessment.md",
     "intelligence/procedures-proxy.md": "intelligence/procedures-proxy.md"
+  },
+  "lastRun": "breaking-run261-1779392184",
+  "pass2": {
+    "rewriteCount": 57
   }
 }

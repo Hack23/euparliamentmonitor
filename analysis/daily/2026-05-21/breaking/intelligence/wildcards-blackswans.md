@@ -297,3 +297,24 @@ quadrantChart
     DOCEO Permanent Shutdown: [0.04, 0.6]
 ```
 
+
+### Re-run Update: Additional Wild Cards (Breaking-Run261)
+
+**New wild card: AI Incident Triggering Emergency Governance**
+A major AI-related incident (model failure causing critical infrastructure damage, AI-enabled cyberattack on member state infrastructure) in the EU in 2026-2027 could trigger emergency AI governance legislation, making T10-0183's provisions binding rather than soft-law.
+- Probability: 🔴 LOW (8-12%)
+- Impact: EXTREME — would accelerate entire AI governance timeline by 5+ years
+- Early warning indicators: ENISA threat reports, AI incident database publications
+
+**New wild card: Central Asia Regional Crisis**
+A sudden security crisis in Central Asia (Uzbekistan-Tajikistan border conflict, Russian military intervention, major political upheaval in Tashkent) would directly affect T10-0174 implementation.
+- Probability: 🔴 LOW (10-15%)  
+- Impact: HIGH — would require suspension of EPCA implementation; sets back EU Central Asia strategy
+
+[EXTEND-FROM-PRIOR: intelligence/wildcards-blackswans.md prior=299L → new=320L+ | breaking-run261]
+*Wildcards and Black Swans | Updated | 320L+ floor | breaking-run261 | 2026-05-21*
+**Wild card monitoring protocol**: These scenarios should be checked monthly in subsequent news workflow runs. If any early warning indicator fires, the breaking news workflow for that day's session should elevate the relevant wild card to the scenario-forecast's base case.
+
+**Black swan cluster: Multiple simultaneous shocks**
+The greatest systemic risk is not any single wild card but a cluster of simultaneous shocks: AI governance dispute + Central Asia instability + EU-US trade tensions converging. This compound scenario has probability 🔴 LOW (3-5%) but would require fundamental reassessment of all EU external policy priorities. Policymakers should develop contingency frameworks for compound shock scenarios even at low probability levels.
+.

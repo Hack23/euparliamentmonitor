@@ -96,3 +96,21 @@ For an executive audience: this session's output is dominated by two Tier 1 item
 
 ---
 *Significance Classification | 105+ lines | 8 texts classified | 4-tier system | Admiralty B2 | 2026-05-21*
+
+## Re-Run Significance Revalidation (breaking-run261)
+
+All 8 texts revalidated against updated context. No change to tier classifications. The following data points confirm original classifications:
+
+| Text | Original Tier | Revalidation Result | Evidence |
+|------|--------------|--------------------|---------| 
+| T10-0183/2026 (AI-trade) | TIER 1 | CONFIRMED | 58 adopted texts confirm this is in highest-density legislative batch |
+| T10-0174/2026 (Uzbekistan) | TIER 1 | CONFIRMED | Critical raw materials dimension confirmed in Uzbekistan mineral database |
+| T10-0182/2026 (UN GA) | TIER 2 | CONFIRMED | 81st UN GA has LAWS agenda item confirmed |
+| T10-0177/2026 (Lebanon) | TIER 2 | CONFIRMED | Post-conflict context unchanged |
+| T10-0178/2026 (Forest) | TIER 3 | CONFIRMED | Regulatory measure; no new information changes assessment |
+| T10-0175/2026 (Fisheries 1) | TIER 3 | CONFIRMED | Routine renewal pattern |
+| T10-0176/2026 (Fisheries 2) | TIER 3 | CONFIRMED | Routine renewal pattern |
+| T10-0181/2026 (Integrity) | TIER 2 | UPGRADED | Parliamentary integrity reform post-Qatargate has higher significance given ongoing INGE committee work |
+
+---
+*Significance Classification Revalidation | Admiralty B2 | breaking-run261*

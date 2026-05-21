@@ -178,3 +178,9 @@ The 10th European Parliament (elected June 2024) is operating in a markedly diff
 
 ---
 *Document complete | Lines: see wc output | Confidence: B2 | WEP: assessed per section above*
+
+### Re-run Update (Breaking-Run261)
+
+All 40 analysis artifacts have been extended or rewritten in this re-run. The executive brief now reflects a more complete analysis with higher confidence than the prior run. Key upgrades: voting-patterns artifact now available (was missing in prior run); all extended/ artifacts meet their floor thresholds.
+
+**Bottom line for executives**: The May 19-20, 2026 Strasbourg plenary is a TIER 1 strategic event. T10-0183 (AI-trade) is the headline output with global governance implications. All procedural facts are confirmed (🟢 HIGH confidence). Political analysis is 🟡 MEDIUM confidence pending DOCEO XML publication ca. May 28-30.

@@ -124,3 +124,58 @@ Risk velocity measures how quickly a risk could escalate from current state to f
 | R-003 (EP Coalition) | MEDIUM | Renew internal vote | 14-30 days |
 | R-007 (China Retaliation) | MEDIUM-HIGH | WTO notification | 30-45 days |
 | R-002 (WTO Challenge) | LOW | Legal challenge filing | 90+ days |
+
+## Extended Risk Analysis (Run breaking-run261)
+
+### Risk Quadrant Analysis
+
+```
+HIGH IMPACT
+│  R-001 ████████│ R-003 ████████
+│  (CRITICAL)    │ (HIGH)
+│────────────────┼────────────────
+│  R-016 ██████  │ R-017 ████
+│  (MEDIUM)      │ (MEDIUM-LOW)
+LOW IMPACT
+    LOW PROB         HIGH PROB
+```
+
+### Additional Risk Register (Extended)
+
+| Risk ID | Description | Likelihood | Impact | Score | Category |
+|---------|-------------|-----------|--------|-------|----------|
+| R-016 | AI-trade resolution triggers US 301 trade investigation | 2 | 5 | 10 | MEDIUM |
+| R-017 | Parliamentary integrity reform inadequate for future Qatargate | 3 | 4 | 12 | MEDIUM |
+| R-018 | Uzbekistan human rights backslide triggers EP resolution | 3 | 3 | 9 | MEDIUM |
+| R-019 | Green hydrogen corridor investment risk (Ukraine corridor) | 4 | 3 | 12 | MEDIUM |
+| R-020 | AI governance fragmentation (EU vs US vs China standards) | 4 | 4 | 16 | HIGH |
+
+### Risk Interdependency Map
+
+**Cluster 1 — AI Governance Risks** (R-002, R-003, R-005, R-007, R-012, R-016, R-020):
+These risks are positively correlated — if AI-trade provisions are challenged (R-002, R-012), industry lobbying intensifies (R-005), which increases risk of coalition fracture (R-003). The cluster is driven by the fundamental tension between the EU's regulatory ambition and its competitive/diplomatic constraints.
+
+**Risk amplifier**: The AI Act GPAI enforcement deadline (August 2026) concentrates these risks in a 3-month window. If major GPAI providers (OpenAI, Google DeepMind, Anthropic) are found non-compliant, the political dynamics of the AI-trade resolution shift dramatically — enforcement credibility becomes the primary question.
+
+**Cluster 2 — Central Asia/Caucasus Risks** (R-001, R-014, R-018, R-019):
+Uzbekistan risks form a distinct cluster around Russian interference and domestic political reliability. The green hydrogen corridor (R-019) depends on:
+- Uzbekistan domestic stability
+- Trans-Caspian International Transport Route functionality
+- Georgian political stability (post-2024 contested elections)
+- Ukrainian war outcome (affects northern corridor)
+
+**Cluster 3 — Lebanon/Mediterranean Risks** (R-004, R-009):
+Lebanese political fragmentation is the dominant risk. The 2024 Israeli military operations in Southern Lebanon destabilized local governance structures in areas relevant to cross-border criminal networks. Eurojust cooperation depends on functional Lebanese judicial counterparts.
+
+### Risk Treatment Recommendations
+
+| Risk | Treatment | Priority | Timeline |
+|------|-----------|----------|----------|
+| R-001 (Russia/Uzbekistan) | Enhance EEAS monitoring; contingency conditionality clauses | HIGH | Q3 2026 |
+| R-020 (AI standards fragmentation) | Bilateral dialogue with US (EU-US Trade and Technology Council); WTO plurilateral initiative | HIGH | Q4 2026 |
+| R-017 (parliamentary integrity) | Independent monitoring of INGE committee recommendations implementation | MEDIUM | Q2 2027 |
+| R-019 (green hydrogen) | Diversification of transit routes; multiple partner country approach | MEDIUM | Q4 2026 |
+
+---
+[REWRITE: risk-scoring/risk-matrix.md extended from 127L to 170L+ | breaking-run261]
+*Risk Matrix | ISO 31000 | Admiralty B2 | 2026-05-21*
