@@ -425,8 +425,14 @@ Each queue entry has the shape:
 > count listed here MUST appear at least that many times in every
 > translation. If the source has `IMF: 17`, every `executive-brief_<lang>.md`
 > must contain the exact token `IMF` at least 17 times. Translating
-> `IMF` to `IMV` / `صندوق النقد` / `IWF` is forbidden — copy the Latin-
-> script token verbatim.
+> `IMF` to `IMV` (nl) / `IPF` or `Det internasjonale valutafondet` (no)
+> / `IVF` or `Internationella valutafonden` (sv) / `IMV` or `Den
+> Internationale Valutafond` (da) / `IMF` → `KVR` (fi) / `صندوق النقد` (ar)
+> / `IWF` (de) / `FMI` (fr / es) is **forbidden** — copy the Latin-script
+> token verbatim. The Nordic / EU-core Latin-script languages (`no`,
+> `sv`, `da`, `fi`, `de`, `fr`, `es`, `nl`) are the most common failure
+> mode because the target alphabet matches the source and the model is
+> tempted to localise the acronym; **don't**.
 
 **Queue ordering (`fresh-then-backlog`, default):** slot 0 is the newest
 source with any missing language ("fresh slice"); slots 1+ are the
@@ -844,10 +850,24 @@ emergency partial flush instead of letting the engine time out with no PR.
   enforced by validator gates #6 (heading parity), #7 (Mermaid parity), and
   human review.
 - **Never** translate FIXED TOKENS. `IMF` stays `IMF`; `World Bank` stays
-  `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`. **Dutch (`nl`)
-  in particular**: `IMF blijft IMF`; `WEO blijft WEO` — never localise to
-  `IMV` / `Wereldwijde Economische Vooruitzichten`. Run validator gate #5
-  in Step 2.4 to catch token drift before flush.
+  `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`. **Latin-script
+  target languages (`nl`, `no`, `sv`, `da`, `fi`, `de`, `fr`, `es`) are
+  the highest-risk failure mode** because the target alphabet matches the
+  source and the model is tempted to localise the acronym:
+  - Dutch (`nl`): `IMF blijft IMF`; `WEO blijft WEO` — never `IMV` /
+    `Wereldwijde Economische Vooruitzichten`.
+  - Norwegian (`no`): `IMF` forblir `IMF`; `WEO` forblir `WEO` — aldri
+    `IPF` / `IMV` / `Det internasjonale valutafondet` /
+    `Pengefondet`.
+  - Swedish (`sv`): `IMF` förblir `IMF` — aldrig `IVF` /
+    `Internationella valutafonden`.
+  - Danish (`da`): `IMF` forbliver `IMF` — aldrig `IMV` / `Den
+    Internationale Valutafond`.
+  - Finnish (`fi`): `IMF` säilyy muodossa `IMF` — ei koskaan `KVR` /
+    `Kansainvälinen valuuttarahasto`.
+  - German / French / Spanish: `IMF` stays `IMF` — never `IWF` (de) or
+    `FMI` (fr / es). Run validator gate #5 in Step 2.4 to catch token
+    drift before flush.
 - **Never** call `safeoutputs___create_pull_request` with **zero
   `executive-brief_<lang>.md` translation files** written — the run
   marker written by Step 0 does not count. An empty-translation PR is

@@ -15,6 +15,7 @@ import {
   DESCRIPTION_MAX_LENGTH,
   shouldSkipDescriptionLine,
   stripInlineMarkdown,
+  stripLeadingProseLabel,
   truncateDescription,
 } from './text-utils.js';
 
@@ -406,6 +407,11 @@ function collectPrioritySummaryLines(
   let tailText = stripInlineMarkdown(tail).trim();
   tailText = tailText.replace(/^\([^()]{3,80}\)\s*/u, '');
   tailText = stripPriorityTailMetadata(tailText).trim();
+  // Strip leading all-caps prose labels (`BLUF:`, `SITUATION:`, `WEP:`,
+  // `KEY MOTION:`) that the lede-extractor walker already removes —
+  // priority-finding summaries flow into the same `<meta description>`
+  // surface and the HTML pipeline test forbids the all-caps opener.
+  tailText = stripLeadingProseLabel(tailText);
   if (tailText) summaryLines.push(tailText);
   for (let j = i + 1; j < lines.length; j++) {
     const next = (lines[j] ?? '').trim();
@@ -416,7 +422,7 @@ function collectPrioritySummaryLines(
     if (isPrioritySummaryStopper(next)) break;
     if (next.startsWith('**Confidence') || next.startsWith('- **Confidence')) continue;
     if (shouldSkipDescriptionLine(next)) continue;
-    summaryLines.push(stripInlineMarkdown(next));
+    summaryLines.push(stripLeadingProseLabel(stripInlineMarkdown(next)));
     if (summaryLines.join(' ').length >= DESCRIPTION_MAX_LENGTH) break;
   }
   return summaryLines;

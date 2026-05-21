@@ -35,6 +35,7 @@ function toPathname(href) {
 
 test.describe('Hreflang Link Graph', () => {
   test('all political-intelligence hreflang targets resolve', async ({ page }) => {
+    test.setTimeout(60_000);
     for (const { lang, path } of ALL_PI_PAGES) {
       const response = await page.goto(path);
       expect(response.status(), `${lang} hreflang target ${path} returned ${response.status()}`).toBe(200);

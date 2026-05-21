@@ -503,7 +503,9 @@ export function validateTranslation(translationPath, repoRoot) {
           `Self-check before flush: \`node scripts/validate-brief-translations.js --paths ${relQuoted}\` ` +
           `(or \`--paths ${siblingGlobQuoted}\` to validate every sibling). ` +
           `Dutch example: \`IMF\` stays \`IMF\` (never \`IMV\`); \`WEO\` stays \`WEO\` ` +
-          `(never \`Wereldwijde Economische Vooruitzichten\`).`,
+          `(never \`Wereldwijde Economische Vooruitzichten\`). ` +
+          `Norwegian example: \`IMF\` forblir \`IMF\` (never \`IPF\` / \`IMV\` / ` +
+          `\`Det internasjonale valutafondet\` / \`Pengefondet\`); \`WEO\` forblir \`WEO\`.`,
       });
     }
   }
