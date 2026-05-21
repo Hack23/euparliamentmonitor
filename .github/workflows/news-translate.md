@@ -54,10 +54,17 @@ permissions:
   discussions: read
   security-events: read
 
-# 60-minute hard cap. Per-run budget: MAX_BRIEFS × 13 languages × ~12 KB ≈
+# 90-minute hard cap. Per-run budget: MAX_BRIEFS × 13 languages × ~12 KB ≈
 # 26-39 markdown files / 300-450 KB of generated content. Comfortably inside
-# the gh-aw safe-outputs 10 MB patch ceiling and the model's invocation budget.
-timeout-minutes: 60
+# the gh-aw safe-outputs 10 MB patch ceiling and the model's invocation
+# budget. The cap was raised from 60 → 90 minutes after run #26235374860,
+# where two consecutive transient-API-error retry loops at the start of
+# Phase B consumed 25 minutes of wall-clock before any translation was
+# written (full-edition election-cycle brief, 385 lines = `largeSource:
+# true`). 30 minutes of additional budget absorbs one retry loop with
+# 5+ minutes of headroom, and Step 4b's emergency-flush guard still
+# protects against runaway runs.
+timeout-minutes: 90
 
 imports:
   - shared/config/news-common-settings.md
@@ -227,8 +234,15 @@ post-steps:
   # shared/config/news-pat-pr-fallback.md — do not duplicate it here.
 
   # Always run the validator on whatever the agent produced. The script
-  # exits non-zero on any violation; preserve that status so invalid
-  # translations are rejected instead of slipping into the safe-output PR.
+  # exits non-zero on any BLOCKING violation (severity != 'warning');
+  # preserve that status so invalid translations are rejected instead of
+  # slipping into the safe-output PR. The validator emits
+  # `skeleton-incomplete` advisories with `severity: warning` for Phase A
+  # stubs produced by Step 4b emergency partial flushes — those are
+  # non-blocking under the default policy because the next scheduled run
+  # will pick up the missing languages via discovery. Pass
+  # `--strict-skeletons` to treat them as blocking (used by CI sweeps,
+  # not by the per-run gate).
   #
   # IMPORTANT: scope validation to the briefs THIS RUN was asked to translate
   # (the entries in /tmp/gh-aw/discovery/queue.json). Pre-existing defects in
@@ -236,7 +250,9 @@ post-steps:
   # AFTER its translations were already merged) must NOT fail this run — the
   # translation agent has bounded scope and cannot fix them anyway. See the
   # regression analysis in the PR that introduced this scoping (failure
-  # pattern: runs #206, #207, #208, #209, #210, #214, #219, #220, #221, #223).
+  # pattern: runs #206, #207, #208, #209, #210, #214, #219, #220, #221, #223,
+  # and the skeleton-cascade failure #26235374860 that motivated the
+  # `--strict-skeletons` opt-in policy).
   - name: Validate brief translations
     if: always()
     run: |
@@ -280,7 +296,20 @@ post-steps:
         --paths "${glob_args[@]}" \
         --report /tmp/gh-aw/validation/report.json
       VALIDATION_STATUS=$?
-      node -e 'const r=require("/tmp/gh-aw/validation/report.json");console.log("Translations checked:",r.totals.filesChecked,"violations:",r.totals.violations);if(r.violations.length){for(const v of r.violations.slice(0,20)){console.log("•",v.translationPath,"["+v.gate+"]",v.message);}}'
+      node -e '
+        const r = require("/tmp/gh-aw/validation/report.json");
+        const t = r.totals || {};
+        const blocking = typeof t.blocking === "number" ? t.blocking : t.violations;
+        console.log("Translations checked:", t.filesChecked,
+          "| violations:", t.violations,
+          "| blocking:", blocking);
+        if (r.violations.length) {
+          for (const v of r.violations.slice(0, 20)) {
+            const icon = v.severity === "warning" ? "⚠️" : "•";
+            console.log(icon, v.translationPath, "[" + v.gate + "]", v.message);
+          }
+        }
+      '
       exit "$VALIDATION_STATUS"
 
 engine:
@@ -531,28 +560,60 @@ PY
    > entry has `largeSource: true` (source `sourceLineCount` >
    > `MAX_SOURCE_LINES`, default 300; the cancelled run #26181499722
    > had a 385-line brief that stalled the first `create` with 5×
-   > transient-API-error loops), do **not** attempt to write the
-   > full translation in one `create` call. Instead, for **each
-   > language**:
+   > transient-API-error loops, and run #26235374860 hit the same
+   > pattern twice in succession for ~25 min of lost wall-clock), do
+   > **not** attempt to write the full translation in one `create`
+   > call. Instead, for **each language**:
    >
-   > 1. **Phase A — skeleton `create`**: write only the H1 line, the
-   >    full ordered list of `## H2` headings copied verbatim from
-   >    the source (translated where appropriate but with the same
-   >    count and order), and a one-sentence BLUF placeholder under
-   >    each H2 (`<!-- pending -->` is fine). This is a small,
-   >    bounded output that the model can emit reliably even when
-   >    the source is 400+ lines.
+   > 1. **Phase A — skeleton `create`**: write the file as the
+   >    skeleton marker line, then the H1, then the full ordered
+   >    list of `## H2` headings copied verbatim from the source
+   >    (translated where appropriate but with the same count and
+   >    order), with a one-line `<!-- pending -->` placeholder
+   >    under each H2. The very **first line** of every Phase A
+   >    file MUST be the literal marker:
+   >
+   >    ```
+   >    <!-- translation-skeleton: lang=<lang> phase=A run=${RUN_ID} -->
+   >    ```
+   >
+   >    The marker is a contract with `scripts/validate-brief-translations.js`:
+   >    skeleton-stub files are detected via this marker and emit a
+   >    single non-blocking `skeleton-incomplete` advisory instead
+   >    of cascading length/token/heading/mermaid violations. Without
+   >    the marker, an emergency partial flush (Step 4b) will mark
+   >    the entire job as `failure` even though it successfully
+   >    saved the languages that completed Phase B (the regression
+   >    pattern from run #26235374860).
+   >
    > 2. **Phase B — section-by-section `edit`**: iterate the H2
    >    sections in order. For each one, call `edit` once with the
-   >    placeholder line as `oldText` and the fully translated
-   >    section body as `newText`. Each `edit` call is bounded to
-   >    one section's worth of output, which the model emits
-   >    reliably.
+   >    placeholder line (`<!-- pending -->`) as `oldText` and the
+   >    fully translated section body as `newText`. Each `edit` call
+   >    is bounded to one section's worth of output, which the model
+   >    emits reliably. After the **last** Phase B `edit` for a
+   >    language completes, **remove the skeleton marker** with one
+   >    final `edit` (oldText = the full marker line including the
+   >    trailing newline, newText = empty string) — this promotes
+   >    the file from skeleton to fully translated so the validator
+   >    runs strict gates against it.
+   >
    > 3. **Phase C — H2 spot-check (step 4a)**: unchanged — runs once
    >    the file is complete.
    >
    > Small briefs (`largeSource: false`, the common case) continue
    > to use the one-shot `create` documented below.
+   >
+   > **Recovery from `edit "No match found"`**: if Phase B's `edit`
+   > call returns "No match found" (the layout of the Phase A
+   > placeholder differs from what `oldText` expected), do NOT
+   > escalate to a `python3 << 'PYEOF'` heredoc — heredocs of any
+   > flavour are banned (see §"🚫 Never"). Instead: (a) re-read the
+   > current file with the `view` tool, (b) copy the exact
+   > placeholder line including any leading whitespace into a fresh
+   > `edit` call, OR (c) if more than one section needs repair,
+   > rewrite the whole file with a single `create` call passing the
+   > full `file_text`. Both options preserve the no-heredoc invariant.
 
    Read the `largeSource` and `sourceLineCount` fields of the current
    queue entry before choosing your strategy:
@@ -674,8 +735,8 @@ PY
 
    **4b. Wall-clock safety net — emergency partial flush.** After every
    language file is written and H2-checked, compute elapsed minutes
-   from `WORKFLOW_START_EPOCH`. If **≥ 45 minutes** have elapsed (or
-   `<15 minutes` remain of the 60-minute cap), **STOP translating
+   from `WORKFLOW_START_EPOCH`. If **≥ 70 minutes** have elapsed (or
+   `≤ 20 minutes` remain of the 90-minute cap), **STOP translating
    immediately** and call `safeoutputs___create_pull_request` with
    whatever files are already on disk — even if the current brief is
    only partially translated (e.g. 10/13 languages). A partial-brief
@@ -685,16 +746,18 @@ PY
    exist — it cannot flag absent siblings, so the gap list must come
    from the marker and the `PARTIAL_LANG_COUNT` bookkeeping vars in
    Step 6). Reviewers can re-queue the missing languages on the next
-   cron tick.
+   cron tick, and the validator's `skeleton-incomplete` advisory
+   (severity: warning) will keep the partial-flush job conclusion
+   at `success` instead of `failure`.
 
    ```bash
    set -euo pipefail
    START_EPOCH=$(cat /tmp/gh-aw/workflow-start-epoch)
    NOW_EPOCH=$(date -u +%s)
    ELAPSED_MIN=$(( (NOW_EPOCH - START_EPOCH) / 60 ))
-   REMAINING_MIN=$(( 60 - ELAPSED_MIN ))
+   REMAINING_MIN=$(( 90 - ELAPSED_MIN ))
    echo "⏱️  Elapsed: ${ELAPSED_MIN} min | Remaining: ${REMAINING_MIN} min"
-   if [ "${ELAPSED_MIN}" -ge 45 ] || [ "${REMAINING_MIN}" -le 15 ]; then
+   if [ "${ELAPSED_MIN}" -ge 70 ] || [ "${REMAINING_MIN}" -le 20 ]; then
      echo "🚨 EMERGENCY FLUSH WINDOW REACHED — call safeoutputs___create_pull_request NOW with partial progress, then end the run." >&2
      # Record a breadcrumb so post-step diagnostics can correlate the early
      # flush. Include the missing-language list because the validator only
@@ -836,22 +899,33 @@ When the queue is empty (or the wall-clock budget is exhausted):
    Output a one-line confirmation (e.g. "PR created. Exiting.") and terminate.
    Do not continue processing — the run is complete.
 
-## ⏱️ Time Budget (60-minute hard cap)
+## ⏱️ Time Budget (90-minute hard cap)
 
 | Minutes | Action |
 |---------|--------|
 | 0-1 | Step 0 date context (records `WORKFLOW_START_EPOCH`); Step 1 read queue |
-| 1-22 | Translate brief #1 (13 languages, Pass 1 + Pass 2). First flush at ~22. |
-| 22-43 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~43. |
-| 43-45 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 45. |
-| 45-50 | Step 3 summary + final flush. **Final flush must land by minute ≤ 50.** |
-| 50-60 | Buffer for safe-outputs bundle application and graceful exit. **Do NOT start new work after minute 45.** |
+| 1-2 | Step 2 read sources, count headings, choose 1-phase vs 2-phase strategy |
+| 2-32 | Translate brief #1 (13 languages, Pass 1 + Pass 2; largeSource = Phase A + Phase B). First per-brief flush at ~32. |
+| 32-62 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~62. |
+| 62-70 | Buffer for one transient-API-error retry loop (run #26235374860 burned 25 min on two consecutive retries; budget for at least one to recur). |
+| 70-75 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 75. |
+| 75-80 | Step 3 summary + final flush. **Final flush must land by minute ≤ 80.** |
+| 80-90 | Buffer for safe-outputs bundle application and graceful exit. **Do NOT start new work after minute 70.** |
 
 Stretch: if `max_briefs` is overridden to 3 or 4 (catch-up mode), tighten
 each per-brief window proportionally. The script-level discovery already
 caps the queue; the AI does not need to ration its own work. The Step 4b
 wall-clock guard is the failsafe — if anything overruns, it forces an
 emergency partial flush instead of letting the engine time out with no PR.
+
+**Transient-API-error budget**: a single transient-API-error retry loop
+historically costs **12-13 minutes** of wall-clock (the gh-aw harness
+re-runs the entire inference). Run #26235374860 hit two retry loops
+back-to-back (25 min lost) before Phase B even started, leaving no time
+for a full 13-language translation of a `largeSource: true` brief.
+Plan for **one** retry loop per run; if two consecutive Phase B `edit`
+calls take > 5 min each, you are inside a retry loop — trigger Step 4b
+immediately even if the elapsed threshold has not fired yet.
 
 ## 🚫 Never
 
@@ -862,6 +936,16 @@ emergency partial flush instead of letting the engine time out with no PR.
   window, dropping the last H2 section(s) without any visible error —
   this is the root cause of the recurring "7/8 H2" failures. Use the
   `create` tool exclusively.
+- **Never** use `python3 << 'PYEOF'` (or any other language) heredocs to
+  write translation content either. The same context-window truncation
+  applies to every heredoc syntax; the Python variant was the fallback
+  the agent reached for in run #26235374860 after an `edit "No match
+  found"` failure on the Norwegian skeleton — and it works far less
+  reliably than re-reading the file with `view` and re-issuing the
+  `edit` with the exact placeholder string, or rewriting the whole
+  file via a single `create` call. When `edit` fails, use `view` to
+  recover the exact `oldText`, then retry `edit` or fall back to a
+  full-file `create` — never to a heredoc.
 - **Never** add new sections or merge sections — structural fidelity is
   enforced by validator gates #6 (heading parity), #7 (Mermaid parity), and
   human review.
@@ -892,8 +976,9 @@ emergency partial flush instead of letting the engine time out with no PR.
   (≥ 1 `executive-brief_<lang>.md` file on disk is sufficient).
 - **Never** let the engine time out or terminate without flushing
   whatever translations are already on disk. The Step 4b wall-clock
-  guard fires at ≥ 45 elapsed minutes (or ≤ 15 remaining); when it
-  does, call `safeoutputs___create_pull_request` immediately with the
+  guard fires at ≥ 70 elapsed minutes (or ≤ 20 remaining of the
+  90-minute cap); when it does, call
+  `safeoutputs___create_pull_request` immediately with the
   partial-progress title — even mid-brief — and end the run.
 - **Never** skip a queue entry because its date is old; backlog parity is
   the workflow's primary KPI. The `fresh-then-backlog` discovery policy

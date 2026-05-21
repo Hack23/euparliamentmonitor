@@ -60,11 +60,20 @@ function readFrontmatter(filePath) {
   return parseYaml(match[1]);
 }
 
-describe('agentic news workflows — 60-min timeout drift-guard', () => {
+describe('agentic news workflows — timeout drift-guard', () => {
   const newsFiles = fs
     .readdirSync(WORKFLOWS_DIR)
     .filter((f) => /^news-.*\.md$/.test(f))
     .sort();
+
+  // news-translate is intentionally given a longer cap than the article
+  // workflows because its largeSource 2-phase strategy must absorb at
+  // least one transient-API-error retry loop (run #26235374860 lost 25
+  // min to two consecutive retries). Article workflows stay at 60 min.
+  const TIMEOUTS_BY_FILE = new Map([
+    ['news-translate.md', 90],
+  ]);
+  const DEFAULT_TIMEOUT = 60;
 
   it('covers exactly 15 news workflows (14 unified article slugs + news-translate)', () => {
     // Exact count: catches both additions AND removals. If a new article
@@ -75,13 +84,14 @@ describe('agentic news workflows — 60-min timeout drift-guard', () => {
   });
 
   for (const file of newsFiles) {
-    it(`${file} declares timeout-minutes: 60`, () => {
+    const expected = TIMEOUTS_BY_FILE.get(file) ?? DEFAULT_TIMEOUT;
+    it(`${file} declares timeout-minutes: ${expected}`, () => {
       const fm = readFrontmatter(path.join(WORKFLOWS_DIR, file));
       expect(fm, `${file} has no YAML frontmatter`).toBeTruthy();
       expect(
         fm['timeout-minutes'],
-        `${file} must declare timeout-minutes: 60 (agent reasons about a 60-min cap)`,
-      ).toBe(60);
+        `${file} must declare timeout-minutes: ${expected} (agent reasons about a ${expected}-min cap)`,
+      ).toBe(expected);
     });
 
     it(`${file} declares concurrency.group (cancel-in-progress requires group, else GitHub rejects the workflow at startup)`, () => {

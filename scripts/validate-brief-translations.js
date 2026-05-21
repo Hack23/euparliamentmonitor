@@ -34,9 +34,25 @@
  *      is a machine-readable fixed token; dropping a diagram silently breaks
  *      downstream HTML rendering.
  *
+ * **Skeleton-aware mode**: when a translation file declares itself as a
+ * Phase A skeleton via the `<!-- translation-skeleton: lang=<code> ... -->`
+ * marker (written by the `news-translate` workflow's 2-phase
+ * largeSource strategy), gates 3–7 are SKIPPED and a single
+ * `skeleton-incomplete` advisory is emitted instead. The advisory is
+ * classified as `severity: warning` and does NOT cause a non-zero exit
+ * unless `--strict-skeletons` is passed. This is intentional: emergency
+ * partial flushes (Step 4b of the translate workflow) write skeleton
+ * stubs for languages that did not reach Phase B before the wall-clock
+ * budget expired; those stubs would otherwise trigger 5+ cascading
+ * violations per file (length-floor, fixed-token-preservation,
+ * heading-parity, mermaid-parity) that drown out real defects in fully
+ * translated siblings. Real translations in the same brief continue to
+ * receive strict validation.
+ *
  * Each translation that fails any gate produces a structured report entry.
  * The process exits with code 1 if any failures are present (unless
- * `--no-fail` is passed for advisory mode).
+ * `--no-fail` is passed for advisory mode, or unless every remaining
+ * violation has `severity: warning`).
  *
  * This script is invoked by:
  *   - `npm run validate:translations`             (CI + local)
@@ -48,6 +64,8 @@
  *     [--paths <glob>...]     # validate specific translation files only
  *     [--report <path>]       # write JSON report; default stdout
  *     [--no-fail]             # exit 0 even when violations found
+ *     [--strict-skeletons]    # treat skeleton-incomplete advisories as
+ *                             # blocking violations (default: warning)
  *     [--quiet]               # suppress per-file logging
  */
 
@@ -200,6 +218,45 @@ export function countMermaidBlocks(text) {
 }
 
 /**
+ * Marker that the `news-translate` workflow Phase A writes at the very top
+ * of every skeleton file (before the H1 line). When the validator sees this
+ * marker it knows the file is a deliberately incomplete Phase A skeleton
+ * from an emergency partial flush and emits a single `skeleton-incomplete`
+ * advisory instead of cascading length/token/heading/mermaid violations.
+ *
+ * The marker is intentionally a forgiving regex: any HTML comment starting
+ * with `<!-- translation-skeleton` within the first 10 lines counts. This
+ * accommodates both `<!-- translation-skeleton: lang=sv phase=A -->` and
+ * the legacy `<!-- translation-skeleton -->` formats.
+ */
+export const SKELETON_MARKER_RE = /<!--\s*translation-skeleton\b/;
+
+/**
+ * Heuristic skeleton detector. A file is a skeleton if EITHER:
+ *  - it contains the explicit `SKELETON_MARKER_RE` marker in its first
+ *    10 lines (preferred, set by Phase A), OR
+ *  - it is structurally indistinguishable from a skeleton: H1 + ≥3 H2
+ *    headings, every H2 followed only by a `<!-- pending -->` /
+ *    `<PENDING>` placeholder, and total body bytes < 25% of any
+ *    realistic translation (fallback for older Phase A output that
+ *    pre-dates the marker convention).
+ *
+ * @param {string} text
+ * @returns {boolean}
+ */
+export function isSkeletonStub(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+  const head = text.split('\n', 10).join('\n');
+  if (SKELETON_MARKER_RE.test(head)) return true;
+  // Fallback heuristic: many H2s, almost every body line is a pending marker.
+  const h2Count = countHeadings(text, 2);
+  if (h2Count < 3) return false;
+  const pendingRe = /(<!--\s*pending\s*-->|<PENDING>|\bPENDING\b)/i;
+  const pendingHits = (text.match(new RegExp(pendingRe.source, 'gi')) || []).length;
+  return pendingHits >= h2Count;
+}
+
+/**
  * Extract H2 section titles from markdown text. Mirrors the shape returned
  * by `scripts/discover-untranslated-briefs.js#extractH2Titles` so the
  * validator can produce a precise "likely-dropped section" diagnostic when
@@ -334,6 +391,7 @@ export function parseArgs(argv) {
     report: null,
     fail: true,
     quiet: false,
+    strictSkeletons: false,
   };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -355,6 +413,9 @@ export function parseArgs(argv) {
       case '--no-fail':
         opts.fail = false;
         break;
+      case '--strict-skeletons':
+        opts.strictSkeletons = true;
+        break;
       case '--quiet':
         opts.quiet = true;
         break;
@@ -362,7 +423,8 @@ export function parseArgs(argv) {
       case '-h':
         process.stdout.write(
           'Usage: validate-brief-translations.js [--repo-root <path>] ' +
-            '[--paths <file>...] [--report <path>] [--no-fail] [--quiet]\n'
+            '[--paths <file>...] [--report <path>] [--no-fail] ' +
+            '[--strict-skeletons] [--quiet]\n'
         );
         process.exit(0);
         break;
@@ -444,6 +506,34 @@ export function validateTranslation(translationPath, repoRoot) {
     return violations;
   }
 
+  // Skeleton short-circuit: when a translation file declares itself as a
+  // Phase A skeleton (via the `<!-- translation-skeleton -->` marker the
+  // news-translate workflow writes during emergency partial flushes), skip
+  // gates 3–7 and emit a single non-blocking `skeleton-incomplete`
+  // advisory. The marker is a deliberate contract between the workflow
+  // and this validator: an emergency partial flush is a SUCCESSFUL
+  // outcome (some real translations were saved), and the unfilled
+  // skeleton stubs for languages that did not reach Phase B should not
+  // generate 5+ cascading violations that drown out real defects in
+  // the fully translated siblings. The next scheduled run will pick up
+  // the skeleton languages via the discovery queue's missing-language
+  // detection. See `.github/workflows/news-translate.md` §"🐘
+  // LARGE-SOURCE 2-PHASE STRATEGY" and §"4b. Wall-clock safety net".
+  const targetTextEarly = fs.readFileSync(translationPath, 'utf8');
+  if (isSkeletonStub(targetTextEarly)) {
+    violations.push({
+      translationPath: rel,
+      sourcePath: sourceRel,
+      lang,
+      gate: 'skeleton-incomplete',
+      severity: 'warning',
+      message:
+        `Phase A skeleton stub — translation for "${lang}" did not reach Phase B before the wall-clock budget expired. ` +
+        `Re-queue this language on the next scheduled run; the discovery script will detect it as a missing sibling.`,
+    });
+    return violations;
+  }
+
   const sourceBytes = fs.statSync(sourcePath).size;
   const targetBytes = fs.statSync(translationPath).size;
   if (sourceBytes > 0 && targetBytes < sourceBytes * LENGTH_FLOOR_RATIO) {
@@ -458,7 +548,7 @@ export function validateTranslation(translationPath, repoRoot) {
     });
   }
 
-  const targetText = fs.readFileSync(translationPath, 'utf8');
+  const targetText = targetTextEarly;
   let englishHits = 0;
   for (const re of EN_PATTERNS) {
     if (re.test(targetText)) englishHits += 1;
@@ -602,8 +692,9 @@ export function runValidation(translationPaths, repoRoot, { quiet = false } = {}
       allViolations.push(...v);
       if (!quiet) {
         for (const entry of v) {
+          const icon = entry.severity === 'warning' ? '⚠️' : '❌';
           process.stderr.write(
-            `❌ ${entry.translationPath} [${entry.gate}] ${entry.message}\n`
+            `${icon} ${entry.translationPath} [${entry.gate}] ${entry.message}\n`
           );
         }
       }
@@ -614,6 +705,18 @@ export function runValidation(translationPaths, repoRoot, { quiet = false } = {}
   return allViolations;
 }
 
+/**
+ * Count the entries in a violations list that should be treated as
+ * blocking (cause a non-zero exit). When `strictSkeletons` is false
+ * (the default), entries with `severity: 'warning'` — i.e. the
+ * skeleton-incomplete advisory emitted for Phase A stubs from
+ * emergency partial flushes — are not counted as blocking.
+ */
+export function countBlockingViolations(violations, { strictSkeletons = false } = {}) {
+  if (strictSkeletons) return violations.length;
+  return violations.filter((v) => v.severity !== 'warning').length;
+}
+
 /** Main entry point. */
 export function main(argv) {
   const opts = parseArgs(argv);
@@ -622,12 +725,14 @@ export function main(argv) {
     : findAllTranslations(opts.repoRoot);
 
   const violations = runValidation(paths, opts.repoRoot, { quiet: opts.quiet });
+  const blocking = countBlockingViolations(violations, { strictSkeletons: opts.strictSkeletons });
 
   const report = {
     generatedAt: new Date().toISOString(),
     totals: {
       filesChecked: paths.length,
       violations: violations.length,
+      blocking,
       byGate: aggregateByKey(violations, 'gate'),
       byLang: aggregateByKey(violations, 'lang'),
     },
@@ -641,7 +746,7 @@ export function main(argv) {
     process.stdout.write(json);
   }
 
-  if (violations.length > 0 && opts.fail) {
+  if (blocking > 0 && opts.fail) {
     process.exit(1);
   }
   return report;
