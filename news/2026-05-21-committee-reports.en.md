@@ -3046,6 +3046,1425 @@ Given the API degradation, this run relies on:
 
 **Confidence Level:** MEDIUM (B3 — fairly reliable sources with known degradation)
 
+### Executive Brief Ar
+
+**نطاقات WEP المطبّقة** | **درجة الأميرالية:** B2  
+**مستوى الثقة:** 🟡 MEDIUM | **وضع البيانات:** تدفقات متدهورة  
+**تاريخ التحليل:** 2026-05-21 | **الأفق الزمني:** 3 أشهر
+
+---
+
+### 🔴 الحكم الاستخباراتي المحوري
+
+*من المرجح (65–75%)* أن موسم لجان البرلمان الأوروبي لربيع عام 2026 سيحقق أهدافه التشريعية الرئيسية — اعتماد لائحة SAFE، وموقف القراءة الأولى للحزمة الشاملة (Omnibus)، والأعمال التنفيذية الثانوية للصفقة الخضراء — لكن مع توتر تحالفي يُجبر على مفاوضات اللحظة الأخيرة بشأن ملفين رئيسيين على الأقل قبل عطلة صيف يونيو 2026. الأغلبية الضيّقة لتحالف EPP-S&D-Renew (+36 مقعدًا) هي القيد الهيكلي المحوري الذي يحدد كل نتيجة للجان.
+
+**درجة الأميرالية:** B2 | **مستوى الثقة:** 🟡 MEDIUM
+
+---
+
+### أهم 3 أولويات استخباراتية للجان
+
+#### 1 · لائحة SAFE — لجنة ITRE (أولوية عالية)
+تقترب لائحة الأجندة الاستراتيجية للتسلح والعوامل في أوروبا (SAFE)، التي تُجيز منشأة دفاعية أوروبية بقيمة 150 مليار يورو، من التصويت عليها في لجنة ITRE. وتُعدّ هذه اللائحة الأكثر أهمية في تاريخ سياسة الصناعة الدفاعية في الاتحاد الأوروبي، ولها تداعيات مالية جوهرية على هيكل الاقتراض خارج الميزانية العمومية.
+
+**المعلومات الاستخباراتية الرئيسية:**
+- المقرر في لجنة ITRE يُنهي نص التسوية بشأن قواعد المشتريات — أكثر الأقسام إثارةً للجدل
+- المصالح الصناعية الدفاعية الوطنية (فرنسا وألمانيا وبولندا) ضغطت بفاعلية على المقرر
+- الدعم العابر للتحالف (EPP + S&D + ECR + Renew) يمنح SAFE أغلبية متينة بشكل غير معتاد
+- يضغط المجلس من أجل اعتماد متسارع قبل العطلة الصيفية
+- **WEP:** *من المرجح (65–75%)* أن يجري التصويت في اللجنة على SAFE قبل 30 يونيو 2026
+
+**المخاطر:** تبقى الإجراءات الطارئة بموجب المادة 122 من معاهدة عمل الاتحاد الأوروبي ممكنة إذا ساء الوضع الجيوسياسي (التقدير: *احتمالات متساوية تقريبًا، 35–45%*)، مما سيتجاوز استشارة اللجنة.
+
+---
+
+#### 2 · حزمة التبسيط Omnibus — لجنتا ECON/JURI (أولوية عالية)
+توجد حزمة Omnibus I الصادرة عن المفوضية، التي تُراجع CSRD (توجيه إعداد تقارير الاستدامة للشركات) وCSDD وCSR ولائحة التصنيف، في مرحلة اللجان الأكثر تنازعًا. يواجه S&D معضلة استراتيجية بين الحفاظ على تماسك التحالف والاستجابة لضغوط قاعدته التقدمية.
+
+**المعلومات الاستخباراتية الرئيسية:**
+- نجح EPP وجماعات الضغط الصناعية (BusinessEurope) في تشكيل الرواية حول تخفيض الأعباء
+- يتفاوض S&D على إضافة بنود اجتماعية في مقابل قبول رفع العتبات في CSRD (من 250 إلى ~1000 موظف)
+- Greens/EFA و The Left يُعبئان ضغطًا خارجيًا نشطًا على S&D
+- **WEP:** *من المرجح (60–70%)* أن يقبل S&D حزمة Omnibus معدّلة تُبقي على استقرار التحالف
+- **WEP:** *من الممكن (30–40%)* أن ينهار التسوية وتتأخر Omnibus إلى ما بعد العطلة الصيفية
+
+**المخاطر:** يرصد مجتمع الاستثمار في ESG الأمر عن كثب؛ التراجع عن CSRD يخلق حالة عدم يقين في السوق بشأن أكثر من 2 تريليون يورو من الأصول المرتبطة بـ ESG.
+
+---
+
+#### 3 · الأعمال الثانوية للصفقة الخضراء — لجنة ENVI (أولوية متوسطة-عالية)
+تتقدم لجنة ENVI بأعمال تنفيذية ثانوية متعددة لإطار الصفقة الخضراء في EP9: أعمال تنفيذية لقانون استعادة الطبيعة، وإنهاء PPWR (لائحة التغليف)، ولوائح مراقبة CBAM.
+
+**المعلومات الاستخباراتية الرئيسية:**
+- الجناح اليميني للـEPP (الوفود الإيطالية والمجرية والرومانية) يصوّت بشكل متزايد مع ECR على تعديلات "اختبار القدرة التنافسية"
+- أغلبية لجنة ENVI أضيق مما يوحي به حساب التحالف الإجمالي (~5–8 أصوات هامش فعلي في تصويتات ENVI المثيرة للجدل)
+- قانون استعادة الطبيعة: يقترح أعضاء EPP إعفاءات زراعية يصفها Greens/EFA بأنها تدمير للإطار
+- **WEP:** *من المرجح (60–70%)* أن تعتمد ENVI الأعمال الثانوية بعتبات مُخفَّفة لكن مع إطار أساسي سليم
+
+**المخاطر:** قد يُفضي أي نكسة إضافية في لجنة ENVI إلى انسحاب Greens/EFA من اتفاقيات التنسيق غير الرسمية، مما يُعقّد كل عمل مستقبلي للـENVI.
+
+---
+
+### لقطة المشهد السياسي (2026-05-21)
+
+| المجموعة | المقاعد | الحصة | دور التحالف |
+|----------|---------|-------|-------------|
+| EPP | 183 | 25,5% | الشريك المهيمن |
+| S&D | 136 | 19,0% | الشريك الأساسي |
+| PfE | 85 | 11,9% | معارضة/مُعطِّل |
+| ECR | 81 | 11,3% | حليف انتقائي (الدفاع) |
+| Renew | 77 | 10,7% | شريك التحالف |
+| Greens/EFA | 53 | 7,4% | أقلية تقدمية |
+| The Left | 45 | 6,3% | أقلية تقدمية |
+| NI | 30 | 4,2% | غير منتسب |
+| ESN | 27 | 3,8% | مُعطِّل أقصى اليمين |
+
+**الأغلبية المطلوبة:** 360 | **التحالف (EPP+S&D+Renew):** 396 | **الهامش:** +36
+
+---
+
+### السياق الاقتصادي (IMF وكيل هيكلي، A2)
+
+- النمو المتوقع للناتج المحلي الإجمالي لمنطقة اليورو 2026: ~1,7%
+- العجز المالي/الناتج المحلي الإجمالي للاتحاد الأوروبي: ~-2,6% (توطيد جارٍ)
+- SAFE: منشأة دفاعية خارج الميزانية بقيمة 150 مليار يورو
+- سعر الإيداع المتوقع للبنك المركزي الأوروبي: ~2,25% (دورة التيسير متقدمة)
+- التوترات الجمركية بين الولايات المتحدة والاتحاد الأوروبي تُولّد ضغطًا على لجنة INTA
+
+---
+
+### التوقعات لمدة 3 أشهر
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**التقييم العام:** يعمل موسم لجان ربيع 2026 بكثافة عالية وهامش تحالفي ضيق. يُثبت التقدم الناجح للائحة SAFE قدرة EP10 على التصرف بحزم في أولويات الأمن. يمثّل الجدل حول Omnibus والتراجع عن الصفقة الخضراء توترات هيكلية ستحدد إرث EP10 في مجالَي المناخ وحوكمة الشركات. *شبه مؤكد (>85%)* أن تنجو التحالف EPP-S&D-Renew من موسم الربيع سليمًا، رغم الضغط الحقيقي على التصويتات الفردية للجان.
+
+**مستوى الثقة:** 🟡 MEDIUM | **درجة الأميرالية:** B2
+
+---
+
+### السياق الكلي لـ EP10: الخلفية الاقتصادية والسياسية
+
+**البيئة الاقتصادية (IMF WEO أبريل 2026)**:
+يمثّل النمو الحقيقي للناتج المحلي الإجمالي لدول الاتحاد الأوروبي السبع والعشرين البالغ 1,2% في عام 2026 أداءً دون الاتجاه العام. البيئة الجمركية الأمريكية (تأثير سلبي مقدَّر على الناتج المحلي الإجمالي من -0,3% إلى -0,5%) وفوارق تكاليف الطاقة هي رياح معاكسة هيكلية. يُشكّل هذا السياق الاقتصادي مباشرةً الأولويات التشريعية للجان: يتعزز تركيز ITRE على القدرة التنافسية بفعل عجز النمو؛ ويتأطر عمل ECON في التنظيم المالي في مواجهة توقعات البنك المركزي الأوروبي بتضخم قريب من الهدف (2,3%) لكن مع مخاطر جودة الائتمان القائمة في الدول الأعضاء الطرفية.
+
+**الحساب السياسي**: تُعدّ أغلبية 55,9% لتحالف EPP-S&D-Renew (401/717 مقعدًا) أضيق أغلبية حاكمة مؤيدة للاتحاد الأوروبي منذ حصول البرلمان الأوروبي على صلاحيات المشاركة في اتخاذ القرار بموجب معاهدة ماستريخت. في أي تصويت، يستلزم التعبئة الكاملة حضورًا شبه مثالي من المجموعات الثلاث — وهشاشة هيكلية تتفاقم مع كل أسبوع تداولي.
+
+**ما يجب متابعته في الستين يومًا القادمة**:
+1. نشر بيانات تصويت DOCEO (متوقع في 25–26 مايو 2026) — ستكشف معدلات التماسك الفعلية لـEPP في التصويتات المثيرة للجدل من أسبوع الجلسة العامة الحالي
+2. نشر مقترح المفوضية التشريعي EDIP — يُحدد نطاق الطموح الصناعي الدفاعي للاتحاد الأوروبي ويختبر انسجام التحالف البرلماني بعد تصويت الولاية الأولي
+3. اعتماد الأعمال المفوّضة CBAM من قِبل لجنة ENVI — حالة اختبار لوتيرة التشريع الثانوي للصفقة الخضراء في عهد الرئاسة البولندية
+
+**الحكم الاستخباراتي**: سيُذكر موسم لجان ربيع 2026 باعتباره اللحظة التي أثبت فيها EP10 قدرته على التصرف بحزم في أولويات المستوى الأول (الدفاع والذكاء الاصطناعي وإدارة الهجرة)، بينما يكافح في الوقت ذاته مع توترات هيكلية في إرث الصفقة الخضراء. المؤسسة تتكيف، لكن التكيف يظهر في تباين جودة الإنتاج عبر طبقات أولوية الملفات — لا في انهيار مؤسسي.
+
+*أُعدَّ بواسطة وكيل تحليل مدعوم بالذكاء الاصطناعي | 2026-05-21 | وضع البيانات: تدفقات متدهورة*
+
+### Executive Brief Da
+
+### 🔴 CENTRAL EFTERRETNINGSVURDERING
+
+*Det er sandsynligt (65–75%)* at Europa-Parlamentets udvalgsæson for foråret 2026 vil levere sine primære lovgivningsmål — vedtagelse af SAFE-forordningen, Omnibussens første behandlingsposition og den grønne aftales sekundære gennemførelsesretsakter — men med koalitionsstress, der tvinger forhandlinger i sidste øjeblik om mindst to store sager, inden sommerferien i juni 2026. Det snævre EPP-S&D-Renew-flertal (+36 pladser) er den centrale strukturelle begrænsning, der definerer ethvert udvalgsresultat.
+
+**Admiralitetsgrad:** B2 | **Konfidens:** 🟡 MEDIUM
+
+---
+
+### Top 3 Udvalgsefterretningsprioriteter
+
+#### 1 · SAFE-forordningen — ITRE-udvalget (HØJ PRIORITET)
+Forordningen om den strategiske dagsorden for armamenter og faktorer i Europa (SAFE), der godkender en EU-forsvarsfacilitet på 150 milliarder euro, nærmer sig sin afstemning i ITRE-udvalget. Dette er den mest betydningsfulde forsvarsindustrielle lovgivning i EU's historie og har store finanspolitiske konsekvenser for EU's off-balance-sheet lånearchitektur.
+
+**Centrale efterretninger:**
+- ITRE-udvalgets ordfører er ved at færdiggøre kompromisteksten om udbudsregler — den mest omstridte sektion
+- Nationale forsvarsindustrielle interesser (Frankrig, Tyskland, Polen) har aktivt lobbyet ordføreren
+- Krydskoalitionsstøtte (EPP + S&D + ECR + Renew) giver SAFE et usædvanligt robust flertal
+- Rådet presser på hurtig vedtagelse inden sommerferien
+- **WEP:** *Det er sandsynligt (65–75%)* at SAFE-udvalgets afstemning finder sted inden den 30. juni 2026
+
+**Risiko:** Nødproceduren i henhold til artikel 122 TEUF forbliver mulig, hvis den geopolitiske situation forværres (vurderet *nogenlunde lige odds, 35–45%*), hvilket ville omgå udvalgets høring.
+
+---
+
+#### 2 · Omnibus-forenklingspackagen — ECON/JURI-udvalgene (HØJ PRIORITET)
+Kommissionens Omnibus I-pakke, der reviderer CSRD (direktivet om virksomheders bæredygtighedsrapportering), CSDDD og Taksonomiforordningen, befinder sig i sin mest omstridte udvalgsfase. S&D står over for et strategisk dilemma mellem at opretholde koalitionens sammenhæng og at imødekomme pres fra den progressive base.
+
+**Centrale efterretninger:**
+- EPP og industrilobbyister (BusinessEurope) har med succes formet narrativet om byrdelettelse
+- S&D forhandler om tilføjelse af sociale klausuler som modydelse for at acceptere CSRD-tærskelstigninger (fra 250 til ~1.000 ansatte)
+- Greens/EFA og The Left mobiliserer aktivt eksternt pres mod S&D
+- **WEP:** *Det er sandsynligt (60–70%)* at S&D accepterer en modificeret Omnibus-pakke, der opretholder koalitionens stabilitet
+- **WEP:** *Det er muligt (30–40%)* at kompromisset bryder sammen og forsinker Omnibus efter sommerferien
+
+**Risiko:** ESG-investeringssamfundet følger nøje med; CSRD-tilbagerulning skaber markedsusikkerhed for mere end 2 billioner euro i ESG-bundne aktiver.
+
+---
+
+#### 3 · Den grønne aftales sekundære retsakter — ENVI-udvalget (MIDDEL-HØJ PRIORITET)
+ENVI-udvalget fremmer flere sekundære gennemførelsesretsakter for EP9's ramme for den grønne aftale: gennemførelsesretsakter til naturgenopretningsloven, færdiggørelse af PPWR (emballageforordningen) og CBAM-overvågningsforordninger.
+
+**Centrale efterretninger:**
+- EPP's højrefløj (italienske, ungarske og rumænske delegationer) stemmer i stigende grad med ECR om "konkurrenceevne-prøvnings"-ændringsforslag
+- ENVI-udvalgets flertal er smallere end den overordnede koalitionsaritmetik antyder (~5–8 stemmer effektiv margen ved omstridte ENVI-afstemninger)
+- Naturgenopretningsloven: EPP-medlemmer foreslår landbrugsundtagelser, som Greens/EFA beskriver som rammeødelæggelse
+- **WEP:** *Det er sandsynligt (60–70%)* at ENVI vedtager sekundære retsakter med svækkede tærskler, men intakt grundlæggende ramme
+
+**Risiko:** Yderligere ENVI-udvalgsmodgang kan udløse Greens/EFA's tilbagetrækning fra uformelle koordinationsaftaler, hvilket ville komplicere alt fremtidigt ENVI-arbejde.
+
+---
+
+### Politisk landskabsoverblik (2026-05-21)
+
+| Gruppe | Pladser | Andel | Koalitionsrolle |
+|--------|---------|-------|-----------------|
+| EPP | 183 | 25,5% | Dominerende partner |
+| S&D | 136 | 19,0% | Nødvendig partner |
+| PfE | 85 | 11,9% | Opposition/Forstyrrer |
+| ECR | 81 | 11,3% | Selektiv allieret (forsvar) |
+| Renew | 77 | 10,7% | Koalitionspartner |
+| Greens/EFA | 53 | 7,4% | Progressivt mindretal |
+| The Left | 45 | 6,3% | Progressivt mindretal |
+| NI | 30 | 4,2% | Ikke-tilknyttet |
+| ESN | 27 | 3,8% | Yderliggående forstyrrer |
+
+**Nødvendigt flertal:** 360 | **Koalition (EPP+S&D+Renew):** 396 | **Margen:** +36
+
+---
+
+### Økonomisk kontekst (IMF Strukturel proxy, A2)
+
+- Eurozonen BNP-vækst 2026 anslået: ~1,7%
+- EU's finanspolitiske underskud/BNP: ~-2,6% (konsolidering pågår)
+- SAFE: 150 milliarder euro off-balance-sheet forsvarsfacilitet
+- ECB's indlånsrente anslået: ~2,25% (lempelsescyklus avanceret)
+- USA-EU-tolspændinger skaber pres i INTA-udvalget
+
+---
+
+### 3-måneders udsigt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**Samlet vurdering:** Udvalgsæsonen foråret 2026 opererer med HØJ intensitet og en smal koalitionsmargen. SAFE-forordningens succesfulde fremskridt demonstrerer EP10's kapacitet til at handle beslutsomme i sikkerhedsprioriteter. Omnibus-bestriden og den grønne aftales tilbagegang repræsenterer strukturelle spændinger, der vil definere EP10's arv vedrørende klima og virksomhedsstyring. *Det er næsten sikkert (>85%)* at EPP-S&D-Renew-koalitionen overlever forårssæsonen intakt, på trods af reelt stress ved individuelle udvalgsafstemninger.
+
+**Konfidens:** 🟡 MEDIUM | **Admiralitetsgrad:** B2
+
+---
+
+### EP10 Makrokontekst: Økonomisk og politisk baggrund
+
+**Økonomisk miljø (IMF WEO april 2026)**:
+EU-27's reale BNP-vækst på 1,2% i 2026 repræsenterer en under-trend præstation. Den amerikanske toldmiljø (anslået -0,3 til -0,5% BNP-træk) og energiomkostningsforskelle er strukturelle modvinde. Denne økonomiske kontekst former direkte udvalgenes lovgivningsprioriteter: ITRE's konkurrenceevnefokus forstærkes af vækstunderskuddet; ECON's finansregleringsarbejde er indrammet over for ECB's fremskrivninger om nær-mål-inflation (2,3%), men vedvarende kreditkvalitetsrisici i perifere medlemsstater.
+
+**Politisk aritmetik**: EPP-S&D-Renew-koalitionens 55,9%-flertal (401/717 pladser) er det smalleste pro-EU styrende flertal, siden Europa-Parlamentet fik medbeslutningsbeføjelser under Maastricht. Ved enhver given afstemning kræver fuld mobilisering næsten perfekt fremmøde fra alle tre grupper — en strukturel sårbarhed, der stiger med hver plenarmødeuge.
+
+**Hvad man bør følge de næste 60 dage**:
+1. DOCEO-afstemningsdata-publicering (forventet 25–26. maj 2026) — vil afsløre faktiske EPP-kohesionsrater ved omstridte afstemninger fra den aktuelle plenarmødeuge
+2. Kommissionens EDIP-lovgivningsforslag offentliggørelse — fastlægger omfanget af EU's forsvarsindustrielle ambitioner og tester parlamentskoalitionens tilpasning ud over den indledende mandatafstemning
+3. ENVI-udvalgets CBAM-delegerede retsakter vedtagelse — testcase for den grønne aftales sekundære lovgivningstakt under det polske formandskab
+
+**Efterretningsvurdering**: Udvalgsæsonen foråret 2026 vil blive husket som det øjeblik, hvor EP10 demonstrerede, at det kunne handle beslutsomme i Tier 1-prioriteter (forsvar, AI, migrationsstyring), mens det samtidig kæmpede med strukturelle spændinger i sit grønne aftale-arv. Institutionen tilpasser sig, men tilpasningen er synlig i outputkvalitetsvariationen på tværs af filprioritetsniveauer — ikke i institutionelt sammenbrud.
+
+*Udarbejdet af AI-drevet analyseagent | 2026-05-21 | Datatilstand: forringede feeds*
+
+### Executive Brief De
+
+### 🔴 ZENTRALE NACHRICHTENBEURTEILUNG
+
+*Es ist wahrscheinlich (65–75%)*, dass die Ausschusssaison des Europäischen Parlaments für das Frühjahr 2026 ihre primären Gesetzgebungsziele liefern wird — Verabschiedung der SAFE-Verordnung, Position des Europäischen Parlaments in erster Lesung des Omnibus und sekundäre Durchführungsrechtsakte des Green Deal — jedoch mit Koalitionsstress, der in letzter Minute Verhandlungen über mindestens zwei große Dateien vor der Sommerpause im Juni 2026 erzwingt. Die knappe EPP-S&D-Renew-Mehrheit (+36 Sitze) ist die zentrale strukturelle Beschränkung, die jedes Ausschussergebnis definiert.
+
+**Admiralitätsgrad:** B2 | **Konfidenz:** 🟡 MEDIUM
+
+---
+
+### Top 3 Ausschussgeheimdienstprioritäten
+
+#### 1 · SAFE-Verordnung — ITRE-Ausschuss (HOHE PRIORITÄT)
+Die Verordnung zur strategischen Agenda für Rüstung und Industrie in Europa (SAFE), die eine EU-Verteidigungsanlage von 150 Milliarden Euro genehmigt, nähert sich ihrer Abstimmung im ITRE-Ausschuss. Dies ist die bedeutsamste Gesetzgebung zur Verteidigungsindustriepolitik in der EU-Geschichte und hat erhebliche fiskalische Auswirkungen auf die außerbilanzielle Kreditarchitektur der EU.
+
+**Zentrale Nachrichtenmeldungen:**
+- Der Berichterstatter des ITRE-Ausschusses schließt den Kompromisstext zu Beschaffungsregeln ab — der umstrittenste Abschnitt
+- Nationale Verteidigungsindustrieinteressen (Frankreich, Deutschland, Polen) haben den Berichterstatter aktiv lobbyiert
+- Überfraktionelle Unterstützung (EPP + S&D + ECR + Renew) gibt SAFE eine ungewöhnlich robuste Mehrheit
+- Der Rat drängt auf rasche Verabschiedung vor der Sommerpause
+- **WEP:** *Es ist wahrscheinlich (65–75%)*, dass die SAFE-Ausschussabstimmung vor dem 30. Juni 2026 stattfindet
+
+**Risiko:** Das Notfallverfahren gemäß Artikel 122 AEUV bleibt möglich, wenn sich die geopolitische Lage verschlechtert (eingeschätzt als *ungefähr gleich wahrscheinlich, 35–45%*), was die Ausschusskonsultation umgehen würde.
+
+---
+
+#### 2 · Omnibus-Vereinfachungspaket — ECON/JURI-Ausschüsse (HOHE PRIORITÄT)
+Das Omnibus I-Paket der Kommission zur Überarbeitung der CSRD (Richtlinie zur Nachhaltigkeitsberichterstattung von Unternehmen), CSDDD und der Taxonomie-Verordnung befindet sich in seiner umstrittensten Ausschussphase. S&D steht vor einem strategischen Dilemma zwischen der Aufrechterhaltung des Koalitionszusammenhalts und dem Reagieren auf den Druck der progressiven Basis.
+
+**Zentrale Nachrichtenmeldungen:**
+- EPP und Industrielobbyisten (BusinessEurope) haben die Erzählung rund um Bürokratieabbau erfolgreich geprägt
+- S&D verhandelt über Sozialklausel-Ergänzungen als Gegenleistung für die Akzeptanz von CSRD-Schwellenwerterhöhungen (von 250 auf ~1.000 Mitarbeiter)
+- Greens/EFA und The Left mobilisieren aktiv externen Druck auf S&D
+- **WEP:** *Es ist wahrscheinlich (60–70%)*, dass S&D ein modifiziertes Omnibus-Paket akzeptiert, das die Koalitionsstabilität aufrechterhält
+- **WEP:** *Es ist möglich (30–40%)*, dass der Kompromiss scheitert und Omnibus über die Sommerpause hinaus verzögert wird
+
+**Risiko:** Die ESG-Investitionsgemeinschaft beobachtet dies genau; ein CSRD-Rückzug schafft Marktverunsicherung für mehr als 2 Billionen Euro in ESG-gebundenen Vermögenswerten.
+
+---
+
+#### 3 · Sekundäre Green-Deal-Rechtsakte — ENVI-Ausschuss (MITTEL-HOHE PRIORITÄT)
+Der ENVI-Ausschuss befördert mehrere sekundäre Durchführungsrechtsakte für das Green-Deal-Rahmenwerk des EP9: Durchführungsrechtsakte zum Naturwiederherstellungsgesetz, Abschluss der PPWR (Verpackungsverordnung) und CBAM-Überwachungsverordnungen.
+
+**Zentrale Nachrichtenmeldungen:**
+- Der rechte Flügel der EPP (italienische, ungarische und rumänische Delegationen) stimmt zunehmend mit der ECR bei Änderungsanträgen zur „Wettbewerbsfähigkeitsprüfung"
+- Die Mehrheit des ENVI-Ausschusses ist schmaler, als die übergeordnete Koalitionsarithmetik vermuten lässt (~5–8 Stimmen effektive Marge bei umstrittenen ENVI-Abstimmungen)
+- Naturwiederherstellungsgesetz: EPP-Mitglieder schlagen landwirtschaftliche Ausnahmeregelungen vor, die Greens/EFA als Rahmenvernichtung bezeichnen
+- **WEP:** *Es ist wahrscheinlich (60–70%)*, dass ENVI sekundäre Rechtsakte mit geschwächten Schwellenwerten, aber intaktem Grundrahmen verabschiedet
+
+**Risiko:** Weitere Rückschläge im ENVI-Ausschuss könnten den Rückzug von Greens/EFA aus informellen Koordinierungsabkommen auslösen und alle künftigen ENVI-Arbeiten erschweren.
+
+---
+
+### Politischer Lagebericht (2026-05-21)
+
+| Fraktion | Sitze | Anteil | Koalitionsrolle |
+|----------|-------|--------|-----------------|
+| EPP | 183 | 25,5% | Dominanter Partner |
+| S&D | 136 | 19,0% | Unverzichtbarer Partner |
+| PfE | 85 | 11,9% | Opposition/Störer |
+| ECR | 81 | 11,3% | Selektiver Verbündeter (Verteidigung) |
+| Renew | 77 | 10,7% | Koalitionspartner |
+| Greens/EFA | 53 | 7,4% | Progressive Minderheit |
+| The Left | 45 | 6,3% | Progressive Minderheit |
+| NI | 30 | 4,2% | Fraktionslos |
+| ESN | 27 | 3,8% | Rechtsextremer Störer |
+
+**Erforderliche Mehrheit:** 360 | **Koalition (EPP+S&D+Renew):** 396 | **Marge:** +36
+
+---
+
+### Wirtschaftlicher Kontext (IMF Struktureller Proxy, A2)
+
+- Eurozone BIP-Wachstum 2026 geschätzt: ~1,7%
+- EU Haushaltdefizit/BIP: ~-2,6% (Konsolidierung im Gange)
+- SAFE: 150 Milliarden Euro außerbilanzielles Verteidigungsprogramm
+- EZB-Einlagenzins geschätzt: ~2,25% (Lockerungszyklus fortgeschritten)
+- US-EU-Zollspannungen erzeugen Druck im INTA-Ausschuss
+
+---
+
+### 3-Monats-Ausblick
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**Gesamtbeurteilung:** Die Ausschusssaison Frühjahr 2026 operiert mit HOHER Intensität und einer knappen Koalitionsmarge. Das erfolgreiche Voranschreiten der SAFE-Verordnung demonstriert EP10s Kapazität, bei Sicherheitsprioritäten entschlossen zu handeln. Der Omnibus-Streit und der Rückzug des Green Deal stellen strukturelle Spannungen dar, die das Erbe von EP10 im Bereich Klima und Unternehmensführung definieren werden. *Es ist fast sicher (>85%)*, dass die EPP-S&D-Renew-Koalition die Frühjahrssaison intakt überlebt, trotz echten Stresses bei einzelnen Ausschussabstimmungen.
+
+**Konfidenz:** 🟡 MEDIUM | **Admiralitätsgrad:** B2
+
+---
+
+### EP10-Makrokontext: Wirtschaftlicher und politischer Hintergrund
+
+**Wirtschaftliches Umfeld (IMF WEO April 2026)**:
+Das reale BIP-Wachstum der EU-27 von 1,2% im Jahr 2026 stellt eine Leistung unterhalb des Trends dar. Das US-Zollumfeld (geschätzte -0,3 bis -0,5% BIP-Bremseffekt) und Energiekostendifferentiale sind strukturelle Gegenwind. Dieser wirtschaftliche Kontext prägt direkt die gesetzgeberischen Prioritäten der Ausschüsse: Das Wettbewerbsfähigkeitsfokus des ITRE wird durch den Wachstumsmangel verstärkt; die Finanzregulierungsarbeit des ECON ist im Rahmen der EZB-Projektionen einer nahezu zielkonformen Inflation (2,3%) ausgerichtet, jedoch mit anhaltenden Kreditqualitätsrisiken in peripheren Mitgliedstaaten.
+
+**Politische Arithmetik**: Die 55,9%-Mehrheit der EPP-S&D-Renew-Koalition (401/717 Sitze) ist die knappste pro-EU-Regierungsmehrheit seit dem Europäischen Parlament Mitentscheidungsbefugnisse unter Maastricht erhielt. Bei jeder Abstimmung erfordert eine vollständige Mobilisierung nahezu perfekte Präsenz aller drei Fraktionen — eine strukturelle Anfälligkeit, die mit jeder Plenarwoche zunimmt.
+
+**Was in den nächsten 60 Tagen zu beobachten ist**:
+1. Veröffentlichung der DOCEO-Abstimmungsdaten (erwartet 25.–26. Mai 2026) — wird tatsächliche EPP-Kohäsionsraten bei umstrittenen Abstimmungen der aktuellen Plenarsitzungswoche enthüllen
+2. Veröffentlichung des EDIP-Gesetzgebungsvorschlags der Kommission — legt den Umfang des EU-Verteidigungsindustrieambitionen fest und testet die Übereinstimmung der Parlamentskoalition über den anfänglichen Mandatsbeschluss hinaus
+3. Verabschiedung der CBAM-delegierten Rechtsakte des ENVI-Ausschusses — Testfall für das Tempo der sekundären Green-Deal-Gesetzgebung unter dem polnischen Vorsitz
+
+**Geheimdienstliche Beurteilung**: Die Ausschusssaison Frühjahr 2026 wird als der Moment in Erinnerung bleiben, als EP10 bewies, dass es bei Tier-1-Prioritäten (Verteidigung, KI, Migrationsmanagement) entschlossen handeln konnte, während es gleichzeitig mit strukturellen Spannungen in seinem Green-Deal-Erbe rang. Die Institution passt sich an, aber die Anpassung zeigt sich in Outputqualitätsvariationen über Dateipriorititsstufen hinweg — nicht im institutionellen Zusammenbruch.
+
+*Erstellt von KI-getriebenem Analyseagenten | 2026-05-21 | Datenmodus: beeinträchtigte Feeds*
+
+### Executive Brief Es
+
+### 🔴 VALORACIÓN DE INTELIGENCIA CENTRAL
+
+*Es probable (65–75%)* que la temporada de comisiones del Parlamento Europeo para la primavera de 2026 entregue sus principales objetivos legislativos — adopción del reglamento SAFE, posición en primera lectura del Omnibus y actos de ejecución secundarios del Pacto Verde — pero con tensión de coalición que forzará negociaciones de última hora sobre al menos dos expedientes importantes antes del receso de verano de junio de 2026. La estrecha mayoría EPP-S&D-Renew (+36 escaños) es la restricción estructural central que define cada resultado de comisión.
+
+**Grado Almirantazgo:** B2 | **Confianza:** 🟡 MEDIUM
+
+---
+
+### Top 3 Prioridades de inteligencia de comisiones
+
+#### 1 · Reglamento SAFE — Comisión ITRE (PRIORIDAD ALTA)
+El reglamento sobre la Agenda Estratégica para el Armamento y los Factores en Europa (SAFE), que autoriza una instalación de defensa de la UE de 150 mil millones de euros, se acerca a su votación en la comisión ITRE. Esta es la legislación de política industrial de defensa más significativa de la historia de la UE y tiene importantes implicaciones fiscales para la arquitectura de endeudamiento fuera de balance de la UE.
+
+**Inteligencia clave:**
+- El ponente de la comisión ITRE está finalizando el texto de compromiso sobre las normas de contratación — la sección más controvertida
+- Los intereses industriales nacionales de defensa (Francia, Alemania, Polonia) han presionado activamente al ponente
+- El apoyo transcoalición (EPP + S&D + ECR + Renew) otorga a SAFE una mayoría inusualmente sólida
+- El Consejo presiona por una adopción acelerada antes del receso de verano
+- **WEP:** *Es probable (65–75%)* que la votación en comisión de SAFE se produzca antes del 30 de junio de 2026
+
+**Riesgo:** El procedimiento de emergencia del artículo 122 TFUE sigue siendo posible si la situación geopolítica se deteriora (estimado con *probabilidades aproximadamente iguales, 35–45%*), lo que omitiría la consulta a la comisión.
+
+---
+
+#### 2 · Paquete de simplificación Omnibus — Comisiones ECON/JURI (PRIORIDAD ALTA)
+El paquete Omnibus I de la Comisión que revisa la CSRD (Directiva de Sostenibilidad Corporativa), la CSDDD y el Reglamento de Taxonomía se encuentra en su fase de comisión más controvertida. S&D se enfrenta a un dilema estratégico entre mantener la cohesión de la coalición y responder a la presión de su base progresista.
+
+**Inteligencia clave:**
+- El EPP y los grupos de presión industriales (BusinessEurope) han moldeado con éxito el relato en torno a la reducción de cargas
+- S&D negocia la adición de cláusulas sociales como contrapartida para aceptar aumentos de umbrales en la CSRD (de 250 a ~1 000 empleados)
+- Greens/EFA y The Left movilizan activamente presión externa sobre S&D
+- **WEP:** *Es probable (60–70%)* que S&D acepte un paquete Omnibus modificado que mantenga la estabilidad de la coalición
+- **WEP:** *Es posible (30–40%)* que el compromiso fracase, retrasando el Omnibus más allá del receso de verano
+
+**Riesgo:** La comunidad de inversores en ESG observa de cerca; la dilución de la CSRD crea incertidumbre de mercado para más de 2 billones de euros en activos vinculados a ESG.
+
+---
+
+#### 3 · Actos secundarios del Pacto Verde — Comisión ENVI (PRIORIDAD MEDIA-ALTA)
+La comisión ENVI avanza varios actos de ejecución secundarios del marco del Pacto Verde del PE9: actos de ejecución de la Ley de Restauración de la Naturaleza, finalización del PPWR (Reglamento de Envases) y reglamentos de vigilancia del CBAM.
+
+**Inteligencia clave:**
+- El ala derecha del EPP (delegaciones italiana, húngara y rumana) vota en mayor medida con el ECR en las enmiendas de «comprobación de competitividad»
+- La mayoría de la comisión ENVI es más estrecha de lo que la aritmética general de la coalición sugeriría (~5–8 votos de margen efectivo en votaciones controvertidas de la ENVI)
+- Ley de Restauración de la Naturaleza: miembros del EPP proponen derogaciones agrícolas que Greens/EFA califica de destrucción del marco
+- **WEP:** *Es probable (60–70%)* que la ENVI adopte actos secundarios con umbrales debilitados pero un marco fundamental intacto
+
+**Riesgo:** Cualquier nuevo revés en la comisión ENVI podría desencadenar la retirada de Greens/EFA de los acuerdos de coordinación informal, complicando todo el trabajo futuro de la ENVI.
+
+---
+
+### Panorama político (2026-05-21)
+
+| Grupo | Escaños | Cuota | Papel en la coalición |
+|-------|---------|-------|-----------------------|
+| EPP | 183 | 25,5% | Socio dominante |
+| S&D | 136 | 19,0% | Socio esencial |
+| PfE | 85 | 11,9% | Oposición/Perturbador |
+| ECR | 81 | 11,3% | Aliado selectivo (defensa) |
+| Renew | 77 | 10,7% | Socio de coalición |
+| Greens/EFA | 53 | 7,4% | Minoría progresista |
+| The Left | 45 | 6,3% | Minoría progresista |
+| NI | 30 | 4,2% | No inscrito |
+| ESN | 27 | 3,8% | Perturbador de extrema derecha |
+
+**Mayoría necesaria:** 360 | **Coalición (EPP+S&D+Renew):** 396 | **Margen:** +36
+
+---
+
+### Contexto económico (IMF Proxy estructural, A2)
+
+- Crecimiento del PIB de la zona euro en 2026 estimado: ~1,7%
+- Déficit fiscal/PIB de la UE: ~-2,6% (consolidación en curso)
+- SAFE: instalación de defensa fuera de balance de 150 mil millones de euros
+- Tipo de depósito del BCE estimado: ~2,25% (ciclo de relajación avanzado)
+- Las tensiones arancelarias EE. UU.-UE crean presión en la comisión INTA
+
+---
+
+### Perspectivas a 3 meses
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**Evaluación general:** La temporada de comisiones de la primavera de 2026 opera con ALTA intensidad y un margen de coalición estrecho. El avance exitoso del reglamento SAFE demuestra la capacidad del PE10 para actuar de forma decisiva en las prioridades de seguridad. La contestación del Omnibus y la retirada del Pacto Verde representan tensiones estructurales que definirán el legado del PE10 en materia de clima y gobierno corporativo. *Es casi seguro (>85%)* que la coalición EPP-S&D-Renew sobrevive a la temporada de primavera intacta, a pesar de la tensión real en votaciones individuales de comisión.
+
+**Confianza:** 🟡 MEDIUM | **Grado Almirantazgo:** B2
+
+---
+
+### Macrocontexto del PE10: Contexto económico y político
+
+**Entorno económico (IMF WEO abril de 2026)**:
+El crecimiento real del PIB de la UE-27 de un 1,2% en 2026 representa un rendimiento por debajo de la tendencia. El entorno arancelario de EE. UU. (arrastre estimado del PIB de -0,3 a -0,5%) y los diferenciales de costes energéticos son vientos en contra estructurales. Este contexto económico moldea directamente las prioridades legislativas de las comisiones: el enfoque en competitividad del ITRE se ve amplificado por el déficit de crecimiento; el trabajo de regulación financiera del ECON está enmarcado frente a las proyecciones del BCE de una inflación cercana al objetivo (2,3%), pero con riesgos de calidad crediticia persistentes en los Estados miembros periféricos.
+
+**Aritmética política**: La mayoría del 55,9% de la coalición EPP-S&D-Renew (401/717 escaños) es la mayoría gobernante pro-UE más estrecha desde que el Parlamento Europeo obtuvo poderes de codecisión en virtud del Tratado de Maastricht. Para cualquier votación dada, la movilización completa requiere una asistencia casi perfecta de los tres grupos — una vulnerabilidad estructural que aumenta con cada semana plenaria.
+
+**Qué vigilar en los próximos 60 días**:
+1. Publicación de datos de votación de DOCEO (prevista para el 25–26 de mayo de 2026) — revelará las tasas reales de cohesión del EPP en votaciones controvertidas de la semana plenaria en curso
+2. Publicación de la propuesta legislativa EDIP de la Comisión — establece el alcance de la ambición industrial de defensa de la UE y pone a prueba la alineación de la coalición parlamentaria más allá del voto de mandato inicial
+3. Adopción de los actos delegados CBAM por la comisión ENVI — caso de prueba para el ritmo de la legislación secundaria del Pacto Verde bajo la presidencia polaca
+
+**Juicio de inteligencia**: La temporada de comisiones de la primavera de 2026 será recordada como el momento en que el PE10 demostró que podía actuar de forma decisiva en las prioridades de nivel 1 (defensa, IA, gestión de la migración), mientras luchaba simultáneamente con tensiones estructurales en su herencia del Pacto Verde. La institución se está adaptando, pero la adaptación es visible en la variación de la calidad de los resultados según los niveles de prioridad de los expedientes, no en un colapso institucional.
+
+*Elaborado por agente de análisis impulsado por IA | 2026-05-21 | Modo de datos: feeds degradados*
+
+### Executive Brief Fi
+
+### 🔴 KESKEINEN TIEDUSTELUARVIO
+
+*On todennäköistä (65–75%)*, että Euroopan parlamentin valiokuntatoimikausi keväällä 2026 saavuttaa ensisijaiset lainsäädäntötavoitteensa — SAFE-asetuksen hyväksyminen, Omnibus-paketin ensimmäisen käsittelyn kanta ja vihreän kehityksen ohjelman toissijaiset täytäntöönpanosäädökset — mutta koalition kuormituksen pakottamina viime hetken neuvotteluilla vähintään kahdesta tärkeästä tiedostosta ennen kesäistuntotaukoa kesäkuussa 2026. Kapea EPP-S&D-Renew-enemmistö (+36 paikkaa) on keskeinen rakenteellinen rajoite, joka määrittelee jokaisen valiokunnan tuloksen.
+
+**Amiraaliston luokka:** B2 | **Luottamusaste:** 🟡 MEDIUM
+
+---
+
+### Kolme tärkeintä valiokuntatieto-prioriteettia
+
+#### 1 · SAFE-asetus — ITRE-valiokunta (KORKEA PRIORITEETTI)
+Euroopan puolustusalan strategista agendaa koskeva asetus (SAFE), jolla hyväksytään 150 miljardin euron EU:n puolustusrahoitusväline, lähestyy äänestystään ITRE-valiokunnassa. Tämä on merkittävin puolustusalan teollisuuspolitiikan lainsäädäntö EU:n historiassa, ja sillä on merkittäviä finanssipoliittisia seurauksia EU:n taseen ulkopuoliselle lainausarkkitehtuurille.
+
+**Keskeinen tiedustelu:**
+- ITRE-valiokunnan esittelijä viimeistelee kompromissitekstiä hankintasääntöjä koskien — kiistanalaisin osa
+- Kansalliset puolustusalan teollisuusintressit (Ranska, Saksa, Puola) ovat aktiivisesti lobbanneet esittelijää
+- Ristikkäinen koalitiotuki (EPP + S&D + ECR + Renew) antaa SAFE:lle poikkeuksellisen vahvan enemmistön
+- Neuvosto painostaa nopeaa hyväksymistä ennen kesätaukoa
+- **WEP:** *On todennäköistä (65–75%)*, että SAFE-valiokunnan äänestys tapahtuu ennen 30. kesäkuuta 2026
+
+**Riski:** Hätätoimenpide EUT-sopimuksen 122 artiklan nojalla on edelleen mahdollinen, jos geopoliittinen tilanne pahenee (arviolta *suunnilleen tasavertaiset todennäköisyydet, 35–45%*), mikä ohittaisi valiokuntakonsultaation.
+
+---
+
+#### 2 · Omnibus-yksinkertaistamispaketti — ECON/JURI-valiokunnat (KORKEA PRIORITEETTI)
+Komission Omnibus I -paketti, jolla muutetaan CSRD:tä (yritysten kestävyysraportointidirektiivi), CSDDD:tä ja taksonomia-asetusta, on kiistanalaisimmassa valiokuntavaiheessaan. S&D on koalition yhtenäisyyden ylläpitämisen ja progressiivisen tukijoukon paineen vastaamisen välisessä strategisessa dilemmassa.
+
+**Keskeinen tiedustelu:**
+- EPP ja teollisuuslobbarit (BusinessEurope) ovat menestyksekkäästi muovanneet kertomusta hallinnollisesta taakasta
+- S&D neuvottelee sosiaaliehtojen lisäämisestä vastineena CSRD-kynnysarvojen korotuksille (250:stä n. 1 000 työntekijään)
+- Greens/EFA ja The Left mobilisoivat aktiivisesti ulkoista painetta S&D:tä kohtaan
+- **WEP:** *On todennäköistä (60–70%)*, että S&D hyväksyy muutetun Omnibus-paketin, joka ylläpitää koalition vakauden
+- **WEP:** *On mahdollista (30–40%)*, että kompromissi hajoaa ja Omnibus viivästyy kesätauon jälkeiseen aikaan
+
+**Riski:** ESG-sijoitusyhteisö seuraa tarkasti; CSRD:n peruminen luo markkinaepävarmuutta yli 2 biljoonan euron ESG-sidotuille varoille.
+
+---
+
+#### 3 · Vihreän kehityksen ohjelman toissijaiset säädökset — ENVI-valiokunta (KESKI-KORKEA PRIORITEETTI)
+ENVI-valiokunta vie eteenpäin useita toissijaisia täytäntöönpanosäädöksiä EP9:n vihreän kehityksen ohjelman puitteissa: luonnonennallistamislain täytäntöönpanosäädökset, PPWR:n (pakkausasetus) viimeistely ja CBAM-valvonta-asetukset.
+
+**Keskeinen tiedustelu:**
+- EPP:n oikeisto (italialaiset, unkarilaiset ja romanialaiset valtuuskunnat) äänestää kasvavassa määrin ECR:n kanssa "kilpailukykytestausta" koskevista tarkistuksista
+- ENVI-valiokunnan enemmistö on kapeampi kuin koalition kokonaisaritmetiikka antaa ymmärtää (~5–8 äänen käytännön marginaali kiistanalaisilla ENVI-äänestyksillä)
+- Luonnonennallistamislaki: EPP-jäsenet ehdottavat maatalouspoikkeuksia, joita Greens/EFA kuvaavat kehystuhoukseksi
+- **WEP:** *On todennäköistä (60–70%)*, että ENVI hyväksyy toissijaiset säädökset heikennetyillä kynnyksillä mutta ehjällä perustavanlaatuisella kehyksellä
+
+**Riski:** Lisävastoinkäyminen ENVI-valiokunnassa voi laukaista Greens/EFA:n vetäytymisen epävirallisista koordinointisopimuksista, mikä mutkistaa kaikkea tulevaa ENVI-työtä.
+
+---
+
+### Poliittinen tilannekatselmus (2026-05-21)
+
+| Ryhmä | Paikkoja | Osuus | Koalitiorooli |
+|-------|----------|-------|---------------|
+| EPP | 183 | 25,5% | Dominoiva kumppani |
+| S&D | 136 | 19,0% | Välttämätön kumppani |
+| PfE | 85 | 11,9% | Oppositio/Häiritsijä |
+| ECR | 81 | 11,3% | Selektiivinen liittolainen (puolustus) |
+| Renew | 77 | 10,7% | Koalitiokumppani |
+| Greens/EFA | 53 | 7,4% | Progressiivinen vähemmistö |
+| The Left | 45 | 6,3% | Progressiivinen vähemmistö |
+| NI | 30 | 4,2% | Sitoutumaton |
+| ESN | 27 | 3,8% | Äärioikeistolainen häiritsijä |
+
+**Tarvittava enemmistö:** 360 | **Koalitio (EPP+S&D+Renew):** 396 | **Marginaali:** +36
+
+---
+
+### Taloudellinen konteksti (IMF Rakenteellinen välitysmuuttuja, A2)
+
+- Euroalueen BKT-kasvu 2026 arvioitu: ~1,7%
+- EU:n finanssipoliittinen alijäämä/BKT: ~-2,6% (konsolidaatio käynnissä)
+- SAFE: 150 miljardin euron taseen ulkopuolinen puolustusrahoitusväline
+- EKP:n talletuskorko arvioitu: ~2,25% (kevennyssykli edennyt)
+- USA-EU-tullikiisteet luovat painetta INTA-valiokunnassa
+
+---
+
+### 3 kuukauden näkymä
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**Kokonaisarvio:** Kevään 2026 valiokuntatoimikausi toimii KORKEAN intensiteetin ja kapean koalitiomarginaalin olosuhteissa. SAFE-asetuksen onnistunut eteneminen osoittaa EP10:n kyvyn toimia päättäväisesti turvallisuusprioriteeteissa. Omnibus-kiistely ja vihreän kehityksen ohjelman takapakki edustavat rakenteellisia jännitteitä, jotka määrittelevät EP10:n perinnön ilmastossa ja yrityshallinnossa. *On lähes varmaa (>85%)*, että EPP-S&D-Renew-koalitio selviää keväästoimikaudesta ehjänä, huolimatta todellisesta kuormituksesta yksittäisissä valiokuntaäänestyksissä.
+
+**Luottamusaste:** 🟡 MEDIUM | **Amiraaliston luokka:** B2
+
+---
+
+### EP10 Makrokonteksti: Taloudellinen ja poliittinen tausta
+
+**Taloudellinen ympäristö (IMF WEO huhtikuu 2026)**:
+EU-27:n reaalinen BKT-kasvu 1,2% vuonna 2026 edustaa trendin alaista suoritusta. Yhdysvaltojen tullipolitiikka (arvioitu -0,3–-0,5%:n BKT-vaikutus) ja energiakustannuserot ovat rakenteellisia vastatuulia. Tämä taloudellinen konteksti muovaa suoraan valiokuntien lainsäädäntöprioriteetit: ITRE:n kilpailukykyyn keskittymistä vahvistaa kasvuvaje; ECON:n rahoitussääntelytyö on kehystetty EKP:n ennusteiden mukaan lähes tavoiteinflation (2,3%), mutta pysyvät luottolaadun riskit perifeerisissä jäsenvaltioissa.
+
+**Poliittinen aritmetiikka**: EPP-S&D-Renew-koalition 55,9%:n enemmistö (401/717 paikkaa) on kapein EU-myönteinen hallitusenemmistö sitten Euroopan parlamentin saadessa yhteispäätösoikeudet Maastrichtissa. Missä tahansa äänestyksessä täysi mobilisaatio edellyttää lähes täydellistä läsnäoloa kaikilta kolmelta ryhmältä — rakenteellinen haavoittuvuus, joka kasvaa jokaisen täysistuntoviikon myötä.
+
+**Mitä seurata seuraavien 60 päivän aikana**:
+1. DOCEO-äänestysdatan julkaisu (odotettavissa 25.–26. toukokuuta 2026) — paljastaa todelliset EPP-koheesioasteet kiistanalaisissa äänestyksissä kuluvan täysistuntoviikon ajalta
+2. Komission EDIP-lainsäädäntöehdotuksen julkaisu — määrittelee EU:n puolustusalan teollisten tavoitteiden laajuuden ja testaa parlamenttikoalition yhdenmukaistumista alkuperäisen mandaattiäänestyksen jälkeen
+3. ENVI-valiokunnan CBAM-delegoitujen säädösten hyväksyminen — testitapaus vihreän kehityksen ohjelman toissijaiselle lainsäädäntötahdille Puolan puheenjohtajuuskaudella
+
+**Tiedusteluarvio**: Kevään 2026 valiokuntatoimikausi muistetaan hetkenä, jolloin EP10 osoitti kykenevänsä toimimaan päättäväisesti Taso 1 -prioriteeteissa (puolustus, tekoäly, muuttoliikkeenhallinta) samalla kun se kamppaili rakenteellisten jännitteiden kanssa vihreän kehityksen ohjelman perinnöstä. Instituutio sopeutuu, mutta sopeutuminen näkyy tuottokvaliteetin vaihteluna tiedostoprioriteettiluokkien välillä — ei institutionaalisena romahduksena.
+
+*Laadittu tekoälypohjaisen analyysiagentti | 2026-05-21 | Datatila: heikentyneet syötteet*
+
+### Executive Brief Fr
+
+### 🔴 JUGEMENT DE RENSEIGNEMENT CENTRAL
+
+*Il est probable (65–75%)* que la saison de commissions du Parlement européen pour le printemps 2026 livrera ses principaux objectifs législatifs — adoption du règlement SAFE, position en première lecture de l'Omnibus et actes d'exécution secondaires du Pacte vert — mais avec une tension de coalition forçant des négociations de dernière minute sur au moins deux dossiers majeurs avant la pause estivale de juin 2026. La majorité étroite EPP-S&D-Renew (+36 sièges) est la contrainte structurelle centrale définissant chaque résultat de commission.
+
+**Grade de l'Amirauté :** B2 | **Confiance :** 🟡 MEDIUM
+
+---
+
+### Top 3 des priorités de renseignement des commissions
+
+#### 1 · Règlement SAFE — Commission ITRE (HAUTE PRIORITÉ)
+Le règlement sur l'Agenda stratégique pour les armements et les facteurs en Europe (SAFE), autorisant une facilité de défense européenne de 150 milliards d'euros, approche de son vote en commission ITRE. Il s'agit de la législation de politique industrielle de défense la plus significative de l'histoire de l'UE et comporte des implications fiscales majeures pour l'architecture d'emprunt hors bilan de l'UE.
+
+**Renseignements clés :**
+- Le rapporteur de la commission ITRE finalise le texte de compromis sur les règles de passation de marchés — la section la plus contestée
+- Les intérêts industriels nationaux de défense (France, Allemagne, Pologne) ont activement fait du lobbying auprès du rapporteur
+- Le soutien trans-coalition (EPP + S&D + ECR + Renew) donne à SAFE une majorité inhabituellement robuste
+- Le Conseil presse pour une adoption accélérée avant la pause estivale
+- **WEP :** *Il est probable (65–75%)* que le vote en commission SAFE ait lieu avant le 30 juin 2026
+
+**Risque :** La procédure d'urgence de l'article 122 TFUE reste possible si la situation géopolitique se dégrade (estimé à *chances à peu près égales, 35–45%*), ce qui contournerait la consultation en commission.
+
+---
+
+#### 2 · Paquet de simplification Omnibus — Commissions ECON/JURI (HAUTE PRIORITÉ)
+Le paquet Omnibus I de la Commission révisant la CSRD (directive sur la durabilité des entreprises), la CSDDD et le règlement Taxonomie se trouve dans sa phase la plus contestée en commission. S&D est face à un dilemme stratégique entre le maintien de la cohésion de la coalition et la réponse aux pressions de sa base progressiste.
+
+**Renseignements clés :**
+- L'EPP et les lobbyistes industriels (BusinessEurope) ont réussi à façonner le récit autour de la réduction des charges
+- S&D négocie l'ajout de clauses sociales en contrepartie de l'acceptation des relèvements des seuils CSRD (de 250 à ~1 000 employés)
+- Greens/EFA et The Left mobilisent activement une pression externe sur S&D
+- **WEP :** *Il est probable (60–70%)* que S&D accepte un paquet Omnibus modifié maintenant la stabilité de la coalition
+- **WEP :** *Il est possible (30–40%)* que le compromis s'effondre, retardant Omnibus au-delà de la pause estivale
+
+**Risque :** La communauté des investisseurs ESG observe de près ; un recul sur la CSRD crée une incertitude de marché pour plus de 2 000 milliards d'euros d'actifs liés à l'ESG.
+
+---
+
+#### 3 · Actes secondaires du Pacte vert — Commission ENVI (PRIORITÉ MOYENNE-HAUTE)
+La commission ENVI avance plusieurs actes d'exécution secondaires du cadre Pacte vert du PE9 : actes d'exécution de la loi sur la restauration de la nature, finalisation du PPWR (règlement sur les emballages) et règlements de surveillance du MCAS.
+
+**Renseignements clés :**
+- L'aile droite de l'EPP (délégations italienne, hongroise et roumaine) vote de plus en plus avec l'ECR sur les amendements d'«évaluation de la compétitivité»
+- La majorité de la commission ENVI est plus étroite que la seule arithmétique de coalition ne le laisserait penser (~5–8 voix de marge effective lors des votes ENVI contestés)
+- Loi sur la restauration de la nature : les membres de l'EPP proposent des dérogations agricoles que Greens/EFA qualifient de destruction du cadre
+- **WEP :** *Il est probable (60–70%)* qu'ENVI adopte des actes secondaires avec des seuils affaiblis mais un cadre fondamental intact
+
+**Risque :** Tout nouveau revers au sein de la commission ENVI pourrait déclencher le retrait de Greens/EFA des accords de coordination informels, compliquant tous les futurs travaux d'ENVI.
+
+---
+
+### Panorama politique (2026-05-21)
+
+| Groupe | Sièges | Part | Rôle de coalition |
+|--------|--------|------|-------------------|
+| EPP | 183 | 25,5% | Partenaire dominant |
+| S&D | 136 | 19,0% | Partenaire essentiel |
+| PfE | 85 | 11,9% | Opposition/Perturbateur |
+| ECR | 81 | 11,3% | Allié sélectif (défense) |
+| Renew | 77 | 10,7% | Partenaire de coalition |
+| Greens/EFA | 53 | 7,4% | Minorité progressiste |
+| The Left | 45 | 6,3% | Minorité progressiste |
+| NI | 30 | 4,2% | Non-inscrit |
+| ESN | 27 | 3,8% | Perturbateur d'extrême droite |
+
+**Majorité nécessaire :** 360 | **Coalition (EPP+S&D+Renew) :** 396 | **Marge :** +36
+
+---
+
+### Contexte économique (IMF Proxy structurel, A2)
+
+- Croissance du PIB de la zone euro en 2026 estimée : ~1,7%
+- Déficit budgétaire/PIB de l'UE : ~-2,6% (consolidation en cours)
+- SAFE : facilité de défense hors bilan de 150 milliards d'euros
+- Taux de dépôt de la BCE estimé : ~2,25% (cycle d'assouplissement avancé)
+- Les tensions tarifaires USA-UE exercent une pression sur la commission INTA
+
+---
+
+### Perspectives sur 3 mois
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**Évaluation globale :** La saison des commissions du printemps 2026 fonctionne à HAUTE intensité avec une marge de coalition étroite. L'avancement réussi du règlement SAFE démontre la capacité du PE10 à agir de manière décisive sur les priorités de sécurité. La contestation de l'Omnibus et le recul du Pacte vert représentent des tensions structurelles qui définiront l'héritage du PE10 en matière de climat et de gouvernance d'entreprise. *Il est presque certain (>85%)* que la coalition EPP-S&D-Renew survit intacte à la saison de printemps, malgré une tension réelle sur certains votes en commission.
+
+**Confiance :** 🟡 MEDIUM | **Grade de l'Amirauté :** B2
+
+---
+
+### Contexte macro du PE10 : Contexte économique et politique
+
+**Environnement économique (IMF WEO avril 2026)** :
+La croissance réelle du PIB de l'UE-27 de 1,2% en 2026 représente une performance inférieure à la tendance. L'environnement tarifaire américain (estimé à -0,3 à -0,5% de frein au PIB) et les différentiels de coûts énergétiques sont des vents contraires structurels. Ce contexte économique façonne directement les priorités législatives des commissions : le focus de l'ITRE sur la compétitivité est amplifié par le déficit de croissance ; les travaux de réglementation financière de l'ECON s'inscrivent dans le cadre des projections de la BCE d'une inflation proche de l'objectif (2,3%) mais avec des risques de qualité de crédit persistants dans les États membres périphériques.
+
+**Arithmétique politique** : La majorité de 55,9% de la coalition EPP-S&D-Renew (401/717 sièges) est la majorité gouvernante pro-UE la plus étroite depuis que le Parlement européen a obtenu les pouvoirs de codécision en vertu du traité de Maastricht. Pour tout vote donné, la mobilisation totale exige une présence quasi parfaite des trois groupes — une vulnérabilité structurelle qui s'accroît à chaque semaine plénière.
+
+**Ce qu'il faut surveiller dans les 60 prochains jours** :
+1. Publication des données de vote DOCEO (attendue les 25–26 mai 2026) — révélera les taux réels de cohésion de l'EPP lors des votes contestés de la semaine plénière en cours
+2. Publication de la proposition législative EDIP de la Commission — définit la portée des ambitions industrielles de défense de l'UE et teste l'alignement de la coalition parlementaire au-delà du vote de mandat initial
+3. Adoption des actes délégués MCAS par la commission ENVI — cas test pour la cadence de la législation secondaire du Pacte vert sous la présidence polonaise
+
+**Jugement de renseignement** : La saison des commissions du printemps 2026 sera rappelée comme le moment où le PE10 a démontré qu'il pouvait agir de manière décisive sur les priorités de niveau 1 (défense, IA, gestion des migrations) tout en luttant simultanément avec des tensions structurelles sur son héritage du Pacte vert. L'institution s'adapte, mais l'adaptation est visible dans la variation de la qualité des résultats selon les niveaux de priorité des dossiers — pas dans un effondrement institutionnel.
+
+*Préparé par un agent d'analyse piloté par l'IA | 2026-05-21 | Mode données : flux dégradés*
+
+### Executive Brief He
+
+**רצועות WEP שיושמו** | **דרגת אדמירליות:** B2  
+**רמת ביטחון:** 🟡 MEDIUM | **מצב נתונים:** זנות מושפלות  
+**תאריך ניתוח:** 2026-05-21 | **אופק זמן:** 3 חודשים
+
+---
+
+### 🔴 שיפוט מודיעיני מרכזי
+
+*סביר (65–75%)* שעונת הוועדות של הפרלמנט האירופי לאביב 2026 תספק את יעדיה החקיקתיים העיקריים — אימוץ תקנת SAFE, עמדת הקריאה הראשונה של Omnibus ואקטים משניים ליישום ה-Green Deal — אך עם לחץ קואליציוני שמכריח משא ומתן ברגע האחרון על לפחות שני תיקים מרכזיים לפני הפסקת הקיץ ביוני 2026. הרוב הצר של EPP-S&D-Renew (+36 מושבים) הוא ההגבלה המבנית המרכזית שמגדירה כל תוצאה של ועדה.
+
+**דרגת אדמירליות:** B2 | **רמת ביטחון:** 🟡 MEDIUM
+
+---
+
+### 3 עדיפויות מודיעיניות מובילות של ועדות
+
+#### 1 · תקנת SAFE — ועדת ITRE (עדיפות גבוהה)
+תקנת האג'נדה האסטרטגית לחימוש ולגורמים באירופה (SAFE), המאשרת מתקן הגנה אירופי של 150 מיליארד יורו, מתקרבת להצבעתה בוועדת ITRE. זוהי החקיקה המשמעותית ביותר של מדיניות תעשיית ההגנה בהיסטוריה של האיחוד האירופי, ויש לה השלכות פיסקליות מרכזיות על מבנה ההלוואות מחוץ למאזן של האיחוד האירופי.
+
+**מידע מודיעיני מרכזי:**
+- המדווח של ועדת ITRE מסיים את נוסח הפשרה בנוגע לכללי רכש — הקטע השנוי ביותר במחלוקת
+- אינטרסים לאומיים של תעשיית הגנה (צרפת, גרמניה, פולין) לחצו על המדווח באופן פעיל
+- תמיכה חוצת-קואליציות (EPP + S&D + ECR + Renew) מעניקה ל-SAFE רוב בלתי-שגרתי
+- המועצה לוחצת לאימוץ מואץ לפני הפסקת הקיץ
+- **WEP:** *סביר (65–75%)* שהצבעת ועדת SAFE תתקיים לפני 30 ביוני 2026
+
+**סיכון:** הליך חירום לפי סעיף 122 TFEU נותר אפשרי אם המצב הגיאופוליטי יחמיר (הערכה: *סיכויים שווים בקירוב, 35–45%*), מה שיעקוף את ייעוץ הוועדה.
+
+---
+
+#### 2 · חבילת פישוט Omnibus — ועדות ECON/JURI (עדיפות גבוהה)
+חבילת Omnibus I של הנציבות המתקנת את ה-CSRD (הנחיית דיווח קיימות לחברות), CSDDD ותקנת הטקסונומיה נמצאת בשלב הוועדות השנוי ביותר במחלוקת. S&D ניצב בפני דילמה אסטרטגית בין שמירה על הלכידות הקואליציונית לבין מענה ללחץ מהבסיס הפרוגרסיבי.
+
+**מידע מודיעיני מרכזי:**
+- EPP וקבוצות לחץ תעשייתיות (BusinessEurope) הצליחו לעצב את הנרטיב סביב הפחתת נטל
+- S&D מנהל משא ומתן להוספת סעיפים חברתיים כתמורה לקבלת העלאות סף ה-CSRD (מ-250 לכ-1,000 עובדים)
+- Greens/EFA ו-The Left מגייסים לחץ חיצוני פעיל על S&D
+- **WEP:** *סביר (60–70%)* ש-S&D יקבל חבילת Omnibus מותאמת השומרת על יציבות הקואליציה
+- **WEP:** *אפשרי (30–40%)* שהפשרה תתמוטט ותעכב את Omnibus מעבר לחופשת הקיץ
+
+**סיכון:** קהילת ההשקעות בתחום ESG עוקבת בדריכות; נסיגה מה-CSRD יוצרת אי-ודאות שוק עבור יותר מ-2 טריליון יורו בנכסים מקושרי ESG.
+
+---
+
+#### 3 · אקטים משניים של ה-Green Deal — ועדת ENVI (עדיפות בינונית-גבוהה)
+ועדת ENVI מקדמת אקטים משניים מרובים ליישום מסגרת ה-Green Deal של EP9: אקטי יישום לחוק שיקום הטבע, השלמת PPWR (תקנת אריזות) ותקנות ניטור CBAM.
+
+**מידע מודיעיני מרכזי:**
+- הכנף הימנית של EPP (משלחות איטלקיה, הונגריה ורומניה) מצביעה יותר ויותר עם ECR על תיקוני "בדיקת תחרותיות"
+- רוב ועדת ENVI צר יותר מכפי שמתמטיקת הקואליציה הכוללת מרמזת (~5–8 קולות מרחב יעיל בהצבעות ENVI שנויות במחלוקת)
+- חוק שיקום הטבע: חברי EPP מציעים פטורים חקלאיים שGrees/EFA מכנה הרס מסגרת
+- **WEP:** *סביר (60–70%)* ש-ENVI יאמץ אקטים משניים עם סף מוחלש אך מסגרת יסוד שלמה
+
+**סיכון:** כל נסיגה נוספת בוועדת ENVI עלולה להפעיל את נסיגת Greens/EFA מהסכמי תיאום בלתי פורמליים, מה שיסבך כל עבודת ENVI עתידית.
+
+---
+
+### תמונת מצב פוליטי (2026-05-21)
+
+| קבוצה | מושבים | נתח | תפקיד בקואליציה |
+|--------|---------|-----|-----------------|
+| EPP | 183 | 25.5% | שותף דומיננטי |
+| S&D | 136 | 19.0% | שותף חיוני |
+| PfE | 85 | 11.9% | אופוזיציה/מפריע |
+| ECR | 81 | 11.3% | בעל ברית סלקטיבי (הגנה) |
+| Renew | 77 | 10.7% | שותף קואליציוני |
+| Greens/EFA | 53 | 7.4% | מיעוט פרוגרסיבי |
+| The Left | 45 | 6.3% | מיעוט פרוגרסיבי |
+| NI | 30 | 4.2% | לא מסונף |
+| ESN | 27 | 3.8% | מפריע קיצוני |
+
+**רוב נדרש:** 360 | **קואליציה (EPP+S&D+Renew):** 396 | **מרחב:** +36
+
+---
+
+### הקשר כלכלי (IMF שרת מבני, A2)
+
+- צמיחת תוצר איזור היורו 2026 משוערת: ~1.7%
+- גירעון פיסקלי/תוצר של האיחוד האירופי: ~-2.6% (גיבוש בתהליך)
+- SAFE: מתקן הגנה מחוץ למאזן של 150 מיליארד יורו
+- ריבית פיקדונות של הבנק המרכזי האירופי משוערת: ~2.25% (מחזור הקלה מתקדם)
+- מתחים מכסיים בין ארה"ב לאיחוד האירופי יוצרים לחץ בוועדת INTA
+
+---
+
+### תחזית ל-3 חודשים
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**הערכה כוללת:** עונת הוועדות של אביב 2026 פועלת בעצימות גבוהה עם מרחב קואליציוני צר. ההתקדמות המוצלחת של תקנת SAFE מדגימה את יכולת EP10 לפעול בנחישות בעניין עדיפויות ביטחון. הסכסוך סביב Omnibus ונסיגת ה-Green Deal מייצגים מתחים מבניים שיגדירו את מורשת EP10 בתחומי האקלים וממשל תאגידי. *כמעט ודאי (>85%)* שקואליציית EPP-S&D-Renew תשרוד את עונת האביב בשלמות, למרות לחץ אמיתי בהצבעות פרטניות של ועדות.
+
+**רמת ביטחון:** 🟡 MEDIUM | **דרגת אדמירליות:** B2
+
+---
+
+### הקשר מאקרו של EP10: רקע כלכלי ופוליטי
+
+**הסביבה הכלכלית (IMF WEO אפריל 2026)**:
+צמיחת התוצר הריאלי של 27 מדינות האיחוד האירופי של 1.2% בשנת 2026 מייצגת ביצועים מתחת למגמה. סביבת המכסים האמריקאית (גרר מוערך על התוצר של -0.3 עד -0.5%) ופערי עלויות אנרגיה הם רוחות נגד מבניות. הקשר כלכלי זה מעצב ישירות את העדיפויות החקיקתיות של הוועדות: מיקוד ITRE בתחרותיות מועצם על ידי גירעון הצמיחה; עבודת הרגולציה הפיננסית של ECON ממוסגרת מול תחזיות הבנק המרכזי האירופי לאינפלציה קרוב ליעד (2.3%) אך עם סיכוני איכות אשראי מתמשכים במדינות חבר פריפריאליות.
+
+**חשבון פוליטי**: הרוב של 55.9% של קואליציית EPP-S&D-Renew (401/717 מושבים) הוא הרוב השולט הפרו-אירופי הצר ביותר מאז שהפרלמנט האירופי קיבל סמכויות שיתוף-החלטה לפי אמנת מאסטריכט. בכל הצבעה נדרש גיוס מלא עם נוכחות כמעט מושלמת משלושת הקבוצות — פגיעות מבנית המתגברת עם כל שבוע מליאה.
+
+**מה לעקוב אחריו ב-60 הימים הקרובים**:
+1. פרסום נתוני הצבעה של DOCEO (צפוי ב-25–26 במאי 2026) — יחשוף שיעורי לכידות EPP בפועל בהצבעות שנויות במחלוקת מהשבוע הנוכחי של המליאה
+2. פרסום הצעת החקיקה EDIP של הנציבות — קובעת את היקף השאיפה התעשייתית ההגנתית של האיחוד האירופי ובוחנת את יישור הקואליציה הפרלמנטרית מעבר להצבעת המנדט הראשונית
+3. אימוץ אקטי ה-CBAM המואצלים על ידי ועדת ENVI — מקרה מבחן לקצב החקיקה המשנית של ה-Green Deal תחת הנשיאות הפולנית
+
+**שיפוט מודיעיני**: עונת הוועדות של אביב 2026 תיזכר כרגע שבו EP10 הוכיח שיכול לפעול בנחישות בנושאי עדיפות רמה 1 (הגנה, בינה מלאכותית, ניהול הגירה), תוך כדי מאבק בו-זמני עם מתחים מבניים בנוגע למורשת ה-Green Deal שלו. המוסד מסתגל, אך ההסתגלות ניכרת בשונות באיכות הפלט על פני שכבות עדיפות קבצים — לא בקריסה מוסדית.
+
+*הוכן על ידי סוכן ניתוח מונע בינה מלאכותית | 2026-05-21 | מצב נתונים: זנות מושפלות*
+
+### Executive Brief Ja
+
+**信頼度:** 🟡 MEDIUM | **データモード:** フィード劣化  
+**分析日:** 2026-05-21 | **時間的射程:** 3 ヶ月
+
+---
+
+### 🔴 中核的情報判断
+
+*可能性が高い（65–75%）*：欧州議会の2026年春季委員会シーズンは、主要立法目標を達成する見通しである。具体的には、SAFE規制の採択、Omnibus第一読会ポジション、グリーン・ディール二次実施措置がこれに含まれる。ただし、6月2026年夏季休会前に少なくとも2つの主要ファイルに関する土壇場の交渉を余儀なくさせる連立ストレスが生じる。EPP-S&D-Renew連立の薄い過半数（+36議席）が、すべての委員会結果を規定する中心的な構造的制約である。
+
+**海軍評価等級:** B2 | **信頼度:** 🟡 MEDIUM
+
+---
+
+### 委員会情報トップ3優先事項
+
+#### 1 · SAFE規制 — ITRE委員会（最高優先度）
+欧州防衛産業戦略アジェンダ（SAFE）規制（1,500億ユーロの EU 防衛ファシリティを認可）が ITRE 委員会での採決に近づいている。これはEU史上最も重要な防衛産業政策立法であり、EU のオフバランスシート借入アーキテクチャに対する重大な財政的含意を持つ。
+
+**主要情報：**
+- ITRE 委員会の報告者が調達規則の妥協案テキストを最終調整中 — 最も論争的なセクション
+- 国内防衛産業利益（フランス、ドイツ、ポーランド）が報告者に積極的にロビー活動
+- 超党派支持（EPP + S&D + ECR + Renew）により SAFE は異例に強固な多数派を獲得
+- 欧州理事会は夏季休会前の迅速採択を求めて圧力
+- **WEP:** *可能性が高い（65–75%）* SAFE 委員会採決が2026年6月30日前に実施される
+
+**リスク：** 地政学的状況が悪化した場合、EU 機能条約第122条による緊急手続き（推定 *ほぼ五分五分、35–45%*）が発動され、委員会協議を回避する可能性が残る。
+
+---
+
+#### 2 · Omnibus 簡素化パッケージ — ECON/JURI 委員会（最高優先度）
+CSRD（企業持続可能性報告指令）、CSDDD、分類規則を改正する欧州委員会 Omnibus I パッケージが、最も争われている委員会フェーズにある。S&D は連立結束の維持と進歩的基盤からの圧力への対応の間の戦略的ジレンマに直面している。
+
+**主要情報：**
+- EPP と産業ロビー（BusinessEurope）が負担軽減に関するナラティブの形成に成功
+- S&D は CSRD 閾値引き上げ（250名から約1,000名の従業員へ）受け入れの見返りとして社会条項追加を交渉中
+- Greens/EFA と The Left が S&D への外部圧力を積極的に動員
+- **WEP:** *可能性が高い（60–70%）* S&D が連立安定を維持する修正 Omnibus パッケージを受け入れる
+- **WEP:** *可能性あり（30–40%）* 妥協が崩壊し、Omnibus が夏季休会後まで遅延する
+
+**リスク：** ESG 投資コミュニティが注視；CSRD 後退により2兆ユーロ超の ESG 連動資産に市場不確実性が生じる。
+
+---
+
+#### 3 · グリーン・ディール二次措置 — ENVI 委員会（中高優先度）
+ENVI 委員会が EP9 のグリーン・ディール枠組みの複数の二次実施措置を推進中：自然回復法実施措置、PPWR（包装規制）最終化、CBAM 監視規則。
+
+**主要情報：**
+- EPP 右派（イタリア、ハンガリー、ルーマニア代表団）が「競争力チェック」改正案で ECR と共に投票する機会が増加
+- ENVI 委員会の多数派は連立全体の数値が示唆するよりも薄い（争点ある ENVI 採決で有効余裕 約5–8票）
+- 自然回復法：EPP 議員が農業免除を提案しており、Greens/EFA は枠組み破壊と表現
+- **WEP:** *可能性が高い（60–70%）* ENVI が閾値を弱めた二次措置を採択するが基本枠組みは維持される
+
+**リスク：** ENVI 委員会でのさらなる挫折は Greens/EFA の非公式協調合意からの離脱を引き起こし、すべての将来の ENVI 業務を複雑にする可能性がある。
+
+---
+
+### 政治的景観スナップショット（2026-05-21）
+
+| 会派 | 議席 | 比率 | 連立での役割 |
+|------|------|------|-------------|
+| EPP | 183 | 25.5% | 主要パートナー |
+| S&D | 136 | 19.0% | 不可欠のパートナー |
+| PfE | 85 | 11.9% | 野党/撹乱者 |
+| ECR | 81 | 11.3% | 選択的同盟（防衛） |
+| Renew | 77 | 10.7% | 連立パートナー |
+| Greens/EFA | 53 | 7.4% | 進歩的少数派 |
+| The Left | 45 | 6.3% | 進歩的少数派 |
+| NI | 30 | 4.2% | 無所属 |
+| ESN | 27 | 3.8% | 極右撹乱者 |
+
+**必要過半数:** 360 | **連立（EPP+S&D+Renew）:** 396 | **余裕:** +36
+
+---
+
+### 経済的文脈（IMF 構造代理変数、A2）
+
+- ユーロ圏 GDP 成長率2026年推定：~1.7%
+- EU 財政赤字/GDP：~-2.6%（財政健全化進行中）
+- SAFE：1,500億ユーロのオフバランスシート防衛ファシリティ
+- ECB 預金金利推定：~2.25%（緩和サイクル進行）
+- 米EU 関税緊張が INTA 委員会に圧力を生成
+
+---
+
+### 3ヶ月見通し
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**総合評価：** 2026年春季委員会シーズンは高強度で薄い連立余裕の中で運営されている。SAFE 規制の成功した進展は、EP10 の安全保障優先事項における果断な行動能力を実証している。Omnibus 論争とグリーン・ディール後退は、気候と企業統治における EP10 の遺産を規定する構造的緊張を表している。*ほぼ確実（>85%）* EPP-S&D-Renew 連立は個々の委員会採決での実際のストレスにもかかわらず、春季シーズンを無傷で乗り切る。
+
+**信頼度:** 🟡 MEDIUM | **海軍評価等級:** B2
+
+---
+
+### EP10 マクロ文脈：経済的・政治的背景
+
+**経済環境（IMF WEO 2026年4月）**:
+2026年の EU-27 実質 GDP 成長率 1.2% はトレンド以下の成績を表している。米国関税環境（GDP への推定 -0.3〜-0.5% の下押し）とエネルギーコスト格差が構造的逆風となっている。この経済的文脈は委員会の立法優先事項を直接形成している：ITRE の競争力重点は成長不足により増幅され；ECON の金融規制業務は ECB のインフレ目標近辺（2.3%）の予測に対してフレーミングされているが、周辺加盟国における信用品質リスクが持続している。
+
+**政治的数値計算**：EPP-S&D-Renew 連立の55.9% 過半数（401/717議席）は、欧州議会がマーストリヒト条約下で共同決定権限を取得して以来、最も薄い親EU統治過半数である。いずれの採決においても、完全動員は3つのすべての会派からほぼ完全な出席を必要とし、これは毎回の本会議週ごとに増大する構造的脆弱性である。
+
+**今後60日間で注視すべき点**：
+1. DOCEO 投票データ公表（2026年5月25–26日予定）— 現行本会議週の争点ある採決における EPP の実際の結束率を明らかにする
+2. 欧州委員会 EDIP 立法提案公表 — EU 防衛産業的野心の範囲を設定し、最初の委任採決を超えた議会連立の整合性を試す
+3. ENVI 委員会による CBAM 委任措置採択 — ポーランド議長国下でのグリーン・ディール二次立法ペースの試験事例
+
+**情報判断**：2026年春季委員会シーズンは EP10 が第1層優先事項（防衛、AI、移住管理）において果断に行動できることを実証した瞬間として記憶されるとともに、グリーン・ディールの遺産に関する構造的緊張と同時に格闘していた。機関は適応しているが、その適応はファイル優先順位の層を超えた産出品質のばらつきに可視化される — 機関的崩壊においてではない。
+
+*AI 駆動分析エージェントによる作成 | 2026-05-21 | データモード：フィード劣化*
+
+### Executive Brief Ko
+
+**신뢰도:** 🟡 MEDIUM | **데이터 모드:** 피드 저하  
+**분석일:** 2026-05-21 | **시간적 범위:** 3개월
+
+---
+
+### 🔴 핵심 정보 판단
+
+*가능성이 높다（65–75%）*: 유럽의회의 2026년 봄 위원회 시즌이 주요 입법 목표를 달성할 전망이다. 구체적으로 SAFE 규정 채택, Omnibus 1차 독회 포지션, 그린딜 2차 이행 조치가 이에 포함된다. 다만 2026년 6월 여름 휴회 전 적어도 두 개의 주요 파일에 대한 막판 협상을 강제하는 연립 스트레스가 수반된다. EPP-S&D-Renew 연립의 얇은 과반수（+36석）가 모든 위원회 결과를 규정하는 핵심 구조적 제약이다.
+
+**해군 평가 등급:** B2 | **신뢰도:** 🟡 MEDIUM
+
+---
+
+### 위원회 정보 상위 3대 우선순위
+
+#### 1 · SAFE 규정 — ITRE 위원회（최고 우선순위）
+유럽 방위 전략 의제 규정（SAFE）은 1,500억 유로의 EU 방위 시설 승인을 담은 것으로 ITRE 위원회 표결에 근접하고 있다. 이는 EU 역사상 가장 중요한 방산 정책 입법으로, EU의 부외（off-balance-sheet）차입 구조에 중대한 재정적 함의를 지닌다.
+
+**핵심 정보：**
+- ITRE 위원회 보고자가 조달 규칙에 관한 타협안 텍스트를 마무리 중 — 가장 논쟁적인 섹션
+- 국내 방위 산업 이익（프랑스, 독일, 폴란드）이 보고자에게 적극적으로 로비
+- 초당파 지지（EPP + S&D + ECR + Renew）로 SAFE가 이례적으로 견고한 과반수 확보
+- 유럽이사회가 여름 휴회 전 신속 채택을 위해 압박
+- **WEP:** *가능성이 높다（65–75%）* SAFE 위원회 표결이 2026년 6월 30일 전에 실시될 것
+
+**위험:** 지정학적 상황이 악화될 경우 EU 기능조약 제122조에 따른 긴급 절차（추정: *거의 반반의 확률, 35–45%*）가 발동되어 위원회 협의를 우회할 가능성 남음.
+
+---
+
+#### 2 · Omnibus 간소화 패키지 — ECON/JURI 위원회（최고 우선순위）
+CSRD（기업 지속가능성 보고 지침）, CSDDD 및 분류 규정을 개정하는 유럽위원회 Omnibus I 패키지가 가장 논쟁적인 위원회 단계에 있다. S&D는 연립 결속 유지와 진보적 기반으로부터의 압력 대응 사이의 전략적 딜레마에 직면해 있다.
+
+**핵심 정보：**
+- EPP와 산업 로비（BusinessEurope）가 부담 감소 서사를 성공적으로 형성
+- S&D가 CSRD 임계값 인상（250명에서 약 1,000명으로）수용의 대가로 사회 조항 추가를 협상 중
+- Greens/EFA와 The Left가 S&D에 대한 외부 압력을 적극 동원
+- **WEP:** *가능성이 높다（60–70%）* S&D가 연립 안정을 유지하는 수정 Omnibus 패키지를 수용할 것
+- **WEP:** *가능성 있다（30–40%）* 타협이 붕괴되어 Omnibus가 여름 휴회 이후로 지연될 것
+
+**위험:** ESG 투자 커뮤니티가 예의주시; CSRD 후퇴로 2조 유로 이상의 ESG 연계 자산에 시장 불확실성 발생.
+
+---
+
+#### 3 · 그린딜 2차 조치 — ENVI 위원회（중간-고 우선순위）
+ENVI 위원회가 EP9 그린딜 프레임워크의 여러 2차 이행 조치를 진행 중: 자연 복원법 이행 조치, PPWR（포장 규정）최종화, CBAM 모니터링 규정.
+
+**핵심 정보：**
+- EPP 우파（이탈리아, 헝가리, 루마니아 대표단）가 '경쟁력 검토' 수정안에서 ECR과 함께 표결하는 빈도 증가
+- ENVI 위원회 과반수가 전체 연립 산술이 시사하는 것보다 더 얇음（논쟁적 ENVI 표결 시 실효 여유 약 5–8표）
+- 자연 복원법: EPP 의원들이 Greens/EFA가 프레임워크 파괴로 묘사하는 농업 예외를 제안
+- **WEP:** *가능성이 높다（60–70%）* ENVI가 임계값이 약화되었지만 기본 프레임워크는 유지되는 2차 조치를 채택할 것
+
+**위험:** ENVI 위원회에서의 추가 좌절이 Greens/EFA의 비공식 조정 협정 탈퇴를 촉발하여 향후 모든 ENVI 업무를 복잡하게 만들 수 있음.
+
+---
+
+### 정치적 지형 스냅샷（2026-05-21）
+
+| 그룹 | 의석 | 비율 | 연립에서의 역할 |
+|------|------|------|----------------|
+| EPP | 183 | 25.5% | 지배적 파트너 |
+| S&D | 136 | 19.0% | 필수 파트너 |
+| PfE | 85 | 11.9% | 반대/방해자 |
+| ECR | 81 | 11.3% | 선택적 동맹（방위） |
+| Renew | 77 | 10.7% | 연립 파트너 |
+| Greens/EFA | 53 | 7.4% | 진보적 소수파 |
+| The Left | 45 | 6.3% | 진보적 소수파 |
+| NI | 30 | 4.2% | 무소속 |
+| ESN | 27 | 3.8% | 극우 방해자 |
+
+**필요 과반수:** 360 | **연립（EPP+S&D+Renew）:** 396 | **여유:** +36
+
+---
+
+### 경제적 맥락（IMF 구조적 대리변수, A2）
+
+- 유로존 GDP 성장률 2026년 추정: ~1.7%
+- EU 재정 적자/GDP: ~-2.6%（재정 건전화 진행 중）
+- SAFE: 1,500억 유로의 부외 방위 시설
+- ECB 예금 금리 추정: ~2.25%（완화 사이클 진행）
+- 미국-EU 관세 긴장이 INTA 위원회에 압력 발생
+
+---
+
+### 3개월 전망
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**종합 평가:** 2026년 봄 위원회 시즌은 높은 강도와 얇은 연립 여유로 운영되고 있다. SAFE 규정의 성공적인 진전은 EP10이 안보 우선순위에 단호하게 행동할 수 있는 역량을 입증한다. Omnibus 논쟁과 그린딜 후퇴는 EP10의 기후 및 기업 거버넌스 유산을 규정할 구조적 긴장을 나타낸다. *거의 확실（>85%）* EPP-S&D-Renew 연립이 개별 위원회 표결에서의 실제 스트레스에도 불구하고 봄 시즌을 무사히 넘길 것이다.
+
+**신뢰도:** 🟡 MEDIUM | **해군 평가 등급:** B2
+
+---
+
+### EP10 거시적 맥락: 경제적·정치적 배경
+
+**경제 환경（IMF WEO 2026년 4월）**:
+2026년 EU-27의 실질 GDP 성장률 1.2%는 추세 이하의 성과를 나타낸다. 미국 관세 환경（GDP 하방 압력 추정 -0.3~-0.5%）과 에너지 비용 차이가 구조적 역풍이다. 이 경제적 맥락이 위원회의 입법 우선순위를 직접 형성한다: ITRE의 경쟁력 초점은 성장 부진으로 증폭되고；ECON의 금융 규제 업무는 목표치 근처 인플레이션（2.3%）에 대한 ECB 전망 대비로 프레이밍되지만 주변 회원국에서 신용 품질 위험이 지속된다.
+
+**정치적 수치계산**: EPP-S&D-Renew 연립의 55.9% 과반수（401/717석）는 유럽의회가 마스트리흐트 조약에 따른 공동결정 권한을 획득한 이래 가장 얇은 친EU 집권 과반수다. 어떤 표결에서도 완전한 동원을 위해서는 세 그룹 모두의 거의 완벽한 출석이 필요하며 — 이는 매 본회의 주마다 커지는 구조적 취약성이다.
+
+**향후 60일 동안 주목할 사항**:
+1. DOCEO 투표 데이터 공개（2026년 5월 25–26일 예정）— 현재 본회의 주의 논쟁적 표결에서 EPP의 실제 결속률을 드러낼 것
+2. 유럽위원회 EDIP 입법 제안 공개 — EU 방위 산업적 야망의 범위 설정 및 초기 위임 표결을 넘어선 의회 연립의 일치 여부 검증
+3. ENVI 위원회의 CBAM 위임 조치 채택 — 폴란드 의장국 하에서 그린딜 2차 입법 속도의 시험 사례
+
+**정보 판단**: 2026년 봄 위원회 시즌은 EP10이 1등급 우선순위（방위, AI, 이민 관리）에 단호하게 행동할 수 있음을 입증하는 동시에 그린딜 유산에 관한 구조적 긴장과 씨름하던 순간으로 기억될 것이다. 기관은 적응하고 있지만 그 적응은 파일 우선순위 계층을 가로지르는 산출 품질의 변동에서 가시화된다 — 기관적 붕괴가 아니라.
+
+*AI 기반 분석 에이전트 작성 | 2026-05-21 | 데이터 모드: 피드 저하*
+
+### Executive Brief Nl
+
+### 🔴 CENTRALE INLICHTINGENBEOORDELING
+
+*Het is waarschijnlijk (65–75%)* dat het commissieseizoen van het Europees Parlement voor het voorjaar van 2026 zijn primaire wetgevingsdoelstellingen zal behalen — aanneming van de SAFE-verordening, standpunt bij eerste lezing van het Omnibus en secundaire uitvoeringshandelingen van de Green Deal — maar met coalitiedruk die in elk geval op twee grote dossiers last-minute onderhandelingen afdwingt vóór het zomerreces van juni 2026. De krappe EPP-S&D-Renew-meerderheid (+36 zetels) is de centrale structurele beperking die elk commissieresultaat bepaalt.
+
+**Admiraliteitsgraad:** B2 | **Betrouwbaarheid:** 🟡 MEDIUM
+
+---
+
+### Top 3 Commissie-inlichtingenprioriteiten
+
+#### 1 · SAFE-verordening — ITRE-commissie (HOGE PRIORITEIT)
+De verordening betreffende de Strategische Agenda voor Bewapening en Factoren in Europa (SAFE), waarbij een EU-defensiefaciliteit van 150 miljard euro wordt goedgekeurd, nadert haar stemming in de ITRE-commissie. Dit is de meest significante wetgeving inzake defensie-industriebeleid in de EU-geschiedenis en heeft grote budgettaire gevolgen voor de off-balance-sheet leenarchitectuur van de EU.
+
+**Kerninlichtingen:**
+- De rapporteur van de ITRE-commissie rondt de compromistekst over aanbestedingsregels af — de meest omstreden sectie
+- Nationale defensie-industriële belangen (Frankrijk, Duitsland, Polen) hebben actief gelobbyd bij de rapporteur
+- Overkoepelend coalitiesteuning (EPP + S&D + ECR + Renew) geeft SAFE een ongewoon robuuste meerderheid
+- De Raad dringt aan op versnelde aanneming vóór het zomerreces
+- **WEP:** *Het is waarschijnlijk (65–75%)* dat de SAFE-commissiestemming plaatsvindt vóór 30 juni 2026
+
+**Risico:** De noodprocedure van artikel 122 VWEU blijft mogelijk als de geopolitieke situatie verslechtert (geschat op *ongeveer gelijke kansen, 35–45%*), wat de commissieraadpleging zou omzeilen.
+
+---
+
+#### 2 · Omnibus-vereenvoudigingspakket — ECON/JURI-commissies (HOGE PRIORITEIT)
+Het Omnibus I-pakket van de Commissie dat de CSRD (richtlijn duurzaamheidsrapportage ondernemingen), de CSDDD en de taxonomieverordening herziet, bevindt zich in haar meest omstreden commissiefase. S&D staat voor een strategisch dilemma tussen het handhaven van de coalitiecohesie en het beantwoorden van druk van de progressieve achterban.
+
+**Kerninlichtingen:**
+- EPP en industrielobbyisten (BusinessEurope) hebben het narratief rond lastenverlaging succesvol vorm gegeven
+- S&D onderhandelt over de toevoeging van sociale clausules als tegenprestatie voor aanvaarding van drempelverlagingen in de CSRD (van 250 naar ~1.000 werknemers)
+- Greens/EFA en The Left mobiliseren actief externe druk op S&D
+- **WEP:** *Het is waarschijnlijk (60–70%)* dat S&D een aangepast Omnibus-pakket aanvaardt dat de coalitie stabiel houdt
+- **WEP:** *Het is mogelijk (30–40%)* dat het compromis mislukt, waardoor Omnibus voorbij het zomerreces vertraging oploopt
+
+**Risico:** De ESG-beleggingsgemeenschap volgt dit nauwlettend; een terugdraaien van de CSRD schept marktonzekerheid voor meer dan 2 biljoen euro aan ESG-gekoppelde activa.
+
+---
+
+#### 3 · Secundaire handelingen van de Green Deal — ENVI-commissie (MIDDELHOGE PRIORITEIT)
+De ENVI-commissie werkt meerdere secundaire uitvoeringshandelingen voor het Green Deal-kader van EP9 verder uit: uitvoeringshandelingen voor de Wet herstel natuur, voltooiing van de PPWR (verpakkingsverordening) en CBAM-bewakingsverordeningen.
+
+**Kerninlichtingen:**
+- De rechtervleugel van de EPP (Italiaanse, Hongaarse en Roemeense delegaties) stemt in toenemende mate mee met de ECR over amendementen inzake 'competitiviteitstoetsing'
+- De meerderheid van de ENVI-commissie is smaller dan de overkoepelende coalitie-arithmetiek suggereert (~5–8 stemmen effectieve marge bij omstreden ENVI-stemmingen)
+- Wet herstel natuur: EPP-leden stellen landbouwafwijkingen voor die Greens/EFA als kaderbeschadiging omschrijven
+- **WEP:** *Het is waarschijnlijk (60–70%)* dat ENVI secundaire handelingen aanneemt met verzwakte drempels maar een intact fundamenteel kader
+
+**Risico:** Verdere tegenvallers in de ENVI-commissie kunnen de terugtrekking van Greens/EFA uit informele coördinatieakkoorden veroorzaken, wat al toekomstig ENVI-werk compliceert.
+
+---
+
+### Politiek landschapsoverzicht (2026-05-21)
+
+| Groep | Zetels | Aandeel | Coalitionerol |
+|-------|--------|---------|---------------|
+| EPP | 183 | 25,5% | Dominante partner |
+| S&D | 136 | 19,0% | Essentiële partner |
+| PfE | 85 | 11,9% | Oppositie/Verstorende factor |
+| ECR | 81 | 11,3% | Selectieve bondgenoot (defensie) |
+| Renew | 77 | 10,7% | Coalitionepartner |
+| Greens/EFA | 53 | 7,4% | Progressieve minderheid |
+| The Left | 45 | 6,3% | Progressieve minderheid |
+| NI | 30 | 4,2% | Niet-ingeschrevene |
+| ESN | 27 | 3,8% | Extreemrechtse verstorende factor |
+
+**Vereiste meerderheid:** 360 | **Coalitie (EPP+S&D+Renew):** 396 | **Marge:** +36
+
+---
+
+### Economische context (IMF Structurele proxy, A2)
+
+- Bbp-groei van de eurozone in 2026 geschat: ~1,7%
+- EU begrotingstekort/bbp: ~-2,6% (consolidatie aan de gang)
+- SAFE: 150 miljard euro off-balance-sheet defensiefaciliteit
+- ECB-depositotarief geschat: ~2,25% (versoepelingscyclus gevorderd)
+- US-EU-tariefspanningen creëren druk in de INTA-commissie
+
+---
+
+### 3-maandenvooruitzichten
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**Algehele beoordeling:** Het commissieseizoen van het voorjaar van 2026 opereert op HOGE intensiteit met een krappe coalitionemarge. De succesvolle voortgang van de SAFE-verordening toont de capaciteit van EP10 om doortastend op te treden inzake veiligheidsprioriteiten. De Omnibus-contestatie en de terugtrekking van de Green Deal vertegenwoordigen structurele spanningen die het erfenis van EP10 op het gebied van klimaat en ondernemingsbestuur zullen definiëren. *Het is vrijwel zeker (>85%)* dat de EPP-S&D-Renew-coalitie het voorjaarsseizoen intact overleeft, ondanks reële druk bij individuele commissiestemmingen.
+
+**Betrouwbaarheid:** 🟡 MEDIUM | **Admiraliteitsgraad:** B2
+
+---
+
+### EP10 Macrocontext: Economische en politieke achtergrond
+
+**Economische omgeving (IMF WEO april 2026)**:
+De reële bbp-groei van EU-27 van 1,2% in 2026 vertegenwoordigt een prestatie onder de trend. De Amerikaanse tariefomgeving (geschat bbp-rem van -0,3 tot -0,5%) en energiekostenverschillen zijn structurele tegenwind. Deze economische context vormt direct de wetgevingsprioriteiten van de commissies: de concurrentiefocus van ITRE wordt versterkt door het groeigebrek; het financiële reguleringswerk van ECON is ingekaderd tegenover ECB-projecties van een bijna-doelinflatie (2,3%) maar aanhoudende kredietkwaliteitsrisico's in perifere lidstaten.
+
+**Politieke rekenkunde**: De meerderheid van 55,9% van de EPP-S&D-Renew-coalitie (401/717 zetels) is de smalste pro-EU-regeringsmeerderheid sinds het Europees Parlement medebeslissingsbevoegdheden kreeg onder het Verdrag van Maastricht. Voor elke stemming vereist volledige mobilisatie bijna perfecte aanwezigheid van alle drie de groepen — een structurele kwetsbaarheid die toeneemt met elke plenaire week.
+
+**Wat de komende 60 dagen te volgen**:
+1. Publicatie van DOCEO-stemgegevens (verwacht op 25–26 mei 2026) — zal werkelijke EPP-cohesiepercentages bij omstreden stemmingen van de huidige plenaire week onthullen
+2. Publicatie van het EDIP-wetgevingsvoorstel van de Commissie — bepaalt de reikwijdte van de EU-defensie-industriële ambitie en test de parlementaire coalitie-afstemming voorbij het initiële mandaatbesluit
+3. Aanneming van CBAM-gedelegeerde handelingen door de ENVI-commissie — testgeval voor het tempo van secundaire Green Deal-wetgeving onder het Poolse voorzitterschap
+
+**Inlichtingenbeoordeling**: Het commissieseizoen van het voorjaar van 2026 zal worden herinnerd als het moment waarop EP10 aantoonde doortastend te kunnen handelen bij Tier 1-prioriteiten (defensie, AI, migratiebeheer), terwijl het tegelijkertijd worstelde met structurele spanningen in zijn Green Deal-erfenis. De instelling past zich aan, maar de aanpassing is zichtbaar in outputkwaliteitsvariatie over bestandsprioriteitslagen heen — niet in institutionele ineenstorting.
+
+*Opgesteld door een AI-gedreven analyseagent | 2026-05-21 | Datamodus: gedegradeerde feeds*
+
+### Executive Brief No
+
+### 🔴 SENTRAL ETTERRETNINGSVURDERING
+
+*Det er sannsynlig (65–75%)* at Europaparlamentets komitésesong for våren 2026 vil levere sine primære lovgivningsmål — vedtakelse av SAFE-forordningen, Omnibussens første behandlingsposisjon og den grønne pakkes sekundære gjennomføringsrettsakter — men med koalisjonspress som tvinger forhandlinger i siste liten om minst to store saker før sommerferien i juni 2026. Det smale EPP-S&D-Renew-flertallet (+36 seter) er den sentrale strukturelle begrensningen som definerer hvert komitéresultat.
+
+**Admiralitetsgrad:** B2 | **Konfidens:** 🟡 MEDIUM
+
+---
+
+### Topp 3 Komitéetterretningsprioriteringer
+
+#### 1 · SAFE-forordningen — ITRE-komiteen (HØY PRIORITET)
+Forordningen om den strategiske dagsordenen for armamenter og faktorer i Europa (SAFE), som godkjenner en EU-forsvarsfasilitet på 150 milliarder euro, nærmer seg sin komitéavstemning i ITRE. Dette er den mest betydningsfulle forsvarsindustrielle lovgivningen i EU-historien og har store finanspolitiske konsekvenser for EU:s off-balance-sheet lånearchitektur.
+
+**Sentral etterretning:**
+- ITRE-komiteens ordfører ferdigstiller kompromisstext om anskaffelsesregler — den mest omstridte seksjonen
+- Nasjonale forsvarsindustrielle interesser (Frankrike, Tyskland, Polen) har aktivt lobbet ordføreren
+- Tverrkosalisjonstøtte (EPP + S&D + ECR + Renew) gir SAFE et uvanlig robust flertall
+- Rådet presser på rask vedtakelse før sommerferien
+- **WEP:** *Det er sannsynlig (65–75%)* at SAFE-komiteens avstemning skjer innen 30. juni 2026
+
+**Risiko:** Nødprosedyren i henhold til artikkel 122 TEUV er fortsatt mulig dersom den geopolitiske situasjonen forverres (vurdert *omtrent like odds, 35–45%*), noe som ville omgå komitéhøringen.
+
+---
+
+#### 2 · Omnibus-forenklingspackagen — ECON/JURI-komiteene (HØY PRIORITET)
+Kommisjonens Omnibus I-pakke, som reviderer CSRD (direktivet om bærekraftsrapportering for foretak), CSDDD og taksonomiforordningen, befinner seg i sin mest omstridte komitéfase. S&D står overfor et strategisk dilemma mellom å opprettholde koalisjonens samhold og å imøtekomme press fra den progressive basen.
+
+**Sentral etterretning:**
+- EPP og industrilobbyister (BusinessEurope) har med suksess formet narrativet rundt byrdelette
+- S&D forhandler om tillegg av sosiale klausuler som motytelse for å akseptere CSRD-terskeløkninger (fra 250 til ~1 000 ansatte)
+- Greens/EFA og The Left mobiliserer aktivt eksternt press mot S&D
+- **WEP:** *Det er sannsynlig (60–70%)* at S&D aksepterer en modifisert Omnibus-pakke som opprettholder koalisjonsstabilitet
+- **WEP:** *Det er mulig (30–40%)* at kompromisset bryter sammen og forsinker Omnibus etter sommerferien
+
+**Risiko:** ESG-investeringssamfunnet følger nøye med; CSRD-tilbakerulling skaper markedsusikkerhet for mer enn 2 billioner euro i ESG-koblede eiendeler.
+
+---
+
+#### 3 · Den grønne pakkes sekundære rettsakter — ENVI-komiteen (MIDDELS-HØY PRIORITET)
+ENVI-komiteen fremmer flere sekundære gjennomføringsrettsakter for EP9s ramme for den grønne pakken: gjennomføringsrettsakter for naturrestaureringslovens, ferdigstillelse av PPWR (emballasjeforordningen) og CBAM-overvåkingsforordninger.
+
+**Sentral etterretning:**
+- EPPs høyrefløy (italienske, ungarske og rumenske delegasjoner) stemmer i stigende grad med ECR om "konkurranseevneprøving"-endringsforslag
+- ENVI-komiteens flertall er smalere enn den overordnede koalisjonsaritmetikken antyder (~5–8 stemmers effektiv margin ved omstridte ENVI-avstemninger)
+- Naturrestaureringslovens: EPP-medlemmer foreslår landbruksunntak som Greens/EFA beskriver som rammeødeleggelse
+- **WEP:** *Det er sannsynlig (60–70%)* at ENVI vedtar sekundære rettsakter med svekkede terskler men intakt grunnleggende ramme
+
+**Risiko:** Ytterligere ENVI-komitémotvind kan utløse Greens/EFA:s tilbaketrekking fra uformelle koordineringsavtaler, noe som vil komplisere alt fremtidig ENVI-arbeid.
+
+---
+
+### Politisk landskap-øyeblikksbilde (2026-05-21)
+
+| Gruppe | Seter | Andel | Koalisjonsrolle |
+|--------|-------|-------|-----------------|
+| EPP | 183 | 25,5% | Dominerende partner |
+| S&D | 136 | 19,0% | Nødvendig partner |
+| PfE | 85 | 11,9% | Opposisjon/Forstyrrer |
+| ECR | 81 | 11,3% | Selektiv alliert (forsvar) |
+| Renew | 77 | 10,7% | Koalisjonspartner |
+| Greens/EFA | 53 | 7,4% | Progressivt mindretall |
+| The Left | 45 | 6,3% | Progressivt mindretall |
+| NI | 30 | 4,2% | Ikke-tilknyttet |
+| ESN | 27 | 3,8% | Ytterliggående forstyrrer |
+
+**Nødvendig flertall:** 360 | **Koalisjon (EPP+S&D+Renew):** 396 | **Margin:** +36
+
+---
+
+### Økonomisk kontekst (IMF Strukturell proxy, A2)
+
+- Eurosone BNP-vekst 2026 anslått: ~1,7%
+- EUs finanspolitiske underskudd/BNP: ~-2,6% (konsolidering pågår)
+- SAFE: 150 milliarder euro off-balance-sheet forsvarsfasilitet
+- ECBs innskuddsrente anslått: ~2,25% (lettelsessyklus avansert)
+- USA-EU-tollspenninger skaper press i INTA-komiteen
+
+---
+
+### 3-måneders utsikt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**Samlet vurdering:** Komitésesongen våren 2026 opererer med HØY intensitet og en smal koalisjonsmargin. SAFE-forordningens vellykkede fremskritt demonstrerer EP10s kapasitet til å handle bestemt i sikkerhetsprioriteringer. Omnibus-bestriden og den grønne pakkes tilbakegang representerer strukturelle spenninger som vil definere EP10s arv på klima og selskapsstyring. *Det er nesten sikkert (>85%)* at EPP-S&D-Renew-koalisjonen overlever vårsesong intakt, til tross for reelt press ved individuelle komitéavstemninger.
+
+**Konfidens:** 🟡 MEDIUM | **Admiralitetsgrad:** B2
+
+---
+
+### EP10 Makrokontekst: Økonomisk og politisk bakgrunn
+
+**Økonomisk miljø (IMF WEO april 2026)**:
+EU-27s reale BNP-vekst på 1,2% i 2026 representerer en under-trend prestasjon. Det amerikanske tollmiljøet (anslått -0,3 til -0,5% BNP-drag) og energikostnadsdifferanser er strukturelle motvinder. Denne økonomiske konteksten former direkte komitéenes lovgivningsprioriteringer: ITREs konkurranseevnefokus forsterkes av vekstunderskuddet; ECONs finansreguleringsarbeid er innrammet mot ECBs fremskrivninger om nær-mål-inflasjon (2,3%), men vedvarende kredittkvalitetsrisiki i perifere medlemsstater.
+
+**Politisk aritmetikk**: EPP-S&D-Renew-koalisjonens 55,9%-flertall (401/717 seter) er det smaleste pro-EU styrende flertallet siden Europaparlamentet fikk medbeslutningsfullmakter under Maastricht. Ved enhver gitt avstemning krever full mobilisering nærmest perfekt fremmøte fra alle tre gruppene — en strukturell sårbarhet som øker med hver plenumuke.
+
+**Hva man bør følge de neste 60 dagene**:
+1. DOCEO-avstemningsdata-publisering (forventet 25.–26. mai 2026) — vil avsløre faktiske EPP-kohesionstall ved omstridte avstemninger fra den aktuelle plenumsuken
+2. Kommisjonens EDIP-lovforslags publisering — fastsetter omfanget av EUs forsvarsindustrielle ambisjoner og tester parlamentskoalisjonens samstemmighet utover det innledende mandatvedtaket
+3. ENVI-komiteens CBAM-delegerte rettsakter vedtakelse — testtilfelle for den grønne pakkes sekundære lovgivningstakt under det polske presidentskapet
+
+**Etterretningsvurdering**: Komitésesongen våren 2026 vil huskes som det øyeblikket da EP10 demonstrerte at det kunne handle bestemt i Tier 1-prioriteringer (forsvar, AI, migrasjonsforvaltning), mens det samtidig kjempet med strukturelle spenninger i sitt grønne pakke-arv. Institusjonen tilpasser seg, men tilpasningen er synlig i outputkvalitetsvariasjon på tvers av filprioritetsnivåer — ikke i institusjonell kollaps.
+
+*Utarbeidet av AI-drevet analyseagent | 2026-05-21 | Datatilstand: degraderte feeds*
+
+### Executive Brief Sv
+
+### 🔴 CENTRALT UNDERRÄTTELSEBEDÖMNING
+
+*Det är sannolikt (65–75%)* att Europaparlamentets utskottssäsong för våren 2026 kommer att leverera sina primära lagstiftningsmål — antagandet av SAFE-förordningen, Omnibusets första behandlingsposition och Gröna dealens sekundära genomförandeakter — men med koalitionsstress som tvingar fram sista minuten-förhandlingar om minst två stora ärenden innan sommarpausen i juni 2026. Den smala EPP-S&D-Renew-majoriteten (+36 mandat) är den centrala strukturella begränsning som definierar alla utskottsresultat.
+
+**Admiralitetsgrad:** B2 | **Konfidensgrad:** 🟡 MEDIUM
+
+---
+
+### Topp 3 Utskottsunderrättelseprioriteringar
+
+#### 1 · SAFE-förordningen — ITRE-utskottet (HÖG PRIORITET)
+Förordningen om den strategiska agendan för rustningsindustri och faktorer i Europa (SAFE), som godkänner en EU-försvarsfacilitet på 150 miljarder euro, närmar sig sin omröstning i ITRE-utskottet. Detta är den mest betydelsefulla lagstiftningen om försvarsindustriell politik i EU:s historia och har stora finanspolitiska konsekvenser för EU:s off-balance-sheet lånearchitektur.
+
+**Central underrättelse:**
+- ITRE-utskottets föredragande finsliper kompromisstext om upphandlingsregler — den mest omtvistade sektionen
+- Nationella försvarsindustriella intressen (Frankrike, Tyskland, Polen) har aktivt lobbat mot föredraganden
+- Tvärskoalitionsstöd (EPP + S&D + ECR + Renew) ger SAFE en ovanligt robust majoritet
+- Rådet pressar på för snabbt antagande före sommarpausen
+- **WEP:** *Det är sannolikt (65–75%)* att SAFE-utskottets omröstning äger rum före den 30 juni 2026
+
+**Risk:** Nödproceduren enligt artikel 122 TFEU kvarstår som möjlighet om den geopolitiska situationen försämras (bedömt *ungefär lika odds, 35–45%*), vilket skulle kringgå utskottskonsultationen.
+
+---
+
+#### 2 · Omnibusets förenklingspaket — ECON/JURI-utskotten (HÖG PRIORITET)
+Kommissionens Omnibus I-paket, som reviderar CSRD (direktivet om hållbarhetsrapportering), CSDDD och taxonomiförordningen, befinner sig i sin mest omtvistade utskottsfas. S&D ställs inför ett strategiskt dilemma mellan att upprätthålla koalitionens sammanhållning och att tillgodose trycket från den progressiva basen.
+
+**Central underrättelse:**
+- EPP och industrilobbyister (BusinessEurope) har framgångsrikt format narrativet kring bördebegränsning
+- S&D förhandlar om tillägg av sociala klausuler som motprestation för att acceptera CSRD-tröskelökningar (från 250 till ~1 000 anställda)
+- Greens/EFA och Vänstern mobiliserar aktivt externt tryck mot S&D
+- **WEP:** *Det är sannolikt (60–70%)* att S&D accepterar ett modifierat Omnibus-paket som upprätthåller koalitionens stabilitet
+- **WEP:** *Det är möjligt (30–40%)* att kompromissen bryter samman och försenar Omnibus efter sommarpausen
+
+**Risk:** ESG-investerarsamhället följer noga; CSRD-tillbakadragandet skapar marknadsosäkerhet för mer än 2 biljoner euro i ESG-länkade tillgångar.
+
+---
+
+#### 3 · Gröna dealens sekundära akter — ENVI-utskottet (MEDEL-HÖG PRIORITET)
+ENVI-utskottet avancerar flera sekundära genomförandeakter för EP9:s ramverk för den Gröna dealen: genomförandeakter för naturrestaureringslagen, slutförandet av PPWR (förpackningsförordningen) och CBAM-övervakningsförordningar.
+
+**Central underrättelse:**
+- EPP:s högerflygel (italienska, ungerska och rumänska delegationer) röstar i ökande utsträckning med ECR om "konkurrenskraftsgranskning"-ändringar
+- ENVI-utskottets majoritet är smalare än koalitionens totala matematiska underlag antyder (~5–8 rösters effektiv marginal vid omtvistade ENVI-omröstningar)
+- Naturrestaureringslagen: EPP-ledamöter föreslår jordbruksundantag som Greens/EFA beskriver som en ramverksförstöring
+- **WEP:** *Det är sannolikt (60–70%)* att ENVI antar sekundära akter med försvagade trösklar men ett intakt grundläggande ramverk
+
+**Risk:** Ytterligare bakslag i ENVI-utskottet kan utlösa Greens/EFA:s tillbakadragande från informella samordningsavtal, vilket skulle komplicera allt framtida ENVI-arbete.
+
+---
+
+### Politisk landskapsbild (2026-05-21)
+
+| Grupp | Mandat | Andel | Koalitionsroll |
+|-------|--------|-------|----------------|
+| EPP | 183 | 25,5% | Dominerande partner |
+| S&D | 136 | 19,0% | Nödvändig partner |
+| PfE | 85 | 11,9% | Opposition/Störare |
+| ECR | 81 | 11,3% | Selektiv allierad (försvar) |
+| Renew | 77 | 10,7% | Koalitionspartner |
+| Greens/EFA | 53 | 7,4% | Progressiv minoritet |
+| The Left | 45 | 6,3% | Progressiv minoritet |
+| NI | 30 | 4,2% | Obunden |
+| ESN | 27 | 3,8% | Ytterligare störare |
+
+**Majoritetskrav:** 360 | **Koalition (EPP+S&D+Renew):** 396 | **Marginal:** +36
+
+---
+
+### Ekonomisk kontext (IMF Strukturell proxy, A2)
+
+- Eurozons BNP-tillväxt 2026 beräknad: ~1,7%
+- EU:s finanspolitiska underskott/BNP: ~-2,6% (konsolidering pågår)
+- SAFE: 150 miljarder euro off-balance-sheet försvarsfacilitet
+- ECB:s inlåningsränta beräknad: ~2,25% (lättnadsindex avancerat)
+- USA-EU tullspänningar skapar tryck i INTA-utskottet
+
+---
+
+### 3-månadersutsikter
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**Samlad bedömning:** Utskottssäsongen våren 2026 opererar med HÖG intensitet och en smal koalitionsmarginal. SAFE-förordningens framgångsrika framsteg visar EP10:s förmåga att agera beslutsamt i säkerhetsfrågor. Omnibus-bestridan och Gröna dealens tillbakagång representerar strukturella spänningar som kommer att definiera EP10:s arv vad gäller klimat och bolagsstyrning. *Det är nästan säkert (>85%)* att EPP-S&D-Renew-koalitionen överlever vårsäsongen intakt, trots verklig stress vid enskilda utskottsomröstningar.
+
+**Konfidensgrad:** 🟡 MEDIUM | **Admiralitetsgrad:** B2
+
+---
+
+### EP10 Makrokontext: Ekonomisk och politisk bakgrund
+
+**Ekonomisk miljö (IMF WEO april 2026)**:
+EU-27:s reala BNP-tillväxt på 1,2% år 2026 representerar en prestation under trenden. Den amerikanska tullmiljön (beräknat -0,3 till -0,5% BNP-bromseffekt) och energikostnadsdifferenser är strukturella motvind. Detta ekonomiska sammanhang formar direkt utskottens lagstiftningsprioriteringar: ITRE:s konkurrenskraftsfokus förstärks av tillväxtunderskottet; ECON:s finansregleringsarbete är inramat mot ECB:s projektioner om nära målinflation (2,3%) men kvarstående kreditkvalitetsrisker i perifera medlemsstater.
+
+**Politisk matematik**: EPP-S&D-Renew-koalitionens majoritet på 55,9% (401/717 mandat) är den smalaste pro-EU-styrande majoriteten sedan Europaparlamentet fick medbeslutandebefogenheter under Maastricht. Vid varje given omröstning kräver full mobilisering nära perfekt närvaro från alla tre grupperna — en strukturell sårbarhet som ökar med varje plenarsvecka.
+
+**Vad man bör följa under de närmaste 60 dagarna**:
+1. DOCEO omröstningsdata publicering (förväntad 25–26 maj 2026) — kommer att avslöja faktiska EPP-kohesionstal vid omtvistade omröstningar under den nuvarande plenaerveckan
+2. Kommissionens EDIP-lagstiftningsförslag publicering — fastställer omfattningen av EU:s försvarsindustriella ambition och testar parlamentskoalitionens samstämmighet bortom det initiala mandatbeslutet
+3. ENVI-utskottets CBAM-delegerade akter antagande — testfall för genomförandetakten för Gröna dealens sekundära lagstiftning under Polskt ordförandeskap
+
+**Underrättelsebedömning**: Utskottssäsongen våren 2026 kommer att minnas som det ögonblick när EP10 visade att det kunde agera beslutsamt i Tier 1-prioriteringar (försvar, AI, migrationshantering) medan man samtidigt kämpade med strukturella spänningar kring sitt Gröna deal-arv. Institutionen anpassar sig, men anpassningen syns i variationen i outputkvalitet mellan filprioritetsnivåer — inte i institutionell kollaps.
+
+*Framtagen av AI-driven analysagent | 2026-05-21 | Dataläge: degraderade flöden*
+
+### Executive Brief Zh
+
+**已应用WEP等级** | **海军评级：** B2  
+**置信度：** 🟡 MEDIUM | **数据模式：** 信息源降级  
+**分析日期：** 2026-05-21 | **时间范围：** 3个月
+
+---
+
+### 🔴 核心情报判断
+
+*可能性较高（65–75%）*：欧洲议会2026年春季委员会季节将完成其主要立法目标——通过SAFE法规、批准《综合一揽子》第一次审议立场，以及《绿色协议》二级实施措施——但在2026年6月夏季休会前，至少两个重要文件的联合压力将迫使最后时刻的谈判。EPP-S&D-Renew联盟的微弱多数（+36席）是决定每项委员会结果的核心结构性约束。
+
+**海军评级：** B2 | **置信度：** 🟡 MEDIUM
+
+---
+
+### 委员会情报前三大优先事项
+
+#### 1 · SAFE法规 — ITRE委员会（最高优先级）
+《欧洲军备与工业战略议程》法规（SAFE）授权规模达1500亿欧元的欧盟防务设施，正接近ITRE委员会的投票阶段。这是欧盟历史上最重要的防务工业政策立法，对欧盟的表外借贷架构具有重大财政影响。
+
+**关键情报：**
+- ITRE委员会报告员正在最终确定有关采购规则的折中文本——争议最大的部分
+- 国内防务工业利益（法国、德国、波兰）对报告员进行了积极游说
+- 跨联盟支持（EPP + S&D + ECR + Renew）使SAFE获得异常牢固的多数
+- 理事会正推动在夏季休会前加速通过
+- **WEP：** *可能性较高（65–75%）* SAFE委员会表决将于2026年6月30日前进行
+
+**风险：** 如果地缘政治形势恶化，根据《欧盟运作条约》第122条发动紧急程序（估计*几乎五五开，35–45%*）的可能性依然存在，这将绕过委员会咨询程序。
+
+---
+
+#### 2 · Omnibus简化一揽子方案 — ECON/JURI委员会（最高优先级）
+欧盟委员会修订CSRD（企业可持续发展报告指令）、CSDDD和分类法规的Omnibus I一揽子方案目前处于争议最激烈的委员会阶段。S&D面临维护联盟凝聚力与回应进步派基层压力之间的战略两难。
+
+**关键情报：**
+- EPP和工业游说团体（BusinessEurope）成功主导了围绕减轻负担的叙事
+- S&D正就增加社会条款进行谈判，以换取接受CSRD门槛的提升（从250名员工增至约1,000名）
+- Greens/EFA和The Left正积极动员对S&D施加外部压力
+- **WEP：** *可能性较高（60–70%）* S&D将接受能维持联盟稳定的修订版Omnibus一揽子方案
+- **WEP：** *有可能（30–40%）* 妥协破裂，导致Omnibus推迟至夏季休会后
+
+**风险：** ESG投资界密切关注；CSRD的倒退将为逾2万亿欧元的ESG关联资产带来市场不确定性。
+
+---
+
+#### 3 · 绿色协议二级措施 — ENVI委员会（中高优先级）
+ENVI委员会正在推进EP9《绿色协议》框架下的多项二级实施措施：《自然恢复法》实施措施、PPWR（包装法规）最终化以及CBAM监测法规。
+
+**关键情报：**
+- EPP右翼（意大利、匈牙利、罗马尼亚代表团）在"竞争力验证"修正案上与ECR联合投票的频率日益增加
+- ENVI委员会的多数席位比整体联盟数字所示的更为薄弱（在争议性ENVI投票中实际余量约5–8票）
+- 《自然恢复法》：EPP成员提出农业豁免条款，Greens/EFA将其描述为破坏法律框架
+- **WEP：** *可能性较高（60–70%）* ENVI将以门槛弱化但基本框架完整的形式通过二级措施
+
+**风险：** ENVI委员会的进一步挫折可能引发Greens/EFA退出非正式协调协议，从而使所有未来的ENVI工作趋于复杂。
+
+---
+
+### 政治格局快照（2026-05-21）
+
+| 党团 | 席位 | 占比 | 联盟角色 |
+|------|------|------|---------|
+| EPP | 183 | 25.5% | 主导伙伴 |
+| S&D | 136 | 19.0% | 不可或缺的伙伴 |
+| PfE | 85 | 11.9% | 反对派/破坏者 |
+| ECR | 81 | 11.3% | 选择性盟友（防务） |
+| Renew | 77 | 10.7% | 联盟伙伴 |
+| Greens/EFA | 53 | 7.4% | 进步派少数 |
+| The Left | 45 | 6.3% | 进步派少数 |
+| NI | 30 | 4.2% | 无党籍 |
+| ESN | 27 | 3.8% | 极右破坏者 |
+
+**所需多数：** 360 | **联盟（EPP+S&D+Renew）：** 396 | **余量：** +36
+
+---
+
+### 经济背景（IMF 结构性代理指标，A2）
+
+- 欧元区2026年GDP增长预估：~1.7%
+- 欧盟财政赤字/GDP：~-2.6%（财政整合进行中）
+- SAFE：1500亿欧元表外防务设施
+- 欧洲央行存款利率预估：~2.25%（宽松周期进展）
+- 美欧关税紧张局势对INTA委员会形成压力
+
+---
+
+### 3个月展望
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=1d356d19) -->
+
+**总体评估：** 2026年春季委员会季节以高强度和薄弱的联盟余量运作。SAFE法规的顺利推进展示了EP10在安全优先事项上果断行动的能力。Omnibus争议和绿色协议的退步代表着将界定EP10在气候和公司治理方面遗产的结构性张力。*几乎可以确定（>85%）* EPP-S&D-Renew联盟在春季完好无损地存续下来，尽管在个别委员会投票上存在真实的压力。
+
+**置信度：** 🟡 MEDIUM | **海军评级：** B2
+
+---
+
+### EP10宏观背景：经济与政治背景
+
+**经济环境（IMF WEO 2026年4月）**：
+欧盟27国2026年实际GDP增长率1.2%代表着低于趋势的表现。美国关税环境（估计对GDP拖累-0.3至-0.5%）和能源成本差异是结构性逆风。这一经济背景直接塑造了委员会的立法优先事项：ITRE对竞争力的关注因增长缺口而加强；ECON的金融监管工作以欧洲央行接近目标通胀（2.3%）的预测为框架，但外围成员国的信用质量风险依然持续。
+
+**政治算术**：EPP-S&D-Renew联盟55.9%的多数（401/717席）是欧洲议会根据《马斯特里赫特条约》获得共同决策权以来，亲欧盟执政多数最为薄弱的局面。在任何特定投票中，充分动员需要三个党团几乎完美的出席率——这是一种随每个全体会议周加剧的结构性脆弱性。
+
+**未来60天值得关注的事项**：
+1. DOCEO投票数据公布（预计2026年5月25–26日）——将揭示当前全会周争议性投票中EPP的实际凝聚力
+2. 欧盟委员会EDIP立法提案发布——确定欧盟防务工业雄心的范围，并在初始委托投票之外检验议会联盟的一致性
+3. ENVI委员会通过CBAM授权措施——波兰轮值主席期间绿色协议二级立法节奏的试验案例
+
+**情报判断**：2026年春季委员会季节将被铭记为EP10证明自己能够在一级优先事项（防务、人工智能、移民管理）上果断行动，同时与绿色协议遗产上的结构性张力并行博弈的时刻。机构正在适应，但这种适应体现在文件优先层次上产出质量的差异化——而非机构性崩溃。
+
+*由AI驱动的分析代理准备 | 2026-05-21 | 数据模式：信息源降级*
+
 ### Economic Context.Fallback
 
 > **IMF is the sole authoritative source for all economic/fiscal/monetary claims in this artifact.**
@@ -3360,6 +4779,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [economic-context.fallback](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/intelligence/economic-context.fallback.md) | `intelligence/economic-context.fallback.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-21/committee-reports/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 

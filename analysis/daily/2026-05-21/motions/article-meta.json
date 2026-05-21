@@ -19,11 +19,11 @@
     "**Geopolitical risks (R01-R02, R05):** Low appetite — these threaten EU strategic interests",
     "**Coalition risks (R04, R10):** Medium appetite — some parliamentary friction is normal",
     "**Wildcard/black swan risks (R08-R09):** Cannot be fully mitigated; accepted with monitoring",
-    "WTO challenge (R3) → If successful → AI/trade doctrine failure (R5)",
-    "AI standards fragmentation (R4) → Reduces WTO challenge leverage for EU",
-    "Industry capture (R6) → Weakens AI/trade provisions → Reduces WTO challenge risk but also benefit",
-    "Human rights deterioration (R8) → Triggers suspension clause → Reduces trade benefit",
-    "Regime change (R9) → Could go either way (reform acceleration or reversion)"
+    "WTO challenge (R01) → If successful → increases pressure on the EPP-S&D labour-safeguards compromise (R04)",
+    "EPP-S&D split on AI labour safeguards (R04) → Reduces EU negotiating coherence and raises exposure to WTO challenge (R01)",
+    "Tech industry regulatory capture on the AI motion (R07) → Weakens AI/trade provisions → reduces WTO challenge risk but also policy benefit",
+    "Uzbekistan human rights backsliding post-EPCA (R05) → Triggers suspension pressure → Reduces trade and credibility benefits",
+    "Russian disinformation against Uzbekistan EPCA (R02) → Amplifies scrutiny of any rights deterioration (R05) and erodes political support"
   ],
   "keyDates": [
     "India WTO position paper (expected Q3 2026) rejects EU-style AI regulation requirements",

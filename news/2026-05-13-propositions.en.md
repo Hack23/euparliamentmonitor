@@ -204,6 +204,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -2754,6 +2755,2284 @@ Despite limitations, the following methodological strengths support confidence i
 | 4 | Add trilogue status tracking | Fills major prospective gap |
 | 5 | Integrate Commission legislative planning calendar | Adds forward-looking horizon |
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-13 | **النوع:** مقترحات | **التصنيف:** غير مصنف//للاستخدام الرسمي
+
+---
+
+### 🔴 المحفز الرئيسي: تصعيد تطبيق قانون الأسواق الرقمية
+
+يمثل قرار البرلمان الأوروبي الصادر في 30 أبريل 2026 بشأن تطبيق DMA (TA-10-2026-0160) تصعيداً ملحوظاً لضغط البرلمان على المفوضية الأوروبية لفرض عقوبات أشد على حراس البوابات المعينين — ولا سيما Alphabet (Google) وApple وMeta وAmazon — الذين لا يزال امتثالهم لالتزامات التشغيل البيني والقابلية للطعن موضع خلاف. يطالب القرار بجداول زمنية ملزمة للتطبيق ويوافق صراحةً على الفصل الهيكلي باعتباره سبيل انتصاف إذا ثبت عدم كفاية التدابير السلوكية. يشير ذلك إلى أن تحالف يمين الوسط في البرلمان (EVP) والتحالف التقدمي (S&D وGreens/EFA وRenew) قد توصل إلى توافق نادر بشأن قابلية الطعن في الأسواق الرقمية، مما قد يضطر المفوضية للتصرف قبل مراجعة العقد الرقمي 2027.
+
+---
+
+### ⏱️ تقرير الاستخبارات في 60 ثانية
+
+**خمسة تطورات تشريعية تحدد مشهد مقترحات البرلمان الأوروبي لأبريل–مايو 2026:**
+
+1. **تطبيق DMA (TA-10-2026-0160، 30 أبريل)** — يطالب البرلمان بتطبيق أكثر صرامة لامتثال حراس البوابات. تواجه المفوضية ضغطاً سياسياً لتسريع التحقيقات في DMA المفتوحة منذ 2024. خطر: التشرذم التنظيمي إذا ردت الولايات المتحدة بتدابير تجارية.
+
+2. **إصلاح البنوك SRMR3 (TA-10-2026-0092، 26 مارس)** — اعتُمدت لائحة آلية القرار الموحد 3 مع تحديث قواعد محفزات التدخل المبكر وتمويل القرار. يسد هذا الإصلاح الثغرة التنظيمية ما بعد SVB المحددة عام 2023، لكن التنفيذ يبقى مع ESM/SRB.
+
+3. **الرد على الرسوم الجمركية الأمريكية (TA-10-2026-0096، 26 مارس)** — خوّل البرلمان تعديل الرسوم الجمركية على البضائع الأمريكية — إجراء مضاد مباشر لتصعيد إدارة ترامب للرسوم وفق القسم 232/301. يضع ذلك الاتحاد الأوروبي بوصفه فاعلاً موثوقاً في الانتقام التجاري قبيل إجراءات تسوية النزاعات في WTO المقررة.
+
+4. **إطار مكافحة الفساد (TA-10-2026-0094، 26 مارس)** — يعزز اعتماد توجيه شامل لمكافحة الفساد صندوق أدوات سيادة القانون لدى البرلمان الأوروبي في مجال العدالة والشؤون الداخلية، مع تداعيات على إجراءات المشروطية الجارية ضد المجر وبولندا.
+
+5. **توجيهات الميزانية 2027 (TA-10-2026-0112، 28 أبريل)** — تُركز توجيهات الميزانية في البرلمان للعام 2027 (أول سنة من الإطار المالي متعدد السنوات الجديد بعد انتقال 2027) على قدرات الدفاع والتحول المناخي وإنفاق التماسك، مما يُمهّد لمواجهة مع تفضيلات التقشف في المجلس.
+
+---
+
+### 🎯 ملخص لصانعي القرار
+
+| المسألة | الأهمية | الحساسية الزمنية | درجة الثقة |
+|---------|---------|-----------------|------------|
+| تصعيد تطبيق DMA | مرتفعة — يؤثر في المنصات التقنية الكبرى | 30–60 يوماً | 🟢 مرتفعة |
+| إصلاح البنوك SRMR3 | مرتفعة — الاستقرار المالي للاتحاد الأوروبي | المدى المتوسط (2026–27) | 🟢 مرتفعة |
+| التدابير المضادة للرسوم الأمريكية | حرجة — خطر حرب تجارية عالمية | فوري | 🟢 مرتفعة |
+| توجيه مكافحة الفساد | متوسطة — تداعيات على سيادة القانون | 18 شهراً تنفيذاً | 🟡 متوسطة |
+| توجيهات الميزانية 2027 | مرتفعة — إشارة لمفاوضات الإطار المالي متعدد السنوات | 6 أشهر | 🟢 مرتفعة |
+
+---
+
+### 🔍 الديناميكيات السياسية الرئيسية
+
+#### تعزيز التحالف الداعم للتنظيم
+يُظهر قرار تطبيق DMA تقارباً غير معتاد بين EVP (المنحاز تقليدياً لقطاع الأعمال) وS&D وRenew Europe وGreens/EFA. يعكس التوافق مخاوف مشتركة إزاء هيمنة التكنولوجيا الأمريكية في أعقاب الموقف التصادمي لإدارة ترامب تجاه التنظيم الرقمي الأوروبي. وتُشير استعداد EVP للموافقة على الفصل الهيكلي إلى أن يمين الوسط لم يعد موثوقاً في دعم الصناعة حين ترتفع المخاطر الجيوسياسية.
+
+#### الوضع التشريعي في الحرب التجارية
+يمثل الإجراء المضاد للرسوم الأمريكية (TA-10-2026-0096) انحرافاً ملحوظاً عن الموقف التجاري الحذر تاريخياً للبرلمان. يدل اعتماد اللائحة السريع — في غضون أسابيع من إعلان الولايات المتحدة تصعيدات جمركية جديدة في الربع الأول من 2026 — على توافق قوي بين المجموعات بأن السيادة الاقتصادية للاتحاد الأوروبي تستلزم قدرة انتقام موثوقة. تشير توقعات IMF للربع الثاني من 2026 إلى أن التوترات التجارية بين الاتحاد الأوروبي والولايات المتحدة قد تُخفّض نمو الناتج المحلي الإجمالي الأوروبي بمقدار 0.4–0.8 نقطة مئوية (🟢 ثقة مرتفعة، IMF World Economic Outlook Update أبريل 2026).
+
+#### التقدم في استكمال الاتحاد المصرفي
+يعالج اعتماد SRMR3 العنصر الأكثر إثارة للجدل سياسياً في الاتحاد المصرفي — تمويل القرار. يُتيح الإصلاح تدخلاً مبكراً من SRB، ويوسّع تطبيق أداة المقاطعة الداخلية، ويُوضح شروط الوصول إلى شبكة الأمان ESM. يرى تحليل البنك المركزي الأوروبي أن ذلك يُقلص المخاطر النظامية بنحو 30% في سيناريو إفلاس بنك متوسط الحجم (🟡 ثقة متوسطة، استناداً إلى نمذجة ESM). تُصنّف توقعات IMF 2026 لأوروبا الاستقرار المصرفي في منطقة اليورو بوصفه هشاً معتدلاً دون إصلاح آلية القرار.
+
+#### صندوق أدوات تطبيق سيادة القانون
+يُنشئ توجيه مكافحة الفساد (TA-10-2026-0094) إطاراً ملزماً قانونياً على مستوى الاتحاد الأوروبي للحد الأدنى من معايير القانون الجنائي في الرشوة والاختلاس والاتجار بالنفوذ. يأتي اعتماده في أعقاب تقرير المفوضية بشأن سيادة القانون لعام 2025، الذي رصد مخاطر هيكلية للفساد في 8 من أصل 27 دولة عضو. سيُراقب التنفيذ عبر لوحة نتائج العدالة لدى المفوضية، مع المجر ورومانيا بوصفهما أكثر الولايات القضائية متابعةً.
+
+---
+
+### 📊 لوحة متابعة النشاط التشريعي
+
+| الشهر | النصوص المعتمدة | الموضوعات الرئيسية |
+|-------|----------------|--------------------|
+| يناير 2026 | 6 | الاستقرار المالي، المساعدات الإنسانية، الإصلاح الانتخابي، EU-Mercosur، قرض أوكرانيا، الأمن |
+| فبراير 2026 | 6 | مفهوم البلد الثالث الآمن، توجيه أجهزة القياس، EU-Mercosur، الإبراء |
+| مارس 2026 | 8 | الاتحاد المصرفي، مكافحة الفساد، الرسوم الأمريكية، مفاوضات WTO، الانبعاثات، المبيعات القضائية |
+| أبريل 2026 | 10 | تطبيق DMA، التنمر الإلكتروني، الميزانية 2027، رفاه الحيوان، EIB، إبراء الميزانية |
+
+**الإجمالي ق1–ق2 2026 (حتى 30 أبريل): أكثر من 30 نصاً معتمداً**
+
+---
+
+### ⚠️ إشارات المخاطر
+
+- **خطر الانتقام التنظيمي (مرتفع):** يُفضي تصعيد تطبيق DMA والتدابير المضادة للرسوم الأمريكية معاً إلى ضغط تنظيمي على جبهتين قد يستثير إجراءات أمريكية مضادة تستهدف الخدمات المالية الأوروبية ومتطلبات تحديد موقع البيانات.
+- **فجوة تنفيذ SRMR3 (متوسطة):** تعتمد فعالية الإصلاح على الطاقة التشغيلية لـSRB وتعاون سلطات القرار الوطنية — كلاهما غير متسقين تاريخياً.
+- **المواجهة حول ميزانية 2027 (مرتفعة):** تتباين توجيهات الميزانية في البرلمان تبايناً ملحوظاً عن المواقف الأولية للمجلس، مما يُشير إلى مفاوضات مطوّلة حول الإطار المالي متعدد السنوات في النصف الثاني من 2026.
+
+---
+
+### 🔭 مؤشرات مستقبلية للمتابعة
+
+1. استنتاجات المفوضية الأوروبية من تحقيقات DMA (متوقعة الربع الثالث من 2026)
+2. الرد التجاري الأمريكي الانتقامي على التدابير الأوروبية المضادة (جارٍ)
+3. رد المجلس على توجيهات الميزانية 2027 للبرلمان (يونيو 2026)
+4. جدول نقل توجيه مكافحة الفساد إلى الدول الأعضاء
+5. تقرير الاستعداد التشغيلي لـSRB في ظل SRMR3 (الربع الرابع من 2026)
+
+---
+
+### 🏛️ تحليل التموضع المؤسسي
+
+#### البرلمان الأوروبي في مواجهة المفوضية الأوروبية
+
+يعكس الإنتاج التشريعي للبرلمان في الربعين الأول والثاني من 2026 استراتيجية متعمدة للحفاظ على وتيرة تشريعية تمارس ضغطاً سياسياً على المفوضية للمضي في التطبيق. تُجسّد ذلك ثلاثة أدوات محددة:
+
+**1. قرار تطبيق DMA (TA-10-2026-0160):** اختار البرلمان اعتماد قرار يتعلق تحديداً بالتطبيق — وهو مجال تملك فيه المفوضية سلطة تقديرية تنفيذية — بدلاً من تشريع يعدّل DMA ذاتها. هذا خيار متعمد يُعظّم الضغط السياسي مع احترام صلاحية التطبيق لدى المفوضية. إذا فشلت المفوضية في الرد خلال 90 يوماً، أشارت لجنة الميزانية في البرلمان إلى أنها ستربط ميزانية المفوضية التشغيلية بالإبلاغ عن المعالم الرئيسية للتطبيق.
+
+**2. رصد تنفيذ SRMR3:** يتضمن قرار البرلمان الصادر في 28 أبريل بشأن أنشطة EIB (TA-10-2026-0119) لغةً مضمّنة تُلزم EIB وEIF بتنسيق برامج إقراضهما مع تخطيط قرار SRMR3 — آلية غير مباشرة لضمان الدمج التشغيلي للإصلاح المصرفي بدلاً من اعتماده تشريعياً مع تجاهله إدارياً.
+
+**3. آلية رصد مكافحة الفساد:** يتضمن توجيه مكافحة الفساد (TA-10-2026-0094) دوراً رقابياً للبرلمان عبر لوحة نتائج العدالة — شرط غير معتاد في توجيه للقانون الجنائي يمنح البرلمان عملياً وظيفة رقابية شبه رسمية في ما هو اختصاص اسمي للمفوضية.
+
+#### ديناميكيات المجلس–البرلمان
+
+تتباين المواقف الأولية للمجلس بشأن ميزانية 2027 عن توجيهات البرلمان في إنفاق الدفاع والمناخ على حدٍّ سواء. غير أنه في التجارة (التدابير المضادة للرسوم) والمصارف (SRMR3)، كان المجلس في توافق عام — مما يُشير إلى أن الحزم التشريعية للبرلمان في هذه المجالات تعكس توافقاً مؤسسياً حقيقياً لا موقفاً تصادمياً.
+
+يُشكّل طلب المراجعة القضائية لـEU-Mercosur (TA-10-2026-0008) استثناءً: يستخدم البرلمان أدوات قضائية لتقييد اتفاقية تجارية تفاوض عليها المجلس، مما يُفضي إلى توتر مؤسسي حقيقي. لم يُعالَج هذا في الدورة التشريعية الحالية لكنه سيهيمن على رسم الأجندة المستقبلية.
+
+---
+
+### 📈 مؤشرات صحة خط أنابيب المقترحات
+
+**مسار معدل الاعتماد (2026 حتى 30 أبريل):**
+- يناير: 6 نصوص معتمدة
+- فبراير: 6 نصوص معتمدة
+- مارس: 8 نصوص معتمدة
+- أبريل: 10 نصوص معتمدة
+
+**الاتجاه:** متسارع (ارتفاع 67% من يناير إلى أبريل)
+
+**التوزيع الموضوعي:**
+- جيوسياسي/خارجي (EXT, PESC, ASTU): ~30% من النصوص المعتمدة
+- اقتصادي/مالي (PECO, BUDG, TDC): ~25%
+- السوق الداخلية/رقمي (MARI, TELE, PROT): ~20%
+- سيادة القانون/قضائي (COJP, DDLH, PRIV): ~15%
+- الزراعة/البيئة (IANO, POLL, ENV): ~10%
+
+**ملاحظة هيكلية رئيسية:** يُؤكد التوزيع التحول الموضوعي للبرلمان العاشر نحو المواضيع الجيوسياسية. في البرلمان التاسع كانت الموضوعات الخارجية/الجيوسياسية تمثل نحو 20% من النصوص المعتمدة — تعكس الزيادة بمقدار 10 نقاط مئوية في البرلمان العاشر التطور الاستراتيجي للبرلمان.
+
+---
+
+### 🔬 تحليل معمّق: الفصل الهيكلي وفق DMA — ماذا يعني ذلك
+
+يستحق موافقة البرلمان على الفصل الهيكلي بوصفه سبيل انتصاف "الملاذ الأخير" في قرار تطبيق DMA تفسيراً دقيقاً. بموجب المادة 26(5) من اللائحة 2022/1925، لا تستطيع المفوضية الأمر بسبل الانتصاف الهيكلية إلا بعد تحقيق في السوق يخلص إلى أن سبل الانتصاف السلوكية "فشلت أو يرجح أن تفشل في ضمان قابلية فعّالة للطعن." التداعيات العملية:
+
+**بالنسبة لـAlphabet/Google:** قد يعني الفصل الهيكلي الفصل القانوني لـGoogle Search عن Android وChrome وGoogle Maps وYouTube. الخيار الأكثر جدوى قانونياً سيكون فصلاً وظيفياً بحوكمة منفصلة — مشابهاً لنموذج BT Openreach في الاتصالات البريطانية. سيتطلب التخلص الكامل من الملكية سنوات من التقاضي والإرادة السياسية التي لم تُظهرها المفوضية قط.
+
+**بالنسبة لـApple:** قد يستهدف الفصل الهيكلي علاقة App Store/iOS — مطالباً iOS بقبول متاجر تطبيقات منافسة (مما يمتثل له Apple جزئياً بموجب متطلبات DMA الحالية) أو فصل أقسام الأجهزة والبرمجيات في Apple بالاتحاد الأوروبي.
+
+**بالنسبة لـMeta:** يستلزم السيناريو الأكثر تعرضاً قانونياً إلزام Meta بالاحتفاظ بكيانات قانونية منفصلة لـFacebook وInstagram وWhatsApp مع متطلبات فصل البيانات — مما يعالج التزامات التشغيل البيني الجوهرية.
+
+**اختبار الواقع السياسي:** لم تأمر أي مفوضية منذ معاهدة روما بالفصل الهيكلي لشركة خاصة بموجب قانون المنافسة في الاتحاد الأوروبي. تعمل صياغة قرار البرلمان أساساً كإشارة سياسية للمنصات والمفوضية بدلاً من كونها مؤشراً تنبؤياً لإجراء تطبيق فعلي. درجة الثقة: 🟢 مرتفعة.
+
+---
+
+### 📌 أسئلة استخباراتية رئيسية لا تزال دون إجابة
+
+1. ما الجدول الزمني الداخلي للمفوضية لتطبيق DMA وأولويات التحقيقات بعد قرار 30 أبريل؟
+2. هل أبلغ USTR الأمريكي المفوضية رسمياً بأن انتقاماً في الخدمات المالية قيد الدراسة؟
+3. ما التقييم الذاتي لـSRB لاستعداده التشغيلي لتنفيذ SRMR3؟
+4. أي الدول الأعضاء اعترضت رسمياً على الأساس القانوني لتوجيه مكافحة الفساد؟
+5. هل أصدرت محكمة العدل الأوروبية جدولاً زمنياً لرأي أولي بشأن مراجعة توافق EU-Mercosur؟
+
+تبقى هذه الأسئلة دون إجابة نظراً لعدم توافر وثائق اللجان والمراسلات الداخلية للمفوضية والتبادلات الدبلوماسية الجارية — وهي جميعاً قيود مناسبة لأداة تحليل في النطاق العام.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+تُظهر النصوص الخمسة المعتمدة المحللة في هذه الجلسة تماسكاً استراتيجياً لافتاً عند النظر إليها مجتمعةً. كلٌّ منها يعالج مجالاً مختلفاً، لكنها جميعاً تشترك في منطق هيكلي واحد: سد الفجوة بين الطموح التنظيمي للاتحاد الأوروبي وفعاليته التنظيمية.
+
+**تطبيق DMA (TA-10-2026-0160):** يسد الفجوة بين التزامات DMA على الورق والامتثال لـDMA في الواقع. يُجسّد اعتراف البرلمان بأن المصداقية التنظيمية تعتمد على التطبيق لا مجرد وضع القواعد.
+
+**SRMR3 (TA-10-2026-0092):** يسد الفجوة بين البنية الرقابية للاتحاد المصرفي (على مستوى الاتحاد الأوروبي بالكامل) وبنية القرار (لا تزال وطنية جزئياً). يعالج المخاطر النظامية التي تُفرزها البنوك متوسطة الحجم الواقعة بين ولايات القضاء المصرفية الأوروبية والوطنية.
+
+**التدابير التجارية المضادة (TA-10-2026-0096):** يسد الفجوة بين مبادئ التجارة الأوروبية (التبادلية، الرد المتناسب) وممارساتها التجارية (الإحجام التاريخي عن استخدام الأدوات الدفاعية). تُشير سرعة الاستجابة إلى تحول استراتيجي في الموقف التجاري الأوروبي.
+
+**توجيه مكافحة الفساد (TA-10-2026-0094):** يسد الفجوة بين خطاب الاتحاد الأوروبي حول سيادة القانون وتطبيقه الفعلي. يُوجد تنسيق تعريفات الفساد والعقوبات الجنائية مساءلةً على مستوى الاتحاد لم تكن موجودة وطنياً في السابق.
+
+**توجيهات الميزانية 2027 (TA-10-2026-0112):** يسد الفجوة بين الأولويات السياسية للبرلمان (الدفاع، المناخ، الرقمنة) والبنية الميزانياتية للاتحاد الأوروبي (التي كانت تاريخياً أضعف من الميزانيات الوطنية). تُشير التوجيهات إلى استعداد البرلمان للكفاح من أجل إصلاح هيكلي للميزانية في مفاوضات الإطار المالي متعدد السنوات.
+
+**الخيط المشترك:** الجميع يُجسّد انتقال الاتحاد الأوروبي من مؤسسة تصوغ أطر العمل إلى مؤسسة تطبيق. يعكس هذا التحول النضج المؤسسي — شيّد الاتحاد بنيته التنظيمية على مدى 30 عاماً؛ الآن يتعلم استخدامها. هذه نقطة تحول ذات أهمية تاريخية.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+تتسم أسبوع 13 مايو 2026 في البرلمان الأوروبي بعبارة واحدة: **حزم التطبيق**. الإجراءات التشريعية الكبرى للبرلمان لا تهدف إلى إنشاء قواعد جديدة — بل إلى جعل القواعد الموجودة تعمل. يمثل هذا التحول من ابتداع التشريعات إلى التطبيق التنظيمي تغييراً جوهرياً في كيفية ممارسة الاتحاد الأوروبي للسلطة، بتداعيات تطال العلاقات بين الاتحاد والولايات المتحدة والأسواق الرقمية والاستقرار المالي وحوكمة سيادة القانون ستتكشف على مدى 2–5 سنوات قادمة.
+
+*درجة الثقة: 🟢 مرتفعة — تقييم يستند إلى نقاط بيانات متعددة تُعضّد بعضها من النصوص المعتمدة للبرلمان الأوروبي 2026 ويُؤكده تحليل IMF للإصلاح الهيكلي في الاتحاد الأوروبي.*
+
+### Executive Brief Da
+
+### 🔴 TOPUDLØSER: Eskalering af håndhævelsen af ​​Digital Markets Act
+
+Europa-Parlamentets resolution af 30. april 2026 om DMA-håndhævelse (TA-10-2026-0160) repræsenterer en markant eskalering af Parlamentets pres på Europa-Kommissionen om at anvende stærkere sanktioner over for udpegede gatekeepere — navnlig Alphabet (Google), Apple, Meta og Amazon — hvis overholdelse af interoperabilitets- og konkurrenceevneforpligtelser fortsat er omstridt. Resolutionen kræver bindende håndhævelsestidsfrister og godkender udtrykkeligt strukturel adskillelse som et afhjælpningsmiddel, hvis adfærdsmæssige afhjælpningsmidler viser sig utilstrækkelige. Dette signalerer, at EP's center-højre (EPP) og progressive koalition (S&D, Greens/EFA, Renew) har nået sjælden konsensus om digital markedskonkurrenceevne, hvilket potentielt kan tvinge Kommissionen til at handle inden revisionen af ​​det digitale årti i 2027.
+
+---
+
+### ⏱️ 60-Sekunders Efterretningslæsning
+
+**Fem lovgivningsmæssige udviklinger definerer EP's april–maj 2026 forslagslandskab:**
+
+1. **DMA-håndhævelse (TA-10-2026-0160, 30. april)** — EP kræver strengere håndhævelse af gatekeeperoverhold. Kommissionen er under politisk pres for at fremskynde DMA-undersøgelser, som har kørt siden 2024. Risiko: regulatorisk fragmentering, hvis USA svarer med handelsmæssige modforanstaltninger.
+
+2. **SRMR3 Bankreform (TA-10-2026-0092, 26. marts)** — Forordning om Den Fælles Afviklingsmekanisme 3 blev vedtaget med opdaterede regler for tidlige interventionsudløsere og afviklingsfinansieringsregler. Reformen lukker et regulatorisk hul efter SVB identificeret i 2023, men implementeringen forbliver hos ESM/SRB.
+
+3. **Svar på amerikanske toldsatser (TA-10-2026-0096, 26. marts)** — EP bemyndigede justering af toldsatser på amerikanske varer — en direkte modforanstaltning mod Trump-administrationens Section 232/301-toldstigning. Dette placerer EU som en troværdig handelsretaliationsaktør forud for planlagte WTO-tvistbehandlingsprocedurer.
+
+4. **Antikorruptionsramme (TA-10-2026-0094, 26. marts)** — Vedtagelsen af ​​et omfattende antikorruptionsdirektiv styrker EP's retsstatstoolbox inden for retlige og indre anliggender med konsekvenser for igangværende betingelseforetagender mod Ungarn og Polen.
+
+5. **Budgetretningslinjer 2027 (TA-10-2026-0112, 28. april)** — EP's budgetretningslinjer for 2027 (det første år af den nye FFR efter 2027-overgangen) lægger vægt på forsvarskapaciteter, klimaomstilling og samhørighedsudgifter, hvilket sætter scenen for en konfrontation med Rådets sparepræferencer.
+
+---
+
+### 🎯 Sammenfatning for Beslutningstager
+
+| Emne | Betydning | Tidsfølsomhed | Konfidensgrad |
+|------|-----------|---------------|---------------|
+| DMA-håndhævelseseskalering | HØJ — berører store tech-platforme | 30–60 dage | 🟢 Høj |
+| SRMR3 bankreform | HØJ — EU's finansielle stabilitet | Mellemlang sigt (2026–27) | 🟢 Høj |
+| Amerikanske toldmodforanstaltninger | KRITISK — risiko for global handelskrig | Øjeblikkelig | 🟢 Høj |
+| Antikorruptionsdirektiv | MEDIUM — retsstatsmæssige konsekvenser | 18 måneders implementering | 🟡 Medium |
+| Budgetretningslinjer 2027 | HØJ — FFR-forhandlingssignal | 6 måneder | 🟢 Høj |
+
+---
+
+### 🔍 Centrale Politiske Dynamikker
+
+#### Konsolidering af Pro-reguleringkoalitionen
+DMA-håndhævelsesresolutionen demonstrerer en usædvanlig konvergens mellem EPP (traditionelt erhvervsvenligt), S&D, Renew Europe og Greens/EFA. Konsensus afspejler fælles bekymringer over amerikansk teknologisk dominans i kølvandet på Trump-administrationens konfrontationsholdning over for EU's digitale regulering. EPP's villighed til at godkende strukturel adskillelse signalerer, at center-højre ikke længere er pålideligt erhvervsvenlig, når geopolitiske indsatser er høje.
+
+#### Lovgivningsmæssig handelskrigsposition
+Toldmodforanstaltningen mod USA (TA-10-2026-0096) markerer en markant afvigelse fra EP's historisk forsigtige handelsposition. Forordningens hurtige vedtagelse — inden for uger efter at USA annoncerede nye toldeskaleringer i Q1 2026 — tyder på stærk tværgruppes konsensus om, at EU's økonomiske suverænitet kræver troværdig retaliationskapacitet. IMF's prognoser for Q2 2026 indikerer, at EU-USA-handelsspændinger kan reducere EU's BNP-vækst med 0,4–0,8 procentpoint (🟢 Høj konfidensgrad, IMF World Economic Outlook Update april 2026).
+
+#### Fremskridt i fuldførelsen af ​​bankunionen
+SRMR3's vedtagelse håndterer det mest politisk omstridte element i bankunionen — afviklingsfinansiering. Reformen muliggør tidligere SRB-intervention, udvider anvendelsen af ​​bail-in-instrumentet og præciserer ESM-backstop-adgangsvilkår. ECB-analysen antyder, at dette reducerer systemrisikoen med ca. 30 % i tilfælde af et mellemstort bankkonkursscenario (🟡 Medium konfidensgrad, baseret på ESM-modellering).
+
+#### Retsstatshåndhævelsesværktøjskasse
+Antikorruptionsdirektivet (TA-10-2026-0094) opretter en juridisk bindende EU-dækkende ramme for minimale strafferetslige standarder for bestikkelse, underslæb og handel med indflydelse. Dets vedtagelse følger Kommissionens rapport om retsstatsforhold fra 2025, der identificerede strukturelle korruptionsrisici i 8 af 27 medlemsstater. Implementeringen vil blive overvåget af Kommissionens EU-retsskindikator, med Ungarn og Rumænien som de mest nøje overvågede jurisdiktioner.
+
+---
+
+### 📊 Lovgivningsaktivitetsdashboard
+
+| Måned | Vedtagne tekster | Nøgletemaer |
+|-------|-----------------|-------------|
+| Januar 2026 | 6 | Finansiel stabilitet, humanitær bistand, valglovgivning, EU-Mercosur, Ukraine-lån, sikkerhed |
+| Februar 2026 | 6 | Begrebet sikkert tredjeland, direktivet om måleinstrumenter, EU-Mercosur, decharge |
+| Marts 2026 | 8 | Bankunion, antikorruption, amerikanske toldsatser, WTO-forhandlinger, emissioner, retslige salg |
+| April 2026 | 10 | DMA-håndhævelse, cybermobning, budget 2027, dyrevelfærd, EIB, budgetdecharge |
+
+**I alt Q1–Q2 2026 (pr. 30. april): 30+ vedtagne tekster**
+
+---
+
+### ⚠️ Risikoflag
+
+- **Regulatorisk retaliationsrisiko (HØJ):** DMA-håndhævelseseskaleringen og toldmodforanstaltningerne mod USA skaber tilsammen et dobbeltfrontregulatorisk pres, der kan udløse amerikanske modforanstaltninger mod EU's finansielle tjenesteydelser og datalokaliseringskrav.
+- **SRMR3 Implementeringsgab (MEDIUM):** Reformens effektivitet afhænger af SRB's operationelle kapacitet og nationale afviklingsmyndigheders samarbejde — begge historisk inkonsistente.
+- **Budgetkonfrontation 2027 (HØJ):** EP's budgetretningslinjer afviger markant fra Rådets foreløbige positioner, hvilket antyder langvarige FFR-forhandlinger i H2 2026.
+
+---
+
+### 🔭 Fremadrettede Indikatorer at Overvåge
+
+1. Europa-Kommissionens konklusioner fra DMA-undersøgelsen (forventet Q3 2026)
+2. USA's handelssvar på EU's modforanstaltninger (igangværende)
+3. Rådets svar på EP's budgetretningslinjer 2027 (juni 2026)
+4. Transpositionsskema for antikorruptionsdirektivet i medlemsstaterne
+5. SRB's operationelle beredskabsrapport under SRMR3 (Q4 2026)
+
+---
+
+### 🏛️ Institutionel Positioneringsanalyse
+
+#### Europa-Parlamentet kontra Europa-Kommissionen
+
+EP's lovgivningsmæssige output i Q1–Q2 2026 afspejler en bevidst strategi om at opretholde et lovgivningstempo, der skaber politisk pres på Kommissionen om at følge op på håndhævelse. Tre specifikke instrumenter demonstrerer dette:
+
+**1. DMA-håndhævelsesresolution (TA-10-2026-0160):** EP valgte at vedtage en resolution specifikt om håndhævelse — et domæne, hvor Kommissionen har udøvende skøn — frem for lovgivning, der ændrer DMA selv. Dette er et bevidst valg, der maksimerer politisk pres, mens det respekterer Kommissionens håndhævelsesprivilegium. Hvis Kommissionen undlader at reagere inden for 90 dage, har EP's Budgetudvalg signaleret, at det vil stille Kommissionens driftsbudget som betingelse for rapportering om håndhævelsesmilestene.
+
+**2. SRMR3 Implementeringsovervågning:** EP's resolution af 28. april om EIB-aktiviteter (TA-10-2026-0119) indeholder indlejret sprogbrug, der kræver, at EIB og EIF koordinerer deres udlånsprogrammer med SRMR3-afviklingsplanlægning — en indirekte mekanisme til at sikre, at bankreformen integreres operationelt snarere end lovgivningsmæssigt vedtaget men administrativt ignoreret.
+
+**3. Antikorruptionsovervågningsmekanisme:** Antikorruptionsdirektivet (TA-10-2026-0094) inkluderer en EP-overvågningsrolle via EU-retsudfordreren — en usædvanlig klausul for et strafferetsdirektiv, der effektivt giver EP en semi-formel tilsynsfunktion i, hvad der nominelt er en Kommissionskompetence.
+
+#### Råds-parlamentdynamikker
+
+Rådets foreløbige positioner vedrørende 2027-budgettet afviger fra EP's retningslinjer på både forsvars- og klimaudgifter. For handel (toldmodforanstaltninger) og bank (SRMR3) har Rådet imidlertid generelt været på linje — hvilket tyder på, at EP's lovgivningsmæssige selvhævdelse på disse områder afspejler ægte interinstitutionel konsensus snarere end en konfronterende holdning.
+
+EU-Mercosur domstolsprøvningsanmodningen (TA-10-2026-0008) er en undtagelse: EP bruger retslige midler til at begrænse en rådsforhandlet handelsaftale, hvilket skaber reel interinstitutionel spænding. Dette er ikke blevet behandlet i den aktuelle lovgivningsperiode, men vil dominere fremtidig dagsordensfastsættelse.
+
+---
+
+### 📈 Sundhedsmålinger for Forslags-Pipeline
+
+**Adoptionshastighed (2026 pr. 30. april):**
+- Januar: 6 vedtagne tekster
+- Februar: 6 vedtagne tekster
+- Marts: 8 vedtagne tekster
+- April: 10 vedtagne tekster
+
+**Tendens:** Accelererende (67 % stigning fra januar til april)
+
+**Emnemæssig fordeling:**
+- Geopolitisk/ekstern (EXT, PESC, ASTU): ~30 % af vedtagne tekster
+- Økonomisk/finansiel (PECO, BUDG, TDC): ~25 %
+- Indre marked/digital (MARI, TELE, PROT): ~20 %
+- Retsstats/juridisk (COJP, DDLH, PRIV): ~15 %
+- Landbrug/miljø (IANO, POLL, ENV): ~10 %
+
+**Vigtig strukturel observation:** Fordelingen bekræfter EP10's tematiske skift mod geopolitiske emner. I EP9 repræsenterede eksterne/geopolitiske emner ca. 20 % af vedtagne tekster — 10-procentpoints-stigningen i EP10 afspejler Parlamentets strategiske udvikling.
+
+---
+
+### 🔬 Dybdegående Analyse: DMA Strukturel Adskillelse — Hvad det Ville Betyde
+
+EP's godkendelse af strukturel adskillelse som et "sidste udvej"-afhjælpningsmiddel i DMA-håndhævelsesresolutionen fortjener omhyggelig fortolkning. I henhold til artikel 26(5) i forordning 2022/1925 kan Kommissionen kun beordre strukturelle afhjælpningsmidler efter en markedsundersøgelse, der finder, at adfærdsmæssige afhjælpningsmidler "har slået fejl eller sandsynligvis vil svigte med hensyn til at sikre effektiv konkurrenceevne." De praktiske konsekvenser:
+
+**For Alphabet/Google:** Strukturel adskillelse kan betyde juridisk adskillelse af Google Search fra Android, Chrome, Google Maps eller YouTube. Den mest juridisk gennemførlige mulighed ville være en funktionel adskillelse med separat governance — svarende til BT Openreach-modellen i britisk telekommunikation. En fuld ejerskabsfrasalg ville kræve årevis af retssager og politisk vilje, som Kommissionen aldrig har demonstreret.
+
+**For Apple:** Strukturel adskillelse kan sigte mod App Store/iOS-forholdet — hvilket kræver, at iOS accepterer konkurrerende appbutikker (som Apple delvist overholder under DMA's eksisterende krav) eller adskillelse af Apples hardware- og softwareafdelinger i EU.
+
+**For Meta:** Det mest juridisk eksponerede scenario indebærer, at Meta kræves at opretholde separate juridiske enheder for Facebook, Instagram og WhatsApp med krav om dataseparation — der adresserer kerneinteroperabilitetsforpligtelserne.
+
+**Politisk virkeligheds-tjek:** Ingen Kommission siden Romtraktaten har beordret strukturel adskillelse af et privat selskab under EU's konkurrenceret. Sproget i EP-resolutionen tjener primært som politisk signalering til platforme og Kommissionen snarere end som en forudsigelsesindikator for faktisk håndhævelseshandling. Konfidensgrad: 🟢 Høj.
+
+---
+
+### 📌 Centrale Efterretningsspørgsmål der Fortsat er Ubesvarede
+
+1. Hvad er Kommissionens interne DMA-håndhævelsestidslinje og prioritering af undersøgelser efter resolutionen af 30. april?
+2. Har den amerikanske USTR formelt kommunikeret til Kommissionen, at finansiel tjenesteretaliation overvejes?
+3. Hvad er SRB's egen vurdering af sin operationelle beredskab til SRMR3-implementering?
+4. Hvilke medlemsstater har formelt gjort indsigelse mod antikorruptionsdirektivets retsgrundlag?
+5. Har EUD udstedt en foreløbig udtalelsesplan for EU-Mercosur-kompatibilitetsgennemgangen?
+
+Disse spørgsmål forbliver ubesvarede på grund af utilgængelighed af udvalgets dokumenter, Kommissionens interne kommunikation og igangværende diplomatiske udvekslinger — alle passende begrænsninger for et analyseværktøj i det offentlige domæne.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+De fem vedtagne tekster analyseret i dette kørsels udviser en slående strategisk sammenhæng, når de ses kollektivt. Hver adresserer et andet domæne, men alle deler en fælles strukturel logik: at lukke kløften mellem EU's regulatoriske ambition og EU's regulatoriske effektivitet.
+
+**DMA-håndhævelse (TA-10-2026-0160):** Lukker kløften mellem DMA-forpligtelser på papir og DMA-overholdelse i praksis. Repræsenterer EP's anerkendelse af, at regulatorisk troværdighed afhænger af håndhævelse, ikke blot regelskabelse.
+
+**SRMR3 (TA-10-2026-0092):** Lukker kløften mellem bankunionens tilsynsarkitektur (fuldt EU-niveau) og dens afviklingsarkitektur (stadig delvist national). Adresserer systemrisikoen skabt af mellemstore banker, der falder mellem EU's og nationale afviklingsjurisdiktioner.
+
+**Handelsmotforholdsregler (TA-10-2026-0096):** Lukker kløften mellem EU's handelsprincipper (gensidighed, proportionalt svar) og EU's handelspraksis (historisk tøven med at bruge defensive instrumenter). Svarets hastighed signalerer et strategisk skift i EU's handelsposition.
+
+**Antikorruptionsdirektiv (TA-10-2026-0094):** Lukker kløften mellem EU's retsstatlige retorik og EU's retsstatlige håndhævelse. Harmonisering af korruptionsdefinitioner og strafferetlige sanktioner skaber EU-niveau ansvarlighed, der tidligere var helt national.
+
+**Budgetretningslinjer 2027 (TA-10-2026-0112):** Lukker kløften mellem EP's politiske prioriteter (forsvar, klima, digital) og EU's budgetarkitektur (historisk underdimensioneret i forhold til nationale budgetter). Retningslinjerne signalerer EP's villighed til at kæmpe for strukturel budgetreform i FFR-forhandlingerne.
+
+**Fælles tråd:** Alle fem repræsenterer EU's bevægelse fra en rammeudformende institution til en håndhævelsesinstitution. Denne overgang afspejler institutionel modenhed — EU har bygget sin regulatoriske arkitektur over 30 år; nu lærer det at bruge den. Dette er et historisk signifikant vendepunkt.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+Ugen den 13. maj 2026 i Europa-Parlamentet karakteriseres bedst ved en enkelt sætning: **håndhævelsesselvhævdelse**. EP's vigtigste lovgivningsmæssige handlinger handler ikke om at skabe nye regler — de handler om at få eksisterende regler til at fungere. Dette skift fra lovgivningsskabelse til regulatorisk håndhævelse repræsenterer en fundamental ændring i, hvordan EU udøver magt, med konsekvenser for EU-USA-relationer, EU's digitale markeder, EU's finansielle stabilitet og EU's retsstatsstyring, der vil udspille sig over de næste 2–5 år.
+
+*Konfidensgrad: 🟢 Høj — vurdering baseret på multiple korroborerende datapunkter fra EP's vedtagne tekster 2026 og bekræftet af IMF's strukturelle reformanalyse for EU.*
+
+### Executive Brief De
+
+### 🔴 HAUPTAUSLÖSER: Eskalierung der Durchsetzung des Digital Markets Act
+
+Die Entschließung des Europäischen Parlaments vom 30. April 2026 zur DMA-Durchsetzung (TA-10-2026-0160) stellt eine erhebliche Eskalierung des parlamentarischen Drucks auf die Europäische Kommission dar, stärkere Sanktionen gegen benannte Gatekeeper zu verhängen — insbesondere Alphabet (Google), Apple, Meta und Amazon — deren Einhaltung von Interoperabilitäts- und Wettbewerbsverpflichtungen weiterhin umstritten ist. Die Entschließung fordert verbindliche Durchsetzungszeitpläne und billigt ausdrücklich die strukturelle Trennung als Abhilfemittel, wenn Verhaltensmaßnahmen sich als unzureichend erweisen. Dies signalisiert, dass die EP-Mitte-Rechts-Fraktion (EPP) und die progressive Koalition (S&D, Greens/EFA, Renew) eine seltene Einigkeit über die Wettbewerbsfähigkeit der digitalen Märkte erreicht hat, was die Kommission möglicherweise zum Handeln vor der Überprüfung der digitalen Dekade 2027 zwingen könnte.
+
+---
+
+### ⏱️ 60-Sekunden-Geheimdienstüberblick
+
+**Fünf legislative Entwicklungen definieren das EP-Vorschlagslandschaft April–Mai 2026:**
+
+1. **DMA-Durchsetzung (TA-10-2026-0160, 30. April)** — EP fordert strengere Compliance-Durchsetzung bei Gatekeepern. Die Kommission steht unter politischem Druck, DMA-Ermittlungen zu beschleunigen, die seit 2024 offen sind. Risiko: regulatorische Fragmentierung, wenn die USA mit Handelsgegenmaßnahmen reagieren.
+
+2. **SRMR3 Bankenreform (TA-10-2026-0092, 26. März)** — Die Verordnung über den Einheitlichen Abwicklungsmechanismus 3 wurde mit aktualisierten Regelungen für frühzeitige Interventionsauslöser und Abwicklungsfinanzierungsregeln verabschiedet. Die Reform schließt eine post-SVB regulatorische Lücke aus 2023, aber die Umsetzung verbleibt beim ESM/SRB.
+
+3. **Antwort auf US-Zölle (TA-10-2026-0096, 26. März)** — Das Europäische Parlament ermächtigte zur Anpassung der Zölle auf US-Waren — eine direkte Gegenmaßnahme zur Zolleskalie­rung der Trump-Regierung nach Section 232/301. Dies positioniert die EU als glaubwürdigen Handelsretaliationsakteur vor geplanten WTO-Streitbeilegungsverfahren.
+
+4. **Antikorruptionsrahmen (TA-10-2026-0094, 26. März)** — Die Verabschiedung einer umfassenden Antikorruptionsrichtlinie stärkt den rechtsstaatlichen Instrumentenkasten des EP im Bereich Justiz und innere Angelegenheiten, mit Auswirkungen auf laufende Konditionalitätsverfahren gegen Ungarn und Polen.
+
+5. **Haushaltsrichtlinien 2027 (TA-10-2026-0112, 28. April)** — Die Haushaltsrichtlinien des EP für 2027 (das erste Jahr des neuen MFR nach dem Übergang 2027) betonen Verteidigungskapazitäten, Klimatransition und Kohäsionsausgaben und bereiten eine Konfrontation mit den Sparvorstellungen des Rates vor.
+
+---
+
+### 🎯 Zusammenfassung für Entscheidungsträger
+
+| Thema | Bedeutung | Zeitkritikalität | Konfidenzgrad |
+|-------|-----------|-----------------|---------------|
+| DMA-Durchsetzungseskalierung | HOCH — betrifft große Tech-Plattformen | 30–60 Tage | 🟢 Hoch |
+| SRMR3 Bankenreform | HOCH — EU-Finanzstabilität | Mittelfristig (2026–27) | 🟢 Hoch |
+| US-Zollgegenmaßnahmen | KRITISCH — Risiko eines globalen Handelskrieges | Sofort | 🟢 Hoch |
+| Antikorruptionsrichtlinie | MITTEL — rechtsstaatliche Implikationen | 18 Monate Umsetzung | 🟡 Mittel |
+| Haushaltsrichtlinien 2027 | HOCH — MFR-Verhandlungssignal | 6 Monate | 🟢 Hoch |
+
+---
+
+### 🔍 Zentrale Politische Dynamiken
+
+#### Konsolidierung der Pro-Regulierungskoalition
+Die DMA-Durchsetzungsentschließung demonstriert eine ungewöhnliche Konvergenz zwischen EPP (traditionell wirtschaftsfreundlich), S&D, Renew Europe und Greens/EFA. Der Konsens spiegelt gemeinsame Besorgnisse über die US-Technologiedominanz nach der konfrontativen Haltung der Trump-Regierung gegenüber der digitalen EU-Regulierung wider. Die Bereitschaft der EPP, die strukturelle Trennung zu billigen, signalisiert, dass die Mitte-Rechts-Fraktion nicht mehr zuverlässig industriefreundlich ist, wenn geopolitische Einsätze hoch sind.
+
+#### Legislative Handelslagerhaltung im Handelskrieg
+Die US-Zollgegenmaßnahme (TA-10-2026-0096) markiert eine erhebliche Abkehr von der historisch vorsichtigen Handelshaltung des EP. Die rasche Verabschiedung der Verordnung — innerhalb von Wochen, nachdem die USA neue Zolleskalie­rungen im Q1 2026 angekündigt hatten — deutet auf einen starken gruppenübergreifenden Konsens hin, dass die wirtschaftliche Souveränität der EU eine glaubwürdige Vergeltungskapazität erfordert. IMF-Prognosen für Q2 2026 deuten darauf hin, dass EU-US-Handelsspannungen das EU-BIP-Wachstum um 0,4–0,8 Prozentpunkte verringern könnten (🟢 Hohe Konfidenz, IMF World Economic Outlook Update April 2026).
+
+#### Fortschritte bei der Vollendung der Bankenunion
+Die Verabschiedung von SRMR3 befasst sich mit dem politisch umstrittensten Element der Bankenunion — der Abwicklungsfinanzierung. Die Reform ermöglicht ein frühzeitigeres Eingreifen des SRB, erweitert die Anwendung des Bail-in-Instruments und klärt die ESM-Backstop-Zugangsbedingungen. Die EZB-Analyse legt nahe, dass dies das systemische Risiko in einem Szenario mit einer mittelgroßen Bankeninsolvenz um ca. 30 % reduziert (🟡 Mittlere Konfidenz, basierend auf ESM-Modellierung).
+
+#### Rechtsstaatlicher Durchsetzungsinstrumentenkasten
+Die Antikorruptionsrichtlinie (TA-10-2026-0094) schafft einen rechtlich bindenden EU-weiten Rahmen für Mindeststandards im Strafrecht bei Bestechung, Unterschlagung und Einflussnahme. Ihre Verabschiedung folgt dem Rechtsstaatsbericht der Kommission 2025, der strukturelle Korruptionsrisiken in 8 von 27 Mitgliedstaaten identifizierte. Die Umsetzung wird vom EU-Justizbarometer der Kommission überwacht, wobei Ungarn und Rumänien die am engsten überwachten Jurisdiktionen sind.
+
+---
+
+### 📊 Legislative Aktivitäts-Dashboard
+
+| Monat | Angenommene Texte | Schlüsselthemen |
+|-------|-------------------|----------------|
+| Januar 2026 | 6 | Finanzstabilität, humanitäre Hilfe, Wahlrechtsreform, EU-Mercosur, Ukraine-Darlehen, Sicherheit |
+| Februar 2026 | 6 | Konzept des sicheren Drittstaats, Messgeräterichtlinie, EU-Mercosur, Entlastung |
+| März 2026 | 8 | Bankenunion, Antikorruption, US-Zölle, WTO-Verhandlungen, Emissionen, gerichtliche Verkäufe |
+| April 2026 | 10 | DMA-Durchsetzung, Cybermobbing, Haushalt 2027, Tierschutz, EIB, Haushaltsentlastung |
+
+**Gesamt Q1–Q2 2026 (bis 30. April): 30+ angenommene Texte**
+
+---
+
+### ⚠️ Risikohinweise
+
+- **Regulatorisches Vergeltungsrisiko (HOCH):** Die DMA-Durchsetzungseskalierung und die US-Zollgegenmaßnahmen schaffen zusammen einen Zwei-Fronten-Regulierungsdruck, der US-Gegenmaßnahmen gegen EU-Finanzdienstleistungen und Datenlokalisierungsanforderungen auslösen könnte.
+- **SRMR3 Umsetzungslücke (MITTEL):** Die Wirksamkeit der Reform hängt von der operativen Kapazität des SRB und der Zusammenarbeit der nationalen Abwicklungsbehörden ab — beides historisch inkonsistent.
+- **Haushaltskonfrontation 2027 (HOCH):** Die Haushaltsrichtlinien des EP weichen erheblich von den vorläufigen Positionen des Rates ab, was auf langwierige MFR-Verhandlungen in H2 2026 hindeutet.
+
+---
+
+### 🔭 Zukunftsindikatoren zu Beobachten
+
+1. Schlussfolgerungen der Europäischen Kommission aus der DMA-Ermittlung (erwartet Q3 2026)
+2. US-Handelsvergeltungsreaktion auf EU-Gegenmaßnahmen (laufend)
+3. Antwort des Rates auf die EP-Haushaltsrichtlinien 2027 (Juni 2026)
+4. Transpositionsplan für die Antikorruptionsrichtlinie in den Mitgliedstaaten
+5. SRB-Bericht zur operativen Bereitschaft unter SRMR3 (Q4 2026)
+
+---
+
+### 🏛️ Institutionelle Positionierungsanalyse
+
+#### Europäisches Parlament versus Europäische Kommission
+
+Der legislative Output des EP in Q1–Q2 2026 spiegelt eine bewusste Strategie wider, ein legislatives Tempo zu halten, das politischen Druck auf die Kommission erzeugt, bei der Durchsetzung nachzuziehen. Drei spezifische Instrumente demonstrieren dies:
+
+**1. DMA-Durchsetzungsentschließung (TA-10-2026-0160):** Das EP entschied sich, eine Entschließung speziell zur Durchsetzung zu verabschieden — einem Bereich, in dem die Kommission exekutives Ermessen hat — anstatt die DMA selbst durch Gesetzgebung zu ändern. Dies ist eine bewusste Entscheidung, die politischen Druck maximiert und gleichzeitig das Durchsetzungsprivileg der Kommission respektiert. Wenn die Kommission nicht innerhalb von 90 Tagen reagiert, hat der Haushaltsausschuss des EP signalisiert, dass er den Betriebshaushalt der Kommission an die Berichterstattung über Durchsetzungsmeilensteine knüpfen wird.
+
+**2. SRMR3-Umsetzungsüberwachung:** Die EP-Entschließung vom 28. April zu EIB-Aktivitäten (TA-10-2026-0119) enthält eingebettete Sprache, die EIB und EIF zur Koordination ihrer Kreditprogramme mit der SRMR3-Abwicklungsplanung verpflichtet — ein indirekter Mechanismus, um sicherzustellen, dass die Bankenreform operativ integriert wird, anstatt gesetzlich verabschiedet, aber administrativ ignoriert zu werden.
+
+**3. Antikorruptions-Überwachungsmechanismus:** Die Antikorruptionsrichtlinie (TA-10-2026-0094) enthält eine EP-Überwachungsrolle über das Justizbarometer — eine ungewöhnliche Klausel für eine Strafrechtsrichtlinie, die dem EP eine semi-formale Aufsichtsfunktion in dem gibt, was nominell eine Kommissionskompetenz ist.
+
+#### Rat-Parlament-Dynamiken
+
+Die vorläufigen Positionen des Rates für den Haushalt 2027 weichen von den EP-Richtlinien sowohl bei Verteidigungs- als auch bei Klimaausgaben ab. Bei Handel (Zollgegenmaßnahmen) und Banken (SRMR3) ist der Rat jedoch grundsätzlich im Einklang gewesen — was darauf hindeutet, dass die legislative Durchsetzungsfähigkeit des EP in diesen Bereichen einen echten interinstitutionellen Konsens widerspiegelt, keine konfrontative Haltung.
+
+Der EU-Mercosur-Gerichtliche-Überprüfungsantrag (TA-10-2026-0008) ist eine Ausnahme: Das EP nutzt Rechtsmittel, um ein vom Rat ausgehandeltes Handelsabkommen einzuschränken, was echte interinstitutionelle Spannungen erzeugt. Dies wurde in der laufenden Legislaturperiode nicht behandelt, wird aber die zukünftige Tagesordnungsgestaltung dominieren.
+
+---
+
+### 📈 Vorschlagspipeline-Gesundheitsmetriken
+
+**Annahmeratenverlauf (2026 bis 30. April):**
+- Januar: 6 angenommene Texte
+- Februar: 6 angenommene Texte
+- März: 8 angenommene Texte
+- April: 10 angenommene Texte
+
+**Trend:** Beschleunigend (67 % Anstieg von Januar bis April)
+
+**Thematische Verteilung:**
+- Geopolitisch/extern (EXT, PESC, ASTU): ~30 % der angenommenen Texte
+- Wirtschaftlich/finanziell (PECO, BUDG, TDC): ~25 %
+- Binnenmarkt/digital (MARI, TELE, PROT): ~20 %
+- Rechtsstaat/Justiz (COJP, DDLH, PRIV): ~15 %
+- Landwirtschaft/Umwelt (IANO, POLL, ENV): ~10 %
+
+**Wichtige strukturelle Beobachtung:** Die Verteilung bestätigt die thematische Verschiebung von EP10 hin zu geopolitischen Themen. In EP9 repräsentierten externe/geopolitische Themen ca. 20 % der angenommenen Texte — der 10-Prozentpunkte-Anstieg in EP10 spiegelt die strategische Weiterentwicklung des Parlaments wider.
+
+---
+
+### 🔬 Vertiefung: DMA Strukturelle Trennung — Was sie Bedeuten Würde
+
+Die Billigung der strukturellen Trennung als "letztes Mittel"-Abhilfemaßnahme durch das EP in der DMA-Durchsetzungsentschließung verdient eine sorgfältige Interpretation. Gemäß Artikel 26(5) der Verordnung 2022/1925 kann die Kommission strukturelle Abhilfemaßnahmen nur nach einer Marktuntersuchung anordnen, die feststellt, dass Verhaltensmaßnahmen "versagt haben oder wahrscheinlich versagen werden, eine effektive Wettbewerbsfähigkeit zu gewährleisten." Die praktischen Implikationen:
+
+**Für Alphabet/Google:** Die strukturelle Trennung könnte eine rechtliche Trennung von Google Search von Android, Chrome, Google Maps oder YouTube bedeuten. Die rechtlich durchführbarste Option wäre eine funktionale Trennung mit separater Unternehmensführung — ähnlich dem BT Openreach-Modell in der britischen Telekommunikation. Eine vollständige Eigentümerveräußerung würde Jahre von Rechtsstreitigkeiten und politischen Willen erfordern, den die Kommission nie gezeigt hat.
+
+**Für Apple:** Die strukturelle Trennung könnte auf das App Store/iOS-Verhältnis abzielen — von iOS die Akzeptanz konkurrierender App-Stores verlangend (was Apple unter den bestehenden DMA-Anforderungen teilweise erfüllt) oder die Hardware- und Softwarebereiche von Apple in der EU zu trennen.
+
+**Für Meta:** Das rechtlich am stärksten exponierte Szenario beinhaltet, dass Meta separate Rechtspersonen für Facebook, Instagram und WhatsApp mit Datenanforderungen führen muss — womit die Kerninteroperabilitätsverpflichtungen adressiert werden.
+
+**Politischer Realitätscheck:** Keine Kommission seit dem Römischen Vertrag hat eine strukturelle Trennung eines privaten Unternehmens nach EU-Wettbewerbsrecht angeordnet. Die Sprache in der EP-Entschließung dient in erster Linie als politisches Signal an Plattformen und die Kommission, nicht als Prognoseindikator für tatsächliche Durchsetzungsmaßnahmen. Konfidenz: 🟢 Hoch.
+
+---
+
+### 📌 Zentrale Nachrichtendienstfragen, die Noch Unbeantwortet Sind
+
+1. Was ist der interne DMA-Durchsetzungszeitplan der Kommission und die Priorisierung der Ermittlungen nach der Entschließung vom 30. April?
+2. Hat der US-USTR der Kommission formell mitgeteilt, dass Vergeltungsmaßnahmen im Finanzdienstleistungssektor in Betracht gezogen werden?
+3. Was ist die eigene Einschätzung des SRB bezüglich seiner operativen Bereitschaft zur SRMR3-Umsetzung?
+4. Welche Mitgliedstaaten haben formell gegen die Rechtsgrundlage der Antikorruptionsrichtlinie Einwand erhoben?
+5. Hat der EuGH einen vorläufigen Gutachterplan für die EU-Mercosur-Kompatibilitätsprüfung herausgegeben?
+
+Diese Fragen bleiben unbeantwortet aufgrund der Nichtverfügbarkeit von Ausschussdokumenten, internen Kommunikationen der Kommission und laufenden diplomatischen Austauschen — allesamt angemessene Einschränkungen für ein Analysetool im öffentlichen Bereich.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+Die fünf in diesem Durchlauf analysierten angenommenen Texte zeigen eine bemerkenswerte strategische Kohärenz, wenn sie kollektiv betrachtet werden. Jeder adressiert ein anderes Gebiet, aber alle teilen eine gemeinsame strukturelle Logik: die Lücke zwischen dem regulatorischen Ehrgeiz der EU und der regulatorischen Wirksamkeit der EU zu schließen.
+
+**DMA-Durchsetzung (TA-10-2026-0160):** Schließt die Lücke zwischen DMA-Verpflichtungen auf dem Papier und DMA-Compliance in der Praxis. Repräsentiert das EP-Erkenntnis, dass regulatorische Glaubwürdigkeit von der Durchsetzung abhängt, nicht nur von der Regelgestaltung.
+
+**SRMR3 (TA-10-2026-0092):** Schließt die Lücke zwischen der Aufsichtsarchitektur der Bankenunion (vollständig EU-Ebene) und ihrer Abwicklungsarchitektur (noch teilweise national). Adressiert das systemische Risiko durch mittelgroße Banken, die zwischen EU- und nationalen Abwicklungszuständigkeiten fallen.
+
+**Handelsgegenmaßnahmen (TA-10-2026-0096):** Schließt die Lücke zwischen den Handelsgrundsätzen der EU (Gegenseitigkeit, verhältnismäßige Antwort) und der EU-Handelspraxis (historische Zurückhaltung bei der Nutzung defensiver Instrumente). Die Schnelligkeit der Antwort signalisiert einen strategischen Wandel in der EU-Handelsposition.
+
+**Antikorruptionsrichtlinie (TA-10-2026-0094):** Schließt die Lücke zwischen der EU-Rechtsstaatsrhetorik und der EU-Rechtstaatsdurchsetzung. Die Harmonisierung von Korruptionsdefinitionen und Strafrechtsstrafen schafft EU-Ebene-Rechenschaftspflicht, die zuvor vollständig national war.
+
+**Haushaltsrichtlinien 2027 (TA-10-2026-0112):** Schließt die Lücke zwischen den politischen Prioritäten des EP (Verteidigung, Klima, digital) und der EU-Haushaltsarchitektur (historisch unterdimensioniert im Verhältnis zu nationalen Haushalten). Die Richtlinien signalisieren die Bereitschaft des EP, für eine strukturelle Haushaltsreform in den MFR-Verhandlungen zu kämpfen.
+
+**Gemeinsamer Faden:** Alle fünf repräsentieren den Übergang der EU von einer rahmengestaltenden Institution zu einer Durchsetzungsinstitution. Dieser Übergang spiegelt institutionelle Reife wider — die EU hat ihre regulatorische Architektur über 30 Jahre aufgebaut; jetzt lernt sie, sie einzusetzen. Dies ist ein historisch bedeutsamer Wendepunkt.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+Die Woche des 13. Mai 2026 im Europäischen Parlament ist am besten durch einen einzigen Satz charakterisiert: **Durchsetzungsbehauptung**. Die wichtigsten legislativen Maßnahmen des EP zielen nicht darauf ab, neue Regeln zu schaffen — sie zielen darauf ab, bestehende Regeln zum Funktionieren zu bringen. Dieser Wandel von der Gesetzgebungsschöpfung zur regulatorischen Durchsetzung stellt eine grundlegende Veränderung dar, wie die EU Macht ausübt, mit Auswirkungen auf EU-US-Beziehungen, EU-Digitalmärkte, EU-Finanzstabilität und EU-Rechtsstaatsführung, die sich über die nächsten 2–5 Jahre entfalten werden.
+
+*Konfidenz: 🟢 Hoch — Bewertung basierend auf mehreren korroborierenden Datenpunkten aus den angenommenen Texten des EP 2026 und bestätigt durch IMF-Analyse struktureller Reformen für die EU.*
+
+### Executive Brief Es
+
+### 🔴 DETONANTE PRINCIPAL: Escalada en la aplicación de la Ley de Mercados Digitales
+
+La resolución del Parlamento Europeo del 30 de abril de 2026 sobre la aplicación de la DMA (TA-10-2026-0160) representa una escalada significativa de la presión del Parlamento sobre la Comisión Europea para que aplique sanciones más severas a los guardianes de acceso designados — en particular Alphabet (Google), Apple, Meta y Amazon — cuyo cumplimiento de las obligaciones de interoperabilidad y disputabilidad sigue siendo objeto de debate. La resolución exige plazos de aplicación vinculantes y aprueba expresamente la separación estructural como medida correctiva si las medidas conductuales resultan insuficientes. Esto señala que la coalición de centro-derecha del PE (PPE) y la coalición progresista (S&D, Greens/EFA, Renew) ha alcanzado un raro consenso sobre la disputabilidad de los mercados digitales, lo que podría forzar la mano de la Comisión antes de la revisión de la Década Digital de 2027.
+
+---
+
+### ⏱️ Informe de inteligencia en 60 segundos
+
+**Cinco desarrollos legislativos definen el panorama de propuestas del PE para abril–mayo de 2026:**
+
+1. **Aplicación de la DMA (TA-10-2026-0160, 30 de abril)** — El PE exige una aplicación más estricta del cumplimiento de los guardianes. La Comisión enfrenta presión política para acelerar las investigaciones de la DMA abiertas desde 2024. Riesgo: fragmentación regulatoria si EE.UU. responde con medidas comerciales.
+
+2. **Reforma bancaria SRMR3 (TA-10-2026-0092, 26 de marzo)** — Se adoptó el Reglamento del Mecanismo Único de Resolución 3, actualizando los desencadenantes de intervención temprana y las normas de financiación de resolución. Esta reforma cierra una brecha regulatoria post-SVB identificada en 2023, pero la implementación sigue en manos del MEDE/JUR.
+
+3. **Respuesta a los aranceles estadounidenses (TA-10-2026-0096, 26 de marzo)** — El PE autorizó ajustes en los aranceles sobre mercancías estadounidenses — una contramedida directa a la escalada arancelaria de la administración Trump según la Sección 232/301. Esto posiciona a la UE como un actor creíble de represalia comercial antes de los procedimientos de solución de diferencias de la OMC previstos.
+
+4. **Marco anti-corrupción (TA-10-2026-0094, 26 de marzo)** — La adopción de una directiva anti-corrupción integral refuerza el kit de herramientas del Estado de Derecho del PE en el ámbito de justicia y asuntos de interior, con implicaciones para los procedimientos de condicionalidad en curso contra Hungría y Polonia.
+
+5. **Orientaciones presupuestarias 2027 (TA-10-2026-0112, 28 de abril)** — Las orientaciones presupuestarias del PE para 2027 (el primer año del nuevo MFP tras la transición 2027) hacen hincapié en capacidades de defensa, transición climática y gasto de cohesión, preparando el terreno para una confrontación con las preferencias de austeridad del Consejo.
+
+---
+
+### 🎯 Resumen para responsables de toma de decisiones
+
+| Cuestión | Importancia | Urgencia temporal | Grado de confianza |
+|----------|------------|------------------|-------------------|
+| Escalada en la aplicación de la DMA | ALTA — afecta a grandes plataformas tecnológicas | 30–60 días | 🟢 Alto |
+| Reforma bancaria SRMR3 | ALTA — estabilidad financiera de la UE | Medio plazo (2026–27) | 🟢 Alto |
+| Contramedidas arancelarias estadounidenses | CRÍTICA — riesgo de guerra comercial mundial | Inmediata | 🟢 Alto |
+| Directiva anti-corrupción | MEDIO — implicaciones para el Estado de Derecho | 18 meses de implementación | 🟡 Medio |
+| Orientaciones presupuestarias 2027 | ALTA — señal para las negociaciones del MFP | 6 meses | 🟢 Alto |
+
+---
+
+### 🔍 Dinámicas políticas clave
+
+#### Consolidación de la coalición pro-regulatoria
+La resolución sobre la aplicación de la DMA demuestra una convergencia inusual entre el PPE (tradicionalmente favorable a los negocios), el S&D, Renew Europe y los Greens/EFA. El consenso refleja preocupaciones compartidas sobre la dominación tecnológica estadounidense tras la postura de confrontación de la administración Trump frente a la regulación digital europea. La disposición del PPE a aprobar la separación estructural señala que el centro-derecha ya no es sistemáticamente favorable a la industria cuando los intereses geopolíticos son elevados.
+
+#### Postura legislativa en la guerra comercial
+La contramedida arancelaria contra EE.UU. (TA-10-2026-0096) marca una desviación significativa de la postura comercial históricamente cautelosa del PE. La rápida adopción del reglamento — en cuestión de semanas después de que EE.UU. anunciara nuevas escaladas arancelarias en el T1 de 2026 — sugiere un fuerte consenso intergrupal de que la soberanía económica de la UE requiere una capacidad de represalia creíble. Las proyecciones del IMF para el T2 de 2026 indican que las tensiones comerciales UE-EE.UU. podrían reducir el crecimiento del PIB de la UE entre 0,4 y 0,8 puntos porcentuales (🟢 Confianza alta, IMF World Economic Outlook Update abril 2026).
+
+#### Avances en la finalización de la unión bancaria
+La adopción del SRMR3 aborda el elemento más políticamente controvertido de la unión bancaria — la financiación de la resolución. La reforma permite una intervención más temprana de la JUR, amplía la aplicación del instrumento de recapitalización interna y aclara las condiciones de acceso al respaldo del MEDE. El análisis del BCE sugiere que esto reduce el riesgo sistémico en aproximadamente un 30 % en un escenario de quiebra de un banco de tamaño mediano (🟡 Confianza media, basada en modelización del MEDE).
+
+#### Kit de herramientas para la aplicación del Estado de Derecho
+La directiva anti-corrupción (TA-10-2026-0094) crea un marco jurídicamente vinculante a escala de la UE para los estándares mínimos de derecho penal en materia de soborno, malversación y tráfico de influencias. Su adopción sigue al informe de la Comisión sobre el Estado de Derecho de 2025, que identificó riesgos estructurales de corrupción en 8 de los 27 Estados miembros. La implementación será supervisada por el panel de indicadores de justicia de la Comisión, con Hungría y Rumanía como las jurisdicciones más estrechamente vigiladas.
+
+---
+
+### 📊 Panel de actividad legislativa
+
+| Mes | Textos adoptados | Temas clave |
+|-----|-----------------|-------------|
+| Enero 2026 | 6 | Estabilidad financiera, ayuda humanitaria, reforma electoral, EU-Mercosur, préstamo a Ucrania, seguridad |
+| Febrero 2026 | 6 | Concepto de tercer país seguro, directiva de instrumentos de medición, EU-Mercosur, descargo |
+| Marzo 2026 | 8 | Unión bancaria, anti-corrupción, aranceles estadounidenses, negociaciones OMC, emisiones, ventas judiciales |
+| Abril 2026 | 10 | Aplicación DMA, ciberacoso, presupuesto 2027, bienestar animal, BEI, descargo presupuestario |
+
+**Total T1–T2 2026 (hasta el 30 de abril): más de 30 textos adoptados**
+
+---
+
+### ⚠️ Señales de riesgo
+
+- **Riesgo de represalia regulatoria (ALTO):** La escalada en la aplicación de la DMA y las contramedidas arancelarias estadounidenses crean conjuntamente una presión regulatoria de doble frente que podría desencadenar contramedidas estadounidenses contra los servicios financieros de la UE y los requisitos de localización de datos.
+- **Brecha en la implementación del SRMR3 (MEDIO):** La eficacia de la reforma depende de la capacidad operativa de la JUR y de la cooperación de las autoridades nacionales de resolución — ambas históricamente inconsistentes.
+- **Confrontación presupuestaria 2027 (ALTO):** Las orientaciones presupuestarias del PE divergen significativamente de las posiciones preliminares del Consejo, lo que sugiere unas prolongadas negociaciones del MFP en el segundo semestre de 2026.
+
+---
+
+### 🔭 Indicadores prospectivos a vigilar
+
+1. Conclusiones de la Comisión Europea sobre las investigaciones de la DMA (previstas para el T3 de 2026)
+2. Respuesta comercial de represalia de EE.UU. a las contramedidas europeas (en curso)
+3. Respuesta del Consejo a las orientaciones presupuestarias 2027 del PE (junio de 2026)
+4. Calendario de transposición de la directiva anti-corrupción en los Estados miembros
+5. Informe de preparación operativa de la JUR bajo SRMR3 (T4 de 2026)
+
+---
+
+### 🏛️ Análisis del posicionamiento institucional
+
+#### Parlamento Europeo frente a la Comisión Europea
+
+La producción legislativa del PE en el T1–T2 de 2026 refleja una estrategia deliberada de mantener un ritmo legislativo que genere presión política sobre la Comisión para que actúe en materia de aplicación. Tres instrumentos específicos lo demuestran:
+
+**1. Resolución sobre la aplicación de la DMA (TA-10-2026-0160):** El PE optó por adoptar una resolución específicamente sobre la aplicación — un ámbito donde la Comisión tiene discrecionalidad ejecutiva — en lugar de legislación que modifique la propia DMA. Esta es una elección deliberada que maximiza la presión política respetando al mismo tiempo la prerrogativa de aplicación de la Comisión. Si la Comisión no responde en 90 días, la Comisión de Presupuestos del PE ha indicado que condicionará el presupuesto de funcionamiento de la Comisión a la presentación de informes sobre hitos de aplicación.
+
+**2. Supervisión de la implementación del SRMR3:** La resolución del PE del 28 de abril sobre las actividades del BEI (TA-10-2026-0119) contiene un lenguaje integrado que obliga al BEI y al FEI a coordinar sus programas de préstamos con la planificación de resolución del SRMR3 — un mecanismo indirecto para garantizar que la reforma bancaria se integre operativamente en lugar de adoptarse legislativamente pero ignorarse administrativamente.
+
+**3. Mecanismo de supervisión anti-corrupción:** La directiva anti-corrupción (TA-10-2026-0094) incluye un papel de supervisión del PE a través del panel de indicadores de justicia — una cláusula inusual para una directiva de derecho penal que otorga efectivamente al PE una función de supervisión semi-formal en lo que nominalmente es una competencia de la Comisión.
+
+#### Dinámicas Consejo-Parlamento
+
+Las posiciones preliminares del Consejo sobre el presupuesto 2027 divergen de las orientaciones del PE tanto en gasto de defensa como climático. Sin embargo, en comercio (contramedidas arancelarias) y banca (SRMR3), el Consejo ha estado ampliamente alineado — lo que sugiere que la asertividad legislativa del PE en estos ámbitos refleja un consenso interinstitucional genuino más que una postura de confrontación.
+
+La solicitud de revisión judicial EU-Mercosur (TA-10-2026-0008) es una excepción: el PE utiliza herramientas judiciales para restringir un acuerdo comercial negociado por el Consejo, creando una tensión interinstitucional genuina. Esto no se abordó en la legislatura actual, pero dominará la configuración futura de la agenda.
+
+---
+
+### 📈 Indicadores de salud del pipeline de propuestas
+
+**Trayectoria de la tasa de adopción (2026 hasta el 30 de abril):**
+- Enero: 6 textos adoptados
+- Febrero: 6 textos adoptados
+- Marzo: 8 textos adoptados
+- Abril: 10 textos adoptados
+
+**Tendencia:** Acelerándose (aumento del 67 % de enero a abril)
+
+**Distribución temática:**
+- Geopolítico/externo (EXT, PESC, ASTU): ~30 % de los textos adoptados
+- Económico/financiero (PECO, BUDG, TDC): ~25 %
+- Mercado interior/digital (MARI, TELE, PROT): ~20 %
+- Estado de Derecho/judicial (COJP, DDLH, PRIV): ~15 %
+- Agricultura/medio ambiente (IANO, POLL, ENV): ~10 %
+
+**Observación estructural clave:** La distribución confirma el cambio temático del PE10 hacia los asuntos geopolíticos. En el PE9, los asuntos externos/geopolíticos representaban aproximadamente el 20 % de los textos adoptados — el aumento de 10 puntos porcentuales en el PE10 refleja la evolución estratégica del Parlamento.
+
+---
+
+### 🔬 Análisis en profundidad: Separación estructural de la DMA — Lo que significaría
+
+La aprobación por parte del PE de la separación estructural como medida correctiva de "último recurso" en la resolución sobre la aplicación de la DMA merece una interpretación cuidadosa. En virtud del artículo 26(5) del Reglamento 2022/1925, la Comisión solo puede ordenar medidas correctivas estructurales tras una investigación de mercado que determine que las medidas conductuales "han fracasado o es probable que fracasen en garantizar una disputabilidad efectiva". Las implicaciones prácticas:
+
+**Para Alphabet/Google:** La separación estructural podría significar la separación jurídica de Google Search de Android, Chrome, Google Maps o YouTube. La opción jurídicamente más viable sería una separación funcional con gobernanza separada — similar al modelo BT Openreach en las telecomunicaciones británicas. Una desinversión completa de propiedad requeriría años de litigios y voluntad política que la Comisión nunca ha demostrado.
+
+**Para Apple:** La separación estructural podría apuntar a la relación App Store/iOS — exigiendo que iOS acepte tiendas de aplicaciones competidoras (con las que Apple cumple parcialmente bajo los requisitos existentes de la DMA) o la separación de las divisiones de hardware y software de Apple en la UE.
+
+**Para Meta:** El escenario jurídicamente más expuesto implica que se exija a Meta que mantenga entidades jurídicas separadas para Facebook, Instagram y WhatsApp con requisitos de separación de datos — abordando las obligaciones fundamentales de interoperabilidad.
+
+**Comprobación de la realidad política:** Ninguna Comisión desde el Tratado de Roma ha ordenado la separación estructural de una empresa privada con arreglo al derecho de la competencia de la UE. El lenguaje de la resolución del PE sirve principalmente como señalización política a las plataformas y a la Comisión, no como indicador predictivo de una acción de aplicación real. Confianza: 🟢 Alto.
+
+---
+
+### 📌 Preguntas de inteligencia clave que siguen sin respuesta
+
+1. ¿Cuál es el calendario interno de aplicación de la DMA de la Comisión y la priorización de las investigaciones tras la resolución del 30 de abril?
+2. ¿Ha comunicado formalmente el USTR estadounidense a la Comisión que se están considerando represalias en el sector de servicios financieros?
+3. ¿Cuál es la propia evaluación de la JUR sobre su preparación operativa para la implementación del SRMR3?
+4. ¿Qué Estados miembros se han opuesto formalmente a la base jurídica de la directiva anti-corrupción?
+5. ¿Ha emitido el TJUE algún calendario de dictamen preliminar para la revisión de compatibilidad UE-Mercosur?
+
+Estas preguntas siguen sin respuesta debido a la indisponibilidad de documentos de comités, comunicaciones internas de la Comisión e intercambios diplomáticos en curso — todas ellas limitaciones apropiadas para una herramienta de análisis del dominio público.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+Los cinco textos adoptados analizados en esta sesión muestran una coherencia estratégica sorprendente cuando se contemplan colectivamente. Cada uno aborda un ámbito diferente, pero todos comparten una lógica estructural común: cerrar la brecha entre la ambición regulatoria de la UE y la eficacia regulatoria de la UE.
+
+**Aplicación de la DMA (TA-10-2026-0160):** Cierra la brecha entre las obligaciones de la DMA sobre el papel y el cumplimiento de la DMA en la práctica. Representa el reconocimiento del PE de que la credibilidad regulatoria depende de la aplicación, no solo del establecimiento de normas.
+
+**SRMR3 (TA-10-2026-0092):** Cierra la brecha entre la arquitectura de supervisión de la unión bancaria (totalmente a nivel de la UE) y su arquitectura de resolución (aún parcialmente nacional). Aborda el riesgo sistémico creado por los bancos de tamaño mediano que caen entre las jurisdicciones de resolución europeas y nacionales.
+
+**Contramedidas comerciales (TA-10-2026-0096):** Cierra la brecha entre los principios comerciales de la UE (reciprocidad, respuesta proporcionada) y la práctica comercial de la UE (reticencia histórica a utilizar instrumentos defensivos). La rapidez de la respuesta señala un cambio estratégico en la postura comercial de la UE.
+
+**Directiva anti-corrupción (TA-10-2026-0094):** Cierra la brecha entre la retórica del Estado de Derecho de la UE y la aplicación del Estado de Derecho de la UE. La armonización de las definiciones de corrupción y las sanciones penales crea una responsabilidad a nivel de la UE que antes era totalmente nacional.
+
+**Orientaciones presupuestarias 2027 (TA-10-2026-0112):** Cierra la brecha entre las prioridades políticas del PE (defensa, clima, digital) y la arquitectura presupuestaria de la UE (históricamente insuficiente en comparación con los presupuestos nacionales). Las orientaciones señalan la disposición del PE a luchar por una reforma presupuestaria estructural en las negociaciones del MFP.
+
+**Hilo conductor:** Las cinco iniciativas representan el paso de la UE de una institución de establecimiento de marcos a una institución de aplicación. Esta transición refleja una madurez institucional — la UE ha construido su arquitectura regulatoria durante 30 años; ahora está aprendiendo a utilizarla. Este es un punto de inflexión históricamente significativo.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+La semana del 13 de mayo de 2026 en el Parlamento Europeo se caracteriza mejor por una única frase: **asertividad de aplicación**. Las principales acciones legislativas del PE no están orientadas a crear nuevas normas — están orientadas a hacer funcionar las normas existentes. Este paso de la creación legislativa a la aplicación regulatoria representa un cambio fundamental en la forma en que la UE ejerce el poder, con implicaciones para las relaciones UE-EE.UU., los mercados digitales europeos, la estabilidad financiera europea y la gobernanza del Estado de Derecho que se desarrollarán en los próximos 2 a 5 años.
+
+*Grado de confianza: 🟢 Alto — evaluación basada en múltiples puntos de datos corroborantes de los textos adoptados del PE 2026 y confirmada por el análisis de reformas estructurales del IMF para la UE.*
+
+### Executive Brief Fi
+
+### 🔴 PÄÄLAUKAISU: Digitaalisia markkinoita koskevan säädöksen valvonnan kärjistyminen
+
+Euroopan parlamentin 30. huhtikuuta 2026 antama päätöslauselma DMA-valvonnasta (TA-10-2026-0160) edustaa merkittävää kärjistymistä parlamentin paineessa Euroopan komissioon, jotta se soveltaisi vahvempia seuraamuksia nimetyille portinvartijoille — erityisesti Alphabetille (Google), Applelle, Metalle ja Amazonille — joiden vaatimustenmukaisuus yhteentoimivuus- ja kilpailukyvyn velvoitteiden suhteen on edelleen riitainen. Päätöslauselma vaatii sitovia valvonnan aikatauluja ja hyväksyy nimenomaisesti rakenteellisen erottamisen parannuskeinoksi, jos toiminnalliset parannuskeinot osoittautuvat riittämättömiksi. Tämä merkitsee, että EP:n oikeistokeskusta (EPP) ja progressiivinen koalitio (S&D, Greens/EFA, Renew) on saavuttanut harvinaisen yksimielisyyden digitaalisten markkinoiden kilpailukyvystä, mikä voi potentiaalisesti pakottaa komission toimimaan ennen vuoden 2027 Digital Decade -tarkistusta.
+
+---
+
+### ⏱️ 60 Sekunnin Tiedustelutiivistelmä
+
+**Viisi lainsäädäntömuutosta määrittelee EP:n huhti–toukokuu 2026 esitysmaiseman:**
+
+1. **DMA-valvonta (TA-10-2026-0160, 30. huhtikuuta)** — EP vaatii tiukempaa portinvartijoiden vaatimustenmukaisuuden valvontaa. Komissio kohtaa poliittista painetta kiihdyttää DMA-tutkimuksia, jotka on avattu vuodesta 2024. Riski: sääntelyllinen pirstoutuminen, jos Yhdysvallat vastaa kaupan vastatoimilla.
+
+2. **SRMR3 Pankkiuudistus (TA-10-2026-0092, 26. maaliskuuta)** — Yhteisen kriisinratkaisumekanismin asetus 3 hyväksyttiin päivitetyillä säännöillä varhaisen toimenpiteiden laukaisijoille ja kriisinratkaisun rahoitussäännöistä. Uudistus sulkee SVB:n jälkeisen regulatorisen aukon, joka tunnistettiin vuonna 2023, mutta toteutus jää edelleen ESM:lle/SRB:lle.
+
+3. **Vastaus Yhdysvaltojen tulleihin (TA-10-2026-0096, 26. maaliskuuta)** — EP valtuutti Yhdysvaltojen tavaroiden tullien muuttamisen — suoran vastatoimen Trump-hallinnon Section 232/301 -tullien kärjistymiseen. Tämä asemoi EU:n uskottavaksi kaupan kostokapasiteetin toimijaksi ennen aikataulutettuja WTO-riitojenratkaisumenettelyjä.
+
+4. **Korruptiontorjuntakehys (TA-10-2026-0094, 26. maaliskuuta)** — Kattavan korruptiontorjuntadirektiivin hyväksyminen vahvistaa EP:n oikeusvaltiollista työkalupakkia oikeus- ja sisäasioiden alalla, ja sillä on vaikutuksia Unkaria ja Puolaa vastaan käynnissä oleviin ehdollisuusmenettelyihin.
+
+5. **Talousarvion suuntaviivat 2027 (TA-10-2026-0112, 28. huhtikuuta)** — EP:n talousarvion suuntaviivat vuodelle 2027 (ensimmäinen vuosi uuden MKK:n jälkeen 2027-siirtymässä) korostavat puolustusvalmiutta, ilmastoon siirtymistä ja koheesiomenoja, mikä luo konfrontaation neuvoston säästöpreferenssien kanssa.
+
+---
+
+### 🎯 Päätöksentekijöiden Yhteenveto
+
+| Asia | Merkitys | Aikaherkkkyys | Luottamustaso |
+|------|----------|---------------|---------------|
+| DMA-valvonnan kärjistyminen | KORKEA — vaikuttaa suuriin teknologia-alustoihin | 30–60 päivää | 🟢 Korkea |
+| SRMR3 pankkiuudistus | KORKEA — EU:n rahoitusvakaus | Keskipitkä aika (2026–27) | 🟢 Korkea |
+| Yhdysvaltojen tullien vastatoimet | KRIITTINEN — riski globaalille kauppasodalle | Välitön | 🟢 Korkea |
+| Korruptiontorjuntadirektiivi | MEDIUM — oikeusvaltiollisia vaikutuksia | 18 kuukautta toteutusta | 🟡 Medium |
+| Talousarvion suuntaviivat 2027 | KORKEA — MKK-neuvottelujen signaali | 6 kuukautta | 🟢 Korkea |
+
+---
+
+### 🔍 Keskeinen Poliittinen Dynamiikka
+
+#### Pro-sääntelykoalition Konsolidointi
+DMA-valvonnan päätöslauselma osoittaa epätavallisen yhteenliittymisen EPP:n (perinteisesti liikeystävällisen), S&D:n, Renew Europen ja Greens/EFA:n välillä. Konsensus heijastaa yhteisiä huolia Yhdysvaltojen teknologisesta dominanssista Trump-hallinnon EU:n digitaalisen sääntelyn vastaisen asenteen jälkeen. EPP:n halukkuus hyväksyä rakenteellinen erottaminen merkitsee, että oikeistokeskusta ei ole enää luotettavasti teollisuusmyönteinen, kun geopoliittiset panokset ovat korkeat.
+
+#### Lainsäädäntöllinen Kauppasotalähtöinen Asema
+Yhdysvaltojen tullivastatoimi (TA-10-2026-0096) merkitsee merkittävää poikkeamaa EP:n historiallisesti varovaisesta kaupan asemasta. Asetuksen nopea hyväksyminen — viikkojen sisällä siitä kun Yhdysvallat ilmoitti uusista tullien kärjistymisistä Q1 2026 — viittaa vahvaan ryhmien väliseen konsensukseen siitä, että EU:n taloudellinen suvereniteetti edellyttää uskottavaa kostokapasiteettia. IMF:n ennusteet Q2 2026:lle osoittavat, että EU-Yhdysvallat kauppajännitykset voisivat vähentää EU:n BKT-kasvua 0,4–0,8 prosenttiyksikköä (🟢 Korkea luottamustaso, IMF World Economic Outlook Update huhtikuu 2026).
+
+#### Edistyminen Pankkiunionin Täydentämisessä
+SRMR3:n hyväksyminen käsittelee pankkiunionin kiistanalaisinta elementtiä — kriisinratkaisun rahoituksen. Uudistus mahdollistaa aikaisemman SRB-intervention, laajentaa bail-in-välineen soveltamista ja selventää ESM-backstop-käyttöehtoja. EKP:n analyysi viittaa siihen, että tämä vähentää systeemiriskiä noin 30 %:lla keskisuuren pankin konkurssitilanteessa (🟡 Medium luottamustaso, ESM-mallinnukseen perustuen).
+
+#### Oikeusvaltiollinen Valvontatyökalupakki
+Korruptiontorjuntadirektiivi (TA-10-2026-0094) luo oikeudellisesti sitovan EU:n laajuisen kehyksen lahjonnalle, kavallukselle ja vaikutuksella käymiselle asetetuille vähimmäisrikosoikeudellisille standardeille. Sen hyväksyminen seuraa komission vuoden 2025 oikeusvaltioperiaatteen noudattamista koskevaa raporttia, joka tunnisti rakenteellisia korruptioriskejä 8 jäsenvaltiossa 27:stä. Toteutusta seuraa komission oikeuden tulostaulukko, jolloin Unkari ja Romania ovat tarkimmin seurattuja lainkäyttöalueita.
+
+---
+
+### 📊 Lainsäädäntöaktiivisuuden Hallintapaneeli
+
+| Kuukausi | Hyväksytyt tekstit | Avainaiheet |
+|----------|-------------------|-------------|
+| Tammikuu 2026 | 6 | Rahoitusvakaus, humanitaarinen apu, vaaliuudistus, EU-Mercosur, Ukraina-laina, turvallisuus |
+| Helmikuu 2026 | 6 | Turvallisen kolmannen maan käsite, mittauslaitteiden direktiivi, EU-Mercosur, vastuuvapaus |
+| Maaliskuu 2026 | 8 | Pankkiunioni, korruptiontorjunta, Yhdysvaltojen tullit, WTO-neuvottelut, päästöt, oikeudelliset myynnit |
+| Huhtikuu 2026 | 10 | DMA-valvonta, verkkokiusaaminen, talousarvio 2027, eläinten hyvinvointi, EIP, talousarvion vastuuvapaus |
+
+**Yhteensä Q1–Q2 2026 (30. huhtikuuta asti): yli 30 hyväksyttyä tekstiä**
+
+---
+
+### ⚠️ Riskiliput
+
+- **Sääntelyllinen Kostoriski (KORKEA):** DMA-valvonnan kärjistyminen ja Yhdysvaltojen tullien vastatoimet luovat yhdessä kaksoisrintaman sääntelypaineen, joka voi laukaista Yhdysvaltojen vastatoimet EU:n rahoituspalveluita ja datalokalisointivaatimuksia vastaan.
+- **SRMR3 Toteutuksen Aukko (MEDIUM):** Uudistuksen tehokkuus riippuu SRB:n operatiivisesta kapasiteetista ja kansallisten kriisinratkaisuviranomaisten yhteistyöstä — molemmat historiallisesti epäjohdonmukaisia.
+- **Talousarvion Konfrontaatio 2027 (KORKEA):** EP:n talousarvion suuntaviivat poikkeavat merkittävästi neuvoston alustavista kannoista, mikä viittaa pitkittyneisiin MKK-neuvotteluihin H2 2026.
+
+---
+
+### 🔭 Tulevaisuuden Indikaattorit Seurattavaksi
+
+1. Euroopan komission DMA-tutkinnan johtopäätökset (odotetaan Q3 2026)
+2. Yhdysvaltojen kaupallinen vastatoiminen EU:n toimenpiteisiin (käynnissä)
+3. Neuvoston vastaus EP:n talousarvion suuntaviivoihin 2027 (kesäkuu 2026)
+4. Korruptiontorjuntadirektiivin implementointiaikataulu jäsenvaltioissa
+5. SRB:n operatiivinen valmiusraportti SRMR3:n nojalla (Q4 2026)
+
+---
+
+### 🏛️ Institutionaalinen Asemointianalyysi
+
+#### Euroopan parlamentti kontra Euroopan komissio
+
+EP:n lainsäädäntötuotos Q1–Q2 2026:lla heijastaa tarkoituksellista strategiaa ylläpitää lainsäädäntövauhti, joka luo poliittista painetta komissioon valvonnan toteuttamiseksi. Kolme erityistä instrumenttia osoittaa tämän:
+
+**1. DMA-valvonnan päätöslauselma (TA-10-2026-0160):** EP valitsi päätöslauselman hyväksymisen erityisesti valvonnasta — alue, jolla komissiolla on täytäntöönpanovalta — sen sijaan että olisi muuttanut itse DMA:ta lainsäädännöllä. Tämä on tarkoituksellinen valinta, joka maksimoi poliittisen paineen kunnioittaen komission valvontaprivilegitä. Jos komissio ei reagoi 90 päivän kuluessa, EP:n budjettivaliokunta on vihjaillut, että se ehdollistaa komission toimintabudjetin valvontaetappien raportointiin.
+
+**2. SRMR3:n Toteutuksen Seuranta:** EP:n 28. huhtikuuta antama EIP:n toimintoja koskeva päätöslauselma (TA-10-2026-0119) sisältää upotetun kielen, joka edellyttää, että EIP ja EIF koordinoivat lainaohjelmansa SRMR3-kriisinratkaisusuunnittelun kanssa — välillinen mekanismi sen varmistamiseksi, että pankkiuudistus integroidaan operatiivisesti eikä vain hyväksytä lainsäädäntönä mutta jätetä hallinnollisesti huomioimatta.
+
+**3. Korruptiontorjunnan Seurantamekanismi:** Korruptiontorjuntadirektiivi (TA-10-2026-0094) sisältää EP:n seurantaroolin oikeuden tulostaulun kautta — epätavallinen lauseke rikosoikeusdirektiiville, joka antaa EP:lle käytännössä puolivirallisen valvontatehtävän siinä, mikä on nimellisesti komission toimivalta.
+
+#### Neuvosto-parlamenttidynamiikka
+
+Neuvoston alustavat kannat vuoden 2027 talousarvioon poikkeavat EP:n suuntaviivoista sekä puolustus- että ilmastomenoja koskien. Kaupan (tullien vastatoimet) ja pankkitoiminnan (SRMR3) osalta neuvosto on kuitenkin yleisesti ottaen ollut linjassa — mikä viittaa siihen, että EP:n lainsäädäntöllinen itsevarmuus näillä alueilla heijastaa aitoa toimielinten välistä konsensusta eikä konfrontatiivista asennetta.
+
+EU-Mercosur:n tuomioistuimessa riitauttamispyyntö (TA-10-2026-0008) on poikkeus: EP käyttää oikeudellisia välineitä rajoittaakseen neuvostojen neuvottelemaa kauppasopimusta, mikä luo todellista toimielinten välistä jännitettä. Tätä ei käsitelty nykyisellä lainsäädäntökaudella, mutta se hallitsee tulevaa asialistaa.
+
+---
+
+### 📈 Esitysten Putkiston Terveysmittarit
+
+**Hyväksymisnopeuden kehityskulku (2026 30. huhtikuuta asti):**
+- Tammikuu: 6 hyväksyttyä tekstiä
+- Helmikuu: 6 hyväksyttyä tekstiä
+- Maaliskuu: 8 hyväksyttyä tekstiä
+- Huhtikuu: 10 hyväksyttyä tekstiä
+
+**Trendi:** Kiihtyvä (67 %:n kasvu tammikuusta huhtikuuhun)
+
+**Aihejakauma:**
+- Geopoliittinen/ulkoinen (EXT, PESC, ASTU): ~30 % hyväksytyistä teksteistä
+- Taloudellinen/rahoituksellinen (PECO, BUDG, TDC): ~25 %
+- Sisämarkkina/digitaalinen (MARI, TELE, PROT): ~20 %
+- Oikeusvaltiollinen/oikeudellinen (COJP, DDLH, PRIV): ~15 %
+- Maatalous/ympäristö (IANO, POLL, ENV): ~10 %
+
+**Tärkeä rakenteellinen havainto:** Jakauma vahvistaa EP10:n temaattisen siirtymän kohti geopoliittisia aiheita. EP9:ssä ulkoiset/geopoliittiset aiheet edustivat noin 20 % hyväksytyistä teksteistä — 10 prosenttiyksikön kasvu EP10:ssä heijastaa parlamentin strategista kehitystä.
+
+---
+
+### 🔬 Syvyysanalyysi: DMA:n Rakenteellinen Erottaminen — Mitä se Tarkoittaisi
+
+EP:n hyväksyntä rakenteelliselle erottamiselle "viimeisenä keinona" -parannuskeinona DMA-valvonnan päätöslauselmassa ansaitsee huolellista tulkintaa. Asetuksen 2022/1925 26(5) artiklan nojalla komissio voi määrätä rakenteellisia parannuskeinoja vain markkinavalvonnan jälkeen, joka havaitsee, että toiminnalliset parannuskeinot "ovat epäonnistuneet tai todennäköisesti epäonnistuvat tehokkaan kilpailukyvyn varmistamisessa." Käytännön seuraukset:
+
+**Alphabetille/Googlelle:** Rakenteellinen erottaminen voi tarkoittaa Google Searchin oikeudellista erottamista Androidista, Chromesta, Google Mapsista tai YouTubesta. Oikeudellisesti toteutettavin vaihtoehto olisi toiminnallinen erottaminen erillisellä hallinnolla — samanlainen kuin BT Openreach -malli Ison-Britannian tietoliikennealalla. Täysi omistajuuden myynti vaatisi vuosia oikeudenkäyntejä ja poliittista tahtoa, jota komissiolla ei ole koskaan ollut.
+
+**Applelle:** Rakenteellinen erottaminen voi kohdistua App Store/iOS-suhteeseen — vaatien iOS:ää hyväksymään kilpailevia sovelluskauppoja (jota Apple osittain noudattaa DMA:n olemassa olevien vaatimusten nojalla) tai erottamaan Applen laitteisto- ja ohjelmisto-divisioonat EU:ssa.
+
+**Metalle:** Oikeudellisesti eniten altistuva skenaario tarkoittaa, että Metaa vaaditaan ylläpitämään erillisiä oikeushenkilöitä Facebookille, Instagramille ja WhatsAppille datan erottamisvaatimuksineen — käsitellen ydinyhteentoimivuusvelvoitteet.
+
+**Poliittinen todellisuustarkistus:** Yksikään komissio Rooman sopimuksesta lähtien ei ole määrännyt rakenteellista erottamista yksityisyritykselle EU:n kilpailuoikeuden nojalla. EP:n päätöslauselman kieli toimii ensisijaisesti poliittisena viestintänä alustoille ja komissiolle eikä ennakoivana indikaattorina todellisesta valvontatoimesta. Luottamustaso: 🟢 Korkea.
+
+---
+
+### 📌 Keskeisiä Tiedusteluasioita Jotka Jäävät Vastaamatta
+
+1. Mikä on komission sisäinen DMA-valvonnan aikataulu ja tutkimusten priorisointi 30. huhtikuuta antaman päätöslauselman jälkeen?
+2. Onko Yhdysvaltojen USTR virallisesti viestinyt komissiolle, että rahoituspalvelujen kostotoimia harkitaan?
+3. Mikä on SRB:n oma arvio operatiivisesta valmiudestaan SRMR3:n toteuttamiseen?
+4. Mitkä jäsenvaltiot ovat virallisesti vastustaneet korruptiontorjuntadirektiivin oikeusperustaa?
+5. Onko EYT antanut alustavan lausunnon aikataulun EU-Mercosur-yhteensopivuusarvioinnille?
+
+Nämä kysymykset jäävät vastaamatta valiokuntadokumenttien, komission sisäisen viestinnän ja käynnissä olevien diplomaattisten vaihtojen saatavuuden puuttumisen vuoksi — kaikki asianmukaisia rajoituksia julkiseen tietoon perustuvalle analyysityökalulle.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+Tässä ajossa analysoitu viisi hyväksyttyä tekstiä osoittaa silmiinpistävää strategista johdonmukaisuutta kollektiivisesti tarkasteltuna. Kukin käsittelee eri aluetta, mutta kaikilla on yhteinen rakenteellinen logiikka: EU:n sääntely-ambition ja EU:n sääntelytehokkuuden välisen kuilun kurominen umpeen.
+
+**DMA-valvonta (TA-10-2026-0160):** Kumoaa kuilun DMA-velvoitteiden paperilla ja DMA:n noudattamisen käytännössä välillä. Edustaa EP:n tunnustusta siitä, että sääntelyllinen uskottavuus riippuu valvonnasta eikä pelkästä sääntelysuunnittelusta.
+
+**SRMR3 (TA-10-2026-0092):** Kumoaa kuilun pankkiunionin valvontarakenteen (täysin EU-tasolla) ja sen kriisinratkaisurakenteen (edelleen osittain kansallinen) välillä. Käsittelee systeemiriskiä, jonka luovat keskisuuret pankit, jotka jäävät EU:n ja kansallisten kriisinratkaisutoimivaltojen välimaastoon.
+
+**Kaupan vastatoimet (TA-10-2026-0096):** Kumoaa kuilun EU:n kauppaperiaatteiden (vastavuoroisuus, suhteellinen vastaus) ja EU:n kauppakäytäntöjen (historiallinen haluttomuus käyttää defensiivisiä instrumentteja) välillä. Vastauksen nopeus merkitsee strategista muutosta EU:n kauppa-asemassa.
+
+**Korruptiontorjuntadirektiivi (TA-10-2026-0094):** Kumoaa kuilun EU:n oikeusvaltioretorika ja EU:n oikeusvaltiovalvonnan välillä. Korruptionmäärittelyjen ja rikosoikeudellisten seuraamusten harmonisointi luo EU-tason vastuullisuutta, joka aiemmin oli täysin kansallista.
+
+**Talousarvion suuntaviivat 2027 (TA-10-2026-0112):** Kumoaa kuilun EP:n poliittisten prioriteettien (puolustus, ilmasto, digitaalisuus) ja EU:n talousarvorakenteen (historiallisesti alimitoitettu suhteessa kansallisiin talousarvioihin) välillä. Suuntaviivat merkitsevät EP:n halukkuutta taistella rakenteellisesta talousarviouudistuksesta MKK-neuvotteluissa.
+
+**Yhteinen lanka:** Kaikki viisi edustavat EU:n siirtymistä viitekehyksen luovasta instituutiosta valvontainstituutioon. Tämä siirtymä heijastaa institutionaalista kypsyyttä — EU on rakentanut sääntelyarkkitehtuuriaan 30 vuoden ajan; nyt se oppii käyttämään sitä. Tämä on historiallisesti merkittävä käännekohta.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+Viikko 13. toukokuuta 2026 Euroopan parlamentissa luonnehditaan parhaiten yhdellä lausumalla: **valvonnallinen itsevarmuus**. EP:n tärkeimmät lainsäädäntötoimet eivät koske uusien sääntöjen luomista — ne koskevat olemassa olevien sääntöjen toimivuuden varmistamista. Tämä siirtymä lainsäädännön luomisesta sääntelylliseen valvontaan edustaa perustavanlaatuista muutosta siinä, miten EU käyttää valtaansa, ja sillä on EU-Yhdysvallat-suhteisiin, EU:n digitaalimarkkinoihin, EU:n rahoitusvakauteen ja EU:n oikeusvaltiohallintoon kohdistuvat seuraukset, jotka kehittyvät seuraavan 2–5 vuoden aikana.
+
+*Luottamustaso: 🟢 Korkea — arviointi perustuu useisiin vahvistaviin tietopisteihin EP:n vuoden 2026 hyväksytyistä teksteistä ja IMF:n EU:n rakenteellisen uudistuksen analyysin vahvistamana.*
+
+### Executive Brief Fr
+
+### 🔴 DÉCLENCHEUR PRINCIPAL : Escalade de l'application du règlement sur les marchés numériques
+
+La résolution du Parlement européen du 30 avril 2026 sur l'application du DMA (TA-10-2026-0160) représente une escalade significative de la pression du Parlement sur la Commission européenne pour qu'elle applique des sanctions plus sévères aux contrôleurs d'accès désignés — notamment Alphabet (Google), Apple, Meta et Amazon — dont le respect des obligations d'interopérabilité et de contestabilité reste contesté. La résolution exige des calendriers d'application contraignants et approuve expressément la séparation structurelle comme remède si les mesures comportementales s'avèrent insuffisantes. Cela signale que la coalition de centre-droit du PE (PPE) et la coalition progressiste (S&D, Greens/EFA, Renew) a atteint un consensus rare sur la contestabilité des marchés numériques, forçant potentiellement la main de la Commission avant la révision de la décennie numérique de 2027.
+
+---
+
+### ⏱️ Lecture de renseignement en 60 secondes
+
+**Cinq développements législatifs définissent le paysage des propositions du PE pour avril–mai 2026 :**
+
+1. **Application du DMA (TA-10-2026-0160, 30 avril)** — Le PE exige une application plus stricte de la conformité des contrôleurs d'accès. La Commission fait face à des pressions politiques pour accélérer les enquêtes DMA ouvertes depuis 2024. Risque : fragmentation réglementaire si les États-Unis ripostent par des mesures commerciales.
+
+2. **Réforme bancaire SRMR3 (TA-10-2026-0092, 26 mars)** — Le règlement sur le mécanisme de résolution unique 3 a été adopté, mettant à jour les déclencheurs d'intervention précoce et les règles de financement de la résolution. Cette réforme comble une lacune réglementaire post-SVB identifiée en 2023, mais sa mise en œuvre reste assurée par le MES/CRU.
+
+3. **Réponse aux droits de douane américains (TA-10-2026-0096, 26 mars)** — Le PE a autorisé l'ajustement des droits de douane sur les marchandises américaines — une contre-mesure directe à l'escalade des droits américains Section 232/301 de l'administration Trump. Cela positionne l'UE comme un acteur crédible de rétorsion commerciale avant les procédures de règlement des différends de l'OMC prévues.
+
+4. **Cadre anti-corruption (TA-10-2026-0094, 26 mars)** — L'adoption d'une directive anti-corruption complète renforce la boîte à outils de l'État de droit du PE dans le domaine de la justice et des affaires intérieures, avec des implications pour les procédures de conditionnalité en cours contre la Hongrie et la Pologne.
+
+5. **Orientations budgétaires 2027 (TA-10-2026-0112, 28 avril)** — Les orientations budgétaires du PE pour 2027 (la première année du nouveau CFP après la transition 2027) mettent l'accent sur les capacités de défense, la transition climatique et les dépenses de cohésion, préparant une confrontation avec les préférences d'austérité du Conseil.
+
+---
+
+### 🎯 Résumé pour les décideurs
+
+| Enjeu | Importance | Urgence | Degré de confiance |
+|-------|-----------|---------|-------------------|
+| Escalade de l'application du DMA | ÉLEVÉE — touche les grandes plateformes technologiques | 30–60 jours | 🟢 Élevé |
+| Réforme bancaire SRMR3 | ÉLEVÉE — stabilité financière de l'UE | Moyen terme (2026–27) | 🟢 Élevé |
+| Contre-mesures tarifaires américaines | CRITIQUE — risque de guerre commerciale mondiale | Immédiat | 🟢 Élevé |
+| Directive anti-corruption | MOYEN — implications pour l'État de droit | 18 mois de mise en œuvre | 🟡 Moyen |
+| Orientations budgétaires 2027 | ÉLEVÉE — signal pour les négociations CFP | 6 mois | 🟢 Élevé |
+
+---
+
+### 🔍 Dynamiques politiques clés
+
+#### Consolidation de la coalition pro-réglementation
+La résolution sur l'application du DMA démontre une convergence inhabituelle entre le PPE (traditionnellement favorable aux entreprises), le S&D, Renew Europe et les Greens/EFA. Le consensus reflète des préoccupations communes concernant la domination technologique américaine après la posture de rétorsion de l'administration Trump face à la réglementation numérique européenne. La volonté du PPE d'approuver la séparation structurelle indique que le centre-droit n'est plus systématiquement favorable à l'industrie lorsque les enjeux géopolitiques sont élevés.
+
+#### Position législative dans la guerre commerciale
+La contre-mesure tarifaire contre les États-Unis (TA-10-2026-0096) marque un écart significatif par rapport à la posture commerciale historiquement prudente du PE. L'adoption rapide du règlement — en quelques semaines après l'annonce par les États-Unis de nouvelles escalades tarifaires au T1 2026 — suggère un fort consensus intergroupes que la souveraineté économique de l'UE nécessite une capacité de rétorsion crédible. Les projections de l'IMF pour le T2 2026 indiquent que les tensions commerciales UE-États-Unis pourraient réduire la croissance du PIB de l'UE de 0,4–0,8 point de pourcentage (🟢 Confiance élevée, IMF World Economic Outlook Update avril 2026).
+
+#### Progrès dans l'achèvement de l'union bancaire
+L'adoption du SRMR3 traite l'élément le plus politiquement contesté de l'union bancaire — le financement de la résolution. La réforme permet une intervention plus précoce du CRU, élargit l'application de l'instrument de renflouement interne et clarifie les conditions d'accès au filet de sécurité du MES. L'analyse de la BCE suggère que cela réduit le risque systémique d'environ 30 % dans un scénario de défaillance d'une banque de taille moyenne (🟡 Confiance moyenne, sur la base de la modélisation du MES).
+
+#### Boîte à outils pour l'application de l'État de droit
+La directive anti-corruption (TA-10-2026-0094) crée un cadre juridiquement contraignant à l'échelle de l'UE pour les normes minimales de droit pénal en matière de corruption, de détournement de fonds et de trafic d'influence. Son adoption fait suite au rapport de la Commission sur l'État de droit 2025 qui identifiait des risques structurels de corruption dans 8 des 27 États membres. La mise en œuvre sera surveillée par le tableau de bord de la Justice de la Commission, avec la Hongrie et la Roumanie comme juridictions les plus étroitement surveillées.
+
+---
+
+### 📊 Tableau de bord de l'activité législative
+
+| Mois | Textes adoptés | Thèmes clés |
+|------|---------------|-------------|
+| Janvier 2026 | 6 | Stabilité financière, aide humanitaire, réforme électorale, EU-Mercosur, prêt Ukraine, sécurité |
+| Février 2026 | 6 | Concept de pays tiers sûr, directive sur les instruments de mesure, EU-Mercosur, décharge |
+| Mars 2026 | 8 | Union bancaire, anti-corruption, droits américains, négociations OMC, émissions, ventes judiciaires |
+| Avril 2026 | 10 | Application DMA, cyberharcèlement, budget 2027, bien-être animal, BEI, décharge budgétaire |
+
+**Total T1–T2 2026 (jusqu'au 30 avril) : 30+ textes adoptés**
+
+---
+
+### ⚠️ Indicateurs de risque
+
+- **Risque de rétorsion réglementaire (ÉLEVÉ) :** L'escalade de l'application du DMA et les contre-mesures tarifaires américaines créent conjointement une pression réglementaire sur deux fronts susceptible de déclencher des contre-mesures américaines visant les services financiers de l'UE et les exigences de localisation des données.
+- **Lacune dans la mise en œuvre du SRMR3 (MOYEN) :** L'efficacité de la réforme dépend de la capacité opérationnelle du CRU et de la coopération des autorités nationales de résolution — toutes deux historiquement incohérentes.
+- **Confrontation budgétaire 2027 (ÉLEVÉ) :** Les orientations budgétaires du PE divergent significativement des positions préliminaires du Conseil, suggérant des négociations CFP prolongées au S2 2026.
+
+---
+
+### 🔭 Indicateurs prospectifs à surveiller
+
+1. Conclusions de la Commission européenne sur les enquêtes DMA (attendues T3 2026)
+2. Réponse commerciale des États-Unis aux contre-mesures européennes (en cours)
+3. Réponse du Conseil aux orientations budgétaires 2027 du PE (juin 2026)
+4. Calendrier de transposition de la directive anti-corruption dans les États membres
+5. Rapport de préparation opérationnelle du CRU sous SRMR3 (T4 2026)
+
+---
+
+### 🏛️ Analyse du positionnement institutionnel
+
+#### Parlement européen face à la Commission européenne
+
+La production législative du PE au T1–T2 2026 reflète une stratégie délibérée de maintien d'un rythme législatif qui exerce une pression politique sur la Commission pour assurer le suivi de l'application. Trois instruments spécifiques illustrent cela :
+
+**1. Résolution sur l'application du DMA (TA-10-2026-0160) :** Le PE a choisi d'adopter une résolution spécifiquement sur l'application — un domaine où la Commission dispose d'un pouvoir discrétionnaire exécutif — plutôt que d'adopter une législation modifiant le DMA lui-même. C'est un choix délibéré qui maximise la pression politique tout en respectant le prérogative d'application de la Commission. Si la Commission ne répond pas dans les 90 jours, la commission des budgets du PE a signalé qu'elle conditionnerait le budget de fonctionnement de la Commission à la présentation de rapports sur les jalons d'application.
+
+**2. Surveillance de la mise en œuvre du SRMR3 :** La résolution du PE du 28 avril sur les activités de la BEI (TA-10-2026-0119) contient un langage intégré exigeant que la BEI et le FEI coordonnent leurs programmes de prêts avec la planification de résolution du SRMR3 — un mécanisme indirect pour s'assurer que la réforme bancaire soit intégrée opérationnellement plutôt que légalement adoptée mais administrativement ignorée.
+
+**3. Mécanisme de surveillance anti-corruption :** La directive anti-corruption (TA-10-2026-0094) comprend un rôle de surveillance du PE via le tableau de bord de la Justice — une clause inhabituelle pour une directive de droit pénal qui donne effectivement au PE une fonction de contrôle semi-formelle dans ce qui est nominalement une compétence de la Commission.
+
+#### Dynamiques Conseil-Parlement
+
+Les positions préliminaires du Conseil sur le budget 2027 divergent des orientations du PE tant pour les dépenses de défense que pour les dépenses climatiques. Toutefois, sur le commerce (contre-mesures tarifaires) et les banques (SRMR3), le Conseil a globalement été aligné — ce qui suggère que l'assertivité législative du PE dans ces domaines reflète un consensus interinstitutionnel réel plutôt qu'une posture de confrontation.
+
+La demande de contrôle judiciaire EU-Mercosur (TA-10-2026-0008) fait exception : le PE utilise des outils judiciaires pour contraindre un accord commercial négocié par le Conseil, créant une tension interinstitutionnelle réelle. Cela n'a pas été traité dans la législature actuelle mais dominera l'établissement futur de l'agenda.
+
+---
+
+### 📈 Indicateurs de santé du pipeline des propositions
+
+**Trajectoire du taux d'adoption (2026 jusqu'au 30 avril) :**
+- Janvier : 6 textes adoptés
+- Février : 6 textes adoptés
+- Mars : 8 textes adoptés
+- Avril : 10 textes adoptés
+
+**Tendance :** Accélérée (augmentation de 67 % de janvier à avril)
+
+**Répartition thématique :**
+- Géopolitique/externe (EXT, PESC, ASTU) : ~30 % des textes adoptés
+- Économique/financier (PECO, BUDG, TDC) : ~25 %
+- Marché intérieur/numérique (MARI, TELE, PROT) : ~20 %
+- État de droit/judiciaire (COJP, DDLH, PRIV) : ~15 %
+- Agriculture/environnement (IANO, POLL, ENV) : ~10 %
+
+**Observation structurelle clé :** La répartition confirme la transition thématique du PE10 vers les sujets géopolitiques. Dans le PE9, les sujets externes/géopolitiques représentaient environ 20 % des textes adoptés — l'augmentation de 10 points de pourcentage dans le PE10 reflète l'évolution stratégique du Parlement.
+
+---
+
+### 🔬 Analyse approfondie : Séparation structurelle du DMA — Ce que cela signifierait
+
+L'approbation par le PE de la séparation structurelle comme remède de "dernier recours" dans la résolution sur l'application du DMA mérite une interprétation soigneuse. En vertu de l'article 26(5) du règlement 2022/1925, la Commission ne peut ordonner des remèdes structurels qu'après une enquête de marché concluant que les remèdes comportementaux "ont échoué ou sont susceptibles d'échouer à garantir une contestabilité effective." Les implications pratiques :
+
+**Pour Alphabet/Google :** La séparation structurelle pourrait signifier la séparation juridique de Google Search d'Android, Chrome, Google Maps ou YouTube. L'option la plus juridiquement viable serait une séparation fonctionnelle avec une gouvernance séparée — similaire au modèle BT Openreach dans les télécommunications britanniques. Une cession complète de propriété nécessiterait des années de litiges et une volonté politique que la Commission n'a jamais démontrée.
+
+**Pour Apple :** La séparation structurelle pourrait cibler la relation App Store/iOS — exigeant qu'iOS accepte des boutiques d'applications concurrentes (ce à quoi Apple se conforme partiellement sous les exigences existantes du DMA) ou séparant les divisions matérielles et logicielles d'Apple dans l'UE.
+
+**Pour Meta :** Le scénario le plus juridiquement exposé implique que Meta soit contrainte à maintenir des entités juridiques distinctes pour Facebook, Instagram et WhatsApp avec des exigences de séparation des données — répondant aux obligations fondamentales d'interopérabilité.
+
+**Vérification de la réalité politique :** Aucune Commission depuis le Traité de Rome n'a ordonné la séparation structurelle d'une entreprise privée en vertu du droit de la concurrence de l'UE. Le langage de la résolution du PE sert principalement de signal politique aux plateformes et à la Commission plutôt que d'indicateur prédictif d'une action d'application effective. Confiance : 🟢 Élevé.
+
+---
+
+### 📌 Questions de renseignement clés encore sans réponse
+
+1. Quel est le calendrier interne d'application du DMA de la Commission et la hiérarchisation des enquêtes après la résolution du 30 avril ?
+2. L'USTR américain a-t-il formellement communiqué à la Commission que des représailles dans les services financiers sont envisagées ?
+3. Quelle est la propre évaluation du CRU de sa préparation opérationnelle à la mise en œuvre du SRMR3 ?
+4. Quels États membres se sont formellement opposés à la base juridique de la directive anti-corruption ?
+5. La CJUE a-t-elle émis un calendrier d'avis préliminaire pour l'examen de la compatibilité UE-Mercosur ?
+
+Ces questions restent sans réponse en raison de l'indisponibilité des documents de commission, des communications internes de la Commission et des échanges diplomatiques en cours — toutes des limitations appropriées pour un outil d'analyse du domaine public.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+Les cinq textes adoptés analysés dans cette séquence présentent une cohérence stratégique saisissante lorsqu'ils sont vus collectivement. Chacun traite un domaine différent, mais tous partagent une logique structurelle commune : combler l'écart entre l'ambition réglementaire de l'UE et l'efficacité réglementaire de l'UE.
+
+**Application du DMA (TA-10-2026-0160) :** Comble l'écart entre les obligations DMA sur le papier et la conformité DMA en pratique. Représente la reconnaissance par le PE que la crédibilité réglementaire dépend de l'application, pas seulement de l'élaboration des règles.
+
+**SRMR3 (TA-10-2026-0092) :** Comble l'écart entre l'architecture de supervision de l'union bancaire (entièrement au niveau de l'UE) et son architecture de résolution (encore partiellement nationale). Traite le risque systémique créé par les banques de taille moyenne qui tombent entre les juridictions de résolution européenne et nationales.
+
+**Contre-mesures commerciales (TA-10-2026-0096) :** Comble l'écart entre les principes commerciaux de l'UE (réciprocité, réponse proportionnée) et la pratique commerciale de l'UE (réticence historique à utiliser des instruments défensifs). La rapidité de la réponse signale un changement stratégique dans la posture commerciale de l'UE.
+
+**Directive anti-corruption (TA-10-2026-0094) :** Comble l'écart entre la rhétorique de l'État de droit de l'UE et l'application de l'État de droit de l'UE. L'harmonisation des définitions de la corruption et des sanctions pénales crée une responsabilité au niveau de l'UE qui était auparavant entièrement nationale.
+
+**Orientations budgétaires 2027 (TA-10-2026-0112) :** Comble l'écart entre les priorités politiques du PE (défense, climat, numérique) et l'architecture budgétaire de l'UE (historiquement sous-puissante par rapport aux budgets nationaux). Les orientations signalent la volonté du PE de se battre pour une réforme budgétaire structurelle dans les négociations CFP.
+
+**Fil conducteur :** Ces cinq initiatives représentent le passage de l'UE d'une institution de définition de cadres à une institution d'application. Cette transition reflète la maturité institutionnelle — l'UE a construit son architecture réglementaire sur 30 ans ; elle apprend maintenant à l'utiliser. Il s'agit d'un point d'inflexion historiquement significatif.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+La semaine du 13 mai 2026 au Parlement européen se caractérise au mieux par une seule formule : **l'assertivité de l'application**. Les principales actions législatives du PE ne visent pas à créer de nouvelles règles — elles visent à faire fonctionner les règles existantes. Ce passage de la création législative à l'application réglementaire représente un changement fondamental dans la façon dont l'UE exerce le pouvoir, avec des implications pour les relations UE-États-Unis, les marchés numériques européens, la stabilité financière européenne et la gouvernance de l'État de droit qui se dérouleront au cours des 2 à 5 prochaines années.
+
+*Degré de confiance : 🟢 Élevé — évaluation fondée sur plusieurs points de données corroborants provenant des textes adoptés du PE 2026 et confirmée par l'analyse des réformes structurelles de l'IMF pour l'UE.*
+
+### Executive Brief He
+
+**תאריך:** 2026-05-13 | **סוג:** הצעות | **סיווג:** לא מסווג // לשימוש רשמי
+
+---
+
+### 🔴 מנוע עיקרי: הסלמת האכיפה של חוק השווקים הדיגיטליים
+
+ההחלטה של הפרלמנט האירופי מ-30 באפריל 2026 בנוגע לאכיפת DMA (TA-10-2026-0160) מייצגת הסלמה משמעותית של לחץ הפרלמנט על הנציבות האירופית להטיל סנקציות חמורות יותר על שומרי הסף שמינתה — בעיקר Alphabet (Google), Apple, Meta ו-Amazon — שציות לאינטרופרביליות ולחויות עירעור נותר שנוי במחלוקת. ההחלטה קוראת ללוחות זמנים מחייבים לאכיפה ומאשרת במפורש את ההפרדה המבנית כסעד אם יוכח שהסעדים ההתנהגותיים אינם מספקים. זאת האות כי קואליציית מרכז-ימין בפרלמנט (EVP) עם המחנה המתקדם (S&D, Greens/EFA, Renew) הגיעה לקונצנזוס נדיר בנושא יכולת עירעור בשווקים דיגיטליים, מה שעשוי לכפות על הנציבות פעולה לפני סקירת האמנה הדיגיטלית 2027.
+
+---
+
+### ⏱️ קריאת מודיעין של 60 שניות
+
+**חמישה התפתחויות חקיקתיות המעצבות את נוף הצעות הפרלמנט האירופי לאפריל–מאי 2026:**
+
+1. **אכיפת DMA (TA-10-2026-0160, 30 באפריל)** — הפרלמנט דורש אכיפה נוקשה יותר של ציות שומרי הסף. הנציבות מתמודדת עם לחץ פוליטי לאיץ חקירות DMA פתוחות מ-2024. סיכון: פיצול רגולטורי אם ארה"ב תגיב באמצעים מסחריים.
+
+2. **רפורמת בנקאות SRMR3 (TA-10-2026-0092, 26 במרץ)** — תקנת מנגנון יישוב יחיד 3 אומצה עם כללים מעודכנים להפעלת התערבות מוקדמת ומימון יישוב. הרפורמה סוגרת את פרצת הרגולציה מתקופת ה-SVB שזוהתה ב-2023, אך יישומה נותר בידי ESM/SRB.
+
+3. **תגובה לתעריפי ארה"ב (TA-10-2026-0096, 26 במרץ)** — הפרלמנט הסמיך תיקון תעריפים על סחורות אמריקאיות — צעד נגדי ישיר להסלמת מנשל טראמפ בסעיפי 232/301. זה ממצב את האיחוד כשחקן אמין בתגמול מסחרי ערב הליכי יישוב סכסוכים ב-WTO שנקבעו.
+
+4. **מסגרת אנטי-שחיתות (TA-10-2026-0094, 26 במרץ)** — אימוץ הנחיה מקיפה לאנטי-שחיתות מגביר את תיבת הכלים של שלטון החוק של הפרלמנט בתחומי Justice and Home Affairs, עם השלכות על הליכי מותנות כנגד הונגריה ופולין.
+
+5. **קווי מנחה לתקציב 2027 (TA-10-2026-0112, 28 באפריל)** — קווי המנחה של הפרלמנט לתקציב 2027 (שנה ראשונה של ה-MFF החדש לאחר מעבר 2027) מתמקדים ביכולות הגנה, מעבר אקלים והוצאות לצדדים, ומסמנים עמדת עימות עם העדפות צנע במועצה.
+
+---
+
+### 🎯 סיכום לקובעי החלטות
+
+| נושא | חשיבות | רגישות זמנית | רמת ביטחון |
+|------|---------|-------------|------------|
+| הסלמת אכיפת DMA | גבוהה — משפיע על פלטפורמות טכנולוגיה גדולות | 30–60 יום | 🟢 גבוהה |
+| רפורמת בנקאות SRMR3 | גבוהה — יציבות פיננסית של האיחוד | מדיום-טווח (2026–27) | 🟢 גבוהה |
+| אמצעי נגד לתעריפי ארה"ב | קריטית — סיכון מלחמת סחר גלובלית | מיידי | 🟢 גבוהה |
+| הנחיית אנטי-שחיתות | בינוני — השלכות שלטון החוק | 18 חודש ליישום | 🟡 בינוני |
+| קווי מנחה לתקציב 2027 | גבוהה — איתות למשא ומתן MFF | 6 חודשים | 🟢 גבוהה |
+
+---
+
+### 🔍 דינמיקות פוליטיות מרכזיות
+
+#### חיזוק קואליציית הרגולציה
+ההחלטה על אכיפת DMA מדגימה קירבה בין EVP (שמרנית מסורתית בעסקים) לבין S&D, Renew Europe ו-Greens/EFA. הקונצנזוס משקף חששות משותפים לגבי הדומיננטיות הטכנולוגית האמריקאית על רקע הגישה העימותית של מנהל טראמפ לרגולציה הדיגיטלית האירופית. נכונות EVP לאשר הפרדה מבנית מרמזת כי מרכז-ימין כבר אינו אמין בתמיכת תעשייה כשהסיכונים הגיאופוליטיים גבוהים.
+
+#### עמדת מלחמת סחר מחוקקת
+צעד התגמול לתעריפי ארה"ב (TA-10-2026-0096) הוא סטייה בולטת מהעמדה המסחרית הזהירה היסטורית של הפרלמנט. האימוץ המהיר של הלוגיסטיקה — תוך שבועות מהכרזת ארה"ב על הסלמות תעריפיות חדשות ברבעון הראשון של 2026 — מצביע על קונצנזוס חזק בין קבוצות שהריבונות הכלכלית של האיחוד מחייבת יכולת תגמול אמינה. תחזיות IMF לרבעון השני של 2026 מציינות כי מתחי סחר EU-ארה"ב עשויים להפחית צמיחת תוצר אירופי ב-0.4–0.8 נקודת אחוז (🟢 ביטחון גבוה, IMF World Economic Outlook Update אפריל 2026).
+
+#### התקדמות השלמת האיחוד הבנקאי
+אימוץ SRMR3 מטפל ברכיב הנוי ביותר פוליטית של האיחוד הבנקאי — מימון יישוב. הרפורמה מאפשרת התערבות מוקדמת של SRB, מרחיבה את יישום כלי ה-bail-in הפנימי ומבהירה תנאי גישה לרשת הביטחון של ESM. ניתוח ה-ECB מעריך שהדבר מפחית סיכון מערכתי בכ-30% בתרחיש כשל בנק בגודל בינוני (🟡 ביטחון בינוני, בהתבסס על מידול ESM). IMF זיהה את הפגם הזה בסקירת הכלכלה הגלובלית שלו.
+
+#### תיבת כלים לאכיפת שלטון החוק
+הנחיית אנטי-שחיתות (TA-10-2026-0094) יוצרת מסגרת מחייבת ברמה EU לתקני משפט פלילי מינימליים בשוחד, מעילה ומסחר בהשפעה. האימוץ מגיע בעקבות דו"ח הנציבות בנושא שלטון חוק לשנת 2025, שאבחן סיכוני שחיתות מבניים ב-8 מתוך 27 מדינות חברות. היישום ינוטר דרך לוח ניקוד המשפט של הנציבות, עם הונגריה ורומניה כשיפוטים בפיקוח עצים.
+
+---
+
+### 📊 לוח מעקב פעילות חקיקתית
+
+| חודש | טקסטים שאומצו | נושאים מרכזיים |
+|------|---------------|----------------|
+| ינואר 2026 | 6 | יציבות פיננסית, סיוע הומניטרי, רפורמה בחירות, EU-Mercosur, הלוואת אוקראינה, ביטחון |
+| פברואר 2026 | 6 | מושג מדינה שלישית בטוחה, הנחיית מכשירי מדידה, EU-Mercosur, הענקת פטור |
+| מרץ 2026 | 8 | איחוד בנקאי, אנטי-שחיתות, תעריפי ארה"ב, משא ומתן WTO, פליטות, מכירות שיפוטיות |
+| אפריל 2026 | 10 | אכיפת DMA, בריונות סייבר, תקציב 2027, רווחת בעלי חיים, EIB, הענקת פטור לתקציב |
+
+**סה"כ ר"א–ר"ב 2026 (עד 30 באפריל): מעל 30 טקסטים שאומצו**
+
+---
+
+### ⚠️ סימני אזהרה לסיכונים
+
+- **סיכון תגמול רגולטורי (גבוה):** הסלמת אכיפת DMA ואמצעי נגד לתעריפי ארה"ב יחד יוצרים לחץ רגולטורי משתי חזיתות שעשוי לגרום לצעדים אמריקאיים נגדיים המכוונים לשירותים פיננסיים אירופאיים ודרישות לוקליזציית נתונים.
+- **פער יישום SRMR3 (בינוני):** אפקטיביות הרפורמה תלויה בכושר תפעולי של SRB ובשיתוף פעולה של רשויות יישוב לאומיות — שניהם היסטורית לא עקביים.
+- **עימות תקציב 2027 (גבוה):** קווי המנחה לתקציב של הפרלמנט שונים בצורה ניכרת ממצבי המועצה הראשוניים, מסמנים משא ומתן ממושך על MFF בה"ב 2026.
+
+---
+
+### 🔭 מחוונים עתידיים למעקב
+
+1. מסקנות הנציבות האירופית מחקירות DMA (צפויות ר"ג 2026)
+2. תגובה מסחרית אמריקאית נגדית לאמצעים נגדיים אירופאיים (בתהליך)
+3. תגובת המועצה לקווי המנחה לתקציב 2027 של הפרלמנט (יוני 2026)
+4. לוח זמנים להעברת הנחיית אנטי-שחיתות למדינות החברות
+5. דו"ח מוכנות תפעולית של SRB תחת SRMR3 (ר"ד 2026)
+
+---
+
+### 🏛️ ניתוח מיצוב מוסדי
+
+#### הפרלמנט האירופי מול הנציבות האירופית
+
+פלט החקיקה של הפרלמנט ברבעונים הראשון והשני של 2026 משקף אסטרטגיה מכוונת לשמירת קצב חקיקתי שמפעיל לחץ פוליטי על הנציבות לפעול. שלושה מנגנונים ספציפיים מגלמים זאת:
+
+**1. החלטת אכיפת DMA (TA-10-2026-0160):** הפרלמנט בחר לאמץ החלטה המתמקדת ספציפית באכיפה — תחום שבו לנציבות שיקול דעת ביצועי — ולא חקיקה המתקנת את ה-DMA עצמה. זהו בחירה מכוונת שממקסמת לחץ פוליטי תוך כיבוד סמכות האכיפה של הנציבות. אם הנציבות לא תגיב תוך 90 ימים, ועדת תקציב הפרלמנט אותתה שתקשור את תקציב התפעול של הנציבות לדיווח על אבני דרך מפתח לאכיפה.
+
+**2. ניטור יישום SRMR3:** החלטת הפרלמנט מ-28 באפריל על פעילויות EIB (TA-10-2026-0119) מכילה שפה מוטמעת המחייבת EIB ו-EIF לתאם את תוכניות ההלוואה שלהם עם תכנון יישוב SRMR3 — מנגנון עקיף להבטחת שילוב תפעולי של רפורמת הבנקאות במקום אימוצה חקיקתית ואז התעלמות ממנה מנהלית.
+
+**3. מנגנון ניטור אנטי-שחיתות:** הנחיית אנטי-שחיתות (TA-10-2026-0094) כוללת תפקיד פיקוח של הפרלמנט דרך לוח ניקוד המשפט — תנאי יוצא דופן בהנחיית משפט פלילי שנותן לפרלמנט בפועל פונקציה פיקוחית-ברמה-פגם בתחום שהוא מינוי של הנציבות.
+
+#### דינמיקות מועצה-פרלמנט
+
+עמדות המועצה הראשוניות על תקציב 2027 שונות מקווי המנחה של הפרלמנט על הגנה ואקלים. אולם בסחר (אמצעי נגד לתעריפים) ובנקאות (SRMR3), המועצה הייתה בקנה מידה כללי — מרמז שחבילות החקיקה של הפרלמנט בתחומים אלה משקפות קונצנזוס מוסדי אמיתי לא עמדה עימותית.
+
+בקשת הביקורת השיפוטית של EU-Mercosur (TA-10-2026-0008) היא יוצאת דופן: הפרלמנט משתמש בכלים שיפוטיים להגביל הסכם סחר שמשא ומתנו עורכה ידי המועצה, מה שיוצר חיכוך מוסדי אמיתי. לא טופל במחזור החקיקה הנוכחי אבל ישלוט בסדר יום העתידי.
+
+---
+
+### 📈 מחוונים לבריאות צינור ההצעות
+
+**מגמת קצב אימוץ (2026 עד 30 באפריל):**
+- ינואר: 6 טקסטים שאומצו
+- פברואר: 6 טקסטים שאומצו
+- מרץ: 8 טקסטים שאומצו
+- אפריל: 10 טקסטים שאומצו
+
+**מגמה:** מואצת (עלייה של 67% מינואר לאפריל)
+
+**התפלגות נושאית:**
+- גיאו-פוליטי/חוץ (EXT, PESC, ASTU): ~30% מהטקסטים שאומצו
+- כלכלי/פיננסי (PECO, BUDG, TDC): ~25%
+- שוק פנימי/דיגיטלי (MARI, TELE, PROT): ~20%
+- שלטון חוק/שיפוטי (COJP, DDLH, PRIV): ~15%
+- חקלאות/סביבה (IANO, POLL, ENV): ~10%
+
+**הערה מבנית מרכזית:** ההתפלגות מאשרת את הסטת הנושאים של הפרלמנט העשירי לעבר נושאים גיאו-פוליטיים. בפרלמנט התשיעי, נושאים חוץ/גיאו-פוליטיים היוו כ-20% מהטקסטים שאומצו — עלייה של 10 נקודות אחוז בפרלמנט העשירי משקפת את ההתפתחות האסטרטגית של הפרלמנט.
+
+---
+
+### 🔬 צלילה עמוקה: הפרדה מבנית לפי DMA — מה זה יאמר
+
+אישור הפרלמנט להפרדה מבנית כסעד "מוצא אחרון" בהחלטת האכיפה של DMA ראויה לפרשנות מדויקת. לפי סעיף 26(5) של תקנה 2022/1925, הנציבות אינה יכולה לצוות על סעדים מבניים אלא לאחר חקירת שוק שמסיקה שסעדים התנהגותיים "נכשלו או צפויים להיכשל" בהבטחת יכולת עירעור אפקטיבית. ההשלכות המעשיות:
+
+**עבור Alphabet/Google:** הפרדה מבנית עשויה לאמור הפרדה משפטית של Google Search מ-Android, Chrome, Google Maps ו-YouTube. אפשרות המעשית ביותר משפטית תהיה הפרדה פונקציונלית עם ממשל נפרד — בדומה למודל BT Openreach של בריטניה בתקשורת. מכירה מלאה תדרוש שנים של ליטיגציה ורצון פוליטי שהנציבות מעולם לא הפגינה.
+
+**עבור Apple:** ההפרדה המבנית עשויה לכוון לקשר App Store/iOS — לחייב iOS לקבל חנויות אפליקציות מתחרות (אליו Apple ציות חלקית לפי דרישות DMA הנוכחיות) או לפצל מחלקות חומרה ותוכנה של Apple באיחוד.
+
+**עבור Meta:** התרחיש הרגיש משפטית ביותר יחייב Meta לשמור על ישויות משפטיות נפרדות עבור Facebook, Instagram ו-WhatsApp עם דרישות הפרדת נתונים — מטפל בהתחייבויות האינטרופרביליות הגרעיניות.
+
+**בחינת מציאות פוליטית:** שום נציבות מאז אמנת רומא לא ציוותה על הפרדה מבנית של חברה פרטית לפי דיני תחרות האיחוד. נוסח ההחלטה של הפרלמנט פועל בעיקר כאות פוליטי לפלטפורמות ולנציבות ולא כמנבא ליישום אכיפה ממשי. ביטחון: 🟢 גבוה.
+
+---
+
+### 📌 שאלות מודיעין מרכזיות שנותרו ללא מענה
+
+1. מהו לוח הזמנים הפנימי של הנציבות לאכיפת DMA ועדיפויות חקירה לאחר ההחלטה מ-30 באפריל?
+2. האם USTR האמריקאי הודיע רשמית לנציבות שנקמה בשירותים פיננסיים נשקלת?
+3. מהי הערכה עצמית של SRB לגבי מוכנותה התפעולית ליישום SRMR3?
+4. אילו מדינות חברות עירערו רשמית על הבסיס המשפטי של הנחיית אנטי-שחיתות?
+5. האם בית המשפט האירופי לצדק פרסם לוח זמנים לחוות דעת מקדמית על ביקורת ציות EU-Mercosur?
+
+שאלות אלה נותרות ללא מענה עקב חוסר זמינות מסמכי ועדות, תכתובות פנימיות של הנציבות ועסקאות דיפלומטיות שוטפות — כולם הגבלות נאותות לכלי ניתוח בתחום הציבורי.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+חמשת הטקסטים שאומצו שנותחו בסיום זה מציגים קוהרנטיות אסטרטגית בולטת כשנצפים ביחד. כל אחד מהם מטפל בתחום שונה, אך כולם חולקים לוגיקה מבנית יחידה: סגירת הפער בין שאיפה רגולטורית של האיחוד לאפקטיביות רגולטורית.
+
+**אכיפת DMA (TA-10-2026-0160):** סוגר את הפער בין התחייבויות DMA על הנייר לציות DMA במציאות. מגלם הכרת הפרלמנט שאמינות רגולטורית תלויה באכיפה לא רק בקביעת כללים.
+
+**SRMR3 (TA-10-2026-0092):** סוגר את הפער בין מבנה הפיקוח של האיחוד הבנקאי (ברמת האיחוד כולו) למבנה היישוב שלו (עדיין חלקית לאומי). מטפל בסיכון מערכתי שנוצר מבנקים בינוניים שנופלים בין שיפוטים בנקאיים אירופאיים ולאומיים.
+
+**אמצעי סחר נגדיים (TA-10-2026-0096):** סוגר את הפער בין עקרונות הסחר האירופאיים (הדדיות, תגמול פרופורציונלי) לפרקטיקה סחר אירופאית (היסוס היסטורי לפעול בכלים הגנתיים). מהירות התגובה מצביעה על מעבר אסטרטגי בעמדת הסחר האירופאית.
+
+**הנחיית אנטי-שחיתות (TA-10-2026-0094):** סוגר את הפער בין שיח האיחוד על שלטון חוק לאכיפתו. תיאום הגדרות שחיתות ועונשים פליליים יוצר מחויבות ברמת האיחוד שלא הייתה קיימת לאומית.
+
+**קווי מנחה לתקציב 2027 (TA-10-2026-0112):** סוגר את הפער בין סדרי עדיפות מדיניות הפרלמנט (הגנה, אקלים, דיגיטל) למבנה התקציב של האיחוד (שהיסטורית חלש יותר מתקציבים לאומיים). הקווים מצביעים על נכונות הפרלמנט להילחם על רפורמה מבנית בתקציב במשא ומתן MFF.
+
+**חוט משותף:** כולם מגלמים מעבר של האיחוד ממוסד המסמן מסגרות למוסד אוכף. המעבר הזה משקף בגרות מוסדית — האיחוד בנה את התשתית הרגולטורית שלו למשך 30 שנה; כעת הוא לומד להשתמש בה. זהו נקודת מפנה בעלת חשיבות היסטורית.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+שבוע 13 במאי 2026 בפרלמנט האירופי מתאפיין במילה אחת: **חבילות אכיפה**. הפעולות החקיקתיות הגדולות של הפרלמנט אינן מכוונות ליצור כללים חדשים — אלא לגרום לכללים הקיימים לעבוד. המעבר הזה מחידוש חקיקה לאכיפה רגולטורית הוא שינוי יסודי באופן שהאיחוד מפעיל כוח, עם השלכות על יחסי EU-ארה"ב, שווקים דיגיטליים, יציבות פיננסית וממשל שלטון החוק שיתגלגלו על פני 2–5 שנים קרובות.
+
+*ביטחון: 🟢 גבוה — הערכה מבוססת על נקודות נתונים מרובות המאשרות זו את זו מטקסטים שאומצו של הפרלמנט האירופי 2026 ומאוששת על ידי ניתוח IMF של רפורמה מבנית בתחום האיחוד.*
+
+### Executive Brief Ja
+
+**日付：** 2026年5月13日 | **種類：** 提案 | **分類：** 非機密／公用
+
+---
+
+### 🔴 主要トリガー：デジタル市場法（DMA）執行の激化
+
+2026年4月30日に欧州議会が採択したDMA執行に関する決議（TA-10-2026-0160）は、承認を受けたゲートキーパー——主にAlphabet（Google）、Apple、Meta、Amazon——のうち、相互運用性や異議申立てに関する義務の遵守が依然として争点となっている事業者に対し、より厳格な制裁を科すよう欧州委員会に求める議会の圧力が著しく高まったことを示しています。この決議は拘束力ある執行スケジュールを求め、行動上の措置が不十分と証明された場合の最終手段として構造的分離を明示的に承認しました。これは、議会の中道右派連合（EVP）と進歩派陣営（S&D・Greens/EFA・Renew）が、デジタル市場における争奪可能性について稀にみる合意に達したことを示しており、2027年のデジタル契約見直し前に委員会が行動を迫られる可能性があります。
+
+---
+
+### ⏱️ 60秒インテリジェンス読解
+
+**2026年4〜5月の欧州議会提案状況を形成する5つの立法動向：**
+
+1. **DMA執行（TA-10-2026-0160、4月30日）** — 議会はゲートキーパーのコンプライアンスへの厳格な執行を求めています。委員会は2024年以降開始されたDMA調査を加速させるよう政治的圧力にさらされています。リスク：米国が貿易措置で対抗した場合の規制の断片化。
+
+2. **銀行規制改革SRMR3（TA-10-2026-0092、3月26日）** — 早期介入の発動要件と破綻処理資金調達に関する規則を更新した単一破綻処理機構規則3が採択されました。この改革は2023年に特定されたSVB後の規制上の抜け穴を塞ぐものですが、実施はESM/SRBに委ねられています。
+
+3. **米国関税への対抗措置（TA-10-2026-0096、3月26日）** — 議会は米国製品への関税調整を承認しました——トランプ政権による232条/301条関税引き上げに対する直接の対抗措置です。これにより、EUは予定されているWTO紛争解決手続きを前に、貿易報復における信頼できるアクターとして位置づけられます。
+
+4. **腐敗防止枠組み（TA-10-2026-0094、3月26日）** — 包括的な腐敗防止指令の採択により、欧州議会の司法・内務分野における法の支配ツールキットが強化され、ハンガリーおよびポーランドに対する条件付き手続きへの影響が生じます。
+
+5. **2027年予算ガイドライン（TA-10-2026-0112、4月28日）** — 議会の2027年予算ガイドライン（2027年移行後の新MFF最初の年）は防衛能力・気候変動対応・結束支出に重点を置いており、理事会の財政緊縮志向との対立を示唆しています。
+
+---
+
+### 🎯 意思決定者向けサマリー
+
+| 案件 | 重要性 | 時間的緊急性 | 信頼度 |
+|------|--------|------------|--------|
+| DMA執行激化 | 高——大手テックプラットフォームに影響 | 30〜60日 | 🟢 高 |
+| 銀行改革SRMR3 | 高——EUの金融安定性 | 中期（2026〜27年） | 🟢 高 |
+| 米国関税への対抗措置 | 重大——グローバルな貿易戦争リスク | 即時 | 🟢 高 |
+| 腐敗防止指令 | 中——法の支配への影響 | 実施まで18ヶ月 | 🟡 中 |
+| 2027年予算ガイドライン | 高——MFF交渉へのシグナル | 6ヶ月 | 🟢 高 |
+
+---
+
+### 🔍 主要な政治力学
+
+#### 規制支持連合の強化
+DMA執行決議は、EVP（伝統的に産業寄り）とS&D、Renew Europe、Greens/EFAの間の異例の連携を示しています。この合意は、トランプ政権がEUのデジタル規制に対して対立的な姿勢を取る中、米国のテクノロジー支配に対する共通の懸念を反映しています。EVPが構造的分離を承認する意向を示したことは、地政学的リスクが高まると中道右派が産業支持において信頼できなくなることを示唆しています。
+
+#### 立法化された貿易戦争の立場
+米国関税への対抗措置（TA-10-2026-0096）は、議会の歴史的に慎重な貿易立場からの顕著な逸脱です。2026年第1四半期に米国が新たな関税引き上げを発表してから数週間以内の迅速な採択は、EUの経済主権が信頼できる報復能力を必要とするというグループ間の強い合意を示しています。IMFの2026年第2四半期予測では、EU・米国間の貿易摩擦がヨーロッパのGDP成長を0.4〜0.8ポイント押し下げる可能性があると指摘しています（🟢 高い信頼度、IMF世界経済見通しアップデート2026年4月）。IMFはこの貿易リスクを優先的な下方リスク要因として挙げています。
+
+#### 銀行同盟完成への前進
+SRMR3の採択は銀行同盟において最も政治的に争われてきた要素——破綻処理の資金調達——に対処します。この改革によりSRBによる早期介入、内部ベイルイン・ツールの適用拡大、ESMセーフティネットへのアクセス条件の明確化が可能となります。ECBの分析は、中規模銀行破綻シナリオにおいてシステミック・リスクを約30%削減すると評価しています（🟡 中程度の信頼度、ESMモデリングに基づく）。IMFはこの欠陥をグローバル金融安定報告書で指摘していました。
+
+#### 法の支配執行ツールキット
+腐敗防止指令（TA-10-2026-0094）は贈収賄・横領・影響力取引に関する最低限の刑事法基準について、EUレベルでの法的拘束力ある枠組みを構築します。採択は、27加盟国のうち8ヶ国で構造的な腐敗リスクを診断した委員会の2025年法の支配報告書に続くものです。
+
+---
+
+### 📊 立法活動ダッシュボード
+
+| 月 | 採択テキスト数 | 主要テーマ |
+|----|-------------|---------|
+| 2026年1月 | 6 | 金融安定、人道支援、選挙改革、EU-Mercosur、ウクライナ融資、安全保障 |
+| 2026年2月 | 6 | 安全な第三国概念、計量器指令、EU-Mercosur、承認 |
+| 2026年3月 | 8 | 銀行同盟、腐敗防止、米国関税、WTO交渉、排出量、司法売却 |
+| 2026年4月 | 10 | DMA執行、サイバーいじめ、2027予算、動物福祉、EIB、予算承認 |
+
+**2026年第1〜第2四半期合計（4月30日時点）：30超のテキストを採択**
+
+---
+
+### ⚠️ リスクフラグ
+
+- **規制的報復リスク（高）：** DMA執行の激化と米国関税への対抗措置が組み合わさることで、欧州の金融サービスやデータローカライゼーション要件を標的とした米国の対抗措置を招く可能性のある二正面規制圧力が生じます。
+- **SRMR3実施ギャップ（中）：** 改革の有効性はSRBの運用能力と国内破綻処理当局の協力に依存しますが、歴史的に両者は一貫していません。
+- **2027年予算対立（高）：** 議会の予算ガイドラインは理事会の初期立場と大きく異なっており、2026年後半に長期的なMFF交渉が予想されます。
+
+---
+
+### 🔭 今後の注目指標
+
+1. DMA調査に関する欧州委員会の結論（2026年第3四半期予定）
+2. 欧州の対抗措置に対する米国の報復的貿易対応（進行中）
+3. 議会の2027年予算ガイドラインに対する理事会の回答（2026年6月）
+4. 加盟国への腐敗防止指令の転換スケジュール
+5. SRMR3下でのSRBの運用準備報告書（2026年第4四半期）
+
+---
+
+### 🏛️ 制度的ポジショニング分析
+
+#### 欧州議会対欧州委員会
+
+2026年第1・第2四半期の議会の立法産出は、委員会に行動を求める政治的圧力をかける立法ペースを意図的に維持する戦略を反映しています。これを体現する3つの具体的メカニズムがあります：
+
+**1. DMA執行決議（TA-10-2026-0160）：** 議会はDMA自体を修正する立法ではなく、執行——委員会が執行裁量を持つ領域——に特化した決議の採択を選択しました。これは委員会の執行権限を尊重しながら政治的圧力を最大化する意図的な選択です。委員会が90日以内に応答しなければ、議会予算委員会は委員会の運営予算を主要な執行マイルストーンの報告に連動させると示唆しています。
+
+**2. SRMR3実施モニタリング：** 議会の4月28日のEIB活動に関する決議（TA-10-2026-0119）には、EIBとEIFが貸付プログラムをSMR3破綻処理計画と調整することを義務付ける埋め込み文言が含まれています——銀行改革を立法的に採択して行政的に無視するのではなく、運用統合を確保するための間接的なメカニズムです。
+
+**3. 腐敗防止監視メカニズム：** 腐敗防止指令（TA-10-2026-0094）には、法の支配スコアボードを通じた議会の監督役割が含まれています——刑事法指令における異例の条件であり、名目上は委員会の権限であるものについて議会に事実上の準公式監視機能を付与します。
+
+#### 理事会と議会の力学
+
+理事会の2027年予算に関する初期立場は防衛と気候の両方で議会のガイドラインと異なります。しかし貿易（関税対抗措置）と銀行業（SRMR3）においては、理事会はおおむね整合していました——議会のこれらの分野の立法パッケージが対立的立場ではなく真の制度的合意を反映していることを示唆しています。
+
+EU-Mercosurの司法審査請求（TA-10-2026-0008）は例外です：議会が理事会の交渉した貿易協定を制限するために司法的手段を用いており、真の制度的摩擦を生じさせています。現在の立法サイクルでは解決されていませんが、今後の議題設定を支配するでしょう。
+
+---
+
+### 📈 提案パイプライン健全性指標
+
+**採択ペースの推移（2026年4月30日まで）：**
+- 1月：6テキスト採択
+- 2月：6テキスト採択
+- 3月：8テキスト採択
+- 4月：10テキスト採択
+
+**傾向：** 加速（1月から4月にかけて67%増）
+
+**テーマ別分布：**
+- 地政学/対外（EXT、PESC、ASTU）：採択テキストの約30%
+- 経済/財政（PECO、BUDG、TDC）：約25%
+- 域内市場/デジタル（MARI、TELE、PROT）：約20%
+- 法の支配/司法（COJP、DDLH、PRIV）：約15%
+- 農業/環境（IANO、POLL、ENV）：約10%
+
+**主要な構造的観察：** この分布は第10議会がテーマ的に地政学的話題へとシフトしていることを確認します。第9議会では対外/地政学的テーマが採択テキストの約20%を占めていました——第10議会での10ポイント増は議会の戦略的進化を反映しています。
+
+---
+
+### 🔬 詳細分析：DMAによる構造的分離——その意味
+
+DMA執行決議における「最後の手段」救済策としての構造的分離への議会の承認は、慎重な解釈を必要とします。規則2022/1925の第26条(5)の下、欧州委員会は、行動的救済措置が「効果的な争奪可能性の確保に失敗した、または失敗する可能性が高い」と結論づける市場調査の後でなければ、構造的救済措置を命令することができません。実際的な意味：
+
+**Alphabet/Googleの場合：** 構造的分離はGoogle SearchをAndroid、Chrome、Google Maps、YouTubeから法的に分離することを意味するかもしれません。法的に最も実現可能な選択肢は、別個のガバナンスを持つ機能的分離でしょう——英国のBT Openreach通信モデルに類似したもの。完全な所有権分離には何年もの訴訟と、欧州委員会がこれまで示したことのない政治的意志が必要です。
+
+**Appleの場合：** 構造的分離はApp Store/iOS関係を標的にする可能性があります——iOSに競合するアプリストアを受け入れることを要求する（現在のDMA要件の下でAppleが部分的に準拠している）か、欧州連合でのAppleのハードウェアとソフトウェア部門を分割する。
+
+**Metaの場合：** 最も法的にリスクのあるシナリオは、MetaにFacebook、Instagram、WhatsAppの別個の法的実体を維持させ、データ分離要件を課すことを義務付けます——核心的な相互運用性義務に対処するもの。
+
+**政治的現実チェック：** ローマ条約以降、いかなる欧州委員会もEU競争法の下で民間企業への構造的分離を命じたことはありません。議会の決議の文言は、実際の執行行動の予測指標としてではなく、プラットフォームと委員会への政治的シグナルとして主に機能します。信頼度：🟢 高。
+
+---
+
+### 📌 未回答の主要インテリジェンス質問
+
+1. 4月30日の決議後のDMA執行と調査優先順位に関する委員会の内部タイムラインは何か？
+2. 米国USTRは金融サービスにおける報復を検討中と欧州委員会に正式に伝えたか？
+3. SRMR3実施に対するSRBの運用準備の自己評価は何か？
+4. どの加盟国が腐敗防止指令の法的根拠に正式に異議を唱えたか？
+5. 欧州司法裁判所はEU-Mercoosur適合性審査に関する予備的意見のスケジュールを公表したか？
+
+これらの質問は、委員会文書、委員会内部書簡、継続中の外交交渉が入手不可能なため未回答のままです——いずれもパブリックドメインの分析ツールに対する適切な制限です。
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+本セッションで分析した5つの採択テキストは、まとめて見ると顕著な戦略的一貫性を示しています。それぞれが異なる領域を扱っていますが、すべてが単一の構造的ロジックを共有しています：EUの規制上の野心と規制上の有効性の間のギャップを埋めること。
+
+**DMA執行（TA-10-2026-0160）：** 紙の上のDMAコミットメントと現実のDMAコンプライアンスの間のギャップを埋めます。規制上の信頼性が単にルールを設定するのではなく執行に依存するという議会の認識を体現しています。
+
+**SRMR3（TA-10-2026-0092）：** 銀行同盟の監督構造（EU全体レベル）とその破綻処理構造（依然として部分的に国内）の間のギャップを埋めます。欧州の銀行管轄権と国内の管轄権の間に落ちる中規模銀行から生じるシステミック・リスクに対処します。
+
+**対抗的貿易措置（TA-10-2026-0096）：** 欧州の貿易原則（相互主義、比例的報復）と欧州の貿易慣行（防衛的ツールを使用することへの歴史的な躊躇）の間のギャップを埋めます。応答の速度は欧州の貿易立場における戦略的転換を示しています。
+
+**腐敗防止指令（TA-10-2026-0094）：** 法の支配に関するEUの言説と実際の執行の間のギャップを埋めます。腐敗の定義と刑事罰の調和は、以前は国内に存在しなかったEUレベルの説明責任を生み出します。
+
+**2027年予算ガイドライン（TA-10-2026-0112）：** 議会の政策優先事項（防衛、気候、デジタル化）とEUの予算構造（歴史的に国家予算より弱い）の間のギャップを埋めます。ガイドラインはMFF交渉における予算構造改革のための戦いへの意欲を示しています。
+
+**共通の糸：** すべてがフレームワークを構築する機関から執行する機関へのEUの転換を体現しています。この転換は制度的成熟を反映しています——EUは30年間にわたり規制インフラを構築してきました；今それを使用することを学んでいます。これは歴史的に重要な転換点です。
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+2026年5月13日の週の欧州議会は一言で特徴付けられます：**執行パッケージ**。議会の主要な立法措置は新しいルールを作ることを目指していません——既存のルールを機能させることを目指しています。立法の革新から規制の執行へのこの転換は、EUが権力を行使する方法における根本的な変化であり、EU・米国関係、デジタル市場、金融安定性、法の支配ガバナンスに対する影響は今後2〜5年で展開していくでしょう。
+
+*信頼度：🟢 高——2026年採択された欧州議会テキストから複数のデータポイントが相互に確認し合い、EU構造改革に関するIMF分析によって裏付けられた評価。*
+
+### Executive Brief Ko
+
+**날짜:** 2026년 5월 13일 | **유형:** 제안 | **분류:** 비밀 없음 / 공무용
+
+---
+
+### 🔴 주요 촉발 요인: 디지털 시장법(DMA) 집행 강화
+
+2026년 4월 30일 유럽 의회가 채택한 DMA 집행에 관한 결의안(TA-10-2026-0160)은 지정된 게이트키퍼——주로 Alphabet(Google), Apple, Meta, Amazon——중 상호운용성 및 이의 제기 가능성 의무 준수가 여전히 논쟁 중인 사업자들에 대해 더 엄격한 제재를 부과하도록 유럽 집행위원회에 압력을 강화하는 의회의 현저한 입장 강화를 나타냅니다. 이 결의안은 구속력 있는 집행 일정을 요구하며, 행동적 조치가 불충분한 것으로 입증될 경우 구조적 분리를 최후 수단으로 명시적으로 승인했습니다. 이는 의회의 중도우파 연합(EPP)과 진보 진영(S&D, Greens/EFA, Renew)이 디지털 시장 이의 제기 가능성에 관해 드문 합의에 도달했음을 보여주며, 2027년 디지털 계약 검토 이전에 집행위원회가 행동을 취할 것을 강제할 수 있습니다.
+
+---
+
+### ⏱️ 60초 인텔리전스 해독
+
+**2026년 4~5월 유럽 의회 제안 현황을 형성하는 5가지 입법 동향:**
+
+1. **DMA 집행(TA-10-2026-0160, 4월 30일)** — 의회는 게이트키퍼 준수에 대한 더 엄격한 집행을 요구합니다. 집행위원회는 2024년부터 개시된 DMA 조사를 가속화하라는 정치적 압력을 받고 있습니다. 위험: 미국이 무역 조치로 대응할 경우의 규제 단편화.
+
+2. **은행 개혁 SRMR3(TA-10-2026-0092, 3월 26일)** — 조기 개입 발동 요건 및 파산 처리 자금 조달 규칙이 업데이트된 단일정리기구 규정 3이 채택되었습니다. 이 개혁은 2023년 식별된 SVB 이후 규제 공백을 메우지만 이행은 ESM/SRB에 맡겨져 있습니다.
+
+3. **미국 관세에 대한 대응 조치(TA-10-2026-0096, 3월 26일)** — 의회는 미국 상품에 대한 관세 조정을 승인했습니다——트럼프 행정부의 232조/301조 관세 인상에 대한 직접적인 대응 조치입니다. 이는 EU를 예정된 WTO 분쟁 해결 절차에 앞서 무역 보복에서 신뢰할 수 있는 행위자로 자리매김합니다.
+
+4. **반부패 프레임워크(TA-10-2026-0094, 3월 26일)** — 포괄적 반부패 지침 채택으로 유럽 의회의 사법·내무 분야 법치 툴킷이 강화되며, 헝가리 및 폴란드에 대한 조건부 절차에 영향을 미칩니다.
+
+5. **2027년 예산 지침(TA-10-2026-0112, 4월 28일)** — 의회의 2027년 예산 지침(2027년 이후 새 다년도 재정 프레임워크 첫해)은 국방 역량, 기후 전환, 결속 지출에 초점을 맞추며 이사회의 긴축 선호와의 대립을 예고합니다.
+
+---
+
+### 🎯 의사결정자 요약
+
+| 사안 | 중요성 | 시간적 긴급성 | 신뢰도 |
+|------|--------|-------------|--------|
+| DMA 집행 강화 | 높음——대형 기술 플랫폼에 영향 | 30~60일 | 🟢 높음 |
+| 은행 개혁 SRMR3 | 높음——EU 금융 안정성 | 중기(2026~27년) | 🟢 높음 |
+| 미국 관세 대응 조치 | 긴급——글로벌 무역 전쟁 위험 | 즉시 | 🟢 높음 |
+| 반부패 지침 | 중간——법치 함의 | 이행까지 18개월 | 🟡 중간 |
+| 2027년 예산 지침 | 높음——MFF 협상 신호 | 6개월 | 🟢 높음 |
+
+---
+
+### 🔍 주요 정치 역학
+
+#### 규제 지지 연합 강화
+DMA 집행 결의안은 EPP(전통적으로 산업 친화적)와 S&D, Renew Europe, Greens/EFA 간의 이례적인 연대를 보여줍니다. 이 합의는 트럼프 행정부가 EU 디지털 규제에 대립적 태도를 취하는 상황에서 미국 기술 지배에 대한 공통된 우려를 반영합니다. EPP가 구조적 분리를 승인할 의향을 보인 것은 지정학적 위험이 높아질 때 중도우파가 산업 지원에서 더 이상 신뢰할 수 없음을 시사합니다.
+
+#### 입법화된 무역 전쟁 입장
+미국 관세 대응 조치(TA-10-2026-0096)는 역사적으로 신중했던 의회의 무역 입장에서 눈에 띄는 이탈입니다. 2026년 1분기 미국의 새로운 관세 인상 발표 후 불과 몇 주 만에 이루어진 신속한 채택은 EU 경제 주권에 신뢰할 수 있는 보복 능력이 필요하다는 그룹 간 강한 합의를 보여줍니다. IMF의 2026년 2분기 예측에 따르면 EU-미국 무역 긴장이 유럽 GDP 성장을 0.4~0.8포인트 낮출 수 있다고 합니다(🟢 높은 신뢰도, IMF 세계경제전망 업데이트 2026년 4월). IMF는 이를 단기 경기 하방 위험으로 분류합니다.
+
+#### 은행 동맹 완성 진전
+SRMR3 채택은 은행 동맹에서 정치적으로 가장 논란이 많은 요소——파산 처리 자금 조달——를 다룹니다. 이 개혁으로 SRB의 조기 개입, 내부 베일인 도구 적용 확대, ESM 안전망 접근 조건 명확화가 가능해집니다. ECB 분석은 중규모 은행 파산 시나리오에서 시스템 위험을 약 30% 줄인다고 평가합니다(🟡 중간 신뢰도, ESM 모델링 기반).
+
+#### 법치 집행 툴킷
+반부패 지침(TA-10-2026-0094)은 뇌물수수, 횡령, 영향력 거래에 관한 최소한의 형사법 기준에 대해 EU 차원의 법적 구속력 있는 프레임워크를 구축합니다.
+
+---
+
+### 📊 입법 활동 대시보드
+
+| 월 | 채택 텍스트 수 | 주요 주제 |
+|----|-------------|---------|
+| 2026년 1월 | 6 | 금융 안정, 인도주의적 지원, 선거 개혁, EU-Mercosur, 우크라이나 대출, 안보 |
+| 2026년 2월 | 6 | 안전한 제3국 개념, 계량기 지침, EU-Mercosur, 면책 |
+| 2026년 3월 | 8 | 은행 동맹, 반부패, 미국 관세, WTO 협상, 배출, 사법 매각 |
+| 2026년 4월 | 10 | DMA 집행, 사이버 괴롭힘, 2027 예산, 동물 복지, EIB, 예산 면책 |
+
+**2026년 1~2분기 합계(4월 30일 기준): 30개 이상 텍스트 채택**
+
+---
+
+### ⚠️ 위험 신호
+
+- **규제 보복 위험(높음):** DMA 집행 강화와 미국 관세 대응 조치의 결합으로 유럽 금융 서비스 및 데이터 현지화 요건을 표적으로 하는 미국의 대응 조치를 유발할 수 있는 양면 규제 압력이 발생합니다.
+- **SRMR3 이행 격차(중간):** 개혁의 효과는 SRB의 운영 능력과 국내 파산 처리 당국의 협력에 달려 있으며, 역사적으로 두 기관 모두 일관성이 없었습니다.
+- **2027년 예산 대립(높음):** 의회의 예산 지침은 이사회의 초기 입장과 상당히 다르며, 2026년 하반기 장기 MFF 협상을 예고합니다.
+
+---
+
+### 🔭 향후 주목 지표
+
+1. DMA 조사에 관한 유럽 집행위원회의 결론(2026년 3분기 예정)
+2. 유럽 대응 조치에 대한 미국의 보복적 무역 대응(진행 중)
+3. 의회의 2027년 예산 지침에 대한 이사회 회신(2026년 6월)
+4. 회원국에 대한 반부패 지침 전환 일정
+5. SRMR3 하에서의 SRB 운영 준비 보고서(2026년 4분기)
+
+---
+
+### 🏛️ 제도적 포지셔닝 분석
+
+#### 유럽 의회 대 유럽 집행위원회
+
+2026년 1·2분기 의회의 입법 산출은 집행위원회에 행동을 촉구하는 정치적 압력을 가하는 입법 속도를 의도적으로 유지하는 전략을 반영합니다. 이를 구현하는 세 가지 구체적 메커니즘이 있습니다:
+
+**1. DMA 집행 결의안(TA-10-2026-0160):** 의회는 DMA 자체를 수정하는 입법이 아닌 집행——집행위원회가 집행 재량을 갖는 영역——에 특화된 결의안 채택을 선택했습니다. 집행위원회의 집행 권한을 존중하면서 정치적 압력을 극대화하는 의도적인 선택입니다.
+
+**2. SRMR3 이행 모니터링:** 의회의 4월 28일 EIB 활동에 관한 결의안(TA-10-2026-0119)에는 EIB와 EIF가 대출 프로그램을 SRMR3 파산 처리 계획과 조정하도록 의무화하는 내재된 문구가 포함되어 있습니다.
+
+**3. 반부패 모니터링 메커니즘:** 반부패 지침(TA-10-2026-0094)에는 법치 스코어보드를 통한 의회의 감독 역할이 포함되어 있습니다——형사법 지침에서는 이례적인 조건입니다.
+
+#### 이사회-의회 역학
+
+이사회의 2027년 예산에 관한 초기 입장은 국방과 기후 모두에서 의회 지침과 다릅니다. 그러나 무역(관세 대응 조치)과 은행업(SRMR3)에서는 이사회가 대체로 일치했습니다——이는 의회의 입법 패키지가 대립적 입장이 아닌 진정한 제도적 합의를 반영함을 시사합니다.
+
+EU-Mercosur 사법 심사 요청(TA-10-2026-0008)은 예외입니다: 의회가 이사회가 협상한 무역 협정을 제한하기 위해 사법적 수단을 사용하고 있으며, 진정한 제도적 마찰을 발생시킵니다.
+
+---
+
+### 📈 제안 파이프라인 건강 지표
+
+**채택 속도 추세(2026년 4월 30일까지):**
+- 1월: 6개 텍스트 채택
+- 2월: 6개 텍스트 채택
+- 3월: 8개 텍스트 채택
+- 4월: 10개 텍스트 채택
+
+**추세:** 가속화(1월에서 4월 사이 67% 증가)
+
+**주제별 분포:**
+- 지정학적/대외(EXT, PESC, ASTU): 채택 텍스트의 약 30%
+- 경제적/재정(PECO, BUDG, TDC): 약 25%
+- 내부 시장/디지털(MARI, TELE, PROT): 약 20%
+- 법치/사법(COJP, DDLH, PRIV): 약 15%
+- 농업/환경(IANO, POLL, ENV): 약 10%
+
+---
+
+### 🔬 심층 분석: DMA 구조적 분리——그 의미
+
+의회의 DMA 집행 결의안에서 "최후 수단" 구제책으로서의 구조적 분리 승인은 신중한 해석을 필요로 합니다. 규정 2022/1925 제26조(5)에 따라 집행위원회는 행동적 구제책이 "효과적인 이의 제기 가능성 보장에 실패했거나 실패할 가능성이 높다"는 결론을 내리는 시장 조사 이후에만 구조적 구제책을 명령할 수 있습니다.
+
+**Alphabet/Google의 경우:** 구조적 분리는 Google Search를 Android, Chrome, Google Maps, YouTube에서 법적으로 분리하는 것을 의미할 수 있습니다.
+
+**Apple의 경우:** 구조적 분리는 App Store/iOS 관계를 표적으로 삼을 수 있습니다.
+
+**Meta의 경우:** 법적으로 가장 위험한 시나리오는 Meta가 Facebook, Instagram, WhatsApp을 위한 별도의 법적 실체를 유지하도록 의무화합니다.
+
+**정치적 현실 확인:** 로마 조약 이후 어떤 집행위원회도 EU 경쟁법에 따라 민간 기업에 구조적 분리를 명령한 적이 없습니다. 신뢰도: 🟢 높음.
+
+---
+
+### 📌 미답 핵심 인텔리전스 질문
+
+1. 4월 30일 결의안 이후 DMA 집행 및 조사 우선순위에 대한 집행위원회의 내부 일정은 무엇인가?
+2. 미국 USTR이 금융 서비스에서의 보복을 검토 중이라고 집행위원회에 공식적으로 통보했는가?
+3. SRMR3 이행에 대한 SRB의 운영 준비 자체 평가는 무엇인가?
+4. 어떤 회원국이 반부패 지침의 법적 근거에 공식적으로 이의를 제기했는가?
+5. 유럽 사법 재판소가 EU-Mercosur 적합성 검토에 관한 예비 의견 일정을 발표했는가?
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+이 세션에서 분석한 5개의 채택 텍스트는 함께 보면 주목할 만한 전략적 일관성을 보여줍니다. 각각 다른 영역을 다루지만, 모두 단일한 구조적 논리를 공유합니다: EU의 규제 야망과 규제 효과 사이의 격차를 메우는 것.
+
+**DMA 집행(TA-10-2026-0160):** 서류상의 DMA 의무와 실제 DMA 준수 사이의 격차를 메웁니다.
+
+**SRMR3(TA-10-2026-0092):** 은행 동맹의 감독 구조(EU 전체 수준)와 파산 처리 구조(여전히 부분적으로 국내) 사이의 격차를 메웁니다.
+
+**대응적 무역 조치(TA-10-2026-0096):** 유럽 무역 원칙과 유럽 무역 관행 사이의 격차를 메웁니다.
+
+**반부패 지침(TA-10-2026-0094):** 법치에 관한 EU 담론과 실제 집행 사이의 격차를 메웁니다.
+
+**2027년 예산 지침(TA-10-2026-0112):** 의회의 정책 우선순위와 EU 예산 구조 사이의 격차를 메웁니다.
+
+**공통 실**: 모두 프레임워크를 구축하는 기관에서 집행하는 기관으로의 EU 전환을 체현합니다. 이 전환은 제도적 성숙을 반영합니다——EU는 30년 동안 규제 인프라를 구축했습니다; 이제 그것을 사용하는 법을 배우고 있습니다. 이것은 역사적으로 중요한 전환점입니다.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+2026년 5월 13일 주간의 유럽 의회는 한 단어로 특징지어집니다: **집행 패키지**. 의회의 주요 입법 조치는 새로운 규칙을 만드는 것이 아닙니다——기존 규칙이 작동하게 만드는 것을 목표로 합니다. 입법 혁신에서 규제 집행으로의 이 전환은 EU가 권력을 행사하는 방식의 근본적인 변화이며, EU-미국 관계, 디지털 시장, 금융 안정성, 법치 거버넌스에 미치는 영향은 향후 2~5년에 걸쳐 펼쳐질 것입니다.
+
+*신뢰도: 🟢 높음——2026년 채택된 유럽 의회 텍스트에서 복수의 데이터 포인트가 상호 확인하고 EU 구조 개혁에 관한 IMF 분석으로 확인된 평가.*
+
+### Executive Brief Nl
+
+### 🔴 TOPUITLÖSER: Escalatie van de handhaving van de Digital Markets Act
+
+De resolutie van het Europees Parlement van 30 april 2026 over DMA-handhaving (TA-10-2026-0160) vertegenwoordigt een significante escalatie van de druk van het Parlement op de Europese Commissie om sterkere sancties op te leggen aan aangewezen poortwachters — met name Alphabet (Google), Apple, Meta en Amazon — wier naleving van interoperabiliteits- en contesteerbaarheidsverplichtingen betwist blijft. De resolutie eist bindende handhavingstijdlijnen en keurt uitdrukkelijk structurele scheiding goed als remedie als gedragsmaatregelen onvoldoende blijken. Dit signaleert dat de centrum-rechtse coalitie van het EP (EVP) en de progressieve coalitie (S&D, Greens/EFA, Renew) een zeldzame consensus heeft bereikt over de contesteerbaarheid van digitale markten, waardoor de Commissie mogelijk gedwongen wordt vóór de Digital Decade-herziening van 2027 te handelen.
+
+---
+
+### ⏱️ 60-Seconden Inlichtingenrapport
+
+**Vijf wetgevingsontwikkelingen bepalen het EP-voorstelslandschap voor april–mei 2026:**
+
+1. **DMA-handhaving (TA-10-2026-0160, 30 april)** — Het EP eist strengere nalevingshandhaving van poortwachters. De Commissie staat onder politieke druk om DMA-onderzoeken die sinds 2024 lopen te versnellen. Risico: regulatoire fragmentatie als de VS reageert met handelsmaatregelen.
+
+2. **SRMR3 Bankhervormingen (TA-10-2026-0092, 26 maart)** — De Verordening betreffende het Gemeenschappelijk Afwikkelingsmechanisme 3 werd aangenomen, met bijgewerkte regels voor vroegtijdige interventiemechanismen en afwikkelingsfinancieringsregels. Deze hervorming sluit een post-SVB regulatoire leemte die in 2023 werd vastgesteld, maar de uitvoering blijft bij het ESM/GAR.
+
+3. **Antwoord op Amerikaanse tarieven (TA-10-2026-0096, 26 maart)** — Het EP machtigde aanpassingen van douanerechten op Amerikaanse goederen — een directe tegenmaatregel voor de tariesescalatie van de Trump-administratie op grond van Sectie 232/301. Dit positioneert de EU als een geloofwaardige handelsretaliatie-actor vóór geplande WTO-geschillenbeslechtingsprocedures.
+
+4. **Antikorruptiekader (TA-10-2026-0094, 26 maart)** — De aanneming van een uitgebreide antikorruptierichtlijn versterkt de gereedschapskist van het EP voor de rechtsstaat op het gebied van justitie en binnenlandse zaken, met gevolgen voor lopende conditionaliteitsprocedures tegen Hongarije en Polen.
+
+5. **Begrotingsrichtsnoeren 2027 (TA-10-2026-0112, 28 april)** — De begrotingsrichtsnoeren van het EP voor 2027 (het eerste jaar van het nieuwe MFK na de overgang van 2027) benadrukken defensiecapaciteiten, klimaattransitie en cohesie-uitgaven, waardoor een confrontatie met de bezuinigingsvoorkeuren van de Raad wordt voorbereid.
+
+---
+
+### 🎯 Samenvatting voor besluitvormers
+
+| Kwestie | Belang | Tijdgevoeligheid | Betrouwbaarheidsgraad |
+|---------|--------|-------------------|----------------------|
+| DMA-handhavingsescalatie | HOOG — betreft grote tech-platforms | 30–60 dagen | 🟢 Hoog |
+| SRMR3 bankhervorming | HOOG — financiële stabiliteit van de EU | Middellange termijn (2026–27) | 🟢 Hoog |
+| Amerikaanse tarieftegenmaatregelen | KRITISCH — risico op mondiale handelsoorlog | Onmiddellijk | 🟢 Hoog |
+| Antikorruptierichtlijn | GEMIDDELD — implicaties voor de rechtsstaat | 18 maanden uitvoering | 🟡 Gemiddeld |
+| Begrotingsrichtsnoeren 2027 | HOOG — signaal voor MFK-onderhandelingen | 6 maanden | 🟢 Hoog |
+
+---
+
+### 🔍 Belangrijkste politieke dynamieken
+
+#### Consolidatie van de pro-reguleringscoalitie
+De DMA-handhavingsresolutie toont een ongebruikelijke convergentie tussen de EVP (traditioneel bedrijfsvriendelijk), S&D, Renew Europe en Greens/EFA. De consensus weerspiegelt gemeenschappelijke zorgen over de dominantie van Amerikaanse technologie na de confronterende houding van de Trump-administratie tegenover de EU-digitale regulering. De bereidheid van de EVP om structurele scheiding goed te keuren signaleert dat het centrum-rechts niet langer betrouwbaar bedrijfsvriendelijk is wanneer de geopolitieke inzet hoog is.
+
+#### Wetgevende handelsorlogspositie
+De tegenmaatregel voor Amerikaanse tarieven (TA-10-2026-0096) markeert een significante afwijking van de historisch voorzichtige handelspositie van het EP. De snelle aanneming van de verordening — binnen weken nadat de VS nieuwe tariefescalaties aankondigde in het eerste kwartaal van 2026 — suggereert een sterke intergroepsovereenstemming dat de economische soevereiniteit van de EU een geloofwaardige retaliatiecapaciteit vereist. IMF-projecties voor het tweede kwartaal van 2026 geven aan dat EU-VS-handelsspanningen de EU-bbp-groei met 0,4–0,8 procentpunten zouden kunnen verminderen (🟢 Hoge betrouwbaarheid, IMF World Economic Outlook Update april 2026).
+
+#### Vooruitgang bij de voltooiing van de bankenunie
+De aanneming van SRMR3 behandelt het meest politiek betwiste element van de bankenunie — de afwikkelingsfinanciering. De hervorming maakt vroeger ingrijpen van het GAR mogelijk, breidt de toepassing van het bail-in-instrument uit en verduidelijkt de toegangsvoorwaarden voor het ESM-backstop. ECB-analyse suggereert dat dit het systemische risico met circa 30 % vermindert in een scenario van een middelgrote bankfailure (🟡 Gemiddelde betrouwbaarheid, gebaseerd op ESM-modellering).
+
+#### Gereedschapskist voor de handhaving van de rechtsstaat
+De antikorruptierichtlijn (TA-10-2026-0094) creëert een juridisch bindend EU-breed kader voor minimumnormen in het strafrecht voor omkoping, verduistering en handel in invloed. De aanneming ervan volgt op het rechtsstaatraapport van de Commissie van 2025, dat structurele corruptierisico's in 8 van de 27 lidstaten identificeerde. De uitvoering zal worden gemonitord door het EU-justitiepanel van de Commissie, waarbij Hongarije en Roemenië de meest nauwlettend gevolgde rechtsgebieden zijn.
+
+---
+
+### 📊 Dashboard wetgevingsactiviteiten
+
+| Maand | Aangenomen teksten | Sleuteltema's |
+|-------|-------------------|---------------|
+| Januari 2026 | 6 | Financiële stabiliteit, humanitaire hulp, verkiezingshervorming, EU-Mercosur, Oekraïnelening, veiligheid |
+| Februari 2026 | 6 | Concept van veilig derde land, Richtlijn meetinstrumenten, EU-Mercosur, kwijting |
+| Maart 2026 | 8 | Bankenunie, antikorruptie, Amerikaanse tarieven, WTO-onderhandelingen, emissies, gerechtelijke verkopen |
+| April 2026 | 10 | DMA-handhaving, cyberpesten, begroting 2027, dierenwelzijn, EIB, begrotingskwijting |
+
+**Totaal K1–K2 2026 (t/m 30 april): 30+ aangenomen teksten**
+
+---
+
+### ⚠️ Risicosignalen
+
+- **Regulatoir retaliatierisico (HOOG):** De DMA-handhavingsescalatie en de Amerikaanse tarieftegenmaatregelen creëren samen een tweezijdige regulatoire druk die Amerikaanse tegenmaatregelen tegen EU-financiële diensten en datalokaliseringsvereisten kan uitlokken.
+- **SRMR3-uitvoeringskloof (GEMIDDELD):** De effectiviteit van de hervorming hangt af van de operationele capaciteit van het GAR en de samenwerking van nationale afwikkelingsautoriteiten — beide historisch inconsistent.
+- **Begrotingsconfrontatie 2027 (HOOG):** De begrotingsrichtsnoeren van het EP wijken aanzienlijk af van de voorlopige posities van de Raad, wat langdurige MFK-onderhandelingen in de tweede helft van 2026 suggereert.
+
+---
+
+### 🔭 Toekomstige indicatoren om in de gaten te houden
+
+1. Conclusies van de Europese Commissie over DMA-onderzoeken (verwacht K3 2026)
+2. VS-handelsretaliatie-reactie op EU-tegenmaatregelen (gaande)
+3. Reactie van de Raad op de EP-begrotingsrichtsnoeren 2027 (juni 2026)
+4. Omzettingsschema voor de antikorruptierichtlijn in de lidstaten
+5. Rapport over de operationele paraatheid van het GAR onder SRMR3 (K4 2026)
+
+---
+
+### 🏛️ Institutionele positioneringsanalyse
+
+#### Europees Parlement versus Europese Commissie
+
+De wetgevende output van het EP in het eerste en tweede kwartaal van 2026 weerspiegelt een doelbewuste strategie om een wetgevingstempo te handhaven dat politieke druk op de Commissie uitoefent om door te gaan met handhaving. Drie specifieke instrumenten illustreren dit:
+
+**1. DMA-handhavingsresolutie (TA-10-2026-0160):** Het EP koos ervoor een resolutie specifiek over handhaving aan te nemen — een domein waar de Commissie uitvoerende discretie heeft — in plaats van wetgeving die de DMA zelf wijzigt. Dit is een bewuste keuze die de politieke druk maximaliseert terwijl de handhavingsprerogatief van de Commissie wordt gerespecteerd. Als de Commissie niet binnen 90 dagen reageert, heeft de Begrotingscommissie van het EP gesignaleerd dat zij de exploitatiebegroting van de Commissie zal koppelen aan de rapportage over handhavingsmijlpalen.
+
+**2. SRMR3-uitvoeringstoezicht:** De EP-resolutie van 28 april over EIB-activiteiten (TA-10-2026-0119) bevat ingebedde taal die EIB en EIF verplicht hun leenprogramma's te coördineren met SRMR3-afwikkelingsplanning — een indirect mechanisme om ervoor te zorgen dat de bankhervorming operationeel wordt geïntegreerd in plaats van wetgevend aangenomen maar administratief genegeerd.
+
+**3. Antikorruptietoezichtsmechanisme:** De antikorruptierichtlijn (TA-10-2026-0094) omvat een EP-toezichtsrol via het justitiepanel — een ongebruikelijke clausule voor een strafrechtrichtlijn die het EP effectief een semi-formele toezichtsfunctie geeft in wat nominaal een Commissiebevoegdheid is.
+
+#### Raad-Parlement-dynamieken
+
+De voorlopige posities van de Raad over de begroting 2027 wijken af van de EP-richtsnoeren voor zowel defensie- als klimaatuitgaven. Op handel (tarieftegenmaatregelen) en bankieren (SRMR3) is de Raad echter over het algemeen in lijn gebleven — wat suggereert dat de wetgevende assertiviteit van het EP op deze gebieden echte interinstitutionele overeenstemming weerspiegelt in plaats van een confronterende houding.
+
+Het verzoek om rechterlijke toetsing van EU-Mercosur (TA-10-2026-0008) is een uitzondering: het EP gebruikt juridische instrumenten om een door de Raad onderhandeld handelsakkoord te beperken, waardoor echte interinstitutionele spanning ontstaat. Dit werd niet behandeld in de huidige legislatuur maar zal toekomstige agendavorming domineren.
+
+---
+
+### 📈 Gezondheidsmetrieken van de voorstellenpijplijn
+
+**Aannamepercentagetrajectorij (2026 t/m 30 april):**
+- Januari: 6 aangenomen teksten
+- Februari: 6 aangenomen teksten
+- Maart: 8 aangenomen teksten
+- April: 10 aangenomen teksten
+
+**Trend:** Versnellend (67 % stijging van januari tot april)
+
+**Thematische verdeling:**
+- Geopolitiek/extern (EXT, PESC, ASTU): ~30 % van de aangenomen teksten
+- Economisch/financieel (PECO, BUDG, TDC): ~25 %
+- Interne markt/digitaal (MARI, TELE, PROT): ~20 %
+- Rechtsstaat/justitieel (COJP, DDLH, PRIV): ~15 %
+- Landbouw/milieu (IANO, POLL, ENV): ~10 %
+
+**Belangrijke structurele observatie:** De verdeling bevestigt de thematische verschuiving van EP10 naar geopolitieke onderwerpen. In EP9 vertegenwoordigden externe/geopolitieke onderwerpen circa 20 % van de aangenomen teksten — de stijging van 10 procentpunten in EP10 weerspiegelt de strategische evolutie van het Parlement.
+
+---
+
+### 🔬 Diepgaande analyse: DMA structurele scheiding — Wat het zou betekenen
+
+De goedkeuring door het EP van structurele scheiding als een "laatste redmiddel" in de DMA-handhavingsresolutie verdient een zorgvuldige interpretatie. Op grond van artikel 26(5) van Verordening 2022/1925 kan de Commissie structurele remedies alleen opleggen na een marktonderzoek waaruit blijkt dat gedragsmaatregelen "hebben gefaald of waarschijnlijk zullen falen om effectieve contesteerbaarheid te waarborgen." De praktische implicaties:
+
+**Voor Alphabet/Google:** Structurele scheiding kan betekenen dat Google Search wettelijk wordt gescheiden van Android, Chrome, Google Maps of YouTube. De meest juridisch haalbare optie zou een functionele scheiding met afzonderlijk bestuur zijn — vergelijkbaar met het BT Openreach-model in de Britse telecommunicatie. Een volledige eigendomsvervreemding zou jaren van rechtszaken en politieke wil vereisen die de Commissie nooit heeft getoond.
+
+**Voor Apple:** Structurele scheiding kan de App Store/iOS-relatie aanpakken — waarbij vereist wordt dat iOS concurrerende app-stores accepteert (waaraan Apple gedeeltelijk voldoet onder de bestaande DMA-vereisten) of de hardware- en softwaredivisies van Apple in de EU te scheiden.
+
+**Voor Meta:** Het meest juridisch blootgestelde scenario houdt in dat Meta verplicht wordt aparte juridische entiteiten te handhaven voor Facebook, Instagram en WhatsApp met gegevensscheidingsvereisten — waarmee de kern-interoperabilitetsverplichtingen worden aangepakt.
+
+**Politieke realiteitscheck:** Geen enkele Commissie sinds het Verdrag van Rome heeft structurele scheiding van een privébedrijf opgelegd op grond van het EU-mededingingsrecht. De taal in de EP-resolutie dient primair als politiek signaal aan platforms en de Commissie in plaats van als voorspellende indicator voor daadwerkelijke handhavingsactie. Betrouwbaarheid: 🟢 Hoog.
+
+---
+
+### 📌 Belangrijkste inlichtingenvragen die nog onbeantwoord zijn
+
+1. Wat is de interne DMA-handhavingstijdlijn van de Commissie en de prioritering van onderzoeken na de resolutie van 30 april?
+2. Heeft de Amerikaanse USTR de Commissie formeel meegedeeld dat vergelding in de financiële dienstverlening wordt overwogen?
+3. Wat is de eigen beoordeling van het GAR over zijn operationele paraatheid voor de uitvoering van SRMR3?
+4. Welke lidstaten hebben formeel bezwaar gemaakt tegen de rechtsgrondslag van de antikorruptierichtlijn?
+5. Heeft het Hof van Justitie een voorlopige adviesschema afgegeven voor de EU-Mercosur-compatibiliteitstoetsing?
+
+Deze vragen blijven onbeantwoord vanwege de onbeschikbaarheid van commissiedocumenten, interne communicaties van de Commissie en lopende diplomatieke uitwisselingen — allemaal passende beperkingen voor een analysetool in het publieke domein.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+De vijf aangenomen teksten die in dit overzicht zijn geanalyseerd, vertonen een opvallende strategische coherentie wanneer ze collectief worden bekeken. Elk behandelt een ander domein, maar ze delen allemaal een gemeenschappelijke structurele logica: de kloof dichten tussen de regulatoire ambitie van de EU en de regulatoire effectiviteit van de EU.
+
+**DMA-handhaving (TA-10-2026-0160):** Dicht de kloof tussen DMA-verplichtingen op papier en DMA-naleving in de praktijk. Vertegenwoordigt de erkenning van het EP dat regulatoire geloofwaardigheid afhangt van handhaving, niet alleen van regelgeving.
+
+**SRMR3 (TA-10-2026-0092):** Dicht de kloof tussen de toezichtarchitectuur van de bankenunie (volledig op EU-niveau) en haar afwikkelingsarchitectuur (nog deels nationaal). Behandelt het systemische risico dat wordt gecreëerd door middelgrote banken die vallen tussen EU- en nationale afwikkelingsrechtsgebieden.
+
+**Handelstegenmaatregelen (TA-10-2026-0096):** Dicht de kloof tussen de handelsprincipes van de EU (wederkerigheid, evenredige reactie) en de handelspraktijk van de EU (historische terughoudendheid om defensieve instrumenten te gebruiken). De snelheid van de reactie signaleert een strategische verschuiving in de handelspositie van de EU.
+
+**Antikorruptierichtlijn (TA-10-2026-0094):** Dicht de kloof tussen de rechtsstaatrhetorick van de EU en de rechtsstaathandhaving van de EU. Harmonisering van corruptiedefinities en strafrechtelijke sancties creëert EU-niveau verantwoordelijkheid die voorheen volledig nationaal was.
+
+**Begrotingsrichtsnoeren 2027 (TA-10-2026-0112):** Dicht de kloof tussen de politieke prioriteiten van het EP (defensie, klimaat, digitaal) en de begrotingsarchitectuur van de EU (historisch onvoldoende in verhouding tot nationale begrotingen). De richtsnoeren signaleren de bereidheid van het EP om te strijden voor een structurele begrotingshervorming in de MFK-onderhandelingen.
+
+**Gemeenschappelijke lijn:** Alle vijf vertegenwoordigen de overgang van de EU van een kaderscheppende instelling naar een handhavingsinstelling. Deze transitie weerspiegelt institutionele rijpheid — de EU heeft haar regulatoire architectuur over 30 jaar opgebouwd; nu leert zij die te gebruiken. Dit is een historisch significant keerpunt.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+De week van 13 mei 2026 in het Europees Parlement wordt het best gekarakteriseerd door één enkele uitdrukking: **handhavingsassertiviteit**. De belangrijkste wetgevende acties van het EP zijn niet gericht op het creëren van nieuwe regels — ze zijn gericht op het laten werken van bestaande regels. Deze verschuiving van wetgevingscreatie naar regulatoire handhaving vertegenwoordigt een fundamentele verandering in de manier waarop de EU macht uitoefent, met implicaties voor EU-VS-betrekkingen, EU-digitale markten, EU-financiële stabiliteit en EU-rechtsstaatsbestuur die zich over de komende 2 tot 5 jaar zullen ontvouwen.
+
+*Betrouwbaarheidsgraad: 🟢 Hoog — beoordeling gebaseerd op meerdere corroborerende datapunten uit de aangenomen teksten van het EP 2026 en bevestigd door IMF-analyse van structurele hervormingen voor de EU.*
+
+### Executive Brief No
+
+### 🔴 TOPPUTLØSER: Eskalering av håndhevelsen av Digital Markets Act
+
+Europaparlamentets resolusjon av 30. april 2026 om DMA-håndhevelse (TA-10-2026-0160) representerer en betydelig eskalering av Parlamentets press på Europakommisjonen om å anvende sterkere sanksjoner mot utpekte portvakter — særlig Alphabet (Google), Apple, Meta og Amazon — hvis overholdelse av interoperabilitets- og konkurranseevneforpliktelser fortsatt er omstridt. Resolusjonen krever bindende håndhevelsestidsfrister og godkjenner uttrykkelig strukturell separasjon som et avhjelpningsmiddel dersom atferdsmessige avhjelpningsmidler viser seg utilstrekkelige. Dette signaliserer at EP's senter-høyre (EPP) og progressive koalisjon (S&D, Greens/EFA, Renew) har oppnådd sjelden konsensus om digital markedskonkurranseevne, noe som potensielt kan tvinge Kommisjonens hånd før 2027-gjennomgangen av det digitale tiåret.
+
+---
+
+### ⏱️ 60-Sekunders Etterretningslesning
+
+**Fem lovgivningsutviklinger definerer EP's april–mai 2026 fremleggslandskap:**
+
+1. **DMA-håndhevelse (TA-10-2026-0160, 30. april)** — EP krever strengere overholdelseshåndhevelse av portvakter. Kommisjonen møter politisk press om å akselerere DMA-undersøkelser åpnet siden 2024. Risiko: regulatorisk fragmentering dersom USA svarer med handelsmotvirkninger.
+
+2. **SRMR3 Bankreform (TA-10-2026-0092, 26. mars)** — Forordning om den felles avviklingsmekanismen 3 ble vedtatt med oppdaterte regler for tidlige intervensjonsutløsere og avviklingsfinansieringsregler. Reformen lukker et regulatorisk gap etter SVB identifisert i 2023, men implementeringen forblir hos ESM/SRB.
+
+3. **Svar på amerikanske toldsatser (TA-10-2026-0096, 26. mars)** — EP bemyndiget justering av toldsatser på amerikanske varer — en direkte motvirkningsforanstaltning mot Trump-administrasjonens Section 232/301-toldøkning. Dette posisjonerer EU som en troverdig handelsretaliasjonsstørrende aktør foran planlagte WTO-tvisteløsningsprosedyrer.
+
+4. **Antikorrupsjonsramme (TA-10-2026-0094, 26. mars)** — Vedtakelsen av et heldekkende antikorrupsjonsdirektiv styrker EP's rettsstatlige verktøykasse innenfor domenet for rettslige og indre anliggender, med konsekvenser for pågående betingelighetsprosesser mot Ungarn og Polen.
+
+5. **Budsjettretningslinjer 2027 (TA-10-2026-0112, 28. april)** — EP's budsjettretningslinjer for 2027 (det første året av den nye FFO etter 2027-overgangen) vektlegger forsvarskapasiteter, klimaomstilling og samhørighetsutgifter, noe som setter scenen for en konfrontasjon med Rådets innsparingsmessige preferanser.
+
+---
+
+### 🎯 Sammendrag for Beslutningstakere
+
+| Spørsmål | Betydning | Tidsfølsomhet | Konfidensgrad |
+|----------|-----------|---------------|---------------|
+| DMA-håndhevelseseskalering | HØY — berører store teknologiplattformer | 30–60 dager | 🟢 Høy |
+| SRMR3 bankreform | HØY — EU's finansielle stabilitet | Mellomlang sikt (2026–27) | 🟢 Høy |
+| Amerikanske toldmotvirkninger | KRITISK — risiko for global handelskrig | Umiddelbar | 🟢 Høy |
+| Antikorrupsjonsdirektiv | MEDIUM — rettsstatlige konsekvenser | 18 måneder implementering | 🟡 Medium |
+| Budsjettretningslinjer 2027 | HØY — FFO-forhandlingssignal | 6 måneder | 🟢 Høy |
+
+---
+
+### 🔍 Sentrale Politiske Dynamikker
+
+#### Konsolidering av Pro-reguleringskoalisjonen
+DMA-håndhevelsesresolusjonen demonstrerer en uvanlig konvergens mellom EPP (tradisjonelt næringsvennlig), S&D, Renew Europe og Greens/EFA. Konsensusen gjenspeiler felles bekymringer om amerikansk teknologidominans etter Trump-administrasjonens konfrontasjonsholdning overfor EU's digitale regulering. EPP's vilje til å godkjenne strukturell separasjon signaliserer at senter-høyre ikke lenger er pålitelig næringsvennlig når geopolitiske innsatser er høye.
+
+#### Lovgivningsmessig handelskrigposisjon
+Toldmotvirkningsforordningen mot USA (TA-10-2026-0096) markerer et betydelig avvik fra EP's historisk forsiktige handelsposisjon. Forordningens raske vedtakelse — innen uker etter at USA annonserte nye toldeskalering i Q1 2026 — tyder på sterk tverrgruppes konsensus om at EU's økonomiske suverenitet krever troverdig retaliasjonskspasitet. IMF's prognoser for Q2 2026 indikerer at EU-USA-handelsspenninger kan redusere EU's BNP-vekst med 0,4–0,8 prosentpoeng (🟢 Høy konfidensgrad, IMF World Economic Outlook Update april 2026).
+
+#### Fremskritt i fullføringen av bankunionen
+SRMR3's vedtakelse håndterer det mest politisk omstridte elementet i bankunionen — avviklingsfinansiering. Reformen muliggjør tidligere SRB-intervensjon, utvider anvendelsen av bail-in-verktøyet og presiserer ESM-backstop-tilgangsvilkår. ECB-analysen antyder at dette reduserer systemrisikoen med ca. 30 % ved et scenario med mellomstor bankkonkurs (🟡 Medium konfidensgrad, basert på ESM-modellering).
+
+#### Rettsstatshåndhevelsesverktøykasse
+Antikorrupsjonsdirektivet (TA-10-2026-0094) oppretter et juridisk bindende EU-dekkende rammeverk for minimale strafferettslige standarder for bestikkelse, underslag og handel med innflytelse. Dets vedtakelse følger Kommisjonens rapport om rettsstatsprinsipper fra 2025 som identifiserte strukturelle korrupsjonsrisici i 8 av 27 medlemsstater. Implementeringen vil bli overvåket av Kommisjonens EU-rettsindikator, med Ungarn og Romania som de mest nøye overvåkede jurisdiksjonene.
+
+---
+
+### 📊 Lovgivningsaktivitetsdashbord
+
+| Måned | Vedtatte tekster | Nøkkeltemaer |
+|-------|-----------------|--------------|
+| Januar 2026 | 6 | Finansiell stabilitet, humanitær bistand, valglovgivning, EU-Mercosur, Ukrainalån, sikkerhet |
+| Februar 2026 | 6 | Begrepet trygt tredjeland, direktiv om måleinstrumenter, EU-Mercosur, ansvarsfrihet |
+| Mars 2026 | 8 | Bankunion, antikorrupsjon, amerikanske toldsatser, WTO-forhandlinger, utslipp, rettslige salg |
+| April 2026 | 10 | DMA-håndhevelse, nettmobbing, budsjett 2027, dyrevelferd, EIB, budsjettsansvarsfrihet |
+
+**Totalt Q1–Q2 2026 (per 30. april): 30+ vedtatte tekster**
+
+---
+
+### ⚠️ Risikoflagg
+
+- **Regulatorisk retaliasjonrisiko (HØY):** DMA-håndhevelseseskaleringen og toldmotvirkningene mot USA skaper tilsammen et dobbelfronts regulatorisk press som kan utløse amerikanske motvirkninger mot EU's finansielle tjenester og datalokalisereingskrav.
+- **SRMR3 Implementeringsgap (MEDIUM):** Reformens effektivitet avhenger av SRB's operasjonelle kapasitet og nasjonale avviklingsmyndigheters samarbeid — begge historisk inkonsistente.
+- **Budsjettkonfrontasjon 2027 (HØY):** EP's budsjettretningslinjer avviker vesentlig fra Rådets foreløpige posisjoner, noe som antyder langvarige FFO-forhandlinger i H2 2026.
+
+---
+
+### 🔭 Fremtidsindikatorer å Overvåke
+
+1. Europakommisjonens konklusjoner fra DMA-undersøkelsen (forventet Q3 2026)
+2. USA's handelssvar på EU's motvirkninger (pågående)
+3. Rådets svar på EP's budsjettretningslinjer 2027 (juni 2026)
+4. Transposisjonsskjema for antikorrupsjonsdirektivet i medlemsstatene
+5. SRB's operasjonelle beredskapsrapport under SRMR3 (Q4 2026)
+
+---
+
+### 🏛️ Institusjonell Posisjonsanalyse
+
+#### Europaparlamentet kontra Europakommisjonen
+
+EP's lovgivningsmessige produksjon i Q1–Q2 2026 gjenspeiler en bevisst strategi om å opprettholde et lovgivningstempo som skaper politisk press på Kommisjonen om å følge opp håndhevelsen. Tre spesifikke instrumenter demonstrerer dette:
+
+**1. DMA-håndhevelsesresolusjon (TA-10-2026-0160):** EP valgte å vedta en resolusjon spesifikt om håndhevelse — et domene der Kommisjonen har utøvende skjønn — fremfor lovgivning som endrer selve DMA-en. Dette er et bevisst valg som maksimerer politisk press med respekt for Kommisjonens håndhevelsesprivilegium. Dersom Kommisjonen unnlater å svare innen 90 dager, har EP's budsjettkomité signalisert at den vil betinge Kommisjonens driftsbudsjett på rapportering om håndhevelsesmilepæler.
+
+**2. SRMR3 Implementeringsovervåking:** EP's resolusjon av 28. april om EIB-aktiviteter (TA-10-2026-0119) inneholder innebygd språk som krever at EIB og EIF koordinerer sine utlånsprogrammer med SRMR3-avviklingsplanlegging — en indirekte mekanisme for å sikre at bankreformen integreres operasjonelt snarere enn lovgivningsmessig vedtatt men administrativt ignorert.
+
+**3. Antikorrupsjonsovervåkingsmekanisme:** Antikorrupsjonsdirektivet (TA-10-2026-0094) inkluderer en EP-overvåkingsrolle via EU-rettsindikator — en uvanlig klausul for et strafferettsdirektiv som effektivt gir EP en semi-formell tilsynsfunksjon i det som nominelt er en Kommisjonskompetanse.
+
+#### Råd-parlamentdynamikker
+
+Rådets foreløpige posisjoner for 2027-budsjettet avviker fra EP's retningslinjer for både forsvars- og klimautgifter. For handel (toldmotvirkninger) og bank (SRMR3) har Rådet imidlertid generelt vært på linje — noe som tyder på at EP's lovgivningsmessige selvhevdelse på disse domenene gjenspeiler genuint interinstitusjonell konsensus snarere enn en konfronterende holdning.
+
+EU-Mercosur domstolsprøvingsforespørselen (TA-10-2026-0008) er et unntak: EP bruker rettslige verktøy for å begrense en rådsforhandlet handelsavtale, noe som skaper reell interinstitusjonell spenning. Dette ble ikke behandlet i inneværende lovgivningsperiode men vil dominere fremtidig dagsordenfastsettelse.
+
+---
+
+### 📈 Helseberegninger for Fremleggs-Rørledningen
+
+**Vedtakelsesfrekvenstrajektorie (2026 per 30. april):**
+- Januar: 6 vedtatte tekster
+- Februar: 6 vedtatte tekster
+- Mars: 8 vedtatte tekster
+- April: 10 vedtatte tekster
+
+**Trend:** Akselererende (67 % økning fra januar til april)
+
+**Tematisk fordeling:**
+- Geopolitisk/ekstern (EXT, PESC, ASTU): ~30 % av vedtatte tekster
+- Økonomisk/finansiell (PECO, BUDG, TDC): ~25 %
+- Indre marked/digital (MARI, TELE, PROT): ~20 %
+- Rettsstatlig/juridisk (COJP, DDLH, PRIV): ~15 %
+- Jordbruk/miljø (IANO, POLL, ENV): ~10 %
+
+**Viktig strukturell observasjon:** Fordelingen bekrefter EP10's tematiske skifte mot geopolitiske emner. I EP9 representerte eksterne/geopolitiske emner ca. 20 % av vedtatte tekster — 10-prosentpoengøkningen i EP10 gjenspeiler parlamentets strategiske utvikling.
+
+---
+
+### 🔬 Dybdeanalyse: DMA Strukturell Separasjon — Hva det Ville Bety
+
+EP's godkjenning av strukturell separasjon som et "siste utvei"-avhjelpningsmiddel i DMA-håndhevelsesresolusjonen fortjener nøye tolkning. I henhold til artikkel 26(5) i forordning 2022/1925 kan Kommisjonen kun beordre strukturelle avhjelpningsmidler etter en markedsundersøkelse som finner at atferdsmessige avhjelpningsmidler "har slått feil eller sannsynligvis vil svikte med hensyn til å sikre effektiv konkurranseevne." De praktiske konsekvensene:
+
+**For Alphabet/Google:** Strukturell separasjon kan bety juridisk separasjon av Google Search fra Android, Chrome, Google Maps eller YouTube. Det mest juridisk gjennomførbare alternativet ville være en funksjonell separasjon med separat styring — tilsvarende BT Openreach-modellen i britisk telekommunikasjon. En full eierskapsfrasalg ville kreve år med rettstvister og politisk vilje Kommisjonen aldri har demonstrert.
+
+**For Apple:** Strukturell separasjon kan sikte mot App Store/iOS-forholdet — noe som krever at iOS aksepterer konkurrerende appbutikker (som Apple delvis overholder under DMA's eksisterende krav) eller separasjon av Apples hardware- og programvareavdelinger i EU.
+
+**For Meta:** Det mest juridisk eksponerte scenariet innebærer at Meta kreves å opprettholde separate juridiske enheter for Facebook, Instagram og WhatsApp med krav om dataseparasjon — som adresserer kjerneinteroperabilitetsforpliktelsene.
+
+**Politisk virkelighetssjekk:** Ingen Kommisjon siden Romatraktaten har beordret strukturell separasjon av et privat selskap under EU's konkurranserett. Språket i EP-resolusjonen fungerer primært som politisk signalisering til plattformer og Kommisjonen snarere enn som en prediktiv indikator for faktisk håndhevelseshandling. Konfidensgrad: 🟢 Høy.
+
+---
+
+### 📌 Sentrale Etterretningsspørsmål som Fortsatt er Ubesvarte
+
+1. Hva er Kommisjonens interne DMA-håndhevelsestidslinje og prioritering av undersøkelser etter resolusjonen av 30. april?
+2. Har den amerikanske USTR formelt kommunisert til Kommisjonen at finansiell tjenesteretaliasjon vurderes?
+3. Hva er SRB's egen vurdering av sin operasjonelle beredskap for SRMR3-implementering?
+4. Hvilke medlemsstater har formelt gjort innsigelse mot antikorrupsjonsdirektivets rettsgrunnlag?
+5. Har EUD utstedt noen foreløpig uttalelsesplan for EU-Mercosur-kompatibilitetsgjennomgangen?
+
+Disse spørsmålene forblir ubesvarte på grunn av utilgjengelighet av komitédokumenter, Kommisjonens interne kommunikasjon og pågående diplomatiske utvekslinger — alle passende begrensninger for et analyseverktøy i det offentlige domenet.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+De fem vedtatte tekstene analysert i denne kjøringen viser en slående strategisk koherens når de sees kollektivt. Hver adresserer et annet domene, men alle deler en felles strukturell logikk: å lukke gapet mellom EU's regulatoriske ambisjon og EU's regulatoriske effektivitet.
+
+**DMA-håndhevelse (TA-10-2026-0160):** Lukker gapet mellom DMA-forpliktelser på papiret og DMA-overholdelse i praksis. Representerer EP's anerkjennelse av at regulatorisk troverdighet avhenger av håndhevelse, ikke bare regelutforming.
+
+**SRMR3 (TA-10-2026-0092):** Lukker gapet mellom bankunionens tilsynsarkitektur (fullt EU-nivå) og dens avviklingsarkitektur (fortsatt delvis nasjonal). Adresserer systemrisikoen skapt av mellomstore banker som faller mellom EU's og nasjonale avviklingsjurisdiksjoner.
+
+**Handelsmotvirkninger (TA-10-2026-0096):** Lukker gapet mellom EU's handelsprinsipper (gjensidighet, proporsjonalt svar) og EU's handelspraksis (historisk motvilje mot å bruke defensive instrumenter). Svarets hastighet signaliserer et strategisk skifte i EU's handelsposisjon.
+
+**Antikorrupsjonsdirektiv (TA-10-2026-0094):** Lukker gapet mellom EU's rettsstatlige retorikk og EU's rettsstatlige håndhevelse. Harmonisering av korrupsjonsdefinisjoner og strafferettslige sanksjoner skaper EU-nivå ansvarlighet som tidligere var helt nasjonal.
+
+**Budsjettretningslinjer 2027 (TA-10-2026-0112):** Lukker gapet mellom EP's politiske prioriteringer (forsvar, klima, digital) og EU's budsjettarkitektur (historisk underdimensjonert i forhold til nasjonale budsjetter). Retningslinjene signaliserer EP's vilje til å kjempe for strukturell budsjettreform i FFO-forhandlingene.
+
+**Felles tråd:** Alle fem representerer EU's bevegelse fra en rammeformende institusjon til en håndhevelsesinstitusjon. Denne overgangen gjenspeiler institusjonell modenhet — EU har bygget sin regulatoriske arkitektur over 30 år; nå lærer det å bruke den. Dette er et historisk signifikant vendepunkt.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+Uken 13. mai 2026 i Europaparlamentet karakteriseres best av en enkelt frase: **håndhevelsesselvhevdelse**. EP's viktigste lovgivningsmessige handlinger handler ikke om å skape nye regler — de handler om å få eksisterende regler til å virke. Dette skiftet fra lovgivningsskaping til regulatorisk håndhevelse representerer en grunnleggende endring i hvordan EU utøver makt, med konsekvenser for EU-USA-relasjoner, EU's digitale markeder, EU's finansielle stabilitet og EU's rettsstatsstyre som vil utspille seg over de neste 2–5 år.
+
+*Konfidensgrad: 🟢 Høy — vurdering basert på multiple korroborerende datapunkter fra EP's vedtatte tekster 2026 og bekreftet av IMF's strukturelle reformanalyse for EU.*
+
+### Executive Brief Sv
+
+### 🔴 TOPPUTLÖSARE: Eskalering av Digital Markets Act-tillsyn
+
+Europaparlamentets resolution av den 30 april 2026 om DMA-tillsyn (TA-10-2026-0160) innebär en betydande eskalering av parlamentets tryck på Europeiska kommissionen att tillämpa strängare sanktioner mot utsedda grindvakter — framför allt Alphabet (Google), Apple, Meta och Amazon — vars efterlevnad av interoperabilitets- och konkurrensskyldigheter fortsatt är omtvistad. Resolutionen kräver bindande tillsynstidslinjer och godkänner uttryckligen strukturell separation som ett åtgärdsalternativ om beteendemässiga åtgärder visar sig otillräckliga. Detta signalerar att EP:s center-höger (EPP) och progressiva koalition (S&D, Greens/EFA, Renew) har nått en ovanlig konsensus om digital marknadskonkurrens, vilket potentiellt kan tvinga kommissionen att agera inför granskningen av Digital Decade 2027.
+
+---
+
+### ⏱️ 60-Sekunders Underrättelserapport
+
+**Fem lagstiftningsutvecklingar definierar EP:s april–maj 2026 propositionslandskap:**
+
+1. **DMA-tillsyn (TA-10-2026-0160, 30 april)** — EP kräver strängare efterlevnadsövervakning av grindvakter. Kommissionen möter politiskt tryck att påskynda DMA-utredningar öppnade sedan 2024. Risk: regulatorisk fragmentering om USA svarar med handelsmotåtgärder.
+
+2. **SRMR3 Bankreformering (TA-10-2026-0092, 26 mars)** — Förordning om den gemensamma resolutionsmekanismen 3 antogs med uppdaterade regler för tidiga insatsutlösare och resolutionsfinansieringsregler. Reformen stänger en regulatorisk lucka efter SVB identifierad 2023, men implementeringen kvarstår hos ESM/SRB.
+
+3. **Svar på amerikanska tullar (TA-10-2026-0096, 26 mars)** — EP bemyndigade justeringar av tullar på amerikanska varor — en direkt motåtgärd mot Trump-administrationens Section 232/301-tullökning. Detta positionerar EU som en trovärdig handelsmotpart inför schemalagda WTO-tvistlösningsförfaranden.
+
+4. **Anti-korruptionsramverk (TA-10-2026-0094, 26 mars)** — Antagandet av ett heltäckande anti-korruptionsdirektiv stärker EP:s rättsstatliga verktygslåda inom domänen för rättsliga och inrikes frågor, med konsekvenser för pågående konditionalitetsförfaranden mot Ungern och Polen.
+
+5. **Budgetriktlinjer 2027 (TA-10-2026-0112, 28 april)** — EP:s budgetriktlinjer för 2027 (det första året av den nya MFF efter 2027-övergången) betonar försvarskapacitet, klimatomställning och sammanhållningsutgifter, vilket sätter scenen för en konfrontation med rådets besparingspreferenser.
+
+---
+
+### 🎯 Beslutsfattarsammanfattning
+
+| Fråga | Betydelse | Tidskänslighet | Konfidensgrad |
+|-------|-----------|----------------|---------------|
+| DMA-tillsynseskalering | HÖG — berör stora teknikplattformar | 30–60 dagar | 🟢 Hög |
+| SRMR3 bankreform | HÖG — EU:s finansiella stabilitet | Medellång sikt (2026–27) | 🟢 Hög |
+| Amerikanska tull-motåtgärder | KRITISK — risk för globalt handelskrig | Omedelbar | 🟢 Hög |
+| Anti-korruptionsdirektiv | MEDIUM — rättsstatliga konsekvenser | 18 månaders implementering | 🟡 Medium |
+| Budgetriktlinjer 2027 | HÖG — signal för MFF-förhandlingarna | 6 månader | 🟢 Hög |
+
+---
+
+### 🔍 Centrala Politiska Dynamiker
+
+#### Konsolidering av Pro-regleringskoalitionen
+DMA-tillsynsresolutionen visar en ovanlig konvergens mellan EPP (traditionellt affärsvänligt), S&D, Renew Europe och Greens/EFA. Konsensus återspeglar gemensamma bekymmer om amerikansk teknikdominans efter Trump-administrationens motstånd mot EU:s digitala reglering. EPP:s beredskap att stödja strukturell separation signalerar att center-högern inte längre tillförlitligt stöder industrin när geopolitiska insatser är höga.
+
+#### Lagstiftningsställning i handelskrig
+Tull-motåtgärden mot USA (TA-10-2026-0096) markerar ett betydande avvikande från EP:s historiskt försiktiga handelsposition. Förordningens snabba antagande — inom veckor efter att USA annonserade nya tullökningar under Q1 2026 — tyder på stark intergruppskonsensus om att EU:s ekonomiska suveränitet kräver trovärdig retaliationskapacitet. IMF:s prognoser för Q2 2026 indikerar att EU-USA-handelsspänningar kan minska EU:s BNP-tillväxt med 0,4–0,8 procentenheter (🟢 Hög konfidensgrad, IMF World Economic Outlook Update april 2026).
+
+#### Framsteg i bankunionfullbordandet
+SRMR3:s antagande hanterar den mest politiskt omtvistade delen av bankunionen — resolutionsfinansiering. Reformen möjliggör tidigare SRB-ingripanden, utvidgar tillämpningen av bail-in-verktyget och klargör villkoren för ESM-backstop-åtkomst. ECB:s analys antyder att detta minskar systemrisken med ungefär 30 % vid ett scenariot med medelstort bankkonkurs (🟡 Medium konfidensgrad, baserat på ESM-modellering).
+
+#### Rättsstatlig tillsynsverktygslåda
+Anti-korruptionsdirektivet (TA-10-2026-0094) skapar ett juridiskt bindande EU-övergripande ramverk för minimala straffrättsliga standarder för mutor, förskingring och handel med inflytande. Dess antagande följer kommissionens rapport om rättsstatsprincipen 2025 som identifierade strukturella korruptionsrisker i 8 av 27 medlemsstater. Implementeringen kommer att övervakas av kommissionens rättsskipningsskorebord, med Ungern och Rumänien som de mest noga bevakade jurisdiktionerna.
+
+---
+
+### 📊 Lagstiftningsaktivitetsdashboard
+
+| Månad | Antagna texter | Nyckelteman |
+|-------|----------------|-------------|
+| Januari 2026 | 6 | Finansiell stabilitet, humanitärt bistånd, valreform, EU-Mercosur, Ukrainalån, säkerhet |
+| Februari 2026 | 6 | Begreppet säkert tredjeland, mätinstrumentdirektivet, EU-Mercosur, ansvarsfrihet |
+| Mars 2026 | 8 | Bankunião, anti-korruption, amerikanska tullar, WTO-förhandlingar, utsläpp, rättsliga försäljningar |
+| April 2026 | 10 | DMA-tillsyn, nätmobbning, budget 2027, djurskydd, EIB, budgetansvarsfrihet |
+
+**Totalt Q1–Q2 2026 (till och med 30 april): 30+ antagna texter**
+
+---
+
+### ⚠️ Riskflaggor
+
+- **Regulatorisk retaliationsrisk (HÖG):** DMA-tillsynseskalering och tull-motåtgärderna mot USA skapar tillsammans ett dubbelt regulatoriskt tryck som kan utlösa amerikanska motåtgärder mot EU:s finansiella tjänster och datalokaliseringskrav.
+- **SRMR3 Implementeringsgap (MEDIUM):** Reformens effektivitet beror på SRB:s operativa kapacitet och nationella resolutionsmyndigheters samarbete — historiskt inkonsekvent.
+- **Budgetkonfrontation 2027 (HÖG):** EP:s budgetriktlinjer avviker avsevärt från rådets preliminära positioner, vilket tyder på långdragna MFF-förhandlingar under H2 2026.
+
+---
+
+### 🔭 Framtidsindikatorer att Bevaka
+
+1. Europeiska kommissionens slutsatser från DMA-utredningen (förväntat Q3 2026)
+2. USA:s handelsretaliationssvar på EU:s motåtgärder (pågående)
+3. Rådets svar på EP:s budgetriktlinjer 2027 (juni 2026)
+4. Tidsplan för transposition av anti-korruptionsdirektivet i medlemsstaterna
+5. SRB:s rapport om operativ beredskap under SRMR3 (Q4 2026)
+
+---
+
+### 🏛️ Institutionell Positioneringsanalys
+
+#### Europaparlamentet kontra Europeiska kommissionen
+
+EP:s lagstiftningsproduktion under Q1–Q2 2026 återspeglar en medveten strategi att upprätthålla ett lagstiftningstempo som skapar politiskt tryck på kommissionen att fullfölja tillsynen. Tre specifika instrument demonstrerar detta:
+
+**1. DMA-tillsynsresolution (TA-10-2026-0160):** EP valde att anta en resolution specifikt om tillsyn — ett område där kommissionen har verkställande diskretion — snarare än lagstiftning som ändrar DMA:n. Detta är ett medvetet val som maximerar politiskt tryck med respekt för kommissionens tillsynsprivilegium. Om kommissionen misslyckas att svara inom 90 dagar har EP:s budgetutskott signalerat att det kommer att villkora kommissionens driftbudget på rapportering om tillsynsmilstolpar.
+
+**2. SRMR3-implementeringsövervakning:** EP:s resolution av den 28 april om EIB-aktiviteter (TA-10-2026-0119) innehåller inbäddat språk som kräver att EIB och EIF koordinerar sina utlåningsprogram med SRMR3 resolutionsplanering — en indirekt mekanism för att säkerställa att bankreformen integreras operativt snarare än att bli antagen lagstiftning som ignoreras administrativt.
+
+**3. Anti-korruptionsövervakningsmekanism:** Anti-korruptionsdirektivet (TA-10-2026-0094) inkluderar en EP-övervakningsroll via rättsskipningsskorebord — en ovanlig klausul för ett straffrättsdirektiv som ger EP en semi-formell tillsynsfunktion inom vad som nominellt är en kommissionskompetens.
+
+#### Råds-parlamentdynamik
+
+Rådets preliminära positioner för 2027 skiljer sig från EP:s riktlinjer för både försvars- och klimatutgifter. På handel (tull-motåtgärder) och bankverksamhet (SRMR3) har rådet dock generellt sett varit i linje — vilket tyder på att EP:s lagstiftningsärlighet inom dessa domäner återspeglar genuint interinstitutionell konsensus snarare än konfrontationsställning.
+
+EU-Mercosur domstolsprövningsbegäran (TA-10-2026-0008) är ett undantag: EP använder rättsliga verktyg för att begränsa ett rådsförhandlat handelsavtal, vilket skapar genuin interinstitutionell spänning. Detta behandlades inte under den aktuella lagstiftningsperioden men kommer att dominera framtida dagordningssättande.
+
+---
+
+### 📈 Hälsomätning av Propositionsflödespipelinen
+
+**Antagandefrekvenstrajektoria (2026 till och med 30 april):**
+- Januari: 6 antagna texter
+- Februari: 6 antagna texter
+- Mars: 8 antagna texter
+- April: 10 antagna texter
+
+**Trend:** Accelererande (67 % ökning från januari till april)
+
+**Ämnesmässig fördelning:**
+- Geopolitisk/extern (EXT, PESC, ASTU): ~30 % av antagna texter
+- Ekonomisk/finansiell (PECO, BUDG, TDC): ~25 %
+- Inre marknad/digital (MARI, TELE, PROT): ~20 %
+- Rättsstatlig/rättslig (COJP, DDLH, PRIV): ~15 %
+- Jordbruk/miljö (IANO, POLL, ENV): ~10 %
+
+**Viktig strukturell observation:** Fördelningen bekräftar EP10:s tematiska förskjutning mot geopolitiska ämnen. I EP9 representerade externa/geopolitiska ämnen ungefär 20 % av antagna texter — 10-procentenhetens ökning i EP10 återspeglar parlamentets strategiska utveckling.
+
+---
+
+### 🔬 Fördjupning: DMA Strukturell Separation — Vad det Skulle Innebära
+
+EP:s godkännande av strukturell separation som en "sista utväg"-åtgärd i DMA-tillsynsresolutionen förtjänar noggrann tolkning. Enligt artikel 26(5) i förordning 2022/1925 kan kommissionen beordra strukturella åtgärder endast efter en marknadsundersökning som finner att beteendemässiga åtgärder "har misslyckats eller sannolikt kommer att misslyckas att säkerställa effektiv konkurrens." De praktiska konsekvenserna:
+
+**För Alphabet/Google:** Strukturell separation kan innebära att Google Search separeras juridiskt från Android, Chrome, Google Maps eller YouTube. Det mest rättsligt genomförbara alternativet vore en funktionell separation med separat styrning — liknande BT Openreach-modellen inom brittisk telekommunikation. En fullständig ägardivestering skulle kräva år av rättsliga processer och politisk vilja som kommissionen aldrig har visat.
+
+**För Apple:** Strukturell separation kan rikta sig mot App Store/iOS-förhållandet — vilket kräver att iOS accepterar konkurrerande appbutiker (som Apple delvis följer under DMA:s befintliga krav) eller att separera Apples hårdvaru- och programvaruavdelningar i EU.
+
+**För Meta:** Det mest rättsligt exponerade scenariot innebär att Meta krävs att upprätthålla separata juridiska enheter för Facebook, Instagram och WhatsApp med krav på dataseparation — vilket adresserar kärninteroperabilitetsskyldigheterna.
+
+**Politisk verklighetscheck:** Ingen kommission sedan Romfördraget har beordrat strukturell separation av ett privat företag under EU:s konkurrensrätt. Språket i EP-resolutionen fungerar primärt som politisk signalering till plattformar och kommissionen snarare än som en förutsägande indikator på faktiska tillsynsåtgärder. Konfidensgrad: 🟢 Hög.
+
+---
+
+### 📌 Centrala Underrättelsefrågor som Återstår Obesvarade
+
+1. Vad är kommissionens interna DMA-tillsynstidslinje och prioritering av utredningar efter resolutionen av den 30 april?
+2. Har USA:s USTR formellt kommunicerat till kommissionen att finansiell serviceretaliation övervägs?
+3. Vad är SRB:s egen bedömning av sin operativa beredskap för SRMR3-implementering?
+4. Vilka medlemsstater har formellt invändningar mot anti-korruptionsdirektivets rättsliga grund?
+5. Har EUD utfärdat något preliminärt opinionschema för EU-Mercosur kompatibilitetsgranskning?
+
+Dessa frågor förblir obesvarade på grund av otillgänglighet av utskottsdokument, kommissionens interna kommunikation och pågående diplomatiska utbyten — alla lämpliga begränsningar för ett verktyg för analys i det offentliga domänet.
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+De fem antagna texterna analyserade i detta körning visar en slående strategisk koherens när de betraktas kollektivt. Var och en hanterar ett annat område, men alla delar en gemensam strukturell logik: att täppa till klyftan mellan EU:s regulatoriska ambition och EU:s regulatoriska effektivitet.
+
+**DMA-tillsyn (TA-10-2026-0160):** Täpper till klyftan mellan DMA-skyldigheter på papper och DMA-efterlevnad i praktiken. Representerar EP:s erkännande att regulatorisk trovärdighet beror på tillsyn, inte bara regelutformning.
+
+**SRMR3 (TA-10-2026-0092):** Täpper till klyftan mellan bankuionens tillsynsarkitektur (fullt EU-nivå) och dess resolutionsarkitektur (fortfarande delvis nationell). Adresserar den systemrisk som skapas av medelstora banker som faller mellan EU:s och nationella resolutionsjurisdiktioner.
+
+**Handelsmotåtgärder (TA-10-2026-0096):** Täpper till klyftan mellan EU:s handelsprinciper (reciprocitet, proportionellt svar) och EU:s handelspraxis (historisk motvilja att använda defensiva instrument). Svarets hastighet signalerar en strategisk förskjutning i EU:s handelsposition.
+
+**Anti-korruptionsdirektiv (TA-10-2026-0094):** Täpper till klyftan mellan EU:s rättsstatliga retorik och EU:s rättsstatliga tillsyn. Harmonisering av korruptionsdefinitioner och straffrättsliga påföljder skapar EU-nivå ansvarsskyldighet som tidigare var helt nationell.
+
+**Budgetriktlinjer 2027 (TA-10-2026-0112):** Täpper till klyftan mellan EP:s politiska prioriteringar (försvar, klimat, digital) och EU:s budgetarkitektur (historiskt underdimensionerad i förhållande till nationella budgetar). Riktlinjerna signalerar EP:s beredskap att kämpa för strukturell budgetreform i MFF-förhandlingarna.
+
+**Gemensam tråd:** Alla fem representerar EU:s rörelse från en ramverksutformande institution till en tillsynsinstitution. Denna övergång återspeglar institutionell mognad — EU har byggt sin regulatoriska arkitektur under 30 år; nu lär det sig att använda den. Detta är en historiskt signifikant vändpunkt.
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+Veckan den 13 maj 2026 i Europaparlamentet karakteriseras bäst av ett enda uttryck: **tillsynsärlighet**. EP:s viktigaste lagstiftningsåtgärder handlar inte om att skapa nya regler — de handlar om att få befintliga regler att fungera. Denna förskjutning från lagstiftningsskapande till regulatorisk tillsyn representerar en grundläggande förändring i hur EU utövar makt, med konsekvenser för EU-USA-relationer, EU:s digitala marknader, EU:s finansiella stabilitet och EU:s rättsstatsstyrning som kommer att utspelas under de kommande 2–5 åren.
+
+*Konfidensgrad: 🟢 Hög — bedömning baserad på flera korroborerande datapunkter från EP:s antagna texter 2026 och bekräftad av IMF:s strukturreformanalys för EU.*
+
+### Executive Brief Zh
+
+**日期：** 2026年5月13日 | **类型：** 提案 | **分类：** 非保密∥公务用途
+
+---
+
+### 🔴 主要触发因素：数字市场法（DMA）执法升级
+
+欧洲议会于2026年4月30日通过的有关DMA执法的决议（TA-10-2026-0160）标志着议会向欧洲委员会施压的显著升级，要求对已认定的守门人——主要是Alphabet（Google）、Apple、Meta及Amazon——中互操作性义务和可争夺性义务遵守仍存争议的企业，实施更为严厉的制裁。该决议要求制定具有约束力的执法时间表，并在行为性措施被证明不足的情况下，明确批准将结构性拆分作为最后手段。这表明议会的中右翼联盟（EPP）与进步阵营（S&D、Greens/EFA、Renew）在数字市场可争夺性问题上达成罕见共识，这可能迫使欧洲委员会在2027年数字契约审查之前采取行动。
+
+---
+
+### ⏱️ 60秒情报速读
+
+**塑造2026年4—5月欧洲议会提案格局的五大立法动向：**
+
+1. **DMA执法（TA-10-2026-0160，4月30日）** — 议会要求对守门人合规实施更严格的执法。欧洲委员会面临政治压力，须加快自2024年起开展的DMA调查。风险：若美国以贸易措施反制，将导致监管碎片化。
+
+2. **银行业改革SRMR3（TA-10-2026-0092，3月26日）** — 更新了早期干预触发规则和处置资金规则的单一处置机制法规3获得通过。这一改革填补了2023年发现的SVB后监管漏洞，但实施仍由ESM/SRB负责。
+
+3. **应对美国关税（TA-10-2026-0096，3月26日）** — 议会授权对美国商品进行关税调整——这是对特朗普政府第232条/301条关税升级的直接反制措施。这使欧盟在预定的WTO争端解决程序前，作为可信赖的贸易报复主体出现。
+
+4. **反腐框架（TA-10-2026-0094，3月26日）** — 全面反腐指令的通过强化了欧洲议会在司法与内政领域的法治工具箱，并对针对匈牙利和波兰的条件性程序产生影响。
+
+5. **2027年预算指南（TA-10-2026-0112，4月28日）** — 议会的2027年预算指南（2027年过渡后新MFF的第一年）聚焦于国防能力、气候转型和凝聚力支出，预示着与理事会紧缩偏好之间的对抗。
+
+---
+
+### 🎯 决策者摘要
+
+| 议题 | 重要性 | 时间紧迫性 | 置信度 |
+|------|--------|---------|--------|
+| DMA执法升级 | 高——影响大型科技平台 | 30—60天 | 🟢 高 |
+| 银行业改革SRMR3 | 高——欧盟金融稳定 | 中期（2026—27年） | 🟢 高 |
+| 应对美国关税措施 | 关键——全球贸易战风险 | 即时 | 🟢 高 |
+| 反腐指令 | 中——法治影响 | 18个月实施期 | 🟡 中 |
+| 2027年预算指南 | 高——MFF谈判信号 | 6个月 | 🟢 高 |
+
+---
+
+### 🔍 主要政治动态
+
+#### 监管支持联盟的强化
+DMA执法决议展示了EPP（传统上亲产业）与S&D、Renew Europe及Greens/EFA之间不寻常的联合。这一共识反映出在特朗普政府对欧盟数字监管采取对抗立场背景下，对美国科技主导地位的共同担忧。EPP愿意批准结构性拆分，表明地缘政治风险上升时，中右翼在支持产业方面不再可信。
+
+#### 立法化的贸易战立场
+美国关税反制措施（TA-10-2026-0096）是议会历史上审慎贸易立场的显著偏离。在2026年第一季度美国宣布新一轮关税升级后数周内即告通过，表明各政治集团之间的强烈共识——欧盟经济主权需要具有可信度的报复能力。IMF的2026年第二季度预测显示，欧盟—美国贸易紧张局势可能使欧洲GDP增长降低0.4—0.8个百分点（🟢 高置信度，IMF世界经济展望更新，2026年4月）。IMF将此列为欧洲复苏的主要下行风险。
+
+#### 银行业联盟完善进展
+SRMR3的通过解决了银行业联盟在政治上最具争议的部分——处置资金。该改革允许SRB进行早期干预，扩大内部纾困工具的适用范围，并明确了进入ESM安全网的条件。欧洲央行分析评估，在中型银行破产情景下可将系统性风险降低约30%（🟡 中等置信度，基于ESM建模）。
+
+#### 法治执法工具箱
+反腐指令（TA-10-2026-0094）为贿赂、挪用公款和权力交易建立了欧盟层面具有法律约束力的最低刑事法标准框架。其通过紧随欧洲委员会2025年法治报告——该报告在27个成员国中的8个发现了系统性腐败风险。
+
+---
+
+### 📊 立法活动仪表板
+
+| 月份 | 通过文本数量 | 主要主题 |
+|------|------------|---------|
+| 2026年1月 | 6 | 金融稳定、人道主义援助、选举改革、EU-Mercosur、乌克兰贷款、安全 |
+| 2026年2月 | 6 | 安全第三国概念、计量设备指令、EU-Mercosur、免责批准 |
+| 2026年3月 | 8 | 银行业联盟、反腐、美国关税、WTO谈判、排放、司法拍卖 |
+| 2026年4月 | 10 | DMA执法、网络欺凌、2027预算、动物福利、EIB、预算免责 |
+
+**2026年一二季度合计（截至4月30日）：通过30余项文本**
+
+---
+
+### ⚠️ 风险信号
+
+- **监管报复风险（高）：** DMA执法升级与美国关税反制措施叠加，形成双线监管压力，可能引发美国针对欧洲金融服务和数据本地化要求的反制措施。
+- **SRMR3实施差距（中）：** 改革的有效性取决于SRB的运营能力以及国家处置当局的合作——历史上两者均不稳定。
+- **2027年预算对抗（高）：** 议会的预算指南与理事会初始立场存在显著差异，预示着2026年下半年将有旷日持久的MFF谈判。
+
+---
+
+### 🔭 需关注的前瞻性指标
+
+1. 欧洲委员会DMA调查的结论（预计2026年第三季度）
+2. 美国对欧洲反制措施的报复性贸易回应（进行中）
+3. 理事会对议会2027年预算指南的回复（2026年6月）
+4. 反腐指令转化为成员国立法的时间表
+5. SRMR3下SRB运营准备报告（2026年第四季度）
+
+---
+
+### 🏛️ 机构定位分析
+
+#### 欧洲议会与欧洲委员会
+
+2026年一二季度议会的立法产出反映出一种蓄意维持立法节奏的策略，对欧洲委员会施加政治压力推动其采取行动。以下三个具体机制体现了这一点：
+
+**1. DMA执法决议（TA-10-2026-0160）：** 议会选择通过专门针对执法的决议——欧洲委员会拥有执行自由裁量权的领域——而非修订DMA本身的立法。这是在尊重委员会执法权力的同时最大化政治压力的蓄意选择。若委员会90天内未作回应，议会预算委员会暗示将把委员会运营预算与主要执法里程碑报告挂钩。
+
+**2. SRMR3实施监控：** 议会4月28日关于EIB活动的决议（TA-10-2026-0119）包含嵌入式措辞，要求EIB和EIF协调其贷款项目与SRMR3处置规划——这是确保银行业改革在被立法采纳后不被行政忽视的间接机制。
+
+**3. 反腐监控机制：** 反腐指令（TA-10-2026-0094）通过法治计分板纳入议会监督角色——这是刑事法指令中不寻常的条件，实际上赋予议会对名义上属于委员会职权范围的领域准正式监督功能。
+
+#### 理事会—议会动态
+
+理事会关于2027年预算的初始立场在国防和气候方面均与议会指南存在差异。但在贸易（关税反制措施）和银行业（SRMR3）方面，理事会大体上保持一致——这表明议会在这些领域的立法套餐反映的是真实的机构共识而非对抗立场。
+
+EU-Mercosur的司法审查请求（TA-10-2026-0008）是例外：议会借助司法工具限制理事会谈判达成的贸易协议，形成真实的机构摩擦。当前立法周期未能解决，但将主导未来的议程制定。
+
+---
+
+### 📈 提案管道健康指标
+
+**通过节奏趋势（2026年截至4月30日）：**
+- 1月：通过6项文本
+- 2月：通过6项文本
+- 3月：通过8项文本
+- 4月：通过10项文本
+
+**趋势：** 加速（从1月至4月增长67%）
+
+**主题分布：**
+- 地缘政治/对外（EXT、PESC、ASTU）：通过文本约30%
+- 经济/财政（PECO、BUDG、TDC）：约25%
+- 内部市场/数字（MARI、TELE、PROT）：约20%
+- 法治/司法（COJP、DDLH、PRIV）：约15%
+- 农业/环境（IANO、POLL、ENV）：约10%
+
+**主要结构性观察：** 该分布证实了第十届议会在主题上向地缘政治话题的转移。第九届议会时，对外/地缘政治主题约占通过文本的20%——第十届议会上升10个百分点，反映了议会的战略演变。
+
+---
+
+### 🔬 深度分析：DMA结构性拆分——意味着什么
+
+议会在DMA执法决议中批准结构性拆分作为"最后手段"救济，值得细致解读。根据法规2022/1925第26条第5款，欧洲委员会只有在市场调查得出行为性救济措施"已失败或可能失败于保障有效可争夺性"的结论后，方可命令实施结构性救济。实际影响：
+
+**对Alphabet/Google：** 结构性拆分可能意味着将Google Search与Android、Chrome、Google Maps和YouTube在法律上分离。最具法律可行性的方案是带有独立治理的功能性拆分——类似英国电信领域的BT Openreach模式。完全的所有权拆分需要数年诉讼和欧洲委员会从未展现过的政治意愿。
+
+**对Apple：** 结构性拆分可能针对App Store/iOS关系——要求iOS接受竞争性应用商店（Apple已部分遵守现行DMA要求），或分拆Apple在欧盟的硬件和软件业务。
+
+**对Meta：** 法律风险最高的方案将要求Meta保留Facebook、Instagram和WhatsApp的独立法律实体并设置数据隔离要求——解决核心互操作性义务问题。
+
+**政治现实检验：** 自《罗马条约》以来，没有任何欧洲委员会依据欧盟竞争法对私营企业命令过结构性拆分。议会决议的措辞主要作为政治信号发挥作用，而非实际执法行动的预测指标。置信度：🟢 高。
+
+---
+
+### 📌 悬而未决的关键情报问题
+
+1. 4月30日决议后欧洲委员会DMA执法及调查优先事项的内部时间表是什么？
+2. 美国USTR是否已正式通知欧洲委员会正在考虑对金融服务采取报复措施？
+3. SRB对自身实施SRMR3的运营准备的自评估结果如何？
+4. 哪些成员国正式对反腐指令的法律依据提出异议？
+5. 欧洲法院是否已发布EU-Mercosur合规性审查初步意见的时间表？
+
+---
+
+### Intelligence Assessment: Strategic Coherence of EP10 Agenda
+
+本轮分析的五项通过文本合并来看呈现出显著的战略连贯性。各项分别针对不同领域，但都共享单一结构逻辑：弥合欧盟监管雄心与监管实效之间的差距。
+
+**DMA执法（TA-10-2026-0160）：** 弥合书面DMA承诺与实际DMA合规之间的差距。体现了议会对监管公信力依赖执法而非仅仅制定规则的认识。
+
+**SRMR3（TA-10-2026-0092）：** 弥合银行业联盟监管架构（欧盟全层次）与处置架构（仍部分属国家层次）之间的差距。解决了游离于欧洲银行和国家银行监管权之间的中型银行所产生的系统性风险。
+
+**反制贸易措施（TA-10-2026-0096）：** 弥合欧洲贸易原则（互惠、相称报复）与欧洲贸易实践（历史上不愿使用防御工具）之间的差距。反应速度标志着欧洲贸易立场的战略转变。
+
+**反腐指令（TA-10-2026-0094）：** 弥合欧盟法治话语与实际执法之间的差距。协调腐败定义与刑事处罚，创建了此前在国内层次不存在的欧盟层次问责机制。
+
+**2027年预算指南（TA-10-2026-0112）：** 弥合议会政策优先事项（国防、气候、数字化）与欧盟预算架构（历史上弱于国家预算）之间的差距。指南表明议会愿意在MFF谈判中为预算结构改革而战。
+
+**共同主线：** 所有这些都体现了欧盟从制定框架的机构向执法机构的转变。这一转变反映了机构成熟度——欧盟花了30年构建监管基础设施；现在正在学习如何使用它。这是具有历史重要性的转折点。
+
+---
+
+### 60-Second Read: Updated Key Takeaway
+
+2026年5月13日当周的欧洲议会可用一个词来概括：**执法套餐**。议会的主要立法行动目标不在于创建新规则——而在于让现有规则发挥效力。从立法创新到监管执法的这一转变，是欧盟行使权力方式的根本性变化，其对欧美关系、数字市场、金融稳定和法治治理的影响将在未来2—5年内逐步显现。
+
+*置信度：🟢 高——基于2026年欧洲议会通过文本中多个相互佐证的数据点，并经IMF欧盟结构改革分析印证的评估。*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `propositions`
@@ -2881,4 +5160,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-13/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 

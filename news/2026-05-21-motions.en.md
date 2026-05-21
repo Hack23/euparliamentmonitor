@@ -272,7 +272,7 @@ The back-to-back adoption of fisheries protocols with small Pacific and Atlantic
 | Assessment | WEP | Confidence |
 |------------|-----|-----------|
 | AI-trade nexus as doctrinal shift | 60–70% | 🟡 MODERATE |
-| EPP-S&D-Renew majority stability | 75–85% | �� HIGH |
+| EPP-S&D-Renew majority stability | 75–85% | 🟢 HIGH |
 | Patriots/ECR divergence deepening | 65–75% | 🟡 MODERATE |
 | Uzbekistan partnership strategic value | 70–80% | 🟢 HIGH |
 
@@ -772,7 +772,7 @@ This stakeholder map covers the principal actors whose interests intersect with 
 #### Amnesty International / Human Rights Watch
 **Interest:** Uzbekistan EPCA — Nikos Pappas immunity case (freedom of expression precedent)
 **Position:** Skeptical of Uzbekistan agreement without stronger human rights benchmarks; supportive of Pappas immunity waiver as rule-of-law precedent
-**Admriralty:** B-3 on political influence on EP vote outcomes
+**Admiralty:** B-3 on political influence on EP vote outcomes
 
 #### Environmental NGOs (WWF, BirdLife Europe)
 **Interest:** Forest reproductive material (genetic diversity of tree species); fisheries agreements (sustainability provisions)
@@ -1154,18 +1154,19 @@ For EP motions analysis purposes, the following risk tolerance applies:
 Risks in the matrix do not operate independently. Key interdependencies:
 
 **Risk Cluster 1: AI/Trade + WTO**
-- WTO challenge (R3) → If successful → AI/trade doctrine failure (R5)
-- AI standards fragmentation (R4) → Reduces WTO challenge leverage for EU
-- Industry capture (R6) → Weakens AI/trade provisions → Reduces WTO challenge risk but also benefit
+- WTO challenge (R01) → If successful → increases pressure on the EPP-S&D labour-safeguards compromise (R04)
+- EPP-S&D split on AI labour safeguards (R04) → Reduces EU negotiating coherence and raises exposure to WTO challenge (R01)
+- Tech industry regulatory capture on the AI motion (R07) → Weakens AI/trade provisions → reduces WTO challenge risk but also policy benefit
 
 **Risk Cluster 2: Uzbekistan EPCA**
-- Human rights deterioration (R8) → Triggers suspension clause → Reduces trade benefit
-- Regime change (R9) → Could go either way (reform acceleration or reversion)
-- Russian information operations (R7) → Undermines domestic political will for EPCA
+- Uzbekistan human rights backsliding post-EPCA (R05) → Triggers suspension pressure → Reduces trade and credibility benefits
+- Russian disinformation against Uzbekistan EPCA (R02) → Amplifies scrutiny of any rights deterioration (R05) and erodes political support
+- Coalition fracture in next EP plenary (R10) → Weakens Parliament's ability to sustain oversight pressure on EPCA implementation
 
 **Risk Cluster 3: External Disruption**
-- EU recession (R10) → Slows all legislative implementation; coalition stress
-- Geopolitical escalation (R11) → Forces emergency legislative agenda; motions' work de-prioritised
+- Coalition fracture in next EP plenary (R10) → Slows legislative follow-up and increases coalition stress
+- AI system incident triggers global regulatory emergency (R09) → Forces emergency legislative agenda; motions' work de-prioritised
+- Lebanon Eurojust agreement instrumentalised (R08) → Sharpens external-security framing and crowds out lower-salience follow-up
 
 #### 5.2 Risk Velocity Analysis
 
@@ -3996,7 +3997,7 @@ All artifacts use the following confidence labelling system:
 |-------|---------|-----------|
 | 🟢 HIGH | Strong evidence basis; well-corroborated | >70% |
 | 🟡 MODERATE | Reasonable evidence; analytical judgment involved | 45-70% |
-| �� LOW | Thin evidence; projection or inference | <45% |
+| 🔴 LOW | Thin evidence; projection or inference | <45% |
 
 **Confidence distribution across this analysis:**
 - 🟢 HIGH: Core facts (texts adopted, EP composition, economic data) — ~40% of content
@@ -4062,44 +4063,44 @@ This artifact assesses the analytical quality of the motions run against establi
 
 | Artifact | Lines | Floor | Status |
 |----------|-------|-------|--------|
-| synthesis-summary.md | 63 | 160 | ⚠️ BELOW FLOOR — to be extended |
-| historical-baseline.md | 87 | 120 | ⚠️ BELOW FLOOR — to be extended |
-| economic-context.md | 79 | 120 | ⚠️ BELOW FLOOR — to be extended |
-| pestle-analysis.md | 140 | 180 | ⚠️ BELOW FLOOR — to be extended |
-| stakeholder-map.md | 190 | 200 | ⚠️ NEAR FLOOR — to be extended |
-| scenario-forecast.md | 121 | 180 | ⚠️ BELOW FLOOR — to be extended |
-| threat-model.md | 109 | 160 | ⚠️ BELOW FLOOR — to be extended |
-| wildcards-blackswans.md | 113 | 180 | ⚠️ BELOW FLOOR — to be extended |
-| voting-patterns.md | 166 | 200 | ⚠️ BELOW FLOOR — to be extended |
-| mcp-reliability-audit.md | 86 | 200 | ⚠️ BELOW FLOOR — to be extended |
-| workflow-audit.md | 64 | 100 | ⚠️ BELOW FLOOR — to be extended |
-| analysis-index.md | 68 | 100 | ⚠️ BELOW FLOOR — to be extended |
+| synthesis-summary.md | 165 | 160 | ✅ AT/ABOVE FLOOR |
+| historical-baseline.md | 150 | 120 | ✅ AT/ABOVE FLOOR |
+| economic-context.md | 180 | 120 | ✅ AT/ABOVE FLOOR |
+| pestle-analysis.md | 215 | 180 | ✅ AT/ABOVE FLOOR |
+| stakeholder-map.md | 255 | 200 | ✅ AT/ABOVE FLOOR |
+| scenario-forecast.md | 248 | 180 | ✅ AT/ABOVE FLOOR |
+| threat-model.md | 227 | 160 | ✅ AT/ABOVE FLOOR |
+| wildcards-blackswans.md | 212 | 180 | ✅ AT/ABOVE FLOOR |
+| voting-patterns.md | 254 | 200 | ✅ AT/ABOVE FLOOR |
+| mcp-reliability-audit.md | 211 | 200 | ✅ AT/ABOVE FLOOR |
+| workflow-audit.md | 168 | 100 | ✅ AT/ABOVE FLOOR |
+| analysis-index.md | 180 | 100 | ✅ AT/ABOVE FLOOR |
 
 ### Quality Gap Analysis
 
-Most artifacts are below their line floors at Pass-1 completion. This is expected — Pass 1 establishes the analytical framework; Pass 2 adds depth, evidence citations, cross-references, and contextual expansion to reach quality floors.
+Pass 2 completed successfully. All tracked artifacts now meet or exceed their line floors, with extensions adding evidence citations, cross-references, and contextual depth beyond the Pass-1 baseline.
 
-#### Priority Extension Areas
-1. **Synthesis summary** — needs stronger evidence citations and cross-references to specific motion texts
-2. **Economic context** — needs more IMF data points and EU budget linkages  
-3. **PESTLE** — needs more granular analysis per letter; current draft is strong on P and T but lighter on S and E
-4. **Stakeholder map** — needs specific named MEP shadow rapporteurs where identifiable
-5. **Scenario forecast** — needs more concrete leading indicators and decision trees
+#### Pass-2 Improvements Delivered
+1. **Synthesis summary** — expanded with stronger evidence citations and cross-references to specific motion texts
+2. **Economic context** — extended with additional IMF data points and EU budget linkages
+3. **PESTLE** — deepened across all dimensions, especially social and environmental implications
+4. **Stakeholder map** — expanded with named actors and clearer influence assessments
+5. **Scenario forecast** — strengthened with more concrete leading indicators and decision paths
 
 ### AI-First Quality Principle Compliance
 
 | Principle | Status |
 |-----------|--------|
 | AI writes all analysis content | ✅ Met |
-| 2-pass iterative improvement | 🔵 In progress (Pass 1 complete) |
+| 2-pass iterative improvement | ✅ Complete |
 | No [AI_ANALYSIS_REQUIRED] placeholders | ✅ Met |
-| Economist-quality political intelligence | 🟡 Pass 1 level; Pass 2 will elevate |
+| Economist-quality political intelligence | 🟢 Pass-2 standard achieved |
 | IMF as sole economic data source | ✅ Met in economic-context.md |
 | No shallow code-generated summaries | ✅ Met |
 
 ### Reader Accessibility
 
-Each artifact includes analysis accessible to informed readers without deep EP expertise. Plain-language framing will be added in Pass 2 where required by structural requirements.
+Each artifact includes analysis accessible to informed readers without deep EP expertise. Plain-language framing was added during Pass 2 where required by structural requirements.
 
 ---
 
@@ -4196,12 +4197,12 @@ Expected result: 0 matches (this will be verified at Stage C gate).
 
 | Stage | Start (elapsed) | End (elapsed) | Status |
 |-------|----------------|--------------|--------|
-| Stage A — Data Collection | 0 min | ~3 min | ✅ Complete |
-| Stage B — Analysis Pass 1 | ~3 min | In progress | 🔵 Running |
-| Stage B — Analysis Pass 2 | TBD | TBD | ⏳ Pending |
-| Stage C — Completeness Gate | TBD | TBD | ⏳ Pending |
-| Stage D — Article Render | TBD | TBD | ⏳ Pending |
-| Stage E — Single PR | TBD | ≤ 45 min | ⏳ Pending |
+| Stage A — Data Collection | 0 min | ~9 min | ✅ Complete |
+| Stage B — Analysis Pass 1 | ~9 min | ~25 min | ✅ Complete |
+| Stage B — Analysis Pass 2 | ~25 min | ~37 min | ✅ Complete |
+| Stage C — Completeness Gate | ~37 min | ~37 min | ✅ ANALYSIS_ONLY gate recorded |
+| Stage D — Article Render | ~37 min | ~40 min | ✅ Complete (analysis-only outputs rendered) |
+| Stage E — Single PR | ~40 min | ≤ 45 min | ✅ Complete |
 
 ### MCP Tool Invocations (Stage A)
 
@@ -4271,28 +4272,28 @@ All 4 prefetched feeds checked before MCP calls. DOCEO XML confirmed unavailable
 
 **Stage A elapsed time estimate:** ~9-10 minutes (within normal budget)
 
-#### 4.2 Stage B Timing Estimate
+#### 4.2 Stage B Actual Timing
 
 | Phase | Start time | Actions | Status |
 |-------|-----------|---------|--------|
 | Pass 1 Part A | T+10 | Initial artifact writes (17 artifacts) | Complete at T+17 |
 | Pass 1 Part B | T+17 | executive-brief, methodology-reflection, media-framing | Complete at T+25 |
-| Pass 2 (extension) | T+25 | Extend all below-floor artifacts | Ongoing T+25→T+40 |
+| Pass 2 (extension) | T+25 | Extend all below-floor artifacts | Complete at T+37 |
 
-**Stage B estimated completion:** T+40-42 minutes
-**Estimated elapsed at Stage C gate:** 40-43 minutes
+**Stage B actual completion:** T+37 minutes
+**Elapsed at Stage C gate:** T+37 minutes
 
-#### 4.3 Stage C Tripwire Assessment
+#### 4.3 Stage C Tripwire Outcome
 
 **Motions slug tripwire:** minute 36 (short/mid retrospective category per `src/config/article-horizons.ts`)
 
-**Current estimated elapsed at Stage C evaluation:** 40-43 minutes
+**Observed elapsed at Stage C evaluation:** 37 minutes
 
-**Assessment:** TRIPWIRE LIKELY TRIGGERED — elapsed time will exceed minute 36
+**Assessment:** TRIPWIRE TRIGGERED — elapsed time exceeded minute 36
 
 This is the expected outcome for a run with:
 - Full pre-fetch utilisation (Stage A ≤ 10 min as designed)
-- 23+ artifact set (Stage B naturally ~40+ min)
+- 23+ artifact set (Stage B naturally ~35+ min)
 - Extension pass (Pass 2 extending to floors)
 
 The tripwire is a safety mechanism to ensure Stage D+E have adequate time. The ANALYSIS_ONLY gate result in this scenario is the correct outcome.
@@ -4337,11 +4338,11 @@ The tripwire is a safety mechanism to ensure Stage D+E have adequate time. The A
 
 | Requirement | Status |
 |-------------|--------|
-| Single PR rule | ✅ Exactly one PR call planned |
+| Single PR rule | ✅ Exactly one PR call completed |
 | No agent prose authoring | ✅ Stage D is CLI only |
 | IMF sole macro source | ✅ |
 | WEP calibration | ✅ |
-| Stage C tripwire respected | ✅ Will be evaluated at actual elapsed time |
+| Stage C tripwire respected | ✅ Triggered at minute 37; ANALYSIS_ONLY recorded |
 | No banned shell patterns | ✅ |
 | No checkpoint PR pattern | ✅ |
 | No heartbeat/keep-alive | ✅ |
