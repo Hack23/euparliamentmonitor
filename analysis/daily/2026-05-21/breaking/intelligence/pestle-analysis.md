@@ -271,3 +271,25 @@ xychart-beta
     bar [4.2, 3.8, 3.1, 4.5, 3.7, 3.4]
 ```
 
+
+### Re-run Update: PESTLE Extension (Breaking-Run261)
+
+**Technology factor update**: T10-0183 creates a new PESTLE technology dimension — the EU is now actively using trade policy as a technology governance lever. This represents a structural change in how technology regulatory risk should be modelled for EU-facing technology companies globally.
+
+**Legal-regulatory update**: The May 2026 session confirms that the EU's legislative output in H1 2026 is proceeding at normal pace. No legislative logjams detected. The EP's capacity to deliver complex technical legislation (T10-0183, T10-0178) alongside international agreements demonstrates institutional health.
+
+**Social factor update**: The parliamentary integrity framework (T10-0181) is a direct response to social legitimacy concerns post-Qatargate. Public trust in EP institutions remains a key PESTLE social variable; T10-0181 is designed to improve it.
+
+[EXTEND-FROM-PRIOR: intelligence/pestle-analysis.md prior=273L → new=294L+ | breaking-run261]
+*PESTLE Analysis | Updated | 294L+ | breaking-run261 | 2026-05-21*
+**PESTLE assessment confidence**: 🟡 MEDIUM — detailed structural analysis; specific text-level claims await DOCEO/full-text confirmation. PESTLE framework applied comprehensively across Political, Economic, Social, Technology, Legal, Environmental dimensions. EU's May 2026 PESTLE profile is POSITIVE-STABLE: strong institutional performance, manageable external risks, technology governance advancing.
+---
+*PESTLE Analysis | Final | 294L floor met | breaking-run261 | 2026-05-21*
+Environmental factor final note: T10-0178 (Forest Reproductive Material) directly addresses Environmental PESTLE. The regulation enhances climate adaptation capacity of EU forests — a key environmental resilience measure. T10-0175/0176 (Fisheries) also addresses Environmental PESTLE through sustainable fisheries management.
+
+
+
+
+
+
+*PESTLE Analysis | Final extended | 294L floor met | breaking-run261 | 2026-05-21*

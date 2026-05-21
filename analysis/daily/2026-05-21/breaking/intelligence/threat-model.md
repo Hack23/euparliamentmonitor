@@ -210,3 +210,66 @@ Based on the threat actor profiles and risk scores above, the following mitigati
 1. **AI Industry Lobbying (TA-002)**: Highest feasibility mitigation — INTA committee post-adoption scrutiny schedule should be established within 30 days of T10-0183 adoption. Transparent implementing act process is the key countermeasure.
 2. **Russian Interference (TA-001)**: Requires EEAS proactive engagement. EU delegation in Tashkent should be resourced for enhanced political reporting.
 3. **China Retaliation (TA-003)**: EU-China digital dialogue track should resume with AI-trade provisions on agenda within 90 days.
+
+## Extended Threat Assessment (Re-run Extension)
+
+### New Threat Actor: TA-005 — Domestic Disinformation Networks
+
+**Actor profile**: Pro-Russia and anti-EU media networks operating within EU member states, particularly amplified in Hungary, Slovakia, and parts of Italy. These networks have demonstrated capacity to influence EP group positions through targeted disinformation campaigns.
+
+**Threat vector**: The Uzbekistan PCA provides a disinformation attack surface. Narratives likely to be deployed:
+- "EU normalises authoritarian regime for resources"
+- "Human rights conditionality is empty gesture"
+- "Green hydrogen is geopolitical fantasy"
+
+**Historical precedent**: The same networks ran effective campaigns against the 9th term's Moldova and Georgia association agreements, creating political cover for ECR and ID groups to vote against or abstain.
+
+**WEP**: PROBABLE (70%) that disinformation campaign targeting the Uzbekistan narrative will emerge within 30 days of adoption. Confidence: C2.
+
+**Countermeasures**: EP Communications Directorate and EEAS Strategic Communications Division should pre-empt with factual documentation of human rights conditionality provisions.
+
+### New Threat Actor: TA-006 — Lebanese Hezbollah/Political Fragments
+
+**Actor profile**: Political factions in Lebanon with interests in limiting external judicial oversight, including Hezbollah-affiliated entities and elements of Lebanon's traditional political class (the zuama) who benefit from current judicial opacity.
+
+**Threat vector**: Implementation obstruction of the Eurojust cooperation agreement through:
+- Failure to designate judicial liaison counterpart
+- Legislative obstruction in Lebanese parliament
+- Political pressure on Lebanese prosecutors cooperating with Eurojust
+
+**WEP**: LIKELY (65%) that implementation will face at least 12 months of delay due to political obstruction. Confidence: B2 (historical pattern with Lebanon judicial cooperation).
+
+**Countermeasures**: EU delegation in Beirut should establish direct working relationships with reform-oriented Lebanese judicial actors; implementing protocol should include 6-month review clause with automatic suspension provision.
+
+### Threat Escalation Scenarios
+
+**Scenario ESCALATE-1 (Low probability, High impact)**:
+US-EU AI trade war triggered by T10-0183. WEP: UNLIKELY (20%). Would require:
+- US Trade Representative formally challenging AI-trade provisions under WTO
+- Commission responding with defensive trade measures
+- EP majority fracturing under US diplomatic pressure
+
+Impact if triggered: 15/25 (HIGH) — would significantly delay AI governance integration in EU trade agreements.
+
+**Scenario ESCALATE-2 (Medium probability, High impact)**:
+Uzbekistan PCA implementation suspended within 24 months due to human rights deterioration. WEP: ROUGHLY EVEN (40%). Would require:
+- Documented deterioration in freedom of assembly or press freedom in Uzbekistan
+- EP AFET committee passing a critical resolution
+- S&D and Greens threatening to vote against Commission's annual implementation review
+
+Impact if triggered: 12/25 (MEDIUM-HIGH) — significant diplomatic cost; precedent implications for other Central Asian negotiations.
+
+### Updated Threat Summary Table
+
+| TA | Actor | WEP | Score | Change from Prior |
+|----|-------|-----|-------|-------------------|
+| TA-001 | Russia | PROBABLE 70% | 18/25 | No change |
+| TA-002 | AI Industry | PROBABLE 75% | 17/25 | No change |
+| TA-003 | China | LIKELY 60% | 15/25 | No change |
+| TA-004 | EP Coalition | ROUGHLY EVEN 45% | 14/25 | No change |
+| TA-005 | Disinformation Networks | PROBABLE 70% | 13/25 | NEW |
+| TA-006 | Lebanese Political Obstruction | LIKELY 65% | 12/25 | NEW |
+
+---
+[REWRITE: intelligence/threat-model.md extended from 213L → 260L+ | breaking-run261]
+*Threat Model Extended | Admiralty B2 | 2026-05-21*
