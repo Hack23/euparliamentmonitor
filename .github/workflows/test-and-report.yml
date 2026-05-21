@@ -141,18 +141,9 @@ jobs:
     name: Functional Tests
     needs: [prepare, validation]
     runs-on: ubuntu-latest
-    # Explicit job cap (default is 360 min). Vitest + Playwright E2E across
-    # chromium/firefox/webkit; <45 min typical on the pre-baked image.
-    # 60 min bounds runaway browser hangs.
+    # Explicit job cap (default is 360 min). Vitest + content generation;
+    # <45 min typical. 60 min bounds runaway hangs.
     timeout-minutes: 60
-    # Pre-baked Playwright image: chromium + firefox + webkit + OS deps + fonts.
-    # Eliminates ~170 MB cold browser download and the `playwright install-deps`
-    # apt-get flake class. Image tag MUST track @playwright/test version in
-    # package.json — bump both together.
-    # NOTE: step-security/harden-runner is omitted here — it is not supported
-    # inside container jobs (requires host-level network hooks).
-    container:
-      image: mcr.microsoft.com/playwright:v1.60.0-noble
     permissions:
       contents: read
     steps:
@@ -160,8 +151,6 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Setup Node.js
-        # Overlays Node 26 on the Playwright image's bundled Node 22.
-        # `engines.node: ">=26"` in package.json requires this.
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: '26'
@@ -285,11 +274,8 @@ jobs:
     # Explicit job cap (default is 360 min). Lighthouse CI on key routes;
     # <15 min typical. 30 min bounds runaway browser hangs.
     timeout-minutes: 30
-    # Lighthouse CI requires headless Chrome — reuse the Playwright image so
-    # we don't pay a separate Chrome install cost. NOTE: harden-runner is
-    # incompatible with container jobs and is omitted.
-    container:
-      image: mcr.microsoft.com/playwright:v1.60.0-noble
+    # Lighthouse CI requires headless Chrome. Chromium is installed via
+    # `npx playwright install` so we avoid the fragile MCR container pull.
     permissions:
       contents: read
     env:
@@ -302,7 +288,6 @@ jobs:
         # `cache: 'npm'` lets actions/setup-node call actions/cache internally,
         # keyed on the package-lock.json hash. We do NOT add a separate
         # actions/cache step for ~/.npm — that is redundant with this one.
-        # Overlays Node 26 on the Playwright image's bundled Node 22.
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: '26'
@@ -346,14 +331,16 @@ jobs:
       - name: Install Lighthouse CI
         run: npm install -g @lhci/cli@0.15.1
 
+      - name: Install Playwright Chromium
+        # Lighthouse uses playwright-core's Chromium binary. Install it (and
+        # its OS-level deps) inline to avoid depending on the MCR container pull.
+        run: npx playwright install --with-deps chromium
+
       - name: Resolve Chrome path for Lighthouse
-        # The Playwright image does NOT install system google-chrome — it ships
-        # chromium under /ms-playwright/chromium-*/chrome-linux/chrome. Lighthouse
-        # uses chrome-launcher which respects $CHROME_PATH; ask the
-        # playwright-core package (transitive dep of @playwright/test) for the
-        # exact path so we don't hard-code a build-numbered subdirectory.
-        # `shell: bash` is required: the default `sh -e {0}` in container jobs
-        # rejects `set -o pipefail`.
+        # playwright-core.chromium.executablePath() returns the exact path to
+        # the Chromium binary installed by `npx playwright install chromium`.
+        # Using this avoids hard-coding a build-numbered subdirectory.
+        # `shell: bash` is required so `set -o pipefail` is available.
         shell: bash
         run: |
           set -euo pipefail
@@ -366,17 +353,14 @@ jobs:
           echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
 
       - name: Run Lighthouse CI
-        # Chrome flags required for running headless Chrome as root inside the
-        # Playwright container:
-        #   --no-sandbox            Chrome refuses to start as root without it.
+        # Chrome flags for headless Chromium in CI:
+        #   --no-sandbox            Avoids sandbox issues in headless CI environments.
         #   --headless=new          Use the new headless mode (LHCI default omits it).
-        #   --disable-dev-shm-usage Docker's default /dev/shm is 64 MB, which is
-        #                           too small for Chrome's renderer; without this
-        #                           flag the renderer crashes mid-navigation
+        #   --disable-dev-shm-usage /dev/shm is 64 MB on GitHub-hosted runners; without
+        #                           this flag the renderer crashes mid-navigation
         #                           (Target closed → NO_FCP), see GitHub Actions
         #                           run #25600946624 for the failure trace.
-        #   --disable-gpu           No GPU in the container; suppresses noisy
-        #                           swiftshader fallbacks.
+        #   --disable-gpu           No GPU in CI; suppresses noisy swiftshader fallbacks.
         env:
           LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.sha }}
         run: lhci autorun --collect.settings.chromeFlags="--no-sandbox --headless=new --disable-dev-shm-usage --disable-gpu"

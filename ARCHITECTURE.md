@@ -810,35 +810,48 @@ src/                                   → scripts/                          (ts
 │   └── languages.ts                   Language metadata (name, flag, direction)
 ├── mcp/                               → mcp/   ⭐ Layered after Refactor 5/8 (#2033)
 │   ├── transport/                     Shared JSON-RPC transport (stdio + HTTP gateway)
+│   │   ├── connection.ts              MCPConnection class (stdio + gateway transport, request lifecycle)
 │   │   ├── errors.ts                  MCPSessionExpiredError, MCPRateLimitError
+│   │   ├── gateway.ts                 HTTP SSE gateway transport helpers
+│   │   ├── process.ts                 Stdio spawn/teardown helpers + JSON-RPC message routing
+│   │   ├── reconnect.ts               Exponential back-off reconnect loop + retry logic
 │   │   ├── retry-policy.ts            isRetriableError, formatRetryAfter, parseRetryAfterMs, RECONNECT_MAX_DELAY_MS
-│   │   ├── sse-parser.ts              parseSSEResponse — extracts JSON-RPC from SSE data: lines
-│   │   └── connection.ts              MCPConnection class (stdio + gateway transport, request lifecycle)
+│   │   └── sse-parser.ts              parseSSEResponse — extracts JSON-RPC from SSE data: lines
 │   ├── ep/                            European Parliament MCP client (split from ep-mcp-client.ts)
+│   │   ├── client.ts                  EuropeanParliamentMCPClient class — extends MCPConnection
+│   │   ├── election-calendar.ts       getElectionCalendarContext, ElectionImminentTier (T-180/T-90/T-30)
+│   │   ├── error-classifier.ts        classifyToolError, isFeedUnavailable
 │   │   ├── fallbacks.ts               *_FALLBACK sentinel JSON payloads (EFFECTIVENESS, MEPS, DOCUMENTS, …)
 │   │   ├── parse.ts                   _parseResultPayload, _isEmptyStringSentinel, content-not-yet-available
-│   │   ├── error-classifier.ts        classifyToolError, isFeedUnavailable
-│   │   ├── staleness.ts               detectProceduresFeedStaleTail + PROCEDURES_STALENESS_YEAR_THRESHOLD
 │   │   ├── reliability.ts             TOOL_RELIABILITY_TIMEOUT_MS / _RETRIES — consumed by mcp:probe CLI
-│   │   ├── election-calendar.ts       getElectionCalendarContext, ElectionImminentTier (T-180/T-90/T-30)
-│   │   └── client.ts                  EuropeanParliamentMCPClient class — extends MCPConnection
+│   │   ├── staleness.ts               detectProceduresFeedStaleTail + PROCEDURES_STALENESS_YEAR_THRESHOLD
+│   │   ├── tools-data.ts              getMEPs, getPlenarySessions, search/analysis prototype mixins
+│   │   ├── tools-documents.ts         getDocuments, getAdoptedTexts prototype mixins
+│   │   ├── tools-feeds.ts             Per-feed retrieval prototype mixins
+│   │   ├── tools-list.ts              Canonical EP_MCP_TOOLS tool-id list (drift-guarded)
+│   │   └── tools-procedures.ts        getProcedures, getProcedureEvents prototype mixins
 │   ├── imf/                           IMF REST/SDMX-3.0 client (split from imf-mcp-client.ts)
-│   │   ├── config.ts                  DEFAULT_IMF_API_BASE_URL, IMF_REQUEST_HEADERS, IMF_SUBSCRIPTION_KEY_HEADER, IMF_DATAFLOW_AGENCY, DEFAULT_IMF_AGENCY, IMF_FALLBACK, IMF_MCP_TOOLS
-│   │   ├── types.ts                   SDMX* interfaces (Dataflow, Dimension, Concept, ObservationSeries, …) + IMFClientOptions
-│   │   ├── sdmx.ts                    parseSDMXUrn, resolveCodelistUrn, resolveCodelistCodes, resolveAgency
+│   │   ├── client.ts                  IMFMCPClient class
+│   │   ├── config.ts                  DEFAULT_IMF_API_BASE_URL, IMF_REQUEST_HEADERS, IMF_SUBSCRIPTION_KEY_HEADER, IMF_DATAFLOW_AGENCY, IMF_FALLBACK, IMF_MCP_TOOLS
+│   │   ├── http-transport.ts          HTTP fetch helpers with subscription-key rotation + gateway proxy fallback
+│   │   ├── lifecycle.ts               Singleton lifecycle (getIMFMCPClient / closeIMFMCPClient)
 │   │   ├── observations.ts            countIMFSDMXObservations
-│   │   ├── utils.ts                   readBaseAndTimeout, stripTrailingSlashes, readImfSubscriptionKeysFromEnv
-│   │   └── client.ts                  IMFMCPClient class + singleton lifecycle (getIMFMCPClient / closeIMFMCPClient)
+│   │   ├── sdmx.ts                    parseSDMXUrn, resolveCodelistUrn, resolveCodelistCodes, resolveAgency
+│   │   ├── types.ts                   SDMX* interfaces (Dataflow, Dimension, Concept, ObservationSeries, …) + IMFClientOptions
+│   │   └── utils.ts                   readBaseAndTimeout, stripTrailingSlashes, readImfSubscriptionKeysFromEnv
 │   ├── ep-open-data/                  EP Open Data Portal REST client (split from ep-open-data-client.ts)
-│   │   ├── types.ts                   VotingDataSource, VotingRecordsFallbackResult, VotingRecordsFallbackOptions
+│   │   ├── client.ts                  EPOpenDataClient class + getVotingRecordsWithFallback (three-state)
 │   │   ├── config.ts                  Endpoint URL constants, EP_OPEN_DATA_TOOLS, EMPTY_VOTES_FALLBACK, EP_OPEN_DATA_ATTRIBUTION
-│   │   ├── utils.ts                   unwrapLabel, wrapAsMCPResult, extractIdentifier helpers
-│   │   └── client.ts                  EPOpenDataClient class + getVotingRecordsWithFallback (three-state)
+│   │   ├── types.ts                   VotingDataSource, VotingRecordsFallbackResult, VotingRecordsFallbackOptions
+│   │   └── utils.ts                   unwrapLabel, wrapAsMCPResult, extractIdentifier helpers
 │   ├── ep-mcp-client.ts               BARREL → ./ep/*
 │   ├── ep-open-data-client.ts         BARREL → ./ep-open-data/*
 │   ├── imf-mcp-client.ts              BARREL → ./imf/*
 │   ├── mcp-connection.ts              BARREL → ./transport/*
 │   ├── wb-mcp-client.ts               World Bank MCP client; exports WORLD_BANK_MCP_TOOLS (7 tools)
+│   ├── fetch-proxy-server.ts          IMF-only MCP fetch-proxy stdio server (gh-aw container — bypasses AWF Squid proxy)
+│   ├── html-lang-patcher.ts           Patches HTML metadata regions for language-specific article copies
+│   ├── mcp-config-reader.ts           Reads ~/.copilot/mcp-config.json — gateway API key + address
 │   ├── mcp-health.ts                  Health probes for MCP backends
 │   ├── mcp-retry.ts                   Exponential backoff retry with jitter
 │   ├── pending-documents.ts           Pending-document tracking for reprobe/escalation
@@ -868,6 +881,12 @@ src/                                   → scripts/                          (ts
 │   ├── lead-extractor.ts              trimToLeadSentence() — plain-text SEO lead for meta description
 │   ├── reader-intelligence-guide.ts   Reader Guide HTML overlay (collapsible methodology panel)
 │   ├── reader-guide-constants.ts      Section IDs and titles for the Reader Guide
+│   ├── metadata/                      5-tier editorial-highlight resolver sub-modules (Refactor series)
+│   ├── clean/                         Artifact cleaning pipeline: strip-spdx, strip-banners, demote-headings, rewrite-links, …
+│   ├── html/                          HTML fragment builders: shell, headline, toc, hreflang, tradecraft-cards, …
+│   ├── generator/                     CLI + render-one + render-batch + discovery (Refactor series)
+│   ├── reader-guide/                  Reader Guide row builders: rows-core, rows-extended, builder, icons, …
+│   ├── run/                           Per-run helpers: provenance, tradecraft, reader-guide, analysis-index, …
 │   ├── cli/                           CLI argument parsing (parse.ts)
 │   ├── manifest/                      manifest.json schema (types.ts), reader (reader.ts), resolver (resolver.ts), manifest-writer.ts
 │   ├── runs/                          Run discovery (discover.ts) + collision grouping (grouping.ts)
@@ -913,17 +932,27 @@ src/                                   → scripts/                          (ts
 │   │   │   ep-feeds.ts, reports.ts
 │   └── common.ts, visualization.ts, mcp.ts   Thin re-export barrels (transitional)
 └── utils/                             → utils/
+    ├── articles/                      Article-domain helpers: analysis-discovery, filename, metadata, slug
+    ├── fs/                            File-system primitives: atomic-write, directory
+    ├── html/                          HTML utilities: escape, validate
+    ├── intelligence/                  Intelligence index builders: build, html, internals, persist, trends, types
     ├── article-category.ts            ArticleCategory enum helpers and slug mapping
     ├── content-metadata.ts            Content metadata extraction from HTML/Markdown
     ├── copy-test-reports.ts           Copies test report artifacts to docs/
     ├── file-utils.ts                  escapeHTML, file I/O helpers, path utilities
     ├── generate-docs-index.ts         Generates docs/ index page
     ├── html-sanitize.ts               HTML sanitization for safe output
-    ├── intelligence-index.ts          Intelligence document index builder
+    ├── intelligence-index.ts          Intelligence document index builder (barrel)
     ├── metadata-utils.ts              Shared metadata transformation utilities
     ├── news-metadata.ts               Article metadata aggregation (articles-metadata.json)
     ├── validate-ep-api.ts             EP API endpoint validation script
     └── mcp-probe.ts                   MCP reliability probe CLI (`npm run mcp:probe`)
+workflows/                             → workflows/  ⭐ Agentic-workflow support (added via #2086)
+├── index.ts                           Public barrel + shared workflow contract type re-exports
+├── types.ts                           DataMode, GateVerdict, StageHistoryEntry, ValidationIssue, …
+├── completeness-gate/                 Stage C validation (constants, types, validators, index barrel)
+├── infrastructure/                    Shell-safety validators (banned-pattern matchers + barrel)
+└── safe-outputs/                      Stage E PR creation constraints (types + barrel)
 ```
 
 **Key build / generation commands:**
@@ -949,6 +978,508 @@ src/                                   → scripts/                          (ts
 - `js/mermaid-init.js` — Lazy Mermaid diagram rendering
 - External scripts only (no inline scripts — CSP `script-src 'self'`)
 - `js/vendor/` — Vendored Chart.js, D3, and Mermaid ESM bundles
+
+---
+
+## 🗂️ Source Module Topology (Post-Refactor 8/8 Series + Follow-ups)
+
+The Refactor 8/8 series (#2029–#2036) and its enforcement follow-ups (#2069–#2086)
+split every original >600-LOC file into bounded-context sub-modules. The sections
+below document the resulting layered topology, showing the actual sub-directory
+structure under `src/` (354 TypeScript files across 8 bounded contexts at the
+latest commit).
+
+Each area is enforced by ESLint `max-lines` rules in `eslint.config.js` and
+guarded by `test/unit/source-file-size.test.js`. Per ISO 27001 A.8.28 / A.8.32
+and NIST CSF 2.0 PR.PS-01, no `src/**/*.ts` file may exceed **600 raw lines**;
+tighter **400-line ceilings** apply to the per-concern sub-directories below.
+
+### Types & Contracts (`src/types/`)
+
+Pure TypeScript type declarations split into bounded-context sub-modules with
+thin re-export barrels (`common.ts`, `visualization.ts`, `mcp.ts`) for
+backward-compatibility. Every sub-module is a single-responsibility type
+catalogue; no business logic is permitted.
+
+```
+src/types/
+├── languages.ts             LanguageCode / RTLLanguageCode / LanguageMap
+├── article-category.ts      ArticleCategory + ArticlePerspective + CATEGORY_* maps
+├── analysis.ts              Stage-A/B analysis artefact contract types
+├── generation.ts            Article-generation pipeline types
+├── imf.ts                   IMF SDMX-3.0 response shapes
+├── intelligence.ts          Political-intelligence artefact types
+├── parliament.ts            EP plenary / committee / vote types
+├── political-classification.ts  Political classification rubric types
+├── political-risk.ts        Risk-scoring vocabulary types
+├── political-threats.ts     Threat-modelling vocabulary types
+├── quality.ts               Quality-scoring rubric types
+├── significance.ts          News-significance scoring types
+├── stakeholder.ts           Stakeholder-analysis vocabulary types
+├── world-bank.ts            World Bank indicator catalog types
+├── article-strings/         Per-article-type localized string interfaces (≤ 400 LOC each)
+│   ├── breaking.ts          Includes DeepAnalysis article-string types
+│   ├── committee.ts
+│   ├── motions.ts
+│   ├── propositions.ts
+│   └── week-ahead.ts
+├── visualization/           Visualization bounded contexts (≤ 400 LOC each)
+│   ├── charts.ts
+│   ├── dashboard.ts
+│   ├── mindmap.ts
+│   ├── swot.ts
+│   └── voting-bloc.ts
+├── mcp/                     MCP transport + per-tool option shapes (≤ 400 LOC each)
+│   ├── client.ts            MCPClientOptions, JSON-RPC envelopes
+│   ├── ep-tools.ts          EP MCP tool option types
+│   ├── ep-feeds.ts          EP MCP feed-payload types
+│   └── reports.ts           Cross-tool report types
+├── common.ts                Thin barrel → article-strings/* + languages + article-category
+├── visualization.ts         Thin barrel → visualization/*
+├── mcp.ts                   Thin barrel → mcp/*
+└── index.ts                 Root barrel re-exporting the full public surface
+```
+
+### Configuration Registry (`src/config/`)
+
+Horizon definitions, cadence data, and lookup tables for the 15 article types.
+Every setting used by both the aggregator and agentic workflows is declared here
+(ADR-007) to prevent the drift-and-override anti-pattern. All files stay under
+400 code lines; the registry is the single source of truth for per-slug budgets.
+
+```
+src/config/
+├── article-horizons.ts      Top-level barrel — re-exports the public registry API
+├── index.ts                 Root barrel for src/config/
+└── horizons/
+    ├── registry.ts          ARTICLE_HORIZONS registry — all 15 article types
+    ├── lookup.ts            getHorizon(), getArticleTypeConfig() resolvers
+    ├── stage-budgets.ts     Per-stage time budgets (target / hard deadline)
+    ├── forward-projection.ts  Forward-looking window helpers
+    ├── artifact-paths.ts    Canonical artifact-path constants
+    └── types.ts             ArticleHorizon / StageBudget interfaces
+```
+
+### Internationalization & Constants (`src/constants/`)
+
+Localisation strings, SEO copy, UI labels, World Bank indicator/committee
+mappings, and the committee→indicator map. The Refactor 8/8 series split every
+oversized aggregate string table into per-language files (`<slug>/<lang>.ts`)
+and per-region content tables (`-{central,east,nordic,west,eu,global}`).
+
+```
+src/constants/
+├── analysis-constants.ts    Shared analysis thresholds
+├── build-info-meta.ts       Build-info metadata for the PWA footer
+├── committee-indicator-map.ts  Committee → World Bank indicator mapping
+├── config.ts                Project paths, BASE_URL, filename patterns
+├── language-articles.ts     Per-language article-type labels
+├── language-core.ts         ALL_LANGUAGES (14), LANGUAGE_PRESETS
+├── language-ui.ts           Per-language UI strings
+├── languages.ts             Language metadata (name, flag, RTL direction)
+├── og-locales.ts            BCP-47 OpenGraph locale shim (thin barrel → seo/)
+├── social-handles.ts        Thin barrel → seo/social-handles
+├── articles/                Per-article-type localized string tables (Refactor 8/8 splits)
+│   ├── _shared.ts           Shared article-strings helpers
+│   ├── breaking.ts          Aggregator barrel re-exporting the 4 regional splits
+│   ├── breaking-strings-central.ts   Central-European breaking-news strings
+│   ├── breaking-strings-east.ts      Eastern-European breaking-news strings
+│   ├── breaking-strings-nordic.ts    Nordic breaking-news strings
+│   ├── breaking-strings-west.ts      Western-European breaking-news strings
+│   ├── committee-reports.ts          Committee-reports aggregator barrel
+│   ├── committee-reports-content-eu.ts      EU committee reports content
+│   ├── committee-reports-content-global.ts  Global committee reports content
+│   ├── dashboard.ts                  Thin barrel → dashboard/index
+│   ├── dashboard/                    Per-language dashboard-builder strings (14 files)
+│   │   ├── ar.ts da.ts de.ts en.ts es.ts fi.ts fr.ts he.ts
+│   │   ├── ja.ts ko.ts nl.ts no.ts sv.ts zh.ts
+│   │   └── index.ts          Assembles LanguageMap<DashboardBuilderStrings>
+│   ├── deep-analysis.ts              Thin barrel → deep-analysis/index
+│   ├── deep-analysis/                Per-language deep-analysis strings (14 files + index)
+│   │   ├── ar.ts da.ts de.ts en.ts es.ts fi.ts fr.ts he.ts
+│   │   ├── ja.ts ko.ts nl.ts no.ts sv.ts zh.ts
+│   │   └── index.ts          Assembles LanguageMap<DeepAnalysisStrings>
+│   ├── editorial.ts                  Editorial-headline string helpers
+│   ├── extended-horizons.ts          Extended-horizon string tables
+│   ├── index.ts                      Top-level articles/ barrel
+│   ├── localized-keywords.ts         Localized keywords aggregator barrel
+│   ├── localized-keywords-central.ts Central-European keyword tables
+│   ├── localized-keywords-global.ts  Global keyword tables
+│   ├── localized-keywords-nordic.ts  Nordic keyword tables
+│   ├── month-ahead.ts                Month-ahead string tables
+│   ├── month-in-review.ts            Month-in-review string tables
+│   ├── motions.ts                    Motions article-string table
+│   ├── propositions.ts               Propositions article-string table
+│   ├── swot.ts                       SWOT aggregator barrel
+│   ├── swot-builder-central.ts       Central-European SWOT-builder strings
+│   ├── swot-builder-global.ts        Global SWOT-builder strings
+│   ├── swot-builder-nordic.ts        Nordic SWOT-builder strings
+│   ├── week-ahead.ts                 Week-ahead aggregator barrel
+│   ├── week-ahead-eu.ts              EU week-ahead string tables
+│   ├── week-ahead-global.ts          Global week-ahead string tables
+│   └── week-in-review.ts             Week-in-review string tables
+├── seo/                     SEO meta-tag copy tables (Refactor 8/8 split)
+│   ├── index.ts             Barrel re-exporting OG locales + social handles
+│   ├── og-locales.ts        OG_LOCALES, buildOgLocaleTags, getOgLocale
+│   └── social-handles.ts    ORG_SAME_AS, TWITTER_SITE_HANDLE, TWITTER_CREATOR_HANDLE
+├── ui/                      Per-surface UI localization modules (12 modules)
+│   ├── accessibility.ts             SKIP_LINK_TEXTS, TOC_ARIA_LABELS, switcher ARIA
+│   ├── ai-content.ts                AI_SECTION_CONTENT + AISection interface
+│   ├── article-category-labels.ts   ARTICLE_TYPE_LABELS / _ICONS
+│   ├── footer-labels.ts             Every FOOTER_*_LABELS map
+│   ├── methodology-framework-labels.ts  Framework explanation labels
+│   ├── page-titles.ts               PAGE_TITLES, PAGE_DESCRIPTIONS
+│   ├── pwa-labels.ts                PWA install/update prompts, offline shell
+│   ├── reading-time.ts              READ_TIME_LABELS (per-language pluralization)
+│   ├── related-analysis.ts          SECTION_TITLE_LABELS, RELATED_ANALYSIS_LABELS
+│   ├── risk-threat-labels.ts        Risk / threat / stakeholder labels
+│   ├── section-headings.ts          Section headings, nav labels, header chrome
+│   ├── tradecraft-cards.ts          Tradecraft / analysis-index card labels
+│   └── index.ts                     Barrel
+└── world-bank/              World Bank indicator and committee mapping
+    ├── category-map.ts                  Aggregator barrel → category-map-* splits
+    ├── category-map-analysis.ts         Analysis-perspective category mapping
+    ├── category-map-legislative.ts      Legislative-perspective category mapping
+    ├── category-map-periodic.ts         Periodic-perspective category mapping
+    ├── committee-map.ts                 Aggregator barrel → committee-map-* splits
+    ├── committee-map-part1.ts           Committee→indicator map (first half)
+    ├── committee-map-part2.ts           Committee→indicator map (second half)
+    ├── committee-map-types.ts           Shared committee-map type definitions
+    ├── indicator-catalog.ts             34 curated WB_INDICATORS records
+    └── index.ts                         Public barrel
+```
+
+### Utility Taxonomy (`src/utils/`)
+
+Focused utility sub-modules replace a flat file collection. Each sub-directory
+groups utilities by a single responsibility axis.
+
+```
+src/utils/
+├── articles/                Article-domain helpers
+│   ├── analysis-discovery.ts  Discover analysis runs in the file tree
+│   ├── filename.ts            Article filename construction helpers
+│   ├── metadata.ts            Article metadata aggregation
+│   └── slug.ts                URL slug derivation helpers
+├── fs/                      File-system primitives
+│   ├── atomic-write.ts        Atomic temp-file write helper
+│   └── directory.ts           ensureDir / mkdirpSync helpers
+├── html/                    HTML-specific utilities
+│   ├── escape.ts              escapeHTML (context-aware escaping)
+│   └── validate.ts            HTMLHint-based HTML fragment validation
+├── intelligence/            Intelligence document index utilities
+│   ├── build.ts               buildIntelligenceIndex orchestrator
+│   ├── html.ts                HTML fragment renderers for index pages
+│   ├── internals.ts           Internal helpers (path, label, sort)
+│   ├── persist.ts             Read/write intelligence index JSON
+│   ├── trends.ts              Trend signal extraction from artifacts
+│   └── types.ts               IntelligenceIndexEntry / TrendSignal types
+├── article-category.ts      ArticleCategory enum helpers and slug mapping
+├── content-metadata.ts      Content metadata extraction from HTML/Markdown
+├── copy-test-reports.ts     Copies test report artifacts to docs/
+├── file-utils.ts            escapeHTML, file I/O helpers, path utilities
+├── generate-docs-index.ts   Generates docs/ index page
+├── html-sanitize.ts         HTML sanitization for safe output
+├── intelligence-index.ts    Intelligence document index builder (barrel)
+├── mcp-probe.ts             MCP reliability probe CLI (npm run mcp:probe)
+├── metadata-utils.ts        Shared metadata transformation utilities
+├── news-metadata.ts         Article metadata aggregation (articles-metadata.json)
+└── validate-ep-api.ts       EP API endpoint validation script
+```
+
+### MCP Integration Layer (`src/mcp/`)
+
+The MCP layer is split into four bounded contexts plus a shared transport.
+Each context exposes a barrel file at the old path for backward-compatibility.
+Top-level utility modules (`fetch-proxy-server`, `html-lang-patcher`,
+`mcp-config-reader`) provide stand-alone helpers that don't belong to any
+particular backend.
+
+```
+src/mcp/
+├── transport/               Shared JSON-RPC transport (≤ 400 LOC each)
+│   ├── connection.ts        MCPConnection class (stdio + gateway transport)
+│   ├── errors.ts            MCPSessionExpiredError, MCPRateLimitError
+│   ├── gateway.ts           HTTP SSE gateway transport helpers
+│   ├── process.ts           Stdio spawn/teardown helpers and JSON-RPC routing
+│   ├── reconnect.ts         Exponential back-off reconnect loop + retry logic
+│   ├── retry-policy.ts      isRetriableError, RECONNECT_MAX_DELAY_MS
+│   └── sse-parser.ts        parseSSEResponse (JSON-RPC from SSE data: lines)
+├── ep/                      European Parliament MCP client
+│   ├── client.ts            EuropeanParliamentMCPClient (extends MCPConnection)
+│   ├── election-calendar.ts getElectionCalendarContext, ElectionImminentTier
+│   ├── error-classifier.ts  classifyToolError, isFeedUnavailable
+│   ├── fallbacks.ts         Sentinel JSON fallback payloads
+│   ├── parse.ts             _parseResultPayload helpers
+│   ├── reliability.ts       TOOL_RELIABILITY_TIMEOUT_MS / _RETRIES
+│   ├── staleness.ts         detectProceduresFeedStaleTail
+│   ├── tools-data.ts        getMEPs, getPlenarySessions, search/analysis mixins
+│   ├── tools-documents.ts   getDocuments, getAdoptedTexts mixins
+│   ├── tools-feeds.ts       Per-feed retrieval mixins
+│   ├── tools-list.ts        Canonical EP_MCP_TOOLS tool-id list (drift-guarded)
+│   └── tools-procedures.ts  getProcedures, getProcedureEvents mixins
+├── ep-open-data/            EP Open Data Portal REST client
+│   ├── client.ts            EPOpenDataClient + getVotingRecordsWithFallback
+│   ├── config.ts            Endpoint URLs, EP_OPEN_DATA_TOOLS, fallbacks
+│   ├── types.ts             VotingDataSource, VotingRecordsFallbackResult
+│   └── utils.ts             unwrapLabel, wrapAsMCPResult helpers
+├── imf/                     IMF REST/SDMX-3.0 client
+│   ├── client.ts            IMFMCPClient class
+│   ├── config.ts            DEFAULT_IMF_API_BASE_URL, IMF_MCP_TOOLS
+│   ├── http-transport.ts    HTTP fetch helpers with key rotation + gateway fallback
+│   ├── lifecycle.ts         Singleton lifecycle (getIMFMCPClient / closeIMFMCPClient)
+│   ├── observations.ts      countIMFSDMXObservations
+│   ├── sdmx.ts              SDMX URN parsing and codelist resolution
+│   ├── types.ts             SDMX* interfaces + IMFClientOptions
+│   └── utils.ts             readBaseAndTimeout, stripTrailingSlashes
+├── ep-mcp-client.ts         BARREL → ./ep/*
+├── ep-open-data-client.ts   BARREL → ./ep-open-data/*
+├── imf-mcp-client.ts        BARREL → ./imf/*
+├── mcp-connection.ts        BARREL → ./transport/*
+├── fetch-proxy-server.ts    IMF-only MCP fetch-proxy stdio server (gh-aw container)
+├── html-lang-patcher.ts     Patches HTML metadata regions for language-specific copies
+├── mcp-config-reader.ts     Reads ~/.copilot/mcp-config.json — gateway key + address
+├── mcp-health.ts            Health probes for MCP backends
+├── mcp-retry.ts             Exponential backoff retry with jitter (shared)
+├── pending-documents.ts     Pending-document tracking for reprobe/escalation
+└── procedure-seen-cache.ts  Dedup cache for legislative procedures across runs
+```
+
+### Aggregator Pipeline (`src/aggregator/`)
+
+The deterministic aggregator is split into per-responsibility sub-directories.
+Each sub-directory handles one phase of the `manifest.json → HTML` pipeline.
+All sub-directory files carry a 400-line ceiling; only the root-level barrel
+files (which existed before the refactor series) remain under the global 600-line cap.
+
+```
+src/aggregator/
+├── article-generator.ts     Entry-point CLI (`npm run generate-article`)
+├── analysis-aggregator.ts   aggregateAnalysisRun() — manifest discovery + .md filter
+├── artifact-order.ts        ARTIFACT_SECTIONS — canonical 19-section order
+├── article-html.ts          HTML5 wrapper: header, language switcher, TOC, JSON-LD
+├── article-meta.ts          buildArticleMeta() — deterministic article-meta.json
+├── article-metadata.ts      5-tier editorial-highlight resolver public API
+├── clean-artifact.ts        Top-level clean-pipeline barrel
+├── editorial-brief-resolver.ts  Language-aware executive-brief sibling lookup
+├── key-takeaways.ts         buildKeyTakeaways() — 3–7 bullet extraction
+├── lead-extractor.ts        trimToLeadSentence() — plain-text SEO lead
+├── markdown-renderer.ts     markdown-it + plugin allowlist; mermaid fence→<pre>
+├── reader-intelligence-guide.ts  Reader Guide HTML overlay
+├── reader-guide-constants.ts     Section IDs / titles for the Reader Guide
+├── artifacts/               Public re-exports for artifact ordering + cleaning
+│   ├── index.ts             Barrel
+│   └── types.ts             ArtifactContent, CleanedArtifactWithPath, ResolvedSection
+├── cli/                     CLI argument parsing
+│   ├── index.ts             Barrel
+│   └── parse.ts             parseArgs() — slug, run-dir, --all flags
+├── clean/                   Artifact cleaning pipeline (≤ 400 LOC each)
+│   ├── dedupe-mermaid.ts    Deduplicate Mermaid diagram blocks
+│   ├── demote-headings.ts   Demote H1→H2 in merged artifacts
+│   ├── pipeline.ts          cleanArtifact() orchestrator
+│   ├── rewrite-links.ts     Rewrite relative links to absolute URLs
+│   ├── strip-banners.ts     Strip SPDX/banner front matter
+│   ├── strip-frontmatter.ts Strip YAML/TOML frontmatter blocks
+│   ├── strip-preamble.ts    Strip repeated-title preambles
+│   └── strip-spdx.ts        Strip SPDX licence identifiers
+├── content/                 Lead / takeaways / intelligence-guide re-exports
+│   ├── index.ts             Barrel
+│   └── types.ts             ExtractedLead, SynthesisedTakeaway, KeyTakeawaysResult
+├── generator/               Rendering entry points and CLI (≤ 400 LOC each)
+│   ├── cli.ts               CLI argument parsing and dispatch
+│   ├── discovery.ts         Analysis run discovery helpers
+│   ├── reader-guide-insertion.ts  Reader Guide insertion into HTML
+│   ├── render-batch.ts      Batch render orchestrator
+│   ├── render-one.ts        Single-run render orchestrator
+│   └── slug.ts              Slug derivation for generator
+├── html/                    HTML fragment builders (≤ 400 LOC each)
+│   ├── analysis-index-cards.ts  Analysis artifact index card HTML
+│   ├── headline.ts          Article headline + byline HTML
+│   ├── hreflang.ts          Hreflang alternate link elements
+│   ├── localize-body.ts     RTL/LTR body localisation wrapper
+│   ├── shell.ts             Full HTML5 shell (header + body + footer)
+│   ├── toc.ts               Table of contents builder
+│   └── tradecraft-cards.ts  Tradecraft methodology panel cards
+├── infra/                   Infrastructure helpers
+│   └── github-urls.ts       githubBlobUrl / githubRawUrl helpers
+├── manifest/                manifest.json schema and I/O
+│   ├── index.ts
+│   ├── manifest-writer.ts
+│   ├── reader.ts
+│   ├── resolver.ts
+│   └── types.ts
+├── markdown/                Markdown rendering public re-exports
+│   └── index.ts             Barrel → markdown-renderer.ts
+├── markdown-it-plugins.d.ts Ambient types for markdown-it plugin allowlist
+├── metadata/                5-tier editorial-highlight resolver
+│   ├── artifact-highlight.ts        Manifest-override highlight resolution
+│   ├── artifact-walker.ts           Recursive run-dir artefact walker
+│   ├── date-labels.ts               Localized date string helpers
+│   ├── editorial-highlight.ts       Primary editorial-artefact resolver
+│   ├── h1-extractor.ts              First-artifact H1 extraction
+│   ├── heading-rules.ts             Heading promotion rules
+│   ├── index.ts                     Public barrel
+│   ├── lede-extractor.ts            Plain-text SEO lead extraction
+│   ├── priority-finding-highlight.ts  "First strong prose" resolver
+│   ├── resolve-helpers.ts           Shared resolution helpers
+│   ├── slug.ts                      Article slug from manifest
+│   ├── template-fallback.ts         Localized template fallback resolver
+│   ├── text-utils.ts                Plain-text strip utilities
+│   ├── translated-sibling.ts        Translated executive-brief sibling predicate
+│   └── types.ts                     ResolvedMetadata interface
+├── reader-guide/            Reader Guide methodology panel
+│   ├── builder.ts           buildReaderGuide() HTML assembler
+│   ├── icons.ts             SVG icons for the Reader Guide
+│   ├── labels.ts            Localized label constants
+│   ├── rows-core.ts         Core methodology row builders
+│   ├── rows-extended.ts     Extended methodology row builders
+│   ├── rows-types.ts        Row type definitions
+│   ├── rows.ts              Row assembly barrel
+│   └── strip.ts             Reader Guide HTML stripping helpers
+├── run/                     Per-run rendering helpers (≤ 400 LOC each)
+│   ├── analysis-index.ts    Analysis index card data builder
+│   ├── index.ts             Public barrel
+│   ├── manifest.ts          Run manifest loading helpers
+│   ├── provenance.ts        Provenance & Audit block generator
+│   ├── reader-guide.ts      Reader Guide HTML insertion helpers
+│   ├── section-expansion.ts Supplementary section expansion
+│   └── tradecraft.ts        Tradecraft card data builder
+├── runs/                    Run discovery and collision detection
+│   ├── discover.ts          Run-directory discovery
+│   ├── grouping.ts          Collision detection across runs
+│   └── index.ts             Barrel
+└── slug/                    Article URL slug generation
+    ├── index.ts             Barrel
+    └── slug.ts              deriveArticleSlug()
+```
+
+### Static-Site Generators (`src/generators/`)
+
+Generators produce index pages, sitemaps, and the Political Intelligence Hub.
+Large monolithic files were split into per-concern sub-modules during Refactor 8/8.
+
+```
+src/generators/
+├── news-indexes.ts          Top-level orchestrator + barrel
+├── news-indexes/            Per-language index page sub-modules
+│   ├── per-language.ts      HTML composer for a single language index
+│   └── backfill.ts          SEO/hreflang/JSON-LD healing for legacy articles
+├── sitemap.ts               Sitemap orchestrator
+├── sitemap/                 Sitemap generation sub-modules
+│   ├── copy.ts              Sitemap copy helpers
+│   ├── html.ts              Per-language sitemap_<lang>.html generation
+│   ├── index.ts             Barrel
+│   ├── rss.ts               RSS feed generation
+│   ├── xml-utils.ts         XML escaping and formatting utilities
+│   └── xml.ts               sitemap.xml generation
+├── political-intelligence.ts  Political Intelligence Hub entry point
+├── political-intelligence-descriptions.ts  Thin barrel → political-intelligence/descriptions/
+├── political-intelligence/  Political Intelligence Hub
+│   ├── copy.ts              Thin barrel → copy/index
+│   ├── copy/                Per-language-group landing-page copy
+│   │   ├── eu-core.ts
+│   │   ├── index.ts
+│   │   ├── nordic.ts
+│   │   ├── other.ts
+│   │   └── types.ts
+│   ├── descriptions/        Per-category curated descriptions and titles
+│   │   ├── artifact-info.ts             FEED_PREFIX_LABELS, ORPHAN_ARTIFACT_INFO
+│   │   ├── curated-descriptions.ts      CURATED_DESCRIPTIONS aggregator
+│   │   ├── curated-titles.ts            CURATED_TITLES aggregator
+│   │   ├── desc-methodologies.ts        Methodology descriptions
+│   │   ├── desc-references.ts           Reference-doc descriptions
+│   │   ├── desc-templates.ts            Template descriptions
+│   │   ├── fallback.ts                  Per-language kind-words fallbacks
+│   │   ├── index.ts                     Public barrel
+│   │   ├── lookup.ts                    getCuratedDescription / getCuratedTitle
+│   │   ├── run-types.ts                 parseRunSlug, getRunTypeInfo helpers
+│   │   ├── run-types-descriptions.ts    Per-run-type descriptions
+│   │   ├── run-types-titles.ts          Per-run-type titles
+│   │   ├── titles-methodologies.ts      Methodology titles
+│   │   ├── titles-references.ts         Reference titles
+│   │   ├── titles-templates-a.ts        Template titles (group A)
+│   │   ├── titles-templates-b.ts        Template titles (group B)
+│   │   └── types.ts                     Shared TextI18n / CuratedDescription types
+│   ├── data.ts              Data aggregation helpers
+│   ├── html.ts              HTML fragment builders
+│   ├── icons.ts             SVG icon library
+│   ├── index.ts             Public barrel
+│   ├── markdown.ts          Markdown rendering helpers
+│   └── types.ts             Political-intelligence type definitions
+├── seo-copy.ts              SEO meta-tag copy tables (14 languages)
+└── shared/                  Shared generator utilities
+    ├── html-escape.ts       Local HTML-escape helper
+    ├── index.ts             Barrel
+    ├── template-helpers.ts  Shared template composition helpers
+    └── types.ts             Shared type definitions
+```
+
+### Template Section Builders (`src/templates/`)
+
+Per-section HTML builders for the shared site chrome. Each builder handles
+exactly one UI section and stays under 400 code lines.
+
+```
+src/templates/
+├── icons.ts                 SVG icon library (moon, sun, link, etc.)
+├── section-builders.ts      Thin barrel re-exporting from sections/
+└── sections/                Per-section builders (≤ 400 LOC each)
+    ├── banner.ts            buildPageBanner — top-of-page editorial banner
+    ├── comparison.ts        Before/after comparison table builder
+    ├── footer.ts            buildSiteFooter — Hack23 AB footer (14 languages)
+    ├── header.ts            buildSiteHeader — stacked site header + nav
+    ├── key-figures.ts       Key-figures bar builder
+    ├── quality-score.ts     Quality scoring + badge rendering
+    ├── timeline.ts          Timeline section builder
+    └── toc.ts               TOC entry builder (TOCEntry, TOC_ARIA_LABELS)
+```
+
+### Agentic Workflow Support (`src/workflows/`)
+
+Bounded contexts that back the agentic-workflow pipeline (Stage C completeness
+gate, Stage E safe-output PR constraints, and shell-safety infrastructure
+validators). Extracted from former `scripts/validate-*.js` ad-hoc scripts so
+TypeScript types now flow through the entire `manifest.json` lifecycle.
+
+```
+src/workflows/
+├── index.ts                       Public barrel
+├── types.ts                       Shared workflow contract types
+│                                  (DataMode, GateVerdict, StageHistoryEntry, …)
+├── completeness-gate/             Stage C validation (was validate-analysis-completeness.js)
+│   ├── constants.ts               Per-slug thresholds and required-artefact catalogues
+│   ├── index.ts                   Public barrel
+│   ├── types.ts                   StageCVerdict, ValidationIssue, ArtifactValidationResult
+│   └── validators.ts              Per-artefact validators
+├── infrastructure/                Shell safety + runtime guards
+│   ├── index.ts                   Public barrel
+│   └── shell-safety.ts            Banned-pattern matchers (eval, ${var@P}, …)
+└── safe-outputs/                  Stage E PR creation constraints
+    ├── index.ts                   Public barrel
+    └── types.ts                   SafeOutputConstraints, PRCreationVerdict
+```
+
+See [`WORKFLOWS.md`](./WORKFLOWS.md) for the full bounded-context architecture
+and the gh-aw integration story.
+
+### File-Size Enforcement Summary
+
+| Pattern | Max code lines | Enforcement |
+|---|---:|---|
+| `src/**/*.ts` (global) | 600 | ESLint `max-lines` + `test/unit/source-file-size.test.js` (raw lines) |
+| `src/types/**` | 400 | ESLint `max-lines` per-area override |
+| `src/config/**` | 400 | ESLint `max-lines` per-area override |
+| `src/aggregator/clean/**` | 400 | ESLint `max-lines` per-area override |
+| `src/aggregator/run/**` | 400 | ESLint `max-lines` per-area override |
+| `src/aggregator/html/**` | 400 | ESLint `max-lines` per-area override |
+| `src/aggregator/generator/**` | 400 | ESLint `max-lines` per-area override |
+| `src/templates/sections/**` | 400 | ESLint `max-lines` per-area override |
+| `src/mcp/transport/**` | 400 | ESLint `max-lines` per-area override |
+
+Areas with current files between 400–600 code lines (`src/utils/**`,
+`src/aggregator/reader-guide/**`, `src/workflows/completeness-gate/**`) are
+protected by the global 600-line cap only, pending a future refactor that
+brings them below the 400-line ceiling.
 
 ---
 
