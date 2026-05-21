@@ -60,9 +60,13 @@ describe('news-translate workflow contract', () => {
     // ensures we never accidentally re-bloat it back to the legacy 1.7K-line
     // HTML-translation behemoth. Cap raised from 42 KB → 45 KB to admit
     // the largeSource 2-phase strategy section added after the cancelled
-    // run #26181499722 (discovery flag + agent prompt guidance).
+    // run #26181499722 (discovery flag + agent prompt guidance). Cap raised
+    // again from 45 KB → 46 KB to admit per-language IMF/WEO fixed-token
+    // examples for the Nordic + EU-core Latin-script languages after
+    // failing run #26219157670 (Norwegian executive-brief_no.md missing
+    // 2 of 4 `IMF` tokens — gate #5 fixed-token-preservation).
     expect(workflow.length).toBeGreaterThan(2000);
-    expect(workflow.length).toBeLessThan(45000);
+    expect(workflow.length).toBeLessThan(46000);
   });
 
   it('runs 3×/day on cron and is workflow_dispatch-enabled', () => {

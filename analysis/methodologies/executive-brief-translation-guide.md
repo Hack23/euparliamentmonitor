@@ -143,6 +143,23 @@ The Markdown structure of the translation MUST mirror the source:
 - Use the official EP designations per language (see § 5).
 - Swedish: avoid `du-tilltal` — keep impersonal `man / Europaparlamentet`.
 - Finnish: use partitive correctly; case agreement is non-negotiable.
+- **Fixed-token preservation (validator gate #5) — recurring Nordic
+  failure mode.** The Latin-script alphabet matches English and the
+  model is tempted to localise IMF/WEO acronyms. Don't:
+  - Norwegian (`no`): `IMF` forblir `IMF` — **aldri** `IPF` /
+    `IMV` / `Det internasjonale valutafondet` / `Pengefondet`.
+    `WEO` forblir `WEO` — **aldri** `Verdens økonomiske utsikter`.
+    `World Bank` forblir `World Bank` der kilden har `World Bank`.
+  - Swedish (`sv`): `IMF` förblir `IMF` — **aldrig** `IVF` /
+    `Internationella valutafonden`. `WEO` förblir `WEO`.
+  - Danish (`da`): `IMF` forbliver `IMF` — **aldrig** `IMV` /
+    `Den Internationale Valutafond`. `WEO` forbliver `WEO`.
+  - Finnish (`fi`): `IMF` säilyy muodossa `IMF` — **ei koskaan**
+    `KVR` / `Kansainvälinen valuuttarahasto`. `WEO` säilyy `WEO`.
+  - For all four: `Fiscal Monitor` stays `Fiscal Monitor`;
+    `data-vintage="WEO-…"` stays verbatim; `TA-NN-YYYY-NNNN` stays
+    verbatim. When in doubt: if the English source uses the Latin
+    acronym, the Nordic translation uses the same Latin acronym.
 
 ### 4.2 EU Core (de / fr / es / nl)
 
