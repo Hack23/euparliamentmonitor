@@ -81,11 +81,6 @@ on:
         description: "Agent caller context (used internally by Agentic Workflows)."
         required: false
         type: string
-      force_generation:
-        default: true
-        description: Force generation even if recent analysis exists
-        required: false
-        type: boolean
 
 permissions: {}
 

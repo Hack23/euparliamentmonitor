@@ -95,6 +95,10 @@ on:
         default: "2"
         description: Maximum number of source briefs to translate this run (1-4). Default 2.
         required: false
+      max_source_lines:
+        default: "300"
+        description: "Source-brief line count above which the discovery script flags `largeSource: true` and the agent switches to the 2-phase skeleton-then-edit translation strategy. Default 300 (the empirical cutoff that produced the cancelled run #26181499722 at 385 lines)."
+        required: false
       mode:
         default: fresh-then-backlog
         description: "Discovery prioritisation: fresh-then-backlog (default) | backlog-only | newest-first."

@@ -156,6 +156,114 @@ describe('agentic workflow threat detection policy', () => {
     expect(content).not.toContain(LEGACY_NODE_ALPINE);
   });
 
+  it('declares only consumed workflow_dispatch inputs (no dead parameters)', () => {
+    // Regression guard: the `force_generation` workflow_dispatch input was
+    // declared on every article workflow but never consumed by any
+    // downstream prompt, shared import, script, or env block. The pipeline
+    // is unconditionally "Always-on" per `.github/prompts/02a-rerun-merge.md`
+    // § 2 (re-runs never no-op, Stage D always re-renders), so there was
+    // nothing for the parameter to gate. Operators clicking the
+    // "Run workflow" UI and toggling it expected a skip-path that did not
+    // exist. The parameter is removed from both the source `.md` and the
+    // compiled `.lock.yml`; this drift-guard prevents either surface from
+    // silently re-introducing it.
+    //
+    // If a future task genuinely needs a force/skip toggle, wire it
+    // end-to-end (declare it AND consume it in a documented Stage A/B
+    // bash block or a script) before re-introducing the parameter.
+    const articleSources = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+    expect(articleSources.length).toBeGreaterThan(0);
+    for (const workflow of articleSources) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      expect(content, workflow).not.toMatch(/^\s*force_generation:/m);
+    }
+
+    const articleLocks = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.lock.yml') &&
+        name !== 'news-translate.lock.yml',
+      )
+      .sort();
+    expect(articleLocks.length).toBeGreaterThan(0);
+    for (const lockFile of articleLocks) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, lockFile), 'utf8');
+      expect(content, lockFile).not.toMatch(/^\s*force_generation:/m);
+    }
+
+    // The election-imminent-scheduler.yml dispatcher must not pass a
+    // `force_generation` input either (the receiver no longer accepts it).
+    const scheduler = fs.readFileSync(
+      path.join(WORKFLOWS_DIR, 'election-imminent-scheduler.yml'),
+      'utf8',
+    );
+    expect(scheduler, 'election-imminent-scheduler.yml').not.toMatch(
+      /force_generation:\s*['"]?true['"]?/,
+    );
+  });
+
+  it('declares every workflow_dispatch input consumed by news-translate.md env blocks', () => {
+    // Regression guard: `news-translate.md` references
+    //   MAX_SOURCE_LINES: ${{ github.event.inputs.max_source_lines || '300' }}
+    // in the discovery step. If `max_source_lines` is not declared as a
+    // workflow_dispatch input, the GitHub Actions UI cannot override the
+    // 300-line default — the env block always falls back. Every env-block
+    // `github.event.inputs.X` reference MUST have a matching declared
+    // input.
+    const workflow = fs.readFileSync(
+      path.join(WORKFLOWS_DIR, 'news-translate.md'),
+      'utf8',
+    );
+
+    // Extract the workflow_dispatch inputs block.
+    const dispatchMatch = workflow.match(
+      /workflow_dispatch:\s*\n\s+inputs:\s*\n([\s\S]*?)\npermissions:/m,
+    );
+    expect(dispatchMatch, 'workflow_dispatch.inputs block must exist').not.toBeNull();
+    const declaredInputs = new Set(
+      Array.from(
+        dispatchMatch[1].matchAll(/^\s{6}([a-z_][a-z0-9_]*):/gm),
+      ).map((match) => match[1]),
+    );
+
+    // Scan the workflow for every `github.event.inputs.<name>` reference
+    // and assert it is declared.
+    const referencedInputs = new Set(
+      Array.from(
+        workflow.matchAll(/github\.event\.inputs\.([a-z_][a-z0-9_]*)/g),
+      ).map((match) => match[1]),
+    );
+
+    for (const name of referencedInputs) {
+      expect(
+        declaredInputs.has(name),
+        `news-translate.md references github.event.inputs.${name} but does not declare it in workflow_dispatch.inputs`,
+      ).toBe(true);
+    }
+
+    // Specifically assert the five caller-facing knobs are declared.
+    for (const required of [
+      'max_briefs',
+      'max_age_days',
+      'include_extended',
+      'mode',
+      'max_source_lines',
+    ]) {
+      expect(
+        declaredInputs.has(required),
+        `news-translate.md must declare workflow_dispatch input ${required}`,
+      ).toBe(true);
+    }
+  });
+
   it('keeps compiled news workflows free of repo-memory write jobs', () => {
     const lockFiles = fs
       .readdirSync(WORKFLOWS_DIR)

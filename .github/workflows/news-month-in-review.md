@@ -6,12 +6,6 @@ on:
   schedule:
     - cron: "0 10 28 * *"  # 28th of each month around 10:00 UTC
   workflow_dispatch:
-    inputs:
-      force_generation:
-        description: Force generation even if recent analysis exists
-        type: boolean
-        required: false
-        default: true
 
 permissions:
   contents: read

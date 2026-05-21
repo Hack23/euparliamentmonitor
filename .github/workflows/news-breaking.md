@@ -5,12 +5,6 @@ strict: false
 on:
   schedule: every 6h  # fuzzy: scatters minute offset across the 6h window to avoid load spikes
   workflow_dispatch:
-    inputs:
-      force_generation:
-        description: Force generation even if recent analysis exists
-        type: boolean
-        required: false
-        default: true
 
 permissions:
   contents: read

@@ -77,11 +77,20 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/workflow_dispatch:/);
   });
 
-  it('exposes max_briefs / max_age_days / include_extended dispatch inputs', () => {
+  it('exposes max_briefs / max_age_days / include_extended / mode / max_source_lines dispatch inputs', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     expect(workflow).toMatch(/\bmax_briefs:/);
     expect(workflow).toMatch(/\bmax_age_days:/);
     expect(workflow).toMatch(/\binclude_extended:/);
+    expect(workflow).toMatch(/\bmode:/);
+    // Regression guard: `max_source_lines` is consumed by the discovery
+    // env block (`MAX_SOURCE_LINES: ${{ github.event.inputs.max_source_lines || '300' }}`),
+    // so it MUST be declared as a workflow_dispatch input — otherwise the
+    // GitHub Actions UI cannot override the 300-line default on a catch-up
+    // run and the env block always falls back. See the
+    // "parameter wired end-to-end" audit in the PR that introduced this
+    // assertion.
+    expect(workflow).toMatch(/\bmax_source_lines:/);
   });
 
   it('keeps the 60-minute hard cap', () => {

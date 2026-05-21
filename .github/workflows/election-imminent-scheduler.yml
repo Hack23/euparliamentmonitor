@@ -76,14 +76,19 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            // news-election-cycle.lock.yml declares no caller-facing
+            // workflow_dispatch inputs (only the gh-aw-internal aw_context
+            // input, which we deliberately do not set). The earlier
+            // `force_generation` parameter was removed because the
+            // pipeline is unconditionally "Always-on" per
+            // `.github/prompts/02a-rerun-merge.md` § 2 — re-runs are
+            // never a no-op and Stage D always re-renders, so there is
+            // nothing to "force".
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'news-election-cycle.lock.yml',
               ref: 'main',
-              inputs: {
-                force_generation: 'true'
-              }
             });
             console.log('✅ Dispatched news-election-cycle workflow');
             console.log(`   Tier: ${{ steps.check.outputs.tier }}`);

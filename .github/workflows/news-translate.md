@@ -37,6 +37,10 @@ on:
         description: "Discovery prioritisation: fresh-then-backlog (default) | backlog-only | newest-first."
         required: false
         default: "fresh-then-backlog"
+      max_source_lines:
+        description: "Source-brief line count above which the discovery script flags `largeSource: true` and the agent switches to the 2-phase skeleton-then-edit translation strategy. Default 300 (the empirical cutoff that produced the cancelled run #26181499722 at 385 lines)."
+        required: false
+        default: "300"
 
 permissions:
   contents: read
