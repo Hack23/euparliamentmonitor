@@ -1,9 +1,10 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-import { IMF_FALLBACK, IMF_REQUEST_HEADERS, IMF_SUBSCRIPTION_KEY_HEADER } from './config.js';
+import { IMF_FALLBACK } from './config.js';
 import { resolveAgency, resolveCodelistCodes, defaultDimensionOrder, buildSDMXKey, withDefaultFrequency, } from './sdmx.js';
 import { unwrapLocalisedLabel, wrapAsMCPResult } from './observations.js';
 import { readBaseAndTimeout, stripTrailingSlashes, readImfSubscriptionKeysFromEnv, } from './utils.js';
+import { getText, getJSON } from './http-transport.js';
 export class IMFMCPClient {
     _apiBaseUrl;
     _timeoutMs;
@@ -99,7 +100,7 @@ export class IMFMCPClient {
      */
     async listDatabases() {
         try {
-            const json = await this._getJSON('/structure/dataflow');
+            const json = await getJSON('/structure/dataflow', this._httpCtx());
             const flows = json?.data?.dataflows ?? [];
             const rows = flows.map((f) => ({
                 id: f.id ?? '',
@@ -133,7 +134,7 @@ export class IMFMCPClient {
             return IMF_FALLBACK;
         }
         try {
-            const json = await this._getJSON('/structure/dataflow');
+            const json = await getJSON('/structure/dataflow', this._httpCtx());
             const flows = json?.data?.dataflows ?? [];
             const needle = keyword.toLowerCase();
             const rows = flows
@@ -179,7 +180,7 @@ export class IMFMCPClient {
         }
         try {
             const agency = agencyId ?? resolveAgency(databaseId);
-            const json = await this._getJSON(`/structure/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+?references=datastructure`);
+            const json = await getJSON(`/structure/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+?references=datastructure`, this._httpCtx());
             const ds = json?.data?.dataStructures?.[0];
             const dims = ds?.dataStructureComponents?.dimensionList?.dimensions ?? [];
             const rows = dims.map((d) => ({ id: d.id, name: unwrapLocalisedLabel(d.name) }));
@@ -216,7 +217,7 @@ export class IMFMCPClient {
         }
         try {
             const agency = agencyId ?? resolveAgency(databaseId);
-            const structure = await this._getJSON(`/structure/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+?references=all`);
+            const structure = await getJSON(`/structure/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+?references=all`, this._httpCtx());
             const ds = structure?.data?.dataStructures?.[0];
             const dims = ds?.dataStructureComponents?.dimensionList?.dimensions ?? [];
             const dim = dims.find((d) => d.id.toLowerCase() === parameter.toLowerCase());
@@ -289,7 +290,7 @@ export class IMFMCPClient {
                 format: 'jsondata',
             });
             const url = `/data/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+/${key}?${qs.toString()}`;
-            const text = await this._getText(url);
+            const text = await getText(url, this._httpCtx());
             return wrapAsMCPResult(text);
         }
         catch (error) {
@@ -298,211 +299,21 @@ export class IMFMCPClient {
             return IMF_FALLBACK;
         }
     }
-    // ─── private transport helpers ─────────────────────────────────────────────
+    // ─── private HTTP context factory ─────────────────────────────────────────
     /**
-     * Build a full URL and GET it as text, enforcing the client-wide timeout.
-     * Tries the IMF-only MCP fetch-proxy gateway first (bypasses AWF Squid
-     * proxy in agentic workflow sandbox), then falls back to direct fetch.
+     * Build an {@link IMFHttpContext} adapter for http-transport.ts helpers.
      *
-     * @param path - Path (already URL-encoded) to append to the base URL.
-     * @returns Response body (`text/*` or `application/*`) as a string.
-     * @throws When the HTTP status is not 2xx, the request times out, or
-     *   the network layer raises.
-     * @internal
+     * @returns Context adapter for IMF HTTP transport helpers
      */
-    async _getText(path) {
-        const url = `${this._apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`;
-        if (this._fetchProxyGatewayUrl) {
-            try {
-                const result = await this._fetchViaGateway(url);
-                if (result !== null)
-                    return result;
-            }
-            catch {
-                // Gateway unavailable — fall through to direct fetch
-            }
-        }
-        return this._fetchDirectWithKeyRotation(url);
-    }
-    /**
-     * Direct-fetch strategy with subscription-key rotation.
-     *
-     * Iterates configured `IMF_API_PRIMARY_KEY` → `IMF_API_SECONDARY_KEY`,
-     * retrying only on `401`/`403`. Network errors short-circuit immediately.
-     *
-     * @param url - Fully-qualified IMF SDMX URL.
-     * @returns Response body text on success.
-     * @throws The last HTTP/network error when all configured keys are exhausted.
-     * @internal
-     */
-    async _fetchDirectWithKeyRotation(url) {
-        const attempts = this._imfSubscriptionKeys.length > 0 ? [...this._imfSubscriptionKeys] : [undefined];
-        let lastError;
-        for (let i = 0; i < attempts.length; i += 1) {
-            const isLast = i + 1 >= attempts.length;
-            const outcome = await this._fetchOnceWithKey(url, attempts[i]);
-            if (outcome.kind === 'ok')
-                return outcome.text;
-            lastError = outcome.error;
-            if (outcome.kind === 'auth' && !isLast)
-                continue;
-            throw outcome.error;
-        }
-        if (lastError !== undefined)
-            throw lastError;
-        throw new Error(`IMF request to ${url} failed without producing a response`);
-    }
-    /**
-     * Single direct-fetch attempt with one subscription key. Classifies the
-     * outcome so {@link _fetchDirectWithKeyRotation} can decide whether to
-     * rotate keys or surface the error.
-     *
-     * @param url - Fully-qualified IMF SDMX URL.
-     * @param key - Subscription key for this attempt, or `undefined` to send unauthenticated.
-     * @returns `'ok'` with body text, `'auth'` with the 401/403 error, or `'error'` for everything else.
-     * @internal
-     */
-    async _fetchOnceWithKey(url, key) {
-        const headers = { ...IMF_REQUEST_HEADERS };
-        if (key !== undefined && key.length > 0) {
-            headers[IMF_SUBSCRIPTION_KEY_HEADER] = key;
-        }
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), this._timeoutMs);
-        try {
-            const response = await this._fetchImpl(url, {
-                method: 'GET',
-                headers,
-                signal: controller.signal,
-            });
-            if (response.ok) {
-                if (response.status === 204) {
-                    return {
-                        kind: 'error',
-                        error: new Error(`HTTP 204 No Content for ${url} — likely missing or invalid ${IMF_SUBSCRIPTION_KEY_HEADER} (set IMF_API_PRIMARY_KEY)`),
-                    };
-                }
-                return { kind: 'ok', text: await response.text() };
-            }
-            const error = this._redactSubscriptionKeys(new Error(`HTTP ${response.status} ${response.statusText} for ${url}`));
-            const isAuthFailure = response.status === 401 || response.status === 403;
-            return { kind: isAuthFailure ? 'auth' : 'error', error };
-        }
-        catch (err) {
-            const error = err instanceof Error ? err : new Error(String(err));
-            return { kind: 'error', error: this._redactSubscriptionKeys(error) };
-        }
-        finally {
-            clearTimeout(timer);
-        }
-    }
-    /**
-     * Remove any configured IMF subscription keys from an Error's message and
-     * stack so that downstream `console.warn` / fallback envelopes cannot leak
-     * the secret even if the underlying fetch implementation (or proxy) embeds
-     * request headers in its thrown error.
-     *
-     * @param error - Error returned by `_fetchImpl` or constructed from a non-Error throw.
-     * @returns A new {@link Error} whose `message` (and `stack` when present) have
-     *   each configured subscription key replaced with `[REDACTED]`. Returns the
-     *   original error untouched when no keys are configured.
-     * @internal
-     */
-    _redactSubscriptionKeys(error) {
-        if (this._imfSubscriptionKeys.length === 0)
-            return error;
-        const redact = (s) => {
-            let out = s;
-            for (const key of this._imfSubscriptionKeys) {
-                if (!key)
-                    continue;
-                // Escape regex metacharacters in the key
-                const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                out = out.replace(new RegExp(escaped, 'g'), '[REDACTED]');
-            }
-            return out;
+    _httpCtx() {
+        return {
+            apiBaseUrl: this._apiBaseUrl,
+            timeoutMs: this._timeoutMs,
+            fetchImpl: this._fetchImpl,
+            fetchProxyGatewayUrl: this._fetchProxyGatewayUrl,
+            fetchProxyApiKey: this._fetchProxyApiKey,
+            imfSubscriptionKeys: this._imfSubscriptionKeys,
         };
-        const redacted = new Error(redact(error.message));
-        if (error.stack) {
-            redacted.stack = redact(error.stack);
-        }
-        return redacted;
-    }
-    /**
-     * Fetch a URL via the MCP fetch-proxy gateway (JSON-RPC 2.0 over HTTP).
-     * The fetch-proxy server runs in a container that bypasses the AWF Squid proxy.
-     *
-     * @param url - Fully-qualified URL to fetch.
-     * @returns Response text, or null if the gateway call fails.
-     * @internal
-     */
-    async _fetchViaGateway(url) {
-        const gatewayUrl = this._fetchProxyGatewayUrl;
-        if (!gatewayUrl)
-            return null;
-        const rpcRequest = {
-            jsonrpc: '2.0',
-            id: Date.now(),
-            method: 'tools/call',
-            params: {
-                name: 'fetch_url',
-                arguments: { url },
-            },
-        };
-        const headers = {
-            'Content-Type': 'application/json',
-            Accept: 'application/json, text/event-stream',
-        };
-        if (this._fetchProxyApiKey) {
-            headers['Authorization'] = `Bearer ${this._fetchProxyApiKey}`;
-        }
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), this._timeoutMs);
-        try {
-            const response = await this._fetchImpl(gatewayUrl, {
-                method: 'POST',
-                headers,
-                body: JSON.stringify(rpcRequest),
-                signal: controller.signal,
-            });
-            if (!response.ok)
-                return null;
-            let body = await response.text();
-            if (body.trimStart().startsWith('data:')) {
-                const lines = body.split('\n').filter((l) => l.startsWith('data:'));
-                body = lines.map((l) => l.slice(5).trim()).join('');
-            }
-            const parsed = JSON.parse(body);
-            if (parsed.error)
-                return null;
-            const text = parsed.result?.content?.[0]?.text;
-            return text && text.length > 0 ? text : null;
-        }
-        catch {
-            return null;
-        }
-        finally {
-            clearTimeout(timer);
-        }
-    }
-    /**
-     * GET a URL and parse the response body as JSON.
-     *
-     * @template T - Narrow response type declared by the caller.
-     * @param path - Path to append to the base URL.
-     * @returns Parsed JSON value.
-     * @throws When the response is not JSON, not 2xx, or the request fails.
-     * @internal
-     */
-    async _getJSON(path) {
-        const raw = await this._getText(path);
-        try {
-            return JSON.parse(raw);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            throw new Error(`Failed to parse IMF response as JSON: ${message}`, { cause: error });
-        }
     }
 }
 /**
