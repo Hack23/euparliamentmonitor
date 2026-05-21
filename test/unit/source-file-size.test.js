@@ -64,15 +64,12 @@ describe('source-file-size drift-guard (src/**/*.ts ≤ 600 raw lines)', () => {
 
     for (const filePath of tsFiles) {
       const source = fs.readFileSync(filePath, 'utf8');
-      // Count raw lines using the same semantics as `wc -l` — number of
-      // newline characters.  A file ending with a newline produces one
-      // fewer element when split on '\n', so we take max(split.length - 1,
-      // split.length) depending on whether the last char is a newline.
-      const lines = source.split('\n');
-      // Trailing empty string from a final newline: standard files end with
-      // '\n', producing lines like ['a','b',''] where the last element is ''.
-      // wc -l counts newlines, so a file with content "a\nb\n" is 2 lines.
-      const rawLineCount = source.endsWith('\n') ? lines.length - 1 : lines.length;
+      // Count raw lines using exact `wc -l` semantics: the number of newline
+      // characters in the file.  For "a\nb" (no trailing newline) wc -l
+      // reports 1; for "a\nb\n" it reports 2; for an empty file it reports 0.
+      // Counting the '\n' matches in the source string replicates this exactly
+      // without needing to special-case the trailing-newline condition.
+      const rawLineCount = (source.match(/\n/g) ?? []).length;
 
       if (rawLineCount > MAX_RAW_LINES) {
         offenders.push({ rel: path.relative(REPO_ROOT, filePath), lines: rawLineCount });
