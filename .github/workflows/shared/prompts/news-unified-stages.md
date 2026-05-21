@@ -235,7 +235,7 @@ Hard rules — violations fail Stage C or the safe-outputs bundle.
 - Call `safeoutputs___create_pull_request` exactly once, at Stage E.
 - Stage D owns `news/**`; do not edit it outside `npm run generate-article`.
 - Dispatch other workflows only via `dispatch-workflow:` (`news-translate`, once after merge).
-- Write files with native `create` / `edit`. `cat > … << EOF` heredocs and `python3` / `ruby` / `perl` heredocs are banned for prose — they silently truncate at context limits and trip the bash-safety filter on tokens like *"kill"*. Heredocs stay legal only for short keyword-free structured writes (`jq` → `manifest.json`, SPDX stubs).
+- Write files with native `create` / `edit`. `python3` / `ruby` / `perl` heredocs are banned for **any** file — they silently truncate at context limits and trip the bash-safety filter on tokens like *"kill"*. `cat > … << EOF` heredocs are additionally banned for prose. Heredocs stay legal only for short keyword-free structured writes (`jq` → `manifest.json`, SPDX stubs).
 - Pre-size every artifact to its floor on the first `create` call from `runs/thresholds-cache.json`. No `wc -l` → `cat >>` extend loops.
 
 Full file-authoring priority order: `shared/prompts/news-unified-runtime.md` §"📝 File Authoring Policy". Workspace scope: `00-scope-and-ground-rules.md`.

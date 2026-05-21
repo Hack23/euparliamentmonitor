@@ -346,7 +346,7 @@ engine:
 | Read `/tmp/gh-aw/discovery/queue.json` | Read other unrelated repository files |
 | Run `node scripts/validate-brief-translations.js --paths …` to self-check | Use `sed`/`awk`/regex/`tr` to translate narrative content |
 | Call `safeoutputs___create_pull_request` after each fully-translated brief | Call `safeoutputs___create_pull_request` with zero translations produced (no files on disk) |
-| Emergency partial flush when wall-clock budget is exhausted (≥ 40 min elapsed OR <20 min remaining) — see § Step 4b | Silently let the engine time out / terminate without flushing any progress |
+| Emergency partial flush when wall-clock budget is exhausted (≥ 40 min elapsed OR ≤ 20 min remaining) — see § Step 4b | Silently let the engine time out / terminate without flushing any progress |
 
 > **Why a flush-before-timeout safety net matters**: prior runs have died
 > mid-brief (e.g. 10/13 languages written, engine terminated) and lost
