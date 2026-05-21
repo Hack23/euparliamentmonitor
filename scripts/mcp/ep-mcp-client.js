@@ -17,6 +17,7 @@ export * from './ep/error-classifier.js';
 export * from './ep/staleness.js';
 export * from './ep/reliability.js';
 export * from './ep/election-calendar.js';
+export * from './ep/tools-list.js';
 export * from './ep/client.js';
 // Side-effect mixin imports (augment EuropeanParliamentMCPClient prototype)
 import './ep/tools-data.js';

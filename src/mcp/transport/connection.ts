@@ -12,51 +12,23 @@
  * `gatewayUrl` is provided in options.
  */
 
-import { spawn, type ChildProcess } from 'child_process';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import type { ChildProcess } from 'child_process';
 import type {
   MCPClientOptions,
   MCPToolResult,
   JSONRPCRequest,
-  JSONRPCResponse,
   PendingRequest,
 } from '../../types/index.js';
 import { MCPRateLimitError, MCPSessionExpiredError } from './errors.js';
-import { isRetriableError, RECONNECT_MAX_DELAY_MS } from './retry-policy.js';
 import { attemptGatewayConnection, sendGatewayRequest, type GatewayContext } from './gateway.js';
-
-/** npm binary name for the European Parliament MCP server */
-const BINARY_NAME = 'european-parliament-mcp-server';
-
-/** Platform-specific binary filename (Windows uses .cmd shim) */
-const BINARY_FILE = process.platform === 'win32' ? `${BINARY_NAME}.cmd` : BINARY_NAME;
-
-/** Default binary resolved from node_modules/.bin relative to this file's compiled location */
-const DEFAULT_SERVER_BINARY = resolve(
-  dirname(fileURLToPath(import.meta.url)),
-  `../../../node_modules/.bin/${BINARY_FILE}`
-);
-
-/** Default request timeout in milliseconds — EU Parliament API responses commonly take 30-120+ seconds for large datasets */
-const DEFAULT_REQUEST_TIMEOUT_MS = 180_000;
-
-/**
- * Effective request timeout, configurable via `EP_REQUEST_TIMEOUT_MS` env var.
- * This keeps the client-side timeout aligned with the MCP server timeout set
- * in workflow configs and copilot-mcp.json.
- */
-const REQUEST_TIMEOUT_MS: number = (() => {
-  const envVal = process.env['EP_REQUEST_TIMEOUT_MS'];
-  if (envVal) {
-    const parsed = Number(envVal);
-    if (!Number.isNaN(parsed) && parsed > 0) return parsed;
-  }
-  return DEFAULT_REQUEST_TIMEOUT_MS;
-})();
-
-/** Connection startup delay in milliseconds */
-const CONNECTION_STARTUP_DELAY_MS = 500;
+import {
+  REQUEST_TIMEOUT_MS,
+  DEFAULT_SERVER_BINARY,
+  type SpawnContext,
+  attemptStdioConnection,
+  handleIncomingMessage,
+} from './process.js';
+import { type ReconnectOps, performReconnect, runWithRetry } from './reconnect.js';
 
 /**
  * Base MCP connection managing JSON-RPC 2.0 transport over stdio or HTTP gateway.
@@ -180,46 +152,6 @@ export class MCPConnection {
   }
 
   /**
-   * Compute the delay before the next connection attempt.
-   * Respects `Retry-After` carried by {@link MCPRateLimitError}; otherwise uses
-   * exponential back-off (`connectionRetryDelay * 2^(attempt - 1)`).
-   *
-   * @param error - The error from the failed attempt
-   * @param attempt - Number of attempts made so far (1-indexed)
-   * @returns Delay in milliseconds
-   */
-  private _computeConnectionDelay(error: unknown, attempt: number): number {
-    if (error instanceof MCPRateLimitError && error.retryAfterMs > 0) {
-      return error.retryAfterMs;
-    }
-    return this.connectionRetryDelay * Math.pow(2, attempt - 1);
-  }
-
-  /**
-   * Handle a single connection attempt error: re-throw immediately for non-retriable errors
-   * (e.g. session expiry), increment the attempt counter, and return the delay to wait
-   * before the next attempt. Throws when the maximum attempts have been exhausted.
-   *
-   * @param error - The error from the failed attempt
-   * @returns Delay in milliseconds to wait before the next attempt
-   */
-  private _handleConnectionAttemptError(error: unknown): number {
-    if (error instanceof MCPSessionExpiredError) {
-      throw error;
-    }
-    this.connectionAttempts++;
-    if (this.connectionAttempts >= this.maxConnectionAttempts) {
-      console.error(
-        '❌ Failed to connect to MCP server after',
-        this.maxConnectionAttempts,
-        'attempts'
-      );
-      throw error;
-    }
-    return this._computeConnectionDelay(error, this.connectionAttempts);
-  }
-
-  /**
    * Connect to the MCP server with retry logic
    */
   async connect(): Promise<void> {
@@ -238,14 +170,14 @@ export class MCPConnection {
     while (this.connectionAttempts < this.maxConnectionAttempts) {
       try {
         if (this.gatewayUrl) {
-          await this._attemptGatewayConnection();
+          await attemptGatewayConnection(this._gatewayContext());
         } else {
           await this._attemptConnection();
         }
         this.connectionAttempts = 0;
         return;
       } catch (error) {
-        const delay = this._handleConnectionAttemptError(error);
+        const delay = this._nextConnectionDelay(error);
         console.warn(
           `⚠️ Connection attempt ${this.connectionAttempts} failed. Retrying in ${delay}ms...`
         );
@@ -255,11 +187,33 @@ export class MCPConnection {
   }
 
   /**
-   * Build a {@link GatewayContext} adapter for delegating to gateway helpers.
+   * Advance the attempt counter and compute the next retry delay.
+   * Throws immediately for non-retriable errors or when exhausted.
    *
-   * @returns A context adapter exposing the connection-level fields the
-   *   gateway helpers need (URL, API key, session ID accessors, request-ID
-   *   counter, connection-state setter).
+   * @param error - The error from the failed attempt
+   * @returns Delay in milliseconds to wait before the next attempt
+   */
+  private _nextConnectionDelay(error: unknown): number {
+    if (error instanceof MCPSessionExpiredError) throw error;
+    this.connectionAttempts++;
+    if (this.connectionAttempts >= this.maxConnectionAttempts) {
+      console.error(
+        '❌ Failed to connect to MCP server after',
+        this.maxConnectionAttempts,
+        'attempts'
+      );
+      throw error;
+    }
+    if (error instanceof MCPRateLimitError && error.retryAfterMs > 0) {
+      return error.retryAfterMs;
+    }
+    return this.connectionRetryDelay * Math.pow(2, this.connectionAttempts - 1);
+  }
+
+  /**
+   * Build a {@link GatewayContext} adapter for gateway.ts helpers.
+   *
+   * @returns Context adapter for gateway.ts helpers
    */
   private _gatewayContext(): GatewayContext {
     return {
@@ -277,85 +231,40 @@ export class MCPConnection {
     };
   }
 
-  /** Attempt a single connection via MCP Gateway (HTTP transport). */
-  private async _attemptGatewayConnection(): Promise<void> {
-    await attemptGatewayConnection(this._gatewayContext());
+  /**
+   * Build a {@link SpawnContext} adapter for process.ts spawn helpers.
+   *
+   * @returns Context adapter for stdio spawn helpers
+   */
+  private _spawnContext(): SpawnContext {
+    return {
+      serverPath: this.serverPath,
+      serverLabel: this.serverLabel,
+      requestTimeoutMs: REQUEST_TIMEOUT_MS,
+      setProcess: (p) => {
+        this.process = p;
+      },
+      setConnected: (v) => {
+        this.connected = v;
+      },
+      onMessage: (line) => this.handleMessage(line),
+      rejectAllPending: (msg) => {
+        for (const [id, { reject }] of this.pendingRequests.entries()) {
+          reject(new Error(msg));
+          this.pendingRequests.delete(id);
+        }
+      },
+    };
   }
 
   /**
-   * Attempt a single connection via stdio (spawns server binary)
+   * Attempt a single connection via stdio (spawns server binary).
+   * Delegates to {@link attemptStdioConnection} in process.ts.
+   *
+   * @returns Resolves when the spawn has completed (or rejects on spawn failure)
    */
   private async _attemptConnection(): Promise<void> {
-    try {
-      const isJavaScriptFile: boolean = this.serverPath.toLowerCase().endsWith('.js');
-      const command: string = isJavaScriptFile ? process.execPath : this.serverPath;
-      const args: string[] = isJavaScriptFile ? [this.serverPath] : [];
-
-      const childEnv = { ...process.env };
-      const effectiveTimeoutMs = childEnv['EP_REQUEST_TIMEOUT_MS']
-        ? Number(childEnv['EP_REQUEST_TIMEOUT_MS'])
-        : REQUEST_TIMEOUT_MS;
-      childEnv['EP_REQUEST_TIMEOUT_MS'] = String(effectiveTimeoutMs);
-
-      if (!isJavaScriptFile) {
-        args.push('--timeout', String(effectiveTimeoutMs));
-      }
-
-      this.process = spawn(command, args, {
-        stdio: ['pipe', 'pipe', 'pipe'],
-        env: childEnv,
-      });
-
-      let buffer = '';
-      let startupError: Error | null = null;
-
-      this.process.stdout?.on('data', (data: Buffer) => {
-        buffer += data.toString();
-        const lines = buffer.split('\n');
-        buffer = lines.pop() ?? '';
-
-        for (const line of lines) {
-          if (line.trim()) {
-            this.handleMessage(line);
-          }
-        }
-      });
-
-      this.process.stderr?.on('data', (data: Buffer) => {
-        const message = data.toString().trim();
-        if (message) {
-          console.error(`MCP Server: ${message}`);
-        }
-      });
-
-      this.process.on('close', (code: number | null) => {
-        console.log(`MCP Server exited with code ${code}`);
-        this.connected = false;
-
-        for (const [id, { reject }] of this.pendingRequests.entries()) {
-          reject(new Error('MCP server connection closed'));
-          this.pendingRequests.delete(id);
-        }
-      });
-
-      this.process.on('error', (err: Error) => {
-        startupError = err;
-        this.connected = false;
-      });
-
-      await new Promise((resolve) => setTimeout(resolve, CONNECTION_STARTUP_DELAY_MS));
-
-      if (startupError) {
-        throw startupError;
-      }
-
-      this.connected = true;
-      console.log(`✅ Connected to ${this.serverLabel}`);
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      console.error('❌ Failed to spawn MCP server:', message);
-      throw error;
-    }
+    return attemptStdioConnection(this._spawnContext());
   }
 
   /**
@@ -371,50 +280,13 @@ export class MCPConnection {
   }
 
   /**
-   * Handle incoming messages from MCP server (stdio mode only)
+   * Handle incoming messages from MCP server (stdio mode only).
+   * Delegates to {@link handleIncomingMessage} in process.ts.
    *
    * @param line - JSON message line from server
    */
   handleMessage(line: string): void {
-    try {
-      const message = JSON.parse(line) as JSONRPCResponse;
-
-      if (message.id !== null && message.id !== undefined && this.pendingRequests.has(message.id)) {
-        const pending = this.pendingRequests.get(message.id);
-        if (pending) {
-          this.pendingRequests.delete(message.id);
-          if (message.error) {
-            pending.reject(new Error(message.error.message ?? 'MCP server error'));
-          } else {
-            pending.resolve(message.result);
-          }
-        } else {
-          this.pendingRequests.delete(message.id);
-          console.error(`MCP pending request ${String(message.id)} vanished before handling`);
-        }
-      } else if ((message.id === null || message.id === undefined) && message.method) {
-        console.log(`MCP Notification: ${message.method}`);
-      }
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
-      console.error('Error parsing MCP message:', errorMessage);
-      console.error('Problematic line:', line);
-    }
-  }
-
-  /**
-   * Send a request via MCP Gateway (HTTP transport). Delegates to the
-   * gateway helper module.
-   *
-   * @param method - RPC method name
-   * @param params - Method parameters
-   * @returns Server response result payload
-   */
-  private async _sendGatewayRequest(
-    method: string,
-    params: Record<string, unknown> = {}
-  ): Promise<unknown> {
-    return sendGatewayRequest(method, params, this._gatewayContext());
+    handleIncomingMessage(line, this.pendingRequests);
   }
 
   /**
@@ -430,7 +302,7 @@ export class MCPConnection {
     }
 
     if (this.gatewayUrl) {
-      return (await this._sendGatewayRequest(method, params)) as T;
+      return (await sendGatewayRequest(method, params, this._gatewayContext())) as T;
     }
 
     const id = ++this.requestId;
@@ -485,80 +357,44 @@ export class MCPConnection {
   }
 
   /**
-   * Attempt to reconnect to the MCP server with exponential back-off.
-   * Concurrent callers await the same in-flight reconnect instead of no-oping,
-   * ensuring the connection is re-established before all waiting callers continue.
+   * Build a {@link ReconnectOps} adapter for reconnect.ts helpers.
    *
-   * @returns Promise that resolves when reconnection succeeds or all attempts are exhausted
+   * @returns Context adapter for reconnect/retry helpers
    */
-  private async reconnect(): Promise<void> {
-    if (this.reconnectingPromise !== null) {
-      return this.reconnectingPromise;
-    }
-    this.reconnectCount++;
-    console.log(`🔄 Reconnecting to ${this.serverLabel} (attempt ${this.reconnectCount})...`);
-    this.reconnectingPromise = this._doReconnect();
-    try {
-      await this.reconnectingPromise;
-    } finally {
-      this.reconnectingPromise = null;
-    }
+  private _reconnectOps(): ReconnectOps {
+    return {
+      maxConnectionAttempts: this.maxConnectionAttempts,
+      connectionRetryDelay: this.connectionRetryDelay,
+      serverLabel: this.serverLabel,
+      callTool: (n, a) => this.callTool(n, a),
+      isConnected: () => this.connected,
+      connect: () => this.connect(),
+      setConnected: (v) => {
+        this.connected = v;
+      },
+      getReconnectCount: () => this.reconnectCount,
+      setReconnectCount: (n) => {
+        this.reconnectCount = n;
+      },
+      getReconnectingPromise: () => this.reconnectingPromise,
+      setReconnectingPromise: (p) => {
+        this.reconnectingPromise = p;
+      },
+      getTimeoutCount: () => this.timeoutCount,
+      setTimeoutCount: (n) => {
+        this.timeoutCount = n;
+      },
+    };
   }
 
   /**
-   * Internal reconnect helper.
+   * Attempt to reconnect to the MCP server.
+   * Deduplicates concurrent calls — only one reconnect runs at a time.
    *
-   * Waits for an exponential back-off delay derived from the current
-   * `reconnectCount`, then delegates to `connect()` which handles its own
-   * retry loop. This avoids composing N×N attempts.
-   *
-   * @returns Promise that resolves when reconnection succeeds or logs on failure
+   * @returns Resolves when reconnect succeeds or all attempts are exhausted
    */
-  private async _doReconnect(): Promise<void> {
-    const normalizedMaxAttempts = Math.max(1, this.maxConnectionAttempts);
-    const attemptIndex = Math.min(Math.max(0, this.reconnectCount - 1), normalizedMaxAttempts - 1);
-    const delay = Math.min(
-      this.connectionRetryDelay * Math.pow(2, attemptIndex),
-      RECONNECT_MAX_DELAY_MS
-    );
-    await new Promise((r) => setTimeout(r, delay));
-    try {
-      this.connected = false;
-      await this.connect();
-    } catch (error) {
-      console.error(
-        `❌ Reconnection to ${this.serverLabel} failed: ${
-          error instanceof Error ? error.message : String(error)
-        }`
-      );
-    }
-  }
-
-  /**
-   * Log a retry warning and, if disconnected, attempt to reconnect before waiting.
-   *
-   * @param lastError - The error from the failed attempt
-   * @param attempt - Zero-based current attempt index
-   * @param retries - Total retry count
-   * @returns Promise that resolves after logging, optional reconnect, and inter-retry delay
-   */
-  private async _handleRetryAttempt(
-    lastError: Error,
-    attempt: number,
-    retries: number
-  ): Promise<void> {
-    if (lastError.message.toLowerCase().includes('timeout')) {
-      this.timeoutCount++;
-      console.warn(
-        `⏱️ Request timeout (total: ${this.timeoutCount}), retrying ${attempt + 1}/${retries}...`
-      );
-    } else {
-      console.warn(`⚠️ Request failed, retrying ${attempt + 1}/${retries}: ${lastError.message}`);
-    }
-    if (!this.connected) {
-      await this.reconnect();
-    }
-    await new Promise((r) => setTimeout(r, this.connectionRetryDelay * (attempt + 1)));
+  async reconnect(): Promise<void> {
+    return performReconnect(this._reconnectOps());
   }
 
   /**
@@ -583,17 +419,6 @@ export class MCPConnection {
     if (retries < 0) {
       throw new RangeError(`maxRetries must be >= 0, received ${retries}`);
     }
-    let lastError: Error = new Error(`Failed to call tool '${name}' after ${retries} retries`);
-    for (let attempt = 0; attempt <= retries; attempt++) {
-      try {
-        return await this.callTool(name, args);
-      } catch (error) {
-        lastError = error instanceof Error ? error : new Error(String(error));
-        if (!isRetriableError(lastError)) throw lastError;
-        if (attempt === retries) break;
-        await this._handleRetryAttempt(lastError, attempt, retries);
-      }
-    }
-    throw lastError;
+    return runWithRetry(name, args, retries, this._reconnectOps());
   }
 }

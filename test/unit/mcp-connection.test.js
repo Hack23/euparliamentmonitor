@@ -332,12 +332,12 @@ describe('mcp-connection', () => {
           .mockRejectedValueOnce(new Error('connection closed'))
           .mockResolvedValueOnce({ content: [] });
         client.connected = false;
-
-        const reconnectSpy = vi.spyOn(client, 'reconnect').mockResolvedValue(undefined);
+        // Mock connect so performReconnect can succeed
+        client.connect = vi.fn().mockResolvedValue(undefined);
 
         const result = await client.callToolWithRetry('tool_name', {}, 1);
         expect(result).toEqual({ content: [] });
-        expect(reconnectSpy).toHaveBeenCalledTimes(1);
+        expect(client.getConnectionHealth().reconnectCount).toBe(1);
       });
 
       it('should not reconnect when still connected on retry', async () => {
@@ -347,10 +347,10 @@ describe('mcp-connection', () => {
           .mockResolvedValueOnce({ content: [] });
         client.connected = true;
 
-        const reconnectSpy = vi.spyOn(client, 'reconnect').mockResolvedValue(undefined);
+        client.connect = vi.fn().mockResolvedValue(undefined);
 
         await client.callToolWithRetry('tool_name', {}, 1);
-        expect(reconnectSpy).not.toHaveBeenCalled();
+        expect(client.getConnectionHealth().reconnectCount).toBe(0);
       });
 
       it('should use instance maxRetries when no override provided', async () => {
@@ -475,7 +475,7 @@ describe('mcp-connection', () => {
           })
         );
 
-        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+        await expect(client.sendRequest('tools/list')).rejects.toThrow(
           MCPSessionExpiredError
         );
         expect(client.mcpSessionId).toBeNull();
@@ -497,7 +497,7 @@ describe('mcp-connection', () => {
           })
         );
 
-        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+        await expect(client.sendRequest('tools/list')).rejects.toThrow(
           'MCP session expired (401)'
         );
       });
@@ -521,7 +521,7 @@ describe('mcp-connection', () => {
           })
         );
 
-        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+        await expect(client.sendRequest('tools/list')).rejects.toThrow(
           'Rate limited. Retry after 30s'
         );
         expect(consoleOutput.warnings.some((w) => w.includes('30s'))).toBe(true);
@@ -544,7 +544,7 @@ describe('mcp-connection', () => {
           })
         );
 
-        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+        await expect(client.sendRequest('tools/list')).rejects.toThrow(
           'Rate limited. Retry after 60s'
         );
       });
@@ -567,7 +567,7 @@ describe('mcp-connection', () => {
           })
         );
 
-        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+        await expect(client.sendRequest('tools/list')).rejects.toThrow(
           /Rate limited\. Retry after \d+s \(until /
         );
       });
@@ -587,7 +587,7 @@ describe('mcp-connection', () => {
           })
         );
 
-        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow('Gateway error 503');
+        await expect(client.sendRequest('tools/list')).rejects.toThrow('Gateway error 503');
       });
 
       it('should throw RATE_LIMIT_MSG for 429 without Retry-After header', async () => {
@@ -605,7 +605,7 @@ describe('mcp-connection', () => {
           })
         );
 
-        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+        await expect(client.sendRequest('tools/list')).rejects.toThrow(
           'Rate limited. Retry after (status 429 Too Many Requests; X-Retry-After/Retry-After header missing)'
         );
       });
@@ -627,7 +627,7 @@ describe('mcp-connection', () => {
         );
 
         // Must throw 'Gateway error 503', not a rate-limit error, even with a Retry-After header
-        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow('Gateway error 503');
+        await expect(client.sendRequest('tools/list')).rejects.toThrow('Gateway error 503');
       });
 
       it('should throw MCPRateLimitError (not plain Error) for 429 with Retry-After', async () => {
@@ -645,7 +645,7 @@ describe('mcp-connection', () => {
           })
         );
 
-        const error = await client._sendGatewayRequest('tools/list').catch((e) => e);
+        const error = await client.sendRequest('tools/list').catch((e) => e);
         expect(error).toBeInstanceOf(MCPRateLimitError);
         expect(error.retryAfterMs).toBe(30000);
       });
@@ -666,7 +666,7 @@ describe('mcp-connection', () => {
           })
         );
 
-        const error = await client._sendGatewayRequest('tools/list').catch((e) => e);
+        const error = await client.sendRequest('tools/list').catch((e) => e);
         expect(error).toBeInstanceOf(MCPRateLimitError);
         expect(error.retryAfterMs).toBe(0);
         expect(error.message).toContain('header missing');

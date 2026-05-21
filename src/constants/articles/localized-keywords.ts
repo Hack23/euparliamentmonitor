@@ -10,11 +10,13 @@
  */
 
 import type { LanguageMap } from '../../types/index.js';
-import { LOCALIZED_KEYWORDS_EU } from './localized-keywords-eu.js';
+import { LOCALIZED_KEYWORDS_NORDIC } from './localized-keywords-nordic.js';
+import { LOCALIZED_KEYWORDS_CENTRAL } from './localized-keywords-central.js';
 import { LOCALIZED_KEYWORDS_GLOBAL } from './localized-keywords-global.js';
 
 export const LOCALIZED_KEYWORDS: LanguageMap<Record<string, readonly string[]>> = {
-  ...LOCALIZED_KEYWORDS_EU,
+  ...LOCALIZED_KEYWORDS_NORDIC,
+  ...LOCALIZED_KEYWORDS_CENTRAL,
   ...LOCALIZED_KEYWORDS_GLOBAL,
 };
 
