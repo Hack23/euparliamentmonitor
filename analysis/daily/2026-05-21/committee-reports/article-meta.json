@@ -1,0 +1,51 @@
+{
+  "date": "2026-05-21",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run264-1779341641",
+  "gateResult": "PENDING",
+  "slug": "2026-05-21-committee-reports",
+  "articlePath": "analysis/daily/2026-05-21/committee-reports/article.md",
+  "topFinding": "WEP Bands Applied | Admiralty Grade: B2",
+  "keyTakeaways": [
+    "On Green Deal files (ENVI lead): The margin is effectively lower because 15–20 EPP members from national delegations (Italian, Hungarian, Romanian) regularly cross-vote with ECR/PfE on environmental amendments",
+    "On defence files (ITRE lead): The effective majority is larger because ECR also supports SAFE regulation, giving a functional supermajority on defence industrial policy",
+    "On digital/AI files (ITRE/LIBE lead): Coalition holds but faces LIBE left-wing (Greens + The Left) opposing surveillance provisions",
+    "ITRE committee is the lead committee with support from AFET for SEDE-related provisions",
+    "The SAFE committee report addresses both the financial mechanism and procurement rules — the procurement rules section is the contested element",
+    "National defence industrial interests (France, Germany, Poland) have actively lobbied ITRE rapporteur",
+    "Council is pressing for faster adoption than Parliament's normal calendar allows"
+  ],
+  "topRisks": [
+    "**Score:** 20/25 (CRITICAL)",
+    "**Current indicators:** Russian military activity near NATO borders remains elevated; EU defence emergency provisions already legally mapped",
+    "**Mitigation:** EP Conference of Presidents maintain right to emergency committee convening; 8-week consultation minimum",
+    "**Residual risk:** HIGH — if triggered, committee work disrupted across all 24 standing committees for 4–8 weeks",
+    "**Score:** 16/25 each (HIGH)",
+    "**Current indicators:** EPP national delegations (especially Italian FdI, Hungarian bloc) showing independence signals on Green Deal votes",
+    "**Mitigation:** Von der Leyen's direct engagement with EPP MEPs; S&D-EPP backroom bargaining on social clause quid pro quo",
+    "**Residual risk:** MEDIUM-HIGH — at least one file likely to slip past pre-recess deadline"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Members**: EPP + S&D + Renew Europe",
+    "**Seat count**: 401/717 (55.9%)",
+    "**Activation threshold**: Most legislative votes (simple majority = 359)",
+    "**Stress factors**: EPP right-flank defection on Green Deal; Renew contraction post-EP9",
+    "**Members**: Greens/EFA + Left (GUE/NGL)",
+    "**Seat count**: 99/717 (13.8%)",
+    "**Role**: Amendment-shaping coalition; concession extraction from centre alliance",
+    "**Members**: PFE + ECR + ESN"
+  ],
+  "macroContext": "| Indicator | EU-27 (2026) | Euro Area (2026) | Global (2026) | Source | |-----------|-------------|-----------------|---------------|--------| | Real GDP Growth | 1.2% | 1.1% | 3.3% | IMF WEO Apr 2026 | | Inflation (CPI) | 2.4% | 2.3% | 4.5% | IMF WEO Apr 2026 | | Unemployment Rate | 6.1% | 6.2% | 5.4% | IMF WEO Apr…",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
