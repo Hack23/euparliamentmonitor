@@ -863,7 +863,7 @@ emergency partial flush instead of letting the engine time out with no PR.
     `Internationella valutafonden`.
   - Danish (`da`): `IMF` forbliver `IMF` — aldrig `IMV` / `Den
     Internationale Valutafond`.
-  - Finnish (`fi`): `IMF` säilyy `IMF` — ei koskaan `KVF` /
+  - Finnish (`fi`): `IMF` säilyy muodossa `IMF` — ei koskaan `KVR` /
     `Kansainvälinen valuuttarahasto`.
   - German / French / Spanish: `IMF` stays `IMF` — never `IWF` (de) or
     `FMI` (fr / es). Run validator gate #5 in Step 2.4 to catch token
