@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "0.9.19",
+  "version": "0.9.20",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -187,7 +187,8 @@
     "tsx": "4.22.3",
     "typedoc": "0.28.19",
     "typescript": "6.0.3",
-    "vitest": "4.1.7"
+    "vitest": "4.1.7",
+    "yaml": "^2.9.0"
   },
   "engines": {
     "node": ">=26"
