@@ -923,14 +923,31 @@ wall-clock guard is the failsafe — if anything overruns, it forces an
 emergency partial flush instead of letting the engine time out with no PR.
 
 **Transient-API-error mitigation**: rather than budgeting extra time for
-retry loops, the root cause is addressed by (1) using a lower-cost model
-(`claude-sonnet-4` instead of `claude-sonnet-4.6`) to reduce rate limiting,
-(2) detecting retry loops early (two consecutive `edit` calls > 5 min each
-= retry loop → trigger Step 4b immediately), and (3) aggressive 40-min
-commit preparation threshold that ensures at least partial output is saved
-even if a retry loop consumed early minutes.
+retry loops, the root cause is addressed by (1) keeping the model at
+`claude-sonnet-4.6` (the repo-wide standard — never downgrade; see
+`.github/prompts/09-troubleshooting.md` §5 "Do NOT downgrade the model"
+guidance) and aggressively pre-fetching feeds + caching thresholds so
+each invocation does maximum useful work, (2) detecting retry loops
+early (two consecutive `edit` calls > 5 min each = retry loop → trigger
+Step 4b immediately), and (3) aggressive 40-min commit preparation
+threshold that ensures at least partial output is saved even if a retry
+loop consumed early minutes.
 
 ## 🚫 Never
+
+> **📝 File Authoring Priority (gh-aw best practice — read first)**
+>
+> **(1)** Use the native Copilot CLI **`create`** tool for every new
+> translation file (pass `path` and `file_text` explicitly on every
+> call). **(2)** Use the native Copilot CLI **`edit`** tool for any
+> file already on disk (Phase B section-by-section edits, marker
+> removal, recovery from partial writes). **(3)** `cat > file` is
+> reserved for short keyword-free structured outputs only
+> (`manifest.json` via `jq`, status flags) — **never** for translated
+> prose. **NEVER** use `python3`, `ruby`, `perl`, or any other language
+> heredoc to write any translation file: the repo-wide toolchain is
+> Node.js + TypeScript only, and heredocs of every flavour silently
+> truncate at the context-window boundary.
 
 - **Never** translate before reading the translator guide.
 - **Never** translate by running `sed`/`awk`/`tr` over the source.

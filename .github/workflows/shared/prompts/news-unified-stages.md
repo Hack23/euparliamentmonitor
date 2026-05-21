@@ -237,4 +237,19 @@ Then invoke `safeoutputs___create_pull_request` **exactly once** with:
 - Never edit anything under `news/**` outside of `npm run generate-article`.
 - Never dispatch another workflow except via the `dispatch-workflow:`
   safe output (`news-translate`, exactly once after merge).
+- **Never** use `python3`, `ruby`, `perl`, or any non-Node language to
+  author files — the repo-wide toolchain is Node.js + TypeScript only.
+- **Never** use `cat > file << 'EOF' … EOF` heredocs for analysis prose
+  (SWOT, stakeholder, risk, MCP audit, intelligence content). The
+  bash-safety filter rejects bodies containing political-analysis tokens
+  like *"kill"* (endemic in motions / amendments). Use the native
+  `create` tool instead. Heredocs remain safe only for short
+  keyword-free structured files (`manifest.json` via `jq`, SPDX stubs).
+- **Never** check-then-extend (`wc -l` → `cat >> file`) — pre-size every
+  artifact to meet the floor on the first `create` call using
+  `runs/thresholds-cache.json`.
+- See `shared/prompts/news-unified-runtime.md` §"📝 File Authoring Policy"
+  for the full priority order (native `create`/`edit` → `cat`+`jq` for
+  short structured files → never Python/heredoc-of-any-language for
+  prose).
 - See `00-scope-and-ground-rules.md` for the full list.
