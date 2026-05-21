@@ -105,7 +105,7 @@ on:
         required: false
       target_brief:
         default: ""
-        description: "Operator override \u2014 queue ONLY this brief and ignore mode/max_briefs/max_age_days. Accepted forms: `YYYY-MM-DD/<slug>` (short, e.g. `2026-05-21/propositions`), `YYYY-MM-DD/<slug>/extended` (legacy extended path), or the full repo path `analysis/daily/YYYY-MM-DD/<slug>/executive-brief.md`. Leave blank for the normal scheduled fresh-then-backlog behaviour."
+        description: "Operator override \u2014 queue ONLY this brief and ignore mode/max_briefs/max_age_days. Accepted forms: `YYYY-MM-DD/<slug>` (short, e.g. `2026-05-21/propositions`), `YYYY-MM-DD/<slug>/extended` (legacy extended path), `analysis/daily/YYYY-MM-DD/<slug>/executive-brief.md`, or `analysis/daily/YYYY-MM-DD/<slug>/extended/executive-brief.md`. NOTE: targeting an extended brief also requires `include_extended: true` \u2014 otherwise discovery will not scan extended sources and the queue will be empty. Leave blank for the normal scheduled fresh-then-backlog behaviour."
         required: false
 
 permissions: {}
