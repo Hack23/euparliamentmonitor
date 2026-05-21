@@ -67,6 +67,7 @@
  *                              #     YYYY-MM-DD/<slug>
  *                              #     YYYY-MM-DD/<slug>/extended
  *                              #     analysis/daily/YYYY-MM-DD/<slug>/executive-brief.md
+ *                              #     analysis/daily/YYYY-MM-DD/<slug>/extended/executive-brief.md
  *                              #   Used by operator-dispatched runs that need
  *                              #   to (re)translate one specific brief.
  *     [--output <path>]       # default stdout
@@ -155,7 +156,7 @@ export const DISCOVERY_MODES = Object.freeze([
 
 /**
  * Parse a `--target-brief` operator override into a `{ date, slug, isExtended }`
- * triple. Accepts three equivalent operator-friendly forms so the same input
+ * triple. Accepts four equivalent operator-friendly forms so the same input
  * works whether the operator copies a path out of the repo, a date/slug pair
  * out of the discovery JSON, or types the canonical short form by hand:
  *

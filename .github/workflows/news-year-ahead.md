@@ -4,7 +4,7 @@ description: Generates a single PR containing analysis artifacts and the rendere
 strict: false
 on:
   schedule:
-    - cron: "0 8 2 1,4,7,10 *"  # 1st of each month around 08:00 UTC
+    - cron: "0 8 2 1,4,7,10 *"  # 2nd of Jan/Apr/Jul/Oct around 08:00 UTC
   workflow_dispatch:
 
 permissions:
