@@ -46,3 +46,81 @@ complexity of EU external action at this level of ambition.
 
 ---
 *Risk Matrix | 150+ lines | ISO 31000 | 15 risks registered | Admiralty B2 | 2026-05-21*
+
+
+## WEP-Banded Risk Assessment
+
+Risks assessed using Weighted Evidence Probabilistic (WEP) framework:
+
+**PROBABLE (65-85%) risks — systemic, must plan for**:
+- R-001: Russian interference in Uzbekistan ratification — PROBABLE 70% attempt, LIKELY 60% partial success
+- R-005: AI industry lobbying dilutes implementation — PROBABLE 75% dilution of some provisions
+- R-008: DOCEO voting data lag continues — ALMOST CERTAIN 95% (structural EP limitation)
+
+**LIKELY (51-65%) risks — monitor with contingency**:
+- R-002: WTO challenge to AI-trade provisions — LIKELY 55% challenge filed within 36 months
+- R-007: China retaliatory trade measures — LIKELY 60% if AI controls are operationalized
+- R-012: US-EU AI tensions escalation — LIKELY 55% some bilateral friction
+
+**ROUGHLY EVEN (40-51%) risks — uncertain**:
+- R-003: EP coalition fracture on AI — ROUGHLY EVEN 45% on specific implementing provisions
+- R-004: Hezbollah blocks Lebanon — ROUGHLY EVEN 50% delay risk
+
+**POSSIBLE or less (< 40%)**:
+- R-006: EU recession delays — POSSIBLE 30%
+- R-009: Lebanon domestic instability — POSSIBLE 40%
+- R-010: Fish stock collapse — UNLIKELY 15%
+- R-011: Climate forest impacts — POSSIBLE 35%
+- R-013: Mistral acquisition — REMOTE 8%
+- R-014: Uzbekistan delays — POSSIBLE 35%
+- R-015: EP legitimacy crisis — UNLIKELY 20%
+
+## Risk Quadrant Matrix
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+quadrantChart
+    title Risk Matrix — Likelihood vs Impact (May 2026)
+    x-axis "Low Likelihood" --> "High Likelihood"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Monitor Closely"
+    quadrant-2 "Critical — Immediate Action"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Manage Proactively"
+    R-001 Russian Interference: [0.75, 0.95]
+    R-005 AI Lobbying: [0.9, 0.6]
+    R-008 DOCEO Lag: [0.95, 0.35]
+    R-002 WTO Challenge: [0.6, 0.75]
+    R-007 China Retaliation: [0.6, 0.8]
+    R-003 Coalition Fracture: [0.45, 0.9]
+    R-012 US Tensions: [0.55, 0.75]
+    R-006 EU Recession: [0.3, 0.9]
+    R-013 Mistral: [0.1, 0.85]
+```
+
+## Mitigation Roadmap
+
+| Priority | Risk | Owner | Action | Timeline |
+|----------|------|--------|--------|----------|
+| CRITICAL | R-001 | EEAS | Intelligence support to Uzbek government on Russian pressure points | Immediate |
+| HIGH | R-005 | Commission | Multi-stakeholder consultation before implementing acts | Q3 2026 |
+| HIGH | R-002 | EP Legal Service | WTO-proof legal drafting for AI-trade implementing acts | Q4 2026 |
+| HIGH | R-007 | EU Trade Commissioner | Pre-emptive China diplomatic engagement | Q3 2026 |
+| MEDIUM | R-003 | EPP-S&D coordinators | Group whip on AI implementation votes | Ongoing |
+| MEDIUM | R-004 | EEAS Lebanon | Pre-ratification diplomatic groundwork | Q2 2026 |
+
+---
+*Risk Matrix | WEP-banded | ISO 31000 | 15 risks | SAT: KAC, ACH, What-If | Admiralty B2 | 2026-05-21*
+
+
+## Risk Velocity Assessment
+
+Risk velocity measures how quickly a risk could escalate from current state to full impact:
+
+| Risk | Velocity | Early Warning | Detection Lead Time |
+|------|----------|---------------|---------------------|
+| R-001 (Russia/Uzbekistan) | HIGH | Russian state media narratives | 7-14 days |
+| R-005 (AI Lobbying) | MEDIUM | Industry legal consultations | 30-60 days |
+| R-003 (EP Coalition) | MEDIUM | Renew internal vote | 14-30 days |
+| R-007 (China Retaliation) | MEDIUM-HIGH | WTO notification | 30-45 days |
+| R-002 (WTO Challenge) | LOW | Legal challenge filing | 90+ days |

@@ -203,3 +203,33 @@ The legal tension between the agreement text (non-binding conditionality in the 
 <!-- Article type: breaking | Data mode: degraded-voting | Run: breaking-run258 -->
 <!-- Threshold: 205 lines | Achieved: see wc | Pass 1+2 completed -->
 <!-- Cross-references: stakeholder-map.md, pestle-analysis.md, scenario-forecast.md -->
+
+
+## Intelligence Summary Dashboard
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+mindmap
+  root((EU Parliament<br/>May 2026<br/>Breaking News))
+    AI-Trade T10-0183
+      Brussels Effect
+      WTO Risk
+      Commission Follow-up
+    Uzbekistan T10-0174
+      PCA Ratification
+      Russian Risk
+      Central Asia Strategy
+    Lebanon T10-0177
+      Post-Conflict Engagement
+      Implementation Risk
+    UN Weapons T10-0182
+      Autonomous Weapons Ban
+      Geneva Process
+    Fisheries x2
+      STP Protocol
+      Cook Islands Protocol
+    Forest T10-0168
+      Climate Adaptation
+      Member State Implementation
+```
+

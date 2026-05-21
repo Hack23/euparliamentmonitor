@@ -406,3 +406,16 @@ improving data quality, freeing the saved invocations for Stage B deep-fetch ope
 
 ---
 *MCP Reliability Audit: 385+ lines | Complete | 2026-05-21 | Run: breaking-run258-1779351146*
+
+
+## MCP Tool Reliability Matrix
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+xychart-beta
+    title "EP MCP API Availability (2026-05-21)"
+    x-axis ["Adopted Texts", "MEPs Feed", "Committee Docs", "Events Feed", "Procedures", "Voting/DOCEO"]
+    y-axis "Availability Score (0=Failed, 5=Full)" 0 --> 5
+    bar [4, 5, 2, 1, 2, 0]
+```
+

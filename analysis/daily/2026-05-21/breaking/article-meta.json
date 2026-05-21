@@ -15,7 +15,16 @@
     "High-level drug trafficking (Captagon production, Hezbollah economic activities)",
     "Migration flows to EU through Lebanese territory"
   ],
-  "topRisks": [],
+  "topRisks": [
+    "R-001: Russian interference in Uzbekistan ratification — PROBABLE 70% attempt, LIKELY 60% partial success",
+    "R-005: AI industry lobbying dilutes implementation — PROBABLE 75% dilution of some provisions",
+    "R-008: DOCEO voting data lag continues — ALMOST CERTAIN 95% (structural EP limitation)",
+    "R-002: WTO challenge to AI-trade provisions — LIKELY 55% challenge filed within 36 months",
+    "R-007: China retaliatory trade measures — LIKELY 60% if AI controls are operationalized",
+    "R-012: US-EU AI tensions escalation — LIKELY 55% some bilateral friction",
+    "R-003: EP coalition fracture on AI — ROUGHLY EVEN 45% on specific implementing provisions",
+    "R-004: Hezbollah blocks Lebanon — ROUGHLY EVEN 50% delay risk"
+  ],
   "keyDates": [
     "**Poland presidency (Jan-Jun 2026)**: Technology-positive but cautious on export controls",
     "**Denmark presidency (Jul-Dec 2026)**: Digital governance experience; likely to champion"
@@ -34,6 +43,8 @@
   "sources": [
     "classification/actor-mapping.md",
     "executive-brief.md",
+    "extended/executive-brief.md",
+    "extended/forward-indicators.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

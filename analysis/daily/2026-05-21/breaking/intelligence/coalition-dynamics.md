@@ -133,3 +133,34 @@ The parliamentary balance reflects a centrist majority that must negotiate inter
 ---
 
 
+
+
+## Coalition Stability Map
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+graph LR
+    subgraph ProCoalition["Core Coalition (EPP+S&D+Renew = 401)"]
+        EPP["EPP 188"] 
+        SD["S&D 136"]
+        RE["Renew 77"]
+    end
+    subgraph Supporting["Supporting (conditional)"]
+        GR["Greens 53"]
+        LEFT["Left 46"]
+    end
+    subgraph Opposition["Opposition"]
+        PAT["Patriots 84"]
+        ECR["ECR 78 (split)"]
+        ESN["ESN 25"]
+    end
+    MAJORITY["EP Majority Threshold 361"]
+    EPP --> MAJORITY
+    SD --> MAJORITY
+    RE --> MAJORITY
+    style MAJORITY fill:#D32F2F,color:#ffffff
+    style EPP fill:#3F51B5,color:#ffffff
+    style SD fill:#F44336,color:#ffffff
+    style RE fill:#FF9800,color:#ffffff
+```
+
