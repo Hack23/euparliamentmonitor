@@ -235,11 +235,11 @@ export const SKELETON_MARKER_RE = /<!--\s*translation-skeleton\b/;
  * Heuristic skeleton detector. A file is a skeleton if EITHER:
  *  - it contains the explicit `SKELETON_MARKER_RE` marker in its first
  *    10 lines (preferred, set by Phase A), OR
- *  - it is structurally indistinguishable from a skeleton: H1 + ≥3 H2
- *    headings, every H2 followed only by a `<!-- pending -->` /
- *    `<PENDING>` placeholder, and total body bytes < 25% of any
- *    realistic translation (fallback for older Phase A output that
- *    pre-dates the marker convention).
+ *  - it matches the fallback heuristic for older Phase A output that
+ *    pre-dates the marker convention: ≥3 H2 headings AND the number of
+ *    `<!-- pending -->` / `<PENDING>` / `PENDING` placeholders is at
+ *    least equal to the H2 count (i.e. every H2 section appears to be
+ *    an unfilled stub).
  *
  * @param {string} text
  * @returns {boolean}
@@ -713,7 +713,12 @@ export function runValidation(translationPaths, repoRoot, { quiet = false } = {}
  * emergency partial flushes — are not counted as blocking.
  */
 export function countBlockingViolations(violations, { strictSkeletons = false } = {}) {
-  if (strictSkeletons) return violations.length;
+  if (strictSkeletons) {
+    // Promote skeleton-incomplete advisories to blocking, but leave any
+    // other warning-level advisory types non-blocking so that future
+    // additions of new warning gates don't inadvertently become strict.
+    return violations.filter((v) => v.severity !== 'warning' || v.gate === 'skeleton-incomplete').length;
+  }
   return violations.filter((v) => v.severity !== 'warning').length;
 }
 
