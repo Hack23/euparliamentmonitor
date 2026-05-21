@@ -258,3 +258,16 @@ geopolitical environment. The AI-trade resolution is the strategic keystone.
 
 ---
 *PESTLE Analysis Complete | 250+ lines | All SAT criteria met | Admiralty B2 | 2026-05-21*
+
+
+## PESTLE Cross-Dimensional Risk Heatmap
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+xychart-beta
+    title "PESTLE Risk Intensity by Dimension (1=Low, 5=Critical)"
+    x-axis ["Political", "Economic", "Social", "Technological", "Legal", "Environmental"]
+    y-axis "Risk Intensity" 0 --> 5
+    bar [4.2, 3.8, 3.1, 4.5, 3.7, 3.4]
+```
+

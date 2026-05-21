@@ -140,3 +140,73 @@ within existing institutional frameworks and budget envelopes.
 ---
 *Threat Model | 250+ lines | STRIDE methodology | 7 threats modeled*
 *Priority matrix | Disruption opportunities | Admiralty B2 | 2026-05-21*
+
+
+## Threat Actor Profiles
+
+### TA-001: Russian Federation (Strategic Interference)
+**Profile**: State actor with demonstrated capability and intent to disrupt EU-Central Asia integration
+**WEP**: PROBABLE 70% of attempted interference
+**Target**: Uzbekistan PCA ratification process + implementation
+**TTPs**: Information operations, economic pressure on Uzbek government, energy leverage, diplomatic signalling
+**Current Assessment**: Russia views EU-Uzbekistan PCA as a challenge to its sphere of influence in Central Asia. The PCA's investment provisions could redirect Uzbek economic orientation westward, reducing dependency on Russian infrastructure and markets.
+**Mitigation**: EEAS pre-emptive diplomatic engagement; monitoring of Russian state media narratives; EU investment pipeline readiness to demonstrate tangible benefits quickly
+**Residual Risk**: LIKELY 60% that Russia succeeds in delaying implementation momentum even if ratification proceeds
+
+### TA-002: AI Industry Coalition (Implementation Dilution)
+**Profile**: Coordinated lobbying from EU and US tech sector to weaken AI governance provisions in FTAs
+**WEP**: PROBABLE 75% of successful dilution of at least some provisions
+**Target**: Commission implementing acts for T10-0183
+**TTPs**: Technical complexity arguments, WTO compliance concerns as delaying tactic, revolving door influence via former Commission officials, public campaigns about "EU competitiveness"
+**Current Assessment**: The gap between EP resolution text and Commission implementing acts is historically where the most substantive dilution occurs. The AI industry has significant lobbying resources and technical expertise advantages over understaffed Commission units.
+**Mitigation**: EP INTA committee post-adoption scrutiny; transparent multi-stakeholder consultation; clear implementing act timelines in the resolution text itself
+**Residual Risk**: LIKELY 65% that implementation is weaker than resolution intent
+
+### TA-003: China (Trade Counter-Measures)
+**Profile**: China may interpret AI trade governance provisions as a form of tech containment
+**WEP**: LIKELY 60% of some form of retaliatory trade measure if AI-trade provisions are operationalized
+**Target**: EU-China trade balance, specific sector negotiations
+**TTPs**: Targeted tariffs on EU goods, restrictions on rare earth exports critical for AI hardware, diplomatic pressure on member states with strong China trade ties (Germany, Netherlands)
+**Current Assessment**: China's response will depend heavily on implementation specifics. If AI governance requirements in FTAs effectively exclude Chinese AI products from markets covered by new EU trade agreements, Beijing will respond proportionately.
+**Mitigation**: G7 AI Trade Coordination Track; bilateral EU-China digital dialogue; careful drafting to ensure WTO compatibility (which also protects against Chinese WTO challenges)
+**Residual Risk**: POSSIBLE 40% of significant trade friction affecting EU-China bilateral trade volumes
+
+### TA-004: Domestic Political Fragmentation (EP Coalition Risk)
+**Profile**: EP coalition instability on AI-trade implementing provisions
+**WEP**: ROUGHLY EVEN 45% of at least one major defection event from EPP-S&D-Renew coalition on AI implementing votes
+**Target**: EP votes on Commission delegated acts implementing T10-0183
+**TTPs**: National industry interest advocacy by MEPs from tech-dependent constituencies; Renew Europe internal splits between tech-liberal and tech-governance wings; EPP right wing alignment with Patriots on specific provisions
+**Current Assessment**: The grand coalition is structurally stable for headline text adoption. Implementing details — especially on SME exemptions, governance board composition, and WTO-compatibility clauses — will test cohesion.
+**Mitigation**: Early coalition management by EPP and S&D coordinators; MEP engagement on constituency-specific AI governance benefits; clear communication of implementation timeline
+
+## Threat Priority Matrix
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+xychart-beta
+    title "Threat Actor Risk Score (Likelihood × Impact)"
+    x-axis ["TA-001 Russia", "TA-002 AI Lobby", "TA-003 China", "TA-004 Domestic"]
+    y-axis "Risk Score (0-25 ISO 31000)" 0 --> 25
+    bar [18, 17, 15, 14]
+```
+
+## Summary
+
+| TA | Actor | WEP | Score | Priority |
+|----|-------|-----|-------|---------|
+| TA-001 | Russia | PROBABLE 70% | 18/25 | HIGH |
+| TA-002 | AI Industry | PROBABLE 75% | 17/25 | HIGH |
+| TA-003 | China | LIKELY 60% | 15/25 | MEDIUM-HIGH |
+| TA-004 | EP Coalition | ROUGHLY EVEN 45% | 14/25 | MEDIUM |
+
+---
+*Threat Model | STRIDE | SAT: KAC, Red Team, ACH | Admiralty B2 | 2026-05-21*
+
+
+## Threat Mitigation Priority Summary
+
+Based on the threat actor profiles and risk scores above, the following mitigation priorities are ranked by urgency × feasibility:
+
+1. **AI Industry Lobbying (TA-002)**: Highest feasibility mitigation — INTA committee post-adoption scrutiny schedule should be established within 30 days of T10-0183 adoption. Transparent implementing act process is the key countermeasure.
+2. **Russian Interference (TA-001)**: Requires EEAS proactive engagement. EU delegation in Tashkent should be resourced for enhanced political reporting.
+3. **China Retaliation (TA-003)**: EU-China digital dialogue track should resume with AI-trade provisions on agenda within 90 days.

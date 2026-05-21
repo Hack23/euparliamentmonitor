@@ -123,3 +123,27 @@ AI industrial base). The primary strategic priority is exploiting the 2-3 year c
 ---
 *Quantitative SWOT | 140+ lines | ISO-weighted methodology | WEP bands applied*
 *4 strengths, 4 weaknesses, 4 opportunities, 3 threats quantified | Admiralty B2 | 2026-05-21*
+
+
+## SWOT Strategic Map
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+quadrantChart
+    title Quantitative SWOT — Strategic Position Assessment
+    x-axis "Internal Origin" --> "External Origin"
+    y-axis "Negative" --> "Positive"
+    quadrant-1 "Opportunities"
+    quadrant-2 "Strengths"
+    quadrant-3 "Weaknesses"
+    quadrant-4 "Threats"
+    Grand Coalition Stability: [0.15, 0.85]
+    Brussels Effect Credibility: [0.2, 0.75]
+    IMF Growth Projections: [0.7, 0.8]
+    Uzbekistan Geostrategic Timing: [0.75, 0.75]
+    DOCEO Data Gap: [0.25, 0.25]
+    Coalition Fragility on AI: [0.3, 0.35]
+    WTO Challenge Risk: [0.8, 0.3]
+    China Retaliation: [0.85, 0.25]
+```
+

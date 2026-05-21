@@ -273,3 +273,27 @@ Quarterly review recommended: wildcard probabilities should be updated when:
 - EP plenary floor votes show coalition fractures (defection >15 MEPs on key votes)
 *Wildcards COMPLETE*
 Wildcards and Black Swans analysis complete for 2026-05-21.
+
+
+## Black Swan Probability-Impact Matrix
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter"}}}%%
+quadrantChart
+    title Black Swan Matrix — Probability vs Impact
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "Very High Impact"
+    quadrant-1 "HIGH CONCERN"
+    quadrant-2 "VERY HIGH CONCERN"
+    quadrant-3 "LOW CONCERN"
+    quadrant-4 "MONITOR"
+    AI Superintelligence: [0.03, 0.99]
+    EP Dissolution Crisis: [0.05, 0.95]
+    Major EU Economic Shock: [0.1, 0.9]
+    US-EU Tech War: [0.15, 0.85]
+    Russia-Ukraine Resolution: [0.08, 0.8]
+    China AI Regulatory Convergence: [0.12, 0.7]
+    EP Coalition Collapse: [0.08, 0.95]
+    DOCEO Permanent Shutdown: [0.04, 0.6]
+```
+
