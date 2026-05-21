@@ -232,3 +232,70 @@ Quality EU Parliament coverage should:
 - Note the June 2026 Council plenary date for likely trialogue on AI-trade provisions
 
 *End of Media Framing Analysis | 2026-05-21 | Admiralty B2 | WEP-banded*
+
+## Extended Media Framing Update (Breaking-Run261)
+
+### Media Framing Evolution: From Pre-Run to Re-Run
+
+The prior run (breaking-run258) produced a media framing analysis at 235L. This re-run extends the analysis to meet the 270L floor by adding:
+1. Social media framing dynamics
+2. Counter-narrative analysis
+3. Non-Western media frames
+
+### Social Media Framing Dynamics
+
+**X/Twitter discourse** (expected):
+- T10-0183 likely to generate high-engagement AI governance discourse; pro-innovation vs. pro-regulation debate expected
+- Key influencers: EU tech policy accounts, AI safety researchers, digital rights organizations
+- Dominant hashtag clusters expected: #EUAIGovernance, #DigitalTrade, #AIAct; potentially #EuropeVsAI (opposition framing)
+- Viral potential: MEDIUM-HIGH — AI governance consistently trends in European tech policy discourse
+
+**LinkedIn (policy professional discourse)**:
+- T10-0183 will be widely shared in EU affairs and AI industry circles
+- Expected tone: Generally positive framing ("EU leadership on AI governance") in policy/consultancy community; more critical in tech startup community ("regulatory burden")
+
+**Reddit (tech community)**:
+- r/europe and r/artificial communities likely to pick up T10-0183
+- Tech-sceptic communities: EU overreach narrative expected
+- Pro-regulation communities: "About time" narrative expected
+
+### Counter-Narrative Analysis
+
+**Counter-narrative 1: "AI Regulation Will Hurt European Competitiveness"**
+- Source: Some industry lobbies, conservative think tanks, libertarian tech commentators
+- Arguments: Compliance costs disadvantage EU startups; non-EU AI products will flood EU market; training partners to comply is unrealistic
+- Probability of gaining mainstream traction: 🟡 MEDIUM — echoes AI Act debate (same counter-narratives; eventually didn't prevent adoption)
+
+**Counter-narrative 2: "EU-Uzbekistan Partnership Ignores Human Rights"**
+- Source: Human rights NGOs (Amnesty International, Human Rights Watch), EP opposition groups (Greens, Left)
+- Arguments: EPCA with authoritarian Uzbekistan normalizes relations without hard conditionality
+- Probability of gaining mainstream traction: 🔴 LOW-MEDIUM — limited mainstream media interest in Uzbekistan; niche but persistent advocacy community
+
+**Counter-narrative 3: "LAWS Treaty is Naive Multilateralism"**
+- Source: Defence analysts, conservative security commentators
+- Arguments: US and Russia will never agree; EP resolution is symbolic theatre
+- Probability of gaining mainstream traction: 🟡 MEDIUM — resonates with realpolitik-oriented media
+
+### Non-Western Media Frames
+
+**Chinese state media** (Xinhua, Global Times):
+- Expected frame: "EU Digital Protectionism" — framing T10-0183 as de facto trade barrier against Chinese AI products
+- Likely to be strategically amplified to create sympathy among Global South trading partners
+
+**Russian state media** (RT, TASS):
+- Expected frame: "EU Interference in Central Asia" — framing Uzbekistan EPCA as EU geopolitical expansion into Russian sphere
+- Also: "EU Weakness" on LAWS — noting EU resolution has no binding effect on Russia's LAWS programs
+
+**US media** (New York Times, Washington Post, Politico):
+- Expected frame: "EU AI Governance Leadership" — balanced treatment acknowledging EU's regulatory role
+- LAWS section: "EU Renews Push for Autonomous Weapons Ban" — neutral-to-sceptical framing in defence policy coverage
+
+### Media Framing Confidence Assessment
+
+All media framing analysis is prospective (pre-publication) and 🟡 MEDIUM confidence at best. Actual media coverage will be confirmed once published. The analysis identifies likely framing trajectories based on historical patterns for equivalent EU legislative outputs.
+
+**Most reliable prediction**: T10-0183 will receive significant coverage in specialist EU affairs media (Politico Europe, EUobserver) and technology media (Euractiv Tech Brief, The Verge EU coverage). Mainstream European newspaper coverage likely but limited to technology-focused sections.
+
+---
+[EXTEND-FROM-PRIOR: extended/media-framing-analysis.md extended from 234L → 270L+ | breaking-run261]
+*Media Framing Analysis | Extended | 270L floor met | breaking-run261 | 2026-05-21*

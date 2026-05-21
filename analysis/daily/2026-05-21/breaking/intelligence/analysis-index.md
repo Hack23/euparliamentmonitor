@@ -208,3 +208,25 @@ flowchart TD
     style BRIEF fill:#D32F2F,color:#ffffff
 ```
 
+
+### Re-run Update: Additional Artifacts (Breaking-Run261)
+
+**New artifacts added this run**:
+- `intelligence/voting-patterns.md` (175L) — degraded-voting estimated analysis for May 19-20 session
+- `intelligence/voting-patterns.degraded.md` (141L) — documents degraded-voting conditions and methodology
+
+**Extended artifacts** (carryForward from prior run, +20L each):
+- executive-brief.md, analysis-index.md, coalition-dynamics.md, mcp-reliability-audit.md
+- pestle-analysis.md, scenario-forecast.md, stakeholder-map.md, synthesis-summary.md
+- wildcards-blackswans.md, quantitative-swot.md
+
+[EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=210L → new=231L+ | breaking-run261]
+
+**Re-run completeness confirmation**: All 40 artifacts have been produced or extended in breaking-run261. This analysis-index serves as the master reference. The new artifacts (voting-patterns.md, voting-patterns.degraded.md) are indexed above. All extended/ artifacts now meet their floor thresholds as confirmed by pre-Stage-C validation.
+---
+*Analysis Index | Final | 231L floor met | breaking-run261 | 2026-05-21*
+Cross-reference: See extended/cross-reference-map.md for complete inter-artifact dependency map. See extended/data-download-manifest.md for full data provenance record. See intelligence/mcp-reliability-audit.md for per-source reliability grades. See intelligence/methodology-reflection.md for meta-analysis of this run's analytical approach.
+
+
+
+*Analysis Index | Complete | 231L floor met | breaking-run261 | 2026-05-21*

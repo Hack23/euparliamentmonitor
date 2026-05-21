@@ -1,4 +1,4 @@
-# Workflow Audit — EU Parliament Breaking News 2026-05-21
+# Workflow Audit — Extended — EU Parliament Breaking News 2026-05-21
 **Framework**: Run Audit and Quality Control Documentation
 **Date**: 2026-05-21 | **Run ID**: breaking-run258-1779351146 (prior), rerun 2026-05-21
 **Admiralty**: A1 (first-party run documentation)
@@ -65,3 +65,51 @@
 
 ---
 *Workflow Audit | Run Documentation | Admiralty A1 | 2026-05-21*
+
+## Re-Run 2026-05-21T19:36 — Extended Audit
+
+### Run Parameters (Re-run)
+| Parameter | Value |
+|-----------|-------|
+| Run ID | breaking-run261-1779392184 |
+| Prior Run ID | breaking-run258-1779351146 |
+| Re-run Trigger | Stage C RED in prior run |
+| MCP Calls (Stage A) | 4 (within ≤5 cap) |
+| Feeds Pre-fetched | 6/6 (full prefetch mode) |
+| Voting Data | Unavailable (degraded-voting mode) |
+
+### Stage A — Re-run Data Collection
+| Source | Items | Method |
+|--------|-------|--------|
+| Adopted texts feed (today) | 58 texts confirmed | MCP get_adopted_texts_feed |
+| Latest votes probe | 0 records | MCP get_latest_votes (unavailable) |
+| Plenary sessions probe | 0 records | MCP get_plenary_sessions (API degraded) |
+| Procedures feed | Historical data (staleness warning) | Pre-fetched |
+
+**MCP Call 1**: get_adopted_texts_feed (today) — 58 texts T10-0057 to T10-0191 confirmed ✅
+**MCP Call 2**: get_latest_votes — 0 records, datesUnavailable: [2026-05-18,19,20,21] — confirms degraded-voting
+**MCP Call 3**: get_plenary_sessions (May 19-21) — 0 filtered results; API degraded
+**MCP Call 4**: get_adopted_texts (TA-10-2026-0183) — UPSTREAM_404; content indexed not yet available
+
+### Re-run Prior-Run-Diff Analysis
+- **carryForward targets**: 10 artifacts (≥extendFloor required)
+- **rewrite targets**: 30 artifacts (below floor)
+- **Total artifacts to touch**: 40
+- **New artifacts created**: intelligence/voting-patterns.md, intelligence/voting-patterns.degraded.md
+
+### Stage B — Artifact Production Status (Re-run)
+| Category | Count | Target |
+|----------|-------|--------|
+| REWRITE completed | 30 | 30 |
+| CARRY extended | 10 | 10 |
+| New artifacts created | 2 | 2 |
+| Total modified | 42 | 42 |
+
+### Data Mode Declaration
+- **prefetchMode**: full (6/6 feeds, 0 placeholders) — from prefetch-status.json
+- **votingMode**: unavailable — DOCEO XML dates 2026-05-18/19/20/21 all return empty
+- **Final dataMode**: degraded-voting (voting data unavailable; all other feeds operational)
+- **Floor factor applied**: 0.85
+
+---
+*Workflow Audit — Re-run 2026-05-21T19:36 | Admiralty A1 | Updated by breaking-run261*

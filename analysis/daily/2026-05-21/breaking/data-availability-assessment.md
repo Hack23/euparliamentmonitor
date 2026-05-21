@@ -69,3 +69,19 @@
 
 ---
 *Data Availability Assessment | DataMode=degraded-voting | 0.85 floor factor | Admiralty B2 | 2026-05-21*
+
+## Re-Run Data Probe Results (breaking-run261)
+
+Stage A MCP probes in this re-run confirmed the following data availability:
+
+| Probe | Tool | Result | Impact |
+|-------|------|--------|--------|
+| Adopted texts feed (today) | get_adopted_texts_feed | 58 texts confirmed | HIGH value |
+| Latest votes | get_latest_votes | 0 records; 4 dates unavailable | Confirms degraded-voting |
+| Plenary sessions (May 19-21) | get_plenary_sessions | 0 filtered results | Confirms API gap |
+| Single text content (T10-0183) | get_adopted_texts | UPSTREAM_404 | Confirms content lag |
+| Procedures feed | get_procedures_feed | Historical data only (STALENESS_WARNING) | Low value |
+
+**Final dataMode**: `degraded-voting` (unchanged from prior run)
+**Floor factor**: 0.85 (unchanged)
+**Net information gain from re-run probes**: Confirmation that prior run assessment was correct; no new substantive information about the texts themselves.

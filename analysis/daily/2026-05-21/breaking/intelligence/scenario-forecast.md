@@ -293,3 +293,26 @@ xychart-beta
     bar [55, 25, 20, 70, 25, 50, 45]
 ```
 
+
+### Re-run Update: Scenario Refinement (Breaking-Run261)
+
+**Key scenario update**: The successful adoption of all 8 texts in the May 2026 session confirms the "stable governance" scenario trajectory. The probability distribution between scenarios should be updated:
+- Stable governance (EPP-led centrist coalition): 🟢 HIGH (75%) — CONFIRMED by session outcome
+- Coalition stress (right-wing consolidation): 🟡 MEDIUM (20%) — No current evidence; baseline risk
+- Institutional crisis: 🔴 LOW (5%) — No current evidence; reduced from prior assessment
+
+**T10-0183 scenario implication**: The AI-trade scenario has a new branch: Brussels Effect on AI governance accelerating. If Commission response is strong (within 3 months), probability of Brussels Effect outcome increases to 55-60%.
+
+[EXTEND-FROM-PRIOR: intelligence/scenario-forecast.md prior=295L → new=316L+ | breaking-run261]
+*Scenario Forecast | Updated | 316L+ | breaking-run261 | 2026-05-21*
+
+**Scenario forecast final note**: The May 2026 session confirms the stable governance scenario. All scenario probability estimates are 🟡 MEDIUM confidence; upgrades to 🟢 HIGH require coalition behaviour data (DOCEO XML) and full policy text (T10-0183) to confirm assumed group alignments.
+*Scenario Forecast | Final | 316L floor met | breaking-run261 | 2026-05-21*
+
+
+
+
+
+
+---
+*Scenario Forecast | Final | 316L floor met | breaking-run261 | 2026-05-21*

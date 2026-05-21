@@ -87,3 +87,25 @@ Member Election"]
 
 ---
 *Document Analysis Index | 8 documents catalogued | Admiralty B2 | 2026-05-21*
+
+## Extended Document Index (Re-run)
+
+### Additional Context Documents Referenced
+
+| Document | Type | Relevance | Status |
+|----------|------|-----------|--------|
+| EEAS Central Asia Strategy 2019 | Policy document | Uzbekistan EPCA background | Referenced in stakeholder analysis |
+| UN CCW Working Paper 2026 | UN document | Autonomous weapons context | Referenced in scenario forecast |
+| IMF Article IV Consultation EU 2026 | IMF report | Economic context for AI-trade | Referenced in economic-context.md |
+| EP Legislative Observatory T10-0183 | EP internal | AI-trade procedure history | Content unavailable (API 404) |
+| Eurojust Annual Report 2024 | Institutional | Lebanon cooperation context | Referenced in threat-model.md |
+| EP Rules of Procedure (Art. 99) | Legal | Consent procedure framework | Referenced in procedures-proxy.md |
+
+### Document Text Status Summary
+
+All 8 primary adopted texts (T10-0174 through T10-0183) have been confirmed via EP Open Data Portal feed but individual document content is UNAVAILABLE at time of analysis (UPSTREAM_404 for all individual text queries). This is expected — EP publishes text metadata immediately but full text content follows a 2-4 week review/verification process.
+
+Analysis quality relies on: (a) document identification data from feed, (b) prior session documentation, (c) committee report summaries from EP website references, (d) political context and historical analogy.
+
+---
+*Document Analysis Index Extended | Admiralty B2 | breaking-run261*

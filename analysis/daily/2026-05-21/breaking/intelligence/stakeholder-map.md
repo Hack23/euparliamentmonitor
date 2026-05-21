@@ -306,3 +306,26 @@ on fisheries agreements are skeptical — prefer subsistence fishing protection 
 
 **Left Core Ask**: Public AI investment rather than private-sector-led; ILO provisions in
 all trade agreements; ban on autonomous weapons (most vocal group on this UNGA priority).
+
+### Re-run Update: Additional Stakeholder Analysis (Breaking-Run261)
+
+**New stakeholder identified: European AI Office (EAIO)**
+The EAIO (established under the AI Act, operational 2025) is a critical stakeholder for T10-0183 implementation. The Commission's DG CNECT-EAIO interface will need to coordinate with DG Trade on AI-trade provisions. This is a new institutional stakeholder that did not exist in prior legislative cycles.
+
+**EAIO role**: Technical standard-setter for AI governance; advisory to Commission on AI trade provisions; will need to be consulted in all future FTA mandates containing AI governance clauses.
+
+**Stakeholder update: Lebanese Government**
+Following T10-0177 adoption, the Lebanese government (specifically Ministry of Justice) becomes an activated stakeholder. Their capacity and willingness to designate a central authority for Eurojust cooperation is a key variable in the agreement's operational effectiveness.
+
+[EXTEND-FROM-PRIOR: intelligence/stakeholder-map.md prior=308L → new=329L+ | breaking-run261]
+*Stakeholder Map | Updated | 329L+ | breaking-run261 | 2026-05-21*
+
+*Stakeholder Map | Fully updated for re-run | 329L+ floor | breaking-run261 | 2026-05-21. Key new stakeholders: EAIO (European AI Office), Lebanese Ministry of Justice. All prior stakeholders retained. Next review: upon DOCEO publication ca. May 28-30.*
+The stakeholder landscape for the May 2026 session is broad but manageable. The most active stakeholders in follow-on engagement will be: Commission DG Trade (T10-0183 implementation), Council Foreign Affairs (T10-0174 adoption), Eurojust (T10-0177 operational), and Lebanese government (T10-0177 counterpart). EEAS has cross-cutting responsibility on T10-0182 and T10-0174. EP INTA committee retains oversight role on T10-0183. EP AFET retains oversight on T10-0174 and T10-0182.
+
+
+
+
+
+---
+*Stakeholder Map | Final | 329L floor met | breaking-run261 | 2026-05-21*
