@@ -106,18 +106,19 @@ For EP motions analysis purposes, the following risk tolerance applies:
 Risks in the matrix do not operate independently. Key interdependencies:
 
 **Risk Cluster 1: AI/Trade + WTO**
-- WTO challenge (R3) → If successful → AI/trade doctrine failure (R5)
-- AI standards fragmentation (R4) → Reduces WTO challenge leverage for EU
-- Industry capture (R6) → Weakens AI/trade provisions → Reduces WTO challenge risk but also benefit
+- WTO challenge (R01) → If successful → increases pressure on the EPP-S&D labour-safeguards compromise (R04)
+- EPP-S&D split on AI labour safeguards (R04) → Reduces EU negotiating coherence and raises exposure to WTO challenge (R01)
+- Tech industry regulatory capture on the AI motion (R07) → Weakens AI/trade provisions → reduces WTO challenge risk but also policy benefit
 
 **Risk Cluster 2: Uzbekistan EPCA**
-- Human rights deterioration (R8) → Triggers suspension clause → Reduces trade benefit
-- Regime change (R9) → Could go either way (reform acceleration or reversion)
-- Russian information operations (R7) → Undermines domestic political will for EPCA
+- Uzbekistan human rights backsliding post-EPCA (R05) → Triggers suspension pressure → Reduces trade and credibility benefits
+- Russian disinformation against Uzbekistan EPCA (R02) → Amplifies scrutiny of any rights deterioration (R05) and erodes political support
+- Coalition fracture in next EP plenary (R10) → Weakens Parliament's ability to sustain oversight pressure on EPCA implementation
 
 **Risk Cluster 3: External Disruption**
-- EU recession (R10) → Slows all legislative implementation; coalition stress
-- Geopolitical escalation (R11) → Forces emergency legislative agenda; motions' work de-prioritised
+- Coalition fracture in next EP plenary (R10) → Slows legislative follow-up and increases coalition stress
+- AI system incident triggers global regulatory emergency (R09) → Forces emergency legislative agenda; motions' work de-prioritised
+- Lebanon Eurojust agreement instrumentalised (R08) → Sharpens external-security framing and crowds out lower-salience follow-up
 
 ### 5.2 Risk Velocity Analysis
 
@@ -150,4 +151,3 @@ Risks in the matrix do not operate independently. Key interdependencies:
 ---
 
 *Risk Matrix — EU Parliament Monitor | Run ID: motions-run264-1779348036 | 2026-05-21*
-

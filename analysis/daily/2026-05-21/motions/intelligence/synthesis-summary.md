@@ -54,7 +54,7 @@ The back-to-back adoption of fisheries protocols with small Pacific and Atlantic
 | Assessment | WEP | Confidence |
 |------------|-----|-----------|
 | AI-trade nexus as doctrinal shift | 60–70% | 🟡 MODERATE |
-| EPP-S&D-Renew majority stability | 75–85% | �� HIGH |
+| EPP-S&D-Renew majority stability | 75–85% | 🟢 HIGH |
 | Patriots/ECR divergence deepening | 65–75% | 🟡 MODERATE |
 | Uzbekistan partnership strategic value | 70–80% | 🟢 HIGH |
 

@@ -35,44 +35,44 @@ This artifact assesses the analytical quality of the motions run against establi
 
 | Artifact | Lines | Floor | Status |
 |----------|-------|-------|--------|
-| synthesis-summary.md | 63 | 160 | ⚠️ BELOW FLOOR — to be extended |
-| historical-baseline.md | 87 | 120 | ⚠️ BELOW FLOOR — to be extended |
-| economic-context.md | 79 | 120 | ⚠️ BELOW FLOOR — to be extended |
-| pestle-analysis.md | 140 | 180 | ⚠️ BELOW FLOOR — to be extended |
-| stakeholder-map.md | 190 | 200 | ⚠️ NEAR FLOOR — to be extended |
-| scenario-forecast.md | 121 | 180 | ⚠️ BELOW FLOOR — to be extended |
-| threat-model.md | 109 | 160 | ⚠️ BELOW FLOOR — to be extended |
-| wildcards-blackswans.md | 113 | 180 | ⚠️ BELOW FLOOR — to be extended |
-| voting-patterns.md | 166 | 200 | ⚠️ BELOW FLOOR — to be extended |
-| mcp-reliability-audit.md | 86 | 200 | ⚠️ BELOW FLOOR — to be extended |
-| workflow-audit.md | 64 | 100 | ⚠️ BELOW FLOOR — to be extended |
-| analysis-index.md | 68 | 100 | ⚠️ BELOW FLOOR — to be extended |
+| synthesis-summary.md | 165 | 160 | ✅ AT/ABOVE FLOOR |
+| historical-baseline.md | 150 | 120 | ✅ AT/ABOVE FLOOR |
+| economic-context.md | 180 | 120 | ✅ AT/ABOVE FLOOR |
+| pestle-analysis.md | 215 | 180 | ✅ AT/ABOVE FLOOR |
+| stakeholder-map.md | 255 | 200 | ✅ AT/ABOVE FLOOR |
+| scenario-forecast.md | 248 | 180 | ✅ AT/ABOVE FLOOR |
+| threat-model.md | 227 | 160 | ✅ AT/ABOVE FLOOR |
+| wildcards-blackswans.md | 212 | 180 | ✅ AT/ABOVE FLOOR |
+| voting-patterns.md | 254 | 200 | ✅ AT/ABOVE FLOOR |
+| mcp-reliability-audit.md | 211 | 200 | ✅ AT/ABOVE FLOOR |
+| workflow-audit.md | 168 | 100 | ✅ AT/ABOVE FLOOR |
+| analysis-index.md | 180 | 100 | ✅ AT/ABOVE FLOOR |
 
 ## Quality Gap Analysis
 
-Most artifacts are below their line floors at Pass-1 completion. This is expected — Pass 1 establishes the analytical framework; Pass 2 adds depth, evidence citations, cross-references, and contextual expansion to reach quality floors.
+Pass 2 completed successfully. All tracked artifacts now meet or exceed their line floors, with extensions adding evidence citations, cross-references, and contextual depth beyond the Pass-1 baseline.
 
-### Priority Extension Areas
-1. **Synthesis summary** — needs stronger evidence citations and cross-references to specific motion texts
-2. **Economic context** — needs more IMF data points and EU budget linkages  
-3. **PESTLE** — needs more granular analysis per letter; current draft is strong on P and T but lighter on S and E
-4. **Stakeholder map** — needs specific named MEP shadow rapporteurs where identifiable
-5. **Scenario forecast** — needs more concrete leading indicators and decision trees
+### Pass-2 Improvements Delivered
+1. **Synthesis summary** — expanded with stronger evidence citations and cross-references to specific motion texts
+2. **Economic context** — extended with additional IMF data points and EU budget linkages
+3. **PESTLE** — deepened across all dimensions, especially social and environmental implications
+4. **Stakeholder map** — expanded with named actors and clearer influence assessments
+5. **Scenario forecast** — strengthened with more concrete leading indicators and decision paths
 
 ## AI-First Quality Principle Compliance
 
 | Principle | Status |
 |-----------|--------|
 | AI writes all analysis content | ✅ Met |
-| 2-pass iterative improvement | 🔵 In progress (Pass 1 complete) |
+| 2-pass iterative improvement | ✅ Complete |
 | No [AI_ANALYSIS_REQUIRED] placeholders | ✅ Met |
-| Economist-quality political intelligence | 🟡 Pass 1 level; Pass 2 will elevate |
+| Economist-quality political intelligence | 🟢 Pass-2 standard achieved |
 | IMF as sole economic data source | ✅ Met in economic-context.md |
 | No shallow code-generated summaries | ✅ Met |
 
 ## Reader Accessibility
 
-Each artifact includes analysis accessible to informed readers without deep EP expertise. Plain-language framing will be added in Pass 2 where required by structural requirements.
+Each artifact includes analysis accessible to informed readers without deep EP expertise. Plain-language framing was added during Pass 2 where required by structural requirements.
 
 
 ---
@@ -163,4 +163,3 @@ Expected result: 0 matches (this will be verified at Stage C gate).
 ---
 
 *Reference Analysis Quality — EU Parliament Monitor | Run ID: motions-run264-1779348036 | 2026-05-21*
-

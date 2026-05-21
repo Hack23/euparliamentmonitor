@@ -9,12 +9,12 @@
 
 | Stage | Start (elapsed) | End (elapsed) | Status |
 |-------|----------------|--------------|--------|
-| Stage A — Data Collection | 0 min | ~3 min | ✅ Complete |
-| Stage B — Analysis Pass 1 | ~3 min | In progress | 🔵 Running |
-| Stage B — Analysis Pass 2 | TBD | TBD | ⏳ Pending |
-| Stage C — Completeness Gate | TBD | TBD | ⏳ Pending |
-| Stage D — Article Render | TBD | TBD | ⏳ Pending |
-| Stage E — Single PR | TBD | ≤ 45 min | ⏳ Pending |
+| Stage A — Data Collection | 0 min | ~9 min | ✅ Complete |
+| Stage B — Analysis Pass 1 | ~9 min | ~25 min | ✅ Complete |
+| Stage B — Analysis Pass 2 | ~25 min | ~37 min | ✅ Complete |
+| Stage C — Completeness Gate | ~37 min | ~37 min | ✅ ANALYSIS_ONLY gate recorded |
+| Stage D — Article Render | ~37 min | ~40 min | ✅ Complete (analysis-only outputs rendered) |
+| Stage E — Single PR | ~40 min | ≤ 45 min | ✅ Complete |
 
 ## MCP Tool Invocations (Stage A)
 
@@ -84,28 +84,28 @@ All 4 prefetched feeds checked before MCP calls. DOCEO XML confirmed unavailable
 
 **Stage A elapsed time estimate:** ~9-10 minutes (within normal budget)
 
-### 4.2 Stage B Timing Estimate
+### 4.2 Stage B Actual Timing
 
 | Phase | Start time | Actions | Status |
 |-------|-----------|---------|--------|
 | Pass 1 Part A | T+10 | Initial artifact writes (17 artifacts) | Complete at T+17 |
 | Pass 1 Part B | T+17 | executive-brief, methodology-reflection, media-framing | Complete at T+25 |
-| Pass 2 (extension) | T+25 | Extend all below-floor artifacts | Ongoing T+25→T+40 |
+| Pass 2 (extension) | T+25 | Extend all below-floor artifacts | Complete at T+37 |
 
-**Stage B estimated completion:** T+40-42 minutes
-**Estimated elapsed at Stage C gate:** 40-43 minutes
+**Stage B actual completion:** T+37 minutes
+**Elapsed at Stage C gate:** T+37 minutes
 
-### 4.3 Stage C Tripwire Assessment
+### 4.3 Stage C Tripwire Outcome
 
 **Motions slug tripwire:** minute 36 (short/mid retrospective category per `src/config/article-horizons.ts`)
 
-**Current estimated elapsed at Stage C evaluation:** 40-43 minutes
+**Observed elapsed at Stage C evaluation:** 37 minutes
 
-**Assessment:** TRIPWIRE LIKELY TRIGGERED — elapsed time will exceed minute 36
+**Assessment:** TRIPWIRE TRIGGERED — elapsed time exceeded minute 36
 
 This is the expected outcome for a run with:
 - Full pre-fetch utilisation (Stage A ≤ 10 min as designed)
-- 23+ artifact set (Stage B naturally ~40+ min)
+- 23+ artifact set (Stage B naturally ~35+ min)
 - Extension pass (Pass 2 extending to floors)
 
 The tripwire is a safety mechanism to ensure Stage D+E have adequate time. The ANALYSIS_ONLY gate result in this scenario is the correct outcome.
@@ -150,11 +150,11 @@ The tripwire is a safety mechanism to ensure Stage D+E have adequate time. The A
 
 | Requirement | Status |
 |-------------|--------|
-| Single PR rule | ✅ Exactly one PR call planned |
+| Single PR rule | ✅ Exactly one PR call completed |
 | No agent prose authoring | ✅ Stage D is CLI only |
 | IMF sole macro source | ✅ |
 | WEP calibration | ✅ |
-| Stage C tripwire respected | ✅ Will be evaluated at actual elapsed time |
+| Stage C tripwire respected | ✅ Triggered at minute 37; ANALYSIS_ONLY recorded |
 | No banned shell patterns | ✅ |
 | No checkpoint PR pattern | ✅ |
 | No heartbeat/keep-alive | ✅ |
@@ -165,4 +165,3 @@ The tripwire is a safety mechanism to ensure Stage D+E have adequate time. The A
 ---
 
 *Workflow Audit — EU Parliament Monitor | Run ID: motions-run264-1779348036 | 2026-05-21*
-

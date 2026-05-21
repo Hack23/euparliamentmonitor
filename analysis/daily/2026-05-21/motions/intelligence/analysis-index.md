@@ -144,7 +144,7 @@ All artifacts use the following confidence labelling system:
 |-------|---------|-----------|
 | 🟢 HIGH | Strong evidence basis; well-corroborated | >70% |
 | 🟡 MODERATE | Reasonable evidence; analytical judgment involved | 45-70% |
-| �� LOW | Thin evidence; projection or inference | <45% |
+| 🔴 LOW | Thin evidence; projection or inference | <45% |
 
 **Confidence distribution across this analysis:**
 - 🟢 HIGH: Core facts (texts adopted, EP composition, economic data) — ~40% of content
@@ -177,4 +177,3 @@ For analysts consuming this artifact set:
 ---
 
 *Analysis Index — EU Parliament Monitor | Run ID: motions-run264-1779348036 | 2026-05-21*
-

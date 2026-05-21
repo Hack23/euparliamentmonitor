@@ -146,7 +146,7 @@ This stakeholder map covers the principal actors whose interests intersect with 
 ### Amnesty International / Human Rights Watch
 **Interest:** Uzbekistan EPCA — Nikos Pappas immunity case (freedom of expression precedent)
 **Position:** Skeptical of Uzbekistan agreement without stronger human rights benchmarks; supportive of Pappas immunity waiver as rule-of-law precedent
-**Admriralty:** B-3 on political influence on EP vote outcomes
+**Admiralty:** B-3 on political influence on EP vote outcomes
 
 ### Environmental NGOs (WWF, BirdLife Europe)
 **Interest:** Forest reproductive material (genetic diversity of tree species); fisheries agreements (sustainability provisions)
@@ -252,4 +252,3 @@ President Shavkat Mirziyoyev (in office since 2016) views the EPCA through a str
 ---
 
 *Stakeholder Map — EU Parliament Monitor | Run ID: motions-run264-1779348036 | 2026-05-21*
-
