@@ -12,7 +12,7 @@ import { _parseResultPayload } from './parse.js';
 /**
  * Classify an error message into a diagnostic error category.
  *
- * Maps EP MCP Server v1.3.9 structured error codes and generic HTTP/network
+ * Maps EP MCP Server v1.3.10 structured error codes and generic HTTP/network
  * errors into one of six broad categories used for logging and retry decisions:
  *
  * Returned categories (priority order):
@@ -68,7 +68,7 @@ export function classifyToolError(message: string): string {
  * covering the two shapes historically emitted by the EP MCP server.
  *
  * 1. **Uniform envelope** (all feeds as of
- *    `european-parliament-mcp-server@1.3.9`) —
+ *    `european-parliament-mcp-server@1.3.10`) —
  *    `{status:"unavailable", items:[], generatedAt:"..."}` established by
  *    Hack23/European-Parliament-MCP-Server#301 and extended to
  *    `get_events_feed`/`get_procedures_feed` by
