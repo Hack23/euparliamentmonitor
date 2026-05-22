@@ -270,3 +270,58 @@ export function discoverLocalizedBriefs(
   }
   return out;
 }
+
+/**
+ * Localized brief body suitable for HTML rendering.
+ *
+ * Unlike {@link resolveLocalizedBriefHighlight} — which extracts a few
+ * short SEO/metadata fields (headline, summary) for `<meta>` tags and
+ * JSON-LD — this helper returns the **full body** of the translated
+ * executive brief, with the SPDX preamble stripped, so the caller can
+ * render it through {@link renderMarkdown} and splice the resulting
+ * HTML into the per-language article variant.
+ *
+ * Used by the article-generator HTML pipeline (`render-one.ts`) to
+ * upgrade non-English variants from the English aggregated body to a
+ * truly localized one whenever a translated `executive-brief_<lang>.md`
+ * exists in the run directory.
+ */
+export interface LocalizedBriefBody {
+  /** Markdown body of the localized brief (post-SPDX strip). */
+  readonly markdown: string;
+  /** Run-relative path of the file that produced {@link markdown}. */
+  readonly sourceFile: string;
+}
+
+/**
+ * Read the **full markdown body** of a translated executive brief for
+ * `lang` from `runDir`, searching the standard candidate paths
+ * (`executive-brief_<lang>.md` → `extended/executive-brief_<lang>.md`).
+ * SPDX HTML-comment preambles are stripped using the same logic as the
+ * SEO-metadata path, so the returned markdown starts at the first real
+ * content line (`# Headline` or similar).
+ *
+ * Returns `null` when `runDir` is missing, the language is English, or
+ * no candidate file exists. The caller is expected to fall back to the
+ * English aggregated body in that case — see `render-one.ts`.
+ *
+ * @param runDir - Absolute run directory
+ * @param lang - Target language code (omitted when `lang === 'en'`)
+ * @returns Localized brief body + source file, or `null` when absent
+ */
+export function readLocalizedBriefBody(
+  runDir: string,
+  lang: LanguageCode
+): LocalizedBriefBody | null {
+  if (!runDir || lang === 'en') return null;
+  if (!fs.existsSync(runDir)) return null;
+  for (const rel of localizedBriefCandidates(lang)) {
+    const abs = path.join(runDir, rel);
+    if (!fs.existsSync(abs)) continue;
+    const body = readArtefactBody(abs);
+    if (body.trim().length === 0) continue;
+    return { markdown: body, sourceFile: rel };
+  }
+  return null;
+}
+

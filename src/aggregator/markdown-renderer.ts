@@ -253,6 +253,41 @@ function rewriteQuadrantChartLine(line: string): string {
  *          the input string is returned unchanged for non-quadrant
  *          diagrams or when no edits are required.
  */
+/**
+ * Decode the small set of HTML entities that Markdown authors (and
+ * upstream generators) occasionally pre-encode inside fenced ` ```mermaid `
+ * blocks — typically `&amp;` for `&` in political-group labels like
+ * `S&D` or `Greens/EFA`. Without this decode step, the subsequent
+ * `escapeHtml` pass would re-escape `&` to `&amp;` and emit
+ * `S&amp;amp;D` into the rendered HTML, which the Mermaid client
+ * library then renders verbatim instead of as `S&D`.
+ *
+ * Uses `indexOf`/`split`/`join` exclusively (no `RegExp`) to stay
+ * within CodeQL's safe-regex envelope. Only the canonical entity
+ * forms are decoded — anything more exotic (e.g. `&#x26;`) is left
+ * alone so we never accidentally swallow a literal that the author
+ * intended to keep encoded.
+ *
+ * @param content - Raw fenced-block content (post-`sanitizeMermaidQuadrantChart`)
+ * @returns Content with pre-encoded HTML entities normalised back to
+ *          their literal characters, ready for a single `escapeHtml`.
+ */
+export function decodeMermaidPreEncodedEntities(content: string): string {
+  // Order matters: decode the named entities first (which all contain
+  // `&` followed by ASCII letters), then finally `&amp;` itself so we
+  // don't double-decode `&amp;lt;` -> `<`.
+  // Each replacement is a plain string `split(needle).join(replacement)`
+  // which is linear and trivially CodeQL-safe.
+  let out = content;
+  out = out.split('&lt;').join('<');
+  out = out.split('&gt;').join('>');
+  out = out.split('&quot;').join('"');
+  out = out.split('&#39;').join("'");
+  out = out.split('&apos;').join("'");
+  out = out.split('&amp;').join('&');
+  return out;
+}
+
 export function sanitizeMermaidQuadrantChart(content: string): string {
   const lines = content.split('\n');
   if (!isQuadrantChartBlock(lines)) return content;
@@ -303,7 +338,8 @@ function installMermaidFence(md: MarkdownIt): void {
         env2.mermaidLabel ?? ((n) => `Mermaid diagram ${n + 1}`);
       const label = md.utils.escapeHtml(labelFn(currentIndex, token.content));
       const sanitized = sanitizeMermaidQuadrantChart(token.content);
-      const body = md.utils.escapeHtml(sanitized);
+      const decoded = decodeMermaidPreEncodedEntities(sanitized);
+      const body = md.utils.escapeHtml(decoded);
       return `<figure class="mermaid-figure" role="img" aria-label="${label}">\n<pre class="mermaid">${body}</pre>\n</figure>\n`;
     }
     return defaultFence(tokens, idx, opts, env, self);

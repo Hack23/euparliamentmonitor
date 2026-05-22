@@ -468,6 +468,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "ar": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="دليل القارئ الاستخباراتي" dir="rtl">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> دليل القارئ الاستخباراتي</h2>
 <p class="reader-guide-intro">استخدم هذا الدليل لقراءة المقال كمنتج استخباراتي سياسي بدلاً من مجموعة مواد خام. تظهر العدسات عالية القيمة أولاً؛ تبقى المصادر التقنية متاحة في ملاحق المراجعة.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> نصيحة: ابدأ بتصفح الملخص التنفيذي، ثم انتقل إلى المنظور الذي يطابق دورك — محلل أو صحفي أو مدافع أو صانع سياسات — عبر الروابط أدناه.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">دليل القارئ الاستخباراتي</caption>
@@ -488,6 +489,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "da": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Læserguide til efterretninger">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Læserguide til efterretninger</h2>
 <p class="reader-guide-intro">Brug denne guide til at læse artiklen som et politisk efterretningsprodukt snarere end en rå artefaktsamling. Læserperspektiver med høj værdi vises først; teknisk oprindelse forbliver tilgængelig i revisionsbilagene.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> Tip: skim først resuméet, og hop derefter til det perspektiv, der passer til din rolle — analytiker, journalist, fortaler eller beslutningstager — via linkene nedenfor.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">Læserguide til efterretninger</caption>
@@ -508,6 +510,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "de": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Leser-Intelligenz-Leitfaden">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Leser-Intelligenz-Leitfaden</h2>
 <p class="reader-guide-intro">Nutzen Sie diesen Leitfaden, um den Artikel als politisches Nachrichtendienstprodukt statt als bloße Artefaktsammlung zu lesen. Hochwertige Leserperspektiven erscheinen zuerst; technische Herkunft bleibt in den Prüfanhängen verfügbar.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> Tipp: Überfliegen Sie zuerst die Zusammenfassung und springen Sie dann über die Links unten zur Perspektive, die zu Ihrer Rolle passt — Analystin, Journalist, Interessenvertreterin oder Entscheidungsträger.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">Leser-Intelligenz-Leitfaden</caption>
@@ -528,6 +531,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "en": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Reader Intelligence Guide">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Reader Intelligence Guide</h2>
 <p class="reader-guide-intro">Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> Tip: skim the Executive Brief first, then jump to the lens that matches your role — analyst, journalist, advocate, or policymaker — using the links below.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">Reader Intelligence Guide</caption>
@@ -548,6 +552,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "es": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Guía de inteligencia para el lector">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Guía de inteligencia para el lector</h2>
 <p class="reader-guide-intro">Use esta guía para leer el artículo como un producto de inteligencia política en lugar de una colección de artefactos sin procesar. Las perspectivas de lectura de alto valor aparecen primero; la procedencia técnica permanece disponible en los apéndices de auditoría.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> Consejo: hojee primero el resumen ejecutivo y luego salte a la perspectiva que coincida con su rol — analista, periodista, defensor o responsable de políticas — usando los enlaces a continuación.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">Guía de inteligencia para el lector</caption>
@@ -568,6 +573,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "fi": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Lukijan tiedusteluopas">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Lukijan tiedusteluopas</h2>
 <p class="reader-guide-intro">Käytä tätä opasta artikkelin lukemiseen poliittisena tiedustelutuotteena raa&#39;an artefaktikokoelman sijaan. Arvokkaita lukijanäkökulmia esitetään ensin; tekninen alkuperä on saatavilla tarkastusliitteissä.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> Vinkki: silmäile ensin tiivistelmä ja siirry sitten roolisi mukaiseen näkökulmaan — analyytikko, toimittaja, vaikuttaja tai päättäjä — alla olevien linkkien kautta.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">Lukijan tiedusteluopas</caption>
@@ -588,6 +594,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "fr": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Guide d&#39;intelligence pour le lecteur">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Guide d&#39;intelligence pour le lecteur</h2>
 <p class="reader-guide-intro">Utilisez ce guide pour lire l&#39;article comme un produit de renseignement politique plutôt qu&#39;un simple recueil d&#39;artefacts. Les perspectives de lecture à haute valeur apparaissent en premier ; la provenance technique reste disponible dans les annexes d&#39;audit.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> Astuce : parcourez d&#39;abord le résumé exécutif, puis accédez à la perspective correspondant à votre rôle — analyste, journaliste, défenseur ou décideur — via les liens ci-dessous.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">Guide d&#39;intelligence pour le lecteur</caption>
@@ -608,6 +615,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "he": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="מדריך מודיעין לקורא" dir="rtl">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> מדריך מודיעין לקורא</h2>
 <p class="reader-guide-intro">השתמש במדריך זה לקריאת המאמר כמוצר מודיעין פוליטי ולא כאוסף ממצאים גולמי. עדשות קריאה בעלות ערך גבוה מופיעות ראשונות; מקור טכני נשאר זמין בנספחי הביקורת.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> טיפ: סקור תחילה את התקציר ולאחר מכן עבור אל הזווית המתאימה לתפקידך — אנליסט, עיתונאי, מקדם או קובע מדיניות — באמצעות הקישורים שלהלן.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">מדריך מודיעין לקורא</caption>
@@ -628,6 +636,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "ja": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="読者インテリジェンスガイド">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> 読者インテリジェンスガイド</h2>
 <p class="reader-guide-intro">このガイドを使用して、生の成果物の集まりではなく政治インテリジェンス製品として記事を読んでください。高価値な読者視点が最初に表示されます。技術的な出所は監査付録で引き続き確認できます。</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> ヒント：まずエグゼクティブブリーフを概観し、その後、下のリンクからアナリスト、ジャーナリスト、アドボケイト、政策立案者など、あなたの役割に合った視点へ移動してください。</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">読者インテリジェンスガイド</caption>
@@ -648,6 +657,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "ko": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="독자 인텔리전스 가이드">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> 독자 인텔리전스 가이드</h2>
 <p class="reader-guide-intro">이 가이드를 사용하여 기사를 원시 산출물 모음이 아닌 정치 인텔리전스 제품으로 읽으십시오. 고가치 독자 관점이 먼저 나타납니다. 기술적 출처는 감사 부록에서 확인할 수 있습니다.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> 팁: 먼저 경영진 브리프를 훑어본 다음 아래 링크를 사용해 분석가, 기자, 옹호자, 정책 입안자 등 본인의 역할에 맞는 관점으로 이동하십시오.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">독자 인텔리전스 가이드</caption>
@@ -668,6 +678,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "nl": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Lezersgids voor inlichtingen">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Lezersgids voor inlichtingen</h2>
 <p class="reader-guide-intro">Gebruik deze gids om het artikel te lezen als een politiek inlichtingenproduct in plaats van een ruwe artefactverzameling. Hoogwaardige lezersperspectieven verschijnen eerst; technische herkomst blijft beschikbaar in de auditbijlagen.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> Tip: lees eerst de samenvatting door en spring vervolgens naar het perspectief dat bij uw rol past — analist, journalist, belangenbehartiger of beleidsmaker — via de onderstaande links.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">Lezersgids voor inlichtingen</caption>
@@ -688,6 +699,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "no": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Leserguide for etterretning">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Leserguide for etterretning</h2>
 <p class="reader-guide-intro">Bruk denne guiden til å lese artikkelen som et politisk etterretningsprodukt i stedet for en rå artefaktsamling. Leserperspektiver med høy verdi vises først; teknisk opprinnelse er tilgjengelig i revisjonsvedleggene.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> Tips: skum gjennom sammendraget først, og hopp deretter til perspektivet som passer din rolle — analytiker, journalist, talsperson eller beslutningstaker — via lenkene under.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">Leserguide for etterretning</caption>
@@ -708,6 +720,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "sv": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Läsarguide för underrättelser">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Läsarguide för underrättelser</h2>
 <p class="reader-guide-intro">Använd denna guide för att läsa artikeln som en politisk underrättelseprodukt snarare än en rå artefaktsamling. Högvärda läsarperspektiv visas först; teknisk härkomst finns tillgänglig i granskningsbilagorna.</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> Tips: börja med att skumma sammanfattningen, gå sedan till det perspektiv som matchar din roll — analytiker, journalist, intressent eller beslutsfattare — via länkarna nedan.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">Läsarguide för underrättelser</caption>
@@ -728,6 +741,7 @@ exports[`article UI baseline snapshots > reader-intelligence guide > matches the
   "zh": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="读者情报指南">
 <h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> 读者情报指南</h2>
 <p class="reader-guide-intro">使用本指南将文章作为政治情报产品而非原始工件集合来阅读。高价值读者视角优先呈现；技术出处可在审计附录中查阅。</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> 提示：先快速浏览执行摘要，然后通过下方链接跳转到与您的角色相匹配的视角——分析师、记者、倡导者或政策制定者。</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">读者情报指南</caption>

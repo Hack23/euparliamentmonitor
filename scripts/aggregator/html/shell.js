@@ -128,6 +128,14 @@ export function wrapArticleHtml(options) {
                 isBasedOn: options.isBasedOn.map((url) => ({ '@type': 'CreativeWork', url })),
             }
             : {}),
+        ...(options.mentions && options.mentions.length > 0
+            ? {
+                mentions: options.mentions.map((name) => ({
+                    '@type': 'Organization',
+                    name,
+                })),
+            }
+            : {}),
     };
     const breadcrumbLd = {
         '@context': 'https://schema.org',
