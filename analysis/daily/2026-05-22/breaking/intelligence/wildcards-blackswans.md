@@ -113,7 +113,7 @@ Lebanon's fragile post-civil war political order collapses (new civil conflict, 
 
 ## Cross-Wildcard Pattern Analysis
 
-Three of the five wildcards share a common structural feature: **institutional fragility in partner states or trading systems** creates unexpected disruption to agreements that appeared stable at ratification. The lesson for EU foreign policy design is that EPCA and trade agreement conditionality mechanisms must be genuinely operational (not just papér commitments) and that the EU must be prepared to act swiftly when conditions change.
+Three of the five wildcards share a common structural feature: **institutional fragility in partner states or trading systems** creates unexpected disruption to agreements that appeared stable at ratification. The lesson for EU foreign policy design is that EPCA and trade agreement conditionality mechanisms must be genuinely operational (not just paper commitments) and that the EU must be prepared to act swiftly when conditions change.
 
 ```mermaid
 graph TD

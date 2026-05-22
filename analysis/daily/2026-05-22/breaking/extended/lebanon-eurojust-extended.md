@@ -3,7 +3,7 @@
 
 # Extended Analysis: EU-Lebanon Eurojust Cooperation — EP Breaking News | 2026-05-22
 
-**Primary Artifact:** TA-10-2026-0179 | **SATs:** Stakeholder Mapping, Scenarios
+**Primary Artifact:** TA-10-2026-0177 | **SATs:** Stakeholder Mapping, Scenarios
 **Classification:** PUBLIC | **Confidence:** 🟡 MEDIUM
 
 ---

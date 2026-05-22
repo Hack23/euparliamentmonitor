@@ -3,7 +3,7 @@
 
 # Extended Analysis: Fisheries Agreements — EP Breaking News | 2026-05-22
 
-**Primary Artifacts:** TA-10-2026-0175, TA-10-2026-0176
+**Primary Artifacts:** TA-10-2026-0178, TA-10-2026-0179
 **SATs:** Economic Context, Stakeholder Mapping
 **Classification:** PUBLIC | **Confidence:** 🟡 MEDIUM
 
@@ -21,7 +21,7 @@ Both agreements are Sustainable Fisheries Partnership Agreements (SFPAs) — the
 
 ---
 
-## 2. São Tomé and Príncipe SFPA (TA-10-2026-0176)
+## 2. São Tomé and Príncipe SFPA (TA-10-2026-0178)
 
 **Context:**
 - Gulf of Guinea EEZ (~160,000 km²)
@@ -42,7 +42,7 @@ Both agreements are Sustainable Fisheries Partnership Agreements (SFPAs) — the
 
 ---
 
-## 3. Cook Islands SFPA (TA-10-2026-0175)
+## 3. Cook Islands SFPA (TA-10-2026-0179)
 
 **Context:**
 - South Pacific EEZ (~1.96 million km²) — substantial ocean territory relative to land area

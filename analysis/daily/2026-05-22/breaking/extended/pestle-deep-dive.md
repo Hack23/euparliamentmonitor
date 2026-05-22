@@ -26,7 +26,7 @@ The May 2026 plenary occurs in a specific EP political context:
 
 - **US-EU relations (post-Trump 2.0):** Tariff disputes (TA-10-2026-0096 March 2026 anti-coercion regulation context); AI trade resolution needs to navigate US sensitivities
 - **China relations:** Human rights (Xinjiang), technology decoupling; AI trade strategy implicitly targets Chinese AI governance divergence
-- **Russia-Ukraine:** Ongoing conflict; drives Central Asia diversification urgency; UN GA resolution thread (TA-10-2026-0172)
+- **Russia-Ukraine:** Ongoing conflict; drives Central Asia diversification urgency; UN GA resolution thread (TA-10-2026-0182)
 
 ---
 

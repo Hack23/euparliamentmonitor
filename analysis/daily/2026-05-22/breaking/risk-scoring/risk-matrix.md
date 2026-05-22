@@ -87,7 +87,7 @@ All risk probability estimates are structural inferences (Admiralty grade: C3) b
 
 ---
 
-## 7. Risk Monitoring Indicators
+## 6. Risk Monitoring Indicators
 
 | Risk | Indicator | Frequency | Source |
 |------|-----------|-----------|--------|
@@ -99,7 +99,7 @@ All risk probability estimates are structural inferences (Admiralty grade: C3) b
 
 ---
 
-## 8. Risk Heat Map
+## 7. Risk Heat Map (Mermaid)
 
 ```mermaid
 xychart-beta
@@ -113,7 +113,7 @@ xychart-beta
 
 ---
 
-## 9. Residual Risk Register
+## 8. Residual Risk Register
 
 | ID | Risk Description | Residual Level | Owner |
 |----|-----------------|----------------|-------|

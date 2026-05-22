@@ -36,7 +36,7 @@ Applied to EP May 2026 plenary outputs using N/I/U/S/C scoring matrix.
 - **C:** 5/5 — Adopted text; A1 source
 - **COMPOSITE SCORE: 20/25 → HIGH**
 
-**TA-10-2026-0179: EU-Lebanon Eurojust Cooperation**
+**TA-10-2026-0177: EU-Lebanon Eurojust Cooperation**
 - **N:** 3/5 — Bilateral judicial cooperation agreements are routine
 - **I:** 3/5 — Extends Eurojust mandate; operational impact for law enforcement
 - **U:** 3/5 — Implementation timeline 6-12 months
@@ -46,25 +46,25 @@ Applied to EP May 2026 plenary outputs using N/I/U/S/C scoring matrix.
 
 ### TIER 3 — MEDIUM SIGNIFICANCE
 
-**TA-10-2026-0176: São Tomé Fisheries SFPA**
+**TA-10-2026-0178: São Tomé Fisheries SFPA**
 - Score: 14/25 → MEDIUM
 - Routine renewal; Atlantic fishing continuity
 
-**TA-10-2026-0175: Cook Islands Fisheries SFPA**
+**TA-10-2026-0179: Cook Islands Fisheries SFPA**
 - Score: 13/25 → MEDIUM
 - Routine renewal; Pacific fishing continuity
 
-**TA-10-2026-0172: UNGA Recommendation**
+**TA-10-2026-0182: UNGA Recommendation**
 - Score: 14/25 → MEDIUM
 - External policy position; no direct implementation mechanism
 
 ### TIER 4 — LOW SIGNIFICANCE
 
-**TA-10-2026-0178: Vilimsky Immunity Waiver**
+**TA-10-2026-0164: Vilimsky Immunity Waiver**
 - Score: 7/25 → LOW
 - Individual MEP; procedural matter
 
-**TA-10-2026-0177: Pappas Immunity Waiver**
+**TA-10-2026-0166: Pappas Immunity Waiver**
 - Score: 7/25 → LOW
 - Individual MEP; procedural matter
 
@@ -89,8 +89,8 @@ Applied to EP May 2026 plenary outputs using N/I/U/S/C scoring matrix.
 ```mermaid
 pie title May 2026 EP Significance Distribution
     "CRITICAL (1)" : 1
-    "HIGH (2)" : 2
-    "MEDIUM (4)" : 4
+    "HIGH (1)" : 1
+    "MEDIUM (3)" : 3
     "LOW (2)" : 2
 ```
 

@@ -135,7 +135,7 @@ Early indicators that signal which synthesis pathway is unfolding:
 graph LR
     A[May 2026 EP Plenary] --> B[AI Trade Resolution<br/>TA-10-2026-0183]
     A --> C[EU-Uzbekistan EPCA<br/>TA-10-2026-0174]
-    A --> D[Lebanon-Eurojust Agreement<br/>TA-10-2026-0179]
+    A --> D[Lebanon-Eurojust Agreement<br/>TA-10-2026-0177]
     B --> E[Commission Follow-Through:<br/>WEP Likely in 6 months]
     C --> F[Provisional Application:<br/>WEP Almost Certain]
     D --> G[Justice Cooperation:<br/>WEP Almost Certain]

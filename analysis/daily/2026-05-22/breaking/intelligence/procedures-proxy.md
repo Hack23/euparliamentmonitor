@@ -19,12 +19,12 @@ The EP procedures feed returned stale historical data (STALENESS_WARNING; 1972-e
 |-------------|------------------------|-----------|
 | TA-10-2026-0183 (AI trade strategy) | INI — Own-initiative | "AI strategy" non-legislative EP initiative; standard INI template |
 | TA-10-2026-0174 (EU-Uzbekistan EPCA) | NLE — Non-legislative EP consent | International agreement; requires EP consent under TFEU Art. 218 |
-| TA-10-2026-0179 (EU-Lebanon Eurojust) | NLE — Non-legislative EP consent | International agreement; Eurojust external cooperation |
-| TA-10-2026-0176 (São Tomé fisheries) | NLE — Non-legislative EP consent | Fisheries SFPAs require EP consent per TFEU Art. 218 |
-| TA-10-2026-0175 (Cook Islands fisheries) | NLE — Non-legislative EP consent | Fisheries SFPAs require EP consent per TFEU Art. 218 |
-| TA-10-2026-0172 (UN GA recommendation) | RSP — Resolution on topical subject | EP external policy recommendations; no legislative effect |
-| TA-10-2026-0178 (Vilimsky immunity) | IMM — Immunity case | Rule 7 procedure; EP decision on parliamentary immunity waiver |
-| TA-10-2026-0177 (Pappas immunity) | IMM — Immunity case | Rule 7 procedure; EP decision on parliamentary immunity waiver |
+| TA-10-2026-0177 (EU-Lebanon Eurojust) | NLE — Non-legislative EP consent | International agreement; Eurojust external cooperation |
+| TA-10-2026-0178 (São Tomé fisheries) | NLE — Non-legislative EP consent | Fisheries SFPAs require EP consent per TFEU Art. 218 |
+| TA-10-2026-0179 (Cook Islands fisheries) | NLE — Non-legislative EP consent | Fisheries SFPAs require EP consent per TFEU Art. 218 |
+| TA-10-2026-0182 (UN GA recommendation) | RSP — Resolution on topical subject | EP external policy recommendations; no legislative effect |
+| TA-10-2026-0164 (Vilimsky immunity) | IMM — Immunity case | Rule 7 procedure; EP decision on parliamentary immunity waiver |
+| TA-10-2026-0166 (Pappas immunity) | IMM — Immunity case | Rule 7 procedure; EP decision on parliamentary immunity waiver |
 
 ---
 

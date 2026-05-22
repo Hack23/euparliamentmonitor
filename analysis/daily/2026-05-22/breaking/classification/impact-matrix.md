@@ -20,11 +20,11 @@ Multi-dimensional impact assessment of EP May 2026 plenary outputs across instit
 |-------------|--------------|-------------|---------|-----------|---------|---------|
 | TA-10-2026-0183 (AI trade) | HIGH | HIGH | MEDIUM | CRITICAL | 12-36 months | CRITICAL |
 | TA-10-2026-0174 (Uzbekistan) | MEDIUM | HIGH | MEDIUM-HIGH | LOW | 6-24 months | HIGH |
-| TA-10-2026-0179 (Lebanon) | LOW | MEDIUM | LOW | LOW | 12-24 months | MEDIUM |
-| TA-10-2026-0176 (São Tomé) | LOW | LOW | MEDIUM | LOW | Immediate | MEDIUM |
-| TA-10-2026-0175 (Cook Islands) | LOW | LOW | MEDIUM | LOW | Immediate | MEDIUM |
-| TA-10-2026-0172 (UNGA) | LOW | MEDIUM | NONE | NONE | Immediate | LOW-MEDIUM |
-| TA-10-2026-0178/0177 (Immunity) | LOW | NONE | NONE | NONE | Immediate | LOW |
+| TA-10-2026-0177 (Lebanon) | LOW | MEDIUM | LOW | LOW | 12-24 months | MEDIUM |
+| TA-10-2026-0178 (São Tomé) | LOW | LOW | MEDIUM | LOW | Immediate | MEDIUM |
+| TA-10-2026-0179 (Cook Islands) | LOW | LOW | MEDIUM | LOW | Immediate | MEDIUM |
+| TA-10-2026-0182 (UNGA) | LOW | MEDIUM | NONE | NONE | Immediate | LOW-MEDIUM |
+| TA-10-2026-0164/0166 (Immunity) | LOW | NONE | NONE | NONE | Immediate | LOW |
 
 ---
 
