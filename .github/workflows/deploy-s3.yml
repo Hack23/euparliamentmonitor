@@ -103,7 +103,7 @@ jobs:
           # string-literal occurrences that aren't real import statements.
           # The unit test (copy-vendor-mermaid.test.js) performs a more precise
           # regex-based check; this is a fast-fail CI smoke test.
-          if grep -qP "\bfrom\s*[\"'](\.\/chunks\/|\.\.\/|https?:\/\/)" "$BUNDLE"; then
+          if grep -qP "\bfrom\s*[\"'](\.\/chunks\/|\.\.\/|https?:\/\/|[a-zA-Z@])" "$BUNDLE"; then
             echo "❌ $BUNDLE contains external module imports — esbuild bundling did not inline everything"
             exit 1
           fi
