@@ -234,6 +234,16 @@ function rewriteQuadrantChartLine(line: string): string {
  * @param content - Raw fenced-block content (post-`sanitizeMermaidQuadrantChart`)
  * @returns Content with pre-encoded HTML entities normalised back to
  *          their literal characters, ready for a single `escapeHtml`.
+ * @param content
+ * @param content
+ * @param content
+ * @param content
+ * @param content
+ * @param content
+ * @param content
+ * @param content
+ * @param content
+ * @param content
  */
 export function decodeMermaidPreEncodedEntities(content: string): string {
   // Order matters: decode the named entities first (which all contain
