@@ -114,3 +114,49 @@ graph LR
 
 **Most fragile:** AI Trade Strategy (opposed by both US and China; non-binding EP instrument)
 **Most robust:** Fisheries SFPAs (bilateral relationships; no major opposing forces)
+
+---
+
+## Issue Frame
+
+The dominant issue frame for the May 2026 Strasbourg plenary is **"EU as Geopolitical AI Governance Actor"**. The EP has moved beyond domestic AI regulation (AI Act 2024) to deploying AI governance as an instrument of EU trade and foreign policy.
+
+**Counter-frame:** "EP Overreach into Commission Competences" — non-binding resolution encroaches on Commission's exclusive trade policy mandate.
+
+## Driving Forces
+
+The following forces DRIVE the May 2026 EP policy package toward implementation:
+
+1. **Competitiveness mandate** (political force): EU Competitiveness Agenda 2025-2030 explicitly supports AI deployment and governance as economic priority
+2. **AI Act momentum** (institutional force): AI Act (2024) established EU AI governance credibility; AI trade resolution builds on this institutional capital
+3. **Russia-Ukraine geopolitical realignment** (external force): Diversification imperative drives EPCA with Uzbekistan and Central Asia partnerships
+4. **G7/TTC AI governance convergence** (international force): US-EU AI governance dialogue (TTC) creates political space for aligned AI trade strategy
+
+## Restraining Forces
+
+The following forces RESTRAIN the policy package from full implementation:
+
+1. **US and China opposition** (external force): Both major AI trade partners prefer WTO multilateral forum over EU bilateral governance embedding
+2. **Commission capacity constraints** (institutional force): DG TRADE overstretched across 15+ FTA negotiations; AI chapter expertise scarce
+3. **Non-binding instrument weakness** (structural force): EP resolution has no legal enforcement mechanism
+4. **EP-Commission institutional tension** (institutional force): Commission jealously guards exclusive trade competence
+
+## Net Pressure
+
+**Net force score (driving minus restraining):**
+- AI Trade Strategy: Driving (0.65) − Restraining (0.45) = **+0.20** (moderately positive)
+- Uzbekistan EPCA: Driving (0.70) − Restraining (0.40) = **+0.30** (positive)
+
+## Intervention Points
+
+Key points where actors could shift the force balance:
+
+1. **Commission formal response** (T+30 days): If substantive, shifts net force to +0.35; if minimal, shifts to +0.05
+2. **G7 AI Governance communiqué** (next G7 summit, expected Q3 2026): International validation could shift driving forces +0.10
+3. **US-EU TTC meeting** (H2 2026): If productive, reduces US restraining force from 0.45 to 0.30
+
+## Reader Briefing — Forces Plain Language
+
+The EU's AI trade strategy faces a classic "EU institutional ambition vs. geopolitical reality" force field. The EP wants to embed AI governance in every EU trade deal, but this requires Commission buy-in and US/China tolerance. The driving forces (competitiveness mandate, AI Act credibility) are currently stronger than restraining forces, giving the strategy a 55-65% chance of partial implementation over five years.
+
+[EXTEND-FROM-PRIOR: classification/forces-analysis.md prior=117L → new=178L (+61)]

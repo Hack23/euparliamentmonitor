@@ -124,3 +124,29 @@ xychart-beta
 | R-005 | Data availability degradation continues | 🟡 MEDIUM | EP API team |
 
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
+
+---
+
+## Extended Risk Matrix (Pass 2 — Re-run)
+
+### Re-run Risk Update
+
+| Risk ID | Prior Assessment | Re-run Update | Change |
+|--------|-----------------|--------------|--------|
+| R-001 | Commission inaction HIGH×MEDIUM | Stable | No new evidence |
+| R-002 | Uzbekistan conditionality failure MEDIUM×HIGH | Stable | No new evidence |
+| R-003 | Lebanon Eurojust delay LOW×LOW | Stable | No new evidence |
+| R-004 | Fisheries stocks decline MEDIUM×MEDIUM | Stable | No new evidence |
+| R-005 | Data degradation continues MEDIUM×LOW | ELEVATED | Two consecutive runs now degraded-feeds |
+
+**R-005 elevated:** Two consecutive runs on 2026-05-22 with full EP API degradation suggests a multi-day outage rather than a transient failure. Risk of persistent data degradation (>7 days) has risen from LOW to MEDIUM probability.
+
+### New Risk Identified: R-006
+
+| Risk ID | Description | Probability | Impact | Risk Level |
+|--------|-------------|-------------|--------|-----------|
+| R-006 | EP API multi-day outage affects next cycle run | 🟡 MEDIUM | 🟡 MEDIUM | 🟡 MEDIUM |
+
+**Mitigation for R-006:** Implement manual EP DOCEO XML download protocol as fallback; schedule direct EP website scraping for critical plenary data; engage EP Open Data team contact.
+
+[EXTEND-FROM-PRIOR: risk-scoring/risk-matrix.md prior=127L → new=155L (+28)]

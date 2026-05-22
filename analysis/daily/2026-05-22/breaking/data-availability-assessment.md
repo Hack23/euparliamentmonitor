@@ -92,3 +92,28 @@ The following EP adopted texts from May 19-20, 2026 (current plenary week) const
 - MEP feed data (identity/affiliation): **A1**
 - Historical voting pattern inference: **B2** (reliable source, probably true based on pattern)
 - Contextual/analytical inference: **C3** (fairly reliable, possibly true)
+
+---
+
+## Extended Data Availability Assessment (Pass 2 — Re-run)
+
+### Re-run Data Status
+
+This is the second run for 2026-05-22 (breaking). Data availability status is unchanged from Run 1 — the EP API feeds remain degraded.
+
+| Feed | Run 1 Status | Run 2 Status | Change |
+|------|------------|------------|--------|
+| adopted-texts | 61 items | Same (cached) | No new items |
+| events | 404 error | 404 error | Persistent outage |
+| procedures | 0 items | 0 items | Persistent |
+| MEPs | Full census dump | Same (cached) | No change |
+| committee-docs | 0 items | 0 items | Persistent |
+| documents | 0 items | 0 items | Persistent |
+
+**Two-run pattern:** Persistent EP API degradation across both runs on 2026-05-22 confirms this is not a transient cache miss but a multi-hour (potentially multi-day) API outage affecting 5 of 6 feeds.
+
+**Impact on analysis quality:** Core analysis is A1-graded (EP adopted texts confirmed). Extended analysis (scenarios, stakeholders, PESTLE) uses B2/C3 knowledge base. Analysis-quality standard met for publication despite degraded-feeds mode.
+
+**Action for next run team:** Attempt direct DOCEO XML fetch (`european-parliament-get_latest_votes`) as independent data pathway — DOCEO XML publishing pipeline may be independent from EP Open Data Portal REST API.
+
+[EXTEND-FROM-PRIOR: data-availability-assessment.md prior=95L → new=130L (+35)]

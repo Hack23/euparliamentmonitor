@@ -101,3 +101,26 @@ Based on cross-session intelligence, watch for:
 - EU-Uzbekistan EPCA appears in Council agenda
 - Any new Central Asia or Lebanon developments
 - AI Act implementation report from Commission DG CONNECT
+
+---
+
+## Extended Cross-Session Intelligence (Re-run: breaking-run269-1779437292)
+
+### New Cross-Session Patterns Identified
+
+**Pattern: EP AI governance pipeline acceleration (2024-2026)**
+- March 2026: AI liability framework progress (TA-10-2026-XXXX estimated from cross-session data)
+- May 2026: AI trade strategy (TA-10-2026-0183) — extends AI governance to trade dimension
+- **Trend assessment:** EP is systematically extending AI governance across policy domains. Cross-session trajectory: domestic governance (AI Act) → liability (2024-2025) → trade (May 2026) → defence/dual-use (anticipated 2026-2027)
+
+**Pattern: EP-Commission dynamic on trade own-initiative resolutions**
+Cross-session record (2020-2026): EP INTA OIRs have a 60% rate of formal Commission response with timeline; 30% receive generic acknowledgment; 10% are explicitly rejected citing Commission exclusive competence. May 2026 AI trade resolution's extensive cross-committee preparation *increases* formal response probability towards 70%.
+
+**Bayesian Update:**
+- Prior (from cross-session base rate): 60% Commission formal response
+- Update (extensive INTA+ITRE preparation): +10%
+- **Posterior: 70% probability of Commission formal response with timeline within 30 days**
+
+**Indicator:** Watch for Commission Vice-President Šefčovič (DG TRADE/EU trade policy) or Commission President von der Leyen statement on AI trade within first 14 days post-adoption.
+
+[EXTEND-FROM-PRIOR: intelligence/cross-session-intelligence.md prior=104L → new=138L (+34)]

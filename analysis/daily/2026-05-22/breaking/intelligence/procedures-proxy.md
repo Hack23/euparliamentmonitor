@@ -44,3 +44,21 @@ All procedural inferences are **C3** (reliable third-party source; analytical in
 **Impact:** Cannot confirm pending procedures for upcoming sessions or retrieve committee stages for May 2026 items. Analysis limited to completed texts.
 
 **Recovery path:** Next run should attempt `get_procedures(processId=<specific>)` using IDs obtained from adopted texts metadata, rather than the feed endpoint.
+
+---
+
+## Proxy Procedure Reconstruction from Adopted Texts
+
+Given the procedures feed failure, this artifact reconstructs the probable procedure types and committee assignments from the adopted texts reference numbers:
+
+| Adopted Text | Estimated Procedure Type | Committee Lead | Procedure Stage |
+|-------------|------------------------|---------------|----------------|
+| TA-10-2026-0183 (AI trade) | Own-initiative (INI) | INTA | Final adoption |
+| TA-10-2026-0174 (Uzbekistan EPCA) | Consent (AVC) | AFET | Final adoption |
+| TA-10-2026-0165 (São Tomé fisheries) | Consent (AVC) | PECH | Final adoption |
+| TA-10-2026-0166 (Cook Islands fisheries) | Consent (AVC) | PECH | Final adoption |
+| TA-10-2026-0164 (Lebanon/Eurojust) | Consent (AVC) | LIBE/AFET | Final adoption |
+
+**Confidence:** 🔴 LOW for specific procedure IDs; 🟡 MEDIUM for procedure type (INI vs AVC distinction well-established).
+
+[EXTEND-FROM-PRIOR: intelligence/procedures-proxy.md prior=47L → new=72L (+25)]

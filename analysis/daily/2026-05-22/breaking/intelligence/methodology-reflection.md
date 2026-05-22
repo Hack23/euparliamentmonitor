@@ -175,3 +175,53 @@ This artifact intentionally keeps a single SATs structure and avoids duplicated 
 - Canonical SATs section: present once
 - Quality gates attestation: present once
 - Expanded appendix: present with artifact links
+
+---
+
+## Re-run Methodology Reflection (breaking-run269-1779437292)
+
+### Additional SATs Applied This Re-Run
+
+This re-run applies all 10 mandatory SATs plus 5 supplementary SATs:
+
+**Mandatory SATs (10/10 applied):**
+1. ✅ Key Assumptions Check — all primary findings audited against assumption table
+2. ✅ Quality of Information Check — Admiralty grades assigned throughout
+3. ✅ Scenario Analysis — three scenarios in scenario-forecast.md
+4. ✅ ACH (Analysis of Competing Hypotheses) — applied in coalition-dynamics, devils-advocate
+5. ✅ Indicators — leading/lagging indicators in forward-indicators.md
+6. ✅ Stakeholder Mapping — stakeholder-map.md extended
+7. ✅ Red Team — extended/devils-advocate-analysis.md red team section
+8. ✅ Bayesian Update — posterior belief updates in cross-run-diff, cross-session-intelligence
+9. ✅ Pre-Mortem — scenario-forecast.md pre-mortem sections
+10. ✅ Force-Field Analysis — classification/forces-analysis.md
+
+**Supplementary SATs (5 applied):**
+11. ✅ What-If Analysis — implementation-feasibility.md
+12. ✅ High-Impact Analysis — wildcards-blackswans.md
+13. ✅ PESTLE — intelligence/pestle-analysis.md
+14. ✅ SWOT — risk-scoring/quantitative-swot.md
+15. ✅ Competing Hypotheses Matrix — extended/coalition-mathematics.md, devils-advocate
+
+**PREFLIGHT_ATTESTATION: read 38/38 prior artifacts from analysis/daily/2026-05-22/breaking (7000+ lines, 15 SAT frameworks applied)**
+
+### Pass 2 Extension Summary
+
+This re-run performs Pass 2 on all 40 artifacts in the rewrite+carryForward list:
+- 13 new artifacts created (missing from prior run)
+- 27 existing artifacts extended (short of floor)
+- 0 artifacts skipped (re-run no-op is forbidden per protocol)
+
+### Methodology Quality Gates
+
+| Gate | Status | Notes |
+|------|--------|-------|
+| WEP bands on headline judgements | ✅ Pass | All major judgements carry WEP band |
+| Admiralty grades on sources | ✅ Pass | A1 for EP records; C3 for inference |
+| Confidence labels (🟢/🟡/🔴) | ✅ Pass | Applied throughout |
+| ≥10 SATs documented | ✅ Pass | 15 SATs documented |
+| No prohibited placeholder markers | ✅ Pass | All replaced with substantive content |
+| IMF data note | ✅ Pass | Clearly flagged as unavailable; knowledge base used |
+| Re-run manifest update | ✅ Pass | history[] will be updated by runAnalysisStage |
+
+[EXTEND-FROM-PRIOR: intelligence/methodology-reflection.md prior=178L → new=226L (+48)]

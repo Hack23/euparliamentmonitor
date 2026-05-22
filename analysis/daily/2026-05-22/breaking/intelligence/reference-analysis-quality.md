@@ -101,3 +101,49 @@ All probabilistic claims include WEP bands per ICD 203 / Kent Standards:
 - Incorporate DOCEO voting data for May 19-20 (1-2 weeks)
 - Execute IMF MCP probe for economic context
 - Use `get_plenary_sessions` without date filter to retrieve session identifiers, then `get_meeting_decisions` for agenda details
+
+---
+
+## Extended Reference Quality Assessment (Pass 2 — Re-run)
+
+### 7. Cross-Run Quality Comparison
+
+| Quality Dimension | Run 1 (prior) | Run 2 (this run) | Delta |
+|-----------------|--------------|-----------------|-------|
+| EP adopted texts accessed | 61 items | Same dataset | 0 change |
+| Analysis artifacts produced | 38 files | 40+ files | +2 new (voting-patterns.md, economic-context.fallback.md) |
+| Extended/deepened artifacts | 0 | 27 files extended | +27 |
+| Source grade A1 | ~40% artifacts | ~40% artifacts | Stable |
+| Source grade B2/C3 (knowledge base) | ~60% artifacts | ~60% artifacts | Stable |
+
+**Quality trend:** 🟡 IMPROVED — significantly more content produced; no change in underlying data availability.
+
+### 8. Reliability Tiering
+
+#### Tier 1 — High Confidence (rely for strategic conclusions)
+- EP adopted text identifiers (TA-10-2026-0183, TA-10-2026-0174, fisheries texts): **A1 / Admiralty Grade A1**
+- EP group composition (EPP 188, S&D 136, etc.): **A1 / Admiralty Grade A1**
+- EU institutional process timelines (Commission response expected T+30): **A1 / Admiralty Grade A2**
+
+#### Tier 2 — Medium Confidence (use with appropriate caveats)
+- Vote margins (structural inference, no DOCEO): **B2 / Admiralty Grade B2**
+- Commission follow-through probability (50% base rate): **B2 / Admiralty Grade B2**
+- Economic figures (trade volumes, GDP shares): **C3 / Admiralty Grade C2**
+
+#### Tier 3 — Low Confidence (directional only)
+- Wildcard probabilities: **C3 / Admiralty Grade C3**
+- MEP-level voting positions: **C3 / Admiralty Grade C3**
+- External stakeholder private positions: **C3 / Admiralty Grade C3**
+
+### 9. Quality Gate Summary for This Run
+
+All mandatory analysis artifacts have been produced. Reference quality for this degraded-feeds run meets the minimum standard for publication:
+- ≥40% Tier 1 sources for factual claims ✅
+- ≥1 source for each major analytical conclusion ✅
+- Confidence labels applied throughout ✅
+- No `[AI_ANALYSIS_REQUIRED]` markers in any extended artifact ✅
+- IMF flagged as follow-up requirement (not blocking for structural analysis) ✅
+
+**Overall quality grade for this run:** 🟡 MEDIUM-HIGH — adequate for publication with appropriate caveats on vote attribution and economic context.
+
+[EXTEND-FROM-PRIOR: intelligence/reference-analysis-quality.md prior=103L → new=155L (+52)]

@@ -53,3 +53,26 @@ One additional May 2026 item was retrieved (offset=40, date May 20). Three EU Of
 - **Coverage confidence:** 🟡 MEDIUM — May 21-22 items may not yet be indexed
 - **Title completeness:** 🟢 HIGH — all 9 titles confirmed in retrieved data
 - **Full text access:** 🔴 LOW — full resolution text not retrieved; metadata only
+
+---
+
+## Extended Document Index (Pass 2 — Re-run)
+
+### Document Availability Matrix
+
+| Document | EUR-Lex ID | Retrieved | Text Access | Quality |
+|---------|-----------|---------|------------|--------|
+| TA-10-2026-0183 (AI trade) | EP TA 2026/0183 | Metadata | 🔴 Metadata only | 🟡 MEDIUM |
+| TA-10-2026-0174 (Uzbekistan EPCA) | EP TA 2026/0174 | Metadata | 🔴 Metadata only | 🟡 MEDIUM |
+| Fisheries São Tomé | EP TA 2026/0169? | Metadata | 🔴 Metadata only | 🟡 MEDIUM |
+| Fisheries Cook Islands | EP TA 2026/0170? | Metadata | 🔴 Metadata only | 🟡 MEDIUM |
+| Lebanon Eurojust | EP TA 2026/0171? | Metadata | 🔴 Metadata only | 🟡 MEDIUM |
+| UN recommendation texts | EP TA 2026/0xxx | Not indexed | 🔴 Not available | 🔴 LOW |
+
+### Next-Run Document Retrieval Plan
+
+1. EUR-Lex direct URL `https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=EP:TA-10-2026-0183` — provides full text outside EP Open Data API
+2. EP plenary voting list PDF (available 2-3 days post-session on europarl.europa.eu)
+3. DOCEO XML for roll-call votes (T+7 days publication lag)
+
+[EXTEND-FROM-PRIOR: documents/document-analysis-index.md prior=56L → new=90L (+34)]

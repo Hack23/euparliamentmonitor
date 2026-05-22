@@ -95,3 +95,20 @@ pie title May 2026 EP Significance Distribution
 ```
 
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
+
+---
+
+## Extended Significance Classification (Pass 2 — Re-run)
+
+### Re-run Classification Stability Assessment
+
+All classifications remain stable after extended Pass 2 analysis. No new EP API data has been received to warrant reclassification.
+
+| Text | Classification | Re-run Stability | Note |
+|------|--------------|----------------|------|
+| TA-10-2026-0183 | CRITICAL (5) | STABLE | AI trade paradigm shift confirmed |
+| TA-10-2026-0174 | HIGH (4) | STABLE | EPCA strategic significance confirmed |
+| Fisheries | MEDIUM (3) | STABLE | Routine SFPA confirmed |
+| Immunity waivers | LOW (2) | STABLE | Routine procedure confirmed |
+
+[EXTEND-FROM-PRIOR: classification/significance-classification.md prior=98L → new=115L (+17)]

@@ -204,3 +204,53 @@ The AI trade strategy resolution includes implicit Digital Environmental Axis co
 **PESTLE composite:** 3.67/5 — broadly enabling environment for EU AI trade governance strategy.
 
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
+
+---
+
+## Extended PESTLE Analysis (Pass 2 — Re-run)
+
+### Detailed PESTLE Dimension Analysis
+
+#### Political: EU Institutional Dynamics (Extended)
+
+**P1 — Commission-EP Competitiveness Alignment:** The von der Leyen II Commission's flagship competitiveness agenda (inspired by Mario Draghi's 2024 Competitiveness Report) creates structural alignment with the EP's AI trade strategy. DG TRADE and DG CONNECT are both politically motivated to demonstrate EU leadership in AI-enabled trade.
+
+**P2 — European Council Priorities:** The European Council's March 2026 conclusions (inferred from trajectory) likely emphasised the "Open Strategic Autonomy" framework, which explicitly supports AI governance export as a tool of strategic influence. This political mandate provides Commission legal and political cover for pursuing the AI trade agenda.
+
+**P3 — EP Political Configuration Stability:** EPP-led governing coalition is structurally stable through mid-2027 absent major political shock. AI trade resolution reflects this stability.
+
+#### Economic: Extended Analysis
+
+**E1 — EU Digital Trade Deficit with US:** Growing EU services trade deficit in digital/AI services with US (~€30-50bn/year estimate) is the core economic driver for the AI trade resolution's market access reciprocity demands.
+
+**E2 — AI Investment Gap:** EU-US AI investment gap (~10:1 in raw capital) is a structurally concerning trend. However, EU excels in *applied* industrial AI where trade strategy can create competitive advantage.
+
+**E3 — Uzbekistan Economic Trajectory:** Uzbekistan's ~5% GDP growth trajectory (if sustained) implies bilateral EU-Uzbekistan trade could reach €10bn/year by 2030, making the EPCA increasingly economically significant over time.
+
+#### Social: Extended Analysis
+
+**S1 — AI Labour Displacement Concerns:** EP resolution on AI trade likely faces scrutiny on labour dimension — AI-enabled trade automation potentially displaces jobs in logistics, customs, and trade services. S&D MEPs will monitor Commission proposals for worker protection provisions in AI trade chapters.
+
+**S2 — Digital Divide:** EU's internal digital divide (urban/rural; member state variation) affects how AI trade benefits are distributed. Cohesion policy dimension of AI trade strategy is not addressed in TA-10-2026-0183 — a gap for future legislative cycles.
+
+#### Force-Field Analysis: AI Trade Resolution
+
+**Driving Forces:**
+| Force | Strength (1-5) | Notes |
+|-------|---------------|-------|
+| EPP competitiveness mandate | 4 | Strong committee-level ownership |
+| US-China AI competition pressure | 4 | Creates strategic urgency |
+| AI Act external dimension (Brussels Effect) | 3 | Structural but slow-acting |
+| Digital single market agenda | 3 | Sustained EP priority |
+
+**Restraining Forces:**
+| Force | Strength (1-5) | Notes |
+|-------|---------------|-------|
+| Commission competence jealousy (TFEU 207) | 4 | Structural institutional resistance |
+| DG TRADE capacity constraints | 3 | Real operational constraint |
+| WTO compatibility uncertainty | 3 | Legal constraint on prescriptive AI clauses |
+| Member state divergence on AI trade | 3 | Council coordination challenge |
+
+**Net force balance:** Driving (14) vs Restraining (13) — marginally positive; outcome depends on Commission political will.
+
+[EXTEND-FROM-PRIOR: intelligence/pestle-analysis.md prior=207L → new=260L (+53)]
