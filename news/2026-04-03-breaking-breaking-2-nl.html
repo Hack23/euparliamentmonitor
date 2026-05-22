@@ -458,7 +458,7 @@ graph LR
 <li><strong>Classificering:</strong> Openbaar</li>
 <li><strong>Retrospectieve generatie:</strong> Backfill-sessie.</li>
 </ul>
-</div><h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 <h3 id="api-reliability-assessment" tabindex="-1"><a class="header-anchor" href="#api-reliability-assessment"><span>Api Reliability Assessment</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
@@ -4236,7 +4236,7 @@ graph LR
 <h3 id="bluf-10" tabindex="-1"><a class="header-anchor" href="#bluf-10"><span>🎯 BLUF</span></a></h3>
 <p><strong>De feed-API van het EP-dataportaal bevindt zich in een GEDEGRADEERDE staat — 5 van 8 verplichte feeds falen in drie onafhankelijke uitvoeringen (06:00, 12:15, 18:15 UTC).</strong> <code>get_events_feed</code>, <code>get_procedures_feed</code>, <code>get_documents_feed</code>, <code>get_plenary_documents_feed</code>, <code>get_committee_documents_feed</code>, <code>get_parliamentary_questions_feed</code> retourneren allemaal 404-fouten of time-outs op de tijdshorizonten <code>today</code> en <code>one-week</code>. Operationele eindpunten: <code>get_meps_feed</code> (737/737) en analytische tools (<code>detect_voting_anomalies</code>, <code>analyze_coalition_dynamics</code>, <code>generate_political_landscape</code>, <code>early_warning_system</code>). <code>get_adopted_texts_feed</code> retourneert gedeeltelijke gegevens (~80–100 items via de one-week-fallback). Het foutpatroon is gecorreleerd met het paasuitstel, wat wijst op onderhoud of seizoensgebonden wachtrijdegradatie stroomopwaarts. <strong>🟢 HOGE betrouwbaarheid</strong> dat de degradatie reëel en aanhoudend is (n=3 uitvoeringen); <strong>🟡 GEMIDDELDE betrouwbaarheid</strong> over de grondoorzaak (onderhoud tijdens uitstel vs. infrastructuurregressie).</p>
 <hr>
-<h3 id="3-beslissingen-die-dit-document-ondersteunt" tabindex="-1"><a class="header-anchor" href="#3-beslissingen-die-dit-document-ondersteunt"><span>🧭 3 Beslissingen Die Dit Document Ondersteunt</span></a></h3>
+<h3 id="3-beslissingen-die-dit-document-ondersteunt-2" tabindex="-1"><a class="header-anchor" href="#3-beslissingen-die-dit-document-ondersteunt-2"><span>🧭 3 Beslissingen Die Dit Document Ondersteunt</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -4272,7 +4272,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="60-seconden-lezing" tabindex="-1"><a class="header-anchor" href="#60-seconden-lezing"><span>📰 60-Seconden Lezing</span></a></h3>
+<h3 id="60-seconden-lezing-2" tabindex="-1"><a class="header-anchor" href="#60-seconden-lezing-2"><span>📰 60-Seconden Lezing</span></a></h3>
 <ul>
 <li>🔴 <strong>5/8 verplichte feeds GEFAALD in alle drie uitvoeringen</strong> — <code>get_events_feed</code>, <code>get_procedures_feed</code>, <code>get_documents_feed</code>, <code>get_plenary_documents_feed</code>, <code>get_committee_documents_feed</code>, <code>get_parliamentary_questions_feed</code>. (🟢 Hoog)</li>
 <li>🟠 <strong>Feed voor aangenomen teksten GEDEELTELIJK</strong> — JSON-fout op <code>today</code>; one-week-fallback retourneert ~80–100 items. (🟢 Hoog)</li>
@@ -4284,7 +4284,7 @@ graph LR
 <li>⚪ <strong>Doorgestuurd:</strong> <code>prefetch-status.json</code>-statustracking en gedegradeerde-feed-aanpassingsfactor (0,80) toevoegen aan de validatiepipeline.</li>
 </ul>
 <hr>
-<h3 id="momentopname-eindpuntstatus" tabindex="-1"><a class="header-anchor" href="#momentopname-eindpuntstatus"><span>🗂️ Momentopname Eindpuntstatus</span></a></h3>
+<h3 id="momentopname-eindpuntstatus-2" tabindex="-1"><a class="header-anchor" href="#momentopname-eindpuntstatus-2"><span>🗂️ Momentopname Eindpuntstatus</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -4370,7 +4370,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="risico-en-dreigingsoverzicht" tabindex="-1"><a class="header-anchor" href="#risico-en-dreigingsoverzicht"><span>⚠️ Risico- en Dreigingsoverzicht</span></a></h3>
+<h3 id="risico-en-dreigingsoverzicht-2" tabindex="-1"><a class="header-anchor" href="#risico-en-dreigingsoverzicht-2"><span>⚠️ Risico- en Dreigingsoverzicht</span></a></h3>
 <figure class="mermaid-figure" role="img" aria-label="Mermaid diagram 18">
 <pre class="mermaid">%%{init: {&quot;theme&quot;:&quot;dark&quot;}}%%
 graph LR
@@ -4435,10 +4435,10 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="belangrijkste-toekomstige-trigger" tabindex="-1"><a class="header-anchor" href="#belangrijkste-toekomstige-trigger"><span>🔮 Belangrijkste Toekomstige Trigger</span></a></h3>
+<h3 id="belangrijkste-toekomstige-trigger-2" tabindex="-1"><a class="header-anchor" href="#belangrijkste-toekomstige-trigger-2"><span>🔮 Belangrijkste Toekomstige Trigger</span></a></h3>
 <p><strong>Dagelijkse eindpuntprobe tot 13 april 2026 (einde paasuitstel).</strong> Als het falende feed-cluster op 14 april 2026 (eerste werkdag na Pasen) niet hersteld is, escaleren naar de infrastructuurregressie-hypothese en het EP EDP technisch operationeel team contacteren via het vastgestelde kanaal.</p>
 <hr>
-<h3 id="beoordeling-van-bronkwaliteit" tabindex="-1"><a class="header-anchor" href="#beoordeling-van-bronkwaliteit"><span>🛡️ Beoordeling van Bronkwaliteit</span></a></h3>
+<h3 id="beoordeling-van-bronkwaliteit-2" tabindex="-1"><a class="header-anchor" href="#beoordeling-van-bronkwaliteit-2"><span>🛡️ Beoordeling van Bronkwaliteit</span></a></h3>
 <ul>
 <li><strong>Primaire bronnen:</strong> Drie systematische testuitvoeringen om 06:00, 12:15, 18:15 UTC; 12 eindpunten + 4 analytische tools.</li>
 <li><strong>Betrouwbaarheid voor GEDEGRADEERD-bevinding:</strong> 🟢 HOOG (n=3 gedurende de dag; deterministisch foutpatroon).</li>
@@ -4473,7 +4473,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="kruisverwijzing" tabindex="-1"><a class="header-anchor" href="#kruisverwijzing"><span>🔄 Kruisverwijzing</span></a></h3>
+<h3 id="kruisverwijzing-2" tabindex="-1"><a class="header-anchor" href="#kruisverwijzing-2"><span>🔄 Kruisverwijzing</span></a></h3>
 <p><strong>Voorgaande signalen:</strong> 2026-04-01/breaking en 2026-04-02/breaking noteerden beide feed-API 404-fouten zonder formele drie-uitvoering-probe. Deze uitvoering formaliseert en kwantificeert het patroon.</p>
 <p><strong>Volgende verificatie:</strong> Dagelijkse probes op 4–5 april 2026 bepalen of de degradatie aanhoudt of oplost met het einde van het uitstel.</p>
 <hr>
