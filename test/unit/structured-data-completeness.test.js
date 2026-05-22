@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Structured-data completeness contract.
  *
@@ -15,9 +18,6 @@
  *  4. Political-intelligence page — `CollectionPage` referencing the
  *     publisher via `@id` only (no inline duplicate) and the section
  *     ItemList wrapped in typed `WebPageElement` items.
- *
- * SPDX-FileCopyrightText: 2024-2026 Hack23 AB
- * SPDX-License-Identifier: Apache-2.0
  */
 
 import { describe, expect, it } from 'vitest';
@@ -27,10 +27,7 @@ import { fileURLToPath } from 'node:url';
 
 import { generateIndexHTML } from '../../scripts/generators/news-indexes/per-language.js';
 import { generateSitemapHTML } from '../../scripts/generators/sitemap/html.js';
-import {
-  collectPoliticalIntelligenceData,
-  generatePoliticalIntelligenceHTML,
-} from '../../scripts/generators/political-intelligence/index.js';
+import { generatePoliticalIntelligenceHTML } from '../../scripts/generators/political-intelligence/index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -96,12 +93,12 @@ describe('offline.html structured-data graph', () => {
 
 describe('news-index CollectionPage JSON-LD', () => {
   const articles = [
-    { filename: '2026-05-20-foo.en.html', slug: 'foo', date: '2026-05-20', lang: 'en' },
-    { filename: '2026-05-19-bar.en.html', slug: 'bar', date: '2026-05-19', lang: 'en' },
+    { filename: '2026-05-20-foo-en.html', slug: 'foo', date: '2026-05-20', lang: 'en' },
+    { filename: '2026-05-19-bar-en.html', slug: 'bar', date: '2026-05-19', lang: 'en' },
   ];
   const metaMap = new Map([
-    ['2026-05-20-foo.en.html', { title: 'Foo headline', description: 'Foo description.' }],
-    ['2026-05-19-bar.en.html', { title: 'Bar headline', description: 'Bar description.' }],
+    ['2026-05-20-foo-en.html', { title: 'Foo headline', description: 'Foo description.' }],
+    ['2026-05-19-bar-en.html', { title: 'Bar headline', description: 'Bar description.' }],
   ]);
   const html = generateIndexHTML('en', articles, metaMap);
   const blocks = extractJsonLd(html);
@@ -139,8 +136,8 @@ describe('news-index CollectionPage JSON-LD', () => {
 
 describe('sitemap CollectionPage JSON-LD', () => {
   const articleInfos = [
-    { filename: '2026-05-20-foo.en.html', date: '2026-05-20', title: 'Foo', description: 'd1', slug: 'foo' },
-    { filename: '2026-05-19-bar.sv.html', date: '2026-05-19', title: 'Bar', description: 'd2', slug: 'bar' },
+    { filename: '2026-05-20-foo-en.html', date: '2026-05-20', title: 'Foo', description: 'd1', slug: 'foo' },
+    { filename: '2026-05-19-bar-sv.html', date: '2026-05-19', title: 'Bar', description: 'd2', slug: 'bar' },
   ];
   const html = generateSitemapHTML('en', articleInfos);
   const blocks = extractJsonLd(html);

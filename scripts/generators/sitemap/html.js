@@ -217,8 +217,10 @@ ${items}
             name: sections.news,
             itemListElement: articleInfos.slice(0, 50).map((info, idx) => {
                 const url = `${BASE_URL}/news/${info.filename}`;
-                // Extract per-article language from filename suffix (e.g. `…-foo.en.html` → `en`).
-                const langMatch = /\.([a-z]{2})\.html$/.exec(info.filename);
+                // Extract per-article language from filename suffix (e.g. `…-foo-en.html` → `en`).
+                // Mirrors the canonical `<slug>-<lang>.html` convention enforced by
+                // `ARTICLE_FILENAME_PATTERN` / `getArticleFilename()`.
+                const langMatch = /-([a-z]{2})\.html$/.exec(info.filename);
                 const articleLang = langMatch ? langMatch[1] : lang;
                 return {
                     '@type': 'ListItem',

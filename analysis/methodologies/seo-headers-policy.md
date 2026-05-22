@@ -181,7 +181,7 @@ full entity per slot:
 {
   "@type": "ListItem",
   "position": 1,
-  "url": "https://euparliamentmonitor.com/news/<slug>.<lang>.html",
+  "url": "https://euparliamentmonitor.com/news/<slug>-<lang>.html",
   "item": {
     "@type": "NewsArticle",        // or "WebPageElement" for anchor sections
     "@id": "<same as url>",
@@ -196,8 +196,9 @@ full entity per slot:
 
 * News-index `itemListElement` items inherit the page language.
 * Sitemap `itemListElement` items derive `inLanguage` from the per-article
-  filename suffix (`<slug>.<lang>.html`) so a Swedish sitemap can correctly
-  expose Norwegian/Danish/English articles when mixed.
+  filename suffix (`<slug>-<lang>.html`, e.g. `2026-05-21-breaking-ja.html`)
+  so a Swedish sitemap can correctly expose Norwegian/Danish/English
+  articles when mixed.
 * Political-intelligence section ItemList uses `@type: WebPageElement`
   because the targets are anchor fragments (`#pi-…`) on the same page,
   not standalone articles.

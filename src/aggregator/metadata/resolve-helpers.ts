@@ -148,13 +148,19 @@ export function composeContextualDescription(
   _runId: string
 ): string {
   const labels = getLocalizedString(SEO_CONTEXT_LABELS, lang);
-  const parts = [baseDescription.trim()];
-  parts.push(`${labels.date} ${date}.`);
+  const base = baseDescription.trim();
+  const parts = [base];
+  const datePart = `${labels.date} ${date}.`;
+  if (!containsNormalized(base, `${labels.date} ${date}`)) {
+    parts.push(datePart);
+  }
   const context = pickFirstNonEmpty([editorial.summary, editorial.headline]);
   if (context && !containsNormalized(parts[0] ?? '', context)) {
     parts.push(`${labels.context}: ${context}`);
   }
-  parts.push(labels.reader);
+  if (!containsNormalized(parts.join(' '), labels.reader)) {
+    parts.push(labels.reader);
+  }
   return truncateDescription(parts.join(' '));
 }
 
