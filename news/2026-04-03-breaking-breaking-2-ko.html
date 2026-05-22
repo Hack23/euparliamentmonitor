@@ -205,7 +205,6 @@
 <tr><td><span class="guide-icon" aria-hidden="true">📎</span> <a href="#section-supplementary-intelligence">보충 인텔리전스</a></td><td>실행에서 발견되었지만 아직 표준 섹션에 할당되지 않은 추가 마크다운</td></tr>
 </tbody>
 </table>
-</div>
 </section>
 <h2 id="bluf" tabindex="-1"><a class="header-anchor" href="#bluf"><span>🎯 BLUF</span></a></h2>
 <p><strong>유럽의회 데이터 포털 피드 API가 분단 상태에 있습니다 — 필수 피드 8개 중 5개가 3회 독립 실행(06:00, 12:15, 18:15 UTC)에서 모두 실패하고 있습니다.</strong> <code>get_events_feed</code>, <code>get_procedures_feed</code>, <code>get_documents_feed</code>, <code>get_plenary_documents_feed</code>, <code>get_committee_documents_feed</code>, <code>get_parliamentary_questions_feed</code> 모두 <code>today</code> 및 <code>one-week</code> 시간 범위에서 404 오류 또는 타임아웃을 반환합니다. 정상 운영 중인 엔드포인트：<code>get_meps_feed</code>(737/737) 및 분석 도구(<code>detect_voting_anomalies</code>, <code>analyze_coalition_dynamics</code>, <code>generate_political_landscape</code>, <code>early_warning_system</code>). <code>get_adopted_texts_feed</code>는 부분 데이터를 반환합니다(one-week 대체 경로를 통해 약 80〜100건). 장애 패턴은 부활절 휴가와 상관관계를 보이며, 업스트림 작업 대기열의 유지보수 또는 계절적 저하를 시사합니다. <strong>🟢 높은 신뢰도</strong>：장애가 실재하고 지속적임(n=3 실행). <strong>🟡 중간 신뢰도</strong>：근본 원인(휴가 중 유지보수 대 인프라 퇴화).</p>

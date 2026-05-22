@@ -205,7 +205,6 @@
 <tr><td><span class="guide-icon" aria-hidden="true">📎</span> <a href="#section-supplementary-intelligence">补充情报</a></td><td>运行中发现但尚未分配到规范章节的附加Markdown</td></tr>
 </tbody>
 </table>
-</div>
 </section>
 <h2 id="bluf" tabindex="-1"><a class="header-anchor" href="#bluf"><span>🎯 BLUF</span></a></h2>
 <p><strong>欧洲议会数据门户信息源API处于中断状态 — 8个必需信息源中有5个在3次独立运行（06:00、12:15、18:15 UTC）中全部失败。</strong> <code>get_events_feed</code>、<code>get_procedures_feed</code>、<code>get_documents_feed</code>、<code>get_plenary_documents_feed</code>、<code>get_committee_documents_feed</code>、<code>get_parliamentary_questions_feed</code> 在 <code>today</code> 和 <code>one-week</code> 时间范围内均返回404错误或超时。正常运行的端点：<code>get_meps_feed</code>（737/737）及分析工具（<code>detect_voting_anomalies</code>、<code>analyze_coalition_dynamics</code>、<code>generate_political_landscape</code>、<code>early_warning_system</code>）。<code>get_adopted_texts_feed</code> 返回部分数据（通过 one-week 备用路径约80〜100条）。故障模式与复活节假期相关，表明上游任务队列存在维护或季节性降级。<strong>🟢 高可信度</strong>：故障真实且持续（n=3次运行）。<strong>🟡 中等可信度</strong>：根本原因（假期维护对比基础设施退化）。</p>

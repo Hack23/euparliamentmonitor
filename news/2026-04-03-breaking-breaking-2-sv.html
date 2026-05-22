@@ -205,7 +205,6 @@
 <tr><td><span class="guide-icon" aria-hidden="true">📎</span> <a href="#section-supplementary-intelligence">Kompletterande underrättelse</a></td><td>ytterligare markdown som hittats i körningen och ännu inte tilldelats en kanonisk sektion</td></tr>
 </tbody>
 </table>
-</div>
 </section>
 <h2 id="bluf" tabindex="-1"><a class="header-anchor" href="#bluf"><span>🎯 BLUF</span></a></h2>
 <p><strong>EP:s dataportal-flödes-API befinner sig i DEGRADERAT tillstånd — 5 av 8 obligatoriska flöden misslyckas i tre oberoende körningar (06:00, 12:15, 18:15 UTC).</strong> <code>get_events_feed</code>, <code>get_procedures_feed</code>, <code>get_documents_feed</code>, <code>get_plenary_documents_feed</code>, <code>get_committee_documents_feed</code>, <code>get_parliamentary_questions_feed</code> returnerar alla 404 eller timeout på tidshorisonterna <code>today</code> och <code>one-week</code>. Driftsatta slutpunkter: <code>get_meps_feed</code> (737/737) och analytiska verktyg (<code>detect_voting_anomalies</code>, <code>analyze_coalition_dynamics</code>, <code>generate_political_landscape</code>, <code>early_warning_system</code>). <code>get_adopted_texts_feed</code> returnerar deldata (ca 80–100 poster via one-week-fallback). Felmönstret sammanfaller med påskuppehållet, vilket tyder på underhåll eller säsongsbetonad ködegradering uppströms. <strong>🟢 HÖG tillförlitlighet</strong> att degraderingen är verklig och bestående (n=3 körningar); <strong>🟡 MEDEL tillförlitlighet</strong> beträffande grundorsak (underhåll under uppehåll kontra infrastrukturregression).</p>
