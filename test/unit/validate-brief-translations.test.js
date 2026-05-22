@@ -21,6 +21,9 @@ import {
   H3_TOLERANCE,
   EN_PATTERNS,
   FIXED_TOKEN_PATTERNS,
+  SKELETON_MARKER_RE,
+  isSkeletonStub,
+  countBlockingViolations,
   parseArgs,
   findAllTranslations,
   validateTranslation,
@@ -118,6 +121,102 @@ describe('validate-brief-translations', () => {
     it('honours --no-fail', () => {
       const opts = parseArgs(['--no-fail']);
       expect(opts.fail).toBe(false);
+    });
+
+    it('defaults --strict-skeletons to false (warnings non-blocking)', () => {
+      const opts = parseArgs([]);
+      expect(opts.strictSkeletons).toBe(false);
+    });
+
+    it('honours --strict-skeletons', () => {
+      const opts = parseArgs(['--strict-skeletons']);
+      expect(opts.strictSkeletons).toBe(true);
+    });
+  });
+
+  describe('skeleton-incomplete advisory', () => {
+    const SKELETON_BODY = [
+      '<!-- translation-skeleton: lang=fi phase=A -->',
+      '# Yhteenveto — Kiireellinen uutinen',
+      '',
+      '## 🎯 BLUF',
+      '<!-- pending -->',
+      '',
+      '## 📋 60 sekunnin lukuhetki',
+      '<!-- pending -->',
+      '',
+      '## IMF talouskonteksti',
+      '<!-- pending -->',
+    ].join('\n');
+
+    it('detects the explicit Phase A skeleton marker', () => {
+      expect(SKELETON_MARKER_RE.test(SKELETON_BODY)).toBe(true);
+      expect(isSkeletonStub(SKELETON_BODY)).toBe(true);
+    });
+
+    it('detects skeletons via fallback heuristic when marker is missing', () => {
+      const noMarker = SKELETON_BODY.split('\n').slice(1).join('\n');
+      expect(SKELETON_MARKER_RE.test(noMarker)).toBe(false);
+      expect(isSkeletonStub(noMarker)).toBe(true);
+    });
+
+    it('does not flag a fully populated translation as a skeleton', () => {
+      expect(isSkeletonStub(REALISTIC_SOURCE)).toBe(false);
+    });
+
+    it('emits one skeleton-incomplete warning per stub instead of cascading violations', () => {
+      writeSource('2026-05-13', 'election-cycle', REALISTIC_SOURCE);
+      const target = writeTranslation('2026-05-13', 'election-cycle', 'fi', SKELETON_BODY);
+      const violations = validateTranslation(target, tmpRoot);
+      expect(violations).toHaveLength(1);
+      expect(violations[0].gate).toBe('skeleton-incomplete');
+      expect(violations[0].severity).toBe('warning');
+      // Skeleton short-circuit MUST suppress the cascade gates that would
+      // otherwise fire on the tiny stub.
+      const gates = violations.map((v) => v.gate);
+      expect(gates).not.toContain('length-floor');
+      expect(gates).not.toContain('fixed-token-preservation');
+      expect(gates).not.toContain('heading-parity');
+      expect(gates).not.toContain('mermaid-parity');
+    });
+
+    it('still flags an orphan skeleton (missing source) — source-presence gate runs first', () => {
+      const target = writeTranslation('2026-05-13', 'orphaned-slug', 'fi', SKELETON_BODY);
+      const violations = validateTranslation(target, tmpRoot);
+      expect(violations.some((v) => v.gate === 'source-presence')).toBe(true);
+    });
+
+    it('countBlockingViolations excludes warning-severity entries by default', () => {
+      const violations = [
+        { gate: 'skeleton-incomplete', severity: 'warning' },
+        { gate: 'skeleton-incomplete', severity: 'warning' },
+        { gate: 'heading-parity' },
+      ];
+      expect(countBlockingViolations(violations)).toBe(1);
+      expect(countBlockingViolations(violations, { strictSkeletons: true })).toBe(3);
+    });
+
+    it('partial-flush PR with skeleton siblings produces zero skeleton-blocking violations', () => {
+      writeSource('2026-05-13', 'election-cycle', REALISTIC_SOURCE);
+      // 10 skeleton stubs from an emergency flush (the failure pattern from
+      // run #26235374860 where 10/13 languages did not reach Phase B).
+      const stubs = ['fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'].map((l) =>
+        writeTranslation('2026-05-13', 'election-cycle', l,
+          SKELETON_BODY.replace('lang=fi', `lang=${l}`)));
+      const violations = runValidation(stubs, tmpRoot, { quiet: true });
+      // Each skeleton collapses to exactly one advisory entry — not the 5+
+      // cascading violations (length-floor, fixed-token-preservation,
+      // heading-parity, mermaid-parity) the pre-fix validator emitted.
+      expect(violations.filter((v) => v.gate === 'skeleton-incomplete')).toHaveLength(10);
+      expect(violations.filter((v) => v.gate === 'length-floor')).toHaveLength(0);
+      expect(violations.filter((v) => v.gate === 'fixed-token-preservation')).toHaveLength(0);
+      expect(violations.filter((v) => v.gate === 'heading-parity')).toHaveLength(0);
+      expect(violations.filter((v) => v.gate === 'mermaid-parity')).toHaveLength(0);
+      // None of the 10 skeleton advisories are blocking under the default
+      // (non-strict) policy, so the workflow's post-step exit code is 0.
+      expect(countBlockingViolations(violations)).toBe(0);
+      // --strict-skeletons promotes them all to blocking for CI sweeps.
+      expect(countBlockingViolations(violations, { strictSkeletons: true })).toBe(10);
     });
   });
 

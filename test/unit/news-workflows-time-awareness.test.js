@@ -7,9 +7,11 @@
  * What we enforce:
  *
  *   1. Every `news-*.md` agentic workflow declares `timeout-minutes: 60`
- *      at the top level. The agent reasons about the 60-min hard cap
- *      throughout 02-analysis-protocol.md; a drift to any other value
- *      silently breaks every per-family tripwire in that prompt.
+ *      at the top level (default). Explicit per-file exceptions are allowed
+ *      via `TIMEOUTS_BY_FILE` but must be justified; the default is 60 min
+ *      and the agent reasons about this cap throughout
+ *      02-analysis-protocol.md. A drift to any other value silently breaks
+ *      every per-family tripwire in that prompt.
  *
  *   2. Every non-news GitHub Actions workflow under `.github/workflows/`
  *      declares an explicit `timeout-minutes:` for each of its jobs. The
@@ -60,11 +62,19 @@ function readFrontmatter(filePath) {
   return parseYaml(match[1]);
 }
 
-describe('agentic news workflows — 60-min timeout drift-guard', () => {
+describe('agentic news workflows — timeout drift-guard', () => {
   const newsFiles = fs
     .readdirSync(WORKFLOWS_DIR)
     .filter((f) => /^news-.*\.md$/.test(f))
     .sort();
+
+  // All news-*.md workflows share the same 60-min hard cap. Better time
+  // management (start preparing to commit at 40 min) and root-cause fixes
+  // for transient-API errors make the longer cap unnecessary.
+  const TIMEOUTS_BY_FILE = new Map([
+    // No exceptions — all workflows use DEFAULT_TIMEOUT (60 min).
+  ]);
+  const DEFAULT_TIMEOUT = 60;
 
   it('covers exactly 15 news workflows (14 unified article slugs + news-translate)', () => {
     // Exact count: catches both additions AND removals. If a new article
@@ -75,13 +85,14 @@ describe('agentic news workflows — 60-min timeout drift-guard', () => {
   });
 
   for (const file of newsFiles) {
-    it(`${file} declares timeout-minutes: 60`, () => {
+    const expected = TIMEOUTS_BY_FILE.get(file) ?? DEFAULT_TIMEOUT;
+    it(`${file} declares timeout-minutes: ${expected}`, () => {
       const fm = readFrontmatter(path.join(WORKFLOWS_DIR, file));
       expect(fm, `${file} has no YAML frontmatter`).toBeTruthy();
       expect(
         fm['timeout-minutes'],
-        `${file} must declare timeout-minutes: 60 (agent reasons about a 60-min cap)`,
-      ).toBe(60);
+        `${file} must declare timeout-minutes: ${expected} (agent reasons about a ${expected}-min cap)`,
+      ).toBe(expected);
     });
 
     it(`${file} declares concurrency.group (cancel-in-progress requires group, else GitHub rejects the workflow at startup)`, () => {

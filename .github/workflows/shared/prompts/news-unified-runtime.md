@@ -51,6 +51,25 @@ which is 38+ files × ~1.5 invocations/file. Total budget = ~57+ ~50
 = 107 > 100. See [`.github/prompts/09-troubleshooting.md`](.github/prompts/09-troubleshooting.md) §5
 (run 25799686522 row) for the audit-confirmed forensics.
 
+## 📝 File Authoring Policy (universal — gh-aw best practice)
+
+Every file the agent writes follows this strict priority order:
+
+1. **`create`** — every new file (analysis prose, JSON manifests, templates). Pass `path` + `file_text` explicitly. Bypasses the bash-safety filter; no context-window truncation.
+2. **`edit`** — every existing file. Atomic `oldText` → `newText`; no clobbering siblings.
+3. **`jq` → `cat > file`** — short keyword-free structured writes only (`manifest.json`, `prefetch-status.json`, status flags). Body must be JSON / SPDX header, never prose.
+4. **`node scripts/extend-artifacts.js --spec-file <path>`** — Stage B Pass 2 batch extend across multiple under-floor artifacts.
+
+Banned:
+
+- `python3` / `ruby` / `perl` heredocs for any file — toolchain is Node.js + TypeScript only and heredocs silently truncate at the context window.
+- `cat > file << 'EOF'` heredocs for prose / SWOT / stakeholder / risk / article content — the bash-safety filter false-positives on the literal *"kill"* (endemic in political analysis).
+- `echo "…" >> file` extend loops to fix a too-short artifact — pre-size every write to floor on the first `create` using `runs/thresholds-cache.json`.
+
+**`edit "No match found"` recovery**: re-read the file with `view`, copy the exact `oldText` (including leading whitespace) into a fresh `edit`, or rewrite the whole file with one `create`. Never escalate to a heredoc.
+
+Drift guards: `00-scope-and-ground-rules.md` §4; `02-analysis-protocol.md` §2a; `test/unit/news-translate-workflow-contract.test.js` and `test/unit/compile-workflow-no-patching.test.js`.
+
 ### Rule 1 — Pre-fetched feed data is already on disk before Stage A
 
 Every article workflow runs `bash scripts/prefetch-ep-feeds.sh <slug> <feeds…>`

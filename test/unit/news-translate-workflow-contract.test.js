@@ -67,9 +67,13 @@ describe('news-translate workflow contract', () => {
     // 2 of 4 `IMF` tokens — gate #5 fixed-token-preservation). Cap raised
     // again 46 KB → 47 KB to admit the `target_brief` operator-override
     // workflow_dispatch input + the TARGET_BRIEF env wiring + the env
-    // comment block explaining its security model.
+    // comment block explaining its security model. Cap raised 47 KB →
+    // 55 KB to admit (a) the skeleton-marker contract added to Phase A
+    // after the skeleton-cascade failure #26235374860, (b) the Python-
+    // heredoc ban and edit-recovery guidance, (c) the 60-min Time Budget
+    // table with the transient-API-error mitigation strategy paragraph.
     expect(workflow.length).toBeGreaterThan(2000);
-    expect(workflow.length).toBeLessThan(47000);
+    expect(workflow.length).toBeLessThan(55000);
   });
 
   it('runs 3×/day on cron and is workflow_dispatch-enabled', () => {
@@ -105,6 +109,10 @@ describe('news-translate workflow contract', () => {
 
   it('keeps the 60-minute hard cap', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    // The 60-min cap is the fleet default for all news-*.md workflows.
+    // Better time management (prepare to commit at 40 min) and root-cause
+    // fixes for transient-API errors remove the need for a longer cap.
+    // Step 4b's emergency-flush guard fires at ≥ 40 elapsed / ≤ 20 remaining.
     expect(workflow).toMatch(/^timeout-minutes:\s*60$/m);
   });
 
@@ -358,9 +366,10 @@ describe('news-translate workflow contract', () => {
     // and remaining minutes before triggering the emergency flush. Checking
     // individual tokens (ELAPSED_MIN, -ge, 50) is insufficient — a regression
     // that removes the `||` branch or rearranges the test would still satisfy
-    // token-only assertions.
+    // token-only assertions. Thresholds: 40 min elapsed / 20 min remaining
+    // (prepare to commit at minute 40 of the 60-min cap).
     expect(workflow).toMatch(
-      /if \[ "\$\{ELAPSED_MIN\}" -ge 45 \] \|\| \[ "\$\{REMAINING_MIN\}" -le 15 \]/,
+      /if \[ "\$\{ELAPSED_MIN\}" -ge 40 \] \|\| \[ "\$\{REMAINING_MIN\}" -le 20 \]/,
     );
     // The bash block MUST write the emergency-flush marker file so later
     // post-step diagnostics can detect the early flush.
@@ -373,6 +382,57 @@ describe('news-translate workflow contract', () => {
     expect(workflow).not.toMatch(
       /\*\*Never\*\* call `safeoutputs___create_pull_request` before at least one\s*brief has all 13 languages/,
     );
+  });
+
+  it('requires the Phase A skeleton marker contract for largeSource briefs', () => {
+    // Regression guard for run #26235374860: the 2-phase largeSource
+    // strategy wrote skeleton files into the canonical
+    // analysis/daily/<date>/<slug>/executive-brief_<lang>.md location
+    // with no machine-readable marker. The Step 4b emergency partial
+    // flush then committed 10 unfilled skeletons alongside 3 real
+    // translations, and the post-step validator's length-floor /
+    // fixed-token / heading-parity / mermaid-parity gates flagged
+    // 50+ cascading violations across the 10 skeletons, marking the
+    // job as `failure` even though the partial-rescue PR succeeded.
+    // The fix is a contract between the workflow and
+    // scripts/validate-brief-translations.js: Phase A files MUST
+    // declare themselves with a `<!-- translation-skeleton: ... -->`
+    // marker so the validator can emit a single non-blocking advisory
+    // instead of cascading violations.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toMatch(/<!-- translation-skeleton:\s*lang=/);
+    expect(workflow).toMatch(/phase=A/);
+    // The prompt must also instruct the agent to REMOVE the marker
+    // after the last Phase B edit so the file is treated as a real
+    // translation and gets strict validation.
+    expect(workflow).toMatch(/remove the skeleton marker/i);
+  });
+
+  it('bans Python heredocs as a fallback for translation output', () => {
+    // Regression guard for run #26235374860: when the Norwegian
+    // Phase B `edit` returned "No match found", the agent fell back
+    // to `python3 << 'PYEOF'` to rewrite the file. Heredocs of any
+    // language silently truncate at the context-window boundary —
+    // the existing rule banned only shell heredocs (`cat >>`). The
+    // §"🚫 Never" section must explicitly call out Python heredocs
+    // too and document the approved recovery path (re-read with
+    // `view`, retry `edit`, or rewrite with `create`).
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toMatch(/python3 << 'PYEOF'/);
+    expect(workflow).toMatch(/Never.*heredoc|heredoc.*banned|heredocs of any/i);
+  });
+
+  it('declares a transient-API-error mitigation strategy', () => {
+    // Regression guard for run #26235374860: the agent had no documented
+    // strategy for the gh-aw harness's transient-API-error retry loops.
+    // Rather than budgeting extra time (which led to the 90-min cap
+    // experiment), the workflow now documents detection heuristics (two
+    // consecutive edit calls > 5 min = retry loop) and triggers Step 4b
+    // immediately. The §"⏱️ Time Budget" section must explicitly call out
+    // transient-API-error handling so the agent can respond defensively.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toMatch(/transient[- ]?API[- ]?error/i);
+    expect(workflow).toMatch(/retry.loop/i);
   });
 
   it('imports shared/config/news-pat-pr-fallback.md with translate-briefs slug', () => {

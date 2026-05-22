@@ -442,14 +442,15 @@ jobs:
           
           ## 🚫 Never
           
-          - Never invoke the single-PR tool more than once per run.
-          - Never author article prose — the deterministic renderer owns Stage D.
-            Agent edits to `news/<date>-motions.en.md` after `npm run generate-article`
-            exits are forbidden.
-          - Never edit anything under `news/**` outside of `npm run generate-article`.
-          - Never dispatch another workflow except via the `dispatch-workflow:`
-            safe output (`news-translate`, exactly once after merge).
-          - See `00-scope-and-ground-rules.md` for the full list.
+          Hard rules — violations fail Stage C or the safe-outputs bundle.
+          
+          - Call `safeoutputs___create_pull_request` exactly once, at Stage E.
+          - Stage D owns `news/**`; do not edit it outside `npm run generate-article`.
+          - Dispatch other workflows only via `dispatch-workflow:` (`news-translate`, once after merge).
+          - Write files with native `create` / `edit`. `python3` / `ruby` / `perl` heredocs are banned for **any** file — they silently truncate at context limits and trip the bash-safety filter on tokens like *"kill"*. `cat > … << EOF` heredocs are additionally banned for prose. Heredocs stay legal only for short keyword-free structured writes (`jq` → `manifest.json`, SPDX stubs).
+          - Pre-size every artifact to its floor on the first `create` call from `runs/thresholds-cache.json`. No `wc -l` → `cat >>` extend loops.
+          
+          Full file-authoring priority order: `shared/prompts/news-unified-runtime.md` §"📝 File Authoring Policy". Workspace scope: `00-scope-and-ground-rules.md`.
           
           
           {{#runtime-import .github/agents/news-generation.agent.md}}
@@ -748,7 +749,7 @@ jobs:
           mkdir -p /tmp/gh-aw/safeoutputs
           mkdir -p /tmp/gh-aw/mcp-logs/safeoutputs
           cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << GH_AW_SAFE_OUTPUTS_CONFIG_5cf8f1ae7e51a0d9_EOF
-          {"create_pull_request":{"allowed_base_branches":["main"],"auto_close_issue":false,"draft":false,"excluded_files":["**/*.lock","node_modules/**",".github/workflows/*.lock.yml","analysis/**/data/**"],"expires":336,"fallback_as_issue":true,"github-token":"${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}","if_no_changes":"warn","labels":["agentic-news","analysis-data","type:motions"],"max":1,"max_patch_files":100,"max_patch_size":10240,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"report_incomplete":{}}
+          {"create_pull_request":{"allowed_base_branches":["main"],"auto_close_issue":false,"draft":false,"excluded_files":["**/*.lock","node_modules/**",".github/workflows/*.lock.yml","analysis/**/data/**"],"expires":336,"fallback_as_issue":true,"github-token":"${GITHUB_TOKEN}","if_no_changes":"warn","labels":["agentic-news","analysis-data","type:motions"],"max":1,"max_patch_files":100,"max_patch_size":10240,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"report_incomplete":{}}
           GH_AW_SAFE_OUTPUTS_CONFIG_5cf8f1ae7e51a0d9_EOF
       - name: Generate Safe Outputs Tools
         env:

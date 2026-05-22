@@ -56,7 +56,12 @@ permissions:
 
 # 60-minute hard cap. Per-run budget: MAX_BRIEFS × 13 languages × ~12 KB ≈
 # 26-39 markdown files / 300-450 KB of generated content. Comfortably inside
-# the gh-aw safe-outputs 10 MB patch ceiling and the model's invocation budget.
+# the gh-aw safe-outputs 10 MB patch ceiling and the model's invocation
+# budget. Time management: start preparing to commit after 40 min elapsed;
+# emergency-flush fires at ≥ 40 min elapsed or ≤ 20 min remaining. This
+# leaves 20 min for the flush + safe-outputs bundle application. Root-cause
+# fixes for transient-API errors (model downgrade, retry-loop detection)
+# remove the need for a longer cap.
 timeout-minutes: 60
 
 imports:
@@ -227,8 +232,15 @@ post-steps:
   # shared/config/news-pat-pr-fallback.md — do not duplicate it here.
 
   # Always run the validator on whatever the agent produced. The script
-  # exits non-zero on any violation; preserve that status so invalid
-  # translations are rejected instead of slipping into the safe-output PR.
+  # exits non-zero on any BLOCKING violation (severity != 'warning');
+  # preserve that status so invalid translations are rejected instead of
+  # slipping into the safe-output PR. The validator emits
+  # `skeleton-incomplete` advisories with `severity: warning` for Phase A
+  # stubs produced by Step 4b emergency partial flushes — those are
+  # non-blocking under the default policy because the next scheduled run
+  # will pick up the missing languages via discovery. Pass
+  # `--strict-skeletons` to treat them as blocking (used by CI sweeps,
+  # not by the per-run gate).
   #
   # IMPORTANT: scope validation to the briefs THIS RUN was asked to translate
   # (the entries in /tmp/gh-aw/discovery/queue.json). Pre-existing defects in
@@ -236,7 +248,9 @@ post-steps:
   # AFTER its translations were already merged) must NOT fail this run — the
   # translation agent has bounded scope and cannot fix them anyway. See the
   # regression analysis in the PR that introduced this scoping (failure
-  # pattern: runs #206, #207, #208, #209, #210, #214, #219, #220, #221, #223).
+  # pattern: runs #206, #207, #208, #209, #210, #214, #219, #220, #221, #223,
+  # and the skeleton-cascade failure #26235374860 that motivated the
+  # `--strict-skeletons` opt-in policy).
   - name: Validate brief translations
     if: always()
     run: |
@@ -280,7 +294,20 @@ post-steps:
         --paths "${glob_args[@]}" \
         --report /tmp/gh-aw/validation/report.json
       VALIDATION_STATUS=$?
-      node -e 'const r=require("/tmp/gh-aw/validation/report.json");console.log("Translations checked:",r.totals.filesChecked,"violations:",r.totals.violations);if(r.violations.length){for(const v of r.violations.slice(0,20)){console.log("•",v.translationPath,"["+v.gate+"]",v.message);}}'
+      node -e '
+        const r = require("/tmp/gh-aw/validation/report.json");
+        const t = r.totals || {};
+        const blocking = typeof t.blocking === "number" ? t.blocking : t.violations;
+        console.log("Translations checked:", t.filesChecked,
+          "| violations:", t.violations,
+          "| blocking:", blocking);
+        if (r.violations.length) {
+          for (const v of r.violations.slice(0, 20)) {
+            const icon = v.severity === "warning" ? "⚠️" : "•";
+            console.log(icon, v.translationPath, "[" + v.gate + "]", v.message);
+          }
+        }
+      '
       exit "$VALIDATION_STATUS"
 
 engine:
@@ -319,7 +346,7 @@ engine:
 | Read `/tmp/gh-aw/discovery/queue.json` | Read other unrelated repository files |
 | Run `node scripts/validate-brief-translations.js --paths …` to self-check | Use `sed`/`awk`/regex/`tr` to translate narrative content |
 | Call `safeoutputs___create_pull_request` after each fully-translated brief | Call `safeoutputs___create_pull_request` with zero translations produced (no files on disk) |
-| Emergency partial flush when wall-clock budget is exhausted (≥ 50 min elapsed OR `<10 min remaining`) — see § Step 4b | Silently let the engine time out / terminate without flushing any progress |
+| Emergency partial flush when wall-clock budget is exhausted (≥ 40 min elapsed OR ≤ 20 min remaining) — see § Step 4b | Silently let the engine time out / terminate without flushing any progress |
 
 > **Why a flush-before-timeout safety net matters**: prior runs have died
 > mid-brief (e.g. 10/13 languages written, engine terminated) and lost
@@ -478,25 +505,32 @@ For each queue entry, in order:
      echo "Missing entryIndex for current queue entry" >&2
      exit 1
    fi
-   python3 - "$entryIndex" > /tmp/gh-aw/source-path.txt <<'PY' || exit 1
-import json
-import sys
-from pathlib import Path
-
-queue_path = Path("/tmp/gh-aw/discovery/queue.json")
-if len(sys.argv) < 2:
-    print("Missing required argument: entry index", file=sys.stderr)
-    sys.exit(1)
-raw_index = sys.argv[1]
-try:
-    payload = json.loads(queue_path.read_text(encoding="utf-8"))
-    queue = payload.get("queue", [])
-    idx = int(raw_index)
-    print(queue[idx].get("sourcePath", ""))
-except (FileNotFoundError, json.JSONDecodeError, ValueError, IndexError, TypeError) as exc:
-    print(f"Failed to read/parse queue or access entry index {raw_index} in {queue_path}: {exc}", file=sys.stderr)
-    sys.exit(1)
-PY
+   # Node.js (the repo-wide toolchain — see 00-scope-and-ground-rules.md §4).
+   # Matches the `node -e` pattern used 110 lines down to read `largeSource` /
+   # `sourceLineCount` from the same queue.json. Python heredocs are banned
+   # repo-wide (see §"🚫 Never" below and 00-scope-and-ground-rules.md).
+   node -e '
+     const fs = require("node:fs");
+     const queuePath = "/tmp/gh-aw/discovery/queue.json";
+     const raw = process.argv[2];
+     if (!raw) {
+       console.error("Missing required argument: entry index");
+       process.exit(1);
+     }
+     try {
+       const payload = JSON.parse(fs.readFileSync(queuePath, "utf8"));
+       const queue = Array.isArray(payload.queue) ? payload.queue : [];
+       const idx = Number(raw);
+       if (!Number.isInteger(idx) || idx < 0 || idx >= queue.length) {
+         throw new RangeError("entry index " + raw + " out of range (queue length " + queue.length + ")");
+       }
+       const entry = queue[idx] || {};
+       process.stdout.write((typeof entry.sourcePath === "string" ? entry.sourcePath : "") + "\n");
+     } catch (exc) {
+       console.error("Failed to read/parse queue or access entry index " + raw + " in " + queuePath + ": " + exc.message);
+       process.exit(1);
+     }
+   ' "$entryIndex" > /tmp/gh-aw/source-path.txt || exit 1
    IFS= read -r sourcePath < /tmp/gh-aw/source-path.txt
    if [ -z "${sourcePath:-}" ] || [ ! -f "$sourcePath" ]; then
      echo "Missing or invalid sourcePath: $sourcePath" >&2
@@ -531,28 +565,60 @@ PY
    > entry has `largeSource: true` (source `sourceLineCount` >
    > `MAX_SOURCE_LINES`, default 300; the cancelled run #26181499722
    > had a 385-line brief that stalled the first `create` with 5×
-   > transient-API-error loops), do **not** attempt to write the
-   > full translation in one `create` call. Instead, for **each
-   > language**:
+   > transient-API-error loops, and run #26235374860 hit the same
+   > pattern twice in succession for ~25 min of lost wall-clock), do
+   > **not** attempt to write the full translation in one `create`
+   > call. Instead, for **each language**:
    >
-   > 1. **Phase A — skeleton `create`**: write only the H1 line, the
-   >    full ordered list of `## H2` headings copied verbatim from
-   >    the source (translated where appropriate but with the same
-   >    count and order), and a one-sentence BLUF placeholder under
-   >    each H2 (`<!-- pending -->` is fine). This is a small,
-   >    bounded output that the model can emit reliably even when
-   >    the source is 400+ lines.
+   > 1. **Phase A — skeleton `create`**: write the file as the
+   >    skeleton marker line, then the H1, then the full ordered
+   >    list of `## H2` headings copied verbatim from the source
+   >    (translated where appropriate but with the same count and
+   >    order), with a one-line `<!-- pending -->` placeholder
+   >    under each H2. The very **first line** of every Phase A
+   >    file MUST be the literal marker:
+   >
+   >    ```
+   >    <!-- translation-skeleton: lang=<lang> phase=A run=${RUN_ID} -->
+   >    ```
+   >
+   >    The marker is a contract with `scripts/validate-brief-translations.js`:
+   >    skeleton-stub files are detected via this marker and emit a
+   >    single non-blocking `skeleton-incomplete` advisory instead
+   >    of cascading length/token/heading/mermaid violations. Without
+   >    the marker, an emergency partial flush (Step 4b) will mark
+   >    the entire job as `failure` even though it successfully
+   >    saved the languages that completed Phase B (the regression
+   >    pattern from run #26235374860).
+   >
    > 2. **Phase B — section-by-section `edit`**: iterate the H2
    >    sections in order. For each one, call `edit` once with the
-   >    placeholder line as `oldText` and the fully translated
-   >    section body as `newText`. Each `edit` call is bounded to
-   >    one section's worth of output, which the model emits
-   >    reliably.
+   >    placeholder line (`<!-- pending -->`) as `oldText` and the
+   >    fully translated section body as `newText`. Each `edit` call
+   >    is bounded to one section's worth of output, which the model
+   >    emits reliably. After the **last** Phase B `edit` for a
+   >    language completes, **remove the skeleton marker** with one
+   >    final `edit` (oldText = the full marker line including the
+   >    trailing newline, newText = empty string) — this promotes
+   >    the file from skeleton to fully translated so the validator
+   >    runs strict gates against it.
+   >
    > 3. **Phase C — H2 spot-check (step 4a)**: unchanged — runs once
    >    the file is complete.
    >
    > Small briefs (`largeSource: false`, the common case) continue
    > to use the one-shot `create` documented below.
+   >
+   > **Recovery from `edit "No match found"`**: if Phase B's `edit`
+   > call returns "No match found" (the layout of the Phase A
+   > placeholder differs from what `oldText` expected), do NOT
+   > escalate to a `python3 << 'PYEOF'` heredoc — heredocs of any
+   > flavour are banned (see §"🚫 Never"). Instead: (a) re-read the
+   > current file with the `view` tool, (b) copy the exact
+   > placeholder line including any leading whitespace into a fresh
+   > `edit` call, OR (c) if more than one section needs repair,
+   > rewrite the whole file with a single `create` call passing the
+   > full `file_text`. Both options preserve the no-heredoc invariant.
 
    Read the `largeSource` and `sourceLineCount` fields of the current
    queue entry before choosing your strategy:
@@ -674,8 +740,8 @@ PY
 
    **4b. Wall-clock safety net — emergency partial flush.** After every
    language file is written and H2-checked, compute elapsed minutes
-   from `WORKFLOW_START_EPOCH`. If **≥ 45 minutes** have elapsed (or
-   `<15 minutes` remain of the 60-minute cap), **STOP translating
+   from `WORKFLOW_START_EPOCH`. If **≥ 40 minutes** have elapsed (or
+   `≤ 20 minutes` remain of the 60-minute cap), **STOP translating
    immediately** and call `safeoutputs___create_pull_request` with
    whatever files are already on disk — even if the current brief is
    only partially translated (e.g. 10/13 languages). A partial-brief
@@ -685,7 +751,9 @@ PY
    exist — it cannot flag absent siblings, so the gap list must come
    from the marker and the `PARTIAL_LANG_COUNT` bookkeeping vars in
    Step 6). Reviewers can re-queue the missing languages on the next
-   cron tick.
+   cron tick, and the validator's `skeleton-incomplete` advisory
+   (severity: warning) will keep the partial-flush job conclusion
+   at `success` instead of `failure`.
 
    ```bash
    set -euo pipefail
@@ -694,7 +762,7 @@ PY
    ELAPSED_MIN=$(( (NOW_EPOCH - START_EPOCH) / 60 ))
    REMAINING_MIN=$(( 60 - ELAPSED_MIN ))
    echo "⏱️  Elapsed: ${ELAPSED_MIN} min | Remaining: ${REMAINING_MIN} min"
-   if [ "${ELAPSED_MIN}" -ge 45 ] || [ "${REMAINING_MIN}" -le 15 ]; then
+   if [ "${ELAPSED_MIN}" -ge 40 ] || [ "${REMAINING_MIN}" -le 20 ]; then
      echo "🚨 EMERGENCY FLUSH WINDOW REACHED — call safeoutputs___create_pull_request NOW with partial progress, then end the run." >&2
      # Record a breadcrumb so post-step diagnostics can correlate the early
      # flush. Include the missing-language list because the validator only
@@ -817,7 +885,7 @@ PY
    ```
 
 7. **Move to the next queue entry** until the queue is empty OR you've
-   used ≥ 45 minutes of the 60-minute cap (the Step 4b check enforces
+   used ≥ 40 minutes of the 60-minute cap (the Step 4b check enforces
    this automatically — when the marker is written, end the run after
    the emergency flush).
 
@@ -841,11 +909,12 @@ When the queue is empty (or the wall-clock budget is exhausted):
 | Minutes | Action |
 |---------|--------|
 | 0-1 | Step 0 date context (records `WORKFLOW_START_EPOCH`); Step 1 read queue |
-| 1-22 | Translate brief #1 (13 languages, Pass 1 + Pass 2). First flush at ~22. |
-| 22-43 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~43. |
-| 43-45 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 45. |
+| 1-2 | Step 2 read sources, count headings, choose 1-phase vs 2-phase strategy |
+| 2-30 | Translate brief #1 (13 languages, Pass 1 + Pass 2; largeSource = Phase A + Phase B). First per-brief flush at ~30. |
+| 30-40 | Translate brief #2 (if queue has one). Second flush at ~40. |
+| 40-45 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 45. |
 | 45-50 | Step 3 summary + final flush. **Final flush must land by minute ≤ 50.** |
-| 50-60 | Buffer for safe-outputs bundle application and graceful exit. **Do NOT start new work after minute 45.** |
+| 50-60 | Buffer for safe-outputs bundle application and graceful exit. **Do NOT start new work after minute 40.** |
 
 Stretch: if `max_briefs` is overridden to 3 or 4 (catch-up mode), tighten
 each per-brief window proportionally. The script-level discovery already
@@ -853,55 +922,31 @@ caps the queue; the AI does not need to ration its own work. The Step 4b
 wall-clock guard is the failsafe — if anything overruns, it forces an
 emergency partial flush instead of letting the engine time out with no PR.
 
+**Transient-API-error mitigation**: rather than budgeting extra time for
+retry loops, the root cause is addressed by (1) keeping the model at
+`claude-sonnet-4.6` (the repo-wide standard — never downgrade; see
+`.github/prompts/09-troubleshooting.md` §5 "Do NOT downgrade the model"
+guidance) and aggressively pre-fetching feeds + caching thresholds so
+each invocation does maximum useful work, (2) detecting retry loops
+early (two consecutive `edit` calls > 5 min each = retry loop → trigger
+Step 4b immediately), and (3) aggressive 40-min commit preparation
+threshold that ensures at least partial output is saved even if a retry
+loop consumed early minutes.
+
 ## 🚫 Never
 
-- **Never** translate before reading the translator guide.
-- **Never** translate by running `sed`/`awk`/`tr` over the source.
-- **Never** use `cat > file << 'EOF'` shell heredocs to write translation
-  content. Heredocs silently truncate when the output fills the context
-  window, dropping the last H2 section(s) without any visible error —
-  this is the root cause of the recurring "7/8 H2" failures. Use the
-  `create` tool exclusively.
-- **Never** add new sections or merge sections — structural fidelity is
-  enforced by validator gates #6 (heading parity), #7 (Mermaid parity), and
-  human review.
-- **Never** translate FIXED TOKENS. `IMF` stays `IMF`; `World Bank` stays
-  `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`. **Latin-script
-  target languages (`nl`, `no`, `sv`, `da`, `fi`, `de`, `fr`, `es`) are
-  the highest-risk failure mode** because the target alphabet matches the
-  source and the model is tempted to localise the acronym:
-  - Dutch (`nl`): `IMF blijft IMF`; `WEO blijft WEO` — never `IMV` /
-    `Wereldwijde Economische Vooruitzichten`.
-  - Norwegian (`no`): `IMF` forblir `IMF`; `WEO` forblir `WEO` — aldri
-    `IPF` / `IMV` / `Det internasjonale valutafondet` /
-    `Pengefondet`.
-  - Swedish (`sv`): `IMF` förblir `IMF` — aldrig `IVF` /
-    `Internationella valutafonden`.
-  - Danish (`da`): `IMF` forbliver `IMF` — aldrig `IMV` / `Den
-    Internationale Valutafond`.
-  - Finnish (`fi`): `IMF` säilyy muodossa `IMF` — ei koskaan `KVR` /
-    `Kansainvälinen valuuttarahasto`.
-  - German / French / Spanish: `IMF` stays `IMF` — never `IWF` (de) or
-    `FMI` (fr / es). Run validator gate #5 in Step 2.4 to catch token
-    drift before flush.
-- **Never** call `safeoutputs___create_pull_request` with **zero
-  `executive-brief_<lang>.md` translation files** written — the run
-  marker written by Step 0 does not count. An empty-translation PR is
-  the only flush that is always worse than no flush. Partial-brief
-  flushes are explicitly **allowed** by Step 4b's emergency safety net
-  (≥ 1 `executive-brief_<lang>.md` file on disk is sufficient).
-- **Never** let the engine time out or terminate without flushing
-  whatever translations are already on disk. The Step 4b wall-clock
-  guard fires at ≥ 45 elapsed minutes (or ≤ 15 remaining); when it
-  does, call `safeoutputs___create_pull_request` immediately with the
-  partial-progress title — even mid-brief — and end the run.
-- **Never** skip a queue entry because its date is old; backlog parity is
-  the workflow's primary KPI. The `fresh-then-backlog` discovery policy
-  guarantees slot 0 is always the day's newest brief, so slots 1+ exist
-  *specifically* to drain the long tail — translate them with the same
-  rigour as the fresh slot.
-- **Never** include `news/**`, `src/**`, `scripts/**`, or `.github/**` in
-  the PR. The `excluded-files` config blocks them; do not work around it.
+Hard rules — keep tight. Full file-authoring priority lives in `shared/prompts/news-unified-runtime.md` §"📝 File Authoring Policy".
+
+- **Write translation prose with the `create` tool exclusively.** Use `edit` for any file already on disk (Phase B section edits, marker removal, mid-brief recovery). `jq`+`cat > file` is reserved for `manifest.json` / status flags only.
+- **Heredocs of any language are banned** for translation output — `cat > file << 'EOF'` and `python3 << 'PYEOF'` (and any `ruby`/`perl` variant) silently truncate at the context-window boundary, which is the root cause of the recurring "7/8 H2" failures and skeleton-cascade regressions. When `edit` returns *"No match found"*, recover via `view` → retry `edit` → fall back to a single full-file `create`. Never to a heredoc.
+- **No scripted substitution.** Translate by reading and writing prose; `sed` / `awk` / `tr` over the source is forbidden (it cannot resolve FIXED TOKEN preservation, idiom, or tone).
+- **Read the translator guide first** — `analysis/methodologies/executive-brief-translation-guide.md`. No translation may begin before this read.
+- **Preserve structure.** No new sections, no merged sections — validator gates #6 (heading parity) and #7 (Mermaid parity) enforce this.
+- **Preserve FIXED TOKENS.** `IMF` stays `IMF`; `World Bank` stays `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`. Highest risk: Latin-script targets (`nl`, `no`, `sv`, `da`, `fi`, `de`, `fr`, `es`) — never localise (`IMV`, `IPF`, `IVF`, `KVR`, `IWF`, `FMI`, `Pengefondet`, `Internationella valutafonden`, …). Validator gate #5 catches drift; run it in Step 2.4 before flush.
+- **Every PR must contain at least one `executive-brief_<lang>.md`.** The Step 0 run marker alone is not a translation. Partial-brief flushes ARE allowed and ARE encouraged by Step 4b's emergency safety net (≥ 1 translation file on disk).
+- **Flush before the cap.** Step 4b's wall-clock guard fires at ≥ 40 elapsed min / ≤ 20 remaining (60-min cap). When it does, call `safeoutputs___create_pull_request` immediately — even mid-brief — and end the run. A partial-progress PR is always better than a zero-PR timeout.
+- **Drain the backlog.** `fresh-then-backlog` discovery guarantees slot 0 is the newest brief; slots 1+ are the long tail. Translate them with the same rigour — date age is not a skip reason.
+- **PR scope is `analysis/daily/**` only.** `news/**`, `src/**`, `scripts/**`, `.github/**` are blocked by `excluded-files`; do not work around it.
 
 ## 🛡️ MCP / Engine Notes
 
