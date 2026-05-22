@@ -97,8 +97,10 @@ jobs:
             exit 1
           fi
           # Bundle must not contain external module references (static imports
-          # to other URLs would re-introduce the 403 failure mode).
-          if grep -qE 'from[[:space:]]*"\./chunks/|from[[:space:]]*"https?://' "$BUNDLE"; then
+          # to other URLs would re-introduce the 403 failure mode). Match both
+          # double- and single-quoted specifiers to align with the regression
+          # test in test/unit/copy-vendor-mermaid.test.js.
+          if grep -qE "from[[:space:]]*[\"']\./chunks/|from[[:space:]]*[\"']https?://" "$BUNDLE"; then
             echo "❌ $BUNDLE contains external module imports — esbuild bundling did not inline everything"
             exit 1
           fi

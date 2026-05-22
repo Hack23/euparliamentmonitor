@@ -176,7 +176,11 @@ function copyMermaid() {
       logLevel: 'silent',
     });
   } catch (err) {
-    process.stderr.write(`error: mermaid bundle failed: ${err && err.message ? err.message : err}\n`);
+    process.stderr.write(
+      `error: mermaid bundle failed: ${err && err.message ? err.message : err}\n` +
+        '       Check that node_modules/mermaid is installed (run `npm ci`) and that\n' +
+        '       esbuild can resolve the ESM entry point at node_modules/mermaid/dist/mermaid.esm.min.mjs.\n',
+    );
     process.exit(1);
   }
 
