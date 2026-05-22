@@ -218,32 +218,22 @@ function rewriteQuadrantChartLine(line: string): string {
 
 /**
  * Decode the small set of HTML entities that Markdown authors (and
- * upstream generators) occasionally pre-encode inside fenced ` ```mermaid `
- * blocks — typically `&amp;` for `&` in political-group labels like
- * `S&D` or `Greens/EFA`. Without this decode step, the subsequent
- * `escapeHtml` pass would re-escape `&` to `&amp;` and emit
- * `S&amp;amp;D` into the rendered HTML, which the Mermaid client
- * library then renders verbatim instead of as `S&D`.
+ * upstream generators) occasionally pre-encode inside fenced mermaid
+ * blocks — typically &amp; for & in political-group labels like
+ * S&D or Greens/EFA. Without this decode step, the subsequent
+ * escapeHtml pass would re-escape & to &amp; and emit
+ * S&amp;amp;D into the rendered HTML, which the Mermaid client
+ * library then renders verbatim instead of as S&D.
  *
- * Uses `indexOf`/`split`/`join` exclusively (no `RegExp`) to stay
+ * Uses indexOf/split/join exclusively (no RegExp) to stay
  * within CodeQL's safe-regex envelope. Only the canonical entity
- * forms are decoded — anything more exotic (e.g. `&#x26;`) is left
+ * forms are decoded — anything more exotic (e.g. &#x26;) is left
  * alone so we never accidentally swallow a literal that the author
  * intended to keep encoded.
  *
- * @param content - Raw fenced-block content (post-`sanitizeMermaidQuadrantChart`)
+ * @param content - Raw fenced-block content (post-sanitizeMermaidQuadrantChart)
  * @returns Content with pre-encoded HTML entities normalised back to
- *          their literal characters, ready for a single `escapeHtml`.
- * @param content
- * @param content
- * @param content
- * @param content
- * @param content
- * @param content
- * @param content
- * @param content
- * @param content
- * @param content
+ *          their literal characters, ready for a single escapeHtml.
  */
 export function decodeMermaidPreEncodedEntities(content: string): string {
   // Order matters: decode the named entities first (which all contain

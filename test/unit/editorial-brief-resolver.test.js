@@ -251,8 +251,10 @@ describe('readLocalizedBriefBody', () => {
 
   it('reads the translated markdown body and strips SPDX preamble', () => {
     const md = [
+      // REUSE-IgnoreStart
       '<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->',
       '<!-- SPDX-License-Identifier: Apache-2.0 -->',
+      // REUSE-IgnoreEnd
       '',
       '# Sammanfattning',
       '',
