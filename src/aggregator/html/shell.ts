@@ -52,6 +52,7 @@ import {
   buildLanguageSwitcher,
 } from './hreflang.js';
 import { buildArticleToc, type ArticleTocEntry } from './toc.js';
+import { blobUrl } from '../infra/github-urls.js';
 
 export type { ArticleTocEntry } from './toc.js';
 
@@ -143,8 +144,9 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const sitemapLabel = getLocalizedString(FOOTER_SITEMAP_LABELS, safeLang);
   const politicalIntelligenceHref = `../${getPoliticalIntelligenceFilename(safeLang)}`;
   const sitemapHref = `../${getSitemapFilename(safeLang)}`;
+  const sourceMdHref = options.sourceMarkdownRelPath ? blobUrl(options.sourceMarkdownRelPath) : '';
   const sourceMdLink = options.sourceMarkdownRelPath
-    ? `<p class="article-source-md"><a href="${BASE_URL}/${options.sourceMarkdownRelPath}" rel="alternate" type="text/markdown"><svg class="icon icon-inline" width="16" height="16" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M9 5H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2M12 3h6a2 2 0 0 1 2 2v6M10 14 20 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ${escapeHTML(sourceMdLabel)}</a></p>`
+    ? `<p class="article-source-md"><a href="${escapeHTML(sourceMdHref)}" rel="alternate" type="text/markdown"><svg class="icon icon-inline" width="16" height="16" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M9 5H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2M12 3h6a2 2 0 0 1 2 2v6M10 14 20 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ${escapeHTML(sourceMdLabel)}</a></p>`
     : '';
   const tocHtml = buildArticleToc(options.toc ?? [], safeLang);
   const articleMainClass = tocHtml.length > 0 ? 'article-main--with-toc' : 'article-main--no-toc';
