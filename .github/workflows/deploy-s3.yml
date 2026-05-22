@@ -73,6 +73,42 @@ jobs:
           npm run prebuild
           echo "✅ Generated index files, articles-metadata.json, sitemap.xml, sitemap_*.html, political-intelligence_*.html, and vendored JS bundles"
 
+      - name: Verify mermaid bundle integrity
+        # Defensive guard against a regression of the May 2026 incident where
+        # mermaid was shipped as an entry + 81 chunk files and every chunk URL
+        # returned 403 from CloudFront, breaking diagrams on every article.
+        # The current vendor contract is a SINGLE self-contained ESM bundle at
+        # js/vendor/mermaid/mermaid.esm.min.mjs (≥ 1 MB after esbuild minify)
+        # with no chunks/ subdirectory. Fail fast here so the bug surfaces in
+        # CI rather than in production.
+        run: |
+          BUNDLE="js/vendor/mermaid/mermaid.esm.min.mjs"
+          if [ ! -f "$BUNDLE" ]; then
+            echo "❌ $BUNDLE missing — copy-vendor did not produce the mermaid bundle"
+            exit 1
+          fi
+          SIZE=$(stat -c%s "$BUNDLE")
+          if [ "$SIZE" -lt 1048576 ]; then
+            echo "❌ $BUNDLE is ${SIZE} bytes (< 1 MB) — bundling likely failed silently"
+            exit 1
+          fi
+          if [ -d "js/vendor/mermaid/chunks" ]; then
+            echo "❌ js/vendor/mermaid/chunks/ exists — the bundle must be self-contained, no chunks shipped"
+            exit 1
+          fi
+          # Bundle must be fully self-contained — no external module specifiers.
+          # A minified esbuild bundle should not contain `from './chunks/...'`,
+          # `from '../...'`, `from 'http...'` or bare-name imports like
+          # `from 'dagre-d3'`. This grep uses \b word boundary to avoid matching
+          # string-literal occurrences that aren't real import statements.
+          # The unit test (copy-vendor-mermaid.test.js) performs a more precise
+          # regex-based check; this is a fast-fail CI smoke test.
+          if grep -qP "\bfrom\s*[\"'](\.\/chunks\/|\.\.\/|https?:\/\/|[a-zA-Z@])" "$BUNDLE"; then
+            echo "❌ $BUNDLE contains external module imports — esbuild bundling did not inline everything"
+            exit 1
+          fi
+          echo "✅ Mermaid bundle OK: ${BUNDLE} ($(($SIZE / 1024)) KB, self-contained)"
+
       - name: Generate responsive image variants
         # Uses sharp (devDependency) to derive AVIF/WebP/JPEG banner and social
         # image variants from canonical PNG source artwork before deploy.

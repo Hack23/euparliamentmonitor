@@ -12,15 +12,25 @@
  *   - chart.js                 → js/vendor/chart.umd.min.js
  *   - chartjs-plugin-annotation → js/vendor/chartjs-plugin-annotation.min.js
  *   - d3                        → js/vendor/d3.min.js
- *   - mermaid                   → js/vendor/mermaid/  (entry + chunks/)
+ *   - mermaid                   → js/vendor/mermaid/mermaid.esm.min.mjs
  *
- * Mermaid is special: v11+ ships as code-split ESM. The entry
- * `mermaid.esm.min.mjs` does dynamic `import()` on diagram-specific chunks
- * under `dist/chunks/mermaid.esm.min/*.mjs`. To make every diagram type render
- * without external network calls, we copy the **entire mermaid `dist/`
- * directory** (filtered to the `.esm.min` flavour to keep payload small).
+ * Mermaid is special: v11+ ships as a **code-split ESM bundle**. The entry
+ * `mermaid.esm.min.mjs` (28 KB) statically imports 81 diagram-specific chunks
+ * from `dist/chunks/mermaid.esm.min/*.mjs`. Empirically (May 2026), serving
+ * those chunks through S3 + CloudFront has been unreliable — the entry returns
+ * 200 OK but every chunk URL returns 403 from CloudFront, breaking every
+ * article that references the loader.
  *
- * Idempotent: rerunning overwrites prior copies and leaves licenses in place.
+ * To eliminate that failure mode, we **bundle Mermaid into a single
+ * self-contained ESM file at copy-vendor time using esbuild** (devDependency).
+ * The output is written to the same path / filename that the loader and the
+ * existing article HTML already reference (`mermaid.esm.min.mjs`), so the
+ * loader (`js/mermaid-init.js`) and the generated articles continue to work
+ * unchanged — only the file's content changes (3.2 MB self-contained vs.
+ * 28 KB entry-plus-81-chunks).
+ *
+ * Idempotent: rerunning overwrites prior copies and leaves licenses in place;
+ * stale `chunks/` directories from prior layouts are pruned.
  *
  * Failure modes:
  *   - Missing chart.js / d3 / chartjs-plugin-annotation → hard error (these
@@ -28,11 +38,12 @@
  *   - Missing mermaid → soft error (logged, exit 0). Mermaid is also a pinned
  *     `devDependency`, but optional installs (e.g. `npm ci --omit=dev`) may
  *     skip it; we want the deploy to succeed without diagrams rather than fail.
+ *   - Bundling failure → hard error: mermaid is present but unusable, which
+ *     would silently ship a broken page; fail fast at build time instead.
  */
 
 import {
   copyFileSync,
-  cpSync,
   existsSync,
   mkdirSync,
   readdirSync,
@@ -43,6 +54,7 @@ import {
 } from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import * as esbuild from 'esbuild';
 
 const ROOT = process.cwd();
 const NODE_MODULES = path.join(ROOT, 'node_modules');
@@ -120,7 +132,8 @@ function copyOrFail(label, srcRel, dstRel, license) {
 function copyMermaid() {
   const mermaidDist = path.join(NODE_MODULES, 'mermaid', 'dist');
   const target = path.join(VENDOR_DIR, 'mermaid');
-  if (!existsSync(mermaidDist)) {
+  const entryPoint = path.join(mermaidDist, 'mermaid.esm.min.mjs');
+  if (!existsSync(entryPoint)) {
     process.stdout.write(
       '  ⚠ mermaid not installed (devDependency); skipping diagram bundle.\n',
     );
@@ -128,84 +141,68 @@ function copyMermaid() {
   }
   ensureDir(target);
 
-  // Per-file idempotency: walk the source tree and only copy files whose
-  // bytes differ from what's already in `js/vendor/mermaid/`. Replaces the
-  // earlier `rmSync` + `cpSync` approach which always touched every chunk's
-  // mtime — `aws s3 sync` (size+mtime by default) then re-uploaded the
-  // entire mermaid bundle on every deploy even though the bundle is byte-
-  // identical until the pinned mermaid version in package.json changes.
+  // Bundle mermaid's code-split ESM entry plus all of its dynamic-import
+  // chunks into a SINGLE self-contained ESM file. esbuild follows every
+  // static and dynamic `import` from the entry and inlines the transitive
+  // closure, so the resulting file has no external module references —
+  // exactly what the static-site origin needs.
   //
-  // Filename contract preserved exactly: entry stays at
-  // `js/vendor/mermaid/mermaid.esm.min.mjs` and chunks stay at
-  // `js/vendor/mermaid/chunks/mermaid.esm.min/*.mjs` so every existing
-  // `<script type="module" src="../js/vendor/mermaid/mermaid.esm.min.mjs">`
-  // and dynamic `import()` from the entry continues to resolve.
-
-  // Build the set of source files we want to ship (filter mirrors the
-  // previous cpSync filter exactly).
-  const wantedTopLevel = new Set(['mermaid.esm.min.mjs']);
-  const wantedFiles = []; // { src, rel } — `rel` is relative to mermaidDist
-
-  function shouldShip(rel) {
-    if (rel.endsWith('.map')) return false;
-    const segments = rel.split(path.sep);
-    const top = segments[0];
-    if (top === 'chunks') {
-      if (segments.length === 1) return false; // directory itself, not a file
-      const flavour = segments[1];
-      return flavour === 'mermaid.esm.min';
-    }
-    if (segments.length === 1) {
-      return wantedTopLevel.has(top);
-    }
-    return false;
-  }
-
-  function walkSource(dir) {
-    for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      const full = path.join(dir, entry.name);
-      const rel = path.relative(mermaidDist, full);
-      if (entry.isDirectory()) {
-        walkSource(full);
-      } else if (entry.isFile() && shouldShip(rel)) {
-        wantedFiles.push({ src: full, rel });
+  // We write the output under the same filename the loader and existing
+  // article HTML already reference (`mermaid.esm.min.mjs`), so this script
+  // is the only place that changes when we switch from "entry + 81 chunks"
+  // to "single bundle". The previous chunk-shipping layout (`chunks/`) is
+  // pruned below.
+  const outFile = path.join(target, 'mermaid.esm.min.mjs');
+  try {
+    esbuild.buildSync({
+      entryPoints: [entryPoint],
+      outfile: outFile,
+      bundle: true,
+      format: 'esm',
+      minify: true,
+      // `browser` keeps mermaid's runtime-detection paths (e.g. `document`
+      // checks) intact — same target as the upstream `.esm.min.mjs` build.
+      platform: 'browser',
+      target: 'es2022',
+      // Resolve `import.meta.url` at runtime (relative to the served bundle
+      // location) rather than baking in the build-time path.
+      supported: { 'import-meta': true },
+      // Drop sourcemaps; the upstream bundle ships them as `.map` siblings
+      // and we previously excluded those from vendor copy.
+      sourcemap: false,
+      legalComments: 'none',
+      // Use 'error' so esbuild prints its own detailed diagnostics (file,
+      // line, column) on failure — 'silent' previously swallowed all context.
+      logLevel: 'error',
+    });
+  } catch (err) {
+    // esbuild attaches structured diagnostics on `err.errors`; print them
+    // so CI logs are actionable without re-running locally.
+    if (err && Array.isArray(err.errors)) {
+      for (const e of err.errors) {
+        const loc = e.location
+          ? `${e.location.file}:${e.location.line}:${e.location.column}: `
+          : '';
+        process.stderr.write(`  ${loc}${e.text}\n`);
       }
     }
-  }
-  walkSource(mermaidDist);
-
-  // Copy only-if-changed.
-  let copied = 0;
-  let unchanged = 0;
-  for (const { src, rel } of wantedFiles) {
-    const dst = path.join(target, rel);
-    ensureDir(path.dirname(dst));
-    if (copyFileIfChanged(src, dst)) {
-      copied++;
-    } else {
-      unchanged++;
-    }
+    process.stderr.write(
+      `error: mermaid bundle failed: ${err && err.message ? err.message : err}\n` +
+        '       Check that node_modules/mermaid is installed (run `npm ci`) and that\n' +
+        '       esbuild can resolve the ESM entry point at node_modules/mermaid/dist/mermaid.esm.min.mjs.\n',
+    );
+    process.exit(1);
   }
 
-  // Remove orphaned files in the destination tree that no longer have a
-  // matching wanted source — this preserves the "no stale chunks from a
-  // previous mermaid version" guarantee that the old `rmSync` provided,
-  // without touching any current chunk's mtime.
-  const wantedDstSet = new Set(
-    wantedFiles.map(({ rel }) => path.join(target, rel)),
-  );
-  // Allow our REUSE sidecar files alongside their primary file.
+  // Prune the obsolete chunks layout (and any other orphans) from previous
+  // copy-vendor runs. The bundled file is fully self-contained, so anything
+  // other than the bundle itself + its REUSE sidecar is stale.
+  const wantedDstSet = new Set([outFile]);
   function isAllowedSidecar(absPath) {
     if (!absPath.endsWith('.license')) return false;
     const primary = absPath.slice(0, -'.license'.length);
     return wantedDstSet.has(primary);
   }
-  // Also allow the chunks-dir flavour-level license sidecar we drop below.
-  const flavourLicensePath = path.join(
-    target,
-    'chunks',
-    'mermaid.esm.min.license',
-  );
 
   function pruneOrphans(dir) {
     if (!existsSync(dir)) return;
@@ -213,7 +210,6 @@ function copyMermaid() {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) {
         pruneOrphans(full);
-        // Remove now-empty directories so a flavour rename leaves no shell.
         try {
           if (readdirSync(full).length === 0) {
             rmSync(full, { recursive: true, force: true });
@@ -222,11 +218,7 @@ function copyMermaid() {
           // best-effort
         }
       } else if (entry.isFile()) {
-        if (
-          !wantedDstSet.has(full) &&
-          !isAllowedSidecar(full) &&
-          full !== flavourLicensePath
-        ) {
+        if (!wantedDstSet.has(full) && !isAllowedSidecar(full)) {
           rmSync(full, { force: true });
         }
       }
@@ -234,37 +226,17 @@ function copyMermaid() {
   }
   pruneOrphans(target);
 
-  // REUSE sidecar for the entry file + flavour directory.
-  const entry = path.join(target, 'mermaid.esm.min.mjs');
-  if (existsSync(entry)) {
-    writeLicense(entry, '2014-2026 Mermaid contributors', 'MIT');
-  }
-  // Also drop a license file at the chunks dir so REUSE lint passes for the
-  // generated tree without us having to enumerate every chunk by name.
-  const chunksDir = path.join(target, 'chunks', 'mermaid.esm.min');
-  if (existsSync(chunksDir)) {
-    writeIfChanged(
-      flavourLicensePath,
-      'SPDX-FileCopyrightText: 2014-2026 Mermaid contributors\nSPDX-License-Identifier: MIT\n',
-    );
-  }
-  process.stdout.write(
-    `  ✓ mermaid/ (${copied} copied, ${unchanged} unchanged; ${countMjs(target)} total mjs chunks)\n`,
-  );
-}
+  // REUSE sidecar for the bundled file. The bundle contains code from
+  // mermaid + its transitive ESM deps; mermaid's own MIT license header
+  // remains intact in the dependency tree (REUSE.toml covers the vendored
+  // artifact via path-level annotation; this sidecar keeps the file
+  // self-documenting).
+  writeLicense(outFile, '2014-2026 Mermaid contributors', 'MIT');
 
-function countMjs(dir) {
-  let n = 0;
-  function walk(d) {
-    if (!existsSync(d)) return;
-    for (const entry of readdirSync(d, { withFileTypes: true })) {
-      const p = path.join(d, entry.name);
-      if (entry.isDirectory()) walk(p);
-      else if (entry.isFile() && entry.name.endsWith('.mjs')) n += 1;
-    }
-  }
-  walk(dir);
-  return n;
+  const size = statSync(outFile).size;
+  process.stdout.write(
+    `  ✓ mermaid/mermaid.esm.min.mjs (${(size / 1024).toFixed(0)} KB self-contained bundle)\n`,
+  );
 }
 
 function main() {
