@@ -104,3 +104,58 @@ LONG-TERM (36-60 months):
 **Comparison to historical average:** EP plenary sessions with 1 CRITICAL + 1 HIGH item occur approximately 15-20% of the time. This places May 2026 in the top quintile for policy impact.
 
 **Confidence in impact assessment:** 🟡 MEDIUM — dependent on Commission implementation follow-through for AI trade (primary uncertainty source).
+
+---
+
+## Event List
+
+| Event | Date | Type | Significance |
+|-------|------|------|-------------|
+| AI trade strategy resolution (TA-10-2026-0183) | May 22, 2026 | Own-initiative resolution | CRITICAL |
+| EU-Uzbekistan EPCA consent (TA-10-2026-0174) | May 22, 2026 | Legislative consent | HIGH |
+| São Tomé fisheries SFPA | May 22, 2026 | Legislative consent | MEDIUM |
+| Cook Islands fisheries SFPA | May 22, 2026 | Legislative consent | MEDIUM |
+| EU-Lebanon Eurojust agreement | May 22, 2026 | Legislative consent | MEDIUM |
+| Vilimsky immunity waiver | May 22, 2026 | Immunity procedure | LOW |
+| Pappas immunity waiver | May 22, 2026 | Immunity procedure | LOW |
+
+## Stakeholder Impact
+
+| Stakeholder | AI Trade | EPCA | Fisheries | Eurojust | Net Impact |
+|------------|---------|------|-----------|---------|-----------|
+| Commission (DG TRADE) | 🔴 HIGH pressure | 🟡 MEDIUM workload | 🟢 LOW | 🟢 LOW | 🔴 HIGH |
+| EU fishing industry | 🟢 LOW | 🟢 LOW | 🟢 HIGH positive | 🟢 LOW | 🟢 HIGH positive |
+| Uzbekistan | 🟢 LOW | 🟢 HIGH positive | 🟢 LOW | 🟢 LOW | 🟢 HIGH positive |
+| EU tech industry | 🟡 MEDIUM (compliance) | 🟢 LOW | 🟢 LOW | 🟢 LOW | 🟡 MEDIUM |
+| US/China AI sector | 🔴 HIGH (governance risk) | 🟢 LOW | 🟢 LOW | 🟢 LOW | 🔴 HIGH negative |
+
+## Heat
+
+**Impact heat map (intensity × reach):**
+- AI Trade: 🔴 VERY HIGH — affects all future EU FTAs and bilateral AI governance globally
+- Uzbekistan EPCA: 🟡 MEDIUM — bilateral; significant for Central Asia geopolitics
+- Fisheries: 🟡 MEDIUM (for coastal communities); 🟢 LOW (for EU political landscape)
+- Eurojust/Lebanon: 🟢 LOW-MEDIUM — operational; limited political salience
+
+## Cascade
+
+**Cascade effects (T+3 to T+24 months):**
+
+```
+AI Trade Resolution →
+  Commission response (T+30 days) →
+    DG TRADE consultation launch (T+6 months) →
+      AI chapters in new FTA negotiations (T+12-24 months) →
+        International standards pressure on US/China (T+24-48 months)
+
+Uzbekistan EPCA consent →
+  Council Decision on signing (T+1-3 months) →
+    Provisional application (T+6-12 months) →
+      Central Asia domino potential (T+18-36 months)
+```
+
+## Reader Briefing — Impact Plain Language
+
+The May 2026 plenary's impact is asymmetrically weighted: the AI trade resolution is potentially transformative for EU trade policy but highly uncertain in outcome; the Uzbekistan EPCA is highly certain to proceed but moderate in impact. Together, they represent a coherent EU foreign policy package — advancing EU competitiveness in AI governance while deepening EU-Central Asia partnerships.
+
+[EXTEND-FROM-PRIOR: classification/impact-matrix.md prior=107L → new=168L (+61)]

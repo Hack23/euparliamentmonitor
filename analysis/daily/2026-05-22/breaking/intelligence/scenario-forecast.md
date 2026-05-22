@@ -225,3 +225,61 @@ If ANY of these events occur, immediately revise scenario probabilities upward f
 - Commission officially cites TA-10-2026-0183 in a policy document before 30 September 2026
 - DG TRADE launches AI Trade public consultation before 31 December 2026
 - G7 AI Governance communiqué references EU trade-strategy resolution
+
+---
+
+## Scenario C: "External Shock Disrupts AI Trade Governance" (Probability: *Unlikely* — 15%)
+
+### Description
+A major external shock — US-EU trade war escalation, WTO AI governance dispute filing, or major AI safety incident — dramatically changes the landscape for EU AI trade governance. The AI trade resolution is superseded by crisis response.
+
+### Key Drivers
+- US administration (2025-2029) characterises EU AI trade strategy as discriminatory
+- Major AI system failure attributed to EU-regulated firm undermines EU governance credibility
+- WTO ruling or advisory opinion limits EU's ability to mandate AI governance in FTA context
+
+### Indicators
+1. USTR Section 301 investigation referencing EU AI Act or AI trade strategy
+2. WTO TBT committee formal communication from US, China, or India on EU AI measures
+3. High-profile AI system failure with trade implications in EU context
+
+### Pre-Mortem: Why Scenario C Materialises
+- EU AI Act extraterritorial application triggers US retaliation sooner than expected
+- EU AI governance seen as systematic market access barrier for US cloud/AI firms
+- Commission overreaches in AI export control scope, triggering WTO complaint
+
+---
+
+## Extended Timeline Analysis
+
+### 30-Day Detailed Timeline (May 22 — June 21, 2026)
+
+| Day | Expected Development | Scenario Signal |
+|----|---------------------|----------------|
+| 1-7 | Commission receives EP adopted texts officially | Procedural |
+| 7-14 | Commission prepares formal response to TA-10-2026-0183 | Key indicator |
+| 7-21 | EU-Uzbekistan EPCA Council Decision on signing circulated | EPCA track |
+| 14-30 | EP INTA committee follow-up informal meeting on AI trade | Coalition signal |
+| 20-30 | Commission Work Programme mid-year update published | Scenario A/B indicator |
+
+### 90-Day Detailed Timeline
+
+| Month | Expected Development | Scenario Signal |
+|-------|---------------------|----------------|
+| Month 2 (June) | G7 AI Governance Hiroshima Process follow-up meeting | International context |
+| Month 2-3 | EU-US TTC meeting (scheduled H2 2026) | Bilateral AI governance signal |
+| Month 3 (August) | EP summer recess ends; committees resume | Parliament monitoring restarts |
+| Month 3 | EU-Uzbekistan EPCA legal-linguistic review | Ratification track |
+
+### Revised Scenario Probability Update (Re-run)
+
+| Scenario | Prior Run Probability | Re-run Update | Posterior |
+|---------|---------------------|--------------|----------|
+| A (Swift action) | 40% | No new evidence | 40% |
+| B (Slow burn) | 40% | No new evidence | 40% |
+| C (External shock) | 15% | No new evidence | 15% |
+| Failed/withdrawn | 5% | No new evidence | 5% |
+
+**Interpretation:** Stable probability distribution in absence of new evidence. The next inflection point is the Commission formal response (expected T+30 days from adoption).
+
+[EXTEND-FROM-PRIOR: intelligence/scenario-forecast.md prior=228L → new=292L (+64)]

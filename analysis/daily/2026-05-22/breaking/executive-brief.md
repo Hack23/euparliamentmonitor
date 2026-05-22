@@ -100,3 +100,36 @@ The May 2026 plenary occurs within a structurally significant period for EU fore
 | Vilimsky/Pappas are current EP term MEPs | CONFIRMED (in MEP database) | N/A |
 | EPCA with Uzbekistan requires no additional Council ratification steps | UNCERTAIN | Delay if additional ratification required |
 | Adopted texts database is complete for May 2026 | POSSIBLY INCOMPLETE (total=61, last offset shows more items available) | Missing adopted texts could change analysis weight |
+
+---
+
+## 7. Forward Intelligence Priorities (Pass 2 Extended Assessment)
+
+### Priority 1 — AI Trade Resolution Follow-Up (HIGH PRIORITY)
+**WEP: *Likely* (55%)** that Commission will acknowledge formally within 30 days. **Admiralty Grade:** B2 (institutional obligation).
+Monitor: EUR-Lex Official Journal for Commission response; DG TRADE stakeholder consultation notices; EP INTA press releases.
+
+**Extended analysis context:** The AI trade resolution represents the EP exercising its formal Article 225 TFEU rights most assertively since the 2022 digital legislative cycle. The resolution's specific call for "AI chapters in future FTAs" is technically more precise than standard EP language and suggests INTA rapporteur(s) worked with DG TRADE staff in advance. This cooperation signal *increases* probability of meaningful Commission follow-up compared to adversarial resolution dynamics.
+
+**IMF relevance:** EU's structural trade balance position with US in digital services (EU deficit) provides economic rationale for AI trade strategy that aligns with Commission competitiveness mandate. When IMF Q1 2026 trade data is available, this dimension should be updated.
+
+### Priority 2 — Uzbekistan EPCA Ratification Track (MEDIUM PRIORITY)
+**WEP: *Likely* (70%)** that provisional application begins within 9 months.
+Monitor: Council website for Decision on signing; EU Delegation Tashkent communiqués; human rights benchmarks in Council conclusions.
+
+### Priority 3 — Coalition Stability (MEDIUM PRIORITY)
+**WEP: *Roughly Even Chance* (50%)** that EPP-Renew-S&D coalition maintains cohesion on AI policy through end of 2026 legislative year.
+Monitor: Committee appointment changes; EP conference of committee chairs positions on AI.
+
+---
+
+## 8. Data Mode Attestation
+
+**dataMode: degraded-feeds** | All EP feeds returned 0 items or errors in this run.
+Analysis built on: prior run artifacts (breaking-run264-1779413941), knowledge base, established analytical frameworks.
+Economic data: knowledge base only (no live IMF/World Bank data). All economic figures carry 🟡 MEDIUM confidence.
+Coalition data: structural inference only (no DOCEO roll-call data). All vote attribution carries 🔴 LOW confidence.
+
+**Confidence summary:** Executive brief headline findings → 🟢 HIGH for institutional procedure facts; 🟡 MEDIUM for policy impact forecasts; 🔴 LOW for specific vote attribution.
+
+[EXTEND-FROM-PRIOR: executive-brief.md prior=103L → new=148L (+45)]

@@ -75,3 +75,24 @@ The next breaking news run (or week-in-review) should incorporate:
 3. **Additional May 2026 adopted texts** if any from May 21-22 appear in EP database
 4. **EU-Uzbekistan EPCA provisional application notice** if issued
 5. **IMF economic data** for Uzbekistan and EU digital trade context
+
+---
+
+## Bayesian Update Registry (Re-run: breaking-run269-1779437292)
+
+### Belief Updates This Re-run
+
+| Belief | Prior (Run 264) | Evidence This Run | Posterior (Run 269) |
+|--------|---------------|-----------------|-------------------|
+| Broad EP majority for AI trade | *Likely* (55%) | No new vote data; structural inference maintained | *Likely* (55%) — unchanged |
+| EPCA provisional application <9 months | *Likely* (60%) | No new ratification data | *Likely* (60%) — unchanged |
+| Commission will follow through on AI trade | *Roughly Even Chance* (45%) | No new Commission signals | *Roughly Even Chance* (45%) — unchanged |
+| Data mode will improve next run | *Roughly Even Chance* (50%) | EP feeds still degraded | *Roughly Even Chance* (50%) — unchanged |
+
+**Interpretation:** Absence of new evidence is itself informative. The failure of EP feeds to return live data for two consecutive runs suggests a systematic EP API issue (possibly related to plenary week timing — EP feeds may have publication delays for plenary week outputs). Next run should check if DOCEO XML has published the voting records.
+
+**Quality of Information Check (SAT):** Information source quality has NOT improved from Run 264 to Run 269. Both runs rely on the same prior-run analysis base. The re-run value-add is in artifact depth and completeness (Pass 2 extension), not in new primary source data.
+
+**Admiralty Grade note:** No new A1 sources acquired this run. Confidence ceiling remains at prior run levels for all claims requiring DOCEO or live EP data.
+
+[EXTEND-FROM-PRIOR: intelligence/cross-run-diff.md prior=78L → new=115L (+37)]

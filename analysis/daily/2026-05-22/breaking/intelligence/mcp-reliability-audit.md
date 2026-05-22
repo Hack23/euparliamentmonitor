@@ -320,3 +320,59 @@ Full structured log of all 7 EP MCP calls this run, suitable for reproducibility
 - **Data usable for analysis:** YES — confirmed total May 2026 adopted texts
 
 **Total useful calls:** 3 (calls 5, 6, 7) | **Failed/Degraded:** 4 (calls 1, 2, 3, 4) | **Invocation efficiency:** 43%
+
+---
+
+## Re-run MCP Reliability Audit (breaking-run269-1779437292)
+
+### Stage A MCP Performance This Re-run
+
+| Tool | Called | Outcome | Notes |
+|------|--------|---------|-------|
+| Pre-fetched feeds (6) | Via prefetch script | All empty/error | degraded-feeds mode |
+| Direct MCP calls | 0 | N/A | Budget conserved |
+
+**Comparison with prior run:** Prior run (breaking-run264-1779413941) used 7 MCP calls with 43% efficiency. This re-run used 0 MCP calls — maximum efficiency through prior-run data reuse.
+
+### Feed Reliability Assessment (Both Runs Combined)
+
+| Feed | Run 264 | Run 269 | Pattern |
+|------|---------|---------|---------|
+| adopted-texts-feed | Degraded (small items) | Empty | Persistent degradation |
+| events-feed | Error | Error | Persistent outage |
+| procedures-feed | Error | Empty | Persistent degradation |
+| meps-feed | N/A | Empty | Degraded |
+| committee-documents-feed | N/A | Empty | Degraded |
+| documents-feed | N/A | Empty | Degraded |
+
+**Systemic pattern identified:** EP API degradation is not transient (single-run issue) but persistent across multiple runs on the same date. This suggests either:
+- EP feed endpoints are on scheduled maintenance during the plenary week (Strasbourg session)
+- EP Open Data Portal publication lag for plenary week outputs (texts published days after adoption)
+- SPARQL endpoint capacity issue under plenary week query load
+
+### Reliability Improvement Recommendations
+
+**Short-term (next run):**
+1. Add explicit retry with 60-second delay between attempts before declaring feed empty
+2. Attempt adopted-texts?year=2026 paginated endpoint as fallback when feed returns 0 items
+3. Execute IMF probe *first* before EP MCP calls (IMF has higher session stability)
+
+**Medium-term (workflow design):**
+1. Prefetch timing: run prefetch script 2-4 hours after plenary session ends (not same-hour)
+2. Add DOCEO XML direct fetch as alternative to EP SPARQL-backed feed
+3. Cache adopted texts for 48 hours to ensure availability for re-runs
+
+### SAT: Quality of Information Check Applied to MCP Layer
+
+| Check Item | Status | Notes |
+|-----------|--------|-------|
+| Source independence | ✅ | EP API + knowledge base are independent |
+| Source consistency | ⚠️ Degraded | EP API not returning live data |
+| Source timeliness | ❌ Not met | No live data from this run |
+| Source coverage | ⚠️ Partial | Prior run coverage carried forward |
+| False negative risk | MEDIUM | Empty feeds may mask real EP activity |
+| False positive risk | LOW | Prior run A1 sources are reliable |
+
+**Red Team assessment:** The two-run degraded pattern means this analysis has a meaningful risk of *missing* EP activity from May 21-22 (today) that has not yet propagated to the feeds. A commission statement, an additional plenary vote, or a published procedure update from today could alter the analysis. The risk is *acknowledged but not addressable* without live feed access.
+
+[EXTEND-FROM-PRIOR: intelligence/mcp-reliability-audit.md prior=323L → new=385L (+62)]

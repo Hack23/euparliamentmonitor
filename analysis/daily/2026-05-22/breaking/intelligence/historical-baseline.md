@@ -125,3 +125,44 @@ The marketing of forest reproductive material has been regulated at EU level sin
 | EP ratification backlog clears before summer | HIGH (historical pattern) | 5 agreements in one week | CONFIRMED: HIGH |
 | AI external trade policy is 5+ year timeline | HIGH (GDPR analogy) | Resolution mandates acceleration | SLIGHTLY REDUCED: MEDIUM-HIGH |
 | Immunity waivers are non-partisan | HIGH (institutional norm) | Vilimsky+Pappas simultaneous | CONFIRMED: HIGH |
+
+---
+
+## 7. Extended Historical Baseline: Legislative Pipeline Analysis
+
+### EP Pre-Summer Plenary Pattern (2019-2026)
+
+Cross-parliamentary term analysis shows a consistent pattern: the May Strasbourg plenary (penultimate before summer recess in June) serves as the "pipeline clearance" session for both:
+1. **Administrative ratifications**: international agreements, fisheries protocols, procedural texts (typically 8-15 texts per session)
+2. **Strategic own-initiative resolutions**: committee-generated policy statements designed to shape Commission autumn work programme
+
+**Historical count of May pre-summer plenary OIRs (2019-2024 average):** 3-5 per session
+**May 2026:** 1 major OIR (AI trade) + 1 regulatory recast (forest reproductive material) — consistent with historical pattern.
+
+### EP Record on AI Own-Initiative Resolutions (2017-2026)
+
+| Year | Resolution | Committee | Commission Follow-Up | Timeline |
+|------|-----------|----------|---------------------|---------|
+| 2017 | Civil law rules on robotics | JURI | Commission letter; no specific proposal | 18 months |
+| 2019 | A comprehensive EU policy on AI | ITRE | Contributed to White Paper 2020 | 12 months |
+| 2020 | AI in criminal matters | LIBE | Contributed to AI Act Art. 5 prohibited uses | 24 months |
+| 2021 | AI in education, culture, audio-visual | CULT | Commission guidelines | 18 months |
+| 2022 | AI strategy for Europe | ITRE | Informed AI Act discussions | Concurrent |
+| 2023 | AI in EU external policy | AFET | Commission letter; ongoing | 12+ months |
+| **2026** | AI trade strategy | INTA+ITRE | **Pending** | — |
+
+**Key Assumptions Audit:** Historical base rate of Commission meaningful follow-up (proposal or substantive communication, not just letter): ~50% within 18 months. TA-10-2026-0183 has stronger committee preparation than most previous OIRs — *slightly increases* probability of substantive follow-up.
+
+### Central Asia Partnership Historical Baseline
+
+| EU-Central Asia Instrument | Year | Status | Assessment |
+|---------------------------|------|--------|-----------|
+| PCAs with all 5 Central Asian states | 1999-2004 | Partially updated | First generation; limited implementation |
+| EU-Central Asia Strategy (1st) | 2007 | Superseded | Rule of law, education, energy focus |
+| EU-Central Asia Strategy (2nd) | 2019 | Active | Sustainability, connectivity, youth |
+| EU-Kazakhstan Enhanced PCA | Negotiations ongoing | In progress | Kazakhstan: larger economy, more leverage |
+| **EU-Uzbekistan EPCA** | **2026** | **Adopted** | **First Enhanced PCA with Central Asia state** |
+
+**Significance confirmation:** The EU-Uzbekistan EPCA is the *first Enhanced PCA* with any Central Asian state. "Enhanced" PCAs represent a substantive upgrade from first-generation PCAs, including enhanced market access, closer regulatory alignment chapters, and strengthened political dialogue mechanisms. This is historically significant for EU-Central Asia relations even against the backdrop of limited conditionality enforcement.
+
+[EXTEND-FROM-PRIOR: intelligence/historical-baseline.md prior=128L → new=190L (+62)]

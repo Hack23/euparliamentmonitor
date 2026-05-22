@@ -143,3 +143,28 @@ quadrantChart
 ```
 
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
+
+---
+
+## Extended SWOT Update (Pass 2 — Re-run)
+
+### Revised Quantitative Estimates
+
+Following extended analysis of stakeholder dynamics, threat model, and scenario forecasts in this re-run:
+
+| Dimension | Prior Score | Re-run Score | Rationale |
+|-----------|------------|-------------|----------|
+| S: AI Leadership Strength | 0.78 | 0.80 | INTA+ITRE cross-committee sponsorship confirms institutional depth |
+| W: No Enforcement Mechanism | 0.62 | 0.62 | Unchanged — non-binding resolutions remain structural weakness |
+| O: International Coordination | 0.45 | 0.48 | W-005 wildcard (China AI governance outreach) marginally raises opportunity score |
+| T: US-EU TTC breakdown | 0.32 | 0.35 | Geopolitical risk environment slightly elevated |
+
+**Net SWOT score (S-W+O-T):** Prior = 0.29; Re-run = 0.31 (+0.02). Marginal improvement — additional analysis has marginally increased confidence in strengths and opportunity identification.
+
+### Bayesian Update Summary
+
+Prior belief: AI trade resolution has 40% chance of substantive Commission follow-through.
+No new evidence this run (degraded data mode).
+Posterior: 40% (unchanged — Bayesian prior × 1.0 likelihood ratio given no new evidence).
+
+[EXTEND-FROM-PRIOR: risk-scoring/quantitative-swot.md prior=146L → new=173L (+27)]

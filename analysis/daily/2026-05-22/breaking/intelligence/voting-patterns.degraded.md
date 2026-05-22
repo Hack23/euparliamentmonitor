@@ -70,3 +70,51 @@ For structural coalition analysis (group size, ideological positions, inferred v
 - `coalition-dynamics.md` — group-level inference
 - `intelligence/stakeholder-map.md` — committee actor analysis
 - `intelligence/significance-scoring.md` — per-text political significance
+
+---
+
+## Extended Voting Patterns Assessment (Pass 2 — Re-run)
+
+### Structural Inference for May 2026 Plenary Votes
+
+In absence of DOCEO XML roll-call data, the following structural inference applies the EP group composition framework (EPP 188, S&D 136, Renew 77, ECR 78, PfE 84, Greens/EFA 53, Left 46, ESN 25, NI ~33).
+
+#### TA-10-2026-0183 — AI Trade Strategy Resolution (own-initiative)
+
+**Inferred coalition:** EPP + S&D + Renew + Greens/EFA (core); ECR split (partial support — competitive sovereignty framing appeals to ECR)
+**Inferred FOR:** ~480-540 | **Inferred AGAINST:** ~80-120 | **Inferred ABSTAIN:** ~60-100
+**Confidence:** 🟡 MEDIUM | **Basis:** Comparable INTA own-initiatives show 65-75% FOR rate
+
+**Group-level breakdown (inferred):**
+| Group | Size | Inferred Position | Votes |
+|-------|------|-----------------|-------|
+| EPP | 188 | FOR (94%) | ~177 |
+| S&D | 136 | FOR (90%) | ~122 |
+| Renew | 77 | FOR (92%) | ~71 |
+| ECR | 78 | SPLIT (50% FOR) | ~39 |
+| PfE | 84 | AGAINST (60%) | ~34 FOR, ~50 AGAINST |
+| Greens/EFA | 53 | FOR (80%) | ~42 |
+| Left | 46 | ABSTAIN (60%) | ~18 FOR, ~28 ABSTAIN |
+| ESN | 25 | AGAINST (80%) | ~20 AGAINST |
+| NI | ~33 | SPLIT | ~15 FOR |
+| **TOTAL** | **720** | **FOR ~518** | **72% majority** |
+
+#### TA-10-2026-0174 — EU-Uzbekistan EPCA Consent
+
+**Inferred coalition:** EPP + S&D + Renew (core); Greens conditional (human rights provisions sufficient)
+**Inferred FOR:** ~440-480 | **AGAINST:** ~80-100 | **ABSTAIN:** ~140-180
+**Confidence:** 🟡 MEDIUM | **Basis:** Previous EP consent votes on EPCAs (Georgia, Moldova ~63% FOR)
+
+**Admiralty Grade for all inferences:** C3 — structural reasoning, no direct evidence
+
+### Why DOCEO XML Matters: Data Quality Plan
+
+| Data Gap | Impact | Next Run Resolution |
+|---------|--------|-------------------|
+| No roll-call FOR/AGAINST counts | Cannot confirm majority size | DOCEO XML publishing T+7 to T+14 days |
+| No MEP-level voting record | Cannot identify group outliers, defectors | Same DOCEO timeline |
+| No amendment voting breakdown | Cannot track which provisions were contested | EP voting lists (EUR-Lex) |
+
+**Recommendation:** When DOCEO XML becomes available (expected ~June 2-6, 2026), run dedicated voting-patterns analysis pass to upgrade all C3 grades to A2 or B2.
+
+[EXTEND-FROM-PRIOR: intelligence/voting-patterns.degraded.md prior=73L → new=127L (+54)]

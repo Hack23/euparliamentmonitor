@@ -1,7 +1,7 @@
 {
   "version": "1.6.0",
   "filteredForArticleType": "breaking",
-  "cachedAt": "2026-05-22T01:41:10.857Z",
+  "cachedAt": "2026-05-22T08:09:03.787Z",
   "tradecraftQualitySignals": {
     "note": "ADDITIVE quality signals — NOT enforced by the line-count validator. They represent content-quality expectations that Pass-2 reviewers must check manually. Every probabilistic artifact MUST also comply with osint-tradecraft-standards.md: (1) WEP band + time horizon on every headline judgement, (2) Admiralty grade on every external source, (3) confidence-in-evidence tracked separately from WEP probability, (4) >= 10 SATs applied per run (attested in methodology-reflection.md §12). Non-compliant artifacts trigger a Pass-2 rewrite even if the line-count floor is met.",
     "wepBandRequired": [
