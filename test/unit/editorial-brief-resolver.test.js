@@ -222,3 +222,71 @@ describe('discoverLocalizedBriefs', () => {
     }
   });
 });
+
+describe('readLocalizedBriefBody', () => {
+  let tmp;
+  let runDir;
+  let readLocalizedBriefBody;
+
+  beforeEach(async () => {
+    ({ readLocalizedBriefBody } = await import(
+      '../../scripts/aggregator/editorial-brief-resolver.js'
+    ));
+    tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'localized-brief-body-'));
+    runDir = path.join(tmp, 'analysis', 'daily', '2026-05-22', 'propositions');
+    fs.mkdirSync(runDir, { recursive: true });
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  });
+
+  it('returns null for English', () => {
+    expect(readLocalizedBriefBody(runDir, 'en')).toBeNull();
+  });
+
+  it('returns null when the localized brief is absent', () => {
+    expect(readLocalizedBriefBody(runDir, 'sv')).toBeNull();
+  });
+
+  it('reads the translated markdown body and strips SPDX preamble', () => {
+    const md = [
+      // REUSE-IgnoreStart
+      '<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->',
+      '<!-- SPDX-License-Identifier: Apache-2.0 -->',
+      // REUSE-IgnoreEnd
+      '',
+      '# Sammanfattning',
+      '',
+      'Brödtext.',
+      '',
+    ].join('\n');
+    fs.writeFileSync(path.join(runDir, 'executive-brief_sv.md'), md, 'utf8');
+    const result = readLocalizedBriefBody(runDir, 'sv');
+    expect(result).not.toBeNull();
+    expect(result.sourceFile).toBe('executive-brief_sv.md');
+    expect(result.markdown.startsWith('# Sammanfattning')).toBe(true);
+    expect(result.markdown).toContain('Brödtext.');
+  });
+
+  it('falls back to the extended/ candidate when the top-level file is missing', () => {
+    fs.mkdirSync(path.join(runDir, 'extended'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'extended', 'executive-brief_de.md'),
+      '# Kurzfassung\n\nText.\n',
+      'utf8'
+    );
+    const result = readLocalizedBriefBody(runDir, 'de');
+    expect(result).not.toBeNull();
+    expect(result.sourceFile).toBe('extended/executive-brief_de.md');
+  });
+
+  it('returns null when the run directory does not exist', () => {
+    expect(readLocalizedBriefBody(path.join(tmp, 'missing'), 'sv')).toBeNull();
+  });
+
+  it('returns null when the file exists but is empty', () => {
+    fs.writeFileSync(path.join(runDir, 'executive-brief_fr.md'), '\n   \n');
+    expect(readLocalizedBriefBody(runDir, 'fr')).toBeNull();
+  });
+});

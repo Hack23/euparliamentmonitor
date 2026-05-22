@@ -7,6 +7,7 @@ import {
   stripInlineReaderGuide,
   READER_GUIDE_TITLE_LABELS,
   READER_GUIDE_INTRO_LABELS,
+  READER_GUIDE_TIP_LABELS,
   READER_GUIDE_COL_NEED_LABELS,
   READER_GUIDE_COL_VALUE_LABELS,
   READER_GUIDE_COL_SOURCE_LABELS,
@@ -92,6 +93,21 @@ describe('reader-intelligence-guide', () => {
           .replace(/"/g, '&quot;')
           .replace(/'/g, '&#39;');
         expect(html).toContain(`<p class="reader-guide-intro">${escapedIntro}</p>`);
+      }
+    });
+
+    it('renders translated tip text for all 14 languages', () => {
+      for (const lang of ALL_LANGUAGES) {
+        const html = buildReaderIntelligenceGuideHtml(lang, sampleSections, sampleIncluded);
+        const rawTip = READER_GUIDE_TIP_LABELS[lang];
+        expect(rawTip).toBeTruthy();
+        const escapedTip = rawTip
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+        expect(html).toContain(`<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> ${escapedTip}</p>`);
       }
     });
 
@@ -230,6 +246,13 @@ describe('reader-intelligence-guide', () => {
       for (const lang of ALL_LANGUAGES) {
         expect(READER_GUIDE_INTRO_LABELS[lang]).toBeTruthy();
         expect(READER_GUIDE_INTRO_LABELS[lang].length).toBeGreaterThan(0);
+      }
+    });
+
+    it('all 14 languages have non-empty tip labels', () => {
+      for (const lang of ALL_LANGUAGES) {
+        expect(READER_GUIDE_TIP_LABELS[lang]).toBeTruthy();
+        expect(READER_GUIDE_TIP_LABELS[lang].length).toBeGreaterThan(0);
       }
     });
 

@@ -166,9 +166,42 @@ Each generator emits a fixed set of structured-data blocks:
 | `WebSite` | All 4 | Carries `inLanguage`, publisher reference |
 | `NewsMediaOrganization` | All 4 | `@id`, `logo` (ImageObject), `sameAs` from `ORG_SAME_AS` |
 | `BreadcrumbList` | News-index, sitemap, PI | Two-level (home → current) |
-| `CollectionPage` | News-index, sitemap, PI | Lists articles, holds breadcrumb |
+| `CollectionPage` | News-index, sitemap, PI | Lists articles, holds breadcrumb; carries `datePublished` + `dateModified` (both `BUILD_TIME`) |
 | `FAQPage` | All 4 (where applicable) | `mainEntity[]` matches visible `<details>` byte-for-byte |
 | `NewsArticle` | Article | Headline ≤ 110 chars, `wordCount`, `image[]`, `mainEntityOfPage`, `speakable`, localized `articleSection` |
+| `WebPage` + `NewsMediaOrganization` | `offline.html` | Minimal graph emitted on the static offline shell even though it is `noindex` — AI assistants (GPTBot, ClaudeBot, PerplexityBot) still benefit from publisher attribution |
+
+### 5.0 `mainEntity.ItemList` carousel shape
+
+Every `CollectionPage.mainEntity` is an `ItemList` whose `itemListElement[*]`
+entries use the typed-item shape so Google's Carousel and AI crawlers see a
+full entity per slot:
+
+```jsonc
+{
+  "@type": "ListItem",
+  "position": 1,
+  "url": "https://euparliamentmonitor.com/news/<slug>-<lang>.html",
+  "item": {
+    "@type": "NewsArticle",        // or "WebPageElement" for anchor sections
+    "@id": "<same as url>",
+    "url": "<same as url>",
+    "headline": "<title>",
+    "name": "<title>",
+    "datePublished": "<YYYY-MM-DD>",
+    "inLanguage": "<bcp47>"
+  }
+}
+```
+
+* News-index `itemListElement` items inherit the page language.
+* Sitemap `itemListElement` items derive `inLanguage` from the per-article
+  filename suffix (`<slug>-<lang>.html`, e.g. `2026-05-21-breaking-ja.html`)
+  so a Swedish sitemap can correctly expose Norwegian/Danish/English
+  articles when mixed.
+* Political-intelligence section ItemList uses `@type: WebPageElement`
+  because the targets are anchor fragments (`#pi-…`) on the same page,
+  not standalone articles.
 
 ### 5.1 NewsArticle specifics
 

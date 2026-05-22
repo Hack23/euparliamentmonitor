@@ -18,12 +18,8 @@ import { validateArticleHTML } from '../../scripts/utils/file-utils.js';
 
 describe('getArticleFilename', () => {
   it('uses <date>-<type>-<lang>.html pattern uniformly', () => {
-    expect(getArticleFilename('2026-01-15-breaking', 'en')).toBe(
-      '2026-01-15-breaking-en.html'
-    );
-    expect(getArticleFilename('2026-01-15-breaking', 'sv')).toBe(
-      '2026-01-15-breaking-sv.html'
-    );
+    expect(getArticleFilename('2026-01-15-breaking', 'en')).toBe('2026-01-15-breaking-en.html');
+    expect(getArticleFilename('2026-01-15-breaking', 'sv')).toBe('2026-01-15-breaking-sv.html');
   });
 });
 
@@ -124,12 +120,8 @@ describe('wrapArticleHtml', () => {
   });
 
   it('sets dir="rtl" for Arabic and Hebrew', () => {
-    expect(wrapArticleHtml({ ...baseOptions, lang: 'ar' })).toContain(
-      'dir="rtl"'
-    );
-    expect(wrapArticleHtml({ ...baseOptions, lang: 'he' })).toContain(
-      'dir="rtl"'
-    );
+    expect(wrapArticleHtml({ ...baseOptions, lang: 'ar' })).toContain('dir="rtl"');
+    expect(wrapArticleHtml({ ...baseOptions, lang: 'he' })).toContain('dir="rtl"');
   });
 
   it('includes a JSON-LD NewsArticle block with escaped < characters', () => {
@@ -395,9 +387,7 @@ describe('wrapArticleHtml structured data enhancements', () => {
 
   it('BreadcrumbList has 3 items: home, news section, article', () => {
     const html = wrapArticleHtml(baseOptions);
-    const ldMatch = html.match(
-      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/
-    );
+    const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
     expect(ldMatch).not.toBeNull();
     const data = JSON.parse(ldMatch[1]);
     expect(Array.isArray(data)).toBe(true);

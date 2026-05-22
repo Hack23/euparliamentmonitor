@@ -103,6 +103,75 @@ export function replaceFirstStringIn(haystack, needle, replacement) {
     return haystack.slice(0, idx) + replacement + haystack.slice(idx + needle.length);
 }
 /**
+ * Replace the **inner body** of the Executive Brief section (the
+ * `<h2 id="section-executive-brief">…</h2>` heading and everything that
+ * follows it up to — but not including — the next `<h2 id="section-…">`
+ * sibling) with the supplied replacement HTML. The Executive Brief
+ * heading itself is preserved by emitting it inline ahead of the
+ * replacement, so the in-page anchor (`#section-executive-brief`) and
+ * the table-of-contents link continue to work.
+ *
+ * Used by the article-generator HTML pipeline to inject the rendered
+ * markdown of a translated `executive-brief_<lang>.md` into the
+ * non-English language variants without forking the whole aggregated
+ * article into 14 source-language copies — see
+ * `editorial-brief-resolver.readLocalizedBriefBody` and
+ * `render-one.writeLanguageVariant`.
+ *
+ * Implementation uses `indexOf`/slice exclusively to stay within
+ * CodeQL's safe-regex envelope. Returns `html` unchanged when the
+ * Executive Brief heading is absent or malformed.
+ *
+ * @param html - Full article body HTML
+ * @param localizedHeading - Localized text for the Executive Brief H2
+ *                           (e.g. `"Sammanfattning"` for `sv`). Must be
+ *                           plain text — caller is responsible for any
+ *                           escaping (it's passed through `escapeHTML`).
+ * @param replacementBodyHtml - HTML to splice in **after** the heading.
+ *                              Should not contain its own `<h2>` for
+ *                              the Executive Brief — the heading is
+ *                              re-emitted by this helper.
+ * @returns Updated HTML with the localized brief body in place.
+ */
+export function replaceExecutiveBriefSection(html, localizedHeading, replacementBodyHtml) {
+    const idMarker = 'id="section-executive-brief"';
+    const idIdx = html.indexOf(idMarker);
+    if (idIdx === -1)
+        return html;
+    // Walk back to the opening `<h2` of the Executive Brief heading.
+    const h2Open = html.lastIndexOf('<h2', idIdx);
+    if (h2Open === -1)
+        return html;
+    // Find the end of the heading element.
+    const h2CloseTagIdx = html.indexOf('</h2>', idIdx);
+    if (h2CloseTagIdx === -1)
+        return html;
+    const afterHeading = h2CloseTagIdx + '</h2>'.length;
+    // Find the next `<h2 id="section-...">` boundary — the start of the
+    // following article section. If there is no further section heading
+    // we conservatively bail out (replacing through end-of-body would
+    // also drop appendix content like Reader Guide / Key Takeaways).
+    const nextSectionId = html.indexOf('id="section-', afterHeading);
+    if (nextSectionId === -1)
+        return html;
+    const nextH2 = html.lastIndexOf('<h2', nextSectionId);
+    if (nextH2 === -1 || nextH2 <= afterHeading)
+        return html;
+    // Find the start of the line containing the next `<h2` so we don't
+    // strip leading whitespace from the next section. We look at most
+    // one newline back.
+    let cutEnd = nextH2;
+    const prevNewline = html.lastIndexOf('\n', nextH2 - 1);
+    if (prevNewline !== -1 && prevNewline >= afterHeading) {
+        cutEnd = prevNewline + 1;
+    }
+    const newHeading = `<h2 id="section-executive-brief">${escapeHTML(localizedHeading)}</h2>\n`;
+    const trimmedReplacement = replacementBodyHtml.endsWith('\n')
+        ? replacementBodyHtml
+        : `${replacementBodyHtml}\n`;
+    return html.slice(0, h2Open) + newHeading + trimmedReplacement + html.slice(cutEnd);
+}
+/**
  * Replace an H2 heading's text content by locating it via its `id` attribute.
  * Uses indexOf-based search to avoid polynomial regex backtracking (CodeQL).
  *

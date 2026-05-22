@@ -17,6 +17,7 @@ import { READER_GUIDE_SECTION_ID } from '../reader-guide-constants.js';
 import {
   READER_GUIDE_TITLE_LABELS,
   READER_GUIDE_INTRO_LABELS,
+  READER_GUIDE_TIP_LABELS,
   READER_GUIDE_COL_NEED_LABELS,
   READER_GUIDE_COL_VALUE_LABELS,
 } from './labels.js';
@@ -68,12 +69,14 @@ export function buildReaderIntelligenceGuideHtml(
 
   const title = getLocalizedString(READER_GUIDE_TITLE_LABELS, lang);
   const intro = getLocalizedString(READER_GUIDE_INTRO_LABELS, lang);
+  const tip = getLocalizedString(READER_GUIDE_TIP_LABELS, lang);
   const colNeed = getLocalizedString(READER_GUIDE_COL_NEED_LABELS, lang);
   const colValue = getLocalizedString(READER_GUIDE_COL_VALUE_LABELS, lang);
 
   return `<section id="${READER_GUIDE_SECTION_ID}" data-component="reader-intelligence-guide" aria-label="${escapeHTML(title)}"${dir === 'rtl' ? ' dir="rtl"' : ''}>
 <h2 id="${READER_GUIDE_SECTION_ID}-heading"><span class="guide-icon" aria-hidden="true">🧭</span> ${escapeHTML(title)}</h2>
 <p class="reader-guide-intro">${escapeHTML(intro)}</p>
+<p class="reader-guide-tip"><span class="guide-icon" aria-hidden="true">💡</span> ${escapeHTML(tip)}</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="${READER_GUIDE_SECTION_ID}-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">${escapeHTML(title)}</caption>

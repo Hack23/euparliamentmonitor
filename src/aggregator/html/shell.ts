@@ -116,6 +116,16 @@ export interface WrapArticleOptions {
    * Emitted as `isBasedOn` in the JSON-LD `NewsArticle` schema for provenance.
    */
   readonly isBasedOn?: readonly string[];
+  /**
+   * Optional: real-world organizations (political groups, media outlets,
+   * institutions) named in the article's intelligence and media-framing
+   * artifacts. Emitted as JSON-LD `mentions` Organization entries to give
+   * search engines and AI overviews high-precision entity grounding.
+   * Currently only extractable from the English intelligence corpus; the
+   * same list is reused across every language variant because the entities
+   * are language-independent proper nouns.
+   */
+  readonly mentions?: readonly string[];
 }
 
 /**
@@ -225,6 +235,14 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
     ...(options.isBasedOn && options.isBasedOn.length > 0
       ? {
           isBasedOn: options.isBasedOn.map((url) => ({ '@type': 'CreativeWork', url })),
+        }
+      : {}),
+    ...(options.mentions && options.mentions.length > 0
+      ? {
+          mentions: options.mentions.map((name) => ({
+            '@type': 'Organization',
+            name,
+          })),
         }
       : {}),
   };

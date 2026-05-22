@@ -16,6 +16,11 @@ import { resolveArticleMetadata, extractStrongProseLine, } from '../article-meta
 import { buildArticleMeta, serializeArticleMeta } from '../article-meta.js';
 import { renderMarkdown } from '../markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename, localizeArticleBody, enhanceTradecraftCards, enhanceAnalysisIndexCards, } from '../article-html.js';
+import { replaceExecutiveBriefSection } from '../html/localize-body.js';
+import { readLocalizedBriefBody } from '../editorial-brief-resolver.js';
+import { extractRunMentions } from '../seo-entity-extractor.js';
+import { SECTION_TITLE_LABELS } from '../../constants/ui/related-analysis.js';
+import { getLocalizedString } from '../../constants/language-core.js';
 import { buildReaderIntelligenceGuideHtml, stripInlineReaderGuide, } from '../reader-intelligence-guide.js';
 import { ALL_LANGUAGES } from '../../constants/language-core.js';
 import { blobUrl } from '../infra/github-urls.js';
@@ -84,6 +89,10 @@ function buildJekyllArticleMarkdown(aggregated, metadata, slug, sourceFolder) {
  *        canonical English Markdown source written by the same run
  * @param chromeOptions.articleCount - Total article count surfaced in the
  *        site footer's `<p class="footer-stats">…</p>` line
+ * @param chromeOptions.mentions - SEO `mentions` list (organization names
+ *        extracted from `intelligence/stakeholder-map.md` and
+ *        `extended/media-framing-analysis.md`) emitted into JSON-LD on
+ *        every language variant
  * @param opts - CLI options (needed for `outDir`)
  * @returns Relative filename of the HTML file written
  */
@@ -95,6 +104,30 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
     if (lang !== 'en' && fs.existsSync(langMdAbs)) {
         metaSource = fs.readFileSync(langMdAbs, 'utf8');
         bodyHtml = renderMarkdown(metaSource).html;
+    }
+    else if (lang !== 'en') {
+        // No full per-language source markdown — but the run may still
+        // ship a translated `executive-brief_<lang>.md`. When present,
+        // splice its rendered HTML into the `#section-executive-brief`
+        // block so non-English readers see localized BLUF + key findings
+        // instead of English fallback prose. SEO metadata (`<title>`,
+        // `<meta description>`, JSON-LD `headline`) is already localized
+        // via `resolveLocalizedBriefHighlight` upstream, so this hook
+        // exclusively touches the rendered article body.
+        const localized = opts.runDir !== null ? readLocalizedBriefBody(opts.runDir, lang) : null;
+        if (localized) {
+            const localizedRendered = renderMarkdown(localized.markdown).html;
+            // Strip the first H1 from the translated brief —
+            // `replaceExecutiveBriefSection` re-emits the canonical
+            // `<h2 id="section-executive-brief">…</h2>` heading itself,
+            // and the brief's own `# Headline` is duplicate chrome.
+            const briefBodyHtml = localizedRendered.replace(/<h1[^>]*>[\s\S]*?<\/h1>\s*/, '');
+            const briefHeadingMap = SECTION_TITLE_LABELS['executive-brief'];
+            const localizedHeading = briefHeadingMap
+                ? getLocalizedString(briefHeadingMap, lang)
+                : 'Executive Brief';
+            bodyHtml = replaceExecutiveBriefSection(bodyHtml, localizedHeading, briefBodyHtml);
+        }
     }
     bodyHtml = stripInlineReaderGuide(bodyHtml);
     bodyHtml = bodyHtml.replace(/<h1[^>]*>[\s\S]*?<\/h1>\s*/, '');
@@ -123,6 +156,7 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
         toc: aggregated.sectionToc,
         articleCount: chromeOptions.articleCount,
         isBasedOn: aggregated.includedArtifacts.map((a) => blobUrl(a.repoRelPath)),
+        mentions: chromeOptions.mentions,
     });
     const filename = getArticleFilename(slug, lang);
     fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');
@@ -236,6 +270,7 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
             metadata: effectiveMetadata,
             sourceMarkdownRelPath: runArticleMdRelPath,
             articleCount: articleCountOverride ?? countPublishedArticles(opts.repoRoot),
+            mentions: opts.runDir ? extractRunMentions(opts.runDir) : [],
         };
         for (const lang of opts.langs) {
             const filename = writeLanguageVariant(lang, slug, aggregated, rendered.html, chromeOptions, opts);

@@ -47,6 +47,29 @@ export const READER_GUIDE_INTRO_LABELS: LanguageMap = {
   zh: '使用本指南将文章作为政治情报产品而非原始工件集合来阅读。高价值读者视角优先呈现；技术出处可在审计附录中查阅。',
 };
 
+/**
+ * Practical "how to read this article" tip rendered immediately under the
+ * intro. Distinct from the intro so existing snapshot tests continue to
+ * match the intro string verbatim, and so styles can target the two
+ * paragraphs independently.
+ */
+export const READER_GUIDE_TIP_LABELS: LanguageMap = {
+  en: 'Tip: skim the Executive Brief first, then jump to the lens that matches your role — analyst, journalist, advocate, or policymaker — using the links below.',
+  sv: 'Tips: börja med att skumma sammanfattningen, gå sedan till det perspektiv som matchar din roll — analytiker, journalist, intressent eller beslutsfattare — via länkarna nedan.',
+  da: 'Tip: skim først resuméet, og hop derefter til det perspektiv, der passer til din rolle — analytiker, journalist, fortaler eller beslutningstager — via linkene nedenfor.',
+  no: 'Tips: skum gjennom sammendraget først, og hopp deretter til perspektivet som passer din rolle — analytiker, journalist, talsperson eller beslutningstaker — via lenkene under.',
+  fi: 'Vinkki: silmäile ensin tiivistelmä ja siirry sitten roolisi mukaiseen näkökulmaan — analyytikko, toimittaja, vaikuttaja tai päättäjä — alla olevien linkkien kautta.',
+  de: 'Tipp: Überfliegen Sie zuerst die Zusammenfassung und springen Sie dann über die Links unten zur Perspektive, die zu Ihrer Rolle passt — Analystin, Journalist, Interessenvertreterin oder Entscheidungsträger.',
+  fr: "Astuce : parcourez d'abord le résumé exécutif, puis accédez à la perspective correspondant à votre rôle — analyste, journaliste, défenseur ou décideur — via les liens ci-dessous.",
+  es: 'Consejo: hojee primero el resumen ejecutivo y luego salte a la perspectiva que coincida con su rol — analista, periodista, defensor o responsable de políticas — usando los enlaces a continuación.',
+  nl: 'Tip: lees eerst de samenvatting door en spring vervolgens naar het perspectief dat bij uw rol past — analist, journalist, belangenbehartiger of beleidsmaker — via de onderstaande links.',
+  ar: 'نصيحة: ابدأ بتصفح الملخص التنفيذي، ثم انتقل إلى المنظور الذي يطابق دورك — محلل أو صحفي أو مدافع أو صانع سياسات — عبر الروابط أدناه.',
+  he: 'טיפ: סקור תחילה את התקציר ולאחר מכן עבור אל הזווית המתאימה לתפקידך — אנליסט, עיתונאי, מקדם או קובע מדיניות — באמצעות הקישורים שלהלן.',
+  ja: 'ヒント：まずエグゼクティブブリーフを概観し、その後、下のリンクからアナリスト、ジャーナリスト、アドボケイト、政策立案者など、あなたの役割に合った視点へ移動してください。',
+  ko: '팁: 먼저 경영진 브리프를 훑어본 다음 아래 링크를 사용해 분석가, 기자, 옹호자, 정책 입안자 등 본인의 역할에 맞는 관점으로 이동하십시오.',
+  zh: '提示：先快速浏览执行摘要，然后通过下方链接跳转到与您的角色相匹配的视角——分析师、记者、倡导者或政策制定者。',
+};
+
 /** Table header: "Reader need" */
 export const READER_GUIDE_COL_NEED_LABELS: LanguageMap = {
   en: 'Reader need',

@@ -10,7 +10,7 @@
  * regression-tested independently of discovery and write logic.
  */
 
-import { APP_VERSION, BUILD_SHORT, BASE_URL } from '../../constants/config.js';
+import { APP_VERSION, BUILD_SHORT, BUILD_TIME, BASE_URL } from '../../constants/config.js';
 import { getNewsIndexSeo } from '../seo-copy.js';
 import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import {
@@ -251,6 +251,8 @@ export function generateIndexHTML(
     inLanguage: lang,
     isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: BASE_URL },
     publisher: { '@id': `${BASE_URL}/#organization` },
+    datePublished: BUILD_TIME,
+    dateModified: BUILD_TIME,
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -266,12 +268,24 @@ export function generateIndexHTML(
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: Math.min(articles.length, 50),
-      itemListElement: articles.slice(0, 50).map((a, idx) => ({
-        '@type': 'ListItem',
-        position: idx + 1,
-        url: `${BASE_URL}/news/${a.filename}`,
-        name: metaMap.get(a.filename)?.title ?? formatSlug(a.slug),
-      })),
+      itemListElement: articles.slice(0, 50).map((a, idx) => {
+        const url = `${BASE_URL}/news/${a.filename}`;
+        const headline = metaMap.get(a.filename)?.title ?? formatSlug(a.slug);
+        return {
+          '@type': 'ListItem',
+          position: idx + 1,
+          url,
+          item: {
+            '@type': 'NewsArticle',
+            '@id': url,
+            url,
+            headline,
+            name: headline,
+            datePublished: a.date,
+            inLanguage: a.lang,
+          },
+        };
+      }),
     },
   }).replace(/</g, '\\u003c');
 

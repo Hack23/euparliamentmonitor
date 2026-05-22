@@ -281,16 +281,18 @@ describe('political-intelligence generator', () => {
       expect(html).toMatch(/<meta name="keywords" content="[^"]*Europaparlamentet[^"]*">/);
       expect(html).toContain('"publisher":{');
       expect(html).toContain('"author":{');
-      // JSON-LD ListItem must use schema.org `item` (matches sitemap/breadcrumb
-      // convention) and numberOfItems must equal the number of itemListElement
-      // entries (4 sections), not the document total.
+      // JSON-LD ListItem now uses the typed `item: { @type: WebPageElement, @id, url }`
+      // shape (richer Google Carousel signal). `url` on the ListItem and `@id`
+      // on the inner item must both point at the anchor section, and
+      // numberOfItems must equal the number of itemListElement entries
+      // (4 sections), not the document total.
       expect(html).toContain(
-        '"item":"https://euparliamentmonitor.com/political-intelligence_sv.html#pi-methodologies"'
+        '"url":"https://euparliamentmonitor.com/political-intelligence_sv.html#pi-methodologies"'
       );
       expect(html).toContain(
-        '"item":"https://euparliamentmonitor.com/political-intelligence_sv.html#pi-daily"'
+        '"@id":"https://euparliamentmonitor.com/political-intelligence_sv.html#pi-daily"'
       );
-      expect(html).not.toMatch(/"url":"[^"]*#pi-methodologies"/);
+      expect(html).toMatch(/"@type":"WebPageElement"/);
       expect(html).toContain('"numberOfItems":4');
 
       // Stats

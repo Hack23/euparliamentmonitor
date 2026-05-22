@@ -217,36 +217,50 @@ function rewriteQuadrantChartLine(line: string): string {
 }
 
 /**
+ * Decode the small set of HTML entities that Markdown authors (and
+ * upstream generators) occasionally pre-encode inside fenced mermaid
+ * blocks — typically &amp; for & in political-group labels like
+ * S&D or Greens/EFA. Without this decode step, the subsequent
+ * escapeHtml pass would re-escape & to &amp; and emit
+ * S&amp;amp;D into the rendered HTML, which the Mermaid client
+ * library then renders verbatim instead of as S&D.
+ *
+ * Uses indexOf/split/join exclusively (no RegExp) to stay
+ * within CodeQL's safe-regex envelope. Only the canonical entity
+ * forms are decoded — anything more exotic (e.g. &#x26;) is left
+ * alone so we never accidentally swallow a literal that the author
+ * intended to keep encoded.
+ *
+ * @param content - Raw fenced-block content (post-sanitizeMermaidQuadrantChart)
+ * @returns Content with pre-encoded HTML entities normalised back to
+ *          their literal characters, ready for a single escapeHtml.
+ */
+export function decodeMermaidPreEncodedEntities(content: string): string {
+  // Order matters: decode the named entities first (which all contain
+  // `&` followed by ASCII letters), then finally `&amp;` itself so we
+  // don't double-decode `&amp;lt;` -> `<`.
+  // Each replacement is a plain string `split(needle).join(replacement)`
+  // which is linear and trivially CodeQL-safe.
+  let out = content;
+  out = out.split('&lt;').join('<');
+  out = out.split('&gt;').join('>');
+  out = out.split('&quot;').join('"');
+  out = out.split('&#39;').join("'");
+  out = out.split('&apos;').join("'");
+  out = out.split('&amp;').join('&');
+  return out;
+}
+
+/**
  * Auto-quote unquoted `quadrantChart` labels so the Mermaid v11 lexer
  * accepts them. The Mermaid `quadrantChart` grammar treats unquoted
  * labels as a restricted token class — em-dashes (`—`, U+2014),
  * en-dashes (`–`, U+2013), ellipsis (`…`), parentheses, colons, and
  * non-ASCII currency symbols (`€`) all trigger
  * `Lexical error … Unrecognized text` and prevent the diagram from
- * rendering, leaving the raw `<pre>` source visible on the page.
- *
- * The style guide already instructs authors to wrap every quadrant /
- * axis / data-point label in double quotes (see
- * `analysis/methodologies/political-style-guide.md` § Standard
- * `quadrantChart` init block), but AI-generated `article.md` files
- * occasionally drop the quoting. Rather than reject the article at
- * Stage C we sanitize at the renderer boundary so every published
- * HTML page renders, regardless of upstream authoring discipline.
- *
- * Sanitization is deliberately scoped to `quadrantChart` blocks —
- * `flowchart`, `sequenceDiagram`, `mindmap`, `pie`, `gantt`, and
- * `xychart-beta` accept the same Unicode characters in their unquoted
- * labels and are passed through unchanged.
- *
- * Lines normalised:
- *   - `x-axis Left --> Right`     → `x-axis "Left" --> "Right"`
- *   - `y-axis Low --> High`       → `y-axis "Low" --> "High"`
- *   - `quadrant-N Label text`     → `quadrant-N "Label text"`
- *   - `Data Label: [x, y]`        → `"Data Label": [x, y]`
- *
- * Already-quoted operands are preserved byte-for-byte. The `title`
- * line, the `%%{init:…}%%` directive, and any line not matching one
- * of the recognised shapes are also left untouched.
+ * rendering. Sanitization is scoped to `quadrantChart` blocks only;
+ * other diagram types accept those characters in unquoted labels and
+ * are passed through unchanged.
  *
  * @param content - Raw mermaid fence body
  * @returns The same content with `quadrantChart` labels auto-quoted;
@@ -303,7 +317,8 @@ function installMermaidFence(md: MarkdownIt): void {
         env2.mermaidLabel ?? ((n) => `Mermaid diagram ${n + 1}`);
       const label = md.utils.escapeHtml(labelFn(currentIndex, token.content));
       const sanitized = sanitizeMermaidQuadrantChart(token.content);
-      const body = md.utils.escapeHtml(sanitized);
+      const decoded = decodeMermaidPreEncodedEntities(sanitized);
+      const body = md.utils.escapeHtml(decoded);
       return `<figure class="mermaid-figure" role="img" aria-label="${label}">\n<pre class="mermaid">${body}</pre>\n</figure>\n`;
     }
     return defaultFence(tokens, idx, opts, env, self);

@@ -217,4 +217,36 @@ export function discoverLocalizedBriefs(runDir, languages) {
     }
     return out;
 }
+/**
+ * Read the **full markdown body** of a translated executive brief for
+ * `lang` from `runDir`, searching the standard candidate paths
+ * (`executive-brief_<lang>.md` → `extended/executive-brief_<lang>.md`).
+ * SPDX HTML-comment preambles are stripped using the same logic as the
+ * SEO-metadata path, so the returned markdown starts at the first real
+ * content line (`# Headline` or similar).
+ *
+ * Returns `null` when `runDir` is missing, the language is English, or
+ * no candidate file exists. The caller is expected to fall back to the
+ * English aggregated body in that case — see `render-one.ts`.
+ *
+ * @param runDir - Absolute run directory
+ * @param lang - Target language code (omitted when `lang === 'en'`)
+ * @returns Localized brief body + source file, or `null` when absent
+ */
+export function readLocalizedBriefBody(runDir, lang) {
+    if (!runDir || lang === 'en')
+        return null;
+    if (!fs.existsSync(runDir))
+        return null;
+    for (const rel of localizedBriefCandidates(lang)) {
+        const abs = path.join(runDir, rel);
+        if (!fs.existsSync(abs))
+            continue;
+        const body = readArtefactBody(abs);
+        if (body.trim().length === 0)
+            continue;
+        return { markdown: body, sourceFile: rel };
+    }
+    return null;
+}
 //# sourceMappingURL=editorial-brief-resolver.js.map

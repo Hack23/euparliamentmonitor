@@ -97,6 +97,30 @@ describe('renderMarkdown', () => {
     expect(html).toContain('Graph 0');
   });
 
+  it('decodes pre-encoded HTML entities inside mermaid fences (single-escape)', () => {
+    // Authors / upstream agents occasionally write `S&amp;D` inside a
+    // ```mermaid block. Without the entity-decoder pass, the renderer
+    // would emit `S&amp;amp;D`, which the mermaid client library then
+    // renders verbatim instead of as `S&D`. See regression coverage
+    // for analysis/daily/2026-05-22/propositions/intelligence/coalition-dynamics.md.
+    const { html } = renderMarkdown(
+      '```mermaid\ngraph LR\n  EPP["EPP"] -->|alliance| SD["S&amp;D"]\n```'
+    );
+    expect(html).toContain('S&amp;D');
+    expect(html).not.toContain('S&amp;amp;D');
+    expect(html).not.toContain('&amp;amp;');
+  });
+
+  it('also decodes pre-encoded &lt;, &gt;, &quot; inside mermaid blocks', () => {
+    const { html } = renderMarkdown(
+      '```mermaid\nflowchart\n  A[&quot;a &lt; b &gt; c&quot;]\n```'
+    );
+    // Single-escaped output: real `<` becomes `&lt;`, real `"` becomes `&quot;`.
+    expect(html).toContain('&quot;a &lt; b &gt; c&quot;');
+    expect(html).not.toContain('&amp;quot;');
+    expect(html).not.toContain('&amp;lt;');
+  });
+
   it('preserves footnotes', () => {
     const md = 'See [^1] note.\n\n[^1]: Source: EP.';
     const { html } = renderMarkdown(md);
