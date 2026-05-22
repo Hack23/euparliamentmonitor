@@ -147,6 +147,10 @@ function buildJekyllArticleMarkdown(
  *        canonical English Markdown source written by the same run
  * @param chromeOptions.articleCount - Total article count surfaced in the
  *        site footer's `<p class="footer-stats">…</p>` line
+ * @param chromeOptions.mentions - SEO `mentions` list (organization names
+ *        extracted from `intelligence/stakeholder-map.md` and
+ *        `extended/media-framing-analysis.md`) emitted into JSON-LD on
+ *        every language variant
  * @param opts - CLI options (needed for `outDir`)
  * @returns Relative filename of the HTML file written
  */
@@ -180,7 +184,7 @@ function writeLanguageVariant(
     // via `resolveLocalizedBriefHighlight` upstream, so this hook
     // exclusively touches the rendered article body.
     const localized =
-      opts.runDir != null ? readLocalizedBriefBody(opts.runDir, lang) : null;
+      opts.runDir !== null ? readLocalizedBriefBody(opts.runDir, lang) : null;
     if (localized) {
       const localizedRendered = renderMarkdown(localized.markdown).html;
       // Strip the first H1 from the translated brief —

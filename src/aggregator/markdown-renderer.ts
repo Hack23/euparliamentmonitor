@@ -217,43 +217,6 @@ function rewriteQuadrantChartLine(line: string): string {
 }
 
 /**
- * Auto-quote unquoted `quadrantChart` labels so the Mermaid v11 lexer
- * accepts them. The Mermaid `quadrantChart` grammar treats unquoted
- * labels as a restricted token class — em-dashes (`—`, U+2014),
- * en-dashes (`–`, U+2013), ellipsis (`…`), parentheses, colons, and
- * non-ASCII currency symbols (`€`) all trigger
- * `Lexical error … Unrecognized text` and prevent the diagram from
- * rendering, leaving the raw `<pre>` source visible on the page.
- *
- * The style guide already instructs authors to wrap every quadrant /
- * axis / data-point label in double quotes (see
- * `analysis/methodologies/political-style-guide.md` § Standard
- * `quadrantChart` init block), but AI-generated `article.md` files
- * occasionally drop the quoting. Rather than reject the article at
- * Stage C we sanitize at the renderer boundary so every published
- * HTML page renders, regardless of upstream authoring discipline.
- *
- * Sanitization is deliberately scoped to `quadrantChart` blocks —
- * `flowchart`, `sequenceDiagram`, `mindmap`, `pie`, `gantt`, and
- * `xychart-beta` accept the same Unicode characters in their unquoted
- * labels and are passed through unchanged.
- *
- * Lines normalised:
- *   - `x-axis Left --> Right`     → `x-axis "Left" --> "Right"`
- *   - `y-axis Low --> High`       → `y-axis "Low" --> "High"`
- *   - `quadrant-N Label text`     → `quadrant-N "Label text"`
- *   - `Data Label: [x, y]`        → `"Data Label": [x, y]`
- *
- * Already-quoted operands are preserved byte-for-byte. The `title`
- * line, the `%%{init:…}%%` directive, and any line not matching one
- * of the recognised shapes are also left untouched.
- *
- * @param content - Raw mermaid fence body
- * @returns The same content with `quadrantChart` labels auto-quoted;
- *          the input string is returned unchanged for non-quadrant
- *          diagrams or when no edits are required.
- */
-/**
  * Decode the small set of HTML entities that Markdown authors (and
  * upstream generators) occasionally pre-encode inside fenced ` ```mermaid `
  * blocks — typically `&amp;` for `&` in political-group labels like
@@ -288,6 +251,22 @@ export function decodeMermaidPreEncodedEntities(content: string): string {
   return out;
 }
 
+/**
+ * Auto-quote unquoted `quadrantChart` labels so the Mermaid v11 lexer
+ * accepts them. The Mermaid `quadrantChart` grammar treats unquoted
+ * labels as a restricted token class — em-dashes (`—`, U+2014),
+ * en-dashes (`–`, U+2013), ellipsis (`…`), parentheses, colons, and
+ * non-ASCII currency symbols (`€`) all trigger
+ * `Lexical error … Unrecognized text` and prevent the diagram from
+ * rendering. Sanitization is scoped to `quadrantChart` blocks only;
+ * other diagram types accept those characters in unquoted labels and
+ * are passed through unchanged.
+ *
+ * @param content - Raw mermaid fence body
+ * @returns The same content with `quadrantChart` labels auto-quoted;
+ *          the input string is returned unchanged for non-quadrant
+ *          diagrams or when no edits are required.
+ */
 export function sanitizeMermaidQuadrantChart(content: string): string {
   const lines = content.split('\n');
   if (!isQuadrantChartBlock(lines)) return content;
