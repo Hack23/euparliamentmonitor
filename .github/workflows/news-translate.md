@@ -390,14 +390,21 @@ that fail ANY gate will be flagged in the PR comment:
 
 ## 🔁 Execution Order
 
-### Step 0 — Date context & branch identity (mandatory, FIRST bash block)
+### Step 0 — Date context & run marker (mandatory, FIRST bash block)
+
+> The PR branch (`news/translate-briefs-<date>`) is created automatically
+> by `safeoutputs___create_pull_request` from the staged translation
+> files — see the `concurrency` and `safe-outputs.create-pull-request`
+> blocks in this file's frontmatter. **Do not** run `git checkout`,
+> `git branch`, or any other git command in this step or in any
+> agent bash-tool command during this run (see § 🚫 Never).
 
 ```bash
 set -euo pipefail
+mkdir -p /tmp/gh-aw
 TODAY=$(date -u +%Y-%m-%d)
 RUN_ID="${GITHUB_RUN_NUMBER:-0}"
 RUN_DATE="$TODAY"
-BRANCH="news/translate-briefs-${RUN_DATE}"
 
 ANALYSIS_DIR="analysis/translation-runs/${RUN_DATE}"
 mkdir -p "${ANALYSIS_DIR}"
@@ -423,8 +430,8 @@ MARKER_FILE="${ANALYSIS_DIR}/run-${RUN_ID}.marker"
 
 echo "Run date:     ${RUN_DATE}"
 echo "Run ID:       ${RUN_ID}"
-echo "Branch:       ${BRANCH}"
 echo "Analysis dir: ${ANALYSIS_DIR}"
+echo "PR branch (auto, created by safeoutputs): news/translate-briefs-${RUN_DATE}"
 ```
 
 ### Step 1 — Read the discovery queue
@@ -939,6 +946,7 @@ Hard rules — keep tight. Full file-authoring priority lives in `shared/prompts
 
 - **Write translation prose with the `create` tool exclusively.** Use `edit` for any file already on disk (Phase B section edits, marker removal, mid-brief recovery). `jq`+`cat > file` is reserved for `manifest.json` / status flags only.
 - **Heredocs of any language are banned** for translation output — `cat > file << 'EOF'` and `python3 << 'PYEOF'` (and any `ruby`/`perl` variant) silently truncate at the context-window boundary, which is the root cause of the recurring "7/8 H2" failures and skeleton-cascade regressions. When `edit` returns *"No match found"*, recover via `view` → retry `edit` → fall back to a single full-file `create`. Never to a heredoc.
+- **No manual git operations.** `git checkout`, `git branch`, `git status`, `git log`, `git commit`, `git push`, `git merge`, and any other git command are **banned** from the agent's bash tool. The PR branch (`news/translate-briefs-<date>`) and all commits are created automatically by `safeoutputs___create_pull_request` from staged file changes — see the `concurrency` and `safe-outputs.create-pull-request` blocks at the top of this file. Running git manually wastes wall-clock budget, bloats the context window (every command's output stays in the conversation), and was the proximate trigger for the server-error retry that wiped run #26260612873 before a single translation was written.
 - **No scripted substitution.** Translate by reading and writing prose; `sed` / `awk` / `tr` over the source is forbidden (it cannot resolve FIXED TOKEN preservation, idiom, or tone).
 - **Read the translator guide first** — `analysis/methodologies/executive-brief-translation-guide.md`. No translation may begin before this read.
 - **Preserve structure.** No new sections, no merged sections — validator gates #6 (heading parity) and #7 (Mermaid parity) enforce this.

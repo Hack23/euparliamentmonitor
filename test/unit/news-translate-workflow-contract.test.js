@@ -309,6 +309,39 @@ describe('news-translate workflow contract', () => {
     expect(workflow).not.toMatch(/github\.run_attempt/);
   });
 
+  it('Step 0 does not declare a shell BRANCH variable that misleads the agent', () => {
+    // Regression hardening for run #26260612873 — Step 0 declared
+    // `BRANCH="news/translate-briefs-${RUN_DATE}"` and then echoed it.
+    // The agent interpreted the echo as an instruction and ran
+    // `git checkout -b "$BRANCH"` after exploratory `git status` and
+    // `git log` calls, bloating the conversation context until the
+    // Copilot inference call returned "Response was interrupted due to
+    // a server error" and the run abandoned before writing a single
+    // translation. The PR branch is created automatically by
+    // safeoutputs___create_pull_request from staged file changes; the
+    // shell prompt must not declare or echo a BRANCH variable that
+    // would suggest manual git work.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).not.toMatch(/^\s*BRANCH=/m);
+    expect(workflow).not.toMatch(/echo "Branch:\s+\$\{BRANCH\}"/);
+  });
+
+  it('Never section bans manual git operations from the agent bash tool', () => {
+    // Companion to the Step 0 fix above: even with BRANCH removed,
+    // explicit prohibition of manual git work in the Never section
+    // closes the door on the agent re-introducing the same waste
+    // pattern (git status / git log / git checkout) on its own.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    expect(workflow).toMatch(/No manual git operations/);
+    expect(workflow).toMatch(/git checkout/);
+    expect(workflow).toMatch(/git branch/);
+    expect(workflow).toMatch(/git status/);
+    expect(workflow).toMatch(/git log/);
+    expect(workflow).toMatch(/git commit/);
+    expect(workflow).toMatch(/git push/);
+    expect(workflow).toMatch(/git merge/);
+  });
+
   it('records WORKFLOW_START_EPOCH for wall-clock budget tracking', () => {
     // Regression hardening for run #26002434035 — the copilot engine
     // terminated unexpectedly after writing 10/13 sibling translations
