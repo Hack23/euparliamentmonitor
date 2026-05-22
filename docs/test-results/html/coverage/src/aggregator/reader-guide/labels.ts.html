@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -165,7 +165,30 @@
 <a name='L100'></a><a href='#L100'>100</a>
 <a name='L101'></a><a href='#L101'>101</a>
 <a name='L102'></a><a href='#L102'>102</a>
-<a name='L103'></a><a href='#L103'>103</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -180,6 +203,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -316,6 +362,29 @@ export const READER_GUIDE_INTRO_LABELS: LanguageMap = {
   zh: '使用本指南将文章作为政治情报产品而非原始工件集合来阅读。高价值读者视角优先呈现；技术出处可在审计附录中查阅。',
 };
 &nbsp;
+/**
+ * Practical "how to read this article" tip rendered immediately under the
+ * intro. Distinct from the intro so existing snapshot tests continue to
+ * match the intro string verbatim, and so styles can target the two
+ * paragraphs independently.
+ */
+export const READER_GUIDE_TIP_LABELS: LanguageMap = {
+  en: 'Tip: skim the Executive Brief first, then jump to the lens that matches your role — analyst, journalist, advocate, or policymaker — using the links below.',
+  sv: 'Tips: börja med att skumma sammanfattningen, gå sedan till det perspektiv som matchar din roll — analytiker, journalist, intressent eller beslutsfattare — via länkarna nedan.',
+  da: 'Tip: skim først resuméet, og hop derefter til det perspektiv, der passer til din rolle — analytiker, journalist, fortaler eller beslutningstager — via linkene nedenfor.',
+  no: 'Tips: skum gjennom sammendraget først, og hopp deretter til perspektivet som passer din rolle — analytiker, journalist, talsperson eller beslutningstaker — via lenkene under.',
+  fi: 'Vinkki: silmäile ensin tiivistelmä ja siirry sitten roolisi mukaiseen näkökulmaan — analyytikko, toimittaja, vaikuttaja tai päättäjä — alla olevien linkkien kautta.',
+  de: 'Tipp: Überfliegen Sie zuerst die Zusammenfassung und springen Sie dann über die Links unten zur Perspektive, die zu Ihrer Rolle passt — Analystin, Journalist, Interessenvertreterin oder Entscheidungsträger.',
+  fr: "Astuce : parcourez d'abord le résumé exécutif, puis accédez à la perspective correspondant à votre rôle — analyste, journaliste, défenseur ou décideur — via les liens ci-dessous.",
+  es: 'Consejo: hojee primero el resumen ejecutivo y luego salte a la perspectiva que coincida con su rol — analista, periodista, defensor o responsable de políticas — usando los enlaces a continuación.',
+  nl: 'Tip: lees eerst de samenvatting door en spring vervolgens naar het perspectief dat bij uw rol past — analist, journalist, belangenbehartiger of beleidsmaker — via de onderstaande links.',
+  ar: 'نصيحة: ابدأ بتصفح الملخص التنفيذي، ثم انتقل إلى المنظور الذي يطابق دورك — محلل أو صحفي أو مدافع أو صانع سياسات — عبر الروابط أدناه.',
+  he: 'טיפ: סקור תחילה את התקציר ולאחר מכן עבור אל הזווית המתאימה לתפקידך — אנליסט, עיתונאי, מקדם או קובע מדיניות — באמצעות הקישורים שלהלן.',
+  ja: 'ヒント：まずエグゼクティブブリーフを概観し、その後、下のリンクからアナリスト、ジャーナリスト、アドボケイト、政策立案者など、あなたの役割に合った視点へ移動してください。',
+  ko: '팁: 먼저 경영진 브리프를 훑어본 다음 아래 링크를 사용해 분석가, 기자, 옹호자, 정책 입안자 등 본인의 역할에 맞는 관점으로 이동하십시오.',
+  zh: '提示：先快速浏览执行摘要，然后通过下方链接跳转到与您的角色相匹配的视角——分析师、记者、倡导者或政策制定者。',
+};
+&nbsp;
 /** Table header: "Reader need" */
 export const READER_GUIDE_COL_NEED_LABELS: LanguageMap = {
   en: 'Reader need',
@@ -376,7 +445,7 @@ export const READER_GUIDE_COL_SOURCE_LABELS: LanguageMap = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-21T12:54:00.343Z
+                at 2026-05-22T14:13:29.243Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

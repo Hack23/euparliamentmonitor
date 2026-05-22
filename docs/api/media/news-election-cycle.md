@@ -6,12 +6,6 @@ on:
   schedule:
     - cron: "0 8 1 12 *"  # December 1st each year around 08:00 UTC
   workflow_dispatch:
-    inputs:
-      force_generation:
-        description: Force generation even if recent analysis exists
-        type: boolean
-        required: false
-        default: true
 
 permissions:
   contents: read
