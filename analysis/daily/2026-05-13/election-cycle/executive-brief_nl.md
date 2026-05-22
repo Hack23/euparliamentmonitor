@@ -192,7 +192,7 @@ Het EP10-mandaat opende met een centristische grote-coalitie-meerderheid van 401
 | Sociale pijler (minimumloon, platformwerkers) | 70% — richtlijnen omgezet in de meeste LS | Alleen implementatieherziening in EP11 |
 | Digitaal (DSA, DMA, AI-wet) | 80% — kaders operationeel, handhaving getest | Verfijning, geen nieuwe architectuur, in EP11 |
 
-#### Spoor A — Coalitietrajectororie (cohesiemaatstaf)
+#### Spoor A — Coalitietrajectorie (cohesiemaatstaf)
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
@@ -254,7 +254,7 @@ De **35% waarschijnlijkheid van EPP+ECR+PfE-levensvatbaarheid** is het structure
 |---|---|---|---|
 | **EU-burgers** (algemeen) | Gemengd: defensiegeruststelling, klimaatterugval | Kosten van levensonderhoud stimuleert opkomst; rechtsstaatverzwakking in 4-6 LS | Burgersregistratiecampagnes, ePolitics-platforms, narratiefcorrectie via Eurobarometer |
 | **EU-institutioneel personeel** (Commissie, EDEO, Raadssecretariaat) | Loopbaanstabiliteit, vertraagde Groene Deal | Politisering van topbenoemingen; instorting Spitzenkandidat-proces | Interne mobiliteit, A1-grade-reserves |
-| **Nationale regeringen** (27) | Asymmetrisch — winst voor Italië/Hongarije; spanning Frankrijk/Duitsland | MFF-2028 nettobetaler-revolte; cohesiecondionaliteitsconflicten | Bilaterale deals, wijzigingen aan Raadszijde |
+| **Nationale regeringen** (27) | Asymmetrisch — winst voor Italië/Hongarije; spanning Frankrijk/Duitsland | MFF-2028 nettobetaler-revolte; cohesieconditionaliteitsconflicten | Bilaterale deals, wijzigingen aan Raadszijde |
 | **Oppositiepartijen van LS** | Mobilisatie tegen heersend EU-beleid | Polarisatie versnelt; coalitie-opties vernauwen zich | Grensoverschrijdende coördinatie partijfamilies |
 | **Bedrijfsleven / industrie** (productie, energie, digitaal) | Gemengd: dereguleringsdrang, rugwind defensie-uitgaven | Regelgevingsonzekerheid; blootstelling aan handelsoorlogen | Intensivering lobbying, dual-sourcing-strategieën |
 | **Maatschappelijk middenveld / NGO's** (klimaat, mensenrechten, sociaal) | Defensieve houding, bezuinigingen | Krimpende ruimte; SLAPP-versnelling | Anti-SLAPP-richtlijn, grensoverschrijdende juridische coalities |

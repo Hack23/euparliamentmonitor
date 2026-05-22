@@ -250,7 +250,7 @@ La **probabilidad del 35% de viabilidad de EPP+ECR+PfE** es la bisagra estructur
 
 ### Tabla de cohortes de partes interesadas (análisis multi-perspectiva)
 
-| Cohorte | Resultado principal EP10 | Riesgo bajo un EP11 con giro a la derecha | Contraestategia en marcha |
+| Cohorte | Resultado principal EP10 | Riesgo bajo un EP11 con giro a la derecha | Contraestrategia en marcha |
 |---|---|---|---|
 | **Ciudadanos de la UE** (en general) | Mixto: reaseguro defensa, retroceso climático | El coste de vida impulsa la participación; erosión del Estado de derecho en 4-6 EM | Campañas de registro cívico, plataformas ePolitics, corrección narrativa vía Eurobarómetro |
 | **Personal institucional de la UE** (Comisión, SEAE, Secretaría del Consejo) | Estabilidad profesional, desaceleración del Pacto Verde | Politización de nombramientos senior; colapso del proceso Spitzenkandidat | Movilidad interna, reservas de puestos A1 |
@@ -338,7 +338,7 @@ Este bloque de extensión es consumido por `npm run generate-article` y aparece 
 
 > **Procedencia.** Segunda reejecutación del `2026-05-13` bajo el workflow unificado `news-election-cycle.md` (gh-aw v0.71.3). Este bloque extiende el artefacto con **nuevo contenido + nuevas evidencias** obtenidas de un refresco MCP fresco a 2026-05-13 16:14 UTC. Grado Almirantazgo: **B2** (fuente institucional, instantánea T+0 fresca, métricas estructurales observadas directamente).
 
-### Extensión de ré-exécution T+0 @ 2026-05-13 16:14 UTC
+### Extensión de re-ejecución T+0 @ 2026-05-13 16:14 UTC
 
 Esta **segunda reejecutación del 2026-05-13** actualiza el artefacto con una extracción MCP fresca a 2026-05-13 16:14 UTC. La llamada `early_warning_system` devolvió **stabilityScore = 84/100** con riskLevel **MEDIUM** y tres avisos estructurales. La métrica `effectiveNumberOfParties` (4,4) se expone por primera vez en esta extracción T+0 y cuantifica la fragmentación en términos Laakso-Taagepera.
 
