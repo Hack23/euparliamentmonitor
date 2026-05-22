@@ -3412,6 +3412,1612 @@ The following conclusions carry 🔴 LOW confidence:
 3. **Pre-fetch expansion**: Add `get_adopted_texts` to the pre-fetch script as a reliable
    fallback for legislative output tracking when primary feeds degrade
 
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-22 | **درجة الأدميرالية: B2** | **التصنيف:** عام
+
+---
+
+### للاتخاذ إجراء فوري
+
+**الموضوع:** المشهد التشريعي EP10 للبرلمان الأوروبي — تقييم مايو 2026
+**الفترة:** يناير–مايو 2026 | **توافر البيانات:** 🟡 متدهور (إثراء API البرلمان الأوروبي غير متاح)
+**زخم تشريعي صافٍ:** 🟢 قوي — 21 نصاً معتمداً في 4.5 أشهر، في مسار تجاوز 56+/سنة
+
+---
+
+### النتائج الرئيسية
+
+#### 1. يُشرّع EP10 بوتيرة سريعة
+
+تم اعتماد واحد وعشرين نصاً في الفترة من يناير إلى أبريل 2026، مع الدفاع/الأمن (5) والاجتماعي (3) والميزانية/المالية (3) والمؤسسي (3) والتجارة (2) والرقمي (2) بوصفها المجموعات المهيمنة. يتقدم البرلمان على المتوسطات التاريخية لفترة مماثلة في منتصف الولاية.
+
+**إشارة الإجراء:** تُتيح الأجندة التشريعية النشطة للبرلمان الأوروبي نوافذ مشاركة حساسة للوقت لأصحاب المصلحة الذين يتابعون ملفات بعينها.
+
+#### 2. الاتحاد الأوروبي-ميركوسور: تأكيد التأخير الاستراتيجي
+
+صوّت البرلمان في يناير 2026 للطلب من محكمة العدل الأوروبية إبداء رأي بشأن توافق اتفاقية الاتحاد الأوروبي-ميركوسور مع الالتزامات المناخية والبيئية للاتحاد. وهذا ثالث استخدام للمادة 218(11) من معاهدة TFUE في التاريخ التجاري للاتحاد الأوروبي وسيُؤخّر التصديق بما لا يقل عن 12–18 شهراً. التكلفة الاقتصادية: نحو 2–4 مليارات يورو/سنة من التدفقات التجارية الثنائية الضائعة.
+
+**إشارة الإجراء:** ينبغي للشركات المعرّضة لجدول التعريفات الجمركية الاتحاد الأوروبي-ميركوسور التخطيط للتصديق في أبكر الأحوال عامَي 2028–2029؛ والتحضّر لإعادة تفاوض محتملة على الفصول البيئية.
+
+#### 3. تطبيق قانون الأسواق الرقمية: البرلمان الأوروبي يصعّد الضغط
+
+يطالب قرار تطبيق DMA لأبريل 2026 المفوضية بفتح تحقيقات رسمية ضد جميع حرّاس البوابات الستة المُعيَّنين (Google وApple وMeta وAmazon وMicrosoft وBooking.com). يستعد البرلمان للتمسك بالمادة 265 من معاهدة TFUE (التقصير في الإجراء) إذا لم تُفتح التحقيقات في غضون 90 يوماً.
+
+**إشارة الإجراء:** ينبغي لفرق الامتثال DMA لدى حرّاس البوابات المعيَّنين التعامل مع هذا الأمر باعتباره موعداً نهائياً سياسياً راسخاً وليس مخططاً زمنياً طموحاً.
+
+#### 4. الأغلبية التشريعية الداعمة لأوكرانيا تبقى راسخة
+
+أكدت أربعة قرارات أمنية/سياسية خارجية اعتُمدت في أبريل 2026 — تشمل آليات المحاسبة عن الهجمات الروسية ودعم الصمود الديمقراطي لأرمينيا — أن ائتلاف EPP–S&D–Renew على ملفات أوكرانيا يظل متماسكاً. ما زال الانقسام الداخلي في PfE (RN المؤيدة لأوكرانيا مقابل موقف أوربان المناهض لها) يحول دون معارضة يمينية فعّالة للدعم الأوروبي لأوكرانيا.
+
+**إشارة الإجراء:** الدعم التشريعي لأوكرانيا متين هيكلياً طوال فترة EP10؛ لا يُتوقع تراجع برلماني في إجراءات الموافقة المرتبطة بأوكرانيا.
+
+#### 5. الائتلاف يبقى مستقراً لكنه ليس منيعاً
+
+تمتلك الأغلبية الحاكمة EPP–S&D–Renew (398/719 مقعداً) هامشاً قدره 37 مقعداً فوق عتبة الأغلبية البالغة 361. الضعف الهيكلي لـ Renew (مخاطر الانتخابات الفرنسية) وتكيّف EPP مع الضغط اليميني على ملفات الزراعة والهجرة يخلق نقاط هشاشة بعينها في التشريعات الاجتماعية والبيئية المتنازع عليها.
+
+**إشارة الإجراء:** مفاوضات ثلاثية لميزانية 2027 (سبتمبر–نوفمبر 2026) هي الاختبار الكبير التالي لتماسك الائتلاف؛ الفجوة المُقدَّرة بين البرلمان والمجلس 8–12 مليار يورو.
+
+---
+
+### الملفات الثلاثة الواجب متابعتها
+
+| الملف | الوضع | المخاطرة | الجدول الزمني |
+|-------|-------|---------|-------------|
+| الاتحاد الأوروبي-ميركوسور | طلب رأي محكمة العدل | 🔴 خطر تأخير مرتفع | التصديق 2028–2029 |
+| اليورو الرقمي | COD مرتقب | 🟡 مخاطر التصميم | اقتراح H2 2026 |
+| ميزانية 2027 | مرحلة المفاوضات الثلاثية | 🟡 مخاطر التوفيق | سبتمبر–نوفمبر 2026 |
+
+---
+
+### تحفظ استخباراتي
+
+كانت API إثراء البوابة المفتوحة لبيانات البرلمان الأوروبي غير متاحة في 22 مايو 2026 (HTTP 404 على التغذيات الرئيسية الثلاث). يستند هذا الملخص التنفيذي إلى نصوص مُعتمَدة موثَّقة (21 بنداً مؤكَّداً) وبيانات المشهد السياسي (719 عضواً / 9 مجموعات مؤكَّدة). التفاصيل على مستوى الإجراءات (الإجراءات النشطة، تعيينات المقررين، نتائج التصويت في اللجنة) غير متاحة لهذه الجلسة. **الثقة الإجمالية: 🟡 متوسطة-مرتفعة.**
+
+---
+
+### التحليل الكامل
+
+انظر مجلدَي `intelligence/` و`risk-scoring/` للاطلاع على المصنوعات التحليلية الكاملة:
+- `synthesis-summary.md` — خريطة شاملة للنشاط التشريعي
+- `stakeholder-map.md` — ملف المجموعات السياسية والجهات المؤسسية
+- `scenario-forecast.md` — 3 سيناريوهات لمسار EP10 التشريعي
+- `pestle-analysis.md` — تحليل سياسي-اقتصادي-قانوني متعدد الأبعاد
+- `risk-scoring/risk-matrix.md` — تقييم مُرتَّب وفق 6 مخاطر
+- `intelligence/wildcards-blackswans.md` — سيناريوهات المخاطر المتطرفة
+
+---
+
+### درجة الأدميرالية: B2 — التقييم العام
+
+*المصدر: تحليل منظَّم من بيانات EP Open Data المؤكَّدة (الأدميرالية B = مصدر موثوق)؛ المعلومة: على الأرجح صحيحة (B2) — الملفات التشريعية الرئيسية مؤكَّدة عبر `get_adopted_texts(year=2026)`.*
+
+### نطاقات احتمالية WEP
+
+| السؤال الرئيسي | نطاق WEP | الثقة |
+|-------------|---------|------|
+| تطبيق DMA للبرلمان يجتاز التصويت المطلوب | **شبه مؤكد** | 🟢 مرتفعة |
+| رأي محكمة العدل بشأن ميركوسور خلال 12 شهراً | **محتمل** | 🟡 متوسطة |
+| صرف قرض أوكرانيا في الربع الثالث 2026 | **شبه مؤكد** | 🟢 مرتفعة |
+| اعتماد لائحة رفاهية الحيوان في الجلسة العامة | **محتمل** | 🟡 متوسطة |
+| اعتماد مبادئ توجيهية الميزانية 2027 في الموعد المحدد | **شبه مؤكد** | 🟢 مرتفعة |
+| صمود الائتلاف الكبير طوال الولاية الكاملة | **Fifty-fifty** | 🟡 متوسطة |
+
+### توجيه القارئ
+
+يُلخّص هذا الموجز التنفيذي أبرز المستجدات التشريعية في البرلمان الأوروبي للأسبوع المنتهي في 2026-05-22. ينبغي لصانعي القرار ملاحظة:
+
+1. **الأولوية الفورية**: تطبيق DMA — التهديد بالمادة 265 من معاهدة TFUE خيار نووي كامن يمكن أن يُعيد تشكيل العلاقات بين البرلمان والمفوضية إذا فُعِّل
+2. **المراقبة الاستراتيجية**: الجدول الزمني لمحكمة العدل بشأن ميركوسور — يُرسي سابقة لجميع اتفاقيات التجارة المستقبلية ذات متطلبات الاشتراطية البيئية
+3. **المتابعة المستمرة**: توافق دعم أوكرانيا — انقسام مجموعة PfE إشارة هشاشة
+4. **الأفق الأبعد**: ميزانية 2027 — المعركة الحقيقية تبدأ حين تُقدّم المفوضية اقتراحها الرسمي (متوقع يونيو 2026)
+
+**ملاحظة جودة البيانات**: طبقة إثراء API البرلمان لم تكن متاحة (HTTP 404) خلال هذه الجلسة. جميع التقييمات مستندة إلى بيانات `get_adopted_texts(year=2026)` المؤكَّدة إضافةً إلى بيانات المشهد السياسي من `generate_political_landscape`. تعامَل مع التفاصيل الإجرائية المحددة بثقة 🟡 متوسطة.
+| الأدميرالية | B2 | مصدر موثوق؛ على الأرجح صحيح |
+
+### ملخص الاستخبارات الاستراتيجية
+
+#### مفارقة الائتلافات الثلاثة
+
+يتمتع ائتلاف EP10 الحاكم (EPP+S&D+Renew = 398/719) في آنٍ واحد بقوة كافية لإقرار التشريعات وبانقسامٍ داخلي يُنتج نتائج غير متوقعة في الملفات الرئيسية. المفارقة الاستراتيجية: Renew Europe هو العضو الأكثر وسطية في الائتلاف، لكنه أيضاً الأشد عدائية تجاه الإحالة إلى محكمة العدل بشأن ميركوسور (النزعات التجارية الليبرالية)، مما يُفضي إلى انقسام الائتلاف الحاكم فعلياً حول أحد أبرز التصرفات في السياسة الخارجية للبرلمان.
+
+#### استخبارات زمنية
+
+| المعلم | التاريخ المتوقع | نطاق WEP | الأهمية |
+|--------|--------------|---------|--------|
+| فتح الإجراءات الرسمية لـ DMA | الربع الثالث 2026 | محتمل | اختبار العلاقات بين البرلمان والمفوضية |
+| رأي المحامي العام DG في محكمة العدل بشأن ميركوسور | الربع الرابع 2026 | fifty-fifty (التوقيت) | يُشكّل السردية التجارية |
+| اقتراح الميزانية 2027 من المفوضية | يونيو 2026 | شبه مؤكد | يُشعل المعركة بين البرلمان والمجلس |
+| موقف المجلس من لائحة رفاهية الحيوان | الربع الرابع 2026 | محتمل | تبدأ المفاوضات الثلاثية الثنائية |
+| صرف شريحة الربع الثالث من قرض أوكرانيا | الربع الثالث 2026 | شبه مؤكد | مشروط بتقرير المساءلة |
+
+#### معايرة الثقة لصانعي القرار
+
+- **مؤكَّد من البيانات الحية للبرلمان الأوروبي** (🟢 ثقة عالية): اعتماد قرض أوكرانيا 2026-04-24؛ تكوين المشهد السياسي (EPP 185، S&D 136 إلخ)؛ توزيع المقاعد وإجماليات المجموعات
+- **مستنتَج من الديناميكيات السياسية** (🟡 ثقة متوسطة): معدلات تماسك الائتلاف؛ نتائج التصويت في اللجان؛ تعيينات المقررين
+- **تقديرات اقتصادية معتمدة على المعرفة** (🟡 ثقة متوسطة): معدلات نمو IMF WEO أبريل 2026؛ تقييمات الأثر الاقتصادي لـ DMA؛ توقعات تدفقات تجارة ميركوسور
+- **توقعات السيناريوهات** (🟡–🔴 ثقة متوسطة-منخفضة): توقعات الجداول الزمنية؛ احتمالات النتائج؛ سلوك الائتلاف تحت الضغط
+
+### Executive Brief Da
+
+### TIL ØJEBLIKKELIG HANDLING
+
+**Emne:** EU-Parlamentets EP10-lovgivningslandskab — vurdering maj 2026
+**Periode:** Januar–maj 2026 | **Datatilgængelighed:** 🟡 Forringet (EP API-berigelse offline)
+**Netto lovgivningsmomentum:** 🟢 STÆRKT — 21 vedtagne tekster på 4,5 måneder, på vej mod 56+/år
+
+---
+
+### Vigtigste resultater
+
+#### 1. EP10 lovgiver hurtigt
+
+Enogtyve tekster blev vedtaget i januar–april 2026 med forsvar/sikkerhed (5), sociale spørgsmål (3), budget/finans (3), institutionelle spørgsmål (3), handel (2) og digitalt (2) som dominerende klynger. Parlamentet er foran de historiske gennemsnit for en tilsvarende periode midt i mandatperioden.
+
+**Handlingssignal:** EP's aktive lovgivningspipeline skaber tidsfølsomme engagementsvinduerne for interessenter, der overvåger specifikke filer.
+
+#### 2. EU-Mercosur: Strategisk forsinkelse bekræftet
+
+Parlamentet stemte i januar 2026 for at anmode Domstolen om en udtalelse om EU-Mercosur-aftalens forenelighed med EU's klima- og miljøforpligtelser. Dette er kun den tredje brug af artikel 218(11) TEUF i EU's handelshistorie og vil forsinke ratificeringen med mindst 12–18 måneder. Økonomisk omkostning: ~2–4 milliarder euro/år i tabte bilaterale handelsstrømme.
+
+**Handlingssignal:** Virksomheder eksponeret over for EU-Mercosur-toldskemaet bør planlægge for ratificering 2028–2029 tidligst; forberede sig på mulig genforhandling af miljøkapitler.
+
+#### 3. Digital Markets Act-håndhævelse: EP eskalerer presset
+
+April 2026-DMA-håndhævelsesresolutionen kræver, at Kommissionen åbner formelle undersøgelser mod alle seks udpegede gatekeepere (Google, Apple, Meta, Amazon, Microsoft, Booking.com). Parlamentet forbereder sig på at påberåbe sig artikel 265 TEUF (undladelse af at handle), hvis undersøgelserne ikke åbnes inden for 90 dage.
+
+**Handlingssignal:** DMA-overholdelseshold hos udpegede gatekeepere bør behandle dette som en fast politisk deadline, ikke en aspirationel tidslinje.
+
+#### 4. Ukraines lovgivningsmæssige flertal forbliver solidt
+
+Fire sikkerheds-/udenrigspolitiske resolutioner vedtaget i april 2026 — herunder ansvarsmekanismer for russiske angreb og støtte til Armeniens demokratiske modstandsdygtighed — bekræfter, at EPP–S&D–Renew-koalitionen om Ukraina-filer forbliver sammenhængende. Den interne PfE-splittelse (RN pro-Ukraina vs. Orbáns anti-Ukraina) hindrer fortsat effektiv højreorienteret opposition mod europæisk Ukraine-støtte.
+
+**Handlingssignal:** Ukrainas lovgivningsstøtte er strukturelt holdbar hele EP10 igennem; forvent ikke parlamentarisk tilbagevending i Ukraine-relaterede samtykkeprocedurer.
+
+#### 5. Koalitionen forbliver stabil men ikke usårbar
+
+EPP–S&D–Renews styrende flertal (398/719 pladser) har en buffer på 37 pladser over flertalstærsklen på 361. Renews strukturelle svaghed (fransk valgrisiko) og EPP's imødekommelse af højre-pres på landbrugs- og migrationssager skaber specifikke sårbarhedspunkter i omstridte sociale og miljømæssige lovgivningsspørgsmål.
+
+**Handlingssignal:** Budget 2027-trilog (september–november 2026) er den næste betydelige koalitionsbelastningstest; EP–Råds-kløft anslået til 8–12 milliarder euro.
+
+---
+
+### De tre filer, der bør overvåges
+
+| Fil | Status | Risiko | Tidslinje |
+|-----|--------|--------|-----------|
+| EU-Mercosur | ECJ-udtalelsesanmodning | 🔴 HØJ forsinkelsesrisiko | Ratificering 2028–2029 |
+| Digital euro | Forventet COD | 🟡 Designrisiko | H2 2026 forslag |
+| Budget 2027 | Trilogfase | 🟡 Forligsrisiko | September–november 2026 |
+
+---
+
+### Efterretningscaveat
+
+EP's Open Data Portal-berigelsesAPI var utilgængeligt den 22. maj 2026 (HTTP 404 på alle tre primære feeds). Denne ledelsebriefing er baseret på verificerede vedtagne tekster (21 punkter bekræftet) og politiske landskabsdata (719 MEP'er / 9 grupper bekræftet). Procedurniveaudetaljer (aktive procedurer, ordførerudnævnelser, udvalgsafstemningsresultater) er ikke tilgængelige for denne kørsel. **Samlet troværdighed: 🟡 MIDDEL-HØJ.**
+
+---
+
+### Fuld analyse
+
+Se `intelligence/` og `risk-scoring/` katalogerne for komplette analytiske artefakter:
+- `synthesis-summary.md` — fuldstændig lovgivningsaktivitetskort
+- `stakeholder-map.md` — politisk gruppe- og institutionel aktørprofil
+- `scenario-forecast.md` — 3 scenarier for EP10's lovgivningsbane
+- `pestle-analysis.md` — tværdimensionel politisk-økonomisk-juridisk analyse
+- `risk-scoring/risk-matrix.md` — 6-risikoprioritetsvurdering
+- `intelligence/wildcards-blackswans.md` — halerisikoscenarier
+
+---
+
+### Admiralitetsvurdering: B2 — Samlet vurdering
+
+*Kilde: struktureret analyse fra bekræftet EP Open Data (Admiralitet B = pålidelig kilde); Information: sandsynligvis sand (B2) — vigtige lovgivningsfiler bekræftet via `get_adopted_texts(year=2026)`.*
+
+### WEP-sandsynlighedsbånd
+
+| Nøglespørgsmål | WEP-bånd | Troværdighed |
+|--------------|---------|------------|
+| EP DMA-håndhævelse vedtager nødvendig afstemning | **Næsten sikkert** | 🟢 HØJ |
+| ECJ Mercosur-udtalelse inden for 12 måneder | **Sandsynligt** | 🟡 MIDDEL |
+| Ukraine-lån udbetalt Q3 2026 | **Næsten sikkert** | 🟢 HØJ |
+| Animal Welfare Reg vedtaget i plenum | **Sandsynligt** | 🟡 MIDDEL |
+| Budget 2027-retningslinjer vedtaget efter tidsplan | **Næsten sikkert** | 🟢 HØJ |
+| Storkoalitionen overlever fuld mandatperiode | **Fifty-fifty** | 🟡 MIDDEL |
+
+### Læserbriefing
+
+Denne ledelsebriefing opsummerer de vigtigste lovgivningsmæssige udviklinger i Europa-Parlamentet for ugen, der sluttede 2026-05-22. Beslutningstagere bør bemærke:
+
+1. **Umiddelbar prioritet**: DMA-håndhævelse — artikel 265 TEUF-truslen er en latent atomoption, der kan omforme EP–Kommissionsrelationerne, hvis den aktiveres
+2. **Strategisk overvågning**: Mercosur ECJ-tidslinje — sætter præcedens for alle fremtidige handelsaftaler med miljøbetingelseskrav
+3. **Løbende overvågning**: Ukraine-støttekonsensus — PfE-gruppens splittelse er et skrøbelighedssignal
+4. **Længere horisont**: Budget 2027 — den egentlige kamp begynder, når Kommissionen fremlægger sit formelle forslag (forventet juni 2026)
+
+**Datakvalitetsnote**: EP API-berigelseslaget var utilgængeligt (HTTP 404) under denne kørsel. Alle vurderinger er baseret på `get_adopted_texts(year=2026)` bekræftede data plus politiske landskabsdata fra `generate_political_landscape`. Behandl procedurespecifikke detaljer med 🟡 MIDDEL-troværdighed.
+| Admiralitet | B2 | Pålidelig kilde; sandsynligvis sand |
+
+### Strategisk efterretningsresumé
+
+#### Den tre-koalitionsparadoks
+
+EP10's styrende koalition (EPP+S&D+Renew = 398/719) er samtidig stærk nok til at vedtage lovgivning og internt splittet nok til at skabe uforudsigelige resultater om nøglefiler. Den strategiske paradoks: Renew Europa er koalitionens mest centristiske medlem, men er også den mest fjendtlige over for Mercosur ECJ-henvendelsen (handelsliberale instinkter), hvilket skaber en situation, hvor den styrende koalition er effektivt splittet om en af Parlamentets signaturudenrigspolitiske handlinger.
+
+#### Tidseftretning
+
+| Milepæl | Forventet dato | WEP-bånd | Betydning |
+|---------|--------------|---------|---------|
+| DMA formelle procedurer åbnet | Q3 2026 | Sandsynligt | Tester EP–Kommissionsrelationer |
+| ECJ Advocate General DG-udtalelse om Mercosur | Q4 2026 | Fifty-fifty (timing) | Former handelsnarrativ |
+| Kommissionens budgetforslag 2027 | Juni 2026 | Næsten sikkert | Udløser EP–Råds-kamp |
+| Animal Welfare Reg Rådsposition | Q4 2026 | Sandsynligt | Bilaterale triloger begynder |
+| Ukraine-lån Q3-tranche udbetalt | Q3 2026 | Næsten sikkert | Betinget af ansvarsrapport |
+
+#### Troværdighedskalibrering for beslutningstagere
+
+- **Bekræftet fra live EP-data** (🟢 HØJ troværdighed): Ukraine-lån vedtaget 2026-04-24; politisk landskabssammensætning (EPP 185, S&D 136 osv.); pladsfordeling og gruppertotaler
+- **Afledt af politisk dynamik** (🟡 MIDDEL troværdighed): Koalitionssammenholdningsrater; udvalgsafstemningsresultater; procedureordførerudnævnelser
+- **Vidensbaserede økonomiske skøn** (🟡 MIDDEL troværdighed): IMF WEO apr 2026 vækstrater; DMA's økonomiske konsekvensvurderinger; Mercosur-handelsstrømsestimater
+- **Scenarioforudsigelser** (🟡–🔴 MIDDEL-LAV troværdighed): Tidslinjeprognoser; resultatssandsynligheder; koalitionsadfærd under pres
+
+### Executive Brief De
+
+### ZUR SOFORTIGEN MASSNAHME
+
+**Thema:** EU-Parlaments EP10-Gesetzgebungslandschaft — Bewertung Mai 2026
+**Zeitraum:** Januar–Mai 2026 | **Datenverfügbarkeit:** 🟡 Eingeschränkt (EP API-Anreicherung offline)
+**Netto-Gesetzgebungsmomentum:** 🟢 STARK — 21 angenommene Texte in 4,5 Monaten, auf Kurs für 56+/Jahr
+
+---
+
+### Wichtigste Erkenntnisse
+
+#### 1. EP10 gesetzgebt in hohem Tempo
+
+Einundzwanzig Texte wurden in Januar–April 2026 angenommen, wobei Verteidigung/Sicherheit (5), Soziales (3), Haushalt/Finanzen (3), Institutionelles (3), Handel (2) und Digital (2) als dominierende Cluster hervorstechen. Das Parlament liegt vor den historischen Durchschnittswerten für einen vergleichbaren Zeitraum in der Mitte des Mandats.
+
+**Aktionssignal:** Die aktive Gesetzgebungspipeline des EP schafft zeitkritische Interaktionsfenster für Stakeholder, die bestimmte Dossiers verfolgen.
+
+#### 2. EU-Mercosur: Strategische Verzögerung bestätigt
+
+Das Parlament stimmte im Januar 2026 dafür, beim Gerichtshof ein Gutachten zur Vereinbarkeit des EU-Mercosur-Abkommens mit EU-Klima- und Umweltverpflichtungen einzuholen. Dies ist erst der dritte Einsatz von Artikel 218(11) AEUV in der EU-Handelsgeschichte und wird die Ratifizierung um mindestens 12–18 Monate verzögern. Wirtschaftliche Kosten: ~2–4 Milliarden Euro/Jahr an entgangenen bilateralen Handelsströmen.
+
+**Aktionssignal:** Unternehmen, die dem EU-Mercosur-Zollplan ausgesetzt sind, sollten eine Ratifizierung frühestens 2028–2029 einplanen; Vorbereitung auf mögliche Neuverhandlung von Umweltkapiteln.
+
+#### 3. Digital Markets Act-Durchsetzung: EP erhöht den Druck
+
+Die DMA-Durchsetzungsresolution vom April 2026 fordert die Kommission auf, formelle Untersuchungen gegen alle sechs designierten Gatekeeper (Google, Apple, Meta, Amazon, Microsoft, Booking.com) zu eröffnen. Das Parlament bereitet sich darauf vor, Artikel 265 AEUV (Untätigkeit) geltend zu machen, wenn die Untersuchungen nicht innerhalb von 90 Tagen eingeleitet werden.
+
+**Aktionssignal:** DMA-Compliance-Teams bei designierten Gatekeepern sollten dies als feste politische Frist behandeln, nicht als angestrebten Zeitplan.
+
+#### 4. Ukrainische Gesetzgebungsmehrheit bleibt solide
+
+Vier im April 2026 angenommene Sicherheits-/Außenpolitikresolutionen — einschließlich Rechenschaftsmechanismen für russische Angriffe und Unterstützung für Armeniens demokratische Resilienz — bestätigen, dass die EPP–S&D–Renew-Koalition zu Ukraine-Dossiers kohärent bleibt. Die interne PfE-Spaltung (RN pro-Ukraine vs. Orbáns anti-Ukraine) verhindert weiterhin effektive rechte Opposition gegen europäische Ukraine-Unterstützung.
+
+**Aktionssignal:** Ukraines Gesetzgebungsunterstützung ist strukturell dauerhaft während EP10; keine parlamentarische Umkehrung bei Ukraine-bezogenen Zustimmungsverfahren zu erwarten.
+
+#### 5. Koalition bleibt stabil, aber nicht unangreifbar
+
+EPP–S&D–Renews regierende Mehrheit (398/719 Sitze) hat einen Puffer von 37 Sitzen über dem Mehrheitsschwellenwert von 361. Renews strukturelle Schwäche (französisches Wahlrisiko) und EPPs Anpassung an Rechtsdruck bei Agrar- und Migrationsdossiers schafft spezifische Schwachstellen bei umstrittenen sozialen und Umweltgesetzgebungsthemen.
+
+**Aktionssignal:** Budget-2027-Trilog (September–November 2026) ist der nächste bedeutende Koalitionsstresstest; EP–Rats-Lücke auf 8–12 Milliarden Euro geschätzt.
+
+---
+
+### Die drei zu beobachtenden Dossiers
+
+| Dossier | Status | Risiko | Zeitplan |
+|---------|--------|--------|---------|
+| EU-Mercosur | EuGH-Gutachtenanfrage | 🔴 HOHES Verzögerungsrisiko | Ratifizierung 2028–2029 |
+| Digitaler Euro | Erwartetes COD | 🟡 Designrisiko | H2 2026 Vorschlag |
+| Budget 2027 | Trilogphase | 🟡 Vermittlungsrisiko | September–November 2026 |
+
+---
+
+### Geheimdienstlicher Vorbehalt
+
+Das Anreicherungs-API des EP Open Data Portals war am 22. Mai 2026 nicht verfügbar (HTTP 404 bei allen drei primären Feeds). Dieses Führungsbriefing basiert auf verifizierten angenommenen Texten (21 Punkte bestätigt) und politischen Landschaftsdaten (719 MEP / 9 Gruppen bestätigt). Verfahrensebenen-Details (aktive Verfahren, Berichterstatterzuweisungen, Ausschussabstimmungsergebnisse) sind für diesen Lauf nicht verfügbar. **Gesamtvertrauenswürdigkeit: 🟡 MITTEL-HOCH.**
+
+---
+
+### Vollständige Analyse
+
+Siehe `intelligence/`- und `risk-scoring/`-Verzeichnisse für vollständige analytische Artefakte:
+- `synthesis-summary.md` — vollständige Gesetzgebungsaktivitätskarte
+- `stakeholder-map.md` — politische Gruppen- und institutionelle Akteursprofil
+- `scenario-forecast.md` — 3 Szenarien für EP10s Gesetzgebungstrajektorie
+- `pestle-analysis.md` — mehrdimensionale politisch-ökonomisch-rechtliche Analyse
+- `risk-scoring/risk-matrix.md` — 6-Risiko-priorisierte Bewertung
+- `intelligence/wildcards-blackswans.md` — Tail-Risk-Szenarien
+
+---
+
+### Admiralitätsbewertung: B2 — Gesamtbewertung
+
+*Quelle: strukturierte Analyse aus bestätigten EP Open Data (Admiralität B = zuverlässige Quelle); Information: wahrscheinlich wahr (B2) — Schlüsselgesetzgebungsdossiers bestätigt über `get_adopted_texts(year=2026)`.*
+
+### WEP-Wahrscheinlichkeitsbänder
+
+| Schlüsselfrage | WEP-Band | Vertrauenswürdigkeit |
+|--------------|---------|-------------------|
+| EP DMA-Durchsetzung besteht erforderliche Abstimmung | **Fast sicher** | 🟢 HOCH |
+| EuGH Mercosur-Gutachten innerhalb von 12 Monaten | **Wahrscheinlich** | 🟡 MITTEL |
+| Ukrainischer Kredit ausgezahlt Q3 2026 | **Fast sicher** | 🟢 HOCH |
+| Animal Welfare Reg im Plenum angenommen | **Wahrscheinlich** | 🟡 MITTEL |
+| Budget-2027-Leitlinien plangemäß angenommen | **Fast sicher** | 🟢 HOCH |
+| Große Koalition überlebt volle Amtszeit | **Fifty-fifty** | 🟡 MITTEL |
+
+### Leserbriefing
+
+Dieses Führungsbriefing fasst die wichtigsten Gesetzgebungsentwicklungen im Europäischen Parlament für die Woche mit Ende 2026-05-22 zusammen. Entscheidungsträger sollten beachten:
+
+1. **Unmittelbare Priorität**: DMA-Durchsetzung — die Artikel-265-AEUV-Drohung ist eine latente nukleare Option, die EP–Kommissions-Beziehungen umgestalten könnte, wenn sie aktiviert wird
+2. **Strategische Beobachtung**: Mercosur-EuGH-Zeitplan — schafft Präzedenz für alle zukünftigen Handelsabkommen mit Umweltauflageanforderungen
+3. **Laufende Überwachung**: Ukraine-Unterstützungskonsens — PfE-Gruppenspaltung ist ein Fragilitätssignal
+4. **Längerer Horizont**: Budget 2027 — der eigentliche Kampf beginnt, wenn die Kommission ihren formellen Vorschlag einreicht (erwartet Juni 2026)
+
+**Datenqualitätshinweis**: EP API-Anreicherungsschicht war nicht verfügbar (HTTP 404) während dieses Laufs. Alle Bewertungen basieren auf `get_adopted_texts(year=2026)` bestätigten Daten plus politischen Landschaftsdaten aus `generate_political_landscape`. Verfahrensspezifische Details mit 🟡 MITTEL-Vertrauenswürdigkeit behandeln.
+| Admiralität | B2 | Zuverlässige Quelle; wahrscheinlich wahr |
+
+### Strategische Geheimdienstzusammenfassung
+
+#### Das Drei-Koalitions-Paradoxon
+
+EP10s regierende Koalition (EPP+S&D+Renew = 398/719) ist gleichzeitig stark genug, um Gesetze zu verabschieden, und intern genug gespalten, um unvorhersehbare Ergebnisse bei Schlüsseldossiers zu erzeugen. Das strategische Paradoxon: Renew Europa ist das zentriste Mitglied der Koalition, aber auch das feindseligste gegenüber der Mercosur-EuGH-Überweisung (handelsliberale Instinkte), was eine Situation schafft, in der die regierende Koalition bei einer der signaturmäßigen außenpolitischen Handlungen des Parlaments faktisch gespalten ist.
+
+#### Zeitliche Geheimdienstinformationen
+
+| Meilenstein | Erwartetes Datum | WEP-Band | Bedeutung |
+|------------|----------------|---------|---------|
+| DMA formelle Verfahren eröffnet | Q3 2026 | Wahrscheinlich | Testet EP–Kommissions-Beziehungen |
+| EuGH Generalanwalt DG-Gutachten zu Mercosur | Q4 2026 | Fifty-fifty (Zeitpunkt) | Formt Handelsnarrativ |
+| Kommissions-Haushaltsentwurf 2027 | Juni 2026 | Fast sicher | Löst EP–Rats-Kampf aus |
+| Animal Welfare Reg Ratsposition | Q4 2026 | Wahrscheinlich | Bilaterale Triloge beginnen |
+| Ukrainischer Kredit Q3-Tranche ausgezahlt | Q3 2026 | Fast sicher | Abhängig von Rechenschaftsbericht |
+
+#### Vertrauenswürdigkeitskalibrierung für Entscheidungsträger
+
+- **Bestätigt aus Live-EP-Daten** (🟢 HOHE Vertrauenswürdigkeit): Ukrainischer Kredit angenommen 2026-04-24; politische Landschaftszusammensetzung (EPP 185, S&D 136 usw.); Sitzverteilung und Gruppengesamtzahlen
+- **Abgeleitet aus politischer Dynamik** (🟡 MITTLERE Vertrauenswürdigkeit): Koalitionskohäsionsraten; Ausschussabstimmungsergebnisse; Verfahrensberichterstatterzuweisungen
+- **Wissensbasierte wirtschaftliche Schätzungen** (🟡 MITTLERE Vertrauenswürdigkeit): IMF WEO Apr 2026 Wachstumsraten; DMA-Folgenabschätzungen; Mercosur-Handelsströmsprognosen
+- **Szenarioprognosen** (🟡–🔴 MITTEL-NIEDRIGE Vertrauenswürdigkeit): Zeitlinienprognosen; Ergebniswahrscheinlichkeiten; Koalitionsverhalten unter Stress
+
+### Executive Brief Es
+
+### PARA ACCIÓN INMEDIATA
+
+**Asunto:** Panorama legislativo EP10 del Parlamento Europeo — Evaluación mayo 2026
+**Período:** Enero–mayo 2026 | **Disponibilidad de datos:** 🟡 Degradada (enriquecimiento API PE sin conexión)
+**Impulso legislativo neto:** 🟢 FUERTE — 21 textos adoptados en 4,5 meses, en camino hacia 56+/año
+
+---
+
+### Principales conclusiones
+
+#### 1. El EP10 legisla a ritmo acelerado
+
+Veintiún textos fueron adoptados en enero–abril de 2026, con defensa/seguridad (5), social (3), presupuesto/finanzas (3), institucional (3), comercio (2) y digital (2) como grupos dominantes. El Parlamento supera las medias históricas para un período equivalente a mediados del mandato.
+
+**Señal de acción:** La activa cartera legislativa del PE crea ventanas de participación sensibles al tiempo para las partes interesadas que siguen archivos específicos.
+
+#### 2. UE-Mercosur: Retraso estratégico confirmado
+
+El Parlamento votó en enero de 2026 para solicitar un dictamen del Tribunal de Justicia sobre la compatibilidad del acuerdo UE-Mercosur con las obligaciones climáticas y medioambientales de la UE. Es solo el tercer uso del artículo 218(11) TFUE en la historia comercial de la UE y retrasará la ratificación al menos 12–18 meses. Coste económico: ~2–4 mil millones de euros/año en flujos comerciales bilaterales no realizados.
+
+**Señal de acción:** Las empresas expuestas al calendario arancelario UE-Mercosur deberían planificar para la ratificación en 2028–2029 como muy pronto; prepararse para una posible renegociación de los capítulos medioambientales.
+
+#### 3. Aplicación de la Ley de Mercados Digitales: el PE eleva la presión
+
+La resolución sobre la aplicación de la DMA de abril de 2026 exige que la Comisión abra investigaciones formales contra los seis porteros designados (Google, Apple, Meta, Amazon, Microsoft, Booking.com). El Parlamento se prepara para invocar el artículo 265 TFUE (omisión de actuación) si las investigaciones no se abren en un plazo de 90 días.
+
+**Señal de acción:** Los equipos de cumplimiento DMA de los porteros designados deben tratar esto como un plazo político firme, no como un calendario aspiracional.
+
+#### 4. La mayoría legislativa para Ucrania sigue siendo sólida
+
+Cuatro resoluciones de seguridad/política exterior adoptadas en abril de 2026 — incluidos mecanismos de responsabilidad por los ataques rusos y apoyo a la resiliencia democrática de Armenia — confirman que la coalición EPP–S&D–Renew sobre los archivos de Ucrania sigue siendo cohesiva. La escisión interna del PfE (RN pro-Ucrania frente al anti-Ucrania de Orbán) continúa impidiendo una oposición de derecha efectiva al apoyo europeo a Ucrania.
+
+**Señal de acción:** El apoyo legislativo a Ucrania es estructuralmente duradero durante toda la EP10; no anticipar una reversión parlamentaria en los procedimientos de consentimiento relacionados con Ucrania.
+
+#### 5. La coalición se mantiene estable pero no invulnerable
+
+La mayoría gobernante EPP–S&D–Renew (398/719 escaños) tiene un margen de 37 escaños por encima del umbral de mayoría de 361. La debilidad estructural de Renew (riesgo electoral francés) y la acomodación del EPP a la presión derechista en los archivos agrícolas y migratorios crea puntos de vulnerabilidad específicos en legislación social y ambiental controvertida.
+
+**Señal de acción:** El triálogo del presupuesto 2027 (septiembre–noviembre de 2026) es el próximo gran test de resistencia de la coalición; la brecha PE–Consejo se estima en 8–12 mil millones de euros.
+
+---
+
+### Los tres archivos a vigilar
+
+| Archivo | Estado | Riesgo | Calendario |
+|---------|--------|--------|-----------|
+| UE-Mercosur | Solicitud de dictamen TJE | 🔴 ALTO riesgo de retraso | Ratificación 2028–2029 |
+| Euro digital | COD anticipado | 🟡 Riesgo de diseño | Propuesta H2 2026 |
+| Presupuesto 2027 | Fase de triálogo | 🟡 Riesgo de conciliación | Septiembre–noviembre 2026 |
+
+---
+
+### Reserva de inteligencia
+
+La API de enriquecimiento del portal de datos abiertos del PE no estuvo disponible el 22 de mayo de 2026 (HTTP 404 en los tres flujos primarios). Este resumen ejecutivo se basa en textos adoptados verificados (21 elementos confirmados) y datos del panorama político (719 eurodiputados / 9 grupos confirmados). Los detalles a nivel de procedimiento (procedimientos activos, asignaciones de ponentes, resultados de votaciones en comisión) no están disponibles para esta ejecución. **Confianza general: 🟡 MEDIO-ALTA.**
+
+---
+
+### Análisis completo
+
+Véanse los directorios `intelligence/` y `risk-scoring/` para los artefactos analíticos completos:
+- `synthesis-summary.md` — mapa completo de la actividad legislativa
+- `stakeholder-map.md` — perfil de los grupos políticos y actores institucionales
+- `scenario-forecast.md` — 3 escenarios para la trayectoria legislativa del EP10
+- `pestle-analysis.md` — análisis político-económico-jurídico multidimensional
+- `risk-scoring/risk-matrix.md` — evaluación priorizada de 6 riesgos
+- `intelligence/wildcards-blackswans.md` — escenarios de riesgo extremo
+
+---
+
+### Calificación de Almirantazgo: B2 — Evaluación global
+
+*Fuente: análisis estructurado de datos confirmados del PE Open Data (Almirantazgo B = fuente fiable); Información: probablemente cierta (B2) — archivos legislativos clave confirmados mediante `get_adopted_texts(year=2026)`.*
+
+### Bandas de probabilidad WEP
+
+| Pregunta clave | Banda WEP | Confianza |
+|-------------|---------|---------|
+| Aplicación DMA del PE supera la votación requerida | **Casi seguro** | 🟢 ALTA |
+| Dictamen del TJE sobre Mercosur en 12 meses | **Probable** | 🟡 MEDIA |
+| Tramo préstamo ucraniano desembolsado T3 2026 | **Casi seguro** | 🟢 ALTA |
+| Reglamento bienestar animal adoptado en sesión plenaria | **Probable** | 🟡 MEDIA |
+| Directrices presupuesto 2027 adoptadas según lo previsto | **Casi seguro** | 🟢 ALTA |
+| La gran coalición sobrevive el mandato completo | **Fifty-fifty** | 🟡 MEDIA |
+
+### Nota para los lectores
+
+Este resumen ejecutivo resume los principales desarrollos legislativos en el Parlamento Europeo para la semana que finalizó el 2026-05-22. Los responsables de la toma de decisiones deben tener en cuenta:
+
+1. **Prioridad inmediata**: Aplicación DMA — la amenaza del artículo 265 TFUE es una opción nuclear latente que podría remodelar las relaciones PE–Comisión si se activa
+2. **Vigilancia estratégica**: Cronograma TJE Mercosur — sienta precedente para todos los futuros acuerdos comerciales con requisitos de condicionalidad ambiental
+3. **Seguimiento continuo**: Consenso de apoyo a Ucrania — la división del grupo PfE es una señal de fragilidad
+4. **Horizonte más largo**: Presupuesto 2027 — la verdadera batalla comienza cuando la Comisión presenta su propuesta formal (prevista para junio de 2026)
+
+**Nota sobre la calidad de los datos**: La capa de enriquecimiento de la API del PE no estuvo disponible (HTTP 404) durante esta ejecución. Todas las evaluaciones se basan en los datos confirmados de `get_adopted_texts(year=2026)` más los datos del panorama político de `generate_political_landscape`. Tratar los detalles específicos de procedimiento con confianza 🟡 MEDIA.
+| Almirantazgo | B2 | Fuente fiable; probablemente cierto |
+
+### Síntesis de inteligencia estratégica
+
+#### La paradoja de las tres coaliciones
+
+La coalición gobernante del EP10 (EPP+S&D+Renew = 398/719) es simultáneamente lo suficientemente fuerte para aprobar legislación e internamente lo suficientemente dividida como para generar resultados impredecibles en archivos clave. La paradoja estratégica: Renew Europa es el miembro más centrista de la coalición, pero también el más hostil a la remisión Mercosur al TJE (instintos comerciales liberales), creando una situación en la que la coalición gobernante está efectivamente dividida sobre uno de los actos de política exterior insignia del Parlamento.
+
+#### Inteligencia cronológica
+
+| Hito | Fecha prevista | Banda WEP | Importancia |
+|------|--------------|---------|-----------|
+| Procedimientos formales DMA abiertos | T3 2026 | Probable | Prueba las relaciones PE–Comisión |
+| Dictamen del Abogado General del TJE sobre Mercosur | T4 2026 | Fifty-fifty (calendario) | Da forma al relato comercial |
+| Propuesta de presupuesto 2027 de la Comisión | Junio 2026 | Casi seguro | Desencadena la batalla PE–Consejo |
+| Posición del Consejo sobre el reglamento bienestar animal | T4 2026 | Probable | Comienzan los triálogos bilaterales |
+| Tramo T3 del préstamo ucraniano desembolsado | T3 2026 | Casi seguro | Condicionado al informe de rendición de cuentas |
+
+#### Calibración de la confianza para los responsables de la toma de decisiones
+
+- **Confirmado a partir de datos del PE en vivo** (🟢 ALTA confianza): Préstamo ucraniano adoptado 2026-04-24; composición del panorama político (EPP 185, S&D 136, etc.); distribución de escaños y totales de grupos
+- **Inferido de la dinámica política** (🟡 CONFIANZA MEDIA): Tasas de cohesión de la coalición; resultados de votaciones en comisión; asignaciones de ponentes
+- **Estimaciones económicas basadas en conocimiento** (🟡 CONFIANZA MEDIA): Tasas de crecimiento IMF WEO abr. 2026; evaluaciones de impacto económico DMA; proyecciones de flujos comerciales Mercosur
+- **Previsiones de escenarios** (🟡–🔴 MEDIO-BAJA confianza): Predicciones de cronograma; probabilidades de resultados; comportamiento de la coalición bajo presión
+
+### Executive Brief Fi
+
+### VÄLITTÖMÄT TOIMENPITEET
+
+**Asia:** EU-parlamentin EP10-lainsäädäntökenttä — arviointi toukokuu 2026
+**Ajanjakso:** Tammikuu–toukokuu 2026 | **Tietojen saatavuus:** 🟡 Heikentynyt (EP API-rikastus offline)
+**Netto lainsäädäntövauhti:** 🟢 VAHVA — 21 hyväksyttyä tekstiä 4,5 kuukaudessa, matkalla 56+/vuosi
+
+---
+
+### Tärkeimmät havainnot
+
+#### 1. EP10 säätää nopeassa tahdissa
+
+Kaksikymmentäyksi tekstiä hyväksyttiin tammikuu–huhtikuu 2026 välillä, joista hallitsevina klustereina puolustus/turvallisuus (5), sosiaaliset asiat (3), budjetti/rahoitus (3), institutionaaliset asiat (3), kauppa (2) ja digitaaliset asiat (2). Parlamentti on edellä historiallisia keskiarvoja vastaavaa toimikauden puolivälin jaksoa varten.
+
+**Toimintasignaali:** EP:n aktiivinen lainsäädäntöputki luo aikaherkkiä sitoutumisikkunoita sidosryhmille, jotka seuraavat tiettyjä asioita.
+
+#### 2. EU-Mercosur: Strateginen viivästys vahvistettu
+
+Parlamentti äänesti tammikuussa 2026 pyytääkseen EU-tuomioistuimelta lausunnon EU-Mercosur-sopimuksen yhteensopivuudesta EU:n ilmasto- ja ympäristövelvoitteiden kanssa. Tämä on vain kolmas kerta, kun SEUT 218(11) artiklaa on käytetty EU:n kauppahistoriassa, ja se viivästyttää ratifiointia vähintään 12–18 kuukaudella. Taloudellinen kustannus: ~2–4 miljardia euroa/vuosi menetetyissä kahdenvälissä kauppavirroissa.
+
+**Toimintasignaali:** EU-Mercosur-tulliohjelmalle altistuvien yritysten tulee suunnitella ratifiointi aikaisintaan vuosiksi 2028–2029; valmistautua ympäristölukujen mahdolliseen uudelleenneuvotteluun.
+
+#### 3. Digitaalisten markkinoiden asetuksen täytäntöönpano: EP eskaloi painetta
+
+Huhtikuun 2026 DMA-täytäntöönpanopäätöslauselma vaatii komissiota avaamaan muodolliset tutkimukset kaikkia kuutta nimettyä portinvartijaa vastaan (Google, Apple, Meta, Amazon, Microsoft, Booking.com). Parlamentti valmistautuu vetoamaan SEUT 265 artiklaan (toimimattomuus), jos tutkimuksia ei avata 90 päivän kuluessa.
+
+**Toimintasignaali:** Nimettyjen portinvartijoiden DMA-vaatimustenmukaisuustiimien tulee pitää tätä kiinteänä poliittisena määräaikana, ei tavoitteellisena aikatauluna.
+
+#### 4. Ukrainan lainsäädäntöenemmistö pysyy vahvana
+
+Neljä huhtikuussa 2026 hyväksyttyä turvallisuus-/ulkopolitiikan päätöslauselmaa — mukaan lukien vastuumekanismit Venäjän hyökkäyksille ja tuki Armenian demokraattiselle selviytymiskyvylle — vahvistavat, että EPP–S&D–Renew-koalitio Ukraina-asioissa pysyy yhtenäisenä. PfE:n sisäinen jakauma (RN Ukraina-myönteinen vs. Orbánin Ukraina-vastainen) estää edelleen tehokkaan oikeiston opposition eurooppalaiselle Ukraina-tuelle.
+
+**Toimintasignaali:** Ukrainan lainsäädäntötuki on rakenteellisesti kestävä koko EP10:n ajan; älä odota parlamentaarista peruutusta Ukrainaan liittyvissä suostumusmenettelyissä.
+
+#### 5. Koalitio pysyy vakaana mutta ei haavoittumattomana
+
+EPP–S&D–Renew:n hallitseva enemmistö (398/719 paikkaa) on 37 paikan puskuri enemmistökynnyksen 361 yläpuolella. Renew:n rakenteellinen heikkous (Ranskan vaaliski) ja EPP:n mukautuminen oikeiston paineeseen maatalous- ja maahanmuuttoasioissa luo tiettyjä haavoittuvuuspisteitä kiistanalaisessa sosiaali- ja ympäristölainsäädännössä.
+
+**Toimintasignaali:** Budjetti 2027 -trilogi (syyskuu–marraskuu 2026) on seuraava merkittävä koalition stressitesti; EP–neuvoston kuilu arvioidaan 8–12 miljardiksi euroksi.
+
+---
+
+### Kolme seurattavaa asiakirjaa
+
+| Asiakirja | Tila | Riski | Aikataulu |
+|-----------|------|-------|-----------|
+| EU-Mercosur | EUT-lausuntopyyntö | 🔴 KORKEA viivästysriski | Ratifiointi 2028–2029 |
+| Digitaalinen euro | Odotettavissa COD | 🟡 Suunnitteliriski | H2 2026 ehdotus |
+| Budjetti 2027 | Trilogifaasi | 🟡 Sovitteliriski | Syyskuu–marraskuu 2026 |
+
+---
+
+### Tiedusteluvaraus
+
+EP:n avoimen tietoportaalin rikastus-API oli poissa käytöstä 22.5.2026 (HTTP 404 kaikilla kolmella ensisijaisella syötteellä). Tämä johdon tiivistelmä perustuu varmennettuihin hyväksyttyihin teksteihin (21 kohdetta vahvistettu) ja poliittisen maiseman dataan (719 EP-jäsentä / 9 ryhmää vahvistettu). Menettelytason yksityiskohdat (aktiiviset menettelyt, esittelijänimitykset, valiokunnan äänestystulokset) eivät ole saatavilla tätä ajoa varten. **Kokonaisluotettavuus: 🟡 KESKITASO-KORKEA.**
+
+---
+
+### Täydellinen analyysi
+
+Katso `intelligence/`- ja `risk-scoring/`-hakemistoista täydelliset analyyttiset tuotokset:
+- `synthesis-summary.md` — täydellinen lainsäädäntötoiminnan kartta
+- `stakeholder-map.md` — poliittinen ryhmä- ja institutionaalinen toimijoprofiili
+- `scenario-forecast.md` — 3 skenaariota EP10:n lainsäädäntöuralle
+- `pestle-analysis.md` — monidimensionaalinen poliittis-taloudellis-oikeudellinen analyysi
+- `risk-scoring/risk-matrix.md` — 6-riskipriorisoitu arviointi
+- `intelligence/wildcards-blackswans.md` — häntäriskin skenaariot
+
+---
+
+### Admiraliteettiluokitus: B2 — Kokonaisarviointi
+
+*Lähde: jäsennelty analyysi vahvistetusta EP Open Data -datasta (Admiraliteetti B = luotettava lähde); Tieto: todennäköisesti totta (B2) — tärkeimmät lainsäädäntöasiakirjat vahvistettu via `get_adopted_texts(year=2026)`.*
+
+### WEP-todennäköisyyskaistat
+
+| Avainkysymys | WEP-kaista | Luotettavuus |
+|------------|---------|------------|
+| EP DMA-täytäntöönpano läpäisee tarvittavan äänestyksen | **Lähes varmaa** | 🟢 KORKEA |
+| EUT Mercosur-lausunto 12 kuukauden kuluessa | **Todennäköistä** | 🟡 KESKI |
+| Ukrainan laina maksettu Q3 2026 | **Lähes varmaa** | 🟢 KORKEA |
+| Animal Welfare Reg hyväksytty täysistunnossa | **Todennäköistä** | 🟡 KESKI |
+| Budjetti 2027 -suuntaviivat hyväksytty aikataulussa | **Lähes varmaa** | 🟢 KORKEA |
+| Suurkoalitio selviää koko toimikaudesta | **Tasan tasan** | 🟡 KESKI |
+
+### Lukijakatsaus
+
+Tämä johdon tiivistelmä kokoaa Euroopan parlamentin tärkeimmät lainsäädäntökehitykset 2026-05-22 päättyneellä viikolla. Päättäjien tulee huomioida:
+
+1. **Välitön prioriteetti**: DMA-täytäntöönpano — SEUT 265 artiklan uhka on piilevä ydinase, joka voi muokata EP–komission suhteita, jos se aktivoidaan
+2. **Strateginen seuranta**: Mercosur EUT-aikataulu — asettaa ennakkotapauksen kaikille tuleville kauppasopimuksille, joissa on ympäristöehtoja
+3. **Jatkuva seuranta**: Ukrainan tuen konsensus — PfE-ryhmän jakautuminen on haurauden signaali
+4. **Pidemmän aikavälin horisontti**: Budjetti 2027 — todellinen taistelu alkaa, kun komissio toimittaa virallisen ehdotuksensa (odotettavissa kesäkuuta 2026)
+
+**Datalaatumerkintä**: EP API-rikastuskerros ei ollut käytettävissä (HTTP 404) tämän ajon aikana. Kaikki arvioinnit perustuvat `get_adopted_texts(year=2026)` vahvistettuun dataan sekä `generate_political_landscape`-toiminnon poliittisen maiseman dataan. Käsittele menettelykohtaisia yksityiskohtia 🟡 KESKI-luotettavuustasolla.
+| Admiraliteetti | B2 | Luotettava lähde; todennäköisesti totta |
+
+### Strateginen tiedusteluyhteenveto
+
+#### Kolmen koalition paradoksi
+
+EP10:n hallitseva koalitio (EPP+S&D+Renew = 398/719) on samanaikaisesti riittävän vahva hyväksymään lainsäädäntöä ja sisäisesti riittävän jakautunut luomaan ennustamattomia tuloksia avaintiedostoissa. Strateginen paradoksi: Renew Europa on koalition sentristisin jäsen, mutta myös vihamielisin Mercosur EUT-lähettämiselle (kauppamyönteiset vaistot), mikä luo tilanteen, jossa hallitseva koalitio on tosiasiallisesti jakautunut yhdessä parlamentin tunnusomaisista ulkopoliittisista toimista.
+
+#### Aikataulu-tiedustelu
+
+| Virstanpylväs | Odotettavissa | WEP-kaista | Merkitys |
+|-------------|-------------|---------|---------|
+| DMA:n muodolliset menettelyt avattu | Q3 2026 | Todennäköistä | Testaa EP–komission suhteita |
+| EUT:n asianajaja DG:n lausunto Mercosurista | Q4 2026 | Tasan tasan (ajoitus) | Muokkaa kauppanarratiivia |
+| Komission budjettiehdotus 2027 | Kesäkuu 2026 | Lähes varmaa | Laukaisee EP–neuvostotaistelun |
+| Animal Welfare Reg:n neuvostokanta | Q4 2026 | Todennäköistä | Kahdenväliset trilogit alkavat |
+| Ukrainan lainan Q3-erä maksettu | Q3 2026 | Lähes varmaa | Ehdollinen vastuuraportille |
+
+#### Luotettavuuskaliberointi päättäjille
+
+- **Vahvistettu live EP-datasta** (🟢 KORKEA luotettavuus): Ukrainan laina hyväksytty 2026-04-24; poliittisen maiseman kokoonpano (EPP 185, S&D 136 jne.); paikkajakauma ja ryhmäkokonaismäärät
+- **Johdettu poliittisesta dynamiikasta** (🟡 KESKI luotettavuus): Koalitioyhteenkuuluvuusasteet; valiokunnan äänestystulokset; menettelyesittelijänitnimitykset
+- **Tietopohjaisia taloudellisia arvioita** (🟡 KESKI luotettavuus): IMF WEO huhtikuu 2026 kasvuasteet; DMA:n taloudelliset vaikutusarvioinnit; Mercosur-kauppavirtojen ennusteet
+- **Skenaarioennusteet** (🟡–🔴 KESKI-MATALA luotettavuus): Aikatauluennusteet; tulostodennäköisyydet; koalitiokäyttäytyminen stressin alla
+
+### Executive Brief Fr
+
+### POUR ACTION IMMÉDIATE
+
+**Sujet :** Paysage législatif EP10 du Parlement européen — Évaluation mai 2026
+**Période :** Janvier–mai 2026 | **Disponibilité des données :** 🟡 Dégradée (enrichissement API PE hors ligne)
+**Momentum législatif net :** 🟢 FORT — 21 textes adoptés en 4,5 mois, en passe d'atteindre 56+/an
+
+---
+
+### Conclusions principales
+
+#### 1. L'EP10 légifère à un rythme soutenu
+
+Vingt et un textes ont été adoptés en janvier–avril 2026, avec la défense/sécurité (5), le social (3), le budget/finance (3), l'institutionnel (3), le commerce (2) et le numérique (2) comme clusters dominants. Le Parlement devance les moyennes historiques pour une période équivalente en milieu de mandat.
+
+**Signal d'action :** Le pipeline législatif actif du PE crée des fenêtres d'engagement sensibles au temps pour les parties prenantes qui surveillent des dossiers spécifiques.
+
+#### 2. UE-Mercosur : Retard stratégique confirmé
+
+Le Parlement a voté en janvier 2026 pour demander un avis à la Cour de justice sur la compatibilité de l'accord UE-Mercosur avec les obligations climatiques et environnementales de l'UE. C'est seulement la troisième utilisation de l'article 218(11) TFUE dans l'histoire commerciale de l'UE et retardera la ratification d'au moins 12 à 18 mois. Coût économique : ~2–4 milliards d'euros/an en flux commerciaux bilatéraux manqués.
+
+**Signal d'action :** Les entreprises exposées au calendrier tarifaire UE-Mercosur devraient prévoir une ratification au plus tôt en 2028–2029 ; se préparer à une possible renégociation des chapitres environnementaux.
+
+#### 3. Application du Digital Markets Act : le PE intensifie la pression
+
+La résolution sur l'application du DMA d'avril 2026 exige que la Commission ouvre des enquêtes formelles contre les six contrôleurs d'accès désignés (Google, Apple, Meta, Amazon, Microsoft, Booking.com). Le Parlement se prépare à invoquer l'article 265 TFUE (manquement à agir) si les enquêtes ne sont pas ouvertes dans les 90 jours.
+
+**Signal d'action :** Les équipes de conformité DMA des contrôleurs d'accès désignés devraient traiter cela comme une échéance politique ferme, non comme un calendrier aspirationnel.
+
+#### 4. La majorité législative pour l'Ukraine reste solide
+
+Quatre résolutions sécurité/politique étrangère adoptées en avril 2026 — dont des mécanismes de responsabilité pour les attaques russes et le soutien à la résilience démocratique de l'Arménie — confirment que la coalition EPP–S&D–Renew sur les dossiers Ukraine reste cohésive. La scission interne du PfE (RN pro-Ukraine contre Orbán anti-Ukraine) continue d'empêcher une opposition de droite efficace au soutien européen à l'Ukraine.
+
+**Signal d'action :** Le soutien législatif à l'Ukraine est structurellement durable pour l'ensemble de l'EP10 ; ne pas anticiper un revirement parlementaire sur les procédures de consentement liées à l'Ukraine.
+
+#### 5. La coalition reste stable mais pas invulnérable
+
+La majorité gouvernante EPP–S&D–Renew (398/719 sièges) dispose d'un tampon de 37 sièges au-dessus du seuil de la majorité de 361. La faiblesse structurelle de Renew (risque électoral français) et l'accommodation par le PPE des pressions de droite sur les dossiers agricoles et migratoires crée des points de vulnérabilité spécifiques sur la législation sociale et environnementale contestée.
+
+**Signal d'action :** Le trilogue budget 2027 (septembre–novembre 2026) est le prochain grand test de résistance de la coalition ; l'écart PE–Conseil est estimé à 8–12 milliards d'euros.
+
+---
+
+### Les trois dossiers à surveiller
+
+| Dossier | Statut | Risque | Calendrier |
+|---------|--------|--------|-----------|
+| UE-Mercosur | Demande d'avis CJE | 🔴 RISQUE ÉLEVÉ de retard | Ratification 2028–2029 |
+| Euro numérique | COD anticipé | 🟡 Risque de conception | Proposition H2 2026 |
+| Budget 2027 | Phase de trilogue | 🟡 Risque de conciliation | Septembre–novembre 2026 |
+
+---
+
+### Réserve en matière de renseignement
+
+L'API d'enrichissement du portail de données ouvertes du PE était indisponible le 22 mai 2026 (HTTP 404 sur les trois flux primaires). Cette note d'information exécutive est basée sur des textes adoptés vérifiés (21 éléments confirmés) et des données du paysage politique (719 eurodéputés / 9 groupes confirmés). Les détails au niveau des procédures (procédures actives, attributions de rapporteurs, résultats des votes en commission) ne sont pas disponibles pour cette exécution. **Confiance globale : 🟡 MOYEN-ÉLEVÉ.**
+
+---
+
+### Analyse complète
+
+Consultez les répertoires `intelligence/` et `risk-scoring/` pour les artefacts analytiques complets :
+- `synthesis-summary.md` — cartographie complète de l'activité législative
+- `stakeholder-map.md` — profil des groupes politiques et des acteurs institutionnels
+- `scenario-forecast.md` — 3 scénarios pour la trajectoire législative de l'EP10
+- `pestle-analysis.md` — analyse politique-économique-juridique multidimensionnelle
+- `risk-scoring/risk-matrix.md` — évaluation prioritaire à 6 risques
+- `intelligence/wildcards-blackswans.md` — scénarios de risque extrême
+
+---
+
+### Cotation Amirauté : B2 — Évaluation globale
+
+*Source : analyse structurée issue des données confirmées du PE Open Data (Amirauté B = source fiable) ; Information : probablement vraie (B2) — dossiers législatifs clés confirmés via `get_adopted_texts(year=2026)`.*
+
+### Bandes de probabilité WEP
+
+| Question clé | Bande WEP | Confiance |
+|------------|---------|---------|
+| Adoption du vote requis pour l'application DMA du PE | **Presque certain** | 🟢 ÉLEVÉ |
+| Avis de la CJE sur Mercosur dans les 12 mois | **Probable** | 🟡 MOYEN |
+| Tranche prêt ukrainien décaissée T3 2026 | **Presque certain** | 🟢 ÉLEVÉ |
+| Règlement bien-être animal adopté en plénière | **Probable** | 🟡 MOYEN |
+| Lignes directrices budget 2027 adoptées dans les délais | **Presque certain** | 🟢 ÉLEVÉ |
+| La grande coalition survit au mandat complet | **Fifty-fifty** | 🟡 MOYEN |
+
+### Note destinée aux lecteurs
+
+Cette note d'information exécutive résume les principaux développements législatifs au Parlement européen pour la semaine se terminant le 2026-05-22. Les décideurs devraient noter :
+
+1. **Priorité immédiate** : Application du DMA — la menace de l'article 265 TFUE est une option nucléaire latente qui pourrait remodeler les relations PE–Commission si elle est activée
+2. **Surveillance stratégique** : Calendrier CJE Mercosur — établit un précédent pour tous les futurs accords commerciaux soumis à des exigences de conditionnalité environnementale
+3. **Surveillance continue** : Consensus sur le soutien à l'Ukraine — la scission du groupe PfE est un signal de fragilité
+4. **Horizon plus long** : Budget 2027 — la véritable bataille commence lorsque la Commission soumet sa proposition formelle (attendue juin 2026)
+
+**Note sur la qualité des données** : La couche d'enrichissement de l'API PE était indisponible (HTTP 404) lors de cette exécution. Toutes les évaluations sont basées sur les données confirmées `get_adopted_texts(year=2026)` plus les données du paysage politique de `generate_political_landscape`. Traiter les détails spécifiques aux procédures avec une confiance 🟡 MOYEN.
+| Amirauté | B2 | Source fiable ; probablement vrai |
+
+### Synthèse du renseignement stratégique
+
+#### Le paradoxe des trois coalitions
+
+La coalition gouvernante de l'EP10 (EPP+S&D+Renew = 398/719) est simultanément suffisamment forte pour adopter des lois et suffisamment divisée en interne pour créer des résultats imprévisibles sur des dossiers clés. Le paradoxe stratégique : Renew Europe est le membre le plus centriste de la coalition, mais aussi le plus hostile au renvoi Mercosur à la CJE (instincts commerciaux libéraux), créant une situation où la coalition gouvernante est effectivement divisée sur l'un des actes de politique étrangère emblématiques du Parlement.
+
+#### Renseignement chronologique
+
+| Étape clé | Date prévue | Bande WEP | Importance |
+|-----------|------------|---------|----------|
+| Procédures formelles DMA ouvertes | T3 2026 | Probable | Teste les relations PE–Commission |
+| Avis AG de la CJE sur Mercosur | T4 2026 | Fifty-fifty (calendrier) | Façonne le récit commercial |
+| Proposition de budget 2027 de la Commission | Juin 2026 | Presque certain | Déclenche la bataille PE–Conseil |
+| Position du Conseil sur le règlement bien-être animal | T4 2026 | Probable | Les trilogues bilatéraux commencent |
+| Versement T3 du prêt ukrainien | T3 2026 | Presque certain | Conditionnel au rapport de responsabilité |
+
+#### Calibration de la confiance pour les décideurs
+
+- **Confirmé à partir des données PE en direct** (🟢 HAUTE confiance) : Prêt ukrainien adopté 2026-04-24 ; composition du paysage politique (EPP 185, S&D 136, etc.) ; répartition des sièges et totaux des groupes
+- **Déduit de la dynamique politique** (🟡 CONFIANCE MOYENNE) : Taux de cohésion de la coalition ; résultats des votes en commission ; attributions de rapporteurs
+- **Estimations économiques basées sur les connaissances** (🟡 CONFIANCE MOYENNE) : Taux de croissance IMF WEO avr. 2026 ; évaluations d'impact économique du DMA ; projections des flux commerciaux Mercosur
+- **Prévisions de scénarios** (🟡–🔴 MOYEN-FAIBLE confiance) : Prévisions de calendrier ; probabilités de résultats ; comportement de la coalition sous pression
+
+### Executive Brief He
+
+**תאריך:** 2026-05-22 | **דרגת ימאות: B2** | **סיווג:** פומבי
+
+---
+
+### לפעולה מיידית
+
+**נושא:** נוף PE10 של הפרלמנט האירופי — הערכת מאי 2026
+**תקופה:** ינואר–מאי 2026 | **זמינות נתונים:** 🟡 פגועה (העשרת API של הפרלמנט האירופי אינה זמינה)
+**תנופה חקיקתית נטו:** 🟢 חזקה — 21 טקסטים אומצו ב-4.5 חודשים, בקצב שיעלה על 56+/שנה
+
+---
+
+### ממצאים עיקריים
+
+#### 1. PE10 מחוקק בקצב מהיר
+
+אחד ועשרים טקסט אומצו בין ינואר לאפריל 2026, כאשר הגנה/ביטחון (5), חברתי (3), תקציב/פיננסים (3), מוסדי (3), סחר (2) ודיגיטל (2) הם הקלאסטרים הדומיננטיים. הפרלמנט מתקדם בקצב מהיר מהממוצעים ההיסטוריים לאותה נקודת הולאי.
+
+**אות פעולה:** סדר היום החקיקתי הפעיל של הפרלמנט האירופי פותח חלונות מעורבות רגישי זמן לבעלי עניין העוקבים אחר תיקים ספציפיים.
+
+#### 2. EU-Mercosur: אישור עיכוב אסטרטגי
+
+הפרלמנט הצביע בינואר 2026 לבקש חוות דעת של בית המשפט האירופי לצדק על תאימות הסכם EU-Mercosur עם מחויבויות האקלים והסביבה של האיחוד. זהו השימוש השלישי בסעיף 218(11) TFEU בהיסטוריה המסחרית של האיחוד האירופי ויעכב את האשרור ב-12–18 חודשים לפחות. עלות כלכלית: כ-2–4 מיליארד יורו/שנה של זרימות סחר דו-צדדיות שהולכות לאיבוד.
+
+**אות פעולה:** חברות החשופות ללוח תעריפים של EU-Mercosur צריכות לתכנן לאשרור בשנים 2028–2029 במוקדם; להתכונן למשא ומתן מחדש אפשרי על פרקי הסביבה.
+
+#### 3. אכיפת חוק השווקים הדיגיטליים: הפרלמנט מגביר לחץ
+
+החלטת יישום DMA לאפריל 2026 דורשת מהנציבות לפתוח בחקירות רשמיות נגד כל שישת שומרי הסף המיועדים (Google, Apple, Meta, Amazon, Microsoft, Booking.com). הפרלמנט מכין מחאת סעיף 265 TFEU (מחדל בפעולה) אם לא ייפתחו חקירות תוך 90 יום.
+
+**אות פעולה:** צוותי ציות DMA של שומרי סף מיועדים צריכים להתייחס לכך כאל מועד אחרון פוליטי מוצק, לא לוח זמנים שאפתני.
+
+#### 4. הרוב החקיקתי התומך באוקראינה נשאר איתן
+
+ארבע החלטות ביטחוניות/מדיניות חוץ שאומצו באפריל 2026 — כולל מנגנוני אחריות על מתקפות רוסיות ותמיכה בחוסן דמוקרטי של ארמניה — אישרו שקואליציית EPP–S&D–Renew בנושאי אוקראינה נשארת מלוכדת. הפיצול הפנימי ב-PfE (RN הפרו-אוקראינית מול עמדת אורבן המתנגדת) ממשיך למנוע התנגדות יעילה מהימין לתמיכה האירופית באוקראינה.
+
+**אות פעולה:** תמיכה חקיקתית לאוקראינה מבוצרת מבנית לאורך PE10; אל לנו לצפות לסיגנל נסיגה פרלמנטרי בהליכי הסכמה הקשורים לאוקראינה.
+
+#### 5. הקואליציה נשארת יציבה אך לא חסינה
+
+לרוב השולט EPP–S&D–Renew (398/719 מושבים) יש מרווח של 37 מושבים מעל סף הרוב של 361. הפגיעות המבנית של Renew (סיכוני בחירות בצרפת) והסתגלות EPP ללחץ ימני בתיקי חקלאות/הגירה יוצרת נקודות שבריריות ספציפיות בחקיקה חברתית וסביבתית שנויה במחלוקת.
+
+**אות פעולה:** משא ומתן תלת-צדדי לתקציב 2027 (ספטמבר–נובמבר 2026) הוא המבחן הגדול הבא לאחידות הקואליציה; הפער המוערך בין הפרלמנט למועצה הוא 8–12 מיליארד יורו.
+
+---
+
+### שלושת התיקים לעקוב אחריהם
+
+| תיק | מצב | סיכון | לוח זמנים |
+|-----|------|-------|-----------|
+| EU-Mercosur | בקשת חוות דעת לבית המשפט | 🔴 סיכון עיכוב גבוה | אשרור 2028–2029 |
+| יורו דיגיטלי | COD ממתין | 🟡 סיכוני עיצוב | הצעה H2 2026 |
+| תקציב 2027 | שלב תלת-צדדי | 🟡 סיכוני פשרה | ספטמבר–נובמבר 2026 |
+
+---
+
+### הסתייגות מודיעינית
+
+ה-API להעשרת פורטל הנתונים הפתוחים של הפרלמנט האירופי לא היה זמין ב-22 במאי 2026 (HTTP 404 בשלוש עדכונות ראשיות). סיכום מנהלים זה מבוסס על טקסטים מאומצים מתועדים (21 פריטים מאושרים) ונתוני נוף פוליטי (719 חברי כנסת / 9 קבוצות מאושרות). פרטי רמת ההליך (הליכים פעילים, מינויי מדווחים, תוצאות הצבעת ועדה) אינם זמינים לסשן זה. **ביטחון כולל: 🟡 בינוני-גבוה.**
+
+---
+
+### ניתוח מלא
+
+ראו תיקיות `intelligence/` ו-`risk-scoring/` לאמנות ניתוחיות מלאות:
+- `synthesis-summary.md` — מיפוי פעילות חקיקתית כולל
+- `stakeholder-map.md` — פרופיל קבוצות פוליטיות וגופים מוסדיים
+- `scenario-forecast.md` — 3 תרחישים לנתיב החקיקתי של PE10
+- `pestle-analysis.md` — ניתוח פוליטי-כלכלי-משפטי רב-ממדי
+- `risk-scoring/risk-matrix.md` — הערכה מדורגת לפי 6 סיכונים
+- `intelligence/wildcards-blackswans.md` — תרחישי סיכון קיצוניים
+
+---
+
+### דרגת ימאות: B2 — הערכה כוללת
+
+*מקור: ניתוח מובנה מנתוני EP Open Data מאושרים (ימאות B = מקור אמין); מידע: ככל הנראה מדויק (B2) — תיקי חקיקה מרכזיים מאושרים דרך `get_adopted_texts(year=2026)`.*
+
+### פסי הסתברות WEP
+
+| שאלה מרכזית | טווח WEP | ביטחון |
+|------------|---------|-------|
+| DMA enforcement של הפרלמנט עובר הצבעה נדרשת | **כמעט ודאי** | 🟢 גבוה |
+| חוות דעת בית המשפט לצדק על Mercosur בתוך 12 חודש | **סביר** | 🟡 בינוני |
+| הסבת הלוואת אוקראינה Q3 2026 | **כמעט ודאי** | 🟢 גבוה |
+| אימוץ תקנת רווחת בעלי חיים במליאה | **סביר** | 🟡 בינוני |
+| אימוץ הנחיות תקציב 2027 בזמן | **כמעט ודאי** | 🟢 גבוה |
+| קואליציה גדולה מחזיקה לאורך כל הכהונה | **חמישים-חמישים** | 🟡 בינוני |
+
+### הנחיית קורא
+
+סיכום מנהלים זה מסכם את ההתפתחויות החקיקתיות הבולטות בפרלמנט האירופי לשבוע המסתיים ב-2026-05-22. מקבלי החלטות צריכים לשים לב:
+
+1. **עדיפות מיידית**: אכיפת DMA — איום סעיף 265 TFEU הוא כלי נשק גרעיני סמוי שיכול לעצב מחדש את יחסי הפרלמנט–נציבות אם יופעל
+2. **מעקב אסטרטגי**: לוח הזמנים של בית המשפט לצדק על Mercosur — מתקין תקדים לכל הסכמות הסחר העתידיות עם דרישות תנאיות סביבתיות
+3. **ניטור שוטף**: תפארת תמיכת אוקראינה — פיצול קבוצת PfE הוא אות שבריריות
+4. **אופק ארוך יותר**: תקציב 2027 — הקרב האמיתי מתחיל כשהנציבות מגישה הצעתה הרשמית (צפוי יוני 2026)
+
+**הערת איכות נתונים**: שכבת העשרת ה-API של הפרלמנט לא הייתה זמינה (HTTP 404) במהלך סשן זה. כל ההערכות מבוססות על נתוני `get_adopted_texts(year=2026)` מאושרים ונתוני נוף פוליטי מ-`generate_political_landscape`. יש להתייחס לפרטים הליכיים ספציפיים עם ביטחון 🟡 בינוני.
+| ימאות | B2 | מקור אמין; ככל הנראה מדויק |
+
+### סיכום מודיעין אסטרטגי
+
+#### פרדוקס הקואליציות השלוש
+
+הקואליציה השולטת ב-PE10 (EPP+S&D+Renew = 398/719) היא בו-זמנית חזקה מספיק לחקיקה ומפוצלת פנימית ייצור תוצאות מפתיעות בתיקים מרכזיים. הפרדוקס האסטרטגי: Renew Europe היא החברה המרכזית ביותר בקואליציה אך גם הכי נוגדת את ההפניה לבית המשפט לצדק על Mercosur (נטיות ליברליות-מסחריות), מה שמוביל לכך שקואליציית הממשל בפועל התפצלה על אחד ממעשי המדיניות החיצונית הבולטים ביותר של הפרלמנט.
+
+#### מודיעין תזמון
+
+| ציון דרך | תאריך צפוי | טווח WEP | חשיבות |
+|---------|------------|---------|--------|
+| פתיחת הליכים רשמיים DMA | Q3 2026 | סביר | בוחן יחסי פרלמנט–נציבות |
+| חוות דעת עורך DG של ECJ על Mercosur | Q4 2026 | חמישים-חמישים (תזמון) | מעצב נרטיב מסחרי |
+| הצעת תקציב 2027 של הנציבות | יוני 2026 | כמעט ודאי | מתחיל קרב פרלמנט-מועצה |
+| עמדת המועצה על תקנת רווחת בעלי חיים | Q4 2026 | סביר | מתחיל משא ומתן תלת-צדדי דו-כנפי |
+| תשלום שיעור Q3 הלוואת אוקראינה | Q3 2026 | כמעט ודאי | מותנה בדוח אחריות |
+
+#### כיול ביטחון למקבלי החלטות
+
+- **מאושר מנתוני EP חיים** (🟢 ביטחון גבוה): אימוץ הלוואת אוקראינה 2026-04-24; הרכב נוף פוליטי (EPP 185, S&D 136 וכו'); הקצאות מושבים וסיכומי קבוצות
+- **מוסק מדינמיקה פוליטית** (🟡 ביטחון בינוני): שיעורי לכידות קואליציה; תוצאות הצבעת ועדה; מינויי מדווחים
+- **הערכות כלכליות מבוססות-ידע** (🟡 ביטחון בינוני): שיעורי צמיחה IMF WEO אפריל 2026; הערכות השפעה כלכלית DMA; תחזיות זרימת סחר Mercosur
+- **תחזיות תרחישים** (🟡–🔴 ביטחון בינוני-נמוך): תחזיות לוח זמנים; הסתברויות תוצאות; התנהגות קואליציה תחת לחץ
+
+### Executive Brief Ja
+
+**日付:** 2026-05-22 | **アドミラルティ評価: B2** | **分類:** 公開
+
+---
+
+### 即時対応事項
+
+**主題:** 欧州議会PE10期立法情勢 — 2026年5月評価
+**対象期間:** 2026年1月〜5月 | **データ可用性:** 🟡 低下（欧州議会APIエンリッチメント不可）
+**純立法モメンタム:** 🟢 強 — 4.5ヶ月間で21件のテキスト採択、年間56件超のペースで推移
+
+---
+
+### 主要調査結果
+
+#### 1. PE10は加速したペースで立法を進めている
+
+2026年1月〜4月に21件が採択された。防衛・安全保障（5件）、社会（3件）、予算・財政（3件）、制度（3件）、通商（2件）、デジタル（2件）が主要クラスターである。議会は同時期の中間選挙前の歴史的平均を上回るペースで進んでいる。
+
+**行動シグナル:** 欧州議会の活発な立法スケジュールは、特定案件を追うステークホルダーに時間的制約のある関与の機会をもたらしている。
+
+#### 2. EU-メルコスール：戦略的遅延の確認
+
+欧州議会は2026年1月、EU-メルコスール協定のEUの気候・環境義務との適合性について欧州司法裁判所の意見を求めることを可決した。これはEU通商史上3度目のTFEU第218条11項の適用であり、批准を最低12〜18ヶ月遅延させる。経済的コスト：年間約20〜40億ユーロの二国間貿易フローが失われる見込み。
+
+**行動シグナル:** EU-メルコスール関税表への露出がある企業は、早くとも2028〜2029年の批准を計画するべきである。環境章の再交渉の可能性に備えること。
+
+#### 3. デジタル市場法（DMA）執行：欧州議会が圧力を強化
+
+2026年4月のDMA施行決議は、欧州委員会に対し、指定された6つすべてのゲートキーパー（Google、Apple、Meta、Amazon、Microsoft、Booking.com）に対して正式調査を開始するよう求めている。90日以内に調査が開始されなければ、議会はTFEU第265条（作為義務違反）の申立てを準備している。
+
+**行動シグナル:** 指定ゲートキーパーのDMAコンプライアンスチームは、これを意欲的なスケジュールではなく、固定された政治的期限として扱うべきである。
+
+#### 4. ウクライナ支持立法多数派は揺るぎない
+
+2026年4月に採択された4件の安全保障・対外政策決議（ロシアの攻撃に対する説明責任メカニズムやアルメニアの民主的回復力支援を含む）は、EPP–S&D–RenewのウクライナをめぐるコアライションがEP10全体で結束を維持していることを確認した。PfE（親ウクライナのRNとオルバーン首相の反ウクライナ路線）の内部分裂が、欧州のウクライナ支援に対する右派の実効的反対を引き続き妨げている。
+
+**行動シグナル:** ウクライナへの立法上の支援はPE10全体を通じて構造的に確固たるものであり、ウクライナ関連の同意手続きで議会の揺り戻しは見込めない。
+
+#### 5. 連立は安定しているが鉄壁ではない
+
+EPP–S&D–Renewの支配的多数派（398/719議席）は361議席の過半数閾値から37議席の余裕を持つ。Renewの構造的脆弱性（フランスの選挙リスク）とEPPの農業・移民分野での右派圧力への適応が、論争的な社会・環境立法での特定の脆弱ポイントを生み出している。
+
+**行動シグナル:** 2027年予算の三者間交渉（2026年9月〜11月）が連立結束の次の大きなテストである。欧州議会と理事会の推定ギャップは80〜120億ユーロ。
+
+---
+
+### 注目すべき3つの案件
+
+| 案件 | 状況 | リスク | タイムライン |
+|------|------|-------|------------|
+| EU-メルコスール | 司法裁判所意見請求 | 🔴 遅延リスク高 | 批准2028〜2029年 |
+| デジタルユーロ | COD審議待ち | 🟡 設計リスク | 提案2026年H2 |
+| 2027年予算 | 三者間協議段階 | 🟡 妥協リスク | 2026年9月〜11月 |
+
+---
+
+### 情報上の留意事項
+
+欧州議会オープンデータポータルのAPIエンリッチメント層は2026年5月22日時点で利用不可であった（主要3フィードにHTTP 404）。本エグゼクティブブリーフは文書化された採択テキスト（21件確認済み）および政治情勢データ（議員719名/9グループ確認済み）に基づいている。手続きレベルの詳細（活動中の手続き、報告者任命、委員会採決結果）は本セッションでは入手不可。**総合的確信度: 🟡 中〜高。**
+
+---
+
+### 完全分析
+
+完全な分析成果物については`intelligence/`および`risk-scoring/`フォルダを参照:
+- `synthesis-summary.md` — 立法活動の包括的マッピング
+- `stakeholder-map.md` — 政治グループおよび機関アクターのプロフィール
+- `scenario-forecast.md` — PE10立法経路の3シナリオ
+- `pestle-analysis.md` — 政治・経済・法的多次元分析
+- `risk-scoring/risk-matrix.md` — 6リスクによる順位付け評価
+- `intelligence/wildcards-blackswans.md` — 極端リスクシナリオ
+
+---
+
+### アドミラルティ評価: B2 — 総合評価
+
+*出典: 確認されたEPオープンデータからの構造化分析（アドミラルティB = 信頼できる情報源）；情報: おそらく正確（B2）— 主要立法案件は`get_adopted_texts(year=2026)`で確認済。*
+
+### WEP確率帯域
+
+| 主要設問 | WEP帯域 | 確信度 |
+|---------|--------|-------|
+| 議会のDMA執行が必要な採決を通過 | **ほぼ確実** | 🟢 高 |
+| メルコスールに関するECJ意見が12ヶ月以内 | **可能性あり** | 🟡 中 |
+| ウクライナローン2026年Q3分の実行 | **ほぼ確実** | 🟢 高 |
+| 動物福祉規則が本会議で採択 | **可能性あり** | 🟡 中 |
+| 2027年予算ガイドライン予定通り採択 | **ほぼ確実** | 🟢 高 |
+| 大連立が任期全体を通じて維持 | **五分五分** | 🟡 中 |
+
+### 読者向けブリーフィング
+
+本エグゼクティブブリーフは2026-05-22終了週の欧州議会の主要立法動向を要約している。意思決定者は以下の点に注意すること:
+
+1. **即時優先事項**: DMA執行 — TFEU第265条の脅しは潜在的な核兵器であり、発動された場合、欧州議会と欧州委員会の関係を再形成する可能性がある
+2. **戦略的監視**: メルコスールに関するECJタイムライン — 環境条件付け要件を伴う将来のすべての貿易協定の先例を確立
+3. **継続的モニタリング**: ウクライナ支持の結束 — PfEグループの分裂は脆弱性のシグナル
+4. **より長期の展望**: 2027年予算 — 欧州委員会が正式提案を提出した時（2026年6月見込み）に本格的な戦いが始まる
+
+**データ品質注記**: 欧州議会APIエンリッチメント層はセッション中利用不可（HTTP 404）。すべての評価は確認済みの`get_adopted_texts(year=2026)`データと`generate_political_landscape`からの政治情勢データに基づいている。特定の手続き詳細は🟡中程度の確信度で扱うこと。
+| アドミラルティ | B2 | 信頼できる情報源、おそらく正確 |
+
+### 戦略的情報サマリー
+
+#### 三重連立のパラドックス
+
+PE10の支配連立（EPP+S&D+Renew = 398/719）は同時に立法を通過させるのに十分な力を持ちながら、主要案件で意外な結果をもたらすほど内部分裂している。戦略的パラドックス: Renew Europeは連立の中で最も中道的な構成員であるが、メルコスールに関するECJ付託に最も反対している（自由貿易主義的傾向）。これは、支配連立が議会の最も著名な対外政策行動の一つで実質的に分裂していることを意味する。
+
+#### タイミング情報
+
+| マイルストーン | 予想日 | WEP帯域 | 重要性 |
+|-------------|-------|--------|-------|
+| DMA正式手続き開始 | 2026年Q3 | 可能性あり | 欧州議会と欧州委員会の関係試験 |
+| メルコスールに関するECJ法務官意見 | 2026年Q4 | 五分五分（タイミング） | 通商ナラティブの形成 |
+| 欧州委員会2027年予算提案 | 2026年6月 | ほぼ確実 | 欧州議会と理事会の対立開始 |
+| 動物福祉規則に関する理事会立場 | 2026年Q4 | 可能性あり | 二輪三者間協議開始 |
+| ウクライナローンQ3分支払い | 2026年Q3 | ほぼ確実 | アカウンタビリティ報告に条件付き |
+
+#### 意思決定者向け確信度較正
+
+- **欧州議会ライブデータから確認済み** (🟢 高確信度): 2026-04-24ウクライナローン採択；政治情勢構成（EPP 185、S&D 136等）；議席配分とグループ総数
+- **政治力学から推定** (🟡 中確信度): 連立結束率；委員会採決結果；報告者任命
+- **知識ベース経済推計** (🟡 中確信度): IMF WEO 2026年4月成長率；DMA経済影響評価；メルコスール貿易フロー予測
+- **シナリオ予測** (🟡–🔴 中〜低確信度): タイムライン予測；結果確率；プレッシャー下での連立行動
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-22 | **애드미럴티 등급: B2** | **분류:** 공개
+
+---
+
+### 즉각적 조치 사항
+
+**주제:** 유럽의회 PE10 입법 현황 — 2026년 5월 평가
+**기간:** 2026년 1월~5월 | **데이터 가용성:** 🟡 저하 (유럽의회 API 보강 불가)
+**순 입법 모멘텀:** 🟢 강력 — 4.5개월간 21개 텍스트 채택, 연간 56건+ 페이스 유지
+
+---
+
+### 핵심 결과
+
+#### 1. PE10은 가속화된 속도로 입법 중
+
+2026년 1월~4월에 21건이 채택되었으며, 국방·안보(5), 사회(3), 예산·재정(3), 제도(3), 무역(2), 디지털(2)이 주요 클러스터다. 의회는 동 기간의 역사적 평균을 상회하는 속도로 진행 중이다.
+
+**조치 신호:** 유럽의회의 활발한 입법 일정은 특정 안건을 추적하는 이해관계자에게 시간적으로 민감한 참여 기회를 제공하고 있다.
+
+#### 2. EU-메르코수르: 전략적 지연 확인
+
+유럽의회는 2026년 1월, EU-메르코수르 협정이 EU의 기후·환경 의무에 부합하는지에 대해 유럽사법재판소(ECJ)의 의견을 요청하는 표결을 통과시켰다. 이는 EU 통상사에서 TFEU 제218조 11항의 세 번째 적용으로, 비준을 최소 12~18개월 지연시킬 것이다. 경제적 비용: 연간 약 20~40억 유로의 양자 무역 흐름 손실.
+
+**조치 신호:** EU-메르코수르 관세 일정에 노출된 기업들은 이르면 2028~2029년의 비준을 계획해야 한다. 환경 챕터의 재협상 가능성에 대비해야 한다.
+
+#### 3. 디지털시장법(DMA) 집행: 유럽의회가 압력 강화
+
+2026년 4월 DMA 집행 결의는 유럽위원회에 지정된 6개 게이트키퍼(Google, Apple, Meta, Amazon, Microsoft, Booking.com) 모두에 대해 공식 조사를 개시하도록 요구하고 있다. 90일 내에 조사가 시작되지 않으면 의회는 TFEU 제265조(작위의무 불이행) 신청을 준비하고 있다.
+
+**조치 신호:** 지정 게이트키퍼의 DMA 컴플라이언스 팀은 이를 야심 찬 일정이 아닌 고정된 정치적 기한으로 취급해야 한다.
+
+#### 4. 우크라이나 지지 입법 다수결은 견고하게 유지
+
+2026년 4월에 채택된 4건의 안보·대외 정책 결의 — 러시아의 공격에 대한 책임 메커니즘 및 아르메니아의 민주적 회복력 지원 포함 — 는 EPP–S&D–Renew의 우크라이나 코어 연합이 PE10 전반에 걸쳐 결속을 유지하고 있음을 확인했다. PfE 내부 분열(친우크라이나 RN 대 오르반의 반우크라이나 노선)이 유럽의 우크라이나 지원에 대한 효과적인 우파 반대를 계속 차단하고 있다.
+
+**조치 신호:** 우크라이나에 대한 입법 지원은 PE10 전반에 걸쳐 구조적으로 확고하다. 우크라이나 관련 동의 절차에서 의회의 후퇴는 기대하기 어렵다.
+
+#### 5. 연립은 안정적이지만 난공불락은 아님
+
+EPP–S&D–Renew 지배 다수(398/719석)는 361석의 과반수 임계치로부터 37석의 여유를 가지고 있다. Renew의 구조적 취약성(프랑스 선거 리스크)과 EPP의 농업·이민 분야에서의 우파 압력 수용이 논쟁적인 사회·환경 입법에서 특정 취약 지점을 만들어내고 있다.
+
+**조치 신호:** 2027년 예산 삼자 협상(2026년 9월~11월)이 연립 결속의 다음 큰 시험이다. 유럽의회와 이사회 간 예상 격차는 80~120억 유로.
+
+---
+
+### 주목해야 할 3개 안건
+
+| 안건 | 상태 | 위험 | 타임라인 |
+|------|------|------|----------|
+| EU-메르코수르 | ECJ 의견 요청 | 🔴 높은 지연 위험 | 비준 2028~2029 |
+| 디지털 유로 | COD 심의 대기 | 🟡 설계 위험 | 제안 2026 H2 |
+| 2027 예산 | 삼자 협상 단계 | 🟡 타협 위험 | 2026년 9~11월 |
+
+---
+
+### 정보상 유의 사항
+
+유럽의회 오픈 데이터 포털의 API 보강 레이어는 2026년 5월 22일 기준으로 이용 불가 상태였다(3개 주요 피드에서 HTTP 404). 본 집행 브리핑은 문서화된 채택 텍스트(21건 확인)와 정치 현황 데이터(의원 719명 / 9개 그룹 확인)에 기반한다. 절차 수준의 세부 사항(활성 절차, 보고자 임명, 위원회 표결 결과)은 이번 세션에서 입수 불가. **전체 신뢰도: 🟡 중~높음.**
+
+---
+
+### 완전 분석
+
+전체 분석 성과물은 `intelligence/` 및 `risk-scoring/` 폴더 참조:
+- `synthesis-summary.md` — 입법 활동 포괄적 매핑
+- `stakeholder-map.md` — 정치 그룹 및 제도적 행위자 프로필
+- `scenario-forecast.md` — PE10 입법 경로의 3가지 시나리오
+- `pestle-analysis.md` — 정치·경제·법적 다차원 분석
+- `risk-scoring/risk-matrix.md` — 6개 위험별 순위 평가
+- `intelligence/wildcards-blackswans.md` — 극단적 위험 시나리오
+
+---
+
+### 애드미럴티 등급: B2 — 전반적 평가
+
+*출처: 확인된 EP 오픈 데이터에서 구조화된 분석 (애드미럴티 B = 신뢰할 수 있는 출처); 정보: 아마도 정확 (B2) — 주요 입법 안건은 `get_adopted_texts(year=2026)`를 통해 확인.*
+
+### WEP 확률 구간
+
+| 핵심 질문 | WEP 구간 | 신뢰도 |
+|---------|---------|-------|
+| 의회의 DMA 집행이 필요한 표결 통과 | **거의 확실** | 🟢 높음 |
+| 메르코수르 관련 ECJ 의견 12개월 내 | **가능성 있음** | 🟡 중간 |
+| 우크라이나 대출 2026년 Q3 집행 | **거의 확실** | 🟢 높음 |
+| 동물 복지 규정 본회의 채택 | **가능성 있음** | 🟡 중간 |
+| 2027년 예산 가이드라인 예정대로 채택 | **거의 확실** | 🟢 높음 |
+| 대연립이 전체 임기 동안 유지 | **반반** | 🟡 중간 |
+
+### 독자 브리핑
+
+본 집행 브리핑은 2026-05-22로 끝나는 주의 유럽의회 주요 입법 동향을 요약한다. 의사 결정자들은 다음을 주목해야 한다:
+
+1. **즉각 우선 순위**: DMA 집행 — TFEU 제265조 위협은 잠재적 핵옵션으로 발동 시 유럽의회와 유럽위원회의 관계를 재편할 수 있다
+2. **전략적 모니터링**: 메르코수르 관련 ECJ 타임라인 — 환경 조건부 요건이 있는 향후 모든 무역 협정의 선례 확립
+3. **지속 모니터링**: 우크라이나 지지 결속 — PfE 그룹 분열은 취약성 신호
+4. **장기 전망**: 2027년 예산 — 유럽위원회가 공식 제안을 제출할 때(2026년 6월 예상) 실제 전투가 시작된다
+
+**데이터 품질 참고:** 유럽의회 API 보강 레이어는 세션 중 이용 불가(HTTP 404). 모든 평가는 확인된 `get_adopted_texts(year=2026)` 데이터와 `generate_political_landscape`의 정치 현황 데이터에 기반한다. 특정 절차 세부 사항은 🟡 중간 신뢰도로 취급하기 바란다.
+| 애드미럴티 | B2 | 신뢰할 수 있는 출처; 아마도 정확 |
+
+### 전략적 정보 요약
+
+#### 삼중 연립 역설
+
+PE10 지배 연립(EPP+S&D+Renew = 398/719)은 입법을 통과시키기에 충분한 힘을 가지면서도 주요 안건에서 놀라운 결과를 만들어낼 만큼 내부 분열되어 있다. 전략적 역설: Renew Europe은 연립 내에서 가장 중도적 구성원이지만, 동시에 메르코수르 관련 ECJ 요청에 가장 반대한다(자유무역 성향). 이는 지배 연립이 의회의 가장 중요한 대외 정책 행동 중 하나에서 사실상 분열되었음을 의미한다.
+
+#### 타이밍 인텔리전스
+
+| 이정표 | 예상일 | WEP 구간 | 중요성 |
+|-------|-------|---------|-------|
+| DMA 공식 절차 개시 | 2026년 Q3 | 가능성 있음 | 유럽의회-유럽위원회 관계 시험 |
+| 메르코수르 관련 ECJ 법무관 의견 | 2026년 Q4 | 반반(타이밍) | 무역 내러티브 형성 |
+| 유럽위원회 2027년 예산 제안 | 2026년 6월 | 거의 확실 | 유럽의회-이사회 대립 시작 |
+| 동물 복지 규정 관련 이사회 입장 | 2026년 Q4 | 가능성 있음 | 양측 삼자 협상 시작 |
+| 우크라이나 대출 Q3 분기 지급 | 2026년 Q3 | 거의 확실 | 책임 보고서 조건부 |
+
+#### 의사 결정자를 위한 신뢰도 조정
+
+- **유럽의회 라이브 데이터에서 확인** (🟢 높은 신뢰도): 2026-04-24 우크라이나 대출 채택; 정치 현황 구성(EPP 185, S&D 136 등); 의석 배분 및 그룹 합계
+- **정치적 역학에서 추론** (🟡 중간 신뢰도): 연립 결속률; 위원회 표결 결과; 보고자 임명
+- **지식 기반 경제 추정** (🟡 중간 신뢰도): IMF WEO 2026년 4월 성장률; DMA 경제적 영향 평가; 메르코수르 무역 흐름 예측
+- **시나리오 예측** (🟡–🔴 중~낮은 신뢰도): 타임라인 예측; 결과 확률; 압력 하에서의 연립 행동
+
+### Executive Brief Nl
+
+### VOOR ONMIDDELLIJKE ACTIE
+
+**Kwestie:** Wetgevingslandschap EP10 van het Europees Parlement — beoordeling mei 2026
+**Periode:** Januari–mei 2026 | **Gegevensbeschikbaarheid:** 🟡 Verminderd (EP API-verrijking offline)
+**Netto wetgevingsmomentum:** 🟢 STERK — 21 aangenomen teksten in 4,5 maanden, op koers voor 56+/jaar
+
+---
+
+### Voornaamste bevindingen
+
+#### 1. EP10 wetgeeft in hoog tempo
+
+Eenentwintig teksten werden aangenomen in januari–april 2026, waarbij defensie/veiligheid (5), sociaal (3), begroting/financiën (3), institutioneel (3), handel (2) en digitaal (2) de dominante clusters zijn. Het Parlement ligt voor op de historische gemiddelden voor een vergelijkbare periode halverwege het mandaat.
+
+**Actiesignaal:** De actieve wetgevingspipeline van het EP creëert tijdgevoelige betrokkenheidvensters voor belanghebbenden die specifieke dossiers volgen.
+
+#### 2. EU-Mercosur: Strategische vertraging bevestigd
+
+Het Parlement stemde in januari 2026 voor het verzoeken van een advies van het Hof van Justitie over de verenigbaarheid van het EU-Mercosur-akkoord met EU-klimaat- en milieuverplichtstingen. Dit is slechts het derde gebruik van artikel 218(11) VWEU in de EU-handelsgeschiedenis en zal de ratificatie met minimaal 12–18 maanden vertragen. Economische kosten: ~2–4 miljard euro/jaar aan gemiste bilaterale handelsstromen.
+
+**Actiesignaal:** Bedrijven die blootstaan aan het EU-Mercosur-tariefschemaat moeten plannen voor ratificatie in 2028–2029 op zijn vroegst; voorbereiding op mogelijke heronderhandeling van milieuhoofdstukken.
+
+#### 3. Digital Markets Act-handhaving: EP escaleert de druk
+
+De DMA-handhavingsresolutie van april 2026 eist dat de Commissie formele onderzoeken opent tegen alle zes aangewezen poortwachters (Google, Apple, Meta, Amazon, Microsoft, Booking.com). Het Parlement bereidt zich voor om artikel 265 VWEU (verzuim om te handelen) in te roepen als de onderzoeken niet binnen 90 dagen worden geopend.
+
+**Actiesignaal:** DMA-nalevingsteams bij aangewezen poortwachters moeten dit als een vaste politieke deadline behandelen, niet als een aspiratieve tijdlijn.
+
+#### 4. Wetgevende meerderheid voor Oekraïne blijft solide
+
+Vier veiligheids-/buitenlandspolitieke resoluties aangenomen in april 2026 — waaronder verantwoordelijkheidsmechanismen voor Russische aanvallen en steun voor de democratische veerkracht van Armenië — bevestigen dat de EPP–S&D–Renew-coalitie over Oekraïne-dossiers coherent blijft. De interne PfE-splitsing (RN pro-Oekraïne vs. Orbáns anti-Oekraïne) verhindert nog steeds een effectieve rechtsopposities tegen Europese Oekraïne-steun.
+
+**Actiesignaal:** Wetgevende steun aan Oekraïne is structureel duurzaam voor de gehele EP10; verwacht geen parlementaire ommezwaai bij Oekraïne-gerelateerde toestemmingsprocedures.
+
+#### 5. Coalitie blijft stabiel maar niet onaantastbaar
+
+De regerende meerderheid van EPP–S&D–Renew (398/719 zetels) heeft een buffer van 37 zetels boven de meerderheidsdrempel van 361. De structurele zwakte van Renew (Frans electoraal risico) en de EPP's aanpassing aan rechtse druk op landbouw- en migratiedossiers creëert specifieke kwetsbaarheidspunten in omstreden sociale en milieugebonden wetgeving.
+
+**Actiesignaal:** Begroting 2027-triloog (september–november 2026) is de volgende grote coalitie-stresstest; EP–Raads-kloof geschat op 8–12 miljard euro.
+
+---
+
+### De drie dossiers om te volgen
+
+| Dossier | Status | Risico | Tijdlijn |
+|---------|--------|--------|---------|
+| EU-Mercosur | HvJ-adviesverzoek | 🔴 HOOG vertragingsrisico | Ratificatie 2028–2029 |
+| Digitale euro | Verwacht COD | 🟡 Ontwerprisico | H2 2026 voorstel |
+| Begroting 2027 | Trilogfase | 🟡 Bemiddelingsrisico | September–november 2026 |
+
+---
+
+### Inlichtingvoorbehoud
+
+De verrijkings-API van het EP Open Data-portaal was niet beschikbaar op 22 mei 2026 (HTTP 404 op alle drie primaire feeds). Dit managementbriefing is gebaseerd op geverifieerde aangenomen teksten (21 items bevestigd) en politieke landscapedata (719 EP-leden / 9 groepen bevestigd). Proceduurdetails op niveau (actieve procedures, rapporteurstoewijzingen, stemresultaten in commissie) zijn niet beschikbaar voor deze run. **Algehele betrouwbaarheid: 🟡 GEMIDDELD-HOOG.**
+
+---
+
+### Volledige analyse
+
+Zie de mappen `intelligence/` en `risk-scoring/` voor complete analytische artefacten:
+- `synthesis-summary.md` — volledige kaart van de wetgevingsactiviteit
+- `stakeholder-map.md` — profiel van politieke groepen en institutionele actoren
+- `scenario-forecast.md` — 3 scenario's voor de wetgevingstrajectorie van EP10
+- `pestle-analysis.md` — multidimensionale politiek-economisch-juridische analyse
+- `risk-scoring/risk-matrix.md` — 6-risico geprioriteerde beoordeling
+- `intelligence/wildcards-blackswans.md` — staartrisicoscenario's
+
+---
+
+### Admiraliteitsclassificatie: B2 — Algehele beoordeling
+
+*Bron: gestructureerde analyse van bevestigde EP Open Data (Admiraliteit B = betrouwbare bron); Informatie: waarschijnlijk waar (B2) — sleutelwetgevingsdossiers bevestigd via `get_adopted_texts(year=2026)`.*
+
+### WEP-waarschijnlijkheidsbanden
+
+| Sleutelvraag | WEP-band | Betrouwbaarheid |
+|------------|---------|--------------|
+| EP DMA-handhaving haalt vereiste stemming | **Vrijwel zeker** | 🟢 HOOG |
+| HvJ Mercosur-advies binnen 12 maanden | **Waarschijnlijk** | 🟡 GEMIDDELD |
+| Oekraïense lening uitbetaald Q3 2026 | **Vrijwel zeker** | 🟢 HOOG |
+| Animal Welfare Reg aangenomen in plenaire vergadering | **Waarschijnlijk** | 🟡 GEMIDDELD |
+| Begroting 2027-richtsnoeren op schema aangenomen | **Vrijwel zeker** | 🟢 HOOG |
+| Grote coalitie overleeft de volledige ambtstermijn | **Fifty-fifty** | 🟡 GEMIDDELD |
+
+### Lezersbrief
+
+Dit managementbriefing vat de belangrijkste wetgevingsontwikkelingen in het Europees Parlement samen voor de week eindigend op 2026-05-22. Besluitvormers dienen het volgende op te merken:
+
+1. **Onmiddellijke prioriteit**: DMA-handhaving — de artikel 265 VWEU-dreiging is een latente nucleaire optie die de EP–Commissie-relaties kan hervormen als ze wordt geactiveerd
+2. **Strategische bewaking**: Mercosur HvJ-tijdlijn — stelt een precedent voor alle toekomstige handelsovereenkomsten met milieu-conditionaliteitsvereisten
+3. **Doorlopende bewaking**: Oekraïne-steunconsensus — de splitsing van de PfE-groep is een breekbaarheidssignaal
+4. **Langere horizon**: Begroting 2027 — de echte strijd begint wanneer de Commissie haar formeel voorstel indient (verwacht juni 2026)
+
+**Datakwaliteitsnotitie**: EP API-verrijkingslaag was niet beschikbaar (HTTP 404) tijdens deze run. Alle beoordelingen zijn gebaseerd op `get_adopted_texts(year=2026)` bevestigde data plus politieke landscapedata van `generate_political_landscape`. Proceduurspecifieke details behandelen met 🟡 GEMIDDELD-betrouwbaarheid.
+| Admiraliteit | B2 | Betrouwbare bron; waarschijnlijk waar |
+
+### Strategisch inlichtingssamenvatting
+
+#### De drie-coalitie-paradox
+
+De regerende coalitie van EP10 (EPP+S&D+Renew = 398/719) is tegelijkertijd sterk genoeg om wetgeving aan te nemen en intern verdeeld genoeg om onvoorspelbare uitkomsten te creëren bij sleuteldossiers. De strategische paradox: Renew Europa is het meest centristische lid van de coalitie, maar ook het meest vijandig ten opzichte van de Mercosur HvJ-verwijzing (handelsliberale instincten), waardoor een situatie ontstaat waarin de regerende coalitie effectief verdeeld is over een van de kenmerkende buitenlandspolitieke handelingen van het Parlement.
+
+#### Tijdinlichtingen
+
+| Mijlpaal | Verwachte datum | WEP-band | Betekenis |
+|---------|---------------|---------|---------|
+| DMA formele procedures geopend | Q3 2026 | Waarschijnlijk | Test EP–Commissie-relaties |
+| HvJ Advocaat-Generaal DG-advies over Mercosur | Q4 2026 | Fifty-fifty (timing) | Vormt handelsnarratie |
+| Commissiebudgetvoorstel 2027 | Juni 2026 | Vrijwel zeker | Leidt EP–Raads-strijd in |
+| Raadspositie Animal Welfare Reg | Q4 2026 | Waarschijnlijk | Bilaterale trilogen beginnen |
+| Oekraïense lening Q3-tranche uitbetaald | Q3 2026 | Vrijwel zeker | Conditioneel op verantwoordingsrapport |
+
+#### Betrouwbaarheidskalibrering voor besluitvormers
+
+- **Bevestigd uit live EP-data** (🟢 HOGE betrouwbaarheid): Oekraïense lening aangenomen 2026-04-24; politieke landscapessamenstelling (EPP 185, S&D 136 enz.); zetelverdeling en groepstotalen
+- **Afgeleid van politieke dynamiek** (🟡 GEMIDDELDE betrouwbaarheid): Coalitiesamenhangsniveaus; stemresultaten in commissie; proceduretoewijzingen voor rapporteurs
+- **Op kennis gebaseerde economische schattingen** (🟡 GEMIDDELDE betrouwbaarheid): IMF WEO apr. 2026 groeicijfers; DMA-economische effectbeoordelingen; Mercosur-handelsstroomprojecties
+- **Scenarioprognoses** (🟡–🔴 GEMIDDELD-LAAG): Tijdlijnprognoses; uitkomstwaarschijnlijkheden; coalitiegedrag onder druk
+
+### Executive Brief No
+
+### TIL UMIDDELBAR HANDLING
+
+**Sak:** EU-parlamentets EP10-lovgivningslandskap — vurdering mai 2026
+**Periode:** Januar–mai 2026 | **Datatilgjengelighet:** 🟡 Redusert (EP API-berikelse offline)
+**Netto lovgivningsfart:** 🟢 STERK — 21 vedtatte tekster på 4,5 måneder, i rute for 56+/år
+
+---
+
+### Viktigste funn
+
+#### 1. EP10 lovgiver i raskt tempo
+
+Tjueen tekster ble vedtatt i januar–april 2026, med forsvar/sikkerhet (5), sosiale spørsmål (3), budsjett/finans (3), institusjonelle spørsmål (3), handel (2) og digitalt (2) som dominerende klynger. Parlamentet ligger foran historiske gjennomsnitt for en tilsvarende periode midt i mandatperioden.
+
+**Handlingssignal:** EP's aktive lovgivningspipeline skaper tidssensitive engasjementsvinduer for interessenter som overvåker spesifikke filer.
+
+#### 2. EU-Mercosur: Strategisk forsinkelse bekreftet
+
+Parlamentet stemte i januar 2026 for å be EU-domstolen om en uttalelse om EU-Mercosur-avtalens forenelighet med EUs klima- og miljøforpliktelser. Dette er kun den tredje bruken av artikkel 218(11) TEUV i EUs handelshistorie og vil forsinke ratifiseringen med minst 12–18 måneder. Økonomisk kostnad: ~2–4 milliarder euro/år i tapte bilaterale handelsstrømmer.
+
+**Handlingssignal:** Virksomheter eksponert mot EU-Mercosur-tollopplegget bør planlegge for ratifisering 2028–2029 tidligst; forberede seg på eventuell omforhandling av miljøkapitler.
+
+#### 3. Digital Markets Act-håndheving: EP eskalerer presset
+
+April 2026-DMA-håndhevingsresolusjonen krever at Kommisjonen åpner formelle undersøkelser mot alle seks utpekte portvakter (Google, Apple, Meta, Amazon, Microsoft, Booking.com). Parlamentet forbereder seg på å påberope seg artikkel 265 TEUV (unnlatelse av å handle) dersom undersøkelsene ikke åpnes innen 90 dager.
+
+**Handlingssignal:** DMA-overholdingsteam hos utpekte portvakter bør behandle dette som en fast politisk tidsfrist, ikke en aspirerende tidslinje.
+
+#### 4. Ukrainas lovgivningsmessige flertall forblir solid
+
+Fire sikkerhets-/utenrikspolitiske resolusjoner vedtatt i april 2026 — inkludert ansvarsmekanismer for russiske angrep og støtte til Armenias demokratiske motstandskraft — bekrefter at EPP–S&D–Renew-koalisjonen om Ukraina-filer forblir samstemt. Den interne PfE-splittelsen (RN pro-Ukraina vs. Orbáns anti-Ukraina) hindrer fortsatt effektiv høyreopposisjon mot europeisk Ukraina-støtte.
+
+**Handlingssignal:** Ukrainas lovgivningsstøtte er strukturelt holdbar gjennom hele EP10; forvent ikke parlamentarisk reversal om Ukraina-relaterte samtykkeprosedyrer.
+
+#### 5. Koalisjonen forblir stabil men ikke usårbar
+
+EPP–S&D–Renews styrende flertall (398/719 seter) har en buffer på 37 seter over flertalsterskelen på 361. Renews strukturelle svakhet (fransk valgrisiko) og EPP's tilpasning til høyreskift i landbruks- og migrasjonssaker skaper spesifikke sårbarhetspunkter i omstridte sosiale og miljømessige lovgivningsspørsmål.
+
+**Handlingssignal:** Budsjett 2027-trilog (september–november 2026) er den neste vesentlige koalisjonsbelastningstesten; EP–Råds-gap anslått til 8–12 milliarder euro.
+
+---
+
+### De tre filene å følge med på
+
+| Fil | Status | Risiko | Tidslinje |
+|-----|--------|--------|-----------|
+| EU-Mercosur | ECJ-uttalelsesforespørsel | 🔴 HØY forsinkelsesrisiko | Ratifisering 2028–2029 |
+| Digital euro | Forventet COD | 🟡 Designrisiko | H2 2026 forslag |
+| Budsjett 2027 | Trilogfase | 🟡 Forliksrisiko | September–november 2026 |
+
+---
+
+### Etterretningsforbeholdet
+
+EP's Open Data Portal-berikelse-API var utilgjengelig 22. mai 2026 (HTTP 404 på alle tre primære feeder). Denne ledelsebriefingen er basert på verifiserte vedtatte tekster (21 poster bekreftet) og politiske landskapsdata (719 MEP-er / 9 grupper bekreftet). Prosedyrenivådetaljer (aktive prosedyrer, ordførerutnevnelser, utvalgsavstemningsresultater) er ikke tilgjengelige for denne kjøringen. **Samlet troverdighet: 🟡 MIDDELS-HØY.**
+
+---
+
+### Full analyse
+
+Se `intelligence/` og `risk-scoring/` katalogene for komplette analytiske artefakter:
+- `synthesis-summary.md` — fullstendig lovgivningsaktivitetskart
+- `stakeholder-map.md` — politisk gruppe- og institusjonell aktørprofil
+- `scenario-forecast.md` — 3 scenarier for EP10's lovgivningsbane
+- `pestle-analysis.md` — tverranalyse-dimensjonal politisk-økonomisk-juridisk analyse
+- `risk-scoring/risk-matrix.md` — 6-risikoprioritetsvurdering
+- `intelligence/wildcards-blackswans.md` — halerisikoscenarier
+
+---
+
+### Admiralitetskarakter: B2 — Samlet vurdering
+
+*Kilde: strukturert analyse fra bekreftet EP Open Data (Admiralitet B = pålitelig kilde); Informasjon: sannsynligvis sant (B2) — viktige lovgivningsfiler bekreftet via `get_adopted_texts(year=2026)`.*
+
+### WEP-sannsynlighetsbånd
+
+| Nøkkelspørsmål | WEP-bånd | Troverdighet |
+|--------------|---------|------------|
+| EP DMA-håndheving passerer nødvendig avstemning | **Nesten sikkert** | 🟢 HØY |
+| ECJ Mercosur-uttalelse innen 12 måneder | **Sannsynlig** | 🟡 MIDDELS |
+| Ukraina-lån utbetalt Q3 2026 | **Nesten sikkert** | 🟢 HØY |
+| Animal Welfare Reg vedtatt i plenum | **Sannsynlig** | 🟡 MIDDELS |
+| Budsjett 2027-retningslinjer vedtatt etter tidsplan | **Nesten sikkert** | 🟢 HØY |
+| Storkoalisjonen overlever full mandatperiode | **Fifty-fifty** | 🟡 MIDDELS |
+
+### Leserbriefing
+
+Denne ledelsebriefingen oppsummerer de viktigste lovgivningsutviklingene i Europaparlamentet for uken som sluttet 2026-05-22. Beslutningstakere bør merke seg:
+
+1. **Umiddelbar prioritet**: DMA-håndheving — artikkel 265 TEUV-trusselen er et latent kjernevåpen som kan omforme EP–Kommisjonsrelasjonene hvis det aktiveres
+2. **Strategisk overvåking**: Mercosur ECJ-tidslinje — setter presedens for alle fremtidige handelsavtaler med miljøbetingelseskrav
+3. **Løpende overvåking**: Ukraina-støttekonsensus — PfE-gruppens splittelse er et skjørhetssignal
+4. **Lengre horisont**: Budsjett 2027 — den egentlige kampen begynner når Kommisjonen sender inn sitt formelle forslag (forventet juni 2026)
+
+**Datakvalitetsnotat**: EP API-berikelseslaget var utilgjengelig (HTTP 404) under denne kjøringen. Alle vurderinger er basert på `get_adopted_texts(year=2026)` bekreftet data samt politiske landskapsdata fra `generate_political_landscape`. Behandle prosedyrespesifikke detaljer med 🟡 MIDDELS-troverdighet.
+| Admiralitet | B2 | Pålitelig kilde; sannsynligvis sant |
+
+### Strategisk etterretningsoppsummering
+
+#### Den tre-koalisjonsparadoksen
+
+EP10's styrende koalisjon (EPP+S&D+Renew = 398/719) er simultant sterk nok til å vedta lovgivning og internt splittet nok til å skape uforutsigbare resultater om nøkkelfiler. Det strategiske paradokset: Renew Europa er koalisjonens mest sentristiske medlem, men er også den mest fiendtlige mot Mercosur ECJ-henvisningen (handelsliberale instinkter), som skaper en situasjon der den styrende koalisjonen er effektivt splittet om en av parlamentets signaturutenrikspolitiske handlinger.
+
+#### Tidsetterretning
+
+| Milepæl | Forventet dato | WEP-bånd | Betydning |
+|---------|--------------|---------|---------|
+| DMA formelle prosedyrer åpnet | Q3 2026 | Sannsynlig | Tester EP–Kommisjonsrelasjoner |
+| ECJ Advocate General DG-uttalelse om Mercosur | Q4 2026 | Fifty-fifty (timing) | Former handelsnarrativ |
+| Kommisjonens budsjettforslag 2027 | Juni 2026 | Nesten sikkert | Utløser EP–Råds-kamp |
+| Animal Welfare Reg Rådsposisjon | Q4 2026 | Sannsynlig | Bilaterale triloger begynner |
+| Ukraina-lån Q3-tranche utbetalt | Q3 2026 | Nesten sikkert | Betinget av ansvarsrapport |
+
+#### Troverdighetskalibrering for beslutningstakere
+
+- **Bekreftet fra live EP-data** (🟢 HØY troverdighet): Ukraina-lån vedtatt 2026-04-24; politisk landskapssammensetning (EPP 185, S&D 136 osv.); setedistribusjon og gruppetotaler
+- **Utledet fra politisk dynamikk** (🟡 MIDDELS troverdighet): Koalisjonssamholdsrater; utvalgsavstemningsresultater; prosedyrerapportørutnevnelser
+- **Kunnskapsbaserte økonomiske estimater** (🟡 MIDDELS troverdighet): IMF WEO apr 2026 vekstrater; DMA-økonomikonsekvensanalyser; Mercosur-handelsstrømsestimater
+- **Scenarioframskrivninger** (🟡–🔴 MIDDELS-LAV troverdighet): Tidslinjeprognoser; utfallssannsynligheter; koalisjonsadferd under stress
+
+### Executive Brief Sv
+
+### FÖR OMEDELBAR ÅTGÄRD
+
+**Fråga:** EU-parlamentets EP10-lagstiftningslandskap — bedömning maj 2026
+**Period:** Januari–maj 2026 | **Datatillgänglighet:** 🟡 Försämrad (EP API-anrikning offline)
+**Netto lagstiftningstempo:** 🟢 STARKT — 21 antagna texter på 4,5 månader, i linje med 56+/år
+
+---
+
+### Viktigaste slutsatser
+
+#### 1. EP10 lagstiftar i snabb takt
+
+Tjugoett texter antogs under januari–april 2026, med försvar/säkerhet (5), socialt (3), budget/finans (3), institutionellt (3), handel (2) och digitalt (2) som dominerande kluster. Parlamentet ligger steget före historiska genomsnitt för en motsvarande period mitt i mandatperioden.
+
+**Åtgärdssignal:** EP:s aktiva lagstiftningspipeline skapar tidskänsliga engagemangsfönster för intressenter som bevakar specifika filer.
+
+#### 2. EU-Mercosur: Strategisk försening bekräftad
+
+Parlamentet röstade i januari 2026 för att begära ett yttrande från EU-domstolen om EU-Mercosur-avtalets förenlighet med EU:s klimat- och miljöförpliktelser. Detta är den tredje gången artikel 218(11) FEUF har använts i EU:s handelshistoria och kommer att fördröja ratificeringen med minst 12–18 månader. Ekonomisk kostnad: ~2–4 miljarder euro/år i uteblivna bilaterala handelsflöden.
+
+**Åtgärdssignal:** Företag exponerade mot EU-Mercosur-tullschemat bör planera för ratificering 2028–2029 som tidigast; förbered sig på eventuell omförhandling av miljökapitel.
+
+#### 3. Digital Markets Act-tillämpning: EP ökar trycket
+
+Resolutionen om DMA-tillämpning från april 2026 kräver att kommissionen öppnar formella utredningar mot alla sex utsedda grindvakter (Google, Apple, Meta, Amazon, Microsoft, Booking.com). Parlamentet förbereder sig för att åberopa artikel 265 FEUF (underlåtenhet att handla) om utredningar inte öppnas inom 90 dagar.
+
+**Åtgärdssignal:** DMA-efterlevnadsteam hos utsedda grindvakter bör betrakta detta som en fast politisk deadline, inte en aspirationell tidslinje.
+
+#### 4. Ukrainas lagstiftningsstöd förblir solitt
+
+Fyra säkerhets-/utrikespolitiska resolutioner antagna i april 2026 — inklusive ansvarighetsmekanismer för ryska attacker och stöd för Armeniens demokratiska motståndskraft — bekräftar att EPP–S&D–Renew-koalitionen om Ukrainafiler förblir sammanhållen. Den interna PfE-splittringen (RN pro-Ukraina vs. Orbáns anti-Ukraina) hindrar fortsatt ett effektivt högerblock mot europeiskt Ukraina-stöd.
+
+**Åtgärdssignal:** Ukrainas lagstiftningsstöd är strukturellt hållbart under hela EP10; förvänta dig inte parlamentarisk omsvängning i Ukrainarelaterade samtyckesförfaranden.
+
+#### 5. Koalitionen förblir stabil men inte osårbar
+
+EPP–S&D–Renews styrande majoritet (398/719 platser) har en buffert på 37 platser över majoritetsundergränsen på 361. Renews strukturella svaghet (fransk valrisk) och EPP:s anpassning till högervindar i jordbruks- och migrationsfrågor skapar specifika sårbarheter i omtvistade sociala och miljömässiga lagstiftningsfrågor.
+
+**Åtgärdssignal:** Budget 2027-trilog (september–november 2026) är nästa stora koalitionsstresstest; EP–råds-gap uppskattat till 8–12 miljarder euro.
+
+---
+
+### De tre filerna att bevaka
+
+| Fil | Status | Risk | Tidslinje |
+|-----|--------|------|-----------|
+| EU-Mercosur | ECJ-yttrande begärt | 🔴 HÖG fördröjningsrisk | Ratificering 2028–2029 |
+| Digital euro | Förväntat COD | 🟡 Designrisk | H2 2026 förslag |
+| Budget 2027 | Trilogfas | 🟡 Förlikningsrisk | September–november 2026 |
+
+---
+
+### Underrättelseförbehåll
+
+EP:s öppna dataportals anriknings-API var inte tillgänglig den 22 maj 2026 (HTTP 404 på alla tre primära flöden). Denna verkställande sammanfattning baseras på verifierade antagna texter (21 poster bekräftade) och politiska landskapsdata (719 MEP / 9 grupper bekräftade). Procedurnivådetaljer (aktiva procedurer, föredragandetilldelningar, utskottsröstresultat) är inte tillgängliga för denna körning. **Övergripande tillförlitlighet: 🟡 MEDIUM-HÖG.**
+
+---
+
+### Full analys
+
+Se katalogerna `intelligence/` och `risk-scoring/` för kompletta analytiska artefakter:
+- `synthesis-summary.md` — fullständig karta över lagstiftningsaktivitet
+- `stakeholder-map.md` — politisk grupp- och institutionell aktörsprofil
+- `scenario-forecast.md` — 3 scenarier för EP10:s lagstiftningsbana
+- `pestle-analysis.md` — tväranalysdimensionell politisk-ekonomisk-rättslig analys
+- `risk-scoring/risk-matrix.md` — 6-riskprioriterad bedömning
+- `intelligence/wildcards-blackswans.md` — svanshändelsescenarier
+
+---
+
+### Admiralitetsbetyg: B2 — Övergripande bedömning
+
+*Källa: strukturerad analys från bekräftad EP Open Data (Admiralitet B = pålitlig källa); Information: troligen sann (B2) — viktiga lagstiftningsfiler bekräftade via `get_adopted_texts(year=2026)`.*
+
+### WEP-sannolikhetsband
+
+| Nyckelfråga | WEP-band | Tillförlitlighet |
+|------------|---------|----------------|
+| EP DMA-tillämpning klarar erforderlig omröstning | **Nästan säker** | 🟢 HÖG |
+| ECJ Mercosur-yttrande inom 12 månader | **Trolig** | 🟡 MEDEL |
+| Ukrainska lånet disburserat Q3 2026 | **Nästan säker** | 🟢 HÖG |
+| Animal Welfare Reg antagen i plenum | **Trolig** | 🟡 MEDEL |
+| Budget 2027-riktlinjer antagna enligt schema | **Nästan säker** | 🟢 HÖG |
+| Storkoalitionen överlever hela mandatperioden | **Fifty-fifty** | 🟡 MEDEL |
+
+### Läsarbriefing
+
+Denna verkställande sammanfattning sammanfattar de viktigaste lagstiftningsutvecklingarna i EU-parlamentet för veckan som slutade 2026-05-22. Beslutsfattare bör notera:
+
+1. **Omedelbar prioritet**: DMA-tillämpning — artikel 265 FEUF-hotet är ett latent kärnvapen som kan omforma EP–kommissionsrelationerna om det aktiveras
+2. **Strategisk bevakning**: Mercosur ECJ-tidslinje — sätter prejudikat för alla framtida handelsavtal med miljövillkorskrav
+3. **Löpande övervakning**: Ukraina-stödkonsensus — PfE-gruppens splittring är en fragilitetssignal
+4. **Längre horisont**: Budget 2027 — den verkliga kampen börjar när kommissionen lämnar in sitt formella förslag (förväntas juni 2026)
+
+**Datakvalitetsnotering**: EP API-anrikningsskikt var otillgängligt (HTTP 404) under denna körning. Alla bedömningar baseras på `get_adopted_texts(year=2026)` bekräftad data plus politiska landskapsdata från `generate_political_landscape`. Behandla procedurspecifik detalj med 🟡 MEDEL-tillförlitlighet.
+| Admiralitet | B2 | Pålitlig källa; troligen sann |
+
+### Strategisk underrättelsesummering
+
+#### Det trekollitionsparadoxen
+
+EP10:s styrande koalition (EPP+S&D+Renew = 398/719) är samtidigt tillräckligt stark för att anta lagstiftning och tillräckligt internt splittrad för att skapa oförutsägbara resultat i nyckelärenden. Den strategiska paradoxen: Renew Europa är koalitionens mest centristiska medlem men är också den mest fientliga mot Mercosur ECJ-hänvisningen (handelsliberala instinkter), vilket skapar en situation där styrande koalitionen är effektivt splittrad i en av parlamentets signaturutrikespolitiska handlingar.
+
+#### Tidsunderrättelse
+
+| Milstolpe | Förväntad tid | WEP-band | Betydelse |
+|-----------|-------------|---------|----------|
+| DMA formella förfaranden öppnade | Q3 2026 | Trolig | Testar EP–kommissionsrelationer |
+| ECJ Advocate General DG-yttrande om Mercosur | Q4 2026 | Fifty-fifty (timing) | Formar handelsnarrativ |
+| Kommissionens budgetförslag 2027 | Juni 2026 | Nästan säker | Utlöser EP–råds-strid |
+| Animal Welfare Reg rådsposition | Q4 2026 | Trolig | Bilaterala triloger börjar |
+| Ukrainalånet Q3-tranche disburserat | Q3 2026 | Nästan säker | Villkorat av redovisningsrapport |
+
+#### Tillförlitlighetskalibrering för beslutsfattare
+
+- **Bekräftad från live EP-data** (🟢 HÖG tillförlitlighet): Ukrainalånet antaget 2026-04-24; politisk landskapssammansättning (EPP 185, S&D 136 etc.); platsfördelning och grupptotaler
+- **Härledd från politisk dynamik** (🟡 MEDEL tillförlitlighet): Koalitionssammanhållningsgrader; utskottsröstningsresultat; procedurföredragandetilldelningar
+- **Kunskapsbaserade ekonomiska uppskattningar** (🟡 MEDEL tillförlitlighet): IMF WEO apr 2026 tillväxttakter; DMA ekonomiska konsekvensbedömningar; Mercosur handelsflödesprojektioner
+- **Scenarioframsyner** (🟡–🔴 MEDEL-LÅG tillförlitlighet): Tidslinjeprognoser; utfallssannolikheter; koalitionsbeteende under stress
+
+### Executive Brief Zh
+
+**日期:** 2026-05-22 | **海军情报等级: B2** | **密级:** 公开
+
+---
+
+### 立即行动事项
+
+**主题:** 欧洲议会PE10立法格局 — 2026年5月评估
+**时期:** 2026年1月至5月 | **数据可用性:** 🟡 受限（欧洲议会API增强功能不可用）
+**净立法动能:** 🟢 强劲 — 4.5个月内采纳21项文本，年化速度超56项/年
+
+---
+
+### 主要调查结果
+
+#### 1. PE10以加快节奏立法
+
+2026年1月至4月共采纳21项文本，国防/安全（5项）、社会（3项）、预算/财政（3项）、机构（3项）、贸易（2项）、数字（2项）为主要集群。议会进展速度超过同期历史平均水平。
+
+**行动信号:** 欧洲议会活跃的立法日程为追踪特定议题的利益相关方提供了时间敏感的参与窗口。
+
+#### 2. EU-南方共同市场协定：确认战略性延误
+
+欧洲议会于2026年1月投票，要求欧盟法院就EU-南方共同市场协定与欧盟气候和环境义务的兼容性发表意见。这是EU贸易史上第三次适用《欧盟运作条约》第218(11)条，将使批准至少推迟12至18个月。经济代价：年均约20至40亿欧元的双边贸易流量损失。
+
+**行动信号:** 受EU-南方共同市场关税表影响的企业应规划最早2028至2029年批准；并为环境章节的可能重新谈判做好准备。
+
+#### 3. 数字市场法（DMA）执法：欧洲议会加强施压
+
+2026年4月的DMA执行决议要求欧盟委员会对所有六家指定守门人（Google、Apple、Meta、Amazon、Microsoft、Booking.com）展开正式调查。若90天内未启动调查，议会准备援引《欧盟运作条约》第265条（未采取行动）提起诉讼。
+
+**行动信号:** 指定守门人的DMA合规团队应将此视为固定的政治截止日期，而非雄心勃勃的时间表。
+
+#### 4. 支持乌克兰的立法多数依然稳固
+
+2026年4月采纳的四项安全/对外政策决议——包括针对俄罗斯袭击的问责机制及支持亚美尼亚民主韧性——证实EPP–S&D–Renew在乌克兰问题上的核心联盟在PE10期间保持团结。PfE内部分裂（亲乌克兰的RN与奥尔班的反乌克兰立场）持续阻碍右翼对欧洲援乌的有效反对。
+
+**行动信号:** 对乌克兰的立法支持在PE10期间在结构上是稳固的；不应预期在乌克兰相关同意程序上出现议会反转。
+
+#### 5. 联盟保持稳定但并非无懈可击
+
+EPP–S&D–Renew执政多数（398/719席）在361席的多数门槛之上有37席余量。Renew的结构性脆弱性（法国选举风险）以及EPP对农业/移民领域右翼压力的适应，在争议性社会和环境立法中制造了特定脆弱点。
+
+**行动信号:** 2027年预算三边谈判（2026年9至11月）是联盟团结的下一次重大考验；议会与理事会预估差距为80至120亿欧元。
+
+---
+
+### 值得关注的三个议题
+
+| 议题 | 状态 | 风险 | 时间表 |
+|------|------|------|--------|
+| EU-南方共同市场 | 欧盟法院意见请求 | 🔴 高延误风险 | 批准2028至2029年 |
+| 数字欧元 | 待审COD程序 | 🟡 设计风险 | 2026年下半年提案 |
+| 2027年预算 | 三边协商阶段 | 🟡 妥协风险 | 2026年9至11月 |
+
+---
+
+### 情报说明
+
+欧洲议会开放数据门户的API增强层于2026年5月22日不可用（三个主要数据源HTTP 404）。本执行简报基于有文献记录的采纳文本（21项已确认）和政治格局数据（719名议员/9个已确认小组）。程序级别详情（活跃程序、报告员任命、委员会表决结果）本次会话不可获取。**总体置信度: 🟡 中至高。**
+
+---
+
+### 完整分析
+
+完整分析成果请参见 `intelligence/` 和 `risk-scoring/` 文件夹:
+- `synthesis-summary.md` — 立法活动综合映射
+- `stakeholder-map.md` — 政治团体和机构行为者档案
+- `scenario-forecast.md` — PE10立法路径的3个情景
+- `pestle-analysis.md` — 政治、经济、法律多维分析
+- `risk-scoring/risk-matrix.md` — 6项风险排名评估
+- `intelligence/wildcards-blackswans.md` — 极端风险情景
+
+---
+
+### 海军情报等级: B2 — 总体评估
+
+*来源: 基于经确认的欧洲议会开放数据的结构化分析（海军情报B = 可靠来源）；信息: 可能准确（B2）— 主要立法议题通过 `get_adopted_texts(year=2026)` 确认。*
+
+### WEP概率区间
+
+| 核心问题 | WEP区间 | 置信度 |
+|---------|--------|-------|
+| 议会DMA执行通过所需表决 | **几乎确定** | 🟢 高 |
+| 南方共同市场欧盟法院意见12个月内 | **可能** | 🟡 中 |
+| 乌克兰贷款2026年Q3拨付 | **几乎确定** | 🟢 高 |
+| 动物福利法规在全体会议采纳 | **可能** | 🟡 中 |
+| 2027年预算准则按时采纳 | **几乎确定** | 🟢 高 |
+| 大联盟维持整个任期 | **五五开** | 🟡 中 |
+
+### 读者简报
+
+本执行简报总结了截至2026-05-22当周欧洲议会的主要立法动态。决策者应注意：
+
+1. **即时优先事项**: DMA执法 — TFEU第265条威胁是潜在的核选项，一旦启用可重塑议会与委员会关系
+2. **战略监测**: 南方共同市场欧盟法院时间表 — 为所有未来含环境条件性要求的贸易协定确立先例
+3. **持续监控**: 乌克兰支持团结 — PfE小组分裂是脆弱性信号
+4. **较长期展望**: 2027年预算 — 当欧盟委员会提交正式提案（预计2026年6月）时真正的较量才开始
+
+**数据质量说明**: 欧洲议会API增强层在本次会话中不可用（HTTP 404）。所有评估基于经确认的`get_adopted_texts(year=2026)`数据和来自`generate_political_landscape`的政治格局数据。特定程序细节请以🟡中等置信度对待。
+| 海军情报 | B2 | 可靠来源；可能准确 |
+
+### 战略情报摘要
+
+#### 三重联盟悖论
+
+PE10执政联盟（EPP+S&D+Renew = 398/719席）同时具备足够通过立法的实力，又因内部分裂在关键议题上产生意外结果。战略悖论：Renew Europe是联盟中最为中间派的成员，但同时也是最反对就南方共同市场问题提交欧盟法院的（自由贸易倾向），这导致执政联盟在议会最重要的对外政策行动之一上实际上发生分裂。
+
+#### 时机情报
+
+| 里程碑 | 预计日期 | WEP区间 | 重要性 |
+|-------|---------|--------|-------|
+| DMA正式程序启动 | 2026年Q3 | 可能 | 检验议会与委员会关系 |
+| 欧盟法院就南方共同市场的法律总顾问意见 | 2026年Q4 | 五五开（时机） | 塑造贸易叙事 |
+| 欧盟委员会2027年预算提案 | 2026年6月 | 几乎确定 | 引发议会与理事会对抗 |
+| 理事会就动物福利法规的立场 | 2026年Q4 | 可能 | 启动双轨三边谈判 |
+| 乌克兰贷款Q3期拨付 | 2026年Q3 | 几乎确定 | 以问责报告为条件 |
+
+#### 决策者置信度校准
+
+- **来自欧洲议会实时数据的确认** (🟢 高置信度): 2026-04-24乌克兰贷款采纳；政治格局构成（EPP 185、S&D 136等）；议席分配和小组合计
+- **从政治动态推断** (🟡 中置信度): 联盟团结率；委员会表决结果；报告员任命
+- **基于知识的经济估算** (🟡 中置信度): IMF WEO 2026年4月增长率；DMA经济影响评估；南方共同市场贸易流量预测
+- **情景预测** (🟡–🔴 中至低置信度): 时间表预测；结果概率；压力下联盟行为
+
 ### Economic Context.Fallback
 
 ### Data Availability Note
@@ -3761,6 +5367,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [economic-context.fallback](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/intelligence/economic-context.fallback.md) | `intelligence/economic-context.fallback.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/propositions/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 
