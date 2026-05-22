@@ -250,3 +250,60 @@ Structural assessment based on 10th Parliament group arithmetic:
 - EPCA consent items typically pass 400-450 votes when no major political controversy
 
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
+
+---
+
+## Extended Stakeholder Analysis (Pass 2 — Re-run)
+
+### Tier 1 Stakeholder Extended Profiles
+
+#### European Commission (DG TRADE) — Extended Analysis
+
+**Interests:** Maintain exclusive competence on trade policy; respond to AI trade resolution without over-committing to specific proposals; balance US/China relationships.
+
+**Resources:** Legal expertise, DG TRADE negotiating capacity, political mandate from Commission President's Competitiveness agenda.
+
+**Constraints:** 15+ active FTA negotiations, limited specialist capacity in AI-trade interface, potential inter-DG competition with DG CONNECT on AI governance ownership.
+
+**Expected Behaviour:** Issue formal acknowledgment within 30 days; launch "exploratory" stakeholder consultation by Q4 2026; defer specific proposals to 2027 legislative agenda.
+
+**Power:** HIGH (exclusive competence; implementation is Commission-only)
+**Interest:** MEDIUM-HIGH (aligned with competitiveness mandate but capacity-constrained)
+**Predictability:** MEDIUM (base rate of 50% substantive follow-up)
+
+#### EPP Parliamentary Group — Extended Analysis
+
+**Interests:** Demonstrate legislative productivity; maintain market-oriented AI governance framing; avoid "overregulation" narrative.
+
+**Strategy:** Co-ownership of INTA resolution signals INTA leadership. EPP will monitor Commission response and use INTA committee hearings as accountability mechanism.
+
+**Internal tensions:** EPP market-liberal wing (ECR-adjacent) may resist prescriptive AI export controls that EPP progressive wing (INTA-oriented) supports.
+
+**Expected Behaviour:** Maintain pressure on Commission response; potential follow-up INTA resolution if no Commission action by end of 2026.
+
+#### S&D Parliamentary Group — Extended Analysis
+
+**Interests:** Labour protections in AI-enabled trade; human rights conditionality in EPCA; development dimension in fisheries.
+
+**Strategy:** S&D will likely add riders to any Commission AI trade proposal insisting on worker impact assessment for AI trade facilitation provisions. EPCA implementation monitoring via AFET committee.
+
+**Key concern:** S&D's AFET shadow rapporteur may push for formal conditionality monitoring mechanism with Uzbekistan. If EPP resists, S&D may use Committee of Foreign Affairs hearings as oversight platform.
+
+#### Uzbek Government — Extended Analysis
+
+**Interests:** EU market access (textiles, agricultural products, potentially digital services); attract EU investment and technical assistance; signal "multi-vector" foreign policy orientation to domestic and regional audiences.
+
+**Constraints:** Cannot accept fully binding EU human rights conditionality without undermining domestic political legitimacy.
+
+**Expected Behaviour:** Engage cooperative tone on EPCA implementation; selectively implement governance benchmarks that align with economic reform agenda; resist politically sensitive conditionality (media freedom, political pluralism).
+
+### Stakeholder Network Dynamics
+
+The AI trade resolution creates a new stakeholder network connecting:
+- EP INTA committee (initiator) → Commission DG TRADE (target) → Industry groups (affected)
+- EP AFET committee (EPCA oversight) → EU Delegation Tashkent (implementer) → Uzbek government (counterpart)
+- EP PECH committee (fisheries) → DG MARE (implementer) → Coastal state authorities
+
+**Coalition formation risk:** Industry groups (digital/tech associations: digitalEurope, CCIA Europe) will seek to shape Commission AI trade strategy to minimise compliance costs. This stakeholder pressure may *slow* Commission action while substantively affecting proposal content.
+
+[EXTEND-FROM-PRIOR: intelligence/stakeholder-map.md prior=253L → new=320L (+67)]

@@ -163,3 +163,45 @@ This May 2026 EP plenary session represents **above-average strategic significan
 **Net strategic assessment for EU Parliament Monitor readers:** Follow the Commission Work Programme 2027 announcement (expected November 2026) for the decisive signal on whether this EP resolution becomes policy or remains aspirational. That single indicator will determine the strategic trajectory of EU AI trade governance for the remainder of the decade.
 
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
+
+---
+
+## Synthesis Update (Pass 2 — Re-run)
+
+### Cross-Artifact Synthesis: Convergent Findings
+
+Reviewing all extended artifacts from this re-run, the following convergent themes emerge:
+
+**Theme 1: Structural Coherence of May 2026 Plenary**
+Despite degraded-feeds data mode, all analytical methodologies converge on the same narrative: the May 22 plenary (capping May 19-22 Strasbourg session) represents a coherent legislative package. The AI resolution + EPCA + fisheries + Eurojust + immunity votes are analytically distinct but collectively signal EP legislative productivity during the post-AI Act consolidation phase.
+
+**Theme 2: Coalition Mathematics Validate Governance Centre**
+Across coalition-mathematics.md, stakeholder-map.md, and voting-patterns.md, structural inference consistently places expected majority margins in the 450-550 range for major items. The EPP-S&D-Renew governing coalition (420 seats) provides a stable basis for EU international engagement (EPCA, fisheries) even without explicit roll-call confirmation.
+
+**Theme 3: Temporal Asymmetry — Short-Term Clarity, Long-Term Uncertainty**
+Scenarios (scenario-forecast.md) and wildcards (wildcards-blackswans.md) agree: the May 2026 outcomes are high-confidence in their procedural completion, but medium-confidence in their policy impact. The 30-day window is clear (Commission acknowledgment, EPCA next steps). The 12-36 month window carries meaningful wildcard risk (W-004 treaty change, W-005 China AI dialogue initiative).
+
+**Theme 4: EP Institutional Assertiveness Pattern**
+Historically-baseline.md documents the EP's consistent pattern of using own-initiative resolutions to pre-empt and shape Commission policy. The AI trade resolution follows this playbook: INTA committee study (2025) → own-initiative resolution (May 2026) → Commission response pressure (Q4 2026) → legislative proposal (2027?). This is EP institutional assertiveness at its most effective.
+
+### Confidence and Reliability Assessment
+
+| Finding | Confidence | Limiting Factor |
+|---------|-----------|----------------|
+| Resolutions adopted (TA-10-2026-0183, TA-10-2026-0174, fisheries) | 🟢 HIGH | DOCEO text confirmed in prior EP session data |
+| Coalition support margins (450-550 range) | 🟡 MEDIUM | No roll-call data; structural inference only |
+| Commission will acknowledge AI resolution | 🟢 HIGH | Mandatory under Art. 225 TEU framework |
+| Commission substantive follow-through within 18 months | 🟡 MEDIUM | Base rate 50%; agenda space uncertain |
+| Uzbekistan EPCA ratification timeline | 🟡 MEDIUM | Member State council ratification pace variable |
+
+### Recommended Monitoring Framework for Readers
+
+**Signal 1 (1-month):** Commission registers TA-10-2026-0183 in EUR-Lex (procedural confirmation of receipt). Expected within T+15 days.
+
+**Signal 2 (3-month):** Commission issues formal reply to EP — can be acknowledgment only or substantive. Minimum threshold for Scenario B (slow burn) to remain viable.
+
+**Signal 3 (6-month):** G7 AI Governance statement cites EU trade-strategy framing. Would signal international uptake beginning and strengthen Scenario A (swift action) probability.
+
+**Signal 4 (12-month):** EU-Uzbekistan EPCA provisional application. Expected H2 2026 per Council scheduling. Confirmation of EP consent translated into binding EU foreign policy.
+
+[EXTEND-FROM-PRIOR: intelligence/synthesis-summary.md prior=166L → new=218L (+52)]

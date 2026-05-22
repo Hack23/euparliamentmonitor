@@ -73,3 +73,29 @@ radar
 **Overall landscape confidence:** 🟡 MEDIUM
 **Basis:** Structural inference from group positions and institutional precedents; no voting records available to confirm coalition composition
 **Limitation:** Without DOCEO roll-call data, group-level support/opposition to individual resolutions cannot be confirmed
+
+---
+
+## 5. Extended Threat Landscape Assessment
+
+### Near-Term Threats (0-30 days)
+
+**Threat 1: AI Trade Resolution Mischaracterised as Protectionist**
+**WEP:** *Unlikely* (25%) | **Admiralty Grade:** C3
+US-based AI industry groups and USTR may characterise EU AI trade strategy as a non-tariff barrier signal. If this framing takes hold in media ahead of Commission response, it could pressure the Commission to adopt more cautious language.
+**Indicator:** USTR or US Chamber of Commerce AI trade policy statements within 14 days of EP adoption.
+
+**Threat 2: EPCA Ratification Delayed by Legal-Linguistic Issue**
+**WEP:** *Unlikely* (20%) | **Admiralty Grade:** B2
+EU-Uzbekistan EPCA covers 24+ EU languages; legal-linguistic review for EPCAs with broad geographic and sectoral scope typically takes 4-8 months. Any discovered inconsistency delays provisional application.
+**Indicator:** Council Legal Service advisory on EPCA text by July 2026.
+
+### Medium-Term Threats (31-90 days)
+
+**Threat 3: Commission-EP Institutional Conflict on AI Trade Competence**
+**WEP:** *Roughly Even Chance* (35%) | **Admiralty Grade:** B2
+Commission may assert that trade policy (TFEU Art. 207 exclusive competence) limits the EP's ability to mandate specific AI trade policy outcomes. If Commission response explicitly rejects the resolution's prescriptive demands, EP-Commission relations will be strained.
+
+**Key Assumptions Check:** This threat is present in all scenarios where Commission institutional conservatism on trade competence exceeds its political incentive to maintain EP goodwill. Recent EP-Commission dynamics (2022-2026) suggest moderate cooperation rather than open conflict.
+
+[EXTEND-FROM-PRIOR: intelligence/political-threat-landscape.md prior=76L → new=102L (+26)]

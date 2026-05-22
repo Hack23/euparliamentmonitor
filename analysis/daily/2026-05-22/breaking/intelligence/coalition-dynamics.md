@@ -130,3 +130,25 @@ pie title EP Coalition Composition (10th Parliament, May 2026)
 **Coalition reading:** Pro-EU governing coalition (EPP+S&D+Renew = ~401 seats) retains majority for AI trade resolution. Fisheries agreements attract even broader support (EPP+S&D+Renew+ECR+Greens = ~532 seats). Coalition fracture risk: LOW for all May 2026 items.
 
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
+
+---
+
+## Extended Coalition Indicators (Re-run Analysis)
+
+### Indicators Monitoring Regime
+
+Per `extended/forward-indicators.md` §"AI Trade Resolution Forward Indicators", the following leading signals confirm or disconfirm coalition durability:
+
+1. **30-day:** Commission response content — if generic acknowledgment, coalition signal was insufficient to compel Commission action; if with timeline commitment, coalition signal was sufficient.
+2. **60-day:** Any ECR defection signal on AI trade implementation (ECR market-liberal wing may resist prescriptive AI export controls even if they voted for the non-binding resolution).
+3. **90-day:** S&D conditionality demands on Uzbekistan implementation — EPP-S&D friction point that could resurface when AFET holds first EPCA implementation hearing.
+
+### Coalition Stress Scenarios
+
+**Low stress (probability: *Likely*):** AI trade resolution adopted with 460+ votes; no coalition crisis; EP summer recess stabilises group positions.
+
+**Medium stress (probability: *Roughly Even Chance*):** Commission response to AI trade resolution perceived as inadequate by INTA rapporteur; EP-Commission institutional tension but no vote consequence.
+
+**High stress (probability: *Unlikely*):** PfE growth + ECR defections on autumn 2026 legislative agenda reduce effective majority to <370; AI trade implementation becomes contested.
+
+[EXTEND-FROM-PRIOR: intelligence/coalition-dynamics.md prior=133L → new=162L (+29)]

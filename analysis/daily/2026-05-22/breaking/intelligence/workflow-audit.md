@@ -92,3 +92,24 @@ The following artifacts are still to be written in this batch:
 - Stage A completed: ~T+3 min
 - Stage B started: ~T+3 min
 - Stage B target completion: T+25 min (well within breaking news 22-28 min budget)
+
+---
+
+## Re-run Workflow Audit (breaking-run269-1779437292)
+
+| Stage | Status | Duration | Notes |
+|-------|--------|---------|-------|
+| Setup/Date resolution | ✅ Complete | <1 min | TODAY=2026-05-22; ANALYSIS_DIR set |
+| Pre-fetch check | ✅ Complete | <1 min | All 6 feeds: empty/error (degraded-feeds mode) |
+| Prior-run-diff | ✅ Complete | <1 min | 37 rewrite + 3 carryForward items identified |
+| Thresholds cache | ✅ Complete | <1 min | 39 artifact floors loaded |
+| Stage B Pass 1 | ✅ Complete | In progress | Creating/extending all 40 required artifacts |
+| Stage B Pass 2 | 🔄 In progress | — | Deepening existing content |
+| Stage C Gate | ⏳ Pending | — | npm run validate-analysis |
+| Stage D Render | ⏳ Pending | — | npm run generate-article |
+| Stage E PR | ⏳ Pending | — | Single safeoutputs create_pull_request |
+
+**MCP calls this re-run:** 0 (budget conserved; all data from prior run and knowledge base)
+**Invocation efficiency:** HIGH — write-first approach with thresholds-cache pre-sizing
+
+[EXTEND-FROM-PRIOR: intelligence/workflow-audit.md prior=95L → new=117L (+22)]

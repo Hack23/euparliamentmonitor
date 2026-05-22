@@ -123,3 +123,38 @@ The following IMF economic data should be incorporated in the next analysis run:
 | Forest reproductive material | LOW-MEDIUM — regulatory; affects reforestation industry costs | 🟢 HIGH |
 | UN General Assembly recommendation | LOW (economic dimension secondary to political) | 🟢 HIGH |
 | Immunity waivers | NEGLIGIBLE (economic impact nil) | 🟢 HIGH |
+
+---
+
+## 7. IMF Projection Context (Knowledge Base Supplementary)
+
+### EU 2026 Economic Outlook (Knowledge Base — IMF WEO-aligned estimates)
+
+**Growth projections (knowledge base, C3 confidence):**
+- EU-27 real GDP growth 2026: ~1.0-1.3% (below historical trend; energy transition + German automotive contraction)
+- EA-20 inflation 2026: targeting ~2.1-2.3% (ECB rate cuts from 2024 peak creating mild reflation)
+- EU unemployment 2026: ~6.0-6.2% (historically low; structural tight labour markets)
+
+**Fiscal context:**
+- EU-level fiscal consolidation: member states under Stability and Growth Pact enforcement; average deficit ~3.0-3.5% GDP
+- Germany: entering cyclical recovery from 2025 mild recession; fiscal space constrained by constitutional debt brake
+- France: ongoing fiscal adjustment; deficit management under EU excessive deficit procedure
+
+**Relevance to AI trade resolution:**
+The EU's relatively subdued GDP growth trajectory *increases* the political salience of the AI trade strategy. If AI-enabled competitiveness can be framed as a growth driver, the Commission has political incentive to respond substantively to TA-10-2026-0183.
+
+### Uzbekistan Economic Context (Knowledge Base)
+- GDP per capita (PPP): ~$12,000 (lower-middle income)
+- Real GDP growth 2025-2026: ~5.0-5.5% (strong growth driven by diversification and FDI from Gulf and EU)
+- EU-Uzbekistan bilateral trade: ~€3-5bn/year (modest; dominated by commodities and textiles)
+- Uzbekistan's main export to EU: natural gas (transit), cotton, mineral products
+- Strategic economic value to EU: transit corridor diversification; rare earth mineral potential
+
+**Bayesian Update from economic context:**
+Economic rationale for EPCA is *stronger* than purely geopolitical narrative given Uzbekistan's growth trajectory. A rapidly growing, diversifying Uzbek economy with EU market access orientation creates genuine trade partnership potential — not merely a strategic holding action.
+
+### Fisheries Economic Context
+- São Tomé and Príncipe: GDP ~$650m; fisheries sector ~8% GDP. EU financial contribution under SFPA is economically significant for the island economy.
+- Cook Islands: GDP ~$400m; tourism-dominated (80%+); fisheries ~5% GDP. Protocol financial contribution supports government revenue.
+
+[EXTEND-FROM-PRIOR: intelligence/economic-context.md prior=126L → new=178L (+52)]

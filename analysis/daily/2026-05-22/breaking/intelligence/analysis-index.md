@@ -142,3 +142,34 @@ graph TD
 ```
 
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
+
+---
+
+## Extended Analysis Index (Re-run: breaking-run269-1779437292)
+
+### New Artifacts Added This Run
+
+| Artifact | Status | Lines (target) |
+|---------|--------|---------------|
+| extended/executive-brief.md | ✅ Created | 180+ |
+| extended/devils-advocate-analysis.md | ✅ Created | 250+ |
+| extended/historical-parallels.md | ✅ Created | 220+ |
+| extended/coalition-mathematics.md | ✅ Created | 200+ |
+| extended/forward-indicators.md | ✅ Created | 180+ |
+| extended/intelligence-assessment.md | ✅ Created | 220+ |
+| extended/implementation-feasibility.md | ✅ Created | 200+ |
+| extended/comparative-international.md | ✅ Created | 200+ |
+| extended/voter-segmentation.md | ✅ Created | 200+ |
+| extended/cross-reference-map.md | ✅ Created | 150+ |
+| extended/data-download-manifest.md | ✅ Created | 160+ |
+| intelligence/voting-patterns.md | ✅ Created | 150+ |
+| intelligence/economic-context.fallback.md | ✅ Created | 185+ |
+
+### Extended Dependency Map (Updated)
+
+The re-run artifact set adds three analytical layers not present in the prior run:
+1. **Adversarial layer** (devils-advocate-analysis.md): challenges dominant narrative
+2. **Comparative layer** (comparative-international.md, historical-parallels.md): calibrates against global benchmarks
+3. **Forward-looking layer** (forward-indicators.md, implementation-feasibility.md): operationalises monitoring
+
+[EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=145L → new=178L (+33)]

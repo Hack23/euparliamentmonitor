@@ -131,3 +131,27 @@ The May 19-22, 2026 plenary is above average in significance due to:
 | H3: EP asserting itself on external relations | EPCA, Eurojust, UN recommendation cluster | Pattern consistent with EP institutional self-assertion trend | *Likely* |
 
 **Assessment:** H2 and H3 are complementary and both *Likely* valid. The AI trade resolution represents a genuine strategic first, even if the volume of agreements reflects routine pipeline management.
+
+---
+
+## Extended Significance Scoring (Pass 2 — Re-run)
+
+### Significance Score Update Table
+
+| Text | Prior Score | Re-run Score | Update Rationale |
+|------|------------|-------------|----------------|
+| TA-10-2026-0183 (AI trade) | 9.2/10 | 9.3/10 | Wildcard W-004 (treaty change potential) adds marginal +0.1 |
+| TA-10-2026-0174 (Uzbekistan EPCA) | 7.8/10 | 7.9/10 | Domino wildcard (W-006) adds marginal +0.1 |
+| Fisheries (São Tomé, Cook Islands) | 6.1/10 | 6.1/10 | Stable — no new analysis changes assessment |
+| Lebanon Eurojust | 5.8/10 | 5.8/10 | Stable |
+| Immunity waivers | 4.2/10 | 4.2/10 | Stable — routine procedure |
+
+### Cross-Session Significance Trend
+
+The May 2026 Strasbourg plenary significantly exceeds the average EP plenary session significance (estimated 5.5/10 across all items). Key driver: AI trade resolution as paradigmatic policy evolution (9.3/10) elevates the session's portfolio significance.
+
+**Session significance composite:** (9.3 × 0.4) + (7.9 × 0.3) + (6.1 × 0.15) + (5.8 × 0.1) + (4.2 × 0.05) = 3.72 + 2.37 + 0.92 + 0.58 + 0.21 = **7.80/10**
+
+**Interpretation:** Top decile EP plenary session significance driven by AI trade resolution + Uzbekistan EPCA package.
+
+[EXTEND-FROM-PRIOR: intelligence/significance-scoring.md prior=134L → new=168L (+34)]

@@ -130,3 +130,60 @@ graph TD
 ```
 
 **Aggregate wildcard risk assessment:** 🟡 MEDIUM — individual wildcards are *Remote*, but their cumulative effect (multiple scenarios potentially materialising over 24 months) represents a meaningful portfolio of risks for EU external affairs. The AI regulatory arbitrage threat (Threat 1.1 in threat-model.md) is structurally more likely than any individual wildcard.
+
+---
+
+## Extended Wildcards & Black Swans (Pass 2 — Re-run)
+
+### Wildcard W-004: EP Constitutional Moment — EP Formally Claims Treaty Change Rights for AI Governance
+
+**Probability:** *Remote* (5%) | **Time Horizon:** 24-36 months
+**Admiralty Grade:** C3 | **Surprise Potential:** EXTREME
+
+**Scenario:** EP deploys Art. 48 TEU initiative right (via Council or Herculean EP majority mobilisation of treaty revision) to formally embed AI governance competences at EU treaty level, ending current shared/supporting competence ambiguity. This would represent the most significant EU constitutional evolution since Lisbon Treaty (2009).
+
+**Trigger:** Commission inaction on multiple EP AI resolutions + ECJ ruling clarifying limits of TFEU 114 (internal market) basis for AI legislation creates urgency.
+
+**Impact:** Transformative — permanently resolves EU AI competence debate; locks in strong EU AI governance for 50+ years; may face Member State resistance (unanimous approval required).
+
+**Intelligence indicators:**
+1. EP Constitutional Affairs (AFCO) committee formally takes up AI competences question
+2. Two or more Member States support EP on treaty competences (France + one other)
+3. Intergovernmental Conference preparation documents reference AI governance gap
+
+### Wildcard W-005: China Proposes Formal EU-China AI Governance Framework Ahead of Commission Response
+
+**Probability:** *Remote* (8%) | **Time Horizon:** 6-18 months
+**Admiralty Grade:** C3 | **Surprise Potential:** HIGH
+
+**Scenario:** In response to EP's AI trade resolution and US-EU TTC discussions, China proactively proposes bilateral EU-China AI governance dialogue framework, potentially pre-empting US-EU AI governance coordination.
+
+**Strategic logic for China:** Creates wedge between EU and US; positions China as cooperative rather than adversarial AI governance actor; gains access to EP's AI trade strategy framing before US does.
+
+**Impact:** Geopolitically significant — forces EU to choose between deeper US alignment (TTC) or genuine multilateralism (EU-China-US triangle). Commission would face unprecedented pressure with no precedent for handling.
+
+### Wildcard W-006: Uzbekistan EPCA Triggers Central Asia Domino — Kazakhstan and Kyrgyzstan Request EPCAs
+
+**Probability:** *Unlikely* (12%) | **Time Horizon:** 12-30 months
+**Admiralty Grade:** B3 | **Surprise Potential:** MEDIUM-HIGH
+
+**Scenario:** EU-Uzbekistan EPCA provisional application (expected H2 2026) demonstrates viability of EU-Central Asia comprehensive partnerships, triggering Kazakhstan and Kyrgyzstan formal requests for similar agreements.
+
+**Impact:** EP would face 2 new AFET consent procedures; EU's Central Asia strategy would require substantial upgrade; DG NEAR/DG TRADE capacity stretched across 3 simultaneous Central Asia EPCA negotiations.
+
+**Confidence note on W-006:** 🟡 This is structurally most plausible wildcard — Kazakhstan already has Partnership and Cooperation Agreement (1999); an upgrade to EPCA format is logical next step if Uzbekistan EPCA is seen as success.
+
+### Re-run Wildcard Portfolio Update
+
+| Wildcard | Prior Probability | Re-run Update | Change |
+|---------|-----------------|--------------|--------|
+| W-001 (AI governance collapse) | 10% | Stable | — |
+| W-002 (EPCA ratification fails) | 8% | Stable | — |
+| W-003 (Fisheries political escalation) | 5% | Stable | — |
+| W-004 (Treaty change) | 5% | NEW | +5% portfolio |
+| W-005 (China proposes AI dialogue) | 8% | NEW | +8% portfolio |
+| W-006 (Central Asia domino) | 12% | NEW | +12% portfolio |
+
+**Portfolio wildcard risk re-assessment:** 🟡 MEDIUM-HIGH — addition of 3 new wildcards increases cumulative portfolio risk. W-006 (Central Asia domino) is most investable as an analytical monitoring priority given observable trigger indicators.
+
+[EXTEND-FROM-PRIOR: intelligence/wildcards-blackswans.md prior=133L → new=193L (+60)]

@@ -192,3 +192,53 @@ Primary threat-risk correspondences:
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
 
 **Signed:** Automated AI analysis system | Run ID: breaking-run264-1779413941
+
+---
+
+## Extended Threat Model (Pass 2 — Re-run)
+
+### Threat Matrix: Extended Assessment
+
+#### T-001: Commission Inaction on AI Trade — Extended Analysis
+
+**Threat Category:** Institutional / Policy
+**WEP:** *Likely* (55%) | **Admiralty Grade:** B2
+**Impact:** HIGH | **Probability:** MEDIUM
+
+**ACH Assessment:**
+| Hypothesis | Evidence | Likelihood |
+|-----------|---------|-----------|
+| Commission acts substantively | INTA+ITRE preparation; Competitiveness mandate | 40% |
+| Commission defers (slow burn) | Base rate of OIR follow-through (50%); DG TRADE capacity | 45% |
+| Commission refuses (competence claim) | Rare but precedented; TFEU 207 explicit | 15% |
+
+**Key Assumptions:** Commission inaction is itself a policy choice that may prompt EP to escalate through Article 225 formal request for proposal. Prior Art. 225 formal requests (rare) have forced Commission action within 6-12 months.
+
+**Red Team:** What if Commission genuinely supports AI trade governance but needs 18 months to produce a credible proposal? "Slow burn" scenario may be underestimated — it could produce better outcomes (more substantive, legally sound) than forced fast action.
+
+#### T-002: Uzbekistan Conditionality Collapse — Extended Analysis
+
+**Threat Category:** Diplomatic / Human Rights
+**WEP:** *Likely* (60%) | **Admiralty Grade:** B2
+**Impact:** MEDIUM (for EU-Uzbekistan relations); HIGH (for EU credibility on values-based external policy)
+
+**Mechanism:** If Uzbekistan conducts political crackdown within 12 months of EPCA provisional application, EP members (S&D, Greens) will demand suspension of EPCA benefits. Commission/Council will resist if strategic interests outweigh conditionality logic.
+
+**Historical Analogy:** EU-Egypt (2013-present): post-coup suspension of some EU support, but ENI funding maintained; EPCA maintained with Egypt despite Sisi-era repression.
+
+**Mitigation pathway:** EP AFET committee can trigger annual conditionality review hearings; EU Delegation reports provide accountability mechanism; joint civil society monitoring.
+
+#### T-003: WTO Challenge to EU AI Trade Clauses — Extended Analysis
+
+**Threat Category:** Legal / Trade
+**WEP:** *Remote* (10-15%) within 12 months | **Admiralty Grade:** C3
+
+**Legal pathway:** US or China files complaint at WTO DSB challenging EU FTA AI chapter as inconsistent with GATT Article I (MFN) or Article III (National Treatment), or with GATS Article II (MFN), alleging discriminatory treatment of foreign AI services/goods.
+
+**EU Defence:** EU would argue AI governance clauses fall under GATT Article XX(a) (public morals) or GATS Article XIV(a), similar to how GDPR is defended. Prior EU success in defending GDPR-related measures *increases* probability of successful WTO defence.
+
+**Risk:** Even if EU ultimately prevails, filing creates multi-year uncertainty that chills FTA negotiators from including robust AI chapters.
+
+**Red Team on T-003:** WTO challenge from US is *more likely* if EU-US TTC breaks down rather than succeeds. A functioning TTC creates political incentives for US to work within EU's AI governance framework rather than challenge it. Watch TTC meeting outcomes.
+
+[EXTEND-FROM-PRIOR: intelligence/threat-model.md prior=195L → new=255L (+60)]
