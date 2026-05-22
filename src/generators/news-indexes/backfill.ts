@@ -154,7 +154,9 @@ function backfillOneLegacyArticleSeo(
       ? resolverDescription
       : safeDescription || formatSlug(parsed.slug);
   const description = needsDescription
-    ? buildLegacyBackfillDescription(parsed.date, parsed.slug, parsed.lang, baseDescription)
+    ? buildLegacyBackfillDescription(parsed.date, parsed.slug, parsed.lang, baseDescription, {
+        forceContextPrefix: true,
+      })
     : meta.description;
   const keywords = entry?.keywords ?? fallbackKeywords;
   const nextHtml = applyArticleSeoBackfill(html, description, keywords);
@@ -194,20 +196,52 @@ export function buildLegacyBackfillDescription(
   date: string,
   slug: string,
   lang: string,
-  description: string
+  description: string,
+  options: { readonly forceContextPrefix?: boolean } = {}
 ): string {
   const trimmedDescription = description.trim();
-  if (trimmedDescription.length >= MIN_ARTICLE_DESCRIPTION_LENGTH) {
+  if (trimmedDescription.length >= MIN_ARTICLE_DESCRIPTION_LENGTH && !options.forceContextPrefix) {
     return capDescriptionLength(trimmedDescription);
   }
   const category = detectCategory(slug);
   const langCode = (lang || 'en').toLowerCase() as LanguageCode;
   const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, langCode) as ArticleCategoryLabels;
   const label = categoryLabels[category] ?? formatSlug(slug);
-  const prefix = `${date} — ${label}`;
+  const qualifier = buildLegacySlugQualifier(slug, label);
+  const prefix = [date, label, qualifier].filter((part) => part.length > 0).join(' — ');
   const body = trimmedDescription || label;
   const contextual = `${prefix} — ${body}`.replace(/\s+/g, ' ').trim();
   return capDescriptionLength(contextual);
+}
+
+/**
+ * Build an optional slug-derived qualifier for legacy pages that share the
+ * same date and article category (for example same-day `*-run2` variants).
+ *
+ * @param slug - Article slug without date/language suffix
+ * @param localizedLabel - Localized category label already present in prefix
+ * @returns Human-readable qualifier, or empty when it would duplicate label
+ */
+function buildLegacySlugQualifier(slug: string, localizedLabel: string): string {
+  const formatted = formatSlug(slug).trim();
+  if (!formatted) return '';
+  const normalizedFormatted = normalizeLegacyQualifier(formatted);
+  const normalizedLabel = normalizeLegacyQualifier(localizedLabel);
+  if (!normalizedFormatted || normalizedFormatted === normalizedLabel) return '';
+  return formatted;
+}
+
+/**
+ * Normalize a prefix component for duplicate detection.
+ *
+ * @param value - Candidate text
+ * @returns Lower-case alphanumeric text
+ */
+function normalizeLegacyQualifier(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
 }
 
 /**

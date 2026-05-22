@@ -62,6 +62,40 @@ describe('buildLegacyBackfillDescription — substantive resolver output (≥120
     expect(result.length).toBeLessThanOrEqual(180);
     expect(result.endsWith('…')).toBe(true);
   });
+
+  it('can force a localized context prefix for duplicate substantive descriptions', () => {
+    const duplicate =
+      'With 185 seats, EPP controls committee chair nominations, rapporteurships, and the agenda-setting authority of the Conference of Presidents. This structural advantage compounds across the term.';
+    const result = buildLegacyBackfillDescription(
+      '2026-05-09',
+      'term-outlook',
+      'en',
+      duplicate,
+      { forceContextPrefix: true }
+    );
+
+    expect(result).toContain('2026-05-09');
+    expect(result).toContain('Term Outlook');
+    expect(result).toContain('EPP controls committee chair nominations');
+    expect(result.length).toBeLessThanOrEqual(180);
+  });
+
+  it('adds slug qualifiers when same-day run slugs need unique prefixes', () => {
+    const duplicate =
+      'The one-week adopted-texts feed returned 85 items spanning three distinct periods of parliamentary activity and requires page-specific context for search result snippets.';
+    const result = buildLegacyBackfillDescription(
+      '2026-04-04',
+      'breaking-run2',
+      'en',
+      duplicate,
+      { forceContextPrefix: true }
+    );
+
+    expect(result).toContain('2026-04-04');
+    expect(result).toContain('Breaking News');
+    expect(result).toContain('Breaking Run2');
+    expect(result.length).toBeLessThanOrEqual(180);
+  });
 });
 
 describe('buildLegacyBackfillDescription — short / placeholder content (<120 chars)', () => {
