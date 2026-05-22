@@ -396,8 +396,8 @@ that fail ANY gate will be flagged in the PR comment:
 > by `safeoutputs___create_pull_request` from the staged translation
 > files — see the `concurrency` and `safe-outputs.create-pull-request`
 > blocks in this file's frontmatter. **Do not** run `git checkout`,
-> `git branch`, or any other git command in this step or anywhere else
-> in the run (see § 🚫 Never).
+> `git branch`, or any other git command in this step or in any
+> agent bash-tool command during this run (see § 🚫 Never).
 
 ```bash
 set -euo pipefail

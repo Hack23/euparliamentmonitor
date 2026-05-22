@@ -336,6 +336,10 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/git checkout/);
     expect(workflow).toMatch(/git branch/);
     expect(workflow).toMatch(/git status/);
+    expect(workflow).toMatch(/git log/);
+    expect(workflow).toMatch(/git commit/);
+    expect(workflow).toMatch(/git push/);
+    expect(workflow).toMatch(/git merge/);
   });
 
   it('records WORKFLOW_START_EPOCH for wall-clock budget tracking', () => {
