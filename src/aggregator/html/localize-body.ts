@@ -240,8 +240,7 @@ export function replaceExecutiveBriefSection(
     cutEnd = prevNewline + 1;
   }
 
-  const newHeading =
-    `<h2 id="section-executive-brief">${escapeHTML(localizedHeading)}</h2>\n`;
+  const newHeading = `<h2 id="section-executive-brief">${escapeHTML(localizedHeading)}</h2>\n`;
   const trimmedReplacement = replacementBodyHtml.endsWith('\n')
     ? replacementBodyHtml
     : `${replacementBodyHtml}\n`;

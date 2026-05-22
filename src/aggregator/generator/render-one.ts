@@ -183,8 +183,7 @@ function writeLanguageVariant(
     // `<meta description>`, JSON-LD `headline`) is already localized
     // via `resolveLocalizedBriefHighlight` upstream, so this hook
     // exclusively touches the rendered article body.
-    const localized =
-      opts.runDir !== null ? readLocalizedBriefBody(opts.runDir, lang) : null;
+    const localized = opts.runDir !== null ? readLocalizedBriefBody(opts.runDir, lang) : null;
     if (localized) {
       const localizedRendered = renderMarkdown(localized.markdown).html;
       // Strip the first H1 from the translated brief —
