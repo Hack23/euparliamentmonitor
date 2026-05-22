@@ -179,6 +179,9 @@ function backfillOneLegacyArticleSeo(filename, descriptions) {
  * @param slug - Article slug (used to derive the category)
  * @param lang - Article language (ISO 639-1 lower-case code)
  * @param description - Candidate description (resolver output preferred)
+ * @param options - Backfill options
+ * @param options.forceContextPrefix - Force date/language/category prefix
+ *   even when the description is already substantive
  * @returns Page-specific description, prefix-free when description is
  *   already substantive
  */
