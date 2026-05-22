@@ -14,7 +14,7 @@
  * tradecraft behind every published article.
  */
 
-import { BASE_URL, BUILD_SHORT, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
+import { BASE_URL, BUILD_SHORT, BUILD_TIME, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
 import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import {
   ALL_LANGUAGES,
@@ -315,6 +315,7 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
       height: 192,
     },
   };
+  const publisherRef = { '@id': `${BASE_URL}/#organization` };
   const jsonLd = {
     '@context': SCHEMA_ORG,
     '@type': 'CollectionPage',
@@ -322,13 +323,15 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     url: canonicalUrl,
     description: copy.intro,
     inLanguage: safeLang,
-    author: publisher,
-    publisher,
+    author: publisherRef,
+    publisher: publisherRef,
+    datePublished: BUILD_TIME,
+    dateModified: BUILD_TIME,
     isPartOf: {
       '@type': 'WebSite',
       name: SITE_NAME,
       url: BASE_URL,
-      publisher,
+      publisher: publisherRef,
     },
     breadcrumb: {
       '@type': 'BreadcrumbList',
@@ -351,25 +354,53 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
           '@type': 'ListItem',
           position: 1,
           name: copy.methodologiesHeading,
-          item: `${canonicalUrl}#pi-methodologies`,
+          url: `${canonicalUrl}#pi-methodologies`,
+          item: {
+            '@type': 'WebPageElement',
+            '@id': `${canonicalUrl}#pi-methodologies`,
+            url: `${canonicalUrl}#pi-methodologies`,
+            name: copy.methodologiesHeading,
+            inLanguage: safeLang,
+          },
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: copy.templatesHeading,
-          item: `${canonicalUrl}#pi-templates`,
+          url: `${canonicalUrl}#pi-templates`,
+          item: {
+            '@type': 'WebPageElement',
+            '@id': `${canonicalUrl}#pi-templates`,
+            url: `${canonicalUrl}#pi-templates`,
+            name: copy.templatesHeading,
+            inLanguage: safeLang,
+          },
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: copy.referenceHeading,
-          item: `${canonicalUrl}#pi-reference`,
+          url: `${canonicalUrl}#pi-reference`,
+          item: {
+            '@type': 'WebPageElement',
+            '@id': `${canonicalUrl}#pi-reference`,
+            url: `${canonicalUrl}#pi-reference`,
+            name: copy.referenceHeading,
+            inLanguage: safeLang,
+          },
         },
         {
           '@type': 'ListItem',
           position: 4,
           name: copy.dailyHeading,
-          item: `${canonicalUrl}#pi-daily`,
+          url: `${canonicalUrl}#pi-daily`,
+          item: {
+            '@type': 'WebPageElement',
+            '@id': `${canonicalUrl}#pi-daily`,
+            url: `${canonicalUrl}#pi-daily`,
+            name: copy.dailyHeading,
+            inLanguage: safeLang,
+          },
         },
       ],
     },

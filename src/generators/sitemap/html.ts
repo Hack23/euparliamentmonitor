@@ -21,7 +21,7 @@
  * golden snapshots taken from `npm run prebuild`).
  */
 
-import { BASE_URL, BUILD_SHORT, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
+import { BASE_URL, BUILD_SHORT, BUILD_TIME, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
 import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import { getSitemapSeo } from '../seo-copy.js';
 import {
@@ -275,6 +275,8 @@ ${items}
       url: BASE_URL,
     },
     publisher: { '@id': `${BASE_URL}/#organization` },
+    datePublished: BUILD_TIME,
+    dateModified: BUILD_TIME,
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -296,12 +298,26 @@ ${items}
       '@type': 'ItemList',
       numberOfItems: Math.min(articleInfos.length, 50),
       name: sections.news,
-      itemListElement: articleInfos.slice(0, 50).map((info, idx) => ({
-        '@type': 'ListItem',
-        position: idx + 1,
-        url: `${BASE_URL}/news/${info.filename}`,
-        name: info.title,
-      })),
+      itemListElement: articleInfos.slice(0, 50).map((info, idx) => {
+        const url = `${BASE_URL}/news/${info.filename}`;
+        // Extract per-article language from filename suffix (e.g. `…-foo.en.html` → `en`).
+        const langMatch = /\.([a-z]{2})\.html$/.exec(info.filename);
+        const articleLang = langMatch ? langMatch[1] : lang;
+        return {
+          '@type': 'ListItem',
+          position: idx + 1,
+          url,
+          item: {
+            '@type': 'NewsArticle',
+            '@id': url,
+            url,
+            headline: info.title,
+            name: info.title,
+            datePublished: info.date,
+            inLanguage: articleLang,
+          },
+        };
+      }),
     },
   };
   const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
