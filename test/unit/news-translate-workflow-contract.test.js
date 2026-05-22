@@ -322,7 +322,7 @@ describe('news-translate workflow contract', () => {
     // shell prompt must not declare or echo a BRANCH variable that
     // would suggest manual git work.
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
-    expect(workflow).not.toMatch(/^BRANCH=/m);
+    expect(workflow).not.toMatch(/^\s*BRANCH=/m);
     expect(workflow).not.toMatch(/echo "Branch:\s+\$\{BRANCH\}"/);
   });
 
