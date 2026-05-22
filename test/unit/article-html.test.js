@@ -144,7 +144,9 @@ describe('wrapArticleHtml', () => {
       ...baseOptions,
       sourceMarkdownRelPath: 'news/2026-01-15-breaking.en.md',
     });
-    expect(html).toContain('news/2026-01-15-breaking.en.md');
+    expect(html).toContain(
+      'href="https://github.com/Hack23/euparliamentmonitor/blob/main/news/2026-01-15-breaking.en.md"'
+    );
     expect(html).toContain('type="text/markdown"');
     // Must include the SVG external-link icon
     expect(html).toContain('class="icon icon-inline"');
