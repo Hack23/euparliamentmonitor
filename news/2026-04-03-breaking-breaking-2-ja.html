@@ -205,6 +205,7 @@
 <tr><td><span class="guide-icon" aria-hidden="true">📎</span> <a href="#section-supplementary-intelligence">補足インテリジェンス</a></td><td>実行内で見つかったがまだ正規セクションに割り当てられていない追加Markdown</td></tr>
 </tbody>
 </table>
+</div>
 </section>
 <h2 id="bluf" tabindex="-1"><a class="header-anchor" href="#bluf"><span>🎯 BLUF</span></a></h2>
 <p><strong>欧州議会データポータルフィードAPIは分断状態にある — 8つの必須フィードのうち5つが3回の独立した実行（06:00、12:15、18:15 UTC）で失敗している。</strong> <code>get_events_feed</code>、<code>get_procedures_feed</code>、<code>get_documents_feed</code>、<code>get_plenary_documents_feed</code>、<code>get_committee_documents_feed</code>、<code>get_parliamentary_questions_feed</code> はいずれも <code>today</code> および <code>one-week</code> の時間軸で404エラーまたはタイムアウトを返す。稼働中のエンドポイント：<code>get_meps_feed</code>（737/737）および分析ツール群（<code>detect_voting_anomalies</code>、<code>analyze_coalition_dynamics</code>、<code>generate_political_landscape</code>、<code>early_warning_system</code>）。<code>get_adopted_texts_feed</code> は部分的なデータを返す（one-week代替経由で約80〜100件）。障害パターンは復活祭休暇と相関しており、上流タスクキューのメンテナンスまたは季節的な縮退を示唆している。<strong>🟢 高信頼度</strong>：障害が実際かつ持続的であることについて（n=3実行）。<strong>🟡 中信頼度</strong>：根本原因（休暇メンテナンス対インフラ退行）について。</p>
