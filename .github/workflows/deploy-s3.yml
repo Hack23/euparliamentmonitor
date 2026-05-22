@@ -96,11 +96,14 @@ jobs:
             echo "❌ js/vendor/mermaid/chunks/ exists — the bundle must be self-contained, no chunks shipped"
             exit 1
           fi
-          # Bundle must not contain external module references (static imports
-          # to other URLs would re-introduce the 403 failure mode). Match both
-          # double- and single-quoted specifiers to align with the regression
-          # test in test/unit/copy-vendor-mermaid.test.js.
-          if grep -qE "from[[:space:]]*[\"']\./chunks/|from[[:space:]]*[\"']https?://" "$BUNDLE"; then
+          # Bundle must be fully self-contained — no external module specifiers.
+          # A minified esbuild bundle should not contain `from './chunks/...'`,
+          # `from '../...'`, `from 'http...'` or bare-name imports like
+          # `from 'dagre-d3'`. This grep uses \b word boundary to avoid matching
+          # string-literal occurrences that aren't real import statements.
+          # The unit test (copy-vendor-mermaid.test.js) performs a more precise
+          # regex-based check; this is a fast-fail CI smoke test.
+          if grep -qP "\bfrom\s*[\"'](\.\/chunks\/|\.\.\/|https?:\/\/)" "$BUNDLE"; then
             echo "❌ $BUNDLE contains external module imports — esbuild bundling did not inline everything"
             exit 1
           fi

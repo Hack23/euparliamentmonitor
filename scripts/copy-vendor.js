@@ -171,11 +171,21 @@ function copyMermaid() {
       // and we previously excluded those from vendor copy.
       sourcemap: false,
       legalComments: 'none',
-      // Surface bundling failures fast — a broken bundle would silently ship
-      // an unusable mermaid loader to every article.
-      logLevel: 'silent',
+      // Use 'error' so esbuild prints its own detailed diagnostics (file,
+      // line, column) on failure — 'silent' previously swallowed all context.
+      logLevel: 'error',
     });
   } catch (err) {
+    // esbuild attaches structured diagnostics on `err.errors`; print them
+    // so CI logs are actionable without re-running locally.
+    if (err && Array.isArray(err.errors)) {
+      for (const e of err.errors) {
+        const loc = e.location
+          ? `${e.location.file}:${e.location.line}:${e.location.column}: `
+          : '';
+        process.stderr.write(`  ${loc}${e.text}\n`);
+      }
+    }
     process.stderr.write(
       `error: mermaid bundle failed: ${err && err.message ? err.message : err}\n` +
         '       Check that node_modules/mermaid is installed (run `npm ci`) and that\n' +

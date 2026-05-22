@@ -103,6 +103,7 @@ describe('copy-vendor mermaid bundle contract', () => {
     expect(typeof mod.default.parse).toBe('function');
   }, 30_000);
 
+  // REUSE-IgnoreStart
   it('ships a REUSE-compliant license sidecar next to the bundle', () => {
     const license = `${BUNDLE}.license`;
     expect(fs.existsSync(license)).toBe(true);
@@ -110,4 +111,5 @@ describe('copy-vendor mermaid bundle contract', () => {
     expect(text).toMatch(/SPDX-FileCopyrightText:/);
     expect(text).toMatch(/SPDX-License-Identifier:\s*MIT/);
   });
+  // REUSE-IgnoreEnd
 });
