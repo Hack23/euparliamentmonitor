@@ -1,20 +1,21 @@
 # Translation Run Summary — 2026-05-23
 
-**Run ID:** 249
-**Status:** ✅ Complete — 26/26 files, 0 violations
+## Run Metadata
+- **Run ID:** 250
+- **Date:** 2026-05-23
+- **Briefs translated:** 2
 
-## Briefs Translated
+## Brief 1: month-ahead / 2026-05-11
+- **Languages:** sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh (13/13)
+- **Fixed tokens:** IMF ≥1 ✅
+- **H2 parity:** 8/8 all languages ✅
+- **Validator:** All 13 PASS ✅
 
-| Brief | Slug | Languages | Validator |
-|-------|------|-----------|-----------|
-| 2026-05-11 | election-cycle | 13/13 | ✅ 0 violations |
-| 2026-04-05 | breaking | 13/13 | ✅ 0 violations |
+## Brief 2: breaking-2 / 2026-04-05
+- **Languages:** sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh (13/13)
+- **Fixed tokens:** TA-10-2026-0094, TA-10-2026-0088 preserved verbatim ✅
+- **Mermaid block:** Copied verbatim in all 13 translations ✅
+- **H2 parity:** 8/8 all languages ✅
+- **Validator:** All 13 PASS ✅
 
-## Quality Gates (all passed)
-- Filename ↔ language code ✅
-- Source presence ✅
-- Length floor (≥50% source) ✅
-- No English fall-through ✅
-- Fixed-token preservation ✅
-- Heading parity (H1, H2 exact) ✅
-- Mermaid block parity ✅
+## Total Translations: 26
