@@ -331,7 +331,7 @@ export function buildHtmlHeadSnippet(record, lang) {
   const separator = getTitleSeparator(lang);
   const pageTitle = `${entry.title}${separator}${getSiteTitle(lang)}`;
   const socialDescription = entry.extendedDescription || entry.description;
-  const keywords = entry.keywords ?? [];
+  const keywords = (entry.keywords ?? []).map((k) => k.trim()).filter(Boolean);
 
   const lines = [];
   lines.push(`  <title>${escapeHTML(pageTitle)}</title>`);
@@ -419,6 +419,7 @@ function formatInline(value) {
  *
  * @param {ReturnType<typeof parseArgs>} opts
  * @returns {{
+ *   discovered: number,
  *   total: number,
  *   processed: number,
  *   resolutionTiers: Record<string, number>,
@@ -553,7 +554,7 @@ function buildSummary({
   lines.push(`successfully resolved : ${processed}`);
   lines.push(`failed runs           : ${failures.length}`);
   lines.push('');
-  lines.push('Resolution-tier histogram (lower = higher priority in the resolver ladder):');
+  lines.push('Resolution-tier histogram (alphabetical by source label):');
   if (tierEntries.length === 0) {
     lines.push('  (no runs resolved)');
   } else {
