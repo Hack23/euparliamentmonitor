@@ -73,6 +73,7 @@ export const ARTIFACT_CATEGORY_PREFIXES: readonly string[] = [
   'commission wp alignment',
   'committee activity report',
   'cross run continuity',
+  'data availability assessment',
   'deep analysis',
   'economic context',
   'executive brief',
