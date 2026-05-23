@@ -1,0 +1,56 @@
+{
+  "articleType": "week-in-review",
+  "dataMode": "degraded-voting",
+  "runId": "week-in-review-run275-1779525480",
+  "generatedAt": "2026-05-23T00:00:00Z",
+  "dateFrom": "2026-04-17",
+  "dateTo": "2026-05-15",
+  "pass2": { "rewriteCount": 28 },
+  "history": [
+    {
+      "runId": "week-in-review-run275-1779525480",
+      "timestamp": "2026-05-23T00:00:00Z",
+      "pass2": { "rewriteCount": 28 }
+    }
+  ],
+  "files": {
+    "root": [
+      "data-availability-assessment.md",
+      "executive-brief.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/voting-patterns.degraded.md",
+      "intelligence/economic-context.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/cross-session-intelligence.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md"
+    ]
+  }
+}
