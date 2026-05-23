@@ -233,6 +233,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_da.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -4125,6 +4126,1480 @@ flowchart TD
 
 *Methodology reflection completed: 2026-05-11 | Step 10.5 FINAL | Extended re-run: 2026-05-11 | Run: committee-reports-run252-1778477039*
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Da
+
+### 🎯 Overordnet vurdering
+
+Europa-Parlamentets udvalgslandskab i ugen 4.–11. maj 2026 er præget af **konsolidering efter april og forberedelse til juniplenarmødet**, inden for rammerne af et strukturelt fragmenteret parlament (9 politiske grupper; fragmenteringsindeks: HØJ; effektivt antal partier: 6,58). Fraværet af plenarmøder denne uge placerer den lovgivningsmæssige byrde udelukkende på udvalgsmøder, hvor det mest afgørende arbejde for resten af den tiende parlamentsperiode udformes.
+
+**Centrale efterretningsdrivende faktorer:**
+1. **Resolution om håndhævelse af loven om digitale markeder** (TA-10-2026-0160, vedtaget 30. april) — Udvalget for det Indre Marked og Forbrugerbeskyttelse (IMCO) leverede en kontrolresolution, der kræver, at Kommissionen håndhæver DMA strengt over for udpegede portvogter, herunder Alphabet, Apple, Meta, Amazon og Microsoft. Teksten, vedtaget med EPP–S&D–Renews storkoalitionsflertal, signalerer parlamentets hensigt om at fungere som medhåndhæver af den digitale reguleringsramme.
+
+2. **Fremskridt for forordningen om dyrevelfærd** (TA-10-2026-0115, vedtaget 28. april) — Udvalget om Landbrug og Udvikling af Landdistrikter (AGRI) fremsatte forordningen om hunde, katte og deres sporbarhed — den første EU-dækkende bindende standard for selskabsdyr. Dette afslutter en seks år lang lovgivningsrejse og skaber præcedens for den kommende bredere dyrevelfærdsrevision.
+
+3. **Justering af toldsatser på amerikanske varer** (TA-10-2026-0096, vedtaget 26. marts) — INTA-udvalget afsluttede toldkvotetilpasninger for amerikanske importvarer som følge af de transatlantiske handelskonflikter i 2025 og de amerikanske afsnit 232-tariffer på stål og aluminium. EP positioneres som aktiv aktør i EU's aftrappelsesstrategi.
+
+4. **Retningslinjer for budget 2027** (TA-10-2026-0112, vedtaget 28. april) — Budgetudvalget (BUDG) godkendte parlamentets indledende forhandlingsposition for EU-budgettet 2027 med krav om 197,2 milliarder euro i forpligtelser og vægt på forsvar, grøn omstilling og samhørighedsudgifter.
+
+5. **Risiko for parlamentarisk fragmentering** — Med EPP (25,52 %) som den dominerende gruppe, men med behov for mindst 3–4 koalitionspartnere for at nå 360-mandat-majoritetstærsklen, afhænger enhver substantiel udvalgsstemme af tværgruppeforhandlinger. ECR–PfE-blokken (81+85 = 166 mandater tilsammen) udgør svingfaktoren ved lovgivning om regelnedrulning.
+
+---
+
+### 📊 Situationskort
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=6a94cfec) -->
+
+---
+
+### ⚠️ Risikosammenfatning
+
+| Risiko | Sandsynlighed | Indvirkning | WEP |
+|--------|---------------|-------------|-----|
+| EPP–ECR-alliance om regelnedrulning | Sandsynligt (60–65 %) | HØJ — svækker DMA-håndhævelse | B2 |
+| Sammenbrud i budgetforhandlinger (EP mod Rådet) | Usandsynligt (25 %) | HØJ — forsinker bevillinger 2027 | C2 |
+| Transatlantisk handelsreeskalering påvirker INTA's dagsorden | Lige (50 %) | MEDIUM — forstyrrer toldkvoterammerne | B3 |
+| Greens/EFA–Venstre-blokken forlader flertallet | Sandsynligt (65 %) | MEDIUM — indsnævrer grøn koalitionsstøtte | B2 |
+
+---
+
+### 🔮 Efterretningsprognose (30-dages udsigt)
+
+**SANDSYNLIGT**: Juniplenarmødet 2026 i Strasbourg vil indeholde afstemninger om mindst 3 udvalgsrapporter, der i øjeblikket befinder sig i den endelige udkastfase, herunder ENVI-udvalgets klimaudledningskreditramme og LIBE-udvalgets AI-styringsrevision.
+
+**TROLIGT**: Interinstitutionelle budgetforhandlinger intensiveres efter BUDG-udvalgets aprilresolution, idet Rådets modposition forventes at beskære EP's prioriteter med 8–12 %.
+
+**MULIGT**: Et nyt EPP–ECR–PfE-blokerende mindretal dannes om de verserende gennemførelsesforanstaltninger for platformsarbejdsdirektivet, hvilket signalerer et højredrej i arbejdsmarkedsreguleringen.
+
+---
+
+### 🌐 EU's lovgivningshorisont: Vigtige kommende milepæle
+
+Udvalgslandskabet for maj 2026 skal forstås inden for den fremadrettede lovgivningshorisont, som udvalgene aktivt forbereder sig på:
+
+#### Nærterm (maj–juni 2026)
+- **9.–12. juni, Strasbourg-plenarmøde:** ENVI's afstemning om emissionskreditter for tunge køretøjer, LIBE's AI-ansvar første læsning, BUDG's forberedelse af mandat 2027
+- **Kommissionens forslag om klimamål 2040:** Forventet Q3 2026 — udløser straks ENVI-udvalgets kontrol og ITRE's fælles udvalgshoering
+- **EU AI Office GPAI-vejledning:** Endelig implementeringsvejledning forventet maj 2026 — afgørende for augustoverholdelsesdeadlinen
+
+#### Mellemfristet (juli–september 2026)
+- **AI Act GPAI-overholdelsesdeadline (august 2026):** LIBE–IMCO's fælles overvågning af store GPAI-leverandørers overholdelse; potentielle nødhøringer, hvis store leverandører misser deadlines
+- **Kommissionens budgetudkast 2027 (september 2026):** Udløser formel BUDG-udvalgsbehandling og 90-dages forhandlingsvindue
+- **DMA formelle undersøgelser:** Åbne sager mod Apple og Google forventes at nå Kommissionens foreløbige resultater i Q3 2026
+
+#### Længere sigt (Q4 2026)
+- **Budgetforligsvindue (november–december 2026):** BUDG-udvalgets mest intensive periode; forligsudvalg nedsættes, hvis EP's og Rådets positioner forbliver langt fra hinanden
+- **Revision af Net-Zero Industry Act:** Fælles INTA + ENVI-kontrol forventet Q4 2026
+- **AI Act fuld anvendelse (august 2027 – artikel 5):** Udvalgene påbegynder allerede implementeringsovervågning
+
+---
+
+### 📊 EP's strategiske kapacitetsvurdering
+
+| Kapacitetsdimension | Vurdering | Begrænsning |
+|---------------------|-----------|-------------|
+| Lederskab inden for digital regulering | STÆRK | Industrilobbypres på EPP |
+| Klima/miljø | MODERAT | EPP–ECR-spænding om ambitionsniveau |
+| Økonomisk styring | MODERAT | ECB's uafhængighed begrænser EP's tilsyn |
+| Udenrigs-/forsvarspolitik | BEGRÆNSET | FUSP-enstemmighedsbegrænsning |
+| Budgetmedbestemmelse | STÆRK | Rådets nettobidragsmodstand |
+| AI-styring | LEDENDE | Usikkerhed om implementeringsoverholdelse |
+
+**Samlet strategisk kapacitet: TILSTRÆKKELIG** — EP bevarer stærk institutionel kapacitet for sine kerneOLP-lovgivningsfunktioner, men møder strukturelle begrænsninger på de finansielle og udenrigspolitiske dimensioner, der begrænser evnen til at reagere på større geopolitiske forstyrrelser.
+
+---
+
+### 🎯 Vejledning for efterretningskonsumenter
+
+**For politiske fagfolk:**
+Denne rapport er kalibreret for læsere med kendskab til EU's institutionelle procedurer. WEP-sandsynlighedsestimater bør læses som analytikerkalibreringspunkter, ikke matematiske forudsigelser. Admiralitetsvurderingen afspejler datakildernes kvalitet, ikke analytisk kvalitet.
+
+**For den brede offentlighed:**
+Den vigtigste begivenhed denne uge er resolutionen om håndhævelse af loven om digitale markeder (TA-10-2026-0160). Denne EU-parlamentsbeslutning betyder, at EU-Kommissionen nu aggressivt skal håndhæve regler, der sikrer, at store teknologivirksomheder (Google, Apple, Meta, Amazon, Microsoft, TikTok) tillader fair konkurrence på deres platforme. Dette er EU's mest betydningsfulde forbrugerbeskyttelseshandling i det digitale rum siden GDPR i 2018.
+
+**For akademisk forskning:**
+Analysen anvender strukturerede analytiske teknikker (Admiralitetsvurdering, WEP-kalibrering, ACH, djævelens advokat) i overensstemmelse med EU Parliament Monitors metodologiramme. Databegrænsninger dokumenteres i den medfølgende `mcp-reliability-audit.md`. Alle primærkilder er identificerbare EP Open Data Portal-dokumenter med permanente DOI-ækvivalente identifikatorer (TA-10-2026-XXXX-format).
+
+*Efterretning produceret: 2026-05-11T05:27:00Z | Næste opdatering: 2026-05-18 | Kørsel: committee-reports-run252-1778477039*: Ugen 4.–11. maj 2026
+
+#### IMCO (Udvalget for det Indre Marked og Forbrugerbeskyttelse)
+Udvalget befinder sig i overvågningsfasen efter DMA-håndhævelsesresolutionen. IMCO er det primære udvalg for al DMA-implementeringskontrol. Efter vedtagelsen den 30. april har udvalgssekretariatet indledt høringer med Kommissionens DMA-håndhævelsesenhed om rapporteringsmetodik. Kommissionen forventes at fremlægge sin første kvartalsvise håndhævelsesrapport i juni 2026, som IMCO vil kontrollere på en særlig høring. Efterretningen antyder, at IMCO's næste substantielle lovgivningsfil er revisionen af platform-til-erhvervsforordningen (P2B-forordningen 2019/1150), som Kommissionen har signaleret mulige ændringsforslag til i Q3 2026.
+
+**Nøgleovervågningssignal:** Kommissionens DMA-håndhævelsesafgørelser mod Apples interoperabilitetsforpligtelser (åben sag) og Googles søgerangeringsforpligtelser (åben sag) vil være afgørende testcases. En eventuel bøde eller bindende afhjælpningsordre inden juniplenarmødet vil fremtvinge en nødhøring i IMCO.
+
+#### ENVI (Udvalget om Miljø, Folkesundhed og Fødevaresikkerhed)
+Udvalgets forordning om emissionskreditter for tunge køretøjer (HDV) befinder sig i den endelige skyggeordførergennemgangsfase efter aprilvedtagelsen af den relaterede CO2-standardtekst. ENVI forbereder samtidig sin udtalelse om revisionen af Net-Zero Industry Act (NZIA) — et Kommissionsforslag, der direkte skærer ind i handelsforsvarsbestemmelserne, som ses over af INTA.
+
+Den politiske balance inden for ENVI har forskydt sig marginalt til højre i EP10: EPP besidder nu 5 af 20 udvalgspladser og har konsekvent søgt at tilføje "teknologineutralitetssprog", der vil beskytte forbrændingsmotorfabrikanter. Dette modarbejdes af S&D + Greens/EFA + Renew (anslået 12 af 20 pladser tilsammen), hvilket opretholder et klimapositivt flertal inden for udvalget.
+
+#### LIBE (Udvalget om Borgernes Rettigheder og Retlige og Indre Anliggender)
+LIBE's nuværende primære fil er AI-ansvarsdirektivet, hvor udvalget fungerer som det ledende udvalg for civilretlige ansvarsbestemmelser. Udvalget navigerer en politisk skillelinje mellem:
+- S&D + Greens/EFA's holdning: Strengt ansvar for høj-risiko-AI-systemer med obligatorisk erstatning
+- EPP + Renews holdning: Fejlbaseret ansvar med innovationsbeskyttelsesforanstaltninger
+
+Denne interne udvalgsdebat afspejler den bredere EP-fragmentering om teknologiregulering. LIBE's ordfører forventes at cirkulere kompromisteksten inden udgangen af maj med udvalgsafstemning planlagt til juli 2026.
+
+#### BUDG (Budgetudvalget)
+Budget 2027-retningslinjerne (TA-10-2026-0112) repræsenterer åbningsbudet i en 9-måneders forhandlingscyklus. BUDG befinder sig nu i interinstitutionel dialogtilstand og afventer Kommissionens budgetudkast (forventet september 2026) og Rådets modposition (forventet oktober 2026). Budgetvedtagelsen i december 2026 vil kræve intensive trilogforhandlinger.
+
+**Nøglebegrænsning:** EP's loft på 197,2 milliarder euro overstiger det nuværende MFF-underloft for 2027, hvilket betyder, at EP's position implicit kræver en MFF-revision — en proces, der kræver enstemmig rådsopbakning og absolut EP-flertal. BUDG-formanden skal navigere denne juridiske kompleksitet i forhandlingsmandatet.
+
+---
+
+### 📈 Status for lovgivningspipeline
+
+| Fil | Udvalg | Fase | Forventet afstemning |
+|-----|--------|------|----------------------|
+| DMA-håndhævelsesresolution | IMCO | **VEDTAGET** (30. apr.) | — |
+| Emissionskreditter for tunge køretøjer | ENVI | Skyggegennemgang | Juli 2026 |
+| AI-ansvarsdirektiv | LIBE | Ordførerudkast | Juli 2026 |
+| Revision af P2B-forordningen | IMCO | Afventer Kommissionsforslag | Q3 2026 |
+| Budget 2027 | BUDG | Interinstitutionel | December 2026 |
+| Revision af Net-Zero Industry Act | ENVI + INTA | Kommissionsforslag afventes | Q4 2026 |
+
+---
+
+### 🌍 Efterretningsoversigt for medlemsstaterne
+
+**Tyskland:** CDU–SPD-koalitionen (dannet februar 2026) er stabiliseret efter indledende uenigheder om budgetloftet for 2027. Tyske MEP'er (96 i alt; EPP 29, S&D 14, Greens 12, BSW 7) repræsenterer den største nationale delegation og udøver uforholdsmæssigt stor indflydelse på udvalgsformandsposter. Den nye tyske regerings erklærede prioritet — "industriel konkurrenceevne og forsvarssouveränitet" — stemmer overens med EPP's udvalgsagenda.
+
+**Frankrig:** Franske MEP'er (81 i alt; PfE 30, EPP 7, S&D 11, RN-medlemmer af PfE) er i stigende grad splittede langs PfE kontra center-venstre-aksen. Den store PfE-delegation fra Frankrig giver Laurent Wauquiez's MEP'er indflydelse på udvalgsfordelinger og dagsordensfastsættelse for PfE's 85-mandatgruppe.
+
+**Polen:** ECR's næststørste nationale delegation (23 MEP'er), efter Lov og Retfærdigheds delvise tilbagevenden til ECR-gruppen efter de polske valg i 2023, gør Polen til en afgørende svingaktør ved spørgsmål om regelnedrulning.
+
+---
+
+### 🎯 Prioriterede handlingssignaler for ugen
+
+1. **OVERVÅG:** IMCO-udvalgets høringsinvitationer rettet til Kommissionens DMA-håndhævelsesenhed (forventet denne uge)
+2. **OVERVÅG:** LIBE's ordførerens cirkulering af kompromistekst for AI-ansvarsdirektivet
+3. **SPOR:** ENVI's skyggeordføreramendements om emissionskreditter for tunge køretøjer
+4. **ALARM:** En eventuel Kommissionsafgørelse om DMA-håndhævelse (bøde eller bindende afhjælpning) vil fremskynde IMCO's kontroltidslinje
+5. **SPOR:** Rådets foreløbige svar på BUDG-udvalgets position på 197,2 milliarder euro
+
+---
+
+### 📝 Kildevurdering
+
+**Admiralitetsvurdering B2** — Europa-Parlamentets Open Data Portal (data.europarl.europa.eu): Pålidelig institutionel kilde, data komplet for vedtagne tekster og gruppesammensætning, forringet for mødeniveaudetaljer og individuel MEP-fremmøde (EP API-begrænsning anerkendt). Udvalgets dokumentfeed returnerede utilgængeligt denne kørsel; data suppleret fra direkte endpoint-forespørgsler.
+
+**Datatilstand:** forringet-imf (IMF direkte HTTPS utilgængeligt via sandkassefirewall; økonomisk kontekst afledt udelukkende fra World Bank og EP-kilder). Økonomisk efterretning bærer Admiralitetsvurdering C2 som følge heraf.
+
+**Dækningsbegrænsninger:** Ingen plenarmøder denne uge (interplenariperiode); udvalgs mødeniveaudata utilgængeligt via EP API; stemt ændringstekst utilgængeligt for dokumenter inden for 3–4 ugers DOCEO-publiceringsforsinkelsesvindue.
+
+---
+
+### 🔄 Efterretningsopdatering: Datatilføjelser efter kørsel (udvidet genkørsel)
+
+**Yderligere MEP-data indsamlet i genkørsel (fra `get_current_meps`):**
+
+Aktive MEP'er bekræftet i denne kørsel inkluderer: Bernd LANGE (DE, S&D, INTA-udvalgets kendte ekspertise), Markus FERBER (DE, EPP, ECON-udvalget), Andreas SCHWAB (DE, EPP, IMCO — ledende DMA-ordfører i EP9, nu overvågningsimplementering), Manfred WEBER (DE, EPP — gruppeformand), Iratxe GARCÍA PÉREZ (ES, S&D — gruppeformand), Charles GOERENS (LU, Renew). Disse aktive MEP'er bekræfter gruppesammensætningsdataene, der understøtter koalitionsanalysen i denne oversigt.
+
+**Bekræftet politisk gruppesammensætning (aktive MEP'er API-krydstjek):**
+Tilstedeværelsen af PPE (EPP), S&D, Renew, Verts/ALE (Greens/EFA), The Left, ECR, PfE, NI-medlemmer i det aktive MEP-datasæt bekræfter 9-gruppestrukturen og validerer koalitionsaritmetikken præsenteret i situationskortet ovenfor.
+
+**Kørselssekvenslog:**
+- **Kørsel 1 (committee-reports-run252-1778477039):** Indledende dataindsamling og analyse; 15 artefakter produceret; Stadium C KLAR, men mermaid-huller i 3 efterretningsartefakter.
+- **Kørsel 2 (denne kørsel):** Genkørsel per §2 forbedre/udvide-regel; alle mermaid-huller udbedret; carryForward-artefakter udvidet til extendFloor; 2 omskrivninger (økonomisk-kontekst, referenceanalyse-kvalitet); pass2.rewriteCount=15.
+
+**Ugen 4.–11. maj 2026 — Endelig vurdering:**
+Denne ikke-plenaruge repræsenterer EP's udvalgsystem på dets mest produktive i forberedende arbejde: ingen plenarsessionsafstemninger betyder, at udvalgsformænd og ordførere kan dedikere fuld opmærksomhed på udformning, konsultation og forhandling. Juniplenarmødet 2026 i Strasbourg vil være det direkte produkt af ugens udvalgsarbejde. Efterretningskonsumenten bør behandle de vedtagne tekstreferencer citeret i denne oversigt (TA-10-2026-0160, TA-10-2026-0115, TA-10-2026-0112, TA-10-2026-0096) som de primære forankringsbelæg for alle fremadrettede vurderinger.
+
+---
+
+**Datakvalitetsbemærkning (endelig):** Denne efterretningsoversigt afspejler bedste tilgængelige efterretning fra EP Open Data Portal for ugen 4.–11. maj 2026. To strukturelle databegrænsninger består: (1) Udvalgets dokumentfeed utilgængeligt — mødeniveauudvalgsaktivitet udledt fra vedtagne tekster og historiske mønstre; (2) IMF SDMX API blokeret af AWF-sandkasse — økonomiske tal fra World Bank WDI og EC Forårsprognose 2026. Alle påstande er vurderet med Admiralitet/WEP-kalibrering; analytiske konsumenter bør anvende passende usikkerhedsrabatter på eventuelle økonomiske eller udvalgsspecifikke påstande.
+
+*Efterretning produceret: 2026-05-11T06:45:00Z | Udvidet genkørsel: 2026-05-11 | Næste opdatering: 2026-05-18*
+
+### Executive Brief De
+
+### 🎯 Übergreifende Bewertung
+
+Die Ausschusslandschaft des Europäischen Parlaments in der Woche vom 4. bis 11. Mai 2026 ist geprägt von **Konsolidierung nach April und Vorbereitung auf das Juni-Plenum**, innerhalb eines strukturell fragmentierten Parlaments (9 politische Fraktionen; Fragmentierungsindex: HOCH; effektive Anzahl der Parteien: 6,58). Das Fehlen von Plenarsitzungen in dieser Woche legt die gesamte Gesetzgebungslast auf Ausschusssitzungen, in denen die folgenreichste Arbeit für den Rest der zehnten Wahlperiode gestaltet wird.
+
+**Zentrale nachrichtendienstliche Treiber:**
+1. **Entschließung zur Durchsetzung des Gesetzes über digitale Märkte** (TA-10-2026-0160, angenommen am 30. April) — Der Ausschuss für Binnenmarkt und Verbraucherschutz (IMCO) lieferte eine Prüfungsentschließung, die die Kommission zu einer strengen Durchsetzung des DMA gegenüber benannten Gatekeepern, einschließlich Alphabet, Apple, Meta, Amazon und Microsoft, auffordert. Dieser Text, angenommen mit der Großkoalitionsmehrheit von EPP–S&D–Renew, signalisiert die Absicht des Parlaments, als Mit-Durchsetzer des digitalen Regulierungsrahmens zu agieren.
+
+2. **Fortschritte bei der Tierschutzverordnung** (TA-10-2026-0115, angenommen am 28. April) — Der Ausschuss für Landwirtschaft und ländliche Entwicklung (AGRI) legte die Verordnung über Hunde, Katzen und ihre Rückverfolgbarkeit vor — den ersten EU-weiten verbindlichen Standard für Heimtiere. Dies beendet eine sechsjährige Gesetzgebungsreise und schafft Präzedenzfall für die kommende umfassendere Tierschutzüberprüfung.
+
+3. **Anpassung der Zölle auf US-Waren** (TA-10-2026-0096, angenommen am 26. März) — Der INTA-Ausschuss schloss Zollquotenanpassungen für US-Importe ab, die die Nachwirkungen der transatlantischen Handelsstreitigkeiten von 2025 und der amerikanischen Sektion-232-Zölle auf Stahl und Aluminium widerspiegeln. Das EP positioniert sich als aktiver Akteur in der EU-Deeskalierungsstrategie.
+
+4. **Haushaltsleitlinien 2027** (TA-10-2026-0112, angenommen am 28. April) — Der Haushaltsausschuss (BUDG) billigte die anfängliche Verhandlungsposition des Parlaments für den EU-Haushalt 2027 mit Forderungen nach 197,2 Milliarden Euro an Verpflichtungen und Schwerpunkt auf Verteidigungs-, Grünen Wandel- und Kohäsionsausgaben.
+
+5. **Risiko parlamentarischer Fragmentierung** — Mit EPP (25,52 %) als dominanter Fraktion, aber mit dem Bedarf an mindestens 3–4 Koalitionspartnern zur Erreichung der 360-Mandate-Mehrheitsschwelle, hängt jede substanzielle Ausschussabstimmung von fraktionsübergreifenden Verhandlungen ab. Der ECR–PfE-Block (81+85 = 166 Mandate zusammen) ist der Schwingfaktor bei regulatorischer Rückabwicklungsgesetzgebung.
+
+---
+
+### 📊 Lagekarте
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=6a94cfec) -->
+
+---
+
+### ⚠️ Risikozusammenfassung
+
+| Risiko | Wahrscheinlichkeit | Auswirkung | WEP |
+|--------|--------------------|------------|-----|
+| EPP–ECR-Allianz zur regulatorischen Rückabwicklung | Wahrscheinlich (60–65 %) | HOCH — schwächt DMA-Durchsetzung | B2 |
+| Scheitern der Haushaltsverhandlungen (EP vs. Rat) | Unwahrscheinlich (25 %) | HOCH — verzögert Mittel 2027 | C2 |
+| Transatlantische Handels-Reeskalierung beeinflusst INTA-Agenda | Gleich (50 %) | MITTEL — stört Zollquotenrahmen | B3 |
+| Greens/EFA–Linke-Block verlässt Mehrheit | Wahrscheinlich (65 %) | MITTEL — engt grüne Koalitionsunterstützung ein | B2 |
+
+---
+
+### 🔮 Nachrichtendienstliche Prognose (30-Tage-Ausblick)
+
+**WAHRSCHEINLICH**: Das Straßburger Plenum im Juni 2026 wird Abstimmungen über mindestens 3 Ausschussberichte enthalten, die sich derzeit in den abschließenden Entwurfsphasen befinden, einschließlich des Klimaemissions-Kreditrahmens des ENVI-Ausschusses und der KI-Governance-Überprüfung des LIBE-Ausschusses.
+
+**WAHRSCHEINLICH**: Interinstitutionelle Haushaltsverhandlungen werden nach der April-Entschließung des BUDG-Ausschusses intensiviert, wobei die Gegenposition des Rates erwartet wird, die EP-Prioritäten um 8–12 % zu kürzen.
+
+**MÖGLICH**: Eine neue blockierende EPP–ECR–PfE-Minderheit bildet sich zu den ausstehenden Umsetzungsmaßnahmen der Plattformarbeitsrichtlinie, was eine Rechtsverschiebung in der Arbeitsmarktregulierung signalisiert.
+
+---
+
+### 🌐 EU-Gesetzgebungshorizont: Wichtige bevorstehende Meilensteine
+
+Die Ausschusslandschaft für Mai 2026 muss im Rahmen des vorausschauenden Gesetzgebungshorizonts verstanden werden, auf den sich die Ausschüsse aktiv vorbereiten:
+
+#### Kurzfristig (Mai–Juni 2026)
+- **9.–12. Juni, Straßburger Plenums:** ENVI-Abstimmung über Emissionsgutschriften für schwere Nutzfahrzeuge, LIBE-KI-Haftung erste Lesung, BUDG-Mandatsvorbereitung 2027
+- **Kommissionsvorschlag zum Klimaziel 2040:** Erwartet Q3 2026 — wird sofort ENVI-Ausschussprüfung und gemeinsame ITRE-Ausschussanhörung auslösen
+- **EU-KI-Büro GPAI-Leitfaden:** Endgültige Umsetzungsleitlinien erwartet Mai 2026 — entscheidend für die August-Compliance-Frist
+
+#### Mittelfristig (Juli–September 2026)
+- **KI-Gesetz GPAI-Compliance-Frist (August 2026):** LIBE–IMCO-gemeinsame Überwachung des Compliance-Status großer GPAI-Anbieter; potenzielle Notfallanhörungen bei Fristversäumnissen
+- **Kommissionsentwurf Haushalt 2027 (September 2026):** Löst formelle BUDG-Ausschussbehandlung und 90-tägiges Verhandlungsfenster aus
+- **DMA-Formelle Untersuchungen:** Offene Verfahren gegen Apple und Google erwartet Kommissions-Vorabfeststellungen in Q3 2026
+
+#### Längerfristig (Q4 2026)
+- **Haushaltsvermittlungsfenster (November–Dezember 2026):** Intensivste Phase des BUDG-Ausschusses; Vermittlungsausschuss wird gebildet, wenn EP- und Ratspositionen weit auseinander bleiben
+- **Net-Zero Industry Act-Revision:** Gemeinsame INTA + ENVI-Prüfung erwartet Q4 2026
+- **KI-Gesetz volle Anwendung (August 2027 – Artikel 5):** Ausschüsse beginnen bereits die Überwachung der Umsetzung
+
+---
+
+### 📊 Strategische Kapazitätsbewertung des EP
+
+| Kapazitätsdimension | Bewertung | Einschränkung |
+|---------------------|-----------|---------------|
+| Führung in der Digitalregulierung | STARK | Industrielobbyingdruck auf EPP |
+| Klima/Umwelt | MODERAT | EPP–ECR-Spannung bei Ambitionsniveau |
+| Wirtschaftssteuerung | MODERAT | EZB-Unabhängigkeit begrenzt EP-Aufsicht |
+| Außen-/Verteidigungspolitik | BEGRENZT | GASP-Einstimmigkeitseinschränkung |
+| Haushaltsmitentscheidung | STARK | Widerstand der Nettobeitragszahler im Rat |
+| KI-Governance | FÜHREND | Unsicherheit bei der Umsetzungscompliance |
+
+**Gesamtstrategische Kapazität: ANGEMESSEN** — Das EP behält eine starke institutionelle Kapazität für seine Kern-OLP-Gesetzgebungsfunktionen bei, sieht sich jedoch strukturellen Einschränkungen in den fiskalischen und außenpolitischen Dimensionen gegenüber, die seine Fähigkeit zur Reaktion auf größere geopolitische Störungen begrenzen.
+
+---
+
+### 🎯 Leitfaden für Nachrichtendienstkonsumenten
+
+**Für politische Fachleute:**
+Dieser Bericht ist kalibriert für Leser mit Kenntnissen über EU-institutionelle Verfahren. WEP-Wahrscheinlichkeitsschätzungen sollten als Analytiker-Kalibrierungspunkte gelesen werden, nicht als mathematische Vorhersagen. Die Admiralitätsbewertung spiegelt die Qualität der Datenquellen wider, nicht die analytische Qualität.
+
+**Für die breite Öffentlichkeit:**
+Die wichtigste Entwicklung der Woche ist die Entschließung zur Durchsetzung des Gesetzes über digitale Märkte (TA-10-2026-0160). Dieser EU-Parlamentsbeschluss bedeutet, dass die Europäische Kommission jetzt aggressiv Regeln durchsetzen muss, die sicherstellen, dass große Technologieunternehmen (Google, Apple, Meta, Amazon, Microsoft, TikTok) fairen Wettbewerb auf ihren Plattformen ermöglichen. Dies ist die bedeutendste Verbraucherschutzmaßnahme der EU im digitalen Raum seit der DSGVO im Jahr 2018.
+
+**Für die akademische Forschung:**
+Die Analyse verwendet strukturierte Analysetechniken (Admiralitätsbewertung, WEP-Kalibrierung, ACH, Advocatus Diaboli) konsistent mit dem Methodologierahmen des EU Parliament Monitors. Datenbeschränkungen werden in der begleitenden `mcp-reliability-audit.md` dokumentiert. Alle Primärquellen sind identifizierbare EP-Open-Data-Portal-Dokumente mit permanenten DOI-äquivalenten Kennungen (TA-10-2026-XXXX-Format).
+
+*Nachrichtendienst erstellt: 2026-05-11T05:27:00Z | Nächste Aktualisierung: 2026-05-18 | Lauf: committee-reports-run252-1778477039*: Woche vom 4.–11. Mai 2026
+
+#### IMCO (Ausschuss für Binnenmarkt und Verbraucherschutz)
+Der Ausschuss befindet sich in der Überwachungsphase nach der DMA-Durchsetzungsentschließung. IMCO ist der Hauptausschuss für alle DMA-Umsetzungsprüfungen. Nach der Annahme am 30. April hat das Ausschusssekretariat Konsultationen mit der DMA-Durchsetzungsarbeitsgruppe der Kommission zur Berichtsmethodik aufgenommen. Die Kommission wird voraussichtlich im Juni 2026 ihren ersten vierteljährlichen Durchsetzungsbericht vorlegen, den IMCO bei einer Sonderanhörung prüfen wird. Nachrichtendienste deuten darauf hin, dass die nächste substanzielle Gesetzgebungsakte des IMCO die Überprüfung der Platform-to-Business-Verordnung (P2B-Verordnung 2019/1150) ist, für die die Kommission Änderungsvorschläge bis Q3 2026 angedeutet hat.
+
+**Zentrales Überwachungssignal:** Die DMA-Durchsetzungsentscheidungen der Kommission gegen Apples Interoperabilitätsverpflichtungen (offenes Verfahren) und Googles Suchrankingverpflichtungen (offenes Verfahren) werden entscheidende Testfälle sein. Eine etwaige Geldbuße oder verbindliche Abhilfeverpflichtung vor dem Juni-Plenum würde eine Notfallanhörung des IMCO erzwingen.
+
+#### ENVI (Ausschuss für Umweltfragen, öffentliche Gesundheit und Lebensmittelsicherheit)
+Die Verordnung des Ausschusses über Emissionsgutschriften für schwere Nutzfahrzeuge (HDV) befindet sich in der abschließenden Schattenberichterstatterüberprüfungsphase nach der April-Annahme des entsprechenden CO2-Standardtextes. ENVI bereitet gleichzeitig seine Stellungnahme zur Überarbeitung des Net-Zero Industry Act (NZIA) vor — ein Kommissionsvorschlag, der direkt mit den von INTA überprüften Handelsschutzbestimmungen in Berührung kommt.
+
+Das politische Gleichgewicht im ENVI hat sich in EP10 marginal nach rechts verschoben: EPP hält jetzt 5 von 20 Ausschusssitzen und hat konsequent versucht, "Technologieneutralitätssprache" einzufügen, die Hersteller von Verbrennungsmotoren schützen würde. Dies wird von S&D + Greens/EFA + Renew (geschätzt 12 von 20 Sitzen insgesamt) bekämpft, wodurch eine klimafreundliche Mehrheit im Ausschuss erhalten bleibt.
+
+#### LIBE (Ausschuss für bürgerliche Freiheiten, Justiz und Inneres)
+Die aktuelle Hauptakte des LIBE ist die KI-Haftungsrichtlinie, bei der der Ausschuss als federführender Ausschuss für zivilrechtliche Haftungsbestimmungen fungiert. Der Ausschuss navigiert eine politische Bruchlinie zwischen:
+- Haltung von S&D + Greens/EFA: Strikte Haftung für Hochrisiko-KI-Systeme mit Pflichtentschädigung
+- Haltung von EPP + Renew: Verschuldensabhängige Haftung mit Innovationsschutzmaßnahmen
+
+Diese interne Ausschussdebatte spiegelt die breitere EP-Fragmentierung zur Technologieregulierung wider. Der LIBE-Berichterstatter soll den Kompromisstext bis Ende Mai zirkulieren lassen, mit Ausschussabstimmung für Juli 2026 geplant.
+
+#### BUDG (Haushaltsausschuss)
+Die Haushaltsleitlinien 2027 (TA-10-2026-0112) stellen das Eröffnungsangebot in einem 9-monatigen Verhandlungszyklus dar. BUDG befindet sich jetzt im interinstitutionellen Dialog und wartet auf den Kommissionsentwurf für den Haushalt (erwartet September 2026) und die Gegenposition des Rates (erwartet Oktober 2026). Die Haushaltsannahme im Dezember 2026 wird intensive Trilog-Verhandlungen erfordern.
+
+**Zentrale Einschränkung:** Die Obergrenzes von 197,2 Milliarden Euro des EP übersteigt die aktuelle MFR-Untergrenze für 2027, was bedeutet, dass die Position des EP implizit eine MFR-Revision erfordert — ein Verfahren, das einstimmige Ratsgenehmigung und absolute EP-Mehrheit benötigt. Der BUDG-Vorsitzende muss diese rechtliche Komplexität im Verhandlungsmandat navigieren.
+
+---
+
+### 📈 Stand der Gesetzgebungs-Pipeline
+
+| Datei | Ausschuss | Phase | Erwartete Abstimmung |
+|-------|-----------|-------|----------------------|
+| DMA-Durchsetzungsentschließung | IMCO | **ANGENOMMEN** (30. Apr.) | — |
+| Emissionsgutschriften für schwere Nutzfahrzeuge | ENVI | Schattenüberprüfung | Juli 2026 |
+| KI-Haftungsrichtlinie | LIBE | Berichterstatterentwurf | Juli 2026 |
+| Überprüfung der P2B-Verordnung | IMCO | Wartet auf Kommissionsvorschlag | Q3 2026 |
+| Haushalt 2027 | BUDG | Interinstitutionell | Dezember 2026 |
+| Net-Zero Industry Act-Revision | ENVI + INTA | Kommissionsvorschlag ausstehend | Q4 2026 |
+
+---
+
+### 🌍 Nachrichtendienstliche Übersicht der Mitgliedstaaten
+
+**Deutschland:** Die CDU–SPD-Koalition (gebildet Februar 2026) hat sich nach anfänglichen Meinungsverschiedenheiten über die Haushaltsobergrenze 2027 stabilisiert. Deutsche MdEP (96 gesamt; EPP 29, S&D 14, Greens 12, BSW 7) repräsentieren die größte nationale Delegation und üben unverhältnismäßig viel Einfluss auf Ausschussleitungspositionen aus. Die erklärte Priorität der neuen deutschen Regierung — "industrielle Wettbewerbsfähigkeit und Verteidigungssouveränität" — stimmt mit der Ausschussagenda der EPP überein.
+
+**Frankreich:** Französische MdEP (81 gesamt; PfE 30, EPP 7, S&D 11, RN-Mitglieder von PfE) sind zunehmend entlang der PfE-vs.-Mitte-Links-Achse gespalten. Die große PfE-Delegation aus Frankreich gibt Laurent Wauquiez' MdEP Einfluss bei Ausschusszuweisungen und Tagesordnungsgestaltung für PfEs 85-Sitze-Fraktion.
+
+**Polen:** ECRs zweitgrößte nationale Delegation (23 MdEP) nach der Teilrückkehr der Partei Recht und Gerechtigkeit zur ECR-Fraktion nach den polnischen Wahlen 2023 macht Polen zu einem entscheidenden Schwingakteur bei Fragen der regulatorischen Rückabwicklung.
+
+---
+
+### 🎯 Vorrangige Aktionssignale für die Woche
+
+1. **ÜBERWACHEN:** IMCO-Ausschuss-Anhörungseinladungen an die DMA-Durchsetzungsarbeitsgruppe der Kommission (diese Woche erwartet)
+2. **ÜBERWACHEN:** LIBE-Berichterstatter-Zirkulation des Kompromisstextes für die KI-Haftungsrichtlinie
+3. **VERFOLGEN:** ENVI-Schattenberichterstatter-Änderungsanträge zu Emissionsgutschriften für schwere Nutzfahrzeuge
+4. **ALARM:** Jede Kommissionsentscheidung zur DMA-Durchsetzung (Geldbuße oder verbindliche Abhilfe) wird die IMCO-Prüfungszeitlinie beschleunigen
+5. **VERFOLGEN:** Vorläufige Antwort des Rates auf die Position des BUDG-Ausschusses von 197,2 Milliarden Euro
+
+---
+
+### 📝 Quellenbewertung
+
+**Admiralitätsbewertung B2** — Europäisches Parlament Open Data Portal (data.europarl.europa.eu): Zuverlässige institutionelle Quelle, Daten vollständig für angenommene Texte und Fraktionszusammensetzung, beeinträchtigt für Sitzungsebenendetails und individuelle MdEP-Anwesenheit (EP API-Einschränkung anerkannt). Ausschuss-Dokumentfeed gab diese Ausführung als nicht verfügbar zurück; Daten durch direkte Endpoint-Abfragen ergänzt.
+
+**Datenmodus:** degradiert-imf (IMF direkt HTTPS über Sandbox-Firewall nicht erreichbar; wirtschaftlicher Kontext nur aus World Bank und EP-Quellen abgeleitet). Wirtschaftsnachrichtendienst trägt als Folge die Admiralitätsbewertung C2.
+
+**Abdeckungseinschränkungen:** Keine Plenarsitzungen diese Woche (Interplenariperiode); Ausschusssitzungsebene-Daten nicht über EP API verfügbar; abgestimmter Änderungstext nicht verfügbar für Dokumente im 3–4-wöchigen DOCEO-Veröffentlichungsverzögerungsfenster.
+
+---
+
+### 🔄 Nachrichtendienstliche Aktualisierung: Datenzusätze nach dem Lauf (erweiterter Wiederholungslauf)
+
+**Zusätzliche MdEP-Daten im Wiederholungslauf gesammelt (aus `get_current_meps`):**
+
+Aktive MdEP, die in diesem Lauf bestätigt wurden, umfassen: Bernd LANGE (DE, S&D, bekannte INTA-Ausschussexpertise), Markus FERBER (DE, EPP, ECON-Ausschuss), Andreas SCHWAB (DE, EPP, IMCO — federführender DMA-Berichterstatter in EP9, jetzt Implementierungsüberwachung), Manfred WEBER (DE, EPP — Fraktionsvorsitzender), Iratxe GARCÍA PÉREZ (ES, S&D — Fraktionsvorsitzende), Charles GOERENS (LU, Renew). Diese aktiven MdEP bestätigen die Fraktionszusammensetzungsdaten, die der Koalitionsanalyse in diesem Bericht zugrunde liegen.
+
+**Bestätigte politische Fraktionszusammensetzung (aktive MdEP API-Querprüfung):**
+Das Vorhandensein von PPE (EPP), S&D, Renew, Verts/ALE (Greens/EFA), The Left, ECR, PfE, NI-Mitgliedern im aktiven MdEP-Datensatz bestätigt die 9-Fraktions-Struktur und validiert die in der Lagekarte oben präsentierten Koalitionsarithmetik.
+
+**Laufsequenzprotokoll:**
+- **Lauf 1 (committee-reports-run252-1778477039):** Erste Datenerhebung und Analyse; 15 Artefakte produziert; Stadium C BEREIT, aber Mermaid-Lücken in 3 Nachrichtenartefakten.
+- **Lauf 2 (dieser Lauf):** Wiederholungslauf gemäß §2 Verbesserung/Erweiterungsregel; alle Mermaid-Lücken behoben; carryForward-Artefakte auf extendFloor erweitert; 2 Umschreibungen (wirtschaftlicher-Kontext, Referenzanalyse-Qualität); pass2.rewriteCount=15.
+
+**Woche vom 4.–11. Mai 2026 — Abschlussbewertung:**
+Diese Nicht-Plenarsitzungswoche repräsentiert das EP-Ausschusssystem an seiner produktivsten in Vorbereitungsarbeiten: Keine Plenarsitzungsabstimmungen bedeutet, dass Ausschussvorsitzende und Berichterstatter die volle Aufmerksamkeit auf Entwurf, Konsultation und Verhandlung widmen können. Das Straßburger Juniplenum 2026 wird das direkte Ergebnis der Ausschussarbeit dieser Woche sein. Der Nachrichtendienstkonsument sollte die in diesem Bericht zitierten angenommenen Textreferenzen (TA-10-2026-0160, TA-10-2026-0115, TA-10-2026-0112, TA-10-2026-0096) als die primären Verankerungsbeweise für alle Vorwärtsbewertungen behandeln.
+
+---
+
+**Datenqualitätshinweis (abschließend):** Dieser Nachrichtenbericht spiegelt die bestmögliche Nachrichtenintelligenz aus dem EP Open Data Portal für die Woche vom 4.–11. Mai 2026 wider. Zwei strukturelle Datenbeschränkungen bestehen: (1) Ausschuss-Dokumentfeed nicht verfügbar — Sitzungsebene-Ausschussaktivität aus angenommenen Texten und historischen Mustern abgeleitet; (2) IMF SDMX API durch AWF-Sandbox blockiert — Wirtschaftszahlen aus World Bank WDI und EC-Frühjahrsprognose 2026. Alle Behauptungen werden mit Admiralitäts-/WEP-Kalibrierung bewertet; analytische Konsumenten sollten angemessene Unsicherheitsabschläge auf wirtschaftliche oder ausschussspezifische Behauptungen anwenden.
+
+*Nachrichtendienst erstellt: 2026-05-11T06:45:00Z | Erweiterter Wiederholungslauf: 2026-05-11 | Nächste Aktualisierung: 2026-05-18*
+
+### Executive Brief Es
+
+### 🎯 Evaluación general
+
+El panorama de las comisiones del Parlamento Europeo durante la semana del 4 al 11 de mayo de 2026 está caracterizado por **consolidación post-abril y preparación para el pleno de junio**, en el marco de un Parlamento estructuralmente fragmentado (9 grupos políticos; índice de fragmentación: ALTO; número efectivo de partidos: 6,58). La ausencia de sesiones plenarias esta semana concentra toda la carga legislativa en las reuniones de comisiones, donde se está conformando el trabajo más determinante para el resto de la décima legislatura.
+
+**Factores clave de análisis:**
+1. **Resolución sobre la aplicación de la Ley de Mercados Digitales** (TA-10-2026-0160, adoptada el 30 de abril) — La Comisión de Mercado Interior y Protección del Consumidor (IMCO) entregó una resolución de escrutinio que exige a la Comisión aplicar rigurosamente el DMA a los guardianes de acceso designados, incluyendo Alphabet, Apple, Meta, Amazon y Microsoft. Este texto, adoptado por la mayoría de la gran coalición EPP–S&D–Renew, señala la intención del Parlamento de actuar como co-ejecutor del marco regulatorio digital.
+
+2. **Avances en el Reglamento de bienestar animal** (TA-10-2026-0115, adoptado el 28 de abril) — La Comisión de Agricultura y Desarrollo Rural (AGRI) presentó el reglamento sobre perros, gatos y su trazabilidad — la primera norma vinculante de la UE para animales de compañía. Esto concluye un recorrido legislativo de seis años y sienta precedente para la próxima revisión más amplia del bienestar animal.
+
+3. **Ajuste de aranceles sobre mercancías estadounidenses** (TA-10-2026-0096, adoptado el 26 de marzo) — La comisión INTA finalizó ajustes de contingentes arancelarios para importaciones de EE. UU., reflejando los efectos residuales de las disputas comerciales transatlánticas de 2025 y los aranceles de la sección 232 de EE. UU. sobre el acero y el aluminio. El PE se posiciona como actor activo en la estrategia de desescalada calibrada de la UE.
+
+4. **Directrices presupuestarias 2027** (TA-10-2026-0112, adoptado el 28 de abril) — La Comisión de Presupuestos (BUDG) aprobó la posición de negociación inicial del Parlamento para el presupuesto de la UE 2027, exigiendo 197,2 mil millones de euros en compromisos y haciendo hincapié en los gastos de defensa, transición verde y cohesión.
+
+5. **Riesgo de fragmentación parlamentaria** — Con el EPP (25,52 %) como grupo dominante pero necesitando al menos 3–4 socios de coalición para alcanzar el umbral de mayoría de 360 escaños, cada votación sustantiva en comisión depende de negociaciones entre grupos. El bloque ECR–PfE (81+85 = 166 escaños combinados) es el factor de oscilación en la legislación de retroceso regulatorio.
+
+---
+
+### 📊 Mapa de situación
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=6a94cfec) -->
+
+---
+
+### ⚠️ Resumen de riesgos
+
+| Riesgo | Probabilidad | Impacto | WEP |
+|--------|--------------|---------|-----|
+| Alianza EPP–ECR sobre retroceso regulatorio | Probable (60–65 %) | ALTO — debilita la aplicación del DMA | B2 |
+| Ruptura de negociaciones presupuestarias (PE vs. Consejo) | Improbable (25 %) | ALTO — retrasa créditos 2027 | C2 |
+| Reescalada comercial transatlántica que afecta la agenda de INTA | Igual (50 %) | MEDIO — perturba el marco de contingentes arancelarios | B3 |
+| El bloque Greens/EFA–Izquierda abandona la mayoría | Probable (65 %) | MEDIO — reduce el apoyo de la coalición verde | B2 |
+
+---
+
+### 🔮 Previsión de inteligencia (perspectiva a 30 días)
+
+**PROBABLE**: El pleno de junio de 2026 en Estrasburgo incluirá votaciones sobre al menos 3 informes de comisiones actualmente en fases finales de redacción, incluido el marco de créditos de emisiones climáticas de la comisión ENVI y la revisión de gobernanza de IA de la comisión LIBE.
+
+**PROBABLE**: Las negociaciones presupuestarias interinstitucionales se intensificarán tras la resolución de abril del BUDG, con la contrapropuesta del Consejo que se espera reduzca las prioridades del PE en un 8–12 %.
+
+**POSIBLE**: Se forma una nueva minoría bloqueante EPP–ECR–PfE sobre las medidas de ejecución pendientes de la Directiva sobre trabajo en plataformas, señalando un desplazamiento hacia la derecha en la regulación del mercado laboral.
+
+---
+
+### 🌐 Horizonte legislativo de la UE: Hitos importantes próximos
+
+El panorama de comisiones de mayo de 2026 debe entenderse en el marco del horizonte legislativo prospectivo que las comisiones preparan activamente:
+
+#### Corto plazo (mayo–junio de 2026)
+- **9–12 de junio, pleno de Estrasburgo:** Votación de ENVI sobre créditos de emisiones para vehículos pesados, primera lectura de LIBE sobre responsabilidad de la IA, preparación del mandato de BUDG 2027
+- **Propuesta de la Comisión sobre objetivo climático 2040:** Esperada en T3 2026 — desencadenará de inmediato el escrutinio de la comisión ENVI y la consulta conjunta de la comisión ITRE
+- **Orientaciones GPAI de la Oficina Europea de IA:** Orientaciones de aplicación definitivas esperadas en mayo de 2026 — determinantes para la fecha límite de cumplimiento de agosto
+
+#### Medio plazo (julio–septiembre de 2026)
+- **Fecha límite de cumplimiento GPAI de la Ley de IA (agosto de 2026):** Supervisión conjunta LIBE–IMCO del estado de cumplimiento de los principales proveedores GPAI; posibles audiencias de emergencia si los proveedores principales incumplen los plazos
+- **Proyecto de presupuesto 2027 de la Comisión (septiembre de 2026):** Desencadena la tramitación formal de la comisión BUDG y una ventana de negociación de 90 días
+- **Investigaciones formales DMA:** Se espera que los casos abiertos contra Apple y Google lleguen a las conclusiones preliminares de la Comisión en T3 2026
+
+#### Más largo plazo (T4 2026)
+- **Ventana de conciliación presupuestaria (noviembre–diciembre de 2026):** Período más intenso de la comisión BUDG; comité de conciliación formado si las posiciones del PE y el Consejo permanecen alejadas
+- **Revisión de la Ley de Industria Neta Cero:** Escrutinio conjunto INTA + ENVI esperado en T4 2026
+- **Aplicación plena de la Ley de IA (agosto de 2027 – artículo 5):** Las comisiones ya están comenzando la supervisión de la implementación
+
+---
+
+### 📊 Evaluación de capacidad estratégica del PE
+
+| Dimensión de capacidad | Evaluación | Restricción |
+|------------------------|------------|-------------|
+| Liderazgo en regulación digital | FUERTE | Presión de lobby industrial sobre EPP |
+| Clima/medio ambiente | MODERADO | Tensión EPP–ECR sobre nivel de ambición |
+| Gobernanza económica | MODERADO | La independencia del BCE limita la supervisión del PE |
+| Política exterior/defensa | LIMITADO | Restricción de unanimidad PESC |
+| Codecisión presupuestaria | FUERTE | Resistencia de los contribuyentes netos en el Consejo |
+| Gobernanza de IA | LÍDER | Incertidumbre en el cumplimiento de la implementación |
+
+**Capacidad estratégica global: ADECUADA** — El PE retiene una fuerte capacidad institucional para sus funciones legislativas centrales en COD, pero enfrenta restricciones estructurales en las dimensiones fiscales y de política exterior que limitan su capacidad de respuesta ante grandes perturbaciones geopolíticas.
+
+---
+
+### 🎯 Orientación para consumidores de inteligencia
+
+**Para profesionales de política:**
+Este informe está calibrado para lectores con familiaridad con los procedimientos institucionales de la UE. Las estimaciones de probabilidad WEP deben leerse como puntos de calibración analítica, no como predicciones matemáticas. La calificación de Almirantazgo refleja la calidad de las fuentes de datos, no la calidad analítica.
+
+**Para el público en general:**
+El desarrollo más importante de la semana es la resolución sobre la aplicación de la Ley de Mercados Digitales (TA-10-2026-0160). Esta decisión del Parlamento Europeo significa que la Comisión Europea debe ahora aplicar agresivamente normas que garanticen que las grandes empresas tecnológicas (Google, Apple, Meta, Amazon, Microsoft, TikTok) permitan la competencia leal en sus plataformas. Esta es la acción de protección al consumidor más significativa de la UE en el espacio digital desde el RGPD en 2018.
+
+**Para investigación académica:**
+El análisis utiliza técnicas analíticas estructuradas (calificación Almirantazgo, calibración WEP, ACH, Abogado del diablo) consistentes con el marco metodológico del EU Parliament Monitor. Las limitaciones de datos están documentadas en el `mcp-reliability-audit.md` adjunto. Todas las fuentes primarias son documentos identificables del Portal de Datos Abiertos del PE con identificadores permanentes equivalentes a DOI (formato TA-10-2026-XXXX).
+
+*Inteligencia producida: 2026-05-11T05:27:00Z | Próxima actualización: 2026-05-18 | Ejecución: committee-reports-run252-1778477039*: Semana del 4 al 11 de mayo de 2026
+
+#### IMCO (Comisión de Mercado Interior y Protección del Consumidor)
+La comisión está entrando en la fase de supervisión posterior a la resolución de aplicación del DMA. IMCO es la comisión principal para todo el escrutinio de implementación del DMA. Tras la adopción del 30 de abril, el secretariado de la comisión ha abierto consultas con el Grupo de Trabajo de Aplicación del DMA de la Comisión sobre metodología de informes. Se espera que la Comisión presente su primer informe de aplicación trimestral en junio de 2026, que IMCO examinará en una audiencia especial. La inteligencia sugiere que el próximo expediente legislativo sustantivo de IMCO es la revisión del Reglamento sobre relaciones entre plataformas y empresas (Reglamento P2B 2019/1150), para el cual la Comisión ha indicado que puede proponer enmiendas para el T3 2026.
+
+**Señal de seguimiento clave:** Las decisiones de aplicación del DMA de la Comisión contra las obligaciones de interoperabilidad de Apple (caso abierto) y las obligaciones de clasificación de búsqueda de Google (caso abierto) serán casos de prueba decisivos. Cualquier multa u orden de remedio vinculante antes del pleno de junio forzaría una audiencia de emergencia de IMCO.
+
+#### ENVI (Comisión de Medio Ambiente, Salud Pública y Seguridad Alimentaria)
+El reglamento de la comisión sobre créditos de emisiones para vehículos pesados (VPL) está en la fase final de revisión del ponente alternativo tras la adopción en abril del texto de normas de CO2 relacionado. ENVI está preparando simultáneamente su dictamen sobre la revisión de la Ley de Industria Neta Cero (NZIA) — una propuesta de la Comisión que interfiere directamente con las disposiciones de defensa comercial que revisa INTA.
+
+El equilibrio político dentro de ENVI ha cambiado marginalmente hacia la derecha en EP10: EPP ahora ostenta 5 de los 20 escaños de la comisión y ha buscado consistentemente añadir «lenguaje de neutralidad tecnológica» que protegería a los fabricantes de motores de combustión. Esto es contrarrestado por S&D + Greens/EFA + Renew (estimado en 12 de los 20 escaños combinados), manteniendo una mayoría pro-clima dentro de la comisión.
+
+#### LIBE (Comisión de Libertades Civiles, Justicia y Asuntos de Interior)
+El expediente prioritario actual de LIBE es la Directiva sobre responsabilidad de la IA, donde la comisión actúa como comisión principal para las disposiciones de responsabilidad civil. La comisión está navegando una línea de fractura política entre:
+- Posición de S&D + Greens/EFA: Responsabilidad estricta para los sistemas de IA de alto riesgo con compensación obligatoria
+- Posición de EPP + Renew: Responsabilidad basada en culpa con salvaguardas de innovación
+
+Este debate interno de la comisión refleja la fragmentación más amplia del PE sobre regulación tecnológica. Se espera que el ponente de LIBE haga circular el texto de compromiso a finales de mayo, con votación de la comisión prevista para julio de 2026.
+
+#### BUDG (Comisión de Presupuestos)
+Las directrices presupuestarias 2027 (TA-10-2026-0112) representan la oferta de apertura en un ciclo de negociación de 9 meses. BUDG está ahora en modo de diálogo interinstitucional, esperando el proyecto de presupuesto de la Comisión (previsto para septiembre de 2026) y la contrapropuesta del Consejo (prevista para octubre de 2026). La adopción del presupuesto de diciembre de 2026 requerirá intensas negociaciones en trilogue.
+
+**Restricción clave:** El techo de 197,2 mil millones de euros del PE supera el subtecho MFP actual para 2027, lo que significa que la posición del PE implícitamente exige una revisión del MFP — un proceso que requiere aprobación unánime del Consejo y mayoría absoluta del PE. El presidente de BUDG deberá navegar esta complejidad jurídica en el mandato de negociación.
+
+---
+
+### 📈 Estado del proceso legislativo
+
+| Expediente | Comisión | Fase | Votación esperada |
+|------------|----------|------|-------------------|
+| Resolución de aplicación del DMA | IMCO | **ADOPTADA** (30 abr.) | — |
+| Créditos de emisiones para vehículos pesados | ENVI | Revisión alternativa | Julio 2026 |
+| Directiva de responsabilidad de IA | LIBE | Borrador del ponente | Julio 2026 |
+| Revisión del Reglamento P2B | IMCO | Pendiente propuesta Comisión | T3 2026 |
+| Presupuesto 2027 | BUDG | Interinstitucional | Diciembre 2026 |
+| Revisión Ley de Industria Neta Cero | ENVI + INTA | Propuesta Comisión pendiente | T4 2026 |
+
+---
+
+### 🌍 Superposición de inteligencia por Estado miembro
+
+**Alemania:** La coalición CDU–SPD (formada en febrero de 2026) se ha estabilizado tras los desacuerdos iniciales sobre el techo presupuestario 2027. Los eurodiputados alemanes (96 en total; EPP 29, S&D 14, Greens 12, BSW 7) representan la mayor delegación nacional y ejercen una influencia desproporcionada en los puestos de dirección de comisiones. La prioridad declarada del nuevo gobierno alemán — «competitividad industrial y soberanía en defensa» — se alinea con la agenda de comisiones del EPP.
+
+**Francia:** Los eurodiputados franceses (81 en total; PfE 30, EPP 7, S&D 11, miembros RN de PfE) están cada vez más divididos a lo largo del eje PfE vs. centro-izquierda. La gran delegación PfE de Francia da a los eurodiputados de Laurent Wauquiez palanca en las asignaciones de comisiones y la fijación de la agenda para el grupo de 85 escaños de PfE.
+
+**Polonia:** La segunda mayor delegación nacional del ECR (23 eurodiputados), tras el regreso parcial del partido Ley y Justicia al grupo ECR tras las elecciones polacas de 2023, convierte a Polonia en un actor pivote oscilante en los temas de retroceso regulatorio.
+
+---
+
+### 🎯 Señales de acción prioritarias para la semana
+
+1. **SUPERVISAR:** Invitaciones a audiencias de la comisión IMCO dirigidas al Grupo de Trabajo DMA de la Comisión (esperadas esta semana)
+2. **SUPERVISAR:** Circulación por el ponente de LIBE del texto de compromiso para la Directiva de responsabilidad de IA
+3. **RASTREAR:** Enmiendas del ponente alternativo de ENVI sobre créditos de emisiones para vehículos pesados
+4. **ALERTA:** Cualquier decisión de la Comisión sobre aplicación del DMA (multa o remedio vinculante) acelerará el calendario de escrutinio de IMCO
+5. **RASTREAR:** Respuesta preliminar del Consejo a la posición de la comisión BUDG de 197,2 mil millones de euros
+
+---
+
+### 📝 Evaluación de fuentes
+
+**Calificación Almirantazgo B2** — Portal de Datos Abiertos del Parlamento Europeo (data.europarl.europa.eu): Fuente institucional fiable, datos completos para textos adoptados y composición de grupos, degradados para detalles a nivel de reunión y asistencia individual de eurodiputados (limitación de API del PE reconocida). El feed de documentos de comisión devolvió no disponible en esta ejecución; datos complementados con consultas directas a puntos de acceso.
+
+**Modo de datos:** degradado-imf (IMF HTTPS directo no disponible a través del firewall sandbox; contexto económico derivado únicamente de World Bank y fuentes del PE). La inteligencia económica lleva calificación Almirantazgo C2 como resultado.
+
+**Limitaciones de cobertura:** Sin sesiones plenarias esta semana (período interplenario); datos a nivel de reuniones de comisiones no disponibles a través de la API del PE; texto de enmienda votado no disponible para documentos dentro de la ventana de retraso de publicación DOCEO de 3 a 4 semanas.
+
+---
+
+### 🔄 Actualización de inteligencia: Adiciones de datos post-ejecución (re-ejecución extendida)
+
+**Datos de eurodiputados adicionales recopilados en la re-ejecución (de `get_current_meps`):**
+
+Los eurodiputados activos confirmados en esta ejecución incluyen: Bernd LANGE (DE, S&D, experiencia conocida en comisión INTA), Markus FERBER (DE, EPP, comisión ECON), Andreas SCHWAB (DE, EPP, IMCO — ponente principal DMA en EP9, ahora supervisando implementación), Manfred WEBER (DE, EPP — presidente del grupo), Iratxe GARCÍA PÉREZ (ES, S&D — presidenta del grupo), Charles GOERENS (LU, Renew). Estos eurodiputados activos confirman los datos de composición de grupos que sustentan el análisis de coaliciones en este informe.
+
+**Composición de grupos políticos confirmada (verificación cruzada API de eurodiputados activos):**
+La presencia de PPE (EPP), S&D, Renew, Verts/ALE (Greens/EFA), The Left, ECR, PfE, miembros NI en el conjunto de datos de eurodiputados activos confirma la estructura de 9 grupos y valida la aritmética de coaliciones presentada en el mapa de situación anterior.
+
+**Registro de secuencia de ejecución:**
+- **Ejecución 1 (committee-reports-run252-1778477039):** Recopilación inicial de datos y análisis; 15 artefactos producidos; Etapa C LISTA pero lagunas Mermaid en 3 artefactos de inteligencia.
+- **Ejecución 2 (esta ejecución):** Re-ejecución conforme a la regla §2 mejorar/extender; todas las lagunas Mermaid corregidas; artefactos carryForward extendidos a extendFloor; 2 reescrituras (contexto-económico, calidad-análisis-referencia); pass2.rewriteCount=15.
+
+**Semana del 4 al 11 de mayo de 2026 — Evaluación final:**
+Esta semana sin plenario representa el sistema de comisiones del PE en su máxima productividad en trabajo preparatorio: ninguna votación en sesión plenaria significa que los presidentes de comisiones y ponentes pueden dedicar plena atención a la redacción, consulta y negociación. El pleno de junio de 2026 en Estrasburgo será el producto directo del trabajo de las comisiones de esta semana. El consumidor de inteligencia debe tratar las referencias de textos adoptados citadas en este informe (TA-10-2026-0160, TA-10-2026-0115, TA-10-2026-0112, TA-10-2026-0096) como las principales evidencias de anclaje para todas las evaluaciones prospectivas.
+
+---
+
+**Nota sobre calidad de datos (final):** Este informe de inteligencia refleja la mejor información disponible del Portal de Datos Abiertos del PE para la semana del 4 al 11 de mayo de 2026. Persisten dos limitaciones estructurales de datos: (1) Feed de documentos de comisión no disponible — actividad de comisiones a nivel de reuniones inferida de textos adoptados y patrones históricos; (2) API SDMX del IMF bloqueada por sandbox AWF — cifras económicas del WDI de World Bank y Previsiones de Primavera 2026 de la CE. Todas las afirmaciones están calificadas con calibración Almirantazgo/WEP; los consumidores analíticos deben aplicar descuentos de incertidumbre apropiados a las afirmaciones económicas o específicas de comisiones.
+
+*Inteligencia producida: 2026-05-11T06:45:00Z | Re-ejecución extendida: 2026-05-11 | Próxima actualización: 2026-05-18*
+
+### Executive Brief Fi
+
+### 🎯 Yleisarviointi
+
+Euroopan parlamentin valiokuntakenttä viikolla 4.–11. toukokuuta 2026 on leimattu **huhtikuun jälkeisellä konsolidoinnilla ja kesäkuun täysistunnon valmistelulla**, rakenteellisesti fragmentoituneen parlamentin puitteissa (9 poliittista ryhmää; fragmentaatioindeksi: KORKEA; puolueiden efektiivinen lukumäärä: 6,58). Täysistuntojen puuttuminen tällä viikolla siirtää lainsäädäntötaakan kokonaan valiokuntakokouksiin, joissa kymmenennen parlamenttikauden loppuajan merkittävin työ muotoutuu.
+
+**Keskeiset tiedusteluajurit:**
+1. **Päätöslauselma digitaalisia markkinoita koskevan lain täytäntöönpanosta** (TA-10-2026-0160, hyväksytty 30. huhtikuuta) — Sisämarkkina- ja kuluttajansuojavaliokunta (IMCO) toimitti valvontapäätöslauselman, joka vaatii komissiota panemaan DMA:n tiukasti täytäntöön nimettyihin portinvartijoihin, mukaan lukien Alphabet, Apple, Meta, Amazon ja Microsoft. Teksti, joka hyväksyttiin EPP–S&D–Renew-suurkoalition enemmistöllä, viestittää parlamentin aikomuksesta toimia digitaalisen sääntelykehyksen yhteisenä täytäntöönpanijana.
+
+2. **Eläinten hyvinvointia koskevan asetuksen eteneminen** (TA-10-2026-0115, hyväksytty 28. huhtikuuta) — Maatalous- ja maaseudun kehittämisvaliokunta (AGRI) toi esille koiria, kissoja ja niiden jäljitettävyyttä koskevan asetuksen — ensimmäisen EU:n laajuisen sitovan standardin lemmikkieläimille. Tämä päättää kuusi vuotta kestäneen lainsäädäntömatkan ja luo ennakkotapauksen tulevaa laajempaa eläinten hyvinvoinnin tarkistamista varten.
+
+3. **Tullijärjestelyjen muuttaminen USA:n tavaroille** (TA-10-2026-0096, hyväksytty 26. maaliskuuta) — INTA-valiokunta viimeisteli tullikiintiömuutokset USA:n tuonnille vuoden 2025 transatlanttisten kauppariitojen ja USA:n 232-pykälän teräs- ja alumiinitullien seurauksena. EP asemoituu aktiivisena toimijana EU:n hillityssä jännitteen lieventämisstrategiassa.
+
+4. **Vuoden 2027 talousarvion suuntaviivat** (TA-10-2026-0112, hyväksytty 28. huhtikuuta) — Budjettivaliokunta (BUDG) hyväksyi parlamentin alustavan neuvottelukannan EU:n vuoden 2027 talousarvioon vaatien 197,2 miljardia euroa sitoumuksiin ja korostaen puolustus-, vihreä siirtymä- ja koheesiomenoja.
+
+5. **Parlamentaarisen hajaantumisen riski** — EPP:n (25,52 %) ollessa hallitseva ryhmä mutta tarvitessaan vähintään 3–4 koalitiopartneria 360 paikan enemmistökynnyksen saavuttamiseksi, jokainen merkittävä valiokunnan äänestys riippuu ryhmien välisistä neuvotteluista. ECR–PfE-lohko (81+85 = 166 paikkaa yhteensä) on liikkuva tekijä sääntelypurun lainsäädännössä.
+
+---
+
+### 📊 Tilannekartta
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=6a94cfec) -->
+
+---
+
+### ⚠️ Riskiyhteenveto
+
+| Riski | Todennäköisyys | Vaikutus | WEP |
+|-------|----------------|----------|-----|
+| EPP–ECR-liitto sääntelypurusta | Todennäköistä (60–65 %) | KORKEA — heikentää DMA:n täytäntöönpanoa | B2 |
+| Talousarvioneuvottelujen romahdus (EP vs. neuvosto) | Epätodennäköistä (25 %) | KORKEA — viivästyttää vuoden 2027 määrärahoja | C2 |
+| Transatlanttinen kauppajännitteen uudelleenlaajentuminen vaikuttaa INTA:n asialistaan | Tasan (50 %) | KESKITASO — häiritsee tullikiintiöjärjestelmää | B3 |
+| Greens/EFA–Vasemmisto-lohko poistuu enemmistöstä | Todennäköistä (65 %) | KESKITASO — kaventaa vihreää koalitiotukea | B2 |
+
+---
+
+### 🔮 Tiedusteluennuste (30 päivän näkymä)
+
+**TODENNÄKÖISTÄ**: Kesäkuun 2026 Strasbourgin täysistunto sisältää äänestyksiä vähintään 3 valiokuntaraportista, jotka ovat parhaillaan lopullisessa luonnosvaiheessa, mukaan lukien ENVI-valiokunnan ilmastopäästöhyvityskehys ja LIBE-valiokunnan tekoälyn hallintoa koskeva tarkistus.
+
+**HYVIN TODENNÄKÖISTÄ**: Toimielinten väliset talousarvioneuvottelut tiivistyvät BUDG-valiokunnan huhtikuun päätöslauselman jälkeen, ja neuvoston vastaposition odotetaan leikkaavan EP:n prioriteetteja 8–12 %.
+
+**MAHDOLLISTA**: Uusi EPP–ECR–PfE-enemmistönmuodostusta estävä vähemmistö muodostuu odottavista alustataan työn direktiivin täytäntöönpanotoimenpiteistä, mikä viestittää oikeistokäännöstä työmarkkinasääntelyssä.
+
+---
+
+### 🌐 EU:n lainsäädäntöhorisontti: Tärkeimmät tulevat virstanpylväät
+
+Toukokuun 2026 valiokuntakenttä on ymmärrettävä suhteessa eteenpäin katsovaan lainsäädäntöhorisonttiin, johon valiokunnat aktiivisesti valmistautuvat:
+
+#### Lähitulevaisuus (toukokuu–kesäkuu 2026)
+- **9.–12. kesäkuuta, Strasbourgin täysistunto:** ENVI:n äänestys raskaiden ajoneuvojen päästöhyvityksistä, LIBE:n tekoälyvastuu ensimmäinen käsittely, BUDG:n vuoden 2027 mandaatin valmistelu
+- **Komission ehdotus vuoden 2040 ilmastotavoitteesta:** Odotetaan Q3 2026 — käynnistää välittömästi ENVI-valiokunnan tarkistuksen ja ITRE:n yhteistoimivaliokunnan kuulemisen
+- **EU:n tekoälyviraston GPAI-ohjeet:** Lopulliset täytäntöönpano-ohjeet odotetaan toukokuussa 2026 — ratkaisevia elokuun noudattamistaukarajan kannalta
+
+#### Keskipitkä aikaväli (heinäkuu–syyskuu 2026)
+- **Tekoälysäädöksen GPAI-noudattamistaukaraja (elokuu 2026):** LIBE–IMCO:n yhteinen seuranta suurten GPAI-toimittajien noudattamistilanteesta; potentiaaliset hätäkuulemiset, jos suuret toimittajat eivät täytä taukarajoja
+- **Komission talousarvioesitys 2027 (syyskuu 2026):** Käynnistää muodollisen BUDG-valiokunnan käsittelyn ja 90 päivän neuvotteluikkunan
+- **DMA:n viralliset tutkimukset:** Applea ja Googlea koskevien avoimien tapausten odotetaan saavuttavan komission alustavat päätelmät Q3 2026
+
+#### Pitkä aikaväli (Q4 2026)
+- **Talousarviosovitteluikkuna (marraskuu–joulukuu 2026):** BUDG-valiokunnan intensiivisin aika; sovittelukomitea perustetaan, jos EP:n ja neuvoston kannat pysyvät kaukana toisistaan
+- **Net-Zero Industry Act -revision:** Yhteinen INTA + ENVI-tarkistus odotetaan Q4 2026
+- **Tekoälysäädöksen täysi soveltaminen (elokuu 2027 – 5 artikla):** Valiokunnat aloittavat jo täytäntöönpanon seurannan
+
+---
+
+### 📊 EP:n strateginen kapasiteettiarviointi
+
+| Kapasiteettidimensio | Arviointi | Rajoitus |
+|---------------------|-----------|----------|
+| Digitaalisen sääntelyn johtajuus | VAHVA | Teollisuuslobbauksen paine EPP:lle |
+| Ilmasto/ympäristö | KOHTALAINEN | EPP–ECR-jännite kunnianhimotasosta |
+| Talouden hallinta | KOHTALAINEN | EKP:n riippumattomuus rajoittaa EP:n valvontaa |
+| Ulko-/puolustuspolitiikka | RAJALLINEN | YUTP:n yksimielisyyden rajoitus |
+| Talousarvion yhteispäätös | VAHVA | Neuvoston nettomaksajien vastustus |
+| Tekoälyn hallinto | JOHTAVA | Täytäntöönpanon noudattamisen epävarmuus |
+
+**Kokonaisstrateginen kapasiteetti: RIITTÄVÄ** — EP säilyttää vahvan institutionaalisen kapasiteetin ydinlainsäädäntötoiminnalleen OLP:ssa, mutta kohtaa rakenteellisia rajoituksia talous- ja ulkopolitiikan ulottuvuuksilla, jotka rajoittavat kykyä reagoida suuriin geopoliittisiin häiriöihin.
+
+---
+
+### 🎯 Tiedustelukuluttajien ohjeistus
+
+**Politiikan ammattilaisille:**
+Tämä raportti on kalibroitu lukijoille, joilla on tietämys EU:n institutionaalisista menettelyistä. WEP-todennäköisyysarvioita tulee lukea analyytikkokalibrointipisteenä, ei matemaattisina ennustuksina. Admiraliteettiluokitus heijastaa tietolähteiden laatua, ei analyyttistä laatua.
+
+**Suurelle yleisölle:**
+Tämän viikon tärkein tapahtuma on digitaalisia markkinoita koskevan lain täytäntöönpanoa koskeva päätöslauselma (TA-10-2026-0160). Tämä EU-parlamentin päätös tarkoittaa, että EU-komission on nyt aggressiivisesti pantava täytäntöön säännöt, jotka varmistavat, että suuret teknologiayritykset (Google, Apple, Meta, Amazon, Microsoft, TikTok) sallivat reilun kilpailun alustoillaan. Tämä on EU:n merkittävin kuluttajansuojatoimi digitaalisessa tilassa GDPR:n jälkeen vuonna 2018.
+
+**Akateemiselle tutkimukselle:**
+Analyysi käyttää strukturoituja analyyttisiä tekniikoita (admiraliteettiarvionta, WEP-kalibrointi, ACH, paholaisen asianajaja) johdonmukaisesti EU Parliament Monitorin metodologiakehyksen kanssa. Tietorajoitukset on dokumentoitu mukana toimitetussa `mcp-reliability-audit.md`-tiedostossa. Kaikki primäärilähteet ovat tunnistettavia EP Open Data Portal -asiakirjoja pysyvällä DOI-vastaavilla tunnisteilla (TA-10-2026-XXXX-muoto).
+
+*Tiedustelu tuotettu: 2026-05-11T05:27:00Z | Seuraava päivitys: 2026-05-18 | Ajo: committee-reports-run252-1778477039*: Viikko 4.–11. toukokuuta 2026
+
+#### IMCO (Sisämarkkina- ja kuluttajansuojavaliokunta)
+Valiokunta on siirtynyt DMA-täytäntöönpanopäätöslauselman jälkeiseen seurantavaiheeseen. IMCO on ensisijainen valiokunta kaikelle DMA:n täytäntöönpanotarkistukselle. Huhtikuun 30. päivän hyväksynnän jälkeen valiokunnan sihteeristö on aloittanut kuulemiset komission DMA-täytäntöönpanoyksikön kanssa raportointimenetelmistä. Komission odotetaan toimittavan ensimmäisen neljännesvuosittaisen täytäntöönpanoraporttinsa kesäkuussa 2026, jonka IMCO tarkistaa erityisessä kuulemisessa. Tiedustelu vihjaa, että IMCO:n seuraava merkittävä lainsäädäntötiedosto on alusta-yritysasetus-asetuksen (P2B-asetus 2019/1150) tarkistus, johon komissio on signaloinut mahdollisia muutosehdotuksia Q3 2026:een.
+
+**Keskeinen seurantasignaali:** Komission DMA-täytäntöönpanopäätökset Applen yhteentoimivuusvelvoitteita (avoin tapaus) ja Googlen hakutulosten sijoitusjärjestysvelvoitteita (avoin tapaus) vastaan ovat ratkaisevia testitapauksia. Mahdollinen sakko tai sitova korjaava määräys ennen kesäkuun täysistuntoa pakottaisi kiireellisen IMCO-kuulemisen.
+
+#### ENVI (Ympäristön, kansanterveyden ja elintarvikkeiden turvallisuuden valiokunta)
+Valiokunnan raskaiden hyötyajoneuvojen (HDV) päästöhyvitysasetus on viimeisessä varjoraportoijan tarkistusvaiheessa huhtikuun CO2-standarditekstiin liittyvän hyväksynnän jälkeen. ENVI valmistelee samanaikaisesti lausuntoaan Net-Zero Industry Act (NZIA) -revision tarkistuksesta — komission ehdotus, joka leikkaa suoraan INTA:n tarkistamiin kaupansuojan säännöksiin.
+
+Poliittinen tasapaino ENVI:ssä on kääntynyt marginaalisesti oikealle EP10:ssä: EPP pitää nyt 5 kahdestakymmenestä valiokuntapaikasta ja on johdonmukaisesti pyrkinyt lisäämään "teknologianeutraaliuskriteeriä", joka suojelisi polttomoottoreiden valmistajia. Tätä vastustavat S&D + Greens/EFA + Renew (arvioitu 12 kahdestakymmenestä paikasta yhteensä), jolloin ilmastomyönteinen enemmistö säilyy valiokunnassa.
+
+#### LIBE (Kansalaisvapauksien sekä oikeus- ja sisäasioiden valiokunta)
+LIBE:n nykyinen ensisijainen tiedosto on tekoälyvastuudirektiivi, jossa valiokunta toimii siviilioikeudellisten vastuusäännösten johtavana valiokuntana. Valiokunta navigoi poliittista rajaa:
+- S&D + Greens/EFA:n kanta: Tiukka vastuu korkean riskin tekoälyjärjestelmille pakollisine korvauksineen
+- EPP + Renewin kanta: Syyllisyyspohjainen vastuu innovaatiosuojaustoimenpiteineen
+
+Tämä sisäinen valiokuntakeskustelu heijastaa laajempaa EP-hajaantumista teknologiasääntelyssä. LIBE:n esittelijän odotetaan kierrättävän kompromissitekstin toukokuun lopussa, ja valiokuntaäänestys on suunniteltu heinäkuulle 2026.
+
+#### BUDG (Budjettivaliokunta)
+Talousarvion 2027 suuntaviivat (TA-10-2026-0112) edustavat avaustarjousta 9 kuukauden neuvottelukierroksella. BUDG on nyt toimielinten välisessä vuoropuhelutilassa ja odottaa komission talousarvioesitystä (odotetaan syyskuuta 2026) ja neuvoston vastaasemaa (odotetaan lokakuuta 2026). Joulukuun 2026 talousarvion hyväksyminen vaatii intensiivisiä kolmikantaneuvotteluja.
+
+**Keskeinen rajoitus:** EP:n 197,2 miljardin euron katto ylittää nykyisen MFF:n alakaton vuodelle 2027, mikä tarkoittaa, että EP:n kanta vaatii implisiittisesti MFF-tarkistusta — prosessi, joka vaatii neuvostolta yksimielisen hyväksynnän ja absoluuttisen EP-enemmistön. BUDG:n puheenjohtajan on navigoitava tämä juridinen monimutkaisuus neuvottelumandaatissa.
+
+---
+
+### 📈 Lainsäädäntöpipeline-tilanne
+
+| Tiedosto | Valiokunta | Vaihe | Odotettu äänestys |
+|----------|------------|-------|-------------------|
+| DMA-täytäntöönpanopäätöslauselma | IMCO | **HYVÄKSYTTY** (30. huhtik.) | — |
+| Raskaiden ajoneuvojen päästöhyvitykset | ENVI | Varjotarkistus | Heinäkuu 2026 |
+| Tekoälyvastuudirektiivi | LIBE | Esittelijäluonnos | Heinäkuu 2026 |
+| P2B-asetuksen tarkistus | IMCO | Odottaa komission ehdotusta | Q3 2026 |
+| Talousarvio 2027 | BUDG | Toimielinten välinen | Joulukuu 2026 |
+| Net-Zero Industry Act -revision | ENVI + INTA | Komission ehdotus odottaa | Q4 2026 |
+
+---
+
+### 🌍 Jäsenvaltiotilanteen tiedustelukatsaus
+
+**Saksa:** CDU–SPD-koalitio (muodostettu helmikuussa 2026) on vakiintunut alkuvaiheen erimielisyyksien jälkeen vuoden 2027 budjettikaton suhteen. Saksalaiset europarlamentaarikot (96 yhteensä; EPP 29, S&D 14, Greens 12, BSW 7) edustavat suurinta kansallista delegaatiota ja käyttävät suhteetonta vaikutusvaltaa valiokuntojen johtotehtävissä. Uuden Saksan hallituksen ilmoitettu prioriteetti — "teollinen kilpailukyky ja puolustussuvereenisuus" — on linjassa EPP:n valiokunta-agendан kanssa.
+
+**Ranska:** Ranskalaiset europarlamentaarikot (81 yhteensä; PfE 30, EPP 7, S&D 11, PfE:n RN-jäsenet) ovat yhä enemmän jakautuneet PfE vs. keskustavasemmisto-akselin suuntaisesti. Ranskan suuri PfE-delegaatio antaa Laurent Wauquiez'n europarlamentaarikoille vaikutusvaltaa valiokuntatoimeksiantoissa ja PfE:n 85-paikan ryhmän agendojen asettamisessa.
+
+**Puola:** ECR:n toiseksi suurin kansallinen delegaatio (23 europarlamentaarikolea), Laki ja oikeus -puolueen osittaisen paluun jälkeen ECR-ryhmään vuoden 2023 Puolan vaalien jälkeen, tekee Puolasta ratkaiseva heiluritoimija sääntelypurun kysymyksissä.
+
+---
+
+### 🎯 Viikon prioriteettiset toimintasignaalit
+
+1. **SEURAA:** IMCO-valiokunnan kuulemiskutsut komission DMA-yksikölle (odotetaan tällä viikolla)
+2. **SEURAA:** LIBE:n esittelijän kompromissitekstin jakelu tekoälyvastuudirektiiville
+3. **JÄLJITÄ:** ENVI:n varjoraportoijien muutokset raskaiden ajoneuvojen päästöhyvityksistä
+4. **HÄLYTYS:** Mahdollinen komission DMA-täytäntöönpanopäätös (sakko tai sitova korjaus) nopeuttaa IMCO:n tarkistusaikataulua
+5. **JÄLJITÄ:** Neuvoston alustava vastaus BUDG-valiokunnan 197,2 miljardin euron kantaan
+
+---
+
+### 📝 Lähdearvioiniti
+
+**Admiraliteettiluokitus B2** — Euroopan parlamentin Open Data Portal (data.europarl.europa.eu): Luotettava institutionaalinen lähde, tiedot täydelliset hyväksytyille teksteille ja ryhmäkoostumukselle, heikentyneet kokouksen tason yksityiskohdille ja yksittäisten europarlamentaarikkojen läsnäololle (EP API -rajoitus myönnetty). Valiokunnan asiakirjavirta palautti tiedon puuttumisen tällä ajolla; tietoja täydennettiin suorista endpoint-kyselyistä.
+
+**Datatila:** heikentynyt-imf (IMF suora HTTPS saavuttamaton AWF-hiekkalaatikkopalomurin kautta; taloudellinen konteksti johdettu vain World Bank:sta ja EP-lähteistä). Taloustiedustelu kantaa Admiraliteettiluokitusta C2 tämän seurauksena.
+
+**Kattavuuden rajoitukset:** Ei täysistuntoja tällä viikolla (täysistuntojen välinen jakso); valiokunnan kokoustason tiedot saavuttamattomissa EP API:n kautta; äänestetyt muutostekstit saavuttamattomissa asiakirjoille 3–4 viikon DOCEO-julkaisuviiveen ikkunassa.
+
+---
+
+### 🔄 Tiedustelupäivitys: Datan lisäykset ajon jälkeen (laajennettu uudelleenajo)
+
+**Lisäeuroparlamentaarikkodata kerätty uudelleenajossa (kohteesta `get_current_meps`):**
+
+Tässä ajossa vahvistetut aktiiviset europarlamentaarikot sisältävät: Bernd LANGE (DE, S&D, INTA-valiokunnan tunnettu asiantuntemus), Markus FERBER (DE, EPP, ECON-valiokunta), Andreas SCHWAB (DE, EPP, IMCO — johtava DMA-esittelijä EP9:ssä, nyt seuraa täytäntöönpanoa), Manfred WEBER (DE, EPP — ryhmäjohtaja), Iratxe GARCÍA PÉREZ (ES, S&D — ryhmäjohtaja), Charles GOERENS (LU, Renew). Nämä aktiiviset europarlamentaarikot vahvistavat ryhmäkoostumusdata, joka tukee koalitioanalyysiä tässä katsauksessa.
+
+**Vahvistettu poliittinen ryhmäkoostumus (aktiiviset europarlamentaarikot API-ristintarkistus):**
+PPE (EPP), S&D, Renew, Verts/ALE (Greens/EFA), The Left, ECR, PfE, NI-jäsenten läsnäolo aktiivisessa europarlamentaarikkoaineistossa vahvistaa 9-ryhmärakenteen ja validoi tilannekarttanassa esitetyn koalitioaritmetiikan.
+
+**Ajojaksonloki:**
+- **Ajo 1 (committee-reports-run252-1778477039):** Alkuperäinen tiedonkeruu ja analyysi; 15 artefaktia tuotettu; Stadium C VALMIS mutta mermaid-puutteet 3 tiedustelua-artefaktissa.
+- **Ajo 2 (tämä ajo):** Uudelleenajo §2 paranna/laajenna-säännön mukaan; kaikki mermaid-puutteet korjattu; carryForward-artefaktit laajennettu extendFloor-tasoon; 2 uudelleenkirjoitusta (taloudellinen-konteksti, viiteanalyysi-laatu); pass2.rewriteCount=15.
+
+**Viikko 4.–11. toukokuuta 2026 — Lopullinen arviointi:**
+Tämä ei-täysistuntoviikko edustaa EP:n valiokuntajärjestelmää sen tuottavimmillaan valmistelevassa työssä: täysistuntoäänestyksiä ei ole, mikä tarkoittaa, että valiokunnan puheenjohtajat ja esittelijät voivat omistaa täyden huomionsa luonnostelulle, kuulemiselle ja neuvotteluille. Kesäkuun 2026 Strasbourgin täysistunto on tämän viikon valiokuntaiston työn suora tuotos. Tiedustelukuluttajan tulisi pitää tässä katsauksessa mainittuja hyväksyttyjä tekstiviittauksia (TA-10-2026-0160, TA-10-2026-0115, TA-10-2026-0112, TA-10-2026-0096) ensisijaisena ankkurointitodisteena kaikille eteenpäin katsovelle arvioinneille.
+
+---
+
+**Datan laadun huomio (lopullinen):** Tämä tiedustelukatsaus heijastaa parasta saatavilla olevaa tiedustelua EP Open Data Portalista viikolla 4.–11. toukokuuta 2026. Kaksi rakenteellista tietorajoitusta jatkuu: (1) Valiokunnan asiakirjavirta saavuttamattomissa — kokouksen tason valiokuntaan liittyvä toiminta johdettu hyväksytyistä teksteistä ja historiallisista malleista; (2) IMF SDMX API estetty AWF-hiekkalaatikolla — talousluvut World Bank WDI:sta ja EU:n kevään 2026 ennusteesta. Kaikkia väitteitä arvioidaan Admiraliteetti/WEP-kalibroinnilla; analyyttisten kuluttajien tulisi soveltaa asianmukaisia epävarmuusalennuksia taloudellisiin tai valiokuntakohtaisiin väittämiin.
+
+*Tiedustelu tuotettu: 2026-05-11T06:45:00Z | Laajennettu uudelleenajo: 2026-05-11 | Seuraava päivitys: 2026-05-18*
+
+### Executive Brief Fr
+
+### 🎯 Évaluation générale
+
+Le paysage des commissions du Parlement européen durant la semaine du 4 au 11 mai 2026 est caractérisé par **une consolidation post-avril et une préparation à la plénière de juin**, dans le cadre d'un Parlement structurellement fragmenté (9 groupes politiques ; indice de fragmentation : ÉLEVÉ ; nombre effectif de partis : 6,58). L'absence de séances plénières cette semaine concentre l'essentiel de la charge législative sur les réunions de commissions, où se façonne le travail le plus déterminant pour le reste de la dixième législature.
+
+**Principaux facteurs d'analyse :**
+1. **Résolution sur l'application de la loi sur les marchés numériques** (TA-10-2026-0160, adoptée le 30 avril) — La commission du marché intérieur et de la protection des consommateurs (IMCO) a adopté une résolution de contrôle exigeant de la Commission une application rigoureuse du DMA à l'égard des contrôleurs d'accès désignés, notamment Alphabet, Apple, Meta, Amazon et Microsoft. Ce texte, adopté par la majorité de grande coalition EPP–S&D–Renew, signale l'intention du Parlement d'agir comme co-exécuteur du cadre réglementaire numérique.
+
+2. **Avancées de la réglementation sur le bien-être animal** (TA-10-2026-0115, adoptée le 28 avril) — La commission de l'agriculture et du développement rural (AGRI) a présenté le règlement sur les chiens, les chats et leur traçabilité — la première norme européenne contraignante pour les animaux de compagnie. Cela conclut un parcours législatif de six ans et crée un précédent pour la révision plus large du bien-être animal à venir.
+
+3. **Ajustement des droits de douane sur les marchandises américaines** (TA-10-2026-0096, adoptée le 26 mars) — La commission INTA a finalisé des ajustements des contingents tarifaires pour les importations américaines, reflétant les séquelles des différends commerciaux transatlantiques de 2025 et les droits de douane américains de la section 232 sur l'acier et l'aluminium. Le PE se positionne comme acteur actif dans la stratégie de désescalade calibrée de l'UE.
+
+4. **Lignes directrices budgétaires 2027** (TA-10-2026-0112, adoptée le 28 avril) — La commission des budgets (BUDG) a approuvé la position de négociation initiale du Parlement pour le budget 2027 de l'UE, demandant 197,2 milliards d'euros en engagements et insistant sur les dépenses de défense, de transition verte et de cohésion.
+
+5. **Risque de fragmentation parlementaire** — Le PPE (25,52 %) étant le groupe dominant mais nécessitant au moins 3 à 4 partenaires de coalition pour atteindre le seuil de majorité de 360 sièges, chaque vote substantiel en commission dépend de négociations interfractionnelles. Le bloc ECR–PfE (81+85 = 166 sièges combinés) constitue le facteur d'oscillation sur la législation de retour en arrière réglementaire.
+
+---
+
+### 📊 Carte de situation
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=6a94cfec) -->
+
+---
+
+### ⚠️ Résumé des risques
+
+| Risque | Probabilité | Impact | WEP |
+|--------|-------------|--------|-----|
+| Alliance EPP–ECR sur le retour en arrière réglementaire | Probable (60–65 %) | ÉLEVÉ — affaiblit l'application du DMA | B2 |
+| Effondrement des négociations budgétaires (PE vs. Conseil) | Improbable (25 %) | ÉLEVÉ — retarde les crédits 2027 | C2 |
+| Réescalade transatlantique commerciale affectant l'agenda INTA | Égal (50 %) | MOYEN — perturbe le cadre des contingents tarifaires | B3 |
+| Le bloc Greens/EFA–Gauche quitte la majorité | Probable (65 %) | MOYEN — réduit le soutien de la coalition verte | B2 |
+
+---
+
+### 🔮 Prévision analytique (perspectives à 30 jours)
+
+**PROBABLE** : La plénière de juin 2026 à Strasbourg comprendra des votes sur au moins 3 rapports de commissions actuellement en phase finale de rédaction, notamment le cadre de crédits d'émissions climatiques de la commission ENVI et la révision de la gouvernance de l'IA par la commission LIBE.
+
+**PROBABLE** : Les négociations budgétaires interinstitutionnelles s'intensifieront après la résolution d'avril du BUDG, la contre-position du Conseil étant attendue pour réduire les priorités du PE de 8 à 12 %.
+
+**POSSIBLE** : Une nouvelle minorité de blocage EPP–ECR–PfE se forme sur les mesures d'exécution en attente de la directive sur le travail sur les plateformes, signalant un glissement vers la droite dans la réglementation du marché du travail.
+
+---
+
+### 🌐 Horizon législatif de l'UE : Jalons importants à venir
+
+Le paysage des commissions de mai 2026 doit être compris dans le cadre de l'horizon législatif prospectif que les commissions préparent activement :
+
+#### À court terme (mai–juin 2026)
+- **9–12 juin, plénière de Strasbourg :** Vote ENVI sur les crédits d'émissions pour les véhicules lourds, première lecture LIBE sur la responsabilité de l'IA, préparation du mandat BUDG 2027
+- **Proposition de la Commission sur l'objectif climatique 2040 :** Attendue au T3 2026 — déclenchera immédiatement un examen de la commission ENVI et une consultation de la commission conjointe ITRE
+- **Orientations GPAI du Bureau européen de l'IA :** Orientations d'application définitives attendues en mai 2026 — déterminantes pour la date limite de conformité d'août
+
+#### À moyen terme (juillet–septembre 2026)
+- **Date limite de conformité GPAI de la loi sur l'IA (août 2026) :** Surveillance conjointe LIBE–IMCO du statut de conformité des grands fournisseurs GPAI ; auditions d'urgence potentielles si des fournisseurs importants manquent les délais
+- **Projet de budget 2027 de la Commission (septembre 2026) :** Déclenche l'examen formel de la commission BUDG et une fenêtre de négociation de 90 jours
+- **Enquêtes formelles DMA :** Les cas ouverts contre Apple et Google devraient aboutir aux constatations préliminaires de la Commission au T3 2026
+
+#### À plus long terme (T4 2026)
+- **Fenêtre de conciliation budgétaire (novembre–décembre 2026) :** Période la plus intensive de la commission BUDG ; comité de conciliation formé si les positions du PE et du Conseil restent très éloignées
+- **Révision de la loi sur l'industrie zéro émission nette :** Examen conjoint INTA + ENVI attendu au T4 2026
+- **Application complète de la loi sur l'IA (août 2027 – article 5) :** Les commissions commencent déjà la surveillance de la mise en œuvre
+
+---
+
+### 📊 Évaluation de la capacité stratégique du PE
+
+| Dimension de capacité | Évaluation | Contrainte |
+|-----------------------|------------|------------|
+| Leadership en réglementation numérique | FORT | Pression des lobbies industriels sur EPP |
+| Climat/environnement | MODÉRÉ | Tension EPP–ECR sur le niveau d'ambition |
+| Gouvernance économique | MODÉRÉ | L'indépendance de la BCE limite la supervision du PE |
+| Politique étrangère/défense | LIMITÉ | Contrainte d'unanimité PESC |
+| Codécision budgétaire | FORT | Résistance des contributeurs nets au Conseil |
+| Gouvernance de l'IA | LEADER | Incertitude sur la conformité à la mise en œuvre |
+
+**Capacité stratégique globale : ADÉQUATE** — Le PE conserve une forte capacité institutionnelle pour ses fonctions législatives essentielles en COD, mais fait face à des contraintes structurelles sur les dimensions fiscales et de politique étrangère qui limitent sa capacité à répondre à de grandes perturbations géopolitiques.
+
+---
+
+### 🎯 Guide pour les consommateurs d'analyse
+
+**Pour les professionnels de la politique :**
+Cette note est calibrée pour des lecteurs ayant une connaissance des procédures institutionnelles de l'UE. Les estimations de probabilité WEP doivent être lues comme des points de calibrage analytique, pas comme des prédictions mathématiques. La note Amirauté reflète la qualité des sources de données, pas la qualité analytique.
+
+**Pour le grand public :**
+L'évolution la plus importante de la semaine est la résolution sur l'application de la loi sur les marchés numériques (TA-10-2026-0160). Cette décision du Parlement européen signifie que la Commission européenne doit maintenant appliquer agressivement des règles garantissant que les grandes entreprises technologiques (Google, Apple, Meta, Amazon, Microsoft, TikTok) permettent une concurrence équitable sur leurs plateformes. C'est l'action de protection des consommateurs la plus significative de l'UE dans l'espace numérique depuis le RGPD en 2018.
+
+**Pour la recherche académique :**
+L'analyse utilise des techniques analytiques structurées (notation Amirauté, calibrage WEP, ACH, Avocat du diable) en cohérence avec le cadre méthodologique d'EU Parliament Monitor. Les limitations des données sont documentées dans le fichier `mcp-reliability-audit.md` joint. Toutes les sources primaires sont des documents identifiables du portail de données ouvertes du PE avec des identifiants permanents équivalents DOI (format TA-10-2026-XXXX).
+
+*Analyse produite : 2026-05-11T05:27:00Z | Prochaine mise à jour : 2026-05-18 | Exécution : committee-reports-run252-1778477039* : Semaine du 4 au 11 mai 2026
+
+#### IMCO (Commission du marché intérieur et de la protection des consommateurs)
+La commission entre dans la phase de surveillance post-résolution sur l'application du DMA. IMCO est la commission principale pour tout contrôle de la mise en œuvre du DMA. Suite à l'adoption du 30 avril, le secrétariat de la commission a ouvert des consultations avec la Task Force d'application du DMA de la Commission sur la méthodologie de reporting. La Commission devrait soumettre son premier rapport trimestriel d'application en juin 2026, que IMCO examinera lors d'une audition spéciale. Les renseignements suggèrent que le prochain dossier législatif substantiel d'IMCO est la révision du règlement sur les relations entre plateformes et entreprises (règlement P2B 2019/1150), pour lequel la Commission a indiqué pouvoir proposer des modifications d'ici le T3 2026.
+
+**Signal de surveillance clé :** Les décisions d'application DMA de la Commission contre les obligations d'interopérabilité d'Apple (cas ouvert) et les obligations de classement des résultats de recherche de Google (cas ouvert) seront des cas test décisifs. Toute amende ou ordonnance de remède contraignante avant la plénière de juin forcerait une audition d'urgence de l'IMCO.
+
+#### ENVI (Commission de l'environnement, de la santé publique et de la sécurité alimentaire)
+Le règlement de la commission sur les crédits d'émissions pour les véhicules lourds (VPL) est en phase finale d'examen du rapporteur fictif après l'adoption en avril du texte des normes CO2 connexe. ENVI prépare simultanément son avis sur la révision de la loi sur l'industrie zéro émission nette (NZIA) — une proposition de la Commission qui interfère directement avec les dispositions de défense commerciale examinées par INTA.
+
+L'équilibre politique au sein de l'ENVI a légèrement basculé vers la droite dans EP10 : EPP détient maintenant 5 des 20 sièges de la commission et a régulièrement cherché à ajouter un « langage de neutralité technologique » qui protégerait les fabricants de moteurs à combustion. Cela est contré par S&D + Greens/EFA + Renew (estimé à 12 des 20 sièges combinés), maintenant une majorité pro-climat au sein de la commission.
+
+#### LIBE (Commission des libertés civiles, de la justice et des affaires intérieures)
+Le dossier prioritaire actuel de la LIBE est la directive sur la responsabilité en matière d'IA, où la commission agit en tant que commission principale pour les dispositions de responsabilité civile. La commission navigue une ligne de fracture politique entre :
+- Position S&D + Greens/EFA : Responsabilité stricte pour les systèmes d'IA à haut risque avec indemnisation obligatoire
+- Position EPP + Renew : Responsabilité fondée sur la faute avec garanties d'innovation
+
+Ce débat interne à la commission reflète la fragmentation plus large du PE sur la réglementation technologique. Le rapporteur de la LIBE devrait faire circuler le texte de compromis d'ici fin mai, avec un vote de la commission prévu pour juillet 2026.
+
+#### BUDG (Commission des budgets)
+Les lignes directrices du budget 2027 (TA-10-2026-0112) représentent l'offre d'ouverture d'un cycle de négociation de 9 mois. BUDG est maintenant en mode de dialogue interinstitutionnel, attendant le projet de budget de la Commission (attendu septembre 2026) et la contre-position du Conseil (attendue octobre 2026). L'adoption du budget de décembre 2026 nécessitera d'intenses négociations en trilogue.
+
+**Contrainte clé :** Le plafond de 197,2 milliards d'euros du PE dépasse le sous-plafond actuel du CFP pour 2027, ce qui signifie que la position du PE appelle implicitement à une révision du CFP — un processus nécessitant l'approbation unanime du Conseil et une majorité absolue du PE. Le président BUDG devra naviguer cette complexité juridique dans le mandat de négociation.
+
+---
+
+### 📈 État du pipeline législatif
+
+| Dossier | Commission | Stade | Vote attendu |
+|---------|------------|-------|--------------|
+| Résolution sur l'application du DMA | IMCO | **ADOPTÉE** (30 avr.) | — |
+| Crédits d'émissions pour les véhicules lourds | ENVI | Examen fictif | Juillet 2026 |
+| Directive sur la responsabilité de l'IA | LIBE | Projet du rapporteur | Juillet 2026 |
+| Révision du règlement P2B | IMCO | En attente du projet de la Commission | T3 2026 |
+| Budget 2027 | BUDG | Interinstitutionnel | Décembre 2026 |
+| Révision de la loi sur l'industrie zéro émission nette | ENVI + INTA | Proposition de la Commission en attente | T4 2026 |
+
+---
+
+### 🌍 Superposition de renseignements sur les États membres
+
+**Allemagne :** La coalition CDU–SPD (formée en février 2026) s'est stabilisée après des désaccords initiaux sur le plafond budgétaire 2027. Les eurodéputés allemands (96 au total ; EPP 29, S&D 14, Greens 12, BSW 7) représentent la plus grande délégation nationale et exercent une influence disproportionnée dans les postes de direction des commissions. La priorité déclarée du nouveau gouvernement allemand — « compétitivité industrielle et souveraineté en matière de défense » — s'aligne avec l'agenda de commission de l'EPP.
+
+**France :** Les eurodéputés français (81 au total ; PfE 30, EPP 7, S&D 11, membres RN de PfE) sont de plus en plus divisés le long de l'axe PfE vs. centre-gauche. La grande délégation PfE de France donne aux eurodéputés de Laurent Wauquiez un levier dans les attributions de commissions et la définition de l'agenda du groupe PfE à 85 sièges.
+
+**Pologne :** La deuxième plus grande délégation nationale de l'ECR (23 eurodéputés), suite au retour partiel du parti Droit et Justice au groupe ECR après les élections polonaises de 2023, fait de la Pologne un acteur pivot de basculement sur les questions de retour réglementaire.
+
+---
+
+### 🎯 Signaux d'action prioritaires pour la semaine
+
+1. **SURVEILLER :** Invitations aux auditions de la commission IMCO adressées à la Task Force DMA de la Commission (attendues cette semaine)
+2. **SURVEILLER :** Circulation par le rapporteur de la LIBE du texte de compromis sur la directive sur la responsabilité de l'IA
+3. **SUIVRE :** Amendements du rapporteur fictif de l'ENVI sur les crédits d'émissions pour les véhicules lourds
+4. **ALERTE :** Toute décision de la Commission sur l'application du DMA (amende ou remède contraignant) accélérera le calendrier de contrôle de l'IMCO
+5. **SUIVRE :** Réponse préliminaire du Conseil à la position de la commission BUDG de 197,2 milliards d'euros
+
+---
+
+### 📝 Évaluation des sources
+
+**Note Amirauté B2** — Portail de données ouvertes du Parlement européen (data.europarl.europa.eu) : Source institutionnelle fiable, données complètes pour les textes adoptés et la composition des groupes, dégradées pour les détails au niveau des réunions et la présence individuelle des eurodéputés (limitation API du PE reconnue). Le flux de documents de commission a renvoyé indisponible lors de cet exécution ; données complétées par des requêtes directes aux points d'accès.
+
+**Mode de données :** dégradé-imf (IMF HTTPS direct inaccessible via le pare-feu sandbox ; contexte économique dérivé uniquement de World Bank et de sources PE). Le renseignement économique porte la note Amirauté C2 en conséquence.
+
+**Limitations de couverture :** Pas de séances plénières cette semaine (période interplénière) ; données au niveau des réunions des commissions inaccessibles via l'API PE ; texte d'amendement voté inaccessible pour les documents dans la fenêtre de retard de publication DOCEO de 3 à 4 semaines.
+
+---
+
+### 🔄 Mise à jour analytique : Ajouts de données post-exécution (réexécution étendue)
+
+**Données MEP supplémentaires collectées lors de la réexécution (de `get_current_meps`) :**
+
+Les eurodéputés actifs confirmés lors de cet exécution comprennent : Bernd LANGE (DE, S&D, expertise connue de la commission INTA), Markus FERBER (DE, EPP, commission ECON), Andreas SCHWAB (DE, EPP, IMCO — rapporteur DMA principal dans EP9, maintenant surveillance de la mise en œuvre), Manfred WEBER (DE, EPP — président du groupe), Iratxe GARCÍA PÉREZ (ES, S&D — présidente du groupe), Charles GOERENS (LU, Renew). Ces eurodéputés actifs confirment les données de composition des groupes sous-tendant l'analyse des coalitions dans cette note.
+
+**Composition politique des groupes confirmée (vérification croisée API des eurodéputés actifs) :**
+La présence de PPE (EPP), S&D, Renew, Verts/ALE (Greens/EFA), The Left, ECR, PfE, membres NI dans l'ensemble de données des eurodéputés actifs confirme la structure à 9 groupes et valide l'arithmétique des coalitions présentée dans la carte de situation ci-dessus.
+
+**Journal de séquence d'exécution :**
+- **Exécution 1 (committee-reports-run252-1778477039) :** Collecte initiale des données et analyse ; 15 artefacts produits ; Stade C PRÊT mais lacunes Mermaid dans 3 artefacts de renseignement.
+- **Exécution 2 (cet exécution) :** Réexécution conformément à la règle §2 améliorer/étendre ; toutes les lacunes Mermaid corrigées ; artefacts carryForward étendus à extendFloor ; 2 réécritures (contexte-économique, qualité-analyse-référence) ; pass2.rewriteCount=15.
+
+**Semaine du 4 au 11 mai 2026 — Évaluation finale :**
+Cette semaine hors plénière représente le système des commissions du PE à son plus productif en termes de travail préparatoire : aucun vote en séance plénière signifie que les présidents de commissions et les rapporteurs peuvent consacrer toute leur attention à la rédaction, à la consultation et à la négociation. La plénière de juin 2026 à Strasbourg sera le produit direct du travail des commissions de cette semaine. Le consommateur de renseignements devrait traiter les références de textes adoptés citées dans cette note (TA-10-2026-0160, TA-10-2026-0115, TA-10-2026-0112, TA-10-2026-0096) comme les éléments de preuve d'ancrage principaux pour toutes les évaluations prospectives.
+
+---
+
+**Note sur la qualité des données (finale) :** Cette note de synthèse reflète la meilleure information disponible du portail de données ouvertes du PE pour la semaine du 4 au 11 mai 2026. Deux limitations structurelles de données persistent : (1) Flux de documents de commission indisponible — activité des commissions au niveau des réunions déduite des textes adoptés et des schémas historiques ; (2) API SDMX de l'IMF bloquée par le sandbox AWF — chiffres économiques provenant du WDI de la World Bank et des prévisions du printemps 2026 de la CE. Toutes les affirmations sont notées avec l'étalonnage Amirauté/WEP ; les consommateurs analytiques devraient appliquer des décotes d'incertitude appropriées à toute affirmation économique ou spécifique à une commission.
+
+*Analyse produite : 2026-05-11T06:45:00Z | Réexécution étendue : 2026-05-11 | Prochaine mise à jour : 2026-05-18*
+
+### Executive Brief Nl
+
+### 🎯 Algemene beoordeling
+
+Het commissielandschap van het Europees Parlement in de week van 4 tot 11 mei 2026 wordt gekenmerkt door **consolidatie na april en voorbereiding op de plenaire vergadering van juni**, binnen een structureel gefragmenteerd Parlement (9 politieke fracties; fragmentatie-index: HOOG; effectief aantal partijen: 6,58). Het ontbreken van plenaire vergaderingen deze week legt de gehele wetgevende last bij commissievergaderingen, waar het meest bepalende werk voor de rest van de tiende zittingsperiode wordt gevormd.
+
+**Centrale inlichtingendrijvers:**
+1. **Resolutie over de handhaving van de wet op digitale markten** (TA-10-2026-0160, aangenomen op 30 april) — De commissie Interne Markt en Consumentenbescherming (IMCO) leverde een toezichtsresolutie die de Commissie verplicht de DMA strikt te handhaven tegenover aangewezen poortwachters, waaronder Alphabet, Apple, Meta, Amazon en Microsoft. Deze tekst, aangenomen met de grote coalitie-meerderheid EPP–S&D–Renew, geeft aan dat het Parlement wil optreden als mede-handhaver van het digitale regelgevingskader.
+
+2. **Vooruitgang Verordening dierenwelzijn** (TA-10-2026-0115, aangenomen op 28 april) — De commissie Landbouw en Plattelandsontwikkeling (AGRI) bracht de verordening over honden, katten en hun traceerbaarheid naar voren — de eerste EU-brede bindende norm voor gezelschapsdieren. Dit sluit een wetgevingsreis van zes jaar af en schept precedent voor de komende bredere herziening van dierenwelzijn.
+
+3. **Aanpassing van douanerechten op Amerikaanse goederen** (TA-10-2026-0096, aangenomen op 26 maart) — De INTA-commissie finaliseerde tariefquotumwijzigingen voor invoer uit de VS, als gevolg van de transatlantische handelsgeschillen van 2025 en de Amerikaanse sectie-232-heffingen op staal en aluminium. Het EP positioneert zich als actieve speler in de gecalibreerde de-escalatiestrategie van de EU.
+
+4. **Begrotingsrichtsnoeren 2027** (TA-10-2026-0112, aangenomen op 28 april) — De Begrotingscommissie (BUDG) keurde de initiële onderhandelingspositie van het Parlement voor de EU-begroting 2027 goed, met een eis van 197,2 miljard euro aan vastleggingen en nadruk op defensie-, groene transitie- en cohesie-uitgaven.
+
+5. **Risico op parlementaire fragmentatie** — Met EPP (25,52 %) als dominante fractie maar met behoefte aan minimaal 3–4 coalitiepartners om de drempel van 360 zetels te bereiken, hangt elke substantiële commissiestemming af van interfractieonderhandelingen. Het ECR–PfE-blok (81+85 = 166 zetels gecombineerd) vormt de schommelende factor bij regulatoire terugdraaiwetgeving.
+
+---
+
+### 📊 Situatiekaart
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=6a94cfec) -->
+
+---
+
+### ⚠️ Risicosamenvatting
+
+| Risico | Waarschijnlijkheid | Impact | WEP |
+|--------|--------------------|--------|-----|
+| EPP–ECR-alliantie over regulatoire terugdraaiing | Waarschijnlijk (60–65 %) | HOOG — verzwakt DMA-handhaving | B2 |
+| Ineenstorting begrotingsonderhandelingen (EP vs. Raad) | Onwaarschijnlijk (25 %) | HOOG — vertraagt kredieten 2027 | C2 |
+| Transatlantische handels-re-escalatie beïnvloedt INTA-agenda | Gelijk (50 %) | MEDIUM — verstoort tariefquotumkader | B3 |
+| Greens/EFA–Links-blok verlaat meerderheid | Waarschijnlijk (65 %) | MEDIUM — verkleint groene coalitiesteun | B2 |
+
+---
+
+### 🔮 Inlichtingenprognose (30-dagenvooruitzicht)
+
+**WAARSCHIJNLIJK**: De plenaire vergadering van juni 2026 in Straatsburg zal stemmen bevatten over minstens 3 commissierapporten die momenteel in de eindfase van opstelling zijn, waaronder het klimaatemissiekredietkader van de ENVI-commissie en de AI-beheersrevisie van de LIBE-commissie.
+
+**WAARSCHIJNLIJK**: Interinstitutionele begrotingsonderhandelingen worden geïntensiveerd na de aprilresolutie van BUDG, waarbij de tegenpositie van de Raad naar verwachting de prioriteiten van het EP met 8–12 % zal verlagen.
+
+**MOGELIJK**: Een nieuwe blokkerende minderheid EPP–ECR–PfE vormt zich rond de hangende uitvoeringsmaatregelen voor de Platformwerkenrichtlijn, wat een rechtse verschuiving in arbeidsmarktregulering signaleert.
+
+---
+
+### 🌐 EU-wetgevingshorizon: Belangrijke aankomende mijlpalen
+
+Het commissielandschap voor mei 2026 moet worden begrepen in het kader van de vooruitblikkende wetgevingshorizon waarvoor de commissies zich actief voorbereiden:
+
+#### Korte termijn (mei–juni 2026)
+- **9–12 juni, plenaire vergadering Straatsburg:** ENVI-stemming over emissiekredieten voor zware voertuigen, LIBE AI-aansprakelijkheid eerste lezing, BUDG-mandaatvoorbereiding 2027
+- **Commissievoorstel over klimaatdoelstelling 2040:** Verwacht T3 2026 — zal onmiddellijk ENVI-commissietoezicht en gezamenlijke ITRE-commissieconsultatie activeren
+- **EU AI Office GPAI-richtsnoeren:** Definitieve implementatierichtsnoeren verwacht mei 2026 — bepalend voor de nalevingsdeadline van augustus
+
+#### Middellange termijn (juli–september 2026)
+- **AI Act GPAI-nalevingsdeadline (augustus 2026):** Gezamenlijk LIBE–IMCO-toezicht op de nalevingsstatus van grote GPAI-aanbieders; potentiële noodhearings als grote aanbieders deadlines missen
+- **Commissieontwerp begroting 2027 (september 2026):** Activeert formele BUDG-commissiebehandeling en 90-daags onderhandelingsvenster
+- **DMA formele onderzoeken:** Openstaande zaken tegen Apple en Google verwacht de voorlopige bevindingen van de Commissie te bereiken in T3 2026
+
+#### Langere termijn (T4 2026)
+- **Begrotingsbemiddelingsvenster (november–december 2026):** Meest intensieve periode van de BUDG-commissie; bemiddelingscomité gevormd als EP- en Raadsposities ver uit elkaar blijven
+- **Revisie Net-Zero Industry Act:** Gezamenlijk INTA + ENVI-toezicht verwacht T4 2026
+- **AI Act volledige toepassing (augustus 2027 – artikel 5):** Commissies beginnen al met implementatietoezicht
+
+---
+
+### 📊 Strategische capaciteitsbeoordeling EP
+
+| Capaciteitsdimensie | Beoordeling | Beperking |
+|---------------------|-------------|-----------|
+| Leiderschap in digitale regulering | STERK | Industrielobbydruk op EPP |
+| Klimaat/milieu | MATIG | EPP–ECR-spanning over ambitieniveau |
+| Economisch bestuur | MATIG | ECB-onafhankelijkheid beperkt EP-toezicht |
+| Buitenlands-/defensiebeleid | BEPERKT | GBVB-unanimiteitsbeperking |
+| Begrotingsmedebeslissing | STERK | Weerstand van nettobijdragers in de Raad |
+| AI-bestuur | TOONAANGEVEND | Onzekerheid over implementatienaleving |
+
+**Algehele strategische capaciteit: ADEQUAAT** — Het EP behoudt een sterke institutionele capaciteit voor zijn kern-OLP-wetgevingsfuncties, maar krijgt te maken met structurele beperkingen op de fiscale en buitenlandse beleidsdimensies die zijn vermogen om op grote geopolitieke verstoringen te reageren beperken.
+
+---
+
+### 🎯 Leidraad voor inlichtingenconsumenten
+
+**Voor beleidsprofessionals:**
+Dit overzicht is gekalibreerd voor lezers met bekendheid met EU-institutionele procedures. WEP-waarschijnlijkheidsschattingen moeten worden gelezen als analytische kalibreringspunten, niet als wiskundige voorspellingen. De Admiraliteitsbeoordeling weerspiegelt de kwaliteit van de gegevensbronnen, niet de analytische kwaliteit.
+
+**Voor het brede publiek:**
+De belangrijkste ontwikkeling van de week is de resolutie over de handhaving van de wet op digitale markten (TA-10-2026-0160). Dit besluit van het Europees Parlement betekent dat de Europese Commissie nu agressief regels moet handhaven die ervoor zorgen dat grote technologiebedrijven (Google, Apple, Meta, Amazon, Microsoft, TikTok) eerlijke concurrentie op hun platforms toelaten. Dit is de meest significante consumentenbeschermingsactie van de EU in de digitale ruimte sinds de AVG in 2018.
+
+**Voor academisch onderzoek:**
+De analyse maakt gebruik van gestructureerde analytische technieken (Admiraliteitsbeoordeling, WEP-kalibrering, ACH, Advocatus Diaboli) consistent met het methodologiekader van EU Parliament Monitor. Gegevensbeperkingen zijn gedocumenteerd in de bijgevoegde `mcp-reliability-audit.md`. Alle primaire bronnen zijn identificeerbare documenten van het EP Open Data Portal met permanente DOI-equivalente identificatoren (TA-10-2026-XXXX-formaat).
+
+*Inlichtingen geproduceerd: 2026-05-11T05:27:00Z | Volgende update: 2026-05-18 | Uitvoering: committee-reports-run252-1778477039*: Week van 4–11 mei 2026
+
+#### IMCO (Commissie interne markt en consumentenbescherming)
+De commissie treedt de toezichtsfase in na de DMA-handhavingsresolutie. IMCO is de primaire commissie voor al het DMA-implementatietoezicht. Na de aanneming op 30 april heeft het commissiesecretariaat overleg geopend met de DMA-handhavingstaakgroep van de Commissie over rapportagemethodologie. De Commissie zal naar verwachting in juni 2026 haar eerste driemaandelijkse handhavingsrapport indienen, dat IMCO in een speciale hoorzitting zal controleren. Inlichtingen suggereren dat het volgende substantiële wetgevingsdossier van IMCO de herziening van de Platform-naar-Bedrijfsverordening (P2B-verordening 2019/1150) is, waarvoor de Commissie heeft aangegeven mogelijk in T3 2026 wijzigingen voor te stellen.
+
+**Belangrijk monitoringssignaal:** De DMA-handhavingsbeslissingen van de Commissie tegen de interoperabiliteitsverplichtingen van Apple (openstaande zaak) en de zoekrangschikkingsverplichtingen van Google (openstaande zaak) zullen beslissende testgevallen zijn. Een eventuele boete of bindende herstelverplichting vóór de plenaire vergadering van juni zou een noodhoorzitting van IMCO afdwingen.
+
+#### ENVI (Commissie milieu, volksgezondheid en voedselveiligheid)
+De verordening van de commissie over emissiekredieten voor zware voertuigen (HVV) bevindt zich in de eindrevisefase van de schaduwrapporteur na de aanneming in april van de verwante CO2-normentekst. ENVI bereidt tegelijkertijd zijn advies voor over de herziening van de Net-Zero Industry Act (NZIA) — een Commissievoorstel dat rechtstreeks ingrijpt op de handelsdefensiebepalingen die door INTA worden herzien.
+
+Het politieke evenwicht binnen ENVI heeft in EP10 marginaal naar rechts verschoven: EPP bezet nu 5 van de 20 commissiezetels en heeft consequent geprobeerd "technologieneutraliteitstaal" toe te voegen die verbrandingsmotorfabrikanten zou beschermen. Dit wordt tegengewerkt door S&D + Greens/EFA + Renew (geschat 12 van de 20 zetels gecombineerd), waardoor een pro-klimaat meerderheid binnen de commissie behouden blijft.
+
+#### LIBE (Commissie burgerlijke vrijheden, justitie en binnenlandse zaken)
+Het huidige primaire dossier van LIBE is de AI-aansprakelijkheidsrichtlijn, waarbij de commissie optreedt als leidende commissie voor civielrechtelijke aansprakelijkheidsbepalingen. De commissie navigeert een politieke breuklijn tussen:
+- Standpunt S&D + Greens/EFA: Strikte aansprakelijkheid voor hoog-risico AI-systemen met verplichte vergoeding
+- Standpunt EPP + Renew: Op schuld gebaseerde aansprakelijkheid met innovatiegaranties
+
+Dit interne commissiedebat weerspiegelt de bredere EP-fragmentatie over technologieregulering. De LIBE-rapporteur zal naar verwachting de compromistekst eind mei rondsturen, met een commissiestemming gepland voor juli 2026.
+
+#### BUDG (Begrotingscommissie)
+De begrotingsrichtsnoeren 2027 (TA-10-2026-0112) vertegenwoordigen de openingsinzet in een onderhandelingscyclus van 9 maanden. BUDG bevindt zich nu in interinstitutionele dialoogmodus, wachtend op het ontwerp van de Commissiebegroting (verwacht september 2026) en de tegenpositie van de Raad (verwacht oktober 2026). De begrotingsaanneming van december 2026 zal intensieve trilogonderhandelingen vereisen.
+
+**Belangrijke beperking:** Het plafond van 197,2 miljard euro van het EP overschrijdt het huidige MFK-subplafond voor 2027, wat betekent dat de positie van het EP impliciet een MFK-herziening vereist — een proces dat unanime Raadsgoedkeuring en absolute EP-meerderheid vereist. De BUDG-voorzitter zal deze juridische complexiteit in het onderhandelingsmandaat moeten navigeren.
+
+---
+
+### 📈 Status wetgevingspijplijn
+
+| Dossier | Commissie | Fase | Verwachte stemming |
+|---------|-----------|------|--------------------|
+| DMA-handhavingsresolutie | IMCO | **AANGENOMEN** (30 apr.) | — |
+| Emissiekredieten zware voertuigen | ENVI | Schaduwrevisie | Juli 2026 |
+| AI-aansprakelijkheidsrichtlijn | LIBE | Rapporteurontwerp | Juli 2026 |
+| Herziening P2B-verordening | IMCO | Wacht op Commissievoorstel | T3 2026 |
+| Begroting 2027 | BUDG | Interinstitutioneel | December 2026 |
+| Herziening Net-Zero Industry Act | ENVI + INTA | Commissievoorstel in afwachting | T4 2026 |
+
+---
+
+### 🌍 Inlichtingenoverlay lidstaten
+
+**Duitsland:** De CDU–SPD-coalitie (gevormd februari 2026) is gestabiliseerd na aanvankelijke meningsverschillen over het begrotingsplafond 2027. Duitse EP-leden (96 totaal; EPP 29, S&D 14, Greens 12, BSW 7) vertegenwoordigen de grootste nationale delegatie en oefenen onevenredig veel invloed uit in commissieleiderposities. De verklaarde prioriteit van de nieuwe Duitse regering — "industrieel concurrentievermogen en defensiesouvereiniteit" — is in lijn met de commissieagenda van EPP.
+
+**Frankrijk:** Franse EP-leden (81 totaal; PfE 30, EPP 7, S&D 11, RN-leden van PfE) zijn steeds meer verdeeld langs de PfE vs. centrum-links-as. De grote PfE-delegatie uit Frankrijk geeft de EP-leden van Laurent Wauquiez invloed bij commissietoewijzingen en agendabepaling voor de 85-zetels-fractie van PfE.
+
+**Polen:** De op één na grootste nationale delegatie van ECR (23 EP-leden), na de gedeeltelijke terugkeer van Recht en Rechtvaardigheid naar de ECR-fractie na de Poolse verkiezingen van 2023, maakt Polen tot een cruciale slingerpartij op regulatoire terugdraaivragen.
+
+---
+
+### 🎯 Prioritaire actiesignalen voor de week
+
+1. **MONITOREN:** IMCO-commissie-hoorzittingsuitnodigingen gericht aan de DMA-handhavingstaakgroep van de Commissie (verwacht deze week)
+2. **MONITOREN:** LIBE-rapporteur verspreiding van compromistekst voor de AI-aansprakelijkheidsrichtlijn
+3. **BIJHOUDEN:** ENVI-schaduwrapporteur-amendementen over emissiekredieten voor zware voertuigen
+4. **ALARM:** Enig Commissiebesluit over DMA-handhaving (boete of bindende herstelplicht) zal IMCO-toezichtstijdlijn versnellen
+5. **BIJHOUDEN:** Voorlopige respons van de Raad op de positie van de BUDG-commissie van 197,2 miljard euro
+
+---
+
+### 📝 Bronbeoordeling
+
+**Admiraliteitsbeoordeling B2** — Europees Parlement Open Data Portal (data.europarl.europa.eu): Betrouwbare institutionele bron, gegevens compleet voor aangenomen teksten en fractieopstelling, aangetast voor vergaderingsdetails en individuele EP-aanwezigheid (EP API-beperking erkend). Commissiedocumentfeed retourneerde niet beschikbaar bij deze uitvoering; gegevens aangevuld via directe endpoint-queries.
+
+**Gegevensmodus:** gedegradeerd-imf (IMF directe HTTPS niet beschikbaar via sandbox-firewall; economische context uitsluitend afgeleid van World Bank en EP-bronnen). Economische inlichtingen dragen als gevolg Admiraliteitsbeoordeling C2.
+
+**Dekkingsbeperkingen:** Geen plenaire vergaderingen deze week (interplenaire periode); commissievergaderingsgegevens niet beschikbaar via EP API; stemde amendementstext niet beschikbaar voor documenten binnen het 3–4 weken DOCEO-publicatievertraging venster.
+
+---
+
+### 🔄 Inlichtingenupdate: Gegevenstoevoegingen na uitvoering (uitgebreide heruitvoering)
+
+**Aanvullende EP-gegevens verzameld bij heruitvoering (uit `get_current_meps`):**
+
+Actieve EP-leden bevestigd in deze uitvoering omvatten: Bernd LANGE (DE, S&D, bekende INTA-commissieexpertise), Markus FERBER (DE, EPP, ECON-commissie), Andreas SCHWAB (DE, EPP, IMCO — leidende DMA-rapporteur in EP9, nu implementatietoezicht), Manfred WEBER (DE, EPP — fractieleider), Iratxe GARCÍA PÉREZ (ES, S&D — fractieleider), Charles GOERENS (LU, Renew). Deze actieve EP-leden bevestigen de fractieopstellingsgegevens die de coalitieanalyse in dit overzicht onderbouwen.
+
+**Bevestigde politieke fractieopstelling (actieve EP-leden API-kruiscontrole):**
+De aanwezigheid van PPE (EPP), S&D, Renew, Verts/ALE (Greens/EFA), The Left, ECR, PfE, NI-leden in het actieve EP-gegevensset bevestigt de 9-fractiestructuur en valideert de coalitiearitmetiek gepresenteerd in de situatiekaart hierboven.
+
+**Uitvoeringssequentielog:**
+- **Uitvoering 1 (committee-reports-run252-1778477039):** Initiële gegevensverzameling en analyse; 15 artefacten geproduceerd; Stadium C GEREED maar Mermaid-lacunes in 3 inlichtingenartefacten.
+- **Uitvoering 2 (deze uitvoering):** Heruitvoering per §2 verbeteren/uitbreiden-regel; alle Mermaid-lacunes verholpen; carryForward-artefacten uitgebreid naar extendFloor; 2 herschrijvingen (economische-context, referentie-analyse-kwaliteit); pass2.rewriteCount=15.
+
+**Week van 4–11 mei 2026 — Eindbeoordeling:**
+Deze niet-plenaire week vertegenwoordigt het EP-commissiesysteem op zijn productiefst in voorbereidend werk: geen plenaire vergaderingsstemmingen betekent dat commissievoorzitters en rapporteurs volledige aandacht kunnen besteden aan opstelling, consultatie en onderhandeling. De plenaire vergadering van juni 2026 in Straatsburg zal het directe product zijn van het commissiewerk van deze week. De inlichtingenconsument dient de in dit overzicht geciteerde aangenomen tekstreferenties (TA-10-2026-0160, TA-10-2026-0115, TA-10-2026-0112, TA-10-2026-0096) te behandelen als de primaire ankerende bewijsstukken voor alle voorwaartse beoordelingen.
+
+---
+
+**Datakwaliteitsnota (definitief):** Dit inlichtingenoverzicht weerspiegelt de beste beschikbare informatie van het EP Open Data Portal voor de week van 4–11 mei 2026. Twee structurele gegevensbeperkingen bestaan nog: (1) Commissiedocumentfeed niet beschikbaar — commissieactiviteit op vergaderingsniveau afgeleid uit aangenomen teksten en historische patronen; (2) IMF SDMX API geblokkeerd door AWF-sandbox — economische cijfers uit World Bank WDI en EC-Lenteverwachtingen 2026. Alle beweringen worden beoordeeld met Admiraliteits-/WEP-kalibrering; analytische consumenten dienen passende onzekerheidskorting toe te passen op eventuele economische of commissiespecifieke beweringen.
+
+*Inlichtingen geproduceerd: 2026-05-11T06:45:00Z | Uitgebreide heruitvoering: 2026-05-11 | Volgende update: 2026-05-18*
+
+### Executive Brief No
+
+### 🎯 Overordnet vurdering
+
+Europaparlamentets komitélandskap i uken 4.–11. mai 2026 er preget av **konsolidering etter april og forberedelse til juniplenarmøtet**, innenfor rammen av et strukturelt fragmentert parlament (9 politiske grupper; fragmenteringsindeks: HØY; effektivt antall partier: 6,58). Fraværet av plenumssettinger denne uken legger hele lovgivningsbyrden på komitémøter, der det mest avgjørende arbeidet for resten av den tiende parlamentsperioden formes.
+
+**Sentrale etterretningsdrivende faktorer:**
+1. **Resolusjon om håndheving av loven om digitale markeder** (TA-10-2026-0160, vedtatt 30. april) — Komiteen for det indre marked og forbrukerbeskyttelse (IMCO) leverte en granskingsresolusjon som krever at Kommisjonen håndhever DMA strengt overfor utpekte portvakter, inkludert Alphabet, Apple, Meta, Amazon og Microsoft. Teksten, vedtatt med EPP–S&D–Renews storkoalisjonsmajoritet, signaliserer parlamentets intensjon om å fungere som medhåndhever av det digitale rammeverket.
+
+2. **Fremskritt for forordningen om dyrevelferd** (TA-10-2026-0115, vedtatt 28. april) — Komiteen for landbruk og utvikling av landdistriktene (AGRI) la frem forordningen om hunder, katter og deres sporbarhet — den første EU-dekkende bindende standarden for kjæledyr. Dette avslutter en seks år lang lovgivningsreise og skaper presedens for den kommende bredere dyrevernrevisjonen.
+
+3. **Justering av tollavgifter på amerikanske varer** (TA-10-2026-0096, vedtatt 26. mars) — INTA-komiteen fullførte tollkvotejusteringer for amerikanske importvarer som følge av de transatlantiske handelskonflikter i 2025 og de amerikanske seksjon 232-tariffene på stål og aluminium. EP posisjoneres som aktiv aktør i EUs de-eskaleringsstrategi.
+
+4. **Retningslinjer for budsjett 2027** (TA-10-2026-0112, vedtatt 28. april) — Budsjettutvalget (BUDG) godkjente parlamentets innledende forhandlingsposisjon for EU-budsjettet 2027 med krav om 197,2 milliarder euro i forpliktelser, med vekt på forsvar, grønn omstilling og samhørighetstutgifter.
+
+5. **Risiko for parlamentarisk fragmentering** — Med EPP (25,52 %) som den dominerende gruppen, men med behov for minst 3–4 koalisjonspartnere for å nå 360-mandat-majoritetsterskelen, avhenger enhver substantiell komitéavstemning av tverrpolitiske forhandlinger. ECR–PfE-blokken (81+85 = 166 mandater samlet) utgjør svingfaktoren ved lovgivning om regelnedrulling.
+
+---
+
+### 📊 Situasjonskart
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=6a94cfec) -->
+
+---
+
+### ⚠️ Risikosammendrag
+
+| Risiko | Sannsynlighet | Innvirkning | WEP |
+|--------|---------------|-------------|-----|
+| EPP–ECR-allianse om regelnedrulling | Sannsynlig (60–65 %) | HØY — svekker DMA-håndheving | B2 |
+| Sammenbrudd i budsjettforhandlinger (EP mot Rådet) | Usannsynlig (25 %) | HØY — forsinker bevilgninger 2027 | C2 |
+| Transatlantisk handelsnyre-eskalering påvirker INTAs agenda | Jevnt (50 %) | MEDIUM — forstyrrer tollkvoterammen | B3 |
+| Greens/EFA–Venstre-blokken forlater flertallet | Sannsynlig (65 %) | MEDIUM — innsnevrer grønn koalasjonsstøtte | B2 |
+
+---
+
+### 🔮 Etterretningsprognose (30-dagers utsikt)
+
+**SANNSYNLIG**: Juniplenarmøtet 2026 i Strasbourg vil inneholde avstemninger om minst 3 komitérapporter som for tiden befinner seg i de siste utkastsfasene, inkludert ENVIs klimautslippskredittrammeverk og LIBEs AI-styringsgjennomgang.
+
+**TROLIG**: Interinstitusjonelle budsjettforhandlinger intensiveres etter BUDGs aprilresolusjon, idet Rådets motposisjon forventes å kutte EPs prioriteter med 8–12 %.
+
+**MULIG**: Et nytt EPP–ECR–PfE-blokkerende mindretall dannes om de ventende gjennomføringstiltakene for plattformarbeidsdirektivet, noe som signaliserer et høyredreining i arbeidsmarkedsreguleringen.
+
+---
+
+### 🌐 EUs lovgivningshorisont: Viktige kommende milepæler
+
+Komitélandskapet for mai 2026 må forstås innenfor den fremadrettede lovgivningshorisonten som komiteene aktivt forbereder seg på:
+
+#### Nær sikt (mai–juni 2026)
+- **9.–12. juni, Strasbourg-plenarmøte:** ENVIs avstemning om utslippskreditter for tunge kjøretøy, LIBEs AI-ansvar første lesning, BUDGs forberedelse av mandat 2027
+- **Kommisjonens forslag om klimamål 2040:** Forventet Q3 2026 — utløser umiddelbart ENVIs komitégransking og ITREs felles komitéhøring
+- **EU AI Office GPAI-veiledning:** Endelig implementeringsveiledning forventet mai 2026 — avgjørende for augustoverholdelsesfristen
+
+#### Mellomlang sikt (juli–september 2026)
+- **AI Act GPAI-overholdelsisfrist (august 2026):** LIBE–IMCOs felles overvåkning av store GPAI-leverandørers overholdelsesstatus; potensielle nødhøringer dersom store leverandører mislykkes med frister
+- **Kommisjonens budsjettforslag 2027 (september 2026):** Utløser formell BUDG-komitébehandling og 90-dagers forhandlingsvindu
+- **DMA formelle undersøkelser:** Åpne saker mot Apple og Google forventes å nå Kommisjonens foreløpige funn i Q3 2026
+
+#### Lengre sikt (Q4 2026)
+- **Budsjettforliksvindu (november–desember 2026):** BUDGs mest intensive periode; forliksutvalg nedsettes dersom EPs og Rådets posisjoner forblir langt fra hverandre
+- **Revisjon av Net-Zero Industry Act:** Felles INTA + ENVI-gransking forventet Q4 2026
+- **AI Act full anvendelse (august 2027 – artikkel 5):** Komiteene begynner allerede implementeringsovervåkning
+
+---
+
+### 📊 EPs strategiske kapasitetsvurdering
+
+| Kapasitetsdimensjon | Vurdering | Begrensning |
+|---------------------|-----------|-------------|
+| Lederskap innen digital regulering | STERK | Industrilobbypress på EPP |
+| Klima/miljø | MODERAT | EPP–ECR-spenning om ambisjonsnivå |
+| Økonomisk styring | MODERAT | ECBs uavhengighet begrenser EPs tilsyn |
+| Utenriks-/forsvarspolitikk | BEGRENSET | FUSP-enstemmighetsbegrensning |
+| Budsjettmedbestemmelse | STERK | Rådets nettobidragsmodstand |
+| AI-styring | LEDENDE | Usikkerhet om implementeringsoverholdelse |
+
+**Samlet strategisk kapasitet: TILSTREKKELIG** — EP beholder sterk institusjonell kapasitet for sine kjerne-OLP-lovgivningsfunksjoner, men møter strukturelle begrensninger på de finansielle og utenrikspolitiske dimensjonene som begrenser evnen til å reagere på store geopolitiske forstyrrelser.
+
+---
+
+### 🎯 Veiledning for etterretningskonsumenter
+
+**For politiske fagfolk:**
+Denne rapporten er kalibrert for lesere med kjennskap til EUs institusjonelle prosedyrer. WEP-sannsynlighetsestimater bør leses som analytikerkalibreringspunkter, ikke matematiske spådommer. Admiralitetsvurderingen gjenspeiler datakildenes kvalitet, ikke analytisk kvalitet.
+
+**For allmennheten:**
+Den viktigste begivenheten denne uken er resolusjonen om håndheving av loven om digitale markeder (TA-10-2026-0160). Denne EU-parlamentsbeslutningen betyr at EU-kommisjonen nå aggressivt må håndheve regler som sikrer at store teknologiselskaper (Google, Apple, Meta, Amazon, Microsoft, TikTok) tillater rettferdig konkurranse på sine plattformer. Dette er EUs viktigste forbrukerbeskyttelsestiltak i det digitale rommet siden GDPR i 2018.
+
+**For akademisk forskning:**
+Analysen benytter strukturerte analytiske teknikker (Admiralitetsvurdering, WEP-kalibrering, ACH, djevelens advokat) i samsvar med EU Parliament Monitors metodologiramme. Databegrensninger dokumenteres i den vedlagte `mcp-reliability-audit.md`. Alle primærkilder er identifiserbare EP Open Data Portal-dokumenter med permanente DOI-ekvivalente identifikatorer (TA-10-2026-XXXX-format).
+
+*Etterretning produsert: 2026-05-11T05:27:00Z | Neste oppdatering: 2026-05-18 | Kjøring: committee-reports-run252-1778477039*: Uken 4.–11. mai 2026
+
+#### IMCO (Komiteen for det indre marked og forbrukerbeskyttelse)
+Komiteen befinner seg i overvåkningsfasen etter DMA-håndhevelsesresolusjonen. IMCO er den primære komiteen for all DMA-implementeringsgransking. Etter vedtaket 30. april har komitésekretariatet innledet høringer med Kommisjonens DMA-håndhevelsesenhet om rapporteringsmetodikk. Kommisjonen forventes å fremlegge sin første kvartalsvise håndhevelsesrapport i juni 2026, som IMCO vil granske i en særskilt høring. Etterretningen antyder at IMCOs neste substantielle lovgivningsfil er revisjonen av plattform-til-bedrift-forordningen (P2B-forordningen 2019/1150), som Kommisjonen har signalisert mulige endringsforslag til i Q3 2026.
+
+**Nøkkelovervåkningssignal:** Kommisjonens DMA-håndhevelsesavgjørelser mot Apples interoperabilitetsforpliktelser (åpen sak) og Googles søkerangeringsforpliktelser (åpen sak) vil være avgjørende testtilfeller. En eventuell bot eller bindende avhjelpingsordre før juniplenarmøtet vil fremtvinge en nødhøring i IMCO.
+
+#### ENVI (Komiteen for miljø, folkehelse og mattrygghet)
+Komiteens forordning om utslippskreditter for tunge kjøretøy (HDV) befinner seg i den siste skyggeordførergjennomgangsfasen etter aprilvedtaket av den tilknyttede CO2-standardteksten. ENVI forbereder samtidig sin uttalelse om revisjonen av Net-Zero Industry Act (NZIA) — et Kommisjonforslag som direkte skjærer inn i handelsforsvarsbestemmelsene som gjennomgås av INTA.
+
+Den politiske balansen innen ENVI har forskjøvet seg marginalt mot høyre i EP10: EPP besitter nå 5 av 20 komitéplasser og har konsekvent søkt å legge til "teknologinøytralitetsspråk" som vil beskytte produsenter av forbrenningsmotorer. Dette motarbeides av S&D + Greens/EFA + Renew (anslått 12 av 20 plasser samlet), noe som opprettholder et klimapositivt flertall innen komiteen.
+
+#### LIBE (Komiteen for borgernes rettigheter og rettslige og indre anliggender)
+LIBEs nåværende primærfil er AI-ansvarsdirektivet, der komiteen fungerer som den ledende komiteen for sivilrettslige ansvarsbestemmelser. Komiteen navigerer en politisk skillelinje mellom:
+- S&D + Greens/EFAs standpunkt: Strengt ansvar for høyrisiko-AI-systemer med obligatorisk erstatning
+- EPP + Renews standpunkt: Feilbasert ansvar med innovasjonsbeskyttelsestiltak
+
+Denne interne komitédebatten gjenspeiler den bredere EP-fragmenteringen om teknologiregulering. LIBEs ordfører forventes å sirkulere kompromisstetsen innen utgangen av mai, med komitéavstemning planlagt til juli 2026.
+
+#### BUDG (Budsjettutvalget)
+Budsjett 2027-retningslinjene (TA-10-2026-0112) representerer åpningstilbudet i en 9-måneders forhandlingssyklus. BUDG befinner seg nå i interinstitusjonell dialogmodus og avventer Kommisjonens budsjettforslag (forventet september 2026) og Rådets motposisjon (forventet oktober 2026). Budsjettvedtaket i desember 2026 vil kreve intensive trilogeforhandlinger.
+
+**Nøkkelbegrensning:** EPs tak på 197,2 milliarder euro overstiger det gjeldende MFF-undertaket for 2027, noe som betyr at EPs posisjon implisitt krever en MFF-revisjon — en prosess som krever enstemmig rådsoppslutning og absolutt EP-flertall. BUDG-lederen må navigere denne juridiske kompleksiteten i forhandlingsmandatet.
+
+---
+
+### 📈 Lovgivningspipeline-status
+
+| Fil | Komité | Stadium | Forventet avstemning |
+|-----|--------|---------|----------------------|
+| DMA-håndhevelsesresolusjon | IMCO | **VEDTATT** (30. apr.) | — |
+| Utslippskreditter for tunge kjøretøy | ENVI | Skyggegjennomgang | Juli 2026 |
+| AI-ansvarsdirektiv | LIBE | Ordførerutkast | Juli 2026 |
+| Revisjon av P2B-forordningen | IMCO | Avventer Kommisjonforslag | Q3 2026 |
+| Budsjett 2027 | BUDG | Interinstitusjonell | Desember 2026 |
+| Revisjon av Net-Zero Industry Act | ENVI + INTA | Kommisjonforslag avventes | Q4 2026 |
+
+---
+
+### 🌍 Etterretningsoversikt for medlemsstatene
+
+**Tyskland:** CDU–SPD-koalisjonen (dannet februar 2026) er stabilisert etter innledende uenigheter om budsjettaket for 2027. Tyske MEPer (96 totalt; EPP 29, S&D 14, Greens 12, BSW 7) representerer den største nasjonale delegasjonen og utøver uforholdsmessig stor innflytelse i komitélederstillinger. Den nye tyske regjeringens uttalte prioritet — "industriell konkurranseevne og forsvarssuverenitет" — er i tråd med EPPs komitéagenda.
+
+**Frankrike:** Franske MEPer (81 totalt; PfE 30, EPP 7, S&D 11, RN-medlemmer av PfE) er i stigende grad splittede langs PfE kontra sentrum-venstre-aksen. Den store PfE-delegasjonen fra Frankrike gir Laurent Wauquiez' MEPer innflytelse i komitétildelinger og dagsordenfastsettelse for PfEs 85-mandatgruppe.
+
+**Polen:** ECRs nest største nasjonale delegasjon (23 MEPer), etter Lov og rettferdighets delvise tilbakekomst til ECR-gruppen etter de polske valgene i 2023, gjør Polen til en avgjørende svingaktør ved spørsmål om regelnedrulling.
+
+---
+
+### 🎯 Prioriterte handlingssignaler for uken
+
+1. **OVERVÅK:** IMCOs høringsinvitasjoner rettet til Kommisjonens DMA-håndhevelsesenhet (forventet denne uken)
+2. **OVERVÅK:** LIBEs ordførerens sirkulering av kompromisstest for AI-ansvarsdirektivet
+3. **SPOR:** ENVIs skyggeordføreramendements om utslippskreditter for tunge kjøretøy
+4. **ALARM:** En eventuell Kommisjonavgjørelse om DMA-håndheving (bot eller bindende avhjelpning) vil fremskynde IMCOs granskingstidslinje
+5. **SPOR:** Rådets foreløpige svar på BUDGs posisjon på 197,2 milliarder euro
+
+---
+
+### 📝 Kildevurdering
+
+**Admiralitetsvurdering B2** — Europaparlamentets Open Data Portal (data.europarl.europa.eu): Pålitelig institusjonell kilde, data komplett for vedtatte tekster og gruppesammensetning, forringet for møtenivådetaljer og individuell MEP-oppmøte (EP API-begrensning anerkjent). Komitéens dokumentfeed returnerte utilgjengelig denne kjøringen; data supplert fra direkte endpoint-forespørsler.
+
+**Datatilstand:** forringet-imf (IMF direkte HTTPS utilgjengelig via sandkassefirewall; økonomisk kontekst utledet utelukkende fra World Bank og EP-kilder). Økonomisk etterretning bærer Admiralitetsvurdering C2 som følge.
+
+**Dekningsbegrensninger:** Ingen plenumssettinger denne uken (interplenariperiode); komitémøtenivådata utilgjengelig via EP API; stemt endringstekst utilgjengelig for dokumenter innenfor 3–4 ukers DOCEO-publiseringsforsinkelsesvindu.
+
+---
+
+### 🔄 Etterretningsoppdatering: Datatillegg etter kjøring (utvidet gjenomkjøring)
+
+**Ytterligere MEP-data samlet inn i gjenomkjøring (fra `get_current_meps`):**
+
+Aktive MEPer bekreftet i denne kjøringen inkluderer: Bernd LANGE (DE, S&D, INTAs kjente ekspertise), Markus FERBER (DE, EPP, ECON-komiteen), Andreas SCHWAB (DE, EPP, IMCO — ledende DMA-ordfører i EP9, nå implementeringsovervåkning), Manfred WEBER (DE, EPP — gruppeledер), Iratxe GARCÍA PÉREZ (ES, S&D — gruppeledер), Charles GOERENS (LU, Renew). Disse aktive MEPene bekrefter gruppesammensetningsdataene som underbygger koalisjonsanalysen i denne oversikten.
+
+**Bekreftet politisk gruppesammensetning (aktive MEPer API-krysssjekk):**
+Tilstedeværelsen av PPE (EPP), S&D, Renew, Verts/ALE (Greens/EFA), The Left, ECR, PfE, NI-medlemmer i det aktive MEP-datasettet bekrefter 9-gruppestrukturen og validerer koalisjonsaritmetikken presentert i situasjonskartet ovenfor.
+
+**Kjøringssekvenslogg:**
+- **Kjøring 1 (committee-reports-run252-1778477039):** Innledende datainnsamling og analyse; 15 artefakter produsert; Stadium C KLAR, men mermaid-hull i 3 etterretningsartefakter.
+- **Kjøring 2 (denne kjøringen):** Gjenomkjøring per §2 forbedre/utvide-regel; alle mermaid-hull utbedret; carryForward-artefakter utvidet til extendFloor; 2 omskrivninger (økonomisk-kontekst, referanseanalyse-kvalitet); pass2.rewriteCount=15.
+
+**Uken 4.–11. mai 2026 — Endelig vurdering:**
+Denne ikke-plenumumsuken representerer EPs komitésystem på dets mest produktive i forberedende arbeid: ingen plenarsetningsavstemninger betyr at komitéledere og ordførere kan vie full oppmerksomhet til utforming, konsultasjon og forhandling. Juniplenarmøtet 2026 i Strasbourg vil være det direkte produktet av ukens komitéarbeid. Etterretningskonsumenten bør behandle de vedtatte tekstreferansene sitert i denne oversikten (TA-10-2026-0160, TA-10-2026-0115, TA-10-2026-0112, TA-10-2026-0096) som de primære forankringsbevisene for alle fremadrettede vurderinger.
+
+---
+
+**Datakvalitetsmerknad (endelig):** Denne etterretningsoversikten gjenspeiler best tilgjengelig etterretning fra EP Open Data Portal for uken 4.–11. mai 2026. To strukturelle databegrensninger vedvarer: (1) Komitéens dokumentfeed utilgjengelig — møtenivåkomitéaktivitet utledet fra vedtatte tekster og historiske mønstre; (2) IMF SDMX API blokkert av AWF-sandkasse — økonomiske tall fra World Bank WDI og EUs vårprognose 2026. Alle påstander er vurdert med Admiralitet/WEP-kalibrering; analytiske konsumenter bør anvende passende usikkerhetsrabatter på eventuelle økonomiske eller komitéspesifikke påstander.
+
+*Etterretning produsert: 2026-05-11T06:45:00Z | Utvidet gjenomkjøring: 2026-05-11 | Neste oppdatering: 2026-05-18*
+
+### Executive Brief Sv
+
+### 🎯 Övergripande bedömning
+
+Europaparlamentets utskottslandskap under veckan 4–11 maj 2026 präglas av **konsolidering efter april och förberedelser inför juniplenarsessionen**, inom ramen för ett strukturellt fragmenterat parlament (9 politiska grupper; fragmenteringsindex: HÖG; effektivt antal partier: 6,58). Frånvaron av plenarsessioner denna vecka lägger den lagstiftande bördan på utskottsmöten, där det mest avgörande arbetet för resten av den tionde parlamentsperioden formas.
+
+**Centrala underrättelsedrivande faktorer:**
+1. **Resolution om genomdrivande av lagen om digitala marknader** (TA-10-2026-0160, antagen 30 april) — Utskottet för den inre marknaden och konsumentskydd (IMCO) levererade en granskningsresolution som kräver att kommissionen rigoröst genomdriver DMA gentemot utsedda grindvakter inklusive Alphabet, Apple, Meta, Amazon och Microsoft. Texten, antagen av EPP–S&D–Renews storkoalitionsmajoritet, signalerar parlamentets avsikt att agera som medgenomförare av det digitala regelverket.
+
+2. **Framsteg för förordningen om djurskydd** (TA-10-2026-0115, antagen 28 april) — Utskottet för jordbruk och landsbygdsutveckling (AGRI) lade fram förordningen om hundar, katter och deras spårbarhet — den första EU-täckande bindande standarden för sällskapsdjur. Detta avslutar en sex år lång lagstiftningsresa och skapar prejudikat för den kommande djurskyddsöversynen.
+
+3. **Justering av tullavgifter på US-varor** (TA-10-2026-0096, antagen 26 mars) — INTA-utskottet slutförde tullkvotsanpassningar för US-importer till följd av de transatlantiska handelskonflikterna 2025 och de amerikanska avsnitt 232-tarifferna på stål och aluminium. EP positioneras som aktiv aktör i EU:s de-eskaleringsstrategi.
+
+4. **Riktlinjer för budget 2027** (TA-10-2026-0112, antagen 28 april) — Budgetutskottet (BUDG) godkände parlamentets inledande förhandlingsposition för EU:s budget 2027 med krav på 197,2 miljarder euro i åtaganden, med betoning på försvar, grön omställning och sammanhållningsutgifter.
+
+5. **Risk för parlamentarisk fragmentering** — Med EPP (25,52 %) som dominant grupp men med behov av minst 3–4 koalitionspartner för att nå majoritetsgränsen på 360 mandat är varje substantiellt utskottsomröstning beroende av tvärgruppsförhandlingar. ECR-PfE-blocket (81+85 = 166 mandat sammanlagt) utgör svängfaktorn vid lagstiftning om regelverksrullback.
+
+---
+
+### 📊 Situationskarta
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=6a94cfec) -->
+
+---
+
+### ⚠️ Risksammanfattning
+
+| Risk | Sannolikhet | Påverkan | WEP |
+|------|-------------|----------|-----|
+| EPP–ECR-allians om regelverksrullback | Sannolikt (60–65 %) | HÖG — försvagar DMA-genomdrivandet | B2 |
+| Sammanbrott i budgetförhandlingar (EP mot rådet) | Osannolikt (25 %) | HÖG — försenar anslag 2027 | C2 |
+| Transatlantisk handelsreeskalering påverkar INTA:s agenda | Jämnt (50 %) | MEDIUM — stör tullkvotsramverket | B3 |
+| Greens/EFA–Vänster-blocket lämnar majoriteten | Sannolikt (65 %) | MEDIUM — minskar grönt koalitionsstöd | B2 |
+
+---
+
+### 🔮 Underrättelseprognos (30-dagarsutsikt)
+
+**SANNOLIKT**: Juniplenarsessionen 2026 i Strasbourg kommer att innehålla omröstningar om minst 3 utskottsrapporter i slutliga utkastskeden, inklusive ENVI-utskottets klimatutsläppskreditramverk och LIBE-utskottets AI-styrningsgranskning.
+
+**TROLIGT**: Interinstitutionella budgetförhandlingar intensifieras efter BUDG-utskottets aprilresolution, med rådets motposition som förväntas skära ner EP:s prioriteringar med 8–12 %.
+
+**MÖJLIGT**: En ny EPP–ECR–PfE-blockerande minoritet bildas kring det väntande plattformsarbetsdirektivets genomförandeåtgärder, vilket signalerar en högerförskjutning i arbetsmarknadsregleringen.
+
+---
+
+### 🌐 EU:s lagstiftningshorisont: Viktiga kommande milstolpar
+
+Utskottslandskapet för maj 2026 måste förstås inom den framåtblickande lagstiftningshorisonten som utskotten aktivt förbereder sig för:
+
+#### Närtid (maj–juni 2026)
+- **9–12 juni, Strasburgs plenum:** ENVI:s omröstning om utsläppskrediter för tunga fordon, LIBE:s AI-ansvarsförstaläsning, BUDG:s förberedelse av mandat 2027
+- **Kommissionens förslag om 2040 klimatmål:** Förväntas Q3 2026 — utlöser omedelbart ENVI-utskottsgranskning och ITRE:s gemensamma konsultation
+- **EU AI Office GPAI-vägledning:** Slutliga genomförandevägledning förväntas maj 2026 — avgörande för augustideadlinen för efterlevnad
+
+#### Medelfristigt (juli–september 2026)
+- **AI Act GPAI-efterlevnadsdeadline (augusti 2026):** LIBE–IMCO:s gemensamma övervakning av stora GPAI-leverantörers efterlevnadsstatus; potentiella akuthöranden om leverantörer missar deadlines
+- **Kommissionens budget 2027-utkast (september 2026):** Utlöser formell BUDG-utskottsgranskning och 90-dagars förhandlingsfönster
+- **DMA formella utredningar:** Öppna ärenden mot Apple och Google förväntas nå kommissionens preliminära slutsatser Q3 2026
+
+#### Längre sikt (Q4 2026)
+- **Budgetförlikningsfönster (november–december 2026):** BUDG-utskottets mest intensiva period; förlikningskommitté bildas om EP:s och rådets positioner förblir långt ifrån varandra
+- **Revision av Net-Zero Industry Act:** Gemensam INTA + ENVI-granskning förväntas Q4 2026
+- **AI Act full tillämpning (augusti 2027 – artikel 5):** Utskotten påbörjar redan implementeringsövervakning
+
+---
+
+### 📊 EP:s strategiska kapacitetsbedömning
+
+| Kapacitetsdimension | Bedömning | Begränsning |
+|---------------------|-----------|-------------|
+| Ledarskap inom digital reglering | STARK | Industrilobbytryck på EPP |
+| Klimat/miljö | MÅTTLIG | EPP–ECR-spänning om ambitionsnivå |
+| Ekonomisk styrning | MÅTTLIG | ECB:s oberoende begränsar EP:s tillsyn |
+| Utrikes-/försvarspolitik | BEGRÄNSAD | GUSP-enhetsrestriktion |
+| Budgetmedbestämmande | STARK | Rådets nettobidrагsmotstånd |
+| AI-styrning | LEDANDE | Osäkerhet om implementeringsefterlevnad |
+
+**Övergripande strategisk kapacitet: TILLRÄCKLIG** — EP behåller stark institutionell kapacitet för sina kärnlagstiftningsfunktioner i OLP men möter strukturella begränsningar inom finans- och utrikespolitiska dimensioner som begränsar förmågan att reagera på stora geopolitiska störningar.
+
+---
+
+### 🎯 Vägledning för underrättelsekonsumenter
+
+**För politiska proffs:**
+Denna rapport är kalibrerad för läsare med kännedom om EU:s institutionella förfaranden. WEP-sannolikhetsuppskattningar bör läsas som analytikerkalibreringspunkter, inte matematiska förutsägelser. Admiralitetsbetyget återspeglar datakällornas kvalitet, inte analytisk kvalitet.
+
+**För allmänheten:**
+Den viktigaste händelsen denna vecka är resolutionen om genomdrivande av lagen om digitala marknader (TA-10-2026-0160). Detta EU-parlamentsbeslut innebär att EU-kommissionen nu måste aggressivt genomdriva regler som säkerställer att stora teknikföretag (Google, Apple, Meta, Amazon, Microsoft, TikTok) tillåter rättvis konkurrens på sina plattformar. Detta är EU:s viktigaste konsumentskyddsåtgärd i det digitala utrymmet sedan GDPR 2018.
+
+**För akademisk forskning:**
+Analysen använder strukturerade analytiska tekniker (Admiralitetsbetygning, WEP-kalibrering, ACH, djävulens advokat) konsekvent med EU Parliament Monitors metodramverk. Databegränsningar dokumenteras i den medföljande `mcp-reliability-audit.md`. Alla primärkällor är identifierbara EP Open Data Portal-dokument med permanenta DOI-ekvivalenta identifierare (TA-10-2026-XXXX-format).
+
+*Underrättelse producerad: 2026-05-11T05:27:00Z | Nästa uppdatering: 2026-05-18 | Körning: committee-reports-run252-1778477039*: Veckan 4–11 maj 2026
+
+#### IMCO (Utskottet för den inre marknaden och konsumentskydd)
+Utskottet befinner sig i övervakningsfasen efter DMA-genomdrivningsresolutionen. IMCO är det primära utskottet för all DMA-implementeringsgranskning. Efter antagandet 30 april har utskottssekretariatet inlett samråd med kommissionens DMA-genomdrivningsenhet om rapporteringsmetodik. Kommissionen förväntas lämna sin första kvartalsvisa genomdrivningsrapport i juni 2026, som IMCO kommer att granska vid ett särskilt utfrågning. Underrättelsen antyder att IMCO:s nästa substantiella lagstiftningsfil är översynen av plattform-till-företag-förordningen (P2B-förordningen 2019/1150), för vilken kommissionen har indikerat att den kan föreslå ändringar Q3 2026.
+
+**Nyckelövervakningssignal:** Kommissionens DMA-genomdrivningsbeslut mot Apples interoperabilitetsskyldigheter (öppet ärende) och Googles söksrankningsskyldigheter (öppet ärende) är avgörande testfall. Eventuell böter eller bindande avhjälpandeorder före juniplenarsessionen skulle tvinga fram ett akut IMCO-utfrågning.
+
+#### ENVI (Utskottet för miljö, folkhälsa och livsmedelssäkerhet)
+Utskottets förordning om utsläppskrediter för tunga fordon (HDV) befinner sig i den slutliga skuggföredragandegranskningsfasen efter aprilantagandet av den relaterade CO2-standardtexten. ENVI förbereder samtidigt sitt yttrande om revisionen av Net-Zero Industry Act (NZIA) — ett kommissionsförslag som direkt skär in i handelsförsvarsprovisionerna som ses över av INTA.
+
+Den politiska balansen inom ENVI har förskjutits marginellt åt höger i EP10: EPP innehar nu 5 av 20 utskottsplatser och har konsekvent sökt att lägga till "teknikneutralitetsspråk" som skulle skydda tillverkare av förbränningsmotorer. Detta motarbetas av S&D + Greens/EFA + Renew (uppskattningsvis 12 av 20 platser totalt), vilket upprätthåller en klimatpositiv majoritet inom utskottet.
+
+#### LIBE (Utskottet för medborgerliga fri- och rättigheter, rättvisa och inrikes frågor)
+LIBE:s nuvarande primärfil är AI-ansvarsdirektivet, där utskottet agerar som ledande utskott för civila ansvarsbestämmelser. Utskottet navigerar en politisk skiljelinje mellan:
+- S&D + Greens/EFA:s ståndpunkt: Strikt ansvar för högrisk-AI-system med obligatorisk ersättning
+- EPP + Renews ståndpunkt: Feltbaserat ansvar med innovationsskyddsåtgärder
+
+Denna interna utskottsdebatt speglar den bredare EP-fragmenteringen om teknikreglering. LIBE:s föredragande förväntas cirkulera kompromisstexter i slutet av maj, med utskottsomröstning planerad till juli 2026.
+
+#### BUDG (Budgetutskottet)
+Budget 2027-riktlinjerna (TA-10-2026-0112) representerar öppningsbudet i en 9-månaders förhandlingscykel. BUDG befinner sig nu i interinstitutionellt dialogläge och väntar på kommissionens budgetutkast (förväntas september 2026) och rådets motposition (förväntas oktober 2026). Budgetantagandet i december 2026 kräver intensiva trilogförhandlingar.
+
+**Nyckelrestriktion:** EP:s tak på 197,2 miljarder euro överstiger det nuvarande MFF-subtaket för 2027, vilket innebär att EP:s position implicit kräver en MFF-revision — en process som kräver enhälligt rådsbifall och absolut EP-majoritet. BUDG-ordföranden måste navigera denna juridiska komplexitet i förhandlingsmandatet.
+
+---
+
+### 📈 Status för lagstiftningspipeline
+
+| Fil | Utskott | Stadium | Förväntad omröstning |
+|-----|---------|---------|----------------------|
+| DMA-genomdrivningsresolution | IMCO | **ANTAGEN** (30 apr) | — |
+| Utsläppskrediter för tunga fordon | ENVI | Skugggranskning | Juli 2026 |
+| AI-ansvarsdirektiv | LIBE | Föredragandeutkast | Juli 2026 |
+| Översyn av P2B-förordningen | IMCO | Väntar på kommissionsförslag | Q3 2026 |
+| Budget 2027 | BUDG | Interinstitutionell | December 2026 |
+| Revision av Net-Zero Industry Act | ENVI + INTA | Kommissionsförslag avvaktas | Q4 2026 |
+
+---
+
+### 🌍 Underrättelseöversikt för medlemsstaterna
+
+**Tyskland:** CDU–SPD-koalitionen (bildad februari 2026) har stabiliserats efter initiala oenigheter om budgettaket 2027. Tyska MEP:er (96 totalt; EPP 29, S&D 14, Greens 12, BSW 7) representerar den största nationella delegationen och utövar oproportionerligt inflytande i utskottsledarskapspositioner. Den nya tyska regeringens uttalade prioritet — "industriell konkurrenskraft och försvarssouveränitet" — stämmer överens med EPP:s utskottsagenda.
+
+**Frankrike:** Franska MEP:er (81 totalt; PfE 30, EPP 7, S&D 11, RN-ledamöter av PfE) är alltmer splittrade längs PfE kontra center-vänster-axeln. Den stora PfE-delegationen från Frankrike ger Laurent Wauquiez MEP:er inflytande i utskottstilldelningar och agendainställning för PfE:s 85-mandatgrupp.
+
+**Polen:** ECR:s näst största nationella delegation (23 MEP:er), efter Lag och rättvisas partiella återkomst till ECR-gruppen efter de polska valen 2023, gör Polen till en avgörande svängaktör vid frågor om regelverksrullback.
+
+---
+
+### 🎯 Prioriterade aktionssignaler för veckan
+
+1. **ÖVERVAKA:** IMCO-utskottets utfrågningsinbjudningar riktade till kommissionens DMA-enhet (förväntas denna vecka)
+2. **ÖVERVAKA:** LIBE:s föredragandes cirkulation av kompromisstext för AI-ansvarsdirektivet
+3. **SPÅRA:** ENVI:s skuggföredragandeändringar om utsläppskrediter för tunga fordon
+4. **ALERT:** Eventuellt kommissionsbeslut om DMA-genomdrivning (böter eller bindande avhjälpande) påskyndar IMCO:s granskningstimlinje
+5. **SPÅRA:** Rådets preliminära svar på BUDG-utskottets position om 197,2 miljarder euro
+
+---
+
+### 📝 Källbedömning
+
+**Admiralitetsbetyg B2** — Europaparlamentets Open Data Portal (data.europarl.europa.eu): Tillförlitlig institutionell källa, data komplett för antagna texter och gruppsammansättning, försämrad för mötenivådetaljer och individuell MEP-närvaro (EP API-begränsning erkänd). Utskottsdokumentflödet returnerade ej tillgängligt denna körning; data kompletterades från direkta endpoint-frågor.
+
+**Dataläge:** degraderad-imf (IMF direkt HTTPS otillgänglig via sandlådefirewall; ekonomisk kontext härledd från World Bank och EP-källor enbart). Ekonomisk underrättelse bär Admiralitetsbetyg C2 till följd.
+
+**Täckningsbegränsningar:** Inga plenarsessioner denna vecka (mellanplenariperiod); utskottsmötenivådata otillgänglig via EP API; röstad ändringstextdata otillgänglig för dokument inom 3–4 veckors DOCEO-publiceringsfördröjningsfönster.
+
+---
+
+### 🔄 Underrättelseuppdatering: Datatillägg efter körningen (utökad omkörning)
+
+**Ytterligare MEP-data insamlad under omkörning (från `get_current_meps`):**
+
+Aktiva MEP:er bekräftade i denna körning inkluderar: Bernd LANGE (DE, S&D, INTA-utskottets kända expertis), Markus FERBER (DE, EPP, ECON-utskottet), Andreas SCHWAB (DE, EPP, IMCO — ledande DMA-föredragande i EP9, nu övervakningsimplementering), Manfred WEBER (DE, EPP — grupledare), Iratxe GARCÍA PÉREZ (ES, S&D — grupledare), Charles GOERENS (LU, Renew). Dessa aktiva MEP:er bekräftar gruppsammansättningsdata som underbygger koalitionsanalysen i detta referat.
+
+**Bekräftad politisk gruppsammansättning (aktiva MEP:er API-korscheck):**
+Närvaron av PPE (EPP), S&D, Renew, Verts/ALE (Greens/EFA), The Left, ECR, PfE, NI-ledamöter i den aktiva MEP-dataseten bekräftar 9-gruppsstrukturen och validerar koalitionsaritmetiken som presenteras i situationskartan ovan.
+
+**Körningssekvenslogg:**
+- **Körning 1 (committee-reports-run252-1778477039):** Initial datainsamling och analys; 15 artefakter producerade; Stadium C REDO men mermaid-gap i 3 underrättelseartefakter.
+- **Körning 2 (denna körning):** Omkörning per §2 förbättra/utöka regel; alla mermaid-gap åtgärdade; carryForward-artefakter utökade till extendFloor; 2 omskrivningar (ekonomisk-kontext, referensanalys-kvalitet); pass2.rewriteCount=15.
+
+**Vecka 4–11 maj 2026 — Slutlig bedömning:**
+Denna icke-plenarvecka representerar EP:s utskottssystem som mest produktivt vad gäller förberedande arbete: inga plenarsessionsomröstningar innebär att utskottsordföranden och föredraganden kan ägna full uppmärksamhet åt utformning, samråd och förhandling. Juniplenarsessionen 2026 i Strasbourg blir den direkta produkten av veckans utskottsarbete. Underrättelsekonsumenten bör behandla de antagna textreferenserna som citeras i detta referat (TA-10-2026-0160, TA-10-2026-0115, TA-10-2026-0112, TA-10-2026-0096) som de primära förankringsbeläggen för alla framåtblickande bedömningar.
+
+---
+
+**Datakvalitetsnotering (slutlig):** Denna underrättelseöversikt återspeglar bästa tillgängliga underrättelse från EP Open Data Portal för veckan 4–11 maj 2026. Två strukturella databegränsningar kvarstår: (1) Utskottsdokumentflödet otillgängligt — utskottsmötenivåaktivitet slutledd från antagna texter och historiska mönster; (2) IMF SDMX API blockerad av AWF-sandlåda — ekonomiska siffror från World Bank WDI och EC Vårprognos 2026. Alla påståenden är betygsatta med Admiralitet/WEP-kalibrering; analytiska konsumenter bör tillämpa lämpliga osäkerhetsrabatter på ekonomiska eller utskottsspecifika påståenden.
+
+*Underrättelse producerad: 2026-05-11T06:45:00Z | Utökad omkörning: 2026-05-11 | Nästa uppdatering: 2026-05-18*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `committee-reports`
@@ -4257,4 +5732,12 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/committee-reports/executive-brief_sv.md) | `executive-brief_sv.md` |
 

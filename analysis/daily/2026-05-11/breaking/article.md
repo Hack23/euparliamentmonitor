@@ -207,6 +207,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -4424,6 +4425,2281 @@ This analysis is a **re-run** (second run on 2026-05-11). Prior run `breaking-ru
 *Next scheduled review: Upon publication of May 2026 EP roll-call data*
 *Admiralty Source Grade: A1 — methodology self-assessment; independent validation recommended*
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التصنيف:** استخبارات برلمانية عامة  
+**نوع المقال:** عاجل  
+**قراءة 60 ثانية:** لجنة مطالبات أوكرانيا الدولية + تتالي رفع حصانات النواب الأوروبيين + حوكمة ETS2 البيئية  
+**درجة الثقة:** 🟡 متوسط  
+**البيانات:** جلسة البرلمان الأوروبي في ستراسبورغ 28–30 أبريل (أحدث مخرجات تشريعية)
+
+---
+
+### BLUF — Bottom Line Up Front
+
+أسفرت الجلسة العامة للبرلمان الأوروبي في ستراسبورغ خلال الفترة 28–30 أبريل 2026 عن ثلاثة قرارات تاريخية:
+
+1. **لجنة مطالبات أوكرانيا الدولية** (30 أبريل): يؤيد البرلمان الأوروبي آلية قانونية دولية مبتكرة لمعالجة مطالبات التعويض ضد روسيا — المرة الأولى التي يدعم فيها البرلمان هيكلاً مستقلاً للمساءلة خارج الإقليم. تُقدَّر الأغلبية المطلقة بـ 535+/717. الأهمية الجيوسياسية الرئيسية: يُرسي سابقة مؤسسية لمحاسبة المعتدي المسلح خارج إطار الفيتو في مجلس الأمن الأممي.
+
+2. **أربعة رفع حصانات لنواب أوروبيين في جلسة واحدة** (28 أبريل): أطلقت لجنة JURI إجراءات رفع الحصانة عن غرزيغورز براون (معاداة السامية)، وديانا شوشواكا (القومية الرومانية)، ودانييل أوباجتيك، وتوماش بوتشيك — جميعهم منتسبون إلى ECR/NI. تركُّز غير مسبوق تاريخياً لإجراءات الإنفاذ؛ قد يُشير إلى استراتيجية مساءلة متعمدة.
+
+3. **تعديل احتياطي استقرار سوق ETS2** (29 أبريل): جرى تعديل احتياطي استقرار السوق للسوق الكربونية الجديدة للمباني والنقل البري (الإطلاق 2027) لإبطاء تفعيل الاحتياطي — يُخفض خطر ذروة الأسعار لكنه يُضعف سرعة الحافز نحو إزالة الكربون. حل وسط صاغه حزب الشعب الأوروبي؛ اعترض الخضر/التحالف الأوروبي الحر.
+
+لم تُسجَّل أي تصويتات تشريعية مهمة في 11 مايو (البرلمان الأوروبي في أسبوع اللجان).
+
+---
+
+### Top Trigger Assessment
+
+| القضية | الأهمية | الإلحاح | المراقبة |
+|--------|---------|---------|---------|
+| لجنة مطالبات أوكرانيا | 🔴 عالية — سابقة قانونية دولية | جارية | رأي محكمة العدل الأوروبية في الأصول المجمدة (الربع 3 2026) |
+| رفع حصانات النواب (×4) | 🟡 متوسط — تتالي المساءلة | حالي | طعون أمام المحكمة الأوروبية لحقوق الإنسان؛ تقويم JURI المستقبلي |
+| إضعاف MSR لـ ETS2 | 🟡 متوسط — إشارة تراجع حوكمة المناخ | متوسط المدى | استعداد إطلاق ETS2 (2027) |
+| استراتيجية توسع الاتحاد الأوروبي | 🟡 متوسط — إعادة تأكيد الهدف 2028–2030 | متوسط المدى | مفاوضات مجلس الاتحاد بشأن فصول الانضمام |
+| التصويت بالوكالة للنواب | 🟢 منخفض — إصلاح حوكمة داخلي | حالي | التنفيذ قبل انتخابات 2027 |
+
+---
+
+### Strategic Intelligence
+
+**ديناميكيات القوة الهيكلية (البرلمان الأوروبي EP10، 2026):**  
+يتطلب حزب الشعب الأوروبي (183 مقعداً) تحالف الأطراف الثلاثة (PPE+S&D+Renew = 396) في كل تصويت مثير للجدل. لا توجد أغلبية يمينية قابلة للتطبيق لحزب الشعب الأوروبي (PPE+ECR+PfE = 349، دون عتبة 360). هذا الانغلاق الهيكلي يجعل حزب الشعب الأوروبي محوراً لكنه يجعل أيضاً موافقة S&D+Renew ضرورة — مما يخلق اعتماداً متبادلاً مثلثياً يُشكِّل كل نتيجة تشريعية.
+
+**الموقف الجيوسياسي:**  
+يعمل البرلمان الأوروبي بوصفه مؤسسة جيوسياسية استباقية تتجاوز اختصاصاتها المحددة بالمعاهدات. تمثل الموافقة على لجنة المطالبات، والقرض الأوكراني، وقرار السوق الدفاعية الموحدة معاً موقفاً جديداً من السياسة الخارجية الأوروبية — تحركه تقارب PPE + S&D + Renew حيال التهديد الروسي.
+
+**حوكمة بيئية تحت الضغط:**  
+يمثل تعديل MSR لـ ETS2 أول إضعاف رسمي لآليات تنفيذ "الملاءمة لـ 55" منذ الصفقة الخضراء عام 2021. على الرغم من أنه لا يُلغي هدف الحياد الكربوني لعام 2050، فإنه يُشير إلى تحول في التوازن السياسي نحو إطار "الاستدامة التنافسية" لحزب الشعب الأوروبي. الخضر/التحالف الأوروبي الحر خسروا هذا التصويت — وهم يعلمون ذلك.
+
+---
+
+### One Sentence Each — What Happened
+
+- **لجنة مطالبات أوكرانيا:** دعم البرلمان الأوروبي هيئة دولية جديدة لمعالجة مطالبات التعويض الناجمة عن غزو 2022 — يُنفَّذ عبر الأصول السيادية الروسية المجمدة.
+- **رفع حصانات النواب:** فقد أربعة نواب من أقصى اليمين/القوميين حصانتهم البرلمانية في جلسة واحدة — قضية براون المتعلقة بمعاداة السامية الأبرز.
+- **MSR لـ ETS2:** تضعَّف تسعير الكربون للتدفئة والنقل البري هامشياً قبيل إطلاق 2027؛ الحمايات المالية للصندوق الاجتماعي للمناخ محفوظة.
+- **قانون الانتخابات (التصويت بالوكالة):** يمكن لنائبات البرلمان الحوامل والأمهات الجدد التصويت بالوكالة الآن — دعم شبه إجماعي.
+- **تجديد نظام الأفضليات المعمَّمة:** جُدِّدت الأفضليات التجارية لـ 67 دولة نامية بشروط عمالية/بيئية جديدة.
+- **قرار التنمر الإلكتروني:** طالب البرلمان الأوروبي بأحكام جنائية ومساءلة المنصات الرقمية في التحرش الإلكتروني.
+
+---
+
+### Source Attribution
+
+- النصوص المُعتمَدة للبرلمان الأوروبي: data.europarl.europa.eu (TA-10-2026-0154، -0163، -0155، -0114، -0113، -0139، -0124، -0109، -0108، -0107، -0106)
+- المشهد السياسي: البوابة المفتوحة للبيانات بالبرلمان الأوروبي (717 نائباً، دورة EP10 2024–2029)
+- IMF السياق الاقتصادي: api.imf.org SDMX 3.0 (إصدار سبتمبر 2025، مسح مباشر مُؤكَّد 2026-05-11)
+- نظام الإنذار المبكر: أداة EP MCP (حساسية عالية، الاستقرار=84/100، 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### لجنة مطالبات أوكرانيا الدولية — تحليل استراتيجي معمق
+
+تصويت البرلمان الأوروبي في 30 أبريل 2026 على لجنة مطالبات أوكرانيا الدولية ليس مجرد قرار رمزي. إنه يمثل تحولاً جذرياً في طريقة تصوُّر الاتحاد الأوروبي لدوره في آليات المساءلة الدولية. الأبعاد الاستراتيجية الرئيسية:
+
+**1. جِدَّة الهندسة القانونية:** تستخدم الاتفاقية إطار مجلس أوروبا (وليس معاهدات الاتحاد الأوروبي) للتحايل على شلل الفيتو في مجلس الأمن. هذا هو الأسلوب المعماري ذاته الذي اُستُخدم في نظام روما الأساسي عام 1998 — بناء بنية تحتية للمساءلة خارج نظام مجلس الأمن. يطبق الاتحاد الأوروبي الآن الهندسة القانونية نفسها على أوكرانيا.
+
+**2. سابقة تشغيل الأصول:** ستُشكِّل أصول سيادية روسية مجمدة بقيمة 285–300 مليار يورو (تحتفظ بها أساساً Euroclear بلجيكا) الوقف المالي. استخدام الأصول الحكومية ضماناً للمساءلة بحكم الأمر الواقع — دون موافقة تلك الدولة — أمر غير مسبوق قانونياً في أوقات السلم. سيكون رأي محكمة العدل الأوروبية الاستشاري (المتوقع في الربعين 2–3 من 2026) بشأن مشروعية نشر هذه الأصول أهم قرار قانوني للاتحاد الأوروبي في 2026.
+
+**3. التحول الجيوسياسي لحزب الشعب الأوروبي:** لم يكن دعم حزب الشعب الأوروبي المتحمس للجنة المطالبات ليمر بالخيال إبان البرلمان الأوروبي EP8 (2014–2019)، حين كان نواب الحزب من المجر وبلغاريا وأجزاء من كتلة دول أوروبا الوسطى والشرقية يُلطِّفون بانتظام لغة البرلمان الأوروبي تجاه روسيا. كتلة حزب الشعب الأوروبي في EP10 — المُرسَّخة الآن باستبعاد المجر ما بعد أوربان من الحزب والموقف الأوروبي الحازم لألمانيا ميرتز — أكثر صرامة هيكلياً تجاه روسيا.
+
+**4. التداعيات النظامية على القانون الدولي:** إذا نجحت لجنة المطالبات في عملها، فإنها ترسي سابقة مفادها أن القوى الكبرى يمكن أن تُحاسَب مالياً من قِبَل هيئات دولية تعمل خارج إطار ميثاق الأمم المتحدة. لهذه السابقة تداعيات على نزاعات القوى الكبرى المستقبلية (سيناريوهات الصين-تايوان) التي يحسبها الاتحاد الأوروبي والولايات المتحدة والديمقراطيات الحليفة بالفعل.
+
+#### رفع الحصانات — نمط المساءلة المؤسسية
+
+رفع حصانات أربعة نواب في يوم واحد (28 أبريل) ليس صدفة. إنه يعكس:
+
+1. **الموقف الفعّال للإنفاذ لدى JURI:** اعتمدت JURI في EP10 نهجاً أكثر استباقية نحو المساءلة، كما يتضح من التوسع في صلاحيات الهيئة الأخلاقية
+2. **البعد السياسي لقضية براون:** طلب رفع الحصانة في قضايا ذات صلة بمعاداة السامية حساس سياسياً في سياقه
+3. **البعد الروماني لقضية شوشواكا:** أوجدت جدلية حملة كالين جيورجيسكو الرئاسية في رومانيا (أواخر 2025) سياقاً سياسياً لمعاملة أكثر صرامة للنواب الأوروبيين القوميين الرومانيين
+4. **البعد البولندي لقضيتي أوباجتيك/بوتشيك:** كلا النائبين البولنديين المنتسبَين إلى ECR محلَّ تحقيقات قريبة من الفساد — منسجم مع إصلاح القضاء البولندي ما بعد PiS وجهود المساءلة في عهد رئيس الوزراء دونالد توسك
+
+النمط: تعالج JURI تراكماً من طلبات رفع الحصانة من فترتي EP8/9 وEP10، تسارعت بسبب توسع صلاحيات الهيئة الأخلاقية. مجموعة 28 أبريل تعكس جلسة JURI مكرَّسة تحديداً لتصفية هذا التراكم — وليست أربع قضايا جديدة متزامنة.
+
+#### تعديل MSR لـ ETS2 — إشارة هشاشة الصفقة الخضراء
+
+يستحق تعديل احتياطي استقرار السوق في 29 أبريل (TA-10-2026-0139) تحليلاً أعمق من مجرد نقطة بيانات واحدة. في سياق مسار تنفيذ حزمة "الملاءمة لـ 55" بأكملها:
+
+- **2024:** اجتاز قانون استعادة الطبيعة في الاتحاد الأوروبي بصعوبة؛ تضعَّفت لوائح الميثان في مفاوضات ثلاثية
+- **2025:** تأخر تطبيق الوقود المستدام (ReFuelEU)؛ خفض ميزانية استراتيجية الهيدروجين الأوروبية
+- **2026-04-29:** تقليص احتياطي MSR لـ ETS2 قبيل الإطلاق
+
+هذا النمط متسق مع انعطافة حزب الشعب الأوروبي نحو "الاستدامة التنافسية" — الحفاظ على الهندسة الهيكلية للتشريعات الخضراء مع تقليص فاعليتها التشغيلية. تعديل MSR هو النسخة الخاصة بـ ETS2 من هذا النمط: الآلية موجودة، لكن احتياطي الاستقرار مُقلَّص، مما يجعل سعر الكربون لـ ETS2 أكثر تذبذباً وبالتالي أقل موثوقية كإشارة استثمارية لنشر التقنيات النظيفة.
+
+**صلة صندوق IMF بالموضوع:** يُوجِد النمو السلبي للناتج المحلي الإجمالي الألماني (-0.1%، WEO سبتمبر 2025) ضغطاً سياسياً لحماية الصناعات كثيفة الاستهلاك للطاقة من ارتفاعات مفاجئة في التكاليف. تعديل MSR لـ ETS2 الأمثل سياسياً لحزب الشعب الأوروبي — يُشير إلى الالتزام المناخي مع توفير مساحة اقتصادية للصناعة الألمانية والبولندية.
+
+#### التصويت بالوكالة — إصلاح هيكلي للتمثيل
+
+تعديل قانون الانتخابات (TA-10-2026-0124) الذي يُتيح التصويت بالوكالة للنائبات الحوامل/ما بعد الولادة أكثر أهمية مما يُوحي به طابعه التقني. إنه:
+
+1. أول تعديل هيكلي لإجراءات التصويت في البرلمان الأوروبي تحديداً من أجل المساواة بين الجنسين (وليس مجرد حلاً إجرائياً بديلاً)
+2. مُعتمَد بموجب المادة 223 من معاهدة عمل الاتحاد الأوروبي (حكم الحكم الذاتي للبرلمان الأوروبي) — استخدام نادر نسبياً لهذا الحكم
+3. نموذج للإصلاحات الصديقة للأسرة مستقبلاً (إجازة الأبوة، مسؤوليات الرعاية)
+
+**إشارة المراقبة:** عدد النواب الذين سيستندون إلى التصويت بالوكالة في الجلسة العامة 18–22 مايو سيكون أول اختبار تجريبي للطلب.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **متابعة رأي محكمة العدل الأوروبية الاستشاري بشأن الأصول المجمدة** — أهم تطور قانوني قريب المدى لمساءلة أوكرانيا؛ متوقع في الربعين 2–3 من 2026
+2. **رصد تصريح المجر في مجلس الاتحاد** بشأن التصديق على اتفاقية المطالبات — للاستشعار بما إذا كانت احتمالية 30% (R-01) ستتحقق
+3. **مراقبة مسار سعر الكربون لـ ETS2** — إذا هبط السعر دون 30 يورو/طن بعد تطبيق تعديل MSR، فذلك يُؤكد أطروحة تآكل الصفقة الخضراء
+4. **متابعة بيانات XML لـ DOCEO للجلسة العامة 18–22 مايو** — ستؤكد أول بيانات تصويت بعد أسبوع اللجان استقرار التحالف بشأن توجيه مسؤولية الذكاء الاصطناعي، وهو أكبر اختبار تشريعي قادم
+
+---
+
+### Source Attribution (Expanded)
+
+- البيانات الأولية: النصوص المُعتمَدة للبرلمان الأوروبي TA-10-2026-0154، -0163، -0155، -0114، -0113، -0139، -0124، -0109، -0108، -0107، -0106 عبر data.europarl.europa.eu
+- المشهد السياسي للبرلمان الأوروبي: generate_political_landscape (2026-05-11، 717 نائباً، 9 مجموعات)
+- IMF WEO: إصدار سبتمبر 2025، مؤشرات الناتج المحلي الإجمالي/التضخم/المالية العامة لـ DEU/FRA/ITA/ESP/POL، مُسترجَعة عبر fetch_url (SDMX 3.0)
+- نظام الإنذار المبكر للبرلمان الأوروبي: الاستقرار=84/100، 3 تحذيرات (حساسية عالية، 2026-05-11)
+- ديناميكيات تحالف البرلمان الأوروبي: analyze_coalition_dynamics (1 أبريل–11 مايو؛ وكيل التركيبة، وليس مستوى التصويت)
+- السياق التاريخي: قاعدة المعرفة المؤسسية للبرلمان الأوروبي (سوابق رفع الحصانة، مسار ETS)
+- توثيق IMF لتحليل الأساس القانوني: تركيب تحليلي (ليس مصدراً مباشراً من IMF)
+
+### Executive Probability Assessment
+
+**ملخص احتمالات WEP** لصناع القرار التنفيذي:
+
+| التقييم | نطاق WEP | الثقة |
+|---------|---------|-------|
+| دخول لجنة المطالبات حيز التنفيذ | شبه مؤكد | HIGH |
+| تنفيذ تعديل MSR لـ ETS2 بحلول الربع 3 2026 | مرجح جداً | HIGH |
+| تأخير المجر/بولندا للتنفيذ | محتمل | HIGH |
+| تقديم طعن أمام محكمة العدل الأوروبية خلال 6 أشهر | متساوٍ تقريباً | MEDIUM |
+| صمود التحالف حتى تصويت الميزانية في يونيو | مرجح جداً | HIGH |
+| تشكيل ESN أقلية حاجبة | مستبعد جداً | HIGH |
+
+### Admiralty Source Assessment
+
+| المصدر | الموثوقية | المصداقية | التقدير |
+|--------|----------|----------|---------|
+| سجل النصوص المُعتمَدة للبرلمان الأوروبي | A (موثوق كلياً) | 1 (مُؤكَّد) | A1 |
+| المشهد السياسي للبرلمان الأوروبي (MCP) | A (موثوق كلياً) | 2 (صحيح على الأرجح) | A2 |
+| نظام الإنذار المبكر | B (موثوق) | 2 (صحيح على الأرجح) | B2 |
+| تحليل ديناميكيات التحالف | B (موثوق) | 2 (صحيح على الأرجح) | B2 |
+| تقييم الإطار الإعلامي | C (موثوق إلى حد ما) | 3 (محتمل الصحة) | C3 |
+| التوقعات والسيناريوهات | B (موثوق) | 3 (محتمل الصحة) | B3 |
+
+**الموثوقية الإجمالية للموجز التنفيذي: B2** — قاعدة مصادر موثوقة، التقييمات صحيحة على الأرجح.
+
+### Executive Action Recommendations
+
+**لهيئات الرقابة في الاتحاد الأوروبي**: رصد نشر الإطار التنفيذي للجنة المطالبات (الهدف: يوليو 2026). طلب من المفوضية نشر جدول زمني للتنفيذ قبل مجلس يونيو 2026.
+
+**لمكاتب النواب الأوروبيين**: التحضير لتركيز دورة سبتمبر 2026 على التشريعات الثانوية للجنة المطالبات ومراجعة مرسوم تنفيذ ETS2.
+
+**لمراكز الفكر والمنظمات غير الحكومية**: نشر تحليل قانوني حول مخاطر الطعن أمام محكمة العدل الأوروبية في لجنة المطالبات لإثراء النقاش العام.
+
+**للصحفيين**: متابعة نشر المفوضية للإطار التشغيلي (لجنة المطالبات) ومسار سعر كربون ETS2 بوصفهما معلمتين رئيسيتين.
+
+*موجز تنفيذي — الإصدار 2.0 (تمديد إعادة التشغيل) | التاريخ: 2026-05-11*
+*نطاقات احتمالات WEP وفق معايير مجتمع الاستخبارات | التقدير الأميرالي مُطبَّق*
+*الرخصة: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief Da
+
+**60-sekunders læsning:** Ukraine international erstatningskommission + MEP-immunitetsophævelse + ETS2 miljøstyring  
+**Konfidens:** 🟡 Medium  
+**Data:** Strasbourg-plenarsession 28–30 april (seneste EP-lovgivning)
+
+---
+
+### BLUF — Bottom Line Up Front
+
+Europa-Parlamentets plenarsession i Strasbourg 28–30 april 2026 leverede tre historiske beslutninger:
+
+1. **Ukraines internationale erstatningskommission** (30. april): EP godkender en ny international retsmekanisme til behandling af erstatningskrav mod Rusland — første gang Parlamentet støtter en selvstændig eksterritorial ansvarlighedsarkitektur. Supermajoritet skønnet til 535+/717. Primær geopolitisk betydning: etablerer institutionelt præcedens for ansvarlighedsutkrævning af væbnet aggressor uden for FN's sikkerhedsråds vetosystem.
+
+2. **Fire MEP-immunitetsophævelser på én session** (28. april): JURI-udvalget igangsatte ophævelser for Grzegorz Braun (antisemitisme), Diana Şoşoacă (rumænsk nationalisme), Daniel Obajtek og Tomasz Buczek — alle ECR/NI-tilknyttede. Historisk usædvanlig koncentration af håndhævelseshandlinger; kan signalere en bevidst ansvarlighedsstrategi.
+
+3. **ETS2 MSR justeret** (29. april): Markedsstabilitetsreserven for det nye kuldioxidmarked for bygninger/vejtransport (lancering 2027) ændredes for at bremse reserveaktivering — reducerer topprisrisiko men svækker dekarboniseringsdrivkraftens tempo. EPP-formet kompromis; Greens/EFA modsatte sig.
+
+Ingen betydningsfulde lovgivningsmæssige afstemninger er registreret for 11. maj (EP i udvalgsugen).
+
+---
+
+### Top Trigger Assessment
+
+| Spørgsmål | Betydning | Hastighed | Overvåg |
+|-----------|-----------|-----------|---------|
+| Ukraines erstatningskommission | 🔴 Høj — internationalt retspræcedens | Løbende | EU-Domstolens udtalelse om indefrosne aktiver (K3 2026) |
+| MEP-immunitetsophævelser (×4) | 🟡 Medium — ansvarslighedskaskade | Aktuel | EMRK-udfordringer; fremtidig JURI-kalender |
+| ETS2 MSR-svækkelse | 🟡 Medium — klimastyringens tilbagerulningssignal | Mellemlang sigt | ETS2-lanceringsparathed (2027) |
+| EU-udvidgelsesstrategi | 🟡 Medium — mål 2028–2030 bekræftet | Mellemlang sigt | Rådsforhandlinger om tiltrædelseskapitel |
+| Proxystemning for MEP'er | 🟢 Lav — intern styringsreform | Aktuel | Implementering inden 2027 EP-valg |
+
+---
+
+### Strategic Intelligence
+
+**Strukturel magtdynamik (EP10, 2026):**  
+EPP (183 mandater) kræver trepartkoalitionen (EPP+S&D+Renew = 396) for enhver omstridt afstemning. Der findes ingen bæredygtig EPP-højrefløjsmajoritet (EPP+ECR+PfE = 349, under 360-grænsen). Denne strukturelle fastlåsning gør EPP til omdrejningspunkt men gør også S&D+Renews tilslutning nødvendig — skaber en trekantet gensidig afhængighed der former ethvert lovgivningsresultat.
+
+**Geopolitisk holdning:**  
+EP agerer som en proaktiv geopolitisk institution ud over sine traktatdefinerede beføjelser. Godkendelsen af erstatningskommissionen, Ukraine-lånet og resolutionen om forsvarsindustriens indre marked repræsenterer tilsammen en ny assertiv EP-udenrigspolitisk holdning — drevet af EPP + S&D + Renew-konvergens om Ruslandsfarens trussel.
+
+**Miljøstyring under pres:**  
+ETS2 MSR-justeringen repræsenterer den første formelle svækkelse af Fit for 55's implementeringsmekanismer siden 2021 Green Deal. Det er ikke en tilbagerulning af netto-nul-målet for 2050, men det signalerer et politisk ligevægtsskifte mod EPP's "konkurrencedygtig bæredygtighed"-ramme. Greens/EFA tabte denne afstemning — og det ved de.
+
+---
+
+### One Sentence Each — What Happened
+
+- **Ukraines erstatningskommission:** EP støttede et nyt internationalt organ til behandling af skadeserstatningskrav fra invasionen i 2022 — håndhævet via indefrosne russiske statsaktiver.
+- **MEP-ophævelser:** Fire højreekstreme/nationalistiske MEP'er mistede parlamentarisk immunitet i én session — Brauns antisemitismesag den mest fremtrædende.
+- **ETS2 MSR:** CO₂-prissætning for opvarmning og vejtransport svækket marginalt inden 2027-lanceringen; Social Climate Fund-beskyttelser bevaret.
+- **Valgloven (proxystemning):** Gravide MEP'er og nyblevne mødre kan nu stemme ved fuldmagt — næsten enstemmig støtte.
+- **GSP-fornyelse:** Handelspræferencer for 67 udviklingslande fornyet med nye arbejds-/miljøbetingelser.
+- **Resolution om cybermobning:** EP opfordrede til strafferetlige bestemmelser og platformsansvar for onlinetrakassering.
+
+---
+
+### Source Attribution
+
+- EP's vedtagne tekster: data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- Politisk landskab: EP's åbne dataportal (717 MEP'er, EP10-valgperiode 2024–2029)
+- IMF Økonomisk kontekst: api.imf.org SDMX 3.0 (september 2025 vintage, live sonde bekræftet 2026-05-11)
+- Tidligt varslingssystem: EP MCP-værktøj (høj følsomhed, stabilitet=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### Ukraines erstatningskommission — Strategisk dybdeanalyse
+
+EP-afstemningen den 30. april 2026 om Ukraines internationale erstatningskommission er ikke blot en symbolsk resolution. Den repræsenterer et fundamentalt skifte i, hvordan EU konceptualiserer sin rolle i internationale ansvarlighedsmekanismer. De vigtigste strategiske dimensioner:
+
+**1. Retsarkitekturens nyhed:** Konventionen bruger Europarådets ramme (ikke EU-traktaterne) til at omgå UNSC-vetoblokering. Dette er den samme arkitektoniske tilgang, der blev brugt til Romstatutten fra 1998 — opbygning af ansvarlighedsinfrastruktur uden for sikkerhedsrådssystemet. EU anvender nu den samme juridiske ingeniørkunst for Ukraine.
+
+**2. Aktivoperationaliseringspræcedens:** EUR 285–300 milliarder i indefrosne russiske statsaktiver (primært opbevaret af Euroclear Belgien) vil tjene som grundkapital. At anvende statsaktiver som de facto ansvarlighedssikkerhed — uden den pågældende stats samtykke — er juridisk uden fortilfælde i fredstid. EU-Domstolens rådgivende udtalelse (forventet K2–K3 2026) om lovligheden af at anvende disse aktiver vil være EUs mest konsekvente juridiske afgørelse i 2026.
+
+**3. EPP's geopolitiske transformation:** EPP's entusiastiske støtte til erstatningskommissionen ville have været utænkelig i EP8 (2014–2019), da EPP-MEP'er fra Ungarn, Bulgarien og dele af CEE-blokken regelmæssigt blødgjorde EP's sprogbrug om Rusland. EP10's EPP-blok — nu forankret af post-Orbán-Ungarns udelukkelse fra EPP og Merz-Tysklands assertive EU-holdning — er strukturelt mere høgeagtig over for Rusland.
+
+**4. Systemiske internationale retsimplikationer:** Hvis erstatningskommissionen fungerer succesfuldt, etablerer det præcedensen om, at stormagter kan holdes finansielt ansvarlige af internationale organer, der opererer uden for FN-pagtens ramme. Dette præcedens har implikationer for fremtidige stormagtskonflikter (Kina-Taiwan-scenarier), som EU, USA og allierede demokratier allerede beregner.
+
+#### Immunitetsophævelser — Institutionelt ansvarsmønster
+
+De fire immunitetsophævelser på én dag (28. april) er ikke en tilfældighed. De afspejler:
+
+1. **JURI's aktive håndhævelsesholdning:** JURI under EP10 har vedtaget en mere proaktiv holdning til ansvarsutkrævning, som signaleret af Etikorgnets udvidede mandat
+2. **Braun-sagens politiske dimension:** Anmodningen om immunitetsophævelse for antisemitismerelaterede sager er politisk følsom i kontekst
+3. **Şoşoacăs rumænske dimension:** Călin Georgescus præsidentkampagnekontrovers i Rumænien (sent 2025) skabte politisk kontekst for en strammere behandling af rumænske nationalistiske MEP'er
+4. **Obajtek/Buczeks polske dimension:** Begge polske ECR-tilknyttede MEP'er er under korruptionsnærliggende efterforskninger — konsistent med Polens post-PiS retsreform og ansvarsutkrævningspush under premierminister Donald Tusk
+
+Mønstret: JURI behandler en efterslæb af anmodninger om immunitetsophævelse fra EP8/9 og EP10, accelereret af Etikorgnets mandatudvidelse. 28. april-klyngen afspejler en JURI-session specifikt afsat til at rydde denne efterslæb — ikke fire samtidige nye sager.
+
+#### ETS2 MSR-justering — Green Deal-skrøbelighedssignal
+
+29. april-MSR-justeringen (TA-10-2026-0139) fortjener dybere analyse end et enkelt datapunkt. I konteksten af hele Fit for 55-pakkens implementeringstrajectorie:
+
+- **2024:** EUs naturgenopretningslov passerede knap; metanregulering svækket i trilogen
+- **2025:** Bæredygtige brændstoffer (ReFuelEU) håndhævelse forsinket; EU-brintstrategiens budgetnedskæringer
+- **2026-04-29:** ETS2 MSR-buffer reduceret inden lancering
+
+Dette mønster er konsistent med EPP's "konkurrencedygtig bæredygtighed"-pivot — opretholdelse af Green Deal-lovgivningens strukturelle arkitektur mens dens operationelle bid reduceres. MSR-justeringen er den ETS2-specifikke version af dette mønster: mekanismen eksisterer, men dens stabiliseringsbuffer reduceres, hvilket gør ETS2-CO₂-prisen mere volatil og dermed mindre pålidelig som investeringssignal for ren teknologiudrulning.
+
+**IMF-relevans:** Tysklands negative BNP-vækst (-0,1%, sep 2025 WEO) skaber politisk pres for at beskytte energiintensiv industri mod pludselige omkostningsstigninger. ETS2 MSR-justeringen er politisk optimal for EPP — signalerer klimaengagement og giver økonomisk vejrtrækning for tysk/polsk industri.
+
+#### Proxystemning — Strukturel repræsentationsreform
+
+Valglovsændringen (TA-10-2026-0124), der muliggør proxystemning for gravide/postpartum MEP'er, er mere betydningsfuld end dens tekniske karakter antyder. Den er:
+
+1. Den første strukturelle ændring af EP's stemmeafgivelsesprocedurer specifikt for ligestilling (ikke blot en proceduremæssig omgåelse)
+2. Vedtaget i henhold til artikel 223 TEUF (EP's selvstyreparagraf) — en relativt sjælden brug af denne bestemmelse
+3. En model for fremtidige familivenlige reformer (barsel, omsorgsansvar)
+
+**Overvågningssignal:** Hvor mange MEP'er påberåber sig proxystemning i plenarsessionen 18–22 maj bliver den første empiriske test af efterspørgslen.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **Følg EU-Domstolens rådgivende udtalelse om indefrosne aktiver** — enkelt mest konsekvente juridiske udvikling på kort sigt for Ukraines ansvarsutkrævning; forventet K2–K3 2026
+2. **Overvåg Ungarns rådsudtalelse** om erstatningskonventionens ratificering — vil telegrafere om 30%-sandsynligheden (R-01) materialiserer sig
+3. **Behold ETS2-CO₂-prissporet i syne** — hvis prisen falder under €30/ton efter MSR-justeringens implementering, validerer det Green Deal-erosionstesen
+4. **Følg DOCEO XML for plenum 18–22 maj** — første omstemmingsdata efter udvalgsugen bekræfter koalitionsstabilitet om AI-ansvarsdirektivet, som er den næste store lovgivningstest
+
+---
+
+### Source Attribution (Expanded)
+
+- Primærdata: EP's vedtagne tekster TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 via data.europarl.europa.eu
+- EP's politiske landskab: generate_political_landscape (2026-05-11, 717 MEP'er, 9 grupper)
+- IMF WEO: september 2025 vintage, DEU/FRA/ITA/ESP/POL BNP/inflation/fiskalindikatorer, hentet via fetch_url (SDMX 3.0)
+- EP's tidlige varslingssystem: stabilitet=84/100, 3 advarsler (høj følsomhed, 2026-05-11)
+- EP's koalitionsdynamik: analyze_coalition_dynamics (apr 1–maj 11; sammensætningsproxy, ikke afstemningsniveau)
+- Historisk kontekst: EP's institutionelle vidensbase (immunitetsophævelsesprćedens, ETS-trajectorie)
+- IMF's dokumentation af retsbaseanalyse: analytisk syntese (ikke direkte IMF-kilde)
+
+### Executive Probability Assessment
+
+**WEP-sandsynlighedsopsummering** for udøvende beslutningstagere:
+
+| Vurdering | WEP-bånd | Konfidens |
+|-----------|----------|-----------|
+| Erstatningskommissionen træder i kraft | Næsten sikkert | HIGH |
+| ETS2 MSR-justering implementeret inden K3 2026 | Meget sandsynligt | HIGH |
+| Ungarn/Polen forsinker implementering | Sandsynligt | HIGH |
+| EU-Domstolsudfordring indgivet inden 6 måneder | Nogenlunde jævnt | MEDIUM |
+| Koalitionen holder gennem juni budgetafstemning | Meget sandsynligt | HIGH |
+| ESN danner blokerende minoritet | Meget usandsynligt | HIGH |
+
+### Admiralty Source Assessment
+
+| Kilde | Pålidelighed | Troværdighed | Karakter |
+|-------|-------------|--------------|----------|
+| EP's register for vedtagne tekster | A (Fuldstændig pålidelig) | 1 (Bekræftet) | A1 |
+| EP's politiske landskab (MCP) | A (Fuldstændig pålidelig) | 2 (Sandsynligvis sandt) | A2 |
+| Tidligt varslingssystem | B (Pålidelig) | 2 (Sandsynligvis sandt) | B2 |
+| Koalitionsdynamikanalyse | B (Pålidelig) | 2 (Sandsynligvis sandt) | B2 |
+| Medieindrammingsvurdering | C (Rimeligt pålidelig) | 3 (Muligvis sandt) | C3 |
+| Scenarioprognoser | B (Pålidelig) | 3 (Muligvis sandt) | B3 |
+
+**Samlet executive brief-pålidelighed: B2** — pålidelig kildebase, vurderinger sandsynligvis sande.
+
+### Executive Action Recommendations
+
+**For EU's tilsynsorganer**: Overvåg publiceringen af erstatningskommissionens implementeringsramme (mål: juli 2026). Anmod Kommissionen om at offentliggøre en implementeringstidslinje inden juni 2026-rådet.
+
+**For MEP-kontorer**: Forbered dig til september 2026-sessionens fokus på erstatningskommissionens sekundærlovgivning og ETS2-implementeringsdekretsgranskning.
+
+**For tænketanke og NGO'er**: Publicer juridisk analyse om erstatningskommissionens EU-Domstolsudfordringsrisiko for at informere den offentlige debat.
+
+**For journalister**: Hold øje med Kommissionens operative rammepublicering (erstatningskommissionen) og ETS2-CO₂-prissporet som nøglemilepæle.
+
+*Executive brief — version 2.0 (kørselsudvidelse) | Dato: 2026-05-11*
+*WEP-sandsynlighedsbånd i henhold til efterretningssamfundets standarder | Admiralty-gradering anvendt*
+*Licens: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief De
+
+**60-Sekunden-Überblick:** Ukraine Internationale Entschädigungskommission + Aufhebung der Immunität von MdEP + ETS2 Umweltgovernance  
+**Konfidenzniveau:** 🟡 Mittel  
+**Daten:** Straßburger Plenum 28.–30. April (aktuellster EP-Gesetzgebungsoutput)
+
+---
+
+### BLUF — Bottom Line Up Front
+
+Das Straßburger Plenum des Europäischen Parlaments vom 28.–30. April 2026 lieferte drei wegweisende Beschlüsse:
+
+1. **Ukrainische Internationale Entschädigungskommission** (30. April): Das EP befürwortet einen neuartigen internationalen Rechtsmechanismus zur Bearbeitung von Entschädigungsansprüchen gegen Russland — das erste Mal, dass das Parlament eine eigenständige extraterritoriale Rechenschaftsarchitektur unterstützt. Supermehrheit auf etwa 535+/717 geschätzt. Primäre geopolitische Bedeutung: Schafft institutionellen Präzedenzfall für die Verantwortlichkeit eines bewaffneten Aggressors außerhalb des UN-Sicherheitsrats-Vetosystems.
+
+2. **Vier Immunitätsaufhebungen für MdEP in einer Sitzung** (28. April): Der JURI-Ausschuss leitete Aufhebungen für Grzegorz Braun (Antisemitismus), Diana Şoşoacă (rumänischer Nationalismus), Daniel Obajtek und Tomasz Buczek ein — alle ECR/NI-assoziiert. Historisch ungewöhnliche Konzentration von Durchsetzungsmaßnahmen; könnte eine bewusste Rechenschaftsstrategie signalisieren.
+
+3. **ETS2 MSR angepasst** (29. April): Die Marktstabilitätsreserve für den neuen Gebäude-/Straßenverkehr-Kohlenstoffmarkt (Launch 2027) wurde modifiziert, um die Reserveaktivierung zu verlangsamen — reduziert das Spitzenpreisrisiko, schwächt aber die Geschwindigkeit des Dekarbonisierungsanreizes. EPP-geformter Kompromiss; Greens/EFA dagegen.
+
+Für den 11. Mai sind keine bedeutenden Gesetzgebungsabstimmungen verzeichnet (EP in Ausschusswoche).
+
+---
+
+### Top Trigger Assessment
+
+| Thema | Bedeutung | Dringlichkeit | Beobachten |
+|-------|-----------|---------------|------------|
+| Ukrainische Entschädigungskommission | 🔴 Hoch — internationaler Rechtspräzedenzfall | Laufend | EuGH-Gutachten zu eingefrorenen Vermögenswerten (Q3 2026) |
+| MdEP-Immunitätsaufhebungen (×4) | 🟡 Mittel — Rechenschaftspflicht-Kaskade | Aktuell | EGMR-Klagen; künftiger JURI-Kalender |
+| ETS2 MSR-Schwächung | 🟡 Mittel — Signal für Klimagovernance-Rücknahme | Mittelfristig | ETS2-Startbereitschaft (2027) |
+| EU-Erweiterungsstrategie | 🟡 Mittel — Ziel 2028–2030 bekräftigt | Mittelfristig | Ratsverhandlungen über Beitrittskapitel |
+| Stimmrechtsvertretung für MdEP | 🟢 Niedrig — interne Governance-Reform | Aktuell | Umsetzung bis zu den Europawahlen 2027 |
+
+---
+
+### Strategic Intelligence
+
+**Strukturelle Machtdynamik (EP10, 2026):**  
+Die EPP (183 Sitze) erfordert die Dreiparteienkoalition (EPP+S&D+Renew = 396) für jede umstrittene Abstimmung. Es gibt keine tragfähige EPP-Rechtsmehrheit (EPP+ECR+PfE = 349, unterhalb der 360-Schwelle). Diese strukturelle Blockade macht die EPP zum Dreh- und Angelpunkt, macht aber auch die Zustimmung von S&D+Renew unerlässlich — schafft eine dreieckige gegenseitige Abhängigkeit, die jedes Gesetzgebungsergebnis prägt.
+
+**Geopolitische Haltung:**  
+Das EP agiert als proaktive geopolitische Institution jenseits seiner vertraglich definierten Zuständigkeiten. Die Befürwortung der Entschädigungskommission, das Ukraine-Darlehen und die Resolution zum Binnenmarkt für Rüstung repräsentieren gemeinsam eine neue assertive außenpolitische Haltung des EP — angetrieben durch EPP + S&D + Renew-Konvergenz angesichts der Russland-Bedrohung.
+
+**Umweltgovernance unter Druck:**  
+Die ETS2-MSR-Anpassung stellt die erste formelle Schwächung der Umsetzungsmechanismen von Fit for 55 seit dem Green Deal 2021 dar. Obwohl kein Zurückrollen des Netto-Null-Ziels 2050, signalisiert es eine politische Gleichgewichtsverschiebung in Richtung des EPP-Rahmens der „wettbewerbsfähigen Nachhaltigkeit". Die Greens/EFA verloren diese Abstimmung — und das wissen sie.
+
+---
+
+### One Sentence Each — What Happened
+
+- **Ukrainische Entschädigungskommission:** Das EP unterstützte ein neues internationales Gremium zur Bearbeitung von Schadensersatzansprüchen aus der Invasion 2022 — vollstreckt über eingefrorene russische Staatsanlagen.
+- **MdEP-Aufhebungen:** Vier rechtsextreme/nationalistische MdEP verloren in einer einzigen Sitzung die parlamentarische Immunität — Brauns Antisemitismusfall am prominentesten.
+- **ETS2 MSR:** CO₂-Bepreisung für Heizung und Straßenverkehr marginell geschwächt vor dem Launch 2027; Schutzmaßnahmen des Sozialen Klimafonds bewahrt.
+- **Wahlgesetz (Stimmrechtsvertretung):** Schwangere MdEP und frische Mütter können jetzt per Vertretung abstimmen — nahezu einstimmige Unterstützung.
+- **GSP-Erneuerung:** Handelspräferenzen für 67 Entwicklungsländer mit neuen Arbeits-/Umweltbedingungen erneuert.
+- **Resolution zu Cybermobbing:** Das EP forderte strafrechtliche Bestimmungen und Plattformverantwortung für Online-Belästigung.
+
+---
+
+### Source Attribution
+
+- EP-Angenommene Texte: data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- Politische Landschaft: EP-Offenes Datenportal (717 MdEP, EP10-Amtszeit 2024–2029)
+- IMF Wirtschaftlicher Kontext: api.imf.org SDMX 3.0 (September 2025 Vintage, Live-Sonde bestätigt 2026-05-11)
+- Frühwarnsystem: EP MCP-Tool (hohe Sensitivität, Stabilität=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### Ukrainische Entschädigungskommission — Strategische Tiefenanalyse
+
+Die EP-Abstimmung vom 30. April 2026 über die Ukrainische Internationale Entschädigungskommission ist nicht bloß eine symbolische Resolution. Sie stellt eine grundlegende Verschiebung in der Art und Weise dar, wie die EU ihre Rolle in internationalen Rechenschaftsmechanismen konzipiert. Die wichtigsten strategischen Dimensionen:
+
+**1. Neuartigkeit der Rechtsarchitektur:** Das Übereinkommen nutzt den Rahmen des Europarates (nicht EU-Verträge), um die Blockade durch den UNSC-Veto zu umgehen. Dies ist derselbe architektonische Ansatz wie beim Römer Statut von 1998 — Aufbau einer Rechenschaftsinfrastruktur außerhalb des Sicherheitsratssystems. Die EU wendet dieselbe Rechtstechnik nun auf die Ukraine an.
+
+**2. Präzedenzfall der Vermögensmobilisierung:** EUR 285–300 Milliarden eingefrorene russische Staatsanlagen (hauptsächlich bei Euroclear Belgien gehalten) werden als Dotation dienen. Die Nutzung staatlicher Anlagen als de-facto-Rechenschaftssicherheit — ohne Zustimmung des betreffenden Staates — ist in Friedenszeiten juristisch präzedenzlos. Das EuGH-Gutachten (erwartet Q2–Q3 2026) zur Rechtmäßigkeit des Einsatzes dieser Anlagen wird die folgenreichste EU-Rechtsentscheidung 2026 sein.
+
+**3. Geopolitische Transformation der EPP:** Die enthusiastische Unterstützung der EPP für die Entschädigungskommission wäre im EP8 (2014–2019) undenkbar gewesen, als EPP-MdEP aus Ungarn, Bulgarien und Teilen des CEE-Blocks regelmäßig die EP-Formulierungen zu Russland verwässerten. Der EP10-EPP-Block — jetzt verankert durch den Ausschluss des post-Orbán-Ungarns aus der EPP und Merz-Deutschlands assertive EU-Haltung — ist strukturell hawkischer gegenüber Russland.
+
+**4. Systemische internationale Rechtsimplikationen:** Wenn die Entschädigungskommission erfolgreich operiert, etabliert sie den Präzedenzfall, dass Großmächte von internationalen Gremien finanziell zur Rechenschaft gezogen werden können, die außerhalb des UN-Charta-Rahmens operieren. Dieser Präzedenzfall hat Implikationen für künftige Großmachtkonflikte (China-Taiwan-Szenarien), die EU, USA und befreundete Demokratien bereits kalkulieren.
+
+#### Immunitätsaufhebungen — Institutionelles Rechenschaftsmuster
+
+Die vier Immunitätsaufhebungen an einem Tag (28. April) sind kein Zufall. Sie spiegeln wider:
+
+1. **JURIs aktive Durchsetzungshaltung:** JURI im EP10 hat eine proaktivere Haltung zur Rechenschaftspflicht eingenommen, wie durch das erweiterte Mandat des Ethikorgans signalisiert
+2. **Politische Dimension des Braun-Falls:** Der Antrag auf Immunitätsaufhebung für antisemitismusbezogene Fälle ist politisch heikel im Kontext
+3. **Rumänische Dimension des Şoşoacă-Falls:** Călin Georgescus Präsidentschaftswahlkampfkontroverse in Rumänien (Ende 2025) schuf politischen Kontext für härtere Behandlung rumänischer nationalistischer MdEP
+4. **Polnische Dimension des Obajtek/Buczek-Falls:** Beide polnischen ECR-assoziierten MdEP sind korruptionsnahen Ermittlungen ausgesetzt — konsistent mit Polens post-PiS-Justizreform und Rechenschaftsdruck unter Premierminister Donald Tusk
+
+Das Muster: JURI arbeitet einen Rückstau an Immunitätsaufhebungsanträgen aus EP8/9 und EP10 ab, beschleunigt durch die Mandatserweiterung des Ethikorgans. Der 28. April-Cluster spiegelt eine JURI-Sitzung wider, die speziell der Abarbeitung dieses Rückstaus gewidmet war — nicht vier zeitgleiche neue Fälle.
+
+#### ETS2-MSR-Anpassung — Fragilitätssignal des Green Deal
+
+Die MSR-Anpassung vom 29. April (TA-10-2026-0139) verdient tiefere Analyse als einzelner Datenpunkt. Im Kontext der gesamten Umsetzungstrajektorie des Fit-for-55-Pakets:
+
+- **2024:** EU-Naturwiederherstellungsgesetz kaum verabschiedet; Methanverordnung in Trilogverhandlungen abgeschwächt
+- **2025:** Nachhaltige Kraftstoffe (ReFuelEU) Vollzug verzögert; EU-Wasserstoffstrategie Budgetkürzungen
+- **2026-04-29:** ETS2-MSR-Puffer vor Launch reduziert
+
+Dieses Muster ist konsistent mit der EPP-Schwenkung zur „wettbewerbsfähigen Nachhaltigkeit" — Aufrechterhaltung der Strukturarchitektur der Green-Deal-Gesetzgebung bei gleichzeitiger Reduzierung ihrer operativen Wirksamkeit. Die MSR-Anpassung ist die ETS2-spezifische Version dieses Musters: Der Mechanismus existiert, aber sein Stabilisierungspuffer wird reduziert, was den ETS2-CO₂-Preis volatiler und damit als Investitionssignal für den Einsatz sauberer Technologien weniger zuverlässig macht.
+
+**IMF-Relevanz:** Deutschlands negatives BIP-Wachstum (-0,1%, Sep. 2025 WEO) erzeugt politischen Druck, die energieintensive Industrie vor abrupten Kostensteigerungen zu schützen. Die ETS2-MSR-Anpassung ist politisch optimal für die EPP — signalisiert Klimaverpflichtung und schafft wirtschaftlichen Spielraum für die deutsche/polnische Industrie.
+
+#### Stimmrechtsvertretung — Strukturelle Repräsentationsreform
+
+Die Änderung des Wahlgesetzes (TA-10-2026-0124), die Stimmrechtsvertretung für schwangere/postpartale MdEP ermöglicht, ist bedeutsamer als ihr technischer Charakter vermuten lässt. Sie ist:
+
+1. Die erste strukturelle Änderung der EP-Abstimmungsverfahren speziell für Geschlechtergleichstellung (nicht nur eine prozessuale Umgehung)
+2. Verabschiedet nach Artikel 223 AEUV (EP-Selbstregulierungsbestimmung) — eine relativ seltene Nutzung dieser Bestimmung
+3. Ein Modell für künftige familienpolitische Reformen (Vaterschaftsurlaub, Pflegeverantwortung)
+
+**Überwachungssignal:** Wie viele MdEP die Stimmrechtsvertretung in der Plenarsitzung vom 18.–22. Mai in Anspruch nehmen, wird der erste empirische Nachfragetest sein.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **EuGH-Gutachten zu eingefrorenen Vermögenswerten verfolgen** — die folgenreichste kurzfristige Rechtsentwicklung für Ukraines Rechenschaftspflicht; erwartet Q2–Q3 2026
+2. **Erklärung Ungarns im Rat** zur Ratifizierung des Entschädigungsübereinkommens überwachen — signalisiert, ob sich die 30%-Wahrscheinlichkeit (R-01) materialisiert
+3. **ETS2-CO₂-Preistrajektorie beobachten** — fällt der Preis nach Umsetzung der MSR-Anpassung unter €30/t, bestätigt das die Green-Deal-Erosionsthese
+4. **DOCEO-XML für Plenum 18.–22. Mai verfolgen** — erste Abstimmungsdaten nach Ausschusswoche bestätigen Koalitionsstabilität bei der KI-Haftungsrichtlinie, dem nächsten großen Gesetzgebungstest
+
+---
+
+### Source Attribution (Expanded)
+
+- Primärdaten: EP-Angenommene Texte TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 über data.europarl.europa.eu
+- EP Politische Landschaft: generate_political_landscape (2026-05-11, 717 MdEP, 9 Gruppen)
+- IMF WEO: September 2025 Vintage, DEU/FRA/ITA/ESP/POL BIP/Inflation/Fiskalindikatoren, abgerufen via fetch_url (SDMX 3.0)
+- EP Frühwarnsystem: Stabilität=84/100, 3 Warnungen (hohe Sensitivität, 2026-05-11)
+- EP Koalitionsdynamik: analyze_coalition_dynamics (1. Apr–11. Mai; Zusammensetzungsproxy, nicht Abstimmungsebene)
+- Historischer Kontext: EP-institutionelle Wissensbasis (Immunität-Aufhebungspräzedenzfälle, ETS-Trajektorie)
+- IMF-Dokumentation der Rechtsgrundlagenanalyse: analytische Synthese (keine direkte IMF-Quelle)
+
+### Executive Probability Assessment
+
+**WEP-Wahrscheinlichkeitszusammenfassung** für ausführende Entscheidungsträger:
+
+| Einschätzung | WEP-Band | Konfidenzniveau |
+|-------------|----------|-----------------|
+| Entschädigungskommission tritt in Kraft | Nahezu sicher | HIGH |
+| ETS2-MSR-Anpassung bis Q3 2026 umgesetzt | Höchstwahrscheinlich | HIGH |
+| Ungarn/Polen verzögert Umsetzung | Wahrscheinlich | HIGH |
+| EuGH-Klage innerhalb von 6 Monaten eingereicht | Ungefähr gleichwahrscheinlich | MEDIUM |
+| Koalition hält bis zur Juni-Haushaltsabstimmung | Höchstwahrscheinlich | HIGH |
+| ESN bildet Sperrminorität | Höchst unwahrscheinlich | HIGH |
+
+### Admiralty Source Assessment
+
+| Quelle | Zuverlässigkeit | Glaubwürdigkeit | Bewertung |
+|--------|-----------------|-----------------|-----------|
+| EP-Register für angenommene Texte | A (Vollständig zuverlässig) | 1 (Bestätigt) | A1 |
+| EP Politische Landschaft (MCP) | A (Vollständig zuverlässig) | 2 (Wahrscheinlich zutreffend) | A2 |
+| Frühwarnsystem | B (Zuverlässig) | 2 (Wahrscheinlich zutreffend) | B2 |
+| Koalitionsdynamikanalyse | B (Zuverlässig) | 2 (Wahrscheinlich zutreffend) | B2 |
+| Medienbewertung | C (Einigermaßen zuverlässig) | 3 (Möglicherweise zutreffend) | C3 |
+| Szenarioprognosen | B (Zuverlässig) | 3 (Möglicherweise zutreffend) | B3 |
+
+**Gesamtglaubwürdigkeit des Executive Brief: B2** — zuverlässige Quellenbasis, Einschätzungen wahrscheinlich zutreffend.
+
+### Executive Action Recommendations
+
+**Für EU-Aufsichtsbehörden**: Überwachen Sie die Veröffentlichung des Umsetzungsrahmens der Entschädigungskommission (Ziel: Juli 2026). Fordern Sie die Kommission auf, bis zum Rat im Juni 2026 einen Umsetzungszeitplan zu veröffentlichen.
+
+**Für MdEP-Büros**: Bereiten Sie sich auf den Fokus der September-2026-Sitzung auf das sekundäre Recht der Entschädigungskommission und die Überprüfung des ETS2-Umsetzungsdekretes vor.
+
+**Für Denkfabriken und NGOs**: Veröffentlichen Sie Rechtsanalysen zum EuGH-Klagerisiko der Entschädigungskommission, um den öffentlichen Diskurs zu informieren.
+
+**Für Journalisten**: Verfolgen Sie die Veröffentlichung des operativen Rahmens der Kommission (Entschädigungskommission) und die ETS2-CO₂-Preistrajektorie als wichtige Meilensteine.
+
+*Executive Brief — Version 2.0 (Neustart-Erweiterung) | Datum: 2026-05-11*
+*WEP-Wahrscheinlichkeitsbänder nach Geheimdiensttraditionen | Admiralty-Bewertung angewendet*
+*Lizenz: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief Es
+
+### BLUF — Bottom Line Up Front
+
+La sesión plenaria del Parlamento Europeo en Estrasburgo del 28 al 30 de abril de 2026 produjo tres decisiones históricas:
+
+1. **Comisión Internacional de Reclamaciones de Ucrania** (30 de abril): El PE respalda un novedoso mecanismo jurídico internacional para tramitar reclamaciones de reparación contra Rusia — primera vez que el Parlamento apoya una arquitectura de responsabilidad extraterritorial autónoma. Supermayoría estimada en 535+/717. Importancia geopolítica primaria: establece un precedente institucional para la responsabilización de un agresor armado fuera del sistema de veto del Consejo de Seguridad de la ONU.
+
+2. **Cuatro levantamientos de inmunidad de eurodiputados en una sesión** (28 de abril): El comité JURI inició levantamientos para Grzegorz Braun (antisemitismo), Diana Şoşoacă (nacionalismo rumano), Daniel Obajtek y Tomasz Buczek — todos afiliados ECR/NI. Concentración históricamente inusual de acciones de aplicación; puede señalar una estrategia deliberada de rendición de cuentas.
+
+3. **MSR ETS2 ajustada** (29 de abril): La Reserva de Estabilidad del Mercado para el nuevo mercado de carbono de edificios/transporte por carretera (lanzamiento 2027) fue modificada para ralentizar la activación de la reserva — reduce el riesgo de precio máximo pero debilita la velocidad del incentivo de descarbonización. Compromiso moldeado por el PPE; los Verdes/ALE se opusieron.
+
+No se registran votos legislativos significativos para el 11 de mayo (PE en semana de comisión).
+
+---
+
+### Top Trigger Assessment
+
+| Asunto | Importancia | Urgencia | Vigilar |
+|--------|------------|---------|---------|
+| Comisión de Reclamaciones de Ucrania | 🔴 Alta — precedente jurídico internacional | En curso | Dictamen del TJUE sobre activos congelados (T3 2026) |
+| Levantamientos de inmunidad de eurodiputados (×4) | 🟡 Media — cascada de rendición de cuentas | Actual | Recursos ante el TEDH; futuro calendario JURI |
+| Debilitamiento MSR ETS2 | 🟡 Media — señal de retroceso en la gobernanza climática | Medio plazo | Preparación para el lanzamiento ETS2 (2027) |
+| Estrategia de ampliación de la UE | 🟡 Media — objetivo 2028–2030 reafirmado | Medio plazo | Negociaciones del Consejo sobre capítulos de adhesión |
+| Voto por delegación para eurodiputados | 🟢 Baja — reforma de gobernanza interna | Actual | Implementación antes de las elecciones europeas de 2027 |
+
+---
+
+### Strategic Intelligence
+
+**Dinámica de poder estructural (PE10, 2026):**  
+El PPE (183 escaños) requiere la coalición tripartita (PPE+S&D+Renew = 396) para cada votación controvertida. No existe ninguna mayoría viable PPE-derecha (PPE+ECR+PfE = 349, por debajo del umbral de 360). Este bloqueo estructural convierte al PPE en eje pero también hace indispensable la aquiescencia del S&D+Renew — creando una interdependencia triangular que moldea cada resultado legislativo.
+
+**Postura geopolítica:**  
+El PE actúa como institución geopolítica proactiva más allá de sus competencias definidas por los tratados. La aprobación de la Comisión de Reclamaciones, el préstamo a Ucrania y la resolución sobre el mercado único de defensa representan colectivamente una nueva postura de política exterior assertiva del PE — impulsada por la convergencia PPE + S&D + Renew sobre la amenaza rusa.
+
+**Gobernanza ambiental bajo presión:**  
+El ajuste de la MSR ETS2 representa el primer debilitamiento formal de los mecanismos de implementación de Fit for 55 desde el Green Deal de 2021. Aunque no es una reversión del objetivo de neutralidad climática para 2050, señala un desplazamiento del equilibrio político hacia el marco de "sostenibilidad competitiva" del PPE. Los Verdes/ALE perdieron esta votación — y lo saben.
+
+---
+
+### One Sentence Each — What Happened
+
+- **Comisión de Reclamaciones de Ucrania:** El PE respaldó un nuevo órgano internacional para tramitar reclamaciones de indemnización derivadas de la invasión de 2022 — ejecutado mediante activos soberanos rusos congelados.
+- **Levantamientos de eurodiputados:** Cuatro eurodiputados de extrema derecha/nacionalistas perdieron la inmunidad parlamentaria en una sola sesión — el caso de antisemitismo de Braun el más prominente.
+- **MSR ETS2:** El precio del carbono para la calefacción y el transporte por carretera fue debilitado marginalmente antes del lanzamiento de 2027; protecciones del Fondo Social para el Clima preservadas.
+- **Ley electoral (voto por delegación):** Las eurodiputadas embarazadas y las madres primerizas ahora pueden votar por delegación — apoyo casi unánime.
+- **Renovación del SPG:** Preferencias comerciales para 67 países en desarrollo renovadas con nuevas condicionalidades laborales/ambientales.
+- **Resolución sobre ciberacoso:** El PE pidió disposiciones penales y responsabilidad de las plataformas por acoso en línea.
+
+---
+
+### Source Attribution
+
+- Textos adoptados del PE: data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- Paisaje político: Portal de datos abiertos del PE (717 eurodiputados, mandato EP10 2024–2029)
+- IMF Contexto económico: api.imf.org SDMX 3.0 (versión de septiembre 2025, sondeo en vivo confirmado 2026-05-11)
+- Sistema de alerta temprana: Herramienta MCP del PE (alta sensibilidad, estabilidad=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### Comisión de Reclamaciones de Ucrania — Análisis estratégico en profundidad
+
+La votación del PE del 30 de abril de 2026 sobre la Comisión Internacional de Reclamaciones de Ucrania no es simplemente una resolución simbólica. Representa un cambio fundamental en la forma en que la UE conceptualiza su papel en los mecanismos internacionales de responsabilización. Las principales dimensiones estratégicas:
+
+**1. Novedad de la arquitectura jurídica:** El Convenio utiliza el marco del Consejo de Europa (no los Tratados de la UE) para eludir el bloqueo por veto del Consejo de Seguridad. Este es el mismo enfoque arquitectónico utilizado para el Estatuto de Roma de 1998 — construir infraestructura de responsabilización fuera del sistema del Consejo de Seguridad. La UE está aplicando la misma ingeniería jurídica para Ucrania.
+
+**2. Precedente de operacionalización de activos:** EUR 285–300 millardos en activos soberanos rusos congelados (mantenidos principalmente por Euroclear Bélgica) servirán como dotación. El uso de activos estatales como garantía de responsabilización de facto — sin el consentimiento de ese Estado — es jurídicamente sin precedentes en tiempos de paz. El dictamen consultivo del TJUE (esperado T2–T3 2026) sobre la legalidad de desplegar estos activos será la decisión jurídica más trascendente de la UE en 2026.
+
+**3. Transformación geopolítica del PPE:** El entusiasta respaldo del PPE a la Comisión de Reclamaciones habría sido inimaginable en el PE8 (2014–2019), cuando eurodiputados del PPE de Hungría, Bulgaria y partes del bloque CEE suavizaban regularmente el lenguaje del PE sobre Rusia. El bloque PPE del PE10 — ahora anclado por la exclusión del Hungría post-Orbán del PPE y la postura assertiva de la Alemania de Merz — es estructuralmente más halcón respecto a Rusia.
+
+**4. Implicaciones sistémicas de derecho internacional:** Si la Comisión de Reclamaciones opera con éxito, establece el precedente de que las grandes potencias pueden ser consideradas financieramente responsables por órganos internacionales que operan fuera del marco de la Carta de las Naciones Unidas. Este precedente tiene implicaciones para futuros conflictos entre grandes potencias (escenarios China-Taiwán) que la UE, EE. UU. y democracias aliadas ya están calculando.
+
+#### Levantamientos de inmunidad — Patrón de responsabilidad institucional
+
+Los cuatro levantamientos de inmunidad en un mismo día (28 de abril) no son una coincidencia. Reflejan:
+
+1. **Postura activa de aplicación de JURI:** JURI bajo PE10 ha adoptado una postura más proactiva hacia la rendición de cuentas, señalada por el mandato ampliado del Órgano de Ética
+2. **Dimensión política del caso Braun:** La solicitud de levantamiento de inmunidad para asuntos relacionados con el antisemitismo es políticamente sensible en contexto
+3. **Dimensión rumana del caso Şoşoacă:** La controversia de la campaña presidencial de Călin Georgescu en Rumanía (finales de 2025) creó contexto político para un trato más estricto de los eurodiputados nacionalistas rumanos
+4. **Dimensión polaca de los casos Obajtek/Buczek:** Ambos eurodiputados polacos afiliados al ECR están bajo investigaciones próximas a la corrupción — consistente con la reforma judicial post-PiS de Polonia y el impulso hacia la rendición de cuentas bajo el Primer Ministro Donald Tusk
+
+El patrón: JURI está procesando un acumulado de solicitudes de levantamiento de inmunidad de PE8/9 y PE10, acelerado por la ampliación del mandato del Órgano de Ética. El grupo del 28 de abril refleja una sesión JURI dedicada específicamente a despejar este acumulado — no cuatro nuevos casos simultáneos.
+
+#### Ajuste de la MSR ETS2 — Señal de fragilidad del Green Deal
+
+El ajuste de la MSR del 29 de abril (TA-10-2026-0139) merece un análisis más profundo que un solo punto de datos. En el contexto de toda la trayectoria de implementación del paquete Fit for 55:
+
+- **2024:** La Ley de Restauración de la Naturaleza de la UE apenas fue aprobada; regulación del metano debilitada en triálogo
+- **2025:** Aplicación de combustibles sostenibles (ReFuelEU) retrasada; recortes presupuestarios a la estrategia de hidrógeno de la UE
+- **2026-04-29:** Reserva de la MSR ETS2 reducida antes del lanzamiento
+
+Este patrón es consistente con el giro del PPE hacia la "sostenibilidad competitiva" — mantener la arquitectura estructural de la legislación del Green Deal mientras se reduce su efectividad operativa. El ajuste de la MSR es la versión específica del ETS2 de este patrón: el mecanismo existe, pero su reserva de estabilización se reduce, haciendo que el precio del carbono ETS2 sea más volátil y por tanto menos fiable como señal de inversión para el despliegue de tecnologías limpias.
+
+**Relevancia del IMF:** El crecimiento negativo del PIB de Alemania (-0,1%, sep. 2025 WEO) crea presión política para proteger a la industria de uso intensivo de energía de aumentos de costos abruptos. El ajuste de la MSR ETS2 es políticamente óptimo para el PPE — señala compromiso climático al tiempo que proporciona margen económico a la industria alemana/polaca.
+
+#### Voto por delegación — Reforma estructural de la representación
+
+La enmienda a la ley electoral (TA-10-2026-0124) que permite el voto por delegación para eurodiputadas embarazadas/postparto es más significativa de lo que su carácter técnico sugiere. Es:
+
+1. La primera modificación estructural de los procedimientos de votación del PE específicamente para la igualdad de género (no solo una solución procesal)
+2. Adoptada bajo el artículo 223 del TFUE (disposición de autogobierno del PE) — un uso relativamente raro de esta disposición
+3. Un modelo para futuras reformas favorables a la familia (permisos de paternidad, responsabilidades de cuidado)
+
+**Señal de seguimiento:** Cuántos eurodiputados invocan el voto por delegación en la sesión plenaria del 18 al 22 de mayo será el primer test empírico de la demanda.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **Seguir el dictamen consultivo del TJUE sobre activos congelados** — el desarrollo jurídico a corto plazo más importante para la responsabilización de Ucrania; esperado T2–T3 2026
+2. **Monitorear la declaración de Hungría en el Consejo** sobre la ratificación de la Convención de Reclamaciones — telegrafiar si la probabilidad del 30 % (R-01) se materializa
+3. **Vigilar la trayectoria del precio del carbono ETS2** — si el precio cae por debajo de 30 €/tonelada tras la implementación del ajuste de la MSR, valida la tesis de erosión del Green Deal
+4. **Seguir el XML DOCEO del plenario del 18 al 22 de mayo** — los primeros datos de votación tras la semana de comisión confirmarán la estabilidad de la coalición en la Directiva de Responsabilidad por IA, que es el próximo gran test legislativo
+
+---
+
+### Source Attribution (Expanded)
+
+- Datos primarios: Textos adoptados del PE TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 via data.europarl.europa.eu
+- Paisaje político del PE: generate_political_landscape (2026-05-11, 717 eurodiputados, 9 grupos)
+- IMF WEO: versión de septiembre 2025, indicadores PIB/inflación/fiscales DEU/FRA/ITA/ESP/POL, recuperados via fetch_url (SDMX 3.0)
+- Sistema de alerta temprana del PE: estabilidad=84/100, 3 advertencias (alta sensibilidad, 2026-05-11)
+- Dinámica de coalición del PE: analyze_coalition_dynamics (1 abr–11 may; proxy de composición, no de nivel de voto)
+- Contexto histórico: base de conocimiento institucional del PE (precedentes de levantamiento de inmunidad, trayectoria ETS)
+- Documentación del IMF sobre análisis de base jurídica: síntesis analítica (no fuente directa del IMF)
+
+### Executive Probability Assessment
+
+**Resumen de probabilidades WEP** para responsables ejecutivos de decisión:
+
+| Evaluación | Banda WEP | Confianza |
+|-----------|-----------|-----------|
+| La Comisión de Reclamaciones entra en vigor | Casi seguro | HIGH |
+| Ajuste de la MSR ETS2 implementado para T3 2026 | Muy probable | HIGH |
+| Hungría/Polonia retrasa la implementación | Probable | HIGH |
+| Recurso ante el TJUE presentado en 6 meses | Aproximadamente igual | MEDIUM |
+| La coalición se mantiene hasta la votación presupuestaria de junio | Muy probable | HIGH |
+| El ESN forma una minoría de bloqueo | Muy poco probable | HIGH |
+
+### Admiralty Source Assessment
+
+| Fuente | Fiabilidad | Credibilidad | Calificación |
+|--------|-----------|-------------|--------------|
+| Registro de textos adoptados del PE | A (Completamente fiable) | 1 (Confirmado) | A1 |
+| Paisaje político del PE (MCP) | A (Completamente fiable) | 2 (Probablemente cierto) | A2 |
+| Sistema de alerta temprana | B (Fiable) | 2 (Probablemente cierto) | B2 |
+| Análisis de dinámica de coalición | B (Fiable) | 2 (Probablemente cierto) | B2 |
+| Evaluación del encuadre mediático | C (Bastante fiable) | 3 (Posiblemente cierto) | C3 |
+| Pronósticos de escenarios | B (Fiable) | 3 (Posiblemente cierto) | B3 |
+
+**Fiabilidad general del executive brief: B2** — base de fuentes fiable, evaluaciones probablemente ciertas.
+
+### Executive Action Recommendations
+
+**Para los órganos de supervisión de la UE**: Supervisar la publicación del marco de implementación de la Comisión de Reclamaciones (objetivo: julio 2026). Solicitar a la Comisión que publique un calendario de implementación antes del Consejo de junio de 2026.
+
+**Para las oficinas de eurodiputados**: Prepararse para el foco de la sesión de septiembre de 2026 en la legislación secundaria de la Comisión de Reclamaciones y la revisión del decreto de implementación ETS2.
+
+**Para grupos de reflexión y ONG**: Publicar análisis jurídico sobre el riesgo de recurso ante el TJUE de la Comisión de Reclamaciones para informar el debate público.
+
+**Para periodistas**: Observar la publicación del marco operativo de la Comisión (Comisión de Reclamaciones) y la trayectoria del precio del carbono ETS2 como hitos clave.
+
+*Executive brief — versión 2.0 (extensión de re-ejecución) | Fecha: 2026-05-11*
+*Bandas de probabilidad WEP según las prácticas de la comunidad de inteligencia | Calificación Admiralty aplicada*
+*Licencia: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief Fi
+
+**60 sekunnin tiivistelmä:** Ukrainan kansainvälinen korvauskomissio + MEP-immuniteetin peruutukset + ETS2 ympäristöhallinto  
+**Luotettavuus:** 🟡 Keskitaso  
+**Data:** Strasbourgin täysistunto 28.–30. huhtikuuta (viimeisin EP-lainsäädäntö)
+
+---
+
+### BLUF — Bottom Line Up Front
+
+Euroopan parlamentin Strasbourgin täysistunto 28.–30. huhtikuuta 2026 tuotti kolme historiallista päätöstä:
+
+1. **Ukrainan kansainvälinen korvauskomissio** (30. huhtikuuta): EP hyväksyy uuden kansainvälisen oikeusmekanismin Venäjää vastaan esitettyjen korvausvaatimusten käsittelemiseksi — ensimmäinen kerta kun parlamentti tukee itsenäistä ekstraterritoriaalista vastuujärjestelmää. Supermajoriteetin arvioidaan olevan 535+/717. Ensisijainen geopoliittinen merkitys: luo institutionaalisen ennakkotapauksen aseellisen hyökkääjän vastuuvelvollisuudelle YK:n turvallisuusneuvoston veto-kehyksen ulkopuolella.
+
+2. **Neljä MEP:n immuniteetin peruutusta yhdessä istunnossa** (28. huhtikuuta): JURI-valiokunta käynnisti peruutukset Grzegorz Braunille (antisemitismi), Diana Şoşoacălle (romanialainen nationalismi), Daniel Obajtekille ja Tomasz Buczkille — kaikki ECR/NI-sidoksisia. Historiallisen epätavallinen täytäntöönpanotoimien keskittymä; voi merkitä tietoista vastuuvelvollisuusstrategiaa.
+
+3. **ETS2 MSR muutettu** (29. huhtikuuta): Uuden rakennus-/tieliikenteen hiilimarkkinan (lanseeraus 2027) markkinoiden vakautusvaranto muokattiin hidastamaan varannon aktivointia — vähentää huippuhintariskiä mutta heikentää dekarbonisaatiokannustimien nopeutta. EPP:n muotoilema kompromissi; Greens/EFA vastusti.
+
+Merkittäviä lainsäädäntöäänestyspäätöksiä 11. toukokuuta ei ole rekisteröity (EP valiokuntaviikolla).
+
+---
+
+### Top Trigger Assessment
+
+| Aihe | Merkitys | Kiireellisyys | Seuranta |
+|------|----------|---------------|---------|
+| Ukrainan korvauskomissio | 🔴 Korkea — kansainvälinen oikeusennakkotapaus | Jatkuva | EU-tuomioistuimen lausunto jäädytetyistä varoista (Q3 2026) |
+| MEP:n immuniteetin peruutukset (×4) | 🟡 Keskitaso — vastuuvelvollisuuden ketjureaktio | Ajankohtainen | EIT-haasteet; tuleva JURI-kalenteri |
+| ETS2 MSR heikentyminen | 🟡 Keskitaso — ilmastohallinnon taantumissignaali | Keskipitkä aikaväli | ETS2:n lanseerausvalmius (2027) |
+| EU:n laajentumisstrategia | 🟡 Keskitaso — tavoite 2028–2030 vahvistettu | Keskipitkä aikaväli | Neuvoston liittymisluvuneuvottelut |
+| Valtuutusäänestys MEP:ille | 🟢 Alhainen — sisäinen hallintouudistus | Ajankohtainen | Täytäntöönpano ennen vuoden 2027 EP-vaaleja |
+
+---
+
+### Strategic Intelligence
+
+**Rakenteellinen valtadynamiikka (EP10, 2026):**  
+EPP (183 paikkaa) vaatii kolmipuoluekoalition (EPP+S&D+Renew = 396) jokaiseen kiistanalaiseen äänestykseen. Toimivaa EPP-oikeistomajoriteettia ei ole (EPP+ECR+PfE = 349, alle 360 kynnyksen). Tämä rakenteellinen lukko tekee EPP:stä keskeisen toimijan mutta tekee myös S&D+Renew:n myöntymisestä välttämätöntä — luo kolmiomaisen keskinäisen riippuvuuden, joka muokkaa jokaista lainsäädäntötulosta.
+
+**Geopoliittinen asento:**  
+EP toimii proaktiivisena geopoliittisena instituutiona perussopimuksessa määriteltyjen toimivaltuuksiensa ulkopuolella. Korvauskomission hyväksyntä, Ukraina-laina ja puolustusalan sisämarkkinoita koskeva päätöslauselma edustavat yhdessä uutta assertiivista EP:n ulkopoliittista asentoa — jota ohjaavat EPP + S&D + Renew -konvergenssi Venäjän uhkaan.
+
+**Ympäristöhallinto paineessa:**  
+ETS2 MSR -muutos edustaa ensimmäistä Fit for 55 -paketin täytäntöönpanomekanismien virallista heikentämistä vuoden 2021 Green Dealin jälkeen. Se ei ole vuoden 2050 nollanettopäästötavoitteen peruuttaminen, mutta se merkitsee poliittisen tasapainon siirtymistä kohti EPP:n "kilpailukykyinen kestävyys" -kehystä. Greens/EFA hävisi tämän äänestyksen — ja he tietävät sen.
+
+---
+
+### One Sentence Each — What Happened
+
+- **Ukrainan korvauskomissio:** EP tuki uutta kansainvälistä elintä vuoden 2022 invasion korvausvaatimusten käsittelemiseksi — toteutettavaksi jäädytetyillä venäläisillä valtion varoilla.
+- **MEP:n peruutukset:** Neljä äärioikeistolaista/nationalistista MEP:tä menetti parlamentaarisen immuniteetin yhdessä istunnossa — Braunin antisemitismiasia näkyvin.
+- **ETS2 MSR:** Lämmityksen ja tieliikenteen hiilidioksidihinnoittelu heikentyi marginaalisesti ennen vuoden 2027 lanseerausta; Social Climate Fundin suojaukset säilytettiin.
+- **Vaalilaki (valtuutusäänestys):** Raskaana olevat MEP:t ja synnyttäneet äidit voivat nyt äänestää asiamiehen välityksellä — lähes yksimielinen tuki.
+- **GSP-uusiminen:** 67 kehitysmaan kauppaedut uusittiin uusilla työ-/ympäristöehdoilla.
+- **Verkkokiusaamispäätöslauselma:** EP vaati rikosoikeudellisia säännöksiä ja alustavastaavuutta verkkohäirinnästä.
+
+---
+
+### Source Attribution
+
+- EP:n hyväksytyt tekstit: data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- Poliittinen maisema: EP:n avoin dataporttaali (717 MEP:tä, EP10-toimikausi 2024–2029)
+- IMF Taloudellinen konteksti: api.imf.org SDMX 3.0 (syyskuu 2025 vintage, live-luotaus vahvistettu 2026-05-11)
+- Varhainen varoitusjärjestelmä: EP MCP-työkalu (korkea herkkyys, vakaus=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### Ukrainan korvauskomissio — Strateginen syvyysanalyysi
+
+EP:n äänestys 30. huhtikuuta 2026 Ukrainan kansainvälisestä korvauskomissiosta ei ole pelkästään symbolinen päätöslauselma. Se edustaa perustavanlaatuista muutosta siinä, miten EU käsittelee rooliaan kansainvälisissä vastuujärjestelmissä. Keskeisimmät strategiset ulottuvuudet:
+
+**1. Oikeusarkkitehtuurin uutuus:** Yleissopimus käyttää Euroopan neuvoston kehystä (ei EU-perussopimuksia) YK:n turvallisuusneuvoston vetoblokadin kiertämiseksi. Tämä on sama arkkitehtoninen lähestymistapa kuin vuoden 1998 Rooman statuutissa — vastuujärjestelmäinfrastruktuurin rakentaminen turvallisuusneuvoston järjestelmän ulkopuolella. EU soveltaa nyt samaa oikeudellista insinöörityötä Ukrainaan.
+
+**2. Omaisuuden operationalisoinnin ennakkotapaus:** EUR 285–300 miljardin jäädytettyjä venäläisiä valtion omaisuuseriä (pääasiassa Euroclear Belgiumin hallussa) käytetään pohjarahastona. Valtion omaisuuserien käyttö de facto vastuuvakuutena — ilman kyseisen valtion suostumusta — on oikeudellisesti ennennäkemätöntä rauhan aikana. EU-tuomioistuimen neuvoa-antava lausunto (odotettu Q2–Q3 2026) näiden varojen käytön laillisuudesta on EU:n tärkein oikeudellinen ratkaisu vuonna 2026.
+
+**3. EPP:n geopoliittinen muutos:** EPP:n innokas tuki korvauskomissiolle olisi ollut käsittämätöntä EP8:ssa (2014–2019), jolloin EPP:n MEP:t Unkarista, Bulgariasta ja osista CEE-blokkia pehmensivät säännöllisesti EP:n Venäjä-kielenkäyttöä. EP10:n EPP-blokki — nyt ankkuroitu post-Orbánin Unkarin sulkemiseen EPP:n ulkopuolelle ja Saksan Merzin assertiiviseen EU-asenteeseen — on rakenteellisesti tiukempi Venäjää kohtaan.
+
+**4. Systeemiset kansainväliset oikeusimplikaatiot:** Jos korvauskomissio toimii menestyksekkäästi, se luo ennakkotapauksen, jonka mukaan suurvaltoja voidaan pitää taloudellisesti vastuullisina kansainvälisten elinten kautta, jotka toimivat YK:n peruskirjan kehyksen ulkopuolella. Tällä ennakkotapauksella on merkitystä tuleviin suurvaltakonflikteihin (Kiina-Taiwan-skenaariot), joita EU, USA ja liittolaisdemokratiat jo laskevat.
+
+#### Immuniteetin peruutukset — Institutionaalinen vastuumalli
+
+Neljä immuniteetin peruutusta yhdessä päivässä (28. huhtikuuta) ei ole sattuma. Ne heijastavat:
+
+1. **JURI:n aktiivinen täytäntöönpanoasento:** JURI EP10:ssä on omaksunut proaktiivisemman asenteen vastuuvelvollisuuteen, mikä on merkitty eettisen elimen laajennetulla mandaatilla
+2. **Braunin asian poliittinen ulottuvuus:** Antisemitismiin liittyvien asioiden immuniteetin peruutuspyyntö on poliittisesti herkkä kontekstissaan
+3. **Şoşoacăn romanialainen ulottuvuus:** Călin Georgescun presidenttikampanjakohuus Romaniassa (2025 lopulla) loi poliittisen kontekstin romanialaisiin nationalistisiin MEP:hin kohdistuvaan tiukempaan suhtautumiseen
+4. **Obajtekin/Buczekin puolalainen ulottuvuus:** Molemmat puolalaiset ECR-sidokseiset MEP:t ovat korruptionläheisissä tutkinnoissa — johdonmukaista Puolan post-PiS-oikeudistouudistuksen ja vastuuvelvollisuuspushin kanssa pääministeri Donald Tuskin johdolla
+
+Malli: JURI käsittelee EP8/9:n ja EP10:n immuniteetin peruutuspyyntöjen rästiä, jonka eettisen elimen mandaatin laajentaminen on kiihdyttänyt. 28. huhtikuuta -ryhmä heijastaa JURI-istuntoa, joka on nimenomaan omistettu tämän rästitöiden puhdistamiseen — ei neljää samanaikaista uutta asiaa.
+
+#### ETS2 MSR -muutos — Green Dealin haurauden signaali
+
+29. huhtikuuta MSR-muutos (TA-10-2026-0139) ansaitsee syvemmän analyysin kuin yhden yksittäisen datapointin. Koko Fit for 55 -paketin täytäntöönpanotrajektorin kontekstissa:
+
+- **2024:** EU:n luonnon ennallistamislaki meni niukasti läpi; metaaniasetus heikentyi kolmikantaneuvotteluissa
+- **2025:** Kestävät polttoaineet (ReFuelEU) täytäntöönpano viivästyi; EU:n vetystrategian budjettileikkaukset
+- **2026-04-29:** ETS2 MSR -puskuri pienennetty ennen lanseerausta
+
+Tämä malli on johdonmukainen EPP:n "kilpailukykyinen kestävyys" -kääntymisen kanssa — Green Deal -lainsäädännön rakenteellisen arkkitehtuurin ylläpitäminen samalla kun sen operatiivista purevoimalaa vähennetään. MSR-muutos on ETS2-spesifinen versio tästä mallista: mekanismi on olemassa, mutta sen stabilisointipuskuria pienennetään, mikä tekee ETS2:n hiilidioksidihinnoittelusta volatilimpaa ja siten vähemmän luotettavan investointisignaalin puhtaiden teknologioiden käyttöönotolle.
+
+**IMF-relevanssi:** Saksan negatiivinen BKT-kasvu (-0,1%, syyskuu 2025 WEO) luo poliittista painetta suojella energiaintensiivistä teollisuutta äkillisiltä kustannusnousuilta. ETS2 MSR -muutos on poliittisesti optimaalinen EPP:lle — merkitsee ilmastositoumusta ja antaa taloudellista hengitystilaa Saksan/Puolan teollisuudelle.
+
+#### Valtuutusäänestys — Rakenteellinen edustuksen uudistus
+
+Vaalilain muutos (TA-10-2026-0124), joka mahdollistaa valtuutusäänestyksen raskaana oleville/synnyttäneille MEP:ille, on merkittävämpi kuin sen tekninen luonne antaa ymmärtää. Se on:
+
+1. Ensimmäinen rakenteellinen muutos EP:n äänestysmenettlyihin nimenomaan sukupuolten tasa-arvon vuoksi (ei pelkästään menettelyllinen kiertotie)
+2. Hyväksytty SEUT 223 artiklan nojalla (EP:n itsehallintosäännös) — suhteellisen harvinainen tämän säännöksen käyttö
+3. Malli tuleville perhemyönteisille uudistuksille (isyysvapaa, hoitovastuu)
+
+**Seurantasignaali:** Kuinka moni MEP käyttää valtuutusäänestystä 18.–22. toukokuuta täysistunnossa on ensimmäinen empiirinen kysynnän testi.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **Seuraa EU-tuomioistuimen neuvoa-antavaa lausuntoa jäädytetyistä varoista** — tärkein lähiajan oikeudellinen tapahtuma Ukrainan vastuuvelvollisuudelle; odotetaan Q2–Q3 2026
+2. **Seuraa Unkarin neuvoston lausuntoa** korvausyleissopimuksen ratifioinnista — osoittaa, materialisoituuko 30%:n todennäköisyys (R-01)
+3. **Pidä ETS2:n hiilidioksidihintapolku seurannassa** — jos hinta laskee alle 30 €/tonni MSR-muutoksen täytäntöönpanon jälkeen, vahvistaa Green Dealin eroosioteesin
+4. **Seuraa DOCEO XML:ää 18.–22. toukokuuta täysistunnosta** — ensimmäinen äänestysdata valiokuntaviikon jälkeen vahvistaa koalition vakauden AI-vastuudirektiivissä, joka on seuraava suuri lainsäädäntötesti
+
+---
+
+### Source Attribution (Expanded)
+
+- Ensisijaiset tiedot: EP:n hyväksytyt tekstit TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 via data.europarl.europa.eu
+- EP:n poliittinen maisema: generate_political_landscape (2026-05-11, 717 MEP:tä, 9 ryhmää)
+- IMF WEO: syyskuu 2025 vintage, DEU/FRA/ITA/ESP/POL BKT/inflaatio/finanssi-indikaattorit, haettu fetch_url:n kautta (SDMX 3.0)
+- EP:n varhainen varoitusjärjestelmä: vakaus=84/100, 3 varoitusta (korkea herkkyys, 2026-05-11)
+- EP:n koalitio dynamiikka: analyze_coalition_dynamics (huhti 1–touko 11; koostumusproxy, ei äänestystaso)
+- Historiallinen konteksti: EP:n institutionaalinen tietopohja (immuniteetin peruutusennakkotapaukset, ETS-trajektoria)
+- IMF:n dokumentaatio oikeusperusteanalyysistä: analyyttinen synteesi (ei suora IMF-lähde)
+
+### Executive Probability Assessment
+
+**WEP-todennäköisyysyhteenveto** toimijoille jotka tekevät päätöksiä:
+
+| Arvio | WEP-kaista | Luotettavuus |
+|-------|-----------|--------------|
+| Korvauskomissio astuu voimaan | Lähes varma | HIGH |
+| ETS2 MSR -muutos toteutettu Q3 2026 mennessä | Hyvin todennäköistä | HIGH |
+| Unkari/Puola viivästyttää täytäntöönpanoa | Todennäköistä | HIGH |
+| EU-tuomioistuimen haaste esitetty 6 kuukauden kuluessa | Suunnilleen tasan | MEDIUM |
+| Koalitio kestää kesäkuun budjettiäänestyksen läpi | Hyvin todennäköistä | HIGH |
+| ESN muodostaa estävän vähemmistön | Hyvin epätodennäköistä | HIGH |
+
+### Admiralty Source Assessment
+
+| Lähde | Luotettavuus | Uskottavuus | Arvosana |
+|-------|-------------|-------------|---------|
+| EP:n hyväksyttyjen tekstien rekisteri | A (Täysin luotettava) | 1 (Vahvistettu) | A1 |
+| EP:n poliittinen maisema (MCP) | A (Täysin luotettava) | 2 (Todennäköisesti totta) | A2 |
+| Varhainen varoitusjärjestelmä | B (Luotettava) | 2 (Todennäköisesti totta) | B2 |
+| Koalition dynamiikka-analyysi | B (Luotettava) | 2 (Todennäköisesti totta) | B2 |
+| Mediakehystyksen arviointi | C (Kohtuullisen luotettava) | 3 (Mahdollisesti totta) | C3 |
+| Skenaarioennusteet | B (Luotettava) | 3 (Mahdollisesti totta) | B3 |
+
+**Kokonais-executive brief -luotettavuus: B2** — luotettava lähdeperusta, arvioinnit todennäköisesti totta.
+
+### Executive Action Recommendations
+
+**EU:n valvontaelimille**: Seuraa korvauskomission täytäntöönpanokehyksen julkaisemista (tavoite: heinäkuu 2026). Pyydä komissiota julkaisemaan täytäntöönpanon aikataulu kesäkuuhun 2026 mennessä.
+
+**MEP-toimistoille**: Valmistaudu syyskuun 2026 istunnon fokukseen korvauskomission toissijaiseen lainsäädäntöön ja ETS2:n täytäntöönpanopäätösten tarkastukseen.
+
+**Ajatuspajoille ja kansalaisjärjestöille**: Julkaise oikeudellinen analyysi korvauskomission EU-tuomioistuinhaasteriskistä julkisen keskustelun informoimiseksi.
+
+**Toimittajille**: Seuraa komission operatiivisen kehyksen julkaisemista (korvauskomissio) ja ETS2:n hiilidioksidihintapolkua avainvirstanpylväinä.
+
+*Executive brief — versio 2.0 (ajokierroksen laajennus) | Päivämäärä: 2026-05-11*
+*WEP-todennäköisyyskaistat tiedusteluyhteisön käytäntöjen mukaan | Admiralty-luokitus sovellettu*
+*Lisenssi: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief Fr
+
+### BLUF — Bottom Line Up Front
+
+La session plénière du Parlement européen à Strasbourg du 28 au 30 avril 2026 a produit trois décisions historiques :
+
+1. **Commission internationale des créances d'Ukraine** (30 avril) : Le PE approuve un mécanisme juridique international novateur pour traiter les demandes d'indemnisation contre la Russie — première fois que le Parlement soutient une architecture de responsabilité extraterritoriale autonome. Supermajorité estimée à 535+/717. Importance géopolitique primaire : établit un précédent institutionnel pour la responsabilisation d'un agresseur armé en dehors du système de veto du Conseil de sécurité de l'ONU.
+
+2. **Quatre levées d'immunité de députés en une session** (28 avril) : La commission JURI a initié des levées pour Grzegorz Braun (antisémitisme), Diana Şoşoacă (nationalisme roumain), Daniel Obajtek et Tomasz Buczek — tous affiliés ECR/NI. Concentration historiquement inhabituelle d'actions d'application ; peut signaler une stratégie de responsabilisation délibérée.
+
+3. **MSR ETS2 ajustée** (29 avril) : La réserve de stabilité du marché pour le nouveau marché carbone des bâtiments et transports routiers (lancement 2027) a été modifiée pour ralentir l'activation de la réserve — réduit le risque de pointe de prix mais affaiblit la vitesse de l'incitation à la décarbonation. Compromis façonné par le PPE ; les Verts/ALE s'y sont opposés.
+
+Aucun vote législatif significatif n'est enregistré pour le 11 mai (PE en semaine de commission).
+
+---
+
+### Top Trigger Assessment
+
+| Question | Importance | Urgence | Surveiller |
+|----------|-----------|---------|------------|
+| Commission des créances d'Ukraine | 🔴 Élevée — précédent juridique international | En cours | Avis de la CJE sur les avoirs gelés (T3 2026) |
+| Levées d'immunité de députés (×4) | 🟡 Moyen — cascade de responsabilisation | Actuel | Recours CEDH ; futur calendrier JURI |
+| Affaiblissement MSR ETS2 | 🟡 Moyen — signal de recul de la gouvernance climatique | Moyen terme | Préparation au lancement ETS2 (2027) |
+| Stratégie d'élargissement de l'UE | 🟡 Moyen — objectif 2028–2030 réaffirmé | Moyen terme | Négociations du Conseil sur les chapitres d'adhésion |
+| Vote par procuration pour les députés | 🟢 Faible — réforme de gouvernance interne | Actuel | Mise en œuvre avant les élections européennes 2027 |
+
+---
+
+### Strategic Intelligence
+
+**Dynamique de pouvoir structurelle (PE10, 2026) :**  
+Le PPE (183 sièges) exige la coalition tripartite (PPE+S&D+Renew = 396) pour chaque vote contesté. Il n'existe pas de majorité viable PPE-droite (PPE+ECR+PfE = 349, en dessous du seuil de 360). Ce verrouillage structurel fait du PPE le pivot mais rend aussi indispensable l'acquiescement de S&D+Renew — créant une interdépendance triangulaire qui façonne chaque résultat législatif.
+
+**Posture géopolitique :**  
+Le PE agit comme une institution géopolitique proactive au-delà de ses compétences définies par les traités. L'approbation de la Commission des créances, le prêt à l'Ukraine et la résolution sur le marché unique de la défense représentent collectivement une nouvelle posture politique étrangère assertive du PE — portée par la convergence PPE + S&D + Renew sur la menace russe.
+
+**Gouvernance environnementale sous pression :**  
+L'ajustement de la MSR ETS2 représente le premier affaiblissement formel des mécanismes de mise en œuvre de Fit for 55 depuis le Green Deal 2021. Bien qu'il ne s'agisse pas d'un retrait de l'objectif de neutralité carbone 2050, il signale un déplacement de l'équilibre politique vers le cadre de « durabilité compétitive » du PPE. Les Verts/ALE ont perdu ce vote — et ils le savent.
+
+---
+
+### One Sentence Each — What Happened
+
+- **Commission des créances d'Ukraine :** Le PE a soutenu un nouvel organe international pour traiter les demandes d'indemnisation issues de l'invasion de 2022 — appliqué via des avoirs souverains russes gelés.
+- **Levées d'immunité de députés :** Quatre députés d'extrême droite/nationalistes ont perdu l'immunité parlementaire en une seule session — l'affaire d'antisémitisme de Braun étant la plus médiatisée.
+- **MSR ETS2 :** La tarification carbone pour le chauffage et les transports routiers a été marginalement affaiblie avant le lancement 2027 ; les protections du Fonds social pour le climat préservées.
+- **Loi électorale (vote par procuration) :** Les députés enceintes et les nouvelles mères peuvent désormais voter par procuration — soutien quasi unanime.
+- **Renouvellement du SPG :** Préférences commerciales pour 67 pays en développement renouvelées avec de nouvelles conditionnalités sociales/environnementales.
+- **Résolution sur le cyberharcèlement :** Le PE a réclamé des dispositions pénales et la responsabilité des plateformes en matière de harcèlement en ligne.
+
+---
+
+### Source Attribution
+
+- Textes adoptés du PE : data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- Paysage politique : Portail de données ouvertes du PE (717 députés, mandat EP10 2024–2029)
+- IMF Contexte économique : api.imf.org SDMX 3.0 (version de septembre 2025, sondage en direct confirmé 2026-05-11)
+- Système d'alerte précoce : Outil MCP du PE (haute sensibilité, stabilité=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### Commission des créances d'Ukraine — Analyse stratégique approfondie
+
+Le vote du PE du 30 avril 2026 sur la Commission internationale des créances d'Ukraine n'est pas simplement une résolution symbolique. Il représente un changement fondamental dans la façon dont l'UE conçoit son rôle dans les mécanismes internationaux de responsabilisation. Les principales dimensions stratégiques :
+
+**1. Nouveauté de l'architecture juridique :** La Convention utilise le cadre du Conseil de l'Europe (pas les traités de l'UE) pour contourner la paralysie du veto au Conseil de sécurité de l'ONU. Il s'agit de la même approche architecturale que celle employée pour le Statut de Rome de 1998 — construire une infrastructure de responsabilisation en dehors du système du Conseil de sécurité. L'UE applique désormais la même ingénierie juridique à l'Ukraine.
+
+**2. Précédent d'opérationnalisation des actifs :** EUR 285–300 milliards d'avoirs souverains russes gelés (détenus principalement par Euroclear Belgique) serviront de dotation. L'utilisation d'actifs d'État comme garantie de responsabilité de facto — sans le consentement de cet État — est juridiquement sans précédent en temps de paix. L'avis consultatif de la CJE (attendu T2–T3 2026) sur la légalité du déploiement de ces actifs sera la décision juridique la plus importante de l'UE en 2026.
+
+**3. Transformation géopolitique du PPE :** Le soutien enthousiaste du PPE à la Commission des créances aurait été inimaginable lors du PE8 (2014–2019), lorsque des eurodéputés du PPE hongrois, bulgare et de certaines parties du bloc CEE atténuaient régulièrement le langage du PE sur la Russie. Le bloc PPE du PE10 — ancré désormais par l'exclusion de la Hongrie post-Orbán du PPE et la posture assertive de l'Allemagne de Merz — est structurellement plus belliciste envers la Russie.
+
+**4. Implications systémiques de droit international :** Si la Commission des créances fonctionne avec succès, elle établit le précédent selon lequel les grandes puissances peuvent être tenues financièrement responsables par des organes internationaux opérant en dehors du cadre de la Charte des Nations Unies. Ce précédent a des implications pour de futurs conflits entre grandes puissances (scénarios Chine-Taïwan) que l'UE, les États-Unis et les démocraties alliées calculent déjà.
+
+#### Levées d'immunité — Modèle de responsabilité institutionnelle
+
+Les quatre levées d'immunité en une seule journée (28 avril) ne sont pas une coïncidence. Elles reflètent :
+
+1. **Posture d'application active de JURI :** JURI sous PE10 a adopté une position plus proactive envers la responsabilisation, comme signalé par l'élargissement du mandat de l'organe d'éthique
+2. **Dimension politique de l'affaire Braun :** La demande de levée d'immunité pour des affaires liées à l'antisémitisme est politiquement sensible dans ce contexte
+3. **Dimension roumaine de l'affaire Şoşoacă :** La controverse de la campagne présidentielle de Călin Georgescu en Roumanie (fin 2025) a créé un contexte politique pour un traitement plus rigoureux des eurodéputés nationalistes roumains
+4. **Dimension polonaise des affaires Obajtek/Buczek :** Les deux eurodéputés polonais affiliés à l'ECR font l'objet d'enquêtes proches de la corruption — cohérent avec la réforme judiciaire post-PiS de la Pologne et la poussée vers la responsabilisation sous le Premier ministre Donald Tusk
+
+Le schéma : JURI traite un arriéré de demandes de levée d'immunité des PE8/9 et PE10, accéléré par l'élargissement du mandat de l'organe d'éthique. Le cluster du 28 avril reflète une session JURI spécifiquement dédiée à l'élimination de cet arriéré — pas quatre nouvelles affaires simultanées.
+
+#### Ajustement de la MSR ETS2 — Signal de fragilité du Green Deal
+
+L'ajustement de la MSR du 29 avril (TA-10-2026-0139) mérite une analyse plus approfondie qu'un simple point de données. Dans le contexte de toute la trajectoire de mise en œuvre du paquet Fit for 55 :
+
+- **2024 :** La loi européenne sur la restauration de la nature est passée de justesse ; le règlement sur le méthane affaibli en trilogue
+- **2025 :** Application des carburants durables (ReFuelEU) retardée ; coupes budgétaires de la stratégie hydrogène de l'UE
+- **2026-04-29 :** Tampon de la MSR ETS2 réduit avant le lancement
+
+Ce schéma est cohérent avec le pivot du PPE vers la « durabilité compétitive » — maintien de l'architecture structurelle de la législation du Green Deal tout en réduisant son mordant opérationnel. L'ajustement de la MSR est la version ETS2-spécifique de ce schéma : le mécanisme existe, mais son tampon de stabilisation est réduit, rendant le prix du carbone ETS2 plus volatile et donc moins fiable comme signal d'investissement pour le déploiement de technologies propres.
+
+**Pertinence du IMF :** La croissance négative du PIB de l'Allemagne (-0,1%, sep. 2025 WEO) crée une pression politique pour protéger l'industrie énergivore des augmentations de coûts abruptes. L'ajustement de la MSR ETS2 est politiquement optimal pour le PPE — signale l'engagement climatique tout en offrant une marge de manœuvre économique à l'industrie allemande/polonaise.
+
+#### Vote par procuration — Réforme structurelle de la représentation
+
+L'amendement de la loi électorale (TA-10-2026-0124) permettant le vote par procuration pour les eurodéputées enceintes/post-partum est plus significatif que son caractère technique ne le laisse supposer. Il s'agit :
+
+1. De la première modification structurelle des procédures de vote du PE spécifiquement pour l'égalité des genres (pas simplement un contournement procédural)
+2. Adopté en vertu de l'article 223 TFUE (disposition d'autogestion du PE) — utilisation relativement rare de cette disposition
+3. D'un modèle pour de futures réformes favorables à la famille (congé de paternité, responsabilités de soins)
+
+**Signal de surveillance :** Le nombre d'eurodéputés invoquant le vote par procuration lors de la séance plénière du 18 au 22 mai sera le premier test empirique de la demande.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **Suivre l'avis consultatif de la CJE sur les avoirs gelés** — développement juridique à court terme le plus important pour la responsabilisation de l'Ukraine ; attendu T2–T3 2026
+2. **Surveiller la déclaration de la Hongrie au Conseil** sur la ratification de la Convention des créances — signalera si la probabilité de 30 % (R-01) se matérialise
+3. **Observer la trajectoire du prix du carbone ETS2** — si le prix tombe en dessous de 30 €/tonne après la mise en œuvre de l'ajustement de la MSR, cela valide la thèse d'érosion du Green Deal
+4. **Suivre le XML DOCEO pour la plénière du 18 au 22 mai** — les premières données de vote après la semaine de commission confirmeront la stabilité de la coalition sur la directive sur la responsabilité en matière d'IA, qui est le prochain grand test législatif
+
+---
+
+### Source Attribution (Expanded)
+
+- Données primaires : Textes adoptés du PE TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 via data.europarl.europa.eu
+- Paysage politique du PE : generate_political_landscape (2026-05-11, 717 députés, 9 groupes)
+- IMF WEO : version de septembre 2025, indicateurs PIB/inflation/fiscaux DEU/FRA/ITA/ESP/POL, récupérés via fetch_url (SDMX 3.0)
+- Système d'alerte précoce du PE : stabilité=84/100, 3 avertissements (haute sensibilité, 2026-05-11)
+- Dynamique de coalition du PE : analyze_coalition_dynamics (1er avr–11 mai ; proxy de composition, pas de niveau de vote)
+- Contexte historique : base de connaissances institutionnelle du PE (précédents de levée d'immunité, trajectoire ETS)
+- Documentation du IMF sur l'analyse de la base juridique : synthèse analytique (pas de source IMF directe)
+
+### Executive Probability Assessment
+
+**Résumé des probabilités WEP** pour les décideurs exécutifs :
+
+| Évaluation | Bande WEP | Confiance |
+|-----------|-----------|-----------|
+| La Commission des créances entre en vigueur | Quasi certain | HIGH |
+| Ajustement MSR ETS2 mis en œuvre avant T3 2026 | Très probable | HIGH |
+| Hongrie/Pologne retarde la mise en œuvre | Probable | HIGH |
+| Défi CJE déposé dans les 6 mois | Environ égal | MEDIUM |
+| La coalition tient jusqu'au vote budgétaire de juin | Très probable | HIGH |
+| L'ESN forme une minorité de blocage | Très peu probable | HIGH |
+
+### Admiralty Source Assessment
+
+| Source | Fiabilité | Crédibilité | Note |
+|--------|-----------|-------------|------|
+| Registre des textes adoptés du PE | A (Totalement fiable) | 1 (Confirmé) | A1 |
+| Paysage politique du PE (MCP) | A (Totalement fiable) | 2 (Probablement vrai) | A2 |
+| Système d'alerte précoce | B (Fiable) | 2 (Probablement vrai) | B2 |
+| Analyse de la dynamique de coalition | B (Fiable) | 2 (Probablement vrai) | B2 |
+| Évaluation du cadrage médiatique | C (Assez fiable) | 3 (Possiblement vrai) | C3 |
+| Prévisions de scénarios | B (Fiable) | 3 (Possiblement vrai) | B3 |
+
+**Fiabilité globale du Brief exécutif : B2** — base de sources fiable, évaluations probablement vraies.
+
+### Executive Action Recommendations
+
+**Pour les organes de supervision de l'UE** : Surveiller la publication du cadre de mise en œuvre de la Commission des créances (objectif : juillet 2026). Demander à la Commission de publier un calendrier de mise en œuvre avant le Conseil de juin 2026.
+
+**Pour les bureaux des eurodéputés** : Se préparer pour le focus de la session de septembre 2026 sur la législation secondaire de la Commission des créances et l'examen du décret de mise en œuvre ETS2.
+
+**Pour les groupes de réflexion et les ONG** : Publier une analyse juridique sur le risque de défi CJE de la Commission des créances pour informer le débat public.
+
+**Pour les journalistes** : Observer la publication du cadre opérationnel de la Commission (Commission des créances) et la trajectoire du prix du carbone ETS2 comme jalons clés.
+
+*Brief exécutif — version 2.0 (extension de réexécution) | Date : 2026-05-11*
+*Bandes de probabilité WEP selon les pratiques de la communauté du renseignement | Évaluation Admiralty appliquée*
+*Licence : Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief He
+
+**סיווג:** מודיעין פרלמנטרי פתוח  
+**סוג מאמר:** דחוף  
+**קריאת 60 שניות:** ועדת תביעות אוקראינה בינלאומית + גל הסרות חסינות חברי פרלמנט + ממשל ETS2 אקלימי  
+**רמת ביטחון:** 🟡 בינונית  
+**נתונים:** מושב מליאת הפרלמנט האירופי שטרסבורג 28–30 אפריל (תפוקות חקיקה עדכניות)
+
+---
+
+### BLUF — Bottom Line Up Front
+
+מושב המליאה של הפרלמנט האירופי בשטרסבורג, 28–30 אפריל 2026, הניב שלושה הישגים מהותיים:
+
+1. **ועדת תביעות בינלאומית לאוקראינה** (30 אפריל): הפרלמנט האירופי תומך במנגנון משפטי בינלאומי חדשני לטיפול בתביעות פיצויים נגד רוסיה — פעם ראשונה שהפרלמנט תומך במבנה מיוחד לאחריות מחוץ לטריטוריה. רוב מוחלט מוערך ב-535+/717. חשיבות גיאו-פוליטית מרכזית: מקבע תקדים מוסדי לאחריות של תוקפן מזוין מחוץ למסגרת הווטו של מועצת הביטחון של האו"ם.
+
+2. **ארבע הסרות חסינות בישיבה אחת** (28 אפריל): ועדת JURI פתחה הליכי הסרת חסינות לגרז'גוז' בראון (אנטישמיות), דיאנה שושואקה (לאומנות רומנית), דניאל אובאייתק ותומש בוצ'ק — כולם משויכים ל-ECR/NI. ריכוז היסטורי יוצא דופן של אכיפה; עשוי להצביע על אסטרטגיית אחריות מכוונת.
+
+3. **שינוי רזרב יציבות שוק ETS2** (29 אפריל): רזרב יציבות השוק לשוק הפחמן החדש לבניינים ותחבורה יבשתית (השקה 2027) שונה להאטת הפעלת הרזרב — מפחית סיכון לפסגות מחיר אך מחליש את עוצמת תמריץ הפחתת פחמן. פשרה שעיצב EPP; Greens/EFA התנגדו.
+
+לא נרשמו הצבעות חקיקה מהותיות ב-11 מאי (הפרלמנט האירופי בשבוע ועדות).
+
+---
+
+### Top Trigger Assessment
+
+| נושא | חשיבות | דחיפות | מעקב |
+|------|---------|---------|------|
+| ועדת תביעות אוקראינה | 🔴 גבוהה — תקדים משפטי בינלאומי | שוטפת | חוות דעת של בית המשפט האירופי לצדק בנכסים קפואים (ר"ד 3 2026) |
+| הסרות חסינות (×4) | 🟡 בינונית — אפקט אחריות מדורג | נוכחית | ערעורים לבית הדין האירופי לזכויות אדם; לוח זמנים JURI עתידי |
+| הנחשת MSR לאחר ETS2 | 🟡 בינונית — איתות נסיגה בממשל אקלים | בינוני-טווח | מוכנות השקת ETS2 (2027) |
+| אסטרטגיית הרחבה של האיחוד האירופי | 🟡 בינונית — אישור מחדש יעד 2028–2030 | בינוני-טווח | משא ומתן מועצת האיחוד בפרקי הצטרפות |
+| הצבעה בייפוי כוח לח"פ | 🟢 נמוכה — רפורמה בממשל פנימי | נוכחית | יישום לפני בחירות 2027 |
+
+---
+
+### Strategic Intelligence
+
+**דינמיקות כוח מבניות (הפרלמנט האירופי EP10, 2026):**  
+EPP (183 מקומות) דורש קואליציה משולשת (PPE+S&D+Renew = 396) בכל הצבעה שנויה במחלוקת. אין רוב ימני ישים ל-EPP (PPE+ECR+PfE = 349, מתחת לסף 360). נעילה מבנית זו הופכת את EPP לציר אך הופכת גם אישור S&D+Renew להכרחי — יוצר תלות הדדית משולשת שמעצבת כל תוצאה חקיקתית.
+
+**עמדה גיאו-פוליטית:**  
+הפרלמנט האירופי פועל כמוסד גיאו-פוליטי יוזם מעבר לסמכויות החוזה שלו. אישור ועדת התביעות, ההלוואה האוקראינית, והחלטת שוק ביטחון מאוחד מייצגים יחד עמדת מדיניות חוץ של האיחוד האירופי — מוּנָעת על ידי התכנסות PPE + S&D + Renew על איום רוסי.
+
+**ממשל סביבתי תחת לחץ:**  
+שינוי MSR של ETS2 מייצג את הנחלשות הפורמלית הראשונה של מנגנוני אכיפת "Fit for 55" מאז עסקת הירוק 2021. אף שאינו מבטל את יעד נייטרליות הפחמן ל-2050, הוא מאתת על שינוי יתרת הכוחות הפוליטית לכיוון מסגרת "קיימות תחרותית" של EPP. Greens/EFA הפסידו בהצבעה זו — והם יודעים זאת.
+
+---
+
+### One Sentence Each — What Happened
+
+- **ועדת תביעות אוקראינה:** הפרלמנט האירופי תמך בגוף בינלאומי חדש לטיפול בתביעות פיצויים מהפלישה של 2022 — מיושם דרך נכסים ריבוניים רוסיים קפואים.
+- **הסרות חסינות ח"פ:** ארבעה ח"פ מהימין הקיצוני/לאומניים איבדו את חסינותם הפרלמנטרית בישיבה אחת — קייס בראון בנושא אנטישמיות הבולט ביותר.
+- **MSR לאחר ETS2:** תמחור פחמן לחימום ותחבורה יבשתית נחלש מעט לפני השקת 2027; ההגנות הפיננסיות של קרן האקלים החברתית נשמרות.
+- **חוק בחירות (הצבעה בייפוי כוח):** ח"פיות בהיריון ולאחר לידה יכולות כעת להצביע בייפוי כוח — תמיכה כמעט אוניברסלית.
+- **חידוש מערכת העדפות כלליות:** העדפות סחר ל-67 מדינות מתפתחות חודשו עם תנאי עבודה/סביבה חדשים.
+- **החלטת בריונות קיברנטית:** הפרלמנט האירופי דרש עונשים פליליים ואחריות פלטפורמות דיגיטליות בהטרדות.
+
+---
+
+### Source Attribution
+
+- נוסחי הפרלמנט האירופי: data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- נוף פוליטי: פורטל הנתונים הפתוחים של הפרלמנט האירופי (717 ח"פ, מחזור EP10 2024–2029)
+- IMF הקשר כלכלי: api.imf.org SDMX 3.0 (מהדורת ספטמבר 2025, WEO סקר ישיר מאושר 2026-05-11)
+- מערכת התראה מוקדמת: כלי EP MCP (רגישות גבוהה, יציבות=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### ועדת תביעות בינלאומית לאוקראינה — ניתוח אסטרטגי מעמיק
+
+הצבעת הפרלמנט האירופי מ-30 אפריל 2026 על ועדת התביעות הבינלאומית לאוקראינה אינה רק החלטה סמלית. היא מייצגת שינוי יסודי באופן שבו האיחוד האירופי מדמיין את תפקידו במנגנוני אחריות בינלאומיים. ממדים אסטרטגיים מרכזיים:
+
+**1. חידוש בהנדסה המשפטית:** האמנה משתמשת במסגרת מועצת אירופה (לא אמנות האיחוד האירופי) כדי לעקוף שיתוק הווטו של מועצת הביטחון. זוהי בדיוק הגישה האדריכלית שנוצרה ב-1998 עם חוק רומא — בניית תשתית אחריות מחוץ למערכת מועצת הביטחון. האיחוד האירופי מיישם כעת את אותה הנדסה משפטית על אוקראינה.
+
+**2. תקדים פריסת נכסים:** נכסים ריבוניים רוסיים קפואים בשווי 285–300 מיליארד יורו (מוחזקים בעיקר על ידי Euroclear בלגיה) ישמשו כבסיס כספי. שימוש בנכסים ממשלתיים כ-de-facto בטחון לאחריות — ללא הסכמת אותה המדינה — חסר תקדים משפטי בזמן שלום. חוות הדעת המייעצת של בית המשפט האירופי לצדק (צפויה ר"ד 2–3 2026) על חוקיות פריסת נכסים אלה תהיה ההחלטה המשפטית החשובה ביותר של האיחוד האירופי ב-2026.
+
+**3. מפנה גיאו-פוליטי של EPP:** תמיכה נלהבת של EPP בוועדת התביעות לא הייתה עוברת בדמיון בפרלמנט האירופי EP8 (2014–2019), אז ח"פ מהונגריה, בולגריה וחלקים מקבוצת מדינות מרכז ומזרח אירופה רגילו לרכך את שפת הפרלמנט האירופי כלפי רוסיה. גוש EPP ב-EP10 — מושרש כעת בהדרת הונגריה פוסט-אורבן ממפלגה ועמדת ה-ב.כ.ג.ב.ב האירופי האסרטיבית של גרמניה — קשיח מבנית יותר כלפי רוסיה.
+
+**4. השלכות מערכתיות על המשפט הבינלאומי:** אם ועדת התביעות תצליח לפעול, היא מקבעת תקדים שלפיו מעצמות גדולות ניתן לגבות מהן אחריות כספית על ידי גופים בינלאומיים הפועלים מחוץ למסגרת האו"ם. לתקדים זה השלכות על סכסוכי מעצמות עתידיים (תרחישי סין-טייוואן) שהאיחוד האירופי, ארה"ב והדמוקרטיות בנות-ברית כבר מחשבים.
+
+#### הסרות חסינות — דפוס אחריות מוסדית
+
+הסרת חסינות ארבעה ח"פ ביום אחד (28 אפריל) אינה מקרית. היא משקפת:
+
+1. **עמדת אכיפה פעילה של JURI:** JURI ב-EP10 אימצה גישה אקטיבית יותר לאחריות, כפי שניכר מהתרחבות סמכויות גוף האתיקה
+2. **הממד הפוליטי של קייס בראון:** בקשת הסרת חסינות בתיקים הקשורים לאנטישמיות רגישה פוליטית בהקשרה
+3. **הממד הרומני של קייס שושואקה:** הסערה של מסע קלין ג'ורג'סקו לנשיאות ברומניה (סוף 2025) יצרה הקשר פוליטי לטיפול נוקשה יותר בח"פ לאומנים רומנים
+4. **הממד הפולני בתיקי אובאייתק/בוצ'ק:** שני ח"פ פולניים מ-ECR תחת חקירות קרובות לשחיתות — עקבי עם רפורמת שלטון החוק הפולנית ופעולות האחריות פוסט-PiS בתקופת ראש הממשלה דונלד טוסק
+
+דפוס: JURI מטפלת ברצף בפיגור בקשות הסרת חסינות מ-EP8/9 ו-EP10, שהואץ בגלל התרחבות סמכויות גוף האתיקה. קבוצת 28 אפריל משקפת ישיבת JURI שהוקדשה לסילוק פיגור זה — ולא ארבעה מקרים חדשים בו-זמנית.
+
+#### שינוי MSR של ETS2 — איתות שבירות עסקת הירוק
+
+שינוי רזרב יציבות השוק מ-29 אפריל (TA-10-2026-0139) ראוי לניתוח עמוק מנקודת נתונים בודדת. בהקשר של מסלול יישום חבילת "Fit for 55" כולה:
+
+- **2024:** חוק שיקום הטבע של האיחוד האירופי עבר בקושי; תקנות מתאן נחלשו בדיוני שלישייה
+- **2025:** עיכוב יישום דלקי תעופה בת-קיימא (ReFuelEU); קיצוץ תקציב אסטרטגיית מימן האיחוד האירופי
+- **2026-04-29:** הפחתת רזרב MSR של ETS2 לפני השקה
+
+דפוס זה עקבי עם מפנה EPP ל"קיימות תחרותית" — שמירה על המארכיטקטורה המבנית של החקיקה הירוקה תוך הפחתת אפקטיביותה התפעולית. שינוי MSR הוא גרסת ETS2 של דפוס זה: המנגנון קיים, אך הרזרב הנחלש מהפך את מחיר פחמן ETS2 לתנודתי יותר ולכן פחות אמין כאיתות השקעה לפריסת טכנולוגיות נקיות.
+
+**רלוונטיות IMF:** צמיחת הגדפ"ד הגרמני השלילית (-0.1%, WEO ספטמבר 2025) יוצרת לחץ פוליטי להגן על תעשיות אנרגיה-אינטנסיביות מפני עליות עלות פתאומיות. שינוי MSR של ETS2 עשה EPP אופטימלי פוליטית — מאתת על מחויבות לאקלים תוך מתן מרחב כלכלי לתעשייה הגרמנית והפולנית.
+
+#### הצבעה בייפוי כוח — רפורמה מבנית בייצוג
+
+תיקון חוק הבחירות (TA-10-2026-0124) המאפשר הצבעה בייפוי כוח לח"פיות בהיריון/לאחר לידה חשוב יותר ממה שמוחה טכניותו. הוא:
+
+1. התיקון המבני הראשון להליכי הצבעה בפרלמנט האירופי במיוחד למען שוויון מגדרי (לא רק פתרון הליכי חלופי)
+2. מאומץ לפי סעיף 223 לחוזה תפקוד האיחוד האירופי (הוראת אוטונומיה עצמית של הפרלמנט האירופי) — שימוש נדיר יחסית בהוראה זו
+3. מודל לרפורמות ידידותיות-למשפחה עתידיות (חופשת אבהות, אחריות טיפולית)
+
+**איתות מעקב:** מספר ח"פ שיסתמכו על הצבעה בייפוי כוח במליאה 18–22 מאי יהיה מבחן ניסיוני ראשון לביקוש.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **עקוב אחר חוות הדעת המייעצת של בית המשפט האירופי לצדק על נכסים קפואים** — ההתפתחות המשפטית הקרובה-טווח החשובה ביותר לאחריות אוקראינה; צפויה ר"ד 2–3 2026
+2. **עקוב אחר הצהרת מועצת האיחוד ההונגרית** על אשרור אמנת התביעות — לחישת אם 30% ההסתברות (R-01) תתגשם
+3. **צפה במסלול מחיר פחמן ETS2** — אם יירד מתחת ל-30 יורו/טון לאחר יישום שינוי MSR, זה מאשר את תזת שחיקת עסקת הירוק
+4. **עקוב אחר XML DOCEO של מליאה 18–22 מאי** — נתוני ההצבעה הראשונים לאחר שבוע ועדות יאשרו יציבות קואליציה על הוראת אחריות AI, מבחן החקיקה הגדול הבא
+
+---
+
+### Source Attribution (Expanded)
+
+- נתונים ראשוניים: נוסחי הפרלמנט האירופי TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 דרך data.europarl.europa.eu
+- נוף פוליטי פרלמנטרי אירופי: generate_political_landscape (2026-05-11, 717 ח"פ, 9 קבוצות)
+- IMF WEO: מהדורת ספטמבר 2025, מדדי תמ"ג/אינפלציה/פיסקל ל-DEU/FRA/ITA/ESP/POL, נשלפו דרך fetch_url (SDMX 3.0)
+- מערכת התראה מוקדמת של הפרלמנט האירופי: יציבות=84/100, 3 אזהרות (רגישות גבוהה, 2026-05-11)
+- ניתוח דינמיקת קואליציה פרלמנטרית אירופית: analyze_coalition_dynamics (1 אפריל–11 מאי; פרוקסי-קומפוזיציה, לא רמת הצבעה)
+- הקשר היסטורי: בסיס ידע מוסדי פרלמנטרי אירופי (תקדימי הסרת חסינות, מסלול ETS)
+- תיעוד IMF לניתוח ביסוס משפטי: מרכיב אנליטי (לא מקור ישיר של IMF)
+
+### Executive Probability Assessment
+
+**סיכום הסתברויות WEP** לקובעי מדיניות:
+
+| הערכה | טווח WEP | ביטחון |
+|---------|---------|---------|
+| ועדת תביעות נכנסת לתוקף | כמעט ודאי | HIGH |
+| יישום שינוי MSR של ETS2 עד ר"ד 3 2026 | סביר מאוד | HIGH |
+| עיכוב הונגרי/פולני ביישום | סביר | HIGH |
+| עירעור בית המשפט האירופי לצדק תוך 6 חודשים | שקול בערך | MEDIUM |
+| קואליציה עמידה עד הצבעת תקציב יוני | סביר מאוד | HIGH |
+| ESN מגבש מיעוט חוסם | לא סביר מאוד | HIGH |
+
+### Admiralty Source Assessment
+
+| מקור | מהימנות | אמינות | דירוג |
+|------|---------|---------|-------|
+| רשומות נוסחי הפרלמנט האירופי | A (לגמרי מהימן) | 1 (מאושר) | A1 |
+| נוף פוליטי פרלמנטרי אירופי (MCP) | A (לגמרי מהימן) | 2 (ככל הנראה נכון) | A2 |
+| מערכת התראה מוקדמת | B (בדרך כלל מהימן) | 2 (ככל הנראה נכון) | B2 |
+| ניתוח דינמיקת קואליציה | B (בדרך כלל מהימן) | 2 (ככל הנראה נכון) | B2 |
+| הערכת מסגרת מדיה | C (לעתים קרובות מהימן) | 3 (אולי נכון) | C3 |
+| תחזיות ותרחישים | B (בדרך כלל מהימן) | 3 (אולי נכון) | B3 |
+
+**מהימנות כוללת של תקציר מנהלים: B2** — בסיס מקורות מהימן, הערכות ככל הנראה נכונות.
+
+### Executive Action Recommendations
+
+**לגורמי פיקוח באיחוד האירופי**: עקוב אחר פריסת מסגרת הביצוע של ועדת התביעות (יעד: יולי 2026). בקש מהנציבות לפרסם לוח זמנים לביצוע לפני מועצת יוני 2026.
+
+**למשרדי ח"פ**: התכונן לתרכוז מחזור ספטמבר 2026 על חקיקה משנית של ועדת תביעות ועל בחינת תקנת ביצוע ETS2.
+
+**למרכזי מחשבה ועמותות**: פרסם ניתוח משפטי על סיכוני עירעור בית המשפט האירופי לצדק בוועדת התביעות להעשרת שיח ציבורי.
+
+**לעיתונאים**: עקוב אחר פרסום הנציבות למסגרת תפעולית (ועדת תביעות) ומסלול פחמן ETS2 כפרמטרים מפתח.
+
+*תקציר מנהלים — גרסה 2.0 (הרחבת הפעלה מחדש) | תאריך: 2026-05-11*
+*טווחי הסתברות WEP לפי סטנדרטים של קהילת המודיעין | דירוג אדמירלטי מיושם*
+*רישיון: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief Ja
+
+**分類：** 公開議会情報  
+**記事種別：** 速報  
+**60秒要旨：** ウクライナ国際請求委員会 ＋ 議員不逮捕特権解除の連鎖 ＋ ETS2気候ガバナンス  
+**信頼水準：** 🟡 中程度  
+**データ：** 欧州議会ストラスブール本会議 4月28日〜30日（最新立法成果）
+
+---
+
+### BLUF — Bottom Line Up Front
+
+2026年4月28日〜30日のストラスブール本会議は、三つの重要成果をもたらした：
+
+1. **ウクライナ国際請求委員会**（4月30日）：欧州議会は、ロシアに対する損害賠償請求を処理する革新的な国際法的機構を支持した — 議会が域外の独立した責任体制を支持するのは初めて。絶対多数は535+/717と推定。主要地政学的意義：国連安保理拒否権の枠外で武装侵略国を訴追する機関上の先例を確立する。
+
+2. **単一会期での4件の特権解除**（4月28日）：JURI委員会がグジェゴシュ・ブラウン（反ユダヤ主義）、ダイアナ・ショシュアカ（ルーマニア民族主義）、ダニエル・オバイテク、トマシュ・ブチェク — いずれもECR/NI所属 — の不逮捕特権解除手続きを開始した。歴史的に前例のない施行措置の集中；意図的な説明責任戦略を示す可能性あり。
+
+3. **ETS2市場安定化準備金の修正**（4月29日）：建物・道路輸送向け新炭素市場（2027年開始）の市場安定化準備金が準備金発動を遅らせるよう修正された — 価格急騰リスクを下げるが脱炭素インセンティブの強度を弱める。EPPが主導した妥協案；Greens/EFAが反対。
+
+5月11日に重要な立法投票は記録されていない（欧州議会は委員会週間中）。
+
+---
+
+### Top Trigger Assessment
+
+| 問題 | 重要度 | 緊急度 | 監視事項 |
+|------|--------|--------|---------|
+| ウクライナ請求委員会 | 🔴 高 — 国際法先例 | 継続中 | 凍結資産に関するECJ勧告的意見（2026年第3四半期） |
+| 議員特権解除（×4） | 🟡 中 — 説明責任の連鎖 | 現在 | 欧州人権裁判所への上訴；将来のJURIスケジュール |
+| ETS2 MSR弱体化 | 🟡 中 — 気候ガバナンス後退シグナル | 中期 | ETS2開始準備（2027年） |
+| EU拡大戦略 | 🟡 中 — 2028〜2030年目標再確認 | 中期 | 加盟章についての理事会交渉 |
+| 議員委任投票 | 🟢 低 — 内部ガバナンス改革 | 現在 | 2027年選挙前の施行 |
+
+---
+
+### Strategic Intelligence
+
+**構造的権力力学（欧州議会EP10、2026年）：**  
+EPP（183議席）は論争的な投票ごとに三党連立（PPE+S&D+Renew = 396）を必要とする。EPPによる実行可能な右派多数派は存在しない（PPE+ECR+PfE = 349、360の閾値を下回る）。この構造的膠着はEPPを枢軸とするが、S&D+Renewの同意も不可欠にする — あらゆる立法成果を形成する三角的相互依存関係を生み出す。
+
+**地政学的立場：**  
+欧州議会は条約で定められた権限を超えて先制的地政学機関として機能している。請求委員会の承認、ウクライナ融資、統合防衛市場決議が合わさってEUの新外交政策立場を代表する — ロシアの脅威に関するPPE + S&D + Renewの収斂が原動力。
+
+**環境ガバナンスへの圧力：**  
+ETS2 MSR修正は2021年グリーンディール以来、「Fit for 55」施行メカニズムの初の公式弱体化を表す。2050年炭素中立目標を廃止するわけではないが、政治的バランスがEPPの「競争的持続可能性」枠組みへシフトしていることを示す。Greens/EFAはこの投票で敗北した — そして彼らはそれを理解している。
+
+---
+
+### One Sentence Each — What Happened
+
+- **ウクライナ請求委員会：** 欧州議会は2022年侵略に起因する損害賠償請求を処理する新国際機関を支持した — 凍結されたロシア主権資産を通じて実施される。
+- **議員特権解除：** 極右/民族主義の4議員が単一会期で議会免責特権を失った — ブラウン議員の反ユダヤ主義案件が最も注目を集める。
+- **ETS2 MSR：** 暖房・道路輸送の炭素価格付けが2027年開始前に若干弱体化；気候社会基金の財政的保護は維持。
+- **選挙法（委任投票）：** 妊娠・産後の女性議員が代理投票できるようになった — ほぼ全会一致の支持。
+- **一般特恵関税制度の更新：** 67の発展途上国向け貿易優遇が新しい労働・環境条件とともに更新された。
+- **サイバーいじめ決議：** 欧州議会はハラスメントについて刑事罰とデジタルプラットフォームの責任を求めた。
+
+---
+
+### Source Attribution
+
+- 欧州議会採択テキスト：data.europarl.europa.eu（TA-10-2026-0154、-0163、-0155、-0114、-0113、-0139、-0124、-0109、-0108、-0107、-0106）
+- 政治的景観：欧州議会オープンデータポータル（717議員、EP10期2024〜2029年）
+- IMF経済的背景：api.imf.org SDMX 3.0（2025年9月リリース、WEO直接調査確認済み2026-05-11）
+- 早期警告システム：EP MCPツール（高感度、安定性=84/100、2026-05-11）
+
+---
+
+### Deep Intelligence Assessment
+
+#### ウクライナ国際請求委員会 — 戦略的詳細分析
+
+2026年4月30日の欧州議会によるウクライナ国際請求委員会への投票は象徴的な決議にとどまらない。EUがその役割を国際的な説明責任メカニズムにおいてどのように構想するかの根本的転換を表している。主要な戦略的側面：
+
+**1. 法的エンジニアリングの革新性：** この条約はEU条約ではなく欧州評議会の枠組みを利用して安保理拒否権麻痺を回避する。これはまさに1998年のローマ規程で創出されたアーキテクチャー的アプローチだ — 安保理体制の外に説明責任インフラを構築する。EUは今同じ法的エンジニアリングをウクライナに適用している。
+
+**2. 資産展開先例：** 主にベルギーのEuroclaarが保有する2,850〜3,000億ユーロの凍結ロシア主権資産が財政的根拠となる。当該国の同意なく政府資産を事実上の説明責任担保として使用することは、平時においては法的前例がない。EUの資産展開合法性についてのECJ勧告的意見（2026年第2〜3四半期予定）は2026年のEU最重要法的決定となる。
+
+**3. EPPの地政学的転換：** EPPが請求委員会に熱心な支持を示すことは欧州議会EP8期（2014〜2019年）では考えられなかっただろう — その頃ハンガリー、ブルガリア、一部の中・東欧ブロックからのEPP議員が欧州議会のロシアへの言語を定期的に和らげていた。EP10のEPPグループ — 今やポスト・オルバーン後のハンガリーの党除名とドイツのミルツの断固とした欧米的立場で固められ — は構造的にロシアに対してより硬直している。
+
+**4. 国際法への体系的影響：** 請求委員会の機能が成功すれば、大国も国連憲章体制の外で機能する国際機関によって財政的に問われうるという先例を確立する。この先例はEU・米国・同盟民主主義国家がすでに計算している将来の大国間紛争（台湾海峡シナリオ）に対して含意を持つ。
+
+#### 特権解除 — 制度的説明責任パターン
+
+一日に4議員の特権を解除したこと（4月28日）は偶然ではない。これを反映：
+
+1. **JURIの積極的施行姿勢：** EP10のJURIは倫理機関の権限拡大に見られるように説明責任へのより積極的なアプローチを採用
+2. **ブラウン案件の政治的側面：** 反ユダヤ主義関連事件での特権解除申請はその文脈において政治的に敏感
+3. **ショシュアカ案件のルーマニア的側面：** ルーマニアのカリン・ジョルジェスク大統領選挙騒動（2025年末）がルーマニア民族主義EP議員に対するより厳格な扱いの政治的背景を作った
+4. **オバイテク/ブチェク案件のポーランド的側面：** ECR所属の2人のポーランド議員はいずれも汚職に近い捜査を受けており — 首相ドナルド・トゥスク下でのポーランド法の支配改革とポスト・PiS説明責任活動と一致
+
+パターン：JURIはEP8/9とEP10からの特権解除申請の積み残しを処理しており、倫理機関の権限拡大によって加速された。4月28日グループはこの積み残し解消のために特別に充てられたJURI会議を反映する — 4件の新規同時案件ではなく。
+
+#### ETS2 MSR修正 — グリーンディール脆弱性シグナル
+
+4月29日のMSR修正（TA-10-2026-0139）は単一データポイントよりも深い分析に値する。「Fit for 55」パッケージ全体の実施軌跡の文脈で：
+
+- **2024年：** EU自然回復法がかろうじて通過；メタン規制は三者協議で弱体化
+- **2025年：** 持続可能航空燃料（ReFuelEU）の実施遅延；EU水素戦略予算削減
+- **2026-04-29：** 開始前のETS2 MSR準備金削減
+
+このパターンはEPPの「競争的持続可能性」へのピボットと一致する — グリーン法制の構造的アーキテクチャーを維持しながらその運用効果を削減する。MSR修正はこのパターンのETS2版だ：メカニズムは存在するが、弱体化した準備金がETS2炭素価格をより不安定にし、クリーンテクノロジー展開への投資シグナルとして信頼性を下げる。
+
+**IMF関連性：** ドイツのGDP成長率マイナス（-0.1%、WEO 2025年9月）がエネルギー集約型産業を突然のコスト上昇から保護する政治的圧力を生み出す。ETS2 MSR修正はEPPにとって政治的に最適だった — 気候へのコミットメントを示しながらドイツ・ポーランド産業に経済的余地を提供する。
+
+#### 委任投票 — 代表の構造的改革
+
+産休・産後の委任投票を可能にする選挙法改正（TA-10-2026-0124）はその技術的性格が示す以上に重要だ。これは：
+
+1. ジェンダー平等のために欧州議会の投票手続きへの最初の構造的修正（単なる代替手続き解決策ではなく）
+2. TFEU第223条（欧州議会の自律規定）に基づき採択 — この規定の比較的珍しい使用
+3. 将来の家族対応改革（育児休業、介護責任）のモデル
+
+**監視シグナル：** 5月18〜22日本会議で委任投票を利用する議員数が需要の最初の経験的テストとなる。
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **凍結資産に関するECJ勧告的意見を追跡する** — ウクライナ説明責任の最重要短期法的発展；2026年第2〜3四半期予定
+2. **請求条約批准に関するEU理事会のハンガリー声明を監視する** — 確率30%（R-01）が実現するか感知のため
+3. **ETS2炭素価格軌跡を監視する** — MSR修正実施後に30ユーロ/トンを下回れば、グリーンディール侵食テーゼを確認
+4. **5月18〜22日本会議のDOCEO XMLを追跡する** — 委員会週間後の最初の投票データがAI責任指令に関する連立安定性を確認、次の大きな立法テスト
+
+---
+
+### Source Attribution (Expanded)
+
+- 一次データ：欧州議会採択テキスト TA-10-2026-0154、-0163、-0155、-0114、-0113、-0139、-0124、-0109、-0108、-0107、-0106（data.europarl.europa.eu経由）
+- 欧州議会政治的景観：generate_political_landscape（2026-05-11、717議員、9会派）
+- IMF WEO：2025年9月リリース、DEU/FRA/ITA/ESP/POLのGDP/インフレ/財政指標、fetch_url経由で取得（SDMX 3.0）
+- 欧州議会早期警告システム：安定性=84/100、3警告（高感度、2026-05-11）
+- 欧州議会連立力学分析：analyze_coalition_dynamics（4月1日〜5月11日；構成代理、投票レベルではない）
+- 歴史的背景：欧州議会機関知識ベース（特権解除先例、ETS軌跡）
+- 法的根拠分析のIMF文書：分析的合成（IMFの直接出典ではない）
+
+### Executive Probability Assessment
+
+**政策決定者向けWEP確率サマリー：**
+
+| 評価 | WEP範囲 | 信頼 |
+|------|---------|------|
+| 請求委員会が発効 | ほぼ確実 | HIGH |
+| ETS2 MSR修正の2026年第3四半期までの実施 | 非常に可能性が高い | HIGH |
+| ハンガリー/ポーランドによる実施遅延 | 可能性あり | HIGH |
+| 6ヶ月以内のECJ申請 | ほぼ均等 | MEDIUM |
+| 6月予算投票まで連立維持 | 非常に可能性が高い | HIGH |
+| ESNが阻止少数派を形成 | 非常に可能性が低い | HIGH |
+
+### Admiralty Source Assessment
+
+| 出典 | 信頼性 | 信憑性 | 評価 |
+|------|--------|--------|------|
+| 欧州議会採択テキスト記録 | A（完全信頼可能） | 1（確認済み） | A1 |
+| 欧州議会政治的景観（MCP） | A（完全信頼可能） | 2（おそらく真実） | A2 |
+| 早期警告システム | B（通常信頼可能） | 2（おそらく真実） | B2 |
+| 連立力学分析 | B（通常信頼可能） | 2（おそらく真実） | B2 |
+| メディアフレーム評価 | C（相当信頼可能） | 3（おそらく真実） | C3 |
+| 予測とシナリオ | B（通常信頼可能） | 3（おそらく真実） | B3 |
+
+**幹部向けブリーフィング全体信頼性：B2** — 信頼できる情報源基盤、評価はおそらく真実。
+
+### Executive Action Recommendations
+
+**EU監視機関向け**：請求委員会執行フレームワークの展開を追跡（目標：2026年7月）。2026年6月理事会前の実施スケジュール公表を欧州委員会に要求。
+
+**EP議員事務所向け**：2026年9月会期が請求委員会二次立法とETS2実施規則審査に集中することに備える。
+
+**シンクタンク・NGO向け**：請求委員会のECJ申請リスクに関する法的分析を公開し、公開討論を充実させる。
+
+**ジャーナリスト向け**：欧州委員会による請求委員会運用フレームワーク公表とETS2炭素価格軌跡を主要パラメーターとして追跡。
+
+*幹部向けブリーフィング — バージョン2.0（再実行拡張版） | 日付：2026-05-11*  
+*WEP確率範囲は情報コミュニティ基準に従う | 海軍本部評価適用*  
+*ライセンス：Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief Ko
+
+**분류:** 공개 의회 정보  
+**기사 유형:** 속보  
+**60초 요약:** 우크라이나 국제청구위원회 + 의원 면책특권 해제 연쇄 + ETS2 기후 거버넌스  
+**신뢰 수준:** 🟡 중간  
+**데이터:** 유럽의회 스트라스부르 본회의 4월 28–30일 (최신 입법 결과)
+
+---
+
+### BLUF — Bottom Line Up Front
+
+2026년 4월 28–30일 스트라스부르 본회의는 세 가지 중요한 성과를 낳았다:
+
+1. **우크라이나 국제청구위원회** (4월 30일): 유럽의회는 러시아에 대한 손해배상 청구를 처리하는 혁신적인 국제법 메커니즘을 지지했다 — 의회가 역외 독립 책임 구조를 지지한 최초의 사례. 절대 다수는 535+/717로 추산. 주요 지정학적 의미: 유엔 안보리 거부권 틀 밖에서 무장 침략국에 대한 책임을 묻는 제도적 선례를 확립.
+
+2. **단일 회기에서 4건의 면책특권 해제** (4월 28일): JURI 위원회가 그제고슈 브라운(반유대주의), 다이애나 쇼슈아카(루마니아 민족주의), 다니엘 오바이테크, 토마시 부체크 — 모두 ECR/NI 소속 — 의 면책특권 해제 절차를 개시했다. 역사적으로 전례 없는 집중된 집행 조치; 의도적인 책임 전략을 시사할 수 있음.
+
+3. **ETS2 시장안정화준비금 수정** (4월 29일): 건물 및 도로 운송을 위한 신규 탄소 시장(2027년 출범)의 시장안정화준비금이 준비금 발동을 늦추도록 수정되었다 — 가격 급등 위험을 줄이지만 탈탄소화 인센티브 강도를 약화. EPP가 주도한 타협안; Greens/EFA 반대.
+
+5월 11일에는 중요한 입법 투표가 기록되지 않음 (유럽의회 위원회 주간).
+
+---
+
+### Top Trigger Assessment
+
+| 사안 | 중요도 | 긴급도 | 모니터링 |
+|------|--------|--------|---------|
+| 우크라이나 청구위원회 | 🔴 높음 — 국제법 선례 | 진행 중 | 동결자산 관련 ECJ 권고적 의견 (2026년 3분기) |
+| 면책특권 해제 (×4) | 🟡 중간 — 연쇄 책임 | 현재 | 유럽인권재판소 항소; 미래 JURI 일정 |
+| ETS2 MSR 약화 | 🟡 중간 — 기후 거버넌스 후퇴 신호 | 중기 | ETS2 출범 준비 (2027년) |
+| EU 확대 전략 | 🟡 중간 — 2028–2030년 목표 재확인 | 중기 | 가입 챕터에 관한 이사회 협상 |
+| 의원 위임 투표 | 🟢 낮음 — 내부 거버넌스 개혁 | 현재 | 2027년 선거 전 시행 |
+
+---
+
+### Strategic Intelligence
+
+**구조적 권력 역학 (유럽의회 EP10, 2026년):**  
+EPP (183석)는 논쟁적인 투표마다 3당 연립 (PPE+S&D+Renew = 396)이 필요하다. EPP의 실행 가능한 우파 다수는 존재하지 않는다 (PPE+ECR+PfE = 349, 360 임계값 미달). 이 구조적 교착은 EPP를 핵심 축으로 만들지만 S&D+Renew의 동의도 필수적으로 만든다 — 모든 입법 결과를 형성하는 삼각 상호의존을 만들어낸다.
+
+**지정학적 입장:**  
+유럽의회는 조약에서 정의된 권한을 넘어 선제적 지정학 기관으로 기능하고 있다. 청구위원회 승인, 우크라이나 대출, 통합 방위 시장 결의안은 함께 새로운 EU 대외 정책 입장을 대표한다 — 러시아 위협에 대한 PPE + S&D + Renew의 수렴이 원동력.
+
+**환경 거버넌스 압박:**  
+ETS2 MSR 수정은 2021년 그린딜 이후 "Fit for 55" 시행 메커니즘의 최초 공식 약화를 나타낸다. 2050년 탄소 중립 목표를 폐기하는 것은 아니지만, 정치적 균형이 EPP의 "경쟁적 지속가능성" 프레임워크 쪽으로 이동하고 있음을 시사한다. Greens/EFA는 이 투표에서 졌다 — 그리고 그들은 그것을 알고 있다.
+
+---
+
+### One Sentence Each — What Happened
+
+- **우크라이나 청구위원회:** 유럽의회는 2022년 침략으로 발생한 손해배상 청구를 처리하는 새로운 국제 기구를 지지했다 — 동결된 러시아 주권 자산을 통해 시행.
+- **의원 면책특권 해제:** 극우/민족주의 4명의 의원이 단일 회기에서 의회 면책특권을 잃었다 — 브라운 의원의 반유대주의 사건이 가장 주목받음.
+- **ETS2 MSR:** 난방·도로운송 탄소 가격 책정이 2027년 출범 전 약간 약화; 기후사회기금의 재정 보호는 유지.
+- **선거법 (위임 투표):** 임신·산후 여성 의원이 이제 대리 투표할 수 있다 — 거의 만장일치 지지.
+- **일반특혜관세제도 갱신:** 67개 개발도상국에 대한 무역 혜택이 새로운 노동·환경 조건과 함께 갱신.
+- **사이버 괴롭힘 결의안:** 유럽의회가 괴롭힘에 대한 형사 처벌과 디지털 플랫폼 책임을 요구.
+
+---
+
+### Source Attribution
+
+- 유럽의회 채택 텍스트: data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- 정치적 지형: 유럽의회 개방형 데이터 포털 (717명 의원, EP10 회기 2024–2029년)
+- IMF 경제적 맥락: api.imf.org SDMX 3.0 (2025년 9월 릴리즈, WEO 직접 조사 확인 2026-05-11)
+- 조기경보 시스템: EP MCP 도구 (높은 감도, 안정성=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### 우크라이나 국제청구위원회 — 전략적 심층 분석
+
+2026년 4월 30일 우크라이나 국제청구위원회에 대한 유럽의회 투표는 단순한 상징적 결의가 아니다. EU가 국제 책임 메커니즘에서 자신의 역할을 어떻게 상상하는지에 대한 근본적인 전환을 나타낸다. 주요 전략적 측면:
+
+**1. 법적 엔지니어링의 참신성:** 이 협약은 안보리 거부권 마비를 우회하기 위해 유럽평의회 프레임워크(EU 조약 아님)를 사용한다. 이것은 1998년 로마 규정으로 만들어진 바로 그 건축적 접근법이다 — 안보리 체제 밖에 책임 인프라를 구축하는 것. EU는 이제 동일한 법적 엔지니어링을 우크라이나에 적용하고 있다.
+
+**2. 자산 배치 선례:** 주로 벨기에 Euroclear가 보유한 2,850억~3,000억 유로의 동결된 러시아 주권 자산이 재정적 기반을 형성한다. 해당 국가의 동의 없이 정부 자산을 사실상의 책임 담보로 사용하는 것은 평화시에 법적으로 전례가 없다. 이러한 자산 배치 합법성에 대한 ECJ 권고적 의견(2026년 2~3분기 예상)은 2026년 가장 중요한 EU 법적 결정이 될 것이다.
+
+**3. EPP의 지정학적 전환:** EPP의 열렬한 청구위원회 지지는 유럽의회 EP8기(2014–2019)에서는 상상할 수 없었을 것이다 — 당시 헝가리, 불가리아, 중·동유럽 블록 일부 EPP 의원들이 정기적으로 러시아에 대한 유럽의회 언어를 부드럽게 했다. EP10 EPP 그룹 — 이제 포스트-오르반 헝가리의 당 제명과 독일 메르츠의 단호한 대서양주의 입장으로 굳어진 — 은 구조적으로 러시아에 대해 더 경직되어 있다.
+
+**4. 국제법에 대한 체계적 함의:** 청구위원회가 기능적으로 성공한다면, 대국들도 유엔 헌장 체제 밖에서 운영되는 국제 기구에 의해 재정적으로 책임을 질 수 있다는 선례를 확립한다. 이 선례는 EU, 미국 및 동맹 민주주의 국가들이 이미 계산하고 있는 미래 대국 분쟁(대만해협 시나리오)에 함의를 가진다.
+
+#### 면책특권 해제 — 제도적 책임 패턴
+
+하루에 4명의 의원 특권을 해제한 것(4월 28일)은 우연이 아니다. 이것은 다음을 반영한다:
+
+1. **JURI의 적극적 집행 입장:** EP10의 JURI는 윤리 기구 권한 확대에서 볼 수 있듯이 책임에 대한 보다 능동적인 접근법을 채택
+2. **브라운 사건의 정치적 측면:** 반유대주의 관련 사건에서의 면책특권 해제 요청은 그 맥락에서 정치적으로 민감
+3. **쇼슈아카 사건의 루마니아적 측면:** 루마니아의 카린 조르제스쿠 대통령 선거 논란(2025년 말)이 루마니아 민족주의 EP 의원에 대한 더 엄격한 처우의 정치적 맥락을 조성
+4. **오바이테크/부체크 사건의 폴란드적 측면:** ECR 소속 두 폴란드 의원은 모두 부패에 근접한 수사를 받고 있다 — 총리 도날드 투스크 하의 폴란드 법치 개혁 및 포스트-PiS 책임 활동과 일치
+
+패턴: JURI는 EP8/9와 EP10의 면책특권 해제 요청 적체를 처리하고 있으며, 윤리 기구 권한 확대로 가속화되었다. 4월 28일 그룹은 이 적체를 해소하기 위해 특별히 배정된 JURI 회의를 반영한다 — 4건의 새로운 동시 사건이 아니라.
+
+#### ETS2 MSR 수정 — 그린딜 취약성 신호
+
+4월 29일 MSR 수정(TA-10-2026-0139)은 단일 데이터 포인트보다 더 깊은 분석이 필요하다. "Fit for 55" 패키지 전체 시행 궤적의 맥락에서:
+
+- **2024년:** EU 자연복원법이 간신히 통과; 메탄 규정은 삼자 협상에서 약화
+- **2025년:** 지속가능항공연료(ReFuelEU) 시행 지연; EU 수소전략 예산 삭감
+- **2026-04-29:** 출범 전 ETS2 MSR 준비금 삭감
+
+이 패턴은 EPP의 "경쟁적 지속가능성" 피봇과 일치한다 — 녹색 법제의 구조적 아키텍처를 유지하면서 그 운영 효과를 줄이는 것. MSR 수정은 이 패턴의 ETS2 버전이다: 메커니즘은 존재하지만, 약화된 준비금이 ETS2 탄소 가격을 더 불안정하게 만들어 클린테크 배치를 위한 투자 신호로서 신뢰성을 낮춘다.
+
+**IMF 관련성:** 독일의 마이너스 GDP 성장(-0.1%, WEO 2025년 9월)이 에너지 집약 산업을 갑작스러운 비용 급등으로부터 보호해야 한다는 정치적 압력을 만들어낸다. ETS2 MSR 수정은 EPP에게 정치적으로 최적이었다 — 기후에 대한 의지를 신호하면서 독일·폴란드 산업에 경제적 여지를 제공.
+
+#### 위임 투표 — 대표성의 구조적 개혁
+
+임신·산후 위임 투표를 허용하는 선거법 개정(TA-10-2026-0124)은 그 기술적 성격이 시사하는 것보다 더 중요하다. 이것은:
+
+1. 성평등을 위해 유럽의회 투표 절차에 대한 최초의 구조적 수정 (단순한 대안적 절차 해결책이 아님)
+2. TFEU 제223조 (유럽의회 자율 조항)에 따라 채택 — 이 조항의 비교적 드문 사용
+3. 미래 가족 친화적 개혁 (육아휴직, 돌봄 책임)의 모델
+
+**모니터링 신호:** 5월 18–22일 본회의에서 위임 투표를 이용하는 의원 수가 수요의 첫 번째 경험적 테스트가 될 것이다.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **동결 자산에 관한 ECJ 권고적 의견 추적** — 우크라이나 책임을 위한 가장 중요한 단기 법적 발전; 2026년 2~3분기 예상
+2. **청구 조약 비준에 관한 EU 이사회의 헝가리 선언 모니터링** — 30% 확률(R-01)이 실현되는지 감지
+3. **ETS2 탄소 가격 궤적 감시** — MSR 수정 시행 후 30유로/톤 아래로 떨어지면 그린딜 침식 테제 확인
+4. **5월 18–22일 본회의 DOCEO XML 추적** — 위원회 주간 후 첫 번째 투표 데이터가 AI 책임 지침에 대한 연립 안정성 확인, 다음 중요 입법 테스트
+
+---
+
+### Source Attribution (Expanded)
+
+- 1차 데이터: 유럽의회 채택 텍스트 TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 (data.europarl.europa.eu 경유)
+- 유럽의회 정치적 지형: generate_political_landscape (2026-05-11, 717명 의원, 9개 그룹)
+- IMF WEO: 2025년 9월 릴리즈, DEU/FRA/ITA/ESP/POL GDP/인플레이션/재정 지표, fetch_url 경유 취득 (SDMX 3.0)
+- 유럽의회 조기경보 시스템: 안정성=84/100, 경고 3건 (높은 감도, 2026-05-11)
+- 유럽의회 연립 역학 분석: analyze_coalition_dynamics (4월 1일–5월 11일; 구성 프록시, 투표 수준 아님)
+- 역사적 맥락: 유럽의회 제도적 지식 기반 (면책특권 해제 선례, ETS 궤적)
+- 법적 근거 분석 IMF 문서: 분석적 합성 (IMF 직접 출처 아님)
+
+### Executive Probability Assessment
+
+**정책 입안자를 위한 WEP 확률 요약:**
+
+| 평가 | WEP 범위 | 신뢰 |
+|------|---------|------|
+| 청구위원회 발효 | 거의 확실 | HIGH |
+| 2026년 3분기까지 ETS2 MSR 수정 시행 | 매우 가능성 높음 | HIGH |
+| 헝가리/폴란드에 의한 시행 지연 | 가능성 있음 | HIGH |
+| 6개월 내 ECJ 신청 | 거의 균등 | MEDIUM |
+| 6월 예산 투표까지 연립 유지 | 매우 가능성 높음 | HIGH |
+| ESN이 저지 소수 형성 | 매우 가능성 낮음 | HIGH |
+
+### Admiralty Source Assessment
+
+| 출처 | 신뢰성 | 신빙성 | 등급 |
+|------|--------|--------|------|
+| 유럽의회 채택 텍스트 기록 | A (완전 신뢰 가능) | 1 (확인됨) | A1 |
+| 유럽의회 정치적 지형 (MCP) | A (완전 신뢰 가능) | 2 (아마도 사실) | A2 |
+| 조기경보 시스템 | B (보통 신뢰 가능) | 2 (아마도 사실) | B2 |
+| 연립 역학 분석 | B (보통 신뢰 가능) | 2 (아마도 사실) | B2 |
+| 미디어 프레임 평가 | C (상당히 신뢰 가능) | 3 (아마도 사실) | C3 |
+| 예측 및 시나리오 | B (보통 신뢰 가능) | 3 (아마도 사실) | B3 |
+
+**집행부 브리핑 전체 신뢰성: B2** — 신뢰할 수 있는 소스 기반, 평가는 아마도 사실.
+
+### Executive Action Recommendations
+
+**EU 감독 기관 대상**: 청구위원회 집행 프레임워크 배치 추적 (목표: 2026년 7월). 2026년 6월 이사회 전 시행 일정 공표를 집행위원회에 요청.
+
+**EP 의원실 대상**: 2026년 9월 회기가 청구위원회 이차 입법과 ETS2 시행 규정 검토에 집중하도록 준비.
+
+**싱크탱크·NGO 대상**: 청구위원회 ECJ 신청 위험에 관한 법적 분석을 공개해 공공 토론을 풍부하게 함.
+
+**언론인 대상**: 집행위원회의 청구위원회 운영 프레임워크 공표와 ETS2 탄소 가격 궤적을 주요 파라미터로 추적.
+
+*집행부 브리핑 — 버전 2.0 (재실행 확장판) | 날짜: 2026-05-11*  
+*WEP 확률 범위는 정보 커뮤니티 기준에 따름 | 해군 본부 평가 적용*  
+*라이선스: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief Nl
+
+**60-secondenlezing:** Internationaal Vorderingencommissie Oekraïne + cascade van opheffing van immuniteit van EP-leden + ETS2 milieubestuur  
+**Betrouwbaarheid:** 🟡 Gemiddeld  
+**Gegevens:** Straatsburgse plenaire zitting 28–30 april (meest recente EP-wetgevende output)
+
+---
+
+### BLUF — Bottom Line Up Front
+
+De plenaire zitting van het Europees Parlement in Straatsburg van 28–30 april 2026 leverde drie historische besluiten:
+
+1. **Oekraïens Internationaal Vorderingencommissie** (30 april): Het EP steunt een nieuw internationaal rechtsmechanisme voor de behandeling van schadeclaims tegen Rusland — voor het eerst dat het Parlement een zelfstandige extraterritoriale verantwoordingsarchitectuur steunt. Supermeerderheid geschat op 535+/717. Primair geopolitiek belang: schept institutioneel precedent voor aansprakelijkstelling van een gewapende agressor buiten het vetorecht van de VN-Veiligheidsraad.
+
+2. **Vier opheffingen van immuniteit van EP-leden in één zitting** (28 april): De JURI-commissie initieerde opheffingen voor Grzegorz Braun (antisemitisme), Diana Şoşoacă (Roemeens nationalisme), Daniel Obajtek en Tomasz Buczek — alle ECR/NI-gelieerd. Historisch ongebruikelijke concentratie van handhavingsacties; kan duiden op een bewuste verantwoordingsstrategie.
+
+3. **ETS2 MSR aangepast** (29 april): De Marktstabiliteitsreserve voor de nieuwe gebouwen/wegvervoer-koolstofmarkt (lancering 2027) werd gewijzigd om reserveactivering te vertragen — vermindert het risico van piekprijzen maar verzwakt de snelheid van het decarbonisatiestimulans. PPE-vormig compromis; Greens/EFA stemde tegen.
+
+Er zijn geen significante wetgevende stemmingen geregistreerd voor 11 mei (EP in commissieweek).
+
+---
+
+### Top Trigger Assessment
+
+| Kwestie | Belang | Urgentie | Volgen |
+|---------|--------|----------|--------|
+| Oekraïne Vorderingencommissie | 🔴 Hoog — internationaal rechtsprecedent | Lopend | Advies van het HvJ EU over bevroren tegoeden (K3 2026) |
+| Opheffing immuniteit EP-leden (×4) | 🟡 Gemiddeld — verantwoordingscascade | Actueel | EHRM-uitdagingen; toekomstige JURI-kalender |
+| ETS2 MSR-verzwakking | 🟡 Gemiddeld — signaal klimaatbestuursachteruitgang | Middellange termijn | Gereedheid ETS2-lancering (2027) |
+| EU-uitbreidingsstrategie | 🟡 Gemiddeld — doelstelling 2028–2030 bevestigd | Middellange termijn | Raadsonderhandelingen over toetredingshoofdstukken |
+| Stemvolmacht voor EP-leden | 🟢 Laag — interne bestuurshervorming | Actueel | Uitvoering vóór EP-verkiezingen 2027 |
+
+---
+
+### Strategic Intelligence
+
+**Structurele machtsdynamiek (EP10, 2026):**  
+De PPE (183 zetels) vereist de drieledige coalitie (PPE+S&D+Renew = 396) voor elke betwiste stemming. Er is geen levensvatbare PPE-rechtermeerderheid (PPE+ECR+PfE = 349, onder de drempel van 360). Deze structurele vergrendeling maakt de PPE tot spil maar maakt ook de medewerking van S&D+Renew onmisbaar — creëert een driehoekige wederzijdse afhankelijkheid die elk wetgevend resultaat bepaalt.
+
+**Geopolitieke houding:**  
+Het EP treedt op als proactieve geopolitieke instelling voorbij zijn verdragsmatig omschreven bevoegdheden. De goedkeuring van de Vorderingencommissie, de Oekraïne-lening en de resolutie over de interne markt voor defensie vertegenwoordigen samen een nieuwe assertieve EP-buitenlandse beleidspositie — gedreven door convergentie van PPE + S&D + Renew over de Russische dreiging.
+
+**Milieubestuur onder druk:**  
+De ETS2-MSR-aanpassing vertegenwoordigt de eerste formele verzwakking van de uitvoeringsmechanismen van Fit for 55 sinds de Green Deal van 2021. Hoewel geen terugdraaien van het netto-nuldoelstelling voor 2050, signaleert het een politiek evenwichtsverschuiving richting het PPE-kader van "concurrerende duurzaamheid". De Greens/EFA verloor deze stemming — en dat weten ze.
+
+---
+
+### One Sentence Each — What Happened
+
+- **Oekraïne Vorderingencommissie:** Het EP steunde een nieuw internationaal orgaan voor de behandeling van schadeclaims uit de invasie van 2022 — gehandhaafd via bevroren Russische staatstegoeden.
+- **Opheffingen immuniteit EP-leden:** Vier extreem-rechts/nationalistische EP-leden verloren de parlementaire immuniteit in één zitting — de antisemitismezaak van Braun het meest prominent.
+- **ETS2 MSR:** CO₂-beprijzing voor verwarming en wegvervoer marginaal verzwakt voor de lancering in 2027; beschermingen van het Sociaal Klimaatfonds behouden.
+- **Kieswet (stemvolmacht):** Zwangere EP-leden en nieuwe moeders kunnen nu bij volmacht stemmen — bijna unaniem steun.
+- **SAP-verlenging:** Handelsvoorkeuren voor 67 ontwikkelingslanden verlengd met nieuwe arbeids-/milieucondities.
+- **Resolutie over cyberpesten:** Het EP riep op tot strafrechtelijke bepalingen en platformverantwoordelijkheid voor online intimidatie.
+
+---
+
+### Source Attribution
+
+- EP aangenomen teksten: data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- Politiek landschap: EP open dataportaal (717 EP-leden, EP10-zittingsperiode 2024–2029)
+- IMF Economische context: api.imf.org SDMX 3.0 (september 2025-vintage, live sonde bevestigd 2026-05-11)
+- Vroegwaarschuwingssysteem: EP MCP-tool (hoge gevoeligheid, stabiliteit=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### Oekraïne Vorderingencommissie — Strategische diepteanalyse
+
+De EP-stemming van 30 april 2026 over de Oekraïense Internationale Vorderingencommissie is niet louter een symbolische resolutie. Ze vertegenwoordigt een fundamentele verschuiving in de manier waarop de EU haar rol in internationale verantwoordingsmechanismen conceptualiseert. De belangrijkste strategische dimensies:
+
+**1. Nieuwheid van de rechtsarchitectuur:** Het Verdrag gebruikt het kader van de Raad van Europa (niet de EU-Verdragen) om de UNSC-vetoblokkade te omzeilen. Dit is dezelfde architecturale aanpak als bij het Statuut van Rome uit 1998 — het opbouwen van verantwoordingsinfrastructuur buiten het Veiligheidsraadbeheerssysteem. De EU past dezelfde juridische techniek nu toe op Oekraïne.
+
+**2. Precedent voor operationalisering van activa:** EUR 285–300 miljard aan bevroren Russische staatstegoeden (voornamelijk aangehouden door Euroclear België) dienen als dotatie. Het gebruik van staatstegoeden als de facto verantwoordingsonderpand — zonder toestemming van die staat — is juridisch precedentloos in vredestijd. Het advies van het HvJ EU (verwacht K2–K3 2026) over de wettigheid van het inzetten van deze tegoeden zal de meest verstrekkende EU-rechtsbeslissing van 2026 zijn.
+
+**3. Geopolitieke transformatie van de PPE:** De enthousiaste steun van de PPE voor de Vorderingencommissie was ondenkbaar in EP8 (2014–2019), toen PPE EP-leden uit Hongarije, Bulgarije en delen van het CEE-blok regelmatig de EP-taal over Rusland afzwakten. Het EP10-PPE-blok — nu verankerd door de uitsluiting van post-Orbán-Hongarije uit de PPE en de assertieve EU-houding van Merz-Duitsland — is structureel meer hawks tegenover Rusland.
+
+**4. Systemische gevolgen voor het internationale recht:** Als de Vorderingencommissie succesvol opereert, vestigt zij het precedent dat grote mogendheden financieel ter verantwoording kunnen worden geroepen door internationale organen die buiten het kader van het VN-Handvest opereren. Dit precedent heeft gevolgen voor toekomstige conflicten tussen grootmachten (China-Taiwan-scenario's) die de EU, de VS en geallieerde democratieën al calculeren.
+
+#### Opheffingen van immuniteit — Institutioneel verantwoordingspatroon
+
+De vier opheffingen van immuniteit op één dag (28 april) zijn geen toeval. Ze weerspiegelen:
+
+1. **JURI's actieve handhavingshouding:** JURI onder EP10 heeft een proactievere houding aangenomen ten aanzien van verantwoording, zoals gesignaleerd door het uitgebreide mandaat van het Ethiekorgaan
+2. **Politieke dimensie van de zaak-Braun:** Het verzoek om opheffing van immuniteit voor antisemitisme-gerelateerde zaken is politiek gevoelig in context
+3. **Roemeense dimensie van de zaak-Şoşoacă:** De presidentsverkiezingscontroverse van Călin Georgescu in Roemenië (eind 2025) creëerde politieke context voor strenger behandeling van Roemeense nationalistische EP-leden
+4. **Poolse dimensie van de zaken-Obajtek/Buczek:** Beide Poolse ECR-gelieerde EP-leden worden onderzocht voor corruptiegerelateerde zaken — consistent met Polen's post-PiS gerechtshervormingen en verantwoordingspush onder premier Donald Tusk
+
+Het patroon: JURI werkt een achterstand weg van verzoeken tot opheffing van immuniteit uit EP8/9 en EP10, versneld door de mandaatuitbreiding van het Ethiekorgaan. De cluster van 28 april weerspiegelt een JURI-zitting die specifiek gewijd was aan het wegwerken van deze achterstand — niet vier gelijktijdige nieuwe zaken.
+
+#### ETS2 MSR-aanpassing — Fragiliteitssignaal van de Green Deal
+
+De MSR-aanpassing van 29 april (TA-10-2026-0139) verdient diepere analyse dan een enkel datapunt. In de context van de gehele uitvoeringstrajector van het Fit for 55-pakket:
+
+- **2024:** EU Herstelwet natuur nauwelijks aangenomen; methaanregulering verzwakt in triloog
+- **2025:** Duurzame brandstoffen (ReFuelEU) handhaving vertraagd; EU-waterstofstrategie bezuinigingen
+- **2026-04-29:** ETS2-MSR-buffer voor lancering verkleind
+
+Dit patroon is consistent met de PPE-pivot naar "concurrerende duurzaamheid" — handhaving van de structurele architectuur van de Green Deal-wetgeving met gelijktijdige vermindering van de operationele effectiviteit. De MSR-aanpassing is de ETS2-specifieke versie van dit patroon: het mechanisme bestaat, maar de stabilisatiebuffer wordt verkleind, waardoor de ETS2-CO₂-prijs volatieler wordt en daardoor minder betrouwbaar als investeringssignaal voor de uitrol van schone technologie.
+
+**IMF-relevantie:** Duitslands negatieve bbp-groei (-0,1%, sep. 2025 WEO) creëert politieke druk om energie-intensieve industrie te beschermen tegen abrupte kostenstijgingen. De ETS2-MSR-aanpassing is politiek optimaal voor de PPE — signaleert klimaatbetrokkenheid terwijl economische ruimte wordt geboden aan de Duitse/Poolse industrie.
+
+#### Stemvolmacht — Structurele representatiehervormng
+
+De wijziging van de Kieswet (TA-10-2026-0124) waarmee stemvolmacht mogelijk wordt voor zwangere/postpartale EP-leden is belangrijker dan haar technisch karakter doet vermoeden. Ze is:
+
+1. De eerste structurele wijziging van de EP-stemsystemen specifiek voor gendergelijkheid (niet alleen een procedurele omweg)
+2. Aangenomen krachtens artikel 223 VWEU (EP-zelfbestuursbepaling) — een relatief zeldzaam gebruik van deze bepaling
+3. Een model voor toekomstige gezinsvriendelijke hervormingen (vaderschapsverlof, zorgtaken)
+
+**Volgingsignaal:** Hoeveel EP-leden stemvolmacht inroepen tijdens de plenaire zitting van 18–22 mei is de eerste empirische vraagtest.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **Advies van het HvJ EU over bevroren tegoeden volgen** — de meest verstrekkende juridische ontwikkeling op korte termijn voor Oekraïne's verantwoording; verwacht K2–K3 2026
+2. **Verklaring Hongarije in de Raad** over ratificatie van het Vorderingenverdrag monitoren — signaleert of de 30%-kans (R-01) zich materialiseert
+3. **ETS2-CO₂-prijstrajector in de gaten houden** — als de prijs na uitvoering van de MSR-aanpassing onder €30/ton daalt, valideert dat de Green Deal-erosiethese
+4. **DOCEO-XML voor plenaire zitting 18–22 mei volgen** — eerste stemgegevens na commissieweek bevestigen coalitionstabiliteit over de AI-aansprakelijkheidsrichtlijn, de volgende grote wetgevingstest
+
+---
+
+### Source Attribution (Expanded)
+
+- Primaire gegevens: EP aangenomen teksten TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 via data.europarl.europa.eu
+- EP politiek landschap: generate_political_landscape (2026-05-11, 717 EP-leden, 9 groepen)
+- IMF WEO: september 2025-vintage, DEU/FRA/ITA/ESP/POL bbp/inflatie/fiscale indicatoren, opgehaald via fetch_url (SDMX 3.0)
+- EP vroegwaarschuwingssysteem: stabiliteit=84/100, 3 waarschuwingen (hoge gevoeligheid, 2026-05-11)
+- EP coalitiedynamiek: analyze_coalition_dynamics (1 apr–11 mei; samenstellingsproxy, niet stemniveau)
+- Historische context: EP institutionele kennisbasis (immuniteitsprecedenten, ETS-trajectorie)
+- IMF-documentatie van juridische basisanalyse: analytische synthese (geen directe IMF-bron)
+
+### Executive Probability Assessment
+
+**WEP-kansoverzicht** voor uitvoerende besluitvormers:
+
+| Beoordeling | WEP-band | Betrouwbaarheid |
+|------------|---------|-----------------|
+| Vorderingencommissie treedt in werking | Vrijwel zeker | HIGH |
+| ETS2-MSR-aanpassing uitgevoerd voor K3 2026 | Hoogst waarschijnlijk | HIGH |
+| Hongarije/Polen vertraagt uitvoering | Waarschijnlijk | HIGH |
+| HvJ EU-uitdaging ingediend binnen 6 maanden | Ruwweg gelijkwaardig | MEDIUM |
+| Coalitie houdt stand tot junistemmig over begroting | Hoogst waarschijnlijk | HIGH |
+| ESN vormt blokkerende minderheid | Hoogst onwaarschijnlijk | HIGH |
+
+### Admiralty Source Assessment
+
+| Bron | Betrouwbaarheid | Geloofwaardigheid | Beoordeling |
+|------|----------------|-------------------|-------------|
+| EP register voor aangenomen teksten | A (Volledig betrouwbaar) | 1 (Bevestigd) | A1 |
+| EP politiek landschap (MCP) | A (Volledig betrouwbaar) | 2 (Waarschijnlijk waar) | A2 |
+| Vroegwaarschuwingssysteem | B (Betrouwbaar) | 2 (Waarschijnlijk waar) | B2 |
+| Coalitiedynamiekanalyse | B (Betrouwbaar) | 2 (Waarschijnlijk waar) | B2 |
+| Mediaframing-beoordeling | C (Redelijk betrouwbaar) | 3 (Mogelijk waar) | C3 |
+| Scenarioprognoses | B (Betrouwbaar) | 3 (Mogelijk waar) | B3 |
+
+**Algehele betrouwbaarheid executive brief: B2** — betrouwbare bronbasis, beoordelingen waarschijnlijk waar.
+
+### Executive Action Recommendations
+
+**Voor EU-toezichtsorganen**: Monitor de publicatie van het uitvoeringsraamwerk van de Vorderingencommissie (doel: juli 2026). Vraag de Commissie een uitvoeringstijdlijn te publiceren vóór de Raad van juni 2026.
+
+**Voor EP-leden-kantoren**: Bereid u voor op de focus van de september 2026-zitting op secundaire wetgeving van de Vorderingencommissie en herbeoordeling van het ETS2-uitvoeringsbesluit.
+
+**Voor denktanks en ngo's**: Publiceer juridische analyses over het HvJ EU-uitdagingsrisico van de Vorderingencommissie om het publieke debat te informeren.
+
+**Voor journalisten**: Volg de publicatie van het operationele raamwerk van de Commissie (Vorderingencommissie) en de ETS2-CO₂-prijstrajector als belangrijke mijlpalen.
+
+*Executive brief — versie 2.0 (heruitvoering-extensie) | Datum: 2026-05-11*
+*WEP-kansbanden conform de inlichtingengemeenschap | Admiralty-beoordeling toegepast*
+*Licentie: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief No
+
+**60-sekunders lesning:** Ukraina internasjonal erstatningskommisjon + MEP-immunitetsopphevelse + ETS2 miljøstyring  
+**Konfidens:** 🟡 Medium  
+**Data:** Strasbourg-plenarsesjon 28–30. april (nyeste EP-lovgivning)
+
+---
+
+### BLUF — Bottom Line Up Front
+
+Europaparlamentets plenarsesjon i Strasbourg 28–30. april 2026 leverte tre historiske beslutninger:
+
+1. **Ukrainas internasjonale erstatningskommisjon** (30. april): EP støtter en ny internasjonal rettsmekansime for behandling av erstatningskrav mot Russland — første gang Parlamentet støtter en selvstendig eksteritoriell ansvarlighetsarkitektur. Supermajoritet anslått til 535+/717. Primær geopolitisk betydning: etablerer institusjonelt prejudikat for ansvarliggjøring av væpnet aggressor utenfor FNs sikkerhetsråds vetosystem.
+
+2. **Fire MEP-immunitetsopphevelser i én sesjon** (28. april): JURI-komiteen igangsatte opphevelser for Grzegorz Braun (antisemittisme), Diana Şoşoacă (rumensk nasjonalisme), Daniel Obajtek og Tomasz Buczek — alle ECR/NI-tilknyttede. Historisk uvanlig konsentrasjon av håndhevingstiltak; kan signalere en bevisst ansvarsstrategi.
+
+3. **ETS2 MSR justert** (29. april): Markedsstabilitetsreserven for det nye karbonmarkedet for bygg/veitransport (lansering 2027) ble endret for å bremse reserveaktivering — reduserer topprisrisiko men svekker hastigheten på dekarboniseringsincentivene. EPP-formet kompromiss; Greens/EFA imot.
+
+Ingen betydelige lovgivningsavstemninger er registrert for 11. mai (EP i komitéuke).
+
+---
+
+### Top Trigger Assessment
+
+| Spørsmål | Betydning | Hast | Behold øye med |
+|----------|-----------|------|----------------|
+| Ukrainas erstatningskommisjon | 🔴 Høy — internasjonalt rettspresedens | Pågående | EU-domstolens uttalelse om frosne eiendeler (K3 2026) |
+| MEP-immunitetsopphevelser (×4) | 🟡 Medium — ansvarlighetskaskade | Aktuell | EMD-utfordringer; fremtidig JURI-kalender |
+| ETS2 MSR-svekkelse | 🟡 Medium — klimastyringens tilbakerullingssignal | Mellomlang sikt | ETS2-lanseringsberedskap (2027) |
+| EU-utvidgelsesstrategi | 🟡 Medium — mål 2028–2030 bekreftet | Mellomlang sikt | Rådsforhandlinger om tiltredelseskapittel |
+| Fullmaktsstemming for MEP-er | 🟢 Lav — intern styringsreform | Aktuell | Implementering innen 2027 EP-valg |
+
+---
+
+### Strategic Intelligence
+
+**Strukturell maktdynamikk (EP10, 2026):**  
+EPP (183 mandater) krever trepartskoalisjonen (EPP+S&D+Renew = 396) for enhver omstridt avstemning. Det finnes ingen levedyktig EPP-høyrefløysmajoritet (EPP+ECR+PfE = 349, under 360-grensen). Denne strukturelle låsingen gjør EPP til dreiepunkt men gjør også S&D+Renews tilslutning nødvendig — skaper en triangulær gjensidig avhengighet som former ethvert lovgivningsresultat.
+
+**Geopolitisk posisjon:**  
+EP opptrer som en proaktiv geopolitisk institusjon utover sine traktatdefinerte kompetanser. Godkjennelsen av erstatningskommisjonen, Ukraina-lånet og resolusjonen om forsvarsindustriens indre marked representerer samlet en ny assertiv EP-utenrikspolitisk posisjon — drevet av EPP + S&D + Renew-konvergens om Russlandstrusselen.
+
+**Miljøstyring under press:**  
+ETS2 MSR-justeringen representerer den første formelle svekkelsen av Fit for 55s implementeringsmekanismer siden 2021 Green Deal. Det er ikke en tilbakerulling av netto-null-målet for 2050, men det signalerer et politisk likevektsskifte mot EPP's "konkurransedyktig bærekraft"-innramming. Greens/EFA tapte denne avstemningen — og de vet det.
+
+---
+
+### One Sentence Each — What Happened
+
+- **Ukrainas erstatningskommisjon:** EP støttet et nytt internasjonalt organ for behandling av erstatningskrav fra invasjonen i 2022 — håndhevet via frosne russiske statseiendeler.
+- **MEP-opphevelser:** Fire ytre høyre/nasjonalistiske MEP-er mistet parlamentarisk immunitet i én sesjon — Brauns antisemittismecase den mest fremtredende.
+- **ETS2 MSR:** Karbonprising for oppvarming og veitransport svekket marginalt før 2027-lanseringen; Social Climate Fund-beskyttelser bevart.
+- **Valgloven (fullmaktsstemming):** Gravide MEP-er og nybakte mødre kan nå stemme ved fullmakt — tilnærmet enstemmig støtte.
+- **GSP-fornyelse:** Handelspreferanser for 67 utviklingsland fornyet med nye arbeids-/miljøbetingelser.
+- **Resolusjon om nettmobbing:** EP oppfordret til strafferettslige bestemmelser og plattformsansvar for nettrakassering.
+
+---
+
+### Source Attribution
+
+- EPs vedtatte tekster: data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- Politisk landskap: EPs åpne dataportal (717 MEP-er, EP10-valgperiode 2024–2029)
+- IMF Økonomisk kontekst: api.imf.org SDMX 3.0 (september 2025 vintage, live sonde bekreftet 2026-05-11)
+- Tidlig varslingssystem: EP MCP-verktøy (høy følsomhet, stabilitet=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### Ukrainas erstatningskommisjon — Strategisk dybdeanalyse
+
+EP-avstemningen 30. april 2026 om Ukrainas internasjonale erstatningskommisjon er ikke bare en symbolsk resolusjon. Den representerer et grunnleggende skifte i hvordan EU konseptualiserer sin rolle i internasjonale ansvarlighetsmekanismer. De viktigste strategiske dimensjonene:
+
+**1. Rettsarkitekturens nyhet:** Konvensjonen bruker Europarådets rammeverk (ikke EU-traktatene) for å omgå UNSC-vetoblokkering. Dette er den samme arkitektoniske tilnærmingen som ble brukt for Romastatutten fra 1998 — bygging av ansvarlighetsinfrastruktur utenfor sikkerhetsrådssystemet. EU anvender nå den samme juridiske ingeniørkunsten for Ukraina.
+
+**2. Eiendeloperasjonaliseringspresedents:** EUR 285–300 milliarder i frosne russiske statseiendeler (primært holdt av Euroclear Belgia) vil tjene som grunnkapital. Å bruke statseiendeler som de facto ansvarlighetsunderpant — uten den statens samtykke — er juridisk uten presedens i fredstid. EU-domstolens rådgivende uttalelse (forventet K2–K3 2026) om lovligheten av å disponere disse eiendelene vil bli EUs mest konsekvente juridiske avgjørelse i 2026.
+
+**3. EPPs geopolitiske transformasjon:** EPPs entusiastiske støtte til erstatningskommisjonen ville vært utenkelig i EP8 (2014–2019), da EPP-MEP-er fra Ungarn, Bulgaria og deler av CEE-blokken jevnlig myknet EPs språkbruk om Russland. EP10s EPP-blokk — nå forankret av post-Orbáns Ungarns ekskludering fra EPP og Merz-Tysklands assertive EU-holdning — er strukturelt mer haukaktig mot Russland.
+
+**4. Systemiske internasjonale rettsimplikasjoner:** Hvis erstatningskommisjonen fungerer vellykket, etablerer det presedensen om at stormakter kan holdes finansielt ansvarlige av internasjonale organer som opererer utenfor FN-paktens rammeverk. Denne presedensen har implikasjoner for fremtidige stormaktskonflikter (Kina-Taiwan-scenarier) som EU, USA og allierte demokratier allerede kalkulerer.
+
+#### Immunitetsopphevelser — Institusjonelt ansvarsmønster
+
+De fire immunitetsopphevelsene på én dag (28. april) er ingen tilfeldighet. De gjenspeiler:
+
+1. **JURIs aktive håndhevingsposisjon:** JURI under EP10 har vedtatt en mer proaktiv holdning til ansvarliggjøring, som signalisert av Etikkorganets utvidede mandat
+2. **Braun-sakens politiske dimensjon:** Anmodningen om immunitetsopphevelse for antisemittismerelaterte saker er politisk sensitiv i kontekst
+3. **Şoşoacăs rumenske dimensjon:** Călin Georgescus presidentkampanjekontrovers i Romania (sent 2025) skapte politisk kontekst for strengere behandling av rumenske nasjonalistiske MEP-er
+4. **Obajtek/Buczeks polske dimensjon:** Begge polske ECR-tilknyttede MEP-er er under korrupsjonsnærliggende etterforskninger — konsistent med Polens post-PiS rettsreform og ansvarliggjøringspush under statsminister Donald Tusk
+
+Mønsteret: JURI behandler en etterslep av anmodninger om immunitetsopphevelse fra EP8/9 og EP10, akselerert av Etikkorganets mandatutvidelse. 28. april-klyngen gjenspeiler en JURI-sesjon spesifikt viet til å rydde opp i denne etterslepen — ikke fire samtidige nye saker.
+
+#### ETS2 MSR-justering — Green Deal-sårbarhetssignal
+
+29. april-MSR-justeringen (TA-10-2026-0139) fortjener dypere analyse enn ett enkelt datapunkt. I konteksten av hele Fit for 55-pakkens implementeringstrajektorie:
+
+- **2024:** EUs naturrestaureringslov passerte knapt; metanregulering svekket i trilog
+- **2025:** Bærekraftige drivstoff (ReFuelEU) håndhevelse forsinket; EU-hydrogenstrategi budsjettereduksjoner
+- **2026-04-29:** ETS2 MSR-buffer redusert før lansering
+
+Dette mønsteret er konsistent med EPPs "konkurransedyktig bærekraft"-pivot — opprettholdelse av Green Deal-lovgivningens strukturelle arkitektur mens dens operasjonelle bitt reduseres. MSR-justeringen er den ETS2-spesifikke versjonen av dette mønsteret: mekanismen eksisterer, men dens stabiliseringsbuffer reduseres, noe som gjør ETS2-karbonprisen mer volatil og dermed mindre pålitelig som investeringssignal for ren teknologiutrulling.
+
+**IMF-relevans:** Tysklands negative BNP-vekst (-0,1%, sep 2025 WEO) skaper politisk press for å beskytte energiintensiv industri mot brå kostnadsøkninger. ETS2 MSR-justeringen er politisk optimal for EPP — signaliserer klimaengasjement og gir økonomisk pusterom for tysk/polsk industri.
+
+#### Fullmaktsstemming — Strukturell representasjonsreform
+
+Valglovendringen (TA-10-2026-0124) som muliggjør fullmaktsstemming for gravide/postpartum MEP-er er mer betydningsfull enn dens tekniske karakter antyder. Den er:
+
+1. Den første strukturelle endringen av EPs stemmegivningsprosedyrer spesifikt for kjønnslikestilling (ikke bare en prosedyremessig omgåelse)
+2. Vedtatt i henhold til artikkel 223 TEUV (EPs selvstyringsbestemmelse) — en relativt sjelden bruk av denne bestemmelsen
+3. En modell for fremtidige familievennlige reformer (pappapermisjon, omsorgsansvar)
+
+**Overvåkningssignal:** Hvor mange MEP-er påberoper seg fullmaktsstemming i plenarsesjonens 18.–22. mai vil være den første empiriske testen av etterspørselen.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **Følg EU-domstolens rådgivende uttalelse om frosne eiendeler** — enkelt mest konsekvente juridiske utvikling på kort sikt for Ukrainas ansvarliggjøring; forventet K2–K3 2026
+2. **Overvåk Ungarns rådsuttalelse** om erstatningskonvensjonens ratifisering — vil telegrafere om 30%-sannsynligheten (R-01) materialiserer seg
+3. **Hold ETS2-karbonpristrajektorien i syne** — hvis prisen faller under €30/tonn etter MSR-justeringens implementering, validerer det Green Deal-erosjonstesen
+4. **Følg DOCEO XML for plenum 18.–22. mai** — første avstemningsdata etter komitéuken bekrefter koalisjonsstabilitet om AI-ansvarsdirektivet, som er den neste store lovgivningstesten
+
+---
+
+### Source Attribution (Expanded)
+
+- Primærdata: EPs vedtatte tekster TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 via data.europarl.europa.eu
+- EPs politiske landskap: generate_political_landscape (2026-05-11, 717 MEP-er, 9 grupper)
+- IMF WEO: september 2025 vintage, DEU/FRA/ITA/ESP/POL BNP/inflasjon/fiskalindikatorer, hentet via fetch_url (SDMX 3.0)
+- EPs tidlige varslingssystem: stabilitet=84/100, 3 advarsler (høy følsomhet, 2026-05-11)
+- EPs koalisjonsdrynamikk: analyze_coalition_dynamics (apr 1–mai 11; sammensetningsproxy, ikke stemmenivå)
+- Historisk kontekst: EPs institusjonelle kunnskapsbase (immunitetsopphevelsespresedenter, ETS-trajektorie)
+- IMF-dokumentasjon av rettsbaseanalyse: analytisk syntese (ikke direkte IMF-kilde)
+
+### Executive Probability Assessment
+
+**WEP-sannsynlighetsoppsummering** for utøvende beslutningstakere:
+
+| Vurdering | WEP-bånd | Konfidens |
+|-----------|----------|-----------|
+| Erstatningskommisjonen trer i kraft | Nesten sikkert | HIGH |
+| ETS2 MSR-justering implementert innen K3 2026 | Svært sannsynlig | HIGH |
+| Ungarn/Polen forsinker implementering | Sannsynlig | HIGH |
+| EU-domstolsutfordring inngitt innen 6 måneder | Omtrent jevnt | MEDIUM |
+| Koalisjonen holder gjennom junis budsjettavstemning | Svært sannsynlig | HIGH |
+| ESN danner blokkerende minoritet | Svært usannsynlig | HIGH |
+
+### Admiralty Source Assessment
+
+| Kilde | Pålitelighet | Troverdighet | Karakter |
+|-------|-------------|--------------|----------|
+| EPs register for vedtatte tekster | A (Helt pålitelig) | 1 (Bekreftet) | A1 |
+| EPs politiske landskap (MCP) | A (Helt pålitelig) | 2 (Sannsynligvis sant) | A2 |
+| Tidlig varslingssystem | B (Pålitelig) | 2 (Sannsynligvis sant) | B2 |
+| Koalisjonsdrynamikkanalyse | B (Pålitelig) | 2 (Sannsynligvis sant) | B2 |
+| Medieinrammingsvurdering | C (Rimelig pålitelig) | 3 (Muligens sant) | C3 |
+| Scenarioprognoser | B (Pålitelig) | 3 (Muligens sant) | B3 |
+
+**Samlet executive brief-pålitelighet: B2** — pålitelig kildebase, vurderinger sannsynligvis sanne.
+
+### Executive Action Recommendations
+
+**For EUs tilsynsorganer**: Overvåk publiseringen av erstatningskommisjonens implementeringsrammeverk (mål: juli 2026). Be Kommisjonen om å publisere en implementeringstidslinje innen juni 2026-rådet.
+
+**For MEP-kontorer**: Forbered deg på september 2026-sesjonens fokus på erstatningskommisjonens sekundærlovgivning og ETS2-implementeringsdekretsgranskning.
+
+**For tenketanker og NGO-er**: Publiser juridisk analyse om erstatningskommisjonens EU-domstolsutfordringsrisiko for å informere den offentlige debatten.
+
+**For journalister**: Hold øye med Kommisjonens operative rammepublisering (erstatningskommisjonen) og ETS2-karbonpristrajektorien som nøkkelmilepæler.
+
+*Executive brief — versjon 2.0 (kjørselsutvidelse) | Dato: 2026-05-11*
+*WEP-sannsynlighetsbånd i henhold til etterretningssamfunnets standarder | Admiralty-gradering anvendt*
+*Lisens: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief Sv
+
+**60-sekunders läsning:** Ukraina internationell ersättningskommission + MEP-immunitetsupphävanden + ETS2 miljöstyrning  
+**Konfidens:** 🟡 Medium  
+**Data:** Strasbourgplenum 28–30 april (senaste EP-lagstiftning)
+
+---
+
+### BLUF — Bottom Line Up Front
+
+Europaparlamentets plenum i Strasbourg 28–30 april 2026 resulterade i tre historiska beslut:
+
+1. **Ukrainas internationella ersättningskommission** (30 april): EP stöder en ny internationell rättsmekanism för att handlägga ersättningsanspråk mot Ryssland — första gången parlamentet backar en fristående extraterritoriell ansvarsmekanism. Supermajoritet beräknas till 535+/717. Primär geopolitisk betydelse: skapar institutionellt prejudikat för väpnad aggressors ansvarsutkrävande utanför FN:s säkerhetsråds vetosystem.
+
+2. **Fyra MEP-immunitetsupphävanden på en session** (28 april): JURI-utskottet initierade upphävanden för Grzegorz Braun (antisemitism), Diana Şoşoacă (rumänskt nationalism), Daniel Obajtek och Tomasz Buczek — alla ECR/NI-anknutna. Historiskt ovanlig koncentration av rättsliga åtgärder; kan signalera en medveten ansvarsstrategi.
+
+3. **ETS2 MSR-justerad** (29 april): Marknadsstabilitetsreserven för den nya koldioxidmarknaden för byggnader/vägtransporter (lanseras 2027) modifierades för att bromsa reservaktivering — minskar topprisrisk men försvagar takten i dekarboniseringsdrivkraften. EPP-format kompromiss; Greens/EFA opponerade.
+
+Inga betydande lagstiftningsomröstningar är registrerade för 11 maj (EP i utskottsvecka).
+
+---
+
+### Top Trigger Assessment
+
+| Fråga | Betydelse | Brådska | Bevaka |
+|-------|-----------|---------|--------|
+| Ukrainas ersättningskommission | 🔴 Hög — internationellt rättsprejudikat | Pågående | EU-domstolens yttrande om frysta tillgångar (kv3 2026) |
+| MEP-immunitetsupphävanden (×4) | 🟡 Medium — ansvarsskyldighetseskalerande | Aktuell | ECHR-utmaningar; framtida JURI-kalender |
+| ETS2 MSR-försvagning | 🟡 Medium — signal om klimatstyrningsupprullning | Medellång sikt | ETS2-lansering (2027) |
+| EU-utvidgningsstrategi | 🟡 Medium — mål 2028–2030 bekräftat | Medellång sikt | Rådsförhandlingar om anslutningskapitel |
+| Proxyröstningstning för MEP:er | 🟢 Låg — intern styrningsreform | Aktuell | Implementering 2027 europaval |
+
+---
+
+### Strategic Intelligence
+
+**Strukturell maktdynamik (EP10, 2026):**  
+EPP (183 mandat) kräver trepartkoalitionen (EPP+S&D+Renew = 396) för varje kontroversiell omröstning. Det finns ingen genomförbar EPP-högerflanksmajoritet (EPP+ECR+PfE = 349, under 360-gränsen). Denna strukturella låsning gör EPP till pivotpunkt men gör också S&D+Renews medgivande nödvändigt — skapar ett triangulärt ömsesidigt beroende som formar varje lagstiftningsresultat.
+
+**Geopolitisk position:**  
+EP agerar som en proaktiv geopolitisk institution utöver sina fördragsdefinierade befogenheter. Stödet till ersättningskommissionen, Ukrainalånet och resolutionen om försvarsindustrins inre marknad representerar tillsammans en ny assertiv EP-utrikespolitisk hållning — driven av EPP + S&D + Renew-konvergens kring Rysslandshotet.
+
+**Miljöstyrning under press:**  
+ETS2 MSR-justeringen representerar den första formella försvagningen av genomförandet av Fit for 55 sedan 2021 Green Deal. Det är inte en tillbakarullning av nettanolmålet 2050, men det signalerar en politisk jämviktsförskjutning mot EPP:s "konkurrenskraftig hållbarhet"-inramning. Greens/EFA förlorade denna omröstning — och de vet om det.
+
+---
+
+### One Sentence Each — What Happened
+
+- **Ukrainas ersättningskommission:** EP stödde ett nytt internationellt organ för att handlägga skadeersättningskrav från 2022 års invasion — verkställt via frysta ryska statstillgångar.
+- **MEP-upphävanden:** Fyra högerextrema/nationalistiska MEP:er förlorade parlamentarisk immunitet under en enda session — Brauns antisemitismfall det mest framträdande.
+- **ETS2 MSR:** Koldioxidprissättning för uppvärmning och vägtransporter försvagades marginellt inför 2027-lanseringen; Social Climate Fund-skydden bevarades.
+- **Vallag (proxyröstningstning):** Gravida MEP:er och nyblivna mödrar kan nu rösta via ombud — nästan enhälligt stöd.
+- **GSP-förnyelse:** Handelspreferenser för 67 utvecklingsländer förnyade med nya arbets-/miljövillkor.
+- **Resolution om nätmobbning:** EP begärde straffrättsliga bestämmelser och plattformsansvar för trakasserier online.
+
+---
+
+### Source Attribution
+
+- EP:s antagna texter: data.europarl.europa.eu (TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106)
+- Politiskt landskap: EP:s öppna dataportal (717 MEP:er, EP10-mandatperiod 2024–2029)
+- IMF Ekonomiskt sammanhang: api.imf.org SDMX 3.0 (september 2025 vintage, live sond bekräftad 2026-05-11)
+- Tidigt varningssystem: EP MCP-verktyg (hög känslighet, stabilitet=84/100, 2026-05-11)
+
+---
+
+### Deep Intelligence Assessment
+
+#### Ukrainas ersättningskommission — Strategisk djupanalys
+
+EP-omröstningen den 30 april 2026 om Ukrainas internationella ersättningskommission är inte enbart en symbolisk resolution. Den representerar ett grundläggande skifte i hur EU konceptualiserar sin roll i internationella ansvarsmässiga mekanismer. De viktigaste strategiska dimensionerna:
+
+**1. Rättsarkitekturens nyhet:** Konventionen använder Europarådets ramverk (inte EU-fördragen) för att kringgå UNSC-vetoblockering. Detta är samma arkitektoniska tillvägagångssätt som användes för 1998 års Romstadga — att bygga ansvarsskyldighetsinfrastruktur utanför säkerhetsrådssystemet. EU tillämpar nu samma juridiska ingenjörskonst för Ukraina.
+
+**2. Tillgångsoperationaliseringsprejudikat:** EUR 285–300 miljarder i frysta ryska statsöverlåtbara tillgångar (innehas primärt av Euroclear Belgien) kommer att tjäna som grundplåt. Att använda statliga tillgångar som de facto ansvarsskyldighetsunderpant — utan det statens samtycke — är juridiskt prejudikatslöst i fredstid. EU-domstolens rådgivande yttrande (förväntas Q2–Q3 2026) om lagligheten att disponera dessa tillgångar blir EU:s mest konsekventa juridiska avgörande 2026.
+
+**3. EPP:s geopolitiska omvandling:** EPP:s entusiastiska stöd till ersättningskommissionen hade varit otänkbart under EP8 (2014–2019), då EPP-MEP:er från Ungern, Bulgarien och delar av CEE-blocket regelmässigt mjukade EP:s språkbruk om Ryssland. EP10:s EPP-block — nu förankrat av post-Orbán-Ungerns exklusion från EPP och Merz Tysklands assertiva EU-hållning — är strukturellt mer hökaktigt mot Ryssland.
+
+**4. Systemiska internationella rättsimplikationer:** Om ersättningskommissionen fungerar framgångsrikt etablerar det prejudikatet att stormakter kan hållas ekonomiskt ansvariga av internationella organ som verkar utanför FN-stadgans ramverk. Detta prejudikat har implikationer för framtida stormaktskonflikter (Kina-Taiwan-scenarier) som EU, USA och allierade demokratier redan kalkylerar.
+
+#### Immunitetsupphävanden — Institutionellt ansvarsmönster
+
+De fyra immunitetsupphävandena på en enda dag (28 april) är ingen tillfällighet. De återspeglar:
+
+1. **JURI:s aktiva verkställighetshållning:** JURI under EP10 har antagit en mer proaktiv hållning mot ansvarsutkrävande, som signalerats av Etikorgnets utvidgade mandat
+2. **Braun-fallets politiska dimension:** Begäran om immunitetsupphävande för antisemitismrelaterade fall är politiskt känslig i sammanhanget
+3. **Şoşoacăs rumänska dimension:** Călin Georgescus presidentvalskontrovers i Rumänien (slutet av 2025) skapade politisk kontext för strängare behandling av rumänska nationalistiska MEP:er
+4. **Obajtek/Buczeks polska dimension:** Båda polska ECR-anknutna MEP:er möter korruptionsnäraliggande utredningar — konsistent med Polens post-PiS rättsreform och ansvarsutkrävandepush under premiärminister Donald Tusk
+
+Mönstret: JURI behandlar en eftersläpning av immunitetsupphävandebegäranden från EP8/9 och EP10, påskyndad av Etikorgnets mandatutvidgning. Det 28 april-kluster återspeglar en JURI-session specifikt avsedd att rensa denna eftersläpning — inte fyra simultana nya fall.
+
+#### ETS2 MSR-justering — Green Deal-sårbarhetssignal
+
+April 29-MSR-justeringen (TA-10-2026-0139) förtjänar djupare analys än en enskild datapunkt. Inom kontexten av hela Fit for 55-paketets genomförandetrajectoria:
+
+- **2024:** EU:s naturrestaureringslagstiftning passerade knappt; metanreglering försvagades i triloger
+- **2025:** Hållbara bränslen (ReFuelEU) verkställighetsfördröjt; EU:s vätestrategi budgetnedskärningar
+- **2026-04-29:** ETS2 MSR-buffert reducerad inför lansering
+
+Detta mönster är konsistent med EPP:s "konkurrenskraftig hållbarhet"-pivot — att bevara Green Deal-lagstiftningens strukturella arkitektur men minska dess operativa bett. MSR-justeringen är ETS2-specifik version av detta mönster: mekanismen finns, men dess stabiliseringsbuffert reduceras, vilket gör ETS2-koldioxidpriset mer volatilt och därmed mindre tillförlitligt som investeringssignal för ren teknikdrift.
+
+**IMF-relevans:** Tysklands negativa BNP-tillväxt (-0,1%, sep 2025 WEO) skapar politiskt tryck för att skydda energiintensiv industri från abrupter kostnadsökningar. ETS2 MSR-justeringen är politiskt optimal för EPP — signalerar klimatengagemang och ger ekonomiskt andrum för tysk/polsk industri.
+
+#### Proxyröstningstning — Strukturell representationsreform
+
+Vallagsändringen (TA-10-2026-0124) som möjliggör proxyröstningstning för gravida/postpartum MEP:er är mer betydelsefull än dess tekniska karaktär antyder. Det är:
+
+1. Den första strukturella modifieringen av EP:s röstningsförfaranden specifikt för jämställdhet (inte bara en procedurrell kringgång)
+2. Antagen under artikel 223 FEUF (EP:s självstyrelseparagraf) — en relativt sällsynt tillämpning
+3. En modell för framtida familjevänliga reformer (pappaledighet, omsorgsansvar)
+
+**Övervakningssignal:** Hur många MEP:er åberopar proxyröstningstning i plenarsessionen 18–22 maj blir det första empiriska testet av efterfrågan.
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **Följ EU-domstolens rådgivande yttrande om frysta tillgångar** — enskilt mest konsekventa juridiska händelse på kort sikt för Ukrainas ansvarsutkrävande; förväntas Q2–Q3 2026
+2. **Övervaka Ungerns rådsuttalande** om ersättningskonventionens ratificering — telegrafera huruvida 30%-sannolikheten (R-01) materialiseras
+3. **Bevaka ETS2-koldioxidpristräjectoria** — om priset faller under €30/tonne efter MSR-justeringens implementering, validerar Green Deal-erosionstesen
+4. **Följ DOCEO XML för plenum 18–22 maj** — första omröstningsdata efter utskottsvecka bekräftar koalitionsstabilitet kring AI-ansvarsdirektivet, som är nästa stora lagstiftningstest
+
+---
+
+### Source Attribution (Expanded)
+
+- Primärdata: EP:s antagna texter TA-10-2026-0154, -0163, -0155, -0114, -0113, -0139, -0124, -0109, -0108, -0107, -0106 via data.europarl.europa.eu
+- EP:s politiska landskap: generate_political_landscape (2026-05-11, 717 MEP:er, 9 grupper)
+- IMF WEO: september 2025 vintage, DEU/FRA/ITA/ESP/POL BNP/inflation/fiskalindikatorer, hämtade via fetch_url (SDMX 3.0)
+- EP:s tidiga varningssystem: stabilitet=84/100, 3 varningar (hög känslighet, 2026-05-11)
+- EP:s koalitionsdynamik: analyze_coalition_dynamics (apr 1–maj 11; sammansättningsproxy, inte röstningsnivå)
+- Historisk kontext: EP:s institutionella kunskapsbas (immunitetsupphävandeprejudikat, ETS-trajektoria)
+- IMF:s dokumentation av rättsbasanalys: analytisk syntes (inte direkt IMF-källa)
+
+### Executive Probability Assessment
+
+**WEP-sannolikhetssammanfattning** för verkställande beslutsfattare:
+
+| Bedömning | WEP-band | Konfidens |
+|-----------|----------|-----------|
+| Ersättningskommissionen träder i kraft | Nästan säkert | HIGH |
+| ETS2 MSR-justering implementerad Q3 2026 | Mycket sannolikt | HIGH |
+| Ungern/Polen fördröjer implementering | Sannolikt | HIGH |
+| EU-domstolsutmaning lämnad inom 6 månader | Ungefär jämnt | MEDIUM |
+| Koalitionen håller genom juni budgetomröstning | Mycket sannolikt | HIGH |
+| ESN bildar blockerande minoritet | Mycket osannolikt | HIGH |
+
+### Admiralty Source Assessment
+
+| Källa | Tillförlitlighet | Trovärdighet | Betyg |
+|-------|-----------------|--------------|-------|
+| EP:s register för antagna texter | A (Helt tillförlitlig) | 1 (Bekräftad) | A1 |
+| EP:s politiska landskap (MCP) | A (Helt tillförlitlig) | 2 (Troligen sant) | A2 |
+| Tidigt varningssystem | B (Tillförlitlig) | 2 (Troligen sant) | B2 |
+| Koalitionsdynamikanalys | B (Tillförlitlig) | 2 (Troligen sant) | B2 |
+| Medieframing-bedömning | C (Ganska tillförlitlig) | 3 (Möjligen sant) | C3 |
+| Scenarioprognos | B (Tillförlitlig) | 3 (Möjligen sant) | B3 |
+
+**Övergripande tillförlitlighet för exekutiv rapport: B2** — tillförlitlig källbas, bedömningar troligen sanna.
+
+### Executive Action Recommendations
+
+**För EU:s tillsynsorgan**: Övervaka publiceringen av ersättningskommissionens implementeringsramverk (mål: juli 2026). Begär att kommissionen publicerar en implementeringstidslinje senast i juni 2026 rådet.
+
+**För MEP-kontor**: Förbered dig för september 2026-sessions fokus på ersättningskommissionens sekundärlagstiftning och ETS2-implementeringsdekretsgranskning.
+
+**För tankesmedjor och NGO:er**: Publicera rättslig analys om ersättningskommissionens EU-domstolsutmaningsrisk för att informera den offentliga debatten.
+
+**För journalister**: Bevaka kommissionens operativa ramverkspublicering (ersättningskommissionen) och ETS2-koldioxidpristräjectoria som nyckelmilstolpar.
+
+*Exekutiv rapport — version 2.0 (körningsutvidgning) | Datum: 2026-05-11*
+*WEP-sannolikhetsband per underrättelsesamhällets standarder | Admiralty-gradering tillämpad*
+*Licens: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+### Executive Brief Zh
+
+**分类：** 公开议会情报  
+**文章类型：** 突发新闻  
+**60秒摘要：** 乌克兰国际索赔委员会 + 欧洲议员豁免权解除浪潮 + ETS2气候治理  
+**置信水平：** 🟡 中等  
+**数据：** 欧洲议会斯特拉斯堡全体会议4月28–30日（最新立法成果）
+
+---
+
+### BLUF — Bottom Line Up Front
+
+2026年4月28–30日斯特拉斯堡全体会议产生三项重大成果：
+
+1. **乌克兰国际索赔委员会**（4月30日）：欧洲议会支持一种创新的国际法律机制，用于处理对俄罗斯的赔偿索赔——这是议会首次支持领土外独立问责结构。绝对多数估计为535+/717。主要地缘政治意义：在联合国安理会否决权框架外确立对武装侵略国追责的制度先例。
+
+2. **单次会议四项豁免权解除**（4月28日）：JURI委员会启动了格热戈日·布劳恩（反犹太主义）、黛安娜·肖舒瓦卡（罗马尼亚民族主义）、丹尼尔·奥拜特克和托马什·布切克——均属ECR/NI——的豁免权解除程序。历史上前所未有的执法措施集中；可能表明有意为之的问责策略。
+
+3. **ETS2市场稳定储备修正**（4月29日）：建筑和道路运输新碳市场（2027年启动）的市场稳定储备经修正以放缓储备激活——降低价格峰值风险但削弱脱碳激励强度。EPP主导的折中方案；Greens/EFA反对。
+
+5月11日未记录重要立法投票（欧洲议会委员会周）。
+
+---
+
+### Top Trigger Assessment
+
+| 问题 | 重要性 | 紧迫性 | 监测 |
+|------|--------|--------|------|
+| 乌克兰索赔委员会 | 🔴 高——国际法先例 | 持续进行 | 冻结资产欧洲法院咨询意见（2026年第3季度） |
+| 豁免权解除（×4） | 🟡 中——连锁问责 | 当前 | 欧洲人权法院上诉；未来JURI日程 |
+| ETS2 MSR弱化 | 🟡 中——气候治理倒退信号 | 中期 | ETS2启动准备（2027年） |
+| 欧盟扩大战略 | 🟡 中——重申2028–2030年目标 | 中期 | 理事会关于入盟章节的谈判 |
+| 议员委任投票 | 🟢 低——内部治理改革 | 当前 | 2027年选举前实施 |
+
+---
+
+### Strategic Intelligence
+
+**结构性权力动态（欧洲议会EP10，2026年）：**  
+EPP（183席）在每次有争议的投票中都需要三党联合（PPE+S&D+Renew = 396）。EPP可行的右翼多数不存在（PPE+ECR+PfE = 349，低于360门槛）。这种结构性僵局使EPP成为核心，但也使S&D+Renew的同意不可或缺——形成塑造每项立法成果的三角相互依存。
+
+**地缘政治立场：**  
+欧洲议会作为积极主动的地缘政治机构运作，超越其条约定义的权限。索赔委员会批准、乌克兰贷款和统一防务市场决议共同代表欧盟新的外交政策立场——由PPE + S&D + Renew在俄罗斯威胁问题上的汇聚推动。
+
+**环境治理承压：**  
+ETS2 MSR修正代表2021年绿色协议以来"适合55"实施机制的首次正式削弱。虽然不废除2050年碳中和目标，但表明政治平衡正在向EPP的"竞争性可持续性"框架倾斜。Greens/EFA在此投票中落败——他们清楚这一点。
+
+---
+
+### One Sentence Each — What Happened
+
+- **乌克兰索赔委员会：** 欧洲议会支持成立新的国际机构处理2022年入侵引发的赔偿索赔——通过冻结的俄罗斯主权资产实施。
+- **议员豁免权解除：** 四名极右/民族主义议员在单次会议中失去议会豁免权——布劳恩反犹太主义案件最受关注。
+- **ETS2 MSR：** 供暖和道路运输碳定价在2027年启动前略有削弱；气候社会基金的财政保护得以保留。
+- **选举法（委任投票）：** 怀孕和产后女性议员现在可以委任投票——几乎得到全票支持。
+- **普惠制更新：** 对67个发展中国家的贸易优惠在新劳工/环境条件下得到更新。
+- **网络欺凌决议：** 欧洲议会要求对骚扰行为实施刑事处罚并追究数字平台责任。
+
+---
+
+### Source Attribution
+
+- 欧洲议会采纳文本：data.europarl.europa.eu（TA-10-2026-0154、-0163、-0155、-0114、-0113、-0139、-0124、-0109、-0108、-0107、-0106）
+- 政治格局：欧洲议会开放数据门户（717名议员，EP10届2024–2029年）
+- IMF经济背景：api.imf.org SDMX 3.0（2025年9月发布，WEO直接调查确认2026-05-11）
+- 预警系统：EP MCP工具（高灵敏度，稳定性=84/100，2026-05-11）
+
+---
+
+### Deep Intelligence Assessment
+
+#### 乌克兰国际索赔委员会——深度战略分析
+
+2026年4月30日欧洲议会对乌克兰国际索赔委员会的投票不仅仅是一项象征性决议。它代表欧盟如何构想自身在国际问责机制中角色的根本转变。主要战略维度：
+
+**1. 法律工程的创新性：** 该条约使用欧洲委员会框架（而非EU条约）绕过安理会否决权瘫痪。这正是1998年《罗马规约》创建的建筑架构方法——在安理会体系外构建问责基础设施。欧盟现在将同样的法律工程应用于乌克兰。
+
+**2. 资产部署先例：** 主要由比利时Euroclear持有的2850–3000亿欧元冻结俄罗斯主权资产将构成财务基础。在未经该国同意的情况下将政府资产作为事实上的问责抵押品——在和平时期法律上前所未有。欧洲法院关于这些资产部署合法性的咨询意见（预计2026年第2–3季度）将是2026年最重要的EU法律决定。
+
+**3. EPP的地缘政治转变：** EPP对索赔委员会的热情支持在欧洲议会EP8届（2014–2019年）是不可想象的——当时匈牙利、保加利亚和部分中东欧集团的EPP议员定期软化欧洲议会对俄罗斯的语言。EP10的EPP集团——现在因奥班后匈牙利被驱逐出党和德国梅尔茨的坚定大西洋主义立场而固化——在结构上对俄罗斯更为强硬。
+
+**4. 对国际法的系统性影响：** 如果索赔委员会成功运作，将确立大国也可由在联合国宪章体系外运作的国际机构追究财务责任的先例。这一先例对欧盟、美国和盟友民主国家已在计算的未来大国冲突（台海情景）具有影响。
+
+#### 豁免权解除——制度性问责模式
+
+一天内解除四名议员特权（4月28日）并非偶然。这反映：
+
+1. **JURI的积极执法立场：** EP10的JURI采取了更积极的问责方法，如伦理机构权限扩展所示
+2. **布劳恩案的政治维度：** 在反犹太主义相关案件中提出豁免权解除申请在其背景下政治敏感
+3. **肖舒瓦卡案的罗马尼亚维度：** 罗马尼亚凯林·乔尔杰斯库总统选举风波（2025年底）为对罗马尼亚民族主义欧洲议员采取更严格处理提供了政治背景
+4. **奥拜特克/布切克案的波兰维度：** 两名ECR成员波兰议员都面临近乎腐败的调查——与总理唐纳德·图斯克领导下波兰法治改革和后PiS问责活动一致
+
+模式：JURI正在处理EP8/9和EP10积压的豁免权解除申请，因伦理机构权限扩展而加速。4月28日的批次反映专门用于清理这一积压的JURI会议——而非四个同时进行的新案件。
+
+#### ETS2 MSR修正——绿色协议脆弱性信号
+
+4月29日的MSR修正（TA-10-2026-0139）值得比单一数据点更深入的分析。在整个"适合55"一揽子计划实施轨迹的背景下：
+
+- **2024年：** 欧盟自然恢复法勉强通过；甲烷法规在三方谈判中削弱
+- **2025年：** 可持续航空燃料（ReFuelEU）实施延迟；欧盟氢能战略预算削减
+- **2026-04-29：** 启动前ETS2 MSR储备削减
+
+这一模式与EPP向"竞争性可持续性"的转向一致——保留绿色立法的结构性架构同时削减其运营效力。MSR修正是这一模式的ETS2版本：机制存在，但削弱的储备使ETS2碳价更加波动，因此作为清洁技术部署的投资信号可靠性降低。
+
+**IMF相关性：** 德国GDP负增长（-0.1%，WEO 2025年9月）产生政治压力，要保护能源密集型产业免受成本突然上涨影响。ETS2 MSR修正对EPP而言政治上最优——在向气候承诺发出信号的同时为德国和波兰工业提供经济空间。
+
+#### 委任投票——代表性的结构性改革
+
+允许怀孕/产后委任投票的选举法修正案（TA-10-2026-0124）比其技术性质暗示的更为重要。它是：
+
+1. 专门为性别平等修正欧洲议会投票程序的首次结构性修正（而非仅是替代程序解决方案）
+2. 根据《欧盟运作条约》第223条（欧洲议会自主条款）采纳——该条款的相对罕见使用
+3. 未来家庭友好改革（陪产假、照护责任）的模板
+
+**监测信号：** 5月18–22日全体会议中使用委任投票的议员数量将是需求的首个实证检验。
+
+---
+
+### Strategic Recommendations for Policy Watchers
+
+1. **追踪冻结资产的欧洲法院咨询意见**——乌克兰问责最重要的近期法律发展；预计2026年第2–3季度
+2. **监测欧盟理事会匈牙利关于索赔条约批准的声明**——感知30%概率（R-01）是否会实现
+3. **监视ETS2碳价轨迹**——若MSR修正实施后跌破30欧元/吨，确认绿色协议侵蚀论点
+4. **追踪5月18–22日全体会议DOCEO XML**——委员会周后首批投票数据将确认AI责任指令的联合稳定性，下一重大立法考验
+
+---
+
+### Source Attribution (Expanded)
+
+- 一手数据：欧洲议会采纳文本TA-10-2026-0154、-0163、-0155、-0114、-0113、-0139、-0124、-0109、-0108、-0107、-0106（经data.europarl.europa.eu）
+- 欧洲议会政治格局：generate_political_landscape（2026-05-11，717名议员，9个党团）
+- IMF WEO：2025年9月发布，DEU/FRA/ITA/ESP/POL的GDP/通胀/财政指标，经fetch_url获取（SDMX 3.0）
+- 欧洲议会预警系统：稳定性=84/100，3项警告（高灵敏度，2026-05-11）
+- 欧洲议会联合动态分析：analyze_coalition_dynamics（4月1日–5月11日；构成代理，非投票层面）
+- 历史背景：欧洲议会机构知识库（豁免权解除先例，ETS轨迹）
+- 法律基础分析IMF文件：分析综合（非IMF直接来源）
+
+### Executive Probability Assessment
+
+**政策制定者WEP概率摘要：**
+
+| 评估 | WEP范围 | 置信度 |
+|------|---------|--------|
+| 索赔委员会生效 | 几乎确定 | HIGH |
+| ETS2 MSR修正2026年第3季度前实施 | 非常可能 | HIGH |
+| 匈牙利/波兰延迟实施 | 可能 | HIGH |
+| 6个月内欧洲法院申请 | 大约均等 | MEDIUM |
+| 联合维持至6月预算投票 | 非常可能 | HIGH |
+| ESN形成阻止性少数 | 非常不可能 | HIGH |
+
+### Admiralty Source Assessment
+
+| 来源 | 可靠性 | 可信度 | 评级 |
+|------|--------|--------|------|
+| 欧洲议会采纳文本记录 | A（完全可靠） | 1（已确认） | A1 |
+| 欧洲议会政治格局（MCP） | A（完全可靠） | 2（很可能真实） | A2 |
+| 预警系统 | B（通常可靠） | 2（很可能真实） | B2 |
+| 联合动态分析 | B（通常可靠） | 2（很可能真实） | B2 |
+| 媒体框架评估 | C（相当可靠） | 3（可能真实） | C3 |
+| 预测和情景 | B（通常可靠） | 3（可能真实） | B3 |
+
+**执行简报整体可靠性：B2** — 可靠信源基础，评估很可能真实。
+
+### Executive Action Recommendations
+
+**欧盟监督机构：** 追踪索赔委员会执行框架部署（目标：2026年7月）。要求欧盟委员会在2026年6月理事会前公布实施时间表。
+
+**欧洲议员办公室：** 为2026年9月届期聚焦索赔委员会二级立法和ETS2实施法规审查做准备。
+
+**智库和非政府组织：** 发布索赔委员会欧洲法院申请风险的法律分析，丰富公众讨论。
+
+**记者：** 将欧盟委员会发布索赔委员会运营框架和ETS2碳价轨迹作为关键参数追踪。
+
+*执行简报——版本2.0（重新运行扩展版）| 日期：2026年5月11日*  
+*WEP概率范围遵循情报界标准 | 海军部评估已应用*  
+*许可证：Apache-2.0 | © 2024–2026 Hack23 AB*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `breaking`
@@ -4555,4 +6831,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 

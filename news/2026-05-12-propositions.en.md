@@ -108,6 +108,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -3019,6 +3020,995 @@ The analytical value added by this run:
 
 *Methodology: AI-Driven Analysis Guide (analysis/methodologies/ai-driven-analysis-guide.md), Step 10.5. This reflection constitutes the final artifact of Stage B Pass 2. Run: propositions-run270-1778566185.*
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-12 | **نوع المقالة:** propositions | **الإصدار:** propositions-run270-1778566185
+**التصنيف:** UNCLASSIFIED | **مستوى الثقة:** 🟢 HIGH (EP Open Data + IMF WEO)
+
+---
+
+### BLUF (قراءة 60 ثانية)
+
+بلغت ثلاثة تدابير تشريعية بارزة مرحلة النشر النهائي أو الاعتماد خلال الأسبوع الممتد من 5 إلى 12 مايو 2026، مما يمثّل لحظة محورية في أول سنة تشريعية كاملة للدورة EP10. دخلت **التوجيهية الأوروبية لمكافحة الفساد** (`2023/0135(COD)`) حيّز التنفيذ في **11 مايو 2026** بعد نشرها في الجريدة الرسمية للاتحاد الأوروبي، محدِّدةً لأول مرة معايير جنائية ملزمة على مستوى الاتحاد لمكافحة الفساد. كما جاء نشر **اللائحة الثالثة لآلية التسوية الموحدة** (`2023/0111(COD)`) في 20 أبريل ودخولها مرحلة التنفيذ ليشكّل دعامةً هيكليةً لاستقرار المنظومة المصرفية في منطقة اليورو. وأتاحت **لائحة رفاهية الكلاب والقطط** (`2023/0447(COD)`)، المعتمَدة في 28 أبريل، أول إطار أوروبي متناسق لرعاية الحيوانات الأليفة وتتبّعها. تؤكد هذه الأعمال الثلاثة مجتمعةً قدرة EP10 على تطوير تشريعات شاملة في مجالات العدالة الجنائية والاستقرار المالي ورعاية الحيوان، رغم الحسابات البرلمانية المعقدة التي تستلزم توافقاً دائماً بين EPP وS&D.
+
+يعكس حزمة من 12 **ردّاً متابعاً للمجلس** (SP-2026-05-05) على مواقف البرلمان السابقة حواراً مؤسسياً نشطاً حول التنفيذ. وفي الوقت ذاته، تفتح **مبادئ توجيهية ميزانية الاتحاد الأوروبي 2027**، المعتمَدة في 28 أبريل، إجراءات الموازنة السنوية في ظل ضغوط ضبط مالي في فرنسا (IMF 2026P: -4.94% من الناتج المحلي)، وألمانيا (+0.79% نمو الناتج) وإيطاليا (+0.52% نمو الناتج)، مما يجعل مفاوضات الإطار المالي متعدد السنوات MFF لعام 2027 مثقلةً سياسياً.
+
+**مؤشر استخباراتي رئيسي:** نشر التوجيهية الأوروبية لمكافحة الفساد في الجريدة الرسمية في 11 مايو — قبل يوم واحد فقط من هذا الإصدار — يخلق فرصة إطارية حساسة زمنياً. بدأت ساعات التحوّل في دول الأعضاء تدق.
+
+---
+
+### أبرز المحفزات السياسية (بحسب الأولوية)
+
+| # | المحفّز | الإجراء | الحالة | الأهمية |
+|---|---------|-----------|--------|-------------|
+| 1 | **نشر التوجيهية لمكافحة الفساد في الجريدة الرسمية** | `2023/0135(COD)` | 🟢 نُشرت 2026-05-11 | إطار جنائي ملزم — بدء العدّ التنازلي لنقل التشريع لمدة عامين |
+| 2 | **إصلاح تسوية البنوك SRMR3** | `2023/0111(COD)` | 🟢 نُشرت 2026-04-20 | شبكة أمان مصرفية هيكلية — تنفيذ على يد سلطات التسوية الوطنية |
+| 3 | **اعتماد لائحة رفاهية الكلاب والقطط** | `2023/0447(COD)` | 🟢 اعتمد الجلسة العامة 2026-04-28 | أول قانون حيوانات أليفة متناسق في الاتحاد؛ 12 جولة ثلاثية خلال 18 شهراً |
+| 4 | **قرار تطبيق قانون الأسواق الرقمية** | `2026/2596(RSP)` | 🟢 اعتُمد 2026-04-30 | غير ملزم لكنه ذو أهمية سياسية؛ يطالب البرلمان الأوروبي المفوضية بالتسريع |
+| 5 | **المبادئ التوجيهية لميزانية الاتحاد الأوروبي 2027** | `2025/2246` | 🟢 اعتُمدت 2026-04-28 | تفتح إجراءات الموازنة السنوية؛ السياق المالي يقيّد الطموحات |
+| 6 | **أحكام جنائية بشأن التنمر الإلكتروني** | `2026/2693(RSP)` | 🟢 اعتُمدت 2026-04-30 | غير ملزم؛ يحدد تفويضاً تشريعياً لمقترح توجيهية مستقبلي |
+| 7 | **متابعة المجلس (SP-2026-05-05)** | 12 وثيقة ACT_FOLLOWUP | 🟡 قيد المراجعة | 12 رسالة من المجلس حول مواقف البرلمان — إشارة إلى الامتثال في التنفيذ |
+
+---
+
+### ملخص السياق السياسي
+
+**تركيبة البرلمان (EP10، بتاريخ 2026-05-12):**
+- 717 عضواً في 9 مجموعات؛ مؤشر التفتّت: مرتفع (ENP = 6.58)
+- EPP 183 (25.5%) | S&D 136 (19.0%) | PfE 85 (11.9%) | ECR 81 (11.3%) | Renew 77 (10.7%)
+- Greens/EFA 53 (7.4%) | The Left 45 (6.3%) | NI 30 (4.2%) | ESN 27 (3.8%)
+- **عتبة الأغلبية:** 360 صوتاً — تستلزم تحالفاً كبيراً (EPP+S&D = 319) بالإضافة إلى مجموعة إضافية واحدة على الأقل
+- **درجة الاستقرار:** 84/100 (🟡 MEDIUM خطر — ديناميكية المجموعة المهيمنة، نقاش PfE الموضوعي حول تدخّل المفوضية يُنبئ بضغط اليمين المتطرف)
+
+**ديناميكيات التحالف الرئيسية:**
+كشفت نقاشات الجلسة العامة خلال الأسبوع عن توتر في التحالفات: يُشير النقاش الموضوعي لمجموعة PfE بموجب المادة 169 حول "تدخل المفوضية في العمليات الديمقراطية" (29 أبريل) إلى تصاعد الاحتكاك المؤسسي من قبل اليمين المتطرف. واعتُمدت كلٌّ من التوجيهية لمكافحة الفساد ولائحة SRMR3 بتوافق EPP-S&D-Renew — الأغلبية المعتدلة الفاعلة التي ميّزت سجل EP10 التشريعي.
+
+---
+
+### السياق الاقتصادي (IMF WEO، إصدار سبتمبر 2025)
+
+| البلد | نمو الناتج المحلي 2025P | نمو الناتج المحلي 2026P | التضخم 2025P | الرصيد المالي 2025P | الرصيد المالي 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| ألمانيا | +0.24% | +0.79% | 2.30% | -3.37% ناتج | -2.67% ناتج |
+| فرنسا | +0.93% | +0.86% | 0.93% | -5.11% ناتج | -4.94% ناتج |
+| إيطاليا | +0.54% | +0.52% | 1.63% | -3.11% ناتج | -2.82% ناتج |
+
+🔴 تواصل **فرنسا** تجاوز عتبة العجز البالغة 3% وفق ميثاق الاستقرار والنمو في عامَي 2025 و2026 (يتوقع IMF نسب -5.11% و-4.94%)، مما يُقيّد قدرتها على الالتزام بمصروفات إضافية في الاتحاد ضمن توجيهات ميزانية 2027.
+
+🟡 تُسجّل **ألمانيا** نمواً محدوداً (+0.24% في 2025) لكن مع مسار مالي محسّن، إذ يتراجع العجز نحو -2.67% من الناتج بحلول 2026 — مما يوفر هامشاً محدوداً لرفع الاشتراكات الأوروبية.
+
+🟡 تُبدي **إيطاليا** تقدماً في ضبط الميزانية (-3.11% إلى -2.82%) لكن نمواً قريباً من الركود (+0.52%)، مما يُبقي وضعها هشاً في مواجهة أي تطبيع محتمل لأسعار الفائدة.
+
+**الصلة الكلية بلائحة SRMR3:** يدخل إطار تسوية البنوك مرحلة التنفيذ في خضم عجوزات سيادية مرتفعة هيكلياً في فرنسا وإيطاليا. يتعيّن الحفاظ على صندوق التسوية الأوروبي الموحّد SRF (مستوى الهدف 1% من الودائع المضمونة، ~80 مليار يورو) عبر مساهمات البنوك العاملة في ولايات قضائية تعاني ضغطاً سيادياً — مما يُفرز تركيزات مخاطر غير متماثلة.
+
+---
+
+### تقييم مستوى الثقة
+
+| مصدر البيانات | الجودة | الملاحظات |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | تأكيد تاريخ نشر التوجيهية لمكافحة الفساد في الجريدة الرسمية |
+| EP Procedures API | 🟡 MEDIUM | بيانات الجدول الزمني مُحقَّقة؛ بيانات التعديلات/المقررين غير متاحة |
+| IMF WEO (سبتمبر 2025) | 🟢 HIGH | تغذية SDMX مباشرة، 449 سجلاً مُسترداً |
+| المشهد السياسي للبرلمان | 🟢 HIGH | إحصاء الأعضاء في الوقت الفعلي من نقطة النهاية /meps |
+| تصويتات النداء الاسمي DOCEO | 🔴 غير متاح | تأخر نشر البرلمان الأوروبي أكثر من 4 أسابيع؛ الاستعانة بالتحليل الهيكلي |
+
+**الثقة الإجمالية:** 🟢 HIGH للوضع الإجرائي؛ 🟡 MEDIUM لديناميكيات التحالف (بيانات التصويت بالنداء الاسمي غير متوفرة)
+
+---
+
+*المصادر: البوابة الإلكترونية للبيانات المفتوحة للبرلمان الأوروبي (data.europarl.europa.eu)؛ IMF World Economic Outlook SDMX 3.0 API (api.imf.org). تاريخ التحليل: 2026-05-12.*
+
+### Executive Brief Da
+
+### BLUF (60-sekunders læsning)
+
+Tre banebrydende lovgivningstiltag nåede endelig offentliggørelse eller vedtagelse i ugen 5.–12. maj 2026, hvilket markerer et afgørende vendepunkt i EP10's første fulde lovgivningsår. **Anti-korruptionsdirektivet** (`2023/0135(COD)`) trådte i kraft den **11. maj 2026** efter offentliggørelse i Den Europæiske Unions Tidende — og etablerer bindende EU-dækkende strafferetlige standarder for korruption for første gang. **Forordning III om den fælles afviklingsmekanisme** (`2023/0111(COD)`) offentliggjort den 20. april og nu i implementeringsfasen markerer en strukturel styrkelse af eurozonebanksystemets stabilitet. **Forordningen om velfærd for hunde og katte** (`2023/0447(COD)`), vedtaget den 28. april, leverer EU's første harmoniserede ramme for kæledyrs velfærd og sporbarhed. Disse tre retsakter signalerer tilsammen EP10's evne til at fremme tværgående lovgivning inden for strafferet, finansiel stabilitet og dyrevelfærd — på trods af en parlamentarisk mandatfordeling med flere koalitioner, der kræver konstant EPP-S&D-koordinering.
+
+En batch med 12 **Rådets opfølgningssvar** (SP-2026-05-05) til tidligere vedtagne EP-holdninger afspejler en aktiv interinstitutionel dialog om implementering. Samtidig åbner **EU's budgetretningslinjer 2027** vedtaget den 28. april den årlige budgetprocedure under betingelser med konsolideringspres i Frankrig (IMF 2026P: -4,94 % af BNP), Tyskland (+0,79 % BNP-vækst) og Italien (+0,52 % BNP-vækst), hvilket gør forhandlingerne om 2027 MFF-rammen politisk ladet.
+
+**Vigtig efterretningsindikator:** Anti-korruptionsdirektivets offentliggørelse i EUT den 11. maj — blot én dag inden denne kørsel — skaber en tidsfølsom indramningsmulihed. Medlemsstaternes gennemførelsesfrist er begyndt at tælle.
+
+---
+
+### Vigtigste politiske udløsere (prioritetsrækkefølge)
+
+| # | Udløser | Procedure | Status | Betydning |
+|---|---------|-----------|--------|-------------|
+| 1 | **Anti-korruptionsdirektivet offentliggjort i EUT** | `2023/0135(COD)` | 🟢 Offentliggjort 2026-05-11 | Bindende strafferetlig ramme — 2-årig gennemførelsesfrist begynder |
+| 2 | **SRMR3 Bankreformafvikling** | `2023/0111(COD)` | 🟢 Offentliggjort 2026-04-20 | Strukturelt banksikkerhedsnet — implementering af nationale afviklingsmyndigheder |
+| 3 | **Forordning om velfærd for hunde og katte vedtaget** | `2023/0447(COD)` | 🟢 Plenarmøde vedtog 2026-04-28 | Første EU-harmoniserede kæledyrslov; 12 trilogrunder over 18 måneder |
+| 4 | **Resolution om håndhævelse af loven om digitale markeder** | `2026/2596(RSP)` | 🟢 Vedtaget 2026-04-30 | Ikke-bindende men politisk betydningsfuld; EP kræver Kommissionen handler hurtigere |
+| 5 | **EU's budgetretningslinjer 2027** | `2025/2246` | 🟢 Vedtaget 2026-04-28 | Åbner den årlige budgetprocedure; finanspolitisk baggrund begrænser ambitionerne |
+| 6 | **Strafferetlige bestemmelser om cybermobning** | `2026/2693(RSP)` | 🟢 Vedtaget 2026-04-30 | Ikke-bindende; fastsætter lovgivningsmandat for kommende direktivforslag |
+| 7 | **Rådets opfølgning (SP-2026-05-05)** | 12 ACT_FOLLOWUP-dokumenter | 🟡 Under gennemgang | 12 rådsskrivelser om EP-holdninger — signal om implementeringsoverholdelse |
+
+---
+
+### Politisk kontekstsammendrag
+
+**Parlamentets sammensætning (EP10, pr. 2026-05-12):**
+- 717 MEP'er fordelt på 9 grupper; Fragmenteringsindeks: HØJ (ENP = 6,58)
+- EPP 183 (25,5 %) | S&D 136 (19,0 %) | PfE 85 (11,9 %) | ECR 81 (11,3 %) | Renew 77 (10,7 %)
+- Greens/EFA 53 (7,4 %) | The Left 45 (6,3 %) | NI 30 (4,2 %) | ESN 27 (3,8 %)
+- **Flertalstærskel:** 360 stemmer — kræver storkoalition (EPP+S&D = 319) plus mindst én yderligere gruppe
+- **Stabilitetscore:** 84/100 (🟡 MEDIUM risiko — domineret-gruppe-dynamik, PfE's aktuelle debat om Kommissionens indblanding signalerer yderste højres pres)
+
+**Vigtige koalitionsdynamikker:**
+Ugens plenarisdebatter afslører koalitionsstress: PfE-gruppens artikel 169-debat om "Kommissionens indblanding i demokratiske processer" (29. april) signalerer eskalerende yderste højres institutionelle friktion. Anti-korruptionsdirektivet og SRMR3 blev begge vedtaget med EPP-S&D-Renew-koordinering — den funktionelle moderate flertal, der har karakteriseret EP10's lovgivningsrekord.
+
+---
+
+### Økonomisk kontekst (IMF WEO, september 2025 vintage)
+
+| Land | BNP-vækst 2025P | BNP-vækst 2026P | Inflation 2025P | Finansiel balance 2025P | Finansiel balance 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| Tyskland | +0,24 % | +0,79 % | 2,30 % | -3,37 % BNP | -2,67 % BNP |
+| Frankrig | +0,93 % | +0,86 % | 0,93 % | -5,11 % BNP | -4,94 % BNP |
+| Italien | +0,54 % | +0,52 % | 1,63 % | -3,11 % BNP | -2,82 % BNP |
+
+🔴 **Frankrig** forbliver over SGP's 3 %-underskudstærskel i både 2025 og 2026 (IMF projekterer -5,11 % og -4,94 %), hvilket begrænser Frankrigs mulighed for at forpligte sig til nye EU-udgiftsforpligtelser i budgetretningslinjerne for 2027.
+
+🟡 **Tyskland** viser minimal vækst (+0,24 % i 2025) men forbedret finanspolitisk kurs med underskud, der falder mod -2,67 % af BNP i 2026 — giver begrænset råderum til øgede EU-bidrag.
+
+🟡 **Italien** viser finanspolitiske konsolideringsresultater (-3,11 % til -2,82 %) men vækst tæt på stagnation (+0,52 %), hvilket opretholder sårbarheden over for eventuel rentenormalisering.
+
+**Makrorelevans for SRMR3:** Bankkrisehåndteringsrammen træder i implementering mod en baggrund af strukturelt forhøjede statsunderskud i Frankrig og Italien. Den europæiske Single Resolution Fund (SRF) (målniveau 1 % af dækkede indskud, ~€80 mia.) skal opretholdes ved bidrag fra banker, der opererer i jurisdiktioner med statslig stress — hvilket skaber asymmetriske risikokoncentrationer.
+
+---
+
+### Konfidensvurdering
+
+| Datakilde | Kvalitet | Bemærkninger |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | Bekræftet EUT-offentliggørelsesdato for Anti-korruptionsdirektivet |
+| EP Procedures API | 🟡 MEDIUM | Tidslinjedata verificeret; ændrings-/ordførerdata utilgængelige |
+| IMF WEO (sep. 2025) | 🟢 HIGH | Live SDMX-feed, 449 poster hentet |
+| EP's politiske landsskab | 🟢 HIGH | Realtids MEP-optællinger fra /meps-endepunktet |
+| DOCEO Navneopkald Afstemninger | 🔴 UTILGÆNGELIG | EP's forsinkede offentliggørelse >4 uger; reserve til strukturbaseret analyse |
+
+**Samlet konfidens:** 🟢 HIGH for procedurestatus; 🟡 MEDIUM for koalitionsdynamik (ingen navneopkaldsafstemningsdata tilgængelige)
+
+---
+
+*Kilder: Europa-Parlamentets åbne dataportal (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). Analysedato: 2026-05-12.*
+
+### Executive Brief De
+
+### BLUF (60-Sekunden-Lektüre)
+
+Drei wegweisende Gesetzgebungsmaßnahmen erreichten in der Woche vom 5.–12. Mai 2026 ihre endgültige Veröffentlichung oder Annahme und markieren einen entscheidenden Meilenstein im ersten vollen Gesetzgebungsjahr von EP10. Die **Anti-Korruptionsrichtlinie** (`2023/0135(COD)`) trat am **11. Mai 2026** nach Veröffentlichung im Amtsblatt der Europäischen Union in Kraft — und legt erstmals bindende EU-weite strafrechtliche Standards zur Bekämpfung von Korruption fest. Die **Verordnung III über den Einheitlichen Abwicklungsmechanismus** (`2023/0111(COD)`) wurde am 20. April veröffentlicht und befindet sich nun in der Umsetzungsphase, was eine strukturelle Stärkung der Bankenstabilität im Euroraum markiert. Die **Verordnung über das Wohlergehen von Hunden und Katzen** (`2023/0447(COD)`), angenommen am 28. April, liefert den ersten EU-weit harmonisierten Rahmen für das Wohlergehen und die Rückverfolgbarkeit von Haustieren. Diese drei Rechtsakte signalisieren gemeinsam EP10s Fähigkeit, bereichsübergreifende Gesetzgebung in den Bereichen Strafrecht, Finanzstabilität und Tierschutz voranzutreiben — trotz einer parlamentarischen Sitzzählung mit mehreren Koalitionen, die eine ständige EPP-S&D-Abstimmung erfordert.
+
+Ein Paket von 12 **Ratsantworten zur Nachverfolgung** (SP-2026-05-05) auf frühere angenommene EP-Standpunkte spiegelt einen aktiven interinstitutionellen Dialog über die Umsetzung wider. Gleichzeitig eröffnen die **EU-Haushaltsleitlinien 2027**, angenommen am 28. April, das jährliche Haushaltsverfahren unter Bedingungen des Konsolidierungsdrucks in Frankreich (IMF 2026P: -4,94 % BIP), Deutschland (+0,79 % BIP-Wachstum) und Italien (+0,52 % BIP-Wachstum), was die Verhandlungen über den MFF-Rahmen 2027 politisch auflädt.
+
+**Wichtiger Geheimdienstindikator:** Die Veröffentlichung der Anti-Korruptionsrichtlinie im Amtsblatt am 11. Mai — nur einen Tag vor diesem Lauf — schafft eine zeitkritische Einrahmungsmöglichkeit. Die Umsetzungsfristen der Mitgliedstaaten haben begonnen zu laufen.
+
+---
+
+### Wichtigste politische Auslöser (nach Priorität)
+
+| # | Auslöser | Verfahren | Status | Bedeutung |
+|---|---------|-----------|--------|-------------|
+| 1 | **Anti-Korruptionsrichtlinie im Amtsblatt veröffentlicht** | `2023/0135(COD)` | 🟢 Veröffentlicht 2026-05-11 | Verbindlicher strafrechtlicher Rahmen — 2-jährige Umsetzungsfrist beginnt |
+| 2 | **SRMR3 Bankenabwicklungsreform** | `2023/0111(COD)` | 🟢 Veröffentlicht 2026-04-20 | Strukturelles Bankensicherheitsnetz — Umsetzung durch nationale Abwicklungsbehörden |
+| 3 | **Verordnung über das Wohlergehen von Hunden und Katzen angenommen** | `2023/0447(COD)` | 🟢 Plenum nahm an 2026-04-28 | Erstes EU-harmonisiertes Heimtiergesetz; 12 Trilog-Runden über 18 Monate |
+| 4 | **Entschließung zur Durchsetzung des Gesetzes über digitale Märkte** | `2026/2596(RSP)` | 🟢 Angenommen 2026-04-30 | Nicht bindend, aber politisch bedeutsam; EP fordert die Kommission auf, schneller zu handeln |
+| 5 | **EU-Haushaltsleitlinien 2027** | `2025/2246` | 🟢 Angenommen 2026-04-28 | Eröffnet das jährliche Haushaltsverfahren; finanzpolitischer Hintergrund schränkt Ambitionen ein |
+| 6 | **Strafrechtliche Bestimmungen zu Cybermobbing** | `2026/2693(RSP)` | 🟢 Angenommen 2026-04-30 | Nicht bindend; legt Gesetzgebungsauftrag für künftigen Richtlinienvorschlag fest |
+| 7 | **Ratsnachverfolgung (SP-2026-05-05)** | 12 ACT_FOLLOWUP-Dokumente | 🟡 In Prüfung | 12 Ratsschreiben zu EP-Standpunkten — Signal zur Umsetzungskonformität |
+
+---
+
+### Zusammenfassung des politischen Kontexts
+
+**Zusammensetzung des Parlaments (EP10, Stand 2026-05-12):**
+- 717 MdEP in 9 Gruppen; Fragmentierungsindex: HOCH (ENP = 6,58)
+- EPP 183 (25,5 %) | S&D 136 (19,0 %) | PfE 85 (11,9 %) | ECR 81 (11,3 %) | Renew 77 (10,7 %)
+- Greens/EFA 53 (7,4 %) | The Left 45 (6,3 %) | NI 30 (4,2 %) | ESN 27 (3,8 %)
+- **Mehrheitsschwelle:** 360 Stimmen — erfordert Große Koalition (EPP+S&D = 319) plus mindestens eine weitere Gruppe
+- **Stabilitätswert:** 84/100 (🟡 MEDIUM Risiko — Dominanz-Gruppen-Dynamik, PfEs aktuelle Debatte über Kommissionseinmischung signalisiert Rechtsaußendruck)
+
+**Wichtige Koalitionsdynamiken:**
+Die Plenaristdebatten der Woche offenbaren Koalitionsstress: die Artikel-169-Debatte der PfE-Gruppe über "Kommissionseinmischung in demokratische Prozesse" (29. April) signalisiert eskalierende Rechtsaußen-Institutionsreibung. Die Anti-Korruptionsrichtlinie und SRMR3 wurden beide mit EPP-S&D-Renew-Abstimmung angenommen — die funktionsfähige moderate Mehrheit, die EP10s Gesetzgebungsbilanz charakterisiert hat.
+
+---
+
+### Wirtschaftlicher Kontext (IMF WEO, September 2025 vintage)
+
+| Land | BIP-Wachstum 2025P | BIP-Wachstum 2026P | Inflation 2025P | Haushaltssaldo 2025P | Haushaltssaldo 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| Deutschland | +0,24 % | +0,79 % | 2,30 % | -3,37 % BIP | -2,67 % BIP |
+| Frankreich | +0,93 % | +0,86 % | 0,93 % | -5,11 % BIP | -4,94 % BIP |
+| Italien | +0,54 % | +0,52 % | 1,63 % | -3,11 % BIP | -2,82 % BIP |
+
+🔴 **Frankreich** überschreitet die 3-%-Defizitschwelle des SGP in den Jahren 2025 und 2026 (IMF prognostiziert -5,11 % und -4,94 %), was Frankreichs Fähigkeit einschränkt, in den Haushaltsleitlinien 2027 neue EU-Ausgabenverpflichtungen einzugehen.
+
+🟡 **Deutschland** zeigt minimales Wachstum (+0,24 % in 2025), aber einen verbesserten Haushaltspfad mit einem Defizit, das bis 2026 auf -2,67 % des BIP sinkt — bietet begrenzten Spielraum für erhöhte EU-Beiträge.
+
+🟡 **Italien** zeigt Fortschritte bei der Haushaltskonsolidierung (-3,11 % bis -2,82 %), aber Wachstum nahe der Stagnation (+0,52 %), was die Anfälligkeit für eine mögliche Zinsnormalisierung aufrechterhält.
+
+**Makrorelevanz für SRMR3:** Der Bankenabwicklungsrahmen tritt vor dem Hintergrund strukturell erhöhter Staatsdefizite in Frankreich und Italien in die Umsetzung ein. Der Europäische Einheitliche Abwicklungsfonds (SRF) (Zielgröße 1 % der gedeckten Einlagen, ~€80 Mrd.) muss durch Beiträge von Banken aufrechterhalten werden, die in Jurisdiktionen mit Staatsfinanzstress tätig sind — was asymmetrische Risikokonzentrationen schafft.
+
+---
+
+### Vertrauensbewertung
+
+| Datenquelle | Qualität | Anmerkungen |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | Bestätigtes Veröffentlichungsdatum im Amtsblatt für die Anti-Korruptionsrichtlinie |
+| EP Procedures API | 🟡 MEDIUM | Zeitreihendaten verifiziert; Änderungs-/Berichterstatterdaten nicht verfügbar |
+| IMF WEO (Sep. 2025) | 🟢 HIGH | Live-SDMX-Feed, 449 Datensätze abgerufen |
+| Politische Landschaft des EP | 🟢 HIGH | Echtzeit-MdEP-Zählungen vom /meps-Endpunkt |
+| DOCEO Namentliche Abstimmungen | 🔴 NICHT VERFÜGBAR | EP verzögerte Veröffentlichung >4 Wochen; Rückgriff auf strukturbasierte Analyse |
+
+**Gesamtvertrauen:** 🟢 HIGH für Verfahrensstatus; 🟡 MEDIUM für Koalitionsdynamiken (keine namentlichen Abstimmungsdaten verfügbar)
+
+---
+
+*Quellen: Offenes Datenportal des Europäischen Parlaments (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). Analysedatum: 2026-05-12.*
+
+### Executive Brief Es
+
+### BLUF (lectura de 60 segundos)
+
+Tres medidas legislativas de referencia alcanzaron su publicación definitiva o adopción en la semana del 5 al 12 de mayo de 2026, marcando un momento crucial en el primer año legislativo completo del EP10. La **Directiva anticorrupción** (`2023/0135(COD)`) entró en vigor el **11 de mayo de 2026** tras su publicación en el Diario Oficial de la Unión Europea, estableciendo por primera vez normas jurídico-penales vinculantes de ámbito europeo en materia de corrupción. El **Reglamento III sobre el Mecanismo Único de Resolución** (`2023/0111(COD)`), publicado el 20 de abril y actualmente en fase de implementación, supone un refuerzo estructural de la estabilidad bancaria de la zona euro. El **Reglamento sobre el bienestar de perros y gatos** (`2023/0447(COD)`), adoptado el 28 de abril, establece el primer marco armonizado de la UE para el bienestar y la trazabilidad de los animales de compañía. Estos tres actos señalan conjuntamente la capacidad del EP10 para impulsar legislación transversal en los ámbitos de la justicia penal, la estabilidad financiera y el bienestar animal, a pesar de una aritmética parlamentaria multicoalición que exige una constante coordinación entre EPP y S&D.
+
+Un lote de 12 **respuestas de seguimiento del Consejo** (SP-2026-05-05) a posiciones previamente adoptadas por el PE refleja un activo diálogo interinstitucional sobre la implementación. Mientras tanto, las **Orientaciones presupuestarias de la UE 2027** adoptadas el 28 de abril abren el procedimiento presupuestario anual en un contexto de presión de consolidación fiscal en Francia (IMF 2026P: -4,94 % del PIB), Alemania (+0,79 % de crecimiento del PIB) e Italia (+0,52 % de crecimiento del PIB), lo que carga políticamente las negociaciones sobre el marco del MFP 2027.
+
+**Indicador clave de inteligencia:** La publicación de la Directiva anticorrupción en el Diario Oficial el 11 de mayo —tan solo un día antes de esta ejecución— crea una oportunidad de encuadre sensible al tiempo. Los plazos de transposición de los Estados miembros han comenzado a contar.
+
+---
+
+### Principales detonantes de política (por orden de prioridad)
+
+| # | Detonante | Procedimiento | Estado | Importancia |
+|---|---------|-----------|--------|-------------|
+| 1 | **Directiva anticorrupción publicada en el Diario Oficial** | `2023/0135(COD)` | 🟢 Publicada el 2026-05-11 | Marco penal vinculante — cuenta regresiva de transposición de 2 años iniciada |
+| 2 | **Reforma de resolución bancaria SRMR3** | `2023/0111(COD)` | 🟢 Publicada el 2026-04-20 | Red de seguridad bancaria estructural — implementación por autoridades nacionales de resolución |
+| 3 | **Reglamento sobre bienestar de perros y gatos adoptado** | `2023/0447(COD)` | 🟢 Pleno aprobó el 2026-04-28 | Primera ley armonizada de la UE sobre animales de compañía; 12 rondas de trílogo en 18 meses |
+| 4 | **Resolución sobre aplicación de la Ley de Mercados Digitales** | `2026/2596(RSP)` | 🟢 Adoptada el 2026-04-30 | No vinculante pero políticamente significativa; el PE exige que la Comisión acelere |
+| 5 | **Orientaciones presupuestarias de la UE 2027** | `2025/2246` | 🟢 Adoptadas el 2026-04-28 | Abre el procedimiento presupuestario anual; contexto fiscal limita las ambiciones |
+| 6 | **Disposiciones penales sobre ciberacoso** | `2026/2693(RSP)` | 🟢 Adoptadas el 2026-04-30 | No vinculante; establece mandato legislativo para una futura propuesta de directiva |
+| 7 | **Seguimiento del Consejo (SP-2026-05-05)** | 12 documentos ACT_FOLLOWUP | 🟡 En revisión | 12 cartas del Consejo sobre posiciones del PE — señal de cumplimiento de implementación |
+
+---
+
+### Resumen del contexto político
+
+**Composición del Parlamento (EP10, a 2026-05-12):**
+- 717 eurodiputados en 9 grupos; Índice de fragmentación: ALTO (ENP = 6,58)
+- EPP 183 (25,5 %) | S&D 136 (19,0 %) | PfE 85 (11,9 %) | ECR 81 (11,3 %) | Renew 77 (10,7 %)
+- Greens/EFA 53 (7,4 %) | The Left 45 (6,3 %) | NI 30 (4,2 %) | ESN 27 (3,8 %)
+- **Umbral de mayoría:** 360 votos — requiere Gran Coalición (EPP+S&D = 319) más al menos un grupo adicional
+- **Puntuación de estabilidad:** 84/100 (🟡 MEDIUM riesgo — dinámica de grupo dominante, el debate de actualidad del PfE sobre la interferencia de la Comisión señala presión de la extrema derecha)
+
+**Dinámicas de coalición clave:**
+Los debates plenarios de la semana revelan estrés de coalición: el debate de actualidad del artículo 169 del grupo PfE sobre "la interferencia de la Comisión en los procesos democráticos" (29 de abril) señala una fricción institucional escalante de la extrema derecha. La Directiva anticorrupción y el SRMR3 se aprobaron ambos con la alineación EPP-S&D-Renew —la mayoría moderada funcional que ha caracterizado el historial legislativo del EP10.
+
+---
+
+### Contexto económico (IMF WEO, edición septiembre 2025)
+
+| País | Crecimiento PIB 2025P | Crecimiento PIB 2026P | Inflación 2025P | Saldo fiscal 2025P | Saldo fiscal 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| Alemania | +0,24 % | +0,79 % | 2,30 % | -3,37 % PIB | -2,67 % PIB |
+| Francia | +0,93 % | +0,86 % | 0,93 % | -5,11 % PIB | -4,94 % PIB |
+| Italia | +0,54 % | +0,52 % | 1,63 % | -3,11 % PIB | -2,82 % PIB |
+
+🔴 **Francia** permanece por encima del umbral de déficit del 3 % del PEC tanto en 2025 como en 2026 (el IMF proyecta -5,11 % y -4,94 %), lo que limita la capacidad de Francia para comprometerse con nuevos compromisos de gasto de la UE en las Orientaciones presupuestarias 2027.
+
+🟡 **Alemania** muestra un crecimiento mínimo (+0,24 % en 2025) pero una trayectoria fiscal mejorada, con el déficit reduciéndose hacia el -2,67 % del PIB para 2026 — lo que ofrece margen limitado para aumentar las contribuciones a la UE.
+
+🟡 **Italia** muestra avances en la consolidación fiscal (-3,11 % a -2,82 %) pero un crecimiento cercano al estancamiento (+0,52 %), manteniendo vulnerabilidad ante cualquier normalización de tipos de interés.
+
+**Relevancia macro para el SRMR3:** El marco de resolución bancaria entra en aplicación ante un contexto de déficits soberanos estructuralmente elevados en Francia e Italia. El Fondo Único de Resolución (FUR) europeo (nivel objetivo: 1 % de depósitos cubiertos, ~80 000 M€) debe mantenerse mediante contribuciones de bancos que operan en jurisdicciones con presión soberana, lo que crea concentraciones de riesgo asimétricas.
+
+---
+
+### Evaluación de confianza
+
+| Fuente de datos | Calidad | Notas |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | Fecha de publicación en el Diario Oficial confirmada para la Directiva anticorrupción |
+| EP Procedures API | 🟡 MEDIUM | Datos cronológicos verificados; datos de enmiendas/ponentes no disponibles |
+| IMF WEO (sep. 2025) | 🟢 HIGH | Fuente SDMX en vivo, 449 registros recuperados |
+| Panorama político del PE | 🟢 HIGH | Recuentos de eurodiputados en tiempo real desde el punto final /meps |
+| Votaciones nominales DOCEO | 🔴 NO DISPONIBLE | Publicación retrasada del PE >4 semanas; recurso al análisis basado en estructura |
+
+**Confianza global:** 🟢 HIGH para el estado procesal; 🟡 MEDIUM para las dinámicas de coalición (sin datos de votación nominal disponibles)
+
+---
+
+*Fuentes: Portal de datos abiertos del Parlamento Europeo (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). Fecha de análisis: 2026-05-12.*
+
+### Executive Brief Fi
+
+### BLUF (60 sekunnin lukeminen)
+
+Kolme merkittävää lainsäädäntötoimea saavutti lopullisen julkaisemisen tai hyväksymisen viikolla 5.–12. toukokuuta 2026, mikä merkitsee käänteentekevää hetkeä EP10:n ensimmäisessä täydessä lainsäädäntövuodessa. **Korruption vastainen direktiivi** (`2023/0135(COD)`) tuli voimaan **11. toukokuuta 2026** sen jälkeen, kun se julkaistiin Euroopan unionin virallisessa lehdessä — ja luo ensimmäistä kertaa sitovat EU-laajuiset rikosoikeudelliset standardit korruptiolle. **Yhteistä kriisinratkaisumekanismia koskeva asetus III** (`2023/0111(COD)`) julkaistiin 20. huhtikuuta ja on nyt toteutusvaiheessa, mikä merkitsee euroalueen pankkijärjestelmän vakauden rakenteellista vahvistamista. **Koirien ja kissojen hyvinvointia koskeva asetus** (`2023/0447(COD)`), hyväksytty 28. huhtikuuta, tarjoaa EU:n ensimmäisen yhdenmukaisen kehyksen lemmikkieläinten hyvinvoinnille ja jäljitettävyydelle. Nämä kolme säädöstä osoittavat yhdessä EP10:n kyvyn edistää poikkileikkaavaa lainsäädäntöä rikosoikeuden, rahoitusvakauden ja eläinsuojelun aloilla — huolimatta monipuoluehallituksen parlamentaarisesta laskenta-aritmetiikasta, joka edellyttää jatkuvaa EPP-S&D-yhdensuuntaistamista.
+
+Erä 12 **neuvoston seurantavastausta** (SP-2026-05-05) aiempiin EP:n hyväksymiin kantoihin heijastaa aktiivista toimielinten välistä vuoropuhelua täytäntöönpanosta. Samaan aikaan **EU:n budjettiohjeet 2027**, jotka hyväksyttiin 28. huhtikuuta, avaavat vuosittaisen talousarviomenettelyn olosuhteissa, joissa fiskaalinen konsolidointipaine on korkea Ranskassa (IMF 2026P: -4,94 % BKT), Saksassa (+0,79 % BKT-kasvu) ja Italiassa (+0,52 % BKT-kasvu), mikä tekee vuoden 2027 MFF-runkoneuvotteluista poliittisesti latautuneita.
+
+**Keskeinen tiedusteluindikattori:** Korruption vastaisen direktiivin julkaiseminen virallisessa lehdessä 11. toukokuuta — vain yksi päivä ennen tätä ajoa — luo aikaherkän kehystämismahdollisuuden. Jäsenvaltioiden täytäntöönpanokellot ovat alkaneet tikittää.
+
+---
+
+### Tärkeimmät politiikkalaukaisimet (prioriteettijärjestyksessä)
+
+| # | Laukaisin | Menettely | Tila | Merkitys |
+|---|---------|-----------|--------|-------------|
+| 1 | **Korruption vastainen direktiivi julkaistu virallisessa lehdessä** | `2023/0135(COD)` | 🟢 Julkaistu 2026-05-11 | Sitova rikosoikeudellinen kehys — 2 vuoden täytäntöönpanolaskelma alkaa |
+| 2 | **SRMR3 Pankkien kriisinratkaisureformi** | `2023/0111(COD)` | 🟢 Julkaistu 2026-04-20 | Rakenteellinen pankkiturvakehys — kansallisten kriisinratkaisuviranomaisten täytäntöönpano |
+| 3 | **Koirien ja kissojen hyvinvointia koskeva asetus hyväksytty** | `2023/0447(COD)` | 🟢 Täysistunto hyväksyi 2026-04-28 | Ensimmäinen EU-yhdenmukainen lemmikkieläinlaki; 12 trilogikierrosta 18 kuukaudessa |
+| 4 | **Digitaalisia markkinoita koskevan lain täytäntöönpanoa koskeva päätöslauselma** | `2026/2596(RSP)` | 🟢 Hyväksytty 2026-04-30 | Ei-sitova mutta poliittisesti merkittävä; EP vaatii komissiota toimimaan nopeammin |
+| 5 | **EU:n budjettiohjeet 2027** | `2025/2246` | 🟢 Hyväksytty 2026-04-28 | Avaa vuosittaisen talousarviomenettelyn; finanssipoliittinen tausta rajoittaa tavoitteita |
+| 6 | **Nettikiusaamiseen liittyvät rikosoikeudelliset määräykset** | `2026/2693(RSP)` | 🟢 Hyväksytty 2026-04-30 | Ei-sitova; asettaa lainsäädäntötoimeksiannon tulevalle direktiiviehdotukselle |
+| 7 | **Neuvoston seuranta (SP-2026-05-05)** | 12 ACT_FOLLOWUP-asiakirjaa | 🟡 Tarkastelussa | 12 neuvostokirjettä EP:n kannoista — täytäntöönpanon noudattamisen signaali |
+
+---
+
+### Poliittinen kontekstiyhteenveto
+
+**Parlamentin kokoonpano (EP10, 2026-05-12 alkaen):**
+- 717 MEP:ä 9 ryhmässä; Pirstoutumisindeksi: KORKEA (ENP = 6,58)
+- EPP 183 (25,5 %) | S&D 136 (19,0 %) | PfE 85 (11,9 %) | ECR 81 (11,3 %) | Renew 77 (10,7 %)
+- Greens/EFA 53 (7,4 %) | The Left 45 (6,3 %) | NI 30 (4,2 %) | ESN 27 (3,8 %)
+- **Enemmistökynnys:** 360 ääntä — edellyttää suurkoalitiota (EPP+S&D = 319) sekä vähintään yhtä lisäryhmää
+- **Vakauspistemäärä:** 84/100 (🟡 MEDIUM riski — hallitseva ryhmädynamiikka, PfE:n ajankohtainen keskustelu komission puuttumisesta viestii äärioikeiston paineesta)
+
+**Tärkeimmät koalitiodynamiikat:**
+Viikon täysistuntoväittelyt paljastavat koalitiostressiä: PfE-ryhmän 169 artiklan mukainen ajankohtainen väittely "komission puuttumisesta demokraattisiin prosesseihin" (29. huhtikuuta) viestii äärioikeiston kasvavasta institutionaalisesta kitkauksesta. Korruption vastainen direktiivi ja SRMR3 hyväksyttiin molemmat EPP-S&D-Renew-koordinoinnilla — toimiva maltillinen enemmistö, joka on luonnehtinut EP10:n lainsäädäntökirjaa.
+
+---
+
+### Taloudellinen konteksti (IMF WEO, syyskuu 2025 vintage)
+
+| Maa | BKT-kasvu 2025P | BKT-kasvu 2026P | Inflaatio 2025P | Fiskaalinen saldo 2025P | Fiskaalinen saldo 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| Saksa | +0,24 % | +0,79 % | 2,30 % | -3,37 % BKT | -2,67 % BKT |
+| Ranska | +0,93 % | +0,86 % | 0,93 % | -5,11 % BKT | -4,94 % BKT |
+| Italia | +0,54 % | +0,52 % | 1,63 % | -3,11 % BKT | -2,82 % BKT |
+
+🔴 **Ranska** pysyy SGP:n 3 prosentin alijäämäkynnyksen yläpuolella sekä vuonna 2025 että 2026 (IMF ennustaa -5,11 % ja -4,94 %), mikä rajoittaa Ranskan mahdollisuuksia sitoutua uusiin EU-menositoumuksiin vuoden 2027 budjettiohjeiden yhteydessä.
+
+🟡 **Saksa** osoittaa minimaalista kasvua (+0,24 % vuonna 2025), mutta parantunut finanssipoliittinen kehityskaari alijäämän laskiessa kohti -2,67 % BKT:stä vuoteen 2026 mennessä — tarjoaa rajoitetusti liikkumavaraa EU-maksuosuuksien kasvattamiseen.
+
+🟡 **Italia** osoittaa finanssipoliittista konsolidointimenestystä (-3,11 %:sta -2,82 %:iin) mutta kasvua lähellä stagnaatiota (+0,52 %), mikä ylläpitää haavoittuvuutta mahdolliselle korkonormalisaatiolle.
+
+**Makrorelevanssi SRMR3:lle:** Pankkien kriisinratkaisukehys astuu täytäntöönpanoon taustalla Ranskan ja Italian rakenteellisesti korkeat valtionvelat. Eurooppalaisen yhteisen kriisinratkaisurahaston (SRF) tavoitetaso (1 % katetuista talletuksista, ~€80 mrd.) on ylläpidettävä pankkien maksamilla maksuilla, jotka toimivat lainkäyttöalueilla, joilla on valtiollisia stressitekijöitä — mikä luo epäsymmetrisiä riskikeskittymiä.
+
+---
+
+### Luottamusarviointi
+
+| Tietolähde | Laatu | Huomautukset |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | Vahvistettu virallisen lehden julkaisupäivä korruption vastaiselle direktiiville |
+| EP Procedures API | 🟡 MEDIUM | Aikatauludata vahvistettu; muutos-/esittelijädata ei saatavilla |
+| IMF WEO (syys. 2025) | 🟢 HIGH | Reaaliaikainen SDMX-syöte, 449 tietuetta haettu |
+| EP:n poliittinen maisema | 🟢 HIGH | Reaaliaikaiset MEP-luvut /meps-päätepistestä |
+| DOCEO nimenhuutoäänestykset | 🔴 EI SAATAVILLA | EP:n viivästynyt julkaisu >4 viikkoa; vararatkaisu rakennepohjaiseen analyysiin |
+
+**Kokonaisluottamus:** 🟢 HIGH menettelystatus; 🟡 MEDIUM koalitiodynamiikka (nimenhuutoäänestystietoja ei saatavilla)
+
+---
+
+*Lähteet: Euroopan parlamentin avoin dataporttaali (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). Analyysipäivä: 2026-05-12.*
+
+### Executive Brief Fr
+
+### BLUF (lecture en 60 secondes)
+
+Trois mesures législatives majeures ont atteint leur publication définitive ou leur adoption au cours de la semaine du 5 au 12 mai 2026, marquant un moment charnière de la première année législative complète de l'EP10. La **directive anti-corruption** (`2023/0135(COD)`) est entrée en vigueur le **11 mai 2026** après sa publication au Journal officiel de l'Union européenne — établissant pour la première fois des normes juridico-pénales contraignantes à l'échelle de l'UE en matière de lutte contre la corruption. Le **règlement III sur le Mécanisme de résolution unique** (`2023/0111(COD)`), publié le 20 avril et désormais en phase de mise en œuvre, marque un renforcement structurel de la stabilité bancaire de la zone euro. Le **règlement sur le bien-être des chiens et des chats** (`2023/0447(COD)`), adopté le 28 avril, établit le premier cadre harmonisé de l'UE en matière de bien-être et de traçabilité des animaux de compagnie. Ces trois textes signalent conjointement la capacité de l'EP10 à faire avancer une législation transversale dans les domaines de la justice pénale, de la stabilité financière et du bien-être animal — malgré une arithmétique parlementaire à plusieurs coalitions qui exige un alignement constant EPP-S&D.
+
+Un lot de 12 **réponses de suivi du Conseil** (SP-2026-05-05) aux positions précédemment adoptées par le PE reflète un dialogue interinstitutionnel actif sur la mise en œuvre. Parallèlement, les **orientations budgétaires 2027 de l'UE** adoptées le 28 avril ouvrent la procédure budgétaire annuelle dans un contexte de pression de consolidation budgétaire en France (IMF 2026P : -4,94 % du PIB), en Allemagne (+0,79 % de croissance du PIB) et en Italie (+0,52 % de croissance du PIB), ce qui rend les négociations sur l'enveloppe du CMF 2027 politiquement chargées.
+
+**Indicateur de renseignement clé :** La publication de la directive anti-corruption au Journal officiel le 11 mai — la veille de cette exécution — crée une opportunité d'encadrement sensible au facteur temps. Les délais de transposition des États membres ont commencé à courir.
+
+---
+
+### Principaux déclencheurs politiques (par ordre de priorité)
+
+| # | Déclencheur | Procédure | Statut | Importance |
+|---|---------|-----------|--------|-------------|
+| 1 | **Directive anti-corruption publiée au Journal officiel** | `2023/0135(COD)` | 🟢 Publiée le 2026-05-11 | Cadre pénal contraignant — compte à rebours de transposition de 2 ans déclenché |
+| 2 | **Réforme bancaire SRMR3** | `2023/0111(COD)` | 🟢 Publiée le 2026-04-20 | Filet de sécurité bancaire structurel — mise en œuvre par les autorités nationales de résolution |
+| 3 | **Règlement sur le bien-être des chiens et des chats adopté** | `2023/0447(COD)` | 🟢 Séance plénière adoptée le 2026-04-28 | Première loi harmonisée de l'UE sur les animaux de compagnie ; 12 cycles de trilogue sur 18 mois |
+| 4 | **Résolution sur l'application de la loi sur les marchés numériques** | `2026/2596(RSP)` | 🟢 Adoptée le 2026-04-30 | Non contraignante mais politiquement significative ; le PE exige que la Commission accélère |
+| 5 | **Orientations budgétaires 2027 de l'UE** | `2025/2246` | 🟢 Adoptées le 2026-04-28 | Ouvre la procédure budgétaire annuelle ; contexte fiscal contraint les ambitions |
+| 6 | **Dispositions pénales sur le cyberharcèlement** | `2026/2693(RSP)` | 🟢 Adoptées le 2026-04-30 | Non contraignantes ; établit le mandat législatif pour une future proposition de directive |
+| 7 | **Suivi du Conseil (SP-2026-05-05)** | 12 documents ACT_FOLLOWUP | 🟡 En cours d'examen | 12 lettres du Conseil sur les positions du PE — signal de conformité à la mise en œuvre |
+
+---
+
+### Résumé du contexte politique
+
+**Composition du Parlement (EP10, au 2026-05-12) :**
+- 717 eurodéputés répartis dans 9 groupes ; Indice de fragmentation : ÉLEVÉ (ENP = 6,58)
+- EPP 183 (25,5 %) | S&D 136 (19,0 %) | PfE 85 (11,9 %) | ECR 81 (11,3 %) | Renew 77 (10,7 %)
+- Greens/EFA 53 (7,4 %) | The Left 45 (6,3 %) | NI 30 (4,2 %) | ESN 27 (3,8 %)
+- **Seuil de majorité :** 360 voix — nécessite une Grande coalition (EPP+S&D = 319) plus au moins un groupe supplémentaire
+- **Score de stabilité :** 84/100 (🟡 MEDIUM risque — dynamique de groupe dominé, le débat d'actualité de PfE sur l'ingérence de la Commission signale la pression de l'extrême droite)
+
+**Dynamiques de coalition clés :**
+Les débats en plénière de la semaine révèlent un stress de coalition : le débat d'actualité de l'article 169 du groupe PfE sur « l'ingérence de la Commission dans les processus démocratiques » (29 avril) signale une friction institutionnelle croissante de l'extrême droite. La directive anti-corruption et le SRMR3 ont tous deux été adoptés avec l'alignement EPP-S&D-Renew — la majorité modérée fonctionnelle qui a caractérisé le bilan législatif de l'EP10.
+
+---
+
+### Contexte économique (IMF WEO, édition septembre 2025)
+
+| Pays | Croissance PIB 2025P | Croissance PIB 2026P | Inflation 2025P | Solde budgétaire 2025P | Solde budgétaire 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| Allemagne | +0,24 % | +0,79 % | 2,30 % | -3,37 % PIB | -2,67 % PIB |
+| France | +0,93 % | +0,86 % | 0,93 % | -5,11 % PIB | -4,94 % PIB |
+| Italie | +0,54 % | +0,52 % | 1,63 % | -3,11 % PIB | -2,82 % PIB |
+
+🔴 **La France** reste au-dessus du seuil de déficit de 3 % du PSC en 2025 et en 2026 (l'IMF projette -5,11 % et -4,94 %), ce qui limite la capacité de la France à s'engager sur de nouveaux engagements de dépenses de l'UE dans les orientations budgétaires 2027.
+
+🟡 **L'Allemagne** affiche une croissance minimale (+0,24 % en 2025) mais une trajectoire budgétaire améliorée, avec un déficit qui se réduit vers -2,67 % du PIB d'ici 2026 — offrant une marge de manœuvre limitée pour accroître les contributions à l'UE.
+
+🟡 **L'Italie** montre des progrès en matière de consolidation budgétaire (-3,11 % à -2,82 %) mais une croissance proche de la stagnation (+0,52 %), ce qui maintient une vulnérabilité à toute normalisation des taux d'intérêt.
+
+**Pertinence macro pour le SRMR3 :** Le cadre de résolution bancaire entre en œuvre dans un contexte de déficits souverains structurellement élevés en France et en Italie. Le Fonds de résolution unique (FRU) européen (niveau cible : 1 % des dépôts couverts, ~80 Mrd €) doit être maintenu grâce aux contributions de banques opérant dans des juridictions sous pression souveraine — créant des concentrations de risques asymétriques.
+
+---
+
+### Évaluation de la confiance
+
+| Source de données | Qualité | Remarques |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | Date de publication au Journal officiel confirmée pour la directive anti-corruption |
+| EP Procedures API | 🟡 MEDIUM | Données chronologiques vérifiées ; données sur les amendements/rapporteurs indisponibles |
+| IMF WEO (sept. 2025) | 🟢 HIGH | Flux SDMX en direct, 449 enregistrements récupérés |
+| Paysage politique du PE | 🟢 HIGH | Décomptes d'eurodéputés en temps réel depuis le point de terminaison /meps |
+| Votes nominaux DOCEO | 🔴 INDISPONIBLE | Publication retardée du PE de >4 semaines ; recours à l'analyse structurelle |
+
+**Confiance globale :** 🟢 HIGH pour le statut procédural ; 🟡 MEDIUM pour les dynamiques de coalition (aucune donnée de vote nominal disponible)
+
+---
+
+*Sources : Portail de données ouvertes du Parlement européen (data.europarl.europa.eu) ; IMF World Economic Outlook SDMX 3.0 API (api.imf.org). Date d'analyse : 2026-05-12.*
+
+### Executive Brief He
+
+**תאריך:** 2026-05-12 | **סוג מאמר:** propositions | **ריצה:** propositions-run270-1778566185
+**סיווג:** UNCLASSIFIED | **רמת ביטחון:** 🟢 HIGH (EP Open Data + IMF WEO)
+
+---
+
+### BLUF (קריאה של 60 שניות)
+
+שלושה צעדים חקיקתיים מכוננים הגיעו לפרסום סופי או לאישור בשבוע שבין 5–12 במאי 2026, המהווה רגע מכריע בשנת החקיקה המלאה הראשונה של EP10. **הנחיית האנטי-שחיתות** (`2023/0135(COD)`) נכנסה לתוקף ב**11 במאי 2026** לאחר פרסומה בעיתון הרשמי של האיחוד האירופי — ומבססת לראשונה סטנדרטים מחייבים ברחבי האיחוד בדיני הפלילים בנושא שחיתות. **תקנה III של מנגנון הפירוק המשותף** (`2023/0111(COD)`), שפורסמה ב-20 באפריל ונמצאת כעת בשלב היישום, מסמנת חיזוק מבני של יציבות המערכת הבנקאית בגוש היורו. **תקנת רווחת הכלבים והחתולים** (`2023/0447(COD)`), שאושרה ב-28 באפריל, מעניקה את המסגרת ההרמונית הראשונה של האיחוד לרווחת בעלי חיים מחמד ולעקיבות. שלושת המעשים הללו מאותתים יחדיו על יכולתה של EP10 לקדם חקיקה רוחבית בתחומי צדק פלילי, יציבות פיננסית ורווחת בעלי חיים — חרף אריתמטיקה פרלמנטרית רב-קואליציונית הדורשת תיאום מתמיד בין EPP ו-S&D.
+
+חבילה של 12 **תגובות מעקב מהמועצה** (SP-2026-05-05) על עמדות שאומצו קודם על ידי הפרלמנט האירופי משקפת דיאלוג בין-מוסדי פעיל על יישום. בינתיים, **הנחיות התקציב של האיחוד האירופי לשנת 2027**, שאומצו ב-28 באפריל, פותחות את הליך התקציב השנתי בתנאים של לחץ איחוד פיסקלי בצרפת (IMF 2026P: -4.94% מהתמ"ג), בגרמניה (+0.79% צמיחת תמ"ג) ובאיטליה (+0.52% צמיחת תמ"ג), מה שהופך את משא ומתן המסגרת MFF ל-2027 לעמוס פוליטית.
+
+**מפעיל מודיעין מרכזי:** פרסום הנחיית האנטי-שחיתות בעיתון הרשמי ב-11 במאי — יום אחד בלבד לפני ריצה זו — יוצר הזדמנות מסגור רגישת-זמן. שעוני ההשלמה של מדינות החברות החלו לתקתק.
+
+---
+
+### מפעילי מדיניות מובילים (סדר עדיפויות)
+
+| # | מפעיל | הליך | מצב | חשיבות |
+|---|---------|-----------|--------|-------------|
+| 1 | **הנחיית האנטי-שחיתות פורסמה בעיתון הרשמי** | `2023/0135(COD)` | 🟢 פורסמה 2026-05-11 | מסגרת פלילית מחייבת — ספירה לאחור להשלמה בת 2 שנים מתחילה |
+| 2 | **רפורמת פירוק בנקאי SRMR3** | `2023/0111(COD)` | 🟢 פורסמה 2026-04-20 | רשת ביטחון בנקאית מבנית — יישום על ידי רשויות פירוק לאומיות |
+| 3 | **תקנת רווחת כלבים וחתולים אושרה** | `2023/0447(COD)` | 🟢 הליאה המלאה אישרה 2026-04-28 | חוק בעלי חיים מחמד ראשון בהרמוניה אירופאית; 12 סיבובי טרילוג על פני 18 חודשים |
+| 4 | **החלטה על אכיפת חוק השווקים הדיגיטליים** | `2026/2596(RSP)` | 🟢 אושרה 2026-04-30 | לא מחייבת אך משמעותית פוליטית; הפרלמנט דורש מהנציבות להאיץ |
+| 5 | **הנחיות התקציב של האיחוד האירופי 2027** | `2025/2246` | 🟢 אושרה 2026-04-28 | פותחת את הליך התקציב השנתי; הרקע הפיסקלי מגביל שאיפות |
+| 6 | **הוראות פליליות בנושא בריונות קיברנטית** | `2026/2693(RSP)` | 🟢 אושרה 2026-04-30 | לא מחייבת; קובעת מנדט חקיקתי להצעת הנחיה עתידית |
+| 7 | **מעקב המועצה (SP-2026-05-05)** | 12 מסמכי ACT_FOLLOWUP | 🟡 בבדיקה | 12 מכתבי מועצה על עמדות הפרלמנט — אות לעמידה ביישום |
+
+---
+
+### סיכום ההקשר הפוליטי
+
+**הרכב הפרלמנט (EP10, נכון ל-2026-05-12):**
+- 717 חברי פרלמנט ב-9 קבוצות; מדד הפיצול: גבוה (ENP = 6.58)
+- EPP 183 (25.5%) | S&D 136 (19.0%) | PfE 85 (11.9%) | ECR 81 (11.3%) | Renew 77 (10.7%)
+- Greens/EFA 53 (7.4%) | The Left 45 (6.3%) | NI 30 (4.2%) | ESN 27 (3.8%)
+- **סף רוב:** 360 קולות — דורש קואליציה גדולה (EPP+S&D = 319) בתוספת לפחות קבוצה אחת נוספת
+- **ציון יציבות:** 84/100 (🟡 MEDIUM סיכון — דינמיקה של קבוצה דומיננטית, דיון האקטואליה של PfE על התערבות הנציבות מאותת על לחץ הימין הקיצוני)
+
+**דינמיקות קואליציה מרכזיות:**
+הדיונים במליאה השבוע חושפים מתח קואליציוני: דיון האקטואליה של קבוצת PfE לפי סעיף 169 על "התערבות הנציבות בתהליכים דמוקרטיים" (29 באפריל) מאותת על חיכוך מוסדי מתסייג מהימין הקיצוני. הנחיית האנטי-שחיתות ו-SRMR3 אושרו שניהם בתיאום EPP-S&D-Renew — הרוב המתון הפועל שאפיין את ספר החקיקה של EP10.
+
+---
+
+### הקשר כלכלי (IMF WEO, מהדורת ספטמבר 2025)
+
+| מדינה | צמיחת תמ"ג 2025P | צמיחת תמ"ג 2026P | אינפלציה 2025P | מאזן פיסקלי 2025P | מאזן פיסקלי 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| גרמניה | +0.24% | +0.79% | 2.30% | -3.37% תמ"ג | -2.67% תמ"ג |
+| צרפת | +0.93% | +0.86% | 0.93% | -5.11% תמ"ג | -4.94% תמ"ג |
+| איטליה | +0.54% | +0.52% | 1.63% | -3.11% תמ"ג | -2.82% תמ"ג |
+
+🔴 **צרפת** נותרת מעל סף הגירעון של 3% לפי SGP הן ב-2025 והן ב-2026 (IMF מתחזה -5.11% ו-4.94%-), מה שמגביל את יכולת צרפת להתחייב להתחייבויות הוצאה חדשות של האיחוד האירופי בהנחיות התקציב ל-2027.
+
+🟡 **גרמניה** מציגה צמיחה מינימלית (+0.24% ב-2025) אך מסלול פיסקלי משופר, כאשר הגירעון יורד לכיוון -2.67% מהתמ"ג עד 2026 — מספק מרחב מוגבל להגדלת תרומות לאיחוד.
+
+🟡 **איטליה** מציגה התקדמות בגיבוש הפיסקלי (-3.11% ל-2.82%-) אך צמיחה קרובה לקיפאון (+0.52%), מה שמשמר פגיעות לכל נורמליזציה אפשרית של ריביות.
+
+**רלוונטיות מאקרו ל-SRMR3:** מסגרת פירוק הבנקים נכנסת ליישום על רקע גירעונות ריבוניים גבוהים מבנית בצרפת ובאיטליה. קרן הפירוק האירופית היחידה (SRF) (רמת יעד 1% מהפיקדונות המכוסים, ~80 מיליארד יורו) חייבת להיות מתוחזקת באמצעות תרומות מבנקים הפועלים בתחומי שיפוט עם לחץ ריבוני — מה שיוצר ריכוזי סיכון א-סימטריים.
+
+---
+
+### הערכת רמת הביטחון
+
+| מקור נתונים | איכות | הערות |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | תאריך פרסום בעיתון הרשמי אושר עבור הנחיית האנטי-שחיתות |
+| EP Procedures API | 🟡 MEDIUM | נתוני ציר הזמן אומתו; נתוני תיקונים/מדווחים אינם זמינים |
+| IMF WEO (ספטמבר 2025) | 🟢 HIGH | הזנת SDMX חיה, 449 רשומות נשלפו |
+| נוף פוליטי של הפרלמנט | 🟢 HIGH | ספירות חברים בזמן אמת מנקודת הקצה /meps |
+| הצבעות גלויות DOCEO | 🔴 לא זמין | פרסום מאוחר של הפרלמנט >4 שבועות; נפילה לניתוח מבוסס-מבנה |
+
+**ביטחון כולל:** 🟢 HIGH לסטטוס הליכי; 🟡 MEDIUM לדינמיקות קואליציה (אין נתוני הצבעה גלויים זמינים)
+
+---
+
+*מקורות: פורטל הנתונים הפתוחים של הפרלמנט האירופי (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). תאריך הניתוח: 2026-05-12.*
+
+### Executive Brief Ja
+
+**日付:** 2026-05-12 | **記事種別:** propositions | **実行:** propositions-run270-1778566185
+**分類:** UNCLASSIFIED | **信頼度:** 🟢 HIGH (EP Open Data + IMF WEO)
+
+---
+
+### BLUF（60秒での要約）
+
+2026年5月5日から12日の週に、EP10の最初の完全な立法年における重要な節目として、三つの画期的な立法措置が最終的な公布または採択に達した。**汚職対策指令**（`2023/0135(COD)`）は、欧州連合官報への掲載後、**2026年5月11日**に発効し、初めてEU全体を拘束する汚職に関する刑法基準を確立した。**単一破綻処理メカニズム規則III**（`2023/0111(COD)`）は4月20日に公布され現在実施段階にあり、ユーロ圏の銀行安定性の構造的強化を示している。**犬と猫の福祉に関する規則**（`2023/0447(COD)`）は4月28日に採択され、EUとして初のペットの福祉とトレーサビリティに関する調和された枠組みを提供する。これら三つの法令は、刑事司法、金融安定性、動物福祉の分野にわたる横断的な立法を推進するEP10の能力を示しているが、常にEPP-S&Dの連携を必要とする複数連立の議会算術の下でのことである。
+
+12件の**理事会フォローアップ回答**（SP-2026-05-05）からなるバッチが、EUが以前に採択した欧州議会の立場に対するもので、実施に関する活発な機関間対話を反映している。同時に、4月28日に採択された**EU2027年予算ガイドライン**が、フランス（IMF 2026予：GDP比-4.94%）、ドイツ（GDP成長率+0.79%）、イタリア（GDP成長率+0.52%）の財政健全化圧力という条件の下で年間予算手続を開始しており、2027年の多年次財政枠組みMFF交渉を政治的に緊張したものにしている。
+
+**主要インテリジェンス・トリガー:** 5月11日の汚職対策指令の官報掲載——この実行のわずか1日前——は、時間的に敏感なフレーミングの機会を生む。加盟国の国内法化の期限カウントが始まった。
+
+---
+
+### 主要政策トリガー（優先順位）
+
+| # | トリガー | 手続き | 状態 | 重要度 |
+|---|---------|-----------|--------|-------------|
+| 1 | **汚職対策指令が官報に掲載** | `2023/0135(COD)` | 🟢 掲載 2026-05-11 | 拘束力ある刑法枠組み — 2年間の国内法化カウントダウン開始 |
+| 2 | **SRMR3 銀行破綻処理改革** | `2023/0111(COD)` | 🟢 掲載 2026-04-20 | 構造的銀行セーフティネット — 国内破綻処理当局による実施 |
+| 3 | **犬と猫の福祉に関する規則採択** | `2023/0447(COD)` | 🟢 本会議採択 2026-04-28 | EU初の調和されたペット法; 18ヶ月にわたる12回の三者協議 |
+| 4 | **デジタル市場法執行に関する決議** | `2026/2596(RSP)` | 🟢 採択 2026-04-30 | 非拘束的だが政治的に重要; EPは欧州委員会に加速を求める |
+| 5 | **EU2027年予算ガイドライン** | `2025/2246` | 🟢 採択 2026-04-28 | 年間予算手続を開始; 財政的背景が野心を制約 |
+| 6 | **ネットいじめに関する刑事規定** | `2026/2693(RSP)` | 🟢 採択 2026-04-30 | 非拘束的; 今後の指令提案の立法権限を設定 |
+| 7 | **理事会フォローアップ (SP-2026-05-05)** | 12件のACT_FOLLOWUP文書 | 🟡 審査中 | 欧州議会の立場に関する理事会からの12通の書簡 — 実施コンプライアンスのシグナル |
+
+---
+
+### 政治的文脈の概要
+
+**議会の構成 (EP10、2026-05-12現在):**
+- 9グループにわたる717名のMEP; 分断化指数: 高 (ENP = 6.58)
+- EPP 183 (25.5%) | S&D 136 (19.0%) | PfE 85 (11.9%) | ECR 81 (11.3%) | Renew 77 (10.7%)
+- Greens/EFA 53 (7.4%) | The Left 45 (6.3%) | NI 30 (4.2%) | ESN 27 (3.8%)
+- **過半数の閾値:** 360票 — 大連立 (EPP+S&D = 319) に加えて少なくとも1つの追加グループが必要
+- **安定性スコア:** 84/100 (🟡 MEDIUM リスク — 支配的グループのダイナミクス、欧州委員会への干渉に関するPfEの現行討論が極右の圧力を示す)
+
+**主要連立ダイナミクス:**
+今週の本会議討論は連立のストレスを明らかにしている: PfEグループの「民主的プロセスへの欧州委員会の干渉」に関する第169条討論 (4月29日) は、極右の制度的摩擦の高まりを示している。汚職対策指令とSRMR3はいずれもEPP-S&D-Renewの連携で採択された——EP10の立法実績を特徴づけてきた機能的な穏健派多数。
+
+---
+
+### 経済的文脈 (IMF WEO、2025年9月版)
+
+| 国 | GDP成長率 2025P | GDP成長率 2026P | インフレ率 2025P | 財政収支 2025P | 財政収支 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| ドイツ | +0.24% | +0.79% | 2.30% | -3.37% GDP | -2.67% GDP |
+| フランス | +0.93% | +0.86% | 0.93% | -5.11% GDP | -4.94% GDP |
+| イタリア | +0.54% | +0.52% | 1.63% | -3.11% GDP | -2.82% GDP |
+
+🔴 **フランス**は2025年と2026年の両年でSGPの赤字3%閾値を超えたままである（IMFは-5.11%と-4.94%を予測）、これにより2027年予算ガイドラインにおける新たなEU支出コミットメントへのフランスの能力が制限される。
+
+🟡 **ドイツ**は最小限の成長（2025年+0.24%）を示しているが財政軌道は改善しており、赤字は2026年までにGDPの-2.67%に向けて減少している——EU拠出金増加のための余地は限られている。
+
+🟡 **イタリア**は財政健全化の進展（-3.11%から-2.82%）を示しているが、成長は停滞近くにあり（+0.52%）、金利正常化の可能性に対する脆弱性を維持している。
+
+**SRMR3へのマクロ的関連性:** 銀行破綻処理枠組みは、フランスとイタリアの構造的に高い財政赤字という背景で実施に入る。欧州単一破綻処理基金 (SRF)（目標水準: 対象預金の1%、約800億ユーロ）は、財政ストレスを抱える管轄区域で活動する銀行の拠出によって維持されなければならない——これは非対称なリスク集中を生む。
+
+---
+
+### 信頼度評価
+
+| データソース | 品質 | 注記 |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | 汚職対策指令の官報掲載日を確認 |
+| EP Procedures API | 🟡 MEDIUM | タイムラインデータ確認済み; 修正/報告者データは利用不可 |
+| IMF WEO (2025年9月) | 🟢 HIGH | ライブSDMXフィード、449件のレコードを取得 |
+| EP政治的ランドスケープ | 🟢 HIGH | /mepsエンドポイントからのリアルタイムMEP数 |
+| DOCEO記名投票 | 🔴 利用不可 | EPの遅延公表 >4週間; 構造ベース分析にフォールバック |
+
+**総合的信頼度:** 🟢 HIGH 手続き状況; 🟡 MEDIUM 連立ダイナミクス（記名投票データなし）
+
+---
+
+*出典: 欧州議会オープン・データ・ポータル (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). 分析日: 2026-05-12.*
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-12 | **기사 유형:** propositions | **실행:** propositions-run270-1778566185
+**분류:** UNCLASSIFIED | **신뢰도:** 🟢 HIGH (EP Open Data + IMF WEO)
+
+---
+
+### BLUF (60초 요약)
+
+2026년 5월 5일부터 12일까지의 주에 세 가지 획기적인 입법 조치가 최종 공포 또는 채택에 이르렀으며, 이는 EP10의 첫 번째 완전한 입법 연도의 중추적인 순간을 표시한다. **부패 방지 지침**(`2023/0135(COD)`)은 유럽연합 관보 게재 후 **2026년 5월 11일** 발효되었으며, EU 전체를 구속하는 부패에 관한 형사법 기준을 처음으로 확립했다. **단일정리메커니즘 규정 III**(`2023/0111(COD)`)은 4월 20일에 게재되어 현재 시행 단계에 있으며, 유로존 은행 안정성의 구조적 강화를 표시한다. **개와 고양이 복지 규정**(`2023/0447(COD)`)은 4월 28일 채택되어 반려동물 복지와 추적 가능성에 관한 EU 최초의 조화된 프레임워크를 제공한다. 이 세 가지 법령은 형사 사법, 금융 안정성, 동물 복지 분야에 걸친 교차적 입법을 발전시키는 EP10의 능력을 함께 신호하며, 지속적인 EPP-S&D 정렬을 요구하는 다중 연립 의회 산술에도 불구하고 이루어졌다.
+
+EP가 이전에 채택한 입장에 대한 12건의 **이사회 후속 응답** (SP-2026-05-05) 묶음은 이행에 관한 활발한 기관 간 대화를 반영한다. 한편, 4월 28일 채택된 **EU 2027 예산 지침**은 프랑스(IMF 2026P: GDP 대비 -4.94%), 독일(GDP 성장률 +0.79%), 이탈리아(GDP 성장률 +0.52%)의 재정 건전화 압력 하에서 연간 예산 절차를 개시하여, 2027년 다년간 재정 프레임워크MFF 협상을 정치적으로 무거운 것으로 만들고 있다.
+
+**주요 인텔리전스 트리거:** 5월 11일 부패 방지 지침의 관보 게재—이 실행 전날—는 시간적으로 민감한 프레이밍 기회를 만든다. 회원국 전치 기한 카운트가 시작됐다.
+
+---
+
+### 주요 정책 트리거 (우선순위)
+
+| # | 트리거 | 절차 | 상태 | 중요도 |
+|---|---------|-----------|--------|-------------|
+| 1 | **부패 방지 지침 관보 게재** | `2023/0135(COD)` | 🟢 게재 2026-05-11 | 구속력 있는 형사 프레임워크 — 2년 전치 카운트다운 시작 |
+| 2 | **SRMR3 은행 정리 개혁** | `2023/0111(COD)` | 🟢 게재 2026-04-20 | 구조적 은행 안전망 — 국가 정리 당국에 의한 이행 |
+| 3 | **개와 고양이 복지 규정 채택** | `2023/0447(COD)` | 🟢 본회의 채택 2026-04-28 | EU 최초의 조화된 반려동물법; 18개월에 걸친 12회 3자 협의 |
+| 4 | **디지털 시장법 집행 결의** | `2026/2596(RSP)` | 🟢 채택 2026-04-30 | 비구속적이나 정치적으로 중요; EP는 유럽위원회에 가속 요구 |
+| 5 | **EU 2027 예산 지침** | `2025/2246` | 🟢 채택 2026-04-28 | 연간 예산 절차 개시; 재정 배경이 야심을 제약 |
+| 6 | **사이버 괴롭힘에 관한 형사 규정** | `2026/2693(RSP)` | 🟢 채택 2026-04-30 | 비구속적; 향후 지침 제안에 대한 입법 권한 설정 |
+| 7 | **이사회 후속 (SP-2026-05-05)** | 12건 ACT_FOLLOWUP 문서 | 🟡 검토 중 | EP 입장에 관한 이사회로부터의 12통 서한 — 이행 준수 신호 |
+
+---
+
+### 정치적 맥락 요약
+
+**의회 구성 (EP10, 2026-05-12 기준):**
+- 9개 그룹에 717명의 유럽의회의원; 분열 지수: 높음 (ENP = 6.58)
+- EPP 183 (25.5%) | S&D 136 (19.0%) | PfE 85 (11.9%) | ECR 81 (11.3%) | Renew 77 (10.7%)
+- Greens/EFA 53 (7.4%) | The Left 45 (6.3%) | NI 30 (4.2%) | ESN 27 (3.8%)
+- **과반수 임계값:** 360표 — 대연립 (EPP+S&D = 319) 및 최소 하나의 추가 그룹 필요
+- **안정성 점수:** 84/100 (🟡 MEDIUM 위험 — 지배적 그룹 역학, 위원회 간섭에 관한 PfE의 시사 토론은 극우 압력을 신호)
+
+**주요 연립 역학:**
+이번 주 본회의 토론은 연립 스트레스를 드러낸다: "민주적 과정에 대한 위원회의 간섭"에 관한 PfE 그룹의 제169조 시사 토론 (4월 29일)은 에스컬레이팅되는 극우 기관 마찰을 신호한다. 부패 방지 지침과 SRMR3는 모두 EPP-S&D-Renew 정렬로 채택되었다—EP10의 입법 실적을 특징지어 온 기능적 온건 다수파.
+
+---
+
+### 경제적 맥락 (IMF WEO, 2025년 9월판)
+
+| 국가 | GDP 성장률 2025P | GDP 성장률 2026P | 인플레이션 2025P | 재정 수지 2025P | 재정 수지 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| 독일 | +0.24% | +0.79% | 2.30% | -3.37% GDP | -2.67% GDP |
+| 프랑스 | +0.93% | +0.86% | 0.93% | -5.11% GDP | -4.94% GDP |
+| 이탈리아 | +0.54% | +0.52% | 1.63% | -3.11% GDP | -2.82% GDP |
+
+🔴 **프랑스**는 2025년과 2026년 모두 SGP의 3% 적자 임계값을 초과한 상태를 유지하고 있으며 (IMF는 -5.11%와 -4.94%를 예측), 이는 2027년 예산 지침에서 새로운 EU 지출 약속에 대한 프랑스의 능력을 제한한다.
+
+🟡 **독일**은 최소한의 성장(2025년 +0.24%)을 보이지만 개선된 재정 궤적으로 2026년까지 GDP의 -2.67%로 적자가 감소하여 EU 기여금 증가를 위한 제한된 여지를 제공한다.
+
+🟡 **이탈리아**는 재정 건전화 진전(-3.11%에서 -2.82%)을 보이지만 침체에 가까운 성장(+0.52%)으로 금리 정상화 가능성에 대한 취약성을 유지한다.
+
+**SRMR3에 대한 거시적 관련성:** 은행 정리 프레임워크는 프랑스와 이탈리아의 구조적으로 높은 재정 적자라는 배경에서 시행에 들어간다. 유럽 단일정리기금 (SRF) (목표 수준: 피보험 예금의 1%, 약 800억 유로)은 재정 스트레스 관할구역에서 운영되는 은행의 기여금으로 유지되어야 한다—이는 비대칭적 리스크 집중을 만든다.
+
+---
+
+### 신뢰도 평가
+
+| 데이터 소스 | 품질 | 비고 |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | 부패 방지 지침에 대한 관보 게재일 확인 |
+| EP Procedures API | 🟡 MEDIUM | 타임라인 데이터 확인됨; 수정안/보고자 데이터 이용 불가 |
+| IMF WEO (2025년 9월) | 🟢 HIGH | 라이브 SDMX 피드, 449건 레코드 검색 |
+| EP 정치 지형 | 🟢 HIGH | /meps 엔드포인트의 실시간 유럽의회의원 수 |
+| DOCEO 기명 표결 | 🔴 이용 불가 | EP 지연 게재 >4주; 구조 기반 분석으로 대체 |
+
+**전반적 신뢰도:** 🟢 HIGH 절차 상태; 🟡 MEDIUM 연립 역학 (기명 표결 데이터 없음)
+
+---
+
+*출처: 유럽의회 개방 데이터 포털 (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). 분석일: 2026-05-12.*
+
+### Executive Brief Nl
+
+### BLUF (60-seconden lezing)
+
+Drie baanbrekende wetgevingsmaatregelen bereikten in de week van 5–12 mei 2026 hun definitieve publicatie of aanneming, wat een belangrijk keerpunt markeert in het eerste volledige wetgevingsjaar van EP10. De **Antikorruptierichtlijn** (`2023/0135(COD)`) trad op **11 mei 2026** in werking na publicatie in het Publicatieblad van de Europese Unie — en stelt voor het eerst bindende EU-brede strafrechtelijke normen voor corruptie vast. De **Verordening III betreffende het gemeenschappelijk afwikkelingsmechanisme** (`2023/0111(COD)`), gepubliceerd op 20 april en nu in uitvoeringsfase, markeert een structurele versteviging van de bankenstabiliteit in de eurozone. De **Verordening inzake het welzijn van honden en katten** (`2023/0447(COD)`), aangenomen op 28 april, biedt het eerste geharmoniseerde EU-kader voor welzijn en traceerbaarheid van gezelschapsdieren. Deze drie rechtsinstrumenten geven samen aan dat EP10 in staat is om sectoroverschrijdende wetgeving te bevorderen op het gebied van strafrecht, financiële stabiliteit en dierenwelzijn — ondanks een parlementaire stemmenrekening met meerdere coalities die een voortdurende afstemming tussen EPP en S&D vereist.
+
+Een pakket van 12 **opvolgingsantwoorden van de Raad** (SP-2026-05-05) op eerder aangenomen EP-standpunten weerspiegelt een actieve interinstitutionele dialoog over de uitvoering. Ondertussen openen de **EU-budgetrichtsnoeren 2027**, aangenomen op 28 april, de jaarlijkse begrotingsprocedure in een context van consolidatiedruk in Frankrijk (IMF 2026P: -4,94 % bbp), Duitsland (+0,79 % bbp-groei) en Italië (+0,52 % bbp-groei), wat de onderhandelingen over het MFK-kader 2027 politiek beladen maakt.
+
+**Belangrijke inlichtingenpool:** De publicatie van de Antikorruptierichtlijn in het Publicatieblad op 11 mei — slechts één dag vóór deze run — creëert een tijdgevoelige inkaderingsgelegenheid. De omzettingstermijnen van de lidstaten zijn begonnen te lopen.
+
+---
+
+### Belangrijkste beleidstriggers (in volgorde van prioriteit)
+
+| # | Trigger | Procedure | Status | Betekenis |
+|---|---------|-----------|--------|-------------|
+| 1 | **Antikorruptierichtlijn gepubliceerd in het Publicatieblad** | `2023/0135(COD)` | 🟢 Gepubliceerd 2026-05-11 | Bindend strafrechtelijk kader — omzettingstermijn van 2 jaar begint |
+| 2 | **SRMR3 Bancaire afwikkelingshervorming** | `2023/0111(COD)` | 🟢 Gepubliceerd 2026-04-20 | Structureel bancair vangnet — uitvoering door nationale afwikkelingsautoriteiten |
+| 3 | **Verordening inzake welzijn van honden en katten aangenomen** | `2023/0447(COD)` | 🟢 Plenaire vergadering aangenomen 2026-04-28 | Eerste EU-geharmoniseerde gezelschapsdierenwet; 12 trilogrondes over 18 maanden |
+| 4 | **Resolutie over handhaving van de wet inzake digitale markten** | `2026/2596(RSP)` | 🟢 Aangenomen 2026-04-30 | Niet-bindend maar politiek significant; EP eist dat de Commissie sneller handelt |
+| 5 | **EU-budgetrichtsnoeren 2027** | `2025/2246` | 🟢 Aangenomen 2026-04-28 | Opent jaarlijkse begrotingsprocedure; fiscale achtergrond beperkt ambities |
+| 6 | **Strafrechtelijke bepalingen inzake cyberpesten** | `2026/2693(RSP)` | 🟢 Aangenomen 2026-04-30 | Niet-bindend; stelt wetgevingsmandat vast voor toekomstig richtlijnvoorstel |
+| 7 | **Opvolging Raad (SP-2026-05-05)** | 12 ACT_FOLLOWUP-documenten | 🟡 Onder beoordeling | 12 Raadsbrieven over EP-standpunten — signaal van naleving van uitvoering |
+
+---
+
+### Samenvatting van de politieke context
+
+**Samenstelling van het Parlement (EP10, per 2026-05-12):**
+- 717 EP-leden in 9 fracties; Fragmentatieindex: HOOG (ENP = 6,58)
+- EPP 183 (25,5 %) | S&D 136 (19,0 %) | PfE 85 (11,9 %) | ECR 81 (11,3 %) | Renew 77 (10,7 %)
+- Greens/EFA 53 (7,4 %) | The Left 45 (6,3 %) | NI 30 (4,2 %) | ESN 27 (3,8 %)
+- **Meerderheidsdrempel:** 360 stemmen — vereist Grote coalitie (EPP+S&D = 319) plus minimaal één aanvullende fractie
+- **Stabiliteitsscore:** 84/100 (🟡 MEDIUM risico — dominante groepsdynamiek, PfE's actueel debat over Commissie-inmenging signaleert uiterst-rechtse druk)
+
+**Belangrijkste coalitiedynamieken:**
+De plenaire debatten van de week onthullen coalitie-stress: het artikel 169-debat van de PfE-fractie over "Commissie-inmenging in democratische processen" (29 april) signaleert een escalerende uiterst-rechtse institutionele wrijving. De Antikorruptierichtlijn en SRMR3 werden beiden aangenomen met EPP-S&D-Renew-afstemming — de functionele gematigde meerderheid die het wetgevingsprestaties van EP10 heeft gekarakteriseerd.
+
+---
+
+### Economische context (IMF WEO, september 2025 vintage)
+
+| Land | Bbp-groei 2025P | Bbp-groei 2026P | Inflatie 2025P | Begrotingssaldo 2025P | Begrotingssaldo 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| Duitsland | +0,24 % | +0,79 % | 2,30 % | -3,37 % bbp | -2,67 % bbp |
+| Frankrijk | +0,93 % | +0,86 % | 0,93 % | -5,11 % bbp | -4,94 % bbp |
+| Italië | +0,54 % | +0,52 % | 1,63 % | -3,11 % bbp | -2,82 % bbp |
+
+🔴 **Frankrijk** blijft boven de 3 %-tekortsdrempel van het SGP in zowel 2025 als 2026 (IMF projecteert -5,11 % en -4,94 %), wat de mogelijkheid van Frankrijk beperkt om nieuwe EU-uitgavenverplichtingen aan te gaan in de budgetrichtsnoeren 2027.
+
+🟡 **Duitsland** toont minimale groei (+0,24 % in 2025) maar een verbeterde begrotingstrajectorie, met het tekort dat daalt naar -2,67 % van het bbp in 2026 — wat beperkte ruimte biedt voor verhoogde EU-bijdragen.
+
+🟡 **Italië** toont vorderingen in begrotingsconsolidatie (-3,11 % tot -2,82 %) maar groei nabij stagnatie (+0,52 %), waardoor de kwetsbaarheid voor eventuele rentenormalisatie behouden blijft.
+
+**Macrorelevantie voor SRMR3:** Het kader voor bankafwikkeling treedt in uitvoering tegen de achtergrond van structureel verhoogde staatsschulden in Frankrijk en Italië. Het Europees gemeenschappelijk afwikkelingsfonds (GAF) (streefniveau 1 % van gedekte deposito's, ~€80 mrd.) moet worden onderhouden via bijdragen van banken die actief zijn in jurisdicties met soevereine stress — wat asymmetrische risicoconcentraties creëert.
+
+---
+
+### Vertrouwensbeoordeling
+
+| Gegevensbron | Kwaliteit | Opmerkingen |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | Bevestigde Publicatieblad-publicatiedatum voor Antikorruptierichtlijn |
+| EP Procedures API | 🟡 MEDIUM | Tijdlijngegevens geverifieerd; wijzigings-/rapporteurgegevens niet beschikbaar |
+| IMF WEO (sep. 2025) | 🟢 HIGH | Live SDMX-feed, 449 records opgehaald |
+| Politiek landschap EP | 🟢 HIGH | Realtime EP-ledentelling van /meps-eindpunt |
+| DOCEO Hoofdelijke Stemmingen | 🔴 NIET BESCHIKBAAR | Vertraagde publicatie EP >4 weken; terugval op structuurgebaseerde analyse |
+
+**Algeheel vertrouwen:** 🟢 HIGH voor processtatus; 🟡 MEDIUM voor coalitiedynamieken (geen hoofdelijke stemgegevens beschikbaar)
+
+---
+
+*Bronnen: Open dataportaal van het Europees Parlement (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). Analysedatum: 2026-05-12.*
+
+### Executive Brief No
+
+### BLUF (60-sekunders lesing)
+
+Tre banebrytende lovgivningstiltak nådde endelig publisering eller vedtakelse i uken 5.–12. mai 2026, og markerer et avgjørende vendepunkt i EP10s første fulle lovgivningsår. **Anti-korrupsjonsdirektivet** (`2023/0135(COD)`) trådte i kraft den **11. mai 2026** etter publisering i Den europeiske unions tidende — og etablerer bindende EU-dekkende strafferetlige standarder for korrupsjon for første gang. **Forordning III om den felles avviklingsmekanismen** (`2023/0111(COD)`) publisert 20. april og nå i implementeringsfasen markerer en strukturell styrking av eurosonebankenes stabilitet. **Forordningen om velferd for hunder og katter** (`2023/0447(COD)`), vedtatt 28. april, leverer EUs første harmoniserte rammeverk for kjæledyrsvelferd og sporbarhet. Disse tre rettsaktene signaliserer samlet EP10s evne til å fremme tverrgående lovgivning innenfor strafferett, finansiell stabilitet og dyrevelferd — til tross for en parlamentarisk mandatfordeling med flere koalisjoner som krever konstant EPP-S&D-koordinering.
+
+En batch med 12 **Rådets oppfølgingssvar** (SP-2026-05-05) til tidligere vedtatte EP-standpunkter gjenspeiler en aktiv interinstitusjonell dialog om implementering. Samtidig åpner **EUs budsjettretningslinjer 2027** vedtatt 28. april den årlige budsjettprosedyren under forhold med konsolideringspress i Frankrike (IMF 2026P: -4,94 % av BNP), Tyskland (+0,79 % BNP-vekst) og Italia (+0,52 % BNP-vekst), noe som gjør forhandlingene om 2027 MFF-rammen politisk ladet.
+
+**Viktig etterretningsindikator:** Anti-korrupsjonsdirektivets publisering i EUT 11. mai — bare én dag før denne kjøringen — skaper en tidssensitiv innramningsmulighet. Medlemsstatenes gjennomføringsfrist har begynt å telle.
+
+---
+
+### Viktigste politiske utløsere (prioritetsrekkefølge)
+
+| # | Utløser | Prosedyre | Status | Betydning |
+|---|---------|-----------|--------|-------------|
+| 1 | **Anti-korrupsjonsdirektivet publisert i EUT** | `2023/0135(COD)` | 🟢 Publisert 2026-05-11 | Bindende strafferetlig rammeverk — 2-årig gjennomføringsfrist starter |
+| 2 | **SRMR3 Bankreformavvikling** | `2023/0111(COD)` | 🟢 Publisert 2026-04-20 | Strukturelt bankesikkerhetsnett — implementering av nasjonale avviklingsmyndigheter |
+| 3 | **Forordning om velferd for hunder og katter vedtatt** | `2023/0447(COD)` | 🟢 Plenumsmøte vedtok 2026-04-28 | Første EU-harmoniserte kjæledyrslov; 12 trilogrunder over 18 måneder |
+| 4 | **Resolusjon om håndhevelse av loven om digitale markeder** | `2026/2596(RSP)` | 🟢 Vedtatt 2026-04-30 | Ikke-bindende men politisk viktig; EP krever at Kommisjonen handler raskere |
+| 5 | **EUs budsjettretningslinjer 2027** | `2025/2246` | 🟢 Vedtatt 2026-04-28 | Åpner den årlige budsjettprosedyren; finanspolitisk bakgrunn begrenser ambisjoner |
+| 6 | **Strafferetlige bestemmelser om nettmobbing** | `2026/2693(RSP)` | 🟢 Vedtatt 2026-04-30 | Ikke-bindende; fastslår lovgivningsmandat for kommende direktivforslag |
+| 7 | **Rådets oppfølging (SP-2026-05-05)** | 12 ACT_FOLLOWUP-dokumenter | 🟡 Under gjennomgang | 12 rådsbrev om EP-standpunkter — signal om implementeringsoverholdelse |
+
+---
+
+### Politisk kontekstsammendrag
+
+**Parlamentets sammensetning (EP10, per 2026-05-12):**
+- 717 MEPer fordelt på 9 grupper; Fragmenteringsindeks: HØY (ENP = 6,58)
+- EPP 183 (25,5 %) | S&D 136 (19,0 %) | PfE 85 (11,9 %) | ECR 81 (11,3 %) | Renew 77 (10,7 %)
+- Greens/EFA 53 (7,4 %) | The Left 45 (6,3 %) | NI 30 (4,2 %) | ESN 27 (3,8 %)
+- **Flertallsterskel:** 360 stemmer — krever storkoalisjon (EPP+S&D = 319) pluss minst én ytterligere gruppe
+- **Stabilitetspoeng:** 84/100 (🟡 MEDIUM risiko — dominert-gruppe-dynamikk, PfEs aktuelle debatt om Kommisjonens innblanding signaliserer ytre høyres press)
+
+**Viktige koalisjonsdynamikker:**
+Ukens plenumsisdebatter avslører koalisjonsstress: PfE-gruppens artikkel 169-debatt om "Kommisjonens innblanding i demokratiske prosesser" (29. april) signaliserer eskalerende ytre høyres institusjonelle friksjon. Anti-korrupsjonsdirektivet og SRMR3 ble begge vedtatt med EPP-S&D-Renew-koordinering — det funksjonelle moderate flertallet som har kjennetegnet EP10s lovgivningsrekord.
+
+---
+
+### Økonomisk kontekst (IMF WEO, september 2025 vintage)
+
+| Land | BNP-vekst 2025P | BNP-vekst 2026P | Inflasjon 2025P | Finansiell balanse 2025P | Finansiell balanse 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| Tyskland | +0,24 % | +0,79 % | 2,30 % | -3,37 % BNP | -2,67 % BNP |
+| Frankrike | +0,93 % | +0,86 % | 0,93 % | -5,11 % BNP | -4,94 % BNP |
+| Italia | +0,54 % | +0,52 % | 1,63 % | -3,11 % BNP | -2,82 % BNP |
+
+🔴 **Frankrike** forblir over SGPs 3 %-underskuddsterskel i både 2025 og 2026 (IMF anslår -5,11 % og -4,94 %), noe som begrenser Frankrikes mulighet til å forplikte seg til nye EU-utgiftsforpliktelser i budsjettretningslinjene for 2027.
+
+🟡 **Tyskland** viser minimal vekst (+0,24 % i 2025) men forbedret finanspolitisk kurs, med underskudd som synker mot -2,67 % av BNP innen 2026 — gir begrenset handlingsrom for økte EU-bidrag.
+
+🟡 **Italia** viser finanspolitiske konsolideringsresultater (-3,11 % til -2,82 %) men vekst nær stagnasjon (+0,52 %), noe som opprettholder sårbarheten overfor eventuell rentenormalisering.
+
+**Makrorelevans for SRMR3:** Bankavviklingsrammen trer i implementering mot en bakgrunn av strukturelt forhøyede statsunderskudd i Frankrike og Italia. Den europeiske Single Resolution Fund (SRF) (målnivå 1 % av dekkede innskudd, ~€80 mrd.) må opprettholdes ved bidrag fra banker som opererer i jurisdiksjoner med statlig stress — noe som skaper asymmetriske risikokonsentrasjoner.
+
+---
+
+### Konfidensvurdering
+
+| Datakilde | Kvalitet | Merknader |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | Bekreftet EUT-publiseringsdato for Anti-korrupsjonsdirektivet |
+| EP Procedures API | 🟡 MEDIUM | Tidslinjedata verifisert; endrings-/ordførerdata utilgjengelige |
+| IMF WEO (sep. 2025) | 🟢 HIGH | Direkte SDMX-feed, 449 poster hentet |
+| EPs politiske landskap | 🟢 HIGH | Sanntids MEP-tellinger fra /meps-endepunktet |
+| DOCEO Navneopp kallsavstemninger | 🔴 UTILGJENGELIG | EPs forsinkede publisering >4 uker; reserve til strukturbasert analyse |
+
+**Samlet konfidens:** 🟢 HIGH for prosedyrestatus; 🟡 MEDIUM for koalisjonsdynamikk (ingen navneoppkallsavstemningsdata tilgjengelige)
+
+---
+
+*Kilder: Europaparlamentets åpne dataportal (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). Analysedato: 2026-05-12.*
+
+### Executive Brief Sv
+
+### BLUF (60-sekunders läsning)
+
+Tre banbrytande lagstiftningsåtgärder nådde slutlig publicering eller antagande under veckan 5–12 maj 2026, vilket markerar en avgörande milstolpe i EP10:s första fulla lagstiftningsår. **Direktivet mot korruption** (`2023/0135(COD)`) trädde i kraft den **11 maj 2026** efter publicering i Europeiska unionens officiella tidning — och etablerar bindande EU-övergripande straffrättsliga standarder för korruption för första gången. **Förordning III om den gemensamma resolutionsmekanismen** (`2023/0111(COD)`) publicerades den 20 april och befinner sig nu i genomförandefasen, vilket markerar en strukturell förstärkning av eurozonens bankstabilitet. **Förordningen om hundar och kattors välbefinnande** (`2023/0447(COD)`), antagen den 28 april, levererar EU:s första harmoniserade ramverk för sällskapsdjurens välbefinnande och spårbarhet. Dessa tre lagstiftningsakter signalerar tillsammans EP10:s förmåga att driva tvärvetenskaplig lagstiftning inom straffrätt, finansiell stabilitet och djurskydd — trots en parlamentarisk mandatfördelning med flera koalitioner som kräver konstant EPP-S&D-samordning.
+
+En batch med 12 **rådets uppföljningssvar** (SP-2026-05-05) på tidigare antagna EP-ståndpunkter återspeglar en aktiv interinstitutionell dialog om genomförande. Samtidigt öppnar **EU:s budgetriktlinjer 2027** antagna den 28 april det årliga budgetförfarandet under förhållanden med konsolideringstryck i Frankrike (IMF 2026P: -4,94 % av BNP), Tyskland (+0,79 % BNP-tillväxt) och Italien (+0,52 % BNP-tillväxt), vilket gör förhandlingarna om 2027 års MFF-ram politiskt laddade.
+
+**Viktig underrättelseindikator:** Anti-korruptionsdirektivets publicering i EUT den 11 maj — bara en dag före denna körning — skapar en tidskänslig inramningsöjlighet. Tidsramen för medlemsstaternas genomförande har börjat räknas.
+
+---
+
+### Viktigaste policyutlösare (i prioritetsordning)
+
+| # | Utlösare | Förfarande | Status | Betydelse |
+|---|---------|-----------|--------|-------------|
+| 1 | **Direktivet mot korruption publicerat i EUT** | `2023/0135(COD)` | 🟢 Publicerat 2026-05-11 | Bindande straffrättsligt ramverk — 2-årig genomförandefrist börjar |
+| 2 | **SRMR3 Banklösningsreform** | `2023/0111(COD)` | 🟢 Publicerat 2026-04-20 | Strukturellt banksäkerhetsnät — genomförande av nationella resolutionsmyndigheter |
+| 3 | **Förordning om hundar och kattors välbefinnande antagen** | `2023/0447(COD)` | 🟢 Plenum antog 2026-04-28 | Första EU-harmoniserade sällskapsdjurslag; 12 trilogronder under 18 månader |
+| 4 | **Resolution om verkställighet av lagen om digitala marknader** | `2026/2596(RSP)` | 🟢 Antagen 2026-04-30 | Ej bindande men politiskt betydelsefull; EP kräver att kommissionen agerar snabbare |
+| 5 | **EU:s budgetriktlinjer 2027** | `2025/2246` | 🟢 Antagen 2026-04-28 | Öppnar det årliga budgetförfarandet; finansiell bakgrund begränsar ambitionerna |
+| 6 | **Straffrättsliga bestämmelser om cybermobbing** | `2026/2693(RSP)` | 🟢 Antagen 2026-04-30 | Ej bindande; fastställer lagstiftningsmandat för kommande direktivförslag |
+| 7 | **Rådets uppföljning (SP-2026-05-05)** | 12 ACT_FOLLOWUP-dokument | 🟡 Under granskning | 12 rådsbrev om EP-ståndpunkter — signal om genomförandeefterlevnad |
+
+---
+
+### Politisk kontextsammanfattning
+
+**Parlamentets sammansättning (EP10, per 2026-05-12):**
+- 717 ledamöter fördelade på 9 grupper; Fragmenteringsindex: HÖG (ENP = 6,58)
+- EPP 183 (25,5 %) | S&D 136 (19,0 %) | PfE 85 (11,9 %) | ECR 81 (11,3 %) | Renew 77 (10,7 %)
+- Greens/EFA 53 (7,4 %) | The Left 45 (6,3 %) | NI 30 (4,2 %) | ESN 27 (3,8 %)
+- **Majoritetströskel:** 360 röster — kräver storkoalition (EPP+S&D = 319) plus minst en ytterligare grupp
+- **Stabilitetspoäng:** 84/100 (🟡 MEDIUM risk — dynamik med dominerande grupp, PfE:s aktuella debatt om kommissionsinterferens signalerar högerextrem press)
+
+**Viktiga koalitionsdynamiker:**
+Veckans plenariasdebatter avslöjar koalitionsstress: PfE-gruppens artikel 169-debatt om "Kommissionens inblandning i demokratiska processer" (29 april) signalerar en eskalerande högerextrem institutionell friktion. Direktivet mot korruption och SRMR3 antogs båda med EPP-S&D-Renew-samordning — den funktionella moderata majoriteten som karakteriserat EP10:s lagstiftningsrekord.
+
+---
+
+### Ekonomisk kontext (IMF WEO, september 2025 vintage)
+
+| Land | BNP-tillväxt 2025P | BNP-tillväxt 2026P | Inflation 2025P | Finansiellt saldo 2025P | Finansiellt saldo 2026P |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| Tyskland | +0,24 % | +0,79 % | 2,30 % | -3,37 % BNP | -2,67 % BNP |
+| Frankrike | +0,93 % | +0,86 % | 0,93 % | -5,11 % BNP | -4,94 % BNP |
+| Italien | +0,54 % | +0,52 % | 1,63 % | -3,11 % BNP | -2,82 % BNP |
+
+🔴 **Frankrike** överskrider SGP:s 3-procentiga underskottströskel under både 2025 och 2026 (IMF beräknar -5,11 % och -4,94 %), vilket begränsar Frankrikes möjligheter att åta sig nya EU-utgiftsåtaganden i 2027 års budgetriktlinjer.
+
+🟡 **Tyskland** visar minimal tillväxt (+0,24 % 2025) men förbättrad finansiell trajektoria, med underskott som minskar mot -2,67 % av BNP år 2026 — ger begränsat utrymme för ökade EU-bidrag.
+
+🟡 **Italien** visar finansiell konsolideringsframgång (-3,11 % till -2,82 %) men tillväxt nära stagnation (+0,52 %), vilket upprätthåller sårbarhet inför eventuell räntanormalisering.
+
+**Makrorelevans för SRMR3:** Banklösningsramverket träder i genomförandet mot bakgrunden av strukturellt förhöjda statsunderskott i Frankrike och Italien. Den europeiska gemensamma resolutionsfonden (SRF) (målnivå 1 % av täckta insättningar, ~80 miljarder euro) måste upprätthållas av bidrag från banker verksamma i jurisdiktioner med statsfinansiell stress — vilket skapar asymmetriska riskkoncentrationer.
+
+---
+
+### Konfidensbedömning
+
+| Datakälla | Kvalitet | Anmärkningar |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | Bekräftat publiceringsdatum i EUT för direktivet mot korruption |
+| EP Procedures API | 🟡 MEDIUM | Tidslinjedata verifierade; ändrings-/föredragandedata ej tillgängliga |
+| IMF WEO (sep 2025) | 🟢 HIGH | Levande SDMX-flöde, 449 poster hämtade |
+| EP:s politiska landskap | 🟢 HIGH | Realtidsantal ledamöter från /meps-slutpunkten |
+| DOCEO-omröstningar med namnupprop | 🔴 EJ TILLGÄNGLIGT | EP:s försenade publicering >4 veckor; reservlösning till strukturbaserad analys |
+
+**Övergripande konfidens:** 🟢 HIGH för procedursstatus; 🟡 MEDIUM för koalitionsdynamik (inga omröstningsdata med namnupprop tillgängliga)
+
+---
+
+*Källor: Europaparlamentets öppna dataportal (data.europarl.europa.eu); IMF World Economic Outlook SDMX 3.0 API (api.imf.org). Analysdatum: 2026-05-12.*
+
+### Executive Brief Zh
+
+**日期：** 2026-05-12 | **文章类型：** propositions | **运行：** propositions-run270-1778566185
+**分类：** UNCLASSIFIED | **置信度：** 🟢 HIGH（EP Open Data + IMF WEO）
+
+---
+
+### BLUF（60秒速读）
+
+2026年5月5日至12日这一周，三项具有里程碑意义的立法措施完成了最终发布或通过，标志着EP10第一个完整立法年的关键时刻。**《反腐败指令》**（`2023/0135(COD)`）在欧盟官方公报刊载后于**2026年5月11日**正式生效，首次在欧盟范围内确立了有约束力的反腐刑事法律标准。**《单一处置机制条例III》**（`2023/0111(COD)`）于4月20日发布，目前进入实施阶段，标志着欧元区银行稳定性得到结构性强化。**《犬猫福利条例》**（`2023/0447(COD)`）于4月28日通过，提供了欧盟首个关于伴侣动物福利和可追溯性的统一框架。这三项立法共同表明EP10有能力在刑事司法、金融稳定和动物福利领域推进跨部门立法——尽管多方联合的议会算术需要EPP与S&D的持续协调。
+
+12份**理事会跟进回复**（SP-2026-05-05）针对欧洲议会此前通过的立场，反映了围绕实施的积极机构间对话。与此同时，4月28日通过的**EU 2027预算指南**在法国（IMF 2026预测：财政赤字占GDP的-4.94%）、德国（GDP增长+0.79%）和意大利（GDP增长+0.52%）财政整合压力下开启年度预算程序，使2027年多年期财务框架MFF谈判在政治上极为复杂。
+
+**关键情报触发点：** 《反腐败指令》于5月11日在官方公报刊载——即本次运行前一天——创造了一个时间敏感的框架机会。成员国的转置截止倒计时已经开始。
+
+---
+
+### 重要政策触发点（按优先级排列）
+
+| # | 触发点 | 程序 | 状态 | 重要性 |
+|---|---------|-----------|--------|-------------|
+| 1 | **《反腐败指令》在官方公报刊载** | `2023/0135(COD)` | 🟢 2026-05-11发布 | 具有约束力的刑法框架 — 两年转置倒计时开始 |
+| 2 | **SRMR3 银行处置改革** | `2023/0111(COD)` | 🟢 2026-04-20发布 | 结构性银行安全网 — 国家处置机构负责实施 |
+| 3 | **《犬猫福利条例》通过** | `2023/0447(COD)` | 🟢 全体会议2026-04-28通过 | 欧盟首部统一伴侣动物法；历时18个月12轮三方谈判 |
+| 4 | **数字市场法执法决议** | `2026/2596(RSP)` | 🟢 2026-04-30通过 | 非约束性但具重要政治意义；欧洲议会要求欧盟委员会加快行动 |
+| 5 | **EU 2027预算指南** | `2025/2246` | 🟢 2026-04-28通过 | 启动年度预算程序；财政背景制约雄心 |
+| 6 | **网络霸凌刑事条款** | `2026/2693(RSP)` | 🟢 2026-04-30通过 | 非约束性；为未来指令提案设定立法授权 |
+| 7 | **理事会跟进（SP-2026-05-05）** | 12份ACT_FOLLOWUP文件 | 🟡 审查中 | 12封关于欧洲议会立场的理事会信函 — 实施合规信号 |
+
+---
+
+### 政治背景摘要
+
+**议会构成（EP10，截至2026-05-12）：**
+- 717名欧洲议员分布于9个党团；碎片化指数：高（ENP = 6.58）
+- EPP 183席（25.5%）| S&D 136席（19.0%）| PfE 85席（11.9%）| ECR 81席（11.3%）| Renew 77席（10.7%）
+- Greens/EFA 53席（7.4%）| The Left 45席（6.3%）| NI 30席（4.2%）| ESN 27席（3.8%）
+- **多数门槛：** 360票 — 需要大联盟（EPP+S&D = 319席）加上至少一个额外党团
+- **稳定性评分：** 84/100（🟡 MEDIUM 风险 — 主导党团动态，PfE关于欧盟委员会干预的专题辩论发出极右翼压力信号）
+
+**关键联盟动态：**
+本周全体会议辩论暴露联盟压力：PfE党团根据第169条就"欧盟委员会干预民主进程"举行的专题辩论（4月29日）发出极右翼机构摩擦升级的信号。《反腐败指令》和SRMR3均以EPP-S&D-Renew联盟一致通过——这一功能性温和多数是EP10立法记录的显著特征。
+
+---
+
+### 经济背景（IMF WEO，2025年9月版）
+
+| 国家 | GDP增长率 2025预 | GDP增长率 2026预 | 通胀率 2025预 | 财政余额 2025预 | 财政余额 2026预 |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| 德国 | +0.24% | +0.79% | 2.30% | -3.37% GDP | -2.67% GDP |
+| 法国 | +0.93% | +0.86% | 0.93% | -5.11% GDP | -4.94% GDP |
+| 意大利 | +0.54% | +0.52% | 1.63% | -3.11% GDP | -2.82% GDP |
+
+🔴 **法国**在2025年和2026年均继续超出SGP 3%赤字门槛（IMF预测分别为-5.11%和-4.94%），制约了法国在2027年预算指南中承担新的欧盟支出承诺的能力。
+
+🟡 **德国**增长微弱（2025年+0.24%），但财政轨迹有所改善，赤字在2026年降至GDP的-2.67%——为增加欧盟出资提供有限空间。
+
+🟡 **意大利**显示财政整合进展（从-3.11%降至-2.82%），但增长接近停滞（+0.52%），面对任何潜在利率正常化仍保持脆弱性。
+
+**SRMR3的宏观相关性：** 银行处置框架在法国和意大利主权赤字居高不下的结构性背景下进入实施阶段。欧洲单一处置基金（SRF）（目标规模：被保险存款的1%，约800亿欧元）须由在面临主权压力司法管辖区运营的银行缴款维持——产生非对称风险集中。
+
+---
+
+### 置信度评估
+
+| 数据来源 | 质量 | 备注 |
+|-------------|---------|-------|
+| EP Adopted Texts API | 🟢 HIGH | 确认《反腐败指令》官方公报发布日期 |
+| EP Procedures API | 🟡 MEDIUM | 时间线数据已核实；修正案/报告员数据不可用 |
+| IMF WEO（2025年9月） | 🟢 HIGH | 实时SDMX数据源，已检索449条记录 |
+| EP政治格局 | 🟢 HIGH | 来自/meps端点的实时欧洲议员计数 |
+| DOCEO记名投票 | 🔴 不可用 | EP发布延迟>4周；回退到基于结构的分析 |
+
+**总体置信度：** 🟢 HIGH 程序状态；🟡 MEDIUM 联盟动态（无记名投票数据）
+
+---
+
+*来源：欧洲议会开放数据门户（data.europarl.europa.eu）；IMF World Economic Outlook SDMX 3.0 API（api.imf.org）。分析日期：2026-05-12。*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `propositions`
@@ -3157,4 +4147,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/methodology-reflection.md) | `methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 

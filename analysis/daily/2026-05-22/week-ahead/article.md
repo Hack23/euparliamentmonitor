@@ -2898,6 +2898,1839 @@ pie title Data Availability (degraded-feeds mode)
 
 *Produced: 2026-05-22 | Data mode: degraded-feeds*
 
+### Executive Brief Ar
+
+### الأسبوع من 25 إلى 31 مايو 2026 | تاريخ الإنتاج: 2026-05-22
+### التصنيف: استخبارات المصادر المفتوحة
+**السطر الرئيسي: WEP مرجّح (60–68%) أن تكون هذه أسبوعاً مكثفاً للجان مع تقدم في ReArm Europe وملفات السياسة التجارية**
+**Admiralty: B2 (مصادر موثوقة، تأكيد هيكلي)**
+
+---
+
+### 🔴 بنود الاستخبارات ذات الأولوية (PIIs)
+
+**PII-1:** لائحة SAFE (ReArm Europe) — لجنتا AFET/BUDG تدفعان نحو إطار المشتريات المشتركة. WEP: مرجح جداً (75–82%) أن يدفع عمل اللجنة هذا الأسبوع الجدول الزمني لـ SAFE بشكل هادف نحو تصويت الاعتماد في الجلسة العامة لشهر يونيو.
+
+**PII-2:** مفاوضات التجارة بين الاتحاد الأوروبي والولايات المتحدة — رقابة لجنة INTA على تفويض المفوضية. WEP: متقارب تقريباً (35–45%) أن تحدث تطورات مهمة (جلسة استماع، وثيقة موقف، أو جلسة طارئة) هذا الأسبوع. مخاطر الناتج المحلي الإجمالي وفق IMF: من -0.3 إلى -0.5 نقطة مئوية في حال تطبيق رسوم جمركية بنسبة 25%.
+
+**PII-3:** تنفيذ قانون الذكاء الاصطناعي — لجنتا IMCO/LIBE ترصدان جاهزية التطبيق. WEP: مرجح (55–65%) أن يُنتج هذا الأسبوع على الأقل نتيجة جوهرية واحدة من اللجنة بشأن المعايير التقنية لقانون الذكاء الاصطناعي.
+
+**PII-4:** التطبيق الكامل لـ CBAM (سبتمبر 2026) — لجنتا ENVI/INTA تتابعان جاهزية الامتثال. WEP: متقارب تقريباً (40–50%) أن تكون جلسة استماع رسمية أو تقرير مجدولاً هذا الأسبوع.
+
+**PII-5:** استقرار الائتلاف — الائتلاف الكبير EPP+S&D+Renew (398/719 مقعداً = 55.4%). WEP: مرجح جداً (80–87%) أن يصمد الائتلاف الكبير في جميع تصويتات اللجان المهمة هذا الأسبوع.
+
+---
+
+### 🗺️ ملخص المشهد السياسي
+
+**التكوين الحالي للبرلمان الأوروبي العاشر (مؤكد):**
+- 9 مجموعات سياسية، 719 نائباً أوروبياً في المجموع
+- EPP: 185 مقعداً (25.7%) — أكبر مجموعة، تسيطر على معظم رئاسات اللجان
+- S&D: 136 مقعداً (18.9%) — ثاني أكبر، شريك محوري في الملفات الاجتماعية وسوق العمل
+- PfE: 85 مقعداً (11.8%) — يمين شعبوي، مجموعة المعارضة
+- ECR: 81 مقعداً (11.3%) — يمين محافظ، تعاون انتقائي مع EPP
+- Renew: 77 مقعداً (10.7%) — ليبرالي، شريك محوري حرج
+- Greens/EFA: 53 مقعداً (7.4%) — بيئي، ليبرالي يساري
+- Left: 45 مقعداً (6.3%) — اشتراكي/شيوعي، معارضة في معظمه
+- NI: 30 مقعداً (4.2%) — غير منتسبين، متنوعون
+- ESN: 27 مقعداً (3.8%) — قومي أقصى اليمين، معارضة
+
+**الائتلاف الكبير (EPP+S&D+Renew):** 398 مقعداً — 37 فوق عتبة الأغلبية
+**ENP (العدد الفعّال للأحزاب):** 6.55 — تشرذم مرتفع جداً
+**عتبة الأغلبية:** 361 صوتاً
+
+**تقييم الائتلاف (Admiralty B3, WEP):**
+- الائتلاف الكبير بشأن ReArm/الدفاع: WEP مرجح جداً (75–82%)
+- الائتلاف الكبير بشأن الدفاع التجاري: WEP مرجح جداً (78–85%)
+- الائتلاف الكبير بشأن الملفات المناخية: WEP متقارب تقريباً (45–55%) — ضغط EPP نحو رفع القيود
+- مخاطر انهيار الائتلاف هذا الأسبوع: WEP غير مرجح (10–18%) في غياب ضغط جلسة عامة
+
+---
+
+### 🌍 ملخص البيئة الخارجية
+
+**IMF WEO أبريل 2026 (مرجعية موثوقة — Admiralty A1):**
+- نمو الناتج المحلي الإجمالي لمنطقة اليورو 2026: **1.4%** (دون الاتجاه العام لكن في تسارع)
+- تضخم منطقة اليورو 2026: **2.1%** (عائد نحو الهدف)
+- بطالة منطقة اليورو 2026: **6.2%** (تحسن تدريجي)
+- مخاطر هبوطية: من -0.3 إلى -0.5 نقطة مئوية جراء التصعيد الأمريكي في الرسوم الجمركية
+
+**السياق الجيوسياسي:**
+- الصراع في أوكرانيا مستمر؛ أداة SAFE مرتبطة ارتباطاً مباشراً
+- التوترات التجارية بين الولايات المتحدة والاتحاد الأوروبي مرتفعة لكن لم تبلغ بعد حد الحرب التجارية الشاملة
+- المنافسة الاستراتيجية الصينية تشكّل أجندة سياسة الصناعة
+- تدفقات الهجرة مرتفعة لكنها دون مستويات أزمة 2015
+
+---
+
+### 📅 الأسبوع المقبل: تقييم هيكلي
+
+**ما لن يحدث هذا الأسبوع:**
+- لا جلسة عامة في ستراسبورغ (الأخيرة: 18–21 مايو)
+- لا جلسة عامة مصغرة في بروكسل (مجدولة: ~8–9 يونيو)
+- لا تصويتات تستلزم تعبئة الائتلاف الكبير
+
+**ما هو متوقع هذا الأسبوع (هيكلياً — Admiralty B1):**
+- 20–26 اجتماعاً للجان (النمط المعتاد بين الجلسات العامة)
+- تداول 3–7 مسودات تقارير
+- 2–5 جلسات استماع عامة
+- جلسات تريلوج متعددة حول الملفات النشطة
+- أنشطة وفود البرلمان الأوروبي (اجتماعات دولية)
+
+**أهم أعمال اللجان المتوقعة:**
+1. AFET/BUDG — تقدم لائحة SAFE
+2. INTA — الرقابة على مفاوضات التجارة (الاتحاد الأوروبي–الولايات المتحدة)
+3. IMCO/LIBE — استعدادات تطبيق قانون الذكاء الاصطناعي
+4. ENVI — متابعة تنفيذ CBAM
+5. ECON — الاتحاد المصرفي، متابعة اتحاد أسواق رأس المال
+
+---
+
+### ⚡ أبرز ثلاثة بنود عمل للأسبوع
+
+1. **رصد إشارات تريلوج SAFE:** أي إعلان رسمي عن موعد تريلوج أو تصريح المقرر العام لـ AFET يشير إلى موعد قريب لتصويت الجلسة العامة — مؤشر محوري لأصحاب المصلحة في صناعة الدفاع
+2. **متابعة التطورات التجارية الأمريكية:** قد تؤدي إعلانات البيت الأبيض بشأن مهل الرسوم الجمركية على الاتحاد الأوروبي إلى تفعيل جلسة طارئة لـ INTA — تابع أخبار التجارة بين الولايات المتحدة والاتحاد الأوروبي يومياً
+3. **متابعة استعدادات تطبيق GPAI في قانون الذكاء الاصطناعي:** أي إعلان من المفوضية بشأن فعل تنفيذي لنماذج الذكاء الاصطناعي ذات الأغراض العامة يؤثر على قطاع التكنولوجيا — إشارة جلسة استماع IMCO للمراقبة
+
+---
+
+### 🎯 ملخص مستوى الثقة
+
+| التقييم | الثقة | الأساس |
+|-----------|-----------|-------|
+| تأكيد أسبوع اللجان (بدون جلسة عامة) | 🟢 عالية جداً | تقويم البرلمان الأوروبي المؤكد (A1) |
+| الائتلاف الكبير مستقر هذا الأسبوع | 🟢 عالية | الحجم + الهيكل (B2) |
+| ReArm يتقدم في اللجان | 🟡 متوسطة-عالية | المعرفة الهيكلية (B2) |
+| التوترات التجارية تنتج استجابة برلمانية | 🟡 متوسطة | بيانات IMF + هيكلي (B3) |
+| جدول أعمال اللجان في الوقت الفعلي | 🔴 منخفضة | التغذيات غير متاحة (F6) |
+
+### 🔮 نظرة مستقبلية لـ 30 يوماً
+
+**8–9 يونيو:** جلسة بروكسل المصغرة مرجّحة — الملفات التي تقدمت خلال أسابيع اللجان 25–31 مايو و2–6 يونيو قد تحظى بتصويتات القراءة الأولى
+**22–25 يونيو:** الجلسة العامة في ستراسبورغ — تصويت اعتماد لائحة SAFE الأكثر ترجيحاً في هذه الدورة إذا تقدم عمل اللجنة كما هو متوقع هذا الأسبوع
+
+**التحقق من الافتراضات الرئيسية:**
+- يصمد الائتلاف الكبير في جميع البنود الرئيسية: 🟢 عالية (لا إشارة انهيار هيكلي)
+- لا صدمة خارجية (حرب تجارية، حادثة أمنية) تعطل جدول أعمال البرلمان الأوروبي: 🟡 متوسطة
+- التقويم المؤسسي للبرلمان الأوروبي مؤكد حتى يونيو: 🟢 عالية
+
+**التحقق من جودة المعلومات:**
+- جميع بيانات تكوين البرلمان الأوروبي: A1 (واجهة برمجة بيانات EP المفتوحة الرسمية)
+- IMF السياق الاقتصادي: A1 (WEO أبريل 2026، منشور رسمي)
+- جدول اللجان هذا الأسبوع: F6 (التغذيات غير متاحة، تقدير هيكلي فقط)
+
+---
+
+### ملخص الائتلافات والكتل
+
+| الكتلة | المقاعد | الأغلبية؟ | ملاحظات |
+|------|-------|-----------|-------|
+| EPP | 185 | — | أكبر مجموعة؛ تسيطر على جدول أعمال اللجان |
+| S&D | 136 | — | شريك تقدمي محوري |
+| Renew | 77 | — | شريك محوري في الملفات الرقمية/التجارية |
+| EPP+S&D+Renew | 398 | ✅ نعم (361) | الائتلاف الكبير قابل للتطبيق؛ احتياطي +37 مقعداً |
+| PfE+ECR+ESN | 193 | ❌ لا | الكتلة الشعبوية دون الأغلبية |
+
+ENP (العدد الفعّال للأحزاب) = 6.55 — تشرذم مرتفع؛ انضباط الائتلاف حاسم لكل نتيجة تصويت هذا الأسبوع. مخاطر تذبذب الكتلة: متوسطة.
+
+مع 9 مجموعات سياسية ودون كتلة أغلبية واحدة، تعتمد كل نتيجة تصويت على تنسيق ما لا يقل عن مجموعتين. يحتفظ الائتلاف الكبير (EPP+S&D+Renew) باحتياطي 37 مقعداً فوق الحد الأدنى 361 — متين لكنه يتطلب تنسيقاً فعّالاً هذا الأسبوع.
+
+---
+
+*تاريخ الإنتاج: 2026-05-22 | التشغيل: week-ahead-run270-1779437320 | وضع البيانات: التغذيات المتدهورة | IMF WEO أبريل 2026 كمصدر اقتصادي*
+
+### Executive Brief Da
+
+### Uge 25–31 maj 2026 | Produceret: 2026-05-22
+### Klassificering: Åben kildeintelligens
+**Topbedømmelse: WEP SANDSYNLIGT (60–68%) at dette bliver en intensiv udvalgsvecka med fremgang i ReArm Europe og handelspolitiske sager**
+**Admiralty: B2 (troværdige kilder, strukturelt bekræftet)**
+
+---
+
+### 🔴 Prioriterede efterretningspunkter (PIIs)
+
+**PII-1:** SAFE-forordningen (ReArm Europe) — AFET/BUDG-udvalgene driver fælles indkøbsramme. WEP: MEGET SANDSYNLIGT (75–82%) at udvalgsarbejdet denne uge meningsfuldt driver SAFE-tidslinjen mod afstemning om vedtagelse i juniplenarmødet.
+
+**PII-2:** EU–US handelsforhandlinger — INTA-udvalgets tilsyn med Kommissionens mandat. WEP: OMTRENT LIGE (35–45%) at en betydelig begivenhed (høring, positionsdokument eller nødsession) finder sted denne uge. IMF BNP-risiko: -0,3 til -0,5 pp hvis 25%-toldsatser implementeres.
+
+**PII-3:** AI-lovens gennemførelse — IMCO/LIBE-udvalgene overvåger håndhævelsesberedskab. WEP: SANDSYNLIGT (55–65%) at mindst ét substantielt udvalgsresultat om AI-lovens tekniske standarder produceres denne uge.
+
+**PII-4:** CBAM fuld gennemførelse (september 2026) — ENVI/INTA-udvalgene følger op på overholdelsesparathed. WEP: OMTRENT LIGE (40–50%) at en formel høring eller rapport er planlagt denne uge.
+
+**PII-5:** Koalitionsstabilitet — EPP+S&D+Renew storkoalition (398/719 pladser = 55,4%). WEP: MEGET SANDSYNLIGT (80–87%) at storkoalitionen holder ved alle væsentlige udvalgsafstemninger denne uge.
+
+---
+
+### 🗺️ Sammenfatning af det politiske landskab
+
+**Aktuel EP10-sammensætning (bekræftet):**
+- 9 politiske grupper, 719 MEP'er i alt
+- EPP: 185 pladser (25,7%) — største gruppe, kontrollerer flest udvalgsformandsskaber
+- S&D: 136 pladser (18,9%) — næststørst, nøglepartner på sociale og arbejdsmarkedssager
+- PfE: 85 pladser (11,8%) — populistisk højre, oppositionsgruppe
+- ECR: 81 pladser (11,3%) — konservativt højre, selektivt samarbejde med EPP
+- Renew: 77 pladser (10,7%) — liberal, kritisk swingpartner
+- Greens/EFA: 53 pladser (7,4%) — miljøvenlig, venstreliberal
+- Left: 45 pladser (6,3%) — socialistisk/kommunistisk, overvejende opposition
+- NI: 30 pladser (4,2%) — ikke-tilknyttede, blandede
+- ESN: 27 pladser (3,8%) — yderste højre nationalistisk, opposition
+
+**Storkoalition (EPP+S&D+Renew):** 398 pladser — 37 over flertalsgrænsen
+**ENP (Effektivt antal partier):** 6,55 — HØJ fragmentering
+**Flertalstærskel:** 361 stemmer
+
+**Koalitionsvurdering (Admiralty B3, WEP):**
+- Storkoalition om ReArm/forsvar: WEP MEGET SANDSYNLIGT (75–82%)
+- Storkoalition om handelsbeskyttelse: WEP MEGET SANDSYNLIGT (78–85%)
+- Storkoalition om klimasager: WEP OMTRENT LIGE (45–55%) — EPP afreguleringspres
+- Koalitionsbruddsrisiko denne uge: WEP USANDSYNLIGT (10–18%) da der ikke er plenarpress
+
+---
+
+### 🌍 Sammenfatning af det eksterne miljø
+
+**IMF WEO april 2026 (Autoritativt — Admiralty A1):**
+- Eurozoneens BNP-vækst 2026: **1,4%** (under trend men accelererende)
+- Eurozoneens inflation 2026: **2,1%** (vender tilbage til målet)
+- Eurozoneens arbejdsløshed 2026: **6,2%** (gradvis forbedring)
+- Nedadgående risiko: -0,3 til -0,5 pp fra USA's toldoptrapning
+
+**Geopolitisk kontekst:**
+- Ukraine-konflikten fortsætter; SAFE-instrumentet direkte forbundet
+- USA–EU handelsspænding forhøjet men endnu ingen fuld toldkrig
+- Kinas strategiske konkurrence former industripolitisk dagsorden
+- Migrationsstrømmene forhøjede men under 2015-krisens niveau
+
+---
+
+### 📅 Ugen fremad: Strukturel vurdering
+
+**Hvad der IKKE sker denne uge:**
+- Ingen plenarsamling i Strasbourg (senest: 18–21 maj)
+- Ingen mini-plenar i Bruxelles (planlagt: ~8–9 juni)
+- Ingen afstemninger der kræver storkoalitionsmobilisering
+
+**Hvad der FORVENTES denne uge (strukturelt — Admiralty B1):**
+- 20–26 udvalgsmøder (standard inter-plenaruge-mønster)
+- 3–7 udkast til betænkninger cirkuleret
+- 2–5 offentlige høringer
+- Adskillige trilogmøder om aktive sager
+- EP-delegationsaktiviteter (internationale møder)
+
+**Mest konsekvente udvalgsarbejde forventet:**
+1. AFET/BUDG — SAFE-forordningens progression
+2. INTA — tilsyn med handelsforhandlinger (EU–USA)
+3. IMCO/LIBE — AI-lovens håndhævelsesforberedelser
+4. ENVI — CBAM gennemførelsessporing
+5. ECON — Bankunionen, CMU-opfølgning
+
+---
+
+### ⚡ Top tre handlingspunkter for ugen
+
+1. **Overvåg SAFE-trilogsignaler:** Enhver officiel meddelelse om trilogdato eller AFET-ordførerudtalelse signalerer en nær forestående plenarsstemmingsdato — afgørende for forsvarsindustriens interessenter
+2. **Følg USA's handelsudvikling:** Det Hvide Hus' meddelelser om EU-toldfrister kan udløse en nødsession i INTA — følg USA-EU-handelsnyheder dagligt
+3. **Følg AI-lovens GPAI-håndhævelsesforberedelser:** Enhver Kommissionsmeddelelse om gennemførelsesakt for modeller med generelt formål AI påvirker teknologiindustrien — IMCO-høringssignal at holde øje med
+
+---
+
+### 🎯 Konfidensoversigt
+
+| Vurdering | Konfidens | Grundlag |
+|-----------|-----------|-------|
+| Udvalgsvecka bekræftet (ingen plenar) | 🟢 MEGET HØJ | EP bekræftet kalender (A1) |
+| Storkoalition stabil denne uge | 🟢 HØJ | Størrelse + strukturelt (B2) |
+| ReArm skrider frem i udvalg | 🟡 MIDDEL-HØJ | Strukturel viden (B2) |
+| Handelsspænding producerer EP-svar | 🟡 MIDDEL | IMF data + strukturelt (B3) |
+| Realtids udvalgskalender | 🔴 LAV | Feeds utilgængelige (F6) |
+
+### 🔮 30-dages fremadrettet blik
+
+**8–9 juni:** Bruxelles mini-plenar sandsynlig — sager fremmet i udvalgsveckaerne 25–31 maj og 2–6 juni kan have førstebehandlingsafstemninger
+**22–25 juni:** Strasbourg plenar — SAFE-forordningens vedtagelsesafstemning er mest sandsynlig i denne samling hvis udvalgsarbejdet skrider frem som forventet denne uge
+
+**Kontrol af nøgleantagelser:**
+- Storkoalitionen holder ved alle store sager: 🟢 HØJ (inget strukturelt brudssignal)
+- Ingen ekstern chok (toldkrig, sikkerhedshændelse) forstyrrer EP's tidsplan: 🟡 MIDDEL
+- EP's institutionelle kalender bekræftet frem til juni: 🟢 HØJ
+
+**Informationskvalitetskontrol:**
+- Alle EP-sammensætningsdata: A1 (officiel EP Open Data API)
+- IMF økonomisk kontekst: A1 (WEO april 2026, officiel publikation)
+- Udvalgskalender denne uge: F6 (feeds utilgængelige, strukturelt estimat)
+
+---
+
+### Koalitions- og blokoversigt
+
+| Blok | Pladser | Flertal? | Bemærkninger |
+|------|-------|-----------|-------|
+| EPP | 185 | — | Største gruppe; kontrollerer udvalgsagendaen |
+| S&D | 136 | — | Vigtig progressiv partner |
+| Renew | 77 | — | Swingpartner på digitale/handelssager |
+| EPP+S&D+Renew | 398 | ✅ Ja (361) | Storkoalition levedygtig; +37 pladser buffer |
+| PfE+ECR+ESN | 193 | ❌ Nej | Populistblokken under flertal |
+
+ENP (Effektivt antal partier) = 6,55 — høj fragmentering; koalitionsdisciplin afgørende for ethvert afstemningsresultat denne uge. Blokobestandighedsrisiko: MIDDEL.
+
+Med 9 politiske grupper og ingen enkelt flertalblok afhænger ethvert afstemningsresultat af mindst 2-gruppers tilpasning. Storkoalitionen (EPP+S&D+Renew) opretholder en buffer på 37 pladser over minimum 361 — robust men kræver aktiv koordinering denne uge.
+
+---
+
+*Produceret: 2026-05-22 | Kørsel: week-ahead-run270-1779437320 | Datatilstand: forringede-feeds | IMF WEO april 2026 som økonomisk kilde*
+
+### Executive Brief De
+
+### Woche 25.–31. Mai 2026 | Erstellt: 2026-05-22
+### Einstufung: Nachrichtendienst aus offenen Quellen
+**Hauptbewertung: WEP WAHRSCHEINLICH (60–68%), dass dies eine intensive Ausschusswoche mit Fortschritten bei ReArm Europe und handelspolitischen Dossiers wird**
+**Admiralty: B2 (glaubwürdige Quellen, strukturell bestätigt)**
+
+---
+
+### 🔴 Prioritäre Nachrichtenobjekte (PIIs)
+
+**PII-1:** SAFE-Verordnung (ReArm Europe) — AFET/BUDG-Ausschüsse treiben gemeinsamen Beschaffungsrahmen voran. WEP: SEHR WAHRSCHEINLICH (75–82%), dass die Ausschussarbeit diese Woche den SAFE-Zeitplan sinnvoll in Richtung Plenums-Abstimmung zur Annahme im Juni vorantreibt.
+
+**PII-2:** EU–US-Handelsverhandlungen — INTA-Ausschuss überwacht das Kommissionsmandat. WEP: UNGEFÄHR GLEICH (35–45%), dass eine bedeutende Entwicklung (Anhörung, Positionsdokument oder Notsitzung) diese Woche eintritt. IMF BIP-Risiko: -0,3 bis -0,5 pp bei Einführung von 25%-Zöllen.
+
+**PII-3:** KI-Gesetz-Umsetzung — IMCO/LIBE-Ausschüsse überwachen die Durchsetzungsbereitschaft. WEP: WAHRSCHEINLICH (55–65%), dass mindestens ein substanzielles Ausschussergebnis zu technischen Standards des KI-Gesetzes diese Woche produziert wird.
+
+**PII-4:** CBAM-Vollimplementierung (September 2026) — ENVI/INTA-Ausschüsse verfolgen die Compliance-Bereitschaft. WEP: UNGEFÄHR GLEICH (40–50%), dass eine formelle Anhörung oder ein Bericht diese Woche geplant ist.
+
+**PII-5:** Koalitionsstabilität — EPP+S&D+Renew Große Koalition (398/719 Sitze = 55,4%). WEP: SEHR WAHRSCHEINLICH (80–87%), dass die Große Koalition bei allen wichtigen Ausschussabstimmungen diese Woche hält.
+
+---
+
+### 🗺️ Zusammenfassung der politischen Lage
+
+**Aktuelle EP10-Zusammensetzung (bestätigt):**
+- 9 politische Gruppen, 719 MdEP insgesamt
+- EPP: 185 Sitze (25,7%) — größte Gruppe, kontrolliert die meisten Ausschussvorsitze
+- S&D: 136 Sitze (18,9%) — zweitgrößte, Schlüsselpartner bei sozialen und Arbeitsfragen
+- PfE: 85 Sitze (11,8%) — populistische Rechte, Oppositionsgruppe
+- ECR: 81 Sitze (11,3%) — konservative Rechte, selektive Zusammenarbeit mit EPP
+- Renew: 77 Sitze (10,7%) — liberal, kritischer Schwingungspartner
+- Greens/EFA: 53 Sitze (7,4%) — umweltbewusst, linksliberal
+- Left: 45 Sitze (6,3%) — sozialistisch/kommunistisch, überwiegend Opposition
+- NI: 30 Sitze (4,2%) — fraktionslos, gemischt
+- ESN: 27 Sitze (3,8%) — rechtsextrem nationalistisch, Opposition
+
+**Große Koalition (EPP+S&D+Renew):** 398 Sitze — 37 über der Mehrheitsschwelle
+**ENP (Effektive Anzahl der Parteien):** 6,55 — HOHE Fragmentierung
+**Mehrheitsschwelle:** 361 Stimmen
+
+**Koalitionsbewertung (Admiralty B3, WEP):**
+- Große Koalition bei ReArm/Verteidigung: WEP SEHR WAHRSCHEINLICH (75–82%)
+- Große Koalition bei Handelsschutz: WEP SEHR WAHRSCHEINLICH (78–85%)
+- Große Koalition bei Klimadossiers: WEP UNGEFÄHR GLEICH (45–55%) — EPP-Deregulierungsdruck
+- Koalitionsbruchrisiko diese Woche: WEP UNWAHRSCHEINLICH (10–18%) ohne Plenardrucktermin
+
+---
+
+### 🌍 Zusammenfassung des externen Umfelds
+
+**IMF WEO April 2026 (Maßgeblich — Admiralty A1):**
+- Euroraum BIP-Wachstum 2026: **1,4%** (unter Trend, aber beschleunigend)
+- Euroraum Inflation 2026: **2,1%** (kehrt zum Zielwert zurück)
+- Euroraum Arbeitslosigkeit 2026: **6,2%** (schrittweise Verbesserung)
+- Abwärtsrisiko: -0,3 bis -0,5 pp durch US-Zollerhöhungen
+
+**Geopolitischer Kontext:**
+- Ukrainekonflikt dauert an; SAFE-Instrument direkt verknüpft
+- USA–EU Handelsspannungen erhöht, aber noch kein vollständiger Handelskrieg
+- Chinas strategische Konkurrenz prägt die industriepolitische Agenda
+- Migrationsströme erhöht, aber unter dem Krisenniveau von 2015
+
+---
+
+### 📅 Vorschau auf die Woche: Strukturelle Bewertung
+
+**Was diese Woche NICHT geschieht:**
+- Keine Plenarsitzung in Straßburg (letzte: 18.–21. Mai)
+- Keine Brüsseler Mini-Plenar (geplant: ~8.–9. Juni)
+- Keine Abstimmungen, die eine Mobilisierung der Großen Koalition erfordern
+
+**Was diese Woche ERWARTET WIRD (strukturell — Admiralty B1):**
+- 20–26 Ausschusssitzungen (Standard-Inter-Plenar-Wochenmuster)
+- 3–7 in Umlauf gebrachte Berichtsentwürfe
+- 2–5 öffentliche Anhörungen
+- Mehrere Trilog-Sitzungen zu aktiven Dossiers
+- EP-Delegationsaktivitäten (internationale Treffen)
+
+**Erwartete bedeutendste Ausschussarbeit:**
+1. AFET/BUDG — Fortschritt der SAFE-Verordnung
+2. INTA — Überwachung der Handelsverhandlungen (EU–USA)
+3. IMCO/LIBE — Durchsetzungsvorbereitungen für das KI-Gesetz
+4. ENVI — CBAM-Umsetzungsverfolgung
+5. ECON — Bankenunion, CMU-Nachverfolgung
+
+---
+
+### ⚡ Die drei wichtigsten Maßnahmenpunkte für die Woche
+
+1. **SAFE-Trilogsignale beobachten:** Jede offizielle Ankündigung eines Trilog-Datums oder eine AFET-Berichterstattererklärung signalisiert ein bevorstehendes Plenums-Abstimmungsdatum — entscheidend für Interessenvertreter der Verteidigungsindustrie
+2. **US-Handelsentwicklung verfolgen:** Ankündigungen des Weißen Hauses zu EU-Zollfristen könnten eine INTA-Notsitzung auslösen — US-EU-Handelsnachrichten täglich verfolgen
+3. **KI-Gesetz GPAI-Durchsetzungsvorbereitungen beobachten:** Jede Kommissionsankündigung über Durchführungsrechtsakt für KI-Modelle mit allgemeinem Verwendungszweck betrifft die Technologiebranche — IMCO-Anhörungssignal im Blick behalten
+
+---
+
+### 🎯 Konfidenz-Zusammenfassung
+
+| Bewertung | Konfidenz | Grundlage |
+|-----------|-----------|-------|
+| Ausschusswoche bestätigt (kein Plenar) | 🟢 SEHR HOCH | EP bestätigter Kalender (A1) |
+| Große Koalition diese Woche stabil | 🟢 HOCH | Größe + strukturell (B2) |
+| ReArm macht im Ausschuss Fortschritte | 🟡 MITTEL-HOCH | Strukturelles Wissen (B2) |
+| Handelsspannungen erzeugen EP-Antwort | 🟡 MITTEL | IMF Daten + strukturell (B3) |
+| Echtzeit-Ausschusskalender | 🔴 NIEDRIG | Feeds nicht verfügbar (F6) |
+
+### 🔮 30-Tage-Vorausschau
+
+**8.–9. Juni:** Brüsseler Mini-Plenar wahrscheinlich — in den Ausschusswochen 25.–31. Mai und 2.–6. Juni vorbereitete Dossiers könnten erste Lesung-Abstimmungen erhalten
+**22.–25. Juni:** Straßburger Plenar — die Annahmestimmung zur SAFE-Verordnung ist in dieser Sitzung am wahrscheinlichsten, wenn die Ausschussarbeit wie diese Woche erwartet voranschreitet
+
+**Überprüfung der Schlüsselannahmen:**
+- Große Koalition hält bei allen wichtigen Punkten: 🟢 HOCH (kein strukturelles Bruchsignal)
+- Kein externer Schock (Handelskrieg, Sicherheitsvorfall) stört den EP-Zeitplan: 🟡 MITTEL
+- EP-Institutionenkalender bis Juni bestätigt: 🟢 HOCH
+
+**Informationsqualitätsprüfung:**
+- Alle EP-Zusammensetzungsdaten: A1 (offizielle EP Open Data API)
+- IMF Wirtschaftskontext: A1 (WEO April 2026, offizielle Veröffentlichung)
+- Ausschusskalender diese Woche: F6 (Feeds nicht verfügbar, strukturelle Schätzung)
+
+---
+
+### Koalitions- und Blockübersicht
+
+| Block | Sitze | Mehrheit? | Anmerkungen |
+|------|-------|-----------|-------|
+| EPP | 185 | — | Größte Gruppe; kontrolliert Ausschussagenda |
+| S&D | 136 | — | Wichtiger progressiver Partner |
+| Renew | 77 | — | Schwingungspartner bei digitalen/Handelsfragen |
+| EPP+S&D+Renew | 398 | ✅ Ja (361) | Große Koalition lebensfähig; +37 Sitze Puffer |
+| PfE+ECR+ESN | 193 | ❌ Nein | Populistischer Block unter Mehrheitsstärke |
+
+ENP (Effektive Anzahl der Parteien) = 6,55 — hohe Fragmentierung; Koalitionsdisziplin entscheidend für jedes Abstimmungsergebnis diese Woche. Block-Volatilitätsrisiko: MITTEL.
+
+Mit 9 politischen Gruppen und keinem einzigen Mehrheitsblock hängt jedes Abstimmungsergebnis von mindestens 2-Gruppen-Abstimmung ab. Die Große Koalition (EPP+S&D+Renew) hält einen Puffer von 37 Sitzen über dem Minimum von 361 — robust, erfordert aber aktive Koordination diese Woche.
+
+---
+
+*Erstellt: 2026-05-22 | Durchlauf: week-ahead-run270-1779437320 | Datenmodus: beeinträchtigte-Feeds | IMF WEO April 2026 als Wirtschaftsquelle*
+
+### Executive Brief Es
+
+### Semana del 25 al 31 de mayo de 2026 | Producido: 2026-05-22
+### Clasificación: Inteligencia de fuentes abiertas
+**Línea principal: WEP PROBABLE (60–68%) que esta sea una semana intensa de comisiones con avances en ReArm Europe y expedientes de política comercial**
+**Admiralty: B2 (fuentes creíbles, confirmado estructuralmente)**
+
+---
+
+### 🔴 Elementos de inteligencia prioritarios (PIIs)
+
+**PII-1:** Reglamento SAFE (ReArm Europe) — Las comisiones AFET/BUDG impulsan el marco de adquisición conjunta. WEP: MUY PROBABLE (75–82%) que el trabajo en comisión esta semana avance significativamente el calendario SAFE hacia la votación de adopción en el pleno de junio.
+
+**PII-2:** Negociaciones comerciales UE–EE.UU. — La comisión INTA supervisa el mandato de la Comisión. WEP: APROXIMADAMENTE IGUAL (35–45%) que ocurra un desarrollo significativo (audiencia, documento de posición o sesión de urgencia) esta semana. Riesgo IMF PIB: -0,3 a -0,5 pp si se implementan aranceles del 25%.
+
+**PII-3:** Implementación de la Ley de IA — Las comisiones IMCO/LIBE supervisan la preparación para la aplicación. WEP: PROBABLE (55–65%) que se produzca al menos un resultado sustancial de comisión sobre estándares técnicos de la Ley de IA esta semana.
+
+**PII-4:** Implementación completa del CBAM (septiembre de 2026) — Las comisiones ENVI/INTA siguen la preparación para el cumplimiento. WEP: APROXIMADAMENTE IGUAL (40–50%) que esté programada una audiencia formal o informe esta semana.
+
+**PII-5:** Estabilidad de coalición — Gran coalición EPP+S&D+Renew (398/719 escaños = 55,4%). WEP: MUY PROBABLE (80–87%) que la gran coalición se mantenga en todas las votaciones importantes en comisión esta semana.
+
+---
+
+### 🗺️ Resumen del panorama político
+
+**Composición actual del EP10 (confirmada):**
+- 9 grupos políticos, 719 eurodiputados en total
+- EPP: 185 escaños (25,7%) — grupo más grande, controla la mayoría de las presidencias de comisión
+- S&D: 136 escaños (18,9%) — segundo más grande, socio clave en asuntos sociales y laborales
+- PfE: 85 escaños (11,8%) — derecha populista, grupo de oposición
+- ECR: 81 escaños (11,3%) — derecha conservadora, cooperación selectiva con el EPP
+- Renew: 77 escaños (10,7%) — liberal, socio bisagra crítico
+- Greens/EFA: 53 escaños (7,4%) — medioambiental, liberal de izquierda
+- Left: 45 escaños (6,3%) — socialista/comunista, principalmente en la oposición
+- NI: 30 escaños (4,2%) — no inscritos, mixto
+- ESN: 27 escaños (3,8%) — nacionalista de extrema derecha, oposición
+
+**Gran coalición (EPP+S&D+Renew):** 398 escaños — 37 por encima del umbral de mayoría
+**ENP (Número efectivo de partidos):** 6,55 — ALTA fragmentación
+**Umbral de mayoría:** 361 votos
+
+**Evaluación de coalición (Admiralty B3, WEP):**
+- Gran coalición sobre ReArm/Defensa: WEP MUY PROBABLE (75–82%)
+- Gran coalición sobre defensa comercial: WEP MUY PROBABLE (78–85%)
+- Gran coalición sobre expedientes climáticos: WEP APROXIMADAMENTE IGUAL (45–55%) — presión desregulatoria del EPP
+- Riesgo de ruptura de coalición esta semana: WEP POCO PROBABLE (10–18%) sin presión de votación plenaria
+
+---
+
+### 🌍 Resumen del entorno externo
+
+**IMF WEO Abril 2026 (Autorizado — Admiralty A1):**
+- Crecimiento del PIB de la zona euro 2026: **1,4%** (por debajo de la tendencia pero acelerando)
+- Inflación de la zona euro 2026: **2,1%** (retornando al objetivo)
+- Desempleo de la zona euro 2026: **6,2%** (mejora gradual)
+- Riesgo a la baja: -0,3 a -0,5 pp por escalada arancelaria de EE.UU.
+
+**Contexto geopolítico:**
+- El conflicto en Ucrania continúa; instrumento SAFE directamente vinculado
+- Tensión comercial EE.UU.–UE elevada pero aún no una guerra comercial total
+- La competencia estratégica de China moldea la agenda de política industrial
+- Flujos migratorios elevados pero por debajo de los niveles de crisis de 2015
+
+---
+
+### 📅 Semana entrante: Evaluación estructural
+
+**Lo que NO ocurrirá esta semana:**
+- No hay sesión plenaria en Estrasburgo (última: 18–21 de mayo)
+- No hay mini-plenaria en Bruselas (prevista: ~8–9 de junio)
+- No hay votaciones que requieran movilización de la gran coalición
+
+**Lo que SE ESPERA esta semana (estructuralmente — Admiralty B1):**
+- 20–26 reuniones de comisión (patrón estándar de semana inter-plenaria)
+- 3–7 proyectos de informe en circulación
+- 2–5 audiencias públicas
+- Múltiples reuniones de trílogo sobre expedientes activos
+- Actividades de delegaciones del PE (reuniones internacionales)
+
+**Trabajo de comisión más relevante esperado:**
+1. AFET/BUDG — Progresión del Reglamento SAFE
+2. INTA — Supervisión de negociaciones comerciales (UE–EE.UU.)
+3. IMCO/LIBE — Preparaciones para la aplicación de la Ley de IA
+4. ENVI — Seguimiento de la implementación del CBAM
+5. ECON — Unión bancaria, seguimiento de la CMU
+
+---
+
+### ⚡ Los tres principales puntos de acción para la semana
+
+1. **Vigilar señales del trílogo SAFE:** Cualquier anuncio oficial de fecha de trílogo o declaración del ponente AFET señala una fecha inminente de votación en pleno — clave para los interesados en la industria de defensa
+2. **Monitorear los desarrollos comerciales de EE.UU.:** Los anuncios de la Casa Blanca sobre los plazos arancelarios de la UE podrían desencadenar una sesión de urgencia en INTA — seguir noticias comerciales EE.UU.-UE diariamente
+3. **Seguir preparaciones de aplicación GPAI de la Ley de IA:** Cualquier anuncio de la Comisión sobre acto de ejecución para modelos de IA de propósito general afecta a la industria tecnológica — señal de audiencia IMCO a vigilar
+
+---
+
+### 🎯 Resumen de confianza
+
+| Evaluación | Confianza | Base |
+|-----------|-----------|-------|
+| Semana de comisión confirmada (sin plenaria) | 🟢 MUY ALTA | Calendario PE confirmado (A1) |
+| Gran coalición estable esta semana | 🟢 ALTA | Tamaño + estructural (B2) |
+| ReArm avanza en comisión | 🟡 MEDIO-ALTA | Conocimiento estructural (B2) |
+| Tensión comercial produce respuesta del PE | 🟡 MEDIO | Datos IMF + estructural (B3) |
+| Calendario de comisión en tiempo real | 🔴 BAJA | Feeds no disponibles (F6) |
+
+### 🔮 Perspectiva a 30 días
+
+**8–9 de junio:** Mini-plenaria de Bruselas probable — los expedientes avanzados durante las semanas de comisión del 25–31 de mayo y del 2–6 de junio podrían tener votaciones en primera lectura
+**22–25 de junio:** Plenaria de Estrasburgo — la votación de adopción del Reglamento SAFE es más probable en esta sesión si el trabajo en comisión avanza como se espera esta semana
+
+**Verificación de supuestos clave:**
+- La gran coalición se mantiene en todos los asuntos importantes: 🟢 ALTA (sin señal de ruptura estructural)
+- Ningún choque externo (guerra comercial, incidente de seguridad) interrumpe el calendario del PE: 🟡 MEDIO
+- Calendario institucional del PE confirmado hasta junio: 🟢 ALTA
+
+**Verificación de calidad de la información:**
+- Todos los datos de composición del PE: A1 (API oficial EP Open Data)
+- IMF contexto económico: A1 (WEO Abril 2026, publicación oficial)
+- Calendario de comisión esta semana: F6 (feeds no disponibles, estimación estructural)
+
+---
+
+### Resumen de coaliciones y bloques
+
+| Bloque | Escaños | ¿Mayoría? | Notas |
+|------|-------|-----------|-------|
+| EPP | 185 | — | Grupo más grande; controla la agenda de la comisión |
+| S&D | 136 | — | Socio progresista clave |
+| Renew | 77 | — | Socio bisagra en asuntos digitales/comerciales |
+| EPP+S&D+Renew | 398 | ✅ Sí (361) | Gran coalición viable; colchón de +37 escaños |
+| PfE+ECR+ESN | 193 | ❌ No | Bloque populista por debajo de la mayoría |
+
+ENP (Número efectivo de partidos) = 6,55 — alta fragmentación; disciplina de coalición crítica para cada resultado de votación esta semana. Riesgo de volatilidad del bloque: MEDIO.
+
+Con 9 grupos políticos y ningún bloque de mayoría única, cada resultado de votación depende de la alineación de al menos 2 grupos. La gran coalición (EPP+S&D+Renew) mantiene un colchón de 37 escaños por encima del mínimo de 361 — robusto pero requiriendo coordinación activa esta semana.
+
+---
+
+*Producido: 2026-05-22 | Ejecución: week-ahead-run270-1779437320 | Modo de datos: flujos-degradados | IMF WEO Abril 2026 como fuente económica*
+
+### Executive Brief Fi
+
+### Viikko 25–31 toukokuuta 2026 | Tuotettu: 2026-05-22
+### Luokitus: Avoin lähdetiedustelu
+**Ylin rivi: WEP TODENNÄKÖINEN (60–68%) että tästä tulee intensiivinen valiokuntaviikko, jolla tehdään edistystä ReArm Europe -hankkeessa ja kauppapolitiikan asioissa**
+**Admiralty: B2 (luotettavat lähteet, rakenteellisesti vahvistettu)**
+
+---
+
+### 🔴 Ensisijaiset tiedustelupisteet (PII:t)
+
+**PII-1:** SAFE-asetus (ReArm Europe) — AFET/BUDG-valiokunnat edistävät yhteistä hankintakehystä. WEP: ERITTÄIN TODENNÄKÖINEN (75–82%) että tämän viikon valiokuntaworkki vie SAFE-aikataulua merkittävästi kohti kesäistunnon hyväksymisäänestystä.
+
+**PII-2:** EU–USA-kauppaneuvottelut — INTA-valiokunnan valvonta komission mandaatille. WEP: SUUNNILLEEN TASAN (35–45%) että jokin merkittävä tapahtuma (kuuleminen, kannanottodokumentti tai hätäistunto) tapahtuu tällä viikolla. IMF BKT-riski: -0,3–-0,5 pp jos 25 %:n tullit toteutetaan.
+
+**PII-3:** Tekoälylain täytäntöönpano — IMCO/LIBE-valiokunnat valvovat täytäntöönpanon valmiutta. WEP: TODENNÄKÖINEN (55–65%) että ainakin yksi sisällöllinen valiokuntasaavutus tekoälylain teknisistä standardeista tuotetaan tällä viikolla.
+
+**PII-4:** CBAM täysi täytäntöönpano (syyskuu 2026) — ENVI/INTA-valiokunnat seuraavat vaatimustenmukaisuuden valmiutta. WEP: SUUNNILLEEN TASAN (40–50%) että virallinen kuuleminen tai raportti on suunniteltu tälle viikolle.
+
+**PII-5:** Koalitiovakavuus — EPP+S&D+Renew suurkoalitio (398/719 paikkaa = 55,4%). WEP: ERITTÄIN TODENNÄKÖINEN (80–87%) että suurkoalitio pitää kaikissa tärkeissä valiokuntaäänestyksissä tällä viikolla.
+
+---
+
+### 🗺️ Poliittisen maiseman yhteenveto
+
+**Nykyinen EP10-kokoonpano (vahvistettu):**
+- 9 poliittista ryhmää, 719 europarlamentaarikkoa yhteensä
+- EPP: 185 paikkaa (25,7%) — suurin ryhmä, hallitsee eniten valiokuntapuheenjohtajuuksia
+- S&D: 136 paikkaa (18,9%) — toiseksi suurin, avainpartneri sosiaali- ja työvoimakysymyksissä
+- PfE: 85 paikkaa (11,8%) — populistinen oikeisto, oppositioryhmä
+- ECR: 81 paikkaa (11,3%) — konservatiivinen oikeisto, valikoiva yhteistyö EPP:n kanssa
+- Renew: 77 paikkaa (10,7%) — liberaali, kriittinen swing-partneri
+- Greens/EFA: 53 paikkaa (7,4%) — ympäristöystävällinen, vasemmistoliberaali
+- Left: 45 paikkaa (6,3%) — sosialistinen/kommunistinen, pääosin oppositio
+- NI: 30 paikkaa (4,2%) — sitoutumattomat, sekalainen
+- ESN: 27 paikkaa (3,8%) — äärioikeistolainen nationalistinen, oppositio
+
+**Suurkoalitio (EPP+S&D+Renew):** 398 paikkaa — 37 enemmistörajan yli
+**ENP (Puolueiden efektiivinen lukumäärä):** 6,55 — KORKEA pirstoutuneisuus
+**Enemmistökynnys:** 361 ääntä
+
+**Koalitioarvio (Admiralty B3, WEP):**
+- Suurkoalitio ReArm/puolustuksesta: WEP ERITTÄIN TODENNÄKÖINEN (75–82%)
+- Suurkoalitio kauppapuolustuksesta: WEP ERITTÄIN TODENNÄKÖINEN (78–85%)
+- Suurkoalitio ilmastokysymyksistä: WEP SUUNNILLEEN TASAN (45–55%) — EPP sääntelyn purkamispaine
+- Koalitiorikkomisriski tällä viikolla: WEP EPÄTODENNÄKÖINEN (10–18%) koska ei täysistuntopainetta
+
+---
+
+### 🌍 Ulkoisen ympäristön yhteenveto
+
+**IMF WEO huhtikuu 2026 (Auktoritatiivinen — Admiralty A1):**
+- Euroalueen BKT-kasvu 2026: **1,4%** (trendin alapuolella mutta kiihtymässä)
+- Euroalueen inflaatio 2026: **2,1%** (palautumassa tavoitteeseen)
+- Euroalueen työttömyys 2026: **6,2%** (asteittainen parannus)
+- Laskusuuntainen riski: -0,3–-0,5 pp USA:n tullieskalaatiosta
+
+**Geopoliittinen konteksti:**
+- Ukrainan konflikti jatkuu; SAFE-instrumentti suoraan kytketty
+- USA–EU kauppajännitys kohonnut mutta ei vielä täysimittainen tullisota
+- Kiinan strateginen kilpailu muokkaa teollisuuspolitiikan agendaa
+- Muuttovirrat kohonneet mutta alle vuoden 2015 kriisitason
+
+---
+
+### 📅 Tuleva viikko: Rakenteellinen arvio
+
+**Mitä EI tapahdu tällä viikolla:**
+- Ei Strasbourgin täysistuntoa (viimeisin: 18.–21. toukokuuta)
+- Ei Brysselin mini-täysistuntoa (suunniteltu: ~8.–9. kesäkuuta)
+- Ei äänestyksiä, jotka vaatisivat suurkoalition mobilisointia
+
+**Mitä ODOTETAAN tällä viikolla (rakenteellisesti — Admiralty B1):**
+- 20–26 valiokuntakokousta (vakio täysistuntojen välisen viikon malli)
+- 3–7 mietintöluonnosta kierrätettynä
+- 2–5 julkista kuulemista
+- Useita trilogikokouksia aktiivisissa asioissa
+- EP:n valtuuskuntien toiminta (kansainväliset kokoukset)
+
+**Odotetusti tärkein valiokuntaworkki:**
+1. AFET/BUDG — SAFE-asetuksen edistyminen
+2. INTA — kauppaneuvottelujen valvonta (EU–USA)
+3. IMCO/LIBE — tekoälylain täytäntöönpanon valmistelut
+4. ENVI — CBAM:n täytäntöönpanon seuranta
+5. ECON — pankkiunioni, CMU-seuranta
+
+---
+
+### ⚡ Viikon kolme tärkeintä toimenpidettä
+
+1. **Seuraa SAFE-trilogisignaaleja:** Mikä tahansa virallinen ilmoitus trilogipäivästä tai AFET-esittelijän lausunto signaloi lähestyvää täysistuntoäänestyksen päivämäärää — keskeinen puolustusalan sidosryhmille
+2. **Seuraa USA:n kauppakehitystä:** Valkoisen talon ilmoitukset EU-tulliaikatauluista voivat laukaista INTA:n hätäistunnon — seuraa USA-EU-kauppauutisia päivittäin
+3. **Seuraa tekoälylain GPAI-täytäntöönpanon valmisteluja:** Komission mahdollinen täytäntöönpanosäädösilmoitus yleiskäyttöisistä tekoälymalleista vaikuttaa teknologia-alaan — IMCO-kuulemissignaali seurattavaksi
+
+---
+
+### 🎯 Luotettavuusyhteenveto
+
+| Arvio | Luotettavuus | Peruste |
+|-----------|-----------|-------|
+| Valiokuntaviikko vahvistettu (ei täysistuntoa) | 🟢 ERITTÄIN KORKEA | EP vahvistettu kalenteri (A1) |
+| Suurkoalitio vakaa tällä viikolla | 🟢 KORKEA | Koko + rakenteellinen (B2) |
+| ReArm etenee valiokunnassa | 🟡 KESKITASON KORKEA | Rakenteellinen tieto (B2) |
+| Kauppajännitys tuottaa EP:n vastauksen | 🟡 KESKILUOKKA | IMF data + rakenteellinen (B3) |
+| Reaaliaikainen valiokuntaaikataulu | 🔴 MATALA | Syötteet saavuttamattomissa (F6) |
+
+### 🔮 30 päivän eteenpäinkatsaus
+
+**8.–9. kesäkuuta:** Brysselin mini-täysistunto todennäköinen — valiokuntaviikoilla 25.–31. toukokuuta ja 2.–6. kesäkuuta edistyneet asiat voivat saada ensimmäisen käsittelyn äänestyksiä
+**22.–25. kesäkuuta:** Strasbourgin täysistunto — SAFE-asetuksen hyväksymisäänestys on todennäköisin tässä istunnossa, jos valiokuntaworkki etenee odotetusti tällä viikolla
+
+**Keskeisten oletusten tarkistus:**
+- Suurkoalitio pitää kaikissa tärkeissä asioissa: 🟢 KORKEA (ei rakenteellista rikkomissignaalia)
+- Ei ulkoista shokkia (tulliota, turvallisuustapahtumaa) häiritsemään EP:n aikataulua: 🟡 KESKILUOKKA
+- EP:n institutionaalinen kalenteri vahvistettu kesäkuuhun: 🟢 KORKEA
+
+**Tiedon laadun tarkistus:**
+- Kaikki EP:n kokoonpanotiedot: A1 (virallinen EP Open Data API)
+- IMF taloudellinen konteksti: A1 (WEO huhtikuu 2026, virallinen julkaisu)
+- Valiokuntaaikataulu tälle viikolle: F6 (syötteet saavuttamattomissa, rakenteellinen arvio)
+
+---
+
+### Koalitio- ja blokkiyhteenveto
+
+| Blokki | Paikat | Enemmistö? | Huomiot |
+|------|-------|-----------|-------|
+| EPP | 185 | — | Suurin ryhmä; hallitsee valiokunnan agendaa |
+| S&D | 136 | — | Tärkeä edistysmielinen kumppani |
+| Renew | 77 | — | Swing-partneri digitaali-/kauppakysymyksissä |
+| EPP+S&D+Renew | 398 | ✅ Kyllä (361) | Suurkoalitio toimiva; +37 paikan puskuri |
+| PfE+ECR+ESN | 193 | ❌ Ei | Populistilohko alle enemmistön |
+
+ENP (Puolueiden efektiivinen lukumäärä) = 6,55 — korkea pirstoutuneisuus; koalitiokuri ratkaiseva jokaisen äänestystuloksen kannalta tällä viikolla. Blokkivolatiliteettiski: KESKILUOKKA.
+
+Yhdeksällä poliittisella ryhmällä ja ilman yhtä enemmistölohkoa jokainen äänestystulos riippuu vähintään 2 ryhmän yhdensuuntaisuudesta. Suurkoalitio (EPP+S&D+Renew) pitää 37 paikan puskurin yli vähimmäistason 361 — vahva mutta vaatii aktiivista koordinointia tällä viikolla.
+
+---
+
+*Tuotettu: 2026-05-22 | Ajo: week-ahead-run270-1779437320 | Datatila: heikentyneet-syötteet | IMF WEO huhtikuu 2026 taloudellisena lähteenä*
+
+### Executive Brief Fr
+
+### Semaine du 25 au 31 mai 2026 | Produit le: 2026-05-22
+### Classification: Renseignement de sources ouvertes
+**Ligne principale: WEP PROBABLE (60–68%) que cette semaine sera une semaine de commission intense faisant avancer ReArm Europe et les dossiers de politique commerciale**
+**Admiralty: B2 (sources crédibles, structurellement confirmé)**
+
+---
+
+### 🔴 Éléments de renseignement prioritaires (PIIs)
+
+**PII-1:** Règlement SAFE (ReArm Europe) — Les commissions AFET/BUDG font progresser le cadre de passation de marchés commun. WEP: TRÈS PROBABLE (75–82%) que les travaux en commission cette semaine feront avancer de manière significative le calendrier SAFE vers le vote d'adoption en session plénière de juin.
+
+**PII-2:** Négociations commerciales UE–États-Unis — Surveillance par la commission INTA du mandat de la Commission. WEP: À PEU PRÈS ÉGAL (35–45%) qu'un développement significatif (audition, document de position ou session d'urgence) survienne cette semaine. Risque IMF PIB: -0,3 à -0,5 pp si les droits de douane à 25% sont mis en œuvre.
+
+**PII-3:** Mise en œuvre de l'AI Act — Les commissions IMCO/LIBE surveillent l'état de préparation à l'application. WEP: PROBABLE (55–65%) qu'au moins un résultat substantiel de commission sur les normes techniques de l'AI Act soit produit cette semaine.
+
+**PII-4:** Mise en œuvre complète du CBAM (septembre 2026) — Les commissions ENVI/INTA suivent la préparation à la conformité. WEP: À PEU PRÈS ÉGAL (40–50%) qu'une audition formelle ou un rapport soit prévu cette semaine.
+
+**PII-5:** Stabilité de coalition — Grande coalition EPP+S&D+Renew (398/719 sièges = 55,4%). WEP: TRÈS PROBABLE (80–87%) que la grande coalition tienne lors de tous les votes importants en commission cette semaine.
+
+---
+
+### 🗺️ Résumé du paysage politique
+
+**Composition actuelle EP10 (confirmée):**
+- 9 groupes politiques, 719 eurodéputés au total
+- EPP: 185 sièges (25,7%) — plus grand groupe, contrôle la plupart des présidences de commission
+- S&D: 136 sièges (18,9%) — deuxième plus grand, partenaire clé sur les dossiers sociaux et du travail
+- PfE: 85 sièges (11,8%) — droite populiste, groupe d'opposition
+- ECR: 81 sièges (11,3%) — droite conservatrice, coopération sélective avec l'EPP
+- Renew: 77 sièges (10,7%) — libéral, partenaire pivot critique
+- Greens/EFA: 53 sièges (7,4%) — environnemental, libéral de gauche
+- Left: 45 sièges (6,3%) — socialiste/communiste, principalement dans l'opposition
+- NI: 30 sièges (4,2%) — non-inscrits, mixte
+- ESN: 27 sièges (3,8%) — nationaliste d'extrême droite, opposition
+
+**Grande coalition (EPP+S&D+Renew):** 398 sièges — 37 au-dessus du seuil de majorité
+**ENP (Nombre effectif de partis):** 6,55 — HAUTE fragmentation
+**Seuil de majorité:** 361 voix
+
+**Évaluation de coalition (Admiralty B3, WEP):**
+- Grande coalition sur ReArm/Défense: WEP TRÈS PROBABLE (75–82%)
+- Grande coalition sur la défense commerciale: WEP TRÈS PROBABLE (78–85%)
+- Grande coalition sur les dossiers climatiques: WEP À PEU PRÈS ÉGAL (45–55%) — pression de déréglementation EPP
+- Risque de rupture de coalition cette semaine: WEP PEU PROBABLE (10–18%) en l'absence de pression plénière
+
+---
+
+### 🌍 Résumé de l'environnement externe
+
+**IMF WEO Avril 2026 (Faisant autorité — Admiralty A1):**
+- Croissance du PIB de la zone euro 2026: **1,4%** (en dessous de la tendance mais en accélération)
+- Inflation de la zone euro 2026: **2,1%** (retour vers l'objectif)
+- Chômage de la zone euro 2026: **6,2%** (amélioration progressive)
+- Risque à la baisse: -0,3 à -0,5 pp en raison de l'escalade tarifaire américaine
+
+**Contexte géopolitique:**
+- Le conflit ukrainien se poursuit; l'instrument SAFE directement lié
+- Tensions commerciales USA–UE élevées mais pas encore une guerre commerciale totale
+- La concurrence stratégique de la Chine façonne l'agenda de politique industrielle
+- Flux migratoires élevés mais en dessous des niveaux de crise de 2015
+
+---
+
+### 📅 Semaine à venir: Évaluation structurelle
+
+**Ce qui N'aura PAS lieu cette semaine:**
+- Pas de session plénière à Strasbourg (dernière: 18–21 mai)
+- Pas de mini-plénière à Bruxelles (prévue: ~8–9 juin)
+- Pas de votes nécessitant une mobilisation de la grande coalition
+
+**Ce qui EST ATTENDU cette semaine (structurellement — Admiralty B1):**
+- 20–26 réunions de commission (schéma standard de semaine inter-plénière)
+- 3–7 projets de rapport mis en circulation
+- 2–5 auditions publiques
+- Plusieurs réunions de trilogue sur des dossiers actifs
+- Activités des délégations du PE (réunions internationales)
+
+**Travaux de commission les plus importants attendus:**
+1. AFET/BUDG — Progression du règlement SAFE
+2. INTA — Surveillance des négociations commerciales (UE–USA)
+3. IMCO/LIBE — Préparations de l'application de l'AI Act
+4. ENVI — Suivi de la mise en œuvre du CBAM
+5. ECON — Union bancaire, suivi CMU
+
+---
+
+### ⚡ Les trois principaux points d'action pour la semaine
+
+1. **Surveiller les signaux du trilogue SAFE:** Toute annonce officielle d'une date de trilogue ou déclaration du rapporteur AFET signale une date de vote en plénière imminente — essentiel pour les parties prenantes de l'industrie de la défense
+2. **Suivre les développements commerciaux américains:** Les annonces de la Maison-Blanche sur les délais tarifaires UE pourraient déclencher une session d'urgence de l'INTA — suivre les actualités commerciales USA-UE quotidiennement
+3. **Suivre les préparations d'application GPAI de l'AI Act:** Toute annonce de la Commission sur un acte d'exécution pour les modèles d'IA à usage général affecte l'industrie technologique — signal d'audition IMCO à surveiller
+
+---
+
+### 🎯 Résumé de confiance
+
+| Évaluation | Confiance | Base |
+|-----------|-----------|-------|
+| Semaine de commission confirmée (pas de plénière) | 🟢 TRÈS HAUTE | Calendrier PE confirmé (A1) |
+| Grande coalition stable cette semaine | 🟢 HAUTE | Taille + structurel (B2) |
+| ReArm progresse en commission | 🟡 MOYEN-HAUT | Connaissance structurelle (B2) |
+| Tensions commerciales produisent une réponse PE | 🟡 MOYEN | Données IMF + structurel (B3) |
+| Calendrier de commission en temps réel | 🔴 BASSE | Flux non disponibles (F6) |
+
+### 🔮 Regard à 30 jours
+
+**8–9 juin:** Mini-plénière de Bruxelles probable — les dossiers avancés lors des semaines de commission du 25–31 mai et du 2–6 juin pourraient faire l'objet de votes en première lecture
+**22–25 juin:** Plénière de Strasbourg — le vote d'adoption du règlement SAFE est le plus probable lors de cette session si les travaux de commission progressent comme prévu cette semaine
+
+**Vérification des hypothèses clés:**
+- La grande coalition tient sur tous les dossiers importants: 🟢 HAUTE (aucun signal de rupture structurelle)
+- Pas de choc externe (guerre commerciale, incident de sécurité) perturbant le calendrier du PE: 🟡 MOYEN
+- Calendrier institutionnel du PE confirmé jusqu'en juin: 🟢 HAUTE
+
+**Vérification de la qualité de l'information:**
+- Toutes les données de composition du PE: A1 (API officielle EP Open Data)
+- IMF contexte économique: A1 (WEO Avril 2026, publication officielle)
+- Calendrier de commission cette semaine: F6 (flux non disponibles, estimation structurelle)
+
+---
+
+### Résumé des coalitions et des blocs
+
+| Bloc | Sièges | Majorité? | Notes |
+|------|-------|-----------|-------|
+| EPP | 185 | — | Plus grand groupe; contrôle l'agenda des commissions |
+| S&D | 136 | — | Partenaire progressiste essentiel |
+| Renew | 77 | — | Partenaire pivot sur les dossiers numériques/commerciaux |
+| EPP+S&D+Renew | 398 | ✅ Oui (361) | Grande coalition viable; buffer de +37 sièges |
+| PfE+ECR+ESN | 193 | ❌ Non | Bloc populiste en dessous de la majorité |
+
+ENP (Nombre effectif de partis) = 6,55 — fragmentation élevée; discipline de coalition critique pour chaque résultat de vote cette semaine. Risque de volatilité des blocs: MOYEN.
+
+Avec 9 groupes politiques et aucun bloc majoritaire unique, chaque résultat de vote dépend d'au moins 2 groupes en alignement. La grande coalition (EPP+S&D+Renew) maintient un buffer de 37 sièges au-dessus du minimum de 361 — robuste mais nécessitant une coordination active cette semaine.
+
+---
+
+*Produit: 2026-05-22 | Exécution: week-ahead-run270-1779437320 | Mode de données: flux-dégradés | IMF WEO Avril 2026 comme source économique*
+
+### Executive Brief He
+
+### שבוע 25–31 במאי 2026 | הופק: 2026-05-22
+### סיווג: מודיעין ממקורות פתוחים
+**שורה עליונה: WEP סביר (60–68%) שזה יהיה שבוע ועדות אינטנסיבי עם התקדמות ב-ReArm Europe ובתיקי מדיניות הסחר**
+**Admiralty: B2 (מקורות אמינים, אושר מבנית)**
+
+---
+
+### 🔴 פריטי מודיעין בעדיפות עליונה (PIIs)
+
+**PII-1:** תקנת SAFE (ReArm Europe) — ועדות AFET/BUDG מקדמות מסגרת רכש משותפת. WEP: סביר מאוד (75–82%) שעבודת הוועדה השבוע תקדם בצורה משמעותית את לוח הזמנים של SAFE לעבר הצבעת אימוץ במליאת יוני.
+
+**PII-2:** משא ומתן סחר EU–ארה"ב — פיקוח ועדת INTA על מנדט הנציבות. WEP: בערך שווה (35–45%) שיתרחש התפתחות משמעותית (שימוע, מסמך עמדה, או מושב חירום) השבוע. סיכון GDP לפי IMF: מ-0.3 עד 0.5 נקודות אחוז אם יוטלו מכסים של 25%.
+
+**PII-3:** יישום חוק הבינה המלאכותית — ועדות IMCO/LIBE עוקבות אחר מוכנות האכיפה. WEP: סביר (55–65%) שיופק לפחות תוצר ועדה מהותי אחד בנוגע לתקנים הטכניים של חוק הבינה המלאכותית השבוע.
+
+**PII-4:** יישום מלא של CBAM (ספטמבר 2026) — ועדות ENVI/INTA עוקבות אחר מוכנות הציות. WEP: בערך שווה (40–50%) שמתוכנן שימוע רשמי או דו"ח השבוע.
+
+**PII-5:** יציבות קואליציה — קואליציה גדולה EPP+S&D+Renew (398/719 מושבים = 55.4%). WEP: סביר מאוד (80–87%) שהקואליציה הגדולה תחזיק בכל הצבעות הוועדה החשובות השבוע.
+
+---
+
+### 🗺️ סיכום הנוף הפוליטי
+
+**הרכב EP10 הנוכחי (מאושר):**
+- 9 קבוצות פוליטיות, 719 חברי פרלמנט אירופי בסך הכל
+- EPP: 185 מושבים (25.7%) — הקבוצה הגדולה ביותר, שולטת ברוב יושבי ראש הוועדות
+- S&D: 136 מושבים (18.9%) — שנייה בגודלה, שותפה מרכזית בתיקי עבודה וחברה
+- PfE: 85 מושבים (11.8%) — ימין פופוליסטי, קבוצת אופוזיציה
+- ECR: 81 מושבים (11.3%) — ימין שמרן, שיתוף פעולה סלקטיבי עם EPP
+- Renew: 77 מושבים (10.7%) — ליברלי, שותף ציר קריטי
+- Greens/EFA: 53 מושבים (7.4%) — סביבתי, ליברלי שמאל
+- Left: 45 מושבים (6.3%) — סוציאליסטי/קומוניסטי, בעיקר אופוזיציה
+- NI: 30 מושבים (4.2%) — לא-מסונפים, מעורב
+- ESN: 27 מושבים (3.8%) — לאומי ימין קיצוני, אופוזיציה
+
+**קואליציה גדולה (EPP+S&D+Renew):** 398 מושבים — 37 מעל סף הרוב
+**ENP (מספר אפקטיבי של מפלגות):** 6.55 — פיצול גבוה
+**סף רוב:** 361 קולות
+
+**הערכת קואליציה (Admiralty B3, WEP):**
+- קואליציה גדולה על ReArm/הגנה: WEP סביר מאוד (75–82%)
+- קואליציה גדולה על הגנת סחר: WEP סביר מאוד (78–85%)
+- קואליציה גדולה על תיקי אקלים: WEP בערך שווה (45–55%) — לחץ EPP לבטל רגולציה
+- סיכון שבירת קואליציה השבוע: WEP לא סביר (10–18%) בהיעדר לחץ מליאה
+
+---
+
+### 🌍 סיכום הסביבה החיצונית
+
+**IMF WEO אפריל 2026 (מוסמך — Admiralty A1):**
+- צמיחת GDP באירופה 2026: **1.4%** (מתחת לטרנד אך מואץ)
+- אינפלציה באירופה 2026: **2.1%** (חוזרת ליעד)
+- אבטלה באירופה 2026: **6.2%** (שיפור הדרגתי)
+- סיכון כלפי מטה: מ-0.3 עד 0.5 נקודות אחוז מהסלמת מכסי ארה"ב
+
+**הקשר גיאופוליטי:**
+- הסכסוך באוקראינה נמשך; כלי SAFE מקושר ישירות
+- מתחים סחר ארה"ב–EU מוגברים אך לא עדיין מלחמת מכסים מלאה
+- תחרות אסטרטגית סינית מעצבת את סדר היום של מדיניות תעשייתית
+- זרמי הגירה מוגברים אך מתחת לרמות משבר 2015
+
+---
+
+### 📅 השבוע הקרוב: הערכה מבנית
+
+**מה לא יקרה השבוע:**
+- אין מליאה בסטרסבורג (אחרונה: 18–21 במאי)
+- אין מיני-מליאה בבריסל (מתוכננת: ~8–9 ביוני)
+- אין הצבעות הדורשות גיוס הקואליציה הגדולה
+
+**מה צפוי השבוע (מבנית — Admiralty B1):**
+- 20–26 ישיבות ועדה (דפוס סטנדרטי של שבוע בין-מליאות)
+- 3–7 טיוטות דו"ח במחזור
+- 2–5 שימועים פומביים
+- ישיבות טרילוג מרובות על תיקים פעילים
+- פעילויות משלחות EP (ישיבות בינלאומיות)
+
+**עבודת הוועדה המשמעותית ביותר הצפויה:**
+1. AFET/BUDG — התקדמות תקנת SAFE
+2. INTA — פיקוח על משא ומתן סחר (EU–ארה"ב)
+3. IMCO/LIBE — הכנות אכיפה של חוק הבינה המלאכותית
+4. ENVI — מעקב יישום CBAM
+5. ECON — האיחוד הבנקאי, מעקב CMU
+
+---
+
+### ⚡ שלושת פריטי הפעולה המובילים לשבוע
+
+1. **מעקב אחר אותות טרילוג SAFE:** כל הכרזה רשמית על תאריך טרילוג או הצהרת מדווח AFET מסמנת תאריך קרוב להצבעת מליאה — מדד מרכזי לבעלי עניין בתעשיית ההגנה
+2. **מעקב אחר התפתחויות הסחר האמריקאי:** הכרזות הבית הלבן על מועדי מכסי EU עשויות להפעיל מושב חירום של INTA — עקוב אחר חדשות הסחר ארה"ב-EU יומית
+3. **מעקב אחר הכנות אכיפת GPAI של חוק הבינה המלאכותית:** כל הכרזת נציבות על מעשה ביצוע לנשאי AI למטרות כלליות משפיעה על תעשיית הטכנולוגיה — אות שימוע IMCO לצפייה
+
+---
+
+### 🎯 סיכום אמינות
+
+| הערכה | אמינות | בסיס |
+|-----------|-----------|-------|
+| שבוע ועדות מאושר (ללא מליאה) | 🟢 גבוהה מאוד | לוח שנה EP מאושר (A1) |
+| קואליציה גדולה יציבה השבוע | 🟢 גבוהה | גודל + מבני (B2) |
+| ReArm מתקדם בוועדה | 🟡 בינונית-גבוהה | ידע מבני (B2) |
+| מתחי סחר מייצרים תגובת EP | 🟡 בינונית | נתוני IMF + מבני (B3) |
+- לוח זמנים ועדה בזמן אמת | 🔴 נמוכה | עדכונים לא זמינים (F6) |
+
+### 🔮 מבט קדימה ל-30 יום
+
+**8–9 ביוני:** מיני-מליאה בבריסל סביר — תיקים שהתקדמו בשבועות הוועדה 25–31 במאי ו-2–6 ביוני עשויים לקבל הצבעות קריאה ראשונה
+**22–25 ביוני:** מליאה בסטרסבורג — הצבעת אימוץ תקנת SAFE סבירה ביותר במושב זה אם עבודת הוועדה תתקדם כצפוי השבוע
+
+**בדיקת הנחות מרכזיות:**
+- הקואליציה הגדולה מחזיקה בכל הפריטים החשובים: 🟢 גבוהה (אין אות שבירה מבנית)
+- אין זעזוע חיצוני (מלחמת מכסים, אירוע ביטחוני) שיפריע ללוח הזמנים של EP: 🟡 בינונית
+- לוח שנה מוסדי של EP מאושר דרך יוני: 🟢 גבוהה
+
+**בדיקת איכות מידע:**
+- כל נתוני הרכב EP: A1 (EP Open Data API רשמי)
+- IMF הקשר כלכלי: A1 (WEO אפריל 2026, פרסום רשמי)
+- לוח ועדות השבוע: F6 (עדכונים לא זמינים, הערכה מבנית בלבד)
+
+---
+
+### סיכום קואליציות וגושים
+
+| גוש | מושבים | רוב? | הערות |
+|------|-------|-----------|-------|
+| EPP | 185 | — | הקבוצה הגדולה ביותר; שולטת בסדר יום הוועדות |
+| S&D | 136 | — | שותפה פרוגרסיבית מרכזית |
+| Renew | 77 | — | שותפת ציר בתיקים דיגיטליים/סחר |
+| EPP+S&D+Renew | 398 | ✅ כן (361) | קואליציה גדולה ברת-קיימא; מרווח +37 מושבים |
+| PfE+ECR+ESN | 193 | ❌ לא | גוש פופוליסטי מתחת לרוב |
+
+ENP (מספר אפקטיבי של מפלגות) = 6.55 — פיצול גבוה; משמעת קואליציה קריטית לכל תוצאת הצבעה השבוע. סיכון תנודתיות גוש: בינוני.
+
+עם 9 קבוצות פוליטיות ואין גוש רוב יחיד, כל תוצאת הצבעה תלויה בהתאמה של לפחות 2 קבוצות. הקואליציה הגדולה (EPP+S&D+Renew) שומרת על מרווח 37 מושבים מעל המינימום 361 — חזקה אך דורשת תיאום פעיל השבוע.
+
+---
+
+*הופק: 2026-05-22 | ריצה: week-ahead-run270-1779437320 | מצב נתונים: עדכונים מדורדרים | IMF WEO אפריל 2026 כמקור כלכלי*
+
+### Executive Brief Ja
+
+### 2026年5月25日〜31日の週 | 作成日: 2026-05-22
+### 分類: オープンソース・インテリジェンス
+**トップライン: WEP 可能性高（60〜68%）— ReArm Europeおよび貿易政策案件が進展する活発な委員会週となる見込み**
+**Admiralty: B2（信頼できる情報源、構造的に確認済み）**
+
+---
+
+### 🔴 優先情報事項（PIIs）
+
+**PII-1:** SAFE規則（ReArm Europe）— AFET/BUDG委員会が共同調達枠組みを推進中。WEP: 非常に高い可能性（75〜82%）— 今週の委員会作業がSAFEのタイムラインを、6月本会議での採択投票に向けて実質的に前進させるとみられる。
+
+**PII-2:** EU–米国貿易交渉 — INTA委員会が欧州委員会のマンデートを監視中。WEP: ほぼ互角（35〜45%）— 重要な進展（公聴会、立場文書、または緊急会合）が今週発生する可能性。IMF GDP リスク: 25%関税実施の場合、-0.3〜-0.5ポイント。
+
+**PII-3:** AI法の実施 — IMCO/LIBE委員会が施行準備を監視中。WEP: 可能性高（55〜65%）— AI法の技術標準に関する実質的な委員会成果が今週少なくとも1件は生まれるとみられる。
+
+**PII-4:** CBAM完全実施（2026年9月）— ENVI/INTA委員会がコンプライアンス準備状況を追跡中。WEP: ほぼ互角（40〜50%）— 正式な公聴会またはレポートが今週予定されている可能性。
+
+**PII-5:** 連立の安定性 — EPP+S&D+Renew大連立（398/719議席 = 55.4%）。WEP: 非常に高い可能性（80〜87%）— 今週の委員会主要投票すべてにおいて大連立が維持される見込み。
+
+---
+
+### 🗺️ 政治情勢サマリー
+
+**現在のEP10構成（確認済み）:**
+- 9政治グループ、議員総数719人
+- EPP: 185議席（25.7%）— 最大グループ、委員会議長職の大半を掌握
+- S&D: 136議席（18.9%）— 第2位、社会・労働分野の主要パートナー
+- PfE: 85議席（11.8%）— ポピュリスト右派、野党グループ
+- ECR: 81議席（11.3%）— 保守右派、EPPと選択的協力
+- Renew: 77議席（10.7%）— リベラル、重要なスウィングパートナー
+- Greens/EFA: 53議席（7.4%）— 環境重視、左派リベラル
+- Left: 45議席（6.3%）— 社会主義・共産主義系、主に野党
+- NI: 30議席（4.2%）— 非会派、混成
+- ESN: 27議席（3.8%）— 極右民族主義、野党
+
+**大連立（EPP+S&D+Renew）:** 398議席 — 過半数から37議席上回る
+**ENP（有効政党数）:** 6.55 — 高度な分断
+**過半数ライン:** 361票
+
+**連立評価（Admiralty B3, WEP）:**
+- ReArm/防衛に関する大連立: WEP 非常に高い可能性（75〜82%）
+- 貿易防衛に関する大連立: WEP 非常に高い可能性（78〜85%）
+- 気候案件に関する大連立: WEP ほぼ互角（45〜55%）— EPPの規制緩和圧力
+- 今週の連立崩壊リスク: WEP 可能性低（10〜18%）— 本会議採決圧力なし
+
+---
+
+### 🌍 外部環境サマリー
+
+**IMF WEO 2026年4月（権威ある情報源 — Admiralty A1）:**
+- ユーロ圏GDP成長率2026年: **1.4%**（トレンド下だが加速中）
+- ユーロ圏インフレ率2026年: **2.1%**（目標値への回帰）
+- ユーロ圏失業率2026年: **6.2%**（緩やかな改善）
+- 下方リスク: 米国の関税拡大により-0.3〜-0.5ポイント
+
+**地政学的背景:**
+- ウクライナ紛争が継続中；SAFEイニシアチブに直結
+- 米EU貿易緊張は高まっているが、本格的な貿易戦争には至っていない
+- 中国の戦略的競争が産業政策アジェンダを形成
+- 移住の流れは増加しているが、2015年の危機水準には達していない
+
+---
+
+### 📅 週間展望: 構造的評価
+
+**今週起きないこと:**
+- ストラスブール本会議なし（最終回: 5月18〜21日）
+- ブリュッセル・ミニ本会議なし（予定: 約6月8〜9日）
+- 大連立の動員を必要とする採決なし
+
+**今週予想されること（構造的 — Admiralty B1）:**
+- 委員会会合20〜26件（本会議間の週の標準パターン）
+- 報告書草案3〜7件が配布
+- 公開公聴会2〜5件
+- 活動中の案件に関するトリローグ会合複数
+- EP代表団活動（国際会合）
+
+**予想される最重要委員会作業:**
+1. AFET/BUDG — SAFE規則の進展
+2. INTA — 貿易交渉の監視（EU–米国）
+3. IMCO/LIBE — AI法施行準備
+4. ENVI — CBAM実施追跡
+5. ECON — 銀行同盟、CMUフォローアップ
+
+---
+
+### ⚡ 今週の最重要アクション3件
+
+1. **SAFEトリローグシグナルの監視:** トリローグ日程の公式発表またはAFET報告者の声明は本会議採決日程が近いことを示すシグナル — 防衛産業関係者にとって重要な指標
+2. **米国の貿易動向の監視:** ホワイトハウスのEU関税期限に関する発表はINTAの緊急会合を引き起こす可能性 — 米国-EU貿易ニュースを毎日追跡すること
+3. **AI法のGPAI施行準備の追跡:** 欧州委員会による汎用AIモデルの施行措置に関する発表はテクノロジー産業に影響を与える — IMCO公聴会シグナルに注目
+
+---
+
+### 🎯 信頼度サマリー
+
+| 評価 | 信頼度 | 根拠 |
+|-----------|-----------|-------|
+| 委員会週確認済み（本会議なし） | 🟢 非常に高い | EP確認済みカレンダー（A1） |
+| 大連立は今週安定 | 🟢 高い | 規模＋構造的（B2） |
+| ReArmは委員会で進展中 | 🟡 中程度〜高い | 構造的知識（B2） |
+| 貿易緊張がEPの対応を促す | 🟡 中程度 | IMFデータ＋構造的（B3） |
+| リアルタイム委員会スケジュール | 🔴 低い | フィード利用不可（F6） |
+
+### 🔮 30日間の先行展望
+
+**6月8〜9日:** ブリュッセル・ミニ本会議が見込まれる — 5月25〜31日および6月2〜6日の委員会週で進展した案件は第一読会採決を迎える可能性がある
+**6月22〜25日:** ストラスブール本会議 — 今週委員会作業が予想通り進展した場合、SAFE規則の採択投票はこの会期が最も有力
+
+**主要前提の確認:**
+- 大連立はすべての主要案件で維持される: 🟢 高い（構造的崩壊シグナルなし）
+- 外部衝撃（貿易戦争、安全保障事案）がEPスケジュールを妨げない: 🟡 中程度
+- EPの制度カレンダーは6月まで確認済み: 🟢 高い
+
+**情報品質チェック:**
+- すべてのEP構成データ: A1（公式EP Open Data API）
+- IMF 経済的背景: A1（WEO 2026年4月、公式刊行物）
+- 今週の委員会スケジュール: F6（フィード利用不可、構造的推定のみ）
+
+---
+
+### 連立・ブロックサマリー
+
+| ブロック | 議席 | 過半数？ | 備考 |
+|------|-------|-----------|-------|
+| EPP | 185 | — | 最大グループ；委員会議題を掌握 |
+| S&D | 136 | — | 主要な進歩的パートナー |
+| Renew | 77 | — | デジタル・貿易分野のスウィングパートナー |
+| EPP+S&D+Renew | 398 | ✅ あり（361） | 大連立が成立；+37議席の余裕 |
+| PfE+ECR+ESN | 193 | ❌ なし | ポピュリスト・ブロックは過半数未満 |
+
+ENP（有効政党数）= 6.55 — 高度な分断；連立の規律が今週のすべての採決結果に決定的な影響を及ぼす。ブロック変動リスク: 中程度。
+
+9政治グループが存在し単独の多数派ブロックがない中、すべての採決結果は少なくとも2グループの連携にかかっている。大連立（EPP+S&D+Renew）は最低ライン361を37議席上回る余裕を保持しており、堅固ではあるが今週は積極的な調整が必要。
+
+---
+
+*作成日: 2026-05-22 | 実行: week-ahead-run270-1779437320 | データモード: 劣化フィード | IMF WEO 2026年4月を経済情報源として使用*
+
+### Executive Brief Ko
+
+### 2026년 5월 25일~31일 주간 | 작성일: 2026-05-22
+### 분류: 공개출처정보
+**핵심 요약: WEP 가능성 높음(60~68%) — ReArm Europe 및 무역정책 안건이 진전되는 집중 위원회 주간이 될 전망**
+**Admiralty: B2(신뢰할 수 있는 출처, 구조적으로 확인됨)**
+
+---
+
+### 🔴 우선 정보 항목(PIIs)
+
+**PII-1:** SAFE 규정(ReArm Europe) — AFET/BUDG 위원회가 공동 조달 프레임워크를 추진 중. WEP: 매우 높음(75~82%) — 이번 주 위원회 작업이 SAFE 일정을 6월 본회의 채택 투표 방향으로 의미 있게 진전시킬 전망.
+
+**PII-2:** EU–미국 무역 협상 — INTA 위원회가 집행위원회 위임 사항을 감시 중. WEP: 거의 비슷함(35~45%) — 이번 주 중요한 진전(청문회, 입장 문서 또는 긴급 회의)이 발생할 가능성. IMF GDP 위험: 25% 관세 시행 시 -0.3~-0.5퍼센트포인트.
+
+**PII-3:** AI법 이행 — IMCO/LIBE 위원회가 집행 준비 상황을 모니터링 중. WEP: 가능성 높음(55~65%) — 이번 주 AI법 기술 표준에 관한 실질적인 위원회 결과물이 최소 1건은 생산될 전망.
+
+**PII-4:** CBAM 완전 이행(2026년 9월) — ENVI/INTA 위원회가 준수 준비 상황을 추적 중. WEP: 거의 비슷함(40~50%) — 이번 주 공식 청문회 또는 보고서가 예정될 가능성.
+
+**PII-5:** 연립 안정성 — EPP+S&D+Renew 대연립(398/719석 = 55.4%). WEP: 매우 높음(80~87%) — 이번 주 주요 위원회 투표 전체에서 대연립이 유지될 전망.
+
+---
+
+### 🗺️ 정치 지형 요약
+
+**현재 EP10 구성(확인됨):**
+- 9개 정치 그룹, 총 의원 719명
+- EPP: 185석(25.7%) — 최대 그룹, 대부분의 위원회 의장직 장악
+- S&D: 136석(18.9%) — 두 번째로 큰 그룹, 사회·노동 안건 핵심 파트너
+- PfE: 85석(11.8%) — 포퓰리스트 우파, 야당 그룹
+- ECR: 81석(11.3%) — 보수 우파, EPP와 선택적 협력
+- Renew: 77석(10.7%) — 자유주의, 핵심 스윙 파트너
+- Greens/EFA: 53석(7.4%) — 환경 중심, 좌파 자유주의
+- Left: 45석(6.3%) — 사회주의/공산주의 계열, 주로 야당
+- NI: 30석(4.2%) — 무소속, 혼성
+- ESN: 27석(3.8%) — 극우 민족주의, 야당
+
+**대연립(EPP+S&D+Renew):** 398석 — 과반수 기준보다 37석 초과
+**ENP(유효 정당 수):** 6.55 — 높은 분열
+**과반수 기준:** 361표
+
+**연립 평가(Admiralty B3, WEP):**
+- ReArm/국방 관련 대연립: WEP 매우 높음(75~82%)
+- 무역 방어 관련 대연립: WEP 매우 높음(78~85%)
+- 기후 안건 관련 대연립: WEP 거의 비슷함(45~55%) — EPP 규제 완화 압력
+- 이번 주 연립 균열 위험: WEP 낮음(10~18%) — 본회의 투표 압력 없음
+
+---
+
+### 🌍 외부 환경 요약
+
+**IMF WEO 2026년 4월(권위 있는 출처 — Admiralty A1):**
+- 유로존 GDP 성장률 2026년: **1.4%**(추세 이하이나 가속 중)
+- 유로존 인플레이션 2026년: **2.1%**(목표치 회복 중)
+- 유로존 실업률 2026년: **6.2%**(점진적 개선)
+- 하방 위험: 미국 관세 확대로 -0.3~-0.5퍼센트포인트
+
+**지정학적 맥락:**
+- 우크라이나 분쟁 지속; SAFE 수단과 직접 연계
+- 미국-EU 무역 긴장 고조 중이나 전면적 무역 전쟁에는 미달
+- 중국의 전략적 경쟁이 산업정책 어젠다를 형성
+- 이주 흐름은 증가했으나 2015년 위기 수준 이하
+
+---
+
+### 📅 주간 전망: 구조적 평가
+
+**이번 주 발생하지 않을 사항:**
+- 스트라스부르 본회의 없음(마지막: 5월 18~21일)
+- 브뤼셀 미니 본회의 없음(예정: 약 6월 8~9일)
+- 대연립 동원이 필요한 투표 없음
+
+**이번 주 예상 사항(구조적 — Admiralty B1):**
+- 위원회 회의 20~26건(본회의 간 주간 표준 패턴)
+- 보고서 초안 3~7건 배포
+- 공개 청문회 2~5건
+- 진행 중인 안건에 대한 삼자 협의 여러 건
+- EP 대표단 활동(국제 회의)
+
+**예상되는 가장 중요한 위원회 작업:**
+1. AFET/BUDG — SAFE 규정 진전
+2. INTA — 무역 협상 감시(EU–미국)
+3. IMCO/LIBE — AI법 집행 준비
+4. ENVI — CBAM 이행 추적
+5. ECON — 은행 동맹, CMU 후속 조치
+
+---
+
+### ⚡ 이번 주 최우선 행동 항목 3개
+
+1. **SAFE 삼자 협의 신호 모니터링:** 삼자 협의 날짜 공식 발표 또는 AFET 보고자 성명은 본회의 투표 날짜 임박을 의미 — 방위산업 이해관계자에게 핵심 지표
+2. **미국 무역 동향 모니터링:** 백악관의 EU 관세 기한 관련 발표는 INTA 긴급 회의를 촉발할 수 있음 — 미국-EU 무역 뉴스 매일 추적
+3. **AI법 GPAI 집행 준비 추적:** 집행위원회의 범용 AI 모델 이행 조치 발표는 기술 산업에 영향 — IMCO 청문회 신호 주시
+
+---
+
+### 🎯 신뢰도 요약
+
+| 평가 | 신뢰도 | 근거 |
+|-----------|-----------|-------|
+| 위원회 주간 확인됨(본회의 없음) | 🟢 매우 높음 | EP 확인된 일정(A1) |
+| 대연립 이번 주 안정적 | 🟢 높음 | 규모 + 구조적(B2) |
+| ReArm이 위원회에서 진전 중 | 🟡 중간~높음 | 구조적 지식(B2) |
+| 무역 긴장이 EP 반응 촉발 | 🟡 중간 | IMF 데이터 + 구조적(B3) |
+| 실시간 위원회 일정 | 🔴 낮음 | 피드 이용 불가(F6) |
+
+### 🔮 30일 선행 전망
+
+**6월 8~9일:** 브뤼셀 미니 본회의 가능성 높음 — 5월 25~31일 및 6월 2~6일 위원회 주간에 진전된 안건들이 1차 독회 투표를 가질 수 있음
+**6월 22~25일:** 스트라스부르 본회의 — 이번 주 예상대로 위원회 작업이 진전될 경우 SAFE 규정 채택 투표가 이 회기에 이뤄질 가능성 가장 높음
+
+**핵심 가정 확인:**
+- 대연립이 모든 주요 안건에서 유지됨: 🟢 높음(구조적 균열 신호 없음)
+- 외부 충격(무역 전쟁, 안보 사건)이 EP 일정을 방해하지 않음: 🟡 중간
+- EP 기관 일정이 6월까지 확인됨: 🟢 높음
+
+**정보 품질 점검:**
+- 모든 EP 구성 데이터: A1(공식 EP Open Data API)
+- IMF 경제적 맥락: A1(WEO 2026년 4월, 공식 발행물)
+- 이번 주 위원회 일정: F6(피드 이용 불가, 구조적 추정만 가능)
+
+---
+
+### 연립 및 블록 요약
+
+| 블록 | 의석 | 과반수? | 비고 |
+|------|-------|-----------|-------|
+| EPP | 185 | — | 최대 그룹; 위원회 의제 장악 |
+| S&D | 136 | — | 핵심 진보적 파트너 |
+| Renew | 77 | — | 디지털/무역 안건의 스윙 파트너 |
+| EPP+S&D+Renew | 398 | ✅ 예(361) | 대연립 유효; +37석 완충 |
+| PfE+ECR+ESN | 193 | ❌ 아니오 | 포퓰리스트 블록은 과반수 미달 |
+
+ENP(유효 정당 수) = 6.55 — 높은 분열; 이번 주 모든 투표 결과에 연립 규율이 결정적. 블록 변동성 위험: 중간.
+
+9개 정치 그룹과 단독 과반수 블록이 없는 상황에서 모든 투표 결과는 최소 2개 그룹의 연대에 달려 있다. 대연립(EPP+S&D+Renew)은 최소 기준 361석보다 37석 많은 완충을 유지하고 있어 견고하나, 이번 주에는 적극적인 조율이 필요하다.
+
+---
+
+*작성일: 2026-05-22 | 실행: week-ahead-run270-1779437320 | 데이터 모드: 피드 저하 | IMF WEO 2026년 4월을 경제 정보원으로 활용*
+
+### Executive Brief Nl
+
+### Week van 25–31 mei 2026 | Opgesteld: 2026-05-22
+### Classificatie: Inlichtingen uit open bronnen
+**Hoofdlijn: WEP WAARSCHIJNLIJK (60–68%) dat dit een intensieve commissieweek wordt met vooruitgang in ReArm Europe en handelsdossiers**
+**Admiralty: B2 (geloofwaardige bronnen, structureel bevestigd)**
+
+---
+
+### 🔴 Prioritaire inlichtingspunten (PIIs)
+
+**PII-1:** SAFE-verordening (ReArm Europe) — AFET/BUDG-commissies bevorderen gezamenlijk aanbestedingskader. WEP: ZEER WAARSCHIJNLIJK (75–82%) dat het commissiewerk deze week de SAFE-tijdlijn zinvol vooruit brengt richting adoptiestemming in de juni-plenaire vergadering.
+
+**PII-2:** EU–VS handelsonderhandelingen — INTA-commissie houdt toezicht op het mandaat van de Commissie. WEP: ONGEVEER GELIJK (35–45%) dat een significante ontwikkeling (hoorzitting, positiedocument of noodsessie) deze week plaatsvindt. IMF bbp-risico: -0,3 tot -0,5 pp bij invoering van 25%-tarieven.
+
+**PII-3:** Uitvoering van de AI Act — IMCO/LIBE-commissies volgen de handhavingsgereedheid. WEP: WAARSCHIJNLIJK (55–65%) dat er deze week minstens één substantieel commissieresultaat over technische normen van de AI Act wordt geproduceerd.
+
+**PII-4:** Volledige implementatie van CBAM (september 2026) — ENVI/INTA-commissies volgen de nalevingsgereedheid. WEP: ONGEVEER GELIJK (40–50%) dat een formele hoorzitting of rapport deze week gepland is.
+
+**PII-5:** Coalitiestabiliteit — EPP+S&D+Renew grote coalitie (398/719 zetels = 55,4%). WEP: ZEER WAARSCHIJNLIJK (80–87%) dat de grote coalitie stand houdt bij alle belangrijke commissiestemmingen deze week.
+
+---
+
+### 🗺️ Samenvatting politiek landschap
+
+**Huidige EP10-samenstelling (bevestigd):**
+- 9 politieke groepen, 719 EP-leden totaal
+- EPP: 185 zetels (25,7%) — grootste groep, heeft de meeste commissievoorzitterschappen
+- S&D: 136 zetels (18,9%) — op één na grootste, sleutelpartner bij sociale en arbeidsdossiers
+- PfE: 85 zetels (11,8%) — populistisch rechts, oppositiegroep
+- ECR: 81 zetels (11,3%) — conservatief rechts, selectieve samenwerking met EPP
+- Renew: 77 zetels (10,7%) — liberaal, kritische swingpartner
+- Greens/EFA: 53 zetels (7,4%) — milieugericht, linksliberaal
+- Left: 45 zetels (6,3%) — socialistisch/communistisch, voornamelijk oppositie
+- NI: 30 zetels (4,2%) — niet-ingeschreven, gemengd
+- ESN: 27 zetels (3,8%) — rechtsextremistisch nationalistisch, oppositie
+
+**Grote coalitie (EPP+S&D+Renew):** 398 zetels — 37 boven de meerderheidsdrempel
+**ENP (Effectief aantal partijen):** 6,55 — HOGE fragmentatie
+**Meerderheidsdrempel:** 361 stemmen
+
+**Coalitie-evaluatie (Admiralty B3, WEP):**
+- Grote coalitie over ReArm/Defensie: WEP ZEER WAARSCHIJNLIJK (75–82%)
+- Grote coalitie over handelsbescherming: WEP ZEER WAARSCHIJNLIJK (78–85%)
+- Grote coalitie over klimaatdossiers: WEP ONGEVEER GELIJK (45–55%) — EPP dereguleringdruk
+- Risico op coalitiebreuk deze week: WEP ONWAARSCHIJNLIJK (10–18%) bij afwezigheid van plenaire stemdruk
+
+---
+
+### 🌍 Samenvatting externe omgeving
+
+**IMF WEO April 2026 (Gezaghebbend — Admiralty A1):**
+- Bbp-groei eurozone 2026: **1,4%** (onder trend maar versnellend)
+- Inflatie eurozone 2026: **2,1%** (keert terug naar doelstelling)
+- Werkloosheid eurozone 2026: **6,2%** (geleidelijke verbetering)
+- Neerwaarts risico: -0,3 tot -0,5 pp door Amerikaanse tariefescalatie
+
+**Geopolitieke context:**
+- Het conflict in Oekraïne duurt voort; SAFE-instrument rechtstreeks gekoppeld
+- USA–EU handelsspanning verhoogd maar nog geen volledige handelsoorlog
+- Strategische concurrentie van China beïnvloedt de industriebeleidagenda
+- Migratiestromen verhoogd maar onder crisisniveaus van 2015
+
+---
+
+### 📅 Week vooruit: Structurele beoordeling
+
+**Wat er deze week NIET zal plaatsvinden:**
+- Geen plenaire vergadering in Straatsburg (laatste: 18–21 mei)
+- Geen Brussel mini-plenaire (gepland: ~8–9 juni)
+- Geen stemmingen die mobilisatie van de grote coalitie vereisen
+
+**Wat er deze week WORDT VERWACHT (structureel — Admiralty B1):**
+- 20–26 commissievergaderingen (standaard inter-plenaire weekpatroon)
+- 3–7 in omloop gebrachte ontwerp-rapporten
+- 2–5 openbare hoorzittingen
+- Meerdere triloogvergaderingen over actieve dossiers
+- EP-delegatieactiviteiten (internationale vergaderingen)
+
+**Verwacht meest consequent commissiewerk:**
+1. AFET/BUDG — Voortgang van de SAFE-verordening
+2. INTA — Toezicht op handelsonderhandelingen (EU–VS)
+3. IMCO/LIBE — Handhavingsvoorbereidingen AI Act
+4. ENVI — CBAM-implementatiebeheer
+5. ECON — Bankenunie, CMU-opvolging
+
+---
+
+### ⚡ Top drie actiepunten voor de week
+
+1. **SAFE-trilogssignalen volgen:** Elke officiële aankondiging van een trilogdatum of AFET-rapporteurverklaring signaleert een ophanden zijnde plenaire stemming — cruciaal voor belanghebbenden in de defensie-industrie
+2. **Amerikaanse handelsontwikkelingen monitoren:** Aankondigingen van het Witte Huis over EU-tariefdeadlines kunnen een INTA-noodsessie uitlokken — dagelijks VS-EU-handelsnieuws volgen
+3. **AI Act GPAI-handhavingsvoorbereidingen volgen:** Elke Commissieaankondiging over uitvoeringshandeling voor modellen voor algemeen gebruik beïnvloedt de technologiesector — IMCO-hoorzittingssignaal in het oog houden
+
+---
+
+### 🎯 Betrouwbaarheidssamenvatting
+
+| Beoordeling | Betrouwbaarheid | Basis |
+|-----------|-----------|-------|
+| Commissieweek bevestigd (geen plenaire) | 🟢 ZEER HOOG | EP bevestigde kalender (A1) |
+| Grote coalitie stabiel deze week | 🟢 HOOG | Omvang + structureel (B2) |
+| ReArm vordert in commissie | 🟡 MIDDEL-HOOG | Structurele kennis (B2) |
+| Handelsspanning produceert EP-reactie | 🟡 MIDDEL | IMF gegevens + structureel (B3) |
+| Realtime commissieschema | 🔴 LAAG | Feeds niet beschikbaar (F6) |
+
+### 🔮 30-daagse vooruitblik
+
+**8–9 juni:** Brussels mini-plenaire waarschijnlijk — dossiers die zijn gevorderd tijdens de commissieweken van 25–31 mei en 2–6 juni kunnen eerste lezing-stemmingen krijgen
+**22–25 juni:** Straatsburg plenaire — de adoptiestemming voor de SAFE-verordening is het meest waarschijnlijk in deze vergadering als het commissiewerk deze week vordert zoals verwacht
+
+**Controle van sleutelaannames:**
+- Grote coalitie houdt stand op alle grote punten: 🟢 HOOG (geen structureel breuksignaal)
+- Geen externe schok (handelsoorlog, veiligheidsincident) verstoort EP-tijdlijn: 🟡 MIDDEL
+- EP institutionele kalender bevestigd tot en met juni: 🟢 HOOG
+
+**Informatiakwaliteitscontrole:**
+- Alle EP-samenstellingsgegevens: A1 (officiële EP Open Data API)
+- IMF economische context: A1 (WEO April 2026, officiële publicatie)
+- Commissieschema deze week: F6 (feeds niet beschikbaar, structurele schatting)
+
+---
+
+### Coalitie- en blokkenöverzicht
+
+| Blok | Zetels | Meerderheid? | Opmerkingen |
+|------|-------|-----------|-------|
+| EPP | 185 | — | Grootste groep; controleert commissieagenda |
+| S&D | 136 | — | Belangrijke progressieve partner |
+| Renew | 77 | — | Swingpartner op digitale/handelsdossiers |
+| EPP+S&D+Renew | 398 | ✅ Ja (361) | Grote coalitie haalbaar; +37 zetels buffer |
+| PfE+ECR+ESN | 193 | ❌ Nee | Populistisch blok onder meerderheid |
+
+ENP (Effectief aantal partijen) = 6,55 — hoge fragmentatie; coalitiediscipline kritisch voor elk stemresultaat deze week. Blokvluchtigheidsrisico: MIDDEL.
+
+Met 9 politieke groepen en geen enkel meerderheidsblok hangt elk stemresultaat af van uitlijning van ten minste 2 groepen. De grote coalitie (EPP+S&D+Renew) handhaaft een buffer van 37 zetels boven het minimum van 361 — robuust maar vereist actieve coördinatie deze week.
+
+---
+
+*Opgesteld: 2026-05-22 | Run: week-ahead-run270-1779437320 | Gegevensmodus: gedegradeerde-feeds | IMF WEO April 2026 als economische bron*
+
+### Executive Brief No
+
+### Uke 25–31 mai 2026 | Produsert: 2026-05-22
+### Klassifisering: Åpen kildeetterretning
+**Topplinje: WEP SANNSYNLIG (60–68%) at dette blir en intensiv komitéuke med fremgang i ReArm Europe og handelspolitiske saker**
+**Admiralty: B2 (troverdige kilder, strukturelt bekreftet)**
+
+---
+
+### 🔴 Prioriterte etterretningspunkter (PIIs)
+
+**PII-1:** SAFE-forordningen (ReArm Europe) — AFET/BUDG-komiteene driver felles anskaffelsesrammeverk. WEP: SVÆRT SANNSYNLIG (75–82%) at komitéarbeidet denne uken på en meningsfull måte driver SAFE-tidslinjen mot avstemning om vedtakelse i juniplenumsmøtet.
+
+**PII-2:** EU–US handelsforhandlinger — INTA-komiteens tilsyn med Kommisjonens mandat. WEP: OMTRENT JEVNT (35–45%) at en betydelig hendelse (høring, posisjonsnotat eller nødsesjon) inntreffer denne uken. IMF BNP-risiko: -0,3 til -0,5 pp hvis 25%-toldsatser implementeres.
+
+**PII-3:** AI-lovens gjennomføring — IMCO/LIBE-komiteene overvåker håndhevingens beredskap. WEP: SANNSYNLIG (55–65%) at minst ett substansielt komitéresultat om AI-lovens tekniske standarder produseres denne uken.
+
+**PII-4:** CBAM full implementering (september 2026) — ENVI/INTA-komiteene sporer etterlevelsesklarhet. WEP: OMTRENT JEVNT (40–50%) at en formell høring eller rapport er planlagt denne uken.
+
+**PII-5:** Koalisjonsstabilitet — EPP+S&D+Renew storkoalisjon (398/719 seter = 55,4%). WEP: SVÆRT SANNSYNLIG (80–87%) at storkoalisjonen holder ved alle viktige komitéavstemninger denne uken.
+
+---
+
+### 🗺️ Sammendrag av det politiske landskapet
+
+**Nåværende EP10-sammensetning (bekreftet):**
+- 9 politiske grupper, 719 MEP-er totalt
+- EPP: 185 seter (25,7%) — største gruppe, kontrollerer flest komitélederskaper
+- S&D: 136 seter (18,9%) — nest størst, nøkkelpartner på sosiale og arbeidsmarkeds saker
+- PfE: 85 seter (11,8%) — populistisk høyre, opposisjonsgruppe
+- ECR: 81 seter (11,3%) — konservativt høyre, selektivt samarbeid med EPP
+- Renew: 77 seter (10,7%) — liberal, kritisk swingpartner
+- Greens/EFA: 53 seter (7,4%) — miljøvennlig, venstreliberal
+- Left: 45 seter (6,3%) — sosialistisk/kommunistisk, hovedsakelig opposisjon
+- NI: 30 seter (4,2%) — ikke-tilknyttede, blandede
+- ESN: 27 seter (3,8%) — ekstremhøyre nasjonalistisk, opposisjon
+
+**Storkoalisjon (EPP+S&D+Renew):** 398 seter — 37 over flertallsgrensen
+**ENP (Effektivt antall partier):** 6,55 — HØY fragmentering
+**Flertallsterskel:** 361 stemmer
+
+**Koalisjonsvurdering (Admiralty B3, WEP):**
+- Storkoalisjon om ReArm/forsvar: WEP SVÆRT SANNSYNLIG (75–82%)
+- Storkoalisjon om handelsbeskyttelse: WEP SVÆRT SANNSYNLIG (78–85%)
+- Storkoalisjon om klimasaker: WEP OMTRENT JEVNT (45–55%) — EPP dereguleringstrykk
+- Koalisjonsbruddrisiko denne uken: WEP USANNSYNLIG (10–18%) gitt ingen plenumstrykk
+
+---
+
+### 🌍 Sammendrag av det eksterne miljøet
+
+**IMF WEO april 2026 (Autoritativt — Admiralty A1):**
+- Eurosonens BNP-vekst 2026: **1,4%** (under trend men akselererende)
+- Eurosonens inflasjon 2026: **2,1%** (returnerer til målet)
+- Eurosonens arbeidsledighet 2026: **6,2%** (gradvis forbedring)
+- Nedadgående risiko: -0,3 til -0,5 pp fra USA-tolleskalering
+
+**Geopolitisk kontekst:**
+- Ukraina-konflikten fortsetter; SAFE-instrumentet direkte knyttet
+- USA–EU handelsspenning forhøyet men ikke ennå full tollkrig
+- Kinas strategiske konkurranse former industripolitisk agenda
+- Migrasjonsstrømmene forhøyede men under 2015-krisenivåene
+
+---
+
+### 📅 Uken fremover: Strukturell vurdering
+
+**Hva som IKKE skjer denne uken:**
+- Ingen plenumssesjon i Strasbourg (sist: 18–21 mai)
+- Ingen Brussel mini-plenum (planlagt: ~8–9 juni)
+- Ingen avstemninger som krever storkoalisjonsmobilisering
+
+**Hva som FORVENTES denne uken (strukturelt — Admiralty B1):**
+- 20–26 komitémøter (standard inter-plenum-ukemønster)
+- 3–7 utkast til betenkninger sirkulert
+- 2–5 offentlige høringer
+- Flere trilog-møter om aktive saker
+- EP-delegasjonsaktiviteter (internasjonale møter)
+
+**Mest konsekvente komitéarbeid forventet:**
+1. AFET/BUDG — SAFE-forordningens progresjon
+2. INTA — tilsyn med handelsforhandlinger (EU–USA)
+3. IMCO/LIBE — AI-lovens håndhevelsesforberedelser
+4. ENVI — CBAM implementeringssporing
+5. ECON — Bankunionen, CMU-oppfølging
+
+---
+
+### ⚡ Topp tre handlingspunkter for uken
+
+1. **Overvåk SAFE-trilogsignaler:** Enhver offisiell kunngjøring om trilogdato eller AFET-ordføreruttalselse signaliserer en nær forestående plenumsavstemningsdato — nøkkelindikator for forsvarsindustriens interessenter
+2. **Følg USA-handelsutviklingen:** Det hvite hus' kunngjøringer om EU-tollfristene kan utløse en nødsesjon i INTA — følg USA-EU-handelsnyheter daglig
+3. **Følg AI-lovens GPAI-håndhevelsesforberedelser:** Enhver Kommisjonskunngjøring om gjennomføringsakt for modeller med generell formål AI påvirker teknologibransjen — IMCO-høringssignal å holde øye med
+
+---
+
+### 🎯 Konfidensoversikt
+
+| Vurdering | Konfidens | Grunnlag |
+|-----------|-----------|-------|
+| Komitéuke bekreftet (ingen plenum) | 🟢 SVÆRT HØY | EP bekreftet kalender (A1) |
+| Storkoalisjon stabil denne uken | 🟢 HØY | Størrelse + strukturelt (B2) |
+| ReArm skrider frem i komité | 🟡 MIDDELS-HØY | Strukturell kunnskap (B2) |
+| Handelsspenning produserer EP-svar | 🟡 MIDDELS | IMF data + strukturelt (B3) |
+| Realtids komitékalender | 🔴 LAV | Feeds utilgjengelige (F6) |
+
+### 🔮 30-dagers fremtidsutsikt
+
+**8–9 juni:** Brussel mini-plenum sannsynlig — saker fremmet i komitéukene 25–31 mai og 2–6 juni kan ha førstebehandlingsavstemninger
+**22–25 juni:** Strasbourg plenum — SAFE-forordningens vedtakelsesavstemning er mest sannsynlig i denne sesjonen dersom komitéarbeidet avanserer som forventet denne uken
+
+**Kontroll av nøkkelantakelser:**
+- Storkoalisjonen holder på alle viktige saker: 🟢 HØY (inget strukturelt bruddsignal)
+- Ingen ekstern sjokk (tollkrig, sikkerhetshendelse) forstyrrer EPs tidsplan: 🟡 MIDDELS
+- EPs institusjonelle kalender bekreftet gjennom juni: 🟢 HØY
+
+**Informasjonskvalitetskontroll:**
+- Alle EP-sammensetningsdata: A1 (offisiell EP Open Data API)
+- IMF økonomisk kontekst: A1 (WEO april 2026, offisiell publikasjon)
+- Komitékalender denne uken: F6 (feeds utilgjengelige, strukturelt estimat)
+
+---
+
+### Koalisjons- og blokkoversikt
+
+| Blokk | Seter | Flertall? | Merknader |
+|------|-------|-----------|-------|
+| EPP | 185 | — | Største gruppe; kontrollerer komitéagendaen |
+| S&D | 136 | — | Viktig progressiv partner |
+| Renew | 77 | — | Swingpartner på digitale/handelssaker |
+| EPP+S&D+Renew | 398 | ✅ Ja (361) | Storkoalisjon levedyktig; +37 seters buffer |
+| PfE+ECR+ESN | 193 | ❌ Nei | Populistblokken under flertall |
+
+ENP (Effektivt antall partier) = 6,55 — høy fragmentering; koalisjonsdisiplin kritisk for hvert avstemningsresultat denne uken. Blokkvolatilitetsrisiko: MIDDELS.
+
+Med 9 politiske grupper og ingen enkelt flertalblokk er hvert avstemningsresultat avhengig av minst 2-gruppers tilpasning. Storkoalisjonen (EPP+S&D+Renew) opprettholder en buffer på 37 seter over minimum 361 — robust men krever aktiv koordinering denne uken.
+
+---
+
+*Produsert: 2026-05-22 | Kjøring: week-ahead-run270-1779437320 | Datamodus: degraderte-feeds | IMF WEO april 2026 som økonomisk kilde*
+
+### Executive Brief Sv
+
+### Vecka 25–31 maj 2026 | Producerad: 2026-05-22
+### Klassificering: Öppna källors underrättelser
+**Topprad: WEP TROLIGT (60–68%) att detta blir en intensiv kommittévecka med framsteg i ReArm Europe och handelspolitiska ärenden**
+**Admiralty: B2 (trovärdiga källor, strukturellt bekräftat)**
+
+---
+
+### 🔴 Prioriterade underrättelseobjekt (PIIs)
+
+**PII-1:** SAFE-förordningen (ReArm Europe) — AFET/BUDG-utskotten driver gemensamt upphandlingsramverk. WEP: MYCKET TROLIGT (75–82%) att utskottsarbetet denna vecka meningsfullt driver SAFE-tidslinjen mot omröstning om antagande i juniplenarsessionen.
+
+**PII-2:** EU–US handelsförhandlingar — INTA-utskottets tillsyn av kommissionens mandat. WEP: UNGEFÄR JÄMNT (35–45%) att en betydande händelse (utfrågning, ståndpunktsdokument eller nödsession) inträffar denna vecka. IMF BNP-risk: -0,3 till -0,5 pp om 25%-tullar genomförs.
+
+**PII-3:** AI-aktens genomförande — IMCO/LIBE-utskotten övervakar beredskapen för efterlevnad. WEP: TROLIGT (55–65%) att minst ett substantiellt utskottsresultat om AI-aktens tekniska standarder produceras denna vecka.
+
+**PII-4:** CBAM fullt genomförande (september 2026) — ENVI/INTA-utskotten följer upp efterlevnadsberedskapen. WEP: UNGEFÄR JÄMNT (40–50%) att en formell utfrågning eller rapport är planerad denna vecka.
+
+**PII-5:** Koalitionsstabilitet — EPP+S&D+Renew storkoalition (398/719 platser = 55,4%). WEP: MYCKET TROLIGT (80–87%) att storkoalitionen håller i alla viktiga utskottsomröstningar denna vecka.
+
+---
+
+### 🗺️ Sammanfattning av det politiska landskapet
+
+**Aktuell EP10-sammansättning (bekräftad):**
+- 9 politiska grupper, 719 EU-parlamentariker totalt
+- EPP: 185 platser (25,7%) — störst grupp, kontrollerar flest utskottsordförandeskap
+- S&D: 136 platser (18,9%) — näst störst, nyckelgrupp i sociala och arbetsmarknadsfrågor
+- PfE: 85 platser (11,8%) — populistisk höger, oppositionsgrupp
+- ECR: 81 platser (11,3%) — konservativ höger, selektivt samarbete med EPP
+- Renew: 77 platser (10,7%) — liberal, kritisk swing-partner
+- Greens/EFA: 53 platser (7,4%) — miljövänlig, vänsterliberal
+- Left: 45 platser (6,3%) — socialistisk/kommunistisk, mestadels opposition
+- NI: 30 platser (4,2%) — ej anslutna, blandade
+- ESN: 27 platser (3,8%) — långt höger nationalistisk, opposition
+
+**Storkoalition (EPP+S&D+Renew):** 398 platser — 37 över majoritetsgränsen
+**ENP (Effektivt antal partier):** 6,55 — HÖG fragmentering
+**Majoritetsgräns:** 361 röster
+
+**Koalitionsbedömning (Admiralty B3, WEP):**
+- Storkoalition om ReArm/försvar: WEP MYCKET TROLIGT (75–82%)
+- Storkoalition om handelsskydd: WEP MYCKET TROLIGT (78–85%)
+- Storkoalition om klimatfrågor: WEP UNGEFÄR JÄMNT (45–55%) — EPP avregleringstryck
+- Koalitionsbrottsrisk denna vecka: WEP OSANNOLIKT (10–18%) givet inget plenarsömningstryck
+
+---
+
+### 🌍 Sammanfattning av den externa miljön
+
+**IMF WEO april 2026 (Auktoritativt — Admiralty A1):**
+- Eurozonens BNP-tillväxt 2026: **1,4%** (under trend men accelererande)
+- Eurozonens inflation 2026: **2,1%** (återgår till målet)
+- Eurozonens arbetslöshet 2026: **6,2%** (gradvis förbättring)
+- Nedåtrisk: -0,3 till -0,5 pp från USA:s tullupptrappning
+
+**Geopolitiskt sammanhang:**
+- Ukrainakonflikten fortsätter; SAFE-instrumentet direkt kopplat
+- USA–EU handelsspänning förhöjd men ännu inget fullskaligt tullkrig
+- Kinas strategiska konkurrens formar industriagendapolitiken
+- Migrationstrycket förhöjt men under krishöjderna 2015
+
+---
+
+### 📅 Veckans framåtblick: Strukturell bedömning
+
+**Vad som INTE sker denna vecka:**
+- Ingen plenarsession i Strasbourg (senast: 18–21 maj)
+- Ingen miniplenar i Bryssel (planerad: ~8–9 juni)
+- Inga omröstningar som kräver storkoalitionsmobilisering
+
+**Vad som FÖRVÄNTAS denna vecka (strukturellt — Admiralty B1):**
+- 20–26 utskottsmöten (standardmönster inter-plenarvecka)
+- 3–7 utkastreporter cirkulerade
+- 2–5 offentliga utfrågningar
+- Flera trilogmöten om aktiva ärenden
+- EP-delegationsaktiviteter (internationella möten)
+
+**Viktigaste utskottsarbetet förväntas:**
+1. AFET/BUDG — SAFE-förordningens progression
+2. INTA — tillsyn av handelsförhandlingar (EU–USA)
+3. IMCO/LIBE — AI-aktens verkställighetsförberedelser
+4. ENVI — CBAM genomförandeuppföljning
+5. ECON — bankunionen, CMU-uppföljning
+
+---
+
+### ⚡ Topp tre åtgärdspunkter för veckan
+
+1. **Följ SAFE-trilogsignaler:** Varje officiellt tillkännagivande av trilogdatum eller AFET-föredragandeuttalsande signalerar ett nära förestående datum för plenarsomröstning — viktigt för försvarsindustrins intressenter
+2. **Övervaka USA:s handelsutveckling:** Vita husets tillkännagivanden om EU-tullfristerna kan utlösa en nödsession i INTA — följ USA–EU-handelsnyheter dagligen
+3. **Följ AI-aktens GPAI-verkställighetsförberedelser:** Varje tillkännagivande från kommissionen om genomförandeåtgärder för modeller med generella AI-ändamål påverkar teknikbranschen — IMCO-utfrågningssignal att bevaka
+
+---
+
+### 🎯 Konfidenssammanfattning
+
+| Bedömning | Konfidens | Grund |
+|-----------|-----------|-------|
+| Utskottsvecka bekräftad (ingen plenar) | 🟢 MYCKET HÖG | EP bekräftad kalender (A1) |
+| Storkoalition stabil denna vecka | 🟢 HÖG | Storlek + strukturellt (B2) |
+| ReArm fortskrider i utskott | 🟡 MEDEL-HÖG | Strukturell kunskap (B2) |
+| Handelsspänning ger EP-svar | 🟡 MEDEL | IMF data + strukturellt (B3) |
+| Realtidsutskottsschema | 🔴 LÅG | Flöden otillgängliga (F6) |
+
+### 🔮 30-dagars framåtblick
+
+**8–9 juni:** Bryssel miniplenar trolig — ärenden som avancerades under kommittéveckorna 25–31 maj och 2–6 juni kan ha förstaläsningsomröstningar
+**22–25 juni:** Strasbourg plenar — SAFE-förordningens antagandeomröstning är mest trolig i denna session om utskottsarbetet avancerar som förväntat denna vecka
+
+**Kontroll av nyckelantaganden:**
+- Storkoalitionen håller i alla viktiga ärenden: 🟢 HÖG (inget strukturellt brottssignal)
+- Ingen extern chock (tullkrig, säkerhetsincident) stör EP:s schema: 🟡 MEDEL
+- EP:s institutionella kalender bekräftad till och med juni: 🟢 HÖG
+
+**Informationskvalitetskontroll:**
+- All EP-sammansättningsdata: A1 (officiellt EP Open Data API)
+- IMF ekonomiskt sammanhang: A1 (WEO april 2026, officiell publikation)
+- Utskottsschema denna vecka: F6 (flöden otillgängliga, strukturell uppskattning)
+
+---
+
+### Koalitions- och blocköversikt
+
+| Block | Platser | Majoritet? | Anteckningar |
+|------|-------|-----------|-------|
+| EPP | 185 | — | Störst grupp; kontrollerar utskottsagendan |
+| S&D | 136 | — | Viktig progressiv partner |
+| Renew | 77 | — | Swingpartner i digitala/handelsfrågor |
+| EPP+S&D+Renew | 398 | ✅ Ja (361) | Storkoalition möjlig; +37 platsers buffert |
+| PfE+ECR+ESN | 193 | ❌ Nej | Populistblocket under majoritet |
+
+ENP (Effektivt antal partier) = 6,55 — hög fragmentering; koalitionsdisciplin kritisk för varje omröstningsresultat denna vecka. Blockobeständighetsrisk: MEDEL.
+
+Med 9 politiska grupper och inget enskilt majoritetsblock beror varje omröstningsresultat på minst 2-gruppsanpassning. Storkoalitionen (EPP+S&D+Renew) håller en buffert på 37 platser över minsta 361 — robust men kräver aktiv samordning denna vecka.
+
+---
+
+*Producerad: 2026-05-22 | Körning: week-ahead-run270-1779437320 | Dataläge: degradade-flöden | IMF WEO april 2026 som ekonomisk källa*
+
+### Executive Brief Zh
+
+### 2026年5月25日至31日当周 | 编制日期：2026-05-22
+### 分类：开源情报
+**要点：WEP 可能性较高（60–68%）——本周将是一个委员会密集周，ReArm Europe和贸易政策议题有望取得进展**
+**Admiralty: B2（可信来源，结构性确认）**
+
+---
+
+### 🔴 优先情报事项（PIIs）
+
+**PII-1：** SAFE条例（ReArm Europe）——AFET/BUDG委员会正在推进联合采购框架。WEP：非常可能（75–82%）——本周委员会工作将实质性地推动SAFE进度，朝着6月全体大会采纳投票迈进。
+
+**PII-2：** 欧美贸易谈判——INTA委员会监督欧盟委员会授权。WEP：大致相当（35–45%）——本周可能出现重大进展（听证会、立场文件或紧急会议）。IMF GDP风险：若实施25%关税，下行风险为-0.3至-0.5个百分点。
+
+**PII-3：** AI法案实施——IMCO/LIBE委员会监测执法准备情况。WEP：可能性较高（55–65%）——本周至少会产出一项关于AI法案技术标准的实质性委员会成果。
+
+**PII-4：** CBAM全面实施（2026年9月）——ENVI/INTA委员会跟踪合规准备情况。WEP：大致相当（40–50%）——本周可能安排正式听证会或报告。
+
+**PII-5：** 联盟稳定性——EPP+S&D+Renew大联盟（398/719席 = 55.4%）。WEP：非常可能（80–87%）——本周所有重要委员会投票中，大联盟均将保持稳定。
+
+---
+
+### 🗺️ 政治格局摘要
+
+**当前EP10构成（已确认）：**
+- 9个政治党团，共719名欧洲议员
+- EPP：185席（25.7%）——最大党团，掌握大多数委员会主席职位
+- S&D：136席（18.9%）——第二大党团，社会和劳工议题的核心伙伴
+- PfE：85席（11.8%）——民粹主义右翼，反对派党团
+- ECR：81席（11.3%）——保守右翼，与EPP选择性合作
+- Renew：77席（10.7%）——自由主义，关键的摇摆伙伴
+- Greens/EFA：53席（7.4%）——环保主义，左翼自由派
+- Left：45席（6.3%）——社会主义/共产主义，主要为反对派
+- NI：30席（4.2%）——无党派，混合
+- ESN：27席（3.8%）——极右民族主义，反对派
+
+**大联盟（EPP+S&D+Renew）：** 398席——超过多数票门槛37席
+**ENP（有效政党数量）：** 6.55——高度碎片化
+**多数票门槛：** 361票
+
+**联盟评估（Admiralty B3, WEP）：**
+- ReArm/防务方面的大联盟：WEP 非常可能（75–82%）
+- 贸易防御方面的大联盟：WEP 非常可能（78–85%）
+- 气候议题方面的大联盟：WEP 大致相当（45–55%）——EPP放松管制压力
+- 本周联盟破裂风险：WEP 不太可能（10–18%）——没有全体大会投票压力
+
+---
+
+### 🌍 外部环境摘要
+
+**IMF WEO 2026年4月（权威来源 — Admiralty A1）：**
+- 欧元区GDP增长率2026年：**1.4%**（低于趋势，但正在加速）
+- 欧元区通胀率2026年：**2.1%**（回归目标）
+- 欧元区失业率2026年：**6.2%**（逐步改善）
+- 下行风险：美国关税升级导致-0.3至-0.5个百分点
+
+**地缘政治背景：**
+- 乌克兰冲突持续；SAFE工具与此直接相关
+- 美欧贸易紧张局势加剧，但尚未演变为全面贸易战
+- 中国战略竞争正在塑造工业政策议程
+- 移民流动增加，但低于2015年危机水平
+
+---
+
+### 📅 本周展望：结构性评估
+
+**本周不会发生的事：**
+- 斯特拉斯堡无全体大会（上次：5月18至21日）
+- 布鲁塞尔无小型全体大会（预定：约6月8至9日）
+- 无需大联盟动员的投票
+
+**本周预期事项（结构性 — Admiralty B1）：**
+- 20–26次委员会会议（委员会间会期标准模式）
+- 3–7份报告草案传阅
+- 2–5次公开听证会
+- 就活跃议题举行多场三方会谈
+- 欧洲议会代表团活动（国际会议）
+
+**预期最重要的委员会工作：**
+1. AFET/BUDG——SAFE条例推进
+2. INTA——贸易谈判监督（欧盟–美国）
+3. IMCO/LIBE——AI法案执法准备
+4. ENVI——CBAM实施跟踪
+5. ECON——银行业联盟、CMU后续工作
+
+---
+
+### ⚡ 本周三大行动要点
+
+1. **关注SAFE三方会谈信号：** 任何关于三方会谈日期的官方公告或AFET报告员声明，均意味着全体大会投票日期临近——对防务工业利益相关方至关重要
+2. **监测美国贸易动态：** 白宫就欧盟关税截止日期的公告可能触发INTA紧急会议——每日跟踪美国-欧盟贸易新闻
+3. **跟踪AI法案GPAI执法准备：** 欧盟委员会发布的通用AI模型实施法案公告将影响科技行业——关注IMCO听证会信号
+
+---
+
+### 🎯 置信度摘要
+
+| 评估 | 置信度 | 依据 |
+|-----------|-----------|-------|
+| 委员会周已确认（无全体大会） | 🟢 非常高 | EP已确认日程（A1） |
+| 大联盟本周稳定 | 🟢 高 | 规模+结构性（B2） |
+| ReArm在委员会取得进展 | 🟡 中高 | 结构性知识（B2） |
+| 贸易紧张局势促发EP回应 | 🟡 中等 | IMF数据+结构性（B3） |
+| 实时委员会日程 | 🔴 低 | 数据源不可用（F6） |
+
+### 🔮 30天前瞻
+
+**6月8至9日：** 布鲁塞尔小型全体大会可能举行——在5月25至31日和6月2至6日委员会周取得进展的议题可能进行一读投票
+**6月22至25日：** 斯特拉斯堡全体大会——若本周委员会工作如期推进，SAFE条例采纳投票最可能在本届会期举行
+
+**关键假设核查：**
+- 大联盟在所有重大事项上保持稳定：🟢 高（无结构性破裂信号）
+- 无外部冲击（贸易战、安全事件）干扰欧洲议会日程：🟡 中等
+- 欧洲议会机构日程已确认至6月：🟢 高
+
+**信息质量核查：**
+- 所有欧洲议会构成数据：A1（官方EP Open Data API）
+- IMF经济背景：A1（WEO 2026年4月，官方出版物）
+- 本周委员会日程：F6（数据源不可用，仅结构性估算）
+
+---
+
+### 联盟与党团摘要
+
+| 党团 | 席位 | 多数？ | 备注 |
+|------|-------|-----------|-------|
+| EPP | 185 | — | 最大党团；掌控委员会议程 |
+| S&D | 136 | — | 重要的进步派合作伙伴 |
+| Renew | 77 | — | 数字/贸易议题的摇摆伙伴 |
+| EPP+S&D+Renew | 398 | ✅ 是（361） | 大联盟可行；+37席缓冲 |
+| PfE+ECR+ESN | 193 | ❌ 否 | 民粹主义党团未达多数 |
+
+ENP（有效政党数量）= 6.55——高度碎片化；联盟纪律对本周每项投票结果至关重要。党团波动性风险：中等。
+
+在9个政治党团且无单一多数党团的情况下，每项投票结果至少依赖2个党团的协调配合。大联盟（EPP+S&D+Renew）在361席最低门槛之上保持37席缓冲——稳固可靠，但本周需要积极协调。
+
+---
+
+*编制日期：2026-05-22 | 运行批次：week-ahead-run270-1779437320 | 数据模式：数据源受损 | IMF WEO 2026年4月作为经济数据来源*
+
 ### Procedures Proxy
 
 ### Date: 2026-05-22 | Data mode: degraded-feeds
@@ -3090,5 +4923,18 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-22/week-ahead/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 

@@ -103,6 +103,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -2815,6 +2816,944 @@ The analysis methodology followed all 10 steps of the ai-driven-analysis-guide.m
 
 *SATs Catalog: 12 techniques applied | motions-run375-1778572294 | 2026-05-12*
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+### BLUF (الخلاصة في المقدمة)
+
+أسفرت دورة الثلاثين يوماً المنتهية في 12 مايو 2026 عن **101 نصّ مُعتمَد** (أعلى من وتيرة EP9) وجلّت هوية EP10 العملية: **برلمان تحالفات مصممة حسب الطلب**، ثابت في الجيوسياسة، متنازع عليه اقتصادياً، ومتزايد التوجه نحو الثورة المضادة في الشؤون الزراعية. ثلاثة نصوص تعكس الوضع البنيوي: **TA-10-2026-0161 / 0154** (المساءلة الأوكرانية ولجنة المطالبات، ≈449–560 مقعداً، EPP ~93 % تماسك)، **TA-10-2026-0160** (تطبيق DMA، ~50 % تماسك EPP — الأدنى في أي تصويت رئيسي في EP10)، و**TA-10-2026-0157** (قطاع الثروة الحيوانية والأمن الغذائي، EPP–ECR–PfE قريبة من الأغلبية). الإشارة الإجمالية هي أن **EPP هو الفاعل المحوري في EP10**، وأن أي أوروبا ستبرز من هذا البرلمان تعتمد على أي تحالف داخلي في EPP يفوز في كل ملف. *مستوى الثقة: HIGH. WEP: LIKELY (65 %) لتشغيل كامل لهندسة المساءلة في غضون 18 شهراً. Admiralty: B2.*
+
+### ثلاثة قرارات مرتبطة بهذه الدورة
+
+1. **تشغيل لجنة مطالبات أوكرانيا طالما أن النافذة الدبلوماسية لا تزال مفتوحة.** وافق البرلمان الأوروبي رسمياً على هندسة تعاون معزّز/مستندة إلى معاهدة *خارج* الإطار الأممي (ضرورية بسبب حق نقض معيّن في مجلس الأمن). هذا إجراء برلماني استباقي قبيل أي اتفاق سلام محتمل بوساطة أمريكية قد يُرسّخ أمراً واقعاً. نافذة الـ45 يوماً للمجلس للموافقة على تفويض اللجنة هي الفترة الحرجة تشغيلياً. يؤكد الأساس التاريخي — أن لجنة تعويضات الأمم المتحدة للكويت عالجت مطالبات بقيمة 52.4 مليار دولار ومنحت 34.5 مليار دولار خلال 1991–2022 — الجدوى، لكنه يؤكد أن التأخير يُكلّف بنيوياً (~€300 مليار مجمّدة في Euroclear Belgium تفقد قيمة الخيارات مع مرور كل شهر). *مستوى الثقة: HIGH بشأن نية البرلمان الأوروبي؛ MODERATE بشأن متابعة المجلس.*
+
+2. **حسم انشقاق EPP حول DMA قبل أن يتحول إلى أزمة مؤسسية متعددة الملفات.** انضم نحو 80 عضواً في البرلمان الأوروبي من EPP (الألمان والهولنديون والإسكندنافيون) إلى تحالف التطبيق التقدمي؛ عارضه ~100 (FI الإيطالية، جناح الأعمال في PP الإسباني، الناطقون بالفرنسية). نسبة تماسك 50 % على ملف رقمي رائد أمر غير مسبوق في EP10 ويكشف التوتر الكامن في EPP بين **هويته كحزب حاكم** (المصداقية التنظيمية) و**هويته الموالية للأعمال** (المقاومة أمام فرط التنظيم). إذا أنتج الملف الرقمي الكبير التالي (على الأرجح مراجعة تنفيذ قانون الذكاء الاصطناعي أو تصويت تطبيق DSA) انقساماً مماثلاً، يفقد EPP مصداقيته بوصفه شريكاً تشريعياً متماسكاً أمام المفوضية. *مستوى الثقة: MODERATE–HIGH.*
+
+3. **البت فيما إذا كانت استراتيجية "من المزرعة إلى المائدة" يجب عزلها عن الثورة المضادة في الثروة الحيوانية.** يُمثّل TA-10-2026-0157 تحولاً مقصوداً عن هندسة الصفقة الخضراء في EP9. تحالف EPP+ECR+PfE الداعم للقطاع الزراعي (≈349 مقعداً، في مقابل عتبة الأغلبية 360) بات شبه دائم في الملفات الزراعية والريفية. المشكلة الاستراتيجية رياضية: ميثان الثروة الحيوانية في الاتحاد الأوروبي = ~160 ميغاطن مكافئ ثاني أكسيد الكربون سنوياً = 4.5 % من إجمالي انبعاثات الغازات الدفيئة في الاتحاد. كل سنة تأخير في خفض الميثان تُوسّع الهوة مع هدف 55 % بحلول 2030 في قانون المناخ الأوروبي. خيار المفوضية هو الدفاع عن جداول "من المزرعة إلى المائدة" بوصفها التزامات ملزمة قانوناً أو قبول إعادة الفتح *الفعلية* من جانب البرلمان. *مستوى الثقة: HIGH على المسار السياسي؛ LOW على صمود ضمانات قانون المناخ.*
+
+### القراءة في 60 ثانية
+
+الرقم الرئيسي لهذه الدورة هو 101 نصاً مُعتمَداً — إنتاجية أعلى من وتيرة العام الأخير في EP9. لكن الإنتاجية تُخفي الحسابات الائتلافية الكامنة التي تمثّل القصة الحقيقية. ليس للبرلمان **أغلبية مطلقة مستدامة**؛ بدلاً من ذلك، لديه ثلاثة تحالفات عمل يمكن رصدها تتفعّل في مجالات سياسية مختلفة:
+
+- **التحالف الجيوسياسي** (EPP + S&D + Renew + Greens + الأجنحة اليسارية حول سيادة القانون / أوكرانيا / العقوبات): ~449–560 مقعداً؛ تماسك عالٍ؛ يُنتج فسيفساء كبرى كهندسة المساءلة الأوكرانية.
+- **تحالف إلغاء التنظيم / الزراعة** (EPP + ECR + PfE في الملفات الريفية والقدرة التنافسية للطاقة والأعباء التنظيمية): ~349 مقعداً؛ تماسك عالٍ في الزراعة، قريب من الأغلبية لكنه موثوق سياسياً.
+- **تحالف السيادة الرقمية** (S&D + Renew + Greens + The Left + وسطيو EPP حول DMA/DSA/الذكاء الاصطناعي والحقوق الأساسية): متنازع عليه، ~50 % تماسك EPP هو الخطر البنيوي.
+
+يُشغّل EPP بقيادة Weber استراتيجية **"اختر معاركك"**: الاستجابة للتحالفات التقدمية في الجيوسياسة (حيث يطالب الناخبون القائمون على القيم بالاتساق)، وبناء تحالفات محافظة في الاقتصاد والزراعة (حيث تطالب القاعدة الموالية للأعمال والريفية بالحماية). ذلك رشيد سياسياً. السؤال غير المحسوم هو ما إذا كان EPP قادراً على الحفاظ على مركزه بينما يتحرك جناحه الأيمن اقتصادياً نحو إقليم PfE، في حين يتمسك جناحه الوسطي بالجيوسياسة. تصويت DMA هو أول تصويت في EP10 يُشير إلى أن الجواب بات متزايداً نحو **لا**.
+
+في عمق السياسة، **تأثير بروكسل حيّ تجريبياً**: عدّلت Apple شروط iOS عالمياً للسماح بمتاجر التطبيقات التابعة لجهات خارجية تحت ضغط DMA؛ بدأت Google بمشاركة بيانات البحث مع المنافسين الأوروبيين بموجب التزامات المادة 10. هذا يعني أن DMA تُنتج مخرجات تنظيمية خارج إقليمية حتى قبل قرارات التطبيق — وهو بالضبط سبب أهمية انشقاق EPP. يستطيع البرلمان تحقيق نتائج تأثير بروكسل فقط إذا أمكنه توفير دعائم تطبيق موثوقة، وهذا يتطلب تماسك EPP.
+
+### لمحة عن المخاطر (أفق 12 شهراً)
+
+| # | الخطر | الاحتمالية | التأثير | الإجمالي |
+|---|------|-----------:|------:|----:|
+| 1 | انشقاق EPP حول DMA يتمدد إلى ملفات رقمية أخرى | MED–HIGH | HIGH | **الأعلى** |
+| 2 | لجنة مطالبات أوكرانيا تتعثر في المجلس بعد الربع الثالث 2026 | MED | HIGH | **الأعلى** |
+| 3 | الثورة المضادة الزراعية تُفكّك ركيزة "من المزرعة إلى المائدة" | HIGH | MED–HIGH | **الأعلى** |
+| 4 | الانتقام الجمركي الأمريكي من تطبيق DMA | MED | HIGH | مراقبة |
+| 5 | الحسابات الائتلافية تُفضي إلى طريق مسدود في ميزانية الإطار المالي متعدد السنوات 2027 | LOW–MED | VERY HIGH | مراقبة |
+
+### المحفزات المستقبلية (الأسبوعان إلى الستة المقبلة)
+
+- **مجلس الشؤون الخارجية يونيو 2026:** هل تُعتمد استنتاجات حول لجنة مطالبات أوكرانيا؟ الصمت = تأخير استراتيجي.
+- **جدول زمني لتطبيق DMA من قِبَل المديرية العامة للمنافسة:** أي تأجيل في قرارات تطبيق Apple أو Google يُشير إلى أن المفوضية تمتص ضغط الحرب التجارية الأمريكية.
+- **تصريح مجموعة EPP حول DMA:** الاعتراف العلني في مقابل إخفاء الانشقاق هو بحدّ ذاته إشارة سياسية.
+- **طلب تأجيل "من المزرعة إلى المائدة":** أي مقترح للمفوضية لمراجعة هدف تنفيذي لـF2F هو كناري في منجم قانون المناخ.
+- **تسليم رئاسة المجلس (الدنمارك → التالية):** الاستمرارية في مقابل إعادة الضبط في ملفات المساءلة والملفات الرقمية.
+
+### ACH — ثلاث قراءات متنافسة لحزب الشعب الأوروبي EPP
+
+| الفرضية | الأدلة الداعمة | الأدلة المضادة | التقييم |
+|---|---|---|---|
+| H1: EPP يُوطّد أغلبية يمين-وسط | مقترح الثروة الحيوانية، مراجعة CSRD، نمط التعاون EPP+ECR | انشقاق DMA، أوكرانيا عبر الأطياف، وحدة سيادة القانون | **مدعومة جزئياً** — صحيحة في الاقتصاد/الزراعة |
+| H2: EPP هو آخر مرساة وسطية في الاتحاد الأوروبي | أوكرانيا 93 % تماسك، قيادة سيادة القانون، إطار لجنة المطالبات | DMA 50 % تماسك، إعادة توجيه زراعي مع PfE | **مدعومة بضعف** — فقط في الجيوسياسة |
+| H3: EPP يتشظى بنيوياً إلى حزبين | انشقاق DMA، جناح الأعمال الإيطالي/الإسباني FI–PP ينحرف عن المركز الألماني-الإسكندنافي | الانضباط الجماعي لا يزال قائماً في أوكرانيا، الإطار المالي، سيادة القانون | **مدعومة بشكل معتدل** — الفرضية الأكثر تنبؤاً لعامَي 2026–2027 |
+
+### جودة المصادر (تقييم Admiralty)
+
+- النصوص المعتمدة في البوابة المفتوحة لبيانات البرلمان الأوروبي (TA-10-2026-0154 / 0157 / 0160 / 0161): **A1** (مصدر رسمي، موثوق تماماً)
+- تقديرات تماسك التحالفات (حيث XML DOCEO متاح): **A2**؛ (حيث مُقدَّر من بيانات المجموعات / الصحافة): **B3** (≈25 % من الأرقام)
+- IMF WEO ربيع 2026 (نمو منطقة اليورو 1.2 %): **A1**
+- World Bank أوكرانيا RDNA4 (احتياجات إعادة الإعمار €486 مليار): **A1**
+- أدلة تغيير السلوك لتأثير بروكسل (Apple iOS / بيانات Google): **B2**
+- توقعات تحالفية استشرافية لـ12 شهراً: **C3**
+
+### المصدر
+
+- الاجراء: تحليل المقترحات للنافذة 2026-04-12 → 2026-05-12
+- المصادر الأولية المُطالَعة لهذا الموجز: `intelligence/synthesis-summary.md`، `intelligence/coalition-dynamics.md`، `classification/actor-mapping.md`، `classification/forces-analysis.md`، `risk-scoring/risk-matrix.md`، `extended/media-framing-analysis.md`.
+- تحديث البيانات: 12 مايو 2026.
+- الامتثال: تغذيات بيانات البرلمان الأوروبي المفتوحة + التصويت بالاسم حيث تم نشره؛ ~25 % من أرقام التماسك تقديرات بسبب تأخر نشر البرلمان الأوروبي لسجل التصويت بمدة 4–6 أسابيع؛ مُشار إليها صراحةً أعلاه. متوافق مع اللائحة الأوروبية لحماية البيانات GDPR، لا تنميط شخصي لأعضاء البرلمان الأوروبي.
+
+---
+
+*الحياد التحليلي: يرصد هذا الموجز الحسابات الائتلافية الملاحظة وأدلة التصويت بالاسم. كل ادعاء اتجاهي مُؤطَّر بمستوى ثقة صريح ومعالجة الفرضيات المتنافسة.*
+
+### Executive Brief Da
+
+### BLUF (Konklusion på forhånd)
+
+30-dagarscyklusen, der afsluttedes den 12. maj 2026, producerede **101 vedtagne tekster** (over EP9-tempoet) og krystalliserede EP10's arbejdsidentitet: et **skræddersyet koalitionsparlament**, der er fast på geopolitik, bestridt på økonomi og i stigende grad kontrarevolutionært på landbrugsspørgsmål. Tre tekster indfanger det strukturelle billede: **TA-10-2026-0161 / 0154** (Ukraina-ansvarlighed og skadeskommission, ≈449–560 pladser, EPP ~93 % kohæsion), **TA-10-2026-0160** (DMA-håndhævelse, ~50 % EPP-kohæsion — den laveste ved nogen større EP10-afstemning), og **TA-10-2026-0157** (husdyrsektoren og fødevaresikkerhed, EPP–ECR–PfE tæt på flertal). Det aggregerede signal er, at **EPP er EP10's pivotaktør**, og hvilket Europa der opstår fra dette parlament afhænger af, hvilken intern EPP-koalition der vinder hvert enkelt sagsforløb. *Konfidens: HIGH. WEP: LIKELY (65 %) for fuld operationalisering af ansvarsarkitekturen inden for 18 måneder. Admiralty: B2.*
+
+### Tre beslutninger der hviler på denne cyklus
+
+1. **Operationaliser Ukrainas skadeskommission mens det diplomatiske vindue stadig er åbent.** EP har formelt godkendt en forstærket samarbejde/traktatbaseret arkitektur *uden for* FN-rammen (nødvendig på grund af en bestemt sikkerhedsrådsveto). Dette er forebyggende parlamentarisk handling forud for en USA-mæglert fredsaftale, der ellers kunne låse et *fait accompli* fast. 45-dagesvinduet for Rådets godkendelse af et kommissionsmandat er den operativt kritiske periode. Det historiske udgangspunkt — FN's Compensation Commission for Kuwait behandlede 52,4 mia. USD i krav og tildelte 34,5 mia. USD over 1991–2022 — bekræfter gennemførligheden, men understreger at forsinkelse medfører strukturelle omkostninger (indefrosne ~€300 mia. i Euroclear Belgien mister optionalitet for hver forbipasserende måned). *Konfidens: HIGH vedrørende EP's hensigt; MODERATE vedrørende Rådets opfølgning.*
+
+2. **Løs EPP DMA-bruddet, inden det metastaserer til en flerfils institutionel krise.** Cirka 80 EPP-parlamentsmedlemmer (tyske, hollandske, nordiske) tilsluttede sig den progressive håndhævelseskoalition; ~100 (italienske FI, spanske PP-erhvervsfløj, fransktalende) modsatte sig. En kohæsion på 50 % på en central digital fil er hidtil uset for EP10 og afslører EPP's uløste spænding mellem dens **styringspartiidentitet** (lovgivningsmæssig troværdighed) og dens **erhvervsvenlige identitet** (modstand mod overregulering). Hvis den næste store digitale fil (sandsynligvis den kommende AI Act-implementeringsgennemgang eller en DSA-håndhævelsesafstemning) producerer en tilsvarende splittelse, mister EPP troværdighed som en sammenhængende lovgivningsmæssig samtalepartner for Kommissionen. *Konfidens: MODERATE–HIGH.*
+
+3. **Afgøre om Farm-to-Fork skal isoleres fra husdyrkounterrevolutionen.** TA-10-2026-0157 markerer en bevidst drejning væk fra EP9's Green Deal-arkitektur. Den landbrugspositiv EPP+ECR+PfE-koalition (≈349 pladser, mod en flertalstærskel på 360) er nu næsten permanent aktiv på landbrug og landdistrikter. Det strategiske problem er aritmetisk: EU's husdyrmetan = ~160 Mt CO₂e om året = 4,5 % af EU's samlede drivhusgasudledninger. Hvert år med forsinket metanreduktion udvider kløften til EU-klimarettens mål om 55 % inden 2030. Kommissionens valg er, om den skal forsvare Farm-to-Fork-tidsplanerne som juridisk bindende klimaretlige forpligtelser eller acceptere EP's *de facto* genåbning. *Konfidens: HIGH vedrørende den politiske trajektori; LOW om klimarettens sikkerhedsrækværk vil holde.*
+
+### 60-sekunders læsning
+
+Cyklussens overskriftstal er 101 vedtagne tekster — højere gennemstrømning end EP9's slutårspace. Men gennemstrømning tilslører den underliggende koalitionsaritmetik, som er den virkelige historie. Parlamentet har **ingen holdbar supermajoritet**; det har i stedet tre observerbare arbejdskoalitioner, der aktiveres på forskellige politikområder:
+
+- **Geopolitikkoalitionen** (EPP + S&D + Renew + Greens + venstrefløje om retsstaten / Ukraine / sanktioner): ~449–560 pladser; høj kohæsion; producerer store mosaiker som Ukrainas ansvarsarkitektur.
+- **Afregulerings-/landbrugskoalitionen** (EPP + ECR + PfE om landdistrikter, energikonkurrenceevne, lovgivningsmæssig byrde): ~349 pladser; høj kohæsion om landbrug, tæt på flertal men politisk pålidelig.
+- **Koalitionen for digital suverænitet** (S&D + Renew + Greens + The Left + EPP-centrister om DMA/DSA/AI grundlæggende rettigheder): omstridt, ~50 % EPP-kohæsion er den strukturelle risiko.
+
+Webers EPP har operationaliseret en **"vælg dine slag"**-strategi: give efter for progressive koalitioner i geopolitikken (hvor værdiorienterede vælgere kræver konsistens), opbygge konservative koalitioner om økonomi og landbrug (hvor erhvervsalignerede og landbobefolkninger kræver beskyttelse). Det er politisk rationelt. Det uløste spørgsmål er, om EPP kan holde sin midte, efterhånden som dens højrefløj driver mod PfE-territorium på økonomi, mens dens centristiske fløj holder fast på geopolitik. DMA-afstemningen er den første afstemning i EP10, der antyder, at svaret i stigende grad er **nej**.
+
+Under politikken er **Brüssel-effekten empirisk levende**: Apple ændrede iOS-vilkårene globalt for at tillade tredjeparts app-butikker under DMA-pres; Google er begyndt at dele søgedata med europæiske konkurrenter i henhold til artikel 10-forpligtelser. Det betyder, at DMA producerer ekstraterritorial regulatorisk output selv inden håndhævelsesafgørelser — hvilket er præcis grunden til, at EPP-bruddet er vigtigt. Parlamentet kan kun levere Brüssel-effektresultater, hvis det kan levere troværdige håndhævelsesbeskyttelser, og det kræver EPP-kohæsion.
+
+### Risikoafdækning (12-måneder horisont)
+
+| # | Risiko | Sandsynlighed | Påvirkning | Netto |
+|---|------|-----------:|------:|----:|
+| 1 | EPP DMA-brud udvider sig til andre digitale filer | MED–HIGH | HIGH | **Top** |
+| 2 | Ukrainas skadeskommission går i stå i Rådet efter Q3 2026 | MED | HIGH | **Top** |
+| 3 | Landbrugskounterrevolutionen demonterer Farm-to-Fork-søjlen | HIGH | MED–HIGH | **Top** |
+| 4 | USA's toldgengældelse mod DMA-håndhævelse | MED | HIGH | Overvåg |
+| 5 | Koalitionsaritmetik producerer budgetdødvande om 2027 MFF | LOW–MED | VERY HIGH | Overvåg |
+
+### Fremadrettede udløsere (næste 2–6 uger)
+
+- **Juni 2026 Udenrigsrådet:** Vedtages der konklusioner om Ukrainas skadeskommission? Tavshed = strategisk forsinkelse.
+- **GD COMP DMA-håndhævelsestidslinje:** Enhver udsættelse af Apple- eller Google-håndhævelsesafgørelser signalerer, at Kommissionen absorberer USA's handelskrigspress.
+- **EPP-gruppens erklæring om DMA:** Offentlig anerkendelse kontra undertrykkelse af bruddet er i sig selv et politisk signal.
+- **Anmodning om forsinkelse af Farm-to-Fork:** Et Kommissionsforslag om at revidere et F2F-implementeringsmål er kanariefuglen i klimarettens kulmine.
+- **Rådsformandsoverdragelse (Danmark → næste):** Kontinuitet kontra nulstilling på ansvarligheds- og digitalfiler.
+
+### ACH — Tre konkurrerende læsninger af EPP
+
+| Hypotese | Understøttende bevis | Modsigelsesbevis | Vurdering |
+|---|---|---|---|
+| H1: EPP konsoliderer et højre-af-centrum flertal | Husdyrmotion, CSRD-revision, EPP+ECR-samarbejdsmønster | DMA-splittelse, Ukraine tværspektrum, retsstatsenighed | **Delvist understøttet** — sandt om økonomi/landbrug |
+| H2: EPP er EU's sidste centristiske anker | Ukraine 93 % kohæsion, retsstatslederskab, skadeskommissionsramme | DMA 50 % kohæsion, landbrugsomstilling med PfE | **Svagt understøttet** — kun om geopolitik |
+| H3: EPP fragmenteres strukturelt i to partier | DMA-splittelse, italiensk/spansk FI–PP erhvervsfløj divergerer fra tysk–nordisk centrum | Gruppedisciplin holder stadig om Ukraine, MFF, retsstaten | **Moderat understøttet** — den mest prædiktive hypotese for 2026–2027 |
+
+### Kildekvalitet (Admiralty-gradering)
+
+- EP Open Data Portal vedtagne tekster (TA-10-2026-0154 / 0157 / 0160 / 0161): **A1** (officiel kilde, fuldt pålidelig)
+- Koalitionskohæsionsestimater (hvor DOCEO XML tilgængeligt): **A2**; (hvor estimeret fra gruppeudtalelser / presse): **B3** (≈25 % af tallene)
+- IMF WEO forår 2026 (1,2 % Eurozonvækst): **A1**
+- World Bank Ukraine RDNA4 (€486 mia. rekonstruktionsbehov): **A1**
+- Brüssel-effektens adfærdsændringsbevis (Apple iOS / Google-data): **B2**
+- Fremadblikkende 12-måneders koalitionsprognoser: **C3**
+
+### Oprindelse
+
+- Kørsel: motionsanalyse for vinduet 2026-04-12 → 2026-05-12
+- Primære artefakter læst til dette brev: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- Dataaktualitet: 12. maj 2026.
+- Overholdelse: EP Open Data Portal-feeds + afstemningsregistrering, hvor offentliggjort; ~25 % kohæsionstal er estimater på grund af EP's 4–6-ugers udgivelsesforsinkelsefor afstemningsregistret; eksplicit angivet ovenfor. GDPR-kompatibelt, ingen personlig profilering af parlamentsmedlemmer.
+
+---
+
+*Analytisk neutralitet: dette brev rapporterer observerbar koalitionsaritmetik og afstemningsbevis. Hvert retningsbestemt udsagn er nuanceret med eksplicit konfidens og konkurrerende hypotesebehandling.*
+
+### Executive Brief De
+
+### BLUF (Schlussfolgerung vorab)
+
+Der am 12. Mai 2026 abgeschlossene 30-Tages-Zyklus brachte **101 angenommene Texte** (über dem EP9-Tempo) hervor und kristallisierte die Arbeitsidentität des EP10 heraus: ein **maßgeschneidertes Koalitionsparlament**, das bei der Geopolitik standhaft, in der Wirtschaft umstritten und beim Thema Landwirtschaft zunehmend konterrevolutionär ist. Drei Texte erfassen den strukturellen Stand: **TA-10-2026-0161 / 0154** (Ukraine-Rechenschaftspflicht und Schadensersatzkommission, ≈449–560 Sitze, EPP ~93 % Kohäsion), **TA-10-2026-0160** (DMA-Durchsetzung, ~50 % EPP-Kohäsion — der niedrigste Wert in einer großen EP10-Abstimmung), und **TA-10-2026-0157** (Viehwirtschaftssektor und Ernährungssicherheit, EPP–ECR–PfE nahe Mehrheit). Das aggregierte Signal lautet: **Die EPP ist der zentrale Akteur des EP10**, und welches Europa aus diesem Parlament hervorgeht, hängt davon ab, welche interne EPP-Koalition jede Akte gewinnt. *Konfidens: HIGH. WEP: LIKELY (65 %) für die vollständige Operationalisierung der Rechenschaftsarchitektur innerhalb von 18 Monaten. Admiralty: B2.*
+
+### Drei Entscheidungen, die von diesem Zyklus abhängen
+
+1. **Operationalisierung der Ukraine-Schadensersatzkommission, solange das diplomatische Fenster noch offen ist.** Das Europäische Parlament hat formell eine Architektur der verstärkten Zusammenarbeit/vertraglichen Basis *außerhalb* des UN-Rahmens gebilligt (notwendig aufgrund eines bestimmten Sicherheitsratsvetos). Dies ist präventives parlamentarisches Handeln im Vorfeld eines von den USA vermittelten Friedensabkommens, das sonst ein *fait accompli* festschreiben könnte. Das 45-Tages-Fenster für die Genehmigung des Kommissionsmandats durch den Rat ist der operativ kritische Zeitraum. Die historische Baseline — die UN-Kompensationskommission für Kuwait bearbeitete Forderungen in Höhe von 52,4 Mrd. USD und sprach 34,5 Mrd. USD über 1991–2022 zu — bestätigt die Machbarkeit, unterstreicht aber, dass Verzögerungen strukturelle Kosten verursachen (eingefrorene ~€300 Mrd. bei Euroclear Belgien verlieren mit jedem Monat an Optionswert). *Konfidens: HIGH hinsichtlich der EP-Absicht; MODERATE hinsichtlich der Ratsfolge.*
+
+2. **Lösung des EPP-DMA-Bruchs, bevor er zu einer Mehrfach-Akten-Institutionskrise metastasiert.** Etwa 80 EPP-Abgeordnete (deutsche, niederländische, nordische) schlossen sich der progressiven Durchsetzungskoalition an; ~100 (italienische FI, spanischer PP-Wirtschaftsflügel, Frankophile) widersprachen. Eine Kohäsion von 50 % bei einer zentralen Digitalakte ist im EP10 beispiellos und offenbart die ungelöste Spannung der EPP zwischen ihrer **Regierungsparteiidentität** (regulatorische Glaubwürdigkeit) und ihrer **wirtschaftsfreundlichen Identität** (Widerstand gegen Überregulierung). Wenn die nächste große Digitalakte (wahrscheinlich die bevorstehende Überprüfung der KI-Gesetz-Umsetzung oder eine DSA-Durchsetzungsabstimmung) eine ähnliche Spaltung produziert, verliert die EPP ihre Glaubwürdigkeit als kohärenter Legislativgesprächspartner für die Kommission. *Konfidens: MODERATE–HIGH.*
+
+3. **Entscheidung, ob Farm-to-Fork von der Viehwirtschafts-Konterrevolution isoliert werden soll.** TA-10-2026-0157 markiert eine bewusste Abkehr von der Green-Deal-Architektur des EP9. Die agrarpolitisch positive EPP+ECR+PfE-Koalition (≈349 Sitze, gegenüber einer Mehrheitsschwelle von 360) ist nun bei Agrar- und Landakten nahezu dauerhaft aktiv. Das strategische Problem ist arithmetisch: EU-Viehmethane = ~160 Mt CO₂e jährlich = 4,5 % der gesamten EU-Treibhausgasemissionen. Jedes Jahr mit verzögerter Methanreduzierung vergrößert die Lücke zum 55%-bis-2030-Ziel des EU-Klimaschutzgesetzes. Die Entscheidung der Kommission lautet: Farm-to-Fork-Zeitpläne als rechtlich bindende Klimaschutzgesetz-Verpflichtungen verteidigen oder die *de facto*-Wiedereröffnung durch das Europäische Parlament akzeptieren. *Konfidens: HIGH hinsichtlich der politischen Entwicklung; LOW ob die Schutzleitplanken des Klimaschutzgesetzes halten werden.*
+
+### 60-Sekunden-Lektüre
+
+Die Überschriftszahl dieses Zyklus beträgt 101 angenommene Texte — ein höherer Durchsatz als das EP9-Abschlussjahresmuster. Aber der Durchsatz verdeckt die zugrundeliegende Koalitionsarithmetik, die die eigentliche Geschichte ist. Das Parlament hat **keine tragfähige Supermajorität**; stattdessen verfügt es über drei beobachtbare Arbeitskoalitionen, die in verschiedenen Politikbereichen aktiviert werden:
+
+- **Die Geopolitik-Koalition** (EPP + S&D + Renew + Greens + linke Flügel bei Rechtsstaatlichkeit / Ukraine / Sanktionen): ~449–560 Sitze; hohe Kohäsion; produziert grand mosaics wie die Ukraine-Rechenschaftsarchitektur.
+- **Die Deregulierungs-/Agrarkoalition** (EPP + ECR + PfE bei ländlichen Gebieten, Energiewettbewerbsfähigkeit, regulatorischen Lasten): ~349 Sitze; hohe Kohäsion bei der Landwirtschaft, nahe Mehrheit, aber politisch zuverlässig.
+- **Die Koalition für digitale Souveränität** (S&D + Renew + Greens + The Left + EPP-Zentrumsmitglieder bei DMA/DSA/KI-Grundrechten): umstritten, ~50 % EPP-Kohäsion ist das strukturelle Risiko.
+
+Webers EPP hat eine **„pick your battles"**-Strategie operationalisiert: bei geopolitischen progressiven Koalitionen nachgeben (wo wertebasierte Wähler Konsequenz einfordern), konservative Koalitionen in Wirtschaft und Landwirtschaft aufbauen (wo wirtschaftsnahe und ländliche Wählerbasis Schutz fordert). Das ist politisch rational. Die ungelöste Frage ist, ob die EPP ihre Mitte halten kann, wenn ihr rechter Flügel in der Wirtschaft in Richtung PfE-Territorium driftet, während ihr zentristischer Flügel bei der Geopolitik festhält. Die DMA-Abstimmung ist die erste Abstimmung im EP10, die andeutet, dass die Antwort zunehmend **nein** lautet.
+
+Hinter der Politik ist der **Brüssel-Effekt empirisch lebendig**: Apple hat die iOS-Bedingungen weltweit geändert, um App-Stores von Drittanbietern unter DMA-Druck zuzulassen; Google hat begonnen, unter Artikel-10-Verpflichtungen Suchdaten mit europäischen Wettbewerbern zu teilen. Das bedeutet, dass das DMA extraterritorialen Regulierungsoutput produziert, noch bevor Durchsetzungsentscheidungen fallen — was genau der Grund ist, warum der EPP-Bruch wichtig ist. Das Parlament kann Brüssel-Effekt-Ergebnisse nur liefern, wenn es glaubwürdige Durchsetzungsabsicherungen liefern kann, und das erfordert EPP-Kohäsion.
+
+### Risikoübersicht (12-Monats-Horizont)
+
+| # | Risiko | Wahrscheinlichkeit | Auswirkung | Netto |
+|---|------|-----------:|------:|----:|
+| 1 | EPP-DMA-Bruch weitet sich auf andere Digitalakten aus | MED–HIGH | HIGH | **Top** |
+| 2 | Ukraine-Schadensersatzkommission stagniert nach Q3 2026 im Rat | MED | HIGH | **Top** |
+| 3 | Agrar-Konterrevolution demontiert Farm-to-Fork-Pfeiler | HIGH | MED–HIGH | **Top** |
+| 4 | US-Zollvergeltung gegen DMA-Durchsetzung | MED | HIGH | Beobachten |
+| 5 | Koalitionsarithmetik erzeugt Haushaltsblockade beim 2027 MFF | LOW–MED | VERY HIGH | Beobachten |
+
+### Vorausschauende Auslöser (nächste 2–6 Wochen)
+
+- **Juni 2026 Außenrat:** Werden Schlussfolgerungen zur Ukraine-Schadensersatzkommission verabschiedet? Schweigen = strategische Verzögerung.
+- **GD COMP DMA-Durchsetzungszeitplan:** Jede Verschiebung der Apple- oder Google-Durchsetzungsentscheidungen signalisiert, dass die Kommission den US-Handelsdruckkrieg absorbiert.
+- **Erklärung der EPP-Gruppe zum DMA:** Öffentliche Anerkennung gegenüber Unterdrückung des Bruchs ist selbst ein politisches Signal.
+- **Antrag auf Farm-to-Fork-Verzögerung:** Ein Kommissionsvorschlag zur Überarbeitung eines F2F-Umsetzungsziels ist der Kanarienvogel im Klimaschutzgesetz-Bergwerk.
+- **Ratspräsidentschaftsübergabe (Dänemark → nächster):** Kontinuität gegenüber Neustart bei Verantwortlichkeits- und Digitalakten.
+
+### ACH — Drei konkurrierende Lesarten der EPP
+
+| Hypothese | Unterstützende Beweise | Widersprechende Beweise | Bewertung |
+|---|---|---|---|
+| H1: EPP konsolidiert eine rechts-der-Mitte-Mehrheit | Viehwirtschaftsantrag, CSRD-Revision, EPP+ECR-Kooperationsmuster | DMA-Spaltung, Ukraine-überparteilich, Rechtsstaatseinheit | **Teilweise gestützt** — wahr für Wirtschaft/Landwirtschaft |
+| H2: EPP ist EUs letzter zentristischer Anker | Ukraine 93 % Kohäsion, Rechtsstaatsführerschaft, Schadenskommissionsrahmen | DMA 50 % Kohäsion, Agrarausrichtung mit PfE | **Schwach gestützt** — nur bei Geopolitik |
+| H3: EPP fragmentiert strukturell in zwei Parteien | DMA-Spaltung, italienisch/spanischer FI–PP-Wirtschaftsflügel divergiert vom deutsch–nordischen Zentrum | Gruppendisziplin hält weiterhin bei Ukraine, MFF, Rechtsstaatlichkeit | **Moderat gestützt** — die prädiktivste Hypothese für 2026–2027 |
+
+### Quellenqualität (Admiralty-Einstufung)
+
+- EP Open Data Portal angenommene Texte (TA-10-2026-0154 / 0157 / 0160 / 0161): **A1** (offizielle Quelle, voll zuverlässig)
+- Koalitionskohäsionsschätzungen (wo DOCEO XML verfügbar): **A2**; (wo aus Gruppenaussagen / Presse geschätzt): **B3** (≈25 % der Zahlen)
+- IMF WEO Frühjahr 2026 (1,2 % Eurozonen-Wachstum): **A1**
+- World Bank Ukraine RDNA4 (€486 Mrd. Wiederaufbaubedarf): **A1**
+- Brüssel-Effekt-Verhaltensänderungsnachweis (Apple iOS / Google-Daten): **B2**
+- Vorausschauende 12-Monats-Koalitionsprojektionen: **C3**
+
+### Provenienz
+
+- Durchlauf: Antragsanalyse für den Zeitraum 2026-04-12 → 2026-05-12
+- Primäre für dieses Bericht gelesene Artefakte: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- Datenwährung: 12. Mai 2026.
+- Compliance: EP-Open-Data-Portal-Feeds + namentliche Abstimmung, wo veröffentlicht; ~25 % der Kohäsionszahlen sind Schätzungen aufgrund der 4–6-wöchigen Veröffentlichungsverzögerung des EP beim Abstimmungsprotokoll; explizit oben gekennzeichnet. DSGVO-konform, keine persönliche Profilerstellung von Abgeordneten.
+
+---
+
+*Analytische Neutralität: Dieser Bericht dokumentiert beobachtbare Koalitionsarithmetik und namentliche Abstimmungsbelege. Jede direktionale Aussage ist mit ausdrücklichem Vertrauensniveau und konkurrierender Hypothesenbehandlung versehen.*
+
+### Executive Brief Es
+
+### BLUF (Conclusión al frente)
+
+El ciclo de 30 días que concluyó el 12 de mayo de 2026 produjo **101 textos adoptados** (por encima del ritmo del PE9) y cristalizó la identidad operativa del PE10: un **Parlamento de coaliciones a medida**, firme en geopolítica, disputado en economía e incrimentalmente contrarrevolucionario en agricultura. Tres textos capturan el estado estructural: **TA-10-2026-0161 / 0154** (responsabilidad por Ucrania y Comisión de Reclamaciones, ≈449–560 escaños, PPE ~93 % de cohesión), **TA-10-2026-0160** (aplicación de la DMA, ~50 % de cohesión del PPE — el valor más bajo en cualquier votación importante del PE10), y **TA-10-2026-0157** (sector ganadero y seguridad alimentaria, PPE–ECR–PfE cerca de la mayoría). La señal agregada es que **el PPE es el actor pivote del PE10**, y qué Europa emerge de este Parlamento depende de qué coalición interna del PPE gane cada expediente. *Nivel de confianza: HIGH. WEP: LIKELY (65 %) para la plena operacionalización de la arquitectura de responsabilidad en 18 meses. Admiralty: B2.*
+
+### Tres decisiones que dependen de este ciclo
+
+1. **Operacionalizar la Comisión de Reclamaciones de Ucrania mientras la ventana diplomática siga abierta.** El Parlamento Europeo ha aprobado formalmente una arquitectura de cooperación reforzada/base convencional *fuera* del marco de la ONU (necesaria por el veto de un determinado miembro del Consejo de Seguridad). Se trata de una acción parlamentaria preventiva antes de un eventual acuerdo de paz mediado por EE. UU. que podría consolidar un *fait accompli*. La ventana de 45 días para la aprobación por el Consejo de un mandato de comisión es el período operativamente crítico. La línea de base histórica — la Comisión de Compensación de la ONU para Kuwait procesó 52,4 bn USD en reclamaciones y otorgó 34,5 bn USD durante 1991–2022 — confirma la viabilidad, pero subraya que el retraso impone costes estructurales (~€300 bn congelados en Euroclear Bélgica pierden opcionalidad cada mes). *Nivel de confianza: HIGH sobre la intención del PE; MODERATE sobre el seguimiento del Consejo.*
+
+2. **Resolver la fractura del PPE en la DMA antes de que metastatice en una crisis institucional multidossier.** Aproximadamente 80 eurodiputados del PPE (alemanes, neerlandeses, nórdicos) se sumaron a la coalición de aplicación progresista; ~100 (FI italiana, ala empresarial del PP español, francófonos) se opusieron. Una cohesión del 50 % en un expediente digital emblemático es inédita en el PE10 y revela la tensión no resuelta del PPE entre su **identidad de partido de gobierno** (credibilidad regulatoria) y su **identidad pro-business** (resistencia a la sobreregulación). Si el próximo gran expediente digital (probablemente la próxima revisión de la implementación de la Ley de IA o una votación de aplicación de la DSA) produce una división similar, el PPE pierde credibilidad como interlocutor legislativo coherente ante la Comisión. *Nivel de confianza: MODERATE–HIGH.*
+
+3. **Decidir si aislar la estrategia De la granja a la mesa de la contrarevolución ganadera.** TA-10-2026-0157 marca un giro deliberado alejándose de la arquitectura del Pacto Verde del PE9. La coalición pro-agrícola PPE+ECR+PfE (≈349 escaños, frente a un umbral de mayoría de 360) es ahora casi permanente en los expedientes agrícolas y rurales. El problema estratégico es aritmético: el metano ganadero de la UE = ~160 Mt CO₂e anuales = 4,5 % de las emisiones totales de GEI de la UE. Cada año de reducción retrasada del metano amplía la brecha con el objetivo del 55 % para 2030 de la Ley Climática de la UE. La elección de la Comisión es si defender los calendarios De la granja a la mesa como obligaciones jurídicamente vinculantes del derecho climático o aceptar la reapertura *de facto* del PE. *Nivel de confianza: HIGH sobre la trayectoria política; LOW sobre si las salvaguardias del derecho climático aguantarán.*
+
+### Lectura en 60 segundos
+
+La cifra titular de este ciclo es 101 textos adoptados — mayor producción que el ritmo del último año del PE9. Pero el rendimiento oculta la aritmética de coaliciones subyacente, que es la verdadera historia. El Parlamento no tiene **ninguna supermayoría duradera**; en cambio, tiene tres coaliciones de trabajo observables que se activan en distintos ámbitos políticos:
+
+- **La coalición geopolítica** (PPE + S&D + Renew + Greens + alas izquierdas sobre Estado de Derecho / Ucrania / sanciones): ~449–560 escaños; alta cohesión; produce grandes mosaicos como la arquitectura de responsabilidad ucraniana.
+- **La coalición de desregulación/agricultura** (PPE + ECR + PfE sobre zonas rurales, competitividad energética, cargas regulatorias): ~349 escaños; alta cohesión en agricultura, cerca de la mayoría pero políticamente fiable.
+- **La coalición para la soberanía digital** (S&D + Renew + Greens + The Left + centristas del PPE sobre DMA/DSA/IA y derechos fundamentales): disputada, ~50 % de cohesión del PPE es el riesgo estructural.
+
+El PPE de Weber ha operacionalizado una estrategia de **«elegir sus batallas»**: ceder ante coaliciones progresistas en geopolítica (donde los votantes basados en valores exigen coherencia), construir coaliciones conservadoras en economía y agricultura (donde la base pro-business y rural exige protección). Eso es políticamente racional. La pregunta no resuelta es si el PPE puede mantener su centro cuando su ala derecha deriva hacia el territorio de PfE en economía, mientras su ala centrista se mantiene firme en geopolítica. La votación sobre la DMA es la primera del PE10 que sugiere que la respuesta es cada vez más **no**.
+
+Por debajo de la política, el **efecto Bruselas está empíricamente vivo**: Apple modificó las condiciones de iOS a nivel mundial para permitir tiendas de aplicaciones de terceros bajo la presión de la DMA; Google ha comenzado a compartir datos de búsqueda con competidores europeos en virtud de las obligaciones del artículo 10. Esto significa que la DMA produce resultados regulatorios extraterritoriales incluso antes de las decisiones de aplicación — lo que es precisamente la razón por la que la fractura del PPE importa. El Parlamento solo puede ofrecer resultados del efecto Bruselas si puede proporcionar respaldos creíbles de aplicación, y eso requiere cohesión del PPE.
+
+### Panorama de riesgos (horizonte de 12 meses)
+
+| # | Riesgo | Probabilidad | Impacto | Neto |
+|---|------|-----------:|------:|----:|
+| 1 | La fractura DMA del PPE se extiende a otros expedientes digitales | MED–HIGH | HIGH | **Prioritario** |
+| 2 | La Comisión de Reclamaciones de Ucrania se bloquea en el Consejo tras el T3 2026 | MED | HIGH | **Prioritario** |
+| 3 | La contrarevolución agrícola desmantela el pilar De la granja a la mesa | HIGH | MED–HIGH | **Prioritario** |
+| 4 | Represalias arancelarias estadounidenses contra la aplicación de la DMA | MED | HIGH | Vigilar |
+| 5 | La aritmética de coaliciones produce un bloqueo presupuestario en el MFP 2027 | LOW–MED | VERY HIGH | Vigilar |
+
+### Desencadenantes prospectivos (próximas 2–6 semanas)
+
+- **Consejo de Asuntos Exteriores de junio de 2026:** ¿Se adoptan conclusiones sobre la Comisión de Reclamaciones de Ucrania? Silencio = demora estratégica.
+- **Calendario de aplicación de la DMA por la DG COMP:** Cualquier aplazamiento de las decisiones de aplicación de Apple o Google señala que la Comisión está absorbiendo la presión de la guerra comercial estadounidense.
+- **Declaración del Grupo PPE sobre la DMA:** El reconocimiento público frente a la supresión de la fractura es en sí mismo una señal política.
+- **Solicitud de aplazamiento De la granja a la mesa:** Una propuesta de la Comisión para revisar cualquier objetivo de implementación de F2F es el canario en la mina del derecho climático.
+- **Traspaso de la Presidencia del Consejo (Dinamarca → siguiente):** Continuidad frente a reinicio en expedientes de responsabilidad y digitales.
+
+### ACH — Tres lecturas en competencia sobre el PPE
+
+| Hipótesis | Evidencia de apoyo | Evidencia en contra | Evaluación |
+|---|---|---|---|
+| H1: El PPE consolida una mayoría de centro-derecha | Moción ganadera, revisión CSRD, patrón de cooperación PPE+ECR | División DMA, Ucrania transespectro, unidad en Estado de Derecho | **Parcialmente respaldada** — cierta en economía/agricultura |
+| H2: El PPE es el último ancla centrista de la UE | Ucrania 93 % cohesión, liderazgo en Estado de Derecho, marco de comisión de reclamaciones | DMA 50 % cohesión, reorientación agrícola con PfE | **Débilmente respaldada** — solo en geopolítica |
+| H3: El PPE se fragmenta estructuralmente en dos partidos | División DMA, ala económica FI–PP italiana/española divergiendo del centro alemán-nórdico | La disciplina de grupo aún aguanta en Ucrania, MFP, Estado de Derecho | **Moderadamente respaldada** — la hipótesis más predictiva para 2026–2027 |
+
+### Calidad de fuentes (puntuación Admiralty)
+
+- Textos adoptados del Portal de Datos Abiertos del PE (TA-10-2026-0154 / 0157 / 0160 / 0161): **A1** (fuente oficial, totalmente fiable)
+- Estimaciones de cohesión de coaliciones (donde XML DOCEO disponible): **A2**; (donde estimadas de declaraciones de grupos / prensa): **B3** (≈25 % de las cifras)
+- IMF WEO primavera 2026 (crecimiento de la eurozona del 1,2 %): **A1**
+- World Bank Ucrania RDNA4 (€486 bn de necesidades de reconstrucción): **A1**
+- Evidencia de cambio de comportamiento del efecto Bruselas (Apple iOS / datos Google): **B2**
+- Proyecciones de coalición prospectivas a 12 meses: **C3**
+
+### Procedencia
+
+- Ejecución: análisis de mociones para la ventana 2026-04-12 → 2026-05-12
+- Artefactos primarios leídos para esta nota: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- Actualidad de los datos: 12 de mayo de 2026.
+- Cumplimiento: flujos del Portal de Datos Abiertos del PE + votación nominal donde publicada; ~25 % de las cifras de cohesión son estimaciones debido al retraso de publicación de 4–6 semanas del PE en el registro de votaciones; señalado explícitamente arriba. Conforme al RGPD, sin perfilado personal de eurodiputados.
+
+---
+
+*Neutralidad analítica: esta nota documenta la aritmética de coaliciones observable y la evidencia de votación nominal. Cada afirmación direccional está matizada con un nivel de confianza explícito y un tratamiento de hipótesis en competencia.*
+
+### Executive Brief Fi
+
+### BLUF (Yhteenveto etukäteen)
+
+12. toukokuuta 2026 päättynyt 30 päivän sykli tuotti **101 hyväksyttyä tekstiä** (EP9:n tahdin yläpuolella) ja kiteytti EP10:n toiminnallisen identiteetin: **räätälöityjen koalitioiden parlamentin**, joka on vakaa geopolitiikan osalta, kiistelty taloudessa ja yhä kontrarevolutionäärisempi maatalouspolitiikassa. Kolme tekstiä kuvastaa rakenteellista tilannetta: **TA-10-2026-0161 / 0154** (Ukraina-vastuullisuus ja korvauskomissio, ≈449–560 paikkaa, EPP ~93 % yhtenäisyys), **TA-10-2026-0160** (DMA-täytäntöönpano, ~50 % EPP-yhtenäisyys — alhaisin kaikissa EP10:n merkittävissä äänestyksissä), ja **TA-10-2026-0157** (kotieläinsektori ja elintarviketurvallisuus, EPP–ECR–PfE lähellä enemmistöä). Yhteinen signaali on, että **EPP on EP10:n keskeinen toimija**, ja se, millainen Eurooppa tästä parlamentista nousee, riippuu siitä, mikä sisäinen EPP-koalitio voittaa kullakin asialla. *Luottamustaso: HIGH. WEP: LIKELY (65 %) vastuullisuusarkkitehtuurin täydelliselle operationalisoinnille 18 kuukauden kuluessa. Admiralty: B2.*
+
+### Kolme tähän sykliin liittyvää päätöstä
+
+1. **Operationalisoi Ukrainan korvauskomissio, kun diplomaattinen ikkuna on vielä auki.** EP on virallisesti hyväksynyt tehostetun yhteistyön / sopimusperusteisen arkkitehtuurin *YK:n kehyksen ulkopuolella* (välttämätön tietyn turvallisuusneuvoston veto-oikeuden vuoksi). Tämä on ennakoivaa parlamentaarista toimintaa ennen mahdollista Yhdysvaltojen välittämää rauhansopimusta, joka voisi muuten vahvistaa *fait accompli* -tilanteen. 45 päivän ikkuna neuvoston komissiotoimeksiannon hyväksymiselle on operatiivisesti kriittisin ajanjakso. Historiallinen vertailukohta — YK:n Kuwaitin korvauskomissio käsitteli 52,4 miljardin USD vaatimukset ja myönsi 34,5 miljardia USD vuosina 1991–2022 — vahvistaa toteutettavuuden, mutta korostaa, että viivytys aiheuttaa rakenteellisia kustannuksia (jäädytetyt ~€300 miljardia Euroclear Belgiassa menettävät optioarvoa joka kuukausi). *Luottamustaso: HIGH EP:n tarkoituksen osalta; MODERATE neuvoston jatkotoimien osalta.*
+
+2. **Ratkaise EPP DMA-halkeama ennen kuin se metastasoituu monisäikeiseksi institutionaaliseksi kriisiksi.** Noin 80 EPP-europarlamentaarikkoa (saksalaiset, hollantilaiset, pohjoismaiset) liittyi progressiiviseen täytäntöönpanokoalitioon; ~100 (italialaiset FI, espanjalaiset PP-elinkeinosiiven edustajat, ranskalaiset) vastusti. 50 %:n yhtenäisyys keskeisessä digitaaliasiakirjassa on ennennäkemätöntä EP10:ssa ja paljastaa EPP:n ratkaisemattoman jännitteen sen **hallitsevapuolue-identiteetin** (sääntelyuskottavuus) ja **yritysmyönteisen identiteetin** (vastustus ylisääntelylle) välillä. Jos seuraava suuri digitaalinen asia (todennäköisesti tuleva tekoälylain täytäntöönpanoarviointi tai DSA-täytäntöönpanoäänestys) tuottaa vastaavan hajaannuksen, EPP menettää uskottavuutensa yhtenäisenä lainsäädäntöneuvottelijana komissiolle. *Luottamustaso: MODERATE–HIGH.*
+
+3. **Päätä, suojataanko Pellolta pöytään -strategia kotieläinkounterrevolutiolta.** TA-10-2026-0157 merkitsee tietoista kääntymistä pois EP9:n Green Deal -arkkitehtuurista. Maataloumyönteinen EPP+ECR+PfE-koalitio (≈349 paikkaa, enemmistökynnyksen 360 alapuolella) on nyt lähes pysyvästi aktiivinen maatalous- ja maaseutuasioissa. Strateginen ongelma on aritmeettinen: EU:n kotieläinmetaani = ~160 Mt CO₂e vuodessa = 4,5 % EU:n kokonaiskasvihuonekaasupäästöistä. Jokainen viivästynyt metaanin vähentämisvuosi kasvattaa eroa EU:n ilmastolain 55 %:n tavoitteeseen vuoteen 2030 mennessä. Komission valinta on, puolustaako se Pellolta pöytään -aikatauluja oikeudellisesti sitovina ilmastolakivelvoitteina vai hyväksyykö se EP:n *de facto* uudelleenavausta. *Luottamustaso: HIGH poliittisen kehityssuunnan osalta; LOW sen suhteen, pitävätkö ilmastolain suojaraidat.*
+
+### 60 sekunnin kooste
+
+Syklin otsikkoluku on 101 hyväksyttyä tekstiä — korkeampi läpäisyteho kuin EP9:n loppuvuoden tahti. Mutta läpäisyteho peittää alleen taustalla olevan koalitioaritmetiikan, joka on todellinen tarina. Parlamentilla ei ole **kestävää superenemmistöä**; sen sijaan sillä on kolme havaittavaa toimivaa koalitiota, jotka aktivoituvat eri politiikka-alueilla:
+
+- **Geopolitiikkakoalitio** (EPP + S&D + Renew + Greens + vasemmistosiiven oikeusvaltioon / Ukrainaan / pakotteisiin liittyvät ryhmät): ~449–560 paikkaa; korkea yhtenäisyys; tuottaa laajoja kokonaisuuksia kuten Ukrainan vastuuarkkitehtuurin.
+- **Sääntelyn purkamisen / maatalouden koalitio** (EPP + ECR + PfE maaseudun, energiakilpailukyvyn, sääntelytaakan osalta): ~349 paikkaa; korkea yhtenäisyys maataloudessa, lähellä enemmistöä mutta poliittisesti luotettava.
+- **Digitaalisen suvereniteetin koalitio** (S&D + Renew + Greens + The Left + EPP-sentristit DMA/DSA/tekoälyn perusoikeuksien osalta): kiistelty, ~50 % EPP-yhtenäisyys on rakenteellinen riski.
+
+Weberin EPP on operationalisoinut **"valitse taistelusi"** -strategian: antaa myöten progressiivisille koalitioille geopolitiikassa (jossa arvolähtöiset äänestäjät vaativat johdonmukaisuutta), rakentaa konservatiivisia koalitioita taloudessa ja maataloudessa (jossa elinkeinoelämään suuntautuneet ja maaseutuäänestäjät vaativat suojelua). Se on poliittisesti rationaalista. Ratkaisematon kysymys on, voiko EPP pitää keskustansa, kun sen oikea siipi ajautuu PfE-alueelle taloudessa, kun taas sentristinen siipi pitää kiinni geopolitiikasta. DMA-äänestys on ensimmäinen äänestys EP10:ssa, joka viittaa siihen, että vastaus on yhä enemmän **ei**.
+
+Politiikan alla **Bryssel-vaikutus on empiirisesti elävä**: Apple muutti iOS-ehtoja maailmanlaajuisesti sallimaan kolmansien osapuolten sovelluskaupat DMA-paineen alla; Google on alkanut jakaa hakutietoja eurooppalaisille kilpailijoille artikla 10 -velvoitteiden nojalla. Tämä tarkoittaa, että DMA tuottaa ekstraterritoriaalist sääntelytuotosta jo ennen täytäntöönpanopäätöksiä — mikä on juuri syy siihen, miksi EPP:n halkeama on tärkeä. Parlamentti voi tuottaa Bryssel-vaikutuksen tuloksia vain jos se pystyy toimittamaan uskottavia täytäntöönpanosuojia, ja se vaatii EPP-yhtenäisyyttä.
+
+### Riskikuva (12 kuukauden horisontti)
+
+| # | Riski | Todennäköisyys | Vaikutus | Netto |
+|---|------|-----------:|------:|----:|
+| 1 | EPP DMA-halkeama laajenee muihin digitaalisiin asioihin | MED–HIGH | HIGH | **Huippu** |
+| 2 | Ukrainan korvauskomissio jumiutuu neuvostossa Q3 2026 jälkeen | MED | HIGH | **Huippu** |
+| 3 | Maatalouskounterrevolutio purkaa Pellolta pöytään -pilarin | HIGH | MED–HIGH | **Huippu** |
+| 4 | Yhdysvaltojen tullipainostus DMA-täytäntöönpanoa vastaan | MED | HIGH | Seuraa |
+| 5 | Koalitioaritmetiikka tuottaa budjettikuolleistaan 2027 MFF:n suhteen | LOW–MED | VERY HIGH | Seuraa |
+
+### Tulevaisuuden laukaisijat (seuraavat 2–6 viikkoa)
+
+- **Kesäkuu 2026 Ulkoasiainneuvosto:** Hyväksytäänkö Ukrainan korvauskomissiota koskevat päätelmät? Hiljaisuus = strateginen viivytys.
+- **GD COMP DMA-täytäntöönpanoaikataulu:** Jokainen Applen tai Googlen täytäntöönpanopäätösten lykkääminen signaloi, että komissio absorboi Yhdysvaltojen kauppasotapainetta.
+- **EPP-ryhmän lausunto DMA:sta:** Julkinen tunnustaminen verrattuna halkeaman tukahduttamiseen on itsessään poliittinen signaali.
+- **Pellolta pöytään -viivästyspyyntö:** Komission ehdotus F2F-toimeenpanon tavoitteen muuttamiseksi on kaivoksen kanarianlintu ilmastolakiasioissa.
+- **Neuvoston puheenjohtajuuden siirtyminen (Tanska → seuraava):** Jatkuvuus verrattuna nollaamiseen vastuullisuus- ja digitaalisissa asioissa.
+
+### ACH — Kolme kilpailevaa tulkintaa EPP:stä
+
+| Hypoteesi | Tukeva näyttö | Kumoava näyttö | Arviointi |
+|---|---|---|---|
+| H1: EPP konsolidoi oikeistokeskustan enemmistön | Kotieläinmietintö, CSRD-revisio, EPP+ECR-yhteistyömalli | DMA-hajaannus, Ukraina poikkipuolueellinen, oikeusvaltioyhteneisyys | **Osittain tuettu** — totta taloudessa/maataloudessa |
+| H2: EPP on EU:n viimeinen sentristinen ankkuri | Ukraina 93 % yhtenäisyys, oikeusvaltiojohtoasema, korvauskomissiorakenne | DMA 50 % yhtenäisyys, maataloussuuntaus PfE:n kanssa | **Heikosti tuettu** — vain geopolitiikassa |
+| H3: EPP pirstoutuu rakenteellisesti kahdeksi puolueeksi | DMA-hajaannus, italialainen/espanjalainen FI–PP-elinkeinosipi divergoi saksalais–pohjoismaisesta keskuksesta | Ryhmäkuri pitää edelleen Ukrainassa, MFF:ssä, oikeusvaltiossa | **Kohtalaisesti tuettu** — ennakoivin hypoteesi vuosille 2026–2027 |
+
+### Lähdelaatu (Admiralty-luokitus)
+
+- EP Open Data Portal hyväksytyt tekstit (TA-10-2026-0154 / 0157 / 0160 / 0161): **A1** (virallinen lähde, täysin luotettava)
+- Koalitioyhtenäisyysarviot (joissa DOCEO XML saatavilla): **A2**; (joissa arvioitu ryhmälausunnoista / lehdistöstä): **B3** (≈25 % luvuista)
+- IMF WEO kevät 2026 (1,2 % eurozoni-kasvu): **A1**
+- World Bank Ukraina RDNA4 (€486 miljardia jälleenrakennustarve): **A1**
+- Bryssel-vaikutuksen käyttäytymismuutosnäyttö (Apple iOS / Google-data): **B2**
+- Eteenpäinkatsovat 12 kuukauden koalitioennusteet: **C3**
+
+### Alkuperä
+
+- Ajo: mietintöanalyysi ajanjaksolla 2026-04-12 → 2026-05-12
+- Ensisijaiset artefaktit, jotka on luettu tähän tiivistelmään: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- Datan ajankohtaisuus: 12. toukokuuta 2026.
+- Vaatimustenmukaisuus: EP Open Data Portal -syötteet + äänestystiedot, joissa julkaistu; ~25 % yhtenäisyysluvuista ovat arvioita EP:n 4–6 viikon julkaisuedellysten vuoksi äänestysrekisterin osalta; mainittu eksplisiittisesti edellä. GDPR-yhteensopiva, ei henkilökohtaista europarlamentaarikoiden profilointia.
+
+---
+
+*Analyyttinen puolueettomuus: tämä tiivistelmä raportoi havaittavaa koalitioaritmetiikkaa ja äänestystodisteita. Jokainen suuntaa antava väite on täsmennetty eksplisiittisin luottamustasoin ja kilpailevien hypoteesien käsittelyllä.*
+
+### Executive Brief Fr
+
+### BLUF (Conclusion en première ligne)
+
+Le cycle de 30 jours clôturé le 12 mai 2026 a produit **101 textes adoptés** (au-dessus du rythme de la PE9) et a cristallisé l'identité opérationnelle du PE10 : un **Parlement de coalitions sur mesure**, ferme sur la géopolitique, contesté sur l'économie et de plus en plus contre-révolutionnaire sur l'agriculture. Trois textes illustrent l'état structurel des forces : **TA-10-2026-0161 / 0154** (responsabilité pour l'Ukraine et Commission des réclamations, ≈449–560 sièges, PPE ~93 % de cohésion), **TA-10-2026-0160** (application de la DMA, ~50 % de cohésion du PPE — le niveau le plus bas d'un vote majeur du PE10), et **TA-10-2026-0157** (secteur de l'élevage et sécurité alimentaire, PPE–ECR–PfE proches de la majorité). Le signal agrégé est que **le PPE est l'acteur pivot du PE10**, et l'Europe qui émergera de ce Parlement dépend de quelle coalition interne du PPE remporte chaque dossier. *Niveau de confiance : HIGH. WEP : LIKELY (65 %) pour la pleine opérationnalisation de l'architecture de responsabilité dans les 18 mois. Admiralty : B2.*
+
+### Trois décisions qui dépendent de ce cycle
+
+1. **Opérationnaliser la Commission des réclamations pour l'Ukraine pendant que la fenêtre diplomatique est encore ouverte.** Le Parlement européen a formellement approuvé une architecture de coopération renforcée/à base conventionnelle *en dehors* du cadre onusien (nécessaire en raison d'un certain droit de veto au Conseil de sécurité). Il s'agit d'une action parlementaire préventive avant un accord de paix éventuellement facilité par les États-Unis, qui pourrait autrement figer un *fait accompli*. La fenêtre de 45 jours pour l'approbation par le Conseil d'un mandat de commission est la période opérationnellement critique. La ligne de base historique — la Commission de compensation des Nations Unies pour le Koweït a traité 52,4 Mds USD de réclamations et accordé 34,5 Mds USD sur 1991–2022 — confirme la faisabilité, mais souligne que le retard engendre des coûts structurels (les ~€300 Mds gelés chez Euroclear Belgique perdent en optionnalité à chaque mois qui passe). *Niveau de confiance : HIGH sur l'intention du PE ; MODERATE sur la suite donnée par le Conseil.*
+
+2. **Résoudre la fracture du PPE sur la DMA avant qu'elle ne métastase en une crise institutionnelle multi-dossiers.** Environ 80 eurodéputés du PPE (allemands, néerlandais, nordiques) ont rejoint la coalition d'application progressive ; ~100 (FI italiens, aile des affaires du PP espagnol, francophones) s'y sont opposés. Un taux de cohésion de 50 % sur un dossier numérique phare est sans précédent pour le PE10 et révèle la tension non résolue du PPE entre son **identité de parti de gouvernement** (crédibilité réglementaire) et son **identité pro-business** (résistance à la surréglementation). Si le prochain grand dossier numérique (probablement l'examen à venir de la mise en œuvre du règlement IA ou un vote d'application du DSA) produit une division similaire, le PPE perd sa crédibilité en tant qu'interlocuteur législatif cohérent auprès de la Commission. *Niveau de confiance : MODERATE–HIGH.*
+
+3. **Décider si la stratégie De la ferme à la table doit être isolée de la contre-révolution de l'élevage.** TA-10-2026-0157 marque un pivot délibéré hors de l'architecture Green Deal du PE9. La coalition pro-agricole PPE+ECR+PfE (≈349 sièges, contre un seuil de majorité de 360) est désormais quasi-permanente sur les dossiers agricoles et ruraux. Le problème stratégique est arithmétique : le méthane de l'élevage de l'UE = ~160 Mt CO₂e par an = 4,5 % des émissions totales de GES de l'UE. Chaque année de réduction retardée du méthane creuse l'écart avec l'objectif de 55 % d'ici 2030 du droit climatique de l'UE. Le choix de la Commission est de défendre les calendriers De la ferme à la table comme obligations climatiques légalement contraignantes ou d'accepter la réouverture *de facto* par le PE. *Niveau de confiance : HIGH sur la trajectoire politique ; LOW pour savoir si les garde-fous du droit climatique tiendront.*
+
+### Lecture en 60 secondes
+
+Le chiffre phare de ce cycle est 101 textes adoptés — un débit plus élevé que celui de la dernière année du PE9. Mais le débit masque l'arithmétique coalitionnelle sous-jacente, qui est la vraie histoire. Le Parlement n'a **pas de supermajorité durable** ; il dispose en revanche de trois coalitions de travail observables qui s'activent sur des domaines politiques différents :
+
+- **La coalition géopolitique** (PPE + S&D + Renew + Greens + ailes gauches sur l'État de droit / Ukraine / sanctions) : ~449–560 sièges ; cohésion élevée ; produit de grandes mosaïques comme l'architecture de responsabilité ukrainienne.
+- **La coalition de déréglementation/agriculture** (PPE + ECR + PfE sur le rural, la compétitivité énergétique, les charges réglementaires) : ~349 sièges ; cohésion élevée sur l'agriculture, proches de la majorité mais politiquement fiables.
+- **La coalition pour la souveraineté numérique** (S&D + Renew + Greens + The Left + centristes du PPE sur la DMA/DSA/IA et les droits fondamentaux) : contestée, ~50 % de cohésion du PPE est le risque structurel.
+
+Le PPE de Weber a opérationnalisé une stratégie **« choisir ses batailles »** : céder aux coalitions progressives sur la géopolitique (où les électeurs fondés sur les valeurs exigent la cohérence), construire des coalitions conservatrices sur l'économie et l'agriculture (où la base pro-business et rurale exige protection). C'est politiquement rationnel. La question non résolue est de savoir si le PPE peut maintenir son centre alors que son aile droite dérive vers le territoire PfE sur l'économie tandis que son aile centriste tient sur la géopolitique. Le vote sur la DMA est le premier vote du PE10 qui laisse entendre que la réponse est de plus en plus **non**.
+
+Derrière la politique, l'**effet Bruxelles est empiriquement vivant** : Apple a modifié les conditions iOS à l'échelle mondiale pour permettre les boutiques d'applications tierces sous la pression de la DMA ; Google a commencé à partager ses données de recherche avec des concurrents européens en vertu des obligations de l'article 10. Cela signifie que la DMA produit un output réglementaire extraterritorial même avant les décisions d'application — ce qui est précisément la raison pour laquelle la fracture du PPE est importante. Le Parlement ne peut produire des résultats d'effet Bruxelles que s'il peut fournir des backstops d'application crédibles, et cela nécessite la cohésion du PPE.
+
+### Aperçu des risques (horizon de 12 mois)
+
+| # | Risque | Probabilité | Impact | Net |
+|---|------|-----------:|------:|----:|
+| 1 | La fracture DMA du PPE s'étend à d'autres dossiers numériques | MED–HIGH | HIGH | **Prioritaire** |
+| 2 | La Commission des réclamations de l'Ukraine s'enlise au Conseil après le T3 2026 | MED | HIGH | **Prioritaire** |
+| 3 | La contre-révolution agricole démantèle le pilier De la ferme à la table | HIGH | MED–HIGH | **Prioritaire** |
+| 4 | Représailles tarifaires américaines contre l'application de la DMA | MED | HIGH | À surveiller |
+| 5 | L'arithmétique coalitionnelle produit une impasse budgétaire sur le CFP 2027 | LOW–MED | VERY HIGH | À surveiller |
+
+### Déclencheurs prospectifs (2 à 6 prochaines semaines)
+
+- **Conseil des affaires étrangères de juin 2026 :** Des conclusions sur la Commission des réclamations de l'Ukraine sont-elles adoptées ? Silence = retard stratégique.
+- **Calendrier d'application de la DMA par la DG COMP :** Tout report de décisions d'application d'Apple ou de Google signale que la Commission absorbe la pression de la guerre commerciale américaine.
+- **Déclaration du groupe PPE sur la DMA :** Reconnaissance publique ou suppression de la fracture est en elle-même un signal politique.
+- **Demande de report De la ferme à la table :** Une proposition de la Commission visant à réviser tout objectif de mise en œuvre F2F est le canari dans la mine du droit climatique.
+- **Passation de la présidence du Conseil (Danemark → suivant) :** Continuité ou remise à zéro sur les dossiers de responsabilité et numériques.
+
+### ACH — Trois lectures concurrentes du PPE
+
+| Hypothèse | Preuves à l'appui | Preuves à l'encontre | Évaluation |
+|---|---|---|---|
+| H1 : Le PPE consolide une majorité de centre-droit | Motion d'élevage, révision CSRD, schéma de coopération PPE+ECR | Division DMA, Ukraine trans-spectre, unité sur l'État de droit | **Partiellement étayée** — vraie sur l'économie/l'agriculture |
+| H2 : Le PPE est la dernière ancre centriste de l'UE | Ukraine 93 % cohésion, leadership sur l'État de droit, cadre de la commission de réclamations | DMA 50 % cohésion, réorientation agricole avec PfE | **Faiblement étayée** — seulement sur la géopolitique |
+| H3 : Le PPE se fragmente structurellement en deux partis | Division DMA, aile économique FI–PP italienne/espagnole divergeant du centre allemand-nordique | La discipline de groupe tient toujours sur l'Ukraine, le CFP, l'État de droit | **Modérément étayée** — l'hypothèse la plus prédictive pour 2026–2027 |
+
+### Qualité des sources (cotation Admiralty)
+
+- Textes adoptés du Portail Open Data du PE (TA-10-2026-0154 / 0157 / 0160 / 0161) : **A1** (source officielle, totalement fiable)
+- Estimations de cohésion des coalitions (là où le XML DOCEO est disponible) : **A2** ; (là où estimées d'après les déclarations des groupes / presse) : **B3** (≈25 % des chiffres)
+- IMF WEO printemps 2026 (croissance de la zone euro à 1,2 %) : **A1**
+- World Bank Ukraine RDNA4 (besoin de reconstruction de €486 Mds) : **A1**
+- Preuves de changement de comportement de l'effet Bruxelles (Apple iOS / données Google) : **B2**
+- Projections coalitionnelles prospectives sur 12 mois : **C3**
+
+### Provenance
+
+- Exécution : analyse des motions pour la fenêtre 2026-04-12 → 2026-05-12
+- Artefacts primaires lus pour cette note : `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- Actualité des données : 12 mai 2026.
+- Conformité : flux du Portail Open Data du PE + vote nominal là où publié ; ~25 % des chiffres de cohésion sont des estimations en raison du délai de publication de 4 à 6 semaines du PE pour le registre des votes ; signalé explicitement ci-dessus. Conforme au RGPD, aucun profilage personnel des eurodéputés.
+
+---
+
+*Neutralité analytique : cette note rapporte l'arithmétique coalitionnelle observable et les preuves de vote nominal. Chaque affirmation directionnelle est nuancée par un niveau de confiance explicite et un traitement concurrent des hypothèses.*
+
+### Executive Brief He
+
+### BLUF (מסקנה מראש)
+
+מחזור 30 הימים שהסתיים ב-12 במאי 2026 הניב **101 טקסטים שאומצו** (מעל קצב EP9) וגיבש את הזהות המבצעית של EP10: **פרלמנט קואליציות מותאמות אישית**, נחוש בגיאופוליטיקה, שנוי במחלוקת בכלכלה, ורדיקלי יותר ויותר כנגד הרפורמות בחקלאות. שלושה טקסטים משקפים את המצב המבני: **TA-10-2026-0161 / 0154** (אחריות אוקראינה ועדת תביעות, ≈449–560 מושבים, EPP ~93 % לכידות), **TA-10-2026-0160** (אכיפת DMA, ~50 % לכידות EPP — הנמוך ביותר בכל הצבעה מרכזית ב-EP10), ו-**TA-10-2026-0157** (ענף המשק וביטחון המזון, EPP–ECR–PfE קרוב לרוב). האות המצרפי הוא ש**EPP הוא שחקן הציר של EP10**, ואיזו אירופה תצמח מפרלמנט זה תלויה באיזו קואליציה פנימית של EPP תנצח בכל תיק. *רמת אמון: HIGH. WEP: LIKELY (65 %) להפעלה מלאה של ארכיטקטורת האחריות תוך 18 חודשים. Admiralty: B2.*
+
+### שלושה החלטות התלויות במחזור זה
+
+1. **הפעלת ועדת התביעות של אוקראינה בעוד חלון ההזדמנות הדיפלומטי פתוח.** הפרלמנט האירופי אישר רשמית ארכיטקטורה של שיתוף פעולה מוגבר/מבוסס-אמנה *מחוץ* למסגרת האו"ם (הכרחי עקב וטו מסוים במועצת הביטחון). זוהי פעולה פרלמנטרית מניעתית לפני הסכם שלום שיתמוך בו ארה"ב שעלול להציב עובדה מוגמרת. חלון 45 הימים לאישור המועצה על מנדט הוועדה הוא התקופה הקריטית מבחינה מבצעית. הבסיס ההיסטורי — ועדת הפיצויים של האו"ם לכוויית טיפלה ב-52.4 מיליארד דולר תביעות והעניקה 34.5 מיליארד דולר על פני 1991–2022 — מאשר את הכדאיות אך מדגיש שעיכוב גורר עלויות מבניות (~€300 מיליארד קפואים ב-Euroclear Belgium מאבדים אופציונליות עם כל חודש). *רמת אמון: HIGH לגבי כוונת הפרלמנט; MODERATE לגבי המשך פעולה של המועצה.*
+
+2. **פתרון שבר EPP סביב DMA לפני שיתפשט למשבר מוסדי רב-תיקי.** כ-80 חברי פרלמנט של EPP (גרמנים, הולנדים, נורדיים) הצטרפו לקואליציית האכיפה הפרוגרסיבית; ~100 (FI איטלקי, כנף עסקים ספרדית PP, דוברי צרפתית) התנגדו. לכידות של 50 % על תיק דיגיטלי מרכזי חסרת תקדים ב-EP10 וחושפת את המתח הבלתי פתור של EPP בין **זהותו כמפלגת שלטון** (אמינות רגולטורית) ל**זהותו הידידותית לעסקים** (התנגדות לרגולציה יתרה). אם התיק הדיגיטלי הגדול הבא (ככל הנראה סקירת יישום חוק הבינה המלאכותית הקרובה או הצבעת אכיפת DSA) יפיק פיצול דומה, EPP יאבד אמינות כשותף חקיקתי קוהרנטי עם הנציבות. *רמת אמון: MODERATE–HIGH.*
+
+3. **הכרעה אם לבודד את אסטרטגיית "מהחוות לשולחן" מהמהפכה הנגדית בענף המשק.** TA-10-2026-0157 מסמן פנייה מכוונת מארכיטקטורת הסכם הירוק של EP9. קואליציית EPP+ECR+PfE התומכת בחקלאות (≈349 מושבים, מול סף רוב 360) כמעט קבועה כעת בתיקי חקלאות וכפריות. הבעיה האסטרטגית היא חשבונית: מתאן ענף המשק באיחוד האירופי = ~160 מיליון טון CO₂e לשנה = 4.5 % מסך פליטות גזי החממה של האיחוד. כל שנת עיכוב בהפחתת מתאן מרחיבה את הפער עם יעד 55 % לשנת 2030 בחוק האקלים האירופי. בחירת הנציבות היא אם להגן על לוחות הזמנים של "מהחוות לשולחן" כהתחייבויות מחייבות מבחינה משפטית, או לקבל את פתיחתו מחדש *בפועל* על ידי הפרלמנט. *רמת אמון: HIGH לגבי המסלול הפוליטי; LOW אם רסן חוק האקלים יחזיק.*
+
+### קריאה של 60 שניות
+
+המספר הכותרתי של מחזור זה הוא 101 טקסטים שאומצו — תפוקה גבוהה יותר מקצב שנתו האחרונה של EP9. אך תפוקה מסתירה את האריתמטיקה הקואליציונית הבסיסית, שהיא הסיפור האמיתי. לפרלמנט **אין רוב מוחלט בר-קיימא**; במקומו יש לו שלוש קואליציות עבודה ניתנות לצפייה שמופעלות בתחומי מדיניות שונים:
+
+- **קואליציית הגיאופוליטיקה** (EPP + S&D + Renew + Greens + כנפות שמאל בנושא שלטון חוק / אוקראינה / סנקציות): ~449–560 מושבים; לכידות גבוהה; מייצרת פסיפסים רחבים כמו ארכיטקטורת האחריות האוקראינית.
+- **קואליציית הרגולציה/חקלאות** (EPP + ECR + PfE בנושא כפריות, תחרותיות אנרגטית, עומסים רגולטוריים): ~349 מושבים; לכידות גבוהה בחקלאות, קרוב לרוב אך אמין פוליטית.
+- **קואליציית ריבונות דיגיטלית** (S&D + Renew + Greens + The Left + מרכזנים ב-EPP בנושא DMA/DSA/AI וזכויות יסוד): שנויה במחלוקת, ~50 % לכידות EPP הוא הסיכון המבני.
+
+EPP של Weber הפעיל אסטרטגיית **"בחר את קרבותיך"**: לוותר לקואליציות פרוגרסיביות בגיאופוליטיקה (שם בוחרים ערכיים דורשים עקביות), לבנות קואליציות שמרניות בכלכלה ובחקלאות (שם הבסיס העסקי והכפרי דורש הגנה). זה רציונלי פוליטית. השאלה הבלתי פתורה היא אם EPP יכול לשמר את מרכזו כאשר כנפו הימנית סוחפת כלכלית לעבר שטח PfE בעוד כנפו המרכזית מחזיקה מעמד בגיאופוליטיקה. הצבעת DMA היא ההצבעה הראשונה ב-EP10 המרמזת שהתשובה הולכת ומתקרבת לכיוון **לא**.
+
+מתחת לפוליטיקה, **אפקט בריסל חי אמפירית**: Apple שינתה את תנאי iOS ברחבי העולם כדי לאפשר חנויות אפליקציות צד שלישי תחת לחץ DMA; Google החלה לשתף נתוני חיפוש עם מתחרים אירופאים לפי חובות סעיף 10. המשמעות היא שה-DMA מייצרת תפוקה רגולטורית חוץ-טריטוריאלית אפילו לפני החלטות אכיפה — וזו בדיוק הסיבה לכך ששבר EPP חשוב. הפרלמנט יוכל לספק תוצאות אפקט בריסל רק אם יוכל לספק גיבויי אכיפה אמינים, וזה דורש לכידות EPP.
+
+### מבט מהיר על הסיכונים (אופק של 12 חודשים)
+
+| # | סיכון | הסתברות | השפעה | נטו |
+|---|------|-----------:|------:|----:|
+| 1 | שבר DMA של EPP מתפשט לתיקים דיגיטליים אחרים | MED–HIGH | HIGH | **עיקרי** |
+| 2 | ועדת תביעות אוקראינה נתקעת במועצה לאחר הרבעון השלישי 2026 | MED | HIGH | **עיקרי** |
+| 3 | המהפכה הנגדית בחקלאות מפרקת את עמוד "מהחוות לשולחן" | HIGH | MED–HIGH | **עיקרי** |
+| 4 | תגמול מכסים אמריקאי נגד אכיפת DMA | MED | HIGH | מעקב |
+| 5 | אריתמטיקה קואליציונית גורמת לאימפאס תקציבי ב-MFF 2027 | LOW–MED | VERY HIGH | מעקב |
+
+### טריגרים עתידיים (2–6 שבועות הקרובים)
+
+- **מועצת ענייני חוץ יוני 2026:** האם מאומצות מסקנות לגבי ועדת תביעות אוקראינה? שתיקה = עיכוב אסטרטגי.
+- **לוח הזמנים לאכיפת DMA של מנהלת התחרות:** כל דחייה של החלטות אכיפה של Apple או Google מאותת שהנציבות קולטת לחץ מלחמת הסחר האמריקאי.
+- **הצהרת קבוצת EPP על DMA:** הכרה ציבורית לעומת הדחקת השבר היא בפני עצמה אות פוליטי.
+- **בקשת דחייה של "מהחוות לשולחן":** הצעת נציבות לעדכון יעד יישום F2F כלשהו היא הציפור הקנרית במכרה חוק האקלים.
+- **מסירת יו"ר המועצה (דנמרק → הבא):** המשכיות לעומת איפוס בתיקי אחריות ודיגיטל.
+
+### ACH — שלוש קריאות מתחרות של EPP
+
+| השערה | ראיות תומכות | ראיות מנוגדות | הערכה |
+|---|---|---|---|
+| H1: EPP מגבש רוב ימין-מרכז | הצעת ענף המשק, תיקון CSRD, דפוס שיתוף פעולה EPP+ECR | פיצול DMA, אוקראינה חוצה-ספקטרום, אחדות שלטון חוק | **נתמכת חלקית** — נכון בכלכלה/חקלאות |
+| H2: EPP הוא עוגן המרכז האחרון של האיחוד | אוקראינה 93 % לכידות, מנהיגות שלטון חוק, מסגרת ועדת תביעות | DMA 50 % לכידות, כיוון מחדש חקלאי עם PfE | **נתמכת בחלשות** — רק בגיאופוליטיקה |
+| H3: EPP מתפצל מבנית לשני מפלגות | פיצול DMA, כנף עסקים FI–PP איטלקית/ספרדית מתרחקת מהמרכז הגרמני-נורדי | משמעת קבוצתית מחזיקה על אוקראינה, MFF, שלטון חוק | **נתמכת במידה בינונית** — ההשערה התחזיתית ביותר לשנים 2026–2027 |
+
+### איכות מקורות (דירוג Admiralty)
+
+- טקסטים שאומצו בפורטל הנתונים הפתוחים של הפרלמנט האירופי (TA-10-2026-0154 / 0157 / 0160 / 0161): **A1** (מקור רשמי, אמין לחלוטין)
+- הערכות לכידות קואליציות (כאשר XML של DOCEO זמין): **A2**; (כאשר מוערך מהצהרות קבוצות / עיתונות): **B3** (≈25 % מהנתונים)
+- IMF WEO אביב 2026 (צמיחה של 1.2 % באיזור היורו): **A1**
+- World Bank אוקראינה RDNA4 (צורך בשיקום של €486 מיליארד): **A1**
+- ראיות לשינוי התנהגות אפקט בריסל (Apple iOS / נתוני Google): **B2**
+- תחזיות קואליציה של 12 חודשים צופות פני עתיד: **C3**
+
+### מקור
+
+- הרצה: ניתוח הצעות לחלון 2026-04-12 → 2026-05-12
+- מסמכים ראשוניים שנקראו לסיכום זה: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- עדכניות נתונים: 12 במאי 2026.
+- ציות: זנות פורטל הנתונים הפתוח של הפרלמנט + הצבעה שמית היכן שפורסמה; ~25 % מנתוני הלכידות הם הערכות עקב עיכוב של 4–6 שבועות בפרסום פרוטוקול ההצבעות של הפרלמנט; מסומן במפורש לעיל. תואם לתקנת ה-GDPR, ללא פרופיל אישי של חברי פרלמנט.
+
+---
+
+*ניטרליות אנליטית: סיכום זה מדווח על אריתמטיקה קואליציונית ניתנת לצפייה וראיות הצבעה שמית. כל טענה כיוונית מוצגת עם רמת אמון מפורשת וטיפול בהשערות מתחרות.*
+
+### Executive Brief Ja
+
+### BLUF（結論先頭提示）
+
+2026年5月12日に終了した30日間のサイクルは、**採択文書101件**（EP9のペースを上回る）をもたらし、EP10の作業アイデンティティを結晶化させました。すなわち、地政学では一貫し、経済では争われ、農業では反革命的傾向を強める**オーダーメイド連立議会**です。3つの文書が構造的状況を体現しています。**TA-10-2026-0161 / 0154**（ウクライナ説明責任と請求委員会、≈449～560議席、EPP ~93%結束）、**TA-10-2026-0160**（DMA執行、~50% EPP結束——EP10の主要票決で最低水準）、および**TA-10-2026-0157**（畜産部門と食料安全保障、EPP–ECR–PfEが過半数に近接）。集約されたシグナルは、**EPPがEP10の枢軸アクターである**ということであり、この議会から生まれるヨーロッパの姿は、各案件でどの内部EPP連立が勝利するかにかかっています。*信頼水準：HIGH。WEP：LIKELY（65%）、説明責任アーキテクチャの18ヶ月以内の完全稼働。Admiralty：B2。*
+
+### このサイクルにかかる3つの決定
+
+1. **外交的窓が開いている間にウクライナ請求委員会を稼働させること。** 欧州議会は、特定の安保理拒否権のため必要に迫られ、国連枠組みの*外側*での強化協力／条約ベースのアーキテクチャを正式に承認しました。これは、米国調停の和平合意に先立つ先制的な議会行動であり、放置すれば既成事実を固定化する恐れがあります。委員会マンデートに関する理事会承認のための45日間の窓が、作戦上の重要期間です。歴史的基準線——クウェートに関する国連補償委員会は1991～2022年にわたり524億ドルの請求を処理し、345億ドルを認めた——実行可能性を裏付けていますが、遅延が構造的コストをもたらすことも強調しています（Euroclear Belgiumで凍結された~€3000億はひと月ごとに選択肢の価値を失っていきます）。*信頼水準：EPの意向についてHIGH；理事会の後続対応についてMODERATE。*
+
+2. **EPPのDMA亀裂を複数案件の制度的危機に転移させる前に解決すること。** 約80人のEPP議員（ドイツ、オランダ、北欧）が進歩的執行連立に参加し、~100人（イタリアFI、スペインPP企業派、フランス語圏）が反対しました。旗艦デジタル文書での50%の結束率はEP10では前例がなく、EPPの**統治政党としてのアイデンティティ**（規制上の信頼性）と**ビジネス寄りのアイデンティティ**（規制過剰への抵抗）の間の未解決の緊張を露呈しています。次の主要デジタル文書（おそらく来るべきAI法実施審査またはDSA執行投票）が同様の分裂をもたらした場合、EPPは欧州委員会への一貫した立法上の対話相手としての信頼性を失います。*信頼水準：MODERATE–HIGH。*
+
+3. **「農場から食卓へ」戦略を畜産逆革命から切り離すかどうかを決定すること。** TA-10-2026-0157はEP9のグリーンディール・アーキテクチャからの意図的な方向転換を示しています。農業支持のEPP+ECR+PfE連立（≈349議席、360の過半数閾値に対して）は農業・農村文書で今やほぼ恒常的に活動しています。戦略的問題は算術的です。EUの畜産メタン = 年間~160百万トンCO₂e = EUの温室効果ガス総排出量の4.5%。メタン削減を遅延させるごとに、EU気候法の2030年までに55%削減という目標との差が拡大します。委員会の選択は、「農場から食卓へ」の時間軸を法的拘束力のある気候法義務として守るか、議会の*事実上の*再開を受け入れるかです。*信頼水準：政治的軌道についてHIGH；気候法のガードレールが保つかについてLOW。*
+
+### 60秒で読む
+
+このサイクルの見出し数字は101件の採択文書です——EP9最終年のペースを上回る高い処理量。しかし処理量は根底にある連立算術を覆い隠しており、それこそが真の物語です。議会には**持続的なスーパーマジョリティは存在しません**。その代わり、異なる政策領域で発動される3つの観察可能な作業連立があります。
+
+- **地政学連立**（EPP + S&D + Renew + Greens + 法の支配/ウクライナ/制裁に関する左派派閥）：~449～560議席；高い結束；ウクライナ説明責任アーキテクチャのような壮大なモザイクを生み出す。
+- **規制緩和/農業連立**（EPP + ECR + PfE、農村部・エネルギー競争力・規制負担をめぐり）：~349議席；農業で高い結束、過半数に近く政治的に信頼できる。
+- **デジタル主権連立**（S&D + Renew + Greens + The Left + EPP中道派、DMA/DSA/AI基本権をめぐり）：争われている、~50% EPP結束が構造的リスク。
+
+WebersのEPPは**「戦いを選ぶ」**戦略を稼働させてきました。地政学では進歩的連立に譲り（価値基盤の有権者が一貫性を求める）、経済・農業ではビジネス寄りと農村基盤が保護を求める保守的連立を構築する。政治的に合理的です。未解決の問題は、経済でEPPの右派がPfE領域に漂流するなか、中道派が地政学を堅持し続けるかどうかです。DMA投票はEP10で初めて、その答えがますます**否**に向かっていることを示唆した投票です。
+
+政治の背後で**ブリュッセル効果は経験的に生きています**。AppleはDMAの圧力の下でiOSの規約をグローバルに変更してサードパーティアプストアを許可し、Googleは第10条の義務に基づいて欧州の競合他社との検索データ共有を始めました。これは、DMAが執行決定以前から域外規制アウトプットを生み出していることを意味します——それがEPP亀裂が重要である理由です。議会は信頼できる執行バックストップを提供できる場合にのみブリュッセル効果の成果を届けられ、それにはEPPの結束が必要です。
+
+### リスク概観（12ヶ月先）
+
+| # | リスク | 発生可能性 | 影響 | 総合 |
+|---|------|-----------:|------:|----:|
+| 1 | EPP DMA亀裂が他のデジタル文書に拡大 | MED–HIGH | HIGH | **最優先** |
+| 2 | ウクライナ請求委員会が理事会でQ3 2026後に停滞 | MED | HIGH | **最優先** |
+| 3 | 農業逆革命が「農場から食卓へ」の柱を解体 | HIGH | MED–HIGH | **最優先** |
+| 4 | DMA執行に対する米国の関税報復 | MED | HIGH | 注視 |
+| 5 | 連立算術が2027年MFFの予算デッドロックを生む | LOW–MED | VERY HIGH | 注視 |
+
+### 先行指標（今後2～6週間）
+
+- **2026年6月外務理事会：** ウクライナ請求委員会に関する結論は採択されたか？沈黙 = 戦略的遅延。
+- **DG COMP DMA執行スケジュール：** AppleまたはGoogleの執行決定の延期は、欧州委員会が米国の貿易戦争の圧力を吸収していることを示す。
+- **DMAに関するEPPグループ声明：** 亀裂の公式認定か抑圧かは、それ自体が政治的シグナル。
+- **「農場から食卓へ」延期要請：** F2F実施目標の改定に関する欧州委員会の提案は気候法の炭鉱のカナリア。
+- **理事会議長国交代（デンマーク→次期）：** 説明責任・デジタル文書での継続性vs.リセット。
+
+### ACH — EPPに関する3つの競合する解釈
+
+| 仮説 | 支持証拠 | 反証 | 評価 |
+|---|---|---|---|
+| H1：EPPが右中道多数派を確立 | 畜産動議、CSRD改正、EPP+ECR協力パターン | DMA分裂、ウクライナの超党派、法の支配の一致 | **部分的に支持** — 経済/農業では成立 |
+| H2：EPPがEU最後の中道錨 | ウクライナ93%結束、法の支配のリーダーシップ、請求委員会の枠組み | DMA50%結束、PfEとの農業再整合 | **弱く支持** — 地政学のみ |
+| H3：EPPが構造的に2政党に分裂 | DMA分裂、イタリア/スペインFI–PPビジネス派がドイツ・北欧中枢から乖離 | グループ規律はウクライナ、MFF、法の支配で依然維持 | **中程度に支持** — 2026–2027年に最も予測的な仮説 |
+
+### 情報源の質（Admiralty格付け）
+
+- 欧州議会オープンデータポータルの採択文書（TA-10-2026-0154 / 0157 / 0160 / 0161）：**A1**（公式情報源、完全信頼）
+- 連立結束率の推計（DOCEO XMLが入手可能な場合）：**A2**；（グループ声明/プレスからの推計の場合）：**B3**（数値の≈25%）
+- IMF WEO 2026年春（ユーロ圏成長率1.2%）：**A1**
+- World Bank ウクライナRDNA4（€4860億の再建需要）：**A1**
+- ブリュッセル効果の行動変容証拠（Apple iOS / Googleデータ）：**B2**
+- 12ヶ月先行の連立予測：**C3**
+
+### 来歴
+
+- 実施：2026-04-12 → 2026-05-12の期間を対象とする動議分析
+- 本ブリーフのために読み込んだ主要成果物：`intelligence/synthesis-summary.md`、`intelligence/coalition-dynamics.md`、`classification/actor-mapping.md`、`classification/forces-analysis.md`、`risk-scoring/risk-matrix.md`、`extended/media-framing-analysis.md`。
+- データの通貨性：2026年5月12日。
+- コンプライアンス：公開されている欧州議会オープンデータポータルのフィードと記名投票；結束率の数値の~25%は欧州議会の投票記録の4～6週間の公開遅延により推計；上記で明示。GDPRに準拠、議員の個人プロファイリングなし。
+
+---
+
+*分析上の中立性：本ブリーフは観察可能な連立算術と記名投票の証拠を報告するものです。すべての方向性を持つ主張は、明示的な信頼水準と競合する仮説の検討によって注釈されています。*
+
+### Executive Brief Ko
+
+### BLUF (결론 선행 제시)
+
+2026년 5월 12일에 종료된 30일 주기는 **채택 문서 101건**（EP9의 속도를 상회）을 산출하고 EP10의 작동 정체성을 결정화하였습니다. 즉, 지정학에서는 단호하고, 경제에서는 분열되며, 농업에서는 점점 더 반혁명적 성향을 보이는 **맞춤형 연립 의회**입니다. 세 가지 문서가 구조적 현황을 포착합니다. **TA-10-2026-0161 / 0154**（우크라이나 책임 및 청구위원회, ≈449–560석, EPP ~93% 결속），**TA-10-2026-0160**（DMA 집행, ~50% EPP 결속 — EP10 주요 표결 중 최저），및 **TA-10-2026-0157**（축산 부문과 식량 안보, EPP–ECR–PfE 과반 근접）. 집약된 신호는 **EPP가 EP10의 핵심 행위자**라는 것이며, 이 의회에서 어떤 유럽이 탄생할지는 각 사안에서 EPP 내부 연립 중 어느 쪽이 승리하느냐에 달려 있습니다. *신뢰 수준: HIGH. WEP: LIKELY (65%) 책임 아키텍처의 18개월 내 완전 운영화. Admiralty: B2.*
+
+### 이 주기에 달린 세 가지 결정
+
+1. **외교적 창문이 열려 있는 동안 우크라이나 청구위원회를 운영화할 것.** 유럽의회는 특정 안전보장이사회 거부권으로 인해 필요해진, 유엔 체제 *외부*의 강화된 협력/조약 기반 아키텍처를 공식 승인하였습니다. 이는 미국 중재 평화협정에 앞선 선제적 의회 행동으로, 방치하면 기정사실을 고착화할 수 있습니다. 위원회 위임 사항에 대한 이사회 승인을 위한 45일 창문이 작전상 중요한 기간입니다. 역사적 기준선 — 쿠웨이트를 위한 유엔 배상위원회는 1991–2022년에 걸쳐 524억 달러의 청구를 처리하고 345억 달러를 지급 — 실행 가능성을 확인하지만 지연이 구조적 비용을 초래함을 강조합니다（Euroclear Belgium에 동결된 ~€3000억은 매달 옵션 가치를 잃어감）. *신뢰 수준: 의회 의도에 HIGH; 이사회 후속 조치에 MODERATE.*
+
+2. **EPP DMA 균열이 다중 사안 제도적 위기로 전이되기 전에 해결할 것.** 약 80명의 EPP 의원（독일, 네덜란드, 북유럽）이 진보적 집행 연립에 합류하고, ~100명（이탈리아 FI, 스페인 PP 기업 파벌, 불어권）이 반대하였습니다. 주요 디지털 사안에서 50%의 결속율은 EP10에서 전례가 없으며, **집권 정당 정체성**（규제 신뢰성）과 **친기업 정체성**（과잉 규제 반대）사이의 미해결된 EPP 내부 긴장을 드러냅니다. 다음 주요 디지털 사안（아마도 AI 법 이행 검토 또는 DSA 집행 표결）이 유사한 분열을 초래하면, EPP는 집행위원회에 대한 일관된 입법 대화 상대로서의 신뢰성을 잃습니다. *신뢰 수준: MODERATE–HIGH.*
+
+3. **'농장에서 식탁으로' 전략을 축산 반혁명으로부터 격리할지 결정할 것.** TA-10-2026-0157은 EP9의 그린딜 아키텍처로부터의 의도적인 전환을 표시합니다. 농업 지지 EPP+ECR+PfE 연립（≈349석, 과반수 기준 360에 대비）은 이제 농업 및 농촌 사안에서 거의 상시적으로 활동합니다. 전략적 문제는 산술적입니다. EU 축산 메탄 = 연간 ~160백만 톤 CO₂e = EU 전체 온실가스 배출량의 4.5%. 메탄 감축이 지연되는 매 해는 EU 기후법의 2030년 55% 감축 목표와의 격차를 벌립니다. 집행위원회의 선택은 '농장에서 식탁으로' 일정표를 법적 구속력 있는 기후법 의무로 수호하느냐, 아니면 의회의 *사실상* 재개를 수용하느냐입니다. *신뢰 수준: 정치적 궤도에 HIGH; 기후법 보호 장치가 유지될지에 LOW.*
+
+### 60초 독해
+
+이번 주기의 헤드라인 수치는 채택 문서 101건입니다 — EP9 마지막 해 속도보다 높은 처리량. 그러나 처리량은 근본적인 연립 산술을 가립니다. 그것이 진짜 이야기입니다. 의회에는 **지속 가능한 초다수결이 없습니다**. 대신 서로 다른 정책 영역에서 활성화되는 세 가지 관찰 가능한 작업 연립이 있습니다.
+
+- **지정학 연립**（EPP + S&D + Renew + Greens + 법치/우크라이나/제재 관련 좌파 파벌）: ~449–560석; 높은 결속; 우크라이나 책임 아키텍처 같은 거대 모자이크를 생산.
+- **규제 완화/농업 연립**（EPP + ECR + PfE, 농촌, 에너지 경쟁력, 규제 부담 관련）: ~349석; 농업에서 높은 결속, 과반에 근접하지만 정치적으로 신뢰할 수 있음.
+- **디지털 주권 연립**（S&D + Renew + Greens + The Left + EPP 중도파, DMA/DSA/AI 기본권 관련）: 분열, ~50% EPP 결속이 구조적 위험.
+
+Weber의 EPP는 **"전투를 선택하라"** 전략을 운영화하였습니다. 지정학에서 진보적 연립에 양보하고（가치 기반 유권자가 일관성을 요구하는 곳）, 경제·농업에서는 친기업 및 농촌 기반이 보호를 요구하는 보수적 연립을 구축합니다. 이는 정치적으로 합리적입니다. 미해결 문제는 EPP가 경제에서 우파 파벌이 PfE 영역으로 표류하는 동안 중도파가 지정학을 지키며 중심을 유지할 수 있는가입니다. DMA 표결은 EP10에서 그 답이 점점 더 **아니오**를 향하고 있음을 시사하는 첫 표결입니다.
+
+정치 이면에서 **브뤼셀 효과는 경험적으로 살아 있습니다**. Apple은 DMA 압력 하에 제3자 앱 스토어를 허용하기 위해 iOS 조건을 전 세계적으로 수정하였으며, Google은 제10조 의무에 따라 유럽 경쟁사와 검색 데이터 공유를 시작하였습니다. 이는 DMA가 집행 결정 이전에도 역외 규제 산출물을 생성한다는 것을 의미합니다 — EPP 균열이 중요한 이유입니다. 의회는 신뢰할 수 있는 집행 지원을 제공할 수 있는 경우에만 브뤼셀 효과 결과를 실현할 수 있으며, 이를 위해서는 EPP 결속이 필요합니다.
+
+### 위험 개관（12개월 지평선）
+
+| # | 위험 | 가능성 | 영향 | 종합 |
+|---|------|-----------:|------:|----:|
+| 1 | EPP DMA 균열이 다른 디지털 사안으로 확산 | MED–HIGH | HIGH | **최우선** |
+| 2 | 우크라이나 청구위원회가 Q3 2026 이후 이사회에서 정체 | MED | HIGH | **최우선** |
+| 3 | 농업 반혁명이 '농장에서 식탁으로' 기둥을 해체 | HIGH | MED–HIGH | **최우선** |
+| 4 | DMA 집행에 대한 미국의 관세 보복 | MED | HIGH | 주시 |
+| 5 | 연립 산술이 2027년 MFF 예산 교착 상태 초래 | LOW–MED | VERY HIGH | 주시 |
+
+### 선행 트리거（향후 2–6주）
+
+- **2026년 6월 외무이사회:** 우크라이나 청구위원회에 관한 결론이 채택되었는가? 침묵 = 전략적 지연.
+- **DG COMP DMA 집행 일정:** Apple 또는 Google 집행 결정의 연기는 집행위원회가 미국 무역 전쟁 압력을 흡수하고 있음을 시사.
+- **DMA에 관한 EPP 그룹 성명:** 균열의 공식 인정 대 억압은 그 자체로 정치적 신호.
+- **'농장에서 식탁으로' 지연 요청:** F2F 이행 목표 개정에 관한 집행위원회 제안은 기후법 탄광의 카나리아.
+- **이사회 의장국 교체（덴마크 → 다음）:** 책임 및 디지털 사안에서 연속성 대 재설정.
+
+### ACH — EPP에 관한 세 가지 경쟁 독해
+
+| 가설 | 지지 증거 | 반증 | 평가 |
+|---|---|---|---|
+| H1: EPP가 우중도 다수결을 공고화 | 축산 동의안, CSRD 개정, EPP+ECR 협력 패턴 | DMA 분열, 우크라이나 초당파, 법치 일치 | **부분적으로 지지** — 경제/농업에서 성립 |
+| H2: EPP가 EU 최후의 중도 닻 | 우크라이나 93% 결속, 법치 리더십, 청구위원회 체계 | DMA 50% 결속, PfE와 농업 재편 | **약하게 지지** — 지정학에서만 |
+| H3: EPP가 구조적으로 두 정당으로 분열 | DMA 분열, 이탈리아/스페인 FI–PP 경제 파벌이 독일·북유럽 중심에서 이탈 | 그룹 규율은 우크라이나, MFF, 법치에서 유지 | **중간 수준으로 지지** — 2026–2027년에 가장 예측적인 가설 |
+
+### 정보원 품질（Admiralty 등급）
+
+- 유럽의회 오픈 데이터 포털 채택 문서（TA-10-2026-0154 / 0157 / 0160 / 0161）: **A1**（공식 출처, 완전 신뢰）
+- 연립 결속 추정치（DOCEO XML 이용 가능한 경우）: **A2**; （그룹 성명/언론에서 추정한 경우）: **B3**（수치의 ≈25%）
+- IMF WEO 2026년 봄（유로존 성장률 1.2%）: **A1**
+- World Bank 우크라이나 RDNA4（€4860억 재건 필요）: **A1**
+- 브뤼셀 효과 행동 변화 증거（Apple iOS / Google 데이터）: **B2**
+- 12개월 선행 연립 예측: **C3**
+
+### 출처
+
+- 실행: 2026-04-12 → 2026-05-12 기간의 동의안 분석
+- 본 브리핑을 위해 읽은 주요 결과물: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- 데이터 기준일: 2026년 5월 12일.
+- 준수: 게시된 유럽의회 오픈 데이터 포털 피드 + 기명 투표; 결속 수치의 ~25%는 의회의 투표 기록 4–6주 게시 지연으로 인한 추정치; 위에서 명시적으로 표시. GDPR 준수, 의원 개인 프로파일링 없음.
+
+---
+
+*분석적 중립성: 본 브리핑은 관찰 가능한 연립 산술과 기명 투표 증거를 보고합니다. 모든 방향성 주장은 명시적 신뢰 수준과 경쟁 가설 처리를 통해 보완됩니다.*
+
+### Executive Brief Nl
+
+### BLUF (Conclusie voorop)
+
+De op 12 mei 2026 afgesloten cyclus van 30 dagen produceerde **101 aangenomen teksten** (boven het tempo van EP9) en kristalliseerde de werkidentiteit van EP10: een **parlement van maatwerkcoalities**, dat vastberaden is op geopolitiek, betwist op economie en steeds contrarevolutionairder op landbouw. Drie teksten vatten de structurele stand van zaken samen: **TA-10-2026-0161 / 0154** (Oekraïne-verantwoording en Schadevergoedingscommissie, ≈449–560 zetels, EVP ~93 % cohesie), **TA-10-2026-0160** (DMA-handhaving, ~50 % EVP-cohesie — het laagste niveau in welke grote EP10-stemming dan ook), en **TA-10-2026-0157** (veehouderijsector en voedselzekerheid, EVP–ECR–PfE bijna een meerderheid). Het geaggregeerde signaal is dat **de EVP de spilacteur van EP10 is**, en welk Europa uit dit Parlement voortkomt, hangt af van welke interne EVP-coalitie elk dossier wint. *Betrouwbaarheidsniveau: HIGH. WEP: LIKELY (65 %) voor de volledige operationalisering van de verantwoordingsarchitectuur binnen 18 maanden. Admiralty: B2.*
+
+### Drie beslissingen die afhangen van deze cyclus
+
+1. **Operationaliseer de Schadevergoedingscommissie voor Oekraïne terwijl het diplomatieke venster nog open is.** Het Europees Parlement heeft formeel een architectuur van nauwere samenwerking/verdragsrechtelijke basis *buiten* het VN-kader goedgekeurd (noodzakelijk vanwege een bepaald veto in de Veiligheidsraad). Dit is preventieve parlementaire actie voorafgaand aan een eventueel door de VS bemiddeld vredesakkoord dat anders een *fait accompli* zou kunnen vastleggen. Het venster van 45 dagen voor de goedkeuring door de Raad van een commissiemandaat is de operationeel kritieke periode. De historische basislijn — de VN-compensatiecommissie voor Koeweit behandelde USD 52,4 mrd aan vorderingen en kende USD 34,5 mrd toe over 1991–2022 — bevestigt de haalbaarheid, maar onderstreept dat vertraging structurele kosten meebrengt (~€300 mrd bevroren bij Euroclear België verliezen elke maand aan optionaliteit). *Betrouwbaarheidsniveau: HIGH wat EP-intentie betreft; MODERATE wat Raadsopvolging betreft.*
+
+2. **Los de EVP DMA-breuk op voordat die metastaseert tot een institutionele crisis die meerdere dossiers omvat.** Circa 80 EVP-leden van het Europees Parlement (Duitsers, Nederlanders, Noren/Skandinaviërs) sloten zich aan bij de progressieve handhavingscoalitie; ~100 (Italiaans FI, Spaanse PP-bedrijfsflank, Franstaligen) verzetten zich. Een cohesieniveau van 50 % op een centraal digitaal dossier is ongekend voor EP10 en onthult de onopgeloste spanning van de EVP tussen haar **identiteit als regerende partij** (regulatoire geloofwaardigheid) en haar **bedrijfsvriendelijke identiteit** (weerstand tegen overregulering). Als het volgende grote digitale dossier (waarschijnlijk de aankomende toetsing van de implementatie van de AI-wet of een DSA-handhavingsstemming) een vergelijkbare splitsing oplevert, verliest de EVP geloofwaardigheid als coherente wetgevende gesprekspartner voor de Commissie. *Betrouwbaarheidsniveau: MODERATE–HIGH.*
+
+3. **Beslissen of Van boer tot bord moet worden afgeschermd van de veehouderijcontrarevolutie.** TA-10-2026-0157 markeert een bewuste pivot weg van de Green Deal-architectuur van EP9. De agrarisch-positieve EVP+ECR+PfE-coalitie (≈349 zetels, tegenover een meerderheidsdrempel van 360) is nu bijna permanent actief op landbouw- en plattelandsdossiers. Het strategische probleem is rekenkundig: EU-veemethaan = ~160 Mt CO₂e per jaar = 4,5 % van de totale EU-broeikasgasemissies. Elk jaar van vertraagde methaanreductie vergroot de kloof met het 55%-in-2030-doel van de EU-klimaatwetgeving. De keuze van de Commissie is of zij de Van-boer-tot-bord-tijdlijnen als wettelijk bindende klimaatwetverplichtingen verdedigt of de *de facto* heropening door het PE accepteert. *Betrouwbaarheidsniveau: HIGH op de politieke koers; LOW of de klimaatwetguardrails standhouden.*
+
+### 60-secondenlezing
+
+Het hoofdcijfer van deze cyclus is 101 aangenomen teksten — een hogere doorvoer dan het afsluittempo van EP9. Maar doorvoer verhult de onderliggende coalitiearithmetiek, die het echte verhaal is. Het Parlement heeft **geen duurzame supermeerderheid**; het beschikt in plaats daarvan over drie observeerbare werkcoalities die op verschillende beleidsterreinen actief worden:
+
+- **De geopolitieke coalitie** (EVP + S&D + Renew + Greens + linkse vleugels op rechtsstaat / Oekraïne / sancties): ~449–560 zetels; hoge cohesie; produceert grote mozaïeken zoals de Oekraïne-verantwoordingsarchitectuur.
+- **De deregulerings-/landbouwcoalitie** (EVP + ECR + PfE op landelijk gebied, energieconcurrentievermogen, regelgevingslasten): ~349 zetels; hoge cohesie op landbouw, bijna een meerderheid maar politiek betrouwbaar.
+- **De coalitie voor digitale soevereiniteit** (S&D + Renew + Greens + The Left + EVP-centristen op DMA/DSA/AI-grondrechten): betwist, ~50 % EVP-cohesie is het structurele risico.
+
+Webers EVP heeft een **'kies uw gevechten'**-strategie geoperationaliseerd: toegeven aan progressieve coalities op geopolitiek (waar op waarden gebaseerde kiezers consistentie eisen), conservatieve coalities bouwen op economie en landbouw (waar zakelijk georienteerde en rurale achterban bescherming eist). Dat is politiek rationeel. De onopgeloste vraag is of de EVP haar midden kan handhaven terwijl haar rechtervleugel in de economie richting PfE-terrein drijft, terwijl haar centristische vleugel vasthoudt aan geopolitiek. De DMA-stemming is de eerste stemming in EP10 die aangeeft dat het antwoord steeds meer **nee** luidt.
+
+Achter de politiek is het **Brussel-effect empirisch levend**: Apple wijzigde de iOS-voorwaarden wereldwijd om app-winkels van derden onder DMA-druk toe te staan; Google is begonnen zoekgegevens te delen met Europese concurrenten op grond van artikel 10-verplichtingen. Dit betekent dat de DMA extraterritoriale regelgevingsoutput produceert nog vóór handhavingsbeslissingen — en dat is precies de reden waarom de EVP-breuk belangrijk is. Het Parlement kan Brussel-effect-resultaten alleen leveren als het geloofwaardige handhavingsbuffers kan bieden, en dat vereist EVP-cohesie.
+
+### Risico-overzicht (horizon van 12 maanden)
+
+| # | Risico | Waarschijnlijkheid | Impact | Netto |
+|---|------|-----------:|------:|----:|
+| 1 | EVP DMA-breuk breidt zich uit naar andere digitale dossiers | MED–HIGH | HIGH | **Top** |
+| 2 | Oekraïne-Schadevergoedingscommissie stagneert in de Raad na Q3 2026 | MED | HIGH | **Top** |
+| 3 | Landbouwcontrarevolutie ontmantelt pijler Van boer tot bord | HIGH | MED–HIGH | **Top** |
+| 4 | Amerikaanse tariefvergeldingen tegen DMA-handhaving | MED | HIGH | Bewaken |
+| 5 | Coalitiearithmetiek produceert begrotingsimpasse over MFK 2027 | LOW–MED | VERY HIGH | Bewaken |
+
+### Vooruitblikkende aanjagers (komende 2–6 weken)
+
+- **Raad Buitenlandse Zaken juni 2026:** Worden conclusies over de Oekraïne-Schadevergoedingscommissie aangenomen? Stilzwijgen = strategische vertraging.
+- **DG COMP DMA-handhavingstijdlijn:** Elke uitstel van handhavingsbeslissingen over Apple of Google signaleert dat de Commissie de handelsoorlogdruk van de VS absorbeert.
+- **Verklaring EVP-Fractie over de DMA:** Publieke erkenning versus onderdrukking van de breuk is op zichzelf een politiek signaal.
+- **Verzoek om uitstel Van boer tot bord:** Een Commissievoorstel tot herziening van een F2F-implementatiedoelstelling is de kanarie in de klimaatwet-kolenmijn.
+- **Overdracht Raadsvoorzitterschap (Denemarken → volgende):** Continuïteit versus herstart op verantwoordings- en digitale dossiers.
+
+### ACH — Drie concurrerende lezingen van de EVP
+
+| Hypothese | Ondersteunende bewijzen | Weerleggende bewijzen | Beoordeling |
+|---|---|---|---|
+| H1: EVP consolideert een rechts-van-midden-meerderheid | Veehouderijmotie, CSRD-herziening, EVP+ECR-samenwerkingspatroon | DMA-splitsing, Oekraïne trans-spectrum, eenheid op rechtsstaat | **Gedeeltelijk ondersteund** — geldt voor economie/landbouw |
+| H2: EVP is EUs laatste centristische anker | Oekraïne 93 % cohesie, leiderschap op rechtsstaat, raamwerk schadevergoedingscommissie | DMA 50 % cohesie, landbouwherschikking met PfE | **Zwak ondersteund** — alleen op geopolitiek |
+| H3: EVP fragmenteert structureel in twee partijen | DMA-splitsing, Italiaans/Spaans FI–PP-economische vleugel divergeert van Duits–Noordse centrum | Groepsdiscipline houdt nog stand op Oekraïne, MFK, rechtsstaat | **Matig ondersteund** — de meest voorspellende hypothese voor 2026–2027 |
+
+### Kwaliteit van bronnen (Admiralty-beoordeling)
+
+- EP Open Data Portal aangenomen teksten (TA-10-2026-0154 / 0157 / 0160 / 0161): **A1** (officiële bron, volledig betrouwbaar)
+- Coalities-cohesieschattingen (waar DOCEO XML beschikbaar): **A2**; (waar geschat op basis van fractie-uitspraken / pers): **B3** (≈25 % van de cijfers)
+- IMF WEO voorjaar 2026 (1,2 % groei eurozone): **A1**
+- World Bank Oekraïne RDNA4 (€486 mrd reconstructiebehoefte): **A1**
+- Gedragsveranderingsbewijs Brussel-effect (Apple iOS / Google-data): **B2**
+- Vooruitblikkende 12-maands coalitieprojecties: **C3**
+
+### Herkomst
+
+- Run: motiesanalyse voor het venster 2026-04-12 → 2026-05-12
+- Primaire artefacten gelezen voor deze notitie: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- Dataactualiteit: 12 mei 2026.
+- Naleving: EP Open Data Portal-feeds + hoofdelijke stemming waar gepubliceerd; ~25 % van de cohesiecijfers zijn schattingen vanwege de 4–6 weken publicatievertraging van het EP voor het stemregister; expliciet hierboven aangegeven. AVG-conform, geen persoonlijke profilering van EP-leden.
+
+---
+
+*Analytische neutraliteit: deze notitie rapporteert observeerbare coalitiearithmetiek en hoofdelijke stembewijzen. Elke richtinggevende bewering is genuanceerd met een expliciet betrouwbaarheidsniveau en concurrerende hypothesebehandeling.*
+
+### Executive Brief No
+
+### BLUF (Konklusjon på forhånd)
+
+30-dagerssyklusen som ble avsluttet 12. mai 2026 produserte **101 vedtatte tekster** (over EP9-tempoet) og krystalliserte EP10s arbeidsidentitet: et **skreddersydd koalisjonsparlament** som er fast på geopolitikk, omstridt på økonomi og i stadig større grad kontrarevolutjonært på landbruk. Tre tekster fanger det strukturelle bildet: **TA-10-2026-0161 / 0154** (Ukraina-ansvarlighet og erstatningskommisjon, ≈449–560 seter, EPP ~93 % kohesjon), **TA-10-2026-0160** (DMA-håndhevelse, ~50 % EPP-kohesjon — det laveste i noen større EP10-avstemning), og **TA-10-2026-0157** (husdyrsektoren og matsikkerhet, EPP–ECR–PfE nær flertall). Det aggregerte signalet er at **EPP er EP10s pivotaktør**, og hvilket Europa som vokser frem fra dette parlamentet avhenger av hvilken intern EPP-koalisjon som vinner hvert enkelt saksforløp. *Konfidens: HIGH. WEP: LIKELY (65 %) for full operasjonalisering av ansvarlighetsarkitekturen innen 18 måneder. Admiralty: B2.*
+
+### Tre beslutninger som hviler på denne syklusen
+
+1. **Operasjonaliser Ukrainas erstatningskommisjon mens det diplomatiske vinduet fortsatt er åpent.** EP har formelt godkjent en forstärket samarbeid/traktatbasert arkitektur *utenfor* FN-rammen (nødvendig på grunn av en bestemt sikkerhetsrådsveto). Dette er forebyggende parlamentarisk handling i forkant av en USA-meglert fredsavtale som ellers kan låse et *fait accompli* fast. 45-dagersvinduet for Rådets godkjenning av et kommissionsmandat er den operativt kritiske perioden. Det historiske utgangspunktet — FNs kompensasjonskommisjon for Kuwait behandlet 52,4 mrd. USD i krav og tildelte 34,5 mrd. USD over 1991–2022 — bekrefter gjennomførbarheten, men understreker at forsinkelse medfører strukturelle kostnader (frosne ~€300 mrd. i Euroclear Belgien mister valgmuligheter for hver forbipasserende måned). *Konfidens: HIGH vedrørende EP´s intensjon; MODERATE vedrørende Rådets oppfølging.*
+
+2. **Løs EPP DMA-bruddet, innen det metastaserer til en institusjonell krise som berører flere saker.** Omtrent 80 EPP-parlamentsmedlemmer (tyske, nederlandske, nordiske) sluttet seg til den progressive håndhevelseskoalisjonen; ~100 (italienske FI, spanske PP-næringslivsfl øy, fransktalende) motsatte seg. En kohesjon på 50 % på en sentral digital fil er enestående for EP10 og avslører EPPs uløste spenning mellom dens **styringspartiidentitet** (regulatorisk troverdighet) og dens **næringslivsvennlige identitet** (motstand mot overregulering). Hvis neste store digitale sak (trolig den kommende AI Act-implementeringsgjennomgangen eller en DSA-håndhevelsesavstemning) produserer en tilsvarende splittelse, mister EPP troverdighet som en sammenhengende lovgivende samtalepartner for Kommisjonen. *Konfidens: MODERATE–HIGH.*
+
+3. **Bestemme om Farm-to-Fork skal isoleres fra husdyrkounterrevolusjonen.** TA-10-2026-0157 markerer et bevisst skifte bort fra EP9s Green Deal-arkitektur. Den landbrukspositiv EPP+ECR+PfE-koalisjonen (≈349 seter, mot en flertallsterskel på 360) er nå nesten permanent aktiv på landbruks- og distriktssaker. Det strategiske problemet er aritmetisk: EUs husdyrsmetan = ~160 Mt CO₂e per år = 4,5 % av EUs totale drivhusgassutslipp. Hvert år med forsinket metanreduksjon utvider gapet til EUs klimalovs mål om 55 % innen 2030. Kommisjonens valg er om den skal forsvare Farm-to-Fork-tidsplanene som juridisk bindende klimarettslige forpliktelser eller akseptere EP´s *de facto* gjenåpning. *Konfidens: HIGH om den politiske trasjektoren; LOW om klimalovens sikkerhetsnett vil holde.*
+
+### 60-sekunders lesning
+
+Syklusens overskriftstall er 101 vedtatte tekster — høyere gjennomstrømning enn EP9s slutt-på-periode-tempo. Men gjennomstrømning skjuler den underliggende koalisjonsaritmetikken, som er den virkelige historien. Parlamentet har **ingen holdbar supermajoritet**; det har i stedet tre observerbare arbeidskoalisjoner som aktiveres på ulike politikkfelt:
+
+- **Geopolitikkkoalisjonen** (EPP + S&D + Renew + Greens + venstrefløyer om rettsstaten / Ukraina / sanksjoner): ~449–560 seter; høy kohesjon; produserer store mosaikker som Ukrainas ansvarlighetsarkitektur.
+- **Deregulerings-/landbrukskoalisjonen** (EPP + ECR + PfE om distrikt, energikonkurranseevne, regulatorisk byrde): ~349 seter; høy kohesjon om landbruk, nær flertall men politisk pålitelig.
+- **Koalisjonen for digital suverenitet** (S&D + Renew + Greens + The Left + EPP-sentrister om DMA/DSA/AI grunnleggende rettigheter): omstridt, ~50 % EPP-kohesjon er den strukturelle risikoen.
+
+Webers EPP har operasjonalisert en **"velg dine slag"**-strategi: gi etter for progressive koalisjoner i geopolitikken (der verdibaserte velgere krever konsistens), bygge konservative koalisjoner om økonomi og landbruk (der næringslivsorienterte og landsbygdsbasen krever beskyttelse). Det er politisk rasjonelt. Det uløste spørsmålet er om EPP kan holde sin midte når høyrefløyen drifter mot PfE-territorium på økonomi, mens sentristfløyen holder fast på geopolitikk. DMA-avstemningen er den første avstemningen i EP10 som antyder at svaret i stigende grad er **nei**.
+
+Under politikken er **Brüssel-effekten empirisk levende**: Apple endret iOS-vilkårene globalt for å tillate tredjeparts appbutikker under DMA-press; Google har begynt å dele søkedata med europeiske konkurrenter i henhold til artikkel 10-forpliktelser. Det betyr at DMA produserer ekstraterritoriell regulatorisk produksjon selv før håndhevelsesavgjørelser — noe som er nettopp grunnen til at EPP-bruddet er viktig. Parlamentet kan bare levere Brüssel-effektresultater hvis det kan levere troverdige håndhevelsessikringer, og det krever EPP-kohesjon.
+
+### Risikobilde (12-måneder horisont)
+
+| # | Risiko | Sannsynlighet | Påvirkning | Netto |
+|---|------|-----------:|------:|----:|
+| 1 | EPP DMA-brudd utvider seg til andre digitale saker | MED–HIGH | HIGH | **Topp** |
+| 2 | Ukrainas erstatningskommisjon stopper opp i Rådet etter Q3 2026 | MED | HIGH | **Topp** |
+| 3 | Landbrukskounterrevolusjonen demonterer Farm-to-Fork-søylen | HIGH | MED–HIGH | **Topp** |
+| 4 | USAs tollegjengjeldelse mot DMA-håndhevelse | MED | HIGH | Overvåk |
+| 5 | Koalisjonsaritmetikk produserer budsjettdødvann om 2027 MFF | LOW–MED | VERY HIGH | Overvåk |
+
+### Fremtidige utløsere (neste 2–6 uker)
+
+- **Juni 2026 Utenriksrådet:** Vedtas det konklusjoner om Ukrainas erstatningskommisjon? Stillhet = strategisk forsinkelse.
+- **GD COMP DMA-håndhevelsestidslinje:** Enhver utsettelse av Apple- eller Google-håndhevelsesavgjørelser signaliserer at Kommisjonen absorberer USAs handelskrigspress.
+- **EPP-gruppens erklæring om DMA:** Offentlig erkjennelse kontra undertrykkelse av bruddet er i seg selv et politisk signal.
+- **Anmodning om forsinkelse av Farm-to-Fork:** Et Kommisjonsforslag om å revidere et F2F-implementeringsmål er kanarifuglen i klimarettens gruvedrift.
+- **Rådsformannsovertakelse (Danmark → neste):** Kontinuitet kontra tilbakestilling på ansvarlighets- og digitale saker.
+
+### ACH — Tre konkurrerende tolkninger av EPP
+
+| Hypotese | Støttende bevis | Motbevisende bevis | Vurdering |
+|---|---|---|---|
+| H1: EPP konsoliderer et høyre-av-sentrum flertall | Husdyrmotion, CSRD-revisjon, EPP+ECR-samarbeidsmønster | DMA-splittelse, Ukraina tverr-spektrum, rettsstatsunitet | **Delvis støttet** — sant om økonomi/landbruk |
+| H2: EPP er EUs siste sentristiske anker | Ukraina 93 % kohesjon, rettsstatsledarskap, erstatningskommissionsramme | DMA 50 % kohesjon, landbruksomstilling med PfE | **Svakt støttet** — bare om geopolitikk |
+| H3: EPP fragmenteres strukturelt i to partier | DMA-splittelse, italiensk/spansk FI–PP næringsfløy divergerer fra tysk–nordisk sentrum | Gruppedisiplin holder fortsatt om Ukraina, MFF, rettsstaten | **Moderat støttet** — den mest prediksjonskraftige hypotesen for 2026–2027 |
+
+### Kildekvalitet (Admiralty-gradering)
+
+- EP Open Data Portal vedtatte tekster (TA-10-2026-0154 / 0157 / 0160 / 0161): **A1** (offisiell kilde, fullt pålitelig)
+- Koalisjonskohesjonestimater (der DOCEO XML tilgjengelig): **A2**; (der estimert fra gruppeuttalelser / presse): **B3** (≈25 % av tallene)
+- IMF WEO vår 2026 (1,2 % Eurosonevekst): **A1**
+- World Bank Ukraina RDNA4 (€486 mrd. rekonstruksjonsbehov): **A1**
+- Brüssel-effektens atferdsendringsdokumentasjon (Apple iOS / Google-data): **B2**
+- Fremtidsrettede 12-måneders koalitionsprognoser: **C3**
+
+### Proveniens
+
+- Kjøring: motionsanalyse for vinduet 2026-04-12 → 2026-05-12
+- Primære artefakter lest for dette brevet: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- Dataaktualitet: 12. mai 2026.
+- Overholdelse: EP Open Data Portal-feeder + avstemningsregistrering, der publisert; ~25 % kohesjonstall er estimater på grunn av EP´s 4–6 ukers publiseringsforsinkelse for avstemningsregisteret; eksplisitt markert ovenfor. GDPR-kompatibelt, ingen personlig profilering av parlamentsmedlemmer.
+
+---
+
+*Analytisk nøytralitet: dette brevet rapporterer observerbar koalisjonsaritmetikk og avstemningsbevis. Hvert retningsutsagn er nyansert med eksplisitt konfidens og konkurrerende hypotesebehandling.*
+
+### Executive Brief Sv
+
+### BLUF (Slutsats sammanfattad)
+
+30-dagarscykeln som avslutades 12 maj 2026 producerade **101 antagna texter** (över EP9-takten) och kristalliserade EP10:s arbetsidentitet: ett **skräddarsytt koalitionsparlament** som är fast på geopolitik, omtvistat på ekonomi och alltmer kontrarevolutionärt på jordbruk. Tre texter fångar det strukturella läget: **TA-10-2026-0161 / 0154** (Ukraina-ansvarsskyldighet och skadekommission, ≈449–560 platser, EPP ~93 % sammanhållning), **TA-10-2026-0160** (DMA-genomdrivning, ~50 % EPP-sammanhållning — den lägsta i någon stor EP10-omröstning), och **TA-10-2026-0157** (boskapssektorn och matsäkerhet, EPP–ECR–PfE nära majoriteten). Den aggregerade signalen är att **EPP är pivotaktören i EP10**, och vilket Europa som uppstår ur detta parlament beror på vilken intern EPP-koalition som vinner varje ärende. *Konfidens: HIGH. WEP: LIKELY (65 %) för fullständig operationalisering av ansvarsskyldighetsarkitekturen inom 18 månader. Admiralty: B2.*
+
+### Tre beslut som hänger på denna cykel
+
+1. **Operationalisera Ukrainas skadekommission medan det diplomatiska fönstret fortfarande är öppet.** EP har formellt godkänt en arkitektur för förstärkt samarbete/fördragsbaserad *utanför* FN-ramverket (nödvändig på grund av en viss säkerhetsrådsveto). Detta är föregrepad parlamentarisk handling inför ett USA-medlat fredsavtal som annars kan låsa in ett *fait accompli*. 45-dagarsfönstret för rådets godkännande av ett kommissionsmandat är den operativt kritiska perioden. Den historiska baslinjen — FN:s kompensationskommission för Kuwait behandlade 52,4 miljarder USD i fordringar och tilldelade 34,5 miljarder USD under 1991–2022 — bekräftar genomförbarheten men understryker att dröjsmål medför strukturella kostnader (frusna ~€300 miljarder i Euroclear Belgien förlorar valmöjligheter med varje förfluten månad). *Konfidens: HIGH om EP:s avsikt; MODERATE om rådets uppföljning.*
+
+2. **Lös upp EPP DMA-sprickan innan den metastaserar till en institutionell kris som omfattar flera ärenden.** Ungefär 80 EPP-ledamöter (tyska, holländska, nordiska) anslöt sig till den progressiva genomdrivningskoalitionen; ~100 (italienska FI, spanska PP-affärsvingen, fransktaliga) motsatte sig. En 50 % sammanhållning på en central digital fil är utan motstycke för EP10 och avslöjar EPP:s olösta spänning mellan dess **identitet som styrande parti** (regulatorisk trovärdighet) och dess **företagsvänliga identitet** (motstånd mot överreglering). Om nästa stora digitala ärende (troligen den kommande AI Act-implementeringsöversikten eller en DSA-genomdrivningsomröstning) producerar en liknande splittring förlorar EPP trovärdigheten som en sammanhängande lagstiftningssamtalspartner för kommissionen. *Konfidens: MODERATE–HIGH.*
+
+3. **Besluta om huruvida Gård till Gaffel ska isoleras från boskapskounterrevolutionen.** TA-10-2026-0157 markerar en avsiktlig svängning bort från EP9:s Green Deal-arkitektur. Den jordbruksvänliga EPP+ECR+PfE-koalitionen (≈349 platser, mot en majoritetströskel på 360) är nu nästintill permanent aktiv på jordbruk och landsbygdsfiler. Det strategiska problemet är aritmetiskt: EU:s boskapsmetan = ~160 Mt CO₂e per år = 4,5 % av EU:s totala växthusgasutsläpp. Varje år av försenad metanminskning vidgar klyftan mot EU:s klimatlags 55 %-till-2030-mål. Kommissionens val gäller huruvida man ska försvara tidsplanerna för Gård till Gaffel som rättsligt bindande klimatlagsskyldigheter eller acceptera EP:s *de facto* återöppnande. *Konfidens: HIGH om den politiska banan; LOW om klimatlagens skyddsräcken håller.*
+
+### 60-sekunderläsning
+
+Cykelns rubriksiffra är 101 antagna texter — högre genomströmning än EP9:s slutårstakt. Men genomströmning döljer den underliggande koalitionsaritmetiken, som är den verkliga historien. Parlamentet har **ingen hållbar supermajoritet**; istället har det tre observerbara arbetskoalitioner som aktiveras på olika politikområden:
+
+- **Geopolitikkoalitionen** (EPP + S&D + Renew + Greens + vänstervingar om rättsstat / Ukraina / sanktioner): ~449–560 platser; hög sammanhållning; producerar storslagna mosaiker som Ukrainas ansvarsskyldighetsarkitektur.
+- **Avreglerings-/jordbrukskoalitionen** (EPP + ECR + PfE om landsbygd, energikonkurrenskraft, regulatorisk börda): ~349 platser; hög sammanhållning om jordbruk, nära majoritet men politiskt pålitlig.
+- **Koalitionen för digital suveränitet** (S&D + Renew + Greens + The Left + EPP-centrister om DMA/DSA/AI grundläggande rättigheter): omtvistad, ~50 % EPP-sammanhållning är den strukturella risken.
+
+Webers EPP har operationaliserat en **"välj dina slag"**-strategi: ge efter för progressiva koalitioner i geopolitiken (där värdebaserade väljare kräver konsekvens), bygg konservativa koalitioner om ekonomi och jordbruk (där affärsanpassade och landsbygdsbasen kräver skydd). Det är politiskt rationellt. Den olösta frågan är om EPP kan hålla sitt centrum när dess högervinge driftar mot PfE-territorium på ekonomi medan dess centristiska vinge håller fast vid geopolitiken. DMA-omröstningen är den första omröstningen i EP10 som antyder att svaret alltmer är **nej**.
+
+Under politiken är **Brysseleffekten empiriskt levande**: Apple modifierade iOS-villkoren globalt för att tillåta appbutiker från tredje parter under DMA-tryck; Google har börjat dela sökdata med europeiska konkurrenter enligt artikel 10-skyldigheter. Det innebär att DMA producerar extraterritoriell regulatorisk output även innan genomdrivningsbeslut — vilket är exakt varför EPP-sprickan är viktig. Parlamentet kan leverera Brysseleffektresultat endast om det kan leverera trovärdiga genomdrivningsskydd, och det kräver EPP-sammanhållning.
+
+### Riskbild (12-månadersutsikt)
+
+| # | Risk | Sannolikhet | Påverkan | Netto |
+|---|------|-----------:|------:|----:|
+| 1 | EPP DMA-spricka breder ut sig till andra digitala ärenden | MED–HIGH | HIGH | **Topp** |
+| 2 | Ukrainas skadekommission stannar upp i rådet efter Q3 2026 | MED | HIGH | **Topp** |
+| 3 | Jordbrukskounterrevolutionen demonterar Gård till Gaffel-pelaren | HIGH | MED–HIGH | **Topp** |
+| 4 | USA:s tullretaliation mot DMA-genomdrivning | MED | HIGH | Bevaka |
+| 5 | Koalitionsaritmetik producerar budgetdödläge om 2027 MFF | LOW–MED | VERY HIGH | Bevaka |
+
+### Framtida utlösare (nästa 2–6 veckor)
+
+- **Juni 2026 utrikesrådet:** Antas slutsatser om Ukrainas skadekommission? Tystnad = strategisk fördröjning.
+- **GD COMP DMA-genomdrivaningstidslinje:** Varje uppskjutande av Apple- eller Google-genomdrivningsbeslut signalerar att kommissionen absorberar USA:s handelskrigstryck.
+- **EPP-gruppens uttalande om DMA:** Offentligt erkännande kontra undertryckning av sprickan är i sig en politisk signal.
+- **Begäran om fördröjning av Gård till Gaffel:** Ett kommissionsförslag om att revidera ett F2F-implementeringsmål är kanariefågeln i klimatlagens kolgruva.
+- **Rådspresidieöverlämning (Danmark → nästa):** Kontinuitet kontra återställning på ansvarsskyldighets- och digitalärenden.
+
+### ACH — Tre konkurrerande tolkningar av EPP
+
+| Hypotes | Stödjande bevis | Motbevisande bevis | Bedömning |
+|---|---|---|---|
+| H1: EPP konsoliderar en höger-om-centrum-majoritet | Boskapsmotion, CSRD-revision, EPP+ECR-samarbetsmönster | DMA-splittring, Ukraina tvärs-spektrum, rättsstatsunitet | **Delvis stödd** — sant om ekonomi/jordbruk |
+| H2: EPP är EU:s siste centrismankare | Ukraina 93 % sammanhållning, rättsstatsledarskap, skadekommissionsramverk | DMA 50 % sammanhållning, jordbruksomriktning med PfE | **Svagt stödd** — endast om geopolitik |
+| H3: EPP splittras strukturellt i två partier | DMA-splittring, italiensk/spansk FI–PP ekonomivinge divergerar från tyskt–nordiskt centrum | Gruppdisciplin håller fortfarande om Ukraina, MFF, rättsstat | **Måttligt stödd** — den mest prediktiva hypotesen för 2026–2027 |
+
+### Källkvalitet (Admiralty-gradering)
+
+- EP Open Data Portal antagna texter (TA-10-2026-0154 / 0157 / 0160 / 0161): **A1** (officiell källa, fullt tillförlitlig)
+- Koalitionssammanhållningsuppskattningar (där DOCEO XML tillgängligt): **A2**; (där uppskattad från gruppbeskrivningar / press): **B3** (≈25 % av siffrorna)
+- IMF WEO vår 2026 (1,2 % Eurozontillväxt): **A1**
+- World Bank Ukraina RDNA4 (€486 miljarder rekonstruktionsbehov): **A1**
+- Brysseleffektens beteendeförändringsbevis (Apple iOS / Google-data): **B2**
+- Framåtblickande 12-månaders koalitionsprognoser: **C3**
+
+### Ursprung
+
+- Körning: motionsanalys för fönster 2026-04-12 → 2026-05-12
+- Primära artefakter lästa för detta brev: `intelligence/synthesis-summary.md`, `intelligence/coalition-dynamics.md`, `classification/actor-mapping.md`, `classification/forces-analysis.md`, `risk-scoring/risk-matrix.md`, `extended/media-framing-analysis.md`.
+- Dataaktualitet: 12 maj 2026.
+- Överensstämmelse: EP Open Data Portal-flöden + omröstning där publicerat; ~25 % sammanhållningssiffror är uppskattningar på grund av EP:s 4–6-veckors publiceringsförseningar för omröstningsregistret; flaggat explicit ovan. GDPR-kompatibelt, ingen personlig profilering av ledamöter.
+
+---
+
+*Analytisk neutralitet: detta brev rapporterar observerbar koalitionsaritmetik och omröstningsbevis. Varje riktningsanspråk är nyanserat med uttrycklig konfidens och konkurrerande hypotesbehandling.*
+
+### Executive Brief Zh
+
+### BLUF（结论前置）
+
+截至2026年5月12日的30天周期产生了**101项通过文本**（超过EP9的节奏），并结晶出EP10的工作身份：一个**量身定制的联合议会**，在地缘政治上立场坚定，在经济议题上充满争议，在农业问题上日益趋于反革命倾向。三项文本揭示了结构性现状：**TA-10-2026-0161 / 0154**（乌克兰问责与索赔委员会，≈449–560席，EPP约93%凝聚力），**TA-10-2026-0160**（DMA执法，约50% EPP凝聚力——EP10任何重大表决中最低），以及**TA-10-2026-0157**（畜牧部门与粮食安全，EPP–ECR–PfE接近多数）。集合信号是**EPP是EP10的枢纽行为体**，这届议会将塑造怎样的欧洲取决于每一项议题上哪个内部EPP联盟获胜。*置信度：HIGH。WEP：LIKELY（65%）在18个月内全面运营问责架构。Admiralty：B2。*
+
+### 本周期悬而未决的三项决定
+
+1. **在外交窗口仍开放之际使乌克兰索赔委员会运作。** 欧洲议会正式批准了联合国框架*之外*的强化合作/基于条约的架构（由于某安理会否决权而必要）。这是在美国调解和平协议之前的预防性议会行动，否则可能固定既成事实。理事会批准委员会授权的45天窗口是作战上至关重要的时期。历史基准——科威特联合国赔偿委员会在1991–2022年间处理了524亿美元索赔并裁定了345亿美元——证实了可行性，但强调拖延会带来结构性成本（Euroclear Belgium冻结的约€3000亿每月都在丧失选择权）。*置信度：欧洲议会意图方面HIGH；理事会跟进方面MODERATE。*
+
+2. **在EPP DMA裂痕扩散为多议题制度危机之前加以解决。** 约80名EPP议员（德国、荷兰、北欧）加入进步执法联盟；约100名（意大利FI、西班牙PP商业派、法语区）反对。旗舰数字文件上的50%凝聚力在EP10中史无前例，揭示了EPP在其**执政党身份**（监管公信力）与**亲商业身份**（抵制过度监管）之间未解决的张力。如果下一个重大数字议题（可能是即将到来的AI法实施审查或DSA执法表决）产生类似分裂，EPP将失去作为委员会协调一致的立法对话方的公信力。*置信度：MODERATE–HIGH。*
+
+3. **决定是否将"从农场到餐桌"战略与畜牧反革命隔绝。** TA-10-2026-0157标志着刻意偏离EP9绿色新政架构。亲农业EPP+ECR+PfE联盟（≈349席，多数门槛360席）现在几乎在农业和农村议题上持续活跃。战略问题是算术性的：欧盟畜牧甲烷=年均约1.6亿吨CO₂当量=欧盟温室气体总排放量的4.5%。每一年延迟甲烷减排都会扩大与欧盟气候法2030年55%目标之间的差距。委员会的选择是将"从农场到餐桌"时间表作为具有法律约束力的气候法义务捍卫，还是接受议会的*事实上*重启。*置信度：政治轨迹方面HIGH；气候法护栏是否坚守方面LOW。*
+
+### 60秒速读
+
+本周期的标题数字是101项通过文本——比EP9最后一年的节奏更高的处理量。但处理量掩盖了深层的联盟算术，而后者才是真正的故事。议会**没有持久的超级多数**；相反，它有三个可观察到的工作联盟，在不同政策领域被激活：
+
+- **地缘政治联盟**（EPP + S&D + Renew + Greens + 法治/乌克兰/制裁相关左翼派系）：约449–560席；高凝聚力；产生如乌克兰问责架构这样的宏大马赛克。
+- **去监管/农业联盟**（EPP + ECR + PfE，围绕农村、能源竞争力、监管负担）：约349席；农业凝聚力高，接近多数但政治上可靠。
+- **数字主权联盟**（S&D + Renew + Greens + The Left + EPP中间派，围绕DMA/DSA/AI基本权利）：存在争议，约50% EPP凝聚力是结构性风险。
+
+Weber的EPP已将**"挑选战场"**策略付诸实施：在地缘政治上向进步联盟让步（基于价值观的选民要求一致性），在经济和农业上建立保守联盟（亲商业和农村基础要求保护）。这在政治上是理性的。悬而未决的问题是，EPP能否在其右翼在经济上向PfE领域漂移的同时，其中间派坚守地缘政治，从而维持其中心地位。DMA表决是EP10中第一个表明答案越来越趋向**否**的表决。
+
+在政治背后，**布鲁塞尔效应在经验层面是鲜活的**：Apple在DMA压力下全球修改iOS条款以允许第三方应用商店；Google已依据第10条义务开始与欧洲竞争对手共享搜索数据。这意味着DMA在执法决定出台之前就产生了域外监管产出——这正是EPP裂痕至关重要的原因。议会只有在能够提供可信执法后盾时才能实现布鲁塞尔效应的成果，而这需要EPP的凝聚力。
+
+### 风险概况（12个月视野）
+
+| # | 风险 | 可能性 | 影响 | 综合 |
+|---|------|-----------:|------:|----:|
+| 1 | EPP DMA裂痕扩散至其他数字议题 | MED–HIGH | HIGH | **最优先** |
+| 2 | 乌克兰索赔委员会在2026年第三季度后在理事会停滞 | MED | HIGH | **最优先** |
+| 3 | 农业反革命拆解"从农场到餐桌"支柱 | HIGH | MED–HIGH | **最优先** |
+| 4 | 美国对DMA执法的关税报复 | MED | HIGH | 关注 |
+| 5 | 联盟算术在2027年MFF上产生预算僵局 | LOW–MED | VERY HIGH | 关注 |
+
+### 前瞻触发因素（未来2–6周）
+
+- **2026年6月外交事务理事会：** 乌克兰索赔委员会结论是否获得通过？沉默=战略性拖延。
+- **DG COMP DMA执法时间表：** 推迟苹果或谷歌执法决定的任何举动表明委员会正在吸收美国贸易战压力。
+- **EPP集团关于DMA的声明：** 公开承认还是压制裂痕本身就是政治信号。
+- **"从农场到餐桌"延期请求：** 委员会提出修改任何F2F实施目标的建议是气候法矿井中的金丝雀。
+- **理事会主席国交接（丹麦→下任）：** 问责和数字议题上的连续性还是重置。
+
+### ACH — EPP的三种竞争性解读
+
+| 假设 | 支持证据 | 反证 | 评估 |
+|---|---|---|---|
+| H1：EPP正在巩固右中间多数 | 畜牧议案、CSRD修订、EPP+ECR合作模式 | DMA分裂、乌克兰跨党派、法治一致 | **部分支持** — 在经济/农业上成立 |
+| H2：EPP是欧盟最后的中间派锚点 | 乌克兰93%凝聚力、法治领导力、索赔委员会框架 | DMA 50%凝聚力、与PfE农业重新定向 | **弱支持** — 仅在地缘政治上 |
+| H3：EPP结构性地分裂为两个政党 | DMA分裂、意大利/西班牙FI–PP经济派偏离德国–北欧中心 | 集团纪律在乌克兰、MFF、法治上仍然维持 | **中等支持** — 2026–2027年最具预测性的假设 |
+
+### 信息源质量（Admiralty评级）
+
+- 欧洲议会开放数据门户通过文本（TA-10-2026-0154 / 0157 / 0160 / 0161）：**A1**（官方来源，完全可靠）
+- 联盟凝聚力估计（DOCEO XML可用时）：**A2**；（从集团声明/媒体估计时）：**B3**（约25%的数字）
+- IMF WEO 2026年春季（欧元区增长1.2%）：**A1**
+- World Bank 乌克兰RDNA4（€4860亿重建需求）：**A1**
+- 布鲁塞尔效应行为变化证据（Apple iOS / Google数据）：**B2**
+- 12个月前瞻联盟预测：**C3**
+
+### 来源
+
+- 运行：2026-04-12 → 2026-05-12窗口的议案分析
+- 为本简报阅读的主要材料：`intelligence/synthesis-summary.md`、`intelligence/coalition-dynamics.md`、`classification/actor-mapping.md`、`classification/forces-analysis.md`、`risk-scoring/risk-matrix.md`、`extended/media-framing-analysis.md`。
+- 数据时效：2026年5月12日。
+- 合规：欧洲议会开放数据门户信息流+已发布的记名投票；约25%的凝聚力数字因欧洲议会4–6周投票记录发布延迟而为估算；上文明确标注。符合GDPR，无对欧洲议员的个人画像。
+
+---
+
+*分析中立性：本简报报告可观察到的联盟算术和记名投票证据。每一项方向性主张均辅以明确的置信度和竞争性假设处理。*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `motions`
@@ -2944,4 +3883,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/motions/executive-brief_zh.md) | `executive-brief_zh.md` |
 

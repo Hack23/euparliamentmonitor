@@ -328,6 +328,1177 @@ Applied significance scoring to the adopted texts dataset:
 *4-pass refinement cycle completed*
 *Classification: PUBLIC | Confidence: MEDIUM*
 
+### Executive Brief Ar
+
+**التصنيف:** OSINT | سجل برلماني عام
+**مستوى الثقة:** 🟢 مرتفع (عينة 85 بنداً على مدى أسبوع في حالة API المتدهورة)
+**تاريخ الإنشاء:** 2026-04-04T00:00:00Z (استرجاعي)
+**نوع المقالة:** عاجل — تحليل معمّق للنصوص المعتمدة
+**المصدر:** بوابة البيانات المفتوحة للبرلمان الأوروبي
+
+---
+
+### 🎯 BLUF
+
+**أعاد التغذية الأسبوعية للنصوص المعتمدة 85 بنداً موزعة على ثلاث فترات متمايزة من النشاط البرلماني — 70 بنداً من دورة EP10 2026 الجارية، والباقي من نوافذ سابقة.** في حالة API المتدهورة التي أكدها 2026-04-03/breaking-2، تظل تغذية النصوص المعتمدة المصدر الجوهري الأكثر موثوقية (احتياطي أسبوع واحد يعيد 85 بنداً). يتمثّل تجمع الدرجة الأولى المهيمن في مخرجات مارس 2026 من ستراسبورغ + بروكسل: مكافحة الفساد (TA-10-2026-0094)، نائب رئيس البنك المركزي الأوروبي (TA-10-2026-0060)، انبعاثات HDV (TA-10-2026-0084)، الرسوم الجمركية الأمريكية (TA-10-2026-0096)، حصانة براون (TA-10-2026-0088)، التشريع الأفضل (TA-10-2026-0063)، الوصول إلى الوثائق (TA-10-2026-0065)، جورجيا (TA-10-2026-0083). البنود الـ ~62 المتبقية هي اعتمادات روتينية أقل أهمية. **🟢 ثقة مرتفعة** في عدد البنود الـ 85 وتحديد التجمع المهيمن.
+
+---
+
+### 🧭 3 قرارات يدعمها هذا التقرير
+
+| # | القرار | من يقرر | الموعد النهائي | الدليل |
+|:-:|--------|---------|:--------------:|--------|
+| 1 | **تحريري:** نشر ملخص طويل للربع الأول للنصوص المعتمدة كمقالة مرساة | المحرر | +48 ساعة | مخزون 85 بنداً + 8 من الدرجة الأولى |
+| 2 | **مراقبة:** إعطاء الأولوية لتغذية النصوص المعتمدة كمسار بيانات رئيسي في حالة التدهور | خط أنابيب البيانات | حتى الاستعادة | أكثر نقاط النهاية موثوقية |
+| 3 | **متابعة مستقبلية:** الإبلاغ عن حالة التنفيذ لأهم 3 بنود من الدرجة الأولى | المحلل | ربع سنوي | الإشراف على التنفيذ |
+
+---
+
+### 📰 القراءة في 60 ثانية
+
+- 🔴 **85 نصاً معتمداً** في عينة التغذية الأسبوعية؛ 70 من EP10 2026؛ الباقي ترحيل من نوافذ أقدم. (🟢 مرتفعة)
+- 🟠 **8 بنود من الدرجة الأولى مركّزة في مارس 2026** — مكافحة الفساد، نائب رئيس البنك المركزي الأوروبي، انبعاثات HDV، الرسوم الجمركية الأمريكية، حصانة براون، التشريع الأفضل، الوصول إلى الوثائق، جورجيا. (🟢 مرتفعة)
+- 🟢 **تغذية النصوص المعتمدة = نقطة النهاية الأكثر موثوقية** في حالة التدهور. (🟢 مرتفعة)
+- 🟡 **~62 اعتماداً روتينياً أقل أهمية** (خط الأساس النموذجي لإنتاجية البرلمان الأوروبي). (🟢 مرتفعة)
+- 🔵 **السياق الاقتصادي:** يتمحور تجمع الدرجة الأولى الـ 8 حول المحاور الصناعية الاقتصادية (HDV، الرسوم)، والمؤسسية (البنك المركزي الأوروبي، التشريع الأفضل)، وسيادة القانون (مكافحة الفساد، براون). (🟢 مرتفعة)
+- 🟣 **الإسناد المتقاطع:** التحليل الشقيق `breaking-2` يعيد إنتاج نفس المخزون على مستوى التجريد في خط الأنابيب. (🟢 مرتفعة)
+- 🩷 **ناقل التعطيل:** ملفات البنك المركزي الأوروبي / الرسوم الجمركية الأمريكية هي الأكثر تعرضاً للصدمات الاقتصادية الكلية الخارجية. (🟡 متوسطة)
+- ⚪ **الترحيل إلى الأمام:** تقارير ربع سنوية عن حالة التنفيذ مطلوبة خلال Q3–Q4 2026 وحتى 2027/2028.
+
+---
+
+### 🗂️ جدول أهم الوثائق / الإجراءات
+
+| الترتيب | المرجع البرلماني | العنوان (مختصر) | الأهمية | مستوى الثقة |
+|:-------:|----------------|-----------------|:-------:|:-----------:|
+| 1 | TA-10-2026-0094 | توجيه مكافحة الفساد | 9.0 | 🟢 مرتفع |
+| 2 | TA-10-2026-0060 | نائب رئيس البنك المركزي الأوروبي | 8.0 | 🟢 مرتفع |
+| 3 | TA-10-2026-0096 | الرسوم الجمركية الأمريكية | 7.5 | 🟢 مرتفع |
+| 4 | TA-10-2026-0084 | أرصدة انبعاثات HDV | 7.0 | 🟢 مرتفع |
+| 5 | TA-10-2026-0088 | حصانة براون | 7.0 | 🟢 مرتفع |
+| 6 | TA-10-2026-0083 | المعتقلون السياسيون في جورجيا | 7.0 | 🟢 مرتفع |
+| 7 | TA-10-2026-0063 | التشريع الأفضل | 7.0 | 🟢 مرتفع |
+| 8 | TA-10-2026-0065 | الوصول العام إلى الوثائق | 7.0 | 🟢 مرتفع |
+
+---
+
+### ⚠️ لمحة سريعة عن المخاطر والتهديدات
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| الخطر | L | I | النتيجة | المحفز | المصدر | الأميرالية |
+|-------|:-:|:-:|:-------:|--------|--------|:----------:|
+| تجزئة تنفيذ الدرجة الأولى | 4 | 4 | 16 | التباين الوطني | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| تراجع تغذية النصوص المعتمدة | 3 | 4 | 12 | فقدان آخر نقطة نهاية موثوقة | الشقيق `breaking-2` | A2 |
+| انحراف الإنتاجية الروتينية | 2 | 2 | 4 | مستمر <40/أسبوع | عينة التغذية | B3 |
+
+---
+
+### 🔮 أبرز المحفزات المستقبلية
+
+**دورة التنفيذ الربع السنوي لتجمع الدرجة الأولى الـ 8 (Q3 2026 → Q1 2028).** ستُبيّن لوحات متابعة الامتثال في الدول الأعضاء ما إذا كانت مخرجات الربع الأول للبرلمان الأوروبي تتحول إلى أثر دائم على مستوى الاتحاد الأوروبي.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **المصادر الأساسية:** تغذية `get_adopted_texts_feed` للبرلمان الأوروبي لنافذة أسبوع واحد (85 بنداً).
+- **مستوى الثقة:** 🟢 مرتفع في المخزون؛ 🟡 متوسط في تصنيف البنود الفردية ذات الذيل الطويل.
+
+---
+
+### 📎 روابط
+
+| الرابط | المسار |
+|--------|--------|
+| المقالة | `./article.md` |
+| التشغيلات الشقيقة | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| البيان | `./manifest.json` |
+
+---
+
+**ضبط الوثيقة**
+- **القالب:** `/analysis/templates/executive-brief.md`
+- **مسار الأثر:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **التصنيف:** عام
+- **الإنشاء الاسترجاعي:** جلسة الملء الاسترجاعي.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Den ugentlige feed for vedtagne tekster returnerede 85 elementer fordelt på tre forskellige perioder — 70 elementer fra den aktuelle EP10 2026-session, resten fra tidligere vinduer.** Under den DEGRADED API-tilstand, bekræftet af 2026-04-03/breaking-2, er vedtagne-teksters-feeden den mest pålidelige substantielle datakilde (en uges fallback returnerer 85 elementer). Det dominerende tier-1-klynge er marts 2026 Strasbourg + Bruxelles-output: antikorruption (TA-10-2026-0094), ECB-vicepræsident (TA-10-2026-0060), HDV-emissioner (TA-10-2026-0084), amerikanske told (TA-10-2026-0096), Braun-immunitet (TA-10-2026-0088), Bedre lovgivning (TA-10-2026-0063), dokumentadgang (TA-10-2026-0065), Georgien (TA-10-2026-0083). De resterende ~62 elementer er lavere-signifikante rutinevedtagelser. **🟢 HØJ konfidens** på 85-elementer-antallet og dominerende klyngeidentificering.
+
+---
+
+### 🧭 3 Beslutninger denne rapport understøtter
+
+| # | Beslutning | Hvem beslutter | Deadline | Dokumentation |
+|:-:|-----------|----------------|:--------:|---------------|
+| 1 | **Redaktionelt:** udgiv Q1 vedtagne tekster langt resume som ankerlæsning | Redaktør | +48h | 85-elementer inventar + 8 tier-1 |
+| 2 | **Overvågning:** prioritér vedtagne-teksters-feeden som primær datavej under DEGRADED-tilstand | Datapipeline | til genoprettelse | Mest pålidelig slutpunkt |
+| 3 | **Fremadrettet:** transponeringstatus for top-3 tier-1 elementer | Analytiker | kvartalsvis | Implementeringsovervågning |
+
+---
+
+### 📰 60-sekunders læsning
+
+- 🔴 **85 vedtagne tekster** i ugefeedsudvalget; 70 fra EP10 2026; resten carry-over ældre vinduer. (🟢 Høj)
+- 🟠 **8 tier-1 elementer koncentreret i marts 2026** — antikorruption, ECB VP, HDV-emissioner, amerikanske told, Braun-immunitet, Bedre lovgivning, dokumentadgang, Georgien. (🟢 Høj)
+- 🟢 **Vedtagne-teksters-feed = mest pålidelig** slutpunkt under DEGRADED-tilstand. (🟢 Høj)
+- 🟡 **~62 lavere-signifikante rutinemæssige vedtagelser** (typisk EP-gennemstrømmingsbasis). (🟢 Høj)
+- 🔵 **Økonomisk kontekst:** 8 tier-1-klyngen drejer sig om industri-økonomi (HDV, told), institutionelle (ECB, Bedre lovgivning) og retsstatlige (antikorruption, Braun) akser. (🟢 Høj)
+- 🟣 **Krydsreference:** søskendeanalyse `breaking-2` gengiver samme inventar på pipeline-abstraktionsniveau. (🟢 Høj)
+- 🩷 **Forstyrelsesvektor:** ECB / US-told-filer mest eksponerede for eksterne makrochok. (🟡 Medium)
+- ⚪ **Carry-forward:** kvartalsvise transponeringsstatusrapporter nødvendige over Q3–Q4 2026 og ind i 2027/2028.
+
+---
+
+### 🗂️ Top Dokumenter / Proceduretabel
+
+| Rang | EP-reference | Titel (kort) | Signifikans | Konfidens |
+|:----:|-------------|---------------|:-----------:|:---------:|
+| 1 | TA-10-2026-0094 | Antikorruptionsdirektiv | 9,0 | 🟢 HØJ |
+| 2 | TA-10-2026-0060 | ECB vicepræsident | 8,0 | 🟢 HØJ |
+| 3 | TA-10-2026-0096 | Amerikanske toldtariffer | 7,5 | 🟢 HØJ |
+| 4 | TA-10-2026-0084 | HDV-emissionskreditter | 7,0 | 🟢 HØJ |
+| 5 | TA-10-2026-0088 | Braun-immunitet | 7,0 | 🟢 HØJ |
+| 6 | TA-10-2026-0083 | Georgien politiske fanger | 7,0 | 🟢 HØJ |
+| 7 | TA-10-2026-0063 | Bedre lovgivning | 7,0 | 🟢 HØJ |
+| 8 | TA-10-2026-0065 | Offentlig adgang til dokumenter | 7,0 | 🟢 HØJ |
+
+---
+
+### ⚠️ Risiko & Trusselsoverblik
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| Risiko | L | I | Score | Trigger | Kilde | Admiralitet |
+|--------|:-:|:-:|:-----:|---------|--------|:-----------:|
+| Tier-1 transponeringsfragmentering | 4 | 4 | 16 | National divergens | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| Vedtagne-teksters-feed-regression | 3 | 4 | 12 | Tab af sidste pålidelige slutpunkt | Søskendeanalyse `breaking-2` | A2 |
+| Rutinegennemstrømmingsdrift | 2 | 2 | 4 | Vedvarende <40/uge | Feedudvalg | B3 |
+
+---
+
+### 🔮 Top fremadrettet trigger
+
+**Kvartalsvis transpositionscyklus for 8 tier-1-klyngen (Q3 2026 → Q1 2028).** Medlemsstaternes overholdelsesdashboards vil vise, om Q1 EP-output oversættes til varig EU-effekt.
+
+---
+
+### 🛡️ Vurdering af kildekvalitet
+
+- **Primærkilder:** EP `get_adopted_texts_feed` ugentligt vindue (85 elementer).
+- **Konfidens:** 🟢 HØJ på inventar; 🟡 MEDIUM på langhalede element-for-element-klassificering.
+
+---
+
+### 📎 Links
+
+| Link | Sti |
+|------|-----|
+| Artikel | `./article.md` |
+| Søskendekørsler | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontrol**
+- **Skabelon:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv generering:** Backfill-session.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Der Wochenfeed für angenommene Texte lieferte 85 Einträge aus drei verschiedenen Zeiträumen — 70 Einträge aus der laufenden EP10 2026-Sitzung, der Rest aus früheren Fenstern.** Im DEGRADED API-Zustand, bestätigt durch 2026-04-03/breaking-2, bleibt der Feed für angenommene Texte die zuverlässigste substantielle Datenquelle (ein Wochen-Fallback liefert 85 Einträge). Das dominierende Tier-1-Cluster ist der März-2026-Output aus Straßburg und Brüssel: Anti-Korruption (TA-10-2026-0094), EZB-Vizepräsident (TA-10-2026-0060), HDV-Emissionen (TA-10-2026-0084), US-Zölle (TA-10-2026-0096), Braun-Immunität (TA-10-2026-0088), Bessere Rechtsetzung (TA-10-2026-0063), Dokumentenzugang (TA-10-2026-0065), Georgien (TA-10-2026-0083). Die verbleibenden ~62 Einträge sind Routineannahmen von geringerer Bedeutung. **🟢 HOHE Konfidenz** für den 85-Einträge-Zähler und die Identifizierung des dominierenden Clusters.
+
+---
+
+### 🧭 3 Entscheidungen, die dieser Bericht unterstützt
+
+| # | Entscheidung | Wer entscheidet | Frist | Nachweise |
+|:-:|------------|----------------|:----:|-----------|
+| 1 | **Redaktionell:** Q1-Langzusammenfassung angenommener Texte als Ankerartikel veröffentlichen | Redakteur | +48h | 85-Einträge-Inventar + 8 Tier-1 |
+| 2 | **Überwachung:** Feed für angenommene Texte als primären Datenpfad im DEGRADED-Zustand priorisieren | Datenpipeline | bis zur Wiederherstellung | Zuverlässigster Endpunkt |
+| 3 | **Vorausschau:** Transpositionsstatus-Berichterstattung für Top-3-Tier-1-Einträge | Analyst | vierteljährlich | Implementierungsüberwachung |
+
+---
+
+### 📰 60-Sekunden-Lektüre
+
+- 🔴 **85 angenommene Texte** in der Wochenfeed-Stichprobe; 70 aus EP10 2026; Rest als Carry-over älterer Fenster. (🟢 Hoch)
+- 🟠 **8 Tier-1-Einträge im März 2026** — Anti-Korruption, EZB VP, HDV-Emissionen, US-Zölle, Braun-Immunität, Bessere Rechtsetzung, Dokumentenzugang, Georgien. (🟢 Hoch)
+- 🟢 **Feed für angenommene Texte = zuverlässigster** Endpunkt im DEGRADED-Zustand. (🟢 Hoch)
+- 🟡 **~62 Routineannahmen geringerer Bedeutung** (typische EP-Durchsatz-Basislinie). (🟢 Hoch)
+- 🔵 **Wirtschaftlicher Kontext:** Das 8-Tier-1-Cluster dreht sich um industriell-wirtschaftliche (HDV, Zölle), institutionelle (EZB, Bessere Rechtsetzung) und rechtsstaatliche (Anti-Korruption, Braun) Achsen. (🟢 Hoch)
+- 🟣 **Querverweise:** Geschwisteranalyse `breaking-2` gibt dasselbe Inventar auf Pipeline-Abstraktionsebene wieder. (🟢 Hoch)
+- 🩷 **Störungsvektor:** EZB / US-Zölle-Dateien am stärksten externen Makroschocks ausgesetzt. (🟡 Mittel)
+- ⚪ **Carry-forward:** Vierteljährliche Transpositionsstatusberichte erforderlich für Q3–Q4 2026 und 2027/2028.
+
+---
+
+### 🗂️ Top-Dokumente / Verfahrenstabelle
+
+| Rang | EP-Referenz | Titel (kurz) | Bedeutung | Konfidenz |
+|:----:|------------|--------------|:---------:|:---------:|
+| 1 | TA-10-2026-0094 | Anti-Korruptionsrichtlinie | 9,0 | 🟢 HOCH |
+| 2 | TA-10-2026-0060 | EZB-Vizepräsident | 8,0 | 🟢 HOCH |
+| 3 | TA-10-2026-0096 | US-Zolltarife | 7,5 | 🟢 HOCH |
+| 4 | TA-10-2026-0084 | HDV-Emissionsguthaben | 7,0 | 🟢 HOCH |
+| 5 | TA-10-2026-0088 | Braun-Immunität | 7,0 | 🟢 HOCH |
+| 6 | TA-10-2026-0083 | Georgien politische Gefangene | 7,0 | 🟢 HOCH |
+| 7 | TA-10-2026-0063 | Bessere Rechtsetzung | 7,0 | 🟢 HOCH |
+| 8 | TA-10-2026-0065 | Öffentlicher Zugang zu Dokumenten | 7,0 | 🟢 HOCH |
+
+---
+
+### ⚠️ Risiko & Bedrohungsübersicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| Risiko | L | I | Score | Auslöser | Quelle | Admiralität |
+|--------|:-:|:-:|:-----:|---------|--------|:-----------:|
+| Tier-1-Transpositionsfragmentierung | 4 | 4 | 16 | Nationale Divergenz | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| Feed-Regression angenommener Texte | 3 | 4 | 12 | Verlust des letzten zuverlässigen Endpunkts | Geschwister `breaking-2` | A2 |
+| Routinedurchsatz-Drift | 2 | 2 | 4 | Anhaltend <40/Woche | Feed-Stichprobe | B3 |
+
+---
+
+### 🔮 Top-Vorwärts-Auslöser
+
+**Vierteljährlicher Transpositionszyklus für das 8-Tier-1-Cluster (Q3 2026 → Q1 2028).** Die Compliance-Dashboards der Mitgliedstaaten zeigen, ob der Q1-EP-Output in dauerhafte EU-weite Wirkung übersetzt wird.
+
+---
+
+### 🛡️ Bewertung der Quellenqualität
+
+- **Primärquellen:** EP `get_adopted_texts_feed` Wochenfenster (85 Einträge).
+- **Konfidenz:** 🟢 HOCH für das Inventar; 🟡 MITTEL für die Long-Tail-Eintrag-für-Eintrag-Klassifizierung.
+
+---
+
+### 📎 Links
+
+| Link | Pfad |
+|------|------|
+| Artikel | `./article.md` |
+| Geschwisterdurchläufe | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentenkontrolle**
+- **Vorlage:** `/analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **Einstufung:** Öffentlich
+- **Retrospektive Erstellung:** Backfill-Sitzung.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**El feed semanal de textos aprobados devolvió 85 elementos que abarcan tres períodos distintos de actividad parlamentaria — 70 elementos de la sesión actual EP10 2026, el resto de ventanas anteriores.** Bajo el estado DEGRADED de API confirmado por 2026-04-03/breaking-2, el feed de textos aprobados sigue siendo la fuente de datos sustancial más fiable (el fallback de una semana devuelve 85 elementos). El clúster tier-1 dominante es el output de marzo 2026 Estrasburgo + Bruselas: anticorrupción (TA-10-2026-0094), vicepresidente del BCE (TA-10-2026-0060), emisiones HDV (TA-10-2026-0084), aranceles estadounidenses (TA-10-2026-0096), inmunidad de Braun (TA-10-2026-0088), Mejor legislar (TA-10-2026-0063), acceso a documentos (TA-10-2026-0065), Georgia (TA-10-2026-0083). Los restantes ~62 elementos son adopciones de rutina de menor importancia. **🟢 ALTA confianza** en el recuento de 85 elementos y en la identificación del clúster dominante.
+
+---
+
+### 🧭 3 Decisiones que apoya este informe
+
+| # | Decisión | Quién decide | Plazo | Evidencia |
+|:-:|----------|-------------|:-----:|-----------|
+| 1 | **Editorial:** publicar el resumen largo Q1 de textos aprobados como artículo ancla | Editor | +48h | Inventario de 85 elementos + 8 tier-1 |
+| 2 | **Monitoreo:** priorizar el feed de textos aprobados como ruta principal de datos en estado DEGRADED | Pipeline de datos | hasta restauración | Punto final más fiable |
+| 3 | **Vigilancia prospectiva:** reporte del estado de transposición para los 3 primeros elementos tier-1 | Analista | trimestral | Supervisión de implementación |
+
+---
+
+### 📰 Lectura en 60 segundos
+
+- 🔴 **85 textos aprobados** en la muestra del feed semanal; 70 de EP10 2026; el resto carry-over de ventanas anteriores. (🟢 Alta)
+- 🟠 **8 elementos tier-1 concentrados en marzo 2026** — anticorrupción, VP BCE, emisiones HDV, aranceles estadounidenses, inmunidad de Braun, Mejor legislar, acceso a documentos, Georgia. (🟢 Alta)
+- 🟢 **Feed de textos aprobados = punto final más fiable** en estado DEGRADED. (🟢 Alta)
+- 🟡 **~62 adopciones de rutina de menor importancia** (línea base típica de rendimiento del PE). (🟢 Alta)
+- 🔵 **Contexto económico:** el clúster de 8 tier-1 pivota en los ejes industrial-económico (HDV, aranceles), institucional (BCE, Mejor legislar) y estado de derecho (anticorrupción, Braun). (🟢 Alta)
+- 🟣 **Referencia cruzada:** el análisis hermano `breaking-2` reproduce el mismo inventario en la abstracción de la canalización. (🟢 Alta)
+- 🩷 **Vector de perturbación:** los archivos del BCE / aranceles estadounidenses son los más expuestos a shocks macro externos. (🟡 Medio)
+- ⚪ **Carry-forward:** se requieren informes trimestrales del estado de transposición para Q3–Q4 2026 y en 2027/2028.
+
+---
+
+### 🗂️ Tabla de principales documentos / procedimientos
+
+| Rango | Referencia PE | Título (corto) | Importancia | Confianza |
+|:-----:|-------------|----------------|:-----------:|:---------:|
+| 1 | TA-10-2026-0094 | Directiva anticorrupción | 9,0 | 🟢 ALTA |
+| 2 | TA-10-2026-0060 | Vicepresidente del BCE | 8,0 | 🟢 ALTA |
+| 3 | TA-10-2026-0096 | Aranceles aduaneros de EE.UU. | 7,5 | 🟢 ALTA |
+| 4 | TA-10-2026-0084 | Créditos de emisiones HDV | 7,0 | 🟢 ALTA |
+| 5 | TA-10-2026-0088 | Inmunidad de Braun | 7,0 | 🟢 ALTA |
+| 6 | TA-10-2026-0083 | Presos políticos de Georgia | 7,0 | 🟢 ALTA |
+| 7 | TA-10-2026-0063 | Mejor legislar | 7,0 | 🟢 ALTA |
+| 8 | TA-10-2026-0065 | Acceso público a documentos | 7,0 | 🟢 ALTA |
+
+---
+
+### ⚠️ Instantánea de riesgos y amenazas
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| Riesgo | L | I | Puntuación | Disparador | Fuente | Almirantazgo |
+|--------|:-:|:-:|:----------:|-----------|--------|:------------:|
+| Fragmentación de transposición tier-1 | 4 | 4 | 16 | Divergencia nacional | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| Regresión del feed de textos aprobados | 3 | 4 | 12 | Pérdida del último punto final fiable | Análisis hermano `breaking-2` | A2 |
+| Deriva del rendimiento de rutina | 2 | 2 | 4 | Sostenido <40/semana | Muestra del feed | B3 |
+
+---
+
+### 🔮 Principal disparador prospectivo
+
+**Ciclo de transposición trimestral para el clúster tier-1 de 8 elementos (Q3 2026 → Q1 2028).** Los paneles de cumplimiento de los Estados miembros indicarán si el output del PE en Q1 se traduce en un efecto europeo duradero.
+
+---
+
+### 🛡️ Evaluación de calidad de fuentes
+
+- **Fuentes primarias:** EP `get_adopted_texts_feed` ventana semanal (85 elementos).
+- **Confianza:** 🟢 ALTA en el inventario; 🟡 MEDIA en la clasificación elemento por elemento de cola larga.
+
+---
+
+### 📎 Enlaces
+
+| Enlace | Ruta |
+|--------|------|
+| Artículo | `./article.md` |
+| Ejecuciones hermanas | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| Manifiesto | `./manifest.json` |
+
+---
+
+**Control del documento**
+- **Plantilla:** `/analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **Clasificación:** Público
+- **Generación retrospectiva:** Sesión de relleno.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Hyväksyttyjen tekstien viikon syöte palautti 85 kohdetta kolmelta erilliseltä ajanjaksolta — 70 kohdetta nykyisestä EP10 2026 -istunnosta, loput aiemmista ikkunoista.** DEGRADED API -tilassa, jonka 2026-04-03/breaking-2 vahvisti, hyväksyttyjen tekstien syöte on luotettavin substansiaalinen tietolähde (viikon fallback palauttaa 85 kohdetta). Hallitseva tier-1-ryhmä on maaliskuu 2026 Strasbourg + Bryssel -tuotos: korruptionvastainen (TA-10-2026-0094), EKP:n varapuheenjohtaja (TA-10-2026-0060), HDV-päästöt (TA-10-2026-0084), Yhdysvaltain tullit (TA-10-2026-0096), Braun-immuniteetti (TA-10-2026-0088), Parempi lainsäädäntö (TA-10-2026-0063), asiakirjojen saatavuus (TA-10-2026-0065), Georgia (TA-10-2026-0083). Loput ~62 kohdetta ovat alhaisemman merkityksen rutiinihyväksyntöjä. **🟢 KORKEA luottamustaso** 85 kohteen lukumäärässä ja hallitsevan ryhmän tunnistamisessa.
+
+---
+
+### 🧭 3 Päätöstä, joita tämä raportti tukee
+
+| # | Päätös | Kuka päättää | Määräaika | Näyttö |
+|:-:|--------|-------------|:---------:|--------|
+| 1 | **Toimituksellinen:** julkaise Q1 hyväksyttyjen tekstien pitkä yhteenveto ankkuriartikkelina | Toimittaja | +48h | 85 kohteen inventaari + 8 tier-1 |
+| 2 | **Seuranta:** priorisoi hyväksyttyjen tekstien syöte ensisijaisena datapolkuna DEGRADED-tilassa | Datapipeline | kunnes palautetaan | Luotettavin päätepiste |
+| 3 | **Eteenpäin katsominen:** transponointistatusraportointi topp-3 tier-1 kohteille | Analyytikko | neljännesvuosittain | Toimeenpanon valvonta |
+
+---
+
+### 📰 60 sekunnin lukeminen
+
+- 🔴 **85 hyväksyttyä tekstiä** viikon syötenäytteessä; 70 EP10 2026:sta; loput carry-over vanhemmista ikkunoista. (🟢 Korkea)
+- 🟠 **8 tier-1 kohdetta maaliskuussa 2026** — korruptionvastainen, EKP VP, HDV-päästöt, Yhdysvaltain tullit, Braun-immuniteetti, Parempi lainsäädäntö, asiakirjojen saatavuus, Georgia. (🟢 Korkea)
+- 🟢 **Hyväksyttyjen tekstien syöte = luotettavin** päätepiste DEGRADED-tilassa. (🟢 Korkea)
+- 🟡 **~62 alhaisemman merkityksen rutiinihyväksyntää** (tyypillinen EP:n läpivirtauslinja). (🟢 Korkea)
+- 🔵 **Taloudellinen konteksti:** 8 tier-1-ryhmä kiertyy teollisuus-taloudellisten (HDV, tullit), institutionaalisten (EKP, Parempi lainsäädäntö) ja oikeusvaltioperiaatteen (korruptionvastainen, Braun) akseleiden ympärille. (🟢 Korkea)
+- 🟣 **Ristiviittaus:** sisaranalyysi `breaking-2` toistaa saman inventaarin pipeline-abstraktion tasolla. (🟢 Korkea)
+- 🩷 **Häiriövektori:** EKP / Yhdysvaltain tullit -tiedostot eniten altistuneita ulkoisille makroshokeille. (🟡 Keskitaso)
+- ⚪ **Carry-forward:** neljännesvuosittaiset transponointistatusraportit tarvitaan Q3–Q4 2026 ja 2027/2028 ajalle.
+
+---
+
+### 🗂️ Tärkeimmät asiakirjat / Menettelytaulukko
+
+| Sija | EP-viite | Otsikko (lyhyt) | Merkitys | Luottamustaso |
+|:----:|----------|-----------------|:--------:|:-------------:|
+| 1 | TA-10-2026-0094 | Korruptionvastainen direktiivi | 9,0 | 🟢 KORKEA |
+| 2 | TA-10-2026-0060 | EKP:n varapuheenjohtaja | 8,0 | 🟢 KORKEA |
+| 3 | TA-10-2026-0096 | Yhdysvaltain tullitariffit | 7,5 | 🟢 KORKEA |
+| 4 | TA-10-2026-0084 | HDV-päästökrediitiit | 7,0 | 🟢 KORKEA |
+| 5 | TA-10-2026-0088 | Braun-immuniteetti | 7,0 | 🟢 KORKEA |
+| 6 | TA-10-2026-0083 | Georgian poliittiset vangit | 7,0 | 🟢 KORKEA |
+| 7 | TA-10-2026-0063 | Parempi lainsäädäntö | 7,0 | 🟢 KORKEA |
+| 8 | TA-10-2026-0065 | Asiakirjojen julkinen saatavuus | 7,0 | 🟢 KORKEA |
+
+---
+
+### ⚠️ Riski & Uhkakuva
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| Riski | L | I | Pisteet | Laukaisin | Lähde | Admiraliteetti |
+|-------|:-:|:-:|:-------:|-----------|--------|:--------------:|
+| Tier-1 transponointifragmentoituminen | 4 | 4 | 16 | Kansallinen divergenssi | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| Hyväksyttyjen tekstien syöteen regressio | 3 | 4 | 12 | Viimeisen luotettavan päätepisteen menetys | Sisar `breaking-2` | A2 |
+| Rutiinitoiminnan läpivirtauksen ajautuminen | 2 | 2 | 4 | Jatkuva <40/viikko | Syötenäyte | B3 |
+
+---
+
+### 🔮 Tärkein eteenpäin katsova laukaisin
+
+**Neljännesvuosittainen transponointisykli 8 tier-1-ryhmälle (Q3 2026 → Q1 2028).** Jäsenvaltioiden vaatimustenmukaisuuden hallintapaneelit osoittavat, muuttuuko Q1 EP:n tuotos pysyväksi EU:n laajuiseksi vaikutukseksi.
+
+---
+
+### 🛡️ Lähteiden laadun arviointi
+
+- **Ensisijaiset lähteet:** EP `get_adopted_texts_feed` viikon ikkuna (85 kohdetta).
+- **Luottamustaso:** 🟢 KORKEA inventaariin; 🟡 KESKITASO pitkän hännän kohde-kohtaiseen luokitteluun.
+
+---
+
+### 📎 Linkit
+
+| Linkki | Polku |
+|--------|-------|
+| Artikkeli | `./article.md` |
+| Sisarajot | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| Manifesti | `./manifest.json` |
+
+---
+
+**Asiakirjan hallinta**
+- **Malli:** `/analysis/templates/executive-brief.md`
+- **Artefaktin polku:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **Luokittelu:** Julkinen
+- **Retrospektiivinen luonti:** Backfill-istunto.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**Le flux hebdomadaire des textes adoptés a retourné 85 éléments couvrant trois périodes d'activité parlementaire distinctes — 70 éléments issus de la session EP10 2026 en cours, le reste provenant de fenêtres antérieures.** Dans l'état API DEGRADED confirmé par le 2026-04-03/breaking-2, le flux des textes adoptés demeure la source de données substantielle la plus fiable (fallback une semaine = 85 éléments). Le cluster tier-1 dominant correspond à l'output de mars 2026 Strasbourg + Bruxelles : anti-corruption (TA-10-2026-0094), vice-président BCE (TA-10-2026-0060), émissions HDV (TA-10-2026-0084), droits de douane américains (TA-10-2026-0096), immunité Braun (TA-10-2026-0088), Mieux légiférer (TA-10-2026-0063), accès aux documents (TA-10-2026-0065), Géorgie (TA-10-2026-0083). Les ~62 éléments restants sont des adoptions de routine à faible significance. **🟢 CONFIANCE ÉLEVÉE** sur le décompte de 85 éléments et l'identification du cluster dominant.
+
+---
+
+### 🧭 3 Décisions que ce rapport soutient
+
+| # | Décision | Qui décide | Échéance | Preuves |
+|:-:|----------|-----------|:--------:|---------|
+| 1 | **Éditorial :** publier le récapitulatif long format Q1 des textes adoptés comme article ancre | Rédacteur | +48h | Inventaire 85 éléments + 8 tier-1 |
+| 2 | **Surveillance :** prioriser le flux des textes adoptés comme chemin de données principal en état DEGRADED | Pipeline de données | jusqu'à restauration | Point d'entrée le plus fiable |
+| 3 | **Veille prospective :** suivi du statut de transposition pour les 3 premiers éléments tier-1 | Analyste | trimestriel | Supervision de l'implémentation |
+
+---
+
+### 📰 Lecture en 60 secondes
+
+- 🔴 **85 textes adoptés** dans l'échantillon du flux hebdomadaire ; 70 issus d'EP10 2026 ; le reste en carry-over de fenêtres antérieures. (🟢 Élevée)
+- 🟠 **8 éléments tier-1 concentrés en mars 2026** — anti-corruption, VP BCE, émissions HDV, droits de douane américains, immunité Braun, Mieux légiférer, accès aux documents, Géorgie. (🟢 Élevée)
+- 🟢 **Flux des textes adoptés = point d'accès le plus fiable** en état DEGRADED. (🟢 Élevée)
+- 🟡 **~62 adoptions de routine à faible significance** (débit EP typique de référence). (🟢 Élevée)
+- 🔵 **Contexte économique :** le cluster 8 tier-1 s'articule autour des axes industriel-économique (HDV, droits de douane), institutionnel (BCE, Mieux légiférer) et état de droit (anti-corruption, Braun). (🟢 Élevée)
+- 🟣 **Référence croisée :** l'analyse sœur `breaking-2` reproduit le même inventaire au niveau d'abstraction du pipeline. (🟢 Élevée)
+- 🩷 **Vecteur de perturbation :** les dossiers BCE / droits de douane américains sont les plus exposés aux chocs macro externes. (🟡 Moyen)
+- ⚪ **Carry-forward :** rapports trimestriels sur le statut de transposition nécessaires pour Q3–Q4 2026 et jusqu'en 2027/2028.
+
+---
+
+### 🗂️ Tableau des principaux documents / procédures
+
+| Rang | Référence PE | Titre (abrégé) | Significance | Confiance |
+|:----:|-------------|----------------|:------------:|:---------:|
+| 1 | TA-10-2026-0094 | Directive anti-corruption | 9,0 | 🟢 ÉLEVÉE |
+| 2 | TA-10-2026-0060 | Vice-président BCE | 8,0 | 🟢 ÉLEVÉE |
+| 3 | TA-10-2026-0096 | Droits de douane américains | 7,5 | 🟢 ÉLEVÉE |
+| 4 | TA-10-2026-0084 | Crédits d'émissions HDV | 7,0 | 🟢 ÉLEVÉE |
+| 5 | TA-10-2026-0088 | Immunité Braun | 7,0 | 🟢 ÉLEVÉE |
+| 6 | TA-10-2026-0083 | Prisonniers politiques géorgiens | 7,0 | 🟢 ÉLEVÉE |
+| 7 | TA-10-2026-0063 | Mieux légiférer | 7,0 | 🟢 ÉLEVÉE |
+| 8 | TA-10-2026-0065 | Accès public aux documents | 7,0 | 🟢 ÉLEVÉE |
+
+---
+
+### ⚠️ Instantané Risques & Menaces
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| Risque | L | I | Score | Déclencheur | Source | Admirauté |
+|--------|:-:|:-:|:-----:|------------|--------|:---------:|
+| Fragmentation de la transposition tier-1 | 4 | 4 | 16 | Divergence nationale | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| Régression du flux textes adoptés | 3 | 4 | 12 | Perte du dernier point d'accès fiable | Analyse sœur `breaking-2` | A2 |
+| Dérive du débit de routine | 2 | 2 | 4 | Maintenu <40/semaine | Échantillon du flux | B3 |
+
+---
+
+### 🔮 Principal déclencheur prospectif
+
+**Cycle trimestriel de transposition pour le cluster 8 tier-1 (Q3 2026 → Q1 2028).** Les tableaux de bord de conformité des États membres indiqueront si l'output Q1 du PE se traduit en effet EU durable.
+
+---
+
+### 🛡️ Évaluation de la qualité des sources
+
+- **Sources primaires :** EP `get_adopted_texts_feed` fenêtre hebdomadaire (85 éléments).
+- **Confiance :** 🟢 ÉLEVÉE sur l'inventaire ; 🟡 MOYENNE sur la classification longue traîne élément par élément.
+
+---
+
+### 📎 Liens
+
+| Lien | Chemin |
+|------|--------|
+| Article | `./article.md` |
+| Analyses sœurs | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| Manifeste | `./manifest.json` |
+
+---
+
+**Contrôle du document**
+- **Modèle :** `/analysis/templates/executive-brief.md`
+- **Chemin artefact :** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **Classification :** Public
+- **Génération rétrospective :** Session de remplissage.
+
+### Executive Brief He
+
+**סיווג:** OSINT | תיעוד פרלמנטרי ציבורי
+**אמינות:** 🟢 גבוהה (מדגם 85 פריטים לאורך שבוע במצב API מושפל)
+**נוצר:** 2026-04-04T00:00:00Z (רטרוספקטיבי)
+**סוג מאמר:** Breaking — ניתוח מעמיק של טקסטים שאומצו
+**מקור:** פורטל הנתונים הפתוח של הפרלמנט האירופי
+
+---
+
+### 🎯 BLUF
+
+**פיד הטקסטים השבועי שאומצו החזיר 85 פריטים הפרוסים על פני שלוש תקופות פעילות פרלמנטרית שונות — 70 פריטים מהמושב הנוכחי EP10 2026, השאר מחלונות קודמים.** במצב API מושפל שאושר על ידי 2026-04-03/breaking-2, פיד הטקסטים שאומצו נותר מקור הנתונים המהותי האמין ביותר (fallback של שבוע אחד מחזיר 85 פריטים). האשכול השלטני ברמה הראשונה הוא תפוקת מרס 2026 מסטרסבורג + בריסל: נגד שחיתות (TA-10-2026-0094), סגן נשיא ה-ECB (TA-10-2026-0060), פליטות HDV (TA-10-2026-0084), מכסי ארה"ב (TA-10-2026-0096), חסינות בראון (TA-10-2026-0088), חקיקה טובה יותר (TA-10-2026-0063), גישה למסמכים (TA-10-2026-0065), גאורגיה (TA-10-2026-0083). ~62 הפריטים הנותרים הם אימוצים שגרתיים בעלי חשיבות נמוכה. **🟢 אמינות גבוהה** על מספר 85 הפריטים וזיהוי האשכול השלטני.
+
+---
+
+### 🧭 3 החלטות שדוח זה תומך בהן
+
+| # | החלטה | מי מחליט | מועד אחרון | ראיות |
+|:-:|--------|----------|:----------:|-------|
+| 1 | **עריכה:** פרסם סיכום ארוך Q1 של טקסטים שאומצו כמאמר עוגן | עורך | +48 שעות | מלאי 85 פריטים + 8 ברמה ראשונה |
+| 2 | **ניטור:** תן עדיפות לפיד טקסטים שאומצו כנתיב נתונים ראשי במצב מושפל | צינור נתונים | עד שחזור | נקודת קצה אמינה ביותר |
+| 3 | **מעקב קדימה:** דיווח מצב יישום עבור 3 הפריטים המובילים ברמה הראשונה | אנליסט | רבעוני | פיקוח יישום |
+
+---
+
+### 📰 קריאה של 60 שניות
+
+- 🔴 **85 טקסטים שאומצו** במדגם הפיד השבועי; 70 מ-EP10 2026; שאר carry-over מחלונות ישנים יותר. (🟢 גבוהה)
+- 🟠 **8 פריטים ברמה ראשונה מרוכזים במרס 2026** — נגד שחיתות, סגן נשיא ECB, פליטות HDV, מכסי ארה"ב, חסינות בראון, חקיקה טובה יותר, גישה למסמכים, גאורגיה. (🟢 גבוהה)
+- 🟢 **פיד טקסטים שאומצו = נקודת הקצה האמינה ביותר** במצב מושפל. (🟢 גבוהה)
+- 🟡 **~62 אימוצים שגרתיים בעלי חשיבות נמוכה** (קו בסיס אופייני של תפוקת הפרלמנט האירופי). (🟢 גבוהה)
+- 🔵 **הקשר כלכלי:** אשכול 8 הרמה הראשונה מסתובב סביב צירים תעשייתיים-כלכליים (HDV, מכסים), מוסדיים (ECB, חקיקה טובה יותר) ושלטון החוק (נגד שחיתות, בראון). (🟢 גבוהה)
+- 🟣 **הפניה צולבת:** ניתוח אחאים `breaking-2` משחזר את אותו מלאי ברמת הפשטת צינור הנתונים. (🟢 גבוהה)
+- 🩷 **וקטור שיבוש:** קבצי ECB / מכסי ארה"ב הם החשופים ביותר לזעזועים מקרו-כלכליים חיצוניים. (🟡 בינוני)
+- ⚪ **Carry-forward:** דוחות רבעוניים על מצב יישום נדרשים עבור Q3–Q4 2026 וב-2027/2028.
+
+---
+
+### 🗂️ טבלת מסמכים / הליכים מובילים
+
+| דירוג | אזכור PE | כותרת (קצרה) | חשיבות | אמינות |
+|:-----:|----------|--------------|:------:|:------:|
+| 1 | TA-10-2026-0094 | הנחיה נגד שחיתות | 9.0 | 🟢 גבוהה |
+| 2 | TA-10-2026-0060 | סגן נשיא ECB | 8.0 | 🟢 גבוהה |
+| 3 | TA-10-2026-0096 | מכסי מכס אמריקאיים | 7.5 | 🟢 גבוהה |
+| 4 | TA-10-2026-0084 | קרדיטים לפליטות HDV | 7.0 | 🟢 גבוהה |
+| 5 | TA-10-2026-0088 | חסינות בראון | 7.0 | 🟢 גבוהה |
+| 6 | TA-10-2026-0083 | אסירים פוליטיים בגאורגיה | 7.0 | 🟢 גבוהה |
+| 7 | TA-10-2026-0063 | חקיקה טובה יותר | 7.0 | 🟢 גבוהה |
+| 8 | TA-10-2026-0065 | גישה ציבורית למסמכים | 7.0 | 🟢 גבוהה |
+
+---
+
+### ⚠️ תמונת מצב סיכונים ואיומים
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| סיכון | L | I | ציון | טריגר | מקור | אדמירלות |
+|-------|:-:|:-:|:----:|-------|------|:--------:|
+| פיצול יישום ברמה ראשונה | 4 | 4 | 16 | סטייה לאומית | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| נסיגה בפיד טקסטים שאומצו | 3 | 4 | 12 | אובדן נקודת הקצה האמינה האחרונה | אחאים `breaking-2` | A2 |
+| סטיית תפוקה שגרתית | 2 | 2 | 4 | מתמשך <40/שבוע | מדגם פיד | B3 |
+
+---
+
+### 🔮 טריגר קדימה מוביל
+
+**מחזור יישום רבעוני עבור אשכול 8 הרמה הראשונה (Q3 2026 → Q1 2028).** לוחות מחוונים של ציות המדינות החברות יצביעו האם תפוקת Q1 של הפרלמנט האירופי מתורגמת להשפעה אירופאית מתמשכת.
+
+---
+
+### 🛡️ הערכת איכות מקורות
+
+- **מקורות ראשוניים:** פיד `get_adopted_texts_feed` של הפרלמנט האירופי לחלון שבוע אחד (85 פריטים).
+- **אמינות:** 🟢 גבוהה על המלאי; 🟡 בינונית על סיווג פריט-אחר-פריט ב-long tail.
+
+---
+
+### 📎 קישורים
+
+| קישור | נתיב |
+|-------|------|
+| מאמר | `./article.md` |
+| ריצות אחים | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| מניפסט | `./manifest.json` |
+
+---
+
+**בקרת מסמך**
+- **תבנית:** `/analysis/templates/executive-brief.md`
+- **נתיב אתר:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **סיווג:** ציבורי
+- **יצירה רטרוספקטיבית:** מפגש מילוי.
+
+### Executive Brief Ja
+
+**分類：** OSINT | 公開議会記録
+**信頼度：** 🟢 高（DEGRADED API状態での1週間85件サンプル）
+**作成日：** 2026-04-04T00:00:00Z（遡及作成）
+**記事タイプ：** ブレーキング — 採択テキスト詳細分析
+**出典：** 欧州議会オープンデータポータル
+
+---
+
+### 🎯 BLUF
+
+**採択テキストの週次フィードは、3つの異なる議会活動期にまたがる85件を返した — うち70件は現在のEP10 2026会期から、残りは過去ウィンドウからのキャリーオーバーである。** 2026-04-03/breaking-2で確認されたDEGRADED API状態において、採択テキスト・フィードは最も信頼性の高い実質的データソースであり続ける（1週間フォールバックで85件を返す）。支配的なTier-1クラスターは2026年3月ストラスブール+ブリュッセル出力である：汚職対策（TA-10-2026-0094）、ECB副総裁（TA-10-2026-0060）、HDV排出量（TA-10-2026-0084）、米国関税（TA-10-2026-0096）、ブラウン免責（TA-10-2026-0088）、より良い立法（TA-10-2026-0063）、文書アクセス（TA-10-2026-0065）、ジョージア（TA-10-2026-0083）。残りの約62件は重要度の低い定常的採択である。85件数と支配的クラスター特定に関して**🟢 高い信頼度**。
+
+---
+
+### 🧭 このブリーフが支援する3つの意思決定
+
+| # | 意思決定 | 決定者 | 期限 | 根拠 |
+|:-:|---------|-------|:---:|------|
+| 1 | **編集：** Q1採択テキストの長文要約をアンカー記事として公開する | 編集者 | +48時間 | 85件目録 + Tier-1 8件 |
+| 2 | **監視：** DEGRADED状態では採択テキスト・フィードを主要データパスとして優先する | データパイプライン | 復元まで | 最も信頼性の高いエンドポイント |
+| 3 | **先読み監視：** 上位3件のTier-1項目の移行状況報告 | アナリスト | 四半期ごと | 実施監督 |
+
+---
+
+### 📰 60秒リーディング
+
+- 🔴 週次フィードサンプルで**採択テキスト85件**；EP10 2026から70件、残りは旧ウィンドウからのキャリーオーバー。（🟢 高）
+- 🟠 **2026年3月に集中するTier-1 8件** — 汚職対策、ECB VP、HDV排出量、米国関税、ブラウン免責、より良い立法、文書アクセス、ジョージア。（🟢 高）
+- 🟢 **採択テキスト・フィード = 最も信頼性の高い** DEGRADED状態のエンドポイント。（🟢 高）
+- 🟡 **低重要度の定常採択約62件**（典型的なEP処理量基準）。（🟢 高）
+- 🔵 **経済的文脈：** Tier-1 8件クラスターは産業経済的（HDV、関税）、制度的（ECB、より良い立法）、法の支配的（汚職対策、ブラウン）軸を中心に展開する。（🟢 高）
+- 🟣 **相互参照：** 関連ブリーフ `breaking-2` がパイプライン抽象化レベルで同一目録を再現。（🟢 高）
+- 🩷 **混乱ベクター：** ECB / 米国関税ファイルが外部マクロショックに最も露出。（🟡 中）
+- ⚪ **キャリーフォワード：** Q3–Q4 2026および2027/2028に向けた四半期移行状況報告が必要。
+
+---
+
+### 🗂️ 主要文書 / 手続き一覧表
+
+| 順位 | EP参照 | タイトル（短縮） | 重要度 | 信頼度 |
+|:---:|-------|---------------|:-----:|:-----:|
+| 1 | TA-10-2026-0094 | 汚職対策指令 | 9.0 | 🟢 高 |
+| 2 | TA-10-2026-0060 | ECB副総裁 | 8.0 | 🟢 高 |
+| 3 | TA-10-2026-0096 | 米国関税 | 7.5 | 🟢 高 |
+| 4 | TA-10-2026-0084 | HDV排出量クレジット | 7.0 | 🟢 高 |
+| 5 | TA-10-2026-0088 | ブラウン免責 | 7.0 | 🟢 高 |
+| 6 | TA-10-2026-0083 | ジョージア政治犯 | 7.0 | 🟢 高 |
+| 7 | TA-10-2026-0063 | より良い立法 | 7.0 | 🟢 高 |
+| 8 | TA-10-2026-0065 | 文書への公開アクセス | 7.0 | 🟢 高 |
+
+---
+
+### ⚠️ リスク・脅威スナップショット
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| リスク | L | I | スコア | トリガー | 出典 | 提督評価 |
+|------|:-:|:-:|:-----:|---------|------|:------:|
+| Tier-1移行断片化 | 4 | 4 | 16 | 国内乖離 | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| 採択テキスト・フィード後退 | 3 | 4 | 12 | 最後の信頼性エンドポイント喪失 | 関連ブリーフ `breaking-2` | A2 |
+| 定常処理量ドリフト | 2 | 2 | 4 | 継続的 <40件/週 | フィードサンプル | B3 |
+
+---
+
+### 🔮 主要先読みトリガー
+
+**Tier-1 8件クラスターの四半期移行サイクル（Q3 2026 → Q1 2028）。** 加盟国コンプライアンス・ダッシュボードが、EP Q1出力がEU全体の持続的効果に転換されるかを示す。
+
+---
+
+### 🛡️ データ源品質評価
+
+- **主要出典：** EP `get_adopted_texts_feed` 週次ウィンドウ（85件）。
+- **信頼度：** 🟢 目録に関して高；🟡 ロングテール件別分類に関して中。
+
+---
+
+### 📎 リンク
+
+| リンク | パス |
+|-------|------|
+| 記事 | `./article.md` |
+| 関連実行 | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| マニフェスト | `./manifest.json` |
+
+---
+
+**文書管理**
+- **テンプレート：** `/analysis/templates/executive-brief.md`
+- **アーティファクトパス：** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **分類：** 公開
+- **遡及作成：** バックフィルセッション。
+
+### Executive Brief Ko
+
+**분류:** OSINT | 공개 의회 기록
+**신뢰도:** 🟢 높음 (DEGRADED API 상태에서 1주간 85건 표본)
+**작성일:** 2026-04-04T00:00:00Z (소급 작성)
+**기사 유형:** 속보 — 채택 텍스트 심층 분석
+**출처:** 유럽의회 공개 데이터 포털
+
+---
+
+### 🎯 BLUF
+
+**채택 텍스트 주간 피드는 3개의 서로 다른 의회 활동 기간에 걸쳐 85건을 반환했습니다 — 현재 EP10 2026 회기에서 70건, 나머지는 이전 기간에서 이월된 건입니다.** 2026-04-03/breaking-2에서 확인된 DEGRADED API 상태에서, 채택 텍스트 피드는 여전히 가장 신뢰할 수 있는 실질적 데이터 소스입니다(1주 폴백으로 85건 반환). 지배적인 1등급 클러스터는 2026년 3월 스트라스부르+브뤼셀 산출물입니다: 부패방지(TA-10-2026-0094), ECB 부총재(TA-10-2026-0060), HDV 배출량(TA-10-2026-0084), 미국 관세(TA-10-2026-0096), 브라운 면책(TA-10-2026-0088), 더 나은 입법(TA-10-2026-0063), 문서 접근(TA-10-2026-0065), 조지아(TA-10-2026-0083). 나머지 약 62건은 중요도가 낮은 정례 채택입니다. 85건 수량과 지배적 클러스터 식별에 대해 **🟢 높은 신뢰도**.
+
+---
+
+### 🧭 이 브리핑이 지원하는 3가지 결정
+
+| # | 결정 | 결정자 | 기한 | 근거 |
+|:-:|-----|-------|:---:|------|
+| 1 | **편집:** Q1 채택 텍스트 장문 요약을 앵커 기사로 발행 | 편집자 | +48시간 | 85건 인벤토리 + 1등급 8건 |
+| 2 | **모니터링:** DEGRADED 상태에서 채택 텍스트 피드를 주요 데이터 경로로 우선시 | 데이터 파이프라인 | 복원 시까지 | 가장 신뢰할 수 있는 엔드포인트 |
+| 3 | **선행 감시:** 상위 3개 1등급 항목에 대한 이행 상태 보고 | 분석가 | 분기별 | 실시 감독 |
+
+---
+
+### 📰 60초 읽기
+
+- 🔴 주간 피드 표본에서 **채택 텍스트 85건**; EP10 2026에서 70건; 나머지는 이전 기간 이월. (🟢 높음)
+- 🟠 **2026년 3월 집중된 1등급 8건** — 부패방지, ECB 부총재, HDV 배출량, 미국 관세, 브라운 면책, 더 나은 입법, 문서 접근, 조지아. (🟢 높음)
+- 🟢 **채택 텍스트 피드 = DEGRADED 상태의 가장 신뢰할 수 있는** 엔드포인트. (🟢 높음)
+- 🟡 **~62건의 중요도 낮은 정례 채택** (전형적인 EP 처리량 기준선). (🟢 높음)
+- 🔵 **경제적 맥락:** 1등급 8건 클러스터는 산업-경제적(HDV, 관세), 기관적(ECB, 더 나은 입법), 법치주의적(부패방지, 브라운) 축을 중심으로 전개됩니다. (🟢 높음)
+- 🟣 **교차 참조:** 형제 브리핑 `breaking-2`가 파이프라인 추상화 수준에서 동일한 인벤토리를 재현. (🟢 높음)
+- 🩷 **교란 벡터:** ECB / 미국 관세 파일이 외부 거시경제 충격에 가장 노출됨. (🟡 중간)
+- ⚪ **이월:** Q3–Q4 2026 및 2027/2028에 대한 분기별 이행 상태 보고서 필요.
+
+---
+
+### 🗂️ 주요 문서 / 절차 표
+
+| 순위 | EP 참조 | 제목 (단축) | 중요도 | 신뢰도 |
+|:---:|--------|------------|:-----:|:-----:|
+| 1 | TA-10-2026-0094 | 부패방지 지침 | 9.0 | 🟢 높음 |
+| 2 | TA-10-2026-0060 | ECB 부총재 | 8.0 | 🟢 높음 |
+| 3 | TA-10-2026-0096 | 미국 관세 | 7.5 | 🟢 높음 |
+| 4 | TA-10-2026-0084 | HDV 배출량 크레딧 | 7.0 | 🟢 높음 |
+| 5 | TA-10-2026-0088 | 브라운 면책 | 7.0 | 🟢 높음 |
+| 6 | TA-10-2026-0083 | 조지아 정치범 | 7.0 | 🟢 높음 |
+| 7 | TA-10-2026-0063 | 더 나은 입법 | 7.0 | 🟢 높음 |
+| 8 | TA-10-2026-0065 | 공개 문서 접근 | 7.0 | 🟢 높음 |
+
+---
+
+### ⚠️ 리스크 & 위협 스냅샷
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| 리스크 | L | I | 점수 | 트리거 | 출처 | 제독 등급 |
+|------|:-:|:-:|:---:|-------|------|:--------:|
+| 1등급 이행 분절화 | 4 | 4 | 16 | 국가적 이탈 | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| 채택 텍스트 피드 회귀 | 3 | 4 | 12 | 마지막 신뢰할 수 있는 엔드포인트 손실 | 형제 `breaking-2` | A2 |
+| 정례 처리량 드리프트 | 2 | 2 | 4 | 지속적 <40건/주 | 피드 표본 | B3 |
+
+---
+
+### 🔮 주요 선행 트리거
+
+**1등급 8건 클러스터에 대한 분기별 이행 주기(Q3 2026 → Q1 2028).** 회원국 준수 대시보드는 EP Q1 산출물이 지속적인 EU 전역의 효과로 전환되는지 여부를 나타낼 것입니다.
+
+---
+
+### 🛡️ 소스 품질 평가
+
+- **주요 출처:** EP `get_adopted_texts_feed` 주간 창 (85건).
+- **신뢰도:** 🟢 인벤토리에 대해 높음; 🟡 롱테일 항목별 분류에 대해 중간.
+
+---
+
+### 📎 링크
+
+| 링크 | 경로 |
+|-----|------|
+| 기사 | `./article.md` |
+| 형제 실행 | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| 매니페스트 | `./manifest.json` |
+
+---
+
+**문서 관리**
+- **템플릿:** `/analysis/templates/executive-brief.md`
+- **아티팩트 경로:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **분류:** 공개
+- **소급 작성:** 백필 세션.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**De wekelijkse feed voor aangenomen teksten retourneerde 85 items verdeeld over drie afzonderlijke perioden — 70 items uit de huidige EP10 2026-sessie, de rest uit eerdere vensters.** In de DEGRADED API-status bevestigd door 2026-04-03/breaking-2 blijft de feed voor aangenomen teksten de meest betrouwbare substantiële gegevensbron (één week fallback retourneert 85 items). Het dominante tier-1-cluster is de output van maart 2026 Straatsburg + Brussel: anticorruptie (TA-10-2026-0094), ECB-vicepresident (TA-10-2026-0060), HDV-emissies (TA-10-2026-0084), Amerikaanse tarieven (TA-10-2026-0096), Braun-immuniteit (TA-10-2026-0088), Betere regelgeving (TA-10-2026-0063), documenttoegang (TA-10-2026-0065), Georgië (TA-10-2026-0083). De resterende ~62 items zijn routine-aannames van lagere significantie. **🟢 HOGE betrouwbaarheid** voor het aantal van 85 items en de identificatie van het dominante cluster.
+
+---
+
+### 🧭 3 Beslissingen die dit rapport ondersteunt
+
+| # | Beslissing | Wie beslist | Deadline | Bewijs |
+|:-:|-----------|------------|:--------:|--------|
+| 1 | **Redactioneel:** publiceer Q1-samenvatting van aangenomen teksten als ankerartikel | Redacteur | +48u | Inventaris van 85 items + 8 tier-1 |
+| 2 | **Monitoring:** prioriteer de feed voor aangenomen teksten als primair datapad in DEGRADED-status | Datapipeline | tot herstel | Meest betrouwbaar eindpunt |
+| 3 | **Vooruitblik:** transposiestatus-rapportage voor top-3 tier-1 items | Analist | driemaandelijks | Implementatietoezicht |
+
+---
+
+### 📰 60-secondenlezing
+
+- 🔴 **85 aangenomen teksten** in het wekelijkse feedsteekproef; 70 uit EP10 2026; rest carry-over oudere vensters. (🟢 Hoog)
+- 🟠 **8 tier-1 items geconcentreerd in maart 2026** — anticorruptie, ECB VP, HDV-emissies, Amerikaanse tarieven, Braun-immuniteit, Betere regelgeving, documenttoegang, Georgië. (🟢 Hoog)
+- 🟢 **Feed voor aangenomen teksten = meest betrouwbaar** eindpunt in DEGRADED-status. (🟢 Hoog)
+- 🟡 **~62 routine-aannames van lagere significantie** (typische EP-doorvoerbasislijn). (🟢 Hoog)
+- 🔵 **Economische context:** het 8-tier-1-cluster draait om industrieel-economische (HDV, tarieven), institutionele (ECB, Betere regelgeving) en rechtsstaatlijke (anticorruptie, Braun) assen. (🟢 Hoog)
+- 🟣 **Kruisverwijzing:** zusteranalyse `breaking-2` reproduceert dezelfde inventaris op pipeline-abstractieniveau. (🟢 Hoog)
+- 🩷 **Verstoringsvektor:** ECB / Amerikaanse tarieven-bestanden meest blootgesteld aan externe macroschokken. (🟡 Gemiddeld)
+- ⚪ **Carry-forward:** driemaandelijkse transposiestatusrapporten nodig voor Q3–Q4 2026 en 2027/2028.
+
+---
+
+### 🗂️ Topbestanden / Proceduretabel
+
+| Rang | EP-referentie | Titel (kort) | Significantie | Betrouwbaarheid |
+|:----:|-------------|---------------|:-------------:|:---------------:|
+| 1 | TA-10-2026-0094 | Anticorruptierichtlijn | 9,0 | 🟢 HOOG |
+| 2 | TA-10-2026-0060 | ECB-vicepresident | 8,0 | 🟢 HOOG |
+| 3 | TA-10-2026-0096 | Amerikaanse douanetarieven | 7,5 | 🟢 HOOG |
+| 4 | TA-10-2026-0084 | HDV-emissiekredieten | 7,0 | 🟢 HOOG |
+| 5 | TA-10-2026-0088 | Braun-immuniteit | 7,0 | 🟢 HOOG |
+| 6 | TA-10-2026-0083 | Georgische politieke gevangenen | 7,0 | 🟢 HOOG |
+| 7 | TA-10-2026-0063 | Betere regelgeving | 7,0 | 🟢 HOOG |
+| 8 | TA-10-2026-0065 | Publieke toegang tot documenten | 7,0 | 🟢 HOOG |
+
+---
+
+### ⚠️ Risico & Dreigingsoverzicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| Risico | L | I | Score | Trigger | Bron | Admiraliteit |
+|--------|:-:|:-:|:-----:|---------|------|:------------:|
+| Tier-1 transposiefragmentatie | 4 | 4 | 16 | Nationale divergentie | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| Feed-regressie aangenomen teksten | 3 | 4 | 12 | Verlies van laatste betrouwbaar eindpunt | Zuster `breaking-2` | A2 |
+| Routine doorvoerdrift | 2 | 2 | 4 | Aanhoudend <40/week | Feedsteekproef | B3 |
+
+---
+
+### 🔮 Belangrijkste vooruitblikkende trigger
+
+**Driemaandelijkse transposiecyclus voor het 8-tier-1-cluster (Q3 2026 → Q1 2028).** Nalevingsdashboards van lidstaten zullen aantonen of EP Q1-output zich vertaalt in blijvend EU-breed effect.
+
+---
+
+### 🛡️ Beoordeling van bronkwaliteit
+
+- **Primaire bronnen:** EP `get_adopted_texts_feed` wekelijks venster (85 items).
+- **Betrouwbaarheid:** 🟢 HOOG voor inventaris; 🟡 GEMIDDELD voor item-voor-item classificatie van de lange staart.
+
+---
+
+### 📎 Links
+
+| Link | Pad |
+|------|-----|
+| Artikel | `./article.md` |
+| Zusterruns | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Documentcontrole**
+- **Sjabloon:** `/analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectieve generatie:** Backfill-sessie.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Den ukentlige feedet for vedtatte tekster returnerte 85 elementer fordelt på tre distinkte perioder — 70 elementer fra den nåværende EP10 2026-sesjonen, resten fra tidligere vinduer.** Under den DEGRADED API-tilstanden bekreftet av 2026-04-03/breaking-2, er vedtatte-teksters-feeden den mest pålitelige substansielle datakilden (en ukes fallback returnerer 85 elementer). Det dominerende tier-1-klynget er mars 2026 Strasbourg + Brussel-output: antikorrupsjon (TA-10-2026-0094), ECB-visepresident (TA-10-2026-0060), HDV-utslipp (TA-10-2026-0084), amerikanske toll (TA-10-2026-0096), Braun-immunitet (TA-10-2026-0088), Bedre lovgivning (TA-10-2026-0063), dokumenttilgang (TA-10-2026-0065), Georgia (TA-10-2026-0083). Resterende ~62 elementer er lavere-signifikante rutinevedtak. **🟢 HØY konfidens** på 85-elementers-antallet og dominerende klyngidentifisering.
+
+---
+
+### 🧭 3 Beslutninger denne rapporten støtter
+
+| # | Beslutning | Hvem beslutter | Frist | Dokumentasjon |
+|:-:|-----------|----------------|:-----:|---------------|
+| 1 | **Redaksjonelt:** publiser Q1 vedtatte tekster lang oppsummering som ankerstykke | Redaktør | +48t | 85-elementers inventar + 8 tier-1 |
+| 2 | **Overvåking:** prioriter vedtatte-teksters-feeden som primær datavei under DEGRADED-tilstand | Datapipeline | til gjenoppretting | Mest pålitelig sluttpunkt |
+| 3 | **Fremtidsovervåking:** transposisjonsstatus for topp-3 tier-1 elementer | Analytiker | kvartalsvis | Implementeringstilsyn |
+
+---
+
+### 📰 60-sekunders lesing
+
+- 🔴 **85 vedtatte tekster** i ukefeedutvalget; 70 fra EP10 2026; resten carry-over eldre vinduer. (🟢 Høy)
+- 🟠 **8 tier-1 elementer konsentrert i mars 2026** — antikorrupsjon, ECB VP, HDV-utslipp, amerikanske toll, Braun-immunitet, Bedre lovgivning, dokumenttilgang, Georgia. (🟢 Høy)
+- 🟢 **Vedtatte-teksters-feed = mest pålitelig** sluttpunkt under DEGRADED-tilstand. (🟢 Høy)
+- 🟡 **~62 lavere-signifikante rutinevedtak** (typisk EP-gjennomstrømmingsbaseline). (🟢 Høy)
+- 🔵 **Økonomisk kontekst:** 8 tier-1-klynget dreier seg om industri-økonomi (HDV, toll), institusjonelle (ECB, Bedre lovgivning) og rettsstatlige (antikorrupsjon, Braun) akser. (🟢 Høy)
+- 🟣 **Kryssreferanse:** søskenanalysen `breaking-2` gjengir samme inventar på pipeline-abstraksjonsnivå. (🟢 Høy)
+- 🩷 **Forstyrelsesvektor:** ECB / US-toll-filer mest eksponert for eksterne makrosjokk. (🟡 Medium)
+- ⚪ **Carry-forward:** kvartalsvise transposisjonsstatusrapporter nødvendige over Q3–Q4 2026 og inn i 2027/2028.
+
+---
+
+### 🗂️ Topp Dokumenter / Prosedyretabell
+
+| Rang | EP-referanse | Tittel (kort) | Signifikans | Konfidens |
+|:----:|-------------|---------------|:-----------:|:---------:|
+| 1 | TA-10-2026-0094 | Antikorrupsjonsdirektiv | 9,0 | 🟢 HØY |
+| 2 | TA-10-2026-0060 | ECB visepresident | 8,0 | 🟢 HØY |
+| 3 | TA-10-2026-0096 | Amerikanske tolltariffer | 7,5 | 🟢 HØY |
+| 4 | TA-10-2026-0084 | HDV-utslippskreditter | 7,0 | 🟢 HØY |
+| 5 | TA-10-2026-0088 | Braun-immunitet | 7,0 | 🟢 HØY |
+| 6 | TA-10-2026-0083 | Georgia politiske fanger | 7,0 | 🟢 HØY |
+| 7 | TA-10-2026-0063 | Bedre lovgivning | 7,0 | 🟢 HØY |
+| 8 | TA-10-2026-0065 | Offentlig tilgang til dokumenter | 7,0 | 🟢 HØY |
+
+---
+
+### ⚠️ Risiko & Trusselbilde
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| Risiko | L | I | Score | Trigger | Kilde | Admiralitet |
+|--------|:-:|:-:|:-----:|---------|--------|:-----------:|
+| Tier-1 transposisjonsfragmentering | 4 | 4 | 16 | Nasjonal divergens | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| Vedtatte-teksters-feed-regresjon | 3 | 4 | 12 | Tap av siste pålitelige sluttpunkt | Søsken `breaking-2` | A2 |
+| Rutin gjennomstrømmingsdrift | 2 | 2 | 4 | Vedvarende <40/uke | Feedutvalg | B3 |
+
+---
+
+### 🔮 Topp fremtidstrigger
+
+**Kvartalsvis transposisjonssyklus for 8 tier-1-klynget (Q3 2026 → Q1 2028).** Medlemsstatenes etterlevelsesdashbord vil vise om Q1 EP-output omsettes til varig EU-effekt.
+
+---
+
+### 🛡️ Vurdering av kildekvalitet
+
+- **Primærkilder:** EP `get_adopted_texts_feed` ukentlig vindu (85 elementer).
+- **Konfidens:** 🟢 HØY på inventar; 🟡 MEDIUM på langhalet element-for-element-klassifisering.
+
+---
+
+### 📎 Lenker
+
+| Lenke | Sti |
+|-------|-----|
+| Artikkel | `./article.md` |
+| Søskenkjøringer | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontroll**
+- **Mal:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv generering:** Backfill-sesjon.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Adopterade texters feed för en vecka returnerade 85 poster fördelat på tre distinkta perioder — 70 poster från nuvarande EP10 2026-session, resterande från tidigare fönster.** Under det DEGRADED API-tillstånd som bekräftades av 2026-04-03/breaking-2 förblir adopted-texts-feeden den mest tillförlitliga substantiva datakällan (en veckas fallback returnerar 85 poster). Det dominerande tier-1-klustret är mars 2026 Strasbourg + Bryssel-output: antikorruption (TA-10-2026-0094), ECB-vice ordförande (TA-10-2026-0060), HDV-utsläpp (TA-10-2026-0084), amerikanska tullar (TA-10-2026-0096), Braun-immunitet (TA-10-2026-0088), Bättre lagstiftning (TA-10-2026-0063), tillgång till handlingar (TA-10-2026-0065), Georgien (TA-10-2026-0083). Återstående ~62 poster är rutinantagna med lägre signifikans. **🟢 HÖG konfidens** på 85-posters-antalet och dominerande klusteridentifiering.
+
+---
+
+### 🧭 3 Beslut som denna rapport stöder
+
+| # | Beslut | Vem beslutar | Deadline | Bevis |
+|:-:|--------|-------------|:--------:|-------|
+| 1 | **Redaktionellt:** publicera Q1 antagna texter lång artikel som ankarinlägg | Redaktör | +48h | 85-posters inventering + 8 tier-1 |
+| 2 | **Övervakning:** prioritera adopted-texts-feeden som primär dataväg under DEGRADED-tillstånd | Datapipeline | till återställning | Mest tillförlitlig slutpunkt |
+| 3 | **Framåtbevakning:** transponeringsstatus för topp-3 tier-1 poster | Analytiker | kvartalsvis | Implementeringsöversyn |
+
+---
+
+### 📰 60-sekunders läsning
+
+- 🔴 **85 antagna texter** i urveckans feed; 70 från EP10 2026; resterande carry-over äldre fönster. (🟢 Hög)
+- 🟠 **8 tier-1 poster koncentrerade i mars 2026** — antikorruption, ECB VP, HDV-utsläpp, amerikanska tullar, Braun-immunitet, Bättre lagstiftning, tillgång till handlingar, Georgien. (🟢 Hög)
+- 🟢 **Adopted-texts-feeden = mest tillförlitlig** slutpunkt under DEGRADED-tillstånd. (🟢 Hög)
+- 🟡 **~62 lägre-signifikanta rutinantagna** (typisk EP-genomströmningsbas). (🟢 Hög)
+- 🔵 **Ekonomisk kontext:** 8 tier-1-klustret kretsar kring industri-ekonomiska (HDV, tullar), institutionella (ECB, Bättre lagstiftning) och rättsstatliga (antikorruption, Braun) axlar. (🟢 Hög)
+- 🟣 **Korsreferens:** syskon `breaking-2` återger samma inventering på pipeline-abstraktion. (🟢 Hög)
+- 🩷 **Störningsvektor:** ECB / US-tullar-filer mest exponerade för externa makrochocker. (🟡 Medel)
+- ⚪ **Carry-forward:** kvartalsvisa transponeringsstatus-rapporter behövs över Q3–Q4 2026 och in i 2027/2028.
+
+---
+
+### 🗂️ Topp Dokument / Procedurtabell
+
+| Rank | EP-referens | Titel (kort) | Signifikans | Konfidens |
+|:----:|------------|---------------|:-----------:|:---------:|
+| 1 | TA-10-2026-0094 | Antikorruptionsdirektiv | 9,0 | 🟢 HÖG |
+| 2 | TA-10-2026-0060 | ECB vice ordförande | 8,0 | 🟢 HÖG |
+| 3 | TA-10-2026-0096 | Amerikanska tullsatser | 7,5 | 🟢 HÖG |
+| 4 | TA-10-2026-0084 | HDV-utsläppskrediter | 7,0 | 🟢 HÖG |
+| 5 | TA-10-2026-0088 | Braun-immunitet | 7,0 | 🟢 HÖG |
+| 6 | TA-10-2026-0083 | Georgien politiska fångar | 7,0 | 🟢 HÖG |
+| 7 | TA-10-2026-0063 | Bättre lagstiftning | 7,0 | 🟢 HÖG |
+| 8 | TA-10-2026-0065 | Tillgång till handlingar | 7,0 | 🟢 HÖG |
+
+---
+
+### ⚠️ Risk & Hot-ögonblicksbild
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| Risk | L | I | Poäng | Trigger | Källa | Admiralitet |
+|------|:-:|:-:|:-----:|---------|--------|:-----------:|
+| Tier-1 transponeringsfragmentering | 4 | 4 | 16 | Nationell divergens | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| Adopted-texts-feed-regression | 3 | 4 | 12 | Förlust av sista tillförlitlig slutpunkt | Syskon `breaking-2` | A2 |
+| Rutin genomströmningsdrift | 2 | 2 | 4 | Ihållande <40/vecka | Feed-urval | B3 |
+
+---
+
+### 🔮 Topp framåttrigger
+
+**Kvartalsvisa transponeringscykel för 8 tier-1-klustret (Q3 2026 → Q1 2028).** Efterlevnadsinstrumentpaneler för medlemsstaterna visar om Q1 EP-output översätts till varaktig EU-effekt.
+
+---
+
+### 🛡️ Bedömning av källkvalitet
+
+- **Primärkällor:** EP `get_adopted_texts_feed` en veckas fönster (85 poster).
+- **Konfidens:** 🟢 HÖG på inventering; 🟡 MEDEL på lång svans post-för-post-klassificering.
+
+---
+
+### 📎 Länkar
+
+| Länk | Sökväg |
+|------|--------|
+| Artikel | `./article.md` |
+| Systerkörningar | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontroll**
+- **Mall:** `/analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv generering:** Backfill-session.
+
+### Executive Brief Zh
+
+**分类：** OSINT | 公开议会记录
+**置信度：** 🟢 高（DEGRADED API状态下一周85件样本）
+**生成日期：** 2026-04-04T00:00:00Z（追溯性）
+**文章类型：** 突发新闻 — 已采用文本深度分析
+**来源：** 欧洲议会开放数据门户
+
+---
+
+### 🎯 BLUF
+
+**已采用文本的周度订阅源返回了85件，涵盖三个不同的议会活动时期——70件来自当前EP10 2026会期，其余为早期窗口的延续。** 在2026-04-03/breaking-2确认的DEGRADED API状态下，已采用文本订阅源仍是最可靠的实质性数据来源（一周回退返回85件）。主导的第一级别集群是2026年3月斯特拉斯堡+布鲁塞尔输出：反腐败（TA-10-2026-0094）、欧洲央行副行长（TA-10-2026-0060）、HDV排放（TA-10-2026-0084）、美国关税（TA-10-2026-0096）、布劳恩豁免权（TA-10-2026-0088）、更好立法（TA-10-2026-0063）、文件访问（TA-10-2026-0065）、格鲁吉亚（TA-10-2026-0083）。其余约62件是重要性较低的常规通过项。对85件数量和主导集群识别具有**🟢 高置信度**。
+
+---
+
+### 🧭 本简报支持的3项决策
+
+| # | 决策 | 决策者 | 截止时间 | 依据 |
+|:-:|------|-------|:-------:|------|
+| 1 | **编辑：** 将Q1已采用文本长篇摘要作为锚定文章发布 | 编辑 | +48小时 | 85件清单 + 第一级别8件 |
+| 2 | **监控：** 在DEGRADED状态下将已采用文本订阅源优先作为主要数据路径 | 数据管道 | 至恢复时止 | 最可靠的端点 |
+| 3 | **前瞻监测：** 对前3项第一级别项目进行转置状态报告 | 分析师 | 每季度 | 实施监督 |
+
+---
+
+### 📰 60秒速读
+
+- 🔴 周度订阅源样本中**85件已采用文本**；EP10 2026来源70件；其余为早期窗口延续。（🟢 高）
+- 🟠 **2026年3月集中的第一级别8件** — 反腐败、欧洲央行副行长、HDV排放、美国关税、布劳恩豁免权、更好立法、文件访问、格鲁吉亚。（🟢 高）
+- 🟢 **已采用文本订阅源 = DEGRADED状态下最可靠的**端点。（🟢 高）
+- 🟡 **约62件重要性较低的常规通过项**（典型EP处理量基线）。（🟢 高）
+- 🔵 **经济背景：** 第一级别8件集群围绕工业经济（HDV、关税）、机构（欧洲央行、更好立法）和法治（反腐败、布劳恩）轴展开。（🟢 高）
+- 🟣 **交叉参考：** 兄弟分析 `breaking-2` 在管道抽象层面再现了相同清单。（🟢 高）
+- 🩷 **干扰向量：** 欧洲央行/美国关税文件最易受外部宏观冲击影响。（🟡 中等）
+- ⚪ **延续：** Q3–Q4 2026及2027/2028的季度转置状态报告是必要的。
+
+---
+
+### 🗂️ 主要文件/程序表
+
+| 排名 | 欧洲议会参考号 | 标题（简称） | 重要性 | 置信度 |
+|:---:|-------------|------------|:-----:|:-----:|
+| 1 | TA-10-2026-0094 | 反腐败指令 | 9.0 | 🟢 高 |
+| 2 | TA-10-2026-0060 | 欧洲央行副行长 | 8.0 | 🟢 高 |
+| 3 | TA-10-2026-0096 | 美国关税 | 7.5 | 🟢 高 |
+| 4 | TA-10-2026-0084 | HDV排放额度 | 7.0 | 🟢 高 |
+| 5 | TA-10-2026-0088 | 布劳恩豁免权 | 7.0 | 🟢 高 |
+| 6 | TA-10-2026-0083 | 格鲁吉亚政治犯 | 7.0 | 🟢 高 |
+| 7 | TA-10-2026-0063 | 更好立法 | 7.0 | 🟢 高 |
+| 8 | TA-10-2026-0065 | 公众文件访问 | 7.0 | 🟢 高 |
+
+---
+
+### ⚠️ 风险与威胁快照
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=ad8b7b75) -->
+
+| 风险 | L | I | 分数 | 触发因素 | 来源 | 海军评级 |
+|-----|:-:|:-:|:---:|---------|------|:-------:|
+| 第一级别转置碎片化 | 4 | 4 | 16 | 国家层面分歧 | TA-10-2026-0094, TA-10-2026-0084 | A1 |
+| 已采用文本订阅源回归 | 3 | 4 | 12 | 最后可靠端点丧失 | 兄弟 `breaking-2` | A2 |
+| 常规处理量漂移 | 2 | 2 | 4 | 持续 <40件/周 | 订阅源样本 | B3 |
+
+---
+
+### 🔮 主要前瞻触发因素
+
+**第一级别8件集群的季度转置周期（Q3 2026 → Q1 2028）。** 成员国合规仪表板将显示EP Q1产出是否转化为持久的全欧盟效果。
+
+---
+
+### 🛡️ 数据来源质量评估
+
+- **主要来源：** EP `get_adopted_texts_feed` 周度窗口（85件）。
+- **置信度：** 🟢 清单部分为高；🟡 长尾逐项分类为中等。
+
+---
+
+### 📎 链接
+
+| 链接 | 路径 |
+|-----|------|
+| 文章 | `./article.md` |
+| 兄弟运行 | `analysis/daily/2026-04-04/breaking/`, `breaking-2/`, `breaking-3/`, `week-in-review/` |
+| 清单 | `./manifest.json` |
+
+---
+
+**文件控制**
+- **模板：** `/analysis/templates/executive-brief.md`
+- **产出路径：** `analysis/daily/2026-04-04/breaking-4/executive-brief.md`
+- **分类：** 公开
+- **追溯性生成：** 回填会话。
+
 ### Forward Outlook
 
 | Field | Value |
@@ -1290,6 +2461,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [adopted-texts-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/adopted-texts-analysis.md) | `adopted-texts-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [forward-outlook](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/forward-outlook.md) | `forward-outlook.md` |
 | section-supplementary-intelligence | [intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/intelligence-brief.md) | `intelligence-brief.md` |
 | section-supplementary-intelligence | [recess-pattern-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/recess-pattern-analysis.md) | `recess-pattern-analysis.md` |
