@@ -173,6 +173,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -5605,6 +5606,1684 @@ Pass 2 was completed for this run. Key improvements made during Pass 2:
 **Pass 2 rewriteCount:** 18 artifacts extended or improved
 **Admiralty Grade:** A1 | **Generated:** 2026-05-11
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**نوع المقال:** motions | **التاريخ:** 2026-05-11 | **نافذة البيانات:** من 2026-05-04 إلى 2026-05-11
+**ثقة WEP:** محتمل (65–85 %) | **درجة الأدميرالية:** B2 (مصدر موثوق، محتمل الصحة)
+
+---
+
+### 🎯 التقييم الرئيسي
+
+أسفرت الجلسة العامة للبرلمان الأوروبي في ستراسبورغ خلال الفترة 28–30 أبريل 2026 عن جدول أعمال تشريعي كثيف يتزامن فيه تعزيز تطبيق الحقوق الرقمية، والتأكيد على الالتزامات الجيوسياسية تجاه أوكرانيا وأرمينيا، وفتح دورة تخطيط مالي لعام 2027 — وفي حدث جانبي محتقن سياسياً — شهد مطالبة مجموعة "وطنيون من أجل أوروبا" (PfE) ذات التوجه السيادي بنقاش رسمي (المادة 169 من النظام الداخلي) حول التدخل المزعوم للمفوضية في العمليات الديمقراطية. ثلاثة عشر نصاً مُعتمداً وأكثر من تسعة مناقشات رئيسية تُشير إلى برلمان يعمل بوتيرة تشريعية عالية في ظل حسابات ائتلافية مجزأة تستوجب بناء أغلبية مخصصة لكل ملف تقريباً.
+
+**تقييم WEP (محتمل، ~75 %):** سيحافظ الكتلة اليمينية الوسطية المتمحورة حول EPP على السيطرة التشريعية عبر ائتلاف انتقائي مع S&D في الملفات الجيوسياسية والميزانياتية، بينما ستستثمر PfE وECR الآليات الإجرائية للطعن في صلاحيات المفوضية في مسائل العمليات الديمقراطية طوال عام 2026.
+
+**درجة الأدميرالية: B2** — بيانات أولية من بوابة البيانات المفتوحة للبرلمان الأوروبي (موثوقة)؛ هوامش التصويت الفردية غير متاحة بسبب تأخر نشر البرلمان الأوروبي.
+
+---
+
+### 📋 القرارات الرئيسية هذا الأسبوع
+
+| النص | الموضوع | الإشارة السياسية |
+|------|-------|-----------------|
+| TA-10-2026-0163 | أحكام جنائية بشأن التنمر الإلكتروني/التحرش عبر الإنترنت | ائتلاف الحقوق الرقمية EPP+S&D+Renew |
+| TA-10-2026-0161 | محاسبة روسيا / هجمات أوكرانيا | توافق عابر للأحزاب؛ PfE معزولة |
+| TA-10-2026-0162 | المرونة الديمقراطية في أرمينيا | أولوية الجوار الشرقي |
+| TA-10-2026-0160 | تطبيق قانون الأسواق الرقمية | أغلبية ثنائية الحزبين لتنظيم التكنولوجيا |
+| TA-10-2026-0157 | استدامة قطاع الثروة الحيوانية في الاتحاد الأوروبي | ائتلاف CAP: EPP+S&D+ECR |
+| TA-10-2026-0151 | أزمة الاتجار بالبشر في هايتي | إجماع إنساني |
+| TA-10-2026-0112 | توجيهات ميزانية 2027 (القسم الثالث) | صقور الميزانية مقابل كتلة الاستثمار |
+| TA-10-2026-0115 | تتبع رفاه الكلاب والقطط | أغلبية واسعة؛ ESN/PfE مقاومة |
+| TA-10-2026-0105 | رفع الحصانة — Patryk Jaki (ECR/بولندا) | توصية لجنة PRIV مُبقاة |
+| TA-10-2026-0142 | اتفاقية بيانات PNR بين الاتحاد الأوروبي وآيسلندا | استمرارية التعاون الأمني |
+| TA-10-2026-0119 | مراقبة الأنشطة المالية لـ EIB | رقابة المساءلة |
+| TA-10-2026-0132 | الإبراء لعام 2024 — لجنة المناطق | تدقيق الميزانية |
+| TA-10-2026-0122 | شفافية الأدوات القائمة على الأداء | نزاهة الميزانية |
+
+---
+
+### 🏛️ حسابيات الائتلاف (مايو 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**عتبة الأغلبية: 360 صوتاً.** مجموع EPP+S&D الثنائي (319) يقصر بـ41 مقعداً عن الأغلبية، مما يضمن أن كل نتيجة تشريعية تستلزم شريكاً ائتلافياً ثالثاً أو رابعاً. هذا التجزؤ الهيكلي — بمؤشر التجزؤ: مرتفع، العدد الفعّال للأحزاب: 6.58 — هو القيد المحدد لسياسة التشريع في EP10.
+
+**الائتلافات المهيمنة في هذا الأسبوع التداولي:**
+- **الملفات الرقمية/الحقوقية**: EPP + S&D + Renew (396 مقعداً) — أغلبية متينة
+- **الجيوسياسة/أوكرانيا**: EPP + S&D + Renew + ECR (477 مقعداً) — أغلبية موسعة، PfE غائبة
+- **الزراعة/CAP**: EPP + S&D + ECR (400 مقعداً) — ائتلاف موثوق
+- **رقابة الميزانية**: EPP + S&D + Greens/EFA + Renew (449 مقعداً) — ائتلاف مساءلة واسع
+- **نقاش PfE المادة 169**: PfE + ECR (166 مقعداً) — مجموعة ضغط أقلية، لا تستطيع الحجب لكن تستطيع إجبار النقاش
+
+---
+
+### ⚡ اللحظة الاستراتيجية: تحدي PfE للمادة 169
+
+استناد "وطنيون من أجل أوروبا" إلى المادة 169 من النظام الداخلي (نقاش موضوعي بطلب من مجموعة سياسية) لإجبار نقاش تداولي حول "تدخل المفوضية المزعوم في العمليات الديمقراطية والانتخابات" هو أبرز حدث إجرائي من الناحية السياسية في هذا الأسبوع. هذه الخطوة تُشير إلى:
+
+1. **تصعيد الرواية المضادة للسيادة**: تبني PfE (85 مقعداً، المجموعة الثالثة في الحجم) هوية معارضة متماسكة حول الشرعية الديمقراطية، وتطعن في حق المفوضية في التدخل في العمليات الانتخابية المحلية بالدول الأعضاء.
+2. **الاستخدام التكتيكي لقواعد الإجراءات**: بدلاً من الانخراط في جدارة التشريع، تستخدم PfE أدوات إجرائية لخلق ضغط عام وتوليد تغطية إعلامية لرواية مؤيدة للسيادة.
+3. **تحالف محتمل مع ECR في المسائل الإجرائية**: ECR (81 مقعداً) و ESN (27 مقعداً) مجتمعتين مع PfE (85 مقعداً) = 193 مقعداً — كافية لإجبار المناقشات وطرح تعديلات جماعية وتأخير الإجراءات.
+4. **المفوضية في الموقف الدفاعي**: يُجبر النقاش ممثلي المفوضية على الدفاع عن ممارسات تصفها المجموعات الشعبوية بالتدخل، بصرف النظر عن الحقائق الفعلية.
+
+**تقييم WEP (محتمل، 70 %):** سيتصاعد هذا النمط، مع تقديم PfE ما لا يقل عن 3–5 طلبات إضافية للمادة 169 قبل استراحة الصيف، مع التركيز على الهجرة والسيادة الاقتصادية وأيديولوجية النوع الاجتماعي — قضايا التعبئة التقليدية لقاعدتها الانتخابية.
+
+---
+
+### 🌍 الموقف الجيوسياسي
+
+تكشف النصوص الجيوسياسية لأسبوع ستراسبورغ عن برلمان يحافظ على دعم قوي لأوكرانيا (TA-10-2026-0161)، والانتقال الديمقراطي في أرمينيا (TA-10-2026-0162)، ووقف إطلاق النار اللبناني (نقاش)، وإدانة العدوان الروسي — بينما يكافح في الوقت نفسه لتحقيق اتساق في سياسته تجاه الشرق الأوسط، كما يتجلى في النقاش المشترك حول الطاقة والأسمدة وأزمة الشرق الأوسط الذي لم يُفضِ إلى أي نص معتمد، مما يشير إلى خلافات لا يمكن التوفيق بينها بين المجموعات حول البُعد الإسرائيلي-الفلسطيني.
+
+قرار الاتجار بالبشر في هايتي (TA-10-2026-0151) يمثل تأكيداً لولاية البرلمان الأوروبي في مجال حقوق الإنسان، اعتُمد بإجماع إنساني نموذجي يتجاوز خطوط الائتلاف الاعتيادية.
+
+---
+
+### 💰 إشارات ميزانية 2027
+
+توجيهات ميزانية 2027 (TA-10-2026-0112) تمثل عرض الافتتاح من البرلمان في إجراء الميزانية السنوي. حدد النص المعتمد في أبريل 2026 الأولويات السياسية لمقترحات الميزانية المقدمة من المفوضية. الإشارات الرئيسية:
+- إعطاء الأولوية للاستثمارات في الاستقلالية الاستراتيجية (الدفاع، الرقمي، الطاقة)
+- الالتزام المحافَظ عليه بتمويل التحول المناخي رغم ضغط Omnibus I
+- الرفض على مفرط التقشف في الصناديق الهيكلية
+- مراجعة شفافية الأدوات القائمة على الأداء (TA-10-2026-0122 اعتُمد في الوقت نفسه)
+
+**مصدر البيانات:** بوابة البيانات المفتوحة للبرلمان الأوروبي (data.europarl.europa.eu) | جمع البيانات: 2026-05-11
+
+---
+
+### 📊 مقاييس النشاط
+
+| المقياس | القيمة |
+|--------|-------|
+| النصوص المعتمدة هذا الأسبوع التداولي | 13 |
+| المناقشات الكبرى | 9 |
+| قرارات الحصانة | 1 (Jaki) |
+| قرارات الإبراء | 2 |
+| الاتفاقيات الدولية | 1 (آيسلندا PNR) |
+| قرارات الاستعجال | 3 (هايتي، أرمينيا، روسيا/أوكرانيا) |
+| نقطة استقرار البرلمان | 84/100 (نظام الإنذار المبكر) |
+| مؤشر التجزؤ | مرتفع (EPoP 6.58) |
+
+---
+
+### 🔑 الفاعلون الرئيسيون المُسمَّون (إضافة المرور الثاني)
+
+**المرجع المتقاطع للمرحلة B المرور الثاني: stakeholder-map.md، actor-mapping.md**
+
+- **روبيرتا ميتسولا (EPP/مالطا)** — رئيسة البرلمان الأوروبي، رئيسة الجلسة العامة لدورة أبريل؛ تعاملت مع استناد PfE للمادة 169 دون تصعيد
+- **خافي لوبيز (S&D/إسبانيا)** — واضح الحضور في الملفات الميزانياتية والاجتماعية؛ مقرر S&D بشأن الأولويات الميزانياتية التقدمية
+- **دولورس مونتسيرات (EPP/إسبانيا)** — صوت EPP البارز في الحقوق الرقمية، طلب تشريعي بشأن التنمر الإلكتروني
+- **جوردان بارديلا (PfE/فرنسا)** — رئيس مجموعة PfE؛ نظّم نقاش المادة 169 بشأن تدخل المفوضية في الانتخابات
+- **تيريزا ريبيرا (EC/إسبانيا)** — نائبة الرئيس التنفيذي للمفوضية للمنافسة؛ متلقية الولاية السياسية لتطبيق DMA
+- **مانفريد ويبر (EPP/ألمانيا)** — رئيس مجموعة EPP؛ يحافظ على انضباط الائتلاف لمنع التوافق بين EPP وPfE
+
+**مقررو التشريع:** قائد لجنة LIBE للتنمر الإلكتروني (S&D/Renew)، قائد IMCO لتطبيق DMA (EPP)، قائد AGRI للثروة الحيوانية (تقاطع EPP/ECR)، قائد AFET لأوكرانيا/أرمينيا (ثنائي الحزبين).
+
+---
+
+### Strategic Outlook Summary
+
+حددت الجلسة العامة في ستراسبورغ 28–30 أبريل 2026 نقطة انعطاف هيكلية في سياسات EP10. يُثبت تصويت تطبيق DMA أن ائتلاف الوسط EPP-S&D-Renew يحتفظ بطاقته التشريعية في ملفات السوق الداخلية. يُثبت استناد PfE للمادة 169 أن اليمين السيادي قد وجد أداة إجرائية لفرض تكاليف سياسية على المفوضية دون الحاجة إلى أغلبية تشريعية.
+
+**التوقع لثلاثة أشهر (مايو–يوليو 2026):**
+1. من المرجح أن يستمر استناد PfE للمادة 169 في ملفات الإجراء الخارجي والهجرة التابعة للمفوضية
+2. سينتقل طلب تشريع التنمر الإلكتروني إلى دراسة المفوضية؛ جدول زمني مدته 12 شهراً لمقترح مشروع
+3. ولاية تطبيق DMA ستُعلِم قرارات حراسة البوابات التابعة للمفوضية بشأن الإجراءات التصحيحية السلوكية لـ GAFAM
+4. تصويت دعم أوكرانيا يوفر غطاءً سياسياً للتنسيق المستمر بين EPP-S&D-Renew بشأن تقاسم الأعباء
+5. تصويت أرمينيا يُوطد التوافق بين البرلمان الأوروبي والـ EEAS حول أجندة التطبيع في جنوب القوقاز
+
+**الخلاصة:** يعمل EP10 كبرلمان نشط يتمتع بأغلبية وسطية هشة لكن دائمة. الخطر الداهم على حوكمة الاتحاد الأوروبي ليس انهيار الأغلبية بل تآكل بطيء في السلطة السياسية للمفوضية مع تصعيد الكتلة السيادية للطعن الإجرائي.
+
+**درجة الأدميرالية:** B2 | **الثقة:** مرتفعة بشأن الديناميكيات الهيكلية؛ متوسطة بشأن نسب التصويت المحددة (تُنشر سجلات التصويت في البرلمان الأوروبي بتأخر 2–4 أسابيع)
+
+*أُعدّ بواسطة خط أنابيب EU Parliament Monitor الوكيلي | بيانات المرحلة A+B: بوابة البيانات المفتوحة للبرلمان الأوروبي | المرور الثاني مكتمل: فاعلون مُسمَّون، مراجع متقاطعة محددة لأعضاء البرلمان، حسابيات الائتلاف مُتحقق منها*
+
+### Executive Brief Da
+
+### 🎯 Rubrikvurdering
+
+Europa-Parlamentets plenarsession i Strasbourg den 28.–30. april 2026 leverede en tæt lovgivningsdagsorden, der samtidigt fremrykkede håndhævelsen af digitale rettigheder, bekræftede geopolitiske forpligtelser over for Ukraine og Armenien, åbnede en fiskal planlægningscyklus for 2027 og — i en politisk ladet sidebegivenhed — så den suverænitetsvenlige Patriots for Europe (PfE)-gruppe kræve en formel debat (Forretningsordenens artikel 169) om påstået Kommissionsindblanding i demokratiske processer. Tretten vedtagne tekster og mere end ni større debatter signalerer et parlament i høj lovgivningstakt under fragmenteret koalitionsaritektur, der kræver ad hoc-majoritetsopbygning for næsten hvert eneste sagsområde.
+
+**WEP-vurdering (Sandsynlig, ~75 %):** Den EPP-forankrede centrum-højrefløj vil opretholde lovgivningskontrol gennem selektiv koalition med S&D om geopolitiske og budgetrelaterede sager, mens PfE og ECR vil udnytte proceduremæssige mekanismer til at udfordre Kommissionens autoritet i spørgsmål om demokratiske processer i løbet af 2026.
+
+**Admiralitetsgrad: B2** — Primærdata fra EP's åbne dataportal (pålidelig); individuelle afstemningsmarginaler utilgængelige på grund af EP's publiceringsforsinkelse.
+
+---
+
+### 📋 Vigtige beslutninger denne uge
+
+| Tekst | Emne | Politisk signal |
+|------|-------|-----------------|
+| TA-10-2026-0163 | Strafferetlige bestemmelser om nætmobning/chikane online | Koalition for digitale rettigheder EPP+S&D+Renew |
+| TA-10-2026-0161 | Ruslands ansvar / Ukraine-angreb | Tværpolitisk konsensus; PfE isoleret |
+| TA-10-2026-0162 | Demokratisk modstandskraft i Armenien | Østlige naboskabsprioritet |
+| TA-10-2026-0160 | Håndhævelse af forordningen om digitale markeder | Teknologiregulering med bipartisan majoritet |
+| TA-10-2026-0157 | Bæredygtighed i EU's husdyrsektor | CAP-koalition: EPP+S&D+ECR |
+| TA-10-2026-0151 | Krise med menneskehandel i Haiti | Humanitær enstemmighed |
+| TA-10-2026-0112 | Retningslinjer for budget 2027 (afsnit III) | Budgethøge mod investeringsblokken |
+| TA-10-2026-0115 | Sporbarhed for hunde- og kattevelfærd | Bred majoritet; ESN/PfE modstandsdygtige |
+| TA-10-2026-0105 | Ophævelse af immunitet — Patryk Jaki (ECR/Polen) | PRIV-udvalgets henstilling opretholdt |
+| TA-10-2026-0142 | EU-Island PNR-dataaftale | Kontinuitet i sikkerhedssamarbejdet |
+| TA-10-2026-0119 | Kontrol af EIB's finansielle aktiviteter | Ansvarligheds-oversight |
+| TA-10-2026-0132 | Decharge 2024 — Regionsudvalget | Budgetrevision |
+| TA-10-2026-0122 | Transparens i resultatbaserede instrumenter | Budgetintegritet |
+
+---
+
+### 🏛️ Koalitionsaritektur (maj 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**Majoritetstærskel: 360 stemmer.** EPP+S&D's bilaterale samletotal (319) er 41 mandater under en majoritet, hvilket sikrer, at hvert lovgivningsresultat kræver en tredje eller fjerde koalitionspartner. Denne strukturelle fragmentering — med Fragmenteringsindeks: HØJ, Effektivt antal partier: 6,58 — er den afgørende begrænsning for EP10's lovgivningspolitik.
+
+**Dominerende koalitioner denne plenarmødeuge:**
+- **Digitale/rettighedssager**: EPP + S&D + Renew (396 mandater) — solid majoritet
+- **Geopolitik/Ukraine**: EPP + S&D + Renew + ECR (477 mandater) — supermajoritet, PfE fraværende
+- **Landbrug/CAP**: EPP + S&D + ECR (400 mandater) — pålidelig koalition
+- **Budgetrevision**: EPP + S&D + Greens/EFA + Renew (449 mandater) — bred ansvarligheds-koalition
+- **PfE's artikel 169-debat**: PfE + ECR (166 mandater) — minoritetspressgruppe, kan ikke blokere men kan tvinge debat
+
+---
+
+### ⚡ Strategisk øjeblik: PfE's artikel 169-udfordring
+
+Patriots for Europes påberåbelse af artikel 169 i Forretningsordenen (aktuel debat på politisk gruppes begæring) for at fremtvinge en plenardiskussion om påstået "Kommissionsindblanding i demokratiske processer og valg" er ugens politisk mest betydningsfulde proceduremæssige begivenhed. Dette skridt signalerer:
+
+1. **Eskalering af suverænitets-modfortællingen**: PfE (85 mandater, tredjestørste gruppe) opbygger en sammenhængende oppositionsidentitet omkring demokratisk legitimitet og udfordrer Kommissionens ret til at engagere sig i indenlandske valprocesser i medlemsstaterne.
+2. **Taktisk brug af Forretningsordenens regler**: I stedet for at engagere sig i lovgivningsmæssige fortjenester bruger PfE proceduremidler til at skabe offentligt pres og generere mediedækning af en pro-suverænitetsfortælling.
+3. **Koalition med ECR mulig i proceduremæssige spørgsmål**: ECR (81 mandater) og ESN (27 mandater) kombineret med PfE (85 mandater) = 193 mandater — tilstrækkeligt til at tvinge debatter, stille masseamendmenter og forsinke procedurer.
+4. **Kommissionen i defensiven**: Debatten tvinger Kommissionens repræsentanter til at forsvare praksisser, som populistiske grupper karakteriserer som indblanding, uanset de faktiske omstændigheder.
+
+**WEP-vurdering (Sandsynlig, 70 %):** Dette mønster vil intensiveres, idet PfE indgiver mindst 3–5 yderligere artikel 169-anmodninger inden sommerferien med fokus på migration, økonomisk suverænitet og kønsteologi — traditionelle mobiliseringsemner for dets vælgerbasis.
+
+---
+
+### 🌍 Geopolitisk holdning
+
+Strasbourguggets geopolitiske tekster afslører et parlament, der opretholder robust støtte til Ukraine (TA-10-2026-0161), demokratisk transition i Armenien (TA-10-2026-0162), libanesisk våbenhvile (debat) og fordømmelse af russisk aggression — mens det samtidigt kæmper med koherensproblemer i Mellemøstpolitikken, som det fremgår af den fælles debat om energi, gødning og Mellemøstenkrisen, der ikke producerede nogen vedtaget tekst, hvilket antyder uforenelige meningsforskelle mellem grupperne om den israelsk-palæstinensiske dimension.
+
+Haiti-trafficking-resolutionen (TA-10-2026-0151) repræsenterer en bekræftelse af EP's mandat for menneskerettigheder, vedtaget med typisk humanitær enstemmighed, der skærer på tværs af normale koalitionslinjer.
+
+---
+
+### 💰 Budgetsignalering 2027
+
+Retningslinjerne for budget 2027 (TA-10-2026-0112) repræsenterer Parlamentets åbningsbud i den årlige budgetprocedure. Teksten vedtaget i april 2026 fastlægger politiske prioriteter for Kommissionens budgetforslag. Vigtige signaler:
+- Prioritering af investeringer i strategisk autonomi (forsvar, digitalt, energi)
+- Opretholdt engagement for klimaomstillingfinansering trods Omnibus I-pres
+- Modstand mod overdreven stramhed i strukturfondene
+- Gennemgang af transparens i resultatbaserede instrumenter (TA-10-2026-0122 vedtaget samtidigt)
+
+**Kildedata:** EP's åbne dataportal (data.europarl.europa.eu) | Indsamling: 2026-05-11
+
+---
+
+### 📊 Aktivitetsmålinger
+
+| Metrik | Værdi |
+|--------|-------|
+| Vedtagne tekster denne plenarmødeuge | 13 |
+| Større debatter | 9 |
+| Immunitetsafgørelser | 1 (Jaki) |
+| Dechargeafgørelser | 2 |
+| Internationale aftaler | 1 (Island PNR) |
+| Hasteafgørelser | 3 (Haiti, Armenien, Rusland/Ukraine) |
+| Parlamentets stabilitetsscore | 84/100 (tidlig advarselssystem) |
+| Fragmenteringsindeks | HØJ (EPoP 6,58) |
+
+---
+
+### 🔑 Nævnte nøgleaktører (Pass 2-tilføjelse)
+
+**Fase B Pass 2 krydsreference: stakeholder-map.md, actor-mapping.md**
+
+- **Roberta Metsola (EPP/Malta)** — EP-formand, plenarleder for aprils session; håndterede PfE's artikel 169-påberåbelse uden eskalering
+- **Javi López (S&D/Spanien)** — Synlig i budget- og sociale sager; S&D's ordfører om progressive budgetprioriteter
+- **Dolors Montserrat (EPP/Spanien)** — Fremtrædende EPP-stemme om digitale rettigheder, lovgivningsbegæring om nætmobning
+- **Jordan Bardella (PfE/Frankrig)** — PfE's gruppeformand; orkestrerede artikel 169-debatten om Kommissionens valgindblanding
+- **Teresa Ribera (EC/Spanien)** — Kommissionens udøvende næstformand for konkurrence; modtager af det politiske mandat for DMA-håndhævelse
+- **Manfred Weber (EPP/Tyskland)** — EPP's gruppeformand; opretholder koalitionsdisciplin og forhindrer EPP-PfE-tilpasning
+
+**Lovgivningsordførere:** LIBE-udvalgets leder for nætmobning (S&D/Renew), IMCO-leder for DMA-håndhævelse (EPP), AGRI-leder for husdyr (EPP/ECR-kryds), AFET-leder for Ukraine/Armenien (topartistisk).
+
+---
+
+### Strategic Outlook Summary
+
+Plenarsessionen i Strasbourg den 28.–30. april 2026 markerer et strukturelt vendepunkt i EP10's politik. DMA-håndhævelsesafstemningen viser, at EPP-S&D-Renew-centrumkoalitionen bevarer lovgivningskapacitet på det indre markeds-sagsområder. PfE's artikel 169-påberåbelse viser, at den suverænitetsvenlige højrefløj har fundet et proceduremiddel til at pålægge Kommissionen politiske omkostninger uden at kræve lovgivningsmæssig majoritet.
+
+**Tremånedsudsigt (maj–juli 2026):**
+1. PfE's artikel 169-påberåbelser vil sandsynligvis fortsætte på Kommissionens eksterne handlinger og migrationssager
+2. Lovgivningsbegæringen om nætmobning overgår til Kommissionens behandling; 12-måneders tidslinje for udkast til forslag
+3. DMA-håndhævelsesmandatet vil informere Kommissionens gate-keeping-beslutninger om GAFAM's adfærdsmæssige afhjælpninger
+4. Ukraine-støtteafstemningen giver politisk dækning for fortsatt EPP-S&D-Renew-koordinering om byrdedeling
+5. Armenien-afstemningen konsoliderer EP-EEAS-tilpasningen om normaliseringsdagsordenen i det sydlige Kaukasus
+
+**Bundlinje:** EP10 fungerer som et fungerende parlament med en skrøbelig men holdbar centermajoritet. Truslen mod EU's styring er ikke et majoritetssammenbrud men en langsom erosion af Kommissionens politiske autoritet, efterhånden som det suverænitetsvenlige blok eskalerer procedurekontestation.
+
+**Admiralitetsgrad:** B2 | **Tillid:** HØJ for strukturelle dynamikker; MIDDEL for specifik afstemningsfordeling (EP's afstemningsregistre offentliggøres med 2–4 ugers forsinkelse)
+
+*Udarbejdet af EU Parliament Monitor agentic pipeline | Fase A+B-data: EP's åbne dataportal | Pass 2 afsluttet: navngivne aktører, MEP-specifikke krydsreferencer, koalitionsaritektur verificeret*
+
+### Executive Brief De
+
+### 🎯 Schlagzeilenbewertung
+
+Die Plenartagung des Europäischen Parlaments in Straßburg vom 28.–30. April 2026 lieferte eine dichte Gesetzgebungsagenda, die gleichzeitig die Durchsetzung digitaler Rechte voranbrachte, geopolitische Verpflichtungen gegenüber der Ukraine und Armenien bekräftigte, einen Fiskalplanungszyklus für 2027 eröffnete und — in einem politisch aufgeladenen Nebenereignis — die souveränistische Gruppe Patriots for Europe (PfE) eine formelle Debatte (Geschäftsordnung Artikel 169) über angebliche Einmischung der Kommission in demokratische Prozesse fordern sah. Dreizehn angenommene Texte und mehr als neun Großdebatten signalisieren ein Parlament, das mit hohem Gesetzgebungstempo unter fragmentierter Koalitionsarithmetik arbeitet, die für nahezu jeden Rechtsakt eine Ad-hoc-Mehrheitsbildung erfordert.
+
+**WEP-Beurteilung (Wahrscheinlich, ~75 %):** Der EPP-verankerte Mitte-Rechts-Block wird die Gesetzgebungskontrolle durch selektive Koalition mit der S&D bei geopolitischen und Haushaltsdossiers aufrechterhalten, während PfE und ECR Verfahrenstools nutzen werden, um die Autorität der Kommission in Fragen demokratischer Prozesse im gesamten Jahr 2026 herauszufordern.
+
+**Admiralitätsgrad: B2** — Primärdaten aus dem EP Open Data Portal (verlässlich); individuelle Abstimmungsmargen nicht verfügbar aufgrund der Veröffentlichungsverzögerung des EP.
+
+---
+
+### 📋 Wichtige Entscheidungen dieser Woche
+
+| Text | Thema | Politisches Signal |
+|------|-------|-----------------|
+| TA-10-2026-0163 | Strafrechtliche Bestimmungen zu Cybermobbing/Online-Belästigung | Koalition für digitale Rechte EPP+S&D+Renew |
+| TA-10-2026-0161 | Russlands Verantwortlichkeit / Ukraine-Angriffe | Parteiübergreifender Konsens; PfE isoliert |
+| TA-10-2026-0162 | Demokratische Resilienz in Armenien | Priorität der östlichen Nachbarschaft |
+| TA-10-2026-0160 | Durchsetzung des Digital Markets Act | Technologieregulierung mit überparteilicher Mehrheit |
+| TA-10-2026-0157 | Nachhaltigkeit des EU-Viehsektors | CAP-Koalition: EPP+S&D+ECR |
+| TA-10-2026-0151 | Haiti-Menschenhandelskrise | Humanitäre Einstimmigkeit |
+| TA-10-2026-0112 | Haushaltslinien 2027 (Einzelplan III) | Haushaltshawks gegen Investitionsblock |
+| TA-10-2026-0115 | Rückverfolgbarkeit für Hunde- und Katzenwohl | Breite Mehrheit; ESN/PfE ablehnend |
+| TA-10-2026-0105 | Immunitätsaufhebung — Patryk Jaki (ECR/Polen) | Empfehlung des PRIV-Ausschusses aufrechterhalten |
+| TA-10-2026-0142 | EU-Island PNR-Datenabkommen | Kontinuität der Sicherheitszusammenarbeit |
+| TA-10-2026-0119 | Kontrolle der Finanzaktivitäten der EIB | Rechenschaftspflichtige Aufsicht |
+| TA-10-2026-0132 | Entlastung 2024 — Ausschuss der Regionen | Haushaltskontrolle |
+| TA-10-2026-0122 | Transparenz ergebnisorientierter Instrumente | Haushaltsintegrität |
+
+---
+
+### 🏛️ Koalitionsarithmetik (Mai 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**Mehrheitsschwelle: 360 Stimmen.** Die bilaterale Gesamtsumme von EPP+S&D (319) verfehlt die Mehrheit um 41 Sitze, was sicherstellt, dass jedes Gesetzgebungsergebnis einen dritten oder vierten Koalitionspartner erfordert. Diese strukturelle Fragmentierung — mit Fragmentierungsindex: HOCH, Effektive Parteienanzahl: 6,58 — ist die bestimmende Einschränkung der EP10-Gesetzgebungspolitik.
+
+**Dominierende Koalitionen in dieser Plenumswoche:**
+- **Digital-/Rechtsdossiers**: EPP + S&D + Renew (396 Sitze) — solide Mehrheit
+- **Geopolitik/Ukraine**: EPP + S&D + Renew + ECR (477 Sitze) — Supermehrheit, PfE abwesend
+- **Landwirtschaft/CAP**: EPP + S&D + ECR (400 Sitze) — verlässliche Koalition
+- **Haushaltskontrolle**: EPP + S&D + Greens/EFA + Renew (449 Sitze) — breite Rechenschaftskoalition
+- **PfE-Artikel-169-Debatte**: PfE + ECR (166 Sitze) — Minderheits-Druckgruppe, kann nicht blockieren, aber Debatte erzwingen
+
+---
+
+### ⚡ Strategischer Moment: PfEs Artikel-169-Herausforderung
+
+Die Berufung der Patriots for Europe auf Artikel 169 der Geschäftsordnung (aktuelle Debatte auf Antrag einer politischen Gruppe) zur Erzwingung einer Plenumdiskussion über angebliche „Einmischung der Kommission in demokratische Prozesse und Wahlen" ist das politisch bedeutsamste Verfahrensereignis der Woche. Dieser Schachzug signalisiert:
+
+1. **Eskalierung der souveränistischen Gegenerzählung**: PfE (85 Sitze, drittgrößte Gruppe) baut eine kohärente Oppositionsidentität rund um demokratische Legitimität auf und fordert das Recht der Kommission heraus, sich in innerstaatliche Wahlprozesse der Mitgliedstaaten einzumischen.
+2. **Taktischer Einsatz der Geschäftsordnungsregeln**: Anstatt auf gesetzgeberische Verdienste einzugehen, nutzt PfE Verfahrensmittel, um öffentlichen Druck zu erzeugen und Medienberichterstattung über eine Pro-Souveränitätserzählung zu generieren.
+3. **Koalition mit ECR in Verfahrensfragen möglich**: ECR (81 Sitze) und ESN (27 Sitze) zusammen mit PfE (85 Sitze) = 193 Sitze — ausreichend, um Debatten zu erzwingen, Massenanträge zu stellen und Verfahren zu verzögern.
+4. **Kommission in der Defensive**: Die Debatte zwingt Vertreter der Kommission, Praktiken zu verteidigen, die von populistischen Gruppen als Einmischung bezeichnet werden, ungeachtet der tatsächlichen Fakten.
+
+**WEP-Beurteilung (Wahrscheinlich, 70 %):** Dieses Muster wird sich intensivieren, wobei PfE bis zur Sommerpause mindestens 3–5 weitere Artikel-169-Anträge einreichen wird, die sich auf Migration, wirtschaftliche Souveränität und Genderideologie konzentrieren — traditionelle Mobilisierungsthemen für seine Wählerschaft.
+
+---
+
+### 🌍 Geopolitische Haltung
+
+Die geopolitischen Texte der Straßbourger Woche offenbaren ein Parlament, das robuste Unterstützung für die Ukraine (TA-10-2026-0161), demokratischen Übergang in Armenien (TA-10-2026-0162), libanesischen Waffenstillstand (Debatte) und Verurteilung russischer Aggression aufrechterhält — während es gleichzeitig mit der Kohärenz seiner Nahostpolitik kämpft, wie die gemeinsame Debatte über Energie, Düngemittel und die Nahost-Krise belegt, die keinen angenommenen Text hervorbrachte und damit unversöhnliche Meinungsverschiedenheiten zwischen den Fraktionen zur israelisch-palästinensischen Dimension offenbart.
+
+Die Haiti-Menschenhandelsresolution (TA-10-2026-0151) stellt eine Bekräftigung des Menschenrechtsmandats des EP dar, die mit typischer humanitärer Einstimmigkeit angenommen wurde, die normale Koalitionslinien überschreitet.
+
+---
+
+### 💰 Haushaltssignalisierung 2027
+
+Die Leitlinien für den Haushalt 2027 (TA-10-2026-0112) stellen das Eröffnungsgebot des Parlaments im jährlichen Haushaltsverfahren dar. Der im April 2026 angenommene Text legt politische Prioritäten für die Haushaltsvorschläge der Kommission fest. Wichtige Signale:
+- Priorisierung von Investitionen in strategische Autonomie (Verteidigung, Digital, Energie)
+- Aufrechterhaltenes Engagement für die Klimatransitionsfinanzierung trotz Omnibus-I-Druck
+- Widerstand gegen übermäßige Sparmaßnahmen bei Strukturfonds
+- Überprüfung der Transparenz ergebnisorientierter Instrumente (TA-10-2026-0122 gleichzeitig angenommen)
+
+**Quelldaten:** EP Open Data Portal (data.europarl.europa.eu) | Erhebung: 2026-05-11
+
+---
+
+### 📊 Aktivitätskennzahlen
+
+| Kennzahl | Wert |
+|--------|-------|
+| Angenommene Texte in dieser Plenumswoche | 13 |
+| Großdebatten | 9 |
+| Immunitätsentscheidungen | 1 (Jaki) |
+| Entlastungsentscheidungen | 2 |
+| Internationale Abkommen | 1 (Island PNR) |
+| Dringlichkeitsresolutionen | 3 (Haiti, Armenien, Russland/Ukraine) |
+| Parlamentarischer Stabilitätsscore | 84/100 (Frühwarnsystem) |
+| Fragmentierungsindex | HOCH (EPoP 6,58) |
+
+---
+
+### 🔑 Namentlich genannte Schlüsselakteure (Pass-2-Ergänzung)
+
+**Phase-B-Pass-2-Querverweis: stakeholder-map.md, actor-mapping.md**
+
+- **Roberta Metsola (EPP/Malta)** — EP-Präsidentin, Plenarvorsitzende für die Aprilsitzung; handhabte PfEs Artikel-169-Berufung ohne Eskalation
+- **Javi López (S&D/Spanien)** — Sichtbar bei Haushalts- und Sozialdossiers; S&D-Berichterstatter für progressive Haushaltsprioritäten
+- **Dolors Montserrat (EPP/Spanien)** — Prominente EPP-Stimme zu digitalen Rechten, gesetzgeberischer Antrag zu Cybermobbing
+- **Jordan Bardella (PfE/Frankreich)** — PfE-Fraktionsvorsitzender; orchestrierte Artikel-169-Debatte über Kommissionswahl-Einmischung
+- **Teresa Ribera (EC/Spanien)** — Geschäftsführende Vizepräsidentin der Kommission für Wettbewerb; Empfängerin des politischen Mandats zur DMA-Durchsetzung
+- **Manfred Weber (EPP/Deutschland)** — EPP-Fraktionsvorsitzender; wahrt Koalitionsdisziplin und verhindert EPP-PfE-Annäherung
+
+**Gesetzgebungsberichterstatter:** LIBE-Ausschussleitung für Cybermobbing (S&D/Renew), IMCO-Leitung für DMA-Durchsetzung (EPP), AGRI-Leitung für Viehwirtschaft (EPP/ECR-Kreuz), AFET-Leitung für Ukraine/Armenien (überparteilich).
+
+---
+
+### Strategic Outlook Summary
+
+Die Straßburger Plenartagung vom 28.–30. April 2026 markiert einen strukturellen Wendepunkt in der EP10-Politik. Die DMA-Durchsetzungsabstimmung zeigt, dass die EPP-S&D-Renew-Mittekoalition ihre Gesetzgebungskapazität bei Binnenmarktdossiers beibehält. PfEs Artikel-169-Berufung zeigt, dass die souveränistische Rechte ein Verfahrensinstrument gefunden hat, um der Kommission politische Kosten aufzuzwingen, ohne eine gesetzgebende Mehrheit zu benötigen.
+
+**Dreimonatsausblick (Mai–Juli 2026):**
+1. PfE-Artikel-169-Berufungen werden voraussichtlich bei Dossiers zum externen Handeln der Kommission und zur Migration fortgesetzt
+2. Der gesetzgeberische Antrag zu Cybermobbing geht zur Prüfung an die Kommission; 12-Monats-Zeitplan für einen Entwurfsvorschlag
+3. Das DMA-Durchsetzungsmandat wird die Gate-Keeping-Entscheidungen der Kommission über GAFAM-Verhaltensabhilfemaßnahmen beeinflussen
+4. Die Ukraine-Unterstützungsabstimmung bietet politische Deckung für die weitere EPP-S&D-Renew-Koordinierung bei der Lastenteilung
+5. Die Armenien-Abstimmung festigt die EP-EEAS-Abstimmung zur Normalisierungsagenda im Südkaukasus
+
+**Fazit:** EP10 funktioniert als arbeitsfähiges Parlament mit einer fragilen, aber dauerhaften Zentrumsmehrheit. Die Bedrohung für die EU-Governance ist kein Mehrheitskollaps, sondern eine langsame Erosion der politischen Autorität der Kommission, während der souveränistische Block die Verfahrensanfechtung eskaliert.
+
+**Admiralitätsgrad:** B2 | **Konfidenz:** HOCH bei strukturellen Dynamiken; MITTEL bei spezifischer Abstimmungszuschreibung (EP-Abstimmungsprotokolle werden mit 2–4-wöchiger Verzögerung veröffentlicht)
+
+*Erstellt von der EU Parliament Monitor Agentic Pipeline | Phase A+B-Daten: EP Open Data Portal | Pass 2 abgeschlossen: namentlich genannte Akteure, MEP-spezifische Querverweise, Koalitionsarithmetik verifiziert*
+
+### Executive Brief Es
+
+### 🎯 Evaluación de titulares
+
+El pleno del Parlamento Europeo en Estrasburgo del 28 al 30 de abril de 2026 proporcionó una agenda legislativa densa que simultáneamente avanzó la aplicación de los derechos digitales, reafirmó compromisos geopolíticos con Ucrania y Armenia, abrió un ciclo de planificación fiscal para 2027 y — en un evento paralelo políticamente cargado — vio al grupo soberanista Patriots for Europe (PfE) exigir un debate formal (artículo 169 del Reglamento) sobre la supuesta injerencia de la Comisión en los procesos democráticos. Trece textos adoptados y más de nueve grandes debates señalan un parlamento que opera a alto ritmo legislativo bajo una aritmética de coalición fragmentada que requiere la construcción de mayorías ad hoc para casi cada expediente.
+
+**Evaluación WEP (Probable, ~75 %):** El bloque de centroderecha anclado en el PPE mantendrá el control legislativo mediante una coalición selectiva con el S&D en expedientes geopolíticos y presupuestarios, mientras que el PfE y el ECR aprovecharán los mecanismos procedimentales para desafiar la autoridad de la Comisión en cuestiones de procesos democráticos durante todo 2026.
+
+**Grado Almirantazgo: B2** — Datos primarios del portal de datos abiertos del PE (fiable); márgenes de votación individuales no disponibles por el retraso de publicación del PE.
+
+---
+
+### 📋 Decisiones clave de esta semana
+
+| Texto | Tema | Señal política |
+|------|-------|-----------------|
+| TA-10-2026-0163 | Disposiciones penales sobre ciberacoso/acoso en línea | Coalición de derechos digitales PPE+S&D+Renew |
+| TA-10-2026-0161 | Responsabilidad de Rusia / ataques a Ucrania | Consenso transpartidista; PfE aislado |
+| TA-10-2026-0162 | Resiliencia democrática en Armenia | Prioridad del vecindario oriental |
+| TA-10-2026-0160 | Aplicación del Reglamento de Mercados Digitales | Mayoría bipartidista para la regulación tecnológica |
+| TA-10-2026-0157 | Sostenibilidad del sector ganadero de la UE | Coalición PAC: PPE+S&D+ECR |
+| TA-10-2026-0151 | Crisis de trata de personas en Haití | Unanimidad humanitaria |
+| TA-10-2026-0112 | Orientaciones del presupuesto 2027 (sección III) | Halcones presupuestarios frente al bloque de inversión |
+| TA-10-2026-0115 | Trazabilidad del bienestar de perros y gatos | Amplia mayoría; ESN/PfE resistentes |
+| TA-10-2026-0105 | Levantamiento de inmunidad — Patryk Jaki (ECR/Polonia) | Recomendación del comité PRIV mantenida |
+| TA-10-2026-0142 | Acuerdo UE-Islandia sobre datos PNR | Continuidad de la cooperación en seguridad |
+| TA-10-2026-0119 | Control de las actividades financieras del BEI | Supervisión de la responsabilidad |
+| TA-10-2026-0132 | Aprobación de la gestión 2024 — Comité de las Regiones | Escrutinio presupuestario |
+| TA-10-2026-0122 | Transparencia de los instrumentos basados en el rendimiento | Integridad presupuestaria |
+
+---
+
+### 🏛️ Aritmética de coaliciones (mayo de 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**Umbral de mayoría: 360 votos.** El total bilateral PPE+S&D (319) queda 41 escaños por debajo de una mayoría, lo que garantiza que cada resultado legislativo requiere un tercer o cuarto socio de coalición. Esta fragmentación estructural — con Índice de fragmentación: ALTO, Número efectivo de partidos: 6,58 — es la restricción definitoria de la política legislativa del PE10.
+
+**Coaliciones dominantes en esta semana de pleno:**
+- **Expedientes digitales/derechos**: PPE + S&D + Renew (396 escaños) — mayoría sólida
+- **Geopolítica/Ucrania**: PPE + S&D + Renew + ECR (477 escaños) — supermayoría, PfE ausente
+- **Agricultura/PAC**: PPE + S&D + ECR (400 escaños) — coalición fiable
+- **Control presupuestario**: PPE + S&D + Greens/EFA + Renew (449 escaños) — amplia coalición de responsabilidad
+- **Debate artículo 169 del PfE**: PfE + ECR (166 escaños) — grupo de presión minoritario, no puede bloquear pero sí forzar el debate
+
+---
+
+### ⚡ Momento estratégico: el desafío del artículo 169 del PfE
+
+La invocación por parte de Patriots for Europe del artículo 169 del Reglamento (debate de actualidad a petición de un grupo político) para forzar una discusión en pleno sobre la supuesta «injerencia de la Comisión en los procesos democráticos y las elecciones» es el evento procedimental políticamente más significativo de la semana. Esta maniobra señala:
+
+1. **Escalada de la contranarrativa soberanista**: el PfE (85 escaños, tercer grupo más grande) está construyendo una identidad de oposición coherente en torno a la legitimidad democrática, desafiando el derecho de la Comisión a participar en los procesos electorales nacionales de los Estados miembros.
+2. **Uso táctico de las normas de procedimiento**: en lugar de abordar los méritos legislativos, el PfE utiliza herramientas procedimentales para crear presión pública y generar cobertura mediática de una narrativa pro-soberanía.
+3. **Coalición con el ECR posible en cuestiones procedimentales**: ECR (81 escaños) y ESN (27 escaños) combinados con el PfE (85 escaños) = 193 escaños — suficiente para forzar debates, presentar enmiendas en masa y retrasar procedimientos.
+4. **Comisión a la defensiva**: el debate obliga a los representantes de la Comisión a defender prácticas que los grupos populistas caracterizan como injerencia, independientemente de los hechos reales.
+
+**Evaluación WEP (Probable, 70 %):** Este patrón se intensificará, con el PfE presentando al menos 3–5 nuevas solicitudes del artículo 169 antes del receso estival, centradas en migración, soberanía económica e ideología de género — temas de movilización tradicionales para su base electoral.
+
+---
+
+### 🌍 Postura geopolítica
+
+Los textos geopolíticos de la semana de Estrasburgo revelan un parlamento que mantiene un sólido apoyo a Ucrania (TA-10-2026-0161), la transición democrática en Armenia (TA-10-2026-0162), el alto el fuego libanés (debate) y la condena de la agresión rusa — mientras lucha simultáneamente con la coherencia de su política en Oriente Próximo, como evidencia el debate conjunto sobre energía, fertilizantes y la crisis de Oriente Próximo que no produjo ningún texto adoptado, lo que sugiere diferencias irreconciliables entre los grupos sobre la dimensión israelí-palestina.
+
+La resolución sobre la trata de personas en Haití (TA-10-2026-0151) representa una reafirmación del mandato del PE en materia de derechos humanos, adoptada con la típica unanimidad humanitaria que supera las líneas de coalición normales.
+
+---
+
+### 💰 Señales para el presupuesto 2027
+
+Las orientaciones para el presupuesto 2027 (TA-10-2026-0112) representan la oferta inicial del Parlamento en el procedimiento presupuestario anual. El texto adoptado en abril de 2026 establece las prioridades políticas para las propuestas presupuestarias de la Comisión. Señales clave:
+- Priorización de inversiones en autonomía estratégica (defensa, digital, energía)
+- Compromiso mantenido con la financiación de la transición climática a pesar de la presión de Omnibus I
+- Resistencia a la austeridad excesiva en los fondos estructurales
+- Escrutinio de la transparencia de los instrumentos basados en el rendimiento (TA-10-2026-0122 adoptado simultáneamente)
+
+**Datos de origen:** Portal de datos abiertos del PE (data.europarl.europa.eu) | Recopilación: 2026-05-11
+
+---
+
+### 📊 Indicadores de actividad
+
+| Indicador | Valor |
+|--------|-------|
+| Textos adoptados en esta semana de pleno | 13 |
+| Grandes debates | 9 |
+| Decisiones de inmunidad | 1 (Jaki) |
+| Decisiones de aprobación de gestión | 2 |
+| Acuerdos internacionales | 1 (Islandia PNR) |
+| Resoluciones de urgencia | 3 (Haití, Armenia, Rusia/Ucrania) |
+| Puntuación de estabilidad parlamentaria | 84/100 (Sistema de alerta temprana) |
+| Índice de fragmentación | ALTO (EPoP 6,58) |
+
+---
+
+### 🔑 Actores clave nombrados (Adición del Paso 2)
+
+**Referencia cruzada Fase B Paso 2: stakeholder-map.md, actor-mapping.md**
+
+- **Roberta Metsola (PPE/Malta)** — Presidenta del PE, presidenta de la sesión plenaria de abril; gestionó la invocación del artículo 169 por parte del PfE sin escalada
+- **Javi López (S&D/España)** — Visible en expedientes presupuestarios y sociales; ponente del S&D sobre prioridades presupuestarias progresistas
+- **Dolors Montserrat (PPE/España)** — Destacada voz del PPE sobre derechos digitales, solicitud legislativa sobre ciberacoso
+- **Jordan Bardella (PfE/Francia)** — Presidente del grupo PfE; orquestó el debate del artículo 169 sobre la injerencia electoral de la Comisión
+- **Teresa Ribera (CE/España)** — Vicepresidenta ejecutiva de la Comisión para la Competencia; destinataria del mandato político de aplicación del DMA
+- **Manfred Weber (PPE/Alemania)** — Presidente del grupo PPE; mantiene la disciplina de coalición evitando el alineamiento PPE-PfE
+
+**Ponentes legislativos:** jefatura de la comisión LIBE para el ciberacoso (S&D/Renew), jefatura IMCO para la aplicación del DMA (PPE), jefatura AGRI para la ganadería (cruce PPE/ECR), jefatura AFET para Ucrania/Armenia (bipartidista).
+
+---
+
+### Strategic Outlook Summary
+
+La sesión plenaria de Estrasburgo del 28–30 de abril de 2026 marca un punto de inflexión estructural en la política del PE10. La votación sobre la aplicación del DMA demuestra que la coalición central PPE-S&D-Renew retiene capacidad legislativa en los expedientes del mercado interior. La invocación del artículo 169 del PfE demuestra que la derecha soberanista ha encontrado una herramienta procedimental para imponer costes políticos a la Comisión sin necesitar una mayoría legislativa.
+
+**Perspectiva a tres meses (mayo–julio de 2026):**
+1. Las invocaciones del artículo 169 del PfE continuarán probablemente en expedientes de acción exterior y migración de la Comisión
+2. La solicitud legislativa sobre ciberacoso pasará a examen de la Comisión; calendario de 12 meses para una propuesta borrador
+3. El mandato de aplicación del DMA orientará las decisiones de control de acceso de la Comisión sobre las medidas correctoras de comportamiento de GAFAM
+4. La votación de apoyo a Ucrania proporciona cobertura política para la coordinación continua PPE-S&D-Renew sobre el reparto de cargas
+5. La votación sobre Armenia consolida la alineación PE-SEAE en la agenda de normalización del Cáucaso Sur
+
+**Conclusión:** El PE10 funciona como un parlamento operativo con una mayoría central frágil pero duradera. La amenaza para la gobernanza de la UE no es un colapso de la mayoría sino una lenta erosión de la autoridad política de la Comisión a medida que el bloque soberanista escala la contestación procedimental.
+
+**Grado Almirantazgo:** B2 | **Confianza:** ALTA para las dinámicas estructurales; MEDIA para la atribución específica de votos (los registros de votación del PE se publican con un retraso de 2–4 semanas)
+
+*Elaborado por el pipeline agentivo EU Parliament Monitor | Datos Fase A+B: portal de datos abiertos del PE | Paso 2 completado: actores nombrados, referencias cruzadas MEP específicas, aritmética de coaliciones verificada*
+
+### Executive Brief Fi
+
+### 🎯 Otsikkoarviointi
+
+Euroopan parlamentin täysistunto Strasbourgissa 28.–30. huhtikuuta 2026 tuotti tiiviin lainsäädäntöohjelman, joka samanaikaisesti edisti digitaalisten oikeuksien täytäntöönpanoa, vahvisti geopoliittisia sitoumuksia Ukrainaa ja Armeniaa kohtaan, avasi finanssisuunnittelun syklin vuodelle 2027 ja — poliittisesti ladatussa sivutapahtumassa — näki suverenistisen Patriots for Europe (PfE) -ryhmän vaativan muodollista keskustelua (työjärjestyksen 169 artikla) komission väitetystä puuttumisesta demokraattisiin prosesseihin. Kolmetoista hyväksyttyä tekstiä ja yli yhdeksän suurta keskustelua viestivät parlamentista, joka toimii korkealla lainsäädäntövauhdilla fragmentoituneessa koalitioaritmetiikassa, joka edellyttää ad hoc -enemmistön rakentamista lähes jokaisessa asiakokonaisuudessa.
+
+**WEP-arviointi (Todennäköinen, ~75 %):** EPP-ankkuroitu keskusta-oikeistolohko ylläpitää lainsäädäntöhallintaa valikoivalla koalitiolla S&D:n kanssa geopoliittisissa ja budjettitiedostoissa, kun taas PfE ja ECR hyödyntävät menettelyllisiä mekanismeja haastamaan komission auktoriteettia demokraattisia prosesseja koskevissa kysymyksissä koko vuoden 2026 ajan.
+
+**Amiraaliluokka: B2** — Ensisijainen data EU-parlamentin avoimesta tietoportaalista (luotettava); yksittäisiä äänestysmarginaleja ei saatavilla EP:n julkaisuViiveen vuoksi.
+
+---
+
+### 📋 Viikon tärkeimmät päätökset
+
+| Teksti | Aihe | Poliittinen signaali |
+|------|-------|-----------------|
+| TA-10-2026-0163 | Verkkokiusaamisen/onlinehäirinnän rikosoikeudelliset säännökset | Digitaalisten oikeuksien koalitio EPP+S&D+Renew |
+| TA-10-2026-0161 | Venäjän vastuullistaminen / Ukraina-hyökkäykset | Poikkipuolueinen konsensus; PfE eristetty |
+| TA-10-2026-0162 | Demokraattinen kestävyys Armeniassa | Itäinen naapurustopriorititeetti |
+| TA-10-2026-0160 | Digimarkkinasäädöksen täytäntöönpano | Teknologiasääntelyn kaksijakoinen enemmistö |
+| TA-10-2026-0157 | EU:n kotieläinsektorin kestävyys | CAP-koalitio: EPP+S&D+ECR |
+| TA-10-2026-0151 | Haitin ihmiskauppakriisi | Humanitaarinen yksimielisyys |
+| TA-10-2026-0112 | Vuoden 2027 talousarvion suuntaviivat (osasto III) | Budjettihaukat versus investointilohko |
+| TA-10-2026-0115 | Koirien ja kissojen hyvinvoinnin jäljitettävyys | Laaja enemmistö; ESN/PfE vastustavia |
+| TA-10-2026-0105 | Koskemattomuuden pidättäminen — Patryk Jaki (ECR/Puola) | PRIV-valiokunnan suositus ylläpidetty |
+| TA-10-2026-0142 | EU-Islanti PNR-dataa koskeva sopimus | Turvallisuusyhteistyön jatkuvuus |
+| TA-10-2026-0119 | EIB:n rahoitustoiminnan valvonta | Vastuullisuusvalvonta |
+| TA-10-2026-0132 | Vastuuvapaus 2024 — Alueiden komitea | Budjettiskrutiiniu |
+| TA-10-2026-0122 | Tulosperusteisten instrumenttien avoimuus | Budjetti-integriteetti |
+
+---
+
+### 🏛️ Koalitioaritmetiikka (toukokuu 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**Enemmistökynnys: 360 ääntä.** EPP+S&D:n kahdenvälinen kokonaissumma (319) jää 41 paikkaa alle enemmistön, mikä varmistaa, että jokainen lainsäädäntötulos vaatii kolmannen tai neljännen koaliopartnerin. Tämä rakenteellinen pirstoutuminen — Pirstoutumisindeksi: KORKEA, Tehokas puolueiden lukumäärä: 6,58 — on EP10:n lainsäädäntöpolitiikan määräävä rajoitus.
+
+**Hallitsevat koalitiot tällä täysistuntoviikolla:**
+- **Digitaaliset/oikeusasiat**: EPP + S&D + Renew (396 paikkaa) — vahva enemmistö
+- **Geopolitiikka/Ukraina**: EPP + S&D + Renew + ECR (477 paikkaa) — superenemmistö, PfE poissa
+- **Maatalous/CAP**: EPP + S&D + ECR (400 paikkaa) — luotettava koalitio
+- **Budjettivalvonta**: EPP + S&D + Greens/EFA + Renew (449 paikkaa) — laaja vastuullisuuskoalitio
+- **PfE:n sääntö 169 -debatti**: PfE + ECR (166 paikkaa) — vähemmistöpaineistoryhmä, ei voi estää mutta voi pakottaa debaatin
+
+---
+
+### ⚡ Strateginen hetki: PfE:n sääntö 169 -haaste
+
+Patriots for Europen vetoaminen työjärjestyksen 169 artiklaan (ajankohtainen keskustelu poliittisen ryhmän pyynnöstä) täysistuntokeskustelun pakottamiseksi väitetystä "komission puuttumisesta demokraattisiin prosesseihin ja vaaleihin" on viikon poliittisesti merkittävin menettelytapahtuma. Tämä siirto viestii:
+
+1. **Suverenistisen vastakertomuksen eskalointi**: PfE (85 paikkaa, kolmanneksi suurin ryhmä) rakentaa yhtenäistä oppositioidentiteettiä demokraattisen legitimiteetin ympärille haastamalla komission oikeuden puuttua jäsenvaltioiden kotimaisiin vaaliprosesseihin.
+2. **Taktinen työjärjestyksen sääntöjen hyödyntäminen**: Sen sijaan, että PfE sitoutuisi lainsäädännöllisiin ansioihin, se käyttää menettelyllisiä välineitä luodakseen julkista painetta ja saadakseen medianäkyvyyttä pro-suvereniteetti-kertomuselle.
+3. **Koalitio ECR:n kanssa mahdollinen menettelykysymyksissä**: ECR (81 paikkaa) ja ESN (27 paikkaa) yhdistettynä PfE:hen (85 paikkaa) = 193 paikkaa — riittävästi pakottaakseen debatteja, jättääkseen massiivisia tarkistuksia ja viivyttääkseen menettelyjä.
+4. **Komissio puolustusasemassa**: Debatti pakottaa komission edustajat puolustamaan käytäntöjä, joita populistiset ryhmät luonnehtivat puuttumiseksi tosiasiallisista olosuhteista riippumatta.
+
+**WEP-arviointi (Todennäköinen, 70 %):** Tämä malli voimistuu, PfE:n jättäessä vähintään 3–5 lisää 169 artiklan pyyntöä ennen kesälomaa, keskittyen maahanmuuttoon, taloudelliseen suvereniteettiin ja sukupuoliaatteeseen — perinteisiin mobilisointikysymyksiin kannattajakunnalleen.
+
+---
+
+### 🌍 Geopoliittinen asemointi
+
+Strasbourgin viikon geopoliittiset tekstit paljastavat parlamentin, joka ylläpitää vahvaa tukea Ukrainalle (TA-10-2026-0161), demokraattiselle siirtymälle Armeniassa (TA-10-2026-0162), Libanonin tulitauolle (keskustelu) ja Venäjän aggression tuomitsemiselle — kampaillen samalla Lähi-idän politiikan johdonmukaisuuden kanssa, kuten käy ilmi energiaa, lannoitteita ja Lähi-idän kriisiä koskevasta yhteisestä keskustelusta, joka ei tuottanut hyväksyttyä tekstiä, mikä viittaa yhteensopimattomiin näkemyseroihin ryhmien välillä israelilais-palestiinalaisen ulottuvuuden suhteen.
+
+Haitin ihmiskaupparesoluutio (TA-10-2026-0151) edustaa EU-parlamentin ihmisoikeusvaltuuden vahvistamista, hyväksyttynä tyypillisellä humanitaarisella yksimielisyydellä, joka ylittää normaalit koalitiorajat.
+
+---
+
+### 💰 Budjetti-2027-signalointi
+
+Vuoden 2027 talousarvion suuntaviivat (TA-10-2026-0112) edustavat parlamentin avauspuheenvuoroa vuotuisessa talousarviomenettelyssä. Huhtikuussa 2026 hyväksytty teksti asettaa poliittiset prioriteetit komission budjettiehostuksille. Tärkeimmät signaalit:
+- Strategisen autonomian investointien priorisointi (puolustus, digitaalinen, energia)
+- Ilmastotransformaatiorahoituksen ylläpidetty sitoutuminen Omnibus I -paineesta huolimatta
+- Vastustus liialliselle säästöpolitiikalle rakennerahastoissa
+- Tulosperusteisten instrumenttien avoimuuden tarkastelu (TA-10-2026-0122 hyväksyttiin samanaikaisesti)
+
+**Lähdedata:** EP:n avoin tietoportaali (data.europarl.europa.eu) | Kokoelma: 2026-05-11
+
+---
+
+### 📊 Toimintamittarit
+
+| Mittari | Arvo |
+|--------|-------|
+| Hyväksytyt tekstit tällä täysistuntoviikolla | 13 |
+| Suuria debatteja | 9 |
+| Koskemattomuuspäätökset | 1 (Jaki) |
+| Vastuuvapauspäätökset | 2 |
+| Kansainväliset sopimukset | 1 (Islanti PNR) |
+| Kiireelliset päätöslauselmat | 3 (Haiti, Armenia, Venäjä/Ukraina) |
+| Parlamentin vakauspisteet | 84/100 (varhainen varoitusjärjestelmä) |
+| Pirstoutumisindeksi | KORKEA (EPoP 6,58) |
+
+---
+
+### 🔑 Nimetyt avaintoimijat (Pass 2 -lisäys)
+
+**Vaihe B Pass 2 -ristiviitta: stakeholder-map.md, actor-mapping.md**
+
+- **Roberta Metsola (EPP/Malta)** — EP:n puhemies, huhtikuun istunnon täysistuntokoordinaattori; käsitteli PfE:n sääntö 169 -vetoamisen ilman eskalaatiota
+- **Javi López (S&D/Espanja)** — Näkyvä budjetti- ja sosiaaliasioissa; S&D:n esittelijä progressiivisissa budjettiprioriteeteissa
+- **Dolors Montserrat (EPP/Espanja)** — Näkyvä EPP-ääni digitaalisissa oikeuksissa, verkkokiusaamisen lainsäädäntöpyyntö
+- **Jordan Bardella (PfE/Ranska)** — PfE:n ryhmänjohtaja; järjesti sääntö 169 -debatin komission vaalipuuttumisesta
+- **Teresa Ribera (EC/Espanja)** — Komission kilpailusta vastaava varapuheenjohtaja; DMA-täytäntöönpanon poliittisen mandaatin vastaanottaja
+- **Manfred Weber (EPP/Saksa)** — EPP:n ryhmänpuheenjohtaja; ylläpitää koalitioitsekuria estäen EPP-PfE-yhteensovittamisen
+
+**Lainsäädäntöesittelijät:** LIBE-valiokunnan vetäjä verkkokiusaamisessa (S&D/Renew), IMCO-vetäjä DMA-täytäntöönpanossa (EPP), AGRI-vetäjä kotieläimissä (EPP/ECR-risteys), AFET-vetäjä Ukrainalle/Armenialle (kaksipuolueinen).
+
+---
+
+### Strategic Outlook Summary
+
+Strasbourgin täysistunto 28.–30. huhtikuuta 2026 merkitsee rakenteellista käännekohtaa EP10-politiikassa. DMA-täytäntöönpanoäänestys osoittaa, että EPP-S&D-Renew-keskeiskoalitio säilyttää lainsäädäntökapasiteettinsa sisämarkkinatiedostoissa. PfE:n sääntö 169 -vetoaminen osoittaa, että suverenistinen oikeisto on löytänyt menettelyllisen välineen, jolla se voi asettaa komissiolle poliittisia kustannuksia vaatimatta lainsäädännöllistä enemmistöä.
+
+**Kolmen kuukauden näkymät (toukokuu–heinäkuu 2026):**
+1. PfE:n sääntö 169 -vetoamiset jatkuvat todennäköisesti komission ulkoisia toimia ja maahanmuuttoasioita koskevissa tiedostoissa
+2. Verkkokiusaamista koskeva lainsäädäntöpyyntö siirtyy komission käsittelyyn; 12 kuukauden aikataulu luonnosehdotukselle
+3. DMA-täytäntöönpanon mandaatti ohjaa komission portinvartijapäätöksiä GAFAM:n käyttäytymiskorjauksissa
+4. Ukrainan tuki-äänestys tarjoaa poliittista suojaa jatkuvalle EPP-S&D-Renew-koordinoinnille taakanjaoissa
+5. Armenian äänestys vahvistaa EP-EEAS-yhteensovittamista Etelä-Kaukasuksen normalisoitumisagendassa
+
+**Johtopäätös:** EP10 toimii toimivana parlamenttina, jolla on hauras mutta kestävä keskeinen enemmistö. Uhka EU:n hallinnalle ei ole enemmistön romahtaminen vaan komission poliittisen auktoriteetin hidas eroosio, kun suverenistinen lohko eskaloituu menettelytavalliseen kiistanalaistamiseen.
+
+**Amiraaliluokka:** B2 | **Luottamus:** KORKEA rakenteellisille dynamiikoille; KESKISUURI tietylle äänestysjakaumalle (EP:n äänestyspöytäkirjat julkaistaan 2–4 viikon viiveellä)
+
+*Laatinut EU Parliament Monitor agentic pipeline | Vaihe A+B-data: EP:n avoin tietoportaali | Pass 2 valmis: nimetyt toimijat, MEP-spesifiset ristiviiitat, koalitioaritmetiikka vahvistettu*
+
+### Executive Brief Fr
+
+### 🎯 Évaluation des titres
+
+La session plénière du Parlement européen à Strasbourg du 28 au 30 avril 2026 a produit un agenda législatif dense qui, simultanément, a fait avancer l'application des droits numériques, réaffirmé les engagements géopolitiques envers l'Ukraine et l'Arménie, ouvert un cycle de planification budgétaire pour 2027 et — dans un événement parallèle politiquement chargé — a vu le groupe souverainiste Patriots for Europe (PfE) exiger un débat formel (article 169 du règlement intérieur) sur l'ingérence présumée de la Commission dans les processus démocratiques. Treize textes adoptés et plus de neuf grands débats signalent un parlement fonctionnant à un rythme législatif élevé sous une arithmétique de coalition fragmentée qui exige une construction de majorité ad hoc pour presque chaque dossier.
+
+**Évaluation WEP (Probable, ~75 %) :** Le bloc centre-droit ancré autour du PPE maintiendra le contrôle législatif grâce à une coalition sélective avec le S&D sur les dossiers géopolitiques et budgétaires, tandis que le PfE et l'ECR exploiteront les mécanismes procéduraux pour contester l'autorité de la Commission sur les questions de processus démocratiques tout au long de 2026.
+
+**Grade Amirauté : B2** — Données primaires du portail de données ouvertes du PE (fiable) ; marges de vote individuelles indisponibles en raison du délai de publication du PE.
+
+---
+
+### 📋 Décisions clés de la semaine
+
+| Texte | Sujet | Signal politique |
+|------|-------|-----------------|
+| TA-10-2026-0163 | Dispositions pénales relatives au cyberharcèlement/harcèlement en ligne | Coalition pour les droits numériques PPE+S&D+Renew |
+| TA-10-2026-0161 | Responsabilité de la Russie / attaques contre l'Ukraine | Consensus transpartisan ; PfE isolé |
+| TA-10-2026-0162 | Résilience démocratique en Arménie | Priorité du voisinage oriental |
+| TA-10-2026-0160 | Application du règlement sur les marchés numériques | Majorité bipartisane pour la régulation technologique |
+| TA-10-2026-0157 | Durabilité du secteur de l'élevage de l'UE | Coalition PAC : PPE+S&D+ECR |
+| TA-10-2026-0151 | Crise de traite des êtres humains en Haïti | Unanimité humanitaire |
+| TA-10-2026-0112 | Orientations du budget 2027 (section III) | Faucons budgétaires contre bloc d'investissement |
+| TA-10-2026-0115 | Traçabilité du bien-être des chiens et chats | Large majorité ; ESN/PfE résistants |
+| TA-10-2026-0105 | Levée d'immunité — Patryk Jaki (ECR/Pologne) | Recommandation de la commission PRIV maintenue |
+| TA-10-2026-0142 | Accord UE-Islande sur les données PNR | Continuité de la coopération sécuritaire |
+| TA-10-2026-0119 | Contrôle des activités financières de la BEI | Contrôle de la responsabilité |
+| TA-10-2026-0132 | Décharge 2024 — Comité des régions | Contrôle budgétaire |
+| TA-10-2026-0122 | Transparence des instruments fondés sur la performance | Intégrité budgétaire |
+
+---
+
+### 🏛️ Arithmétique des coalitions (mai 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**Seuil de majorité : 360 voix.** Le total bilatéral PPE+S&D (319) est inférieur de 41 sièges à une majorité, ce qui garantit que chaque résultat législatif nécessite un troisième ou quatrième partenaire de coalition. Cette fragmentation structurelle — avec Indice de fragmentation : ÉLEVÉ, Nombre effectif de partis : 6,58 — est la contrainte définissante de la politique législative du PE10.
+
+**Coalitions dominantes lors de cette semaine de plénière :**
+- **Dossiers numériques/droits** : PPE + S&D + Renew (396 sièges) — majorité solide
+- **Géopolitique/Ukraine** : PPE + S&D + Renew + ECR (477 sièges) — supermajorité, PfE absent
+- **Agriculture/PAC** : PPE + S&D + ECR (400 sièges) — coalition fiable
+- **Contrôle budgétaire** : PPE + S&D + Greens/EFA + Renew (449 sièges) — large coalition de responsabilité
+- **Débat article 169 du PfE** : PfE + ECR (166 sièges) — groupe de pression minoritaire, ne peut pas bloquer mais peut forcer le débat
+
+---
+
+### ⚡ Moment stratégique : le défi de l'article 169 du PfE
+
+Le recours par Patriots for Europe à l'article 169 du règlement intérieur (débat d'actualité à la demande d'un groupe politique) pour forcer une discussion plénière sur la prétendue « ingérence de la Commission dans les processus démocratiques et les élections » est l'événement procédural politiquement le plus significatif de la semaine. Ce mouvement signale :
+
+1. **Escalade du contre-récit souverainiste** : le PfE (85 sièges, troisième plus grand groupe) construit une identité d'opposition cohérente autour de la légitimité démocratique, contestant le droit de la Commission à s'immiscer dans les processus électoraux nationaux des États membres.
+2. **Utilisation tactique des règles de procédure** : plutôt que de s'engager sur le fond législatif, le PfE utilise des outils procéduraux pour créer une pression publique et générer une couverture médiatique d'un récit pro-souveraineté.
+3. **Coalition avec l'ECR possible sur les questions procédurales** : ECR (81 sièges) et ESN (27 sièges) combinés avec le PfE (85 sièges) = 193 sièges — suffisant pour forcer des débats, déposer des amendements en masse et retarder les procédures.
+4. **Commission sur la défensive** : le débat oblige les représentants de la Commission à défendre des pratiques que les groupes populistes qualifient d'ingérence, indépendamment des faits réels.
+
+**Évaluation WEP (Probable, 70 %) :** Ce schéma va s'intensifier, avec le PfE déposant au moins 3–5 nouvelles demandes d'article 169 avant la pause estivale, se concentrant sur la migration, la souveraineté économique et l'idéologie du genre — thèmes de mobilisation traditionnels pour sa base électorale.
+
+---
+
+### 🌍 Posture géopolitique
+
+Les textes géopolitiques de la semaine de Strasbourg révèlent un parlement maintenant un soutien robuste à l'Ukraine (TA-10-2026-0161), à la transition démocratique en Arménie (TA-10-2026-0162), au cessez-le-feu libanais (débat) et à la condamnation de l'agression russe — tout en luttant pour la cohérence de sa politique au Moyen-Orient, comme en témoigne le débat conjoint sur l'énergie, les engrais et la crise au Moyen-Orient qui n'a produit aucun texte adopté, suggérant des divergences irréconciliables entre les groupes sur la dimension israélo-palestinienne.
+
+La résolution sur la traite des personnes en Haïti (TA-10-2026-0151) représente une réaffirmation du mandat du PE en matière de droits de l'homme, adoptée avec une unanimité humanitaire typique qui dépasse les lignes de coalition normales.
+
+---
+
+### 💰 Signaux pour le budget 2027
+
+Les orientations du budget 2027 (TA-10-2026-0112) constituent l'offre d'ouverture du Parlement dans la procédure budgétaire annuelle. Le texte adopté en avril 2026 établit les priorités politiques pour les propositions budgétaires de la Commission. Signaux clés :
+- Priorisation des investissements dans l'autonomie stratégique (défense, numérique, énergie)
+- Engagement maintenu en faveur du financement de la transition climatique malgré la pression d'Omnibus I
+- Résistance à l'austérité excessive dans les fonds structurels
+- Examen de la transparence des instruments fondés sur la performance (TA-10-2026-0122 adopté simultanément)
+
+**Données sources :** Portail de données ouvertes du PE (data.europarl.europa.eu) | Collecte : 2026-05-11
+
+---
+
+### 📊 Indicateurs d'activité
+
+| Indicateur | Valeur |
+|--------|-------|
+| Textes adoptés lors de cette semaine de plénière | 13 |
+| Grands débats | 9 |
+| Décisions d'immunité | 1 (Jaki) |
+| Décisions de décharge | 2 |
+| Accords internationaux | 1 (Islande PNR) |
+| Résolutions d'urgence | 3 (Haïti, Arménie, Russie/Ukraine) |
+| Score de stabilité parlementaire | 84/100 (Système d'alerte précoce) |
+| Indice de fragmentation | ÉLEVÉ (EPoP 6,58) |
+
+---
+
+### 🔑 Acteurs clés nommément cités (Ajout Pass 2)
+
+**Référence croisée Phase B Pass 2 : stakeholder-map.md, actor-mapping.md**
+
+- **Roberta Metsola (PPE/Malte)** — Présidente du PE, présidente de séance plénière pour la session d'avril ; a géré le recours à l'article 169 du PfE sans escalade
+- **Javi López (S&D/Espagne)** — Visible dans les dossiers budgétaires et sociaux ; rapporteur S&D sur les priorités budgétaires progressistes
+- **Dolors Montserrat (PPE/Espagne)** — Voix PPE de premier plan sur les droits numériques, demande législative sur le cyberharcèlement
+- **Jordan Bardella (PfE/France)** — Président du groupe PfE ; a orchestré le débat article 169 sur l'ingérence électorale de la Commission
+- **Teresa Ribera (CE/Espagne)** — Vice-présidente exécutive de la Commission pour la concurrence ; destinataire du mandat politique d'application du DMA
+- **Manfred Weber (PPE/Allemagne)** — Président du groupe PPE ; maintient la discipline de coalition empêchant l'alignement PPE-PfE
+
+**Rapporteurs législatifs :** chef de la commission LIBE pour le cyberharcèlement (S&D/Renew), chef IMCO pour l'application du DMA (PPE), chef AGRI pour l'élevage (PPE/ECR croisé), chef AFET pour l'Ukraine/Arménie (bipartisan).
+
+---
+
+### Strategic Outlook Summary
+
+La session plénière de Strasbourg du 28–30 avril 2026 marque un point d'inflexion structurel dans la politique du PE10. Le vote sur l'application du DMA démontre que la coalition centrale PPE-S&D-Renew conserve sa capacité législative sur les dossiers du marché intérieur. Le recours à l'article 169 du PfE démontre que la droite souverainiste a trouvé un outil procédural pour imposer des coûts politiques à la Commission sans nécessiter de majorité législative.
+
+**Perspectives à trois mois (mai–juillet 2026) :**
+1. Les recours à l'article 169 du PfE continueront probablement sur les dossiers d'action externe et de migration de la Commission
+2. La demande législative sur le cyberharcèlement sera transmise à la Commission pour examen ; calendrier de 12 mois pour un projet de proposition
+3. Le mandat d'application du DMA influencera les décisions de garde-barrière de la Commission sur les mesures correctives comportementales de GAFAM
+4. Le vote de soutien à l'Ukraine offre une couverture politique pour la coordination continue PPE-S&D-Renew sur le partage du fardeau
+5. Le vote sur l'Arménie consolide l'alignement PE-SEAE sur l'agenda de normalisation du Caucase du Sud
+
+**Conclusion :** Le PE10 fonctionne comme un parlement opérationnel avec une majorité centrale fragile mais durable. La menace pour la gouvernance de l'UE n'est pas un effondrement de la majorité mais une lente érosion de l'autorité politique de la Commission à mesure que le bloc souverainiste escalade la contestation procédurale.
+
+**Grade Amirauté :** B2 | **Confiance :** ÉLEVÉE sur les dynamiques structurelles ; MOYENNE sur l'attribution spécifique des votes (les registres de vote du PE sont publiés avec un délai de 2–4 semaines)
+
+*Préparé par le pipeline agentique EU Parliament Monitor | Données Phase A+B : portail de données ouvertes du PE | Pass 2 terminé : acteurs nommément cités, références croisées MEP spécifiques, arithmétique des coalitions vérifiée*
+
+### Executive Brief He
+
+**סוג המאמר:** motions | **תאריך:** 2026-05-11 | **חלון הנתונים:** 2026-05-04 עד 2026-05-11
+**אמינות WEP:** סביר (65–85 %) | **דרגת אדמירליות:** B2 (מקור אמין, כנראה נכון)
+
+---
+
+### 🎯 הערכת כותרות
+
+מליאת הפרלמנט האירופי בשטרסבורג בין ה-28 ל-30 באפריל 2026 הניבה סדר יום חקיקתי צפוף שקידם בו-זמנית את אכיפת הזכויות הדיגיטליות, חידש את ההתחייבויות הגיאופוליטיות כלפי אוקראינה וארמניה, פתח מחזור תכנון פיסקלי לשנת 2027 ו— באירוע לוואי מוטען פוליטית — ראה את קבוצת "הפטריוטים לאירופה" (PfE) בעלת האוריינטציה הסובראניסטית דורשת דיון רשמי (סעיף 169 לתקנון) בדבר ההתערבות הנטענת של הנציבות בתהליכים דמוקרטיים. שלושה עשר טקסטים שאומצו ויותר מתשעה דיונים גדולים מסמנים פרלמנט הפועל בקצב חקיקתי גבוה תחת אריתמטיקה קואליציונית מפוצלת המחייבת בניית רוב אד-הוק לכמעט כל תיק.
+
+**הערכת WEP (סביר, ~75 %):** הגוש ימין-המרכז המעוגן ב-EPP ישמור על שליטה חקיקתית באמצעות קואליציה סלקטיבית עם S&D בתיקים גיאופוליטיים ותקציביים, בעוד PfE וECR יסתמכו על מנגנונים נוהליים לאתגר את סמכות הנציבות בשאלות הנוגעות לתהליכים דמוקרטיים לאורך שנת 2026.
+
+**דרגת אדמירליות: B2** — נתונים ראשוניים מפורטל הנתונים הפתוח של הפרלמנט האירופי (אמין); שולי הצבעה בודדים אינם זמינים עקב עיכוב הפרסום של הפרלמנט האירופי.
+
+---
+
+### 📋 החלטות מרכזיות השבוע
+
+| טקסט | נושא | אות פוליטי |
+|------|-------|-----------------|
+| TA-10-2026-0163 | הוראות פליליות בנוגע לאלימות ברשת/הטרדה מקוונת | קואליציית זכויות דיגיטליות EPP+S&D+Renew |
+| TA-10-2026-0161 | אחריות רוסיה / התקפות על אוקראינה | קונצנזוס בין-מפלגתי; PfE מבודדת |
+| TA-10-2026-0162 | עמידות דמוקרטית בארמניה | עדיפות שכנות מזרחית |
+| TA-10-2026-0160 | אכיפת חוק השווקים הדיגיטליים | רוב דו-מפלגתי לרגולציית טכנולוגיה |
+| TA-10-2026-0157 | קיימות מגזר הבקר באיחוד האירופי | קואליציית CAP: EPP+S&D+ECR |
+| TA-10-2026-0151 | משבר סחר בבני אדם בהאיטי | פה אחד הומניטרי |
+| TA-10-2026-0112 | קווים מנחים לתקציב 2027 (סעיף III) | נשרי תקציב מול גוש השקעות |
+| TA-10-2026-0115 | מעקב אחר רווחת כלבים וחתולים | רוב רחב; ESN/PfE עמידים |
+| TA-10-2026-0105 | הסרת חסינות — Patryk Jaki (ECR/פולין) | המלצת ועדת PRIV נשמרה |
+| TA-10-2026-0142 | הסכם נתוני PNR בין האיחוד האירופי לאיסלנד | המשכיות שיתוף הפעולה הביטחוני |
+| TA-10-2026-0119 | בקרה על פעילויות פיננסיות של EIB | פיקוח אחריותי |
+| TA-10-2026-0132 | אישור 2024 — ועדת האזורים | בדיקת תקציב |
+| TA-10-2026-0122 | שקיפות מכשירים מבוססי ביצועים | יושרה תקציבית |
+
+---
+
+### 🏛️ אריתמטיקה קואליציונית (מאי 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**סף הרוב: 360 קולות.** הסכום הדו-צדדי של EPP+S&D (319) נופל ב-41 מושבים מתחת לרוב, מה שמבטיח שכל תוצאה חקיקתית מחייבת שותף קואליציוני שלישי או רביעי. פיצול מבני זה — עם מדד פיצול: גבוה, מספר מפלגות יעיל: 6.58 — הוא המגבלה המגדירה של הפוליטיקה החקיקתית של EP10.
+
+**קואליציות דומיננטיות בשבוע המליאה הזה:**
+- **תיקים דיגיטליים/זכויות**: EPP + S&D + Renew (396 מושבים) — רוב יציב
+- **גיאופוליטיקה/אוקראינה**: EPP + S&D + Renew + ECR (477 מושבים) — על-רוב, PfE נעדרת
+- **חקלאות/CAP**: EPP + S&D + ECR (400 מושבים) — קואליציה אמינה
+- **ביקורת תקציב**: EPP + S&D + Greens/EFA + Renew (449 מושבים) — קואליציית אחריות רחבה
+- **דיון PfE סעיף 169**: PfE + ECR (166 מושבים) — קבוצת לחץ מיעוט, לא יכולה לחסום אך יכולה לכפות דיון
+
+---
+
+### ⚡ רגע אסטרטגי: האתגר של PfE לסעיף 169
+
+הסתמכות "הפטריוטים לאירופה" על סעיף 169 לתקנון (דיון נושאי לבקשת קבוצה פוליטית) כדי לכפות דיון במליאה על ה"התערבות הנטענת של הנציבות בתהליכים דמוקרטיים ובחירות" היא האירוע הנוהלי המשמעותי ביותר מבחינה פוליטית של השבוע. מהלך זה מסמן:
+
+1. **הסלמת הנרטיב הנגדי הסובראניסטי**: PfE (85 מושבים, הקבוצה השלישית בגודלה) בונה זהות אופוזיציה קוהרנטית סביב לגיטימיות דמוקרטית, מאתגרת את זכות הנציבות לעסוק בתהליכים בחירתיים מקומיים במדינות החברות.
+2. **שימוש טקטי בכללי הנוהל**: במקום לעסוק בכשרון חקיקתי, PfE משתמשת בכלים נוהליים כדי ליצור לחץ ציבורי וליצור סיקור תקשורתי של נרטיב פרו-ריבונות.
+3. **קואליציה אפשרית עם ECR בנושאים נוהליים**: ECR (81 מושבים) ו-ESN (27 מושבים) יחד עם PfE (85 מושבים) = 193 מושבים — מספיק לכפות דיונים, להגיש תיקונים המוניים ולעכב הליכים.
+4. **הנציבות בעמדת הגנה**: הדיון מכריח נציגי הנציבות להגן על שיטות שקבוצות פופוליסטיות מאפיינות כהתערבות, ללא קשר לעובדות המציאותיות.
+
+**הערכת WEP (סביר, 70 %):** דפוס זה יתגבר, כאשר PfE תגיש לפחות 3–5 בקשות נוספות לסעיף 169 לפני ההפסקה הקיצית, תוך התמקדות בהגירה, ריבונות כלכלית ואידיאולוגיית מגדר — נושאי גיוס מסורתיים לבסיסה הבוחר.
+
+---
+
+### 🌍 עמדה גיאופוליטית
+
+הטקסטים הגיאופוליטיים של שבוע שטרסבורג חושפים פרלמנט המקיים תמיכה אמינה באוקראינה (TA-10-2026-0161), מעבר דמוקרטי בארמניה (TA-10-2026-0162), הפסקת אש לבנונית (דיון) וגינוי התוקפנות הרוסית — תוך כדי מאבק על עקביות מדיניותו במזרח התיכון, כפי שמעידה הדיון המשותף על אנרגיה, דשנים ומשבר המזרח התיכון שלא הפיק כל טקסט מאומץ, מה שמצביע על חילוקי דעות בלתי פתירים בין הקבוצות על הממד הישראלי-פלסטיני.
+
+החלטת סחר בבני האדם בהאיטי (TA-10-2026-0151) מייצגת אישרור של מנדט זכויות האדם של הפרלמנט האירופי, שאומץ בפה אחד הומניטרי טיפוסי החוצה קווי קואליציה נורמליים.
+
+---
+
+### 💰 אותות תקציב 2027
+
+הקווים המנחים לתקציב 2027 (TA-10-2026-0112) מייצגים את הצעת הפתיחה של הפרלמנט בנוהל התקציבי השנתי. הטקסט שאומץ באפריל 2026 קובע עדיפויות פוליטיות להצעות התקציב של הנציבות. אותות מרכזיים:
+- תעדוף השקעות באוטונומיה אסטרטגית (הגנה, דיגיטל, אנרגיה)
+- שמירה על המחויבות למימון מעבר אקלים למרות לחץ Omnibus I
+- התנגדות לקיצוצים מוגזמים בקרנות מבניות
+- בדיקת שקיפות מכשירים מבוססי ביצועים (TA-10-2026-0122 אומץ בו-זמנית)
+
+**נתוני מקור:** פורטל הנתונים הפתוח של הפרלמנט האירופי (data.europarl.europa.eu) | איסוף: 2026-05-11
+
+---
+
+### 📊 מדדי פעילות
+
+| מדד | ערך |
+|--------|-------|
+| טקסטים מאומצים בשבוע מליאה זה | 13 |
+| דיונים גדולים | 9 |
+| החלטות חסינות | 1 (Jaki) |
+| החלטות אישור | 2 |
+| הסכמים בינלאומיים | 1 (איסלנד PNR) |
+| החלטות דחיפות | 3 (האיטי, ארמניה, רוסיה/אוקראינה) |
+| ציון יציבות פרלמנטרית | 84/100 (מערכת אזהרה מוקדמת) |
+| מדד פיצול | גבוה (EPoP 6.58) |
+
+---
+
+### 🔑 שחקנים מרכזיים ששמם נזכר (תוספת Pass 2)
+
+**הפניה צולבת שלב B Pass 2: stakeholder-map.md, actor-mapping.md**
+
+- **רובּרטה מצולה (EPP/מלטה)** — נשיאת הפרלמנט האירופי, יו"ר המליאה לדיון אפריל; טיפלה בהסתמכות PfE על סעיף 169 ללא הסלמה
+- **חאבי לופז (S&D/ספרד)** — נוכח בתיקי תקציב וסוציאל; מדווח S&D בנושא עדיפויות תקציביות פרוגרסיביות
+- **דולורס מונטסראט (EPP/ספרד)** — קול EPP בולט בזכויות דיגיטליות, בקשה חקיקתית בנושא אלימות ברשת
+- **ז'ורדן בארדלה (PfE/צרפת)** — מנהיג קבוצת PfE; תיזמר את דיון סעיף 169 על התערבות הנציבות בבחירות
+- **טרזה ריברה (EC/ספרד)** — סגנית הנשיא הביצועית של הנציבות לתחרות; מקבלת המנדט הפוליטי לאכיפת DMA
+- **מנפרד וובר (EPP/גרמניה)** — יו"ר קבוצת EPP; שומר על משמעת קואליציה המונעת יישור EPP-PfE
+
+**מדווחים חקיקתיים:** ראשות ועדת LIBE לאלימות ברשת (S&D/Renew), ראשות IMCO לאכיפת DMA (EPP), ראשות AGRI לבקר (EPP/ECR הצלבה), ראשות AFET לאוקראינה/ארמניה (דו-מפלגתי).
+
+---
+
+### Strategic Outlook Summary
+
+מליאת שטרסבורג בין ה-28 ל-30 באפריל 2026 מסמנת נקודת מפנה מבנית בפוליטיקה של EP10. הצבעת אכיפת DMA מוכיחה שקואליציית המרכז EPP-S&D-Renew שומרת על כושר חקיקתי בתיקי השוק הפנימי. הסתמכות PfE על סעיף 169 מוכיחה שהימין הסובראניסטי מצא כלי נוהלי להטיל עלויות פוליטיות על הנציבות ללא צורך ברוב חקיקתי.
+
+**תחזית לשלושה חודשים (מאי–יולי 2026):**
+1. הסתמכויות PfE על סעיף 169 צפויות להמשיך בתיקי פעולה חיצונית והגירה של הנציבות
+2. הבקשה החקיקתית בנושא אלימות ברשת תעבור לדיון הנציבות; לוח זמנים של 12 חודשים לטיוטת הצעה
+3. מנדט אכיפת DMA יעצב את החלטות שמירת השער של הנציבות בנוגע לתרופות ההתנהגותיות של GAFAM
+4. הצבעת תמיכה באוקראינה מספקת כיסוי פוליטי לתיאום המתמשך של EPP-S&D-Renew על חלוקת נטל
+5. הצבעת ארמניה מגבשת יישור הפרלמנט האירופי-EEAS על סדר היום לנורמליזציה בקווקז הדרומי
+
+**שורה תחתונה:** EP10 פועל כפרלמנט עובד עם רוב מרכזי שביר אך עמיד. האיום על ממשל האיחוד האירופי אינו קריסת הרוב אלא שחיקה איטית של סמכות הנציבות הפוליטית כאשר הגוש הסובראניסטי מסלים את הערעור הנוהלי.
+
+**דרגת אדמירליות:** B2 | **אמינות:** גבוהה בדינמיקות מבניות; בינונית בנסיבת הצבעה ספציפית (רשומות ההצבעה של הפרלמנט האירופי מפורסמות עם עיכוב של 2–4 שבועות)
+
+*הוכן על ידי צינור הסוכן EU Parliament Monitor | נתוני שלב A+B: פורטל הנתונים הפתוח של הפרלמנט האירופי | Pass 2 הושלם: שחקנים ששמם נזכר, הפניות צולבות ספציפיות לחברי פרלמנט, אריתמטיקה קואליציונית מאומתת*
+
+### Executive Brief Ja
+
+**記事種別：** motions | **日付：** 2026-05-11 | **データウィンドウ：** 2026-05-04〜2026-05-11
+**WEP信頼度：** 可能性あり（65〜85%） | **提督格付け：** B2（信頼できる情報源、おそらく正確）
+
+---
+
+### 🎯 見出し評価
+
+2026年4月28〜30日にストラスブールで開催された欧州議会本会議は、デジタル権利の執行、ウクライナ・アルメニアへの地政学的コミットメントの更新、2027年度財政計画サイクルの開始、そして政治的に高度に帯電した付随事案として主権主義志向の「愛国者たちのためのヨーロッパ」（PfE）グループが欧州委員会による民主的プロセスへの介入疑惑に関する規則169に基づく公式審議を要求するという、密度の高い立法アジェンダを同時進行させた。13の採択テキストと9つの主要討議は、ほぼすべての法案でアドホック多数決形成を必要とする分裂した連立算術のもと、高い立法ペースで活動する議会を示している。
+
+**WEP評価（可能性あり、約75%）：** EPP主導の中道右派ブロックは、地政学的・予算案件においてS&Dとの選択的連立を通じて立法的優位を維持する一方、PfEとECRは欧州委員会の権限に対する規則上の異議申し立てに頼り、2026年を通じて民主的プロセスに関する問題を提起し続ける。
+
+**提督格付け：B2** — 欧州議会オープンデータポータル（信頼性高）からの一次データ；欧州議会の掲載遅延により個別投票率は未公開。
+
+---
+
+### 📋 今週の主要決定事項
+
+| テキスト | 案件 | 政治的シグナル |
+|------|-------|-----------------|
+| TA-10-2026-0163 | オンライン暴力・嫌がらせに関する刑事規定 | EPP+S&D+Renew デジタル権利連立 |
+| TA-10-2026-0161 | ロシアの責任／ウクライナへの攻撃 | 全会派コンセンサス；PfE孤立 |
+| TA-10-2026-0162 | アルメニアの民主的回復力 | 東方パートナーシップ優先事項 |
+| TA-10-2026-0160 | デジタル市場法（DMA）執行 | テクノロジー規制に向けた二党多数決 |
+| TA-10-2026-0157 | EU牛肉産業の持続可能性 | CAP連立：EPP+S&D+ECR |
+| TA-10-2026-0151 | ハイチの人身売買危機 | 人道的全会一致 |
+| TA-10-2026-0112 | 2027年予算ガイドライン（セクションIII） | 財政タカ派 vs 投資ブロック |
+| TA-10-2026-0115 | 犬・猫の福祉追跡 | 幅広い多数決；ESN/PfE抵抗 |
+| TA-10-2026-0105 | 議員特権剥奪 — Patryk Jaki（ECR/ポーランド） | PRIV委員会勧告支持 |
+| TA-10-2026-0142 | EU・アイスランド間PNRデータ協定 | 安全保障協力の継続 |
+| TA-10-2026-0119 | EIBの金融活動管理 | 責任性監査 |
+| TA-10-2026-0132 | 2024年承認 — 地域委員会 | 予算精査 |
+| TA-10-2026-0122 | 業績連動型手段の透明性 | 予算誠実性 |
+
+---
+
+### 🏛️ 連立算術（2026年5月）
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**多数決閾値：360票。** EPP+S&Dの二党合計（319）は多数決に41議席届かず、ほぼすべての立法的成果には第三・第四の連立パートナーが必要となる。この構造的分裂 — 分裂指数：高、実効政党数：6.58 — がEP10立法政治の定義的制約である。
+
+**今週本会議の主要連立：**
+- **デジタル・権利案件：** EPP + S&D + Renew（396議席）— 安定多数
+- **地政学・ウクライナ：** EPP + S&D + Renew + ECR（477議席）— 超多数、PfE不参加
+- **農業・CAP：** EPP + S&D + ECR（400議席）— 信頼できる連立
+- **予算精査：** EPP + S&D + Greens/EFA + Renew（449議席）— 広範な説明責任連立
+- **PfE規則169審議：** PfE + ECR（166議席）— 少数圧力グループ、阻止はできないが審議を強制可能
+
+---
+
+### ⚡ 戦略的転換点：PfEの規則169チャレンジ
+
+規則169（政治グループの要求による主題討議）を活用して「欧州委員会による民主的プロセス・選挙への介入疑惑」に関する本会議審議を強制した「愛国者たちのためのヨーロッパ」の動きは、今週で政治的に最も重要な手続き的事案である。これは以下を示している：
+
+1. **主権主義対抗ナラティブの拡大：** PfE（85議席、第3会派）は民主的正統性を巡る一貫した野党アイデンティティを構築し、欧州委員会が加盟国の地方選挙プロセスに関与する権利に疑問を呈している。
+2. **手続き規則の戦術的活用：** 立法的メリットで勝負するのではなく、PfEは手続きツールを使って公的圧力をかけ、親主権ナラティブのメディア報道を創出している。
+3. **手続き問題でのECRとの潜在的連立：** ECR（81議席）＋ESN（27議席）＋PfE（85議席）= 193議席 — 審議の強制、大量修正の提出、手続きの遅延には十分。
+4. **守勢に立たされる欧州委員会：** 審議は欧州委員会の代表者に、ポピュリスト会派が事実に関係なく「介入」と特徴づける慣行を弁護させる。
+
+**WEP評価（可能性あり、70%）：** このパターンは激化し、PfEは夏季休会前に少なくとも3〜5件の追加規則169要求を提出し、移民、経済的主権、ジェンダーイデオロギーに焦点を当てる — 伝統的な有権者動員テーマ。
+
+---
+
+### 🌍 地政学的ポジショニング
+
+ストラスブール週の地政学テキストは、ウクライナ支持（TA-10-2026-0161）、アルメニアの民主的移行（TA-10-2026-0162）、レバノン停戦（討議）、ロシアの侵略非難を維持する議会を示している。一方、中東政策の一貫性では課題が残り、エネルギー・肥料・中東危機に関する合同討議では採択テキストが生まれず、各会派間でイスラエル・パレスチナ問題について解決不能な意見の相違があることを示している。
+
+ハイチの人身売買決議（TA-10-2026-0151）は、欧州議会の人権マンデートの確認であり、通常の連立ラインを超えた典型的な人道的全会一致で採択された。
+
+---
+
+### 💰 2027年予算シグナル
+
+2027年予算ガイドライン（TA-10-2026-0112）は年次予算手続きにおける議会の開始提案を示している。2026年4月に採択されたテキストは、欧州委員会の予算提案に対して政治的優先事項を設定する。主要シグナル：
+- 戦略的自律性への投資優先（防衛・デジタル・エネルギー）
+- Omnibus Iの圧力にもかかわらず気候移行資金コミットメントの維持
+- 構造基金の過度な削減への抵抗
+- 業績連動型手段の透明性精査（TA-10-2026-0122を同時採択）
+
+**データソース：** 欧州議会オープンデータポータル（data.europarl.europa.eu）| 収集：2026-05-11
+
+---
+
+### 📊 活動指標
+
+| 指標 | 値 |
+|--------|-------|
+| 本会議週の採択テキスト数 | 13 |
+| 主要討議数 | 9 |
+| 特権剥奪決定数 | 1（Jaki） |
+| 承認決定数 | 2 |
+| 国際協定 | 1（アイスランドPNR） |
+| 緊急決議 | 3（ハイチ、アルメニア、ロシア/ウクライナ） |
+| 議会安定スコア | 84/100（早期警戒システム） |
+| 分裂指数 | 高（EPoP 6.58） |
+
+---
+
+### 🔑 名指しされた主要関係者（Pass 2追加）
+
+**フェーズB Pass 2相互参照：stakeholder-map.md、actor-mapping.md**
+
+- **ロベルタ・メツォーラ（EPP/マルタ）** — 欧州議会議長、4月本会議の議長；PfEの規則169活用をエスカレートさせずに対処
+- **ハビ・ロペス（S&D/スペイン）** — 予算・社会問題案件に存在；S&Dの進歩的予算優先事項の報告者
+- **ドロレス・モンセラット（EPP/スペイン）** — デジタル権利における著名なEPP声部；オンライン暴力立法要求者
+- **ジョルダン・バルデラ（PfE/フランス）** — PfE会派リーダー；欧州委員会の選挙介入に関する規則169審議を指揮
+- **テレサ・リベラ（EC/スペイン）** — 競争担当委員会執行副委員長；DMA執行の政治的マンデートを受領者
+- **マンフレート・ウェーバー（EPP/ドイツ）** — EPP会派議長；EPP-PfE整合を防止する連立規律を維持
+
+**立法報告者：** LIBE委員会議長によるオンライン暴力報告（S&D/Renew）、DMA執行IMCO議長（EPP）、牛肉AGRI議長（EPP/ECRクロスオーバー）、ウクライナ/アルメニアAFET議長（二党制）。
+
+---
+
+### Strategic Outlook Summary
+
+2026年4月28〜30日のストラスブール本会議はEP10政治の構造的変曲点を示している。DMA執行の投票はEPP-S&D-Renew中道連立が域内市場案件で立法的能力を維持していることを示す。PfEの規則169活用は主権主義右派が立法多数を必要とせずに欧州委員会に政治的コストを課す手続き的ツールを見つけたことを示す。
+
+**3ヶ月予測（2026年5〜7月）：**
+1. PfEの規則169活用は欧州委員会の対外行動・移民案件で継続される見込み
+2. オンライン暴力立法要求は欧州委員会の討議に移行；12ヶ月の提案ドラフトスケジュール
+3. DMA執行マンデートはGAFAMの行動的救済に関する欧州委員会のゲートキーパー決定を形成
+4. ウクライナ支持投票はEPP-S&D-Renewの負担分担調整継続に政治的カバーを提供
+5. アルメニア投票は南コーカサス正常化アジェンダに関する欧州議会-EEAS整合を強化
+
+**結論：** EP10は脆弱ながらも回復力のある中道多数を持つ機能する議会として機能している。EU統治への脅威は多数決の崩壊ではなく、主権主義ブロックが手続き的異議申し立てをエスカレートさせるにつれた欧州委員会の政治的権威の緩やかな侵食である。
+
+**提督格付け：** B2 | **信頼度：** 構造的ダイナミクスでは高；特定投票状況では中程度（欧州議会投票記録は2〜4週間の遅延で公開）
+
+*EU Parliament Monitorエージェントパイプラインが作成 | フェーズA+Bデータ：欧州議会オープンデータポータル | Pass 2完了：名指し俳優、特定MEP相互参照、連立算術検証*
+
+### Executive Brief Ko
+
+**기사 유형:** motions | **날짜:** 2026-05-11 | **데이터 범위:** 2026-05-04~2026-05-11
+**WEP 신뢰도:** 가능성 있음 (65~85%) | **제독 등급:** B2 (신뢰할 수 있는 출처, 아마도 정확)
+
+---
+
+### 🎯 헤드라인 평가
+
+2026년 4월 28~30일 스트라스부르에서 열린 유럽의회 본회의는 디지털 권리 집행, 우크라이나·아르메니아에 대한 지정학적 약속 갱신, 2027년 재정 계획 주기 개시, 그리고 정치적으로 매우 고조된 부수 사안으로서 주권주의 성향의 '유럽을 위한 애국자들'(PfE) 그룹이 유럽집행위원회의 민주적 프로세스 개입 의혹에 관해 규칙 169에 따른 공식 토론을 요구하는 등 밀도 높은 입법 의제를 동시에 추진했다. 13개의 채택 문서와 9건의 주요 토론은 거의 모든 법안에서 임시 다수결 형성이 필요한 분열된 연립 산술 하에 높은 입법 속도로 활동하는 의회를 보여준다.
+
+**WEP 평가(가능성 있음, 약 75%):** EPP 주도의 중도우파 블록은 지정학·예산 분야에서 S&D와의 선택적 연립을 통해 입법적 통제력을 유지하는 반면, PfE와 ECR은 유럽집행위원회의 권한에 대한 규칙적 도전에 의존하며 2026년 내내 민주적 프로세스 관련 사안을 제기할 것이다.
+
+**제독 등급: B2** — 유럽의회 오픈데이터포털(신뢰성 높음)의 1차 데이터; 유럽의회 게재 지연으로 개별 표결 결과 미공개.
+
+---
+
+### 📋 이번 주 주요 결정
+
+| 문서 | 사안 | 정치적 신호 |
+|------|-------|-----------------|
+| TA-10-2026-0163 | 온라인 폭력·괴롭힘 관련 형사 조항 | EPP+S&D+Renew 디지털 권리 연립 |
+| TA-10-2026-0161 | 러시아의 책임/우크라이나 공격 | 전 회파 컨센서스; PfE 고립 |
+| TA-10-2026-0162 | 아르메니아 민주적 회복력 | 동방 파트너십 우선순위 |
+| TA-10-2026-0160 | 디지털시장법(DMA) 집행 | 기술 규제를 위한 양당 다수결 |
+| TA-10-2026-0157 | EU 쇠고기 부문 지속 가능성 | CAP 연립: EPP+S&D+ECR |
+| TA-10-2026-0151 | 아이티 인신매매 위기 | 인도적 만장일치 |
+| TA-10-2026-0112 | 2027년 예산 지침(섹션 III) | 재정 매파 대 투자 블록 |
+| TA-10-2026-0115 | 개·고양이 복지 추적 | 폭넓은 다수결; ESN/PfE 저항 |
+| TA-10-2026-0105 | 면책특권 해제 — Patryk Jaki(ECR/폴란드) | PRIV 위원회 권고 지지 |
+| TA-10-2026-0142 | EU-아이슬란드 PNR 데이터 협정 | 안보 협력 지속 |
+| TA-10-2026-0119 | EIB 금융 활동 통제 | 책임성 감사 |
+| TA-10-2026-0132 | 2024년 승인 — 지역위원회 | 예산 심사 |
+| TA-10-2026-0122 | 성과 기반 도구 투명성 | 예산 성실성 |
+
+---
+
+### 🏛️ 연립 산술 (2026년 5월)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**다수결 임계값: 360표.** EPP+S&D의 양당 합계(319)는 다수결에 41석 모자라, 거의 모든 입법 결과에 세 번째 또는 네 번째 연립 파트너가 필요하다. 이 구조적 분열 — 분열 지수: 높음, 실효 정당 수: 6.58 — 이 EP10 입법 정치의 정의적 제약이다.
+
+**이번 본회의 주의 주요 연립:**
+- **디지털·권리 사안:** EPP + S&D + Renew(396석) — 안정적 다수
+- **지정학·우크라이나:** EPP + S&D + Renew + ECR(477석) — 초다수, PfE 불참
+- **농업·CAP:** EPP + S&D + ECR(400석) — 신뢰할 수 있는 연립
+- **예산 심사:** EPP + S&D + Greens/EFA + Renew(449석) — 광범위한 책임 연립
+- **PfE 규칙 169 토론:** PfE + ECR(166석) — 소수 압력 그룹, 차단 불가이나 토론 강제 가능
+
+---
+
+### ⚡ 전략적 전환점: PfE의 규칙 169 도전
+
+규칙 169(정치 그룹 요청에 의한 주제 토론)를 활용해 '유럽집행위원회의 민주적 프로세스·선거 개입 의혹'에 관한 본회의 토론을 강제한 '유럽을 위한 애국자들'의 움직임은 이번 주 정치적으로 가장 중요한 절차적 사안이다. 이는 다음을 의미한다:
+
+1. **주권주의 대항 서사 확장:** PfE(85석, 제3 회파)는 민주적 정당성을 둘러싼 일관된 야당 정체성을 구축하며 유럽집행위원회가 가맹국 지방 선거 과정에 관여할 권리에 이의를 제기한다.
+2. **절차 규칙의 전술적 활용:** 입법적 공과로 싸우는 대신, PfE는 절차적 도구를 사용해 공적 압박을 가하고 친주권 서사의 미디어 보도를 창출한다.
+3. **절차 문제에서 ECR과의 잠재적 연립:** ECR(81석)+ESN(27석)+PfE(85석) = 193석 — 토론 강제, 대량 수정안 제출, 절차 지연에 충분.
+4. **수세에 몰리는 유럽집행위원회:** 토론은 유럽집행위원회 대표자들이 사실 여부와 관계없이 포퓰리스트 회파가 '개입'이라 규정하는 관행을 변호하도록 만든다.
+
+**WEP 평가(가능성 있음, 70%):** 이 패턴은 심화되어 PfE는 여름 휴회 전에 최소 3~5건의 추가 규칙 169 요청을 제출하며 이민, 경제적 주권, 젠더 이데올로기에 초점을 맞출 것이다 — 전통적인 유권자 동원 주제들.
+
+---
+
+### 🌍 지정학적 포지셔닝
+
+스트라스부르 주의 지정학 문서들은 우크라이나 지지(TA-10-2026-0161), 아르메니아 민주적 이행(TA-10-2026-0162), 레바논 휴전(토론), 러시아 침략 비난을 유지하는 의회를 보여준다. 한편 중동 정책 일관성에서는 과제가 남아 있으며, 에너지·비료·중동 위기에 관한 공동 토론에서 채택 문서가 나오지 않아 각 회파 간 이스라엘-팔레스타인 문제에 대한 해결 불가능한 견해 차이를 보여준다.
+
+아이티 인신매매 결의(TA-10-2026-0151)는 유럽의회의 인권 위임에 대한 확인이며, 통상적인 연립 라인을 초월한 전형적인 인도적 만장일치로 채택되었다.
+
+---
+
+### 💰 2027년 예산 신호
+
+2027년 예산 지침(TA-10-2026-0112)은 연간 예산 절차에서 의회의 개시 제안을 나타낸다. 2026년 4월 채택된 문서는 유럽집행위원회의 예산 제안에 정치적 우선순위를 설정한다. 주요 신호:
+- 전략적 자율성 투자 우선(국방·디지털·에너지)
+- Omnibus I 압력에도 불구하고 기후 전환 자금 약속 유지
+- 구조 기금의 과도한 삭감에 대한 저항
+- 성과 기반 도구 투명성 심사(TA-10-2026-0122 동시 채택)
+
+**데이터 출처:** 유럽의회 오픈데이터포털(data.europarl.europa.eu) | 수집: 2026-05-11
+
+---
+
+### 📊 활동 지표
+
+| 지표 | 값 |
+|--------|-------|
+| 본회의 주 채택 문서 수 | 13 |
+| 주요 토론 수 | 9 |
+| 면책특권 해제 결정 | 1 (Jaki) |
+| 승인 결정 | 2 |
+| 국제 협정 | 1 (아이슬란드 PNR) |
+| 긴급 결의 | 3 (아이티, 아르메니아, 러시아/우크라이나) |
+| 의회 안정 점수 | 84/100 (조기경보시스템) |
+| 분열 지수 | 높음 (EPoP 6.58) |
+
+---
+
+### 🔑 명명된 주요 행위자 (Pass 2 추가)
+
+**페이즈 B Pass 2 상호 참조: stakeholder-map.md, actor-mapping.md**
+
+- **로베르타 메촐라(EPP/몰타)** — 유럽의회 의장, 4월 본회의 사회자; PfE의 규칙 169 활용을 에스컬레이션 없이 처리
+- **하비 로페스(S&D/스페인)** — 예산·사회 사안에 존재; S&D 진보적 예산 우선순위 보고자
+- **돌로레스 몬세라트(EPP/스페인)** — 디지털 권리에서 두드러진 EPP 목소리; 온라인 폭력 입법 요청자
+- **조르당 바르델라(PfE/프랑스)** — PfE 회파 리더; 유럽집행위원회의 선거 개입에 관한 규칙 169 토론 지휘
+- **테레사 리베라(EC/스페인)** — 경쟁 담당 집행위원회 수석 부의장; DMA 집행의 정치적 위임 수령자
+- **만프레트 베버(EPP/독일)** — EPP 회파 의장; EPP-PfE 정렬을 방지하는 연립 규율 유지
+
+**입법 보고자:** LIBE 위원회 의장의 온라인 폭력 보고(S&D/Renew), DMA 집행 IMCO 의장(EPP), 쇠고기 AGRI 의장(EPP/ECR 교차), 우크라이나/아르메니아 AFET 의장(양당).
+
+---
+
+### Strategic Outlook Summary
+
+2026년 4월 28~30일 스트라스부르 본회의는 EP10 정치의 구조적 변곡점을 나타낸다. DMA 집행 표결은 EPP-S&D-Renew 중도 연립이 역내 시장 사안에서 입법적 역량을 유지하고 있음을 보여준다. PfE의 규칙 169 활용은 주권주의 우파가 입법 다수결 없이도 유럽집행위원회에 정치적 비용을 부과하는 절차적 도구를 찾았음을 보여준다.
+
+**3개월 예측 (2026년 5~7월):**
+1. PfE의 규칙 169 활용은 유럽집행위원회의 대외 행동·이민 사안에서 지속될 것으로 예상
+2. 온라인 폭력 입법 요청은 유럽집행위원회 토론으로 이전; 12개월 제안 초안 일정
+3. DMA 집행 위임은 GAFAM 행동적 구제에 관한 유럽집행위원회의 게이트키퍼 결정을 형성
+4. 우크라이나 지지 표결은 EPP-S&D-Renew의 부담 분담 조율 지속에 정치적 커버 제공
+5. 아르메니아 표결은 남코카서스 정상화 의제에 관한 유럽의회-EEAS 정렬 강화
+
+**결론:** EP10은 취약하지만 회복력 있는 중도 다수를 가진 기능하는 의회로 운영되고 있다. EU 거버넌스에 대한 위협은 다수결 붕괴가 아니라 주권주의 블록이 절차적 이의 제기를 에스컬레이션함에 따른 유럽집행위원회의 정치적 권위의 느린 잠식이다.
+
+**제독 등급:** B2 | **신뢰도:** 구조적 역학에서 높음; 특정 표결 상황에서 중간(유럽의회 표결 기록은 2~4주 지연으로 게재)
+
+*EU Parliament Monitor 에이전트 파이프라인 작성 | 페이즈 A+B 데이터: 유럽의회 오픈데이터포털 | Pass 2 완료: 명명된 행위자, 특정 MEP 상호 참조, 연립 산술 검증*
+
+### Executive Brief Nl
+
+### 🎯 Kopbeoordeling
+
+De plenaire vergadering van het Europees Parlement in Straatsburg op 28–30 april 2026 leverde een dichte wetgevingsagenda die tegelijkertijd de handhaving van digitale rechten vooruitbracht, geopolitieke verbintenissen met Oekraïne en Armenië herbevestigde, een fiscale planningscyclus voor 2027 opende en — in een politiek beladen nevengebeurtenis — de soevereinistische Patriots for Europe (PfE)-groep een formeel debat (artikel 169 van het Reglement) zag eisen over vermeende inmenging van de Commissie in democratische processen. Dertien aangenomen teksten en meer dan negen grote debatten signaleren een parlement dat met een hoog wetgevingstempo opereert onder gefragmenteerde coalitie-aritmetiek die voor bijna elk dossier ad-hoc-meerheidsvorming vereist.
+
+**WEP-beoordeling (Waarschijnlijk, ~75 %):** Het EPP-verankerde centrum-rechtsblok zal de wetgevingscontrole handhaven door een selectieve coalitie met S&D op geopolitieke en begrotingsdossiers, terwijl PfE en ECR procedurele mechanismen zullen benutten om de autoriteit van de Commissie op het gebied van democratische processen gedurende 2026 te betwisten.
+
+**Admiraliteitsgraad: B2** — Primaire gegevens van het EP Open Data Portal (betrouwbaar); individuele stemmingsmarges niet beschikbaar vanwege de publicatievertraging van het EP.
+
+---
+
+### 📋 Belangrijke besluiten deze week
+
+| Tekst | Onderwerp | Politiek signaal |
+|------|-------|-----------------|
+| TA-10-2026-0163 | Strafrechtelijke bepalingen inzake cyberpesten/online intimidatie | Coalitie voor digitale rechten EPP+S&D+Renew |
+| TA-10-2026-0161 | Aansprakelijkheid Rusland / aanvallen op Oekraïne | Transpartijdige consensus; PfE geïsoleerd |
+| TA-10-2026-0162 | Democratische veerkracht in Armenië | Prioriteit van het oostelijk nabuurschap |
+| TA-10-2026-0160 | Handhaving van de Digitalemarktenverordening | Bipartijdige meerderheid voor technologieregulering |
+| TA-10-2026-0157 | Duurzaamheid van de EU-veehouderijsector | GLB-coalitie: EPP+S&D+ECR |
+| TA-10-2026-0151 | Crisis van mensenhandel in Haïti | Humanitaire eensgezindheid |
+| TA-10-2026-0112 | Begrotingsrichtsnoeren 2027 (afdeling III) | Begrotingshaviken versus investeringsblok |
+| TA-10-2026-0115 | Traceerbaarheid voor welzijn van honden en katten | Brede meerderheid; ESN/PfE resistent |
+| TA-10-2026-0105 | Opheffing immuniteit — Patryk Jaki (ECR/Polen) | Aanbeveling van de PRIV-commissie gehandhaafd |
+| TA-10-2026-0142 | EU-IJsland PNR-gegevensovereenkomst | Continuïteit van veiligheidssamenwerking |
+| TA-10-2026-0119 | Controle van de financiële activiteiten van de EIB | Verantwoordingstoezicht |
+| TA-10-2026-0132 | Kwijting 2024 — Comité van de Regio's | Begrotingscontrole |
+| TA-10-2026-0122 | Transparantie van op prestaties gebaseerde instrumenten | Begrotingsintegriteit |
+
+---
+
+### 🏛️ Coalitie-aritmetiek (mei 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**Meerderheidsdrempel: 360 stemmen.** Het bilaterale totaal van EPP+S&D (319) valt 41 zetels onder een meerderheid, waardoor elk wetgevingsresultaat een derde of vierde coalitiegenoot vereist. Deze structurele fragmentatie — met Fragmentatieindex: HOOG, Effectief aantal partijen: 6,58 — is de bepalende beperking van de EP10-wetgevingspolitiek.
+
+**Dominante coalities in deze plenaire week:**
+- **Digitale/rechtendossiers**: EPP + S&D + Renew (396 zetels) — solide meerderheid
+- **Geopolitiek/Oekraïne**: EPP + S&D + Renew + ECR (477 zetels) — supermeerderheid, PfE afwezig
+- **Landbouw/GLB**: EPP + S&D + ECR (400 zetels) — betrouwbare coalitie
+- **Begrotingscontrole**: EPP + S&D + Greens/EFA + Renew (449 zetels) — brede verantwoordingscoalitie
+- **PfE-artikel-169-debat**: PfE + ECR (166 zetels) — minderheidsdrukgroep, kan niet blokkeren maar kan debat afdwingen
+
+---
+
+### ⚡ Strategisch moment: de artikel-169-uitdaging van PfE
+
+Het beroep van Patriots for Europe op artikel 169 van het Reglement (actueel debat op verzoek van een politieke groep) om een plenaire discussie af te dwingen over vermeende "inmenging van de Commissie in democratische processen en verkiezingen" is het politiek meest significante procedurele evenement van de week. Deze zet signaleert:
+
+1. **Escalatie van het soevereinistische tegenverhaal**: PfE (85 zetels, derde grootste groep) bouwt een coherente oppositie-identiteit op rondom democratische legitimiteit en betwist het recht van de Commissie om zich te mengen in nationale verkiezingsprocessen van lidstaten.
+2. **Tactisch gebruik van de Reglementsregels**: In plaats van in te gaan op wetgevende verdiensten gebruikt PfE procedurele instrumenten om publieke druk te creëren en media-aandacht voor een pro-soevereiniteitsnarratief te genereren.
+3. **Coalitie met ECR mogelijk in procedurele kwesties**: ECR (81 zetels) en ESN (27 zetels) gecombineerd met PfE (85 zetels) = 193 zetels — voldoende om debatten af te dwingen, massale amendementen in te dienen en procedures te vertragen.
+4. **Commissie in de verdediging**: Het debat dwingt vertegenwoordigers van de Commissie om praktijken te verdedigen die populistische groepen als inmenging kwalificeren, ongeacht de feitelijke omstandigheden.
+
+**WEP-beoordeling (Waarschijnlijk, 70 %):** Dit patroon zal zich intensiveren, waarbij PfE voor het zomerreces ten minste 3–5 verdere artikel-169-verzoeken zal indienen, gericht op migratie, economische soevereiniteit en genderideologie — traditionele mobilisatiethema's voor zijn kiezersaanhang.
+
+---
+
+### 🌍 Geopolitieke houding
+
+De geopolitieke teksten van de Straatsburgweek onthullen een parlement dat robuuste steun handhaaft voor Oekraïne (TA-10-2026-0161), democratische transitie in Armenië (TA-10-2026-0162), Libanees staakt-het-vuren (debat) en veroordeling van Russische agressie — terwijl het tegelijkertijd worstelt met de samenhang van het Midden-Oostenbeleid, zoals blijkt uit het gemeenschappelijk debat over energie, meststoffen en de Midden-Oostencrisis dat geen aangenomen tekst opleverde, wat suggereert dat onverenigbare meningsverschillen bestaan tussen groepen over de Israëlisch-Palestijnse dimensie.
+
+De Haïtiaanse mensenhandelresolutie (TA-10-2026-0151) vertegenwoordigt een herbevestiging van het mensenrechtsmandaat van het EP, aangenomen met de typische humanitaire eensgezindheid die normale coalitiegrenzen overschrijdt.
+
+---
+
+### 💰 Begrotingssignalering 2027
+
+De richtsnoeren voor de begroting 2027 (TA-10-2026-0112) vertegenwoordigen het openingsbod van het Parlement in de jaarlijkse begrotingsprocedure. De in april 2026 aangenomen tekst stelt politieke prioriteiten voor de begrotingsvoorstellen van de Commissie. Belangrijke signalen:
+- Prioritering van investeringen in strategische autonomie (defensie, digitaal, energie)
+- Gehandhaafd engagement voor klimaattransitie-financiering ondanks Omnibus I-druk
+- Verzet tegen buitensporige bezuinigingen in de structuurfondsen
+- Controle van de transparantie van op prestaties gebaseerde instrumenten (TA-10-2026-0122 gelijktijdig aangenomen)
+
+**Brongegevens:** EP Open Data Portal (data.europarl.europa.eu) | Verzameling: 2026-05-11
+
+---
+
+### 📊 Activiteitsmetrieken
+
+| Metriek | Waarde |
+|--------|-------|
+| Aangenomen teksten in deze plenaire week | 13 |
+| Grote debatten | 9 |
+| Immuniteitsbeslissingen | 1 (Jaki) |
+| Kwijtingsbeslissingen | 2 |
+| Internationale overeenkomsten | 1 (IJsland PNR) |
+| Urgentieresoluties | 3 (Haïti, Armenië, Rusland/Oekraïne) |
+| Parlementaire stabiliteitsscore | 84/100 (vroegwaarschuwingssysteem) |
+| Fragmentatieindex | HOOG (EPoP 6,58) |
+
+---
+
+### 🔑 Met name genoemde sleutelactoren (Toevoeging Pass 2)
+
+**Fase B Pass 2 kruisreferentie: stakeholder-map.md, actor-mapping.md**
+
+- **Roberta Metsola (EPP/Malta)** — EP-voorzitter, plenaire voorzitter voor de aprilsessie; beheerde de invocatie van artikel 169 door PfE zonder escalatie
+- **Javi López (S&D/Spanje)** — Zichtbaar in begrotings- en socialdossiers; S&D-rapporteur voor progressieve begrotingsprioriteiten
+- **Dolors Montserrat (EPP/Spanje)** — Prominente EPP-stem over digitale rechten, wetgevingsverzoek inzake cyberpesten
+- **Jordan Bardella (PfE/Frankrijk)** — PfE-groepsleider; orkestreerde het artikel-169-debat over de verkiezingsinmenging van de Commissie
+- **Teresa Ribera (EC/Spanje)** — Uitvoerend vicevoorzitter van de Commissie voor Mededinging; ontvanger van het politieke mandaat voor DMA-handhaving
+- **Manfred Weber (EPP/Duitsland)** — EPP-fractievoorzitter; handhaaft coalitiediscipline die EPP-PfE-afstemming verhindert
+
+**Wetgevingsrapporteurs:** LIBE-commissie hoofd voor cyberpesten (S&D/Renew), IMCO-hoofd voor DMA-handhaving (EPP), AGRI-hoofd voor veehouderij (EPP/ECR-kruising), AFET-hoofd voor Oekraïne/Armenië (bipartijdig).
+
+---
+
+### Strategic Outlook Summary
+
+De plenaire vergadering in Straatsburg van 28–30 april 2026 markeert een structureel buigpunt in de EP10-politiek. De stemming over DMA-handhaving toont aan dat de EPP-S&D-Renew-centrumcoalitie wetgevingscapaciteit behoudt op interne marktdossiers. De invocatie van artikel 169 door PfE toont aan dat de soevereinistische rechterflank een procedureel instrument heeft gevonden om de Commissie politieke kosten op te leggen zonder een wetgevende meerderheid te vereisen.
+
+**Driemandsvooruitzicht (mei–juli 2026):**
+1. PfE-artikel-169-invocaties zullen waarschijnlijk doorgaan op dossiers over extern optreden en migratie van de Commissie
+2. Het wetgevingsverzoek inzake cyberpesten gaat naar de Commissie voor behandeling; 12-maanden tijdlijn voor een conceptvoorstel
+3. Het DMA-handhavingsmandat zal de gate-keeping-beslissingen van de Commissie over gedragsmaatregelen van GAFAM beïnvloeden
+4. De Oekraïne-stemstemming biedt politieke dekking voor de voortgezette EPP-S&D-Renew-coördinatie over lastenverdeling
+5. De Armenië-stemming consolideert de EP-EDEO-afstemming op de normaliseringsagenda voor de Zuidelijke Kaukasus
+
+**Conclusie:** EP10 functioneert als een werkend parlement met een fragiele maar duurzame centrummeerderheld. De bedreiging voor de EU-governance is geen meerderheidsinstorting maar een langzame erosie van de politieke autoriteit van de Commissie naarmate het soevereinistische blok de procedurele betwisting escaleert.
+
+**Admiraliteitsgraad:** B2 | **Betrouwbaarheid:** HOOG voor structurele dynamieken; GEMIDDELD voor specifieke stemtoewijzing (EP-stemregisters worden gepubliceerd met 2–4 weken vertraging)
+
+*Opgesteld door de EU Parliament Monitor agentic pipeline | Fase A+B-gegevens: EP Open Data Portal | Pass 2 voltooid: met name genoemde actoren, MEP-specifieke kruisreferenties, coalitie-aritmetiek geverifieerd*
+
+### Executive Brief No
+
+### 🎯 Rubrikkvurdering
+
+Europaparlamentets plenarsesjon i Strasbourg 28.–30. april 2026 leverte en tett lovgivningsagenda som samtidig fremmet håndheving av digitale rettigheter, bekreftet geopolitiske forpliktelser overfor Ukraina og Armenia, åpnet en fiskal planleggingssyklus for 2027 og — i en politisk ladet sidebegivenhet — så den suverenistiske Patriots for Europe (PfE)-gruppen kreve en formell debatt (Reglementets artikkel 169) om påstått Kommisjonsinnblanding i demokratiske prosesser. Tretten vedtatte tekster og mer enn ni store debatter signaliserer et parlament i høy lovgivningstakt under fragmentert koalisjonsaritmetikk som krever ad hoc-majoritetskonstruksjon for nesten hvert eneste saksområde.
+
+**WEP-vurdering (Sannsynlig, ~75 %):** Det EPP-forankrede sentrum-høyreblokket vil opprettholde lovgivningskontroll gjennom selektiv koalisjon med S&D om geopolitiske og budsjettsaker, mens PfE og ECR vil utnytte prosedyremekanismer for å utfordre Kommisjonens autoritet i spørsmål om demokratiske prosesser gjennom hele 2026.
+
+**Admiralitetsgrad: B2** — Primærdata fra EPs åpne dataportal (pålitelig); individuelle stemmeandeler utilgjengelige på grunn av EPs publiseringsforsinkelse.
+
+---
+
+### 📋 Viktige beslutninger denne uken
+
+| Tekst | Emne | Politisk signal |
+|------|-------|-----------------|
+| TA-10-2026-0163 | Strafferettslige bestemmelser om nettmobbing/trakassering online | Koalisjon for digitale rettigheter EPP+S&D+Renew |
+| TA-10-2026-0161 | Russlands ansvarliggjøring / Ukraina-angrep | Tverrpolitisk konsensus; PfE isolert |
+| TA-10-2026-0162 | Demokratisk motstandskraft i Armenia | Prioritet for østlig nabolag |
+| TA-10-2026-0160 | Håndheving av loven om digitale markeder | Topartistisk majoritet for teknologiregulering |
+| TA-10-2026-0157 | Bærekraft i EUs husdyrsektor | CAP-koalisjon: EPP+S&D+ECR |
+| TA-10-2026-0151 | Krise med menneskehandel i Haiti | Humanitær enstemmighet |
+| TA-10-2026-0112 | Retningslinjer for budsjettet 2027 (seksjon III) | Budsjetthøker mot investeringsblokken |
+| TA-10-2026-0115 | Sporbarhet for hunde- og kattevelferd | Bred majoritet; ESN/PfE motstandsdyktige |
+| TA-10-2026-0105 | Oppheving av immunitet — Patryk Jaki (ECR/Polen) | PRIV-komiteens anbefaling opprettholdt |
+| TA-10-2026-0142 | EU-Island PNR-dataavtale | Kontinuitet i sikkerhetssamarbeidet |
+| TA-10-2026-0119 | Kontroll av EIBs finansielle aktiviteter | Ansvarlighetsoversyn |
+| TA-10-2026-0132 | Ansvarsfrihet 2024 — Regionkomiteen | Budsjettgranskning |
+| TA-10-2026-0122 | Transparens i resultatbaserte instrumenter | Budsjettintegritet |
+
+---
+
+### 🏛️ Koalisjonsaritmetikk (mai 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**Majoritetsterskelen: 360 stemmer.** EPP+S&Ds bilaterale totalsum (319) er 41 mandater under en majoritet, noe som sikrer at hvert lovgivningsresultat krever en tredje eller fjerde koalisjonspartner. Denne strukturelle fragmenteringen — med Fragmenteringsindeks: HØY, Effektivt antall partier: 6,58 — er den avgjørende begrensningen for EP10s lovgivningspolitikk.
+
+**Dominerende koalisjoner denne plenarmøteuken:**
+- **Digitale/rettighetssaker**: EPP + S&D + Renew (396 mandater) — solid majoritet
+- **Geopolitikk/Ukraina**: EPP + S&D + Renew + ECR (477 mandater) — supermajoritet, PfE fraværende
+- **Landbruk/CAP**: EPP + S&D + ECR (400 mandater) — pålitelig koalisjon
+- **Budsjettgranskning**: EPP + S&D + Greens/EFA + Renew (449 mandater) — bred ansvarlighetskoalisjon
+- **PfE-regel 169-debatt**: PfE + ECR (166 mandater) — minoritetspressgruppe, kan ikke blokkere men kan tvinge debatt
+
+---
+
+### ⚡ Strategisk øyeblikk: PfEs regel 169-utfordring
+
+Patriots for Europes påberopelse av reglementets artikkel 169 (aktuell debatt på politisk gruppes anmodning) for å tvinge frem en plenardiskusjon om påstått «Kommisjonsinnblanding i demokratiske prosesser og valg» er ukens politisk mest betydningsfulle prosedyrehendelse. Dette grepet signaliserer:
+
+1. **Eskalering av suverenistisk motfortelling**: PfE (85 mandater, tredje største gruppe) bygger en sammenhengende opposisjonsidentitet rundt demokratisk legitimitet og utfordrer Kommisjonens rett til å engasjere seg i innenlandske valgprosesser i medlemsstatene.
+2. **Taktisk bruk av reglementets regler**: I stedet for å engasjere seg i lovgivningsmessige fortjenester bruker PfE prosedyreverktøy for å skape offentlig press og generere mediedekning av en pro-suverenitetfortelling.
+3. **Koalisjon med ECR mulig i prosedyremessige spørsmål**: ECR (81 mandater) og ESN (27 mandater) kombinert med PfE (85 mandater) = 193 mandater — tilstrekkelig til å tvinge debatter, fremme massive endringsforslag og forsinke prosedyrer.
+4. **Kommisjonen i defensiven**: Debatten tvinger Kommisjonens representanter til å forsvare praksis som populistiske grupper karakteriserer som innblanding, uavhengig av de faktiske omstendighetene.
+
+**WEP-vurdering (Sannsynlig, 70 %):** Dette mønsteret vil intensivere seg, med PfE som sender inn minst 3–5 ytterligere regel 169-anmodninger før sommerferien, med fokus på migrasjon, økonomisk suverenitet og kjønnsideologi — tradisjonelle mobiliseringssaker for velgerbasen.
+
+---
+
+### 🌍 Geopolitisk holdning
+
+Strasbourgukens geopolitiske tekster avslører et parlament som opprettholder robust støtte til Ukraina (TA-10-2026-0161), demokratisk overgang i Armenia (TA-10-2026-0162), libanesisk våpenhvile (debatt) og fordømmelse av russisk aggresjon — samtidig som det sliter med koherens i Midtøsten-politikken, noe som fremgår av den felles debatten om energi, gjødning og Midtøstenkrisen som ikke produserte noen vedtatt tekst, noe som tyder på uforenlige meningsforskjeller mellom gruppene om den israelsk-palestinske dimensjonen.
+
+Haiti-trafficking-resolusjonen (TA-10-2026-0151) representerer en bekreftelse av EPs mandat for menneskerettigheter, vedtatt med typisk humanitær enstemmighet som skjærer på tvers av normale koalisjonslinjer.
+
+---
+
+### 💰 Budsjettsignalisering 2027
+
+Retningslinjene for budsjettet 2027 (TA-10-2026-0112) representerer Parlamentets åpningstilbud i den årlige budsjettprosedyren. Teksten vedtatt i april 2026 fastsetter politiske prioriteringer for Kommisjonens budsjettforslag. Viktige signaler:
+- Prioritering av investeringer i strategisk autonomi (forsvar, digital, energi)
+- Opprettholdt engasjement for klimaomstillingsfinansiering til tross for Omnibus I-press
+- Motstand mot overdreven innstramming i strukturfondene
+- Gjennomgang av transparens i resultatbaserte instrumenter (TA-10-2026-0122 vedtatt samtidig)
+
+**Kildedata:** EPs åpne dataportal (data.europarl.europa.eu) | Innsamling: 2026-05-11
+
+---
+
+### 📊 Aktivitetsmålinger
+
+| Metrikk | Verdi |
+|--------|-------|
+| Vedtatte tekster denne plenarmøteuken | 13 |
+| Store debatter | 9 |
+| Immunitetsavgjørelser | 1 (Jaki) |
+| Ansvarsfrihetsavgjørelser | 2 |
+| Internasjonale avtaler | 1 (Island PNR) |
+| Hasteaksjonsresolusjoner | 3 (Haiti, Armenia, Russland/Ukraina) |
+| Parlamentets stabilitetsscore | 84/100 (tidligvarslingssystem) |
+| Fragmenteringsindeks | HØY (EPoP 6,58) |
+
+---
+
+### 🔑 Navngitte nøkkelaktører (Pass 2-tillegg)
+
+**Fase B Pass 2 kryssreferanse: stakeholder-map.md, actor-mapping.md**
+
+- **Roberta Metsola (EPP/Malta)** — EP-president, plenarkoordinator for aprilsesjonen; håndterte PfEs regel 169-påberopelse uten eskalering
+- **Javi López (S&D/Spania)** — Synlig i budsjett- og sosialsaker; S&Ds ordfører for progressive budsjettprioriteringer
+- **Dolors Montserrat (EPP/Spania)** — Fremtredende EPP-stemme om digitale rettigheter, lovgivningsanmodning om nettmobbing
+- **Jordan Bardella (PfE/Frankrike)** — PfEs gruppeledere; orkestrerte regel 169-debatten om Kommisjonens valginnblanding
+- **Teresa Ribera (EC/Spania)** — Kommisjonens utøvende visepresident for konkurranse; mottaker av det politiske mandatet for DMA-håndheving
+- **Manfred Weber (EPP/Tyskland)** — EPPs gruppeformann; opprettholder koalisjonsdisiplin som forhindrer EPP-PfE-tilpasning
+
+**Lovgivningsordførere:** LIBE-komiteens leder for nettmobbing (S&D/Renew), IMCO-leder for DMA-håndheving (EPP), AGRI-leder for husdyr (EPP/ECR-kryss), AFET-leder for Ukraina/Armenia (topartistisk).
+
+---
+
+### Strategic Outlook Summary
+
+Plenarsessionen i Strasbourg 28.–30. april 2026 markerer et strukturelt vendepunkt i EP10-politikken. DMA-håndhevingsavstemningen viser at EPP-S&D-Renew-sentrumskoalisjonen beholder lovgivningskapasitet på det indre markedets saksområder. PfEs regel 169-påberopelse viser at den suverenistiske høyrefløyen har funnet et prosedyreverktøy for å pålegge Kommisjonen politiske kostnader uten å kreve lovgivende majoritet.
+
+**Tremånedersutsikter (mai–juli 2026):**
+1. PfEs regel 169-påberopelser vil sannsynligvis fortsette på Kommisjonens eksterne handlinger og migrasjonssaker
+2. Lovgivningsanmodningen om nettmobbing går til Kommisjonens behandling; 12-månederstidslinje for utkast til forslag
+3. DMA-håndhevingsmandatet vil informere Kommisjonens gate-keeping-beslutninger om GAFAMs adferdsmessige tiltak
+4. Ukraina-støtteavstemningen gir politisk dekning for fortsatt EPP-S&D-Renew-koordinering om byrdefordeling
+5. Armenia-avstemningen konsoliderer EP-EEAS-tilpasningen om normaliseringsagendaen i Sør-Kaukasus
+
+**Bunnlinje:** EP10 fungerer som et fungerende parlament med en skjør men holdbar sentrumsflertall. Trusselen mot EU-styringen er ikke et majoritetssammenbrudd, men en langsom erosjon av Kommisjonens politiske autoritet ettersom det suverenistiske blokket eskalerer prosedyrekontestasjonen.
+
+**Admiralitetsgrad:** B2 | **Konfidens:** HØY for strukturelle dynamikker; MIDDELS for spesifikk stemmtilskriving (EPs stemmregistreringer publiseres med 2–4 ukers forsinkelse)
+
+*Utarbeidet av EU Parliament Monitor agentic pipeline | Fase A+B-data: EPs åpne dataportal | Pass 2 fullført: navngitte aktører, MEP-spesifikke kryssreferanser, koalisjonsaritmetikk verifisert*
+
+### Executive Brief Sv
+
+### 🎯 Rubrikbedömning
+
+Europaparlamentets plenarsession i Strasbourg den 28–30 april 2026 levererade en tät lagstiftningsagenda som simultant avancerade tillämpningen av digitala rättigheter, bekräftade geopolitiska åtaganden gentemot Ukraina och Armenien, öppnade en finansplaneringsprocess inför 2027 och — i ett politiskt laddat sidoevenemang — såg den suveränistiska gruppen Patriots for Europe (PfE) kräva en formell debatt (regel 169) om påstått kommissionsinhysning i demokratiska processer. Tretton antagna texter och mer än nio stora debatter signalerar ett parlament som arbetar i hög lagstiftningstakt under fragmenterad koalitionsaritmetik som kräver ad hoc-majoritetskonstruktion för nästan varje ärendeakt.
+
+**WEP-bedömning (Trolig, ~75 %):** Det EPP-förankrade centrum-högerblocket kommer att upprätthålla lagstiftningskontroll genom selektiv koalition med S&D i geopolitiska frågor och budgetfiler, medan PfE och ECR kommer att utnyttja procedurverktyg för att utmana kommissionens auktoritet i frågor om demokratiska processer under hela 2026.
+
+**Admiralitetsgrad: B2** — Primärdata från EP:s öppna dataportal (tillförlitlig); individuella röstmarginaler ej tillgängliga på grund av EP:s publiceringsfördröjning.
+
+---
+
+### 📋 Viktiga beslut denna vecka
+
+| Text | Ämne | Politisk signal |
+|------|-------|-----------------|
+| TA-10-2026-0163 | Straffrättsliga bestämmelser om nätmobbning/trakasserier online | Digital rättighetskoalition EPP+S&D+Renew |
+| TA-10-2026-0161 | Rysslands ansvar / Ukraina-attacker | Tvärpolitisk konsensus; PfE isolerat |
+| TA-10-2026-0162 | Demokratisk motståndskraft i Armenien | Östra grannprioritering |
+| TA-10-2026-0160 | Tillämpning av lagen om digitala marknader | Bipartisan majoritet för teknikreglering |
+| TA-10-2026-0157 | Hållbarhet i EU:s djursektor | CAP-koalition: EPP+S&D+ECR |
+| TA-10-2026-0151 | Kris med människohandel i Haiti | Humanitär enhällighet |
+| TA-10-2026-0112 | Riktlinjer för budgeten 2027 (avsnitt III) | Budgethökar mot investeringsblocket |
+| TA-10-2026-0115 | Spårbarhet för hund- och kattens välfärd | Bred majoritet; ESN/PfE resistenta |
+| TA-10-2026-0105 | Immunitetsupphävande — Patryk Jaki (ECR/Polen) | PRIV-kommitténs rekommendation upprätthållen |
+| TA-10-2026-0142 | EU-Island PNR-dataavtal | Kontinuitet i säkerhetssamarbetet |
+| TA-10-2026-0119 | Kontroll av EIB:s finansiella verksamhet | Ansvarsskyldighetsöversyn |
+| TA-10-2026-0132 | Ansvarsfrihet 2024 — Regionkommittén | Budgetgranskning |
+| TA-10-2026-0122 | Transparens för resultatbaserade instrument | Budgetintegritet |
+
+---
+
+### 🏛️ Koalitionsaritmetik (maj 2026)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**Majoritetströskel: 360 röster.** EPP+S&D:s bilaterala totalsum (319) faller 41 platser under en majoritet, vilket innebär att varje lagstiftningsutfall kräver en tredje eller fjärde koalitionspartner. Denna strukturella fragmentering — med fragmenteringsindex: HÖG, effektivt antal partier: 6,58 — är den definitiva begränsningen för EP10:s lagstiftningspolitik.
+
+**Dominerande koalitioner denna plenarvecka:**
+- **Digitala/rättighetsfrågor**: EPP + S&D + Renew (396 platser) — stabil majoritet
+- **Geopolitik/Ukraina**: EPP + S&D + Renew + ECR (477 platser) — supermajoritet, PfE frånvarande
+- **Jordbruk/CAP**: EPP + S&D + ECR (400 platser) — tillförlitlig koalition
+- **Budgetgranskning**: EPP + S&D + Greens/EFA + Renew (449 platser) — bred ansvarighetskoalition
+- **PfE:s regel 169-debatt**: PfE + ECR (166 platser) — minoritetstrycksgrupp, kan inte blockera men kan tvinga debatt
+
+---
+
+### ⚡ Strategiskt ögonblick: PfE:s regel 169-utmaning
+
+Patriots for Europes åberopande av regel 169 (ämnesaktuell debatt på politisk grupps begäran) för att tvinga en plenardiskussion om påstått "kommissionsinhysning i demokratiska processer och val" är veckans politiskt mest betydelsefulla procedurhändelse. Detta drag signalerar:
+
+1. **Eskalering av suveränistisk motberättelse**: PfE (85 platser, tredje största grupp) bygger en sammanhängande oppositionsidentitet kring demokratisk legitimitet och utmanar kommissionens rätt att engagera sig i inhemska valprocesser i medlemsstater.
+2. **Taktisk användning av arbetsordningens regler**: I stället för att engagera sig i lagstiftningsmeriter använder PfE procedurinstrument för att skapa offentligt tryck och generera mediebevakning av en pro-suveränitetsberättelse.
+3. **Koalition med ECR möjlig i proceduriella frågor**: ECR (81 platser) och ESN (27 platser) kombinerat med PfE (85 platser) = 193 platser — tillräckligt för att tvinga debatter, lägga fram massiva ändringsförslag och försena förfaranden.
+4. **Kommissionen i defensiven**: Debatten tvingar kommissionens representanter att försvara praxis som populistgrupper karaktäriserar som inblandning, oavsett de faktiska omständigheterna.
+
+**WEP-bedömning (Trolig, 70 %):** Detta mönster kommer att intensifieras, med PfE som lämnar in minst 3–5 ytterligare regel 169-framställningar innan sommaruppehållet, med fokus på migration, ekonomisk suveränitet och könsideologi — traditionella mobiliseringsfrågor för dess väljarbas.
+
+---
+
+### 🌍 Geopolitisk hållning
+
+Strasbourgveckans geopolitiska texter avslöjar ett parlament som upprätthåller ett robust stöd för Ukraina (TA-10-2026-0161), demokratisk omvandling i Armenien (TA-10-2026-0162), libanesisk vapenvila (debatt) och fördömande av rysk aggression — samtidigt som det kämpar med koherens i mellanösternpolitiken, vilket framgår av den gemensamma debatten om energi, gödningsmedel och Mellanösternkrisen som inte producerade någon antagen text, vilket tyder på oförenliga meningsskiljaktigheter mellan grupper om den israelisk-palestinska dimensionen.
+
+Haitiresolusionen om trafficking (TA-10-2026-0151) representerar en bekräftelse av EP:s mandat för mänskliga rättigheter, antagen med typisk humanitär enhällighet som skär tvärs igenom normala koalitionslinjer.
+
+---
+
+### 💰 Budgetsignalering 2027
+
+Riktlinjerna för budgeten 2027 (TA-10-2026-0112) representerar parlamentets öppningsbud i det årliga budgetförfarandet. Texten som antogs i april 2026 fastställer politiska prioriteringar för kommissionens budgetförslag. Viktiga signaler:
+- Prioritering av investeringar i strategisk autonomi (försvar, digital, energi)
+- Bibehållet engagemang för klimatomställningsfinansiering trots Omnibus I-tryck
+- Motstånd mot alltför stor åtstramning i strukturfonderna
+- Granskning av transparens i resultatbaserade instrument (TA-10-2026-0122 antogs samtidigt)
+
+**Källdata:** EP:s öppna dataportal (data.europarl.europa.eu) | Samling: 2026-05-11
+
+---
+
+### 📊 Aktivitetsmått
+
+| Mätetal | Värde |
+|--------|-------|
+| Antagna texter denna plenarvecka | 13 |
+| Större debatter | 9 |
+| Immunitetsbeslut | 1 (Jaki) |
+| Ansvarsfrihetsbeslut | 2 |
+| Internationella avtal | 1 (Island PNR) |
+| Brådskande resolutioner | 3 (Haiti, Armenien, Ryssland/Ukraina) |
+| Parlamentets stabilitetsscore | 84/100 (system för tidig varning) |
+| Fragmenteringsindex | HÖG (EPoP 6,58) |
+
+---
+
+### 🔑 Namngivna nyckelaktörer (Pass 2-tillägg)
+
+**Fas B Pass 2 korsreferens: stakeholder-map.md, actor-mapping.md**
+
+- **Roberta Metsola (EPP/Malta)** — EP:s president, plenarkordinator för aprils session; hanterade PfE:s regel 169-åberopande utan eskalering
+- **Javi López (S&D/Spanien)** — Synlig i budget- och socialfiler; S&D:s föredragande för progressiva budgetprioriteringar
+- **Dolors Montserrat (EPP/Spanien)** — Framträdande EPP-röst om digitala rättigheter, lagstiftningsbegäran om nätmobbning
+- **Jordan Bardella (PfE/Frankrike)** — PfE:s gruppledare; orkestrerade regel 169-debatten om kommissionens inblandning i val
+- **Teresa Ribera (EC/Spanien)** — Kommissionens exekutive vicepresident för konkurrens; mottagare av det politiska mandatet för DMA-tillämpning
+- **Manfred Weber (EPP/Tyskland)** — EPP:s gruppsordförande; upprätthåller koalitionsdisciplin som förhindrar EPP-PfE-anpassning
+
+**Lagstiftningsföredragande:** LIBE-kommitténs ledare för nätmobbning (S&D/Renew), IMCO-ledare för DMA-tillämpning (EPP), AGRI-ledare för boskap (EPP/ECR-korsning), AFET-ledare för Ukraina/Armenien (tvårpartistisk).
+
+---
+
+### Strategic Outlook Summary
+
+Plenarsessionen i Strasbourg den 28–30 april 2026 markerar en strukturell vändpunkt i EP10:s politik. DMA-tillämpningsomröstningen visar att EPP-S&D-Renew-centrumkoalitionen behåller lagstiftningskapacitet på inremarknadsfiler. PfE:s regel 169-åberopande visar att den suveränistiska högerfalangen har hittat ett procedurinstrument för att påföra politiska kostnader för kommissionen utan att kräva lagstiftande majoritet.
+
+**Tremånadersutsikt (maj–juli 2026):**
+1. PfE:s regel 169-åberopanden sannolikt fortsätter på kommissionens externa åtgärder och migrationsärenden
+2. Lagstiftningsbegäran om nätmobbning övergår till kommissionsbehandling; 12-månaders tidslinje för utkast till förslag
+3. DMA-tillämpningsmandatet kommer att informera kommissionens gate-keeping-beslut om GAFAM:s beteendemässiga åtgärder
+4. Ukrainapolicysbeslutet ger politisk täckning för fortsam EPP-S&D-Renew-koordinering om bördelning
+5. Armenienomröstningen konsoliderar EP-EEAS-anpassningen om dagordningen för normalisering i södra Kaukasus
+
+**Slutsats:** EP10 fungerar som ett fungerande parlament med en bräcklig men hållbar centermajoritet. Hotet mot EU:s styrning är inte ett majoritetskollapande utan en långsam erosion av kommissionens politiska auktoritet när det suveränistiska blocket eskalerar procedurkontestation.
+
+**Admiralitetsgrad:** B2 | **Konfidens:** HÖG för strukturella dynamiker; MEDEL för specifik röstfördelning (EP:s röstregistreringar publiceras med 2–4 veckors fördröjning)
+
+*Framtagen av EU Parliament Monitor agentic pipeline | Fas A+B-data: EP:s öppna dataportal | Pass 2 slutfört: namngivna aktörer, MEP-specifika korsreferenser, koalitionsaritmetik verifierad*
+
+### Executive Brief Zh
+
+**文章类型：** motions | **日期：** 2026-05-11 | **数据窗口：** 2026-05-04至2026-05-11
+**WEP可信度：** 可能（65–85%） | **海军上将评级：** B2（可靠来源，可能准确）
+
+---
+
+### 🎯 头条评估
+
+2026年4月28日至30日在斯特拉斯堡举行的欧洲议会全体会议推进了密集的立法议程，同时涵盖数字权利执法、更新对乌克兰和亚美尼亚的地缘政治承诺、启动2027年财政规划周期，以及在政治上高度敏感的附带事件中，主权主义倾向的"欧洲爱国者"（PfE）集团依据议事规则第169条要求就委员会涉嫌干预民主进程举行正式辩论。13项通过文本和9项主要辩论表明，在几乎每项法案都需要临时多数联合的分裂联合算术下，议会以高立法速度运转。
+
+**WEP评估（可能，约75%）：** EPP主导的中右翼集团将通过在地缘政治和预算议题上与S&D的选择性联合维持立法控制权，而PfE和ECR将依赖程序机制对委员会权威提出质疑，并在整个2026年持续就民主进程问题施压。
+
+**海军上将评级：B2** — 来自欧洲议会开放数据门户的一手数据（可靠）；因欧洲议会公布延迟，个别投票率暂不可用。
+
+---
+
+### 📋 本周主要决议
+
+| 文本 | 议题 | 政治信号 |
+|------|-------|-----------------|
+| TA-10-2026-0163 | 网络暴力与骚扰刑事规定 | EPP+S&D+Renew 数字权利联合 |
+| TA-10-2026-0161 | 俄罗斯责任/对乌克兰的攻击 | 跨党派共识；PfE孤立 |
+| TA-10-2026-0162 | 亚美尼亚民主韧性 | 东部伙伴关系优先事项 |
+| TA-10-2026-0160 | 数字市场法（DMA）执法 | 科技监管两党多数 |
+| TA-10-2026-0157 | 欧盟牛肉行业可持续性 | CAP联合：EPP+S&D+ECR |
+| TA-10-2026-0151 | 海地人口贩卖危机 | 人道主义全体一致 |
+| TA-10-2026-0112 | 2027年预算指导方针（第III节） | 财政鹰派对阵投资集团 |
+| TA-10-2026-0115 | 犬猫福利追踪 | 广泛多数；ESN/PfE抵制 |
+| TA-10-2026-0105 | 豁免权撤销 — Patryk Jaki（ECR/波兰） | PRIV委员会建议获维持 |
+| TA-10-2026-0142 | 欧盟-冰岛PNR数据协定 | 安全合作延续 |
+| TA-10-2026-0119 | EIB金融活动监控 | 问责监督 |
+| TA-10-2026-0132 | 2024年免责批准 — 地区委员会 | 预算审查 |
+| TA-10-2026-0122 | 绩效型工具透明度 | 预算诚信 |
+
+---
+
+### 🏛️ 联合算术（2026年5月）
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=3dc9ec74) -->
+
+**多数门槛：360票。** EPP+S&D两党合计（319）距多数差41席，几乎每项立法成果都需要第三或第四联合伙伴。这一结构性分裂 — 分裂指数：高，有效政党数：6.58 — 是EP10立法政治的决定性制约。
+
+**本届全体会议周主要联合：**
+- **数字/权利议题：** EPP + S&D + Renew（396席）— 稳定多数
+- **地缘政治/乌克兰：** EPP + S&D + Renew + ECR（477席）— 超级多数，PfE缺席
+- **农业/CAP：** EPP + S&D + ECR（400席）— 可靠联合
+- **预算审查：** EPP + S&D + Greens/EFA + Renew（449席）— 广泛问责联合
+- **PfE第169条辩论：** PfE + ECR（166席）— 少数压力集团，无法阻止但可强制辩论
+
+---
+
+### ⚡ 战略转折点：PfE的第169条挑战
+
+"欧洲爱国者"援引议事规则第169条（政治集团要求的主题辩论）强制召开关于"委员会涉嫌干预民主进程和选举"全体辩论的举动，是本周政治上最重要的程序性事件。这一举动标志着：
+
+1. **主权主义反叙事升级：** PfE（85席，第三大集团）正围绕民主合法性构建连贯的反对党认同，质疑委员会介入成员国地方选举进程的权利。
+2. **程序规则的战术运用：** PfE没有在立法优劣上争胜，而是使用程序性工具施加公众压力，制造亲主权叙事的媒体报道。
+3. **程序议题上与ECR的潜在联合：** ECR（81席）+ESN（27席）+PfE（85席）= 193席 — 足以强制辩论、提交大量修正案和拖延程序。
+4. **委员会陷入守势：** 辩论迫使委员会代表为无论事实如何都被民粹集团定性为"干预"的做法进行辩护。
+
+**WEP评估（可能，70%）：** 这一模式将加剧，PfE将在夏季休会前提出至少3–5项额外的第169条请求，聚焦于移民、经济主权和性别意识形态——传统选民动员主题。
+
+---
+
+### 🌍 地缘政治定位
+
+斯特拉斯堡周的地缘政治文本呈现了一个维持支持乌克兰（TA-10-2026-0161）、亚美尼亚民主转型（TA-10-2026-0162）、黎巴嫩停火（辩论）和谴责俄罗斯侵略的议会，同时在中东政策一致性上面临挑战，能源、化肥和中东危机联合辩论未产生任何通过文本，表明各集团在以巴问题上存在无法调和的分歧。
+
+海地人口贩卖决议（TA-10-2026-0151）是对欧洲议会人权授权的确认，以典型的超越正常联合界线的人道主义全体一致方式通过。
+
+---
+
+### 💰 2027年预算信号
+
+2027年预算指导方针（TA-10-2026-0112）代表议会在年度预算程序中的开场提案。2026年4月通过的文本为委员会的预算提案确立政治优先事项。主要信号：
+- 优先投资战略自主（国防、数字、能源）
+- 尽管面临Omnibus I压力，维持气候转型资金承诺
+- 抵制对结构性基金的过度削减
+- 绩效型工具透明度审查（TA-10-2026-0122同时通过）
+
+**数据来源：** 欧洲议会开放数据门户（data.europarl.europa.eu）| 采集时间：2026-05-11
+
+---
+
+### 📊 活动指标
+
+| 指标 | 数值 |
+|--------|-------|
+| 本全体会议周通过文本数 | 13 |
+| 主要辩论数 | 9 |
+| 豁免权决定 | 1（Jaki） |
+| 批准决定 | 2 |
+| 国际协定 | 1（冰岛PNR） |
+| 紧急决议 | 3（海地、亚美尼亚、俄罗斯/乌克兰） |
+| 议会稳定评分 | 84/100（早期预警系统） |
+| 分裂指数 | 高（EPoP 6.58） |
+
+---
+
+### 🔑 提名主要行为者（Pass 2补充）
+
+**阶段B Pass 2交叉参考：stakeholder-map.md，actor-mapping.md**
+
+- **罗伯塔·梅措拉（EPP/马耳他）** — 欧洲议会议长，4月全体会议主持人；在不升级事态的情况下处理PfE援引第169条
+- **哈维·洛佩兹（S&D/西班牙）** — 参与预算和社会议题；S&D进步预算优先事项报告员
+- **多洛雷斯·蒙塞拉特（EPP/西班牙）** — 数字权利领域EPP的突出声音；网络暴力立法请求人
+- **乔尔当·巴尔代拉（PfE/法国）** — PfE集团领导人；主导关于委员会选举干预的第169条辩论
+- **特雷莎·里韦拉（EC/西班牙）** — 委员会竞争事务执行副主席；DMA执法政治授权的接受者
+- **曼弗雷德·韦伯（EPP/德国）** — EPP集团主席；维持阻止EPP-PfE协调的联合纪律
+
+**立法报告员：** LIBE委员会网络暴力报告主席（S&D/Renew），DMA执法IMCO主席（EPP），牛肉AGRI主席（EPP/ECR交叉），乌克兰/亚美尼亚AFET主席（两党）。
+
+---
+
+### Strategic Outlook Summary
+
+2026年4月28日至30日斯特拉斯堡全体会议标志着EP10政治的结构性转折点。DMA执法投票证明EPP-S&D-Renew中间派联合在内部市场议题上保持立法能力。PfE援引第169条证明主权主义右翼找到了一种无需立法多数即可对委员会施加政治代价的程序性工具。
+
+**三个月预测（2026年5–7月）：**
+1. PfE援引第169条的做法预计将继续针对委员会的对外行动和移民议题
+2. 网络暴力立法请求将转至委员会审议；12个月提案起草时间表
+3. DMA执法授权将塑造委员会关于GAFAM行为救济的守门人决定
+4. 乌克兰支持投票为EPP-S&D-Renew持续协调负担分担提供政治掩护
+5. 亚美尼亚投票巩固欧洲议会-EEAS在南高加索正常化议程上的协调
+
+**结论：** EP10作为一个功能性议会运作，拥有脆弱但具韧性的中间派多数。对欧盟治理的威胁不是多数崩溃，而是随着主权主义集团升级程序性挑战，委员会政治权威的缓慢侵蚀。
+
+**海军上将评级：** B2 | **可信度：** 结构性动态高；特定投票情况中等（欧洲议会投票记录延迟2–4周公布）
+
+*由EU Parliament Monitor智能体流水线编制 | 阶段A+B数据：欧洲议会开放数据门户 | Pass 2已完成：提名行为者、具体MEP交叉参考、联合算术核实*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `motions`
@@ -5751,4 +7430,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/motions/executive-brief_zh.md) | `executive-brief_zh.md` |
 

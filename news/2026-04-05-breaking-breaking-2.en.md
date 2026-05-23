@@ -108,9 +108,1102 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `intelligence-brief.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التصنيف:** المصادر المفتوحة | سجل برلماني عام
+**مستوى الثقة:** 🟢 مرتفع (تقييم هيكلي خلال العطلة البرلمانية)
+**تاريخ الإنشاء:** 2026-04-05T00:00:00Z (ملخص استرجاعي)
+**نوع المقال:** Breaking — Cross-Session Update
+**المصدر:** بوابة البيانات المفتوحة للبرلمان الأوروبي
+
+---
+
+### 🎯 BLUF
+
+**تحديث استخباراتي بين الدورتين بتاريخ 2026-04-05؛ عطلة البرلمان الأوروبي اليوم العاشر من ثمانية عشر — لا نشاط برلماني جديد للإبلاغ عنه.** تُوسِّع هذه الجلسة الثانية من اليوم خط الأساس الصباحي من خلال دمج المخرجات التحليلية لليوم السابق طوال أسبوع العطلة. لا جهات فاعلة جديدة، لا إجراءات جديدة، لا نصوص معتمدة جديدة. يظل المحتوى الجوهري من الجلسات الرئيسية 2026-04-03 / 04-04 دون تغيير: تغذية واجهة برمجة التطبيقات في حالة متدهورة، هيمنة هيكلية لحزب الشعب الأوروبي بنسبة 38 %، إشارة تماسك Renew–ECR عند 0.95، تجمع إصلاح مكافحة الفساد. **🟢 ثقة عالية** في استمرارية حالة العطلة.
+
+---
+
+### 🧭 ثلاثة قرارات يدعمها هذا الملخص
+
+| # | القرار | جهة اتخاذ القرار | الموعد النهائي | الدليل |
+|:-:|-------|-----------------|:--------------:|--------|
+| 1 | **تحريري:** تخطّي التقرير اليومي؛ دمجه مع الجلسة الصباحية | المحرر | +12 ساعة | نفس مجموعة الإشارات |
+| 2 | **المراقبة:** مواصلة الفحوصات اليومية لنقاط النهاية | خط البيانات | يومياً | الحالة المتدهورة |
+| 3 | **الرصد الاستشرافي:** تركيب استراتيجي في منتصف العطلة (الجلسة الشقيقة `breaking-3`) | رئيس التحليل | +6 ساعات | عمق تحليلي في نفس اليوم |
+
+---
+
+### 📰 القراءة في ستين ثانية
+
+- 🔴 **لا نشاط جديد للبرلمان الأوروبي** اليوم. (🟢 مرتفع)
+- 🟠 **استمرارية بين الدورتين** مع نتائج جوهرية من 2026-04-04 و2026-04-03. (🟢 مرتفع)
+- 🟢 **حالة واجهة البرمجة المتدهورة موروثة.** (🟢 مرتفع)
+- 🟡 **حسابات التحالفات مستقرة.** (🟢 مرتفع)
+- 🔵 **السياق الاقتصادي دون تغيير.** (🟢 مرتفع)
+- 🟣 **مرجع مشترك:** الجلسة الشقيقة `breaking-3` تتعمق بتركيب طولي مدته 12 ساعة. (🟢 مرتفع)
+- 🩷 **ناقلات الاضطراب:** لا شيء حاد. (🟢 مرتفع)
+- ⚪ **التقدم:** 8 أيام حتى انتهاء العطلة.
+
+---
+
+### 🗂️ جدول المستندات / الإجراءات ذات الأولوية
+
+| الترتيب | مرجع البرلمان | العنوان (مختصر) | الأهمية | مستوى الثقة |
+|:-------:|-------------|----------------|:-------:|:-----------:|
+| 1 | — | لا إجراءات ولا نصوص معتمدة جديدة | 0.0 | 🟢 مرتفع |
+| 2 | TA-10-2026-0094 | مكافحة الفساد (مُحوَّل) | 9.0 | 🟢 مرتفع |
+| 3 | TA-10-2026-0088 | حصانة براون (مُحوَّل) | 7.0 | 🟢 مرتفع |
+
+---
+
+### ⚠️ لقطة المخاطر والتهديدات
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| المخاطر | L | I | الدرجة | المحفّز | المصدر | Admiralty |
+|---------|:-:|:-:|:------:|--------|--------|:---------:|
+| استمرار التدهور في التغذية | 4 | 3 | 12 | بعد 14 أبريل | 2026-04-03/breaking-2 | A1 |
+| فراغ الاهتمام خلال العطلة | 3 | 3 | 9 | مفاجأة من الولايات المتحدة أو بولندا | تقويم البرلمان الأوروبي | A2 |
+
+---
+
+### 🔮 أبرز المحفّزات المستقبلية
+
+**ثلاثاء المفوضية الأوروبية، 7 أبريل 2026** و**نهاية العطلة في 13 أبريل**.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **المصادر الرئيسية:** مخزون الربع الأول المُحوَّل؛ ذاكرة بين الدورتين.
+- **مستوى الثقة:** 🟢 مرتفع.
+
+---
+
+### 📎 الروابط
+
+| الرابط | المسار |
+|--------|--------|
+| المقال | `./article.md` |
+| الجلسات الشقيقة | `analysis/daily/2026-04-05/breaking/`، `breaking-3/` |
+| ملف البيانات | `./manifest.json` |
+
+---
+
+**مراقبة المستند**
+- **القالب:** `/analysis/templates/executive-brief.md`
+- **مسار المنتج:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **التصنيف:** عام
+- **الإنشاء الاسترجاعي:** جلسة تعبئة.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Kryds-sessions efterretningsopdatering den 2026-04-05; EP-recess dag 10 af 18 — ingen ny parlamentarisk aktivitet at rapportere.** Denne anden kørsel af dagen udvider morgenbaslinjen ved at integrere analytiske output fra dagen før hen over recessugen. Ingen nye aktører, ingen nye procedurer, ingen nye vedtagne tekster. Substantielt indhold fra de substantielle kørsler 2026-04-03 / 04-04 uændret: API-feed i DEGRADERET tilstand, PPE 38 % strukturel dominans, Renew–ECR 0,95 kohesionssignal, antikorruptionsreformkluster. **🟢 HØJ konfidens** om kontinuitet i recessperiodentilstand.
+
+---
+
+### 🧭 3 Beslutninger Denne Rapport Understøtter
+
+| # | Beslutning | Hvem beslutter | Deadline | Bevis |
+|:-:|-----------|----------------|:--------:|-------|
+| 1 | **Redaktionelt:** SPRING OVER daglig; konsolider med morgenkørsel | Redaktør | +12h | Samme signalsæt |
+| 2 | **Overvågning:** fortsæt daglige endepunktssondringer | Datapipeline | dagligt | DEGRADERET tilstand |
+| 3 | **Fremadrettet observation:** strategisk syntese midt i recessen (søskende `breaking-3`) | Analyseleder | +6h | Analytisk dybde samme dag |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Ingen ny EP-aktivitet** i dag. (🟢 Høj)
+- 🟠 **Kryds-sessions kontinuitet** med substantielle fund fra 2026-04-04 og 2026-04-03. (🟢 Høj)
+- 🟢 **DEGRADERET API-tilstand arvet.** (🟢 Høj)
+- 🟡 **Koalitionsaritmetik stabil.** (🟢 Høj)
+- 🔵 **Økonomisk kontekst uændret.** (🟢 Høj)
+- 🟣 **Krydshenvisning:** søskende `breaking-3` uddybes med 12-timers longitudinal syntese. (🟢 Høj)
+- 🩷 **Forstyrrelsesvektorer:** ingen akutte. (🟢 Høj)
+- ⚪ **Fremførsel:** 8 dage til recessens afslutning.
+
+---
+
+### 🗂️ Topprangerede Dokumenter / Proceduretabel
+
+| Rang | EP-reference | Titel (kort) | Signifikans | Konfidens |
+|:----:|-------------|--------------|:-----------:|:---------:|
+| 1 | — | Ingen nye procedurer eller vedtagne tekster | 0,0 | 🟢 HØJ |
+| 2 | TA-10-2026-0094 | Antikorruption (frembugt) | 9,0 | 🟢 HØJ |
+| 3 | TA-10-2026-0088 | Braun-immunitet (frembugt) | 7,0 | 🟢 HØJ |
+
+---
+
+### ⚠️ Risiko- og Trusselsbillede
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| Risiko | L | I | Score | Udløser | Kilde | Admiralty |
+|--------|:-:|:-:|:-----:|---------|-------|:---------:|
+| DEGRADERET feed-persistens | 4 | 3 | 12 | Forbi 14. april | 2026-04-03/breaking-2 | A1 |
+| Opmærksomhedsvakuum under recess | 3 | 3 | 9 | Overraskelse fra USA eller Polen | EP-kalender | A2 |
+
+---
+
+### 🔮 Top Fremad-Udløser
+
+**Kommissionens tirsdag den 7. april 2026** og **recessens afslutning den 13. april**.
+
+---
+
+### 🛡️ Kildekvali­tetsvurdering
+
+- **Primære kilder:** Frembugt Q1-inventar; kryds-sessions hukommelse.
+- **Konfidens:** 🟢 HØJ.
+
+---
+
+### 📎 Links
+
+| Link | Sti |
+|------|-----|
+| Artikel | `./article.md` |
+| Søskendekørsler | `analysis/daily/2026-04-05/breaking/`, `breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontrol**
+- **Skabelon:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **Klassifikation:** Offentlig
+- **Retrospektiv generering:** Tilbagedateringssession.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Sitzungsübergreifendes Geheimdienstupdate vom 2026-04-05; EP-Sitzungspause Tag 10 von 18 — keine neue parlamentarische Aktivität zu melden.** Dieser zweite Lauf des Tages erweitert die Morgenbasis durch Integration analytischer Ausgaben des Vortags über die Sitzungspausenwoche. Keine neuen Akteure, keine neuen Verfahren, keine neuen angenommenen Texte. Substanzielle Inhalte der maßgeblichen Läufe 2026-04-03 / 04-04 unverändert: API-Feed im DEGRADIERTEN Zustand, EVP 38 % strukturelle Dominanz, Renew–ECR 0,95 Kohäsionssignal, Antikorruptionsreformcluster. **🟢 HOHE Konfidenz** für die Kontinuität des Sitzungspausenzustands.
+
+---
+
+### 🧭 3 Entscheidungen, die dieser Bericht stützt
+
+| # | Entscheidung | Entscheider | Frist | Nachweis |
+|:-:|-------------|------------|:-----:|---------|
+| 1 | **Redaktionell:** ÜBERSPRINGEN täglich; mit Morgenlauf konsolidieren | Redakteur | +12h | Gleiches Signalset |
+| 2 | **Überwachung:** tägliche Endpunktprüfungen fortsetzen | Datenpipeline | täglich | DEGRADIERTER Zustand |
+| 3 | **Vorausschauende Beobachtung:** strategische Synthese in der Mitte der Sitzungspause (Geschwister `breaking-3`) | Analyseleiter | +6h | Analytische Tiefe am selben Tag |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Keine neue EP-Aktivität** heute. (🟢 Hoch)
+- 🟠 **Sitzungsübergreifende Kontinuität** mit substanziellen Ergebnissen von 2026-04-04 und 2026-04-03. (🟢 Hoch)
+- 🟢 **DEGRADIERTER API-Zustand geerbt.** (🟢 Hoch)
+- 🟡 **Koalitionsarithmetik stabil.** (🟢 Hoch)
+- 🔵 **Wirtschaftlicher Kontext unverändert.** (🟢 Hoch)
+- 🟣 **Querverweise:** Geschwister `breaking-3` wird mit 12-stündiger Längsschnittsynthese vertieft. (🟢 Hoch)
+- 🩷 **Störvektoren:** keine akuten. (🟢 Hoch)
+- ⚪ **Fortschritt:** 8 Tage bis zum Ende der Sitzungspause.
+
+---
+
+### 🗂️ Top-Dokumente / Verfahrenstabelle
+
+| Rang | EP-Referenz | Titel (kurz) | Bedeutung | Konfidenz |
+|:----:|------------|--------------|:---------:|:---------:|
+| 1 | — | Keine neuen Verfahren oder angenommenen Texte | 0,0 | 🟢 HOCH |
+| 2 | TA-10-2026-0094 | Antikorruption (übertragen) | 9,0 | 🟢 HOCH |
+| 3 | TA-10-2026-0088 | Braun-Immunität (übertragen) | 7,0 | 🟢 HOCH |
+
+---
+
+### ⚠️ Risiko- und Bedrohungsbild
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| Risiko | L | I | Punktzahl | Auslöser | Quelle | Admiralty |
+|--------|:-:|:-:|:---------:|---------|--------|:---------:|
+| DEGRADIERTE Feed-Persistenz | 4 | 3 | 12 | Nach dem 14. April | 2026-04-03/breaking-2 | A1 |
+| Aufmerksamkeitsvakuum in der Sitzungspause | 3 | 3 | 9 | Überraschung aus USA oder Polen | EP-Kalender | A2 |
+
+---
+
+### 🔮 Top-Vorausauslöser
+
+**Kommissionsdienstag, 7. April 2026** und **Ende der Sitzungspause am 13. April**.
+
+---
+
+### 🛡️ Quellqualitätsbewertung
+
+- **Primärquellen:** Übertragenes Q1-Inventar; sitzungsübergreifendes Gedächtnis.
+- **Konfidenz:** 🟢 HOCH.
+
+---
+
+### 📎 Links
+
+| Link | Pfad |
+|------|------|
+| Artikel | `./article.md` |
+| Geschwisterläufe | `analysis/daily/2026-04-05/breaking/`, `breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentenkontrolle**
+- **Vorlage:** `/analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **Klassifizierung:** Öffentlich
+- **Retroaktive Erstellung:** Rückfüllsitzung.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**Actualización de inteligencia intersesional del 2026-04-05; receso del PE día 10 de 18 — ninguna nueva actividad parlamentaria que reportar.** Esta segunda ejecución del día amplía la línea base matutina al integrar los resultados analíticos del día anterior durante la semana de receso. Ningún nuevo actor, ningún nuevo procedimiento, ningún nuevo texto adoptado. El contenido sustancial de las ejecuciones principales 2026-04-03 / 04-04 sin cambios: canal API en estado DEGRADADO, PPE 38 % dominio estructural, señal de cohesión Renew–ECR 0,95, clúster de reforma anticorrupción. **🟢 ALTA confianza** sobre la continuidad del estado de receso.
+
+---
+
+### 🧭 3 Decisiones Que Este Informe Apoya
+
+| # | Decisión | Quién decide | Plazo | Evidencia |
+|:-:|---------|-------------|:-----:|----------|
+| 1 | **Editorial:** OMITIR diario; consolidar con ejecución matutina | Editor | +12h | Mismo conjunto de señales |
+| 2 | **Supervisión:** continuar sondeos diarios de puntos finales | Flujo de datos | diario | Estado DEGRADADO |
+| 3 | **Vigilancia prospectiva:** síntesis estratégica a mitad del receso (hermanas `breaking-3`) | Jefe de análisis | +6h | Profundidad analítica el mismo día |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Sin nueva actividad del PE** hoy. (🟢 Alta)
+- 🟠 **Continuidad intersesional** con hallazgos sustanciales de 2026-04-04 y 2026-04-03. (🟢 Alta)
+- 🟢 **Estado API DEGRADADO heredado.** (🟢 Alta)
+- 🟡 **Aritmética de coalición estable.** (🟢 Alta)
+- 🔵 **Contexto económico sin cambios.** (🟢 Alta)
+- 🟣 **Referencia cruzada:** las hermanas `breaking-3` se profundizan con síntesis longitudinal de 12 horas. (🟢 Alta)
+- 🩷 **Vectores disruptivos:** ninguno agudo. (🟢 Alta)
+- ⚪ **Progreso:** 8 días hasta el fin del receso.
+
+---
+
+### 🗂️ Tabla de Principales Documentos / Procedimientos
+
+| Rango | Referencia PE | Título (breve) | Relevancia | Confianza |
+|:-----:|-------------|----------------|:----------:|:---------:|
+| 1 | — | Sin nuevos procedimientos ni textos adoptados | 0,0 | 🟢 ALTA |
+| 2 | TA-10-2026-0094 | Anticorrupción (transferido) | 9,0 | 🟢 ALTA |
+| 3 | TA-10-2026-0088 | Inmunidad Braun (transferido) | 7,0 | 🟢 ALTA |
+
+---
+
+### ⚠️ Instantánea de Riesgo y Amenaza
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| Riesgo | L | I | Puntuación | Desencadenante | Fuente | Admiralty |
+|--------|:-:|:-:|:----------:|---------------|--------|:---------:|
+| Persistencia del canal DEGRADADO | 4 | 3 | 12 | Pasado el 14 de abril | 2026-04-03/breaking-2 | A1 |
+| Vacío de atención durante el receso | 3 | 3 | 9 | Sorpresa de EE. UU. o Polonia | Calendario PE | A2 |
+
+---
+
+### 🔮 Principal Activador Futuro
+
+**Martes de la Comisión, 7 de abril de 2026** y **fin del receso el 13 de abril**.
+
+---
+
+### 🛡️ Evaluación de la Calidad de las Fuentes
+
+- **Fuentes primarias:** Inventario Q1 transferido; memoria intersesional.
+- **Confianza:** 🟢 ALTA.
+
+---
+
+### 📎 Enlaces
+
+| Enlace | Ruta |
+|--------|------|
+| Artículo | `./article.md` |
+| Ejecuciones hermanas | `analysis/daily/2026-04-05/breaking/`, `breaking-3/` |
+| Manifiesto | `./manifest.json` |
+
+---
+
+**Control del documento**
+- **Plantilla:** `/analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **Clasificación:** Público
+- **Generación retrospectiva:** Sesión de relleno.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Poikkilistauksen tiedustelupäivitys 2026-04-05; EP:n istuntotauko päivä 10/18 — ei uutta parlamentaarista toimintaa raportoitavaksi.** Tämä päivän toinen ajo laajentaa aamulähtötasoa integroimalla edellisen päivän analyyttisia tuloksia koko istuntotaukoviikon ajalta. Ei uusia toimijoita, ei uusia menettelyjä, ei uusia hyväksyttyjä tekstejä. Olennaiset löydöt ajoista 2026-04-03 / 04-04 muuttumattomia: API-syöte HEIKENTYNYT-tilassa, EPP 38 % rakenteellinen dominanssi, Renew–ECR 0,95 koheesiosignaali, korruptionvastainen uudistusrypäs. **🟢 KORKEA luotettavuus** istuntotaukotilan jatkuvuudesta.
+
+---
+
+### 🧭 3 Päätöstä, Joita Tämä Katsaus Tukee
+
+| # | Päätös | Kuka päättää | Määräaika | Todiste |
+|:-:|--------|-------------|:---------:|---------|
+| 1 | **Toimituksellinen:** OHITA päivittäinen; yhdistä aamuajoon | Toimittaja | +12h | Sama signaalijoukko |
+| 2 | **Seuranta:** jatka päivittäisiä päätepistetutkimuksia | Dataputki | päivittäin | HEIKENTYNYT tila |
+| 3 | **Ennakoiva tarkkailu:** strateginen synteesi istuntotauon puolivälissä (sisarusto `breaking-3`) | Analyysipäällikkö | +6h | Analyyttinen syvyys samana päivänä |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Ei uutta EP-toimintaa** tänään. (🟢 Korkea)
+- 🟠 **Poikkilistauksen jatkuvuus** olennaisten löydösten kanssa 2026-04-04 ja 2026-04-03. (🟢 Korkea)
+- 🟢 **HEIKENTYNYT API-tila peritty.** (🟢 Korkea)
+- 🟡 **Koalitioaritmetiikka vakaa.** (🟢 Korkea)
+- 🔵 **Taloudellinen konteksti muuttumaton.** (🟢 Korkea)
+- 🟣 **Ristiviittaus:** sisarusto `breaking-3` syvennetään 12 tunnin pitkittäissynteesin avulla. (🟢 Korkea)
+- 🩷 **Häirintävektorit:** ei akuutteja. (🟢 Korkea)
+- ⚪ **Eteneminen:** 8 päivää istuntotauon päättymiseen.
+
+---
+
+### 🗂️ Tärkeimmät Asiakirjat / Menettelyn Taulukko
+
+| Sijoitus | EP-viite | Otsikko (lyhyt) | Merkitys | Luotettavuus |
+|:--------:|---------|-----------------|:--------:|:------------:|
+| 1 | — | Ei uusia menettelyjä tai hyväksyttyjä tekstejä | 0,0 | 🟢 KORKEA |
+| 2 | TA-10-2026-0094 | Korruptionvastainen (siirretty) | 9,0 | 🟢 KORKEA |
+| 3 | TA-10-2026-0088 | Braunin immuniteetti (siirretty) | 7,0 | 🟢 KORKEA |
+
+---
+
+### ⚠️ Riski- ja Uhkakuva
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| Riski | L | I | Pisteet | Laukaisin | Lähde | Admiralty |
+|-------|:-:|:-:|:-------:|----------|-------|:---------:|
+| HEIKENTYNYT syötteen pysyvyys | 4 | 3 | 12 | 14. huhtikuuta jälkeen | 2026-04-03/breaking-2 | A1 |
+| Huomiovaje istuntotauon aikana | 3 | 3 | 9 | Yllätys USA:sta tai Puolasta | EP-kalenteri | A2 |
+
+---
+
+### 🔮 Tärkein Tulevaisuuden Laukaisin
+
+**Komission tiistai 7. huhtikuuta 2026** ja **istuntotauon päättyminen 13. huhtikuuta**.
+
+---
+
+### 🛡️ Lähteiden Laadun Arviointi
+
+- **Ensisijaiset lähteet:** Siirretty Q1-inventaari; poikkilistauksen muisti.
+- **Luotettavuus:** 🟢 KORKEA.
+
+---
+
+### 📎 Linkit
+
+| Linkki | Polku |
+|--------|-------|
+| Artikkeli | `./article.md` |
+| Sisaruksiston ajot | `analysis/daily/2026-04-05/breaking/`, `breaking-3/` |
+| Manifesti | `./manifest.json` |
+
+---
+
+**Asiakirjan hallinta**
+- **Malli:** `/analysis/templates/executive-brief.md`
+- **Artefaktin polku:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **Luokittelu:** Julkinen
+- **Takautuva luonti:** Täydentävä istunto.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**Mise à jour du renseignement intersessions du 2026-04-05 ; pause du PE jour 10 sur 18 — aucune nouvelle activité parlementaire à signaler.** Cette deuxième exécution de la journée élargit la ligne de base matinale en intégrant les résultats analytiques de la veille sur la semaine de recess. Aucun nouvel acteur, aucune nouvelle procédure, aucun nouveau texte adopté. Contenu substantiel des exécutions importantes 2026-04-03 / 04-04 inchangé : flux API en état DÉGRADÉ, PPE 38 % de dominance structurelle, signal de cohésion Renew–ECR 0,95, cluster de réforme anti-corruption. **🟢 HAUTE confiance** sur la continuité de l'état de recess.
+
+---
+
+### 🧭 3 Décisions Que Ce Rapport Soutient
+
+| # | Décision | Qui décide | Délai | Preuve |
+|:-:|---------|------------|:-----:|--------|
+| 1 | **Éditorial :** IGNORER quotidien ; consolider avec l'exécution matinale | Éditeur | +12h | Même ensemble de signaux |
+| 2 | **Surveillance :** poursuivre les sondages quotidiens des points de terminaison | Pipeline de données | quotidien | État DÉGRADÉ |
+| 3 | **Veille prospective :** synthèse stratégique en mi-recess (consanguins `breaking-3`) | Chef de l'analyse | +6h | Profondeur analytique le même jour |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Aucune nouvelle activité du PE** aujourd'hui. (🟢 Haute)
+- 🟠 **Continuité intersessions** avec les résultats substantiels de 2026-04-04 et 2026-04-03. (🟢 Haute)
+- 🟢 **État API DÉGRADÉ hérité.** (🟢 Haute)
+- 🟡 **Arithmétique des coalitions stable.** (🟢 Haute)
+- 🔵 **Contexte économique inchangé.** (🟢 Haute)
+- 🟣 **Référence croisée :** les consanguins `breaking-3` sont approfondis avec une synthèse longitudinale de 12 heures. (🟢 Haute)
+- 🩷 **Vecteurs de perturbation :** aucun aigu. (🟢 Haute)
+- ⚪ **Progression :** 8 jours jusqu'à la fin du recess.
+
+---
+
+### 🗂️ Documents / Tableau des Procédures Prioritaires
+
+| Rang | Référence PE | Titre (court) | Importance | Confiance |
+|:----:|-------------|---------------|:----------:|:---------:|
+| 1 | — | Aucune nouvelle procédure ni texte adopté | 0,0 | 🟢 HAUTE |
+| 2 | TA-10-2026-0094 | Anti-corruption (reporté) | 9,0 | 🟢 HAUTE |
+| 3 | TA-10-2026-0088 | Immunité Braun (reporté) | 7,0 | 🟢 HAUTE |
+
+---
+
+### ⚠️ Tableau des Risques et des Menaces
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| Risque | L | I | Score | Déclencheur | Source | Admiralty |
+|--------|:-:|:-:|:-----:|------------|--------|:---------:|
+| Persistance du flux DÉGRADÉ | 4 | 3 | 12 | Après le 14 avril | 2026-04-03/breaking-2 | A1 |
+| Vide d'attention en période de recess | 3 | 3 | 9 | Surprise des États-Unis ou de la Pologne | Calendrier PE | A2 |
+
+---
+
+### 🔮 Principal Déclencheur Prospectif
+
+**Mardi de la Commission, 7 avril 2026** et **fin du recess le 13 avril**.
+
+---
+
+### 🛡️ Évaluation de la Qualité des Sources
+
+- **Sources primaires :** Inventaire Q1 reporté ; mémoire intersessions.
+- **Confiance :** 🟢 HAUTE.
+
+---
+
+### 📎 Liens
+
+| Lien | Chemin |
+|------|--------|
+| Article | `./article.md` |
+| Exécutions consanguines | `analysis/daily/2026-04-05/breaking/`, `breaking-3/` |
+| Manifeste | `./manifest.json` |
+
+---
+
+**Contrôle du document**
+- **Modèle :** `/analysis/templates/executive-brief.md`
+- **Chemin de l'artefact :** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **Classification :** Public
+- **Génération rétrospective :** Session de rattrapage.
+
+### Executive Brief He
+
+**סיווג:** מקורות פתוחים | רשומה פרלמנטרית ציבורית
+**רמת ביטחון:** 🟢 גבוהה (הערכה מבנית בתקופת הפגרה)
+**נוצר:** 2026-04-05T00:00:00Z (סיכום רטרואקטיבי)
+**סוג המאמר:** Breaking — Cross-Session Update
+**מקור:** פורטל הנתונים הפתוחים של הפרלמנט האירופי
+
+---
+
+### 🎯 BLUF
+
+**עדכון מודיעיני בין-פגישתי מתאריך 2026-04-05; הפגרה של PE — יום 10 מתוך 18 — אין פעילות פרלמנטרית חדשה לדווח עליה.** ריצה שנייה זו של היום מרחיבה את קו הבסיס הבוקרי על ידי שילוב תפוקות אנליטיות מהיום הקודם לאורך שבוע הפגרה. אין שחקנים חדשים, אין הליכים חדשים, אין טקסטים חדשים שאומצו. תוכן מהותי מהריצות המשמעותיות 2026-04-03 / 04-04 ללא שינוי: עדכון ה-API במצב פגום, EVP 38 % דומיננטיות מבנית, אות גיבוש Renew–ECR 0.95, אשכול רפורמת מאבק שחיתות. **🟢 ביטחון גבוה** לגבי המשכיות מצב הפגרה.
+
+---
+
+### 🧭 3 החלטות שסיכום זה תומך בהן
+
+| # | החלטה | מי מחליט | מועד אחרון | ראיה |
+|:-:|------|----------|:----------:|------|
+| 1 | **עריכה:** דלג על היומי; אחד עם הריצה הבוקרית | עורך | +12 שעות | אותה סדרת אותות |
+| 2 | **ניטור:** המשך בדיקות קצה יומיות | צינור נתונים | יומי | מצב פגום |
+| 3 | **תצפית צופה פני עתיד:** סינתזה אסטרטגית באמצע הפגרה (אח/אחות `breaking-3`) | ראש הניתוח | +6 שעות | עומק אנליטי אותו יום |
+
+---
+
+### 📰 קריאת שישים שניות
+
+- 🔴 **אין פעילות PE חדשה** היום. (🟢 גבוהה)
+- 🟠 **המשכיות בין-פגישתית** עם ממצאים מהותיים מ-2026-04-04 ו-2026-04-03. (🟢 גבוהה)
+- 🟢 **מצב API פגום נורש.** (🟢 גבוהה)
+- 🟡 **חשבון הקואליציות יציב.** (🟢 גבוהה)
+- 🔵 **הקשר כלכלי ללא שינוי.** (🟢 גבוהה)
+- 🟣 **הפניה צולבת:** `breaking-3` מתעמקת בסינתזה אורכית של 12 שעות. (🟢 גבוהה)
+- 🩷 **וקטורי שיבוש:** אין חריפים. (🟢 גבוהה)
+- ⚪ **התקדמות:** 8 ימים עד לסיום הפגרה.
+
+---
+
+### 🗂️ טבלת המסמכים / הליכים המובילים
+
+| דירוג | הפניית PE | כותרת (קצרה) | משמעות | רמת ביטחון |
+|:-----:|----------|--------------|:------:|:----------:|
+| 1 | — | אין הליכים חדשים או טקסטים שאומצו | 0.0 | 🟢 גבוהה |
+| 2 | TA-10-2026-0094 | מאבק שחיתות (הועבר) | 9.0 | 🟢 גבוהה |
+| 3 | TA-10-2026-0088 | חסינות בראון (הועבר) | 7.0 | 🟢 גבוהה |
+
+---
+
+### ⚠️ תמונת מצב סיכונים ואיומים
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| סיכון | L | I | ניקוד | מפעיל | מקור | Admiralty |
+|-------|:-:|:-:|:-----:|-------|------|:---------:|
+| עמידות עדכון פגום | 4 | 3 | 12 | אחרי 14 באפריל | 2026-04-03/breaking-2 | A1 |
+| ואקום תשומת לב בפגרה | 3 | 3 | 9 | הפתעה מארה"ב או פולין | לוח שנה PE | A2 |
+
+---
+
+### 🔮 מפעיל העתיד המוביל
+
+**יום שלישי של הנציבות, 7 באפריל 2026** ו**סיום הפגרה ב-13 באפריל**.
+
+---
+
+### 🛡️ הערכת איכות המקורות
+
+- **מקורות ראשוניים:** מלאי רבעון 1 שהועבר; זיכרון בין-פגישתי.
+- **רמת ביטחון:** 🟢 גבוהה.
+
+---
+
+### 📎 קישורים
+
+| קישור | נתיב |
+|-------|------|
+| מאמר | `./article.md` |
+| ריצות אח/אחות | `analysis/daily/2026-04-05/breaking/`، `breaking-3/` |
+| מניפסט | `./manifest.json` |
+
+---
+
+**בקרת מסמכים**
+- **תבנית:** `/analysis/templates/executive-brief.md`
+- **נתיב ארטיפקט:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **סיווג:** ציבורי
+- **יצירה רטרואקטיבית:** סשן מילוי.
+
+### Executive Brief Ja
+
+**分類：** OSINT｜公開議会記録
+**信頼度：** 🟢 高（会期休会中の構造的評価）
+**作成日：** 2026-04-05T00:00:00Z（遡及的サマリー）
+**記事タイプ：** Breaking — Cross-Session Update
+**出典：** 欧州議会オープンデータポータル
+
+---
+
+### 🎯 BLUF
+
+**2026-04-05 クロスセッション情報更新；欧州議会休会 18 日間中の 10 日目 — 新規議会活動の報告なし。** 本日 2 回目の実行は、休会週全体にわたる前日の分析的アウトプットを統合し、朝のベースラインを拡張する。新規アクター・手続き・採択テキストなし。主要実行 2026-04-03 / 04-04 の実質的内容は変化なし：API フィードは劣化状態、欧州人民党 38 % 構造的優位、Renew–ECR 凝集シグナル 0.95、汚職改革クラスター継続中。**🟢 高い信頼度**で休会状態の継続を確認。
+
+---
+
+### 🧭 このブリーフが支援する 3 つの意思決定
+
+| # | 意思決定 | 決定者 | 期限 | 根拠 |
+|:-:|---------|-------|:----:|------|
+| 1 | **編集上：** 日次をスキップ；朝実行と統合 | 編集者 | +12h | 同一シグナルセット |
+| 2 | **監視：** エンドポイント日次探査を継続 | データパイプライン | 毎日 | 劣化状態 |
+| 3 | **先読み観測：** 休会中盤の戦略的統合（姉妹 `breaking-3`） | 分析責任者 | +6h | 同日の分析深度 |
+
+---
+
+### 📰 60 秒で読む
+
+- 🔴 **本日、欧州議会の新規活動なし。**（🟢 高）
+- 🟠 **クロスセッション継続性**：2026-04-04 および 2026-04-03 の実質的知見を引き継ぎ。（🟢 高）
+- 🟢 **API 劣化状態を継承。**（🟢 高）
+- 🟡 **連立計算は安定。**（🟢 高）
+- 🔵 **経済的コンテクストに変化なし。**（🟢 高）
+- 🟣 **クロスリファレンス：** 姉妹 `breaking-3` が 12 時間縦断的統合で深化。（🟢 高）
+- 🩷 **混乱ベクター：** 急性なし。（🟢 高）
+- ⚪ **進捗：** 休会終了まで残り 8 日。
+
+---
+
+### 🗂️ 上位ドキュメント／手続きテーブル
+
+| 順位 | EP 参照 | タイトル（短縮） | 重要度 | 信頼度 |
+|:---:|--------|----------------|:------:|:------:|
+| 1 | — | 新規手続きおよび採択テキストなし | 0.0 | 🟢 高 |
+| 2 | TA-10-2026-0094 | 汚職防止（引き継ぎ） | 9.0 | 🟢 高 |
+| 3 | TA-10-2026-0088 | Braun 議員免責（引き継ぎ） | 7.0 | 🟢 高 |
+
+---
+
+### ⚠️ リスク・脅威スナップショット
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| リスク | L | I | スコア | トリガー | 出典 | Admiralty |
+|-------|:-:|:-:|:-----:|--------|------|:---------:|
+| 劣化フィード持続性 | 4 | 3 | 12 | 4 月 14 日以降 | 2026-04-03/breaking-2 | A1 |
+| 休会中の注目度空白 | 3 | 3 | 9 | 米国またはポーランドの想定外展開 | EP カレンダー | A2 |
+
+---
+
+### 🔮 最重要前向きトリガー
+
+**欧州委員会の火曜日 2026 年 4 月 7 日**および**休会終了 4 月 13 日**。
+
+---
+
+### 🛡️ ソース品質評価
+
+- **主要ソース：** Q1 インベントリ引き継ぎ；クロスセッションメモリ。
+- **信頼度：** 🟢 高。
+
+---
+
+### 📎 リンク
+
+| リンク | パス |
+|--------|------|
+| 記事 | `./article.md` |
+| 姉妹実行 | `analysis/daily/2026-04-05/breaking/`、`breaking-3/` |
+| マニフェスト | `./manifest.json` |
+
+---
+
+**文書管理**
+- **テンプレート：** `/analysis/templates/executive-brief.md`
+- **成果物パス：** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **分類：** 公開
+- **遡及的生成：** バックフィルセッション。
+
+### Executive Brief Ko
+
+**분류:** OSINT | 공개 의회 기록
+**신뢰도:** 🟢 높음 (회기 휴회 중 구조적 평가)
+**생성일:** 2026-04-05T00:00:00Z (소급 요약)
+**기사 유형:** Breaking — Cross-Session Update
+**출처:** 유럽 의회 오픈 데이터 포털
+
+---
+
+### 🎯 BLUF
+
+**2026-04-05 교차 회기 정보 업데이트; 유럽 의회 휴회 18일 중 10일째 — 보고할 새로운 의회 활동 없음.** 오늘의 두 번째 실행은 휴회 주간 전반에 걸쳐 전날의 분석 결과를 통합하여 오전 기준선을 확장한다. 새로운 행위자, 새로운 절차, 새로운 채택 텍스트 없음. 2026-04-03 / 04-04의 실질적 내용 변화 없음: API 피드 성능 저하 상태, 유럽국민당 38 % 구조적 지배, Renew–ECR 0.95 결속 신호, 반부패 개혁 클러스터 유지. **🟢 높은 신뢰도**로 휴회 상태 지속성 확인.
+
+---
+
+### 🧭 이 브리핑이 지원하는 3가지 의사결정
+
+| # | 결정 | 의사결정자 | 기한 | 근거 |
+|:-:|-----|----------|:----:|------|
+| 1 | **편집:** 일일 건너뜀; 오전 실행과 통합 | 편집자 | +12h | 동일 신호 세트 |
+| 2 | **모니터링:** 일일 엔드포인트 점검 계속 | 데이터 파이프라인 | 매일 | 성능 저하 상태 |
+| 3 | **선제 관찰:** 휴회 중반 전략적 종합 (자매 `breaking-3`) | 분석 책임자 | +6h | 당일 분석 심도 |
+
+---
+
+### 📰 60초 읽기
+
+- 🔴 **오늘 유럽 의회 신규 활동 없음.** (🟢 높음)
+- 🟠 **교차 회기 연속성** — 2026-04-04 및 2026-04-03의 실질적 결과 인계. (🟢 높음)
+- 🟢 **성능 저하 API 상태 상속.** (🟢 높음)
+- 🟡 **연립 계산 안정.** (🟢 높음)
+- 🔵 **경제 맥락 변화 없음.** (🟢 높음)
+- 🟣 **교차 참조:** 자매 `breaking-3` 12시간 종단 분석으로 심화. (🟢 높음)
+- 🩷 **혼란 벡터:** 긴급사항 없음. (🟢 높음)
+- ⚪ **진행:** 휴회 종료까지 8일 남음.
+
+---
+
+### 🗂️ 상위 문서 / 절차 테이블
+
+| 순위 | EP 참조 | 제목 (요약) | 중요도 | 신뢰도 |
+|:---:|--------|------------|:------:|:------:|
+| 1 | — | 새로운 절차 또는 채택 텍스트 없음 | 0.0 | 🟢 높음 |
+| 2 | TA-10-2026-0094 | 반부패 (이월) | 9.0 | 🟢 높음 |
+| 3 | TA-10-2026-0088 | Braun 면책 특권 (이월) | 7.0 | 🟢 높음 |
+
+---
+
+### ⚠️ 위험 및 위협 스냅샷
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| 위험 | L | I | 점수 | 트리거 | 출처 | Admiralty |
+|-----|:-:|:-:|:---:|-------|------|:---------:|
+| 성능 저하 피드 지속성 | 4 | 3 | 12 | 4월 14일 이후 | 2026-04-03/breaking-2 | A1 |
+| 휴회 중 관심 공백 | 3 | 3 | 9 | 미국 또는 폴란드의 예상치 못한 사건 | EP 캘린더 | A2 |
+
+---
+
+### 🔮 최상위 미래 트리거
+
+**유럽 집행위원회 화요일 2026년 4월 7일** 및 **4월 13일 휴회 종료**.
+
+---
+
+### 🛡️ 출처 품질 평가
+
+- **주요 출처:** 이월 Q1 인벤토리; 교차 회기 기억.
+- **신뢰도:** 🟢 높음.
+
+---
+
+### 📎 링크
+
+| 링크 | 경로 |
+|------|------|
+| 기사 | `./article.md` |
+| 자매 실행 | `analysis/daily/2026-04-05/breaking/`, `breaking-3/` |
+| 매니페스트 | `./manifest.json` |
+
+---
+
+**문서 관리**
+- **템플릿:** `/analysis/templates/executive-brief.md`
+- **산출물 경로:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **분류:** 공개
+- **소급 생성:** 백필 세션.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**Sessieoverschrijdende inlichtingenupdate van 2026-04-05; EP-reces dag 10 van 18 — geen nieuwe parlementaire activiteit te melden.** Deze tweede uitvoering van de dag breidt de ochtendbasislijn uit door analytische resultaten van de vorige dag te integreren over de recessweek. Geen nieuwe actoren, geen nieuwe procedures, geen nieuwe aangenomen teksten. Substantiële inhoud uit de substantiële uitvoeringen 2026-04-03 / 04-04 ongewijzigd: API-feed in GEDEGRADEERDE toestand, EVP 38 % structurele dominantie, Renew–ECR 0,95 cohesiesignaal, anticorruptiehervormdingscluster. **🟢 HOGE betrouwbaarheid** over continuïteit van de recessstatus.
+
+---
+
+### 🧭 3 Beslissingen Die Dit Rapport Ondersteunt
+
+| # | Beslissing | Wie beslist | Deadline | Bewijs |
+|:-:|-----------|------------|:--------:|--------|
+| 1 | **Redactioneel:** OVERSLAAN dagelijks; consolideren met ochtenduitvoering | Redacteur | +12u | Zelfde signaalset |
+| 2 | **Bewaking:** dagelijkse eindpuntcontroles voortzetten | Datapijplijn | dagelijks | GEDEGRADEERDE toestand |
+| 3 | **Vooruitziende observatie:** strategische synthese halverwege het reces (zuster `breaking-3`) | Analysehoofd | +6u | Analytische diepgang zelfde dag |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Geen nieuwe EP-activiteit** vandaag. (🟢 Hoog)
+- 🟠 **Sessieoverschrijdende continuïteit** met substantiële bevindingen van 2026-04-04 en 2026-04-03. (🟢 Hoog)
+- 🟢 **GEDEGRADEERDE API-status geërfd.** (🟢 Hoog)
+- 🟡 **Coalitie-aritmetica stabiel.** (🟢 Hoog)
+- 🔵 **Economische context ongewijzigd.** (🟢 Hoog)
+- 🟣 **Kruisverwijzing:** zuster `breaking-3` wordt uitgediept met 12-uur longitudinale synthese. (🟢 Hoog)
+- 🩷 **Verstorende vectoren:** geen acute. (🟢 Hoog)
+- ⚪ **Voortgang:** 8 dagen tot het einde van het reces.
+
+---
+
+### 🗂️ Toprangorde Documenten / Procedureoverzicht
+
+| Rang | EP-referentie | Titel (kort) | Belang | Betrouwbaarheid |
+|:----:|-------------|--------------|:------:|:---------------:|
+| 1 | — | Geen nieuwe procedures of aangenomen teksten | 0,0 | 🟢 HOOG |
+| 2 | TA-10-2026-0094 | Anticorruptie (overgedragen) | 9,0 | 🟢 HOOG |
+| 3 | TA-10-2026-0088 | Braun-immuniteit (overgedragen) | 7,0 | 🟢 HOOG |
+
+---
+
+### ⚠️ Risico- en Dreigingsoverzicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| Risico | L | I | Score | Trigger | Bron | Admiralty |
+|--------|:-:|:-:|:-----:|---------|------|:---------:|
+| GEDEGRADEERDE feedpersistentie | 4 | 3 | 12 | Na 14 april | 2026-04-03/breaking-2 | A1 |
+| Aandachtsvacuüm tijdens reces | 3 | 3 | 9 | Verrassing uit VS of Polen | EP-kalender | A2 |
+
+---
+
+### 🔮 Belangrijkste Toekomstige Trigger
+
+**Commissiedinsdag 7 april 2026** en **recesseinde 13 april**.
+
+---
+
+### 🛡️ Beoordeling Bronnenkwaliteit
+
+- **Primaire bronnen:** Overgedragen Q1-inventaris; sessieoverschrijdend geheugen.
+- **Betrouwbaarheid:** 🟢 HOOG.
+
+---
+
+### 📎 Links
+
+| Link | Pad |
+|------|-----|
+| Artikel | `./article.md` |
+| Zusteruitvoeringen | `analysis/daily/2026-04-05/breaking/`, `breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Documentbeheer**
+- **Sjabloon:** `/analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retroactieve aanmaak:** Terugvul-sessie.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Krysssesjon etterretningsoppdatering den 2026-04-05; EP-resess dag 10 av 18 — ingen ny parlamentarisk aktivitet å rapportere.** Denne andre kjøringen for dagen utvider morgenbaslinjen ved å integrere analytiske utdata fra foregående dag gjennom resessuken. Ingen nye aktører, ingen nye prosedyrer, ingen ny vedtatte tekster. Substansielt innhold fra de substansielle kjøringene 2026-04-03 / 04-04 uendret: API-feed i DEGRADERT tilstand, PPE 38 % strukturell dominans, Renew–ECR 0,95 kohesjonssignal, antikorrupsjonsreformklynge. **🟢 HØY konfidens** om kontinuitet i resesstilstand.
+
+---
+
+### 🧭 3 Beslutninger Denne Rapporten Støtter
+
+| # | Beslutning | Hvem beslutter | Frist | Bevis |
+|:-:|-----------|----------------|:-----:|-------|
+| 1 | **Redaksjonelt:** HOPP OVER daglig; konsolider med morgenkjøring | Redaktør | +12h | Samme signalsett |
+| 2 | **Overvåkning:** fortsett daglige endepunktssonderinger | Datapipeline | daglig | DEGRADERT tilstand |
+| 3 | **Fremoverrettet observasjon:** strategisk syntese midt i resessen (søsken `breaking-3`) | Analyseleder | +6h | Analytisk dybde samme dag |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Ingen ny EP-aktivitet** i dag. (🟢 Høy)
+- 🟠 **Kryssesjonskontinuitet** med substansielle funn fra 2026-04-04 og 2026-04-03. (🟢 Høy)
+- 🟢 **DEGRADERT API-tilstand arvet.** (🟢 Høy)
+- 🟡 **Koalisjonsaritmetikk stabil.** (🟢 Høy)
+- 🔵 **Økonomisk kontekst uendret.** (🟢 Høy)
+- 🟣 **Kryssreferanse:** søsken `breaking-3` fordypes med 12-timers longitudinal syntese. (🟢 Høy)
+- 🩷 **Forstyrrende vektorer:** ingen akutte. (🟢 Høy)
+- ⚪ **Fremdrift:** 8 dager til resessens slutt.
+
+---
+
+### 🗂️ Topp rangerte dokumenter / Prosedyretabell
+
+| Rang | EP-referanse | Tittel (kort) | Signifikans | Konfidens |
+|:----:|-------------|---------------|:-----------:|:---------:|
+| 1 | — | Ingen nye prosedyrer eller vedtatte tekster | 0,0 | 🟢 HØY |
+| 2 | TA-10-2026-0094 | Antikorrupsjon (videreført) | 9,0 | 🟢 HØY |
+| 3 | TA-10-2026-0088 | Braun-immunitet (videreført) | 7,0 | 🟢 HØY |
+
+---
+
+### ⚠️ Risiko- og Trusselbilde
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| Risiko | L | I | Score | Utløser | Kilde | Admiralty |
+|--------|:-:|:-:|:-----:|---------|-------|:---------:|
+| DEGRADERT feed-persistens | 4 | 3 | 12 | Etter 14. april | 2026-04-03/breaking-2 | A1 |
+| Oppmerksomhetsvakuum under resess | 3 | 3 | 9 | Overraskelse fra USA eller Polen | EP-kalender | A2 |
+
+---
+
+### 🔮 Topp Fremover-Utløser
+
+**Kommisjonens tirsdag den 7. april 2026** og **resessens slutt den 13. april**.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **Primære kilder:** Videreført Q1-inventar; kryssesjonbasert minne.
+- **Konfidens:** 🟢 HØY.
+
+---
+
+### 📎 Lenker
+
+| Lenke | Sti |
+|-------|-----|
+| Artikkel | `./article.md` |
+| Søskenkjøringer | `analysis/daily/2026-04-05/breaking/`, `breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontroll**
+- **Mal:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv generering:** Backfill-sesjon.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Korsessionell underrättelseoppdatering den 2026-04-05; EP-recess dag 10 av 18 — ingen ny parlamentarisk aktivitet att rapportera.** Denna andra körning för dagen utvidgar morgonbaslinjen genom att integrera analytiska utdata från föregående dag över recesenveckan. Inga nya aktörer, inga nya förfaranden, inga nya antagna texter. Materiellt innehåll från de substantiella körningarna 2026-04-03 / 04-04 oförändrat: API-feed i DEGRADERAT tillstånd, PPE 38 % strukturell dominans, Renew–ECR 0,95 kohesionssignal, antikorruptionsreformkluster. **🟢 HÖG konfidens** om kontinuitet i recessens tillstånd.
+
+---
+
+### 🧭 3 Beslut som denna sammanfattning stödjer
+
+| # | Beslut | Vem beslutar | Deadline | Bevis |
+|:-:|--------|-------------|:--------:|-------|
+| 1 | **Redaktionellt:** HOPPA ÖVER daglig; konsolidera med morgonkörning | Redaktör | +12h | Samma signaluppsättning |
+| 2 | **Övervakning:** fortsätt dagliga ändpunktssonder | Datapipeline | dagligen | DEGRADERAT tillstånd |
+| 3 | **Framåtbevakning:** strategisk syntes mitt i recessen (syskon `breaking-3`) | Analysledare | +6h | Analytiskt djup samma dag |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Ingen ny EP-aktivitet** idag. (🟢 Hög)
+- 🟠 **Korsessionell kontinuitet** med substantiella fynd från 2026-04-04 och 2026-04-03. (🟢 Hög)
+- 🟢 **DEGRADERAT API-tillstånd ärvt.** (🟢 Hög)
+- 🟡 **Koalitionsaritmetik stabil.** (🟢 Hög)
+- 🔵 **Ekonomisk kontext oförändrad.** (🟢 Hög)
+- 🟣 **Korsreferens:** syskon `breaking-3` fördjupas med 12-timmars longitudinell syntes. (🟢 Hög)
+- 🩷 **Störningsvektorer:** inga akuta. (🟢 Hög)
+- ⚪ **Överföring:** 8 dagar till recessens slut.
+
+---
+
+### 🗂️ Topplistade dokument / procedurtabell
+
+| Rang | EP-referens | Titel (kort) | Betydelse | Konfidens |
+|:----:|------------|--------------|:---------:|:---------:|
+| 1 | — | Inga nya förfaranden eller antagna texter | 0,0 | 🟢 HÖG |
+| 2 | TA-10-2026-0094 | Antikorruption (överförd) | 9,0 | 🟢 HÖG |
+| 3 | TA-10-2026-0088 | Brauns immunitet (överförd) | 7,0 | 🟢 HÖG |
+
+---
+
+### ⚠️ Risk- och hotbild
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| Risk | L | I | Poäng | Utlösare | Källa | Admiralty |
+|------|:-:|:-:|:-----:|---------|-------|:---------:|
+| DEGRADERAT feed-uthållighet | 4 | 3 | 12 | Förbi 14 april | 2026-04-03/breaking-2 | A1 |
+| Uppmärksamhetsvakuum under recess | 3 | 3 | 9 | Överraskning från USA eller Polen | EP-kalender | A2 |
+
+---
+
+### 🔮 Topp framåtutlösare
+
+**Kommissionens tisdag den 7 april 2026** och **recessens slut den 13 april**.
+
+---
+
+### 🛡️ Källkvalitetsbedömning
+
+- **Primära källor:** Överförda Q1-inventarier; korsessionellt minne.
+- **Konfidens:** 🟢 HÖG.
+
+---
+
+### 📎 Länkar
+
+| Länk | Sökväg |
+|------|--------|
+| Artikel | `./article.md` |
+| Syskonkörningar | `analysis/daily/2026-04-05/breaking/`, `breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontroll**
+- **Mall:** `/analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retroaktiv generering:** Backfill-session.
+
+### Executive Brief Zh
+
+**分级：** 公开情报 | 公开议会档案
+**置信度：** 🟢 高（休会期结构性评估）
+**生成时间：** 2026-04-05T00:00:00Z（追溯摘要）
+**文章类型：** Breaking — Cross-Session Update
+**来源：** 欧洲议会开放数据门户
+
+---
+
+### 🎯 BLUF
+
+**2026-04-05 跨届次情报更新；欧洲议会休会第10天（共18天）— 无新议会活动可报告。** 今日第二次运行通过整合休会周前一日的分析输出，扩展上午基线。无新行为体、无新程序、无新采纳文本。2026-04-03 / 04-04 主要运行的实质内容未变：API 数据流处于降级状态，欧洲人民党38%结构性主导，更新–欧洲保守改革联盟凝聚力信号0.95，反腐改革集群持续。**🟢 高置信度**确认休会状态连续性。
+
+---
+
+### 🧭 本简报支持的三项决策
+
+| # | 决策 | 决策者 | 截止时间 | 证据 |
+|:-:|-----|-------|:-------:|------|
+| 1 | **编辑：** 跳过日报；与晨间运行合并 | 编辑 | +12h | 相同信号集 |
+| 2 | **监控：** 继续每日端点探测 | 数据管道 | 每日 | 降级状态 |
+| 3 | **前瞻观察：** 休会中期战略综合（姊妹 `breaking-3`） | 分析负责人 | +6h | 同日分析深度 |
+
+---
+
+### 📰 六十秒阅读
+
+- 🔴 **今日无欧洲议会新活动。**（🟢 高）
+- 🟠 **跨届次连续性**：延续 2026-04-04 及 2026-04-03 的实质性发现。（🟢 高）
+- 🟢 **降级 API 状态已继承。**（🟢 高）
+- 🟡 **联合计算稳定。**（🟢 高）
+- 🔵 **经济背景无变化。**（🟢 高）
+- 🟣 **交叉引用：** 姊妹 `breaking-3` 以12小时纵向综合深化。（🟢 高）
+- 🩷 **干扰向量：** 无急迫情况。（🟢 高）
+- ⚪ **进度：** 距休会结束还有8天。
+
+---
+
+### 🗂️ 顶级文件／程序表格
+
+| 排名 | 欧洲议会参考 | 标题（简短） | 重要性 | 置信度 |
+|:---:|----------|------------|:------:|:------:|
+| 1 | — | 无新程序或采纳文本 | 0.0 | 🟢 高 |
+| 2 | TA-10-2026-0094 | 反腐（延续） | 9.0 | 🟢 高 |
+| 3 | TA-10-2026-0088 | 布劳恩豁免权（延续） | 7.0 | 🟢 高 |
+
+---
+
+### ⚠️ 风险与威胁快照
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=d4777da2) -->
+
+| 风险 | L | I | 得分 | 触发因素 | 来源 | Admiralty |
+|-----|:-:|:-:|:---:|--------|------|:---------:|
+| 降级数据流持续存在 | 4 | 3 | 12 | 4月14日之后 | 2026-04-03/breaking-2 | A1 |
+| 休会期注意力真空 | 3 | 3 | 9 | 美国或波兰的意外事件 | 欧洲议会日历 | A2 |
+
+---
+
+### 🔮 首要前瞻触发因素
+
+**欧盟委员会星期二，2026年4月7日**及**休会结束，4月13日**。
+
+---
+
+### 🛡️ 来源质量评估
+
+- **主要来源：** 延续Q1清单；跨届次记忆。
+- **置信度：** 🟢 高。
+
+---
+
+### 📎 链接
+
+| 链接 | 路径 |
+|------|------|
+| 文章 | `./article.md` |
+| 姊妹运行 | `analysis/daily/2026-04-05/breaking/`、`breaking-3/` |
+| 清单 | `./manifest.json` |
+
+---
+
+**文档管控**
+- **模板：** `/analysis/templates/executive-brief.md`
+- **制品路径：** `analysis/daily/2026-04-05/breaking-2/executive-brief.md`
+- **分级：** 公开
+- **追溯生成：** 回填会话。
 
 ### Intelligence Brief
 
@@ -1017,6 +2110,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | Section | Artifact | Path |
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief.md) | `executive-brief.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/intelligence-brief.md) | `intelligence-brief.md` |
 | section-supplementary-intelligence | [political-landscape-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/political-landscape-analysis.md) | `political-landscape-analysis.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/risk-assessment.md) | `risk-assessment.md` |

@@ -116,9 +116,1180 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `intelligence-brief.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التصنيف:** OSINT | السجلات البرلمانية العامة
+**مستوى الثقة:** 🟢 عالٍ (تحليل طولي لـ12 ساعة في منتصف الاستراحة)
+**تاريخ الإنشاء:** 2026-04-05T00:00:00Z (تقرير استرجاعي)
+**نوع المقالة:** عاجل — تقرير استخباراتي استراتيجي خلال الاستراحة (تحليل طولي لـ12 ساعة)
+**المصدر:** البوابة المفتوحة للبيانات للبرلمان الأوروبي
+
+---
+
+### 🎯 BLUF
+
+**يؤكد التحليل الاستراتيجي في منتصف الاستراحة (اليوم 10 من 18) ثلاثة موضوعات استخباراتية مستمرة تمتد إلى الربع الثاني من عام 2026.** أولاً، واجهة برمجة التطبيقات لتغذية البرلمان الأوروبي في حالة تدهور لليوم الثالث على التوالي دون استعادة ملحوظة من المصدر — تظل فرضية ارتباط الاستراحة هي المفضلة. ثانياً، استقرت حسابات التحالف في EP10 عند هيمنة PPE الهيكلية بنسبة 38% مع إشارة التماسك بين Renew–ECR (~0.95) التي تحافظ على مستواها يوماً بعد يوم. ثالثاً، يبقى مجموعة مكافحة الفساد + براون + التشريع الأفضل + إصلاح الوصول العام من أواخر مارس أبرز مخرجات المصداقية المؤسسية للربع الأول. يُعدّ التوقيت الدقيق للنقطة المتوسطة (9 من 18 قد مضت) نقطة انعطاف طبيعية للتخطيط المستقبلي. **🟢 ثقة عالية** في استقرار النمط الطولي؛ **🟡 ثقة متوسطة** في توقع استعادة واجهة برمجة التطبيقات للتغذية في نهاية الاستراحة.
+
+---
+
+### 🧭 3 قرارات يدعمها هذا الملخص
+
+| # | القرار | صاحب القرار | الموعد النهائي | الأدلة |
+|:-:|--------|------------|:--------------:|--------|
+| 1 | **تحريري:** نشر التحليل الاستراتيجي لمنتصف الاستراحة كمرساة طولية | هيئة التحرير | +24 ساعة | بيانات طولية 12 ساعة + 3 موضوعات |
+| 2 | **المراقبة:** التحضير لاختبار الاستعادة في 14 أبريل بعد الاستراحة | خط البيانات | 2026-04-14 | تخطيط نقطة الانعطاف |
+| 3 | **الرصد المستقبلي:** جدول أعمال ثلاثاء المفوضية في 7 أبريل كمحفز خارجي قادم | رئيس التحليل | 2026-04-07 | أول نشاط مؤسسي بعد عيد الفصح |
+
+---
+
+### 📰 القراءة في 60 ثانية
+
+- 🔴 **اليوم 10 من 18 — النقطة المتوسطة الدقيقة لاستراحة عيد الفصح** (27 مارس ← 13 أبريل 2026). (🟢 عالٍ)
+- 🟠 **3 موضوعات مستمرة** تم تأكيدها بالتحليل الطولي لـ12 ساعة: التغذية متدهورة، حسابات التحالف مستقرة، مجموعة الإصلاح مستمرة. (🟢 عالٍ)
+- 🟢 **لا نشاط جديد للبرلمان الأوروبي اليوم** (الأحد، استراحة). (🟢 عالٍ)
+- 🟡 **إشارة تماسك Renew–ECR حافظت على مستواها يوماً بعد يوم** عند ~0.95 منذ 2026-04-03. (🟡 متوسط)
+- 🔵 **السياق الاقتصادي:** مسار التجارة بين الولايات المتحدة والاتحاد الأوروبي دون تغيير؛ نافذة نشر IMF أبريل WEO تقترب. (🟢 عالٍ)
+- 🟣 **الإسناد المتقاطع:** التقارير الشقيقة `breaking` و`breaking-2` توفر خط الأساس الصباحي؛ هذه الجلسة تجمع كليهما. (🟢 عالٍ)
+- 🩷 **متجه الاضطراب:** المتابعة القضائية البولندية تبقى المفاجأة الأكثر احتمالاً في جلسة أبريل العامة. (🟡 متوسط)
+- ⚪ **الاستمرار:** التحضير للجلسة العامة للربع الثاني يبدأ في 13 أبريل.
+
+---
+
+### 🗂️ أبرز النتائج — تحليل منتصف الاستراحة
+
+| الترتيب | النتيجة | المصدر | الأهمية | الثقة |
+|:-------:|---------|--------|:-------:|:-----:|
+| 1 | واجهة برمجة التطبيقات للتغذية متدهورة (اليوم الثالث على التوالي) | خط أساس 2026-04-03/breaking-2 | 8.0 | 🟢 عالية |
+| 2 | حسابات التحالف مستقرة (PPE 38% / Renew–ECR 0.95) | 2026-04-03/breaking, 2026-04-04/breaking | 7.5 | 🟡 متوسطة |
+| 3 | مجموعة مكافحة الفساد / الإصلاح (مستمرة) | 2026-04-03/breaking-3 | 9.0 | 🟢 عالية |
+| 4 | لا نشاط جديد للبرلمان الأوروبي في اليوم 10 من 18 | هذه الجلسة | 0.0 | 🟢 عالية |
+
+---
+
+### ⚠️ لمحة المخاطر والتهديدات
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| المخاطرة | الاحتمال | التأثير | النقاط | المحفز | المصدر | الأميرالية |
+|---------|:--------:|:-------:|:------:|--------|--------|:----------:|
+| تراجع واجهة برمجة التطبيقات للتغذية (بعد 14 أبريل) | 3 | 4 | 12 | لا استعادة | 2026-04-03/breaking-2 | A1 |
+| هيمنة PPE الهيكلية | 5 | 4 | 20 | جميع الأغلبيات تتطلب PPE | حسابات التحالف | A1 |
+| المتابعة القضائية البولندية | 4 | 3 | 12 | تحقيق جديد | TA-10-2026-0088 | A1 |
+| خطر النقل من المستوى الأول | 4 | 4 | 16 | التباعد الوطني | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 المحفز المستقبلي الرئيسي
+
+**نهاية الاستراحة في 13 أبريل 2026 + أول ثلاثاء للمفوضية بعد عيد الفصح في 7 أبريل.** ستحدد هذه النافذة المركبة للمحفزات ما إذا كانت الموضوعات الثلاثة المستمرة ستتطور (استعادة الواجهة، وظهور جهات فاعلة جديدة، وبدء تنفيذ الإصلاحات) أو تستمر في الربع الثاني.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **المصادر الأولية:** منقولة من جلسات 2026-04-03 / 04-04 الجوهرية؛ مراجعة طولية لـ12 ساعة للتقارير الشقيقة الصباحية `breaking` و`breaking-2`.
+- **الثقة:** 🟢 عالية لادعاءات الاستمرارية؛ 🟡 متوسطة لإطار نافذة التنبؤ.
+
+---
+
+### 📎 الروابط
+
+| الرابط | المسار |
+|--------|--------|
+| المقالة | `./article.md` |
+| الجلسات الشقيقة | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| المصدر — مسبار الواجهة | `analysis/daily/2026-04-03/breaking-2/` |
+| المصدر — خط أساس التحالف | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| المصدر — مجموعة الإصلاح | `analysis/daily/2026-04-03/breaking-3/` |
+| البيان | `./manifest.json` |
+
+---
+
+**ضبط الوثيقة**
+- **النموذج:** `/analysis/templates/executive-brief.md`
+- **مسار الملف:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **التصنيف:** عام
+- **التوليد الاستراجعي:** جلسة ملء استرجاعي.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Strategisk syntese ved midtpause (dag 10 af 18) bekræfter tre vedvarende efterretningstemaer ind i 2. kvartal 2026.** For det første er EP-feed-API FORRINGET i sin 3. dag i træk uden observerbar opstrømsgenoprettelse — hypotesen om pausekorrelation foretrækkes stadig. For det andet er koalitionsaritmetikken for EP10 stabiliseret ved PPE's 38% strukturelle dominans med Renew–ECR-kohærenssignalet (~0,95) der holder dag-for-dag. For det tredje er anti-korruption + Braun + Bedre lovgivning + offentlig adgangsreformklustret fra slutningen af marts fortsat det vigtigste institutionelle troværdighedsoutput for 1. kvartal. Den nøjagtige midtpunktstiming (9 af 18 forløbet) er et naturligt vendepunkt for fremtidsplanlægning. **🟢 HØJ tillid** til longitudinal mønsterstabilitet; **🟡 MIDDEL tillid** til forudsigelse om feed-API-genoprettelse ved pauseslut.
+
+---
+
+### 🧭 3 Beslutninger Dette Dokument Understøtter
+
+| # | Beslutning | Beslutningstager | Frist | Dokumentation |
+|:-:|------------|-----------------|:-----:|---------------|
+| 1 | **Redaktionelt:** publicer strategisk midtpausesyntese som longitudinelt anker | Redaktør | +24t | 12-timers longitudinal data + 3 temaer |
+| 2 | **Overvågning:** forbered til 14. april genoprettelsestest efter pause | Datapipeline | 2026-04-14 | Vendepunktsplanlægning |
+| 3 | **Fremadskuende:** 7. april Kommissionens tirsdagsagenda som næste eksterne udløser | Analyseansvarlig | 2026-04-07 | Første institutionelle aktivitet efter påske |
+
+---
+
+### 📰 60-Sekunders Læsning
+
+- 🔴 **Dag 10 af 18 — nøjagtigt midtpunkt af påskepausen** (27. marts → 13. april 2026). (🟢 Høj)
+- 🟠 **3 vedvarende temaer** bekræftet af 12-timers longitudinal syntese: feed FORRINGET, koalitionsaritmetik stabil, reformkluster videreføres. (🟢 Høj)
+- 🟢 **Ingen ny EP-aktivitet i dag** (søndag, pause). (🟢 Høj)
+- 🟡 **Renew–ECR-kohærenssignal holdt dag-for-dag** ved ~0,95 siden 2026-04-03. (🟡 Middel)
+- 🔵 **Økonomisk kontekst:** USA–EU-handelsbane uændret; IMF April WEO-udgivelsesvindue nærmer sig. (🟢 Høj)
+- 🟣 **Krydsreference:** søskenrapporterne `breaking` og `breaking-2` giver morgenbasislinje; denne kørsel syntetiserer begge. (🟢 Høj)
+- 🩷 **Forstyrrelsesvektorer:** Polsk-retsvæsen-opfølgning er fortsat den mest sandsynlige april-plenum-overraskelse. (🟡 Middel)
+- ⚪ **Videreføres:** Forberedelse til 2. kvartal-plenum begynder 13. april.
+
+---
+
+### 🗂️ Topfund — Midtpausesyntese
+
+| Rang | Fund | Kilde | Signifikans | Tillid |
+|:----:|------|-------|:-----------:|:------:|
+| 1 | EP feed-API FORRINGET (3. dag i træk) | 2026-04-03/breaking-2 baslinje | 8,0 | 🟢 HØJ |
+| 2 | Koalitionsaritmetik stabil (PPE 38% / Renew–ECR 0,95) | 2026-04-03/breaking, 2026-04-04/breaking | 7,5 | 🟡 MIDDEL |
+| 3 | Anti-korruption / reformkluster (videreføres) | 2026-04-03/breaking-3 | 9,0 | 🟢 HØJ |
+| 4 | Ingen ny EP-aktivitet dag 10 af 18 | Denne kørsel | 0,0 | 🟢 HØJ |
+
+---
+
+### ⚠️ Risiko & Trusselsbillede
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| Risiko | S | K | Score | Udløser | Kilde | Admiralitet |
+|--------|:-:|:-:|:-----:|---------|-------|:-----------:|
+| Feed-API-regression (efter 14. apr) | 3 | 4 | 12 | Ingen genoprettelse | 2026-04-03/breaking-2 | A1 |
+| PPE strukturel dominans | 5 | 4 | 20 | Alle flertal kræver PPE | Koalitionsaritmetik | A1 |
+| Polsk-retsvæsen-opfølgning | 4 | 3 | 12 | Ny undersøgelse | TA-10-2026-0088 | A1 |
+| Niveau-1 transponeringsrisiko | 4 | 4 | 16 | National divergens | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 Ledende Fremtidsudløser
+
+**Pauseslut 13. april 2026 + første kommissionstirsdagen efter påske 7. april.** Dette sammensatte udløservindue vil afgøre, om de tre vedvarende temaer udvikler sig (API genoprettet, nye aktører fremtræder, reformimplementering begynder) eller fortsætter ind i 2. kvartal.
+
+---
+
+### 🛡️ Kildekvali tetsvurdering
+
+- **Primære kilder:** Videreføres fra 2026-04-03 / 04-04 substantielle kørsler; 12-timers longitudinal gennemgang af `breaking` og `breaking-2` morgensøskener.
+- **Tillid:** 🟢 HØJ for kontinuitetspåstande; 🟡 MIDDEL for forudsigelsesvinduesramme.
+
+---
+
+### 📎 Links
+
+| Link | Sti |
+|------|-----|
+| Artikel | `./article.md` |
+| Søskenkørsler | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| Kilde — API-sonde | `analysis/daily/2026-04-03/breaking-2/` |
+| Kilde — koalitionsbaslinje | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| Kilde — reformkluster | `analysis/daily/2026-04-03/breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontrol**
+- **Skabelon:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **Klassifikation:** Offentlig
+- **Retrospektiv generering:** Baglæns-udfyldningssession.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Strategische Synthese zur Halbzeit der Pause (Tag 10 von 18) bestätigt drei anhaltende Nachrichtenthemen für Q2 2026.** Erstens ist die EP-Feed-API nun am 3. aufeinanderfolgenden Tag im DEGRADIERTEN Zustand ohne beobachtbare Wiederherstellung vorgelagert — die Pausenkorrelationshypothese wird weiterhin bevorzugt. Zweitens hat sich die Koalitionsarithmetik für EP10 bei PPE's 38%-struktureller Dominanz mit dem Renew–ECR-Kohärenzsignal (~0,95) stabilisiert, das sich Tag für Tag hält. Drittens bleibt das Antikorruptions- + Braun- + Bessere-Rechtsetzung- + Öffentlichkeitszugangsreformcluster vom Ende März der wichtigste institutionelle Glaubwürdigkeitsoutput für Q1. Der genaue Halbzeitpunkt (9 von 18 verstrichen) ist ein natürlicher Wendepunkt für die Zukunftsplanung. **🟢 HOHES Vertrauen** in die longitudinale Musterstabilität; **🟡 MITTLERES Vertrauen** in die Vorhersage der Feed-API-Wiederherstellung am Pausenende.
+
+---
+
+### 🧭 3 Entscheidungen, die dieser Bericht unterstützt
+
+| # | Entscheidung | Entscheidungsträger | Frist | Belege |
+|:-:|-------------|--------------------:|:----:|--------|
+| 1 | **Redaktionell:** strategische Halbzeitpausensynthese als longitudinalen Anker veröffentlichen | Redaktion | +24h | 12-stündige longitudinale Daten + 3 Themen |
+| 2 | **Überwachung:** Vorbereitung auf den 14. April Wiederherstellungstest nach der Pause | Datenpipeline | 2026-04-14 | Wendepunktplanung |
+| 3 | **Vorausschau:** 7. April Kommissions-Dienstagagenda als nächster externer Auslöser | Analyseleitung | 2026-04-07 | Erste institutionelle Aktivität nach Ostern |
+
+---
+
+### 📰 60-Sekunden-Lektüre
+
+- 🔴 **Tag 10 von 18 — genauer Mittelpunkt der Osterpause** (27. März → 13. April 2026). (🟢 Hoch)
+- 🟠 **3 anhaltende Themen** durch 12-stündige longitudinale Synthese bestätigt: Feed DEGRADIERT, Koalitionsarithmetik stabil, Reformcluster carry-over. (🟢 Hoch)
+- 🟢 **Keine neue EP-Aktivität heute** (Sonntag, Pause). (🟢 Hoch)
+- 🟡 **Renew–ECR-Kohärenzsignal Tag für Tag gehalten** bei ~0,95 seit 2026-04-03. (🟡 Mittel)
+- 🔵 **Wirtschaftlicher Kontext:** USA–EU-Handelsrichtung unverändert; IMF April WEO-Veröffentlichungsfenster nähert sich. (🟢 Hoch)
+- 🟣 **Querverweise:** Geschwisterberichte `breaking` und `breaking-2` liefern die Morgenbasisline; dieser Lauf synthetisiert beide. (🟢 Hoch)
+- 🩷 **Störungsvektor:** Polnische-Justiz-Nachfolge bleibt die wahrscheinlichste April-Plenum-Überraschung. (🟡 Mittel)
+- ⚪ **Carry-forward:** Q2-Plenumsvorbereitung beginnt am 13. April.
+
+---
+
+### 🗂️ Wichtigste Erkenntnisse — Halbzeitpausensynthese
+
+| Rang | Erkenntnis | Quelle | Bedeutung | Vertrauen |
+|:----:|-----------|--------|:---------:|:---------:|
+| 1 | EP Feed-API DEGRADIERT (3. aufeinanderfolgender Tag) | 2026-04-03/breaking-2 Basislinie | 8,0 | 🟢 HOCH |
+| 2 | Koalitionsarithmetik stabil (PPE 38% / Renew–ECR 0,95) | 2026-04-03/breaking, 2026-04-04/breaking | 7,5 | 🟡 MITTEL |
+| 3 | Antikorruptions- / Reformcluster (carry-over) | 2026-04-03/breaking-3 | 9,0 | 🟢 HOCH |
+| 4 | Keine neue EP-Aktivität Tag 10 von 18 | Dieser Lauf | 0,0 | 🟢 HOCH |
+
+---
+
+### ⚠️ Risiko & Bedrohungsbild
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| Risiko | W | A | Punktzahl | Auslöser | Quelle | Admiralität |
+|--------|:-:|:-:|:---------:|---------|--------|:-----------:|
+| Feed-API-Regression (nach 14. Apr) | 3 | 4 | 12 | Keine Wiederherstellung | 2026-04-03/breaking-2 | A1 |
+| PPE strukturelle Dominanz | 5 | 4 | 20 | Alle Mehrheiten erfordern PPE | Koalitionsarithmetik | A1 |
+| Polnische-Justiz-Nachfolge | 4 | 3 | 12 | Neue Untersuchung | TA-10-2026-0088 | A1 |
+| Stufe-1-Transpositionsrisiko | 4 | 4 | 16 | Nationale Divergenz | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 Führender Zukunftsauslöser
+
+**Pausenende 13. April 2026 + erster Post-Oster-Kommissionsdienstag 7. April.** Dieses zusammengesetzte Auslösefenster wird bestimmen, ob sich die drei anhaltenden Themen weiterentwickeln (API wiederhergestellt, neue Akteure tauchen auf, Reformumsetzung beginnt) oder in Q2 fortbestehen.
+
+---
+
+### 🛡️ Quellenqualitätsbewertung
+
+- **Primärquellen:** Carry-over von 2026-04-03 / 04-04 substanziellen Läufen; 12-stündige longitudinale Überprüfung der `breaking`- und `breaking-2`-Morgengeschwister.
+- **Vertrauen:** 🟢 HOCH für Kontinuitätsaussagen; 🟡 MITTEL für Prognoserahmung.
+
+---
+
+### 📎 Links
+
+| Link | Pfad |
+|------|------|
+| Artikel | `./article.md` |
+| Geschwisterläufe | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| Quelle — API-Sonde | `analysis/daily/2026-04-03/breaking-2/` |
+| Quelle — Koalitionsbasisline | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| Quelle — Reformcluster | `analysis/daily/2026-04-03/breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontrolle**
+- **Vorlage:** `/analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **Klassifizierung:** Öffentlich
+- **Retrospektive Generierung:** Rückwärtsbefüllungssitzung.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**La síntesis estratégica a mitad del receso (día 10 de 18) confirma tres temas de inteligencia persistentes que se proyectan en el T2 2026.** En primer lugar, la API de feed del PE lleva 3 días consecutivos en estado DEGRADADO sin restauración observable aguas arriba — la hipótesis de correlación con el receso sigue siendo la preferida. En segundo lugar, la aritmética de coalición de EP10 se ha estabilizado con la dominancia estructural del PPE al 38 % y la señal de cohesión Renew–ECR (~0,95) manteniéndose día a día. En tercer lugar, el clúster anticorrupción + Braun + mejor regulación + reforma de acceso público de finales de marzo sigue siendo el principal resultado de credibilidad institucional del T1. El momento exacto del punto medio (9 de 18 transcurridos) es un punto de inflexión natural para la planificación prospectiva. **🟢 ALTA confianza** en la estabilidad del patrón longitudinal; **🟡 MEDIA confianza** en la predicción de restauración de la API de feed al final del receso.
+
+---
+
+### 🧭 3 Decisiones que Apoya Esta Nota
+
+| # | Decisión | Responsable | Plazo | Evidencia |
+|:-:|----------|------------|:-----:|-----------|
+| 1 | **Editorial:** publicar la síntesis estratégica a mitad del receso como ancla longitudinal | Redacción | +24h | Datos longitudinales 12h + 3 temas |
+| 2 | **Monitoreo:** preparar la prueba de restauración del 14 de abril tras el receso | Pipeline de datos | 2026-04-14 | Planificación del punto de inflexión |
+| 3 | **Vigilancia prospectiva:** agenda del martes de la Comisión del 7 de abril como próximo desencadenante externo | Jefe de análisis | 2026-04-07 | Primera actividad institucional post-Pascua |
+
+---
+
+### 📰 Lectura de 60 Segundos
+
+- 🔴 **Día 10 de 18 — punto medio exacto del receso de Pascua** (27 de marzo → 13 de abril de 2026). (🟢 Alta)
+- 🟠 **3 temas persistentes** confirmados por síntesis longitudinal de 12 horas: feed DEGRADADO, aritmética de coalición estable, clúster de reformas en carry-over. (🟢 Alta)
+- 🟢 **Sin nueva actividad del PE hoy** (domingo, receso). (🟢 Alta)
+- 🟡 **Señal de cohesión Renew–ECR mantenida día a día** en ~0,95 desde el 2026-04-03. (🟡 Media)
+- 🔵 **Contexto económico:** trayectoria comercial USA–UE sin cambios; ventana de publicación del WEO de abril del IMF aproximándose. (🟢 Alta)
+- 🟣 **Referencia cruzada:** los informes hermanos `breaking` y `breaking-2` proporcionan la línea base matutina; esta ejecución sintetiza ambos. (🟢 Alta)
+- 🩷 **Vector de disrupción:** el seguimiento judicial polaco sigue siendo la sorpresa más probable del pleno de abril. (🟡 Media)
+- ⚪ **Carry-forward:** la preparación del pleno T2 comienza el 13 de abril.
+
+---
+
+### 🗂️ Principales Hallazgos — Síntesis a Mitad del Receso
+
+| Rango | Hallazgo | Fuente | Significancia | Confianza |
+|:-----:|---------|--------|:------------:|:---------:|
+| 1 | API de feed del PE DEGRADADA (3.er día consecutivo) | Línea base 2026-04-03/breaking-2 | 8,0 | 🟢 ALTA |
+| 2 | Aritmética de coalición estable (PPE 38 % / Renew–ECR 0,95) | 2026-04-03/breaking, 2026-04-04/breaking | 7,5 | 🟡 MEDIA |
+| 3 | Clúster anticorrupción / reformas (carry-over) | 2026-04-03/breaking-3 | 9,0 | 🟢 ALTA |
+| 4 | Sin nueva actividad del PE día 10 de 18 | Esta ejecución | 0,0 | 🟢 ALTA |
+
+---
+
+### ⚠️ Riesgos y Amenazas
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| Riesgo | V | I | Puntuación | Desencadenante | Fuente | Almirantazgo |
+|--------|:-:|:-:|:----------:|--------------|--------|:------------:|
+| Regresión API de feed (tras 14 abr) | 3 | 4 | 12 | Sin restauración | 2026-04-03/breaking-2 | A1 |
+| Dominancia estructural PPE | 5 | 4 | 20 | Todas las mayorías requieren PPE | Aritmética de coalición | A1 |
+| Seguimiento judicial polaco | 4 | 3 | 12 | Nueva investigación | TA-10-2026-0088 | A1 |
+| Riesgo de transposición de nivel 1 | 4 | 4 | 16 | Divergencia nacional | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 Principal Desencadenante Prospectivo
+
+**Fin del receso el 13 de abril de 2026 + primer martes de la Comisión post-Pascua el 7 de abril.** Esta ventana de desencadenante compuesto determinará si los tres temas persistentes evolucionan (API restaurada, nuevos actores emergen, implementación de reformas comienza) o persisten en el T2.
+
+---
+
+### 🛡️ Evaluación de Calidad de las Fuentes
+
+- **Fuentes primarias:** Carry-over de las ejecuciones sustantivas de 2026-04-03 / 04-04; revisión longitudinal de 12 horas de los informes hermanos matutinos `breaking` y `breaking-2`.
+- **Confianza:** 🟢 ALTA para afirmaciones de continuidad; 🟡 MEDIA para el encuadre de la ventana de predicción.
+
+---
+
+### 📎 Enlaces
+
+| Enlace | Ruta |
+|--------|------|
+| Artículo | `./article.md` |
+| Ejecuciones hermanas | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| Fuente — sonda API | `analysis/daily/2026-04-03/breaking-2/` |
+| Fuente — línea base de coalición | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| Fuente — clúster de reformas | `analysis/daily/2026-04-03/breaking-3/` |
+| Manifiesto | `./manifest.json` |
+
+---
+
+**Control documental**
+- **Plantilla:** `/analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **Clasificación:** Público
+- **Generación retrospectiva:** Sesión de relleno retroactivo.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Strateginen synteesi kesken tauon (päivä 10/18) vahvistaa kolme jatkuvaa tiedusteluteemaa Q2 2026:een siirryttäessä.** Ensinnäkin EP:n syöte-API on ollut HEIKENTYNYT kolmantena peräkkäisenä päivänä ilman havaittavaa palautumista ylävirtaan — taukokorrelaatiohypoteesi edelleen suosittu. Toiseksi EP10:n koalitioaritmetiikka on vakautunut PPE:n 38 %:n rakenteellisen herruuden kanssa, ja Renew–ECR-koheesiosignaali (~0,95) pitää päivästä toiseen. Kolmanneksi maaliskuun lopun korruption vastainen + Braun + parempi lainsäädäntö + julkiseen saatavuuteen liittyvä uudistusklusteri on edelleen Q1:n merkittävin institutionaalinen uskottavuustuotos. Täsmällinen puoliväliajankohta (9/18 kulunut) on luonnollinen käännekohtia tulevaisuuden suunnittelulle. **🟢 KORKEA luotettavuus** longitudinaalisen kuvion vakaudelle; **🟡 KESKIKOKOINEN luotettavuus** syöte-API:n palautumisennusteelle tauon lopussa.
+
+---
+
+### 🧭 3 Päätöstä, Joita Tämä Asiakirja Tukee
+
+| # | Päätös | Päättäjä | Määräaika | Näyttö |
+|:-:|--------|---------|:--------:|--------|
+| 1 | **Toimituksellinen:** julkaise strateginen taukosynteesi longitudinaalisena ankkurina | Toimittaja | +24h | 12 tunnin longitudinaaliset tiedot + 3 teemaa |
+| 2 | **Seuranta:** valmistaudu 14. huhtikuuta tauon jälkeiseen palautumistestiin | Datapipeline | 2026-04-14 | Käännekohtasuunnittelu |
+| 3 | **Ennakoiva seuranta:** 7. huhtikuuta komission tiistaiagenda seuraavana ulkoisena käynnistimena | Analyysipäällikkö | 2026-04-07 | Ensimmäinen institutionaalinen toiminta pääsiäisen jälkeen |
+
+---
+
+### 📰 60 Sekunnin Lukeminen
+
+- 🔴 **Päivä 10/18 — pääsiäistauon täsmällinen puoliväli** (27. maaliskuuta → 13. huhtikuuta 2026). (🟢 Korkea)
+- 🟠 **3 jatkuvaa teemaa** vahvistettu 12 tunnin longitudinaalisella synteesillä: syöte HEIKENTYNYT, koalitioaritmetiikka vakaa, uudistusklusteri jatkuu. (🟢 Korkea)
+- 🟢 **Ei uutta EP-toimintaa tänään** (sunnuntai, tauko). (🟢 Korkea)
+- 🟡 **Renew–ECR-koheesiosignaali piti päivästä toiseen** ~0,95:ssä vuodesta 2026-04-03. (🟡 Keskikokoinen)
+- 🔵 **Taloudellinen konteksti:** USA–EU-kaupan kehityssuunta muuttumaton; IMF huhtikuu WEO-julkaisuikkuna lähestyy. (🟢 Korkea)
+- 🟣 **Ristiviittaus:** sisarusraportit `breaking` ja `breaking-2` tarjoavat aamulähtötason; tämä ajo syntetisoi molemmat. (🟢 Korkea)
+- 🩷 **Häiriövektori:** Puolan oikeuslaitoksen jatkoseuranta pysyy todennäköisimpänä huhtikuun täysistuntoyllätyksenä. (🟡 Keskikokoinen)
+- ⚪ **Jatkuu:** Q2-täysistunnon valmistelu alkaa 13. huhtikuuta.
+
+---
+
+### 🗂️ Tärkeimmät Havainnot — Taukosynteesi
+
+| Sija | Havainto | Lähde | Merkitsevyys | Luotettavuus |
+|:----:|---------|-------|:-----------:|:------------:|
+| 1 | EP syöte-API HEIKENTYNYT (3. peräkkäinen päivä) | 2026-04-03/breaking-2 lähtötaso | 8,0 | 🟢 KORKEA |
+| 2 | Koalitioaritmetiikka vakaa (PPE 38% / Renew–ECR 0,95) | 2026-04-03/breaking, 2026-04-04/breaking | 7,5 | 🟡 KESKIKOKOINEN |
+| 3 | Korruption vastainen / uudistusklusteri (jatkuu) | 2026-04-03/breaking-3 | 9,0 | 🟢 KORKEA |
+| 4 | Ei uutta EP-toimintaa päivänä 10/18 | Tämä ajo | 0,0 | 🟢 KORKEA |
+
+---
+
+### ⚠️ Riski & Uhkakuva
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| Riski | T | V | Pisteet | Käynnistin | Lähde | Admiraliteetti |
+|-------|:-:|:-:|:-------:|-----------|-------|:--------------:|
+| Syöte-API-regressio (14. huhtikuuta jälkeen) | 3 | 4 | 12 | Ei palautumista | 2026-04-03/breaking-2 | A1 |
+| PPE rakenteellinen herruus | 5 | 4 | 20 | Kaikki enemmistöt vaativat PPE:n | Koalitioaritmetiikka | A1 |
+| Puolan oikeuslaitoksen jatkoseuranta | 4 | 3 | 12 | Uusi tutkinta | TA-10-2026-0088 | A1 |
+| Taso-1 täytäntöönpanoriski | 4 | 4 | 16 | Kansallinen eriytyminen | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 Johtava Tulevaisuuden Käynnistin
+
+**Tauon päätös 13. huhtikuuta 2026 + ensimmäinen pääsiäisen jälkeinen komission tiistai 7. huhtikuuta.** Tämä yhdistetty käynnistinikkuna ratkaisee, kehittyvätkö kolme jatkuvaa teemaa (API palautettu, uudet toimijat ilmaantuvat, uudistuksen täytäntöönpano alkaa) vai jatkuvatko ne Q2:een.
+
+---
+
+### 🛡️ Lähteen Laadun Arviointi
+
+- **Ensisijaiset lähteet:** Jatkuu 2026-04-03 / 04-04 sisällöllisistä ajoista; 12 tunnin longitudinaalinen katsaus `breaking`- ja `breaking-2`-aamusisaruksiin.
+- **Luotettavuus:** 🟢 KORKEA jatkuvuusväitteille; 🟡 KESKIKOKOINEN ennusteikkunan kehystämiselle.
+
+---
+
+### 📎 Linkit
+
+| Linkki | Polku |
+|--------|-------|
+| Artikkeli | `./article.md` |
+| Sisarusajot | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| Lähde — API-luotaus | `analysis/daily/2026-04-03/breaking-2/` |
+| Lähde — koalitiolähtötaso | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| Lähde — uudistusklusteri | `analysis/daily/2026-04-03/breaking-3/` |
+| Manifesti | `./manifest.json` |
+
+---
+
+**Asiakirjahallinta**
+- **Malli:** `/analysis/templates/executive-brief.md`
+- **Artefaktipolku:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **Luokittelu:** Julkinen
+- **Retrospektiivinen generointi:** Takautuvastäyttöistunto.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**La synthèse stratégique à mi-pause (jour 10 sur 18) confirme trois thèmes de renseignement persistants qui se projettent sur le T2 2026.** Premièrement, l'API de flux EP est en état DÉGRADÉ pour la 3e journée consécutive sans restauration observable en amont — l'hypothèse de corrélation avec la pause demeure privilégiée. Deuxièmement, l'arithmétique coalitionnelle d'EP10 s'est stabilisée à la dominance structurelle de 38 % du PPE avec le signal de cohésion Renew–ECR (~0,95) se maintenant jour après jour. Troisièmement, le cluster anticorruption + Braun + meilleure réglementation + réforme de l'accès public de fin mars reste la principale production de crédibilité institutionnelle du T1. Le timing exact au point médian (9 sur 18 écoulés) constitue un point d'inflexion naturel pour la planification prospective. **🟢 CONFIANCE ÉLEVÉE** sur la stabilité longitudinale des modèles ; **🟡 CONFIANCE MOYENNE** sur la prévision de restauration de l'API de flux en fin de pause.
+
+---
+
+### 🧭 3 Décisions que cette Note Éclaire
+
+| # | Décision | Décideur | Échéance | Éléments probants |
+|:-:|----------|---------|:--------:|------------------|
+| 1 | **Éditorial :** publier la synthèse stratégique à mi-pause comme ancrage longitudinal | Rédaction | +24h | Données longitudinales 12h + 3 thèmes |
+| 2 | **Suivi :** préparer le test de restauration du 14 avril après la pause | Pipeline de données | 2026-04-14 | Planification du point d'inflexion |
+| 3 | **Veille prospective :** agenda du mardi Commission du 7 avril comme prochain déclencheur externe | Responsable analyse | 2026-04-07 | Première activité institutionnelle post-Pâques |
+
+---
+
+### 📰 Lecture en 60 secondes
+
+- 🔴 **Jour 10 sur 18 — point médian exact de la pause pascale** (27 mars → 13 avril 2026). (🟢 Élevée)
+- 🟠 **3 thèmes persistants** confirmés par synthèse longitudinale 12h : flux DÉGRADÉ, arithmétique coalitionnelle stable, cluster de réformes en report. (🟢 Élevée)
+- 🟢 **Aucune nouvelle activité PE aujourd'hui** (dimanche, pause). (🟢 Élevée)
+- 🟡 **Signal de cohésion Renew–ECR maintenu jour après jour** à ~0,95 depuis le 2026-04-03. (🟡 Moyenne)
+- 🔵 **Contexte économique :** trajectoire commerciale USA–UE inchangée ; fenêtre de publication du WEO d'avril du IMF qui approche. (🟢 Élevée)
+- 🟣 **Référence croisée :** les notes jumelles `breaking` et `breaking-2` fournissent la base matinale ; cette exécution synthétise les deux. (🟢 Élevée)
+- 🩷 **Vecteur de perturbation :** le suivi judiciaire polonais reste la surprise la plus probable de la plénière d'avril. (🟡 Moyenne)
+- ⚪ **Report :** la préparation de la plénière T2 commence le 13 avril.
+
+---
+
+### 🗂️ Principales Conclusions — Synthèse à mi-pause
+
+| Rang | Conclusion | Source | Importance | Confiance |
+|:----:|-----------|--------|:----------:|:---------:|
+| 1 | API de flux EP DÉGRADÉE (3e jour consécutif) | Ligne de base 2026-04-03/breaking-2 | 8,0 | 🟢 ÉLEVÉE |
+| 2 | Arithmétique coalitionnelle stable (PPE 38 % / Renew–ECR 0,95) | 2026-04-03/breaking, 2026-04-04/breaking | 7,5 | 🟡 MOYENNE |
+| 3 | Cluster anticorruption / réformes (report) | 2026-04-03/breaking-3 | 9,0 | 🟢 ÉLEVÉE |
+| 4 | Aucune nouvelle activité PE jour 10 sur 18 | Cette exécution | 0,0 | 🟢 ÉLEVÉE |
+
+---
+
+### ⚠️ Risques & Menaces
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| Risque | V | I | Score | Déclencheur | Source | Amirauté |
+|--------|:-:|:-:|:-----:|------------|--------|:--------:|
+| Régression API de flux (après 14 avr) | 3 | 4 | 12 | Pas de restauration | 2026-04-03/breaking-2 | A1 |
+| Dominance structurelle PPE | 5 | 4 | 20 | Toutes les majorités requièrent le PPE | Arithmétique coalitionnelle | A1 |
+| Suivi judiciaire polonais | 4 | 3 | 12 | Nouvelle enquête | TA-10-2026-0088 | A1 |
+| Risque de transposition de niveau 1 | 4 | 4 | 16 | Divergence nationale | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 Principal Déclencheur Prospectif
+
+**Fin de pause le 13 avril 2026 + premier mardi Commission post-Pâques le 7 avril.** Cette fenêtre de déclenchement composite déterminera si les trois thèmes persistants évoluent (API restaurée, nouveaux acteurs émergent, mise en œuvre des réformes commence) ou perdurent en T2.
+
+---
+
+### 🛡️ Évaluation de la Qualité des Sources
+
+- **Sources primaires :** Report des exécutions substantielles de 2026-04-03 / 04-04 ; revue longitudinale de 12 heures des notes jumelles matinales `breaking` et `breaking-2`.
+- **Confiance :** 🟢 ÉLEVÉE pour les affirmations de continuité ; 🟡 MOYENNE pour le cadrage de la fenêtre de prévision.
+
+---
+
+### 📎 Liens
+
+| Lien | Chemin |
+|------|--------|
+| Article | `./article.md` |
+| Exécutions jumelles | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| Source — sonde API | `analysis/daily/2026-04-03/breaking-2/` |
+| Source — base coalitionnelle | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| Source — cluster réformes | `analysis/daily/2026-04-03/breaking-3/` |
+| Manifeste | `./manifest.json` |
+
+---
+
+**Contrôle documentaire**
+- **Modèle :** `/analysis/templates/executive-brief.md`
+- **Chemin de l'artefact :** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **Classification :** Public
+- **Génération rétrospective :** Session de remplissage rétrospectif.
+
+### Executive Brief He
+
+**סיווג:** OSINT | רשומות פרלמנטריות ציבוריות
+**אמינות:** 🟢 גבוהה (סינתזה אורכית של 12 שעות באמצע ההפסקה)
+**נוצר:** 2026-04-05T00:00:00Z (דוח רטרוספקטיבי)
+**סוג המאמר:** בריקינג — דוח מודיעין אסטרטגי בזמן ההפסקה (סינתזה אורכית של 12 שעות)
+**מקור:** פורטל הנתונים הפתוח של הפרלמנט האירופי
+
+---
+
+### 🎯 BLUF
+
+**הסינתזה האסטרטגית באמצע ההפסקה (יום 10 מתוך 18) מאשרת שלושה נושאי מודיעין מתמשכים המתפרסים לרבעון השני של 2026.** ראשית, ממשק ה-API לעדכוני הפרלמנט האירופי נמצא במצב מדורדר ביום השלישי ברצף ללא שחזור נצפה במקור — השערת הקורלציה עם ההפסקה עדיין מועדפת. שנית, חשבון הקואליציה של EP10 התייצב בשליטה המבנית של PPE בשיעור 38% עם איתות הלכידות של Renew–ECR (~0.95) שמחזיק יום אחרי יום. שלישית, אשכול נגד-שחיתות + בראון + חקיקה טובה יותר + רפורמת גישה ציבורית מסוף מרץ נשאר הפלט העיקרי של אמינות מוסדית ברבעון הראשון. העיתוי המדויק של נקודת האמצע (9 מתוך 18 חלפו) הוא נקודת מפנה טבעית לתכנון עתידי. **🟢 אמינות גבוהה** על יציבות דפוס אורכי; **🟡 אמינות בינונית** על תחזית שחזור ה-API בסוף ההפסקה.
+
+---
+
+### 🧭 3 החלטות שמסמך זה תומך בהן
+
+| # | החלטה | מקבל החלטה | מועד אחרון | ראיות |
+|:-:|-------|-----------|:---------:|-------|
+| 1 | **עריכה:** פרסום הסינתזה האסטרטגית כעוגן אורכי | מערכת | +24 שעות | נתונים אורכיים 12 שעות + 3 נושאים |
+| 2 | **ניטור:** הכנה לבדיקת שחזור ב-14 באפריל לאחר ההפסקה | צינור נתונים | 2026-04-14 | תכנון נקודת מפנה |
+| 3 | **מעקב עתידי:** סדר יום של יום שלישי הנציבות ב-7 באפריל כמפעיל חיצוני הבא | ראש ניתוח | 2026-04-07 | פעילות מוסדית ראשונה לאחר הפסחא |
+
+---
+
+### 📰 קריאה של 60 שניות
+
+- 🔴 **יום 10 מתוך 18 — נקודת אמצע מדויקת של חופשת הפסחא** (27 במרץ ← 13 באפריל 2026). (🟢 גבוהה)
+- 🟠 **3 נושאים מתמשכים** אושרו בסינתזה אורכית של 12 שעות: עדכונים מדורדרים, חשבון קואליציה יציב, אשכול רפורמות נמשך. (🟢 גבוהה)
+- 🟢 **אין פעילות חדשה בפרלמנט האירופי היום** (ראשון, הפסקה). (🟢 גבוהה)
+- 🟡 **איתות לכידות Renew–ECR נשמר יום אחרי יום** ב-~0.95 מאז 2026-04-03. (🟡 בינונית)
+- 🔵 **הקשר כלכלי:** מסלול סחר ארה"ב–אירופה ללא שינוי; חלון פרסום IMF אפריל WEO מתקרב. (🟢 גבוהה)
+- 🟣 **הפנייה צולבת:** הדוחות האחים `breaking` ו-`breaking-2` מספקים קו בסיס בוקר; ריצה זו מסנתזת את שניהם. (🟢 גבוהה)
+- 🩷 **וקטור שיבוש:** המעקב השיפוטי הפולני נשאר ההפתעה הסבירה ביותר במשמרת אפריל. (🟡 בינונית)
+- ⚪ **המשך:** הכנת מושב רבעון שני מתחילה ב-13 באפריל.
+
+---
+
+### 🗂️ הממצאים המובילים — סינתזת אמצע ההפסקה
+
+| דירוג | ממצא | מקור | חשיבות | אמינות |
+|:-----:|------|------|:------:|:------:|
+| 1 | API עדכוני פרלמנט אירופי מדורדר (יום שלישי ברצף) | קו בסיס 2026-04-03/breaking-2 | 8.0 | 🟢 גבוהה |
+| 2 | חשבון קואליציה יציב (PPE 38% / Renew–ECR 0.95) | 2026-04-03/breaking, 2026-04-04/breaking | 7.5 | 🟡 בינונית |
+| 3 | אשכול נגד-שחיתות / רפורמות (נמשך) | 2026-04-03/breaking-3 | 9.0 | 🟢 גבוהה |
+| 4 | אין פעילות חדשה ביום 10 מתוך 18 | ריצה זו | 0.0 | 🟢 גבוהה |
+
+---
+
+### ⚠️ תמונת סיכונים ואיומים
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| סיכון | א | ה | ציון | מפעיל | מקור | אדמירליות |
+|-------|:-:|:-:|:----:|-------|------|:---------:|
+| נסיגת API עדכונים (לאחר 14 באפריל) | 3 | 4 | 12 | אין שחזור | 2026-04-03/breaking-2 | A1 |
+| שליטה מבנית של PPE | 5 | 4 | 20 | כל הרוב דורשים PPE | חשבון קואליציה | A1 |
+| המעקב השיפוטי הפולני | 4 | 3 | 12 | חקירה חדשה | TA-10-2026-0088 | A1 |
+| סיכון טרנספוזיציה רמה 1 | 4 | 4 | 16 | פיצול לאומי | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 המפעיל העתידי המוביל
+
+**סיום ההפסקה ב-13 באפריל 2026 + יום שלישי הנציבות הראשון לאחר הפסחא ב-7 באפריל.** חלון המפעיל המרוכב הזה יקבע האם שלושת הנושאים המתמשכים יתפתחו (API משוחזר, שחקנים חדשים מופיעים, יישום רפורמות מתחיל) או ימשיכו לרבעון השני.
+
+---
+
+### 🛡️ הערכת איכות מקורות
+
+- **מקורות ראשיים:** נמשכים מריצות המהות של 2026-04-03 / 04-04; סקירה אורכית של 12 שעות לדוחות האחים הבוקריים `breaking` ו-`breaking-2`.
+- **אמינות:** 🟢 גבוהה לטענות המשכיות; 🟡 בינונית לניסוח חלון התחזית.
+
+---
+
+### 📎 קישורים
+
+| קישור | נתיב |
+|-------|------|
+| מאמר | `./article.md` |
+| ריצות אחיות | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| מקור — בדיקת API | `analysis/daily/2026-04-03/breaking-2/` |
+| מקור — קו בסיס קואליציה | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| מקור — אשכול רפורמות | `analysis/daily/2026-04-03/breaking-3/` |
+| מניפסט | `./manifest.json` |
+
+---
+
+**בקרת מסמכים**
+- **תבנית:** `/analysis/templates/executive-brief.md`
+- **נתיב קובץ:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **סיווג:** ציבורי
+- **יצירה רטרוספקטיבית:** סשן מילוי לאחור.
+
+### Executive Brief Ja
+
+**分類：** OSINT｜公開議会記録
+**信頼度：** 🟢 高（休会中期12時間縦断的統合）
+**生成日時：** 2026-04-05T00:00:00Z（遡及ブリーフ）
+**記事タイプ：** 速報 — 休会期間中の戦略的情報ブリーフ（12時間縦断的統合）
+**情報源：** 欧州議会オープンデータポータル
+
+---
+
+### 🎯 BLUF
+
+**休会中期（18日中10日目）の戦略的統合により、2026年第2四半期に持ち越される3つの持続的な情報テーマが確認されました。** 第1に、EP フィードAPIは上流での復旧が確認されないまま3日連続で「劣化」状態が続いており、休会との相関仮説が依然として有力です。第2に、EP10の連立算術はPPEの38%構造的優位性で安定しており、Renew–ECR結束シグナル（~0.95）が日々維持されています。第3に、3月末の汚職対策 + ブラウン + より良い立法 + 公開アクセス改革クラスターが、第1四半期の主要な制度的信頼性成果として残っています。正確な中間時点（18日中9日経過）は将来計画の自然な変曲点です。縦断的パターン安定性への**🟢 高信頼度**；休会終了時のフィードAPI復旧予測への**🟡 中程度の信頼度**。
+
+---
+
+### 🧭 このブリーフが支援する3つの意思決定
+
+| # | 意思決定 | 決定者 | 期限 | 根拠 |
+|:-:|---------|------|:---:|------|
+| 1 | **編集：** 戦略的休会中期統合を縦断的アンカーとして公開 | 編集局 | +24時間 | 12時間縦断データ + 3テーマ |
+| 2 | **監視：** 4月14日の休会後復旧テストへの準備 | データパイプライン | 2026-04-14 | 変曲点計画 |
+| 3 | **先行監視：** 4月7日欧州委員会の火曜日議題を次の外部トリガーとして設定 | 分析責任者 | 2026-04-07 | 復活祭後初の制度的活動 |
+
+---
+
+### 📰 60秒リーディング
+
+- 🔴 **18日中10日目 — イースター休会の正確な中間地点**（2026年3月27日 → 4月13日）。(🟢 高)
+- 🟠 **3つの持続テーマ**が12時間縦断的統合で確認：フィード劣化、連立算術安定、改革クラスター持越し。(🟢 高)
+- 🟢 **本日のEP新規活動なし**（日曜日、休会）。(🟢 高)
+- 🟡 **Renew–ECR結束シグナルが日々維持**、2026-04-03以降~0.95。(🟡 中)
+- 🔵 **経済的文脈：** 米国–EU貿易軌道変化なし；IMF 4月WEO公開窓口接近。(🟢 高)
+- 🟣 **相互参照：** 姉妹レポート`breaking`と`breaking-2`が朝のベースラインを提供；この実行が両方を統合。(🟢 高)
+- 🩷 **混乱ベクター：** ポーランド司法フォローアップが4月本会議の最も可能性の高いサプライズとして残存。(🟡 中)
+- ⚪ **繰越：** 第2四半期本会議準備が4月13日に開始。
+
+---
+
+### 🗂️ 主要所見 — 休会中期統合
+
+| 順位 | 所見 | 情報源 | 重要度 | 信頼度 |
+|:---:|------|------|:-----:|:-----:|
+| 1 | EPフィードAPI劣化（3日連続） | 2026-04-03/breaking-2 ベースライン | 8.0 | 🟢 高 |
+| 2 | 連立算術安定（PPE 38% / Renew–ECR 0.95） | 2026-04-03/breaking, 2026-04-04/breaking | 7.5 | 🟡 中 |
+| 3 | 汚職対策／改革クラスター（持越し） | 2026-04-03/breaking-3 | 9.0 | 🟢 高 |
+| 4 | 18日中10日目にEP新規活動なし | この実行 | 0.0 | 🟢 高 |
+
+---
+
+### ⚠️ リスク・脅威スナップショット
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| リスク | 可 | 影 | スコア | トリガー | 情報源 | 海軍省 |
+|-------|:-:|:-:|:-----:|--------|------|:-----:|
+| フィードAPI劣化（4月14日以降） | 3 | 4 | 12 | 復旧なし | 2026-04-03/breaking-2 | A1 |
+| PPE構造的優位性 | 5 | 4 | 20 | すべての過半数がPPEを必要 | 連立算術 | A1 |
+| ポーランド司法フォローアップ | 4 | 3 | 12 | 新規調査 | TA-10-2026-0088 | A1 |
+| 第1層転置リスク | 4 | 4 | 16 | 各国間乖離 | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 主要な先行トリガー
+
+**2026年4月13日の休会終了 + 復活祭後初の欧州委員会火曜日4月7日。** この複合トリガー窓口が、3つの持続テーマが発展（API復旧、新規主体出現、改革実施開始）するか、第2四半期に持続するかを決定します。
+
+---
+
+### 🛡️ 情報源品質評価
+
+- **一次情報源：** 2026-04-03 / 04-04の実質的な実行からの持越し；`breaking`および`breaking-2`朝の姉妹の12時間縦断的レビュー。
+- **信頼度：** 継続性の主張に対して🟢 高；予測窓口フレーミングに対して🟡 中。
+
+---
+
+### 📎 リンク
+
+| リンク | パス |
+|-------|-----|
+| 記事 | `./article.md` |
+| 姉妹実行 | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| 情報源 — APIプローブ | `analysis/daily/2026-04-03/breaking-2/` |
+| 情報源 — 連立ベースライン | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| 情報源 — 改革クラスター | `analysis/daily/2026-04-03/breaking-3/` |
+| マニフェスト | `./manifest.json` |
+
+---
+
+**文書管理**
+- **テンプレート：** `/analysis/templates/executive-brief.md`
+- **成果物パス：** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **分類：** 公開
+- **遡及生成：** バックフィルセッション。
+
+### Executive Brief Ko
+
+**분류:** OSINT | 공개 의회 기록
+**신뢰도:** 🟢 높음 (12시간 종단적 휴회 중반기 통합)
+**작성일:** 2026-04-05T00:00:00Z (소급 보고서)
+**기사 유형:** 속보 — 휴회 기간 중 전략 정보 보고서 (12시간 종단적 통합)
+**출처:** 유럽의회 개방 데이터 포털
+
+---
+
+### 🎯 BLUF
+
+**휴회 중반기 전략 통합 (18일 중 10일차)은 2026년 2분기로 이어지는 세 가지 지속적인 정보 주제를 확인합니다.** 첫째, EP 피드 API가 업스트림 복구 없이 3일 연속 성능 저하 상태를 유지하고 있으며, 휴회 상관 가설이 여전히 선호됩니다. 둘째, EP10의 연립 산술은 PPE의 38% 구조적 우위와 Renew–ECR 결속 신호 (~0.95)가 매일 유지되며 안정화되었습니다. 셋째, 3월 말의 반부패 + 브라운 + 더 나은 입법 + 공개 접근 개혁 클러스터가 1분기 주요 제도적 신뢰도 성과로 남아 있습니다. 정확한 중간 지점 타이밍 (18일 중 9일 경과)은 미래 계획의 자연스러운 변곡점입니다. 종단적 패턴 안정성에 대해 **🟢 높은 신뢰도**; 휴회 종료 시 피드 API 복구 예측에 대해 **🟡 중간 신뢰도**.
+
+---
+
+### 🧭 이 요약이 지원하는 3가지 결정
+
+| # | 결정 | 결정자 | 마감일 | 근거 |
+|:-:|------|------|:-----:|------|
+| 1 | **편집:** 전략적 휴회 중반기 통합을 종단적 앵커로 게시 | 편집부 | +24시간 | 12시간 종단 데이터 + 3가지 주제 |
+| 2 | **모니터링:** 4월 14일 휴회 후 복구 테스트 준비 | 데이터 파이프라인 | 2026-04-14 | 변곡점 계획 |
+| 3 | **선행 모니터링:** 4월 7일 집행위원회 화요일 의제를 다음 외부 트리거로 설정 | 분석 책임자 | 2026-04-07 | 부활절 이후 첫 제도적 활동 |
+
+---
+
+### 📰 60초 읽기
+
+- 🔴 **18일 중 10일차 — 부활절 휴회의 정확한 중간 지점** (2026년 3월 27일 → 4월 13일). (🟢 높음)
+- 🟠 **3가지 지속적인 주제**가 12시간 종단 통합으로 확인: 피드 성능 저하, 연립 산술 안정, 개혁 클러스터 이월. (🟢 높음)
+- 🟢 **오늘 새로운 EP 활동 없음** (일요일, 휴회). (🟢 높음)
+- 🟡 **Renew–ECR 결속 신호가 매일 유지됨** 2026-04-03 이후 ~0.95. (🟡 중간)
+- 🔵 **경제적 맥락:** 미국–EU 무역 궤도 변화 없음; IMF 4월 WEO 발표 창구 접근. (🟢 높음)
+- 🟣 **교차 참조:** 형제 보고서 `breaking`과 `breaking-2`가 아침 기준선 제공; 이번 실행이 양쪽 통합. (🟢 높음)
+- 🩷 **혼란 벡터:** 폴란드 사법 후속 조치가 4월 본회의의 가장 가능성 높은 서프라이즈로 남음. (🟡 중간)
+- ⚪ **이월:** 2분기 본회의 준비가 4월 13일부터 시작.
+
+---
+
+### 🗂️ 주요 발견 — 휴회 중반기 통합
+
+| 순위 | 발견 | 출처 | 중요성 | 신뢰도 |
+|:---:|------|------|:-----:|:-----:|
+| 1 | EP 피드 API 성능 저하 (3일 연속) | 2026-04-03/breaking-2 기준선 | 8.0 | 🟢 높음 |
+| 2 | 연립 산술 안정 (PPE 38% / Renew–ECR 0.95) | 2026-04-03/breaking, 2026-04-04/breaking | 7.5 | 🟡 중간 |
+| 3 | 반부패 / 개혁 클러스터 (이월) | 2026-04-03/breaking-3 | 9.0 | 🟢 높음 |
+| 4 | 18일 중 10일차에 새 EP 활동 없음 | 이번 실행 | 0.0 | 🟢 높음 |
+
+---
+
+### ⚠️ 위험 및 위협 스냅샷
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| 위험 | 가 | 영 | 점수 | 트리거 | 출처 | 해군성 |
+|-----|:-:|:-:|:---:|-------|------|:-----:|
+| 피드 API 저하 (4월 14일 이후) | 3 | 4 | 12 | 복구 없음 | 2026-04-03/breaking-2 | A1 |
+| PPE 구조적 우위 | 5 | 4 | 20 | 모든 과반수가 PPE 필요 | 연립 산술 | A1 |
+| 폴란드 사법 후속 조치 | 4 | 3 | 12 | 새 조사 | TA-10-2026-0088 | A1 |
+| 1단계 이행 위험 | 4 | 4 | 16 | 국가 간 분기 | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 주도적 미래 트리거
+
+**2026년 4월 13일 휴회 종료 + 부활절 후 첫 집행위원회 화요일 4월 7일.** 이 복합 트리거 창구는 세 가지 지속적인 주제가 발전 (API 복구, 새 행위자 출현, 개혁 이행 시작)하는지 아니면 2분기까지 지속되는지를 결정할 것입니다.
+
+---
+
+### 🛡️ 출처 품질 평가
+
+- **주요 출처:** 2026-04-03 / 04-04 실질적 실행의 이월; `breaking`과 `breaking-2` 아침 형제 보고서의 12시간 종단적 검토.
+- **신뢰도:** 연속성 주장에 🟢 높음; 예측 창구 구성에 🟡 중간.
+
+---
+
+### 📎 링크
+
+| 링크 | 경로 |
+|-----|------|
+| 기사 | `./article.md` |
+| 형제 실행 | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| 출처 — API 프로브 | `analysis/daily/2026-04-03/breaking-2/` |
+| 출처 — 연립 기준선 | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| 출처 — 개혁 클러스터 | `analysis/daily/2026-04-03/breaking-3/` |
+| 매니페스트 | `./manifest.json` |
+
+---
+
+**문서 통제**
+- **템플릿:** `/analysis/templates/executive-brief.md`
+- **산출물 경로:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **분류:** 공개
+- **소급 생성:** 역채우기 세션.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**Strategische synthese halverwege het reces (dag 10 van 18) bevestigt drie aanhoudende inlichtingenthema's die doorgaan in Q2 2026.** Ten eerste bevindt de EP-feed-API zich nu op de 3e achtereenvolgende dag in GEDEGRADEERDE staat zonder waarneembaar upstream herstel — de reces-correlatiehypothese blijft de voorkeur houden. Ten tweede is de coalitie-aritmetiek van EP10 gestabiliseerd bij de 38% structurele dominantie van de PPE met het Renew–ECR-cohesiesignaal (~0,95) dat dag na dag standhoud. Ten derde blijft het anticorruptie- + Braun- + betere wetgeving- + publieke toegangshervorming-cluster van eind maart de voornaamste institutionele geloofwaardigheidsoutput van Q1. Het exacte middelpuntstiming (9 van 18 verstreken) is een natuurlijk buigpunt voor toekomstplanningen. **🟢 HOOG vertrouwen** in longitudinale patroonsstabiliteit; **🟡 MIDDEL vertrouwen** in voorspelling van feed-API-herstel aan het einde van het reces.
+
+---
+
+### 🧭 3 Beslissingen die Deze Samenvatting Ondersteunt
+
+| # | Beslissing | Beslisser | Deadline | Bewijs |
+|:-:|-----------|----------|:--------:|--------|
+| 1 | **Redactioneel:** strategische halverwege-recessesynthese publiceren als longitudinaal ankerpunt | Redactie | +24u | 12-uur longitudinale data + 3 thema's |
+| 2 | **Monitoring:** voorbereiding op 14 april hersteltest na reces | Datapipeline | 2026-04-14 | Buigpuntplanning |
+| 3 | **Vooruitkijken:** 7 april Commissie-dinsdagagenda als volgende externe trigger | Analysehoofd | 2026-04-07 | Eerste institutionele activiteit na Pasen |
+
+---
+
+### 📰 60-Seconden Lezing
+
+- 🔴 **Dag 10 van 18 — exact middelpunt van het paasreces** (27 maart → 13 april 2026). (🟢 Hoog)
+- 🟠 **3 aanhoudende thema's** bevestigd door 12-uur longitudinale synthese: feed GEDEGRADEERD, coalitie-aritmetiek stabiel, hervormingscluster carry-over. (🟢 Hoog)
+- 🟢 **Geen nieuwe EP-activiteit vandaag** (zondag, reces). (🟢 Hoog)
+- 🟡 **Renew–ECR-cohesiesignaal dag na dag gehandhaafd** op ~0,95 sinds 2026-04-03. (🟡 Midden)
+- 🔵 **Economische context:** USA–EU-handelskoers ongewijzigd; IMF april WEO-publicatievenster nadert. (🟢 Hoog)
+- 🟣 **Kruisverwijzing:** zusterrapporten `breaking` en `breaking-2` geven de ochtendbasislijn; deze run synthetiseert beide. (🟢 Hoog)
+- 🩷 **Verstoringsvector:** Pools-justitiële follow-up blijft de meest waarschijnlijke april-plenumverrassing. (🟡 Midden)
+- ⚪ **Carry-forward:** voorbereiding Q2-plenumbijeenkomst begint 13 april.
+
+---
+
+### 🗂️ Topbevindingen — Halverwege-recessesynthese
+
+| Rang | Bevinding | Bron | Significantie | Vertrouwen |
+|:----:|----------|------|:------------:|:----------:|
+| 1 | EP feed-API GEDEGRADEERD (3e achtereenvolgende dag) | 2026-04-03/breaking-2 basislijn | 8,0 | 🟢 HOOG |
+| 2 | Coalitie-aritmetiek stabiel (PPE 38% / Renew–ECR 0,95) | 2026-04-03/breaking, 2026-04-04/breaking | 7,5 | 🟡 MIDDEN |
+| 3 | Anticorruptie- / hervormingscluster (carry-over) | 2026-04-03/breaking-3 | 9,0 | 🟢 HOOG |
+| 4 | Geen nieuwe EP-activiteit dag 10 van 18 | Deze run | 0,0 | 🟢 HOOG |
+
+---
+
+### ⚠️ Risico & Dreigingsoverzicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| Risico | K | I | Score | Trigger | Bron | Admiraliteit |
+|--------|:-:|:-:|:-----:|---------|------|:------------:|
+| Feed-API-regressie (na 14 apr) | 3 | 4 | 12 | Geen herstel | 2026-04-03/breaking-2 | A1 |
+| PPE structurele dominantie | 5 | 4 | 20 | Alle meerderheden vereisen PPE | Coalitie-aritmetiek | A1 |
+| Pools-justitiële follow-up | 4 | 3 | 12 | Nieuw onderzoek | TA-10-2026-0088 | A1 |
+| Niveau-1 transponeringsrisico | 4 | 4 | 16 | Nationale divergentie | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 Leidende Toekomstige Trigger
+
+**Einde reces 13 april 2026 + eerste post-Pasen Commissie-dinsdag 7 april.** Dit samengestelde triggervenster zal bepalen of de drie aanhoudende thema's zich ontwikkelen (API hersteld, nieuwe actoren verschijnen, hervormingsimplementatie begint) of doorgaan in Q2.
+
+---
+
+### 🛡️ Kwaliteitsbeoordeling Bronnen
+
+- **Primaire bronnen:** Carry-over van 2026-04-03 / 04-04 substantiële runs; 12-uur longitudinale review van `breaking`- en `breaking-2`-ochtendbroers.
+- **Vertrouwen:** 🟢 HOOG voor continuïteitsbeweringen; 🟡 MIDDEN voor prognosevensterkadering.
+
+---
+
+### 📎 Links
+
+| Link | Pad |
+|------|-----|
+| Artikel | `./article.md` |
+| Zusterruns | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| Bron — API-sonde | `analysis/daily/2026-04-03/breaking-2/` |
+| Bron — coalitiebasislijn | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| Bron — hervormingscluster | `analysis/daily/2026-04-03/breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Documentbeheer**
+- **Sjabloon:** `/analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectieve generatie:** Terugvulsessie.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Strategisk syntese ved midtpause (dag 10 av 18) bekrefter tre vedvarende etterretningstemaer inn i 2. kvartal 2026.** For det første er EP-feed-API FORRINGET i sin 3. dag på rad uten observerbar oppstrømsrestaurering — hypotesen om pausekorrelasjon fremdeles foretrukket. For det andre har koalisjonsaritmetikken for EP10 stabilisert seg ved PPE sin 38% strukturelle dominans med Renew–ECR-kohesjonssignalet (~0,95) som holder dag-for-dag. For det tredje forblir anti-korrupsjon + Braun + bedre lovgivning + offentlig tilgangsreformklyngen fra slutten av mars det viktigste institusjonelle troverdighetsresultatet for 1. kvartal. Den nøyaktige midtpunktstimingen (9 av 18 forløpt) er et naturlig vendepunkt for fremtidsplanlegging. **🟢 HØY tillit** til longitudinell mønsterstabilitet; **🟡 MIDDELS tillit** til prognose om feed-API-restaurering ved pauseslutt.
+
+---
+
+### 🧭 3 Beslutninger Dette Dokumentet Støtter
+
+| # | Beslutning | Beslutningstaker | Frist | Dokumentasjon |
+|:-:|------------|-----------------|:-----:|---------------|
+| 1 | **Redaksjonelt:** publiser strategisk midtpausesyntese som longitudinelt anker | Redaktør | +24t | 12-timers longitudinelle data + 3 temaer |
+| 2 | **Overvåking:** forbered til 14. april restaureringstest etter pause | Datapipeline | 2026-04-14 | Vendepunktsplanlegging |
+| 3 | **Fremtidsovervåking:** 7. april Kommisjonens tirsdagsagenda som neste eksterne utløser | Analyseansvarlig | 2026-04-07 | Første institusjonelle aktivitet etter påske |
+
+---
+
+### 📰 60-Sekunders Lesning
+
+- 🔴 **Dag 10 av 18 — nøyaktig midtpunkt av påskepausen** (27. mars → 13. april 2026). (🟢 Høy)
+- 🟠 **3 vedvarende temaer** bekreftet av 12-timers longitudinell syntese: feed FORRINGET, koalisjonsaritmetikk stabil, reformklynge videreføres. (🟢 Høy)
+- 🟢 **Ingen ny EP-aktivitet i dag** (søndag, pause). (🟢 Høy)
+- 🟡 **Renew–ECR-kohesjonssignal holdt dag-for-dag** ved ~0,95 siden 2026-04-03. (🟡 Middels)
+- 🔵 **Økonomisk kontekst:** USA–EU-handelsbane uendret; IMF April WEO-utgivelsesvindu nærmer seg. (🟢 Høy)
+- 🟣 **Kryssreferanse:** søskenrapportene `breaking` og `breaking-2` gir morgenbasislinje; dette løpet syntetiserer begge. (🟢 Høy)
+- 🩷 **Forstyrrelsesvektorer:** Polsk-rettslig-oppfølging forblir den mest sannsynlige april-plenum-overraskelsen. (🟡 Middels)
+- ⚪ **Videreføres:** Forberedelse til 2. kvartal-plenum begynner 13. april.
+
+---
+
+### 🗂️ Toppfunn — Midtpausesyntese
+
+| Rang | Funn | Kilde | Signifikans | Tillit |
+|:----:|------|-------|:-----------:|:------:|
+| 1 | EP feed-API FORRINGET (3. dag på rad) | 2026-04-03/breaking-2 basislinje | 8,0 | 🟢 HØY |
+| 2 | Koalisjonsaritmetikk stabil (PPE 38% / Renew–ECR 0,95) | 2026-04-03/breaking, 2026-04-04/breaking | 7,5 | 🟡 MIDDELS |
+| 3 | Anti-korrupsjon / reformklynge (videreføres) | 2026-04-03/breaking-3 | 9,0 | 🟢 HØY |
+| 4 | Ingen ny EP-aktivitet dag 10 av 18 | Dette løpet | 0,0 | 🟢 HØY |
+
+---
+
+### ⚠️ Risiko & Trusselbilde
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| Risiko | S | K | Score | Utløser | Kilde | Admiralitet |
+|--------|:-:|:-:|:-----:|---------|-------|:-----------:|
+| Feed-API-regresjon (etter 14. apr) | 3 | 4 | 12 | Ingen restaurering | 2026-04-03/breaking-2 | A1 |
+| PPE strukturell dominans | 5 | 4 | 20 | Alle flertall krever PPE | Koalisjonsaritmetikk | A1 |
+| Polsk-rettslig-oppfølging | 4 | 3 | 12 | Ny granskning | TA-10-2026-0088 | A1 |
+| Nivå-1 transponeringsrisiko | 4 | 4 | 16 | Nasjonal divergens | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 Ledende Fremtidsutløser
+
+**Pauseslutt 13. april 2026 + første kommisjonstirsdagen etter påske 7. april.** Dette sammensatte utløservinduet vil avgjøre om de tre vedvarende temaene utvikler seg (API restaurert, nye aktører fremtrer, reformimplementering begynner) eller fortsetter inn i 2. kvartal.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **Primærkilder:** Videreføres fra 2026-04-03 / 04-04 substansielle løp; 12-timers longitudinell gjennomgang av `breaking` og `breaking-2` morgensøskener.
+- **Tillit:** 🟢 HØY for kontinuitetspåstander; 🟡 MIDDELS for prediksjonsvinduesrammeverk.
+
+---
+
+### 📎 Lenker
+
+| Lenke | Sti |
+|-------|-----|
+| Artikkel | `./article.md` |
+| Søskenløp | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| Kilde — API-sonde | `analysis/daily/2026-04-03/breaking-2/` |
+| Kilde — koalisjonsbasislinje | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| Kilde — reformklynge | `analysis/daily/2026-04-03/breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontroll**
+- **Mal:** `/analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv generering:** Tilbakefyllingssesjon.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Strategisk syntes vid mittpausk (dag 10 av 18) bekräftar tre bestående underrättelseteman inför kvartal 2 2026.** För det första är EP:s flödes-API FÖRSÄMRAT under tredje dagen i rad utan observerbar återhämtning uppströms — hypotesen om pauskorrelation fortfarande föredragen. För det andra har koalitionsaritmetiken för EP10 stabiliserats med PPE:s 38% strukturella dominans och Renew–ECR-kohesenssignalen (~0,95) som håller dag-för-dag. För det tredje kvarstår klustret anti-korruption + Braun + bättre lagstiftning + tillgångsreform från slutet av mars som det främsta institutionella trovärdighetsresultatet kvartal 1. Det exakta mittpunktstimingen (9 av 18 förflutna) är en naturlig inflektionspunkt för framtidsplanering. **🟢 HÖG säkerhet** om longitudinell mönsterstabilitet; **🟡 MEDELHÖG säkerhet** om prognos för flödes-API-återhämtning vid pausslut.
+
+---
+
+### 🧭 3 Beslut Detta Dokument Stöder
+
+| # | Beslut | Beslutsfattare | Deadline | Underlag |
+|:-:|--------|---------------|:--------:|---------|
+| 1 | **Redaktionellt:** publicera strategisk mittpaukssyntes som longitudinellt ankare | Redaktör | +24h | 12-timmars longitudinell data + 3 teman |
+| 2 | **Övervakning:** förbered för 14 april återhämtningstest efter pauset | Datapipeline | 2026-04-14 | Inflektionspunktplanering |
+| 3 | **Framåtbevakning:** 7 april Kommissionens tisdagsagenda som nästa externa utlösare | Analysansvarig | 2026-04-07 | Första institutionella aktiviteten efter påsk |
+
+---
+
+### 📰 60-Sekunders Läsning
+
+- 🔴 **Dag 10 av 18 — exakt mittpunkt av påskpauset** (27 mars → 13 april 2026). (🟢 Hög)
+- 🟠 **3 bestående teman** bekräftade av 12-timmars longitudinell syntes: flöde FÖRSÄMRAT, koalitionsaritmetik stabil, reformkluster kvarstår. (🟢 Hög)
+- 🟢 **Ingen ny EP-aktivitet idag** (söndag, paus). (🟢 Hög)
+- 🟡 **Renew–ECR-kohesenssignal höll dag-för-dag** vid ~0,95 sedan 2026-04-03. (🟡 Medel)
+- 🔵 **Ekonomisk kontext:** USA–EU-handelsbanans riktning oförändrad; IMF April WEO-publiceringsfönster närmast. (🟢 Hög)
+- 🟣 **Korsreferens:** syskonrapporterna `breaking` och `breaking-2` ger morgonbaslinjen; denna körning syntetiserar båda. (🟢 Hög)
+- 🩷 **Störningsvektor:** Polsk-rättsväsende-uppföljning kvarstår som den mest sannolika aprilplenum-överraskningen. (🟡 Medel)
+- ⚪ **Kvarstående:** Förberedelse för kvartal 2-plenum börjar 13 april.
+
+---
+
+### 🗂️ Toppfynd — Mittpaukssyntes
+
+| Rang | Fynd | Källa | Signifikans | Säkerhet |
+|:----:|------|-------|:-----------:|:--------:|
+| 1 | EP flödes-API FÖRSÄMRAT (3:e konsekutiva dagen) | 2026-04-03/breaking-2 baslinje | 8,0 | 🟢 HÖG |
+| 2 | Koalitionsaritmetik stabil (PPE 38% / Renew–ECR 0,95) | 2026-04-03/breaking, 2026-04-04/breaking | 7,5 | 🟡 MEDEL |
+| 3 | Anti-korruption / reformkluster (kvarstående) | 2026-04-03/breaking-3 | 9,0 | 🟢 HÖG |
+| 4 | Ingen ny EP-aktivitet dag 10 av 18 | Denna körning | 0,0 | 🟢 HÖG |
+
+---
+
+### ⚠️ Risk & Hotbild
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| Risk | S | K | Poäng | Utlösare | Källa | Admiralitet |
+|------|:-:|:-:|:-----:|----------|-------|:-----------:|
+| Flödes-API-regression (efter 14 apr) | 3 | 4 | 12 | Ingen återhämtning | 2026-04-03/breaking-2 | A1 |
+| PPE strukturell dominans | 5 | 4 | 20 | Alla majoriteter kräver PPE | Koalitionsaritmetik | A1 |
+| Polsk-rättsväsende-uppföljning | 4 | 3 | 12 | Ny utredning | TA-10-2026-0088 | A1 |
+| Nivå-1 transponeringsrisk | 4 | 4 | 16 | Nationell divergens | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 Ledande Framtidsutlösare
+
+**Pausslut 13 april 2026 + första kommissionstisdagen efter påsk 7 april.** Detta sammansatta utlösarfönster avgör om de tre bestående temana utvecklas (API återställt, nya aktörer framträder, reformimplementering börjar) eller kvarstår in i kvartal 2.
+
+---
+
+### 🛡️ Källkvalitetsbedömning
+
+- **Primärkällor:** Kvarstående från 2026-04-03 / 04-04 substantiella körningar; 12-timmars longitudinell genomgång av `breaking` och `breaking-2` morgonsyskon.
+- **Säkerhet:** 🟢 HÖG för kontinuitetspåståenden; 🟡 MEDEL för prognosperspektivram.
+
+---
+
+### 📎 Länkar
+
+| Länk | Sökväg |
+|------|--------|
+| Artikel | `./article.md` |
+| Syskorkörningar | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| Källa — API-sond | `analysis/daily/2026-04-03/breaking-2/` |
+| Källa — koalitionsbaslinje | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| Källa — reformkluster | `analysis/daily/2026-04-03/breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Dokumentkontroll**
+- **Mall:** `/analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv generering:** Bakfyllningssession.
+
+### Executive Brief Zh
+
+**分类：** OSINT | 公开议会记录
+**可信度：** 🟢 高（12小时纵向休会中期综合）
+**生成日期：** 2026-04-05T00:00:00Z（回溯性简报）
+**文章类型：** 速报 — 休会期间战略情报简报（12小时纵向综合）
+**来源：** 欧洲议会开放数据门户
+
+---
+
+### 🎯 BLUF
+
+**休会中期战略综合（第18天中的第10天）确认了延续至2026年第二季度的三个持续情报主题。** 第一，欧洲议会馈送API连续第3天处于降级状态，上游无可观察到的恢复——休会相关假设仍为首选。第二，EP10的联盟算术已稳定在PPE 38%的结构性主导地位，Renew–ECR凝聚力信号（~0.95）逐日保持。第三，3月底的反腐败 + 布劳恩 + 更好立法 + 公开获取改革集群仍是第一季度的主要机构公信力成果。精确的中间点时间节点（18天中已过9天）是未来规划的自然拐点。纵向模式稳定性**🟢 高可信度**；休会结束时馈送API恢复预测**🟡 中等可信度**。
+
+---
+
+### 🧭 本简报支持的3项决策
+
+| # | 决策 | 决策者 | 截止日期 | 依据 |
+|:-:|------|------|:------:|------|
+| 1 | **编辑：** 将战略性休会中期综合作为纵向锚点发布 | 编辑部 | +24小时 | 12小时纵向数据 + 3个主题 |
+| 2 | **监测：** 为4月14日休会后恢复测试做准备 | 数据管道 | 2026-04-14 | 拐点规划 |
+| 3 | **前瞻监测：** 4月7日欧盟委员会周二议程作为下一个外部触发器 | 分析负责人 | 2026-04-07 | 复活节后首项机构活动 |
+
+---
+
+### 📰 60秒速读
+
+- 🔴 **第18天中的第10天 — 复活节休会的精确中间点**（2026年3月27日 → 4月13日）。（🟢 高）
+- 🟠 **3个持续主题**经12小时纵向综合确认：馈送降级、联盟算术稳定、改革集群延续。（🟢 高）
+- 🟢 **今日无欧洲议会新活动**（周日，休会）。（🟢 高）
+- 🟡 **Renew–ECR凝聚力信号逐日保持**，自2026-04-03起约0.95。（🟡 中等）
+- 🔵 **经济背景：** 美国—欧盟贸易轨迹未变；IMF 4月WEO发布窗口临近。（🟢 高）
+- 🟣 **交叉参考：** 姊妹报告`breaking`和`breaking-2`提供晨间基线；本次运行综合了两者。（🟢 高）
+- 🩷 **干扰向量：** 波兰司法后续仍是4月全体会议最可能的意外情况。（🟡 中等）
+- ⚪ **延续：** 第二季度全体会议准备工作于4月13日开始。
+
+---
+
+### 🗂️ 重要发现 — 休会中期综合
+
+| 排名 | 发现 | 来源 | 重要性 | 可信度 |
+|:--:|------|------|:----:|:----:|
+| 1 | 欧洲议会馈送API降级（连续第3天） | 2026-04-03/breaking-2基线 | 8.0 | 🟢 高 |
+| 2 | 联盟算术稳定（PPE 38% / Renew–ECR 0.95） | 2026-04-03/breaking, 2026-04-04/breaking | 7.5 | 🟡 中等 |
+| 3 | 反腐败 / 改革集群（延续） | 2026-04-03/breaking-3 | 9.0 | 🟢 高 |
+| 4 | 第18天中第10天无新EP活动 | 本次运行 | 0.0 | 🟢 高 |
+
+---
+
+### ⚠️ 风险与威胁快照
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=b2c6b763) -->
+
+| 风险 | 可能性 | 影响 | 评分 | 触发因素 | 来源 | 海军准则 |
+|-----|:-----:|:---:|:---:|---------|------|:-------:|
+| 馈送API退化（4月14日后） | 3 | 4 | 12 | 无恢复 | 2026-04-03/breaking-2 | A1 |
+| PPE结构性主导 | 5 | 4 | 20 | 所有多数都需要PPE | 联盟算术 | A1 |
+| 波兰司法后续 | 4 | 3 | 12 | 新调查 | TA-10-2026-0088 | A1 |
+| 第1层转置风险 | 4 | 4 | 16 | 国家间分歧 | TA-10-2026-0094 | A1 |
+
+---
+
+### 🔮 主要前瞻触发器
+
+**2026年4月13日休会结束 + 复活节后首个欧盟委员会周二4月7日。** 这一复合触发器窗口将决定三个持续主题是否演变（API恢复、新行为者出现、改革实施开始）或持续至第二季度。
+
+---
+
+### 🛡️ 信息来源质量评估
+
+- **一级来源：** 从2026-04-03 / 04-04实质性运行延续；对`breaking`和`breaking-2`晨间姊妹报告进行12小时纵向审查。
+- **可信度：** 连续性声明🟢 高；预测窗口框架🟡 中等。
+
+---
+
+### 📎 链接
+
+| 链接 | 路径 |
+|-----|------|
+| 文章 | `./article.md` |
+| 姊妹运行 | `analysis/daily/2026-04-05/breaking/`, `breaking-2/` |
+| 来源 — API探针 | `analysis/daily/2026-04-03/breaking-2/` |
+| 来源 — 联盟基线 | `analysis/daily/2026-04-03/breaking/`, `analysis/daily/2026-04-04/breaking/` |
+| 来源 — 改革集群 | `analysis/daily/2026-04-03/breaking-3/` |
+| 清单 | `./manifest.json` |
+
+---
+
+**文档控制**
+- **模板：** `/analysis/templates/executive-brief.md`
+- **制品路径：** `analysis/daily/2026-04-05/breaking-3/executive-brief.md`
+- **分类：** 公开
+- **回溯性生成：** 回填会话。
 
 ### Intelligence Brief
 
@@ -1029,6 +2200,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | Section | Artifact | Path |
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief.md) | `executive-brief.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/intelligence-brief.md) | `intelligence-brief.md` |
 | section-supplementary-intelligence | [political-landscape-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/political-landscape-analysis.md) | `political-landscape-analysis.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/risk-assessment.md) | `risk-assessment.md` |

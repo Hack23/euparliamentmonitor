@@ -1,7 +1,7 @@
 ---
-title: "Data Availability Assessment — EU Parliament Propositions"
-description: "This assessment documents the data availability landscape for the EU Parliament Propositions analysis run of 18 May 2026. The EP Open Data Portal experienced significant API…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-18", "run propositions-run256-1779086127", "Data", "Availability", "Assessment", "Parliament", "This", "documents", "landscape", "analysis"]
+title: "WEP Bands Applied | Admiralty Scale Used | SAT Documentation Below"
+description: "WEP Bands Applied | Admiralty Scale Used | SAT Documentation Below Published 2026-05-18. for democratic-accountability readers tracking EU institutional consequences"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-18", "run propositions-run256-1779086127", "Bands", "Applied", "Admiralty", "Scale", "Used", "Documentation", "Below", "Published"]
 date: 2026-05-18
 article_type: propositions
 slug: 2026-05-18-propositions

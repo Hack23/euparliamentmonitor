@@ -855,6 +855,1208 @@ The ECB rate decision on 17 April falls on the final day of committee week. If t
 
 *Sources: European Parliament Open Data Portal — precomputed statistics (2004–2026), adopted texts feed (85 items), MEPs feed (737 entries), early warning system (stability 84/100), political landscape (8 groups). Pre-recess legislative analysis cross-referenced with propositions workflow (6 April 2026, 05:47 UTC). Coalition dynamics analysis derived from actor mapping, forces analysis, and stakeholder impact assessment (all from current run). Historical EP9-EP10 comparisons verified against longitudinal precomputed data. All analytical judgments include confidence levels per evidence quality hierarchy.*
 
+### Executive Brief Ar
+
+**التصنيف:** OSINT — سجل برلماني عام
+**الثقة:** 🟡 MEDIUM (استراحة برلمانية؛ API في تذبذب متدهور؛ القراءة الهيكلية 🟢 HIGH)
+**التحليل:** `analysis/daily/2026-04-06/breaking-2/` (06:45 UTC)
+**التغطية:** استراحة عيد الفصح اليوم 11/18؛ كومة استخباراتية تراكمية لـ 4 تحليلات
+**صُدر:** 2026-05-16 (موجز استرجاعي، لا مكالمات MCP جديدة)
+**المصادر الأولية:** مجموعة ما قبل الاستراحة (85 نصاً مُعتمداً، 42 من عام 2026)؛ 737 عضواً في البرلمان (مستقر)؛ HHI 0.1517؛ مؤشر قوة PPE 95/100.
+
+---
+
+### 🎯 BLUF
+
+**المساهمة المميزة للتحليل-2 — المُنتجة الساعة 06:45 UTC في اثنين عيد الفصح — هي اكتشاف *نمط الائتلاف ذي المسارين المزدوجين*: اعتُمدت SRMR3 (TA-10-2026-0092) عبر مسار يمين الوسط (EPP+ECR+PfE+Renew) في حين اعتُمدت توجيهة مكافحة الفساد (TA-10-2026-0094) عبر الائتلاف الكبير (EPP+S&D+Renew+Greens)، مما يُثبت أن EP10 يعمل بـ*ائتلافات مشروطة بالملف* بدلاً من أغلبية عمل واحدة.** ينتج الثمانية أساليب تحليلية الجديدة المُنفّذة في هذا التحليل (مصفوفة التأثير، رسم خريطة الفاعلين، تحليل القوى، تحليل أصحاب المصلحة، تحليل الائتلاف، استخبارات عابرة للجلسات، التحليل العميق، الملخص التركيبي) مجتمعةً قراءةً هيكلية لـ EP10 في السنة الثانية تصمد عبر الاستراحة: **مؤشر قوة PPE 95/100 (لا أغلبية قابلة للحياة تستبعد PPE)**، HHI 0.1517 (متعدد الأقطاب مع PPE كمحور لا غنى عنه)، وانعكاس مجال القوى حيث حلّ *التكامل الدفاعي (8/10)* محل *التحول الأخضر (5/10)* كقوة دفع أكثر قوةً منذ EP9. الإشارة *الجديدة* في التحليل هي تطور وضع فشل API — 404 نظيف ← خطأ في تحليل JSON ← انتهاء المهلة — الذي تقرأه استخبارات التحليل-2 عابرة الجلسات كمقدمة محتملة لإعادة تنشيط الخادم الخلفي، وأُكّد ذلك بالتحليل-3 بعد أربع ساعات حين تعافت نقطة نهاية النصوص المعتمدة. **يُعدّ نمط المسارين المزدوجين المساهمة الهيكلية الدائمة للتحليل في سجل EP10** وسيُختبر خلال أسبوع اللجان 14–17 أبريل.
+
+---
+
+### 🧭 3 قرارات يدعمها هذا الموجز
+
+| # | القرار | من يقرر | الموعد النهائي | الأدلة |
+|:-:|--------|---------|--------------|-------|
+| 1 | **عقيدة الائتلاف ذي المسارين المزدوجين للربع الثاني** — النمط المشروط بالملف يستلزم التنظيم قبل المفاوضات الثلاثية الأطراف للملفات الرائدة | منسقو EPP+S&D+Renew | بحلول 14 أبريل | §تحليل الائتلاف (نمط المسارين) |
+| 2 | **إطار عدم قابلية الاستغناء عن PPE 95/100** — كل تمرين لتخطيط الائتلاف يجب أن ينطلق من إدراج PPE | مؤتمر الرؤساء | متجدد | §رسم خريطة الفاعلين (مؤشر قوة PPE) |
+| 3 | **مراقبة إعادة تنشيط API** — تطور وضع الفشل يوحي بنشاط في الخادم الخلفي؛ مراقبة للتأكيد | عمليات خط بيانات البنية التحتية | نوافذ T+4 ساعات | §استخبارات عابرة للجلسات (الوضع A→B→C) |
+
+---
+
+### 📰 قراءة 60 ثانية
+
+- 🔴 **تحليل اثنين عيد الفصح-2 (06:45 UTC)** — 8 أساليب جديدة؛ لا أخبار عاجلة؛ نتيجة هيكلية.
+- 🟠 **اكتُشف ائتلاف المسارين المزدوجين** — SRMR3 يمين الوسط في مقابل الائتلاف الكبير لمكافحة الفساد.
+- 🟢 **مؤشر قوة PPE 95/100** — لا أغلبية قابلة للحياة تستبعد PPE؛ هيمنة هيكلية.
+- 🟡 **HHI 0.1517** — نظام برلماني متعدد الأقطاب؛ PPE كمحور لا غنى عنه.
+- 🔵 **انعكاس مجال القوى** — التكامل الدفاعي (8/10) > التحول الأخضر (5/10).
+- 🟣 **تطور وضع فشل API** — 404 ← تحليل JSON ← انتهاء المهلة؛ إشارة خادم خلفي محتملة.
+- 🩷 **737 عضواً برلمانياً مستقر** — يوفر التغذية الراجعة قاعدة موثوقة مستمرة.
+- ⚪ **85 نصاً مُعتمداً في مجموعة ما قبل الاستراحة** — 42 من 2026؛ مسار +46% على أساس سنوي.
+
+---
+
+### 📐 مساهمة أساليب التحليل-2
+
+| الأسلوب الجديد | الأسطر | الاكتشاف المميز |
+|--------------|-------:|----------------|
+| مصفوفة التأثير | 150+ | تأثير متقاطع 6-D؛ سلسلة تشريعية-سياسية-اقتصادية مهيمنة |
+| رسم خريطة الفاعلين | 170+ | PPE 95/100؛ نسبة حجم 19× مقارنةً بأصغر مجموعة |
+| تحليل القوى | 150+ | الدفاع 8/10 يحل محل الأخضر 5/10 كأقوى محرك |
+| تحليل أصحاب المصلحة | 180+ | المجتمع المدني الأكثر تأثراً بانقطاع API لمدة 11 يوماً |
+| تحليل الائتلاف | 145+ | **نمط المسارين المزدوجين موثق** |
+| استخبارات عابرة للجلسات | 175+ | تطور وضع فشل API ← إشارة الخادم الخلفي |
+| التحليل العميق | 200+ | المسارين المزدوجين = أهم تطور في EP10 السنة الثانية |
+| الملخص التركيبي | — | نتيجة مُوحَّدة؛ تحديث الذاكرة التحريرية |
+
+---
+
+### ⚠️ لقطة المخاطر
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 أبرز المحفزات المستقبلية (الـ 14 يوماً القادمة)
+
+1. **8–10 أبريل — نافذة تأكيد تعافي API** (احتمال 50%+ استناداً إلى إشارة انتهاء المهلة في الوضع-C).
+2. **14 أبريل — افتتاح أسبوع اللجان** — أول اختبار للتحقق من نمط المسارين المزدوجين.
+3. **17 أبريل — قرار الفائدة للبنك المركزي الأوروبي** — تفاعل لجنة ECON.
+4. **20–23 أبريل — أولى التصويتات في الجلسة العامة بعد الاستراحة** — كشف الائتلافات.
+5. **أواخر أبريل — مفاوضات SRMR3 ثلاثية الأطراف مع المجلس** — اختبار الاتحاد المصرفي لنمط المسارين عبر المجلس.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **85 نصاً مُعتمداً (A1):** مجموعة ما قبل الاستراحة؛ السجل الأولي للبرلمان الأوروبي.
+- **نتيجة المسارين المزدوجين (A2):** تحليل توزيع الأصوات على مجموعة 26 مارس؛ التحقق السلوكي ينتظر أسبوع اللجان.
+- **PPE 95/100 (A2):** منهجية رسم خريطة الفاعلين؛ تأكيد حسابي.
+- **تطور وضع فشل API (A3):** تحديث بايزي؛ ثقة متوسطة في فرضية إشارة الخادم الخلفي.
+- **الثقة الإجمالية:** 🟢 HIGH في النتائج الهيكلية؛ 🟡 MEDIUM في الجدول الزمني لتعافي API.
+
+---
+
+### 📎 مخرجات التحليل
+
+| الطبقة | المخرج | السبب |
+|--------|-------|-------|
+| المقال | `article.md` (1501 سطراً) | رواية التحليل-2 للجمهور |
+| التركيب | `synthesis-summary.md` | بوابة القيمة الإخبارية + دمج 8 أساليب |
+| الأساليب | مصفوفة التأثير · رسم خريطة الفاعلين · تحليل القوى · تحليل أصحاب المصلحة · تحليل الائتلاف · استخبارات عابرة للجلسات · التحليل العميق | ثمانية أساليب جديدة (هذا التحليل) |
+| التحليلات المرافقة | breaking (00:33) · committee-reports (05:03) · propositions (05:47) | مجموعة عيد الفصح |
+
+---
+
+**ضبط الوثيقة**
+- **مرجع القالب:** `analysis/templates/executive-brief.md`
+- **مسار المخرج:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **التصنيف:** عام
+- **استرجاعي:** كُتب الموجز في 2026-05-16 من المخرجات المُعتمدة للتحليل؛ **لم تُجرَ أي مكالمات MCP جديدة**.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Kørsel 2's særskilte bidrag — produceret 06:45 UTC på påskemandag — er opdagelsen af *Dobbeltspor-Koalitionsmønsteret*: SRMR3 (TA-10-2026-0092) blev vedtaget via et højre-af-centrum-spor (EPP+ECR+PfE+Renew), mens Antikorruptionsdirektivet (TA-10-2026-0094) blev vedtaget via Storkoalitionen (EPP+S&D+Renew+Greens), hvilket viser, at EP10 opererer med *filbetingede* koalitioner snarere end et enkelt arbejdsflertallet.** De otte nye analytiske metoder udført i denne kørsel (effektmatrix, aktørkortlægning, styrkeanalyse, interessentanalyse, koalitionsanalyse, tværsessions-efterretning, dybdeanalyse, synteseoversigt) producerer tilsammen en strukturel læsning af EP10 År 2, der holder på tværs af recessen: **PPE-magtindeks 95/100 (intet levedygtigt flertal udelukker PPE)**, HHI 0.1517 (multipolær med PPE som uundværlig hub), og en kraftfeltsinversion, hvor *forsvarsintegration (8/10)* har erstattet *grøn omstilling (5/10)* som den stærkeste drivkraft siden EP9. Kørslen's *nye signal* er API-fejltilstandsudviklingen — ren 404 → JSON-fortolkningsfejl → timeout — som Kørsel 2's tværsessions-efterretning læser som en mulig backend-reaktiveringsforløber, valideret af Kørsel 3 fire timer senere, da endepunktet for vedtagne tekster kom sig. **Dobbelsporsmønsteret er kørslen's varige strukturelle bidrag til EP10-protokollen** og vil blive testet i komitéugen 14–17 april.
+
+---
+
+### 🧭 3 Beslutninger dette resumé understøtter
+
+| # | Beslutning | Hvem beslutter | Deadline | Evidens |
+|:-:|-----------|----------------|:--------:|---------|
+| 1 | **Dobbeltspor-koalitionsdoktrin for Q2** — filbetinget mønster kræver formalisering inden flagskibsforhandlinger | EPP+S&D+Renew-koordinatorer | inden 14. april | §Koalitionsanalyse (dobbelsporsmønster) |
+| 2 | **PPE 95/100 uundværlighedsramme** — enhver koalitionsplanlægningsøvelse skal starte fra PPE-inkludering | Præsidentkonferencen | løbende | §Aktørkortlægning (PPE-magtindeks) |
+| 3 | **API-reaktiveringsvagt** — fejltilstandsudvikling antyder backend-aktivitet; overvåg for bekræftelse | Datapipeline-drift | T+4h-vinduer | §Tværsessions-efterretning (Tilstand A→B→C) |
+
+---
+
+### 📰 60-sekunders læsning
+
+- 🔴 **Påskemandag Kørsel 2 (06:45 UTC)** — 8 nye metoder; ingen nyheder; strukturelt fund.
+- 🟠 **Dobbeltspor-koalition opdaget** — SRMR3 højre-af-centrum kontra antikorruptionsdirektivets storkoalition.
+- 🟢 **PPE-magtindeks 95/100** — intet levedygtigt flertal udelukker PPE; strukturel dominans.
+- 🟡 **HHI 0.1517** — multipolært parlamentarisk system; PPE som uundværlig hub.
+- 🔵 **Kraftfeltsinversion** — forsvarsintegration (8/10) > grøn omstilling (5/10).
+- 🟣 **API-fejltilstandsudvikling** — 404 → JSON-fortolkning → timeout; muligt backend-signal.
+- 🩷 **737 MEP'er stabilt** — feed giver fortsat pålidelig baseline.
+- ⚪ **85 vedtagne tekster i corpus inden recessen** — 42 fra 2026; +46% YoY-bane.
+
+---
+
+### 📐 Kørsel 2-metodebidrag
+
+| Ny metode | Linjer | Fremhævet fund |
+|-----------|-------:|----------------|
+| Effektmatrix | 150+ | 6-D krydseffekt; Lovgivnings-Politisk-Økonomisk kæde dominerende |
+| Aktørkortlægning | 170+ | PPE 95/100; 19× størrelsesforhold til mindste gruppe |
+| Styrkeanalyse | 150+ | Forsvar 8/10 erstatter grønt 5/10 som stærkeste drivkraft |
+| Interessentanalyse | 180+ | Civilsamfund mest påvirket af 11-dages API-afbrydelse |
+| Koalitionsanalyse | 145+ | **Dobbelsporsmønster dokumenteret** |
+| Tværsessions-efterretning | 175+ | API-fejltilstandsudvikling → backend-signal |
+| Dybdeanalyse | 200+ | Dobbelsporsmønster = mest betydningsfulde EP10 År 2-begivenhed |
+| Synteseoversigt | — | Konsolideret fund; redaktionel hukommelsesopdatering |
+
+---
+
+### ⚠️ Risikooversigt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 Top fremadrettede udløsere (næste 14 dage)
+
+1. **8–10. april — API-genopretningsbekræftelsesvindue** (50%+ sandsynlighed baseret på Tilstand-C timeout-signal).
+2. **14. april — Komitéuge åbner** — første dobbelsportvalideringstest.
+3. **17. april — ECB-rentebeslutning** — ECON-komitéens reaktion.
+4. **20–23. april — Første plenarstemninger efter recessen** — koalitionsåbenbaring.
+5. **Sen april — SRMR3 Råds-trilogi** — Bankunionstesten af dobbelsporsmønsteret via Rådet.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **85 vedtagne tekster (A1):** corpus inden recessen; primær EP-protokol.
+- **Dobbelsporsfund (A2):** afstemningsspredninsanalyse på 26. marts-corpus; adfærdsverifikation afventer komitéugen.
+- **PPE 95/100 (A2):** aktørkortlægningsmetodik; aritmetik bekræftet.
+- **API-fejltilstandsudvikling (A3):** Bayesiansk opdatering; middel tillid til backend-signalhypotesen.
+- **Nettotillid:** 🟢 HIGH på strukturelle fund; 🟡 MEDIUM på API-genopretningssktidslinjen.
+
+---
+
+### 📎 Kørslen's artefakter
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikel | `article.md` (1.501 linjer) | Offentlig Kørsel 2-fortælling |
+| Syntese | `synthesis-summary.md` | Nyhedsværdi-gate + 8-metodekonsolidering |
+| Metoder | effektmatrix · aktørkortlægning · styrkeanalyse · interessentanalyse · koalitionsanalyse · tværsessions-efterretning · dybdeanalyse | Otte nye metoder (denne kørsel) |
+| Ledsager | breaking (00:33) · committee-reports (05:03) · propositions (05:47) | Påskemandagsklynge |
+
+---
+
+**Dokumentkontrol**
+- **Skabelonreference:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Resumé skrevet 2026-05-16 fra kørslen's forpligtede artefakter; **ingen nye MCP-kald blev foretaget**.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Der besondere Beitrag von Analyse 2 — erstellt um 06:45 UTC am Ostermontag — ist die Entdeckung des *Doppelspurkoalitionsmusters*: SRMR3 (TA-10-2026-0092) wurde über einen rechts-der-Mitte-Kurs (EPP+ECR+PfE+Renew) verabschiedet, während die Antikorruptionsrichtlinie (TA-10-2026-0094) über die Große Koalition (EPP+S&D+Renew+Greens) verabschiedet wurde, was zeigt, dass EP10 mit *dateibedingten* Koalitionen operiert anstatt mit einer einzigen arbeitsfähigen Mehrheit.** Die acht neuen analytischen Methoden dieser Analyse (Wirkungsmatrix, Akteursmapping, Kräfteanalyse, Stakeholderanalyse, Koalitionsanalyse, Sitzungsübergreifende Nachrichtendienste, Tiefenanalyse, Synthesezusammenfassung) produzieren zusammen eine strukturelle Lesart von EP10 Jahr 2, die durch die Pause standhält: **PPE-Machtindex 95/100 (keine lebensfähige Mehrheit schließt PPE aus)**, HHI 0.1517 (multipolar mit PPE als unverzichtbarem Knotenpunkt) und eine Kraftfeldinversion, bei der *Verteidigungsintegration (8/10)* den *grünen Wandel (5/10)* als stärkste treibende Kraft seit EP9 abgelöst hat. Das *neue Signal* der Analyse ist die API-Fehlerzustandsentwicklung — saubere 404 → JSON-Analysefehler → Zeitüberschreitung — die der Sitzungsübergreifende Nachrichtendienst als mögliche Backend-Reaktivierungsvorstufe liest, bestätigt durch Analyse 3 vier Stunden später, als der Endpunkt für verabschiedete Texte sich erholte. **Das Doppelspurmuster ist der dauerhafte strukturelle Beitrag dieser Analyse zum EP10-Protokoll** und wird in der Ausschusswoche 14.–17. April getestet.
+
+---
+
+### 🧭 3 Entscheidungen, die dieser Bericht unterstützt
+
+| # | Entscheidung | Wer entscheidet | Frist | Beweise |
+|:-:|-------------|----------------|:-----:|---------|
+| 1 | **Doppelspurkoalitionsdoktrin für Q2** — dateibedingtes Muster braucht Formalisierung vor Flaggschiff-Trilogien | EPP+S&D+Renew-Koordinatoren | bis 14. April | §Koalitionsanalyse (Doppelspurmuster) |
+| 2 | **PPE 95/100 Unentbehrlichkeitsrahmen** — jede Koalitionsplanungsübung muss von PPE-Einbeziehung ausgehen | Konferenz der Präsidenten | fortlaufend | §Akteursmapping (PPE-Machtindex) |
+| 3 | **API-Reaktivierungsüberwachung** — Fehlerzustandsentwicklung deutet auf Backend-Aktivität hin; auf Bestätigung überwachen | Datenpipeline-Betrieb | T+4h-Fenster | §Sitzungsübergreifende Nachrichtendienste (Modus A→B→C) |
+
+---
+
+### 📰 60-Sekunden-Lektüre
+
+- 🔴 **Ostermontag Analyse-2 (06:45 UTC)** — 8 neue Methoden; keine Eilmeldungen; struktureller Befund.
+- 🟠 **Doppelspurkoalition entdeckt** — SRMR3 rechts-der-Mitte versus Antikorruptionsrichtlinie Große Koalition.
+- 🟢 **PPE-Machtindex 95/100** — keine lebensfähige Mehrheit schließt PPE aus; strukturelle Dominanz.
+- 🟡 **HHI 0.1517** — multipolares Parlamentssystem; PPE als unverzichtbarer Knotenpunkt.
+- 🔵 **Kraftfeldinversion** — Verteidigungsintegration (8/10) > grüner Wandel (5/10).
+- 🟣 **API-Fehlerzustandsentwicklung** — 404 → JSON-Analyse → Zeitüberschreitung; mögliches Backend-Signal.
+- 🩷 **737 Abgeordnete stabil** — Feed liefert weiterhin zuverlässige Basislinie.
+- ⚪ **85 verabschiedete Texte im Vorpause-Corpus** — 42 aus 2026; +46% Jahresvergleichstrajektorie.
+
+---
+
+### 📐 Analyse-2 Methodenbeitrag
+
+| Neue Methode | Zeilen | Hervorstechender Befund |
+|-------------|-------:|------------------------|
+| Wirkungsmatrix | 150+ | 6-D Kreuzwirkung; Legislativ-Politisch-Wirtschaftliche Kette dominierend |
+| Akteursmapping | 170+ | PPE 95/100; 19× Größenverhältnis zur kleinsten Gruppe |
+| Kräfteanalyse | 150+ | Verteidigung 8/10 ersetzt Grünes 5/10 als stärkste Triebkraft |
+| Stakeholderanalyse | 180+ | Zivilgesellschaft am stärksten betroffen vom 11-tägigen API-Ausfall |
+| Koalitionsanalyse | 145+ | **Doppelspurmuster dokumentiert** |
+| Sitzungsübergr. Nachrichtendienste | 175+ | API-Fehlerzustandsentwicklung → Backend-Signal |
+| Tiefenanalyse | 200+ | Doppelspurmuster = bedeutendste EP10 Jahr 2-Entwicklung |
+| Synthesezusammenfassung | — | Konsolidierter Befund; redaktionelles Gedächtnisupdate |
+
+---
+
+### ⚠️ Risikoübersicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 Top-Vorwärtsauslöser (nächste 14 Tage)
+
+1. **8.–10. April — API-Wiederherstellungsbestätigungsfenster** (50%+ Wahrscheinlichkeit basierend auf Modus-C Zeitüberschreitungssignal).
+2. **14. April — Ausschusswoche öffnet** — erster Doppelspurvalidierungstest.
+3. **17. April — EZB-Zinsentscheidung** — Reaktion des ECON-Ausschusses.
+4. **20.–23. April — Erste Plenumsstimmen nach der Pause** — Koalitionsoffenbarung.
+5. **Ende April — SRMR3 Rats-Trilog** — Bankenunionstest des Doppelspurmusters über den Rat.
+
+---
+
+### 🛡️ Quellenqualitätsbewertung
+
+- **85 verabschiedete Texte (A1):** Vorpause-Corpus; primäres EP-Protokoll.
+- **Doppelspurbefund (A2):** Abstimmungsstreuungsanalyse am 26.-März-Corpus; Verhaltensverifikation wartet auf Ausschusswoche.
+- **PPE 95/100 (A2):** Akteursmapping-Methodik; Arithmetik bestätigt.
+- **API-Fehlerzustandsentwicklung (A3):** Bayesianisches Update; mittleres Vertrauen in Backend-Signal-Hypothese.
+- **Nettovertrauen:** 🟢 HIGH bei strukturellen Befunden; 🟡 MEDIUM bei API-Wiederherstellungszeitplan.
+
+---
+
+### 📎 Artefakte der Analyse
+
+| Schicht | Artefakt | Warum |
+|---------|----------|-------|
+| Artikel | `article.md` (1.501 Zeilen) | Öffentliche Analyse-2-Erzählung |
+| Synthese | `synthesis-summary.md` | Nachrichtenwert-Gate + 8-Methoden-Konsolidierung |
+| Methoden | Wirkungsmatrix · Akteursmapping · Kräfteanalyse · Stakeholderanalyse · Koalitionsanalyse · Sitzungsübergr. Nachrichtendienste · Tiefenanalyse | Acht neue Methoden (diese Analyse) |
+| Begleiter | breaking (00:33) · committee-reports (05:03) · propositions (05:47) | Ostermontags-Cluster |
+
+---
+
+**Dokumentenkontrolle**
+- **Vorlagenreferenz:** `analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **Klassifizierung:** Öffentlich
+- **Retrospektiv:** Bericht am 2026-05-16 aus den bestätigten Artefakten der Analyse geschrieben; **es wurden keine neuen MCP-Aufrufe getätigt**.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**La contribución distintiva del Análisis-2 — producida a las 06:45 UTC el Lunes de Pascua — es el descubrimiento del *Patrón de Coalición de Doble Vía*: SRMR3 (TA-10-2026-0092) fue aprobada a través de una vía de centro-derecha (EPP+ECR+PfE+Renew) mientras que la Directiva Anticorrupción (TA-10-2026-0094) fue aprobada a través de la Gran Coalición (EPP+S&D+Renew+Greens), demostrando que EP10 opera con coaliciones *condicionales al expediente* en lugar de una única mayoría funcional.** Los ocho nuevos métodos analíticos ejecutados en este análisis (matriz de impacto, mapeo de actores, análisis de fuerzas, análisis de partes interesadas, análisis de coalición, inteligencia entre sesiones, análisis profundo, síntesis-resumen) producen colectivamente una lectura estructural del EP10 Año 2 que se mantiene a lo largo del receso: **índice de poder PPE 95/100 (ninguna mayoría viable excluye al PPE)**, HHI 0.1517 (multipolar con el PPE como nodo indispensable) y una inversión del campo de fuerzas donde *la integración de defensa (8/10)* ha reemplazado a *la transición verde (5/10)* como la fuerza motriz más fuerte desde EP9. La *nueva señal* del análisis es la evolución del modo de fallo de la API — 404 limpio → error de análisis JSON → tiempo de espera agotado — que la inteligencia entre sesiones del Análisis-2 lee como un posible precursor de reactivación del backend, validado por el Análisis-3 cuatro horas después cuando el punto final de textos adoptados se recuperó. **El patrón de doble vía es la contribución estructural duradera del análisis al registro EP10** y será probado en la semana de comité del 14 al 17 de abril.
+
+---
+
+### 🧭 3 Decisiones que esta nota apoya
+
+| # | Decisión | Quién decide | Plazo | Evidencia |
+|:-:|---------|------------|:-----:|-----------|
+| 1 | **Doctrina de coalición de doble vía para Q2** — el patrón condicional al expediente necesita formalización antes de los trílogos insignia | Coordinadores EPP+S&D+Renew | para el 14 de abril | §Análisis de coalición (patrón de doble vía) |
+| 2 | **Marco de indispensabilidad PPE 95/100** — todo ejercicio de planificación de coalición debe partir de la inclusión del PPE | Conferencia de Presidentes | continuo | §Mapeo de actores (índice de poder PPE) |
+| 3 | **Vigilancia de reactivación API** — la evolución del modo de fallo sugiere actividad backend; monitorear para confirmación | Operaciones del pipeline de datos | ventanas T+4h | §Inteligencia entre sesiones (Modo A→B→C) |
+
+---
+
+### 📰 Lectura en 60 segundos
+
+- 🔴 **Lunes de Pascua Análisis-2 (06:45 UTC)** — 8 nuevos métodos; sin noticias de última hora; hallazgo estructural.
+- 🟠 **Coalición de doble vía descubierta** — SRMR3 centro-derecha versus Gran Coalición de la directiva anticorrupción.
+- 🟢 **Índice de poder PPE 95/100** — ninguna mayoría viable excluye al PPE; dominancia estructural.
+- 🟡 **HHI 0.1517** — sistema parlamentario multipolar; PPE como nodo indispensable.
+- 🔵 **Inversión del campo de fuerzas** — integración de defensa (8/10) > transición verde (5/10).
+- 🟣 **Evolución del modo de fallo API** — 404 → análisis JSON → tiempo de espera; posible señal backend.
+- 🩷 **737 eurodiputados estable** — el feed sigue proporcionando una línea de base fiable.
+- ⚪ **85 textos adoptados en corpus pre-receso** — 42 de 2026; trayectoria +46% interanual.
+
+---
+
+### 📐 Contribución metodológica del Análisis-2
+
+| Nuevo método | Líneas | Hallazgo destacado |
+|-------------|-------:|-------------------|
+| Matriz de impacto | 150+ | Impacto cruzado 6-D; cadena Legislativa-Política-Económica dominante |
+| Mapeo de actores | 170+ | PPE 95/100; ratio de tamaño 19× respecto al grupo más pequeño |
+| Análisis de fuerzas | 150+ | Defensa 8/10 reemplaza verde 5/10 como fuerza motriz más fuerte |
+| Análisis de partes interesadas | 180+ | Sociedad civil más impactada por el corte API de 11 días |
+| Análisis de coalición | 145+ | **Patrón de doble vía documentado** |
+| Inteligencia entre sesiones | 175+ | Evolución del modo de fallo API → señal backend |
+| Análisis profundo | 200+ | Doble vía = desarrollo EP10 Año 2 más significativo |
+| Síntesis-resumen | — | Hallazgo consolidado; actualización de memoria editorial |
+
+---
+
+### ⚠️ Instantánea de riesgos
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 Principales desencadenantes futuros (próximos 14 días)
+
+1. **8–10 de abril — Ventana de confirmación de recuperación API** (probabilidad 50%+ basada en la señal de tiempo de espera Modo-C).
+2. **14 de abril — Apertura de la semana de comité** — primera prueba de validación de doble vía.
+3. **17 de abril — Decisión sobre tipos del BCE** — reacción del comité ECON.
+4. **20–23 de abril — Primeras votaciones en pleno tras el receso** — revelación de coalición.
+5. **Finales de abril — Trílogo del Consejo sobre SRMR3** — prueba de la Unión Bancaria del patrón de doble vía a través del Consejo.
+
+---
+
+### 🛡️ Evaluación de calidad de fuentes
+
+- **85 textos adoptados (A1):** corpus pre-receso; protocolo EP primario.
+- **Hallazgo de doble vía (A2):** análisis de dispersión de votos sobre corpus del 26 de marzo; verificación conductual pendiente de la semana de comité.
+- **PPE 95/100 (A2):** metodología de mapeo de actores; aritmética confirmada.
+- **Evolución del modo de fallo API (A3):** actualización bayesiana; confianza media en la hipótesis de señal backend.
+- **Confianza neta:** 🟢 HIGH en hallazgos estructurales; 🟡 MEDIUM en el calendario de recuperación API.
+
+---
+
+### 📎 Artefactos del análisis
+
+| Capa | Artefacto | Por qué |
+|------|----------|---------|
+| Artículo | `article.md` (1.501 líneas) | Narrativa pública del Análisis-2 |
+| Síntesis | `synthesis-summary.md` | Puerta de valor noticioso + consolidación 8 métodos |
+| Métodos | matriz de impacto · mapeo de actores · análisis de fuerzas · análisis de partes interesadas · análisis de coalición · inteligencia entre sesiones · análisis profundo | Ocho nuevos métodos (este análisis) |
+| Compañero | breaking (00:33) · committee-reports (05:03) · propositions (05:47) | Grupo de Pascua |
+
+---
+
+**Control del documento**
+- **Referencia de plantilla:** `analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **Clasificación:** Público
+- **Retrospectivo:** Nota escrita el 2026-05-16 a partir de los artefactos comprometidos del análisis; **no se realizaron nuevas llamadas MCP**.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Ajo-2:n erottava panos — tuotettu 06:45 UTC pääsiäismaanantaina — on *Kaksoisratakoalitiokuvion* löytäminen: SRMR3 (TA-10-2026-0092) hyväksyttiin oikeakeskusradan kautta (EPP+ECR+PfE+Renew) kun taas Korruptionvastainendirektiivi (TA-10-2026-0094) hyväksyttiin Suurkoalition kautta (EPP+S&D+Renew+Greens), mikä osoittaa, että EP10 toimii *tiedostoehtoisilla* koalitioilla yhden toimivan enemmistön sijaan.** Kahdeksan uutta analyyttistä menetelmää (vaikutusmatriisi, toimijatkartoitus, voimakenttäanalyysi, sidosryhmäanalyysi, koalitioanalyysi, ristisessiotiedustelu, syväanalyysi, synteesiyhteenveto) tuottavat yhdessä EP10 Vuosi 2:n rakenteellisen analyysin, joka pitää tauon ajan: **PPE-valtaindeksi 95/100 (mikään toimintakelpoinen enemmistö ei sulje pois PPE:tä)**, HHI 0.1517 (moninapainen PPE:n toimiessa välttämättömänä solmukohtana), sekä voimakenttäinversio, jossa *puolustusintegraatio (8/10)* on korvannut *vihreän siirtymän (5/10)* vahvimpana ajurina EP9:n jälkeen. Ajon *uusi signaali* on API-virhetilan kehitys — puhdas 404 → JSON-jäsentämisvirhe → aikakatkaisu — jonka Ajo-2:n ristisessiotiedustelu tulkitsee mahdolliseksi taustajärjestelmän uudelleenaktivoinnin ennakoijaksi, minkä Ajo-3 vahvisti neljä tuntia myöhemmin hyväksyttyjen tekstien päätepisteelle. **Kaksoisratakuvio on ajon pysyvä rakenteellinen panos EP10-tietueeseen** ja sitä testataan komiteaViikolla 14.–17. huhtikuuta.
+
+---
+
+### 🧭 3 Päätöstä, joita tämä katsaus tukee
+
+| # | Päätös | Kuka päättää | Määräaika | Näyttö |
+|:-:|--------|-------------|:--------:|--------|
+| 1 | **Kaksoisratakoalitio-doktriini Q2:lle** — tiedostoehtoisenin kuvio tarvitsee virallistamisen ennen lippulaivaneuvotteluja | EPP+S&D+Renew-koordinaattorit | 14. huhtikuuta mennessä | §Koalitioanalyysi (kaksoisratakuvio) |
+| 2 | **PPE 95/100 välttämättömyysviitekehys** — jokainen koalitiosuunnitteluharjoitus täytyy aloittaa PPE:n mukaan ottamisesta | Puheenjohtajiston konferenssi | jatkuva | §Toimijakartoitus (PPE-valtaindeksi) |
+| 3 | **API-uudelleenaktivointivahti** — virhetilan kehitys viittaa taustajärjestelmän aktiviteettiin; seuraa vahvistusta varten | Datapipelinen operaatiot | T+4h-ikkunat | §Ristisessiotiedustelu (Tila A→B→C) |
+
+---
+
+### 📰 60 sekunnin katsaus
+
+- 🔴 **Pääsiäismaanantai Ajo-2 (06:45 UTC)** — 8 uutta menetelmää; ei uutisia; rakenteellinen havainto.
+- 🟠 **Kaksoisratakoalitio havaittu** — SRMR3 oikeakeskus versus korruptionvastaisen direktiivin suurkoalitio.
+- 🟢 **PPE-valtaindeksi 95/100** — mikään toimintakelpoinen enemmistö ei sulje pois PPE:tä; rakenteellinen hallitsevuus.
+- 🟡 **HHI 0.1517** — moninapainen parlamentaarinen järjestelmä; PPE välttämättömänä solmukohtana.
+- 🔵 **Voimakenttäinversio** — puolustusintegraatio (8/10) > vihreä siirtymä (5/10).
+- 🟣 **API-virhetilan kehitys** — 404 → JSON-jäsennys → aikakatkaisu; mahdollinen taustasignaali.
+- 🩷 **737 MEP:tä vakaana** — syöte tarjoaa edelleen luotettavan lähtötason.
+- ⚪ **85 hyväksyttyä tekstiä tauon edeltävässä aineistossa** — 42 vuodelta 2026; +46% vuosikasvuvauhti.
+
+---
+
+### 📐 Ajo-2 menetelmäpanos
+
+| Uusi menetelmä | Rivit | Erottuva havainto |
+|---------------|------:|-------------------|
+| Vaikutusmatriisi | 150+ | 6-D ristivaikutus; Lainsäädäntö-Poliittinen-Taloudellinen ketju hallitseva |
+| Toimijakartoitus | 170+ | PPE 95/100; 19× kokosuhde pienimpään ryhmään |
+| Voimakenttäanalyysi | 150+ | Puolustus 8/10 korvaa vihreän 5/10 vahvimpana ajurina |
+| Sidosryhmäanalyysi | 180+ | Kansalaisyhteiskunta eniten vaikuttunut 11 päivän API-katkoksesta |
+| Koalitioanalyysi | 145+ | **Kaksoisratakuvio dokumentoitu** |
+| Ristisessiotiedustelu | 175+ | API-virhetilan kehitys → taustasignaali |
+| Syväanalyysi | 200+ | Kaksoisratakuvio = merkittävin EP10 Vuosi 2 -tapahtuma |
+| Synteesiyhteenveto | — | Konsolidoitu havainto; toimituksellinen muistipäivitys |
+
+---
+
+### ⚠️ Riskiyhteenveto
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 Tärkeimmät tulevat laukaisijat (seuraavat 14 päivää)
+
+1. **8.–10. huhtikuuta — API-palautumisen vahvistusikkuna** (50%+ todennäköisyys Tila-C-aikatkatkaisu-signaalin perusteella).
+2. **14. huhtikuuta — KomiteaViikko avautuu** — ensimmäinen kaksoisratavalidointitesti.
+3. **17. huhtikuuta — EKP:n korkopäätös** — ECON-komitean reaktio.
+4. **20.–23. huhtikuuta — Ensimmäiset täysistuntoäänestykset tauon jälkeen** — koalitiopaljastus.
+5. **Huhtikuun lopussa — SRMR3 Neuvoston neuvottelut** — Pankkiunionin kaksoisratakauvion testi neuvoston kautta.
+
+---
+
+### 🛡️ Lähdekvaliteetin arviointi
+
+- **85 hyväksyttyä tekstiä (A1):** tauon edeltävä aineisto; ensisijainen EP-tietue.
+- **Kaksoisratahavainto (A2):** äänestysjakaumaanalyysi 26. maaliskuuta -aineistosta; käyttäytymisvarmennus odottaa komiteaViikkoa.
+- **PPE 95/100 (A2):** toimijakartoitusmenetelmä; aritmetiikka vahvistettu.
+- **API-virhetilan kehitys (A3):** Bayesilainen päivitys; keskitasoinen luottamus taustasignaalihypoteesiin.
+- **Nettovarmuus:** 🟢 HIGH rakenteellisista havainnoista; 🟡 MEDIUM API-palautumisen aikataulusta.
+
+---
+
+### 📎 Ajon artefaktit
+
+| Kerros | Artefakti | Miksi |
+|--------|-----------|-------|
+| Artikkeli | `article.md` (1 501 riviä) | Julkinen Ajo-2-kertomus |
+| Synteesi | `synthesis-summary.md` | Uutisarviointi + 8-menetelmäkonsolidointi |
+| Menetelmät | vaikutusmatriisi · toimijakartoitus · voimakenttäanalyysi · sidosryhmäanalyysi · koalitioanalyysi · ristisessiotiedustelu · syväanalyysi | Kahdeksan uutta menetelmää (tämä ajo) |
+| Sisarajo | breaking (00:33) · committee-reports (05:03) · propositions (05:47) | Pääsiäismaanantaiklusterit |
+
+---
+
+**Asiakirjavalvonta**
+- **Malliviite:** `analysis/templates/executive-brief.md`
+- **Artefaktipolku:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **Luokitus:** Julkinen
+- **Takautuva:** Katsaus kirjoitettu 2026-05-16 ajon sidotuista artefakteista; **uusia MCP-kutsuja ei tehty**.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**La contribution distinctive de l'Analyse-2 — produite à 06:45 UTC le lundi de Pâques — est la découverte du *Schéma de Coalition à Double Voie* : SRMR3 (TA-10-2026-0092) a été adopté via une voie de centre-droit (EPP+ECR+PfE+Renew) tandis que la Directive anti-corruption (TA-10-2026-0094) a été adoptée via la Grande Coalition (EPP+S&D+Renew+Greens), démontrant qu'EP10 fonctionne avec des coalitions *conditionnelles au dossier* plutôt qu'une unique majorité fonctionnelle.** Les huit nouvelles méthodes analytiques exécutées dans cette analyse (matrice d'impact, cartographie des acteurs, analyse des forces, analyse des parties prenantes, analyse de coalition, renseignement inter-sessions, analyse approfondie, synthèse-résumé) produisent collectivement une lecture structurelle de l'EP10 An 2 qui tient au long de la pause : **indice de puissance PPE 95/100 (aucune majorité viable n'exclut le PPE)**, HHI 0.1517 (multipolaire avec le PPE comme nœud indispensable) et une inversion du champ de forces où *l'intégration de la défense (8/10)* a remplacé *la transition verte (5/10)* comme force motrice dominante depuis EP9. Le *nouveau signal* de l'analyse est l'évolution du mode d'échec de l'API — 404 pur → erreur d'analyse JSON → délai d'attente — que le renseignement inter-sessions de l'Analyse-2 interprète comme un possible précurseur de réactivation du backend, validé par l'Analyse-3 quatre heures plus tard lorsque le point de terminaison des textes adoptés s'est rétabli. **Le schéma à double voie est la contribution structurelle durable de l'analyse au dossier EP10** et sera testé lors de la semaine de comité du 14 au 17 avril.
+
+---
+
+### 🧭 3 Décisions que cette note soutient
+
+| # | Décision | Qui décide | Délai | Preuves |
+|:-:|---------|-----------|:-----:|---------|
+| 1 | **Doctrine de coalition à double voie pour Q2** — le schéma conditionnel au dossier nécessite une formalisation avant les trilogues phares | Coordinateurs EPP+S&D+Renew | avant le 14 avril | §Analyse de coalition (schéma à double voie) |
+| 2 | **Cadre d'indispensabilité PPE 95/100** — tout exercice de planification de coalition doit partir de l'inclusion du PPE | Conférence des présidents | continu | §Cartographie des acteurs (indice de puissance PPE) |
+| 3 | **Veille de réactivation API** — l'évolution du mode d'échec suggère une activité backend ; surveiller pour confirmation | Opérations du pipeline de données | fenêtres T+4h | §Renseignement inter-sessions (Mode A→B→C) |
+
+---
+
+### 📰 Lecture en 60 secondes
+
+- 🔴 **Lundi de Pâques Analyse-2 (06:45 UTC)** — 8 nouvelles méthodes ; aucune information de dernière heure ; résultat structurel.
+- 🟠 **Coalition à double voie découverte** — SRMR3 centre-droit versus Grande Coalition de la directive anti-corruption.
+- 🟢 **Indice de puissance PPE 95/100** — aucune majorité viable n'exclut le PPE ; dominance structurelle.
+- 🟡 **HHI 0.1517** — système parlementaire multipolaire ; PPE comme nœud indispensable.
+- 🔵 **Inversion du champ de forces** — intégration de la défense (8/10) > transition verte (5/10).
+- 🟣 **Évolution du mode d'échec API** — 404 → analyse JSON → délai ; signal backend possible.
+- 🩷 **737 eurodéputés stable** — le flux continue de fournir une base fiable.
+- ⚪ **85 textes adoptés dans le corpus avant pause** — 42 de 2026 ; trajectoire +46% a/a.
+
+---
+
+### 📐 Contribution méthodologique de l'Analyse-2
+
+| Nouvelle méthode | Lignes | Résultat distinctif |
+|----------------|-------:|---------------------|
+| Matrice d'impact | 150+ | Impact croisé 6-D ; chaîne Législatif-Politique-Économique dominante |
+| Cartographie des acteurs | 170+ | PPE 95/100 ; ratio de taille 19× par rapport au plus petit groupe |
+| Analyse des forces | 150+ | Défense 8/10 remplace vert 5/10 comme force motrice la plus forte |
+| Analyse des parties prenantes | 180+ | Société civile la plus impactée par la coupure API de 11 jours |
+| Analyse de coalition | 145+ | **Schéma à double voie documenté** |
+| Renseignement inter-sessions | 175+ | Évolution du mode d'échec API → signal backend |
+| Analyse approfondie | 200+ | Double voie = développement EP10 An 2 le plus significatif |
+| Synthèse-résumé | — | Résultat consolidé ; mise à jour de la mémoire éditoriale |
+
+---
+
+### ⚠️ Instantané des risques
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 Principaux déclencheurs à venir (14 prochains jours)
+
+1. **8–10 avril — Fenêtre de confirmation de récupération API** (probabilité 50%+ basée sur le signal de délai d'attente Mode-C).
+2. **14 avril — Ouverture de la semaine de comité** — premier test de validation à double voie.
+3. **17 avril — Décision sur les taux de la BCE** — réaction du comité ECON.
+4. **20–23 avril — Premiers votes en plénière après la pause** — révélation de coalition.
+5. **Fin avril — Trilogue du Conseil sur SRMR3** — test de l'Union bancaire du schéma à double voie via le Conseil.
+
+---
+
+### 🛡️ Évaluation de la qualité des sources
+
+- **85 textes adoptés (A1) :** corpus avant pause ; protocole EP primaire.
+- **Résultat de la double voie (A2) :** analyse de dispersion des votes sur le corpus du 26 mars ; vérification comportementale en attente de la semaine de comité.
+- **PPE 95/100 (A2) :** méthodologie de cartographie des acteurs ; arithmétique confirmée.
+- **Évolution du mode d'échec API (A3) :** mise à jour bayésienne ; confiance moyenne dans l'hypothèse de signal backend.
+- **Confiance nette :** 🟢 HIGH sur les résultats structurels ; 🟡 MEDIUM sur le calendrier de récupération API.
+
+---
+
+### 📎 Artefacts de l'analyse
+
+| Couche | Artefact | Pourquoi |
+|--------|----------|---------|
+| Article | `article.md` (1 501 lignes) | Récit public de l'Analyse-2 |
+| Synthèse | `synthesis-summary.md` | Porte de valeur informative + consolidation 8 méthodes |
+| Méthodes | matrice d'impact · cartographie des acteurs · analyse des forces · analyse des parties prenantes · analyse de coalition · renseignement inter-sessions · analyse approfondie | Huit nouvelles méthodes (cette analyse) |
+| Compagnon | breaking (00:33) · committee-reports (05:03) · propositions (05:47) | Groupe de Pâques |
+
+---
+
+**Contrôle du document**
+- **Référence du modèle :** `analysis/templates/executive-brief.md`
+- **Chemin de l'artefact :** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **Classification :** Public
+- **Rétrospectif :** Note rédigée le 2026-05-16 à partir des artefacts validés de l'analyse ; **aucun nouvel appel MCP n'a été effectué**.
+
+### Executive Brief He
+
+**סיווג:** OSINT — רשומה פרלמנטרית ציבורית
+**אמינות:** 🟡 MEDIUM (הפסקה פרלמנטרית; API בתנודה מדורדרת; קריאה מבנית 🟢 HIGH)
+**ניתוח:** `analysis/daily/2026-04-06/breaking-2/` (06:45 UTC)
+**כיסוי:** הפסקת פסחא יום 11/18; ערמת מודיעין מצטברת 4 ניתוחים
+**נוצר:** 2026-05-16 (תקציר רטרוספקטיבי, ללא קריאות MCP חדשות)
+**מקורות עיקריים:** מאגר לפני ההפסקה (85 טקסטים שאושרו, 42 מ-2026); 737 חברי פרלמנט (יציב); HHI 0.1517; מדד עוצמת PPE 95/100.
+
+---
+
+### 🎯 BLUF
+
+**התרומה המבחינה של ניתוח-2 — שיוצרה ב-06:45 UTC ביום שני של פסחא — היא גילוי *תבנית הקואליציה של מסלול כפול*: SRMR3 (TA-10-2026-0092) אושרה דרך מסלול ימין-מרכז (EPP+ECR+PfE+Renew) בעוד שהנחיית המאבק בשחיתות (TA-10-2026-0094) אושרה דרך הקואליציה הגדולה (EPP+S&D+Renew+Greens), מה שמדגים שEP10 פועל עם קואליציות *מותנות-לפי-תיק* במקום רוב עבודה אחד.** שמונת השיטות האנליטיות החדשות שהופעלו בניתוח זה (מטריצת השפעה, מיפוי שחקנים, ניתוח כוחות, ניתוח בעלי עניין, ניתוח קואליציה, מודיעין בין-סשנים, ניתוח עומק, סיכום סינתזה) מייצרות יחד קריאה מבנית של EP10 שנה 2 שמחזיקה לאורך ההפסקה: **מדד עוצמת PPE 95/100 (אף רוב ברי-קיימא אינו מדיר PPE)**, HHI 0.1517 (רב-קוטבי עם PPE כצומת הכרחי), והיפוך שדה כוחות שבו *אינטגרציית הגנה (8/10)* החליפה את *המעבר הירוק (5/10)* כגורם הדחיפה החזק ביותר מאז EP9. ה*אות החדש* של הניתוח הוא התפתחות מצב כשל API — 404 נקי ← שגיאת ניתוח JSON ← פסק זמן — שמודיעין בין-הסשנים של ניתוח-2 קורא כאפשרי מבשר להפעלה מחדש של ה-backend, שנאומת על ידי ניתוח-3 ארבע שעות לאחר מכן כשנקודת הקצה לטקסטים שאושרו התאוששה. **תבנית המסלול הכפול היא התרומה המבנית הקבועה של הניתוח לרשומת EP10** ותיבחן בשבוע ועדה 14–17 אפריל.
+
+---
+
+### 🧭 3 החלטות שתקציר זה תומך בהן
+
+| # | החלטה | מי מחליט | מועד אחרון | עדויות |
+|:-:|-------|---------|:----------:|--------|
+| 1 | **דוקטרינת קואליציית המסלול הכפול לרבעון Q2** — תבנית מותנית-לפי-תיק זקוקה לפורמליזציה לפני טרילוגים מרכזיים | רכזי EPP+S&D+Renew | לפני 14 אפריל | §ניתוח קואליציה (תבנית מסלול כפול) |
+| 2 | **מסגרת הכרחיות PPE 95/100** — כל תרגיל תכנון קואליציה חייב להתחיל מהכללת PPE | ועידת הנשיאים | שוטף | §מיפוי שחקנים (מדד עוצמת PPE) |
+| 3 | **כוננות הפעלה מחדש של API** — התפתחות מצב כשל מרמזת על פעילות backend; מעקב לאישור | פעולות צינור נתונים | חלונות T+4h | §מודיעין בין-סשנים (מצב A→B→C) |
+
+---
+
+### 📰 קריאת 60 שניות
+
+- 🔴 **ניתוח שני פסחא-2 (06:45 UTC)** — 8 שיטות חדשות; ללא חדשות שוברות; ממצא מבני.
+- 🟠 **קואליציית מסלול כפול התגלתה** — SRMR3 ימין-מרכז לעומת קואליציה גדולה של ניתוח-שחיתות.
+- 🟢 **מדד עוצמת PPE 95/100** — אף רוב ברי-קיימא אינו מדיר PPE; שליטה מבנית.
+- 🟡 **HHI 0.1517** — מערכת פרלמנטרית רב-קוטבית; PPE כצומת הכרחי.
+- 🔵 **היפוך שדה כוחות** — אינטגרציית הגנה (8/10) > מעבר ירוק (5/10).
+- 🟣 **התפתחות מצב כשל API** — 404 ← ניתוח JSON ← פסק זמן; אות backend אפשרי.
+- 🩷 **737 חברי פרלמנט יציב** — הפיד ממשיך לספק קו בסיס אמין.
+- ⚪ **85 טקסטים שאושרו במאגר לפני ההפסקה** — 42 מ-2026; מסלול +46% שנתי.
+
+---
+
+### 📐 תרומת שיטות ניתוח-2
+
+| שיטה חדשה | שורות | ממצא מבחין |
+|---------|------:|-----------|
+| מטריצת השפעה | 150+ | השפעה צולבת 6-D; שרשרת חקיקתית-פוליטית-כלכלית שלטת |
+| מיפוי שחקנים | 170+ | PPE 95/100; יחס גודל 19× ביחס לקבוצה הקטנה ביותר |
+| ניתוח כוחות | 150+ | הגנה 8/10 מחליפה ירוק 5/10 כגורם הדחיפה החזק ביותר |
+| ניתוח בעלי עניין | 180+ | החברה האזרחית הנפגעת ביותר מניתוק API של 11 ימים |
+| ניתוח קואליציה | 145+ | **תבנית מסלול כפול מתועדת** |
+| מודיעין בין-סשנים | 175+ | התפתחות מצב כשל API ← אות backend |
+| ניתוח עומק | 200+ | מסלול כפול = ההתפתחות המשמעותית ביותר של EP10 שנה 2 |
+| סיכום סינתזה | — | ממצא מאוחד; עדכון זיכרון עריכה |
+
+---
+
+### ⚠️ תמונת סיכונים
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 טריגרים עתידיים מובילים (14 הימים הקרובים)
+
+1. **8–10 באפריל — חלון אישור התאוששות API** (הסתברות 50%+ על בסיס אות פסק הזמן מצב-C).
+2. **14 באפריל — שבוע ועדה נפתח** — מבחן אימות ראשון של מסלול כפול.
+3. **17 באפריל — החלטת ריבית ECB** — תגובת ועדת ECON.
+4. **20–23 באפריל — הצבעות מליאה ראשונות לאחר ההפסקה** — חשיפת קואליציה.
+5. **סוף אפריל — טרילוג מועצת SRMR3** — מבחן האיחוד הבנקאי לתבנית המסלול הכפול דרך המועצה.
+
+---
+
+### 🛡️ הערכת איכות מקורות
+
+- **85 טקסטים שאושרו (A1):** מאגר לפני ההפסקה; פרוטוקול EP ראשי.
+- **ממצא מסלול כפול (A2):** ניתוח פיזור הצבעות על מאגר 26 מרץ; אימות התנהגותי ממתין לשבוע ועדה.
+- **PPE 95/100 (A2):** מתודולוגיית מיפוי שחקנים; אריתמטיקה מאושרת.
+- **התפתחות מצב כשל API (A3):** עדכון בייסיאני; אמון בינוני בהיפותזת אות backend.
+- **אמון נטו:** 🟢 HIGH על ממצאים מבניים; 🟡 MEDIUM על לוח זמנים של התאוששות API.
+
+---
+
+### 📎 תוצרי הניתוח
+
+| שכבה | תוצר | מדוע |
+|------|------|------|
+| מאמר | `article.md` (1,501 שורות) | נרטיב ניתוח-2 ציבורי |
+| סינתזה | `synthesis-summary.md` | שער ערך חדשותי + איחוד 8 שיטות |
+| שיטות | מטריצת השפעה · מיפוי שחקנים · ניתוח כוחות · ניתוח בעלי עניין · ניתוח קואליציה · מודיעין בין-סשנים · ניתוח עומק | שמונה שיטות חדשות (ניתוח זה) |
+| מלווה | breaking (00:33) · committee-reports (05:03) · propositions (05:47) · | אשכול פסחא |
+
+---
+
+**בקרת מסמך**
+- **הפניית תבנית:** `analysis/templates/executive-brief.md`
+- **נתיב תוצר:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **סיווג:** ציבורי
+- **רטרוספקטיבי:** תקציר נכתב 2026-05-16 מהתוצרים המחויבים של הניתוח; **לא בוצעו קריאות MCP חדשות**.
+
+### Executive Brief Ja
+
+**分類：** OSINT — 公開議事録
+**信頼性：** 🟡 中（議会休会；API不安定；構造的解読 🟢 高）
+**分析：** `analysis/daily/2026-04-06/breaking-2/` （06:45 UTC）
+**対象期間：** イースター休会第11/18日；累積インテリジェンス4分析
+**作成：** 2026-05-16（回顧的ブリーフ、新規MCP呼び出しなし）
+**主要ソース：** 休会前アーカイブ（採択テキスト85件、2026年分42件）；議員737名（安定）；HHI 0.1517；PPE影響力スコア95/100。
+
+---
+
+### 🎯 BLUF
+
+**第2分析（イースター月曜日06:45 UTC）の特徴的貢献は、*デュアル・トラック連立パターン*の発見である：SRMR3（TA-10-2026-0092）は中道右派トラック（EPP+ECR+PfE+Renew）を通じて採択され、一方で汚職対策指令（TA-10-2026-0094）は大連立（EPP+S&D+Renew+Greens）を通じて採択された。これにより、EP10は単一の安定多数派ではなく*案件条件付き連立*で機能していることが実証された。** 本分析で展開した8つの新手法（影響力マトリクス、アクター・マッピング、勢力分析、ステークホルダー分析、連立分析、セッション間インテリジェンス、深度分析、統合サマリー）は、休会を通じて維持されるEP10第2年の構造的解読を共同で生成する：**PPE影響力スコア95/100（持続可能な多数派はPPEを排除できない）**、HHI 0.1517（PPEを必要ノードとした多極化）、EP9以来*緑の移行（5/10）*に代わり*防衛統合（8/10）*が最強の推進力となった勢力場の逆転。本分析の*新シグナル*はAPIエラー状態の進展—クリーン404←JSONパースエラー←タイムアウト—であり、第2分析のセッション間インテリジェンスはこれをバックエンド再起動の可能性を示す前兆として解読し、その4時間後に採択テキストエンドポイントが回復したことで第3分析が確認した。**デュアル・トラック・パターンはEP10記録への構造的貢献として永続し**、4月14〜17日の委員会ウィークで検証される。
+
+---
+
+### 🧭 本ブリーフが支援する3つの意思決定
+
+| # | 意思決定 | 決定者 | 期限 | 根拠 |
+|:-:|--------|--------|:----:|------|
+| 1 | **Q2デュアル・トラック連立ドクトリン** — 主要三部協議前にこの案件条件付きパターンを正式化する必要 | EPP+S&D+Renew調整者 | 4月14日前 | §連立分析（デュアル・トラック・パターン） |
+| 2 | **PPE必要性フレームワーク95/100** — すべての連立計画演習はPPEの包含から始める必要あり | 議長会議 | 継続 | §アクター・マッピング（PPE影響力スコア） |
+| 3 | **API再起動準備態勢** — 障害状態の進展はバックエンド活動を示唆；確認のため監視 | データパイプライン運用 | T+4hウィンドウ | §セッション間インテリジェンス（状態A→B→C） |
+
+---
+
+### 📰 60秒解説
+
+- 🔴 **第2分析イースター月曜日（06:45 UTC）** — 8新手法；速報ニュースなし；構造的発見。
+- 🟠 **デュアル・トラック連立の発見** — SRMR3は中道右派、汚職対策は大連立。
+- 🟢 **PPE影響力スコア95/100** — 持続可能な多数派はPPEを排除不可；構造的支配。
+- 🟡 **HHI 0.1517** — 多極化議会システム；PPEが必要ノード。
+- 🔵 **勢力場の逆転** — 防衛統合（8/10）>緑の移行（5/10）。
+- 🟣 **APIエラー状態の進展** — 404←JSONパース←タイムアウト；バックエンド信号の可能性。
+- 🩷 **議員737名安定** — フィードが信頼性の高いベースラインを提供し続ける。
+- ⚪ **休会前アーカイブ85件** — 42件は2026年；年率+46%トラック。
+
+---
+
+### 📐 第2分析の手法貢献
+
+| 新手法 | 行数 | 特徴的発見 |
+|------|-----:|----------|
+| 影響力マトリクス | 150+ | 6次元交差影響；立法-政治-経済の連鎖が支配的 |
+| アクター・マッピング | 170+ | PPE 95/100；最小グループの19倍の規模比 |
+| 勢力分析 | 150+ | 防衛8/10が緑5/10に代わり最強推進力に |
+| ステークホルダー分析 | 180+ | 市民社会がAPI11日間断絶の最大被害者 |
+| 連立分析 | 145+ | **デュアル・トラック・パターン文書化** |
+| セッション間インテリジェンス | 175+ | APIエラー状態進展←バックエンド信号 |
+| 深度分析 | 200+ | デュアル・トラック＝EP10第2年最重要発展 |
+| 統合サマリー | — | 統一発見；編集メモリ更新 |
+
+---
+
+### ⚠️ リスク・スナップショット
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 主要な将来トリガー（今後14日間）
+
+1. **4月8〜10日 — API回復確認ウィンドウ**（状態Cタイムアウト信号に基づく確率50%以上）。
+2. **4月14日 — 委員会ウィーク開始** — デュアル・トラックの初回検証テスト。
+3. **4月17日 — ECB金利決定** — ECON委員会の反応。
+4. **4月20〜23日 — 休会後初の本会議投票** — 連立公開。
+5. **4月末 — SRMR3理事会三部協議** — 理事会を通じたデュアル・トラック・パターンへの銀行同盟テスト。
+
+---
+
+### 🛡️ ソース品質評価
+
+- **採択テキスト85件（A1）：** 休会前アーカイブ；EP第一次プロトコル。
+- **デュアル・トラック発見（A2）：** 3月26日アーカイブの投票分布分析；委員会ウィークで行動検証待ち。
+- **PPE 95/100（A2）：** アクター・マッピング手法；算術確認済み。
+- **APIエラー状態進展（A3）：** ベイズ更新；バックエンド信号仮説は中程度の確信。
+- **正味信頼性：** 🟢 構造的発見HIGH；🟡 API回復タイムラインMEDIUM。
+
+---
+
+### 📎 分析成果物
+
+| レイヤー | 成果物 | 理由 |
+|--------|------|-----|
+| 記事 | `article.md`（1,501行） | 公開第2分析ナラティブ |
+| 統合 | `synthesis-summary.md` | ニュース価値判断＋8手法統合 |
+| 手法 | 影響力マトリクス・アクター・マッピング・勢力分析・ステークホルダー分析・連立分析・セッション間インテリジェンス・深度分析 | 新8手法（本分析） |
+| 同時期 | breaking（00:33）・committee-reports（05:03）・propositions（05:47） | イースタークラスター |
+
+---
+
+**文書管理**
+- **テンプレート参照：** `analysis/templates/executive-brief.md`
+- **成果物パス：** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **分類：** 公開
+- **回顧的：** 本ブリーフは2026-05-16に分析のコミット済み成果物から作成；**新規MCP呼び出しは実施されていない**。
+
+### Executive Brief Ko
+
+**분류:** OSINT — 공개 의회 기록
+**신뢰도:** 🟡 보통 (의회 휴회; API 저하 불안정; 구조적 해석 🟢 높음)
+**분석:** `analysis/daily/2026-04-06/breaking-2/` (06:45 UTC)
+**범위:** 부활절 휴회 11/18일차; 누적 인텔리전스 4차 분석
+**작성:** 2026-05-16 (소급 브리핑, 신규 MCP 호출 없음)
+**주요 출처:** 휴회 전 아카이브 (채택 텍스트 85건, 2026년 42건); 의원 737명 (안정); HHI 0.1517; PPE 영향력 점수 95/100.
+
+---
+
+### 🎯 BLUF
+
+**2차 분석(부활절 월요일 06:45 UTC)의 차별적 기여는 *이중 트랙 연합 패턴*의 발견이다: SRMR3(TA-10-2026-0092)는 중도우파 트랙(EPP+ECR+PfE+Renew)을 통해 채택되었고, 부패방지지침(TA-10-2026-0094)은 대연립(EPP+S&D+Renew+Greens)을 통해 채택되어, EP10이 단일 안정 다수가 아닌 *안건별 조건부 연합*으로 운영됨을 실증했다.** 본 분석에서 전개된 8가지 신규 방법론(영향력 매트릭스, 행위자 매핑, 세력 분석, 이해관계자 분석, 연합 분석, 세션 간 인텔리전스, 심층 분석, 통합 요약)은 휴회를 통해 유지되는 EP10 2년차 구조적 해석을 공동으로 생성한다: **PPE 영향력 점수 95/100(지속 가능한 다수는 PPE를 배제할 수 없음)**, HHI 0.1517(PPE를 필수 노드로 한 다극화), EP9 이후 *녹색 전환(5/10)*을 대체하여 *방위 통합(8/10)*이 최강 추진력이 된 세력장 역전. 본 분석의 *새로운 신호*는 API 오류 상태 진행—깨끗한 404←JSON 파싱 오류←타임아웃—이며, 2차 분석의 세션 간 인텔리전스는 이를 백엔드 재시작 가능성 신호로 해석하여 4시간 후 채택 텍스트 엔드포인트가 복구되면서 3차 분석이 확인했다. **이중 트랙 패턴은 EP10 기록에 대한 구조적 기여로 영속하며** 4월 14~17일 위원회 주간에서 검증된다.
+
+---
+
+### 🧭 본 브리핑이 지원하는 3가지 의사결정
+
+| # | 의사결정 | 결정자 | 기한 | 근거 |
+|:-:|---------|--------|:----:|------|
+| 1 | **Q2 이중 트랙 연합 독트린** — 주요 삼자협상 전 안건별 조건부 패턴 공식화 필요 | EPP+S&D+Renew 조율자 | 4월 14일 전 | §연합 분석 (이중 트랙 패턴) |
+| 2 | **PPE 필수성 프레임워크 95/100** — 모든 연합 계획 작업은 PPE 포함에서 시작 | 의장 회의 | 지속 | §행위자 매핑 (PPE 영향력 점수) |
+| 3 | **API 재시작 준비 태세** — 오류 상태 진행이 백엔드 활동 시사; 확인 모니터링 | 데이터 파이프라인 운영 | T+4h 창 | §세션 간 인텔리전스 (상태 A→B→C) |
+
+---
+
+### 📰 60초 해설
+
+- 🔴 **2차 분석 부활절 월요일 (06:45 UTC)** — 8가지 신규 방법론; 속보 없음; 구조적 발견.
+- 🟠 **이중 트랙 연합 발견** — SRMR3 중도우파 vs. 부패방지 대연립.
+- 🟢 **PPE 영향력 점수 95/100** — 지속 가능한 다수는 PPE 배제 불가; 구조적 지배.
+- 🟡 **HHI 0.1517** — 다극화 의회 시스템; PPE가 필수 노드.
+- 🔵 **세력장 역전** — 방위 통합(8/10) > 녹색 전환(5/10).
+- 🟣 **API 오류 상태 진행** — 404←JSON 파싱←타임아웃; 백엔드 신호 가능성.
+- 🩷 **의원 737명 안정** — 피드가 신뢰할 수 있는 기준선 지속 제공.
+- ⚪ **휴회 전 아카이브 85건** — 42건은 2026년; 연간 +46% 트랙.
+
+---
+
+### 📐 2차 분석 방법론 기여
+
+| 신규 방법론 | 행수 | 차별적 발견 |
+|----------|----:|-----------|
+| 영향력 매트릭스 | 150+ | 6차원 교차 영향; 입법-정치-경제 연쇄 지배 |
+| 행위자 매핑 | 170+ | PPE 95/100; 최소 그룹 대비 19배 규모비 |
+| 세력 분석 | 150+ | 방위 8/10이 녹색 5/10 대체해 최강 추진력 |
+| 이해관계자 분석 | 180+ | 시민사회가 API 11일 단절 최대 피해자 |
+| 연합 분석 | 145+ | **이중 트랙 패턴 문서화** |
+| 세션 간 인텔리전스 | 175+ | API 오류 상태 진행←백엔드 신호 |
+| 심층 분석 | 200+ | 이중 트랙 = EP10 2년차 가장 중요한 발전 |
+| 통합 요약 | — | 통합 발견; 편집 메모리 업데이트 |
+
+---
+
+### ⚠️ 리스크 스냅샷
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 주요 미래 트리거 (향후 14일)
+
+1. **4월 8~10일 — API 복구 확인 창** (상태 C 타임아웃 신호 기반 확률 50%+).
+2. **4월 14일 — 위원회 주간 개시** — 이중 트랙 첫 번째 검증 테스트.
+3. **4월 17일 — ECB 금리 결정** — ECON 위원회 반응.
+4. **4월 20~23일 — 휴회 후 첫 본회의 투표** — 연합 공개.
+5. **4월 말 — SRMR3 이사회 삼자협상** — 이사회를 통한 이중 트랙 패턴 은행동맹 테스트.
+
+---
+
+### 🛡️ 소스 품질 평가
+
+- **채택 텍스트 85건 (A1):** 휴회 전 아카이브; EP 1차 프로토콜.
+- **이중 트랙 발견 (A2):** 3월 26일 아카이브의 투표 분포 분석; 위원회 주간 행동 검증 대기.
+- **PPE 95/100 (A2):** 행위자 매핑 방법론; 산술 확인 완료.
+- **API 오류 상태 진행 (A3):** 베이즈 업데이트; 백엔드 신호 가설 중간 확신.
+- **순 신뢰도:** 🟢 구조적 발견 높음; 🟡 API 복구 타임라인 보통.
+
+---
+
+### 📎 분석 결과물
+
+| 레이어 | 결과물 | 이유 |
+|------|------|-----|
+| 기사 | `article.md` (1,501행) | 공개 2차 분석 내러티브 |
+| 통합 | `synthesis-summary.md` | 뉴스 가치 판단 + 8가지 방법론 통합 |
+| 방법론 | 영향력 매트릭스·행위자 매핑·세력 분석·이해관계자 분석·연합 분석·세션 간 인텔리전스·심층 분석 | 신규 8가지 방법론 (본 분석) |
+| 동시기 | breaking (00:33)·committee-reports (05:03)·propositions (05:47) | 부활절 클러스터 |
+
+---
+
+**문서 관리**
+- **템플릿 참조:** `analysis/templates/executive-brief.md`
+- **결과물 경로:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **분류:** 공개
+- **소급:** 본 브리핑은 2026-05-16에 분석의 커밋된 결과물로부터 작성; **신규 MCP 호출 미실시**.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**De onderscheidende bijdrage van Analyse-2 — geproduceerd om 06:45 UTC op Paasmaandag — is de ontdekking van het *Dubbelspoorcoalitiepatroon*: SRMR3 (TA-10-2026-0092) werd aangenomen via een rechts-van-centrum-spoor (EPP+ECR+PfE+Renew) terwijl de Antikorruptierichtlijn (TA-10-2026-0094) werd aangenomen via de Grote Coalitie (EPP+S&D+Renew+Greens), wat aantoont dat EP10 opereert met *dossierafhankelijke* coalities in plaats van één werkende meerderheid.** De acht nieuwe analytische methoden die in deze analyse zijn uitgevoerd (impactmatrix, actorkaart, krachtenveldanalyse, stakeholderanalyse, coalitieanalyse, sessieoverstijgende inlichtingen, diepteanalyse, syntheseoverzicht) produceren gezamenlijk een structurele lezing van EP10 Jaar 2 die overeind blijft gedurende het reces: **PPE-machtsindex 95/100 (geen levensvatbare meerderheid sluit PPE uit)**, HHI 0.1517 (multipolair met PPE als onmisbaar knooppunt) en een krachtveldinversie waarbij *defensie-integratie (8/10)* de *groene transitie (5/10)* heeft vervangen als de sterkste drijvende kracht sinds EP9. Het *nieuwe signaal* van de analyse is de evolutie van de API-foutstatus — clean 404 → JSON-parseerfout → time-out — die de sessieoverstijgende inlichtingen van Analyse-2 leest als een mogelijke backend-reactiveringsvoorbode, gevalideerd door Analyse-3 vier uur later toen het eindpunt voor aangenomen teksten herstel vertoonde. **Het dubbelspoorpatroon is de blijvende structurele bijdrage van de analyse aan het EP10-dossier** en zal worden getest tijdens de commissieweek van 14–17 april.
+
+---
+
+### 🧭 3 Beslissingen die deze samenvatting ondersteunt
+
+| # | Beslissing | Wie beslist | Deadline | Bewijs |
+|:-:|-----------|------------|:--------:|--------|
+| 1 | **Dubbelspoorcoalitiedoctrine voor Q2** — dossierafhankelijk patroon vereist formalisering vóór vlaggenschip-trilogues | EPP+S&D+Renew-coördinatoren | voor 14 april | §Coalitieanalyse (dubbelspoorpatroon) |
+| 2 | **PPE 95/100 onmisbaarheidsraamwerk** — elke coalitieplanningsoefening moet starten met PPE-insluiting | Conferentie van Voorzitters | doorlopend | §Actorkaart (PPE-machtsindex) |
+| 3 | **API-reactiveringswatch** — evolutie van foutstatus wijst op backend-activiteit; bewaken voor bevestiging | Datapipeline-operaties | T+4u-vensters | §Sessieoverstijgende inlichtingen (Modus A→B→C) |
+
+---
+
+### 📰 60-seconden lezing
+
+- 🔴 **Paasmaandag Analyse-2 (06:45 UTC)** — 8 nieuwe methoden; geen nieuws; structurele bevinding.
+- 🟠 **Dubbelspoorcoalitie ontdekt** — SRMR3 rechts-van-centrum versus Antikorruptierichtlijn Grote Coalitie.
+- 🟢 **PPE-machtsindex 95/100** — geen levensvatbare meerderheid sluit PPE uit; structurele dominantie.
+- 🟡 **HHI 0.1517** — multipolair parlementair systeem; PPE als onmisbaar knooppunt.
+- 🔵 **Krachtveldinversie** — defensie-integratie (8/10) > groene transitie (5/10).
+- 🟣 **Evolutie API-foutstatus** — 404 → JSON-parsing → time-out; mogelijk backend-signaal.
+- 🩷 **737 EP-leden stabiel** — feed biedt betrouwbare basislijn.
+- ⚪ **85 aangenomen teksten in pre-reces corpus** — 42 uit 2026; +46% j-o-j traject.
+
+---
+
+### 📐 Methodologische bijdrage Analyse-2
+
+| Nieuwe methode | Regels | Onderscheidende bevinding |
+|---------------|-------:|--------------------------|
+| Impactmatrix | 150+ | 6-D kruisimpact; Legislatief-Politiek-Economische keten dominant |
+| Actorkaart | 170+ | PPE 95/100; 19× grootteratio ten opzichte van kleinste groep |
+| Krachtenveldanalyse | 150+ | Defensie 8/10 vervangt groen 5/10 als sterkste drijfveer |
+| Stakeholderanalyse | 180+ | Maatschappelijk middenveld meest getroffen door 11-daagse API-uitval |
+| Coalitieanalyse | 145+ | **Dubbelspoorpatroon gedocumenteerd** |
+| Sessieoverstijgende inlichtingen | 175+ | Evolutie API-foutstatus → backend-signaal |
+| Diepteanalyse | 200+ | Dubbelspoor = meest significante EP10 Jaar 2 ontwikkeling |
+| Syntheseoverzicht | — | Geconsolideerde bevinding; redactioneel geheugen bijgewerkt |
+
+---
+
+### ⚠️ Risico-momentopname
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 Top voorwaartse triggers (volgende 14 dagen)
+
+1. **8–10 april — API-herstelbevestigingsvenster** (kans 50%+ gebaseerd op Modus-C time-out-signaal).
+2. **14 april — Commissieweek opent** — eerste dubbelspoorvalidatietest.
+3. **17 april — ECB-rentebeslissing** — reactie ECON-commissie.
+4. **20–23 april — Eerste plenaire stemmen na reces** — coalitie-onthulling.
+5. **Eind april — SRMR3 Raadstriloog** — test Bankenunie van dubbelspoorpatroon via de Raad.
+
+---
+
+### 🛡️ Bronkwaliteitsbeoordeling
+
+- **85 aangenomen teksten (A1):** pre-reces corpus; primair EP-dossier.
+- **Dubbelspoorbevinding (A2):** stemdispersie-analyse op 26 maart-corpus; gedragsverificatie in afwachting van commissieweek.
+- **PPE 95/100 (A2):** actorkaartmethodologie; rekenkunde bevestigd.
+- **Evolutie API-foutstatus (A3):** Bayesiaanse update; gemiddeld vertrouwen in backend-signaalhypothese.
+- **Nettovertrouwen:** 🟢 HIGH op structurele bevindingen; 🟡 MEDIUM op tijdlijn API-herstel.
+
+---
+
+### 📎 Artefacten van de analyse
+
+| Laag | Artefact | Waarom |
+|------|---------|--------|
+| Artikel | `article.md` (1.501 regels) | Publieke Analyse-2-vertelling |
+| Synthese | `synthesis-summary.md` | Nieuwswaarde-gate + 8-methode-consolidatie |
+| Methoden | impactmatrix · actorkaart · krachtenveldanalyse · stakeholderanalyse · coalitieanalyse · sessieoverstijgende inlichtingen · diepteanalyse | Acht nieuwe methoden (deze analyse) |
+| Begeleider | breaking (00:33) · committee-reports (05:03) · propositions (05:47) | Paasmondagcluster |
+
+---
+
+**Documentbeheer**
+- **Sjabloonreferentie:** `analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectief:** Samenvatting geschreven op 2026-05-16 vanuit de vastgelegde artefacten van de analyse; **er zijn geen nieuwe MCP-aanroepen gedaan**.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Analyse-2s særegne bidrag — produsert 06:45 UTC på 2. påskedag — er oppdagelsen av *Dobbeltspor-Koalisjonsm ønsteret*: SRMR3 (TA-10-2026-0092) ble vedtatt via et høyre-av-sentrum-spor (EPP+ECR+PfE+Renew) mens Antikorrupsjonsdirektivet (TA-10-2026-0094) ble vedtatt via Storkoalisjonen (EPP+S&D+Renew+Greens), noe som demonstrerer at EP10 opererer med *filbetingede* koalisjoner snarere enn ett enkelt arbeidsflertall.** De åtte nye analytiske metodene utført i denne analysen (effektmatrise, aktørkartlegging, styrkeanalyse, interessentanalyse, koalisjonsanalyse, tverrsesjonsetterretning, dybdeanalyse, synteseoppsummering) produserer samlet en strukturell lesning av EP10 År 2 som holder gjennom pausen: **PPE-maktindeks 95/100 (intet levedyktig flertall ekskluderer PPE)**, HHI 0.1517 (multipolær med PPE som uunnværlig knutepunkt), og en kraftfeltinversjon der *forsvarsintegrasjon (8/10)* har erstattet *grønn omstilling (5/10)* som den sterkeste drivkraften siden EP9. Analysens *nye signal* er API-feiltilstandsutviklingen — ren 404 → JSON-tolkningsfeil → timeout — som Analyse-2s tverrsesjonsetterretning leser som en mulig backend-reaktiveringsprekursor, validert av Analyse-3 fire timer senere da sluttpunktet for vedtatte tekster kom seg. **Dobbelsporsmønsteret er analysens varige strukturelle bidrag til EP10-protokollen** og vil bli testet i komitéuken 14.–17. april.
+
+---
+
+### 🧭 3 Beslutninger dette sammendraget støtter
+
+| # | Beslutning | Hvem bestemmer | Frist | Bevis |
+|:-:|-----------|----------------|:-----:|-------|
+| 1 | **Dobbeltspor-koalisjonssdoktrine for Q2** — filbetinget mønster trenger formalisering før flaggskip-trilogier | EPP+S&D+Renew-koordinatorer | innen 14. april | §Koalisjonsanalyse (dobbelsporsmønster) |
+| 2 | **PPE 95/100 uunnværlighetsramme** — enhver koalisjonsplanleggingsøvelse må starte fra PPE-inkludering | Presidentkonferansen | løpende | §Aktørkartlegging (PPE-maktindeks) |
+| 3 | **API-reaktiveringsvakt** — feiltilstandsutvikling antyder backend-aktivitet; overvåk for bekreftelse | Datapipeline-operasjoner | T+4t-vinduer | §Tverrsesjonsetterretning (Modus A→B→C) |
+
+---
+
+### 📰 60-sekunders lesning
+
+- 🔴 **2. påskedagsanalyse-2 (06:45 UTC)** — 8 nye metoder; ingen nyhetsbrudd; strukturelt funn.
+- 🟠 **Dobbeltspor-koalisjon oppdaget** — SRMR3 høyre-av-sentrum kontra antikorrupsjonsdirektivets storkoalisjon.
+- 🟢 **PPE-maktindeks 95/100** — intet levedyktig flertall ekskluderer PPE; strukturell dominans.
+- 🟡 **HHI 0.1517** — multipolært parlamentarisk system; PPE som uunnværlig knutepunkt.
+- 🔵 **Kraftfeltinversjon** — forsvarsintegrasjon (8/10) > grønn omstilling (5/10).
+- 🟣 **API-feiltilstandsutvikling** — 404 → JSON-tolkning → timeout; mulig backend-signal.
+- 🩷 **737 MEP-er stabilt** — strøm fortsetter å gi pålitelig baseline.
+- ⚪ **85 vedtatte tekster i corpus før pause** — 42 fra 2026; +46% YoY-bane.
+
+---
+
+### 📐 Analyse-2 metodebidrag
+
+| Ny metode | Linjer | Fremtredende funn |
+|-----------|-------:|-------------------|
+| Effektmatrise | 150+ | 6-D kryss-effekt; Lovgivnings-Politisk-Økonomisk kjede dominerende |
+| Aktørkartlegging | 170+ | PPE 95/100; 19× størrelsesforhold til minste gruppe |
+| Styrkeanalyse | 150+ | Forsvar 8/10 erstatter grønt 5/10 som sterkeste drivkraft |
+| Interessentanalyse | 180+ | Sivilsamfunn mest påvirket av 11-dagers API-avbrudd |
+| Koalisjonsanalyse | 145+ | **Dobbelsporsmønster dokumentert** |
+| Tverrsesjonsetterretning | 175+ | API-feiltilstandsutvikling → backend-signal |
+| Dybdeanalyse | 200+ | Dobbelsporsmønster = mest betydningsfulle EP10 År 2-hendelse |
+| Synteseoppsummering | — | Konsolidert funn; redaksjonell minneoppdatering |
+
+---
+
+### ⚠️ Risikooversikt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 Topp fremtidige utløsere (neste 14 dager)
+
+1. **8.–10. april — API-gjenopprettingsbekreftelsesvindu** (50%+ sannsynlighet basert på Modus-C timeout-signal).
+2. **14. april — Komitéuke åpner** — første dobbelsportsvalideringstest.
+3. **17. april — ECB-rentebeslutning** — ECON-komitéens reaksjon.
+4. **20.–23. april — Første plenumsstemmer etter pause** — koalisjonsavsløring.
+5. **Sen april — SRMR3 Råd-trilogi** — Bankunion-testen av dobbelsporsmønsteret via Rådet.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **85 vedtatte tekster (A1):** corpus før pause; primær EP-protokoll.
+- **Dobbelsporsfunn (A2):** stemmespredningsanalyse på 26. mars-corpus; atferdsbekreftelse avventer komitéuken.
+- **PPE 95/100 (A2):** aktørkartleggingsmetodikk; aritmetikk bekreftet.
+- **API-feiltilstandsutvikling (A3):** Bayesiansk oppdatering; middels tillit til backend-signalhypotesen.
+- **Nettotillit:** 🟢 HIGH på strukturelle funn; 🟡 MEDIUM på API-gjenopprettingstidslinjen.
+
+---
+
+### 📎 Analysens artefakter
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikkel | `article.md` (1 501 linjer) | Offentlig Analyse-2-fortelling |
+| Syntese | `synthesis-summary.md` | Nyhetsverdi-gate + 8-metodekonsolidering |
+| Metoder | effektmatrise · aktørkartlegging · styrkeanalyse · interessentanalyse · koalisjonsanalyse · tverrsesjonsetterretning · dybdeanalyse | Åtte nye metoder (denne analysen) |
+| Ledsager | breaking (00:33) · committee-reports (05:03) · propositions (05:47) | Påskedagsklynge |
+
+---
+
+**Dokumentkontroll**
+- **Malreferanse:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv:** Sammendrag skrevet 2026-05-16 fra analysens forpliktede artefakter; **ingen nye MCP-anrop ble gjort**.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Körning-2:s särdragsbidrag — producerat 06:45 UTC på påskdagen — är upptäckten av det *Dubbårsiskoalitionsmönstret*: SRMR3 (TA-10-2026-0092) godkändes via ett höger-av-centrum-spår (EPP+ECR+PfE+Renew) medan Antikorrpupdirektivet (TA-10-2026-0094) godkändes via Storkoalitionen (EPP+S&D+Renew+Greens), vilket visar att EP10 verkar med *filbetingade* koalitioner snarare än en enda fungerande majoritet.** De åtta nya analytiska metoderna som utfördes i denna körning (effektmatris, aktörkartläggning, kraftanalys, intressentanalys, koalitionsanalys, tvärsessions-underrättelse, djupanalys, syntessammanfattning) producerar sammanfattningsvis en strukturell läsning av EP10 År 2 som håller under recessperioden: **PPE-maktindex 95/100 (ingen fungerande majoritet exkluderar PPE)**, HHI 0.1517 (multipolär med PPE som oumbärligt nav), och en kraftfältsinversion där *försvarsintegration (8/10)* har ersatt *grön omställning (5/10)* som den starkaste drivkraften sedan EP9. Körningens *nya signal* är API-fellägets evolution — ren 404 → JSON-tolkningsfel → timeout — som Körning-2:s tvärsessions-underrättelse läser som ett möjligt bakänd-återaktiveringsprecursor, validerat av Körning-3 fyra timmar senare när slutpunkten för antagna texter återhämtade sig. **Det dubbårssisade mönstret är körningens bestående strukturella bidrag till EP10-protokollet** och kommer att testas under kommittéveckan 14–17 april.
+
+---
+
+### 🧭 3 Beslut som detta brev stöder
+
+| # | Beslut | Vem beslutar | Deadline | Bevis |
+|:-:|--------|--------------|:--------:|-------|
+| 1 | **Dubbårssiskoalitionsdoktrin för Q2** — filbetingat mönster behöver formalisering innan flaggskepp-triloger | EPP+S&D+Renew-koordinatorer | till 14 april | §Koalitionsanalys (dubbårssismönster) |
+| 2 | **PPE 95/100 oumbärlighetsram** — varje koalitionsplaneringövning måste börja med PPE-inkludering | Presidentkonferensen | löpande | §Aktörkartläggning (PPE-maktindex) |
+| 3 | **API-återaktiveringsvakt** — felägesutveckling antyder bakändsaktivitet; övervaka för bekräftelse | Datapipelineoperationer | T+4h-fönster | §Tvärsessions-underrättelse (Läge A→B→C) |
+
+---
+
+### 📰 60-sekunders läsning
+
+- 🔴 **Påskdagskörning-2 (06:45 UTC)** — 8 nya metoder; inga nyhetsbrytningar; strukturellt fynd.
+- 🟠 **Dubbårssiskoalition upptäckt** — SRMR3 höger-av-centrum kontra antikorrpupdirektivets storkoalition.
+- 🟢 **PPE-maktindex 95/100** — ingen fungerande majoritet exkluderar PPE; strukturell dominans.
+- 🟡 **HHI 0.1517** — multipolärt parlamentariskt system; PPE som oumbärligt nav.
+- 🔵 **Kraftfältsinversion** — försvarsintegration (8/10) > grön omställning (5/10).
+- 🟣 **API-felägesutveckling** — 404 → JSON-tolkning → timeout; möjlig bakändssignal.
+- 🩷 **737 MEP:ar stabilt** — flödet ger fortsatt tillförlitlig baslinje.
+- ⚪ **85 antagna texter i kår före recessperioden** — 42 från 2026; +46% YoY-bana.
+
+---
+
+### 📐 Körning-2 metodbidrag
+
+| Ny metod | Rader | Utmärkande fynd |
+|----------|------:|-----------------|
+| Effektmatris | 150+ | 6-D korseffekt; Lagstiftnings-Politisk-Ekonomisk kedja dominerande |
+| Aktörkartläggning | 170+ | PPE 95/100; 19× storlekskvot mot minsta grupp |
+| Kraftanalys | 150+ | Försvar 8/10 ersätter grönt 5/10 som starkaste drivkraft |
+| Intressentanalys | 180+ | Civilsamhälle mest påverkat av 11-dagars API-avbrott |
+| Koalitionsanalys | 145+ | **Dubbårssismönster dokumenterat** |
+| Tvärsessions-underrättelse | 175+ | API-felägesutveckling → bakändssignal |
+| Djupanalys | 200+ | Dubbårssismönster = mest betydande EP10 År 2-händelse |
+| Syntessammanfattning | — | Konsoliderat fynd; redaktionell minnesuppdatering |
+
+---
+
+### ⚠️ Risköversikt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 Topp framåtutlösare (nästa 14 dagar)
+
+1. **8–10 april — API-återhämtningsbekräftelsefönster** (50%+ sannolikhet baserat på Läge-C timeout-signal).
+2. **14 april — Kommittévecka öppnar** — första dubbårssisvalideringstestet.
+3. **17 april — ECB räntebeslut** — ECON-kommitténs reaktion.
+4. **20–23 april — Första plenariröstningar efter recessperioden** — koalitionsuppenbarelse.
+5. **Sen april — SRMR3 rådsutloga** — Bankuniontestet av dubbårssismönstret via rådet.
+
+---
+
+### 🛡️ Källkvalitetsbedömning
+
+- **85 antagna texter (A1):** kår före recessperioden; primärt EP-protokoll.
+- **Dubbårssisfynd (A2):** röstspridningsanalys på 26 mars kår; beteendeverifikation väntar under kommittéveckan.
+- **PPE 95/100 (A2):** aktörkartläggningsmetodik; aritmetik bekräftad.
+- **API-felägesutveckling (A3):** Bayesiansk uppdatering; medelhög tillförlitlighet på bakändssignalhypotesen.
+- **Nettotillförlitlighet:** 🟢 HIGH på strukturella fynd; 🟡 MEDIUM på API-återhämtningstidslinjen.
+
+---
+
+### 📎 Körningens artefakter
+
+| Lager | Artefakt | Varför |
+|-------|----------|--------|
+| Artikel | `article.md` (1 501 rader) | Offentlig Körning-2-berättelse |
+| Syntes | `synthesis-summary.md` | Nyhetsvärdesgräns + 8-metodskonsolidering |
+| Metoder | effektmatris · aktörkartläggning · kraftanalys · intressentanalys · koalitionsanalys · tvärsessions-underrättelse · djupanalys | Åtta nya metoder (denna körning) |
+| Följeslagare | breaking (00:33) · committee-reports (05:03) · propositions (05:47) | Påskdagskluster |
+
+---
+
+**Dokumentkontroll**
+- **Mallreferens:** `analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Brev skrivet 2026-05-16 från körningens åtagade artefakter; **inga nya MCP-anrop gjordes**.
+
+### Executive Brief Zh
+
+**分类：** 开源情报 — 公开议会记录
+**可靠性：** 🟡 中等（议会休会；API降级不稳定；结构性解读 🟢 高）
+**分析：** `analysis/daily/2026-04-06/breaking-2/`（06:45 UTC）
+**覆盖范围：** 复活节休会第11/18天；累计情报第4次分析
+**创建：** 2026-05-16（回顾性简报，无新MCP调用）
+**主要来源：** 休会前存档（已采纳文本85件，2026年42件）；议员737名（稳定）；HHI 0.1517；PPE影响力评分95/100。
+
+---
+
+### 🎯 BLUF
+
+**第2次分析（复活节星期一06:45 UTC）的独特贡献是发现了*双轨联合模式*：SRMR3（TA-10-2026-0092）通过中右翼轨道（EPP+ECR+PfE+Renew）获得采纳，而反腐指令（TA-10-2026-0094）通过大联合（EPP+S&D+Renew+Greens）获得采纳，证明EP10以*议题条件联合*而非单一稳定多数运作。** 本分析展开的8种新方法（影响力矩阵、行为者映射、力量分析、利益相关者分析、联合分析、跨会话情报、深度分析、综合摘要）共同生成了贯穿休会期的EP10第二年结构性解读：**PPE影响力评分95/100（可持续多数无法排除PPE）**，HHI 0.1517（以PPE为必要节点的多极化），EP9以来*绿色转型（5/10）*被*防务整合（8/10）*取代成为最强驱动力的力量场逆转。本分析的*新信号*是API错误状态的演变——干净404←JSON解析错误←超时——第2次分析的跨会话情报将其解读为后端重启的可能先兆，四小时后采纳文本端点恢复，被第3次分析证实。**双轨模式作为对EP10记录的结构性贡献永久保存**，将在4月14-17日委员会周得到验证。
+
+---
+
+### 🧭 本简报支持的3项决策
+
+| # | 决策 | 决策者 | 截止日期 | 依据 |
+|:-:|-----|--------|:--------:|------|
+| 1 | **Q2双轨联合原则** — 在主要三方对话前需将议题条件模式正式化 | EPP+S&D+Renew协调员 | 4月14日前 | §联合分析（双轨模式） |
+| 2 | **PPE必要性框架95/100** — 所有联合规划工作必须从纳入PPE开始 | 主席团会议 | 持续 | §行为者映射（PPE影响力评分） |
+| 3 | **API重启准备** — 错误状态演变暗示后端活动；监控以确认 | 数据管道运营 | T+4h窗口 | §跨会话情报（状态A→B→C） |
+
+---
+
+### 📰 60秒解读
+
+- 🔴 **第2次分析复活节星期一（06:45 UTC）** — 8种新方法；无突发新闻；结构性发现。
+- 🟠 **发现双轨联合** — SRMR3中右翼轨道 vs. 反腐大联合。
+- 🟢 **PPE影响力评分95/100** — 可持续多数无法排除PPE；结构性主导。
+- 🟡 **HHI 0.1517** — 多极化议会系统；PPE为必要节点。
+- 🔵 **力量场逆转** — 防务整合（8/10）>绿色转型（5/10）。
+- 🟣 **API错误状态演变** — 404←JSON解析←超时；可能的后端信号。
+- 🩷 **议员737名稳定** — 数据源持续提供可靠基线。
+- ⚪ **休会前存档85件** — 42件为2026年；年增+46%轨道。
+
+---
+
+### 📐 第2次分析的方法贡献
+
+| 新方法 | 行数 | 独特发现 |
+|------|----:|---------|
+| 影响力矩阵 | 150+ | 6维交叉影响；立法-政治-经济链条主导 |
+| 行为者映射 | 170+ | PPE 95/100；相对最小组19倍规模比 |
+| 力量分析 | 150+ | 防务8/10取代绿色5/10成为最强驱动力 |
+| 利益相关者分析 | 180+ | 公民社会是API 11天断联最大受害者 |
+| 联合分析 | 145+ | **双轨模式有据可查** |
+| 跨会话情报 | 175+ | API错误状态演变←后端信号 |
+| 深度分析 | 200+ | 双轨=EP10第二年最重要发展 |
+| 综合摘要 | — | 统一发现；更新编辑内存 |
+
+---
+
+### ⚠️ 风险快照
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5113ad9e) -->
+
+---
+
+### 🔮 主要未来触发因素（未来14天）
+
+1. **4月8-10日 — API恢复确认窗口**（基于状态C超时信号，概率50%以上）。
+2. **4月14日 — 委员会周开始** — 双轨首次验证测试。
+3. **4月17日 — 欧洲央行利率决定** — 经济货币事务委员会反应。
+4. **4月20-23日 — 休会后首次全体投票** — 联合公开。
+5. **4月底 — SRMR3理事会三方对话** — 通过理事会对双轨模式进行银行联盟测试。
+
+---
+
+### 🛡️ 来源质量评估
+
+- **采纳文本85件（A1）：** 休会前存档；EP第一手协议。
+- **双轨发现（A2）：** 3月26日存档的投票分布分析；等待委员会周行为验证。
+- **PPE 95/100（A2）：** 行为者映射方法论；算术已确认。
+- **API错误状态演变（A3）：** 贝叶斯更新；后端信号假设中等置信度。
+- **净可信度：** 🟢 结构性发现高；🟡 API恢复时间线中等。
+
+---
+
+### 📎 分析成果
+
+| 层次 | 成果 | 原因 |
+|-----|-----|-----|
+| 文章 | `article.md`（1,501行） | 公开第2次分析叙事 |
+| 综合 | `synthesis-summary.md` | 新闻价值判断+8种方法整合 |
+| 方法 | 影响力矩阵·行为者映射·力量分析·利益相关者分析·联合分析·跨会话情报·深度分析 | 新8种方法（本分析） |
+| 同期 | breaking（00:33）·committee-reports（05:03）·propositions（05:47） | 复活节群集 |
+
+---
+
+**文件控制**
+- **模板参考：** `analysis/templates/executive-brief.md`
+- **成果路径：** `analysis/daily/2026-04-06/breaking-2/executive-brief.md`
+- **分类：** 公开
+- **回顾性：** 本简报于2026-05-16根据分析的已提交成果创建；**未进行新的MCP调用**。
+
 ### Forces Analysis
 
 ### Executive Summary
@@ -1605,6 +2807,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-supplementary-intelligence | [coalition-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/coalition-analysis.md) | `coalition-analysis.md` |
 | section-supplementary-intelligence | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/cross-session-intelligence.md) | `cross-session-intelligence.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/deep-analysis.md) | `deep-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/forces-analysis.md) | `forces-analysis.md` |
 | section-supplementary-intelligence | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/impact-matrix.md) | `impact-matrix.md` |
 | section-supplementary-intelligence | [stakeholder-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/stakeholder-analysis.md) | `stakeholder-analysis.md` |

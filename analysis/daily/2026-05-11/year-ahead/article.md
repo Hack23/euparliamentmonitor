@@ -2552,6 +2552,1339 @@ xychart-beta
 
 *Commission Work Programme alignment based on observed adopted texts January–April 2026, institutional communications, and political group position analyses.*
 
+### Executive Brief Ar
+
+**التصنيف:** عام | **التاريخ:** 2026-05-11 | **مستوى الثقة:** 🟡 MEDIUM
+
+---
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+يواجه البرلمان الأوروبي الأشهر الاثني عشر الأكثر حسماً منذ انتخابات عام 2024. إن هيمنة حزب الشعب الأوروبي EPP (183 من أصل 717 مقعداً، بنسبة 25.5%) داخل غرفة مكونة من تسع مجموعات تتسم بتشرذم حاد تفرض إجراء مفاوضات ائتلافية مستمرة في ثلاثة مجالات ضغط منهجية: الاستقلالية الأوروبية في الدفاع، والمواجهة التجارية بين الاتحاد الأوروبي والولايات المتحدة، وأزمة الشرعية في حوكمة الذكاء الاصطناعي والمنظومة الرقمية. تنتهي رئاسة بولندا لمجلس الاتحاد الأوروبي في يونيو 2026؛ وتتولى الدنمارك الرئاسة من يوليو حتى ديسمبر 2026. لا تستطيع أي مجموعة منفردة تأمين أغلبية دون الحصول على شركاء في ائتلاف لا يقل عن ثلاثة. يفتقر التحالف الكبير بين EPP وS&D (319 مقعداً مجتمعاً) إلى 41 مقعداً للوصول إلى عتبة الأغلبية البالغة 360 — مما يضمن عدم وجود أغلبية تشريعية بدون دعم Renew أو ECR. يُضاعف هذا التشرذم الهيكلي من النفوذ الذي تتمتع به المجموعات الأقلية ليصل إلى مستويات غير مسبوقة.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (مايو 2026 – مايو 2027)
+
+| # | المحفز | الإطار الزمني المتوقع | مستوى المخاطرة | المجموعات المتأثرة |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **تصاعد التعريفات الجمركية بين الاتحاد الأوروبي والولايات المتحدة** — صوّت البرلمان في مارس 2026 على تعديل الرسوم الجمركية على البضائع الأمريكية؛ وقد تؤدي الرسوم الانتقامية الأمريكية إلى انعقاد جلسة طارئة وطلب حزمة إنقاذ صناعية | الربع 2–الربع 3 من 2026 | 🔴 مرتفع | EPP, Renew, S&D, ECR |
+| 2 | **التصويت على استراتيجية الصناعة الدفاعية الأوروبية** — في أعقاب قرار الطائرات المسيّرة/الحروب (يناير 2026) وقرض أوكرانيا، يُتوقع أن يصوّت البرلمان على إطار الإنفاق لصندوق الدفاع الأوروبي البالغ 150 مليار يورو أو أكثر | الربع 3–الربع 4 من 2026 | 🔴 مرتفع | EPP, ECR, PfE, ESN |
+| 3 | **التصويت النهائي على اتفاقية الشراكة مع ميركوسور** — طلب البرلمان رأي المحكمة الأوروبية بشأن توافق الاتفاقية؛ ومن المتوقع صدور الرأي في الربع الرابع من 2026 مما يُطلق عملية التصويت على الموافقة | الربع 4 2026 – الربع 1 2027 | 🟡 متوسط-مرتفع | EPP, S&D, Greens/EFA, ECR |
+| 4 | **أزمة تطبيق قانون الذكاء الاصطناعي** — يشير قرار حقوق النشر/الذكاء الاصطناعي (مارس 2026) إلى استياء البرلمان من تطبيق المفوضية؛ وتُتوقع حزم تشريعية ثانوية في الربع الثالث من 2026 | الربع 3 من 2026 | 🟡 متوسط | Renew, EPP, S&D, Greens/EFA |
+| 5 | **القراءة الأولى لميزانية الاتحاد الأوروبي 2027** — اعتمد البرلمان توجيهات الميزانية في أبريل 2026؛ وتبدأ مفاوضات الثلاثي مع المجلس حول هياكل الإطار المالي متعدد السنوات 2027 في يونيو 2026 في ظل الرئاسة الدنماركية | الربع 3–الربع 4 من 2026 | 🟡 متوسط | جميع المجموعات، ولا سيما S&D وEPP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**التكوين الراهن (مايو 2026):**
+- 717 عضواً في البرلمان الأوروبي موزعون على 9 مجموعات سياسية
+- عتبة الأغلبية: 360 مقعداً
+- EPP (183) يتصدر المشهد لكنه لا يستطيع الحكم منفرداً
+- سيناريوهات الائتلاف الدنيا المجدية:
+  - EPP + S&D + Renew = 396 ✅ (الـ«أغلبية فائقة» التقليدية)
+  - EPP + S&D + ECR = 400 ✅ (الكتلة المحافظة-الوسطية)
+  - EPP + ECR + PfE = 349 ❌ (الكتلة اليمينية لا تزال قاصرة)
+  - EPP + Renew + ECR = 341 ❌ (وسط اليمين لا يزال قاصراً)
+
+**مؤشر التشرذم البرلماني:** مرتفع (6.58 حزب فعلي)
+**درجة الاستقرار:** 84/100 (🟡 متوسط — يُوازن التشرذم الهيكلي استقرارُ عضويات المجموعات)
+
+**ملاحظة جوهرية:** يعني غياب أغلبية طبيعية ثنائية الحزب أن كل تصويت رئيسي يتطلب بناء ائتلاف. يُعدّ هذا أكثر برلمان أوروبي تشرذماً منذ تأسيس نظام المجموعات السياسية، مما يُعزز هيكلياً نفوذ المجموعات الأصغر (ولا سيما Greens/EFA بـ53 مقعداً) بوصفها أصواتاً محورية في التشريعات البيئية.
+
+---
+
+### 🌍 Geopolitical Context (مايو 2026 – مايو 2027)
+
+#### انتقالات رئاسة المجلس
+- **بولندا (يناير–يونيو 2026):** رئاسة تركز على الأمن؛ دعم أوكرانيا في صميمها؛ دفع نحو السوق الرقمية الموحدة
+- **الدنمارك (يوليو–ديسمبر 2026):** التحول الأخضر، توسيع شنغن، إطار مكافحة غسل الأموال
+- **قبرص (يناير–يونيو 2027):** أمن الطاقة، شرق البحر المتوسط، التوسع
+
+#### التهديدات الاستراتيجية على الجدول التشريعي للبرلمان الأوروبي
+
+1. **الحرب الجمركية الأمريكية:** يُشير تصويت البرلمان في مارس 2026 على تعديل التعريفات إلى مواجهة تجارية نشطة مع واشنطن. يُتوقع تصاعد الصراع عبر آليات تسوية النزاعات في منظمة التجارة العالمية WTO. سيطالب البرلمان باستقلالية استراتيجية موسّعة للاتحاد الأوروبي في أشباه الموصلات والصلب والزراعة.
+
+2. **الإرهاق من أوكرانيا في مقابل التضامن:** اعتُمد قرض التعاون المعزز في يناير 2026؛ وأُقرّت قرار المساءلة في أبريل 2026. خطر أن يُعيق ائتلاف PfE/ECR حزم الدعم الأوكرانية الإضافية في الربع الثالث–الرابع من 2026 مع اشتداد القيود المالية على الاتحاد الأوروبي.
+
+3. **فجوة الحوكمة الرقمية:** يشير قرار البرلمان بشأن حقوق النشر/الذكاء الاصطناعي (مارس 2026) وقرار تطبيق قانون الأسواق الرقمية (أبريل 2026) إلى قلق متنامٍ حيال إخفاق المفوضية في تطبيق التشريعات الرقمية القائمة. يُرجَّح أن تؤدي الأعمال الثانوية بموجب قانون الذكاء الاصطناعي إلى أول خلاف مؤسسي بين البرلمان والمفوضية في هذه الدورة.
+
+4. **رصد سيادة القانون:** مُنح رفع الحصانة لغرزيغورز براون (ECR، بولندا) في مارس 2026 ولباتريك ياكي (ECR، بولندا) في أبريل 2026. تشير قرار التراجع الديمقراطي في جورجيا إلى تكثيف البرلمان الأوروبي لرقابته على سيادة القانون في الدول المرشحة والدول الأعضاء على حدٍّ سواء.
+
+---
+
+### 📅 Key Parliamentary Calendar (الاثنا عشر شهراً القادمة)
+
+| الشهر | مكان الجلسة | أبرز بنود الأجندة المتوقعة |
+|-------|-----------------|--------------------------|
+| مايو 2026 | ستراسبورغ (18–21 مايو) | الدفاع التجاري، مراجعة أوكرانيا، متابعة قانون الأسواق الرقمية |
+| يونيو 2026 | ستراسبورغ (15–18 يونيو) | قرار تحضيري للقراءة الأولى للميزانية، متابعة طلب ميركوسور/المحكمة الأوروبية |
+| يوليو 2026 | ستراسبورغ (6–9 يوليو) | أولويات الرئاسة الدنماركية، انطلاق استراتيجية الصناعة الدفاعية |
+| سبتمبر 2026 | ستراسبورغ | القراءة الأولى لميزانية 2027 |
+| أكتوبر 2026 | ستراسبورغ | التشريع الثانوي لقانون الذكاء الاصطناعي، متابعة الاتحاد المصرفي |
+| نوفمبر 2026 | ستراسبورغ | رأي المحكمة الأوروبية بشأن ميركوسور مرتقَب؛ يبدأ نقاش التصويت على الموافقة |
+| ديسمبر 2026 | ستراسبورغ | تقدم مفاوضات الثلاثي في الإطار المالي متعدد السنوات، التقرير السنوي لسيادة القانون |
+| يناير–مايو 2027 | ستراسبورغ/بروكسل | بداية الرئاسة القبرصية، تصويتات التوسع، القراءة الثانية للميزانية |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**لمديري الشؤون الأوروبية وممثلي الحكومات:**
+- إيلاء الأولوية للتواصل مع **Renew Europe** (77 مقعداً) — المجموعة المحورية الحاسمة التي تؤمّن الهامش الضروري للأغلبية وسطية يسارية أو يمينية
+- رصد **التماسك الداخلي لـ ECR** (81 مقعداً) — الأعضاء البولنديون تحت ضغط رفع الحصانة، ومحتمل تصدع المجموعة في حال تصاعد أزمة سيادة القانون
+- **التموضع العبر أطلسي لـ PfE** بالغ الأهمية: موقف المجموعة ذات الـ85 مقعداً من تصاعد التعريفات الأمريكية سيحدد ما إذا كان البرلمان سيتبنى موقفاً تصادمياً أم تصالحياً تجاه واشنطن
+
+**لقطاع الأعمال والمجتمع المدني:**
+- سيحدد دورة الميزانية لعام 2027 التي تنطلق الآن الأولويات متعددة السنوات لصناديق التماسك وعائدات الابتكار ودعم التحول الأخضر
+- تمثل الأعمال التشريعية الثانوية لتنظيم الذكاء الاصطناعي أعلى مخاطرة تنظيمية لقطاع التكنولوجيا في هذه السنة البرلمانية
+- دخل إصلاح الاتحاد المصرفي (SRMR3 المُعتمَد في مارس 2026) مرحلة التطبيق؛ وينبغي لشركات الخدمات المالية الانخراط مع لجنة ECON بشأن المعايير التقنية
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| المخاطرة | الاحتمالية | الأثر | التخفيف |
+|------|-------------|--------|------------|
+| انهيار الائتلاف في تصويت الإنفاق الدفاعي | 🟡 35% | 🔴 مرتفع | الانقسام بين ECR وPfE حول أوكرانيا مقابل إعادة التسليح الوطني |
+| فشل تصويت ميركوسور (حق نقض البرلمان) | 🟡 40% | 🟡 متوسط | Greens/EFA + The Left + أعضاء EPP المعارضون لميركوسور كافيون للحجب |
+| تؤدي أزمة تطبيق قانون الذكاء الاصطناعي إلى تصويت بحجب الثقة ضد المفوضية | 🔴 10% | 🔴 مرتفع | هيكلياً: لا يوجد حافز لدى البرلمان لزعزعة استقرار المفوضية في منتصف الولاية |
+| تسارع تراجع سيادة القانون | 🟡 30% | 🟡 متوسط | تحديات قانونية جارية في المجر وجورجيا وبولندا |
+| تعمّق الحرب التجارية بين الاتحاد الأوروبي والولايات المتحدة ما وراء الانتقام المدروس | 🟡 45% | 🔴 مرتفع | الجدول الزمني لتسوية نزاعات منظمة التجارة العالمية؛ الديناميات السياسية الداخلية الأمريكية بعد 2026 |
+
+---
+
+*المصادر: بوابة البيانات المفتوحة للبرلمان الأوروبي (data.europarl.europa.eu) — تكوين المجموعات السياسية EP10، النصوص المعتمدة TA-10-2026-0004 إلى TA-10-2026-0163، تقويم الجلسات العامة، تحليل الإنذار المبكر. مستوى الثقة: 🟡 MEDIUM — تحليل هيكلي مستند إلى بيانات EP موثّقة؛ التوقعات الاقتصادية مشروطة بتوافر بيانات IMF في هذه الجولة.*
+
+### Executive Brief Da
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Europa-Parlamentet står over for de mest afgørende tolv måneder siden valget i 2024. EPP's dominans (183/717 mandater, 25,5 %) i et stærkt fragmenteret ni-gruppe-kammer tvinger løbende koalitionsforhandlinger frem inden for tre systemiske pres­domæner: europæisk forsvarsautonomi, konfrontationen i EU-USA-handelen og en legitimitetskrise i AI/digital styring. Polens rådsformandskab afsluttes i juni 2026; Danmark overtager juli–december 2026. Ingen enkelt gruppe kan samle flertal uden mindst tre koalitionspartnere. EPP's og S&D's storkoalition (319 mandater tilsammen) mangler 41 mandater for at nå 360-flertals­grænsen — hvilket sikrer, at ingen lovgivningsmæssig majoritet eksisterer uden Renew eller ECR's støtte. Denne strukturelle fragmentering forstærker minoritetsgruppers indflydelse til historisk høje niveauer.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (maj 2026 – maj 2027)
+
+| # | Udløser | Forventet tidsvindue | Risikoniveau | Berørte grupper |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **EU-USA-toldeskala­tion** — Europa-Parlamentet stemte i marts 2026 for at justere toldsatser på amerikanske varer; amerikanske gengældelses­told kan udløse EP's nødsession og krav om industriel redningspakke | Q2–Q3 2026 | 🔴 HØJ | EPP, Renew, S&D, ECR |
+| 2 | **Afstemning om europæisk forsvarsindustristrategi** — Efter resolution om dronekrigsførelse (jan. 2026) og Ukraine-lån forventes Parlamentet at stemme om udgiftsramme for Europæisk Forsvars­fond på 150 mia. euro eller mere | Q3–Q4 2026 | 🔴 HØJ | EPP, ECR, PfE, ESN |
+| 3 | **Endelig afstemning om Mercosur-partnerskabsaftalen** — EP anmodede EF-Domstolen om udtalelse om forenelighed; udtalelse forventes i Q4 2026 og udløser samtykkeafstemning | Q4 2026 – Q1 2027 | 🟡 MIDDEL-HØJ | EPP, S&D, Greens/EFA, ECR |
+| 4 | **AI-forordningens implementeringskrise** — Resolution om ophavsret/AI (marts 2026) signalerer EP's utilfredshed med Kommissionens implementering; sekundære lovgivningspakker forventes Q3 2026 | Q3 2026 | 🟡 MIDDEL | Renew, EPP, S&D, Greens/EFA |
+| 5 | **1. behandling af EU's budget 2027** — EP vedtog budgetretningslinjer april 2026; trepartsmøder med Rådet om MFF-strukturer for 2027 starter juni 2026 under dansk formandskab | Q3–Q4 2026 | 🟡 MIDDEL | Alle grupper, særligt S&D, EPP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**Nuværende konfiguration (maj 2026):**
+- 717 MEP'er fordelt på 9 politiske grupper
+- Flertalsgrænse: 360 mandater
+- EPP (183) er førende, men kan ikke regere alene
+- Minimalt levedygtige koalitionsscenarier:
+  - EPP + S&D + Renew = 396 ✅ (traditionel "super-majoritet")
+  - EPP + S&D + ECR = 400 ✅ (konservativt-centrumblok)
+  - EPP + ECR + PfE = 349 ❌ (højrefløjsblok stadig i mindretal)
+  - EPP + Renew + ECR = 341 ❌ (centrum-højre stadig i mindretal)
+
+**Parlamentarisk fragmenteringsindeks:** HØJ (6,58 effektive partier)
+**Stabilitetscore:** 84/100 (🟡 Middel — strukturel fragmentering opvejes af stabile gruppemedlemskaber)
+
+**Kritisk observation:** Fraværet af et naturligt to-parti-flertal betyder, at enhver større afstemning kræver koalitionsopbygning. Dette er det mest fragmenterede EP siden indførelsen af det politiske gruppes­ystem, og det styrker strukturelt mindre gruppers indflydelse (særligt Greens/EFA med 53 mandater) som vippe­stemmer i miljølovgivning.
+
+---
+
+### 🌍 Geopolitical Context (maj 2026 – maj 2027)
+
+#### Rådets formandskabsskift
+- **Polen (jan.–jun. 2026):** Sikkerhedsfokuseret formandskab; Ukraine-støtte centralt; satsning på det digitale indre marked
+- **Danmark (jul.–dec. 2026):** Grøn omstilling, Schengen-udvidelse, rammer for bekæmpelse af hvidvask
+- **Cypern (jan.–jun. 2027):** Energisikkerhed, det østlige Middelshav, udvidelse
+
+#### Strategiske trusler mod EP's lovgivnings­dagsorden
+
+1. **USA's Toldsats­krig:** EP's afstemning i marts 2026 om justering af toldsatser signalerer aktiv handelskonfrontation med Washington. Eskalering forventes via WTO's tvistemæglingsmekanismer. EP vil kræve udvidet EU-strategisk autonomi inden for halvledere, stål og landbrug.
+
+2. **Ukraine-træthed kontra solidaritet:** Udvidet samarbejds­lån godkendt i januar 2026; resolution om ansvarliggørelse vedtaget i april 2026. Risiko for, at PfE/ECR-koalitionen blokerer for yderligere Ukraine-støttepakker i Q3–Q4 2026, efterhånden som EU's budgetbegrænsninger strammes.
+
+3. **AI-styrings­gap:** EP's resolution om ophavsret/AI (marts 2026) og DMA-håndhævelses­resolution (april 2026) signalerer en dybere bekymring for, at Kommissionen ikke håndhæver den eksisterende digitale lovgivning. Sekundærakter under AI-forordningen forventes at udløse den første institutionelle konflikt mellem EP og Kommissionen i denne valgperiode.
+
+4. **Retsstatsovervågning:** Immunitets­ophævelser bevilget for Grzegorz Braun (ECR, Polen) i marts 2026 og Patryk Jaki (ECR, Polen) i april 2026. Resolution om demokratisk tilbagegang i Georgien signalerer EP's intensiverede tilsyn med retsstaten i kandidatlande og medlemsstater.
+
+---
+
+### 📅 Key Parliamentary Calendar (De næste 12 måneder)
+
+| Måned | Sessionsted | Vigtigste forventede dagsordens­punkter |
+|-------|-----------------|--------------------------|
+| Maj 2026 | Strasbourg (18.–21. maj) | Handelsforsvar, Ukraine-gennemgang, DMA-opfølgning |
+| Jun 2026 | Strasbourg (15.–18. jun.) | Forberedende resolution om budgettets 1. behandling, Mercosur/EF-Domstols­anmodning opfølgning |
+| Jul 2026 | Strasbourg (6.–9. jul.) | Dansk formandskabs prioriteter, åbning af forsvarsindustristrategi |
+| Sep 2026 | Strasbourg | 1. behandling af 2027-budgettet |
+| Okt 2026 | Strasbourg | AI-forordningens sekundærlovgivning, Bank­union-opfølgning |
+| Nov 2026 | Strasbourg | EF-Domstolens udtalelse om Mercosur forventes; debat om samtykkeafstemning begynder |
+| Dec 2026 | Strasbourg | MFF-trepartsforhandlingers fremskridt, årsrapport om retsstaten |
+| Jan.–maj 2027 | Strasbourg/Bruxelles | Cypriotisk formandskab indledes, udvidelsesafstemninger, budgettets 2. behandling |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**For EU-direktører og regeringsrepræsentanter:**
+- Prioritér engagement med **Renew Europe** (77 mandater) — den afgørende vippe­gruppe, der leverer marginen for centrum-venstre kontra centrum-højre majoriteter
+- Overvåg **ECR's interne kohæsion** (81 mandater) — polske medlemmer under immunitets­pres, potentiale for gruppesprængning, hvis retsstaten eskalerer
+- **PfE's transatlantiske positionering** er kritisk: den 85-mandaters gruppes holdning til USA-toldeskala­tionen vil afgøre, om EP anlægger en konfronterende eller forsonende holdning over for Washington
+
+**For erhvervslivet og civilsamfundet:**
+- 2027-budgetcyklussen, der nu igangsættes, vil fastsætte flerårige prioriteter for samhørighedsfonde, innovationsinvesteringer og tilskud til grøn omstilling
+- Sekundærakter til AI-reguleringen er den mest betydelige regulatoriske risiko for teknologisektoren i dette parlamentariske år
+- Bank­unions­reformen (SRMR3 vedtaget marts 2026) træder ind i implementeringsfasen; finansielle tjenestevirksomheder bør engagere ECON-udvalget om tekniske standarder
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| Risiko | Sandsynlighed | Konsekvens | Afbødning |
+|------|-------------|--------|------------|
+| Koalitionssammenbrud ved afstemning om forsvarsudgifter | 🟡 35 % | 🔴 HØJ | ECR/PfE-splittelse om Ukraine kontra national oprustning |
+| Mercosur-afstemning mislykkes (EP-veto) | 🟡 40 % | 🟡 MIDDEL | Greens/EFA + The Left + anti-Mercosur EPP-medlemmer tilstrækkelige til at blokere |
+| AI-forordningens implementeringskrise udløser mistillidsvotum til Kommissionen | 🔴 10 % | 🔴 HØJ | Strukturelt: EP mangler incitament til at destabilisere Kommissionen midt i valgperioden |
+| Retsstatens forringelse accelererer | 🟡 30 % | 🟡 MIDDEL | Igangværende juridiske udfordringer i Ungarn, Georgien og Polen |
+| USA-EU-handelskrig uddybes ud over styret gengældelse | 🟡 45 % | 🔴 HØJ | WTO-tvistemæglingens tidslinje; amerikanske indenrigspolitiske dynamikker efter 2026 |
+
+---
+
+*Kilder: European Parliament Open Data Portal (data.europarl.europa.eu) — EP10 politisk gruppesam­mensætning, vedtagne tekster TA-10-2026-0004 til TA-10-2026-0163, plenarsessionskalender, tidlig advarsels­analyse. Tillid: 🟡 MEDIUM — strukturel analyse baseret på verificerede EP-data; øko­nomiske prognoser kvalificeret af IMF-datatilgængelighed i denne kørsel.*
+
+### Executive Brief De
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Das Europäische Parlament steht vor den bedeutsamsten zwölf Monaten seit der Wahl 2024. Die Dominanz der EPP (183/717 Sitze, 25,5 %) in einer stark fragmentierten Neun-Fraktionen-Kammer erzwingt eine kontinuierliche Koalitionsbildung in drei systemischen Druckdomänen: europäische Verteidigungsautonomie, US-EU-Handelskonfrontation und eine Legitimitätskrise bei KI/digitaler Governance. Polens Ratspräsidentschaft endet im Juni 2026; Dänemark übernimmt Juli–Dezember 2026. Keine einzelne Fraktion kann eine Mehrheit ohne mindestens drei Koalitionspartner mobilisieren. Die Große Koalition aus EPP und S&D (zusammen 319 Sitze) fehlen 41 Sitze bis zur 360er-Mehrheitsschwelle — was sicherstellt, dass keine Gesetzgebungsmehrheit ohne die Unterstützung von Renew oder ECR existiert. Diese strukturelle Fragmentierung verstärkt den Einfluss von Minderheitsfraktionen auf ein historisch beispielloses Niveau.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (Mai 2026 – Mai 2027)
+
+| # | Auslöser | Erwartetes Zeitfenster | Risikoniveau | Betroffene Fraktionen |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **EU-US-Zolleskalation** — Das Parlament stimmte im März 2026 für eine Anpassung der Zölle auf US-Waren; US-Gegenzölle könnten EP-Sondersitzung und Forderung nach Industrierettungspaket auslösen | Q2–Q3 2026 | 🔴 HOCH | EPP, Renew, S&D, ECR |
+| 2 | **Abstimmung zur Europäischen Verteidigungsindustriestrategie** — Nach der Drohnen-/Kriegführungsresolution (Jan. 2026) und dem Ukrainekredit erwartet man EP-Abstimmung über den Ausgabenrahmen für den Europäischen Verteidigungsfonds von 150 Mrd. EUR oder mehr | Q3–Q4 2026 | 🔴 HOCH | EPP, ECR, PfE, ESN |
+| 3 | **Endabstimmung zum Mercosur-Partnerschaftsabkommen** — EP ersuchte den EuGH um Gutachten zur Vereinbarkeit; Gutachten erwartet Q4 2026, löst Zustimmungsabstimmung aus | Q4 2026 – Q1 2027 | 🟡 MITTEL-HOCH | EPP, S&D, Greens/EFA, ECR |
+| 4 | **KI-Gesetz-Umsetzungskrise** — Resolution zu Urheberrecht/KI (März 2026) signalisiert EP-Unzufriedenheit mit der Umsetzung durch die Kommission; sekundäre Gesetzgebungspakete erwartet Q3 2026 | Q3 2026 | 🟡 MITTEL | Renew, EPP, S&D, Greens/EFA |
+| 5 | **Erste Lesung des EU-Haushalts 2027** — EP verabschiedete Haushaltsleitlinien April 2026; Trilogverhandlungen mit dem Rat über den MFR-Rahmen 2027 beginnen Juni 2026 unter dänischer Ratspräsidentschaft | Q3–Q4 2026 | 🟡 MITTEL | Alle Fraktionen, insb. S&D, EPP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**Aktuelle Konfiguration (Mai 2026):**
+- 717 MdEP auf 9 politische Fraktionen verteilt
+- Mehrheitsschwelle: 360 Sitze
+- EPP (183) führt, kann aber nicht allein regieren
+- Kleinstmögliche Koalitionsszenarien:
+  - EPP + S&D + Renew = 396 ✅ (traditionelle „Supermehrheit")
+  - EPP + S&D + ECR = 400 ✅ (konservativ-zentrischer Block)
+  - EPP + ECR + PfE = 349 ❌ (Rechtsblock noch zu klein)
+  - EPP + Renew + ECR = 341 ❌ (Mitte-Rechts noch zu klein)
+
+**Parlamentarischer Fragmentierungsindex:** HOCH (6,58 effektive Parteien)
+**Stabilitätswert:** 84/100 (🟡 Mittel — strukturelle Fragmentierung durch stabile Fraktionsmitgliedschaften ausgeglichen)
+
+**Kritische Beobachtung:** Das Fehlen einer natürlichen Zweiparteien-Mehrheit bedeutet, dass jede größere Abstimmung Koalitionsbildung erfordert. Dies ist das fragmentierteste Europäische Parlament seit Einführung des politischen Fraktionssystems und stärkt strukturell den Einfluss kleinerer Fraktionen (insbesondere Greens/EFA mit 53 Sitzen) als Zünglein an der Waage bei Umweltgesetzgebung.
+
+---
+
+### 🌍 Geopolitical Context (Mai 2026 – Mai 2027)
+
+#### Ratspräsidentschaftswechsel
+- **Polen (Jan.–Jun. 2026):** Sicherheitsorientierte Präsidentschaft; Ukraine-Unterstützung zentral; Vorstoß beim digitalen Binnenmarkt
+- **Dänemark (Jul.–Dez. 2026):** Grüner Wandel, Schengen-Erweiterung, Geldwäschebekämpfungsrahmen
+- **Zypern (Jan.–Jun. 2027):** Energiesicherheit, östliches Mittelmeer, Erweiterung
+
+#### Strategische Bedrohungen für die EP-Gesetzgebungsagenda
+
+1. **US-Zollkrieg:** Die EP-Abstimmung im März 2026 über Zollanpassungen signalisiert eine aktive Handelskonfrontation mit Washington. Eskalation über WTO-Streitbeilegungsmechanismen wird erwartet. Das EP wird eine erweiterte strategische Autonomie der EU bei Halbleitern, Stahl und Landwirtschaft fordern.
+
+2. **Ukraine-Müdigkeit vs. Solidarität:** Verstärkter Kooperationskredit im Januar 2026 genehmigt; Verantwortlichkeitsresolution im April 2026 angenommen. Risiko, dass die PfE/ECR-Koalition weitere Ukraine-Stützpakete in Q3–Q4 2026 blockiert, wenn sich die EU-Haushaltsbeschränkungen verschärfen.
+
+3. **KI-Governance-Lücke:** Die EP-Resolution zu Urheberrecht/KI (März 2026) und die DMA-Durchsetzungsresolution (April 2026) signalisieren wachsende Besorgnis, dass die Kommission bestehende digitale Gesetzgebung nicht durchsetzt. Sekundärakte unter dem KI-Gesetz werden voraussichtlich den ersten institutionellen Konflikt zwischen EP und Kommission in dieser Legislaturperiode auslösen.
+
+4. **Rechtsstaatsüberwachung:** Immunitätsaufhebungen gewährt für Grzegorz Braun (ECR, Polen) März 2026 und Patryk Jaki (ECR, Polen) April 2026. Resolution zum demokratischen Rückschritt in Georgien signalisiert eine intensivierte EP-Kontrolle der Rechtsstaatlichkeit in Kandidatenländern und Mitgliedstaaten.
+
+---
+
+### 📅 Key Parliamentary Calendar (Nächste 12 Monate)
+
+| Monat | Tagungsort | Wichtigste erwartete Tagesordnungspunkte |
+|-------|-----------------|--------------------------|
+| Mai 2026 | Straßburg (18.–21. Mai) | Handelsverteidigung, Ukraine-Überprüfung, DMA-Follow-up |
+| Jun 2026 | Straßburg (15.–18. Jun.) | Vorbereitungsresolution zur ersten Haushaltslesung, Mercosur/EuGH-Ersuchen Follow-up |
+| Jul 2026 | Straßburg (6.–9. Jul.) | Prioritäten der dänischen Ratspräsidentschaft, Eröffnung der Verteidigungsindustriestrategie |
+| Sep 2026 | Straßburg | Erste Lesung des Haushalts 2027 |
+| Okt 2026 | Straßburg | Sekundärgesetzgebung zum KI-Gesetz, Bankenunion-Follow-up |
+| Nov 2026 | Straßburg | EuGH-Gutachten zu Mercosur erwartet; Zustimmungsabstimmungsdebatte beginnt |
+| Dez 2026 | Straßburg | MFR-Trilogfortschritte, Jahresbericht zur Rechtsstaatlichkeit |
+| Jan.–Mai 2027 | Straßburg/Brüssel | Zyprische Ratspräsidentschaft beginnt, Erweiterungsabstimmungen, zweite Haushaltslesung |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**Für EU-Direktoren und Regierungsvertreter:**
+- Priorität auf Engagement mit **Renew Europe** (77 Sitze) — die entscheidende Zünglein-an-der-Waage-Fraktion, die die Marge für Mitte-Links- oder Mitte-Rechts-Mehrheiten liefert
+- Beobachten Sie **die interne Kohäsion der ECR** (81 Sitze) — polnische Mitglieder unter Immunitätsdruck, mögliche Fraktionsspaltung bei Eskalation des Rechtsstaatsthemas
+- **PfEs transatlantische Positionierung** ist entscheidend: die Haltung der 85-Sitze-Fraktion zur US-Zolleskalation wird bestimmen, ob das EP eine konfrontative oder versöhnliche Haltung gegenüber Washington einnimmt
+
+**Für Wirtschaft und Zivilgesellschaft:**
+- Der jetzt beginnende Haushaltszyklus 2027 wird mehrjährige Prioritäten für Kohäsionsfonds, Innovationsinvestitionen und Förderungen des grünen Wandels festlegen
+- Sekundärakte zur KI-Regulierung stellen das bedeutendste regulatorische Risiko für den Technologiesektor in diesem parlamentarischen Jahr dar
+- Die Bankenunionsreform (SRMR3 angenommen März 2026) tritt in die Umsetzungsphase ein; Finanzdienstleister sollten sich beim ECON-Ausschuss zu technischen Standards einbringen
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| Risiko | Wahrscheinlichkeit | Auswirkung | Minderung |
+|------|-------------|--------|------------|
+| Koalitionsbruch bei Verteidigungsausgaben-Abstimmung | 🟡 35 % | 🔴 HOCH | ECR/PfE-Spaltung über Ukraine vs. nationale Aufrüstung |
+| Mercosur-Abstimmung gescheitert (EP-Veto) | 🟡 40 % | 🟡 MITTEL | Greens/EFA + The Left + Mercosur-kritische EPP-Mitglieder ausreichend zur Blockade |
+| KI-Gesetz-Umsetzungskrise löst Misstrauensantrag gegen Kommission aus | 🔴 10 % | 🔴 HOCH | Strukturell: EP hat keinen Anreiz, Kommission in der Mitte der Legislatur zu destabilisieren |
+| Rechtsstaatsverschlechterung beschleunigt sich | 🟡 30 % | 🟡 MITTEL | Laufende Rechtsstreitigkeiten in Ungarn, Georgien und Polen |
+| US-EU-Handelskrieg vertieft sich über kontrollierte Vergeltung hinaus | 🟡 45 % | 🔴 HOCH | WTO-Streitbeilegungszeitrahmen; US-innenpolitische Dynamik nach 2026 |
+
+---
+
+*Quellen: European Parliament Open Data Portal (data.europarl.europa.eu) — EP10 politische Fraktionszusammensetzung, angenommene Texte TA-10-2026-0004 bis TA-10-2026-0163, Plenarsitzungskalender, Frühwarnanalyse. Verlässlichkeit: 🟡 MEDIUM — Strukturanalyse basierend auf verifizierten EP-Daten; Wirtschaftsprognosen qualifiziert durch IMF-Datenverfügbarkeit in diesem Durchlauf.*
+
+### Executive Brief Es
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+El Parlamento Europeo afronta los doce meses más decisivos desde las elecciones de 2024. La dominancia del PPE (183/717 escaños, 25,5 %) en una cámara altamente fragmentada de nueve grupos obliga a una construcción permanente de coaliciones en tres dominios de presión sistémica: autonomía de defensa europea, confrontación comercial UE-EE.UU. y una crisis de legitimidad en la gobernanza de la IA y lo digital. La presidencia polaca del Consejo concluye en junio de 2026; Dinamarca asume la presidencia de julio a diciembre de 2026. Ningún grupo puede imponer una mayoría sin reunir al menos tres socios de coalición. La gran coalición PPE+S&D (319 escaños combinados) se queda 41 escaños por debajo del umbral de mayoría de 360 — lo que garantiza que ninguna mayoría legislativa existe sin el apoyo de Renew o ECR. Esta fragmentación estructural amplifica el poder de palanca de los grupos minoritarios hasta niveles sin precedentes.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (mayo 2026 – mayo 2027)
+
+| # | Detonante | Ventana esperada | Nivel de riesgo | Grupos afectados |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **Escalada arancelaria UE-EE.UU.** — El PE votó en marzo de 2026 para ajustar los aranceles sobre mercancías estadounidenses; los aranceles de represalia de EE.UU. podrían desencadenar una sesión de emergencia del PE y la demanda de un plan de rescate industrial | Q2–Q3 2026 | 🔴 ALTO | PPE, Renew, S&D, ECR |
+| 2 | **Votación sobre la Estrategia de la Industria de Defensa Europea** — Tras la resolución sobre drones/guerra (ene. 2026) y el préstamo a Ucrania, se espera que el Parlamento vote el marco de gasto del Fondo Europeo de Defensa de 150.000 M€ o más | Q3–Q4 2026 | 🔴 ALTO | PPE, ECR, PfE, ESN |
+| 3 | **Votación final sobre el Acuerdo de Asociación con Mercosur** — El PE solicitó dictamen del TJUE sobre compatibilidad; dictamen esperado en Q4 2026, desencadenando una votación de consentimiento | Q4 2026 – Q1 2027 | 🟡 MEDIO-ALTO | PPE, S&D, Greens/EFA, ECR |
+| 4 | **Crisis de aplicación de la Ley de IA** — La resolución sobre derechos de autor/IA (marzo 2026) señala la insatisfacción del PE con la implementación de la Comisión; se esperan paquetes legislativos secundarios para Q3 2026 | Q3 2026 | 🟡 MEDIO | Renew, PPE, S&D, Greens/EFA |
+| 5 | **Primera lectura del presupuesto UE 2027** — El PE adoptó directrices presupuestarias en abril de 2026; las negociaciones en trílogo con el Consejo sobre las estructuras del MFP 2027 comienzan en junio de 2026 bajo presidencia danesa | Q3–Q4 2026 | 🟡 MEDIO | Todos los grupos, esp. S&D, PPE |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**Configuración actual (mayo 2026):**
+- 717 eurodiputados en 9 grupos políticos
+- Umbral de mayoría: 360 escaños
+- PPE (183) lidera pero no puede gobernar en solitario
+- Escenarios de coalición mínima viable:
+  - PPE + S&D + Renew = 396 ✅ (traditional «supermayoría»)
+  - PPE + S&D + ECR = 400 ✅ (bloque conservador-centrista)
+  - PPE + ECR + PfE = 349 ❌ (bloque de derechas aún insuficiente)
+  - PPE + Renew + ECR = 341 ❌ (centro-derecha aún insuficiente)
+
+**Índice de fragmentación parlamentaria:** ALTO (6,58 partidos efectivos)
+**Puntuación de estabilidad:** 84/100 (🟡 Medio — fragmentación estructural compensada por membresías de grupo estables)
+
+**Observación crítica:** La ausencia de una mayoría bipartidista natural implica que cada votación importante es un ejercicio de construcción de coaliciones. Este es el PE más fragmentado desde la introducción del sistema de grupos políticos y refuerza estructuralmente la influencia de los grupos más pequeños (especialmente Greens/EFA con 53 escaños) como votos determinantes en la legislación ambiental.
+
+---
+
+### 🌍 Geopolitical Context (mayo 2026 – mayo 2027)
+
+#### Transiciones de presidencias del Consejo
+- **Polonia (ene.–jun. 2026):** Presidencia centrada en seguridad; apoyo a Ucrania central; impulso al mercado único digital
+- **Dinamarca (jul.–dic. 2026):** Transición verde, ampliación de Schengen, marco antiblaqueo de capitales
+- **Chipre (ene.–jun. 2027):** Seguridad energética, Mediterráneo oriental, ampliación
+
+#### Amenazas estratégicas a la agenda legislativa del PE
+
+1. **Guerra arancelaria de EE.UU.:** La votación del PE en marzo de 2026 sobre el ajuste de aranceles señala una confrontación comercial activa con Washington. Se espera escalada mediante los mecanismos de resolución de disputas de la OMC. El PE exigirá una mayor autonomía estratégica de la UE en semiconductores, acero y agricultura.
+
+2. **Fatiga ucraniana vs. solidaridad:** Préstamo de cooperación reforzada aprobado en enero de 2026; resolución de responsabilidad adoptada en abril de 2026. Riesgo de que la coalición PfE/ECR bloquee nuevos paquetes de ayuda a Ucrania en Q3–Q4 2026 a medida que se tensionan las restricciones presupuestarias de la UE.
+
+3. **Brecha en la gobernanza de la IA:** La resolución del PE sobre derechos de autor/IA (marzo 2026) y la resolución sobre la aplicación del DMA (abril 2026) señalan una creciente preocupación de que la Comisión no está aplicando la legislación digital existente. Se espera que los actos secundarios bajo la Ley de IA desencadenen el primer conflicto institucional entre el PE y la Comisión en esta legislatura.
+
+4. **Seguimiento del Estado de Derecho:** Levantamientos de inmunidad concedidos para Grzegorz Braun (ECR, Polonia) en marzo de 2026 y Patryk Jaki (ECR, Polonia) en abril de 2026. La resolución sobre el retroceso democrático en Georgia señala la intensificación de la supervisión del PE sobre el Estado de Derecho en países candidatos y Estados miembros.
+
+---
+
+### 📅 Key Parliamentary Calendar (Próximos 12 meses)
+
+| Mes | Lugar de sesión | Principales puntos del orden del día esperados |
+|-------|-----------------|--------------------------|
+| Mayo 2026 | Estrasburgo (18–21 mayo) | Defensa comercial, revisión Ucrania, seguimiento DMA |
+| Jun. 2026 | Estrasburgo (15–18 jun.) | Resolución preparatoria primera lectura presupuestaria, seguimiento Mercosur/solicitud TJUE |
+| Jul. 2026 | Estrasburgo (6–9 jul.) | Prioridades de la presidencia danesa, apertura estrategia industria de defensa |
+| Sep. 2026 | Estrasburgo | Primera lectura del presupuesto 2027 |
+| Oct. 2026 | Estrasburgo | Legislación secundaria de la Ley de IA, seguimiento Unión Bancaria |
+| Nov. 2026 | Estrasburgo | Esperado dictamen del TJUE sobre Mercosur; debate sobre la votación de consentimiento comienza |
+| Dic. 2026 | Estrasburgo | Avances en el trílogo del MFP, informe anual sobre el Estado de Derecho |
+| Ene.–mayo 2027 | Estrasburgo/Bruselas | Inicio presidencia chipriota, votaciones de ampliación, segunda lectura presupuestaria |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**Para directores de asuntos europeos y representantes gubernamentales:**
+- Priorizar el compromiso con **Renew Europe** (77 escaños) — el grupo pivote decisivo que proporciona el margen para las mayorías de centro-izquierda o centro-derecha
+- Monitorizar **la cohesión interna de la ECR** (81 escaños) — miembros polacos bajo presión de inmunidad, potencial de fractura del grupo si se escala el tema del Estado de Derecho
+- **El posicionamiento transatlántico del PfE** es crítico: la postura del grupo de 85 escaños sobre la escalada arancelaria de EE.UU. determinará si el PE adopta una postura confrontacional o conciliadora hacia Washington
+
+**Para empresas y sociedad civil:**
+- El ciclo presupuestario 2027 que se pone en marcha ahora establecerá las prioridades plurianuales para los fondos de cohesión, las inversiones en innovación y las subvenciones a la transición verde
+- Los actos secundarios de la regulación de IA representan el riesgo regulatorio más significativo para el sector tecnológico en este año parlamentario
+- La reforma de la Unión Bancaria (SRMR3 adoptado en marzo de 2026) entra en la fase de implementación; las empresas de servicios financieros deben comprometerse con el comité ECON en los estándares técnicos
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| Riesgo | Probabilidad | Impacto | Mitigación |
+|------|-------------|--------|------------|
+| Ruptura de la coalición en la votación sobre gastos de defensa | 🟡 35 % | 🔴 ALTO | División ECR/PfE sobre Ucrania vs. rearme nacional |
+| Fracaso de la votación Mercosur (veto del PE) | 🟡 40 % | 🟡 MEDIO | Greens/EFA + The Left + miembros del PPE anti-Mercosur suficientes para bloquear |
+| Crisis de aplicación de la Ley de IA desencadena moción de censura contra la Comisión | 🔴 10 % | 🔴 ALTO | Estructural: el PE no tiene incentivo para desestabilizar a la Comisión a mitad de mandato |
+| Deterioro del Estado de Derecho se acelera | 🟡 30 % | 🟡 MEDIO | Desafíos jurídicos en curso en Hungría, Georgia y Polonia |
+| Guerra comercial UE-EE.UU. se profundiza más allá de la represalia controlada | 🟡 45 % | 🔴 ALTO | Calendario de resolución de disputas de la OMC; dinámicas políticas internas de EE.UU. post-2026 |
+
+---
+
+*Fuentes: European Parliament Open Data Portal (data.europarl.europa.eu) — composición de grupos políticos EP10, textos adoptados TA-10-2026-0004 a TA-10-2026-0163, calendario de sesiones plenarias, análisis de alerta temprana. Fiabilidad: 🟡 MEDIUM — análisis estructural basado en datos EP verificados; previsiones económicas cualificadas por la disponibilidad de datos IMF en esta ejecución.*
+
+### Executive Brief Fi
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Euroopan parlamentti kohtaa merkittävimmät kaksitoista kuukauttaan vuoden 2024 vaalien jälkeen. EPP:n dominanssi (183/717 paikkaa, 25,5 %) voimakkaasti pirstoutuneessa yhdeksän ryhmän kammarissa pakottaa jatkuvaan koalitioneuvotteluun kolmella systeemisen paineen alueella: eurooppalainen puolustusautonomia, EU-USA-kauppakonfrontaatio sekä tekoälyn ja digitaalisen hallinnon legitiimisyyskriisi. Puolan neuvoston puheenjohtajuus päättyy kesäkuussa 2026; Tanska ottaa puheenjohtajuuden heinä–joulukuussa 2026. Yksikään ryhmä ei pysty muodostamaan enemmistöä ilman vähintään kolmea koalioparteria. EPP:n ja S&D:n suuri koalitio (yhteensä 319 paikkaa) jää 41 paikkaa 360-enemmistön vaatimuksesta — mikä varmistaa, että lainsäädäntöenemmistö on mahdoton ilman Renewin tai ECR:n tukea. Tämä rakenteellinen pirstoutuminen vahvistaa vähemmistöryhmien vaikutusta ennennäkemättömälle tasolle.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (toukokuu 2026 – toukokuu 2027)
+
+| # | Laukaisin | Odotettu ajanjakso | Riskitaso | Ryhmät joita koskee |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **EU-USA-tullieskalaatio** — Parlamentti äänesti maaliskuussa 2026 yhdysvaltalaisiin tavaroihin kohdistuvien tullien tarkistamisesta; yhdysvaltalaiset vastatullit voivat laukaista EP:n hätäistunnon ja teollisuuden tukipaketin vaatimuksen | Q2–Q3 2026 | 🔴 KORKEA | EPP, Renew, S&D, ECR |
+| 2 | **Äänestys eurooppalaisesta puolustusteollisuusstrategiasta** — Drone/sodankäyntiresoluution (tammikuu 2026) ja Ukraina-lainan jälkeen parlamentin odotetaan äänestävän yli 150 miljardin euron Eurooppalaisen Puolustusrahaston menoviitekehyksestä | Q3–Q4 2026 | 🔴 KORKEA | EPP, ECR, PfE, ESN |
+| 3 | **Mercosur-kumppanuussopimuksen lopullinen äänestys** — EP pyysi EU-tuomioistuimelta lausunnon yhteensopivuudesta; lausunto odotetaan Q4 2026 ja se laukaisee hyväksyntääänestyksen | Q4 2026 – Q1 2027 | 🟡 KESKI-KORKEA | EPP, S&D, Greens/EFA, ECR |
+| 4 | **Tekoälylain toteutumiseen liittyvä kriisi** — Tekijänoikeus/tekoäly-resoluutio (maaliskuu 2026) osoittaa EP:n tyytymättömyyden komission toimeenpanoon; sekundaariset säädöspaketit odotetaan Q3 2026 | Q3 2026 | 🟡 KESKI | Renew, EPP, S&D, Greens/EFA |
+| 5 | **EU:n vuoden 2027 talousarvion ensimmäinen käsittely** — EP hyväksyi talousarvioohjeet huhtikuussa 2026; kolmikantaneuvottelut neuvoston kanssa vuoden 2027 monivuotisen rahoituskehyksen rakenteista alkavat kesäkuussa 2026 Tanskan puheenjohtajuuden aikana | Q3–Q4 2026 | 🟡 KESKI | Kaikki ryhmät, erit. S&D, EPP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**Nykyinen kokoonpano (toukokuu 2026):**
+- 717 europarlamentaarikkoa 9 poliittisessa ryhmässä
+- Enemmistökynnys: 360 paikkaa
+- EPP (183) johtaa mutta ei voi hallita yksin
+- Pienimmät toimivat koalitioskenaariot:
+  - EPP + S&D + Renew = 396 ✅ (perinteinen "ylisuuri enemmistö")
+  - EPP + S&D + ECR = 400 ✅ (konservatiivi-keskustablokki)
+  - EPP + ECR + PfE = 349 ❌ (oikeistoblokki edelleen liian pieni)
+  - EPP + Renew + ECR = 341 ❌ (oikeistokeskusta edelleen liian pieni)
+
+**Parlamentaarinen pirstoutumisindeksi:** KORKEA (6,58 tehokasta puoluetta)
+**Vakauspistemäärä:** 84/100 (🟡 Keski — rakenteellinen pirstoutuminen tasoittuu vakailla ryhmäjäsenyyksillä)
+
+**Kriittinen havainto:** Luonnollisen kahden puolueen enemmistön puuttuminen tarkoittaa, että jokainen tärkeä äänestys vaatii koalition rakentamista. Tämä on pirstoutuneimpia EP:tä poliittisen ryhmäjärjestelmän käyttöönoton jälkeen ja rakenteellisesti vahvistaa pienempien ryhmien (erityisesti Greens/EFA 53 paikalla) roolia ympäristölainsäädännön ratkaisijana.
+
+---
+
+### 🌍 Geopolitical Context (toukokuu 2026 – toukokuu 2027)
+
+#### Neuvoston puheenjohtajuuden siirtymät
+- **Puola (tammikuu–kesäkuu 2026):** Turvallisuuspainotteinen puheenjohtajuus; Ukrainan tukeminen keskeistä; digitaalisten sisämarkkinoiden edistäminen
+- **Tanska (heinäkuu–joulukuu 2026):** Vihreä siirtymä, Schengen-laajentuminen, rahanpesun vastainen kehys
+- **Kypros (tammikuu–kesäkuu 2027):** Energiaturvallisuus, Itä-Välimeri, laajentuminen
+
+#### Strategiset uhat EP:n lainsäädäntöagendalle
+
+1. **Yhdysvaltain tullisota:** EP:n maaliskuun 2026 äänestys tullitariffimuutoksista osoittaa aktiivista kauppakonfrontaatiota Washingtonin kanssa. Eskalaation odotetaan tapahtuvan WTO:n riitojenratkaisumekanismien kautta. EP vaatii laajennettua EU:n strategista autonomiaa puolijohteiden, teräksen ja maatalouden alalla.
+
+2. **Ukraina-väsymys vs. solidaarisuus:** Tehostettu yhteistyölaina hyväksyttiin tammikuussa 2026; vastuullisuusresoluutio hyväksyttiin huhtikuussa 2026. PfE/ECR-koalition riski estää lisää Ukraina-tukipaketteja Q3–Q4 2026 EU:n budjettirajoitusten tiukentuessa.
+
+3. **Tekoälyhallinnon aukko:** EP:n tekijänoikeus/tekoäly-resoluutio (maaliskuu 2026) ja DMA:n täytäntöönpanoresoluutio (huhtikuu 2026) osoittavat syvenevää huolta siitä, että komissio ei pane täytäntöön olemassa olevaa digitaalilainsäädäntöä. Tekoälylain sekundaariaktien odotetaan laukaisevan ensimmäisen institutionaalisen konfliktin EP:n ja komission välillä tällä toimikaudella.
+
+4. **Oikeusvaltioperiaatteen seuranta:** Koskemattomuuden poistamiset myönnettiin Grzegorz Braunille (ECR, Puola) maaliskuussa 2026 ja Patryk Jakille (ECR, Puola) huhtikuussa 2026. Georgian demokratisoitumisen taantumaa koskeva resoluutio osoittaa EP:n tehostettua valvontaa oikeusvaltioperiaatteen noudattamisessa ehdokasmaissa ja jäsenvaltioissa.
+
+---
+
+### 📅 Key Parliamentary Calendar (Seuraavat 12 kuukautta)
+
+| Kuukausi | Istuntopaikka | Tärkeimmät odotetut esityslistakohteet |
+|-------|-----------------|--------------------------|
+| Toukokuu 2026 | Strasbourg (18.–21.5.) | Kauppapuolustus, Ukraina-tarkistus, DMA-seuranta |
+| Kesäkuu 2026 | Strasbourg (15.–18.6.) | Talousarvion ensimmäisen käsittelyn valmisteluresoluutio, Mercosur/EU-tuomioistuinpyyntö seuranta |
+| Heinäkuu 2026 | Strasbourg (6.–9.7.) | Tanskan puheenjohtajuuden prioriteetit, puolustusteollisuusstrategian avaus |
+| Syyskuu 2026 | Strasbourg | Vuoden 2027 talousarvion ensimmäinen käsittely |
+| Lokakuu 2026 | Strasbourg | Tekoälylain sekundaarilainsäädäntö, pankkiunionin seuranta |
+| Marraskuu 2026 | Strasbourg | Odotettu EU-tuomioistuimen lausunto Mercosurista; hyväksyntääänestyskeskustelu alkaa |
+| Joulukuu 2026 | Strasbourg | Monivuotisen rahoituskehyksen kolmikantaneuvottelujen edistyminen, vuotuinen oikeusvaltioperiaateraportti |
+| Tammikuu–toukokuu 2027 | Strasbourg/Bryssel | Kyproksen puheenjohtajuus alkaa, laajentumisäänestykset, talousarvion toinen käsittely |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**EU-asioiden johtajille ja hallitusten edustajille:**
+- Priorisoi sitoutuminen **Renew Europe** -ryhmään (77 paikkaa) — ratkaiseva keskiryhmä, joka tarjoaa marginaalin vasemmiston tai oikeiston enemmistöille
+- Seuraa **ECR:n sisäistä koheesiota** (81 paikkaa) — puolalaiset jäsenet immuniteettipaineessa, mahdollinen ryhmähajoaminen jos oikeusvaltiokysymys kärjistyy
+- **PfE:n transatlanttinen asemoituminen** on ratkaisevaa: 85-paikkaisen ryhmän kanta USA:n tullieskalointiin määrittää, ottaako EP konfrontatiivisen vai sovittelevan kannan Washingtonia kohtaan
+
+**Yrityksille ja kansalaisyhteiskunnalle:**
+- Nyt käynnistyvä vuoden 2027 budsjettijakso asettaa monivuotiset prioriteetit koheesiorahastoille, innovaatioinvestoinneille ja vihreän siirtymän tuille
+- Tekoälysääntelysäädöspaketit ovat merkittävin sääntelyriski teknologiasektorille tänä parlamentaarisena vuonna
+- Pankkiunionireformi (SRMR3 hyväksytty maaliskuussa 2026) siirtyy täytäntöönpanovaiheeseen; rahoituspalveluyritysten tulisi osallistua ECON-valiokunnan teknisten standardien valmisteluun
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| Riski | Todennäköisyys | Vaikutus | Lieventäminen |
+|------|-------------|--------|------------|
+| Koalition hajoaminen puolustusmenoäänestyssä | 🟡 35 % | 🔴 KORKEA | ECR/PfE-jako Ukrainaan vs. kansalliseen varusteluun |
+| Mercosur-äänestys epäonnistuu (EP-veto) | 🟡 40 % | 🟡 KESKI | Greens/EFA + The Left + Mercosuria vastustavat EPP-jäsenet riittävät estämään |
+| Tekoälylain toteutumiseen liittyvä kriisi laukaisee epäluottamuslauseen komissiota kohtaan | 🔴 10 % | 🔴 KORKEA | Rakenteellinen: EP:llä ei ole kannustinta horjuttaa komissiota toimikauden puolivälissä |
+| Oikeusvaltion heikkeneminen kiihtyy | 🟡 30 % | 🟡 KESKI | Käynnissä olevat oikeushaasteet Unkarissa, Georgiassa ja Puolassa |
+| USA-EU-kauppasota syvenee hallitun vastatoiminnan ulkopuolelle | 🟡 45 % | 🔴 KORKEA | WTO:n riitojenratkaisun aikajana; Yhdysvaltojen sisäpoliittiset dynamiikat vuoden 2026 jälkeen |
+
+---
+
+*Lähteet: European Parliament Open Data Portal (data.europarl.europa.eu) — EP10 poliittinen ryhmäkokoonpano, hyväksytyt tekstit TA-10-2026-0004–TA-10-2026-0163, täysistuntokalenteri, varhainen varoitusanalyysi. Luotettavuus: 🟡 MEDIUM — rakenteellinen analyysi perustuu todennettuihin EP-tietoihin; taloudelliset ennusteet on tarkennettu IMF-tietojen saatavuudella tässä ajossa.*
+
+### Executive Brief Fr
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Le Parlement européen aborde les douze mois les plus décisifs depuis les élections de 2024. La domination du PPE (183/717 sièges, 25,5 %) au sein d'une chambre très fragmentée à neuf groupes impose une construction permanente de coalitions sur trois domaines de pression systémique : l'autonomie de défense européenne, la confrontation commerciale UE-États-Unis et une crise de légitimité dans la gouvernance de l'IA et du numérique. La présidence polonaise du Conseil s'achève en juin 2026 ; le Danemark prend la relève de juillet à décembre 2026. Aucun groupe ne peut dégager une majorité sans au moins trois partenaires de coalition. La grande coalition PPE+S&D (319 sièges combinés) manque 41 sièges pour atteindre le seuil de 360 — garantissant qu'aucune majorité législative n'existe sans le soutien de Renew ou de l'ECR. Cette fragmentation structurelle amplifie le levier des groupes minoritaires à un niveau sans précédent.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (mai 2026 – mai 2027)
+
+| # | Déclencheur | Fenêtre attendue | Niveau de risque | Groupes concernés |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **Escalade tarifaire UE-États-Unis** — Le PE a voté en mars 2026 pour ajuster les droits de douane sur les marchandises américaines ; des contre-droits américains pourraient déclencher une session d'urgence du PE et une demande de plan de sauvetage industriel | T2–T3 2026 | 🔴 ÉLEVÉ | PPE, Renew, S&D, ECR |
+| 2 | **Vote sur la stratégie de l'industrie de défense européenne** — Suite à la résolution sur les drones/conflits armés (janv. 2026) et au prêt à l'Ukraine, le Parlement devrait voter sur le cadre de dépenses du Fonds européen de défense de 150 Md€ ou plus | T3–T4 2026 | 🔴 ÉLEVÉ | PPE, ECR, PfE, ESN |
+| 3 | **Vote final sur l'accord de partenariat avec le Mercosur** — Le PE a demandé un avis de la CJUE sur la compatibilité ; avis attendu au T4 2026, déclenchant un vote de consentement | T4 2026 – T1 2027 | 🟡 MOYEN-ÉLEVÉ | PPE, S&D, Greens/EFA, ECR |
+| 4 | **Crise de mise en œuvre de la loi sur l'IA** — La résolution sur le droit d'auteur/IA (mars 2026) signale l'insatisfaction du PE vis-à-vis de la mise en œuvre par la Commission ; des paquets législatifs secondaires attendus au T3 2026 | T3 2026 | 🟡 MOYEN | Renew, PPE, S&D, Greens/EFA |
+| 5 | **Première lecture du budget UE 2027** — Le PE a adopté des orientations budgétaires en avril 2026 ; les négociations en trilogue avec le Conseil sur les structures CFP 2027 débutent en juin 2026 sous présidence danoise | T3–T4 2026 | 🟡 MOYEN | Tous les groupes, en part. S&D, PPE |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**Configuration actuelle (mai 2026) :**
+- 717 eurodéputés répartis dans 9 groupes politiques
+- Seuil de majorité : 360 sièges
+- PPE (183) est en tête mais ne peut gouverner seul
+- Scénarios de coalition minimale viables :
+  - PPE + S&D + Renew = 396 ✅ (traditional « super-majorité »)
+  - PPE + S&D + ECR = 400 ✅ (bloc conservateur-centriste)
+  - PPE + ECR + PfE = 349 ❌ (bloc de droite encore insuffisant)
+  - PPE + Renew + ECR = 341 ❌ (centre-droit encore insuffisant)
+
+**Indice de fragmentation parlementaire :** ÉLEVÉ (6,58 partis effectifs)
+**Score de stabilité :** 84/100 (🟡 Moyen — fragmentation structurelle compensée par des membres de groupes stables)
+
+**Observation critique :** L'absence de majorité naturelle à deux partis signifie que chaque vote important est un exercice de construction de coalition. Il s'agit du PE le plus fragmenté depuis l'introduction du système des groupes politiques, ce qui renforce structurellement l'influence des petits groupes (notamment Greens/EFA avec 53 sièges) en tant que voix déterminantes sur la législation environnementale.
+
+---
+
+### 🌍 Geopolitical Context (mai 2026 – mai 2027)
+
+#### Transitions de présidences du Conseil
+- **Pologne (janv.–juin 2026) :** Présidence axée sur la sécurité ; soutien à l'Ukraine central ; impulsion au marché unique numérique
+- **Danemark (juil.–déc. 2026) :** Transition verte, extension de Schengen, cadre anti-blanchiment
+- **Chypre (janv.–juin 2027) :** Sécurité énergétique, Méditerranée orientale, élargissement
+
+#### Menaces stratégiques pesant sur le programme législatif du PE
+
+1. **Guerre commerciale américaine :** Le vote du PE de mars 2026 sur l'ajustement des droits de douane signale une confrontation commerciale active avec Washington. Une escalade est attendue via les mécanismes de règlement des différends de l'OMC. Le PE exigera une autonomie stratégique élargie de l'UE dans les semi-conducteurs, l'acier et l'agriculture.
+
+2. **Fatigue ukrainienne vs. solidarité :** Prêt de coopération renforcée approuvé en janvier 2026 ; résolution sur la responsabilité adoptée en avril 2026. Risque que la coalition PfE/ECR bloque de nouveaux paquets d'aide à l'Ukraine au T3–T4 2026 à mesure que les contraintes budgétaires de l'UE s'accentuent.
+
+3. **Lacune en matière de gouvernance de l'IA :** La résolution du PE sur le droit d'auteur/IA (mars 2026) et la résolution sur l'application du DMA (avril 2026) signalent une préoccupation croissante que la Commission n'applique pas la législation numérique existante. Les actes secondaires au titre de la loi sur l'IA devraient déclencher le premier conflit institutionnel entre le PE et la Commission lors de cette législature.
+
+4. **Surveillance de l'état de droit :** Levées d'immunité accordées pour Grzegorz Braun (ECR, Pologne) en mars 2026 et Patryk Jaki (ECR, Pologne) en avril 2026. La résolution sur le recul démocratique en Géorgie signale le renforcement du contrôle du PE sur l'état de droit dans les pays candidats et les États membres.
+
+---
+
+### 📅 Key Parliamentary Calendar (12 prochains mois)
+
+| Mois | Lieu de session | Principaux points d'ordre du jour attendus |
+|-------|-----------------|--------------------------|
+| Mai 2026 | Strasbourg (18–21 mai) | Défense commerciale, examen Ukraine, suivi DMA |
+| Juin 2026 | Strasbourg (15–18 juin) | Résolution préparatoire à la 1re lecture budgétaire, suivi Mercosur/demande CJUE |
+| Juil. 2026 | Strasbourg (6–9 juil.) | Priorités de la présidence danoise, ouverture de la stratégie d'industrie de défense |
+| Sep. 2026 | Strasbourg | Première lecture du budget 2027 |
+| Oct. 2026 | Strasbourg | Législation secondaire sur la loi IA, suivi Union bancaire |
+| Nov. 2026 | Strasbourg | Avis CJUE sur le Mercosur attendu ; débat sur le vote de consentement débute |
+| Déc. 2026 | Strasbourg | Avancement des trilogues CFP, rapport annuel sur l'état de droit |
+| Janv.–mai 2027 | Strasbourg/Bruxelles | Début présidence chypriote, votes d'élargissement, deuxième lecture budgétaire |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**Pour les directeurs des affaires européennes et les représentants gouvernementaux :**
+- Prioriser l'engagement avec **Renew Europe** (77 sièges) — le groupe pivot décisif qui fournit la marge pour les majorités centre-gauche ou centre-droite
+- Surveiller **la cohésion interne de l'ECR** (81 sièges) — membres polonais sous pression d'immunité, potentiel de fracture du groupe si l'état de droit s'emballe
+- **Le positionnement transatlantique de PfE** est critique : la position du groupe à 85 sièges sur l'escalade tarifaire américaine déterminera si le PE adopte une posture confrontationnelle ou conciliatrice envers Washington
+
+**Pour les entreprises et la société civile :**
+- Le cycle budgétaire 2027 qui s'enclenche maintenant fixera les priorités pluriannuelles pour les fonds de cohésion, les investissements en innovation et les subventions à la transition verte
+- Les actes secondaires de la réglementation IA représentent le risque réglementaire le plus significatif pour le secteur technologique au cours de cette année parlementaire
+- La réforme de l'Union bancaire (SRMR3 adopté mars 2026) entre en phase de mise en œuvre ; les acteurs des services financiers devraient s'engager auprès de la commission ECON sur les normes techniques
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| Risque | Probabilité | Impact | Atténuation |
+|------|-------------|--------|------------|
+| Effondrement de la coalition lors du vote sur les dépenses de défense | 🟡 35 % | 🔴 ÉLEVÉ | Fracture ECR/PfE sur Ukraine vs. réarmement national |
+| Échec du vote Mercosur (veto du PE) | 🟡 40 % | 🟡 MOYEN | Greens/EFA + The Left + membres PPE anti-Mercosur suffisants pour bloquer |
+| Crise d'application de la loi IA déclenchant une motion de censure contre la Commission | 🔴 10 % | 🔴 ÉLEVÉ | Structurel : le PE n'a pas intérêt à déstabiliser la Commission en milieu de mandat |
+| Détérioration de l'état de droit s'accélérant | 🟡 30 % | 🟡 MOYEN | Contentieux juridiques en cours en Hongrie, Géorgie et Pologne |
+| Guerre commerciale UE-États-Unis s'approfondissant au-delà d'une riposte maîtrisée | 🟡 45 % | 🔴 ÉLEVÉ | Calendrier de règlement des différends OMC ; dynamiques politiques internes américaines post-2026 |
+
+---
+
+*Sources : European Parliament Open Data Portal (data.europarl.europa.eu) — composition des groupes politiques EP10, textes adoptés TA-10-2026-0004 à TA-10-2026-0163, calendrier des sessions plénières, analyse d'alerte précoce. Fiabilité : 🟡 MEDIUM — analyse structurelle basée sur des données EP vérifiées ; prévisions économiques qualifiées par la disponibilité des données IMF lors de cette exécution.*
+
+### Executive Brief He
+
+**סיווג:** ציבורי | **תאריך:** 2026-05-11 | **רמת אמינות:** 🟡 MEDIUM
+
+---
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+הפרלמנט האירופי ניצב בפני שנים-עשר החודשים המכריעים ביותר מאז בחירות 2024. הדומיננטיות של EPP (183 מתוך 717 מושבים, 25.5%) בתוך אסיפה מפולגת ביותר הכוללת תשע קבוצות מחייבת בנייה מתמדת של קואליציות בשלושה תחומי לחץ מערכתיים: אוטונומיה הגנתית אירופית, עימות מסחרי בין האיחוד האירופי לארצות הברית ומשבר לגיטימיות בממשל הבינה המלאכותית והמרחב הדיגיטלי. הנשיאות הפולנית של מועצת האיחוד האירופי מסתיימת ביוני 2026; דנמרק תיטול את הנשיאות מיולי עד דצמבר 2026. אף קבוצה בודדת אינה יכולה להגיע לרוב ללא לפחות שלושה שותפים לקואליציה. הקואליציה הגדולה של EPP ו-S&D (319 מושבים ביחד) חסרה 41 מושבים כדי להגיע לסף הרוב של 360 — מה שמבטיח שאין רוב חקיקתי ללא תמיכת Renew או ECR. הפיצול המבני הזה מגביר את המינוף של קבוצות המיעוט לרמות חסרות תקדים.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (מאי 2026 – מאי 2027)
+
+| # | טריגר | חלון זמן צפוי | רמת סיכון | קבוצות מושפעות |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **הסלמת המכסים בין האיחוד האירופי לארצות הברית** — הפרלמנט הצביע במרץ 2026 להתאמת מכסי המכס על סחורות אמריקאיות; מכסי נגד אמריקאיים עלולים להפעיל מושב חירום ודרישה לחבילת הצלה תעשייתית | רבעון 2–3 2026 | 🔴 גבוה | EPP, Renew, S&D, ECR |
+| 2 | **הצבעה על אסטרטגיית תעשיית ההגנה האירופית** — בעקבות החלטת הכטב"מ/לוחמה (ינואר 2026) וההלוואה לאוקראינה, צפויה הצבעה על מסגרת הוצאות קרן ההגנה האירופית של 150 מיליארד יורו ומעלה | רבעון 3–4 2026 | 🔴 גבוה | EPP, ECR, PfE, ESN |
+| 3 | **הצבעה סופית על הסכם השותפות עם מרקוסור** — הפרלמנט ביקש חוות דעת מבית הדין האירופי בנוגע לתאימות; חוות הדעת צפויה ברבעון 4 2026 ותפעיל הצבעת הסכמה | רבעון 4 2026 – רבעון 1 2027 | 🟡 בינוני-גבוה | EPP, S&D, Greens/EFA, ECR |
+| 4 | **משבר יישום חוק הבינה המלאכותית** — החלטת זכויות יוצרים/בינה מלאכותית (מרץ 2026) מצביעה על חוסר שביעות רצון הפרלמנט מיישום הוועדה; חבילות חקיקה משניות צפויות ברבעון 3 2026 | רבעון 3 2026 | 🟡 בינוני | Renew, EPP, S&D, Greens/EFA |
+| 5 | **קריאה ראשונה של תקציב האיחוד האירופי 2027** — הפרלמנט אימץ הנחיות תקציב באפריל 2026; שיחות טרילוג עם המועצה על מבני ה-MFF ל-2027 יחלו ביוני 2026 תחת הנשיאות הדנית | רבעון 3–4 2026 | 🟡 בינוני | כל הקבוצות, במיוחד S&D ו-EPP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**קונפיגורציה נוכחית (מאי 2026):**
+- 717 חברי פרלמנט מחולקים ל-9 קבוצות פוליטיות
+- סף הרוב: 360 מושבים
+- EPP (183) מוביל אך אינו יכול לשלוט לבדו
+- תרחישי קואליציה מינימלית ברי-קיימא:
+  - EPP + S&D + Renew = 396 ✅ ("על-רוב" מסורתי)
+  - EPP + S&D + ECR = 400 ✅ (בלוק שמרני-מרכזי)
+  - EPP + ECR + PfE = 349 ❌ (בלוק ימני עדיין חסר)
+  - EPP + Renew + ECR = 341 ❌ (מרכז-ימין עדיין חסר)
+
+**מדד פיצול פרלמנטרי:** גבוה (6.58 מפלגות אפקטיביות)
+**ציון יציבות:** 84/100 (🟡 בינוני — הפיצול המבני מאוזן על ידי חברויות קבועות בקבוצות)
+
+**תצפית קריטית:** היעדר רוב טבעי דו-מפלגתי משמעו שכל הצבעה מרכזית היא תרגיל של בניית קואליציה. זהו הפרלמנט האירופי המפולג ביותר מאז הכנסת מערכת הקבוצות הפוליטיות, ומחזק מבנית את ההשפעה של קבוצות קטנות יותר (בעיקר Greens/EFA עם 53 מושבים) כקולות מכריעים בחקיקה סביבתית.
+
+---
+
+### 🌍 Geopolitical Context (מאי 2026 – מאי 2027)
+
+#### מעברי נשיאות המועצה
+- **פולין (ינואר–יוני 2026):** נשיאות ממוקדת ביטחון; תמיכה באוקראינה מרכזית; דחיפה לשוק הדיגיטלי המשותף
+- **דנמרק (יולי–דצמבר 2026):** מעבר ירוק, הרחבת שנגן, מסגרת למאבק בהלבנת הון
+- **קפריסין (ינואר–יוני 2027):** ביטחון אנרגטי, מזרח הים התיכון, הרחבה
+
+#### איומים אסטרטגיים על סדר היום החקיקתי של הפרלמנט האירופי
+
+1. **מלחמת המכסים האמריקאית:** הצבעת הפרלמנט במרץ 2026 על התאמת מכסים מצביעה על עימות מסחרי פעיל עם וושינגטון. הסלמה דרך מנגנוני יישוב סכסוכים של ארגון הסחר העולמי WTO צפויה. הפרלמנט ידרוש אוטונומיה אסטרטגית מורחבת של האיחוד האירופי בתחומי מוליכים למחצה, פלדה וחקלאות.
+
+2. **עייפות אוקראינה מול סולידריות:** הלוואת שיתוף פעולה מוגברת אושרה בינואר 2026; החלטת אחריות אומצה באפריל 2026. סיכון שקואליציית PfE/ECR תחסום חבילות תמיכה נוספות לאוקראינה ברבעון 3–4 2026 ככל שהמגבלות התקציביות של האיחוד מתהדקות.
+
+3. **פער ממשל הבינה המלאכותית:** החלטת הפרלמנט על זכויות יוצרים/בינה מלאכותית (מרץ 2026) והחלטת אכיפת ה-DMA (אפריל 2026) מצביעות על דאגה מעמיקה שהוועדה אינה אוכפת את חקיקת הדיגיטל הקיימת. צפוי שמעשים משניים תחת חוק הבינה המלאכותית יעוררו את הסכסוך המוסדי הראשון בין הפרלמנט לוועדה בקדנציה זו.
+
+4. **ניטור שלטון החוק:** ביטולי חסינות אושרו עבור Grzegorz Braun (ECR, פולין) במרץ 2026 ועבור Patryk Jaki (ECR, פולין) באפריל 2026. החלטה על נסיגה דמוקרטית בגיאורגיה מצביעה על הגברת הפרלמנט האירופי בפיקוחו על שלטון החוק במדינות מועמדות ומדינות חברות כאחד.
+
+---
+
+### 📅 Key Parliamentary Calendar (12 החודשים הבאים)
+
+| חודש | מקום המושב | פריטי סדר היום המרכזיים הצפויים |
+|-------|-----------------|--------------------------|
+| מאי 2026 | שטרסבורג (18–21 במאי) | הגנה מסחרית, סקירת אוקראינה, מעקב DMA |
+| יוני 2026 | שטרסבורג (15–18 ביוני) | החלטה הכנה לקריאה הראשונה של התקציב, מעקב מרקוסור/בקשת בית הדין האירופי |
+| יולי 2026 | שטרסבורג (6–9 ביולי) | עדיפויות הנשיאות הדנית, פתיחת אסטרטגיית תעשיית ההגנה |
+| ספטמבר 2026 | שטרסבורג | קריאה ראשונה של תקציב 2027 |
+| אוקטובר 2026 | שטרסבורג | חקיקה משנית של חוק הבינה המלאכותית, מעקב האיחוד הבנקאי |
+| נובמבר 2026 | שטרסבורג | חוות דעת בית הדין האירופי על מרקוסור צפויה; דיון הצבעת הסכמה מתחיל |
+| דצמבר 2026 | שטרסבורג | התקדמות טרילוג MFF, דוח שנתי שלטון החוק |
+| ינואר–מאי 2027 | שטרסבורג/בריסל | תחילת הנשיאות הקפריסאית, הצבעות הרחבה, קריאה שנייה של התקציב |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**לדירקטורים לענייני האיחוד האירופי ולנציגי הממשלות:**
+- לתעדף מעורבות עם **Renew Europe** (77 מושבים) — קבוצת הציר המכרעת המספקת את המרווח לרוב מרכז-שמאל מול מרכז-ימין
+- לנטר **את הלכידות הפנימית של ECR** (81 מושבים) — חברים פולניים תחת לחץ חסינות, פוטנציאל לפירוק הקבוצה אם שלטון החוק יסלים
+- **המיצוב הטרנס-אטלנטי של PfE** קריטי: עמדת הקבוצה בת 85 המושבים על הסלמת המכסים האמריקאית תקבע האם הפרלמנט יאמץ עמדה עימותית או מפשרת כלפי וושינגטון
+
+**לעסקים ולחברה האזרחית:**
+- מחזור התקציב ל-2027 שמתחיל כעת יקבע עדיפויות רב-שנתיות לקרנות הלכידות, השקעות חדשניות ותמיכות במעבר הירוק
+- מעשי החקיקה המשניים של תקנת הבינה המלאכותית מייצגים את הסיכון הרגולטורי המשמעותי ביותר עבור מגזר הטכנולוגיה בשנה פרלמנטרית זו
+- רפורמת האיחוד הבנקאי (SRMR3 שאומצה במרץ 2026) נכנסת לשלב היישום; חברות שירותי פיננסים צריכות להתחבר לוועדת ECON בנושא תקנים טכניים
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| סיכון | הסתברות | השפעה | הפחתה |
+|------|-------------|--------|------------|
+| התמוטטות קואליציה בהצבעה על הוצאות ביטחון | 🟡 35% | 🔴 גבוה | פיצול ECR/PfE על אוקראינה לעומת חימוש מחדש לאומי |
+| כישלון הצבעת מרקוסור (וטו הפרלמנט) | 🟡 40% | 🟡 בינוני | Greens/EFA + The Left + חברי EPP נגד מרקוסור מספיקים לחסימה |
+| משבר יישום חוק הבינה המלאכותית מפעיל הצבעת אי-אמון בוועדה | 🔴 10% | 🔴 גבוה | מבני: לפרלמנט אין תמריץ לערעור יציבות הוועדה באמצע הקדנציה |
+| הידרדרות שלטון החוק מאיצה | 🟡 30% | 🟡 בינוני | אתגרים משפטיים מתמשכים בהונגריה, גיאורגיה ופולין |
+| מלחמת הסחר בין האיחוד האירופי לארצות הברית מעמיקה מעבר לגמול מנוהל | 🟡 45% | 🔴 גבוה | לוח זמנים של יישוב סכסוכי WTO; דינמיקות פוליטיות פנימיות אמריקאיות לאחר 2026 |
+
+---
+
+*מקורות: European Parliament Open Data Portal (data.europarl.europa.eu) — הרכב קבוצות פוליטיות EP10, טקסטים שאומצו TA-10-2026-0004 עד TA-10-2026-0163, לוח מושבים מליאה, ניתוח התרעה מוקדמת. אמינות: 🟡 MEDIUM — ניתוח מבני המבוסס על נתוני EP מאומתים; תחזיות כלכליות מוסמכות על ידי זמינות נתוני IMF בריצה זו.*
+
+### Executive Brief Ja
+
+**分類：** 公開 | **日付：** 2026-05-11 | **信頼度：** 🟡 MEDIUM
+
+---
+
+### 🎯 BLUF（Bottom Line Up Front）
+
+欧州議会は2024年選挙以来、最も重大な12カ月を迎えようとしています。EPPの優勢（717議席中183議席、25.5%）を持つ高度に断片化された9会派議会は、3つの体系的圧力領域にわたる継続的な連立交渉を強いられています。すなわち、欧州防衛自律性、EU-米国通商対立、そしてAI・デジタルガバナンスにおける正統性の危機です。ポーランドの理事会議長国任期は2026年6月に終了し、デンマークが2026年7月〜12月に引き継ぎます。単一会派が少なくとも3つの連立パートナーなしに過半数を確保することは不可能です。EPPとS&Dの大連立（合計319議席）は過半数閾値360議席まで41議席不足しており、RenewまたはECRの支持なしには立法上の過半数が成立しません。この構造的断片化は少数会派の影響力を前例のない水準にまで高めています。
+
+---
+
+### ⚡ Top 5 Triggers to Watch（2026年5月〜2027年5月）
+
+| # | トリガー | 予想時間枠 | リスク水準 | 影響を受ける会派 |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **EU-米国関税エスカレーション** — 議会は2026年3月に米国製品への関税調整を投票採択。米国の報復関税は欧州議会の緊急本会議と産業救済要求を引き起こす可能性がある | 2026年Q2〜Q3 | 🔴 高 | EPP, Renew, S&D, ECR |
+| 2 | **欧州防衛産業戦略投票** — ドローン・戦争決議（2026年1月）及びウクライナ融資を受け、1500億ユーロ以上の欧州防衛基金支出枠組みへの投票が予想される | 2026年Q3〜Q4 | 🔴 高 | EPP, ECR, PfE, ESN |
+| 3 | **メルコスール協定最終投票** — EPは適合性についてEU司法裁判所への意見を要請。2026年Q4に意見が出され、同意投票が行われる見通し | 2026年Q4〜2027年Q1 | 🟡 中〜高 | EPP, S&D, Greens/EFA, ECR |
+| 4 | **AI法実施危機** — 著作権・AI決議（2026年3月）は委員会実施に対するEPの不満を示す。二次立法パッケージが2026年Q3に予想される | 2026年Q3 | 🟡 中 | Renew, EPP, S&D, Greens/EFA |
+| 5 | **2027年EU予算第1読会** — EPは2026年4月に予算指針を採択。2027年多年度財政枠組みに関する理事会との三者協議がデンマーク議長国の下、2026年6月に開始 | 2026年Q3〜Q4 | 🟡 中 | 全会派、特にS&DとEPP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture（議会の権力構造）
+
+**現在の構成（2026年5月）：**
+- 9つの政治会派に分かれた717名のMEP
+- 過半数の閾値：360議席
+- EPP（183議席）は最大会派だが単独で過半数を形成できない
+- 実現可能な最小連立シナリオ：
+  - EPP + S&D + Renew = 396 ✅（伝統的「超多数」）
+  - EPP + S&D + ECR = 400 ✅（保守中道ブロック）
+  - EPP + ECR + PfE = 349 ❌（右派ブロック、依然不足）
+  - EPP + Renew + ECR = 341 ❌（中道右派、依然不足）
+
+**議会断片化指数：** 高（有効政党数6.58）
+**安定スコア：** 84/100（🟡 中程度 — 構造的断片化は安定した会派メンバーにより相殺）
+
+**重要な観察：** 自然な二党制過半数が存在しないため、主要な採決はすべて連立形成の作業となります。これは政治会派制度の導入以来最も断片化したEPであり、小会派（特にGreens/EFA 53議席）の環境立法における影響力を構造的に高めています。
+
+---
+
+### 🌍 Geopolitical Context（地政学的文脈：2026年5月〜2027年5月）
+
+#### 理事会議長国の移行
+- **ポーランド（2026年1月〜6月）：** 安全保障重視の議長国任期。ウクライナ支援が中心。デジタル単一市場推進
+- **デンマーク（2026年7月〜12月）：** グリーン移行、シェンゲン圏拡大、マネーロンダリング対策枠組み
+- **キプロス（2027年1月〜6月）：** エネルギー安全保障、東地中海、拡大
+
+#### EP立法アジェンダへの戦略的脅威
+
+1. **米国との関税戦争：** 2026年3月の関税調整投票はワシントンとの積極的な通商対立を示す。WTOの紛争解決メカニズムを通じたエスカレーションが予想される。EPは半導体・鉄鋼・農業における拡大されたEU戦略的自律性を要求するでしょう。
+
+2. **ウクライナ支援疲れ対連帯：** 強化された協力融資が2026年1月に承認。説明責任決議が2026年4月に採択。EU財政制約が強まる中、PfE/ECR連立がQ3〜Q4 2026にさらなるウクライナ支援パッケージを阻止するリスクがある。
+
+3. **AIガバナンスのギャップ：** EP著作権・AI決議（2026年3月）とDMA執行決議（2026年4月）は委員会が既存のデジタル法を執行していないことへの深まる懸念を示す。AI法の二次行為は今期のEPと委員会間の最初の制度的対立を引き起こすと予想される。
+
+4. **法の支配の監視：** Grzegorz Braun（ECR、ポーランド）の免責特権剥奪が2026年3月に、Patryk Jaki（ECR、ポーランド）が2026年4月に承認された。ジョージアの民主的後退に関する決議は、候補国・加盟国双方における法の支配に関するEPの監視強化を示している。
+
+---
+
+### 📅 Key Parliamentary Calendar（今後12カ月の主要議会日程）
+
+| 月 | 本会議場所 | 主要予定議題 |
+|-------|-----------------|--------------------------|
+| 2026年5月 | ストラスブール（5月18〜21日） | 貿易防衛、ウクライナ審査、DMAフォローアップ |
+| 2026年6月 | ストラスブール（6月15〜18日） | 予算第1読会準備決議、メルコスール・EU司法裁判所要請フォローアップ |
+| 2026年7月 | ストラスブール（7月6〜9日） | デンマーク議長国の優先事項、防衛産業戦略の開始 |
+| 2026年9月 | ストラスブール | 2027年予算第1読会 |
+| 2026年10月 | ストラスブール | AI法の二次立法、銀行同盟フォローアップ |
+| 2026年11月 | ストラスブール | メルコスールに関するEU司法裁判所意見見込み。同意投票討議開始 |
+| 2026年12月 | ストラスブール | 多年度財政枠組み三者協議の進捗、法の支配年次報告 |
+| 2027年1月〜5月 | ストラスブール/ブリュッセル | キプロス議長国開始、拡大関連投票、予算第2読会 |
+
+---
+
+### 🔑 Decision-Maker Priorities（意思決定者の優先事項）
+
+**EU担当ディレクターおよび政府代表者へ：**
+- **Renew Europe**（77議席）との関与を優先する — 中道左派対中道右派の過半数の余地を提供する決定的なスイング・グループ
+- **ECRの内部結束**（81議席）を監視する — ポーランド議員が免責特権圧力下。法の支配問題が激化すれば会派分裂の可能性
+- **PfEの大西洋横断的立場**が重要：85議席会派の米国関税エスカレーションに対する立場が、EPがワシントンに対して対立的か宥和的姿勢をとるかを決定する
+
+**企業および市民社会へ：**
+- 現在始まる2027年予算サイクルは凝集基金、イノベーション投資、グリーン移行補助金の多年度優先事項を設定する
+- AI規制の二次行為は今年の議会年においてテクノロジーセクターにとって最も重要な規制リスクを表す
+- 銀行同盟改革（2026年3月採択のSRMR3）は実施フェーズに入る。金融サービス会社はECON委員会と技術基準について連携すべきである
+
+---
+
+### ⚠️ Key Risks and Uncertainties（主要リスクと不確実性）
+
+| リスク | 確率 | 影響 | 緩和策 |
+|------|-------------|--------|------------|
+| 防衛支出採決での連立崩壊 | 🟡 35% | 🔴 高 | ウクライナ対国家再軍備をめぐるECR/PfEの分裂 |
+| メルコスール採決失敗（EP拒否権） | 🟡 40% | 🟡 中 | Greens/EFA + The Left + メルコスール反対EPP議員が阻止に十分 |
+| AI法実施危機が委員会への不信任に発展 | 🔴 10% | 🔴 高 | 構造的：EPは任期中盤に委員会を不安定化する動機がない |
+| 法の支配の悪化加速 | 🟡 30% | 🟡 中 | ハンガリー、ジョージア、ポーランドでの継続的な法的挑戦 |
+| EU-米国貿易戦争が管理された報復を超えて深化 | 🟡 45% | 🔴 高 | WTO紛争解決タイムライン。2026年以降の米国国内政治力学 |
+
+---
+
+*出典：European Parliament Open Data Portal（data.europarl.europa.eu）— EP10政治会派構成、採択テキスト TA-10-2026-0004〜TA-10-2026-0163、本会議カレンダー、早期警戒分析。信頼度：🟡 MEDIUM — 検証済みEPデータに基づく構造分析。IMFデータ利用可能性による経済予測の制限あり。*
+
+### Executive Brief Ko
+
+**분류:** 공개 | **날짜:** 2026-05-11 | **신뢰도:** 🟡 MEDIUM
+
+---
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+유럽의회는 2024년 선거 이후 가장 중대한 12개월을 맞이하고 있습니다. 고도로 분열된 9개 교섭단체로 구성된 의회에서 EPP의 지배력(717석 중 183석, 25.5%)은 세 가지 체계적 압력 영역—유럽 방위 자율성, EU-미국 무역 대립, AI·디지털 거버넌스 정당성 위기—에 걸쳐 지속적인 연립 협상을 강제합니다. 폴란드의 이사회 의장국 임기는 2026년 6월에 끝나고, 덴마크가 2026년 7월~12월에 이를 인계받습니다. 어떤 단일 교섭단체도 최소 세 개의 연립 파트너 없이는 과반수를 확보할 수 없습니다. EPP와 S&D의 대연립(합산 319석)은 360석 과반수 임계값에 41석 부족하여—Renew 또는 ECR의 지지 없이는 입법 과반수가 존재하지 않습니다. 이 구조적 분열은 소수 교섭단체의 영향력을 전례 없는 수준으로 증폭시킵니다.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (2026년 5월 ~ 2027년 5월)
+
+| # | 트리거 | 예상 시간대 | 위험 수준 | 영향받는 교섭단체 |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **EU-미국 관세 확대** — 의회는 2026년 3월 미국 상품에 대한 관세 조정을 표결했고, 미국의 보복 관세는 EP 긴급 본회의와 산업 구제 요구를 촉발할 수 있음 | 2026년 Q2~Q3 | 🔴 높음 | EPP, Renew, S&D, ECR |
+| 2 | **유럽 방위산업 전략 표결** — 드론/전쟁 결의(2026년 1월)와 우크라이나 대출 이후, 의회는 1,500억 유로 이상의 유럽방위기금 지출 프레임워크 표결이 예상됨 | 2026년 Q3~Q4 | 🔴 높음 | EPP, ECR, PfE, ESN |
+| 3 | **메르코수르 협정 최종 표결** — EP는 EU사법재판소에 양립 가능성에 관한 의견을 요청했으며, 2026년 Q4에 의견이 나와 동의 표결이 촉발될 예정 | 2026년 Q4 ~ 2027년 Q1 | 🟡 중간-높음 | EPP, S&D, Greens/EFA, ECR |
+| 4 | **AI법 이행 위기** — 저작권·AI 결의(2026년 3월)는 위원회 이행에 대한 EP의 불만을 나타냄. 보조 입법 패키지가 2026년 Q3에 예상됨 | 2026년 Q3 | 🟡 중간 | Renew, EPP, S&D, Greens/EFA |
+| 5 | **2027년 EU 예산 1차 독회** — EP는 2026년 4월 예산 지침을 채택했고, 2027년 다년도재정계획 구조에 관한 이사회와의 삼자 협상이 덴마크 의장국 하에 2026년 6월 시작 | 2026년 Q3~Q4 | 🟡 중간 | 전 교섭단체, 특히 S&D, EPP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture (의회 권력 구조)
+
+**현재 구성 (2026년 5월):**
+- 9개 교섭단체로 나뉜 717명의 의원
+- 과반수 임계값: 360석
+- EPP(183석)가 선두지만 단독 통치 불가
+- 최소 실행 가능 연립 시나리오:
+  - EPP + S&D + Renew = 396 ✅ (전통적 "초다수")
+  - EPP + S&D + ECR = 400 ✅ (보수-중도 블록)
+  - EPP + ECR + PfE = 349 ❌ (우파 블록 여전히 부족)
+  - EPP + Renew + ECR = 341 ❌ (중도우파 여전히 부족)
+
+**의회 파편화 지수:** 높음 (유효 정당 수 6.58)
+**안정성 점수:** 84/100 (🟡 중간 — 구조적 파편화가 안정적 교섭단체 멤버십으로 상쇄됨)
+
+**핵심 관찰:** 자연스러운 양당 과반수가 부재하다는 것은 모든 주요 표결이 연립 구성 작업이 됨을 의미합니다. 이는 교섭단체 시스템 도입 이후 가장 파편화된 EP로, 소수 교섭단체(특히 Greens/EFA 53석)의 환경 입법에서의 캐스팅보트 역할을 구조적으로 강화합니다.
+
+---
+
+### 🌍 Geopolitical Context (지정학적 맥락: 2026년 5월 ~ 2027년 5월)
+
+#### 이사회 의장국 전환
+- **폴란드 (2026년 1월~6월):** 안보 중심 의장국. 우크라이나 지원 중심. 디지털 단일 시장 추진
+- **덴마크 (2026년 7월~12월):** 녹색 전환, 솅겐 확대, 자금세탁방지 프레임워크
+- **키프로스 (2027년 1월~6월):** 에너지 안보, 동지중해, 확대
+
+#### EP 입법 의제에 대한 전략적 위협
+
+1. **미국 관세 전쟁:** 2026년 3월 관세 조정 투표는 워싱턴과의 능동적 무역 대립을 나타냅니다. WTO 분쟁해결 메커니즘을 통한 확전이 예상됩니다. EP는 반도체, 철강, 농업 분야에서 확대된 EU 전략적 자율성을 요구할 것입니다.
+
+2. **우크라이나 피로 vs. 연대:** 강화된 협력 대출이 2026년 1월 승인됐고, 책임 결의가 2026년 4월 채택됐습니다. EU 재정 제약이 강화되면서 PfE/ECR 연립이 2026년 Q3~Q4 추가 우크라이나 지원 패키지를 막을 위험이 있습니다.
+
+3. **AI 거버넌스 격차:** EP 저작권·AI 결의(2026년 3월)와 DMA 집행 결의(2026년 4월)는 위원회가 기존 디지털 법안을 집행하지 못하고 있다는 깊어지는 우려를 나타냅니다. AI법 하의 보조 행위는 이번 임기 EP와 위원회 간 첫 번째 제도적 충돌을 촉발할 것으로 예상됩니다.
+
+4. **법치 모니터링:** Grzegorz Braun(ECR, 폴란드)의 면책특권 박탈이 2026년 3월에, Patryk Jaki(ECR, 폴란드)가 2026년 4월에 부여됐습니다. 조지아 민주주의 후퇴 결의는 후보국과 회원국 모두에서 법치에 대한 EP의 감시 강화를 나타냅니다.
+
+---
+
+### 📅 Key Parliamentary Calendar (향후 12개월 주요 의회 일정)
+
+| 월 | 본회의 장소 | 주요 예상 의제 |
+|-------|-----------------|--------------------------|
+| 2026년 5월 | 스트라스부르 (5월 18~21일) | 무역 방어, 우크라이나 검토, DMA 후속 조치 |
+| 2026년 6월 | 스트라스부르 (6월 15~18일) | 예산 1차 독회 준비 결의, 메르코수르·EU사법재판소 요청 후속 |
+| 2026년 7월 | 스트라스부르 (7월 6~9일) | 덴마크 의장국 우선순위, 방위산업 전략 개시 |
+| 2026년 9월 | 스트라스부르 | 2027년 예산 1차 독회 |
+| 2026년 10월 | 스트라스부르 | AI법 보조 입법, 은행동맹 후속 |
+| 2026년 11월 | 스트라스부르 | 메르코수르 관련 EU사법재판소 의견 예상. 동의 표결 토론 시작 |
+| 2026년 12월 | 스트라스부르 | 다년도재정계획 삼자 협상 진행 상황, 법치 연례 보고서 |
+| 2027년 1월~5월 | 스트라스부르/브뤼셀 | 키프로스 의장국 시작, 확대 관련 표결, 예산 2차 독회 |
+
+---
+
+### 🔑 Decision-Maker Priorities (의사결정자 우선 사항)
+
+**EU 담당 이사 및 정부 대표자를 위하여:**
+- **Renew Europe**(77석)과의 협력을 우선시할 것 — 중도좌파 대 중도우파 과반수를 위한 마진을 제공하는 결정적인 스윙 교섭단체
+- **ECR 내부 결속**(81석)을 모니터링할 것 — 폴란드 의원들이 면책 압박 하에 있으며, 법치 문제가 격화될 경우 교섭단체 분열 가능성
+- **PfE의 대서양 포지셔닝** 중요: 85석 교섭단체의 미국 관세 확대에 대한 입장이 EP가 워싱턴을 향해 대립적 혹은 화해적 자세를 취할지 결정함
+
+**기업 및 시민사회를 위하여:**
+- 지금 시작되는 2027년 예산 사이클은 결속 기금, 혁신 투자, 녹색 전환 보조금에 대한 다년도 우선순위를 설정
+- AI 규제 보조 행위는 이번 의회 연도에 기술 부문을 위한 가장 중대한 규제 위험을 나타냄
+- 은행동맹 개혁(2026년 3월 채택된 SRMR3)은 이행 단계에 진입. 금융서비스 기업들은 기술 표준에 관해 ECON 위원회와 협력해야 함
+
+---
+
+### ⚠️ Key Risks and Uncertainties (주요 위험과 불확실성)
+
+| 위험 | 확률 | 영향 | 완화 방안 |
+|------|-------------|--------|------------|
+| 방위비 표결에서 연립 붕괴 | 🟡 35% | 🔴 높음 | 우크라이나 대 국가 재무장을 둘러싼 ECR/PfE 분열 |
+| 메르코수르 표결 실패 (EP 거부권) | 🟡 40% | 🟡 중간 | Greens/EFA + The Left + 반메르코수르 EPP 의원들이 차단에 충분 |
+| AI법 이행 위기가 위원회 불신임 촉발 | 🔴 10% | 🔴 높음 | 구조적: EP는 임기 중반에 위원회를 불안정화할 동기가 없음 |
+| 법치 악화 가속 | 🟡 30% | 🟡 중간 | 헝가리, 조지아, 폴란드에서 진행 중인 법적 도전 |
+| EU-미국 무역 전쟁이 관리된 보복 이상으로 심화 | 🟡 45% | 🔴 높음 | WTO 분쟁해결 타임라인. 2026년 이후 미국 국내 정치 역학 |
+
+---
+
+*출처: European Parliament Open Data Portal (data.europarl.europa.eu) — EP10 교섭단체 구성, 채택 텍스트 TA-10-2026-0004~TA-10-2026-0163, 본회의 일정, 조기 경보 분석. 신뢰도: 🟡 MEDIUM — 검증된 EP 데이터 기반 구조 분석. 이번 실행에서 IMF 데이터 가용성에 의해 제한된 경제 예측.*
+
+### Executive Brief Nl
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Het Europees Parlement staat voor de meest beslissende twaalf maanden sinds de verkiezingen van 2024. De dominantie van de EVP (183/717 zetels, 25,5 %) in een sterk gefragmenteerde negen-fracties-kamer dwingt tot voortdurende coalitievorming op drie systemische drukdomeinen: Europese defensie-autonomie, de EU-VS-handelskonfrontatie en een legitimiteitscrisis in AI/digitale governance. Het Poolse voorzitterschap van de Raad eindigt in juni 2026; Denemarken neemt het over van juli tot december 2026. Geen enkele fractie kan een meerderheid bereiken zonder ten minste drie coalitiepartners. De grote coalitie EVP+S&D (319 zetels gecombineerd) mist 41 zetels voor de drempel van 360 — waardoor geen wetgevende meerderheid bestaat zonder steun van Renew of ECR. Deze structurele fragmentering vergroot de invloed van minderheidsfracties tot een ongekend hoog niveau.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (mei 2026 – mei 2027)
+
+| # | Trigger | Verwacht tijdvenster | Risiconiveau | Betrokken fracties |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **EU-VS-tariefescalatie** — Het EP stemde in maart 2026 voor aanpassing van douanetarieven op Amerikaanse goederen; Amerikaanse vergeldingstarieven kunnen een noodsessie van het EP en een vraag om industrieel reddingspakket uitlokken | Q2–Q3 2026 | 🔴 HOOG | EVP, Renew, S&D, ECR |
+| 2 | **Stemming over de Europese Defensie-industriestrategie** — Na de drone/oorlogvoeringsresolutie (jan. 2026) en de Oekraïnelening verwacht men dat het Parlement stemt over het bestedingskader voor het Europees Defensiefonds van 150 miljard euro of meer | Q3–Q4 2026 | 🔴 HOOG | EVP, ECR, PfE, ESN |
+| 3 | **Definitieve stemming over het Mercosur-partnerschapsaccoord** — Het EP verzocht het HvJEU om een advies over de verenigbaarheid; advies verwacht in Q4 2026, waarna de instemmingsstemming wordt uitgelokt | Q4 2026 – Q1 2027 | 🟡 MIDDEN-HOOG | EVP, S&D, Greens/EFA, ECR |
+| 4 | **Implementatiecrisis van de AI-wet** — De resolutie over auteursrecht/AI (maart 2026) signaleert de ontevredenheid van het EP over de uitvoering door de Commissie; secundaire wetgevingspakketten worden verwacht in Q3 2026 | Q3 2026 | 🟡 MIDDEN | Renew, EVP, S&D, Greens/EFA |
+| 5 | **Eerste lezing van de EU-begroting 2027** — Het EP nam begrotingsrichtsnoeren aan in april 2026; trilogonderhandelingen met de Raad over MFK-structuren voor 2027 starten in juni 2026 onder Deens voorzitterschap | Q3–Q4 2026 | 🟡 MIDDEN | Alle fracties, met name S&D, EVP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**Huidige configuratie (mei 2026):**
+- 717 Europarlementariërs verdeeld over 9 politieke fracties
+- Meerderheidsdrempel: 360 zetels
+- EVP (183) leidt maar kan niet alleen regeren
+- Minimaal levensvatbare coalitiescenario's:
+  - EVP + S&D + Renew = 396 ✅ (traditionele «super-meerderheid»)
+  - EVP + S&D + ECR = 400 ✅ (conservatief-centristisch blok)
+  - EVP + ECR + PfE = 349 ❌ (rechtsblok nog onvoldoende)
+  - EVP + Renew + ECR = 341 ❌ (midden-rechts nog onvoldoende)
+
+**Parlementaire fragmentatie-index:** HOOG (6,58 effectieve partijen)
+**Stabiliteitsscore:** 84/100 (🟡 Midden — structurele fragmentatie gecompenseerd door stabiele fractielidmaatschappen)
+
+**Kritische observatie:** De afwezigheid van een natuurlijke tweepartijenmeerderheid betekent dat elke belangrijke stemming een coalitievormingsoefening is. Dit is het meest gefragmenteerde EP sinds de invoering van het politieke fraktiestelsel en vergroot structureel de invloed van kleinere fracties (met name Greens/EFA met 53 zetels) als doorslaggevende stemmen in milieuwetgeving.
+
+---
+
+### 🌍 Geopolitical Context (mei 2026 – mei 2027)
+
+#### Overgangen van het Raadsvoorzitterschap
+- **Polen (jan.–jun. 2026):** Veiligheidsgericht voorzitterschap; steun aan Oekraïne centraal; impuls voor de digitale interne markt
+- **Denemarken (jul.–dec. 2026):** Groene transitie, Schengen-uitbreiding, antiwitwaskader
+- **Cyprus (jan.–jun. 2027):** Energieveiligheid, oostelijk Middellandse Zeegebied, uitbreiding
+
+#### Strategische bedreigingen voor de EP-wetgevingsagenda
+
+1. **Tariefoorlog VS:** De EP-stemming van maart 2026 over tariefsaanpassingen signaleert een actieve handelskonfrontatie met Washington. Escalatie via de geschillenbeslechtingsmechanismen van de WTO wordt verwacht. Het EP zal uitgebreide strategische autonomie van de EU eisen op het gebied van halfgeleiders, staal en landbouw.
+
+2. **Oekraïne-moeheid vs. solidariteit:** Versterkte samenwerkingslening goedgekeurd in januari 2026; verantwoordelijkheidsresolutie aangenomen in april 2026. Risico dat de PfE/ECR-coalitie verdere Oekraïne-steunpakketten in Q3–Q4 2026 blokkeert naarmate de EU-begrotingsbeperkingen aanscherpen.
+
+3. **AI-governance-kloof:** De EP-resolutie over auteursrecht/AI (maart 2026) en de DMA-handhavingsresolutie (april 2026) signaleren groeiende bezorgdheid dat de Commissie de bestaande digitale wetgeving niet handhaaft. Secundaire handelingen onder de AI-wet zullen naar verwachting het eerste institutionele conflict tussen het EP en de Commissie in deze zittingstermijn uitlokken.
+
+4. **Monitoring van de rechtsstaat:** Immuniteitsontheffingen verleend voor Grzegorz Braun (ECR, Polen) in maart 2026 en Patryk Jaki (ECR, Polen) in april 2026. Resolutie over democratische achteruitgang in Georgië signaleert de intensivering van het EP-toezicht op de rechtsstaat in kandidaatlidstaten en lidstaten.
+
+---
+
+### 📅 Key Parliamentary Calendar (Komende 12 maanden)
+
+| Maand | Vergaderplaats | Belangrijkste verwachte agendapunten |
+|-------|-----------------|--------------------------|
+| Mei 2026 | Straatsburg (18–21 mei) | Handelsdefensie, Oekraïne-evaluatie, DMA follow-up |
+| Jun. 2026 | Straatsburg (15–18 jun.) | Voorbereidende resolutie eerste begrotingslezing, Mercosur/HvJEU-verzoek follow-up |
+| Jul. 2026 | Straatsburg (6–9 jul.) | Prioriteiten Deens voorzitterschap, opening defensie-industriestrategie |
+| Sep. 2026 | Straatsburg | Eerste lezing begroting 2027 |
+| Okt. 2026 | Straatsburg | Secundaire wetgeving AI-wet, Bankunie follow-up |
+| Nov. 2026 | Straatsburg | Verwacht HvJEU-advies Mercosur; debat instemmingsstemming begint |
+| Dec. 2026 | Straatsburg | Voortgang MFK-trilogie, jaarverslag rechtsstaat |
+| Jan.–mei 2027 | Straatsburg/Brussel | Start Cypriotisch voorzitterschap, uitbreidingsstemmen, tweede begrotingslezing |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**Voor EU-directeuren en regeringsvertegenwoordigers:**
+- Prioriteer betrokkenheid bij **Renew Europe** (77 zetels) — de beslissende draaigroep die de marge levert voor centrum-links vs. centrum-rechts meerderheden
+- Monitor **de interne cohesie van ECR** (81 zetels) — Poolse leden onder immuniteitstdruk, potentieel voor fractiescheuring als de rechtsstaat escaleert
+- **PfE's transatlantische positionering** is cruciaal: het standpunt van de 85-zetelfractie over de VS-tariefescalatie bepaalt of het EP een confronterende of verzoenende houding tegenover Washington aanneemt
+
+**Voor bedrijfsleven en maatschappelijk middenveld:**
+- De nu gestarte begrotingscyclus 2027 zal meerjarige prioriteiten stellen voor cohesiefondsen, innovatie-investeringen en subsidies voor de groene transitie
+- Secundaire handelingen bij AI-regulering vertegenwoordigen het meest significante regelgevende risico voor de technologiesector in dit parlementaire jaar
+- De bankuniehervorming (SRMR3 aangenomen maart 2026) treedt in de implementatiefase; financiële dienstverleners moeten betrokken zijn bij de ECON-commissie inzake technische normen
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| Risico | Kans | Impact | Beperking |
+|------|-------------|--------|------------|
+| Coalitiebreuk bij stemming over defensie-uitgaven | 🟡 35 % | 🔴 HOOG | ECR/PfE-splitsing over Oekraïne vs. nationale herbewapening |
+| Mercosur-stemming mislukt (EP-veto) | 🟡 40 % | 🟡 MIDDEN | Greens/EFA + The Left + anti-Mercosur EVP-leden voldoende om te blokkeren |
+| AI-wet implementatiecrisis leidt tot motie van wantrouwen tegen Commissie | 🔴 10 % | 🔴 HOOG | Structureel: EP heeft geen prikkel om Commissie in het midden van de zittingstermijn te destabiliseren |
+| Achteruitgang rechtsstaat versnelt | 🟡 30 % | 🟡 MIDDEN | Lopende juridische uitdagingen in Hongarije, Georgië en Polen |
+| EU-VS-handelsoorlog verdiept zich buiten gecontroleerde vergelding | 🟡 45 % | 🔴 HOOG | WTO-geschillenbeslechtingstijdlijn; Amerikaanse binnenlandse politieke dynamiek na 2026 |
+
+---
+
+*Bronnen: European Parliament Open Data Portal (data.europarl.europa.eu) — EP10 politieke fractiesamenstelling, aangenomen teksten TA-10-2026-0004 tot TA-10-2026-0163, plenaire sessiekalender, vroegtijdige waarschuwingsanalyse. Betrouwbaarheid: 🟡 MEDIUM — structurele analyse gebaseerd op geverifieerde EP-gegevens; economische prognoses gekwalificeerd door beschikbaarheid van IMF-gegevens in deze run.*
+
+### Executive Brief No
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Europaparlamentet står overfor de mest avgjørende tolv månedene siden valget i 2024. EPPs dominans (183/717 mandater, 25,5 %) i et svært fragmentert ni-gruppe-kammer tvinger frem kontinuerlig koalisjonsbygging innenfor tre systemiske presdomener: europeisk forsvarsautonomi, konfrontasjonen i EU-USA-handelen og en legitimititetskrise i AI/digital styring. Polens rådsformannskap avsluttes i juni 2026; Danmark overtar juli–desember 2026. Ingen enkelt gruppe kan samle flertall uten minst tre koalisjonspartnere. EPPs og S&Ds storkoalisjon (319 mandater samlet) mangler 41 mandater for å nå 360-flertallsgrensen — noe som sikrer at ingen lovgivningsmessig majoritet finnes uten støtte fra Renew eller ECR. Denne strukturelle fragmenteringen forsterker minoritetsgruppers innflytelse til historisk høye nivåer.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (mai 2026 – mai 2027)
+
+| # | Utløser | Forventet tidsvindu | Risikonivå | Berørte grupper |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **EU-USA-tolleskala­sjonen** — Parlamentet stemte i mars 2026 for å justere tolltariffer på amerikanske varer; amerikanske gjengjeldelses­toll kan utløse EPs nødsesjon og krav om industriell redningspakke | Q2–Q3 2026 | 🔴 HØY | EPP, Renew, S&D, ECR |
+| 2 | **Avstemning om europeisk forsvarsindustristrategi** — Etter resolusjon om dronekrigsføring (jan. 2026) og Ukrainalån forventes Parlamentet å stemme om utgiftsramme for Europeisk Forsvarsfond på 150 milliarder euro eller mer | Q3–Q4 2026 | 🔴 HØY | EPP, ECR, PfE, ESN |
+| 3 | **Sluttavstemning om Mercosur-partnerskapsavtalen** — EP anmodet EU-domstolen om uttalelse om forenelighet; uttalelse forventes Q4 2026 og utløser samtykke­avsemning | Q4 2026 – Q1 2027 | 🟡 MIDDELS-HØY | EPP, S&D, Greens/EFA, ECR |
+| 4 | **Gjennomføringskrise for AI-loven** — Resolusjon om opphavsrett/AI (mars 2026) signaliserer EPs misnøye med Kommisjonens implementering; sekundære lovgivningspakker forventes Q3 2026 | Q3 2026 | 🟡 MIDDELS | Renew, EPP, S&D, Greens/EFA |
+| 5 | **Første lesning av EUs budsjett 2027** — EP vedtok budsjettretningslinjer april 2026; trepartsforhandlinger med Rådet om MFF-strukturer for 2027 starter juni 2026 under dansk formannskap | Q3–Q4 2026 | 🟡 MIDDELS | Alle grupper, særlig S&D, EPP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**Nåværende konfigurasjon (mai 2026):**
+- 717 MEPer fordelt på 9 politiske grupper
+- Flertallsgrense: 360 mandater
+- EPP (183) leder, men kan ikke styre alene
+- Minst levedyktige koalisjonsscenarier:
+  - EPP + S&D + Renew = 396 ✅ (tradisjonelt «supermajoritet»)
+  - EPP + S&D + ECR = 400 ✅ (konservativt-sentristisk blokk)
+  - EPP + ECR + PfE = 349 ❌ (høyreblokk fortsatt utilstrekkelig)
+  - EPP + Renew + ECR = 341 ❌ (sentrum-høyre fortsatt utilstrekkelig)
+
+**Parlamentarisk fragmenteringsindeks:** HØY (6,58 effektive partier)
+**Stabilitetspoeng:** 84/100 (🟡 Middels — strukturell fragmentering motvirkes av stabile gruppemedlemskap)
+
+**Kritisk observasjon:** Fraværet av en naturlig to-parti-majoritet betyr at enhver viktig avstemning krever koalisjonsbygging. Dette er det mest fragmenterte EP siden innføringen av det politiske gruppesystemet, og det styrker strukturelt mindregrupper (særlig Greens/EFA med 53 mandater) som vippegrupper i miljølovgivning.
+
+---
+
+### 🌍 Geopolitical Context (mai 2026 – mai 2027)
+
+#### Overganger i rådsformannskap
+- **Polen (jan.–jun. 2026):** Sikkerhetsfokusert formannskap; Ukraina-støtte sentralt; satsning på det digitale indre markedet
+- **Danmark (jul.–des. 2026):** Grønn omstilling, Schengen-utvidelse, rammeverk mot hvitvasking
+- **Kypros (jan.–jun. 2027):** Energisikkerhet, det østlige Middelhavet, utvidelse
+
+#### Strategiske trusler mot EPs lovgivningsagenda
+
+1. **USAs tollkrig:** EPs avstemning i mars 2026 om justering av tollsatser signaliserer aktiv handelskonfrontasjon med Washington. Eskalering forventes via WTOs tvisteløsningsmekanismer. EP vil kreve utvidet EU-strategisk autonomi innen halvledere, stål og jordbruk.
+
+2. **Ukraina-trøtthet kontra solidaritet:** Styrket samarbeidslån godkjent i januar 2026; resolusjon om ansvarliggjøring vedtatt april 2026. Risiko for at PfE/ECR-koalisjonen blokkerer ytterligere Ukraina-støttepakker i Q3–Q4 2026 etter hvert som EUs budsjettbegrensninger strammes.
+
+3. **AI-styringsgap:** EPs resolusjon om opphavsrett/AI (mars 2026) og DMA-håndhevelsesresolusjon (april 2026) signaliserer dyp bekymring for at Kommisjonen ikke håndhever eksisterende digital lovgivning. Sekundærakter under AI-loven forventes å utløse den første institusjonelle konflikten mellom EP og Kommisjonen i denne valgperioden.
+
+4. **Overvåking av rettsstaten:** Immunitetsopphevelser innvilget for Grzegorz Braun (ECR, Polen) mars 2026 og Patryk Jaki (ECR, Polen) april 2026. Resolusjon om demokratisk tilbakegang i Georgia signaliserer EPs intensiverte tilsyn med rettsstaten i kandidatland og medlemsstater.
+
+---
+
+### 📅 Key Parliamentary Calendar (Neste 12 måneder)
+
+| Måned | Sesjonssted | Viktigste forventede dagsordenpunkter |
+|-------|-----------------|--------------------------|
+| Mai 2026 | Strasbourg (18.–21. mai) | Handelsforsvar, Ukraina-gjennomgang, DMA-oppfølging |
+| Jun 2026 | Strasbourg (15.–18. jun.) | Forberedende resolusjon om budsjettets 1. lesning, Mercosur/EU-domstolsanmodning oppfølging |
+| Jul 2026 | Strasbourg (6.–9. jul.) | Dansk formannskaps prioriteringer, åpning av forsvarsindustristrategi |
+| Sep 2026 | Strasbourg | 1. lesning av 2027-budsjettet |
+| Okt 2026 | Strasbourg | AI-lovens sekundærlovgivning, bankunionfølging |
+| Nov 2026 | Strasbourg | EU-domstolens uttalelse om Mercosur forventes; debatt om samtykke­avsemning innledes |
+| Des 2026 | Strasbourg | MFF-trepartsforhandlingers fremgang, årsrapport om rettsstaten |
+| Jan.–mai 2027 | Strasbourg/Brussel | Kypriotisk formannskap innledes, utvidelsesavstemninger, budsjettets 2. lesning |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**For EU-direktører og regjeringsrepresentanter:**
+- Prioriter engasjement med **Renew Europe** (77 mandater) — den avgjørende vippegruppen som leverer marginen for sentrum-venstre kontra sentrum-høyre majoriteter
+- Overvåk **ECRs interne kohesjon** (81 mandater) — polske medlemmer under immunitetspress, potensial for gruppeoppløsning dersom rettsstaten eskalerer
+- **PfEs transatlantiske posisjonering** er kritisk: den 85-mandatstores gruppes holdning til USA-tolleskalasjon vil avgjøre om EP inntar en konfronterende eller forsonende holdning overfor Washington
+
+**For næringsliv og sivilsamfunn:**
+- 2027-budsjettsyklusen som nå igangsettes, vil fastsette flerårige prioriteringer for kohesjonsfond, innovasjonsinvesteringer og tilskudd til grønn omstilling
+- Sekundærakter til AI-reguleringen er den mest betydelige regulatoriske risikoen for teknologisektoren i dette parlamentariske år
+- Bankunionstrukturen (SRMR3 vedtatt mars 2026) trer inn i gjennomføringsfasen; finansielle tjenestebedrifter bør engasjere ECON-komiteen om tekniske standarder
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| Risiko | Sannsynlighet | Konsekvens | Begrensning |
+|------|-------------|--------|------------|
+| Koalisjonssammenbrudd ved avstemning om forsvarsutgifter | 🟡 35 % | 🔴 HØY | ECR/PfE-splittelse om Ukraina kontra nasjonal opprustning |
+| Mercosur-avstemning mislykkes (EP-veto) | 🟡 40 % | 🟡 MIDDELS | Greens/EFA + The Left + anti-Mercosur EPP-medlemmer tilstrekkelige til å blokkere |
+| AI-lovens gjennomføringskrise utløser mistillitsvotum mot Kommisjonen | 🔴 10 % | 🔴 HØY | Strukturelt: EP mangler insentiv til å destabilisere Kommisjonen midt i valgperioden |
+| Retts­statens forringelse akselererer | 🟡 30 % | 🟡 MIDDELS | Pågående juridiske utfordringer i Ungarn, Georgia og Polen |
+| USA-EU-handelskrig fordypes ut over styrt gjengjeldelse | 🟡 45 % | 🔴 HØY | WTOs tvisteløsningstidslinje; amerikanske innenrikspolitiske dynamikker etter 2026 |
+
+---
+
+*Kilder: European Parliament Open Data Portal (data.europarl.europa.eu) — EP10 politisk gruppesammensetning, vedtatte tekster TA-10-2026-0004 til TA-10-2026-0163, plenarsessionskalender, tidlig varselanalyse. Konfidens: 🟡 MEDIUM — strukturell analyse basert på verifiserte EP-data; økonomiske prognoser kvalifisert av IMF-datatilgjengelighet i denne kjøringen.*
+
+### Executive Brief Sv
+
+### 🎯 BLUF (Bottom Line Up Front)
+
+Europaparlamentet står inför de mest avgörande tolv månaderna sedan valet 2024. EPP:s dominans (183/717 mandat, 25,5 %) i en starkt fragmenterad kammare med nio grupper tvingar fram kontinuerligt koalitionsbyggande inom tre systemtryckdomäner: europeisk försvarsautonomi, konfrontationen i EU-USA-handeln och en legitimitietskris i AI/digital styrning. Polens rådsordförandeskap avslutas i juni 2026; Danmark tar över juli–december 2026. Ingen enskild grupp kan uppbåda majoritet utan att samla minst tre koalitionspartner. EPP:s och S&D:s storkoa­lition (319 mandat sammanlagt) saknar 41 mandat till 360-majoritetsgränsen — vilket innebär att ingen lagstiftande majoritet finns utan stöd från Renew eller ECR. Denna strukturella fragmente­ring förstärker minoritetsgruppernas inflytande till historiskt höga nivåer.
+
+---
+
+### ⚡ Top 5 Triggers to Watch (maj 2026 – maj 2027)
+
+| # | Utlösare | Förväntad tidsram | Risknivå | Berörda grupper |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **EU-USA-tulleskalering** — Parlamentet röstade i mars 2026 för att justera tullar på amerikanska varor; amerikanska mottullar kan utlösa EP:s nödsession och krav på industristöd | Q2–Q3 2026 | 🔴 HÖG | EPP, Renew, S&D, ECR |
+| 2 | **Omröstning om europeisk försvarsindus­tristrategi** — Efter resolution om drönarkrig/krigsföring (jan 2026) och Ukrainalån väntas parlamentet rösta om utgiftsramen för Europeiska försvarsfonden på 150 miljarder euro eller mer | Q3–Q4 2026 | 🔴 HÖG | EPP, ECR, PfE, ESN |
+| 3 | **Slutomröstning om Mercosur-partnerskapsavtalet** — EP begärde yttrande från EU-domstolen om avtalets förenlighet; yttrandet väntas Q4 2026 och utlöser samtyckesomröstning | Q4 2026 – Q1 2027 | 🟡 MEDEL-HÖG | EPP, S&D, Greens/EFA, ECR |
+| 4 | **Genomförandekris för AI-akten** — Resolution om upphovsrätt/AI (mars 2026) signalerar EP:s missnöje med kommissionens genomförande; sekundära lagstiftningspaket väntas Q3 2026 | Q3 2026 | 🟡 MEDEL | Renew, EPP, S&D, Greens/EFA |
+| 5 | **Första läsningen av EU:s budget 2027** — EP antog budgetriktlinjer april 2026; trepartsförhandlingar med rådet om MFF-strukturer för 2027 inleds juni 2026 under danskt ordförandeskap | Q3–Q4 2026 | 🟡 MEDEL | Alla grupper, särskilt S&D, EPP |
+
+---
+
+### 🏛️ Parliamentary Power Architecture
+
+**Nuvarande konfiguration (maj 2026):**
+- 717 ledamöter fördelade på 9 politiska grupper
+- Majoritetsgräns: 360 mandat
+- EPP (183) leder men kan inte regera ensam
+- Minsta möjliga koalitionsscenarier:
+  - EPP + S&D + Renew = 396 ✅ (traditionell "supermajoritet")
+  - EPP + S&D + ECR = 400 ✅ (konservativt-centristiskt block)
+  - EPP + ECR + PfE = 349 ❌ (högerblock fortfarande otillräckligt)
+  - EPP + Renew + ECR = 341 ❌ (center-höger fortfarande otillräckligt)
+
+**Parlamentariskt fragmenteringsindex:** HÖG (6,58 effektiva partier)
+**Stabilitetspoäng:** 84/100 (🟡 Medel — strukturell fragmentering motverkas av stabila gruppmedlemskap)
+
+**Kritisk iakttagelse:** Avsaknaden av naturlig tvåpartsmajoritet innebär att varje viktig omröstning kräver koalitionsbyggande. Detta är det mest fragmenterade EP sedan det politiska gruppsystemet introducerades och stärker strukturellt mindre gruppers inflytande (särskilt Greens/EFA med 53 mandat) som vågmästare i miljölagstiftning.
+
+---
+
+### 🌍 Geopolitical Context (maj 2026 – maj 2027)
+
+#### Rådsordförandeskapsövergångar
+- **Polen (jan–jun 2026):** Säkerhetsfokuserat ordförandeskap; stödet till Ukraina centralt; satsning på den digitala inre marknaden
+- **Danmark (jul–dec 2026):** Grön omställning, Schengenutvidgning, ramverk mot penningtvätt
+- **Cypern (jan–jun 2027):** Energisäkerhet, östra Medelhavet, utvidgning
+
+#### Strategiska hot mot EP:s lagstiftningsagenda
+
+1. **USA:s tullar:** EP:s omröstning i mars 2026 om justering av tullar signalerar aktiv handelskonfrontation med Washington. Eskalering väntas via WTO:s tvistelösningsmekanismer. EP kommer att kräva utökad EU-strategisk autonomi inom halvledare, stål och jordbruk.
+
+2. **Ukrainatrötthet kontra solidaritet:** Förstärkt samarbetslån godkändes januari 2026; resolution om ansvarsutkrävande antogs april 2026. Risk att PfE/ECR-koalitionen blockerar ytterligare Ukrainastödpaket under Q3–Q4 2026 i takt med att EU:s budgetbegränsningar skärps.
+
+3. **AI-styrningsmall:** EP:s resolution om upphovsrätt/AI (mars 2026) och resolution om tillämpning av DMA (april 2026) signalerar fördjupad oro för att kommissionen inte tillämpar befintlig digital lagstiftning. Sekundärakter under AI-akten väntas utlösa den första institutionella konflikten mellan EP och kommissionen under denna mandatperiod.
+
+4. **Övervakning av rättsstaten:** Immunitetsupphävanden beviljades för Grzegorz Braun (ECR, Polen) mars 2026 och Patryk Jaki (ECR, Polen) april 2026. Resolution om demokratisk tillbakagång i Georgien signalerar EP:s intensifierade tillsyn av rättsstaten i kandidatländer och medlemsstater.
+
+---
+
+### 📅 Key Parliamentary Calendar (Nästa 12 månader)
+
+| Månad | Sessionort | Viktigaste förväntade dagordningspunkter |
+|-------|-----------------|--------------------------|
+| Maj 2026 | Strasbourg (18–21 maj) | Handelsskydd, Ukrainagranskning, uppföljning av DMA |
+| Jun 2026 | Strasbourg (15–18 jun) | Förberedande resolution om budgetens första läsning, uppföljning av Mercosur/EU-domstolsbegäran |
+| Jul 2026 | Strasbourg (6–9 jul) | Danska ordförandeskapets prioriteringar, inledning av försvarsindustristrategi |
+| Sep 2026 | Strasbourg | Första läsningen av budgeten för 2027 |
+| Okt 2026 | Strasbourg | AI-aktens sekundärlagstiftning, uppföljning av bankunionen |
+| Nov 2026 | Strasbourg | Väntat yttrande från EU-domstolen om Mercosur; debatt inleds om samtyckesomröstning |
+| Dec 2026 | Strasbourg | MFF-trepartsförhandlingarnas framsteg, årsrapport om rättsstaten |
+| Jan–maj 2027 | Strasbourg/Bryssel | Cypriotiskt ordförandeskap inleds, omröstningar om utvidgning, budgetens andra läsning |
+
+---
+
+### 🔑 Decision-Maker Priorities
+
+**För EU-ansvariga direktörer och regeringsföreträdare:**
+- Prioritera engagemang med **Renew Europe** (77 mandat) — den avgörande vågmästargruppen som tillhandahåller marginalen för center-vänster respektive center-höger majoriteter
+- Bevaka **ECR:s interna sammanhållning** (81 mandat) — polska ledamöter under immunitetspress, risk för gruppsönderfall om rättsstatsfrågan eskalerar
+- **PfE:s transatlantiska positionering** är avgörande: den 85-mandatstarka gruppens ståndpunkt i USA-tullfrågan avgör om EP intar en konfrontativ eller försonlig hållning gentemot Washington
+
+**För näringsliv och det civila samhället:**
+- Budgetcykeln för 2027 som nu inleds fastställer fleråriga prioriteringar för sammanhållningsfonder, innovationsinvesteringar och stöd till grön omställning
+- AI-regleringens sekundärakter är den mest betydande regulatoriska risken för tekniksektorn under detta parlamentariska år
+- Bankunionsreformen (SRMR3 antagen mars 2026) träder in i genomförandefasen; finansiella aktörer bör engagera ECON-utskottet om tekniska standarder
+
+---
+
+### ⚠️ Key Risks and Uncertainties
+
+| Risk | Sannolikhet | Konsekvens | Begränsning |
+|------|-------------|--------|------------|
+| Koalitionskollaps vid omröstning om försvarsutgifter | 🟡 35 % | 🔴 HÖG | ECR/PfE-splittring om Ukraina kontra nationell upprustning |
+| Mercosur-omröstning misslyckas (EP lägger in veto) | 🟡 40 % | 🟡 MEDEL | Greens/EFA + The Left + Mercosur-kritiska EPP-ledamöter tillräckliga för att blockera |
+| AI-aktens genomförandekris utlöser misstroendevotum mot kommissionen | 🔴 10 % | 🔴 HÖG | Strukturellt: EP saknar incitament att destabilisera kommissionen mitt i mandatperioden |
+| Rättsstatens försämring accelererar | 🟡 30 % | 🟡 MEDEL | Pågående rättsliga utmaningar i Ungern, Georgien och Polen |
+| USA-EU-handelskrig fördjupas bortom hanterad vedergällning | 🟡 45 % | 🔴 HÖG | WTO-tvistelösningens tidslinje; amerikanska inrikespolitiska dynamiker efter 2026 |
+
+---
+
+*Källor: European Parliament Open Data Portal (data.europarl.europa.eu) — EP10 politisk gruppsammansättning, antagna texter TA-10-2026-0004 till TA-10-2026-0163, plenarsessionskalender, tidig varningsanalys. Tillförlitlighet: 🟡 MEDIUM — strukturell analys baserad på verifierade EP-data; ekonomiska prognoser kvalificerade av IMF-datautillgänglighet i denna körning.*
+
+### Executive Brief Zh
+
+**分类：** 公开 | **日期：** 2026-05-11 | **置信度：** 🟡 MEDIUM
+
+---
+
+### 🎯 BLUF（直接结论）
+
+欧洲议会正面临2024年选举以来最为关键的十二个月。欧洲人民党（EPP）在高度分裂的九党议会中的主导地位（183/717席，25.5%）迫使各方在三大系统性压力领域持续构建多边联盟：欧洲防务自主、欧美贸易对抗以及人工智能与数字治理的合法性危机。波兰的欧盟理事会轮值主席国任期于2026年6月结束，丹麦将于2026年7月至12月接任。任何单一党团若无至少三个联盟伙伴均无法获得多数席位。EPP与S&D的大联盟（合计319席）距360席的多数门槛仍差41席——确保没有Renew或ECR的支持便不存在立法多数。这种结构性分裂使少数党团的影响力达到前所未有的水平。
+
+---
+
+### ⚡ 需重点关注的5大触发因素（2026年5月 — 2027年5月）
+
+| # | 触发因素 | 预期时间窗口 | 风险等级 | 涉及党团 |
+|---|---------|-----------------|------------|-----------------|
+| 1 | **欧美关税升级** — 议会于2026年3月投票调整对美商品关税；美方报复性反关税可能引发紧急会议并要求工业纾困方案 | Q2–Q3 2026 | 🔴 HIGH | EPP、Renew、S&D、ECR |
+| 2 | **防务工业战略表决** — 继无人机/战争决议（2026年1月）和乌克兰贷款之后，议会预计将就逾1500亿欧元的欧洲防务基金支出框架进行表决 | Q3–Q4 2026 | 🔴 HIGH | EPP、ECR、PfE、ESN |
+| 3 | **南方共同市场（Mercosur）伙伴关系协定最终表决** — 议会已请求欧盟法院就兼容性发表意见，预计意见将于Q4 2026出炉，随即触发同意表决 | Q4 2026 – Q1 2027 | 🟡 MEDIUM-HIGH | EPP、S&D、Greens/EFA、ECR |
+| 4 | **人工智能法实施危机** — 版权/AI决议（2026年3月）表明议会对委员会落实工作的不满；次级立法一揽子方案预计于Q3 2026出台 | Q3 2026 | 🟡 MEDIUM | Renew、EPP、S&D、Greens/EFA |
+| 5 | **2027年欧盟预算一读** — 议会于2026年4月通过预算指导方针；有关2027年多年期财务框架（MFF）结构的三方谈判将于2026年6月在丹麦主席国任期内与理事会展开 | Q3–Q4 2026 | 🟡 MEDIUM | 所有党团，尤其是S&D、EPP |
+
+---
+
+### 🏛️ 议会权力架构
+
+**当前格局（2026年5月）：**
+- 717名议员分布于9个政治党团
+- 多数门槛：360席
+- EPP（183席）领先但无法单独执政
+- 最小可行联盟方案：
+  - EPP + S&D + Renew = 396 ✅（传统"超级多数"）
+  - EPP + S&D + ECR = 400 ✅（保守-中间派联盟）
+  - EPP + ECR + PfE = 349 ❌（右翼联盟仍不足）
+  - EPP + Renew + ECR = 341 ❌（中右翼仍不足）
+
+**议会分裂指数：** HIGH（实效政党数6.58）
+**稳定性得分：** 84/100（🟡 中等 — 结构性分裂被稳定的党团成员关系所抵消）
+
+**关键观察：** 自然的两党多数缺失意味着每次重大表决都是联盟构建的演练。这是自引入政治党团制度以来分裂程度最高的欧洲议会，结构性地增强了小型党团（尤其是拥有53席的Greens/EFA）在环境立法中的关键票作用。
+
+---
+
+### 🌍 地缘政治背景（2026年5月 — 2027年5月）
+
+#### 欧盟理事会轮值主席国更迭
+- **波兰（2026年1月—6月）：** 安全导向型主席国。乌克兰支持居于核心。推进数字单一市场
+- **丹麦（2026年7月—12月）：** 绿色转型、申根区扩大、反洗钱框架
+- **塞浦路斯（2027年1月—6月）：** 能源安全、东地中海、扩大
+
+#### 对议会立法议程的战略性威胁
+
+1. **与美国的贸易战：** 议会2026年3月投票调整关税，标志着与华盛顿的积极贸易对抗。预计通过WTO争端解决机制升级。议会将要求在半导体、钢铁和农业领域扩大欧盟战略自主性。
+
+2. **乌克兰疲劳与团结之争：** 强化合作贷款于2026年1月获批，问责决议于2026年4月通过。随着欧盟财政约束趋紧，PfE/ECR在Q3–Q4 2026阻止更多乌克兰援助方案的风险上升。
+
+3. **人工智能治理缺口：** 议会版权/AI决议（2026年3月）和DMA执法决议（2026年4月）表明各方日益担忧委员会未能执行现行数字立法。《人工智能法》下的次级法规（实施指南、合规评估）预计将引发本届任期内议会与委员会之间的首次机构冲突。
+
+4. **法治侵蚀监测：** 已于2026年3月批准对格热戈日·布劳恩（ECR，波兰）的豁免权撤销，并于2026年4月批准对帕特里克·亚基（ECR，波兰）的豁免权撤销。关于格鲁吉亚民主倒退的决议表明议会对候选国和成员国法治的监督力度不断加强。
+
+---
+
+### 📅 重要议会日程（未来12个月）
+
+| 月份 | 会议地点 | 主要预期议程项目 |
+|-------|-----------------|--------------------------|
+| 2026年5月 | 斯特拉斯堡（5月18—21日） | 贸易防御、乌克兰审议、DMA跟进 |
+| 2026年6月 | 斯特拉斯堡（6月15—18日） | 预算一读准备决议、Mercosur欧盟法院请求跟进 |
+| 2026年7月 | 斯特拉斯堡（7月6—9日） | 丹麦主席国优先事项、防务工业战略启动 |
+| 2026年9月 | 斯特拉斯堡 | 2027年预算一读 |
+| 2026年10月 | 斯特拉斯堡 | AI法次级立法、银行业联盟跟进 |
+| 2026年11月 | 斯特拉斯堡 | 欧盟法院Mercosur意见预计发布；同意表决辩论开始 |
+| 2026年12月 | 斯特拉斯堡 | MFF三方谈判进展、法治年度报告 |
+| 2027年1—5月 | 斯特拉斯堡/布鲁塞尔 | 塞浦路斯主席国启动、入盟表决、预算二读 |
+
+---
+
+### 🔑 决策者优先事项
+
+**欧盟事务主任及政府代表：**
+- 优先加强与 **Renew Europe**（77席）的互动 — 这是决定中左翼和中右翼多数胜负的关键枢纽党团
+- 监测 **ECR的内部凝聚力**（81席）— 波兰成员面临豁免权压力，若法治问题升级，党团可能出现分裂
+- **PfE的跨大西洋定位**至关重要：这个85席党团在美国关税升级问题上的立场将决定议会是否对华盛顿采取对抗性或和解性姿态
+
+**工商界及公民社会：**
+- 现在启动的2027年预算周期将为凝聚力基金、创新投资和绿色转型补贴设定多年期优先事项
+- AI监管次级法规是本议会年度对科技行业最重大的监管风险
+- 银行业联盟改革（2026年3月通过的SRMR3）进入实施阶段；金融服务企业应就技术标准与ECON委员会展开互动
+
+---
+
+### ⚠️ 主要风险与不确定性
+
+| 风险 | 概率 | 影响 | 缓解措施 |
+|------|-------------|--------|------------|
+| 防务支出表决中的联盟崩溃 | 🟡 35% | 🔴 HIGH | ECR/PfE在乌克兰问题与国家重整军备上分裂 |
+| Mercosur表决失败（欧洲议会否决） | 🟡 40% | 🟡 MEDIUM | Greens/EFA + The Left + 反Mercosur的EPP成员足以阻止 |
+| AI法实施危机引发对委员会的不信任动议 | 🔴 10% | 🔴 HIGH | 结构性问题：议会缺乏在任期中期使委员会不稳定的动机 |
+| 法治侵蚀加速 | 🟡 30% | 🟡 MEDIUM | 匈牙利、格鲁吉亚、波兰——法律挑战持续 |
+| 欧美贸易战超出可控报复范围而进一步深化 | 🟡 45% | 🔴 HIGH | WTO争端时间表；2026年后美国国内政治动态 |
+
+---
+
+*来源：欧洲议会公开数据门户（data.europarl.europa.eu）— EP10政治党团构成、已通过文本TA-10-2026-0004至TA-10-2026-0163、全体大会日程、预警分析。置信度：🟡 MEDIUM — 基于经验证的欧洲议会数据的结构性分析；经济预测受本次运行中IMF数据可用性限制。*
+
 ### Forward Projection
 
 ### I. Forward Projection Summary
@@ -3110,6 +4443,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [commission-wp-alignment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/commission-wp-alignment.md) | `commission-wp-alignment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [forward-projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/forward-projection.md) | `forward-projection.md` |
 | section-supplementary-intelligence | [legislative-pipeline-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/legislative-pipeline-forecast.md) | `legislative-pipeline-forecast.md` |
 | section-supplementary-intelligence | [parliamentary-calendar-projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/parliamentary-calendar-projection.md) | `parliamentary-calendar-projection.md` |

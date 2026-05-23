@@ -213,6 +213,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -3269,6 +3270,2217 @@ The following SATs were applied in this analysis run:
 14. **Historical Baseline Analysis** — EP legislative trajectory across terms in `historical-baseline.md`
 15. **Media Framing Analysis** — six media lenses in `media-framing-analysis.md`
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-11 | **نوع المقال:** المقترحات | **WEP:** محتمل | **الأدميرالية:** B2 | **التصنيف:** 🟢 PUBLIC
+**الموثوقية:** 🟡 MEDIUM | **حداثة البيانات:** EP Open Data Portal, 2026-05-11
+
+---
+
+### 🎯 النظرة الاستراتيجية العامة
+
+يجتاز البرلمان الأوروبي مرحلة من التعزيز التشريعي المكثف في ربيع عام 2026. شهدت الأسابيع الممتدة من أواخر أبريل إلى مطلع مايو 2026 حزمة كثيفة من الإنجازات التشريعية الرائدة، أبرزها أول قانون رئيسي على مستوى الاتحاد الأوروبي يتعلق بالرفاه للحيوانات الأليفة (`2023/0447(COD)`)، وإطار مُعاد هيكلته لتسوية الأزمات المصرفية (`2023/0111(COD)` — SRMR3)، وتوجيه جديد لمكافحة الفساد (`2023/0135(COD)`). وتعكس هذه الإنجازات قدرة البرلمان على قيادة مفاوضات ثلاثية الأطراف بالغة التعقيد نحو الختام رغم ارتفاع مؤشر تشتت المجالس البرلمانية إلى 6.58 موزعةً على تسع مجموعات سياسية.
+
+يتسم المشهد السياسي بعدم الاستقرار الهيكلي في ما يخص تشكيل الأغلبية. تمتلك مجموعة EPP، أكبر المجموعات، 25.52% من المقاعد (183 من أصل 717 عضواً) — وهو ما يقل كثيراً عن العتبة المطلوبة البالغة 360 صوتاً لتحقيق الأغلبية المطلقة. تستوجب رياضيات الائتلاف الكبير أن تنضم EPP إلى اثنتين على الأقل من المجموعات التالية: S&D (136)، أو PfE (85)، أو ECR (81)، أو Renew (77) لإقرار التشريعات. يرصد نظام الإنذار المبكر مستوى خطورة MEDIUM بدرجة استقرار 84/100، مشيراً إلى مخاطر الهيمنة الناجمة عن الفارق الذي يبلغ تسعة عشر ضعفاً في الحجم بين EPP والمجموعات الأصغر.
+
+---
+
+### 📋 أبرز الإنجازات التشريعية (آخر 30 يوماً)
+
+| الإجراء | العنوان | تاريخ الاعتماد | المدة |
+|---------|--------|---------------|-------|
+| `2023/0447(COD)` | رفاه الكلاب والقطط وإمكانية تتبعها | 2026-04-28 | 27 شهراً |
+| `2024/0311(COD)` | تعديل توجيه أجهزة القياس | 2026-02-10 | 15 شهراً |
+| `2023/0111(COD)` | SRMR3 — إصلاح إطار تسوية الأزمات المصرفية | 2026-03-26 | 33 شهراً |
+| `2023/0135(COD)` | مكافحة الفساد | 2026-03-26 | ~30 شهراً |
+| `2025/0322(COD)` | بند الضمان الزراعي الثنائي بين الاتحاد الأوروبي وميركوسور | 2026-02-10 | 3 أشهر (مسار سريع) |
+| `2026/2596(RSP)` | تطبيق قانون الأسواق الرقمية | 2026-04-30 | غير تشريعي |
+
+---
+
+### 🔑 أبرز الاستنتاجات الاستخباراتية
+
+**الاستنتاج الأول — معلم في مجال رعاية الحيوانات:** تُمثّل اللائحة `2023/0447(COD)` المتعلقة برفاه الكلاب والقطط أول أداة تشريعية خاصة بالحيوانات الأليفة على مستوى الاتحاد الأوروبي. أُنهيت المفاوضات الثلاثية الأطراف في يناير 2026 بعد مباحثات خلافية حول قواعد بيانات التتبع وجداول زمنية للوسم بالشرائح الدقيقة وأنظمة النقل عبر الحدود. تعكس مرحلة الإعداد التي امتدت 27 شهراً حدة التعارضات بين أصحاب المصلحة — من جمعيات صناعة الحيوانات الأليفة (المعارضة لتكاليف الشرائح الإجبارية) إلى منظمات رعاية الحيوان (المطالِبة بجداول تنفيذ أسرع). اعتمد المجلس العام النص النهائي في 2026-04-28 — وهو فوز في السمعة لـ Greens/EFA و S&D بوصفهما الداعمَين الرئيسيَّين لتشريع الحيوانات الأليفة داخل البرلمان.
+
+**الاستنتاج الثاني — إطار SRMR3 المصرفي:** أُنجزت النسخة الثالثة من لائحة آلية التسوية الموحدة (`2023/0111(COD)`) بعد 33 شهراً وثمانية جولات مفاوضات ثلاثية الأطراف بين المؤسسات — وهو أطول مسار تشريعي بين الإنجازات الأخيرة. تعيد اللائحة النظر في عتبات التدخل المبكر وإعادة الموضعة المسبقة لأموال التسوية وآليات شلالات المسؤولية للمصارف الأوروبية المقتربة من الإعسار. اتفقت EPP و S&D على الإطار، فيما ضغطت The Left و Greens/EFA (في معظمها دون نتيجة) من أجل حماية أقوى لتفضيل المودعين وعتبات أدنى لإنقاذ الدائنين. يعكس النص النهائي تسوية تُرجّح المرونة التشغيلية للبنك المركزي الأوروبي وهيئة التسوية الموحدة على حساب التوجيه البرلماني التفصيلي.
+
+**الاستنتاج الثالث — تطبيق قانون الأسواق الرقمية:** يعكس قرار INI المتعلق بتطبيق DMA (المعتمد في 2026-04-30) إحباط البرلمان من وتيرة التطبيق لدى المفوضية إزاء منصات التكنولوجيا الكبرى. القرار غير ملزم، لكنه يرسل إشارة ضغط سياسي لحمل المفوضية على الاستخدام الأكثر حزماً للمادة 26 (إجراءات عدم الامتثال). قادت Renew و Greens/EFA القرار؛ في حين أبدت EPP و ECR تحفظات على المبالغة في التنظيم الذي يُضرّ بالقدرة التنافسية.
+
+**الاستنتاج الرابع — ضمانة الاتحاد الأوروبي-ميركوسور الزراعية:** يبرز الإنجاز المتسارع خلال 3 أشهر لـ `2025/0322(COD)` (ضمانة زراعية ثنائية) بوصفه استثناءً إجرائياً لافتاً. يعكس هذا الجدول الزمني المتسارع — الإحالة في نوفمبر 2025، والنشر في الجريدة الرسمية في مارس 2026 — الإلحاح السياسي لتوفير آليات حماية ملموسة للمزارعين الأوروبيين قبيل دخول اتفاقية ميركوسور حيز التنفيذ. حرصت الدوائر الانتخابية لـ EPP و ECR (ولا سيما المزارعون الفرنسيون والبولنديون في البرلمان) على تأمين هذه الضمانة شرطاً مسبقاً لقبولهم المُتحفّظ للاتفاقية الشاملة بين الاتحاد الأوروبي وميركوسور.
+
+---
+
+### 📊 رياضيات الائتلاف (تشكيل الأغلبية)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**مسارات الائتلاف نحو أغلبية 360 مقعداً:**
+- EPP + S&D = 319 (غير كافٍ — يحتاج +41)
+- EPP + S&D + Renew = 396 ✅ (ائتلاف كبير وسطي)
+- EPP + PfE + ECR = 349 (غير كافٍ — يحتاج +11 إضافياً)
+- EPP + PfE + ECR + ESN = 376 ✅ (أغلبية محافظة يمينية ساحقة)
+- S&D + Renew + Greens/EFA + The Left = 311 (غير كافٍ — الكتلة التقدمية)
+
+---
+
+### ⚡ التداعيات الفورية
+
+1. **تظل وتيرة التشريع مقيدة بحسابات الائتلاف.** يستلزم برلمان التسع مجموعات تنسيقاً متواصلاً عبر الكتل لكل قطعة تشريعية. يعني الترتيب العملي غير الرسمي لـ EPP مع S&D (التشريعات الوسطية) ومع ECR/PfE (الملفات الأمنية والحدودية والصناعية) أن البناء الفعلي للأغلبية يعتمد اعتماداً كبيراً على المفاوضات الداخلية الأسبوعية لـ EPP.
+
+2. **تنتقل لائحة رفاه الحيوانات إلى مرحلة التنفيذ.** تتمتع الدول الأعضاء الآن بمدة 24 شهراً لإنشاء قواعد بيانات وطنية للشرائح الدقيقة والربط المتبادل مع السجل الأوروبي. ومن المتوقع أن تطرح المفوضية أعمالاً تفويضية بشأن معايير التتبع بحلول الربع الرابع من عام 2026.
+
+3. **يبدأ تنفيذ SRMR3 فوراً.** بدأت هيئة التسوية الموحدة بالفعل في تحديث إرشاداتها بشأن محفزات التدخل المبكر، ومن المتوقع صدور أول قوالب إخطارات رقابية معدّلة بحلول يونيو 2026.
+
+4. **يتصاعد الضغط بشأن تطبيق DMA.** يرفع القرار غير الملزم المتعلق بتطبيق DMA التكلفة السياسية لتقاعس المفوضية إزاء Apple و Meta و Google. من المتوقع تصاعد التدقيق في ملف المفوضية بموجب المادة 26 خلال جلسات الاستماع المقررة للجنة IMCO في يونيو 2026.
+
+5. **تحديث توجيه أجهزة القياس.** يُوائم التوجيه المحدَّث اشتراطات المعايرة الأوروبية مع تقنيات القياس الرقمية، مما يقلص تشتت الامتثال في السوق الداخلية.
+
+---
+
+### 🗓️ المعالم التشريعية القادمة
+
+| التاريخ المتوقع | الإجراء | الأهمية |
+|----------------|---------|--------|
+| الربع الثاني 2026 | الأعمال التفويضية للمفوضية بشأن SRMR3 | تنفيذ تسوية الأزمات المصرفية |
+| الربع الثالث 2026 | أعمال تنفيذية للمفوضية بشأن شفافية DMA | أدوات تطبيق DMA |
+| الربع الرابع 2026 | إطلاق سجل وطني لتتبع الحيوانات الأليفة | تنفيذ رفاه الحيوانات |
+| 2026–2027 | مناقشات الإطار المالي متعدد السنوات التالية | الإطار متعدد السنوات لما بعد 2028 |
+
+---
+
+### ✅ التقييم الشامل
+
+يُثبت دورة التشريع لربيع 2026 قدرة EP10 على إتمام مفاوضات متعددة السنوات بالغة التعقيد. النمط السائد هو هيمنة ائتلاف يمين الوسط (بقيادة EPP) مع الإشراك الانتقائي لـ S&D في الملفات الاجتماعية والمؤسسية عالية الأهمية. سيظل مؤشر التشتت البالغ 6.58 — من أعلى المستويات في تاريخ البرلمان الأوروبي — مصدراً لنتائج تصويتية غير متوقعة مع تصاعد المفاوضات حول ميزانية 2027 وإنفاق الأمن. **الموثوقية: 🟡 MEDIUM** (البيانات الهيكلية متينة؛ بيانات تماسك التصويت على مستوى الأفراد غير متاحة من واجهة برمجة تطبيقات البرلمان الأوروبي).
+
+---
+
+### 🏛️ استخبارات اللجان
+
+اللجان التالية هي الأكثر نشاطاً في المقترحات التشريعية المرصودة في هذا التحليل:
+
+| اللجنة | الملف الرئيسي | الدور | الحالة |
+|--------|--------------|-------|--------|
+| ECON | SRMR3 | المقرر الرئيسي | مكتمل (نشر في الجريدة الرسمية الربع الأول 2026) |
+| ENVI / AGRI | لائحة رفاه الحيوانات | قيادة مشتركة | مكتمل (نشر في الجريدة الرسمية الربع الأول 2026) |
+| LIBE | توجيه مكافحة الفساد | المقرر الرئيسي | مكتمل (نشر في الجريدة الرسمية الربع الأول 2026) |
+| INTA | ضمانة الاتحاد الأوروبي-ميركوسور | المقرر الرئيسي | مكتمل (نشر في الجريدة الرسمية الربع الأول 2026) |
+| IMCO | قرار تطبيق DMA | رئيسي | اعتمد البرلمان الأوروبي موقفه؛ تنفيذ المفوضية قيد الانتظار |
+| BUDG | الميزانية 2027 | رئيسي | مرحلة الإعداد؛ القراءات الأولى في الربع الثالث 2026 |
+
+---
+
+### 🔢 التحليل المعمّق لرياضيات الائتلاف
+
+عتبة أغلبية EP10: **360 من أصل 717 عضواً**
+
+| الائتلاف | المقاعد | النقص عن الأغلبية | الحكم |
+|---------|--------|-----------------|------|
+| EPP منفرداً | 183 | −177 | أقلية فقط |
+| EPP + S&D | 319 | −41 | غير كافٍ |
+| EPP + S&D + Renew | 437 | +77 | ✅ أغلبية بهامش مريح |
+| EPP + ECR + PfE | 375 | +15 | ✅ أغلبية الجناح الأيمن (هشة) |
+| S&D + Renew + Greens + Left | 234 | −126 | الكتلة التقدمية غير كافية |
+
+**الاستنتاج الهيكلي الجوهري:** تُعدّ EPP الفاعل المحوري الذي لا غنى عنه. لا تتوفر أي أغلبية رياضياً من دون EPP. ويُحدّد اختيار EPP لشركائها في الائتلاف التوجه التشريعي لـ EP10.
+
+يوفر الهامش الإضافي البالغ +77 للثلاثي الوسطي (EPP+S&D+Renew) تغطية أغلبية مريحة في التصويتات الخلافية حين يحدث بعض الانشقاق. في المقابل، تبقى أغلبية الجناح الأيمن (+15) أكثر هشاشة بكثير — إذ يكفي فقدان 8 مقاعد (ضمن نطاق التباين الطبيعي) لفقدان الأغلبية.
+
+---
+
+### 📊 اتجاه وتيرة التشريع (EP10)
+
+استناداً إلى 51 نصاً مُعتمداً منذ بداية عام 2026:
+
+```
+الربع الأول 2025: ~8 نصوص معتمدة (تقدير — EP10 يتثبت، لجان جديدة تتشكل)
+الربع الثاني 2025: ~10 نصوص معتمدة (تقدير — تراكم الملفات في خط الأنابيب)
+الربع الثالث 2025: ~8 نصوص معتمدة (تقدير — أثر استراحة الصيف)
+الربع الرابع 2025: ~12 نصاً معتمداً (تقدير — سباق الخريف)
+الربع الأول 2026: ~13 نصاً معتمداً (مؤكد من البيانات)
+```
+
+**تفسير الوتيرة:** يعمل EP10 بإنتاجية تشريعية أعلى من المتوسط بالنسبة لبرلمان في المرحلة الأولى إلى المتوسطة من عمره. يُشير استكمال عدة قرارات تشريعية كبرى (SRMR3، رفاه الحيوانات، مكافحة الفساد، ميركوسور) في الربع الزمني ذاته إما إلى كفاءة استثنائية للجان وإما إلى أن هذه الملفات كانت متراكمة في خط أنابيب EP9.
+
+---
+
+### 🎯 مؤشرات الأداء الرئيسية — الصحة التشريعية لـ EP10
+
+| المؤشر | القيمة | التقييم |
+|--------|--------|--------|
+| النصوص المعتمدة منذ مطلع العام (2026) | 51 | 🟢 HIGH — إنتاج قوي |
+| درجة الاستقرار السياسي | 84/100 | 🟢 HIGH |
+| العدد الفعلي للأحزاب | 6.58 | 🟡 MEDIUM تشتت |
+| حصة EPP من المقاعد | 25.5% | 🟡 مهيمنة لكن ليست أغلبية |
+| الفجوة الائتلافية نحو الأغلبية | 41 مقعداً (EPP+S&D) | 🟡 تحتاج طرفاً ثالثاً |
+| توافر بيانات IMF | 🔴 لا شيء | 🔴 فجوة حرجة |
+| بيانات التصويت الأخيرة | 🔴 لا شيء (تأخير 4–6 أسابيع) | 🟡 قيد هيكلي |
+
+---
+
+### 📌 ملخص استخباراتي: الأهم هذا الأسبوع
+
+1. **لا جلسة عامة للبرلمان الأوروبي هذا الأسبوع** (2026-05-11) — الجلسة العامة التالية متوقعة في الأسبوع الأخير من مايو 2026 في ستراسبورغ
+2. **مرحلة التنفيذ هي السائدة:** SRMR3 ورفاه الحيوانات ومكافحة الفساد وميركوسور كلها في مراحل النقل الوطني/الأعمال التنفيذية — النشاط السياسي الرئيسي يجري في الدول الأعضاء والمفوضية لا في البرلمان
+3. **مراقبة تطبيق DMA:** تلتزم المفوضية سياسياً بإطلاق إجراءات جديدة بموجب المادة 26 في أعقاب قرار البرلمان التطبيقي — غياب الإجراءات سيُثير أسئلة من أعضاء IMCO
+4. **يتمسك الائتلاف باستقراره عند درجة 84:** لم تُرصد أي إشارات انكسار وشيكة؛ الثلاثي EPP-S&D-Renew يعمل بصورة طبيعية
+5. **تبدأ الاستعدادات لميزانية 2027:** يُتوقع أن تشرع لجنة BUDG في نشاطات القراءة الأولى في الربع الثالث 2026 — اختبار ضغط محتمل لتماسك الائتلاف
+
+---
+
+### 🔭 النظرة المستقبلية لـ 30 يوماً
+
+| الفترة الزمنية | النشاط التشريعي المتوقع | الموثوقية |
+|--------------|----------------------|----------|
+| 26–30 مايو 2026 | الجلسة العامة في ستراسبورغ — تطبيق DMA، الميزانية 2027 الأولية | 🟢 HIGH |
+| يونيو 2026 | تقديم أعمال تفويضية (SRMR3)؛ احتمال مقترحات COD جديدة | 🟡 MEDIUM |
+| يوليو 2026 | بداية عطلة الصيف للبرلمان الأوروبي (عادةً منتصف يوليو)؛ نشاط تشريعي متقلص | 🟢 HIGH |
+| سبتمبر 2026 | انطلاق سباق التشريع ما بعد العطلة؛ الميزانية 2027 تدخل تحضيرات المصالحة | 🟢 HIGH |
+| أكتوبر 2026 | فترة التوفيق لميزانية 2027 (إذا تم الالتزام بالتقويم القياسي) | 🟡 MEDIUM |
+
+**نقاط المراقبة الجوهرية للجلسة العامة في ستراسبورغ 26–30 مايو:**
+- تطبيق DMA: هل ستُصدر المفوضية بياناً كتابياً رسمياً رداً على قرار البرلمان؟
+- ميركوسور: أي إعلان من المجلس حول الجدول الزمني للتطبيق المؤقت؟
+- رفاه الحيوانات: تحديث المفوضية بشأن إخطار الدول الأعضاء بتدابير التنفيذ الوطنية؟
+- الميزانية 2027: عرض لجنة BUDG لأولويات البرلمان للسنة المالية؟
+
+### Executive Brief Da
+
+### 🎯 Strategisk overblik
+
+Europa-Parlamentet navigerer en periode med intens lovgivningskonsolidering i foråret 2026. Ugerne om slutningen af april og begyndelsen af maj 2026 var præget af en tæt klynge af afgørende lovgivningsmæssige afslutninger, herunder den første større EU-retsakt om velfærd for selskabsdyr (`2023/0447(COD)`), et omstruktureret rammeværk for bankafvikling (`2023/0111(COD)` — SRMR3) samt et nyt direktiv mod korruption (`2023/0135(COD)`). Disse resultater afspejler Parlamentets evne til at drive komplekse trilogsforhandlinger til afslutning på trods af et højt parlamentarisk fragmenteringsindeks på 6,58 fordelt på ni politiske grupper.
+
+Det politiske landskab er strukturelt ustabilt for majoritetsopbygning. EPP, den største gruppe, besidder 25,52 % af mandaterne (183/717 MEP'er) — langt under de 360 stemmer, der kræves for absolut flertal. Storkoalitionsmatematikken kræver, at EPP kombineres med mindst to af S&D (136), PfE (85), ECR (81) eller Renew (77) for at vedtage lovgivning. Det tidlige varslingssystem markerer et MEDIUM risikoniveau med en stabilitetsscore på 84/100 og bemærker dominansrisikoen som følge af EPP's nitten gange størrelsesforskel i forhold til de mindste grupper.
+
+---
+
+### 📋 Vigtigste lovgivningsmæssige afslutninger (de seneste 30 dage)
+
+| Procedure | Titel | Vedtaget | Varighed |
+|-----------|-------|---------|---------|
+| `2023/0447(COD)` | Velfærd for hunde og katte og deres sporbarhed | 2026-04-28 | 27 måneder |
+| `2024/0311(COD)` | Ændring af direktivet om måleinstrumenter | 2026-02-10 | 15 måneder |
+| `2023/0111(COD)` | SRMR3 — Reform af rammen for bankafvikling | 2026-03-26 | 33 måneder |
+| `2023/0135(COD)` | Bekæmpelse af korruption | 2026-03-26 | ~30 måneder |
+| `2025/0322(COD)` | Bilateral sikkerhedsklausul for EU-Mercosur inden for landbrug | 2026-02-10 | 3 måneder (hurtigspor) |
+| `2026/2596(RSP)` | Håndhævelse af den digitale markedslov | 2026-04-30 | Ikke-lovgivende |
+
+---
+
+### 🔑 Vigtigste efterretningsfund
+
+**Fund 1 — Milepæl for dyrevelfærd:** Forordningen `2023/0447(COD)` om hunde- og katters velfærd udgør det første dedikerede EU-lovgivningsinstrument for selskabsdyr. Den endelige trilogs afsluttedes i januar 2026 efter kontroversielle forhandlinger om sporingsdatabaser, tidsfrister for mikrochipsmærkning og regler for grænseoverskridende transport. De 27 måneders tilblivelsesproces afspejler bredden af interessentkonflikterne — fra kæledyrsindustriens aktører (imod obligatoriske mikrochipsomkostninger) til dyrevelfærdsorganisationer (der krævede hurtigere gennemførelsestidsfrister). Plenarforsamlingen vedtog den endelige tekst den 2026-04-28 — en omdømmemæssig gevinst for Greens/EFA og S&D som de ledende fortalere for lovgivning om selskabsdyr i Parlamentet.
+
+**Fund 2 — SRMR3-bankrammen:** Den tredje iteration af forordningen om den fælles afviklingsmekanisme (`2023/0111(COD)`) blev afsluttet efter 33 måneder og otte interinstitutionelle trilogsrunder — den længste lovgivningsproces blandt de seneste afslutninger. Forordningen reviderer tærsklerne for tidlig intervention, forpositionering af afviklingsfonde og ansvarsvandfaldsmekanimerne for europæiske banker, der nærmer sig insolvens. EPP og S&D enedes om rammen, mens The Left og Greens/EFA pressede (stort set uden held) på for stærkere beskyttelse af indskyderpræferencer og lavere bail-in-tærsler. Den endelige tekst afspejler et kompromis, der vægter ECB's og SRB's operationelle fleksibilitet frem for parlamentarisk preskriptivitet.
+
+**Fund 3 — Håndhævelse af den digitale markedslov:** INI-resolutionen om DMA-håndhævelse (vedtaget 2026-04-30) afspejler Parlamentets frustration over Kommissionens håndhævelsestempo over for Big Tech-platforme. Resolutionen er ikke-bindende, men signalerer politisk pres for, at Kommissionen bruger artikel 26 (overtrædelsesprocedurer) mere aggressivt. Renew og Greens/EFA drev resolutionen igennem; EPP og ECR udtrykte forbehold over for regulatorisk overgreb, der hæmmer konkurrenceevnen.
+
+**Fund 4 — Landbrugsbeskyttelse EU-Mercosur:** Den fremskyndede gennemførelse på 3 måneder af `2025/0322(COD)` (bilateral landbrugsbeskyttelse) skiller sig ud som en proceduremæssig undtagelse. Denne accelererede tidslinje — henvendelse november 2025, EUT-offentliggørelse marts 2026 — afspejler politisk hast med at tilvejebringe konkrete beskyttelsesmekanismer for EU's landmænd forud for Mercosur-aftalens ikrafttrædelse. EPP's og ECR's valgkredse (særligt franske og polske landbrugs-MEP'er) sikrede denne beskyttelse som en forudsætning for deres modvillige accept af den bredere EU-Mercosur-aftale.
+
+---
+
+### 📊 Koalitionsmatematik (majoritetsopbygning)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**Koalitionsveje til 360-mandatsmajoritet:**
+- EPP + S&D = 319 (UTILSTRÆKKELIGT — mangler +41)
+- EPP + S&D + Renew = 396 ✅ (Centristisk storkoalition)
+- EPP + PfE + ECR = 349 (UTILSTRÆKKELIGT — mangler +11 mere)
+- EPP + PfE + ECR + ESN = 376 ✅ (Højre-konservativt superflertal)
+- S&D + Renew + Greens/EFA + The Left = 311 (UTILSTRÆKKELIGT — progressivt blok)
+
+---
+
+### ⚡ Umiddelbare konsekvenser
+
+1. **Lovgivningstakten er fortsat begrænset af koalitionsaritmik.** Ni-gruppeparlamentet kræver vedvarende koordinering på tværs af blokke for hver enkelt lovgivningsakt. EPP's uformelle samarbejdsarrangement med både S&D (centristisk lovgivning) og med ECR/PfE (sikkerheds-, grænse- og industrifiler) betyder, at effektiv majoritetsopbygning i høj grad afhænger af EPP's ugentlige interne forhandlinger.
+
+2. **Forordningen om dyrevelfærd indgår i gennemførelsesfasen.** Medlemsstaterne har nu 24 måneder til at oprette nationale mikrochipsdatabaser og krydsreferere med EU's register. Kommissionen forventes at fremsætte delegerede retsakter om sporbarhedsstandarder senest i kvartal 4 2026.
+
+3. **SRMR3-implementeringen starter straks.** Single Resolution Board er allerede begyndt at opdatere sine retningslinjer for tidlige indgrebstriggers, og de første reviderede tilsynsmeddelskabeloner forventes senest juni 2026.
+
+4. **Presset om DMA-håndhævelse intensiveres.** Den ikke-bindende resolution om DMA-håndhævelse øger den politiske omkostning for Kommissionens passivitet over for Apple, Meta og Google. Forvent skærpet granskning af Kommissionens sagsmængde under artikel 26 ved IMCO-udvalgets høringer planlagt til juni 2026.
+
+5. **Modernisering af direktivet om måleinstrumenter.** Det opdaterede direktiv tilpasser EU's kalibreringsregler til digitale måleteknologier og reducerer efterlevsesfragmenteringen på det indre marked.
+
+---
+
+### 🗓️ Kommende lovgivningsmilepæle
+
+| Forventet dato | Procedure | Betydning |
+|----------------|-----------|-----------|
+| K2 2026 | Kommissionens delegerede retsakter om SRMR3 | Implementering af bankafvikling |
+| K3 2026 | Kommissionens gennemførelsesretsakter om DMA-gennemsigtighed | DMA-håndhævelsesværktøjer |
+| K4 2026 | Lancering af nationalt register for sporbarhed af kæledyr | Implementering af dyrevelfærd |
+| 2026–2027 | Næste MFF-drøftelser | Flerårig ramme for 2028+ |
+
+---
+
+### ✅ Samlet vurdering
+
+Forårssæsonens 2026 lovgivningscyklus demonstrerer EP10's evne til at afslutte komplekse flerårige forhandlinger. Det dominerende mønster er center-højre-koalitionsdominans (EPP i front) med selektiv inddragelse af S&D i højprofilerede sociale og institutionelle sager. Fragmenteringsindekset på 6,58 — blandt de højeste i EP's historie — vil fortsat generere uforudsigelige plenumuldfald, efterhånden som forhandlingerne om budget 2027 og sikkerhedsudgifter intensiveres. **Troværdighed: 🟡 MEDIUM** (strukturelle data solide; data om kohesion på afstemningsniveau er ikke tilgængelige fra EP's API).
+
+---
+
+### 🏛️ Udvalgsefterretning
+
+Følgende EP-udvalg er mest aktive i de lovgivningsforslag, der spores i denne analyse:
+
+| Udvalg | Primær fil | Rolle | Status |
+|--------|------------|-------|--------|
+| ECON | SRMR3 | Ledende ordfører | Afsluttet (EUT-offentliggørelse K1 2026) |
+| ENVI / AGRI | Forordning om dyrevelfærd | Fælles ledende | Afsluttet (EUT-offentliggørelse K1 2026) |
+| LIBE | Direktiv mod korruption | Ledende ordfører | Afsluttet (EUT-offentliggørelse K1 2026) |
+| INTA | EU-Mercosur-beskyttelse | Ledende ordfører | Afsluttet (EUT-offentliggørelse K1 2026) |
+| IMCO | DMA-håndhævelsesresolution | Ledende | EP-holdning vedtaget; Kommissionens gennemførelse afventer |
+| BUDG | Budget 2027 | Ledende | Forberedelsesphase; første behandlinger K3 2026 |
+
+---
+
+### 🔢 Dybdegående analyse af koalitionsaritmik
+
+EP10's majoritetstærskel: **360 af 717 MEP'er**
+
+| Koalition | Mandater | Mangler til flertal | Konklusion |
+|-----------|----------|---------------------|-----------|
+| EPP alene | 183 | −177 | Kun minoritet |
+| EPP + S&D | 319 | −41 | Utilstrækkeligt |
+| EPP + S&D + Renew | 437 | +77 | ✅ Flertal med buffer |
+| EPP + ECR + PfE | 375 | +15 | ✅ Højreflanksflertal (snævert) |
+| S&D + Renew + Greens + Left | 234 | −126 | Progressivt blok utilstrækkeligt |
+
+**Vigtig strukturel indsigt:** EPP er den uundværlige pivotaktør. Intet flertal er matematisk muligt uden EPP. EPP's valg af koalitionspartnere bestemmer EP10's lovgivningsmæssige retning.
+
++77-bufferen fra det centristiske tripartit (EPP+S&D+Renew) giver komfortabel majoritetsdækning ved kontroversielle afstemninger, hvor noget frafald forekommer. Højreflanksflertallet (+15) er langt mere skrøbeligt — et bortfald på 8 mandater (inden for normal variation) ville miste flertallet.
+
+---
+
+### 📊 Trend for lovgivningstakt (EP10)
+
+Baseret på 51 vedtagne tekster hidtil i 2026:
+
+```
+K1 2025: ~8 vedtagne tekster (skøn — EP10 stabiliseres, nye udvalg formes)
+K2 2025: ~10 vedtagne tekster (skøn — pipeline opbygges)
+K3 2025: ~8 vedtagne tekster (skøn — sommerrecess effekt)
+K4 2025: ~12 vedtagne tekster (skøn — efterårssprint)
+K1 2026: ~13 vedtagne tekster (bekræftet fra data)
+```
+
+**Taktfortolkning:** EP10 opererer med over gennemsnitlig lovgivningsproduktivitet for et tidlig-til-midtvejsparlament. Afslutningen af adskillige store COD'er (SRMR3, dyrevelfærd, anti-korruption, Mercosur) i samme kvartal tyder enten på exceptionel udvalgseffektivitet eller på, at disse sager befandt sig i pipeline fra EP9.
+
+---
+
+### 🎯 Nøgleindikatorer — EP10's lovgivningsmæssige sundhed
+
+| KPI | Værdi | Vurdering |
+|-----|-------|-----------|
+| Vedtagne tekster hidtil (2026) | 51 | 🟢 HIGH — stærk produktion |
+| Politisk stabilitetsscore | 84/100 | 🟢 HIGH |
+| Effektivt antal partier | 6,58 | 🟡 MEDIUM fragmentering |
+| EPP's mandatandel | 25,5 % | 🟡 Dominerende men ikke flertal |
+| Koalitionsgab til flertal | 41 mandater (EPP+S&D) | 🟡 Kræver tredjepart |
+| IMF-datatilgængelighed | 🔴 INGEN | 🔴 Kritisk manko |
+| Seneste afstemningsdata | 🔴 INGEN (4–6 ugers forsinkelse) | 🟡 Strukturel begrænsning |
+
+---
+
+### 📌 Efterretningssammendrag: Hvad betyder mest denne uge
+
+1. **Ingen EP-plenarforsamling denne uge** (2026-05-11) — næste plenum forventes i den sidste uge af maj 2026 i Strasbourg
+2. **Implementeringsfasen dominerer:** SRMR3, dyrevelfærd, anti-korruption og Mercosur befinder sig alle i faserne for national transposition/gennemførelsesretsakter — den vigtigste politiske aktivitet sker i Medlemsstater og Kommissionen, ikke i Parlamentet
+3. **DMA-håndhævelsesovervågning:** Kommissionen har en politisk forpligtelse til at indlede nye artikel 26-procedurer efter Parlamentets håndhævelsesresolution — fravær af handling vil udløse spørgsmål fra IMCO-MEP'er
+4. **Koalitionsstabilitet holder ved 84:** Ingen umiddelbare brudssignaler detekteret; EPP-S&D-Renew-tripartitet fungerer
+5. **Budgetforberedelse 2027 begynder:** BUDG-udvalgets førstebehandlingsaktivitet forventes K3 2026 — potentiel stresstest for koalitionskohæsion
+
+---
+
+### 🔭 30-dages fremadrettet perspektiv
+
+| Datointerval | Forventet lovgivningsaktivitet | Troværdighed |
+|-------------|-------------------------------|-------------|
+| 26.–30. maj 2026 | Strasbourg-plenum — DMA-håndhævelse, budget 2027 foreløbigt | 🟢 HIGH |
+| Juni 2026 | Kommissionens delegerede retsakter (SRMR3) fremsat; mulige nye COD-forslag | 🟡 MEDIUM |
+| Juli 2026 | EP's sommerrecess begynder (typisk medio juli); reduceret lovgivningsaktivitet | 🟢 HIGH |
+| September 2026 | Post-recess lovgivningssprint begynder; Budget 2027 indleder forligsforberedelse | 🟢 HIGH |
+| Oktober 2026 | Forligsperiode for budget 2027 (hvis standardkalenderen fastholdes) | 🟡 MEDIUM |
+
+**Vigtige overvågningspunkter for Strasbourg-plenummet 26.–30. maj:**
+- DMA-håndhævelse: Vil Kommissionen afgive et formelt skriftligt svar på Parlamentets resolution?
+- Mercosur: Nogen rådsmeddelelse om tidslinjen for foreløbig anvendelse?
+- Dyrevelfærd: Kommissionens opdatering om Medlemsstaternes anmeldelse af nationale gennemførelsesforanstaltninger?
+- Budget 2027: BUDG-udvalgets præsentation af Parlamentets prioriteter for budgetåret?
+
+### Executive Brief De
+
+### 🎯 Strategischer Überblick
+
+Das Europäische Parlament navigiert im Frühjahr 2026 eine Phase intensiver Gesetzgebungskonsolidierung. Die Wochen um Ende April und Anfang Mai 2026 waren durch eine dichte Häufung wegweisender Gesetzgebungsabschlüsse geprägt, darunter der erste bedeutende EU-Akt zum Wohlergehen von Heimtieren (`2023/0447(COD)`), ein umstrukturierter Rahmen für die Bankenabwicklung (`2023/0111(COD)` — SRMR3) sowie eine neue Antikorruptionsrichtlinie (`2023/0135(COD)`). Diese Ergebnisse spiegeln die Fähigkeit des Parlaments wider, komplexe Trilog-Verhandlungen trotz des hohen parlamentarischen Fragmentierungsindex von 6,58 über neun politische Gruppen hinweg zu einem Abschluss zu führen.
+
+Die politische Landschaft ist für die Mehrheitsbildung strukturell instabil. Die EPP, die größte Gruppe, hält 25,52 % der Sitze (183/717 MdEP) — weit unter dem erforderlichen Schwellenwert von 360 für eine absolute Mehrheit. Die Koalitionsmathematik für eine große Koalition erfordert, dass die EPP mit mindestens zwei aus S&D (136), PfE (85), ECR (81) oder Renew (77) kombiniert wird, um Rechtsakte zu verabschieden. Das Frühwarnsystem meldet ein MEDIUM-Risikoniveau mit einem Stabilitätswert von 84/100 und verweist auf das Dominanzrisiko durch den 19-fachen Größenvorteil der EPP gegenüber den kleinsten Gruppen.
+
+---
+
+### 📋 Wichtigste Gesetzgebungsabschlüsse (letzte 30 Tage)
+
+| Verfahren | Titel | Verabschiedet | Dauer |
+|-----------|-------|--------------|-------|
+| `2023/0447(COD)` | Wohlergehen von Hunden und Katzen und deren Rückverfolgbarkeit | 2026-04-28 | 27 Monate |
+| `2024/0311(COD)` | Änderung der Messgeräterichtlinie | 2026-02-10 | 15 Monate |
+| `2023/0111(COD)` | SRMR3 — Reform des Bankenabwicklungsrahmens | 2026-03-26 | 33 Monate |
+| `2023/0135(COD)` | Bekämpfung von Korruption | 2026-03-26 | ~30 Monate |
+| `2025/0322(COD)` | EU-Mercosur bilaterale Schutzklausel für die Landwirtschaft | 2026-02-10 | 3 Monate (Schnellverfahren) |
+| `2026/2596(RSP)` | Durchsetzung des Gesetzes über digitale Märkte | 2026-04-30 | Nicht legislativ |
+
+---
+
+### 🔑 Wichtigste Geheimdiensterkenntnisse
+
+**Erkenntnis 1 — Meilenstein für Tierwohl:** Die Verordnung `2023/0447(COD)` über das Wohlergehen von Hunden und Katzen stellt das erste eigenständige EU-Rechtsinstrument für Heimtiere dar. Der abschließende Trilog wurde im Januar 2026 nach kontroversen Verhandlungen über Rückverfolgbarkeitsdatenbanken, Zeitpläne für die Mikrochip-Kennzeichnung und grenzüberschreitende Transportvorschriften abgeschlossen. Die 27-monatige Entstehungszeit spiegelt die Breite der Interessenkonflikte wider — von Heimtierbranchenverbänden (gegen Pflichtkosten für Mikrochips) bis hin zu Tierschutzorganisationen (die schnellere Umsetzungszeitpläne forderten). Das Plenum verabschiedete den endgültigen Text am 2026-04-28 — ein Reputationsgewinn für Greens/EFA und S&D als führende Befürworter der Heimtiergesetzgebung im Parlament.
+
+**Erkenntnis 2 — SRMR3-Bankenrahmen:** Die dritte Iteration der Verordnung über den Einheitlichen Abwicklungsmechanismus (`2023/0111(COD)`) wurde nach 33 Monaten und acht interinstitutionellen Trilogs abgeschlossen — der längste Gesetzgebungsweg unter den jüngsten Abschlüssen. Die Verordnung überarbeitet die Schwellenwerte für Frühinterventionen, die Vorpositionierung von Abwicklungsmitteln und die Haftungswasserfall-Mechanismen für europäische Banken, die sich der Insolvenz nähern. EPP und S&D einigten sich auf den Rahmen, während The Left und Greens/EFA (weitgehend erfolglos) auf stärkeren Einlegerschutz und niedrigere Bail-in-Schwellen drängten. Der endgültige Text spiegelt einen Kompromiss wider, der die operative Flexibilität von EZB und SRB gegenüber parlamentarischer Normierung bevorzugt.
+
+**Erkenntnis 3 — Durchsetzung des Gesetzes über digitale Märkte:** Die INI-Entschließung zur DMA-Durchsetzung (verabschiedet 2026-04-30) spiegelt die Frustration des Parlaments über das Durchsetzungstempo der Kommission gegenüber Big Tech-Plattformen wider. Die Entschließung ist nicht bindend, signalisiert jedoch politischen Druck auf die Kommission, Artikel 26 (Nichtkonformitätsverfahren) aggressiver einzusetzen. Renew und Greens/EFA trieben die Entschließung voran; EPP und ECR äußerten Vorbehalte gegen regulatorischen Übereifer, der die Wettbewerbsfähigkeit beeinträchtige.
+
+**Erkenntnis 4 — EU-Mercosur Agrarschutzklausel:** Die beschleunigte 3-Monats-Umsetzung von `2025/0322(COD)` (bilaterale Agrarschutzklausel) sticht als verfahrensmäßige Ausnahme hervor. Diese beschleunigte Zeitlinie — Überweisung November 2025, ABl.-Veröffentlichung März 2026 — spiegelt politische Dringlichkeit wider, konkrete Schutzmechanismen für EU-Landwirte vor dem Inkrafttreten des Mercosur-Abkommens bereitzustellen. EPP- und ECR-Wahlkreise (insbesondere französische und polnische Landwirtschafts-MdEP) sicherten diese Schutzklausel als Vorbedingung für ihre widerwillige Akzeptanz des breiteren EU-Mercosur-Abkommens.
+
+---
+
+### 📊 Koalitionsmathematik (Mehrheitsbildung)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**Koalitionswege zur 360-Sitze-Mehrheit:**
+- EPP + S&D = 319 (UNZUREICHEND — benötigt +41)
+- EPP + S&D + Renew = 396 ✅ (Zentristische Große Koalition)
+- EPP + PfE + ECR = 349 (UNZUREICHEND — benötigt +11 mehr)
+- EPP + PfE + ECR + ESN = 376 ✅ (Rechts-konservative Supermehrheit)
+- S&D + Renew + Greens/EFA + The Left = 311 (UNZUREICHEND — progressiver Block)
+
+---
+
+### ⚡ Unmittelbare Folgen
+
+1. **Die Gesetzgebungsgeschwindigkeit bleibt durch die Koalitionsarithmetik begrenzt.** Das Neun-Gruppen-Parlament erfordert für jeden Rechtsakt eine nachhaltige Koordination zwischen den Blöcken. Die informelle Zusammenarbeit der EPP sowohl mit S&D (zentristische Gesetzgebung) als auch mit ECR/PfE (Sicherheits-, Grenz- und Industriedossiers) bedeutet, dass eine wirksame Mehrheitsbildung in hohem Maße von den wöchentlichen internen Verhandlungen der EPP abhängt.
+
+2. **Die Tierschutzverordnung tritt in die Umsetzungsphase ein.** Die Mitgliedstaaten haben nun 24 Monate Zeit, nationale Mikrochip-Datenbanken einzurichten und mit dem EU-weiten Register zu verknüpfen. Die Kommission soll bis Q4 2026 delegierte Rechtsakte zu Rückverfolgbarkeitsstandards vorlegen.
+
+3. **Die SRMR3-Umsetzung beginnt sofort.** Das Einheitliche Abwicklungsgremium hat bereits begonnen, seine Leitlinien zu Frühinterventions-Auslösern zu aktualisieren; die ersten überarbeiteten Aufsichtsmeldungsvorlagen werden bis Juni 2026 erwartet.
+
+4. **Der DMA-Durchsetzungsdruck steigt.** Die nicht bindende Entschließung zur DMA-Durchsetzung erhöht die politischen Kosten für die Untätigkeit der Kommission gegenüber Apple, Meta und Google. Bei den für Juni 2026 geplanten IMCO-Ausschussanhörungen ist mit verstärkter Prüfung der Fallzahlen der Kommission nach Artikel 26 zu rechnen.
+
+5. **Modernisierung der Messgeräterichtlinie.** Die aktualisierte Richtlinie passt die EU-Kalibrierungsanforderungen an digitale Messtechnologien an und verringert die Compliance-Fragmentierung im Binnenmarkt.
+
+---
+
+### 🗓️ Bevorstehende Gesetzgebungsmeilensteine
+
+| Erwartetes Datum | Verfahren | Bedeutung |
+|-----------------|-----------|-----------|
+| Q2 2026 | Delegierte Rechtsakte der Kommission zu SRMR3 | Umsetzung der Bankenabwicklung |
+| Q3 2026 | Durchführungsrechtsakte der Kommission zur DMA-Transparenz | DMA-Durchsetzungsinstrumente |
+| Q4 2026 | Einführung des nationalen Heimtier-Rückverfolgbarkeitsregisters | Umsetzung des Tierwohls |
+| 2026–2027 | Nächste MFF-Diskussionen | Mehrjähriger Rahmen für 2028+ |
+
+---
+
+### ✅ Gesamtbewertung
+
+Der Frühjahrs-Gesetzgebungszyklus 2026 belegt die Fähigkeit des EP10, komplexe mehrjährige Verhandlungen abzuschließen. Das dominante Muster ist die Dominanz der Mitte-rechts-Koalition (EPP an der Spitze) mit selektiver Einbeziehung der S&D bei hochkarätigen sozialen und institutionellen Dossiers. Der Fragmentierungsindex von 6,58 — einer der höchsten in der EP-Geschichte — wird weiterhin unvorhersehbare Abstimmungsergebnisse erzeugen, da sich die Verhandlungen über den Haushalt 2027 und Sicherheitsausgaben intensivieren. **Zuverlässigkeit: 🟡 MEDIUM** (strukturelle Daten solide; Abstimmungskohäsionsdaten auf Einzelebene nicht über EP-API verfügbar).
+
+---
+
+### 🏛️ Ausschusserkenntnisse
+
+Folgende EP-Ausschüsse sind in den in dieser Analyse verfolgten Gesetzgebungsvorschlägen am aktivsten:
+
+| Ausschuss | Primäres Dossier | Rolle | Status |
+|-----------|-----------------|-------|--------|
+| ECON | SRMR3 | Federführender Berichterstatter | Abgeschlossen (ABl.-Veröffentlichung Q1 2026) |
+| ENVI / AGRI | Tierschutzverordnung | Gemeinsame Federführung | Abgeschlossen (ABl.-Veröffentlichung Q1 2026) |
+| LIBE | Antikorruptionsrichtlinie | Federführender Berichterstatter | Abgeschlossen (ABl.-Veröffentlichung Q1 2026) |
+| INTA | EU-Mercosur-Schutzklausel | Federführender Berichterstatter | Abgeschlossen (ABl.-Veröffentlichung Q1 2026) |
+| IMCO | DMA-Durchsetzungsentschließung | Federführend | EP-Standpunkt verabschiedet; Kommissionsumsetzung ausstehend |
+| BUDG | Haushalt 2027 | Federführend | Vorbereitungsphase; erste Lesungen Q3 2026 |
+
+---
+
+### 🔢 Vertiefte Analyse der Koalitionsarithmetik
+
+Mehrheitsschwelle des EP10: **360 von 717 MdEP**
+
+| Koalition | Sitze | Sitze unter Mehrheit | Urteil |
+|-----------|-------|---------------------|--------|
+| EPP allein | 183 | −177 | Nur Minderheit |
+| EPP + S&D | 319 | −41 | Unzureichend |
+| EPP + S&D + Renew | 437 | +77 | ✅ Mehrheit mit Puffer |
+| EPP + ECR + PfE | 375 | +15 | ✅ Rechtsflankenmehrheit (knapp) |
+| S&D + Renew + Greens + Left | 234 | −126 | Progressiver Block unzureichend |
+
+**Wichtige strukturelle Erkenntnis:** Die EPP ist der unverzichtbare Dreh- und Angelpunkt. Keine Mehrheit ist mathematisch ohne EPP möglich. Die Wahl der Koalitionspartner durch die EPP bestimmt die Gesetzgebungsrichtung des EP10.
+
+Der Puffer von +77 des zentristischen Dreiparteienbündnisses (EPP+S&D+Renew) bietet eine komfortable Mehrheitsabdeckung bei umstrittenen Abstimmungen, bei denen einige Abweichler auftreten. Die Rechtsflankenmehrheit (+15) ist weitaus fragiler — ein Sitzverlust von 8 (innerhalb der normalen Varianz) würde die Mehrheit gefährden.
+
+---
+
+### 📊 Trend der Gesetzgebungsgeschwindigkeit (EP10)
+
+Basierend auf 51 bisher im Jahr 2026 verabschiedeten Texten:
+
+```
+Q1 2025: ~8 verabschiedete Texte (Schätzung — EP10 stabilisiert sich, neue Ausschüsse bilden sich)
+Q2 2025: ~10 verabschiedete Texte (Schätzung — Pipeline baut sich auf)
+Q3 2025: ~8 verabschiedete Texte (Schätzung — Auswirkung der Sommerpause)
+Q4 2025: ~12 verabschiedete Texte (Schätzung — Herbst-Sprint)
+Q1 2026: ~13 verabschiedete Texte (aus Daten bestätigt)
+```
+
+**Interpretation der Geschwindigkeit:** Das EP10 arbeitet mit überdurchschnittlicher Gesetzgebungsproduktivität für ein Parlament in der frühen bis mittleren Amtszeit. Der Abschluss mehrerer großer CODs (SRMR3, Tierwohl, Antikorruption, Mercosur) im selben Quartal deutet entweder auf außergewöhnliche Ausschusseffizienz hin oder darauf, dass sich diese Dossiers bereits aus EP9 in der Pipeline befanden.
+
+---
+
+### 🎯 Leistungskennzahlen — Gesetzgebungsgesundheit des EP10
+
+| KPI | Wert | Bewertung |
+|-----|------|-----------|
+| Verabschiedete Texte YTD (2026) | 51 | 🟢 HIGH — starke Leistung |
+| Politischer Stabilitätswert | 84/100 | 🟢 HIGH |
+| Effektive Anzahl der Parteien | 6,58 | 🟡 MEDIUM Fragmentierung |
+| EPP-Sitzanteil | 25,5 % | 🟡 Dominant, aber keine Mehrheit |
+| Koalitionslücke zur Mehrheit | 41 Sitze (EPP+S&D) | 🟡 Dritte Partei erforderlich |
+| IMF-Datenverfügbarkeit | 🔴 KEINE | 🔴 Kritische Lücke |
+| Aktuelle Abstimmungsdaten | 🔴 KEINE (4–6 Wochen Verzögerung) | 🟡 Strukturelle Einschränkung |
+
+---
+
+### 📌 Geheimdienstzusammenfassung: Was diese Woche am wichtigsten ist
+
+1. **Keine EP-Plenarsitzung diese Woche** (2026-05-11) — nächstes Plenum wird in der letzten Maiwoche 2026 in Straßburg erwartet
+2. **Umsetzungsphase dominiert:** SRMR3, Tierwohl, Antikorruption und Mercosur befinden sich alle in den Phasen der nationalen Transposition/Durchführungsrechtsakte — die wichtigsten politischen Aktivitäten finden in den Mitgliedstaaten und der Kommission statt, nicht im Parlament
+3. **DMA-Durchsetzungsbeobachtung:** Die Kommission hat eine politische Verpflichtung, nach der Durchsetzungsentschließung des Parlaments neue Artikel-26-Verfahren einzuleiten — das Ausbleiben von Maßnahmen wird Fragen von IMCO-MdEP auslösen
+4. **Koalitionsstabilität hält bei 84:** Keine unmittelbaren Bruchsignale erkannt; EPP-S&D-Renew-Dreiparteienbündnis funktioniert
+5. **Haushaltsvorbereitung 2027 beginnt:** Erste Lesungsaktivität des BUDG-Ausschusses wird für Q3 2026 erwartet — möglicher Stresstest für die Koalitionskohäsion
+
+---
+
+### 🔭 30-Tage-Ausblick
+
+| Zeitraum | Erwartete Gesetzgebungsaktivität | Zuverlässigkeit |
+|---------|----------------------------------|----------------|
+| 26.–30. Mai 2026 | Straßburger Plenum — DMA-Durchsetzung, Haushalt 2027 vorläufig | 🟢 HIGH |
+| Juni 2026 | Delegierte Rechtsakte der Kommission (SRMR3) vorgelegt; mögliche neue COD-Vorschläge | 🟡 MEDIUM |
+| Juli 2026 | EP-Sommerpause beginnt (typischerweise Mitte Juli); reduzierte Gesetzgebungsaktivität | 🟢 HIGH |
+| September 2026 | Post-Pausen-Gesetzgebungssprint beginnt; Haushalt 2027 tritt in Vermittlungsvorbereitung ein | 🟢 HIGH |
+| Oktober 2026 | Vermittlungsperiode für Haushalt 2027 (bei Beibehaltung des Standardkalenders) | 🟡 MEDIUM |
+
+**Wichtige Beobachtungspunkte für das Straßburger Plenum 26.–30. Mai:**
+- DMA-Durchsetzung: Wird die Kommission eine formelle schriftliche Stellungnahme zur Parlamentsentschließung abgeben?
+- Mercosur: Ratsankündigung zum Zeitplan für die vorläufige Anwendung?
+- Tierwohl: Aktualisierung der Kommission zu den Mitteilungen der Mitgliedstaaten über nationale Durchführungsmaßnahmen?
+- Haushalt 2027: Präsentation der Prioritäten des Parlaments für das Haushaltsjahr durch den BUDG-Ausschuss?
+
+### Executive Brief Es
+
+### 🎯 Visión estratégica
+
+El Parlamento Europeo atraviesa un período de intensa consolidación legislativa en la primavera de 2026. Las semanas que abarcan finales de abril y principios de mayo de 2026 presenciaron un denso cúmulo de conclusiones legislativas emblemáticas, entre ellas el primer gran acto de la UE sobre el bienestar de los animales de compañía (`2023/0447(COD)`), un marco reestructurado para la resolución bancaria (`2023/0111(COD)` — SRMR3) y una nueva directiva anticorrupción (`2023/0135(COD)`). Estos logros reflejan la capacidad del Parlamento para llevar a término complejas negociaciones en trílogo a pesar del elevado índice de fragmentación parlamentaria de 6,58 repartido en nueve grupos políticos.
+
+El panorama político es estructuralmente inestable para la formación de mayorías. El PPE, el grupo más numeroso, cuenta con el 25,52 % de los escaños (183/717 eurodiputados) — muy por debajo del umbral de 360 requerido para la mayoría absoluta. La matemática de la gran coalición exige que el PPE se asocie con al menos dos de S&D (136), PfE (85), ECR (81) o Renew (77) para aprobar legislación. El sistema de alerta temprana señala un nivel de riesgo MEDIUM con una puntuación de estabilidad de 84/100, advirtiendo del riesgo de dominancia derivado de la ventaja de tamaño diecinueve veces superior del PPE sobre los grupos más pequeños.
+
+---
+
+### 📋 Principales conclusiones legislativas (últimos 30 días)
+
+| Procedimiento | Título | Adoptado | Duración |
+|--------------|--------|---------|---------|
+| `2023/0447(COD)` | Bienestar de perros y gatos y su trazabilidad | 2026-04-28 | 27 meses |
+| `2024/0311(COD)` | Modificación de la Directiva sobre instrumentos de medición | 2026-02-10 | 15 meses |
+| `2023/0111(COD)` | SRMR3 — Reforma del marco de resolución bancaria | 2026-03-26 | 33 meses |
+| `2023/0135(COD)` | Lucha contra la corrupción | 2026-03-26 | ~30 meses |
+| `2025/0322(COD)` | Cláusula de salvaguardia bilateral UE-Mercosur para la agricultura | 2026-02-10 | 3 meses (tramitación acelerada) |
+| `2026/2596(RSP)` | Aplicación del Reglamento de Mercados Digitales | 2026-04-30 | No legislativo |
+
+---
+
+### 🔑 Principales hallazgos de inteligencia
+
+**Hallazgo 1 — Hito para el bienestar animal:** El reglamento `2023/0447(COD)` sobre el bienestar de perros y gatos constituye el primer instrumento legislativo de la UE dedicado específicamente a los animales de compañía. El trílogo final concluyó en enero de 2026 tras controvertidas negociaciones sobre bases de datos de trazabilidad, plazos para el microchipado y normas de transporte transfronterizo. La gestación de 27 meses refleja la amplitud de los conflictos entre partes interesadas — desde asociaciones del sector de las mascotas (en contra de los costes obligatorios del microchipado) hasta organizaciones de bienestar animal (que exigían plazos de aplicación más rápidos). El pleno adoptó el texto definitivo el 2026-04-28 — un éxito reputacional para Greens/EFA y S&D como principales defensores de la legislación sobre animales de compañía en el Parlamento.
+
+**Hallazgo 2 — Marco bancario SRMR3:** La tercera iteración del Reglamento sobre el Mecanismo Único de Resolución (`2023/0111(COD)`) se completó tras 33 meses y ocho trílogos interinstitucionales — el proceso legislativo más largo entre las conclusiones recientes. El reglamento revisa los umbrales de intervención temprana, el preposicionamiento de los fondos de resolución y los mecanismos de cascada de responsabilidad para los bancos europeos que se aproximan a la insolvencia. El PPE y S&D acordaron el marco, mientras que The Left y Greens/EFA presionaron (en gran medida sin éxito) a favor de una mayor protección de los preferentes de depositantes y umbrales de bail-in más bajos. El texto definitivo refleja un compromiso que favorece la flexibilidad operativa del BCE y la JUR frente a la prescriptividad parlamentaria.
+
+**Hallazgo 3 — Aplicación del Reglamento de Mercados Digitales:** La resolución INI sobre la aplicación del DMA (adoptada el 2026-04-30) refleja la frustración del Parlamento ante el ritmo de aplicación de la Comisión frente a las grandes plataformas tecnológicas. La resolución no es vinculante, pero señala la presión política para que la Comisión utilice el artículo 26 (procedimientos de incumplimiento) de forma más agresiva. Renew y Greens/EFA impulsaron la resolución; el PPE y el ECR expresaron reservas sobre la regulación excesiva que podría perjudicar la competitividad.
+
+**Hallazgo 4 — Salvaguardia agrícola UE-Mercosur:** La rápida tramitación en 3 meses de `2025/0322(COD)` (salvaguardia agrícola bilateral) destaca como una excepción procedimental. Este calendario acelerado — remisión en noviembre de 2025, publicación en el DO en marzo de 2026 — refleja la urgencia política de proporcionar mecanismos de protección concretos a los agricultores de la UE antes de la entrada en vigor del acuerdo Mercosur. Las circunscripciones del PPE y el ECR (especialmente los eurodiputados agrícolas franceses y polacos) aseguraron esta salvaguardia como condición previa para su reticente aceptación del acuerdo UE-Mercosur en su conjunto.
+
+---
+
+### 📊 Matemáticas de coalición (formación de mayoría)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**Vías de coalición hacia la mayoría de 360 escaños:**
+- PPE + S&D = 319 (INSUFICIENTE — necesita +41)
+- PPE + S&D + Renew = 396 ✅ (Gran coalición centrista)
+- PPE + PfE + ECR = 349 (INSUFICIENTE — necesita +11 más)
+- PPE + PfE + ECR + ESN = 376 ✅ (Supermayoría conservadora de derechas)
+- S&D + Renew + Greens/EFA + The Left = 311 (INSUFICIENTE — bloque progresista)
+
+---
+
+### ⚡ Implicaciones inmediatas
+
+1. **La velocidad legislativa sigue estando restringida por la aritmética de coalición.** El parlamento de nueve grupos requiere una coordinación sostenida entre bloques para cada pieza legislativa. El acuerdo de trabajo informal del PPE tanto con S&D (legislación centrista) como con ECR/PfE (seguridad, fronteras, industria) significa que la formación efectiva de mayorías depende en gran medida de las negociaciones internas semanales del PPE.
+
+2. **El reglamento de bienestar animal entra en fase de aplicación.** Los Estados miembros disponen ahora de 24 meses para establecer bases de datos nacionales de microchipado y cruzarlas con el registro europeo. Se espera que la Comisión presente actos delegados sobre normas de trazabilidad antes del cuarto trimestre de 2026.
+
+3. **La aplicación del SRMR3 comienza de inmediato.** La Junta Única de Resolución ya ha comenzado a actualizar sus orientaciones sobre los desencadenantes de intervención temprana; las primeras plantillas revisadas de notificación de supervisión se esperan antes de junio de 2026.
+
+4. **La presión sobre la aplicación del DMA se intensifica.** La resolución no vinculante sobre la aplicación del DMA incrementa el coste político de la inacción de la Comisión frente a Apple, Meta y Google. Se prevé un escrutinio reforzado de la cartera de asuntos de la Comisión en virtud del artículo 26 en las audiencias de la comisión IMCO previstas para junio de 2026.
+
+5. **Modernización de la Directiva sobre instrumentos de medición.** La directiva actualizada alinea los requisitos de calibración de la UE con las tecnologías de medición digitales, reduciendo la fragmentación del cumplimiento en el mercado único.
+
+---
+
+### 🗓️ Próximos hitos legislativos
+
+| Fecha prevista | Procedimiento | Importancia |
+|---------------|--------------|------------|
+| T2 2026 | Actos delegados de la Comisión sobre el SRMR3 | Aplicación de la resolución bancaria |
+| T3 2026 | Actos de ejecución de la Comisión sobre transparencia DMA | Herramientas de aplicación del DMA |
+| T4 2026 | Lanzamiento del registro nacional de trazabilidad de mascotas | Aplicación del bienestar animal |
+| 2026–2027 | Próximas discusiones sobre el MFP | Marco plurianual para 2028+ |
+
+---
+
+### ✅ Evaluación general
+
+El ciclo legislativo de la primavera de 2026 demuestra la capacidad del PE10 para concluir negociaciones plurianuales complejas. El patrón dominante es la dominancia de la coalición de centro-derecha (PPE a la cabeza) con la inclusión selectiva de S&D en los expedientes sociales e institucionales de alto perfil. El índice de fragmentación de 6,58 — uno de los más altos de la historia del PE — continuará generando resultados plenarios impredecibles a medida que se intensifiquen las negociaciones sobre el presupuesto de 2027 y los gastos de seguridad. **Fiabilidad: 🟡 MEDIUM** (datos estructurales sólidos; datos de cohesión a nivel de voto no disponibles en la API del PE).
+
+---
+
+### 🏛️ Inteligencia de comisiones
+
+Las siguientes comisiones del PE son las más activas en las propuestas legislativas analizadas en este informe:
+
+| Comisión | Expediente principal | Función | Estado |
+|---------|---------------------|---------|--------|
+| ECON | SRMR3 | Ponente principal | Concluido (publicación DO T1 2026) |
+| ENVI / AGRI | Reglamento de bienestar animal | Codirección | Concluido (publicación DO T1 2026) |
+| LIBE | Directiva anticorrupción | Ponente principal | Concluido (publicación DO T1 2026) |
+| INTA | Salvaguardia UE-Mercosur | Ponente principal | Concluido (publicación DO T1 2026) |
+| IMCO | Resolución de aplicación del DMA | Principal | Posición del PE adoptada; aplicación por la Comisión pendiente |
+| BUDG | Presupuesto 2027 | Principal | Fase preparatoria; primeras lecturas T3 2026 |
+
+---
+
+### 🔢 Análisis en profundidad de la aritmética de coalición
+
+Umbral de mayoría del PE10: **360 de 717 eurodiputados**
+
+| Coalición | Escaños | Escaños bajo mayoría | Veredicto |
+|-----------|---------|---------------------|----------|
+| PPE solo | 183 | −177 | Solo minoría |
+| PPE + S&D | 319 | −41 | Insuficiente |
+| PPE + S&D + Renew | 437 | +77 | ✅ Mayoría con margen |
+| PPE + ECR + PfE | 375 | +15 | ✅ Mayoría de flanco derecho (estrecha) |
+| S&D + Renew + Greens + Left | 234 | −126 | Bloque progresista insuficiente |
+
+**Clave estructural:** El PPE es el actor pivote indispensable. Ninguna mayoría es matemáticamente posible sin el PPE. La elección de socios de coalición por parte del PPE determina la dirección legislativa del PE10.
+
+El margen de +77 del tripartito centrista (PPE+S&D+Renew) proporciona una cómoda cobertura de mayoría en las votaciones controvertidas donde se producen algunas defecciones. La mayoría de flanco derecho (+15) es mucho más frágil — una defección de 8 escaños (dentro de la varianza normal) haría perder la mayoría.
+
+---
+
+### 📊 Tendencia de la velocidad legislativa (PE10)
+
+Basada en 51 textos adoptados hasta la fecha en 2026:
+
+```
+T1 2025: ~8 textos adoptados (estimación — PE10 estabilizándose, nuevas comisiones formándose)
+T2 2025: ~10 textos adoptados (estimación — construcción del canal de tramitación)
+T3 2025: ~8 textos adoptados (estimación — impacto del receso veraniego)
+T4 2025: ~12 textos adoptados (estimación — sprint otoñal)
+T1 2026: ~13 textos adoptados (confirmado por datos)
+```
+
+**Interpretación de la velocidad:** El PE10 opera con una productividad legislativa superior a la media para un parlamento en etapa inicial a intermedia. La conclusión de varios grandes COD (SRMR3, bienestar animal, anticorrupción, Mercosur) en el mismo trimestre sugiere o bien una eficiencia excepcional de las comisiones o que estos expedientes provenían del canal de tramitación del PE9.
+
+---
+
+### 🎯 Indicadores clave de rendimiento — Salud legislativa del PE10
+
+| KPI | Valor | Evaluación |
+|-----|-------|-----------|
+| Textos adoptados en lo que va de año (2026) | 51 | 🟢 HIGH — producción sólida |
+| Puntuación de estabilidad política | 84/100 | 🟢 HIGH |
+| Número efectivo de partidos | 6,58 | 🟡 MEDIUM fragmentación |
+| Cuota de escaños del PPE | 25,5 % | 🟡 Dominante pero sin mayoría |
+| Brecha de coalición hasta la mayoría | 41 escaños (PPE+S&D) | 🟡 Requiere tercera fuerza |
+| Disponibilidad de datos IMF | 🔴 NINGUNA | 🔴 Brecha crítica |
+| Datos de votación recientes | 🔴 NINGUNA (retraso de 4–6 semanas) | 🟡 Limitación estructural |
+
+---
+
+### 📌 Síntesis de inteligencia: Lo más importante esta semana
+
+1. **Sin sesión plenaria del PE esta semana** (2026-05-11) — la próxima plenaria se espera en la última semana de mayo de 2026 en Estrasburgo
+2. **La fase de aplicación domina:** SRMR3, bienestar animal, anticorrupción y Mercosur se encuentran todos en fases de transposición nacional / actos de ejecución — la actividad política clave tiene lugar en los Estados miembros y la Comisión, no en el Parlamento
+3. **Vigilancia de la aplicación del DMA:** La Comisión tiene la obligación política de iniciar nuevos procedimientos del artículo 26 tras la resolución de aplicación del Parlamento — la ausencia de acción suscitará preguntas de los eurodiputados de IMCO
+4. **La estabilidad de la coalición se mantiene en 84:** No se detectan señales de ruptura inmediata; el tripartito PPE-S&D-Renew funciona
+5. **Comienza la preparación del presupuesto 2027:** Se espera actividad en primera lectura de la comisión BUDG en T3 2026 — posible prueba de resistencia para la cohesión de la coalición
+
+---
+
+### 🔭 Perspectiva a 30 días
+
+| Rango de fechas | Actividad legislativa esperada | Fiabilidad |
+|----------------|-------------------------------|-----------|
+| 26–30 mayo 2026 | Plenaria de Estrasburgo — aplicación del DMA, presupuesto 2027 preliminar | 🟢 HIGH |
+| Junio 2026 | Actos delegados de la Comisión (SRMR3) presentados; posibles nuevas propuestas COD | 🟡 MEDIUM |
+| Julio 2026 | Comienza el receso veraniego del PE (típicamente a mediados de julio); actividad legislativa reducida | 🟢 HIGH |
+| Septiembre 2026 | Comienza el sprint legislativo post-receso; el presupuesto 2027 entra en preparación de conciliación | 🟢 HIGH |
+| Octubre 2026 | Período de conciliación del presupuesto 2027 (si se mantiene el calendario estándar) | 🟡 MEDIUM |
+
+**Puntos de seguimiento clave para la plenaria de Estrasburgo del 26 al 30 de mayo:**
+- Aplicación del DMA: ¿Proporcionará la Comisión una declaración escrita formal en respuesta a la resolución del Parlamento?
+- Mercosur: ¿Algún anuncio del Consejo sobre el calendario de aplicación provisional?
+- Bienestar animal: ¿Actualización de la Comisión sobre la notificación de medidas nacionales de aplicación por parte de los Estados miembros?
+- Presupuesto 2027: ¿Presentación por parte de la comisión BUDG de las prioridades del Parlamento para el ejercicio presupuestario?
+
+### Executive Brief Fi
+
+### 🎯 Strateginen yleiskatsaus
+
+Euroopan parlamentti navigoi intensiivisen lainsäädäntökonsolidoinnin kautta keväällä 2026. Huhtikuun lopun ja toukokuun alun 2026 viikot leimattiin tiheällä ryppäällä merkittäviä lainsäädäntöprosessien päätöksiä, mukaan lukien ensimmäinen suuri EU-asetus lemmikkieläinten hyvinvoinnista (`2023/0447(COD)`), uudistettu pankin kriisinratkaisukehys (`2023/0111(COD)` — SRMR3) sekä uusi korruption vastainen direktiivi (`2023/0135(COD)`). Nämä saavutukset heijastavat parlamentin kykyä viedä monimutkaiset trilogineuvottelut päätökseen huolimatta korkeasta parlamentaarisesta pirstoutumisindeksistä 6,58 jakautuen yhdeksälle poliittiselle ryhmälle.
+
+Poliittinen maisema on rakenteellisesti epävakaa enemmistömuodostuksen kannalta. EPP, suurin ryhmä, pitää hallussaan 25,52 % paikoista (183/717 MEP:tä) — kaukana absoluuttisen enemmistön vaatimasta 360 paikan kynnyksestä. Suuren koalition matematiikka edellyttää, että EPP yhdistetään vähintään kahteen seuraavista: S&D (136), PfE (85), ECR (81) tai Renew (77) lainsäädännön hyväksymiseksi. Varhaisen varoituksen järjestelmä merkitsee MEDIUM-riskitasoa vakauspisteytyksellaä 84/100, huomioiden hallitsevuusriskin EPP:n 19-kertaisesta kokoedusta pienimpiin ryhmiin nähden.
+
+---
+
+### 📋 Tärkeimmät lainsäädännölliset päätökset (viimeiset 30 päivää)
+
+| Menettely | Otsikko | Hyväksytty | Kesto |
+|-----------|---------|------------|-------|
+| `2023/0447(COD)` | Koirien ja kissojen hyvinvointi ja jäljitettävyys | 2026-04-28 | 27 kuukautta |
+| `2024/0311(COD)` | Mittauslaitedirektiivin muuttaminen | 2026-02-10 | 15 kuukautta |
+| `2023/0111(COD)` | SRMR3 — Pankin kriisinratkaisukehyksen uudistus | 2026-03-26 | 33 kuukautta |
+| `2023/0135(COD)` | Korruption torjuminen | 2026-03-26 | ~30 kuukautta |
+| `2025/0322(COD)` | EU-Mercosur-kahdenvälinen maatalouden suojalauseke | 2026-02-10 | 3 kuukautta (pikakaista) |
+| `2026/2596(RSP)` | Digitaalisten markkinoiden lain täytäntöönpano | 2026-04-30 | Ei-lainsäädännöllinen |
+
+---
+
+### 🔑 Tärkeimmät tiedustelulöydökset
+
+**Löydös 1 — Eläinten hyvinvoinnin merkkipaalu:** Asetus `2023/0447(COD)` koirien ja kissojen hyvinvoinnista edustaa ensimmäistä omistettua EU-tason lainsäädäntövälinettä lemmikkieläimille. Lopullinen trilogi päätettiin tammikuussa 2026 kontroversiaalisien neuvottelujen jälkeen jäljitettävyystietokannoista, mikrosirutusmärkkäyksen aikatauluista ja rajat ylittävän kuljetuksen sääntelystä. 27 kuukauden kypsymisaika heijastaa sidosryhmäristiriitojen laajuutta — lemmikkiteollisuuden toimijoista (pakollisia mikrosirukustannuksia vastaan) eläinten hyvinvointijärjestöihin (jotka vaativat nopeampaa täytäntöönpanoaikataulua). Täysistunto hyväksyi lopullisen tekstin 2026-04-28 — maineen voitto Greens/EFA:lle ja S&D:lle parlamentin lemmikkieläinlainsäädännön johtavina puolestapuhujina.
+
+**Löydös 2 — SRMR3-pankkikehys:** Yhteistä kriisinratkaisumekanismia koskevan asetuksen kolmas iteraatio (`2023/0111(COD)`) valmistui 33 kuukauden ja kahdeksan toimielinten välisen trilogin jälkeen — pisin lainsäädäntömatka viimeaikaisista päätöksistä. Asetus tarkistaa varhaisen puuttumisen kynnysarvoja, kriisinratkaisurahastojen esiasemointia ja eurooppalaisten pankkien lähestymässä maksukyvyttömyyttä koskevia vastuun vesiputousmekanismeja. EPP ja S&D sopivat kehyksestä, kun taas The Left ja Greens/EFA ajoivat (pääasiassa tuloksetta) vahvempaa talletusten etusijaa ja alhaisempaa bail-in-kynnystä. Lopullinen teksti heijastaa kompromissia, joka painottaa EKP:n ja SRB:n operatiivista joustavuutta parlamentaarisen normittavuuden sijaan.
+
+**Löydös 3 — Digitaalisten markkinoiden lain täytäntöönpano:** INI-päätöslauselma DMA:n täytäntöönpanosta (hyväksytty 2026-04-30) heijastaa parlamentin turhautumista komission täytäntöönpanotahtiin Big Tech -alustoja kohtaan. Päätöslauselma on sitomaton, mutta merkitsee poliittista painetta sille, että komissio käyttää 26 artiklaa (rikkomusmenettelyt) aggressiivisemmin. Renew ja Greens/EFA ajoivat päätöslauselman; EPP ja ECR ilmaisivat varauksia sääntelyn ylilyönnistä kilpailukykyyn.
+
+**Löydös 4 — EU-Mercosur-maataloussuo jaus:** `2025/0322(COD)`:n (kahdenvälinen maataloussuojaus) nopeutettu 3 kuukauden toteutus erottuu menettelyllisesti poikkeustapauksena. Tämä nopeutettu aikataulu — lähettäminen marraskuussa 2025, EUVL-julkaisu maaliskuussa 2026 — heijastaa poliittista kiirettä tarjota konkreettisia suojamekanismeja EU-viljelijöille ennen Mercosur-sopimuksen voimaantuloa. EPP:n ja ECR:n vaalipiirit (erityisesti ranskalaiset ja puolalaiset maatalous-MEP:t) turvasivat tämän suojauksen ehtona epäröivään hyväksyntäänsä laajemmalle EU-Mercosur-sopimukselle.
+
+---
+
+### 📊 Koalitiotematiikka (enemmistömuodostus)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**Koalitiopolut 360 paikan enemmistöön:**
+- EPP + S&D = 319 (RIITTÄMÄTÖN — tarvitaan +41)
+- EPP + S&D + Renew = 396 ✅ (Sentristinen suurkoalitio)
+- EPP + PfE + ECR = 349 (RIITTÄMÄTÖN — tarvitaan +11 lisää)
+- EPP + PfE + ECR + ESN = 376 ✅ (Oikeisto-konservatiivinen superenemmistö)
+- S&D + Renew + Greens/EFA + The Left = 311 (RIITTÄMÄTÖN — progressiivinen blokki)
+
+---
+
+### ⚡ Välittömät seuraukset
+
+1. **Lainsäädäntötahti on edelleen koalitioaritmetiikan rajoittama.** Yhdeksän ryhmän parlamentti vaatii kestävää koordinaatiota blokkien välillä jokaiselle lainsäädäntöhankkeelle. EPP:n epävirallinen yhteistyöjärjestely sekä S&D:n (sentristinen lainsäädäntö) että ECR/PfE:n (turvallisuus-, raja- ja teollisuustiedostot) kanssa tarkoittaa, että tehokas enemmistönmuodostus on pitkälti riippuvainen EPP:n viikoittaisista sisäisistä neuvotteluista.
+
+2. **Eläinten hyvinvointiasetus siirtyy täytäntöönpanovaiheeseen.** Jäsenvaltioilla on nyt 24 kuukautta aikaa perustaa kansalliset mikrosiru tietokannat ja ristiviitata EU:n laajuiseen rekisteriin. Komission odotetaan esittävän delegoidut säädökset jäljitettävyysstandardeista viimeistään neljännellä vuosineljänneksellä 2026.
+
+3. **SRMR3-täytäntöönpano alkaa välittömästi.** Single Resolution Board on jo alkanut päivittää ohjeistustaan varhaisen puuttumisen laukaisimista, ja ensimmäiset tarkistetut valvontailmoitusten mallipohjat odotetaan viimeistään kesäkuussa 2026.
+
+4. **DMA:n täytäntöönpanopaine kiristyy.** Sitomaton päätöslauselma DMA:n täytäntöönpanosta lisää poliittisia kustannuksia komission passiivisuudelle Applea, Metaa ja Googlea kohtaan. Odotettavissa on tiivistetty tarkastelu komission 26 artiklan mukaisen asiamäärän osalta IMCO-valiokunnan kesäkuulle 2026 suunnitelluissa kuulemisissa.
+
+5. **Mittauslaitedirektiivin modernisaatio.** Päivitetty direktiivi yhdenmukaistaa EU:n kalibrointivaatimukset digitaalisiin mittausteknologioihin, vähentäen vaatimustenmukaisuuden pirstoutumista sisämarkkinoilla.
+
+---
+
+### 🗓️ Tulevat lainsäädäntövirstanpylväät
+
+| Odotettu päivämäärä | Menettely | Merkitys |
+|--------------------|-----------|---------|
+| Q2 2026 | Komission delegoidut säädökset SRMR3:sta | Pankin kriisinratkaisun täytäntöönpano |
+| Q3 2026 | Komission täytäntöönpanosäädökset DMA-läpinäkyvyydestä | DMA-täytäntöönpanovälineet |
+| Q4 2026 | Kansallisen lemmikkijäljitettävyysrekisterin käynnistys | Eläinten hyvinvoinnin täytäntöönpano |
+| 2026–2027 | Seuraavat MFF-neuvottelut | Monivuotinen kehys 2028+ |
+
+---
+
+### ✅ Yhteenveto
+
+Kevään 2026 lainsäädäntösykli osoittaa EP10:n kyvyn saattaa päätökseen monimutkaiset monivuotiset neuvottelut. Hallitseva kaava on oikeistokeskustalainen koalitio-dominanssi (EPP johdossa) ja valikoiva S&D:n sisällyttäminen korkean profiilin sosiaalisiin ja institutionaalisiin tiedostoihin. Pirstoutumisindeksi 6,58 — yksi EP:n historian korkeimmista — jatkaa ennakoimattomien täysistuntopäätösten generoimista, kun vuoden 2027 budjetti- ja turvallisuusmenoihin liittyvät neuvottelut kiihtyvät. **Luotettavuus: 🟡 MEDIUM** (rakenteelliset tiedot vahvat; äänestystasoinen koheesiodata ei ole saatavilla EP:n API:sta).
+
+---
+
+### 🏛️ Valiokuntien tiedustelu
+
+Seuraavat EP-valiokunnat ovat aktiivisimpia tässä analyysissä seurattujen lainsäädäntöehdotusten osalta:
+
+| Valiokunta | Ensisijainen tiedosto | Rooli | Tila |
+|-----------|--------------------|-------|------|
+| ECON | SRMR3 | Johtava esittelijä | Valmis (EUVL-julkaisu Q1 2026) |
+| ENVI / AGRI | Eläinten hyvinvointiasetus | Yhteinen johto | Valmis (EUVL-julkaisu Q1 2026) |
+| LIBE | Korruption vastainen direktiivi | Johtava esittelijä | Valmis (EUVL-julkaisu Q1 2026) |
+| INTA | EU-Mercosur-suoja | Johtava esittelijä | Valmis (EUVL-julkaisu Q1 2026) |
+| IMCO | DMA-täytäntöönpanopäätöslauselma | Johtava | EP-kanta hyväksytty; komission täytäntöönpano odottaa |
+| BUDG | Budjetti 2027 | Johtava | Valmisteluvaihe; ensimmäiset käsittelyt Q3 2026 |
+
+---
+
+### 🔢 Koalitioaritmetiikan syväanalyysi
+
+EP10:n enemmistökynnys: **360 / 717 MEP:stä**
+
+| Koalitio | Paikat | Vajaus enemmistöön | Tuomio |
+|---------|--------|-------------------|--------|
+| EPP yksin | 183 | −177 | Vähemmistö |
+| EPP + S&D | 319 | −41 | Riittämätön |
+| EPP + S&D + Renew | 437 | +77 | ✅ Enemmistö puskurilla |
+| EPP + ECR + PfE | 375 | +15 | ✅ Oikeistosiiven enemmistö (niukka) |
+| S&D + Renew + Greens + Left | 234 | −126 | Progressiivinen blokki riittämätön |
+
+**Tärkeä rakenteellinen havainto:** EPP on korvaamaton keskeinen toimija. Mikään enemmistö ei ole matemaattisesti mahdollinen ilman EPP:tä. EPP:n valinta koalitiokumppaneista määrittää EP10:n lainsäädäntösuunnan.
+
+Sentristisen tripartiitin (EPP+S&D+Renew) +77 puskuri tarjoaa mukavan enemmistöpeittavuuden kiistanalaisissa äänestyksissä, joissa jonkin verran poikkeamia tapahtuu. Oikeistosiipi enemmistö (+15) on huomattavasti hauraampi — 8 paikan menetys (normaalin vaihteluvälin sisällä) menettäisi enemmistön.
+
+---
+
+### 📊 Lainsäädäntötahdin trendi (EP10)
+
+Perustuu 51:een vuoden 2026 alusta lähtien hyväksyttyyn tekstiin:
+
+```
+Q1 2025: ~8 hyväksyttyä tekstiä (arvio — EP10 vakiintuu, uudet valiokunnat muodostuvat)
+Q2 2025: ~10 hyväksyttyä tekstiä (arvio — putki rakentuu)
+Q3 2025: ~8 hyväksyttyä tekstiä (arvio — kesätauon vaikutus)
+Q4 2025: ~12 hyväksyttyä tekstiä (arvio — syksyn spurtti)
+Q1 2026: ~13 hyväksyttyä tekstiä (vahvistettu datasta)
+```
+
+**Tahdin tulkinta:** EP10 toimii keskimääräistä korkeammalla lainsäädäntötuottavuudella aikaisen ja keski-kauden parlamentille. Useiden suurten COD:ien (SRMR3, eläinten hyvinvointi, korruption vastainen, Mercosur) valmistuminen samalla neljänneksellä viittaa joko poikkeukselliseen valiokuntatehokkuuteen tai siihen, että nämä tiedostot olivat EP9:n putkessa.
+
+---
+
+### 🎯 Avainsuoritusindikaattorit — EP10:n lainsäädäntöllinen terveys
+
+| KPI | Arvo | Arviointi |
+|-----|------|-----------|
+| Hyväksytyt tekstit YTD (2026) | 51 | 🟢 HIGH — vahva tuotanto |
+| Poliittinen vakauspistemäärä | 84/100 | 🟢 HIGH |
+| Puolueiden efektiivinen lukumäärä | 6,58 | 🟡 MEDIUM pirstoutuminen |
+| EPP:n osuus paikoista | 25,5 % | 🟡 Hallitseva, muttei enemmistö |
+| Koalitiokuilu enemmistöön | 41 paikkaa (EPP+S&D) | 🟡 Vaatii kolmannen osapuolen |
+| IMF-datan saatavuus | 🔴 EI MITÄÄN | 🔴 Kriittinen aukko |
+| Viimeisin äänestysdata | 🔴 EI MITÄÄN (4–6 viikon viive) | 🟡 Rakenteellinen rajoitus |
+
+---
+
+### 📌 Tiedusteluyhteenveto: Mikä on tärkeintä tällä viikolla
+
+1. **Ei EP:n täysistuntoa tällä viikolla** (2026-05-11) — seuraava täysistunto odotetaan toukokuun 2026 viimeisellä viikolla Strasbourgissa
+2. **Täytäntöönpanovaihe dominoi:** SRMR3, eläinten hyvinvointi, korruption vastainen ja Mercosur ovat kaikki kansallisen transposition/täytäntöönpanosäädösten vaiheissa — keskeinen poliittinen toiminta tapahtuu jäsenvaltioissa ja komissiossa, ei parlamentissa
+3. **DMA:n täytäntöönpanon seuranta:** Komissiolla on poliittinen velvollisuus käynnistää uudet 26 artiklan mukaiset menettelyt parlamentin täytäntöönpanopäätöslauselman jälkeen — toimien puuttuminen laukaisee IMCO-MEP:ien kysymyksiä
+4. **Koalitiostabiliteetti pysyy 84:ssä:** Välittömiä murtumissignaaleja ei havaittu; EPP-S&D-Renew-tripartiitta toimii
+5. **Budjetin 2027 valmistelu alkaa:** BUDG-valiokunnan ensimmäisen käsittelyn toiminta odotetaan Q3 2026 — mahdollinen stressitesti koalitiokohesioolle
+
+---
+
+### 🔭 30 päivän eteenpäin katsova näkymä
+
+| Aikaväli | Odotettu lainsäädäntöaktiviteetti | Luotettavuus |
+|---------|----------------------------------|-------------|
+| 26.–30. toukokuuta 2026 | Strasbourgin täysistunto — DMA:n täytäntöönpano, budjetti 2027 alustava | 🟢 HIGH |
+| Kesäkuu 2026 | Komission delegoidut säädökset (SRMR3) esitelty; mahdolliset uudet COD-ehdotukset | 🟡 MEDIUM |
+| Heinäkuu 2026 | EP:n kesätauko alkaa (tyypillisesti heinäkuun puolivälissä); vähentynyt lainsäädäntöaktiviteetti | 🟢 HIGH |
+| Syyskuu 2026 | Tauon jälkeinen lainsäädäntöspurtti alkaa; Budjetti 2027 siirtyy sovitteluvalmistauun | 🟢 HIGH |
+| Lokakuu 2026 | Budjetin 2027 sovittelujakso (jos standardikalenteri säilyy) | 🟡 MEDIUM |
+
+**Tärkeimmät seurantapisteet Strasbourgin täysistunnolle 26.–30. toukokuuta:**
+- DMA:n täytäntöönpano: Antaako komissio virallisen kirjallisen vastauksen parlamentin päätöslauselmaan?
+- Mercosur: Onko neuvoston ilmoitusta väliaikaisen soveltamisen aikataulusta?
+- Eläinten hyvinvointi: Komission päivitys jäsenvaltioiden kansallisten täytäntöönpanotoimien ilmoittamisesta?
+- Budjetti 2027: BUDG-valiokunnan esittely parlamentin prioriteeteista budjettivuodelle?
+
+### Executive Brief Fr
+
+### 🎯 Vue d'ensemble stratégique
+
+Le Parlement européen traverse une période de consolidation législative intensive au printemps 2026. Les semaines couvrant la fin avril et le début mai 2026 ont été marquées par un dense faisceau d'achèvements législatifs majeurs, dont le premier acte important de l'UE sur le bien-être des animaux de compagnie (`2023/0447(COD)`), un cadre restructuré pour la résolution bancaire (`2023/0111(COD)` — SRMR3) et une nouvelle directive anticorruption (`2023/0135(COD)`). Ces réalisations témoignent de la capacité du Parlement à mener à terme des négociations trilogues complexes malgré un indice de fragmentation parlementaire élevé de 6,58 réparti sur neuf groupes politiques.
+
+Le paysage politique est structurellement instable pour la formation des majorités. Le PPE, le groupe le plus important, détient 25,52 % des sièges (183/717 députés) — loin du seuil de 360 requis pour une majorité absolue. La mathématique d'une grande coalition exige que le PPE s'associe à au moins deux des groupes suivants : S&D (136), PfE (85), ECR (81) ou Renew (77) pour adopter des textes législatifs. Le système d'alerte précoce signale un niveau de risque MEDIUM avec un score de stabilité de 84/100, notant le risque de dominance dû à l'avantage de taille dix-neuf fois supérieur du PPE par rapport aux plus petits groupes.
+
+---
+
+### 📋 Principaux achèvements législatifs (30 derniers jours)
+
+| Procédure | Titre | Adopté | Durée |
+|-----------|-------|--------|-------|
+| `2023/0447(COD)` | Bien-être des chiens et des chats et leur traçabilité | 2026-04-28 | 27 mois |
+| `2024/0311(COD)` | Modification de la directive sur les instruments de mesure | 2026-02-10 | 15 mois |
+| `2023/0111(COD)` | SRMR3 — Réforme du cadre de résolution bancaire | 2026-03-26 | 33 mois |
+| `2023/0135(COD)` | Lutte contre la corruption | 2026-03-26 | ~30 mois |
+| `2025/0322(COD)` | Clause de sauvegarde bilatérale UE-Mercosur pour l'agriculture | 2026-02-10 | 3 mois (procédure accélérée) |
+| `2026/2596(RSP)` | Application du règlement sur les marchés numériques | 2026-04-30 | Non législatif |
+
+---
+
+### 🔑 Principaux constats de renseignement
+
+**Constat 1 — Étape pour le bien-être animal :** Le règlement `2023/0447(COD)` sur le bien-être des chiens et des chats constitue le premier instrument législatif dédié de l'UE aux animaux de compagnie. Le trilogue final s'est achevé en janvier 2026 après des négociations controversées sur les bases de données de traçabilité, les calendriers de microrpuçage et les règles de transport transfrontalier. La gestation de 27 mois reflète l'ampleur des conflits d'intérêts — des associations de l'industrie des animaux de compagnie (opposées aux coûts obligatoires du micropuçage) aux organisations de défense du bien-être animal (réclamant des délais de mise en œuvre plus rapides). La plénière a adopté le texte final le 2026-04-28 — un succès de réputation pour les Greens/EFA et S&D en tant que principaux défenseurs de la législation sur les animaux de compagnie au sein du Parlement.
+
+**Constat 2 — Cadre bancaire SRMR3 :** La troisième itération du règlement relatif au mécanisme de résolution unique (`2023/0111(COD)`) s'est achevée après 33 mois et huit trilogues interinstitutionnels — le plus long parcours législatif parmi les récents achèvements. Le règlement révise les seuils d'intervention précoce, le prépositionnement des fonds de résolution et les mécanismes de cascade de responsabilité pour les banques européennes approchant l'insolvabilité. Le PPE et S&D se sont entendus sur le cadre, tandis que The Left et Greens/EFA ont poussé (en grande partie sans succès) en faveur d'une meilleure protection des déposants et de seuils de renflouement interne plus bas. Le texte final reflète un compromis favorable à la flexibilité opérationnelle de la BCE et du CRU plutôt qu'à l'orientation parlementaire prescriptive.
+
+**Constat 3 — Application du règlement sur les marchés numériques :** La résolution INI sur l'application du DMA (adoptée le 2026-04-30) reflète la frustration du Parlement face au rythme d'application de la Commission à l'égard des plateformes Big Tech. La résolution n'est pas contraignante, mais elle signale une pression politique pour que la Commission utilise l'article 26 (procédures de non-conformité) de manière plus agressive. Renew et Greens/EFA ont porté la résolution ; le PPE et l'ECR ont exprimé des réserves quant au risque de surréglementation nuisant à la compétitivité.
+
+**Constat 4 — Clause de sauvegarde agricole UE-Mercosur :** L'achèvement accéléré en 3 mois de `2025/0322(COD)` (clause de sauvegarde agricole bilatérale) se distingue comme une exception procédurale. Ce calendrier accéléré — renvoi novembre 2025, publication au JO mars 2026 — reflète l'urgence politique de fournir des mécanismes de protection concrets aux agriculteurs de l'UE avant l'entrée en vigueur de l'accord Mercosur. Les circonscriptions du PPE et de l'ECR (notamment les eurodéputés agricoles français et polonais) ont obtenu cette clause de sauvegarde comme condition préalable à leur acceptation réticente de l'accord UE-Mercosur dans son ensemble.
+
+---
+
+### 📊 Mathématiques de coalition (formation de majorité)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**Chemins de coalition vers une majorité de 360 sièges :**
+- PPE + S&D = 319 (INSUFFISANT — manque +41)
+- PPE + S&D + Renew = 396 ✅ (Grande coalition centriste)
+- PPE + PfE + ECR = 349 (INSUFFISANT — manque +11)
+- PPE + PfE + ECR + ESN = 376 ✅ (Supermajorité conservatrice de droite)
+- S&D + Renew + Greens/EFA + The Left = 311 (INSUFFISANT — bloc progressiste)
+
+---
+
+### ⚡ Implications immédiates
+
+1. **La vélocité législative reste contrainte par l'arithmétique de coalition.** Le parlement à neuf groupes exige une coordination soutenue entre les blocs pour chaque texte législatif. L'arrangement de travail informel du PPE avec S&D (législation centriste) et avec ECR/PfE (sécurité, frontières, industrie) signifie que la formation effective des majorités dépend largement des négociations internes hebdomadaires du PPE.
+
+2. **Le règlement sur le bien-être animal entre en phase de mise en œuvre.** Les États membres disposent désormais de 24 mois pour établir des bases de données nationales de micropuçage et les croiser avec le registre européen. La Commission devrait présenter des actes délégués sur les normes de traçabilité d'ici le quatrième trimestre 2026.
+
+3. **La mise en œuvre du SRMR3 commence immédiatement.** Le Conseil de résolution unique a déjà commencé à actualiser ses orientations sur les déclencheurs d'intervention précoce ; les premiers modèles de notification de surveillance révisés sont attendus d'ici juin 2026.
+
+4. **La pression sur l'application du DMA s'intensifie.** La résolution non contraignante sur l'application du DMA accroît le coût politique de l'inaction de la Commission vis-à-vis d'Apple, Meta et Google. Attendez-vous à un examen renforcé du stock d'affaires de la Commission au titre de l'article 26 lors des auditions de la commission IMCO prévues en juin 2026.
+
+5. **Modernisation de la directive sur les instruments de mesure.** La directive actualisée aligne les exigences d'étalonnage de l'UE sur les technologies de mesure numériques, réduisant la fragmentation de la conformité dans le marché unique.
+
+---
+
+### 🗓️ Prochaines étapes législatives importantes
+
+| Date prévue | Procédure | Portée |
+|-------------|-----------|--------|
+| T2 2026 | Actes délégués de la Commission sur le SRMR3 | Mise en œuvre de la résolution bancaire |
+| T3 2026 | Actes d'exécution de la Commission sur la transparence DMA | Outils d'application du DMA |
+| T4 2026 | Lancement du registre national de traçabilité des animaux de compagnie | Mise en œuvre du bien-être animal |
+| 2026–2027 | Prochaines discussions sur le CFP | Cadre pluriannuel pour 2028+ |
+
+---
+
+### ✅ Évaluation synthétique
+
+Le cycle législatif du printemps 2026 démontre la capacité du PE10 à conclure des négociations pluriannuelles complexes. Le schéma dominant est la domination de la coalition de centre-droit (PPE en tête) avec une inclusion sélective de S&D sur les dossiers sociaux et institutionnels à haute visibilité. L'indice de fragmentation de 6,58 — parmi les plus élevés de l'histoire du PE — continuera de générer des résultats pléniers imprévisibles à mesure que les négociations sur le budget 2027 et les dépenses de sécurité s'intensifient. **Fiabilité : 🟡 MEDIUM** (données structurelles solides ; données de cohésion au niveau des votes non disponibles via l'API du PE).
+
+---
+
+### 🏛️ Renseignement sur les commissions
+
+Les commissions du PE suivantes sont les plus actives dans les propositions législatives suivies dans cette analyse :
+
+| Commission | Dossier principal | Rôle | Statut |
+|-----------|------------------|------|--------|
+| ECON | SRMR3 | Rapporteur principal | Achevé (publication JO T1 2026) |
+| ENVI / AGRI | Règlement sur le bien-être animal | Co-direction | Achevé (publication JO T1 2026) |
+| LIBE | Directive anticorruption | Rapporteur principal | Achevé (publication JO T1 2026) |
+| INTA | Clause de sauvegarde UE-Mercosur | Rapporteur principal | Achevé (publication JO T1 2026) |
+| IMCO | Résolution sur l'application du DMA | Principal | Position du PE adoptée ; mise en œuvre par la Commission en attente |
+| BUDG | Budget 2027 | Principal | Phase préparatoire ; premières lectures T3 2026 |
+
+---
+
+### 🔢 Analyse approfondie de l'arithmétique de coalition
+
+Seuil de majorité du PE10 : **360 sur 717 députés**
+
+| Coalition | Sièges | Sièges manquants | Verdict |
+|-----------|--------|------------------|---------|
+| PPE seul | 183 | −177 | Minorité uniquement |
+| PPE + S&D | 319 | −41 | Insuffisant |
+| PPE + S&D + Renew | 437 | +77 | ✅ Majorité avec marge |
+| PPE + ECR + PfE | 375 | +15 | ✅ Majorité de flanc droit (étroite) |
+| S&D + Renew + Greens + Left | 234 | −126 | Bloc progressiste insuffisant |
+
+**Enseignement structurel clé :** Le PPE est l'acteur pivot incontournable. Aucune majorité n'est mathématiquement possible sans le PPE. Le choix des partenaires de coalition par le PPE détermine l'orientation législative du PE10.
+
+La marge de +77 du tripartite centriste (PPE+S&D+Renew) offre une couverture majoritaire confortable pour les votes contestés où un certain niveau de défections survient. La majorité de flanc droit (+15) est bien plus fragile — une défection de 8 sièges (dans la variance normale) ferait perdre la majorité.
+
+---
+
+### 📊 Tendance de la vélocité législative (PE10)
+
+Sur la base de 51 textes adoptés depuis le début de l'année 2026 :
+
+```
+T1 2025 : ~8 textes adoptés (estimation — PE10 se stabilise, nouvelles commissions en formation)
+T2 2025 : ~10 textes adoptés (estimation — pipeline en construction)
+T3 2025 : ~8 textes adoptés (estimation — impact de la pause estivale)
+T4 2025 : ~12 textes adoptés (estimation — sprint automnal)
+T1 2026 : ~13 textes adoptés (confirmé par les données)
+```
+
+**Interprétation de la vélocité :** Le PE10 opère avec une productivité législative supérieure à la moyenne pour un parlement en début à mi-mandat. L'achèvement de plusieurs COD majeurs (SRMR3, bien-être animal, anticorruption, Mercosur) dans le même trimestre indique soit une efficacité exceptionnelle des commissions, soit que ces dossiers étaient dans le pipeline depuis le PE9.
+
+---
+
+### 🎯 Indicateurs de performance — Santé législative du PE10
+
+| KPI | Valeur | Évaluation |
+|-----|--------|-----------|
+| Textes adoptés depuis le début de l'année (2026) | 51 | 🟢 HIGH — production solide |
+| Score de stabilité politique | 84/100 | 🟢 HIGH |
+| Nombre effectif de partis | 6,58 | 🟡 MEDIUM fragmentation |
+| Part de sièges du PPE | 25,5 % | 🟡 Dominant mais pas de majorité |
+| Écart de coalition à la majorité | 41 sièges (PPE+S&D) | 🟡 Requiert un troisième parti |
+| Disponibilité des données IMF | 🔴 AUCUNE | 🔴 Lacune critique |
+| Données de vote récentes | 🔴 AUCUNE (délai de 4 à 6 semaines) | 🟡 Limitation structurelle |
+
+---
+
+### 📌 Synthèse de renseignement : Ce qui compte le plus cette semaine
+
+1. **Pas de session plénière du PE cette semaine** (2026-05-11) — prochaine plénière prévue la dernière semaine de mai 2026 à Strasbourg
+2. **La phase de mise en œuvre domine :** SRMR3, bien-être animal, anticorruption et Mercosur sont tous en phases de transposition nationale/actes d'exécution — l'activité politique clé se déroule dans les États membres et à la Commission, pas au Parlement
+3. **Surveillance de l'application du DMA :** La Commission a l'obligation politique d'engager de nouvelles procédures au titre de l'article 26 à la suite de la résolution d'application du Parlement — l'absence d'action déclenchera des questions de la part des eurodéputés IMCO
+4. **La stabilité de la coalition se maintient à 84 :** Aucun signal de rupture immédiat détecté ; le tripartite PPE-S&D-Renew fonctionne
+5. **La préparation du budget 2027 commence :** L'activité en première lecture de la commission BUDG est attendue au T3 2026 — test de résistance potentiel pour la cohésion de la coalition
+
+---
+
+### 🔭 Perspective à 30 jours
+
+| Plage de dates | Activité législative prévue | Fiabilité |
+|---------------|----------------------------|-----------|
+| 26–30 mai 2026 | Plénière de Strasbourg — application du DMA, budget 2027 préliminaire | 🟢 HIGH |
+| Juin 2026 | Actes délégués de la Commission (SRMR3) présentés ; possibles nouvelles propositions COD | 🟡 MEDIUM |
+| Juillet 2026 | La pause estivale du PE commence (typiquement mi-juillet) ; activité législative réduite | 🟢 HIGH |
+| Septembre 2026 | Le sprint législatif post-pause commence ; le budget 2027 entre en préparation de conciliation | 🟢 HIGH |
+| Octobre 2026 | Période de conciliation pour le budget 2027 (si le calendrier standard est maintenu) | 🟡 MEDIUM |
+
+**Points de surveillance clés pour la plénière de Strasbourg du 26 au 30 mai :**
+- Application du DMA : La Commission fournira-t-elle une déclaration écrite formelle en réponse à la résolution du Parlement ?
+- Mercosur : Annonce du Conseil sur le calendrier d'application provisoire ?
+- Bien-être animal : Mise à jour de la Commission sur la notification par les États membres des mesures nationales de mise en œuvre ?
+- Budget 2027 : Présentation des priorités du Parlement pour l'exercice budgétaire par la commission BUDG ?
+
+### Executive Brief He
+
+**תאריך:** 2026-05-11 | **סוג מאמר:** הצעות | **WEP:** אפשרי | **רמת אמינות:** B2 | **סיווג:** 🟢 PUBLIC
+**מהימנות:** 🟡 MEDIUM | **עדכניות נתונים:** EP Open Data Portal, 2026-05-11
+
+---
+
+### 🎯 תמונת המצב האסטרטגית
+
+הפרלמנט האירופי חוצה שלב של חיזוק חקיקתי אינטנסיבי באביב 2026. השבועות מסוף אפריל ועד תחילת מאי 2026 הניבו חבילת הישגים חקיקתיים מרחיקי לכת — כולל החקיקה הראשונה ברמת האיחוד האירופי בתחום רווחת חיות המחמד (`2023/0447(COD)`), מסגרת מחודשת להתמודדות עם משברים בנקאיים (`2023/0111(COD)` — SRMR3) ותוכנית חדשה למאבק בשחיתות (`2023/0135(COD)`). הישגים אלה מדגימים את יכולת הפרלמנט לנהל משא ומתן משולש מורכב עד לסיומו, על אף שמדד הפיצול עומד על 6.58 ומשתרע על פני תשע סיעות פוליטיות.
+
+הנוף הפוליטי מאופיין בחוסר יציבות מבני בכל הנוגע לגיבוש רוב. לסיעת EPP, הגדולה ביותר, יש 25.52% מהמושבים (183 מתוך 717 חברים) — הרבה מתחת לסף של 360 קולות הנדרשים לרוב מוחלט. מתמטיקת הקואליציה הגדולה מחייבת את EPP להצטרף לשתיים לפחות מהסיעות הבאות: S&D (136), PfE (85), ECR (81) או Renew (77) כדי לאשר חקיקה. מערכת האזהרה המוקדמת מזהה רמת סיכון MEDIUM עם ציון יציבות 84/100, ומצביעה על סיכוני הגמוניה הנובעים מפערי גודל של פי 19 בין EPP לסיעות הקטנות.
+
+---
+
+### 📋 הישגי חקיקה מרכזיים (30 יום אחרונים)
+
+| הליך | כותרת | תאריך אישור | משך הדיון |
+|------|--------|------------|----------|
+| `2023/0447(COD)` | רווחת כלבים וחתולים ועקיבות | 2026-04-28 | 27 חודשים |
+| `2024/0311(COD)` | תיקון לתוכנית מדידה | 2026-02-10 | 15 חודשים |
+| `2023/0111(COD)` | SRMR3 — רפורמה במסגרת החגרה הבנקאית | 2026-03-26 | 33 חודשים |
+| `2023/0135(COD)` | מאבק בשחיתות | 2026-03-26 | ~30 חודשים |
+| `2025/0322(COD)` | ערובה חקלאית דו-צדדית EU-Mercosur | 2026-02-10 | 3 חודשים (מסלול מהיר) |
+| `2026/2596(RSP)` | אכיפת חוק שוקי הדיגיטל | 2026-04-30 | לא חקיקתי |
+
+---
+
+### 🔑 ממצאים מודיעיניים מרכזיים
+
+**ממצא 1 — אבן דרך ברווחת בעלי חיים:** תקנה `2023/0447(COD)` לרווחת כלבים וחתולים מייצגת את מסמך המדיניות הראשון ברמת האיחוד האירופי הנוגע לחיות מחמד. המשא ומתן המשולש הסתיים בינואר 2026 בעקבות מאבקים על מסדי נתונים לעקיבות, לוחות זמנים לשיב מיקרו-שבב וכללי תחבורה חוצה-גבולות. שלב ההכנה שנמשך 27 חודשים משקף את חדות מחלוקות בעלי העניין — תעשיית חיות המחמד (מתנגדת לעלויות שיב חובה) מול ארגוני רווחת בעלי חיים (הדורשים לוחות זמנים מהירים יותר). המועצה הכללית אישרה את הנוסח הסופי ב-2026-04-28 — ניצחון יחסי לכבוד Greens/EFA ו-S&D כתומכי הצעת הרגולציה על חיות המחמד בפרלמנט.
+
+**ממצא 2 — מסגרת SRMR3 הבנקאית:** גרסה שלישית של תקנת מנגנון ההבראה היחיד (`2023/0111(COD)`) הושלמה לאחר 33 חודשים ושמונה סבבי משא ומתן משולש בין-מוסדי — המסלול הארוך ביותר בין ההישגים האחרונים. התקנה מחדשת את סף ההתערבות המוקדמת, ממצב מחדש כספי חגרה מראש ואת מנגנוני מפל האחריות לבנקים אירופאים הקרובים לחדלות פירעון. EPP ו-S&D הסכימו על המסגרת, ו-The Left ו-Greens/EFA לחצו (בעיקר ללא הצלחה) לטובת הגנה חזקה יותר על העדפת מפקידים וסף נמוך יותר להצלת נושים. הנוסח הסופי משקף פשרה המעדיפה את גמישות הפעולה של הבנק המרכזי האירופי ומנגנון ההבראה היחיד על פני הכוונה פרלמנטרית מפורטת.
+
+**ממצא 3 — אכיפת DMA:** החלטת INI לאכיפת DMA (שאושרה ב-2026-04-30) משקפת את תסכול הפרלמנט מקצב האכיפה של הנציבות כלפי פלטפורמות הטכנולוגיה הגדולות. ההחלטה אינה מחייבת, אך שולחת אות לחץ פוליטי לאלץ את הנציבות לשימוש אגרסיבי יותר במסגרת סעיף 26 (הליכי אי-ציות). Renew ו-Greens/EFA הובילו את ההחלטה; EPP ו-ECR הביעו השגות על ויסות-יתר שפוגע בתחרותיות.
+
+**ממצא 4 — ערובת הסחר החקלאי EU-Mercosur:** ההשלמה המזורזת ב-3 חודשים של `2025/0322(COD)` (ערובה חקלאית דו-צדדית) מהווה חריגה פרוצדוראלית ראויה לציון. לוח הזמנים המואץ — הפניה בנובמבר 2025, פרסום בעיתון הרשמי במרץ 2026 — משקף את הדחיפות הפוליטית לספק מנגנוני הגנה ממשיים לחקלאים האירופאים לפני כניסת הסכם Mercosur לתוקף. מצביעי EPP ו-ECR (ובמיוחד חקלאים צרפתים ופולנים בפרלמנט) הבטיחו את הערובה כתנאי מוקדם לקבלתם האמביוולנטית של ההסכם המקיף EU-Mercosur.
+
+---
+
+### 📊 מתמטיקת הקואליציה (גיבוש רוב)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**מסלולי קואליציה לרוב של 360 מושבים:**
+- EPP + S&D = 319 (לא מספיק — חסרים 41)
+- EPP + S&D + Renew = 396 ✅ (קואליציה מרכזית גדולה)
+- EPP + PfE + ECR = 349 (לא מספיק — חסרים עוד 11)
+- EPP + PfE + ECR + ESN = 376 ✅ (רוב ימני בעוצמה)
+- S&D + Renew + Greens/EFA + The Left = 311 (לא מספיק — הבלוק הפרוגרסיבי)
+
+---
+
+### ⚡ השלכות מיידיות
+
+1. **קצב החקיקה נשאר כבול למתמטיקה הקואליציונית.** פרלמנט עם תשע סיעות מחייב תיאום מתמשך מעבר לגושים לכל פריט חקיקתי. הסדרים בלתי-פורמאליים של EPP עם S&D (חקיקה מרכזית) ועם ECR/PfE (קבצי ביטחון, גבולות ותעשייה) פירושם שגיבוש הרוב בפועל מסתמך מאוד על מו"מ פנימי שבועי של EPP.
+
+2. **תקנת רווחת בעלי החיים עוברת לשלב היישום.** למדינות החברות יש כעת 24 חודשים להקים מסדי נתונים לאומיים לשיב מיקרו-שבב ולחברם לרשם האירופי. הנציבות צפויה לפרסם מעשים מאצילים לגבי תקני עקיבות ברבעון הרביעי של 2026.
+
+3. **יישום SRMR3 מתחיל מיידית.** מנגנון ההבראה היחיד כבר מעדכן את הנחיותיו לגבי מנגנוני הפעלת ההתערבות המוקדמת; תבניות הדיווח הפיקוחי הראשונות המתוקנות צפויות ביוני 2026.
+
+4. **לחץ DMA מתגבר.** החלטת DMA הלא-מחייבת מעלה את עלות חוסר הפעולה של הנציבות כלפי Apple, Meta ו-Google. הביקורת על תיק הנציבות בסעיף 26 צפויה להתגבר בדיוני ועדת IMCO המתוכננים ליוני 2026.
+
+5. **עדכון תוכנית מדידה.** תוכנית המדידה המעודכנת מתאמת את דרישות הכיול האירופיות עם טכנולוגיות מדידה דיגיטליות, ומפחיתה פיצול ציות בשוק הפנים.
+
+---
+
+### 🗓️ אבני דרך חקיקתיות עתידיות
+
+| מועד צפוי | הליך | חשיבות |
+|-----------|------|--------|
+| Q2 2026 | מעשים מאצילים של הנציבות לגבי SRMR3 | יישום הסדרת משברים בנקאיים |
+| Q3 2026 | מעשי ביצוע של הנציבות לשקיפות DMA | כלי אכיפת DMA |
+| Q4 2026 | השקת מרשם לאומי לעקיבות חיות מחמד | יישום רווחת בעלי חיים |
+| 2026–2027 | דיוני מסגרת פיננסית רב-שנתית הבאה | MFF לאחר 2028 |
+
+---
+
+### ✅ הערכה כוללת
+
+מחזור החקיקה של אביב 2026 מוכיח את יכולת EP10 לסיים משא ומתן מורכב מרובת-שנים. הדפוס השולט הוא הגמוניה של קואליציית מרכז-ימין (בהובלת EPP) עם שיתוף בררני של S&D בקבצים חברתיים ומוסדיים בסדר עדיפות גבוה. מדד הפיצול של 6.58 — מהגבוהים בתולדות הפרלמנט האירופי — ימשיך לייצר תוצאות הצבעה בלתי-צפויות ככל שהמשא ומתן על תקציב 2027 והוצאות ביטחון ימשיך להסלים. **מהימנות: 🟡 MEDIUM** (נתוני מבנה איתנים; נתוני אחידות הצבעה ברמת הפרט אינם זמינים מ-API הפרלמנט האירופי).
+
+---
+
+### 🏛️ מודיעין ועדות
+
+הוועדות הפעילות ביותר בהצעות החקיקה שנצפו בניתוח זה:
+
+| ועדה | ניהול תיק מרכזי | תפקיד | סטטוס |
+|------|--------------|-------|-------|
+| ECON | SRMR3 | מחוקק ראשי | הושלם (OJ Q1 2026) |
+| ENVI / AGRI | תקנת רווחת בעלי חיים | קו-ראשי | הושלם (OJ Q1 2026) |
+| LIBE | תוכנית מאבק בשחיתות | מחוקק ראשי | הושלם (OJ Q1 2026) |
+| INTA | ערובת EU-Mercosur | מחוקק ראשי | הושלם (OJ Q1 2026) |
+| IMCO | החלטת אכיפת DMA | ראשי | EP אישר עמדה; יישום הנציבות ממתין |
+| BUDG | תקציב 2027 | ראשי | שלב הכנה; קריאות ראשונות Q3 2026 |
+
+---
+
+### 🔢 ניתוח מתמטיקת הקואליציה לעומק
+
+סף רוב EP10: **360 מתוך 717 חברים**
+
+| קואליציה | מושבים | מחסור/עודף | פסיקה |
+|---------|--------|-----------|------|
+| EPP לבדה | 183 | −177 | מיעוט בלבד |
+| EPP + S&D | 319 | −41 | לא מספיק |
+| EPP + S&D + Renew | 437 | +77 | ✅ רוב בפער נוח |
+| EPP + ECR + PfE | 375 | +15 | ✅ רוב ימין (רגיש) |
+| S&D + Renew + Greens + Left | 234 | −126 | הבלוק הפרוגרסיבי לא מספיק |
+
+**תובנה מבנית מרכזית:** EPP הוא השחקן ציר שאין ממנו מנוס. אין רוב מתמטי ללא EPP. בחירת EPP לשותפים בקואליציה מכתיבה את הכיוון החקיקתי של EP10.
+
+עודף +77 למשולש המרכזי (EPP+S&D+Renew) מספק כיסוי רוב נוח בהצבעות שנויות במחלוקת גם בעת נפילות מסוימות. לעומת זאת, רוב הימין (+15) פריך בהרבה — פחד בלבד של 8 מושבים (בתוך מרווח שיוט רגיל) עלול לשלול את הרוב.
+
+---
+
+### 📊 מגמת קצב החקיקה (EP10)
+
+מבוסס על 51 טקסטים שאושרו מתחילת 2026:
+
+```
+Q1 2025: ~8 טקסטים שאושרו (הערכה — EP10 מתייצב, ועדות חדשות מתגבשות)
+Q2 2025: ~10 טקסטים שאושרו (הערכה — הצטברות בצינור ההליכים)
+Q3 2025: ~8 טקסטים שאושרו (הערכה — השפעת חגי קיץ)
+Q4 2025: ~12 טקסטים שאושרו (הערכה — ספרינט הסתיו)
+Q1 2026: ~13 טקסטים שאושרו (מאושר מנתונים)
+```
+
+**פרשנות הקצב:** EP10 פועל בפריון חקיקתי גבוה מהממוצע לפרלמנט בשלבים ראשוניים-בינוניים. השלמת מספר פעולות גדולות (SRMR3, רווחת בעלי חיים, מאבק בשחיתות, Mercosur) באותה הרבעון מצביעה על יעילות ועדות חריגה, או שהתיקים היו מצטברים בצינור EP9.
+
+---
+
+### 🎯 מחוונים מרכזיים — בריאות חקיקתית של EP10
+
+| מחוון | ערך | דירוג |
+|------|-----|------|
+| טקסטים שאושרו מתחילת שנה (2026) | 51 | 🟢 HIGH — פלט חזק |
+| ציון יציבות פוליטי | 84/100 | 🟢 HIGH |
+| מספר אפקטיבי של מפלגות | 6.58 | 🟡 MEDIUM פיצול |
+| נתח מושבי EPP | 25.5% | 🟡 דומיננטי אך לא רוב |
+| פער קואליציוני לרוב | 41 מושבים (EPP+S&D) | 🟡 דורש שותף שלישי |
+| נתוני IMF זמינים | 🔴 ללא | 🔴 פער קריטי |
+| נתוני הצבעה עדכניים | 🔴 ללא (עיכוב 4-6 שבועות) | 🟡 מגבלה מבנית |
+
+---
+
+### 📌 סיכום מודיעיני: חשוב השבוע
+
+1. **אין מושב פרלמנטרי באירופה השבוע** (2026-05-11) — המושב הבא צפוי בשבוע האחרון של מאי 2026 בסטרסבורג
+2. **שלב יישום שולט:** SRMR3, רווחת בעלי חיים, מאבק בשחיתות ו-Mercosur — כולם בשלבי העברה לאומיים / מעשי ביצוע — הפעילות הפוליטית העיקרית היא במדינות חברות ובנציבות ולא בפרלמנט
+3. **מעקב אכיפת DMA:** הנציבות מחויבת פוליטית להשיק הליכים חדשים בסעיף 26 בעקבות החלטת הפרלמנט לאכיפה — היעדר פעולות יעורר שאלות מחברי IMCO
+4. **הקואליציה נשארת יציבה בציון 84:** לא מזוהים אותות שבירה קרובים; המשולש EPP-S&D-Renew פועל כרגיל
+5. **התחלת הכנות לתקציב 2027:** ועדת BUDG צפויה להתחיל פעילויות קריאה ראשונה ב-Q3 2026 — מבחן לחץ פוטנציאלי לאחידות הקואליציה
+
+---
+
+### 🔭 תחזית ל-30 יום
+
+| מסגרת זמן | פעילות חקיקתית צפויה | מהימנות |
+|----------|--------------------|---------| 
+| 26–30 מאי 2026 | מושב מליאה בסטרסבורג — אכיפת DMA, תקציב 2027 ראשוני | 🟢 HIGH |
+| יוני 2026 | מעשים מאצילים מוגשים (SRMR3); אפשרות להצעות COD חדשות | 🟡 MEDIUM |
+| יולי 2026 | תחילת חופשת הקיץ של EP (בד"כ אמצע יולי); פעילות חקיקתית מופחתת | 🟢 HIGH |
+| ספטמבר 2026 | ספרינט חקיקתי לאחר פגרה; תקציב 2027 נכנס להכנות פיוס | 🟢 HIGH |
+| אוקטובר 2026 | תקופת פיוס לתקציב 2027 (אם מתאפשר לוח זמנים סטנדרטי) | 🟡 MEDIUM |
+
+**נקודות מעקב מרכזיות למושב מליאה בסטרסבורג 26–30 מאי:**
+- DMA: האם הנציבות תפרסם הצהרה כתובה רשמית בתגובה להחלטת הפרלמנט לאכיפה?
+- Mercosur: הכרזה כלשהי מהמועצה לגבי לוח זמנים ליישום זמני?
+- רווחת בעלי חיים: עדכון הנציבות לגבי הודעת מדינות חברות בנוגע לאמצעי יישום לאומיים?
+- תקציב 2027: הצגת ועדת BUDG לסדרי עדיפויות הפרלמנט לשנת הכספים?
+
+### Executive Brief Ja
+
+**日付:** 2026-05-11 | **記事タイプ:** 提案 | **WEP:** 潜在的 | **信頼性ランク:** B2 | **分類:** 🟢 PUBLIC
+**信頼性:** 🟡 MEDIUM | **データ鮮度:** EP Open Data Portal, 2026-05-11
+
+---
+
+### 🎯 戦略的概況
+
+欧州議会は2026年春、立法上の集中強化局面を迎えている。2026年4月末から5月初旬にかけて、画期的な立法成果が相次いだ。ペットの福祉に関するEU初の規制（`2023/0447(COD)`）、銀行危機対応の枠組み刷新（`2023/0111(COD)` — SRMR3）、そして汚職対策指令（`2023/0135(COD)`）の成立がその代表例である。これらの成果は、議会が9つの政治グループにまたがる断片化指数6.58という環境の中で、複雑な三者間交渉を完結させる能力を有することを示している。
+
+政治的景観は、多数派形成における構造的不安定性を特徴とする。最大会派EPPは717議席中183議席（25.52%）を擁するが、絶対多数に必要な360票を大幅に下回る。大連立の数理的要件として、EPPはS&D（136議席）、PfE（85議席）、ECR（81議席）、またはRenew（77議席）のうち少なくとも2グループと連携する必要がある。早期警告システムは安定スコア84/100でリスク水準MEDIUM を検知しており、EPPと小規模グループ間の19倍にも及ぶ議席数格差に起因する覇権リスクを示唆している。
+
+---
+
+### 📋 主要立法成果（直近30日間）
+
+| 手続き | タイトル | 採択日 | 審議期間 |
+|--------|--------|--------|---------|
+| `2023/0447(COD)` | 犬猫の福祉と追跡可能性 | 2026-04-28 | 27ヶ月 |
+| `2024/0311(COD)` | 計量器具指令改正 | 2026-02-10 | 15ヶ月 |
+| `2023/0111(COD)` | SRMR3 — 銀行破綻処理枠組み改革 | 2026-03-26 | 33ヶ月 |
+| `2023/0135(COD)` | 汚職対策 | 2026-03-26 | 約30ヶ月 |
+| `2025/0322(COD)` | EU-メルコスール農業双務保護条項 | 2026-02-10 | 3ヶ月（ファストトラック） |
+| `2026/2596(RSP)` | デジタル市場法の執行 | 2026-04-30 | 非立法 |
+
+---
+
+### 🔑 主要インテリジェンス所見
+
+**所見1 — 動物福祉の画期的成果:** 規則`2023/0447(COD)`（犬猫の福祉）は、ペットに関するEU初の専門的政策文書である。三者間交渉は2026年1月に完結したが、追跡データベース、マイクロチップ装着スケジュール、国境越え輸送規則を巡る激しい対立があった。27ヶ月に及ぶ準備段階は、関係者間の利害対立の鋭さを示している（ペット産業団体は義務的チップ費用に反対し、動物福祉団体はより早い実施スケジュールを要求した）。全体会議は2026-04-28に最終文書を採択した。これはGreens/EFAとS&Dにとって評判上の勝利であり、両グループが議会内でペット規制立法の主要推進者であった。
+
+**所見2 — SRMR3銀行枠組み:** 単一破綻処理規則第3版（`2023/0111(COD)`）は、33ヶ月と8回の機関間三者協議を経て完成した——最近の成果の中で最も長い立法プロセスである。規則は早期介入閾値を見直し、破綻処理前の資金の事前配置、ならびに支払不能に近いヨーロッパの銀行に対するバイル・インカスケードを再定義した。EPPとS&Dは枠組みに合意し、The LeftとGreens/EFAは（概ね成果を得ることなく）預金者優先保護の強化や債権者救済の閾値引き下げを要求した。最終文書は、詳細な議会指示よりもECBおよびSRBの運営上の柔軟性を重視する妥協を反映している。
+
+**所見3 — DMA執行:** DMA執行INI決議（2026-04-30採択）は、大手テクノロジープラットフォームへの欧州委員会の執行ペースに対する議会の不満を反映している。決議は法的拘束力を持たないが、第26条（不遵守手続き）のより積極的な活用を欧州委員会に迫る政治的圧力シグナルを発している。RenewとGreens/EFAが決議を主導し、EPPとECRは競争力を損なう過剰規制への懸念を表明した。
+
+**所見4 — EU-メルコスール農業保護条項:** `2025/0322(COD)`（農業双務保護条項）の3ヶ月という急速な完成は手続き上の注目すべき例外である。この加速したスケジュール——2025年11月付託、2026年3月官報掲載——は、メルコスール協定発効前にヨーロッパの農家への具体的保護メカニズムを提供する政治的緊急性を反映している。EPPおよびECRの選挙区（特に議会内のフランス・ポーランドの農家議員）は、包括的EU-メルコスール協定への消極的受け入れの前提条件としてこの保護条項を確保した。
+
+---
+
+### 📊 連立の数学（多数派形成）
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**360議席多数派への連立経路:**
+- EPP + S&D = 319（不足 — 41議席不足）
+- EPP + S&D + Renew = 396 ✅（中道大連立）
+- EPP + PfE + ECR = 349（不足 — さらに11議席不足）
+- EPP + PfE + ECR + ESN = 376 ✅（右派超多数）
+- S&D + Renew + Greens/EFA + The Left = 311（不足 — 進歩派ブロック）
+
+---
+
+### ⚡ 即時示唆
+
+1. **立法ペースは連立計算に縛られ続ける。** 9会派の議会では、すべての立法事項においてブロックを越えた継続的調整が必要である。EPPのS&Dとの非公式な実質的取り決め（中道立法）とECR/PfEとの取り決め（安全保障・国境・産業ファイル）は、実際の多数派形成がEPPの週次内部交渉に大きく依存することを意味する。
+
+2. **ペット福祉規則は実施段階に移行。** 加盟国には今後24ヶ月で国内マイクロチップデータベースを構築し、ヨーロッパのレジストリと連携する義務がある。欧州委員会は2026年第4四半期までに追跡可能性基準に関する委任行為を公表する見込みである。
+
+3. **SRMR3の実施が即座に開始。** SRBは早期介入トリガーのガイダンスを既に更新しており、修正された最初の監督報告テンプレートは2026年6月までに予定されている。
+
+4. **DMAへの圧力が高まる。** DMA執行の非拘束的決議は、AppleやMetaやGoogleに対する欧州委員会の不作為の政治的コストを引き上げる。第26条ファイルへの委員会の精査は、2026年6月に予定されているIMCO委員会公聴会で激化する見通しである。
+
+5. **計量器具指令の更新。** 更新された指令はヨーロッパの較正要件をデジタル計測技術と整合させ、域内市場のコンプライアンス断片化を軽減する。
+
+---
+
+### 🗓️ 今後の立法マイルストーン
+
+| 予定時期 | 手続き | 重要性 |
+|---------|--------|-------|
+| Q2 2026 | SRMR3に関する欧州委員会委任行為 | 銀行破綻処理規制の実施 |
+| Q3 2026 | DMA透明性に関する欧州委員会実施行為 | DMA執行ツール |
+| Q4 2026 | ペット追跡可能性国内登録開始 | 動物福祉の実施 |
+| 2026–2027 | 次期多年度財政枠組みに関する議論 | 2028年以降のMFF |
+
+---
+
+### ✅ 総合評価
+
+2026年春の立法サイクルは、EP10が複数年にわたる複雑な交渉を完結させる能力を実証した。主要なパターンは中道右派連立（EPP主導）の主導であり、高優先度の社会的・制度的ファイルではS&Dを選択的に取り込む。断片化指数6.58——欧州議会史上最高水準の一つ——は、2027年予算および安全保障支出に関する交渉が激化するにつれ、予測不可能な投票結果を引き続き生み出すであろう。**信頼性: 🟡 MEDIUM**（構造データは堅固；個人レベルの投票凝集データはEP APIから入手不可）。
+
+---
+
+### 🏛️ 委員会インテリジェンス
+
+本分析で観察された立法提案において最も活発な委員会:
+
+| 委員会 | 主要ファイルの管理 | 役割 | ステータス |
+|--------|----------------|------|----------|
+| ECON | SRMR3 | 主報告者 | 完了（OJ Q1 2026） |
+| ENVI / AGRI | ペット福祉規則 | 共同主導 | 完了（OJ Q1 2026） |
+| LIBE | 汚職対策指令 | 主報告者 | 完了（OJ Q1 2026） |
+| INTA | EU-メルコスール保護条項 | 主報告者 | 完了（OJ Q1 2026） |
+| IMCO | DMA執行決議 | 主要 | EP立場採択済み；欧州委員会の実施待ち |
+| BUDG | 2027年予算 | 主要 | 準備段階；Q3 2026に第一読会 |
+
+---
+
+### 🔢 連立数学の深層分析
+
+EP10多数派閾値: **717議席中360議席**
+
+| 連立 | 議席数 | 不足/余剰 | 判定 |
+|------|--------|---------|-----|
+| EPP単独 | 183 | −177 | 少数派のみ |
+| EPP + S&D | 319 | −41 | 不足 |
+| EPP + S&D + Renew | 437 | +77 | ✅ 快適なマージンで多数派 |
+| EPP + ECR + PfE | 375 | +15 | ✅ 右派多数（脆弱） |
+| S&D + Renew + Greens + Left | 234 | −126 | 進歩派ブロック不足 |
+
+**中核的構造的知見:** EPPは不可欠なピボット・アクターである。EPPなしに数学的多数派は存在しない。EPPの連立パートナー選択がEP10の立法方向性を決定する。
+
+中道三者連立（EPP+S&D+Renew）の+77余剰は、一定の造反が生じる争点の多い採決においても快適な多数派カバレッジを提供する。対照的に、右派多数（+15）は極めて脆弱であり、通常の変動範囲内にある8議席の離脱だけで多数派を失う可能性がある。
+
+---
+
+### 📊 立法ペースの推移（EP10）
+
+2026年初から51件の採択テキストに基づく:
+
+```
+Q1 2025: 約8件採択（推計 — EP10安定化、新委員会形成中）
+Q2 2025: 約10件採択（推計 — パイプラインへの案件蓄積）
+Q3 2025: 約8件採択（推計 — 夏季休暇の影響）
+Q4 2025: 約12件採択（推計 — 秋季スプリント）
+Q1 2026: 約13件採択（データから確認済み）
+```
+
+**ペース解釈:** EP10は、初期から中期段階の議会としては平均を上回る立法生産性で機能している。同一四半期に複数の大規模行為（SRMR3、ペット福祉、汚職対策、メルコスール）が完成したことは、委員会の並外れた効率性か、これらのファイルがEP9のパイプラインに蓄積していた可能性を示唆している。
+
+---
+
+### 🎯 主要業績指標 — EP10の立法健全性
+
+| 指標 | 値 | 評価 |
+|------|---|-----|
+| 年初来採択テキスト（2026年） | 51 | 🟢 HIGH — 強力な生産性 |
+| 政治的安定スコア | 84/100 | 🟢 HIGH |
+| 有効政党数 | 6.58 | 🟡 MEDIUM 断片化 |
+| EPP議席シェア | 25.5% | 🟡 支配的だが多数派ではない |
+| 多数派への連立ギャップ | 41議席（EPP+S&D） | 🟡 第三パートナーが必要 |
+| IMFデータ利用可能性 | 🔴 なし | 🔴 重大なギャップ |
+| 最新投票データ | 🔴 なし（4-6週間の遅延） | 🟡 構造的制約 |
+
+---
+
+### 📌 インテリジェンス・サマリー: 今週の重要事項
+
+1. **今週（2026-05-11）は欧州議会本会議なし** — 次回本会議は2026年5月最終週のストラスブールを予定
+2. **実施段階が支配的:** SRMR3、ペット福祉、汚職対策、メルコスールはすべて国内移行/実施行為の段階にある — 主要な政治的活動は加盟国・欧州委員会にあり、議会にはない
+3. **DMA執行の注視:** 欧州委員会は議会のDMA執行決議を受け、第26条手続き開始を政治的に約束している — 不作為はIMCO委員委員からの質問を呼ぶ
+4. **連立はスコア84で安定を維持:** 差し迫った破綻シグナルは検知されず；EPP-S&D-Renew三者連立は正常に機能中
+5. **2027年予算準備の開始:** BUDG委員会はQ3 2026に第一読会活動を開始すると予想される — 連立結束への潜在的ストレステスト
+
+---
+
+### 🔭 30日間予測
+
+| 時間軸 | 予想される立法活動 | 信頼性 |
+|------|-----------------|----|
+| 2026年5月26-30日 | ストラスブール本会議 — DMA執行、2027年予算初期 | 🟢 HIGH |
+| 2026年6月 | 委任行為提出（SRMR3）；新COD提案の可能性 | 🟡 MEDIUM |
+| 2026年7月 | EP夏季休暇開始（通常7月中旬）；立法活動縮小 | 🟢 HIGH |
+| 2026年9月 | 休暇後立法スプリント；2027年予算が調整準備に | 🟢 HIGH |
+| 2026年10月 | 2027年予算調整期間（標準スケジュール遵守の場合） | 🟡 MEDIUM |
+
+**2026年5月26-30日ストラスブール本会議の主要注視ポイント:**
+- DMA: 欧州委員会は議会のDMA執行決議への公式書面声明を公表するか？
+- メルコスール: 暫定適用スケジュールに関する理事会からの発表はあるか？
+- ペット福祉: 欧州委員会による国内実施措置の加盟国通知状況の更新はあるか？
+- 2027年予算: BUDG委員会による会計年度における議会優先事項のプレゼンテーションはあるか？
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-11 | **기사 유형:** 제안 | **WEP:** 잠재적 | **신뢰도 등급:** B2 | **분류:** 🟢 PUBLIC
+**신뢰성:** 🟡 MEDIUM | **데이터 신선도:** EP Open Data Portal, 2026-05-11
+
+---
+
+### 🎯 전략적 개요
+
+유럽의회는 2026년 봄, 입법 강화 국면을 맞이하고 있다. 2026년 4월 말부터 5월 초까지 획기적인 입법 성과가 이어졌다. EU 최초의 반려동물 복지 규정(`2023/0447(COD)`), 은행 위기 대응 틀의 개편(`2023/0111(COD)` — SRMR3), 반부패 지침(`2023/0135(COD)`) 등이 그 대표적 사례다. 이러한 성과들은 파편화 지수 6.58로 9개 정치 그룹에 걸쳐 있는 환경에서도 의회가 복잡한 3자 협상을 완결하는 능력을 갖추고 있음을 보여준다.
+
+정치적 환경은 다수파 형성에서의 구조적 불안정성을 특징으로 한다. 최대 교섭단체인 EPP는 717석 중 183석(25.52%)을 보유하고 있어 절대다수에 필요한 360표에 크게 못 미친다. 대연립의 수학적 요건으로 EPP는 S&D(136석), PfE(85석), ECR(81석), Renew(77석) 중 적어도 두 그룹과 협력해야 법안을 통과시킬 수 있다. 조기경보 시스템은 안정 점수 84/100로 위험 수준 MEDIUM을 감지하며, EPP와 소규모 그룹 간 19배에 달하는 의석 수 격차에서 비롯된 패권 위험을 지적한다.
+
+---
+
+### 📋 주요 입법 성과 (최근 30일)
+
+| 절차 | 제목 | 채택일 | 심의 기간 |
+|------|------|-------|---------|
+| `2023/0447(COD)` | 개·고양이 복지 및 추적가능성 | 2026-04-28 | 27개월 |
+| `2024/0311(COD)` | 측정기기 지침 개정 | 2026-02-10 | 15개월 |
+| `2023/0111(COD)` | SRMR3 — 은행 정리체계 개혁 | 2026-03-26 | 33개월 |
+| `2023/0135(COD)` | 반부패 | 2026-03-26 | 약 30개월 |
+| `2025/0322(COD)` | EU-메르코수르 농업 쌍무 보호조항 | 2026-02-10 | 3개월(패스트트랙) |
+| `2026/2596(RSP)` | 디지털시장법 집행 | 2026-04-30 | 비입법 |
+
+---
+
+### 🔑 주요 인텔리전스 발견
+
+**발견 1 — 동물복지 획기적 성과:** 규정 `2023/0447(COD)`(개·고양이 복지)은 반려동물에 관한 EU 최초의 전용 정책 문서다. 3자 협상은 2026년 1월에 완료됐으나 추적 데이터베이스, 마이크로칩 일정, 국경 간 운송 규정을 둘러싼 치열한 갈등이 있었다. 27개월에 걸친 준비 단계는 이해관계자 간 대립의 첨예함을 보여준다. 의무적 칩 비용에 반대한 반려동물 산업과 더 빠른 일정을 요구한 동물복지단체 간의 갈등이 특히 두드러졌다. 본회의는 2026-04-28에 최종 문서를 채택했다. 이는 의회 내 반려동물 규정 법제화의 주요 지지자인 Greens/EFA와 S&D의 평판 측면에서의 승리다.
+
+**발견 2 — SRMR3 은행 틀:** 단일정리규정 제3판(`2023/0111(COD)`)은 33개월과 8번의 기관 간 3자 협의를 거쳐 완성됐다—최근 성과 중 가장 긴 입법 과정이다. 규정은 조기 개입 임계값을 재설정하고, 정리 전 자금의 사전 배치 및 지급 불능에 가까운 유럽 은행에 대한 손실부담 폭포수 메커니즘을 재정의했다. EPP와 S&D는 틀에 합의했고, The Left와 Greens/EFA는 (대부분 성과 없이) 더 강력한 예금자 우선 보호와 낮은 채권자 구제 임계값을 요구했다. 최종 문서는 상세한 의회 지시보다 ECB와 SRB의 운영상 유연성을 중시하는 타협을 반영한다.
+
+**발견 3 — DMA 집행:** DMA 집행 INI 결의(2026-04-30 채택)는 대형 기술 플랫폼에 대한 유럽위원회의 집행 속도에 대한 의회의 불만을 반영한다. 결의는 구속력이 없으나 제26조(불이행 절차)의 더 공격적인 활용을 위원회에 촉구하는 정치적 압박 신호를 발한다. Renew와 Greens/EFA가 결의를 주도했고, EPP와 ECR은 경쟁력을 해치는 과잉 규제에 대한 우려를 표명했다.
+
+**발견 4 — EU-메르코수르 농업 보호조항:** `2025/0322(COD)`(농업 쌍무 보호조항)의 3개월 만의 신속한 완성은 절차적으로 주목할 만한 예외다. 이 가속된 일정——2025년 11월 회부, 2026년 3월 관보 게재——은 메르코수르 협정 발효 전 유럽 농민에게 실질적인 보호 메커니즘을 제공해야 하는 정치적 긴급성을 반영한다. EPP와 ECR 지지층(특히 의회 내 프랑스·폴란드 농민 대표)은 포괄적 EU-메르코수르 협정에 대한 소극적 수용의 전제조건으로 이 보호조항을 확보했다.
+
+---
+
+### 📊 연립의 수학 (다수파 형성)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**360석 다수파로의 연립 경로:**
+- EPP + S&D = 319 (불충분 — 41석 부족)
+- EPP + S&D + Renew = 396 ✅ (중도 대연립)
+- EPP + PfE + ECR = 349 (불충분 — 11석 추가 부족)
+- EPP + PfE + ECR + ESN = 376 ✅ (우파 초다수)
+- S&D + Renew + Greens/EFA + The Left = 311 (불충분 — 진보 블록)
+
+---
+
+### ⚡ 즉각적 시사점
+
+1. **입법 속도는 연립 계산에 묶인다.** 9개 교섭단체 의회는 모든 입법 사안에서 교차 블록 조율을 필요로 한다. EPP의 S&D와의 비공식 실질 합의(중도 입법) 및 ECR/PfE와의 합의(안보·국경·산업 파일)는 실제 다수파 형성이 EPP의 주간 내부 협상에 크게 의존함을 의미한다.
+
+2. **반려동물 복지 규정이 이행 단계로 이동.** 회원국은 이제 국내 마이크로칩 데이터베이스를 구축하고 유럽 레지스트리와 연결할 24개월의 기간을 갖는다. 유럽위원회는 2026년 4분기까지 추적가능성 기준에 관한 위임 행위를 발표할 것으로 예상된다.
+
+3. **SRMR3 이행이 즉각 시작.** SRB는 이미 조기 개입 촉발 가이던스를 업데이트하고 있으며, 수정된 첫 감독 보고 템플릿은 2026년 6월까지 예정돼 있다.
+
+4. **DMA 압박이 강화.** DMA 집행 비구속적 결의는 Apple, Meta, Google에 대한 위원회 무행동의 정치적 비용을 높인다. 제26조 파일에 대한 위원회 검토는 2026년 6월로 예정된 IMCO 위원회 청문회에서 강화될 것으로 예상된다.
+
+5. **측정기기 지침 업데이트.** 업데이트된 지침은 유럽의 교정 요건을 디지털 측정 기술과 일치시켜 내부 시장의 준수 파편화를 줄인다.
+
+---
+
+### 🗓️ 향후 입법 마일스톤
+
+| 예정 시기 | 절차 | 중요성 |
+|---------|------|-------|
+| Q2 2026 | SRMR3에 관한 위원회 위임 행위 | 은행 정리 규정 이행 |
+| Q3 2026 | DMA 투명성 위원회 이행 행위 | DMA 집행 도구 |
+| Q4 2026 | 반려동물 추적가능성 국내 레지스트리 출범 | 동물복지 이행 |
+| 2026–2027 | 차기 다년도 재정 프레임워크 논의 | 2028년 이후 MFF |
+
+---
+
+### ✅ 종합 평가
+
+2026년 봄 입법 주기는 EP10이 다년간의 복잡한 협상을 완결하는 능력을 입증했다. 지배적 패턴은 중도우파 연립(EPP 주도)으로, 우선순위가 높은 사회적·제도적 파일에서 S&D를 선택적으로 포함시킨다. 단편화 지수 6.58——유럽의회 역사상 최고 수준 중 하나——은 2027년 예산과 안보 지출 협상이 격화됨에 따라 예측 불가능한 투표 결과를 계속 만들어낼 것이다. **신뢰성: 🟡 MEDIUM** (구조 데이터는 견고; 개인 수준의 투표 결집 데이터는 EP API에서 제공되지 않음).
+
+---
+
+### 🏛️ 위원회 인텔리전스
+
+본 분석에서 관찰된 입법 제안에서 가장 활발한 위원회:
+
+| 위원회 | 주요 파일 관리 | 역할 | 상태 |
+|-------|------------|-----|-----|
+| ECON | SRMR3 | 수석 보고자 | 완료 (OJ Q1 2026) |
+| ENVI / AGRI | 반려동물 복지 규정 | 공동 주도 | 완료 (OJ Q1 2026) |
+| LIBE | 반부패 지침 | 수석 보고자 | 완료 (OJ Q1 2026) |
+| INTA | EU-메르코수르 보호조항 | 수석 보고자 | 완료 (OJ Q1 2026) |
+| IMCO | DMA 집행 결의 | 주요 | EP 입장 채택; 위원회 이행 대기 |
+| BUDG | 2027년 예산 | 주요 | 준비 단계; Q3 2026 1차 독회 |
+
+---
+
+### 🔢 연립 수학 심층 분석
+
+EP10 다수파 임계값: **717석 중 360석**
+
+| 연립 | 의석 수 | 부족/여분 | 판정 |
+|-----|--------|---------|-----|
+| EPP 단독 | 183 | −177 | 소수파만 |
+| EPP + S&D | 319 | −41 | 불충분 |
+| EPP + S&D + Renew | 437 | +77 | ✅ 편안한 마진으로 다수파 |
+| EPP + ECR + PfE | 375 | +15 | ✅ 우파 다수파 (취약) |
+| S&D + Renew + Greens + Left | 234 | −126 | 진보 블록 불충분 |
+
+**핵심 구조적 통찰:** EPP는 불가결한 피벗 행위자다. EPP 없이 수학적 다수파는 존재하지 않는다. EPP의 연립 파트너 선택이 EP10의 입법 방향성을 결정한다.
+
+중도 3자 연립(EPP+S&D+Renew)의 +77 여분은 일부 이탈이 발생하는 쟁점 많은 투표에서도 편안한 다수파 커버리지를 제공한다. 반면 우파 다수파(+15)는 극히 취약하다——정상적인 변동 범위 내 8석 이탈만으로 다수파를 잃을 수 있다.
+
+---
+
+### 📊 입법 속도 추세 (EP10)
+
+2026년 초부터 51개 채택 문서 기준:
+
+```
+Q1 2025: 약 8개 채택 (추정 — EP10 안정화, 신규 위원회 구성 중)
+Q2 2025: 약 10개 채택 (추정 — 파이프라인 안건 축적)
+Q3 2025: 약 8개 채택 (추정 — 여름 휴회 효과)
+Q4 2025: 약 12개 채택 (추정 — 가을 스프린트)
+Q1 2026: 약 13개 채택 (데이터로 확인)
+```
+
+**속도 해석:** EP10은 초기-중기 단계 의회로서 평균 이상의 입법 생산성으로 기능하고 있다. 같은 분기에 여러 대형 행위(SRMR3, 반려동물 복지, 반부패, 메르코수르)가 완성된 것은 위원회의 탁월한 효율성이나 이 파일들이 EP9 파이프라인에 축적되어 있었음을 시사한다.
+
+---
+
+### 🎯 핵심성과지표 — EP10 입법 건전성
+
+| 지표 | 값 | 평가 |
+|-----|--|-----|
+| 연초이후 채택 문서 (2026년) | 51 | 🟢 HIGH — 강력한 생산 |
+| 정치적 안정 점수 | 84/100 | 🟢 HIGH |
+| 유효 정당 수 | 6.58 | 🟡 MEDIUM 파편화 |
+| EPP 의석 점유율 | 25.5% | 🟡 지배적이나 다수파 아님 |
+| 다수파로의 연립 갭 | 41석 (EPP+S&D) | 🟡 제3 파트너 필요 |
+| IMF 데이터 가용성 | 🔴 없음 | 🔴 심각한 갭 |
+| 최신 투표 데이터 | 🔴 없음 (4-6주 지연) | 🟡 구조적 제약 |
+
+---
+
+### 📌 인텔리전스 요약: 이번 주 중요 사항
+
+1. **이번 주(2026-05-11) 유럽의회 본회의 없음** — 다음 본회의는 2026년 5월 마지막 주 스트라스부르에서 예정
+2. **이행 단계 지배적:** SRMR3, 반려동물 복지, 반부패, 메르코수르는 모두 국내 이전/이행 행위 단계 — 주요 정치 활동은 회원국과 위원회에 있으며 의회에 없음
+3. **DMA 집행 주시:** 위원회는 의회의 DMA 집행 결의를 받아 제26조 절차 개시를 정치적으로 약속했다 — 불행동은 IMCO 위원 질의를 야기할 것
+4. **연립은 84 점수로 안정 유지:** 임박한 붕괴 신호 감지 없음; EPP-S&D-Renew 3자 연립 정상 기능 중
+5. **2027년 예산 준비 시작:** BUDG 위원회는 Q3 2026에 1차 독회 활동 시작 예상 — 연립 결속에 대한 잠재적 스트레스 테스트
+
+---
+
+### 🔭 30일 전망
+
+| 기간 | 예상 입법 활동 | 신뢰성 |
+|-----|-------------|------|
+| 2026년 5월 26-30일 | 스트라스부르 본회의 — DMA 집행, 2027년 예산 초기 | 🟢 HIGH |
+| 2026년 6월 | 위임 행위 제출(SRMR3); 신규 COD 제안 가능성 | 🟡 MEDIUM |
+| 2026년 7월 | EP 여름 휴회 시작(보통 7월 중순); 입법 활동 축소 | 🟢 HIGH |
+| 2026년 9월 | 휴회 후 입법 스프린트; 2027년 예산이 조정 준비로 | 🟢 HIGH |
+| 2026년 10월 | 2027년 예산 조정 기간(표준 일정 준수 시) | 🟡 MEDIUM |
+
+**2026년 5월 26-30일 스트라스부르 본회의 주요 주시 포인트:**
+- DMA: 유럽위원회가 의회의 DMA 집행 결의에 공식 서면 성명을 발표할 것인가?
+- 메르코수르: 잠정 적용 일정에 관한 이사회 발표가 있는가?
+- 반려동물 복지: 위원회가 국내 이행 조치에 관한 회원국 통보 현황을 업데이트하는가?
+- 2027년 예산: BUDG 위원회가 회계연도 의회 우선순위를 발표하는가?
+
+### Executive Brief Nl
+
+### 🎯 Strategisch overzicht
+
+Het Europees Parlement doorkruist in het voorjaar van 2026 een periode van intensieve wetgevingsconsolidatie. De weken rondom eind april en begin mei 2026 werden gekenmerkt door een dichte cluster van baanbrekende wetgevingsafrondings, waaronder de eerste grote EU-handeling inzake het welzijn van gezelschapsdieren (`2023/0447(COD)`), een herstructureerd kader voor bankenafwikkeling (`2023/0111(COD)` — SRMR3) en een nieuwe antikorruptierichtlijn (`2023/0135(COD)`). Deze verwezenlijkingen weerspiegelen het vermogen van het Parlement om complexe triloonderhandelingen tot een goed einde te brengen ondanks de hoge parlementaire fragmentatie-index van 6,58 verdeeld over negen politieke fracties.
+
+Het politieke landschap is structureel instabiel voor de vorming van meerderheden. EPP, de grootste fractie, bezit 25,52 % van de zetels (183/717 MEP's) — ver onder de drempel van 360 die vereist is voor een absolute meerderheid. De wiskundige basis voor een grote coalitie vereist dat EPP zich verbindt met minstens twee van S&D (136), PfE (85), ECR (81) of Renew (77) om wetgeving te kunnen aannemen. Het systeem voor vroegtijdige waarschuwing signaleert een MEDIUM-risiconiveau met een stabiliteitsscore van 84/100, waarbij het dominantierisico wordt opgemerkt vanwege het negentienvoudige groottevoordeel van EPP ten opzichte van de kleinste fracties.
+
+---
+
+### 📋 Belangrijkste wetgevingsafrondingen (afgelopen 30 dagen)
+
+| Procedure | Titel | Aangenomen | Duur |
+|-----------|-------|-----------|------|
+| `2023/0447(COD)` | Welzijn van honden en katten en hun traceerbaarheid | 2026-04-28 | 27 maanden |
+| `2024/0311(COD)` | Wijziging van de Meetinstrumentenrichtlijn | 2026-02-10 | 15 maanden |
+| `2023/0111(COD)` | SRMR3 — Hervorming van het kader voor bankenafwikkeling | 2026-03-26 | 33 maanden |
+| `2023/0135(COD)` | Bestrijding van corruptie | 2026-03-26 | ~30 maanden |
+| `2025/0322(COD)` | Bilaterale vrijwaringsclausule EU-Mercosur voor de landbouw | 2026-02-10 | 3 maanden (spoedprocedure) |
+| `2026/2596(RSP)` | Handhaving van de Wet digitale markten | 2026-04-30 | Niet-legislatief |
+
+---
+
+### 🔑 Belangrijkste inlichtingenbevindingen
+
+**Bevinding 1 — Mijlpaal voor dierenwelzijn:** De verordening `2023/0447(COD)` betreffende het welzijn van honden en katten vormt het eerste eigen EU-wetgevingsinstrument voor gezelschapsdieren. De definitieve triloog werd in januari 2026 afgesloten na controversiële onderhandelingen over traceerbaarheidsdatabases, tijdschema's voor microchipmarkering en regels voor grensoverschrijdend transport. De 27 maanden durende voorbereiding weerspiegelt de breedte van de belangenconflicten — van bedrijfsverenigingen in de dierensector (tegen verplichte microchipkosten) tot dierenwelzijnsorganisaties (die snellere implementatietermijnen eisten). De plenaire vergadering keurde de definitieve tekst goed op 2026-04-28 — een reputatiesucces voor Greens/EFA en S&D als voorhoede van wetgeving over gezelschapsdieren in het Parlement.
+
+**Bevinding 2 — SRMR3-bankenkader:** De derde iteratie van de verordening betreffende het Gemeenschappelijk Afwikkelingsmechanisme (`2023/0111(COD)`) werd afgerond na 33 maanden en acht interinstitutionele trilogen — het langste wetgevingstraject onder de recente afrondingen. De verordening herziet de drempelwaarden voor vroegtijdige interventie, de voorpositionering van afwikkelingsfondsen en de aansprakelijkheidsvalsmechanismen voor Europese banken die insolvabiliteit naderen. EPP en S&D sloten zich aan bij het kader, terwijl The Left en Greens/EFA (grotendeels tevergeefs) aandrongen op sterkere depositopreferentiebescherming en lagere bail-in-drempelwaarden. De definitieve tekst weerspiegelt een compromis dat de operationele flexibiliteit van de ECB en de SRB boven parlementaire voorschriften stelt.
+
+**Bevinding 3 — Handhaving van de Wet digitale markten:** De INI-resolutie over DMA-handhaving (aangenomen op 2026-04-30) weerspiegelt de frustratie van het Parlement over het tempo van handhaving door de Commissie ten aanzien van Big Tech-platforms. De resolutie is niet-bindend, maar signaleert politieke druk om de Commissie artikel 26 (procedures bij niet-naleving) agressiever te laten inzetten. Renew en Greens/EFA dreven de resolutie door; EPP en ECR uitten voorbehouden over regelgevingsoverdrijving die de concurrentiepositie zou belemmeren.
+
+**Bevinding 4 — Landbouwbeschermingsclausule EU-Mercosur:** De versnelde afronding van `2025/0322(COD)` (bilaterale landbouwbeschermingsclausule) in 3 maanden springt eruit als een procedurele uitzondering. Deze versnelde tijdlijn — doorverwijzing november 2025, publicatie in het Publicatieblad maart 2026 — weerspiegelt de politieke urgentie om concrete beschermingsmechanismen te bieden aan EU-boeren vóór de inwerkingtreding van het Mercosur-akkoord. De kiesdistricts van EPP en ECR (met name Franse en Poolse landbouw-MEP's) verkregen deze vrijwaring als voorwaarde voor hun tegenstribbelende acceptatie van het bredere EU-Mercosur-akkoord.
+
+---
+
+### 📊 Coalitiewiskunde (meerderheidsvorming)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**Coalitiewegen naar een meerderheid van 360 zetels:**
+- EPP + S&D = 319 (ONVOLDOENDE — heeft +41 nodig)
+- EPP + S&D + Renew = 396 ✅ (Centristische grote coalitie)
+- EPP + PfE + ECR = 349 (ONVOLDOENDE — heeft +11 meer nodig)
+- EPP + PfE + ECR + ESN = 376 ✅ (Rechts-conservatieve supermeerderheid)
+- S&D + Renew + Greens/EFA + The Left = 311 (ONVOLDOENDE — progressief blok)
+
+---
+
+### ⚡ Directe gevolgen
+
+1. **De wetgevingssnelheid blijft beperkt door de coalitierekenkunde.** Het negen-fractieparlement vereist voor elk wetgevingsstuk een voortdurende coördinatie tussen de blokken. De informele werkafspraken van EPP met zowel S&D (centristische wetgeving) als ECR/PfE (veiligheid, grenzen, industrie) betekenen dat effectieve meerderheidsvorming sterk afhankelijk is van de wekelijkse interne onderhandelingen van EPP.
+
+2. **De dierenwelzijnsverordening treedt in de uitvoeringsfase.** De lidstaten hebben nu 24 maanden de tijd om nationale microchipdatabases op te zetten en te koppelen aan het EU-register. De Commissie zal naar verwachting uiterlijk in kwartaal 4 van 2026 gedelegeerde handelingen inzake traceerbaarheidsnormen indienen.
+
+3. **De uitvoering van SRMR3 begint onmiddellijk.** De Gemeenschappelijke Afwikkelingsraad is al begonnen met het actualiseren van zijn richtsnoeren voor vroegtijdige interventietriggers; de eerste herziene toezichtsnotificatiesjablonen worden uiterlijk in juni 2026 verwacht.
+
+4. **De druk op de DMA-handhaving neemt toe.** De niet-bindende resolutie over DMA-handhaving verhoogt de politieke kosten van de inactiviteit van de Commissie ten aanzien van Apple, Meta en Google. Verwacht een verscherpte controle van de caseload van de Commissie op grond van artikel 26 bij de IMCO-commissieverhoren die gepland zijn voor juni 2026.
+
+5. **Modernisering van de Meetinstrumentenrichtlijn.** De bijgewerkte richtlijn stemt de EU-kalibratievereisten af op digitale meettechnologieën en vermindert de nalevingsfragmentatie op de interne markt.
+
+---
+
+### 🗓️ Aankomende wetgevingsmijlpalen
+
+| Verwachte datum | Procedure | Belang |
+|----------------|-----------|--------|
+| K2 2026 | Gedelegeerde handelingen van de Commissie over SRMR3 | Uitvoering bankenafwikkeling |
+| K3 2026 | Uitvoeringshandelingen van de Commissie over DMA-transparantie | DMA-handhavingsinstrumenten |
+| K4 2026 | Lancering van nationaal register voor traceerbaarheid van huisdieren | Uitvoering dierenwelzijn |
+| 2026–2027 | Volgende MFK-besprekingen | Meerjarig kader voor 2028+ |
+
+---
+
+### ✅ Algehele beoordeling
+
+De wetgevingscyclus van het voorjaar 2026 toont de capaciteit van EP10 om complexe meerjarige onderhandelingen af te ronden. Het dominante patroon is de dominantie van de centrum-rechtse coalitie (EPP aan het roer) met selectieve inclusie van S&D bij hoog zichtbare sociale en institutionele dossiers. De fragmentatie-index van 6,58 — een van de hoogste in de EP-geschiedenis — zal onverwachte plenaire uitkomsten blijven genereren naarmate de onderhandelingen over het budget 2027 en de veiligheidsuitgaven intensiveren. **Betrouwbaarheid: 🟡 MEDIUM** (structurele gegevens solide; gegevens over stemcohesie op individueel niveau niet beschikbaar via de EP-API).
+
+---
+
+### 🏛️ Commissie-inlichtingen
+
+De volgende EP-commissies zijn het meest actief in de in deze analyse gevolgde wetgevingsvoorstellen:
+
+| Commissie | Primair dossier | Rol | Status |
+|-----------|----------------|-----|--------|
+| ECON | SRMR3 | Leidende rapporteur | Afgerond (publicatie PB K1 2026) |
+| ENVI / AGRI | Dierenwelzijnsverordening | Gezamenlijk leidend | Afgerond (publicatie PB K1 2026) |
+| LIBE | Antikorruptierichtlijn | Leidende rapporteur | Afgerond (publicatie PB K1 2026) |
+| INTA | EU-Mercosur-vrijwaring | Leidende rapporteur | Afgerond (publicatie PB K1 2026) |
+| IMCO | DMA-handhavingsresolutie | Leidend | EP-standpunt aangenomen; uitvoering door Commissie in afwachting |
+| BUDG | Begroting 2027 | Leidend | Voorbereidingsfase; eerste lezingen K3 2026 |
+
+---
+
+### 🔢 Diepgaande analyse van de coalitierekenkunde
+
+Meerderheidsdrempel EP10: **360 van 717 MEP's**
+
+| Coalitie | Zetels | Zetels onder meerderheid | Oordeel |
+|---------|--------|------------------------|--------|
+| EPP alleen | 183 | −177 | Alleen minderheid |
+| EPP + S&D | 319 | −41 | Onvoldoende |
+| EPP + S&D + Renew | 437 | +77 | ✅ Meerderheid met buffer |
+| EPP + ECR + PfE | 375 | +15 | ✅ Rechtervleugelsmeerderheid (krap) |
+| S&D + Renew + Greens + Left | 234 | −126 | Progressief blok onvoldoende |
+
+**Cruciale structurele bevinding:** EPP is de onmisbare spilactor. Geen enkele meerderheid is wiskundig mogelijk zonder EPP. De keuze van coalitiepartners door EPP bepaalt de wetgevingsrichting van EP10.
+
+De buffer van +77 van het centristische tripartiet (EPP+S&D+Renew) biedt een comfortabele meerderheidsdekking bij omstreden stemmingen waarbij enige afwijking optreedt. De rechtervleugelsmeerderheid (+15) is aanzienlijk fragieler — een verlies van 8 zetels (binnen normale variantie) zou de meerderheid doen verdwijnen.
+
+---
+
+### 📊 Trend van de wetgevingssnelheid (EP10)
+
+Gebaseerd op 51 aangenomen teksten tot dusver in 2026:
+
+```
+K1 2025: ~8 aangenomen teksten (schatting — EP10 stabiliseert, nieuwe commissies vormen zich)
+K2 2025: ~10 aangenomen teksten (schatting — pijplijn in opbouw)
+K3 2025: ~8 aangenomen teksten (schatting — impact zomerreces)
+K4 2025: ~12 aangenomen teksten (schatting — herfst-sprint)
+K1 2026: ~13 aangenomen teksten (bevestigd uit gegevens)
+```
+
+**Interpretatie van de snelheid:** EP10 opereert met bovengemiddelde wetgevingsproductiviteit voor een vroeg-tot-midterm-parlement. De afronding van meerdere grote COD's (SRMR3, dierenwelzijn, anticorruptie, Mercosur) in hetzelfde kwartaal duidt ofwel op uitzonderlijke commissie-efficiëntie ofwel erop dat deze dossiers al in de pijplijn van EP9 zaten.
+
+---
+
+### 🎯 Prestatie-indicatoren — Wetgevingsgezondheid van EP10
+
+| KPI | Waarde | Beoordeling |
+|-----|--------|-----------|
+| Aangenomen teksten tot nu toe (2026) | 51 | 🟢 HIGH — sterke productie |
+| Politieke stabiliteitsscore | 84/100 | 🟢 HIGH |
+| Effectief aantal partijen | 6,58 | 🟡 MEDIUM fragmentatie |
+| EPP-zetelpercentage | 25,5 % | 🟡 Dominant maar geen meerderheid |
+| Coalitietekort tot meerderheid | 41 zetels (EPP+S&D) | 🟡 Derde partij vereist |
+| Beschikbaarheid IMF-gegevens | 🔴 GEEN | 🔴 Kritieke lacune |
+| Recente stemgegevens | 🔴 GEEN (4–6 weken vertraging) | 🟡 Structurele beperking |
+
+---
+
+### 📌 Inlichtingensamenvatting: Wat er deze week het meest toe doet
+
+1. **Geen EP-plenaire vergadering deze week** (2026-05-11) — de volgende plenaire zitting wordt verwacht in de laatste week van mei 2026 in Straatsburg
+2. **De uitvoeringsfase domineert:** SRMR3, dierenwelzijn, anticorruptie en Mercosur bevinden zich allemaal in de fasen van nationale omzetting/uitvoeringshandelingen — de belangrijkste politieke activiteit vindt plaats in de lidstaten en de Commissie, niet in het Parlement
+3. **DMA-handhavingstoezicht:** De Commissie heeft de politieke verplichting om nieuwe artikel-26-procedures in te leiden na de handhavingsresolutie van het Parlement — het uitblijven van actie zal vragen van IMCO-MEP's uitlokken
+4. **Coalitie stabiliteit houdt stand op 84:** Geen directe breuks signalen gedetecteerd; EPP-S&D-Renew-tripartiet functioneert
+5. **Begrotingsvoorbereiding 2027 begint:** Activiteiten in eerste lezing van de BUDG-commissie worden verwacht in K3 2026 — potentiële stresstest voor de coalitiecohesie
+
+---
+
+### 🔭 Vooruitblik van 30 dagen
+
+| Datumbereik | Verwachte wetgevingsactiviteit | Betrouwbaarheid |
+|------------|-------------------------------|----------------|
+| 26–30 mei 2026 | Straatsburgs plenair — DMA-handhaving, begroting 2027 voorlopig | 🟢 HIGH |
+| Juni 2026 | Gedelegeerde handelingen van de Commissie (SRMR3) ingediend; mogelijke nieuwe COD-voorstellen | 🟡 MEDIUM |
+| Juli 2026 | EP-zomerreces begint (doorgaans halverwege juli); verminderde wetgevingsactiviteit | 🟢 HIGH |
+| September 2026 | Wetgevingssprint na reces begint; Begroting 2027 treedt in voorbereidingsfase voor bemiddeling | 🟢 HIGH |
+| Oktober 2026 | Bemiddelingsperiode voor begroting 2027 (als de standaardkalender gehandhaafd blijft) | 🟡 MEDIUM |
+
+**Belangrijke observatiepunten voor de Straatsburgse plenaire vergadering van 26 tot 30 mei:**
+- DMA-handhaving: Zal de Commissie een formele schriftelijke verklaring afleggen in reactie op de resolutie van het Parlement?
+- Mercosur: Enige Raadsaankondiging over het tijdschema voor voorlopige toepassing?
+- Dierenwelzijn: Update van de Commissie over de kennisgeving door lidstaten van nationale uitvoeringsmaatregelen?
+- Begroting 2027: Presentatie door de BUDG-commissie van de prioriteiten van het Parlement voor het begrotingsjaar?
+
+### Executive Brief No
+
+### 🎯 Strategisk oversikt
+
+Europaparlamentet navigerer en periode med intensiv lovgivningskonsolidering våren 2026. Ukene rundt slutten av april og begynnelsen av mai 2026 var preget av en tett klynge av avgjørende lovgivningsmessige avslutninger, inkludert den første store EU-loven om velferd for selskapsdyr (`2023/0447(COD)`), et omstrukturert rammeverk for bankavvikling (`2023/0111(COD)` — SRMR3) og et nytt direktiv mot korrupsjon (`2023/0135(COD)`). Disse resultatene gjenspeiler parlamentets evne til å drive komplekse trilogforhandlinger til avslutning til tross for et høyt parlamentarisk fragmenteringsindeks på 6,58 fordelt på ni politiske grupper.
+
+Det politiske landskapet er strukturelt ustabilt for majoritetsbygging. EPP, den største gruppen, besitter 25,52 % av mandatene (183/717 MEP-er) — langt under den terskelen på 360 som kreves for absolutt flertall. Storkoalisjonsmattematikken krever at EPP kombineres med minst to av S&D (136), PfE (85), ECR (81) eller Renew (77) for å vedta lovgivning. Det tidlige varslingssystemet markerer et MEDIUM risikonivå med en stabilitetscore på 84/100 og bemerker dominansrisikoen som følge av EPP's nitten ganger størrelsesfortrinn overfor de minste gruppene.
+
+---
+
+### 📋 Viktigste lovgivningsmessige avslutninger (de siste 30 dagene)
+
+| Prosedyre | Tittel | Vedtatt | Varighet |
+|-----------|--------|---------|---------|
+| `2023/0447(COD)` | Velferd for hunder og katter og deres sporbarhet | 2026-04-28 | 27 måneder |
+| `2024/0311(COD)` | Endring av direktivet om måleinstrumenter | 2026-02-10 | 15 måneder |
+| `2023/0111(COD)` | SRMR3 — Reform av rammeverket for bankavvikling | 2026-03-26 | 33 måneder |
+| `2023/0135(COD)` | Bekjempelse av korrupsjon | 2026-03-26 | ~30 måneder |
+| `2025/0322(COD)` | Bilateral sikkerhetsklausul for EU-Mercosur innen landbruk | 2026-02-10 | 3 måneder (hurtigspor) |
+| `2026/2596(RSP)` | Håndhevelse av den digitale markedsloven | 2026-04-30 | Ikke-lovgivende |
+
+---
+
+### 🔑 Viktigste etterretningsfunn
+
+**Funn 1 — Milepæl for dyrevelferd:** Forordningen `2023/0447(COD)` om hunde- og katters velferd utgjør det første dedikerte EU-lovgivningsinstrumentet for selskapsdyr. Den endelige trilogen ble avsluttet i januar 2026 etter kontroversielle forhandlinger om sporingsdatabaser, tidsfrister for mikrochipsmerking og regler for grensekryssende transport. De 27 månedene med tilblivelsesprosess gjenspeiler bredden av interessentkonflikter — fra kjæledyrsindustriens aktører (mot obligatoriske mikrochipskostnader) til dyrevelfærdsorganisasjoner (som krevde raskere gjennomføringstidsfrister). Plenarforsamlingen vedtok den endelige teksten den 2026-04-28 — en omdømmemessig gevinst for Greens/EFA og S&D som de ledende talspersonene for lovgivning om selskapsdyr i parlamentet.
+
+**Funn 2 — SRMR3-bankrammen:** Den tredje iterasjonen av forordningen om den felles avviklingsmekanismen (`2023/0111(COD)`) ble fullført etter 33 måneder og åtte interinstitusjonelle trilogrunder — den lengste lovgivningsprosessen blant de nylige avslutningene. Forordningen reviderer tersklene for tidlig intervensjon, forposisjonering av avviklingsfond og ansvarsvandfallsmekanismene for europeiske banker som nærmer seg insolvens. EPP og S&D ble enige om rammen, mens The Left og Greens/EFA presset (i stor grad uten hell) på for sterkere innskyterpreferansebeskyttelse og lavere bail-in-terskler. Den endelige teksten gjenspeiler et kompromiss som vektlegger ECB's og SRB's operasjonelle fleksibilitet fremfor parlamentarisk preskriptivitet.
+
+**Funn 3 — Håndhevelse av den digitale markedsloven:** INI-resolusjonen om DMA-håndhevelse (vedtatt 2026-04-30) gjenspeiler parlamentets frustrasjon over kommisjonens håndhevingstempo overfor Big Tech-plattformer. Resolusjonen er ikke-bindende, men signalerer politisk press for at kommisjonen skal bruke artikkel 26 (bruddsprosedyrer) mer aggressivt. Renew og Greens/EFA drev resolusjonen gjennom; EPP og ECR uttrykte forbehold mot regulatorisk overtramp som hemmer konkurranseevnen.
+
+**Funn 4 — Landbruksbeskyttelse EU-Mercosur:** Den fremskyndede gjennomføringen på 3 måneder av `2025/0322(COD)` (bilateral landbruksbeskyttelse) skiller seg ut som et prosedyremessig unntak. Denne akselererte tidslinjen — henvisning november 2025, EUT-publisering mars 2026 — gjenspeiler politisk hast med å tilveiebringe konkrete beskyttelsesmekanismer for EU-bønder foran Mercosur-avtalens ikrafttreden. EPP's og ECR's valgkretser (særlig franske og polske landbruks-MEP-er) sikret denne beskyttelsen som en forutsetning for deres motvillige aksept av den bredere EU-Mercosur-avtalen.
+
+---
+
+### 📊 Koalisjonsmatematikk (majoritetsbygging)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**Koalisjonsveger til 360-mandatsflertall:**
+- EPP + S&D = 319 (UTILSTREKKELIG — trenger +41)
+- EPP + S&D + Renew = 396 ✅ (Sentristisk storkoalisjon)
+- EPP + PfE + ECR = 349 (UTILSTREKKELIG — trenger +11 til)
+- EPP + PfE + ECR + ESN = 376 ✅ (Høyre-konservativt superflertall)
+- S&D + Renew + Greens/EFA + The Left = 311 (UTILSTREKKELIG — progressivt blokk)
+
+---
+
+### ⚡ Umiddelbare konsekvenser
+
+1. **Lovgivingstakten er fortsatt begrenset av koalisjonsaritmetikk.** Ni-gruppeparlamentet krever vedvarende koordinering på tvers av blokker for hvert enkelt lovgivningsstykke. EPP's uformelle samarbeidsarrangement med både S&D (sentristisk lovgivning) og med ECR/PfE (sikkerhets-, grense- og industrisaker) betyr at effektiv majoritetsbygging i stor grad er avhengig av EPP's ukentlige interne forhandlinger.
+
+2. **Forordningen om dyrevelferd trer inn i gjennomføringsfasen.** Medlemsstatene har nå 24 måneder til å etablere nasjonale mikrochipsdatabaser og krysspeke til EU-registeret. Kommisjonen forventes å fremlegge delegerte rettsakter om sporbarhetsstandarder senest i kvartal 4 2026.
+
+3. **SRMR3-implementeringen begynner umiddelbart.** Single Resolution Board har allerede begynt å oppdatere sine retningslinjer for tidlige intervensjonssignaler, og de første reviderte tilsynsmeldingmalene forventes senest juni 2026.
+
+4. **Presset rundt DMA-håndhevelse intensiveres.** Den ikke-bindende resolusjonen om DMA-håndhevelse øker den politiske kostnaden for kommisjonens passivitet overfor Apple, Meta og Google. Forvent skjerpet granskning av kommisjonens saksmengde under artikkel 26 ved IMCO-komiteens høringer planlagt til juni 2026.
+
+5. **Modernisering av direktivet om måleinstrumenter.** Det oppdaterte direktivet tilpasser EU's kalibreringsregler til digitale måleteknologier og reduserer etterlevelsessplittelsen på det indre markedet.
+
+---
+
+### 🗓️ Kommende lovgivningsmilepæler
+
+| Forventet dato | Prosedyre | Betydning |
+|----------------|-----------|-----------|
+| K2 2026 | Kommisjonens delegerte rettsakter om SRMR3 | Implementering av bankavvikling |
+| K3 2026 | Kommisjonens gjennomføringsrettsakter om DMA-transparens | DMA-håndhevingsverktøy |
+| K4 2026 | Lansering av nasjonalt register for sporbarhet av kjæledyr | Implementering av dyrevelferd |
+| 2026–2027 | Neste MFF-diskusjoner | Flerårig ramme for 2028+ |
+
+---
+
+### ✅ Samlet vurdering
+
+Vårens 2026 lovgivningssyklus viser EP10's evne til å fullføre komplekse flerårige forhandlinger. Det dominerende mønsteret er senter-høyre-koalisjonsdominans (EPP i front) med selektiv inkludering av S&D i høyprofilerte sosiale og institusjonelle saker. Fragmenteringsindekset på 6,58 — blant de høyeste i EP's historie — vil fortsette å generere uforutsigbare plenumulfall etter hvert som forhandlingene om budsjett 2027 og sikkerhetsutgifter intensiveres. **Troverdighet: 🟡 MEDIUM** (strukturelle data solide; data om kohesjon på voteringssnivå er ikke tilgjengelige fra EP's API).
+
+---
+
+### 🏛️ Komitéetterretning
+
+Følgende EP-komiteer er mest aktive i de lovgivningsforslagene som spores i denne analysen:
+
+| Komité | Primær sak | Rolle | Status |
+|--------|------------|-------|--------|
+| ECON | SRMR3 | Ledende ordfører | Fullført (EUT-publisering K1 2026) |
+| ENVI / AGRI | Forordning om dyrevelferd | Felles ledende | Fullført (EUT-publisering K1 2026) |
+| LIBE | Direktiv mot korrupsjon | Ledende ordfører | Fullført (EUT-publisering K1 2026) |
+| INTA | EU-Mercosur-beskyttelse | Ledende ordfører | Fullført (EUT-publisering K1 2026) |
+| IMCO | DMA-håndhevingsresolusjon | Ledende | EP-standpunkt vedtatt; Kommisjonens gjennomføring avventes |
+| BUDG | Budsjett 2027 | Ledende | Forberedelsefase; første behandlinger K3 2026 |
+
+---
+
+### 🔢 Dybdegående analyse av koalisjonsaritmetikk
+
+EP10's majoritetsterskel: **360 av 717 MEP-er**
+
+| Koalisjon | Mandater | Mangler til flertall | Konklusjon |
+|-----------|----------|---------------------|-----------|
+| EPP alene | 183 | −177 | Kun minoritet |
+| EPP + S&D | 319 | −41 | Utilstrekkelig |
+| EPP + S&D + Renew | 437 | +77 | ✅ Flertall med buffer |
+| EPP + ECR + PfE | 375 | +15 | ✅ Høyreflanksflertall (knapt) |
+| S&D + Renew + Greens + Left | 234 | −126 | Progressivt blokk utilstrekkelig |
+
+**Viktig strukturell innsikt:** EPP er den uunnværlige pivotaktøren. Intet flertall er matematisk mulig uten EPP. EPP's valg av koalisjonspartnere bestemmer EP10's lovgivningsmessige retning.
+
++77-bufferen fra det sentristiske tripartittet (EPP+S&D+Renew) gir komfortabel flertalIsdekning ved kontroversielle voteringer hvor noe frafall forekommer. Høyreflankflertallet (+15) er langt mer skjørt — et bortfall på 8 mandater (innenfor normal variasjon) ville mistet flertallet.
+
+---
+
+### 📊 Trend for lovgivingstakt (EP10)
+
+Basert på 51 vedtatte tekster hittil i 2026:
+
+```
+K1 2025: ~8 vedtatte tekster (anslag — EP10 stabiliseres, nye komiteer formes)
+K2 2025: ~10 vedtatte tekster (anslag — pipeline bygges opp)
+K3 2025: ~8 vedtatte tekster (anslag — sommerrecess effekt)
+K4 2025: ~12 vedtatte tekster (anslag — høstsprint)
+K1 2026: ~13 vedtatte tekster (bekreftet fra data)
+```
+
+**Takttolkning:** EP10 opererer med over gjennomsnitlig lovgivningsproduktivitet for et tidlig-til-midtveis-parlament. Avslutningen av flere store COD-er (SRMR3, dyrevelferd, anti-korrupsjon, Mercosur) i samme kvartal tyder enten på eksepsjonell komitéeffektivitet eller at disse sakene lå i pipeline fra EP9.
+
+---
+
+### 🎯 Nøkkelindikatorer — EP10's lovgivningsmessige helse
+
+| KPI | Verdi | Vurdering |
+|-----|-------|-----------|
+| Vedtatte tekster hittil (2026) | 51 | 🟢 HIGH — sterk produksjon |
+| Politisk stabilitetscore | 84/100 | 🟢 HIGH |
+| Effektivt antall partier | 6,58 | 🟡 MEDIUM fragmentering |
+| EPP's mandatandel | 25,5 % | 🟡 Dominerende men ikke flertall |
+| Koalisjongap til flertall | 41 mandater (EPP+S&D) | 🟡 Krever tredjepart |
+| IMF-datatilgjengelighet | 🔴 INGEN | 🔴 Kritisk mangel |
+| Siste voteringsdata | 🔴 INGEN (4–6 ukers forsinkelse) | 🟡 Strukturell begrensning |
+
+---
+
+### 📌 Etterretningssammendrag: Hva betyr mest denne uken
+
+1. **Ingen EP-plenarforsamling denne uken** (2026-05-11) — neste plenum forventes siste uke av mai 2026 i Strasbourg
+2. **Implementeringsfasen dominerer:** SRMR3, dyrevelferd, anti-korrupsjon og Mercosur befinner seg alle i fasene for nasjonal transposisjon/gjennomføringsrettsakter — den viktigste politiske aktiviteten skjer i Medlemsstater og Kommisjonen, ikke i Parlamentet
+3. **DMA-håndhevingsovervåking:** Kommisjonen har en politisk forpliktelse til å innlede nye artikkel 26-prosedyrer etter Parlamentets håndhevingsresolusjon — fravær av handling vil utløse spørsmål fra IMCO-MEP-er
+4. **Koalisjonsstabilitet holder ved 84:** Ingen umiddelbare bruddsignaler oppdaget; EPP-S&D-Renew-tripartittet fungerer
+5. **Budsjettpreparsjon 2027 begynner:** BUDG-komiteens første behandlingsaktivitet forventes K3 2026 — potensielt stresstest for koalisjonskohesjon
+
+---
+
+### 🔭 30-dagers fremtidsperspektiv
+
+| Datointerval | Forventet lovgivingsaktivitet | Troverdighet |
+|-------------|-------------------------------|-------------|
+| 26.–30. mai 2026 | Strasbourg-plenum — DMA-håndhevelse, budsjett 2027 foreløpig | 🟢 HIGH |
+| Juni 2026 | Kommisjonens delegerte rettsakter (SRMR3) fremlagt; mulige nye COD-forslag | 🟡 MEDIUM |
+| Juli 2026 | EP's sommerrecess begynner (typisk midt i juli); redusert lovgivingsaktivitet | 🟢 HIGH |
+| September 2026 | Post-recess lovgivingssprint begynner; Budsjett 2027 innleder forliksforberedelse | 🟢 HIGH |
+| Oktober 2026 | Forliksperiode for budsjett 2027 (hvis standardkalenderen opprettholdes) | 🟡 MEDIUM |
+
+**Viktige overvåkingspunkter for Strasbourg-plenummet 26.–30. mai:**
+- DMA-håndhevelse: Vil Kommisjonen avgi en formell skriftlig respons på Parlamentets resolusjon?
+- Mercosur: Noe rådsmelding om tidslinjen for midlertidig anvendelse?
+- Dyrevelferd: Kommisjonens oppdatering om Medlemsstatenes melding om nasjonale gjennomføringstiltak?
+- Budsjett 2027: BUDG-komiteens presentasjon av Parlamentets prioriteringer for budsjettåret?
+
+### Executive Brief Sv
+
+### 🎯 Strategisk översikt
+
+Europaparlamentet navigerar en period av intensiv lagstiftningskonsolidering under våren 2026. Veckorna kring slutet av april och början av maj 2026 präglades av ett tätt kluster av epokgörande lagstiftningsavslutningar, däribland den första stora EU-förordningen om sällskapsdjursvälfärd (`2023/0447(COD)`), ett omstrukturerat ramverk för bankresolution (`2023/0111(COD)` — SRMR3) samt ett nytt direktiv mot korruption (`2023/0135(COD)`). Dessa framgångar återspeglar parlamentets förmåga att driva komplexa trialogförhandlingar till avslut trots ett högt parlamentariskt fragmenteringsindex på 6,58 fördelat på nio politiska grupper.
+
+Det politiska landskapet är strukturellt instabilt för majoritetsbildning. EPP, den största gruppen, innehar 25,52 % av mandaten (183/717 ledamöter) — långt under det tröskelvärde på 360 som krävs för absolut majoritet. Stormkoalitionsmattematiken kräver att EPP kombineras med minst två av S&D (136), PfE (85), ECR (81) eller Renew (77) för att lagstiftning ska kunna antas. Systemet för tidig varning flaggar en MEDIUM risknivå med ett stabilitetsindex på 84/100 och noterar dominansrisken till följd av EPP:s nittondubbla storleksfördel gentemot de minsta grupperna.
+
+---
+
+### 📋 Viktigaste lagstiftningsavslutningar (de senaste 30 dagarna)
+
+| Förfarande | Titel | Antagen | Varaktighet |
+|------------|-------|---------|-------------|
+| `2023/0447(COD)` | Välfärd för hundar och katter och deras spårbarhet | 2026-04-28 | 27 månader |
+| `2024/0311(COD)` | Ändring av direktivet om mätinstrument | 2026-02-10 | 15 månader |
+| `2023/0111(COD)` | SRMR3 — Reform av bankresolutionsramen | 2026-03-26 | 33 månader |
+| `2023/0135(COD)` | Bekämpning av korruption | 2026-03-26 | ~30 månader |
+| `2025/0322(COD)` | Bilateralt skydd för EU-Mercosur inom jordbruket | 2026-02-10 | 3 månader (snabbspår) |
+| `2026/2596(RSP)` | Tillämpning av den digitala marknadslagen | 2026-04-30 | Icke-lagstiftande |
+
+---
+
+### 🔑 Viktigaste underrättelsefynd
+
+**Fynd 1 — Milstolpe för djurskydd:** Förordningen `2023/0447(COD)` om hundar och katters välfärd utgör det första dedikerade EU-instrumentet för sällskapsdjur på lagstiftningsnivå. Den slutliga trialogen avslutades i januari 2026 efter kontroversiella förhandlingar om spårbarhetsdatabaser, tidsramar för mikrochipsmärkning och regler för gränsöverskridande transporter. De 27 månadernas tillblivelseprocess återspeglar den bredd av intressentkonflikter som präglade förhandlingarna — från djurindustrins aktörer (mot obligatoriska mikrochipskostnader) till djurskyddsorganisationer (som krävde snabbare genomförandetidsramar). Plenarsammanträdet antog den slutliga texten den 2026-04-28 — en reputationsmässig framgång för Greens/EFA och S&D som de ledande förespråkarna av lagstiftning om sällskapsdjur i parlamentet.
+
+**Fynd 2 — Bankregleringen SRMR3:** Den tredje iterationen av förordningen om den gemensamma resolutionsmekanismen (`2023/0111(COD)`) slutfördes efter 33 månader och åtta interinstitutionella trialogomgångar — den längsta lagstiftningsprocessen bland de senaste avslutningarna. Förordningen reviderar tröskelvärdena för tidig intervention, förpositionering av resolutionsfonder och ansvarsordningen för europeiska banker som nalkats insolvens. EPP och S&D enades om ramverket, medan The Left och Greens/EFA (i stor utsträckning utan framgång) drev på för starkare insättarpreferensskydd och lägre bail-in-trösklar. Den slutliga texten återspeglar en kompromiss som viktar ECB:s och SRB:s operativa flexibilitet framför parlamentarisk föreskrivande kontroll.
+
+**Fynd 3 — Tillämpning av den digitala marknadslagen:** INI-resolutionen om DMA-efterlevnad (antagen 2026-04-30) återspeglar parlamentets frustration över kommissionens tillämpningstakt gentemot Big Tech-plattformar. Resolutionen är inte bindande men signalerar politiskt tryck för att kommissionen ska använda artikel 26 (överträdelsförfaranden) mer aggressivt. Renew och Greens/EFA drev igenom resolutionen; EPP och ECR uttryckte reservationer om att reglering hämmade konkurrenskraften.
+
+**Fynd 4 — Jordbruksskydd EU-Mercosur:** Det påskyndade genomförandet på 3 månader av `2025/0322(COD)` (bilateralt jordbruksskydd) sticker ut som ett procedurmässigt undantagsfall. Den accelererade tidslinjen — remiss november 2025, EUT-publicering mars 2026 — återspeglar politisk brådska att tillhandahålla konkreta skyddsmekanismer för EU-jordbrukare inför Mercosur-avtalets ikraftträdande. EPP:s och ECR:s valmanskår (i synnerhet franska och polska jordbruksledamöter) säkrade detta skydd som ett villkor för deras motvilliga acceptans av det bredare EU-Mercosur-avtalet.
+
+---
+
+### 📊 Koalitionsmatematik (majoritetsbildning)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**Koalitionsvägar till 360-mandatsmajoritet:**
+- EPP + S&D = 319 (OTILLRÄCKLIGT — behöver +41)
+- EPP + S&D + Renew = 396 ✅ (Centristisk storkoalition)
+- EPP + PfE + ECR = 349 (OTILLRÄCKLIGT — behöver +11 till)
+- EPP + PfE + ECR + ESN = 376 ✅ (Höger-konservativ supermajoritet)
+- S&D + Renew + Greens/EFA + The Left = 311 (OTILLRÄCKLIGT — progressivt block)
+
+---
+
+### ⚡ Omedelbara konsekvenser
+
+1. **Lagstiftningstakten begränsas fortfarande av koalitionsaritmiken.** Det nio-gruppers parlament kräver uthållig samordning mellan blocken för varje lagstiftningsakt. EPP:s informella samarbetsarrangemang med såväl S&D (centristisk lagstiftning) som ECR/PfE (säkerhets-, gräns- och industrifrågor) innebär att effektiv majoritetsbildning i hög grad är beroende av EPP:s veckovisa interna förhandlingar.
+
+2. **Förordningen om djurskydd träder in i genomförandefasen.** Medlemsstaterna har nu 24 månader på sig att etablera nationella mikrochipsdatabaser och koppla dem till EU-registret. Kommissionen väntas lägga fram delegerade akter om spårbarhetsstandarder senast kvartal 4 2026.
+
+3. **SRMR3-genomförandet inleds omedelbart.** Single Resolution Board har redan påbörjat uppdateringen av sina riktlinjer om tidiga interventionssignaler, och de första reviderade tillsynsmeddelandemallarna väntas senast juni 2026.
+
+4. **Trycket kring DMA-tillämpning ökar.** Den icke-bindande resolutionen om DMA-tillämpning ökar den politiska kostnaden för kommissionens passivitet gentemot Apple, Meta och Google. Förvänta en skärpt granskning av kommissionens ärendestock enligt artikel 26 vid IMCO-utskottets utfrågningar planerade till juni 2026.
+
+5. **Modernisering av direktivet om mätinstrument.** Det uppdaterade direktivet anpassar EU:s kalibreringskrav till digitala mätteknologier och minskar efterlevnadsfragmenteringen på den inre marknaden.
+
+---
+
+### 🗓️ Kommande lagstiftningsmilepålar
+
+| Förväntat datum | Förfarande | Betydelse |
+|-----------------|-----------|-----------|
+| K2 2026 | Kommissionens delegerade akter om SRMR3 | Genomförande av bankresolution |
+| K3 2026 | Kommissionens genomförandeakter om DMA-transparens | Verktyg för DMA-tillämpning |
+| K4 2026 | Lansering av nationellt register för sällskapsdjursspårbarhet | Genomförande av djurskydd |
+| 2026–2027 | Nästa MFF-diskussioner | Flerårig ram för 2028+ |
+
+---
+
+### ✅ Samlad bedömning
+
+Vårens 2026 lagstiftningscykel visar EP10:s förmåga att slutföra komplexa fleråriga förhandlingar. Det dominerande mönstret är center-högerkoalitionsdominans (EPP i ledningen) med selektiv inkludering av S&D i högprofilerade sociala och institutionella ärenden. Fragmenteringsindexet på 6,58 — bland de högsta i EP:s historia — kommer att fortsätta generera oförutsägbara omröstningsresultat allteftersom förhandlingarna om budget 2027 och säkerhetsutgifter intensifieras. **Tillförlitlighet: 🟡 MEDIUM** (strukturella data starka; data om kohesion på röstningsnivå är inte tillgängliga från EP:s API).
+
+---
+
+### 🏛️ Utskottsunderrättelse
+
+Följande EP-utskott är mest aktiva i de lagstiftningspropositioner som spåras i denna analys:
+
+| Utskott | Primärt ärende | Roll | Status |
+|---------|----------------|------|--------|
+| ECON | SRMR3 | Ledande föredragande | Slutfört (EUT-publicering K1 2026) |
+| ENVI / AGRI | Förordning om djurskydd | Gemensamt ledande | Slutfört (EUT-publicering K1 2026) |
+| LIBE | Direktiv mot korruption | Ledande föredragande | Slutfört (EUT-publicering K1 2026) |
+| INTA | EU-Mercosur-skydd | Ledande föredragande | Slutfört (EUT-publicering K1 2026) |
+| IMCO | DMA-tillämpningsresolution | Ledande | EP-ståndpunkt antagen; kommissionens genomförande avvaktas |
+| BUDG | Budget 2027 | Ledande | Förberedelsefas; första behandlingar K3 2026 |
+
+---
+
+### 🔢 Djupdykning i koalitionsaritmiken
+
+EP10:s majoritetströskel: **360 av 717 ledamöter**
+
+| Koalition | Mandat | Brist till majoritet | Slutsats |
+|-----------|--------|---------------------|---------|
+| EPP ensamt | 183 | −177 | Minoritet |
+| EPP + S&D | 319 | −41 | Otillräckligt |
+| EPP + S&D + Renew | 437 | +77 | ✅ Majoritet med marginal |
+| EPP + ECR + PfE | 375 | +15 | ✅ Högerflanksmajoritet (knapp) |
+| S&D + Renew + Greens + Left | 234 | −126 | Progressivt block otillräckligt |
+
+**Viktig strukturell insikt:** EPP är den oumbärliga pivotaktören. Ingen majoritet är matematiskt möjlig utan EPP. EPP:s val av koalitionspartners bestämmer EP10:s lagstiftningsinriktning.
+
+Den centristiska tripartitens buffert på +77 (EPP+S&D+Renew) ger bekväm majoritetstäckning vid kontroversiella omröstningar med viss avhoppsrisk. Högerflanksmajoriteten (+15) är avsevärt skörare — ett bortfall på 8 mandat (inom normal variation) skulle förlora majoriteten.
+
+---
+
+### 📊 Trend för lagstiftningstakt (EP10)
+
+Baserat på 51 antagna texter hittills under 2026:
+
+```
+K1 2025: ~8 antagna texter (uppskattning — EP10 stabiliserar sig, nya utskott formas)
+K2 2025: ~10 antagna texter (uppskattning — pipeline byggs upp)
+K3 2025: ~8 antagna texter (uppskattning — sommaruppehållets inverkan)
+K4 2025: ~12 antagna texter (uppskattning — höstsprurt)
+K1 2026: ~13 antagna texter (bekräftat från data)
+```
+
+**Tolkning av takten:** EP10 opererar med ovan genomsnittlig lagstiftningsproduktivitet för ett tidig-till-medterm-parlament. Slutförandet av flera stora COD:ar (SRMR3, djurskydd, anti-korruption, Mercosur) under samma kvartal tyder antingen på exceptionell utskottseffektivitet eller att dessa ärenden låg i pipeline från EP9.
+
+---
+
+### 🎯 Nyckeltal — EP10:s lagstiftningshälsa
+
+| KPI | Värde | Bedömning |
+|-----|-------|-----------|
+| Antagna texter hittills (2026) | 51 | 🟢 HIGH — stark produktion |
+| Politisk stabilitetspoäng | 84/100 | 🟢 HIGH |
+| Effektivt antal partier | 6,58 | 🟡 MEDIUM fragmentering |
+| EPP:s mandatandel | 25,5 % | 🟡 Dominant men ej majoritet |
+| Koalitionsgap till majoritet | 41 mandat (EPP+S&D) | 🟡 Kräver tredjepartsinkludering |
+| IMF-datatillgänglighet | 🔴 INGEN | 🔴 Kritisk lucka |
+| Senaste omröstningsdata | 🔴 INGEN (4–6 veckors fördröjning) | 🟡 Strukturell begränsning |
+
+---
+
+### 📌 Underrättelsesummering: Vad är viktigast denna vecka
+
+1. **Inget EP-plenarsammanträde denna vecka** (2026-05-11) — nästa plenum förväntas sista veckan i maj 2026 i Strasbourg
+2. **Genomförandefasen dominerar:** SRMR3, djurskydd, anti-korruption och Mercosur befinner sig alla i faserna för nationellt genomförande/genomförandeakter — den viktigaste politiska aktiviteten sker i medlemsstaterna och kommissionen, inte i parlamentet
+3. **Bevakning av DMA-tillämpning:** Kommissionen har en politisk skyldighet att inleda nya förfaranden enligt artikel 26 efter parlamentets tillämpningsresolution — frånvaro av åtgärder kommer att trigga frågor från IMCO-ledamöter
+4. **Koalitionsstabilitet håller vid 84:** Inga omedelbara brottssignaler detekterade; EPP-S&D-Renew-tripartiten fungerar
+5. **Budgetförberedelser 2027 inleds:** BUDG-utskottets förstabehandlingsaktivitet förväntas K3 2026 — potentiellt stresstest för koalitionskohesion
+
+---
+
+### 🔭 Blick framåt 30 dagar
+
+| Datumintervall | Förväntad lagstiftningsaktivitet | Tillförlitlighet |
+|---------------|----------------------------------|-----------------|
+| 26–30 maj 2026 | Strasbourg-plenum — DMA-tillämpning, budget 2027 preliminärt | 🟢 HIGH |
+| Juni 2026 | Kommissionens delegerade akter (SRMR3) läggs fram; möjliga nya COD-förslag | 🟡 MEDIUM |
+| Juli 2026 | EP:s sommaruppehåll inleds (vanligtvis i mitten av juli); minskad lagstiftningsaktivitet | 🟢 HIGH |
+| September 2026 | Lagstiftningssprurten efter uppehållet inleds; Budget 2027 inleder förlikningsberedning | 🟢 HIGH |
+| Oktober 2026 | Förlikningsperiod för budget 2027 (om standardkalendern följs) | 🟡 MEDIUM |
+
+**Viktiga bevakningspunkter för Strasbourg-plenum 26–30 maj:**
+- DMA-tillämpning: Kommer kommissionen att lämna ett formellt skriftligt svar på parlamentets resolution?
+- Mercosur: Något rådsmeddelande om tidslinjen för provisorisk tillämpning?
+- Djurskydd: Kommissionens uppdatering om medlemsstaternas anmälan av nationella genomförandeåtgärder?
+- Budget 2027: BUDG-utskottets presentation av parlamentets prioriteringar för budgetåret?
+
+### Executive Brief Zh
+
+**日期:** 2026-05-11 | **文章类型:** 提案 | **WEP:** 潜在 | **可信度等级:** B2 | **分类:** 🟢 PUBLIC
+**可靠性:** 🟡 MEDIUM | **数据时效:** EP Open Data Portal, 2026-05-11
+
+---
+
+### 🎯 战略概况
+
+欧洲议会正经历2026年春季的立法集中强化阶段。2026年4月末至5月初，一系列具有里程碑意义的立法成果相继出炉——包括欧盟层面首部宠物福利专项法规（`2023/0447(COD)`）、银行危机处置框架的重大重构（`2023/0111(COD)` — SRMR3）以及新的反腐败指令（`2023/0135(COD)`）。这些成果表明，在碎片化指数高达6.58、涉及九个政治党团的背景下，议会依然具备推动复杂三方谈判走向完成的能力。
+
+政治格局以多数派形成的结构性不稳定为特征。最大党团EPP拥有717席中的183席（25.52%），远低于绝对多数所需的360票门槛。大联盟的数学逻辑要求EPP至少与S&D（136席）、PfE（85席）、ECR（81席）或Renew（77席）中的两个党团联合，才能通过立法。早期预警系统以84/100的稳定分数检测到中等（MEDIUM）风险水平，指出EPP与小型党团之间19倍席位差距所带来的霸权风险。
+
+---
+
+### 📋 主要立法成果（过去30天）
+
+| 程序 | 标题 | 通过日期 | 审议时长 |
+|-----|------|---------|---------|
+| `2023/0447(COD)` | 犬猫福利与可追溯性 | 2026-04-28 | 27个月 |
+| `2024/0311(COD)` | 计量仪器指令修订 | 2026-02-10 | 15个月 |
+| `2023/0111(COD)` | SRMR3 — 银行处置框架改革 | 2026-03-26 | 33个月 |
+| `2023/0135(COD)` | 反腐败 | 2026-03-26 | 约30个月 |
+| `2025/0322(COD)` | 欧盟-南方共同市场农业双边保障条款 | 2026-02-10 | 3个月（快速通道） |
+| `2026/2596(RSP)` | 数字市场法执法 | 2026-04-30 | 非立法性 |
+
+---
+
+### 🔑 主要情报发现
+
+**发现1 — 动物福利里程碑:** 法规`2023/0447(COD)`（犬猫福利）是欧盟首部宠物专项政策文件。三方谈判于2026年1月完成，此前在追溯数据库、微芯片植入时间表及跨境运输规定方面存在激烈争议。长达27个月的准备阶段反映了利益相关方冲突的尖锐性——宠物行业团体反对强制芯片费用，动物福利组织则要求更快的实施时间表。全体会议于2026-04-28通过最终文件。这对Greens/EFA和S&D而言是一次声誉层面的胜利，两个党团是议会内宠物立法的主要推动者。
+
+**发现2 — SRMR3银行框架:** 单一处置机制第三版（`2023/0111(COD)`）历经33个月和八轮机构间三方谈判后完成——是近期成果中历时最长的立法程序。该法规修订了早期干预触发阈值，重新定位了预处置资金以及对濒临资不抵债的欧洲银行的内部纾困级联机制。EPP和S&D就框架达成一致，The Left和Greens/EFA（大多无果而终）则推动加强储户优先保护并降低债权人救助门槛。最终文件反映出优先考虑欧洲央行和单一处置委员会运营灵活性、而非详细议会指示的妥协立场。
+
+**发现3 — DMA执法:** DMA执法INI决议（2026-04-30通过）折射出议会对欧盟委员会在大型科技平台执法节奏上的不满。该决议不具法律约束力，但发出政治压力信号，要求委员会更积极地使用第26条（不合规程序）。Renew和Greens/EFA主导了该决议；EPP和ECR则对损害竞争力的过度监管表示保留。
+
+**发现4 — 欧盟-南方共同市场农业保障条款:** `2025/0322(COD)`（农业双边保障条款）仅历时3个月便快速完成，是程序上的显著例外。加速时间表——2025年11月提交、2026年3月在官方公报发布——反映出在南方共同市场协议生效前为欧洲农民提供切实保护机制的政治紧迫性。EPP和ECR选区（尤其是议会内法国和波兰农民代表）将此保障条款确立为对包容性欧盟-南方共同市场协议勉强接受的前提条件。
+
+---
+
+### 📊 联合数学（多数派形成）
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=787b2fca) -->
+
+**通往360席多数的联合路径:**
+- EPP + S&D = 319（不足 — 差41席）
+- EPP + S&D + Renew = 396 ✅（中间派大联盟）
+- EPP + PfE + ECR = 349（不足 — 还差11席）
+- EPP + PfE + ECR + ESN = 376 ✅（右翼超级多数）
+- S&D + Renew + Greens/EFA + The Left = 311（不足 — 进步派集团）
+
+---
+
+### ⚡ 即时影响
+
+1. **立法节奏仍受制于联合数学。** 九党团议会在每项立法事务上均需跨党团持续协调。EPP与S&D的非正式实质安排（中间派立法）及与ECR/PfE的安排（安全、边界和工业档案）意味着实际多数派形成高度依赖EPP每周的内部谈判。
+
+2. **宠物福利法规进入实施阶段。** 成员国现有24个月时间建立国内微芯片数据库并与欧洲注册系统互联。预计欧盟委员会将于2026年第四季度发布有关可追溯性标准的授权行为。
+
+3. **SRMR3实施即刻启动。** 单一处置委员会已开始更新有关早期干预触发机制的指导意见；修订后的首批监管报告模板预计于2026年6月推出。
+
+4. **DMA压力上升。** DMA执法非约束性决议提高了委员会对苹果、Meta和谷歌不作为的政治代价。对委员会第26条档案的审查预计将在2026年6月计划举行的IMCO委员会听证会上加剧。
+
+5. **计量仪器指令更新。** 更新后的指令将欧洲校准要求与数字计量技术相匹配，减少内部市场的合规碎片化。
+
+---
+
+### 🗓️ 未来立法里程碑
+
+| 预计时间 | 程序 | 重要性 |
+|--------|------|-------|
+| Q2 2026 | 委员会关于SRMR3的授权行为 | 银行处置监管实施 |
+| Q3 2026 | 委员会关于DMA透明度的实施行为 | DMA执法工具 |
+| Q4 2026 | 宠物可追溯性国内注册启动 | 动物福利实施 |
+| 2026–2027 | 下一期多年度财务框架讨论 | 2028年后MFF |
+
+---
+
+### ✅ 综合评估
+
+2026年春季立法周期证明了EP10在完成多年复杂谈判方面的能力。主导模式是中右翼联盟（EPP主导）在高优先级社会和制度性档案中选择性纳入S&D。碎片化指数6.58——欧洲议会历史上最高水平之一——将随着2027年预算和安全支出谈判的升级继续产生不可预测的投票结果。**可靠性: 🟡 MEDIUM**（结构数据稳固；个人层面投票凝聚力数据无法从欧洲议会API获取）。
+
+---
+
+### 🏛️ 委员会情报
+
+本分析中观察到的立法提案中最活跃的委员会:
+
+| 委员会 | 主要档案管理 | 角色 | 状态 |
+|-------|-----------|-----|-----|
+| ECON | SRMR3 | 首席报告员 | 已完成（OJ Q1 2026） |
+| ENVI / AGRI | 宠物福利法规 | 联合主导 | 已完成（OJ Q1 2026） |
+| LIBE | 反腐败指令 | 首席报告员 | 已完成（OJ Q1 2026） |
+| INTA | 欧盟-南方共同市场保障条款 | 首席报告员 | 已完成（OJ Q1 2026） |
+| IMCO | DMA执法决议 | 主要 | EP立场已通过；委员会实施待定 |
+| BUDG | 2027年预算 | 主要 | 准备阶段；Q3 2026第一读 |
+
+---
+
+### 🔢 联合数学深层分析
+
+EP10多数门槛: **717席中360席**
+
+| 联合 | 席位 | 不足/盈余 | 判定 |
+|-----|-----|---------|-----|
+| EPP单独 | 183 | −177 | 仅少数派 |
+| EPP + S&D | 319 | −41 | 不足 |
+| EPP + S&D + Renew | 437 | +77 | ✅ 舒适盈余多数 |
+| EPP + ECR + PfE | 375 | +15 | ✅ 右翼多数（脆弱） |
+| S&D + Renew + Greens + Left | 234 | −126 | 进步派集团不足 |
+
+**核心结构性洞察:** EPP是不可或缺的关键行为者。没有EPP，数学多数不存在。EPP对联合伙伴的选择决定了EP10的立法方向。
+
+中间派三方联盟（EPP+S&D+Renew）的+77盈余在争议性投票出现部分背叛时仍提供舒适的多数覆盖。相比之下，右翼多数（+15）极为脆弱——仅需8席脱离（在正常变动范围内）即可失去多数。
+
+---
+
+### 📊 立法节奏趋势（EP10）
+
+基于2026年初以来51项采纳文本:
+
+```
+Q1 2025: 约8项采纳（估计 — EP10稳定化，新委员会组建中）
+Q2 2025: 约10项采纳（估计 — 流程积压）
+Q3 2025: 约8项采纳（估计 — 夏季休会效应）
+Q4 2025: 约12项采纳（估计 — 秋季冲刺）
+Q1 2026: 约13项采纳（数据确认）
+```
+
+**节奏解读:** EP10以高于平均水平的立法生产力运转，对于初期至中期阶段的议会而言颇为显著。同一季度内多项大型行为（SRMR3、宠物福利、反腐败、南方共同市场）的完成，暗示委员会效率卓著，或这些档案曾积压于EP9的立法流程。
+
+---
+
+### 🎯 关键绩效指标 — EP10立法健康度
+
+| 指标 | 值 | 评级 |
+|-----|--|-----|
+| 年初至今采纳文本（2026年） | 51 | 🟢 HIGH — 强劲产出 |
+| 政治稳定分数 | 84/100 | 🟢 HIGH |
+| 有效政党数 | 6.58 | 🟡 MEDIUM 碎片化 |
+| EPP席位份额 | 25.5% | 🟡 主导但非多数 |
+| 多数差距 | 41席（EPP+S&D） | 🟡 需第三方伙伴 |
+| IMF数据可用性 | 🔴 无 | 🔴 关键缺口 |
+| 最新投票数据 | 🔴 无（4-6周延迟） | 🟡 结构性限制 |
+
+---
+
+### 📌 情报摘要：本周要点
+
+1. **本周（2026-05-11）无欧洲议会全体会议** — 下次全体会议预计在2026年5月最后一周于斯特拉斯堡举行
+2. **实施阶段主导:** SRMR3、宠物福利、反腐败和南方共同市场均处于国内转换/实施行为阶段 — 主要政治活动在成员国和委员会，而非议会
+3. **关注DMA执法:** 委员会在政治上承诺在议会DMA执法决议后启动第26条新程序 — 无所作为将引发IMCO议员的质询
+4. **联盟以84分保持稳定:** 未检测到迫在眉睫的破裂信号；EPP-S&D-Renew三方联盟正常运转
+5. **2027年预算准备启动:** 预计BUDG委员会将于Q3 2026开始第一读活动 — 对联盟凝聚力的潜在压力测试
+
+---
+
+### 🔭 30天展望
+
+| 时间框架 | 预期立法活动 | 可靠性 |
+|---------|-----------|------|
+| 2026年5月26-30日 | 斯特拉斯堡全体会议 — DMA执法、2027年预算初期 | 🟢 HIGH |
+| 2026年6月 | 提交授权行为（SRMR3）；新COD提案可能性 | 🟡 MEDIUM |
+| 2026年7月 | EP暑假开始（通常7月中旬）；立法活动减少 | 🟢 HIGH |
+| 2026年9月 | 休假后立法冲刺；2027年预算进入调解准备 | 🟢 HIGH |
+| 2026年10月 | 2027年预算调解期（如标准时间表推进） | 🟡 MEDIUM |
+
+**2026年5月26-30日斯特拉斯堡全体会议主要观察点:**
+- DMA: 委员会是否会就议会DMA执法决议发布正式书面声明？
+- 南方共同市场: 理事会是否会宣布临时适用时间表？
+- 宠物福利: 委员会是否会更新成员国国内实施措施通知情况？
+- 2027年预算: BUDG委员会是否会就财政年度议会优先事项进行陈述？
+
 > **Provenance & Audit**
 >
 > - **Article type:** `propositions`
@@ -3401,4 +5613,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 

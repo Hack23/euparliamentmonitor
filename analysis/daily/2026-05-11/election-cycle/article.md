@@ -173,6 +173,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/comparative-international.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 
@@ -9910,6 +9911,1665 @@ The following Structured Analytic Techniques were applied during Stage B per OSI
 
 **What citizens can do.** Open the EP roll-call data portal (delayed ~14 days), the Parliament's legislative-observatory (OEIL) for procedure status, and the national-delegation pages on europarl.europa.eu. Each MEP's voting record is publicly searchable. National-party manifestos for 2024–2029 are archived by VoteWatch Europe and the EP's official public register.
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التصنيف:** OSINT — سجل برلماني علني
+**مستوى الثقة:** 🟡 معتدل-مرتفع (درجة الاستقرار 84/100؛ البيانات هيكلية وليست على مستوى التصويت)
+**التشغيل:** `analysis/daily/2026-05-11/election-cycle/`
+**الأفق الزمني:** 2026-05-11 → 2031-05-10 (تراكب دورة انتخابية مدتها 60 شهراً)
+**تاريخ الإنشاء:** 2026-05-16 (موجز استرجاعي، لا استدعاءات MCP جديدة — يُلخّص الـ 25 مصنوعاً الخاصة بالتشغيل)
+**المصادر الأولية:** EP MCP `generate_political_landscape`، `analyze_coalition_dynamics`، `early_warning_system`، `compare_political_groups`، `sentiment_tracker`، `get_plenary_sessions` (السنة=2026)، `get_all_generated_stats` (2019–2026).
+
+---
+
+### 🎯 BLUF
+
+أسفرت انتخابات 2024 عن EP10 بـ **717 عضواً موزعين على تسع كتل، مؤشر التجزؤ 6.58 — وهو أعلى قراءة منذ EP6 (2004–2009)**. يمتلك الكتلة المركزية EPP+S&D+Renew **396 مقعداً (55.2 %)** بـ **هامش 36 مقعداً** فوق عتبة الأغلبية المطلقة البالغة 361 مقعداً؛ وهذا الهامش **أقل من نصف هامش 86 مقعداً في EP9**، لذا فإن انحراف وفد وطني واحد يُغيّر الآن بشكل ملموس حسابات الأغلبية ملفاً بملف. التحذير الوحيد عالي الخطورة HIGH من `early_warning_system` هو `DOMINANT_GROUP_RISK` — تُمنح حصة EPP البالغة 25.5 % نفوذ الفيتو في أي ائتلاف مركزي ضيق، و**انتخاب مكتب البرلمان في يناير 2027 هو الاختبار الأول المُجدوَل** لمعرفة ما إذا كان هذا النفوذ يُدفع في حقائب وزارية (الوضع الراهن) أو في تنازلات سياسية (انزياح نحو اليمين). مؤشر الاستقطاب 0.22 أقل بكثير من عتبة انهيار الائتلاف الكبير 0.40، لذا فإن الحسابات الأساسية لا تزال تعمل؛ المخاطر التشغيلية هي **إعادة توازن في منتصف الدورة** لا انهيار. تُؤطر **ستة أحكام رئيسية** (J1–J6) الدورة: الأغلبية المركزية تتماسك حتى Q4 2026 (شبه مؤكد، أفق 18 شهراً)، PfE يتجاوز Renew خلال EP10 عبر الانتقالات (احتمال متساوٍ، 36 شهراً)، أغلبية فنزويلا (EPP+ECR+PfE = 349 مقعداً) يُتذرع بها في ≥3 ملفات للتراجع قبل منتصف 2027 (محتمل، 14 شهراً)، ولن تُنتج 2029 أغلبية ائتلاف منفردة (محتمل، 49 شهراً).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | القرار | من يقرر | الموعد النهائي | الأدلة |
+|:-:|--------|---------|:-------------:|--------|
+| 1 | **استراتيجية الانضباط لانتخاب المكتب 2027** — هل تضمن EPP رئاسة منتصف الدورة عبر تبادل حقائب مع S&D، أم تطالب بتنازلات سياسية (هجرة / زراعة)؟ | مؤتمر الرؤساء؛ قادة مجموعات EPP/S&D/Renew | يناير 2027 (≤ 9 أشهر) | R-3 في `risk-scoring/risk-matrix.md` (احتمال متساوٍ × تأثير م-ع → نقاط 8)؛ J6 (إعادة توازن في منتصف الدورة محتمل) |
+| 2 | **تفويض مفاوضات مراجعة MFF 2028+ في منتصف المدة** — كم من مشروطية الدفاع / أوكرانيا / سيادة القانون غير قابل للتفاوض للأغلبية المركزية؟ | قيادة BUDG، COREPER، نواب رئيس المفوضية | H2 2026 → منتصف 2027 | R-5 (محتمل × مرتفع جداً → نقاط 16، أعلى مخاطرة فردية في السجل)؛ `intelligence/economic-context.md` |
+| 3 | **رصد انضباط المجموعة على مسار أغلبية فنزويلا** — أي الملفات (الهجرة، الزراعة، التراجع المناخي) معرضة لفوز EPP+ECR+PfE بأغلبية بسيطة حين تنخفض المشاركة دون 95 %؟ | أمانات الكتل؛ المقررون الظل في Greens / Renew | مستمر، رصد لمدة 12 شهراً | R-2 (احتمال متساوٍ × مرتفع → نقاط 9)؛ J3 (محتمل، 14 شهراً)؛ `intelligence/coalition-dynamics.md` |
+
+كل قرار مرتبط بسطر في سجل المخاطر في `risk-scoring/risk-matrix.md` وتقييم WEP في `intelligence/synthesis-summary.md` حتى تكون الحجة قابلة للتفنيد.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **تقلّص الهامش إلى النصف:** انخفض كتلة EPP+S&D+Renew المركزية من 86 مقعداً أمام EP9 إلى **36 مقعداً أمام EP10** (`generate_political_landscape`، A1).
+- 🟠 **ذروة التجزؤ:** مؤشر **6.58 — الأعلى منذ EP6** (2004–2009)؛ يُظهر `compare_political_groups` **ارتفاعاً بنسبة 12.6 % في عدد التعديلات لكل ملف** مقارنة بـ EP9.
+- 🟢 **الاستقرار لا يزال وظيفياً:** `early_warning_system` يُعيد درجة **84/100، مخاطر إجمالية MEDIUM**؛ الاستقطاب **0.22 ≪ عتبة الانهيار 0.40**.
+- 🟡 **التحذير الوحيد HIGH:** `DOMINANT_GROUP_RISK` عند حصة EPP البالغة 25.5 % — نفوذ مُركَّز، لا انهيار في الغرفة.
+- 🔵 **أغلبية فنزويلا مُسلَّحة:** EPP+ECR+PfE = **349 مقعداً (48.7 %)** — 12 مقعداً دون الأغلبية المطلقة لكنها **تفوز في التصويت بالأغلبية البسيطة حين تنخفض الحضور دون 95 %**؛ فُعِّلت بالفعل في ≥4 ملفات هجرة/زراعة منذ التأسيس.
+- 🟣 **الجناح اليساري أقصر هيكلياً:** S&D+Greens/EFA+The Left = **234 مقعداً (32.6 %)** — لا يستطيع إسقاط التراجع عن الصفقة الخضراء دون انشقاق Renew أو ديناميكيات الغياب.
+- 🩷 **ضغط Renew:** 102 → 77 مقعداً (**−24.5 %**) هو ثاني أكبر تغيير هيكلي في 2024 والشرط المسبق لتقليص الهامش إلى النصف.
+- ⚪ **وظائف القسر H2 2026 → Q1 2027:** (أ) انتخاب المكتب يناير 2027؛ (ب) مراجعة MFF 2028+ في منتصف المدة؛ (ج) نبضة تسليم برنامج العمل 2026 للمفوضية (~18 ملف OLP/ربع سنة حتى 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | الحكم | نطاق WEP | الثقة | الأفق |
+|:-:|-------|----------|:-----:|:-----:|
+| J1 | تحتفظ EPP+S&D+Renew المركزية بأغلبية عاملة في ≥70 % من ملفات OLP حتى Q4 2026 | **شبه مؤكد** | معتدل-مرتفع | 18 شهراً |
+| J2 | PfE يتجاوز Renew بوصفه المجموعة الثالثة الأكبر خلال EP10 (عبر انتقالات لا انتخابات) | احتمال متساوٍ | معتدل | 36 شهراً |
+| J3 | أغلبية فنزويلا (EPP+ECR+PfE) يُتذرع بها في ≥3 ملفات هجرة/زراعة/تراجع مناخي قبل منتصف 2027 | **محتمل** | معتدل | 14 شهراً |
+| J4 | انتخابات 2029 لا تُنتج أغلبية ائتلاف منفردة 361+؛ وتُجبر على ميثاق ائتلاف كبير مُجدَّد | **محتمل** | معتدل | 49 شهراً |
+| J5 | ≥1 مجموعة حالية (ESN أو تجمع NI) تفشل في إعادة تشكيلها بعد انتخابات 2029 | احتمال متساوٍ | معتدل | 53 شهراً |
+| J6 | إعادة توازن في منتصف الدورة (تغيير كتلة من ≥10 أعضاء) يحدث في 2027 حول انتخاب المكتب | **محتمل** | معتدل | 9 أشهر |
+
+الأدلة الداعمة لـ J1–J6 مستمدة من عمليات التقاط MCP في المرحلة A المُدرجة في رأس هذا الموجز؛ السلسلة الكاملة في `intelligence/synthesis-summary.md` و`intelligence/coalition-dynamics.md`.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**أعلى ثلاث مخاطر مُحدَّدة كمياً** (من سجل `risk-scoring/risk-matrix.md`، مُرتَّبة حسب الدرجة):
+
+| المعرّف | الخطر | ا | ت | الدرجة | المحفّز الذي سيُسرّعها | المالك |
+|:-------:|-------|:-:|:-:|:------:|------------------------|--------|
+| **R-5** | مراجعة MFF 2028+ في منتصف المدة تفشل قبل منتصف 2027 | محتمل | مرتفع جداً | **16** | مأزق المجلس بشأن مظروف صافي المدفوعين؛ التعزيز الدفاعي غير محلول | BUDG / نواب رئيس المفوضية |
+| **R-7** | انتخابات 2029 تُنتج برلماناً بـ 7+ كتل دون أغلبية مركزية | محتمل | مرتفع جداً | **16** | PfE يوطّد الوفود الوطنية لـ ECR قبيل الانتخابات | قادة عابرون للأحزاب |
+| **R-1** | الائتلاف المركزي يخسر الأغلبية العاملة في ملف OLP رئيسي | محتمل | مرتفع | **12** | انحراف وفد وطني (esp. Renew Iberian or French bloc) | قادة EPP/S&D/Renew |
+
+R-6 (انحراف وفد وطني في مشروطية سيادة القانون، 12 نقطة) يقع في النطاق نفسه وهو أكثر محفّزات R-1 قابلية للحدوث.
+
+---
+
+### 🔮 Top Forward Triggers
+
+من `extended/forward-indicators.md` وفروع السيناريوهات في التشغيل (`intelligence/scenario-forecast.md` S1–S7):
+
+1. **انتخاب المكتب يناير 2027** — إذا أحرزت EPP الرئاسة دون تكلفة منشورة في رئاسات اللجان لـ S&D وRenew، فتُصعَّد `DOMINANT_GROUP_RISK` من تحذير HIGH إلى مأزق R-3 نشط.
+2. **التصويت على تفويض مفاوضات MFF 2028+** (الهدف H2 2026 → منتصف 2027) — الفشل في التوصل إلى تفويض BUDG مركزي بحلول نهاية Q1 2027 يُقدّم R-5 من الأصفر إلى الأحمر ويُغذّي السيناريو 6 (إعادة ختم الائتلاف الكبير).
+3. **ثلاثة ملفات مُسمَّاة لمراقبتها لتفعيل أغلبية فنزويلا في الـ 14 شهراً القادمة:** أي جلسة عامة لإجراء هجرة ينخفض فيها حضور وفد Renew الإيبيري أو الفرنسي دون 90 %؛ متابعات تبسيط CAP؛ ودورة التراجع المناخي بعد 2025. J3 (محتمل) يُتحقق منه أو يُفنَّد بهذه الأحداث.
+4. **رصد انتقالات مجموعة PfE** — `compare_political_groups` يُعلّم PfE بالفعل باعتباره التغيير الهيكلي الأكثر إمكانية للنمو؛ انتقال وفد ECR البولندي أو الإيطالي بـ ≥10 أعضاء هو خيط التشغيل لـ J2 وJ6.
+
+فرع **السيناريو 7 (أزمة معاهدات / كسر هيكلي)** الإلزامي يقع في الذيل الطويل: المحفزات المرشحة وفق التشغيل هي (أ) تعديل معاهدة التوسيع UA/MD، (ب) توسيع الممر إلى السياسة الخارجية/المالية، (ج) تصعيد المادة 7 بشأن المجر، (د) انتخاب منتصف مدة من مأزق المجلس، أو (هـ) انهيار MFF إلى أثواب مؤقتة. لا شيء منها على أفق 12 شهراً.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **مراسي A1 / A2:** تكوين الكتل، مؤشر التجزؤ، تقويم الجلسة العامة، معدل الإنتاجية متعدد الدورات — هذه هي **العمود الفقري الهيكلي** للموجز وتُصنَّف Admiralty A1–A2 (بوابة البيانات المفتوحة للبرلمان الأوروبي).
+- **تحفّظ B3:** استقطاب `sentiment_tracker` (0.22) هو **وكيل تموضع مؤسسي بناءً على حصص المقاعد، لا تماسك التصويت الاسمي** — بيانات التصويت لكل عضو لم تُكشف بعد بواسطة EP API. الثقة المعتدلة في J3/J4/J6 تعكس ذلك.
+- **A6 (لا يمكن الحكم):** `monitor_legislative_pipeline` أعاد 0 إجراء و`network_analysis` أعاد 50 عقدة / 0 حافة؛ كلاهما **تأخيرات في خطوط الأنابيب الأمامية**، لا إخفاقات تحليلية. رسومات شبكة ego وكشف الاختناقات مُؤجَّلة حتى تكشف EP API عن هذه البيانات.
+- **F6 (فشل):** رموز دول الاتحاد الأوروبي في World Bank (`EUU` / `EU`) كلاهما أخفق في هذا التشغيل؛ الموجز لا يعتمد على سياق WB الاقتصادي الكلي.
+- **IMF SDMX 3.0:** لم يُستعلَم عنه في هذا التشغيل لتراكب دورة الانتخابات؛ إذا أصبح السياق الاقتصادي الكلي لمراجعة MFF ضرورياً تشغيلياً، فأجرِ مسباراً IMF WEO قبل إعادة تقييم R-5.
+
+الثقة الصافية: **معتدلة-مرتفعة في الحسابات الهيكلية** (J1، R-1، R-5، R-7)، **معتدلة في الأحكام السلوكية** (J2، J3، J4، J6) حتى تُكشف بيانات التماسك لكل عضو بواسطة EP API.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+قراءتان متنافستان للحسابات ذاتها تُتابَعان في `extended/historical-parallels.md`:
+
+- **H1 — "EP10 هو EP9 ناقص Renew."** الهامش أصغر لكن وصفة الائتلاف غير متغيرة؛ انتخاب مكتب منتصف المدة يُفضي إلى تبادل حقائب؛ 2029 يُعيد ميثاقاً مماثلاً مع جناح أيمن أكبر قليلاً. السيناريوهان 1 و6 في `intelligence/scenario-forecast.md`.
+- **H2 — "EP10 هو أول برلمان محور PfE."** تُفعَّل أغلبية فنزويلا في أكثر من ثلاثة ملفات؛ وفد وطني لـ EPP يتحرك للانضباط مع ECR في الهجرة؛ انتخاب مكتب 2027 يصبح لحظة المحور العام. السيناريوهان 2 و4.
+
+قاعدة الأدلة الحالية — درجة الاستقرار 84، الاستقطاب 0.22، التجزؤ 6.58، انضباط EPP محفوظ — **تُرجّح H1 (شبه مؤكد)** حتى Q4 2026 لكنها **لا تُفنّد H2** على أفق 14 إلى 36 شهراً. لذا يتابع الموجز كلتيهما بدلاً من الالتزام بإحداهما.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| الطبقة | المصنوع | السبب |
+|--------|---------|-------|
+| المقال | `article.md` | السرد العام؛ 9,906 سطراً تغطي الأحكام الستة |
+| التوليف | `intelligence/synthesis-summary.md` | BLUF + جدول WEP + تقييم Admiralty (موثوق) |
+| الائتلاف | `intelligence/coalition-dynamics.md` | حسابات أغلبية فنزويلا؛ دلتا الهامش EP9 → EP10 |
+| سجل المخاطر | `risk-scoring/risk-matrix.md` | R-1 → R-10 مع L × I × الدرجة |
+| SWOT الكمي | `risk-scoring/quantitative-swot.md` | نقاط القوة الهيكلية مقابل تآكل الهامش |
+| السيناريوهات | `intelligence/scenario-forecast.md` S1–S7 (أزمة المعاهدات = S7) | فروع مُرجَّحة باحتمال |
+| المؤشرات | `extended/forward-indicators.md` | تقويم المحفزات حتى 2029 |
+| قوس الدورة | `intelligence/term-arc.md`، `mandate-fulfilment-scorecard.md`، `presidency-trio-context.md` | تسلسل انتخاب المكتب |
+| توقع المقاعد | `intelligence/seat-projection.md` | توقع 2029 تحت H1 مقابل H2 |
+| الموثوقية | `intelligence/mcp-reliability-audit.md` | A6 / F6 سطور مُفسَّرة |
+| المراجعة الذاتية | `intelligence/methodology-reflection.md` | إغلاق الخطوة 10.5 |
+
+---
+
+**مراقبة الوثيقة**
+- **مرجع القالب:** `analysis/templates/executive-brief.md`
+- **مسار المصنوع:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **التصنيف:** عام
+- **استرجاعي:** هذا الموجز ما بعدي — كُتب في 2026-05-16 من المصنوعات المُلتزم بها في التشغيل؛ **لم تُجرَ أي استدعاءات MCP جديدة**. جميع الأحكام تُعيد صياغة وتُقطّر وتُراجع ACH ما التزم به التشغيل ذاته؛ لا تُقدَّم ادعاءات جديدة.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+Valget i 2024 efterlod EP10 med **717 MEP'er fordelt på ni grupper, fragmenteringsindeks 6,58 — den højeste aflæsning siden EP6 (2004–2009)**. Den centristiske EPP+S&D+Renew-blok har **396 pladser (55,2 %)** med en **36-pladsers buffer** over tærsklen på 361 pladser for absolut flertal; den buffer er **mindre end halvdelen af EP9's 86-pladsersmarginal**, så en enkelt national delegationsafvigelse nu meningsfuldt ændrer fil-for-fil-flertalsaritmetikken. Den eneste HIGH-sværhedsadvarsel fra `early_warning_system` er `DOMINANT_GROUP_RISK` — EPP's andel på 25,5 % giver vetoindflydelse i enhver smal centristisk koalition, og **januar 2027-Bureauvalget er den første planlagte prøve** på, om denne indflydelse betales med porteføljer (status quo) eller med politikkoncessioner (højredrift). Polariseringsindeks 0,22 er godt under grænsen 0,40 for sammenbrud af storkoalitionen, så den underliggende aritmetik stadig fungerer; den operationelle risiko er **midtvejsjustering** snarere end kollaps. **Seks overskriftsvurderinger** (J1–J6) rammer cyklussen: centristisk flertal holder til Q4 2026 (Meget sandsynlig, 18-måneders horisont), PfE overtager Renew under EP10 via overførsler (Jævne chancer, 36 måneder), Venezuela-flertal (EPP+ECR+PfE = 349 pladser) påberåbes på ≥3 tilbagekaldelsesfiler inden midten af 2027 (Sandsynlig, 14 måneder), 2029 producerer intet enkeltkoalitionsflertal (Sandsynlig, 49 måneder).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Beslutning | Hvem beslutter | Frist | Bevis |
+|:-:|------------|----------------|:-----:|-------|
+| 1 | **Piskestrategien til Bureauvalget 2027** — sikrer EPP midtvejspræsidentskabet på en porteføljebytteaftale med S&D, eller kræver det politikkoncessioner (migration / landbrug)? | Præsidentkonferencen; EPP/S&D/Renew-gruppeledere | Jan 2027 (≤ 9 måneder) | R-3 i `risk-scoring/risk-matrix.md` (Sandsynlighed Jævne chancer × Indvirkning M-H → score 8); J6 (midtvejsjustering Sandsynlig) |
+| 2 | **MFF 2028+ midtvejsrevisionsforhandlingsmandat** — hvor meget forsvar / Ukraine / retsstatsbetingelserne er ikke-forhandlingsbare for det centristiske flertal? | BUDG-ledelsen, COREPER, Kommissionens VP'er | H2 2026 → midt-2027 | R-5 (Sandsynlig × Meget høj → score 16, den højeste enkeltrisiko i registeret); `intelligence/economic-context.md` |
+| 3 | **Gruppedisciplinovervågning på Venezuela-flertalsvejen** — hvilke filer (migration, landbrug, klimatilbagerulning) er i risiko for et EPP+ECR+PfE simpelt-flertalssejr, når deltagelsen falder under 95 %? | Gruppesekretariater; skyggeordførere i Greens / Renew | løbende, 12-måneders overvågning | R-2 (Jævne chancer × Høj → score 9); J3 (Sandsynlig, 14 måneder); `intelligence/coalition-dynamics.md` |
+
+Hvert beslutning er bundet til en risikoregistreringsrække i `risk-scoring/risk-matrix.md` og en WEP-båndsvurdering i `intelligence/synthesis-summary.md` så ræsonnementet er falsificerbart.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Buffer halveret:** centrisk EPP+S&D+Renew-blok faldt fra 86 pladser klart i EP9 til **36 pladser klart i EP10** (`generate_political_landscape`, A1).
+- 🟠 **Fragmenteringstoп:** indeks **6,58 — højest siden EP6** (2004–2009); `compare_political_groups` viser en **12,6 % stigning i per-fil ændringsantal** vs. EP9.
+- 🟢 **Stabilitet stadig funktionel:** `early_warning_system` returnerer score **84/100, MEDIUM samlet risiko**; polarisering **0,22 ≪ 0,40 sammenbrudstærskel**.
+- 🟡 **Eneste HIGH-sværhedsadvarsel:** `DOMINANT_GROUP_RISK` på EPP's 25,5 % andel — koncentreret indflydelse, ikke kammerkollaps.
+- 🔵 **Venezuela-flertal bevæbnet:** EPP+ECR+PfE = **349 pladser (48,7 %)** — 12 kort fra absolut flertal men **vinder ved simple-flertalsafstemninger, når fremmøde falder under 95 %**; allerede aktiveret på ≥4 migrations-/landbrugsfiler siden indvielsen.
+- 🟣 **Venstrefløj strukturelt kort:** S&D+Greens/EFA+The Left = **234 pladser (32,6 %)** — kan ikke besejre en Grøn Deal-tilbagerulning uden Renew-afvigelse eller fraværsdrevne dynamikker.
+- 🩷 **Renew-komprimering:** 102 → 77 pladser (**−24,5 %**) er den næstmest konsekvente strukturelle ændring i 2024 og forudsætningen for bufferhalveringen.
+- ⚪ **Tvangsfunktioner H2 2026 → Q1 2027:** (a) Bureauvalg jan 2027; (b) MFF 2028+ midtvejsrevision; (c) Kommissionens Arbejdsprogram 2026 leveringspuls (~18 OLP-filer/kvartal til 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | Vurdering | WEP-bånd | Konfidens | Horisont |
+|:-:|-----------|----------|:---------:|:--------:|
+| J1 | Centristisk EPP+S&D+Renew bevarer et funktionelt flertal på ≥70 % af OLP-filer til Q4 2026 | **Meget sandsynlig** | Moderat-Høj | 18 måneder |
+| J2 | PfE overtager Renew som tredjestørste gruppe under EP10 (via overførsler, ikke valg) | Jævne chancer | Moderat | 36 måneder |
+| J3 | Venezuela-flertal (EPP+ECR+PfE) påberåbes på ≥3 migrations-/landbrugs-/klimatilbagerulningsfiler inden midten af 2027 | **Sandsynlig** | Moderat | 14 måneder |
+| J4 | Valget i 2029 producerer intet enkelkoalitionsflertal på 361+; tvinger en fornyet storkoalitionspagt | **Sandsynlig** | Moderat | 49 måneder |
+| J5 | ≥1 nuværende gruppe (ESN eller et NI-kluster) mislykkes i at genformes efter valget i 2029 | Jævne chancer | Moderat | 53 måneder |
+| J6 | Midtvejsjustering (gruppeskift af ≥10 MEP'er) sker i 2027 rundt Bureauvalget | **Sandsynlig** | Moderat | 9 måneder |
+
+Bevis der understøtter J1–J6 stammer fra Stage-A MCP-optagelserne angivet i denne briefings overskrift; fuld kæde i `intelligence/synthesis-summary.md` og `intelligence/coalition-dynamics.md`.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**Top tre kvantificerede risici** (fra `risk-scoring/risk-matrix.md`-registret, rangeret efter score):
+
+| ID | Risiko | L | I | Score | Udløser der ville fremskynde den | Ejer |
+|:--:|--------|:-:|:-:|:-----:|----------------------------------|------|
+| **R-5** | MFF 2028+ midtvejsrevision mislykkes inden midten af 2027 | Sandsynlig | Meget høj | **16** | Råds-deadlock om nettobetalerenvelop; forsvarsudvidelse uløst | BUDG / Kommissionens VP'er |
+| **R-7** | Valget i 2029 producerer 7+ gruppe-kammer uden centristisk flertal | Sandsynlig | Meget høj | **16** | PfE konsoliderer ECR nationale delegationer forud for valg | Tværgående ledere |
+| **R-1** | Centristisk koalition mister funktionelt flertal på en flagskibs-OLP-fil | Sandsynlig | Høj | **12** | National delegationsafvigelse (esp. Renew Iberian or French bloc) | EPP/S&D/Renew-ledere |
+
+R-6 (national delegationsafvigelse på retsstatsbetingelserne, score 12) befinder sig i samme bånd og er den mest sandsynlige konkrete aktivator af R-1.
+
+---
+
+### 🔮 Top Forward Triggers
+
+Fra `extended/forward-indicators.md` og kørslen scenariogrene (`intelligence/scenario-forecast.md` S1–S7):
+
+1. **Januar 2027 Bureauvalg** — hvis EPP sikrer præsidentskabet uden en offentliggjort pris i udvalgsformandskaber til S&D og Renew, eskalér `DOMINANT_GROUP_RISK` fra HIGH-sværhedsadvarsel til aktiv R-3-deadlock.
+2. **MFF 2028+ forhandlingsmandatafstemning** (mål H2 2026 → midt-2027) — manglende opnåelse af et centristisk BUDG-mandat inden udgangen af Q1 2027 fremskynder R-5 fra gul til rød og alimenterer Scenario 6 (Storkoalitionsforsegling).
+3. **Tre navngivne filer at overvåge for Venezuela-majoritetsaktivering i de næste 14 måneder:** enhver migrationsprocedurplenarsession, hvor Renew Iberisk eller Fransk delegationsdeltagelse falder under 90 %; CAP-forenklings-opfølgninger; og den næste post-2025 klimatilbagerulningscyklus. J3 (Sandsynlig) verificeres eller falsificeres af disse.
+4. **PfE-gruppeoverførselsovervågning** — `compare_political_groups` flagger allerede PfE som den strukturelle ændring med mest rum til at vokse; en polsk eller italiensk ECR-delegationsoverførsel på ≥10 MEP'er er den operationelle snubletråd for J2 og J6.
+
+Den obligatoriske **Scenario 7 (Traktatkrise / strukturelt brud)**-gren befinder sig i den lange hale: kandidatudløsere ifølge kørslen er (a) udvidelsestraktatrevision UA/MD, (b) passerelleforlængelse til udenrigs-/finanspolitik, (c) artikel 7-eskalation om Ungarn, (d) midtvejsvalg fra Råds-deadlock, eller (e) MFF-sammenbrud i foreløbige tolvdele. Ingen er på en 12-månders horisont.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **A1 / A2-ankre:** gruppesammensætning, fragmenteringsindeks, plenumkalender, flertermesgennemstrømning — disse er den **strukturelle rygrad** i briefingen og er Admiralty A1–A2 (EP Open Data Portal).
+- **B3-forbehold:** `sentiment_tracker`-polarisering (0,22) er en **pladsandels institutionel positioneringsproxy, ikke rulleafstemning-kohæsion** — per-MEP-afstemningsdata er endnu ikke eksponeret af EP API'et. Den moderate konfidens for J3 / J4 / J6 afspejler dette.
+- **A6 (kan ikke vurderes):** `monitor_legislative_pipeline` returnerede 0 procedurer og `network_analysis` returnerede 50 noder / 0 kanter; begge er **upstream pipeline-forsinkelser**, ikke analytiske fejl. Netværksanalyse-egonetverk og pipeline-flaskehalsdetektering er udsat, indtil EP API'et eksponerer disse data.
+- **F6 (mislykkedes):** World Bank EU-landekoder (`EUU` / `EU`) mislykkedes begge i denne kørsel; briefingen er ikke afhængig af WB-makrokontekst.
+- **IMF SDMX 3.0:** ikke forespurgt i denne valgcyklusoverlay-kørsel; hvis MFF-revisionens makrokontekst bliver operationelt nødvendig, kør en IMF WEO-sonde inden R-5 ompointssættes.
+
+Nettokonfidens: **Moderat-Høj på strukturel aritmetik** (J1, R-1, R-5, R-7), **Moderat på adfærdsmæssige vurderinger** (J2, J3, J4, J6) indtil per-MEP-kohæsionsdata eksponeres af EP API'et.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+To konkurrerende fortolkninger af den samme aritmetik spores i `extended/historical-parallels.md`:
+
+- **H1 — "EP10 er EP9 minus Renew."** Bufferten er mindre, men koalitionsopskriften er uændret; midtvejens Bureauvalg giver et porteføljeskifte; 2029 returnerer en lignende pagt med en lidt større højrefløj. Scenarier 1 og 6 i `intelligence/scenario-forecast.md`.
+- **H2 — "EP10 er det første PfE-pivot-parlament."** Venezuela-flertallet aktiveres på mere end tre filer; en EPP national delegation bevæger sig mod at piske med ECR om migration; et Bureauvalg i 2027 bliver det offentlige pivotøjeblik. Scenarier 2 og 4.
+
+Det nuværende bevisgrundlag — stabilitetsscore 84, polarisering 0,22, fragmentering 6,58, EPP-disciplin holder — **favoriserer H1 (Meget sandsynlig)** til Q4 2026, men **falsificerer ikke H2** på en 14-til-36-måneder horisont. Briefingen sporer derfor begge snarere end at forpligte sig til en.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikel | `article.md` | Offentlig narrativ; 9.906 linjer der dækker alle seks vurderinger |
+| Syntese | `intelligence/synthesis-summary.md` | BLUF + WEP-tabel + Admiralty-gradering (autoritativ) |
+| Koalition | `intelligence/coalition-dynamics.md` | Venezuela-flertalsaritmetik; EP9 → EP10 bufferdelta |
+| Risikoregister | `risk-scoring/risk-matrix.md` | R-1 → R-10 med L × I × Score |
+| Kvantitativ SWOT | `risk-scoring/quantitative-swot.md` | Strukturelle styrker vs. buffererodering |
+| Scenarier | `intelligence/scenario-forecast.md` S1–S7 (Traktatkrise = S7) | Sandsynlighedsvægtede grene |
+| Indikatorer | `extended/forward-indicators.md` | Snubletrådskalender til 2029 |
+| Valgperiodebue | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | Bureauvalgssekvensering |
+| Mandatprognose | `intelligence/seat-projection.md` | 2029-prognose under H1 vs. H2 |
+| Pålidelighed | `intelligence/mcp-reliability-audit.md` | A6 / F6-linjer forklaret |
+| Selvreview | `intelligence/methodology-reflection.md` | Trin 10.5-lukning |
+
+---
+
+**Dokumentkontrol**
+- **Skabelonreference:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **Klassifikation:** Offentlig
+- **Retrospektiv:** Dette briefing er post-hoc — skrevet 2026-05-16 fra kørslen engagerede artefakter; **ingen nye MCP-kald blev foretaget**. Alle vurderinger omformulerer, destillerer og ACH-krydstjekker hvad kørslen selv engagerede; ingen nye påstande introduceres.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+Die Wahl 2024 hinterließ EP10 mit **717 Abgeordneten in neun Fraktionen, Fragmentierungsindex 6,58 — der höchste Wert seit EP6 (2004–2009)**. Der zentristische EPP+S&D+Renew-Block hält **396 Sitze (55,2 %)** mit einem **36-Sitze-Puffer** über der absoluten Mehrheitsschwelle von 361 Sitzen; dieser Puffer ist **weniger als die Hälfte von EP9s 86-Sitze-Margin**, sodass eine einzige nationale Delegationsabweichung die Mehrheitsarithmetik Datei für Datei nun bedeutsam verändert. Die einzige HIGH-Schwerewarnung von `early_warning_system` ist `DOMINANT_GROUP_RISK` — EPPs Anteil von 25,5 % verleiht Veto-Einfluss in jeder schmalen zentristischen Koalition, und die **Bürowahl Januar 2027 ist der erste geplante Test**, ob dieser Einfluss in Portfolios (Status quo) oder in politische Zugeständnisse (Rechtsdrift) umgemünzt wird. Polarisierungsindex 0,22 liegt gut unter der 0,40 Zusammenbruchschwelle der Großkoalition, sodass die zugrundeliegende Arithmetik noch funktioniert; das operationelle Risiko ist **Zwischenphasen-Neuausrichtung** und kein Zusammenbruch. **Sechs Leitbeurteilungen** (J1–J6) bestimmen den Zyklus: Zentristische Mehrheit hält bis Q4 2026 (Sehr wahrscheinlich, 18-Monats-Horizont), PfE überholt Renew während EP10 durch Übertritte (Gleiche Chancen, 36 Monate), Venezuela-Mehrheit (EPP+ECR+PfE = 349 Sitze) wird bei ≥3 Rücknahme-Dateien vor Mitte 2027 in Anspruch genommen (Wahrscheinlich, 14 Monate), 2029 bringt keine Einzelkoalitions-Mehrheit (Wahrscheinlich, 49 Monate).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Entscheidung | Wer entscheidet | Frist | Beleg |
+|:-:|--------------|-----------------|:-----:|-------|
+| 1 | **Fraktionsdisziplin-Strategie für die Bürowahl 2027** — sichert die EPP die Zwischenphasenpräsidentschaft durch einen Portfolio-Tausch mit S&D, oder verlangt sie politische Zugeständnisse (Migration / Landwirtschaft)? | Konferenz der Präsidenten; EPP/S&D/Renew-Fraktionsvorsitzende | Jan 2027 (≤ 9 Monate) | R-3 in `risk-scoring/risk-matrix.md` (Wahrscheinlichkeit Gleiche Chancen × Auswirkung M-H → Wert 8); J6 (Zwischenphasen-Neuausrichtung Wahrscheinlich) |
+| 2 | **MFF 2028+ Zwischenphasenüberprüfungs-Verhandlungsmandat** — wie viel Verteidigung / Ukraine / Rechtsstaatlichkeitskonditionalität ist für die zentristische Mehrheit nicht verhandelbar? | BUDG-Leitung, COREPER, Kommissions-VPs | H2 2026 → Mitte 2027 | R-5 (Wahrscheinlich × Sehr hoch → Wert 16, das höchste Einzelrisiko im Register); `intelligence/economic-context.md` |
+| 3 | **Fraktionsdisziplin-Überwachung auf dem Venezuela-Mehrheitspfad** — welche Dateien (Migration, Landwirtschaft, Klimarücknahme) riskieren einen EPP+ECR+PfE Einfachmehrheitssieg, wenn die Beteiligung unter 95 % fällt? | Fraktionssekretariate; Schattenberichterstatter in Greens / Renew | laufend, 12-monatige Überwachung | R-2 (Gleiche Chancen × Hoch → Wert 9); J3 (Wahrscheinlich, 14 Monate); `intelligence/coalition-dynamics.md` |
+
+Jede Entscheidung ist an eine Risikoregistrierungszeile in `risk-scoring/risk-matrix.md` und eine WEP-Bandbeurteilung in `intelligence/synthesis-summary.md` gebunden, sodass die Begründung falsifizierbar ist.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Puffer halbiert:** Zentristischer EPP+S&D+Renew-Block sank von 86 Sitzen Vorsprung in EP9 auf **36 Sitze Vorsprung in EP10** (`generate_political_landscape`, A1).
+- 🟠 **Fragmentierungsgipfel:** Index **6,58 — höchster seit EP6** (2004–2009); `compare_political_groups` zeigt einen **12,6 % Anstieg bei Änderungsantragsanzahl pro Datei** vs. EP9.
+- 🟢 **Stabilität noch funktional:** `early_warning_system` gibt Wert **84/100, MEDIUM Gesamtrisiko** zurück; Polarisierung **0,22 ≪ 0,40 Zusammenbruchschwelle**.
+- 🟡 **Einzige HIGH-Schwerewarnung:** `DOMINANT_GROUP_RISK` bei EPPs 25,5 % Anteil — konzentrierter Einfluss, kein Parlamentszusammenbruch.
+- 🔵 **Venezuela-Mehrheit bewaffnet:** EPP+ECR+PfE = **349 Sitze (48,7 %)** — 12 Sitze kurz vor absoluter Mehrheit aber **gewinnt bei Einfachmehrheitsabstimmungen, wenn Anwesenheit unter 95 % fällt**; bereits bei ≥4 Migrations-/Landwirtschaftsdateien seit der Konstituierung aktiviert.
+- 🟣 **Linker Flügel strukturell schwach:** S&D+Greens/EFA+The Left = **234 Sitze (32,6 %)** — kann eine Grüner-Deal-Rücknahme ohne Renew-Abweichung oder abwesenheitsgetriebene Dynamiken nicht verhindern.
+- 🩷 **Renew-Kompression:** 102 → 77 Sitze (**−24,5 %**) ist die zweitfolgenreichste strukturelle Veränderung von 2024 und Voraussetzung für die Pufferhalbierung.
+- ⚪ **Zwangsfunktionen H2 2026 → Q1 2027:** (a) Bürowahl Jan 2027; (b) MFF 2028+ Zwischenphasenüberprüfung; (c) Kommissions-Arbeitsprogramm 2026 Lieferpuls (~18 OLP-Dateien/Quartal bis 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | Beurteilung | WEP-Band | Konfidenz | Horizont |
+|:-:|-------------|----------|:---------:|:--------:|
+| J1 | Zentristische EPP+S&D+Renew behält eine arbeitsfähige Mehrheit bei ≥70 % der OLP-Dateien bis Q4 2026 | **Sehr wahrscheinlich** | Moderat-Hoch | 18 Monate |
+| J2 | PfE überholt Renew als drittgrößte Fraktion während EP10 (durch Übertritte, nicht Wahlen) | Gleiche Chancen | Moderat | 36 Monate |
+| J3 | Venezuela-Mehrheit (EPP+ECR+PfE) wird bei ≥3 Migrations-/Landwirtschafts-/Klimarücknahme-Dateien vor Mitte 2027 in Anspruch genommen | **Wahrscheinlich** | Moderat | 14 Monate |
+| J4 | Wahl 2029 bringt keine Einzelkoalitions-Mehrheit von 361+; erzwingt einen erneuerten Großkoalitionspakt | **Wahrscheinlich** | Moderat | 49 Monate |
+| J5 | ≥1 aktuelle Fraktion (ESN oder ein NI-Cluster) scheitert an der Neuformierung nach der Wahl 2029 | Gleiche Chancen | Moderat | 53 Monate |
+| J6 | Zwischenphasen-Neuausrichtung (Fraktionswechsel von ≥10 Abgeordneten) erfolgt 2027 rund um die Bürowahl | **Wahrscheinlich** | Moderat | 9 Monate |
+
+Die J1–J6 unterstützenden Belege stammen aus den Stage-A MCP-Erfassungen im Header dieses Berichts; vollständige Kette in `intelligence/synthesis-summary.md` und `intelligence/coalition-dynamics.md`.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**Top drei quantifizierte Risiken** (aus dem `risk-scoring/risk-matrix.md`-Register, nach Wert geordnet):
+
+| ID | Risiko | L | I | Wert | Auslöser, der es vorantreiben würde | Verantwortlicher |
+|:--:|--------|:-:|:-:|:----:|-------------------------------------|------------------|
+| **R-5** | MFF 2028+ Zwischenphasenüberprüfung scheitert bis Mitte 2027 | Wahrscheinlich | Sehr hoch | **16** | Ratsdeadlock über Nettozahler-Envelope; Verteidigungsaufstockung ungelöst | BUDG / Kommissions-VPs |
+| **R-7** | Wahl 2029 bringt 7+-Fraktions-Parlament ohne zentristische Mehrheit | Wahrscheinlich | Sehr hoch | **16** | PfE konsolidiert ECR-Nationaldelegationen vor der Wahl | Fraktionsübergreifende Führungspersonen |
+| **R-1** | Zentrische Koalition verliert arbeitsfähige Mehrheit bei einer Flaggschiff-OLP-Datei | Wahrscheinlich | Hoch | **12** | Nationaldelegationsabweichung (esp. Renew Iberian or French bloc) | EPP/S&D/Renew-Führungspersonen |
+
+R-6 (Nationaldelegationsabweichung bei Rechtsstaatlichkeitskonditionalität, Wert 12) befindet sich im selben Band und ist der wahrscheinlichste konkrete Aktivator von R-1.
+
+---
+
+### 🔮 Top Forward Triggers
+
+Aus `extended/forward-indicators.md` und den Szenariozweigen des Durchlaufs (`intelligence/scenario-forecast.md` S1–S7):
+
+1. **Bürowahl Januar 2027** — wenn die EPP die Präsidentschaft ohne einen veröffentlichten Preis in Ausschussvorsitzen für S&D und Renew sichert, `DOMINANT_GROUP_RISK` von HIGH-Schwerewarnung zu aktivem R-3-Deadlock eskalieren.
+2. **MFF 2028+ Verhandlungsmandat-Abstimmung** (Ziel H2 2026 → Mitte 2027) — Versäumnis, bis Ende Q1 2027 ein zentristisches BUDG-Mandat zu erreichen, rückt R-5 von Gelb zu Rot vor und speist Szenario 6 (Großkoalitions-Neuversiegelung).
+3. **Drei benannte Dateien zur Beobachtung auf Venezuela-Mehrheitsaktivierung in den nächsten 14 Monaten:** jedes Migrationsverfahrens-Plenum, bei dem die Renew Iberischen oder Französischen Delegationsteilnahme unter 90 % fällt; GAP-Vereinfachungs-Folgemaßnahmen; und der nächste Post-2025 Klimarücknahmezyklus. J3 (Wahrscheinlich) wird durch diese verifiziert oder falsifiziert.
+4. **PfE-Fraktionsübertrittüberwachung** — `compare_political_groups` kennzeichnet PfE bereits als die strukturelle Veränderung mit dem meisten Wachstumsraum; ein polnischer oder italienischer ECR-Delegationsübertritt von ≥10 Abgeordneten ist der operationelle Auslösedraht für J2 und J6.
+
+Der obligatorische **Szenario 7 (Vertragskrise / struktureller Bruch)**-Zweig befindet sich im langen Schwanz: Kandidatenauslöser laut Durchlauf sind (a) Erweiterungsvertragsrevision UA/MD, (b) Passerelle-Erweiterung auf Außen-/Finanzpolitik, (c) Artikel-7-Eskalation zu Ungarn, (d) Zwischenphasenwahl aus Ratsdeadlock, oder (e) MFF-Zusammenbruch in vorläufige Zwölftel. Keiner liegt auf einem 12-Monats-Horizont.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **A1 / A2-Anker:** Fraktionszusammensetzung, Fragmentierungsindex, Plenarkalender, Mehrterm-Durchsatz — diese sind das **strukturelle Rückgrat** des Berichts und sind Admiralty A1–A2 (EP Open Data Portal).
+- **B3-Vorbehalt:** `sentiment_tracker`-Polarisierung (0,22) ist ein **Sitzanteil-institutioneller Positionierungsstellvertreter, keine namentliche Abstimmungs-Kohäsion** — Abstimmungsdaten pro Abgeordneter werden vom EP-API noch nicht offengelegt. Die Moderate Konfidenz für J3 / J4 / J6 spiegelt dies wider.
+- **A6 (nicht beurteilbar):** `monitor_legislative_pipeline` gab 0 Verfahren zurück und `network_analysis` gab 50 Knoten / 0 Kanten zurück; beides sind **Upstream-Pipeline-Verzögerungen**, keine analytischen Fehler. Netzwerkanalyse-Ego-Graphen und Pipeline-Engpass-Erkennung werden verschoben, bis das EP-API diese Daten offenlegt.
+- **F6 (gescheitert):** World Bank EU-Ländercodes (`EUU` / `EU`) scheiterten beide in diesem Durchlauf; der Bericht stützt sich nicht auf WB-Makrokontext.
+- **IMF SDMX 3.0:** nicht abgefragt in dieser Wahlzyklus-Overlay-Ausführung; wenn MFF-Überprüfungs-Makrokontext operationell notwendig wird, eine IMF WEO-Sonde vor einer Neubewertung von R-5 durchführen.
+
+Netto-Konfidenz: **Moderat-Hoch bei struktureller Arithmetik** (J1, R-1, R-5, R-7), **Moderat bei Verhaltensbeurteilungen** (J2, J3, J4, J6) bis per-Abgeordneter-Kohäsionsdaten vom EP-API offengelegt werden.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+Zwei konkurrierende Lesarten derselben Arithmetik werden in `extended/historical-parallels.md` verfolgt:
+
+- **H1 — "EP10 ist EP9 minus Renew."** Der Puffer ist kleiner, aber die Koalitionsformel ist unverändert; die Zwischenphasen-Bürowahl ergibt einen Portfolio-Tausch; 2029 bringt einen ähnlichen Pakt mit einem etwas größeren rechten Flügel. Szenarien 1 und 6 in `intelligence/scenario-forecast.md`.
+- **H2 — "EP10 ist das erste PfE-Pivot-Parlament."** Die Venezuela-Mehrheit aktiviert bei mehr als drei Dateien; eine EPP-Nationaldelegation bewegt sich dazu, bei der Migration mit ECR zu peitschen; eine Bürowahl 2027 wird zum öffentlichen Pivot-Moment. Szenarien 2 und 4.
+
+Die aktuelle Beweislage — Stabilitätswert 84, Polarisierung 0,22, Fragmentierung 6,58, EPP-Disziplin haltend — **bevorzugt H1 (Sehr wahrscheinlich)** bis Q4 2026, **falsifiziert H2** auf einem 14-bis-36-Monats-Horizont jedoch nicht. Der Bericht verfolgt daher beide, anstatt sich auf eine festzulegen.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Schicht | Artefakt | Warum |
+|---------|----------|-------|
+| Artikel | `article.md` | Öffentliche Erzählung; 9.906 Zeilen, die alle sechs Beurteilungen abdecken |
+| Synthese | `intelligence/synthesis-summary.md` | BLUF + WEP-Tabelle + Admiralty-Bewertung (autoritativ) |
+| Koalition | `intelligence/coalition-dynamics.md` | Venezuela-Mehrheitsarithmetik; EP9 → EP10 Puffer-Delta |
+| Risikoregister | `risk-scoring/risk-matrix.md` | R-1 → R-10 mit L × I × Wert |
+| Quantitatives SWOT | `risk-scoring/quantitative-swot.md` | Strukturelle Stärken vs. Puffererosion |
+| Szenarien | `intelligence/scenario-forecast.md` S1–S7 (Vertragskrise = S7) | Wahrscheinlichkeitsgewichtete Zweige |
+| Indikatoren | `extended/forward-indicators.md` | Auslösedrahtkalender bis 2029 |
+| Legislaturbogen | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | Bürowahlsequenzierung |
+| Sitzprognose | `intelligence/seat-projection.md` | Prognose 2029 unter H1 vs. H2 |
+| Zuverlässigkeit | `intelligence/mcp-reliability-audit.md` | A6 / F6-Zeilen erklärt |
+| Selbstprüfung | `intelligence/methodology-reflection.md` | Schritt 10.5-Abschluss |
+
+---
+
+**Dokumentkontrolle**
+- **Vorlagenreferenz:** `analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **Einstufung:** Öffentlich
+- **Retrospektiv:** Dieser Bericht ist ex post — verfasst am 2026-05-16 aus den engagierten Artefakten des Durchlaufs; **es wurden keine neuen MCP-Aufrufe gemacht**. Alle Beurteilungen formulieren um, destillieren und ACH-kreuzkontrollieren, was der Durchlauf selbst engagierte; es werden keine neuen Behauptungen eingeführt.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+Las elecciones de 2024 dejaron EP10 con **717 eurodiputados distribuidos en nueve grupos, índice de fragmentación 6,58 — la lectura más alta desde EP6 (2004–2009)**. El bloque centrista PPE+S&D+Renew mantiene **396 escaños (55,2 %)** con un **margen de 36 escaños** sobre el umbral de 361 escaños para la mayoría absoluta; ese margen es **menos de la mitad del margen de 86 escaños de EP9**, por lo que una única desviación de delegación nacional ahora modifica significativamente la aritmética de mayorías expediente por expediente. La única alerta de gravedad HIGH de `early_warning_system` es `DOMINANT_GROUP_RISK` — la cuota del 25,5 % del PPE le otorga palanca de veto en cualquier coalición centrista estrecha, y **la elección de la Mesa de enero de 2027 es la primera prueba programada** de si esa palanca se paga en carteras (statu quo) o en concesiones políticas (deriva hacia la derecha). El índice de polarización 0,22 está muy por debajo del umbral de ruptura 0,40 para la gran coalición, por lo que la aritmética subyacente sigue funcionando; el riesgo operacional es **realineamiento a medio plazo** y no colapso. **Seis juicios de titular** (J1–J6) enmarcan el ciclo: la mayoría centrista se mantiene hasta el Q4 2026 (Muy probable, horizonte de 18 meses), PfE supera a Renew durante EP10 por traspasos (Probabilidad igual, 36 meses), la mayoría Venezuela (PPE+ECR+PfE = 349 escaños) se invoca en ≥3 expedientes de reversión antes de mediados de 2027 (Probable, 14 meses), 2029 no produce ninguna mayoría de coalición única (Probable, 49 meses).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decisión | Quién decide | Plazo | Pruebas |
+|:-:|----------|--------------|:-----:|---------|
+| 1 | **Estrategia de disciplina para la elección de la Mesa 2027** — ¿el PPE asegura la presidencia a medio plazo mediante un intercambio de carteras con el S&D, o exige concesiones políticas (migración / agricultura)? | Conferencia de Presidentes; líderes de grupo PPE/S&D/Renew | Ene. 2027 (≤ 9 meses) | R-3 en `risk-scoring/risk-matrix.md` (Probabilidad Igual × Impacto M-A → puntuación 8); J6 (realineamiento a medio plazo Probable) |
+| 2 | **Mandato de negociación para la revisión intermedia del MFP 2028+** — ¿cuánta condicionalidad de defensa / Ucrania / Estado de Derecho es innegociable para la mayoría centrista? | Dirección BUDG, COREPER, VP de la Comisión | H2 2026 → mediados de 2027 | R-5 (Probable × Muy alto → puntuación 16, el mayor riesgo individual del registro); `intelligence/economic-context.md` |
+| 3 | **Vigilancia de la disciplina de grupo en la trayectoria de mayoría Venezuela** — ¿qué expedientes (migración, agricultura, reversión climática) corren el riesgo de que PPE+ECR+PfE gane por mayoría simple cuando la participación cae por debajo del 95 %? | Secretarías de grupo; ponentes en la sombra en Greens / Renew | continuo, vigilancia de 12 meses | R-2 (Probabilidad igual × Alto → puntuación 9); J3 (Probable, 14 meses); `intelligence/coalition-dynamics.md` |
+
+Cada decisión está vinculada a una fila del registro de riesgos en `risk-scoring/risk-matrix.md` y a una evaluación de banda WEP en `intelligence/synthesis-summary.md` para que el razonamiento sea falsificable.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Margen reducido a la mitad:** el bloque centrista PPE+S&D+Renew cayó de 86 escaños de ventaja en EP9 a **36 escaños de ventaja en EP10** (`generate_political_landscape`, A1).
+- 🟠 **Pico de fragmentación:** índice **6,58 — el más alto desde EP6** (2004–2009); `compare_political_groups` muestra un **aumento del 12,6 % en el recuento de enmiendas por expediente** vs. EP9.
+- 🟢 **Estabilidad todavía funcional:** `early_warning_system` devuelve una puntuación **84/100, riesgo global MEDIUM**; polarización **0,22 ≪ umbral de ruptura 0,40**.
+- 🟡 **Única alerta de gravedad HIGH:** `DOMINANT_GROUP_RISK` sobre la cuota del 25,5 % del PPE — influencia concentrada, no colapso de la cámara.
+- 🔵 **Mayoría Venezuela armada:** PPE+ECR+PfE = **349 escaños (48,7 %)** — 12 escaños por debajo de la mayoría absoluta pero **gana en votaciones por mayoría simple cuando la asistencia cae por debajo del 95 %**; ya activada en ≥4 expedientes de migración/agricultura desde la inauguración.
+- 🟣 **Ala izquierda estructuralmente corta:** S&D+Greens/EFA+The Left = **234 escaños (32,6 %)** — no puede derrotar una reversión del Pacto Verde sin disidencia de Renew o dinámicas impulsadas por ausencias.
+- 🩷 **Compresión de Renew:** 102 → 77 escaños (**−24,5 %**) es el segundo cambio estructural más consecuente de 2024 y la condición previa para la reducción del margen a la mitad.
+- ⚪ **Funciones forzosas H2 2026 → Q1 2027:** (a) elección de la Mesa ene. 2027; (b) revisión intermedia del MFP 2028+; (c) pulso de entrega del Programa de Trabajo de la Comisión 2026 (~18 expedientes OLP/trimestre hasta 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | Juicio | Banda WEP | Confianza | Horizonte |
+|:-:|--------|-----------|:---------:|:---------:|
+| J1 | PPE+S&D+Renew centristas conservan una mayoría operativa en ≥70 % de los expedientes OLP hasta el Q4 2026 | **Muy probable** | Moderada-Alta | 18 meses |
+| J2 | PfE supera a Renew como tercer grupo más grande durante EP10 (por traspasos, no por elección) | Probabilidad igual | Moderada | 36 meses |
+| J3 | La mayoría Venezuela (PPE+ECR+PfE) se invoca en ≥3 expedientes de migración/agricultura/reversión climática antes de mediados de 2027 | **Probable** | Moderada | 14 meses |
+| J4 | Las elecciones de 2029 no producen ninguna mayoría de coalición única de 361+; fuerzan un pacto de gran coalición renovado | **Probable** | Moderada | 49 meses |
+| J5 | ≥1 grupo actual (ESN o un clúster NI) no logra reformarse tras las elecciones de 2029 | Probabilidad igual | Moderada | 53 meses |
+| J6 | Realineamiento a medio plazo (cambio de grupo de ≥10 eurodiputados) ocurre en 2027 en torno a la elección de la Mesa | **Probable** | Moderada | 9 meses |
+
+Las pruebas que respaldan J1–J6 provienen de las capturas MCP de la Etapa A enumeradas en el encabezado de este informe; cadena completa en `intelligence/synthesis-summary.md` e `intelligence/coalition-dynamics.md`.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**Tres mayores riesgos cuantificados** (del registro `risk-scoring/risk-matrix.md`, ordenados por puntuación):
+
+| ID | Riesgo | L | I | Punt. | Desencadenante que lo avanzaría | Propietario |
+|:--:|--------|:-:|:-:|:-----:|---------------------------------|-------------|
+| **R-5** | La revisión intermedia del MFP 2028+ fracasa antes de mediados de 2027 | Probable | Muy alto | **16** | Bloqueo del Consejo sobre el sobre de contribuyentes netos; refuerzo de defensa sin resolver | BUDG / VP de la Comisión |
+| **R-7** | Las elecciones de 2029 producen un Parlamento de 7+ grupos sin mayoría centrista | Probable | Muy alto | **16** | PfE consolida las delegaciones nacionales ECR antes de las elecciones | Líderes transpartidistas |
+| **R-1** | La coalición centrista pierde la mayoría operativa en un expediente OLP insignia | Probable | Alto | **12** | Desviación de delegación nacional (esp. Renew Iberian or French bloc) | Líderes PPE/S&D/Renew |
+
+R-6 (desviación de delegación nacional en condicionalidad del Estado de Derecho, puntuación 12) se encuentra en la misma banda y es el activador concreto más probable de R-1.
+
+---
+
+### 🔮 Top Forward Triggers
+
+De `extended/forward-indicators.md` y las ramas de escenario de la ejecución (`intelligence/scenario-forecast.md` S1–S7):
+
+1. **Elección de la Mesa de enero de 2027** — si el PPE asegura la presidencia sin un coste publicado en presidencias de comisión para el S&D y Renew, escalar `DOMINANT_GROUP_RISK` de alerta de gravedad HIGH a bloqueo activo R-3.
+2. **Votación del mandato de negociación del MFP 2028+** (objetivo H2 2026 → mediados de 2027) — el fracaso en alcanzar un mandato BUDG centrista antes de finales de Q1 2027 avanza R-5 de ámbar a rojo y alimenta el Escenario 6 (Resellado de la gran coalición).
+3. **Tres expedientes con nombre a vigilar para la activación de la mayoría Venezuela en los próximos 14 meses:** cualquier sesión plenaria de procedimiento de migración en la que la participación de la delegación Renew ibérica o francesa caiga por debajo del 90 %; seguimientos de la simplificación de la PAC; y el siguiente ciclo de reversión climática post-2025. J3 (Probable) es verificado o falsificado por estos eventos.
+4. **Vigilancia de traspasos de grupo PfE** — `compare_political_groups` ya señala a PfE como el cambio estructural con más potencial de crecimiento; un traspaso de delegación polaca o italiana ECR de ≥10 eurodiputados es el detonante operacional para J2 y J6.
+
+La rama obligatoria **Escenario 7 (Crisis de tratados / ruptura estructural)** se encuentra en la cola larga: los desencadenantes candidatos según la ejecución son (a) revisión del tratado de ampliación UA/MD, (b) extensión de la pasarela a política exterior/fiscal, (c) escalada del artículo 7 sobre Hungría, (d) elección intermedia por bloqueo del Consejo, o (e) colapso del MFP en doceavas partes provisionales. Ninguno está en un horizonte de 12 meses.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **Anclajes A1 / A2:** composición de grupos, índice de fragmentación, calendario plenario, rendimiento multi-legislatura — estos son la **columna vertebral estructural** del informe y son Almirantazgo A1–A2 (Portal de datos abiertos del PE).
+- **Reserva B3:** la polarización de `sentiment_tracker` (0,22) es un **proxy institucional de posicionamiento basado en la cuota de escaños, no en la cohesión de votaciones nominales** — los datos de votación por eurodiputado no están todavía expuestos por la API del PE. La confianza Moderada para J3/J4/J6 refleja esto.
+- **A6 (no puede evaluarse):** `monitor_legislative_pipeline` devolvió 0 procedimientos y `network_analysis` devolvió 50 nodos / 0 aristas; ambos son **retrasos de canalización aguas arriba**, no fallos analíticos. Los gráficos ego de análisis de red y la detección de cuellos de botella de canalización se posponen hasta que la API del PE exponga estos datos.
+- **F6 (fallido):** los códigos de país UE de World Bank (`EUU` / `EU`) fallaron ambos en esta ejecución; el informe no depende del contexto macro WB.
+- **IMF SDMX 3.0:** no consultado en esta ejecución de superposición de ciclo electoral; si el contexto macro de revisión del MFP se vuelve operacionalmente necesario, ejecutar una sonda IMF WEO antes de reestimar R-5.
+
+Confianza neta: **Moderada-Alta en aritmética estructural** (J1, R-1, R-5, R-7), **Moderada en juicios de comportamiento** (J2, J3, J4, J6) hasta que los datos de cohesión por eurodiputado sean expuestos por la API del PE.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+Dos lecturas competidoras de la misma aritmética se rastrean en `extended/historical-parallels.md`:
+
+- **H1 — "EP10 es EP9 menos Renew."** El margen es menor pero la fórmula de coalición no ha cambiado; la elección de la Mesa a medio plazo da lugar a un intercambio de carteras; 2029 devuelve un pacto similar con un flanco derecho ligeramente mayor. Escenarios 1 y 6 en `intelligence/scenario-forecast.md`.
+- **H2 — "EP10 es el primer Parlamento-pivote PfE."** La mayoría Venezuela se activa en más de tres expedientes; una delegación nacional del PPE pasa a votar con el ECR en migración; la elección de la Mesa de 2027 se convierte en el momento público del pivote. Escenarios 2 y 4.
+
+La base de pruebas actual — puntuación de estabilidad 84, polarización 0,22, fragmentación 6,58, disciplina PPE sostenida — **favorece H1 (Muy probable)** hasta el Q4 2026 pero **no falsifica H2** en un horizonte de 14 a 36 meses. Por tanto, el informe rastrea ambas hipótesis en lugar de comprometerse con una.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Capa | Artefacto | Por qué |
+|------|-----------|---------|
+| Artículo | `article.md` | Narrativa pública; 9.906 líneas que cubren los seis juicios |
+| Síntesis | `intelligence/synthesis-summary.md` | BLUF + tabla WEP + calificación del Almirantazgo (autorizada) |
+| Coalición | `intelligence/coalition-dynamics.md` | Aritmética de la mayoría Venezuela; delta de margen EP9 → EP10 |
+| Registro de riesgos | `risk-scoring/risk-matrix.md` | R-1 → R-10 con L × I × Puntuación |
+| SWOT cuantitativo | `risk-scoring/quantitative-swot.md` | Fortalezas estructurales vs. erosión del margen |
+| Escenarios | `intelligence/scenario-forecast.md` S1–S7 (Crisis de tratados = S7) | Ramas ponderadas por probabilidad |
+| Indicadores | `extended/forward-indicators.md` | Calendario de detonantes hasta 2029 |
+| Arco de legislatura | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | Secuenciación de la elección de la Mesa |
+| Proyección de escaños | `intelligence/seat-projection.md` | Previsión 2029 bajo H1 vs. H2 |
+| Fiabilidad | `intelligence/mcp-reliability-audit.md` | Líneas A6 / F6 explicadas |
+| Autoauditoría | `intelligence/methodology-reflection.md` | Cierre del paso 10.5 |
+
+---
+
+**Control del documento**
+- **Referencia de plantilla:** `analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **Clasificación:** Público
+- **Retrospectivo:** Este informe es ex post — redactado el 2026-05-16 a partir de los artefactos comprometidos de la ejecución; **no se realizaron nuevas llamadas MCP**. Todos los juicios reformulan, destilan y ACH-verifican lo que la propia ejecución comprometió; no se introducen nuevas afirmaciones.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+Vuoden 2024 vaalit jättivät EP10:n tilaan, jossa on **717 MEP:iä yhdeksässä ryhmässä, pirstoutumisindeksi 6,58 — korkein arvo sitten EP6:n (2004–2009)**. Sentristinen EPP+S&D+Renew-blokki pitää hallussaan **396 paikkaa (55,2 %)** **36 paikan puskurilla** yli 361 paikan absoluuttisen enemmistön kynnyksen; tämä puskuri on **alle puolet EP9:n 86 paikan marginaalista**, joten yksittäinen kansallinen valtuuskunnan poikkeama muuttaa nyt merkittävästi tiedoston tiedostolta -enemmistölaskentaa. `early_warning_system`-järjestelmän ainoa HIGH-vakavuusvaroitus on `DOMINANT_GROUP_RISK` — EPP:n 25,5 %:n osuus antaa veto-vaikutuksen missä tahansa kapeassa sentristisessä koalitiossa, ja **tammikuun 2027 viraston vaali on ensimmäinen suunniteltu testi** siitä, maksetaanko tämä vaikutus salkkuina (status quo) vai politiikkamyönnytyksinä (oikeistoajautuminen). Polarisoitumisindeksi 0,22 on selvästi alle 0,40 suurkoalition romahtamiskynnyksen, joten taustalla oleva laskenta toimii edelleen; operatiivinen riski on **väliaikainen uudelleenjärjestely** ei romahdus. **Kuusi otsikkoarviota** (J1–J6) kehystävät kierroksen: sentristinen enemmistö pitää Q4 2026 asti (Erittäin todennäköinen, 18 kuukauden horisontti), PfE ohittaa Renewin EP10:n aikana siirtojen kautta (Tasaiset mahdollisuudet, 36 kuukautta), Venezuela-enemmistö (EPP+ECR+PfE = 349 paikkaa) vetoaa ≥3 peruutustiedostoon ennen vuoden 2027 puoliväliä (Todennäköinen, 14 kuukautta), vuosi 2029 ei tuota yksittäistä koalition enemmistöä (Todennäköinen, 49 kuukautta).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Päätös | Kuka päättää | Määräaika | Näyttö |
+|:-:|--------|--------------|:---------:|--------|
+| 1 | **Peitsistrategia vuoden 2027 viraston vaaliin** — saako EPP väliaikaisesti puheenjohtajuuden salkkuliikkeellä S&D:n kanssa vai vaatiiko se politiikkamyönnytyksiä (muuttoliike / maatalous)? | Puheenjohtajien konferenssi; EPP/S&D/Renew-ryhmäjohtajat | Tammi 2027 (≤ 9 kuukautta) | R-3 `risk-scoring/risk-matrix.md`-tiedostossa (Todennäköisyys Tasaiset mahdollisuudet × Vaikutus M-K → pistemäärä 8); J6 (väliaikainen uudelleenjärjestely Todennäköinen) |
+| 2 | **MFF 2028+ väliaikaistarkastuksen neuvotteluvaltuutus** — kuinka paljon puolustus / Ukraina / oikeusvaltioehdollisuutta on ei-neuvoteltavissa sentristiselle enemmistölle? | BUDG-johto, COREPER, komission varapresidentit | H2 2026 → keski-2027 | R-5 (Todennäköinen × Erittäin korkea → pistemäärä 16, rekisterin yksittäinen korkein riski); `intelligence/economic-context.md` |
+| 3 | **Ryhmäkurin seuranta Venezuela-enemmistöpolulla** — mitkä tiedostot (muuttoliike, maatalous, ilmaston peruuttaminen) ovat vaarassa EPP+ECR+PfE yksinkertaisella enemmistövoitolla kun osallistuminen laskee alle 95 %? | Ryhmäsihteeristöt; varjoesittelijät Greens / Renew | jatkuva, 12 kuukauden seuranta | R-2 (Tasaiset mahdollisuudet × Korkea → pistemäärä 9); J3 (Todennäköinen, 14 kuukautta); `intelligence/coalition-dynamics.md` |
+
+Jokainen päätös on sidottu riskikirjauksen riviin `risk-scoring/risk-matrix.md`-tiedostossa ja WEP-vyöhykkeen arvioon `intelligence/synthesis-summary.md`-tiedostossa, jotta päättely on falsifioitavissa.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Puskuri puolitettu:** sentristinen EPP+S&D+Renew-blokki laski 86 paikan selvästä ylivoimasta EP9:ssä **36 paikan ylivoimaan EP10:ssä** (`generate_political_landscape`, A1).
+- 🟠 **Pirstoutumishuippu:** indeksi **6,58 — korkein sitten EP6:n** (2004–2009); `compare_political_groups` näyttää **12,6 %:n lisäyksen tiedoston muutoslukumäärissä** vs. EP9.
+- 🟢 **Vakaus edelleen toiminnallinen:** `early_warning_system` palauttaa pistemäärän **84/100, MEDIUM kokonaisriski**; polarisoituminen **0,22 ≪ 0,40 romahtamiskynnys**.
+- 🟡 **Ainoa HIGH-vakavuusvaroitus:** `DOMINANT_GROUP_RISK` EPP:n 25,5 %:n osuudessa — keskittynyt vaikutus, ei kamarin romahdus.
+- 🔵 **Venezuela-enemmistö aseistettu:** EPP+ECR+PfE = **349 paikkaa (48,7 %)** — 12 vähemmän kuin absoluuttinen enemmistö mutta **voittaa yksinkertaisilla enemmistöäänestyksillä kun läsnäolo laskee alle 95 %**; jo aktivoitu ≥4 muuttoliike-/maataloustiedostossa vihkiäisten jälkeen.
+- 🟣 **Vasemmisto rakenteellisesti lyhyt:** S&D+Greens/EFA+The Left = **234 paikkaa (32,6 %)** — ei pysty kukistamaan Vihreän sopimuksen peruuttamista ilman Renew-poikkeamaa tai poissaolovetoisia dynamiikkoja.
+- 🩷 **Renew-tiivistyminen:** 102 → 77 paikkaa (**−24,5 %**) on toiseksi merkityksellisin rakenteellinen muutos vuodelta 2024 ja puskurin puolittamisen edellytys.
+- ⚪ **Pakotustoiminnot H2 2026 → Q1 2027:** (a) Viraston vaali tammi 2027; (b) MFF 2028+ väliaikaistarkastus; (c) Komission Työohjelma 2026 toimituspulssi (~18 OLP-tiedostoa/neljännes vuoteen 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | Arvio | WEP-vyöhyke | Luotettavuus | Horisontti |
+|:-:|-------|-------------|:------------:|:----------:|
+| J1 | Sentristinen EPP+S&D+Renew säilyttää toimivan enemmistön ≥70 %:ssa OLP-tiedostoista Q4 2026 asti | **Erittäin todennäköinen** | Kohtalainen-Korkea | 18 kuukautta |
+| J2 | PfE ohittaa Renewin kolmanneksi suurimpana ryhmänä EP10:n aikana (siirtojen, ei vaalien kautta) | Tasaiset mahdollisuudet | Kohtalainen | 36 kuukautta |
+| J3 | Venezuela-enemmistö (EPP+ECR+PfE) vetoaa ≥3 muuttoliike-/maatalous-/ilmastonperuuttamistiedostoon ennen vuoden 2027 puoliväliä | **Todennäköinen** | Kohtalainen | 14 kuukautta |
+| J4 | Vuoden 2029 vaalit eivät tuota yksittäistä koalition enemmistöä 361+; pakottaa uusitun suurkoalitiopaktin | **Todennäköinen** | Kohtalainen | 49 kuukautta |
+| J5 | ≥1 nykyinen ryhmä (ESN tai NI-klusteri) epäonnistuu muodostumaan uudelleen vuoden 2029 vaalien jälkeen | Tasaiset mahdollisuudet | Kohtalainen | 53 kuukautta |
+| J6 | Väliaikainen uudelleenjärjestely (ryhmävaihto ≥10 MEP:llä) tapahtuu vuonna 2027 viraston vaalin ympärillä | **Todennäköinen** | Kohtalainen | 9 kuukautta |
+
+J1–J6:ta tukeva näyttö on peräisin Stage-A MCP-tallenteista, jotka on lueteltu tämän tiedotteen otsikossa; täydellinen ketju `intelligence/synthesis-summary.md`- ja `intelligence/coalition-dynamics.md`-tiedostoissa.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**Kolme parasta kvantifioitua riskiä** (`risk-scoring/risk-matrix.md`-rekisteristä, pistemäärän mukaan järjestetty):
+
+| ID | Riski | L | I | Pisteet | Laukaisin joka edistäisi sitä | Omistaja |
+|:--:|-------|:-:|:-:|:-------:|-------------------------------|---------|
+| **R-5** | MFF 2028+ väliaikaistarkastus epäonnistuu vuoden 2027 puoliväliin mennessä | Todennäköinen | Erittäin korkea | **16** | Neuvostokonflikti nettomaksajakirjekuoresta; puolustuslaajennos ratkaisematta | BUDG / Komission varapresidentit |
+| **R-7** | Vuoden 2029 vaalit tuottavat 7+ ryhmän kamarin ilman sentrististä enemmistöä | Todennäköinen | Erittäin korkea | **16** | PfE vahvistaa ECR:n kansalliset valtuuskunnat ennen vaaleja | Ryhmien väliset johtajat |
+| **R-1** | Sentristinen koalitio menettää toimivan enemmistön lippulaivaisen OLP-tiedoston | Todennäköinen | Korkea | **12** | Kansallinen valtuuskunnan poikkeama (esp. Renew Iberian or French bloc) | EPP/S&D/Renew-johtajat |
+
+R-6 (kansallinen valtuuskunnan poikkeama oikeusvaltioehdollisuudesta, pisteet 12) on samassa vyöhykkeessä ja on todennäköisin konkreettinen R-1:n aktivaattori.
+
+---
+
+### 🔮 Top Forward Triggers
+
+`extended/forward-indicators.md`-tiedostosta ja ajon skenaariohaaroista (`intelligence/scenario-forecast.md` S1–S7):
+
+1. **Tammikuun 2027 viraston vaali** — jos EPP turvaa puheenjohtajuuden ilman julkaistua hintaa valiokuntien puheenjohtajuuksissa S&D:lle ja Renewille, eskaloida `DOMINANT_GROUP_RISK` HIGH-vakavuusvaroituksesta aktiiviseen R-3-pattitilanteeseen.
+2. **MFF 2028+ neuvotteluvaltuusäänestys** (tavoite H2 2026 → keski-2027) — sentristisen BUDG-mandaatin saavuttamatta jättäminen Q1 2027 loppuun mennessä edistää R-5:tä keltaisesta punaiseen ja ruokkii Skenaario 6:ta (Suurkoalition uudelleensinetöinti).
+3. **Kolme nimettyjä tiedostoja seurattavaksi Venezuela-enemmistön aktivoimiseksi seuraavien 14 kuukauden aikana:** mikä tahansa muuttoliikemenettelyn täysistunto jossa Renew Iberian tai Ranskan valtuuskunnan osallistuminen laskee alle 90 %; CAP-yksinkertaistamisen seurannat; ja seuraava post-2025 ilmastonperuuttamissykli. J3 (Todennäköinen) todistetaan tai kumotaan näillä.
+4. **PfE-ryhmän siirtojen seuranta** — `compare_political_groups` merkitsee jo PfE:n rakenteelliseksi muutokseksi jolla on eniten kasvutilaa; puolalaisen tai italialaisen ECR-valtuuskunnan siirto ≥10 MEP:lle on J2:n ja J6:n operatiivinen laukaisukaapeli.
+
+Pakollinen **Skenaario 7 (Sopimuskriisi / rakenteellinen murros)** -haara sijaitsee pitkässä hännässä: ajon mukaiset ehdokaslaukaisimet ovat (a) laajentumissopimuksen tarkistus UA/MD, (b) passerellen laajentaminen ulkomaan-/finanssipolitiikkaan, (c) artikla 7 -eskalaatio Unkarista, (d) väliaikainen vaali neuvoston pattitilanteesta, tai (e) MFF:n romahtaminen väliaikaisiin kahdentoista osaan. Mikään ei ole 12 kuukauden horisontilla.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **A1 / A2-ankkurit:** ryhmäkoostumus, pirstoutumisindeksi, täysistuntokalenteri, useiden kausien läpivienti — nämä ovat tiedotteen **rakenteellinen selkäranka** ja ovat Admiralty A1–A2 (EP Open Data Portal).
+- **B3-varaus:** `sentiment_tracker`-polarisoituminen (0,22) on **paikkajaon institutionaalinen asemoinnin välitysmuuttuja, ei nimenhuudon koheesio** — per-MEP-äänestysdata ei ole vielä EP API:n paljastaama. Kohtalainen luotettavuus J3:lle / J4:lle / J6:lle heijastaa tätä.
+- **A6 (ei voida arvioida):** `monitor_legislative_pipeline` palautti 0 menettelyä ja `network_analysis` palautti 50 solmua / 0 kaarta; molemmat ovat **ylävirran putkilinjan viivästyksiä**, ei analyyttisiä epäonnistumisia. Verkkoanalyysin egoverkkoja ja putkilinjan pullonkaulojen havaitseminen siirretään myöhemmäksi, kunnes EP API paljastaa nämä tiedot.
+- **F6 (epäonnistui):** World Bank EU-maakoodit (`EUU` / `EU`) molemmat epäonnistuivat tässä ajossa; tiedote ei perustu WB-makrokontekstiin.
+- **IMF SDMX 3.0:** ei kysytty tässä vaalikierros-overlay-ajossa; jos MFF-tarkastelun makrokonteksti tulee operatiivisesti tarpeelliseksi, suorita IMF WEO -sonda ennen R-5:n uudelleenpisteytystä.
+
+Nettoluotettavuus: **Kohtalainen-Korkea rakenteellisessa laskennassa** (J1, R-1, R-5, R-7), **Kohtalainen käyttäytymisarvioinneissa** (J2, J3, J4, J6) kunnes per-MEP:n koheesiodata paljastetaan EP API:ssa.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+Kahta kilpailevaa tulkintaa samasta laskennasta seurataan `extended/historical-parallels.md`-tiedostossa:
+
+- **H1 — "EP10 on EP9 miinus Renew."** Puskuri on pienempi, mutta koalitiokaava on muuttumaton; väliaikainen viraston vaali tuottaa salkkuliikkeen; vuosi 2029 palauttaa samanlaisen paktin hieman suuremmalla oikeistolaivalla. Skenaariot 1 ja 6 `intelligence/scenario-forecast.md`-tiedostossa.
+- **H2 — "EP10 on ensimmäinen PfE-pivot-parlamentti."** Venezuela-enemmistö aktivoituu yli kolmessa tiedostossa; yksi EPP:n kansallinen valtuuskunta siirtyy piiskaamaan ECR:n kanssa muuttoliikkeessä; vuoden 2027 viraston vaali tulee julkiseksi pivot-hetkeksi. Skenaariot 2 ja 4.
+
+Nykyinen näyttöpohja — vakauspistemäärä 84, polarisoituminen 0,22, pirstoutuminen 6,58, EPP-kuri pitää — **suosii H1:tä (Erittäin todennäköinen)** Q4 2026 asti mutta **ei kumoa H2:ta** 14–36 kuukauden horisontilla. Tiedote seuraa siksi molempia eikä sitoudu yhteen.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Kerros | Artefakti | Miksi |
+|--------|-----------|-------|
+| Artikkeli | `article.md` | Julkinen kertomus; 9 906 riviä kattaen kaikki kuusi arviota |
+| Synteesi | `intelligence/synthesis-summary.md` | BLUF + WEP-taulukko + Admiralty-luokittelu (auktoritatiivinen) |
+| Koalitio | `intelligence/coalition-dynamics.md` | Venezuela-enemmistölaskenta; EP9 → EP10 puskuridelta |
+| Riskikirjaus | `risk-scoring/risk-matrix.md` | R-1 → R-10 L × I × Pisteet |
+| Kvantitatiivinen SWOT | `risk-scoring/quantitative-swot.md` | Rakenteelliset vahvuudet vs. puskurin eroosio |
+| Skenaariot | `intelligence/scenario-forecast.md` S1–S7 (Sopimuskriisi = S7) | Todennäköisyyspainotetut haarat |
+| Indikaattorit | `extended/forward-indicators.md` | Laukaisukaapelikalenteri vuoteen 2029 |
+| Toimikausikaari | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | Viraston vaalin sekvensointi |
+| Paikkaennuste | `intelligence/seat-projection.md` | Vuoden 2029 ennuste H1 vs. H2 |
+| Luotettavuus | `intelligence/mcp-reliability-audit.md` | A6 / F6-rivit selitetty |
+| Itsetarkastelu | `intelligence/methodology-reflection.md` | Vaihe 10.5-sulkeminen |
+
+---
+
+**Asiakirjavalvonta**
+- **Mallviite:** `analysis/templates/executive-brief.md`
+- **Artefaktipolku:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **Luokittelu:** Julkinen
+- **Retrospektiivinen:** Tämä tiedote on jälkikäteen laadittu — kirjoitettu 2026-05-16 ajon sitoutuneiden artefaktien perusteella; **uusia MCP-kutsuja ei tehty**. Kaikki arviot muotoilevat uudelleen, tiivistävät ja ACH-ristitarkistavat mitä ajo itse sitoutui; uusia väitteitä ei esitetä.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+L'élection de 2024 a laissé EP10 avec **717 députés répartis en neuf groupes, indice de fragmentation 6,58 — la lecture la plus haute depuis EP6 (2004–2009)**. Le bloc centriste EPP+S&D+Renew détient **396 sièges (55,2 %)** avec un **coussin de 36 sièges** au-dessus du seuil de 361 sièges pour la majorité absolue ; ce coussin est **inférieur à la moitié de la marge de 86 sièges d'EP9**, de sorte qu'un seul écart de délégation nationale modifie désormais de façon significative l'arithmétique des majorités dossier par dossier. L'unique alerte de gravité HIGH de `early_warning_system` est `DOMINANT_GROUP_RISK` — la part de 25,5 % du PPE lui confère un pouvoir de veto dans toute coalition centriste étroite, et **l'élection du Bureau de janvier 2027 est le premier test programmé** pour savoir si ce levier est payé en portefeuilles (statu quo) ou en concessions politiques (dérive vers la droite). L'indice de polarisation de 0,22 est bien en dessous du seuil de rupture 0,40 pour la grande coalition, de sorte que l'arithmétique sous-jacente fonctionne encore ; le risque opérationnel est un **réalignement à mi-mandat** plutôt qu'un effondrement. **Six jugements de titre** (J1–J6) cadrent le cycle : la majorité centriste tient jusqu'au Q4 2026 (Très probable, horizon de 18 mois), PfE dépasse Renew pendant EP10 par transferts (Chances égales, 36 mois), la majorité Venezuela (EPP+ECR+PfE = 349 sièges) est invoquée sur ≥3 dossiers de retrait avant mi-2027 (Probable, 14 mois), 2029 ne produit aucune majorité de coalition unique (Probable, 49 mois).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Décision | Qui décide | Échéance | Preuves |
+|:-:|----------|------------|:--------:|---------|
+| 1 | **Stratégie de discipline pour l'élection du Bureau 2027** — le PPE sécurise-t-il la présidence à mi-mandat sur un échange de portefeuilles avec le S&D, ou exige-t-il des concessions politiques (migration / agriculture) ? | Conférence des présidents ; chefs de groupe PPE/S&D/Renew | Janv. 2027 (≤ 9 mois) | R-3 dans `risk-scoring/risk-matrix.md` (Probabilité Chances égales × Impact M-H → score 8) ; J6 (réalignement à mi-mandat Probable) |
+| 2 | **Mandat de négociation pour la révision à mi-parcours du CFP 2028+** — quelle part de conditionnalité défense / Ukraine / État de droit est non-négociable pour la majorité centriste ? | Direction BUDG, COREPER, VP de la Commission | H2 2026 → mi-2027 | R-5 (Probable × Très haut → score 16, le risque individuel le plus élevé du registre) ; `intelligence/economic-context.md` |
+| 3 | **Surveillance de la discipline de groupe sur la trajectoire de la majorité Venezuela** — quels dossiers (migration, agriculture, retrait climatique) risquent d'être gagnés par EPP+ECR+PfE à la majorité simple lorsque la participation chute sous 95 % ? | Secrétariats de groupe ; rapporteurs fictifs dans Greens / Renew | en cours, surveillance sur 12 mois | R-2 (Chances égales × Haut → score 9) ; J3 (Probable, 14 mois) ; `intelligence/coalition-dynamics.md` |
+
+Chaque décision est liée à une ligne du registre des risques dans `risk-scoring/risk-matrix.md` et à une évaluation balisée WEP dans `intelligence/synthesis-summary.md`, afin que le raisonnement soit falsifiable.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Coussin réduit de moitié :** le bloc centriste EPP+S&D+Renew est passé de 86 sièges de marge dans EP9 à **36 sièges de marge dans EP10** (`generate_political_landscape`, A1).
+- 🟠 **Pic de fragmentation :** indice **6,58 — le plus haut depuis EP6** (2004–2009) ; `compare_political_groups` indique une **hausse de 12,6 % du nombre d'amendements par dossier** par rapport à EP9.
+- 🟢 **Stabilité encore fonctionnelle :** `early_warning_system` renvoie un score **84/100, risque global MEDIUM** ; polarisation **0,22 ≪ seuil de rupture 0,40**.
+- 🟡 **Unique alerte de gravité HIGH :** `DOMINANT_GROUP_RISK` sur la part de 25,5 % du PPE — influence concentrée, pas d'effondrement de la chambre.
+- 🔵 **Majorité Venezuela armée :** EPP+ECR+PfE = **349 sièges (48,7 %)** — 12 sièges en deçà de la majorité absolue mais **l'emporte lors des votes à la majorité simple lorsque la présence tombe sous 95 %** ; déjà activée sur ≥4 dossiers migration/agriculture depuis l'inauguration.
+- 🟣 **Aile gauche structurellement faible :** S&D+Greens/EFA+The Left = **234 sièges (32,6 %)** — ne peut pas vaincre un retrait du Pacte Vert sans dissidence de Renew ou dynamiques liées aux absences.
+- 🩷 **Compression de Renew :** 102 → 77 sièges (**−24,5 %**) est la deuxième plus grande modification structurelle de 2024 et la condition préalable au halving du coussin.
+- ⚪ **Fonctions contraignantes H2 2026 → Q1 2027 :** (a) élection du Bureau janv. 2027 ; (b) révision à mi-parcours du CFP 2028+ ; (c) pulse de livraison du Programme de travail de la Commission 2026 (~18 dossiers OLP/trimestre jusqu'en 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | Jugement | Bande WEP | Confiance | Horizon |
+|:-:|----------|-----------|:---------:|:-------:|
+| J1 | PPE+S&D+Renew centristes conservent une majorité de travail sur ≥70 % des dossiers OLP jusqu'au Q4 2026 | **Très probable** | Modérée-Haute | 18 mois |
+| J2 | PfE dépasse Renew comme troisième groupe le plus important pendant EP10 (par transferts, pas par élection) | Chances égales | Modérée | 36 mois |
+| J3 | La majorité Venezuela (EPP+ECR+PfE) est invoquée sur ≥3 dossiers migration/agriculture/retrait climatique avant mi-2027 | **Probable** | Modérée | 14 mois |
+| J4 | L'élection de 2029 ne produit aucune majorité de coalition unique de 361+ ; oblige un nouveau pacte de grande coalition | **Probable** | Modérée | 49 mois |
+| J5 | ≥1 groupe actuel (ESN ou un cluster NI) échoue à se reformer après l'élection de 2029 | Chances égales | Modérée | 53 mois |
+| J6 | Réalignement à mi-mandat (changement de groupe par ≥10 députés) survient en 2027 autour de l'élection du Bureau | **Probable** | Modérée | 9 mois |
+
+Les preuves soutenant J1–J6 proviennent des captures MCP de l'étape A répertoriées dans l'en-tête de cette note ; chaîne complète dans `intelligence/synthesis-summary.md` et `intelligence/coalition-dynamics.md`.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**Top trois risques quantifiés** (du registre `risk-scoring/risk-matrix.md`, classés par score) :
+
+| ID | Risque | L | I | Score | Déclencheur qui le ferait avancer | Responsable |
+|:--:|--------|:-:|:-:|:-----:|-----------------------------------|-------------|
+| **R-5** | La révision à mi-parcours du CFP 2028+ échoue avant mi-2027 | Probable | Très haut | **16** | Blocage au Conseil sur l'enveloppe des contributeurs nets ; renforcement défense non résolu | BUDG / VP de la Commission |
+| **R-7** | L'élection de 2029 produit un parlement à 7+ groupes sans majorité centriste | Probable | Très haut | **16** | PfE consolide les délégations nationales ECR avant l'élection | Dirigeants transpartisans |
+| **R-1** | La coalition centriste perd sa majorité de travail sur un dossier OLP phare | Probable | Haut | **12** | Écart de délégation nationale (esp. Renew Iberian or French bloc) | Dirigeants PPE/S&D/Renew |
+
+R-6 (écart de délégation nationale sur la conditionnalité État de droit, score 12) se situe dans le même registre et est l'activateur concret le plus probable de R-1.
+
+---
+
+### 🔮 Top Forward Triggers
+
+D'après `extended/forward-indicators.md` et les branches scénarios de l'exécution (`intelligence/scenario-forecast.md` S1–S7) :
+
+1. **Élection du Bureau de janvier 2027** — si le PPE sécurise la présidence sans coût publié en présidences de commissions pour le S&D et Renew, faire passer `DOMINANT_GROUP_RISK` d'alerte de gravité HIGH à R-3 blocage actif.
+2. **Vote sur le mandat de négociation du CFP 2028+** (objectif H2 2026 → mi-2027) — l'échec à atteindre un mandat BUDG centriste d'ici fin Q1 2027 fait passer R-5 de l'orange au rouge et alimente le Scénario 6 (Renforcement de la grande coalition).
+3. **Trois dossiers nommés à surveiller pour l'activation de la majorité Venezuela dans les 14 prochains mois :** toute session plénière sur une procédure migratoire où la participation des délégations Renew ibérique ou française tombe sous 90 % ; suites de la simplification de la PAC ; et le prochain cycle de retrait climatique post-2025. J3 (Probable) est vérifié ou falsifié par ces événements.
+4. **Surveillance des transferts de groupe PfE** — `compare_political_groups` signale déjà PfE comme le changement structurel avec le plus de potentiel de croissance ; un transfert de délégation polonaise ou italienne ECR de ≥10 députés est le déclencheur opérationnel pour J2 et J6.
+
+La branche obligatoire **Scénario 7 (Crise des traités / rupture structurelle)** se situe dans la longue traîne : les déclencheurs candidats selon l'exécution sont (a) révision du traité d'élargissement UA/MD, (b) extension de la passerelle à la politique étrangère/fiscale, (c) escalade de l'article 7 sur la Hongrie, (d) élection à mi-mandat suite à un blocage du Conseil, ou (e) effondrement du CFP en douzièmes provisoires. Aucun n'est à l'horizon de 12 mois.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **Ancres A1 / A2 :** composition des groupes, indice de fragmentation, calendrier plénière, débit multi-législature — ce sont la **colonne vertébrale structurelle** de la note et sont Amirauté A1–A2 (Portail de données ouvertes du PE).
+- **Réserve B3 :** la polarisation de `sentiment_tracker` (0,22) est un **proxy institutionnel de positionnement fondé sur la part des sièges, non sur la cohésion des votes nominaux** — les données de vote par député ne sont pas encore exposées par l'API du PE. La confiance Modérée pour J3/J4/J6 reflète cela.
+- **A6 (ne peut pas être évaluée) :** `monitor_legislative_pipeline` a renvoyé 0 procédure et `network_analysis` a renvoyé 50 nœuds / 0 arêtes ; les deux sont des **délais de pipeline en amont**, pas des échecs analytiques. Les graphes ego d'analyse de réseau et la détection des goulots d'étranglement de pipeline sont différés jusqu'à ce que l'API du PE expose ces données.
+- **F6 (échoué) :** les codes pays UE de World Bank (`EUU` / `EU`) ont tous deux échoué lors de cette exécution ; la note ne repose pas sur le contexte macro WB.
+- **IMF SDMX 3.0 :** non interrogé dans cette exécution d'overlay de cycle électoral ; si le contexte macro de la révision CFP devient opérationnellement nécessaire, exécuter une sonde IMF WEO avant de réévaluer R-5.
+
+Confiance nette : **Modérée-Haute sur l'arithmétique structurelle** (J1, R-1, R-5, R-7), **Modérée sur les jugements comportementaux** (J2, J3, J4, J6) jusqu'à ce que les données de cohésion par député soient exposées par l'API du PE.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+Deux lectures concurrentes de la même arithmétique sont suivies dans `extended/historical-parallels.md` :
+
+- **H1 — « EP10 est EP9 moins Renew. »** Le coussin est plus petit mais la formule de coalition est inchangée ; l'élection du Bureau à mi-mandat donne lieu à un échange de portefeuilles ; 2029 ramène un pacte similaire avec un flanc droit légèrement plus grand. Scénarios 1 et 6 dans `intelligence/scenario-forecast.md`.
+- **H2 — « EP10 est le premier parlement-pivot PfE. »** La majorité Venezuela s'active sur plus de trois dossiers ; une délégation nationale PPE passe à voter avec l'ECR sur la migration ; une élection du Bureau en 2027 devient le moment public du pivot. Scénarios 2 et 4.
+
+La base de preuves actuelle — score de stabilité 84, polarisation 0,22, fragmentation 6,58, discipline PPE maintenue — **favorise H1 (Très probable)** jusqu'au Q4 2026 mais **ne falsifie pas H2** sur un horizon de 14 à 36 mois. La note suit donc les deux plutôt que de s'engager sur l'une.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Couche | Artefact | Pourquoi |
+|--------|----------|----------|
+| Article | `article.md` | Récit public ; 9 906 lignes couvrant les six jugements |
+| Synthèse | `intelligence/synthesis-summary.md` | BLUF + tableau WEP + notation Amirauté (faisant autorité) |
+| Coalition | `intelligence/coalition-dynamics.md` | Arithmétique de la majorité Venezuela ; delta du coussin EP9 → EP10 |
+| Registre des risques | `risk-scoring/risk-matrix.md` | R-1 → R-10 avec L × I × Score |
+| SWOT quantitatif | `risk-scoring/quantitative-swot.md` | Forces structurelles vs. érosion du coussin |
+| Scénarios | `intelligence/scenario-forecast.md` S1–S7 (Crise des traités = S7) | Branches pondérées par probabilité |
+| Indicateurs | `extended/forward-indicators.md` | Calendrier des déclencheurs jusqu'en 2029 |
+| Arc de législature | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | Séquençage de l'élection du Bureau |
+| Projection des sièges | `intelligence/seat-projection.md` | Prévision 2029 sous H1 vs. H2 |
+| Fiabilité | `intelligence/mcp-reliability-audit.md` | Lignes A6 / F6 expliquées |
+| Auto-audit | `intelligence/methodology-reflection.md` | Clôture étape 10.5 |
+
+---
+
+**Contrôle du document**
+- **Référence du modèle :** `analysis/templates/executive-brief.md`
+- **Chemin de l'artefact :** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **Classification :** Public
+- **Rétrospectif :** Cette note est post-hoc — rédigée le 2026-05-16 à partir des artefacts engagés de l'exécution ; **aucun nouvel appel MCP n'a été effectué**. Tous les jugements reformulent, distillent et ACH-croisent ce que l'exécution elle-même a engagé ; aucune nouvelle affirmation n'est introduite.
+
+### Executive Brief He
+
+**סיווג:** OSINT — רשומה פרלמנטרית ציבורית
+**רמת אמינות:** 🟡 בינונית-גבוהה (ציון יציבות 84/100; נתונים מבניים, לא ברמת הצבעה)
+**הרצה:** `analysis/daily/2026-05-11/election-cycle/`
+**אופק זמן:** 2026-05-11 → 2031-05-10 (כיסוי מחזור בחירות של 60 חודשים)
+**נוצר:** 2026-05-16 (תקציר רטרואקטיבי; אין קריאות MCP חדשות — מסכם 25 פריטי ניתוח של ההרצה)
+**מקורות ראשיים:** EP MCP `generate_political_landscape`, `analyze_coalition_dynamics`, `early_warning_system`, `compare_political_groups`, `sentiment_tracker`, `get_plenary_sessions` (שנה=2026), `get_all_generated_stats` (2019–2026).
+
+---
+
+### 🎯 BLUF
+
+בחירות 2024 הניבו EP10 עם **717 חברים ב-9 קבוצות, מדד פיצול 6.58 — הקריאה הגבוהה ביותר מאז EP6 (2004–2009)**. לגרעין המרכזי EPP+S&D+Renew יש **396 מנדטים (55.2%)** עם **מרווח 36 מנדטים** מעל סף הרוב המוחלט של 361; מרווח זה **פחות ממחצית מרווח EP9 של 86 מנדטים**, כך שסטייה של משלחת לאומית אחת משנה כעת חישובי רוב ניכר מתיק לתיק. האזהרה היחידה בדרגה HIGH מ-`early_warning_system` היא `DOMINANT_GROUP_RISK` — נתח EPP של 25.5% מעניק לו זכות וטו בכל קואליציה מרכזית צרה, ו**בחירת לשכת הנשיאות בינואר 2027 היא הבחינה המתוזמנת הראשונה** לבדיקה האם מינוף זה נדחף לתיקים (הסטטוס קוו) או לוויתורים מדיניים (הסטה ימינה). מדד הקיטוב 0.22 נמוך בהרבה מסף קריסת הקואליציה הגדולה של 0.40, כך שהחשבון המרכזי עדיין עובד; הסיכונים התפעוליים הם **איזון מחדש באמצע הכהונה** ולא קריסה. **שישה שיפוטים מרכזיים** (J1–J6) ממסגרים את הכהונה: הרוב המרכזי מחזיק עד Q4 2026 (כמעט ודאי, אופק 18 חודשים), PfE עולה על Renew במהלך EP10 דרך מעברים (סיכויים שווים, 36 חודשים), "רוב ונציה" (EPP+ECR+PfE = 349 מנדטים) מופעל ב-≥3 תיקים לנסיגה לפני אמצע 2027 (סביר, 14 חודשים), ובחירות 2029 לא ייצרו רוב קואליציה יחיד (סביר, 49 חודשים).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | ההחלטה | מי מחליט | דדליין | ראיות |
+|:-:|---------|----------|:------:|-------|
+| 1 | **אסטרטגיית הצבעה לבחירת לשכת הנשיאות 2027** — האם EPP מבטיחה נשיאות אמצע כהונה דרך חילוף תיקים עם S&D, או תובעת ויתורי מדיניות (הגירה/חקלאות)? | ועידת יו"רים; מנהיגי קבוצות EPP/S&D/Renew | ינואר 2027 (≤9 חודשים) | R-3 ב-`risk-scoring/risk-matrix.md` (סיכויים שווים × השפעה M-H → ניקוד 8); J6 (איזון מחדש באמצע כהונה סביר) |
+| 2 | **מנדט המשא ומתן על סקירת MFF 2028+ באמצע הכהונה** — כמה מהמיזם-ביטחון/אוקראינה/שלטון החוק אינו ניתן למשא ומתן עבור הרוב המרכזי? | מנהיגות BUDG, COREPER, סגני נשיאי הנציבות | H2 2026 → אמצע 2027 | R-5 (סביר × גבוה מאוד → ניקוד 16, הסיכון הגבוה ביותר בספר); `intelligence/economic-context.md` |
+| 3 | **ניטור משמעת קבוצה על מסלול "רוב ונציה"** — אילו תיקים (הגירה, חקלאות, נסיגה אקלימית) נמצאים בסיכון לניצחון EPP+ECR+PfE ברוב פשוט כאשר הנוכחות יורדת מתחת ל-95%? | מזכירות קבוצות; מקברים צל ב-Greens/Renew | שוטף, ניטור 12 חודשים | R-2 (סיכויים שווים × גבוה → ניקוד 9); J3 (סביר, 14 חודשים); `intelligence/coalition-dynamics.md` |
+
+כל החלטה מקושרת לשורה בספר הסיכונים ב-`risk-scoring/risk-matrix.md` ולהערכת WEP ב-`intelligence/synthesis-summary.md` כדי שהטיעון יהיה ניתן להפרכה.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **המרווח התכווץ בחצי:** ירידת קואליציה EPP+S&D+Renew המרכזית מ-86 מנדטים ב-EP9 ל-**36 מנדטים ב-EP10** (`generate_political_landscape`, A1).
+- 🟠 **שיא הפיצול:** מדד **6.58 — הגבוה ביותר מאז EP6** (2004–2009); `compare_political_groups` מראה **עלייה של 12.6% בתיקוני קריאה שנייה לכל תיק** לעומת EP9.
+- 🟢 **היציבות עדיין תפקודית:** `early_warning_system` מחזיר ציון **84/100, סיכון כולל MEDIUM**; קיטוב **0.22 ≪ סף קריסה של 0.40**.
+- 🟡 **אזהרת HIGH יחידה:** `DOMINANT_GROUP_RISK` בנתח EPP של 25.5% — מינוף מרוכז, לא קריסת אולם.
+- 🔵 **"רוב ונציה" חמוש:** EPP+ECR+PfE = **349 מנדטים (48.7%)** — 12 מתחת לרוב מוחלט אך **מנצח בהצבעות רוב פשוט כאשר הנוכחות יורדת מתחת ל-95%**; כבר הופעל ב-≥4 תיקי הגירה/חקלאות מאז ההקמה.
+- 🟣 **גוש השמאל קצר מבנית:** S&D+Greens/EFA+The Left = **234 מנדטים (32.6%)** — לא יכול לחסום נסיגה מה-Green Deal ללא פיצול Renew או דינמיקת היעדרות.
+- 🩷 **לחץ Renew:** 102 → 77 מנדטים (**−24.5%**) הוא השינוי המבני השני בגודלו ב-2024 ותנאי מוקדם לצמצום המרווח לחצי.
+- ⚪ **פונקציות כפייה H2 2026 → Q1 2027:** (א) בחירת לשכת הנשיאות ינואר 2027; (ב) סקירת MFF 2028+ באמצע הכהונה; (ג) גל מסירת תוכנית העבודה 2026 של הנציבות (~18 תיקי OLP/רבעון עד 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | השיפוט | טווח WEP | אמינות | אופק |
+|:-:|---------|----------|:------:|:-----:|
+| J1 | EPP+S&D+Renew המרכזיים שומרים על רוב עובד ב-≥70% מתיקי OLP עד Q4 2026 | **כמעט ודאי** | בינונית-גבוהה | 18 חודשים |
+| J2 | PfE עולה על Renew כקבוצה השלישית בגודלה במהלך EP10 (דרך מעברים, לא בחירות) | סיכויים שווים | בינונית | 36 חודשים |
+| J3 | "רוב ונציה" (EPP+ECR+PfE) מופעל ב-≥3 תיקי הגירה/חקלאות/נסיגה אקלימית לפני אמצע 2027 | **סביר** | בינונית | 14 חודשים |
+| J4 | בחירות 2029 לא ייצרו רוב קואליציה יחיד 361+; יאלצו מגילת קואליציה גדולה מחודשת | **סביר** | בינונית | 49 חודשים |
+| J5 | ≥1 קבוצה נוכחית (ESN או NI pool) נכשלת בהיאגדות מחדש לאחר בחירות 2029 | סיכויים שווים | בינונית | 53 חודשים |
+| J6 | איזון מחדש באמצע הכהונה (מעבר קבוצה של ≥10 חברים) מתרחש ב-2027 סביב בחירת לשכת הנשיאות | **סביר** | בינונית | 9 חודשים |
+
+הראיות התומכות ב-J1–J6 מגיעות מלכידות MCP בשלב A הרשומות בכותרת תקציר זה; השרשרת המלאה ב-`intelligence/synthesis-summary.md` ו-`intelligence/coalition-dynamics.md`.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**שלושת הסיכונים הגבוהים ביותר שנמדדו כמותית** (מספר `risk-scoring/risk-matrix.md`, לפי ניקוד):
+
+| מזהה | הסיכון | ס' | ת' | ניקוד | טריגר מאיץ | בעלים |
+|:----:|---------|:-:|:-:|:-----:|------------|-------|
+| **R-5** | סקירת MFF 2028+ באמצע הכהונה נכשלת לפני אמצע 2027 | סביר | גבוה מאוד | **16** | מבוי סתום במועצה על מעטפת נשים נטו; חיזוק ביטחוני לא פתור | BUDG / סגני נשיאי הנציבות |
+| **R-7** | בחירות 2029 מניבות פרלמנט בן 7+ קבוצות ללא רוב מרכזי | סביר | גבוה מאוד | **16** | PfE מאחד משלחות ECR לאומיות לפני הבחירות | מנהיגים חוצי-מפלגות |
+| **R-1** | הקואליציה המרכזית מאבדת רוב עובד בתיק OLP מרכזי | סביר | גבוה | **12** | סטייה של משלחת לאומית (esp. Renew Iberian or French bloc) | מנהיגי EPP/S&D/Renew |
+
+R-6 (סטיית משלחת לאומית בסעיף שלטון החוק, 12 נקודות) נמצא באותו טווח והוא הטריגר הנגיש ביותר של R-1.
+
+---
+
+### 🔮 Top Forward Triggers
+
+מ-`extended/forward-indicators.md` וענפי תרחישים בהרצה (`intelligence/scenario-forecast.md` S1–S7):
+
+1. **בחירת לשכת הנשיאות ינואר 2027** — אם EPP מבטיחה נשיאות ללא עלות מפורסמת בנשיאויות ועדה ל-S&D ו-Renew, `DOMINANT_GROUP_RISK` מועלה מאזהרת HIGH לסיכון R-3 פעיל.
+2. **הצבעת מנדט על משא ומתן MFF 2028+** (יעד H2 2026 → אמצע 2027) — כישלון בהשגת מנדט BUDG מרכזי עד סוף Q1 2027 מקדם R-5 מצהוב לאדום ומזין תרחיש 6 (חתימה מחדש על קואליציה גדולה).
+3. **שלושה תיקים ממונים לצפייה לגבי הפעלת "רוב ונציה" ב-14 חודשים הבאים:** כל מליאה על הגירה שבה נוכחות משלחת Renew האיברית או הצרפתית יורדת מתחת ל-90%; המשך פישוט CAP; ומחזור נסיגה אקלימית לאחר 2025. J3 (סביר) מאומת או מופרך על ידי אירועים אלה.
+4. **ניטור מעברי קבוצת PfE** — `compare_political_groups` כבר מסמן PfE כשינוי המבני בעל הפוטנציאל הצמיחה הגבוה ביותר; מעבר משלחת ECR הפולנית או האיטלקית של ≥10 חברים הוא חוט הפעלה ל-J2 ו-J6.
+
+**ענף תרחיש 7 (משבר אמנות/שבר מבני)** החובה נמצא בזנב הארוך: הטריגרים המועמדים לפי ההרצה הם (א) תיקון אמנת הצטרפות UA/MD, (ב) הרחבת מסדרון למדיניות חוץ/פיסקאלית, (ג) הסלמת סעיף 7 לגבי הונגריה, (ד) בחירת אמצע כהונה ממבוי סתום במועצה, או (ה) קריסת MFF לסמכויות ארעיות. אף אחד מהם לא נמצא באופק של 12 חודשים.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **עוגן A1 / A2:** הרכב קבוצות, מדד פיצול, לוח שנה של מליאה, שיעור פרודוקטיביות רב-כהונה — אלה **עמוד השדרה המבני** של התקציר ומדורגים Admiralty A1–A2 (שער הנתונים הפתוחים של EP).
+- **הסתייגות B3:** קיטוב `sentiment_tracker` (0.22) הוא **פרוקסי מיצוב מוסדי המבוסס על נתחי מנדטים, לא על לכידות הצבעות נומינלית** — נתוני הצבעות לכל חבר טרם נחשפו על ידי EP API. האמינות הבינונית ב-J3/J4/J6 משקפת זאת.
+- **A6 (לא ניתן לשפוט):** `monitor_legislative_pipeline` החזיר 0 הליכים ו-`network_analysis` החזיר 50 צמתים / 0 קשתות; שניהם **עיכובי צינור קדימי**, לא כשלי ניתוח. שרטוטי רשת Ego וזיהוי צווארי בקבוק נדחים עד ש-EP API יחשוף נתונים אלה.
+- **F6 (כישלון):** קודי מדינות EU של World Bank (`EUU` / `EU`) שניהם נכשלו בהרצה זו; התקציר אינו נשען על הקשר מאקרו-כלכלי של WB.
+- **IMF SDMX 3.0:** לא נחקר בהרצה זו לגבי כיסוי מחזור הבחירות; אם ההקשר המאקרו-כלכלי לסקירת MFF יהפוך תפעולי נחוץ, בצע בדיקת IMF WEO לפני הערכה מחדש של R-5.
+
+אמינות נטו: **בינונית-גבוהה בחשבונות מבניים** (J1, R-1, R-5, R-7), **בינונית בשיפוטים התנהגותיים** (J2, J3, J4, J6) עד ש-EP API יחשוף נתוני לכידות לכל חבר.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+שתי פרשנויות מתחרות לאותם חשבונות עוקבות ב-`extended/historical-parallels.md`:
+
+- **H1 — "EP10 הוא EP9 פחות Renew."** המרווח קטן יותר אך מתכון הקואליציה לא השתנה; בחירת לשכת הנשיאות באמצע הכהונה מניבה חילוף תיקים; 2029 מחדש אמנה דומה עם גוש ימין מעט גדול יותר. תרחישים 1 ו-6 ב-`intelligence/scenario-forecast.md`.
+- **H2 — "EP10 הוא הפרלמנט הראשון שציר ה-PfE."** "רוב ונציה" מופעל ביותר משלושה תיקים; משלחת לאומית של EPP זוזה להצביע עם ECR בנושא הגירה; בחירת לשכת הנשיאות 2027 הופכת לרגע ציר ציבורי. תרחישים 2 ו-4.
+
+בסיס הראיות הנוכחי — ציון יציבות 84, קיטוב 0.22, פיצול 6.58, משמעת EPP נשמרת — **מעדיף H1 (כמעט ודאי)** עד Q4 2026 אך **אינו מפריך H2** באופק של 14 עד 36 חודשים. לכן התקציר עוקב אחרי שניהם במקום להתחייב לאחד.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| שכבה | פריט ניתוח | סיבה |
+|------|------------|------|
+| מאמר | `article.md` | סיפור ראשי; 9,906 שורות המכסות שישה שיפוטים |
+| סינתזה | `intelligence/synthesis-summary.md` | BLUF + טבלת WEP + דירוג Admiralty (אמין) |
+| קואליציה | `intelligence/coalition-dynamics.md` | חישובי "רוב ונציה"; דלתא מרווח EP9 → EP10 |
+| ספר סיכונים | `risk-scoring/risk-matrix.md` | R-1 → R-10 עם L × I × ניקוד |
+| SWOT כמותי | `risk-scoring/quantitative-swot.md` | חוזקות מבניות מול שחיקת מרווח |
+| תרחישים | `intelligence/scenario-forecast.md` S1–S7 (משבר אמנות = S7) | ענפים ממושקלים |
+| אינדיקטורים | `extended/forward-indicators.md` | לוח זמנים טריגרים עד 2029 |
+| קשת כהונה | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | רצף בחירת לשכת הנשיאות |
+| תחזית מנדטים | `intelligence/seat-projection.md` | תחזית 2029 תחת H1 מול H2 |
+| אמינות | `intelligence/mcp-reliability-audit.md` | שורות A6 / F6 פירוש |
+| הרהור עצמי | `intelligence/methodology-reflection.md` | סגירת שלב 10.5 |
+
+---
+
+**מעקב מסמך**
+- **עזר לתבנית:** `analysis/templates/executive-brief.md`
+- **נתיב פריט ניתוח:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **סיווג:** ציבורי
+- **רטרואקטיבי:** תקציר זה הוא פוסט-הוק — נכתב ב-2026-05-16 מפריטי ניתוח שהוגשו בהרצה; **לא בוצעו קריאות MCP חדשות**. כל השיפוטים מנסחים מחדש, מזקקים ובודקים ACH מה שהרצה עצמה הגישה; לא מציגים טענות חדשות.
+
+### Executive Brief Ja
+
+**分類：** OSINT — 公開議会記録
+**信頼度：** 🟡 中高（安定性スコア 84/100；議会構造データに基づく。個別投票データは含まない）
+**実行パス：** `analysis/daily/2026-05-11/election-cycle/`
+**時間軸：** 2026-05-11 → 2031-05-10（60 か月間の選挙サイクル俯瞰）
+**作成日：** 2026-05-16（事後ブリーフ。新規 MCP 呼び出しなし — 本実行の 25 成果物を要約）
+**一次情報源：** EP MCP `generate_political_landscape`、`analyze_coalition_dynamics`、`early_warning_system`、`compare_political_groups`、`sentiment_tracker`、`get_plenary_sessions`（year=2026）、`get_all_generated_stats`（2019–2026）。
+
+---
+
+### 🎯 BLUF
+
+2024 年選挙は、**9 会派 717 議員からなる EP10 を生み出した。分断指数 6.58 は EP6（2004–2009）以来の最高値**である。中道コアの EPP+S&D+Renew は**絶対過半数ライン 361 議席を 36 議席上回る 396 議席（55.2%）**を保有しているが、このマージンは **EP9 の 86 議席の半分にも満たない**。このため、一つの国別代表団の離反が票決結果を左右するようになっている。`early_warning_system` が発した唯一の HIGH 警告は `DOMINANT_GROUP_RISK` であり、EPP の 25.5% 議席シェアはいかなる僅差中道連立においても事実上の拒否権を与えている。**2027 年 1 月の議長団選挙が最初の試練**となり、この影響力がポスト配分（現状維持）として行使されるのか、政策譲歩（右傾化）として行使されるのかが問われる。分極化指数 0.22 は大連立崩壊の閾値 0.40 を大きく下回っており、中核的計算はまだ機能している。運営上のリスクは崩壊ではなく**任期中途の再調整**である。**6 つの主要判断**（J1–J6）がこの議会期を規定する：中道連立は Q4 2026 まで持続（ほぼ確実、18 か月）、PfE が議席移動を通じて EP10 中に Renew を逆転（五分五分、36 か月）、「ヴェネツィア多数派」（EPP+ECR+PfE = 349 議席）が 2027 年中盤前に ≥3 件のファイルで発動（蓋然的、14 か月）、2029 年選挙では単独連立過半数は不可能（蓋然的、49 か月）。
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | 決定事項 | 意思決定者 | 期限 | 根拠 |
+|:-:|---------|-----------|:----:|------|
+| 1 | **2027 年議長団選挙における規律戦略** — EPP は S&D との委員長ポスト交換で任期中盤の議長職を確保するのか、それとも政策譲歩（移民・農業）を要求するのか？ | 議長会議；EPP/S&D/Renew グループ指導部 | 2027 年 1 月（≤9 か月） | `risk-scoring/risk-matrix.md` の R-3（五分五分 × 影響度 M-H → スコア 8）；J6（任期中途再調整は蓋然的） |
+| 2 | **任期中盤 MFF 2028+ 見直しの交渉授権** — 防衛・ウクライナ・法の支配にかかる条件付けのうち、中道連立にとって交渉不能な部分はどこか？ | BUDG 指導部、COREPER、副委員長 | 2026 年下期 → 2027 年中盤 | R-5（蓋然的 × 非常に高い影響度 → スコア 16、台帳最高リスク）；`intelligence/economic-context.md` |
+| 3 | **「ヴェネツィア多数派」経路における会派規律の監視** — 出席率が 95% を下回った際に EPP+ECR+PfE が単純過半数で可決できるファイル（移民・農業・気候後退）はどれか？ | 会派幹事局；Greens/Renew 影のレポーター | 継続的（12 か月監視） | R-2（五分五分 × 高い影響度 → スコア 9）；J3（蓋然的、14 か月）；`intelligence/coalition-dynamics.md` |
+
+各決定事項は `risk-scoring/risk-matrix.md` のリスク台帳の行と `intelligence/synthesis-summary.md` の WEP 評価に紐付けられており、論拠が反証可能な形で示されている。
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **マージンが半減：** 中道連立 EPP+S&D+Renew のマージンが EP9 の 86 議席から EP10 の **36 議席**へ縮小（`generate_political_landscape`、A1）。
+- 🟠 **分断が最高値：** 指数 **6.58 は EP6（2004–2009）以来最高**；`compare_political_groups` は EP9 比で**1 ファイル当たりの修正案が 12.6% 増**と示す。
+- 🟢 **安定性はまだ機能的：** `early_warning_system` が返したスコアは **84/100、総合リスク MEDIUM**；分極化 **0.22 ≪ 崩壊閾値 0.40**。
+- 🟡 **唯一の HIGH 警告：** EPP 25.5% 議席シェアでの `DOMINANT_GROUP_RISK` — 集中した影響力であり、議場崩壊ではない。
+- 🔵 **「ヴェネツィア多数派」の武器化：** EPP+ECR+PfE = **349 議席（48.7%）** — 絶対過半数には 12 議席不足するが、**出席率が 95% を下回ると単純過半数の票決で勝利**；結成以来 ≥4 件の移民・農業ファイルで既に発動。
+- 🟣 **左派ブロックは構造的に少数：** S&D+Greens/EFA+The Left = **234 議席（32.6%）** — Renew の分裂や欠席ダイナミクスなしにはグリーンディール後退を阻止できない。
+- 🩷 **Renew のプレッシャー：** 102 → 77 議席（**−24.5%**）は 2024 年の構造変化で 2 番目に大きく、マージン半減の前提条件。
+- ⚪ **強制的節目 2026 年下期 → 2027 年第 1 四半期：** （a）2027 年 1 月議長団選挙；（b）任期中盤 MFF 2028+ 見直し；（c）欧州委員会 2026 年作業プログラムの成果物フロー（2027 年まで四半期約 18 件の OLP ファイル）。
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | 判断 | WEP 範囲 | 信頼度 | 時間軸 |
+|:-:|-----|---------|:------:|:------:|
+| J1 | 中道 EPP+S&D+Renew は Q4 2026 まで ≥70% の OLP ファイルで作業過半数を維持 | **ほぼ確実** | 中高 | 18 か月 |
+| J2 | PfE は EP10 中に議席移動（選挙でなく）を通じて第 3 会派として Renew を逆転 | 五分五分 | 中程度 | 36 か月 |
+| J3 | 「ヴェネツィア多数派」（EPP+ECR+PfE）が 2027 年中盤前に ≥3 件の移民・農業・気候後退ファイルで発動 | **蓋然的** | 中程度 | 14 か月 |
+| J4 | 2029 年選挙では単独 361+ 連立過半数は生まれない；新たな大連立憲章が必要 | **蓋然的** | 中程度 | 49 か月 |
+| J5 | 現行会派 ≥1（ESN または NI プール）が 2029 年選挙後の再編に失敗 | 五分五分 | 中程度 | 53 か月 |
+| J6 | 任期中途再調整（≥10 人の会派移動）が 2027 年に議長団選挙を巡って発生 | **蓋然的** | 中程度 | 9 か月 |
+
+J1–J6 を裏付ける証拠は、本ブリーフ冒頭に記録されたフェーズ A の MCP キャプチャーに由来する；完全な証拠チェーンは `intelligence/synthesis-summary.md` と `intelligence/coalition-dynamics.md` にある。
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**定量化された上位 3 リスク**（`risk-scoring/risk-matrix.md` よりスコア順）：
+
+| ID | リスク | 蓋 | 影 | スコア | 加速トリガー | 担当 |
+|:--:|-------|:-:|:-:|:-----:|------------|------|
+| **R-5** | 任期中盤 MFF 2028+ 見直しが 2027 年中盤前に失敗 | 蓋然的 | 非常に高い | **16** | 純受取国の拠出分担を巡る理事会の行き詰まり；防衛増強の未解決 | BUDG / 副委員長 |
+| **R-7** | 2029 年選挙で中道連立なき 7+ 会派議会が生まれる | 蓋然的 | 非常に高い | **16** | PfE が選挙前に ECR 国別代表団を統合 | 超党派指導者 |
+| **R-1** | 主要 OLP ファイルで中道連立が作業過半数を失う | 蓋然的 | 高い | **12** | 国別代表団の離反（特に Renew イベリア半島・フランスブロック） | EPP/S&D/Renew 指導部 |
+
+R-6（法の支配条件付けにおける国別代表団離反、12 ポイント）は同一範囲にあり、R-1 の中で最も実現しやすいトリガーである。
+
+---
+
+### 🔮 Top Forward Triggers
+
+`extended/forward-indicators.md` と本実行のシナリオブランチ（`intelligence/scenario-forecast.md` S1–S7）より：
+
+1. **2027 年 1 月議長団選挙** — EPP が S&D および Renew への委員長ポスト公開コストなしに議長職を確保した場合、`DOMINANT_GROUP_RISK` は HIGH 警告から R-3 アクティブリスクに格上げされる。
+2. **MFF 2028+ 交渉授権の本会議採決**（目標 2026 年下期 → 2027 年中盤）— 2027 年第 1 四半期末までに中道 BUDG 授権が得られなければ、R-5 が黄色から赤に格上げされ、シナリオ 6（大連立再署名）を促進する。
+3. **「ヴェネツィア多数派」発動を監視すべき 3 件の指名ファイル（今後 14 か月）：** Renew イベリア・フランスブロックの出席率が 90% を下回る移民本会議；CAP 簡素化フォローアップ；2025 年以降の気候後退サイクル。J3（蓋然的）はこれらで確認または反証される。
+4. **PfE 会派移動の監視** — `compare_political_groups` はすでに PfE を成長ポテンシャルが最も高い構造変化として標識している；ECR ポーランドまたはイタリア代表団の ≥10 人の移動が J2 と J6 の引き金となる。
+
+**シナリオ 7（条約危機・構造的断裂）** は義務的な長テール分岐である：本実行の候補トリガーは（a）UA/MD 加盟条約改正、（b）外交・財政政策回廊の拡大、（c）ハンガリーを巡る第 7 条の格上げ、（d）理事会の行き詰まりによる任期中盤選挙、または（e）MFF 崩壊と暫定予算への転落。いずれも 12 か月のホライゾンにはない。
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **A1/A2 アンカー：** 会派構成、分断指数、本会議カレンダー、多期生産性レート — これらはブリーフの**構造的背骨**であり、Admiralty A1–A2 評価（EP オープンデータポータル）。
+- **B3 留保：** `sentiment_tracker` の分極化（0.22）は**議席シェアに基づく制度的ポジショニングの代理変数であり、名目上の投票結合度ではない** — 議員個別の投票データは EP API でまだ公開されていない。J3/J4/J6 の中程度信頼度はこれを反映している。
+- **A6（判断不能）：** `monitor_legislative_pipeline` は 0 件の手続きを返し、`network_analysis` は 50 ノード / 0 エッジを返した；いずれも**前方パイプラインの遅延**であり分析的失敗ではない。エゴネットワーク図とボトルネック検出は EP API がデータを公開するまで先送り。
+- **F6（失敗）：** World Bank の EU 国コード（`EUU` / `EU`）は両方とも今回の実行で失敗；ブリーフは WB マクロ経済コンテキストに依存しない。
+- **IMF SDMX 3.0：** 本選挙サイクル俯瞰の実行では照会しなかった；MFF 見直しのマクロ経済コンテキストが運営上必要になった場合は R-5 の再評価前に IMF WEO プローブを実施すること。
+
+正味信頼度：**構造的計算は中高**（J1、R-1、R-5、R-7）、**行動判断は中程度**（J2、J3、J4、J6）— EP API が議員別結合度データを公開するまで。
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+同一の計算に対する 2 つの競合解釈が `extended/historical-parallels.md` で追跡されている：
+
+- **H1 — 「EP10 は Renew を差し引いた EP9 だ」** マージンは小さいが連立の処方箋は変わっていない；任期中盤議長団選挙はポスト交換をもたらす；2029 年は右派ブロックが若干大きな類似の憲章を再び生む。`intelligence/scenario-forecast.md` のシナリオ 1 と 6。
+- **H2 — 「EP10 は最初の PfE 軸議会だ」** 「ヴェネツィア多数派」が 3 件超のファイルで発動；EPP の国別代表団が移民政策で ECR に同調して動く；2027 年議長団選挙が公開の軸足転換の瞬間となる。シナリオ 2 と 4。
+
+現在の証拠基盤 — 安定性スコア 84、分極化 0.22、分断 6.58、EPP 規律維持 — は Q4 2026 まで **H1 を支持（ほぼ確実）** するが、14 か月から 36 か月のホライゾンでは **H2 を反証しない**。このため、ブリーフはどちらかにコミットするのではなく両方を追跡している。
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| 層 | 成果物 | 理由 |
+|---|-------|------|
+| 記事 | `article.md` | 主要ナラティブ；6 つの判断をカバーする 9,906 行 |
+| 統合 | `intelligence/synthesis-summary.md` | BLUF + WEP テーブル + Admiralty 評価（信頼性あり） |
+| 連立 | `intelligence/coalition-dynamics.md` | 「ヴェネツィア多数派」計算；EP9 → EP10 マージンデルタ |
+| リスク台帳 | `risk-scoring/risk-matrix.md` | R-1 → R-10（L × I × スコア付き） |
+| 定量 SWOT | `risk-scoring/quantitative-swot.md` | 構造的強みとマージン侵食の対比 |
+| シナリオ | `intelligence/scenario-forecast.md` S1–S7（条約危機 = S7） | 確率加重分岐 |
+| 指標 | `extended/forward-indicators.md` | 2029 年までのトリガーカレンダー |
+| 任期弧 | `intelligence/term-arc.md`、`mandate-fulfilment-scorecard.md`、`presidency-trio-context.md` | 議長団選挙シークエンス |
+| 議席予測 | `intelligence/seat-projection.md` | H1 対 H2 下の 2029 年予測 |
+| 信頼性 | `intelligence/mcp-reliability-audit.md` | A6 / F6 行の解釈 |
+| 自己省察 | `intelligence/methodology-reflection.md` | ステップ 10.5 クロージング |
+
+---
+
+**文書追跡**
+- **テンプレート参照：** `analysis/templates/executive-brief.md`
+- **成果物パス：** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **分類：** 公開
+- **事後：** このブリーフは事後的なものです — 実行が完了した成果物をもとに 2026-05-16 に作成；**新規 MCP 呼び出しは行っていません**。すべての判断は実行自体が完了した内容を言い換え・蒸留・ACH 検証したものであり、新たな主張を提示するものではありません。
+
+### Executive Brief Ko
+
+**분류:** OSINT — 공개 의회 기록
+**신뢰도:** 🟡 중상 (안정성 점수 84/100; 구조 데이터 기반, 개별 투표 데이터 미포함)
+**실행 경로:** `analysis/daily/2026-05-11/election-cycle/`
+**시간 범위:** 2026-05-11 → 2031-05-10 (60개월 선거 주기 개관)
+**작성일:** 2026-05-16 (사후 브리핑; 신규 MCP 호출 없음 — 본 실행의 성과물 25건 요약)
+**1차 출처:** EP MCP `generate_political_landscape`, `analyze_coalition_dynamics`, `early_warning_system`, `compare_political_groups`, `sentiment_tracker`, `get_plenary_sessions` (year=2026), `get_all_generated_stats` (2019–2026).
+
+---
+
+### 🎯 BLUF
+
+2024년 선거는 **9개 교섭단체 717명으로 구성된 EP10을 탄생시켰다. 분열 지수 6.58은 EP6(2004–2009) 이래 최고치**다. 중도 핵심 EPP+S&D+Renew는 절대 과반수 기준선인 361석보다 **36석 많은 396석(55.2%)**을 보유하고 있지만, 이 마진은 **EP9의 86석 마진의 절반에도 미치지 못한다**. 따라서 한 국가 대표단의 이탈만으로도 파일별 과반수 계산이 상당히 달라진다. `early_warning_system`이 발령한 유일한 HIGH 경보는 `DOMINANT_GROUP_RISK`로, EPP의 25.5% 의석 점유율은 모든 좁은 중도 연립에서 사실상 거부권을 부여한다. **2027년 1월 의장단 선거가 첫 번째 검증 시험**으로, 이 영향력이 포트폴리오 거래(현상 유지)로 행사될지 아니면 정책 양보(우경화)로 행사될지를 가늠하게 된다. 분극화 지수 0.22는 대연립 붕괴 임계치 0.40보다 훨씬 낮으므로 핵심 계산은 여전히 작동한다. 운영 리스크는 붕괴가 아닌 **임기 중반 재조정**이다. **6개 주요 판단**(J1–J6)이 이 임기를 규정한다: 중도 연립은 Q4 2026까지 유지(거의 확실, 18개월), PfE가 이탈을 통해 EP10 기간 중 Renew를 추월(반반, 36개월), "베네치아 다수파"(EPP+ECR+PfE = 349석)가 2027년 중반 이전 ≥3개 파일에서 발동(가능성 있음, 14개월), 2029년 선거는 단일 연립 과반수를 만들어내지 못함(가능성 있음, 49개월).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | 결정 사항 | 결정 주체 | 마감 | 근거 |
+|:-:|---------|---------|:----:|------|
+| 1 | **2027년 의장단 선거 규율 전략** — EPP는 S&D와의 위원장직 교환으로 임기 중반 의장직을 확보할 것인가, 아니면 정책 양보(이민·농업)를 요구할 것인가? | 의장단 회의; EPP/S&D/Renew 교섭단체 대표 | 2027년 1월 (≤9개월) | `risk-scoring/risk-matrix.md`의 R-3 (반반 × 영향도 M-H → 점수 8); J6 (임기 중반 재조정 가능성 있음) |
+| 2 | **임기 중반 MFF 2028+ 검토 협상 위임** — 국방·우크라이나·법치 조건 중 중도 연립에게 비협상 대상인 부분은 무엇인가? | BUDG 지도부, COREPER, 부위원장 | 2026년 하반기 → 2027년 중반 | R-5 (가능성 있음 × 매우 높은 영향도 → 점수 16, 대장부 최고 리스크); `intelligence/economic-context.md` |
+| 3 | **"베네치아 다수파" 경로에서의 교섭단체 규율 모니터링** — 출석률이 95% 아래로 떨어질 때 EPP+ECR+PfE가 단순 과반수로 가결할 수 있는 파일(이민·농업·기후 후퇴)은 무엇인가? | 교섭단체 사무국; Greens/Renew 그림자 보고자 | 지속 (12개월 모니터링) | R-2 (반반 × 높은 영향도 → 점수 9); J3 (가능성 있음, 14개월); `intelligence/coalition-dynamics.md` |
+
+각 결정은 `risk-scoring/risk-matrix.md`의 리스크 대장 행과 `intelligence/synthesis-summary.md`의 WEP 평가에 연결되어 있어 논거를 반증 가능한 형태로 제시한다.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **마진 절반으로 축소:** 중도 연립 EPP+S&D+Renew 마진이 EP9의 86석에서 EP10의 **36석**으로 감소 (`generate_political_landscape`, A1).
+- 🟠 **분열 최고치:** 지수 **6.58 — EP6(2004–2009) 이래 최고**; `compare_political_groups`는 EP9 대비 **파일당 2차 독회 수정안 12.6% 증가**를 보여준다.
+- 🟢 **안정성은 여전히 기능적:** `early_warning_system`이 반환한 점수는 **84/100, 종합 리스크 MEDIUM**; 분극화 **0.22 ≪ 붕괴 임계치 0.40**.
+- 🟡 **유일한 HIGH 경보:** EPP 25.5% 의석 점유율에서의 `DOMINANT_GROUP_RISK` — 집중된 영향력이지 의회 붕괴가 아님.
+- 🔵 **"베네치아 다수파" 무장화:** EPP+ECR+PfE = **349석(48.7%)** — 절대 과반수에 12석 부족하지만 **출석률 95% 미만 시 단순 과반수 투표에서 승리**; 창설 이후 이미 ≥4개 이민·농업 파일에서 발동.
+- 🟣 **좌파 블록은 구조적으로 소수:** S&D+Greens/EFA+The Left = **234석(32.6%)** — Renew 분열이나 결석 역학 없이는 그린딜 후퇴를 막을 수 없음.
+- 🩷 **Renew 압박:** 102 → 77석(**−24.5%**)은 2024년 두 번째로 큰 구조 변화이자 마진 절반 축소의 전제 조건.
+- ⚪ **강제 변곡점 2026년 하반기 → 2027년 Q1:** (a) 2027년 1월 의장단 선거; (b) 임기 중반 MFF 2028+ 검토; (c) 집행위 2026년 작업 프로그램 성과물 흐름 (2027년까지 분기당 약 18개 OLP 파일).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | 판단 | WEP 범위 | 신뢰도 | 기간 |
+|:-:|-----|---------|:------:|:----:|
+| J1 | 중도 EPP+S&D+Renew는 Q4 2026까지 ≥70% OLP 파일에서 작동 과반수 유지 | **거의 확실** | 중상 | 18개월 |
+| J2 | PfE는 선거가 아닌 이탈을 통해 EP10 기간 중 제3 교섭단체로 Renew를 추월 | 반반 | 중간 | 36개월 |
+| J3 | "베네치아 다수파"(EPP+ECR+PfE)가 2027년 중반 이전 ≥3개 이민·농업·기후 후퇴 파일에서 발동 | **가능성 있음** | 중간 | 14개월 |
+| J4 | 2029년 선거는 단일 361+ 연립 과반수를 만들지 못하고 갱신된 대연립 헌장을 강요 | **가능성 있음** | 중간 | 49개월 |
+| J5 | 현행 교섭단체 ≥1개(ESN 또는 NI 풀)가 2029년 선거 이후 재구성에 실패 | 반반 | 중간 | 53개월 |
+| J6 | 임기 중반 재조정(≥10인 교섭단체 이동)이 2027년 의장단 선거를 둘러싸고 발생 | **가능성 있음** | 중간 | 9개월 |
+
+J1–J6을 뒷받침하는 증거는 이 브리핑 상단에 기록된 Phase A MCP 캡처에서 나온다; 완전한 증거 체인은 `intelligence/synthesis-summary.md`와 `intelligence/coalition-dynamics.md`에 있다.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**정량화된 상위 3개 리스크** (`risk-scoring/risk-matrix.md` 점수 순):
+
+| ID | 리스크 | 가 | 영 | 점수 | 가속 트리거 | 담당 |
+|:--:|-------|:-:|:-:|:---:|----------|------|
+| **R-5** | 임기 중반 MFF 2028+ 검토가 2027년 중반 이전 실패 | 가능성 있음 | 매우 높음 | **16** | 순수취국 기여금 봉투를 둘러싼 이사회 교착; 방위 강화 미해결 | BUDG / 부위원장 |
+| **R-7** | 2029년 선거가 중도 과반수 없는 7+ 교섭단체 의회 생성 | 가능성 있음 | 매우 높음 | **16** | PfE가 선거 전 ECR 국가 대표단 통합 | 초당파 지도자 |
+| **R-1** | 중도 연립이 주요 OLP 파일에서 작동 과반수 상실 | 가능성 있음 | 높음 | **12** | 국가 대표단 이탈 (특히 Renew 이베리아·프랑스 블록) | EPP/S&D/Renew 지도부 |
+
+R-6(법치 조건에서의 국가 대표단 이탈, 12점)은 같은 범위에 있으며 R-1의 트리거 중 가장 현실적이다.
+
+---
+
+### 🔮 Top Forward Triggers
+
+`extended/forward-indicators.md`와 본 실행의 시나리오 분기(`intelligence/scenario-forecast.md` S1–S7):
+
+1. **2027년 1월 의장단 선거** — EPP가 S&D 및 Renew에 대한 공개 비용 없이 의장직을 확보하면 `DOMINANT_GROUP_RISK`가 HIGH 경보에서 활성 R-3 리스크로 격상된다.
+2. **MFF 2028+ 협상 위임 본회의 표결** (목표 2026년 하반기 → 2027년 중반) — 2027년 Q1 말까지 중도 BUDG 위임을 확보하지 못하면 R-5가 노란색에서 빨간색으로 격상되어 시나리오 6(대연립 재서명)을 촉진한다.
+3. **향후 14개월 내 "베네치아 다수파" 발동을 위해 지명된 3개 파일:** Renew 이베리아·프랑스 블록 출석률이 90% 아래로 떨어지는 이민 본회의; CAP 간소화 후속 조치; 2025년 이후 기후 후퇴 주기. J3(가능성 있음)은 이 사건들로 확인 또는 반증된다.
+4. **PfE 교섭단체 이탈 모니터링** — `compare_political_groups`는 이미 PfE를 가장 높은 성장 잠재력을 가진 구조 변화로 표시; ECR 폴란드 또는 이탈리아 대표단의 ≥10인 이탈이 J2와 J6의 방아쇠가 된다.
+
+의무적 **시나리오 7(조약 위기·구조 단절)**은 긴 꼬리에 있다: 본 실행의 후보 트리거는 (a) UA/MD 가입 조약 개정, (b) 외교·재정 정책 회랑 확대, (c) 헝가리 관련 제7조 격상, (d) 이사회 교착에 의한 임기 중반 선거, (e) MFF 붕괴와 잠정 예산으로의 전락. 어느 것도 12개월 지평선에 없다.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **A1/A2 앵커:** 교섭단체 구성, 분열 지수, 본회의 달력, 다임기 생산성 비율 — 브리핑의 **구조적 중추**이며 Admiralty A1–A2 등급(EP 오픈 데이터 포털).
+- **B3 유보:** `sentiment_tracker` 분극화(0.22)는 **의석 점유율 기반 제도적 포지셔닝의 대리 변수이지 명목 투표 결속도가 아니다** — 의원별 투표 데이터는 EP API에서 아직 공개되지 않았다. J3/J4/J6의 중간 신뢰도는 이를 반영한다.
+- **A6(판단 불능):** `monitor_legislative_pipeline`은 0건의 절차를 반환했고 `network_analysis`는 50 노드 / 0 엣지를 반환했다; 둘 다 **전방 파이프라인 지연**이지 분석 실패가 아니다. 에고 네트워크 도표와 병목 탐지는 EP API가 데이터를 공개할 때까지 연기된다.
+- **F6(실패):** World Bank EU 국가 코드(`EUU` / `EU`)는 이번 실행에서 모두 실패; 브리핑은 WB 거시경제 맥락에 의존하지 않는다.
+- **IMF SDMX 3.0:** 이번 선거 주기 개관 실행에서는 조회하지 않았다; MFF 검토를 위한 거시경제 맥락이 운영상 필요해지면 R-5 재평가 전에 IMF WEO 탐색을 실시할 것.
+
+순 신뢰도: **구조적 계산은 중상**(J1, R-1, R-5, R-7), **행동 판단은 중간**(J2, J3, J4, J6) — EP API가 의원별 결속도 데이터를 공개할 때까지.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+동일한 계산에 대한 두 경쟁 해석이 `extended/historical-parallels.md`에서 추적된다:
+
+- **H1 — "EP10은 Renew를 뺀 EP9다."** 마진은 작지만 연립 처방은 변하지 않았다; 임기 중반 의장단 선거는 포트폴리오 교환을 낳는다; 2029년은 약간 더 큰 우파 블록을 가진 유사한 헌장을 재생성한다. `intelligence/scenario-forecast.md`의 시나리오 1과 6.
+- **H2 — "EP10은 최초의 PfE 중심 의회다."** "베네치아 다수파"가 3개 이상의 파일에서 발동된다; EPP 국가 대표단이 이민 정책에서 ECR과 연대해 이동한다; 2027년 의장단 선거가 공개적인 축 전환의 순간이 된다. 시나리오 2와 4.
+
+현재 증거 기반 — 안정성 점수 84, 분극화 0.22, 분열 6.58, EPP 규율 유지 — 은 Q4 2026까지 **H1을 지지(거의 확실)**하지만 14~36개월 지평선에서는 **H2를 반증하지 않는다**. 따라서 브리핑은 어느 하나에 헌신하지 않고 둘 다 추적한다.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| 레이어 | 성과물 | 이유 |
+|------|-------|------|
+| 기사 | `article.md` | 주요 서술; 6개 판단을 다루는 9,906행 |
+| 종합 | `intelligence/synthesis-summary.md` | BLUF + WEP 테이블 + Admiralty 등급 (신뢰할 수 있음) |
+| 연립 | `intelligence/coalition-dynamics.md` | "베네치아 다수파" 계산; EP9 → EP10 마진 델타 |
+| 리스크 대장 | `risk-scoring/risk-matrix.md` | R-1 → R-10 (L × I × 점수 포함) |
+| 정량 SWOT | `risk-scoring/quantitative-swot.md` | 구조적 강점 대 마진 침식 |
+| 시나리오 | `intelligence/scenario-forecast.md` S1–S7 (조약 위기 = S7) | 확률 가중 분기 |
+| 지표 | `extended/forward-indicators.md` | 2029년까지의 트리거 달력 |
+| 임기 호 | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | 의장단 선거 시퀀스 |
+| 의석 예측 | `intelligence/seat-projection.md` | H1 대 H2 하의 2029년 예측 |
+| 신뢰성 | `intelligence/mcp-reliability-audit.md` | A6 / F6 행 해석 |
+| 자기 성찰 | `intelligence/methodology-reflection.md` | 단계 10.5 완결 |
+
+---
+
+**문서 추적**
+- **템플릿 참조:** `analysis/templates/executive-brief.md`
+- **성과물 경로:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **분류:** 공개
+- **사후:** 이 브리핑은 사후 작성입니다 — 실행이 완료된 성과물에서 2026-05-16에 작성됨; **신규 MCP 호출 없음**. 모든 판단은 실행 자체가 완료한 내용을 재표현·정제·ACH 검증한 것이며 새로운 주장을 제시하지 않습니다.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+De verkiezingen van 2024 lieten EP10 achter met **717 EP-leden verdeeld over negen fracties, fragmentatie-index 6,58 — de hoogste waarde sinds EP6 (2004–2009)**. Het centristische EVP+S&D+Renew-blok heeft **396 zetels (55,2 %)** met een **buffer van 36 zetels** boven de drempel van 361 zetels voor een absolute meerderheid; die buffer is **minder dan de helft van EP9's marge van 86 zetels**, zodat één enkele nationale delegatieafwijking de meerderheidsrekening per dossier nu significant wijzigt. De enige HIGH-ernststwaarschuwing van `early_warning_system` is `DOMINANT_GROUP_RISK` — het aandeel van 25,5 % van de EVP geeft veto-invloed in elke smalle centristische coalitie, en **de Bureau-verkiezing van januari 2027 is de eerste geplande test** of die invloed wordt uitbetaald in portefeuilles (status quo) of in politieke concessies (rechtse drift). Polarisatie-index 0,22 ligt ruim onder de 0,40 breukdrempel voor de grote coalitie, zodat de onderliggende rekenkunde nog steeds werkt; het operationele risico is **tussentijdse herpositionering** en geen instorting. **Zes kopjudgements** (J1–J6) kaderen de cyclus: centristische meerderheid houdt stand tot Q4 2026 (Zeer waarschijnlijk, 18-maanden horizon), PfE passeert Renew tijdens EP10 via overdrachten (Gelijke kansen, 36 maanden), Venezuela-meerderheid (EVP+ECR+PfE = 349 zetels) wordt ingeroepen bij ≥3 terugdraaidossiers vóór midden 2027 (Waarschijnlijk, 14 maanden), 2029 levert geen enkel coalitieoverderheid op (Waarschijnlijk, 49 maanden).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Beslissing | Wie besluit | Deadline | Bewijs |
+|:-:|------------|-------------|:--------:|--------|
+| 1 | **Fractiedisciplinestrategie voor de Bureau-verkiezing 2027** — behaalt de EVP het tussentijdse voorzitterschap via een portefeuilleruil met S&D, of eist het politieke concessies (migratie / landbouw)? | Conferentie van Voorzitters; EVP/S&D/Renew-fractieleiders | Jan 2027 (≤ 9 maanden) | R-3 in `risk-scoring/risk-matrix.md` (Kans Gelijk × Impact M-H → score 8); J6 (tussentijdse herpositionering Waarschijnlijk) |
+| 2 | **MFF 2028+ tussentijdse herziening onderhandelingsmandaat** — hoeveel defensie / Oekraïne / rechtsstaatconditionaliteit is niet-onderhandelbaar voor de centristische meerderheid? | BUDG-leiding, COREPER, VP's van de Commissie | H2 2026 → midden 2027 | R-5 (Waarschijnlijk × Zeer hoog → score 16, het hoogste individuele risico in het register); `intelligence/economic-context.md` |
+| 3 | **Fractiedisciplinetoezicht op het Venezuela-meerderheidspad** — welke dossiers (migratie, landbouw, klimaatterugdraaiing) lopen het risico op een EVP+ECR+PfE eenvoudige-meerderheidsoverwinning wanneer de deelname onder 95 % daalt? | Fractiesecretariaten; schaduwrapporteurs in Greens / Renew | doorlopend, 12-maanden toezicht | R-2 (Gelijke kansen × Hoog → score 9); J3 (Waarschijnlijk, 14 maanden); `intelligence/coalition-dynamics.md` |
+
+Elke beslissing is gekoppeld aan een rij in het risicoregister in `risk-scoring/risk-matrix.md` en een WEP-bandevaluatie in `intelligence/synthesis-summary.md` zodat de redenering falsifieerbaar is.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Buffer gehalveerd:** centristische EVP+S&D+Renew-blok daalde van 86 zetels voorsprong in EP9 naar **36 zetels voorsprong in EP10** (`generate_political_landscape`, A1).
+- 🟠 **Fragmentatiepiek:** index **6,58 — hoogste sinds EP6** (2004–2009); `compare_political_groups` toont een **12,6 % stijging in amendementstelling per dossier** t.o.v. EP9.
+- 🟢 **Stabiliteit nog steeds functioneel:** `early_warning_system` retourneert score **84/100, MEDIUM totaalrisico**; polarisatie **0,22 ≪ 0,40 breukdrempel**.
+- 🟡 **Enige HIGH-ernststwaarschuwing:** `DOMINANT_GROUP_RISK` bij het aandeel van 25,5 % van de EVP — geconcentreerde invloed, geen kameristorting.
+- 🔵 **Venezuela-meerderheid bewapend:** EVP+ECR+PfE = **349 zetels (48,7 %)** — 12 kort van absolute meerderheid maar **wint bij gewone-meerderheidsstemmen wanneer aanwezigheid onder 95 % daalt**; al geactiveerd bij ≥4 migratie-/landbouwdossiers sinds de inauguratie.
+- 🟣 **Linkervleugel structureel kort:** S&D+Greens/EFA+The Left = **234 zetels (32,6 %)** — kan een Green Deal-terugdraaiing niet verslaan zonder Renew-afwijking of afwezigheidsgedreven dynamiek.
+- 🩷 **Renew-compressie:** 102 → 77 zetels (**−24,5 %**) is de op één na ingrijpendste structurele wijziging van 2024 en de voorwaarde voor de bufferverdeling.
+- ⚪ **Dwangfuncties H2 2026 → Q1 2027:** (a) Bureau-verkiezing jan 2027; (b) MFF 2028+ tussentijdse herziening; (c) Commissie Werkprogramma 2026 leveringspuls (~18 OLP-dossiers/kwartaal tot 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | Oordeel | WEP-band | Betrouwbaarheid | Horizon |
+|:-:|---------|----------|:---------------:|:-------:|
+| J1 | Centristische EVP+S&D+Renew behoudt een werkende meerderheid op ≥70 % van de OLP-dossiers tot Q4 2026 | **Zeer waarschijnlijk** | Matig-Hoog | 18 maanden |
+| J2 | PfE passeert Renew als op twee na grootste fractie tijdens EP10 (via overdrachten, niet via verkiezingen) | Gelijke kansen | Matig | 36 maanden |
+| J3 | Venezuela-meerderheid (EVP+ECR+PfE) wordt ingeroepen bij ≥3 migratie-/landbouw-/klimaatterugdraaiingsdossiers vóór midden 2027 | **Waarschijnlijk** | Matig | 14 maanden |
+| J4 | Verkiezingen 2029 leveren geen enkel coalitionsmeerderheid van 361+ op; dwingen een vernieuwd groot-coalitieakkoord | **Waarschijnlijk** | Matig | 49 maanden |
+| J5 | ≥1 huidige fractie (ESN of een NI-cluster) slaagt er niet in zich na de verkiezingen van 2029 te hervormen | Gelijke kansen | Matig | 53 maanden |
+| J6 | Tussentijdse herpositionering (fractiemisseling door ≥10 EP-leden) vindt plaats in 2027 rond de Bureau-verkiezing | **Waarschijnlijk** | Matig | 9 maanden |
+
+Het bewijs dat J1–J6 ondersteunt, is afkomstig van de Fase A MCP-opnames vermeld in de koptekst van dit rapport; volledige keten in `intelligence/synthesis-summary.md` en `intelligence/coalition-dynamics.md`.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**Top drie gekwantificeerde risico's** (uit het `risk-scoring/risk-matrix.md`-register, gerangschikt op score):
+
+| ID | Risico | L | I | Score | Aanleiding die het zou doen vorderen | Eigenaar |
+|:--:|--------|:-:|:-:|:-----:|--------------------------------------|---------|
+| **R-5** | MFF 2028+ tussentijdse herziening mislukt vóór midden 2027 | Waarschijnlijk | Zeer hoog | **16** | Raadsblokkade over nettobetaler-envelop; defensieversterking onopgelost | BUDG / VP's van de Commissie |
+| **R-7** | Verkiezingen 2029 leveren een 7+-fractieparlament op zonder centristische meerderheid | Waarschijnlijk | Zeer hoog | **16** | PfE consolideert ECR-nationale delegaties vóór verkiezingen | Fractieoverstijgende leiders |
+| **R-1** | Centristische coalitie verliest werkende meerderheid bij een vlaggenschip OLP-dossier | Waarschijnlijk | Hoog | **12** | Nationale delegatieafwijking (esp. Renew Iberian or French bloc) | EVP/S&D/Renew-leiders |
+
+R-6 (nationale delegatieafwijking bij rechtsstaatconditionaliteit, score 12) bevindt zich in hetzelfde register en is de meest waarschijnlijke concrete activator van R-1.
+
+---
+
+### 🔮 Top Forward Triggers
+
+Uit `extended/forward-indicators.md` en de scenariobranches van de uitvoering (`intelligence/scenario-forecast.md` S1–S7):
+
+1. **Bureau-verkiezing januari 2027** — als de EVP het voorzitterschap behaalt zonder een gepubliceerde prijs in commissievoorzitterschappen voor S&D en Renew, `DOMINANT_GROUP_RISK` escaleren van HIGH-ernststwaarschuwing naar actieve R-3-patstelling.
+2. **MFF 2028+ onderhandelingsmandaatstemming** (doel H2 2026 → midden 2027) — het niet behalen van een centristische BUDG-mandaat voor eind Q1 2027 brengt R-5 van oranje naar rood en voedt Scenario 6 (Groot-coalitie Herbesluiting).
+3. **Drie genoemde dossiers om in de gaten te houden voor Venezuela-meerderheidsactivering in de komende 14 maanden:** elke migratieprocedureplenumzitting waarbij de deelname van Renew Iberische of Franse delegatie onder 90 % daalt; GAB-vereenvoudigings-follow-ups; en de volgende post-2025 klimaatterugdraaiingscyclus. J3 (Waarschijnlijk) wordt door deze geverifieerd of gefalsificeerd.
+4. **PfE-fractieoverdrachttoezicht** — `compare_political_groups` signaleert PfE al als de structurele verandering met de meeste ruimte om te groeien; een Poolse of Italiaanse ECR-delegatieoverdracht van ≥10 EP-leden is de operationele drukknop voor J2 en J6.
+
+De verplichte **Scenario 7 (Verdragscrisis / structurele breuk)**-branch bevindt zich in de lange staart: kandidaataanleidingen per uitvoering zijn (a) uitbreidingsverdragsherziening UA/MD, (b) passerelle-uitbreiding naar buitenlands-/fiscaal beleid, (c) artikel 7-escalatie over Hongarije, (d) tussentijdse verkiezing vanuit Raadsblokkade, of (e) MFF-instorting in voorlopige twaalfden. Geen enkele bevindt zich op een 12-maanden horizon.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **A1 / A2-ankers:** fractieopstelling, fragmentatie-index, plenumkalender, multi-termijn doorvoer — dit zijn de **structurele ruggengraat** van het rapport en zijn Admiraliteit A1–A2 (EP Open Data Portal).
+- **B3-voorbehoud:** `sentiment_tracker`-polarisatie (0,22) is een **zetelaaandeel institutionele positieringsproxy, geen naamsteminghesie** — per-EP-lid stemgegevens worden nog niet blootgesteld door de EP-API. De Matige betrouwbaarheid voor J3/J4/J6 weerspiegelt dit.
+- **A6 (niet te beoordelen):** `monitor_legislative_pipeline` retourneerde 0 procedures en `network_analysis` retourneerde 50 knooppunten / 0 kanten; beide zijn **upstream pipelinevertragingenilies**, geen analytische mislukkingen. Netwerksanalyse-ego-grafieken en pijplijnknelpuntdetectie worden uitgesteld tot de EP-API deze gegevens blootlegt.
+- **F6 (mislukt):** World Bank EU-landcodes (`EUU` / `EU`) zijn beide mislukt in deze uitvoering; het rapport is niet afhankelijk van WB-macrocontext.
+- **IMF SDMX 3.0:** niet bevraagd in deze verkiezingscyclus-overlay-uitvoering; als MFF-herziening macrocontext operationeel noodzakelijk wordt, een IMF WEO-sonde uitvoeren vóór het opnieuw scoren van R-5.
+
+Netto betrouwbaarheid: **Matig-Hoog op structurele rekenkunde** (J1, R-1, R-5, R-7), **Matig op gedragsoordelen** (J2, J3, J4, J6) totdat per-EP-lid cohesiedata worden blootgesteld door de EP-API.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+Twee concurrerende lezingen van dezelfde rekenkunde worden bijgehouden in `extended/historical-parallels.md`:
+
+- **H1 — "EP10 is EP9 minus Renew."** De buffer is kleiner maar de coalitieformule is ongewijzigd; de tussentijdse Bureau-verkiezing levert een portefeuilleruil op; 2029 brengt een vergelijkbaar akkoord terug met een iets grotere rechtervleugel. Scenario's 1 en 6 in `intelligence/scenario-forecast.md`.
+- **H2 — "EP10 is het eerste PfE-pivot-parlement."** De Venezuela-meerderheid activeert bij meer dan drie dossiers; een EVP nationale delegatie beweegt naar disciplineren met de ECR op migratie; een Bureau-verkiezing 2027 wordt het publieke pivotmoment. Scenario's 2 en 4.
+
+De huidige bewijsbasis — stabiliteitsscore 84, polarisatie 0,22, fragmentatie 6,58, EVP-discipline gehandhafd — **gunstigt H1 (Zeer waarschijnlijk)** tot Q4 2026 maar **falsificeert H2** op een 14-tot-36-maanden horizon niet. Het rapport volgt daarom beide in plaats van zich te binden aan één.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Laag | Artefact | Waarom |
+|------|----------|--------|
+| Artikel | `article.md` | Publieke narratief; 9.906 regels die alle zes oordelen omvatten |
+| Synthese | `intelligence/synthesis-summary.md` | BLUF + WEP-tabel + Admiraliteitsbeoordeling (gezaghebbend) |
+| Coalitie | `intelligence/coalition-dynamics.md` | Venezuela-meerderheidsrekenkunde; EP9 → EP10 bufferedelta |
+| Risicoregister | `risk-scoring/risk-matrix.md` | R-1 → R-10 met L × I × Score |
+| Kwantitatief SWOT | `risk-scoring/quantitative-swot.md` | Structurele sterktes vs. buffererosie |
+| Scenario's | `intelligence/scenario-forecast.md` S1–S7 (Verdragscrisis = S7) | Waarschijnlijkheidsgewogen branches |
+| Indicatoren | `extended/forward-indicators.md` | Aanleididingskalender tot 2029 |
+| Termijnboog | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | Bureau-verkiezingssequentiëring |
+| Zetelprognose | `intelligence/seat-projection.md` | Prognose 2029 onder H1 vs. H2 |
+| Betrouwbaarheid | `intelligence/mcp-reliability-audit.md` | A6 / F6-regels toegelicht |
+| Zelfreview | `intelligence/methodology-reflection.md` | Stap 10.5-afsluiting |
+
+---
+
+**Documentbeheer**
+- **Sjabloonreferentie:** `analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectief:** Dit rapport is post-hoc — geschreven op 2026-05-16 vanuit de gecommitteerde artefacten van de uitvoering; **er zijn geen nieuwe MCP-aanroepen gedaan**. Alle oordelen herformuleren, destilleren en ACH-kruisverwijzen wat de uitvoering zelf heeft gecommitteerd; er worden geen nieuwe beweringen geïntroduceerd.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+Valget i 2024 etterlot EP10 med **717 MEP-er fordelt på ni grupper, fragmenteringsindeks 6,58 — den høyeste avlesningen siden EP6 (2004–2009)**. Det sentristiske EPP+S&D+Renew-blokket har **396 seter (55,2 %)** med en **36-seters buffer** over terskelen på 361 seter for absolutt flertall; den bufferen er **mindre enn halvparten av EP9s 86-seters margin**, slik at en enkelt nasjonal delegasjonsavvik nå meningsfullt endrer fil-for-fil-flertallsaritmetikken. Den eneste HIGH-alvorlighetsadvarselen fra `early_warning_system` er `DOMINANT_GROUP_RISK` — EPPs andel på 25,5 % gir vetoinnflytelse i enhver smal sentristisk koalisjon, og **januar 2027-Byråvalget er den første planlagte prøven** på om den innflytelsen betales med porteføljer (status quo) eller med politikkkonsesjoner (høyredrift). Polariseringsindeks 0,22 er godt under grensen 0,40 for sammenbrudd av storkoalisjonen, slik at den underliggende aritmetikken fortsatt fungerer; den operasjonelle risikoen er **mellomtermsjustering** snarere enn kollaps. **Seks overskriftsvurderinger** (J1–J6) rammer inn syklusen: sentristisk flertall holder til Q4 2026 (Svært sannsynlig, 18-måneders horisont), PfE overtar Renew under EP10 via overførsler (Jevne sjanser, 36 måneder), Venezuela-flertall (EPP+ECR+PfE = 349 seter) påberopes på ≥3 tilbakekallelsesfiler innen midten av 2027 (Sannsynlig, 14 måneder), 2029 produserer ingen enkeltkoalisjonsflertall (Sannsynlig, 49 måneder).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Beslutning | Hvem beslutter | Frist | Bevis |
+|:-:|------------|----------------|:-----:|-------|
+| 1 | **Piskestrategien til Byråvalget 2027** — sikrer EPP mellomtermspresidentskapet på en porteføljebytteordning med S&D, eller krever det politikkkonsesjoner (migrasjon / landbruk)? | Konferansen for presidenter; EPP/S&D/Renew-gruppeledere | Jan 2027 (≤ 9 måneder) | R-3 i `risk-scoring/risk-matrix.md` (Sannsynlighet Jevne sjanser × Innvirkning M-H → poeng 8); J6 (mellomtermsjustering Sannsynlig) |
+| 2 | **MFF 2028+ mellomtermsgransking forhandlingsmandat** — hvor mye forsvar / Ukraina / rettsstatsbetingelsene er ikke-forhandlingsbare for det sentristiske flertallet? | BUDG-ledelsen, COREPER, Kommisjonens VP-er | H2 2026 → midt-2027 | R-5 (Sannsynlig × Svært høy → poeng 16, den høyeste enkeltrisikoen i registeret); `intelligence/economic-context.md` |
+| 3 | **Gruppedisiplinovervåking på Venezuela-flertallsveien** — hvilke filer (migrasjon, landbruk, klimatilbakerulling) er i fare for et EPP+ECR+PfE enkelt-flertallssejr når deltakelsen faller under 95 %? | Gruppesekretariater; skyggeordførere i Greens / Renew | løpende, 12-måneders overvåking | R-2 (Jevne sjanser × Høy → poeng 9); J3 (Sannsynlig, 14 måneder); `intelligence/coalition-dynamics.md` |
+
+Hvert beslutning er bundet til en risikoregistreringsrad i `risk-scoring/risk-matrix.md` og en WEP-båndsvurdering i `intelligence/synthesis-summary.md` slik at resonnementet er falsifiserbart.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Buffer halvert:** sentristisk EPP+S&D+Renew-blokk falt fra 86 seter klart i EP9 til **36 seter klart i EP10** (`generate_political_landscape`, A1).
+- 🟠 **Fragmenteringstopp:** indeks **6,58 — høyest siden EP6** (2004–2009); `compare_political_groups` viser en **12,6 % økning i per-fil endringstall** vs. EP9.
+- 🟢 **Stabilitet fortsatt funksjonell:** `early_warning_system` returnerer poeng **84/100, MEDIUM samlet risiko**; polarisering **0,22 ≪ 0,40 sammenbruddsterskel**.
+- 🟡 **Eneste HIGH-alvorlighetsadvarsel:** `DOMINANT_GROUP_RISK` på EPPs 25,5 % andel — konsentrert innflytelse, ikke kammerkolaps.
+- 🔵 **Venezuela-flertall bevæpnet:** EPP+ECR+PfE = **349 seter (48,7 %)** — 12 korte fra absolutt flertall men **vinner ved enkelt-flertallsavstemninger når fremmøtet faller under 95 %**; allerede aktivert på ≥4 migrasjons-/landbruksfiler siden innvielsen.
+- 🟣 **Venstrefløy strukturelt kort:** S&D+Greens/EFA+The Left = **234 seter (32,6 %)** — kan ikke beseire en Grønn Deal-tilbakerulling uten Renew-avvik eller fraværsdrevne dynamikker.
+- 🩷 **Renew-komprimering:** 102 → 77 seter (**−24,5 %**) er den nest mest konsekvente strukturelle endringen i 2024 og forutsetningen for bufferhalveringen.
+- ⚪ **Tvangsfunksjoner H2 2026 → Q1 2027:** (a) Byråvalg jan 2027; (b) MFF 2028+ mellomtermsgransking; (c) Kommisjonens Arbeidsprogram 2026 leveringspuls (~18 OLP-filer/kvartal til 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | Vurdering | WEP-bånd | Konfidens | Horisont |
+|:-:|-----------|----------|:---------:|:--------:|
+| J1 | Sentristisk EPP+S&D+Renew beholder et funksjonelt flertall på ≥70 % av OLP-filer til Q4 2026 | **Svært sannsynlig** | Moderat-Høy | 18 måneder |
+| J2 | PfE overtar Renew som tredjestørste gruppe under EP10 (via overførsler, ikke valg) | Jevne sjanser | Moderat | 36 måneder |
+| J3 | Venezuela-flertall (EPP+ECR+PfE) påberopes på ≥3 migrasjons-/landbruks-/klimatilbakerullingsfiler innen midten av 2027 | **Sannsynlig** | Moderat | 14 måneder |
+| J4 | Valget i 2029 produserer ingen enkeltkoalisjonsflertall på 361+; tvinger en fornyet storkoalitionspakt | **Sannsynlig** | Moderat | 49 måneder |
+| J5 | ≥1 nåværende gruppe (ESN eller et NI-kluster) mislykkes i å reformere seg etter valget i 2029 | Jevne sjanser | Moderat | 53 måneder |
+| J6 | Mellomtermsjustering (gruppebytte av ≥10 MEP-er) skjer i 2027 rundt Byråvalget | **Sannsynlig** | Moderat | 9 måneder |
+
+Bevis som understøtter J1–J6 stammer fra Stage-A MCP-opptakene oppgitt i denne briefingens overskrift; full kjede i `intelligence/synthesis-summary.md` og `intelligence/coalition-dynamics.md`.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**Topp tre kvantifiserte risikoer** (fra `risk-scoring/risk-matrix.md`-registeret, rangert etter poeng):
+
+| ID | Risiko | L | I | Poeng | Utløser som ville fremskynde den | Eier |
+|:--:|--------|:-:|:-:|:-----:|----------------------------------|------|
+| **R-5** | MFF 2028+ mellomtermsgransking mislykkes innen midten av 2027 | Sannsynlig | Svært høy | **16** | Rådsdeadlock om nettobetalerenvelop; forsvarsutvidelse uløst | BUDG / Kommisjonens VP-er |
+| **R-7** | Valget i 2029 produserer 7+ gruppers kammer uten sentristisk flertall | Sannsynlig | Svært høy | **16** | PfE konsoliderer ECR nasjonale delegasjoner forut for valg | Tverrgående ledere |
+| **R-1** | Sentristisk koalisjon mister funksjonelt flertall på en flaggskips-OLP-fil | Sannsynlig | Høy | **12** | Nasjonal delegasjonsavvik (esp. Renew Iberian or French bloc) | EPP/S&D/Renew-ledere |
+
+R-6 (nasjonal delegasjonsavvik på rettsstatsbetingelsene, poeng 12) befinner seg i samme bånd og er den mest sannsynlige konkrete aktivatoren av R-1.
+
+---
+
+### 🔮 Top Forward Triggers
+
+Fra `extended/forward-indicators.md` og kjøringens scenariogrener (`intelligence/scenario-forecast.md` S1–S7):
+
+1. **Januar 2027 Byråvalg** — hvis EPP sikrer presidentskapet uten en publisert pris i utvalgsformannskaper til S&D og Renew, eskaler `DOMINANT_GROUP_RISK` fra HIGH-alvorlighetsadvarsel til aktiv R-3-deadlock.
+2. **MFF 2028+ forhandlingsmandatavstemning** (mål H2 2026 → midt-2027) — manglende oppnåelse av et sentristisk BUDG-mandat innen utgangen av Q1 2027 fremskynder R-5 fra gul til rød og mater Scenario 6 (Storkoalisjonsforsegling).
+3. **Tre navngitte filer å overvåke for Venezuela-flertallsaktivering i de neste 14 månedene:** enhver migrasjonsprosedurplenarsesjon der Renew Iberisk eller Fransk delegasjonsdeltakelse faller under 90 %; CAP-forenklingsoppfølginger; og den neste post-2025 klimatilbakerullingssyklusen. J3 (Sannsynlig) verifiseres eller falsifiseres av disse.
+4. **PfE-gruppeoverføringsovervåking** — `compare_political_groups` flagger allerede PfE som den strukturelle endringen med mest rom til å vokse; en polsk eller italiensk ECR-delegasjonsoverføring på ≥10 MEP-er er den operasjonelle snubletråden for J2 og J6.
+
+Den obligatoriske **Scenario 7 (Traktatkrise / strukturelt brudd)**-grenen befinner seg i den lange halen: kandidatutløsere ifølge kjøringen er (a) utvidelsestraktatrevisjon UA/MD, (b) passerelleforlengelse til utenriks-/finanspolitikk, (c) artikkel 7-eskalasjon om Ungarn, (d) mellomtermesvalg fra Rådsdeadlock, eller (e) MFF-sammenbrudd i foreløpige tolvdeler. Ingen er på en 12-måneders horisont.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **A1 / A2-ankre:** gruppesammensetning, fragmenteringsindeks, plenumkalender, flertermesgjennomstrømning — disse er den **strukturelle ryggraden** i briefingen og er Admiralty A1–A2 (EP Open Data Portal).
+- **B3-forbehold:** `sentiment_tracker`-polarisering (0,22) er en **setsandels institusjonell posisjoneringsproxy, ikke rulleafstemning-kohesjon** — per-MEP-avstemningsdata er ennå ikke eksponert av EP API-et. Den moderate konfidensen for J3 / J4 / J6 gjenspeiler dette.
+- **A6 (kan ikke vurderes):** `monitor_legislative_pipeline` returnerte 0 prosedyrer og `network_analysis` returnerte 50 noder / 0 kanter; begge er **upstream pipeline-forsinkelser**, ikke analytiske feil. Nettverksanalyse-egonettverker og pipeline-flaskehalsdetetering er utsatt inntil EP API-et eksponerer disse dataene.
+- **F6 (mislyktes):** World Bank EU-landskoder (`EUU` / `EU`) mislyktes begge i denne kjøringen; briefingen er ikke avhengig av WB-makrokontekst.
+- **IMF SDMX 3.0:** ikke forespurt i denne valgssyklus-overlay-kjøringen; hvis MFF-granskningens makrokontekst blir operasjonelt nødvendig, kjør en IMF WEO-sonde innan R-5 ompoengssettes.
+
+Nettokonfidens: **Moderat-Høy på strukturell aritmetikk** (J1, R-1, R-5, R-7), **Moderat på atferdsbaserte vurderinger** (J2, J3, J4, J6) inntil per-MEP-kohesionsdata eksponeres av EP API-et.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+To konkurrerende tolkninger av den samme aritmetikken spores i `extended/historical-parallels.md`:
+
+- **H1 — "EP10 er EP9 minus Renew."** Bufferten er mindre, men koalisjonsoppskriften er uendret; mellomtermens Byråvalg gir et porteføljeskifte; 2029 returnerer en lignende pakt med en litt større høyrefløy. Scenarier 1 og 6 i `intelligence/scenario-forecast.md`.
+- **H2 — "EP10 er det første PfE-pivot-parlamentet."** Venezuela-flertallet aktiveres på mer enn tre filer; en EPP nasjonal delegasjon beveger seg mot å piske med ECR om migrasjon; et Byråvalg i 2027 blir det offentlige pivotøyeblikket. Scenarier 2 og 4.
+
+Det nåværende bevisgrunnlaget — stabilitetspoeng 84, polarisering 0,22, fragmentering 6,58, EPP-disiplin holder — **favoriserer H1 (Svært sannsynlig)** til Q4 2026, men **falsifiserer ikke H2** på en 14-til-36-måneders horisont. Briefingen sporer derfor begge snarere enn å forplikte seg til én.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikkel | `article.md` | Offentlig narrativ; 9.906 linjer som dekker alle seks vurderingene |
+| Syntese | `intelligence/synthesis-summary.md` | BLUF + WEP-tabell + Admiralty-gradering (autoritativ) |
+| Koalisjon | `intelligence/coalition-dynamics.md` | Venezuela-flertallsaritmetikk; EP9 → EP10 bufferdelta |
+| Risikoregister | `risk-scoring/risk-matrix.md` | R-1 → R-10 med L × I × Poeng |
+| Kvantitativ SWOT | `risk-scoring/quantitative-swot.md` | Strukturelle styrker vs. buffererodering |
+| Scenarier | `intelligence/scenario-forecast.md` S1–S7 (Traktatkrise = S7) | Sannsynlighetsvektede grener |
+| Indikatorer | `extended/forward-indicators.md` | Snubletrådskalender til 2029 |
+| Mandatbue | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | Byråvalgsekvensiering |
+| Mandatprognose | `intelligence/seat-projection.md` | 2029-prognose under H1 vs. H2 |
+| Pålitelighet | `intelligence/mcp-reliability-audit.md` | A6 / F6-linjer forklart |
+| Selvreview | `intelligence/methodology-reflection.md` | Trinn 10.5-avslutning |
+
+---
+
+**Dokumentkontroll**
+- **Malreferanse:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv:** Dette briefing er post-hoc — skrevet 2026-05-16 fra kjøringens engasjerte artefakter; **ingen nye MCP-kall ble gjort**. Alle vurderinger omformulerer, destillerer og ACH-kryssjekker hva kjøringen selv engasjerte; ingen nye påstander introduseres.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+Valet 2024 resulterade i EP10 med **717 ledamöter fördelade på nio grupper, fragmenteringsindex 6,58 — den högsta noteringen sedan EP6 (2004–2009)**. Det centristiska EPP+S&D+Renew-blocket innehar **396 mandat (55,2 %)** med en **36-mandats buffert** över tröskelvärdets 361 mandat för absolut majoritet; den bufferten är **mindre än hälften av EP9:s 86-mandatsmarginal**, varför en enstaka nationell delegationsavvikelse nu på ett meningsfullt sätt förändrar fil-för-fil-majoritetsaritmetiken. Den enda HIGH-allvarlighetsvarningen från `early_warning_system` är `DOMINANT_GROUP_RISK` — EPP:s andel om 25,5 % ger vetobelastning i varje smal centristisk koalition, och **januarits 2027 Byråval är det första planerade testet** på om den belastningen betalas i portföljer (status quo) eller i policykoncessionerna (högerledning). Polariseringsindex 0,22 är väl under gränsen 0,40 för stormkoalitionsbrytning, varför den underliggande aritmetiken fortfarande fungerar; den operationella risken är **mellantermsjustering** snarare än kollaps. **Sex rubriker** (J1–J6) ramar in cykeln: centristisk majoritet håller till Q4 2026 (Mycket sannolikt, 18-månaders horisont), PfE övertar Renew under EP10 genom överlåtelser (Jämna chanser, 36 månader), Venezuela-majoritet (EPP+ECR+PfE = 349 mandat) åberopas på ≥3 återkallelseärenden innan mid-2027 (Sannolikt, 14 månader), 2029 producerar ingen enkoalitionsmajoritet (Sannolikt, 49 månader).
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Beslut | Vem beslutar | Tidsfrist | Bevis |
+|:-:|--------|--------------|:---------:|-------|
+| 1 | **Piskapstrategi för 2027 Byråval** — säkrar EPP mellantermspresidentskapet på en portföljbyte med S&D, eller kräver det policykoncessionerna (migration / jordbruk)? | Konferensen för ordföranden; EPP/S&D/Renew-gruppenledare | Jan 2027 (≤ 9 månader) | R-3 i `risk-scoring/risk-matrix.md` (Sannolikhet Jämna chanser × Påverkan M-H → poäng 8); J6 (mellantermsjustering Sannolikt) |
+| 2 | **MFF 2028+ mellantermsgranskning förhandlingsmandat** — hur mycket försvar / Ukraina / rättsstatighetskonditionalitet är icke-förhandlingsbar för den centristiska majoriteten? | BUDG-ledning, COREPER, Kommissionens VPs | H2 2026 → mid-2027 | R-5 (Sannolikt × Mycket högt → poäng 16, den enskilt högsta risken i registret); `intelligence/economic-context.md` |
+| 3 | **Gruppdisciplinövervakning på Venezuela-majoritetsbanan** — vilka ärenden (migration, jordbruk, klimatåtertagning) riskerar ett EPP+ECR+PfE enkel-majoritetsseger när deltagandet sjunker under 95 %? | Gruppsekretariat; skuggskildrare i Greens / Renew | löpande, 12-månaders bevakning | R-2 (Jämna chanser × Hög → poäng 9); J3 (Sannolikt, 14 månader); `intelligence/coalition-dynamics.md` |
+
+Varje beslut är bundet till en risregistreringsrad i `risk-scoring/risk-matrix.md` och ett WEP-bandsöverläggande i `intelligence/synthesis-summary.md` så att resonemanget är falsifierbart.
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Buffert halverad:** centriskt EPP+S&D+Renew-block sjönk från 86 mandat överskott i EP9 till **36 mandat överskott i EP10** (`generate_political_landscape`, A1).
+- 🟠 **Fragmenteringstopp:** index **6,58 — högst sedan EP6** (2004–2009); `compare_political_groups` visar en **12,6 % ökning i per-fil ändringsräkningar** jämfört med EP9.
+- 🟢 **Stabilitet fortfarande funktionell:** `early_warning_system` returnerar poäng **84/100, MEDIUM övergripande risk**; polarisering **0,22 ≪ 0,40 brytningströskel**.
+- 🟡 **Enda HIGH-allvarlighetsvarning:** `DOMINANT_GROUP_RISK` på EPP:s 25,5 % andel — koncentrerad belastning, inte kammarkollaps.
+- 🔵 **Venezuela-majoritet beväpnad:** EPP+ECR+PfE = **349 mandat (48,7 %)** — 12 kort om absolut majoritet men **vinner vid enkel-majoritetssomröstningar när närvaron sjunker under 95 %**; redan aktiverad på ≥4 migrations-/jordbruksärenden sedan invigningen.
+- 🟣 **Vänstervinge strukturellt kort:** S&D+Greens/EFA+The Left = **234 mandat (32,6 %)** — kan inte besegra en Grönt Avtal-återtagning utan Renew-avvikelse eller frånvaro-drivna dynamiker.
+- 🩷 **Renew-komprimering:** 102 → 77 mandat (**−24,5 %**) är den näst mest konsekventa strukturella förändringen av 2024 och förutsättningen för bufferthalveringen.
+- ⚪ **Tvingande funktioner H2 2026 → Q1 2027:** (a) Byråval jan 2027; (b) MFF 2028+ mellantermsgranskning; (c) Kommissionens Arbetsprogram 2026 leveranspuls (~18 OLP-ärenden/kvartal till 2027).
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | Bedömning | WEP-band | Konfidensgrad | Horisont |
+|:-:|-----------|----------|:-------------:|:--------:|
+| J1 | Centrisk EPP+S&D+Renew behåller en fungerande majoritet på ≥70 % av OLP-ärenden till Q4 2026 | **Mycket sannolikt** | Måttlig-Hög | 18 månader |
+| J2 | PfE övertar Renew som tredje största grupp under EP10 (via överlåtelser, inte val) | Jämna chanser | Måttlig | 36 månader |
+| J3 | Venezuela-majoritet (EPP+ECR+PfE) åberopas på ≥3 migrations-/jordbruks-/klimatåtertagningsärenden före mid-2027 | **Sannolikt** | Måttlig | 14 månader |
+| J4 | 2029 val producerar ingen enkoalitionsmajoritet om 361+; tvingar ett förnyat stormkoalitionsavtal | **Sannolikt** | Måttlig | 49 månader |
+| J5 | ≥1 nuvarande grupp (ESN eller ett NI-kluster) misslyckas att återformas efter 2029 val | Jämna chanser | Måttlig | 53 månader |
+| J6 | Mellantermsjustering (gruppsekretariat av ≥10 ledamöter) sker 2027 kring Byråvalet | **Sannolikt** | Måttlig | 9 månader |
+
+Bevis som stödjer J1–J6 hämtas från Stage-A MCP-fångsterna listade i denna briefings rubrik; full kedja i `intelligence/synthesis-summary.md` och `intelligence/coalition-dynamics.md`.
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**Tre bästa kvantifierade risker** (från `risk-scoring/risk-matrix.md`-registret, rangordnade efter poäng):
+
+| ID | Risk | L | I | Poäng | Utlösare som skulle avancera den | Ägare |
+|:--:|------|:-:|:-:|:-----:|----------------------------------|-------|
+| **R-5** | MFF 2028+ mellantermsgranskning misslyckas till mid-2027 | Sannolikt | Mycket hög | **16** | Rådsdeadlock om nettobetalarkonvolut; försvarsuppfyllning olöst | BUDG / Kommissionens VPs |
+| **R-7** | 2029 val producerar 7+ gruppers kammare utan centristisk majoritet | Sannolikt | Mycket hög | **16** | PfE konsoliderar ECR nationella delegationer förevals | Tvärgående ledare |
+| **R-1** | Centristkoalition förlorar fungerande majoritet på ett flaggskepp OLP-ärende | Sannolikt | Hög | **12** | Nationell delegationsavvikelse (esp. Renew Iberian or French bloc) | EPP/S&D/Renew-ledare |
+
+R-6 (nationell delegationsavvikelse om rättsstatighetskonditionalitet, poäng 12) befinner sig i samma band och är den mest sannolika konkreta aktiveraren av R-1.
+
+---
+
+### 🔮 Top Forward Triggers
+
+Från `extended/forward-indicators.md` och körningens scenariogrenarna (`intelligence/scenario-forecast.md` S1–S7):
+
+1. **Januaritis 2027 Byråval** — om EPP säkrar presidentskapet utan en publicerad kostnad i utskottsstolar till S&D och Renew, eskalera `DOMINANT_GROUP_RISK` från HIGH-allvarlighetsvarning till aktiv R-3 deadlock.
+2. **MFF 2028+ förhandlingsmandatosmaning** (mål H2 2026 → mid-2027) — misslyckande att nå ett centriskt BUDG-mandat till slut-Q1 2027 avancerar R-5 från gul till röd och matar Scenario 6 (Stormkoalitionsomslutning).
+3. **Tre namngivna ärenden att bevaka för Venezuela-majoritetsaktivering under de nästa 14 månaderna:** varje migrationsprocedur-plenum där Renew Iberisk eller Franskt delegationsdeltagande sjunker under 90 %; CAP-förenklings-uppföljningar; och nästa post-2025 klimatåtertagningscykel. J3 (Sannolikt) verifieras eller falsifieras av dessa.
+4. **PfE-gruppsöverföringövervakning** — `compare_political_groups` flaggar redan PfE som den strukturella förändringen med mest utrymme att växa; en polsk eller italiensk ECR-delegationsöverföring om ≥10 ledamöter är den operationella snubbeltråden för J2 och J6.
+
+Det obligatoriska **Scenario 7 (Fördragskris / strukturell brott)**-grenen befinner sig i den långa svansen: kandidatutlösare per körningen är (a) utvidgningsfördragsrevision UA/MD, (b) passerelleförlängning till utrikespolitik / finanspolitik, (c) artikel 7-eskalation angående Ungern, (d) mellantermesval från Rådsdeadlock, eller (e) MFF-sammanbrott i preliminära tolvtedelar. Ingen befinner sig på ett 12-månaders horisont.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **A1 / A2-ankare:** gruppssammansättning, fragmenteringsindex, plenumkalender, flertermsgenomflöde — dessa är den **strukturella ryggraden** i briefingen och är Admiralty A1–A2 (EP Open Data Portal).
+- **B3-förbehåll:** `sentiment_tracker`-polarisering (0,22) är en **mandatsandels institutionell positioneringsproxy, inte rullanrop-kohesion** — per-ledamots röstdata exponeras ännu inte av EP API:et. Måttlig konfidensgraden för J3 / J4 / J6 återspeglar detta.
+- **A6 (kan inte bedömas):** `monitor_legislative_pipeline` returnerade 0 procedurer och `network_analysis` returnerade 50 noder / 0 kanter; båda är **uppströmspipelineförseningar**, inte analytiska misslyckanden. Nätverksanalys-egonätverk och pipelineflaskhalsdetektering är uppskjutna tills EP API:et exponerar dessa data.
+- **F6 (misslyckades):** World Bank EU-landskoder (`EUU` / `EU`) misslyckades båda i denna körning; briefingen förlitar sig inte på WB-makrokontext.
+- **IMF SDMX 3.0:** inte efterfrågad i denna valcykelöverläggnigskörning; om MFF-gransknings makrokontext blir operationellt nödvändig, kör en IMF WEO-sond innan R-5 ompoängsätts.
+
+Nettoförtroendegrad: **Måttlig-Hög på strukturell aritmetik** (J1, R-1, R-5, R-7), **Måttlig på beteendemässiga bedömningar** (J2, J3, J4, J6) tills per-ledamots kohesionsdata exponeras av EP API:et.
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+Två konkurrerande tolkningar av samma aritmetik spåras i `extended/historical-parallels.md`:
+
+- **H1 — "EP10 är EP9 minus Renew."** Bufferten är mindre men koalitionsreceptet är oförändrat; mellantermens Byråval ger ett portföljbyte; 2029 returnerar ett liknande avtal med en något större högerflank. Scenarier 1 och 6 i `intelligence/scenario-forecast.md`.
+- **H2 — "EP10 är det första PfE-vändande parlamentet."** Venezuela-majoriteten aktiveras på mer än tre ärenden; en EPP nationell delegation rör sig till att piska med ECR om migration; ett 2027 Byråval blir det offentliga vändningsögonblicket. Scenarier 2 och 4.
+
+Den nuvarande bevisbasen — stabilitetspoäng 84, polarisering 0,22, fragmentering 6,58, EPP-disciplin hålls — **gynnar H1 (Mycket sannolikt)** till Q4 2026 men **falsifierar inte H2** på ett 14-till-36-månaders horisont. Briefingen spårar därför båda snarare än att förbinda sig till en.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Lager | Artefakt | Varför |
+|-------|----------|--------|
+| Artikel | `article.md` | Offentlig berättelse; 9 906 rader som täcker alla sex bedömningarna |
+| Syntes | `intelligence/synthesis-summary.md` | BLUF + WEP-tabell + Admiralty-gradering (auktoritativ) |
+| Koalition | `intelligence/coalition-dynamics.md` | Venezuela-majoritetaritmetik; EP9 → EP10 buffertdelta |
+| Riskregister | `risk-scoring/risk-matrix.md` | R-1 → R-10 med L × I × Poäng |
+| Kvantitativ SWOT | `risk-scoring/quantitative-swot.md` | Strukturella styrkor vs. bufferterosion |
+| Scenarier | `intelligence/scenario-forecast.md` S1–S7 (Fördragskris = S7) | Sannolikhetsviktade grenar |
+| Indikatorer | `extended/forward-indicators.md` | Snubbeltrådskalender till 2029 |
+| Termbåge | `intelligence/term-arc.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md` | Byråvalsekvensering |
+| Mandatprognos | `intelligence/seat-projection.md` | 2029-prognos under H1 vs. H2 |
+| Tillförlitlighet | `intelligence/mcp-reliability-audit.md` | A6 / F6-rader förklarade |
+| Självgranskning | `intelligence/methodology-reflection.md` | Steg 10.5-stängning |
+
+---
+
+**Dokumentkontroll**
+- **Mallreferens:** `analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Denna briefing är post-hoc — skriven 2026-05-16 från körningens engagerade artefakter; **inga nya MCP-anrop gjordes**. Alla bedömningar omformulerar, destillerar och ACH-korskontrollerar vad körningen själv engagerade; inga nya påståenden introduceras.
+
+### Executive Brief Zh
+
+**分类：** OSINT — 公开议会记录
+**信心水平：** 🟡 中高（稳定性评分 84/100；结构性数据，非个别投票数据）
+**运行路径：** `analysis/daily/2026-05-11/election-cycle/`
+**时间范围：** 2026-05-11 → 2031-05-10（60 个月选举周期概览）
+**创建日期：** 2026-05-16（事后简报；无新 MCP 调用 — 汇总本次运行 25 份成果物）
+**一手来源：** EP MCP `generate_political_landscape`、`analyze_coalition_dynamics`、`early_warning_system`、`compare_political_groups`、`sentiment_tracker`、`get_plenary_sessions`（year=2026）、`get_all_generated_stats`（2019–2026）。
+
+---
+
+### 🎯 BLUF
+
+2024 年选举产生了 **9 个议会党团、717 名议员的 EP10，碎片化指数 6.58 为 EP6（2004–2009）以来最高值**。中间核心 EPP+S&D+Renew 拥有 **396 席（55.2%）**，超出绝对多数门槛 361 席 **36 席**；但该优势幅度**不足 EP9 时期 86 席的一半**，单一国家代表团的偏离即可实质性地改变逐文件的多数计算。`early_warning_system` 发出的唯一 HIGH 警告是 `DOMINANT_GROUP_RISK` — EPP 25.5% 的席位份额在任何窄幅中间联合政府中赋予其事实上的否决权；**2027 年 1 月议会局选举是首次计划性检验**，将揭示这一影响力究竟用于换取部长职位（现状）还是政策让步（右倾）。极化指数 0.22 远低于大联合崩溃阈值 0.40，核心算术仍然有效；运营风险是**任期中途再平衡**而非崩溃。**六项核心判断**（J1–J6）框定本届议会：中间联合维持至 Q4 2026（几近确定，18 个月），PfE 在 EP10 任期内通过转党超越 Renew（各半，36 个月），"威尼斯多数"（EPP+ECR+PfE = 349 席）在 2027 年中期前在 ≥3 个文件上被援用以推动倒退（可能，14 个月），2029 年选举不会产生单一联合多数（可能，49 个月）。
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | 决策 | 决策主体 | 截止日期 | 证据 |
+|:-:|-----|---------|:-------:|------|
+| 1 | **2027 年议会局选举纪律策略** — EPP 是否通过与 S&D 交换委员会主席职位确保任期中期议长职位，还是要求政策让步（移民/农业）？ | 主席会议；EPP/S&D/Renew 党团领导层 | 2027 年 1 月（≤9 个月） | `risk-scoring/risk-matrix.md` 中的 R-3（各半 × 影响度 M-H → 评分 8）；J6（任期中途再平衡可能） |
+| 2 | **任期中期 MFF 2028+ 审查谈判授权** — 中间联合对国防/乌克兰/法治附加条件中的哪些部分不可谈判？ | BUDG 领导层、COREPER、副委员会主席 | 2026 年下半年 → 2027 年中期 | R-5（可能 × 非常高影响度 → 评分 16，风险账本最高分）；`intelligence/economic-context.md` |
+| 3 | **"威尼斯多数"路径上的党团纪律监控** — 出席率低于 95% 时，EPP+ECR+PfE 可凭简单多数通过的文件（移民、农业、气候倒退）有哪些？ | 党团秘书处；Greens/Renew 影子报告员 | 持续，12 个月监控 | R-2（各半 × 高影响度 → 评分 9）；J3（可能，14 个月）；`intelligence/coalition-dynamics.md` |
+
+每项决策均与 `risk-scoring/risk-matrix.md` 风险账本中的条目及 `intelligence/synthesis-summary.md` 中的 WEP 评估相关联，确保论据可被证伪。
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **优势幅度减半：** 中间联合 EPP+S&D+Renew 优势幅度从 EP9 的 86 席降至 EP10 的 **36 席**（`generate_political_landscape`，A1）。
+- 🟠 **碎片化峰值：** 指数 **6.58 — EP6（2004–2009）以来最高**；`compare_political_groups` 显示与 EP9 相比**每文件二读修正案增加 12.6%**。
+- 🟢 **稳定性仍具功能性：** `early_warning_system` 返回评分 **84/100，整体风险 MEDIUM**；极化 **0.22 ≪ 崩溃阈值 0.40**。
+- 🟡 **唯一的 HIGH 警告：** EPP 25.5% 席位份额下的 `DOMINANT_GROUP_RISK` — 集中影响力，而非院内崩溃。
+- 🔵 **"威尼斯多数"武器化：** EPP+ECR+PfE = **349 席（48.7%）** — 距绝对多数差 12 席，但**出席率低于 95% 时简单多数投票中获胜**；自成立以来已在 ≥4 个移民/农业文件中发动。
+- 🟣 **左翼阵营结构性少数：** S&D+Greens/EFA+The Left = **234 席（32.6%）** — 若无 Renew 分裂或出席率动态，无法阻止《绿色协议》倒退。
+- 🩷 **Renew 压力：** 102 → 77 席（**−24.5%**）是 2024 年第二大结构变化，也是优势幅度减半的前提条件。
+- ⚪ **强制节点 2026 年下半年 → 2027 年 Q1：**（a）2027 年 1 月议会局选举；（b）任期中期 MFF 2028+ 审查；（c）委员会 2026 年工作方案成果物流量（至 2027 年每季度约 18 个 OLP 文件）。
+
+---
+
+### 🗂️ Headline Judgements (from `intelligence/synthesis-summary.md`)
+
+| # | 判断 | WEP 范围 | 置信度 | 时间轴 |
+|:-:|-----|---------|:------:|:------:|
+| J1 | 中间 EPP+S&D+Renew 在 Q4 2026 前维持 ≥70% OLP 文件的工作多数 | **几近确定** | 中高 | 18 个月 |
+| J2 | PfE 在 EP10 任期内通过转党（非选举）超越 Renew 成为第三大党团 | 各半 | 中等 | 36 个月 |
+| J3 | "威尼斯多数"（EPP+ECR+PfE）在 2027 年中期前在 ≥3 个移民/农业/气候倒退文件上被援用 | **可能** | 中等 | 14 个月 |
+| J4 | 2029 年选举不会产生单一 361+ 联合多数；将迫使签署更新版大联合章程 | **可能** | 中等 | 49 个月 |
+| J5 | 现有 ≥1 个党团（ESN 或 NI 池）未能在 2029 年选举后重组 | 各半 | 中等 | 53 个月 |
+| J6 | 任期中途再平衡（≥10 人党团转移）在 2027 年围绕议会局选举发生 | **可能** | 中等 | 9 个月 |
+
+支持 J1–J6 的证据来自本简报顶部记录的 Phase A MCP 抓取；完整证据链见 `intelligence/synthesis-summary.md` 和 `intelligence/coalition-dynamics.md`。
+
+---
+
+### ⚠️ Risk Snapshot
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=81208ff1) -->
+
+**定量化的前三大风险**（来自 `risk-scoring/risk-matrix.md`，按评分排序）：
+
+| ID | 风险 | 可 | 影 | 评分 | 加速触发因素 | 责任方 |
+|:--:|-----|:-:|:-:|:---:|-----------|------|
+| **R-5** | 任期中期 MFF 2028+ 审查在 2027 年中期前失败 | 可能 | 非常高 | **16** | 净受款国缴款封套上的理事会僵局；国防强化未解决 | BUDG / 副委员会主席 |
+| **R-7** | 2029 年选举产生无中间多数的 7+ 党团议会 | 可能 | 非常高 | **16** | PfE 在选举前整合 ECR 国家代表团 | 跨党派领导人 |
+| **R-1** | 中间联合在主要 OLP 文件上失去工作多数 | 可能 | 高 | **12** | 国家代表团偏离（尤其是 Renew 伊比利亚或法国集团） | EPP/S&D/Renew 领导层 |
+
+R-6（法治条件性中的国家代表团偏离，12 分）处于同一范围，是 R-1 中最可实现的触发因素。
+
+---
+
+### 🔮 Top Forward Triggers
+
+来自 `extended/forward-indicators.md` 及本次运行的情景分支（`intelligence/scenario-forecast.md` S1–S7）：
+
+1. **2027 年 1 月议会局选举** — 若 EPP 在未公开对 S&D 和 Renew 支付委员会主席职位成本的情况下确保议长职位，`DOMINANT_GROUP_RISK` 将从 HIGH 警告升级为活跃的 R-3 风险。
+2. **MFF 2028+ 谈判授权全体表决**（目标 2026 年下半年 → 2027 年中期）— 若在 2027 年 Q1 末前未能获得中间 BUDG 授权，R-5 将从黄色升至红色，并催化情景 6（大联合重新签署）。
+3. **未来 14 个月内为"威尼斯多数"激活指定监控的三个文件：** Renew 伊比利亚或法国集团出席率低于 90% 的任何移民全体会议；CAP 简化后续工作；2025 年后气候倒退周期。J3（可能）将被这些事件证实或证伪。
+4. **监控 PfE 党团转移** — `compare_political_groups` 已将 PfE 标记为增长潜力最高的结构变化；ECR 波兰或意大利代表团 ≥10 人的转移是 J2 和 J6 的引线。
+
+强制性**情景 7（条约危机/结构性断裂）**处于长尾：本次运行的候选触发因素为（a）UA/MD 加入条约修订，（b）走廊扩展至外交/财政政策，（c）匈牙利第 7 条升级，（d）理事会僵局导致的任期中期选举，（e）MFF 崩溃进入临时预算。这些均不在 12 个月视野内。
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **A1/A2 锚点：** 党团构成、碎片化指数、全体会议日历、多届生产率速率 — 这些是简报的**结构骨架**，Admiralty A1–A2 评级（EP 开放数据门户）。
+- **B3 保留：** `sentiment_tracker` 极化（0.22）是**基于席位份额的制度定位代理指标，非名义投票凝聚力** — 议员个别投票数据尚未由 EP API 披露。J3/J4/J6 的中等置信度反映了这一点。
+- **A6（无法判断）：** `monitor_legislative_pipeline` 返回 0 个程序，`network_analysis` 返回 50 节点 / 0 边；两者均为**前向流水线延迟**，非分析性失败。自我网络图和瓶颈检测推迟至 EP API 披露数据后进行。
+- **F6（失败）：** World Bank EU 国家代码（`EUU` / `EU`）在本次运行中均失败；简报不依赖 WB 宏观经济背景。
+- **IMF SDMX 3.0：** 本次选举周期概览运行中未查询；若 MFF 审查的宏观经济背景变得运营必要，在重新评估 R-5 之前进行 IMF WEO 探测。
+
+净置信度：**结构性计算为中高**（J1、R-1、R-5、R-7），**行为判断为中等**（J2、J3、J4、J6）— 直至 EP API 披露议员级凝聚力数据。
+
+---
+
+### 🧭 ACH Competing-Hypothesis Note
+
+`extended/historical-parallels.md` 中追踪了对相同计算的两种竞争性解释：
+
+- **H1 — "EP10 是去掉 Renew 的 EP9"。** 优势幅度更小但联合处方未变；任期中期议会局选举产生职位互换；2029 年以略大右翼集团重新生成类似章程。`intelligence/scenario-forecast.md` 中的情景 1 和 6。
+- **H2 — "EP10 是第一个以 PfE 为轴心的议会"。** "威尼斯多数"在三个以上文件中被激活；EPP 国家代表团在移民问题上与 ECR 联动；2027 年议会局选举成为公开的轴心转换时刻。情景 2 和 4。
+
+当前证据基础 — 稳定性评分 84、极化 0.22、碎片化 6.58、EPP 纪律维持 — **支持 H1（几近确定）** 至 Q4 2026，但在 14 至 36 个月视野上**不能证伪 H2**。因此简报同时追踪两者，而非锁定一方。
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| 层级 | 成果物 | 原因 |
+|------|-------|------|
+| 文章 | `article.md` | 主要叙述；9,906 行覆盖六项判断 |
+| 综合 | `intelligence/synthesis-summary.md` | BLUF + WEP 表格 + Admiralty 评级（可靠） |
+| 联合 | `intelligence/coalition-dynamics.md` | "威尼斯多数"计算；EP9 → EP10 优势幅度变化 |
+| 风险账本 | `risk-scoring/risk-matrix.md` | R-1 → R-10（含 L × I × 评分） |
+| 定量 SWOT | `risk-scoring/quantitative-swot.md` | 结构优势与优势幅度侵蚀对比 |
+| 情景 | `intelligence/scenario-forecast.md` S1–S7（条约危机 = S7） | 概率加权分支 |
+| 指标 | `extended/forward-indicators.md` | 至 2029 年的触发因素日历 |
+| 任期弧 | `intelligence/term-arc.md`、`mandate-fulfilment-scorecard.md`、`presidency-trio-context.md` | 议会局选举顺序 |
+| 席位预测 | `intelligence/seat-projection.md` | H1 对 H2 下的 2029 年预测 |
+| 可靠性 | `intelligence/mcp-reliability-audit.md` | A6 / F6 行解释 |
+| 自我反思 | `intelligence/methodology-reflection.md` | 步骤 10.5 收尾 |
+
+---
+
+**文档追踪**
+- **模板参考：** `analysis/templates/executive-brief.md`
+- **成果物路径：** `analysis/daily/2026-05-11/election-cycle/executive-brief.md`
+- **分类：** 公开
+- **事后：** 本简报为事后撰写 — 于 2026-05-16 依据本次运行提交的成果物编写；**未进行任何新的 MCP 调用**。所有判断均为对本次运行自身完成内容的重述、提炼和 ACH 验证；不提出任何新主张。
+
 > **Provenance & Audit**
 >
 > - **Article type:** `election-cycle`
@@ -10049,4 +11709,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/election-cycle/executive-brief_zh.md) | `executive-brief_zh.md` |
 

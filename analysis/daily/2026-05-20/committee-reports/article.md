@@ -1,7 +1,7 @@
 ---
-title: "Data Availability Assessment — Committee Reports"
-description: "The European Parliament Open Data Portal API experienced widespread endpoint failures on 2026-05-20, with all feed-type endpoints returning HTTP 404 errors."
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-20", "run committee-reports-run265-1779254720", "Data", "Availability", "Assessment", "Committee", "Reports", "European", "Parliament", "Open"]
+title: "Before reading this brief, note the following analytical assumptions and their vulnerability:"
+description: "Before reading this brief, note the following analytical assumptions and their vulnerability: Published 2026-05-20. for democratic-accountability readers tracking EU…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-20", "run committee-reports-run265-1779254720", "Before", "reading", "this", "brief", "note", "following", "analytical", "assumptions"]
 date: 2026-05-20
 article_type: committee-reports
 slug: 2026-05-20-committee-reports

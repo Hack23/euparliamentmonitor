@@ -659,6 +659,1195 @@ graph TD
 
 *Source: European Parliament Open Data Portal via EP MCP Server. Cross-session intelligence correlates findings from 4 breaking-news monitoring runs on 6 April 2026 (00:33, 06:45, 12:15, 18:18 UTC). Bayesian updating methodology applied to API recovery probability estimation. All data points verified against live EP API endpoints. Total observation window: 17 hours 45 minutes on Easter Monday.*
 
+### Executive Brief Ar
+
+**التصنيف:** OSINT — السجل البرلماني العام
+**الثقة:** 🟡 MEDIUM (استراحة؛ API متذبذب؛ نقاط المخاطرة 47 / MEDIUM)
+**الجلسة:** `analysis/daily/2026-04-06/breaking-4/` (18:18 UTC)
+**التغطية:** استراحة عيد الفصح اليوم 11/18 الإغلاق — توحيد 4 breaking + committee-reports + propositions + جلسات موسعة (8 إجمالاً)
+**تاريخ الإنشاء:** 2026-05-16 (ملخص استعادي، دون استدعاءات MCP جديدة)
+**المصادر الأولية:** أكثر من 61 حافظة تحليلية، ~16,000 سطر في 8 جلسات؛ تغذية adopted-texts متذبذبة؛ 737 عضواً مستقرون.
+
+---
+
+### 🎯 الخلاصة الفورية (BLUF)
+
+**الجلسة 4 هي *الإغلاق اليومي للاستخبارات* ليوم اثنين عيد الفصح — أكثر أيام الاستراحة التي مدتها 18 يوماً مراقبةً، إذ أنتجت 8 جلسات سير عمل، وأكثر من 61 حافظة تحليلية، و~16,000+ سطر من التحليل الأصلي في يوم تقويمي واحد دون أي نشاط برلماني.** الإسهام المميز لهذه الجلسة ليس *اكتشافاً* هيكلياً جديداً (تم إرساء هذه الاكتشافات في الجلسات 1–3) بل **تحليل الاتساق المُوحَّد عبر الجلسات** الذي يُصادِق الاكتشافات الثلاثة لليوم ويُقيِّم كلاً منها في ضوء الأخرى: **(1) تأكيد تذبذب نقطة نهاية adopted-texts** — فشل 00:33 ← نجاح 12:15 ← فشل مجدداً 18:18، إشارة مغايرة نوعياً للأخطاء 404 المتواصلة على نقاط نهاية أخرى، مما يوحي بصيانة نشطة لا بنية تحتية متعطلة؛ **(2) استقرار مسار 85–86 adopted-texts** عبر جميع جلسات breaking الأربع — 42 من عام 2026 (TA-10-2026-0035 إلى TA-10-2026-0104)، 36 من عام 2025، 7 بنود إرثية EP9-2024؛ **(3) تغذية أعضاء البرلمان الأوروبي بوصفها الخط الأساسي الموثوق الوحيد** (737 مستقراً، لا أحداث تغيير مجموعات). *القيمة التحريرية* لجلسة الإغلاق هي إثبات أن **مراقبة فترة الاستراحة يمكن الحفاظ عليها تشغيلياً بنشاط برلماني صفري** — مما يُثبت مرونة مسار الاستخبارات وقيمة القراءات الهيكلية حتى في أوقات الخمول المؤسسي. نقاط المخاطرة 47 (MEDIUM)؛ الاستقرار 84/100 (دون تغيير 11 يوماً)؛ الاستراحة مكتملة 61%.
+
+---
+
+### 🧭 3 قرارات يدعمها هذا الملخص
+
+| # | القرار | من يقرر | الموعد النهائي | الأدلة |
+|:-:|--------|---------|:-------------:|--------|
+| 1 | **التحقيق في السبب الجذري لتذبذب API** — مغاير نوعياً لنمط 404؛ صيانة مقابل عطل | عمليات مسار البيانات؛ فريق EP MCP | قبل 10 أبريل | §الاكتشاف 1 (التذبذب) |
+| 2 | **مجموعة ما قبل الاستراحة كمرساة تخطيط الربع الثاني** — 42 نصاً EP10-2026 تحدد مسار التنفيذ | مؤتمر الرؤساء | متجدد | §الاكتشاف 2 (المسار مستقر) |
+| 3 | **تأسيس خط أساسي لاستدامة مراقبة الاستراحة** — نمط 8 جلسات/يوم هو المرجع التشغيلي الجديد | عمليات استخبارات البرلمان الأوروبي | متجدد | §لوحة المعلومات اليومية |
+
+---
+
+### 📰 القراءة في 60 ثانية
+
+- 🔴 **إغلاق اثنين عيد الفصح** — 8 جلسات سير عمل، أكثر من 61 حافظة، ~16,000 سطر.
+- 🟠 **تذبذب API مؤكَّد** — النمط B (فشل) ← نجاح ← فشل مجدداً؛ إشارة جديدة.
+- 🟢 **737 عضواً مستقرون** — التغذية الأولية الوحيدة التي تعمل باستمرار.
+- 🟡 **85–86 نصاً مُعتمَداً مستقرون** — 42 من 2026؛ مسار +46% سنوياً.
+- 🔵 **الاستقرار 84/100 دون تغيير 11 يوماً** — هضبة هيكلية.
+- 🟣 **نقاط المخاطرة 47 / MEDIUM** — لا حرجة، 4 عالية، 7 متوسطة، 4 منخفضة.
+- 🩷 **الاستراحة مكتملة 61%** — اليوم 11/18؛ T-8 حتى أسبوع اللجان.
+- ⚪ **نشاط برلماني صفري** — عطلة رسمية أوروبية متوقعة.
+
+---
+
+### 📊 لوحة المعلومات اليومية (الإسهام المميز لجلسة 4)
+
+| المؤشر | الحالة | الثقة |
+|--------|--------|-------|
+| الأخبار العاجلة | لا مؤكَّدة (×4 اليوم) | 🟢 HIGH |
+| حالة API | 2/8 تعمل (متذبذبة) | 🟡 MEDIUM |
+| الاستقرار | 84/100 (هضبة 11 يوماً) | 🟢 HIGH |
+| مستوى المخاطرة | MEDIUM (47 إجمالاً) | 🟡 MEDIUM |
+| تقدم الاستراحة | 61% (11/18 يوماً) | 🟢 HIGH |
+| إجمالي جلسات اليوم | 8 جلسات سير عمل | 🟢 HIGH |
+| تغذية الأعضاء | 737 مستقرون | 🟢 HIGH |
+
+---
+
+### ⚠️ لقطة المخاطر
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 أبرز المحفزات المستقبلية (9 أيام القادمة حتى نهاية الاستراحة)
+
+1. **8–10 أبريل — نافذة استعادة كاملة لـ API** (احتمال 55%).
+2. **13 أبريل — اثنين عيد الفصح الأسبوع 2** — أول يوم عمل خارج عيد الفصح؛ إعادة التشغيل متوقعة.
+3. **14 أبريل — افتتاح أسبوع اللجان** — اليوم 1 من منطقة التقارب.
+4. **15 أبريل — رسوم أمريكية T-0** — صدمة خارجية خارج سيطرة البرلمان الأوروبي.
+5. **17 أبريل — قرار أسعار الفائدة للبنك المركزي الأوروبي** — تفعيل السياق الاقتصادي.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **ملاحظة التذبذب (A1):** تثليث مباشر للجلسة 4 عبر 4 جلسات breaking في نفس اليوم.
+- **اتساق 8 جلسات (A1):** منهجية منهجية عبر الجلسات؛ قابلة للتحقق.
+- **استقرار مجموعة ما قبل الاستراحة (A1):** 85–86 نصاً مُعتمَداً في 4 جلسات.
+- **تغذية الأعضاء 737 (A1):** السجل الأولي؛ الخط الأساسي الموثوق الوحيد.
+- **الثقة الصافية:** 🟢 HIGH لتحليل الاتساق؛ 🟡 MEDIUM لتفسير التذبذب.
+
+---
+
+### 📎 حافظات الجلسة
+
+| الطبقة | الحافظة | السبب |
+|--------|---------|-------|
+| المقال | `article.md` | السرد العام للإغلاق |
+| التوليف | `synthesis-summary.md` | توحيد 8 جلسات + اتساق عبر الجلسات |
+| المنهجيات | classification · existing · risk-scoring · threat-assessment | مجموعة مراقبة الاستراحة القياسية |
+| المرافق | جميع جلسات اثنين عيد الفصح السبع الأخرى (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | مكدس الاستخبارات اليومي |
+
+---
+
+**ضبط الوثيقة**
+- **مرجع القالب:** `analysis/templates/executive-brief.md`
+- **مسار الحافظة:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **التصنيف:** عام
+- **استعادي:** كُتب الملخص في 2026-05-16 من الحافظات المُؤكَّدة للجلسة؛ **لم تُجرَ أي استدعاءات MCP جديدة**.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Kørsel 4 er påskemandagens *daglige efterretningsluksel* — den mest intensivt overvågede dag i 18-dages pausen, med 8 workflowkørsler, 61+ analyseartefakter og ~16.000+ linjer original analyse fra én enkelt kalenderdag uden parlamentarisk aktivitet.** Kørslens afgørende bidrag er *ikke* et nyt strukturelt fund (disse blev fastslået i kørsel 1–3), men den **konsoliderede krydskørselsanalyse**, der validerer dagens tre fund mod hinanden: **(1) Oscillation i adopted-texts-endpoint bekræftet** — fejl 00:33 → succes 12:15 → fejl igen 18:18, et kvalitativt anderledes signal end konsekvente 404-fejl på andre endpoints, hvilket tyder på aktiv vedligeholdelse snarere end dødlagt infrastruktur; **(2) 85–86 adopted-texts pipeline stabil** på tværs af alle fire breaking-kørsler — 42 fra 2026 (TA-10-2026-0035 til TA-10-2026-0104), 36 fra 2025, 7 ældre EP9-2024 poster; **(3) MEP-feed som eneste pålidelige basislinje** (737 stabile, ingen grupperingsskift). Lukkekørslens *redaktionelle værdi* er at fastslå, at **pauseovervågning kan opretholdes operationelt ved nul parlamentarisk aktivitet** — hvilket beviser efterretningspipelinen ens resiliens og værdien af strukturelle aflæsninger selv under institutionel dvale. Risikoscore 47 (MEDIUM); stabilitet 84/100 (uændret i 11 dage); pause 61% gennemført.
+
+---
+
+### 🧭 3 Beslutninger, denne brief understøtter
+
+| # | Beslutning | Hvem bestemmer | Frist | Bevis |
+|:-:|------------|----------------|:-----:|-------|
+| 1 | **Rodårsagsundersøgelse af API-oscillation** — kvalitativt anderledes end 404-mønstret; vedligeholdelse vs. fejl | Data-pipeline ops; EP MCP-team | inden 10. april | §Fund 1 (oscillation) |
+| 2 | **Pre-pause-korpus som Q2-planlægningsanker** — 42 EP10-2026 tekster definerer implementeringspipeline | Formandskabskonferencen | løbende | §Fund 2 (pipeline stabil) |
+| 3 | **Etabler bæredygtighedsbasislinje for pauseovervågning** — 8-kørsel/dag-mønstret er den nye operationelle reference | EP efterretningsops | løbende | §Dagligt Dashboard |
+
+---
+
+### 📰 60-Sekunders Læsning
+
+- 🔴 **Påskemandag lukning** — 8 workflowkørsler, 61+ artefakter, ~16.000 linjer.
+- 🟠 **API-oscillation bekræftet** — Tilstand B (fejl) → succes → fejl igen; nyt signal.
+- 🟢 **737 MEP'er stabile** — eneste konsekvent operationelt primærfeed.
+- 🟡 **85–86 vedtagne tekster stabile** — 42 fra 2026; +46% ÅtÅ-udvikling.
+- 🔵 **Stabilitet 84/100 uændret i 11 dage** — strukturelt plateau.
+- 🟣 **Risikoscore 47 / MEDIUM** — ingen kritiske, 4 høje, 7 middel, 4 lave.
+- 🩷 **Pause 61% gennemført** — Dag 11/18; T-8 til udvalgsuge.
+- ⚪ **Nul parlamentarisk aktivitet** — forventet EU-dækkende helligdag.
+
+---
+
+### 📊 Dagligt Dashboard (Kørsel 4s særskilte bidrag)
+
+| Indikator | Status | Tillid |
+|-----------|--------|--------|
+| Breaking News | Ingen bekræftet (×4 i dag) | 🟢 HIGH |
+| API-status | 2/8 operative (oscillerende) | 🟡 MEDIUM |
+| Stabilitet | 84/100 (11-dages plateau) | 🟢 HIGH |
+| Risikoniveau | MEDIUM (47 totalt) | 🟡 MEDIUM |
+| Pausefremgang | 61% (11/18 dage) | 🟢 HIGH |
+| Samlede kørsler i dag | 8 workflowkørsler | 🟢 HIGH |
+| MEP-feed | 737 stabile | 🟢 HIGH |
+
+---
+
+### ⚠️ Risikooverblik
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 Top Fremadrettede Udløsere (næste 9 dage til pausens afslutning)
+
+1. **8.–10. april — fuldt API-gendannelsesvindue** (55% sandsynlighed).
+2. **13. april — Påskemandag uge 2** — første hverdag uden for påsken; reaktivering forventet.
+3. **14. april — Udvalgsuge åbner** — konvergenszone dag 1.
+4. **15. april — US-told T-0** — eksogen chok uden for EP's kontrol.
+5. **17. april — ECB-rentebeslutning** — aktivering af økonomisk kontekst.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **Oscillationsobservation (A1):** Kørsel 4 direkte triangulering på tværs af 4 breaking-kørsler fra dagen.
+- **8-kørsel konsistens (A1):** systematisk krydskørselsmetodik; verificerbar.
+- **Pre-pause-korpusstabilitet (A1):** 85–86 vedtagne tekster på tværs af 4 kørsler.
+- **MEP-feed 737 (A1):** primærpost; eneste pålidelige basislinje.
+- **Nettotillid:** 🟢 HIGH for konsistensanalyse; 🟡 MEDIUM for oscillationstolkning.
+
+---
+
+### 📎 Kørselaartefakter
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikel | `article.md` | Offentlig lukkefortælling |
+| Syntese | `synthesis-summary.md` | 8-kørsel konsolidering + krydskørsels-konsistens |
+| Metoder | classification · existing · risk-scoring · threat-assessment | Standard pauseovervågningssuite |
+| Ledsager | Alle 7 andre påskemandagskørsler (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | Daglig efterretningsstak |
+
+---
+
+**Dokumentkontrol**
+- **Skabelonreference:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Brief skrevet 2026-05-16 fra kørslens committede artefakter; **ingen nye MCP-kald blev foretaget**.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Lauf 4 ist der *tägliche Geheimdienstabschluss* des Ostermontags — der intensivst überwachte Tag der 18-tägigen Pause, mit 8 Workflow-Läufen, 61+ Analyseartefakten und ~16.000+ Zeilen Originalanalyse an einem einzigen parlamentarisch inaktiven Kalendertag.** Der auszeichnende Beitrag des Laufs ist *kein* neuer struktureller Befund (diese wurden in den Läufen 1–3 festgestellt), sondern die **konsolidierte Querläufe-Konsistenzanalyse**, die die drei Tagesbefunde gegenseitig validiert: **(1) Oszillation des Adopted-Texts-Endpunkts bestätigt** — Fehler 00:33 → Erfolg 12:15 → Fehler wieder 18:18, ein qualitativ anderes Signal als konsistente 404-Fehler bei anderen Endpunkten, was auf aktive Wartung statt toter Infrastruktur hindeutet; **(2) 85–86 Adopted-Texts-Pipeline stabil** über alle vier Breaking-Läufe — 42 aus 2026 (TA-10-2026-0035 bis TA-10-2026-0104), 36 aus 2025, 7 ältere EP9-2024-Einträge; **(3) MdEP-Feed als einzige zuverlässige Basislinie** (737 stabil, keine Gruppenwechsel-Ereignisse). Der redaktionelle Wert des Abschlusslaufs besteht darin festzustellen, dass **Pausenüberwachung operativ bei null parlamentarischer Aktivität aufrechterhalten werden kann** — was die Resilienz der Geheimdienstpipeline und den Wert struktureller Messwerte selbst während institutioneller Ruhephasen belegt. Risikopunktzahl 47 (MEDIUM); Stabilität 84/100 (unverändert seit 11 Tagen); Pause 61% abgeschlossen.
+
+---
+
+### 🧭 3 Entscheidungen, die diese Zusammenfassung unterstützt
+
+| # | Entscheidung | Wer entscheidet | Frist | Belege |
+|:-:|--------------|-----------------|:-----:|--------|
+| 1 | **Ursachenuntersuchung zur API-Oszillation** — qualitativ anderes als 404-Muster; Wartung vs. Fehler | Data-Pipeline-Ops; EP MCP-Team | bis 10. April | §Befund 1 (Oszillation) |
+| 2 | **Vorpausen-Korpus als Q2-Planungsanker** — 42 EP10-2026-Texte definieren Implementierungspipeline | Konferenz der Präsidenten | laufend | §Befund 2 (Pipeline stabil) |
+| 3 | **Nachhaltigkeitsbasislinie für Pausenüberwachung etablieren** — 8-Läufe/Tag-Muster ist neue operative Referenz | EP-Geheimdienstops | laufend | §Tages-Dashboard |
+
+---
+
+### 📰 60-Sekunden-Lesepause
+
+- 🔴 **Ostermontag-Abschluss** — 8 Workflow-Läufe, 61+ Artefakte, ~16.000 Zeilen.
+- 🟠 **API-Oszillation bestätigt** — Modus B (Fehler) → Erfolg → Fehler wieder; neuartiges Signal.
+- 🟢 **737 MdEPs stabil** — einziger konsistent operativer Primärfeed.
+- 🟡 **85–86 angenommene Texte stabil** — 42 aus 2026; +46% JzJ-Entwicklung.
+- 🔵 **Stabilität 84/100 seit 11 Tagen unverändert** — strukturelles Plateau.
+- 🟣 **Risikopunktzahl 47 / MEDIUM** — keine kritischen, 4 hohe, 7 mittlere, 4 niedrige.
+- 🩷 **Pause 61% abgeschlossen** — Tag 11/18; T-8 bis Ausschusswoche.
+- ⚪ **Null parlamentarische Aktivität** — erwarteter EU-weiter Feiertag.
+
+---
+
+### 📊 Tages-Dashboard (Auszeichnender Beitrag von Lauf 4)
+
+| Indikator | Status | Konfidenz |
+|-----------|--------|-----------|
+| Breaking News | Keine bestätigt (×4 heute) | 🟢 HIGH |
+| API-Status | 2/8 operativ (oszillierend) | 🟡 MEDIUM |
+| Stabilität | 84/100 (11-Tage-Plateau) | 🟢 HIGH |
+| Risikoniveau | MEDIUM (47 insgesamt) | 🟡 MEDIUM |
+| Pausenfortschritt | 61% (11/18 Tage) | 🟢 HIGH |
+| Gesamtläufe heute | 8 Workflow-Läufe | 🟢 HIGH |
+| MdEP-Feed | 737 stabil | 🟢 HIGH |
+
+---
+
+### ⚠️ Risikoübersicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 Top Vorausschauende Auslöser (nächste 9 Tage bis Pausenende)
+
+1. **8.–10. April — volles API-Wiederherstellungsfenster** (55% Wahrscheinlichkeit).
+2. **13. April — Ostermontag Woche 2** — erster Werktag außerhalb Osterns; Reaktivierung erwartet.
+3. **14. April — Ausschusswoche beginnt** — Konvergenzzone Tag 1.
+4. **15. April — US-Zölle T-0** — exogener Schock außerhalb EP-Kontrolle.
+5. **17. April — EZB-Zinsentscheidung** — Aktivierung des wirtschaftlichen Kontexts.
+
+---
+
+### 🛡️ Quellenqualitätsbewertung
+
+- **Oszillationsbeobachtung (A1):** Lauf 4 direkte Triangulation über 4 Breaking-Läufe des Tages.
+- **8-Läufe-Konsistenz (A1):** systematische Querläufe-Methodik; verifizierbar.
+- **Vorpausen-Korpusstabilität (A1):** 85–86 angenommene Texte über 4 Läufe.
+- **MdEP-Feed 737 (A1):** Primäraufzeichnung; einzige zuverlässige Basislinie.
+- **Netto-Konfidenz:** 🟢 HIGH für Konsistenzanalyse; 🟡 MEDIUM für Oszillationsinterpretation.
+
+---
+
+### 📎 Laufartefakte
+
+| Ebene | Artefakt | Warum |
+|-------|----------|-------|
+| Artikel | `article.md` | Öffentliche Abschlusserzählung |
+| Synthese | `synthesis-summary.md` | 8-Läufe-Konsolidierung + Querläufe-Konsistenz |
+| Methoden | classification · existing · risk-scoring · threat-assessment | Standard-Pausenüberwachungspaket |
+| Begleiter | Alle 7 anderen Ostermontag-Läufe (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | Täglicher Geheimdienststapel |
+
+---
+
+**Dokumentenkontrolle**
+- **Vorlagenreferenz:** `analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **Klassifizierung:** Öffentlich
+- **Retrospektiv:** Zusammenfassung am 2026-05-16 aus den committed Artefakten des Laufs erstellt; **keine neuen MCP-Aufrufe wurden gemacht**.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**La ejecución 4 es el *cierre diario de inteligencia* del lunes de Pascua — el día más intensamente monitoreado de los 18 días de receso, produciendo 8 ejecuciones de flujo de trabajo, 61+ artefactos de análisis y ~16.000+ líneas de análisis original en un único día de calendario sin actividad parlamentaria.** La contribución distintiva de la ejecución no es *un nuevo* hallazgo estructural (estos se establecieron en las ejecuciones 1–3) sino el **análisis consolidado de consistencia entre ejecuciones** que valida los tres hallazgos del día entre sí: **(1) Oscilación del endpoint adopted-texts confirmada** — fallo 00:33 → éxito 12:15 → fallo nuevamente 18:18, una señal cualitativamente diferente a los errores 404 consistentes en otros endpoints, lo que sugiere mantenimiento activo en lugar de infraestructura muerta; **(2) Pipeline de 85–86 adopted-texts estable** en las cuatro ejecuciones breaking — 42 de 2026 (TA-10-2026-0035 a TA-10-2026-0104), 36 de 2025, 7 elementos heredados EP9-2024; **(3) Feed de eurodiputados como única línea de base confiable** (737 estables, sin eventos de cambio de grupo). El *valor editorial* de la ejecución de cierre es establecer que **la monitorización del receso puede mantenerse operativamente con cero actividad parlamentaria** — demostrando la resiliencia del pipeline de inteligencia y el valor de las lecturas estructurales incluso durante la dormancia institucional. Puntuación de riesgo 47 (MEDIUM); estabilidad 84/100 (sin cambios durante 11 días); receso 61% completado.
+
+---
+
+### 🧭 3 Decisiones que este informe respalda
+
+| # | Decisión | Quién decide | Plazo | Evidencias |
+|:-:|----------|--------------|:-----:|------------|
+| 1 | **Investigación de causa raíz de la oscilación API** — cualitativamente diferente del patrón 404; mantenimiento vs. fallo | Ops data-pipeline; equipo EP MCP | antes del 10 de abril | §Hallazgo 1 (oscilación) |
+| 2 | **Corpus previo al receso como ancla de planificación Q2** — 42 textos EP10-2026 definen el pipeline de implementación | Conferencia de Presidentes | continuo | §Hallazgo 2 (pipeline estable) |
+| 3 | **Establecer línea de base de sostenibilidad para monitorización del receso** — el patrón de 8 ejecuciones/día es la nueva referencia operativa | Ops inteligencia EP | continuo | §Panel diario |
+
+---
+
+### 📰 Lectura de 60 Segundos
+
+- 🔴 **Cierre del lunes de Pascua** — 8 ejecuciones de flujo de trabajo, 61+ artefactos, ~16.000 líneas.
+- 🟠 **Oscilación API confirmada** — Modo B (fallo) → éxito → fallo nuevamente; señal novedosa.
+- 🟢 **737 eurodiputados estables** — único feed primario consistentemente operativo.
+- 🟡 **85–86 textos adoptados estables** — 42 de 2026; trayectoria +46% YoY.
+- 🔵 **Estabilidad 84/100 sin cambios durante 11 días** — meseta estructural.
+- 🟣 **Puntuación de riesgo 47 / MEDIUM** — ninguno crítico, 4 altos, 7 medios, 4 bajos.
+- 🩷 **Receso 61% completado** — Día 11/18; T-8 hasta la semana de comisiones.
+- ⚪ **Cero actividad parlamentaria** — festivo europeo esperado.
+
+---
+
+### 📊 Panel Diario (Contribución distintiva de la ejecución 4)
+
+| Indicador | Estado | Confianza |
+|-----------|--------|-----------|
+| Noticias urgentes | Ninguna confirmada (×4 hoy) | 🟢 HIGH |
+| Estado API | 2/8 operativos (oscilatorio) | 🟡 MEDIUM |
+| Estabilidad | 84/100 (meseta de 11 días) | 🟢 HIGH |
+| Nivel de riesgo | MEDIUM (47 en total) | 🟡 MEDIUM |
+| Progreso del receso | 61% (11/18 días) | 🟢 HIGH |
+| Total ejecuciones hoy | 8 ejecuciones de flujo de trabajo | 🟢 HIGH |
+| Feed eurodiputados | 737 estables | 🟢 HIGH |
+
+---
+
+### ⚠️ Instantánea de Riesgos
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 Principales Desencadenantes Prospectivos (próximos 9 días hasta el final del receso)
+
+1. **8–10 de abril — ventana completa de recuperación API** (55% de probabilidad).
+2. **13 de abril — Lunes de Pascua semana 2** — primer día laborable fuera de Pascua; reactivación esperada.
+3. **14 de abril — Semana de comisiones se abre** — zona de convergencia día 1.
+4. **15 de abril — Aranceles de EE. UU. T-0** — choque exógeno fuera del control del PE.
+5. **17 de abril — Decisión de tipos del BCE** — activación del contexto económico.
+
+---
+
+### 🛡️ Evaluación de la Calidad de las Fuentes
+
+- **Observación de oscilación (A1):** Triangulación directa de la ejecución 4 a través de 4 ejecuciones breaking del día.
+- **Consistencia en 8 ejecuciones (A1):** metodología sistemática entre ejecuciones; verificable.
+- **Estabilidad del corpus previo al receso (A1):** 85–86 textos adoptados en 4 ejecuciones.
+- **Feed eurodiputados 737 (A1):** registro primario; única línea de base confiable.
+- **Confianza neta:** 🟢 HIGH para el análisis de consistencia; 🟡 MEDIUM para la interpretación de la oscilación.
+
+---
+
+### 📎 Artefactos de la Ejecución
+
+| Capa | Artefacto | Por qué |
+|------|-----------|---------|
+| Artículo | `article.md` | Narrativa de cierre público |
+| Síntesis | `synthesis-summary.md` | Consolidación de 8 ejecuciones + consistencia entre ejecuciones |
+| Métodos | classification · existing · risk-scoring · threat-assessment | Suite estándar de monitorización del receso |
+| Compañero | Las otras 7 ejecuciones del lunes de Pascua (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | Pila de inteligencia diaria |
+
+---
+
+**Control del Documento**
+- **Referencia de plantilla:** `analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **Clasificación:** Público
+- **Retrospectivo:** Informe redactado el 2026-05-16 a partir de los artefactos confirmados de la ejecución; **no se realizaron nuevas llamadas MCP**.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Ajo 4 on pääsiäismaanantain *päivittäinen tiedustelun sulkeminen* — 18 päivän tauon intensiivisimmin seurattu päivä, joka tuotti 8 työnkulkuajoa, yli 61 analyysiartefaktia ja ~16 000+ riviä alkuperäisanalyysiä yksittäisenä kalenteripäivänä ilman parlamentaarista toimintaa.** Ajon erottava panos ei ole *uusi* rakenteellinen löydös (ne vahvistettiin ajoissa 1–3), vaan **konsolidoitu ristiinvertailuanalyysi**, joka validoi päivän kolme löydöstä toisiaan vasten: **(1) Adopted-texts-päätepisteen oskillaatio vahvistettu** — virhe 00:33 → onnistuminen 12:15 → virhe uudelleen 18:18, laadullisesti erilainen signaali kuin johdonmukaiset 404-virheet muissa päätepisteissä, viitaten aktiiviseen huoltoon eikä kuolleeseen infrastruktuuriin; **(2) 85–86 adopted-texts-liukuhihna vakaa** kaikissa neljässä breaking-ajossa — 42 vuodelta 2026 (TA-10-2026-0035 alkaen TA-10-2026-0104 saakka), 36 vuodelta 2025, 7 vanhaa EP9-2024-kohdetta; **(3) EP-jäsensyöte ainoana luotettavana peruslinjana** (737 vakaana, ei ryhmänvaihtotapahtumia). Sulkemisajon *toimituksellinen arvo* on todeta, että **tauon valvontaa voidaan ylläpitää operatiivisesti nollan parlamentaarisen toiminnan aikana** — mikä todistaa tiedusteluputkilinjan resilienssin ja rakenteellisten lukemien arvon jopa institutionaalisen lepotilan aikana. Riskipisteet 47 (MEDIUM); vakaus 84/100 (muuttumaton 11 päivää); tauko 61% suoritettu.
+
+---
+
+### 🧭 3 Päätöstä, joita tämä katsaus tukee
+
+| # | Päätös | Kuka päättää | Määräaika | Todisteet |
+|:-:|--------|--------------|:---------:|-----------|
+| 1 | **API-oskillaation juurisyytutkimus** — laadullisesti erilainen kuin 404-malli; huolto vs. vika | Data-pipeline ops; EP MCP-tiimi | 10. huhtikuuta mennessä | §Löydös 1 (oskillaatio) |
+| 2 | **Ennen taukoa koottu aineisto Q2-suunnittelun ankkurina** — 42 EP10-2026-tekstiä määrittävät toteutusputkilinjan | Puheenjohtajakonferenssi | juoksevasti | §Löydös 2 (liukuhihna vakaa) |
+| 3 | **Tauon valvonnan kestävyysperuslinja** — 8 ajoa/päivä on uusi operatiivinen viite | EP-tiedusteluops | juoksevasti | §Päivittäinen kojelauta |
+
+---
+
+### 📰 60 Sekunnin Luenta
+
+- 🔴 **Pääsiäismaanantain sulkeminen** — 8 työnkulkuajoa, 61+ artefaktia, ~16 000 riviä.
+- 🟠 **API-oskillaatio vahvistettu** — Tila B (virhe) → onnistuminen → virhe uudelleen; uusi signaali.
+- 🟢 **737 EP:n jäsentä vakaana** — ainoa johdonmukaisesti toimiva ensisijäinen syöte.
+- 🟡 **85–86 hyväksyttyä tekstiä vakaana** — 42 vuodelta 2026; +46% VoV-kehitys.
+- 🔵 **Vakaus 84/100 muuttumaton 11 päivää** — rakenteellinen tasanko.
+- 🟣 **Riskipisteet 47 / MEDIUM** — ei kriittisiä, 4 korkeaa, 7 keskitasoa, 4 matalaa.
+- 🩷 **Tauko 61% suoritettu** — Päivä 11/18; T-8 valiokuntaviikkoon.
+- ⚪ **Nolla parlamentaarista toimintaa** — odotettu EU:n laajuinen vapaapäivä.
+
+---
+
+### 📊 Päivittäinen Kojelauta (Ajon 4 erottava panos)
+
+| Indikaattori | Tila | Luotettavuus |
+|--------------|------|-------------|
+| Uutisia | Ei vahvistettuja (×4 tänään) | 🟢 HIGH |
+| API-tila | 2/8 toiminnassa (oskillöivä) | 🟡 MEDIUM |
+| Vakaus | 84/100 (11 päivän tasanko) | 🟢 HIGH |
+| Riskitaso | MEDIUM (47 yhteensä) | 🟡 MEDIUM |
+| Taukoedistyminen | 61% (11/18 päivää) | 🟢 HIGH |
+| Ajoja yhteensä tänään | 8 työnkulkuajoa | 🟢 HIGH |
+| EP-jäsensyöte | 737 vakaana | 🟢 HIGH |
+
+---
+
+### ⚠️ Riskikatsaus
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 Tärkeimmät Tulevat Laukaisijat (seuraavat 9 päivää tauon loppuun)
+
+1. **8.–10. huhtikuuta — täysi API-palautumisikkuna** (55% todennäköisyys).
+2. **13. huhtikuuta — Pääsiäismaanantai viikko 2** — ensimmäinen arkipäivä pääsiäisen ulkopuolella; reaktivointi odotettavissa.
+3. **14. huhtikuuta — Valiokuntaviikko alkaa** — konvergenssivyöhyke päivä 1.
+4. **15. huhtikuuta — USA:n tullit T-0** — eksogeeinen shokki EP:n kontrollin ulkopuolella.
+5. **17. huhtikuuta — EKP:n korkopäätös** — taloudellisen kontekstin aktivointi.
+
+---
+
+### 🛡️ Lähdekvaliteetin Arviointi
+
+- **Oskillaatiohavainto (A1):** Ajo 4 suora kolmiomittaus neljän päivän breaking-ajon välillä.
+- **8 ajon johdonmukaisuus (A1):** systemaattinen ristiinvertailumenetelmä; todennettavissa.
+- **Ennen taukoa kootun aineiston vakaus (A1):** 85–86 hyväksyttyä tekstiä neljässä ajossa.
+- **EP-jäsensyöte 737 (A1):** ensisijainen rekisteri; ainoa luotettava peruslinja.
+- **Nettovarmuus:** 🟢 HIGH johdonmukaisuusanalyysille; 🟡 MEDIUM oskillaatiotulkinnalle.
+
+---
+
+### 📎 Ajoartefaktit
+
+| Kerros | Artefakti | Miksi |
+|--------|-----------|-------|
+| Artikkeli | `article.md` | Julkinen sulkemiskertomus |
+| Synteesi | `synthesis-summary.md` | 8-ajon konsolidointi + ristiinjohdonmukaisuus |
+| Menetelmät | classification · existing · risk-scoring · threat-assessment | Vakiomuotoinen taukojen valvontasarja |
+| Kumppani | Kaikki 7 muuta pääsiäismaanantaiajoa (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | Päivittäinen tiedustelupino |
+
+---
+
+**Asiakirjan hallinta**
+- **Malliviite:** `analysis/templates/executive-brief.md`
+- **Artefaktipolku:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **Luokitus:** Julkinen
+- **Retrospektiivi:** Katsaus kirjoitettu 2026-05-16 ajon vahvistettujen artefaktien pohjalta; **uusia MCP-kutsuja ei tehty**.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**L'exécution 4 est la *clôture quotidienne du renseignement* du lundi de Pâques — le jour le plus intensément surveillé des 18 jours de suspension, produisant 8 exécutions de workflow, 61+ artefacts d'analyse et ~16 000+ lignes d'analyse originale d'une seule journée civile sans activité parlementaire.** La contribution distinctive de l'exécution n'est *pas* un nouveau constat structurel (ceux-ci ont été établis dans les exécutions 1–3) mais l'**analyse de cohérence inter-exécutions consolidée** qui valide les trois constats de la journée les uns contre les autres : **(1) Oscillation du point de terminaison adopted-texts confirmée** — échec 00:33 → succès 12:15 → échec à nouveau 18:18, un signal qualitativement différent des erreurs 404 constantes sur d'autres points de terminaison, suggérant une maintenance active plutôt qu'une infrastructure morte ; **(2) Pipeline de 85–86 adopted-texts stable** sur les quatre exécutions breaking — 42 de 2026 (TA-10-2026-0035 à TA-10-2026-0104), 36 de 2025, 7 éléments hérités EP9-2024 ; **(3) Flux MEP comme seule base de référence fiable** (737 stables, aucun changement de groupe). La *valeur éditoriale* de l'exécution de clôture est d'établir que **la surveillance de la suspension peut être opérationnellement maintenue à zéro activité parlementaire** — prouvant la résilience du pipeline de renseignement et la valeur des lectures structurelles même pendant la dormance institutionnelle. Score de risque 47 (MEDIUM) ; stabilité 84/100 (inchangée depuis 11 jours) ; suspension à 61%.
+
+---
+
+### 🧭 3 Décisions que cette note soutient
+
+| # | Décision | Qui décide | Échéance | Preuves |
+|:-:|----------|------------|:--------:|---------|
+| 1 | **Enquête sur la cause profonde de l'oscillation API** — qualitativement différent du schéma 404 ; maintenance vs. défaillance | Ops data-pipeline ; équipe EP MCP | avant le 10 avril | §Constat 1 (oscillation) |
+| 2 | **Corpus pré-suspension comme ancre de planification Q2** — 42 textes EP10-2026 définissent le pipeline d'implémentation | Conférence des présidents | continu | §Constat 2 (pipeline stable) |
+| 3 | **Établir une base de référence de durabilité pour la surveillance de la suspension** — le schéma 8 exécutions/jour est la nouvelle référence opérationnelle | Ops renseignement EP | continu | §Tableau de bord quotidien |
+
+---
+
+### 📰 Lecture en 60 Secondes
+
+- 🔴 **Clôture du lundi de Pâques** — 8 exécutions de workflow, 61+ artefacts, ~16 000 lignes.
+- 🟠 **Oscillation API confirmée** — Mode B (échec) → succès → échec à nouveau ; signal inédit.
+- 🟢 **737 eurodéputés stables** — seul flux primaire constamment opérationnel.
+- 🟡 **85–86 textes adoptés stables** — 42 de 2026 ; trajectoire +46% AoA.
+- 🔵 **Stabilité 84/100 inchangée depuis 11 jours** — plateau structurel.
+- 🟣 **Score de risque 47 / MEDIUM** — aucun critique, 4 élevés, 7 moyens, 4 faibles.
+- 🩷 **Suspension à 61%** — Jour 11/18 ; T-8 avant la semaine de commission.
+- ⚪ **Zéro activité parlementaire** — jour férié européen attendu.
+
+---
+
+### 📊 Tableau de Bord Quotidien (Contribution distinctive de l'exécution 4)
+
+| Indicateur | Statut | Confiance |
+|------------|--------|-----------|
+| Dernières Nouvelles | Aucune confirmée (×4 aujourd'hui) | 🟢 HIGH |
+| Statut API | 2/8 opérationnels (oscillatoire) | 🟡 MEDIUM |
+| Stabilité | 84/100 (plateau de 11 jours) | 🟢 HIGH |
+| Niveau de risque | MEDIUM (47 au total) | 🟡 MEDIUM |
+| Avancement suspension | 61% (11/18 jours) | 🟢 HIGH |
+| Total exécutions aujourd'hui | 8 exécutions de workflow | 🟢 HIGH |
+| Flux eurodéputés | 737 stables | 🟢 HIGH |
+
+---
+
+### ⚠️ Aperçu des Risques
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 Principaux Déclencheurs Prospectifs (9 prochains jours avant la fin de la suspension)
+
+1. **8–10 avril — fenêtre complète de récupération API** (55% de probabilité).
+2. **13 avril — Semaine 2 du lundi de Pâques** — premier jour ouvrable hors Pâques ; réactivation attendue.
+3. **14 avril — Semaine de commission s'ouvre** — zone de convergence jour 1.
+4. **15 avril — Droits de douane américains T-0** — choc exogène hors contrôle du PE.
+5. **17 avril — Décision de taux de la BCE** — activation du contexte économique.
+
+---
+
+### 🛡️ Évaluation de la Qualité des Sources
+
+- **Observation d'oscillation (A1) :** Triangulation directe de l'exécution 4 sur 4 exécutions breaking de la journée.
+- **Cohérence sur 8 exécutions (A1) :** méthodologie systématique inter-exécutions ; vérifiable.
+- **Stabilité du corpus pré-suspension (A1) :** 85–86 textes adoptés sur 4 exécutions.
+- **Flux eurodéputés 737 (A1) :** enregistrement primaire ; seule base de référence fiable.
+- **Confiance nette :** 🟢 HIGH pour l'analyse de cohérence ; 🟡 MEDIUM pour l'interprétation de l'oscillation.
+
+---
+
+### 📎 Artefacts de l'Exécution
+
+| Couche | Artefact | Pourquoi |
+|--------|----------|---------|
+| Article | `article.md` | Narration de clôture publique |
+| Synthèse | `synthesis-summary.md` | Consolidation 8 exécutions + cohérence inter-exécutions |
+| Méthodes | classification · existing · risk-scoring · threat-assessment | Suite standard de surveillance de la suspension |
+| Compagnon | Les 7 autres exécutions du lundi de Pâques (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | Pile de renseignement quotidien |
+
+---
+
+**Contrôle du Document**
+- **Référence du modèle :** `analysis/templates/executive-brief.md`
+- **Chemin de l'artefact :** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **Classification :** Public
+- **Rétrospectif :** Note rédigée le 2026-05-16 à partir des artefacts committés de l'exécution ; **aucun nouvel appel MCP n'a été effectué**.
+
+### Executive Brief He
+
+**סיווג:** OSINT — רשומה פרלמנטרית ציבורית
+**רמת ביטחון:** 🟡 MEDIUM (הפסקה; API תנודתי; ציון סיכון 47 / MEDIUM)
+**ריצה:** `analysis/daily/2026-04-06/breaking-4/` (18:18 UTC)
+**כיסוי:** הפסקת פסחא יום 11/18 סגירה — איחוד 4 breaking + committee-reports + propositions + ריצות מורחבות (8 בסך הכל)
+**נוצר:** 2026-05-16 (סיכום רטרוספקטיבי, ללא קריאות MCP חדשות)
+**מקורות ראשוניים:** 61+ חפצי ניתוח, ~16,000 שורות על פני 8 ריצות; עדכון adopted-texts תנודתי; 737 חברי הפרלמנט האירופי יציבים.
+
+---
+
+### 🎯 BLUF
+
+**ריצה 4 היא *הסגירה המודיעינית היומית* של יום שני של פסחא — היום המנוטר ביותר בהפסקה של 18 יום, עם 8 ריצות של תהליך עבודה, 61+ חפצי ניתוח ו~16,000+ שורות ניתוח מקורי ביום לוח שנה אחד ללא פעילות פרלמנטרית.** התרומה הייחודית של הריצה אינה *ממצא מבני חדש* (אלה נקבעו בריצות 1–3) אלא **ניתוח עקביות מאוחד בין ריצות** המאמת את שלושת ממצאי היום זה כנגד זה: **(1) תנודה בנקודת הקצה של adopted-texts אושרה** — כשל 00:33 ← הצלחה 12:15 ← כשל שוב 18:18, אות שונה מבחינה איכותית מטעויות 404 עקביות בנקודות קצה אחרות, המרמז על תחזוקה פעילה ולא תשתית מתה; **(2) צינור 85–86 adopted-texts יציב** בכל ארבע ריצות breaking — 42 מ-2026 (TA-10-2026-0035 עד TA-10-2026-0104), 36 מ-2025, 7 פריטי EP9-2024 ישנים; **(3) עדכון חברי הפרלמנט כבסיס הסמוך היחיד** (737 יציבים, ללא אירועי מעבר קבוצה). *הערך העריכתי* של ריצת הסגירה הוא לקבוע ש**ניטור ההפסקה יכול להיות מתוחזק תפעולית בפעילות פרלמנטרית אפסית** — הוכחת חוסן צינור המודיעין וערך הקריאות המבניות אפילו בתקופות של שינה מוסדית. ציון סיכון 47 (MEDIUM); יציבות 84/100 (ללא שינוי 11 יום); הפסקה 61% הושלמה.
+
+---
+
+### 🧭 3 החלטות שסיכום זה תומך בהן
+
+| # | החלטה | מי מחליט | מועד אחרון | עדויות |
+|:-:|-------|---------|:----------:|--------|
+| 1 | **חקירת גורם שורש של תנודת API** — שונה מבחינה איכותית מדפוס 404; תחזוקה לעומת תקלה | Ops של צינור הנתונים; צוות EP MCP | עד 10 באפריל | §ממצא 1 (תנודה) |
+| 2 | **אוסף לפני ההפסקה כעוגן תכנון Q2** — 42 טקסטים EP10-2026 מגדירים את צינור היישום | ועידת הנשיאים | מתמשך | §ממצא 2 (צינור יציב) |
+| 3 | **הקמת קו בסיס קיימות לניטור הפסקה** — דפוס 8 ריצות/יום הוא ייחוס תפעולי חדש | Ops מודיעין EP | מתמשך | §לוח מחוונים יומי |
+
+---
+
+### 📰 קריאה של 60 שניות
+
+- 🔴 **סגירת יום שני של פסחא** — 8 ריצות של תהליך עבודה, 61+ חפצים, ~16,000 שורות.
+- 🟠 **תנודת API אושרה** — מצב B (כשל) ← הצלחה ← כשל שוב; אות חדש.
+- 🟢 **737 חברי הפרלמנט יציבים** — עדכון ראשוני פעיל באופן עקבי בלבד.
+- 🟡 **85–86 טקסטים שאומצו יציבים** — 42 מ-2026; מסלול +46% שנה לשנה.
+- 🔵 **יציבות 84/100 ללא שינוי 11 יום** — רמה מבנית.
+- 🟣 **ציון סיכון 47 / MEDIUM** — ללא קריטיים, 4 גבוהים, 7 בינוניים, 4 נמוכים.
+- 🩷 **הפסקה 61% הושלמה** — יום 11/18; T-8 לשבוע הוועדות.
+- ⚪ **פעילות פרלמנטרית אפסית** — חג רחב-אירופי צפוי.
+
+---
+
+### 📊 לוח מחוונים יומי (תרומה ייחודית של ריצה 4)
+
+| מחוון | סטטוס | רמת ביטחון |
+|-------|-------|------------|
+| חדשות אחרונות | אין מאושרות (×4 היום) | 🟢 HIGH |
+| סטטוס API | 2/8 פעילים (תנודתי) | 🟡 MEDIUM |
+| יציבות | 84/100 (רמה של 11 יום) | 🟢 HIGH |
+| רמת סיכון | MEDIUM (47 סה"כ) | 🟡 MEDIUM |
+| התקדמות הפסקה | 61% (11/18 ימים) | 🟢 HIGH |
+| סה"כ ריצות היום | 8 ריצות של תהליך עבודה | 🟢 HIGH |
+| עדכון חברים | 737 יציבים | 🟢 HIGH |
+
+---
+
+### ⚠️ תמונת מצב סיכונים
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 טריגרים עתידיים מובילים (9 הימים הבאים עד סוף ההפסקה)
+
+1. **8–10 באפריל — חלון שיחזור API מלא** (הסתברות 55%).
+2. **13 באפריל — שבוע 2 של יום שני של פסחא** — יום עבודה ראשון מחוץ לחג; שחזור פעילות צפוי.
+3. **14 באפריל — פתיחת שבוע הוועדות** — יום 1 של אזור ההתכנסות.
+4. **15 באפריל — מכסי ארה"ב T-0** — זעזוע אקסוגני מחוץ לשליטת הפרלמנט האירופי.
+5. **17 באפריל — החלטת ריבית של הבנק המרכזי האירופי** — הפעלת הקשר כלכלי.
+
+---
+
+### 🛡️ הערכת איכות המקורות
+
+- **תצפית תנודה (A1):** ריצה 4 בשיטת משולש ישיר על פני 4 ריצות breaking של היום.
+- **עקביות 8 ריצות (A1):** מתודולוגיה שיטתית בין ריצות; ניתנת לאימות.
+- **יציבות אוסף לפני ההפסקה (A1):** 85–86 טקסטים שאומצו על פני 4 ריצות.
+- **עדכון חברים 737 (A1):** רשומה ראשונית; בסיס הסמוך היחיד הניתן לסמוך עליו.
+- **ביטחון נטו:** 🟢 HIGH לניתוח עקביות; 🟡 MEDIUM לפרשנות תנודה.
+
+---
+
+### 📎 חפצי הריצה
+
+| שכבה | חפץ | מדוע |
+|------|-----|------|
+| מאמר | `article.md` | נרטיב סגירה ציבורי |
+| סינתזה | `synthesis-summary.md` | איחוד 8 ריצות + עקביות בין ריצות |
+| שיטות | classification · existing · risk-scoring · threat-assessment | ערכת ניטור הפסקה סטנדרטית |
+| מלווה | כל 7 ריצות יום שני של פסחא האחרות (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | מחסנית מודיעין יומית |
+
+---
+
+**בקרת מסמך**
+- **אסמכתת תבנית:** `analysis/templates/executive-brief.md`
+- **נתיב חפץ:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **סיווג:** ציבורי
+- **רטרוספקטיבי:** הסיכום נכתב ב-2026-05-16 מחפצי הריצה שהועברו; **לא בוצעו קריאות MCP חדשות**.
+
+### Executive Brief Ja
+
+**分類：** OSINT — 公開議会記録
+**信頼度：** 🟡 MEDIUM（休会期間；API振動；リスクスコア 47 / MEDIUM）
+**実行：** `analysis/daily/2026-04-06/breaking-4/`（18:18 UTC）
+**対象範囲：** イースター休会 第11/18日 クロージング — 4回のbreaking + committee-reports + propositions + 拡張実行（計8回）の統合
+**生成：** 2026-05-16（遡及的ブリーフ、新規MCPコールなし）
+**主要ソース：** 61件以上の分析アーティファクト、8回の実行にわたる約16,000行；振動するadopted-textsフィード；737名のMEPが安定。
+
+---
+
+### 🎯 BLUF（結論先行）
+
+**第4回実行は、イースターマンデーの*日次インテリジェンス・クロージング*であり、18日間の休会中で最も集中的に監視された日である。8回のワークフロー実行、61件以上の分析アーティファクト、そして議会活動がゼロの1日に約16,000行以上の独自分析を生み出した。** この実行の特筆すべき貢献は、新しい構造的知見（これらは第1〜3回実行で確立された）ではなく、今日の3つの知見を相互に検証する**統合的クロスラン一貫性分析**である。**(1) adopted-textsエンドポイントの振動が確認された** — 00:33 失敗 → 12:15 成功 → 18:18 再び失敗。これは他のエンドポイントで継続する404エラーとは質的に異なるシグナルであり、インフラ障害ではなく積極的なメンテナンスを示唆する。**(2) 85〜86件のadopted-textsパイプラインは全4回のbreaking実行を通じて安定** — 2026年から42件（TA-10-2026-0035からTA-10-2026-0104まで）、2025年から36件、EP9-2024のレガシーアイテム7件。**(3) MEPフィードが唯一の信頼できるベースライン**（737名安定、グループ変更イベントなし）。クロージング実行の*編集上の価値*は、**議会活動がゼロの状態でも休会監視を運用的に維持できること**を確立したことにある。これにより、インテリジェンスパイプラインのレジリエンスと、機関が休眠状態にある時でも構造的読取が価値を持つことが証明された。リスクスコア 47（MEDIUM）；安定度 84/100（11日間変化なし）；休会 61%完了。
+
+---
+
+### 🧭 このブリーフが支援する3つの意思決定
+
+| # | 決定事項 | 意思決定者 | 期限 | 根拠 |
+|:-:|---------|----------|:---:|------|
+| 1 | **API振動の根本原因調査** — 404パターンとは質的に異なる；メンテナンスか障害か | データパイプラインOps；EP MCPチーム | 4月10日まで | §知見1（振動） |
+| 2 | **休会前コーパスをQ2計画の錨として活用** — 42件のEP10-2026テキストが実装パイプラインを定義 | 議長会議 | 継続中 | §知見2（パイプライン安定） |
+| 3 | **休会監視の持続可能性ベースラインの確立** — 1日8回実行パターンが新たな運用上の基準 | EPインテリジェンスOps | 継続中 | §日次ダッシュボード |
+
+---
+
+### 📰 60秒で読む
+
+- 🔴 **イースターマンデー・クロージング** — 8回のワークフロー実行、61件以上のアーティファクト、約16,000行。
+- 🟠 **API振動確認** — モードB（失敗）→ 成功 → 再び失敗；新しいシグナル。
+- 🟢 **737名のMEP安定** — 唯一の継続的に運用中の主要フィード。
+- 🟡 **85〜86件の採択テキスト安定** — 2026年から42件；前年比+46%軌道。
+- 🔵 **安定度 84/100、11日間変化なし** — 構造的プラトー。
+- 🟣 **リスクスコア 47 / MEDIUM** — 重大なし、高4件、中7件、低4件。
+- 🩷 **休会 61%完了** — 第11/18日；委員会週まであとT-8。
+- ⚪ **議会活動ゼロ** — EU全域の祝日のため想定内。
+
+---
+
+### 📊 日次ダッシュボード（第4回実行の特筆すべき貢献）
+
+| 指標 | ステータス | 信頼度 |
+|-----|----------|--------|
+| ブレイキングニュース | 確認なし（本日×4） | 🟢 HIGH |
+| APIステータス | 2/8 運用中（振動） | 🟡 MEDIUM |
+| 安定度 | 84/100（11日間のプラトー） | 🟢 HIGH |
+| リスクレベル | MEDIUM（合計47） | 🟡 MEDIUM |
+| 休会進捗 | 61%（11/18日） | 🟢 HIGH |
+| 本日の総実行回数 | 8回のワークフロー実行 | 🟢 HIGH |
+| MEPフィード | 737名安定 | 🟢 HIGH |
+
+---
+
+### ⚠️ リスクスナップショット
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 上位先行トリガー（休会終了まで残り9日間）
+
+1. **4月8〜10日 — 完全なAPI復旧ウィンドウ**（確率55%）。
+2. **4月13日 — イースターマンデー第2週** — イースター明け最初の平日；再稼働が見込まれる。
+3. **4月14日 — 委員会週開幕** — 収束ゾーン第1日。
+4. **4月15日 — 米国関税T-0** — EP制御外の外生的ショック。
+5. **4月17日 — ECB金利決定** — 経済的コンテキストの発動。
+
+---
+
+### 🛡️ ソース品質評価
+
+- **振動観測（A1）：** 第4回実行が当日の4回のbreaking実行を直接三角測量。
+- **8回実行の一貫性（A1）：** 体系的なクロスラン手法；検証可能。
+- **休会前コーパスの安定性（A1）：** 4回の実行で85〜86件の採択テキスト。
+- **MEPフィード 737（A1）：** 主要記録；唯一の信頼できるベースライン。
+- **総合信頼度：** 🟢 HIGH（一貫性分析）；🟡 MEDIUM（振動解釈）。
+
+---
+
+### 📎 実行アーティファクト
+
+| レイヤー | アーティファクト | 理由 |
+|---------|---------------|------|
+| 記事 | `article.md` | 公開クロージングナラティブ |
+| 統合 | `synthesis-summary.md` | 8回実行統合 + クロスラン一貫性 |
+| 方法論 | classification · existing · risk-scoring · threat-assessment | 標準的な休会監視スイート |
+| コンパニオン | その他7回のイースターマンデー実行（breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended） | 日次インテリジェンスパイプライン |
+
+---
+
+**文書管理**
+- **テンプレート参照：** `analysis/templates/executive-brief.md`
+- **アーティファクトパス：** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **分類：** 公開
+- **遡及的記録：** このブリーフは、実行のコミット済みアーティファクトから2026-05-16に作成；**新規MCPコールは行われなかった**。
+
+### Executive Brief Ko
+
+**분류:** OSINT — 공개 의회 기록
+**신뢰도:** 🟡 MEDIUM (휴회; API 진동; 위험 점수 47 / MEDIUM)
+**실행:** `analysis/daily/2026-04-06/breaking-4/` (18:18 UTC)
+**적용 범위:** 부활절 휴회 11/18일 마감 — 4회 breaking + committee-reports + propositions + 확장 실행(총 8회) 통합
+**생성:** 2026-05-16 (소급 요약, 새 MCP 호출 없음)
+**주요 출처:** 61개 이상의 분석 아티팩트, 8회 실행에 걸친 약 16,000줄; 진동하는 adopted-texts 피드; 737명의 유럽의회 의원 안정.
+
+---
+
+### 🎯 BLUF(결론 요약)
+
+**4번째 실행은 부활절 월요일의 *일일 정보 마감*으로 — 18일 휴회 기간 중 가장 집중적으로 모니터링된 날이다. 의회 활동이 전혀 없는 단 하루에 8회의 워크플로 실행, 61개 이상의 분석 아티팩트, ~16,000줄 이상의 독창적인 분석물을 산출했다.** 이번 실행의 독특한 기여는 *새로운* 구조적 발견이 아니라(이는 1~3번 실행에서 확립됨), 하루의 세 가지 발견을 상호 검증하는 **통합된 교차 실행 일관성 분석**이다. **(1) adopted-texts 엔드포인트 진동 확인** — 실패 00:33 → 성공 12:15 → 다시 실패 18:18. 이는 다른 엔드포인트의 일관된 404 오류와는 질적으로 다른 신호로, 죽은 인프라가 아닌 능동적 유지보수를 시사한다. **(2) 85~86개의 adopted-texts 파이프라인 안정** — 4회의 breaking 실행 전체에 걸쳐: 2026년의 42건(TA-10-2026-0035~TA-10-2026-0104), 2025년의 36건, EP9-2024 레거시 7건. **(3) MEP 피드가 유일하게 신뢰할 수 있는 기준선**(737명 안정, 그룹 변경 없음). 마감 실행의 *편집 가치*는 **의회 활동이 제로인 상태에서도 휴회 모니터링을 운영적으로 유지할 수 있음**을 확립한 것이다. 이는 정보 파이프라인의 탄력성과 기관 휴면 기간에도 구조적 판독이 가치 있음을 증명한다. 위험 점수 47(MEDIUM); 안정성 84/100(11일간 변화 없음); 휴회 61% 완료.
+
+---
+
+### 🧭 이 요약이 지원하는 3가지 결정
+
+| # | 결정 사항 | 결정권자 | 기한 | 근거 |
+|:-:|---------|---------|:---:|------|
+| 1 | **API 진동 근본 원인 조사** — 404 패턴과 질적으로 다름; 유지보수 대 장애 | 데이터 파이프라인 운영; EP MCP 팀 | 4월 10일까지 | §발견 1 (진동) |
+| 2 | **휴회 이전 코퍼스를 Q2 계획의 닻으로 활용** — 42개의 EP10-2026 텍스트가 구현 파이프라인을 정의 | 의장단 회의 | 지속 | §발견 2 (파이프라인 안정) |
+| 3 | **휴회 모니터링 지속 가능성 기준선 수립** — 하루 8회 실행 패턴이 새로운 운영 기준 | EP 정보 운영 | 지속 | §일일 대시보드 |
+
+---
+
+### 📰 60초 읽기
+
+- 🔴 **부활절 월요일 마감** — 8회 워크플로 실행, 61개 이상 아티팩트, ~16,000줄.
+- 🟠 **API 진동 확인** — 모드 B(실패) → 성공 → 다시 실패; 새로운 신호.
+- 🟢 **737명의 의원 안정** — 유일하게 지속적으로 운영 중인 주요 피드.
+- 🟡 **85~86개의 채택 텍스트 안정** — 2026년 42건; 전년 대비 +46% 궤도.
+- 🔵 **안정성 84/100 — 11일간 변화 없음** — 구조적 고원.
+- 🟣 **위험 점수 47 / MEDIUM** — 치명적 없음, 높음 4건, 중간 7건, 낮음 4건.
+- 🩷 **휴회 61% 완료** — 11/18일; 위원회 주간까지 T-8.
+- ⚪ **의회 활동 제로** — 예상되는 EU 전체 공휴일.
+
+---
+
+### 📊 일일 대시보드 (4번 실행의 독특한 기여)
+
+| 지표 | 상태 | 신뢰도 |
+|-----|------|--------|
+| 속보 | 확인 없음 (오늘 ×4) | 🟢 HIGH |
+| API 상태 | 2/8 운영 중 (진동) | 🟡 MEDIUM |
+| 안정성 | 84/100 (11일 고원) | 🟢 HIGH |
+| 위험 수준 | MEDIUM (총 47) | 🟡 MEDIUM |
+| 휴회 진행률 | 61% (11/18일) | 🟢 HIGH |
+| 오늘 총 실행 횟수 | 8회 워크플로 실행 | 🟢 HIGH |
+| MEP 피드 | 737명 안정 | 🟢 HIGH |
+
+---
+
+### ⚠️ 위험 스냅샷
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 상위 선행 트리거 (휴회 종료까지 남은 9일)
+
+1. **4월 8~10일 — 완전한 API 복구 창** (확률 55%).
+2. **4월 13일 — 부활절 월요일 2주차** — 부활절 이후 첫 평일; 재활성화 예상.
+3. **4월 14일 — 위원회 주간 개막** — 수렴 구역 1일차.
+4. **4월 15일 — 미국 관세 T-0** — EP 통제 밖의 외생적 충격.
+5. **4월 17일 — ECB 금리 결정** — 경제적 맥락 활성화.
+
+---
+
+### 🛡️ 출처 품질 평가
+
+- **진동 관측(A1):** 당일 4회 breaking 실행 전체에 걸친 4번 실행의 직접 삼각 측량.
+- **8회 실행 일관성(A1):** 체계적인 교차 실행 방법론; 검증 가능.
+- **휴회 이전 코퍼스 안정성(A1):** 4회 실행에 걸쳐 85~86개의 채택 텍스트.
+- **MEP 피드 737(A1):** 주요 기록; 유일하게 신뢰할 수 있는 기준선.
+- **순 신뢰도:** 🟢 HIGH(일관성 분석); 🟡 MEDIUM(진동 해석).
+
+---
+
+### 📎 실행 아티팩트
+
+| 레이어 | 아티팩트 | 이유 |
+|-------|---------|------|
+| 기사 | `article.md` | 공개 마감 서술 |
+| 종합 | `synthesis-summary.md` | 8회 실행 통합 + 교차 실행 일관성 |
+| 방법론 | classification · existing · risk-scoring · threat-assessment | 표준 휴회 모니터링 패키지 |
+| 동반 | 다른 7회의 부활절 월요일 실행 (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | 일일 정보 스택 |
+
+---
+
+**문서 관리**
+- **템플릿 참조:** `analysis/templates/executive-brief.md`
+- **아티팩트 경로:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **분류:** 공개
+- **소급적:** 이 요약은 실행의 커밋된 아티팩트로부터 2026-05-16에 작성됨; **새로운 MCP 호출은 이루어지지 않았습니다**.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**Uitvoering 4 is de *dagelijkse inlichtingenafsluiting* van Tweede Paasdag — de meest intensief gemonitorde dag van de 18-daagse reces, met 8 workflowuitvoeringen, 61+ analyseartefacten en ~16.000+ regels originele analyse van één enkele kalenderdag zonder parlementaire activiteit.** De onderscheidende bijdrage van de uitvoering is *geen* nieuw structureel bevinding (die werden vastgesteld in uitvoeringen 1–3) maar de **geconsolideerde kruisuitvoeringsanalyse** die de drie bevindingen van de dag tegen elkaar valideert: **(1) Oscillatie van het adopted-texts-eindpunt bevestigd** — fout 00:33 → succes 12:15 → fout opnieuw 18:18, een kwalitatief ander signaal dan consistente 404-fouten op andere eindpunten, wat duidt op actief onderhoud in plaats van dode infrastructuur; **(2) 85–86 adopted-texts pipeline stabiel** over alle vier breaking-uitvoeringen — 42 uit 2026 (TA-10-2026-0035 tot TA-10-2026-0104), 36 uit 2025, 7 legacy EP9-2024 items; **(3) EP-ledenfeed als enige betrouwbare basislijn** (737 stabiel, geen groepswisselevenementen). De *redactionele waarde* van de afsluitingsuitvoering is vast te stellen dat **recesmonitoring operationeel kan worden gehandhaafd bij nul parlementaire activiteit** — wat de veerkracht van de inlichtingenpipeline en de waarde van structurele metingen zelfs tijdens institutionele slaapstand bewijst. Risicoscore 47 (MEDIUM); stabiliteit 84/100 (onveranderd gedurende 11 dagen); reces 61% voltooid.
+
+---
+
+### 🧭 3 Beslissingen die deze samenvatting ondersteunt
+
+| # | Beslissing | Wie beslist | Deadline | Bewijs |
+|:-:|------------|-------------|:--------:|--------|
+| 1 | **Grondoorzaakonderzoek naar API-oscillatie** — kwalitatief anders dan 404-patroon; onderhoud vs. fout | Data-pipeline ops; EP MCP-team | voor 10 april | §Bevinding 1 (oscillatie) |
+| 2 | **Pre-reces corpus als Q2-planningsanker** — 42 EP10-2026 teksten definiëren implementatiepipeline | Conferentie van Voorzitters | doorlopend | §Bevinding 2 (pipeline stabiel) |
+| 3 | **Duurzaamheidsbasislijn voor recesmonitoring vaststellen** — 8-uitvoeringen/dag patroon is de nieuwe operationele referentie | EP inlichtingenops | doorlopend | §Dagelijks dashboard |
+
+---
+
+### 📰 60-Seconden Lezen
+
+- 🔴 **Tweede Paasdag afsluiting** — 8 workflowuitvoeringen, 61+ artefacten, ~16.000 regels.
+- 🟠 **API-oscillatie bevestigd** — Modus B (fout) → succes → fout opnieuw; nieuw signaal.
+- 🟢 **737 EP-leden stabiel** — enige consistent operationele primaire feed.
+- 🟡 **85–86 aangenomen teksten stabiel** — 42 uit 2026; +46% JoJ-traject.
+- 🔵 **Stabiliteit 84/100 onveranderd gedurende 11 dagen** — structureel plateau.
+- 🟣 **Risicoscore 47 / MEDIUM** — geen kritieke, 4 hoge, 7 gemiddelde, 4 lage.
+- 🩷 **Reces 61% voltooid** — Dag 11/18; T-8 naar commissieweek.
+- ⚪ **Nul parlementaire activiteit** — verwachte EU-brede feestdag.
+
+---
+
+### 📊 Dagelijks Dashboard (Onderscheidende bijdrage van uitvoering 4)
+
+| Indicator | Status | Betrouwbaarheid |
+|-----------|--------|-----------------|
+| Laatste Nieuws | Geen bevestigd (×4 vandaag) | 🟢 HIGH |
+| API-status | 2/8 operationeel (oscillerend) | 🟡 MEDIUM |
+| Stabiliteit | 84/100 (11-daags plateau) | 🟢 HIGH |
+| Risiconiveau | MEDIUM (47 totaal) | 🟡 MEDIUM |
+| Recesvoortgang | 61% (11/18 dagen) | 🟢 HIGH |
+| Totale uitvoeringen vandaag | 8 workflowuitvoeringen | 🟢 HIGH |
+| EP-ledenfeed | 737 stabiel | 🟢 HIGH |
+
+---
+
+### ⚠️ Risico-overzicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 Top Vooruitblikkende Triggers (volgende 9 dagen tot recesseinde)
+
+1. **8–10 april — volledig API-herstelvenster** (55% kans).
+2. **13 april — Tweede Paasdag week 2** — eerste werkdag buiten Pasen; reactivering verwacht.
+3. **14 april — Commissieweek opent** — convergentiezone dag 1.
+4. **15 april — VS-tarieven T-0** — exogene schok buiten EP-controle.
+5. **17 april — ECB-rentebesluit** — activering van economische context.
+
+---
+
+### 🛡️ Beoordeling van Bronnenkwaliteit
+
+- **Oscillatieobservatie (A1):** Uitvoering 4 directe triangulatie over 4 breaking-uitvoeringen van de dag.
+- **8-uitvoeringen consistentie (A1):** systematische kruisuitvoeringsmethodologie; verifieerbaar.
+- **Pre-reces corpusstabiliteit (A1):** 85–86 aangenomen teksten over 4 uitvoeringen.
+- **EP-ledenfeed 737 (A1):** primaire record; enige betrouwbare basislijn.
+- **Netto-betrouwbaarheid:** 🟢 HIGH voor consistentieanalyse; 🟡 MEDIUM voor oscillatie-interpretatie.
+
+---
+
+### 📎 Uitvoeringsartefacten
+
+| Laag | Artefact | Waarom |
+|------|----------|--------|
+| Artikel | `article.md` | Openbare afsluitingsnarratief |
+| Synthese | `synthesis-summary.md` | 8-uitvoeringen consolidatie + kruisuitvoeringsconsisentie |
+| Methoden | classification · existing · risk-scoring · threat-assessment | Standaard recesmonitoringssuite |
+| Metgezel | Alle 7 andere Tweede Paasdag uitvoeringen (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | Dagelijkse inlichtingenstack |
+
+---
+
+**Documentbeheer**
+- **Sjabloonreferentie:** `analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectief:** Samenvatting geschreven op 2026-05-16 vanuit de gecommitte artefacten van de uitvoering; **er werden geen nieuwe MCP-aanroepen gedaan**.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Kjøring 4 er påskemandagens *daglige etterretningslukking* — den mest intensivt overvåkede dagen i 18-dagers pausen, med 8 arbeidsflytskjøringer, 61+ analyseartefakter og ~16 000+ linjer original analyse fra én enkelt kalenderdag uten parlamentarisk aktivitet.** Kjøringens avgjørende bidrag er *ikke* et nytt strukturelt funn (disse ble fastslått i kjøring 1–3), men den **konsoliderte krysskjøringsanalysen** som validerer dagens tre funn mot hverandre: **(1) Oscillasjon i adopted-texts-endpoint bekreftet** — feil 00:33 → suksess 12:15 → feil igjen 18:18, et kvalitativt annerledes signal enn konsistente 404-feil på andre endpoints, noe som tyder på aktiv vedlikehold snarere enn død infrastruktur; **(2) 85–86 adopted-texts pipeline stabil** på tvers av alle fire breaking-kjøringer — 42 fra 2026 (TA-10-2026-0035 til TA-10-2026-0104), 36 fra 2025, 7 eldre EP9-2024 poster; **(3) EU-parlamentarikerfeed som eneste pålitelige basislinje** (737 stabile, ingen grupperingsbytter). Lukkekjøringens *redaksjonelle verdi* er å fastslå at **pauseovervåking kan opprettholdes operativt ved null parlamentarisk aktivitet** — noe som beviser etterretningspipelinens robusthet og verdien av strukturelle avlesninger selv under institusjonell dvale. Risikoscore 47 (MEDIUM); stabilitet 84/100 (uendret i 11 dager); pause 61% gjennomført.
+
+---
+
+### 🧭 3 Beslutninger denne rapporten støtter
+
+| # | Beslutning | Hvem bestemmer | Frist | Bevis |
+|:-:|------------|----------------|:-----:|-------|
+| 1 | **Rotårsaksundersøkelse av API-oscillasjon** — kvalitativt annerledes enn 404-mønsteret; vedlikehold vs. feil | Data-pipeline ops; EP MCP-team | innen 10. april | §Funn 1 (oscillasjon) |
+| 2 | **Pre-pause-korpus som Q2-planleggingsanker** — 42 EP10-2026 tekster definerer implementeringspipeline | Presidentkonferansen | løpende | §Funn 2 (pipeline stabil) |
+| 3 | **Etabler bærekraftsbasislinje for pauseovervåking** — 8-kjøringer/dag-mønsteret er ny operativ referanse | EP etterretningsops | løpende | §Daglig Dashboard |
+
+---
+
+### 📰 60-Sekunders Lesning
+
+- 🔴 **Påskemandag lukking** — 8 arbeidsflytskjøringer, 61+ artefakter, ~16 000 linjer.
+- 🟠 **API-oscillasjon bekreftet** — Modus B (feil) → suksess → feil igjen; nytt signal.
+- 🟢 **737 EU-parlamentarikere stabile** — eneste konsekvent operativt primærfeed.
+- 🟡 **85–86 vedtatte tekster stabile** — 42 fra 2026; +46% ÅtÅ-utvikling.
+- 🔵 **Stabilitet 84/100 uendret i 11 dager** — strukturelt platå.
+- 🟣 **Risikoscore 47 / MEDIUM** — ingen kritiske, 4 høye, 7 middels, 4 lave.
+- 🩷 **Pause 61% gjennomført** — Dag 11/18; T-8 til komitéuke.
+- ⚪ **Null parlamentarisk aktivitet** — forventet EU-felles helligdag.
+
+---
+
+### 📊 Daglig Dashboard (Kjøring 4s særskilte bidrag)
+
+| Indikator | Status | Konfidens |
+|-----------|--------|-----------|
+| Breaking News | Ingen bekreftet (×4 i dag) | 🟢 HIGH |
+| API-status | 2/8 operative (oscillerende) | 🟡 MEDIUM |
+| Stabilitet | 84/100 (11-dagers platå) | 🟢 HIGH |
+| Risikonivå | MEDIUM (47 totalt) | 🟡 MEDIUM |
+| Pausefremgang | 61% (11/18 dager) | 🟢 HIGH |
+| Totale kjøringer i dag | 8 arbeidsflytskjøringer | 🟢 HIGH |
+| EU-parlamentarikerfeed | 737 stabile | 🟢 HIGH |
+
+---
+
+### ⚠️ Risikooversikt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 Topp Fremoverrettede Utløsere (neste 9 dager til pausens slutt)
+
+1. **8.–10. april — fullt API-gjenopprettingsvindu** (55% sannsynlighet).
+2. **13. april — Påskemandag uke 2** — første hverdag utenfor påsken; reaktivering forventet.
+3. **14. april — Komitéuke åpner** — konvergenssone dag 1.
+4. **15. april — US-toll T-0** — eksogen sjokk utenfor EPs kontroll.
+5. **17. april — ECB-rentebeslutning** — aktivering av økonomisk kontekst.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **Oscillasjonsobservasjon (A1):** Kjøring 4 direkte triangulering på tvers av 4 breaking-kjøringer fra dagen.
+- **8-kjøring konsistens (A1):** systematisk krysskjøringsmetodikk; verifiserbar.
+- **Pre-pause-korpusstabilitet (A1):** 85–86 vedtatte tekster på tvers av 4 kjøringer.
+- **EU-parlamentarikerfeed 737 (A1):** primæroppføring; eneste pålitelige basislinje.
+- **Nettokonfidens:** 🟢 HIGH for konsistensanalyse; 🟡 MEDIUM for oscillasjonstolkning.
+
+---
+
+### 📎 Kjøringsartefakter
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikkel | `article.md` | Offentlig lukkefortelling |
+| Syntese | `synthesis-summary.md` | 8-kjøring konsolidering + krysskjøringskonsistens |
+| Metoder | classification · existing · risk-scoring · threat-assessment | Standard pauseovervåkingssuite |
+| Ledsager | Alle 7 andre påskemandagskjøringer (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | Daglig etterretningsstack |
+
+---
+
+**Dokumentkontroll**
+- **Mallreferanse:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv:** Rapport skrevet 2026-05-16 fra kjøringens committede artefakter; **ingen nye MCP-kall ble gjort**.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Körning 4 är påskdagens *dagliga underrättelsestängning* — den mest intensivt övervakade dagen under 18-dagarsuppehållet, med 8 arbetsflödeskörningar, 61+ analysartefakter och ~16 000+ rader originalanalys från en enda kalenderdag utan parlamentarisk aktivitet.** Körningens viktigaste bidrag är *inte* ett nytt strukturellt fynd (dessa fastslogs i körningarna 1–3) utan den **konsoliderade tvärkörsanalys** som validerar dagens tre fynd mot varandra: **(1) Oscillation i adopted-texts-endpoint bekräftad** — fel 00:33 → framgång 12:15 → fel igen 18:18, en kvalitativt annorlunda signal jämfört med konsekventa 404-fel på andra endpoints, vilket tyder på aktiv underhåll snarare än driftlös infrastruktur; **(2) 85–86 adopted-texts i pipeline stabil** under alla fyra breaking-körningarna — 42 från 2026 (TA-10-2026-0035 till TA-10-2026-0104), 36 från 2025, 7 äldre EP9-2024-poster; **(3) MEP-flöde som enda tillförlitlig baslinje** (737 stabila, inga grupperingsbyten). Stängningskörningens *redaktionella värde* är att fastslå att **övervakning under påskuppehåll kan upprätthållas operativt vid noll parlamentarisk aktivitet** — vilket bevisar intelligenspiplelinens resiliens och värdet av strukturella avläsningar även under institutionell dvala. Riskvärde 47 (MEDIUM); stabilitet 84/100 (oförändrat i 11 dagar); uppehåll 61% genomfört.
+
+---
+
+### 🧭 3 Beslut som denna sammanfattning stödjer
+
+| # | Beslut | Vem beslutar | Tidsgräns | Bevis |
+|:-:|--------|--------------|:---------:|-------|
+| 1 | **Rotorsaksutredning av API-oscillation** — kvalitativt annorlunda från 404-mönster; underhåll kontra fel | Data-pipeline ops; EP MCP-team | senast 10 april | §Fynd 1 (oscillation) |
+| 2 | **Pre-uppehåll-korpus som Q2-planeringsankare** — 42 EP10-2026-texter definierar implementeringspipeline | Ordförandekonferensen | löpande | §Fynd 2 (pipeline stabil) |
+| 3 | **Upprätta hållbarhetsbaslinje för uppehållsövervakning** — 8-körningar/dag-mönster är ny operativ referens | EP underrättelseops | löpande | §Daglig instrumentpanel |
+
+---
+
+### 📰 60-Sekunders Läsning
+
+- 🔴 **Påskdagens stängning** — 8 arbetsflödeskörningar, 61+ artefakter, ~16 000 rader.
+- 🟠 **API-oscillation bekräftad** — Läge B (fel) → framgång → fel igen; ny signal.
+- 🟢 **737 ledamöter stabila** — enda konsekvent fungerande primärflöde.
+- 🟡 **85–86 antagna texter stabila** — 42 från 2026; +46% ÅoÅ-utveckling.
+- 🔵 **Stabilitet 84/100 oförändrat i 11 dagar** — strukturellt platå.
+- 🟣 **Riskvärde 47 / MEDIUM** — inga kritiska, 4 höga, 7 medel, 4 låga.
+- 🩷 **Uppehåll 61% genomfört** — Dag 11/18; T-8 till kommittévecka.
+- ⚪ **Noll parlamentarisk aktivitet** — förväntad EU-gemensam helgdag.
+
+---
+
+### 📊 Daglig Instrumentpanel (Körning 4:s särskiljande bidrag)
+
+| Indikator | Status | Tillförlitlighet |
+|-----------|--------|-----------------|
+| Bry Nyheter | Inga bekräftade (×4 idag) | 🟢 HIGH |
+| API-status | 2/8 operativa (oscillerande) | 🟡 MEDIUM |
+| Stabilitet | 84/100 (11-dagars platå) | 🟢 HIGH |
+| Risknivå | MEDIUM (47 totalt) | 🟡 MEDIUM |
+| Uppehållsframsteg | 61% (11/18 dagar) | 🟢 HIGH |
+| Totala körningar idag | 8 arbetsflödeskörningar | 🟢 HIGH |
+| Ledamötsflöde | 737 stabila | 🟢 HIGH |
+
+---
+
+### ⚠️ Risköversikt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 Topp Framåtblickande Utlösare (nästa 9 dagar till uppehållets slut)
+
+1. **8–10 april — fullt API-återhämtningsfönster** (55% sannolikhet).
+2. **13 april — Påskdagens vecka 2** — första vardagen utanför påsk; reaktivering förväntad.
+3. **14 april — Kommittévecka öppnar** — konvergenszon dag 1.
+4. **15 april — US-tullar T-0** — exogen chock utanför EP:s kontroll.
+5. **17 april — ECB-räntebeslut** — aktivering av ekonomiskt sammanhang.
+
+---
+
+### 🛡️ Källkvalitetsbedömning
+
+- **Oscillationsobservation (A1):** Körning 4 direkt triangulering mellan 4 breaking-körningar under dagen.
+- **8-körningars konsekvens (A1):** systematisk tvärkörsmetodik; verifierbar.
+- **Pre-uppehåll-korpusstabilitet (A1):** 85–86 antagna texter under 4 körningar.
+- **MEP-flöde 737 (A1):** primäruppgift; enda tillförlitliga baslinjen.
+- **Nettotillförlitlighet:** 🟢 HIGH för konsekvensanalys; 🟡 MEDIUM för oscillationstolkning.
+
+---
+
+### 📎 Körningartefakter
+
+| Lager | Artefakt | Varför |
+|-------|----------|--------|
+| Artikel | `article.md` | Offentlig stängningsberättelse |
+| Syntes | `synthesis-summary.md` | 8-körningskonsolidering + tvärkörskonsekvens |
+| Metoder | classification · existing · risk-scoring · threat-assessment | Standardsvit för uppehållsövervakning |
+| Kompanjon | Alla 7 andra påskdagskörningar (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | Daglig underrättelsestack |
+
+---
+
+**Dokumentkontroll**
+- **Mallreferens:** `analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Sammanfattning skriven 2026-05-16 från körningens committade artefakter; **inga nya MCP-anrop gjordes**.
+
+### Executive Brief Zh
+
+**分类：** OSINT — 公开议会记录
+**置信度：** 🟡 MEDIUM（休会期；API振荡；风险评分 47 / MEDIUM）
+**运行：** `analysis/daily/2026-04-06/breaking-4/`（18:18 UTC）
+**覆盖范围：** 复活节休会第11/18天收尾 — 4次breaking + committee-reports + propositions + 扩展运行（共8次）的整合
+**生成时间：** 2026-05-16（回顾性简报，未进行新的MCP调用）
+**主要来源：** 61个以上分析制品，8次运行共约16,000行；adopted-texts数据流振荡；737名欧洲议会议员稳定。
+
+---
+
+### 🎯 直接结论（BLUF）
+
+**第4次运行是复活节星期一的*每日情报收尾* — 18天休会期中监控最密集的一天，在议会活动为零的单个日历日产出了8次工作流运行、61个以上分析制品以及约16,000行以上的原创分析。** 本次运行的独特贡献并非新的结构性发现（这些已在第1至3次运行中确立），而是**整合的跨运行一致性分析**，将当天的三项发现相互验证：**(1) adopted-texts端点振荡已确认** — 00:33失败 → 12:15成功 → 18:18再次失败，这是与其他端点上持续的404错误在性质上截然不同的信号，表明系统处于积极维护状态而非基础设施失效；**(2) 85至86个adopted-texts流水线在全部4次breaking运行中保持稳定** — 2026年42个（TA-10-2026-0035至TA-10-2026-0104），2025年36个，7个EP9-2024历史遗留条目；**(3) 欧洲议会议员数据流是唯一可靠基准**（737名稳定，无政治组更换事件）。收尾运行的*编辑价值*在于确认：**即使在议会活动完全停止期间，也可以持续运营休会监控** — 这证明了情报流水线的韧性以及结构性读数即便在机构休眠期间也具有重要价值。风险评分47（MEDIUM）；稳定性84/100（11天未变化）；休会完成61%。
+
+---
+
+### 🧭 本简报支持的3项决策
+
+| # | 决策 | 决策者 | 截止日期 | 证据 |
+|:-:|------|--------|:-------:|------|
+| 1 | **API振荡根本原因调查** — 与404模式有质的区别；维护与故障之分 | 数据流水线运营；EP MCP团队 | 4月10日前 | §发现1（振荡） |
+| 2 | **休会前语料库作为Q2规划锚点** — 42个EP10-2026文本定义了实施流水线 | 议长会议 | 持续滚动 | §发现2（流水线稳定） |
+| 3 | **建立休会监控可持续性基准** — 每天8次运行模式是新的运营参考标准 | EP情报运营 | 持续滚动 | §每日仪表板 |
+
+---
+
+### 📰 60秒速读
+
+- 🔴 **复活节星期一收尾** — 8次工作流运行，61个以上制品，约16,000行。
+- 🟠 **API振荡已确认** — 模式B（失败）→ 成功 → 再次失败；全新信号。
+- 🟢 **737名议员稳定** — 唯一持续运作的主要数据流。
+- 🟡 **85至86个采纳文本稳定** — 2026年42个；同比+46%走势。
+- 🔵 **稳定性84/100，11天未变化** — 结构性高原期。
+- 🟣 **风险评分47 / MEDIUM** — 无关键风险，4个高风险，7个中风险，4个低风险。
+- 🩷 **休会完成61%** — 第11/18天；距委员会周T-8。
+- ⚪ **议会活动为零** — 欧盟全境预期公共假日。
+
+---
+
+### 📊 每日仪表板（第4次运行的独特贡献）
+
+| 指标 | 状态 | 置信度 |
+|------|------|--------|
+| 突发新闻 | 无已确认（今日×4） | 🟢 HIGH |
+| API状态 | 2/8在线（振荡） | 🟡 MEDIUM |
+| 稳定性 | 84/100（11天高原） | 🟢 HIGH |
+| 风险等级 | MEDIUM（总计47） | 🟡 MEDIUM |
+| 休会进度 | 61%（11/18天） | 🟢 HIGH |
+| 今日总运行次数 | 8次工作流运行 | 🟢 HIGH |
+| 议员数据流 | 737名稳定 | 🟢 HIGH |
+
+---
+
+### ⚠️ 风险快照
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=8ddd2f5c) -->
+
+---
+
+### 🔮 顶级前向触发因素（至休会结束的9天内）
+
+1. **4月8日至10日 — 完整API恢复窗口**（概率55%）。
+2. **4月13日 — 复活节星期一第2周** — 复活节后首个工作日；预计重新激活。
+3. **4月14日 — 委员会周开幕** — 收敛区第1天。
+4. **4月15日 — 美国关税T-0** — EP控制范围以外的外生冲击。
+5. **4月17日 — 欧洲央行利率决定** — 激活经济背景分析。
+
+---
+
+### 🛡️ 信息来源质量评估
+
+- **振荡观测（A1）：** 第4次运行对当天4次breaking运行的直接三角交叉验证。
+- **8次运行一致性（A1）：** 系统性跨运行方法论；可验证。
+- **休会前语料库稳定性（A1）：** 4次运行中85至86个采纳文本。
+- **议员数据流 737（A1）：** 主要记录；唯一可靠基准。
+- **综合置信度：** 🟢 HIGH（一致性分析）；🟡 MEDIUM（振荡解读）。
+
+---
+
+### 📎 运行制品
+
+| 层级 | 制品 | 原因 |
+|------|------|------|
+| 文章 | `article.md` | 公开收尾叙述 |
+| 综合 | `synthesis-summary.md` | 8次运行整合 + 跨运行一致性 |
+| 方法 | classification · existing · risk-scoring · threat-assessment | 标准休会监控套件 |
+| 配套 | 其他7次复活节星期一运行（breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended） | 每日情报堆栈 |
+
+---
+
+**文档控制**
+- **模板参考：** `analysis/templates/executive-brief.md`
+- **制品路径：** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **分类：** 公开
+- **回顾性说明：** 本简报于2026-05-16根据该运行的已提交制品撰写；**未进行新的MCP调用**。
+
 ### Political Swot Analysis
 
 ### SWOT Matrix
@@ -1692,6 +2881,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/risk-matrix.md) | `risk-matrix.md` |
 | section-supplementary-intelligence | [coalition-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/coalition-analysis.md) | `coalition-analysis.md` |
 | section-supplementary-intelligence | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/cross-session-intelligence.md) | `cross-session-intelligence.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [political-swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/political-swot-analysis.md) | `political-swot-analysis.md` |
 | section-supplementary-intelligence | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/political-threat-landscape.md) | `political-threat-landscape.md` |
 | section-supplementary-intelligence | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/significance-classification.md) | `significance-classification.md` |

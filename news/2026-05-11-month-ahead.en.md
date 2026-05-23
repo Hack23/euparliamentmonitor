@@ -138,6 +138,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -3503,6 +3504,1398 @@ graph TD
     H --> I[Stage E: Single PR\nCreate]
 ```
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**صدر في:** 2026-05-11 | **نوع المقال:** month-ahead | **الأفق الزمني:** 30 يوماً
+**مستوى الثقة:** 🟡 متوسط (بيانات جزئية من EP API — لم تُنشر جدول الأعمال الكامل بعد)
+
+---
+
+### نظرة عامة على الوضع الاستراتيجي
+
+يدخل البرلمان الأوروبي مرحلة محورية مدتها أربعة أسابيع يحددها أول جلسة عامة كاملة في ستراسبورغ خلال شهر مايو (18-21 مايو 2026) والتقويم التشريعي الدافع نحو دورة يونيو. يعمل EP10 (2024-2029) في ظل ظروف التشرذم الهيكلي: 9 مجموعات سياسية، وغياب أغلبية ائتلاف كبير تقليدية، وعدد فعلي من الأحزاب يبلغ 6.58 — الأعلى في تاريخ البرلمان الأوروبي. يتطلب أي أغلبية تشريعية ما لا يقل عن 3 مجموعات متعاونة فوق عتبة 360 مقعداً.
+
+يظل EPP (183 مقعداً، 25.5٪) القوة المهيمنة، غير أن أغلبيته العملية تعتمد على تحالفات مرنة: عادةً EPP + S&D (319 مقعداً مجتمعتين، 7 مقاعد دون الأغلبية) معززة بـ Renew Europe أو ECR حسب المجال الموضوعي. برز الدفاع والقدرة التنافسية الصناعية بوصفهما مجالَي توافق حيث يمكن لـ EPP وECR وعناصر من Renew تشكيل أغلبيات مستدامة تتراوح بين 350-380 مقعداً. تبقى السياسة البيئية والاجتماعية موضع خلاف، إذ يقسم إعادة معايرة الصفقة الخضراء الكتلة الوسطى اليمينية عن كتلة الوسط اليساري.
+
+---
+
+### الجلسة العامة في ستراسبورغ بشهر مايو (18-21 مايو 2026): أربعة أيام من التصويتات الحاسمة
+
+تُعد الجلسة العامة الكاملة القادمة أبرز حدث برلماني ضمن أفق 30 يوماً. استناداً إلى بيانات EP API الخاصة بالأنشطة المتوقعة:
+
+- **الاثنين 18 مايو**: 8 مناقشات متوقعة. تغطي الجلسة الافتتاحية عادةً بيانات المفوضية والقرارات العاجلة. ومن المتوقع أن يكون الكتاب الأبيض بشأن نفقات الدفاع وتنفيذ الاستراتيجية الصناعية الدفاعية الأوروبية (EDIS) من بنود جدول الأعمال في ضوء التقويم التشريعي الحالي وأولويات رئاسة المجلس.
+- **الثلاثاء 19 مايو**: 5 مناقشات + 6 تصويتات مقررة. هذا هو أول يوم تصويت — ذو أهمية إجرائية إذ كثيراً ما تتلقى التشريعات الرئيسية قراءتها الأولى أو الثانية. تُشير التصويتات الست المقررة إلى مخرج تشريعي متوسط الكثافة، يتوافق مع أنماط جلسات منتصف الولاية.
+- **الأربعاء 20 مايو**: 5 مناقشات + 9 تصويتات مقررة. أعلى كثافة تصويت في الجلسة (9 تصويتات). يُعد هذا عادةً أبرز أيام التشريع، حيث تحظى تقارير اللجان والاتفاقيات المؤسسية بالموافقة النهائية للجلسة العامة.
+- **الخميس 21 مايو**: 5 مناقشات + 2 تصويتات مقررة. جلسة ختامية تتضمن تصويتات ذات أولوية وساعة الأسئلة ووضع أجندة استشرافية.
+
+**الإجمالي**: 23 مناقشة و17 تصويتاً في الجلسة العامة الرباعية الأيام بستراسبورغ. يتجاوز ذلك معدل EP10 الأخير البالغ نحو 15 تصويتاً في كل جلسة عامة كاملة، مما يؤشر إلى اندفاع تشريعي مكثف.
+
+---
+
+### المحاور التشريعية الرئيسية لأفق 30 يوماً
+
+#### 1. الاستراتيجية الصناعية الدفاعية الأوروبية (EDIS) — أولوية عالية
+تمثل حزمة EDIS، المبنية على إطار ReArm Europe / برنامج الاستثمار الدفاعي الأوروبي (EDIP)، أكثر مبادرة تشريعية أهميةً سياسية في EP10. في ظل الضغط على التزام الناتو بـ 2٪ من الناتج المحلي الإجمالي للدفاع واستمرار الحرب في أوكرانيا، شكّل كل من EPP وECR وS&D إجماعاً ثلاثي الأطراف غير معتاد على المشتريات الدفاعية المشتركة. ومن المتوقع أن يتضمن موقف البرلمان:
+- آليات شراء مشترك للذخائر والمنصات
+- مخصصات من صندوق السيادة الأوروبي لبحث وتطوير الدفاع
+- أحكام وصول للمؤسسات الصغيرة والمتوسطة في القاعدة الصناعية الدفاعية
+
+🟡 **احتمالية اعتماد الجلسة العامة في هذه الفترة**: 60-70٪. قد تُؤخر القضايا المعلقة في المثلث الدائم المتعلقة بأدوات الديون المشتركة التصويت النهائي.
+
+#### 2. الصفقة الصناعية النظيفة (CID) — أولوية متوسطة
+في أعقاب إعادة معايرة الصفقة الخضراء من قِبَل رئيسة المفوضية فون دير لاين في الولاية الثانية، يُعيد CID تغليف أهداف إزالة الكربون ضمن إطار القدرة التنافسية. الأحكام الرئيسية:
+- تنفيذ المرحلة الثانية من آلية تعديل حدود الكربون (CBAM)
+- الاحتياطيات الاستراتيجية للاتحاد الأوروبي من المواد الخام الحرجة
+- تطوير سوق الهيدروجين النظيف
+- آليات تخفيف أسعار الكهرباء الصناعية
+
+الديناميكيات السياسية: يدعم EPP الإطار التنافسي؛ ويُصرّ S&D على المشروطية الاجتماعية؛ وتعارض Greens/EFA أي تراجع عن أهداف المناخ لعام 2030. الحسابية الائتلافية ضيقة — يتوقف إقرار الصفقة في هذه الفترة على التوافق بين EPP-S&D-Renew.
+
+#### 3. الأعمال المفوضة لتنفيذ لائحة الذكاء الاصطناعي
+تدخل لائحة الذكاء الاصطناعي (لائحة (EU) 2024/1689) عامها الثاني من التنفيذ المرحلي. يُرتقب خضوع الأعمال المفوضة الخاصة بتصنيف أنظمة الذكاء الاصطناعي عالية المخاطر والتقنين لتدقيق البرلمان الأوروبي. أعدّت لجنتا IMCO وLIBE تقريرين مشتركين. موضوع غير مثير للجدل سياسياً لكنه بالغ الأهمية تقنياً للنظام البيئي الأوروبي للذكاء الاصطناعي.
+
+#### 4. الإطار الميزانياتي — مراجعة منتصف مدة الإطار المالي متعدد السنوات
+تظل مراجعة منتصف المدة للإطار المالي متعدد السنوات (MFF) دون حل في أعقاب مفاوضات المجلس. تضغط لجنة الميزانية في البرلمان (BUDG) من أجل مرونة إضافية في صناديق التماسك وتدفق جديد من الموارد الخاصة للاتحاد الأوروبي لتمويل رفع صندوق الدفاع الأوروبي. تُولّد مقاومة المجلس من الدول الأعضاء المانحة الصافية (ألمانيا، وهولندا، والنمسا، والسويد) توترات هيكلية.
+
+---
+
+### تحليل الائتلافات للفترة الزمنية
+
+**الأعمال التشريعية القياسية** تتطلب 360+ صوتاً:
+- EPP (183) + S&D (136) = 319 — دون العتبة بغياب Renew (77) → **EPP+S&D+Renew = 396** (قابل للتطبيق، يُستخدم تاريخياً للتشريعات الرقمية/الاجتماعية)
+- EPP (183) + ECR (81) + PfE (85) = 349 — دون العتبة → + Renew (77) = 426 (قابل للتطبيق في مجال الدفاع/القدرة التنافسية)
+- **الكتلة التقدمية** (S&D + Renew + Greens + Left = 311) — لا تستطيع وحدها تشكيل أغلبية؛ تحتاج إلى EPP
+
+**الاستنتاج الجوهري**: يمنح المحور الاستراتيجي لـ EPP بين الائتلافات التقدمية والمحافظة نفوذاً حاسماً. تعتمد مفوضية فون دير لاين على دعم البرلمان الأوروبي عبر الطيف الكامل من الوسط اليميني إلى الوسط اليساري، مما يُنشئ حوافز للتوصل إلى تسويات وسطية.
+
+**مخاطر ناشئة**: أظهر PfE (85 مقعداً) انضباطاً متزايداً وقدرةً على تشكيل أقليات حاجبة في مسائل الهجرة وسيادة القانون. في أي تصويت يتطلب 360+ حيث ينشق EPP (25+ من المتمردين)، يمكن لـ PfE + ECR إحباط الأغلبية.
+
+---
+
+### الاستخبارات الاستشرافية: دورة يونيو 2026 (خارج نافذة الـ 30 يوماً لكنها مرئية)
+
+ستتناول الجلسة العامة في ستراسبورغ بشهر يونيو 2026 (15-18 يونيو) استنتاجات المجلس الأوروبي في يونيو. تشمل بنود جدول الأعمال عادةً:
+- متابعة حزمة القدرة التنافسية الربيعية
+- تقييم تقدم انضمام دول غرب البلقان
+- تمديد العقوبات على روسيا (التجديد التلقائي لكنه خاضع للنقاش السياسي)
+- الطموح المناخي قبيل COP32 (بيليم، نوفمبر 2026)
+
+---
+
+### أبرز محطات التقويم المؤسسي
+
+| التاريخ | الحدث | الأهمية |
+|---------|-------|---------|
+| 18-21 مايو 2026 | الجلسة العامة في ستراسبورغ | 17 تصويتاً مقرراً؛ متوقع: EDIS وCID ولائحة الذكاء الاصطناعي |
+| 22 مايو 2026 | بداية أسابيع اللجان | جلسات مكثفة لـ ECON وITRE وBUDG |
+| 26-27 مايو 2026 | مجلس غير رسمي (القدرة التنافسية) | مدخلات وزارية حول مواقف CID |
+| 3 يونيو 2026 | آجال تصويتات اللجان | قبل الجلسة العامة يونيو |
+| 15-18 يونيو 2026 | الجلسة العامة في ستراسبورغ يونيو | اندفاع تشريعي ما بعد المجلس |
+
+---
+
+### ملخص تقييم المخاطر (مفصّل في مصنوعات risk-scoring/)
+
+| الخطر | الاحتمالية | التأثير | الاتجاه |
+|-------|-----------|--------|---------|
+| فشل أغلبية الجلسة العامة على EDIS | 30-40٪ | مرتفع | مستقر |
+| جمود مراجعة منتصف مدة MFF | 65٪ | متوسط | يتدهور |
+| تفعيل أقلية حاجبة لـ PfE | 35٪ | متوسط | متصاعد |
+| صدام البرلمان-المفوضية حول CID | 45٪ | متوسط | مستقر |
+| اضطراب الجلسة (إجرائي) | 10٪ | منخفض | مستقر |
+
+---
+
+### بيان الثقة التحليلية
+
+صدر هذا الموجز استناداً إلى: EP Open Data API (الجلسات العامة، والأنشطة المتوقعة، وتكوين المجموعات السياسية، وتغذية النصوص المعتمدة)، والبيانات الإحصائية للبرلمان الأوروبي (2025-2026)، وتحليل ديناميكيات الائتلاف. **القيد الرئيسي**: تُعيد EP API للأنشطة المتوقعة معرّفات الأحداث دون عناوين — يُستنتج محتوى بنود جدول الأعمال من سياق التقويم التشريعي وأولويات EP10 السياسية. يدعم السياق الاقتصادي لصندوق IMF (الناتج المحلي الإجمالي، والتضخم، ومسارات عجز الميزانية) التأطير الاقتصادي الكلي السياسي ويُستشهد به في intelligence/economic-context.md.
+
+مستوى الثقة: 🟡 **متوسط** — البيانات الهيكلية عالية الجودة؛ التفاصيل المتعلقة بجدول الأعمال رهينة نشر الأمانة العامة للبرلمان (عادةً T-5 أيام قبل الجلسة العامة).
+
+*المصادر: البوابة المفتوحة للبيانات لدى البرلمان الأوروبي (data.europarl.europa.eu)؛ قاعدة البيانات الإحصائية EP10؛ تحليل الائتلاف وفق منهجية CIA مطبقة على بيانات تكوين البرلمان.*
+
+### Executive Brief Da
+
+### Strategisk situationsoversigt
+
+Europa-Parlamentet indleder en afgørende fireugersperiode defineret af sin første fulde Strasbourg-plenarsession i maj (18.–21. maj 2026) og den lovgivningskalender, der skubber mod junisessionen. EP10 (2024–2029) opererer under strukturelt fragmenterede vilkår: 9 politiske grupper, ingen traditionel storkoalitionsmajoritet og et effektivt partiantal på 6,58 — det højeste i EP's historie. Enhver lovgivningsmæssig majoritet kræver mindst 3 samarbejdende grupper over tærsklen på 360 mandater.
+
+EPP (183 mandater, 25,5 %) forbliver den dominerende kraft, men dens fungerende majoritet afhænger af fleksible alliancer: typisk EPP + S&D (319 mandater tilsammen, 7 under majoritetstærsklen) suppleret af Renew Europe eller ECR afhængigt af sagsområdet. Forsvar og industriel konkurrenceevne er opstået som konsensusområder, hvor EPP, ECR og dele af Renew kan danne holdbare majoriteter på 350–380 mandater. Miljø- og socialpolitik forbliver omstridt, idet omkalibering af Green Deal opdeler center-højre fra center-venstre blokke.
+
+---
+
+### Strasbourg-plenarsamlingen i maj (18.–21. maj 2026): Fire dage med afgørende afstemninger
+
+Den kommende fulde plenarsession er den mest betydningsfulde parlamentariske begivenhed inden for 30-dageshorisonten. Baseret på EP API's data om forudsete aktiviteter:
+
+- **Mandag 18. maj**: 8 forudsete debatter planlagt. Åbningssessionen dækker typisk Kommissionens udtalelser og hastende beslutninger. Hvidbogen om forsvarsudgifter og gennemførelsen af den europæiske forsvarsindustrielle strategi (EDIS) forventes som dagsordenpunkter i lyset af den aktuelle lovgivningskalender og Rådspræsidentskabets prioriteter.
+- **Tirsdag 19. maj**: 5 debatter + 6 afstemninger planlagt. Dette er den første afstemningsdag — proceduremæssigt betydningsfuld, da vigtig lovgivning ofte modtager første eller anden behandling. De 6 planlagte afstemninger antyder et moderat lovgivningsmæssigt resultat, konsistent med midtvejsplenarens mønstre.
+- **Onsdag 20. maj**: 5 debatter + 9 afstemninger planlagt. Den højeste afstemningsdensitet i sessionen (9 afstemninger). Dette er typisk den mest afgørende lovgivningsdag, hvor udvalgsrapporter og interinstitutionelle aftaler modtager endelig plenargodkendelse.
+- **Torsdag 21. maj**: 5 debatter + 2 afstemninger planlagt. Afslutningssession med prioriterede afstemninger, spørgetid og fremadrettet dagsordensættelse.
+
+**I alt**: 23 debatter, 17 afstemninger over den firesiders Strasbourg-plenarsession. Dette er over EP10's seneste gennemsnit på ca. 15 afstemninger pr. fuld plenarsession, hvilket indikerer en intensiv lovgivningssprint.
+
+---
+
+### Centrale lovgivningstemaer for 30-dageshorisonten
+
+#### 1. Europæisk forsvarsindustriel strategi (EDIS) — HØJ PRIORITET
+EDIS-pakken, der bygger på ReArm Europe / European Defence Investment Programme (EDIP)-rammen, repræsenterer det politisk mest betydningsfulde lovgivningsinitiativ i EP10. Med NATO's 2 % BNP-forsvarstilsagn under pres og krigen i Ukraine i gang har EPP, ECR og S&D dannet en usædvanlig treparts-konsensus om fælles forsvarsindkøb. EP's holdning forventes at indeholde:
+- Fælles indkøbsmekanismer for ammunition og platforme
+- Europæisk Suverænitetsfonds-allokeringer til forsvars-FoU
+- SMV-adgangsbestemmelser for forsvarsindustriens base
+
+🟡 **Sandsynlighed for plenargodkendelse i dette vindue**: 60–70 %. Udestående trilogspørgsmål om fælles gældsinstrumenter kan forsinke den endelige afstemning.
+
+#### 2. Ren industri-aftale (CID) — MEDIUM PRIORITET
+Efter Kommissionsformand von der Leyens omkalibrering af Green Deal i anden mandat, genindpakker CID dekarboniseringsmålene inden for en konkurrencedygtig ramme. Centrale bestemmelser:
+- Fase 2-implementering af kulstofgrænsetilpasningsmekanismen (CBAM)
+- EU's strategiske reserver af kritiske råmaterialer
+- Markedsudvikling for ren brint
+- Afhjælpningsmekanismer for industrielle elpriser
+
+Politisk dynamik: EPP forfægter konkurrencedygtig indramning; S&D insisterer på social betingelse; Greens/EFA modsætter sig enhver tilbagegang på klimamålene for 2030. Koalitionsaritmetikken er snæver — passage i dette vindue afhænger af EPP-S&D-Renew-tilpasning.
+
+#### 3. AI-forordningens gennemførelses-delegerede retsakter
+AI-forordningen (forordning (EU) 2024/1689) indleder sit andet år med faseopdelt gennemførelse. Delegerede retsakter om klassificering af høj-risiko AI-systemer og standardisering er planlagt til EP-kontrol. IMCO- og LIBE-udvalgene har udarbejdet fælles rapporter. Politisk lavkontroversiel, men teknisk afgørende for det europæiske AI-økosystem.
+
+#### 4. Budgetramme — midtvejsrevisionen af den flerårige finansielle ramme
+MFF-midtvejsrevisionen er fortsat uafklaret efter Rådsforhandlingerne. EP's Budgetudvalg (BUDG) presser på for yderligere fleksibilitet i samhørighedsfondene og en ny EU-egenindtægtskilde til finansiering af Den Europæiske Forsvarsfondsforhøjelse. Rådets modstand fra nettobidragende medlemsstater (Tyskland, Nederlandene, Østrig, Sverige) skaber strukturel spænding.
+
+---
+
+### Koalitionsanalyse for perioden
+
+**Standard lovgivningssager** kræver 360+ mandater:
+- EPP (183) + S&D (136) = 319 — under tærsklen uden Renew (77) → **EPP+S&D+Renew = 396** (gennemførlig, historisk anvendt til digital/social lovgivning)
+- EPP (183) + ECR (81) + PfE (85) = 349 — under tærsklen → + Renew (77) = 426 (gennemførlig til forsvar/konkurrenceevne)
+- **Progressiv blok** (S&D + Renew + Greens + Left = 311) — kan ikke danne majoritet alene; har brug for EPP
+
+**Nøgleindsigt**: EPP's strategiske drejning mellem progressive og konservative koalitioner giver det afgørende indflydelse. Von der Leyens Kommission er afhængig af EP-støtte på tværs af hele spektret fra center-højre til center-venstre, hvilket skaber incitamenter for mæglede kompromiser.
+
+**Fremvoksende risiko**: PfE (85 mandater) har vist voksende disciplin og kapacitet til at danne blokeringsmindretaller i migrations- og retsstatsspørgsmål. I enhver afstemning, der kræver 360+, hvor EPP splintrer (25+ EPP-oprørere), kan PfE + ECR frustrere majoriteten.
+
+---
+
+### Fremadrettet efterretning: Junisessionen 2026 (ikke inden for 30-dagesvinduet, men synlig)
+
+Strasbourgs plenarsession i juni 2026 (15.–18. juni) vil behandle konklusionerne fra Det Europæiske Råds junitopmøde. Dagsordenpunkterne omfatter typisk:
+- Opfølgning på forårspakken for konkurrenceevne
+- Vurdering af Vestbalkans tiltrædelsesfremdrift
+- Forlængelse af Ruslands sanktioner (automatisk fornyelse, men genstand for politisk debat)
+- Klimaambitioner forud for COP32 (Belém, november 2026)
+
+---
+
+### Institutionelle kalendermarkeringer
+
+| Dato | Begivenhed | Betydning |
+|------|-----------|-----------|
+| 18.–21. maj 2026 | Strasbourg-plenum | 17 planlagte afstemninger; EDIS, CID, AI-forordningen forventes |
+| 22. maj 2026 | Udvalgsuger begynder | ECON, ITRE, BUDG intensive sessioner |
+| 26.–27. maj 2026 | Uformelt Råd (konkurrenceevne) | Ministeriel input til CID-holdninger |
+| 3. juni 2026 | Udvalgsafstemningsdeadlines | Inden juniplenummødet |
+| 15.–18. juni 2026 | Junis Strasbourg-plenum | Lovgivningssprint efter Rådet |
+
+---
+
+### Risikovurderingsresumé (Detaljeret i risk-scoring/-artefakter)
+
+| Risiko | Sandsynlighed | Virkning | Tendens |
+|--------|--------------|----------|---------|
+| Plenarmajoritetsfejl på EDIS | 30–40 % | HØJ | Stabil |
+| MFF-midtvejsrevisionen i dødvande | 65 % | MEDIUM | Forværres |
+| PfE blokeringsmindretal-aktivering | 35 % | MEDIUM | Stigende |
+| EP-Kommissions-sammenstød om CID | 45 % | MEDIUM | Stabil |
+| Sessionsforstyrrelse (proceduremæssig) | 10 % | LAV | Stabil |
+
+---
+
+### Analytisk konfidenserklæring
+
+Denne rapport er fremstillet fra: EP Open Data API (plenarsessioner, forudsete aktiviteter, politisk gruppesammensætning, vedtagne teksters feed), EP statistiske data (2025–2026) og koalitionsdynamikanalyse. **Nøglebegrænsning**: API for forudsete aktiviteter returnerer hændelses-ID'er uden titler — dagsordenspunkternes indhold udledes fra lovgivningskalenderens kontekst og EP10's politiske prioriteter. IMF's økonomiske kontekst (BNP, inflation, finanspolitiske underskudsudviklinger) understøtter makropolitisk indramning og er citeret i intelligence/economic-context.md.
+
+Konfidens: 🟡 **Medium** — strukturelle data er af høj kvalitet; dagsordensspecifikke detaljer er underlagt EP-sekretariatets offentliggørelse (typisk T-5 dage inden plenum).
+
+*Kilder: Europa-Parlamentets Open Data Portal (data.europarl.europa.eu); EP10 statistisk database; koalitionsanalyse jf. CIA-metodik anvendt på EP's sammensætningsdata.*
+
+### Executive Brief De
+
+### Strategische Lageübersicht
+
+Das Europäische Parlament tritt in eine entscheidende Vier-Wochen-Periode ein, die durch seine erste vollständige Strasbourg-Plenarsitzung im Mai (18.–21. Mai 2026) und den auf die Junisitzung zustrebenden Gesetzgebungskalender geprägt ist. Das EP10 (2024–2029) arbeitet unter strukturell fragmentierten Bedingungen: 9 politische Gruppen, keine traditionelle Große-Koalitions-Mehrheit und eine effektive Parteienanzahl von 6,58 — der höchste Wert in der Geschichte des Europäischen Parlaments. Jede Gesetzgebungsmehrheit erfordert mindestens 3 kooperierende Gruppen oberhalb der 360-Sitze-Schwelle.
+
+Die EPP (183 Sitze, 25,5 %) bleibt die dominante Kraft, doch ihre Arbeitsmehrheit hängt von flexiblen Allianzen ab: typischerweise EPP + S&D (319 Sitze zusammen, 7 unter der Mehrheitsschwelle), ergänzt durch Renew Europe oder ECR je nach Themenbereich. Verteidigung und industrielle Wettbewerbsfähigkeit haben sich als Konsensfelder herauskristallisiert, in denen EPP, ECR und Teile von Renew stabile Mehrheiten von 350–380 Sitzen bilden können. Umwelt- und Sozialpolitik bleibt umstritten; die Neukalibrierung des Green Deal trennt das Mitte-rechts- vom Mitte-links-Block.
+
+---
+
+### Die Strasbourg-Plenarsitzung im Mai (18.–21. Mai 2026): Vier Tage folgenreicher Abstimmungen
+
+Die bevorstehende vollständige Plenarsitzung ist das bedeutendste parlamentarische Ereignis im 30-Tages-Horizont. Basierend auf EP-API-Daten zu geplanten Aktivitäten:
+
+- **Montag, 18. Mai**: 8 geplante Debatten. Die Eröffnungssitzung deckt typischerweise Kommissionserklärungen und dringliche Entschließungen ab. Das Weißbuch zu Verteidigungsausgaben und die Umsetzung der Europäischen Verteidigungsindustriestrategie (EDIS) werden angesichts des aktuellen Gesetzgebungskalenders und der Ratspräsidentschaftsprioritäten als Tagesordnungspunkte erwartet.
+- **Dienstag, 19. Mai**: 5 Debatten + 6 Abstimmungen geplant. Dies ist der erste Abstimmungstag — verfahrenstechnisch bedeutsam, da wichtige Rechtsvorschriften häufig erste oder zweite Lesungen erhalten. Die 6 geplanten Abstimmungen deuten auf ein gemäßigt-intensives legislatives Ergebnis hin, konsistent mit den Mustern der Halbzeit-Plenarsitzungen.
+- **Mittwoch, 20. Mai**: 5 Debatten + 9 Abstimmungen geplant. Die höchste Abstimmungsdichte der Sitzung (9 Abstimmungen). Dies ist typischerweise der folgenreichste Gesetzgebungstag, an dem Ausschussberichte und interinstitutionelle Vereinbarungen die endgültige Plenarbilligung erhalten.
+- **Donnerstag, 21. Mai**: 5 Debatten + 2 Abstimmungen geplant. Abschlusssitzung mit Prioritätsabstimmungen, Fragestunde und vorausschauender Tagesordnungsplanung.
+
+**Gesamt**: 23 Debatten, 17 Abstimmungen über die viertägige Strasbourg-Plenarsitzung. Dies liegt über dem jüngsten EP10-Durchschnitt von ca. 15 Abstimmungen pro vollständiger Plenarsitzung, was auf einen intensiven legislativen Endspurt hinweist.
+
+---
+
+### Zentrale Gesetzgebungsthemen für den 30-Tages-Horizont
+
+#### 1. Europäische Verteidigungsindustriestrategie (EDIS) — HOHE PRIORITÄT
+Das EDIS-Paket, das auf dem Rahmen ReArm Europe / European Defence Investment Programme (EDIP) aufbaut, stellt die politisch bedeutendste Gesetzgebungsinitiative im EP10 dar. Mit dem NATO-2%-BIP-Verteidigungsengagement unter Druck und dem Krieg in der Ukraine anhaltend haben EPP, ECR und S&D einen ungewöhnlichen Dreiparteienkonsens zur gemeinsamen Verteidigungsbeschaffung gebildet. Die Position des Europäischen Parlaments dürfte folgende Elemente umfassen:
+- Gemeinsame Beschaffungsmechanismen für Munition und Plattformen
+- Europäischer Souveränitätsfonds-Mittelzuweisungen für Verteidigungs-F&E
+- KMU-Zugangsnormen für die Verteidigungsindustriebasis
+
+🟡 **Wahrscheinlichkeit der Plenarbilligung in diesem Fenster**: 60–70 %. Ausstehende Trilog-Fragen zu gemeinsamen Schuldinstrumenten können die Schlussabstimmung verzögern.
+
+#### 2. Sauberes Industriepaket (CID) — MITTLERE PRIORITÄT
+Nach der Neukalibrierung des Green Deal durch Kommissionspräsidentin von der Leyen in der zweiten Amtszeit bündelt das CID die Dekarbonisierungsziele in einem Wettbewerbsfähigkeitsrahmen. Wesentliche Bestimmungen:
+- Phase-2-Umsetzung des CO2-Grenzausgleichsmechanismus (CBAM)
+- Strategische EU-Reserven an kritischen Rohstoffen
+- Marktentwicklung für sauberen Wasserstoff
+- Entlastungsmechanismen für industrielle Strompreise
+
+Politische Dynamik: Die EPP befürwortet den Wettbewerbsfähigkeitsrahmen; S&D besteht auf sozialer Konditionalität; Greens/EFA lehnt jedes Zurückrudern bei den Klimazielen 2030 ab. Die Koalitionsarithmetik ist eng — Verabschiedung in diesem Fenster hängt von der EPP-S&D-Renew-Übereinstimmung ab.
+
+#### 3. Durchführungsrechtakte zur KI-Verordnung
+Die KI-Verordnung (Verordnung (EU) 2024/1689) tritt in ihr zweites Jahr der stufenweisen Umsetzung ein. Delegierte Rechtsakte zur Klassifizierung von KI-Hochrisikosystemen und Standardisierung sind für die EP-Prüfung geplant. Die Ausschüsse IMCO und LIBE haben gemeinsame Berichte erstellt. Politisch wenig kontrovers, aber technisch folgenreich für das europäische KI-Ökosystem.
+
+#### 4. Haushaltsrahmen — Halbzeitüberprüfung des Mehrjährigen Finanzrahmens
+Die MFF-Halbzeitüberprüfung ist nach den Ratsverhandlungen nach wie vor ungelöst. Der EP-Haushaltsausschuss (BUDG) drängt auf zusätzliche Flexibilität bei den Kohäsionsfonds und einen neuen EU-Eigenmittelstrom zur Finanzierung der Aufstockung des Europäischen Verteidigungsfonds. Der Widerstand des Rates von Nettozahler-Mitgliedstaaten (Deutschland, Niederlande, Österreich, Schweden) schafft strukturelle Spannungen.
+
+---
+
+### Koalitionsanalyse für den Horizont-Zeitraum
+
+**Standard-Gesetzgebungsgeschäft** erfordert 360+ Stimmen:
+- EPP (183) + S&D (136) = 319 — unter der Schwelle ohne Renew (77) → **EPP+S&D+Renew = 396** (tragfähig, historisch für Digital-/Sozialgesetzgebung genutzt)
+- EPP (183) + ECR (81) + PfE (85) = 349 — unter der Schwelle → + Renew (77) = 426 (tragfähig für Verteidigung/Wettbewerbsfähigkeit)
+- **Progressiver Block** (S&D + Renew + Greens + Left = 311) — kann keine Mehrheit alleine bilden; braucht EPP
+
+**Kernbefund**: EPP's strategische Umorientierung zwischen progressiven und konservativen Koalitionen verleiht ihr entscheidenden Einfluss. Von der Leyens Kommission ist auf EP-Unterstützung über das gesamte Spektrum von Mitte-rechts bis Mitte-links angewiesen, was Anreize für vermittelte Kompromisse schafft.
+
+**Aufkommende Risiken**: PfE (85 Sitze) hat wachsende Disziplin und Kapazität gezeigt, blockierende Minderheiten in Migrations- und Rechtsstaatsfragen zu bilden. Bei jeder Abstimmung, die 360+ erfordert und bei der die EPP zerfällt (25+ EPP-Rebellen), kann PfE + ECR die Mehrheit vereiteln.
+
+---
+
+### Vorausschauende Nachrichtenlage: Junisitzung 2026 (nicht im 30-Tages-Fenster, aber sichtbar)
+
+Die Strasbourg-Plenarsitzung im Juni 2026 (15.–18. Juni) wird die Schlussfolgerungen des Europäischen Rates im Juni behandeln. Zu den Tagesordnungspunkten gehören typischerweise:
+- Nachverfolgung des Frühjahrs-Wettbewerbsfähigkeitspakets
+- Bewertung der Westbalkan-Beitrittsfortschritte
+- Verlängerung der Russland-Sanktionen (automatische Verlängerung, aber politischer Debatte unterworfen)
+- Klimaambitionen vor COP32 (Belém, November 2026)
+
+---
+
+### Institutionelle Kalender-Highlights
+
+| Datum | Ereignis | Bedeutung |
+|-------|---------|-----------|
+| 18.–21. Mai 2026 | Strasbourg-Plenum | 17 geplante Abstimmungen; EDIS, CID, KI-Verordnung erwartet |
+| 22. Mai 2026 | Ausschusswochen beginnen | ECON, ITRE, BUDG intensive Sitzungen |
+| 26.–27. Mai 2026 | Informeller Rat (Wettbewerbsfähigkeit) | Ministerialinput zu CID-Positionen |
+| 3. Juni 2026 | Ausschuss-Abstimmungsfristen | Vor dem Juni-Plenum |
+| 15.–18. Juni 2026 | Strasbourg-Plenum im Juni | Gesetzgebungsendspurt nach dem Rat |
+
+---
+
+### Risikobeurteilungszusammenfassung (Detailliert in Risikobewertungs-Artefakten)
+
+| Risiko | Wahrscheinlichkeit | Auswirkung | Trend |
+|--------|-------------------|------------|-------|
+| Plenar-Mehrheitsversagen bei EDIS | 30–40 % | HOCH | Stabil |
+| MFF-Halbzeitüberprüfung in der Sackgasse | 65 % | MITTEL | Verschlechternd |
+| PfE-Blockierungsminderheit-Aktivierung | 35 % | MITTEL | Steigend |
+| EP-Kommissions-Konfrontation über CID | 45 % | MITTEL | Stabil |
+| Sitzungsstörung (verfahrenstechnisch) | 10 % | NIEDRIG | Stabil |
+
+---
+
+### Analytische Konfidenzerklärung
+
+Dieser Bericht wurde aus folgenden Quellen erstellt: EP Open Data API (Plenarsitzungen, geplante Aktivitäten, Zusammensetzung der politischen Gruppen, Feed zu angenommenen Texten), EP-Statistikdaten (2025–2026) und Koalitionsdynamikanalyse. **Wesentliche Einschränkung**: Die API für geplante Aktivitäten gibt Ereignis-IDs ohne Titel zurück — der Inhalt der Tagesordnungspunkte wird aus dem Kontext des Gesetzgebungskalenders und den politischen Prioritäten des EP10 abgeleitet. Der wirtschaftliche Kontext des IMF (BIP, Inflation, Haushaltssaldo-Entwicklungen) unterstützt die makropolitische Rahmung und wird in intelligence/economic-context.md zitiert.
+
+Konfidenz: 🟡 **Mittel** — strukturelle Daten sind qualitativ hochwertig; Tagesordnungsspezifika unterliegen der Veröffentlichung durch das EP-Sekretariat (typischerweise T-5 Tage vor dem Plenum).
+
+*Quellen: Open-Data-Portal des Europäischen Parlaments (data.europarl.europa.eu); EP10-Statistikdatenbank; Koalitionsanalyse gemäß CIA-Methodik, angewandt auf EP-Zusammensetzungsdaten.*
+
+### Executive Brief Es
+
+### Panorama estratégico de la situación
+
+El Parlamento Europeo entra en un período crucial de cuatro semanas definido por su primera sesión plenaria completa en Estrasburgo en mayo (18-21 de mayo de 2026) y el calendario legislativo que avanza hacia la sesión de junio. El EP10 (2024-2029) opera bajo condiciones de fragmentación estructural: 9 grupos políticos, ninguna mayoría de gran coalición tradicional y un número efectivo de partidos de 6,58 — el más alto en la historia del PE. Cualquier mayoría legislativa requiere como mínimo 3 grupos cooperantes por encima del umbral de 360 escaños.
+
+El PPE (183 escaños, 25,5 %) sigue siendo la fuerza dominante, pero su mayoría de trabajo depende de alianzas flexibles: típicamente PPE + S&D (319 escaños combinados, 7 por debajo de la mayoría), complementados por Renew Europe o ECR según el ámbito temático. La defensa y la competitividad industrial han emergido como áreas de consenso donde el PPE, el ECR y elementos de Renew pueden formar mayorías duraderas de 350-380 escaños. La política medioambiental y social sigue siendo objeto de disputa, con la recalibración del Pacto Verde dividiendo al bloque de centro-derecha del de centro-izquierda.
+
+---
+
+### La sesión plenaria de Estrasburgo de mayo (18-21 de mayo de 2026): Cuatro días de votaciones transcendentes
+
+La próxima sesión plenaria completa es el evento parlamentario más significativo en el horizonte de 30 días. Basándose en los datos de la EP API sobre actividades previstas:
+
+- **Lunes 18 de mayo**: 8 debates previstos. La sesión de apertura cubre habitualmente declaraciones de la Comisión y resoluciones urgentes. El libro blanco sobre gastos de defensa y la implementación de la Estrategia Industrial Europea de Defensa (EDIS) se esperan como puntos del orden del día dado el actual calendario legislativo y las prioridades de la Presidencia del Consejo.
+- **Martes 19 de mayo**: 5 debates + 6 votaciones previstas. Este es el primer día de votación — procesalmente significativo ya que la legislación principal a menudo recibe su primera o segunda lectura. Las 6 votaciones previstas sugieren un resultado legislativo de densidad moderada, coherente con los patrones de las plenarias de mitad de mandato.
+- **Miércoles 20 de mayo**: 5 debates + 9 votaciones previstas. La mayor densidad de votaciones de la sesión (9 votaciones). Este es típicamente el día legislativo más decisivo, donde los informes de comité y los acuerdos interinstitucionales reciben la aprobación plenaria final.
+- **Jueves 21 de mayo**: 5 debates + 2 votaciones previstas. Sesión de cierre con votaciones prioritarias, turno de preguntas y fijación prospectiva de la agenda.
+
+**Total**: 23 debates, 17 votaciones durante la sesión plenaria de Estrasburgo de cuatro días. Esto supera la reciente media EP10 de aproximadamente 15 votaciones por sesión plenaria completa, indicando un sprint legislativo de alta densidad.
+
+---
+
+### Temas legislativos clave para el horizonte de 30 días
+
+#### 1. Estrategia Industrial Europea de Defensa (EDIS) — PRIORIDAD ALTA
+El paquete EDIS, basado en el marco ReArm Europe / Programa Europeo de Inversión en Defensa (EDIP), representa la iniciativa legislativa políticamente más significativa del EP10. Con el compromiso de la OTAN del 2 % del PIB en defensa bajo presión y la guerra en Ucrania en curso, el PPE, el ECR y el S&D han formado un inusual consenso de tres partidos sobre adquisición conjunta de defensa. Se espera que la posición del PE incluya:
+- Mecanismos de adquisición conjunta para municiones y plataformas
+- Asignaciones del Fondo Europeo de Soberanía para I+D en defensa
+- Disposiciones de acceso para las PYME de la base industrial de defensa
+
+🟡 **Probabilidad de adopción en pleno en esta ventana**: 60-70 %. Las cuestiones pendientes del trílogo sobre instrumentos de deuda conjunta pueden retrasar la votación final.
+
+#### 2. Pacto Industrial Limpio (CID) — PRIORIDAD MEDIA
+Tras la recalibración del Pacto Verde por parte de la Presidenta de la Comisión von der Leyen en su segundo mandato, el CID repaqueta los objetivos de descarbonización dentro de un marco de competitividad. Disposiciones clave:
+- Implementación de la Fase 2 del Mecanismo de Ajuste en Frontera por Carbono (CBAM)
+- Reservas estratégicas europeas de materias primas críticas
+- Desarrollo del mercado del hidrógeno limpio
+- Mecanismos de alivio del precio eléctrico industrial
+
+Dinámica política: el PPE defiende el marco de competitividad; el S&D insiste en la condicionalidad social; Greens/EFA se opone a cualquier retroceso en los objetivos climáticos de 2030. La aritmética de coalición es ajustada — la aprobación en esta ventana depende de la alineación PPE-S&D-Renew.
+
+#### 3. Actos delegados de implementación del Reglamento de IA
+El Reglamento de IA (Reglamento (UE) 2024/1689) entra en su segundo año de implementación por fases. Los actos delegados sobre la clasificación de sistemas de IA de alto riesgo y la normalización están programados para el escrutinio del PE. Los comités IMCO y LIBE han producido informes conjuntos. Políticamente poco controvertido pero técnicamente trascendental para el ecosistema europeo de la IA.
+
+#### 4. Marco presupuestario — Revisión intermedia del Marco Financiero Plurianual
+La revisión intermedia del MFP sigue sin resolverse tras las negociaciones del Consejo. La Comisión de Presupuestos del PE (BUDG) presiona por mayor flexibilidad en los fondos de cohesión y una nueva fuente de recursos propios de la UE para financiar el refuerzo del Fondo Europeo de Defensa. La resistencia del Consejo de los estados miembros contribuyentes netos (Alemania, Países Bajos, Austria, Suecia) crea tensiones estructurales.
+
+---
+
+### Análisis de coalición para el período de horizonte
+
+**Los asuntos legislativos estándar** requieren 360+ votos:
+- PPE (183) + S&D (136) = 319 — por debajo del umbral sin Renew (77) → **PPE+S&D+Renew = 396** (viable, históricamente utilizado para legislación digital/social)
+- PPE (183) + ECR (81) + PfE (85) = 349 — por debajo del umbral → + Renew (77) = 426 (viable para defensa/competitividad)
+- **Bloque progresista** (S&D + Renew + Greens + Left = 311) — no puede formar mayoría sola; necesita al PPE
+
+**Observación clave**: El pivoteo estratégico del PPE entre coaliciones progresistas y conservadoras le confiere una influencia decisiva. La Comisión von der Leyen depende del apoyo del PE en todo el espectro de centro-derecha a centro-izquierda, creando incentivos para el compromiso negociado.
+
+**Riesgo emergente**: PfE (85 escaños) ha mostrado una disciplina creciente y capacidad para formar minorías de bloqueo en cuestiones de migración y Estado de Derecho. En cualquier votación que requiera 360+ donde el PPE se fragmente (25+ rebeldes EPP), PfE + ECR puede frustrar la mayoría.
+
+---
+
+### Inteligencia prospectiva: Sesión de junio de 2026 (no en la ventana de 30 días pero visible)
+
+La sesión plenaria de Estrasburgo de junio de 2026 (15-18 de junio) abordará las conclusiones del Consejo Europeo de junio. Los puntos del orden del día incluyen típicamente:
+- Seguimiento del paquete de competitividad de primavera
+- Evaluación del progreso de adhesión de los Balcanes Occidentales
+- Renovación de las sanciones contra Rusia (renovación automática pero sujeta a debate político)
+- Ambición climática antes de la COP32 (Belém, noviembre de 2026)
+
+---
+
+### Hitos destacados del calendario institucional
+
+| Fecha | Evento | Importancia |
+|-------|--------|-------------|
+| 18-21 de mayo de 2026 | Pleno de Estrasburgo | 17 votaciones previstas; EDIS, CID, Reglamento IA esperados |
+| 22 de mayo de 2026 | Comienzo de semanas de comités | Sesiones intensivas ECON, ITRE, BUDG |
+| 26-27 de mayo de 2026 | Consejo informal (competitividad) | Aportación ministerial sobre posiciones CID |
+| 3 de junio de 2026 | Plazos para votaciones en comité | Antes del pleno de junio |
+| 15-18 de junio de 2026 | Pleno de Estrasburgo de junio | Sprint legislativo post-Consejo |
+
+---
+
+### Resumen de evaluación de riesgos (Detallado en artefactos risk-scoring/)
+
+| Riesgo | Probabilidad | Impacto | Tendencia |
+|--------|-------------|---------|-----------|
+| Fallo en mayoría plenaria sobre EDIS | 30-40 % | ALTO | Estable |
+| Punto muerto en revisión intermedia MFP | 65 % | MEDIO | Deteriorándose |
+| Activación minoría de bloqueo PfE | 35 % | MEDIO | En alza |
+| Enfrentamiento PE-Comisión sobre CID | 45 % | MEDIO | Estable |
+| Disrupción de sesión (procedimental) | 10 % | BAJO | Estable |
+
+---
+
+### Declaración de confianza analítica
+
+Este resumen se produce a partir de: EP Open Data API (sesiones plenarias, actividades previstas, composición de grupos políticos, feed de textos adoptados), datos estadísticos EP (2025-2026) y análisis de dinámica de coalición. **Limitación clave**: la API de actividades previstas devuelve identificadores de eventos sin títulos — el contenido de los puntos del orden del día se infiere del contexto del calendario legislativo y las prioridades políticas del EP10. El contexto económico del IMF (PIB, inflación, trayectorias de déficit fiscal) respalda el encuadre macro-político y se cita en intelligence/economic-context.md.
+
+Confianza: 🟡 **Medio** — los datos estructurales son de alta calidad; los detalles específicos de la agenda están sujetos a la publicación de la secretaría del PE (típicamente T-5 días antes del pleno).
+
+*Fuentes: Portal de Datos Abiertos del Parlamento Europeo (data.europarl.europa.eu); base de datos estadísticos EP10; análisis de coalición según la metodología de la CIA aplicada a datos de composición del PE.*
+
+### Executive Brief Fi
+
+### Strateginen tilannearvio
+
+Euroopan parlamentti astuu ratkaisevaan neljän viikon jaksoon, jota määrittelee toukokuun ensimmäinen täysistunto Strasbourgissa (18.–21. toukokuuta 2026) ja kesäistuntoon tähtäävä lainsäädäntökalenteri. EP10 (2024–2029) toimii rakenteellisesti pirstaloituneissa olosuhteissa: 9 poliittista ryhmää, ei perinteistä suuren koalition enemmistöä ja tehollinen puoluemäärä 6,58 — korkein EP:n historiassa. Jokainen lainsäädäntöenemmistö vaatii vähintään 3 yhteistyössä toimivaa ryhmää 360 istuinpaikan kynnyksen ylittämiseksi.
+
+EPP (183 paikkaa, 25,5 %) pysyy hallitsevana voimana, mutta sen toimiva enemmistö perustuu joustaviin liittoihin: tyypillisesti EPP + S&D (yhteensä 319 paikkaa, 7 alle enemmistön) täydennettynä Renew Europella tai ECR:llä toimialan mukaan. Puolustus ja teollinen kilpailukyky ovat nousseet konsensusalueiksi, joissa EPP, ECR ja osat Renewistä voivat muodostaa kestäviä 350–380 paikan enemmistöjä. Ympäristö- ja sosiaalipolitiikka pysyy kiistanalaisena, ja Green Dealin uudelleenasemointi jakaa oikeistokeskustan vasemmistokeskustasta.
+
+---
+
+### Toukokuun Strasbourgin täysistunto (18.–21. toukokuuta 2026): Neljä päivää merkittäviä äänestyksiä
+
+Tuleva täysistunto on merkittävin parlamentaarinen tapahtuma 30 päivän horisontissa. EP API:n ennakoitujen toimintojen datan perusteella:
+
+- **Maanantai 18. toukokuuta**: 8 ennustettua debattia. Avajaistunnossa käsitellään tyypillisesti komission lausuntoja ja kiireellisiä päätöslauselmia. Puolustusmenojen valkokirja ja Euroopan puolustuksen teollisuusstrategian (EDIS) täytäntöönpano odotetaan asialistan kohteiksi nykyisen lainsäädäntökalenterin ja neuvoston puheenjohtajuuden prioriteettien perusteella.
+- **Tiistai 19. toukokuuta**: 5 debattia + 6 äänestystä. Tämä on ensimmäinen äänestyspäivä — menettelyllisesti merkittävä, koska tärkeä lainsäädäntö saa usein ensimmäisen tai toisen käsittelyn. Kuusi suunniteltua äänestystä viittaa kohtuulliseen lainsäädäntötulokseen, joka on yhdenmukainen välivaiheen täysistuntojen mallien kanssa.
+- **Keskiviikko 20. toukokuuta**: 5 debattia + 9 äänestystä. Korkein äänestyspaine istunnossa (9 äänestystä). Tämä on tyypillisesti merkittävin lainsäädäntöpäivä, jolloin valiokunnan raportit ja toimielimien väliset sopimukset saavat lopullisen täysistunnon hyväksynnän.
+- **Torstai 21. toukokuuta**: 5 debattia + 2 äänestystä. Loppuistunto, jossa käsitellään prioriteettiäänestyksiä, kyselytunti ja eteenpäin suuntautuva asialista.
+
+**Yhteensä**: 23 debattia, 17 äänestystä neljäpäiväisessä Strasbourgin täysistunnossa. Tämä ylittää EP10:n viimeaikaisen keskiarvon noin 15 äänestyksestä täydessä täysistunnossa, mikä osoittaa tiivistä lainsäädäntösprinttiä.
+
+---
+
+### Keskeisiä lainsäädäntöteemoja 30 päivän horisontille
+
+#### 1. Euroopan puolustuksen teollisuusstrategia (EDIS) — KORKEA PRIORITEETTI
+EDIS-paketti, joka rakentuu ReArm Europe / European Defence Investment Programme (EDIP) -kehyksen päälle, edustaa EP10:n poliittisesti merkittävintä lainsäädäntöaloitetta. NATO:n 2 %:n BKT-puolustussitoumuksen ollessa paineessa ja Ukrainan sodan jatkuessa EPP, ECR ja S&D ovat muodostaneet epätavallisen kolmipuoluekonsensuksen yhteisistä puolustushankinnoista. EP:n kannan odotetaan sisältävän:
+- Yhteiset hankintamekanismit ammuksille ja alustoille
+- Eurooppalaisen suvereniteettirahaston osoitukset puolustuksen T&K-toimintaan
+- PK-yritysten pääsyä koskevat säännökset puolustusteolisuuden perustalle
+
+🟡 **Todennäköisyys täysistunnon hyväksynnälle tässä ikkunassa**: 60–70 %. Avoimet trilogin kysymykset yhteisistä velkainstrumenteista voivat viivästyttää loppuäänestystä.
+
+#### 2. Puhtaan teollisuuden sopimus (CID) — KESKIPRIORITEETTI
+Komission puheenjohtajan von der Leyenin toisen toimikauden Green Deal -uudelleenasemoinnin jälkeen CID paketoi dekarbonisaatiotavoitteet kilpailukykyisen kehyksen sisään. Keskeisiä säännöksiä:
+- Hiilirajakorjausmekanismin (CBAM) vaiheen 2 täytäntöönpano
+- EU:n kriittisten raaka-aineiden strategiset varannot
+- Puhtaan vedyn markkinakehitys
+- Teollisuuden sähköhinnan helpottamismekanismit
+
+Poliittinen dynamiikka: EPP kannattaa kilpailukykykehystä; S&D vaatii sosiaalista ehdollisuutta; Greens/EFA vastustaa mitään ilmastotavoitteiden heikentämistä vuoteen 2030 mennessä. Koalitioaritmetiikka on tiukka — hyväksyminen tässä ikkunassa riippuu EPP-S&D-Renew-yhtenäisyydestä.
+
+#### 3. Tekoälysäädöksen täytäntöönpanon delegoidut säädökset
+Tekoälysäädös (asetus (EU) 2024/1689) astuu toiseen täytäntöönpanovuoteensa. Korkean riskin tekoälyjärjestelmien luokittelua ja standardointia koskevat delegoidut säädökset on aikataulutettu EP:n valvontaan. IMCO- ja LIBE-valiokunnat ovat tuottaneet yhteisiä raportteja. Poliittisesti vähäinen, mutta teknisesti merkittävä eurooppalaisen tekoälun ekosysteemille.
+
+#### 4. Budjettikehys — monivuotisen rahoituskehyksen väliarviointi
+MFF:n väliarviointi on edelleen ratkaisematta neuvoston neuvottelujen jälkeen. EP:n talousarviovaliokunta (BUDG) painostaa lisäjoustoa koheesiorahastoihin ja uutta EU:n omien varojen virtaa Euroopan puolustusrahaston korotuksen rahoittamiseksi. Neuvostonhallinnon nettomaksumaiden (Saksa, Alankomaat, Itävalta, Ruotsi) vastustus luo rakenteellista jännitettä.
+
+---
+
+### Koalitioanalyysi horisonttijaksoa varten
+
+**Tavanomainen lainsäädäntötyö** vaatii 360+ ääntä:
+- EPP (183) + S&D (136) = 319 — kynnyksen alapuolella ilman Renewiä (77) → **EPP+S&D+Renew = 396** (toteuttamiskelpoinen, historiallisesti käytetty digitaali/sosiaalilakiin)
+- EPP (183) + ECR (81) + PfE (85) = 349 — kynnyksen alapuolella → + Renew (77) = 426 (toteuttamiskelpoinen puolustukseen/kilpailukykyyn)
+- **Progressiivinen blokki** (S&D + Renew + Greens + Left = 311) — ei voi muodostaa enemmistöä yksin; tarvitsee EPP:n
+
+**Keskeinen huomio**: EPP:n strateginen vuorottelu progressiivisten ja konservatiivisten koalitioiden välillä antaa sille ratkaisevaa vaikutusvaltaa. Von der Leyenin komissio on riippuvainen EP:n tuesta koko oikeistokeskustan ja vasemmistokeskustan spektriltä, mikä luo kannustimia sovitelluille kompromisseille.
+
+**Nouseva riski**: PfE (85 paikkaa) on osoittanut kasvavaa kurinalaisuutta ja kykyä muodostaa estäviä vähemmistöjä maahanmuutto- ja oikeusvaltiokysymyksissä. Missä tahansa äänestyksessä, joka vaatii 360+, jos EPP hajoaa (25+ EPP-kapinallista), PfE + ECR voi estää enemmistön.
+
+---
+
+### Ennakoiva tiedustelu: Kesäistunto 2026 (ei 30 päivän ikkunassa, mutta näkyvissä)
+
+Strasbourgin kesäkuun 2026 täysistunto (15.–18. kesäkuuta) käsittelee Eurooppa-neuvoston kesäkokouksen johtopäätöksiä. Asialistan kohtiin kuuluu tyypillisesti:
+- Kevään kilpailukykypaketin seuranta
+- Länsi-Balkanin liittymisedistymisen arviointi
+- Venäjän pakotteiden jatkaminen (automaattinen uusiminen mutta poliittisen keskustelun kohteena)
+- Ilmastoambitio ennen COP32:ta (Belém, marraskuu 2026)
+
+---
+
+### Institutionaaliset kalenterikorostukset
+
+| Päivämäärä | Tapahtuma | Merkitys |
+|-----------|---------|---------|
+| 18.–21. toukokuuta 2026 | Strasbourgin täysistunto | 17 aikataulutettua äänestystä; EDIS, CID, tekoälysäädös odotetaan |
+| 22. toukokuuta 2026 | Viikko-valiokuntaistunnot alkavat | ECON, ITRE, BUDG intensiiviset istunnot |
+| 26.–27. toukokuuta 2026 | Epävirallinen neuvosto (kilpailukyky) | Ministeriaalinen panos CID-kantoihin |
+| 3. kesäkuuta 2026 | Valiokuntaäänestyksen määräajat | Ennen kesäplenaria |
+| 15.–18. kesäkuuta 2026 | Kesäkuun Strasbourgin täysistunto | Lainsäädäntösprintti neuvoston jälkeen |
+
+---
+
+### Riskinarvioinnin yhteenveto (Yksityiskohtainen risk-scoring/-artefakteissa)
+
+| Riski | Todennäköisyys | Vaikutus | Suuntaus |
+|-------|--------------|---------|---------|
+| Täysistuntoenemmistö EDIS:llä epäonnistuu | 30–40 % | KORKEA | Vakaa |
+| MFF:n väliarvioinnin umpikuja | 65 % | KESKITASO | Heikkenevä |
+| PfE:n estävä vähemmistö aktivoituu | 35 % | KESKITASO | Nouseva |
+| EP–komission yhteentörmäys CID:n kehyksestä | 45 % | KESKITASO | Vakaa |
+| Istunnon häiriö (menettelyllinen) | 10 % | MATALA | Vakaa |
+
+---
+
+### Analyyttinen luottamuslausunto
+
+Tämä tiivistelmä on tuotettu seuraavista lähteistä: EP Open Data API (täysistunnot, ennakoidut toiminnot, poliittisten ryhmien koostumus, hyväksyttyjen tekstien syöte), EP:n tilastolliset tiedot (2025–2026) ja koalitiodynamiikka-analyysi. **Keskeinen rajoitus**: Ennakoitujen toimintojen API palauttaa tapahtuma-ID:t ilman otsikoita — asialistan kohtien sisältö päätellään lainsäädäntökalenterin kontekstista ja EP10:n poliittisista prioriteeteista. IMF-taloudellinen konteksti (BKT, inflaatio, finanssivajesuuntaukset) tukee makropoliittista kehystämistä ja on viitattu intelligence/economic-context.md:ssä.
+
+Luottamus: 🟡 **Keskitaso** — rakenteelliset tiedot ovat korkealaatuisia; asialistaan liittyvät yksityiskohdat ovat EP:n sihteeristön julkaisun varassa (tyypillisesti T-5 päivää ennen täysistuntoa).
+
+*Lähteet: Euroopan parlamentin Open Data Portal (data.europarl.europa.eu); EP10 tilastotietokanta; koalitioanalyysi CIA:n metodologian mukaisesti sovellettuna EP:n kokoonpanodataan.*
+
+### Executive Brief Fr
+
+### Aperçu stratégique de la situation
+
+Le Parlement européen entre dans une période charnière de quatre semaines définie par sa première séance plénière complète à Strasbourg en mai (18-21 mai 2026) et par le calendrier législatif qui s'oriente vers la session de juin. L'EP10 (2024-2029) fonctionne dans des conditions de fragmentation structurelle : 9 groupes politiques, pas de majorité de grande coalition traditionnelle, et un nombre effectif de partis de 6,58 — le plus élevé de l'histoire du PE. Toute majorité législative requiert au minimum 3 groupes coopérant au-delà du seuil de 360 sièges.
+
+Le PPE (183 sièges, 25,5 %) reste la force dominante, mais sa majorité de travail repose sur des alliances flexibles : typiquement PPE + S&D (319 sièges combinés, 7 en dessous de la majorité), complétés par Renew Europe ou ECR selon le domaine thématique. La défense et la compétitivité industrielle ont émergé comme zones de consensus permettant au PPE, à l'ECR et à des éléments de Renew de former des majorités stables de 350 à 380 sièges. La politique environnementale et sociale reste contestée, le recalibrage du Pacte vert divisant le centre-droit du centre-gauche.
+
+---
+
+### La séance plénière de Strasbourg en mai (18-21 mai 2026) : Quatre jours de votes décisifs
+
+La prochaine séance plénière complète est l'événement parlementaire le plus significatif dans l'horizon de 30 jours. Sur la base des données de l'EP API sur les activités prévues :
+
+- **Lundi 18 mai** : 8 débats prévus. La séance d'ouverture couvre généralement les déclarations de la Commission et les résolutions urgentes. Le livre blanc sur les dépenses de défense et la mise en œuvre de la Stratégie industrielle européenne de défense (EDIS) sont attendus en tant que points de l'ordre du jour compte tenu du calendrier législatif en cours et des priorités de la présidence du Conseil.
+- **Mardi 19 mai** : 5 débats + 6 votes prévus. C'est le premier jour de vote — procéduralement significatif car la législation majeure reçoit souvent sa première ou deuxième lecture. Les 6 votes prévus suggèrent un résultat législatif d'intensité modérée, cohérent avec les tendances des plénières de mi-mandat.
+- **Mercredi 20 mai** : 5 débats + 9 votes prévus. La densité de vote la plus élevée de la session (9 votes). C'est généralement le jour législatif le plus décisif, pendant lequel les rapports de comité et les accords interinstitutionnels reçoivent l'approbation plénière finale.
+- **Jeudi 21 mai** : 5 débats + 2 votes prévus. Séance de clôture avec votes prioritaires, questions au temps imparti et fixation prospective de l'ordre du jour.
+
+**Total** : 23 débats, 17 votes sur la séance plénière de Strasbourg de quatre jours. Ceci est au-dessus de la récente moyenne EP10 d'environ 15 votes par séance plénière complète, indiquant un sprint législatif à haute densité.
+
+---
+
+### Thèmes législatifs clés pour l'horizon de 30 jours
+
+#### 1. Stratégie industrielle européenne de défense (EDIS) — PRIORITÉ HAUTE
+Le paquet EDIS, s'appuyant sur le cadre ReArm Europe / Programme européen d'investissement dans la défense (EDIP), représente l'initiative législative politiquement la plus significative de l'EP10. Avec l'engagement OTAN de 2 % du PIB pour la défense sous pression et la guerre en Ukraine se poursuivant, le PPE, l'ECR et le S&D ont formé un consensus à trois partis inhabituel sur les acquisitions communes de défense. La position du PE devrait inclure :
+- Des mécanismes d'acquisition commune pour les munitions et les plateformes
+- Des allocations du Fonds européen de souveraineté pour la R&D dans la défense
+- Des dispositions d'accès pour les PME de la base industrielle de défense
+
+🟡 **Probabilité d'adoption en plénière dans cette fenêtre** : 60-70 %. Les questions de trilogue en suspens sur les instruments de dette commune peuvent retarder le vote final.
+
+#### 2. Pacte industriel propre (CID) — PRIORITÉ MOYENNE
+À la suite du recalibrage du Pacte vert par la Présidente de la Commission von der Leyen pour son second mandat, le CID réemballe les objectifs de décarbonisation dans un cadre de compétitivité. Dispositions clés :
+- Mise en œuvre de la phase 2 du Mécanisme d'ajustement carbone aux frontières (CBAM)
+- Réserves stratégiques européennes de matières premières critiques
+- Développement du marché de l'hydrogène propre
+- Mécanismes de soulagement des prix de l'électricité industrielle
+
+Dynamique politique : le PPE défend le cadre de compétitivité ; le S&D insiste sur la conditionnalité sociale ; les Greens/EFA s'opposent à tout recul sur les objectifs climatiques 2030. L'arithmétique de coalition est serrée — la passage dans cette fenêtre dépend de l'alignement PPE-S&D-Renew.
+
+#### 3. Actes délégués d'exécution du règlement IA
+Le Règlement sur l'intelligence artificielle (règlement (UE) 2024/1689) entre dans sa deuxième année de mise en œuvre progressive. Les actes délégués sur la classification des systèmes d'IA à haut risque et la normalisation sont programmés pour l'examen du PE. Les commissions IMCO et LIBE ont produit des rapports conjoints. Politiquement peu controversé mais techniquement déterminant pour l'écosystème européen de l'IA.
+
+#### 4. Cadre budgétaire — Révision à mi-parcours du Cadre financier pluriannuel
+La révision à mi-parcours du CFP reste non résolue à l'issue des négociations du Conseil. La Commission des budgets du PE (BUDG) pousse pour une flexibilité supplémentaire sur les fonds de cohésion et un nouveau flux de ressources propres de l'UE pour financer le renforcement du Fonds européen de défense. La résistance du Conseil des États membres contributeurs nets (Allemagne, Pays-Bas, Autriche, Suède) crée des tensions structurelles.
+
+---
+
+### Analyse de coalition pour la période de l'horizon
+
+**Les activités législatives standard** requièrent 360+ votes :
+- PPE (183) + S&D (136) = 319 — en dessous du seuil sans Renew (77) → **PPE+S&D+Renew = 396** (viable, historiquement utilisé pour la législation numérique/sociale)
+- PPE (183) + ECR (81) + PfE (85) = 349 — en dessous du seuil → + Renew (77) = 426 (viable pour défense/compétitivité)
+- **Bloc progressiste** (S&D + Renew + Greens + Left = 311) — ne peut pas former une majorité seul ; a besoin du PPE
+
+**Observation clé** : Le pivot stratégique du PPE entre coalitions progressives et conservatrices lui confère une influence décisive. La Commission von der Leyen dépend du soutien du PE sur l'ensemble du spectre centre-droit vers centre-gauche, créant des incitations au compromis négocié.
+
+**Risque émergent** : PfE (85 sièges) a montré une discipline croissante et la capacité de former des minorités de blocage sur les questions migratoires et d'État de droit. Dans tout vote requérant 360+ où le PPE se divise (25+ rebelles EPP), PfE + ECR peut faire échouer la majorité.
+
+---
+
+### Renseignement prospectif : Session de juin 2026 (pas dans la fenêtre de 30 jours mais visible)
+
+La séance plénière de Strasbourg de juin 2026 (15-18 juin) abordera les conclusions du Conseil européen de juin. Les points de l'ordre du jour comprennent généralement :
+- Suivi du paquet de compétitivité de printemps
+- Évaluation des progrès de l'adhésion des Balkans occidentaux
+- Renouvellement des sanctions contre la Russie (renouvellement automatique mais sujet à débat politique)
+- Ambition climatique avant la COP32 (Belém, novembre 2026)
+
+---
+
+### Points saillants du calendrier institutionnel
+
+| Date | Événement | Signification |
+|------|-----------|---------------|
+| 18-21 mai 2026 | Plénière de Strasbourg | 17 votes prévus ; EDIS, CID, Règlement IA attendus |
+| 22 mai 2026 | Semaines de comités commencent | Sessions intensives ECON, ITRE, BUDG |
+| 26-27 mai 2026 | Conseil informel (compétitivité) | Apport ministériel sur les positions CID |
+| 3 juin 2026 | Délais de vote en comité | Avant la plénière de juin |
+| 15-18 juin 2026 | Plénière de Strasbourg de juin | Sprint législatif post-Conseil |
+
+---
+
+### Résumé de l'évaluation des risques (Détaillé dans les artefacts risk-scoring/)
+
+| Risque | Probabilité | Impact | Tendance |
+|--------|------------|--------|---------|
+| Échec de la majorité plénière sur EDIS | 30-40 % | ÉLEVÉ | Stable |
+| Blocage révision à mi-parcours MFF | 65 % | MOYEN | En détérioration |
+| Activation minorité de blocage PfE | 35 % | MOYEN | En hausse |
+| Affrontement PE-Commission sur CID | 45 % | MOYEN | Stable |
+| Perturbation de session (procédurale) | 10 % | FAIBLE | Stable |
+
+---
+
+### Déclaration de confiance analytique
+
+Cette synthèse est produite à partir de : l'EP Open Data API (sessions plénières, activités prévues, composition des groupes politiques, flux de textes adoptés), les données statistiques EP (2025-2026) et l'analyse de la dynamique de coalition. **Limitation clé** : l'API des activités prévues renvoie des identifiants d'événements sans titres — le contenu des points de l'ordre du jour est inféré du contexte du calendrier législatif et des priorités politiques de l'EP10. Le contexte économique de l'IMF (PIB, inflation, trajectoires du déficit budgétaire) soutient l'encadrement macro-politique et est cité dans intelligence/economic-context.md.
+
+Confiance : 🟡 **Moyen** — les données structurelles sont de haute qualité ; les spécificités de l'ordre du jour sont soumises à la publication du secrétariat du PE (typiquement T-5 jours avant la plénière).
+
+*Sources : Portail Open Data du Parlement européen (data.europarl.europa.eu) ; base de données statistiques EP10 ; analyse de coalition selon la méthodologie CIA appliquée aux données de composition du PE.*
+
+### Executive Brief He
+
+**הופק:** 2026-05-11 | **סוג המאמר:** month-ahead | **אופק:** 30 יום
+**רמת אמינות:** 🟡 בינונית (נתוני EP API חלקיים — סדר היום המלא טרם פורסם)
+
+---
+
+### סקירת המצב האסטרטגי
+
+הפרלמנט האירופי נכנס לתקופה מכרעת של ארבעה שבועות, המוגדרת על ידי מושב המליאה המלא הראשון שלו בשטרסבורג במאי (18–21 במאי 2026) ועל ידי לוח הזמנים החקיקתי המניע לקראת מושב יוני. ה-EP10 (2024–2029) פועל בתנאי פיצול מבני: 9 קבוצות פוליטיות, ללא רוב קואליציה גדולה מסורתי, ומספר אפקטיבי של מפלגות 6.58 — הגבוה ביותר בהיסטוריה של הפרלמנט. כל רוב חקיקתי דורש לפחות 3 קבוצות משתפות פעולה מעל לסף של 360 מושבים.
+
+ה-EPP (183 מושבים, 25.5%) נשאר הכוח הדומיננטי, אך רוב העבודה שלו תלוי בברית גמישה: בדרך כלל EPP + S&D (319 מושבים ביחד, 7 מתחת לרוב) בתוספת Renew Europe או ECR תלוי בתחום. ההגנה והתחרותיות התעשייתית צמחו כתחומי קונצנזוס שבהם EPP, ECR ואלמנטים של Renew יכולים לגבש רוב בר-קיימא של 350–380 מושבים. מדיניות הסביבה והרווחה החברתית נותרת שנויה במחלוקת, כשכיוונון מחדש של עסקת הירוק מחלק את המרכז-ימני מהמרכז-שמאלי.
+
+---
+
+### מושב המליאה בשטרסבורג במאי (18–21 במאי 2026): ארבעה ימים של הצבעות מכריעות
+
+מושב המליאה המלא הקרוב הוא האירוע הפרלמנטרי המשמעותי ביותר באופק של 30 הימים. על בסיס נתוני EP API לגבי פעילויות צפויות:
+
+- **יום שני, 18 במאי**: 8 דיונים צפויים. הפגישה הפתיחה בדרך כלל מכסה הצהרות הנציבות והחלטות דחופות. הספר הלבן על הוצאות הגנה ויישום האסטרטגיה התעשייתית האירופאית להגנה (EDIS) צפויים כפריטי סדר יום לאור לוח הזמנים החקיקתי הנוכחי ועדיפויות נשיאות המועצה.
+- **יום שלישי, 19 במאי**: 5 דיונים + 6 הצבעות מתוכננות. זהו יום ההצבעה הראשון — בעל חשיבות פרוצדורלית שכן חקיקה מרכזית לעיתים קרובות מקבלת קריאה ראשונה או שנייה. 6 ההצבעות המתוכננות מצביעות על תוצאה חקיקתית בעצימות בינונית, עקבית עם דפוסי מושבי אמצע-קדנציה.
+- **יום רביעי, 20 במאי**: 5 דיונים + 9 הצבעות מתוכננות. צפיפות ההצבעות הגבוהה ביותר במושב (9 הצבעות). זהו בדרך כלל יום החקיקה המכריע ביותר, שבו דוחות ועדות והסכמים בין-מוסדיים מקבלים אישור סופי של המליאה.
+- **יום חמישי, 21 במאי**: 5 דיונים + 2 הצבעות מתוכננות. מושב סיום עם הצבעות עדיפות, שעת שאלות וקביעת סדר יום קדימה-מבטה.
+
+**סה"כ**: 23 דיונים, 17 הצבעות לאורך מושב המליאה הרביעי בשטרסבורג. זה מעל הממוצע האחרון של EP10 בכ-15 הצבעות לכל מושב מליאה מלא, מה שמצביע על ספרינט חקיקתי עצים.
+
+---
+
+### נושאים חקיקתיים מרכזיים לאופק של 30 יום
+
+#### 1. האסטרטגיה התעשייתית האירופאית להגנה (EDIS) — עדיפות גבוהה
+חבילת EDIS, הנבנית על מסגרת ReArm Europe / תוכנית ההשקעות הגנתיות האירופאית (EDIP), מייצגת את יוזמת החקיקה המשמעותית ביותר מבחינה פוליטית ב-EP10. עם מחויבות 2% מהתמ"ג של נאט"ו להגנה בלחץ ומלחמת אוקראינה נמשכת, EPP, ECR ו-S&D גיבשו קונצנזוס תלת-מפלגתי חריג על רכש הגנתי משותף. עמדת הפרלמנט צפויה לכלול:
+- מנגנוני רכש משותף לתחמושת ולפלטפורמות
+- הקצאות קרן הריבונות האירופאית לפיתוח ומחקר הגנתי
+- הוראות גישה לעסקים קטנים ובינוניים לבסיס התעשייתי ההגנתי
+
+🟡 **הסתברות לאישור המליאה בחלון זה**: 60–70%. שאלות טרילוג פתוחות על כלי חוב משותפים עשויות לעכב את ההצבעה הסופית.
+
+#### 2. עסקת התעשייה הנקייה (CID) — עדיפות בינונית
+בעקבות כיוונון מחדש של עסקת הירוק על ידי נשיאת הנציבות פון דר ליין בקדנציה השנייה, CID מארז מחדש את יעדי הפחתת הפחמן במסגרת תחרותיות. הוראות מרכזיות:
+- יישום שלב 2 של מנגנון ההתאמה גבולית לפחמן (CBAM)
+- עתודות אסטרטגיות של חומרי גלם קריטיים של האיחוד האירופי
+- פיתוח שוק מימן נקי
+- מנגנוני הקלה על מחירי החשמל התעשייתיים
+
+דינמיקה פוליטית: EPP מגן על מסגרת התחרותיות; S&D מתעקש על תנאיות חברתית; Greens/EFA מתנגד לכל נסיגה מיעדי האקלים ל-2030. אריתמטיקת הקואליציה צמודה — אישור בחלון זה תלוי בהתאמה בין EPP-S&D-Renew.
+
+#### 3. פעולות מואצלות לביצוע תקנת ה-AI
+תקנת ה-AI (תקנה (EU) 2024/1689) נכנסת לשנתה השנייה של יישום שלבי. פעולות מואצלות בנושא סיווג מערכות AI בסיכון גבוה ותקינה מתוכננות לבחינת הפרלמנט. ועדות IMCO ו-LIBE הפיקו דוחות משותפים. שנוי במחלוקת פוליטית נמוך אך בעל השפעה טכנית על מערכת האקולוגית האירופאית של ה-AI.
+
+#### 4. מסגרת תקציבית — סקירת אמצע-קדנציה של המסגרת הפיננסית הרב-שנתית
+סקירת אמצע-קדנציה של ה-MFF נותרת ללא פתרון בעקבות משא ומתן במועצה. ועדת התקציב של הפרלמנט (BUDG) לוחצת לגמישות נוספת בקרנות לכידות וזרם חדש של משאבים עצמיים לממן את העלאת קרן ההגנה האירופאית. התנגדות המועצה ממדינות חברות שהן תורמות נטו (גרמניה, הולנד, אוסטריה, שוודיה) יוצרת מתח מבני.
+
+---
+
+### ניתוח קואליציות לתקופת האופק
+
+**עסקי חקיקה סטנדרטיים** דורשים 360+ קולות:
+- EPP (183) + S&D (136) = 319 — מתחת לסף ללא Renew (77) → **EPP+S&D+Renew = 396** (בר-ביצוע, בשימוש היסטורי לחקיקה דיגיטלית/חברתית)
+- EPP (183) + ECR (81) + PfE (85) = 349 — מתחת לסף → + Renew (77) = 426 (בר-ביצוע להגנה/תחרותיות)
+- **גוש פרוגרסיבי** (S&D + Renew + Greens + Left = 311) — אינו יכול לגבש רוב לבדו; זקוק ל-EPP
+
+**תובנה מרכזית**: הציר האסטרטגי של EPP בין קואליציות פרוגרסיביות ושמרניות מעניק לו השפעה מכרעת. נציבות פון דר ליין תלויה בתמיכת הפרלמנט על פני הספקטרום המלא מהמרכז-ימני למרכז-שמאלי, מה שיוצר תמריצים לפשרה מתווכת.
+
+**סיכון מתפתח**: PfE (85 מושבים) הפגין משמעת גוברת ויכולת לגבש מיעוטים חוסמים בנושאי הגירה ושלטון החוק. בכל הצבעה הדורשת 360+ שבה EPP מתפצל (25+ מורדים מ-EPP), PfE + ECR יכולים לסכל את הרוב.
+
+---
+
+### מודיעין צופה פני עתיד: מושב יוני 2026 (אינו בחלון של 30 הימים אך גלוי)
+
+מושב המליאה בשטרסבורג יוני 2026 (15–18 יוני) יעסוק במסקנות המועצה האירופאית של יוני. פריטי סדר היום כוללים בדרך כלל:
+- מעקב אחר חבילת התחרותיות של האביב
+- הערכת התקדמות ההצטרפות של מדינות מערב הבלקן
+- הארכת הסנקציות נגד רוסיה (חידוש אוטומטי אך נתון לדיון פוליטי)
+- שאיפת אקלים לפני COP32 (בלם, נובמבר 2026)
+
+---
+
+### נקודות ציון בלוח השנה המוסדי
+
+| תאריך | אירוע | משמעות |
+|-------|-------|--------|
+| 18–21 במאי 2026 | מליאה בשטרסבורג | 17 הצבעות מתוכננות; EDIS, CID, תקנת AI צפויים |
+| 22 במאי 2026 | שבועות ועדות מתחילות | מושבי ECON, ITRE, BUDG אינטנסיביים |
+| 26–27 במאי 2026 | מועצה בלתי פורמלית (תחרותיות) | תשומת לב שרית לעמדות CID |
+| 3 ביוני 2026 | מועדי הצבעת ועדות | לפני מליאת יוני |
+| 15–18 ביוני 2026 | מליאת שטרסבורג יוני | ספרינט חקיקתי לאחר המועצה |
+
+---
+
+### סיכום הערכת סיכונים (מפורט במוצרי risk-scoring/)
+
+| סיכון | הסתברות | השפעה | מגמה |
+|-------|---------|--------|------|
+| כישלון רוב המליאה על EDIS | 30–40% | גבוהה | יציב |
+| קיפאון סקירת אמצע-קדנציה MFF | 65% | בינונית | מחמירה |
+| הפעלת מיעוט חוסם של PfE | 35% | בינונית | עולה |
+| עימות פרלמנט-נציבות על CID | 45% | בינונית | יציב |
+| שיבוש מושב (פרוצדורלי) | 10% | נמוכה | יציב |
+
+---
+
+### הצהרת אמינות אנליטית
+
+סיכום זה הופק מ: EP Open Data API (מושבי מליאה, פעילויות צפויות, הרכב קבוצות פוליטיות, הזנת טקסטים שאומצו), נתונים סטטיסטיים של הפרלמנט (2025–2026) וניתוח דינמיקת קואליציה. **מגבלה מרכזית**: ה-API לפעילויות צפויות מחזיר מזהי אירועים ללא כותרות — תוכן פריטי סדר היום נגזר מהקשר לוח הזמנים החקיקתי ועדיפויות EP10 הפוליטיות. ההקשר הכלכלי של ה-IMF (תמ"ג, אינפלציה, מסלולי גירעון פיסקלי) תומך בהמסגרה מאקרו-פוליטית ומצוטט ב-intelligence/economic-context.md.
+
+אמינות: 🟡 **בינונית** — הנתונים המבניים הם באיכות גבוהה; פרטי סדר היום כפופים לפרסום של המזכירות של הפרלמנט (בדרך כלל T-5 ימים לפני המליאה).
+
+*מקורות: פורטל הנתונים הפתוחים של הפרלמנט האירופי (data.europarl.europa.eu); מסד הנתונים הסטטיסטי EP10; ניתוח קואליציה לפי מתודולוגיית CIA המיושמת על נתוני הרכב הפרלמנט.*
+
+### Executive Brief Ja
+
+**作成日:** 2026-05-11 | **記事種別:** month-ahead | **対象期間:** 30日
+**信頼度:** 🟡 中程度（EP API部分データ — 議事日程は未掲載）
+
+---
+
+### 戦略的状況概観
+
+欧州議会は、5月の第1回フル・ストラスブール本会議（2026年5月18～21日）と6月会期を目指す立法日程によって特徴づけられる重大な4週間に入ろうとしています。EP10（2024～2029年）は構造的に分断された状況下で機能しています。9つの政治グループ、伝統的な大連立多数派の不在、6.58という欧州議会史上最高の実効政党数がその特徴です。立法多数派の形成には、360議席の閾値を超える最低3グループの協力が必要です。
+
+EPP（183議席・25.5%）は依然として支配的勢力ですが、その実務的多数派は柔軟な連携に依存しています。通常はEPP+S&D（合計319議席、過半数まで7議席不足）にRenew EuropeまたはECRを加える形となります。防衛と産業競争力は、EPP・ECR・Renewの一部が350～380議席の安定多数派を形成できるコンセンサス領域として浮上しています。環境・社会政策は依然として争点となっており、グリーンディールの再調整が中道右派と中道左派の分断を生んでいます。
+
+---
+
+### 5月ストラスブール本会議（2026年5月18～21日）：4日間の重要な採決
+
+次の本会議は、30日間の対象期間における最も重要な議会イベントです。EP APIの予定活動データによれば：
+
+- **5月18日（月曜日）**: 8件の討議が予定されています。開会式では通常、欧州委員会の声明と緊急決議が取り上げられます。国防費白書と欧州防衛産業戦略（EDIS）の実施は、現行の立法日程と理事会議長国の優先課題を踏まえ、議題となる見込みです。
+- **5月19日（火曜日）**: 5件の討議＋6件の採決が予定されています。これが最初の採決日です。主要立法が第1読会または第2読会を受けることが多く、手続き上重要な意味を持ちます。6件の採決は会期中盤の本会議パターンと一致した中程度の立法成果を示唆しています。
+- **5月20日（水曜日）**: 5件の討議＋9件の採決が予定されています。会期中最高の採決密度（9件）。委員会報告書や機関間協定が最終的な本会議承認を受ける、最も重要な立法日です。
+- **5月21日（木曜日）**: 5件の討議＋2件の採決が予定されています。優先採決、質疑応答、将来の議題設定を含む閉会式です。
+
+**合計**: 4日間のストラスブール本会議で23件の討議、17件の採決。最近のEP10平均（本会議あたり約15件）を上回り、高密度の立法スプリントを示しています。
+
+---
+
+### 30日間の主要立法テーマ
+
+#### 1. 欧州防衛産業戦略（EDIS） — 優先度：高
+ReArm Europe / 欧州防衛投資プログラム（EDIP）の枠組みに基づくEDISパッケージは、EP10における政治的に最も重要な立法イニシアチブです。NATOのGDP比2%防衛公約への圧力とウクライナ戦争の継続を背景に、EPP・ECR・S&Dは共同防衛調達に関する珍しい三党合意を形成しました。欧州議会の立場は以下を含むと予想されます。
+- 弾薬・プラットフォームの共同調達メカニズム
+- 防衛R&Dのための欧州主権基金の割り当て
+- 防衛産業基盤へのSMEアクセス規定
+
+🟡 **この期間における本会議採択の可能性**: 60～70%。共同債務手段に関する未解決のトリローグ問題が最終採決を遅らせる可能性があります。
+
+#### 2. クリーン産業ディール（CID） — 優先度：中
+欧州委員会のフォン・デア・ライエン委員長による第2期グリーンディールの再調整を受け、CIDは脱炭素目標を競争力の枠組みの中に再パッケージ化しています。主要規定：
+- 炭素国境調整メカニズム（CBAM）フェーズ2の実施
+- EU重要原材料の戦略的備蓄
+- クリーン水素市場の発展
+- 産業用電力価格の緩和メカニズム
+
+政治力学：EPPは競争力の枠組みを支持、S&Dは社会的条件付けを主張、Greens/EFAは2030年の気候目標後退に反対。連立の数理は厳しく、この期間内の可決はEPP-S&D-Renewの協調次第です。
+
+#### 3. AI規則施行委任法
+AI規則（規則（EU）2024/1689）は、段階的施行の2年目に入ります。高リスクAIシステムの分類と標準化に関する委任法が欧州議会の審査に予定されています。IMCOおよびLIBE委員会が共同報告書を作成しました。政治的には議論が少ないが、欧州AIエコシステムにとって技術的に重要です。
+
+#### 4. 予算枠組み — 多年度財政枠組みの中間見直し
+多年度財政枠組み（MFF）の中間見直しは、理事会交渉を経てもなお未解決のままです。欧州議会予算委員会（BUDG）は、結束基金の追加弾力性と欧州防衛基金の増額を賄うための新たなEU独自財源の流れを求めています。純拠出国（ドイツ、オランダ、オーストリア、スウェーデン）の理事会での抵抗が構造的な緊張を生んでいます。
+
+---
+
+### 対象期間における連立分析
+
+**標準的な立法業務**には360票以上が必要：
+- EPP（183）＋S&D（136）＝319 — Renewなし（77）では閾値以下 → **EPP+S&D+Renew＝396**（実現可能、デジタル/社会立法で歴史的に使用）
+- EPP（183）＋ECR（81）＋PfE（85）＝349 — 閾値以下 → ＋Renew（77）＝426（防衛/競争力分野で実現可能）
+- **進歩的ブロック**（S&D＋Renew＋Greens＋Left＝311） — 単独では多数派を形成できず；EPPが必要
+
+**重要知見**: EPPの進歩的・保守的連立間での戦略的転換が決定的な影響力を与えています。フォン・デア・ライエン欧州委員会は中道右派から中道左派にかけての全スペクトルでのEP支持に依存しており、仲介的妥協のインセンティブが生まれています。
+
+**新興リスク**: PfE（85議席）は移住・法の支配問題において阻止少数派を形成する規律と能力を高めています。EPPが分裂する（EPP反乱者25人以上）360票以上が必要なあらゆる採決で、PfE＋ECRが多数派を阻止する可能性があります。
+
+---
+
+### 先見的情報分析：2026年6月会期（30日間の窓外だが視野内）
+
+2026年6月のストラスブール本会議（6月15～18日）は、6月欧州理事会の結論を取り上げます。通常の議題項目には以下が含まれます：
+- 春の競争力パッケージのフォローアップ
+- 西バルカン諸国の加盟進捗評価
+- ロシア制裁の延長（自動更新だが政治的議論の対象）
+- COP32（2026年11月、ベレン）に向けた気候目標
+
+---
+
+### 機関カレンダーのハイライト
+
+| 日付 | イベント | 重要性 |
+|------|---------|--------|
+| 2026年5月18～21日 | ストラスブール本会議 | 17件の予定採決；EDIS、CID、AI規則が予想される |
+| 2026年5月22日 | 委員会週間開始 | ECON、ITRE、BUDGの集中セッション |
+| 2026年5月26～27日 | 非公式理事会（競争力） | CID立場への閣僚インプット |
+| 2026年6月3日 | 委員会採決期限 | 6月本会議前 |
+| 2026年6月15～18日 | 6月ストラスブール本会議 | 理事会後の立法スプリント |
+
+---
+
+### リスク評価概要（risk-scoring/アーティファクトで詳細説明）
+
+| リスク | 確率 | 影響 | 傾向 |
+|--------|------|------|------|
+| EDISにおける本会議多数派の失敗 | 30～40% | 高 | 安定 |
+| MFF中間見直しの行き詰まり | 65% | 中 | 悪化傾向 |
+| PfE阻止少数派の活性化 | 35% | 中 | 上昇傾向 |
+| CIDをめぐる欧州議会-欧州委員会の衝突 | 45% | 中 | 安定 |
+| 会期混乱（手続き上） | 10% | 低 | 安定 |
+
+---
+
+### 分析的信頼度声明
+
+このブリーフは以下から作成されています：EP Open Data API（本会議、予定活動、政治グループの構成、採択テキストフィード）、EP統計データ（2025～2026年）、連立力学分析。**主要な制限事項**：予定活動のAPIはタイトルなしにイベントIDを返すため、議題の内容は立法日程のコンテキストとEP10の政治的優先事項から推定されます。IMFの経済的文脈（GDP、インフレ、財政赤字の軌跡）はマクロ政治的枠組みを支持し、intelligence/economic-context.mdに引用されています。
+
+信頼度：🟡 **中程度** — 構造的データは高品質；議題の具体的内容はEP事務局の公表（通常は本会議のT-5日前）に依存。
+
+*出典：欧州議会オープンデータポータル（data.europarl.europa.eu）；EP10統計データベース；EP構成データに適用されたCIA方法論による連立分析。*
+
+### Executive Brief Ko
+
+**작성일:** 2026-05-11 | **기사 유형:** month-ahead | **기간:** 30일
+**신뢰 수준:** 🟡 보통 (EP API 부분 데이터 — 전체 의사일정 미공개)
+
+---
+
+### 전략적 상황 개요
+
+유럽의회는 5월 첫 번째 완전한 스트라스부르 본회의(2026년 5월 18~21일)와 6월 회기를 향해 가는 입법 일정으로 정의되는 중요한 4주 기간에 접어들고 있습니다. EP10(2024~2029)은 구조적으로 분열된 조건 속에서 운영됩니다. 9개 정치그룹, 전통적인 대연정 다수파 부재, 6.58이라는 유럽의회 역사상 최고 실효 정당 수가 그 특징입니다. 모든 입법 다수파 형성에는 360석 임계값을 넘어서는 최소 3개 그룹의 협력이 필요합니다.
+
+EPP(183석, 25.5%)는 여전히 지배적인 세력이지만, 실질적인 다수파는 유연한 동맹에 의존합니다. 일반적으로 EPP+S&D(합계 319석, 과반수보다 7석 부족)에 의제 분야에 따라 Renew Europe 또는 ECR을 추가하는 방식입니다. 방위와 산업 경쟁력은 EPP, ECR, 그리고 Renew 일부가 350~380석의 안정적인 다수파를 형성할 수 있는 합의 영역으로 부상했습니다. 환경·사회 정책은 여전히 논쟁의 여지가 있으며, 그린딜의 재조정이 중도우파와 중도좌파 블록을 분열시키고 있습니다.
+
+---
+
+### 5월 스트라스부르 본회의(2026년 5월 18~21일): 중요한 표결의 4일
+
+다음 전체 본회의는 30일 기간 중 가장 중요한 의회 행사입니다. EP API의 예정 활동 데이터에 따르면:
+
+- **5월 18일(월요일)**: 8건의 예정된 토론. 개회식에서는 보통 집행위원회 성명과 긴급 결의안을 다룹니다. 국방비 백서와 유럽방위산업전략(EDIS) 이행은 현재 입법 일정과 이사회 의장국 우선순위를 감안할 때 의제 항목으로 예상됩니다.
+- **5월 19일(화요일)**: 토론 5건 + 표결 6건 예정. 이날이 첫 번째 표결일로 주요 법안이 1독회 또는 2독회를 받는 경우가 많아 절차상 중요합니다. 예정된 6건의 표결은 임기 중반 본회의 패턴과 일치하는 중간 강도의 입법 결과를 시사합니다.
+- **5월 20일(수요일)**: 토론 5건 + 표결 9건 예정. 회기 중 가장 높은 표결 밀도(9건)입니다. 위원회 보고서와 기관 간 협정이 최종 본회의 승인을 받는 가장 중요한 입법일입니다.
+- **5월 21일(목요일)**: 토론 5건 + 표결 2건 예정. 우선 표결, 질의 시간, 향후 의제 설정을 포함하는 폐회식입니다.
+
+**합계**: 스트라스부르 4일간 본회의에서 토론 23건, 표결 17건. 이는 전체 본회의당 약 15건이라는 최근 EP10 평균을 상회하여 고밀도 입법 스프린트를 나타냅니다.
+
+---
+
+### 30일 기간의 주요 입법 주제
+
+#### 1. 유럽방위산업전략(EDIS) — 우선순위: 높음
+ReArm Europe / 유럽방위투자프로그램(EDIP) 프레임워크를 기반으로 한 EDIS 패키지는 EP10에서 정치적으로 가장 중요한 입법 이니셔티브입니다. NATO의 GDP 2% 방위 공약에 대한 압박과 우크라이나 전쟁 지속을 배경으로 EPP, ECR, S&D는 공동 방위조달에 관한 이례적인 3당 합의를 형성했습니다. 유럽의회의 입장에는 다음이 포함될 것으로 예상됩니다.
+- 탄약과 플랫폼을 위한 공동 조달 메커니즘
+- 방위 R&D를 위한 유럽 주권기금 배분
+- 방위산업 기반의 중소기업 접근 규정
+
+🟡 **이 기간 내 본회의 채택 가능성**: 60~70%. 공동 부채 수단에 관한 미해결 삼자회담 문제가 최종 표결을 지연시킬 수 있습니다.
+
+#### 2. 청정산업협약(CID) — 우선순위: 보통
+폰 데어 라이엔 집행위원장의 2기 그린딜 재조정에 따라 CID는 탈탄소화 목표를 경쟁력 프레임워크 내에 재패키지화합니다. 주요 규정:
+- 탄소국경조정메커니즘(CBAM) 2단계 이행
+- EU 핵심원자재 전략 비축
+- 청정수소 시장 발전
+- 산업용 전기 요금 완화 메커니즘
+
+정치 역학: EPP는 경쟁력 프레임을 지지하고, S&D는 사회적 조건부 수용을 주장하며, Greens/EFA는 2030 기후 목표 후퇴에 반대합니다. 연립 산술이 빠듯하여 이 기간 내 통과는 EPP-S&D-Renew의 협력에 달려 있습니다.
+
+#### 3. AI 규정 위임 이행 법령
+AI 규정(규정 (EU) 2024/1689)은 단계적 시행 2년차에 접어듭니다. 고위험 AI 시스템 분류 및 표준화에 관한 위임 법령이 유럽의회 심사를 위해 예정되어 있습니다. IMCO와 LIBE 위원회가 공동 보고서를 작성했습니다. 정치적으로 논란은 적지만 유럽 AI 생태계에 기술적으로 중요합니다.
+
+#### 4. 예산 프레임워크 — 다년도재정계획 중간 검토
+다년도재정계획(MFF) 중간 검토는 이사회 협상 이후에도 여전히 미해결 상태입니다. 유럽의회 예산위원회(BUDG)는 결속기금의 추가 유연성과 유럽방위기금 증액을 위한 새로운 EU 자체 재원 흐름을 요구하고 있습니다. 순기여국(독일, 네덜란드, 오스트리아, 스웨덴)의 이사회 저항이 구조적 긴장을 조성하고 있습니다.
+
+---
+
+### 기간 중 연립 분석
+
+**표준 입법 업무**에는 360표 이상이 필요합니다.
+- EPP(183) + S&D(136) = 319 — Renew(77) 없이는 임계값 미달 → **EPP+S&D+Renew = 396** (가능, 디지털/사회 입법에 역사적으로 사용)
+- EPP(183) + ECR(81) + PfE(85) = 349 — 임계값 미달 → + Renew(77) = 426 (방위/경쟁력 분야에 가능)
+- **진보 블록** (S&D + Renew + Greens + Left = 311) — 단독으로 다수파 형성 불가; EPP 필요
+
+**핵심 통찰**: EPP의 진보적·보수적 연립 간 전략적 전환이 결정적인 영향력을 부여합니다. 폰 데어 라이엔 집행위원회는 중도우파에서 중도좌파까지 전체 스펙트럼에 걸쳐 유럽의회 지지에 의존하여 중재된 타협의 인센티브를 만들어내고 있습니다.
+
+**신흥 리스크**: PfE(85석)는 이민과 법치 문제에서 저지 소수파를 형성하는 규율과 역량이 증가하고 있습니다. EPP가 분열되는(EPP 이탈자 25명 이상) 360표 이상이 필요한 표결에서 PfE + ECR이 다수파를 좌절시킬 수 있습니다.
+
+---
+
+### 선행 정보: 2026년 6월 회기(30일 창 외부이지만 가시적)
+
+2026년 6월 스트라스부르 본회의(6월 15~18일)는 6월 유럽이사회 결론을 다룰 것입니다. 의제 항목에는 보통 다음이 포함됩니다.
+- 봄 경쟁력 패키지 후속 조치
+- 서부 발칸반도 가입 진행 상황 평가
+- 러시아 제재 연장(자동 갱신이나 정치적 논쟁 대상)
+- COP32(2026년 11월, 벨렘)를 위한 기후 야망
+
+---
+
+### 기관 캘린더 주요 일정
+
+| 날짜 | 행사 | 중요성 |
+|------|------|--------|
+| 2026년 5월 18~21일 | 스트라스부르 본회의 | 17건 예정 표결; EDIS, CID, AI 규정 예상 |
+| 2026년 5월 22일 | 위원회 주간 시작 | ECON, ITRE, BUDG 집중 세션 |
+| 2026년 5월 26~27일 | 비공식 이사회(경쟁력) | CID 입장에 대한 장관급 의견 |
+| 2026년 6월 3일 | 위원회 표결 기한 | 6월 본회의 전 |
+| 2026년 6월 15~18일 | 6월 스트라스부르 본회의 | 이사회 이후 입법 스프린트 |
+
+---
+
+### 위험 평가 요약 (risk-scoring/ 아티팩트에서 상세 설명)
+
+| 위험 | 확률 | 영향 | 추세 |
+|------|------|------|------|
+| EDIS 본회의 다수파 실패 | 30~40% | 높음 | 안정 |
+| MFF 중간 검토 교착 | 65% | 보통 | 악화 중 |
+| PfE 저지 소수파 활성화 | 35% | 보통 | 상승 중 |
+| CID 관련 유럽의회-집행위원회 충돌 | 45% | 보통 | 안정 |
+| 회기 방해(절차적) | 10% | 낮음 | 안정 |
+
+---
+
+### 분석적 신뢰도 성명
+
+이 요약은 다음을 기반으로 작성되었습니다. EP Open Data API(본회의, 예정 활동, 정치그룹 구성, 채택 텍스트 피드), EP 통계 데이터(2025~2026), 연립 역학 분석. **핵심 한계**: 예정 활동 API는 제목 없이 이벤트 ID를 반환하므로 의제 항목 내용은 입법 일정 맥락과 EP10의 정치적 우선순위에서 추론됩니다. IMF 경제적 맥락(GDP, 인플레이션, 재정 적자 궤적)은 거시정치적 프레임을 지원하며 intelligence/economic-context.md에 인용되어 있습니다.
+
+신뢰도: 🟡 **보통** — 구조적 데이터는 고품질; 의사일정 세부사항은 유럽의회 사무처 공표(보통 본회의 T-5일 전)에 종속됩니다.
+
+*출처: 유럽의회 오픈데이터 포털(data.europarl.europa.eu); EP10 통계 데이터베이스; EP 구성 데이터에 적용된 CIA 방법론에 따른 연립 분석.*
+
+### Executive Brief Nl
+
+### Strategisch situatieoverzicht
+
+Het Europees Parlement treedt een cruciale periode van vier weken in, gedefinieerd door zijn eerste volledige Straatsburgse plenaire vergadering in mei (18-21 mei 2026) en de wetgevingskalender die naar de junisessie drijft. Het EP10 (2024-2029) opereert onder structureel gefragmenteerde omstandigheden: 9 politieke groepen, geen traditionele grote-coalitie-meerderheid, en een effectief aantal partijen van 6,58 — het hoogste in de EP-geschiedenis. Elke wetgevingsmeerderheid vereist minimaal 3 samenwerkende groepen boven de drempel van 360 zetels.
+
+De EVP (183 zetels, 25,5 %) blijft de dominante kracht, maar haar werkende meerderheid hangt af van flexibele allianties: typisch EVP + S&D (319 zetels gecombineerd, 7 onder de meerderheidsdrempel), aangevuld met Renew Europe of ECR afhankelijk van het beleidsdomein. Defensie en industriële concurrentiekracht zijn naar voren gekomen als consensusgebieden waar EVP, ECR en elementen van Renew stabiele meerderheden van 350-380 zetels kunnen vormen. Milieu- en sociaal beleid blijft omstreden, waarbij de herijking van de Green Deal het centrum-rechtse en centrum-linkse blok verdeelt.
+
+---
+
+### De Straatsburgse plenaire vergadering in mei (18-21 mei 2026): Vier dagen van bepalende stemmingen
+
+De komende volledige plenaire vergadering is de meest significante parlementaire gebeurtenis in de horizon van 30 dagen. Op basis van EP API-gegevens over voorziene activiteiten:
+
+- **Maandag 18 mei**: 8 voorziene debatten gepland. De openingsvergadering omvat doorgaans verklaringen van de Commissie en urgente resoluties. Het witboek over defensie-uitgaven en de implementatie van de Europese Defensie-Industriestrategie (EDIS) worden verwacht als agendapunten gezien de huidige wetgevingskalender en de prioriteiten van het Raadsvoorzitterschap.
+- **Dinsdag 19 mei**: 5 debatten + 6 stemmingen gepland. Dit is de eerste stemdag — procedureel significant omdat belangrijke wetgeving vaak een eerste of tweede lezing ontvangt. De 6 geplande stemmingen suggereren een matig intensief wetgevend resultaat, consistent met de patronen van halverwege-de-mandaatstermijn plenaire vergaderingen.
+- **Woensdag 20 mei**: 5 debatten + 9 stemmingen gepland. De hoogste stemdichtheid van de sessie (9 stemmingen). Dit is doorgaans de meest bepalende wetgevingsdag, waarop commissierapporten en interinstitutionele akkoorden een definitieve plenaire goedkeuring ontvangen.
+- **Donderdag 21 mei**: 5 debatten + 2 stemmingen gepland. Slotszitting met prioritaire stemmingen, vragenuur en vooruitblikkende agendavastlegging.
+
+**Totaal**: 23 debatten, 17 stemmingen over de vierdaagse Straatsburgse plenaire vergadering. Dit ligt boven het recente EP10-gemiddelde van circa 15 stemmingen per volledige plenaire vergadering, wat wijst op een intensieve wetgevingssprint.
+
+---
+
+### Centrale wetgevingsthema's voor de horizon van 30 dagen
+
+#### 1. Europese Defensie-Industriestrategie (EDIS) — HOGE PRIORITEIT
+Het EDIS-pakket, voortbouwend op het kader van ReArm Europe / European Defence Investment Programme (EDIP), vertegenwoordigt het politiek meest significante wetgevingsinitiatief van het EP10. Met het NAVO 2%-BBP-defensieengagement onder druk en de oorlog in Oekraïne aanhoudend hebben EVP, ECR en S&D een ongebruikelijke drieweekse consensus gevormd over gezamenlijke defensieverwerving. Het standpunt van het EP zal naar verwachting het volgende omvatten:
+- Gemeenschappelijke aanschaffingsmechanismen voor munitie en platforms
+- Allocaties van het Europees Soevereiniteitsfonds voor defensie-O&O
+- KMO-toegangsbepalingen voor de defensie-industriële basis
+
+🟡 **Waarschijnlijkheid van plenaire aanneming in dit venster**: 60-70 %. Uitstaande triloogkwesties over gemeenschappelijke schuldinstrumenten kunnen de eindstemming vertragen.
+
+#### 2. Schoon Industriepact (CID) — GEMIDDELDE PRIORITEIT
+Na de herijking van de Green Deal door Commissievoorzitter von der Leyen voor haar tweede ambtstermijn verpakt het CID de decarbonisatiedoelstellingen binnen een concurrentievermogenskader. Kernbepalingen:
+- Fase 2-implementatie van het Koolstofgrenscorrectiemechanisme (CBAM)
+- Strategische EU-reserves van kritieke grondstoffen
+- Marktontwikkeling voor schone waterstof
+- Verlichtingsmechanismen voor industriële elektriciteitsprijzen
+
+Politieke dynamiek: EVP verdedigt het concurrentievermogenskader; S&D staat erop sociale conditionaliteit op te nemen; Greens/EFA verzet zich tegen elke teruggang op de klimaatdoelstellingen van 2030. De coalitie-arithmetiek is krap — goedkeuring in dit venster hangt af van EVP-S&D-Renew-afstemming.
+
+#### 3. Gedelegeerde uitvoeringshandelingen voor de AI-verordening
+De AI-verordening (Verordening (EU) 2024/1689) treedt haar tweede jaar van gefaseerde implementatie in. Gedelegeerde handelingen over de classificatie van hoog-risico AI-systemen en normalisatie zijn gepland voor EP-scrutinie. De commissies IMCO en LIBE hebben gezamenlijke rapporten opgesteld. Politiek weinig controversieel maar technisch bepalend voor het Europese AI-ecosysteem.
+
+#### 4. Begrotingskader — Tussentijdse herziening van het Meerjarig Financieel Kader
+De tussentijdse herziening van het MFK blijft onopgelost na de Raadsonderhandelingen. De EP-Begrotingscommissie (BUDG) dringt aan op extra flexibiliteit voor cohesiefondsen en een nieuwe EU-eigenmiddelenstroom ter financiering van de verhoging van het Europees Defensiefonds. Het verzet van de Raad van nettobijdragende lidstaten (Duitsland, Nederland, Oostenrijk, Zweden) creëert structurele spanningen.
+
+---
+
+### Coalitieanalyse voor de horizonperiode
+
+**Standaard wetgevingszaken** vereisen 360+ stemmen:
+- EVP (183) + S&D (136) = 319 — onder de drempel zonder Renew (77) → **EVP+S&D+Renew = 396** (levensvatbaar, historisch gebruikt voor digitale/sociale wetgeving)
+- EVP (183) + ECR (81) + PfE (85) = 349 — onder de drempel → + Renew (77) = 426 (levensvatbaar voor defensie/concurrentievermogen)
+- **Progressief blok** (S&D + Renew + Greens + Left = 311) — kan geen meerderheid alleen vormen; heeft EVP nodig
+
+**Kerninzicht**: De strategische pivotatie van de EVP tussen progressieve en conservatieve coalities geeft haar doorslaggevende invloed. De Commissie van Von der Leyen is afhankelijk van EP-steun in het gehele spectrum van centrum-rechts naar centrum-links, wat stimulansen creëert voor bemiddeld compromis.
+
+**Opkomend risico**: PfE (85 zetels) heeft groeiende discipline getoond en de capaciteit om blokkerende minderheden te vormen op migratie- en rechtsstaatvraagstukken. Bij elke stemming die 360+ vereist waarbij de EVP uiteenvalt (25+ EVP-rebellen), kan PfE + ECR de meerderheid verijdelen.
+
+---
+
+### Vooruitblikkende inlichtingen: Junisessie 2026 (niet in het 30-dagen-venster maar zichtbaar)
+
+De Straatsburgse plenaire vergadering van juni 2026 (15-18 juni) zal de conclusies van de Europese Raad van juni behandelen. Agendapunten omvatten doorgaans:
+- Opvolging van het lenteconcurrentiepakket
+- Beoordeling van de toetredingsvorderingen van de Westelijke Balkan
+- Verlenging van de Rusland-sancties (automatische verlenging maar onderhevig aan politiek debat)
+- Klimaatambitie voor de COP32 (Belém, november 2026)
+
+---
+
+### Institutionele kalenderhooglichten
+
+| Datum | Evenement | Belang |
+|-------|----------|--------|
+| 18-21 mei 2026 | Straatsburg Plenaire | 17 geplande stemmingen; EDIS, CID, AI-verordening verwacht |
+| 22 mei 2026 | Commissieweken beginnen | ECON, ITRE, BUDG intensieve sessies |
+| 26-27 mei 2026 | Informele Raad (Concurrentievermogen) | Ministeriële input over CID-standpunten |
+| 3 juni 2026 | Deadlines commissiestemmingen | Voor de juniplenaire |
+| 15-18 juni 2026 | Junisessie Straatsburg Plenaire | Wetgevingssprint na de Raad |
+
+---
+
+### Samenvatting risicobeoordeling (Gedetailleerd in risk-scoring/ artefacten)
+
+| Risico | Waarschijnlijkheid | Impact | Trend |
+|--------|------------------|--------|-------|
+| Mislukking plenaire meerderheid voor EDIS | 30-40 % | HOOG | Stabiel |
+| Impasse tussentijdse herziening MFK | 65 % | GEMIDDELD | Verslechterend |
+| PfE blokkerende minderheid activering | 35 % | GEMIDDELD | Stijgend |
+| EP-Commissieconfrontatie over CID | 45 % | GEMIDDELD | Stabiel |
+| Sessieverstoring (procedureel) | 10 % | LAAG | Stabiel |
+
+---
+
+### Analytische betrouwbaarheidsverklaring
+
+Dit overzicht is opgesteld op basis van: EP Open Data API (plenaire vergaderingen, voorziene activiteiten, samenstelling politieke groepen, feed aangenomen teksten), EP statistische gegevens (2025-2026) en coalitiedynamiekanalyse. **Cruciale beperking**: de API voor voorziene activiteiten retourneert event-ID's zonder titels — de inhoud van agendapunten wordt afgeleid uit de context van de wetgevingskalender en de politieke prioriteiten van het EP10. IMF economische context (bbp, inflatie, begrotingstekorttrajecten) ondersteunt de macro-politieke framing en wordt geciteerd in intelligence/economic-context.md.
+
+Betrouwbaarheid: 🟡 **Gemiddeld** — structurele data is van hoge kwaliteit; agendaspecifieke details zijn afhankelijk van publicatie door het EP-secretariaat (doorgaans T-5 dagen voor de plenaire vergadering).
+
+*Bronnen: Open Data Portal van het Europees Parlement (data.europarl.europa.eu); EP10 statistische database; coalitieanalyse conform CIA-methodologie toegepast op EP-samenstellingsgegevens.*
+
+### Executive Brief No
+
+### Strategisk situasjonsoversikt
+
+Europaparlamentet går inn i en avgjørende fireukersperiode definert av sin første fullstendige Strasbourg-plenumsmøte i mai (18.–21. mai 2026) og den lovgivningskalenderen som driver mot junisessionen. EP10 (2024–2029) opererer under strukturelt fragmenterte forhold: 9 politiske grupper, ingen tradisjonell storkoalisjons-majoritet og et effektivt partiall på 6,58 — det høyeste i EP-historien. Enhver lovgivningsmessig majoritet krever minst 3 samarbeidende grupper over terskelen på 360 mandater.
+
+EPP (183 mandater, 25,5 %) forblir den dominerende kraften, men dens fungerende majoritet avhenger av fleksible allianser: typisk EPP + S&D (319 mandater samlet, 7 under majoritetsterskelen) supplert av Renew Europe eller ECR avhengig av saksområdet. Forsvar og industriell konkurranseevne har framstått som konsensusområder der EPP, ECR og deler av Renew kan danne varige majoriteter på 350–380 mandater. Miljø- og sosialpolitikk forblir omstridt, med overkalibrering av Green Deal som deler sentrum-høyre fra sentrum-venstre blokker.
+
+---
+
+### Strasbourg-plenumsmøtet i mai (18.–21. mai 2026): Fire dager med avgjørende avstemninger
+
+Den kommende fullstendige plenarsessionen er den mest betydningsfulle parlamentariske hendelsen innenfor 30-dagershorisonten. Basert på EP API-data om forutsette aktiviteter:
+
+- **Mandag 18. mai**: 8 forutsette debatter planlagt. Åpningssessionen dekker typisk Kommisjonens uttalelser og hastedebatter. Hvitboken om forsvarsutgifter og gjennomføringen av den europeiske forsvarsindustrielle strategien (EDIS) forventes som agendapunkter gitt den aktuelle lovgivningskalenderen og Rådsformannskapets prioriteringer.
+- **Tirsdag 19. mai**: 5 debatter + 6 avstemninger planlagt. Dette er den første avstemningsdagen — prosedyremessig viktig ettersom viktig lovgivning ofte mottar første eller andre behandling. De 6 planlagte avstemningene antyder et moderat lovgivningsmessig utfall, konsistent med midtveisplenarmønstrene.
+- **Onsdag 20. mai**: 5 debatter + 9 avstemninger planlagt. Den høyeste avstemningstettheten i sessionen (9 avstemninger). Dette er typisk den mest avgjørende lovgivningsdagen, der komitérapporter og interinstitusjonelle avtaler mottar endelig plenar-godkjenning.
+- **Torsdag 21. mai**: 5 debatter + 2 avstemninger planlagt. Avslutningssesjon med prioriterte avstemninger, spørretid og fremadrettet agendafastsettelse.
+
+**Totalt**: 23 debatter, 17 avstemninger gjennom den firesiders Strasbourg-plenarsessionen. Dette er over EP10's siste gjennomsnitt på ca. 15 avstemninger per fullstendig plenarsesjon, noe som indikerer en intensiv lovgivningssprint.
+
+---
+
+### Viktige lovgivningstemaer for 30-dagershorisonten
+
+#### 1. Europeisk forsvarsindustriell strategi (EDIS) — HØY PRIORITET
+EDIS-pakken, bygget på ReArm Europe / European Defence Investment Programme (EDIP)-rammeverket, representerer det politisk mest betydningsfulle lovgivningsinitiativet i EP10. Med NATO's 2 % BNP-forsvarstilsagn under press og krigen i Ukraina pågående har EPP, ECR og S&D dannet en uvanlig trepartsensus om felles forsvarsanskaffelse. EP's standpunkt forventes å inneholde:
+- Felles anskaffelsesmekanismer for ammunisjon og plattformer
+- Europeisk Suverenitetsfonds-allokeringer til forsvars-FoU
+- SMB-tilgangsbestemmelser for forsvarsindustriens base
+
+🟡 **Sannsynlighet for plenar-godkjenning i dette vinduet**: 60–70 %. Utestående trilogspørsmål om felles gjeldsinstrumenter kan forsinke endelig avstemning.
+
+#### 2. Ren industriell avtale (CID) — MEDIUM PRIORITET
+Etter Kommisjonspresident von der Leyens overkalibrering av Green Deal i andre periode gjenoppstiller CID dekarboniseringsmålene innenfor et konkurransedyktig rammeverk. Viktige bestemmelser:
+- Fase 2-implementering av karbongrensejusteringsmekanismen (CBAM)
+- EUs strategiske reserver av kritiske råvarer
+- Markedsutvikling for ren hydrogen
+- Lettelsesmekanismer for industriell strømpris
+
+Politisk dynamikk: EPP forfekter konkurransedyktighets-innramning; S&D insisterer på sosial betingelse; Greens/EFA motsetter seg enhver tilbakegang på klimamålene for 2030. Koalisjonsaritmetikken er trang — passage i dette vinduet avhenger av EPP-S&D-Renew-tilpasning.
+
+#### 3. AI-forordningens gjennomføringsdelegerte rettsakter
+AI-forordningen (forordning (EU) 2024/1689) går inn i sitt andre år med gradvis gjennomføring. Delegerte rettsakter om klassifisering av høy-risiko AI-systemer og standardisering er planlagt for EP-granskning. IMCO- og LIBE-komiteene har produsert felles rapporter. Politisk lite kontroversielt men teknisk avgjørende for det europeiske AI-økosystemet.
+
+#### 4. Budsjettramme — halvtidsgjennomgangen av den flerårige finansielle rammen
+MFF-halvtidsgjennomgangen er fortsatt uavklart etter Rådsforhandlingene. EPs Budsjettkomité (BUDG) presser for ytterligere fleksibilitet i samhørighetsfondene og en ny EU-egenressursstrøm for å finansiere oppgradering av Europeisk Forsvarsfond. Rådets motstand fra nettobidragsytende medlemsland (Tyskland, Nederland, Østerrike, Sverige) skaper strukturell spenning.
+
+---
+
+### Koalisjonsanalyse for perioden
+
+**Standard lovgivningssaker** krever 360+ mandater:
+- EPP (183) + S&D (136) = 319 — under terskelen uten Renew (77) → **EPP+S&D+Renew = 396** (gjennomførlig, historisk brukt for digital/sosial lovgivning)
+- EPP (183) + ECR (81) + PfE (85) = 349 — under terskelen → + Renew (77) = 426 (gjennomførlig for forsvar/konkurranseevne)
+- **Progressiv blokk** (S&D + Renew + Greens + Left = 311) — kan ikke danne majoritet alene; trenger EPP
+
+**Nøkkelinnsikt**: EPP's strategiske sving mellom progressive og konservative koalisjoner gir det avgjørende innflytelse. Von der Leyens Kommisjon er avhengig av EP-støtte på tvers av hele spekteret fra sentrum-høyre til sentrum-venstre, noe som skaper insentiver for meglede kompromisser.
+
+**Fremvoksende risiko**: PfE (85 mandater) har vist voksende disiplin og kapasitet til å danne blokkerende minoriteter i migrasjons- og retsstatsspørsmål. I enhver avstemning som krever 360+ der EPP splintrer (25+ EPP-opprørere) kan PfE + ECR frustrere majoriteten.
+
+---
+
+### Fremadrettet etterretning: Junisessionen 2026 (ikke innenfor 30-dagersvinduet, men synlig)
+
+Strasbourgs plenarsesjon i juni 2026 (15.–18. juni) vil behandle konklusjonene fra Det europeiske råds junitopp. Agendapunkter inkluderer typisk:
+- Oppfølging av vårens konkurransedyktighetspakke
+- Vurdering av Vest-Balkans tiltredelsesfremgang
+- Forlengelse av Russland-sanksjoner (automatisk fornyelse men gjenstand for politisk debatt)
+- Klimaambisjon foran COP32 (Belém, november 2026)
+
+---
+
+### Institusjonelle kalendermarkeringer
+
+| Dato | Hendelse | Betydning |
+|------|---------|-----------|
+| 18.–21. mai 2026 | Strasbourg-plenum | 17 planlagte avstemninger; EDIS, CID, AI-forordningen forventes |
+| 22. mai 2026 | Komitéuker begynner | ECON, ITRE, BUDG intensive sesjoner |
+| 26.–27. mai 2026 | Uformelt Råd (konkurranseevne) | Ministerinput om CID-standpunkter |
+| 3. juni 2026 | Komitéavstemningsfrister | Før juniplenaret |
+| 15.–18. juni 2026 | Junis Strasbourg-plenum | Lovgivningssprint etter Rådet |
+
+---
+
+### Risikovurderingssammendrag (Detaljert i risk-scoring/-artefakter)
+
+| Risiko | Sannsynlighet | Virkning | Tendens |
+|--------|--------------|----------|---------|
+| Plenar-majoritetsfeil på EDIS | 30–40 % | HØY | Stabil |
+| MFF-halvtidsgjennomgang i dødvann | 65 % | MEDIUM | Forverres |
+| PfE blokkerende minoritet-aktivering | 35 % | MEDIUM | Stigende |
+| EP-Kommisjons-sammenstøt om CID | 45 % | MEDIUM | Stabil |
+| Sesjonsforstyrrelser (prosedyremessig) | 10 % | LAV | Stabil |
+
+---
+
+### Analytisk konfidenserklæring
+
+Denne rapporten er produsert fra: EP Open Data API (plenarsessioner, forutsette aktiviteter, politisk gruppesammensetning, vedtatte teksters feed), EP statistiske data (2025–2026) og koalisjonsdynamikkanalyse. **Nøkkelbegrensning**: API for forutsette aktiviteter returnerer hendelses-ID-er uten titler — agendapunktenes innhold infereres fra lovgivningskalenderens kontekst og EP10's politiske prioriteringer. IMF-økonomisk kontekst (BNP, inflasjon, finanspolitiske underskuddsutviklinger) støtter makropolitisk innramning og er sitert i intelligence/economic-context.md.
+
+Konfidens: 🟡 **Medium** — strukturelle data er av høy kvalitet; agendaspesifikke detaljer er underlagt EP-sekretariatets publisering (typisk T-5 dager før plenum).
+
+*Kilder: Europaparlamentets Open Data Portal (data.europarl.europa.eu); EP10 statistisk database; koalisjonsanalyse per CIA-metodikk anvendt på EP-sammensetningsdata.*
+
+### Executive Brief Sv
+
+### Strategisk lägesöversikt
+
+Europaparlamentet träder in i en avgörande fyraveckorsperiod präglad av sin första fullständiga Strasbourgplenarsamling i maj (18–21 maj 2026) och den lagstiftningskalender som driver mot junisessionen. EP10 (2024–2029) verkar under strukturellt fragmenterade förhållanden: 9 politiska grupper, ingen traditionell storkaoalitionsmajoritet och ett effektivt partiantal på 6,58 — det högsta i EP:s historia. Varje lagstiftande majoritet kräver minst 3 samarbetande grupper över tröskeln på 360 mandat.
+
+EPP (183 mandat, 25,5 %) förblir den dominerande kraften, men dess fungerande majoritet bygger på flexibla allianser: vanligtvis EPP + S&D (319 mandat sammanlagt, 7 under majoritetsgränsen) kompletterat av Renew Europe eller ECR beroende på sakområde. Försvar och industriell konkurrenskraft har framträtt som konsensusområden där EPP, ECR och delar av Renew kan bilda hållbara majoriteter på 350–380 mandat. Miljö- och socialpolitik förblir omtvistade, med omkalibering av Green Deal som delar mittenhoger från mittenvänsterblock.
+
+---
+
+### Strasbourgplenarsamlingen i maj (18–21 maj 2026): Fyra dagar med avgörande omröstningar
+
+Den kommande fullständiga plenarsessionen är den viktigaste parlamentariska händelsen inom 30-dagarsperioden. Baserat på EP API:s data om planerade aktiviteter:
+
+- **Måndag 18 maj**: 8 planerade debatter. Öppningssessionen täcker typiskt kommissionens uttalanden och brådskande resolutioner. Vitboken om försvarsutgifter och genomförandet av den europeiska försvarsindustriella strategin (EDIS) förväntas stå på dagordningen mot bakgrund av den aktuella lagstiftningskalendern och rådspresidentskapet.
+- **Tisdag 19 maj**: 5 debatter + 6 omröstningar planerade. Detta är den första omröstningsdagen — procedurmässigt viktig eftersom viktig lagstiftning ofta får sin första eller andra behandling. De 6 planerade omröstningarna tyder på ett medelintensivt lagstiftningsutfall, konsekvent med mittermsplenarens mönster.
+- **Onsdag 20 maj**: 5 debatter + 9 omröstningar planerade. Den högsta omröstningsdensiteten under sessionen (9 omröstningar). Detta är typiskt den mest avgörande lagstiftningsdagen, där utskottsrapporter och interinstitutionella avtal erhåller slutgiltigt plenargodkännande.
+- **Torsdag 21 maj**: 5 debatter + 2 omröstningar planerade. Avslutningssession med prioriterade omröstningar, frågestunden och framåtblickande dagordning.
+
+**Totalt**: 23 debatter, 17 omröstningar under den fyradagars Strasbourgplenarsessionen. Detta överstiger det senaste EP10-genomsnittet på ca 15 omröstningar per fullständig plenarsession, vilket indikerar en intensiv lagstiftningssprint.
+
+---
+
+### Centrala lagstiftningsteman för 30-dagarsperioden
+
+#### 1. Europeisk försvarsindustriell strategi (EDIS) — HÖG PRIORITET
+EDIS-paketet, som bygger på ramverket ReArm Europe / European Defence Investment Programme (EDIP), utgör det politiskt mest betydelsefulla lagstiftningsinitiativet i EP10. Med NATO:s 2 % BNP-försvarsåtagande under press och kriget i Ukraina pågående har EPP, ECR och S&D bildat en ovanlig trepartkonsensus om gemensam försvarsupphandling. EP:s ståndpunkt förväntas innehålla:
+- Gemensamma upphandlingsmekanismer för ammunition och plattformar
+- Europeisk suveränitetsfondsallokering för försvars-FoU
+- KMF-tillgångsbestämmelser för försvarsindustribasen
+
+🟡 **Sannolikhet för plenargodkännande i detta fönster**: 60–70 %. Utestående trilogfrågor om gemensamma skuldinstrument kan fördröja slutomröstningen.
+
+#### 2. Ren industriell deal (CID) — MEDELHÖG PRIORITET
+Efter kommissionsordföranden von der Leyens omkalibrering av Green Deal under den andra mandatperioden ompaketerar CID dekarboniseringsmålen inom ett konkurrenskraftsramverk. Centrala bestämmelser:
+- Fas 2-genomförande av koldioxidgränsjusteringsmekanismen (CBAM)
+- EU:s strategiska reserver av kritiska råmaterial
+- Marknadsutveckling för ren vätgas
+- Lättnadsmekanismer för industriell elprissättning
+
+Politisk dynamik: EPP förespråkar konkurrenskraftsramen; S&D insisterar på social villkorlighet; Greens/EFA motsätter sig varje nedgradering av klimatmålen för 2030. Koalitionsaritmetiken är snäv — passage i detta fönster beror på EPP-S&D-Renew-anpassning.
+
+#### 3. Genomförandedelegerade akter för AI-förordningen
+AI-förordningen (förordning (EU) 2024/1689) träder in i sitt andra år av fasindelat genomförande. Delegerade akter om klassificering av högrisk-AI-system och standardisering är planerade för EP-granskning. IMCO- och LIBE-utskotten har utarbetat gemensamma rapporter. Politiskt lågkontroversiell men tekniskt betydelsefull för det europeiska AI-ekosystemet.
+
+#### 4. Budgetramverk — halvtidsöversyn av den fleråriga budgetramen
+Halvtidsöversynen av den fleråriga budgetramen (MFF) är fortfarande olöst efter rådsförhandlingarna. EP:s budgetutskott (BUDG) pressar på för ytterligare flexibilitet för sammanhållningsfonder och en ny EU-källskatt för att finansiera uppgradering av Europeiska försvarsfonden. Motståndet från rådet hos nettobetalande medlemsstater (Tyskland, Nederländerna, Österrike, Sverige) skapar strukturell spänning.
+
+---
+
+### Koalitionsanalys för perioden
+
+**Standardlagstiftningsärenden** kräver 360+ mandat:
+- EPP (183) + S&D (136) = 319 — under tröskeln utan Renew (77) → **EPP+S&D+Renew = 396** (genomförbart, historiskt använt för digital/social lagstiftning)
+- EPP (183) + ECR (81) + PfE (85) = 349 — under tröskeln → + Renew (77) = 426 (genomförbart för försvar/konkurrenskraft)
+- **Progressivt block** (S&D + Renew + Greens + Left = 311) — kan inte bilda majoritet ensamt; behöver EPP
+
+**Nyckeldinsikt**: EPP:s strategiska svängning mellan progressiva och konservativa koalitioner ger det avgörande inflytande. Von der Leyens kommission är beroende av EP:s stöd tvärs hela spektrumet från mittenhoger till mittenvänster, vilket skapar incitament för mäklad kompromiss.
+
+**Framväxande risk**: PfE (85 mandat) har visat ökad disciplin och förmåga att bilda blockerande minoriteter i migrations- och rättsstatsfrågor. I varje omröstning som kräver 360+ där EPP splittras (25+ EPP-rebeller) kan PfE + ECR frustrera majoriteten.
+
+---
+
+### Framåtblickande underrättelse: Junisessionen 2026 (ej inom 30-dagarsperioden men synlig)
+
+Strasbourgs plenarsession i juni 2026 (15–18 juni) kommer att behandla slutsatserna från Europeiska rådets junimöte. Dagordningspunkterna inkluderar typiskt:
+- Uppföljning av vårens konkurrenskraftspaket
+- Bedömning av framstegen för anslutning av västra Balkan
+- Förlängning av sanktioner mot Ryssland (förnyar automatiskt men är föremål för politisk debatt)
+- Klimatambition inför COP32 (Belém, november 2026)
+
+---
+
+### Institutionella kalendermarkeringar
+
+| Datum | Händelse | Betydelse |
+|-------|---------|-----------|
+| 18–21 maj 2026 | Strasbourgplenum | 17 planerade omröstningar; EDIS, CID, AI-förordningen förväntas |
+| 22 maj 2026 | Utskottsveckor börjar | ECON, ITRE, BUDG intensiva sessioner |
+| 26–27 maj 2026 | Informellt råd (konkurrenskraft) | Ministerialinput om CID-ståndpunkter |
+| 3 juni 2026 | Sista datum för utskottsomröstningar | Inför juniplenaret |
+| 15–18 juni 2026 | Strasbourgplenum i juni | Lagstiftningssprint efter rådet |
+
+---
+
+### Riskbedömningssammanfattning (Detaljerad i risk-scoring/-artefakter)
+
+| Risk | Sannolikhet | Påverkan | Trend |
+|------|------------|----------|-------|
+| Misslyckad plenarmajoritet för EDIS | 30–40 % | HÖG | Stabil |
+| Dödläge för MFF-halvtidsöversyn | 65 % | MEDEL | Försämras |
+| Aktivering av PfE:s blockerande minoritet | 35 % | MEDEL | Stigande |
+| Krock mellan EP och kommissionen om CID | 45 % | MEDEL | Stabil |
+| Sessionsstörning (procedurell) | 10 % | LÅG | Stabil |
+
+---
+
+### Analytisk konfidensbedömning
+
+Denna sammanfattning är producerad från: EP Open Data API (plenarsessioner, planerade aktiviteter, politisk gruppsammansättning, flöde för antagna texter), EP statistiska data (2025–2026) och koalitionsdynamikanalys. **Viktig begränsning**: API för planerade aktiviteter returnerar händelse-ID:n utan titlar — dagordningspunkternas innehåll infereras från lagstiftningskalenderns kontext och EP10:s politiska prioriteringar. IMF:s ekonomiska kontext (BNP, inflation, finanspolitiska underskottsutvecklingar) stödjer makropolitisk ram och citeras i intelligence/economic-context.md.
+
+Konfidens: 🟡 **Medium** — strukturella data är av hög kvalitet; dagordningsspecifika detaljer är föremål för EP-sekretariatets publicering (typiskt T-5 dagar före plenum).
+
+*Källor: Europaparlamentets Open Data Portal (data.europarl.europa.eu); EP10 statistisk databas; koalitionsanalys enligt CIA-metodik tillämpad på EP:s sammansättningsdata.*
+
+### Executive Brief Zh
+
+**制作日期：** 2026-05-11 | **文章类型：** month-ahead | **展望期：** 30天
+**可信度：** 🟡 中等（EP API部分数据——完整议程尚未发布）
+
+---
+
+### 战略形势概述
+
+欧洲议会正进入一个关键的四周时期，这一时期由其5月第一次完整斯特拉斯堡全体会议（2026年5月18至21日）以及迈向6月届会的立法日程所定义。EP10（2024至2029年）在结构性碎片化条件下运作：9个政治团体、无传统大联盟多数、有效政党数量为6.58——这是欧洲议会历史上的最高值。任何立法多数都需要至少3个合作团体超过360席的门槛。
+
+EPP（183席、25.5%）依然是主导力量，但其工作多数依赖灵活联盟：通常为EPP加S&D（合计319席，距多数还差7席），再加上Renew Europe或ECR，具体视议题领域而定。国防和工业竞争力已成为EPP、ECR和Renew部分成员能够形成350至380席稳定多数的共识领域。环境和社会政策仍存在争议，绿色协议的重新调校将中右翼与中左翼阵营分开。
+
+---
+
+### 5月斯特拉斯堡全体会议（2026年5月18至21日）：四天具有重要意义的表决
+
+即将召开的完整全体会议是30天展望期内最重要的议会事件。根据EP API的预期活动数据：
+
+- **5月18日（周一）**：安排了8场预期辩论。开幕会议通常涵盖欧洲委员会声明和紧急决议。鉴于当前立法日程和理事会主席国优先事项，国防开支白皮书和欧洲国防工业战略（EDIS）实施预计将列入议程。
+- **5月19日（周二）**：安排了5场辩论加6次表决。这是第一个表决日——在程序上具有重要意义，因为重大立法通常会进行第一次或第二次审读。6次预定表决意味着适中密度的立法成果，与任期中期全体会议的规律一致。
+- **5月20日（周三）**：安排了5场辩论加9次表决。本届会议表决密度最高（9次表决）。这通常是最关键的立法日，委员会报告和机构间协议将获得全体会议最终批准。
+- **5月21日（周四）**：安排了5场辩论加2次表决。闭幕会议包含优先表决、质询时间以及前瞻性议程设定。
+
+**合计**：四天斯特拉斯堡全体会议共23场辩论、17次表决。这超过了EP10近期约每次完整全体会议15次表决的平均水平，表明立法冲刺高度密集。
+
+---
+
+### 30天展望期的主要立法主题
+
+#### 1. 欧洲国防工业战略（EDIS）——优先级：高
+EDIS一揽子计划建立在ReArm Europe / 欧洲国防投资计划（EDIP）框架之上，是EP10中政治上最重要的立法倡议。在北约GDP 2%国防承诺面临压力、乌克兰战争持续的背景下，EPP、ECR和S&D在联合国防采购上形成了不寻常的三党共识。欧洲议会的立场预计将包括：
+- 弹药和平台的联合采购机制
+- 欧洲主权基金对国防研发的拨付
+- 国防工业基地的中小企业准入规定
+
+🟡 **在此期间全体会议通过的可能性**：60至70%。关于联合债务工具的悬而未决的三方谈判问题可能推迟最终表决。
+
+#### 2. 清洁工业协议（CID）——优先级：中
+在欧洲委员会主席冯德莱恩第二任期重新调校绿色协议之后，CID将脱碳目标纳入竞争力框架重新打包。主要条款：
+- 碳边界调整机制（CBAM）第二阶段实施
+- 欧盟关键原材料战略储备
+- 清洁氢市场发展
+- 工业电价减免机制
+
+政治动态：EPP支持竞争力框架；S&D坚持社会条件性；Greens/EFA反对任何退步于2030年气候目标。联盟算术紧张——在此期间通过取决于EPP-S&D-Renew的协调。
+
+#### 3. 人工智能法规执行委托法令
+人工智能法规（法规（EU）2024/1689）进入分阶段实施的第二年。关于高风险人工智能系统分类和标准化的委托法令已列入欧洲议会审查日程。IMCO和LIBE委员会已联合出具报告。政治上争议不大，但对欧洲人工智能生态系统具有重要的技术影响。
+
+#### 4. 预算框架——多年期财务框架中期审查
+多年期财务框架（MFF）中期审查在理事会谈判之后仍未解决。欧洲议会预算委员会（BUDG）正在推动凝聚力基金的更大灵活性，以及为欧洲国防基金增资提供新的欧盟自有资源来源。理事会中净缴款成员国（德国、荷兰、奥地利、瑞典）的抵制造成了结构性张力。
+
+---
+
+### 展望期的联盟分析
+
+**标准立法事务**需要360票以上：
+- EPP（183）加S&D（136）＝319——没有Renew（77）则低于门槛 → **EPP+S&D+Renew＝396**（可行，历史上用于数字/社会立法）
+- EPP（183）加ECR（81）加PfE（85）＝349——低于门槛 → 加Renew（77）＝426（适用于国防/竞争力）
+- **进步阵营**（S&D加Renew加Greens加Left＝311）——无法单独形成多数；需要EPP
+
+**核心洞见**：EPP在进步联盟和保守联盟之间的战略摆动赋予其决定性影响力。冯德莱恩委员会依赖欧洲议会从中右到中左全谱系的支持，为调解妥协创造激励。
+
+**新兴风险**：PfE（85席）在移民和法治问题上展现出日益增长的纪律性和形成阻止少数的能力。在EPP分裂（25名以上EPP叛乱者）的任何需要360票以上的表决中，PfE加ECR可能使多数受挫。
+
+---
+
+### 前瞻情报：2026年6月届会（不在30天窗口内但可见）
+
+2026年6月斯特拉斯堡全体会议（6月15至18日）将讨论六月欧洲理事会结论。议程项目通常包括：
+- 春季竞争力一揽子计划后续工作
+- 西巴尔干地区入盟进展评估
+- 俄罗斯制裁延续（自动续期但受政治辩论影响）
+- COP32（2026年11月，贝伦）前的气候雄心
+
+---
+
+### 机构日历要点
+
+| 日期 | 事件 | 重要性 |
+|------|------|--------|
+| 2026年5月18至21日 | 斯特拉斯堡全体会议 | 17次预定表决；预计EDIS、CID、人工智能法规 |
+| 2026年5月22日 | 委员会周开始 | ECON、ITRE、BUDG密集会议 |
+| 2026年5月26至27日 | 非正式理事会（竞争力） | 关于CID立场的部长级意见 |
+| 2026年6月3日 | 委员会表决截止日期 | 在6月全体会议之前 |
+| 2026年6月15至18日 | 六月斯特拉斯堡全体会议 | 理事会后立法冲刺 |
+
+---
+
+### 风险评估摘要（详见risk-scoring/人工制品）
+
+| 风险 | 概率 | 影响 | 趋势 |
+|------|------|------|------|
+| EDIS全体会议多数失败 | 30至40% | 高 | 稳定 |
+| MFF中期审查陷入僵局 | 65% | 中 | 恶化 |
+| PfE阻止少数激活 | 35% | 中 | 上升 |
+| 欧洲议会与委员会在CID上冲突 | 45% | 中 | 稳定 |
+| 届会干扰（程序性） | 10% | 低 | 稳定 |
+
+---
+
+### 分析可信度声明
+
+本摘要来源于：EP Open Data API（全体会议、预期活动、政治团体构成、已采用文本的数据流）、欧洲议会统计数据（2025至2026年）以及联盟动态分析。**主要限制**：预期活动API返回无标题的事件ID——议程项目内容从立法日程背景和EP10的政治优先事项推断。IMF经济背景（GDP、通货膨胀、财政赤字轨迹）支持宏观政治框架，并在intelligence/economic-context.md中被引用。
+
+可信度：🟡 **中等**——结构性数据质量高；议程具体内容受制于欧洲议会秘书处的发布（通常在全体会议前T-5天）。
+
+*资料来源：欧洲议会开放数据门户（data.europarl.europa.eu）；EP10统计数据库；根据CIA方法论应用于欧洲议会构成数据的联盟分析。*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `month-ahead`
@@ -3635,4 +5028,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/month-ahead/executive-brief_zh.md) | `executive-brief_zh.md` |
 
