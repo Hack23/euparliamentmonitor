@@ -69,8 +69,8 @@ jobs:
           LIMIT_ARG=""
           LIMIT_INPUT="${{ inputs.limit }}"
           if [ -n "$LIMIT_INPUT" ]; then
-            if ! printf '%s' "$LIMIT_INPUT" | grep -qE '^[0-9]+$'; then
-              echo "::error::--limit must be a positive integer, got: $LIMIT_INPUT"
+            if ! printf '%s' "$LIMIT_INPUT" | grep -qE '^[1-9][0-9]*$'; then
+              echo "::error::--limit must be a positive integer (>0), got: $LIMIT_INPUT"
               exit 1
             fi
             LIMIT_ARG="--limit $LIMIT_INPUT"

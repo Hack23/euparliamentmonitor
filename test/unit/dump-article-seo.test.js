@@ -181,7 +181,7 @@ describe('scripts/dump-article-seo.js — buildHtmlHeadSnippet', () => {
 
   it('uses left-pointing separator for RTL languages', () => {
     const snippet = buildHtmlHeadSnippet(makeRecord(), 'ar');
-    expect(snippet).toMatch(/<title>Test Article Title « EU Parliament Monitor<\/title>/);
+    expect(snippet).toMatch(/<title>Test Article Title « مراقب البرلمان الأوروبي<\/title>/);
   });
 
   it('contains <meta name="description">', () => {
