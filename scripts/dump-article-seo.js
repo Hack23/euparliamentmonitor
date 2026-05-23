@@ -37,10 +37,16 @@
  * **Two-part output per run.**
  *   - *Field analysis* — human-readable breakdown of each SEO field
  *     (length, content, resolution tier) for quick editorial review.
- *   - *HTML head snippet* — the exact `<title>`, `<meta name="description">`,
- *     `<meta name="keywords">`, `<meta property="og:*">`, and
- *     `<meta name="twitter:*">` tags that the article generator will
- *     emit. Copy-paste these into a browser extension or SEO tool to
+ *   - *HTML head snippet* — the **complete `<head>` block** that the
+ *     article generator will emit, produced by calling
+ *     `wrapArticleHtml()` from `src/aggregator/html/shell.ts` with an
+ *     empty body and slicing out `<head>...</head>`. This includes the
+ *     `<title>`, `<meta name="description">`, `<meta name="keywords">`,
+ *     all `<meta property="og:*">` and `<meta name="twitter:*">` tags,
+ *     `<link rel="canonical">`, hreflang alternates, JSON-LD
+ *     `NewsArticle` + `BreadcrumbList`, and every other tag the real
+ *     renderer emits — because the snippet *is* the real renderer's
+ *     output. Copy-paste these into a browser extension or SEO tool to
  *     preview how the article will appear in search results and social
  *     cards before committing to HTML generation.
  *
@@ -66,30 +72,10 @@ import {
 import { resolveArticleMetadata } from './aggregator/article-metadata.js';
 import { buildArticleSlug } from './aggregator/generator/slug.js';
 import { getArticleFilename } from './aggregator/html/hreflang.js';
-import { getTitleSeparator } from './aggregator/html/headline.js';
-import { escapeHTML } from './utils/file-utils.js';
-import {
-  ALL_LANGUAGES,
-  isSupportedLanguage,
-  getLocalizedString,
-} from './constants/language-core.js';
-import { PAGE_TITLES } from './constants/languages.js';
+import { wrapArticleHtml } from './aggregator/html/shell.js';
+import { ALL_LANGUAGES, isSupportedLanguage } from './constants/language-core.js';
 
 const SUPPORTED_LANGS = new Set(ALL_LANGUAGES);
-
-/** Fallback site name when PAGE_TITLES lookup yields nothing. */
-const SITE_NAME = 'EU Parliament Monitor';
-
-/**
- * Derive the site title the same way as `wrapArticleHtml()` in
- * `src/aggregator/html/shell.ts`: use the localized PAGE_TITLES string,
- * splitting on ' - ' and taking the first segment.
- * @param {string} lang
- * @returns {string}
- */
-function getSiteTitle(lang) {
-  return getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? SITE_NAME;
-}
 
 /**
  * Parse the small CLI surface used by this script. Kept inline so the
@@ -307,56 +293,43 @@ export function resolveRunSeo({ runDir, repoRoot, lang }) {
 }
 
 /**
- * Build the SEO-relevant `<head>` snippet that the article generator will
- * emit for this run. The output is bit-for-bit identical to the tags
- * produced by `src/aggregator/html/shell.ts` for the same metadata:
- *
- *   - `<title>` — article title + separator + site name
- *   - `<meta name="description">` — short description (≤160 chars)
- *   - `<meta name="keywords">` — comma-joined keywords (omitted when empty)
- *   - `<meta property="og:title">` — Open Graph title (raw, no site suffix)
- *   - `<meta property="og:description">` — extendedDescription or description
- *   - `<meta name="twitter:title">` — Twitter card title
- *   - `<meta name="twitter:description">` — Twitter card description
+ * Build the full `<head>` block that the article generator will emit for
+ * this run. The output is **bit-for-bit identical** to the `<head>`
+ * produced by `wrapArticleHtml()` in `src/aggregator/html/shell.ts` for
+ * the same metadata — including all SEO, Open Graph, Twitter card,
+ * `<link rel>`, theme-color, and JSON-LD tags — because this function
+ * literally invokes `wrapArticleHtml()` with an empty body and slices
+ * out the `<head>...</head>` block from the resulting document. There
+ * is no duplicated head-rendering code path.
  *
  * Use this to preview how the article will appear in search results and
  * social-card previews **before** running the full HTML generator.
  *
  * @param {ReturnType<typeof resolveRunSeo>} record
- * @param {string} lang - Language code (used for bidi-aware title separator)
- * @returns {string} Indented HTML tag block, ready to paste into a `<head>`
+ * @param {string} lang - Language code passed through to `wrapArticleHtml`
+ * @returns {string} The complete `<head>...</head>` block from the
+ *                   real article renderer, ready to paste for review.
  */
 export function buildHtmlHeadSnippet(record, lang) {
   const { entry } = record;
-  const separator = getTitleSeparator(lang);
-  const pageTitle = `${entry.title}${separator}${getSiteTitle(lang)}`;
-  const socialDescription = entry.extendedDescription || entry.description;
-  const keywords = (entry.keywords ?? []).map((k) => k.trim()).filter(Boolean);
-
-  const lines = [];
-  lines.push(`  <title>${escapeHTML(pageTitle)}</title>`);
-  lines.push(
-    `  <meta name="description" content="${escapeHTML(entry.description)}">`
-  );
-  if (keywords.length > 0) {
-    lines.push(
-      `  <meta name="keywords" content="${escapeHTML(keywords.join(', '))}">`
+  const html = wrapArticleHtml({
+    lang,
+    articleSlug: record.slug,
+    body: '',
+    title: entry.title,
+    description: entry.description,
+    extendedDescription: entry.extendedDescription,
+    keywords: entry.keywords ?? [],
+    date: record.date,
+    articleType: record.articleType,
+  });
+  const match = html.match(/<head>[\s\S]*?<\/head>/);
+  if (!match) {
+    throw new Error(
+      `buildHtmlHeadSnippet: could not locate <head> block in wrapArticleHtml output for ${record.slug}`
     );
   }
-  lines.push(
-    `  <meta property="og:title" content="${escapeHTML(entry.title)}">`
-  );
-  lines.push(
-    `  <meta property="og:description" content="${escapeHTML(socialDescription)}">`
-  );
-  lines.push(
-    `  <meta name="twitter:title" content="${escapeHTML(entry.title)}">`
-  );
-  lines.push(
-    `  <meta name="twitter:description" content="${escapeHTML(socialDescription)}">`
-  );
-
-  return lines.join('\n');
+  return match[0];
 }
 
 /**
@@ -399,7 +372,7 @@ export function formatRecord(record, index, total, lang = 'en') {
     `<meta keywords>    (${keywords.length} terms): ${keywords.length ? keywords.join(', ') : '(empty)'}`
   );
   lines.push('');
-  lines.push('--- HTML head snippet (preview of tags the article generator will emit) ---');
+  lines.push('--- HTML <head> block (verbatim output of wrapArticleHtml — same code path as the article generator) ---');
   lines.push(buildHtmlHeadSnippet(record, lang));
   lines.push('');
   return lines.join('\n');

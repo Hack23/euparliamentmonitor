@@ -145,7 +145,7 @@ describe('scripts/dump-article-seo.js — resolveRunSeo (real committed run)', (
       expect(text).toMatch(/resolution-tier/);
       expect(text).toMatch(/html-file/);
       // HTML head snippet section
-      expect(text).toMatch(/HTML head snippet/);
+      expect(text).toMatch(/HTML <head> block/);
       expect(text).toMatch(/<title>.*EU Parliament Monitor<\/title>/);
       expect(text).toMatch(/<meta name="description" content=/);
       expect(text).toMatch(/<meta property="og:title" content=/);
@@ -233,6 +233,36 @@ describe('scripts/dump-article-seo.js — buildHtmlHeadSnippet', () => {
     expect(snippet).toMatch(/&lt;angle&gt;/);
     expect(snippet).toMatch(/&amp;/);
   });
+
+  it('is bit-for-bit identical to the <head> emitted by wrapArticleHtml for the same metadata', async () => {
+    const { wrapArticleHtml } = await import('../../scripts/aggregator/html/shell.js');
+    const record = makeRecord();
+    const snippet = buildHtmlHeadSnippet(record, 'en');
+    const html = wrapArticleHtml({
+      lang: 'en',
+      articleSlug: record.slug,
+      body: '',
+      title: record.entry.title,
+      description: record.entry.description,
+      extendedDescription: record.entry.extendedDescription,
+      keywords: record.entry.keywords,
+      date: record.date,
+      articleType: record.articleType,
+    });
+    const headMatch = html.match(/<head>[\s\S]*?<\/head>/);
+    expect(headMatch).not.toBeNull();
+    expect(snippet).toBe(headMatch[0]);
+  });
+
+  it('contains canonical, og:url, og:site_name, og:type, twitter:card, and JSON-LD tags that wrapArticleHtml emits', () => {
+    const snippet = buildHtmlHeadSnippet(makeRecord(), 'en');
+    expect(snippet).toMatch(/<link rel="canonical"/);
+    expect(snippet).toMatch(/<meta property="og:type" content="article">/);
+    expect(snippet).toMatch(/<meta property="og:url"/);
+    expect(snippet).toMatch(/<meta property="og:site_name"/);
+    expect(snippet).toMatch(/<meta name="twitter:card" content="summary_large_image">/);
+    expect(snippet).toMatch(/<script type="application\/ld\+json">/);
+  });
 });
 
 describe('scripts/dump-article-seo.js — dumpArticleSeo', () => {
@@ -293,7 +323,7 @@ describe('scripts/dump-article-seo.js — dumpArticleSeo', () => {
       // Field analysis section
       expect(text).toMatch(/<title>/);
       // HTML snippet section
-      expect(text).toMatch(/HTML head snippet/);
+      expect(text).toMatch(/HTML <head> block/);
       expect(text).toMatch(/<title>.*EU Parliament Monitor<\/title>/);
       expect(text).toMatch(/<meta name="description" content=/);
     },

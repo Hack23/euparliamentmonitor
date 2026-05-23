@@ -17,7 +17,7 @@ import fs from 'fs';
 import path from 'path';
 import { extractFirstH1 } from './h1-extractor.js';
 import { extractLedeAfterHeading, extractStrongProseLine } from './lede-extractor.js';
-import { isGenericHeading, isArtifactCategoryHeading, stripArtifactCategoryAffix } from './heading-rules.js';
+import { isGenericHeading, isArtifactCategoryHeading, stripArtifactCategoryAffix, } from './heading-rules.js';
 import { truncateTitle } from './text-utils.js';
 import { extractPriorityFindingHighlight } from './priority-finding-highlight.js';
 /** Ordered list of artefact filenames that typically carry the editorial H1. */
