@@ -1,0 +1,22 @@
+{
+  "date": "2026-04-15",
+  "articleType": "breaking",
+  "runId": "175",
+  "gateResult": "PENDING",
+  "slug": "2026-04-15-breaking-175",
+  "articlePath": "analysis/daily/2026-04-15/breaking-run175/article.md",
+  "topFinding": "Run 175 is the third T-0 probe of 15 April.",
+  "keyTakeaways": [
+    "TA-10-2026-0096 status: **A1**",
+    "Frontmatter recursion observation: **A1**",
+    "Run: `breaking-run175` (2026-04-15, third T-0 probe)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

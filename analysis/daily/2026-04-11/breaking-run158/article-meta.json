@@ -1,0 +1,23 @@
+{
+  "date": "2026-04-11",
+  "articleType": "breaking",
+  "runId": "158",
+  "gateResult": "PENDING",
+  "slug": "2026-04-11-breaking-158",
+  "articlePath": "analysis/daily/2026-04-11/breaking-run158/article.md",
+  "topFinding": "Run 158 (Easter Recess Final Weekend) extends Run 157 with an additional 11.6K characters of coalition-dynamics analysis layered onto the 264K precomputed stats baseline.",
+  "keyTakeaways": [
+    "264K precomputed stats: **B2**",
+    "11.6K coalition-dynamics analysis: **B2**",
+    "Working-coalition stability inference: **C2** (no roll-call confirmation)",
+    "Run: `breaking-run158` (2026-04-11, Recess Final Weekend, T-4)",
+    "Compliance: EP Open Data Portal + precomputed stats + coalition modelling. GDPR-compliant."
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

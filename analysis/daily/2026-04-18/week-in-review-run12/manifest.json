@@ -1,0 +1,49 @@
+{
+  "runId": "week-in-review-run12",
+  "date": "2026-04-18",
+  "articleType": "week-in-review",
+  "generatedAt": "2026-04-18T00:00:00Z",
+  "reviewPeriod": "2026-04-11 to 2026-04-18",
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/deep-analysis.md",
+      "intelligence/significance-scoring.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md"
+    ]
+  },
+  "analyticalFrameworksApplied": [
+    "SWOT (3+3+3+3 with evidence anchors)",
+    "PESTLE (6-dimension macro-environmental scan)",
+    "Mendelow Power-Interest Grid (16 stakeholders)",
+    "Shell-style Scenario Planning (2x2 + 3 named scenarios + wildcard overlay)",
+    "Diamond Model (Caltagirone-Pendergast-Betz 2013)",
+    "Attack Trees (Schneier 1999)",
+    "Cyber Kill Chain (Lockheed Martin)",
+    "EP8/EP9/EP10 Historical Baseline (Rule 17)",
+    "World Bank Indicator Mapping (DE/FR/IT/PL/NL)",
+    "Schwartz Scenario Wildcards (8 tracked)",
+    "Taleb Black Swan reserve (5% epistemic humility)"
+  ],
+  "artifactStats": {
+    "totalFiles": 11,
+    "totalLines": 2830,
+    "averageLinesPerFile": 257,
+    "readMeFirst": "intelligence/analysis-index.md"
+  },
+  "dataQuality": {
+    "eplPlenaryVotes": "EMPTY (Easter recess — no plenary votes April 11-18)",
+    "adoptedTextsFeed": "OK (159 items returned, TA-10-2026-0082 through 0104 confirmed)",
+    "individualTextContent": "UNAVAILABLE (Easter API maintenance — UPSTREAM_404 for TA-10-2026-0099–0104)",
+    "worldBankDE": "OK (GDP growth 2023 -0.87%, 2024 -0.50%)",
+    "worldBankIT": "OK (GDP growth 2024 0.69%)",
+    "eppDataGap": "EPP memberCount=0 in coalition dynamics API (persistent data quality issue)"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "articleType": "motions",
+  "date": "2026-05-14",
+  "runId": "motions-run306-1778742150",
+  "generatedAt": "2026-05-14T07:10:00Z",
+  "dataWindow": "2026-04-28 to 2026-05-14",
+  "primarySession": "Strasbourg April 2026 (28-30 April 2026)",
+  "history": [
+    {
+      "runId": "motions-run306-1778742150",
+      "startedAt": "2026-05-14T07:02:14Z",
+      "pass1CompletedAt": "2026-05-14T07:25:00Z",
+      "pass2CompletedAt": "2026-05-14T07:38:00Z",
+      "artifactCount": 25,
+      "gateResult": "GREEN"
+    }
+  ],
+  "keyMotions": [
+    {
+      "id": "TA-10-2026-0161",
+      "label": "T10-0161/2026",
+      "date": "2026-04-30",
+      "title": "Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine",
+      "type": "RESOLUTION",
+      "priority": "HIGH"
+    },
+    {
+      "id": "TA-10-2026-0151",
+      "label": "T10-0151/2026",
+      "date": "2026-04-30",
+      "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+      "type": "RESOLUTION",
+      "priority": "HIGH"
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "label": "T10-0162/2026",
+      "date": "2026-04-30",
+      "title": "Supporting democratic resilience in Armenia",
+      "type": "RESOLUTION",
+      "priority": "HIGH"
+    },
+    {
+      "id": "TA-10-2026-0163",
+      "label": "T10-0163/2026",
+      "date": "2026-04-30",
+      "title": "The need for targeted criminal provisions and platforms' responsibility to effectively address cyberbullying and online harassment",
+      "type": "RESOLUTION",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "TA-10-2026-0160",
+      "label": "T10-0160/2026",
+      "date": "2026-04-30",
+      "title": "Enforcement of the Digital Markets Act",
+      "type": "RESOLUTION",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "TA-10-2026-0157",
+      "label": "T10-0157/2026",
+      "date": "2026-04-30",
+      "title": "How to secure a sustainable future for the EU livestock sector",
+      "type": "LEGISLATIVE_RESOLUTION",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "TA-10-2026-0105",
+      "label": "T10-0105/2026",
+      "date": "2026-04-28",
+      "title": "Request for the waiver of the immunity of Patryk Jaki",
+      "type": "IMMUNITY_DECISION",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "TA-10-2026-0112",
+      "label": "T10-0112/2026",
+      "date": "2026-04-28",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "type": "BUDGET_RESOLUTION",
+      "priority": "HIGH"
+    }
+  ],
+  "dataVerification": {
+    "adoptedTextsSource": "EP Open Data API v2 (data.europarl.europa.eu)",
+    "mepsSource": "EP MEPs feed (621 MEPs)",
+    "votingRecordsSource": "EP API (4-6 week publication delay documented)",
+    "unresolvedProcedureIds": [],
+    "deferredDeepFetches": []
+  },
+  "files": {
+    "executive": [
+      "executive-brief.md"
+    ],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/threat-model.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/cross-session-intelligence.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "threatAssessment": [
+      "threat-assessment/political-threat-landscape.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/consequence-trees.md",
+      "threat-assessment/legislative-disruption.md"
+    ],
+    "documents": [
+      "documents/document-analysis-index.md"
+    ],
+    "existing": [
+      "existing/deep-analysis.md",
+      "existing/session-baseline.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md"
+    ]
+  },
+  "manifest": {
+    "pass2": {
+      "rewriteCount": 0,
+      "completedAt": "2026-05-14T07:38:00Z"
+    }
+  },
+  "gateResult": "ANALYSIS_ONLY",
+  "stageC": {
+    "result": "ANALYSIS_ONLY",
+    "reason": "Stage C RED: 17 short artifacts, 18 missing mermaid; elapsed-time tripwire exceeded at minute 32",
+    "short": 17,
+    "mermaid_missing": 18
+  }
+}

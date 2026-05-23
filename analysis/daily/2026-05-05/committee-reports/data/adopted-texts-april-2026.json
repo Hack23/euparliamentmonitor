@@ -1,0 +1,43 @@
+{"collection_date":"2026-05-05","period":{"from":"2026-04-28","to":"2026-05-05"},"items":[
+{"id":"TA-10-2026-0105","title":"Request for the waiver of the immunity of Patryk Jaki","dateAdopted":"2026-04-28","committee":"JURI","subjectMatter":"PRIV"},
+{"id":"TA-10-2026-0112","title":"Guidelines for the 2027 budget - Section III","dateAdopted":"2026-04-28","committee":"BUDG","subjectMatter":"BUDG"},
+{"id":"TA-10-2026-0115","title":"Welfare of dogs and cats and their traceability","dateAdopted":"2026-04-28","committee":"AGRI","subjectMatter":"SPAL"},
+{"id":"TA-10-2026-0119","title":"Control of the financial activities of the European Investment Bank Group — annual report 2024","dateAdopted":"2026-04-28","committee":"CONT","subjectMatter":"BFIN"},
+{"id":"TA-10-2026-0122","title":"Control, transparency and traceability of performance-based instruments","dateAdopted":"2026-04-28","committee":"BUDG","subjectMatter":"BUDG"},
+{"id":"TA-10-2026-0132","title":"Discharge 2024: EU general budget - Committee of the Regions","dateAdopted":"2026-04-29","committee":"CONT","subjectMatter":"BUDG"},
+{"id":"TA-10-2026-0142","title":"EU-Iceland agreement on transfer of passenger name record (PNR) data","dateAdopted":"2026-04-29","committee":"LIBE","subjectMatter":"PDON,EXT"},
+{"id":"TA-10-2026-0151","title":"Escalating trafficking and exploitation by criminal groups in Haiti","dateAdopted":"2026-04-30","committee":"AFET","subjectMatter":"DDLH"},
+{"id":"TA-10-2026-0157","title":"How to secure a sustainable future for the EU livestock sector","dateAdopted":"2026-04-30","committee":"AGRI","subjectMatter":"AGRI"},
+{"id":"TA-10-2026-0160","title":"Enforcement of the Digital Markets Act","dateAdopted":"2026-04-30","committee":"IMCO","subjectMatter":"INFQ"},
+{"id":"TA-10-2026-0161","title":"Ensuring accountability and justice in response to Russia's continued attacks against Ukraine","dateAdopted":"2026-04-30","committee":"AFET","subjectMatter":"PESC"},
+{"id":"TA-10-2026-0162","title":"Supporting democratic resilience in Armenia","dateAdopted":"2026-04-30","committee":"AFET","subjectMatter":"PESC"},
+{"id":"TA-10-2026-0163","title":"Cyberbullying and online harassment — criminal provisions and platforms' responsibility","dateAdopted":"2026-04-30","committee":"LIBE","subjectMatter":"COJP"},
+{"id":"TA-10-2026-04-30-ANN01","title":"ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027","dateAdopted":"2026-04-30","committee":"BUDG","subjectMatter":"BUDG"}
+],
+"metadata":{
+  "totalTexts":14,
+  "annexTexts":1,
+  "committees":["JURI","BUDG","AGRI","CONT","LIBE","AFET","IMCO"],
+  "subjectMatters":["PRIV","BUDG","SPAL","BFIN","PDON","EXT","DDLH","AGRI","INFQ","PESC","COJP"],
+  "dates":["2026-04-28","2026-04-29","2026-04-30"],
+  "dataQuality":"HIGH",
+  "sourceEndpoint":"get_adopted_texts?year=2026",
+  "collectionRunId":"committee-reports-run-1777957656",
+  "keyTexts":{
+    "budget2027":"TA-10-2026-0112",
+    "dmaEnforcement":"TA-10-2026-0160",
+    "livestock":"TA-10-2026-0157",
+    "ukraineAccountability":"TA-10-2026-0161",
+    "armeniaIntegration":"TA-10-2026-0162",
+    "cyberbullying":"TA-10-2026-0163",
+    "pnrIceland":"TA-10-2026-0142",
+    "haitiTrafficking":"TA-10-2026-0151",
+    "eibAudit":"TA-10-2026-0119",
+    "performanceInstruments":"TA-10-2026-0122",
+    "regionsDischargev":"TA-10-2026-0132",
+    "jakiImmunity":"TA-10-2026-0105",
+    "welfareDogsv":"TA-10-2026-0115"
+  },
+  "analysisNotes":"14 adopted texts across 7 committees over 3 days (April 28-30). Unusually diverse thematic range: digital enforcement, agricultural policy, foreign affairs, budget. All texts available via EP Open Data Portal adopted-texts endpoint. Committee documents feed was unavailable during Stage A (API error)."
+}
+}

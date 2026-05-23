@@ -1,0 +1,57 @@
+{
+  "runId": 182,
+  "date": "2026-04-17",
+  "articleType": "breaking",
+  "recessDay": 4,
+  "recessPeriod": "Easter recess April 14-26",
+  "degradedMode": true,
+  "newsworthiness": "NO_BREAKING_NEWS",
+  "analysisOnly": true,
+  "serverHealth": "Unavailable",
+  "feedEndpointStatus": {
+    "adoptedTexts": "stale_historical",
+    "events": "404",
+    "procedures": "404",
+    "documents": "empty",
+    "meps": "stale",
+    "parliamentaryQuestions": "2024_vintage_only"
+  },
+  "analysisFilesProduced": [
+    "classification/significance-scoring.md",
+    "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/cross-run-diff.md",
+    "intelligence/synthesis-summary.md",
+    "documents/document-analysis-index.md",
+    "data/feed-status.json",
+    "manifest.json"
+  ],
+  "primaryThesis": "Institutional Self-Contradiction Thesis",
+  "keyTextsAnalyzed": [
+    "TA-10-2026-0098 (Digital Omnibus on AI)",
+    "TA-10-2026-0093 (Water pollutants/PFAS)",
+    "TA-10-2026-0101 (EU-China TRQ)"
+  ],
+  "compositeRisk": "22.0/50",
+  "topRisk": "RISK-01 Digital Omnibus cascade rollback (12/25 HIGH)",
+  "plenaryReturn": "2026-04-27",
+  "criticalMonitoringDate": "2026-04-21 Commission housing response",
+  "priorRunsCoveredToday": [179, 180, 181],
+  "newAnalyticalContributions": [
+    "Digital Omnibus deregulatory template analysis",
+    "Green quid pro quo (PFAS/Digital Omnibus trade)",
+    "EU-China multilaternal trade hedging architecture",
+    "April 27-30 granular daily calendar intelligence",
+    "ECR three-faction internal dynamics model",
+    "Institutional Self-Contradiction Thesis formalization"
+  ],
+  "qualityGates": {
+    "swotItemsPerQuadrant": "3 (gate: >=3)",
+    "swotWordsPerItem": "80-130 words (gate: >=80)",
+    "monitoringPriorities": "7 (gate: >=5)",
+    "crossRunDiff": "present",
+    "aiAnalysisRequiredMarkers": 0,
+    "proseRatio": "estimated ~80% (gate: >=60%)"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "date": "2026-04-29",
+  "articleType": "propositions",
+  "runId": "propositions-run-1777442543",
+  "gateResult": "PENDING",
+  "slug": "2026-04-29-propositions",
+  "articlePath": "analysis/daily/2026-04-29/propositions/article.md",
+  "topFinding": "The April 28, 2026 Strasbourg plenary session was one of the most legislatively dense sittings of EP10, adopting 22 texts across nine policy domains — from the multiannual financial framework interim report to consent-based rape legislation and the Generalised Scheme of Preferences.",
+  "keyTakeaways": [
+    "Formal majority threshold: **361 seats**",
+    "\"Grand coalition\" EPP+S&D+Renew: **397 seats** — sufficient for majority, but coordination costs are high",
+    "EPP unilateral coalition with ECR+PfE: 351 seats — **below majority without NI/ESN support**",
+    "Progressive bloc (S&D+Greens+Left+Renew): **311 seats** — cannot pass legislation without EPP or ECR support on procedural votes"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "Germany begins economic recovery in H2 2026 (aligned with IMF WEO April 2026 baseline +0.8% for 2026), reducing net-contributor fiscal resistance",
+    "**IMF WEO April 2026 projection in this scenario:** Germany GDP declines 0.8-1.2% in 2027 (third year of contraction)",
+    "New German coalition (CDU/CSU + SPD formed February 2025) signals opposition to new social competence expansion at EU level"
+  ],
+  "keyActors": [
+    "Internal coherence is fragile on fiscal/social splits (EPP vs. S&D on MFF, state aid, social rights)",
+    "The +36 surplus is thinner than EP9's ~50-seat margin, requiring more careful whip management",
+    "Renew group has fragmented in EP10 (pro-Ukraine vs. socially conservative Renew MEPs)",
+    "Requires: EPP + S&D + Renew unified",
+    "Probability: **30%** — Germany's fiscal consolidation creates EPP-internal splits; Renew's liberal fiscal wing resists high ceilings",
+    "Key variable: German EPP MEPs' willingness to defy Bundestag coalition position",
+    "Requires: EPP + S&D + Renew + Greens on core text; ECR partial support on defence elements",
+    "Probability: **55%** — Most likely outcome if French and Polish EPP can negotiate a compromise between fiscal hawks and social spenders"
+  ],
+  "macroContext": "Per IMF WEO April 2026 projections, Germany — Europe's largest economy and historically its primary MFF net contributor — recorded:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

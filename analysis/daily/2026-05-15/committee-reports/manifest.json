@@ -1,0 +1,219 @@
+{
+  "articleType": "committee-reports",
+  "date": "2026-05-15",
+  "runId": "committee-reports-run-1778822323",
+  "dataMode": "degraded-voting",
+  "generatedAt": "2026-05-15T05:21:00Z",
+  "dataSources": {
+    "epMcpCallsUsed": 5,
+    "epMcpCapUsed": "5/5",
+    "feedStatus": {
+      "committee-documents-feed": "unavailable",
+      "procedures-feed": "degraded-historical-only",
+      "committee-documents": "degraded-no-dates",
+      "plenary-sessions": "degraded-empty-recent"
+    },
+    "note": "All EP API feeds returned degraded or historical-only data. Analysis performed using structural EP knowledge for 10th parliamentary term (2024-2029) and known May 2026 legislative agenda."
+  },
+  "history": [
+    {
+      "runId": "committee-reports-run-1778822323",
+      "timestamp": "2026-05-15T05:21:00Z",
+      "pass": 2,
+      "artifactsProduced": 22,
+      "rewriteCount": 22,
+      "note": "First run for this date. Full artifact set produced."
+    }
+  ],
+  "files": {
+    "classification/actor-mapping.md": {
+      "path": "classification/actor-mapping.md",
+      "lines": 146,
+      "source": "fresh"
+    },
+    "classification/forces-analysis.md": {
+      "path": "classification/forces-analysis.md",
+      "lines": 119,
+      "source": "fresh"
+    },
+    "classification/impact-matrix.md": {
+      "path": "classification/impact-matrix.md",
+      "lines": 112,
+      "source": "fresh"
+    },
+    "classification/significance-classification.md": {
+      "path": "classification/significance-classification.md",
+      "lines": 49,
+      "source": "fresh"
+    },
+    "documents/document-analysis-index.md": {
+      "path": "documents/document-analysis-index.md",
+      "lines": 58,
+      "source": "fresh"
+    },
+    "executive-brief.md": {
+      "path": "executive-brief.md",
+      "lines": 153,
+      "source": "fresh"
+    },
+    "existing/committee-productivity.md": {
+      "path": "existing/committee-productivity.md",
+      "lines": 113,
+      "source": "fresh"
+    },
+    "extended/media-framing-analysis.md": {
+      "path": "extended/media-framing-analysis.md",
+      "lines": 154,
+      "source": "fresh"
+    },
+    "intelligence/analysis-index.md": {
+      "path": "intelligence/analysis-index.md",
+      "lines": 124,
+      "source": "fresh"
+    },
+    "intelligence/coalition-dynamics.md": {
+      "path": "intelligence/coalition-dynamics.md",
+      "lines": 98,
+      "source": "fresh"
+    },
+    "intelligence/economic-context.md": {
+      "path": "intelligence/economic-context.md",
+      "lines": 137,
+      "source": "fresh"
+    },
+    "intelligence/forward-projection.md": {
+      "path": "intelligence/forward-projection.md",
+      "lines": 61,
+      "source": "fresh"
+    },
+    "intelligence/historical-baseline.md": {
+      "path": "intelligence/historical-baseline.md",
+      "lines": 117,
+      "source": "fresh"
+    },
+    "intelligence/mcp-reliability-audit.md": {
+      "path": "intelligence/mcp-reliability-audit.md",
+      "lines": 205,
+      "source": "fresh"
+    },
+    "intelligence/methodology-reflection.md": {
+      "path": "intelligence/methodology-reflection.md",
+      "lines": 189,
+      "source": "fresh"
+    },
+    "intelligence/pestle-analysis.md": {
+      "path": "intelligence/pestle-analysis.md",
+      "lines": 166,
+      "source": "fresh"
+    },
+    "intelligence/reference-analysis-quality.md": {
+      "path": "intelligence/reference-analysis-quality.md",
+      "lines": 121,
+      "source": "fresh"
+    },
+    "intelligence/scenario-forecast.md": {
+      "path": "intelligence/scenario-forecast.md",
+      "lines": 160,
+      "source": "fresh"
+    },
+    "intelligence/stakeholder-map.md": {
+      "path": "intelligence/stakeholder-map.md",
+      "lines": 191,
+      "source": "fresh"
+    },
+    "intelligence/synthesis-summary.md": {
+      "path": "intelligence/synthesis-summary.md",
+      "lines": 152,
+      "source": "fresh"
+    },
+    "intelligence/threat-model.md": {
+      "path": "intelligence/threat-model.md",
+      "lines": 164,
+      "source": "fresh"
+    },
+    "intelligence/voting-patterns.md": {
+      "path": "intelligence/voting-patterns.md",
+      "lines": 95,
+      "source": "fresh"
+    },
+    "intelligence/wildcards-blackswans.md": {
+      "path": "intelligence/wildcards-blackswans.md",
+      "lines": 163,
+      "source": "fresh"
+    },
+    "risk-scoring/legislative-velocity-risk.md": {
+      "path": "risk-scoring/legislative-velocity-risk.md",
+      "lines": 90,
+      "source": "fresh"
+    },
+    "risk-scoring/political-capital-risk.md": {
+      "path": "risk-scoring/political-capital-risk.md",
+      "lines": 71,
+      "source": "fresh"
+    },
+    "risk-scoring/quantitative-swot.md": {
+      "path": "risk-scoring/quantitative-swot.md",
+      "lines": 116,
+      "source": "fresh"
+    },
+    "risk-scoring/risk-matrix.md": {
+      "path": "risk-scoring/risk-matrix.md",
+      "lines": 105,
+      "source": "fresh"
+    },
+    "threat-assessment/actor-threat-profiles.md": {
+      "path": "threat-assessment/actor-threat-profiles.md",
+      "lines": 63,
+      "source": "fresh"
+    },
+    "threat-assessment/consequence-trees.md": {
+      "path": "threat-assessment/consequence-trees.md",
+      "lines": 83,
+      "source": "fresh"
+    },
+    "threat-assessment/legislative-disruption.md": {
+      "path": "threat-assessment/legislative-disruption.md",
+      "lines": 80,
+      "source": "fresh"
+    },
+    "threat-assessment/political-threat-landscape.md": {
+      "path": "threat-assessment/political-threat-landscape.md",
+      "lines": 46,
+      "source": "fresh"
+    }
+  },
+  "artifactSources": {
+    "classification/actor-mapping.md": "fresh",
+    "classification/forces-analysis.md": "fresh",
+    "classification/impact-matrix.md": "fresh",
+    "classification/significance-classification.md": "fresh",
+    "documents/document-analysis-index.md": "fresh",
+    "executive-brief.md": "fresh",
+    "existing/committee-productivity.md": "fresh",
+    "extended/media-framing-analysis.md": "fresh",
+    "intelligence/analysis-index.md": "fresh",
+    "intelligence/coalition-dynamics.md": "fresh",
+    "intelligence/economic-context.md": "fresh",
+    "intelligence/forward-projection.md": "fresh",
+    "intelligence/historical-baseline.md": "fresh",
+    "intelligence/mcp-reliability-audit.md": "fresh",
+    "intelligence/methodology-reflection.md": "fresh",
+    "intelligence/pestle-analysis.md": "fresh",
+    "intelligence/reference-analysis-quality.md": "fresh",
+    "intelligence/scenario-forecast.md": "fresh",
+    "intelligence/stakeholder-map.md": "fresh",
+    "intelligence/synthesis-summary.md": "fresh",
+    "intelligence/threat-model.md": "fresh",
+    "intelligence/voting-patterns.md": "fresh",
+    "intelligence/wildcards-blackswans.md": "fresh",
+    "risk-scoring/legislative-velocity-risk.md": "fresh",
+    "risk-scoring/political-capital-risk.md": "fresh",
+    "risk-scoring/quantitative-swot.md": "fresh",
+    "risk-scoring/risk-matrix.md": "fresh",
+    "threat-assessment/actor-threat-profiles.md": "fresh",
+    "threat-assessment/consequence-trees.md": "fresh",
+    "threat-assessment/legislative-disruption.md": "fresh",
+    "threat-assessment/political-threat-landscape.md": "fresh"
+  },
+  "totalArtifacts": 31
+}

@@ -1,0 +1,59 @@
+{
+  "articleType": "motions",
+  "runDate": "2026-04-29",
+  "runId": "motions-run-1777445455",
+  "analysisDir": "analysis/daily/2026-04-29/motions",
+  "generatedAt": "2026-04-29T00:00:00Z",
+  "dataWindow": {
+    "dateFrom": "2026-04-22",
+    "dateTo": "2026-04-29"
+  },
+  "dataAvailability": {
+    "votingRecords": "unavailable",
+    "adoptedTexts": "available",
+    "politicalLandscape": "available",
+    "speeches": "available",
+    "votingFreshnessLabel": "Roll-call data not yet published (4-6 week EP delay)"
+  },
+  "files": {
+    "data": [
+      "data/voting-records-raw.json",
+      "data/adopted-texts-2026-04-28.json",
+      "data/political-landscape.json"
+    ],
+    "intelligence": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/threat-model.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/impact-matrix.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "existing": [
+      "existing/stakeholder-impact.md"
+    ]
+  },
+  "artifactCount": 19,
+  "pass2": {
+    "startedAt": "2026-04-29T00:19:00Z",
+    "endedAt": "2026-04-29T00:20:00Z",
+    "rewriteCount": 2,
+    "notes": "Partial pass 2 applied to first 3 artifacts; subsequent artifacts produced at quality from pass 1"
+  },
+  "gateResult": null,
+  "history": []
+}

@@ -1,0 +1,155 @@
+{
+  "generatedAt": "2026-05-01T08:44:00Z",
+  "source": "european-parliament MCP get_adopted_texts year=2026",
+  "aprilPlenary_2026-04-28_to_2026-04-30": [
+    {
+      "id": "TA-10-2026-0105",
+      "title": "Request for the waiver of the immunity of Patryk Jaki",
+      "dateAdopted": "2026-04-28",
+      "category": "Rule 9 immunity waiver",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2026-0112",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "dateAdopted": "2026-04-28",
+      "category": "Budget",
+      "significance": "Sets budgetary priorities for 2027 EU budget - critical for Commission negotiations",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2026-0115",
+      "title": "Welfare of dogs and cats and their traceability",
+      "dateAdopted": "2026-04-28",
+      "category": "Animal welfare regulation"
+    },
+    {
+      "id": "TA-10-2026-0119",
+      "title": "Control of the financial activities of the European Investment Bank Group — annual report 2024",
+      "dateAdopted": "2026-04-28",
+      "category": "Oversight/EIB"
+    },
+    {
+      "id": "TA-10-2026-0122",
+      "title": "Control, transparency and traceability of performance-based instruments",
+      "dateAdopted": "2026-04-28",
+      "category": "Transparency/financial instruments"
+    },
+    {
+      "id": "TA-10-2026-0132",
+      "title": "Discharge 2024: EU general budget - Committee of the Regions",
+      "dateAdopted": "2026-04-29",
+      "category": "Discharge procedure 2024"
+    },
+    {
+      "id": "TA-10-2026-0142",
+      "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data to prevent, detect, investigate and prosecute terrorist offences and serious crime",
+      "dateAdopted": "2026-04-29",
+      "category": "Security/data sharing agreement"
+    },
+    {
+      "id": "TA-10-2026-0151",
+      "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+      "dateAdopted": "2026-04-30",
+      "category": "Human rights/geopolitical"
+    },
+    {
+      "id": "TA-10-2026-0160",
+      "title": "Enforcement of the Digital Markets Act",
+      "dateAdopted": "2026-04-30",
+      "category": "Digital regulation enforcement",
+      "significance": "Critical for DMA implementation - addresses enforcement gaps and gatekeeper accountability"
+    },
+    {
+      "id": "TA-10-2026-0161",
+      "title": "Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine",
+      "dateAdopted": "2026-04-30",
+      "category": "Geopolitical/Ukraine",
+      "significance": "Strong political signal on Ukraine support and accountability mechanisms"
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "title": "Supporting democratic resilience in Armenia",
+      "dateAdopted": "2026-04-30",
+      "category": "Geopolitical/Neighbourhood",
+      "significance": "Eastern Partnership - Armenia democratisation support"
+    },
+    {
+      "id": "TA-10-2026-04-30-ANN01",
+      "title": "ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027",
+      "dateAdopted": "2026-04-30",
+      "category": "Budget/EP estimates",
+      "significance": "EP's own 2027 budget estimates - submitted to Council"
+    }
+  ],
+  "selectedPriorAdoptedTexts_2026": [
+    {
+      "id": "TA-10-2026-0092",
+      "title": "Early intervention measures, conditions for resolution and funding of resolution action (SRMR3)",
+      "dateAdopted": "2026-03-26",
+      "category": "Banking regulation/financial stability",
+      "subjectMatter": "UEM, PECO"
+    },
+    {
+      "id": "TA-10-2026-0094",
+      "title": "Combating corruption",
+      "dateAdopted": "2026-03-26",
+      "subjectMatter": "COJP"
+    },
+    {
+      "id": "TA-10-2026-0096",
+      "title": "Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States of America",
+      "dateAdopted": "2026-03-26",
+      "category": "Trade/US tariffs",
+      "significance": "EU counter-tariff measure in context of US trade tensions"
+    },
+    {
+      "id": "TA-10-2026-0086",
+      "title": "Multilateral negotiations in view of the WTO's 14th Ministerial Conference in Yaoundé, 26 to 29 March 2026",
+      "dateAdopted": "2026-03-12",
+      "category": "Trade/WTO"
+    },
+    {
+      "id": "TA-10-2026-0064",
+      "title": "Housing crisis in the European Union with the aim of proposing solutions for decent, sustainable and affordable housing",
+      "dateAdopted": "2026-03-10",
+      "category": "Social/housing",
+      "subjectMatter": "SOCI"
+    },
+    {
+      "id": "TA-10-2026-0066",
+      "title": "Copyright and generative artificial intelligence – opportunities and challenges",
+      "dateAdopted": "2026-03-10",
+      "category": "Digital/AI regulation",
+      "subjectMatter": "INFQ"
+    },
+    {
+      "id": "TA-10-2026-0022",
+      "title": "European technological sovereignty and digital infrastructure",
+      "dateAdopted": "2026-01-22",
+      "category": "Digital/strategic autonomy",
+      "subjectMatter": "MARI, TELE"
+    },
+    {
+      "id": "TA-10-2026-0020",
+      "title": "Drones and new systems of warfare – the EU's need to adapt to be fit for today's security challenges",
+      "dateAdopted": "2026-01-22",
+      "category": "Defence/security",
+      "subjectMatter": "EXT, PESC"
+    },
+    {
+      "id": "TA-10-2026-0010",
+      "title": "Enhanced cooperation on the establishment of a Loan for Ukraine",
+      "dateAdopted": "2026-01-21",
+      "category": "Ukraine/financial instrument",
+      "subjectMatter": "ASTU, EXT"
+    },
+    {
+      "id": "TA-10-2026-0008",
+      "title": "Request for opinion from the Court of Justice on the compatibility with the Treaties of the proposed EU-Mercosur Partnership Agreement (EMPA) and Interim Trade Agreement (ITA)",
+      "dateAdopted": "2026-01-21",
+      "category": "Trade/Mercosur",
+      "significance": "EP challenged Mercosur deal legality - ongoing - court opinion pending"
+    }
+  ]
+}

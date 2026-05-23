@@ -1,0 +1,54 @@
+{
+  "articleType": "week-in-review",
+  "analysisDate": "2026-05-09",
+  "reportingWindow": {
+    "dateFrom": "2026-04-03",
+    "dateTo": "2026-05-01",
+    "description": "D-36 to D-8 window (ADR-006)"
+  },
+  "runId": "week-in-review-run-1778309196",
+  "workflowStartEpoch": 1778309196,
+  "pass2": {
+    "startedAt": "2026-05-09T07:07:00Z",
+    "endedAt": "2026-05-09T07:12:00Z",
+    "rewriteCount": 3
+  },
+  "gateResult": "GREEN",
+  "artifacts": [
+    "executive-brief.md",
+    "classification/significance-classification.md",
+    "classification/actor-mapping.md",
+    "classification/forces-analysis.md",
+    "classification/impact-matrix.md",
+    "intelligence/pestle-analysis.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/historical-baseline.md",
+    "intelligence/wildcards-blackswans.md",
+    "intelligence/synthesis-summary.md",
+    "intelligence/economic-context.md",
+    "intelligence/mcp-reliability-audit.md",
+    "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/political-capital-risk.md",
+    "risk-scoring/legislative-velocity-risk.md",
+    "threat-assessment/political-threat-landscape.md",
+    "documents/document-analysis-index.md",
+    "methodology-reflection.md"
+  ],
+  "dataGaps": [
+    "EP roll-call voting data for April 28-30 (publication lag)",
+    "Adopted text content TA-10-2026-0160 to 0165 (404 DATA_UNAVAILABLE)",
+    "Plenary session date-filtered results (EP API bug)"
+  ],
+  "mcpServerVersion": "european-parliament-mcp-server@1.3.1",
+  "history": [
+    {
+      "runEpoch": 1778309196,
+      "runAt": "2026-05-09T06:46:36Z",
+      "status": "complete",
+      "artifactCount": 21
+    }
+  ]
+}

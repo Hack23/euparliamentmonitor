@@ -1,0 +1,61 @@
+{
+  "collectionDate": "2026-04-27T07:08:00Z",
+  "sources": {
+    "adopted_texts_feed": "25 items (FRESHNESS_FALLBACK to /adopted-texts?year=2026)",
+    "events_feed": "unavailable (EP API error)",
+    "procedures_feed": "RECESS_MODE (historical data returned)",
+    "meps_feed": "available (payload too large)"
+  },
+  "plenarySession": {
+    "status": "LIVE_SESSION",
+    "dates": "2026-04-27 to 2026-04-30",
+    "location": "Strasbourg",
+    "sessionId": "MTG-PL-2026-04-27",
+    "scheduledDebates": 8,
+    "attendanceCount": 0
+  },
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "groups": 9,
+    "majorityThreshold": 361,
+    "groups_detail": {
+      "EPP": 185,
+      "SandD": 135,
+      "PfE": 85,
+      "ECR": 81,
+      "Renew": 77,
+      "GreensEFA": 53,
+      "TheLeft": 46,
+      "NI": 30,
+      "ESN": 27
+    }
+  },
+  "recentAdoptedTexts_2026": [
+    {"id": "TA-10-2026-0096", "title": "Adjustment of customs duties and opening of tariff quotas for import of goods from the USA", "dateAdopted": "2026-03-26"},
+    {"id": "TA-10-2026-0094", "title": "Combating corruption", "dateAdopted": "2026-03-26"},
+    {"id": "TA-10-2026-0092", "title": "Early intervention measures, conditions for resolution and funding of resolution action (SRMR3)", "dateAdopted": "2026-03-26"},
+    {"id": "TA-10-2026-0088", "title": "Request for the waiver of the immunity of Grzegorz Braun", "dateAdopted": "2026-03-26"},
+    {"id": "TA-10-2026-0086", "title": "Multilateral negotiations in view of the WTO 14th Ministerial Conference in Yaoundé", "dateAdopted": "2026-03-12"},
+    {"id": "TA-10-2026-0084", "title": "Calculation of emission credits for heavy-duty vehicles for years 2025-2029", "dateAdopted": "2026-03-12"},
+    {"id": "TA-10-2026-0083", "title": "Case of Elene Khoshtaria and political prisoners under Georgian Dream regime", "dateAdopted": "2026-03-12"},
+    {"id": "TA-10-2026-0078", "title": "Recommendation on enhanced EU-Canada cooperation amid threats to Canada's sovereignty", "dateAdopted": "2026-03-11"},
+    {"id": "TA-10-2026-0073", "title": "Mobilisation of EGF for Tupperware Belgium", "dateAdopted": "2026-03-11"},
+    {"id": "TA-10-2026-0066", "title": "Copyright and generative artificial intelligence", "dateAdopted": "2026-03-10"},
+    {"id": "TA-10-2026-0064", "title": "Housing crisis in the European Union", "dateAdopted": "2026-03-10"},
+    {"id": "TA-10-2026-0063", "title": "EU regulatory fitness and subsidiarity – Better Law-Making 2023-2024", "dateAdopted": "2026-03-10"},
+    {"id": "TA-10-2026-0060", "title": "Appointment of Vice-President of the European Central Bank", "dateAdopted": "2026-03-10"},
+    {"id": "TA-10-2026-0058", "title": "EU Talent Pool (immigration reform)", "dateAdopted": "2026-03-10"},
+    {"id": "TA-10-2026-0040", "title": "EU strategic defence and security partnerships", "dateAdopted": "2026-02-11"},
+    {"id": "TA-10-2026-0022", "title": "European technological sovereignty and digital infrastructure", "dateAdopted": "2026-01-22"},
+    {"id": "TA-10-2026-0020", "title": "Drones and new systems of warfare – EU security challenges", "dateAdopted": "2026-01-22"},
+    {"id": "TA-10-2026-0010", "title": "Enhanced cooperation on the establishment of a Loan for Ukraine", "dateAdopted": "2026-01-21"},
+    {"id": "TA-10-2026-0008", "title": "Request for opinion from Court of Justice on EU-Mercosur EMPA and ITA compatibility", "dateAdopted": "2026-01-21"},
+    {"id": "TA-10-2026-0004", "title": "Safeguarding and promoting financial stability amid economic uncertainties", "dateAdopted": "2026-01-20"}
+  ],
+  "earlyWarnings": {
+    "riskLevel": "MEDIUM",
+    "stabilityScore": 84,
+    "highWarnings": 1,
+    "keyRisk": "DOMINANT_GROUP_RISK (EPP 19x smallest group)"
+  }
+}

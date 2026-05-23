@@ -1,0 +1,55 @@
+{
+  "articleType": "committee-reports",
+  "dataMode": "degraded-feeds",
+  "generatedAt": "2026-05-22T05:40:00Z",
+  "runId": "committee-reports-run258-1779428020",
+  "dateRange": {
+    "from": "2026-05-15",
+    "to": "2026-05-22"
+  },
+  "files": {
+    "analysis": [
+      "data-availability-assessment.md",
+      "executive-brief.md",
+      "existing/committee-productivity.md",
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/methodology-reflection.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "extended/media-framing-analysis.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/voting-patterns.md"
+    ],
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "classification/significance-classification.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "committee-reports-run258-1779428020",
+      "completedAt": "2026-05-22T05:40:00Z",
+      "artifactCount": 20,
+      "dataMode": "degraded-feeds",
+      "pass2": {
+        "rewriteCount": 20,
+        "extendCount": 0
+      }
+    }
+  ],
+  "artifactCount": 26
+}

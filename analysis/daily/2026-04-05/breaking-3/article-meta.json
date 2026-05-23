@@ -1,0 +1,25 @@
+{
+  "date": "2026-04-05",
+  "articleType": "breaking",
+  "runId": "breaking-3",
+  "gateResult": "PENDING",
+  "slug": "2026-04-05-breaking-breaking-3",
+  "articlePath": "analysis/daily/2026-04-05/breaking-3/article.md",
+  "topFinding": "Mid-recess strategic synthesis (Day 10 of 18) confirms three persistent intelligence themes carrying into Q2 2026.",
+  "keyTakeaways": [
+    "🔴 **Day 10 of 18 — exact midpoint of Easter recess** (27 March → 13 April 2026). (🟢 High)",
+    "🟠 **3 persistent themes** confirmed by 12-hour longitudinal synthesis: feed DEGRADED, coalition arithmetic stable, reform cluster carry-over. (🟢 High)",
+    "🟢 **No new EP activity today** (Sunday, recess). (🟢 High)",
+    "🟡 **Renew–ECR cohesion signal held day-over-day** at ~0.95 since 2026-04-03. (🟡 Medium)",
+    "🔵 **Economic context:** US-EU trade trajectory unchanged; IMF April WEO release window approaching. (🟢 High)",
+    "🟣 **Cross-reference:** sibling `breaking` and `breaking-2` provide morning baseline; this run synthesises across both. (🟢 High)",
+    "🩷 **Disruption vector:** Polish-judiciary follow-on remains the highest-probability April-plenary surprise. (🟡 Medium)"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

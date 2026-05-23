@@ -1,0 +1,1901 @@
+{
+  "generatedAt": "2026-05-04T07:03:17Z",
+  "coveragePeriod": {
+    "from": 2004,
+    "to": 2026
+  },
+  "requestedPeriod": {
+    "from": 2019,
+    "to": 2026
+  },
+  "methodologyVersion": "2.0.0",
+  "dataSource": "European Parliament Open Data Portal — data.europarl.europa.eu",
+  "totalYearsReturned": 8,
+  "yearlyStats": [
+    {
+      "year": 2019,
+      "parliamentaryTerm": "EP8/EP9 transition",
+      "mepCount": 751,
+      "plenarySessions": 52,
+      "legislativeActsAdopted": 65,
+      "rollCallVotes": 350,
+      "committeeMeetings": 1580,
+      "parliamentaryQuestions": 3680,
+      "resolutions": 98,
+      "speeches": 7000,
+      "adoptedTexts": 551,
+      "procedures": 749,
+      "events": 3103,
+      "documents": 3512,
+      "mepTurnover": 410,
+      "declarations": 540,
+      "commentary": "EP8/EP9 transition. European elections May 2019. Fragmented parliament—no traditional two-party majority. Ursula von der Leyen narrowly elected Commission President. UK MEPs still present (Brexit delayed).",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 182,
+            "seatShare": 24.2
+          },
+          {
+            "name": "S&D",
+            "seats": 154,
+            "seatShare": 20.5
+          },
+          {
+            "name": "RE",
+            "seats": 108,
+            "seatShare": 14.4
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 74,
+            "seatShare": 9.9
+          },
+          {
+            "name": "ID",
+            "seats": 73,
+            "seatShare": 9.7
+          },
+          {
+            "name": "ECR",
+            "seats": 62,
+            "seatShare": 8.3
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 41,
+            "seatShare": 5.5
+          },
+          {
+            "name": "NI",
+            "seats": 57,
+            "seatShare": 7.6
+          }
+        ],
+        "totalGroups": 7,
+        "largestGroup": "EPP",
+        "largestGroupSeatShare": 24.2,
+        "fragmentationIndex": 6.4,
+        "grandCoalitionPossible": false,
+        "politicalBalance": "EP9: Historic fragmentation. EPP+S&D lost majority for first time. Renew Europe (ex-ALDE) grew. ID (far-right) formed. Green surge. No two-party majority possible"
+      },
+      "derivedIntelligence": {
+        "legislativeOutputPerSession": 1.25,
+        "legislativeOutputPerMEP": 0.087,
+        "rollCallVoteYield": 18.6,
+        "procedureCompletionRate": 8.7,
+        "resolutionToLegislationRatio": 1.51,
+        "documentBurdenPerAct": 54,
+        "mepOversightIntensity": 4.9,
+        "mepSpeechRate": 9.3,
+        "debateIntensityPerSession": 134.6,
+        "oversightPerSession": 70.8,
+        "topTwoGroupsConcentration": 44.7,
+        "topThreeGroupsConcentration": 59.1,
+        "herfindahlHirschmanIndex": 0.1562,
+        "dominanceRatio": 1.18,
+        "majorityThresholdGap": 25.8,
+        "minimumWinningCoalitionSize": 3,
+        "grandCoalitionSurplusDeficit": -5.3,
+        "nonAttachedShare": 7.6,
+        "effectiveOppositionParties": 5.4,
+        "politicalBlocAnalysis": {
+          "leftBlocShare": 35.9,
+          "centreBlocShare": 14.4,
+          "rightBlocShare": 42.2,
+          "euroscepticShare": 9.7,
+          "bipolarIndex": 0.081,
+          "politicalCompass": {
+            "parliamentEconomicPosition": 5.07,
+            "parliamentSocialPosition": 4.65,
+            "parliamentEuPosition": 6.46,
+            "quadrantDistribution": {
+              "libertarianLeft": 35.9,
+              "libertarianRight": 14.4,
+              "authoritarianLeft": 0,
+              "authoritarianRight": 42.2
+            },
+            "dominantQuadrant": "authoritarianRight",
+            "authLibTension": 1.81,
+            "economicPolarisation": 1.73,
+            "euIntegrationDispersion": 2.39
+          }
+        },
+        "mepStabilityIndex": 0.454,
+        "turnoverRate": 54.6,
+        "institutionalMemoryRisk": "HIGH",
+        "declarationCoverageRatio": 0.72,
+        "legislativeOutputChange": -54.2,
+        "fragmentationVelocity": 0.94,
+        "questionsChange": -39.2,
+        "oversightToLegislationBalance": 56.6,
+        "speechToVoteRatio": 20,
+        "committeeToPlenaryRatio": 30.4
+      }
+    },
+    {
+      "year": 2020,
+      "parliamentaryTerm": "EP9 (2019-2024)",
+      "mepCount": 705,
+      "plenarySessions": 51,
+      "legislativeActsAdopted": 85,
+      "rollCallVotes": 460,
+      "committeeMeetings": 1950,
+      "parliamentaryQuestions": 5850,
+      "resolutions": 148,
+      "speeches": 9800,
+      "adoptedTexts": 390,
+      "procedures": 794,
+      "events": 3636,
+      "documents": 3250,
+      "mepTurnover": 95,
+      "declarations": 610,
+      "commentary": "COVID-19 pandemic forced remote/hybrid plenary sessions. Brexit completed (UK MEPs departed January 2020, reducing count to 705). NextGenerationEU recovery fund negotiations. Unprecedented adaptation to digital parliament.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 187,
+            "seatShare": 26.5
+          },
+          {
+            "name": "S&D",
+            "seats": 147,
+            "seatShare": 20.9
+          },
+          {
+            "name": "RE",
+            "seats": 98,
+            "seatShare": 13.9
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 67,
+            "seatShare": 9.5
+          },
+          {
+            "name": "ID",
+            "seats": 76,
+            "seatShare": 10.8
+          },
+          {
+            "name": "ECR",
+            "seats": 61,
+            "seatShare": 8.7
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 39,
+            "seatShare": 5.5
+          },
+          {
+            "name": "NI",
+            "seats": 30,
+            "seatShare": 4.3
+          }
+        ],
+        "totalGroups": 7,
+        "largestGroup": "EPP",
+        "largestGroupSeatShare": 26.5,
+        "fragmentationIndex": 6.01,
+        "grandCoalitionPossible": false,
+        "politicalBalance": "Post-Brexit: 73 UK MEPs departed. Parliament reduced to 705. EPP slightly strengthened proportionally. COVID united mainstream"
+      },
+      "derivedIntelligence": {
+        "legislativeOutputPerSession": 1.67,
+        "legislativeOutputPerMEP": 0.121,
+        "rollCallVoteYield": 18.5,
+        "procedureCompletionRate": 10.7,
+        "resolutionToLegislationRatio": 1.74,
+        "documentBurdenPerAct": 38.2,
+        "mepOversightIntensity": 8.3,
+        "mepSpeechRate": 13.9,
+        "debateIntensityPerSession": 192.2,
+        "oversightPerSession": 114.7,
+        "topTwoGroupsConcentration": 47.4,
+        "topThreeGroupsConcentration": 61.3,
+        "herfindahlHirschmanIndex": 0.1664,
+        "dominanceRatio": 1.27,
+        "majorityThresholdGap": 23.5,
+        "minimumWinningCoalitionSize": 3,
+        "grandCoalitionSurplusDeficit": -2.6,
+        "nonAttachedShare": 4.3,
+        "effectiveOppositionParties": 5.01,
+        "politicalBlocAnalysis": {
+          "leftBlocShare": 35.9,
+          "centreBlocShare": 13.9,
+          "rightBlocShare": 46,
+          "euroscepticShare": 10.8,
+          "bipolarIndex": 0.123,
+          "politicalCompass": {
+            "parliamentEconomicPosition": 5.12,
+            "parliamentSocialPosition": 4.74,
+            "parliamentEuPosition": 6.4,
+            "quadrantDistribution": {
+              "libertarianLeft": 35.9,
+              "libertarianRight": 13.9,
+              "authoritarianLeft": 0,
+              "authoritarianRight": 46
+            },
+            "dominantQuadrant": "authoritarianRight",
+            "authLibTension": 1.82,
+            "economicPolarisation": 1.71,
+            "euIntegrationDispersion": 2.42
+          }
+        },
+        "mepStabilityIndex": 0.865,
+        "turnoverRate": 13.5,
+        "institutionalMemoryRisk": "LOW",
+        "declarationCoverageRatio": 0.87,
+        "legislativeOutputChange": 30.8,
+        "fragmentationVelocity": -0.39,
+        "questionsChange": 59,
+        "oversightToLegislationBalance": 68.8,
+        "speechToVoteRatio": 21.3,
+        "committeeToPlenaryRatio": 38.2
+      }
+    },
+    {
+      "year": 2021,
+      "parliamentaryTerm": "EP9 (2019-2024)",
+      "mepCount": 705,
+      "plenarySessions": 55,
+      "legislativeActsAdopted": 102,
+      "rollCallVotes": 530,
+      "committeeMeetings": 2180,
+      "parliamentaryQuestions": 6120,
+      "resolutions": 168,
+      "speeches": 11500,
+      "adoptedTexts": 517,
+      "procedures": 905,
+      "events": 4837,
+      "documents": 3820,
+      "mepTurnover": 48,
+      "declarations": 665,
+      "commentary": "Continued hybrid working. Digital COVID Certificate legislation fast-tracked. Conference on the Future of Europe launched. Fit for 55 climate package proposals. MFF 2021-2027 operational. Questions spiked due to pandemic oversight.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 177,
+            "seatShare": 25.1
+          },
+          {
+            "name": "S&D",
+            "seats": 145,
+            "seatShare": 20.6
+          },
+          {
+            "name": "RE",
+            "seats": 98,
+            "seatShare": 13.9
+          },
+          {
+            "name": "ID",
+            "seats": 76,
+            "seatShare": 10.8
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 73,
+            "seatShare": 10.4
+          },
+          {
+            "name": "ECR",
+            "seats": 63,
+            "seatShare": 8.9
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 39,
+            "seatShare": 5.5
+          },
+          {
+            "name": "NI",
+            "seats": 34,
+            "seatShare": 4.8
+          }
+        ],
+        "totalGroups": 7,
+        "largestGroup": "EPP",
+        "largestGroupSeatShare": 25.1,
+        "fragmentationIndex": 6.23,
+        "grandCoalitionPossible": false,
+        "politicalBalance": "Conference on the Future of Europe created unusual cross-group cooperation; Green Deal legislation required broad coalitions"
+      },
+      "derivedIntelligence": {
+        "legislativeOutputPerSession": 1.85,
+        "legislativeOutputPerMEP": 0.145,
+        "rollCallVoteYield": 19.2,
+        "procedureCompletionRate": 11.3,
+        "resolutionToLegislationRatio": 1.65,
+        "documentBurdenPerAct": 37.5,
+        "mepOversightIntensity": 8.68,
+        "mepSpeechRate": 16.3,
+        "debateIntensityPerSession": 209.1,
+        "oversightPerSession": 111.3,
+        "topTwoGroupsConcentration": 45.7,
+        "topThreeGroupsConcentration": 59.6,
+        "herfindahlHirschmanIndex": 0.1605,
+        "dominanceRatio": 1.22,
+        "majorityThresholdGap": 24.9,
+        "minimumWinningCoalitionSize": 3,
+        "grandCoalitionSurplusDeficit": -4.3,
+        "nonAttachedShare": 4.8,
+        "effectiveOppositionParties": 5.23,
+        "politicalBlocAnalysis": {
+          "leftBlocShare": 36.5,
+          "centreBlocShare": 13.9,
+          "rightBlocShare": 44.8,
+          "euroscepticShare": 10.8,
+          "bipolarIndex": 0.102,
+          "politicalCompass": {
+            "parliamentEconomicPosition": 5.09,
+            "parliamentSocialPosition": 4.71,
+            "parliamentEuPosition": 6.39,
+            "quadrantDistribution": {
+              "libertarianLeft": 36.5,
+              "libertarianRight": 13.9,
+              "authoritarianLeft": 0,
+              "authoritarianRight": 44.8
+            },
+            "dominantQuadrant": "authoritarianRight",
+            "authLibTension": 1.84,
+            "economicPolarisation": 1.73,
+            "euIntegrationDispersion": 2.44
+          }
+        },
+        "mepStabilityIndex": 0.932,
+        "turnoverRate": 6.8,
+        "institutionalMemoryRisk": "LOW",
+        "declarationCoverageRatio": 0.94,
+        "legislativeOutputChange": 20,
+        "fragmentationVelocity": 0.22,
+        "questionsChange": 4.6,
+        "oversightToLegislationBalance": 60,
+        "speechToVoteRatio": 21.7,
+        "committeeToPlenaryRatio": 39.6
+      }
+    },
+    {
+      "year": 2022,
+      "parliamentaryTerm": "EP9 (2019-2024)",
+      "mepCount": 705,
+      "plenarySessions": 58,
+      "legislativeActsAdopted": 120,
+      "rollCallVotes": 590,
+      "committeeMeetings": 2380,
+      "parliamentaryQuestions": 6350,
+      "resolutions": 192,
+      "speeches": 13500,
+      "adoptedTexts": 453,
+      "procedures": 843,
+      "events": 1097,
+      "documents": 4350,
+      "mepTurnover": 42,
+      "declarations": 695,
+      "commentary": "Russia-Ukraine war dominated agenda. Energy crisis response. Digital Services Act and Digital Markets Act adopted. REPowerEU plan. Return to full in-person sessions. Parliament's foreign affairs role expanded significantly.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 177,
+            "seatShare": 25.1
+          },
+          {
+            "name": "S&D",
+            "seats": 145,
+            "seatShare": 20.6
+          },
+          {
+            "name": "RE",
+            "seats": 101,
+            "seatShare": 14.3
+          },
+          {
+            "name": "ID",
+            "seats": 62,
+            "seatShare": 8.8
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 72,
+            "seatShare": 10.2
+          },
+          {
+            "name": "ECR",
+            "seats": 66,
+            "seatShare": 9.4
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 38,
+            "seatShare": 5.4
+          },
+          {
+            "name": "NI",
+            "seats": 44,
+            "seatShare": 6.2
+          }
+        ],
+        "totalGroups": 7,
+        "largestGroup": "EPP",
+        "largestGroupSeatShare": 25.1,
+        "fragmentationIndex": 6.26,
+        "grandCoalitionPossible": false,
+        "politicalBalance": "Ukraine war united mainstream; ID weakened as some parties distanced from Russia; ECR gained from Fidesz joining"
+      },
+      "derivedIntelligence": {
+        "legislativeOutputPerSession": 2.07,
+        "legislativeOutputPerMEP": 0.17,
+        "rollCallVoteYield": 20.3,
+        "procedureCompletionRate": 14.2,
+        "resolutionToLegislationRatio": 1.6,
+        "documentBurdenPerAct": 36.3,
+        "mepOversightIntensity": 9.01,
+        "mepSpeechRate": 19.1,
+        "debateIntensityPerSession": 232.8,
+        "oversightPerSession": 109.5,
+        "topTwoGroupsConcentration": 45.7,
+        "topThreeGroupsConcentration": 60,
+        "herfindahlHirschmanIndex": 0.1596,
+        "dominanceRatio": 1.22,
+        "majorityThresholdGap": 24.9,
+        "minimumWinningCoalitionSize": 3,
+        "grandCoalitionSurplusDeficit": -4.3,
+        "nonAttachedShare": 6.2,
+        "effectiveOppositionParties": 5.26,
+        "politicalBlocAnalysis": {
+          "leftBlocShare": 36.2,
+          "centreBlocShare": 14.3,
+          "rightBlocShare": 43.3,
+          "euroscepticShare": 8.8,
+          "bipolarIndex": 0.089,
+          "politicalCompass": {
+            "parliamentEconomicPosition": 5.1,
+            "parliamentSocialPosition": 4.65,
+            "parliamentEuPosition": 6.49,
+            "quadrantDistribution": {
+              "libertarianLeft": 36.2,
+              "libertarianRight": 14.3,
+              "authoritarianLeft": 0,
+              "authoritarianRight": 43.3
+            },
+            "dominantQuadrant": "authoritarianRight",
+            "authLibTension": 1.8,
+            "economicPolarisation": 1.74,
+            "euIntegrationDispersion": 2.33
+          }
+        },
+        "mepStabilityIndex": 0.94,
+        "turnoverRate": 6,
+        "institutionalMemoryRisk": "LOW",
+        "declarationCoverageRatio": 0.99,
+        "legislativeOutputChange": 17.6,
+        "fragmentationVelocity": 0.03,
+        "questionsChange": 3.8,
+        "oversightToLegislationBalance": 52.9,
+        "speechToVoteRatio": 22.9,
+        "committeeToPlenaryRatio": 41
+      }
+    },
+    {
+      "year": 2023,
+      "parliamentaryTerm": "EP9 (2019-2024)",
+      "mepCount": 705,
+      "plenarySessions": 58,
+      "legislativeActsAdopted": 148,
+      "rollCallVotes": 660,
+      "committeeMeetings": 2520,
+      "parliamentaryQuestions": 6580,
+      "resolutions": 218,
+      "speeches": 15200,
+      "adoptedTexts": 487,
+      "procedures": 903,
+      "events": 1676,
+      "documents": 5020,
+      "mepTurnover": 38,
+      "declarations": 343,
+      "commentary": "Peak EP9 legislative output. AI Act negotiations concluded. Nature Restoration Law controversial vote. Corporate Sustainability Due Diligence. Critical Raw Materials Act. Record-high legislative productivity driven by end-of-term urgency.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 177,
+            "seatShare": 25.1
+          },
+          {
+            "name": "S&D",
+            "seats": 142,
+            "seatShare": 20.1
+          },
+          {
+            "name": "RE",
+            "seats": 101,
+            "seatShare": 14.3
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 72,
+            "seatShare": 10.2
+          },
+          {
+            "name": "ECR",
+            "seats": 68,
+            "seatShare": 9.6
+          },
+          {
+            "name": "ID",
+            "seats": 62,
+            "seatShare": 8.8
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 37,
+            "seatShare": 5.2
+          },
+          {
+            "name": "NI",
+            "seats": 46,
+            "seatShare": 6.5
+          }
+        ],
+        "totalGroups": 7,
+        "largestGroup": "EPP",
+        "largestGroupSeatShare": 25.1,
+        "fragmentationIndex": 6.32,
+        "grandCoalitionPossible": false,
+        "politicalBalance": "Nature Restoration Law showed EPP willing to break with S&D on Green Deal; rightward pressure intensified pre-election"
+      },
+      "derivedIntelligence": {
+        "legislativeOutputPerSession": 2.55,
+        "legislativeOutputPerMEP": 0.21,
+        "rollCallVoteYield": 22.4,
+        "procedureCompletionRate": 16.4,
+        "resolutionToLegislationRatio": 1.47,
+        "documentBurdenPerAct": 33.9,
+        "mepOversightIntensity": 9.33,
+        "mepSpeechRate": 21.6,
+        "debateIntensityPerSession": 262.1,
+        "oversightPerSession": 113.4,
+        "topTwoGroupsConcentration": 45.2,
+        "topThreeGroupsConcentration": 59.5,
+        "herfindahlHirschmanIndex": 0.1581,
+        "dominanceRatio": 1.25,
+        "majorityThresholdGap": 24.9,
+        "minimumWinningCoalitionSize": 3,
+        "grandCoalitionSurplusDeficit": -4.8,
+        "nonAttachedShare": 6.5,
+        "effectiveOppositionParties": 5.32,
+        "politicalBlocAnalysis": {
+          "leftBlocShare": 35.5,
+          "centreBlocShare": 14.3,
+          "rightBlocShare": 43.5,
+          "euroscepticShare": 8.8,
+          "bipolarIndex": 0.101,
+          "politicalCompass": {
+            "parliamentEconomicPosition": 5.12,
+            "parliamentSocialPosition": 4.66,
+            "parliamentEuPosition": 6.49,
+            "quadrantDistribution": {
+              "libertarianLeft": 35.5,
+              "libertarianRight": 14.3,
+              "authoritarianLeft": 0,
+              "authoritarianRight": 43.5
+            },
+            "dominantQuadrant": "authoritarianRight",
+            "authLibTension": 1.8,
+            "economicPolarisation": 1.74,
+            "euIntegrationDispersion": 2.34
+          }
+        },
+        "mepStabilityIndex": 0.946,
+        "turnoverRate": 5.4,
+        "institutionalMemoryRisk": "LOW",
+        "declarationCoverageRatio": 0.49,
+        "legislativeOutputChange": 23.3,
+        "fragmentationVelocity": 0.06,
+        "questionsChange": 3.6,
+        "oversightToLegislationBalance": 44.5,
+        "speechToVoteRatio": 23,
+        "committeeToPlenaryRatio": 43.4
+      }
+    },
+    {
+      "year": 2024,
+      "parliamentaryTerm": "EP9/EP10 transition",
+      "mepCount": 720,
+      "plenarySessions": 50,
+      "legislativeActsAdopted": 72,
+      "rollCallVotes": 375,
+      "committeeMeetings": 1680,
+      "parliamentaryQuestions": 2970,
+      "resolutions": 108,
+      "speeches": 7800,
+      "adoptedTexts": 459,
+      "procedures": 676,
+      "events": 310,
+      "documents": 2680,
+      "mepTurnover": 405,
+      "declarations": 3181,
+      "commentary": "EP9/EP10 transition. European elections June 2024. Significant rightward shift in composition. New MEPs (720 total after redistribution). Reduced output due to election cycle. AI Act entered into force.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 188,
+            "seatShare": 26.1
+          },
+          {
+            "name": "S&D",
+            "seats": 136,
+            "seatShare": 18.9
+          },
+          {
+            "name": "PfE",
+            "seats": 84,
+            "seatShare": 11.7
+          },
+          {
+            "name": "ECR",
+            "seats": 78,
+            "seatShare": 10.8
+          },
+          {
+            "name": "RE",
+            "seats": 77,
+            "seatShare": 10.7
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 53,
+            "seatShare": 7.4
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 46,
+            "seatShare": 6.4
+          },
+          {
+            "name": "ESN",
+            "seats": 25,
+            "seatShare": 3.5
+          },
+          {
+            "name": "NI",
+            "seats": 33,
+            "seatShare": 4.6
+          }
+        ],
+        "totalGroups": 8,
+        "largestGroup": "EPP",
+        "largestGroupSeatShare": 26.1,
+        "fragmentationIndex": 6.51,
+        "grandCoalitionPossible": false,
+        "politicalBalance": "EP10: Rightward shift. PfE (Patriots for Europe) replaced ID. ESN (Europe of Sovereign Nations) new far-right. ECR strengthened. Greens lost significantly"
+      },
+      "derivedIntelligence": {
+        "legislativeOutputPerSession": 1.44,
+        "legislativeOutputPerMEP": 0.1,
+        "rollCallVoteYield": 19.2,
+        "procedureCompletionRate": 10.7,
+        "resolutionToLegislationRatio": 1.5,
+        "documentBurdenPerAct": 37.2,
+        "mepOversightIntensity": 4.13,
+        "mepSpeechRate": 10.8,
+        "debateIntensityPerSession": 156,
+        "oversightPerSession": 59.4,
+        "topTwoGroupsConcentration": 45,
+        "topThreeGroupsConcentration": 56.7,
+        "herfindahlHirschmanIndex": 0.1536,
+        "dominanceRatio": 1.38,
+        "majorityThresholdGap": 23.9,
+        "minimumWinningCoalitionSize": 3,
+        "grandCoalitionSurplusDeficit": -5,
+        "nonAttachedShare": 4.6,
+        "effectiveOppositionParties": 5.51,
+        "politicalBlocAnalysis": {
+          "leftBlocShare": 32.7,
+          "centreBlocShare": 10.7,
+          "rightBlocShare": 52.1,
+          "euroscepticShare": 15.2,
+          "bipolarIndex": 0.229,
+          "politicalCompass": {
+            "parliamentEconomicPosition": 5.18,
+            "parliamentSocialPosition": 5.09,
+            "parliamentEuPosition": 5.91,
+            "quadrantDistribution": {
+              "libertarianLeft": 32.7,
+              "libertarianRight": 10.7,
+              "authoritarianLeft": 0,
+              "authoritarianRight": 52.1
+            },
+            "dominantQuadrant": "authoritarianRight",
+            "authLibTension": 1.95,
+            "economicPolarisation": 1.73,
+            "euIntegrationDispersion": 2.68
+          }
+        },
+        "mepStabilityIndex": 0.438,
+        "turnoverRate": 56.3,
+        "institutionalMemoryRisk": "HIGH",
+        "declarationCoverageRatio": 4.42,
+        "legislativeOutputChange": -51.4,
+        "fragmentationVelocity": 0.19,
+        "questionsChange": -54.9,
+        "oversightToLegislationBalance": 41.3,
+        "speechToVoteRatio": 20.8,
+        "committeeToPlenaryRatio": 33.6
+      }
+    },
+    {
+      "year": 2025,
+      "parliamentaryTerm": "EP10 (2024-2029)",
+      "mepCount": 720,
+      "plenarySessions": 53,
+      "legislativeActsAdopted": 78,
+      "rollCallVotes": 420,
+      "committeeMeetings": 1980,
+      "parliamentaryQuestions": 4947,
+      "resolutions": 135,
+      "speeches": 10000,
+      "adoptedTexts": 347,
+      "procedures": 923,
+      "events": 2663,
+      "documents": 3516,
+      "mepTurnover": 36,
+      "declarations": 5145,
+      "commentary": "EP10 ramp-up year (720 MEPs from 27 EU countries). New committee chairs and rapporteurs established. Defence and security policy gained prominence. Strategic autonomy debates. Clean Industrial Deal proposals. Parliament adapting to new political balance with stronger ECR and right-wing presence.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 185,
+            "seatShare": 25.7
+          },
+          {
+            "name": "S&D",
+            "seats": 135,
+            "seatShare": 18.8
+          },
+          {
+            "name": "PfE",
+            "seats": 84,
+            "seatShare": 11.7
+          },
+          {
+            "name": "ECR",
+            "seats": 79,
+            "seatShare": 11
+          },
+          {
+            "name": "RE",
+            "seats": 76,
+            "seatShare": 10.6
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 53,
+            "seatShare": 7.4
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 46,
+            "seatShare": 6.4
+          },
+          {
+            "name": "ESN",
+            "seats": 28,
+            "seatShare": 3.9
+          },
+          {
+            "name": "NI",
+            "seats": 33,
+            "seatShare": 4.6
+          }
+        ],
+        "totalGroups": 8,
+        "largestGroup": "EPP",
+        "largestGroupSeatShare": 25.7,
+        "fragmentationIndex": 6.59,
+        "grandCoalitionPossible": false,
+        "politicalBalance": "EP10 settled: 720 MEPs from 27 EU countries. EPP seeking flexible majorities with ECR on defence/migration; Green Deal pace slowing; defence spending consensus building"
+      },
+      "derivedIntelligence": {
+        "legislativeOutputPerSession": 1.47,
+        "legislativeOutputPerMEP": 0.108,
+        "rollCallVoteYield": 18.6,
+        "procedureCompletionRate": 8.5,
+        "resolutionToLegislationRatio": 1.73,
+        "documentBurdenPerAct": 45.1,
+        "mepOversightIntensity": 6.87,
+        "mepSpeechRate": 13.9,
+        "debateIntensityPerSession": 188.7,
+        "oversightPerSession": 93.3,
+        "topTwoGroupsConcentration": 44.5,
+        "topThreeGroupsConcentration": 56.2,
+        "herfindahlHirschmanIndex": 0.1516,
+        "dominanceRatio": 1.37,
+        "majorityThresholdGap": 24.3,
+        "minimumWinningCoalitionSize": 3,
+        "grandCoalitionSurplusDeficit": -5.5,
+        "nonAttachedShare": 4.6,
+        "effectiveOppositionParties": 5.59,
+        "politicalBlocAnalysis": {
+          "leftBlocShare": 32.6,
+          "centreBlocShare": 10.6,
+          "rightBlocShare": 52.3,
+          "euroscepticShare": 15.6,
+          "bipolarIndex": 0.232,
+          "politicalCompass": {
+            "parliamentEconomicPosition": 5.18,
+            "parliamentSocialPosition": 5.11,
+            "parliamentEuPosition": 5.87,
+            "quadrantDistribution": {
+              "libertarianLeft": 32.6,
+              "libertarianRight": 10.6,
+              "authoritarianLeft": 0,
+              "authoritarianRight": 52.3
+            },
+            "dominantQuadrant": "authoritarianRight",
+            "authLibTension": 1.97,
+            "economicPolarisation": 1.73,
+            "euIntegrationDispersion": 2.71
+          }
+        },
+        "mepStabilityIndex": 0.95,
+        "turnoverRate": 5,
+        "institutionalMemoryRisk": "LOW",
+        "declarationCoverageRatio": 7.15,
+        "legislativeOutputChange": 8.3,
+        "fragmentationVelocity": 0.08,
+        "questionsChange": 66.6,
+        "oversightToLegislationBalance": 63.4,
+        "speechToVoteRatio": 23.8,
+        "committeeToPlenaryRatio": 37.4
+      }
+    },
+    {
+      "year": 2026,
+      "parliamentaryTerm": "EP10 (2024-2029)",
+      "mepCount": 719,
+      "plenarySessions": 54,
+      "legislativeActsAdopted": 114,
+      "rollCallVotes": 567,
+      "committeeMeetings": 2363,
+      "parliamentaryQuestions": 6147,
+      "resolutions": 180,
+      "speeches": 997,
+      "adoptedTexts": 164,
+      "procedures": 935,
+      "events": 2327,
+      "documents": 4265,
+      "mepTurnover": 40,
+      "declarations": 2598,
+      "commentary": "PARTIAL YEAR — data through Q1 2026. EP10 has 720 MEPs from 27 EU countries. Plenary session count (54) reflects the full-year EP calendar; speeches (996) and adoptedTexts (104) reflect actual Q1 cumulative activity; other activity totals are projected full-year estimates based on 2021-2025 historical average with EP10 year-2 cycle adjustment. Actual Q1 activity: 10 plenary sittings completed (Jan-Feb), adopted texts and procedures accumulating. Defence spending, Clean Industrial Deal, and AI Act implementation dominating legislative agenda.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 185,
+            "seatShare": 25.7
+          },
+          {
+            "name": "S&D",
+            "seats": 135,
+            "seatShare": 18.8
+          },
+          {
+            "name": "PfE",
+            "seats": 84,
+            "seatShare": 11.7
+          },
+          {
+            "name": "ECR",
+            "seats": 79,
+            "seatShare": 11
+          },
+          {
+            "name": "RE",
+            "seats": 76,
+            "seatShare": 10.6
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 53,
+            "seatShare": 7.4
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 46,
+            "seatShare": 6.4
+          },
+          {
+            "name": "ESN",
+            "seats": 28,
+            "seatShare": 3.9
+          },
+          {
+            "name": "NI",
+            "seats": 33,
+            "seatShare": 4.6
+          }
+        ],
+        "totalGroups": 8,
+        "largestGroup": "EPP",
+        "largestGroupSeatShare": 25.7,
+        "fragmentationIndex": 6.59,
+        "grandCoalitionPossible": false,
+        "politicalBalance": "EP10 year 2: 720 MEPs from 27 EU countries. EPP-led flexible majorities on defence and competitiveness. ECR consolidating as third force. Clean Industrial Deal and European Defence Industrial Strategy key legislative priorities"
+      },
+      "derivedIntelligence": {
+        "legislativeOutputPerSession": 2.11,
+        "legislativeOutputPerMEP": 0.159,
+        "rollCallVoteYield": 20.1,
+        "procedureCompletionRate": 12.2,
+        "resolutionToLegislationRatio": 1.58,
+        "documentBurdenPerAct": 37.4,
+        "mepOversightIntensity": 8.55,
+        "mepSpeechRate": 1.4,
+        "debateIntensityPerSession": 18.5,
+        "oversightPerSession": 113.8,
+        "topTwoGroupsConcentration": 44.5,
+        "topThreeGroupsConcentration": 56.2,
+        "herfindahlHirschmanIndex": 0.1516,
+        "dominanceRatio": 1.37,
+        "majorityThresholdGap": 24.3,
+        "minimumWinningCoalitionSize": 3,
+        "grandCoalitionSurplusDeficit": -5.5,
+        "nonAttachedShare": 4.6,
+        "effectiveOppositionParties": 5.59,
+        "politicalBlocAnalysis": {
+          "leftBlocShare": 32.6,
+          "centreBlocShare": 10.6,
+          "rightBlocShare": 52.3,
+          "euroscepticShare": 15.6,
+          "bipolarIndex": 0.232,
+          "politicalCompass": {
+            "parliamentEconomicPosition": 5.18,
+            "parliamentSocialPosition": 5.11,
+            "parliamentEuPosition": 5.87,
+            "quadrantDistribution": {
+              "libertarianLeft": 32.6,
+              "libertarianRight": 10.6,
+              "authoritarianLeft": 0,
+              "authoritarianRight": 52.3
+            },
+            "dominantQuadrant": "authoritarianRight",
+            "authLibTension": 1.97,
+            "economicPolarisation": 1.73,
+            "euIntegrationDispersion": 2.71
+          }
+        },
+        "mepStabilityIndex": 0.944,
+        "turnoverRate": 5.6,
+        "institutionalMemoryRisk": "LOW",
+        "declarationCoverageRatio": 3.61,
+        "legislativeOutputChange": 46.2,
+        "fragmentationVelocity": 0,
+        "questionsChange": 24.3,
+        "oversightToLegislationBalance": 53.9,
+        "speechToVoteRatio": 1.8,
+        "committeeToPlenaryRatio": 43.8
+      }
+    }
+  ],
+  "categoryRankings": [
+    {
+      "category": "Plenary Sessions",
+      "rankings": [
+        {
+          "year": 2022,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 58
+        },
+        {
+          "year": 2023,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 58
+        },
+        {
+          "year": 2021,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 55
+        },
+        {
+          "year": 2026,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 54
+        },
+        {
+          "year": 2025,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 53
+        },
+        {
+          "year": 2019,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 52
+        },
+        {
+          "year": 2020,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 51
+        },
+        {
+          "year": 2024,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 50
+        }
+      ],
+      "mean": 53.88,
+      "stdDev": 2.8,
+      "median": 53.5,
+      "topYear": 2022,
+      "bottomYear": 2024
+    },
+    {
+      "category": "Legislative Acts Adopted",
+      "rankings": [
+        {
+          "year": 2023,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 148
+        },
+        {
+          "year": 2022,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 120
+        },
+        {
+          "year": 2026,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 114
+        },
+        {
+          "year": 2021,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 102
+        },
+        {
+          "year": 2020,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 85
+        },
+        {
+          "year": 2025,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 78
+        },
+        {
+          "year": 2024,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 72
+        },
+        {
+          "year": 2019,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 65
+        }
+      ],
+      "mean": 98,
+      "stdDev": 26.43,
+      "median": 93.5,
+      "topYear": 2023,
+      "bottomYear": 2019
+    },
+    {
+      "category": "Roll-Call Votes",
+      "rankings": [
+        {
+          "year": 2023,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 660
+        },
+        {
+          "year": 2022,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 590
+        },
+        {
+          "year": 2026,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 567
+        },
+        {
+          "year": 2021,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 530
+        },
+        {
+          "year": 2020,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 460
+        },
+        {
+          "year": 2025,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 420
+        },
+        {
+          "year": 2024,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 375
+        },
+        {
+          "year": 2019,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 350
+        }
+      ],
+      "mean": 494,
+      "stdDev": 103.03,
+      "median": 495,
+      "topYear": 2023,
+      "bottomYear": 2019
+    },
+    {
+      "category": "Committee Meetings",
+      "rankings": [
+        {
+          "year": 2023,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 2520
+        },
+        {
+          "year": 2022,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 2380
+        },
+        {
+          "year": 2026,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 2363
+        },
+        {
+          "year": 2021,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 2180
+        },
+        {
+          "year": 2025,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 1980
+        },
+        {
+          "year": 2020,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 1950
+        },
+        {
+          "year": 2024,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 1680
+        },
+        {
+          "year": 2019,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 1580
+        }
+      ],
+      "mean": 2079.13,
+      "stdDev": 318.31,
+      "median": 2080,
+      "topYear": 2023,
+      "bottomYear": 2019
+    },
+    {
+      "category": "Parliamentary Questions",
+      "rankings": [
+        {
+          "year": 2023,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 6580
+        },
+        {
+          "year": 2022,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 6350
+        },
+        {
+          "year": 2026,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 6147
+        },
+        {
+          "year": 2021,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 6120
+        },
+        {
+          "year": 2020,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 5850
+        },
+        {
+          "year": 2025,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 4947
+        },
+        {
+          "year": 2019,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 3680
+        },
+        {
+          "year": 2024,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 2970
+        }
+      ],
+      "mean": 5330.5,
+      "stdDev": 1255.17,
+      "median": 5985,
+      "topYear": 2023,
+      "bottomYear": 2024
+    },
+    {
+      "category": "Resolutions",
+      "rankings": [
+        {
+          "year": 2023,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 218
+        },
+        {
+          "year": 2022,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 192
+        },
+        {
+          "year": 2026,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 180
+        },
+        {
+          "year": 2021,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 168
+        },
+        {
+          "year": 2020,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 148
+        },
+        {
+          "year": 2025,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 135
+        },
+        {
+          "year": 2024,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 108
+        },
+        {
+          "year": 2019,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 98
+        }
+      ],
+      "mean": 155.88,
+      "stdDev": 38.78,
+      "median": 158,
+      "topYear": 2023,
+      "bottomYear": 2019
+    },
+    {
+      "category": "Speeches",
+      "rankings": [
+        {
+          "year": 2023,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 15200
+        },
+        {
+          "year": 2022,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 13500
+        },
+        {
+          "year": 2021,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 11500
+        },
+        {
+          "year": 2025,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 10000
+        },
+        {
+          "year": 2020,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 9800
+        },
+        {
+          "year": 2024,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 7800
+        },
+        {
+          "year": 2019,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 7000
+        },
+        {
+          "year": 2026,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 997
+        }
+      ],
+      "mean": 9474.63,
+      "stdDev": 4096.73,
+      "median": 9900,
+      "topYear": 2023,
+      "bottomYear": 2026
+    },
+    {
+      "category": "Adopted Texts",
+      "rankings": [
+        {
+          "year": 2019,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 551
+        },
+        {
+          "year": 2021,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 517
+        },
+        {
+          "year": 2023,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 487
+        },
+        {
+          "year": 2024,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 459
+        },
+        {
+          "year": 2022,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 453
+        },
+        {
+          "year": 2020,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 390
+        },
+        {
+          "year": 2025,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 347
+        },
+        {
+          "year": 2026,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 164
+        }
+      ],
+      "mean": 421,
+      "stdDev": 114.8,
+      "median": 456,
+      "topYear": 2019,
+      "bottomYear": 2026
+    },
+    {
+      "category": "Procedures",
+      "rankings": [
+        {
+          "year": 2026,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 935
+        },
+        {
+          "year": 2025,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 923
+        },
+        {
+          "year": 2021,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 905
+        },
+        {
+          "year": 2023,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 903
+        },
+        {
+          "year": 2022,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 843
+        },
+        {
+          "year": 2020,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 794
+        },
+        {
+          "year": 2019,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 749
+        },
+        {
+          "year": 2024,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 676
+        }
+      ],
+      "mean": 841,
+      "stdDev": 87.61,
+      "median": 873,
+      "topYear": 2026,
+      "bottomYear": 2024
+    },
+    {
+      "category": "Events",
+      "rankings": [
+        {
+          "year": 2021,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 4837
+        },
+        {
+          "year": 2020,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 3636
+        },
+        {
+          "year": 2019,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 3103
+        },
+        {
+          "year": 2025,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 2663
+        },
+        {
+          "year": 2026,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 2327
+        },
+        {
+          "year": 2023,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 1676
+        },
+        {
+          "year": 2022,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 1097
+        },
+        {
+          "year": 2024,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 310
+        }
+      ],
+      "mean": 2456.13,
+      "stdDev": 1350.94,
+      "median": 2495,
+      "topYear": 2021,
+      "bottomYear": 2024
+    },
+    {
+      "category": "Documents",
+      "rankings": [
+        {
+          "year": 2023,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 5020
+        },
+        {
+          "year": 2022,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 4350
+        },
+        {
+          "year": 2026,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 4265
+        },
+        {
+          "year": 2021,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 3820
+        },
+        {
+          "year": 2025,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 3516
+        },
+        {
+          "year": 2019,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 3512
+        },
+        {
+          "year": 2020,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 3250
+        },
+        {
+          "year": 2024,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 2680
+        }
+      ],
+      "mean": 3801.63,
+      "stdDev": 682.64,
+      "median": 3668,
+      "topYear": 2023,
+      "bottomYear": 2024
+    },
+    {
+      "category": "MEP Turnover",
+      "rankings": [
+        {
+          "year": 2019,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 410
+        },
+        {
+          "year": 2024,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 405
+        },
+        {
+          "year": 2020,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 95
+        },
+        {
+          "year": 2021,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 48
+        },
+        {
+          "year": 2022,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 42
+        },
+        {
+          "year": 2026,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 40
+        },
+        {
+          "year": 2023,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 38
+        },
+        {
+          "year": 2025,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 36
+        }
+      ],
+      "mean": 139.25,
+      "stdDev": 155.9,
+      "median": 45,
+      "topYear": 2019,
+      "bottomYear": 2025
+    },
+    {
+      "category": "Declarations",
+      "rankings": [
+        {
+          "year": 2025,
+          "rank": 1,
+          "percentile": 100,
+          "totalActivityScore": 5145
+        },
+        {
+          "year": 2024,
+          "rank": 2,
+          "percentile": 85.71,
+          "totalActivityScore": 3181
+        },
+        {
+          "year": 2026,
+          "rank": 3,
+          "percentile": 71.43,
+          "totalActivityScore": 2598
+        },
+        {
+          "year": 2022,
+          "rank": 4,
+          "percentile": 57.14,
+          "totalActivityScore": 695
+        },
+        {
+          "year": 2021,
+          "rank": 5,
+          "percentile": 42.86,
+          "totalActivityScore": 665
+        },
+        {
+          "year": 2020,
+          "rank": 6,
+          "percentile": 28.57,
+          "totalActivityScore": 610
+        },
+        {
+          "year": 2019,
+          "rank": 7,
+          "percentile": 14.29,
+          "totalActivityScore": 540
+        },
+        {
+          "year": 2023,
+          "rank": 8,
+          "percentile": 0,
+          "totalActivityScore": 343
+        }
+      ],
+      "mean": 1722.13,
+      "stdDev": 1632.49,
+      "median": 680,
+      "topYear": 2025,
+      "bottomYear": 2023
+    }
+  ],
+  "predictions": [
+    {
+      "year": 2027,
+      "predictedPlenarySessions": 63,
+      "predictedLegislativeActs": 120,
+      "predictedRollCallVotes": 592,
+      "predictedCommitteeMeetings": 2470,
+      "predictedParliamentaryQuestions": 6202,
+      "predictedResolutions": 189,
+      "predictedSpeeches": 13340,
+      "predictedAdoptedTexts": 521,
+      "predictedProcedures": 977,
+      "predictedEvents": 2435,
+      "predictedDocuments": 4459,
+      "predictedMepTurnover": 131,
+      "predictedDeclarations": 2307,
+      "confidenceInterval": "±12%",
+      "methodology": "Average-based extrapolation from 2021-2025 with parliamentary term cycle adjustment (factor: 1.15). EP10 year 3 — peak legislative productivity expected"
+    },
+    {
+      "year": 2028,
+      "predictedPlenarySessions": 66,
+      "predictedLegislativeActs": 125,
+      "predictedRollCallVotes": 618,
+      "predictedCommitteeMeetings": 2578,
+      "predictedParliamentaryQuestions": 6472,
+      "predictedResolutions": 197,
+      "predictedSpeeches": 13920,
+      "predictedAdoptedTexts": 544,
+      "predictedProcedures": 1020,
+      "predictedEvents": 2540,
+      "predictedDocuments": 4652,
+      "predictedMepTurnover": 137,
+      "predictedDeclarations": 2407,
+      "confidenceInterval": "±15%",
+      "methodology": "Average-based extrapolation from 2021-2025 with parliamentary term cycle adjustment (factor: 1.2). EP10 year 4 — highest output before end-of-term push"
+    },
+    {
+      "year": 2029,
+      "predictedPlenarySessions": 41,
+      "predictedLegislativeActs": 78,
+      "predictedRollCallVotes": 386,
+      "predictedCommitteeMeetings": 1611,
+      "predictedParliamentaryQuestions": 4045,
+      "predictedResolutions": 123,
+      "predictedSpeeches": 8700,
+      "predictedAdoptedTexts": 340,
+      "predictedProcedures": 638,
+      "predictedEvents": 1588,
+      "predictedDocuments": 2908,
+      "predictedMepTurnover": 86,
+      "predictedDeclarations": 1505,
+      "confidenceInterval": "±18%",
+      "methodology": "Average-based extrapolation from 2021-2025 with parliamentary term cycle adjustment (factor: 0.75). EP10 year 5 — election transition, reduced output"
+    },
+    {
+      "year": 2030,
+      "predictedPlenarySessions": 50,
+      "predictedLegislativeActs": 94,
+      "predictedRollCallVotes": 464,
+      "predictedCommitteeMeetings": 1933,
+      "predictedParliamentaryQuestions": 4854,
+      "predictedResolutions": 148,
+      "predictedSpeeches": 10440,
+      "predictedAdoptedTexts": 408,
+      "predictedProcedures": 765,
+      "predictedEvents": 1905,
+      "predictedDocuments": 3489,
+      "predictedMepTurnover": 103,
+      "predictedDeclarations": 1805,
+      "confidenceInterval": "±22%",
+      "methodology": "Average-based extrapolation from 2021-2025 with parliamentary term cycle adjustment (factor: 0.9). EP11 year 1 — new term establishment phase"
+    },
+    {
+      "year": 2031,
+      "predictedPlenarySessions": 61,
+      "predictedLegislativeActs": 114,
+      "predictedRollCallVotes": 567,
+      "predictedCommitteeMeetings": 2363,
+      "predictedParliamentaryQuestions": 5932,
+      "predictedResolutions": 180,
+      "predictedSpeeches": 12760,
+      "predictedAdoptedTexts": 498,
+      "predictedProcedures": 935,
+      "predictedEvents": 2329,
+      "predictedDocuments": 4265,
+      "predictedMepTurnover": 125,
+      "predictedDeclarations": 2207,
+      "confidenceInterval": "±25%",
+      "methodology": "Average-based extrapolation from 2021-2025 with parliamentary term cycle adjustment (factor: 1.1). EP11 year 2 — ramp-up, committees fully operational"
+    }
+  ],
+  "analysisSummary": {
+    "overallTrend": "Legislative productivity shows a increasing trend over the 2004-2026 period. Each parliamentary term follows a characteristic bell curve with peak activity in years 3-4 and reduced output in election transition years.",
+    "peakActivityYear": 2023,
+    "lowestActivityYear": 2019,
+    "averageAnnualLegislativeOutput": 102,
+    "legislativeProductivityTrend": "INCREASING",
+    "keyFindings": [
+      "Election transition years (2009, 2014, 2019, 2024) consistently show 30-40% reduced legislative output compared to mid-term peaks.",
+      "The Lisbon Treaty (2009) structurally increased Parliament's legislative role, resulting in higher baseline activity from EP7 onwards.",
+      "COVID-19 (2020) caused a temporary dip but Parliament adapted quickly to hybrid working, with 2021-2023 showing strong recovery.",
+      "Parliamentary questions have trended upward, reflecting increased MEP engagement in Commission oversight.",
+      "EP9 (2019-2024) achieved the highest peak legislative output (148 acts in 2023), driven by digital regulation and Green Deal.",
+      "EP10 shows a rightward political shift with implications for legislative priorities in defence, migration, and industrial policy.",
+      "Committee meeting frequency has increased 30% from EP6 to EP9, reflecting growing legislative complexity.",
+      "Roll-call vote counts correlate strongly (r=0.94) with legislative acts adopted, indicating consistent parliamentary discipline.",
+      "Parliamentary fragmentation has steadily increased: Effective Number of Parties rose from 4.12 (2004) to 6.59 (2026), reflecting the decline of the traditional EPP-S&D grand coalition.",
+      "Since 2019 (EP9), no two-party majority has been possible, requiring broader multi-group coalitions for legislation.",
+      "Speech counts track legislative intensity, peaking during end-of-term legislative pushes (2013, 2018, 2023).",
+      "OSINT: Top-2 group concentration (CR₂) fell from 63.9% (2004) to 44.5% (2026), crossing the 50% majority threshold in 2019—a structural regime change requiring 3+ groups for every legislative majority.",
+      "OSINT: Minimum winning coalition size increased from 2 groups (2004) to 3 groups (2026), increasing legislative negotiation complexity.",
+      "OSINT: MEP oversight intensity rose from 5.76 to 8.55 questions per MEP, indicating structurally stronger Commission scrutiny.",
+      "OSINT: Bipolar index shifted from 0.081 (2004) to 0.232 (2026), reflecting a rightward political rebalancing.",
+      "OSINT: Eurosceptic/far-right seat share grew from 5.1% (2004) to 15.6% (2026), with the most significant surge in 2023-2024.",
+      "OSINT: Herfindahl-Hirschman Index fell from 0.2348 to 0.1516, confirming deconcentration from a near-duopoly to a multi-polar party system."
+    ],
+    "coverageNote": "This summary reflects the full 2004-2026 dataset; filtered results cover 2019-2026 only."
+  },
+  "confidenceLevel": "HIGH",
+  "methodology": "Precomputed statistics from European Parliament Open Data Portal, with optional cached DOCEO XML recentVoteActivity enrichment when rankings include all activity or roll-call votes. Rankings use ordinal ranking with percentile scores. Predictions use average-based extrapolation from 2021-2025 actuals with parliamentary term cycle adjustments. Data refreshed weekly by agentic workflow.",
+  "sourceAttribution": "European Parliament Open Data Portal — data.europarl.europa.eu",
+  "recentVoteActivity": {
+    "recentVoteCount": 0,
+    "adoptedCount": 0,
+    "rejectedCount": 0,
+    "adoptionRate": 0,
+    "datesWithData": [],
+    "datesWithoutData": [
+      "2026-05-11",
+      "2026-05-12",
+      "2026-05-13",
+      "2026-05-14"
+    ],
+    "groupVotingLeaders": [],
+    "dataFreshness": "NEAR_REALTIME",
+    "dataSource": "EP_DOCEO_XML"
+  }
+}

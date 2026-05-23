@@ -1,0 +1,73 @@
+{
+  "runId": "b3749573-d54d-4d01-94be-4b53854132bc",
+  "date": "2026-04-13",
+  "articleTypeSlug": "motions-run41",
+  "startTime": "2026-04-13T22:12:14.308Z",
+  "endTime": "2026-04-13T22:12:14.309Z",
+  "articleTypes": [
+    "motions"
+  ],
+  "methods": [
+    {
+      "method": "significance-classification",
+      "status": "completed",
+      "outputFile": "classification/significance-classification.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: classification/significance-classification.md"
+    },
+    {
+      "method": "political-threat-landscape",
+      "status": "completed",
+      "outputFile": "threat-assessment/political-threat-landscape.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: threat-assessment/political-threat-landscape.md"
+    },
+    {
+      "method": "risk-matrix",
+      "status": "completed",
+      "outputFile": "risk-scoring/risk-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: risk-scoring/risk-matrix.md"
+    },
+    {
+      "method": "coalition-analysis",
+      "status": "completed",
+      "outputFile": "existing/coalition-dynamics.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/coalition-dynamics.md"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "completed",
+      "outputFile": "existing/deep-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/deep-analysis.md"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "existing/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/synthesis-summary.md"
+    },
+    {
+      "method": "document-analysis",
+      "status": "completed",
+      "outputFile": "documents/document-analysis-index.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: documents/document-analysis-index.md"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ai-agentic-workflow",
+    "filesystem-discovery"
+  ]
+}

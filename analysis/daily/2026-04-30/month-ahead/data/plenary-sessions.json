@@ -1,0 +1,14 @@
+{
+  "upcomingSessions": [
+    {"id": "MTG-PL-2026-04-30", "date": "2026-04-30", "location": "Strasbourg", "type": "ongoing"},
+    {"id": "MTG-PL-2026-05-18", "date": "2026-05-18", "location": "Strasbourg", "type": "full-4day"},
+    {"id": "MTG-PL-2026-05-19", "date": "2026-05-19", "location": "Strasbourg", "type": "full-4day"},
+    {"id": "MTG-PL-2026-05-20", "date": "2026-05-20", "location": "Strasbourg", "type": "full-4day"},
+    {"id": "MTG-PL-2026-05-21", "date": "2026-05-21", "location": "Strasbourg", "type": "full-4day"}
+  ],
+  "foreseen_activities_count": {
+    "2026-04-30": 21,
+    "2026-05-18_to_05-21": 0
+  },
+  "note": "May 18-21 foreseen activities not yet scheduled (data not available)"
+}

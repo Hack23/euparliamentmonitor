@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-01",
+  "articleType": "month-ahead",
+  "runId": "7f928e7c-85fd-4f76-890b-f362622c3f42",
+  "gateResult": "PENDING",
+  "slug": "2026-04-01-month-ahead",
+  "articlePath": "analysis/daily/2026-04-01/month-ahead/article.md",
+  "topFinding": "April 2026 outlook anchored on the 27-30 April Strasbourg plenary and pre-plenary committee work-week 13-17 April.",
+  "keyTakeaways": [
+    "🔴 **No new April-specific procedures or agenda items in today's feed** — Strasbourg agenda typically released T-7 days. (🟢 High)",
+    "🟠 **Three working scenarios** for April plenary, dominated by trade-heavy variant (55%): US customs follow-up, Mercosur opinion, digital sovereignty. (🟡 Medium)",
+    "🟢 **Carry-over rule-of-law track:** Braun-precedent fallout, Georgia implementation, potential additional immunity proceedings (LIBE-driven). (🟡 Medium)",
+    "🟡 **Economic/industrial variant:** ECB annual-report follow-up (TA-10-2026-0034), HDV transposition pushback from member states. (🟡 Medium)",
+    "🔵 **Economic context:** IMF April WEO release window aligns with plenary — fiscal-stress forecasts may colour MFF early debate. (🟢 High — calendar alignment)",
+    "🟣 **Cross-reference:** sibling 2026-04-01/breaking run documents the 6/8 advisory-feed 404 pattern that prevented this month-ahead run from producing fresh actor classification. (🟢 High)",
+    "🩷 **Disruption vector:** dominant-group overreach (PPE 38%) flagged HIGH by early-warning system — most likely vector for an April surprise is an EPP-internal split on trade or rule-of-law. (🟡 Medium)"
+  ],
+  "topRisks": [
+    "**Score**: 4.0/5",
+    "**Confidence**: medium",
+    "**Trend**: improving",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

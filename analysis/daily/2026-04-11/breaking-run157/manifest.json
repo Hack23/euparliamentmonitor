@@ -1,0 +1,57 @@
+{
+  "analysisId": "breaking-run157-2026-04-11",
+  "articleType": "breaking",
+  "date": "2026-04-11",
+  "runId": 157,
+  "generatedAt": "2026-04-11T00:30:00Z",
+  "workflow": "news-breaking",
+  "articleGenerated": false,
+  "reason": "Easter recess Day 16 - all 13 EP API feeds returning errors, no today-dated events",
+  "dataSources": {
+    "precomputedStats": {
+      "status": "success",
+      "chars": 264221,
+      "generatedAt": "2026-04-08T00:06:48Z"
+    },
+    "coalitionDynamics": {
+      "status": "partial",
+      "chars": 11635,
+      "confidence": "LOW",
+      "note": "MEP data pagination failed, partial results"
+    },
+    "earlyWarning": {
+      "status": "error",
+      "error": "EP API request error: fetch failed"
+    },
+    "feedEndpoints": {
+      "adopted_texts": "error",
+      "events": "error",
+      "procedures": "error",
+      "meps": "error",
+      "documents": "error",
+      "plenary_documents": "error",
+      "committee_documents": "error",
+      "parliamentary_questions": "error"
+    },
+    "analyticalTools": {
+      "voting_anomalies": "error",
+      "political_landscape": "error"
+    }
+  },
+  "analysisFiles": [
+    "synthesis-summary.md",
+    "political-risk-assessment.md",
+    "threat-landscape-analysis.md",
+    "swot-analysis.md",
+    "significance-scoring.md",
+    "coalition-intelligence.md"
+  ],
+  "qualityMetrics": {
+    "analysisMethods": 14,
+    "feedsAttempted": 16,
+    "feedsSucceeded": 1,
+    "feedsFailed": 15,
+    "dataSourcesUsed": ["precomputed-stats", "coalition-dynamics-partial"],
+    "epApiStatus": "Unavailable (Easter recess Day 16)"
+  }
+}

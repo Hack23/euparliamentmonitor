@@ -1,0 +1,48 @@
+{
+  "date": "2026-05-07",
+  "articleType": "term-outlook",
+  "runId": "term-outlook-run367-1778164061",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-05-07-term-outlook",
+  "articlePath": "analysis/daily/2026-05-07/term-outlook/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "SAFE Regulation (€150bn common procurement): ITRE/AFET co-report, expected plenary vote Q3 2026",
+    "European Defence Fund tripling: Budgetary process 2028–2034 MFF",
+    "Defence Industrial Strategy: CSDP operational capacity expansion",
+    "Dual-use technology: Chips Act implementation, space sovereignty",
+    "NATO-EU coordination framework: Institutional mechanism (non-binding but politically consequential)",
+    "Capital Markets Union completion (ECON committee, Draghi pillar 1)",
+    "European investment capacity: InvestEU successor mechanism, EFSD+"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "EP committee vote on SAFE (ITRE/AFET) — expected Q3 2026",
+    "First trilogue session — expected Q3 2026",
+    "Agreement in principle — expected Q4 2026/Q1 2027",
+    "Final EP adoption vote — expected Q1/Q2 2027"
+  ],
+  "keyActors": [
+    "**Right flank (CDU/CSU Germany, FdI Italy via associated parties, Hungarian Fidesz-adjacent groups):** Pushes for Green Deal rollback, migration restriction, competitiveness over climate",
+    "**Centre (Flemish CD&V, Dutch CDA, Nordic EPP delegations):** Maintains grand coalition instincts, committed to net-zero 2050",
+    "**Presidency faction (Metsola leadership):** Balances internal tensions while maintaining EPP's institutional dominance",
+    "German SPD delegation (21 MEPs): Weakened post-2025 elections but strategically important for EU credibility",
+    "Italian PD delegation (20 MEPs): Moderate social democracy; important for southern flank stability",
+    "Spanish PSOE delegation (21 MEPs): Pedro Sánchez government's reliable EU partner",
+    "Loss of influence on environmental legislation to EPP-ECR majority",
+    "German SPD electoral recovery insufficient to restore German delegation strength"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-18",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run262-1779082403",
+  "gateResult": "PENDING",
+  "slug": "2026-05-18-committee-reports",
+  "articlePath": "analysis/daily/2026-05-18/committee-reports/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "KA-1: EP10 standard committee calendar in effect (valid unless extraordinary circumstances)",
+    "KA-2: EPP-S&D-Renew pro-European coalition majority holding (fragile in May 2026 per prior coalition dynamics analysis)",
+    "KA-3: Commission WP 2026 dossiers are on the committee track as scheduled (assumption; some slippage typical)",
+    "Leading rapporteur work on EDIP Phase II funding mechanism. Likely vote expected May/June 2026 committee stage. The committee must reconcile Article 173 TFEU (competitiveness) with Article 41 TFEU (EURATOM) scope questions for dual-use industrial capacity.",
+    "Critical Raw Materials Act (CRMA) amendment discussions: new strategic supply chain thresholds proposed following REPowerEU review. Supply security geopolitics (Chinese critical mineral export controls, Q4 2025) have accelerated the timeline.",
+    "**Confidence:** 🟡 Medium (dossier status from Commission legislative tracker, not EP API)",
+    "Managing politically difficult CSRD review: EPP amendment package would narrow sustainability reporting scope from 50,000 to approximately 20,000 companies. Progressive groups (S&D, Greens) are resisting via JURI opinion. The ENVI-ECON coordinator meeting (scheduled week of 12 May) is a critical coordination point."
+  ],
+  "topRisks": [
+    "Primary treatment: Renew engagement — ensure Renew coordinators are briefed on ITRE text before vote",
+    "Secondary treatment: EPP–S&D bilateral on high-risk AI definitions",
+    "Escalation: EP Conference of Presidents briefing if Renew signals abstention",
+    "Owner: ITRE coordinators",
+    "Primary treatment: Accelerated trilogue schedule (April–June intensive)",
+    "Secondary treatment: Partial adoption (cyber provisions separate from physical infrastructure)",
+    "Escalation: EP President direct engagement with Czech/Polish presidency",
+    "Owner: ITRE, TRAN rapporteurs"
+  ],
+  "keyDates": [
+    "**65% probability** that EDIP reaches first reading plenary vote by October 2026"
+  ],
+  "keyActors": [
+    "EP seat distribution: B1 (from institutional knowledge, confirmed in EP10)",
+    "Political group positions: C2 (inferred from EP10 programme documents, pre-election manifestos)",
+    "Committee chair allocations: C3 (D'Hondt projections; live confirmation unavailable — API degraded)",
+    "Individual MEP positions: D4 (not available this run — API degraded)"
+  ],
+  "macroContext": "Note: Data below is based on publicly available EU macroeconomic analysis and prior-run IMF context.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

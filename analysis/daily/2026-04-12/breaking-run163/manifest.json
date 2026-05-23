@@ -1,0 +1,57 @@
+{
+  "articleType": "breaking",
+  "runId": 163,
+  "date": "2026-04-12",
+  "degradedMode": true,
+  "articleGenerated": false,
+  "reason": "EP API total outage \u2014 Node.js fetch blocked in sandbox, Easter recess Day 17",
+  "dataSourcesUsed": {
+    "precomputedStats": {
+      "status": "SUCCESS",
+      "bytes": 264221
+    },
+    "coalitionDynamics": {
+      "status": "PARTIAL",
+      "bytes": 11635
+    },
+    "serverHealth": {
+      "status": "SUCCESS",
+      "bytes": 1091
+    },
+    "editorialMemory": {
+      "status": "SUCCESS",
+      "entries": 13
+    }
+  },
+  "feedEndpointStatus": {
+    "get_plenary_sessions": "FAIL_fetch_failed",
+    "get_adopted_texts_feed": "FAIL_fetch_failed",
+    "get_events_feed": "NOT_ATTEMPTED",
+    "get_procedures_feed": "NOT_ATTEMPTED",
+    "get_meps_feed": "NOT_ATTEMPTED",
+    "get_current_meps": "FAIL_fetch_failed",
+    "get_documents_feed": "NOT_ATTEMPTED",
+    "get_plenary_documents_feed": "NOT_ATTEMPTED",
+    "get_committee_documents_feed": "NOT_ATTEMPTED",
+    "get_parliamentary_questions_feed": "NOT_ATTEMPTED"
+  },
+  "skippedTools": {
+    "detect_voting_anomalies": "SKIPPED_DEGRADED_MODE",
+    "generate_political_landscape": "SKIPPED_DEGRADED_MODE",
+    "early_warning_system": "SKIPPED_DEGRADED_MODE"
+  },
+  "analysisFiles": [
+    "existing/api-outage-diagnostic.md",
+    "classification/significance-classification.md",
+    "classification/significance-scoring.md",
+    "threat-assessment/political-threat-landscape.md",
+    "risk-scoring/risk-matrix.md",
+    "intelligence/deep-analysis.md",
+    "intelligence/synthesis-summary.md"
+  ],
+  "healthGateAttempts": 3,
+  "healthGateResult": "FAIL_all_3_attempts",
+  "curlHttpStatus": 200,
+  "mcpToolsRegistered": 62,
+  "consecutiveOutageRuns": 6
+}

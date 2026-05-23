@@ -1,0 +1,33 @@
+{
+  "date": "2026-04-08",
+  "articleType": "motions",
+  "runId": "40b87a6b-0767-4665-89af-b30b4ab554db",
+  "gateResult": "PENDING",
+  "slug": "2026-04-08-motions",
+  "articlePath": "analysis/daily/2026-04-08/motions/article.md",
+  "topFinding": "The 8 April motions analytical run records 0 political dimensions surfaced during pre-recess wind-down.",
+  "keyTakeaways": [
+    "0-dimension observation: **A1**",
+    "Run: `motions` (2026-04-08)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "collectedAt": "2026-05-04T05:10:00Z",
+  "source": "EP Open Data Portal - /adopted-texts?year=2026",
+  "dateRange": {"from": "2026-04-27", "to": "2026-05-04"},
+  "items": [
+    {
+      "id": "TA-10-2026-0112",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "2025-2246(BUI)",
+      "committee": "BUDG",
+      "subjectMatter": "Budget",
+      "significance": "HIGH - annual budget guidelines signal EP priorities for 2027 MFF period",
+      "timeline": "BUDG report tabled 2026-01-16, committee opinions from TRAN/AFET/AGRI/ITRE/FEMM adopted Feb 2026, final plenary vote 2026-03-11, amendment pending 2026-04-22"
+    },
+    {
+      "id": "TA-10-2026-0115",
+      "title": "Welfare of dogs and cats and their traceability",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "2023-0447(COD)",
+      "committee": "AGRI/ENVI",
+      "subjectMatter": "Animal welfare, internal market",
+      "significance": "MEDIUM - binding regulation on pet traceability database across EU"
+    },
+    {
+      "id": "TA-10-2026-0119",
+      "title": "Control of the financial activities of the European Investment Bank Group — annual report 2024",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "2025-2237(INI)",
+      "committee": "CONT",
+      "subjectMatter": "EIB, financial oversight",
+      "significance": "MEDIUM - annual parliamentary oversight of EIB lending activities"
+    },
+    {
+      "id": "TA-10-2026-0142",
+      "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data to prevent, detect, investigate and prosecute terrorist offences and serious crime",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "2025-0156(NLE)",
+      "committee": "LIBE",
+      "subjectMatter": "Data protection, counter-terrorism, JHA cooperation",
+      "significance": "MEDIUM - bilateral PNR data sharing agreement, GDPR implications"
+    },
+    {
+      "id": "TA-10-2026-0151",
+      "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "2026-2702(RSP)",
+      "committee": "AFET/DEVE",
+      "subjectMatter": "Human rights, development, external relations",
+      "significance": "MEDIUM - urgent resolution on humanitarian crisis"
+    },
+    {
+      "id": "TA-10-2026-0160",
+      "title": "Enforcement of the Digital Markets Act",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "2026-2596(RSP)",
+      "committee": "ITRE/IMCO",
+      "subjectMatter": "Digital single market, competition, tech regulation",
+      "significance": "HIGH - DMA enforcement critical for EU digital sovereignty and Big Tech accountability; first major enforcement assessment since DMA entered force",
+      "notes": "RSP resolution on Commission enforcement; timeline shows debate 2026-04-28, amendment tabled same day"
+    },
+    {
+      "id": "TA-10-2026-0161",
+      "title": "Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "2026-2700(RSP)",
+      "committee": "AFET",
+      "subjectMatter": "Foreign policy, Russia-Ukraine, international law",
+      "significance": "HIGH - major EP foreign policy statement on Ukraine war accountability"
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "title": "Supporting democratic resilience in Armenia",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "2026-2701(RSP)",
+      "committee": "AFET",
+      "subjectMatter": "Eastern Partnership, democracy, regional security",
+      "significance": "MEDIUM - Armenia democratic transition support amid Nagorno-Karabakh aftermath"
+    },
+    {
+      "id": "TA-10-2026-04-30-ANN01",
+      "title": "ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027",
+      "dateAdopted": "2026-04-30",
+      "committee": "BUDG/PRES",
+      "subjectMatter": "EP institutional budget",
+      "significance": "MEDIUM - EP's own budget request for 2027"
+    }
+  ]
+}

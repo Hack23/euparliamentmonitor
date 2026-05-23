@@ -1,0 +1,40 @@
+{
+  "date": "2026-04-17",
+  "articleType": "breaking",
+  "runId": "182",
+  "gateResult": "PENDING",
+  "slug": "2026-04-17-breaking-182",
+  "articlePath": "analysis/daily/2026-04-17/breaking-run182/article.md",
+  "topFinding": "Run 182 is the fourth breaking probe of 17 April and the run where the \"Institutional Self-Contradiction Thesis\" was first established as EP10's defining analytical framework.",
+  "keyTakeaways": [
+    "Self-Contradiction Thesis (constructed framing): **B2**",
+    "Digital Omnibus on AI analysis: **B2**",
+    "Pre-plenary brief projections: **C3**",
+    "Run: `breaking-run182` (2026-04-17, evening, 4th probe of day)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
+  "topRisks": [
+    "If US targets GDPR: European Court of Justice precedent (Schrems II, 2020) means EP cannot retreat on GDPR without Treaty amendment. This escalation route ends in WTO arbitration, likely 24-36 month process.",
+    "If US targets DMA: Commission (not EP) is primary defendant. EP's role is oversight and political support for Commission.",
+    "If US targets AI Act: The Digital Omnibus (TA-10-2026-0098) creates an awkward position — EP has already simplified AI Act, potentially pre-empting the strongest US trade barrier claim."
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "US tariff countermeasures (pro-Trump, anti-EU unilateralism)",
+    "Banking Union (national banking sovereignty rhetoric)",
+    "Anti-Corruption Directive (attack on executive discretion)",
+    "Climate legislation (anti-green ideology)",
+    "**Cohesion data**: 1 confirmed MCP data point (Renew-ECR 0.95); all others structural inference 🟡 MEDIUM",
+    "**Fracture probability**: Scenario-based estimation from legislative text analysis and group position papers 🟡 MEDIUM",
+    "**April 27-30 forecast**: Calendar inferred from EP Rules of Procedure and committee work programme 🟡 MEDIUM",
+    "**EPP/S&D/ECR strategic positions**: Inferred from vote patterns, public statements, and group composition 🟡 MEDIUM"
+  ],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

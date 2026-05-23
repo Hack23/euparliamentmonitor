@@ -1,0 +1,123 @@
+{
+  "date": "2026-04-04",
+  "articleType": "breaking",
+  "generatedAt": "2026-04-04T06:25:00Z",
+  "analyst": "EU Parliament Monitor AI (Claude Opus 4.6)",
+  "workflowRunId": "23973064916",
+  "newsworthy": false,
+  "reason": "Saturday during Easter recess (27 March – 13 April 2026). No EP plenary, committee, or delegation activity. No adopted texts, events, or procedures published today. MEP profile data updated (737 records) but no substantive parliamentary developments. Previous analysis from earlier today (run 23966990267) confirmed same finding — this run extends and deepens the analysis.",
+  "previousAnalysis": {
+    "directory": "analysis/2026-04-04/breaking/",
+    "workflowRunId": "23966990267",
+    "status": "complete",
+    "action": "extended_and_deepened"
+  },
+  "dataSources": {
+    "adoptedTextsFeed": {
+      "status": "success",
+      "timeframe": "one-week",
+      "items": 85,
+      "todayItems": 0
+    },
+    "eventsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "proceduresFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "mepsFeed": {
+      "status": "success",
+      "timeframe": "today",
+      "items": 737,
+      "todayItems": 737
+    },
+    "documentsFeed": {
+      "status": "timeout_120s",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "plenaryDocumentsFeed": {
+      "status": "timeout_120s",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "committeeDocumentsFeed": {
+      "status": "timeout_120s",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "parliamentaryQuestionsFeed": {
+      "status": "timeout_120s",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "votingAnomalies": {
+      "status": "success",
+      "anomalies": 0,
+      "riskLevel": "LOW",
+      "groupStabilityScore": 100
+    },
+    "coalitionDynamics": {
+      "status": "success",
+      "dominantCoalition": "Renew-ECR (0.95 cohesion, size-ratio proxy)",
+      "fragmentationIndex": 4.04,
+      "confidenceLevel": "LOW"
+    },
+    "politicalLandscape": {
+      "status": "success",
+      "totalMEPs": 100,
+      "groups": 8,
+      "largestGroup": "PPE (38%)",
+      "fragmentationIndex": "HIGH",
+      "confidenceLevel": "MEDIUM"
+    },
+    "earlyWarning": {
+      "status": "success",
+      "warnings": 3,
+      "stabilityScore": 84,
+      "riskLevel": "MEDIUM",
+      "keyRiskFactor": "DOMINANT_GROUP_RISK"
+    },
+    "precomputedStats": {
+      "status": "success",
+      "coveragePeriod": "2004-2026",
+      "key2026Stats": {
+        "legislativeActs": 114,
+        "plenarySessions": 54,
+        "rollCallVotes": 567,
+        "mepCount": 720
+      }
+    }
+  },
+  "analysisArtifacts": [
+    "intelligence-brief.md",
+    "political-landscape-assessment.md",
+    "coalition-dynamics-assessment.md",
+    "risk-assessment.md",
+    "swot-analysis.md",
+    "stakeholder-impact-assessment.md",
+    "legislative-pipeline-analysis.md",
+    "threat-assessment.md"
+  ],
+  "qualityGates": {
+    "allFeedEndpointsQueried": true,
+    "analyticalToolsRun": true,
+    "fourPassRefinement": true,
+    "multiFrameworkAnalysis": true,
+    "confidenceLevelsAssigned": true,
+    "methodologyDocumentsRead": [
+      "political-swot-framework.md",
+      "political-risk-methodology.md",
+      "political-threat-framework.md",
+      "political-classification-guide.md",
+      "political-style-guide.md",
+      "ai-driven-analysis-guide.md"
+    ],
+    "minimumAnalysisTimeMinutes": 20,
+    "articleTypeTagged": true
+  }
+}

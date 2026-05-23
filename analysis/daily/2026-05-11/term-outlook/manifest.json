@@ -1,0 +1,208 @@
+{
+  "articleType": "term-outlook",
+  "dataMode": "degraded-voting",
+  "date": "2026-05-11",
+  "durationSec": 2109,
+  "electoralOverlay": true,
+  "endedAt": "2026-05-11T15:15:14Z",
+  "files": {
+    "classification/actor-mapping.md": {
+      "bytes": 8546,
+      "lines": 161,
+      "sha256": "084c4efca027356e9937ca05fd9a81aa298e197075298583cf882ab2e5fd3a62"
+    },
+    "classification/forces-analysis.md": {
+      "bytes": 9124,
+      "lines": 181,
+      "sha256": "63f80b1f438c87de0382af992aaa5e2ce84c01598a473e3ea8acf23c26bf1e1f"
+    },
+    "classification/impact-matrix.md": {
+      "bytes": 5971,
+      "lines": 124,
+      "sha256": "408659182f74b37236303e38ac61666c5aeb5100e68b8a346e0c6dbc1efc7d33"
+    },
+    "classification/significance-classification.md": {
+      "bytes": 10098,
+      "lines": 186,
+      "sha256": "315ee67c088d168c3a0a1055b29ad715c4eacda9380094fcc7a7a2a80e9d253b"
+    },
+    "data/forward-statements-open.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "data/political-landscape.json": {
+      "bytes": 866,
+      "sha256": "e094b826aa6476d6ae771349218514f3879725a08938c58432383542c20be251"
+    },
+    "data/procedures-feed-1m.json": {
+      "bytes": 33994,
+      "sha256": "2d3c0513a9e09f90ad1630e2d5fdbfbcb3819207cf704507181877eca5be95be"
+    },
+    "extended/comparative-international.md": {
+      "bytes": 15030,
+      "lines": 260,
+      "sha256": "8ed4f21c8ccfbe6b750c33fb6beccda91c08b96e41b585fa2fcedd4a20af3c7c"
+    },
+    "extended/forward-indicators.md": {
+      "bytes": 14176,
+      "lines": 260,
+      "sha256": "b4b6f67d64e7a1c61678ff6aada20e17974b192a31cb6ff63184592d34fac87a"
+    },
+    "extended/historical-parallels.md": {
+      "bytes": 15560,
+      "lines": 260,
+      "sha256": "cd5a5d5448cf21eda728f5e6a345eac920993ca6d955c44533c4090f616798e7"
+    },
+    "extended/media-framing-analysis.md": {
+      "bytes": 14784,
+      "lines": 260,
+      "sha256": "bd20ae8973104263e16477ee1fe9b1ffa73a1eea5c048de2613dfebe5d90849e"
+    },
+    "intelligence/analysis-index.md": {
+      "bytes": 14678,
+      "lines": 260,
+      "sha256": "c0eae8b6bf32cbb449fa5fa384201723a87be379873b56d689e980234544bc16"
+    },
+    "intelligence/coalition-dynamics.md": {
+      "bytes": 11724,
+      "lines": 242,
+      "sha256": "4ede26dd3ac43f41ff9cec2438b5b28e335268852e079fde9474ce25bbc45df1"
+    },
+    "intelligence/commission-wp-alignment.md": {
+      "bytes": 14456,
+      "lines": 260,
+      "sha256": "68891eff6767f85e75bdc54b0e0122c29430ec7b77412d94c7243c959d7d2564"
+    },
+    "intelligence/economic-context.md": {
+      "bytes": 11704,
+      "lines": 242,
+      "sha256": "7eda4b850f599ac71b48dca59f7f66ecf02d9b93d49004a70db183a283d0b73a"
+    },
+    "intelligence/forward-projection.md": {
+      "bytes": 23004,
+      "lines": 392,
+      "sha256": "45f42ea6d9573855734822cee9e947a7a402a4f4c847e37458d41467a4c256d8"
+    },
+    "intelligence/historical-baseline.md": {
+      "bytes": 15228,
+      "lines": 260,
+      "sha256": "7425d888b79d94b372c93e1e51d952d0687d93ea3050035881eaa951902986ed"
+    },
+    "intelligence/mandate-fulfilment-scorecard.md": {
+      "bytes": 14976,
+      "lines": 260,
+      "sha256": "d2365dff63362d7ff0aa4cdaa9446947bf614d780526eb9a6e7763ff91a0bb1c"
+    },
+    "intelligence/mcp-reliability-audit.md": {
+      "bytes": 14632,
+      "lines": 260,
+      "sha256": "7af46880445c843a049425966a3d54f561eacacd45b65eff2f5bcec4b25b282f"
+    },
+    "intelligence/methodology-reflection.md": {
+      "bytes": 17939,
+      "lines": 307,
+      "sha256": "3c547f62370a811a0f27714b6a579e160664f6cd690ef5a30eace57b7b5264ba"
+    },
+    "intelligence/pestle-analysis.md": {
+      "bytes": 15580,
+      "lines": 260,
+      "sha256": "eb950c492a50cac75515d921a89b3919f1a0f71dcf0dc87a20240e27284bbdc4"
+    },
+    "intelligence/presidency-trio-context.md": {
+      "bytes": 14816,
+      "lines": 260,
+      "sha256": "405f80225b46da0a82e49c608bdd7c492bc8c23712b9d07c90fdd9a82906fd98"
+    },
+    "intelligence/scenario-forecast.md": {
+      "bytes": 27080,
+      "lines": 462,
+      "sha256": "a9271497f504c0e9e7d5429951fb4b7ac2c99d24700ca9551082c9fdfbd92f23"
+    },
+    "intelligence/seat-projection.md": {
+      "bytes": 14500,
+      "lines": 260,
+      "sha256": "ef95b8a7ad1b1161aa4910ed27f24e0fdcf470e1e9f05e9058a785fa56fcbb3b"
+    },
+    "intelligence/stakeholder-map.md": {
+      "bytes": 19071,
+      "lines": 308,
+      "sha256": "d84121305f06f123fb71611f166d4ce277ee9fce4576024f635f2036e0ac7f5a"
+    },
+    "intelligence/synthesis-summary.md": {
+      "bytes": 13458,
+      "lines": 259,
+      "sha256": "92ea4b87a496f94776ef84c42ff13ba874a99632b4e2fe6bd5cf52ce344f9347"
+    },
+    "intelligence/term-arc.md": {
+      "bytes": 18997,
+      "lines": 332,
+      "sha256": "2ae7d7e0312557de9a56808b01952fa4cb5fe1276e679a1ec06d345b573259fe"
+    },
+    "intelligence/threat-model.md": {
+      "bytes": 15124,
+      "lines": 260,
+      "sha256": "85d6187736ba677fe75e641a4a0a97abd1cf6f69c3d50bcc4656c1edfba75175"
+    },
+    "intelligence/wildcards-blackswans.md": {
+      "bytes": 15230,
+      "lines": 260,
+      "sha256": "e6cee4263f39f49d61d27435cdb534084e056e259480ec152e21f74c9d1dd9cc"
+    },
+    "risk-scoring/quantitative-swot.md": {
+      "bytes": 7563,
+      "lines": 148,
+      "sha256": "4a6ef180509d1010c5020daad15b1eacaf4af470037ee494ce63be9d95e1b9fb"
+    },
+    "risk-scoring/risk-matrix.md": {
+      "bytes": 7831,
+      "lines": 142,
+      "sha256": "f30eccad20ea46627045e741403d6e77864b9148937f9d9006d6b829702d2127"
+    }
+  },
+  "forwardStatements": {
+    "emitted": true,
+    "note": "Forward statements documented in artifacts; registry write deferred (first run of series).",
+    "registryUpdated": false
+  },
+  "history": [
+    {
+      "event": "first-run-of-series",
+      "runId": "term-outlook-run348-1778510405",
+      "timestamp": 1778512514
+    }
+  ],
+  "horizonDays": 1119,
+  "horizonEndDate": "2029-06-06",
+  "mcp": {
+    "european-parliament": "european-parliament-mcp-server@1.3.2",
+    "imf": "manual SDMX 3.0 fetch (fetch-proxy returned 404)",
+    "memory": "@modelcontextprotocol/server-memory",
+    "sequential-thinking": "@modelcontextprotocol/server-sequential-thinking",
+    "world-bank": "unavailable (EU/EUU/EMU country codes failed)"
+  },
+  "pass2": {
+    "endedAt": "2026-05-11T15:10:05Z",
+    "notes": "Pass 2 extended three intelligence artifacts to clear degraded-voting floor; structural anchors re-verified across scenario-forecast and forward-projection.",
+    "rewriteCount": 3,
+    "rewrittenArtifacts": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/economic-context.md"
+    ],
+    "startedAt": "2026-05-11T15:02:05Z"
+  },
+  "runId": "term-outlook-run348-1778510405",
+  "sources": {
+    "limitations": [
+      "per-MEP voting absent \u2192 coalition analytics from seat shares only",
+      "procedures-feed returned title-only stubs",
+      "World Bank EU-aggregate codes failed (skipped)",
+      "fetch-proxy MCP HTTP 404 (manual IMF fetch substituted)"
+    ],
+    "primary": [
+      "european-parliament MCP (63 tools)",
+      "IMF WEO 2025-October (SDMX 3.0)"
+    ]
+  },
+  "startedAt": "2026-05-11T14:40:05Z"
+}

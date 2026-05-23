@@ -1,0 +1,33 @@
+{
+  "period": {
+    "from": "2024-01-01",
+    "to": "2024-12-31"
+  },
+  "filter": {
+    "status": "ACTIVE"
+  },
+  "summary": {
+    "totalProcedures": 20,
+    "activeCount": 20,
+    "stalledCount": 0,
+    "completedCount": 0,
+    "avgDaysInPipeline": 0
+  },
+  "computedAttributes": {
+    "pipelineHealthScore": 100,
+    "throughputRate": 0,
+    "bottleneckIndex": 0,
+    "stalledProcedureRate": 0,
+    "legislativeMomentum": "STRONG"
+  },
+  "confidenceLevel": "MEDIUM",
+  "sourceAttribution": "European Parliament Open Data Portal",
+  "procedureCount": 20,
+  "procedureTypes": {
+    "COD": 10,
+    "CNS": 5,
+    "SYN": 2,
+    "NLE": 1,
+    "BUD": 2
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "date": "2026-05-13",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run249-1778650040",
+  "gateResult": "GREEN",
+  "slug": "2026-05-13-committee-reports",
+  "articlePath": "analysis/daily/2026-05-13/committee-reports/article.md",
+  "topFinding": "The week of 6–13 May 2026 is the clearest single-week confirmation to date that EP10 has crossed from the expansion phase of EU regulation (EP9's Green Deal / AI Act / CSDDD wave) into a consolidation-and-revision phase.",
+  "keyTakeaways": [
+    "**CSRD trilogue outcome:** the final Council–EP compromise text determines whether the floor is set at ≥500 employees (progressive floor) or ≥1 000 (EPP–ECR ceiling).",
+    "**AMLA Council Presidency moves:** any Council statement that re-bundles seat + powers signals the substantive negotiation is now politicised.",
+    "**EDIS committee-of-jurisdiction decision:** ITRE-lead vs SEDE-lead is the procedural proxy for whether EP gets co-legislative or merely consultative status.",
+    "**NRL infringement letters:** a Commission infringement letter to Hungary or Poland on NRL non-implementation would shift the file from political-deadlock to legal-deadlock.",
+    "**AI Act first national supervisor designations:** late-May / early-June deadline reveals which Member States are operationally ready and which are slipping.",
+    "EP Open Data Portal feeds (committee documents, adopted texts TA-10-2026-0160): **A2** (reliable institution, confirmed)",
+    "DOCEO XML roll-call captures (where available): **A2**"
+  ],
+  "topRisks": [
+    "**Probability**: 1 (Rare) → 5 (Almost Certain)",
+    "**Impact**: 1 (Negligible) → 5 (Catastrophic)",
+    "**Risk Score** = Probability × Impact (1–25)",
+    "**Risk Level**: 🔴 HIGH (15–25) | 🟡 MEDIUM (8–14) | 🟢 LOW (1–7)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "Role: Primary legislative actor in committee phase; mandator for trilogue negotiations",
+    "Key individuals: Committee Chairs (EPP-majority) and Rapporteurs (d'Hondt allocated)",
+    "Decision-making authority: Committee votes → plenary mandate → trilogue text",
+    "Alignment: Fragmented across 9 political groups; EPP-led majority on most committees",
+    "DG Environment (ENVI files): UWWTD, NRL instruments, Packaging",
+    "DG FISMA (ECON files): AMLR, CMU Phase 2, MiFIR",
+    "DG CONNECT (ITRE/IMCO files): AI Act, AI Liability, DMA enforcement, EU-US DTA",
+    "Alignment: Pro-Omnibus simplification; pro-AMLA independence; pro-AI innovation with safeguards"
+  ],
+  "macroContext": "Data source note: Comprehensive real-time IMF SDMX data was not retrievable in this run due to MCP gateway configuration (EPMCPGATEWAY_URL not set).",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

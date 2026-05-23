@@ -1,0 +1,73 @@
+{
+  "runId": "186",
+  "date": "2026-04-19",
+  "articleType": "breaking",
+  "mode": "ANALYSIS_ONLY",
+  "compositeRisk": 17.2,
+  "significanceScore": 6.25,
+  "publicationThreshold": 25.0,
+  "verdict": "NO_BREAKING_NEWS",
+  "feedsOperational": {
+    "adoptedTexts": true,
+    "meps": true,
+    "events": false,
+    "procedures": false,
+    "plenary": true
+  },
+  "recessStatus": {
+    "inRecess": true,
+    "recessDay": 8,
+    "recessTotal": 15,
+    "returnDate": "2026-04-27"
+  },
+  "seriesRun": 8,
+  "files": {
+    "classification": [
+      "classification/significance-scoring.md"
+    ],
+    "documents": [
+      "documents/document-analysis-index.md"
+    ],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md"
+    ],
+    "threatAssessment": [
+      "threat-assessment/political-threat-landscape.md"
+    ]
+  },
+  "artifactCount": 16,
+  "totalAnalysisLines": 1800,
+  "analyticalFrameworks": [
+    "PESTLE",
+    "Mendelow stakeholder grid",
+    "Shell scenario planning",
+    "Diamond Model",
+    "MITRE ATT&CK legislative variant",
+    "Kill Chain analysis",
+    "Schwartz wildcards",
+    "Taleb Black Swan reserve",
+    "Quantitative SWOT",
+    "Cross-run diff",
+    "Risk matrix",
+    "Significance scoring",
+    "Historical baseline (Rule 17)"
+  ],
+  "frameworkCount": 13,
+  "generatedAt": "2026-04-19T00:00:00Z",
+  "workflowRunId": "24618015413",
+  "contextNote": "Easter Recess 2026 Day 8 of 15; 8th consecutive ANALYSIS_ONLY run in series; Tier 2 API day 7+ outage confirmed; composite risk declining 20→17.2 across series"
+}

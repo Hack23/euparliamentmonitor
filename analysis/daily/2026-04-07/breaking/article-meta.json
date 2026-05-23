@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-07",
+  "articleType": "breaking",
+  "runId": "d9f79a7a-aa2f-4a35-aa13-d6df91d7b296",
+  "gateResult": "PENDING",
+  "slug": "2026-04-07-breaking-d9f79a7a-aa2f-4a35-aa13-d6df91d7",
+  "articlePath": "analysis/daily/2026-04-07/breaking/article.md",
+  "topFinding": "The Day-12 morning breaking run is the day's structural anchor — at 44 analysis artifacts and 3,391 lines, it produces the most comprehensive single-run pre-recess corpus analysis of the entire 18-day recess period.",
+  "keyTakeaways": [
+    "🔴 **44 artifacts, 3,391 lines** — day's structural anchor.",
+    "🟠 **18 per-file dossiers** — March 26 sprint at maximum granularity.",
+    "🟢 **18-file track split:** 11 right-of-centre · 5 grand · 2 mixed.",
+    "🟡 **6-trigger forward-trigger sequence** — Apr 14 · 15 · 17 · 20-23 · late · Q2.",
+    "🔵 **737 MEP feed stable** — baseline holds.",
+    "🟣 **Recess Day 12/18 — 67% complete** — T-8 to Committee Week.",
+    "🩷 **Confidence MEDIUM** — pre-recess HIGH; Q2 forecast MEDIUM."
+  ],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

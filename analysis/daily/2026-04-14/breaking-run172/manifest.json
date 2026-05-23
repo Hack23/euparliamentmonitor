@@ -1,0 +1,49 @@
+{
+  "runId": 172,
+  "articleType": "breaking",
+  "date": "2026-04-14",
+  "timestamp": "2026-04-14T19:25:00Z",
+  "headline": "Q1 Legislative Productivity Audit: Record Output Meets Post-Recess Pressure on Trade, Housing, and Defence",
+  "articleGenerated": false,
+  "reason": "Easter recess Day 18/18 final day. No today-dated events. Run 171 already covered tariff T-0 eve. This run provides Q1 productivity audit and multi-domain pressure mapping.",
+  "degradedMode": true,
+  "degradedModeDetails": "6/13 feed endpoints returned 404, 4 advisory feeds timed out, coalition dynamics timed out. Only adopted texts and MEPs feeds operational.",
+  "feedEndpointStatus": {
+    "get_adopted_texts_feed_today": "OK (21 items)",
+    "get_meps_feed_today": "OK (737 items)",
+    "get_events_feed_today": "404",
+    "get_events_feed_one_week": "404",
+    "get_procedures_feed_today": "404",
+    "get_procedures_feed_one_week": "404",
+    "get_documents_feed_one_week": "timeout",
+    "get_plenary_documents_feed_one_week": "timeout",
+    "get_committee_documents_feed_one_week": "timeout",
+    "get_parliamentary_questions_feed_one_week": "timeout",
+    "analyze_coalition_dynamics": "timeout",
+    "get_all_generated_stats": "OK",
+    "get_adopted_texts_year_2026": "OK (61 items)"
+  },
+  "analysisFiles": [
+    "synthesis-summary.md",
+    "significance-scoring.md",
+    "political-classification.md",
+    "risk-assessment.md",
+    "swot-analysis.md",
+    "threat-analysis.md"
+  ],
+  "dataCollected": {
+    "adoptedTexts": 61,
+    "mepUpdates": 737,
+    "precomputedStats": true,
+    "feedItemsToday": 21
+  },
+  "keyFindings": [
+    "Q1 2026: 114 legislative acts (+46% vs all 2025) — record productivity",
+    "61 adopted texts across trade, defence, social, institutional reform, and external affairs",
+    "Grand coalition deficit: -41 seats (EPP 185 + S&D 135 = 320 vs 361 needed)",
+    "Three-front trade posture: US (TA-0096), China (TA-0101), Mercosur (TA-0030)",
+    "EP data portal bulk update: 21 texts refreshed + 737 MEP records on Easter recess final day",
+    "Post-Qatargate reform cluster: anti-corruption + transparency + electoral reform + immunity waiver"
+  ],
+  "differentiationFromPriorRuns": "Run 171 focused on tariff T-0 eve intelligence. This run provides full Q1 productivity audit covering all 61 adopted texts across 6 policy domains, multi-front pressure mapping, and SWOT/risk/threat analysis for the April 15 return."
+}

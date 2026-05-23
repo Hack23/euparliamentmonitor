@@ -1,0 +1,84 @@
+{
+  "analysisDate": "2026-04-14",
+  "articleType": "breaking",
+  "runId": 170,
+  "workflowRunId": 24384635818,
+  "articleGenerated": false,
+  "reason": "Easter recess Day 18/18 (final day). No today-dated EP events. Parliament returns April 15. Analysis-only PR per Rule 5.",
+  "degradedMode": true,
+  "degradedModeReason": "3/4 primary feeds failed with today timeframe; 4/4 advisory feeds timeout. 27% feed success rate.",
+  "confidenceLevel": "MEDIUM",
+  "dataCollected": {
+    "adoptedTexts": 51,
+    "adoptedTextsFeed": 21,
+    "mepFeed": 737,
+    "precomputedStats": true,
+    "coalitionDynamics": true,
+    "feedsOK": 3,
+    "feeds404": 4,
+    "feedsTimeout": 4,
+    "feedsError": 1,
+    "totalFeedsAttempted": 12
+  },
+  "feedEndpointStatus": {
+    "get_adopted_texts_feed_today": "INTERNAL_ERROR",
+    "get_adopted_texts_feed_week": "SUCCESS (21 items)",
+    "get_events_feed_today": "404",
+    "get_events_feed_week": "404",
+    "get_procedures_feed_today": "404",
+    "get_procedures_feed_week": "404",
+    "get_meps_feed_today": "SUCCESS (737 items)",
+    "get_documents_feed_week": "TIMEOUT (120s)",
+    "get_plenary_documents_feed_week": "TIMEOUT (120s)",
+    "get_committee_documents_feed_week": "TIMEOUT (120s)",
+    "get_parliamentary_questions_feed_week": "TIMEOUT (120s)"
+  },
+  "analyticalToolsStatus": {
+    "get_all_generated_stats": "SUCCESS (85KB)",
+    "analyze_coalition_dynamics": "SUCCESS",
+    "get_adopted_texts_year2026": "SUCCESS (51 items)",
+    "get_server_health": "SUCCESS (all feeds unknown)",
+    "get_plenary_sessions_healthgate": "SUCCESS",
+    "detect_voting_anomalies": "SKIPPED_DEGRADED_MODE",
+    "generate_political_landscape": "SKIPPED_DEGRADED_MODE",
+    "early_warning_system": "SKIPPED_DEGRADED_MODE"
+  },
+  "analysisFiles": [
+    "classification/significance-classification.md",
+    "threat-assessment/political-threat-landscape.md",
+    "risk-scoring/risk-matrix.md",
+    "existing/synthesis-summary.md",
+    "documents/document-analysis-index.md"
+  ],
+  "keyFindings": [
+    "US tariff deadline T-1 (April 15): CRITICAL risk 25/25",
+    "Record 2026 pace: 114 acts vs 78 in 2025 (+46%)",
+    "Grand coalition deficit: 44.5% \u2014 below majority threshold",
+    "EPP isolation: zero cohesion with all groups",
+    "Renew-ECR axis: 0.95 cohesion (strongest bilateral)",
+    "Fragmentation index: 6.59 (record high)",
+    "13 pending COD \u2014 largest post-recess backlog",
+    "Banking Union SRMR3 trilogue expected late April"
+  ],
+  "crossSessionReferences": [
+    "run169 (2026-04-14): Tariff T-1 Convergence",
+    "run168 (2026-04-13): Post-Recess Convergence Intelligence",
+    "run163 (2026-04-12): Easter Recess Intelligence",
+    "run48 (2026-04-14): Committee Reports",
+    "run41 (2026-04-13): Motions - Trade Defence"
+  ],
+  "scenarios": {
+    "managedConvergence": {
+      "probability": "55%",
+      "label": "Likely"
+    },
+    "tradeCrisisPivot": {
+      "probability": "30%",
+      "label": "Possible"
+    },
+    "fragmentationGridlock": {
+      "probability": "15%",
+      "label": "Unlikely"
+    }
+  }
+}

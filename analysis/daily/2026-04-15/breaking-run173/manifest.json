@@ -1,0 +1,52 @@
+{
+  "analysisId": "breaking-run173",
+  "date": "2026-04-15",
+  "articleType": "breaking",
+  "runId": 173,
+  "workflowRunId": 24431333359,
+  "generatedAt": "2026-04-15T01:20:00Z",
+  "newsworthinessGate": "FAILED",
+  "outcome": "analysis-only",
+  "degradedMode": true,
+  "feedStatus": {
+    "adopted_texts_feed_today": "INTERNAL_ERROR",
+    "events_feed_today": "404",
+    "procedures_feed_today": "404",
+    "meps_feed_today": "OK",
+    "adopted_texts_feed_week": "OK",
+    "events_feed_week": "404",
+    "procedures_feed_week": "404",
+    "documents_feed_week": "404",
+    "plenary_documents_feed_week": "404",
+    "committee_documents_feed_week": "404",
+    "parliamentary_questions_feed_week": "404",
+    "coalition_dynamics": "OK",
+    "precomputed_stats": "OK",
+    "adopted_texts_direct": "OK",
+    "plenary_sessions_direct": "OK"
+  },
+  "dataCollected": {
+    "adoptedTexts": 132,
+    "plenarySessions": 20,
+    "meps": 737,
+    "precomputedStats": true,
+    "coalitionDynamics": true
+  },
+  "analysisFiles": [
+    "synthesis-summary.md",
+    "significance-scoring.md",
+    "risk-assessment.md",
+    "political-classification.md",
+    "threat-analysis.md",
+    "swot-analysis.md"
+  ],
+  "keyFindings": [
+    "Tariff TA-10-2026-0096 activates today (T-0) — 21-day compliance window ends",
+    "33-day plenary session gap (March 26 → April 27) — no parliamentary oversight",
+    "Record legislative velocity: 114 acts in Q1 2026 (+46% vs 2025 full year)",
+    "Grand coalition deficit: EPP+S&D = 320/361 needed (-41 gap)",
+    "Composite risk score: 16.5/25 (elevated from 14.3 previous run)"
+  ],
+  "compositeRiskScore": 16.5,
+  "aggregateThreatLevel": "HIGH"
+}

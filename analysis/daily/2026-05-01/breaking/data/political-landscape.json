@@ -1,0 +1,36 @@
+{
+  "collectedAt": "2026-05-01T00:37:00Z",
+  "source": "EP Open Data Portal via MCP",
+  "parliament": {
+    "totalMEPs": 719,
+    "politicalGroups": 9,
+    "countriesRepresented": 27,
+    "majorityThreshold": 361,
+    "term": "EP10"
+  },
+  "groups": [
+    {"name": "EPP", "memberCount": 185, "seatShare": 25.73, "orientation": "centre-right"},
+    {"name": "S&D", "memberCount": 135, "seatShare": 18.78, "orientation": "centre-left"},
+    {"name": "PfE", "memberCount": 85, "seatShare": 11.82, "orientation": "right-nationalist"},
+    {"name": "ECR", "memberCount": 81, "seatShare": 11.27, "orientation": "conservative-eurosceptic"},
+    {"name": "Renew", "memberCount": 77, "seatShare": 10.71, "orientation": "liberal-pro-EU"},
+    {"name": "Greens/EFA", "memberCount": 53, "seatShare": 7.37, "orientation": "green-progressive"},
+    {"name": "The Left", "memberCount": 46, "seatShare": 6.40, "orientation": "far-left"},
+    {"name": "NI", "memberCount": 30, "seatShare": 4.17, "orientation": "non-attached"},
+    {"name": "ESN", "memberCount": 27, "seatShare": 3.76, "orientation": "far-right-nationalist"}
+  ],
+  "powerDynamics": {
+    "largestGroup": "EPP",
+    "proEUBloc": {"groups": ["EPP","S&D","Renew","Greens/EFA"], "seats": 450},
+    "euroscepticBloc": {"groups": ["PfE","ECR","ESN","NI"], "seats": 223},
+    "leftBloc": {"groups": ["The Left","Greens/EFA","S&D"], "seats": 234},
+    "centreRightBloc": {"groups": ["EPP","Renew","ECR"], "seats": 343},
+    "grandCoalition": {"groups": ["EPP","S&D"], "seats": 320, "percentageOfHouse": 44.5}
+  },
+  "earlyWarnings": {
+    "riskLevel": "MEDIUM",
+    "stabilityScore": 84,
+    "dominantGroupRisk": "HIGH",
+    "fragmentationIndex": "HIGH"
+  }
+}

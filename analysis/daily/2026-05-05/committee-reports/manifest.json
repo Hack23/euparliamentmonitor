@@ -1,0 +1,79 @@
+{
+  "articleType": "committee-reports",
+  "articleTypeSlug": "committee-reports",
+  "date": "2026-05-05",
+  "runId": "committee-reports-run-1777957656",
+  "analysisDir": "analysis/daily/2026-05-05/committee-reports",
+  "generatedAt": "2026-05-05T00:00:00Z",
+  "dataWindow": {
+    "from": "2026-04-28",
+    "to": "2026-05-05"
+  },
+  "primaryDataSources": [
+    "get_adopted_texts (year=2026) \u2014 14 texts April 28-30",
+    "generate_political_landscape \u2014 9 groups, 719 MEPs",
+    "analyze_committee_activity \u2014 ENVI, ECON, IMCO"
+  ],
+  "apiLimitations": [
+    "get_committee_documents_feed \u2014 unavailable (EP API error)",
+    "get_events_feed \u2014 unavailable (EP API error)",
+    "get_procedures_feed \u2014 historical records only (no metadata)",
+    "get_voting_records \u2014 empty (roll-call delay 3-6 weeks)"
+  ],
+  "files": {
+    "risk-scoring": [
+      "risk-scoring/legislative-velocity-risk.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md"
+    ],
+    "intelligence": [
+      "intelligence/scenario-forecast.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/cross-session-intel.md",
+      "intelligence/threat-model.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/analysis-index.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/economic-context.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/historical-baseline.md"
+    ],
+    "threat-assessment": [
+      "threat-assessment/legislative-disruption.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/consequence-trees.md",
+      "threat-assessment/political-threat-landscape.md"
+    ],
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/significance-classification.md",
+      "classification/impact-matrix.md"
+    ],
+    "existing": [
+      "existing/committee-productivity.md"
+    ],
+    "documents": [
+      "documents/document-analysis-index.md"
+    ]
+  },
+  "artifactCount": 23,
+  "pass2": {
+    "startedAt": "2026-05-05T00:25:00Z",
+    "endedAt": "2026-05-05T00:45:00Z",
+    "rewriteCount": 8
+  },
+  "history": [
+    {
+      "runId": "committee-reports-run-1777957656",
+      "startEpoch": 1777957635,
+      "stage": "B2-complete",
+      "artifactCount": 23
+    }
+  ]
+}

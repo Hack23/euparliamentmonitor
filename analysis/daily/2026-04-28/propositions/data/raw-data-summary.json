@@ -1,0 +1,83 @@
+{
+  "runDate": "2026-04-28",
+  "articleType": "propositions",
+  "dataCollectionWindow": {
+    "dateFrom": "2026-04-21",
+    "dateTo": "2026-04-28"
+  },
+  "proceduresFeed": {
+    "status": "RECESS_MODE",
+    "note": "EP procedures feed returning historical archive data (1972-1990); recess mode detected per STALENESS_WARNING pattern",
+    "itemsReturned": 50,
+    "recentItems": 0
+  },
+  "adoptedTexts2026": {
+    "totalCount": 104,
+    "latestAdopted": "2026-03-26",
+    "firstAdopted": "2026-01-20",
+    "keyCategories": [
+      "Banking Union (SRMR3/BRRD3/DGSD2)",
+      "Ukraine Support",
+      "Immigration Reform",
+      "AI Act Omnibus",
+      "Climate Neutrality",
+      "Defence Projects",
+      "Trade/Customs",
+      "Human Rights",
+      "Institutional"
+    ]
+  },
+  "externalDocuments": {
+    "count": 6,
+    "date": "2026-04-22",
+    "type": "ACT_FOLLOWUP (Council responses to EP texts)",
+    "items": [
+      "SP-2026-04-22-TA-10-2025-0300",
+      "SP-2026-04-22-TA-10-2025-0314",
+      "SP-2026-04-22-TA-10-2025-0327",
+      "SP-2026-04-22-TA-10-2026-0029",
+      "SP-2026-04-22-TA-10-2026-0059",
+      "SP-2026-04-22-TA-10-2026-0085"
+    ]
+  },
+  "currentPlenarySession": {
+    "sessionId": "MTG-PL-2026-04-27 to MTG-PL-2026-04-30",
+    "location": "Strasbourg",
+    "dates": ["2026-04-27", "2026-04-28", "2026-04-29", "2026-04-30"],
+    "status": "ACTIVE"
+  },
+  "politicalLandscape": {
+    "totalMEPsSampled": 200,
+    "groups": [
+      {"name": "EPP", "members": 75, "seatShare": 37.5},
+      {"name": "S&D", "members": 41, "seatShare": 20.5},
+      {"name": "PfE", "members": 21, "seatShare": 10.5},
+      {"name": "Greens/EFA", "members": 16, "seatShare": 8.0},
+      {"name": "ECR", "members": 14, "seatShare": 7.0},
+      {"name": "Renew", "members": 14, "seatShare": 7.0},
+      {"name": "The Left", "members": 10, "seatShare": 5.0},
+      {"name": "NI", "members": 7, "seatShare": 3.5},
+      {"name": "ESN", "members": 2, "seatShare": 1.0}
+    ],
+    "fragmentationIndex": "HIGH",
+    "majorityType": "MULTI_COALITION_REQUIRED",
+    "stabilityScore": 84,
+    "riskLevel": "MEDIUM"
+  },
+  "votingRecords": {
+    "status": "UNAVAILABLE",
+    "note": "EP publishes roll-call voting data with several weeks delay; no data available for 2026-03-01 to 2026-04-28"
+  },
+  "parliamentaryQuestions": {
+    "count": 21,
+    "year": 2026,
+    "status": "minimal metadata available (author/topic data not enriched)"
+  },
+  "dataQualityWarnings": [
+    "Procedures feed in RECESS_MODE — returning historical archive data only",
+    "Voting records unavailable (EP publication delay of 4-6 weeks)",
+    "Parliamentary questions metadata not enriched (author/topic fields empty)",
+    "Political landscape based on 200 MEP sample (full EP10 has ~720 MEPs)",
+    "Committee documents feed unavailable (upstream EP API error)"
+  ]
+}

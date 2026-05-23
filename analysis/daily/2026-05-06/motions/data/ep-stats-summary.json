@@ -1,0 +1,41 @@
+{
+  "collectedAt": "2026-05-06T19:53:00Z",
+  "source": "european-parliament-mcp-server@1.3.0 via get_all_generated_stats",
+  "apiStatus": "PARTIAL_DEGRADED — direct feeds returning 502; precomputed stats available",
+  "ep10_stats": {
+    "2024": {"rollCallVotes": 375, "adoptedTexts": 459, "resolutions": 108, "plenarySessions": 50, "mepCount": 720},
+    "2025": {"rollCallVotes": 420, "adoptedTexts": 347, "resolutions": 135, "plenarySessions": 53, "mepCount": 720},
+    "2026_partial": {"rollCallVotes": 567, "adoptedTexts": 164, "resolutions": 180, "plenarySessions": 54, "mepCount": 719, "note": "PARTIAL YEAR Q1 actual + full-year projection"}
+  },
+  "politicalGroups_2026": [
+    {"name": "EPP", "seats": 185, "seatShare": 25.7},
+    {"name": "S&D", "seats": 135, "seatShare": 18.8},
+    {"name": "PfE", "seats": 84, "seatShare": 11.7},
+    {"name": "ECR", "seats": 79, "seatShare": 11.0},
+    {"name": "RE", "seats": 76, "seatShare": 10.6},
+    {"name": "Greens/EFA", "seats": 53, "seatShare": 7.4},
+    {"name": "GUE/NGL", "seats": 46, "seatShare": 6.4},
+    {"name": "ESN", "seats": 28, "seatShare": 3.9},
+    {"name": "NI", "seats": 33, "seatShare": 4.6}
+  ],
+  "fragmentationIndex": 6.59,
+  "majorityThreshold": 360,
+  "derivedIntelligence_2026": {
+    "legislativeOutputPerSession": 2.11,
+    "rollCallVoteYield": 20.1,
+    "minimumWinningCoalitionSize": 3,
+    "topTwoGroupsConcentration": 44.5,
+    "rightBlocShare": 52.3,
+    "leftBlocShare": 32.6,
+    "euroscepticShare": 15.6,
+    "bipolarIndex": 0.232
+  },
+  "worldBankEconomicContext": {
+    "DE_GDP_growth_2024": -0.496,
+    "FR_GDP_growth_2024": 1.19,
+    "IT_GDP_growth_2024": 0.693,
+    "ES_GDP_growth_2024": 3.455,
+    "DE_inflation_2024": 2.256,
+    "note": "IMF fetch-proxy unavailable; World Bank data used for economic context"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "runId": "ae3fa8be-dd1e-4540-840d-120efb071bf8",
+  "date": "2026-04-10",
+  "articleTypeSlug": "week-ahead-run12",
+  "startTime": "2026-04-10T17:02:02.147Z",
+  "endTime": "2026-04-10T17:02:02.179Z",
+  "articleTypes": [
+    "week-ahead"
+  ],
+  "methods": [
+    {
+      "method": "significance-classification",
+      "status": "completed",
+      "outputFile": "classification/significance-classification.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "significance-classification analysis completed successfully"
+    },
+    {
+      "method": "impact-matrix",
+      "status": "completed",
+      "outputFile": "classification/impact-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "impact-matrix analysis completed successfully"
+    },
+    {
+      "method": "actor-mapping",
+      "status": "completed",
+      "outputFile": "classification/actor-mapping.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "actor-mapping analysis completed successfully"
+    },
+    {
+      "method": "forces-analysis",
+      "status": "completed",
+      "outputFile": "classification/forces-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "forces-analysis analysis completed successfully"
+    },
+    {
+      "method": "political-threat-landscape",
+      "status": "completed",
+      "outputFile": "threat-assessment/political-threat-landscape.md",
+      "confidence": "medium",
+      "duration": 2,
+      "summary": "political-threat-landscape analysis completed successfully"
+    },
+    {
+      "method": "actor-threat-profiling",
+      "status": "completed",
+      "outputFile": "threat-assessment/actor-threat-profiling.md",
+      "confidence": "low",
+      "duration": 0,
+      "summary": "actor-threat-profiling analysis completed successfully"
+    },
+    {
+      "method": "consequence-trees",
+      "status": "completed",
+      "outputFile": "threat-assessment/consequence-trees.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "consequence-trees analysis completed successfully"
+    },
+    {
+      "method": "legislative-disruption",
+      "status": "completed",
+      "outputFile": "threat-assessment/legislative-disruption.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "legislative-disruption analysis completed successfully"
+    },
+    {
+      "method": "risk-matrix",
+      "status": "completed",
+      "outputFile": "risk-scoring/risk-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "risk-matrix analysis completed successfully"
+    },
+    {
+      "method": "political-capital-risk",
+      "status": "completed",
+      "outputFile": "risk-scoring/political-capital-risk.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "political-capital-risk analysis completed successfully"
+    },
+    {
+      "method": "quantitative-swot",
+      "status": "completed",
+      "outputFile": "risk-scoring/quantitative-swot.md",
+      "confidence": "medium",
+      "duration": 2,
+      "summary": "quantitative-swot analysis completed successfully"
+    },
+    {
+      "method": "legislative-velocity-risk",
+      "status": "completed",
+      "outputFile": "risk-scoring/legislative-velocity-risk.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "legislative-velocity-risk analysis completed successfully"
+    },
+    {
+      "method": "agent-risk-workflow",
+      "status": "completed",
+      "outputFile": "risk-scoring/agent-risk-workflow.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "agent-risk-workflow analysis completed successfully"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "completed",
+      "outputFile": "existing/deep-analysis.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "deep-analysis analysis completed successfully"
+    },
+    {
+      "method": "stakeholder-analysis",
+      "status": "completed",
+      "outputFile": "existing/stakeholder-impact.md",
+      "confidence": "high",
+      "duration": 1,
+      "summary": "stakeholder-analysis analysis completed successfully"
+    },
+    {
+      "method": "coalition-analysis",
+      "status": "completed",
+      "outputFile": "existing/coalition-dynamics.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "coalition-analysis analysis completed successfully"
+    },
+    {
+      "method": "voting-patterns",
+      "status": "completed",
+      "outputFile": "existing/voting-patterns.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "voting-patterns analysis completed successfully"
+    },
+    {
+      "method": "cross-session-intelligence",
+      "status": "completed",
+      "outputFile": "existing/cross-session-intelligence.md",
+      "confidence": "high",
+      "duration": 1,
+      "summary": "cross-session-intelligence analysis completed successfully"
+    },
+    {
+      "method": "significance-scoring",
+      "status": "completed",
+      "outputFile": "classification/significance-scoring.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "significance-scoring analysis completed successfully"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "existing/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 7,
+      "summary": "synthesis-summary analysis completed successfully"
+    },
+    {
+      "method": "document-analysis",
+      "status": "completed",
+      "outputFile": "documents/document-analysis-index.md",
+      "confidence": "medium",
+      "duration": 9,
+      "summary": "document-analysis analysis completed successfully"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "events",
+    "documents",
+    "adoptedTexts",
+    "procedures"
+  ],
+  "documentsAnalyzed": 21,
+  "analyzedDocumentIds": [
+    "single resolution mechanism regulation (srmr3) - b-1jj9p0",
+    "bank recovery and resolution directive (brrd3) - b-bq346k",
+    "anti-corruption directive - establishing minimum r-of9y4z",
+    "european defence industrial strategy implementatio-5fjcvr",
+    "european globalisation adjustment fund - austria k-y6v0s",
+    "waiver of immunity - daniel freund mep-59hc6g",
+    "mercosur bilateral safeguard clause regulation-rfnbej",
+    "digital sovereignty and cloud services framework-3yjkwy",
+    "deposit guarantee schemes directive (dgsd2) - bank-4hn9dl",
+    "clean industrial deal framework regulation-xv8wy2",
+    "ai act delegated acts implementation timeline-1k46de",
+    "eu countermeasures to us tariff actions - trade em-4f56gm",
+    "single resolution mechanism regulation recast (srm-iy50ec",
+    "bank recovery and resolution directive recast (brr-ep53j2",
+    "deposit guarantee schemes directive revision (dgsd-8nmxb3",
+    "inta draft report on eu trade countermeasures-yq8lzk",
+    "econ working document on banking union trilogue pr-kzmq3x",
+    "committee week - post-easter restart-logol0",
+    "inta emergency session - us tariff countermeasures-8tngyr",
+    "econ committee meeting - banking union trilogue ma-y2sd3e",
+    "plenary session restart-fvz8h3"
+  ]
+}

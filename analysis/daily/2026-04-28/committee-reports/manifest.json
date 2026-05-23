@@ -1,0 +1,50 @@
+{
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run-1777353028",
+  "date": "2026-04-28",
+  "createdAt": "2026-04-28T05:10:00Z",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 22; budget reserved for Stage E PR-call deadline",
+  "pass2": {
+    "startedAt": "2026-04-28T05:23:00Z",
+    "endedAt": "2026-04-28T05:28:00Z",
+    "rewriteCount": 3
+  },
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "analysisIndex": "intelligence/analysis-index.md",
+    "synthesisSummary": "intelligence/synthesis-summary.md",
+    "historicalBaseline": "intelligence/historical-baseline.md",
+    "economicContext": "intelligence/economic-context.md",
+    "pestleAnalysis": "intelligence/pestle-analysis.md",
+    "stakeholderMap": "intelligence/stakeholder-map.md",
+    "scenarioForecast": "intelligence/scenario-forecast.md",
+    "threatModel": "intelligence/threat-model.md",
+    "wildcardsBlackswans": "intelligence/wildcards-blackswans.md",
+    "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+    "referenceAnalysisQuality": "intelligence/reference-analysis-quality.md",
+    "methodologyReflection": "intelligence/methodology-reflection.md",
+    "impactMatrix": "classification/impact-matrix.md",
+    "forcesAnalysis": "classification/forces-analysis.md",
+    "actorMapping": "classification/actor-mapping.md",
+    "riskMatrix": "risk-scoring/risk-matrix.md",
+    "quantitativeSwot": "risk-scoring/quantitative-swot.md",
+    "politicalCapitalRisk": "risk-scoring/political-capital-risk.md",
+    "legislativeVelocityRisk": "risk-scoring/legislative-velocity-risk.md",
+    "actorThreatProfiles": "threat-assessment/actor-threat-profiles.md",
+    "legislativeDisruption": "threat-assessment/legislative-disruption.md",
+    "consequenceTrees": "threat-assessment/consequence-trees.md",
+    "committeeProductivity": "existing/committee-productivity.md"
+  },
+  "dataQuality": {
+    "adoptedTextsFeed": "PASS",
+    "committeeDocumentsFeed": "UNAVAILABLE",
+    "proceduresFeed": "RECESS_MODE",
+    "eventsFeed": "TIMEOUT",
+    "votingRecords": "EMPTY_EXPECTED",
+    "coalitionDynamics": "SIZE_PROXY_ONLY",
+    "imfData": "BELOW_STANDARD",
+    "overallMcpHealth": "DEGRADED_EXPECTED"
+  },
+  "history": []
+}

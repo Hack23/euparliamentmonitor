@@ -1,0 +1,57 @@
+{
+  "articleType": "propositions",
+  "runId": "propositions-run-1777356258",
+  "date": "2026-04-28",
+  "analysisDir": "analysis/daily/2026-04-28/propositions",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 21; RED gate: 13 short artifacts, 14 missing mermaid diagrams; time-boxed to protect PR-call deadline",
+  "pass2": {
+    "startedAt": "2026-04-28T06:22:00Z",
+    "endedAt": "2026-04-28T06:25:55Z",
+    "rewriteCount": 1
+  },
+  "files": {
+    "executive-brief.md": "executive-brief.md",
+    "intelligence/analysis-index.md": "intelligence/analysis-index.md",
+    "intelligence/synthesis-summary.md": "intelligence/synthesis-summary.md",
+    "intelligence/historical-baseline.md": "intelligence/historical-baseline.md",
+    "intelligence/economic-context.md": "intelligence/economic-context.md",
+    "intelligence/pestle-analysis.md": "intelligence/pestle-analysis.md",
+    "intelligence/stakeholder-map.md": "intelligence/stakeholder-map.md",
+    "intelligence/scenario-forecast.md": "intelligence/scenario-forecast.md",
+    "intelligence/threat-model.md": "intelligence/threat-model.md",
+    "intelligence/wildcards-blackswans.md": "intelligence/wildcards-blackswans.md",
+    "intelligence/mcp-reliability-audit.md": "intelligence/mcp-reliability-audit.md",
+    "intelligence/reference-analysis-quality.md": "intelligence/reference-analysis-quality.md",
+    "intelligence/methodology-reflection.md": "intelligence/methodology-reflection.md",
+    "risk-scoring/risk-matrix.md": "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md": "risk-scoring/quantitative-swot.md",
+    "risk-scoring/political-capital-risk.md": "risk-scoring/political-capital-risk.md",
+    "risk-scoring/legislative-velocity-risk.md": "risk-scoring/legislative-velocity-risk.md",
+    "classification/impact-matrix.md": "classification/impact-matrix.md",
+    "classification/forces-analysis.md": "classification/forces-analysis.md",
+    "classification/actor-mapping.md": "classification/actor-mapping.md",
+    "threat-assessment/actor-threat-profiles.md": "threat-assessment/actor-threat-profiles.md",
+    "threat-assessment/legislative-disruption.md": "threat-assessment/legislative-disruption.md",
+    "threat-assessment/consequence-trees.md": "threat-assessment/consequence-trees.md",
+    "existing/pipeline-health.md": "existing/pipeline-health.md",
+    "data/raw-data-summary.json": "data/raw-data-summary.json"
+  },
+  "dataQuality": {
+    "proceduresFeedStatus": "RECESS_MODE",
+    "votingRecordsStatus": "PUBLICATION_DELAY",
+    "committeeFeedStatus": "UNAVAILABLE",
+    "adoptedTextsStatus": "WORKING",
+    "politicalLandscapeSampleSize": 200
+  },
+  "history": [
+    {
+      "runId": "propositions-run-1777356258",
+      "timestamp": "2026-04-28T06:04:18Z",
+      "pass1ArtifactCount": 25,
+      "pass2ArtifactCount": 1,
+      "gateResult": "ANALYSIS_ONLY",
+      "gateReason": "elapsed-time tripwire; RED gate with short artifacts and missing mermaid"
+    }
+  ]
+}

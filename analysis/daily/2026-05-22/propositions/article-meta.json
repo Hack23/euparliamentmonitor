@@ -1,0 +1,53 @@
+{
+  "date": "2026-05-22",
+  "articleType": "propositions",
+  "runId": "propositions-run261-1779431162",
+  "gateResult": "PENDING",
+  "slug": "2026-05-22-propositions",
+  "articlePath": "analysis/daily/2026-05-22/propositions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Ukraine Loan** (COD 2025/0431, adopted 2026-01-21): Consent given for enhanced cooperation",
+    "**Ukraine Accountability Resolution** (2026-04-30): Non-legislative resolution calling for",
+    "**Armenia Democratic Resilience** (2026-04-30): Resolution on supporting democratic institutions",
+    "**Haiti Trafficking Resolution** (2026-04-30): Condemns escalating violence by criminal",
+    "**Northeast Syria Resolution** (2026-02-12): Humanitarian protection call following renewed",
+    "**Digital Markets Act Enforcement** (2026-04-30): Non-legislative resolution on Commission",
+    "**Measuring Instruments Directive Amendment** (COD 2024/0311, adopted 2026-02-10): Technical"
+  ],
+  "topRisks": [
+    "**Probability:** 4/5 — LIKELY",
+    "**Impact:** 4/5 — HIGH",
+    "**Risk Score:** 16 — 🔴 HIGH RISK",
+    "**Description:** The ECJ opinion request creates a near-certain minimum 12-18 month delay;",
+    "**Mitigation:** Commission can begin renegotiating environmental protocols in parallel with",
+    "**Owner:** INTA committee; Commission DG TRADE",
+    "**Residual risk after mitigation:** 3/5 — MEDIUM",
+    "**Probability:** 3/5 — POSSIBLE"
+  ],
+  "keyDates": [
+    "EP and Council remain far apart; risk of provisional twelfths in January 2027"
+  ],
+  "keyActors": [
+    "EPP vs. Greens/EFA on Mercosur trade provisions (high tension)",
+    "S&D vs. Council net-payer bloc on Budget 2027 spending levels",
+    "Commission vs. EP on DMA enforcement autonomy (institutional tension)",
+    "PfE internal split: French RN pro-Ukraine vs. Hungarian Fidesz anti-Ukraine",
+    "Commission publishes DMA investigation timelines → EP monitors compliance deadlines",
+    "ECJ Advocate General signals anticipated via legal community → shapes Mercosur narrative",
+    "IMF WEO figures → inform Budget 2027 fiscal space discussions",
+    "Ukrainian government requests → shape loan conditionality discussions"
+  ],
+  "macroContext": "⚠️ IMF SDMX API required subscription key (HTTP 401).",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

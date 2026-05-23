@@ -1,0 +1,22 @@
+{
+  "fetchedAt": "2026-04-29T05:17:00Z",
+  "source": "european-parliament-mcp-server@1.2.15",
+  "tool": "generate_political_landscape",
+  "totalMEPs": 719,
+  "politicalGroups": 9,
+  "groups": [
+    {"name": "EPP", "memberCount": 185, "seatShare": 25.73},
+    {"name": "S&D", "memberCount": 135, "seatShare": 18.78},
+    {"name": "PfE", "memberCount": 85, "seatShare": 11.82},
+    {"name": "ECR", "memberCount": 81, "seatShare": 11.27},
+    {"name": "Renew", "memberCount": 77, "seatShare": 10.71},
+    {"name": "Greens/EFA", "memberCount": 53, "seatShare": 7.37},
+    {"name": "The Left", "memberCount": 46, "seatShare": 6.40},
+    {"name": "NI", "memberCount": 30, "seatShare": 4.17},
+    {"name": "ESN", "memberCount": 27, "seatShare": 3.76}
+  ],
+  "majorityThreshold": 361,
+  "grandCoalitionSize": 320,
+  "fragmentationIndex": "HIGH",
+  "majorityType": "MULTI_COALITION_REQUIRED"
+}

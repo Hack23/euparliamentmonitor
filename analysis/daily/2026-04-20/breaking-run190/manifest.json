@@ -1,0 +1,137 @@
+{
+  "runId": "190",
+  "date": "2026-04-20",
+  "articleType": "breaking",
+  "mode": "ANALYSIS_ONLY",
+  "significanceScore": 15,
+  "significanceThreshold": 25,
+  "articlePublished": false,
+  "degradedMode": true,
+  "apiOutageDay": 10,
+  "tier2OutageSince": "2026-04-11",
+  "recessDay": 7,
+  "parliamentStatus": "Easter Recess (April 14-26, 2026)",
+  "seriesRun": 12,
+  "seriesRange": "runs-179-190",
+  "recessPeriod": {
+    "start": "2026-04-14",
+    "end": "2026-04-26",
+    "parliamentReturns": "2026-04-27"
+  },
+  "feedStatus": {
+    "tier1": {
+      "adoptedTexts": "OPERATIONAL",
+      "meps": "OPERATIONAL"
+    },
+    "tier2": {
+      "events": "OFFLINE_DAY10",
+      "procedures": "OFFLINE_DAY10"
+    },
+    "tier3": {
+      "documents": "OFFLINE",
+      "questions": "OFFLINE",
+      "plenary": "OFFLINE"
+    }
+  },
+  "keyFindings": [
+    "Easter Monday: zero parliamentary activity confirmed",
+    "EP API Tier-2 outage Day 10 — events/procedures/committee docs offline",
+    "6 landmark March 26 texts remain content-inaccessible (BRRD3, SRMR3, Anti-Corruption, US TRQ, EU-China TRQ, Global Gateway)",
+    "USTR Section 301 window opens April 21 (T-12h) — R1 probability 20%",
+    "Grand Centre coalition stable 84/100 through Easter recess (18 days dormant)",
+    "API restoration window April 21-23 — three-run stability protocol mandatory"
+  ],
+  "forwardMonitoring": [
+    "USTR Section 301 window April 21-24 (CRITICAL — first action Run 191)",
+    "TA-10-2026-0092 API content probe April 21 (second action Run 191)",
+    "German Bundesrat Banking Union signals April 23",
+    "EPP Group pre-plenary statements April 26-27",
+    "Chinese government trade response monitoring (rolling)"
+  ],
+  "files": {
+    "intelligence/analysis-index.md": "analysis-index",
+    "intelligence/significance-scoring.md": "significance-scoring",
+    "intelligence/cross-run-diff.md": "cross-run-differential",
+    "intelligence/coalition-dynamics.md": "coalition-dynamics",
+    "intelligence/synthesis-summary.md": "synthesis-summary",
+    "intelligence/political-threat-landscape.md": "threat-landscape",
+    "intelligence/economic-context.md": "economic-context",
+    "intelligence/historical-baseline.md": "historical-baseline",
+    "intelligence/pestle-analysis.md": "pestle-analysis",
+    "intelligence/scenario-forecast.md": "scenario-forecast",
+    "intelligence/stakeholder-map.md": "stakeholder-map",
+    "intelligence/threat-model.md": "threat-model",
+    "intelligence/wildcards-blackswans.md": "wildcards-blackswans",
+    "intelligence/mcp-reliability-audit.md": "mcp-reliability-audit",
+    "intelligence/reference-analysis-quality.md": "reference-analysis-quality",
+    "intelligence/workflow-audit.md": "workflow-audit",
+    "risk-scoring/risk-matrix.md": "risk-matrix",
+    "risk-scoring/quantitative-swot.md": "swot-analysis",
+    "documents/document-analysis-index.md": "document-index",
+    "classification/significance-classification.md": "significance-classification"
+  },
+  "dataQuality": {
+    "adoptedTextsIndexed": 159,
+    "adoptedTextsAccessible": 61,
+    "mepsReturned": 738,
+    "regressionObserved": true,
+    "regressionTexts": ["TA-10-2026-0101"],
+    "apiOutageDays": 10
+  },
+  "coalitionData": {
+    "stabilityScore": 84,
+    "grandCentreSeats": 402,
+    "totalSeats": 720,
+    "grandCentrePercent": 55.8
+  },
+  "priorRun": {
+    "runId": 188,
+    "date": "2026-04-19",
+    "crossRunDiffRequired": true,
+    "crossRunDiffFile": "intelligence/cross-run-diff.md"
+  },
+  "topRisks": [
+    {
+      "id": "R1",
+      "label": "USTR Section 301",
+      "probability": 0.20,
+      "impact": "CRITICAL",
+      "window": "April 21-24"
+    },
+    {
+      "id": "R2",
+      "label": "API Non-Monotonic Restoration",
+      "probability": 0.55,
+      "impact": "MEDIUM",
+      "window": "0-7 days"
+    },
+    {
+      "id": "R3",
+      "label": "Banking Union Council Delay",
+      "probability": 0.30,
+      "impact": "HIGH",
+      "window": "April 23 - May 15"
+    }
+  ],
+  "scenarios": {
+    "A": { "label": "Normal return April 27", "probability": 0.42 },
+    "B": { "label": "USTR emergency response", "probability": 0.20 },
+    "C": { "label": "API degraded through return", "probability": 0.28 },
+    "D": { "label": "Compound crisis", "probability": 0.10 }
+  },
+  "coalitionStability": {
+    "score": 84,
+    "maxScore": 100,
+    "label": "STABLE",
+    "grandCentreSeats": 402,
+    "threshold": 362
+  },
+  "generatedAt": "2026-04-20T00:00:00Z",
+  "workflowVersion": "breaking-news-v4",
+  "nextPriorityRun": {
+    "runId": 191,
+    "date": "2026-04-21",
+    "firstAction": "USTR_Section_301_probe",
+    "secondAction": "API_content_restoration_probe"
+  }
+}

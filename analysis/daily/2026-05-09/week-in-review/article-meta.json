@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-09",
+  "articleType": "week-in-review",
+  "runId": "week-in-review-run-1778309196",
+  "gateResult": "PENDING",
+  "slug": "2026-05-09-week-in-review",
+  "articlePath": "analysis/daily/2026-05-09/week-in-review/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Parliament fragmentation (ENPP 6.58):** No single bloc commands a stable majority; EPP (25.5%) + S&D (19%) grand coalition reaches only 319 seats — below the 360 majority threshold. Every major vote requires ad-hoc coalition building.",
+    "**EPP dominance risk:** EPP is 6.8× the size of ESN (smallest group). This structural asymmetry enables EPP to broker minorities but also makes it a target for populist counter-coalitions.",
+    "**Early warning flags:** DOMINANT_GROUP_RISK (HIGH severity), HIGH_FRAGMENTATION (MEDIUM severity) triggered by early warning system.",
+    "**March banking reform (SRMR3):** TA-10-2026-0092 adoption signals progress on Banking Union completion — strategic continuity from Draghi Report priorities."
+  ],
+  "topRisks": [
+    "🔴 RED: ≥12 (immediate attention required)",
+    "🟡 AMBER: 6–11 (monitor closely)",
+    "🟢 GREEN: <6 (acceptable, watch for developments)",
+    "US USTR characterising DMA enforcement (TA-10-2026-0160) as anti-American trade discrimination",
+    "Trump's domestic political incentives (tariff revenues feed fiscal narrative)",
+    "Divided EU response (some member states, particularly smaller export-dependent economies, may waver)",
+    "US business interests (agriculture exporters, Boeing) lobbying against escalation",
+    "Congress Republican agricultural states dependent on EU market access"
+  ],
+  "keyDates": [
+    "US USTR and EU DG TRADE reach a provisional \"tariff standstill\" agreement by end of June 2026"
+  ],
+  "keyActors": [
+    "**ECB Vice-President appointment** (TA-10-2026-0060, March 2026) consolidated ECB institutional stability.",
+    "Rate normalisation context: ECB 2026 policy trajectory is carefully watched as rate cuts feed through to bank profitability, interacting with SRMR3 early-intervention thresholds.",
+    "**Influence:** ECON Committee maintains structured scrutiny; ECB testimony important indicator for financial stability confidence.",
+    "**Empowered by SRMR3** (TA-10-2026-0092) with lower intervention triggers.",
+    "Now holds broader authority over banks approaching distress but not yet in resolution territory.",
+    "**Influence trajectory:** RISING — SRMR3 gives SRB more tools, more responsibility, and more political visibility.",
+    "**Direct actor** in EU-US tariff dispute (TA-10-2026-0096).",
+    "US USTR under Trump 2.0 reimposed Section 232 (steel/aluminium) and extended Section 301 tariffs to European goods in early 2026."
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

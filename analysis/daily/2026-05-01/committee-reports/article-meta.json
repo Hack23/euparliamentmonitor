@@ -1,0 +1,53 @@
+{
+  "date": "2026-05-01",
+  "articleType": "committee-reports",
+  "runId": "committee-reports",
+  "gateResult": "PENDING",
+  "slug": "2026-05-01-committee-reports",
+  "articlePath": "analysis/daily/2026-05-01/committee-reports/article.md",
+  "topFinding": "The final week of April 2026 delivered a high-density legislative sprint in the European Parliament's Strasbourg plenary, with seven substantively distinct adopted texts passed on 28–30 April across five committees (BUDG, ENVI, IMCO, LIBE, AFET/DEVE/JURI).",
+  "keyTakeaways": [
+    "TA-10-2026-0161: Russia/Ukraine accountability — calls for a Special Tribunal for crimes",
+    "TA-10-2026-0162: Armenia democratic resilience — welcomes progress, conditions EU support",
+    "TA-10-2026-0151: Haiti trafficking — DEVE initiative condemning criminal cartel control",
+    "**EPP + S&D + Renew** (397 seats, 55.2%) — functional majority on DMA enforcement,",
+    "**EPP + S&D + ECR** (401 seats, 55.8%) — immunity procedures, LIBE security dossiers",
+    "**Broad consensus (520+ estimated)** — dogs/cats welfare (cross-spectrum animal welfare)",
+    "**Progressive bloc (EPP+S&D+Renew+Greens)** (450 seats, 62.6%) — Ukraine/Armenia/Haiti"
+  ],
+  "topRisks": [
+    "**Likelihood (L):** 1 (Rare) → 5 (Almost Certain)",
+    "**Impact (I):** 1 (Negligible) → 5 (Catastrophic)",
+    "**Risk Score:** L × I (1–25)",
+    "**Priority Threshold:** ≥15 = Critical; 10–14 = High; 5–9 = Medium; <5 = Low",
+    "EU INTCEN monitoring (HIGH confidence)",
+    "EP security screening (MEDIUM confidence)",
+    "StratCom East public counter-narrative function (MEDIUM confidence)",
+    "BUDG chair's early consolidation strategy reduces pressure asymmetry"
+  ],
+  "keyDates": [
+    "IMF WEO April 2026 projections for EU macroeconomic context",
+    "**Short-term**: Provisional twelfths financing rules apply for January 2027 unless",
+    "**Institutional**: Precedent-setting for AI Act monitoring regime (coming to IMCO Q3 2026)"
+  ],
+  "keyActors": [
+    "**Flexibility reserve**: The Guidelines include a €1.5 bn emergency reserve for",
+    "**Budget performance framework**: BUDG is pushing for output-indicator-based",
+    "**Discharge power**: BUDG's control of the discharge procedure gives it leverage",
+    "**ENVI majority**: EPP-S&D-Greens on welfare issues; ECR and PfE oppose additional",
+    "**ENVI-IMCO digital overlap**: Stray animal trafficking and illegal online sales create",
+    "SUPPORT for Iceland PNR (security/sovereignty aligned)",
+    "SUPPORT for defence budget uplift (security priority)",
+    "PARTIAL SUPPORT for Ukraine accountability (anti-Russia consensus, but with caveats)"
+  ],
+  "macroContext": "*All economic/fiscal/monetary/trade claims sourced from IMF data (sole authoritative source",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

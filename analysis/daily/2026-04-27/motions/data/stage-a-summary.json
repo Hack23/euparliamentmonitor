@@ -1,0 +1,66 @@
+{
+  "collectionDate": "2026-04-27",
+  "articleType": "motions",
+  "dataWindow": "2026-04-20 to 2026-04-27",
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "majorityThreshold": 361,
+    "groups": {
+      "EPP": 185,
+      "S&D": 135,
+      "PfE": 85,
+      "ECR": 81,
+      "Renew": 77,
+      "Greens/EFA": 53,
+      "The Left": 46,
+      "NI": 30,
+      "ESN": 27
+    },
+    "fragmentationIndex": "HIGH",
+    "majorityType": "MULTI_COALITION_REQUIRED"
+  },
+  "currentPlenarySession": {
+    "id": "MTG-PL-2026-04-27",
+    "location": "Strasbourg",
+    "dates": ["2026-04-27","2026-04-28","2026-04-29","2026-04-30"],
+    "foreseenActivities": {
+      "debates": 8,
+      "votes": 0
+    },
+    "status": "IN_PROGRESS"
+  },
+  "adoptedTexts2026": {
+    "total": 104,
+    "mostRecentBatch": "2026-03-26",
+    "keyTexts": [
+      {"id": "TA-10-2026-0094", "title": "Combating corruption", "date": "2026-03-26"},
+      {"id": "TA-10-2026-0092", "title": "Early intervention measures (SRMR3) - Banking Union", "date": "2026-03-26"},
+      {"id": "TA-10-2026-0098", "title": "Digital Omnibus on AI", "date": "2026-03-26"},
+      {"id": "TA-10-2026-0096", "title": "Adjustment of customs duties - US tariff response", "date": "2026-03-26"},
+      {"id": "TA-10-2026-0104", "title": "Global Gateway - past impacts and future orientation", "date": "2026-03-26"},
+      {"id": "TA-10-2026-0091", "title": "Early intervention measures (BRRD3)", "date": "2026-03-26"},
+      {"id": "TA-10-2026-0090", "title": "Deposit protection (DGSD2)", "date": "2026-03-26"},
+      {"id": "TA-10-2026-0088", "title": "Waiver of immunity - Grzegorz Braun", "date": "2026-03-26"},
+      {"id": "TA-10-2026-0086", "title": "WTO 14th Ministerial Conference - Yaoundé", "date": "2026-03-12"},
+      {"id": "TA-10-2026-0084", "title": "Emission credits for heavy-duty vehicles", "date": "2026-03-12"},
+      {"id": "TA-10-2026-0083", "title": "Political prisoners under Georgian Dream regime", "date": "2026-03-12"},
+      {"id": "TA-10-2026-0082", "title": "Arbitrary detention of Mohamed Bazoum in Niger", "date": "2026-03-12"},
+      {"id": "TA-10-2026-0081", "title": "Human trafficking for Russia's war in Ukraine", "date": "2026-03-12"},
+      {"id": "TA-10-2026-0079", "title": "Tackling barriers to the single market for defence", "date": "2026-03-11"},
+      {"id": "TA-10-2026-0080", "title": "Flagship European defence projects of common interest", "date": "2026-03-11"}
+    ]
+  },
+  "earlyWarning": {
+    "riskLevel": "MEDIUM",
+    "stabilityScore": 84,
+    "criticalWarnings": 0,
+    "highWarnings": 1,
+    "keyRiskFactor": "DOMINANT_GROUP_RISK"
+  },
+  "dataQuality": {
+    "votingRecords": "UNAVAILABLE (EP publishes with delay)",
+    "adoptedTextsDetail": "AVAILABLE (119 feed items, 104 year-filtered)",
+    "plenarySessionActivities": "PARTIAL (April 27 session started today, no decisions yet)",
+    "coalitionCohesionData": "UNAVAILABLE (per-MEP voting stats not in EP API)"
+  }
+}

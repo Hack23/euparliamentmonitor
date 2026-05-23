@@ -1,0 +1,135 @@
+{
+  "fetchTimestamp": "2026-03-28T12:15:37.604Z",
+  "indicator": "GDP_GROWTH",
+  "indicatorCode": "NY.GDP.MKTP.KD.ZG",
+  "description": "GDP growth (annual %)",
+  "source": "World Bank Open Data",
+  "countries": {
+    "DE": {
+      "name": "Germany",
+      "gdpGrowth": [
+        {
+          "year": 2024,
+          "value": -0.496
+        },
+        {
+          "year": 2023,
+          "value": -0.87
+        },
+        {
+          "year": 2022,
+          "value": 1.809
+        },
+        {
+          "year": 2021,
+          "value": 3.91
+        }
+      ]
+    },
+    "FR": {
+      "name": "France",
+      "gdpGrowth": [
+        {
+          "year": 2024,
+          "value": 1.19
+        },
+        {
+          "year": 2023,
+          "value": 1.439
+        },
+        {
+          "year": 2022,
+          "value": 2.717
+        },
+        {
+          "year": 2021,
+          "value": 6.882
+        }
+      ]
+    },
+    "IT": {
+      "name": "Italy",
+      "gdpGrowth": [
+        {
+          "year": 2024,
+          "value": 0.693
+        },
+        {
+          "year": 2023,
+          "value": 0.976
+        },
+        {
+          "year": 2022,
+          "value": 4.821
+        },
+        {
+          "year": 2021,
+          "value": 8.931
+        }
+      ]
+    },
+    "ES": {
+      "name": "Spain",
+      "gdpGrowth": [
+        {
+          "year": 2024,
+          "value": 3.455
+        },
+        {
+          "year": 2023,
+          "value": 2.461
+        },
+        {
+          "year": 2022,
+          "value": 6.37
+        },
+        {
+          "year": 2021,
+          "value": 6.683
+        }
+      ]
+    },
+    "PL": {
+      "name": "Poland",
+      "gdpGrowth": [
+        {
+          "year": 2024,
+          "value": 3.028
+        },
+        {
+          "year": 2023,
+          "value": 0.25
+        },
+        {
+          "year": 2022,
+          "value": 5.255
+        },
+        {
+          "year": 2021,
+          "value": 6.927
+        }
+      ]
+    },
+    "SE": {
+      "name": "Sweden",
+      "gdpGrowth": [
+        {
+          "year": 2024,
+          "value": 0.82
+        },
+        {
+          "year": 2023,
+          "value": -0.204
+        },
+        {
+          "year": 2022,
+          "value": 1.255
+        },
+        {
+          "year": 2021,
+          "value": 5.226
+        }
+      ]
+    }
+  }
+}

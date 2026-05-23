@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-21",
+  "articleType": "propositions",
+  "runId": "propositions-run268-1779344794",
+  "gateResult": "PENDING",
+  "slug": "2026-05-21-propositions",
+  "articlePath": "analysis/daily/2026-05-21/propositions/article.md",
+  "topFinding": "The European Parliament's May 2026 mini-plenary session (19-20 May) adopted 7 legislative acts covering AI/trade strategy, forest governance, bilateral partnerships, fisheries, and UN General Assembly positioning.",
+  "keyTakeaways": [
+    "External affairs/geopolitics: INCREASING (5 of 7 texts touch external dimension)",
+    "Internal market/digital: INCREASING (AI/trade text is flagship)",
+    "Agriculture/environment: STABLE (forest material text)",
+    "Discharge/budgetary: DECREASING (discharge season winding down)",
+    "Social/employment: LOW this week (regression from April levels)",
+    "Cannot verify procedure-level activity (proposals in committee, amendments tabled)",
+    "Forward projections are inference from resolution language, not confirmed Commission plans"
+  ],
+  "topRisks": [
+    "**Likelihood:** 1 (Very Low <5%) to 5 (Very High >80%)",
+    "**Impact:** 1 (Negligible) to 5 (Catastrophic)",
+    "**Risk Score:** Likelihood × Impact (1-25)",
+    "**CRITICAL risks** (score 20-25): Not present this cycle — positive indicator",
+    "**HIGH risks** (score 15-19): Not present this cycle — propositions are mainstream",
+    "**MEDIUM risks** (score 8-14): 7 identified — manageable with monitoring",
+    "**LOW risks** (score 4-7): 9 identified — acceptable"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Role:** Principal — adopted all 7 texts this week",
+    "**Key committees:** INTA (AI/trade), AGRI (forest), AFET (Uzbekistan, UNGA)",
+    "**Rapporteurs:** Not publicly identified in degraded-data conditions",
+    "**Coalition:** EPP-S&D-Renew majority confirmed by adoption",
+    "**Role:** Implementation lead for COD texts; must respond to INI resolutions",
+    "**Key DGs:** DG TRADE (AI/trade), DG AGRI (forest), DG NEAR (Uzbekistan)",
+    "**Position:** Expected to issue AI/trade Communication by Q4 2026",
+    "**Admiralty grade:** B2"
+  ],
+  "macroContext": "| IMF Source | cache | | Date | 2026-05-21 | | Reference | IMF World Economic Outlook April 2026 |",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

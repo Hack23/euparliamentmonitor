@@ -1,0 +1,275 @@
+{
+  "generatedAt": "2026-03-03T22:49:33Z",
+  "coveragePeriod": {
+    "from": 2004,
+    "to": 2026
+  },
+  "requestedPeriod": {
+    "from": 2024,
+    "to": 2026
+  },
+  "methodologyVersion": "2.0.0",
+  "dataSource": "European Parliament Open Data Portal — data.europarl.europa.eu",
+  "totalYearsReturned": 3,
+  "yearlyStats": [
+    {
+      "year": 2024,
+      "parliamentaryTerm": "EP9/EP10 transition",
+      "mepCount": 720,
+      "plenarySessions": 50,
+      "legislativeActsAdopted": 72,
+      "rollCallVotes": 375,
+      "committeeMeetings": 1680,
+      "parliamentaryQuestions": 3950,
+      "resolutions": 108,
+      "speeches": 7800,
+      "adoptedTexts": 459,
+      "procedures": 676,
+      "events": 310,
+      "documents": 2680,
+      "mepTurnover": 405,
+      "declarations": 560,
+      "commentary": "EP9/EP10 transition. European elections June 2024. Significant rightward shift.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 188,
+            "seatShare": 26.1
+          },
+          {
+            "name": "S&D",
+            "seats": 136,
+            "seatShare": 18.9
+          },
+          {
+            "name": "PfE",
+            "seats": 84,
+            "seatShare": 11.7
+          },
+          {
+            "name": "ECR",
+            "seats": 78,
+            "seatShare": 10.8
+          },
+          {
+            "name": "RE",
+            "seats": 77,
+            "seatShare": 10.7
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 53,
+            "seatShare": 7.4
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 46,
+            "seatShare": 6.4
+          },
+          {
+            "name": "ESN",
+            "seats": 25,
+            "seatShare": 3.5
+          },
+          {
+            "name": "NI",
+            "seats": 33,
+            "seatShare": 4.6
+          }
+        ],
+        "totalGroups": 8,
+        "largestGroup": "EPP",
+        "fragmentationIndex": 6.51
+      }
+    },
+    {
+      "year": 2025,
+      "parliamentaryTerm": "EP10 (2024-2029)",
+      "mepCount": 720,
+      "plenarySessions": 53,
+      "legislativeActsAdopted": 78,
+      "rollCallVotes": 420,
+      "committeeMeetings": 1980,
+      "parliamentaryQuestions": 4941,
+      "resolutions": 135,
+      "speeches": 10000,
+      "adoptedTexts": 347,
+      "procedures": 923,
+      "events": 2657,
+      "documents": 3516,
+      "mepTurnover": 36,
+      "declarations": 3000,
+      "commentary": "EP10 ramp-up year. New committee chairs established. Defence prominence.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 185,
+            "seatShare": 25.7
+          },
+          {
+            "name": "S&D",
+            "seats": 135,
+            "seatShare": 18.8
+          },
+          {
+            "name": "PfE",
+            "seats": 84,
+            "seatShare": 11.7
+          },
+          {
+            "name": "ECR",
+            "seats": 79,
+            "seatShare": 11
+          },
+          {
+            "name": "RE",
+            "seats": 76,
+            "seatShare": 10.6
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 53,
+            "seatShare": 7.4
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 46,
+            "seatShare": 6.4
+          },
+          {
+            "name": "ESN",
+            "seats": 28,
+            "seatShare": 3.9
+          },
+          {
+            "name": "NI",
+            "seats": 34,
+            "seatShare": 4.7
+          }
+        ],
+        "totalGroups": 8,
+        "largestGroup": "EPP",
+        "fragmentationIndex": 6.59
+      }
+    },
+    {
+      "year": 2026,
+      "parliamentaryTerm": "EP10 (2024-2029)",
+      "mepCount": 720,
+      "plenarySessions": 54,
+      "legislativeActsAdopted": 114,
+      "rollCallVotes": 567,
+      "committeeMeetings": 2363,
+      "parliamentaryQuestions": 6147,
+      "resolutions": 180,
+      "speeches": 12760,
+      "adoptedTexts": 498,
+      "procedures": 935,
+      "events": 2327,
+      "documents": 4265,
+      "mepTurnover": 40,
+      "declarations": 1158,
+      "commentary": "PARTIAL YEAR — data through Q1 2026. Defence, Clean Industrial Deal, AI Act dominating.",
+      "politicalLandscape": {
+        "groups": [
+          {
+            "name": "EPP",
+            "seats": 185,
+            "seatShare": 25.7
+          },
+          {
+            "name": "S&D",
+            "seats": 135,
+            "seatShare": 18.8
+          },
+          {
+            "name": "PfE",
+            "seats": 84,
+            "seatShare": 11.7
+          },
+          {
+            "name": "ECR",
+            "seats": 79,
+            "seatShare": 11
+          },
+          {
+            "name": "RE",
+            "seats": 76,
+            "seatShare": 10.6
+          },
+          {
+            "name": "Greens/EFA",
+            "seats": 53,
+            "seatShare": 7.4
+          },
+          {
+            "name": "GUE/NGL",
+            "seats": 46,
+            "seatShare": 6.4
+          },
+          {
+            "name": "ESN",
+            "seats": 28,
+            "seatShare": 3.9
+          },
+          {
+            "name": "NI",
+            "seats": 34,
+            "seatShare": 4.7
+          }
+        ],
+        "totalGroups": 8,
+        "largestGroup": "EPP",
+        "fragmentationIndex": 6.59
+      }
+    }
+  ],
+  "predictions": [
+    {
+      "year": 2027,
+      "predictedLegislativeActs": 120,
+      "predictedRollCallVotes": 592,
+      "confidenceInterval": "±12%"
+    },
+    {
+      "year": 2028,
+      "predictedLegislativeActs": 125,
+      "predictedRollCallVotes": 618,
+      "confidenceInterval": "±15%"
+    },
+    {
+      "year": 2029,
+      "predictedLegislativeActs": 78,
+      "predictedRollCallVotes": 386,
+      "confidenceInterval": "±18%"
+    },
+    {
+      "year": 2030,
+      "predictedLegislativeActs": 94,
+      "predictedRollCallVotes": 464,
+      "confidenceInterval": "±22%"
+    },
+    {
+      "year": 2031,
+      "predictedLegislativeActs": 114,
+      "predictedRollCallVotes": 567,
+      "confidenceInterval": "±25%"
+    }
+  ],
+  "analysisSummary": {
+    "overallTrend": "Legislative productivity shows an increasing trend over 2004-2026.",
+    "peakActivityYear": 2023,
+    "legislativeProductivityTrend": "INCREASING",
+    "keyFindings": [
+      "Election transition years show 30-40% reduced output.",
+      "EP10 shows rightward shift with defence, migration, industrial priorities.",
+      "Parliamentary fragmentation increased: ENP from 4.12 (2004) to 6.59 (2026).",
+      "No two-party majority possible since 2019, requiring 3+ group coalitions.",
+      "Eurosceptic/far-right seat share grew from 5.1% (2004) to 15.6% (2026)."
+    ]
+  },
+  "confidenceLevel": "HIGH",
+  "sourceAttribution": "European Parliament Open Data Portal — data.europarl.europa.eu"
+}

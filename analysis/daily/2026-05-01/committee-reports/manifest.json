@@ -1,0 +1,51 @@
+{
+  "articleType": "committee-reports",
+  "runDate": "2026-05-01",
+  "analysisDir": "analysis/daily/2026-05-01/committee-reports",
+  "pass2": {
+    "startedAt": "2026-05-01T00:19:00Z",
+    "endedAt": "2026-05-01T00:20:00Z",
+    "rewriteCount": 6
+  },
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "analysis-index": "intelligence/analysis-index.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "historical-baseline": "intelligence/historical-baseline.md",
+    "economic-context": "intelligence/economic-context.md",
+    "pestle-analysis": "intelligence/pestle-analysis.md",
+    "stakeholder-map": "intelligence/stakeholder-map.md",
+    "scenario-forecast": "intelligence/scenario-forecast.md",
+    "threat-model": "intelligence/threat-model.md",
+    "wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "risk-matrix": "risk-scoring/risk-matrix.md",
+    "quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "committee-productivity": "existing/committee-productivity.md",
+    "methodology-reflection": "intelligence/methodology-reflection.md"
+  },
+  "history": [
+    {
+      "runId": "committee-reports-run-first",
+      "runEpoch": 1777612836,
+      "artifactCount": 16,
+      "stageC": "GREEN",
+      "note": "Initial run; Stage A+B completed; all 16 artifacts written"
+    }
+  ],
+  "dataQuality": {
+    "rollCallVoteData": "unavailable (4-6 week EP publication delay)",
+    "fullTextTA": "unavailable (3-7 day enrichment delay for April 28-30 texts)",
+    "committeeDocumentsFeed": "unavailable (EP API enrichment failure)",
+    "proceduresFeed": "degraded (historical archive mode)",
+    "imfData": "embedded from public WEO April 2026"
+  },
+  "keyFindings": [
+    "EP10 Year 2 on track for record legislative productivity (2,363 committee meetings, 114 legislative acts projected)",
+    "DMA enforcement resolution (TA-0160) establishes Parliament oversight role for digital markets",
+    "2027 Budget Guidelines adopted early (April) in strategic BUDG chair manoeuvre",
+    "Dogs/cats welfare regulation passes with 520+ vote cross-spectrum consensus",
+    "Political stability score 84/100 - coalition holding despite 3-group arithmetic requirement"
+  ]
+}

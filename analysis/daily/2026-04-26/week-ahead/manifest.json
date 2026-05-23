@@ -1,0 +1,84 @@
+{
+  "articleType": "week-ahead",
+  "date": "2026-04-26",
+  "runId": "week-ahead-run-1777236707",
+  "generatedAt": "2026-04-26T21:11:32Z",
+  "analysisDir": "analysis/daily/2026-04-26/week-ahead",
+  "stageACompleted": true,
+  "stageBCompleted": true,
+  "stageCCompleted": false,
+  "dataWindow": "April 27\u201330, 2026",
+  "dataWindowType": "next-7-days",
+  "plenarySessionIds": [
+    "MTG-PL-2026-04-27",
+    "MTG-PL-2026-04-28",
+    "MTG-PL-2026-04-29",
+    "MTG-PL-2026-04-30"
+  ],
+  "keyFindings": [
+    "Strasbourg plenary April 27\u201330, 2026 \u2014 8 foreseen debates on Day 1",
+    "Political landscape: PPE 38%, S&D 22%, PfE 11%, Greens 10%, ECR 8%, Renew 5%",
+    "Coalition: EPP-S&D at 87% Q1 success rate \u2014 highest in EP10",
+    "Post-Banking Union (BRRD3/SRMR3/DGSD2) implementation accountability week",
+    "AI Digital Omnibus and Defence flagship projects in delegated acts phase",
+    "US automotive tariff risk: WC-06 probability 10\u201315%"
+  ],
+  "mcpToolCalls": {
+    "total": 18,
+    "successful": 12,
+    "failed": 6,
+    "successRate": 0.67
+  },
+  "files": {
+    "root": [
+      "executive-brief.md"
+    ],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "data": [
+      "data/plenary-sessions.json"
+    ]
+  },
+  "lineCounts": {
+    "executive-brief.md": 184,
+    "intelligence/analysis-index.md": 108,
+    "intelligence/pestle-analysis.md": 185,
+    "intelligence/stakeholder-map.md": 236,
+    "intelligence/scenario-forecast.md": 205,
+    "intelligence/threat-model.md": 219,
+    "intelligence/historical-baseline.md": 188,
+    "intelligence/economic-context.md": 149,
+    "intelligence/wildcards-blackswans.md": 186,
+    "intelligence/synthesis-summary.md": 174,
+    "intelligence/mcp-reliability-audit.md": 269,
+    "intelligence/reference-analysis-quality.md": 167,
+    "risk-scoring/risk-matrix.md": 139,
+    "risk-scoring/quantitative-swot.md": 216,
+    "intelligence/methodology-reflection.md": 198
+  },
+  "history": [
+    {
+      "runId": "week-ahead-run-1777236707",
+      "timestamp": "2026-04-26T21:11:32Z",
+      "artifactsProduced": 15,
+      "stageCResult": "PENDING",
+      "notes": "First run for 2026-04-26 week-ahead; events feed unavailable; procedures feed historical-only; 101 Q1 2026 adopted texts retrieved"
+    }
+  ]
+}

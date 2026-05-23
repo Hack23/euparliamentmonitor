@@ -1,0 +1,34 @@
+{
+  "date": "2026-04-08",
+  "articleType": "propositions",
+  "runId": "38e8223f-7f7c-4124-9c22-9fe2e94b9ec8",
+  "gateResult": "PENDING",
+  "slug": "2026-04-08-propositions",
+  "articlePath": "analysis/daily/2026-04-08/propositions/article.md",
+  "topFinding": "The 8 April propositions analytical run records 0 political dimensions surfaced during pre-recess wind-down.",
+  "keyTakeaways": [
+    "0-dimension observation: **A1**",
+    "Q1 baseline reference: **A1**",
+    "Run: `propositions` (2026-04-08, pre-recess)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

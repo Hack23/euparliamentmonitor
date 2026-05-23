@@ -1,0 +1,60 @@
+{
+  "collectionDate": "2026-04-27",
+  "period": {"from": "2026-03-28", "to": "2026-04-27"},
+  "sources": {
+    "adoptedTextsFeed": {"count": 292, "status": "ok"},
+    "adoptedTexts2026": {"count": 100, "status": "ok"},
+    "procedures": {"count": 50, "status": "degraded_recess_mode"},
+    "speeches": {"count": 0, "status": "empty_delay"},
+    "votingRecords": {"count": 0, "status": "empty_rollcall_delay"},
+    "parliamentaryQuestions": {"count": 31, "status": "ok_metadata_only"}
+  },
+  "keyTextsMarApr2026": [
+    {"id": "TA-10-2026-0079", "date": "2026-03-11", "topic": "Single market for defence", "subjects": "PESC"},
+    {"id": "TA-10-2026-0080", "date": "2026-03-11", "topic": "Flagship European defence projects", "subjects": "PESC"},
+    {"id": "TA-10-2026-0078", "date": "2026-03-11", "topic": "EU-Canada defence cooperation", "subjects": "PESC,EXT"},
+    {"id": "TA-10-2026-0090", "date": "2026-03-26", "topic": "Deposit guarantee scheme reform", "subjects": "RAPL"},
+    {"id": "TA-10-2026-0091", "date": "2026-03-26", "topic": "Bank crisis resolution funding", "subjects": "PECO,UEM"},
+    {"id": "TA-10-2026-0092", "date": "2026-03-26", "topic": "Bank crisis resolution (recitals)", "subjects": "UEM,PECO"},
+    {"id": "TA-10-2026-0071", "date": "2026-03-11", "topic": "Council of Europe AI & Human Rights", "subjects": "PIND,DFON"},
+    {"id": "TA-10-2026-0066", "date": "2026-03-10", "topic": "Copyright and generative AI", "subjects": "INFQ"},
+    {"id": "TA-10-2026-0098", "date": "2026-03-26", "topic": "AI Act simplification", "subjects": "RDT,TECN"},
+    {"id": "TA-10-2026-0077", "date": "2026-03-11", "topic": "EU enlargement strategy", "subjects": "PESC,ADH"},
+    {"id": "TA-10-2026-0064", "date": "2026-03-10", "topic": "Housing crisis solutions", "subjects": "SOCI"},
+    {"id": "TA-10-2026-0075", "date": "2026-03-11", "topic": "European Semester 2026", "subjects": "PECO"},
+    {"id": "TA-10-2026-0076", "date": "2026-03-11", "topic": "European Semester employment priorities", "subjects": "SOCI,PECO"},
+    {"id": "TA-10-2026-0058", "date": "2026-03-10", "topic": "EU Talent Pool", "subjects": "EMPL,IMMI"},
+    {"id": "TA-10-2026-0094", "date": "2026-03-26", "topic": "Combating corruption", "subjects": "COJP"},
+    {"id": "TA-10-2026-0084", "date": "2026-03-12", "topic": "Vehicle emissions credits", "subjects": "POLL,TRAN,ENV"},
+    {"id": "TA-10-2026-0093", "date": "2026-03-26", "topic": "Water pollutants regulation", "subjects": "POLL,ENV"},
+    {"id": "TA-10-2026-0062", "date": "2026-03-10", "topic": "European Chief Prosecutor appointment", "subjects": "INST"},
+    {"id": "TA-10-2026-0069", "date": "2026-03-11", "topic": "EP-Commission Framework Agreement", "subjects": "INST,DGEN"},
+    {"id": "TA-10-2026-0057", "date": "2026-03-10", "topic": "EU insolvency law harmonisation", "subjects": "COJC,MARI"},
+    {"id": "TA-10-2026-0086", "date": "2026-03-12", "topic": "WTO 14th Ministerial Conference", "subjects": "OMC,PCOM"},
+    {"id": "TA-10-2026-0104", "date": "2026-03-26", "topic": "Global Gateway future orientation", "subjects": "INV,COPT"}
+  ],
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "majorityThreshold": 361,
+    "groups": [
+      {"name": "EPP", "seats": 185, "pct": 25.73},
+      {"name": "S&D", "seats": 135, "pct": 18.78},
+      {"name": "PfE", "seats": 85, "pct": 11.82},
+      {"name": "ECR", "seats": 81, "pct": 11.27},
+      {"name": "Renew", "seats": 77, "pct": 10.71},
+      {"name": "Greens/EFA", "seats": 53, "pct": 7.37},
+      {"name": "The Left", "seats": 46, "pct": 6.40},
+      {"name": "NI", "seats": 30, "pct": 4.17},
+      {"name": "ESN", "seats": 27, "pct": 3.76}
+    ],
+    "fragmentation": "HIGH",
+    "majorityType": "MULTI_COALITION_REQUIRED"
+  },
+  "economicContext": {
+    "source": "WorldBank",
+    "germany_gdp_growth": {"2024": -0.496, "2023": -0.87, "2022": 1.809},
+    "france_gdp_growth": {"2024": 1.19, "2023": 1.439, "2022": 2.717},
+    "germany_inflation": {"2024": 2.256, "2023": 5.946, "2022": 6.873},
+    "germany_unemployment": {"2025": 3.711, "2024": 3.40, "2023": 3.071}
+  }
+}

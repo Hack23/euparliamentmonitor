@@ -1,0 +1,119 @@
+{
+  "runId": 184,
+  "date": "2026-04-18",
+  "articleType": "breaking",
+  "run": {
+    "id": 184,
+    "date": "2026-04-18",
+    "articleType": "breaking",
+    "mode": "ANALYSIS_ONLY",
+    "newsworthiness": "NO_BREAKING_NEWS",
+    "reason": "Easter Saturday — Parliament in recess, no EP items published today",
+    "referenceAnalysis": true,
+    "referenceAnalysisNote": "Designated reference-quality analysis per intelligence/reference-analysis-quality.md — used as the depth benchmark for AI guides, prompt patterns, and agentic workflow templates."
+  },
+  "context": {
+    "recessDay": 5,
+    "recessDayConvention": "Day 0 = April 13, 2026 (Easter Monday, recess start) → Day 5 = April 18, 2026. PR descriptions and badges in this run consistently use this Day-0-based numbering.",
+    "recurrenceSeries": "Easter Recess 2026 (Runs 179-184)",
+    "plenaryReturn": "2026-04-27",
+    "apiStatus": {
+      "serverHealthReport": "0/13 operational",
+      "directTestResult": "2/13 operational",
+      "discrepancy": "Server health endpoint has reporting lag",
+      "tier1": ["adopted_texts_feed", "meps_feed"],
+      "tier2Projected": "2026-04-21 to 2026-04-23",
+      "tier3Projected": "2026-04-25 to 2026-04-27"
+    }
+  },
+  "texts": {
+    "confirmed_with_content": ["TA-10-2026-0090", "TA-10-2026-0091", "TA-10-2026-0092", "TA-10-2026-0093", "TA-10-2026-0094", "TA-10-2026-0095", "TA-10-2026-0096", "TA-10-2026-0097", "TA-10-2026-0098"],
+    "confirmed_in_feed_no_content": ["TA-10-2026-0099", "TA-10-2026-0100", "TA-10-2026-0101", "TA-10-2026-0102", "TA-10-2026-0103", "TA-10-2026-0104"]
+  },
+  "scores": {
+    "compositeRisk": 18.0,
+    "compositeRiskMax": 50,
+    "incrementalIntelligence": 26,
+    "incrementalIntelligenceMax": 100
+  },
+  "mcpReliabilityIssues": {
+    "auditFile": "intelligence/mcp-reliability-audit.md",
+    "defectsIdentified": 7,
+    "upstreamIssuesToFile": 5,
+    "upstreamIssuesFiledAt": "https://github.com/Hack23/European-Parliament-MCP-Server/issues",
+    "defects": [
+      {"id": 1, "severity": "HIGH",   "summary": "get_server_health underreports availability (0/13 when 2 operational)", "remediableInMcpServer": true,  "upstreamIssue": 366},
+      {"id": 2, "severity": "HIGH",   "summary": "coalition_dynamics memberCount=0 for EPP, Greens/EFA, PfE, ESN",         "remediableInMcpServer": true,  "upstreamIssue": 367},
+      {"id": 3, "severity": "MEDIUM", "summary": "cohesion field is size-ratio artifact, not vote-level alignment",        "remediableInMcpServer": true,  "upstreamIssue": 368},
+      {"id": 4, "severity": "MEDIUM", "summary": "get_adopted_texts returns empty-string fields instead of 404/null",       "remediableInMcpServer": true,  "upstreamIssue": 369},
+      {"id": 5, "severity": "MEDIUM", "summary": "inconsistent error signalling across feeds (404 / empty / error-string)", "remediableInMcpServer": true,  "upstreamIssue": 370},
+      {"id": 6, "severity": "LOW",    "summary": "ENP computed over incomplete group data (covered by defect #2)",         "remediableInMcpServer": true,  "upstreamIssue": null},
+      {"id": 7, "severity": "LOW",    "summary": "feed responses lack lastModified/ETag/itemCount metadata",                "remediableInMcpServer": true,  "upstreamIssue": null}
+    ],
+    "clientSideMitigationsProposed": [
+      "coalition_dynamics incomplete-data detection in ep-mcp-client.ts",
+      "empty-string sentinel detection for get_adopted_texts responses",
+      "direct-probe fallback when get_server_health reports 0/13"
+    ]
+  },
+  "files": {
+    "classification": ["classification/significance-scoring.md"],
+    "risk_scoring": ["risk-scoring/risk-matrix.md", "risk-scoring/quantitative-swot.md"],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "documents": ["documents/document-analysis-index.md"]
+  },
+  "analyticalFrameworksApplied": {
+    "count": 13,
+    "frameworks": [
+      {"name": "Newsworthiness Gate",                  "artifact": "classification/significance-scoring.md"},
+      {"name": "5x5 Likelihood-Impact Risk Matrix",    "artifact": "risk-scoring/risk-matrix.md"},
+      {"name": "3+3+3+3 Quantitative SWOT",            "artifact": "risk-scoring/quantitative-swot.md"},
+      {"name": "Coalition Dynamics Pair Analysis",     "artifact": "intelligence/coalition-dynamics.md"},
+      {"name": "Cross-Run Hypothesis Tracking",        "artifact": "intelligence/cross-run-diff.md"},
+      {"name": "MCP Data-Reliability Audit",           "artifact": "intelligence/mcp-reliability-audit.md"},
+      {"name": "PESTLE Macro-Environmental Scan",      "artifact": "intelligence/pestle-analysis.md"},
+      {"name": "Mendelow Power-Interest Stakeholder Grid", "artifact": "intelligence/stakeholder-map.md"},
+      {"name": "Shell Scenario Planning (2x2 + Decision Tree)", "artifact": "intelligence/scenario-forecast.md"},
+      {"name": "Diamond Model + Attack Trees + Kill Chain", "artifact": "intelligence/threat-model.md"},
+      {"name": "Historical Baseline Comparison (EP8/EP9/EP10)", "artifact": "intelligence/historical-baseline.md"},
+      {"name": "World Bank Indicator Mapping",         "artifact": "intelligence/economic-context.md"},
+      {"name": "Schwartz Wildcards + Taleb Black Swan", "artifact": "intelligence/wildcards-blackswans.md"}
+    ],
+    "historicallyNovelContributions": [
+      "First sustained Diamond Model + Attack Tree application across three threats",
+      "First MCP data-reliability audit with upstream-issue tracking",
+      "First empirical API-tiered recovery model"
+    ]
+  },
+  "artifactStats": {
+    "totalFiles": 17,
+    "totalLines": 3632,
+    "averageLinesPerFile": 214,
+    "readMeFirst": "intelligence/analysis-index.md"
+  },
+  "forwardMonitoring": [
+    {"trigger": "Commission housing response", "deadline": "2026-04-21", "priority": "HIGH"},
+    {"trigger": "USTR Section 301 window", "deadline": "2026-04-22 to 2026-04-26", "priority": "HIGH"},
+    {"trigger": "EP API Tier 2 recovery", "deadline": "2026-04-21 to 2026-04-23", "priority": "MEDIUM"},
+    {"trigger": "German BRRD3 Bundesrat signal", "deadline": "2026-04-23 to 2026-04-25", "priority": "MEDIUM"},
+    {"trigger": "TA-10-2026-0099–0104 content", "deadline": "2026-04-27+", "priority": "CRITICAL"},
+    {"trigger": "MEP plenary registration", "deadline": "2026-04-26 to 2026-04-27", "priority": "LOW"},
+    {"trigger": "MCP server remediation (5 upstream issues)", "deadline": "european-parliament-mcp-server@1.3.0", "priority": "HIGH"}
+  ],
+  "generated": "2026-04-18T07:35:00Z",
+  "lastUpdated": "2026-04-18T09:15:00Z"
+}

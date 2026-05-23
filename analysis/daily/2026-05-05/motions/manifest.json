@@ -1,0 +1,79 @@
+{
+  "version": "2.0",
+  "articleType": "motions",
+  "articleTypeSlug": "motions",
+  "date": "2026-05-05",
+  "runId": "motions-run-1777963626",
+  "workflowStartEpoch": 1777963626,
+  "analysisDir": "analysis/daily/2026-05-05/motions",
+  "stageStatus": {
+    "stageA": "complete",
+    "stageB": "complete",
+    "stageC": "pending",
+    "stageD": "pending",
+    "stageE": "pending"
+  },
+  "pass2": {
+    "startedAt": "2026-05-05T07:10:00Z",
+    "endedAt": "2026-05-05T07:40:00Z",
+    "rewriteCount": 15
+  },
+  "imfAvailable": false,
+  "files": {
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "classification/significance-classification.md"
+    ],
+    "existing": [
+      "existing/deep-analysis.md",
+      "existing/session-baseline.md",
+      "existing/stakeholder-impact.md"
+    ],
+    "intelligence": [
+      "intelligence/actor-mapping.md",
+      "intelligence/analysis-index.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/cross-session-intelligence.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/legislative-procedure.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/political-context.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/risk-assessment.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/session-baseline.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/swot-analysis.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/threat-model.md",
+      "intelligence/timeline-analysis.md",
+      "intelligence/voting-analysis.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/workflow-audit.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/risk-register.md"
+    ],
+    "root": [
+      "executive-brief.md",
+      "methodology-reflection.md"
+    ],
+    "threat-assessment": [
+      "threat-assessment/threat-landscape.md"
+    ]
+  },
+  "dataLimitations": [
+    "EP voting records for April 28-30 not yet available (4-6 week publication lag)",
+    "Full text of adopted texts TA-10-2026-0105 through TA-10-2026-0162 unavailable (404 from EP API)",
+    "IMF SDMX API unavailable (timeout) - economic context uses World Bank/EU Commission data only"
+  ],
+  "history": []
+}

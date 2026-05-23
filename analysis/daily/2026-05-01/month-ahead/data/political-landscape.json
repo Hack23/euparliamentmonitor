@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-05-01T08:43:00Z",
+  "source": "european-parliament MCP generate_political_landscape",
+  "period": {"from": "2025-05-01", "to": "2026-05-01"},
+  "parliament": {
+    "totalMEPs": 719,
+    "politicalGroups": 9,
+    "countriesRepresented": 27
+  },
+  "groups": [
+    {"name": "EPP", "memberCount": 185, "seatShare": 25.73, "countries": 27},
+    {"name": "S&D", "memberCount": 135, "seatShare": 18.78, "countries": 25},
+    {"name": "PfE", "memberCount": 85, "seatShare": 11.82, "countries": 13},
+    {"name": "ECR", "memberCount": 81, "seatShare": 11.27, "countries": 18},
+    {"name": "Renew", "memberCount": 77, "seatShare": 10.71, "countries": 21},
+    {"name": "Greens/EFA", "memberCount": 53, "seatShare": 7.37, "countries": 17},
+    {"name": "The Left", "memberCount": 46, "seatShare": 6.40, "countries": 13},
+    {"name": "NI", "memberCount": 30, "seatShare": 4.17, "countries": 11},
+    {"name": "ESN", "memberCount": 27, "seatShare": 3.76, "countries": 9}
+  ],
+  "powerDynamics": {
+    "largestGroup": "EPP",
+    "majorityThreshold": 361,
+    "grandCoalitionSize": 320,
+    "progressiveBloc": 234,
+    "conservativeBloc": 166
+  },
+  "computedAttributes": {
+    "fragmentationIndex": "HIGH",
+    "majorityType": "MULTI_COALITION_REQUIRED",
+    "politicalBalance": "PROGRESSIVE_LEANING",
+    "effectiveNumberOfParties": 6.57
+  }
+}

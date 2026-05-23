@@ -1,0 +1,35 @@
+{
+  "date": "2026-04-26",
+  "articleType": "week-in-review",
+  "runId": "week-in-review-run-1777235041",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-26-week-in-review",
+  "articlePath": "analysis/daily/2026-04-26/week-in-review/article.md",
+  "topFinding": "The European Parliament's week of April 19–26, 2026 demonstrated high legislative productivity under increasing structural political stress.",
+  "keyTakeaways": [],
+  "topRisks": [],
+  "keyDates": [
+    "*Defence*: European Defence Fund increases; EU strategic procurement framework adopted by Q4 2026",
+    "Adjacent breaking run predictions (if available at `analysis/daily/2026-04-18/breaking/`) likely predicted EU-US tariff countermeasures and defence spending adoption — both confirmed this week (TA-10-2026-0096, TA-10-2026-0040/0020)."
+  ],
+  "keyActors": [
+    "EPP rapporteurs led key dossiers: Clean Industrial Deal, AI Act implementation, defence spending",
+    "EPP holds positions in ECON, ITRE, ENVI, INTA committees disproportionate to seat share",
+    "Coalition flexibility documented: EPP voted with S&D on anti-corruption (TA-10-2026-0094) and with ECR/PfE on migration (TA-10-2026-0025/0026)",
+    "S&D co-authored housing crisis resolution (TA-10-2026-0064) — key social policy win",
+    "S&D support was decisive in anti-corruption directive (TA-10-2026-0094)",
+    "S&D co-sponsored subcontracting/worker rights resolution (TA-10-2026-0050)",
+    "PfE supported migration hardening (safe countries list, safe third country concept)",
+    "PfE's internal divisions visible: Fidesz (pro-Russia, anti-NATO) vs RN (more nuanced on Ukraine) vs FPÖ"
+  ],
+  "macroContext": "Data vintage: IMF World Economic Outlook April 2026 projections",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

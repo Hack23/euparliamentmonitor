@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-06",
+  "articleType": "propositions",
+  "runId": "propositions-run265-1778094352",
+  "gateResult": "PENDING",
+  "slug": "2026-05-06-propositions",
+  "articlePath": "analysis/daily/2026-05-06/propositions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Centrist majority** (EPP+S&D+RE): 396/720 seats (55%) — viable for most legislation",
+    "**Right-Conservative bloc** (EPP+ECR+PfE): 348 seats (48.3%) — below majority threshold",
+    "**Progressive bloc** (S&D+RE+Greens+GUE): 310 seats (43%) — insufficient alone",
+    "**Minimum winning coalition**: 3 groups required (HHI 0.1516, ENP 6.59)"
+  ],
+  "topRisks": [
+    "Signal end of centrist majority reliability on climate legislation",
+    "Damage EU's international credibility (UNFCCC, bilateral trade partners)",
+    "Create reputational cost for both EPP and S&D heading into 2027 national elections",
+    "EPP Group Chair explicit commitment to carbon floor pricing minimum",
+    "S&D early engagement in rapporteur shadow committee work",
+    "Greens/EFA \"insurance\" votes available if RE wavers",
+    "Removes major source of EU climate finance",
+    "Creates WTO pressure narrative (industry opposition \"vindicated\")"
+  ],
+  "keyDates": [
+    "**EDIS EDIP Regulation**: Committee vote by September 2026; plenary first reading by Q4 2026. Adopted via trilogue with Council by Q1 2027."
+  ],
+  "keyActors": [
+    "**EDIS**: Strongly pro — defence industry supports EPP campaigns; EDIP/SAFE fund creates procurement opportunities for EU defence primes headquartered in EPP-aligned states (Germany, France, Italy, Spain).",
+    "**Clean Industrial Deal**: Conditionally pro — supports industrial investment provisions but opposed to overly ambitious carbon pricing timelines. Technology neutrality is an EPP red line.",
+    "**AI Act secondary**: Pro-innovation — favours lighter-touch implementing measures that preserve EU AI competitiveness.",
+    "Defence contracts include minimum social standards (workers' rights, posted workers regulation, supply chain labour conditions).",
+    "Clean Industrial Deal includes a Just Transition Fund expansion and carbon floor pricing that protects ETS integrity.",
+    "AI Act implementing measures include adequate safeguards on AI in employment decisions and state surveillance.",
+    "**EDIS**: PfE is internally split — Le Pen (French RN) supports EU defence cooperation; Orbán (Fidesz) is opposed to any EU defence integration that reduces Hungarian autonomy.",
+    "**CID**: Opposed to CBAM expansion and carbon pricing generally. Will vote against or abstain on most environmental provisions."
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "runDate": "2026-04-17",
+  "runId": 182,
+  "articleType": "breaking",
+  "degradedMode": true,
+  "serverHealth": "Unavailable",
+  "feedEndpointStatus": {
+    "get_adopted_texts_feed_today": "SKIPPED_DEGRADED_MODE",
+    "get_adopted_texts_feed_one_week": "SUCCESS_159_items",
+    "get_events_feed": "SKIPPED_DEGRADED_MODE",
+    "get_procedures_feed_one_week": "404_NOT_FOUND",
+    "get_meps_feed_one_week": "SUCCESS_large_dataset",
+    "get_documents_feed": "EMPTY_ERROR_IN_BODY",
+    "get_plenary_documents_feed": "SKIPPED_DEGRADED_MODE",
+    "get_committee_documents_feed": "SKIPPED_DEGRADED_MODE",
+    "get_parliamentary_questions_feed": "PENDING_2024_DATA_ONLY"
+  },
+  "analyticalToolsStatus": {
+    "get_all_generated_stats": "SUCCESS",
+    "analyze_coalition_dynamics": "SUCCESS_LOW_CONFIDENCE",
+    "detect_voting_anomalies": "SKIPPED_DEGRADED_MODE",
+    "generate_political_landscape": "SKIPPED_DEGRADED_MODE",
+    "early_warning_system": "SKIPPED_DEGRADED_MODE"
+  },
+  "mostRecentAdoptedText": {
+    "date": "2026-03-26",
+    "count": 8,
+    "note": "Last plenary was March 24-27 before Easter recess"
+  },
+  "newsworthinessGate": "FAIL",
+  "reason": "Easter recess April 14-26. No EP activity today April 17.",
+  "analysisMode": "ANALYSIS_ONLY_EXTENDED"
+}

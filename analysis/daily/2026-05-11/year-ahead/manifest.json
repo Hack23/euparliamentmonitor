@@ -1,0 +1,60 @@
+{
+  "runId": "year-ahead-run598-1778488878",
+  "articleTypeSlug": "year-ahead",
+  "date": "2026-05-11",
+  "workflowStartEpoch": 1778488878,
+  "analysisDir": "analysis/daily/2026-05-11/year-ahead",
+  "electoralOverlay": false,
+  "imfAvailable": false,
+  "imfDegradedMode": true,
+  "worldBankAvailable": false,
+  "stage": "B2_complete",
+  "pass2": {
+    "startedAt": "stage-B-pass2-start",
+    "endedAt": "stage-B-pass2-end",
+    "rewriteCount": 6
+  },
+  "dataQuality": {
+    "overall": 6.4,
+    "political": 9,
+    "legislative": 7,
+    "economic": 3,
+    "calendar": 8,
+    "coalition": 5
+  },
+  "artifacts": [
+    "executive-brief.md",
+    "intelligence/synthesis-summary.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/pestle-analysis.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/historical-baseline.md",
+    "intelligence/economic-context.md",
+    "intelligence/wildcards-blackswans.md",
+    "intelligence/mcp-reliability-audit.md",
+    "threat-assessment/political-threat-landscape.md",
+    "threat-assessment/actor-threat-profiles.md",
+    "classification/significance-classification.md",
+    "classification/actor-mapping.md",
+    "classification/forces-analysis.md",
+    "classification/impact-matrix.md",
+    "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md",
+    "forward-projection.md",
+    "legislative-pipeline-forecast.md",
+    "parliamentary-calendar-projection.md",
+    "presidency-trio-context.md",
+    "commission-wp-alignment.md",
+    "extended/media-framing-analysis.md",
+    "methodology-reflection.md"
+  ],
+  "history": [
+    {
+      "runId": "year-ahead-run598-1778488878",
+      "completedAt": "2026-05-11T09:10:00Z",
+      "stage": "B2_complete",
+      "artifactCount": 25
+    }
+  ]
+}

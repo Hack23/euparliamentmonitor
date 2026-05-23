@@ -1,0 +1,87 @@
+{
+  "articleType": "election-cycle",
+  "runId": "election-cycle-run297-1778325628",
+  "date": "2026-05-09",
+  "dataWindow": {
+    "from": "2026-05-09",
+    "to": "2031-05-08",
+    "horizonDays": 1825
+  },
+  "dataMode": "degraded-imf",
+  "dataModeFactor": 0.85,
+  "dataModeReason": "EP per-MEP voting data UNAVAILABLE (upstream constraint); coalition cohesion uses sizeSimilarityScore proxy; IMF connectivity degraded; structural completeness HIGH.",
+  "stages": {
+    "A": {"completedAt": "2026-05-09T11:24:00Z", "status": "complete"},
+    "B1": {"completedAt": "2026-05-09T11:30:00Z", "status": "complete", "rewriteCount": 0},
+    "B2": {"completedAt": "2026-05-09T11:30:30Z", "status": "complete", "rewriteCount": 0, "note": "Fresh run scaffolded from 2026-05-08 term-outlook with substantial extension to election-cycle floors and dual-track contract"},
+    "C": {"status": "pending"},
+    "D": {"status": "pending"},
+    "E": {"status": "pending"}
+  },
+  "pass2": {
+    "startedAt": "2026-05-09T11:30:00Z",
+    "endedAt": "2026-05-09T11:30:30Z",
+    "rewriteCount": 0,
+    "note": "Fresh run; no prior same-day manifest to merge"
+  },
+  "scaffoldingSource": "analysis/daily/2026-05-08/term-outlook/",
+  "files": {
+    "all": [
+"classification/actor-mapping.md",
+"classification/forces-analysis.md",
+"classification/impact-matrix.md",
+"classification/significance-classification.md",
+"executive-brief.md",
+"extended/comparative-international.md",
+"extended/devils-advocate-analysis.md",
+"extended/forward-indicators.md",
+"extended/historical-parallels.md",
+"extended/media-framing-analysis.md",
+"intelligence/analysis-index.md",
+"intelligence/coalition-dynamics.md",
+"intelligence/commission-wp-alignment.md",
+"intelligence/cross-session-intelligence.md",
+"intelligence/economic-context.md",
+"intelligence/forward-projection.md",
+"intelligence/historical-baseline.md",
+"intelligence/mandate-fulfilment-scorecard.md",
+"intelligence/mcp-reliability-audit.md",
+"intelligence/methodology-reflection.md",
+"intelligence/pestle-analysis.md",
+"intelligence/presidency-trio-context.md",
+"intelligence/scenario-forecast.md",
+"intelligence/seat-projection.md",
+"intelligence/stakeholder-map.md",
+"intelligence/synthesis-summary.md",
+"intelligence/term-arc.md",
+"intelligence/threat-model.md",
+"intelligence/wildcards-blackswans.md",
+"risk-scoring/legislative-velocity-risk.md",
+"risk-scoring/political-capital-risk.md",
+"risk-scoring/quantitative-swot.md",
+"risk-scoring/risk-matrix.md",
+"threat-assessment/actor-threat-profiles.md",
+"threat-assessment/consequence-trees.md",
+"threat-assessment/legislative-disruption.md",
+"threat-assessment/political-threat-landscape.md"
+    ],
+    "data": [
+"data/forward-statements-open.json",
+"data/forward-statements-stderr.log",
+"data/political-landscape.json"
+    ]
+  },
+  "dualTrack": {
+    "trackA": ["intelligence/term-arc.md", "intelligence/mandate-fulfilment-scorecard.md", "intelligence/historical-baseline.md"],
+    "trackB": ["intelligence/seat-projection.md", "intelligence/forward-projection.md", "intelligence/scenario-forecast.md", "extended/forward-indicators.md"],
+    "crossCutting": ["intelligence/presidency-trio-context.md", "intelligence/commission-wp-alignment.md", "extended/media-framing-analysis.md"]
+  },
+  "epContext": {
+    "totalMEPs": 717,
+    "groups": 9,
+    "majorityThreshold": 360,
+    "grandCoalitionSize": 319,
+    "fragmentationIndex": "HIGH",
+    "majorityType": "MULTI_COALITION_REQUIRED"
+  }
+}

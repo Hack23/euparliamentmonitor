@@ -1,0 +1,48 @@
+{
+  "articleType": "week-in-review",
+  "date": "2026-04-26",
+  "runId": "week-in-review-run-1777235041",
+  "startEpoch": 1777235041,
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "14/18 artifacts below floor (all require Mermaid diagrams; line expansion needed); minute-18 decision to force ANALYSIS_ONLY to preserve Stage E PR-call deadline",
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "analysisIndex": "intelligence/analysis-index.md",
+    "synthesisSummary": "intelligence/synthesis-summary.md",
+    "historicalBaseline": "intelligence/historical-baseline.md",
+    "economicContext": "intelligence/economic-context.md",
+    "pestleAnalysis": "intelligence/pestle-analysis.md",
+    "stakeholderMap": "intelligence/stakeholder-map.md",
+    "scenarioForecast": "intelligence/scenario-forecast.md",
+    "threatModel": "intelligence/threat-model.md",
+    "wildcardsBlackswans": "intelligence/wildcards-blackswans.md",
+    "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+    "referenceAnalysisQuality": "intelligence/reference-analysis-quality.md",
+    "votingPatterns": "intelligence/voting-patterns.md",
+    "crossSessionIntelligence": "intelligence/cross-session-intelligence.md",
+    "workflowAudit": "intelligence/workflow-audit.md",
+    "methodologyReflection": "intelligence/methodology-reflection.md",
+    "riskMatrix": "risk-scoring/risk-matrix.md",
+    "quantitativeSwot": "risk-scoring/quantitative-swot.md"
+  },
+  "dataGaps": [
+    "voting_records_empty_ep_publication_delay",
+    "speeches_empty_ep_publication_delay",
+    "legislative_pipeline_empty",
+    "world_bank_eu_aggregate_not_supported"
+  ],
+  "artifactStats": {
+    "total": 18,
+    "aboveFloor": 3,
+    "belowFloor": 15,
+    "missingMermaid": 16
+  },
+  "history": [
+    {
+      "runId": "week-in-review-run-1777235041",
+      "epoch": 1777235041,
+      "gateResult": "ANALYSIS_ONLY",
+      "artifactsProduced": 18
+    }
+  ]
+}

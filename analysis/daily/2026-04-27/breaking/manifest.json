@@ -1,0 +1,56 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-27",
+  "runId": "breaking-run1777273481",
+  "analysisDir": "analysis/daily/2026-04-27/breaking",
+  "createdAt": "2026-04-27T00:00:00Z",
+  "gateResult": "ANALYSIS_ONLY",
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "intelligence": {
+      "synthesisSummary": "intelligence/synthesis-summary.md",
+      "coalitionDynamics": "intelligence/coalition-dynamics.md",
+      "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+      "scenarioForecast": "intelligence/scenario-forecast.md",
+      "threatModel": "intelligence/threat-model.md",
+      "crossRunDiff": "intelligence/cross-run-diff.md",
+      "politicalThreatLandscape": "intelligence/political-threat-landscape.md",
+      "wildcardsBlackswans": "intelligence/wildcards-blackswans.md",
+      "methodologyReflection": "intelligence/methodology-reflection.md"
+    },
+    "classification": {
+      "impactMatrix": "classification/impact-matrix.md",
+      "forcesAnalysis": "classification/forces-analysis.md",
+      "actorMapping": "classification/actor-mapping.md"
+    },
+    "riskScoring": {
+      "riskMatrix": "risk-scoring/risk-matrix.md",
+      "politicalCapitalRisk": "risk-scoring/political-capital-risk.md",
+      "legislativeVelocityRisk": "risk-scoring/legislative-velocity-risk.md"
+    },
+    "threatAssessment": {
+      "actorThreatProfiles": "threat-assessment/actor-threat-profiles.md",
+      "legislativeDisruption": "threat-assessment/legislative-disruption.md",
+      "consequenceTrees": "threat-assessment/consequence-trees.md"
+    },
+    "extended": {
+      "intelligenceAssessment": "extended/intelligence-assessment.md",
+      "devilsAdvocateAnalysis": "extended/devils-advocate-analysis.md",
+      "forwardIndicators": "extended/forward-indicators.md",
+      "comparativeInternational": "extended/comparative-international.md",
+      "historicalParallels": "extended/historical-parallels.md"
+    },
+    "data": {
+      "stageASummary": "data/stage-a-summary.json"
+    }
+  },
+  "history": [
+    {
+      "runId": "breaking-run1777273481",
+      "timestamp": "2026-04-27T00:00:00Z",
+      "gateResult": "ANALYSIS_ONLY",
+      "artifactCount": 20,
+      "notes": "First run of 2026-04-27. April plenary LIVE (MTG-PL-2026-04-27). Events feed unavailable (known §11 degradation). Procedures feed RECESS_MODE (known §11). Adopted texts feed FRESHNESS_FALLBACK. Analysis based on structural EP data and 2026 Q1 legislative record. Stage C: ANALYSIS_ONLY (elapsed-time tripwire at minute 22). Many artifacts below line floors and several missing - clean run needed."
+    }
+  ]
+}

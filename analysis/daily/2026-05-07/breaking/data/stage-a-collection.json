@@ -1,0 +1,45 @@
+{
+  "collectedAt": "2026-05-07T18:55:00Z",
+  "runId": "breaking-rerun2-1778179641",
+  "feeds": {
+    "adopted_texts_feed_today": "unavailable",
+    "adopted_texts_feed_one_week": "available",
+    "events_feed_today": "unavailable",
+    "procedures_feed_today": "partial (historical data)"
+  },
+  "keyAdoptedTexts": [
+    {"id": "TA-10-2026-0112", "title": "Guidelines for the 2027 budget - Section III", "dateAdopted": "2026-04-28", "subjects": "BUDGET"},
+    {"id": "TA-10-2026-0115", "title": "Welfare of dogs and cats and their traceability", "dateAdopted": "2026-04-28", "subjects": "IANW,IABR,IAID,VETE"},
+    {"id": "TA-10-2026-0119", "title": "Control of the financial activities of the European Investment Bank Group — annual report 2024", "dateAdopted": "2026-04-28"},
+    {"id": "TA-10-2026-0142", "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data", "dateAdopted": "2026-04-29", "subjects": "EXT,COOP,c_69c82520"},
+    {"id": "TA-10-2026-0151", "title": "Escalating trafficking and exploitation by criminal groups in Haiti", "dateAdopted": "2026-04-30", "subjects": "DDLH,PESC"},
+    {"id": "TA-10-2026-0160", "title": "Enforcement of the Digital Markets Act", "dateAdopted": "2026-04-30"},
+    {"id": "TA-10-2026-0161", "title": "Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine", "dateAdopted": "2026-04-30", "subjects": ""},
+    {"id": "TA-10-2026-0162", "title": "Supporting democratic resilience in Armenia", "dateAdopted": "2026-04-30", "subjects": ""},
+    {"id": "TA-10-2026-04-30-ANN01", "title": "ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027", "dateAdopted": "2026-04-30", "type": "BUDGET_EP_DRAFT"}
+  ],
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "groups": [
+      {"name": "EPP", "seats": 185, "share": 25.73},
+      {"name": "S&D", "seats": 136, "share": 18.92},
+      {"name": "PfE", "seats": 85, "share": 11.82},
+      {"name": "ECR", "seats": 81, "share": 11.27},
+      {"name": "Renew", "seats": 77, "share": 10.71},
+      {"name": "Greens/EFA", "seats": 53, "share": 7.37},
+      {"name": "The Left", "seats": 45, "share": 6.26},
+      {"name": "NI", "seats": 30, "share": 4.17},
+      {"name": "ESN", "seats": 27, "share": 3.76}
+    ],
+    "majorityThreshold": 361,
+    "grandCoalitionSize": 321,
+    "fragmentationIndex": 6.55,
+    "fragmentationLevel": "HIGH",
+    "coalitionType": "MULTI_COALITION_REQUIRED",
+    "progressiveBloc": 234,
+    "conservativeBloc": 166
+  },
+  "votingRecords": "unavailable - EP roll-call delay (4-6 weeks)",
+  "latestVotes": "unavailable - no DOCEO XML for 2026-05-04 to 2026-05-07",
+  "imf": "unavailable - sandbox AWF environment restriction"
+}

@@ -1,0 +1,68 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-05",
+  "slug": "breaking-2",
+  "generatedAt": "2026-04-05T06:30:00Z",
+  "newsworthy": false,
+  "reason": "Easter recess — no parliamentary activity on Sunday 5 April 2026. Second analysis run extends morning analysis with cross-session intelligence, Bayesian updating, PESTLE framework, and coalition scenario analysis. Parliament resumes 14 April (committee week).",
+  "priorAnalysis": {
+    "path": "analysis/2026-04-05/breaking/",
+    "generatedAt": "2026-04-05T00:20:00Z",
+    "runId": "23990553586",
+    "artifacts": 4,
+    "totalLines": 705
+  },
+  "dataCollected": {
+    "adoptedTexts": 85,
+    "events": 0,
+    "procedures": 0,
+    "meps": 737,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "questions": 0
+  },
+  "feedStatus": {
+    "adopted_texts_today": "error_json_parse",
+    "adopted_texts_week": "ok_85_items",
+    "events_today": "404",
+    "events_week": "404",
+    "procedures_today": "404",
+    "procedures_week": "404",
+    "meps_today": "ok_737_items",
+    "documents_week": "404",
+    "plenary_documents_week": "timeout_120s",
+    "committee_documents_week": "timeout_120s",
+    "questions_week": "timeout_120s"
+  },
+  "analyticalContext": {
+    "voting_anomalies": "0_detected_low_confidence",
+    "coalition_dynamics": "size_ratio_only_low_confidence",
+    "political_landscape": "8_groups_PPE_dominant_38pct",
+    "early_warning": "stability_84_PPE_dominance_HIGH",
+    "precomputed_stats": "2024-2026_all_categories_with_predictions"
+  },
+  "crossSessionIntelligence": {
+    "run1_time": "2026-04-05T00:20:00Z",
+    "run2_time": "2026-04-05T06:30:00Z",
+    "interval_hours": 6,
+    "data_consistency": "IDENTICAL — no changes in 6-hour window",
+    "api_degradation_pattern": "CONFIRMED — systematic recess degradation since 28 March (Day 9)"
+  },
+  "frameworksApplied": [
+    "SWOT + TOWS Strategic Matrix",
+    "Political Risk Methodology v2.0",
+    "Political Threat Landscape (Diamond Model)",
+    "PESTLE Analysis",
+    "Coalition Scenario Analysis",
+    "Bayesian Probability Updating",
+    "Cross-Session Intelligence Correlation"
+  ],
+  "analysisArtifacts": [
+    "intelligence-brief.md",
+    "political-landscape-analysis.md",
+    "risk-assessment.md",
+    "swot-analysis.md"
+  ],
+  "methodology": "ai-driven-analysis-guide.md v4.0 — 4-pass refinement, 6 methodology docs consulted, cross-session Bayesian updating"
+}

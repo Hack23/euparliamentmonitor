@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-06",
+  "articleType": "committee-reports",
+  "runId": "7de43851-7add-4544-bc46-9d67a82117ca",
+  "gateResult": "PENDING",
+  "slug": "2026-04-06-committee-reports",
+  "articlePath": "analysis/daily/2026-04-06/committee-reports/article.md",
+  "topFinding": "This Easter Monday committee-reports run produces the committee-power retrospective on the pre-recess corpus*, the analytical complement to the breaking-news cluster on the same date: where breaking-runs documented the dual-track coalition pattern, the committee-reports run documents the committee-level…",
+  "keyTakeaways": [
+    "🔴 **Three-committee Q1 dominance** — ECON · LIBE · INTA.",
+    "🟠 **ECON Banking Union triple** — SRMR3 + DGSD2 + BRRD3 (multi-year completion).",
+    "🟢 **LIBE Anti-Corruption** — first cross-EU criminal-law instrument since EPPO.",
+    "🟡 **INTA US tariff** — operational implementation activates April 15.",
+    "🔵 **236 adopted texts in cumulative corpus** — verifiable via one-week feed.",
+    "🟣 **20 analysis files** — committee-level methodology applied per file.",
+    "🩷 **API 4/8 feeds active** — degraded but committee data accessible."
+  ],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,182 @@
+{
+    "collectionDate": "2026-05-11",
+    "dataWindow": "2026-05-04 to 2026-05-11",
+    "latestPlenary": "2026-04-28 to 2026-04-30 Strasbourg",
+    "adoptedTexts2026Count": 71,
+    "recentAdoptedTexts": [
+        {
+            "id": "TA-10-2026-0157",
+            "title": "How to secure a sustainable future for the EU livestock sector",
+            "dateAdopted": "2026-04-30",
+            "subjectMatter": "IANO,IAZC"
+        },
+        {
+            "id": "TA-10-2026-0160",
+            "title": "Enforcement of the Digital Markets Act",
+            "dateAdopted": "2026-04-30",
+            "subjectMatter": "PROT,MARI"
+        },
+        {
+            "id": "TA-10-2026-0161",
+            "title": "Ensuring accountability and justice in response to Russia's continued attacks against Ukraine",
+            "dateAdopted": "2026-04-30"
+        },
+        {
+            "id": "TA-10-2026-0162",
+            "title": "Supporting democratic resilience in Armenia",
+            "dateAdopted": "2026-04-30"
+        },
+        {
+            "id": "TA-10-2026-0163",
+            "title": "The need for targeted criminal provisions and platforms' responsibility to effectively address cyberbullying and online harassment",
+            "dateAdopted": "2026-04-30",
+            "subjectMatter": "TELE,SOCI"
+        },
+        {
+            "id": "TA-10-2026-0151",
+            "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+            "dateAdopted": "2026-04-30",
+            "subjectMatter": "DDLH,PESC"
+        },
+        {
+            "id": "TA-10-2026-0142",
+            "title": "EU-Iceland agreement on PNR data",
+            "dateAdopted": "2026-04-29",
+            "subjectMatter": "EXT,COOP"
+        },
+        {
+            "id": "TA-10-2026-0132",
+            "title": "Discharge 2024: EU general budget - Committee of the Regions",
+            "dateAdopted": "2026-04-29",
+            "subjectMatter": "BUDG"
+        },
+        {
+            "id": "TA-10-2026-0112",
+            "title": "Guidelines for the 2027 budget - Section III",
+            "dateAdopted": "2026-04-28",
+            "subjectMatter": "BUDG"
+        },
+        {
+            "id": "TA-10-2026-0115",
+            "title": "Welfare of dogs and cats and their traceability",
+            "dateAdopted": "2026-04-28",
+            "subjectMatter": "IANW"
+        },
+        {
+            "id": "TA-10-2026-0119",
+            "title": "Control of the financial activities of the European Investment Bank Group \u2014 annual report 2024",
+            "dateAdopted": "2026-04-28"
+        },
+        {
+            "id": "TA-10-2026-0122",
+            "title": "Control, transparency and traceability of performance-based instruments",
+            "dateAdopted": "2026-04-28",
+            "subjectMatter": "BUDG"
+        },
+        {
+            "id": "TA-10-2026-0105",
+            "title": "Request for the waiver of the immunity of Patryk Jaki",
+            "dateAdopted": "2026-04-28",
+            "subjectMatter": "PRIV"
+        }
+    ],
+    "parliamentComposition": {
+        "totalMEPs": 717,
+        "groups": [
+            {
+                "name": "EPP",
+                "members": 183,
+                "seatShare": 25.52
+            },
+            {
+                "name": "S&D",
+                "members": 136,
+                "seatShare": 18.97
+            },
+            {
+                "name": "PfE",
+                "members": 85,
+                "seatShare": 11.85
+            },
+            {
+                "name": "ECR",
+                "members": 81,
+                "seatShare": 11.3
+            },
+            {
+                "name": "Renew",
+                "members": 77,
+                "seatShare": 10.74
+            },
+            {
+                "name": "Greens/EFA",
+                "members": 53,
+                "seatShare": 7.39
+            },
+            {
+                "name": "The Left",
+                "members": 45,
+                "seatShare": 6.28
+            },
+            {
+                "name": "NI",
+                "members": 30,
+                "seatShare": 4.18
+            },
+            {
+                "name": "ESN",
+                "members": 27,
+                "seatShare": 3.77
+            }
+        ],
+        "majorityThreshold": 360
+    },
+    "keyDebates": [
+        {
+            "title": "EU strategy in response to the ongoing Middle East crisis, its implications on energy prices and the availability of fertilizers",
+            "date": "2026-04-29",
+            "type": "joint debate"
+        },
+        {
+            "title": "Commission interference in democratic process and elections",
+            "date": "2026-04-29",
+            "type": "Rule 169 topical debate requested by PfE",
+            "significance": "MAJOR - sovereigntist right challenges Commission overreach"
+        },
+        {
+            "title": "Cyberbullying and online harassment criminal provisions",
+            "date": "2026-04-29",
+            "type": "legislative debate"
+        },
+        {
+            "title": "Danger of normalising relations with Russia",
+            "date": "2026-04-29",
+            "type": "debate"
+        },
+        {
+            "title": "Lebanon ceasefire",
+            "date": "2026-04-29",
+            "type": "debate"
+        },
+        {
+            "title": "Combat antisemitism and protect Jewish life in Europe",
+            "date": "2026-04-29",
+            "type": "debate"
+        },
+        {
+            "title": "Roma inclusion, equality and fundamental rights",
+            "date": "2026-04-29",
+            "type": "debate"
+        },
+        {
+            "title": "Sudan humanitarian crisis",
+            "date": "2026-04-29",
+            "type": "debate"
+        },
+        {
+            "title": "Venezuela Amnesty Law shortcomings",
+            "date": "2026-04-29",
+            "type": "debate"
+        }
+    ]
+}

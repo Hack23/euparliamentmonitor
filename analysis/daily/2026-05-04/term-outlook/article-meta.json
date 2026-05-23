@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-04",
+  "articleType": "term-outlook",
+  "runId": "term-outlook-run-1777895963",
+  "gateResult": "PASS",
+  "slug": "2026-05-04-term-outlook",
+  "articlePath": "analysis/daily/2026-05-04/term-outlook/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "Core majority: EPP (185) + S&D (135) + Renew (77) = 397 seats (solid majority)",
+    "Greens (53) + Left (46) augment on progressive dossiers but are not consistently available",
+    "ECR (81) + PfE (85) provide a majority-of-sorts on right-tilt amendments when EPP permits",
+    "YES → EP10 proves that social Europe and competitive Europe are not mutually exclusive; S&D legacy enhanced",
+    "NO → EP10 passes CID as competitiveness measure only; Green Deal advocates claim defeat; S&D weakened",
+    "YES → EU institutional norms vindicated; right-wing votes \"contained\"",
+    "NO → Major structural shift in EP's coalition grammar; normalisation of far-right"
+  ],
+  "topRisks": [
+    "**R01 Disinformation:** Highly likely; direct threat to 2029 electoral mandate",
+    "**R02 CID Stalled:** Possible; primary legislative failure risk",
+    "**R03 US Trade War:** Possible; external shock that forces dossier reprioritisation",
+    "**R04 Coalition gridlock:** Likely on specific dossiers; structural EP10 condition",
+    "**R05 Russian escalation:** Low probability but catastrophic if triggered",
+    "**R06 PfE anti-cordon:** Possible; institutional legitimacy dimension"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "EPP-S&D-Renew (Grand Coalition): cohesion ~68%; primary governing alliance",
+    "EPP-ECR (selective): defence and migration votes; ad hoc",
+    "S&D-Greens-Left (progressive bloc): climate votes; 234 seats (insufficient majority alone)",
+    "EPP-ECR-PfE (right bloc): 351 seats; below majority threshold",
+    "EP President Metsola (EPP): institutional credibility; manages cross-group dialogue",
+    "EPP Group Chair: determines right-flank accommodation level",
+    "S&D delegation chairs: French PS, German SPD — key for coalition messaging",
+    "Renew delegation: French LREM component largest; France 2027 election risk"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

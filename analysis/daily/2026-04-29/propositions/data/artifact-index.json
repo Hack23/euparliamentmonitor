@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-04-29T06:06:00Z",
+  "dataWindow": {"from": "2026-04-22", "to": "2026-04-29"},
+  "sources": {
+    "adoptedTexts": {"count": 22, "period": "April 28, 2026", "session": "Strasbourg"},
+    "plenaySessions": ["MTG-PL-2026-04-27", "MTG-PL-2026-04-28", "MTG-PL-2026-04-29"],
+    "politicalLandscape": {"totalMEPs": 719, "groups": 9},
+    "proceduresTracked": ["2023-0447(COD)", "2025-0261(COD)", "2023-0135(COD)", "2025-2246(BUI)"],
+    "votingRecords": {"available": false, "reason": "EP roll-call data delay 4-6 weeks"}
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "2.0",
+  "runId": "term-outlook-run367-1778164061",
+  "articleType": "term-outlook",
+  "date": "2026-05-07",
+  "analysisDir": "analysis/daily/2026-05-07/term-outlook",
+  "createdAt": "2026-05-07T00:00:00Z",
+  "gateResult": "ANALYSIS_ONLY",
+  "pass2": {
+    "startedAt": "2026-05-07T00:20:00Z",
+    "endedAt": "2026-05-07T00:35:00Z",
+    "rewriteCount": 5,
+    "note": "Pass 2 integrated as quality-checking within artifact creation; five critical artifacts substantially extended: scenario-forecast, forward-projection, term-arc, seat-projection, mandate-fulfilment-scorecard"
+  },
+  "electoralOverlay": true,
+  "dataSourceStatus": {
+    "ep_mcp": "PARTIAL",
+    "imf": "UNAVAILABLE",
+    "world_bank": "UNAVAILABLE",
+    "repo_memory": "AVAILABLE"
+  },
+  "artifactSources": {
+    "executive-brief.md": "fresh",
+    "intelligence/synthesis-summary.md": "fresh",
+    "intelligence/coalition-dynamics.md": "fresh",
+    "intelligence/economic-context.md": "fresh",
+    "intelligence/pestle-analysis.md": "fresh",
+    "intelligence/scenario-forecast.md": "fresh",
+    "intelligence/stakeholder-map.md": "fresh",
+    "intelligence/term-arc.md": "fresh",
+    "intelligence/seat-projection.md": "fresh",
+    "intelligence/mandate-fulfilment-scorecard.md": "fresh",
+    "intelligence/forward-projection.md": "fresh",
+    "intelligence/historical-baseline.md": "fresh",
+    "intelligence/threat-model.md": "fresh",
+    "intelligence/wildcards-blackswans.md": "fresh",
+    "intelligence/presidency-trio-context.md": "fresh",
+    "intelligence/commission-wp-alignment.md": "fresh",
+    "intelligence/mcp-reliability-audit.md": "fresh",
+    "intelligence/analysis-index.md": "fresh",
+    "intelligence/methodology-reflection.md": "fresh",
+    "extended/forward-indicators.md": "fresh",
+    "extended/historical-parallels.md": "fresh",
+    "extended/comparative-international.md": "fresh",
+    "risk-scoring/risk-matrix.md": "fresh",
+    "risk-scoring/quantitative-swot.md": "fresh",
+    "classification/significance-classification.md": "fresh",
+    "classification/actor-mapping.md": "fresh",
+    "classification/forces-analysis.md": "fresh",
+    "classification/impact-matrix.md": "fresh"
+  },
+  "keyFindings": {
+    "totalMEPs": 719,
+    "groups": {"EPP": 185, "SD": 136, "PfE": 85, "ECR": 81, "Renew": 77, "Greens": 53, "Left": 45, "NI": 30, "ESN": 27},
+    "majorityThreshold": 361,
+    "grandCoalitionSeats": 398,
+    "grandCoalitionMargin": 37,
+    "enpFragmentationIndex": 6.55,
+    "stabilityScore": 84,
+    "riskLevel": "MEDIUM",
+    "flagshipLegislation": "SAFE Regulation",
+    "primaryThreat": "PfE_normalisation",
+    "economicContextSource": "AGENT_KNOWLEDGE_IMF_UNAVAILABLE"
+  },
+  "history": [
+    {
+      "runId": "term-outlook-run367-1778164061",
+      "timestamp": "2026-05-07T00:00:00Z",
+      "stage": "B_COMPLETE",
+      "artifactsCreated": 28,
+      "gateResult": "ANALYSIS_ONLY"
+    }
+  ]
+}

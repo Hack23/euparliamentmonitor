@@ -1,0 +1,46 @@
+{
+  "articleType": "month-ahead",
+  "analysisDate": "2026-05-06",
+  "runId": "month-ahead-run261-1778107666",
+  "horizon": "2026-05-07 to 2026-06-06",
+  "created": "2026-05-06T22:47:35Z",
+  "dataMode": "degraded-imf",
+  "stageB": {
+    "pass1": { "startedAt": "2026-05-06T22:53:00Z" },
+    "pass2": { "startedAt": "2026-05-06T23:30:00Z", "endedAt": "2026-05-06T23:50:00Z", "rewriteCount": 4 }
+  },
+  "files": {
+    "executive-brief": "analysis/daily/2026-05-06/month-ahead/executive-brief.md",
+    "analysis-index": "analysis/daily/2026-05-06/month-ahead/intelligence/analysis-index.md",
+    "synthesis-summary": "analysis/daily/2026-05-06/month-ahead/intelligence/synthesis-summary.md",
+    "historical-baseline": "analysis/daily/2026-05-06/month-ahead/intelligence/historical-baseline.md",
+    "economic-context": "analysis/daily/2026-05-06/month-ahead/intelligence/economic-context.md",
+    "pestle-analysis": "analysis/daily/2026-05-06/month-ahead/intelligence/pestle-analysis.md",
+    "stakeholder-map": "analysis/daily/2026-05-06/month-ahead/intelligence/stakeholder-map.md",
+    "scenario-forecast": "analysis/daily/2026-05-06/month-ahead/intelligence/scenario-forecast.md",
+    "threat-model": "analysis/daily/2026-05-06/month-ahead/intelligence/threat-model.md",
+    "wildcards-blackswans": "analysis/daily/2026-05-06/month-ahead/intelligence/wildcards-blackswans.md",
+    "mcp-reliability-audit": "analysis/daily/2026-05-06/month-ahead/intelligence/mcp-reliability-audit.md",
+    "reference-analysis-quality": "analysis/daily/2026-05-06/month-ahead/intelligence/reference-analysis-quality.md",
+    "forward-projection": "analysis/daily/2026-05-06/month-ahead/intelligence/forward-projection.md",
+    "risk-matrix": "analysis/daily/2026-05-06/month-ahead/risk-scoring/risk-matrix.md",
+    "quantitative-swot": "analysis/daily/2026-05-06/month-ahead/risk-scoring/quantitative-swot.md",
+    "methodology-reflection": "analysis/daily/2026-05-06/month-ahead/intelligence/methodology-reflection.md",
+    "coalition-dynamics": "analysis/daily/2026-05-06/month-ahead/intelligence/coalition-dynamics.md",
+    "significance-classification": "analysis/daily/2026-05-06/month-ahead/classification/significance-classification.md",
+    "actor-mapping": "analysis/daily/2026-05-06/month-ahead/classification/actor-mapping.md",
+    "forces-analysis": "analysis/daily/2026-05-06/month-ahead/classification/forces-analysis.md",
+    "impact-matrix": "analysis/daily/2026-05-06/month-ahead/classification/impact-matrix.md"
+  },
+  "history": [
+    {
+      "runId": "month-ahead-run261-1778107666",
+      "runAt": "2026-05-06T22:47:35Z",
+      "artifactCount": 21,
+      "dataQuality": "DEGRADED",
+      "epApiStatus": "502_WIDESPREAD",
+      "imfApiStatus": "UNAVAILABLE",
+      "wbApiStatus": "PARTIAL"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-28",
+  "articleType": "propositions",
+  "runId": "propositions-run-1777356258",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-28-propositions",
+  "articlePath": "analysis/daily/2026-04-28/propositions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Level 2 delegated acts**: ~15 regulatory technical standards (RTS) from EBA under SRMR3/BRRD3",
+    "**Level 3 guidelines**: EBA consultation papers on bail-in sequencing and liquidation planning",
+    "**Supervisory convergence**: ECB-SSM supervisory manual updates within 18 months",
+    "**Timeline**: Full transposition deadline for member states — 24 months (circa March 2028)",
+    "**Track A — Accelerated processing**: Nationals of designated safe countries face 4-week processing (vs. standard 6–12 months) with limited appeal rights",
+    "**Track B — Third-country returns**: Return to designated safe third countries possible even without prior residence, if \"connection\" criteria met",
+    "**Tier 1 — High-risk AI** (medical, judicial, infrastructure): Full AI Act compliance burden retained"
+  ],
+  "topRisks": [
+    "Invalidate asylum decisions made under the regulation",
+    "Force Commission re-proposal",
+    "Create 18–36 month legislative gap with no operational migration framework",
+    "Inconsistent policy signals (migration vs. climate vs. digital)",
+    "Opportunity for S&D or ECR to extract concessions",
+    "Risk that critical files fall between the two coalition options"
+  ],
+  "keyDates": [
+    "104 texts adopted in Q1 2026 demonstrates the Parliament can process legislation efficiently"
+  ],
+  "keyActors": [
+    "Commissioner for Economic Security and Financial Services (Banking Union follow-up)",
+    "Commissioner for AI and Digital Economy (AI Omnibus implementation)",
+    "Commissioner for Migration and Home Affairs (Migration Pact transposition)",
+    "Commissioner for Climate Action (2040 framework implementing acts)",
+    "**Migration**: Polish government under Tusk is navigating between EU solidarity commitments and domestic political pressure from the right",
+    "**Defence**: Poland (2% GDP NATO spending since 2015+) is the strongest advocate for EU defence integration and higher defence budgets",
+    "**Eastern Partnership**: Polish foreign policy priority; strong support for Ukraine integration pathway",
+    "2026 Autumn budget negotiations"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

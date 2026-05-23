@@ -1,0 +1,88 @@
+{
+  "articleType": "propositions",
+  "date": "2026-05-04",
+  "runId": "propositions-run-1777874745",
+  "createdAt": "2026-05-04T06:05:45Z",
+  "status": "complete",
+  "pass2": {
+    "startedAt": "2026-05-04T06:12:00Z",
+    "endedAt": "2026-05-04T06:35:00Z",
+    "rewriteCount": 7
+  },
+  "history": [
+    {
+      "runId": "propositions-run-1777874745",
+      "timestamp": "2026-05-04T06:05:45Z",
+      "status": "complete"
+    }
+  ],
+  "files": {
+    "data": [
+      "data/raw-procedures-week.json"
+    ],
+    "documents": [
+      "documents/propositions-analysis.md",
+      "documents/swot-analysis.md",
+      "documents/methodology-reflection.md"
+    ],
+    "intelligence": [
+      "intelligence/stakeholder-analysis.md",
+      "intelligence/political-intelligence.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-assessment.md"
+    ],
+    "classification": [
+      "classification/procedure-classification.md"
+    ],
+    "existing": [
+      "existing/pipeline-health.md"
+    ],
+    "intelligence/coalition-dynamics": "intelligence/coalition-dynamics.md",
+    "classification/actor-mapping": "classification/actor-mapping.md",
+    "classification/forces-analysis": "classification/forces-analysis.md",
+    "classification/impact-matrix": "classification/impact-matrix.md",
+    "classification/significance-classification": "classification/significance-classification.md",
+    "manifest": "manifest.json",
+    "executive-brief": "executive-brief.md",
+    "risk-scoring/quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix": "risk-scoring/risk-matrix.md",
+    "risk-scoring/risk-assessment": "risk-scoring/risk-assessment.md",
+    "intelligence/scenario-forecast": "intelligence/scenario-forecast.md",
+    "intelligence/methodology-reflection": "intelligence/methodology-reflection.md",
+    "intelligence/stakeholder-map": "intelligence/stakeholder-map.md",
+    "intelligence/political-intelligence": "intelligence/political-intelligence.md",
+    "intelligence/stakeholder-analysis": "intelligence/stakeholder-analysis.md",
+    "intelligence/threat-model": "intelligence/threat-model.md",
+    "intelligence/pestle-analysis": "intelligence/pestle-analysis.md",
+    "intelligence/synthesis-summary": "intelligence/synthesis-summary.md",
+    "intelligence/analysis-index": "intelligence/analysis-index.md",
+    "intelligence/reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "intelligence/economic-context": "intelligence/economic-context.md",
+    "intelligence/mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "intelligence/historical-baseline": "intelligence/historical-baseline.md",
+    "intelligence/wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "classification/procedure-classification": "classification/procedure-classification.md",
+    "existing/pipeline-health": "existing/pipeline-health.md",
+    "documents/propositions-analysis": "documents/propositions-analysis.md",
+    "documents/methodology-reflection": "documents/methodology-reflection.md",
+    "documents/swot-analysis": "documents/swot-analysis.md",
+    "data/raw-procedures-week": "data/raw-procedures-week.json"
+  },
+  "dataQuality": {
+    "proceduresFeed": "DEGRADED - returns 1970s-1980s historical data only",
+    "externalDocumentsFeed": "UNAVAILABLE",
+    "committeeDocumentsFeed": "UNAVAILABLE",
+    "adoptedTexts": "HEALTHY - 101 texts from 2026",
+    "plenarySessions": "HEALTHY",
+    "votingRecords": "DELAYED - 4-6 week EP publication lag"
+  },
+  "keyFindings": [
+    "April 28-30 Strasbourg plenary: 18 legislative/quasi-legislative acts adopted",
+    "5 ordinary procedure COD texts finalized including ETS II MSR, GHG transport, GSP Recast",
+    "Ukraine Claims Commission: EP consent granted - 43-state ratification pipeline activated",
+    "5 immunity waivers in one session (4 Polish MEPs + 1 Romanian) - historically unusual concentration",
+    "DMA enforcement resolution: non-binding but creates 3-month Commission response obligation",
+    "Proxy voting amendment: requires Electoral Act primary law change + member state ratification"
+  ]
+}

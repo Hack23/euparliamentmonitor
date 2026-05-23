@@ -1,0 +1,96 @@
+{
+  "articleType": "motions",
+  "runId": "motions-run-1777359929",
+  "date": "2026-04-28",
+  "createdAt": "2026-04-28T07:05:29Z",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 23; PR call deadline ≤ 25",
+  "pass2": {
+    "startedAt": "2026-04-28T07:22:00Z",
+    "endedAt": "2026-04-28T07:23:00Z",
+    "rewriteCount": 2,
+    "note": "Pass 2 abbreviated due to tripwire; added required sections to impact-matrix.md and actor-mapping.md"
+  },
+  "files": {
+    "root": [
+      "executive-brief.md"
+    ],
+    "intelligence": [
+      "synthesis-summary.md",
+      "coalition-dynamics.md",
+      "pestle-analysis.md",
+      "stakeholder-map.md",
+      "scenario-forecast.md",
+      "economic-context.md",
+      "wildcards-blackswans.md",
+      "historical-baseline.md"
+    ],
+    "classification": [
+      "significance-classification.md",
+      "actor-mapping.md",
+      "forces-analysis.md",
+      "impact-matrix.md"
+    ],
+    "risk-scoring": [
+      "risk-matrix.md",
+      "quantitative-swot.md",
+      "political-capital-risk.md",
+      "legislative-velocity-risk.md"
+    ],
+    "threat-assessment": [
+      "actor-threat-profiles.md",
+      "legislative-disruption.md"
+    ],
+    "existing": [
+      "voting-patterns.md",
+      "stakeholder-impact.md",
+      "deep-analysis.md"
+    ],
+    "data": [
+      "stage-a-summary.json"
+    ]
+  },
+  "missingArtifacts": [
+    "threat-assessment/consequence-trees.md",
+    "intelligence/threat-model.md",
+    "intelligence/analysis-index.md",
+    "intelligence/methodology-reflection.md",
+    "risk-scoring/political-capital-risk.md",
+    "classification/actor-mapping.md"
+  ],
+  "artifactCount": 21,
+  "imfDataIntegrated": true,
+  "imfSource": "IMF WEO April 2026 + IMF Fiscal Monitor April 2026",
+  "worldBankDataIntegrated": true,
+  "epMcpDataCollected": true,
+  "stageATools": [
+    "get_adopted_texts_feed",
+    "get_voting_records",
+    "get_plenary_sessions",
+    "get_adopted_texts",
+    "analyze_coalition_dynamics",
+    "monitor_legislative_pipeline",
+    "compare_political_groups",
+    "get_meeting_decisions",
+    "early_warning_system",
+    "get_all_generated_stats"
+  ],
+  "keyFindings": [
+    "EP10 adopted Banking Union trilogy completing 14-year legislative project",
+    "Right-centre coalition (EPP+ECR+Renew) deployed for AI Digital Omnibus",
+    "Grand coalition (EPP+S&D+Renew) deployed for Banking Union and Trade Countermeasures",
+    "Progressive coalition (S&D+Renew+Greens+EPP-ROL) deployed for Anti-Corruption Directive",
+    "2026 roll-call votes: 567 (record high, +35% vs 2025)",
+    "Anti-corruption directive faces Council blockage risk (Polish presidency, Hungarian opposition)",
+    "IMF WEO April 2026: EU growth forecast 1.1% for 2026, trade tariff risk -0.15 to -0.35pp"
+  ],
+  "history": [
+    {
+      "runId": "motions-run-1777359929",
+      "date": "2026-04-28",
+      "gateResult": "ANALYSIS_ONLY",
+      "artifactCount": 21,
+      "completedAt": "2026-04-28T07:28:00Z"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "articleType": "election-cycle",
+  "runId": "election-cycle-run-1778754201",
+  "date": "2026-05-14",
+  "dataMode": "minimal",
+  "generatedAt": "2026-05-14T10:23:21.510Z",
+  "pass2": {
+    "rewriteCount": 29,
+    "startedAt": "2026-05-14T10:27:59.429Z",
+    "endedAt": "2026-05-14T10:27:59.429Z"
+  },
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/forward-projection.md",
+      "intelligence/term-arc.md",
+      "intelligence/seat-projection.md",
+      "intelligence/mandate-fulfilment-scorecard.md",
+      "intelligence/presidency-trio-context.md",
+      "intelligence/commission-wp-alignment.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "extended": [
+      "extended/forward-indicators.md",
+      "extended/historical-parallels.md",
+      "extended/comparative-international.md",
+      "extended/media-framing-analysis.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "root": [
+      "executive-brief.md"
+    ]
+  }
+}
