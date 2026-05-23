@@ -1,25 +1,26 @@
-name: Test Article HTML Headers
+name: Preview Executive Brief SEO
 
-# Read-only audit workflow that dumps the HTML <title>, <meta description>,
-# <meta description-extended>, and <meta keywords> values produced by the
-# deterministic article generator for every committed analysis run.
+# Read-only audit workflow that previews the SEO <head> metadata
+# (title, description, keywords, og:*, twitter:*) that the article
+# generator would produce from each executive brief — without generating
+# any news/*.html files.
 #
-# Uses the *same code path* as `npm run generate-article:all` — specifically
-# the resolveArticleMetadata() resolver in src/aggregator/article-metadata.ts
-# wired up via scripts/dump-article-seo.js. No HTML is rendered, no files in
-# news/ or analysis/ are touched; the dump is uploaded as a build artifact so
-# the bad current SEO state of titles/descriptions/keywords on
-# https://euparliamentmonitor.com/ can be reviewed without re-running the
-# full 14-language renderer.
+# Source: executive-brief.md (and translated siblings) under
+# analysis/daily/*/. The same resolver chain used by
+# `npm run generate-article:all` is invoked via scripts/dump-article-seo.js,
+# so the preview is bit-for-bit identical to what would be written into the
+# final HTML <head>.
 #
-# Pairs with the aggregator pipeline documented in Article-Generation.md and
-# mirrors the trigger / runner / setup steps of regenerate-articles.yml.
+# Use this workflow to audit and improve SEO titles, descriptions, and
+# keywords before committing to a full HTML generation run.
+#
+# Pairs with the aggregator pipeline documented in Article-Generation.md.
 
 on:
   workflow_dispatch:
     inputs:
       limit:
-        description: 'Optional cap on number of runs to dump (blank = all)'
+        description: 'Optional cap on number of runs to preview (blank = all)'
         required: false
         default: ''
 
@@ -30,11 +31,11 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  dump-headers:
-    name: Dump article HTML <head> metadata (English)
+  preview-seo:
+    name: Preview SEO from executive briefs
     runs-on: ubuntu-latest
-    # English-only dump of ~220 runs completes well under 5 min on a clean
-    # runner; 15 min bounds runaway while leaving headroom for repo growth.
+    # English-only preview of ~220 runs completes well under 5 min on a
+    # clean runner; 15 min bounds runaway while leaving headroom for growth.
     timeout-minutes: 15
 
     steps:
@@ -58,11 +59,11 @@ jobs:
 
       - name: Compile TypeScript aggregator
         # The dumper imports compiled artifacts under scripts/aggregator/**.
-        # These are checked in, but recompiling guarantees the audit reflects
-        # the latest src/aggregator/* on the branch being tested.
+        # These are checked in, but recompiling guarantees the preview
+        # reflects the latest src/aggregator/* on the branch being tested.
         run: npm run build
 
-      - name: Dump English HTML head metadata for every analysis run
+      - name: Preview English SEO from executive briefs (all analysis runs)
         run: |
           mkdir -p builds/seo-dump
           LIMIT_ARG=""
@@ -76,22 +77,22 @@ jobs:
           fi
           npm run dump:article-seo -- \
             --lang en \
-            --out builds/seo-dump/article-headers-en.txt \
-            --json builds/seo-dump/article-headers-en.jsonl \
+            --out builds/seo-dump/brief-seo-preview-en.txt \
+            --json builds/seo-dump/brief-seo-preview-en.jsonl \
             $LIMIT_ARG
 
-      - name: Print dump summary to job log
+      - name: Print summary to job log
         run: |
-          echo "## Article HTML head dump — summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Executive Brief SEO Preview — summary" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-          tail -n 30 builds/seo-dump/article-headers-en.txt >> "$GITHUB_STEP_SUMMARY"
+          tail -n 30 builds/seo-dump/brief-seo-preview-en.txt >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Upload SEO header dump
+      - name: Upload SEO preview artifacts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: article-html-headers-en
+          name: brief-seo-preview-en
           path: builds/seo-dump/
           if-no-files-found: error
           retention-days: 30

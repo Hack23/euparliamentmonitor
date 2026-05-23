@@ -3,14 +3,14 @@
 
 /**
  * Unit tests for `scripts/dump-article-seo.js` — the read-only audit
- * dumper that surfaces `<title>`, `<meta description>`,
- * `<meta description-extended>`, and `<meta keywords>` values produced by
- * the deterministic article generator for every committed analysis run.
+ * tool that surfaces the SEO `<head>` metadata (title, description,
+ * keywords, og:*, twitter:*) that the article generator **would produce**
+ * from each executive brief, before any HTML file is generated.
  *
  * The script wraps `resolveArticleMetadata()` (the same resolver used by
  * `npm run generate-article:all`), so these tests focus on the dumper's
- * CLI surface and on verifying it returns non-empty English head metadata
- * for a real committed analysis run.
+ * CLI surface, HTML head snippet generation, and verifying it returns
+ * non-empty English head metadata for a real committed analysis run.
  */
 
 import { describe, it, expect, afterEach } from 'vitest';
@@ -23,6 +23,7 @@ import {
   parseArgs,
   readManifestMetadata,
   resolveRunSeo,
+  buildHtmlHeadSnippet,
   formatRecord,
   dumpArticleSeo,
 } from '../../scripts/dump-article-seo.js';
@@ -83,6 +84,16 @@ describe('scripts/dump-article-seo.js — parseArgs', () => {
   });
 });
 
+describe('scripts/dump-article-seo.js — parseArgs strict --limit validation', () => {
+  it('rejects a partially-numeric --limit like "3junk"', () => {
+    expect(() => parseArgs(['--limit', '3junk'])).toThrow(/limit/i);
+  });
+
+  it('rejects a float --limit like "1.5"', () => {
+    expect(() => parseArgs(['--limit', '1.5'])).toThrow(/limit/i);
+  });
+});
+
 describe('scripts/dump-article-seo.js — readManifestMetadata', () => {
   it('returns an empty object when the run directory has no manifest.json', () => {
     const result = readManifestMetadata(path.join(REPO_ROOT, 'src'));
@@ -93,8 +104,7 @@ describe('scripts/dump-article-seo.js — readManifestMetadata', () => {
 describe('scripts/dump-article-seo.js — resolveRunSeo (real committed run)', () => {
   // Pick the first run discoverAnalysisRuns would surface deterministically.
   // We assert via formatRecord that the resolver returns a usable English
-  // entry rather than hardcoding a specific run dir — the audit's whole
-  // point is that committed runs change over time but the contract stays.
+  // entry rather than hardcoding a specific run dir.
   const firstRun = discoverAnalysisRuns(REPO_ROOT)[0];
 
   it.skipIf(!firstRun)(
@@ -120,30 +130,108 @@ describe('scripts/dump-article-seo.js — resolveRunSeo (real committed run)', (
   );
 
   it.skipIf(!firstRun)(
-    'produces a formatted record containing each HTML head field label',
+    'produces a formatted record containing each HTML head field label and the HTML snippet',
     () => {
       const record = resolveRunSeo({
         runDir: firstRun.runDir,
         repoRoot: REPO_ROOT,
         lang: 'en',
       });
-      const text = formatRecord(record, 1, 1);
+      const text = formatRecord(record, 1, 1, 'en');
+      // Field analysis section
       expect(text).toMatch(/<title>/);
       expect(text).toMatch(/<meta description>/);
       expect(text).toMatch(/<meta keywords>/);
       expect(text).toMatch(/resolution-tier/);
       expect(text).toMatch(/html-file/);
+      // HTML head snippet section
+      expect(text).toMatch(/HTML head snippet/);
+      expect(text).toMatch(/<title>.*EU Parliament Monitor<\/title>/);
+      expect(text).toMatch(/<meta name="description" content=/);
+      expect(text).toMatch(/<meta property="og:title" content=/);
+      expect(text).toMatch(/<meta name="twitter:title" content=/);
     },
   );
 });
 
-describe('scripts/dump-article-seo.js — parseArgs strict --limit validation', () => {
-  it('rejects a partially-numeric --limit like "3junk"', () => {
-    expect(() => parseArgs(['--limit', '3junk'])).toThrow(/limit/i);
+describe('scripts/dump-article-seo.js — buildHtmlHeadSnippet', () => {
+  /** Minimal resolved record for HTML snippet tests. */
+  function makeRecord({
+    title = 'Test Article Title',
+    description = 'A short article description for testing.',
+    extendedDescription = 'A longer extended description for social cards.',
+    keywords = ['keyword one', 'keyword two'],
+    source = 'executive-brief',
+  } = {}) {
+    return {
+      runDir: '/tmp/fake-run',
+      runDirRel: 'analysis/daily/2026-01-01/breaking',
+      date: '2026-01-01',
+      articleType: 'breaking',
+      slug: '2026-01-01-breaking',
+      filename: '2026-01-01-breaking-en.html',
+      entry: { title, description, extendedDescription, keywords, source },
+    };
+  }
+
+  it('contains a <title> tag with site name suffix', () => {
+    const snippet = buildHtmlHeadSnippet(makeRecord(), 'en');
+    expect(snippet).toMatch(/<title>Test Article Title » EU Parliament Monitor<\/title>/);
   });
 
-  it('rejects a float --limit like "1.5"', () => {
-    expect(() => parseArgs(['--limit', '1.5'])).toThrow(/limit/i);
+  it('uses left-pointing separator for RTL languages', () => {
+    const snippet = buildHtmlHeadSnippet(makeRecord(), 'ar');
+    expect(snippet).toMatch(/<title>Test Article Title « EU Parliament Monitor<\/title>/);
+  });
+
+  it('contains <meta name="description">', () => {
+    const snippet = buildHtmlHeadSnippet(makeRecord(), 'en');
+    expect(snippet).toMatch(/<meta name="description" content="A short article description for testing\.">/);
+  });
+
+  it('contains <meta name="keywords"> when keywords are present', () => {
+    const snippet = buildHtmlHeadSnippet(makeRecord(), 'en');
+    expect(snippet).toMatch(/<meta name="keywords" content="keyword one, keyword two">/);
+  });
+
+  it('omits <meta name="keywords"> when keywords array is empty', () => {
+    const snippet = buildHtmlHeadSnippet(makeRecord({ keywords: [] }), 'en');
+    expect(snippet).not.toMatch(/meta name="keywords"/);
+  });
+
+  it('contains og:title tag', () => {
+    const snippet = buildHtmlHeadSnippet(makeRecord(), 'en');
+    expect(snippet).toMatch(/<meta property="og:title" content="Test Article Title">/);
+  });
+
+  it('uses extendedDescription for og:description when available', () => {
+    const snippet = buildHtmlHeadSnippet(makeRecord(), 'en');
+    expect(snippet).toMatch(/<meta property="og:description" content="A longer extended description for social cards\.">/);
+  });
+
+  it('falls back to description for og:description when extendedDescription is empty', () => {
+    const snippet = buildHtmlHeadSnippet(
+      makeRecord({ extendedDescription: '' }),
+      'en',
+    );
+    expect(snippet).toMatch(/<meta property="og:description" content="A short article description for testing\.">/);
+  });
+
+  it('contains twitter:title and twitter:description tags', () => {
+    const snippet = buildHtmlHeadSnippet(makeRecord(), 'en');
+    expect(snippet).toMatch(/<meta name="twitter:title" content="Test Article Title">/);
+    expect(snippet).toMatch(/<meta name="twitter:description" content="A longer extended description for social cards\.">/);
+  });
+
+  it('HTML-escapes special characters in title and description', () => {
+    const record = makeRecord({
+      title: 'Title with <angle> & "quotes"',
+      description: 'Desc with <b>bold</b> & \'quotes\'',
+    });
+    const snippet = buildHtmlHeadSnippet(record, 'en');
+    expect(snippet).not.toMatch(/<title>.*<angle>/);
+    expect(snippet).toMatch(/&lt;angle&gt;/);
+    expect(snippet).toMatch(/&amp;/);
   });
 });
 
@@ -184,7 +272,7 @@ describe('scripts/dump-article-seo.js — dumpArticleSeo', () => {
   );
 
   it.skipIf(!firstRun)(
-    'writes the text output file when outPath is supplied',
+    'writes the text output file containing field analysis and HTML snippet sections',
     () => {
       tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dump-article-seo-'));
       const outPath = path.join(tmpDir, 'out.txt');
@@ -200,13 +288,19 @@ describe('scripts/dump-article-seo.js — dumpArticleSeo', () => {
 
       expect(fs.existsSync(outPath)).toBe(true);
       const text = fs.readFileSync(outPath, 'utf8');
-      expect(text).toMatch(/Article HTML Header Dump/);
+      // Header
+      expect(text).toMatch(/Executive Brief SEO Preview/);
+      // Field analysis section
       expect(text).toMatch(/<title>/);
+      // HTML snippet section
+      expect(text).toMatch(/HTML head snippet/);
+      expect(text).toMatch(/<title>.*EU Parliament Monitor<\/title>/);
+      expect(text).toMatch(/<meta name="description" content=/);
     },
   );
 
   it.skipIf(!firstRun)(
-    'writes the JSONL output file when jsonPath is supplied',
+    'writes the JSONL output file with htmlHeadSnippet field when jsonPath is supplied',
     () => {
       tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dump-article-seo-'));
       const jsonPath = path.join(tmpDir, 'out.jsonl');
@@ -229,6 +323,10 @@ describe('scripts/dump-article-seo.js — dumpArticleSeo', () => {
       expect(typeof record.description).toBe('string');
       expect(typeof record.slug).toBe('string');
       expect(record.lang).toBe('en');
+      // HTML snippet is now included in the JSONL record
+      expect(typeof record.htmlHeadSnippet).toBe('string');
+      expect(record.htmlHeadSnippet).toMatch(/<title>/);
+      expect(record.htmlHeadSnippet).toMatch(/EU Parliament Monitor/);
     },
   );
 });

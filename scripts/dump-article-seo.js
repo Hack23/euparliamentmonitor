@@ -4,19 +4,17 @@
 
 /**
  * @module scripts/dump-article-seo
- * @description Read-only dump of the `<title>` / `<meta description>` /
- * `<meta keywords>` values that the deterministic article generator
- * would write into every English `news/*-en.html` file.
+ * @description Read-only preview of the SEO `<head>` metadata that the
+ * deterministic article generator **would produce** for every executive
+ * brief committed under `analysis/daily/`. Use this before running
+ * `npm run generate-article:all` to audit and improve titles,
+ * descriptions, and keywords without touching any `news/*.html` file.
  *
- * **Why this script exists.** Article HTML headers visible on
- * https://euparliamentmonitor.com/ and inside individual pages such as
- * https://euparliamentmonitor.com/news/2026-05-22-committee-reports-en.html
- * are produced by the aggregator-era pipeline documented in
- * `Article-Generation.md`. Operators need an auditable, side-effect-free
- * way to inspect those headers for every committed analysis run before
- * deciding which executive briefs need editorial rework. This dumper
- * provides that view without touching `news/*.html` or any other file
- * the pipeline writes.
+ * **Source: executive briefs, not HTML.**
+ * The script reads each analysis run's `executive-brief.md` (and its
+ * translated siblings) via the same resolver chain that the real
+ * article generator uses. No HTML files are read or written; the script
+ * is purely additive and fully idempotent.
  *
  * **Identical code path to the real renderer.** The script intentionally
  * imports the same helpers that `scripts/aggregator/article-generator.js`
@@ -26,27 +24,30 @@
  *   1. `discoverAnalysisRuns(repoRoot)` — same run discovery as the batch
  *      renderer (`generator/render-batch.js`).
  *   2. `aggregateAnalysisRun({ runDir, repoRoot })` — same Markdown
- *      aggregation that feeds `resolveArticleMetadata`.
+ *      aggregation that feeds `resolveArticleMetadata`, which in turn
+ *      reads `executive-brief.md` and its translated siblings.
  *   3. `resolveArticleMetadata({ articleType, date, markdown, manifest,
  *      runDir })` — the single source of truth for per-language `(title,
  *      description, extendedDescription, keywords, source)` documented in
- *      `src/aggregator/article-metadata.ts`. The English entry returned
- *      here is *bit-for-bit identical* to the one passed into
+ *      `src/aggregator/article-metadata.ts`. The entry returned here is
+ *      *bit-for-bit identical* to the one passed into
  *      `src/aggregator/html/shell.ts` for the `<title>`,
  *      `<meta name="description">`, and `<meta name="keywords">` tags.
  *
- * **Output focus.** The problem statement asked for English only across
- * roughly 450 committed runs, so this dumper prints a human- and
- * AI-readable record per run plus a JSON summary suitable for follow-up
- * tooling (e.g. flagging template-fallback titles, short descriptions,
- * empty keyword arrays). Non-English variants are deliberately skipped
- * — extending the dumper to the full 14-language set is a single-line
- * change to the language filter below.
+ * **Two-part output per run.**
+ *   - *Field analysis* — human-readable breakdown of each SEO field
+ *     (length, content, resolution tier) for quick editorial review.
+ *   - *HTML head snippet* — the exact `<title>`, `<meta name="description">`,
+ *     `<meta name="keywords">`, `<meta property="og:*">`, and
+ *     `<meta name="twitter:*">` tags that the article generator will
+ *     emit. Copy-paste these into a browser extension or SEO tool to
+ *     preview how the article will appear in search results and social
+ *     cards before committing to HTML generation.
  *
  * Invocation:
  *   node scripts/dump-article-seo.js \
  *     [--repo-root <path>]   # defaults to process.cwd()
- *     [--lang en]            # defaults to en (problem statement scope)
+ *     [--lang en]            # defaults to en
  *     [--out <path>]         # also write the human-readable dump here
  *     [--json <path>]        # also write a machine-readable JSONL dump
  *     [--limit <N>]          # only process the first N runs (debug)
@@ -65,12 +66,17 @@ import {
 import { resolveArticleMetadata } from './aggregator/article-metadata.js';
 import { buildArticleSlug } from './aggregator/generator/slug.js';
 import { getArticleFilename } from './aggregator/html/hreflang.js';
+import { getTitleSeparator } from './aggregator/html/headline.js';
+import { escapeHTML } from './utils/file-utils.js';
 import {
   ALL_LANGUAGES,
   isSupportedLanguage,
 } from './constants/language-core.js';
 
 const SUPPORTED_LANGS = new Set(ALL_LANGUAGES);
+
+/** Site name used in page titles: `{articleTitle} » EU Parliament Monitor`. */
+const SITE_NAME = 'EU Parliament Monitor';
 
 /**
  * Parse the small CLI surface used by this script. Kept inline so the
@@ -155,9 +161,9 @@ function printHelpAndExit() {
     [
       'Usage: node scripts/dump-article-seo.js [options]',
       '',
-      'Read-only dump of the HTML head metadata (title, description,',
-      'keywords) that the deterministic article generator produces for',
-      'every English news/*-en.html article.',
+      'Read-only preview of the SEO <head> metadata (title, description,',
+      'keywords, og:*, twitter:*) that the article generator would produce',
+      'from each executive brief — without generating any HTML files.',
       '',
       'Options:',
       '  --repo-root <path>   Repository root (default: cwd)',
@@ -228,9 +234,9 @@ function isLanguageMapLike(value) {
 }
 
 /**
- * Resolve the rendered SEO metadata for one analysis run, returning the
- * same `ResolvedMetadataEntry` shape that `generateArticle()` hands to
- * `wrapArticleHtml`. Pure: no files written, no stdout side-effects.
+ * Resolve the SEO metadata for one analysis run by reading its executive
+ * brief and applying the same resolver chain as the article generator.
+ * Pure: no files written, no stdout side-effects.
  *
  * @param {object} opts
  * @param {string} opts.runDir  - Absolute path to the analysis run
@@ -288,17 +294,73 @@ export function resolveRunSeo({ runDir, repoRoot, lang }) {
 }
 
 /**
+ * Build the SEO-relevant `<head>` snippet that the article generator will
+ * emit for this run. The output is bit-for-bit identical to the tags
+ * produced by `src/aggregator/html/shell.ts` for the same metadata:
+ *
+ *   - `<title>` — article title + separator + site name
+ *   - `<meta name="description">` — short description (≤160 chars)
+ *   - `<meta name="keywords">` — comma-joined keywords (omitted when empty)
+ *   - `<meta property="og:title">` — Open Graph title (raw, no site suffix)
+ *   - `<meta property="og:description">` — extendedDescription or description
+ *   - `<meta name="twitter:title">` — Twitter card title
+ *   - `<meta name="twitter:description">` — Twitter card description
+ *
+ * Use this to preview how the article will appear in search results and
+ * social-card previews **before** running the full HTML generator.
+ *
+ * @param {ReturnType<typeof resolveRunSeo>} record
+ * @param {string} lang - Language code (used for bidi-aware title separator)
+ * @returns {string} Indented HTML tag block, ready to paste into a `<head>`
+ */
+export function buildHtmlHeadSnippet(record, lang) {
+  const { entry } = record;
+  const separator = getTitleSeparator(lang);
+  const pageTitle = `${entry.title}${separator}${SITE_NAME}`;
+  const socialDescription = entry.extendedDescription || entry.description;
+  const keywords = entry.keywords ?? [];
+
+  const lines = [];
+  lines.push(`  <title>${escapeHTML(pageTitle)}</title>`);
+  lines.push(
+    `  <meta name="description" content="${escapeHTML(entry.description)}">`
+  );
+  if (keywords.length > 0) {
+    lines.push(
+      `  <meta name="keywords" content="${escapeHTML(keywords.join(', '))}">`
+    );
+  }
+  lines.push(
+    `  <meta property="og:title" content="${escapeHTML(entry.title)}">`
+  );
+  lines.push(
+    `  <meta property="og:description" content="${escapeHTML(socialDescription)}">`
+  );
+  lines.push(
+    `  <meta name="twitter:title" content="${escapeHTML(entry.title)}">`
+  );
+  lines.push(
+    `  <meta name="twitter:description" content="${escapeHTML(socialDescription)}">`
+  );
+
+  return lines.join('\n');
+}
+
+/**
  * Format one resolved-SEO record as the human/AI-readable block used in
- * the stdout dump. Format is intentionally line-oriented and key-prefixed
- * so it greps cleanly and feeds large-language-model context windows
- * without ambiguity about which field is which.
+ * the stdout dump. Each block contains two sections:
+ *   1. *Field analysis* — per-field character/term counts and the
+ *      resolution tier so editors can spot template fallbacks instantly.
+ *   2. *HTML head snippet* — the exact tags the article generator will
+ *      emit, ready to paste into a browser/SEO tool for preview.
  *
  * @param {ReturnType<typeof resolveRunSeo>} record
  * @param {number} index - 1-based position within the dump
  * @param {number} total - Total number of records being dumped
+ * @param {string} [lang] - Language code (used for the HTML snippet; defaults to 'en')
  * @returns {string}
  */
-export function formatRecord(record, index, total) {
+export function formatRecord(record, index, total, lang = 'en') {
   const lines = [];
   lines.push('='.repeat(80));
   lines.push(`[${index}/${total}] ${record.slug}`);
@@ -309,6 +371,7 @@ export function formatRecord(record, index, total) {
   lines.push(`resolution-tier : ${record.entry.source}`);
   lines.push(`html-file       : news/${record.filename}`);
   lines.push('');
+  lines.push('--- Field analysis (from executive-brief.md → resolveArticleMetadata) ---');
   lines.push(
     `<title>            (${record.entry.title.length} chars): ${formatInline(record.entry.title)}`
   );
@@ -323,6 +386,9 @@ export function formatRecord(record, index, total) {
     `<meta keywords>    (${keywords.length} terms): ${keywords.length ? keywords.join(', ') : '(empty)'}`
   );
   lines.push('');
+  lines.push('--- HTML head snippet (preview of tags the article generator will emit) ---');
+  lines.push(buildHtmlHeadSnippet(record, lang));
+  lines.push('');
   return lines.join('\n');
 }
 
@@ -333,10 +399,10 @@ function formatInline(value) {
 }
 
 /**
- * Run the full dump: discover, resolve, print, and (optionally) write to
- * disk. Returns the summary statistics computed along the way so unit
- * tests and downstream tooling can assert on histograms without
- * re-parsing the stdout/file artefacts.
+ * Run the full dump: discover analysis runs, resolve SEO metadata from
+ * each executive brief, print field analysis + HTML head snippet, and
+ * optionally write to disk. Returns summary statistics so unit tests and
+ * downstream tooling can assert on histograms without re-parsing stdout.
  *
  * @param {ReturnType<typeof parseArgs>} opts
  * @returns {{
@@ -364,13 +430,15 @@ export function dumpArticleSeo(opts) {
   const textChunks = [];
   const jsonLines = [];
   const header =
-    `# Article HTML Header Dump\n` +
+    `# Executive Brief SEO Preview\n` +
+    `# Source         : executive-brief.md under analysis/daily/*/\n` +
     `# repo-root      : ${repoRoot}\n` +
     `# language       : ${lang}\n` +
     `# total runs     : ${total}\n` +
     `# generated by   : scripts/dump-article-seo.js\n` +
     `# resolver       : src/aggregator/article-metadata.ts → resolveArticleMetadata()\n` +
-    `# rendered by    : src/aggregator/html/shell.ts (same call path as npm run generate-article:all)\n\n`;
+    `# rendered by    : src/aggregator/html/shell.ts (same call path as npm run generate-article:all)\n` +
+    `# purpose        : review and improve SEO before generating HTML\n\n`;
 
   if (!quiet) process.stdout.write(header);
   textChunks.push(header);
@@ -395,7 +463,7 @@ export function dumpArticleSeo(opts) {
     if (record.entry.keywords.length === 0) emptyKeywordCount += 1;
     if (record.entry.description.length < 70) shortDescriptionCount += 1;
 
-    const block = formatRecord(record, i + 1, total);
+    const block = formatRecord(record, i + 1, total, lang);
     if (!quiet) process.stdout.write(`${block}\n`);
     textChunks.push(`${block}\n`);
 
@@ -412,6 +480,7 @@ export function dumpArticleSeo(opts) {
         description: record.entry.description,
         extendedDescription: record.entry.extendedDescription,
         keywords: record.entry.keywords,
+        htmlHeadSnippet: buildHtmlHeadSnippet(record, lang),
       })
     );
   }
