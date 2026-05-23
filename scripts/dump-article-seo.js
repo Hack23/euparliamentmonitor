@@ -65,23 +65,12 @@ import {
 import { resolveArticleMetadata } from './aggregator/article-metadata.js';
 import { buildArticleSlug } from './aggregator/generator/slug.js';
 import { getArticleFilename } from './aggregator/html/hreflang.js';
+import {
+  ALL_LANGUAGES,
+  isSupportedLanguage,
+} from './constants/language-core.js';
 
-const SUPPORTED_LANGS = new Set([
-  'en',
-  'sv',
-  'da',
-  'de',
-  'es',
-  'fi',
-  'fr',
-  'it',
-  'ja',
-  'ko',
-  'nl',
-  'no',
-  'pt',
-  'zh',
-]);
+const SUPPORTED_LANGS = new Set(ALL_LANGUAGES);
 
 /**
  * Parse the small CLI surface used by this script. Kept inline so the
@@ -121,6 +110,9 @@ export function parseArgs(argv) {
         break;
       case '--limit': {
         const raw = requireValue(argv, i, arg);
+        if (!/^\d+$/u.test(raw)) {
+          throw new Error(`--limit expects a positive integer, got "${raw}"`);
+        }
         const parsed = Number.parseInt(raw, 10);
         if (!Number.isFinite(parsed) || parsed < 1) {
           throw new Error(`--limit expects a positive integer, got "${raw}"`);
@@ -141,7 +133,7 @@ export function parseArgs(argv) {
     }
   }
 
-  if (!SUPPORTED_LANGS.has(lang)) {
+  if (!isSupportedLanguage(lang)) {
     throw new Error(
       `Unsupported --lang "${lang}". Expected one of: ${[...SUPPORTED_LANGS].join(', ')}`
     );

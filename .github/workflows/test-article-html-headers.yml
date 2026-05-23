@@ -66,8 +66,13 @@ jobs:
         run: |
           mkdir -p builds/seo-dump
           LIMIT_ARG=""
-          if [ -n "${{ inputs.limit }}" ]; then
-            LIMIT_ARG="--limit ${{ inputs.limit }}"
+          LIMIT_INPUT="${{ inputs.limit }}"
+          if [ -n "$LIMIT_INPUT" ]; then
+            if ! printf '%s' "$LIMIT_INPUT" | grep -qE '^[0-9]+$'; then
+              echo "::error::--limit must be a positive integer, got: $LIMIT_INPUT"
+              exit 1
+            fi
+            LIMIT_ARG="--limit $LIMIT_INPUT"
           fi
           npm run dump:article-seo -- \
             --lang en \

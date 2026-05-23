@@ -13,7 +13,9 @@
  * for a real committed analysis run.
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -22,6 +24,7 @@ import {
   readManifestMetadata,
   resolveRunSeo,
   formatRecord,
+  dumpArticleSeo,
 } from '../../scripts/dump-article-seo.js';
 import { discoverAnalysisRuns } from '../../scripts/aggregator/generator/discovery.js';
 
@@ -130,6 +133,102 @@ describe('scripts/dump-article-seo.js — resolveRunSeo (real committed run)', (
       expect(text).toMatch(/<meta keywords>/);
       expect(text).toMatch(/resolution-tier/);
       expect(text).toMatch(/html-file/);
+    },
+  );
+});
+
+describe('scripts/dump-article-seo.js — parseArgs strict --limit validation', () => {
+  it('rejects a partially-numeric --limit like "3junk"', () => {
+    expect(() => parseArgs(['--limit', '3junk'])).toThrow(/limit/i);
+  });
+
+  it('rejects a float --limit like "1.5"', () => {
+    expect(() => parseArgs(['--limit', '1.5'])).toThrow(/limit/i);
+  });
+});
+
+describe('scripts/dump-article-seo.js — dumpArticleSeo', () => {
+  let tmpDir;
+
+  afterEach(() => {
+    if (tmpDir) {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+      tmpDir = undefined;
+    }
+  });
+
+  const firstRun = discoverAnalysisRuns(REPO_ROOT)[0];
+
+  it.skipIf(!firstRun)(
+    'returns a summary object with expected shape for limit=1',
+    () => {
+      const result = dumpArticleSeo({
+        repoRoot: REPO_ROOT,
+        lang: 'en',
+        outPath: null,
+        jsonPath: null,
+        limit: 1,
+        quiet: true,
+      });
+
+      expect(typeof result.total).toBe('number');
+      expect(result.total).toBeGreaterThanOrEqual(1);
+      expect(typeof result.processed).toBe('number');
+      expect(result.processed).toBeGreaterThanOrEqual(1);
+      expect(Array.isArray(result.records)).toBe(true);
+      expect(result.records.length).toBeGreaterThanOrEqual(1);
+      expect(typeof result.resolutionTiers).toBe('object');
+      expect(typeof result.emptyKeywordCount).toBe('number');
+      expect(typeof result.shortDescriptionCount).toBe('number');
+    },
+  );
+
+  it.skipIf(!firstRun)(
+    'writes the text output file when outPath is supplied',
+    () => {
+      tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dump-article-seo-'));
+      const outPath = path.join(tmpDir, 'out.txt');
+
+      dumpArticleSeo({
+        repoRoot: REPO_ROOT,
+        lang: 'en',
+        outPath,
+        jsonPath: null,
+        limit: 1,
+        quiet: true,
+      });
+
+      expect(fs.existsSync(outPath)).toBe(true);
+      const text = fs.readFileSync(outPath, 'utf8');
+      expect(text).toMatch(/Article HTML Header Dump/);
+      expect(text).toMatch(/<title>/);
+    },
+  );
+
+  it.skipIf(!firstRun)(
+    'writes the JSONL output file when jsonPath is supplied',
+    () => {
+      tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dump-article-seo-'));
+      const jsonPath = path.join(tmpDir, 'out.jsonl');
+
+      dumpArticleSeo({
+        repoRoot: REPO_ROOT,
+        lang: 'en',
+        outPath: null,
+        jsonPath,
+        limit: 1,
+        quiet: true,
+      });
+
+      expect(fs.existsSync(jsonPath)).toBe(true);
+      const lines = fs.readFileSync(jsonPath, 'utf8').trim().split('\n');
+      expect(lines.length).toBeGreaterThanOrEqual(1);
+      const record = JSON.parse(lines[0]);
+      expect(typeof record.title).toBe('string');
+      expect(record.title.length).toBeGreaterThan(0);
+      expect(typeof record.description).toBe('string');
+      expect(typeof record.slug).toBe('string');
+      expect(record.lang).toBe('en');
     },
   );
 });
