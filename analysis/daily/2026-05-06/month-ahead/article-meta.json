@@ -1,0 +1,55 @@
+{
+  "date": "2026-05-06",
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run261-1778107666",
+  "gateResult": "PENDING",
+  "slug": "2026-05-06-month-ahead",
+  "articlePath": "analysis/daily/2026-05-06/month-ahead/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "45% probability US automotive tariffs announced × 78% probability this produces EP unity = ~35% joint probability",
+    "Historical base rate of external-threat-induced EP unity in 30-day windows: ~40% when trigger conditions are met",
+    "Average of these estimates: 35-37.5%",
+    "If automotive Section 232 tariffs ≥25% announced before May 20: Scenario B activates; probability rises to 55%",
+    "If no announcement by May 20: Scenario A probability rises to 40%, Scenario C to 30%",
+    "If EPP group meeting produces unified position on EDIS supranational provisions: Scenario A probability rises 10-15%",
+    "If EPP group meeting shows ≥15-vote defection signals: Scenario C probability rises 15%"
+  ],
+  "topRisks": [
+    "Immediately eliminate EU competitive advantage in premium segment (German/Italian brands)",
+    "Trigger EU retaliation under Trade Enforcement Regulation",
+    "Force EP emergency session (Rule 132 urgency procedure)",
+    "Consume 30-40% of legislative bandwidth in May Strasbourg plenary",
+    "EPP+S&D+Renew coalition falls to ~376-380 seats (still above 361 but dangerously thin)",
+    "S&D abstentions (left-wing bloc on military procurement) reduce further",
+    "Potential defeat of absolute majority clause",
+    "Real-time plenary session schedule data (unavailable)"
+  ],
+  "keyDates": [
+    "CID: Delayed to September 2026 as legislative bandwidth consumed by trade crisis",
+    "EDIS: First-reading position delayed; sent back to AFET/ITRE joint committee for further mandate refinement (vote pushed to September 2026)",
+    "EDIS: Institutional crisis; no first-reading position possible in Q2 2026"
+  ],
+  "keyActors": [
+    "Will not accept EDIS joint procurement mechanisms that bypass national industrial champions",
+    "Requires CID \"buy European\" clauses to include agricultural sector (rural MEP bloc pressure)",
+    "Insists AI Act delegated acts allow national flexibility on healthcare AI classification",
+    "EDIS must include binding \"Social EDIP Clause\" (minimum 20% of consortium budgets for worker training)",
+    "CID companion directives must not weaken industrial emissions standards below Fit-for-55 trajectory",
+    "AI Act high-risk classification must cover automated hiring/firing decision systems",
+    "**EDIS Rapporteur** (AFET committee): Drives legislative calendar",
+    "**ITRE Rapporteur** (Industrial chapter): Coordinates EPP-S&D bridge on EDIP funding"
+  ],
+  "macroContext": "⚠️ IMF Data Note: The fetch-proxy MCP server for IMF SDMX API calls returned connection errors during this run.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

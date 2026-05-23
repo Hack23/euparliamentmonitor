@@ -1,0 +1,80 @@
+{
+  "collectedAt": "2026-05-01T00:37:00Z",
+  "source": "EP Open Data Portal via MCP",
+  "timeframe": "2026-04-28 to 2026-04-30 (Strasbourg Plenary)",
+  "items": [
+    {
+      "id": "TA-10-2026-0161",
+      "title": "Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2026-2700-DEC-DCPL-2026-04-30",
+      "significance": "HIGH",
+      "themes": ["UKRAINE", "RUSSIA", "ACCOUNTABILITY", "INTERNATIONAL_LAW", "DEFENSE"]
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "title": "Supporting democratic resilience in Armenia",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2026-2701-DEC-DCPL-2026-04-30",
+      "significance": "HIGH",
+      "themes": ["ARMENIA", "DEMOCRACY", "EASTERN_PARTNERSHIP", "FOREIGN_POLICY"]
+    },
+    {
+      "id": "TA-10-2026-0163",
+      "title": "The need for targeted criminal provisions and platforms' responsibility to effectively address cyberbullying and online harassment",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2026-2693-DEC-DCPL-2026-04-30",
+      "significance": "MEDIUM",
+      "themes": ["DIGITAL_SAFETY", "CYBERBULLYING", "PLATFORM_REGULATION", "CHILD_PROTECTION"]
+    },
+    {
+      "id": "TA-10-2026-0157",
+      "title": "How to secure a sustainable future for the EU livestock sector in light of the need to ensure food security, farmers' resilience and the challenges posed by animal diseases?",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2025-2053-DEC-DCPL-2026-04-30",
+      "significance": "MEDIUM",
+      "themes": ["AGRICULTURE", "FOOD_SECURITY", "LIVESTOCK", "ANIMAL_HEALTH"]
+    },
+    {
+      "id": "TA-10-2026-04-30-ANN01",
+      "title": "ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "",
+      "type": "BUDGET_EP_DRAFT",
+      "significance": "MEDIUM",
+      "themes": ["BUDGET", "INSTITUTIONAL", "2027_FINANCES"]
+    },
+    {
+      "id": "TA-10-2026-0142",
+      "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-0156-DEC-DCPL-2026-04-29",
+      "significance": "MEDIUM",
+      "themes": ["SECURITY", "DATA_PROTECTION", "ICELAND", "TERRORISM", "SCHENGEN"]
+    },
+    {
+      "id": "TA-10-2026-0115",
+      "title": "Welfare of dogs and cats and their traceability",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2023-0447-DEC-DCPL-2026-04-29",
+      "significance": "MEDIUM",
+      "themes": ["ANIMAL_WELFARE", "PETS", "CONSUMER_PROTECTION", "REGULATION"]
+    },
+    {
+      "id": "TA-10-2026-0119",
+      "title": "Control of the financial activities of the European Investment Bank Group — annual report 2024",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2237-DEC-DCPL-2026-04-28",
+      "significance": "MEDIUM",
+      "themes": ["EIB", "BUDGET_CONTROL", "INVESTMENT", "ACCOUNTABILITY"]
+    },
+    {
+      "id": "TA-10-2026-0112",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2246-DEC-DCPL-2026-04-28",
+      "significance": "HIGH",
+      "themes": ["BUDGET", "2027_BUDGET", "FISCAL_POLICY", "EU_PRIORITIES"]
+    }
+  ]
+}

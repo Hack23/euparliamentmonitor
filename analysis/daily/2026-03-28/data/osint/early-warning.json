@@ -1,0 +1,71 @@
+{
+  "assessmentTime": "2026-03-28T12:10:57.580Z",
+  "sensitivity": "medium",
+  "focusArea": "all",
+  "warnings": [
+    {
+      "type": "HIGH_FRAGMENTATION",
+      "severity": "MEDIUM",
+      "description": "Parliament fragmented across 8 political groups — coalition building more complex",
+      "affectedEntities": [
+        "PPE",
+        "S&D",
+        "PfE",
+        "Verts/ALE",
+        "ECR",
+        "Renew",
+        "NI",
+        "The Left"
+      ],
+      "recommendedAction": "Monitor cross-group voting patterns"
+    },
+    {
+      "type": "DOMINANT_GROUP_RISK",
+      "severity": "HIGH",
+      "description": "Largest group (PPE) is 19.0x the size of the smallest — potential dominance risk",
+      "affectedEntities": [
+        "PPE"
+      ],
+      "recommendedAction": "Track minority group coalition formation"
+    },
+    {
+      "type": "SMALL_GROUP_QUORUM_RISK",
+      "severity": "LOW",
+      "description": "3 political group(s) with ≤5 members may struggle to maintain quorum",
+      "affectedEntities": [
+        "Renew",
+        "NI",
+        "The Left"
+      ],
+      "recommendedAction": "Monitor small group participation rates"
+    }
+  ],
+  "riskLevel": "MEDIUM",
+  "stabilityScore": 84,
+  "trendIndicators": [
+    {
+      "indicator": "parliamentary_fragmentation",
+      "direction": "NEUTRAL",
+      "confidence": 0.7
+    },
+    {
+      "indicator": "grand_coalition_viability",
+      "direction": "POSITIVE",
+      "confidence": 0.65
+    },
+    {
+      "indicator": "minority_representation",
+      "direction": "POSITIVE",
+      "confidence": 0.6
+    }
+  ],
+  "computedAttributes": {
+    "criticalWarnings": 0,
+    "highWarnings": 1,
+    "totalWarnings": 3,
+    "overallStabilityTrend": "STABLE",
+    "keyRiskFactor": "DOMINANT_GROUP_RISK"
+  },
+  "confidenceLevel": "MEDIUM",
+  "sourceAttribution": "European Parliament Open Data Portal"
+}

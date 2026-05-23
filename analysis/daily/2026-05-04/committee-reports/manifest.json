@@ -1,0 +1,61 @@
+{
+  "articleType": "committee-reports",
+  "date": "2026-05-04",
+  "dataWindow": {
+    "from": "2026-04-27",
+    "to": "2026-05-04"
+  },
+  "runId": "committee-reports-run-1777871291",
+  "imfStatus": "degraded",
+  "epApiStatus": "partial",
+  "adoptedTextsCount": 9,
+  "pass2": {
+    "startedAt": "2026-05-04T05:22:00Z",
+    "endedAt": "2026-05-04T05:26:00Z",
+    "rewriteCount": 1
+  },
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "synthesisSummary": "intelligence/synthesis-summary.md",
+    "pestleAnalysis": "intelligence/pestle-analysis.md",
+    "stakeholderMap": "intelligence/stakeholder-map.md",
+    "scenarioForecast": "intelligence/scenario-forecast.md",
+    "economicContext": "intelligence/economic-context.md",
+    "historicalBaseline": "intelligence/historical-baseline.md",
+    "wildcardsBlackswans": "intelligence/wildcards-blackswans.md",
+    "coalitionDynamics": "intelligence/coalition-dynamics.md",
+    "analysisIndex": "intelligence/analysis-index.md",
+    "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+    "workflowAudit": "intelligence/workflow-audit.md",
+    "significanceClassification": "classification/significance-classification.md",
+    "actorMapping": "classification/actor-mapping.md",
+    "forcesAnalysis": "classification/forces-analysis.md",
+    "impactMatrix": "classification/impact-matrix.md",
+    "riskAssessment": "risk-scoring/risk-assessment.md",
+    "quantitativeSwot": "risk-scoring/quantitative-swot.md",
+    "riskMatrix": "risk-scoring/risk-matrix.md",
+    "politicalCapitalRisk": "risk-scoring/political-capital-risk.md",
+    "legislativeVelocityRisk": "risk-scoring/legislative-velocity-risk.md",
+    "politicalThreatLandscape": "threat-assessment/political-threat-landscape.md",
+    "consequenceTrees": "threat-assessment/consequence-trees.md",
+    "legislativeDisruption": "threat-assessment/legislative-disruption.md",
+    "actorThreatProfiles": "threat-assessment/actor-threat-profiles.md",
+    "documentAnalysisIndex": "documents/document-analysis-index.md",
+    "committeeProductivity": "existing/committee-productivity.md",
+    "methodologyReflection": "methodology-reflection.md",
+    "data": {
+      "adoptedTexts": "data/adopted-texts-2026-04-27-to-2026-05-04.json",
+      "imfProbe": "cache/imf/probe-summary.json"
+    }
+  },
+  "history": [
+    {
+      "runId": "committee-reports-run-1777871291",
+      "completedAt": "2026-05-04T05:30:00Z",
+      "artifactCount": 28,
+      "pass2RewriteCount": 1,
+      "imfStatus": "degraded",
+      "gateResult": "PENDING"
+    }
+  ]
+}

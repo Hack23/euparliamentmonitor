@@ -1,0 +1,58 @@
+{
+  "runId": "180",
+  "date": "2026-04-17",
+  "articleType": "breaking",
+  "articleGenerated": false,
+  "reason": "Parliament in recess (April 14-26). No EP items published today. Server health UNHEALTHY (DEGRADED MODE). Analysis-only PR per ai-driven-analysis-guide.md Rule 5.",
+  "mode": "DEGRADED",
+  "serverHealth": "UNHEALTHY",
+  "degradedMode": true,
+  "feedEndpointStatus": {
+    "get_adopted_texts_feed": "OK (one-week)",
+    "get_events_feed": "SKIPPED_DEGRADED_MODE (persistent 404)",
+    "get_procedures_feed": "SKIPPED_DEGRADED_MODE (persistent 404)",
+    "get_meps_feed": "OK (one-week)",
+    "get_documents_feed": "SKIPPED_DEGRADED_MODE",
+    "get_plenary_documents_feed": "ERROR (empty + quality warning)",
+    "get_committee_documents_feed": "SKIPPED_DEGRADED_MODE",
+    "get_parliamentary_questions_feed": "ERROR (empty + quality warning)"
+  },
+  "skippedTools": [
+    "detect_voting_anomalies",
+    "generate_political_landscape",
+    "early_warning_system"
+  ],
+  "analyticsCompleted": {
+    "analyze_coalition_dynamics": true,
+    "get_all_generated_stats": true
+  },
+  "analysisDir": "analysis/daily/2026-04-17/breaking-run180",
+  "analysisFiles": [
+    "classification/significance-classification.md",
+    "threat-assessment/political-threat-landscape.md",
+    "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md",
+    "intelligence/deep-analysis.md",
+    "intelligence/synthesis-summary.md",
+    "documents/document-analysis-index.md"
+  ],
+  "analysisTheme": "EU Defence & Strategic Autonomy Legislative Sprint (March 2026)",
+  "compositeRisk": {
+    "tariffThread": 13.1,
+    "defenceThread": 9.5,
+    "combined": 22.6
+  },
+  "recessDay": 4,
+  "keyDocuments": [
+    "TA-10-2026-0079",
+    "TA-10-2026-0040",
+    "TA-10-2026-0077",
+    "TA-10-2026-0078",
+    "TA-10-2026-0020",
+    "TA-10-2026-0094",
+    "TA-10-2026-0086"
+  ],
+  "differentiationFromPriorRuns": "Runs 176-179 covered tariff T+1-T+3 and Banking Union. Run 180 provides first dedicated analysis of defence/strategic autonomy legislative cluster from March 2026 plenary.",
+  "nextPriority": "April 27-30 Strasbourg plenary — EDIP rapporteur appointments, coalition signals",
+  "generatedAt": "2026-04-17T00:00:00Z"
+}

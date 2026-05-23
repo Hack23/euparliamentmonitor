@@ -1,0 +1,65 @@
+{
+  "runId": "d453dec8-df2f-4b80-9c0c-73659e377e8c",
+  "date": "2026-04-14",
+  "articleTypeSlug": "week-ahead-run13",
+  "startTime": "2026-04-14T15:56:33.593Z",
+  "endTime": "2026-04-14T15:56:33.594Z",
+  "articleTypes": [
+    "week-ahead"
+  ],
+  "methods": [
+    {
+      "method": "political-classification",
+      "status": "completed",
+      "outputFile": "political-classification.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: political-classification.md"
+    },
+    {
+      "method": "risk-assessment",
+      "status": "completed",
+      "outputFile": "risk-assessment.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: risk-assessment.md"
+    },
+    {
+      "method": "significance-scoring",
+      "status": "completed",
+      "outputFile": "significance-scoring.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: significance-scoring.md"
+    },
+    {
+      "method": "swot-analysis",
+      "status": "completed",
+      "outputFile": "swot-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: swot-analysis.md"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: synthesis-summary.md"
+    },
+    {
+      "method": "threat-analysis",
+      "status": "completed",
+      "outputFile": "threat-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: threat-analysis.md"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ai-agentic-workflow",
+    "filesystem-discovery"
+  ]
+}

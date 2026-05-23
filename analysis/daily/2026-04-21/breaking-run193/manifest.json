@@ -1,0 +1,97 @@
+{
+  "runId": "3ff728a7-15fa-4d2d-af0e-73c3e1ffb70e",
+  "date": "2026-04-21",
+  "articleTypeSlug": "breaking-run193",
+  "startTime": "2026-04-21T07:48:50.695Z",
+  "endTime": "2026-04-21T07:48:50.696Z",
+  "articleTypes": [
+    "breaking"
+  ],
+  "methods": [
+    {
+      "method": "significance-scoring",
+      "status": "completed",
+      "outputFile": "classification/significance-scoring.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: classification/significance-scoring.md"
+    },
+    {
+      "method": "document-analysis",
+      "status": "completed",
+      "outputFile": "documents/document-analysis-index.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: documents/document-analysis-index.md"
+    },
+    {
+      "method": "analysis-index",
+      "status": "completed",
+      "outputFile": "intelligence/analysis-index.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/analysis-index.md"
+    },
+    {
+      "method": "coalition-analysis",
+      "status": "completed",
+      "outputFile": "intelligence/coalition-dynamics.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/coalition-dynamics.md"
+    },
+    {
+      "method": "cross-run-diff",
+      "status": "completed",
+      "outputFile": "intelligence/cross-run-diff.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/cross-run-diff.md"
+    },
+    {
+      "method": "mcp-reliability-audit",
+      "status": "completed",
+      "outputFile": "intelligence/mcp-reliability-audit.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/mcp-reliability-audit.md"
+    },
+    {
+      "method": "scenario-forecast",
+      "status": "completed",
+      "outputFile": "intelligence/scenario-forecast.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/scenario-forecast.md"
+    },
+    {
+      "method": "stakeholder-map",
+      "status": "completed",
+      "outputFile": "intelligence/stakeholder-map.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/stakeholder-map.md"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "intelligence/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/synthesis-summary.md"
+    },
+    {
+      "method": "threat-model",
+      "status": "completed",
+      "outputFile": "intelligence/threat-model.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/threat-model.md"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ai-agentic-workflow",
+    "filesystem-discovery"
+  ]
+}

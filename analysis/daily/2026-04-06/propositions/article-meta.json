@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-06",
+  "articleType": "propositions",
+  "runId": "0815db62-e5a4-49dc-aa6f-1259c7d7b904",
+  "gateResult": "PENDING",
+  "slug": "2026-04-06-propositions",
+  "articlePath": "analysis/daily/2026-04-06/propositions/article.md",
+  "topFinding": "This Easter Monday propositions run produces the Q1 2026 legislative-pipeline retrospective — at 11,320 article lines and 20 analytical methods, the most comprehensive single-run propositions analysis in the EP10 corpus to date.",
+  "keyTakeaways": [
+    "🔴 **42 EP10-2026 adopted texts in pre-recess corpus**.",
+    "🟠 **Pipeline split:** 18 trilogue Q2 · 12 Council-waiting Q2 · 12 implementation-rolling.",
+    "🟢 **Velocity +44% YoY** — 2.11 acts/session, highest since EP7-2012.",
+    "🟡 **Sustainable through Q2** — Council bandwidth + Commission pipeline ready.",
+    "🔵 **Not sustainable beyond Q3** — political-capital exhaustion risk.",
+    "🟣 **20 methods applied** — largest single-run propositions methodology coverage.",
+    "🩷 **11,320-line article** — most comprehensive propositions analysis in EP10 corpus."
+  ],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

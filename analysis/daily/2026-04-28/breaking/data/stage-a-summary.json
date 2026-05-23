@@ -1,0 +1,72 @@
+{
+  "collectionDate": "2026-04-28T00:41:00Z",
+  "articleType": "breaking",
+  "runId": "breaking-run-1777336869",
+  "keyStories": [
+    {
+      "id": "TA-10-2026-0096",
+      "title": "Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States of America",
+      "dateAdopted": "2026-03-26",
+      "significance": "HIGH",
+      "context": "EP response to US Trump administration tariff policies - trade war countermeasures",
+      "procedureRef": "eli/dl/event/2025-0261-DEC-DCPL-2026-03-26"
+    },
+    {
+      "id": "TA-10-2026-0092",
+      "title": "Early intervention measures, conditions for resolution and funding of resolution action (SRMR3)",
+      "dateAdopted": "2026-03-26",
+      "significance": "HIGH",
+      "context": "Banking crisis prevention reform - third revision of Single Resolution Mechanism Regulation"
+    },
+    {
+      "id": "TA-10-2026-0094",
+      "title": "Combating corruption",
+      "dateAdopted": "2026-03-26",
+      "significance": "MEDIUM",
+      "context": "New anti-corruption framework for EU member states"
+    },
+    {
+      "id": "TA-10-2026-0088",
+      "title": "Request for the waiver of the immunity of Grzegorz Braun",
+      "dateAdopted": "2026-03-26",
+      "significance": "MEDIUM",
+      "context": "Immunity waiver for controversial far-right Polish MEP"
+    },
+    {
+      "id": "TA-10-2026-0078",
+      "title": "Recommendation on enhanced EU-Canada cooperation in geopolitical context, including threats to Canada's economic stability and sovereignty",
+      "dateAdopted": "2026-03-11",
+      "significance": "HIGH",
+      "context": "EU solidarity with Canada amid US economic pressure"
+    },
+    {
+      "id": "PLENARY-APRIL-2026",
+      "title": "Strasbourg Plenary Session April 27-30, 2026",
+      "significance": "HIGH",
+      "context": "Active plenary: 2 votes April 27, 21 debates scheduled April 28"
+    }
+  ],
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "groups": {
+      "EPP": 185,
+      "S&D": 135,
+      "PfE": 85,
+      "ECR": 81,
+      "Renew": 77,
+      "GreenEFA": 53,
+      "Left": 46,
+      "NI": 30,
+      "ESN": 27
+    },
+    "majorityThreshold": 361,
+    "fragmentationIndex": "HIGH",
+    "stabilityScore": 84
+  },
+  "dataGaps": [
+    "Voting records for April 2026 not yet published (EP delay)",
+    "April 27 meeting decisions have no titles in API",
+    "Parliamentary questions have minimal metadata",
+    "Adopted text content for March 26 texts not yet indexed"
+  ]
+}

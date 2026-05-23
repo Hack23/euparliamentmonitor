@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-05-05T07:04Z",
+  "adopted_texts_2026": [
+    {
+      "id": "TA-10-2026-0160",
+      "title": "Enforcement of the Digital Markets Act",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Big Tech / DMA"
+    },
+    {
+      "id": "TA-10-2026-0161",
+      "title": "Ensuring accountability and justice in response to Russia continued attacks against civilian population in Ukraine",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Ukraine/Russia"
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "title": "Supporting democratic resilience in Armenia",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Armenia democracy"
+    },
+    {
+      "id": "TA-10-2026-0151",
+      "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Human rights/Haiti"
+    },
+    {
+      "id": "TA-10-2026-04-30-ANN01",
+      "title": "ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Budget 2027"
+    },
+    {
+      "id": "TA-10-2026-0142",
+      "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data",
+      "dateAdopted": "2026-04-29",
+      "session": "MTG-PL-2026-04-29",
+      "subjectMatter": "Security/PNR"
+    },
+    {
+      "id": "TA-10-2026-0119",
+      "title": "Control of EIB Group financial activities annual report 2024",
+      "dateAdopted": "2026-04-28",
+      "session": "MTG-PL-2026-04-28",
+      "subjectMatter": "EIB/Finance"
+    },
+    {
+      "id": "TA-10-2026-0115",
+      "title": "Welfare of dogs and cats and their traceability",
+      "dateAdopted": "2026-04-28",
+      "session": "MTG-PL-2026-04-28",
+      "subjectMatter": "Animal welfare"
+    },
+    {
+      "id": "TA-10-2026-0112",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "dateAdopted": "2026-04-28",
+      "session": "MTG-PL-2026-04-28",
+      "subjectMatter": "Budget"
+    }
+  ],
+  "political_landscape": {
+    "totalMEPs": 719,
+    "groups": {
+      "EPP": 185,
+      "SD": 135,
+      "PfE": 85,
+      "ECR": 81,
+      "Renew": 77,
+      "GreensEFA": 53,
+      "TheLeft": 46,
+      "NI": 30,
+      "ESN": 27
+    },
+    "majorityThreshold": 361,
+    "stabilityScore": 84
+  },
+  "dataStatus": {
+    "eventsToday": "UNAVAILABLE",
+    "votingRecords": "DELAYED_NO_DATA",
+    "adoptedTexts": "AVAILABLE_APR28-30",
+    "procedures": "STALE_HISTORICAL"
+  }
+}

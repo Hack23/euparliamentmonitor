@@ -1,0 +1,54 @@
+{
+  "date": "2026-05-15",
+  "articleType": "propositions",
+  "runId": "propositions",
+  "gateResult": "PENDING",
+  "slug": "2026-05-15-propositions",
+  "articlePath": "analysis/daily/2026-05-15/propositions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "Revised early intervention triggers (graduated from Level 1 to Level 3)",
+    "New conditions under which resolution (rather than liquidation) applies",
+    "Updated funding waterfall under the Single Resolution Fund (SRF)",
+    "Coordination mechanisms with the nascent Deposit Insurance Scheme (EDIS)",
+    "The EP unanimously recommended seeking a WTO opinion on US tariffs (TA-10-2026-0008 precedent)",
+    "EU-Canada cooperation resolution (TA-10-2026-0078) signals transatlantic realignment",
+    "WTO MC14 in Yaoundé resolution (TA-10-2026-0086) positions EU on multilateral trade governance"
+  ],
+  "topRisks": [
+    "Corporate lobbying (BusinessEurope) has successfully shifted Commission position",
+    "EPP under pressure from German industry to reduce compliance burdens",
+    "ECR and ID will vote for any weakening, ensuring passage with split centrists",
+    "JURI/ENVI committee vote on CSRD omnibus (expected June 2026)",
+    "EPP group position paper publication",
+    "S&D red-line statement on minimum acceptable CSRD scope",
+    "S&D credibly threatens to withdraw coalition cooperation on other files if CSRD gutted below threshold of ~35,000 companies",
+    "MEP advocacy campaign by NGOs and sustainability networks"
+  ],
+  "keyDates": [
+    "Historical legislative pace (April 2026 = 19 texts) shows coalition capacity",
+    "Polish Council Presidency ending June 2026 creates urgency to finalise files"
+  ],
+  "keyActors": [
+    "**SRMR3:** Co-authored with S&D; strong ownership of banking union completion",
+    "**Anti-Corruption Directive:** Supported but sought exemptions for party financing rules",
+    "**DMA Enforcement:** Cautious — German EPP members sensitive to auto-sector interests intersecting with platform regulation",
+    "**2027 Budget:** Pushing for defence spending primacy over climate instruments",
+    "**EU-Mercosur:** Split internally; French EPP opposed due to agricultural interests",
+    "German SPD MEPs face domestic political pressure as SPD enters government with Friedrich Merz",
+    "Spanish PSOE MEPs pushing progressive trade conditionality clauses",
+    "Renew fragmentation increases S&D bargaining leverage"
+  ],
+  "macroContext": "IMF as Sole Authoritative Economic Source | Confidence: 🟡 MEDIUM",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

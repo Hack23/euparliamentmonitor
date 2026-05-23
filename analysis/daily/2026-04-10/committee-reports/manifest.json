@@ -1,0 +1,71 @@
+{
+  "runId": "committee-reports-2026-04-10",
+  "date": "2026-04-10",
+  "articleTypeSlug": "committee-reports",
+  "articleType": "committee-reports",
+  "startTime": "2026-04-10T05:05:00.000Z",
+  "endTime": "2026-04-10T05:30:00.000Z",
+  "articleTypes": ["committee-reports"],
+  "methods": [
+    {
+      "method": "significance-classification",
+      "status": "completed",
+      "outputFile": "classification/significance-classification.md",
+      "confidence": "high",
+      "duration": 300,
+      "summary": "STRATEGIC PRIORITY: ECON Banking Union triple-package (9.2/10) and LIBE Anti-Corruption (8.8/10) dominate Q1 2026"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "completed",
+      "outputFile": "existing/deep-analysis.md",
+      "confidence": "high",
+      "duration": 600,
+      "summary": "Committee Power Analysis: ECON (9.0/10), LIBE (8.0/10), INTA (7.3/10) lead Q1 2026. 104 adopted texts, 46.2% above 2025 pace."
+    },
+    {
+      "method": "stakeholder-analysis",
+      "status": "completed",
+      "outputFile": "existing/stakeholder-impact.md",
+      "confidence": "high",
+      "duration": 300,
+      "summary": "6 stakeholder groups analyzed. EPP and civil society positive. Industry mixed. Greens/EFA negative from ENVI decline."
+    },
+    {
+      "method": "political-threat-landscape",
+      "status": "completed",
+      "outputFile": "threat-assessment/political-threat-landscape.md",
+      "confidence": "high",
+      "duration": 300,
+      "summary": "Key threats: Renew-ECR competitiveness coalition (structural), post-Easter backlog (12/25 HIGH), US tariff escalation (16/25 CRITICAL)"
+    },
+    {
+      "method": "political-risk-matrix",
+      "status": "completed",
+      "outputFile": "risk-scoring/political-risk-matrix.md",
+      "confidence": "high",
+      "duration": 300,
+      "summary": "Composite risk 10.85/25 (MEDIUM, approaching HIGH). 7 risks scored. US tariffs CRITICAL (16/25)."
+    }
+  ],
+  "dataFetched": {
+    "adoptedTexts": 100,
+    "precomputedStats": true,
+    "feedItems": 13,
+    "committeeDocuments": 0,
+    "procedures": 0,
+    "events": 0,
+    "serverHealth": "unhealthy (Easter recess)"
+  },
+  "mcpToolsCalled": [
+    "get_server_health",
+    "get_all_generated_stats",
+    "get_adopted_texts_feed",
+    "get_adopted_texts",
+    "get_procedures_feed",
+    "get_committee_documents_feed",
+    "get_committee_info",
+    "search_documents",
+    "monitor_legislative_pipeline"
+  ]
+}

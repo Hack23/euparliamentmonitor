@@ -1,0 +1,49 @@
+{
+  "date": "2026-04-10",
+  "articleType": "week-ahead",
+  "runId": "12",
+  "generatedAt": "2026-04-10T16:55:00Z",
+  "analysisFrameworks": [
+    "SWOT",
+    "Risk Assessment",
+    "Threat Landscape",
+    "Coalition Dynamics",
+    "Weekly Intelligence Brief"
+  ],
+  "analysisMethods": 18,
+  "dataSources": {
+    "precomputedStats": {
+      "status": "available",
+      "generatedAt": "2026-04-08T00:06:48Z",
+      "sizeKB": 94
+    },
+    "epApiFeeds": {
+      "status": "unavailable",
+      "reason": "Easter recess Day 15 - all 13 feeds returning INTERNAL_ERROR"
+    },
+    "coalitionDynamics": {
+      "status": "partial",
+      "reason": "Structure available, per-MEP data UNAVAILABLE"
+    },
+    "editorialMemory": {
+      "status": "available",
+      "entries": 12
+    }
+  },
+  "keyFindings": [
+    "US tariff deadline April 15 - CRITICAL risk 16/25",
+    "Committee restart April 14-17 after 18-day Easter recess",
+    "13 COD procedures awaiting rapporteur assignments",
+    "Banking Union trilogue (SRMR3/BRRD3/DGSD2) moves to Council",
+    "Three-pole coalition crystallisation confirmed",
+    "Composite risk 12.50/25 (HIGH, rising)"
+  ],
+  "artifacts": [
+    "weekly-intelligence-brief.md",
+    "synthesis-summary.md",
+    "manifest.json"
+  ],
+  "dataFiles": [
+    "data/precomputed-stats.json"
+  ]
+}

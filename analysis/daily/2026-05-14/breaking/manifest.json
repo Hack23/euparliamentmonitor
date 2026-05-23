@@ -1,0 +1,95 @@
+{
+  "articleType": "breaking",
+  "date": "2026-05-14",
+  "runId": "breaking-run-1778722670",
+  "status": "analysis-only",
+  "analysisDir": "analysis/daily/2026-05-14/breaking",
+  "history": [
+    {
+      "runId": "breaking-run-1778722670",
+      "timestamp": "2026-05-14T00:00:00Z",
+      "pass1ArtifactCount": 36,
+      "pass2RewriteCount": 36,
+      "gateResult": "ANALYSIS_ONLY",
+      "elapsedMinAtGate": 26,
+      "gateReason": "33/36 artifacts below quality threshold; analysis-only mode"
+    },
+    {
+      "runId": "breaking-run-1778765147-pass2",
+      "timestamp": "2026-05-14T13:56:45Z",
+      "gateResult": "GREEN",
+      "artifactCount": 36,
+      "totalLines": 10988,
+      "passNumber": 2,
+      "note": "Pass 2 extend/rewrite run \u2014 all 36 artifacts above floor; article rendered to 15 files"
+    },
+    {
+      "runId": "breaking-run373-1778786862-pass3",
+      "timestamp": "2026-05-14T19:37:41Z",
+      "gateResult": "GREEN",
+      "artifactCount": 36,
+      "rewriteCount": 22,
+      "mermaidAdded": 22,
+      "newArtifacts": [
+        "classification/actor-mapping.md",
+        "classification/forces-analysis.md",
+        "classification/impact-matrix.md"
+      ],
+      "note": "Pass 3 extend/rewrite run \u2014 22 artifacts rewritten with Mermaid diagrams, 3 new classification artifacts created, WEP+Admiralty added to 4 artifacts; Gate GREEN"
+    }
+  ],
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "analysisIndex": "intelligence/analysis-index.md",
+    "synthesisSummary": "intelligence/synthesis-summary.md",
+    "coalitionDynamics": "intelligence/coalition-dynamics.md",
+    "economicContext": "intelligence/economic-context.md",
+    "stakeholderMap": "intelligence/stakeholder-map.md",
+    "politicalThreatLandscape": "intelligence/political-threat-landscape.md",
+    "scenarioForecast": "intelligence/scenario-forecast.md",
+    "pestleAnalysis": "intelligence/pestle-analysis.md",
+    "historicalBaseline": "intelligence/historical-baseline.md",
+    "significanceScoring": "intelligence/significance-scoring.md",
+    "votingPatterns": "intelligence/voting-patterns.md",
+    "threatModel": "intelligence/threat-model.md",
+    "wildcardsBlackSwans": "intelligence/wildcards-blackswans.md",
+    "crossRunDiff": "intelligence/cross-run-diff.md",
+    "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+    "workflowAudit": "intelligence/workflow-audit.md",
+    "crossSessionIntelligence": "intelligence/cross-session-intelligence.md",
+    "referenceAnalysisQuality": "intelligence/reference-analysis-quality.md",
+    "methodologyReflection": "intelligence/methodology-reflection.md",
+    "riskMatrix": "risk-scoring/risk-matrix.md",
+    "quantitativeSwot": "risk-scoring/quantitative-swot.md",
+    "significanceClassification": "classification/significance-classification.md",
+    "documentAnalysisIndex": "documents/document-analysis-index.md",
+    "extendedExecutiveBrief": "extended/executive-brief.md",
+    "devilsAdvocateAnalysis": "extended/devils-advocate-analysis.md",
+    "historicalParallels": "extended/historical-parallels.md",
+    "coalitionMathematics": "extended/coalition-mathematics.md",
+    "forwardIndicators": "extended/forward-indicators.md",
+    "intelligenceAssessment": "extended/intelligence-assessment.md",
+    "implementationFeasibility": "extended/implementation-feasibility.md",
+    "mediaFramingAnalysis": "extended/media-framing-analysis.md",
+    "comparativeInternational": "extended/comparative-international.md",
+    "voterSegmentation": "extended/voter-segmentation.md",
+    "crossReferenceMap": "extended/cross-reference-map.md",
+    "dataDownloadManifest": "extended/data-download-manifest.md",
+    "actorMapping": "classification/actor-mapping.md",
+    "forcesAnalysis": "classification/forces-analysis.md",
+    "impactMatrix": "classification/impact-matrix.md"
+  },
+  "dataQuality": {
+    "adoptedTexts": "high",
+    "rollCallVotes": "unavailable-doceo-lag",
+    "imfEconomicData": "unavailable-api-failure",
+    "politicalLandscape": "high",
+    "eventsData": "unavailable-upstream-error"
+  },
+  "gateResult": "GREEN",
+  "pass2": {
+    "rewriteCount": 22,
+    "artifactCount": 36,
+    "totalLines": 10988
+  }
+}

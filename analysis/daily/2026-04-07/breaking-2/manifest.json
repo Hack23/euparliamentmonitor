@@ -1,0 +1,143 @@
+{
+  "runId": "24097229534",
+  "date": "2026-04-07",
+  "articleTypeSlug": "breaking",
+  "suffixIndex": 2,
+  "startTime": "2026-04-07T18:18:43.806Z",
+  "endTime": "2026-04-07T18:35:00.000Z",
+  "articleTypes": ["breaking"],
+  "articleType": "breaking",
+  "newsworthy": false,
+  "newsworthinessReason": "Easter recess Day 12/18 — no today-dated parliamentary actions. TA-10-2026-0030 metadata update is not newsworthy. Analysis-only PR per ai-driven-analysis-guide.md Rule 5.",
+  "priorAnalysis": "analysis/2026-04-07/breaking/",
+  "methods": [
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "synthesis-summary.md",
+      "confidence": "medium",
+      "summary": "12-hour delta analysis with API recovery tracking, post-Easter scenario modeling, and stakeholder assessment"
+    },
+    {
+      "method": "significance-classification",
+      "status": "completed",
+      "outputFile": "classification/significance-classification.md",
+      "confidence": "medium",
+      "summary": "3 items classified: all below publishing threshold (max 2.4/10)"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "completed",
+      "outputFile": "existing/deep-analysis.md",
+      "confidence": "medium",
+      "summary": "3 under-examined dimensions: API recovery as democratic indicator, recess as political inflection, rigorous scenario modeling"
+    },
+    {
+      "method": "quantitative-swot",
+      "status": "completed",
+      "outputFile": "risk-scoring/quantitative-swot.md",
+      "confidence": "medium",
+      "summary": "Net SWOT +4.7 (positive). Strengths: EP10 productivity surge. Weaknesses: API degradation. Opportunities: post-Easter committee week. Threats: US tariff escalation."
+    },
+    {
+      "method": "political-threat-landscape",
+      "status": "completed",
+      "outputFile": "threat-assessment/political-threat-landscape.md",
+      "confidence": "medium",
+      "summary": "MODERATE threat level. Diamond Model on US tariffs, Attack Tree on coalition fracture, PESTLE assessment. Key: external trade dynamics."
+    },
+    {
+      "method": "risk-matrix",
+      "status": "completed",
+      "outputFile": "risk-scoring/risk-matrix.md",
+      "confidence": "medium",
+      "summary": "8 risks assessed. R3 (API persistence) downgraded 5→3 based on evening recovery signal. Cascading risk analysis on tariff escalation."
+    },
+    {
+      "method": "stakeholder-impact",
+      "status": "completed",
+      "outputFile": "existing/stakeholder-impact.md",
+      "confidence": "medium",
+      "summary": "6-perspective assessment. Civil society NEGATIVE (transparency gap). Industry MIXED (trade uncertainty + banking clarity). Others neutral."
+    }
+  ],
+  "dataSources": {
+    "adoptedTextsFeed": {
+      "timeframe": "today",
+      "items": 1,
+      "status": "partial-recovery",
+      "note": "TA-10-2026-0030 returned via today endpoint — improvement over morning one-week fallback"
+    },
+    "mepsFeed": {
+      "timeframe": "today",
+      "items": 737,
+      "status": "operational"
+    },
+    "eventsFeed": {
+      "timeframe": "one-week",
+      "items": 0,
+      "status": "404"
+    },
+    "proceduresFeed": {
+      "timeframe": "one-week",
+      "items": 0,
+      "status": "404"
+    },
+    "documentsFeed": {
+      "timeframe": "one-week",
+      "items": 0,
+      "status": "404"
+    },
+    "plenaryDocumentsFeed": {
+      "timeframe": "one-week",
+      "items": 0,
+      "status": "404"
+    },
+    "committeeDocumentsFeed": {
+      "timeframe": "one-week",
+      "items": 0,
+      "status": "404"
+    },
+    "parliamentaryQuestionsFeed": {
+      "timeframe": "one-week",
+      "items": 0,
+      "status": "404"
+    },
+    "votingAnomalies": {
+      "anomalies": 0,
+      "stabilityScore": 100,
+      "riskLevel": "LOW"
+    },
+    "coalitionDynamics": {
+      "status": "timeout"
+    },
+    "politicalLandscape": {
+      "groups": 8,
+      "largestGroup": "PPE",
+      "fragmentationIndex": "HIGH"
+    },
+    "earlyWarning": {
+      "warnings": 3,
+      "stabilityScore": 84,
+      "riskLevel": "MEDIUM"
+    },
+    "precomputedStats": {
+      "period": "2025-2026",
+      "legislativeActs2026": 114,
+      "outputPerSession": 2.11,
+      "changeVs2025": "+46.2%"
+    }
+  },
+  "qualityMetrics": {
+    "totalArtifacts": 7,
+    "totalLines": 0,
+    "mermaidDiagrams": 11,
+    "evidenceBackedClaims": 14,
+    "epDocumentCitations": 8,
+    "namedActors": 9,
+    "confidenceAnnotations": 15,
+    "stakeholderPerspectives": 6,
+    "forwardLookingScenarios": 5,
+    "analyticalFrameworks": 5
+  }
+}

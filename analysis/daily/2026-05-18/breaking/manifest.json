@@ -1,0 +1,176 @@
+{
+  "articleType": "breaking",
+  "date": "2026-05-18",
+  "runId": "breaking-run262-1779068047",
+  "dataMode": "degraded-feeds",
+  "dataQuality": {
+    "prefetchMode": "full",
+    "liveCallsCount": 6,
+    "invocationCapException": true,
+    "missingFeeds": [
+      "events-feed",
+      "voting-data"
+    ],
+    "lineFloorFactor": 0.8
+  },
+  "files": {
+    "executive-brief": [
+      "executive-brief.md"
+    ],
+    "data-availability-assessment": [
+      "data-availability-assessment.md"
+    ],
+    "synthesis-summary": [
+      "intelligence/synthesis-summary.md"
+    ],
+    "analysis-index": [
+      "intelligence/analysis-index.md"
+    ],
+    "mcp-reliability-audit": [
+      "intelligence/mcp-reliability-audit.md"
+    ],
+    "coalition-dynamics": [
+      "intelligence/coalition-dynamics.md"
+    ],
+    "stakeholder-map": [
+      "intelligence/stakeholder-map.md"
+    ],
+    "pestle-analysis": [
+      "intelligence/pestle-analysis.md"
+    ],
+    "scenario-forecast": [
+      "intelligence/scenario-forecast.md"
+    ],
+    "wildcards-blackswans": [
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "threat-model": [
+      "intelligence/threat-model.md"
+    ],
+    "economic-context": [
+      "intelligence/economic-context.md"
+    ],
+    "historical-baseline": [
+      "intelligence/historical-baseline.md"
+    ],
+    "political-threat-landscape": [
+      "intelligence/political-threat-landscape.md"
+    ],
+    "significance-scoring": [
+      "intelligence/significance-scoring.md"
+    ],
+    "cross-run-diff": [
+      "intelligence/cross-run-diff.md"
+    ],
+    "cross-session-intelligence": [
+      "intelligence/cross-session-intelligence.md"
+    ],
+    "reference-analysis-quality": [
+      "intelligence/reference-analysis-quality.md"
+    ],
+    "voting-patterns": [
+      "intelligence/voting-patterns.degraded.md"
+    ],
+    "workflow-audit": [
+      "intelligence/workflow-audit.md"
+    ],
+    "methodology-reflection": [
+      "intelligence/methodology-reflection.md"
+    ],
+    "procedures-proxy": [
+      "intelligence/procedures-proxy.md"
+    ],
+    "risk-matrix": [
+      "risk-scoring/risk-matrix.md"
+    ],
+    "quantitative-swot": [
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "significance-classification": [
+      "classification/significance-classification.md"
+    ],
+    "actor-mapping": [
+      "classification/actor-mapping.md"
+    ],
+    "forces-analysis": [
+      "classification/forces-analysis.md"
+    ],
+    "impact-matrix": [
+      "classification/impact-matrix.md"
+    ],
+    "document-analysis-index": [
+      "documents/document-analysis-index.md"
+    ],
+    "extended-executive-brief": [
+      "extended/executive-brief.md"
+    ],
+    "devils-advocate-analysis": [
+      "extended/devils-advocate-analysis.md"
+    ],
+    "historical-parallels": [
+      "extended/historical-parallels.md"
+    ],
+    "coalition-mathematics": [
+      "extended/coalition-mathematics.md"
+    ],
+    "forward-indicators": [
+      "extended/forward-indicators.md"
+    ],
+    "intelligence-assessment": [
+      "extended/intelligence-assessment.md"
+    ],
+    "implementation-feasibility": [
+      "extended/implementation-feasibility.md"
+    ],
+    "media-framing-analysis": [
+      "extended/media-framing-analysis.md"
+    ],
+    "comparative-international": [
+      "extended/comparative-international.md"
+    ],
+    "voter-segmentation": [
+      "extended/voter-segmentation.md"
+    ],
+    "cross-reference-map": [
+      "extended/cross-reference-map.md"
+    ],
+    "data-download-manifest": [
+      "extended/data-download-manifest.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "breaking-run262-1779068047",
+      "date": "2026-05-18",
+      "artifactCount": 41,
+      "dataMode": "degraded-feeds",
+      "pass1Complete": true,
+      "pass2Complete": true,
+      "rewriteCount": 41
+    },
+    {
+      "runId": "breaking-run268-1779092389",
+      "date": "2026-05-18",
+      "timestamp": "2026-05-18T09:01:52.987Z",
+      "artifactCount": 43,
+      "rewriteCount": 43,
+      "gateResult": "ANALYSIS_ONLY",
+      "gateReason": "elapsed-time tripwire at minute 36",
+      "dataMode": "degraded-feeds",
+      "lineFloorFactor": 0.8,
+      "epMcpCalls": 4,
+      "totalLines": "approx 6400+",
+      "newArtifacts": [
+        "intelligence/voting-patterns.md",
+        "intelligence/economic-context.fallback.md"
+      ]
+    }
+  ],
+  "pass2": {
+    "rewriteCount": 41,
+    "startedAt": "2026-05-18T02:05:00Z",
+    "endedAt": "2026-05-18T02:30:00Z"
+  },
+  "lineFloorFactor": 0.8,
+  "lastRun": "breaking-run268-1779092389"
+}

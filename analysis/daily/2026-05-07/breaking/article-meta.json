@@ -1,0 +1,51 @@
+{
+  "date": "2026-05-07",
+  "articleType": "breaking",
+  "runId": "breaking-run-1778159307",
+  "gateResult": "PENDING",
+  "slug": "2026-05-07-breaking",
+  "articlePath": "analysis/daily/2026-05-07/breaking/article.md",
+  "topFinding": "The European Parliament's final April 2026 plenary delivered three high-impact outputs that will define the EP's political trajectory into summer recess: a confrontational Digital Markets Act enforcement resolution that puts the Commission on notice, a far-right topical debate challenging the Commission's electoral…",
+  "keyTakeaways": [
+    "**Primary threat:** PfE institutional delegitimisation strategy — currently contained but requiring EPP discipline maintenance",
+    "**Secondary threat:** US-EU tech trade tensions escalating if DMA enforcement actions target American companies",
+    "**Latent threat:** Coalition fracture on budget if Greens/Left forced to choose between fiscal ambition and coalition loyalty",
+    "**Scenario A (Regulatory Progress):** 45% probability — Commission moves on DMA enforcement; accountability mechanism for Ukraine advances; Armenia-EU upgrade proceeds",
+    "**Scenario B (Stalemate):** 40% probability — PfE gains media traction; Commission delays DMA enforcement; MFF creates coalition stress",
+    "**Scenario C (Crisis):** 15% probability — Wild-card event (ceasefire, tech withdrawal, budget collapse) forces EP into reactive mode",
+    "[ ] **Commission DMA enforcement decision** (expected Q3 2026) — triggers escalation of DMA analysis track"
+  ],
+  "topRisks": [
+    "🔴 HIGH (score ≥ 10): R-03 (Ukraine ceasefire), R-11 (MFF majority)",
+    "🟡 MEDIUM (score 5–9): R-01, R-02, R-04, R-05, R-07, R-08, R-09, R-10",
+    "🟢 LOW (score < 5): R-06, R-12"
+  ],
+  "keyDates": [
+    "Commission formal DMA investigation announcement (Q2–Q3 2026)",
+    "EP-Council budget first reading agreement (November 2026)",
+    "Budget conciliation committee convened without agreement (November 2026)",
+    "Budget late: EU budget 2013 — adopted January 2013 (several days late but not provisional twelfths)"
+  ],
+  "keyActors": [
+    "EP adopted texts feed (TA-10-2026-0160, -0161, -0112, -0162) — authoritative",
+    "EP speech records (April 29-30) — corroborating",
+    "EP political landscape tool — structural data (authoritative)",
+    "EP coalition dynamics tool — proxy from seat share (moderate confidence)",
+    "IMF data — unavailable (degraded-imf mode)",
+    "DOCEO roll-call data — unavailable for current week",
+    "Individual MEP vote positions for April 28-30 (DOCEO not indexed yet)",
+    "Commission informal positions on DMA enforcement timeline"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

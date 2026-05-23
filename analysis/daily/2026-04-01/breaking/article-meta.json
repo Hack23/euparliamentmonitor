@@ -1,0 +1,25 @@
+{
+  "date": "2026-04-01",
+  "articleType": "breaking",
+  "runId": "breaking",
+  "gateResult": "PENDING",
+  "slug": "2026-04-01-breaking",
+  "articlePath": "analysis/daily/2026-04-01/breaking/article.md",
+  "topFinding": "No breaking news detected for 2026-04-01.",
+  "keyTakeaways": [
+    "🔴 **No tier-1 breaking items.** Recess period 27 March → 26 April; no plenary, no committee voting today. (🟢 High)",
+    "🟠 **6 adopted-text metadata updates** in today's feed — all 2025 texts plus TA-10-2026-0044; routine administrative refresh, no new adoptions. (🟢 High)",
+    "🟢 **Stability score 84/100** (early-warning system); 3 active warnings, MEDIUM aggregate risk; no anomalies in voting-anomaly detector. (🟢 High)",
+    "🟡 **Feed reliability concern:** `get_events_feed`, `get_procedures_feed`, `get_documents_feed`, `get_plenary_documents_feed`, `get_committee_documents_feed`, `get_parliamentary_questions_feed` all returned 404 — possible API maintenance during recess. (🟡 Medium)",
+    "🔵 **Economic context:** ECB Vice-President appointment (TA-10-2026-0060, 10 March) and US customs-tariff adjustment (TA-10-2026-0096, 26 March) remain the dominant economic baselines into April plenary. (🟢 High)",
+    "🟣 **Coalition arithmetic:** PPE 38% / S&D 22% / PfE 11% / Verts 10% / ECR 8% / Renew 5% / NI 4% / Left 2%. Grand Coalition (PPE+S&D = 60%) above 51% threshold. (🟢 High)",
+    "🩷 **Disruption vector:** dominant-group overreach by PPE flagged as HIGH structural risk by early-warning system; no acute trigger today. (🟡 Medium)"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

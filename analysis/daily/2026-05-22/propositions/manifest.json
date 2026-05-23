@@ -1,0 +1,95 @@
+{
+  "articleType": "propositions",
+  "dataMode": "degraded-feeds",
+  "runId": "propositions-run261-1779431162",
+  "generatedAt": "2026-05-22T06:30:00Z",
+  "dataWindow": {
+    "from": "2026-05-15",
+    "to": "2026-05-22"
+  },
+  "history": [
+    {
+      "runId": "propositions-run261-1779431162",
+      "generatedAt": "2026-05-22T06:30:00Z",
+      "pass": 2,
+      "artifactCount": 19,
+      "rewriteCount": 19
+    }
+  ],
+  "dataSources": {
+    "adoptedTexts2026": {
+      "count": 21,
+      "source": "get_adopted_texts",
+      "quality": "HIGH"
+    },
+    "proceduresFeed": {
+      "count": 0,
+      "source": "get_procedures_feed",
+      "quality": "DEGRADED",
+      "error": "EP API enrichment failed - 404"
+    },
+    "externalDocuments": {
+      "count": 0,
+      "source": "get_external_documents_feed",
+      "quality": "DEGRADED",
+      "error": "zero items returned"
+    },
+    "committeeDocuments": {
+      "count": 0,
+      "source": "get_committee_documents_feed",
+      "quality": "DEGRADED",
+      "error": "404 Not Found"
+    },
+    "politicalLandscape": {
+      "source": "generate_political_landscape",
+      "quality": "HIGH"
+    },
+    "imfEconomicData": {
+      "source": "IMF WEO April 2026",
+      "quality": "FALLBACK",
+      "note": "IMF SDMX API requires subscription key"
+    },
+    "latestVotes": {
+      "count": 0,
+      "source": "get_latest_votes",
+      "quality": "DEGRADED",
+      "note": "Plenary week 2026-05-18 not available"
+    }
+  },
+  "files": {
+    "intelligence": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/analysis-index.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/economic-context.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "root": [
+      "data-availability-assessment.md",
+      "executive-brief.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md"
+    ],
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "classification/significance-classification.md"
+    ]
+  }
+}

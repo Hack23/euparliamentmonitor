@@ -1,0 +1,45 @@
+{
+  "date": "2026-04-26",
+  "articleType": "month-in-review",
+  "runId": "month-in-review-run-1777207349",
+  "gateResult": "PENDING",
+  "slug": "2026-04-26-month-in-review",
+  "articlePath": "analysis/daily/2026-04-26/month-in-review/article.md",
+  "topFinding": "The European Parliament completed a landmark legislative sprint in March-April 2026 achieving the most consequential 30-day output since the 2020 COVID recovery legislation, including the long-delayed Banking Union package, AI governance reform, and European defence integration mandate.",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Likelihood:** 2/5 (15-20%)",
+    "**Impact:** 5/5 (systemic banking crisis)",
+    "**Risk Score:** 10/25 — 🔴 HIGH",
+    "**Residual Risk after BRRD3:** 8/25 — MEDIUM-HIGH (resolution powers improve but don't prevent)",
+    "**Monitoring:** ECB May 2026 Financial Stability Review; quarterly EBA data",
+    "**Likelihood:** 3/5 (30-40%)",
+    "**Impact:** 4/5 (major recession; EU growth stagnation)",
+    "**Risk Score:** 12/25 — 🔴 HIGH"
+  ],
+  "keyDates": [
+    "Germany GDP returns to positive growth (+0.5%) in Q3 2026",
+    "DG CONNECT issues AI Act Omnibus implementing regulation consultation by July 2026",
+    "Enlargement process: North Macedonia opens Chapter 23/24 negotiations by September 2026",
+    "German GDP Q2 2026 preliminary estimate below -0.5%",
+    "Banking Union package completion: Predicted for late March plenary — confirmed (TA-10-2026-0090/0091/0092 on 2026-03-26)",
+    "AI Act Omnibus adoption: Predicted Q1 2026 — confirmed (TA-10-2026-0098 on 2026-03-26)",
+    "European Semester package: Predicted March plenary — confirmed (TA-10-2026-0075/0076 on 2026-03-11)"
+  ],
+  "keyActors": [
+    "Individual MEPs from small member states — outvoted on banking union despite national bank-specific concerns",
+    "Greens/EFA — Opposed defence resolutions; lost on EPP-right majority"
+  ],
+  "macroContext": "The overriding economic reality of April 2026 is the profound divergence between European member state economies that undermines the premise of unified EU economic governance.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

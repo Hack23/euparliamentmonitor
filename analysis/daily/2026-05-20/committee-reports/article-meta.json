@@ -1,0 +1,51 @@
+{
+  "date": "2026-05-20",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run265-1779254720",
+  "gateResult": "PENDING",
+  "slug": "2026-05-20-committee-reports",
+  "articlePath": "analysis/daily/2026-05-20/committee-reports/article.md",
+  "topFinding": "Date: 2026-05-20 | Period: Week of 13–20 May 2026 | Data Mode: minimal Classification: Analytical Intelligence | Confidence: LOW-MEDIUM (minimal data)",
+  "keyTakeaways": [
+    "ENVI (lead): Deeply divided; EPP/ECR majority supporting simplification, S&D/Greens/Left opposing",
+    "ECON: Largely supportive of simplification (CSRD reporting burden reduction)",
+    "JURI: Focused on legal quality and implementation clarity",
+    "AGRI: Strongly supportive of simplification (deforestation law delay)",
+    "DEVE: Opposing (concerns about development impact and carbon border adjustment mechanism)",
+    "**ECON**: Reviewing European Investment Bank mandate extension to defence",
+    "**ITRE**: European Defence Industrial Strategy procurement rules"
+  ],
+  "topRisks": [
+    "**Probability**: 1 (Very Low) to 5 (Very High)",
+    "**Impact**: 1 (Minimal) to 5 (Catastrophic)",
+    "**Risk Score**: Probability × Impact",
+    "**Priority**: Red (15–25), Amber (8–14), Green (1–7)",
+    "**Omnibus gridlock risk**: *WEP: Likely (60–70%)* that Omnibus faces significant delay or amendment in 2026",
+    "**Green Deal rollback acceleration**: *WEP: Likely (55–65%)* that implementation timelines for key directives are extended",
+    "**EP-Council deadlock on SAFE**: *WEP: Roughly Even (45–55%)* given member state fiscal divergence",
+    "**AI Act implementation slippage**: *WEP: Roughly Even (40–50%)* due to delegated act complexity"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "EPP: largest group; drives committee chair allocations and agenda-setting",
+    "Commission: sole legislative initiative right; shapes all dossier scope",
+    "Council: co-legislator; trilogue counterparty",
+    "S&D: largest opposition; can mobilise progressive amendments and delay",
+    "Renew: swing vote on key divisions; determines absolute majority threshold",
+    "Patriots: significant obstruction capacity; no governing coalition role",
+    "ECR: situational ally for EPP on deregulation; diverges on EU competence",
+    "EPP Group Leader: Sets centrist-right legislative agenda; controls chair allocation negotiations"
+  ],
+  "macroContext": "Date: 2026-05-20 | Data Mode: minimal (IMF unavailable)",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

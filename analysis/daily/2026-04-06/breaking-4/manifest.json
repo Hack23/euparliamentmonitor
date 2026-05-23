@@ -1,0 +1,61 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-06",
+  "generated": "2026-04-06T18:35:00Z",
+  "runNumber": 4,
+  "newsworthy": false,
+  "reason": "Easter Monday (Day 11/18 recess) — no parliamentary activity. 4th breaking-news run today confirms zero breaking developments. API oscillation confirmed (adopted texts cycling success/failure). Analysis-only PR per ai-driven-analysis-guide.md Rule 5.",
+  "dataCollected": {
+    "adoptedTexts": 85,
+    "events": 0,
+    "procedures": 0,
+    "meps": 737,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "questions": 0
+  },
+  "apiStatus": {
+    "adoptedTextsFeed": "oscillatory-error-at-18:18",
+    "eventsFeed": "404",
+    "proceduresFeed": "404",
+    "mepsFeed": "today-success",
+    "documentsFeed": "404",
+    "plenaryDocsFeed": "404",
+    "committeeDocsFeed": "404",
+    "questionsFeed": "404"
+  },
+  "analyticalContext": {
+    "votingAnomalies": 0,
+    "riskLevel": "MEDIUM",
+    "stabilityScore": 84,
+    "warningCount": 3,
+    "keyRisk": "DOMINANT_GROUP_RISK",
+    "apiRecoveryProbability": 0.82,
+    "totalRiskScore": 47
+  },
+  "analysisArtifacts": [
+    "significance-classification.md",
+    "political-threat-landscape.md",
+    "risk-matrix.md",
+    "political-swot-analysis.md",
+    "synthesis-summary.md",
+    "coalition-analysis.md",
+    "cross-session-intelligence.md",
+    "stakeholder-impact.md"
+  ],
+  "keyFindings": [
+    "Adopted texts endpoint oscillation confirmed (success at 12:15 UTC, error at 18:18 UTC)",
+    "API recovery probability updated to 82% (Bayesian, down from 87%)",
+    "New Risk 7 identified: transparency deficit during transition to committee week",
+    "18 unique analysis methods applied across all 4 today's breaking runs",
+    "Power asymmetry amplified by data transparency gap — affects small groups and civil society most"
+  ],
+  "previousRuns": "6 April 2026 — 3 prior breaking runs (00:33, 06:45, 12:15 UTC)",
+  "recessStatus": {
+    "day": 11,
+    "totalDays": 18,
+    "daysToCommitteeWeek": 8,
+    "daysToPlenary": 14
+  }
+}

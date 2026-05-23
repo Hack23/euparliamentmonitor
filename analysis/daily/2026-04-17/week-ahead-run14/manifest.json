@@ -1,0 +1,33 @@
+{
+  "runId": "cf7e8cd5-3b34-4755-b9ae-ae3b729cd12f",
+  "date": "2026-04-17",
+  "articleTypeSlug": "week-ahead-run14",
+  "startTime": "2026-04-17T07:56:14.887Z",
+  "endTime": "2026-04-17T07:56:14.888Z",
+  "articleTypes": [
+    "week-ahead"
+  ],
+  "methods": [
+    {
+      "method": "significance-scoring",
+      "status": "completed",
+      "outputFile": "classification/significance-scoring.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: classification/significance-scoring.md"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "intelligence/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/synthesis-summary.md"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ai-agentic-workflow",
+    "filesystem-discovery"
+  ]
+}

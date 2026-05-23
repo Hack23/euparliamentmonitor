@@ -1,0 +1,57 @@
+{
+  "collectionDate": "2026-04-28",
+  "dataWindow": "2026-04-21 to 2026-04-28",
+  "feedsAttempted": {
+    "get_committee_documents_feed": "UNAVAILABLE - EP API error",
+    "get_procedures_feed": "STALE - returned historical 1972-1980 procedures (known recess pattern)",
+    "get_events_feed": "UNAVAILABLE - EP API error",
+    "get_adopted_texts_feed": "SUCCESS - 133 items, 120 EP10 items"
+  },
+  "directEndpointsUsed": {
+    "get_committee_documents": "SUCCESS - 50+ documents from AFCO committee",
+    "get_adopted_texts": "SUCCESS - 30 EP10-2026 texts fetched",
+    "analyze_committee_activity_ECON": "SUCCESS - HIGH workload",
+    "analyze_committee_activity_ENVI": "SUCCESS - HIGH workload",
+    "analyze_committee_activity_ITRE": "SUCCESS - HIGH workload",
+    "generate_political_landscape": "SUCCESS - 719 MEPs, 9 groups",
+    "analyze_coalition_dynamics": "SUCCESS - size-similarity proxy data"
+  },
+  "proceduresTracked": [
+    "2025/0261(COD) - EU-Mercosur bilateral safeguard (INTA rapporteur, at trilogue)",
+    "2024/0311(COD) - Measuring Instruments Directive (completed, published 2026-03-20)",
+    "2025/0132(COD) - Safe Third Country Concept (LIBE, completed 2026-02-26)",
+    "2025/0431(NLE) - Enhanced cooperation Ukraine loan (completed 2026-01-21)"
+  ],
+  "votingRecords": "EMPTY - EP roll-call data publishes with 4-6 week delay",
+  "keyAdoptedTexts2026": [
+    "TA-10-2026-0004: Financial stability amid economic uncertainties (2026-01-20)",
+    "TA-10-2026-0006: Electoral Act reform (2026-01-20)",
+    "TA-10-2026-0010: Enhanced cooperation Ukraine loan (2026-01-21)",
+    "TA-10-2026-0022: European tech sovereignty and digital infrastructure (2026-01-22)",
+    "TA-10-2026-0026: Safe third country concept - asylum (2026-02-10)",
+    "TA-10-2026-0029: Measuring Instruments Directive (2026-02-10)",
+    "TA-10-2026-0030: EU-Mercosur bilateral safeguard for agricultural products (2026-02-10)",
+    "TA-10-2026-0034: ECB annual report 2025 (2026-02-10)",
+    "TA-10-2026-0060: ECB Vice-President appointment (2026-03-10)",
+    "TA-10-2026-0063: Better Law-Making 2023-2024 report (2026-03-10)",
+    "TA-10-2026-0064: Housing crisis solutions (2026-03-10)",
+    "TA-10-2026-0066: Copyright and generative AI (2026-03-10)",
+    "TA-10-2026-0084: Heavy-duty vehicles emissions calculation (2026-03-12)",
+    "TA-10-2026-0096: US tariff adjustments - customs duties (2026-03-26)"
+  ],
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "groups": {
+      "EPP": 185,
+      "S&D": 135,
+      "PfE": 85,
+      "ECR": 81,
+      "Renew": 77,
+      "Greens/EFA": 53,
+      "TheLeft": 46,
+      "NI": 30,
+      "ESN": 27
+    },
+    "majorityThreshold": 361
+  }
+}

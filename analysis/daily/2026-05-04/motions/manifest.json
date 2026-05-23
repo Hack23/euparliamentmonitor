@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "2.0",
+  "runId": "motions-run-1777878822",
+  "articleType": "motions",
+  "date": "2026-05-04",
+  "analysisDir": "analysis/daily/2026-05-04/motions",
+  "createdAt": "2026-05-04T07:30:00Z",
+  "dataWindow": {
+    "from": "2026-04-27",
+    "to": "2026-05-04"
+  },
+  "pass2": {
+    "startedAt": "2026-05-04T07:37:00Z",
+    "endedAt": "2026-05-04T07:50:00Z",
+    "rewriteCount": 8
+  },
+  "artifactSources": {
+    "executive-brief.md": "fresh",
+    "intelligence/pestle-analysis.md": "fresh",
+    "intelligence/stakeholder-map.md": "fresh",
+    "intelligence/scenario-forecast.md": "fresh",
+    "intelligence/synthesis-summary.md": "fresh",
+    "intelligence/economic-context.md": "fresh",
+    "intelligence/coalition-dynamics.md": "fresh",
+    "intelligence/wildcards-blackswans.md": "fresh",
+    "intelligence/historical-baseline.md": "fresh",
+    "intelligence/threat-model.md": "fresh",
+    "intelligence/mcp-reliability-audit.md": "fresh",
+    "intelligence/methodology-reflection.md": "fresh",
+    "classification/significance-classification.md": "fresh",
+    "classification/actor-mapping.md": "fresh",
+    "classification/impact-matrix.md": "fresh",
+    "classification/forces-analysis.md": "fresh",
+    "risk-scoring/risk-matrix.md": "fresh",
+    "risk-scoring/quantitative-swot.md": "fresh",
+    "risk-scoring/political-capital-risk.md": "fresh",
+    "risk-scoring/legislative-velocity-risk.md": "fresh",
+    "threat-assessment/political-threat-landscape.md": "fresh",
+    "threat-assessment/actor-threat-profiles.md": "fresh",
+    "threat-assessment/consequence-trees.md": "fresh",
+    "threat-assessment/legislative-disruption.md": "fresh",
+    "existing/stakeholder-impact.md": "fresh"
+  },
+  "files": {
+    "data": ["data/adopted-texts-week.json"],
+    "intelligence": [
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/economic-context.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/threat-model.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/analysis-index.md",
+      "intelligence/voting-patterns.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/impact-matrix.md",
+      "classification/forces-analysis.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "threat-assessment": [
+      "threat-assessment/political-threat-landscape.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/consequence-trees.md",
+      "threat-assessment/legislative-disruption.md"
+    ],
+    "existing": [
+      "existing/stakeholder-impact.md"
+    ],
+    "top-level": [
+      "executive-brief.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "motions-run-1777878822",
+      "startedAt": "2026-05-04T07:13:42Z",
+      "completedAt": "2026-05-04T07:50:00Z",
+      "artifactCount": 25,
+      "dataLimitations": [
+        "EP roll-call voting data unavailable (4-6 week publication lag)",
+        "Full adopted text content not yet available for April 28-30 texts (EP data pipeline delay)",
+        "Analysis based on metadata, political landscape, and domain knowledge"
+      ],
+      "gateResult": "PENDING_STAGE_C"
+    }
+  ]
+}

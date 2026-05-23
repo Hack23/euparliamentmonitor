@@ -1,0 +1,46 @@
+{
+  "date": "2026-05-04",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run-1777871291",
+  "gateResult": "PENDING",
+  "slug": "2026-05-04-committee-reports",
+  "articlePath": "analysis/daily/2026-05-04/committee-reports/article.md",
+  "topFinding": "The European Parliament's committee system delivered a significant legislative output batch in the week of 27 April – 4 May 2026, with nine adopted texts spanning digital market regulation, budget planning, foreign policy, and animal welfare.",
+  "keyTakeaways": [
+    "✅ ASSUMED: The DMA has been in force long enough (since 2022/2023 rollout) to generate credible enforcement expectations",
+    "✅ ASSUMED: ITRE and IMCO jointly pushed this — consistent with their dual jurisdiction over industry and consumer protection",
+    "⚠️ UNCERTAIN: Specific gatekeeper companies named in the full resolution text (full text not available from EP API in this run)",
+    "✅ ASSUMED: The Commission's DMA enforcement unit has been under political scrutiny in 2025–2026",
+    "Procedure 2026-2596(RSP) timeline shows tabling and debate on 2026-04-28, same-day amendment, vote 2026-04-30",
+    "ITRE committee activity data: HIGH workload intensity, HIGH policy impact rating (EP API)",
+    "Prior EP action on DMA: EP has consistently pushed for stricter digital market regulation since 2022"
+  ],
+  "topRisks": [
+    "**Probability:** 1=Rare (<5%), 2=Unlikely (5-20%), 3=Possible (20-40%), 4=Likely (40-60%), 5=Almost certain (>60%)",
+    "**Impact:** 1=Negligible, 2=Minor, 3=Moderate, 4=Major, 5=Catastrophic",
+    "**Risk score = P × I (1–25)**"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Composition (approximate):** ITRE ~80 members; IMCO ~45 members",
+    "**Chair information:** Not available from EP API (meeting records absent)",
+    "**Dominant political groups:** EPP largest group in both; S&D, Renew significant",
+    "**Legislative role in DMA:** ITRE was primary committee; IMCO opinion; both monitor enforcement",
+    "**Current posture:** Assertive enforcement oversight — demanding Commission escalation",
+    "**Rapporteur/shadow rapporteur:** Not identifiable from available API data (procedure 2026-2596 lacks rapporteur field)",
+    "**Influence chain:** Committee → Plenary adoption → Political pressure on Commissioner Vestager/successor",
+    "**Composition:** ~45 members"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

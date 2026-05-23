@@ -1,0 +1,55 @@
+{
+  "runId": "motions-run431-1778097237",
+  "articleTypeSlug": "motions",
+  "date": "2026-05-06",
+  "analysisDir": "analysis/daily/2026-05-06/motions",
+  "startedAt": "2026-05-06T19:53:57Z",
+  "completedAt": "2026-05-06T20:31:00Z",
+  "stage": "B-complete",
+  "dataMode": "degraded",
+  "artifacts": [
+    "executive-brief.md",
+    "intelligence/mcp-reliability-audit.md",
+    "intelligence/economic-context.md",
+    "intelligence/pestle-analysis.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/voting-patterns.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/historical-baseline.md",
+    "intelligence/synthesis-summary.md",
+    "intelligence/threat-model.md",
+    "intelligence/wildcards-blackswans.md",
+    "intelligence/analysis-index.md",
+    "intelligence/reference-analysis-quality.md",
+    "intelligence/cross-session-intelligence.md",
+    "intelligence/session-baseline.md",
+    "intelligence/workflow-audit.md",
+    "intelligence/methodology-reflection.md",
+    "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md",
+    "existing/deep-analysis.md",
+    "existing/session-baseline.md"
+  ],
+  "artifactCount": 21,
+  "pass2": {
+    "startedAt": "2026-05-06T20:10:00Z",
+    "endedAt": "2026-05-06T20:30:00Z",
+    "rewriteCount": 8
+  },
+  "dataSources": {
+    "epPrecomputedStats": "available",
+    "epLiveFeeds": "degraded-502",
+    "epLatestVotes": "empty",
+    "worldBank": "available",
+    "imf": "unavailable"
+  },
+  "history": [
+    {
+      "runId": "motions-run431-1778097237",
+      "startedAt": "2026-05-06T19:53:57Z",
+      "artifactsWritten": 21,
+      "dataMode": "degraded",
+      "note": "First run of 2026-05-06; EP API degraded; all 21 required artifacts produced"
+    }
+  ]
+}

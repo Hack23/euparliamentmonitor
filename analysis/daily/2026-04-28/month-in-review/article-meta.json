@@ -1,0 +1,47 @@
+{
+  "date": "2026-04-28",
+  "articleType": "month-in-review",
+  "runId": "month-in-review-run-1777373049",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-28-month-in-review",
+  "articlePath": "analysis/daily/2026-04-28/month-in-review/article.md",
+  "topFinding": "The European Parliament's March–April 2026 legislative cycle produced a historic output of 104 adopted texts, anchored by three interlocking strategic clusters: defence industrial integration (five texts establishing the framework for European defence industrial cooperation), banking union completion (three texts…",
+  "keyTakeaways": [
+    "**104 adopted texts (TA-10-2026-0001 through TA-10-2026-0104)** confirmed in the EP Open Data Portal",
+    "**10 significant plenary session days** producing landmark votes across Jan 20–22, Feb 10–12, Feb 24, Mar 10–12, Mar 26",
+    "**Subject diversity**: defence (PESC/EXT), banking/finance (PECO/UEM), AI/tech (INFQ/TECN/RDT), employment/social (EMPL/SOCI), environment (ENV/POLL), institutional (INST), trade (PCOM/TDCC), migration (IMMI/FRON), human rights (DDLH/PESC)",
+    "**Political consensus pattern**: Core EPP+S&D+Renew coalition (397/719 seats) held on all major legislative texts; ECR joined on defence and trade; Left/Greens split on defence and AI simplification; PfE divided internally",
+    "**Majority threshold**: 361/719 seats",
+    "**Core pro-EU majority** (EPP+S&D+Renew): ~397 seats — sufficient for non-defence legislation",
+    "**Defence supermajority** (EPP+S&D+Renew+ECR): ~478 seats — cross-partisan security consensus"
+  ],
+  "topRisks": [
+    "Direct: German government fiscal pressure → reduced EU budget contribution willingness",
+    "Banking: German bank NPL risk → stress on BRRD3 implementation",
+    "Political: EPP domestic pressure → deregulation/environmental rollback pressure in Parliament",
+    "Industrial: Auto sector contraction → supply chain effects in Central-Eastern Europe"
+  ],
+  "keyDates": [
+    "ECB achieves full rate normalisation by Q3 2026 (removes economic headwinds)"
+  ],
+  "keyActors": [
+    "**Defence:** Strong advocate; led TA-0080 (flagship defence projects), TA-0040 (strategic defence partnerships), TA-0013 (CSDP annual report). Defence as European sovereignty — EPP's clearest political differentiator from PfE's nationalist alternatives",
+    "**Banking:** Supported completion of banking union architecture; ECB appointments (TA-0033, 0060) secured via EPP-led consensus",
+    "**AI:** Led Digital Omnibus simplification (TA-0098) — reflects EPP's pro-business deregulation agenda; accepted AI Convention ratification (TA-0071) as multilateral commitment",
+    "**Migration:** Leveraged right-wing coalition (ECR+PfE) to adopt restrictive migration texts (TA-0025, 0026) — signals EPP's willingness to work with right flank on this issue",
+    "**Social:** Conditional support or abstention on housing (TA-0064) and anti-poverty (TA-0049); EPP's right wing opposes binding social EU standards",
+    "**Defence:** Accepted sovereignty logic despite pacifist wing tensions; key condition: rule-of-law conditionality on defence investment (EP should not fund illiberal governments' defence)",
+    "**Banking:** Led BRRD3/SRMR3/DGSD2 advocacy; banking stability seen as workers' protection (prevents layoffs from disorderly bank failures)",
+    "**AI:** Rights-first position; accepted AI Convention ratification enthusiastically; concerned Digital Omnibus weakens AI Act worker protections"
+  ],
+  "macroContext": "The European Semester 2026 resolution commits EU economic policy coordination to:",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

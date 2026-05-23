@@ -1,0 +1,22 @@
+{
+  "date": "2026-04-10",
+  "articleType": "propositions",
+  "runId": "PROP-2026-04-10-001",
+  "gateResult": "PENDING",
+  "slug": "2026-04-10-propositions-PROP-2026-04-10-001",
+  "articlePath": "analysis/daily/2026-04-10/propositions/article.md",
+  "topFinding": "The 10 April propositions synthesis identifies ECON committee's structural workload concentration as the dominant Q2 2026 propositions-track signal: 3 Banking Union trilogue files + new 2026 COD procedures + ECB oversight files all converging on ECON capacity.",
+  "keyTakeaways": [
+    "ECON workload identification: **B2**",
+    "Banking Union trilogue + COD + ECB oversight cataloguing: **A2**",
+    "Run: `propositions` (2026-04-10, run ID PROP-2026-04-10-001)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-04-09",
+  "articleType": "breaking",
+  "runId": "breaking",
+  "gateResult": "PENDING",
+  "slug": "2026-04-09-breaking",
+  "articlePath": "analysis/daily/2026-04-09/breaking/article.md",
+  "topFinding": "The 9 April breaking brief identifies a NEW legislative-backlog risk at 12/25 HIGH: 30+ adopted texts + 13 COD procedures must be processed in a 4-day committee window (14–17 April).",
+  "keyTakeaways": [
+    "Backlog count (30+ texts + 13 CODs): **A2**",
+    "4-day committee window: **A1**",
+    "12/25 HIGH classification: **B2**",
+    "Run: `breaking` (2026-04-09)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

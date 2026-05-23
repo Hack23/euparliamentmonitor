@@ -1,0 +1,49 @@
+{
+  "runId": "ecb889c2-f7ce-4177-85e4-3b9d13c7989b",
+  "date": "2026-04-17",
+  "articleTypeSlug": "propositions-run45",
+  "startTime": "2026-04-17T06:36:21.225Z",
+  "endTime": "2026-04-17T06:36:21.226Z",
+  "articleTypes": [
+    "propositions"
+  ],
+  "methods": [
+    {
+      "method": "significance-scoring",
+      "status": "completed",
+      "outputFile": "classification/significance-scoring.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: classification/significance-scoring.md"
+    },
+    {
+      "method": "risk-matrix",
+      "status": "completed",
+      "outputFile": "risk-scoring/risk-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: risk-scoring/risk-matrix.md"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "completed",
+      "outputFile": "existing/deep-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/deep-analysis.md"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "existing/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/synthesis-summary.md"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ai-agentic-workflow",
+    "filesystem-discovery"
+  ]
+}

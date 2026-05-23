@@ -1,0 +1,118 @@
+{
+  "articleType": "quarter-in-review",
+  "slug": "quarter-in-review",
+  "runId": "quarter-in-review-run-1777970961",
+  "date": "2026-05-05",
+  "generatedAt": "2026-05-05T00:00:00Z",
+  "dataVerification": {
+    "adoptedTexts": {
+      "count": 100,
+      "source": "EP Open Data Portal",
+      "quality": "HIGH"
+    },
+    "politicalLandscape": {
+      "groups": 9,
+      "meps": 719,
+      "source": "EP Open Data Portal",
+      "quality": "HIGH"
+    },
+    "activityStats": {
+      "source": "EP generated stats",
+      "quality": "HIGH"
+    },
+    "votingRecords": {
+      "count": 0,
+      "note": "EP roll-call publication delay 4-6 weeks",
+      "quality": "DEGRADED_EXPECTED"
+    },
+    "economicData": {
+      "imf": {
+        "available": false,
+        "reason": "dataservices.imf.org unreachable in execution environment",
+        "probeFile": "cache/imf/probe-summary.json"
+      },
+      "worldBank": {
+        "available": true,
+        "indicators": [
+          "GDP_GROWTH"
+        ],
+        "countries": [
+          "DE",
+          "FR"
+        ],
+        "quality": "MEDIUM"
+      }
+    },
+    "earlyWarning": {
+      "stabilityScore": 84,
+      "source": "EP early_warning_system",
+      "quality": "HIGH"
+    }
+  },
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "intelligence": {
+      "swot": "intelligence/swot-analysis.md",
+      "stakeholderMap": "intelligence/stakeholder-map.md",
+      "votingPatterns": "intelligence/voting-patterns.md",
+      "legislativePipelineForecast": "intelligence/legislative-pipeline-forecast.md",
+      "economicContext": "intelligence/economic-context.md",
+      "coalitionDynamics": "intelligence/coalition-dynamics.md",
+      "actorMapping": "intelligence/actor-mapping.md",
+      "forwardIndicators": "intelligence/forward-indicators.md",
+      "scenarioAnalysis": "intelligence/scenario-analysis.md",
+      "geopoliticalAssessment": "intelligence/geopolitical-assessment.md"
+    },
+    "riskScoring": {
+      "riskRegister": "risk-scoring/risk-register.md"
+    },
+    "threatAssessment": {
+      "politicalThreatAssessment": "threat-assessment/political-threat-assessment.md"
+    },
+    "classification": {
+      "issueClassification": "classification/issue-classification.md"
+    },
+    "methodologyReflection": "methodology-reflection.md",
+    "data": {
+      "politicalLandscape": "data/political-landscape.json"
+    },
+    "cache": {
+      "imfProbe": "cache/imf/probe-summary.json"
+    }
+  },
+  "artifactCount": 14,
+  "pass2": {
+    "startedAt": "2026-05-05T00:10:00Z",
+    "endedAt": "2026-05-05T00:30:00Z",
+    "rewriteCount": 6,
+    "sectionsRewritten": [
+      "economic-context: IMF degraded mode section",
+      "coalition-dynamics: confidence methodology section",
+      "geopolitical-assessment: Transatlantic section (added)",
+      "scenario-analysis: ACH diagnostic matrix (added)",
+      "actor-mapping: external actors section (added)",
+      "risk-register: composite score methodology (expanded)"
+    ]
+  },
+  "stageC": {
+    "gateResult": "GREEN",
+    "timestamp": "2026-05-05T09:34:43.511Z",
+    "artifacts": 18,
+    "totalLines": 3294,
+    "missing": 0,
+    "short": 0
+  },
+  "history": [
+    {
+      "runId": "quarter-in-review-run-1777970961",
+      "date": "2026-05-05",
+      "status": "complete",
+      "artifactCount": 14,
+      "note": "First run in this analysis folder. No prior run artifacts to merge."
+    }
+  ],
+  "stageD": {
+    "skipped": true,
+    "reason": "elapsed > 42 minutes; ANALYSIS_ONLY mode; deterministic render skipped"
+  }
+}

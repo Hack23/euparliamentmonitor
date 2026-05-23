@@ -1,0 +1,53 @@
+{
+  "date": "2026-04-27",
+  "articleType": "month-in-review",
+  "runId": "month-in-review-run-1777296132",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-27-month-in-review",
+  "articlePath": "analysis/daily/2026-04-27/month-in-review/article.md",
+  "topFinding": "The European Parliament completed its most consequential legislative month of 2026, adopting a comprehensive defence industrial revolution (single market for defence, flagship joint projects, EU-Canada security cooperation), finalising the banking union's second pillar (deposit guarantee reform, crisis resolution),…",
+  "keyTakeaways": [
+    "**22 significant adopted texts** from March 10–26, 2026 in the core window",
+    "**4 plenary session days** producing landmark votes",
+    "**Subject diversity**: defence (PESC), banking (UEM/PECO), AI/tech (INFQ/TECN), employment (EMPL), environment (ENV/POLL), institutional (INST), trade (PCOM)",
+    "**Political consensus**: Core EPP+S&D+Renew coalition held on all major texts; ECR joined on defence; Left/Greens dissented on defence and AI Act simplification",
+    "The \"defence carve-out\" under Article 346 TFEU, which has allowed member states to exclude defence procurement from internal market rules since 1957, is being progressively narrowed by political will if not yet formal treaty amendment",
+    "The \"flagship projects\" model mirrors the Important Projects of Common European Interest (IPCEI) framework used for microchips, batteries, and hydrogen — a proven model for state-aid-compliant European industrial champions",
+    "The EU-Canada defence cooperation text creates the first bilateral defence-specific framework at EU level, with implications for NATO integration and Atlantic partnerships"
+  ],
+  "topRisks": [
+    "EU cohesion fund conditionality (limited effectiveness: Hungary has received partial fund releases)",
+    "Article 7 proceedings (stalled)",
+    "Qualified majority voting proposals for accession steps (blocked in Council)",
+    "Political isolation strategy (EPP's refusal to engage Orbán in EPP channels)",
+    "ECB rate normalisation supports credit conditions",
+    "German structural reform (energy transition, digitalisation) beginning to gain traction",
+    "Coalition government (CDU/CSU-led) maintains EU commitment despite domestic pressure",
+    "EP housing resolution creates political pressure"
+  ],
+  "keyDates": [
+    "AI Act implementing acts (Commission): Q2 2026",
+    "Affordable Housing Initiative (Commission): May/June 2026",
+    "WTO Ministerial Conference position validation: Q2 2026"
+  ],
+  "keyActors": [
+    "Defence integration leadership — EPP positioned as the author of the flagship defence texts, associating the group with European sovereignty during a period of high geopolitical anxiety",
+    "Banking union completion — EPP's economic competence credibility bolstered by the deposit guarantee reform; balances market-liberal instincts with systemic stability logic",
+    "AI Act simplification — EPP drove the SME-friendly amendments, reflecting close ties with European business federations (BusinessEurope, DIGITALEUROPE)",
+    "Enlargement strategy — EPP has historical ownership of enlargement as a project; the text reinforces group leadership on EU foreign policy identity",
+    "Internal tensions between Christian democratic social values (housing, migrant rights) and economic liberalism (AI Act deregulation, labour flexibility)",
+    "Risk of PfE-ECR convergence on defence nationalism that could erode EPP's lead on security",
+    "Von der Leyen-EP relationship tensions if Commission's Affordable Housing Initiative is perceived as insufficiently ambitious",
+    "Banking union completion — S&D as architects of the original banking union project (2012–2014) claims co-ownership; the deposit guarantee reform represents policy continuity"
+  ],
+  "macroContext": "The EU enters spring 2026 with deeply asymmetric growth trajectories across member states:",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "source": "ep_open_data_portal",
+  "date_queried": "2026-04-29",
+  "parliament": {"totalMEPs": 719, "politicalGroups": 9, "countriesRepresented": 27, "majorityThreshold": 361},
+  "groups": [
+    {"name": "EPP", "memberCount": 185, "seatShare": 25.73, "ideologicalFamily": "centre-right", "description": "European People's Party - largest group"},
+    {"name": "S&D", "memberCount": 135, "seatShare": 18.78, "ideologicalFamily": "social-democrat", "description": "Socialists and Democrats"},
+    {"name": "PfE", "memberCount": 85, "seatShare": 11.82, "ideologicalFamily": "nationalist-right", "description": "Patriots for Europe - successor to Identity and Democracy"},
+    {"name": "ECR", "memberCount": 81, "seatShare": 11.27, "ideologicalFamily": "conservative-nationalist", "description": "European Conservatives and Reformists"},
+    {"name": "Renew", "memberCount": 77, "seatShare": 10.71, "ideologicalFamily": "liberal-centrist", "description": "Renew Europe"},
+    {"name": "Greens/EFA", "memberCount": 53, "seatShare": 7.37, "ideologicalFamily": "green-regionalist", "description": "Greens/European Free Alliance"},
+    {"name": "The Left", "memberCount": 46, "seatShare": 6.40, "ideologicalFamily": "left", "description": "The Left (GUE/NGL)"},
+    {"name": "NI", "memberCount": 30, "seatShare": 4.17, "ideologicalFamily": "non-attached", "description": "Non-Inscrits"},
+    {"name": "ESN", "memberCount": 27, "seatShare": 3.76, "ideologicalFamily": "hard-right", "description": "Europe of Sovereign Nations"}
+  ],
+  "coalition_dynamics": {
+    "grand_coalition_EPP_SD": {"seats": 320, "majority_achieved": false, "note": "Falls 41 seats short of majority; Renew needed"},
+    "centre_grand_coalition": {"groups": ["EPP","S&D","Renew"], "seats": 397, "majority_achieved": true, "margin": 36},
+    "right_bloc": {"groups": ["EPP","ECR","PfE"], "seats": 351, "majority_achieved": false, "shortfall": 10},
+    "right_plus_NI": {"groups": ["EPP","ECR","PfE","NI"], "seats": 381, "majority_achieved": true, "margin": 20}
+  },
+  "fragmentation_index": "HIGH",
+  "effective_parties": 6.57
+}

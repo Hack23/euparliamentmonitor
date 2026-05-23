@@ -1,0 +1,22 @@
+{
+  "date": "2026-04-16",
+  "articleType": "breaking",
+  "runId": "176",
+  "gateResult": "PENDING",
+  "slug": "2026-04-16-breaking-176",
+  "articlePath": "analysis/daily/2026-04-16/breaking-run176/article.md",
+  "topFinding": "Run 176 is a per-document-intelligence consolidation probe during the post-Easter inter-session monitoring period (14–26 April).",
+  "keyTakeaways": [
+    "Per-document intelligence inputs: **B2**",
+    "Cross-document linkage methodology: **B2**",
+    "Run: `breaking-run176` (2026-04-16, inter-session window)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

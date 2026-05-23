@@ -1,0 +1,54 @@
+{
+  "date": "2026-05-23",
+  "articleType": "week-in-review",
+  "runId": "week-in-review-run275-1779525480",
+  "gateResult": "PENDING",
+  "slug": "2026-05-23-week-in-review",
+  "articlePath": "analysis/daily/2026-05-23/week-in-review/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "The resolution calls for doubling DG COMP's digital enforcement staff (from ~40 to 80 specialists)",
+    "It explicitly names Apple, Alphabet, Meta, Amazon, and Microsoft as subjects of insufficient compliance",
+    "It invokes Article 7 interoperability obligations (Apple App Store, Google Search, Meta Messenger) as priority enforcement targets",
+    "Financial stakes: potential fines up to 10% of global annual turnover; for Apple this could mean €39B, for Alphabet €26B",
+    "**Defence:** +15% — driven by Russia threat; NATO 2% target spillover into EU budget framework",
+    "**Horizon Europe (R&D):** +8% — competitiveness agenda; Draghi report influence",
+    "**Climate:** +12% — Fit-for-55 implementation; green transition"
+  ],
+  "topRisks": [
+    "**Likelihood:** 4/5 (Very Likely)",
+    "**Impact:** 4/5 (High)",
+    "**Priority:** 16/25 (🔴 CRITICAL)",
+    "**Description:** Major gatekeepers use litigation and procedural challenges to delay DMA enforcement by 24+ months, effectively rendering EP's April 30 resolution ineffective for the remainder of EP10 term",
+    "**Risk Owner:** Commission DG COMP",
+    "**Mitigation:** EP to hold annual DMA enforcement hearings; link budget for DG COMP to enforcement outcomes; Commission to issue provisional measures where possible",
+    "**Residual Risk:** MEDIUM-HIGH — legal delays are structurally embedded in EU enforcement architecture",
+    "**Likelihood:** 4/5 (Very Likely)"
+  ],
+  "keyDates": [
+    "Commission doubles DG COMP digital enforcement staff by September 2026",
+    "Council endorses EP's accountability resolution in political declaration by Q3 2026"
+  ],
+  "keyActors": [
+    "Establish DG COMP as credible global digital antitrust regulator",
+    "Avoid US trade retaliation that could accompany aggressive Big Tech fines",
+    "Manage Commission President's political relationships with major tech investors",
+    "Build legal foundation for appeals-proof enforcement decisions",
+    "Assert Parliament's role in enforcement oversight",
+    "Deliver visible results for constituents facing Big Tech monopolies",
+    "Build coalition with LIBE (privacy) and ITRE (innovation) for comprehensive digital governance",
+    "Secure EP's political priorities in 2027 budget (defence, R&D, climate)"
+  ],
+  "macroContext": "| IMF Source | knowledge-only | |----------------|----------------| | Publication | World Economic Outlook April 2026 | | Coverage | Euro area, global macro, fiscal positions |",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

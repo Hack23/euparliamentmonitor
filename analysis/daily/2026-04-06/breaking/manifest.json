@@ -1,0 +1,47 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-06",
+  "generated": "2026-04-06T00:33:00Z",
+  "newsworthy": false,
+  "reason": "Easter Monday (Day 11/18 recess) \u2014 no parliamentary activity. Analysis-only PR per Rule 5.",
+  "dataCollected": {
+    "adoptedTexts": 85,
+    "events": 0,
+    "procedures": 0,
+    "meps": 737,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "questions": 0
+  },
+  "apiStatus": {
+    "adoptedTextsFeed": "one-week-fallback",
+    "eventsFeed": "404",
+    "proceduresFeed": "404",
+    "mepsFeed": "today-success",
+    "documentsFeed": "404",
+    "plenaryDocsFeed": "404",
+    "committeeDocsFeed": "404",
+    "questionsFeed": "404"
+  },
+  "analyticalContext": {
+    "votingAnomalies": 0,
+    "riskLevel": "LOW",
+    "stabilityScore": 84,
+    "warningCount": 3,
+    "keyRisk": "DOMINANT_GROUP_RISK"
+  },
+  "analysisArtifacts": [
+    "significance-classification.md",
+    "political-threat-landscape.md",
+    "risk-matrix.md",
+    "political-swot-analysis.md"
+  ],
+  "previousRuns": "5 April 2026 \u2014 4 runs (breaking, breaking-2, breaking-3, breaking-4)",
+  "recessStatus": {
+    "day": 11,
+    "totalDays": 18,
+    "daysToCommitteeWeek": 8,
+    "daysToPlenary": 14
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "date": "2026-05-11",
+  "articleType": "year-ahead",
+  "runId": "year-ahead-run598-1778488878",
+  "gateResult": "PENDING",
+  "slug": "2026-05-11-year-ahead",
+  "articlePath": "analysis/daily/2026-05-11/year-ahead/article.md",
+  "topFinding": "The European Parliament faces its most consequential twelve months since the 2024 election.",
+  "keyTakeaways": [
+    "Provides margin for progressive majority or centre-left majority",
+    "Internal tension: French Macronists vs. liberal pro-market members from Eastern Europe",
+    "Critical on AI regulation, trade liberalisation, and budget austerity vs. investment",
+    "🔴 Risk: Internal ECR-Renew rivalry on immigration could fracture the standard coalition",
+    "MEP immunity waivers (Braun, Jaki) signal ongoing rule-of-law pressure on Polish delegation",
+    "Giorgia Meloni's influence fading as Italian government faces fiscal pressures",
+    "🟡 Opportunity: On strategic autonomy and defence industrial policy, ECR can act as a constructive partner"
+  ],
+  "topRisks": [
+    "**Magnitude**: How large is the potential impact?",
+    "**Probability**: How likely is this to materialize?",
+    "**Composite Score** = Magnitude × Probability (raw) ÷ 10"
+  ],
+  "keyDates": [
+    "Mercosur: CJEU opinion positive; consent vote by March 2027 (tight margin, ~350–380 for)",
+    "Budget: provisional twelfths for Q1 2027 (first reading rejection, unusual)",
+    "Mercosur: consent vote postponed beyond May 2027",
+    "AI/digital agenda: deferred to Q1 2027"
+  ],
+  "keyActors": [
+    "Secure re-election of EPP-aligned national governments ahead of EP10 mid-term narrative",
+    "Drive European defence industrial strategy without appearing to militarise EU to domestic audiences",
+    "Navigate US tariff confrontation with industry-friendly retaliation (protect manufacturing interests of German, French, Polish EPP voters)",
+    "Maintain AI Act implementation authority within Commission's DG Connect (von der Leyen ally)",
+    "Block Greens/EFA attempts to add environmental conditionality to Mercosur consent",
+    "Internal fracture between German CDU/CSU (pragmatist, pro-business) and Eastern European EPP delegations (security-first, anti-immigration hardliners)",
+    "Tactical courting of ECR/PfE on agriculture and immigration erodes EPP credibility as European values anchor",
+    "🔴 Key risk: EPP's 183 seats are the floor, not a ceiling — losing 10–15 votes on a major legislative package is structurally routine"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

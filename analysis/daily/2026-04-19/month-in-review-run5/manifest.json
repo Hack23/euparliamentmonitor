@@ -1,0 +1,224 @@
+{
+  "runId": "b391cced-d8f0-4d03-9c19-ec9478557ec6",
+  "date": "2026-04-19",
+  "articleType": "month-in-review",
+  "articleTypeSlug": "month-in-review-run5",
+  "startTime": "2026-04-19T16:02:50.335Z",
+  "endTime": "2026-04-19T16:02:50.336Z",
+  "articleTypes": [
+    "month-in-review"
+  ],
+  "analysisArtifacts": 22,
+  "analyticalFrameworks": [
+    "Significance Scoring",
+    "Risk Matrix (5x5)",
+    "Quantitative SWOT",
+    "Coalition Dynamics",
+    "Cross-Run Diff",
+    "PESTLE",
+    "Mendelow Stakeholder Grid",
+    "Scenario Forecast",
+    "Diamond Model",
+    "Attack Trees",
+    "Kill Chain",
+    "Wildcards + Black Swans",
+    "Historical Baselines",
+    "World Bank Indicators",
+    "Political Classification",
+    "MCP Reliability Audit",
+    "Cross-Daily Synthesis",
+    "Document Analysis Index"
+  ],
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/deep-analysis.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/significance-scoring.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/cross-daily-synthesis.md"
+    ],
+    "synthesis": [
+      "synthesis/swot-analysis.md",
+      "synthesis/stakeholder-impact.md",
+      "synthesis/synthesis-summary.md"
+    ],
+    "risk": [
+      "risk/risk-matrix.md",
+      "risk/quantitative-swot.md"
+    ],
+    "classification": [
+      "classification/political-classification.md"
+    ],
+    "documents": [
+      "documents/document-analysis-index.md"
+    ]
+  },
+  "methods": [
+    {
+      "method": "analysis-index",
+      "status": "completed",
+      "outputFile": "intelligence/analysis-index.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Executive summary: March 26 2026 mini-plenary, 18 adopted texts, Banking Union, Anti-Corruption, CSAM"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "completed",
+      "outputFile": "intelligence/deep-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "11-section deep political intelligence analysis of March 26 legislative package with cross-daily evidence integration"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "intelligence/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Cross-cutting synthesis with key intelligence judgements and confidence assessments"
+    },
+    {
+      "method": "pestle-analysis",
+      "status": "completed",
+      "outputFile": "intelligence/pestle-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "PESTLE framework applied to March 26 package: political, economic, social, technological, legal, environmental"
+    },
+    {
+      "method": "stakeholder-map",
+      "status": "completed",
+      "outputFile": "intelligence/stakeholder-map.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Mendelow grid stakeholder map with Mermaid quadrant: EPP, S&D, Renew Europe, national governments, EBA, ECB, civil society"
+    },
+    {
+      "method": "scenario-forecast",
+      "status": "completed",
+      "outputFile": "intelligence/scenario-forecast.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "3 forward scenarios: baseline sprint (~65%), CMDI fracture (~25%), crisis acceleration (~10%)"
+    },
+    {
+      "method": "threat-model",
+      "status": "completed",
+      "outputFile": "intelligence/threat-model.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "6-threat model with Diamond Model and Kill Chain: Banking Union, CSAM, coalition fragmentation, implementation gaps"
+    },
+    {
+      "method": "historical-baseline",
+      "status": "completed",
+      "outputFile": "intelligence/historical-baseline.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "EP6-EP10 legislative productivity baseline with second-year comparison and sprint-recess historical precedent"
+    },
+    {
+      "method": "economic-context",
+      "status": "completed",
+      "outputFile": "intelligence/economic-context.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "World Bank economic data: Germany GDP contraction, EU trade context, digital economy, anti-corruption costs, risk coupling matrix"
+    },
+    {
+      "method": "wildcards-blackswans",
+      "status": "completed",
+      "outputFile": "intelligence/wildcards-blackswans.md",
+      "confidence": "low",
+      "duration": 0,
+      "summary": "Schwartz wildcards + Taleb black swans: German bank failure, CSAM exodus, US tariff shock, EU crises, extended monitoring indicators"
+    },
+    {
+      "method": "coalition-dynamics",
+      "status": "completed",
+      "outputFile": "intelligence/coalition-dynamics.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Coalition pair analysis: per-file cohesion scoring, political group positioning quadrant, grand centre arithmetic, ECR/PfE/Left vote patterns"
+    },
+    {
+      "method": "significance-scoring",
+      "status": "completed",
+      "outputFile": "intelligence/significance-scoring.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Multi-dimensional significance scoring for all 18 adopted texts: BRRD3 (88/100), Anti-Corruption (87/100), SRMR3 (79/100) lead"
+    },
+    {
+      "method": "cross-run-diff",
+      "status": "completed",
+      "outputFile": "intelligence/cross-run-diff.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Comparison vs April 4/11/13/18 reviews: persistent themes, resolved items, newly escalated risks, forecast accuracy 60%"
+    },
+    {
+      "method": "mcp-reliability-audit",
+      "status": "completed",
+      "outputFile": "intelligence/mcp-reliability-audit.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Data source validation: EP MCP degraded (7 defects), World Bank operational, 6/18 texts content-inaccessible, confidence adjustments applied"
+    },
+    {
+      "method": "cross-daily-synthesis",
+      "status": "completed",
+      "outputFile": "intelligence/cross-daily-synthesis.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Chronological pipeline narrative March 1-April 19: committee finalisation, Conference of Presidents, March 26 sprint, implementation cascade, recess monitoring"
+    },
+    {
+      "method": "political-classification",
+      "status": "completed",
+      "outputFile": "classification/political-classification.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "7-axis classification of 18 texts: policy domain, ideological lean, integration depth, regulatory direction, winners/losers, treaty basis"
+    },
+    {
+      "method": "quantitative-swot",
+      "status": "completed",
+      "outputFile": "risk/quantitative-swot.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Evidence-based SWOT with Likelihood x Impact scoring: Strengths 17.3/25, Weaknesses 11.5/25, Opportunities 11.8/25, Threats 6.5/25. Net +11.1"
+    },
+    {
+      "method": "document-analysis-index",
+      "status": "completed",
+      "outputFile": "documents/document-analysis-index.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Per-text document register: 18 adopted texts, 9 COD procedures, 4 rapporteurs confirmed, 6 texts content-pending, committee distribution"
+    }
+  ],
+  "overallConfidence": "medium",
+  "compositeRisk": "12.0/50",
+  "significanceScore": "939/1800",
+  "publicationDecision": "PUBLISH",
+  "degradedMode": true,
+  "degradedModeReason": "EP MCP Tier 2/3 offline; 7 defects active; 6/18 texts content-inaccessible",
+  "dataSourcesUsed": [
+    "european-parliament-mcp",
+    "world-bank-mcp",
+    "ai-agentic-workflow",
+    "ep-generated-stats"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "articleType": "propositions",
+  "dataMode": "degraded-feeds",
+  "degradedFloorFactor": 0.80,
+  "runDate": "2026-05-20",
+  "runId": "propositions-run263-1779258514",
+  "generatedAt": "2026-05-20T00:00:00Z",
+  "files": {
+    "dataAvailabilityAssessment": ["data-availability-assessment.md"],
+    "executiveBrief": ["executive-brief.md"],
+    "intelligenceProceduresProxy": ["intelligence/procedures-proxy.md"],
+    "intelligenceMcpReliabilityAudit": ["intelligence/mcp-reliability-audit.md"],
+    "intelligenceHistoricalBaseline": ["intelligence/historical-baseline.md"],
+    "intelligenceEconomicContext": ["intelligence/economic-context.md"],
+    "intelligenceAnalysisIndex": ["intelligence/analysis-index.md"],
+    "intelligenceSynthesisSummary": ["intelligence/synthesis-summary.md"],
+    "intelligencePestleAnalysis": ["intelligence/pestle-analysis.md"],
+    "intelligenceStakeholderMap": ["intelligence/stakeholder-map.md"],
+    "intelligenceScenarioForecast": ["intelligence/scenario-forecast.md"],
+    "intelligenceThreatModel": ["intelligence/threat-model.md"],
+    "intelligenceWildcardsBlackswans": ["intelligence/wildcards-blackswans.md"],
+    "intelligenceCoalitionDynamics": ["intelligence/coalition-dynamics.md"],
+    "intelligenceReferenceAnalysisQuality": ["intelligence/reference-analysis-quality.md"],
+    "intelligenceMethodologyReflection": ["intelligence/methodology-reflection.md"],
+    "riskScoringRiskMatrix": ["risk-scoring/risk-matrix.md"],
+    "riskScoringQuantitativeSwot": ["risk-scoring/quantitative-swot.md"],
+    "extendedMediaFramingAnalysis": ["extended/media-framing-analysis.md"],
+    "existingPipelineHealth": ["existing/pipeline-health.md"],
+    "classificationActorMapping": ["classification/actor-mapping.md"],
+    "classificationForcesAnalysis": ["classification/forces-analysis.md"],
+    "classificationImpactMatrix": ["classification/impact-matrix.md"],
+    "classificationSignificanceClassification": ["classification/significance-classification.md"]
+  },
+  "data": {
+    "adoptedTexts2026": "data/adopted-texts-2026.json",
+    "prefetchStatus": "data/prefetch-status.json",
+    "thresholdsCache": "runs/thresholds-cache.json"
+  },
+  "history": [
+    {
+      "runId": "propositions-run263-1779258514",
+      "runDate": "2026-05-20",
+      "artifactCount": 24,
+      "dataMode": "degraded-feeds",
+      "pass2": {
+        "rewriteCount": 24,
+        "passCount": 3
+      },
+      "epApiDegradation": {
+        "proceduresFeedFailed": true,
+        "committeeDocsFeedFailed": true,
+        "externalDocsFeedEmpty": true,
+        "adoptedTextsWorking": true
+      }
+    }
+  ]
+}

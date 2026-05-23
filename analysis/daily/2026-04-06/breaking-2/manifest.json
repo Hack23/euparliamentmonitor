@@ -1,0 +1,58 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-06",
+  "generated": "2026-04-06T07:05:00Z",
+  "newsworthy": false,
+  "reason": "Easter Monday (Day 11/18 recess) \u2014 no parliamentary activity. Extended analysis-only PR per Rule 5. Run 2 of 2 for breaking type.",
+  "dataCollected": {
+    "adoptedTexts": 82,
+    "events": 0,
+    "procedures": 0,
+    "meps": 737,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "questions": 0
+  },
+  "apiStatus": {
+    "adoptedTextsFeed": "one-week-fallback-with-json-parse-cycling",
+    "eventsFeed": "404-today-timeout-oneweek",
+    "proceduresFeed": "404-today-timeout-oneweek",
+    "mepsFeed": "today-success",
+    "documentsFeed": "timeout",
+    "plenaryDocsFeed": "timeout",
+    "committeeDocsFeed": "timeout",
+    "questionsFeed": "timeout"
+  },
+  "analyticalContext": {
+    "votingAnomalies": 0,
+    "riskLevel": "LOW",
+    "stabilityScore": 84,
+    "warningCount": 3,
+    "keyRisk": "DOMINANT_GROUP_RISK",
+    "coalitionDynamics": "timeout"
+  },
+  "analysisArtifacts": [
+    "impact-matrix.md",
+    "actor-mapping.md",
+    "forces-analysis.md",
+    "stakeholder-analysis.md",
+    "coalition-analysis.md",
+    "cross-session-intelligence.md",
+    "deep-analysis.md",
+    "synthesis-summary.md"
+  ],
+  "previousRuns": "6 April 2026 \u2014 breaking (00:33), committee-reports (05:03), propositions (05:47)",
+  "recessStatus": {
+    "day": 11,
+    "totalDays": 18,
+    "daysToCommitteeWeek": 8,
+    "daysToPlenary": 14
+  },
+  "novelFindings": [
+    "API failure mode evolution: 404 -> JSON parse -> timeout (Day 11 signal)",
+    "Dual-track coalition pattern documented as EP10 Year 2 defining feature",
+    "EP9->EP10 force field inversion: defence 5/10->8/10, green transition 8/10->5/10",
+    "Bayesian update: grand coalition dominance probability 65%->55%"
+  ]
+}

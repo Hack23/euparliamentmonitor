@@ -1,0 +1,77 @@
+{
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run-1777445122",
+  "date": "2026-04-29",
+  "generatedAt": "2026-04-29T00:00:00Z",
+  "pass2": {
+    "startedAt": "2026-04-29T00:18:00Z",
+    "endedAt": "2026-04-29T00:20:00Z",
+    "rewriteCount": 3
+  },
+  "artifactStats": {
+    "totalFiles": 14,
+    "totalLines": 2001
+  },
+  "files": {
+    "intelligence/analysis-index.md": "analysis/daily/2026-04-29/month-ahead/intelligence/analysis-index.md",
+    "intelligence/pestle-analysis.md": "analysis/daily/2026-04-29/month-ahead/intelligence/pestle-analysis.md",
+    "intelligence/stakeholder-map.md": "analysis/daily/2026-04-29/month-ahead/intelligence/stakeholder-map.md",
+    "intelligence/scenario-forecast.md": "analysis/daily/2026-04-29/month-ahead/intelligence/scenario-forecast.md",
+    "intelligence/threat-model.md": "analysis/daily/2026-04-29/month-ahead/intelligence/threat-model.md",
+    "intelligence/historical-baseline.md": "analysis/daily/2026-04-29/month-ahead/intelligence/historical-baseline.md",
+    "intelligence/economic-context.md": "analysis/daily/2026-04-29/month-ahead/intelligence/economic-context.md",
+    "intelligence/wildcards-blackswans.md": "analysis/daily/2026-04-29/month-ahead/intelligence/wildcards-blackswans.md",
+    "intelligence/coalition-dynamics.md": "analysis/daily/2026-04-29/month-ahead/intelligence/coalition-dynamics.md",
+    "intelligence/synthesis-summary.md": "analysis/daily/2026-04-29/month-ahead/intelligence/synthesis-summary.md",
+    "intelligence/mcp-reliability-audit.md": "analysis/daily/2026-04-29/month-ahead/intelligence/mcp-reliability-audit.md",
+    "intelligence/methodology-reflection.md": "analysis/daily/2026-04-29/month-ahead/intelligence/methodology-reflection.md",
+    "executive-brief.md": "analysis/daily/2026-04-29/month-ahead/executive-brief.md",
+    "classification/significance-classification.md": "analysis/daily/2026-04-29/month-ahead/classification/significance-classification.md",
+    "classification/actor-mapping.md": "analysis/daily/2026-04-29/month-ahead/classification/actor-mapping.md",
+    "risk-scoring/risk-matrix.md": "analysis/daily/2026-04-29/month-ahead/risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md": "analysis/daily/2026-04-29/month-ahead/risk-scoring/quantitative-swot.md",
+    "threat-assessment/political-threat-landscape.md": "analysis/daily/2026-04-29/month-ahead/threat-assessment/political-threat-landscape.md"
+  },
+  "dataQuality": {
+    "imfDataVintage": "WEO-April-2026",
+    "imfDataConfirmed": true,
+    "epApiStatus": "DEGRADED-PARTIAL",
+    "degradedFeeds": ["events_feed", "procedures_feed"],
+    "failedTools": ["get_parliamentary_questions", "get_meeting_decisions"]
+  },
+  "forwardStatements": [
+    {
+      "id": "FS-2026-004",
+      "statement": "US-EU automotive tariff negotiations: EP/Commission coordinated response expected",
+      "horizon": "2026-06-30",
+      "confidence": "medium"
+    },
+    {
+      "id": "FS-2026-005",
+      "statement": "Budget 2027 trilogue launch: EP position established April 28, Council position expected Q3 2026",
+      "horizon": "2026-09-30",
+      "confidence": "high"
+    },
+    {
+      "id": "FS-2026-006",
+      "statement": "CID implementing legislation: first binding sectoral targets expected in committee votes",
+      "horizon": "2026-07-31",
+      "confidence": "medium"
+    },
+    {
+      "id": "FS-2026-007",
+      "statement": "ECB rate path: further 25 bps cut expected if GDP growth stays below 1.5%",
+      "horizon": "2026-06-12",
+      "confidence": "medium"
+    }
+  ],
+  "history": [
+    {
+      "runId": "month-ahead-run-1777445122",
+      "timestamp": "2026-04-29T00:00:00Z",
+      "artifactsProduced": 18,
+      "pass2RewriteCount": 3,
+      "gateResult": "GREEN"
+    }
+  ]
+}

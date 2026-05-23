@@ -1,0 +1,22 @@
+{
+  "date": "2026-04-13",
+  "articleType": "committee-reports",
+  "runId": "44",
+  "gateResult": "PENDING",
+  "slug": "2026-04-13-committee-reports",
+  "articlePath": "analysis/daily/2026-04-13/committee-reports-run44/article.md",
+  "topFinding": "Run 44 is a T-2 pre-Tariff-activation committee-track positioning run (T-0 = 15 April activation of TA-0096 + TA-0097).",
+  "keyTakeaways": [
+    "INTA preparedness inference: **B2**",
+    "Statutory T-0 anchor: **A1**",
+    "Run: `committee-reports-run44` (2026-04-13, T-2)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

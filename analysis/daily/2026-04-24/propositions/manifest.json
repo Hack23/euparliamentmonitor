@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0",
+  "articleType": "propositions",
+  "date": "2026-04-24",
+  "runId": "propositions-run-1777009560",
+  "generatedAt": "2026-04-24T06:01:26Z",
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md"
+    ],
+    "data": [
+      "data/adopted-texts-feed.json",
+      "data/collection-summary.json",
+      "data/landscape.json",
+      "data/procedures-feed.json"
+    ]
+  },
+  "history": [
+    {
+      "runId": "propositions-run-1777009560",
+      "timestamp": "2026-04-24T06:01:26Z",
+      "gateResult": "PENDING",
+      "stage": "B-complete",
+      "notes": "Stage A: SPARSE data (13/13 TA-10-2026 deep-fetches UPSTREAM_404). Stage B: 14 artifacts produced via 2-pass methodology. Coalition vote-cohesion proxy used (size-similarity)."
+    },
+    {
+      "runId": "56b4b057-27a3-40c0-b5d3-39b833d82a3b",
+      "startedAt": "2026-04-24T06:01:39.189Z",
+      "finishedAt": "2026-04-24T06:01:39.190Z",
+      "gateResult": "PENDING",
+      "filesWritten": [
+        "risk-scoring/quantitative-swot.md",
+        "risk-scoring/risk-matrix.md",
+        "intelligence/analysis-index.md",
+        "intelligence/economic-context.md",
+        "intelligence/historical-baseline.md",
+        "intelligence/mcp-reliability-audit.md",
+        "intelligence/methodology-reflection.md",
+        "intelligence/pestle-analysis.md",
+        "intelligence/reference-analysis-quality.md",
+        "intelligence/scenario-forecast.md",
+        "intelligence/stakeholder-map.md",
+        "intelligence/synthesis-summary.md",
+        "intelligence/threat-model.md",
+        "intelligence/wildcards-blackswans.md"
+      ]
+    }
+  ],
+  "updatedAt": "2026-04-24T06:01:39.190Z"
+}

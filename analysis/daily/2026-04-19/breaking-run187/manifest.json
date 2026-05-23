@@ -1,0 +1,73 @@
+{
+  "runId": "187",
+  "date": "2026-04-19",
+  "articleType": "breaking",
+  "generatedAt": "2026-04-19T07:30:00Z",
+  "mode": "ANALYSIS_ONLY",
+  "newsworthinessGate": "FAIL",
+  "significanceScore": "14/50",
+  "compositeRiskScore": "16.5/50",
+  "threshold": "25/50",
+  "articlesGenerated": 0,
+  "degradedMode": false,
+  "seriesRun": 9,
+  "recessDay": 8,
+  "parliamentStatus": "Easter recess (April 14-26, 2026)",
+  "nextPlenary": "2026-04-28 Strasbourg",
+  "keyFindings": [
+    "EU-China WTO tariff rate quota agreement (TA-10-2026-0101) confirmed accessible \u2014 first in series",
+    "API restoration accelerating: 61 texts accessible (vs 51 in run 186, +10 increment)",
+    "Tier 2 feeds (events, procedures) remain offline \u2014 Day 8 outage",
+    "4 high-significance March 26 texts still inaccessible: SRMR3, Anti-Corruption, US tariffs, Global Gateway",
+    "Composite risk declining: 16.5/50 (series: 20 \u2192 18 \u2192 17.5 \u2192 17.2 \u2192 16.5)",
+    "Grand Centre coalition stable, no fracture signals"
+  ],
+  "incrementalIntelligence": "32/100",
+  "newFindings": [
+    "EU multi-track trade strategy CONFIRMED: TA-0096 (US tariffs) + TA-0101 (China TRQs) same-day adoption",
+    "TA-10-2026-0100 (EU-Lebanon/PRIMA) confirmed accessible",
+    "TA-10-2026-0103 (EGF Austria/KTM) confirmed accessible",
+    "API restoration now estimated April 21-23 (earlier than prior April 24-27 estimate)"
+  ],
+  "feedEndpointStatus": {
+    "get_adopted_texts_feed_today": "empty",
+    "get_adopted_texts_feed_oneweek": "available_159_items",
+    "get_adopted_texts_year_2026": "available_61_total",
+    "get_meps_feed_today": "available_738_meps",
+    "get_events_feed_today": "404",
+    "get_procedures_feed_today": "404",
+    "get_documents_feed": "error",
+    "get_plenary_documents_feed": "error",
+    "get_committee_documents_feed": "error",
+    "get_parliamentary_questions_feed": "error",
+    "server_health": "unknown_0_13_monitoring_lag_artifact"
+  },
+  "analysisArtifacts": 8,
+  "analyticalFrameworks": [
+    "significance-scoring",
+    "quantitative-swot",
+    "risk-matrix",
+    "coalition-dynamics",
+    "document-analysis-index",
+    "cross-run-diff",
+    "synthesis-summary",
+    "political-threat-landscape"
+  ],
+  "forwardMonitoringPriorities": [
+    "USTR Section 301 announcement window April 21-24",
+    "EP API content release for TA-0092/0094/0096/0104 (estimated April 21-23)",
+    "German Bundesrat BRRD3/SRMR3 signals April 23-25",
+    "Tier 2 API restoration expected April 21-23",
+    "EP group pre-return statements April 26-27"
+  ],
+  "files": {
+    "significance-scoring": "intelligence/significance-scoring.md",
+    "quantitative-swot": "risk/quantitative-swot.md",
+    "risk-matrix": "risk/risk-matrix.md",
+    "document-analysis-index": "documents/document-analysis-index.md",
+    "cross-run-diff": "intelligence/cross-run-diff.md",
+    "coalition-dynamics": "intelligence/coalition-dynamics.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "political-threat-landscape": "threat/political-threat-landscape.md"
+  }
+}

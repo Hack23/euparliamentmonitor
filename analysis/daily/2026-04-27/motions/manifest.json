@@ -1,0 +1,56 @@
+{
+  "articleType": "motions",
+  "runId": "motions-run-1777278029",
+  "date": "2026-04-27",
+  "analysisDir": "analysis/daily/2026-04-27/motions",
+  "wepBand": "III",
+  "admiraltyGrade": "B3",
+  "files": {
+    "executive": [
+      "executive-brief.md"
+    ],
+    "data": [
+      "data/stage-a-summary.json"
+    ],
+    "existing": [
+      "existing/stakeholder-impact.md",
+      "existing/deep-analysis.md"
+    ],
+    "classification": [
+      "classification/impact-matrix.md",
+      "classification/forces-analysis.md",
+      "classification/actor-mapping.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "threat-assessment": [
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/legislative-disruption.md",
+      "threat-assessment/consequence-trees.md"
+    ],
+    "intelligence": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/threat-model.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/political-threat-landscape.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/methodology-reflection.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "motions-run-1777278029",
+      "date": "2026-04-27",
+      "timestamp": "2026-04-27T00:00:00Z",
+      "artifactsProduced": 18,
+      "gateResult": "ANALYSIS_ONLY",
+      "gateReason": "Pass-3 remediation infeasible at minute 20 with 12 missing + 9 short artifacts"
+    }
+  ],
+  "gateResult": "ANALYSIS_ONLY"
+}

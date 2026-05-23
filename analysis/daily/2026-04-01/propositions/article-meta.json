@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-01",
+  "articleType": "propositions",
+  "runId": "4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc",
+  "gateResult": "PENDING",
+  "slug": "2026-04-01-propositions",
+  "articlePath": "analysis/daily/2026-04-01/propositions/article.md",
+  "topFinding": "No new Commission propositions or EP own-initiative dossiers indexed on 2026-04-01.",
+  "keyTakeaways": [
+    "🔴 **No new procedures opened** on 2026-04-01; `get_procedures_feed` 404 in concurrent run. (🟡 Medium — endpoint availability is the caveat)",
+    "🟠 **0 actors classified**; no Commissioner, DG, or rapporteur identified. (🟢 High)",
+    "🟢 **Pipeline carry-over** — HDV emissions, ECB Vice-President, Better Law-Making, Mercosur referral remain the active propositions inventory entering April. (🟢 High)",
+    "🟡 **Risk dimensions all \"none\"** — no acute proposition-stage risk flagged today. (🟢 High)",
+    "🔵 **Economic context:** anticipated Commission Q2 propositions on AI Act implementing regulations, Defence Industrial Strategy, and MFF preparatory communications remain on the watch board. (🟡 Medium — Commission tabling cadence)",
+    "🟣 **Cross-reference:** sibling 2026-04-01/breaking documents the 6/8 advisory-feed 404 pattern. (🟢 High)",
+    "🩷 **Disruption vector:** US trade pressure may force fast-track Commission proposition during April. (🟡 Medium)"
+  ],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-10",
+  "articleType": "week-ahead",
+  "runId": "12",
+  "gateResult": "PENDING",
+  "slug": "2026-04-10-week-ahead",
+  "articlePath": "analysis/daily/2026-04-10/week-ahead-run12/article.md",
+  "topFinding": "The week of 10–17 April covers Parliament's transition from Easter recess into the 14-17 April committee restart week — and the run's most consequential finding is a structurally threat-heavy posture: 35 threat-coded entries against just 10 strengths / 6 weaknesses / 4 opportunities in the aggregated SWOT.",
+  "keyTakeaways": [
+    "🔴 **35 threat-coded SWOT entries** — structural, not emergency; reflects fragmentation × post-recess pipeline pressure.",
+    "🟠 **7 CRITICAL risk mentions** — binary distribution; methodology reads every flagged risk as CRITICAL or NIL.",
+    "🟢 **5 analysis files 🟢 HIGH confidence** — coalition / cross-session / deep / stakeholder / voting-patterns converge.",
+    "🟡 **19 analysis files processed** — justifies multi-article output rather than single aggregate.",
+    "🔵 **14-17 April committee restart** — Conference of Committee Chairs sets 13-COD priority order April 14.",
+    "🟣 **ECR fracture on trade** — March 26 vote signal; post-recess persistence is the falsifier.",
+    "🩷 **Renew-pivot working majority (396)** — discipline test on first post-recess flagship vote."
+  ],
+  "topRisks": [
+    "**Score**: 0.8/5",
+    "**Confidence**: medium",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

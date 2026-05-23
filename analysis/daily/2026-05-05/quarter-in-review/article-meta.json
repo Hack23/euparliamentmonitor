@@ -1,0 +1,46 @@
+{
+  "date": "2026-05-05",
+  "articleType": "quarter-in-review",
+  "runId": "quarter-in-review-run-1777970961",
+  "gateResult": "PENDING",
+  "slug": "2026-05-05-quarter-in-review",
+  "articlePath": "analysis/daily/2026-05-05/quarter-in-review/article.md",
+  "topFinding": "The European Parliament completed its second full quarter of EP10 (2024–2029) with a markedly high-energy legislative calendar dominated by three structural imperatives: European defence autonomy, Clean Industrial Deal implementation, and digital governance maturation.",
+  "keyTakeaways": [
+    "100 adopted texts (EP Open Data, CC BY 4.0)",
+    "Political landscape: 9 groups, 719 MEPs, ENP 6.57",
+    "Early warning score: 84/100",
+    "WB GDP indicators: DE (-0.50% 2024), FR (+1.19% 2024)",
+    "Roll-call data: 0 records (publication delay, expected)",
+    "IMF data: unavailable (degraded mode)",
+    "**EPP dominance continued**: At 185 seats, EPP retained the power to block any coalition not including it, while needing at minimum one large partner."
+  ],
+  "topRisks": [
+    "**Probability (P):** 0.0–1.0 (0.0 = Almost No Chance; 0.5 = Even Chance; 1.0 = Certain)",
+    "**Impact (I):** 0.0–1.0 (0.0 = negligible; 1.0 = catastrophic institutional disruption)",
+    "**Risk Score = P × I**"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Committee system:** 22+ EP committees act as primary information aggregation points. Rapporteur assignment is power — drafts text, holds informal trilogue contact.",
+    "**Intergroup networks:** Cross-party thematic groups (e.g., defence intergroup, digital intergroup) share information across coalition lines.",
+    "**Plenary speeches:** Formal position statements; primarily audience for constituents, not information exchange between groups.",
+    "**Shadow rapporteur system:** Each group nominates shadow rapporteur per file — primary inter-group coordination mechanism.",
+    "**Lobbying access:** Big Tech, ETUC, human rights NGOs have formal EP access passes (>10,000 lobbyists registered in EU Transparency Register for Commission/EP access).",
+    "Commission holds monopoly on detailed proposal reasoning; EP committees must elicit through hearings",
+    "Intelligence access: No EP access to classified intelligence (CFSP limitation); EP AFET works from public sources",
+    "Real-time data: EP roll-call publication delay (4-6 weeks) creates information gap on actual voting behaviour"
+  ],
+  "macroContext": "Methodology: Economic context analysis using available WB growth-rate API indicators and EP legislative output data.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/legislative-pipeline-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

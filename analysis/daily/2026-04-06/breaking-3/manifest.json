@@ -1,0 +1,65 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-06",
+  "generated": "2026-04-06T12:32:00Z",
+  "newsworthy": false,
+  "reason": "Easter Monday (Day 11/18 recess) — no parliamentary activity. Run 3: final 6 methods completing full 18-method coverage. Adopted texts feed recovered (Mode B→success). Analysis-only PR per Rule 5.",
+  "dataCollected": {
+    "adoptedTexts": 86,
+    "events": 0,
+    "procedures": 0,
+    "meps": 737,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "questions": 0
+  },
+  "apiStatus": {
+    "adoptedTextsFeed": "one-week-fallback-success-recovered",
+    "eventsFeed": "404-both-timeframes",
+    "proceduresFeed": "404-both-timeframes",
+    "mepsFeed": "today-success",
+    "documentsFeed": "timeout-120s",
+    "plenaryDocsFeed": "timeout-120s",
+    "committeeDocsFeed": "timeout-120s",
+    "questionsFeed": "timeout-120s"
+  },
+  "analyticalContext": {
+    "votingAnomalies": 0,
+    "riskLevel": "LOW",
+    "stabilityScore": 84,
+    "warningCount": 3,
+    "keyRisk": "DOMINANT_GROUP_RISK",
+    "coalitionDynamics": "seat-based-only",
+    "politicalLandscape": "100-meps-sampled-8-groups"
+  },
+  "analysisArtifacts": [
+    "consequence-trees.md",
+    "legislative-disruption.md",
+    "legislative-velocity-risk.md",
+    "political-capital-risk.md",
+    "voting-patterns.md",
+    "agent-risk-workflow.md",
+    "synthesis-summary.md"
+  ],
+  "previousRuns": "6 April 2026 — breaking (00:33 UTC), committee-reports (05:03 UTC), propositions (05:47 UTC), breaking-2 (06:45 UTC)",
+  "recessStatus": {
+    "day": 11,
+    "totalDays": 18,
+    "daysToCommitteeWeek": 8,
+    "daysToPlenary": 14
+  },
+  "novelFindings": [
+    "Adopted texts feed recovered from Mode B (JSON parse) to clean success at 12:15 UTC — first endpoint recovery during recess",
+    "Legislative velocity anomaly confirmed: 2.11 acts/session (+44% YoY), highest since EP7 2012",
+    "15-risk systematic risk register created; April 14-23 identified as highest-risk post-recess window",
+    "Political capital flow analysis: PPE accumulating, Greens/EFA declining, Renew burning fastest",
+    "Full 18-method coverage achieved for 6 April breaking analysis (61 total artifacts across 5 runs)"
+  ],
+  "cumulativeStats": {
+    "totalRunsToday": 5,
+    "totalArtifacts": 61,
+    "totalEstimatedLines": 16000,
+    "methodsCovered": "significance-classification, threat-landscape, risk-matrix, swot, impact-matrix, actor-mapping, forces, stakeholder, coalition, cross-session, deep, synthesis, consequence-trees, legislative-disruption, legislative-velocity-risk, political-capital-risk, voting-patterns, agent-risk-workflow"
+  }
+}

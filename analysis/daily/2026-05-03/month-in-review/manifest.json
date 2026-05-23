@@ -1,0 +1,188 @@
+{
+  "articleTypeSlug": "month-in-review",
+  "date": "2026-05-03",
+  "runId": "month-in-review-run-1777850961",
+  "workflowStartEpoch": 1777850975,
+  "analysisDir": "analysis/daily/2026-05-03/month-in-review",
+  "stage": "B_COMPLETE",
+  "history": [
+    {
+      "runId": "month-in-review-run-1777850961",
+      "startedAt": "2026-05-03T23:29:35Z",
+      "stageACompletedAt": "2026-05-03T23:30:35Z",
+      "stageBPass1CompletedAt": "2026-05-03T23:50:00Z",
+      "stageBPass2CompletedAt": "2026-05-03T23:51:00Z",
+      "artifactCount": 27,
+      "pass2": {
+        "startedAt": "2026-05-03T23:50:00Z",
+        "endedAt": "2026-05-03T23:51:00Z",
+        "rewriteCount": 4
+      }
+    }
+  ],
+  "artifacts": [
+    "executive-brief.md",
+    "classification/significance-classification.md",
+    "classification/actor-mapping.md",
+    "classification/forces-analysis.md",
+    "classification/impact-matrix.md",
+    "intelligence/pestle-analysis.md",
+    "intelligence/economic-context.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/synthesis-summary.md",
+    "intelligence/historical-baseline.md",
+    "intelligence/wildcards-blackswans.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/analysis-index.md",
+    "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/political-capital-risk.md",
+    "risk-scoring/legislative-velocity-risk.md",
+    "threat-assessment/political-threat-landscape.md",
+    "threat-assessment/actor-threat-profiles.md",
+    "threat-assessment/consequence-trees.md",
+    "threat-assessment/legislative-disruption.md",
+    "documents/document-analysis-index.md",
+    "existing/deep-analysis.md",
+    "existing/session-baseline.md",
+    "runs/workflow-audit.md",
+    "runs/methodology-reflection.md"
+  ],
+  "imfCompliance": {
+    "required": 2,
+    "provided": 4,
+    "indicators": [
+      "EU GDP growth 2026: 1.3% (WEO April 2026)",
+      "Banking CRE adverse: EUR 85-140bn (GFSR April 2026)",
+      "US tariff trade impact: EUR 18bn/year (WEO April 2026 Trade Annex)",
+      "Fiscal Monitor EU EDP compliance map (Fiscal Monitor April 2026)"
+    ]
+  },
+  "qualityGates": {
+    "imfMinimum": "PASS",
+    "swotMinWords": "PASS",
+    "stakeholderMinWords": "PASS",
+    "proseRatio": "PASS",
+    "zeroPlaceholders": "PASS",
+    "pass2Complete": "PASS"
+  },
+  "dataLimitations": [
+    "Voting records unavailable (4-6 week EP delay)",
+    "Events feed unavailable (upstream EP API error)",
+    "Coalition cohesion metrics null (EP API limitation - no per-MEP voting data)",
+    "Performance scores zero (same limitation)",
+    "Plenary session filteredTotal=0 (EP API date filter issue)"
+  ],
+  "articleType": "month-in-review",
+  "files": {
+    "executive-brief.md": {
+      "artifact": "executive-brief",
+      "lines": 72
+    },
+    "classification/significance-classification.md": {
+      "artifact": "significance-classification",
+      "lines": 110
+    },
+    "classification/actor-mapping.md": {
+      "artifact": "actor-mapping",
+      "lines": 95
+    },
+    "classification/forces-analysis.md": {
+      "artifact": "forces-analysis",
+      "lines": 98
+    },
+    "classification/impact-matrix.md": {
+      "artifact": "impact-matrix",
+      "lines": 120
+    },
+    "intelligence/pestle-analysis.md": {
+      "artifact": "pestle-analysis",
+      "lines": 190
+    },
+    "intelligence/economic-context.md": {
+      "artifact": "economic-context",
+      "lines": 160
+    },
+    "intelligence/stakeholder-map.md": {
+      "artifact": "stakeholder-map",
+      "lines": 183
+    },
+    "intelligence/scenario-forecast.md": {
+      "artifact": "scenario-forecast",
+      "lines": 135
+    },
+    "intelligence/synthesis-summary.md": {
+      "artifact": "synthesis-summary",
+      "lines": 121
+    },
+    "intelligence/historical-baseline.md": {
+      "artifact": "historical-baseline",
+      "lines": 120
+    },
+    "intelligence/wildcards-blackswans.md": {
+      "artifact": "wildcards-blackswans",
+      "lines": 160
+    },
+    "intelligence/coalition-dynamics.md": {
+      "artifact": "coalition-dynamics",
+      "lines": 155
+    },
+    "intelligence/analysis-index.md": {
+      "artifact": "analysis-index",
+      "lines": 100
+    },
+    "risk-scoring/risk-matrix.md": {
+      "artifact": "risk-matrix",
+      "lines": 131
+    },
+    "risk-scoring/quantitative-swot.md": {
+      "artifact": "quantitative-swot",
+      "lines": 228
+    },
+    "risk-scoring/political-capital-risk.md": {
+      "artifact": "political-capital-risk",
+      "lines": 128
+    },
+    "risk-scoring/legislative-velocity-risk.md": {
+      "artifact": "legislative-velocity-risk",
+      "lines": 122
+    },
+    "threat-assessment/political-threat-landscape.md": {
+      "artifact": "political-threat-landscape",
+      "lines": 145
+    },
+    "threat-assessment/actor-threat-profiles.md": {
+      "artifact": "actor-threat-profiles",
+      "lines": 110
+    },
+    "threat-assessment/consequence-trees.md": {
+      "artifact": "consequence-trees",
+      "lines": 105
+    },
+    "threat-assessment/legislative-disruption.md": {
+      "artifact": "legislative-disruption",
+      "lines": 100
+    },
+    "documents/document-analysis-index.md": {
+      "artifact": "document-analysis-index",
+      "lines": 110
+    },
+    "existing/deep-analysis.md": {
+      "artifact": "deep-analysis",
+      "lines": 145
+    },
+    "existing/session-baseline.md": {
+      "artifact": "session-baseline",
+      "lines": 90
+    },
+    "runs/workflow-audit.md": {
+      "artifact": "workflow-audit",
+      "lines": 88
+    },
+    "runs/methodology-reflection.md": {
+      "artifact": "methodology-reflection",
+      "lines": 120
+    }
+  }
+}

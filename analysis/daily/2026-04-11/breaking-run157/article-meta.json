@@ -1,0 +1,23 @@
+{
+  "date": "2026-04-11",
+  "articleType": "breaking",
+  "runId": "157",
+  "gateResult": "PENDING",
+  "slug": "2026-04-11-breaking-157",
+  "articlePath": "analysis/daily/2026-04-11/breaking-run157/article.md",
+  "topFinding": "Run 157 is the Easter Recess Day 16, T-4 pre-Tariff-activation probe (T-0 = 15 April).",
+  "keyTakeaways": [
+    "264K precomputed stats baseline: **B2**",
+    "Editorial memory accumulated state: **C2**",
+    "Live feed observability (0): **A2**",
+    "Run: `breaking-run157` (2026-04-11, Recess Day 16, T-4)",
+    "Compliance: EP Open Data Portal + precomputed stats. GDPR-compliant."
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

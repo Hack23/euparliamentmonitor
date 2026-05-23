@@ -1,0 +1,59 @@
+{
+  "date": "2026-04-10",
+  "articleType": "breaking",
+  "runNumber": 6,
+  "generatedAt": "2026-04-10T06:35:00Z",
+  "mcpServerVersion": "1.2.1",
+  "dataAvailability": {
+    "level": "Unavailable",
+    "operationalFeeds": 0,
+    "totalFeeds": 13,
+    "precomputedStats": true,
+    "coalitionDynamics": "partial-structure-only",
+    "votingAnomalies": false,
+    "politicalLandscape": false,
+    "earlyWarning": false
+  },
+  "feedStatus": {
+    "get_adopted_texts_feed": "error",
+    "get_events_feed": "error",
+    "get_procedures_feed": "error",
+    "get_meps_feed": "error",
+    "get_documents_feed": "error",
+    "get_plenary_documents_feed": "error",
+    "get_committee_documents_feed": "error",
+    "get_parliamentary_questions_feed": "error"
+  },
+  "contextSources": [
+    "get_all_generated_stats (264KB, 2026 Q1 complete)",
+    "analyze_coalition_dynamics (partial structure, data UNAVAILABLE)",
+    "editorial-context.md (cross-run memory, 10 prior articles)",
+    "Prior run analysis (runs 1-5 findings incorporated)"
+  ],
+  "analysisFiles": [
+    "synthesis-summary.md",
+    "political-risk-assessment.md",
+    "swot-analysis.md",
+    "threat-landscape.md",
+    "significance-scoring.md",
+    "pre-restart-intelligence-brief.md"
+  ],
+  "articleGenerated": false,
+  "reason": "Easter recess Day 15 — all EP API feeds returning errors; no today-dated events; committee restart T-4 (14 April)",
+  "analysisMethods": [
+    "significance-classification",
+    "impact-matrix",
+    "actor-mapping",
+    "forces-analysis",
+    "political-threat-landscape",
+    "consequence-trees",
+    "risk-matrix",
+    "political-capital-risk",
+    "quantitative-swot",
+    "legislative-velocity-risk",
+    "deep-analysis",
+    "stakeholder-analysis",
+    "coalition-analysis",
+    "cross-session-intelligence"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "available": true,
+  "source": "IMF WEO April 2026",
+  "probeTime": "2026-04-30T00:00:00Z",
+  "indicators": ["GDP_growth", "inflation", "unemployment", "fiscal_balance"]
+}

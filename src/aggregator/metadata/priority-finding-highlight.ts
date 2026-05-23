@@ -218,10 +218,6 @@ function headingMatchesPriorityProbe(text: string): boolean {
     if (text === probe) return true;
     const idx = text.indexOf(probe);
     if (idx < 0) continue;
-    // Reject probes that only appear as a trailing suffix (e.g. "HIGH PRIORITY"
-    // appended to a content heading like "1. dma big tech … high priority").
-    // A genuine section heading always leads with or equals the probe text.
-    if (idx > 0 && idx + probe.length >= text.length) continue;
     const before = idx === 0 ? ' ' : (text[idx - 1] ?? ' ');
     const after = text[idx + probe.length] ?? ' ';
     if (!/[A-Za-z0-9]/.test(before) && !/[A-Za-z0-9]/.test(after)) return true;

@@ -1,0 +1,99 @@
+{
+  "date": "2026-04-04",
+  "articleType": "breaking",
+  "generatedAt": "2026-04-04T12:25:00Z",
+  "analyst": "EU Parliament Monitor AI (Claude Opus 4.6)",
+  "workflowRunId": "23978564546",
+  "newsworthy": false,
+  "reason": "Saturday \u2014 Easter recess (27 March - 13 April). No EP plenary, committee, or delegation activity. No items published today. Analysis extends prior runs with detailed adopted text titles and procedure references.",
+  "runNumber": 3,
+  "priorRuns": [
+    "analysis/2026-04-04/breaking/",
+    "analysis/2026-04-04/breaking-2/"
+  ],
+  "dataSources": {
+    "adoptedTextsFeed": {
+      "status": "success",
+      "timeframe": "one-week",
+      "items": 85
+    },
+    "adoptedTextsDetail": {
+      "status": "success",
+      "year": 2026,
+      "items": 70
+    },
+    "mepsFeed": {
+      "status": "success",
+      "timeframe": "today",
+      "items": 737
+    },
+    "precomputedStats": {
+      "status": "success",
+      "coveragePeriod": "2004-2026"
+    },
+    "eventsFeed": {
+      "status": "timeout",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "proceduresFeed": {
+      "status": "timeout",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "documentsFeed": {
+      "status": "timeout",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "plenaryDocumentsFeed": {
+      "status": "timeout",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "committeeDocumentsFeed": {
+      "status": "timeout",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "parliamentaryQuestionsFeed": {
+      "status": "timeout",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "votingAnomalies": {
+      "status": "timeout",
+      "items": 0
+    },
+    "coalitionDynamics": {
+      "status": "timeout",
+      "items": 0
+    },
+    "politicalLandscape": {
+      "status": "timeout",
+      "items": 0
+    },
+    "earlyWarning": {
+      "status": "timeout",
+      "items": 0
+    }
+  },
+  "analysisArtifacts": [
+    "intelligence-brief.md",
+    "trade-policy-assessment.md",
+    "swot-analysis.md",
+    "risk-assessment.md",
+    "stakeholder-impact-assessment.md"
+  ],
+  "qualityGates": {
+    "allFeedEndpointsQueried": true,
+    "analyticalToolsAttempted": true,
+    "fourPassRefinement": true,
+    "multiFrameworkAnalysis": true,
+    "confidenceLevelsAssigned": true,
+    "allMethodologyDocsRead": true,
+    "minThreeStakeholderPerspectives": true,
+    "evidenceChainsCited": true
+  },
+  "enhancement": "This run extends prior analysis with specific adopted text titles and procedure references retrieved via get_adopted_texts API (70+ items for 2026). New analysis includes trade policy dual-track assessment, enhanced SWOT with document-level evidence, updated risk register with trade policy category, and document-level stakeholder impact assessment."
+}

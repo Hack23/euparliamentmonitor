@@ -1,0 +1,44 @@
+{
+  "date": "2026-05-13",
+  "articleType": "motions",
+  "runId": "motions-run375-1778655547",
+  "gateResult": "PENDING",
+  "slug": "2026-05-13-motions",
+  "articlePath": "analysis/daily/2026-05-13/motions/article.md",
+  "topFinding": "The European Parliament's April 2026 plenary week (28–30 April) was defined by four landmark resolutions addressing digital market enforcement, Russian accountability for Ukraine, Armenian democratic resilience, and cyberbullying liability — each reflecting distinct coalition dynamics within a highly fragmented EP10…",
+  "keyTakeaways": [
+    "**Anti-corruption:** New Art. 83 TFEU criminal law directive extending beyond EU financial interests",
+    "**Cyberbullying:** First EU criminal minimum standards for online harassment",
+    "**DMA enforcement:** EP accountability over executive enforcement action (new)",
+    "**Ukraine tribunal:** EU participation in ad hoc international criminal jurisdiction",
+    "**Armenia:** EU foreign policy engagement in South Caucasus security vacuum",
+    "Commission executive enforcement (DMA)",
+    "International legal architecture (Ukraine tribunal)"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "Armenia-EU Partnership Agreement signed Q4 2026"
+  ],
+  "keyActors": [
+    "**Role:** Dominant legislative group; steers on DMA enforcement, budgetary framework, CFSP",
+    "**Key figures:**",
+    "**Internal tension:** Pro-business EPP wing (France, Italy) vs. digital-sovereignty EPP wing (Germany, Austria) on DMA stringency; resolved in favour of enforcement for this cycle",
+    "**Voting pattern:** Led budget resolution; co-signed DMA enforcement with Renew; delivered majority on Ukraine accountability",
+    "**Role:** Social democratic force; essential for EP majority; drives Ukraine, anti-corruption, workers' rights",
+    "**Key figures:**",
+    "**Coalition dynamics:** Forms the EPP-S&D \"grand coalition\" spine (319 votes combined); seeks social floors in budget exchange for broad support",
+    "**Role:** Liberal kingmaker; provides majority tipping-point on DMA, budget, CFSP"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

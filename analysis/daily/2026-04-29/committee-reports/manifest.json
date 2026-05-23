@@ -1,0 +1,61 @@
+{
+  "articleType": "committee-reports",
+  "runDate": "2026-04-29",
+  "analysisDir": "analysis/daily/2026-04-29/committee-reports",
+  "createdAt": "2026-04-29T00:00:00Z",
+  "pass2": {
+    "startedAt": "2026-04-29T00:16:00Z",
+    "endedAt": "2026-04-29T00:18:00Z",
+    "rewriteCount": 4
+  },
+  "files": {
+    "intelligence": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "threatAssessment": [
+      "threat-assessment/political-threat-landscape.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/consequence-trees.md",
+      "threat-assessment/legislative-disruption.md"
+    ],
+    "documents": [
+      "documents/document-analysis-index.md"
+    ],
+    "executiveBrief": "executive-brief.md",
+    "data": [
+      "data/adopted-texts-2026-04-28.json",
+      "data/political-landscape-2026-04.json"
+    ]
+  },
+  "dataQuality": {
+    "adoptedTexts": "HIGH",
+    "procedureTimelines": "HIGH",
+    "votingRecords": "UNAVAILABLE_EXPECTED",
+    "proceduresFeed": "RECESS_MODE",
+    "committeeDocsFeed": "UNAVAILABLE",
+    "imfData": "KNOWLEDGE_VINTAGE_WEO_APRIL_2026"
+  },
+  "history": [
+    {
+      "runAt": "2026-04-29T00:00:00Z",
+      "runId": "committee-reports-initial",
+      "artifactsProduced": 18,
+      "gateResult": null
+    }
+  ]
+}

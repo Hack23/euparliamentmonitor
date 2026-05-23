@@ -1,0 +1,38 @@
+{
+  "collection_date": "2026-05-05",
+  "parliament": {
+    "totalMEPs": 719,
+    "politicalGroups": 9,
+    "countriesRepresented": 27,
+    "parliamentaryTerm": "EP10",
+    "termStart": "2024-07-16",
+    "termEnd": "2029-07-15"
+  },
+  "groups": [
+    {"name": "EPP", "memberCount": 185, "seatShare": 25.73, "family": "centre-right", "coalition": "VdL-II"},
+    {"name": "S&D", "memberCount": 135, "seatShare": 18.78, "family": "centre-left", "coalition": "VdL-II"},
+    {"name": "PfE", "memberCount": 85, "seatShare": 11.82, "family": "right-populist", "coalition": "opposition"},
+    {"name": "ECR", "memberCount": 81, "seatShare": 11.27, "family": "conservative-right", "coalition": "variable"},
+    {"name": "Renew", "memberCount": 77, "seatShare": 10.71, "family": "liberal", "coalition": "VdL-II"},
+    {"name": "Greens/EFA", "memberCount": 53, "seatShare": 7.37, "family": "green-progressive", "coalition": "support"},
+    {"name": "The Left", "memberCount": 46, "seatShare": 6.40, "family": "left", "coalition": "issue-specific"},
+    {"name": "NI", "memberCount": 30, "seatShare": 4.17, "family": "non-attached", "coalition": "none"},
+    {"name": "ESN", "memberCount": 27, "seatShare": 3.76, "family": "far-right", "coalition": "opposition"}
+  ],
+  "coalitions": {
+    "VdL-II-core": {"groups": ["EPP","S&D","Renew"], "seats": 397, "majority": true},
+    "progressive-extension": {"groups": ["EPP","S&D","Renew","Greens/EFA","The Left"], "seats": 503, "majority": true},
+    "agricultural-bloc": {"groups": ["EPP","ECR","PfE"], "seats": 351, "majority": false},
+    "right-bloc": {"groups": ["PfE","ECR","ESN"], "seats": 193, "majority": false}
+  },
+  "powerDynamics": {
+    "largestGroup": "EPP",
+    "majorityThreshold": 361,
+    "progressiveBloc": 234,
+    "conservativeBloc": 166,
+    "effectiveNumberOfParties": 6.2
+  },
+  "fragmentationIndex": "HIGH",
+  "majorityType": "MULTI_COALITION_REQUIRED",
+  "analysisNotes": "EP10 has the highest group fragmentation in recent parliamentary history. The Von der Leyen II coalition (EPP+S&D+Renew) commands a bare majority (397/361 threshold). All non-trivial legislation requires at least 3-group coalition management."
+}

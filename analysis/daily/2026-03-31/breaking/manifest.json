@@ -1,0 +1,54 @@
+{
+  "analysisDate": "2026-03-31",
+  "articleType": "breaking",
+  "pipelineVersion": "2.0.0",
+  "generatedAt": "2026-03-31T18:25:00Z",
+  "breakingNewsSignificance": false,
+  "determination": "No breaking news — inter-sessional period, no plenary activity today",
+  "dataCollection": {
+    "feedsQueried": 8,
+    "feedsSuccessful": 2,
+    "feedsFailed": 6,
+    "analyticalToolsRun": 4,
+    "totalItemsCollected": 771,
+    "adoptedTextsCount": 34,
+    "mepCount": 737,
+    "eventsCount": 0,
+    "proceduresCount": 0
+  },
+  "analysisArtifacts": [
+    {
+      "file": "breaking-news-analysis.md",
+      "type": "intelligence-brief",
+      "lines": 210,
+      "sections": ["executive-summary", "data-collection", "political-landscape", "legislative-output", "cross-domain-linkages", "swot", "scenarios", "assessment"]
+    },
+    {
+      "file": "political-landscape-context.md",
+      "type": "political-landscape-analysis",
+      "sections": ["composition", "coalition-dynamics", "early-warning", "march-session-review"]
+    }
+  ],
+  "lastPlenarySession": {
+    "id": "MTG-PL-2026-03-26",
+    "date": "2026-03-26",
+    "location": "Brussels",
+    "agendaItems": 36
+  },
+  "keyAdoptedTexts": [
+    {"id": "TA-10-2026-0090", "title": "DGSD2: Deposit guarantee scheme reform", "date": "2026-03-26", "significance": "HIGH"},
+    {"id": "TA-10-2026-0091", "title": "BRRD3: Bank recovery and resolution directive", "date": "2026-03-26", "significance": "HIGH"},
+    {"id": "TA-10-2026-0092", "title": "SRMR3: Single resolution mechanism regulation", "date": "2026-03-26", "significance": "HIGH"},
+    {"id": "TA-10-2026-0094", "title": "Combating corruption", "date": "2026-03-26", "significance": "MEDIUM"},
+    {"id": "TA-10-2026-0096", "title": "Adjustment of customs duties for US imports", "date": "2026-03-26", "significance": "HIGH"},
+    {"id": "TA-10-2026-0098", "title": "Digital Omnibus on AI", "date": "2026-03-26", "significance": "MEDIUM"},
+    {"id": "TA-10-2026-0101", "title": "EU-China tariff rate quota modification", "date": "2026-03-26", "significance": "HIGH"},
+    {"id": "TA-10-2026-0104", "title": "Global Gateway strategy review", "date": "2026-03-26", "significance": "MEDIUM"}
+  ],
+  "earlyWarning": {
+    "riskLevel": "MEDIUM",
+    "stabilityScore": 84,
+    "highWarnings": 1,
+    "keyRiskFactor": "DOMINANT_GROUP_RISK"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "date": "2026-05-11",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run251-1778481577",
+  "gateResult": "PENDING",
+  "slug": "2026-05-11-committee-reports",
+  "articlePath": "analysis/daily/2026-05-11/committee-reports/article.md",
+  "topFinding": "The European Parliament's committee landscape during the week of 4–11 May 2026 is characterised by post-April consolidation and pre-June plenary preparation, occurring within a structurally fragmented Parliament (9 political groups; fragmentation index: HIGH; effective number of parties: 6.58).",
+  "keyTakeaways": [
+    "**Real-time monitoring** of gatekeeper compliance (monthly reporting cycles)",
+    "**Interim measures** authority to be used proactively rather than as a last resort",
+    "**Third-party access** to gatekeeper data for academic researchers",
+    "**€10+ billion fine ceiling** enforcement against repeat violations",
+    "**Mandatory microchipping** across all 27 member states by 2028",
+    "**Commercial breeder licensing** with veterinary inspection requirements",
+    "**Online sales restrictions** for pets (cooling-off period, veterinary certificates)"
+  ],
+  "topRisks": [
+    "EPP internal pressure from 35–45 agrarian/industrial MEPs",
+    "BusinessEurope DMA cost assessment amplifying proportionality narrative",
+    "Big Tech CJEU litigation creating legal uncertainty atmosphere",
+    "PfE-ECR joint amendment strategy for DMA implementing acts",
+    "August 2026 deadline for foundation model provider compliance",
+    "Guidance ambiguity from EU AI Office on systemic risk assessment methodology",
+    "Market withdrawal risk (non-EU providers exiting EU market)",
+    "Technical complexity of copyright compliance documentation"
+  ],
+  "keyDates": [
+    "**IMCO:** DMA enforcement scrutiny resolution implemented; Commission opens at least 2 new formal investigations against gatekeepers by Q3 2026",
+    "**BUDG:** Budget conciliation agreement reached with Council in November 2026 at approximately €192–194 billion (below EP's €197.2B position but above Commission's draft)",
+    "**LIBE:** AI Act GPAI provisions enter force August 2026 with smooth compliance process for major foundation model providers"
+  ],
+  "keyActors": [
+    "Commission → EP: legislative proposals, budget drafts, delegated acts",
+    "EP → Commission: scrutiny resolutions, committee questions, committee votes on Commission acts",
+    "Industry → EPP/Renew: lobbying on AI liability, digital regulation, product standards",
+    "Civil Society → S&D/Greens: advocacy on climate, social rights, data protection",
+    "IMCO Committee Chair (EPP): controls DMA/DSA file scheduling",
+    "LIBE Committee Chair (S&D): controls AI, data, and security file flows",
+    "BUDG Committee Chair (EPP): controls 2027 budget procedure calendar",
+    "Committee rapporteurs: individual MEPs with draft report authority"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

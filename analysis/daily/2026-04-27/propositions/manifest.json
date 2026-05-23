@@ -1,0 +1,57 @@
+{
+  "articleType": "propositions",
+  "runDate": "2026-04-27",
+  "runId": "propositions-run-1777271418",
+  "analysisDir": "analysis/daily/2026-04-27/propositions",
+  "createdAt": "2026-04-27T06:30:18Z",
+  "dataWindow": {
+    "from": "2026-04-20",
+    "to": "2026-04-27"
+  },
+  "dataVerification": {
+    "proceduresTracked": 3,
+    "adoptedTexts2026": 71,
+    "externalDocuments": 6,
+    "politicalGroupsAnalyzed": 9,
+    "worldBankIndicators": 1,
+    "mepCount": 719
+  },
+  "files": {
+    "executive-brief.md": "executive-brief.md",
+    "intelligence/analysis-index.md": "intelligence/analysis-index.md",
+    "intelligence/synthesis-summary.md": "intelligence/synthesis-summary.md",
+    "intelligence/historical-baseline.md": "intelligence/historical-baseline.md",
+    "intelligence/economic-context.md": "intelligence/economic-context.md",
+    "intelligence/pestle-analysis.md": "intelligence/pestle-analysis.md",
+    "intelligence/stakeholder-map.md": "intelligence/stakeholder-map.md",
+    "intelligence/scenario-forecast.md": "intelligence/scenario-forecast.md",
+    "intelligence/threat-model.md": "intelligence/threat-model.md",
+    "intelligence/wildcards-blackswans.md": "intelligence/wildcards-blackswans.md",
+    "intelligence/mcp-reliability-audit.md": "intelligence/mcp-reliability-audit.md",
+    "intelligence/reference-analysis-quality.md": "intelligence/reference-analysis-quality.md",
+    "intelligence/methodology-reflection.md": "intelligence/methodology-reflection.md",
+    "intelligence/workflow-audit.md": "intelligence/workflow-audit.md",
+    "risk-scoring/risk-matrix.md": "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md": "risk-scoring/quantitative-swot.md",
+    "risk-scoring/political-capital-risk.md": "risk-scoring/political-capital-risk.md",
+    "risk-scoring/legislative-velocity-risk.md": "risk-scoring/legislative-velocity-risk.md",
+    "classification/significance-classification.md": "classification/significance-classification.md",
+    "classification/impact-matrix.md": "classification/impact-matrix.md",
+    "classification/forces-analysis.md": "classification/forces-analysis.md",
+    "classification/actor-mapping.md": "classification/actor-mapping.md",
+    "threat-assessment/political-threat-landscape.md": "threat-assessment/political-threat-landscape.md",
+    "threat-assessment/actor-threat-profiles.md": "threat-assessment/actor-threat-profiles.md",
+    "threat-assessment/consequence-trees.md": "threat-assessment/consequence-trees.md",
+    "threat-assessment/legislative-disruption.md": "threat-assessment/legislative-disruption.md",
+    "existing/pipeline-health.md": "existing/pipeline-health.md"
+  },
+  "history": [
+    {
+      "runId": "propositions-run-1777271418",
+      "runDate": "2026-04-27",
+      "completedAt": "2026-04-27T06:51:00Z",
+      "artifactCount": 27,
+      "gateResult": "pending"
+    }
+  ]
+}

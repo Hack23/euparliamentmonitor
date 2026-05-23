@@ -1,0 +1,54 @@
+{
+  "date": "2026-04-30",
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run-1777558354",
+  "gateResult": "GREEN",
+  "slug": "2026-04-30-month-ahead",
+  "articlePath": "analysis/daily/2026-04-30/month-ahead/article.md",
+  "topFinding": "The EU Parliament's next 30 days (April 30 – May 30, 2026) will be dominated by the May 18-21 Strasbourg plenary session, which is the key decision point for three concurrent legislative axes: Clean Industrial Deal implementation, European Defence Industrial Strategy initial votes, and Budget 2027 trilogue preparation.",
+  "keyTakeaways": [
+    "**Economic:** IMF projects EU GDP growth at 1.3% — positive but fragile. A trade shock could reduce this to 0.5-0.9% (Economic Context analysis).",
+    "**Political:** PfE/ECR support for trade confrontation clashes with their ideological US-alignment, creating unusual coalition dynamics (Coalition Dynamics analysis).",
+    "**Industrial:** CID implementation becomes more urgent if trade shock materialises, but also more politically contested if US views it as EU industrial protectionism (PESTLE analysis).",
+    "FS-2026-005 (Budget 2027 trilogue) upgraded to 🟢 HIGH confidence following April 28 guidelines adoption",
+    "FS-2026-007 (ECB rate cut) remains 🟡 MEDIUM confidence — EU inflation at 2.0% is supportive but geopolitical uncertainty persists",
+    "FS-2026-004 (US-EU automotive) remains 🟡 MEDIUM — managed confrontation with escalation risk",
+    "FS-2026-006 (CID implementing legislation) remains 🟡 MEDIUM — committee work ongoing, timeline plausible"
+  ],
+  "topRisks": [
+    "**Likelihood:** Possible (3) | **Impact:** Major (4) | **Risk Score:** 12 — 🟠 HIGH",
+    "**Description:** EPP loses centre coalition alignment on CID when ECR amendments accepted, forcing S&D to break away",
+    "**Mitigation:** Budget 2027 structural incentive for EPP-S&D relationship maintenance",
+    "**Residual risk:** 🟡 MEDIUM (after mitigation, ~20%)",
+    "**Owner:** EPP Group leadership; ITRE/ENVI rapporteurs",
+    "**Likelihood:** Unlikely (2) | **Impact:** Major (4) | **Risk Score:** 8 — 🟡 MEDIUM",
+    "**Description:** New US Executive Order on EU automotive/pharma tariffs forces emergency INTA hearing in May 18-21 session",
+    "**Mitigation:** Existing March 26 tariff adjustment text provides pre-established response mechanism"
+  ],
+  "keyDates": [
+    "The IMF WEO April 2026 projects EU GDP growth of 1.3% — positive but fragile, providing political space for gradual legislative advancement without emergency-mode politics",
+    "Budget 2027 trilogue preparation advances with Council position expected Q3 2026"
+  ],
+  "keyActors": [
+    "EP MCP data provides seat-share and committee composition data: strong (🟢 HIGH confidence)",
+    "Individual MEP behaviour is inferred from group positions: moderate (🟡 MEDIUM confidence)",
+    "External stakeholder positions are assessed from public statements: moderate (🟡 MEDIUM confidence)",
+    "No per-MEP vote-level data available (EP Open Data structural limitation): analytical constraint clearly documented",
+    "**Admiralty rating for stakeholder map: B2** — credible EP institutional source; assessments probably true based on structural analysis",
+    "**Forward-looking note:** This stakeholder map should be updated after the May 18-21 Strasbourg plenary session to incorporate observed voting behaviour and coalition dynamics data.",
+    "**Coverage:** Covers all major EP political group leaders, key national delegations, and external institutional stakeholders with direct influence on the month-ahead legislative agenda.",
+    "**Confidence in individual MEP assessments: 🟡 MEDIUM** — MEP profiles based on public group positions and committee assignments; personal vote intentions not directly observable at this resolution."
+  ],
+  "macroContext": "The EU economic landscape for May 2026 is characterised by fragile recovery, asymmetric national trajectories, and US-EU trade uncertainty as the primary external shock risk.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

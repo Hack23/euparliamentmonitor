@@ -1,0 +1,19 @@
+{
+  "_summary": "EP10 coalition dynamics 2024-07-16 to 2026-05-11 — group composition snapshot. Per-MEP voting cohesion unavailable from EP Open Data API.",
+  "groups": {
+    "EPP": 183, "S&D": 136, "PfE": 85, "ECR": 81, "Renew": 77, "Greens/EFA": 53, "The Left": 45, "ESN": 27, "NI": 30
+  },
+  "totalMEPs": 717,
+  "fragmentationIndex": 6.58,
+  "effectiveNumberOfParties": 6.58,
+  "dominantCoalition": ["EPP", "S&D", "Renew"],
+  "dominantCoalitionSeats": 396,
+  "dominantCoalitionShare": 0.552,
+  "venezuelaMajorityRight": ["EPP", "ECR", "PfE"],
+  "venezuelaMajorityRightSeats": 349,
+  "venezuelaMajorityRightShare": 0.487,
+  "leftBloc": ["S&D", "Greens/EFA", "The Left"],
+  "leftBlocSeats": 234,
+  "leftBlocShare": 0.326,
+  "source": "european-parliament-mcp-server@1.3.2 analyze_coalition_dynamics 2026-05-11"
+}

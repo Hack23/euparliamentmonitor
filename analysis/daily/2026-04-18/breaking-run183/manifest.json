@@ -1,0 +1,50 @@
+{
+  "runId": 183,
+  "date": "2026-04-18",
+  "articleType": "breaking",
+  "mode": "ANALYSIS_ONLY",
+  "degradedMode": true,
+  "newsworthinessGate": "FAIL",
+  "reason": "Easter recess Day 5 (Holy Saturday); all EP feed endpoints degraded or returning 404",
+  "plenaryReturn": "2026-04-27",
+  "feedEndpointStatus": {
+    "get_server_health": "UNAVAILABLE (0/13 feeds operational)",
+    "get_adopted_texts_feed": "WORKING (159 items, historical corpus, no date filtering)",
+    "get_meps_feed": "WORKING (738 records, no modification dates)",
+    "get_events_feed": "404 Not Found",
+    "get_procedures_feed": "404 Not Found",
+    "get_documents_feed": "ERROR-IN-BODY (empty)",
+    "get_parliamentary_questions_feed": "EMPTY (no questions during recess)",
+    "individual_text_lookup": "EMPTY (TA-10-2026-0099 through 0104 return empty responses)",
+    "analyze_coalition_dynamics": "PARTIAL (EPP memberCount:0 anomaly; Renew-ECR cohesion: 0.95)"
+  },
+  "analysisFiles": [
+    "classification/significance-scoring.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/cross-run-diff.md",
+    "intelligence/synthesis-summary.md",
+    "documents/document-analysis-index.md"
+  ],
+  "compositeRiskScore": "24.0/50",
+  "keyFindings": [
+    "EP API structural degradation — Day 5, no pre-plenary recovery expected (15% probability)",
+    "TA-10-2026-0099-0104: 6 texts documented as intelligence gap requiring post-recess verification",
+    "EPP coalition data anomaly: memberCount:0 persistent across 5 runs",
+    "USTR post-Easter window (April 22-26): 20-25% Section 301 probability",
+    "April 21 Commission housing response: 55% probability inadequate, triggering Rule 144",
+    "Renew-ECR cohesion 0.95 issue-specific: agriculture/migration files will test durability"
+  ],
+  "forwardMonitoringTriggers": [
+    "2026-04-21 12:00 CET: Commission housing response (ec.europa.eu/commission/presscorner)",
+    "2026-04-22-26: USTR post-Easter statements (ustr.gov)",
+    "2026-04-22-25: AI sector compliance signals (Mistral, Aleph Alpha press releases)",
+    "2026-04-23-26: German Bundesrat BRRD3 transposition signals",
+    "2026-04-27 08:00 CET: EP plenary agenda publication (europarl.europa.eu/plenary)",
+    "2026-04 through 06: ECJ preliminary reference signals (curia.europa.eu)"
+  ],
+  "recessSeriesRuns": [179, 180, 181, 182, 183],
+  "generatedAt": "2026-04-18T01:35:00Z",
+  "methodology": "ai-driven-analysis-guide.md v1.0; political-risk-methodology.md 5x5 matrix"
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-07",
+  "articleType": "motions",
+  "runId": "2188e763-6b62-4b96-a650-76749ba22e0f",
+  "gateResult": "PENDING",
+  "slug": "2026-04-07-motions",
+  "articlePath": "analysis/daily/2026-04-07/motions/article.md",
+  "topFinding": "This Day-12 motions run is the bimodal-coalition stress test on the April 6 finding — it asks: does the bimodal coalition system survive a 24-hour holdover under degraded API conditions, and what additional structural insight does the Day-12 reading add?",
+  "keyTakeaways": [
+    "🔴 **Bimodal-coalition validated across 2 run-days** — structurally robust.",
+    "🟠 **Opposition structural minority confirmed** — 208 max vs. 264 blocking.",
+    "🟢 **ECR 78 + PfE 84 + Left 46 = 208** — verifiable arithmetic.",
+    "🟡 **Permanent until Q3 2027** — earliest realignment possibility.",
+    "🔵 **5 High-confidence methods** — coalition + cross-session + deep + stakeholder + voting.",
+    "🟣 **19 analysis files** — full motions methodology coverage.",
+    "🩷 **Day 12/18 — recess 67% complete**."
+  ],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

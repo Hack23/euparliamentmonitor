@@ -1,0 +1,41 @@
+{
+  "runId": "PROP-2026-04-09-001",
+  "date": "2026-04-09",
+  "articleTypeSlug": "propositions",
+  "articleType": "propositions",
+  "startTime": "2026-04-09T05:39:00Z",
+  "endTime": "2026-04-09T05:50:00Z",
+  "articleTypes": ["propositions"],
+  "methods": [
+    "significance-scoring",
+    "political-risk-matrix",
+    "political-threat-landscape",
+    "deep-analysis",
+    "stakeholder-impact",
+    "coalition-dynamics",
+    "PESTLE-analysis",
+    "passage-probability"
+  ],
+  "overallConfidence": "HIGH",
+  "dataSourcesUsed": [
+    "adopted_texts_feed (one-week)",
+    "adopted_texts (year=2026, 100 items)",
+    "procedures (year=2026, 51 items)",
+    "procedures (year=2025, 50 items)",
+    "political_landscape",
+    "coalition_dynamics",
+    "early_warning_system",
+    "track_legislation (4 procedures)",
+    "monitor_legislative_pipeline",
+    "get_all_generated_stats (procedures, 2024-2026)"
+  ],
+  "documentsAnalyzed": 18,
+  "analyzedDocumentIds": [
+    "TA-10-2026-0090", "TA-10-2026-0091", "TA-10-2026-0092",
+    "TA-10-2026-0094", "TA-10-2026-0096", "TA-10-2026-0093",
+    "2026/0008(COD)", "2026/0010(COD)", "2026/0011(COD)",
+    "2026/0012(COD)", "2026/0013(COD)", "2026/0044(COD)",
+    "2026/0045(COD)", "2026/0059(COD)", "2026/0068(COD)",
+    "2026/0074(COD)", "2026/0078(COD)", "2026/0084(COD)"
+  ]
+}

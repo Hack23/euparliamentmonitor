@@ -1,0 +1,47 @@
+{
+  "date": "2026-04-03",
+  "articleType": "breaking",
+  "articleTypeSlug": "breaking-2",
+  "generatedAt": "2026-04-03T18:15:00Z",
+  "workflow": "news-breaking",
+  "analysisOnly": true,
+  "reason": "No breaking news — Friday Easter recess period. Third analytical run extends prior analysis with early warning deep dive, EP API reliability assessment, and temporal cross-validation.",
+  "improvementNote": "Third run adds: early-warning-deep-dive.md (3-warning decomposition with attack trees), api-reliability-assessment.md (systematic EP API degradation analysis), cross-session-intelligence.md (temporal consistency validation across 3 runs). Prior analysis in breaking/ directory preserved.",
+  "priorAnalysisReference": "analysis/2026-04-03/breaking/",
+  "dataCollected": {
+    "adoptedTextsFeed": "one-week fallback: ~80 items (today returned error)",
+    "eventsFeed": "404 on both today and one-week",
+    "proceduresFeed": "404 on both today and one-week",
+    "mepsFeed": "today: 737 items",
+    "documentsFeed": "one-week: timeout after 120s",
+    "plenaryDocumentsFeed": "one-week: timeout after 120s",
+    "committeeDocumentsFeed": "one-week: timeout after 120s",
+    "parliamentaryQuestionsFeed": "one-week: timeout after 120s",
+    "votingAnomalies": "0 anomalies, LOW risk",
+    "coalitionDynamics": "8 groups, 28 pairs, Renew-ECR top at 0.95",
+    "politicalLandscape": "8 groups, HIGH fragmentation, PPE 38%",
+    "earlyWarning": "3 warnings, MEDIUM risk, stability 84/100"
+  },
+  "analysisFiles": [
+    "intelligence-brief.md",
+    "early-warning-deep-dive.md",
+    "api-reliability-assessment.md",
+    "cross-session-intelligence.md"
+  ],
+  "feedEndpointsQueried": [
+    "get_adopted_texts_feed (today → JSON parse error, one-week → success: ~80 items)",
+    "get_events_feed (today → 404, one-week → 404)",
+    "get_procedures_feed (today → 404, one-week → 404)",
+    "get_meps_feed (today → success: 737 items)",
+    "get_documents_feed (one-week → timeout 120s)",
+    "get_plenary_documents_feed (one-week → timeout 120s)",
+    "get_committee_documents_feed (one-week → timeout 120s)",
+    "get_parliamentary_questions_feed (one-week → timeout 120s)"
+  ],
+  "analyticalToolsQueried": [
+    "detect_voting_anomalies → success (0 anomalies, LOW risk)",
+    "analyze_coalition_dynamics → success (8 groups, 28 pairs)",
+    "generate_political_landscape → success (8 groups, HIGH fragmentation)",
+    "early_warning_system → success (3 warnings, MEDIUM risk, stability 84)"
+  ]
+}

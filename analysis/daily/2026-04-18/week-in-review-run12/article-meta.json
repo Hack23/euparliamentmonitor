@@ -1,0 +1,35 @@
+{
+  "date": "2026-04-18",
+  "articleType": "week-in-review",
+  "runId": "week-in-review-run12",
+  "gateResult": "PENDING",
+  "slug": "2026-04-18-week-in-review",
+  "articlePath": "analysis/daily/2026-04-18/week-in-review-run12/article.md",
+  "topFinding": "The week of April 11–18, 2026 is a structural inflection point in EP10's legislative trajectory.",
+  "keyTakeaways": [
+    "🔴 **Record Q1:** **104 adopted texts**, 567 roll-call votes, 6,147 parliamentary questions — **exceeds historical norms** for any EP first quarter.",
+    "🟠 **March 26 mega-session:** 9 adopted texts in one sitting (TA-10-2026-0090 → -0098) — Banking Union complete, Anti-Corruption Directive, trade countermeasures, social policy.",
+    "🟢 **Pre-Easter session April 7–10:** 6 additional texts (TA-10-2026-0099 → -0104) — content gated by recess API maintenance.",
+    "🟡 **German GDP −0.87% (2023), −0.5% (2024)** — two consecutive contractions; Italy 0.976% → 0.693%.",
+    "🔵 **Coalition test:** S&D **explicitly linked Housing Initiative (TA-10-2026-0091) to continued support** for EPP agenda.",
+    "🟣 **Four parallel recess processes:** (1) Commission housing response, (2) MS finance ministry BRRD3 transposition analysis, (3) **USTR Section 301 watch window April 22–26**, (4) EP political-group internal consultations on April 28–30 agenda.",
+    "🩷 **Banking Union completion** (14-year project closure) is the most politically valuable legacy item delivered during a macro window where it matters most."
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "**X-axis — Commission Housing-Response Adequacy**: ADEQUATE (explicit Q4 2026",
+    "[ ] Commission housing response published without Q4 2026 legislative commitment"
+  ],
+  "keyActors": [
+    "**Germany stays central across both arcs** — but for different reasons. In Q1,",
+    "**Civil-society actors are Q2 ascendant** — housing coalition and anti-corruption"
+  ],
+  "macroContext": "German recession since 2002–2003.",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "articleType": "week-ahead",
+  "runId": "week-ahead-run-1777621917",
+  "createdAt": "2026-05-01T07:54:00Z",
+  "updatedAt": "2026-05-01T08:14:23Z",
+  "date": "2026-05-01",
+  "reportingWindow": {
+    "from": "2026-05-04",
+    "to": "2026-05-08"
+  },
+  "pass2": {
+    "startedAt": "2026-05-01T08:07:41Z",
+    "endedAt": "2026-05-01T08:14:23Z",
+    "rewriteCount": 10
+  },
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "analysis-index": "intelligence/analysis-index.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "historical-baseline": "intelligence/historical-baseline.md",
+    "economic-context": "intelligence/economic-context.md",
+    "pestle-analysis": "intelligence/pestle-analysis.md",
+    "stakeholder-map": "intelligence/stakeholder-map.md",
+    "scenario-forecast": "intelligence/scenario-forecast.md",
+    "threat-model": "intelligence/threat-model.md",
+    "wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "risk-matrix": "risk-scoring/risk-matrix.md",
+    "quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "methodology-reflection": "intelligence/methodology-reflection.md"
+  },
+  "history": [
+    {
+      "runId": "week-ahead-run-1777621917",
+      "startedAt": "2026-05-01T07:51:45Z",
+      "finishedAt": "2026-05-01T08:15:06.984Z",
+      "commit": null,
+      "gateResult": "ANALYSIS_ONLY",
+      "filesWritten": 15
+    }
+  ],
+  "dataQualityNotes": {
+    "get_events_feed": "UNAVAILABLE - upstream EP API error",
+    "get_procedures_feed": "DEGRADED - recessMode (historical archive response)",
+    "generate_political_landscape": "HIGH quality",
+    "get_all_generated_stats": "HIGH quality"
+  },
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "Elapsed-time tripwire at minute 21; RED gate (mermaid:missing formatting markers in 14 artifacts — substantive analysis is complete); ship analysis artifacts"
+}

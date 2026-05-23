@@ -1,0 +1,45 @@
+{
+  "date": "2026-04-26",
+  "articleType": "week-ahead",
+  "runId": "week-ahead-run-1777236707",
+  "gateResult": "PENDING",
+  "slug": "2026-04-26-week-ahead",
+  "articlePath": "analysis/daily/2026-04-26/week-ahead/article.md",
+  "topFinding": "Confidence: 🟡 Medium | Source quality: Live EP Open Data | Admiralty Grade B2 (reliable source, probably true)",
+  "keyTakeaways": [
+    "**PESTLE** (Political): Commission delegated acts are the nexus of political-economic power",
+    "**Stakeholder Map**: Banking industry and tech sector both deploy maximum lobbying at delegated acts phase",
+    "**Historical Baseline**: Post-peak-output sessions always face implementation accountability challenges",
+    "**Economic Context**: Banking Union economic stakes are highest in 2026 legislative cycle",
+    "**Synthesis:** The April session's significance is not what gets voted on — it's what gets *scrutinized* through oral questions and committee hearings on Q1 2026 implementation.",
+    "**Threat Model**: Coalition fracture requires EPP right-flank defections (>20 MEPs) — historically rare",
+    "**Historical Baseline**: 87% coalition success rate in Q1 2026 — highest in EP10"
+  ],
+  "topRisks": [
+    "1 = Rare (<5%)",
+    "2 = Unlikely (5–15%)",
+    "3 = Possible (15–40%)",
+    "4 = Likely (40–70%)",
+    "5 = Almost Certain (>70%)",
+    "1 = Negligible (no meaningful effect on legislative outcome)",
+    "2 = Minor (single item affected; easily managed)",
+    "3 = Moderate (session productivity reduced; 2–5 items affected)"
+  ],
+  "keyDates": [
+    "**Legislative trajectory:** Q1 2026 was unusually productive, exhausting many high-conflict items. The April session follows Easter recess, traditionally calmer. EP calendar shows four Strasbourg days — consistent with a maintenance, not sprint, week.",
+    "**Historical pattern:** EPP right flank has previously aligned with PfE/ECR on immigration in the European Parliament, most notably in the September 2024 Roberta Metsola re-election vote calculus.",
+    "**Legislative trigger:** The February 2026 safe countries / safe third country texts (TA-10-2026-0025, 0026) were contested within S&D. PfE will likely push for implementation speed or tightening amendments.",
+    "**Ukraine Support Loan** was adopted February 2026 but is finite. Military escalation or new offensive operations could exhaust existing commitments faster than modelled."
+  ],
+  "keyActors": [],
+  "macroContext": "---",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

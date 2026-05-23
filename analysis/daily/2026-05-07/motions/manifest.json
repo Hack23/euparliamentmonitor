@@ -1,0 +1,107 @@
+{
+  "articleType": "motions",
+  "runId": "motions-run540-1778167043",
+  "date": "2026-05-07",
+  "analysisDir": "analysis/daily/2026-05-07/motions",
+  "workflowStartEpoch": 1778167043,
+  "dataWindow": {
+    "from": "2026-04-30",
+    "to": "2026-05-07"
+  },
+  "dataMode": "degraded-voting",
+  "imfAvailable": false,
+  "dataQuality": {
+    "politicalLandscape": "FULL",
+    "adoptedTextContent": "UNAVAILABLE",
+    "adoptedTextMetadata": "PARTIAL",
+    "voteLevel": "UNAVAILABLE",
+    "speechRecords": "FULL",
+    "imfEconomic": "UNAVAILABLE",
+    "epStatistics": "FULL",
+    "coalitionCohesion": "STRUCTURAL_ONLY"
+  },
+  "keyFindings": [
+    "13 texts adopted April 28-30; 7 titles available via EP API",
+    "2 Tier 1 significance motions: TA-0160 (DMA enforcement) + TA-0161 (Ukraine tribunal)",
+    "PfE topical debate (Rule 169) confirms ongoing institutional pressure campaign",
+    "Agricultural coalition (EPP+ECR+S&D rural+PfE) stable and dominant on TA-0157",
+    "EP political fragmentation index: Effective N=7.0 (high fragmentation)",
+    "EU climate target miss risk HIGH due to agricultural coalition blocking Farm to Fork",
+    "Hungary CFSP veto is primary obstacle to Ukraine accountability implementation",
+    "IMF data unavailable: proxy timeout; economic analysis at degraded confidence"
+  ],
+  "pass2": {
+    "startedAt": "2026-05-07T00:31:40Z",
+    "endedAt": "2026-05-07T00:37:30Z",
+    "rewriteCount": 5
+  },
+  "stageTimings": {
+    "promptReadingMinutes": 2,
+    "stageAMinutes": 3,
+    "stageBPass1Minutes": 23,
+    "stageBPass2Minutes": null,
+    "stageCMinutes": null,
+    "stageDMinutes": null,
+    "stageEMinutes": null
+  },
+  "files": {
+    "root": [
+      "executive-brief.md",
+      "manifest.json"
+    ],
+    "intelligence": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/analysis-index.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/threat-model.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "threatAssessment": [
+      "threat-assessment/political-threat-landscape.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/consequence-trees.md",
+      "threat-assessment/legislative-disruption.md"
+    ],
+    "existing": [
+      "existing/synthesis-summary.md",
+      "existing/stakeholder-map.md"
+    ],
+    "data": [
+      "data/political-landscape.json"
+    ],
+    "cache": [
+      "cache/imf/probe-summary.json"
+    ],
+    "runs": [
+      "runs/workflow-audit.md",
+      "runs/methodology-reflection.md"
+    ]
+  },
+  "totalArtifacts": 26,
+  "history": [
+    {
+      "runId": "motions-run540-1778167043",
+      "startEpoch": 1778167043,
+      "status": "IN_PROGRESS",
+      "artifactsWritten": 26
+    }
+  ]
+}

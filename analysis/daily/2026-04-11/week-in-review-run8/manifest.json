@@ -1,0 +1,64 @@
+{
+  "articleType": "week-in-review",
+  "date": "2026-04-11",
+  "runId": 8,
+  "workflowRunId": 24280835529,
+  "generatedAt": "2026-04-11T11:00:00Z",
+  "status": "analysis-only",
+  "reason": "EP API feeds unavailable (0/13 operational) - Easter recess Day 16",
+  "mcpServerVersion": "1.2.1",
+  "mcpServerHealth": "unhealthy",
+  "feedsOperational": 0,
+  "feedsTotal": 13,
+  "precomputedDataAvailable": true,
+  "files": [
+    {
+      "path": "existing/api-outage-diagnostic.md",
+      "type": "diagnostic",
+      "lines": 120
+    },
+    {
+      "path": "existing/synthesis-summary.md",
+      "type": "synthesis",
+      "lines": 200
+    },
+    {
+      "path": "existing/swot-analysis.md",
+      "type": "swot",
+      "lines": 150
+    },
+    {
+      "path": "existing/stakeholder-impact.md",
+      "type": "stakeholder",
+      "lines": 180
+    },
+    {
+      "path": "classification/significance-scoring.md",
+      "type": "scoring",
+      "lines": 130
+    },
+    {
+      "path": "risk-scoring/risk-assessment.md",
+      "type": "risk",
+      "lines": 160
+    },
+    {
+      "path": "threat-assessment/threat-analysis.md",
+      "type": "threat",
+      "lines": 150
+    }
+  ],
+  "analysisContext": {
+    "recessDay": 16,
+    "committeeRestartDays": 3,
+    "tariffDeadlineDays": 4,
+    "riskTrajectory": "10.10 -> 13.17/25 (rising)",
+    "priorRunsReferenced": [
+      "2026-04-08/breaking",
+      "2026-04-09/breaking",
+      "2026-04-10/breaking",
+      "2026-04-10/week-ahead-run12",
+      "2026-04-11/breaking-run158"
+    ]
+  }
+}
