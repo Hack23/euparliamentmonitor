@@ -458,7 +458,7 @@ graph LR
 <li><strong>分类：</strong> 公开</li>
 <li><strong>追溯创建：</strong> 回填会话。</li>
 </ul>
-</div><h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 <h3 id="api-reliability-assessment" tabindex="-1"><a class="header-anchor" href="#api-reliability-assessment"><span>Api Reliability Assessment</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
@@ -4998,7 +4998,7 @@ graph LR
 <h3 id="bluf-13" tabindex="-1"><a class="header-anchor" href="#bluf-13"><span>🎯 BLUF</span></a></h3>
 <p><strong>欧洲议会数据门户信息源API处于中断状态 — 8个必需信息源中有5个在3次独立运行（06:00、12:15、18:15 UTC）中全部失败。</strong> <code>get_events_feed</code>、<code>get_procedures_feed</code>、<code>get_documents_feed</code>、<code>get_plenary_documents_feed</code>、<code>get_committee_documents_feed</code>、<code>get_parliamentary_questions_feed</code> 在 <code>today</code> 和 <code>one-week</code> 时间范围内均返回404错误或超时。正常运行的端点：<code>get_meps_feed</code>（737/737）及分析工具（<code>detect_voting_anomalies</code>、<code>analyze_coalition_dynamics</code>、<code>generate_political_landscape</code>、<code>early_warning_system</code>）。<code>get_adopted_texts_feed</code> 返回部分数据（通过 one-week 备用路径约80〜100条）。故障模式与复活节假期相关，表明上游任务队列存在维护或季节性降级。<strong>🟢 高可信度</strong>：故障真实且持续（n=3次运行）。<strong>🟡 中等可信度</strong>：根本原因（假期维护对比基础设施退化）。</p>
 <hr>
-<h3 id="本简报支持的3项决策" tabindex="-1"><a class="header-anchor" href="#本简报支持的3项决策"><span>🧭 本简报支持的3项决策</span></a></h3>
+<h3 id="本简报支持的3项决策-2" tabindex="-1"><a class="header-anchor" href="#本简报支持的3项决策-2"><span>🧭 本简报支持的3项决策</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -5034,7 +5034,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="60秒速读" tabindex="-1"><a class="header-anchor" href="#60秒速读"><span>📰 60秒速读</span></a></h3>
+<h3 id="60秒速读-2" tabindex="-1"><a class="header-anchor" href="#60秒速读-2"><span>📰 60秒速读</span></a></h3>
 <ul>
 <li>🔴 <strong>必需信息源5/8在全部3次运行中失败</strong> — <code>get_events_feed</code>、<code>get_procedures_feed</code>、<code>get_documents_feed</code>、<code>get_plenary_documents_feed</code>、<code>get_committee_documents_feed</code>、<code>get_parliamentary_questions_feed</code>。（🟢 高）</li>
 <li>🟠 <strong>采纳文本信息源部分运行</strong> — <code>today</code> 出现JSON错误；one-week备用路径返回约80〜100条。（🟢 高）</li>
@@ -5046,7 +5046,7 @@ graph LR
 <li>⚪ <strong>滚动推进：</strong> 向验证管道添加 <code>prefetch-status.json</code> 状态跟踪和中断信息源适应系数（0.80）。</li>
 </ul>
 <hr>
-<h3 id="端点状态快照" tabindex="-1"><a class="header-anchor" href="#端点状态快照"><span>🗂️ 端点状态快照</span></a></h3>
+<h3 id="端点状态快照-2" tabindex="-1"><a class="header-anchor" href="#端点状态快照-2"><span>🗂️ 端点状态快照</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -5132,7 +5132,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="风险与威胁快照" tabindex="-1"><a class="header-anchor" href="#风险与威胁快照"><span>⚠️ 风险与威胁快照</span></a></h3>
+<h3 id="风险与威胁快照-2" tabindex="-1"><a class="header-anchor" href="#风险与威胁快照-2"><span>⚠️ 风险与威胁快照</span></a></h3>
 <figure class="mermaid-figure" role="img" aria-label="Mermaid diagram 21">
 <pre class="mermaid">%%{init: {&quot;theme&quot;:&quot;dark&quot;}}%%
 graph LR
@@ -5197,17 +5197,17 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="最重要的前瞻性触发器" tabindex="-1"><a class="header-anchor" href="#最重要的前瞻性触发器"><span>🔮 最重要的前瞻性触发器</span></a></h3>
+<h3 id="最重要的前瞻性触发器-2" tabindex="-1"><a class="header-anchor" href="#最重要的前瞻性触发器-2"><span>🔮 最重要的前瞻性触发器</span></a></h3>
 <p><strong>在2026年4月13日（复活节假期结束）之前每日进行端点健康检查。</strong> 如果失败的信息源集群在2026年4月14日（复活节后首个工作日）之前未能恢复，则上报至基础设施退化假说，并通过正式渠道联系EP EDP技术运营团队。</p>
 <hr>
-<h3 id="来源质量评估" tabindex="-1"><a class="header-anchor" href="#来源质量评估"><span>🛡️ 来源质量评估</span></a></h3>
+<h3 id="来源质量评估-2" tabindex="-1"><a class="header-anchor" href="#来源质量评估-2"><span>🛡️ 来源质量评估</span></a></h3>
 <ul>
 <li><strong>一手资料：</strong> 分别在06:00、12:15、18:15 UTC进行的3次系统性健康检查运行；12个端点＋4个分析工具。</li>
 <li><strong>中断状态确认可信度：</strong> 🟢 高（日内n=3；确定性故障模式）。</li>
 <li><strong>根本原因可信度：</strong> 🟡 中等（假期相关性具有提示性但非决定性）。</li>
 </ul>
 <hr>
-<h3 id="链接" tabindex="-1"><a class="header-anchor" href="#链接"><span>📎 链接</span></a></h3>
+<h3 id="链接-2" tabindex="-1"><a class="header-anchor" href="#链接-2"><span>📎 链接</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -5235,7 +5235,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="交叉参考" tabindex="-1"><a class="header-anchor" href="#交叉参考"><span>🔄 交叉参考</span></a></h3>
+<h3 id="交叉参考-2" tabindex="-1"><a class="header-anchor" href="#交叉参考-2"><span>🔄 交叉参考</span></a></h3>
 <p><strong>先前信号：</strong> 2026-04-01/breaking 和 2026-04-02/breaking 均记录了信息源API的404错误，但未进行3次运行的正式验证。本次运行对该模式进行了正式化和量化。</p>
 <p><strong>事后验证：</strong> 2026年4月4〜5日的每日检查将确定故障是否持续或随假期结束而消解。</p>
 <hr>

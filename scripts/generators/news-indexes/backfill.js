@@ -17,6 +17,23 @@ import { formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomi
 import { detectCategory } from '../../utils/article-category.js';
 import { buildSeoKeywords, resolveArticleMetadata } from '../../aggregator/article-metadata.js';
 const MIN_ARTICLE_DESCRIPTION_LENGTH = 120;
+/** Language labels used only in forced legacy backfill prefixes. */
+const LEGACY_LANGUAGE_LABELS = {
+    en: 'English',
+    sv: 'Svenska',
+    da: 'Dansk',
+    no: 'Norsk',
+    fi: 'Suomi',
+    de: 'Deutsch',
+    fr: 'Français',
+    es: 'Español',
+    nl: 'Nederlands',
+    ar: 'العربية',
+    he: 'עברית',
+    ja: '日本語',
+    ko: '한국어',
+    zh: '中文',
+};
 /**
  * Regex pattern that flags internal artefact identifiers
  * (`<slug>-run<N>-<unix-ts>`). Used by
@@ -127,7 +144,9 @@ function backfillOneLegacyArticleSeo(filename, descriptions) {
         ? resolverDescription
         : safeDescription || formatSlug(parsed.slug);
     const description = needsDescription
-        ? buildLegacyBackfillDescription(parsed.date, parsed.slug, parsed.lang, baseDescription)
+        ? buildLegacyBackfillDescription(parsed.date, parsed.slug, parsed.lang, baseDescription, {
+            forceContextPrefix: true,
+        })
         : meta.description;
     const keywords = entry?.keywords ?? fallbackKeywords;
     const nextHtml = applyArticleSeoBackfill(html, description, keywords);
@@ -160,22 +179,70 @@ function backfillOneLegacyArticleSeo(filename, descriptions) {
  * @param slug - Article slug (used to derive the category)
  * @param lang - Article language (ISO 639-1 lower-case code)
  * @param description - Candidate description (resolver output preferred)
+ * @param options - Backfill options
+ * @param options.forceContextPrefix - Force date/language/category prefix
+ *   even when the description is already substantive
  * @returns Page-specific description, prefix-free when description is
  *   already substantive
  */
-export function buildLegacyBackfillDescription(date, slug, lang, description) {
+export function buildLegacyBackfillDescription(date, slug, lang, description, options = {}) {
     const trimmedDescription = description.trim();
-    if (trimmedDescription.length >= MIN_ARTICLE_DESCRIPTION_LENGTH) {
+    if (trimmedDescription.length >= MIN_ARTICLE_DESCRIPTION_LENGTH && !options.forceContextPrefix) {
         return capDescriptionLength(trimmedDescription);
     }
     const category = detectCategory(slug);
     const langCode = (lang || 'en').toLowerCase();
     const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, langCode);
     const label = categoryLabels[category] ?? formatSlug(slug);
-    const prefix = `${date} — ${label}`;
+    const qualifier = buildLegacySlugQualifier(slug, label);
+    const languageLabel = legacyLanguageLabel(langCode);
+    const prefix = [date, languageLabel, label, qualifier]
+        .filter((part) => part.length > 0)
+        .join(' — ');
     const body = trimmedDescription || label;
     const contextual = `${prefix} — ${body}`.replace(/\s+/g, ' ').trim();
     return capDescriptionLength(contextual);
+}
+/**
+ * Resolve the human language label used to make otherwise-identical
+ * cross-locale legacy descriptions unique.
+ *
+ * @param lang - Language code
+ * @returns Local language name, or the raw code if unknown
+ */
+function legacyLanguageLabel(lang) {
+    const descriptor = Object.getOwnPropertyDescriptor(LEGACY_LANGUAGE_LABELS, lang);
+    return typeof descriptor?.value === 'string' ? descriptor.value : lang;
+}
+/**
+ * Build an optional slug-derived qualifier for legacy pages that share the
+ * same date and article category (for example same-day `*-run2` variants).
+ *
+ * @param slug - Article slug without date/language suffix
+ * @param localizedLabel - Localized category label already present in prefix
+ * @returns Human-readable qualifier, or empty when it would duplicate label
+ */
+function buildLegacySlugQualifier(slug, localizedLabel) {
+    const formatted = formatSlug(slug).trim();
+    if (!formatted)
+        return '';
+    const normalizedFormatted = normalizeLegacyQualifier(formatted);
+    const normalizedLabel = normalizeLegacyQualifier(localizedLabel);
+    if (!normalizedFormatted || normalizedFormatted === normalizedLabel)
+        return '';
+    return formatted;
+}
+/**
+ * Normalize a prefix component for duplicate detection.
+ *
+ * @param value - Candidate text
+ * @returns Lower-case alphanumeric text
+ */
+function normalizeLegacyQualifier(value) {
+    return value
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}]+/gu, ' ')
+        .trim();
 }
 /**
  * Clamp a description to the 180-character SERP-friendly cap with a

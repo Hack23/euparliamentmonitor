@@ -458,7 +458,7 @@ graph LR
 <li><strong>Clasificación:</strong> Público</li>
 <li><strong>Generación retrospectiva:</strong> Sesión de relleno retrospectivo.</li>
 </ul>
-</div><h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 <h3 id="api-reliability-assessment" tabindex="-1"><a class="header-anchor" href="#api-reliability-assessment"><span>Api Reliability Assessment</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
@@ -2706,7 +2706,7 @@ graph LR
 <h3 id="bluf-4" tabindex="-1"><a class="header-anchor" href="#bluf-4"><span>🎯 BLUF</span></a></h3>
 <p><strong>La API de fuentes del portal de datos del PE se encuentra en estado DEGRADADO — 5 de 8 fuentes obligatorias fallan en tres ejecuciones independientes (06:00, 12:15, 18:15 UTC).</strong> <code>get_events_feed</code>, <code>get_procedures_feed</code>, <code>get_documents_feed</code>, <code>get_plenary_documents_feed</code>, <code>get_committee_documents_feed</code>, <code>get_parliamentary_questions_feed</code> devuelven todos errores 404 o tiempo de espera en los horizontes temporales <code>today</code> y <code>one-week</code>. Puntos finales operativos: <code>get_meps_feed</code> (737/737) y herramientas analíticas (<code>detect_voting_anomalies</code>, <code>analyze_coalition_dynamics</code>, <code>generate_political_landscape</code>, <code>early_warning_system</code>). <code>get_adopted_texts_feed</code> devuelve datos parciales (~80–100 elementos mediante el fallback de una semana). El patrón de fallos está correlacionado con la pausa de Semana Santa, lo que sugiere mantenimiento o degradación estacional de la cola de espera en los servidores superiores. <strong>🟢 ALTA fiabilidad</strong> de que la degradación es real y persistente (n=3 ejecuciones); <strong>🟡 FIABILIDAD MEDIA</strong> sobre la causa raíz (mantenimiento durante la pausa vs. regresión de infraestructura).</p>
 <hr>
-<h3 id="3-decisiones-que-sustenta-este-documento" tabindex="-1"><a class="header-anchor" href="#3-decisiones-que-sustenta-este-documento"><span>🧭 3 Decisiones Que Sustenta Este Documento</span></a></h3>
+<h3 id="3-decisiones-que-sustenta-este-documento-2" tabindex="-1"><a class="header-anchor" href="#3-decisiones-que-sustenta-este-documento-2"><span>🧭 3 Decisiones Que Sustenta Este Documento</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -2742,7 +2742,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="lectura-en-60-segundos" tabindex="-1"><a class="header-anchor" href="#lectura-en-60-segundos"><span>📰 Lectura en 60 Segundos</span></a></h3>
+<h3 id="lectura-en-60-segundos-2" tabindex="-1"><a class="header-anchor" href="#lectura-en-60-segundos-2"><span>📰 Lectura en 60 Segundos</span></a></h3>
 <ul>
 <li>🔴 <strong>5/8 fuentes obligatorias FALLARON en las tres ejecuciones</strong> — <code>get_events_feed</code>, <code>get_procedures_feed</code>, <code>get_documents_feed</code>, <code>get_plenary_documents_feed</code>, <code>get_committee_documents_feed</code>, <code>get_parliamentary_questions_feed</code>. (🟢 Alta)</li>
 <li>🟠 <strong>Fuente de textos adoptados PARCIAL</strong> — error JSON en <code>today</code>; el fallback de una semana devuelve ~80–100 elementos. (🟢 Alta)</li>
@@ -2754,7 +2754,7 @@ graph LR
 <li>⚪ <strong>Trasladado:</strong> añadir el seguimiento de estado <code>prefetch-status.json</code> y el factor de acomodación de fuentes degradadas (0,80) al pipeline de validación.</li>
 </ul>
 <hr>
-<h3 id="instantanea-del-estado-de-los-puntos-finales" tabindex="-1"><a class="header-anchor" href="#instantanea-del-estado-de-los-puntos-finales"><span>🗂️ Instantánea del Estado de los Puntos Finales</span></a></h3>
+<h3 id="instantanea-del-estado-de-los-puntos-finales-2" tabindex="-1"><a class="header-anchor" href="#instantanea-del-estado-de-los-puntos-finales-2"><span>🗂️ Instantánea del Estado de los Puntos Finales</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -2840,7 +2840,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="panorama-de-riesgos-y-amenazas" tabindex="-1"><a class="header-anchor" href="#panorama-de-riesgos-y-amenazas"><span>⚠️ Panorama de Riesgos y Amenazas</span></a></h3>
+<h3 id="panorama-de-riesgos-y-amenazas-2" tabindex="-1"><a class="header-anchor" href="#panorama-de-riesgos-y-amenazas-2"><span>⚠️ Panorama de Riesgos y Amenazas</span></a></h3>
 <figure class="mermaid-figure" role="img" aria-label="Mermaid diagram 12">
 <pre class="mermaid">%%{init: {&quot;theme&quot;:&quot;dark&quot;}}%%
 graph LR
@@ -2905,17 +2905,17 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="principal-activador-futuro" tabindex="-1"><a class="header-anchor" href="#principal-activador-futuro"><span>🔮 Principal Activador Futuro</span></a></h3>
+<h3 id="principal-activador-futuro-2" tabindex="-1"><a class="header-anchor" href="#principal-activador-futuro-2"><span>🔮 Principal Activador Futuro</span></a></h3>
 <p><strong>Sondeo diario de puntos finales hasta el 13 de abril de 2026 (fin de la pausa de Semana Santa).</strong> Si el cluster de fuentes fallidas no se ha restaurado el 14 de abril de 2026 (primer día laborable tras la Semana Santa), escalar a la hipótesis de regresión de infraestructura y contactar al equipo técnico EP EDP a través del canal establecido.</p>
 <hr>
-<h3 id="evaluacion-de-la-calidad-de-las-fuentes" tabindex="-1"><a class="header-anchor" href="#evaluacion-de-la-calidad-de-las-fuentes"><span>🛡️ Evaluación de la Calidad de las Fuentes</span></a></h3>
+<h3 id="evaluacion-de-la-calidad-de-las-fuentes-2" tabindex="-1"><a class="header-anchor" href="#evaluacion-de-la-calidad-de-las-fuentes-2"><span>🛡️ Evaluación de la Calidad de las Fuentes</span></a></h3>
 <ul>
 <li><strong>Fuentes primarias:</strong> Tres ejecuciones de prueba sistemáticas a las 06:00, 12:15, 18:15 UTC; 12 puntos finales + 4 herramientas analíticas.</li>
 <li><strong>Fiabilidad del hallazgo DEGRADADO:</strong> 🟢 ALTA (n=3 durante el día; patrón de fallos determinista).</li>
 <li><strong>Fiabilidad de la causa raíz:</strong> 🟡 MEDIA (correlación con la pausa sugestiva pero no concluyente).</li>
 </ul>
 <hr>
-<h3 id="enlaces" tabindex="-1"><a class="header-anchor" href="#enlaces"><span>📎 Enlaces</span></a></h3>
+<h3 id="enlaces-2" tabindex="-1"><a class="header-anchor" href="#enlaces-2"><span>📎 Enlaces</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -2943,7 +2943,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="referencia-cruzada" tabindex="-1"><a class="header-anchor" href="#referencia-cruzada"><span>🔄 Referencia Cruzada</span></a></h3>
+<h3 id="referencia-cruzada-2" tabindex="-1"><a class="header-anchor" href="#referencia-cruzada-2"><span>🔄 Referencia Cruzada</span></a></h3>
 <p><strong>Señales previas:</strong> 2026-04-01/breaking y 2026-04-02/breaking anotaron ambos errores 404 de la API de fuentes sin sondeo formal de tres ejecuciones. Esta ejecución formaliza y cuantifica el patrón.</p>
 <p><strong>Verificación posterior:</strong> Los sondeos diarios del 4 y 5 de abril de 2026 determinarán si la degradación persiste o se resuelve con el fin de la pausa.</p>
 <hr>

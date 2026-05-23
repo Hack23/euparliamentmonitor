@@ -458,7 +458,7 @@ graph LR
 <li><strong>Klassifizierung:</strong> Öffentlich</li>
 <li><strong>Retrospektive Erstellung:</strong> Backfill-Sitzung.</li>
 </ul>
-</div><h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 <h3 id="api-reliability-assessment" tabindex="-1"><a class="header-anchor" href="#api-reliability-assessment"><span>Api Reliability Assessment</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
@@ -2454,7 +2454,7 @@ graph LR
 <h3 id="bluf-3" tabindex="-1"><a class="header-anchor" href="#bluf-3"><span>🎯 BLUF</span></a></h3>
 <p><strong>Die Feed-API des EP-Datenportals befindet sich im DEGRADIERTEN Zustand — 5 von 8 Pflicht-Feeds scheitern in drei unabhängigen Läufen (06:00, 12:15, 18:15 UTC).</strong> <code>get_events_feed</code>, <code>get_procedures_feed</code>, <code>get_documents_feed</code>, <code>get_plenary_documents_feed</code>, <code>get_committee_documents_feed</code>, <code>get_parliamentary_questions_feed</code> liefern alle 404-Fehler oder Timeouts bei den Zeithorizonten <code>today</code> und <code>one-week</code>. Funktionierende Endpunkte: <code>get_meps_feed</code> (737/737) und Analysetools (<code>detect_voting_anomalies</code>, <code>analyze_coalition_dynamics</code>, <code>generate_political_landscape</code>, <code>early_warning_system</code>). <code>get_adopted_texts_feed</code> liefert Teildaten (ca. 80–100 Einträge via one-week-Fallback). Das Fehlermuster korreliert mit der Osterpause, was auf Wartungsarbeiten oder saisonale Warteschlangendegradierung auf vorgelagerten Servern hindeutet. <strong>🟢 HOHER Verlässlichkeitsgrad</strong>, dass die Degradierung real und anhaltend ist (n=3 Läufe); <strong>🟡 MITTLERER Verlässlichkeitsgrad</strong> bezüglich der Grundursache (Wartung während der Pause vs. Infrastrukturregression).</p>
 <hr>
-<h3 id="3-entscheidungen-die-dieses-dokument-unterstutzt" tabindex="-1"><a class="header-anchor" href="#3-entscheidungen-die-dieses-dokument-unterstutzt"><span>🧭 3 Entscheidungen, Die Dieses Dokument Unterstützt</span></a></h3>
+<h3 id="3-entscheidungen-die-dieses-dokument-unterstutzt-2" tabindex="-1"><a class="header-anchor" href="#3-entscheidungen-die-dieses-dokument-unterstutzt-2"><span>🧭 3 Entscheidungen, Die Dieses Dokument Unterstützt</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -2490,7 +2490,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="60-sekunden-lekture" tabindex="-1"><a class="header-anchor" href="#60-sekunden-lekture"><span>📰 60-Sekunden-Lektüre</span></a></h3>
+<h3 id="60-sekunden-lekture-2" tabindex="-1"><a class="header-anchor" href="#60-sekunden-lekture-2"><span>📰 60-Sekunden-Lektüre</span></a></h3>
 <ul>
 <li>🔴 <strong>5/8 Pflicht-Feeds GESCHEITERT in allen drei Läufen</strong> — <code>get_events_feed</code>, <code>get_procedures_feed</code>, <code>get_documents_feed</code>, <code>get_plenary_documents_feed</code>, <code>get_committee_documents_feed</code>, <code>get_parliamentary_questions_feed</code>. (🟢 Hoch)</li>
 <li>🟠 <strong>Angenommene-Texte-Feed TEILWEISE</strong> — JSON-Fehler bei <code>today</code>; one-week-Fallback liefert ca. 80–100 Einträge. (🟢 Hoch)</li>
@@ -2502,7 +2502,7 @@ graph LR
 <li>⚪ <strong>Weitergeleitet:</strong> <code>prefetch-status.json</code>-Zustandsverfolgung und degradierter-Feed-Anpassungsfaktor (0,80) in die Validierungspipeline aufnehmen.</li>
 </ul>
 <hr>
-<h3 id="endpunktstatus-schnappschuss" tabindex="-1"><a class="header-anchor" href="#endpunktstatus-schnappschuss"><span>🗂️ Endpunktstatus-Schnappschuss</span></a></h3>
+<h3 id="endpunktstatus-schnappschuss-2" tabindex="-1"><a class="header-anchor" href="#endpunktstatus-schnappschuss-2"><span>🗂️ Endpunktstatus-Schnappschuss</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -2588,7 +2588,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="risiko-und-bedrohungsuberblick" tabindex="-1"><a class="header-anchor" href="#risiko-und-bedrohungsuberblick"><span>⚠️ Risiko- und Bedrohungsüberblick</span></a></h3>
+<h3 id="risiko-und-bedrohungsuberblick-2" tabindex="-1"><a class="header-anchor" href="#risiko-und-bedrohungsuberblick-2"><span>⚠️ Risiko- und Bedrohungsüberblick</span></a></h3>
 <figure class="mermaid-figure" role="img" aria-label="Mermaid diagram 11">
 <pre class="mermaid">%%{init: {&quot;theme&quot;:&quot;dark&quot;}}%%
 graph LR
@@ -2653,10 +2653,10 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="wichtigster-zukunftiger-ausloser" tabindex="-1"><a class="header-anchor" href="#wichtigster-zukunftiger-ausloser"><span>🔮 Wichtigster Zukünftiger Auslöser</span></a></h3>
+<h3 id="wichtigster-zukunftiger-ausloser-2" tabindex="-1"><a class="header-anchor" href="#wichtigster-zukunftiger-ausloser-2"><span>🔮 Wichtigster Zukünftiger Auslöser</span></a></h3>
 <p><strong>Tägliche Endpunktprobe bis 13. April 2026 (Ende der Osterpause).</strong> Falls das scheiternde Feed-Cluster am 14. April 2026 (erster Werktag nach Ostern) nicht wiederhergestellt ist, auf die Infrastrukturregression-Hypothese eskalieren und das EP-EDP-Technikteam über den etablierten Kanal kontaktieren.</p>
 <hr>
-<h3 id="bewertung-der-quellqualitat" tabindex="-1"><a class="header-anchor" href="#bewertung-der-quellqualitat"><span>🛡️ Bewertung der Quellqualität</span></a></h3>
+<h3 id="bewertung-der-quellqualitat-2" tabindex="-1"><a class="header-anchor" href="#bewertung-der-quellqualitat-2"><span>🛡️ Bewertung der Quellqualität</span></a></h3>
 <ul>
 <li><strong>Primärquellen:</strong> Drei systematische Testläufe um 06:00, 12:15, 18:15 UTC; 12 Endpunkte + 4 Analysetools.</li>
 <li><strong>Verlässlichkeitsgrad für DEGRADIERT-Befund:</strong> 🟢 HOCH (n=3 über den Tag; deterministisches Fehlermuster).</li>
@@ -2691,7 +2691,7 @@ graph LR
 </tbody>
 </table>
 </div><hr>
-<h3 id="querverweis" tabindex="-1"><a class="header-anchor" href="#querverweis"><span>🔄 Querverweis</span></a></h3>
+<h3 id="querverweis-2" tabindex="-1"><a class="header-anchor" href="#querverweis-2"><span>🔄 Querverweis</span></a></h3>
 <p><strong>Vorherige Signale:</strong> 2026-04-01/breaking und 2026-04-02/breaking notierten beide Feed-API-404-Fehler ohne formale Drei-Lauf-Probe. Dieser Lauf formalisiert und quantifiziert das Muster.</p>
 <p><strong>Nachträgliche Verifizierung:</strong> Tägliche Proben am 4.–5. April 2026 bestimmen, ob die Degradierung anhält oder sich mit dem Ende der Pause auflöst.</p>
 <hr>
