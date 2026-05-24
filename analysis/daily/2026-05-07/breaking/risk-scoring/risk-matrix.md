@@ -101,12 +101,12 @@ B   2  |       |       | R-04  | R-02  | R-03  |
 ```mermaid
 quadrantChart
     title Risk Matrix (Likelihood x Impact)
-    x-axis Low Impact --> High Impact
-    y-axis Low Likelihood --> High Likelihood
-    quadrant-1 High Priority (High Likelihood + High Impact)
-    quadrant-2 Monitor (Low Likelihood + High Impact)
-    quadrant-3 Accept (Low Likelihood + Low Impact)
-    quadrant-4 Track (High Likelihood + Low Impact)
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Likelihood" --> "High Likelihood"
+    quadrant-1 "High Priority (High Likelihood + High Impact)"
+    quadrant-2 "Monitor (Low Likelihood + High Impact)"
+    quadrant-3 "Accept (Low Likelihood + Low Impact)"
+    quadrant-4 "Track (High Likelihood + Low Impact)"
     "DMA Delay": [0.55, 0.72]
     "US Trade War": [0.65, 0.55]
     "Budget Failure": [0.80, 0.22]

@@ -436,15 +436,15 @@ The five intelligence threads synthesised in this document draw on authoritative
 ### Significance Radar Diagram
 
 ```mermaid
-radar
+radar-beta
     title Significance Assessment
-    "Legislative Volume": 7
-    "Coalition Significance": 7
-    "External Affairs": 5
-    "Economic Policy": 4
-    "Democratic Process": 7
-    "Innovation/Precedent": 5
-    "Media Salience": 6
+    curve c1["Legislative Volume"]{7}
+    curve c2["Coalition Significance"]{7}
+    curve c3["External Affairs"]{5}
+    curve c4["Economic Policy"]{4}
+    curve c5["Democratic Process"]{7}
+    curve c6["Innovation/Precedent"]{5}
+    curve c7["Media Salience"]{6}
 ```
 
 *Note: All scores on 0-10 scale. Centre coalition maintains structural strength despite right-wing pressure.*
@@ -2327,20 +2327,20 @@ Early warning signals to monitor during 18-21 May 2026:
 ```mermaid
 quadrantChart
     title Wildcards and Black Swans — Probability vs. Impact
-    x-axis Highly Unlikely --> Highly Likely
-    y-axis Negligible Impact --> Critical Impact
-    quadrant-1 Monitor
-    quadrant-2 Black Swan Zone
-    quadrant-3 Background Noise
-    quadrant-4 Routine Wildcards
+    x-axis "Highly Unlikely" --> "Highly Likely"
+    y-axis "Negligible Impact" --> "Critical Impact"
+    quadrant-1 "Monitor"
+    quadrant-2 "Black Swan Zone"
+    quadrant-3 "Background Noise"
+    quadrant-4 "Routine Wildcards"
 
-    Russia-Ukraine Escalation: [0.12, 0.85]
-    Tech Platform Crisis: [0.10, 0.60]
-    Member State Crisis: [0.08, 0.75]
-    EU Constitutional Crisis: [0.02, 1.0]
-    Cyber Attack on EP: [0.03, 0.80]
-    Commission Surprise Proposal: [0.08, 0.45]
-    National Election Shock: [0.06, 0.55]
+    "Russia-Ukraine Escalation": [0.12, 0.85]
+    "Tech Platform Crisis": [0.10, 0.60]
+    "Member State Crisis": [0.08, 0.75]
+    "EU Constitutional Crisis": [0.02, 1]
+    "Cyber Attack on EP": [0.03, 0.80]
+    "Commission Surprise Proposal": [0.08, 0.45]
+    "National Election Shock": [0.06, 0.55]
 ```
 
 **Admiralty Assessment: C3** — Wildcard and black swan probability estimates are inherently speculative assessments based on historical EP precedent and structural analysis of current political conditions. Source reliability is moderate; confidence in individual probability estimates is low-to-medium given the nature of low-probability events.

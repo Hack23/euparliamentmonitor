@@ -261,24 +261,24 @@ LOW POWER, HIGH INTEREST:
 ```mermaid
 quadrantChart
     title Stakeholder Power-Interest Matrix
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Monitor Closely)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Minimal Effort
-    quadrant-4 Keep Informed
-    EPP-Center: [0.85, 0.9]
-    S&D: [0.85, 0.85]
-    Commission-DG SANTE: [0.8, 0.75]
-    IME-Pharma: [0.75, 0.7]
-    Council-Industry-States: [0.7, 0.8]
-    Renew: [0.75, 0.7]
-    Greens-EFA: [0.8, 0.6]
-    SRB-EBA: [0.6, 0.65]
-    EPPO: [0.5, 0.55]
-    ECR: [0.65, 0.6]
-    PfE: [0.6, 0.55]
-    Civil-Society: [0.7, 0.3]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Monitor Closely)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Minimal Effort"
+    quadrant-4 "Keep Informed"
+    "EPP-Center": [0.85, 0.9]
+    "S&D": [0.85, 0.85]
+    "Commission-DG SANTE": [0.8, 0.75]
+    "IME-Pharma": [0.75, 0.7]
+    "Council-Industry-States": [0.7, 0.8]
+    "Renew": [0.75, 0.7]
+    "Greens-EFA": [0.8, 0.6]
+    "SRB-EBA": [0.6, 0.65]
+    "EPPO": [0.5, 0.55]
+    "ECR": [0.65, 0.6]
+    "PfE": [0.6, 0.55]
+    "Civil-Society": [0.7, 0.3]
 ```
 
 ## Admiralty Assessment — Stakeholder Data

@@ -29,10 +29,10 @@ quadrantChart
     title Stakeholder Power × Alignment (Run 190)
     x-axis "Low Alignment with EP Agenda" --> "High Alignment with EP Agenda"
     y-axis "Low Power" --> "High Power"
-    quadrant-1 Strategic Partners (High Power, High Alignment)
-    quadrant-2 Resistors (High Power, Low Alignment)
-    quadrant-3 Spectators (Low Power, Low Alignment)
-    quadrant-4 Supporters (Low Power, High Alignment)
+    quadrant-1 "Strategic Partners (High Power, High Alignment)"
+    quadrant-2 "Resistors (High Power, Low Alignment)"
+    quadrant-3 "Spectators (Low Power, Low Alignment)"
+    quadrant-4 "Supporters (Low Power, High Alignment)"
     "EPP Group": [0.72, 0.92]
     "S&D Group": [0.85, 0.82]
     "Renew Europe": [0.80, 0.72]

@@ -90,18 +90,18 @@ This is now the highest-scoring risk vector in Run 186, having risen steadily si
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800"}}}%%
 quadrantChart
     title Coalition Stress vs Policy Domain (April 28-30 Plenary Preview)
-    x-axis EPP-ECR Alliance Pressure (Low → High)
-    y-axis EPP-S&D Grand Centre Cohesion (Low → High)
-    quadrant-1 Stable Centre Majority
-    quadrant-2 Right Bloc Pressure Zone
-    quadrant-3 Coalition Crisis Zone
-    quadrant-4 Grand Centre Holds
-    Banking Union: [0.2, 0.8]
-    Housing Initiative: [0.3, 0.7]
-    Trade Response: [0.7, 0.4]
-    AI Oversight: [0.4, 0.6]
-    Defence Industrial: [0.8, 0.3]
-    Digital Markets: [0.3, 0.6]
+    x-axis "EPP-ECR Alliance Pressure (Low → High)"
+    y-axis "EPP-S&D Grand Centre Cohesion (Low → High)"
+    quadrant-1 "Stable Centre Majority"
+    quadrant-2 "Right Bloc Pressure Zone"
+    quadrant-3 "Coalition Crisis Zone"
+    quadrant-4 "Grand Centre Holds"
+    "Banking Union": [0.2, 0.8]
+    "Housing Initiative": [0.3, 0.7]
+    "Trade Response": [0.7, 0.4]
+    "AI Oversight": [0.4, 0.6]
+    "Defence Industrial": [0.8, 0.3]
+    "Digital Markets": [0.3, 0.6]
 ```
 
 **Scenario A (most likely, 55%)**: April 28-30 plenary proceeds with normal coalition discipline on financial and housing files; trade and defence items produce internal EPP tensions but majorities held.  

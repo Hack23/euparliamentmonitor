@@ -935,22 +935,22 @@ flowchart TB
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Stakeholder Power vs. Interest in April 2026 EP Outcomes
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Monitor Closely)
-    quadrant-2 Keep Satisfied (Manage)
-    quadrant-3 Monitor (Low Priority)
-    quadrant-4 Keep Informed (Engage)
-    European Commission: [0.85, 0.90]
-    US Government: [0.75, 0.85]
-    Tech Gatekeepers: [0.90, 0.80]
-    European Parliament: [0.95, 0.65]
-    Council of EU: [0.80, 0.80]
-    Ukraine Government: [0.95, 0.35]
-    Armenia Government: [0.75, 0.20]
-    Civil Society Digital: [0.85, 0.25]
-    Civil Society HR: [0.80, 0.25]
-    CJEU: [0.60, 0.75]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Monitor Closely)"
+    quadrant-2 "Keep Satisfied (Manage)"
+    quadrant-3 "Monitor (Low Priority)"
+    quadrant-4 "Keep Informed (Engage)"
+    "European Commission": [0.85, 0.90]
+    "US Government": [0.75, 0.85]
+    "Tech Gatekeepers": [0.90, 0.80]
+    "European Parliament": [0.95, 0.65]
+    "Council of EU": [0.80, 0.80]
+    "Ukraine Government": [0.95, 0.35]
+    "Armenia Government": [0.75, 0.20]
+    "Civil Society Digital": [0.85, 0.25]
+    "Civil Society HR": [0.80, 0.25]
+    "CJEU": [0.60, 0.75]
 ```
 
 ---
@@ -1980,12 +1980,12 @@ Black swans are defined here as events with probability <10% but impact >8/10 on
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Wildcards: Probability vs. Impact
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> High Impact
-    quadrant-1 Prepare (Monitor Closely)
-    quadrant-2 Prevent (Invest in Mitigation)
-    quadrant-3 Accept (Low Priority)
-    quadrant-4 Plan (Scenario Plan)
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Prepare (Monitor Closely)"
+    quadrant-2 "Prevent (Invest in Mitigation)"
+    quadrant-3 "Accept (Low Priority)"
+    quadrant-4 "Plan (Scenario Plan)"
     "Russia Nuclear Escalation": [0.05, 0.99]
     "Full US-EU Trade War": [0.12, 0.88]
     "CJEU Annuls DMA Decision": [0.22, 0.65]

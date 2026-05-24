@@ -183,14 +183,14 @@ Democratic consolidation in Armenia has social implications:
 ## PESTLE Visualization
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Factor Intensity (April 28–30 Session)
-    "Political" : 9
-    "Economic" : 6
-    "Social" : 7
-    "Technological" : 9
-    "Legal" : 9
-    "Environmental" : 4
+    curve c1["Political"]{9}
+    curve c2["Economic"]{6}
+    curve c3["Social"]{7}
+    curve c4["Technological"]{9}
+    curve c5["Legal"]{9}
+    curve c6["Environmental"]{4}
 ```
 
 ## Cross-Factor Interactions

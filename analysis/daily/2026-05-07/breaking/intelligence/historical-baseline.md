@@ -78,7 +78,7 @@ The April 2026 accountability text is the 4th major accountability-focused Ukrai
 
 ```mermaid
 xychart-beta
-    title EP Group Seat Evolution (EP7-EP10)
+    title "EP Group Seat Evolution (EP7-EP10)"
     x-axis ["EP7 2009", "EP8 2014", "EP9 2019", "EP10 2024"]
     y-axis "Seats" 0 --> 260
     line "EPP" [265, 221, 182, 185]

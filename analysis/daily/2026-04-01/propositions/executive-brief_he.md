@@ -58,7 +58,7 @@
 %%{init: {"theme":"dark"}}%%
 graph LR
     R1["🟠 זרם הליכים 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["בדיקה חוזרת 2026-04-02"]
-    R2["🟠 הצעת מסלול מהיר סחר ארה\"ב<br/>L×I = 3×4 = 12"] --> CONS
+    R2["🟠 הצעת מסלול מהיר סחר ארה&quot;ב<br/>L×I = 3×4 = 12"] --> CONS
     R3["🟡 מקרה חירום חוות דעת Mercosur<br/>L×I = 3×3 = 9"] --> CONS
     style R1 fill:#FF9800,color:#000000
     style R2 fill:#FF9800,color:#000000

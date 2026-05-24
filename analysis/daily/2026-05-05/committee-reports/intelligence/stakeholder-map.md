@@ -14,24 +14,24 @@
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff"}}}%%
 quadrantChart
     title Stakeholder Power-Interest Matrix (Committee Reports Week)
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    EPP Group: [0.95, 0.95]
-    S&D Group: [0.90, 0.80]
-    European Commission: [0.85, 0.90]
-    EU Council: [0.80, 0.85]
-    Digital Gatekeepers(Big Tech): [0.90, 0.70]
-    Ukrainian Government: [0.90, 0.65]
-    Agricultural Producer Orgs(COPA-COGECA): [0.85, 0.55]
-    Renew Europe: [0.75, 0.65]
-    Civil Society(digital rights): [0.70, 0.45]
-    ECR Group: [0.70, 0.55]
-    Armenian Government: [0.65, 0.50]
-    OLAF / Court of Auditors: [0.60, 0.70]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "EPP Group": [0.95, 0.95]
+    "S&D Group": [0.90, 0.80]
+    "European Commission": [0.85, 0.90]
+    "EU Council": [0.80, 0.85]
+    "Digital Gatekeepers(Big Tech)": [0.90, 0.70]
+    "Ukrainian Government": [0.90, 0.65]
+    "Agricultural Producer Orgs(COPA-COGECA)": [0.85, 0.55]
+    "Renew Europe": [0.75, 0.65]
+    "Civil Society(digital rights)": [0.70, 0.45]
+    "ECR Group": [0.70, 0.55]
+    "Armenian Government": [0.65, 0.50]
+    "OLAF / Court of Auditors": [0.60, 0.70]
 ```
 
 ---

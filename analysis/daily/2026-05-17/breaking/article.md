@@ -425,7 +425,7 @@ mindmap
 
 ```mermaid
 xychart-beta
-    title Significance Scores — April 2026 Adopted Texts (max 50)
+    title "Significance Scores — April 2026 Adopted Texts (max 50)"
     x-axis ["DMA Enforcement", "Ukraine", "Armenia", "Budget 2027", "Cyberbullying", "Haiti", "Iceland PNR", "EIB Report"]
     y-axis "Score" 0 --> 50
     bar [46, 44, 35, 41, 28, 25, 22, 20]
@@ -592,9 +592,9 @@ Each resolution is scored on 5 dimensions (0–10 scale each):
 ### SIGNIFICANCE SCORING DIAGRAM
 
 ```mermaid
-bar
-    title Significance Scores by Policy Track
-    x-axis [DMA Enforcement, Ukraine Resolution, Armenia Support, 2027 Budget, Cyberbullying, Haiti, EU-Iceland PNR, EIB Report]
+xychart-beta
+    title "Significance Scores by Policy Track"
+    x-axis ["DMA Enforcement", "Ukraine Resolution", "Armenia Support", "2027 Budget", "Cyberbullying", "Haiti", "EU-Iceland PNR", "EIB Report"]
     y-axis 0 --> 10
     bar [9.2, 8.8, 7.5, 8.1, 6.8, 6.2, 5.8, 5.4]
 ```
@@ -798,9 +798,9 @@ flowchart LR
     D2 --> EP
     D3 --> EP
     D4 --> EP
-    EP <-- R1
-    EP <-- R2
-    EP <-- R3
+    EP --> R1
+    EP --> R2
+    EP --> R3
 ```
 
 ---
@@ -866,7 +866,7 @@ Key leverage points where external actors can alter outcomes:
 
 ```mermaid
 xychart-beta
-    title Impact Scores by Policy Domain (0-10)
+    title "Impact Scores by Policy Domain (0-10)"
     x-axis ["Digital", "Geopolitical", "Fiscal", "Security", "Human Rights"]
     y-axis "Impact Score" 0 --> 10
     bar [9, 8, 8, 5, 7]
@@ -930,7 +930,7 @@ High-impact zones across the eight April 2026 resolutions:
 
 ```mermaid
 xychart-beta
-    title Resolution Impact Heat (0=Low, 10=High)
+    title "Resolution Impact Heat (0=Low, 10=High)"
     x-axis ["DMA", "Ukraine", "Armenia", "Budget", "Cyberbullying", "Haiti", "PNR", "EIB"]
     y-axis "Impact" 0 --> 10
     bar [9, 9, 7, 8, 6, 6, 4, 4]
@@ -1182,14 +1182,14 @@ Roll-call data expected to be available via EP API from approximately 2026-06-14
 
 ```mermaid
 sankey-beta
-    EPP -> DMA_For : 140
-    EPP -> DMA_Against : 30
-    S_D -> DMA_For : 120
-    Renew -> DMA_For : 85
-    Greens -> DMA_For : 50
-    ECR -> DMA_Against : 60
-    PfE -> DMA_Against : 50
-    ID -> DMA_Against : 40
+EPP,DMA_For,140
+EPP,DMA_Against,30
+S_D,DMA_For,120
+Renew,DMA_For,85
+Greens,DMA_For,50
+ECR,DMA_Against,60
+PfE,DMA_Against,50
+ID,DMA_Against,40
 ```
 
 #### Estimated Voting Matrix (April 30, 2026)
@@ -2744,18 +2744,18 @@ Cross-references: intelligence/scenario-forecast.md, extended/forward-indicators
 ```mermaid
 quadrantChart
     title Wildcard Events: Probability vs. Disruption
-    x-axis Low Probability --> High Probability
-    y-axis Low Disruption --> High Disruption
-    quadrant-1 Monitor
-    quadrant-2 Black Swan
-    quadrant-3 Background Noise
-    quadrant-4 Known Unknown
-    US-EU Break: [0.1, 1.0]
-    DMA Crisis: [0.2, 0.8]
-    Ukraine Peace: [0.15, 0.9]
-    Platform Shutdown: [0.05, 0.95]
-    Budget Veto: [0.25, 0.7]
-    Armenia Crisis: [0.3, 0.6]
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Disruption" --> "High Disruption"
+    quadrant-1 "Monitor"
+    quadrant-2 "Black Swan"
+    quadrant-3 "Background Noise"
+    quadrant-4 "Known Unknown"
+    "US-EU Break": [0.1, 1]
+    "DMA Crisis": [0.2, 0.8]
+    "Ukraine Peace": [0.15, 0.9]
+    "Platform Shutdown": [0.05, 0.95]
+    "Budget Veto": [0.25, 0.7]
+    "Armenia Crisis": [0.3, 0.6]
 ```
 
 <h2 id="section-forward-projection">What to Watch</h2>
@@ -3623,7 +3623,7 @@ timeline
 
 ```mermaid
 xychart-beta
-    title EP Legislative Output Trend (Q4 2024 - Q2 2026)
+    title "EP Legislative Output Trend (Q4 2024 - Q2 2026)"
     x-axis ["Q4-2024", "Q1-2025", "Q2-2025", "Q3-2025", "Q4-2025", "Q1-2026", "Apr-2026"]
     y-axis "Significant adopted texts" 0 --> 10
     line [6, 5, 8, 4, 6, 5, 8]
@@ -5593,7 +5593,7 @@ pie title EP Constituency Groups (Approximate)
 
 ```mermaid
 xychart-beta
-    title Voter Segment Impact (positive = favourable)
+    title "Voter Segment Impact (positive = favourable)"
     x-axis ["Digital users", "Ukraine solidarity", "Fiscal conservatives", "Eastern partners", "Business", "Youth"]
     y-axis "Impact score" -5 --> 10
     bar [7, 9, -3, 9, 5, 6]
@@ -6210,7 +6210,7 @@ flowchart TD
 
 ```mermaid
 xychart-beta
-    title Analysis Quality Dimensions (0=Low, 10=High)
+    title "Analysis Quality Dimensions (0=Low, 10=High)"
     x-axis ["Data Coverage", "Analytical Depth", "Source Quality", "Temporal Currency", "Methodology"]
     y-axis "Quality" 0 --> 10
     bar [6, 8, 8, 7, 8]

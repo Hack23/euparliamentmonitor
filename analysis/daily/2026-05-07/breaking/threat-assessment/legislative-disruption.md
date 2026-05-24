@@ -68,14 +68,14 @@ Based on EP statistical dataset (2026 projections):
 ## 4 · Disruption Resilience Assessment
 
 ```mermaid
-radar
+radar-beta
     title Legislative Disruption Resilience (5 = fully resilient)
-    "Coalition cohesion" : 4
-    "Procedural protection" : 4
-    "Institutional stability" : 4
-    "Budget timeline" : 3
-    "Foreign policy coherence" : 3
-    "Information environment" : 3
+    curve c1["Coalition cohesion"]{4}
+    curve c2["Procedural protection"]{4}
+    curve c3["Institutional stability"]{4}
+    curve c4["Budget timeline"]{3}
+    curve c5["Foreign policy coherence"]{3}
+    curve c6["Information environment"]{3}
 ```
 
 **Overall resilience: 3.5/5 (Strong)**

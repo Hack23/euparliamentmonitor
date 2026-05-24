@@ -1121,20 +1121,20 @@ The structural risk of Russian military escalation with a direct NATO member imp
 ```mermaid
 quadrantChart
     title SWOT Quadrant: Score vs Strategic Weight
-    x-axis Low Strategic Weight --> High Strategic Weight
-    y-axis Negative Valence --> Positive Valence
-    quadrant-1 Leverage
-    quadrant-2 Prioritize
-    quadrant-3 Manage
-    quadrant-4 Mitigate
-    Coalition Breadth (S): [0.85, 0.80]
-    Data Transparency (S): [0.65, 0.70]
-    EPP Internal Tension (W): [0.70, 0.25]
-    Procedural Delays (W): [0.55, 0.30]
-    Trade Policy Window (O): [0.80, 0.82]
-    Climate Tech Leadership (O): [0.60, 0.75]
-    US Tariff Escalation (T): [0.75, 0.18]
-    Populist Blocking (T): [0.55, 0.20]
+    x-axis "Low Strategic Weight" --> "High Strategic Weight"
+    y-axis "Negative Valence" --> "Positive Valence"
+    quadrant-1 "Leverage"
+    quadrant-2 "Prioritize"
+    quadrant-3 "Manage"
+    quadrant-4 "Mitigate"
+    "Coalition Breadth (S)": [0.85, 0.80]
+    "Data Transparency (S)": [0.65, 0.70]
+    "EPP Internal Tension (W)": [0.70, 0.25]
+    "Procedural Delays (W)": [0.55, 0.30]
+    "Trade Policy Window (O)": [0.80, 0.82]
+    "Climate Tech Leadership (O)": [0.60, 0.75]
+    "US Tariff Escalation (T)": [0.75, 0.18]
+    "Populist Blocking (T)": [0.55, 0.20]
 ```
 
 <h2 id="section-threat">Threat Landscape</h2>

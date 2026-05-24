@@ -598,20 +598,20 @@ April 28–30, 2026 EP Plenary — 8 adopted texts:
 ```mermaid
 quadrantChart
     title Impact Heat Map: Immediate vs Long-Term Impact
-    x-axis Low Long-Term --> High Long-Term
-    y-axis Low Immediate --> High Immediate
-    quadrant-1 High priority (act now)
-    quadrant-2 Strategic importance (invest)
-    quadrant-3 Monitor
-    quadrant-4 Watch and wait
-    "DMA Enforcement" : [0.9, 0.6]
-    "2027 Budget" : [0.85, 0.65]
-    "Armenia" : [0.75, 0.35]
-    "Ukraine Accountability" : [0.7, 0.35]
-    "Dogs/Cats Welfare" : [0.65, 0.45]
-    "EIB Report" : [0.45, 0.25]
-    "Haiti" : [0.2, 0.2]
-    "PNR Iceland" : [0.4, 0.25]
+    x-axis "Low Long-Term" --> "High Long-Term"
+    y-axis "Low Immediate" --> "High Immediate"
+    quadrant-1 "High priority (act now)"
+    quadrant-2 "Strategic importance (invest)"
+    quadrant-3 "Monitor"
+    quadrant-4 "Watch and wait"
+    "DMA Enforcement": [0.9, 0.6]
+    "2027 Budget": [0.85, 0.65]
+    "Armenia": [0.75, 0.35]
+    "Ukraine Accountability": [0.7, 0.35]
+    "Dogs/Cats Welfare": [0.65, 0.45]
+    "EIB Report": [0.45, 0.25]
+    "Haiti": [0.2, 0.2]
+    "PNR Iceland": [0.4, 0.25]
 ```
 
 **Heat tier summary:**
@@ -896,21 +896,21 @@ LOW POWER ───────────────┼───────�
 ```mermaid
 quadrantChart
     title Stakeholder Power vs Interest Matrix
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key players (manage closely)
-    quadrant-2 Keep satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep informed
-    "European Commission" : [0.9, 0.95]
-    "Council of EU" : [0.8, 0.9]
-    "EPP Group" : [0.95, 0.85]
-    "S&D Group" : [0.9, 0.75]
-    "Renew Europe" : [0.85, 0.7]
-    "Big Tech Gatekeepers" : [0.95, 0.65]
-    "Armenian Government" : [0.85, 0.4]
-    "Civil Society" : [0.7, 0.35]
-    "IMF/World Bank" : [0.5, 0.7]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key players (manage closely)"
+    quadrant-2 "Keep satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep informed"
+    "European Commission": [0.9, 0.95]
+    "Council of EU": [0.8, 0.9]
+    "EPP Group": [0.95, 0.85]
+    "S&D Group": [0.9, 0.75]
+    "Renew Europe": [0.85, 0.7]
+    "Big Tech Gatekeepers": [0.95, 0.65]
+    "Armenian Government": [0.85, 0.4]
+    "Civil Society": [0.7, 0.35]
+    "IMF/World Bank": [0.5, 0.7]
 ```
 
 <h2 id="section-economic-context">Economic Context</h2>
@@ -1117,18 +1117,18 @@ Impact │  5  │     │     │     │     │ R12 │
 ```mermaid
 quadrantChart
     title Risk Matrix: Likelihood vs. Impact
-    x-axis Low Impact --> High Impact
-    y-axis Low Likelihood --> High Likelihood
-    quadrant-1 Critical risks (monitor closely)
-    quadrant-2 High priority (manage actively)
-    quadrant-3 Low priority (accept)
-    quadrant-4 Transfer/watch
-    "DMA non-enforcement" : [0.85, 0.6]
-    "US tariff escalation" : [0.75, 0.5]
-    "Armenia peace collapse" : [0.6, 0.35]
-    "Budget deadlock" : [0.65, 0.55]
-    "EP coalition fracture" : [0.7, 0.3]
-    "Clean Industrial Deal delay" : [0.55, 0.65]
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Likelihood" --> "High Likelihood"
+    quadrant-1 "Critical risks (monitor closely)"
+    quadrant-2 "High priority (manage actively)"
+    quadrant-3 "Low priority (accept)"
+    quadrant-4 "Transfer/watch"
+    "DMA non-enforcement": [0.85, 0.6]
+    "US tariff escalation": [0.75, 0.5]
+    "Armenia peace collapse": [0.6, 0.35]
+    "Budget deadlock": [0.65, 0.55]
+    "EP coalition fracture": [0.7, 0.3]
+    "Clean Industrial Deal delay": [0.55, 0.65]
 ```
 
 ### Quantitative Swot
@@ -1760,17 +1760,17 @@ Ukraine accession negotiations progress faster than expected; EP legal service a
 ```mermaid
 quadrantChart
     title Wildcards: Probability vs Impact
-    x-axis Low Impact --> Transformative Impact
-    y-axis Low Probability --> Medium Probability
-    quadrant-1 Monitor (high impact, plausible)
-    quadrant-2 Watch (very high impact, low prob)
-    quadrant-3 Ignore (low both)
-    quadrant-4 Note (moderate impact)
-    "DMA fragmentation" : [0.65, 0.45]
-    "US tech cold war" : [0.85, 0.3]
-    "Armenia escalation" : [0.7, 0.25]
-    "EP leadership collapse" : [0.5, 0.1]
-    "AI governance race" : [0.9, 0.35]
+    x-axis "Low Impact" --> "Transformative Impact"
+    y-axis "Low Probability" --> "Medium Probability"
+    quadrant-1 "Monitor (high impact, plausible)"
+    quadrant-2 "Watch (very high impact, low prob)"
+    quadrant-3 "Ignore (low both)"
+    quadrant-4 "Note (moderate impact)"
+    "DMA fragmentation": [0.65, 0.45]
+    "US tech cold war": [0.85, 0.3]
+    "Armenia escalation": [0.7, 0.25]
+    "EP leadership collapse": [0.5, 0.1]
+    "AI governance race": [0.9, 0.35]
 ```
 
 <h2 id="section-pestle-context">PESTLE & Context</h2>
@@ -1926,11 +1926,11 @@ Dogs/cats traceability regulation (TA-10-2026-0115) has indirect environmental b
 ### PESTLE Impact Radar
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Impact Assessment — EP Propositions April 2026
-    axis P["Political"], E["Economic"], S["Social"], T["Technological"], L["Legal"], En["Environmental"]
-    "Impact Score" : [9, 7, 6, 8, 9, 5]
-    "Urgency Score" : [8, 7, 5, 9, 8, 4]
+    axis a1["P[\"Political\"]"], a2["E[\"Economic\"]"], a3["S[\"Social\"]"], a4["T[\"Technological\"]"], a5["L[\"Legal\"]"], a6["En[\"Environmental\"]"]
+    curve c1["Impact Score"]{9, 7, 6, 8, 9, 5}
+    curve c2["Urgency Score"]{8, 7, 5, 9, 8, 4}
 ```
 
 *Scale 1-10. Political and Legal dimensions score highest due to DMA enforcement and Armenia candidacy. Technological dimension reflects AI Act implementation and DMA gatekeeper obligations.*

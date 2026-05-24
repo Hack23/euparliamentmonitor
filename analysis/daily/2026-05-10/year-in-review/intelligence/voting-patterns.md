@@ -62,12 +62,12 @@ EP10 recorded **420 roll-call votes** in 2025 — the highest recorded pace in t
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
-bar
-    title Estimated Vote Ranges for Major Coalition Types
+xychart-beta
+    title "Estimated Vote Ranges for Major Coalition Types"
     x-axis ["Security Coalition", "Migration Right", "Health/Social", "Budget", "Opposition max"]
     y-axis "Votes (of 717)" 0 --> 520
-    bar "Maximum": [480, 400, 500, 440, 320]
-    bar "Minimum": [440, 370, 450, 400, 170]
+    bar [480, 400, 500, 440, 320]
+    bar [440, 370, 450, 400, 170]
 ```
 
 **Key mathematical constraint:** 360 votes needed for majority. Table shows:

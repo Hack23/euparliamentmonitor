@@ -1034,24 +1034,24 @@ This is the highest fragmentation in EP history for a functioning term. Comparab
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Stakeholder Map: Influence vs. Interest
-    x-axis Low Interest --> High Interest
-    y-axis Low Influence --> High Influence
-    quadrant-1 Manage Closely (Key Players)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    EPP: [0.98, 0.98]
-    Commission: [0.82, 0.9]
-    S&D: [0.9, 0.8]
-    ECR: [0.88, 0.62]
-    PfE: [0.88, 0.62]
-    BusinessEurope/ETUC: [0.8, 0.7]
-    Renew: [0.72, 0.62]
-    Greens/EFA: [0.8, 0.5]
-    US Government: [0.62, 0.7]
-    Civil Society: [0.8, 0.5]
-    Ukraine: [0.98, 0.42]
-    ECB: [0.52, 0.62]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Influence" --> "High Influence"
+    quadrant-1 "Manage Closely (Key Players)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "EPP": [0.98, 0.98]
+    "Commission": [0.82, 0.9]
+    "S&D": [0.9, 0.8]
+    "ECR": [0.88, 0.62]
+    "PfE": [0.88, 0.62]
+    "BusinessEurope/ETUC": [0.8, 0.7]
+    "Renew": [0.72, 0.62]
+    "Greens/EFA": [0.8, 0.5]
+    "US Government": [0.62, 0.7]
+    "Civil Society": [0.8, 0.5]
+    "Ukraine": [0.98, 0.42]
+    "ECB": [0.52, 0.62]
 ```
 
 ---

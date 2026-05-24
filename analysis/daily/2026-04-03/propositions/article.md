@@ -1426,7 +1426,7 @@ graph LR
 %%{init: {"theme":"dark"}}%%
 graph LR
     R1["🟠 פג תוקף הזנת הליכים<br/>אישור 3 בדיקות<br/>L×I = 4×3 = 12"] --> CONS["סונדה חדשה 2026-04-14"]
-    R2["🟠 מסלול מהיר סחר ארה\"ב<br/>L×I = 3×4 = 12"] --> CONS
+    R2["🟠 מסלול מהיר סחר ארה&quot;ב<br/>L×I = 3×4 = 12"] --> CONS
     R3["🟡 כשירות Mercosur<br/>L×I = 3×3 = 9"] --> CONS
     style R1 fill:#FF9800,color:#000000
     style R2 fill:#FF9800,color:#000000

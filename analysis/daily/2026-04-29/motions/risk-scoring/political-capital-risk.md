@@ -47,7 +47,7 @@
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#B71C1C","primaryTextColor":"#ffffff","lineColor":"#EF9A9A"}}}%%
 xychart-beta
-    title ECR Political Capital — Pre vs Post April 28
+    title "ECR Political Capital — Pre vs Post April 28"
     x-axis ["Rule-of-law credibility", "EPP cooperation potential", "S&D dialogue potential", "Coalition formation capacity", "Media reputation (EU media)"]
     y-axis "Score 0-100" 0 --> 100
     bar [30, 45, 15, 55, 25]

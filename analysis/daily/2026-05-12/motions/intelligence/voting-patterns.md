@@ -4,9 +4,9 @@
 # Voting Patterns Analysis — EP Motions 2026-05-12
 
 ```mermaid
-bar
-    title Estimated Group Cohesion Rates by Motion Type (%)
-    x-axis [Ukraine accountability, DMA enforcement, Agricultural motion]
+xychart-beta
+    title "Estimated Group Cohesion Rates by Motion Type (%)"
+    x-axis ["Ukraine accountability", "DMA enforcement", "Agricultural motion"]
     y-axis 0 --> 100
     bar EPP [93, 50, 90]
     bar S&D [95, 92, 15]

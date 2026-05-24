@@ -77,17 +77,17 @@ The six staged-release texts (TA-10-2026-0099-0104) represent an intelligence bl
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800"}}}%%
 quadrantChart
     title Threat Assessment: Probability vs Impact (Run 186)
-    x-axis Probability (Low → High)
-    y-axis Impact (Low → High)
-    quadrant-1 High Priority
-    quadrant-2 Monitor
-    quadrant-3 Low Priority
-    quadrant-4 Manage
-    US Trade Escalation: [0.35, 0.85]
-    Coalition Fragmentation: [0.40, 0.65]
-    Staged Release Surprise: [0.25, 0.55]
-    API Failure: [0.15, 0.35]
-    EPP Data Anomaly: [0.20, 0.25]
+    x-axis "Probability (Low → High)"
+    y-axis "Impact (Low → High)"
+    quadrant-1 "High Priority"
+    quadrant-2 "Monitor"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Manage"
+    "US Trade Escalation": [0.35, 0.85]
+    "Coalition Fragmentation": [0.40, 0.65]
+    "Staged Release Surprise": [0.25, 0.55]
+    "API Failure": [0.15, 0.35]
+    "EPP Data Anomaly": [0.20, 0.25]
 ```
 
 ---

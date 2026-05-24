@@ -819,19 +819,19 @@ Strategic intervention points where action could shift outcomes:
 ```mermaid
 quadrantChart
     title EP Forces Analysis — April 2026 Session
-    x-axis Low Threat → High Threat
-    y-axis Low Relevance → High Relevance
-    quadrant-1 Primary Constraints
-    quadrant-2 Monitor Closely
-    quadrant-3 Low Priority
-    quadrant-4 Active Management
-    Member States (Council): [0.85, 0.90]
-    US Government (Trade): [0.80, 0.75]
-    Russia (Veto): [0.70, 0.65]
-    New EP Entrants (PfE): [0.45, 0.70]
-    Coalition Rivalry: [0.40, 0.55]
-    Azerbaijan: [0.50, 0.45]
-    Substitutes: [0.35, 0.40]
+    x-axis "Low Threat → High Threat"
+    y-axis "Low Relevance → High Relevance"
+    quadrant-1 "Primary Constraints"
+    quadrant-2 "Monitor Closely"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Active Management"
+    "Member States (Council)": [0.85, 0.90]
+    "US Government (Trade)": [0.80, 0.75]
+    "Russia (Veto)": [0.70, 0.65]
+    "New EP Entrants (PfE)": [0.45, 0.70]
+    "Coalition Rivalry": [0.40, 0.55]
+    "Azerbaijan": [0.50, 0.45]
+    "Substitutes": [0.35, 0.40]
 ```
 
 ---
@@ -3760,14 +3760,14 @@ The animal welfare regulation carries environmental implications through its bre
 ### PESTLE Summary Matrix
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Environment Stress Assessment (April 2026)
-    "Political" : 7
-    "Economic" : 5
-    "Social" : 4
-    "Technological" : 8
-    "Legal" : 7
-    "Environmental" : 6
+    curve c1["Political"]{7}
+    curve c2["Economic"]{5}
+    curve c3["Social"]{4}
+    curve c4["Technological"]{8}
+    curve c5["Legal"]{7}
+    curve c6["Environmental"]{6}
 ```
 
 ### PESTLE Synthesis

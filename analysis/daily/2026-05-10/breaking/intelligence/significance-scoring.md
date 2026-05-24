@@ -126,11 +126,11 @@ quadrantChart
     quadrant-2 "High Urgency / Transient"
     quadrant-3 "Low Urgency / Transient"
     quadrant-4 "Low Urgency / Enduring"
-    DMA Enforcement: [0.9, 0.7]
-    Ukraine Accountability: [1.0, 0.6]
-    Armenia Resilience: [0.8, 0.5]
-    Budget 2027: [0.5, 0.4]
-    Haiti Resolution: [0.3, 0.6]
+    "DMA Enforcement": [0.9, 0.7]
+    "Ukraine Accountability": [1, 0.6]
+    "Armenia Resilience": [0.8, 0.5]
+    "Budget 2027": [0.5, 0.4]
+    "Haiti Resolution": [0.3, 0.6]
 ```
 
 ## 🎯 INSTITUTIONAL IMPACT WEIGHTING

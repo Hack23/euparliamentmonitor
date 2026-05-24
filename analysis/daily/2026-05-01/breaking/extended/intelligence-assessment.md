@@ -47,17 +47,17 @@ Consolidated intelligence assessment of the April 28–30, 2026 Strasbourg plena
 ```mermaid
 quadrantChart
     title Intelligence Confidence Matrix — EP Breaking News
-    x-axis Low Confidence --> High Confidence
-    y-axis Low Significance --> High Significance
-    quadrant-1 Monitor (high value, uncertain)
-    quadrant-2 Act on (high value, confident)
-    quadrant-3 Lower Priority
-    quadrant-4 Validate (uncertain, lower value)
-    Ukraine Tribunal Council: [0.35, 0.90]
-    DMA First Fine: [0.65, 0.75]
-    Armenia Peace Treaty: [0.45, 0.70]
-    Budget MFF October: [0.90, 0.80]
-    EP Coalition Stability: [0.85, 0.65]
+    x-axis "Low Confidence" --> "High Confidence"
+    y-axis "Low Significance" --> "High Significance"
+    quadrant-1 "Monitor (high value, uncertain)"
+    quadrant-2 "Act on (high value, confident)"
+    quadrant-3 "Lower Priority"
+    quadrant-4 "Validate (uncertain, lower value)"
+    "Ukraine Tribunal Council": [0.35, 0.90]
+    "DMA First Fine": [0.65, 0.75]
+    "Armenia Peace Treaty": [0.45, 0.70]
+    "Budget MFF October": [0.90, 0.80]
+    "EP Coalition Stability": [0.85, 0.65]
 ```
 
 **Data Sources:** EP MCP `early_warning_system`, `analyze_coalition_dynamics`, `generate_political_landscape`; political landscape analysis; historical precedent analysis. Analysis conducted 2026-05-01.

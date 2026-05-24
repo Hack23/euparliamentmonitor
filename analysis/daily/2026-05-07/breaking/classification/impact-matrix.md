@@ -93,7 +93,7 @@
 
 ```mermaid
 xychart-beta
-    title April 28-30 EP Session — Composite Impact Scores (out of 25)
+    title "April 28-30 EP Session — Composite Impact Scores (out of 25)"
     x-axis ["DMA Enforcement", "Ukraine Accountability", "Budget 2027", "Armenia Democracy", "PfE Debate"]
     y-axis "Composite Score" 0 --> 25
     bar [19, 19, 15, 14, 8]

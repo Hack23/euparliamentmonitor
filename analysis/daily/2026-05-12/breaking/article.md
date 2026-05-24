@@ -700,15 +700,11 @@ Confidence: 🟢 High for tier 1 items; 🟡 Medium for tier 3 items
 ### Significance Score Distribution
 
 ```mermaid
-bar
-    title Legislative Significance Scores (April 2026)
-    "MFF 2028-34" : 9.0
-    "Ukraine Tribunal" : 7.8
-    "Trade Defence" : 7.8
-    "DMA Enforcement" : 8.4
-    "Commission Discharge" : 7.6
-    "Rule of Law" : 7.4
-    "BRRD3" : 7.0
+xychart-beta
+title "Legislative Significance Scores (April 2026)"
+x-axis ["MFF 2028-34", "Ukraine Tribunal", "Trade Defence", "DMA Enforcement", "Commission Discharge", "Rule of Law", "BRRD3"]
+y-axis "Value" 0 --> 10
+bar [9.0, 7.8, 7.8, 8.4, 7.6, 7.4, 7.0]
 ```
 
 **Admiralty Rating:** Source: A (EP adopted texts directly analysed); Reliability: 1 (confirmed from EP TA texts); Confidence: 🟢 High

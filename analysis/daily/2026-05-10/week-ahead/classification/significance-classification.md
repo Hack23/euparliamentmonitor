@@ -69,15 +69,15 @@
 ## Significance Radar Diagram
 
 ```mermaid
-radar
+radar-beta
     title Significance Assessment
-    "Legislative Volume": 7
-    "Coalition Significance": 7
-    "External Affairs": 5
-    "Economic Policy": 4
-    "Democratic Process": 7
-    "Innovation/Precedent": 5
-    "Media Salience": 6
+    curve c1["Legislative Volume"]{7}
+    curve c2["Coalition Significance"]{7}
+    curve c3["External Affairs"]{5}
+    curve c4["Economic Policy"]{4}
+    curve c5["Democratic Process"]{7}
+    curve c6["Innovation/Precedent"]{5}
+    curve c7["Media Salience"]{6}
 ```
 
 *Note: All scores on 0-10 scale. Centre coalition maintains structural strength despite right-wing pressure.*

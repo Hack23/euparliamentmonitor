@@ -15,12 +15,12 @@
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
 quadrantChart
     title SWOT Quadrant Map
-    x-axis Adverse --> Favourable
-    y-axis Internal --> External
-    quadrant-1 Opportunities (External+Favourable)
-    quadrant-2 Strengths (Internal+Favourable)
-    quadrant-3 Weaknesses (Internal+Adverse)
-    quadrant-4 Threats (External+Adverse)
+    x-axis "Adverse" --> "Favourable"
+    y-axis "Internal" --> "External"
+    quadrant-1 "Opportunities (External+Favourable)"
+    quadrant-2 "Strengths (Internal+Favourable)"
+    quadrant-3 "Weaknesses (Internal+Adverse)"
+    quadrant-4 "Threats (External+Adverse)"
     "Rule-of-law enforcement": [0.75, 0.75]
     "MFF EP leverage": [0.65, 0.70]
     "Gender rights leadership": [0.70, 0.60]

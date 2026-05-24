@@ -8,7 +8,7 @@
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "Political Capital Expenditure vs. Gain by Text (April 28-30)"
   x-axis ["DMA", "ETS2 MSR", "Ukraine Claims", "Budget", "Immunity x5"]
   y-axis -5 --> 10

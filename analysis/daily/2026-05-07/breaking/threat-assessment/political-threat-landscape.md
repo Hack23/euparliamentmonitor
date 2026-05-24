@@ -63,7 +63,7 @@ Rule 169 debate (current) → Motion of Censure attempt (6–12 months, if catal
 
 ```mermaid
 xychart-beta
-    title Threat Severity vs Probability (April 2026)
+    title "Threat Severity vs Probability (April 2026)"
     x-axis ["PfE Challenge", "US-Tech Tension", "Ceasefire Fracture", "Budget Fracture", "Armenia Escalation"]
     y-axis "Severity Score (1-5)" 0 --> 5
     bar [3, 3, 4, 3, 2]

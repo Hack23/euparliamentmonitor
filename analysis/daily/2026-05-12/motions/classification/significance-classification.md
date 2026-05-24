@@ -6,9 +6,9 @@ SPDX-License-Identifier: Apache-2.0
 # Significance Classification — EP Motions 2026-05-12
 
 ```mermaid
-bar
-    title Motion Significance Scores (1-10)
-    x-axis [Ukraine Accountability, Claims Commission, DMA Enforcement, Armenia, Livestock/Food, Budget 2027]
+xychart-beta
+    title "Motion Significance Scores (1-10)"
+    x-axis ["Ukraine Accountability", "Claims Commission", "DMA Enforcement", "Armenia", "Livestock/Food", "Budget 2027"]
     y-axis 0 --> 10
     bar Score [9.2, 8.8, 8.5, 7.5, 7.0, 6.5]
 ```

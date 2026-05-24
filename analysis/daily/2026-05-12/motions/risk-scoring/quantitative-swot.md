@@ -112,21 +112,21 @@ WEAKNESS vs THREAT (Compounders):
 ```mermaid
 quadrantChart
     title SWOT Analysis (Strength/Opportunity vs Weakness/Threat)
-    x-axis Negative (Weakness/Threat) --> Positive (Strength/Opportunity)
-    y-axis Internal --> External
-    quadrant-1 Strategic Opportunities
-    quadrant-2 Strengths to Leverage
-    quadrant-3 Weaknesses to Address
-    quadrant-4 Threats to Mitigate
-    Ukraine supermajority: [0.85, 0.55]
-    DMA regulatory power: [0.80, 0.45]
-    Institutional productivity: [0.78, 0.35]
-    EPP coalition fragility: [0.22, 0.40]
-    Roll-call data gap: [0.30, 0.35]
-    Claims Commission window: [0.82, 0.72]
-    Digital sovereignty opportunity: [0.75, 0.68]
-    Trade war risk: [0.18, 0.75]
-    Green Deal erosion: [0.20, 0.70]
+    x-axis "Negative (Weakness/Threat)" --> "Positive (Strength/Opportunity)"
+    y-axis "Internal" --> "External"
+    quadrant-1 "Strategic Opportunities"
+    quadrant-2 "Strengths to Leverage"
+    quadrant-3 "Weaknesses to Address"
+    quadrant-4 "Threats to Mitigate"
+    "Ukraine supermajority": [0.85, 0.55]
+    "DMA regulatory power": [0.80, 0.45]
+    "Institutional productivity": [0.78, 0.35]
+    "EPP coalition fragility": [0.22, 0.40]
+    "Roll-call data gap": [0.30, 0.35]
+    "Claims Commission window": [0.82, 0.72]
+    "Digital sovereignty opportunity": [0.75, 0.68]
+    "Trade war risk": [0.18, 0.75]
+    "Green Deal erosion": [0.20, 0.70]
 ```
 
 *SWOT mermaid: motions-run375-1778572294 | 2026-05-12*

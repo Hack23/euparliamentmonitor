@@ -58,20 +58,20 @@ frameworks: [SchwartzWildcards, TalebBlackSwan]
 }}%%
 quadrantChart
     title Wildcards — Probability × Impact (Run 12)
-    x-axis Low Probability --> Higher Probability (still <20%)
-    y-axis Low Impact --> Catastrophic Impact
-    quadrant-1 Critical Stress-Tests
-    quadrant-2 Monitor But Do Not Prepare
-    quadrant-3 Noise
-    quadrant-4 Over-Prepared
-    W1 Italian Mid-Tier Bank Run: [0.08, 0.92]
-    W2 Surprise US Exec Order Section 301: [0.10, 0.82]
-    W3 CJEU Preliminary Ruling Narrowing Art 83: [0.06, 0.78]
-    W4 Major EPP or SD MEP Defection: [0.07, 0.55]
-    W5 Energy Market Shock: [0.08, 0.70]
-    W6 EP Institutional Crisis (LuxLeaks-style): [0.05, 0.88]
-    W7 German Coalition Collapse: [0.06, 0.82]
-    W8 UK Trade Realignment Signal: [0.12, 0.48]
+    x-axis "Low Probability" --> "Higher Probability (still <20%)"
+    y-axis "Low Impact" --> "Catastrophic Impact"
+    quadrant-1 "Critical Stress-Tests"
+    quadrant-2 "Monitor But Do Not Prepare"
+    quadrant-3 "Noise"
+    quadrant-4 "Over-Prepared"
+    "W1 Italian Mid-Tier Bank Run": [0.08, 0.92]
+    "W2 Surprise US Exec Order Section 301": [0.10, 0.82]
+    "W3 CJEU Preliminary Ruling Narrowing Art 83": [0.06, 0.78]
+    "W4 Major EPP or SD MEP Defection": [0.07, 0.55]
+    "W5 Energy Market Shock": [0.08, 0.70]
+    "W6 EP Institutional Crisis (LuxLeaks-style)": [0.05, 0.88]
+    "W7 German Coalition Collapse": [0.06, 0.82]
+    "W8 UK Trade Realignment Signal": [0.12, 0.48]
 ```
 
 ---

@@ -93,24 +93,24 @@ ECR has signalled in `get_speeches` (2026-04-08) intent to table procedural amen
 %%{init: {"theme":"dark"}}%%
 quadrantChart
   title SWOT map — AI-Act Implementation Regulation (Procedure 2025/0142(COD))
-  x-axis Internal --> External
-  y-axis Negative --> Positive
-  quadrant-1 Opportunities
-  quadrant-2 Strengths
-  quadrant-3 Weaknesses
-  quadrant-4 Threats
-  S1 EPP-S&D concord (4): [0.10, 0.80]
-  S2 Council Trio alignment (3): [0.20, 0.70]
-  S3 Industry submissions (2): [0.30, 0.60]
-  W1 Greens block (4): [0.10, 0.20]
-  W2 Rapporteur trust deficit (3): [0.20, 0.30]
-  W3 Compressed window (3): [0.30, 0.30]
-  O1 Belgian Presidency leverage (4): [0.90, 0.80]
-  O2 Renew pivot if Greens withhold (3): [0.80, 0.70]
-  O3 Public trust window (2): [0.70, 0.60]
-  T1 Hungarian reservation (4): [0.90, 0.20]
-  T2 Recess gap risk (2): [0.70, 0.40]
-  T3 ECR procedural amendments (2): [0.80, 0.40]
+  x-axis "Internal" --> "External"
+  y-axis "Negative" --> "Positive"
+  quadrant-1 "Opportunities"
+  quadrant-2 "Strengths"
+  quadrant-3 "Weaknesses"
+  quadrant-4 "Threats"
+  "S1 EPP-S&D concord (4)": [0.10, 0.80]
+  "S2 Council Trio alignment (3)": [0.20, 0.70]
+  "S3 Industry submissions (2)": [0.30, 0.60]
+  "W1 Greens block (4)": [0.10, 0.20]
+  "W2 Rapporteur trust deficit (3)": [0.20, 0.30]
+  "W3 Compressed window (3)": [0.30, 0.30]
+  "O1 Belgian Presidency leverage (4)": [0.90, 0.80]
+  "O2 Renew pivot if Greens withhold (3)": [0.80, 0.70]
+  "O3 Public trust window (2)": [0.70, 0.60]
+  "T1 Hungarian reservation (4)": [0.90, 0.20]
+  "T2 Recess gap risk (2)": [0.70, 0.40]
+  "T3 ECR procedural amendments (2)": [0.80, 0.40]
 ```
 
 ## Cross-quadrant interference

@@ -277,9 +277,9 @@ The agricultural motion (TA-10-2026-0157) reflects a different but equally impor
 -->
 
 ```mermaid
-bar
-    title Motion Significance Scores (1-10)
-    x-axis [Ukraine Accountability, Claims Commission, DMA Enforcement, Armenia, Livestock/Food, Budget 2027]
+xychart-beta
+    title "Motion Significance Scores (1-10)"
+    x-axis ["Ukraine Accountability", "Claims Commission", "DMA Enforcement", "Armenia", "Livestock/Food", "Budget 2027"]
     y-axis 0 --> 10
     bar Score [9.2, 8.8, 8.5, 7.5, 7.0, 6.5]
 ```
@@ -897,9 +897,9 @@ Greens and Left added for specific social/climate riders
 ### Voting Patterns
 
 ```mermaid
-bar
-    title Estimated Group Cohesion Rates by Motion Type (%)
-    x-axis [Ukraine accountability, DMA enforcement, Agricultural motion]
+xychart-beta
+    title "Estimated Group Cohesion Rates by Motion Type (%)"
+    x-axis ["Ukraine accountability", "DMA enforcement", "Agricultural motion"]
     y-axis 0 --> 100
     bar EPP [93, 50, 90]
     bar S&D [95, 92, 15]
@@ -1638,21 +1638,21 @@ WEAKNESS vs THREAT (Compounders):
 ```mermaid
 quadrantChart
     title SWOT Analysis (Strength/Opportunity vs Weakness/Threat)
-    x-axis Negative (Weakness/Threat) --> Positive (Strength/Opportunity)
-    y-axis Internal --> External
-    quadrant-1 Strategic Opportunities
-    quadrant-2 Strengths to Leverage
-    quadrant-3 Weaknesses to Address
-    quadrant-4 Threats to Mitigate
-    Ukraine supermajority: [0.85, 0.55]
-    DMA regulatory power: [0.80, 0.45]
-    Institutional productivity: [0.78, 0.35]
-    EPP coalition fragility: [0.22, 0.40]
-    Roll-call data gap: [0.30, 0.35]
-    Claims Commission window: [0.82, 0.72]
-    Digital sovereignty opportunity: [0.75, 0.68]
-    Trade war risk: [0.18, 0.75]
-    Green Deal erosion: [0.20, 0.70]
+    x-axis "Negative (Weakness/Threat)" --> "Positive (Strength/Opportunity)"
+    y-axis "Internal" --> "External"
+    quadrant-1 "Strategic Opportunities"
+    quadrant-2 "Strengths to Leverage"
+    quadrant-3 "Weaknesses to Address"
+    quadrant-4 "Threats to Mitigate"
+    "Ukraine supermajority": [0.85, 0.55]
+    "DMA regulatory power": [0.80, 0.45]
+    "Institutional productivity": [0.78, 0.35]
+    "EPP coalition fragility": [0.22, 0.40]
+    "Roll-call data gap": [0.30, 0.35]
+    "Claims Commission window": [0.82, 0.72]
+    "Digital sovereignty opportunity": [0.75, 0.68]
+    "Trade war risk": [0.18, 0.75]
+    "Green Deal erosion": [0.20, 0.70]
 ```
 
 *SWOT mermaid: motions-run375-1778572294 | 2026-05-12*

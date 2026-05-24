@@ -2492,7 +2492,7 @@ graph LR
 ### Threat Landscape Overview (6 Dimensions)
 
 ```mermaid
-radar
+radar-beta
     title Political Threat Landscape — April 2026
 ```
 

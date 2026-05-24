@@ -454,7 +454,7 @@ Net restraining forces (-): ENP=6.55 fragmentation, US tariff uncertainty, degra
 ```mermaid
 %%{init: {"theme":"dark"}}%%
 xychart-beta
-    title Force Field Analysis (Strength 0-10)
+    title "Force Field Analysis (Strength 0-10)"
     x-axis ["ReArm Urgency", "Coalition Unity", "Year 2 Momentum", "Fragmentation", "Trade Risk"]
     y-axis "Force Strength" 0 --> 10
     bar [8, 7, 6, -7, -5]
@@ -1232,18 +1232,18 @@ xychart-beta
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","mainBkg":"#1565C0"}}}%%
 quadrantChart
     title EP Week Ahead — Scenario Probability vs. Impact Matrix
-    x-axis Low Impact --> High Impact
-    y-axis Low Probability --> High Probability
-    quadrant-1 Monitor
-    quadrant-2 Manage (High Prob, High Impact)
-    quadrant-3 Low Priority
-    quadrant-4 Contingency Plan
-    AI Act Progress: [0.65, 0.75]
-    Trade Deal Breakthrough: [0.85, 0.25]
-    ReArm Europe Stall: [0.55, 0.55]
-    Emergency Urgency Motion: [0.90, 0.10]
-    Coalition Fracture: [0.80, 0.05]
-    Committee Calendar Disruption: [0.35, 0.15]
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Probability" --> "High Probability"
+    quadrant-1 "Monitor"
+    quadrant-2 "Manage (High Prob, High Impact)"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Contingency Plan"
+    "AI Act Progress": [0.65, 0.75]
+    "Trade Deal Breakthrough": [0.85, 0.25]
+    "ReArm Europe Stall": [0.55, 0.55]
+    "Emergency Urgency Motion": [0.90, 0.10]
+    "Coalition Fracture": [0.80, 0.05]
+    "Committee Calendar Disruption": [0.35, 0.15]
 ```
 
 ---
@@ -1520,21 +1520,21 @@ A CJEU annulment case or Advocate General Opinion on the DMA that breaks signifi
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Wildcard Risk Matrix (Probability vs. Impact)
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> High Impact
-    quadrant-1 Monitor Closely
-    quadrant-2 High Priority (unlikely but severe)
-    quadrant-3 Background Noise
-    quadrant-4 Low Priority (likely but manageable)
-    BS-1 Member State Crisis: [0.03, 0.95]
-    BS-2 US Tariff War: [0.16, 0.88]
-    BS-3 Cyber Incident: [0.08, 0.82]
-    BS-4 MEP Defection: [0.10, 0.55]
-    WC-1 ECB Signal: [0.31, 0.42]
-    WC-2 Migration Surge: [0.21, 0.72]
-    WC-3 AI Crisis: [0.09, 0.75]
-    WC-4 Eastern Europe Shift: [0.11, 0.90]
-    WC-5 DMA Challenge: [0.28, 0.65]
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Monitor Closely"
+    quadrant-2 "High Priority (unlikely but severe)"
+    quadrant-3 "Background Noise"
+    quadrant-4 "Low Priority (likely but manageable)"
+    "BS-1 Member State Crisis": [0.03, 0.95]
+    "BS-2 US Tariff War": [0.16, 0.88]
+    "BS-3 Cyber Incident": [0.08, 0.82]
+    "BS-4 MEP Defection": [0.10, 0.55]
+    "WC-1 ECB Signal": [0.31, 0.42]
+    "WC-2 Migration Surge": [0.21, 0.72]
+    "WC-3 AI Crisis": [0.09, 0.75]
+    "WC-4 Eastern Europe Shift": [0.11, 0.90]
+    "WC-5 DMA Challenge": [0.28, 0.65]
 ```
 
 ---

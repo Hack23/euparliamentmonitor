@@ -132,14 +132,14 @@ Threat: State-owned enterprises (SOEs) used as instruments of political power â€
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#B71C1C","primaryTextColor":"#ffffff","lineColor":"#EF9A9A"}}}%%
 quadrantChart
     title Threat Priority Matrix
-    x-axis Low Likelihood --> High Likelihood
-    y-axis Low Impact --> High Impact
-    quadrant-1 Critical
-    quadrant-2 Monitor and Mitigate
-    quadrant-3 Accept
-    quadrant-4 Prevent
+    x-axis "Low Likelihood" --> "High Likelihood"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Critical"
+    quadrant-2 "Monitor and Mitigate"
+    quadrant-3 "Accept"
+    quadrant-4 "Prevent"
     "State media capture (T-INF-02)": [0.8, 0.9]
-    "Voting opacity (T-INF-01)": [1.0, 0.65]
+    "Voting opacity (T-INF-01)": [1, 0.65]
     "SOE power abuse (T-EOP-02)": [0.7, 0.85]
     "MEP immunity abuse (T-REP-01)": [0.65, 0.8]
     "ECR narrative capture (T-SPO-01)": [0.85, 0.5]

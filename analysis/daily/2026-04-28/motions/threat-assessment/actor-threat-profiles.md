@@ -46,10 +46,10 @@ Actors whose activities threaten the implementation of March 26, 2026 legislativ
 The threat diamond assesses four dimensions: Capability, Opportunity, Intent, Inhibitors.
 
 ```mermaid
-radar
+radar-beta
     title Hungary Threat Diamond
-    axis Capability (0-10), Opportunity (0-10), Intent (0-10), Inhibitors (0-10 inverted)
-    "Hungary ANTICORR threat" : [4, 8, 10, 3]
+    axis a1["Capability (0-10)"], a2["Opportunity (0-10)"], a3["Intent (0-10)"], a4["Inhibitors (0-10 inverted)"]
+    curve c1["Hungary ANTICORR threat"]{4, 8, 10, 3}
 ```
 
 *Text description (Mermaid radar not supported in all renderers):*

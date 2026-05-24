@@ -240,8 +240,8 @@ Key technological developments with legislative implications:
 ## PESTLE Factor Summary
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Factor Intensity (0-10)
     axis Political, Economic, Social, Technological, Legal, Environmental
-    "Impact Score" : [9, 7, 6, 8, 7, 5]
+    curve c1["Impact Score"]{9, 7, 6, 8, 7, 5}
 ```

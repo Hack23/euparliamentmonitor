@@ -132,7 +132,7 @@ timeline
 
 ```mermaid
 xychart-beta
-    title EP Legislative Output Trend (Q4 2024 - Q2 2026)
+    title "EP Legislative Output Trend (Q4 2024 - Q2 2026)"
     x-axis ["Q4-2024", "Q1-2025", "Q2-2025", "Q3-2025", "Q4-2025", "Q1-2026", "Apr-2026"]
     y-axis "Significant adopted texts" 0 --> 10
     line [6, 5, 8, 4, 6, 5, 8]

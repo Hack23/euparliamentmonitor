@@ -1701,11 +1701,12 @@ The following economic data points should be verified when IMF services are rest
 ### EU Economic Snapshot (Mermaid)
 
 ```mermaid
-bar
-    title EU Economic Indicators 2025 vs 2026 (estimated)
-    x-axis [GDP Growth, Inflation, Unemployment]
-    "2025 actual" : [1.2, 2.3, 6.0]
-    "2026 forecast" : [1.5, 2.1, 5.8]
+xychart-beta
+    title "EU Economic Indicators 2025 vs 2026 (estimated)"
+    x-axis ["GDP Growth", "Inflation", "Unemployment"]
+y-axis "Value" 0 --> 7
+    bar [1.2, 2.3, 6.0]
+    bar [1.5, 2.1, 5.8]
 ```
 
 *Note: Bar charts may render as pie charts in some environments. Data: WEO April 2026 proxies.*
@@ -3261,10 +3262,10 @@ Key technological developments with legislative implications:
 ### PESTLE Factor Summary
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Factor Intensity (0-10)
     axis Political, Economic, Social, Technological, Legal, Environmental
-    "Impact Score" : [9, 7, 6, 8, 7, 5]
+    curve c1["Impact Score"]{9, 7, 6, 8, 7, 5}
 ```
 
 ### Historical Baseline

@@ -62,7 +62,7 @@ The EU Parliament's legislative velocity in 2026 (projected 114 legislative acts
 
 ```mermaid
 xychart-beta
-    title Legislative Acts per Quarter (Baseline vs Risk-Adjusted)
+    title "Legislative Acts per Quarter (Baseline vs Risk-Adjusted)"
     x-axis ["Q1 2026 (act)", "Q2 2026 (fcst)", "Q3 2026 (fcst)", "Q4 2026 (fcst)"]
     y-axis "Legislative Acts" 0 --> 35
     line "Baseline" [25, 29, 27, 30]

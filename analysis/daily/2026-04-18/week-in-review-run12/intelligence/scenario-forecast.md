@@ -70,16 +70,16 @@ sensitivity.
 }}%%
 quadrantChart
     title 2×2 Scenario Space — April 21 to May 15, 2026
-    x-axis Housing Response Adequate --> Housing Response Inadequate
-    y-axis Trade Escalation --> Trade De-escalation
-    quadrant-1 Scenario 1 - Productive Recess
-    quadrant-2 Scenario 2 - Housing Stalemate
-    quadrant-3 Scenario 3 - Transatlantic Rupture
-    quadrant-4 Compound Stress (wildcard)
-    Scenario 1 Productive Recess: [0.25, 0.80]
-    Scenario 2 Housing Stalemate: [0.75, 0.75]
-    Scenario 3 Transatlantic Rupture: [0.35, 0.25]
-    Compound Stress: [0.80, 0.20]
+    x-axis "Housing Response Adequate" --> "Housing Response Inadequate"
+    y-axis "Trade Escalation" --> "Trade De-escalation"
+    quadrant-1 "Scenario 1 - Productive Recess"
+    quadrant-2 "Scenario 2 - Housing Stalemate"
+    quadrant-3 "Scenario 3 - Transatlantic Rupture"
+    quadrant-4 "Compound Stress (wildcard)"
+    "Scenario 1 Productive Recess": [0.25, 0.80]
+    "Scenario 2 Housing Stalemate": [0.75, 0.75]
+    "Scenario 3 Transatlantic Rupture": [0.35, 0.25]
+    "Compound Stress": [0.80, 0.20]
 ```
 
 | Scenario | Housing | Trade | Probability | Dominant Impact |

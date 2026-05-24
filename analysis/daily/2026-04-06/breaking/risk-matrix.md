@@ -52,7 +52,7 @@ quadrantChart
     "Post-recess logjam": [0.6, 0.4]
     "Small group margin.": [0.4, 0.6]
     "Right-bloc formal.": [0.8, 0.4]
-    "Grand coalition fracture": [1.0, 0.2]
+    "Grand coalition fracture": [1, 0.2]
 ```
 
 ## Risk Register

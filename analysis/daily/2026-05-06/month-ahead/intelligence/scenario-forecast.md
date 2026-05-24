@@ -18,17 +18,17 @@ Scenario analysis using ACH (Analysis of Competing Hypotheses) methodology combi
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9"}}}%%
 quadrantChart
     title Scenario Space (May-June 2026 EP Window)
-    x-axis Low Coalition Cohesion --> High Coalition Cohesion
-    y-axis Low External Pressure --> High External Pressure
-    quadrant-1 Forced Unity (Crisis-Driven Consensus)
-    quadrant-2 Structured Advance (Best Case)
-    quadrant-3 Managed Drift (Muddling Through)
-    quadrant-4 Coalition Collapse (Worst Case)
-    Scenario-A-Structured-Advance: [0.75, 0.4]
-    Scenario-B-Forced-Unity: [0.65, 0.8]
-    Scenario-C-Managed-Drift: [0.35, 0.35]
-    Scenario-D-Coalition-Collapse: [0.2, 0.5]
-    Current-Position: [0.5, 0.6]
+    x-axis "Low Coalition Cohesion" --> "High Coalition Cohesion"
+    y-axis "Low External Pressure" --> "High External Pressure"
+    quadrant-1 "Forced Unity (Crisis-Driven Consensus)"
+    quadrant-2 "Structured Advance (Best Case)"
+    quadrant-3 "Managed Drift (Muddling Through)"
+    quadrant-4 "Coalition Collapse (Worst Case)"
+    "Scenario-A-Structured-Advance": [0.75, 0.4]
+    "Scenario-B-Forced-Unity": [0.65, 0.8]
+    "Scenario-C-Managed-Drift": [0.35, 0.35]
+    "Scenario-D-Coalition-Collapse": [0.2, 0.5]
+    "Current-Position": [0.5, 0.6]
 ```
 
 ---

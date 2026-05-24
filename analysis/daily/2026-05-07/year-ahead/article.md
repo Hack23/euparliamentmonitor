@@ -1227,10 +1227,10 @@ quadrantChart
     title Risk Register: Probability vs. Impact
     x-axis "Low Probability" --> "High Probability"
     y-axis "Low Impact" --> "High Impact"
-    quadrant-1 Critical: Monitor Daily
-    quadrant-2 High: Manage Actively
-    quadrant-3 Low: Accept
-    quadrant-4 Medium: Monitor Monthly
+    quadrant-1 "Critical: Monitor Daily"
+    quadrant-2 "High: Manage Actively"
+    quadrant-3 "Low: Accept"
+    quadrant-4 "Medium: Monitor Monthly"
     "ETS2 rollback attempt": [0.70, 0.72]
     "Budget 2027 delay": [0.35, 0.55]
     "ReArm failure": [0.15, 0.80]
@@ -2032,14 +2032,14 @@ The EP political threat landscape is assessed across six dimensions. Note: This 
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title EP Political Threat Landscape (0-10 scale)
-    "Geopolitical" : 8.5
-    "Economic" : 6.5
-    "Institutional" : 4.5
-    "Democratic" : 6.0
-    "Technological" : 5.5
-    "Environmental" : 5.0
+    curve c1["Geopolitical"]{8.5}
+    curve c2["Economic"]{6.5}
+    curve c3["Institutional"]{4.5}
+    curve c4["Democratic"]{6.0}
+    curve c5["Technological"]{5.5}
+    curve c6["Environmental"]{5.0}
 ```
 
 ---
@@ -2200,10 +2200,10 @@ quadrantChart
     title EP Year Ahead Scenario Matrix (2026-2027)
     x-axis "Low Domestic Cohesion" --> "High Domestic Cohesion"
     y-axis "Low Geopolitical Stability" --> "High Geopolitical Stability"
-    quadrant-1 Scenario B "Managed Tensions"
-    quadrant-2 Scenario A "Progressive Integration"
-    quadrant-3 Scenario D "Crisis Paralysis"
-    quadrant-4 Scenario C "Nationalist Capture"
+    quadrant-1 "Scenario B \"Managed Tensions\""
+    quadrant-2 "Scenario A \"Progressive Integration\""
+    quadrant-3 "Scenario D \"Crisis Paralysis\""
+    quadrant-4 "Scenario C \"Nationalist Capture\""
     "Most Likely Path": [0.65, 0.55]
 ```
 

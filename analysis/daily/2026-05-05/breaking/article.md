@@ -1093,13 +1093,13 @@ The ongoing Russia-Ukraine conflict, US-EU digital sovereignty competition, and 
 **Implication**: The Monitor must maintain standing coverage of geopolitical triggers that could subordinate or accelerate the April 28–30 decisions.
 
 ```mermaid
-radar
+radar-beta
     title Forces Analysis — April 28–30 Plenary
-    "Legislative Initiative Power" : 4
-    "Veto Powers" : 3
-    "Judicial Review" : 4
-    "Parliamentary Cohesion" : 3
-    "External Geopolitical Pressure" : 4
+    curve c1["Legislative Initiative Power"]{4}
+    curve c2["Veto Powers"]{3}
+    curve c3["Judicial Review"]{4}
+    curve c4["Parliamentary Cohesion"]{3}
+    curve c5["External Geopolitical Pressure"]{4}
 ```
 
 ### Reader Briefing
@@ -4884,14 +4884,14 @@ Democratic consolidation in Armenia has social implications:
 ### PESTLE Visualization
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Factor Intensity (April 28–30 Session)
-    "Political" : 9
-    "Economic" : 6
-    "Social" : 7
-    "Technological" : 9
-    "Legal" : 9
-    "Environmental" : 4
+    curve c1["Political"]{9}
+    curve c2["Economic"]{6}
+    curve c3["Social"]{7}
+    curve c4["Technological"]{9}
+    curve c5["Legal"]{9}
+    curve c6["Environmental"]{4}
 ```
 
 ### Cross-Factor Interactions
@@ -9387,16 +9387,16 @@ Based on this run's experience, the following methodology improvements are recom
 ### Methodology Quality Diagram
 
 ```mermaid
-radar
+radar-beta
     title Methodology Coverage 2026-05-05
-    "Data Richness" : 6
-    "IMF Economic Data" : 2
-    "Coalition Analysis" : 9
-    "Scenario Rigour" : 8
-    "Threat Modelling" : 8
-    "Shell Safety Compliance" : 10
-    "Artifact Completeness" : 8
-    "Mermaid Visualisation" : 7
+    curve c1["Data Richness"]{6}
+    curve c2["IMF Economic Data"]{2}
+    curve c3["Coalition Analysis"]{9}
+    curve c4["Scenario Rigour"]{8}
+    curve c5["Threat Modelling"]{8}
+    curve c6["Shell Safety Compliance"]{10}
+    curve c7["Artifact Completeness"]{8}
+    curve c8["Mermaid Visualisation"]{7}
 ```
 
 **Satisfaction Score Summary** (sat markers):
