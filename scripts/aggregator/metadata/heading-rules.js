@@ -327,26 +327,57 @@ export function isGenericHeading(heading, articleType, date) {
         return true;
     if (isArtifactCategoryHeading(normalized))
         return true;
+    // Article-type aliases that author-templates use interchangeably with
+    // the humanized slug. `breaking` runs in particular alternate between
+    // `Breaking` and `Breaking News` in brief H1s. The aliases are matched
+    // alongside the canonical `humanizeSlug(articleType)` value so the
+    // downstream pattern + trailing-date regex pick them all up. Keep
+    // the list tight — only attest real, observed brief-H1 wordings, not
+    // every plausible synonym.
+    const ARTICLE_TYPE_ALIASES = {
+        breaking: ['Breaking News'],
+    };
     const human = humanizeSlug(articleType);
-    const patterns = [
-        `${human} — ${date}`,
-        `${human} - ${date}`,
-        `${human} – ${date}`,
-        `${human}: ${date}`,
-        `${human} ${date}`,
-    ];
-    const humanRedundant = `${human} ${human}`;
-    for (const p of patterns) {
-        if (normalized === p)
+    const aliases = [human, ...(ARTICLE_TYPE_ALIASES[articleType] ?? [])];
+    // Separators observed in the wild for brief H1s mixing the article-type
+    // label with a single ISO or human-friendly date. The pipe character
+    // (`|`) and ASCII comma (`,`) were missing from earlier passes, leaving
+    // bare-stub titles like `Breaking | 2026-03-27` (21 chars) and
+    // `Motions, 8 April 2026` (22 chars) flagged as too short by the SEO
+    // dump.
+    const SEPARATORS = [' — ', ' - ', ' – ', ': ', ' ', ' | ', ', '];
+    // Date-shape character class: digits, dashes (ISO) plus letters and
+    // single spaces (human-friendly forms like `8 April 2026`). Single-day
+    // only — date *ranges* (`19–22 May 2026`, `22-23 May 2026`) are
+    // preserved as editorial scope-window content, matching the
+    // {@link isCategoryNounHeading} contract.
+    const DATE_SHAPE = '[\\d][\\d\\-]*|\\d{1,2}\\s+[A-Za-z]+\\s+\\d{4}';
+    for (const label of aliases) {
+        for (const sep of SEPARATORS) {
+            const p = `${label}${sep}${date}`;
+            if (normalized === p)
+                return true;
+            if (normalized === `EU Parliament ${p}`)
+                return true;
+            if (normalized === `EP ${p}`)
+                return true;
+        }
+        const labelRedundant = `${label} ${label}`;
+        if (normalized === `${labelRedundant} — ${date}`)
             return true;
-        if (normalized === `EU Parliament ${p}`)
+        // Trailing-date-only: `<Label><sep><any date>` — covers ISO dates,
+        // human dates, and single-day ranges like `22-23 May 2026`. Anchored
+        // to end of string so it cannot fire on editorial sentences that
+        // happen to contain a date token mid-clause.
+        const trailingDateOnly = new RegExp(`^(?:EU Parliament |EP )?${escapeRegex(label)}\\s*[—–\\-|,:]\\s*(?:${DATE_SHAPE})$`, 'u');
+        if (trailingDateOnly.test(normalized))
             return true;
-        if (normalized === `${humanRedundant} — ${date}`)
+        // Same shape but with the label followed directly by a date with no
+        // explicit separator other than whitespace (e.g.
+        // `Breaking News 2026-04-01`). Anchored, same end-of-string guard.
+        const labelSpaceDate = new RegExp(`^(?:EU Parliament |EP )?${escapeRegex(label)}\\s+(?:${DATE_SHAPE})$`, 'u');
+        if (labelSpaceDate.test(normalized))
             return true;
-    }
-    const trailingDateOnly = new RegExp(`^${escapeRegex(human)}\\s*[—–-]\\s*[\\d-]+$`, 'u');
-    if (trailingDateOnly.test(normalized)) {
-        return true;
     }
     if (isCategoryNounHeading(normalized, articleType))
         return true;

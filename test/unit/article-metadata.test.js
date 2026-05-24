@@ -355,6 +355,56 @@ describe('isGenericHeading', () => {
     expect(isGenericHeading('', 'breaking', '2026-04-14')).toBe(true);
   });
 
+  it('rejects pipe-separator brief-H1 stubs (`Breaking | 2026-03-27`)', () => {
+    // Brief author-templates emit `# Executive Brief — Breaking | 2026-03-27`.
+    // After {@link stripArtifactCategoryAffix} strips the `Executive Brief — `
+    // prefix, the leftover `Breaking | 2026-03-27` was reaching the article
+    // `<title>` as a 21-char SERP stub. Detected on 2026-05-24 SEO dump
+    // (4× breaking, 3× motions, 3× propositions, 1× each month/week
+    // variants, 2× `Breaking News | …` alias).
+    expect(isGenericHeading('Breaking | 2026-03-27', 'breaking', '2026-03-27')).toBe(true);
+    expect(isGenericHeading('Motions | 2026-04-01', 'motions', '2026-04-01')).toBe(true);
+    expect(isGenericHeading('Propositions | 2026-04-01', 'propositions', '2026-04-01')).toBe(true);
+    expect(isGenericHeading('Breaking News | 2026-04-01', 'breaking', '2026-04-01')).toBe(true);
+    expect(isGenericHeading('Month In Review | 2026-03-28', 'month-in-review', '2026-03-28')).toBe(
+      true
+    );
+    expect(isGenericHeading('Month Ahead | 2026-04-01', 'month-ahead', '2026-04-01')).toBe(true);
+    expect(isGenericHeading('Week Ahead | 2026-04-03', 'week-ahead', '2026-04-03')).toBe(true);
+    expect(isGenericHeading('Week In Review | 2026-04-04', 'week-in-review', '2026-04-04')).toBe(
+      true
+    );
+  });
+
+  it('rejects comma + human-date brief-H1 stubs (`Breaking, 8 April 2026`)', () => {
+    // Same dump-detected pattern as pipe-separator stubs but using ASCII
+    // comma and human-friendly date formatting. Brief author-templates
+    // also emit `EP <Type>, 22-23 May 2026` for plenary-week briefs.
+    expect(isGenericHeading('Breaking, 8 April 2026', 'breaking', '2026-04-08')).toBe(true);
+    expect(isGenericHeading('Motions, 8 April 2026', 'motions', '2026-04-08')).toBe(true);
+    expect(isGenericHeading('Propositions, 8 April 2026', 'propositions', '2026-04-08')).toBe(true);
+    expect(isGenericHeading('EP Motions, 2026-04-22', 'motions', '2026-04-22')).toBe(true);
+    expect(isGenericHeading('EP Breaking News: 8 April 2026', 'breaking', '2026-04-08')).toBe(true);
+    expect(isGenericHeading('Breaking News 2026-04-01', 'breaking', '2026-04-01')).toBe(true);
+  });
+
+  it('preserves editorial sentences that happen to contain a date', () => {
+    // The `trailingDateOnly` regex must NOT fire when the heading is a
+    // genuine editorial sentence with a date token mid-clause. Anchoring
+    // the regex to start/end of string + the bounded date-shape class
+    // protects these cases.
+    expect(
+      isGenericHeading('Breaking After 2026 Mid-Year Coalition Realignment', 'breaking', '2026-04-14')
+    ).toBe(false);
+    expect(
+      isGenericHeading(
+        'Motions Tabled on 8 April Set Stage for May Plenary',
+        'motions',
+        '2026-04-08'
+      )
+    ).toBe(false);
+  });
+
   it('rejects bare "EU Parliament <Type>" category-noun headings (post-PR-#1969 fix)', () => {
     // Live-site regression (https://euparliamentmonitor.com/news/) observed
     // 2026-05-16: executive briefs whose H1 reads
