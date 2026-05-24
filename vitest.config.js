@@ -58,14 +58,22 @@ export default defineConfig({
         // propagate v8 coverage to the parent process.
         'scripts/normalize-legacy-articles.js',
         'scripts/generate-responsive-images.js',
+        // Mermaid validator/fixer and asset optimisers are CLI tools invoked
+        // from npm scripts / CI; no library exports to unit-test.
+        'scripts/fix-mermaid-diagrams.js',
+        'scripts/minify-assets.js',
+        'scripts/optimize-css.js',
+        'scripts/validate-mermaid-diagrams.js',
         // Exclude type definitions
         'scripts/**/*.d.ts',
         // Exclude TypeScript type-only stubs (interfaces/enums, no testable logic)
         'scripts/types/analysis.js',
+        'scripts/types/common.js',
         'scripts/types/generation.js',
         'scripts/types/imf.js',
         'scripts/types/index.js',
         'scripts/types/intelligence.js',
+        'scripts/types/languages.js',
         'scripts/types/mcp.js',
         'scripts/types/parliament.js',
         'scripts/types/political-risk.js',
@@ -74,6 +82,10 @@ export default defineConfig({
         'scripts/types/significance.js',
         'scripts/types/visualization.js',
         'scripts/types/world-bank.js',
+        // Exclude type-only subdirectory stubs (empty export {} compiled from TS interface files)
+        'scripts/types/mcp/**',
+        'scripts/types/article-strings/**',
+        'scripts/types/visualization/**',
         // Exclude language string maps (pure data/config, 500+ arrow fns across 14 languages)
         'scripts/constants/language-articles.js',
         'scripts/constants/languages.js',
@@ -86,13 +98,64 @@ export default defineConfig({
         'scripts/index.js',
         // Aggregator bounded-context barrels and type-only modules
         // (pure re-exports / interface definitions — no runtime logic)
+        'scripts/aggregator/article-html.js',
         'scripts/aggregator/clean-artifact.js',
         'scripts/aggregator/artifacts/index.js',
         'scripts/aggregator/artifacts/types.js',
+        'scripts/aggregator/cli/index.js',
         'scripts/aggregator/content/index.js',
         'scripts/aggregator/content/types.js',
+        'scripts/aggregator/manifest/index.js',
+        'scripts/aggregator/manifest/types.js',
         'scripts/aggregator/markdown/index.js',
+        'scripts/aggregator/metadata/artifact-highlight.js',
+        'scripts/aggregator/metadata/index.js',
         'scripts/aggregator/metadata/types.js',
+        'scripts/aggregator/reader-guide/rows-types.js',
+        'scripts/aggregator/reader-intelligence-guide.js',
+        'scripts/aggregator/run/index.js',
+        'scripts/aggregator/runs/index.js',
+        'scripts/aggregator/slug/index.js',
+        // Config bounded-context barrels and type-only modules
+        'scripts/config/article-horizons.js',
+        'scripts/config/horizons/types.js',
+        'scripts/config/index.js',
+        // Constants barrels and re-export shims (canonical location moved to
+        // seo/, ui/, world-bank/ sub-modules; these shims preserve legacy paths)
+        'scripts/constants/committee-indicator-map.js',
+        'scripts/constants/language-ui.js',
+        'scripts/constants/og-locales.js',
+        'scripts/constants/seo/index.js',
+        'scripts/constants/social-handles.js',
+        'scripts/constants/ui/index.js',
+        'scripts/constants/world-bank/committee-map-types.js',
+        // Generator bounded-context barrels (political-intelligence and
+        // sitemap entries were split into sub-modules; these are thin shims)
+        'scripts/generators/political-intelligence-descriptions.js',
+        'scripts/generators/political-intelligence.js',
+        'scripts/generators/political-intelligence/**',
+        'scripts/generators/shared/**',
+        'scripts/generators/sitemap/index.js',
+        // MCP bounded-context barrels (top-level re-export shims over sub-modules)
+        'scripts/mcp/ep-mcp-client.js',
+        'scripts/mcp/ep-open-data-client.js',
+        'scripts/mcp/ep-open-data/types.js',
+        'scripts/mcp/imf-mcp-client.js',
+        'scripts/mcp/imf/types.js',
+        'scripts/mcp/mcp-connection.js',
+        // Utils type-only stubs
+        'scripts/utils/intelligence/types.js',
+        // Barrel re-export shims — thin wrappers that only re-export from sub-modules;
+        // the sub-modules themselves are covered by unit tests.
+        'scripts/templates/section-builders.js',
+        'scripts/utils/file-utils.js',
+        'scripts/utils/intelligence-index.js',
+        // Workflows bounded-context barrels and type-only stubs
+        'scripts/workflows/completeness-gate/index.js',
+        'scripts/workflows/completeness-gate/types.js',
+        'scripts/workflows/index.js',
+        'scripts/workflows/infrastructure/index.js',
+        'scripts/workflows/safe-outputs/index.js',
         // Pure CLI entry-point with no exports — cannot be imported for testing
         'scripts/generators/build-info.js',
       ],
