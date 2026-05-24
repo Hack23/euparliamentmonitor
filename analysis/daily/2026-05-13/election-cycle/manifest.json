@@ -80,5 +80,11 @@
     "epMcp": "european-parliament-mcp-server@1.3.3",
     "worldBank": "worldbank-mcp@1.0.1 (not exercised in this run)",
     "imf": "NOT EXECUTED in this run"
+  },
+  "title": {
+    "en": "EPP coalition stability before 2027 elections — 2026-05-13"
+  },
+  "description": {
+    "en": "Election cycle (2026-05-13): coalition stability snapshot — EPP's 185-seat broker advantage holds heading into the 2027 election cycle, with committee chairs, rapporteurships, and Conference-of-Presidents agenda control intact."
   }
 }

@@ -38,7 +38,10 @@
 
 import {
   EXTENDED_DESCRIPTION_MAX_LENGTH,
+  shouldSkipDescriptionLine,
   stripInlineMarkdown,
+  stripLeadingBoldLabel,
+  stripLeadingProseLabel,
   truncateDescription,
   truncateExtendedDescription,
   truncateTitle,
@@ -159,6 +162,15 @@ function appendLine(state: WalkerState, line: string): void {
   state.byteCount += line.length + 1;
 }
 
+function normalizeBriefingLine(line: string, preserveLeadingLabel = false): string {
+  if (shouldSkipDescriptionLine(line)) return '';
+  const withoutMarkdown = stripInlineMarkdown(line);
+  const normalized = preserveLeadingLabel
+    ? withoutMarkdown
+    : stripLeadingProseLabel(stripLeadingBoldLabel(withoutMarkdown));
+  return normalized.replace(/^[:;—–-]\s+/u, '').trim();
+}
+
 /**
  * Decide what to do when the walker sees a `## …` heading.
  *
@@ -269,7 +281,9 @@ function collectSubsectionLine(state: WalkerState, line: string, kind: LineKind)
   if (kind === 'blank' || kind === 'structural') {
     return state.lines.length > 0;
   }
-  appendLine(state, stripInlineMarkdown(line));
+  const clean = normalizeBriefingLine(line);
+  if (!clean) return state.lines.length > 0;
+  appendLine(state, clean);
   return state.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH;
 }
 
@@ -341,7 +355,9 @@ function collectParagraphLine(state: WalkerState, line: string, kind: LineKind):
   if (kind === 'blank' || kind === 'structural') {
     return state.lines.length > 0;
   }
-  appendLine(state, stripInlineMarkdown(line));
+  const clean = normalizeBriefingLine(line);
+  if (!clean) return state.lines.length > 0;
+  appendLine(state, clean);
   return state.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH;
 }
 
@@ -401,12 +417,15 @@ function handleNumberedLine(state: NumberedItemState, line: string, kind: LineKi
   if (state.item.length === 0) {
     if (kind !== 'numbered') return false;
     const m = /^1\.\s+(.*)$/u.exec(line);
-    if (m?.[1]) state.item.push(stripInlineMarkdown(m[1]).trim());
+    const clean = m?.[1] ? normalizeBriefingLine(m[1], true) : '';
+    if (clean) state.item.push(clean);
     return false;
   }
   if (kind === 'blank' || kind === 'numbered' || kind === 'bullet') return true;
   if (kind === 'h2' || kind === 'h3') return true;
-  state.item.push(stripInlineMarkdown(line).trim());
+  const clean = normalizeBriefingLine(line);
+  if (!clean) return state.item.length > 0;
+  state.item.push(clean);
   return false;
 }
 

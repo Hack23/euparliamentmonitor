@@ -20,6 +20,8 @@ export {
   resolveRunId,
   latestGateResult,
   flattenManifestFiles,
+  stripRunSuffix,
+  RUN_SUFFIX_PATTERN,
   UNKNOWN_ARTICLE_TYPE,
 } from './resolver.js';
 export { readManifest, parseManifest, type ReadManifestResult } from './reader.js';

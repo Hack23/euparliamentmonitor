@@ -18,6 +18,8 @@ import {
   flattenManifestFiles,
   readManifest,
   parseManifest,
+  stripRunSuffix,
+  RUN_SUFFIX_PATTERN,
   UNKNOWN_ARTICLE_TYPE,
 } from '../../scripts/aggregator/manifest/index.js';
 
@@ -56,6 +58,65 @@ describe('resolveArticleType', () => {
 
   it('skips empty articleTypes[0] and falls through', () => {
     expect(resolveArticleType({ articleTypes: [''], runType: 'motions' })).toBe('motions');
+  });
+
+  it('strips trailing -run<N> suffix from canonical articleType', () => {
+    expect(resolveArticleType({ articleType: 'committee-reports-run47' })).toBe('committee-reports');
+    expect(resolveArticleType({ articleType: 'breaking-run193' })).toBe('breaking');
+    expect(resolveArticleType({ articleType: 'motions-run41' })).toBe('motions');
+    expect(resolveArticleType({ articleType: 'propositions-run42' })).toBe('propositions');
+    expect(resolveArticleType({ articleType: 'month-ahead-run4' })).toBe('month-ahead');
+    expect(resolveArticleType({ articleType: 'week-ahead-run13' })).toBe('week-ahead');
+  });
+
+  it('strips legacy double-prefixed motions-runmotions-run-<digits> suffix', () => {
+    expect(resolveArticleType({ articleType: 'motions-runmotions-run-1777010709' })).toBe('motions');
+  });
+
+  it('strips -run<N> suffix from articleTypeSlug fallback path', () => {
+    expect(resolveArticleType({ articleTypeSlug: 'propositions-run45' })).toBe('propositions');
+  });
+
+  it('strips -run<N> suffix from articleTypes[0] fallback path', () => {
+    expect(resolveArticleType({ articleTypes: ['committee-reports-run49'] })).toBe('committee-reports');
+  });
+
+  it('preserves unknown leading tokens (conservative no-op)', () => {
+    // A non-canonical leading token must never be silently collapsed —
+    // only canonical article-type slugs are accepted after stripping.
+    expect(resolveArticleType({ articleType: 'custom-type-run5' })).toBe('custom-type-run5');
+  });
+
+  it('leaves clean canonical slugs untouched', () => {
+    expect(resolveArticleType({ articleType: 'breaking' })).toBe('breaking');
+    expect(resolveArticleType({ articleType: 'committee-reports' })).toBe('committee-reports');
+  });
+});
+
+describe('stripRunSuffix', () => {
+  it('handles every -run<N> variant observed in the SEO dump', () => {
+    expect(stripRunSuffix('committee-reports-run47')).toBe('committee-reports');
+    expect(stripRunSuffix('breaking-run193')).toBe('breaking');
+    expect(stripRunSuffix('motions-run41')).toBe('motions');
+    expect(stripRunSuffix('motions-runmotions-run-1777010709')).toBe('motions');
+    expect(stripRunSuffix('propositions-run42')).toBe('propositions');
+    expect(stripRunSuffix('week-ahead-run13')).toBe('week-ahead');
+    expect(stripRunSuffix('month-ahead-run4')).toBe('month-ahead');
+  });
+
+  it('is a no-op on clean canonical slugs', () => {
+    expect(stripRunSuffix('breaking')).toBe('breaking');
+    expect(stripRunSuffix('term-outlook')).toBe('term-outlook');
+    expect(stripRunSuffix('')).toBe('');
+  });
+
+  it('refuses to collapse non-canonical leading tokens', () => {
+    expect(stripRunSuffix('custom-type-run5')).toBe('custom-type-run5');
+  });
+
+  it('exposes RUN_SUFFIX_PATTERN matching trailing -run<digits>', () => {
+    expect(RUN_SUFFIX_PATTERN.test('breaking-run42')).toBe(true);
+    expect(RUN_SUFFIX_PATTERN.test('breaking')).toBe(false);
   });
 });
 

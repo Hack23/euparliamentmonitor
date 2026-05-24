@@ -124,7 +124,7 @@ describe('truncation helpers', () => {
     const long = `${'abc '.repeat(100)}`.trim();
     const truncated = truncateDescription(long);
     expect(truncated.length).toBeLessThanOrEqual(300);
-    expect(truncated.endsWith('…')).toBe(true);
+    expect(truncated.endsWith('…')).toBe(false);
     expect(truncated).not.toMatch(/ab…$/); // no mid-word break
   });
 
@@ -142,13 +142,14 @@ describe('truncation helpers', () => {
     expect(truncated.endsWith('.')).toBe(true);
   });
 
-  it('strips a pre-existing trailing ellipsis before appending its own', () => {
+  it('strips a pre-existing trailing ellipsis before returning the clipped copy', () => {
     // Guards against double-clip: if the input already carries an ellipsis
-    // (e.g. from an upstream truncation), we must not emit "X……".
+    // (e.g. from an upstream truncation), we must not emit "X……" or
+    // preserve the upstream dangling ellipsis in the final snippet.
     const seeded = `${'word '.repeat(60).trim()}…`;
     const truncated = truncateDescription(seeded);
     expect(truncated).not.toMatch(/……/);
-    expect(truncated.endsWith('…')).toBe(true);
+    expect(truncated.endsWith('…')).toBe(false);
   });
 });
 
@@ -354,6 +355,56 @@ describe('isGenericHeading', () => {
     expect(isGenericHeading('', 'breaking', '2026-04-14')).toBe(true);
   });
 
+  it('rejects pipe-separator brief-H1 stubs (`Breaking | 2026-03-27`)', () => {
+    // Brief author-templates emit `# Executive Brief — Breaking | 2026-03-27`.
+    // After {@link stripArtifactCategoryAffix} strips the `Executive Brief — `
+    // prefix, the leftover `Breaking | 2026-03-27` was reaching the article
+    // `<title>` as a 21-char SERP stub. Detected on 2026-05-24 SEO dump
+    // (4× breaking, 3× motions, 3× propositions, 1× each month/week
+    // variants, 2× `Breaking News | …` alias).
+    expect(isGenericHeading('Breaking | 2026-03-27', 'breaking', '2026-03-27')).toBe(true);
+    expect(isGenericHeading('Motions | 2026-04-01', 'motions', '2026-04-01')).toBe(true);
+    expect(isGenericHeading('Propositions | 2026-04-01', 'propositions', '2026-04-01')).toBe(true);
+    expect(isGenericHeading('Breaking News | 2026-04-01', 'breaking', '2026-04-01')).toBe(true);
+    expect(isGenericHeading('Month In Review | 2026-03-28', 'month-in-review', '2026-03-28')).toBe(
+      true
+    );
+    expect(isGenericHeading('Month Ahead | 2026-04-01', 'month-ahead', '2026-04-01')).toBe(true);
+    expect(isGenericHeading('Week Ahead | 2026-04-03', 'week-ahead', '2026-04-03')).toBe(true);
+    expect(isGenericHeading('Week In Review | 2026-04-04', 'week-in-review', '2026-04-04')).toBe(
+      true
+    );
+  });
+
+  it('rejects comma + human-date brief-H1 stubs (`Breaking, 8 April 2026`)', () => {
+    // Same dump-detected pattern as pipe-separator stubs but using ASCII
+    // comma and human-friendly date formatting. Brief author-templates
+    // also emit `EP <Type>, 22-23 May 2026` for plenary-week briefs.
+    expect(isGenericHeading('Breaking, 8 April 2026', 'breaking', '2026-04-08')).toBe(true);
+    expect(isGenericHeading('Motions, 8 April 2026', 'motions', '2026-04-08')).toBe(true);
+    expect(isGenericHeading('Propositions, 8 April 2026', 'propositions', '2026-04-08')).toBe(true);
+    expect(isGenericHeading('EP Motions, 2026-04-22', 'motions', '2026-04-22')).toBe(true);
+    expect(isGenericHeading('EP Breaking News: 8 April 2026', 'breaking', '2026-04-08')).toBe(true);
+    expect(isGenericHeading('Breaking News 2026-04-01', 'breaking', '2026-04-01')).toBe(true);
+  });
+
+  it('preserves editorial sentences that happen to contain a date', () => {
+    // The `trailingDateOnly` regex must NOT fire when the heading is a
+    // genuine editorial sentence with a date token mid-clause. Anchoring
+    // the regex to start/end of string + the bounded date-shape class
+    // protects these cases.
+    expect(
+      isGenericHeading('Breaking After 2026 Mid-Year Coalition Realignment', 'breaking', '2026-04-14')
+    ).toBe(false);
+    expect(
+      isGenericHeading(
+        'Motions Tabled on 8 April Set Stage for May Plenary',
+        'motions',
+        '2026-04-08'
+      )
+    ).toBe(false);
+  });
+
   it('rejects bare "EU Parliament <Type>" category-noun headings (post-PR-#1969 fix)', () => {
     // Live-site regression (https://euparliamentmonitor.com/news/) observed
     // 2026-05-16: executive briefs whose H1 reads
@@ -473,13 +524,16 @@ describe('extractFirstSentence (Round 3 fix)', () => {
     );
   });
 
-  it('falls back to original paragraph when no terminator fits the window', () => {
+  it('returns empty string when no terminator fits the window', () => {
     // No terminator in the 60-char→TITLE_MAX_LENGTH*1.5 window — return
-    // the original so downstream truncateTitle can clause-break it cleanly.
+    // '' so the resolver falls through to the next tier instead of
+    // feeding an over-budget paragraph into truncateTitle (which would
+    // also now return ''). Live regression fix 2026-05: no more
+    // mid-sentence ellipsised `<title>` strings on the news index.
     const para =
       'The European Parliament continues a sustained legislative cadence across the April 2026 Strasbourg plenary with coalition dynamics that show EPP-S&D consensus on banking-union files and a sharper split on AI Act amendments which will surface in May and June plenaries with regulatory tightening anticipated across digital and environmental policy clusters';
     const result = extractFirstSentence(para);
-    expect(result).toBe(para);
+    expect(result).toBe('');
   });
 
   it('produces grammatically complete titles when fed through truncateTitle', () => {
@@ -797,7 +851,8 @@ describe('resolveArticleMetadata — priority ladder', () => {
     const sv = Object.getOwnPropertyDescriptor(result, 'sv')?.value;
     expect(sv.title).toBe('SV Bankunion-genombrott');
     expect(sv.description).toContain('SV beskrivning kommer här med tillräcklig längd.');
-    expect(sv.description.length).toBeGreaterThanOrEqual(120);
+    expect(sv.description).toContain('2026-04-20');
+    expect(sv.description.length).toBeGreaterThanOrEqual(60);
   });
 
   it('Tier 2 — first non-generic artefact H1 wins over aggregated H1', () => {
@@ -895,6 +950,61 @@ describe('resolveArticleMetadata — priority ladder', () => {
     }
   });
 
+  it('drops leaky follow-up sentences and keeps the clean opening sentence for SEO copy', () => {
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-03-27',
+      markdown: [
+        '# Breaking — 2026-03-27',
+        '',
+        'Routine inter-sessional day, no breaking signal. Analysis run 77fc920c-3a76-4813-9db5-43a7e9acc25e returned 0 classified political actors and overall significance ROUTINE across all five impact dimensions.',
+      ].join('\n'),
+    });
+    const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+    expect(en.description).toContain('Routine inter-sessional day, no breaking signal.');
+    expect(en.description).not.toMatch(/analysis run/i);
+    expect(en.description.endsWith('…')).toBe(false);
+  });
+
+  it('falls back to the summary when the resolved headline is too short or contains run jargon', () => {
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-04-04',
+      markdown: [
+        '# Breaking (Pre-Recess Analysis Run 3) | 2026-04-04',
+        '',
+        'No new breaking developments on 2026-04-04; the EP is in Easter recess (27 March → 13 April). This third run of the day extends prior analyses with provenance enrichment only.',
+      ].join('\n'),
+    });
+    const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+    expect(en.title).toContain('No new breaking developments');
+    expect(en.title).not.toMatch(/analysis run/i);
+    expect(en.title.length).toBeGreaterThanOrEqual(20);
+  });
+
+  it('skips WEP/admiralty banner rows when a strategic section starts with metadata', () => {
+    const tmpRoot = mkdtempSync(path.join(tmpdir(), 'wep-brief-'));
+    try {
+      const briefBody =
+        '# Executive Brief — Motions\n\n' +
+        '## Strategic Assessment\n\n' +
+        '**WEP Band: LIKELY (65-85%)** | Time Horizon: 3–6 months | Admiralty Grade: B2\n\n' +
+        "The European Parliament's May plenary produced nine politically significant adopted texts centred on rule-of-law enforcement and digital governance.\n";
+      writeFileSync(path.join(tmpRoot, 'executive-brief.md'), briefBody, 'utf8');
+      const result = resolveArticleMetadata({
+        articleType: 'motions',
+        date: '2026-05-22',
+        markdown: '# Motions — 2026-05-22\n\nAggregated body.',
+        runDir: tmpRoot,
+      });
+      const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+      expect(en.description).toContain("The European Parliament's May plenary");
+      expect(en.description).not.toMatch(/^WEP Band:/i);
+    } finally {
+      rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
+
   it('covers all 14 languages with non-empty title+description in every tier', () => {
     const result = resolveArticleMetadata({
       articleType: 'motions',
@@ -905,13 +1015,23 @@ describe('resolveArticleMetadata — priority ladder', () => {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.title.length).toBeGreaterThan(5);
       // Pure template-fallback case (no editorial content available).
-      // The description after composeContextualDescription enrichment is
-      // template-subtitle + date suffix + reader hint. Floor lowered to
-      // 60 chars because date/run-id padding was removed from the
-      // enrichment path; the reader hint alone is ~50-90 chars across
-      // the 14 supported languages.
-      expect(entry.description.length).toBeGreaterThanOrEqual(60);
+      // The description is now template-subtitle + date suffix only —
+      // the reader hint ("for democratic-accountability readers …") was
+      // moved to extendedDescription so the short `<meta description>`
+      // stays inside the 160-char SERP budget. Floor relaxed to 45
+      // chars: `Extended Executive Brief — Motions News Date:
+      // 2026-04-20.` is 51 chars in English and a few languages with
+      // shorter "Date" tokens land at ~46.
+      expect(entry.description.length).toBeGreaterThanOrEqual(45);
       expect(entry.keywords.length).toBeGreaterThan(3);
+      // The extendedDescription path still surfaces the reader hint
+      // (it has a 300-char budget and benefits from the framing), and
+      // must be non-empty for og:description / Discover surfaces. Live
+      // regression (2026-05): 56 breaking briefs shipped with empty
+      // extendedDescription because their lead paragraph was below the
+      // direct-truncator threshold; the contextual synthesizer now
+      // guarantees ≥180 chars whenever editorial content exists.
+      expect(entry.extendedDescription.length).toBeGreaterThanOrEqual(60);
     }
   });
 

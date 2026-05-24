@@ -159,6 +159,29 @@ describe('resolveLocalizedBriefHighlight', () => {
     expect(result.summary).toContain('Het bankuniecompromis');
   });
 
+  it('drops `Executive Brief — Breaking | YYYY-MM-DD` stubs and surfaces summary', () => {
+    // Brief author-templates emit `# Executive Brief — Breaking | 2026-05-16`
+    // when no editorial H1 has been written yet. The `Executive Brief — `
+    // prefix is stripped by stripArtifactCategoryAffix, leaving the
+    // bare `Breaking | 2026-05-16` type+date stub. isGenericHeading must
+    // recognise this pipe-separator form as a stub so the resolver falls
+    // through to summary-based titles — regression: 2026-05-24 SEO dump.
+    writeBrief(
+      'sv',
+      [
+        '# Executive Brief — Breaking | 2026-05-16',
+        '',
+        '## BLUF',
+        '',
+        'Banksamarbetet stramar åt tillsynstidsfristerna och utmanar koalitionen.',
+      ].join('\n')
+    );
+    const result = resolveLocalizedBriefHighlight(runDir, 'sv', 'breaking', '2026-05-16');
+    expect(result).not.toBeNull();
+    expect(result.headline).toBe('');
+    expect(result.summary).toContain('Banksamarbetet');
+  });
+
   it('strips a multi-line SPDX HTML-comment preamble before parsing', () => {
     writeBrief(
       'de',

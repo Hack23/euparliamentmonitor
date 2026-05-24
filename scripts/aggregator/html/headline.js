@@ -9,7 +9,7 @@
  */
 import { ARTICLE_TYPE_LABELS, ARTICLE_TYPE_ICONS, getLocalizedString, } from '../../constants/languages.js';
 import { ArticleCategory } from '../../types/index.js';
-import { classifyScript, clampTitleForSurface, } from '../metadata/seo-budgets.js';
+import { classifyScript, clampTitleForSurface } from '../metadata/seo-budgets.js';
 /**
  * Resolve a localized article type label *without* the leading icon
  * emoji. Used for the OpenGraph `article:section` meta and the JSON-LD

@@ -307,7 +307,7 @@ describe('truncateDescription — DESCRIPTION_MAX_LENGTH byte budget', () => {
     expect(truncateDescription(short)).toBe(short);
   });
 
-  it('clamps to at most DESCRIPTION_MAX_LENGTH characters (including ellipsis)', () => {
+  it('clamps to at most DESCRIPTION_MAX_LENGTH characters', () => {
     const long = 'word '.repeat(80).trim();
     const out = truncateDescription(long);
     expect(out.length).toBeLessThanOrEqual(DESCRIPTION_MAX_LENGTH);
@@ -330,15 +330,14 @@ describe('truncateDescription — DESCRIPTION_MAX_LENGTH byte budget', () => {
     const long = 'word '.repeat(80) + '…';
     const out = truncateDescription(long);
     expect(out.includes('……')).toBe(false);
+    expect(out.endsWith('…')).toBe(false);
   });
 
   it('never ends on a dangling stop-word', () => {
     const long = 'Parliament considered the policy in the committee on the '.repeat(5).trim();
     const out = truncateDescription(long);
-    if (out.endsWith('…')) {
-      const lastWord = out.slice(0, -1).trim().split(' ').pop().toLowerCase();
-      expect(TRAILING_STOP_WORDS.has(lastWord)).toBe(false);
-    }
+    const lastWord = out.trim().split(' ').pop().toLowerCase();
+    expect(TRAILING_STOP_WORDS.has(lastWord)).toBe(false);
   });
 });
 
@@ -384,6 +383,21 @@ describe('truncateTitle — TITLE_MAX_LENGTH byte budget', () => {
     const out = truncateTitle(long);
     expect(out.length).toBeLessThanOrEqual(TITLE_MAX_LENGTH);
   });
+
+  it('returns empty string when over-budget with no clause boundary in the window', () => {
+    // Long single-clause prose with no ` : `, ` — `, ` – `, `. `, `; `
+    // boundary in the [HEADLINE_SOFT_MIN, TITLE_MAX_LENGTH] window must
+    // never be ellipsised mid-sentence. Live regression 2026-05: titles
+    // like `AI Trade Strategy A Legislative First with Structural…`
+    // and `The European Parliament's 24 standing committees continued…`
+    // were emitted before this guard. Now we return '' so the resolver
+    // falls through to template-fallback composition.
+    const long = 'AITradeStrategyALegislativeFirstWithStructuralImplicationsForEuropeanIndustrialPolicyAndCompetitivenessAcrossMemberStatesAndAcrossAllSectorsAndAcrossAllPolicyAreas';
+    expect(long.length).toBeGreaterThan(TITLE_MAX_LENGTH);
+    const out = truncateTitle(long);
+    expect(out).toBe('');
+    expect(out.endsWith('…')).toBe(false);
+  });
 });
 
 describe('extractFirstSentence — first complete sentence', () => {
@@ -401,27 +415,31 @@ describe('extractFirstSentence — first complete sentence', () => {
     );
   });
 
-  it('returns the input verbatim when the first sentence ends before HEADLINE_SOFT_MIN', () => {
+  it('returns empty string when the first sentence ends before HEADLINE_SOFT_MIN', () => {
     // First sentence ends at ~58 chars, BEFORE HEADLINE_SOFT_MIN=60, so the
-    // helper does not break there — the entire input is returned for the
-    // downstream truncator to clause-truncate.
+    // helper refuses to break there. Updated 2026-05: returns '' instead
+    // of the full paragraph so {@link truncateTitle} no longer emits
+    // mid-sentence ellipsised titles. Resolver falls through to the
+    // next tier (template-fallback title) when this happens.
     const para =
       'Parliament passed the AI Act with 487 votes to 102 against. The next file is digital services.';
-    expect(extractFirstSentence(para)).toBe(para);
+    expect(extractFirstSentence(para)).toBe('');
   });
 
   it('does not split on common abbreviations (Q1., e.g., vs., U.S.)', () => {
     const para =
       'The Q1. 2026 report (vs. the U.S. equivalent, e.g. the FTC dossier) outlines committee priorities for the legislative pipeline this term.';
     const first = extractFirstSentence(para);
-    // Returns the FULL input when no acceptable terminator is found,
-    // since all the dots above are abbreviation-internal.
-    expect(first).toBe(para);
+    // Returns '' when no acceptable non-abbreviation terminator is
+    // found in the window — the resolver then falls through to the
+    // next tier instead of feeding an over-budget paragraph into
+    // {@link truncateTitle} (which would now also return '').
+    expect(first).toBe('');
   });
 
-  it('returns full paragraph when no terminator sits within window', () => {
+  it('returns empty string when no terminator sits within window', () => {
     const para = 'Parliament considered the policy in the committee on the policy '.repeat(3);
-    expect(extractFirstSentence(para)).toBe(para.trim());
+    expect(extractFirstSentence(para)).toBe('');
   });
 });
 

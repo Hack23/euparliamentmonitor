@@ -57,11 +57,33 @@
     }
   ],
   "stageTimings": {
-    "stageA": {"start": 0, "end": 5},
-    "stageB1": {"start": 5, "end": 18},
-    "stageB2": {"start": 18, "end": 22},
-    "stageC": {"planned": 22, "tripwire": 39},
-    "stageD": {"planned": 39},
-    "stageE": {"deadline": 45}
+    "stageA": {
+      "start": 0,
+      "end": 5
+    },
+    "stageB1": {
+      "start": 5,
+      "end": 18
+    },
+    "stageB2": {
+      "start": 18,
+      "end": 22
+    },
+    "stageC": {
+      "planned": 22,
+      "tripwire": 39
+    },
+    "stageD": {
+      "planned": 39
+    },
+    "stageE": {
+      "deadline": 45
+    }
+  },
+  "title": {
+    "en": "Year Ahead 2026–2027: EP10 coalition outlook — 2026-05-04"
+  },
+  "description": {
+    "en": "1. 🟢 HIGH CONFIDENCE — The EP10 Grand Coalition (EPP+S&D+Renew = 397 seats) will maintain a reliable majority on Ukraine support, digital governance, and defence integration…"
   }
 }

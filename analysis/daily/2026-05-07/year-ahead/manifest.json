@@ -8,21 +8,51 @@
   "workflowStartEpoch": 1778196166,
   "gateResult": "GREEN",
   "stageTimings": {
-    "stageA": { "startEpoch": 1778196166, "durationMinutes": 3 },
-    "stageB1": { "startEpoch": 1778196346, "durationMinutes": 19 },
-    "stageB2": { "startedAt": "2026-05-07T23:45:00Z", "endedAt": "2026-05-07T23:46:00Z", "rewriteCount": 2 },
-    "stageC": { "tripwireMinute": 39 },
-    "stageD": { "tripwireMinute": 42 },
-    "stageE": { "deadlineMinute": 45 }
+    "stageA": {
+      "startEpoch": 1778196166,
+      "durationMinutes": 3
+    },
+    "stageB1": {
+      "startEpoch": 1778196346,
+      "durationMinutes": 19
+    },
+    "stageB2": {
+      "startedAt": "2026-05-07T23:45:00Z",
+      "endedAt": "2026-05-07T23:46:00Z",
+      "rewriteCount": 2
+    },
+    "stageC": {
+      "tripwireMinute": 39
+    },
+    "stageD": {
+      "tripwireMinute": 42
+    },
+    "stageE": {
+      "deadlineMinute": 45
+    }
   },
   "dataQuality": {
     "overall": "MEDIUM",
-    "imf": { "available": false, "reason": "Squid proxy CONNECT aborted", "probeFile": "cache/imf/probe-summary.json" },
-    "ep": { "available": true, "toolsInvoked": 13, "successCount": 9, "emptyCount": 4 },
-    "pipeline": { "available": false, "reason": "API returned empty data" }
+    "imf": {
+      "available": false,
+      "reason": "Squid proxy CONNECT aborted",
+      "probeFile": "cache/imf/probe-summary.json"
+    },
+    "ep": {
+      "available": true,
+      "toolsInvoked": 13,
+      "successCount": 9,
+      "emptyCount": 4
+    },
+    "pipeline": {
+      "available": false,
+      "reason": "API returned empty data"
+    }
   },
   "files": {
-    "root": ["executive-brief.md"],
+    "root": [
+      "executive-brief.md"
+    ],
     "classification": [
       "classification/significance-classification.md",
       "classification/actor-mapping.md",
@@ -69,5 +99,11 @@
       "gateResult": "GREEN",
       "note": "First run of the day; 28 artifacts; IMF unavailable (proxy timeout)"
     }
-  ]
+  ],
+  "title": {
+    "en": "Year Ahead 2026–2027: defence, climate, digital — 2026-05-07"
+  },
+  "description": {
+    "en": "The EP10 enters 2026–2027 as Europe's most consequential parliamentary actor in decades, simultaneously managing active defence integration (ReArm Europe), climate policy…"
+  }
 }

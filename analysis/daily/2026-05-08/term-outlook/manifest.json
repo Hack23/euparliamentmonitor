@@ -78,5 +78,11 @@
     "reason": "Line count floors not met (dense paragraph format; degraded-imf mode applied 0.85 factor; 19 of 25 required files below threshold). 4 missing files added (mcp-reliability-audit, historical-baseline, commission-wp-alignment, presidency-trio-context). Structural analysis quality is HIGH; line count deficit is formatting artifact.",
     "timestamp": "2026-05-08T10:02:30Z",
     "artifactCount": 38
+  },
+  "title": {
+    "en": "EPP remains dominant broker — Term Outlook 2026-05-08"
+  },
+  "description": {
+    "en": "Term outlook (2026-05-08): with 185 seats, EPP controls committee chair nominations, rapporteurships, and the agenda-setting authority of the Conference of Presidents."
   }
 }

@@ -73,5 +73,11 @@
       "note": "Initial run; fresh analysis folder"
     }
   ],
-  "gateReason": "elapsed-time at minute 21; RED gate 8 missing + 12 short; fixing exceeds PR deadline"
+  "gateReason": "elapsed-time at minute 21; RED gate 8 missing + 12 short; fixing exceeds PR deadline",
+  "title": {
+    "en": "EU Parliament April 2026 Review: 4-week digest — 2026-04-29"
+  },
+  "description": {
+    "en": "The EU Parliament in April 2026 delivered a historically dense legislative agenda — including 2027 Budget Guidelines, a US tariff defense package, a landmark housing framework…"
+  }
 }

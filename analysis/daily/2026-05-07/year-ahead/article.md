@@ -1,5 +1,5 @@
 ---
-title: "EU Parliament Year Ahead 2026–2027"
+title: "Year Ahead 2026–2027: defence, climate, digital — 2026-05-07"
 description: "The EP10 enters 2026–2027 as Europe's most consequential parliamentary actor in decades, simultaneously managing active defence integration (ReArm Europe), climate policy…"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-07", "Parliament", "Year", "Ahead", "EP10", "enters", "Europe"]
 date: 2026-05-07

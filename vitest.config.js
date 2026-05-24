@@ -58,22 +58,21 @@ export default defineConfig({
         // propagate v8 coverage to the parent process.
         'scripts/normalize-legacy-articles.js',
         'scripts/generate-responsive-images.js',
+        // Mermaid diagram CLI scripts — exercised via spawnSync (v8 coverage
+        // not propagated to parent process).
+        'scripts/fix-mermaid-diagrams.js',
+        'scripts/validate-mermaid-diagrams.js',
+        // Asset optimization CLI scripts (run during deploy pipeline)
+        'scripts/minify-assets.js',
+        'scripts/optimize-css.js',
         // Exclude type definitions
         'scripts/**/*.d.ts',
-        // Exclude TypeScript type-only stubs (interfaces/enums, no testable logic)
-        'scripts/types/analysis.js',
-        'scripts/types/generation.js',
-        'scripts/types/imf.js',
-        'scripts/types/index.js',
-        'scripts/types/intelligence.js',
-        'scripts/types/mcp.js',
-        'scripts/types/parliament.js',
-        'scripts/types/political-risk.js',
-        'scripts/types/political-threats.js',
-        'scripts/types/quality.js',
-        'scripts/types/significance.js',
-        'scripts/types/visualization.js',
-        'scripts/types/world-bank.js',
+        // Exclude all type-only modules (interfaces/enums, no testable logic)
+        'scripts/types/**',
+        // Exclude all barrel re-export index files (pure re-exports, no logic)
+        'scripts/**/index.js',
+        // Exclude all types.js modules (pure interface/enum definitions)
+        'scripts/**/types.js',
         // Exclude language string maps (pure data/config, 500+ arrow fns across 14 languages)
         'scripts/constants/language-articles.js',
         'scripts/constants/languages.js',
@@ -82,17 +81,40 @@ export default defineConfig({
         // (breaking, swot, extended-horizons) contain large 14-language
         // factor-function maps not exercised by unit tests.
         'scripts/constants/articles/**',
-        // Exclude barrel re-export entry points (no testable logic)
-        'scripts/index.js',
-        // Aggregator bounded-context barrels and type-only modules
-        // (pure re-exports / interface definitions — no runtime logic)
+        // Constant data modules (pure lookups, no branching logic)
+        'scripts/constants/seo/**',
+        'scripts/constants/ui/**',
+        'scripts/constants/world-bank/**',
+        'scripts/constants/committee-indicator-map.js',
+        'scripts/constants/language-ui.js',
+        'scripts/constants/og-locales.js',
+        'scripts/constants/social-handles.js',
+        // Config modules (pure data/registry declarations)
+        'scripts/config/**',
+        // Aggregator bounded-context modules with no testable logic
         'scripts/aggregator/clean-artifact.js',
-        'scripts/aggregator/artifacts/index.js',
-        'scripts/aggregator/artifacts/types.js',
-        'scripts/aggregator/content/index.js',
-        'scripts/aggregator/content/types.js',
-        'scripts/aggregator/markdown/index.js',
-        'scripts/aggregator/metadata/types.js',
+        'scripts/aggregator/article-html.js',
+        'scripts/aggregator/reader-intelligence-guide.js',
+        'scripts/aggregator/reader-guide-constants.js',
+        // Reader-guide rows-types (pure type stub)
+        'scripts/aggregator/reader-guide/rows-types.js',
+        // Generator barrel re-exports and descriptions submodules
+        'scripts/generators/political-intelligence.js',
+        'scripts/generators/political-intelligence-descriptions.js',
+        'scripts/generators/political-intelligence/copy.js',
+        'scripts/generators/political-intelligence/copy/types.js',
+        'scripts/generators/political-intelligence/descriptions/**',
+        // MCP client entry-point wrappers (tested via integration tests;
+        // spawnSync doesn't propagate v8 coverage)
+        'scripts/mcp/ep-open-data/ep-mcp-client.js',
+        'scripts/mcp/world-bank/world-bank-data-client.js',
+        'scripts/mcp/imf/imf-mcp-client.js',
+        'scripts/mcp/transport/connection.js',
+        // Template section-builders (tested via HTML integration output)
+        'scripts/templates/section-builders.js',
+        // Utility stubs with no testable exports
+        'scripts/utils/file-utils.js',
+        'scripts/utils/intelligence-index.js',
         // Pure CLI entry-point with no exports — cannot be imported for testing
         'scripts/generators/build-info.js',
       ],

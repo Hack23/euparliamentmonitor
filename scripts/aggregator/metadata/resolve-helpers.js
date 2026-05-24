@@ -20,10 +20,14 @@ import { extractExtendedLedeAfterHeading, extractStrongProseLine } from './lede-
 import { isGenericHeading } from './heading-rules.js';
 import { humanizeSlug } from './slug.js';
 import { SEO_CONTEXT_LABELS } from './template-fallback.js';
-import { extractFirstSentence, truncateDescription, truncateTitle } from './text-utils.js';
+import { EXTENDED_DESCRIPTION_MAX_LENGTH } from './text-utils-constants.js';
+import { extractFirstSentence, shouldSkipDescriptionLine, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
 import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
 import { CROSS_SITE_KEYWORDS, isNoiseKeywordToken } from './keyword-filters.js';
+import { findTitleRejectionReason } from './title-rejection.js';
+const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
+const SEO_TITLE_FLOOR = 20;
 /**
  * Extract a manifest override value for a single language. Accepts either
  * a plain string (applied to every language) or a `LanguageMap` object.
@@ -94,6 +98,31 @@ export function resolveEditorialContent(opts) {
             artefactSummary = highlightSummary;
         }
     }
+    // Per the brief-only SEO contract (2026-05-24): when an executive
+    // brief is present, we **never** fall through to the aggregated
+    // `markdown` content (which is the assembled `article.md` body
+    // including all artefact prose). The brief is the only sanctioned
+    // source for `<title>` / `<meta description>` / keywords; if it
+    // failed to yield a usable headline above, the resolver returns
+    // empty so the localized template fallback (Breaking | YYYY-MM-DD,
+    // etc.) wins. Only legacy runs that ship without a brief at all are
+    // allowed to reach the aggregated-markdown fallback.
+    const briefPresent = briefBody.trim().length > 0;
+    if (briefPresent) {
+        if (artefactSummary) {
+            const firstSentence = extractFirstSentence(artefactSummary);
+            return {
+                headline: truncateTitle(firstSentence || artefactSummary),
+                summary: briefingSummary || artefactSummary,
+                extendedSummary: briefingExtended || extractExtendedLedeAfterHeading(markdown),
+            };
+        }
+        return {
+            headline: '',
+            summary: briefingSummary,
+            extendedSummary: briefingExtended,
+        };
+    }
     const aggregatedH1 = extractFirstH1(markdown);
     const aggregatedSummary = extractStrongProseLine(markdown);
     const aggregatedExtended = extractExtendedLedeAfterHeading(markdown);
@@ -112,9 +141,13 @@ export function resolveEditorialContent(opts) {
         // resulting title is grammatically self-contained — falling back
         // to clause-boundary truncation downstream when the sentence
         // itself overruns TITLE_MAX_LENGTH.
+        // Fall back to the raw summary when the first-sentence extractor
+        // returns '' — happens when the source is a single sentence with no
+        // `. ` terminator inside the soft-min window. `truncateTitle` will
+        // still apply clause-boundary truncation downstream.
         const firstSentence = extractFirstSentence(summary);
         return {
-            headline: truncateTitle(firstSentence),
+            headline: truncateTitle(firstSentence || summary),
             summary,
             extendedSummary: briefingExtended || aggregatedExtended,
         };
@@ -160,10 +193,123 @@ export function composeContextualDescription(lang, baseDescription, editorial, d
     if (context && !containsNormalized(parts[0] ?? '', context)) {
         parts.push(`${labels.context}: ${context}`);
     }
+    // NOTE: the localized `labels.reader` "for democratic-accountability
+    // readers …" hint is intentionally **not** appended here. That
+    // boilerplate inflates `<meta description>` past the 160-char SERP
+    // cutoff without surfacing any article-specific signal, so it is
+    // restricted to the longer {@link composeContextualExtendedDescription}
+    // path (used by `og:description` / AI-overview surfaces, which have
+    // a 250–300 char budget where the framing carries real value).
+    return truncateDescription(parts.join(' '));
+}
+/**
+ * Build a per-article `extendedDescription` (used for
+ * `og:description`, Twitter cards, and AI-overview surfaces) that is
+ * always ≥ {@link DESCRIPTION_MAX_LENGTH} characters whenever the
+ * editorial source paragraph is too short to satisfy
+ * {@link truncateExtendedDescription} on its own.
+ *
+ * This is the *only* code path that surfaces the localized
+ * `labels.reader` framing — the short `<meta description>` no longer
+ * carries it (see comment in {@link composeContextualDescription}).
+ * The structure is: `<base> <Date: YYYY-MM-DD.> <Context: …> <reader>`,
+ * passed through {@link truncateExtendedDescription} (300-char max with
+ * a 200-char min) so it occupies the Open Graph / Discover budget
+ * without exceeding it.
+ *
+ * @param lang - Target language code
+ * @param baseDescription - Best description from manifest/editorial/template
+ * @param editorial - Artifact-derived headline and summary
+ * @param editorial.headline - Artifact-derived headline
+ * @param editorial.summary - Artifact-derived summary
+ * @param date - ISO article date
+ * @returns Extended description ≥180 chars when feasible, otherwise `''`
+ */
+export function composeContextualExtendedDescription(lang, baseDescription, editorial, date) {
+    const labels = getLocalizedString(SEO_CONTEXT_LABELS, lang);
+    const base = baseDescription.trim();
+    const parts = base ? [base] : [];
+    const datePart = `${labels.date} ${date}.`;
+    if (!containsNormalized(base, `${labels.date} ${date}`)) {
+        parts.push(datePart);
+    }
+    const context = pickFirstNonEmpty([editorial.summary, editorial.headline]);
+    if (context && !containsNormalized(parts.join(' '), context)) {
+        parts.push(`${labels.context}: ${context}`);
+    }
     if (!containsNormalized(parts.join(' '), labels.reader)) {
         parts.push(labels.reader);
     }
-    return truncateDescription(parts.join(' '));
+    // Synthesizer path: clamp to the 300-char og:description budget
+    // *without* enforcing the 181-char sentence-boundary floor that
+    // {@link truncateExtendedDescription} applies. The whole point of
+    // this helper is to produce a non-empty extended description when
+    // the editorial source paragraph was too short — accepting a
+    // 130-char synthesized string is strictly better than the empty
+    // fallback that was previously emitted on 56 breaking briefs.
+    // We delegate the actual clamp to {@link truncateDescription} on
+    // the joined buffer first (which won't trip because the buffer is
+    // already under 300), then truncate again only if it overruns
+    // the larger 300-char budget.
+    const joined = parts.join(' ').trim();
+    if (!joined)
+        return '';
+    if (joined.length <= EXTENDED_DESCRIPTION_MAX_LENGTH)
+        return joined;
+    // Overran the 300-char budget — apply the same sentence-boundary
+    // preserving truncation as truncateExtendedDescription.
+    return truncateExtendedDescription(joined);
+}
+export function hasLeakySeoToken(value) {
+    if (!value)
+        return false;
+    return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value);
+}
+function stripLeadingFragmentSeparator(value) {
+    return value.replace(/^[:;—–-]\s+/u, '').trim();
+}
+function stripLeakySentences(value) {
+    if (!value)
+        return '';
+    const parts = value
+        .split(/(?<=[.!?])\s+/u)
+        .map((part) => part.trim())
+        .filter(Boolean);
+    const clean = parts.filter((part) => !hasLeakySeoToken(part));
+    return (clean.length > 0 ? clean : parts).join(' ').trim();
+}
+function sanitizeDescriptionCandidate(value) {
+    const cleaned = stripLeadingFragmentSeparator(stripLeakySentences(value));
+    return cleaned && !shouldSkipDescriptionLine(cleaned) ? cleaned : '';
+}
+function isUsableResolvedTitle(value, options) {
+    const cleaned = stripLeadingFragmentSeparator(value);
+    if (cleaned.length < SEO_TITLE_FLOOR)
+        return false;
+    if (hasLeakySeoToken(cleaned))
+        return false;
+    // Reject section-header leaks, ellipsis-truncated strings, doc-IDs,
+    // and full-sentence fragments. See `title-rejection.ts` for the
+    // canonical denylist + structural rules. Without these guards, the
+    // 216-article audit (2026-05-24) showed `Strategic significance`,
+    // `Threat Level`, `Convergence themes`, `TA-10-2026-0160`, and
+    // ellipsis-cut paragraphs reaching the `<title>` surface.
+    //
+    // When `allowFullSentence` is true, the `sentence-fragment` reason is
+    // tolerated. This is used for summary-derived titles where the first
+    // sentence of the summary is the intended payload (e.g. recess days
+    // whose summary leads with `No new breaking developments on …`).
+    const reason = findTitleRejectionReason(cleaned);
+    if (reason && !(options?.allowFullSentence && reason === 'sentence-fragment')) {
+        return false;
+    }
+    return true;
+}
+function deriveHeadlineFromSummary(summary) {
+    const cleaned = sanitizeDescriptionCandidate(summary);
+    if (!cleaned)
+        return '';
+    return truncateTitle(extractFirstSentence(cleaned) || cleaned);
 }
 /**
  * Append a short run qualifier to otherwise duplicate-prone fallback
@@ -290,4 +436,5 @@ export function pickFirstNonEmpty(candidates) {
     }
     return '';
 }
+export { deriveHeadlineFromSummary, isUsableResolvedTitle, sanitizeDescriptionCandidate, };
 //# sourceMappingURL=resolve-helpers.js.map

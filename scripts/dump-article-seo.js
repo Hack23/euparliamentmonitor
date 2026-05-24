@@ -414,6 +414,17 @@ export function dumpArticleSeo(opts) {
   const resolutionTiers = Object.create(null);
   let emptyKeywordCount = 0;
   let shortDescriptionCount = 0;
+  // Phase-6 quality-flag counters — added 2026-05 to drive the
+  // "make SEO uniformly excellent" iteration. None of these abort the
+  // dump (the run still returns success); they surface in the Quality
+  // flags section so the next agent run can target the residual offenders.
+  let titleTooShortCount = 0; // < 30 chars (SERP under-utilisation)
+  let titleTooLongCount = 0; // > 65 chars (SERP truncation)
+  let descTooShortCount = 0; // < 120 chars (snippet under-utilisation)
+  let descTooLongCount = 0; // > 160 chars (SERP truncation)
+  let emptyExtendedDescriptionCount = 0;
+  let pollutedArticleTypeCount = 0; // sanity gate post-Phase-5
+  const titleOccurrences = new Map();
 
   const textChunks = [];
   const jsonLines = [];
@@ -451,6 +462,27 @@ export function dumpArticleSeo(opts) {
     resolutionTiers[tier] = (resolutionTiers[tier] ?? 0) + 1;
     if (record.entry.keywords.length === 0) emptyKeywordCount += 1;
     if (record.entry.description.length < 70) shortDescriptionCount += 1;
+    // Phase-6 quality flags — soft SERP-budget warnings.
+    const titleLen = record.entry.title.length;
+    if (titleLen > 0 && titleLen < 30) titleTooShortCount += 1;
+    if (titleLen > 65) titleTooLongCount += 1;
+    const descLen = record.entry.description.length;
+    if (descLen > 0 && descLen < 120) descTooShortCount += 1;
+    if (descLen > 160) descTooLongCount += 1;
+    if (!record.entry.extendedDescription) emptyExtendedDescriptionCount += 1;
+    if (typeof record.articleType === 'string' && /-run[a-zA-Z0-9-]*\d+$/u.test(record.articleType)) {
+      pollutedArticleTypeCount += 1;
+    }
+    // Duplicate-title detection — zero tolerance across the corpus.
+    // We group by exact byte-match of the resolved title; same-title
+    // collisions on different (date, articleType) pairs are the
+    // SERP-cannibalisation pattern that the dump is meant to surface.
+    const titleKey = record.entry.title;
+    if (titleKey) {
+      const bucket = titleOccurrences.get(titleKey) ?? [];
+      bucket.push(record.slug);
+      titleOccurrences.set(titleKey, bucket);
+    }
 
     const block = formatRecord(record, i + 1, total, lang);
     if (!quiet) process.stdout.write(`${block}\n`);
@@ -474,6 +506,11 @@ export function dumpArticleSeo(opts) {
     );
   }
 
+  const duplicateTitleGroups = Array.from(titleOccurrences.entries())
+    .filter(([, slugs]) => slugs.length > 1)
+    .map(([title, slugs]) => ({ title, count: slugs.length, slugs: [...slugs] }))
+    .sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
+
   const summary = buildSummary({
     discovered,
     total,
@@ -482,6 +519,13 @@ export function dumpArticleSeo(opts) {
     resolutionTiers,
     emptyKeywordCount,
     shortDescriptionCount,
+    titleTooShortCount,
+    titleTooLongCount,
+    descTooShortCount,
+    descTooLongCount,
+    emptyExtendedDescriptionCount,
+    pollutedArticleTypeCount,
+    duplicateTitleGroups,
   });
   if (!quiet) process.stdout.write(summary);
   textChunks.push(summary);
@@ -502,6 +546,13 @@ export function dumpArticleSeo(opts) {
     resolutionTiers,
     emptyKeywordCount,
     shortDescriptionCount,
+    titleTooShortCount,
+    titleTooLongCount,
+    descTooShortCount,
+    descTooLongCount,
+    emptyExtendedDescriptionCount,
+    pollutedArticleTypeCount,
+    duplicateTitleGroups,
     records,
   };
 }
@@ -514,6 +565,13 @@ function buildSummary({
   resolutionTiers,
   emptyKeywordCount,
   shortDescriptionCount,
+  titleTooShortCount,
+  titleTooLongCount,
+  descTooShortCount,
+  descTooLongCount,
+  emptyExtendedDescriptionCount,
+  pollutedArticleTypeCount,
+  duplicateTitleGroups,
 }) {
   const tierEntries = Object.entries(resolutionTiers).sort(
     ([a], [b]) => a.localeCompare(b)
@@ -537,8 +595,23 @@ function buildSummary({
   }
   lines.push('');
   lines.push('Quality flags:');
-  lines.push(`  runs with empty <meta keywords>           : ${emptyKeywordCount}`);
-  lines.push(`  runs with <meta description> shorter than 70 chars : ${shortDescriptionCount}`);
+  lines.push(`  runs with empty <meta keywords>                       : ${emptyKeywordCount}`);
+  lines.push(`  runs with <meta description> shorter than 70 chars    : ${shortDescriptionCount}`);
+  lines.push(`  runs with <title> shorter than 30 chars               : ${titleTooShortCount}`);
+  lines.push(`  runs with <title> longer than 65 chars (SERP-clipped) : ${titleTooLongCount}`);
+  lines.push(`  runs with <meta description> shorter than 120 chars   : ${descTooShortCount}`);
+  lines.push(`  runs with <meta description> longer than 160 chars    : ${descTooLongCount}`);
+  lines.push(`  runs with empty og:description (extendedDescription)  : ${emptyExtendedDescriptionCount}`);
+  lines.push(`  runs with -run<N>-polluted articleType                : ${pollutedArticleTypeCount}`);
+  lines.push(`  duplicate title groups (SERP cannibalisation)         : ${duplicateTitleGroups.length}`);
+  if (duplicateTitleGroups.length > 0) {
+    for (const group of duplicateTitleGroups) {
+      lines.push(`    [${group.count}×] ${group.title}`);
+      for (const slug of group.slugs) {
+        lines.push(`        - ${slug}`);
+      }
+    }
+  }
   if (failures.length > 0) {
     lines.push('');
     lines.push('Failures:');
