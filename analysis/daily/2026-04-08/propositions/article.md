@@ -1,7 +1,7 @@
 ---
 title: "Propositions, 8 April 2026"
 description: "The 8 April propositions analytical run records 0 political dimensions surfaced during pre-recess wind-down. Procedural-continuity output anchored on the Q1 2026 baseline (100…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-08", "run 38e8223f-7f7c-4124-9c22-9fe2e94b9ec8", "April", "analytical", "records", "political", "dimensions", "surfaced", "during", "recess"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-08", "April", "analytical", "records"]
 date: 2026-04-08
 article_type: propositions
 slug: 2026-04-08-propositions

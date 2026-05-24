@@ -1,7 +1,7 @@
 ---
 title: "Breaking (Pre-Recess Analysis Run 3) | 2026-04-04"
 description: "No new breaking developments on 2026-04-04; the EP is in Easter recess (27 March → 13 April). This third run of the day extends prior 2026-04-04 analyses (breaking coalition…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "Recess", "Analysis", "developments", "Easter", "March", "April", "This", "third", "extends"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-04", "Recess", "Analysis", "developments"]
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking-3

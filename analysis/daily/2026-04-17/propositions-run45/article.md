@@ -1,7 +1,7 @@
 ---
 title: "Propositions Run 45, 17 April 2026"
 description: "Run 45 is a recess-window propositions analytical run anchored on the EP10 Year-3 peak-velocity sprint thesis: the projected 935-procedure 2026 throughput peak relative…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Propositions Run45", "2026-04-17", "run ecb889c2-f7ce-4177-85e4-3b9d13c7989b", "Propositions", "April", "recess", "window", "analytical", "anchored", "EP10", "Year", "peak", "velocity"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Propositions Run45", "2026-04-17", "Propositions", "April", "recess", "window", "analytical", "anchored"]
 date: 2026-04-17
 article_type: propositions-run45
 slug: 2026-04-17-propositions-run45

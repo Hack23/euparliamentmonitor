@@ -46,7 +46,7 @@ Cross-session intelligence analysis situating the April 28–30, 2026 Strasbourg
 
 ```mermaid
 xychart-beta
-    title EP10 Session Significance Score (0-10 scale)
+    title "EP10 Session Significance Score (0-10 scale)"
     x-axis ["Jul-24", "Oct-24", "Feb-25", "Mar-25", "Apr-26"]
     y-axis "Significance Score" 0 --> 10
     bar [7, 6, 7, 6, 9.5]

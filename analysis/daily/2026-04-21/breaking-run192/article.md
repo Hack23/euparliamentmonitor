@@ -1,7 +1,7 @@
 ---
 title: "Run 192, 21 April 2026"
 description: "Run 192 is the morning ANALYSIS_ONLY probe on Day 1 of the post-Easter work week (Parliament remains in Easter recess until 27 April). No breaking event surfaced."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-21", "April", "morning", "ANALYSIS", "ONLY", "probe", "post", "Easter", "work", "week"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-21", "April", "morning", "ANALYSIS"]
 date: 2026-04-21
 article_type: breaking
 slug: 2026-04-21-breaking

@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament: April 30 – May 30, 2026"
 description: "The EU Parliament's next 30 days (April 30 – May 30, 2026) will be dominated by the May 18-21 Strasbourg plenary session, which is the key decision point for three concurrent…"
-keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-04-30", "run month-ahead-run-1777558354", "Parliament", "April", "next", "days", "will", "dominated", "Strasbourg", "plenary", "session"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-30", "Parliament", "April", "next", "days"]
 date: 2026-04-30
 article_type: month-ahead
 slug: 2026-04-30-month-ahead
@@ -3212,14 +3212,11 @@ The analysis is analytically sound, evidentially supported at the strategic leve
 ### Analytical Quality Evolution — Pass 1 → Pass 2
 
 ```mermaid
-radar
-  title Analytical Quality Dimensions (Pass 1 vs Pass 2)
-  x-axis ["Evidence Depth", "Source Diversity", "Methodological Rigor", "Completeness", "Citation Quality", "WEP Calibration"]
-  series
-    "Pass 1"
-      [60, 55, 70, 55, 60, 45]
-    "Pass 2 (Re-run)"
-      [85, 75, 88, 82, 80, 90]
+radar-beta
+    title Analytical Quality Dimensions (Pass 1 vs Pass 2)
+    axis a1["Evidence Depth"], a2["Source Diversity"], a3["Methodological Rigor"], a4["Completeness"], a5["Citation Quality"], a6["WEP Calibration"]
+    curve c1["Curve 1"]{60, 55, 70, 55, 60, 45}
+    curve c2["Curve 2"]{85, 75, 88, 82, 80, 90}
 ```
 
 ---

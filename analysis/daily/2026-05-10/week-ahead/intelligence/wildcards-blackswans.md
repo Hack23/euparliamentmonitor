@@ -176,20 +176,20 @@ Early warning signals to monitor during 18-21 May 2026:
 ```mermaid
 quadrantChart
     title Wildcards and Black Swans — Probability vs. Impact
-    x-axis Highly Unlikely --> Highly Likely
-    y-axis Negligible Impact --> Critical Impact
-    quadrant-1 Monitor
-    quadrant-2 Black Swan Zone
-    quadrant-3 Background Noise
-    quadrant-4 Routine Wildcards
+    x-axis "Highly Unlikely" --> "Highly Likely"
+    y-axis "Negligible Impact" --> "Critical Impact"
+    quadrant-1 "Monitor"
+    quadrant-2 "Black Swan Zone"
+    quadrant-3 "Background Noise"
+    quadrant-4 "Routine Wildcards"
 
-    Russia-Ukraine Escalation: [0.12, 0.85]
-    Tech Platform Crisis: [0.10, 0.60]
-    Member State Crisis: [0.08, 0.75]
-    EU Constitutional Crisis: [0.02, 1.0]
-    Cyber Attack on EP: [0.03, 0.80]
-    Commission Surprise Proposal: [0.08, 0.45]
-    National Election Shock: [0.06, 0.55]
+    "Russia-Ukraine Escalation": [0.12, 0.85]
+    "Tech Platform Crisis": [0.10, 0.60]
+    "Member State Crisis": [0.08, 0.75]
+    "EU Constitutional Crisis": [0.02, 1]
+    "Cyber Attack on EP": [0.03, 0.80]
+    "Commission Surprise Proposal": [0.08, 0.45]
+    "National Election Shock": [0.06, 0.55]
 ```
 
 

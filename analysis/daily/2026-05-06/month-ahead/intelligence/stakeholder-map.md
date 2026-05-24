@@ -14,24 +14,24 @@ Stakeholder mapping applied across the EP's May–June 2026 legislative cycle. S
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9"}}}%%
 quadrantChart
     title Power-Interest Grid (May-June 2026 Legislative Window)
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Manage Closely)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Minimal Effort
-    quadrant-4 Keep Informed
-    EPP-Group: [0.9, 0.92]
-    S-and-D-Group: [0.82, 0.85]
-    ECR-Group: [0.75, 0.72]
-    Renew-Europe: [0.7, 0.75]
-    Commission-DG-DEFIS: [0.88, 0.78]
-    Commission-DG-GROW: [0.85, 0.80]
-    Council-Presidency: [0.8, 0.88]
-    Industry-Lobby-EDIS: [0.72, 0.55]
-    Civil-Society-Climate: [0.6, 0.45]
-    Trade-Unions: [0.55, 0.5]
-    ESN-PfE-Block: [0.65, 0.7]
-    Greens-EFA: [0.68, 0.65]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Manage Closely)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Minimal Effort"
+    quadrant-4 "Keep Informed"
+    "EPP-Group": [0.9, 0.92]
+    "S-and-D-Group": [0.82, 0.85]
+    "ECR-Group": [0.75, 0.72]
+    "Renew-Europe": [0.7, 0.75]
+    "Commission-DG-DEFIS": [0.88, 0.78]
+    "Commission-DG-GROW": [0.85, 0.80]
+    "Council-Presidency": [0.8, 0.88]
+    "Industry-Lobby-EDIS": [0.72, 0.55]
+    "Civil-Society-Climate": [0.6, 0.45]
+    "Trade-Unions": [0.55, 0.5]
+    "ESN-PfE-Block": [0.65, 0.7]
+    "Greens-EFA": [0.68, 0.65]
 ```
 
 ---

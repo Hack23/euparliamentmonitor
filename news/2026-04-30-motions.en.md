@@ -1,7 +1,7 @@
 ---
 title: "EP Motions, 23–30 April 2026"
 description: "The April 28–29 Strasbourg plenary (attendance 663 / 92.2 % — among the highest of EP10) adopted 12 texts dominated by three concurrent political headlines: (i) simultaneous…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-30", "run motions-run-1777531962", "April", "Strasbourg", "plenary", "attendance", "among", "highest", "EP10", "adopted"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-30", "April", "Strasbourg", "plenary"]
 date: 2026-04-30
 article_type: motions
 slug: 2026-04-30-motions

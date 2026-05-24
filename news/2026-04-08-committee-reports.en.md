@@ -1,7 +1,7 @@
 ---
 title: "Committee Reports, 8 April 2026"
 description: "The 8 April committee-reports analytical run records 0 political dimensions surfaced from fresh signal during the pre-recess period. The output is procedural-continuity."
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-08", "run ed14dce4-14ec-4f54-94a9-8f99dd2b2e56", "Committee", "Reports", "April", "analytical", "records", "political", "dimensions", "surfaced"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-08", "Committee", "Reports", "April"]
 date: 2026-04-08
 article_type: committee-reports
 slug: 2026-04-08-committee-reports

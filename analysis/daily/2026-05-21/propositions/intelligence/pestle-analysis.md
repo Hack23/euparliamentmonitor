@@ -202,12 +202,8 @@ the legal framework for future energy-specific agreements.
 ## PESTLE Summary
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Factor Impact Scores (0-10)
-    Political : 8
-    Economic : 7
-    Social : 5
-    Technological : 9
-    Legal : 8
-    Environmental : 7
+    axis a1["Political"], a2["Economic"], a3["Social"], a4["Technological"], a5["Legal"], a6["Environmental"]
+    curve c1["PESTLE Factor Impact Scores (0-10)"]{8, 7, 5, 9, 8, 7}
 ```

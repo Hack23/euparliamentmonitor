@@ -1,7 +1,7 @@
 ---
 title: "EPP remains dominant broker"
 description: "With 185 seats, EPP controls committee chair nominations, rapporteurships, and the agenda-setting authority of the Conference of Presidents. This structural advantage compounds…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-08", "run term-outlook-run444-1778232545", "remains", "dominant", "broker", "With", "seats", "controls", "committee", "chair", "nominations", "rapporteurships"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-08", "remains", "dominant", "broker", "With", "seats", "controls"]
 date: 2026-05-08
 article_type: term-outlook
 slug: 2026-05-08-term-outlook

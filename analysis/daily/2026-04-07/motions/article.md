@@ -1,7 +1,7 @@
 ---
 title: "Motions: Day-12 Voting-Pattern Stress Test | 2026-04-07"
 description: "This Day-12 motions run is the bimodal-coalition stress test on the April 6 finding — it asks: does the bimodal coalition system survive a 24-hour holdover under degraded API…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-07", "run 2188e763-6b62-4b96-a650-76749ba22e0f", "Voting", "Pattern", "Stress", "Test", "This", "bimodal", "coalition", "April"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-07", "Voting", "Pattern", "Stress"]
 date: 2026-04-07
 article_type: motions
 slug: 2026-04-07-motions

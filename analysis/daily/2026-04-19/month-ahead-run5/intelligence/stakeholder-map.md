@@ -54,28 +54,28 @@ horizon: "April 19 – May 19, 2026"
 }}%%
 quadrantChart
     title Stakeholder Power × Interest — Month-Ahead April-May 2026
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Manage Closely (Key Players)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    European Commission: [0.90, 0.95]
-    EPP Group: [0.85, 0.95]
-    S&D Group: [0.85, 0.80]
-    Renew Group: [0.75, 0.70]
-    ECON Committee: [0.85, 0.70]
-    LIBE Committee: [0.70, 0.55]
-    INTA Committee: [0.80, 0.65]
-    German Government: [0.90, 0.85]
-    French Government: [0.75, 0.70]
-    Polish Government: [0.70, 0.50]
-    Hungarian Government: [0.60, 0.40]
-    USTR / US Trade Rep: [0.85, 0.80]
-    ECR Group: [0.55, 0.65]
-    PfE Group: [0.55, 0.60]
-    Sparkassen + VOEB Lobby: [0.88, 0.80]
-    Transparency International: [0.80, 0.25]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Manage Closely (Key Players)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "European Commission": [0.90, 0.95]
+    "EPP Group": [0.85, 0.95]
+    "S&D Group": [0.85, 0.80]
+    "Renew Group": [0.75, 0.70]
+    "ECON Committee": [0.85, 0.70]
+    "LIBE Committee": [0.70, 0.55]
+    "INTA Committee": [0.80, 0.65]
+    "German Government": [0.90, 0.85]
+    "French Government": [0.75, 0.70]
+    "Polish Government": [0.70, 0.50]
+    "Hungarian Government": [0.60, 0.40]
+    "USTR / US Trade Rep": [0.85, 0.80]
+    "ECR Group": [0.55, 0.65]
+    "PfE Group": [0.55, 0.60]
+    "Sparkassen + VOEB Lobby": [0.88, 0.80]
+    "Transparency International": [0.80, 0.25]
 ```
 
 > Quadrant 1 (top-right, *Manage Closely*) contains the decisive actors for the April-May

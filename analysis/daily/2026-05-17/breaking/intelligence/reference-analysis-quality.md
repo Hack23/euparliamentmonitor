@@ -123,7 +123,7 @@ flowchart TD
 
 ```mermaid
 xychart-beta
-    title Analysis Quality Dimensions (0=Low, 10=High)
+    title "Analysis Quality Dimensions (0=Low, 10=High)"
     x-axis ["Data Coverage", "Analytical Depth", "Source Quality", "Temporal Currency", "Methodology"]
     y-axis "Quality" 0 --> 10
     bar [6, 8, 8, 7, 8]

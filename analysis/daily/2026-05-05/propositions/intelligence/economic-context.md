@@ -37,7 +37,7 @@ The expansion of the Emissions Trading System to buildings and road transport (E
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "EU ETS Carbon Price Trajectory (€/tonne CO2)"
   x-axis ["2022", "2023", "2024", "2025", "2026E", "2027E", "2028E"]
   y-axis 0 --> 120

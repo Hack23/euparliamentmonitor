@@ -14,13 +14,13 @@ Political SWOT applied to the European Parliament as an institution managing its
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9"}}}%%
 quadrantChart
     title SWOT Strategic Position (EP, May-June 2026)
-    x-axis Weaknesses --> Strengths
-    y-axis Threats --> Opportunities
-    quadrant-1 SO (Leverage Strengths)
-    quadrant-2 WO (Overcome Weaknesses)
-    quadrant-3 WT (Damage Control)
-    quadrant-4 ST (Use Strengths against Threats)
-    Current-Position: [0.55, 0.45]
+    x-axis "Weaknesses" --> "Strengths"
+    y-axis "Threats" --> "Opportunities"
+    quadrant-1 "SO (Leverage Strengths)"
+    quadrant-2 "WO (Overcome Weaknesses)"
+    quadrant-3 "WT (Damage Control)"
+    quadrant-4 "ST (Use Strengths against Threats)"
+    "Current-Position": [0.55, 0.45]
 ```
 
 ---

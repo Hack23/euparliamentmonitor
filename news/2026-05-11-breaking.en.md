@@ -1,7 +1,7 @@
 ---
 title: "EP Breaking Intelligence, 2026-05-11"
 description: "The European Parliament's April 28–30, 2026 Strasbourg plenary delivered three landmark actions: Published 2026-05-11. for democratic-accountability readers tracking EU…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-11", "run breaking-run397-1778462980", "Intelligence", "European", "Parliament", "April", "Strasbourg", "plenary", "delivered", "three"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-11", "Intelligence", "European", "Parliament"]
 date: 2026-05-11
 article_type: breaking
 slug: 2026-05-11-breaking

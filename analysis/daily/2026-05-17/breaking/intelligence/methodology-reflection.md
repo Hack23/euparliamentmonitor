@@ -122,18 +122,10 @@ Pass 2 review identified the following artifacts requiring extension:
 ## METHODOLOGY COVERAGE DIAGRAM
 
 ```mermaid
-radar
+radar-beta
     title SAT Coverage Assessment
-    A[Key Assumptions Check] : 8
-    B[Quality of Information Check] : 9
-    C[Scenario Analysis] : 8
-    D[Red Team Analysis] : 7
-    E[Devil's Advocate] : 8
-    F[Competing Hypotheses] : 7
-    G[Historical Baseline] : 9
-    H[PESTLE Framework] : 9
-    I[Risk Matrix] : 9
-    J[Stakeholder Map] : 9
+    axis a1["Key Assumptions Check"], a2["Quality of Information Check"], a3["Scenario Analysis"], a4["Red Team Analysis"], a5["Devil's Advocate"], a6["Competing Hypotheses"], a7["Historical Baseline"], a8["PESTLE Framework"], a9["Risk Matrix"], a10["Stakeholder Map"]
+    curve c1["SAT Coverage Assessment"]{8, 9, 8, 7, 8, 7, 9, 9, 9, 9}
 ```
 
 ### SAT Completion Log

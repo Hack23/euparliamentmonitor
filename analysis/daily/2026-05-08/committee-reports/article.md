@@ -1,7 +1,7 @@
 ---
 title: "DMA Enforcement"
 description: "Parliament's 421–87–34 majority demands structural remedies; Commission likely to delay Published 2026-05-08. for democratic-accountability readers tracking EU institutional…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-08", "run committee-reports-run263-1778221903", "Enforcement", "Parliament", "majority", "demands", "structural", "remedies", "Commission", "likely"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-08", "Enforcement", "Parliament", "majority"]
 date: 2026-05-08
 article_type: committee-reports
 slug: 2026-05-08-committee-reports
@@ -1793,25 +1793,25 @@ The persistent Art. 7 violation by Hungary and de facto alignment with Russian d
 ```mermaid
 quadrantChart
     title SWOT Position Map — EP Committee Reports (May 2026)
-    x-axis Internal Factors (Weakness <--> Strength)
-    y-axis External Factors (Threat <--> Opportunity)
-    quadrant-1 SO: Exploit
-    quadrant-2 WO: Invest
-    quadrant-3 WT: Defend
-    quadrant-4 ST: Mitigate
-    S1 Coalition 421 Votes: [0.9, 0.6]
-    S2 Productive Plenary: [0.8, 0.5]
-    S3 Legal Arsenal: [0.8, 0.7]
-    O1 Commissioner Leverage: [0.7, 0.8]
-    O2 DMA Precedent: [0.6, 0.7]
-    O3 Ukraine Accession: [0.5, 0.8]
-    W1 IMF Data Gap: [0.3, 0.5]
-    W2 API Degradation: [0.2, 0.4]
-    W3 Council Dependence: [0.25, 0.55]
-    T1 Green Deal Backslide: [0.55, 0.25]
-    T2 Big Tech Litigation: [0.6, 0.2]
-    T3 Budget Impasse: [0.5, 0.3]
-    T4 Hungary Obstruction: [0.55, 0.25]
+    x-axis "Internal Factors (Weakness <" --> "Strength)"
+    y-axis "External Factors (Threat <" --> "Opportunity)"
+    quadrant-1 "SO: Exploit"
+    quadrant-2 "WO: Invest"
+    quadrant-3 "WT: Defend"
+    quadrant-4 "ST: Mitigate"
+    "S1 Coalition 421 Votes": [0.9, 0.6]
+    "S2 Productive Plenary": [0.8, 0.5]
+    "S3 Legal Arsenal": [0.8, 0.7]
+    "O1 Commissioner Leverage": [0.7, 0.8]
+    "O2 DMA Precedent": [0.6, 0.7]
+    "O3 Ukraine Accession": [0.5, 0.8]
+    "W1 IMF Data Gap": [0.3, 0.5]
+    "W2 API Degradation": [0.2, 0.4]
+    "W3 Council Dependence": [0.25, 0.55]
+    "T1 Green Deal Backslide": [0.55, 0.25]
+    "T2 Big Tech Litigation": [0.6, 0.2]
+    "T3 Budget Impasse": [0.5, 0.3]
+    "T4 Hungary Obstruction": [0.55, 0.25]
 ```
 
 **Strategic conclusion:** The Parliament's strong coalition (S1) combined with Commissioner leverage opportunity (O1) creates the optimal window for DMA enforcement acceleration in 2026. The primary defensive need is protecting Green Deal implementation against the T1-T4 threat cluster.

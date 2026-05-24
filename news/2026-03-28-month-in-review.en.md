@@ -1,7 +1,7 @@
 ---
 title: "Month In Review | 2026-03-28"
 description: "EP10 ecosystem snapshot at March end, no acute month-of-March synthesis signal. Analysis run e1c8e9c5-1a6d-4f2c-9cda-312aa19023fe returned 0 classified political actors…"
-keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-03-28", "run e1c8e9c5-1a6d-4f2c-9cda-312aa19023fe", "Month", "Review", "EP10", "ecosystem", "snapshot", "March", "acute", "synthesis", "signal"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-03-28", "Month", "Review", "EP10", "ecosystem"]
 date: 2026-03-28
 article_type: month-in-review
 slug: 2026-03-28-month-in-review
@@ -6751,35 +6751,35 @@ The 3.96-percentage-point spread between Spain's boom and Germany's recession cr
 %%{init: {'theme': 'base', 'themeVariables': {'quadrant1Fill': '#e8f5e9', 'quadrant2Fill': '#fff3e0', 'quadrant3Fill': '#e3f2fd', 'quadrant4Fill': '#fce4ec'}}}%%
 quadrantChart
     title EP10 SWOT Analysis — Impact vs Urgency Matrix
-    x-axis Low Urgency --> High Urgency
-    y-axis Low Impact --> High Impact
-    quadrant-1 Strengths (Leverage)
-    quadrant-2 Threats (Mitigate)
-    quadrant-3 Opportunities (Develop)
-    quadrant-4 Weaknesses (Address)
-    S1 Legislative Growth: [0.30, 0.95]
-    S2 Coalition Majority: [0.35, 0.90]
-    S3 Roll-Call Engagement: [0.25, 0.65]
-    S4 Resolution Activity: [0.20, 0.60]
-    S5 Oversight Surge: [0.25, 0.55]
-    S6 Pipeline Health: [0.15, 0.92]
-    S7 Stability Score: [0.20, 0.70]
-    W1 Thin Majority: [0.85, 0.88]
-    W2 Fragmentation: [0.75, 0.85]
-    W3 Size Asymmetry: [0.60, 0.55]
-    W4 Session Plateau: [0.65, 0.50]
-    W5 Opposition Incoherence: [0.55, 0.45]
-    T1 German Recession: [0.90, 0.85]
-    T2 EPP Dominance: [0.70, 0.65]
-    T3 Paralysis Risk: [0.80, 0.80]
-    T4 Eurosceptic Bloc: [0.60, 0.60]
-    T5 Economic Divergence: [0.72, 0.62]
-    O1 Productivity Record: [0.30, 0.82]
-    O2 Oversight Legitimacy: [0.25, 0.60]
-    O3 Cross-Party Climate: [0.40, 0.65]
-    O4 Growth Exemplars: [0.35, 0.50]
-    O5 Mid-Term Window: [0.45, 0.68]
-    O6 Procedure Diversity: [0.20, 0.45]
+    x-axis "Low Urgency" --> "High Urgency"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Strengths (Leverage)"
+    quadrant-2 "Threats (Mitigate)"
+    quadrant-3 "Opportunities (Develop)"
+    quadrant-4 "Weaknesses (Address)"
+    "S1 Legislative Growth": [0.30, 0.95]
+    "S2 Coalition Majority": [0.35, 0.90]
+    "S3 Roll-Call Engagement": [0.25, 0.65]
+    "S4 Resolution Activity": [0.20, 0.60]
+    "S5 Oversight Surge": [0.25, 0.55]
+    "S6 Pipeline Health": [0.15, 0.92]
+    "S7 Stability Score": [0.20, 0.70]
+    "W1 Thin Majority": [0.85, 0.88]
+    "W2 Fragmentation": [0.75, 0.85]
+    "W3 Size Asymmetry": [0.60, 0.55]
+    "W4 Session Plateau": [0.65, 0.50]
+    "W5 Opposition Incoherence": [0.55, 0.45]
+    "T1 German Recession": [0.90, 0.85]
+    "T2 EPP Dominance": [0.70, 0.65]
+    "T3 Paralysis Risk": [0.80, 0.80]
+    "T4 Eurosceptic Bloc": [0.60, 0.60]
+    "T5 Economic Divergence": [0.72, 0.62]
+    "O1 Productivity Record": [0.30, 0.82]
+    "O2 Oversight Legitimacy": [0.25, 0.60]
+    "O3 Cross-Party Climate": [0.40, 0.65]
+    "O4 Growth Exemplars": [0.35, 0.50]
+    "O5 Mid-Term Window": [0.45, 0.68]
+    "O6 Procedure Diversity": [0.20, 0.45]
 ```
 
 ---

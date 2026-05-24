@@ -1,7 +1,7 @@
 ---
 title: "Breaking (Coalition Dynamics) | 2026-04-04"
 description: "Coalition arithmetic on 2026-04-04 confirms the previous day's structural picture: PPE 38% asymmetric dominance and the Renew–ECR cohesion signal (~0.95) continuing."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "Coalition", "Dynamics", "arithmetic", "confirms", "previous", "structural", "picture", "asymmetric", "dominance"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-04", "Coalition", "Dynamics", "arithmetic"]
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking

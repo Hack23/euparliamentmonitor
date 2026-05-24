@@ -1,7 +1,7 @@
 ---
 title: "TA-10-2026-0160"
 description: "— \"Enforcement of the Digital Markets Act\" adopted 30 April 2026 — marks a political escalation. After two full years of DMA applicability, MEPs are publicly demanding…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-08", "run breaking-run373-1778202056", "Enforcement", "Digital", "Markets", "adopted", "April", "marks", "political", "escalation"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-08", "Enforcement", "Digital", "Markets"]
 date: 2026-05-08
 article_type: breaking
 slug: 2026-05-08-breaking

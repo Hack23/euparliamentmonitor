@@ -1,7 +1,7 @@
 ---
 title: "EP10 Term Synthesis Summary"
 description: "The European Parliament's tenth term (EP10) is proceeding through a structural transformation that will define European governance for the remainder of this decade."
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-07", "run term-outlook-run367-1778164061", "EP10", "Term", "Synthesis", "Summary", "European", "Parliament", "tenth", "proceeding", "through", "structural"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-07", "EP10", "Term", "Synthesis", "Summary", "European", "Parliament"]
 date: 2026-05-07
 article_type: term-outlook
 slug: 2026-05-07-term-outlook

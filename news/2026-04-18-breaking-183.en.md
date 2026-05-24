@@ -1,7 +1,7 @@
 ---
 title: "Run 183, 18 April 2026"
 description: "Run 183 (Easter Recess Day 5) records the highest composite-risk score of the recess series so far: 24/50 — driven not by fresh adoptions but by accumulating analytical weight…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "Easter", "Recess", "records", "highest", "composite", "risk", "score", "series"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "Easter", "Recess"]
 date: 2026-04-18
 article_type: breaking
 slug: 2026-04-18-breaking-183

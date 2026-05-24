@@ -1,7 +1,7 @@
 ---
 title: "Run 182, 17 April 2026"
 description: "Run 182 is the fourth breaking probe of 17 April and the run where the \"Institutional Self-Contradiction Thesis\" was first established as EP10's defining analytical framework."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-17", "April", "fourth", "probe", "where", "Institutional", "Self", "Contradiction", "Thesis", "first"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-17", "April", "fourth", "probe"]
 date: 2026-04-17
 article_type: breaking
 slug: 2026-04-17-breaking-182
@@ -484,19 +484,19 @@ If ECR fractures by ~20 MEPs on trade mandate → surviving EPP-S&D-Renew majori
 }}%%
 quadrantChart
     title EP10 Risk Landscape — April 17, 2026
-    x-axis Low Impact --> High Impact
-    y-axis Low Likelihood --> High Likelihood
-    quadrant-1 Critical (Monitor Daily)
-    quadrant-2 High (Monitor Weekly)
-    quadrant-3 Low (Background)
-    quadrant-4 Medium (Track)
-    US Trade Service Retaliation: [0.75, 0.40]
-    Digital Omnibus Rollback Cascade: [0.65, 0.70]
-    ECR Coalition Fracture Trade: [0.72, 0.45]
-    Housing Commission Inadequate Response: [0.45, 0.60]
-    April 27 Plenary Disruption: [0.60, 0.35]
-    Recess Governance Gap: [0.35, 0.55]
-    ERA Act Coalition Failure: [0.55, 0.20]
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Likelihood" --> "High Likelihood"
+    quadrant-1 "Critical (Monitor Daily)"
+    quadrant-2 "High (Monitor Weekly)"
+    quadrant-3 "Low (Background)"
+    quadrant-4 "Medium (Track)"
+    "US Trade Service Retaliation": [0.75, 0.40]
+    "Digital Omnibus Rollback Cascade": [0.65, 0.70]
+    "ECR Coalition Fracture Trade": [0.72, 0.45]
+    "Housing Commission Inadequate Response": [0.45, 0.60]
+    "April 27 Plenary Disruption": [0.60, 0.35]
+    "Recess Governance Gap": [0.35, 0.55]
+    "ERA Act Coalition Failure": [0.55, 0.20]
 ```
 
 ---

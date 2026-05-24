@@ -1,7 +1,7 @@
 ---
 title: "Run 156, 10 April 2026"
 description: "Run 156 is the Easter Recess Day 15, T-5 breaking probe, conducted over a 28-minute analysis window (18:17–18:45 UTC). T-5 = 5 days before TA-0096 / TA-0097 statutory activation…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-10", "April", "Easter", "Recess", "probe", "conducted", "over", "minute", "analysis", "window"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-10", "April", "Easter", "Recess"]
 date: 2026-04-10
 article_type: breaking
 slug: 2026-04-10-breaking-156

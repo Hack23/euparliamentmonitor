@@ -15,26 +15,26 @@
 ```mermaid
 quadrantChart
     title Stakeholder Influence-Interest Matrix
-    x-axis Low Interest --> High Interest
-    y-axis Low Influence --> High Influence
-    quadrant-1 Keep Satisfied
-    quadrant-2 Manage Closely
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    European Commission: [0.85, 0.90]
-    EPP Group: [0.88, 0.85]
-    PfE Group: [0.80, 0.60]
-    Big Tech Gatekeepers: [0.90, 0.70]
-    S&D Group: [0.70, 0.72]
-    Renew Europe: [0.72, 0.65]
-    ECR Group: [0.75, 0.58]
-    Ukraine Government: [0.85, 0.35]
-    Armenia Government: [0.60, 0.30]
-    Greens/EFA: [0.65, 0.50]
-    EU Member States (Council): [0.80, 0.88]
-    Civil Society (DMA): [0.70, 0.25]
-    GUE/NGL: [0.55, 0.42]
-    ESN Group: [0.60, 0.35]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Influence" --> "High Influence"
+    quadrant-1 "Keep Satisfied"
+    quadrant-2 "Manage Closely"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "European Commission": [0.85, 0.90]
+    "EPP Group": [0.88, 0.85]
+    "PfE Group": [0.80, 0.60]
+    "Big Tech Gatekeepers": [0.90, 0.70]
+    "S&D Group": [0.70, 0.72]
+    "Renew Europe": [0.72, 0.65]
+    "ECR Group": [0.75, 0.58]
+    "Ukraine Government": [0.85, 0.35]
+    "Armenia Government": [0.60, 0.30]
+    "Greens/EFA": [0.65, 0.50]
+    "EU Member States (Council)": [0.80, 0.88]
+    "Civil Society (DMA)": [0.70, 0.25]
+    "GUE/NGL": [0.55, 0.42]
+    "ESN Group": [0.60, 0.35]
 ```
 
 ---
@@ -211,22 +211,22 @@ These actors are affected but not primary decision-makers in the immediate legis
 ```mermaid
 quadrantChart
     title Stakeholder Interest Alignment (Support vs Oppose EU Action)
-    x-axis Low Support --> High Support
-    y-axis Low Influence --> High Influence
-    quadrant-1 Key Allies (High Influence + High Support)
-    quadrant-2 Manage Carefully (High Influence + Low Support)
-    quadrant-3 Monitor (Low Influence + Low Support)
-    quadrant-4 Keep Satisfied (Low Influence + High Support)
-    EPP: [0.72, 0.85]
+    x-axis "Low Support" --> "High Support"
+    y-axis "Low Influence" --> "High Influence"
+    quadrant-1 "Key Allies (High Influence + High Support)"
+    quadrant-2 "Manage Carefully (High Influence + Low Support)"
+    quadrant-3 "Monitor (Low Influence + Low Support)"
+    quadrant-4 "Keep Satisfied (Low Influence + High Support)"
+    "EPP": [0.72, 0.85]
     "S&D": [0.88, 0.75]
-    PfE: [0.15, 0.55]
-    ECR: [0.28, 0.50]
-    Renew: [0.80, 0.60]
-    Greens: [0.92, 0.40]
-    Commission: [0.65, 0.80]
+    "PfE": [0.15, 0.55]
+    "ECR": [0.28, 0.50]
+    "Renew": [0.80, 0.60]
+    "Greens": [0.92, 0.40]
+    "Commission": [0.65, 0.80]
     "US Tech": [0.10, 0.70]
-    BEUC: [0.95, 0.25]
-    Russia: [0.05, 0.30]
+    "BEUC": [0.95, 0.25]
+    "Russia": [0.05, 0.30]
 ```
 
 ---

@@ -230,16 +230,16 @@ Based on this run's experience, the following methodology improvements are recom
 ## Methodology Quality Diagram
 
 ```mermaid
-radar
+radar-beta
     title Methodology Coverage 2026-05-05
-    "Data Richness" : 6
-    "IMF Economic Data" : 2
-    "Coalition Analysis" : 9
-    "Scenario Rigour" : 8
-    "Threat Modelling" : 8
-    "Shell Safety Compliance" : 10
-    "Artifact Completeness" : 8
-    "Mermaid Visualisation" : 7
+    curve c1["Data Richness"]{6}
+    curve c2["IMF Economic Data"]{2}
+    curve c3["Coalition Analysis"]{9}
+    curve c4["Scenario Rigour"]{8}
+    curve c5["Threat Modelling"]{8}
+    curve c6["Shell Safety Compliance"]{10}
+    curve c7["Artifact Completeness"]{8}
+    curve c8["Mermaid Visualisation"]{7}
 ```
 
 **Satisfaction Score Summary** (sat markers):

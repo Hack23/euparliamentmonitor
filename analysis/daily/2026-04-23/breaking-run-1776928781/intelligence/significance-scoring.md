@@ -9,13 +9,13 @@ date: 2026-04-23
 ## Scoring Framework: EP April 2026 Breaking News
 
 ```mermaid
-radar
+radar-beta
     title Significance Dimensions (March 26 Package)
-    axis Institutional Impact, Economic Significance, Political Sensitivity, International Reach, Temporal Urgency, Democratic Accountability, Legal Novelty
-    "March 26 Trade Defence" : 90, 95, 75, 95, 90, 70, 80
-    "Banking Union Package" : 85, 90, 60, 80, 70, 85, 85
-    "Anti-Corruption Directive" : 80, 55, 80, 70, 65, 95, 90
-    "Digital Omnibus AI" : 70, 75, 65, 85, 75, 70, 80
+    axis a1["Institutional Impact"], a2["Economic Significance"], a3["Political Sensitivity"], a4["International Reach"], a5["Temporal Urgency"], a6["Democratic Accountability"], a7["Legal Novelty"]
+    curve c1["March 26 Trade Defence"]{90, 95, 75, 95, 90, 70, 80}
+    curve c2["Banking Union Package"]{85, 90, 60, 80, 70, 85, 85}
+    curve c3["Anti-Corruption Directive"]{80, 55, 80, 70, 65, 95, 90}
+    curve c4["Digital Omnibus AI"]{70, 75, 65, 85, 75, 70, 80}
 ```
 
 ---

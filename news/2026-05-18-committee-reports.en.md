@@ -1,7 +1,7 @@
 ---
 title: "EP Committee Reports | 2026-05-18"
-description: "Period Covered: 2026-05-11 to 2026-05-18 Published 2026-05-18. for democratic-accountability readers tracking EU institutional consequences"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-18", "run committee-reports-run262-1779082403", "Committee", "Reports", "Period", "Covered", "Published", "democratic", "accountability", "readers"]
+description: "WEP Band (overall assessment): Likely (60–70% confidence in general findings) degraded-feeds EP10 standard committee calendar in effect ✓ | KA-2: EPP-S&D-Renew coalition holding…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-18", "Committee", "Reports", "Band"]
 date: 2026-05-18
 article_type: committee-reports
 slug: 2026-05-18-committee-reports

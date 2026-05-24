@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Week-in-Review"
 description: "The European Parliament's week of April 19–26, 2026 demonstrated high legislative productivity under increasing structural political stress. Parliament passed 147+ adopted texts…"
-keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-04-26", "run week-in-review-run-1777235041", "Parliament", "Week", "Review", "European", "April", "demonstrated", "high", "legislative", "productivity"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-26", "Parliament", "Week", "Review", "European"]
 date: 2026-04-26
 article_type: week-in-review
 slug: 2026-04-26-week-in-review

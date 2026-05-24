@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Month in Review: April 2026"
 description: "April 2026 marked the European Parliament's most legislatively intensive month of EP10's second year, with the Strasbourg and Brussels plenary sessions adopting 11 binding…"
-keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-05-03", "run month-in-review-run-1777850961", "Parliament", "Month", "Review", "April", "marked", "European", "most", "legislatively", "intensive"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-05-03", "Parliament", "Month", "Review", "April"]
 date: 2026-05-03
 article_type: month-in-review
 slug: 2026-05-03-month-in-review
@@ -3421,14 +3421,14 @@ CBAM began its substantive phase in January 2026 (transition period ended). Earl
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
-radar
+radar-beta
     title PESTLE Force Intensity — April 2026
-    "Political" : 4
-    "Economic" : 4
-    "Social" : 3
-    "Technological" : 4
-    "Legal" : 3
-    "Environmental" : 4
+    curve c1["Political"]{4}
+    curve c2["Economic"]{4}
+    curve c3["Social"]{3}
+    curve c4["Technological"]{4}
+    curve c5["Legal"]{3}
+    curve c6["Environmental"]{4}
 ```
 
 **Dominant forces in April 2026:** Political fragmentation with centrist majority productivity (P), IMF macro downgrade driving fiscal tension (E), Tech regulation enforcement escalation (T), and Climate-Defence budget conflict (Env) are the four strongest forces. Legal and Social forces are significant but secondary in this month's legislative context.

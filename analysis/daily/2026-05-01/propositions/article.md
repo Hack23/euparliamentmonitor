@@ -1,7 +1,7 @@
 ---
-title: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition Analyst"
-description: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition Analyst: AI-First Analysis Pipeline v2.5 | WEP/Admiralty grades applied"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-01", "run propositions-run-1777615486", "Coverage", "April", "Strasbourg", "Plenary", "Edition", "Analyst", "First", "Analysis"]
+title: "The Governance Milestone: Anti-Corruption Regulation"
+description: "The signing of the Anti-Corruption Regulation (Regulation 2026/XXX, based on procedure 2023/0135/COD) on April 29, 2026 constitutes the most significant EU institutional…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-01", "Governance", "Milestone", "Anti"]
 date: 2026-05-01
 article_type: propositions
 slug: 2026-05-01-propositions

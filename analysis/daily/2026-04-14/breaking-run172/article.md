@@ -1,7 +1,7 @@
 ---
 title: "Q1 2026 Legislative Productivity Audit & Post-Recess Pressure Mapping | 2026-04-14"
 description: "*This run delivers the period's most important structural finding: the EP10 grand coalition (EPP 185 + S&D 135 = 320) is arithmetically impossible at the 361-seat majority…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "Legislative", "Productivity", "Audit", "Post", "Recess", "Pressure", "Mapping", "This", "delivers"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-14", "Legislative", "Productivity", "Audit"]
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-172

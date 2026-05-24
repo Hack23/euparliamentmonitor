@@ -119,14 +119,14 @@ The Diamond Model reveals that the threat's strength lies in the INFRASTRUCTURE 
 ## Threat Summary
 
 ```mermaid
-radar
+radar-beta
     title Threat Dimensions (0-10 scale)
-    "Coalition Disruption" : [7]
-    "Institutional Attack" : [8]
-    "DMA Enforcement Failure" : [7]
-    "Budget Obstruction" : [6]
-    "Ukraine Track Delay" : [4]
-    "Armenia Backsliding" : [3]
+    curve c1["Coalition Disruption"]{7}
+    curve c2["Institutional Attack"]{8}
+    curve c3["DMA Enforcement Failure"]{7}
+    curve c4["Budget Obstruction"]{6}
+    curve c5["Ukraine Track Delay"]{4}
+    curve c6["Armenia Backsliding"]{3}
 ```
 
 *Note: Mermaid radar chart is conceptual; values are analyst estimates.*

@@ -1,7 +1,7 @@
 ---
 title: "EP Week Ahead: May 18–21, 2026 (Strasbourg Plenary) | 2026-05-08"
 description: "The Strasbourg plenary of 18–21 May 2026 is a HIGH-significance legislative week at the threshold of the EU legislative calendar's summer sprint."
-keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-05-08", "run week-ahead-run265-1778230116", "Week", "Ahead", "Strasbourg", "Plenary", "HIGH", "significance", "legislative", "threshold"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-08", "Week", "Ahead", "Strasbourg"]
 date: 2026-05-08
 article_type: week-ahead
 slug: 2026-05-08-week-ahead

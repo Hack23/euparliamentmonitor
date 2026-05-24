@@ -1,7 +1,7 @@
 ---
 title: "EP10 Term Outlook to 2029 | 2026-05-11"
 description: "EP10 will deliver a partial, multi-coalition legislative record between now and the 2029 election — the term's strategic frame is structural fiscal pressure, not acute political…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-11", "run term-outlook-run348-1778510405", "EP10", "Term", "Outlook", "will", "deliver", "partial", "multi", "coalition", "legislative", "record"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-11", "EP10", "Term", "Outlook", "will", "deliver", "partial"]
 date: 2026-05-11
 article_type: term-outlook
 slug: 2026-05-11-term-outlook
@@ -310,11 +310,11 @@ language guide is in #see footer.
 ```mermaid
 graph TD
   EP10[EP10 717 MEPs<br/>9 groups]
-  EP10 --> CENTRE[Grand Centre<br/>EPP+S&D+Renew = 56%]
+  EP10 --> CENTRE["Grand Centre<br/>EPP+S&D+Renew = 56%"]
   EP10 --> RIGHT[Right Bloc<br/>PfE+ECR+ESN = 26%]
   EP10 --> LEFT[Left Bloc<br/>Greens+Left = 14%]
-  CENTRE --> WINS[Defence | SM2.0 | MFF | AI enforcement]
-  CENTRE -.contested.-> CONT[Climate 2030+ | Migration | Enlargement]
+  CENTRE --> WINS["Defence | SM2.0 | MFF | AI enforcement"]
+  CENTRE -.contested.-> CONT["Climate 2030+ | Migration | Enlargement"]
   RIGHT -.blocking.-> CONT
   LEFT -.demanding.-> WINS
   WINS --> 2029[2029 Election<br/>litigated on record]
@@ -2088,12 +2088,12 @@ Weight × inverse-horizon proximity gives a "strategic priority" score.
 ```mermaid
 quadrantChart
     title Strength × Opportunity vs Weakness × Threat
-    x-axis Defensive --> Offensive
-    y-axis Reactive --> Proactive
-    quadrant-1 Build (S+O)
-    quadrant-2 Convert (W+O)
-    quadrant-3 Defend (S+T)
-    quadrant-4 Avoid (W+T)
+    x-axis "Defensive" --> "Offensive"
+    y-axis "Reactive" --> "Proactive"
+    quadrant-1 "Build (S+O)"
+    quadrant-2 "Convert (W+O)"
+    quadrant-3 "Defend (S+T)"
+    quadrant-4 "Avoid (W+T)"
     "S1 Coalition habit": [0.85, 0.75]
     "S2 Commission ready": [0.85, 0.75]
     "O1 MFF lock": [0.85, 0.85]

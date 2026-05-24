@@ -1,7 +1,7 @@
 ---
 title: "Week Ahead: Post-Easter Committee Restart (10–17 April) | 2026-04-10"
 description: "The week of 10–17 April covers Parliament's transition from Easter recess into the 14-17 April committee restart week — and the run's most consequential finding is a structurally…"
-keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-04-10", "run 12", "Week", "Ahead", "Post", "Easter", "Committee", "Restart", "April", "covers"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-04-10", "Week", "Ahead", "Post"]
 date: 2026-04-10
 article_type: week-ahead
 slug: 2026-04-10-week-ahead

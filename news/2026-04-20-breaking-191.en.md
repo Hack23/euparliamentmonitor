@@ -1,7 +1,7 @@
 ---
 title: "Run 191, 20 April 2026"
 description: "Run 191 (Easter Monday evening probe) records Recess Day 8 / API Outage Day 11 in continued ANALYSISONLY mode. The day produced 19 analysis artifacts but zero fresh adoptions."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-20", "April", "Easter", "Monday", "evening", "probe", "records", "Recess", "Outage", "continued"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-20", "April", "Easter", "Monday"]
 date: 2026-04-20
 article_type: breaking
 slug: 2026-04-20-breaking-191

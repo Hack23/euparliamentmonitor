@@ -1,7 +1,7 @@
 ---
 title: "March 26 plenary"
 description: "adopted 7 texts including 3 CRITICAL items. Published 2026-04-13. for democratic-accountability readers tracking EU institutional consequences"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Motions Run41", "2026-04-13", "run b3749573-d54d-4d01-94be-4b53854132bc", "March", "plenary", "adopted", "texts", "including", "CRITICAL", "items", "Published", "democratic", "accountability"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Motions Run41", "2026-04-13", "March", "plenary", "adopted", "texts", "including", "CRITICAL"]
 date: 2026-04-13
 article_type: motions-run41
 slug: 2026-04-13-motions-run41

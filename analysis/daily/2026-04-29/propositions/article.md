@@ -1,7 +1,7 @@
 ---
-title: "The April 28, 2026 Strasbourg plenary session was one of the most legislatively dense sittings of EP10, adopting 22 texts across nine…"
-description: "The April 28, 2026 Strasbourg plenary session was one of the most legislatively dense sittings of EP10, adopting 22 texts across nine policy domains — from the multiannual…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-29", "run propositions-run-1777442543", "April", "Strasbourg", "plenary", "session", "most", "legislatively", "dense", "sittings"]
+title: "The April 28 session marks a transition from EP10's consolidation phase to its assertive legislative phase."
+description: "The April 28 session marks a transition from EP10's consolidation phase to its assertive legislative phase. The MFF interim report is the Parliament's opening salvo in what…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-29", "April", "session", "marks"]
 date: 2026-04-29
 article_type: propositions
 slug: 2026-04-29-propositions

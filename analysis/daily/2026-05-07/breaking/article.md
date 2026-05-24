@@ -1,7 +1,7 @@
 ---
 title: "EP Breaking News: 7 May 2026"
 description: "The European Parliament's final April 2026 plenary delivered three high-impact outputs that will define the EP's political trajectory into summer recess: a confrontational…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-07", "run breaking-run-1778159307", "News", "European", "Parliament", "final", "April", "plenary", "delivered", "three"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-07", "News", "European", "Parliament"]
 date: 2026-05-07
 article_type: breaking
 slug: 2026-05-07-breaking
@@ -1231,7 +1231,7 @@ The increasing tactical cooperation between PfE and ECR (observed in the April 2
 
 ```mermaid
 xychart-beta
-    title April 28-30 EP Session — Composite Impact Scores (out of 25)
+    title "April 28-30 EP Session — Composite Impact Scores (out of 25)"
     x-axis ["DMA Enforcement", "Ukraine Accountability", "Budget 2027", "Armenia Democracy", "PfE Debate"]
     y-axis "Composite Score" 0 --> 25
     bar [19, 19, 15, 14, 8]
@@ -1568,26 +1568,26 @@ Higher fragmentation paradoxically strengthens EP bargaining power vis-à-vis th
 ```mermaid
 quadrantChart
     title Stakeholder Influence-Interest Matrix
-    x-axis Low Interest --> High Interest
-    y-axis Low Influence --> High Influence
-    quadrant-1 Keep Satisfied
-    quadrant-2 Manage Closely
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    European Commission: [0.85, 0.90]
-    EPP Group: [0.88, 0.85]
-    PfE Group: [0.80, 0.60]
-    Big Tech Gatekeepers: [0.90, 0.70]
-    S&D Group: [0.70, 0.72]
-    Renew Europe: [0.72, 0.65]
-    ECR Group: [0.75, 0.58]
-    Ukraine Government: [0.85, 0.35]
-    Armenia Government: [0.60, 0.30]
-    Greens/EFA: [0.65, 0.50]
-    EU Member States (Council): [0.80, 0.88]
-    Civil Society (DMA): [0.70, 0.25]
-    GUE/NGL: [0.55, 0.42]
-    ESN Group: [0.60, 0.35]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Influence" --> "High Influence"
+    quadrant-1 "Keep Satisfied"
+    quadrant-2 "Manage Closely"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "European Commission": [0.85, 0.90]
+    "EPP Group": [0.88, 0.85]
+    "PfE Group": [0.80, 0.60]
+    "Big Tech Gatekeepers": [0.90, 0.70]
+    "S&D Group": [0.70, 0.72]
+    "Renew Europe": [0.72, 0.65]
+    "ECR Group": [0.75, 0.58]
+    "Ukraine Government": [0.85, 0.35]
+    "Armenia Government": [0.60, 0.30]
+    "Greens/EFA": [0.65, 0.50]
+    "EU Member States (Council)": [0.80, 0.88]
+    "Civil Society (DMA)": [0.70, 0.25]
+    "GUE/NGL": [0.55, 0.42]
+    "ESN Group": [0.60, 0.35]
 ```
 
 ---
@@ -1764,22 +1764,22 @@ These actors are affected but not primary decision-makers in the immediate legis
 ```mermaid
 quadrantChart
     title Stakeholder Interest Alignment (Support vs Oppose EU Action)
-    x-axis Low Support --> High Support
-    y-axis Low Influence --> High Influence
-    quadrant-1 Key Allies (High Influence + High Support)
-    quadrant-2 Manage Carefully (High Influence + Low Support)
-    quadrant-3 Monitor (Low Influence + Low Support)
-    quadrant-4 Keep Satisfied (Low Influence + High Support)
-    EPP: [0.72, 0.85]
+    x-axis "Low Support" --> "High Support"
+    y-axis "Low Influence" --> "High Influence"
+    quadrant-1 "Key Allies (High Influence + High Support)"
+    quadrant-2 "Manage Carefully (High Influence + Low Support)"
+    quadrant-3 "Monitor (Low Influence + Low Support)"
+    quadrant-4 "Keep Satisfied (Low Influence + High Support)"
+    "EPP": [0.72, 0.85]
     "S&D": [0.88, 0.75]
-    PfE: [0.15, 0.55]
-    ECR: [0.28, 0.50]
-    Renew: [0.80, 0.60]
-    Greens: [0.92, 0.40]
-    Commission: [0.65, 0.80]
+    "PfE": [0.15, 0.55]
+    "ECR": [0.28, 0.50]
+    "Renew": [0.80, 0.60]
+    "Greens": [0.92, 0.40]
+    "Commission": [0.65, 0.80]
     "US Tech": [0.10, 0.70]
-    BEUC: [0.95, 0.25]
-    Russia: [0.05, 0.30]
+    "BEUC": [0.95, 0.25]
+    "Russia": [0.05, 0.30]
 ```
 
 ---
@@ -2189,12 +2189,12 @@ B   2  |       |       | R-04  | R-02  | R-03  |
 ```mermaid
 quadrantChart
     title Risk Matrix (Likelihood x Impact)
-    x-axis Low Impact --> High Impact
-    y-axis Low Likelihood --> High Likelihood
-    quadrant-1 High Priority (High Likelihood + High Impact)
-    quadrant-2 Monitor (Low Likelihood + High Impact)
-    quadrant-3 Accept (Low Likelihood + Low Impact)
-    quadrant-4 Track (High Likelihood + Low Impact)
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Likelihood" --> "High Likelihood"
+    quadrant-1 "High Priority (High Likelihood + High Impact)"
+    quadrant-2 "Monitor (Low Likelihood + High Impact)"
+    quadrant-3 "Accept (Low Likelihood + Low Impact)"
+    quadrant-4 "Track (High Likelihood + Low Impact)"
     "DMA Delay": [0.55, 0.72]
     "US Trade War": [0.65, 0.55]
     "Budget Failure": [0.80, 0.22]
@@ -2669,7 +2669,7 @@ The EU Parliament's legislative velocity in 2026 (projected 114 legislative acts
 
 ```mermaid
 xychart-beta
-    title Legislative Acts per Quarter (Baseline vs Risk-Adjusted)
+    title "Legislative Acts per Quarter (Baseline vs Risk-Adjusted)"
     x-axis ["Q1 2026 (act)", "Q2 2026 (fcst)", "Q3 2026 (fcst)", "Q4 2026 (fcst)"]
     y-axis "Legislative Acts" 0 --> 35
     line "Baseline" [25, 29, 27, 30]
@@ -2930,14 +2930,14 @@ The Diamond Model reveals that the threat's strength lies in the INFRASTRUCTURE 
 ### Threat Summary
 
 ```mermaid
-radar
+radar-beta
     title Threat Dimensions (0-10 scale)
-    "Coalition Disruption" : [7]
-    "Institutional Attack" : [8]
-    "DMA Enforcement Failure" : [7]
-    "Budget Obstruction" : [6]
-    "Ukraine Track Delay" : [4]
-    "Armenia Backsliding" : [3]
+    curve c1["Coalition Disruption"]{7}
+    curve c2["Institutional Attack"]{8}
+    curve c3["DMA Enforcement Failure"]{7}
+    curve c4["Budget Obstruction"]{6}
+    curve c5["Ukraine Track Delay"]{4}
+    curve c6["Armenia Backsliding"]{3}
 ```
 
 *Note: Mermaid radar chart is conceptual; values are analyst estimates.*
@@ -3217,12 +3217,12 @@ Azerbaijan's threat to the EP's Armenia resolution (TA-10-2026-0162) is primaril
 ### Diamond
 
 ```mermaid
-radar
+radar-beta
     title Threat Actor Capability Radar
-    "PfE" : [2, 8, 1, 4, 3]
-    "Russia" : [0, 9, 0, 8, 7]
-    "US Gov" : [0, 7, 7, 9, 6]
-    "Big Tech" : [0, 6, 9, 4, 8]
+    curve c1["PfE"]{2, 8, 1, 4, 3}
+    curve c2["Russia"]{0, 9, 0, 8, 7}
+    curve c3["US Gov"]{0, 7, 7, 9, 6}
+    curve c4["Big Tech"]{0, 6, 9, 4, 8}
 ```
 
 Note: Dimensions: Legislative, Narrative, Legal, Diplomatic, Network (0-10 scale)
@@ -3588,14 +3588,14 @@ Based on EP statistical dataset (2026 projections):
 ### 4 · Disruption Resilience Assessment
 
 ```mermaid
-radar
+radar-beta
     title Legislative Disruption Resilience (5 = fully resilient)
-    "Coalition cohesion" : 4
-    "Procedural protection" : 4
-    "Institutional stability" : 4
-    "Budget timeline" : 3
-    "Foreign policy coherence" : 3
-    "Information environment" : 3
+    curve c1["Coalition cohesion"]{4}
+    curve c2["Procedural protection"]{4}
+    curve c3["Institutional stability"]{4}
+    curve c4["Budget timeline"]{3}
+    curve c5["Foreign policy coherence"]{3}
+    curve c6["Information environment"]{3}
 ```
 
 **Overall resilience: 3.5/5 (Strong)**
@@ -3799,7 +3799,7 @@ Rule 169 debate (current) → Motion of Censure attempt (6–12 months, if catal
 
 ```mermaid
 xychart-beta
-    title Threat Severity vs Probability (April 2026)
+    title "Threat Severity vs Probability (April 2026)"
     x-axis ["PfE Challenge", "US-Tech Tension", "Ceasefire Fracture", "Budget Fracture", "Armenia Escalation"]
     y-axis "Severity Score (1-5)" 0 --> 5
     bar [3, 3, 4, 3, 2]
@@ -4803,7 +4803,7 @@ The April 2026 accountability text is the 4th major accountability-focused Ukrai
 
 ```mermaid
 xychart-beta
-    title EP Group Seat Evolution (EP7-EP10)
+    title "EP Group Seat Evolution (EP7-EP10)"
     x-axis ["EP7 2009", "EP8 2014", "EP9 2019", "EP10 2024"]
     y-axis "Seats" 0 --> 260
     line "EPP" [265, 221, 182, 185]

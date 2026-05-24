@@ -15,10 +15,10 @@ quadrantChart
     title Risk Register: Probability vs. Impact
     x-axis "Low Probability" --> "High Probability"
     y-axis "Low Impact" --> "High Impact"
-    quadrant-1 Critical: Monitor Daily
-    quadrant-2 High: Manage Actively
-    quadrant-3 Low: Accept
-    quadrant-4 Medium: Monitor Monthly
+    quadrant-1 "Critical: Monitor Daily"
+    quadrant-2 "High: Manage Actively"
+    quadrant-3 "Low: Accept"
+    quadrant-4 "Medium: Monitor Monthly"
     "ETS2 rollback attempt": [0.70, 0.72]
     "Budget 2027 delay": [0.35, 0.55]
     "ReArm failure": [0.15, 0.80]

@@ -1,7 +1,7 @@
 ---
 title: "Close to Adoption"
 description: "The European Parliament faces its most consequential twelve months since the 2024 election. EPP dominance (183/717 seats, 25.5%) within a highly fragmented nine-group chamber…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-11", "run year-ahead-run598-1778488878", "Close", "Adoption", "European", "Parliament", "faces", "most", "consequential", "twelve", "months", "since"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-11", "Close", "Adoption", "European", "Parliament", "faces", "most"]
 date: 2026-05-11
 article_type: year-ahead
 slug: 2026-05-11-year-ahead
@@ -640,18 +640,11 @@ Strategic autonomy gains (defence, digital) benefit all member states. Housing l
 
 ```mermaid
 %%{init:{"theme":"dark","themeVariables":{"primaryColor":"#1565C0","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title EP Institutional Impact Profile 2026-2027
-    options
-        max: 10
-    "Legislative Credibility": 7
-    "Accountability Role": 6
-    "Democratic Legitimacy": 7
-    "Regulatory Power": 8
-    "Budget Leverage": 7
-    "International Influence": 6
-    "Coalition Stability": 5
-    "Social Responsiveness": 5
+    axis a1["Legislative Credibility"], a2["Accountability Role"], a3["Democratic Legitimacy"], a4["Regulatory Power"], a5["Budget Leverage"], a6["International Influence"], a7["Coalition Stability"], a8["Social Responsiveness"]
+    curve c1["Impact Profile"]{7, 6, 7, 8, 7, 6, 5, 5}
+    max 10
 ```
 
 **Notable:** Regulatory Power (8/10) and Legislative Credibility (7/10) are EP's strongest institutional dimensions in 2026–2027. Social Responsiveness (5/10) is the greatest gap — EP is perceived as better at technical regulation than at responding to citizens' lived economic concerns.

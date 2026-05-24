@@ -1,7 +1,7 @@
 ---
 title: "Committee Reports | 2026-04-02"
 description: "No new committee reports on 2026-04-02; recess week 2 of 4 continues. Run b64d7ca7-e49c-4fb7-9203-9946d31bfcae returned 0 classified actors and ROUTINE significance across all…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-02", "run b64d7ca7-e49c-4fb7-9203-9946d31bfcae", "Committee", "Reports", "recess", "week", "continues", "b64d7ca7", "e49c", "4fb7"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-02", "Committee", "Reports", "recess"]
 date: 2026-04-02
 article_type: committee-reports
 slug: 2026-04-02-committee-reports

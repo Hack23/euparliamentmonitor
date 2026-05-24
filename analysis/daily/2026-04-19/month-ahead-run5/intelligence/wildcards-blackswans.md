@@ -54,22 +54,22 @@ horizon: "April 19 – May 19, 2026"
 }}%%
 quadrantChart
     title Wildcard Events — Probability × Impact (30-day window)
-    x-axis Very Low Probability --> Higher Probability (still <20%)
-    y-axis Low Impact --> Catastrophic Impact
-    quadrant-1 Critical Stress-Tests
-    quadrant-2 Monitor Not Prepare
-    quadrant-3 Noise
-    quadrant-4 Over-Prepared
-    Commission No-Confidence Motion: [0.04, 0.95]
-    Major ECJ Preliminary Injunction: [0.10, 0.78]
-    Member State Financial Stability Event: [0.07, 0.90]
-    US Federal Reserve Emergency Action: [0.05, 0.82]
-    EPP Leadership Resignation: [0.05, 0.75]
-    Major Cyber Incident EP or Commission: [0.12, 0.75]
-    Ukraine Conflict Escalation: [0.15, 0.88]
-    Natural Disaster Plenary Disruption: [0.04, 0.55]
-    MEP Death or Sudden Incapacity: [0.18, 0.30]
-    Ransomware on Member State Banking: [0.08, 0.85]
+    x-axis "Very Low Probability" --> "Higher Probability (still <20%)"
+    y-axis "Low Impact" --> "Catastrophic Impact"
+    quadrant-1 "Critical Stress-Tests"
+    quadrant-2 "Monitor Not Prepare"
+    quadrant-3 "Noise"
+    quadrant-4 "Over-Prepared"
+    "Commission No-Confidence Motion": [0.04, 0.95]
+    "Major ECJ Preliminary Injunction": [0.10, 0.78]
+    "Member State Financial Stability Event": [0.07, 0.90]
+    "US Federal Reserve Emergency Action": [0.05, 0.82]
+    "EPP Leadership Resignation": [0.05, 0.75]
+    "Major Cyber Incident EP or Commission": [0.12, 0.75]
+    "Ukraine Conflict Escalation": [0.15, 0.88]
+    "Natural Disaster Plenary Disruption": [0.04, 0.55]
+    "MEP Death or Sudden Incapacity": [0.18, 0.30]
+    "Ransomware on Member State Banking": [0.08, 0.85]
 ```
 
 ---

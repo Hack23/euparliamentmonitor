@@ -165,7 +165,7 @@ The EIB report calls for enhanced accountability and transparency. Financial sec
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
 xychart-beta
-    title Stakeholder Impact Score (Positive=beneficial, Negative=adverse)
+    title "Stakeholder Impact Score (Positive=beneficial, Negative=adverse)"
     x-axis ["Polish Govt", "Press Freedom Orgs", "Womens Rights Orgs", "ECR/PiS Civil Society", "Orlen", "Commission", "Council", "EIB sector"]
     y-axis "Impact Score (-5 to +5)" -5 --> 5
     bar [4, 5, 5, -4, -2, 3, 1, 1]

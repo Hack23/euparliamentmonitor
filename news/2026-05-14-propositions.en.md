@@ -1,7 +1,7 @@
 ---
 title: "Convergence themes"
 description: "Three distinct legislative axes converged this session: (1) platform/digital accountability (DMA + cyberbullying), (2) geopolitical posture (Ukraine accountability + Armenia)…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-14", "run propositions-run313-1778747315", "Convergence", "themes", "Three", "distinct", "legislative", "axes", "converged", "this"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-14", "Convergence", "themes", "Three"]
 date: 2026-05-14
 article_type: propositions
 slug: 2026-05-14-propositions

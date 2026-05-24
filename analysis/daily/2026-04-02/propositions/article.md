@@ -1,7 +1,7 @@
 ---
 title: "Propositions | 2026-04-02"
 description: "No new Commission propositions or EP own-initiative procedures opened on 2026-04-02. Run a3fdcdee-e95c-4a90-a4de-4c41509e1c1d returned 0 classified actors and ROUTINE…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-02", "run a3fdcdee-e95c-4a90-a4de-4c41509e1c1d", "Commission", "initiative", "procedures", "opened", "a3fdcdee", "e95c", "4a90", "a4de"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-02", "Commission", "initiative", "procedures"]
 date: 2026-04-02
 article_type: propositions
 slug: 2026-04-02-propositions
@@ -1395,7 +1395,7 @@ graph LR
 %%{init: {"theme":"dark"}}%%
 graph LR
     R1["🟠 אמינות זרם הליכים<br/>שגיאות 404 רב-יומיות<br/>L×I = 4×3 = 12"] --> CONS["הסלם אם 48+ שעות"]
-    R2["🟠 מסלול מהיר סחר ארה\"ב<br/>L×I = 3×4 = 12"] --> CONS
+    R2["🟠 מסלול מהיר סחר ארה&quot;ב<br/>L×I = 3×4 = 12"] --> CONS
     R3["🟡 מקרה חירום חוות דעת מרקוסור<br/>L×I = 3×3 = 9"] --> CONS
     style R1 fill:#FF9800,color:#000000
     style R2 fill:#FF9800,color:#000000

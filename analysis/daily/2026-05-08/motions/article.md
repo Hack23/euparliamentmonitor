@@ -1,7 +1,7 @@
 ---
 title: "EP Motions · Week of 28–30 April 2026"
 description: "The April 28–30 Strasbourg plenary adopted 15+ motions and legislative acts covering digital governance, food security, foreign policy accountability, and institutional budget…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-08", "run motions-run380-1778231555", "Week", "April", "Strasbourg", "plenary", "adopted", "legislative", "acts", "covering"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-08", "Week", "April", "Strasbourg"]
 date: 2026-05-08
 article_type: motions
 slug: 2026-05-08-motions
@@ -2790,18 +2790,18 @@ quadrantChart
     title Wildcard Matrix — Impact vs Probability
     x-axis "Probability (Low → High)" 0 --> 1
     y-axis "Impact (Low → High)" 0 --> 1
-    quadrant-1 High Impact / High Probability
-    quadrant-2 High Impact / Low Probability (BLACK SWANS)
-    quadrant-3 Low Impact / Low Probability
-    quadrant-4 Low Impact / High Probability
-    W1-EPP Collapse: [0.05, 0.95]
-    W2-Trump DMA Retaliation: [0.15, 0.80]
-    W3-Ukraine Ceasefire: [0.20, 0.75]
-    W4-Major Cyber Attack EP: [0.08, 0.70]
-    W5-PfE Electoral Win: [0.10, 0.85]
-    W6-Jaki Extradition: [0.12, 0.40]
-    W7-Farm Crisis Escalation: [0.30, 0.55]
-    W8-EP Building Security: [0.06, 0.60]
+    quadrant-1 "High Impact / High Probability"
+    quadrant-2 "High Impact / Low Probability (BLACK SWANS)"
+    quadrant-3 "Low Impact / Low Probability"
+    quadrant-4 "Low Impact / High Probability"
+    "W1-EPP Collapse": [0.05, 0.95]
+    "W2-Trump DMA Retaliation": [0.15, 0.8]
+    "W3-Ukraine Ceasefire": [0.2, 0.75]
+    "W4-Major Cyber Attack EP": [0.08, 0.7]
+    "W5-PfE Electoral Win": [0.1, 0.85]
+    "W6-Jaki Extradition": [0.12, 0.4]
+    "W7-Farm Crisis Escalation": [0.3, 0.55]
+    "W8-EP Building Security": [0.06, 0.6]
 ```
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "EP Propositions, 25 March – 24 April 2026"
 description: "The 30-day propositions window indexed 104 adopted-text records for 2026 (TA-10-2026-0001 … TA-10-2026-0104) on the EP Open Data Portal — a quantitatively healthy but…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-24", "run propositions-run-1777009560", "March", "April", "window", "indexed", "adopted", "text", "records", "Open"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-24", "March", "April", "window"]
 date: 2026-04-24
 article_type: propositions
 slug: 2026-04-24-propositions

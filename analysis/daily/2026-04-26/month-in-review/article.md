@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Month in Review: March 27 – April 26, 2026"
 description: "The European Parliament completed a landmark legislative sprint in March-April 2026 achieving the most consequential 30-day output since the 2020 COVID recovery legislation…"
-keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-04-26", "run month-in-review-run-1777207349", "Parliament", "Month", "Review", "March", "April", "European", "completed", "landmark", "legislative"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-26", "Parliament", "Month", "Review", "March"]
 date: 2026-04-26
 article_type: month-in-review
 slug: 2026-04-26-month-in-review
@@ -735,24 +735,24 @@ flowchart TD
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","secondaryColor":"#2E7D32"}}}%%
 quadrantChart
     title Stakeholder Power × Interest Matrix — April 2026
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Manage Closely)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    EPP Group: [0.95, 0.92]
-    S&D Group: [0.90, 0.82]
-    European Commission: [0.88, 0.88]
-    ECB: [0.70, 0.90]
-    Renew Group: [0.80, 0.72]
-    ECR Group: [0.75, 0.70]
-    National Governments: [0.82, 0.85]
-    Banking Sector: [0.85, 0.65]
-    Civil Society: [0.75, 0.40]
-    EU Citizens: [0.60, 0.30]
-    Tech Industry: [0.82, 0.60]
-    Trade Unions: [0.70, 0.45]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Manage Closely)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "EPP Group": [0.95, 0.92]
+    "S&D Group": [0.90, 0.82]
+    "European Commission": [0.88, 0.88]
+    "ECB": [0.70, 0.90]
+    "Renew Group": [0.80, 0.72]
+    "ECR Group": [0.75, 0.70]
+    "National Governments": [0.82, 0.85]
+    "Banking Sector": [0.85, 0.65]
+    "Civil Society": [0.75, 0.40]
+    "EU Citizens": [0.60, 0.30]
+    "Tech Industry": [0.82, 0.60]
+    "Trade Unions": [0.70, 0.45]
 ```
 
 ---
@@ -1439,14 +1439,14 @@ timeline
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title Political Threat Landscape — April 2026
-    "Coalition Shifts" : [75]
-    "Transparency Deficit" : [60]
-    "Policy Reversal Risk" : [65]
-    "Institutional Pressure" : [70]
-    "Legislative Obstruction" : [55]
-    "Democratic Erosion" : [45]
+    curve c1["Coalition Shifts"]{75}
+    curve c2["Transparency Deficit"]{60}
+    curve c3["Policy Reversal Risk"]{65}
+    curve c4["Institutional Pressure"]{70}
+    curve c5["Legislative Obstruction"]{55}
+    curve c6["Democratic Erosion"]{45}
 ```
 
 #### Dimension 1: Coalition Shifts (Score: 75/100) 🟠 HIGH

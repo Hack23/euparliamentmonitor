@@ -1,7 +1,7 @@
 ---
 title: "Propositions | 2026-04-01"
 description: "No new Commission propositions or EP own-initiative dossiers indexed on 2026-04-01. Analysis run 4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc returned 0 classified actors and ROUTINE…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-01", "run 4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc", "Commission", "initiative", "dossiers", "indexed", "Analysis", "4cf3b11a", "f38e", "4a3c"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-01", "Commission", "initiative", "dossiers"]
 date: 2026-04-01
 article_type: propositions
 slug: 2026-04-01-propositions
@@ -1452,7 +1452,7 @@ graph LR
 %%{init: {"theme":"dark"}}%%
 graph LR
     R1["🟠 זרם הליכים 404<br/>get_procedures_feed<br/>L×I = 3×3 = 9"] --> CONS["בדיקה חוזרת 2026-04-02"]
-    R2["🟠 הצעת מסלול מהיר סחר ארה\"ב<br/>L×I = 3×4 = 12"] --> CONS
+    R2["🟠 הצעת מסלול מהיר סחר ארה&quot;ב<br/>L×I = 3×4 = 12"] --> CONS
     R3["🟡 מקרה חירום חוות דעת Mercosur<br/>L×I = 3×3 = 9"] --> CONS
     style R1 fill:#FF9800,color:#000000
     style R2 fill:#FF9800,color:#000000

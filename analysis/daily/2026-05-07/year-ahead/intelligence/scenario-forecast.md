@@ -17,10 +17,10 @@ quadrantChart
     title EP Year Ahead Scenario Matrix (2026-2027)
     x-axis "Low Domestic Cohesion" --> "High Domestic Cohesion"
     y-axis "Low Geopolitical Stability" --> "High Geopolitical Stability"
-    quadrant-1 Scenario B "Managed Tensions"
-    quadrant-2 Scenario A "Progressive Integration"
-    quadrant-3 Scenario D "Crisis Paralysis"
-    quadrant-4 Scenario C "Nationalist Capture"
+    quadrant-1 "Scenario B \"Managed Tensions\""
+    quadrant-2 "Scenario A \"Progressive Integration\""
+    quadrant-3 "Scenario D \"Crisis Paralysis\""
+    quadrant-4 "Scenario C \"Nationalist Capture\""
     "Most Likely Path": [0.65, 0.55]
 ```
 

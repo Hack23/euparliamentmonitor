@@ -1,7 +1,7 @@
 ---
-title: "EP10 Is Legislating at Speed"
-description: "Twenty-one texts were adopted in January–April 2026, with defense/security (5), social (3), budget/finance (3), institutional (3), trade (2), and digital (2) as the dominant…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-22", "run propositions-run261-1779431162", "EP10", "Legislating", "Speed", "Twenty", "texts", "were", "adopted", "January"]
+title: "The Three-Coalition Paradox"
+description: "EP10's governing coalition (EPP+S&D+Renew = 398/719) is simultaneously strong enough to pass legislation and internally divided enough to create unpredictable outcomes on key…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-22", "Three", "Coalition", "Paradox"]
 date: 2026-05-22
 article_type: propositions
 slug: 2026-05-22-propositions

@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Motions & Resolutions"
-description: "- KA-1: EP voting records API delay is normal (several weeks lag); roll-call data from DOCEO unavailable for May 19-21 — assessed with HIGH confidence based on known EP data…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-22", "run motions-run289-1779433987", "Parliament", "voting", "records", "delay", "normal", "several", "weeks", "roll"]
+description: "WEP Band: LIKELY (65-85%) | Time Horizon: 3–6 months | Admiralty Grade: B2 Published 2026-05-22. for democratic-accountability readers tracking EU institutional consequences"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-22", "Parliament", "Band", "LIKELY"]
 date: 2026-05-22
 article_type: motions
 slug: 2026-05-22-motions

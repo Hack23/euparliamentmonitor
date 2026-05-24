@@ -1,7 +1,7 @@
 ---
 title: "Motions Run 39, 13 April 2026"
 description: "Run 39 is a T-2 pre-Tariff-activation motions-track positioning run. The motions track maintains continuity on the March 2026 motion cluster (housing, anti-corruption, Braun…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-13", "run 39", "April", "Tariff", "activation", "track", "positioning", "maintains", "continuity", "March"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-13", "April", "Tariff", "activation"]
 date: 2026-04-13
 article_type: motions
 slug: 2026-04-13-motions-39

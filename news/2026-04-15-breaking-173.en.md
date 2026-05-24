@@ -1,7 +1,7 @@
 ---
 title: "Run 173, 15 April 2026"
 description: "Run 173 marks Tariff T-0 — the activation of TA-10-2026-0096 as the EU's first autonomous trade-defence action under the current US-EU geopolitical framework."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-15", "April", "marks", "Tariff", "activation", "first", "autonomous", "trade", "defence", "action"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-15", "April", "marks", "Tariff"]
 date: 2026-04-15
 article_type: breaking
 slug: 2026-04-15-breaking-173

@@ -13,14 +13,14 @@ The EP political threat landscape is assessed across six dimensions. Note: This 
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title EP Political Threat Landscape (0-10 scale)
-    "Geopolitical" : 8.5
-    "Economic" : 6.5
-    "Institutional" : 4.5
-    "Democratic" : 6.0
-    "Technological" : 5.5
-    "Environmental" : 5.0
+    curve c1["Geopolitical"]{8.5}
+    curve c2["Economic"]{6.5}
+    curve c3["Institutional"]{4.5}
+    curve c4["Democratic"]{6.0}
+    curve c5["Technological"]{5.5}
+    curve c6["Environmental"]{5.0}
 ```
 
 ---

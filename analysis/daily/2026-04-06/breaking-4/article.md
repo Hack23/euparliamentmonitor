@@ -1,7 +1,7 @@
 ---
 title: "Easter Monday Run 4: Daily Intelligence Closure | 2026-04-06"
 description: "*Run-4 is the Easter Monday daily intelligence closure — the most intensively monitored day of the 18-day recess, producing 8 workflow runs, 61+ analysis artifacts, and ~16,000+…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Daily", "Intelligence", "Closure", "most", "intensively", "monitored", "recess"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Daily"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-4
@@ -168,7 +168,7 @@ quadrantChart
     "Post-recess logjam": [0.6, 0.4]
     "Small group margin.": [0.4, 0.6]
     "Right-bloc formal.": [0.8, 0.4]
-    "Grand coalition fracture": [1.0, 0.2]
+    "Grand coalition fracture": [1, 0.2]
     "Transparency deficit": [0.5, 0.7]
 ```
 

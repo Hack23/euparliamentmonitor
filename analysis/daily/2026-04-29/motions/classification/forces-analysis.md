@@ -109,14 +109,10 @@ Porter's Five Forces is adapted here for EP political dynamics:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title EP April 28 Forces Analysis
-    "EP Agenda Power"
-    "Council Countervailing Power"
-    "Commission Proposing Power"
-    "Far-Right Disruption"
-    "Civil Society Support"
-    current [7, 6, 6, 4, 7]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"]
+    curve c1["current"]{7, 6, 6, 4, 7}
 ```
 
 | Force | Direction | Strength | Net Effect |

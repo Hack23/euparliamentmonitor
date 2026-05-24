@@ -195,6 +195,22 @@ describe('sanitizeMermaidQuadrantChart', () => {
     expect(sanitizeMermaidQuadrantChart(input)).toBe(input);
   });
 
+  it('short-circuits axis lines with a quoted label and a numeric range end', () => {
+    // Regression: `x-axis "Probability" 0 --> 100` was being rewritten to
+    // `x-axis "\"Probability\" 0" --> "100"` because the LHS captured the
+    // already-quoted label plus the numeric axis-start. The short-circuit
+    // in rewriteQuadrantChartLine must leave these lines untouched —
+    // covers both integer and decimal RHS forms, positive and negative.
+    const input = [
+      'quadrantChart',
+      '    x-axis "Probability" 0 --> 100',
+      '    y-axis "Impact" 0.0 --> 10.5',
+      '    x-axis "Range" -1 --> 1',
+      '    y-axis "Signed" -2.5 --> 2.5',
+    ].join('\n');
+    expect(sanitizeMermaidQuadrantChart(input)).toBe(input);
+  });
+
   it('handles mixed quoting (some quoted, some bare)', () => {
     const input = [
       'quadrantChart',

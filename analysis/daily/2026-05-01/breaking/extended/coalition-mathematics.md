@@ -51,9 +51,9 @@
 - **Assessment:** ✅ Governs EP10 comfortably when three-party framework holds
 
 ```mermaid
-bar
-    title Coalition Seat Distribution (EP 2026-05-01)
-    x-axis [EPP, S&D, PfE, ECR, Renew, Greens, Left, NI, ESN]
+xychart-beta
+    title "Coalition Seat Distribution (EP 2026-05-01)"
+    x-axis ["EPP", "S&D", "PfE", "ECR", "Renew", "Greens", "Left", "NI", "ESN"]
     y-axis 0 --> 200
     bar [185, 135, 85, 81, 77, 53, 46, 30, 27]
 ```

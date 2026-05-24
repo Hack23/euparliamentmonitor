@@ -16,18 +16,18 @@
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","mainBkg":"#1565C0"}}}%%
 quadrantChart
     title EP Week Ahead — Scenario Probability vs. Impact Matrix
-    x-axis Low Impact --> High Impact
-    y-axis Low Probability --> High Probability
-    quadrant-1 Monitor
-    quadrant-2 Manage (High Prob, High Impact)
-    quadrant-3 Low Priority
-    quadrant-4 Contingency Plan
-    AI Act Progress: [0.65, 0.75]
-    Trade Deal Breakthrough: [0.85, 0.25]
-    ReArm Europe Stall: [0.55, 0.55]
-    Emergency Urgency Motion: [0.90, 0.10]
-    Coalition Fracture: [0.80, 0.05]
-    Committee Calendar Disruption: [0.35, 0.15]
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Probability" --> "High Probability"
+    quadrant-1 "Monitor"
+    quadrant-2 "Manage (High Prob, High Impact)"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Contingency Plan"
+    "AI Act Progress": [0.65, 0.75]
+    "Trade Deal Breakthrough": [0.85, 0.25]
+    "ReArm Europe Stall": [0.55, 0.55]
+    "Emergency Urgency Motion": [0.90, 0.10]
+    "Coalition Fracture": [0.80, 0.05]
+    "Committee Calendar Disruption": [0.35, 0.15]
 ```
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Month in Review: March 28–April 27, 2026"
 description: "The European Parliament completed its most consequential legislative month of 2026, adopting a comprehensive defence industrial revolution (single market for defence, flagship…"
-keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-04-27", "run month-in-review-run-1777296132", "Parliament", "Month", "Review", "March", "April", "European", "completed", "most", "consequential"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-27", "Parliament", "Month", "Review", "March"]
 date: 2026-04-27
 article_type: month-in-review
 slug: 2026-04-27-month-in-review
@@ -838,12 +838,13 @@ The EU Parliament's productive March 2026 legislative month creates implementati
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
-radar
+radar-beta
     title EU Parliament Legislative SWOT Q1-Q2 2026
-    S ["Strengths"] : 78, 72, 85, 68, 90
-    W ["Weaknesses"] : 65, 80, 70, 75, 60
-    O ["Opportunities"] : 70, 65, 80, 55, 75
-    T ["Threats"] : 60, 75, 55, 80, 70
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"]
+    curve c1["Strengths"]{78, 72, 85, 68, 90}
+    curve c2["Weaknesses"]{65, 80, 70, 75, 60}
+    curve c3["Opportunities"]{70, 65, 80, 55, 75}
+    curve c4["Threats"]{60, 75, 55, 80, 70}
 ```
 
 ---

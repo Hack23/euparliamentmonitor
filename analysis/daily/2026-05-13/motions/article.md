@@ -1,7 +1,7 @@
 ---
-title: "EP Motions and Adopted Texts: April–May 2026"
-description: "The European Parliament's April 2026 plenary week (28–30 April) was defined by four landmark resolutions addressing digital market enforcement, Russian accountability…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-13", "run motions-run375-1778655547", "Adopted", "Texts", "April", "European", "Parliament", "plenary", "week", "defined"]
+title: "Political Architecture (EP10 — May 2026)"
+description: "- 717 MEPs across 9 groups; majority = 360 votes - EPP (183, 25.5%): dominant centre-right; steers on DMA, budget, CFSP - S&D (136, 19.0%): progressive backbone; drives Ukraine…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-13", "Political", "Architecture", "EP10"]
 date: 2026-05-13
 article_type: motions
 slug: 2026-05-13-motions

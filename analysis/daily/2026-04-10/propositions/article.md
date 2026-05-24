@@ -1,7 +1,7 @@
 ---
 title: "Propositions, 10 April 2026"
 description: "The 10 April propositions synthesis identifies ECON committee's structural workload concentration as the dominant Q2 2026 propositions-track signal: 3 Banking Union trilogue…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-10", "run PROP-2026-04-10-001", "April", "synthesis", "identifies", "ECON", "committee", "structural", "workload", "concentration"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-10", "April", "synthesis", "identifies"]
 date: 2026-04-10
 article_type: propositions
 slug: 2026-04-10-propositions-PROP-2026-04-10-001

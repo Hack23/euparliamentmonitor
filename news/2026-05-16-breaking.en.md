@@ -1,7 +1,7 @@
 ---
 title: "Extended Executive Brief — April 2026 EP Session (Deep Analysis)"
 description: "The April 2026 EU Parliament session produced a strong legislative record on geopolitical (Ukraine), regulatory (DMA), and institutional (budget) priorities."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-16", "run breaking-run255-1778894853", "Extended", "Executive", "Brief", "April", "Session", "Deep", "Analysis", "Parliament"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-16", "Extended", "Executive", "Brief"]
 date: 2026-05-16
 article_type: breaking
 slug: 2026-05-16-breaking

@@ -113,9 +113,9 @@ Each resolution is scored on 5 dimensions (0–10 scale each):
 ## SIGNIFICANCE SCORING DIAGRAM
 
 ```mermaid
-bar
-    title Significance Scores by Policy Track
-    x-axis [DMA Enforcement, Ukraine Resolution, Armenia Support, 2027 Budget, Cyberbullying, Haiti, EU-Iceland PNR, EIB Report]
+xychart-beta
+    title "Significance Scores by Policy Track"
+    x-axis ["DMA Enforcement", "Ukraine Resolution", "Armenia Support", "2027 Budget", "Cyberbullying", "Haiti", "EU-Iceland PNR", "EIB Report"]
     y-axis 0 --> 10
     bar [9.2, 8.8, 7.5, 8.1, 6.8, 6.2, 5.8, 5.4]
 ```

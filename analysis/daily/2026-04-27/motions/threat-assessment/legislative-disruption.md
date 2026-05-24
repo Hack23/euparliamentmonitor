@@ -16,10 +16,10 @@ Legislative disruption at the EP level occurs when procedural mechanisms, politi
 graph TD
     ROOT[April 2026 Plenary\nDisruption Scenarios]
     
-    ROOT --> PROC[Procedural disruption\nProbability: 30-40%]
-    ROOT --> POL[Political crisis\nProbability: 10-15%]
-    ROOT --> EXT[External shock\nProbability: 5-10%]
-    ROOT --> INST[Institutional dysfunction\nProbability: <5%]
+    ROOT --> PROC["Procedural disruption\nProbability: 30-40%"]
+    ROOT --> POL["Political crisis\nProbability: 10-15%"]
+    ROOT --> EXT["External shock\nProbability: 5-10%"]
+    ROOT --> INST["Institutional dysfunction\nProbability: <5%"]
     
     PROC --> RR[Rollcall overload\n→ agenda slip]
     PROC --> QR[Quorum challenge\n→ session suspension]
@@ -30,7 +30,7 @@ graph TD
     POL --> SDS[S&D confidence\n→ coalition stress]
     
     EXT --> TESC[US tariff escalation\n→ trade motion rewrite]
-    EXT → SEC[Security incident\n→ session suspension]
+    EXT --> SEC[Security incident\n→ session suspension]
     
     INST --> IT[IT/voting system failure\n→ delay]
 ```

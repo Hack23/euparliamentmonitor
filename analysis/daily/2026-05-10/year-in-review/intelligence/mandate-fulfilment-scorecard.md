@@ -28,7 +28,7 @@ This scorecard assesses EP10's performance against its mandate commitments two y
 ```mermaid
 %%{init: {"theme":"dark"}}%%
 xychart-beta
-    title Security/Defence Mandate Progress (2024-2026)
+    title "Security/Defence Mandate Progress (2024-2026)"
     x-axis ["Q3 2024", "Q4 2024", "Q1 2025", "Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026", "Q2 2026"]
     y-axis "% Complete" 0 --> 100
     line [5, 15, 25, 38, 52, 60, 72, 78]

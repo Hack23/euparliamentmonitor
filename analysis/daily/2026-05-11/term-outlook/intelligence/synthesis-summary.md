@@ -114,11 +114,11 @@ language guide is in #see footer.
 ```mermaid
 graph TD
   EP10[EP10 717 MEPs<br/>9 groups]
-  EP10 --> CENTRE[Grand Centre<br/>EPP+S&D+Renew = 56%]
+  EP10 --> CENTRE["Grand Centre<br/>EPP+S&D+Renew = 56%"]
   EP10 --> RIGHT[Right Bloc<br/>PfE+ECR+ESN = 26%]
   EP10 --> LEFT[Left Bloc<br/>Greens+Left = 14%]
-  CENTRE --> WINS[Defence | SM2.0 | MFF | AI enforcement]
-  CENTRE -.contested.-> CONT[Climate 2030+ | Migration | Enlargement]
+  CENTRE --> WINS["Defence | SM2.0 | MFF | AI enforcement"]
+  CENTRE -.contested.-> CONT["Climate 2030+ | Migration | Enlargement"]
   RIGHT -.blocking.-> CONT
   LEFT -.demanding.-> WINS
   WINS --> 2029[2029 Election<br/>litigated on record]

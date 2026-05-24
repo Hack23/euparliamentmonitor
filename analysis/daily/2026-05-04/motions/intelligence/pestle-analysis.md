@@ -119,14 +119,14 @@ The animal welfare regulation carries environmental implications through its bre
 ## PESTLE Summary Matrix
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Environment Stress Assessment (April 2026)
-    "Political" : 7
-    "Economic" : 5
-    "Social" : 4
-    "Technological" : 8
-    "Legal" : 7
-    "Environmental" : 6
+    curve c1["Political"]{7}
+    curve c2["Economic"]{5}
+    curve c3["Social"]{4}
+    curve c4["Technological"]{8}
+    curve c5["Legal"]{7}
+    curve c6["Environmental"]{6}
 ```
 
 ## PESTLE Synthesis

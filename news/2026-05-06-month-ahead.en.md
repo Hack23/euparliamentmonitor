@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament enters its critical May–June 2026 legislative sprint with three dominant agenda clusters"
-description: "The European Parliament enters its critical May–June 2026 legislative sprint with three dominant agenda clusters: (1) the European Defence Industrial Strategy (EDIS)…"
-keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-05-06", "run month-ahead-run261-1778107666", "European", "Parliament", "enters", "critical", "June", "legislative", "sprint", "with", "three"]
+title: "Overall confidence: 🟡 MEDIUM (EP API 502 errors limit real-time data;"
+description: "Overall confidence: 🟡 MEDIUM (EP API 502 errors limit real-time data; structural/contextual analysis applied)"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-05-06", "Overall", "confidence", "MEDIUM", "errors"]
 date: 2026-05-06
 article_type: month-ahead
 slug: 2026-05-06-month-ahead
@@ -910,24 +910,24 @@ Stakeholder mapping applied across the EP's May–June 2026 legislative cycle. S
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9"}}}%%
 quadrantChart
     title Power-Interest Grid (May-June 2026 Legislative Window)
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Manage Closely)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Minimal Effort
-    quadrant-4 Keep Informed
-    EPP-Group: [0.9, 0.92]
-    S-and-D-Group: [0.82, 0.85]
-    ECR-Group: [0.75, 0.72]
-    Renew-Europe: [0.7, 0.75]
-    Commission-DG-DEFIS: [0.88, 0.78]
-    Commission-DG-GROW: [0.85, 0.80]
-    Council-Presidency: [0.8, 0.88]
-    Industry-Lobby-EDIS: [0.72, 0.55]
-    Civil-Society-Climate: [0.6, 0.45]
-    Trade-Unions: [0.55, 0.5]
-    ESN-PfE-Block: [0.65, 0.7]
-    Greens-EFA: [0.68, 0.65]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Manage Closely)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Minimal Effort"
+    quadrant-4 "Keep Informed"
+    "EPP-Group": [0.9, 0.92]
+    "S-and-D-Group": [0.82, 0.85]
+    "ECR-Group": [0.75, 0.72]
+    "Renew-Europe": [0.7, 0.75]
+    "Commission-DG-DEFIS": [0.88, 0.78]
+    "Commission-DG-GROW": [0.85, 0.80]
+    "Council-Presidency": [0.8, 0.88]
+    "Industry-Lobby-EDIS": [0.72, 0.55]
+    "Civil-Society-Climate": [0.6, 0.45]
+    "Trade-Unions": [0.55, 0.5]
+    "ESN-PfE-Block": [0.65, 0.7]
+    "Greens-EFA": [0.68, 0.65]
 ```
 
 ---
@@ -1468,13 +1468,13 @@ Political SWOT applied to the European Parliament as an institution managing its
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9"}}}%%
 quadrantChart
     title SWOT Strategic Position (EP, May-June 2026)
-    x-axis Weaknesses --> Strengths
-    y-axis Threats --> Opportunities
-    quadrant-1 SO (Leverage Strengths)
-    quadrant-2 WO (Overcome Weaknesses)
-    quadrant-3 WT (Damage Control)
-    quadrant-4 ST (Use Strengths against Threats)
-    Current-Position: [0.55, 0.45]
+    x-axis "Weaknesses" --> "Strengths"
+    y-axis "Threats" --> "Opportunities"
+    quadrant-1 "SO (Leverage Strengths)"
+    quadrant-2 "WO (Overcome Weaknesses)"
+    quadrant-3 "WT (Damage Control)"
+    quadrant-4 "ST (Use Strengths against Threats)"
+    "Current-Position": [0.55, 0.45]
 ```
 
 ---
@@ -1826,17 +1826,17 @@ Scenario analysis using ACH (Analysis of Competing Hypotheses) methodology combi
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9"}}}%%
 quadrantChart
     title Scenario Space (May-June 2026 EP Window)
-    x-axis Low Coalition Cohesion --> High Coalition Cohesion
-    y-axis Low External Pressure --> High External Pressure
-    quadrant-1 Forced Unity (Crisis-Driven Consensus)
-    quadrant-2 Structured Advance (Best Case)
-    quadrant-3 Managed Drift (Muddling Through)
-    quadrant-4 Coalition Collapse (Worst Case)
-    Scenario-A-Structured-Advance: [0.75, 0.4]
-    Scenario-B-Forced-Unity: [0.65, 0.8]
-    Scenario-C-Managed-Drift: [0.35, 0.35]
-    Scenario-D-Coalition-Collapse: [0.2, 0.5]
-    Current-Position: [0.5, 0.6]
+    x-axis "Low Coalition Cohesion" --> "High Coalition Cohesion"
+    y-axis "Low External Pressure" --> "High External Pressure"
+    quadrant-1 "Forced Unity (Crisis-Driven Consensus)"
+    quadrant-2 "Structured Advance (Best Case)"
+    quadrant-3 "Managed Drift (Muddling Through)"
+    quadrant-4 "Coalition Collapse (Worst Case)"
+    "Scenario-A-Structured-Advance": [0.75, 0.4]
+    "Scenario-B-Forced-Unity": [0.65, 0.8]
+    "Scenario-C-Managed-Drift": [0.35, 0.35]
+    "Scenario-D-Coalition-Collapse": [0.2, 0.5]
+    "Current-Position": [0.5, 0.6]
 ```
 
 ---

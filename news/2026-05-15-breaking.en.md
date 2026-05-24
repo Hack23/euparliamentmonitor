@@ -1,7 +1,7 @@
 ---
 title: "DMA Enforcement Resolution"
-description: "The European Parliament's April 28–30, 2026 plenary session produced six significant legislative and political actions that collectively signal three macro-level shifts: (1)…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-15", "run breaking-run343-1778808690", "Enforcement", "Resolution", "European", "Parliament", "April", "plenary", "session", "produced"]
+description: "The April 2026 plenary reflects a Parliament operating at the intersection of three concurrent crises:"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-15", "Enforcement", "Resolution", "April"]
 date: 2026-05-15
 article_type: breaking
 slug: 2026-05-15-breaking
@@ -935,22 +935,22 @@ flowchart TB
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Stakeholder Power vs. Interest in April 2026 EP Outcomes
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Monitor Closely)
-    quadrant-2 Keep Satisfied (Manage)
-    quadrant-3 Monitor (Low Priority)
-    quadrant-4 Keep Informed (Engage)
-    European Commission: [0.85, 0.90]
-    US Government: [0.75, 0.85]
-    Tech Gatekeepers: [0.90, 0.80]
-    European Parliament: [0.95, 0.65]
-    Council of EU: [0.80, 0.80]
-    Ukraine Government: [0.95, 0.35]
-    Armenia Government: [0.75, 0.20]
-    Civil Society Digital: [0.85, 0.25]
-    Civil Society HR: [0.80, 0.25]
-    CJEU: [0.60, 0.75]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Monitor Closely)"
+    quadrant-2 "Keep Satisfied (Manage)"
+    quadrant-3 "Monitor (Low Priority)"
+    quadrant-4 "Keep Informed (Engage)"
+    "European Commission": [0.85, 0.90]
+    "US Government": [0.75, 0.85]
+    "Tech Gatekeepers": [0.90, 0.80]
+    "European Parliament": [0.95, 0.65]
+    "Council of EU": [0.80, 0.80]
+    "Ukraine Government": [0.95, 0.35]
+    "Armenia Government": [0.75, 0.20]
+    "Civil Society Digital": [0.85, 0.25]
+    "Civil Society HR": [0.80, 0.25]
+    "CJEU": [0.60, 0.75]
 ```
 
 ---
@@ -1980,12 +1980,12 @@ Black swans are defined here as events with probability <10% but impact >8/10 on
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Wildcards: Probability vs. Impact
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> High Impact
-    quadrant-1 Prepare (Monitor Closely)
-    quadrant-2 Prevent (Invest in Mitigation)
-    quadrant-3 Accept (Low Priority)
-    quadrant-4 Plan (Scenario Plan)
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Prepare (Monitor Closely)"
+    quadrant-2 "Prevent (Invest in Mitigation)"
+    quadrant-3 "Accept (Low Priority)"
+    quadrant-4 "Plan (Scenario Plan)"
     "Russia Nuclear Escalation": [0.05, 0.99]
     "Full US-EU Trade War": [0.12, 0.88]
     "CJEU Annuls DMA Decision": [0.22, 0.65]
@@ -2324,15 +2324,14 @@ mindmap
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
-radar
+radar-beta
     title PESTLE Risk Intensity
-    axis Political Tension, Economic Stakes, Social Pressure, Tech Complexity, Legal Risk, Environmental Conflict
-    dataset
-        "DMA Enforcement" [9, 8, 7, 8, 8, 4]
-        "Ukraine/Russia" [9, 6, 9, 3, 9, 2]
-        "Budget 2027" [8, 9, 6, 3, 4, 7]
-        "Armenia" [7, 4, 7, 2, 5, 2]
-        "Cyberbullying" [6, 4, 8, 8, 7, 2]
+    axis a1["Political Tension"], a2["Economic Stakes"], a3["Social Pressure"], a4["Tech Complexity"], a5["Legal Risk"], a6["Environmental Conflict"]
+    curve c1["DMA Enforcement"]{9, 8, 7, 8, 8, 4}
+    curve c2["Ukraine/Russia"]{9, 6, 9, 3, 9, 2}
+    curve c3["Budget 2027"]{8, 9, 6, 3, 4, 7}
+    curve c4["Armenia"]{7, 4, 7, 2, 5, 2}
+    curve c5["Cyberbullying"]{6, 4, 8, 8, 7, 2}
 ```
 
 **PESTLE summary:** The April 2026 plenary is politically high-complexity (institutional EP-Commission tensions, coalition dynamics), economically significant (DMA gatekeeper stakes, fiscal federalism), and legally important (DMA enforcement, Ukraine tribunal). The social dimension is strong on digital safety and Ukraine civilian protection.

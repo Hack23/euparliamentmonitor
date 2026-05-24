@@ -129,7 +129,7 @@ pie title EP Constituency Groups (Approximate)
 
 ```mermaid
 xychart-beta
-    title Voter Segment Impact (positive = favourable)
+    title "Voter Segment Impact (positive = favourable)"
     x-axis ["Digital users", "Ukraine solidarity", "Fiscal conservatives", "Eastern partners", "Business", "Youth"]
     y-axis "Impact score" -5 --> 10
     bar [7, 9, -3, 9, 5, 6]

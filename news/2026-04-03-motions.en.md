@@ -1,7 +1,7 @@
 ---
 title: "Motions | 2026-04-03"
 description: "No new motions tabled on 2026-04-03; recess week 2 of 4, DEGRADED feed state confirmed by sibling breaking-2. Run ddaeac0a-0829-43fb-8588-46bf89f410a4 returned \"Quantitative risk…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-03", "run ddaeac0a-0829-43fb-8588-46bf89f410a4", "tabled", "recess", "week", "DEGRADED", "feed", "state", "confirmed", "sibling"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-03", "tabled", "recess", "week"]
 date: 2026-04-03
 article_type: motions
 slug: 2026-04-03-motions

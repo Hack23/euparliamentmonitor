@@ -1,7 +1,7 @@
 ---
 title: "Synthesis — EP Breaking News"
-description: "The European Parliament's April 28–30, 2026 Strasbourg session produced outputs that simultaneously advance three distinct but intersecting political projects: (1) the EU's…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-12", "run breaking-run-1778577220", "Synthesis", "News", "European", "Parliament", "April", "Strasbourg", "session", "produced"]
+description: "The April 2026 European Parliament session can be understood as three big conversations happening at once. First, a debate about whether Europe should force American tech…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-12", "Synthesis", "News", "April"]
 date: 2026-05-12
 article_type: breaking
 slug: 2026-05-12-breaking
@@ -700,15 +700,11 @@ Confidence: 🟢 High for tier 1 items; 🟡 Medium for tier 3 items
 ### Significance Score Distribution
 
 ```mermaid
-bar
-    title Legislative Significance Scores (April 2026)
-    "MFF 2028-34" : 9.0
-    "Ukraine Tribunal" : 7.8
-    "Trade Defence" : 7.8
-    "DMA Enforcement" : 8.4
-    "Commission Discharge" : 7.6
-    "Rule of Law" : 7.4
-    "BRRD3" : 7.0
+xychart-beta
+title "Legislative Significance Scores (April 2026)"
+x-axis ["MFF 2028-34", "Ukraine Tribunal", "Trade Defence", "DMA Enforcement", "Commission Discharge", "Rule of Law", "BRRD3"]
+y-axis "Value" 0 --> 10
+bar [9.0, 7.8, 7.8, 8.4, 7.6, 7.4, 7.0]
 ```
 
 **Admiralty Rating:** Source: A (EP adopted texts directly analysed); Reliability: 1 (confirmed from EP TA texts); Confidence: 🟢 High

@@ -352,10 +352,10 @@ flowchart TD
 
     A[Stage A — Data Retrieval<br/>EP MCP Tool calls]:::input
     B[Document Content Check<br/>Full text or metadata only?]:::gate
-    C[Per-Document Analysis<br/>per-file-analysis/{doc-id}.md]:::proc
+    C["Per-Document Analysis<br/>per-file-analysis/{doc-id}.md"]:::proc
     D[Document Index Update<br/>document-analysis-index.md]:::proc
     E[Family A/C/D Consumption<br/>Evidence flows upstream]:::out
-    X[Skip — Metadata Only<br/>Record in manifest, no analysis]:::gate
+    X["Skip — Metadata Only<br/>Record in manifest, no analysis"]:::gate
 
     A --> B
     B -->|Full text| C

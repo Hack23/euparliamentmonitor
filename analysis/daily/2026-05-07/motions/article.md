@@ -1,7 +1,7 @@
 ---
 title: "DMA Enforcement Gap"
 description: "— Parliament's motion demands the Commission complete ongoing DMA investigations within 6 months. Apple (iOS interoperability), Meta (advertising consent), and Alphabet (search…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-07", "run motions-run540-1778167043", "Enforcement", "Parliament", "motion", "demands", "Commission", "complete", "ongoing", "investigations"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-07", "Enforcement", "Parliament", "motion"]
 date: 2026-05-07
 article_type: motions
 slug: 2026-05-07-motions

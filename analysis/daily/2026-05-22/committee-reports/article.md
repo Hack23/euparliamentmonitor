@@ -1,7 +1,7 @@
 ---
 title: "Key Assumptions Check"
 description: ": This brief assumes standard EP committee schedule operation during the week of 18–22 May 2026. The EP administrative calendar designates this as a committee week (no Strasbourg…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-22", "run committee-reports-run258-1779428020", "Assumptions", "Check", "This", "brief", "assumes", "standard", "committee", "schedule"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-22", "Assumptions", "Check", "This"]
 date: 2026-05-22
 article_type: committee-reports
 slug: 2026-05-22-committee-reports
@@ -2204,15 +2204,10 @@ disputes generate new inter-institutional tensions (particularly with Council).
 ### PESTLE Radar Summary
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Impact Level on EP Committees (1-5 scale)
-    x-axis Political
-    y-axis Economic
-    z-axis Social
-    w-axis Technological
-    v-axis Legal
-    u-axis Environmental
-    data PESTLE_2026: [4, 3, 3, 5, 4, 5]
+    axis a1["Political"], a2["Economic"], a3["Social"], a4["Technological"], a5["Legal"], a6["Environmental"]
+    curve c1["PESTLE 2026"]{4, 3, 3, 5, 4, 4}
 ```
 
 ### PESTLE Cross-Impact Matrix

@@ -159,15 +159,15 @@ Ukraine accession negotiations progress faster than expected; EP legal service a
 ```mermaid
 quadrantChart
     title Wildcards: Probability vs Impact
-    x-axis Low Impact --> Transformative Impact
-    y-axis Low Probability --> Medium Probability
-    quadrant-1 Monitor (high impact, plausible)
-    quadrant-2 Watch (very high impact, low prob)
-    quadrant-3 Ignore (low both)
-    quadrant-4 Note (moderate impact)
-    "DMA fragmentation" : [0.65, 0.45]
-    "US tech cold war" : [0.85, 0.3]
-    "Armenia escalation" : [0.7, 0.25]
-    "EP leadership collapse" : [0.5, 0.1]
-    "AI governance race" : [0.9, 0.35]
+    x-axis "Low Impact" --> "Transformative Impact"
+    y-axis "Low Probability" --> "Medium Probability"
+    quadrant-1 "Monitor (high impact, plausible)"
+    quadrant-2 "Watch (very high impact, low prob)"
+    quadrant-3 "Ignore (low both)"
+    quadrant-4 "Note (moderate impact)"
+    "DMA fragmentation": [0.65, 0.45]
+    "US tech cold war": [0.85, 0.3]
+    "Armenia escalation": [0.7, 0.25]
+    "EP leadership collapse": [0.5, 0.1]
+    "AI governance race": [0.9, 0.35]
 ```

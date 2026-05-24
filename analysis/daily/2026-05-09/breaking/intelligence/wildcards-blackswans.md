@@ -117,20 +117,20 @@ Based on this analysis, the following signals should be monitored in subsequent 
 ```mermaid
 quadrantChart
     title Wildcards & Black Swans — Probability vs. Impact
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> High Impact
-    quadrant-1 Monitor (Low P, High I)
-    quadrant-2 Priority (High P, High I)
-    quadrant-3 Low Priority (Low P, Low I)
-    quadrant-4 Watch (High P, Low I)
-    B1 Armed Conflict Spillover: [0.05, 0.98]
-    B2 Censure Motion Majority: [0.02, 0.92]
-    B3 WTO Trade Dispute: [0.12, 0.72]
-    W1 PfE Delegitimization: [0.15, 0.85]
-    W2 Asset Confiscation Crisis: [0.12, 0.78]
-    W3 Platform Market Exit: [0.22, 0.65]
-    W4 Pet Database Scandal: [0.08, 0.35]
-    W5 EP Session Disruption: [0.18, 0.30]
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Monitor (Low P, High I)"
+    quadrant-2 "Priority (High P, High I)"
+    quadrant-3 "Low Priority (Low P, Low I)"
+    quadrant-4 "Watch (High P, Low I)"
+    "B1 Armed Conflict Spillover": [0.05, 0.98]
+    "B2 Censure Motion Majority": [0.02, 0.92]
+    "B3 WTO Trade Dispute": [0.12, 0.72]
+    "W1 PfE Delegitimization": [0.15, 0.85]
+    "W2 Asset Confiscation Crisis": [0.12, 0.78]
+    "W3 Platform Market Exit": [0.22, 0.65]
+    "W4 Pet Database Scandal": [0.08, 0.35]
+    "W5 EP Session Disruption": [0.18, 0.30]
 ```
 
 ---

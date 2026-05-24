@@ -1,7 +1,7 @@
 ---
 title: "Breaking: Tariff Retrospective Reframing One Week Post-Activation | 2026-04-23"
 description: "*Eight days after T-0, the run undertakes a retrospective reframing of the March 26 plenary session: the file was adopted exactly one week before President Trump's April 2 tariff…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-23", "run breaking-run-1776928781", "Tariff", "Retrospective", "Reframing", "Week", "Post", "Activation", "Eight", "days"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-23", "Tariff", "Retrospective", "Reframing"]
 date: 2026-04-23
 article_type: breaking
 slug: 2026-04-23-breaking
@@ -453,13 +453,13 @@ For reference, the top 5 most significant EP sessions in EP Monitor history (EP6
 ### Scoring Framework: EP April 2026 Breaking News
 
 ```mermaid
-radar
+radar-beta
     title Significance Dimensions (March 26 Package)
-    axis Institutional Impact, Economic Significance, Political Sensitivity, International Reach, Temporal Urgency, Democratic Accountability, Legal Novelty
-    "March 26 Trade Defence" : 90, 95, 75, 95, 90, 70, 80
-    "Banking Union Package" : 85, 90, 60, 80, 70, 85, 85
-    "Anti-Corruption Directive" : 80, 55, 80, 70, 65, 95, 90
-    "Digital Omnibus AI" : 70, 75, 65, 85, 75, 70, 80
+    axis a1["Institutional Impact"], a2["Economic Significance"], a3["Political Sensitivity"], a4["International Reach"], a5["Temporal Urgency"], a6["Democratic Accountability"], a7["Legal Novelty"]
+    curve c1["March 26 Trade Defence"]{90, 95, 75, 95, 90, 70, 80}
+    curve c2["Banking Union Package"]{85, 90, 60, 80, 70, 85, 85}
+    curve c3["Anti-Corruption Directive"]{80, 55, 80, 70, 65, 95, 90}
+    curve c4["Digital Omnibus AI"]{70, 75, 65, 85, 75, 70, 80}
 ```
 
 ---
@@ -768,18 +768,18 @@ The April 27 plenary is the first Grand Centre cohesion test since the March 26 
 
 ```mermaid
 sankey-beta
-    EPP [185] TO Trade Defence YES [155]
-    EPP [185] TO Abstain [15]
-    EPP [185] TO Banking YES [175]
-    S&D [135] TO Trade Defence YES [125]
-    S&D [135] TO Banking YES [130]
-    Renew [76] TO Trade Defence YES [65]
-    Renew [76] TO Banking YES [70]
-    ECR [79] TO Trade Defence YES [40]
-    ECR [79] TO Abstain/NO [39]
-    PfE [84] TO Trade NO/Abstain [80]
-    Greens [53] TO Banking YES [45]
-    GUE [46] TO Trade NO [35]
+EPP,Trade Defence YES,155
+EPP,Abstain,15
+EPP,Banking YES,175
+S&D,Trade Defence YES,125
+S&D,Banking YES,130
+Renew,Trade Defence YES,65
+Renew,Banking YES,70
+ECR,Trade Defence YES,40
+ECR,Abstain/NO,39
+PfE,Trade NO/Abstain,80
+Greens,Banking YES,45
+GUE,Trade NO,35
 ```
 
 ---

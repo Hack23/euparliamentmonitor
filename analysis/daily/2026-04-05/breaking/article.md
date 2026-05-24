@@ -1,7 +1,7 @@
 ---
 title: "Breaking | 2026-04-05"
 description: "No breaking news developments on 2026-04-05; EP is in Easter recess (Day 10 of 18, 27 March → 13 April 2026). No parliamentary sessions, committee meetings, or votes scheduled."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-05", "news", "developments", "Easter", "recess", "March", "April", "parliamentary", "sessions", "committee"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-05", "news", "developments", "Easter"]
 date: 2026-04-05
 article_type: breaking
 slug: 2026-04-05-breaking-breaking

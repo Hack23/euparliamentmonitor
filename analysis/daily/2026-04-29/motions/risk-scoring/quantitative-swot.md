@@ -15,12 +15,12 @@
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
 quadrantChart
     title SWOT Quadrant Map
-    x-axis Adverse --> Favourable
-    y-axis Internal --> External
-    quadrant-1 Opportunities (External+Favourable)
-    quadrant-2 Strengths (Internal+Favourable)
-    quadrant-3 Weaknesses (Internal+Adverse)
-    quadrant-4 Threats (External+Adverse)
+    x-axis "Adverse" --> "Favourable"
+    y-axis "Internal" --> "External"
+    quadrant-1 "Opportunities (External+Favourable)"
+    quadrant-2 "Strengths (Internal+Favourable)"
+    quadrant-3 "Weaknesses (Internal+Adverse)"
+    quadrant-4 "Threats (External+Adverse)"
     "Rule-of-law enforcement": [0.75, 0.75]
     "MFF EP leverage": [0.65, 0.70]
     "Gender rights leadership": [0.70, 0.60]
@@ -157,17 +157,10 @@ EP blocking the MFF (as threatened in 2013 and 2020) creates a constitutional cr
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title SWOT Strength/Threat Profile
-    "Coalition coherence"
-    "Rule-of-law credibility"
-    "Legislative breadth"
-    "Voting transparency"
-    "MFF opportunity"
-    "Gender rights opportunity"
-    "Far-right threat"
-    "Democratic backsliding threat"
-    current [78, 71, 65, 45, 82, 68, 68, 61]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"], a7["A7"], a8["A8"]
+    curve c1["current"]{78, 71, 65, 45, 82, 68, 68, 61}
 ```
 
 | Category | Key Factor | Score | Trend |

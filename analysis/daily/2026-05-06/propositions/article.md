@@ -1,7 +1,7 @@
 ---
 title: "Event description"
 description: ": The EPP Group formally shifts its coalition preference from the centrist (EPP+S&D+RE) model to a right-majority (EPP+ECR+PfE) framework on key economic legislation."
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-06", "run propositions-run265-1778094352", "Event", "description", "Group", "formally", "shifts", "coalition", "preference", "from"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-06", "Event", "description", "Group"]
 date: 2026-05-06
 article_type: propositions
 slug: 2026-05-06-propositions

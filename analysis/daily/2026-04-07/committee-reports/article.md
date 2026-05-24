@@ -1,7 +1,7 @@
 ---
 title: "Committee Reports: ECON Q2 Dominance Map | 2026-04-07"
 description: "This Day-12 committee-reports run is the ECON Q2 dominance map* — a deeper version of the committee-power concentration finding surfaced on April 6, with one critical addition…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-07", "run 7c308bf3-07de-408c-ab85-b115b19c2f7e", "Committee", "Reports", "ECON", "Dominance", "This", "deeper", "version", "power"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-07", "Committee", "Reports", "ECON"]
 date: 2026-04-07
 article_type: committee-reports
 slug: 2026-04-07-committee-reports

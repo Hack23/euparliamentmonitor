@@ -1,7 +1,7 @@
 ---
 title: "Easter Recess Day 12 Morning Intelligence | 2026-04-07"
 description: "The Day-12 morning breaking run is the day's structural anchor — at 44 analysis artifacts and 3,391 lines, it produces the most comprehensive single-run pre-recess corpus…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-07", "run d9f79a7a-aa2f-4a35-aa13-d6df91d7b296", "Easter", "Recess", "Morning", "Intelligence", "structural", "anchor", "analysis", "artifacts"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-07", "Easter", "Recess", "Morning"]
 date: 2026-04-07
 article_type: breaking
 slug: 2026-04-07-breaking-d9f79a7a-aa2f-4a35-aa13-d6df91d7
@@ -128,7 +128,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
 | [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-significance">Significance</h2>
 
@@ -2270,6 +2270,1156 @@ No description available
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+**التصنيف:** OSINT — السجل البرلماني العام
+**مستوى الثقة:** 🟡 متوسط (استراحة؛ التحليل الهيكلي قبل الاستراحة 🟢 مرتفع)
+**التشغيل:** `analysis/daily/2026-04-07/breaking/` (06:36 UTC)
+**التغطية:** استراحة عيد الفصح اليوم 12/18 — حزمة الاستخبارات صباح الثلاثاء (44 مُخرَجاً تحليلياً، 3.391 سطراً)
+**تاريخ الإنشاء:** 2026-05-16 (ملخص استرجاعي، بدون استدعاءات MCP جديدة)
+**المصادر الأساسية:** 18 تحليلاً للنصوص المُعتمَدة قبل الاستراحة؛ جميع الطرق الـ 18 افتراضية؛ تغذية 737 عضواً في البرلمان الأوروبي مستقرة.
+
+---
+
+### 🎯 BLUF
+
+**يُعدّ تشغيل صباح اليوم الثاني عشر المرتكزَ الهيكلي للدورة التشريعية** — بـ 44 مُخرَجاً تحليلياً و3.391 سطراً، يُنتج هذا التشغيل أشمل تحليل للمتن قبل الاستراحة في جلسة واحدة خلال فترة الاستراحة البالغة 18 يوماً. **الإسهام المميز** هو **18 ملفاً استخباراتياً سياسياً لكل وثيقة** يغطي سباق 26 مارس — كل نص مُعتمَد يحصل على ملف مخصص يشمل: توزع التصويت، ومسار التحالف، ومحور القوى في اللجان، وتأثير أصحاب المصلحة، ومسار التنفيذ Q2-Q3. يُعزز التحليل المجمَّع نمط التحالف ذي المسارين المزدوجين الذي ظهر في 6 أبريل، لكنه يُضيف دقة أكبر: **تتوزع الوثائق الـ 18 على النحو: 11 وسط يميني، 5 تحالف كبير، 2 مسار مختلط** (استخدم DGSD2 و BRRD3 للاتحاد المصرفي كليهما نهجاً هجيناً PPE+ECR+S&D مع توافق Renew مشروط حسب الوثيقة). ينتج التشغيل أيضاً الملخص التشغيلي الأكثر استشهاداً *T-8 إلى أسبوع اللجان* خلال فترة الاستراحة — ستة مُحرِّكات مستقبلية مُؤكَّدة (14 أبريل أسبوع اللجان · 15 أبريل رسوم الولايات المتحدة T-0 · 17 أبريل أسعار البنك المركزي الأوروبي · 20-23 أبريل الجلسة العامة · أواخر أبريل تفويض مجلس الاتحاد المصرفي · Q2 بدء تنفيذ مكافحة الفساد في 27 دولة عضو) — التي تصبح المرجع التحريري لجميع تشغيلات الاستراحة اللاحقة. **الخط الأساسي الهيكلي الصباحي لليوم الثاني عشر هو سجل استخبارات استراحة السنة الثانية لـ EP10 عند أعلى كثافة تحليلية.** ترفع الملفات لكل وثيقة متن EP10 قبل الاستراحة إلى أعلى حالة جاهزية تشغيلية على الإطلاق.
+
+---
+
+### 🧭 3 قرارات يدعمها هذا الملخص
+
+| # | القرار | من يقرر | الموعد النهائي | الدليل |
+|:-:|--------|---------|:--------------:|--------|
+| 1 | **التحميل المسبق لتنفيذ Q2 لكل وثيقة** — 18 ملفاً جاهزاً؛ تحميل منسقي المجلس مسبقاً | رئاسة المجلس + مقررو البرلمان الأوروبي | قبل 14 أبريل | §الملفات لكل وثيقة (18) |
+| 2 | **عمليات عداد الأيام T-8 إلى T-0** — تسلسل 6 مُحرِّكات يتطلب مراقبة يومية للحدود | عمليات استخبارات البرلمان الأوروبي؛ الخدمة الصحفية | يومياً بشكل مستمر | §المُحرِّكات المستقبلية (6 مُحرِّكات) |
+| 3 | **مراقبة ملفات المسار المختلط** — المسار الهجين DGSD2/BRRD3 يتطلب إحاطة منسق Renew | منسقو Renew + PPE | قبل 14 أبريل | §توزيع 18 ملفاً (11/5/2) |
+
+---
+
+### 📰 قراءة 60 ثانية
+
+- 🔴 **44 مُخرَجاً، 3.391 سطراً** — المرتكز الهيكلي لليوم.
+- 🟠 **18 ملفاً لكل وثيقة** — سباق 26 مارس بأقصى دقة.
+- 🟢 **توزيع 18 ملفاً:** 11 وسط يميني · 5 تحالف كبير · 2 مختلط.
+- 🟡 **تسلسل 6 مُحرِّكات** — 14 أبر · 15 · 17 · 20-23 · أواخر · Q2.
+- 🔵 **تغذية 737 عضواً مستقرة** — خط أساسي ثابت.
+- 🟣 **يوم الاستراحة 12/18 — 67% مكتمل** — T-8 إلى أسبوع اللجان.
+- 🩷 **الثقة متوسطة** — قبل الاستراحة مرتفعة؛ توقعات Q2 متوسطة.
+- ⚪ **الخط الأساسي الهيكلي لجميع تشغيلات الاستراحة اللاحقة**.
+
+---
+
+### 📂 توزيع المسارات لـ 18 وثيقة (الإسهام المميز للتشغيل)
+
+| المسار | العدد | الوثائق الرئيسية | ملاحظة تشغيلية |
+|--------|------:|-----------------|----------------|
+| **وسط يميني** | 11 | الاتحاد المصرفي SRMR3 · STEP-II · الذكاء الاصطناعي-حقوق النشر · تعديلات ETS · 7 اقتصاد-مالية | مسار الثلاثية الوسط يميني Q2 |
+| **تحالف كبير** | 5 | مكافحة الفساد · 4 عائلة سيادة القانون | تنفيذ Q2-Q4 |
+| **مسار مختلط (هجين)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | توافق Renew مشروط حسب الوثيقة |
+
+---
+
+### ⚠️ لقطة المخاطر
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 أهم المُحرِّكات المستقبلية (تسلسل الـ 6 المنشور من التشغيل)
+
+1. **14 أبريل — افتتاح أسبوع اللجان** — المسار المزدوج اليوم الأول.
+2. **15 أبريل — رسوم الولايات المتحدة T-0** — صدمة خارجية.
+3. **17 أبريل — قرار أسعار الفائدة للبنك المركزي الأوروبي** — تفعيل السياق الاقتصادي.
+4. **20-23 أبريل — أول جلسة عامة بعد الاستراحة** — اختبار الإجهاد ثنائي الطريقة.
+5. **أواخر أبريل — تفويض مجلس الاتحاد المصرفي** — بوابة الثلاثية.
+6. **Q2 — بدء تنفيذ مكافحة الفساد في 27 دولة عضو** — استدامة التحالف الكبير.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **18 ملفاً لكل وثيقة (A1):** تغذية النصوص المُعتمَدة الرئيسية + منهجية لكل وثيقة.
+- **توزيع 18 وثيقة (A2):** أنماط التصويت + ديناميكيات التحالف مُتحقَّق منها متبادلاً.
+- **تسلسل 6 مُحرِّكات (A1):** التقويم المؤسسي + سجلات EP MCP قابلة للتحقق.
+- **737 عضواً (A1):** السجل الرئيسي مستقر عبر جميع التشغيلات.
+- **صافي الثقة:** 🟢 مرتفع لخط أساسي اليوم 12؛ 🟡 متوسط لتوقعات Q2.
+
+---
+
+### 📎 مُخرَجات التشغيل
+
+| الطبقة | المُخرَج | السبب |
+|--------|----------|-------|
+| مقال | `article.md` (2.562 سطراً منشوراً) | الرواية العامة لصباح اليوم الثاني عشر |
+| تركيب | `synthesis-summary.md` | توحيد 18 ملفاً |
+| المناهج | التصنيف · القائمة · تقييم المخاطر · تقييم التهديدات · الوثائق (18 ملفاً لكل وثيقة) | المنهجية الكاملة + طبقة لكل وثيقة |
+| مصاحب | breaking-2 (18:20 UTC) — تحديث مسائي | مصاحب نفس اليوم |
+
+---
+
+**الضبط الوثائقي**
+- **مرجع النموذج:** `analysis/templates/executive-brief.md`
+- **مسار المُخرَج:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **التصنيف:** عام
+- **استرجاعي:** ملخص مكتوب في 2026-05-16 استناداً إلى مُخرَجات التشغيل الملتزمة؛ **لم تُجرَ أي استدعاءات MCP جديدة**.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Dag-12 morgengennembruddet er mandatperiodens strukturelle ankerpunkt** — med 44 analyseartifakter og 3.391 linjer producerer det den mest dækkende enkelt-kørsels analyse af det samlede corpus fra perioden før ferien i løbet af hele 18-dages ferieperioden.** Dets særlige bidrag er **18 per-fil politiske efterretningsdossiers** om spurten den 26. marts — hver vedtaget tekst får et dedikeret dossier, der dækker stemmefordeling, koalitionsspor, udvalgsmagtens fokuspunkt, interessenternes indvirkning og Q2-Q3 implementeringstrajectory. Den samlede analyse bekræfter det dobbelt-spors koalitionsmønster, der kom til syne den 6. april, men tilføjer detaljerigdom: **de 18 filer er fordelt 11 center-højre, 5 storkoalition, 2 blandede spor** (Banking Union DGSD2 og BRRD3 brugte begge hybrid PPE+ECR+S&D med filbetinget Renew-tilpasning). Kørslen producerer også ferieperiodens mest citerede *T-8 til Udvalgsugen* operative opsummering — seks bekræftede fremadrettede triggere (14. april udvalguge · 15. april USA-told T-0 · 17. april ECB-rente · 20-23. april plenum · sent april Banking Union Rådsmandat · Q2 27-MS transponering) — som bliver den redaktionelle reference for alle efterfølgende feriekørsler. **Dag-12 morgenens strukturelle baseline er EP10 År 2-feriens efterretningsrekord på sit højeste analyseniveau.** Per-fil dossiers løfter EP10's corpus fra perioden før ferien til dens mest granulerede operationelle beredskabstilstand.
+
+---
+
+### 🧭 3 Beslutninger dette resumé understøtter
+
+| # | Beslutning | Beslutningstager | Deadline | Dokumentation |
+|:-:|------------|------------------|:--------:|---------------|
+| 1 | **Per-fil Q2-implementeringsforforberedelse** — 18 dossiers klar; forbered rådskoordinatorer | Rådsformandskabet + EP-ordførere | inden 14. april | §Per-fil dossiers (18) |
+| 2 | **T-8 til T-0 dagstæller-ops** — 6-trigger-sekvensen kræver løbende daglig tærskelmonitorering | EP-efterretningsops; pressetjeneste | rullende dagligt | §Fremadrettede triggere (6-trigger) |
+| 3 | **Overvågning af blandede sporsfiler** — DGSD2/BRRD3 hybridspor kræver Renew-koordinatorbriefing | Renew + PPE-koordinatorer | inden 14. april | §18-fil opdeling (11/5/2) |
+
+---
+
+### 📰 60-sekunders læsning
+
+- 🔴 **44 artifakter, 3.391 linjer** — dagens strukturelle ankerpunkt.
+- 🟠 **18 per-fil dossiers** — 26. marts-spurten i maksimal granularitet.
+- 🟢 **18-fil opdeling:** 11 center-højre · 5 storkoalition · 2 blandet.
+- 🟡 **6-trigger-sekvens** — 14. apr · 15. · 17. · 20-23. · sent · Q2.
+- 🔵 **737 MEP-feed stabilt** — baseline holder.
+- 🟣 **Feriedag 12/18 — 67% gennemført** — T-8 til Udvalgsugen.
+- 🩷 **Konfidens MEDIUM** — før ferien HØJ; Q2-prognose MEDIUM.
+- ⚪ **Strukturel baseline for alle efterfølgende feriekørsler**.
+
+---
+
+### 📂 18-Fil Sporopdeling (kørslens særlige bidrag)
+
+| Spor | Antal | Flagskibsfiler | Operativ note |
+|------|------:|----------------|---------------|
+| **Center-højre** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · ETS-ændringer · 7 økonomi-finans | Q2 trilogue center-højre spor |
+| **Storkoalition** | 5 | Anti-Korruption · 4 retsstatsfamilie | Q2-Q4 transponering |
+| **Blandet spor (hybrid)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | Renew filbetinget tilpasning |
+
+---
+
+### ⚠️ Risikoøjebliksbillede
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 Top fremadrettede triggere (kørslens publicerede 6-sekvens)
+
+1. **14. april — Udvalgsugen åbner** — dobbelt spor Dag 1.
+2. **15. april — USA-told T-0** — eksogen chok.
+3. **17. april — ECB-rentebeslutning** — aktivering af økonomisk kontekst.
+4. **20-23. april — første plenarsamling efter ferien** — bimodal stresstest.
+5. **Sent april — Banking Union Rådsmandat** — trilogport.
+6. **Q2 — 27-MS Anti-Korruption transponeringsstart** — storkoalitionens holdbarhed.
+
+---
+
+### 🛡️ Kildekvalitatsvurdering
+
+- **18 per-fil dossiers (A1):** primært vedtagne tekster-feed + per-dokument metodologi.
+- **18-fil opdeling (A2):** afstemnings-mønstre + koalitionsdynamik krydsverificeret.
+- **6-trigger-sekvens (A1):** institutionel kalender + EP MCP-poster verificerbare.
+- **737 MEP'er (A1):** primær protokol stabil på tværs af alle kørsler.
+- **Nettokonfidens:** 🟢 HØJ for Dag-12-baseline; 🟡 MEDIUM for Q2-prognose.
+
+---
+
+### 📎 Kørslens artifakter
+
+| Lag | Artifakt | Hvorfor |
+|-----|----------|---------|
+| Artikel | `article.md` (2.562 linjer publiceret) | Offentlig Dag-12 morgenfortælling |
+| Syntese | `synthesis-summary.md` | 18-dossiers konsolidering |
+| Metoder | klassificering · eksisterende · risikovurdering · trusselvurdering · dokumenter (18 per-fil dossiers) | Fuld metodologi + per-dokumentlag |
+| Ledsager | breaking-2 (18:20 UTC) — aftensopdatering | Samedages ledsager |
+
+---
+
+**Dokumentkontrol**
+- **Skabelonreference:** `analysis/templates/executive-brief.md`
+- **Artifaktsti:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Resumé skrevet 2026-05-16 fra kørslens committede artifakter; **ingen nye MCP-kald blev foretaget**.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Der Tag-12-Morgenlauf ist der strukturelle Anker der Amtszeit** — mit 44 Analyseartefakten und 3.391 Zeilen produziert er die umfassendste Einzellauf-Vorurlaubskorpusanalyse des gesamten 18-tägigen Urlaubszeitraums.** Sein charakteristischer Beitrag sind **18 pro-Datei politische Nachrichtendossiers** über den Spurt vom 26. März — jeder angenommene Text erhält ein eigenes Dossier, das Stimmendispersion, Koalitionsweg, Ausschusskraftfokus, Stakeholder-Auswirkungen und Q2-Q3-Umsetzungsplanung abdeckt. Die aggregierte Analyse bestätigt das Doppelspur-Koalitionsmuster vom 6. April, fügt aber Granularität hinzu: **die 18 Dateien teilen sich 11 rechtsmittig, 5 Große Koalition, 2 gemischte Spuren** (Banking Union DGSD2 und BRRD3 nutzten beide hybrid PPE+ECR+S&D mit dateibedingter Renew-Ausrichtung). Der Lauf produziert auch die am häufigsten zitierte *T-8 bis Ausschusswoche* operative Zusammenfassung der Urlaubsperiode — sechs bestätigte Vorwärtsauslöser (14. April Ausschusswoche · 15. April US-Zölle T-0 · 17. April EZB-Zinssatz · 20.-23. April Plenarsitzung · Ende April Banking-Union-Ratsmandat · Q2 27-MS-Transpositionsbeginn) — die zum redaktionellen Referenzpunkt für alle nachfolgenden Urlaufsläufe wird. **Die strukturelle Ausgangslage des Tag-12-Morgens ist das Nachrichtenprotokoll der EP10-Jahr-2-Pause auf dem Höhepunkt der analytischen Dichte.** Pro-Datei-Dossiers heben das EP10-Vorurlaubskorpus auf seinen am stärksten granularen operativen Bereitschaftszustand.
+
+---
+
+### 🧭 3 Entscheidungen, die diese Zusammenfassung unterstützt
+
+| # | Entscheidung | Wer entscheidet | Frist | Nachweis |
+|:-:|-------------|-----------------|:-----:|----------|
+| 1 | **Pro-Datei Q2-Implementierungsvorladen** — 18 Dossiers fertig; Ratskoordinatoren vorladen | Ratspräsidentschaft + EP-Berichterstatter | bis 14. April | §Pro-Datei-Dossiers (18) |
+| 2 | **T-8 bis T-0 Tagszähler-Ops** — 6-Auslösersequenz erfordert tägliche Schwellwertüberwachung | EP-Nachrichtenops; Pressedienst | laufend täglich | §Vorwärtsauslöser (6-Auslöser) |
+| 3 | **Gemischtspurdateien beobachten** — DGSD2/BRRD3 Hybridspur erfordert Renew-Koordinatorbriefing | Renew + PPE-Koordinatoren | bis 14. April | §18-Dateiaufteilung (11/5/2) |
+
+---
+
+### 📰 60-Sekunden-Lektüre
+
+- 🔴 **44 Artefakte, 3.391 Zeilen** — struktureller Anker des Tages.
+- 🟠 **18 pro-Datei-Dossiers** — Spurt vom 26. März in maximaler Granularität.
+- 🟢 **18-Dateiaufteilung:** 11 rechtsmittig · 5 Große Koalition · 2 gemischt.
+- 🟡 **6-Auslösersequenz** — 14. Apr · 15. · 17. · 20.-23. · Ende · Q2.
+- 🔵 **737 MdEP-Feed stabil** — Ausgangslage stabil.
+- 🟣 **Urlaubstag 12/18 — 67% abgeschlossen** — T-8 bis Ausschusswoche.
+- 🩷 **Vertrauenswürdigkeit MEDIUM** — vor Urlaub HOCH; Q2-Prognose MEDIUM.
+- ⚪ **Strukturelle Ausgangslage für alle nachfolgenden Urlaufsläufe**.
+
+---
+
+### 📂 18-Datei-Spuraufteilung (charakteristischer Beitrag des Laufs)
+
+| Spur | Anzahl | Flaggschiff-Dateien | Operativer Hinweis |
+|------|-------:|---------------------|-------------------|
+| **Rechtsmittig** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · ETS-Änderungen · 7 Wirtschaft-Finanzen | Q2 Trilog rechtsmittige Spur |
+| **Große Koalition** | 5 | Anti-Korruption · 4 Rechtsstaatlichkeitsfamilie | Q2-Q4 Transposition |
+| **Gemischte Spur (hybrid)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | Renew dateibdingte Ausrichtung |
+
+---
+
+### ⚠️ Risikomomentaufnahme
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 Top Vorwärtsauslöser (veröffentlichte 6-Sequenz des Laufs)
+
+1. **14. April — Ausschusswoche beginnt** — Doppelspur Tag 1.
+2. **15. April — US-Zölle T-0** — exogener Schock.
+3. **17. April — EZB-Zinsentscheidung** — wirtschaftlicher Kontext Aktivierung.
+4. **20.-23. April — erste Plenarsitzung nach der Pause** — bimodaler Stresstest.
+5. **Ende April — Banking-Union-Ratsmandat** — Trilogtor.
+6. **Q2 — 27-MS-Anti-Korruptions-Transpositionsbeginn** — Nachhaltigkeit der Großen Koalition.
+
+---
+
+### 🛡️ Quellenqualitätsbeurteilung
+
+- **18 pro-Datei-Dossiers (A1):** Primär-Feed der angenommenen Texte + Pro-Dokument-Methodik.
+- **18-Dateiaufteilung (A2):** Abstimmungsmuster + Koalitionsdynamik kreuzverifiziert.
+- **6-Auslösersequenz (A1):** institutioneller Kalender + EP-MCP-Einträge überprüfbar.
+- **737 MdEPs (A1):** Primärprotokoll stabil über alle Läufe.
+- **Nettokonfidens:** 🟢 HOCH für Tag-12-Ausgangslage; 🟡 MEDIUM für Q2-Prognose.
+
+---
+
+### 📎 Laufartefakte
+
+| Schicht | Artefakt | Warum |
+|---------|----------|-------|
+| Artikel | `article.md` (2.562 veröffentlichte Zeilen) | Öffentliche Tag-12-Morgenerzählung |
+| Synthese | `synthesis-summary.md` | 18-Dossier-Konsolidierung |
+| Methoden | Klassifizierung · bestehende · Risikobewertung · Bedrohungsbewertung · Dokumente (18 pro-Datei-Dossiers) | Vollständige Methodik + Pro-Dokument-Schicht |
+| Begleiter | breaking-2 (18:20 UTC) — Abendaktualisierung | Gleichtagiger Begleiter |
+
+---
+
+**Dokumentenkontrolle**
+- **Vorlagenreferenz:** `analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **Klassifizierung:** Öffentlich
+- **Retrospektiv:** Zusammenfassung am 2026-05-16 aus den gespeicherten Artefakten des Laufs geschrieben; **keine neuen MCP-Aufrufe wurden gemacht**.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**La ejecución del Día 12 por la mañana es el ancla estructural de la legislatura** — con 44 artefactos de análisis y 3.391 líneas, produce el análisis de corpus pre-receso de ejecución única más completo de todo el período de receso de 18 días.** Su contribución distintiva son **18 dossiers de inteligencia política por archivo** sobre el sprint del 26 de marzo — cada texto aprobado recibe un dossier dedicado que cubre la dispersión de votos, la trayectoria de coalición, el foco del poder en comisión, el impacto en partes interesadas y la trayectoria de implementación Q2-Q3. El análisis agregado refuerza el patrón de doble pista coalicional emergido el 6 de abril, pero añade granularidad: **los 18 archivos se dividen 11 centro-derecha, 5 gran coalición, 2 pista mixta** (Banking Union DGSD2 y BRRD3 usaron ambos PPE+ECR+S&D híbrido con alineación Renew condicional por archivo). La ejecución también produce el resumen operativo *T-8 a la Semana de Comisiones* más citado del período de receso — seis desencadenantes confirmados (14 de abril Semana de Comisiones · 15 de abril aranceles EE.UU. T-0 · 17 de abril tipos BCE · 20-23 de abril pleno · finales de abril mandato del Consejo Unión Bancaria · Q2 inicio transposición anticorrupción 27 EM) — que se convierte en la referencia editorial de todas las ejecuciones de receso posteriores. **La línea de base estructural matutina del Día 12 es el récord de inteligencia del receso del Año 2 del EP10 en su punto más alto de densidad analítica.** Los dossiers por archivo elevan el corpus pre-receso del EP10 a su estado más granular de preparación operacional.
+
+---
+
+### 🧭 3 Decisiones que este resumen apoya
+
+| # | Decisión | Quién decide | Plazo | Evidencia |
+|:-:|----------|-------------|:-----:|-----------|
+| 1 | **Precarga de implementación Q2 por archivo** — 18 dossiers listos; precargar coordinadores del Consejo | Presidencia del Consejo + ponentes del PE | antes del 14 de abril | §Dossiers por archivo (18) |
+| 2 | **Ops contador T-8 a T-0** — la secuencia de 6 desencadenantes requiere monitoreo diario de umbrales | Ops de inteligencia del PE; servicio de prensa | diariamente en continuo | §Desencadenantes a futuro (6-desencadenantes) |
+| 3 | **Vigilancia de archivos de pista mixta** — DGSD2/BRRD3 pista híbrida requiere briefing del coordinador Renew | Coordinadores Renew + PPE | antes del 14 de abril | §División 18 archivos (11/5/2) |
+
+---
+
+### 📰 Lectura de 60 segundos
+
+- 🔴 **44 artefactos, 3.391 líneas** — ancla estructural del día.
+- 🟠 **18 dossiers por archivo** — sprint del 26 de marzo en granularidad máxima.
+- 🟢 **División 18 archivos:** 11 centro-derecha · 5 gran coalición · 2 mixto.
+- 🟡 **Secuencia de 6 desencadenantes** — 14 abr · 15 · 17 · 20-23 · final · Q2.
+- 🔵 **Feed de 737 eurodiputados estable** — línea de base estable.
+- 🟣 **Día de receso 12/18 — 67% completado** — T-8 a Semana de Comisiones.
+- 🩷 **Confianza MEDIUM** — pre-receso ALTA; previsión Q2 MEDIUM.
+- ⚪ **Línea de base estructural para todas las ejecuciones de receso posteriores**.
+
+---
+
+### 📂 División por pista de 18 archivos (contribución distintiva de la ejecución)
+
+| Pista | Número | Archivos insignia | Nota operativa |
+|-------|------:|-------------------|----------------|
+| **Centro-derecha** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · enmiendas ETS · 7 economía-finanzas | Pista centro-derecha trílogos Q2 |
+| **Gran coalición** | 5 | Anticorrupción · 4 familia Estado de Derecho | Transposición Q2-Q4 |
+| **Pista mixta (híbrida)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | Alineación Renew condicional por archivo |
+
+---
+
+### ⚠️ Instantánea de riesgos
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 Principales desencadenantes a futuro (secuencia de 6 publicada por la ejecución)
+
+1. **14 de abril — Apertura de la Semana de Comisiones** — doble pista Día 1.
+2. **15 de abril — Aranceles EE.UU. T-0** — shock exógeno.
+3. **17 de abril — Decisión de tipos del BCE** — activación del contexto económico.
+4. **20-23 de abril — primera sesión plenaria post-receso** — prueba de estrés bimodal.
+5. **Finales de abril — Mandato del Consejo Unión Bancaria** — puerta de trílogo.
+6. **Q2 — Inicio de transposición anticorrupción de 27 EM** — sostenibilidad de la gran coalición.
+
+---
+
+### 🛡️ Evaluación de calidad de fuentes
+
+- **18 dossiers por archivo (A1):** feed principal de textos aprobados + metodología por documento.
+- **División 18 archivos (A2):** patrones de votación + dinámica de coalición verificados cruzados.
+- **Secuencia de 6 desencadenantes (A1):** calendario institucional + registros EP MCP verificables.
+- **737 eurodiputados (A1):** registro principal estable en todas las ejecuciones.
+- **Confianza neta:** 🟢 ALTA para la línea de base del Día 12; 🟡 MEDIUM para la previsión Q2.
+
+---
+
+### 📎 Artefactos de la ejecución
+
+| Capa | Artefacto | Por qué |
+|------|----------|---------|
+| Artículo | `article.md` (2.562 líneas publicadas) | Narrativa pública del Día 12 por la mañana |
+| Síntesis | `synthesis-summary.md` | Consolidación de 18 dossiers |
+| Métodos | clasificación · existentes · puntuación de riesgos · evaluación de amenazas · documentos (18 dossiers por archivo) | Metodología completa + capa por documento |
+| Acompañante | breaking-2 (18:20 UTC) — actualización vespertina | Acompañante del mismo día |
+
+---
+
+**Control documental**
+- **Referencia de plantilla:** `analysis/templates/executive-brief.md`
+- **Ruta de artefacto:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **Clasificación:** Público
+- **Retrospectivo:** Resumen escrito el 2026-05-16 a partir de los artefactos comprometidos de la ejecución; **no se realizaron nuevas llamadas MCP**.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Päivä-12 aamukierros on toimikauden rakenteellinen ankkuri** — 44 analyysiartefaktilla ja 3 391 rivillä se tuottaa kattavimman yksittäisen ajoanalyysit ennen taukoa koko 18 päivän taukojakson aikana.** Sen erottuva panos on **18 tiedostokohtaista poliittista tiedustelukansaion** 26. maaliskuun sprintistä — jokainen hyväksytty teksti saa oman kansion, joka kattaa ääntenlaskun, koalition polun, valiokuntavallan fokuspiste, sidosryhmien vaikutuksen ja Q2-Q3 toimeenpanon suunnan. Aggregoitu analyysi vahvistaa 6. huhtikuuta esiin nousseen kaksoisraitakoalitiomallin, mutta lisää yksityiskohtaisuutta: **18 tiedosto jakaantuu 11 oikeakeskiseen, 5 suurkoalitioon, 2 sekaitoisille raiteille** (Banking Union DGSD2 ja BRRD3 käyttivät molemmat hybridia PPE+ECR+S&D tiedostoehtoisen Renew-linjauksen kanssa). Ajo tuottaa myös taukojakson eniten siteeratun *T-8 valiokuntaviikkoon* operatiivisen yhteenvedon — kuusi vahvistettua eteenpäin katsovaa laukaisijaa (14. huhtikuuta valiokuntaviikko · 15. huhtikuuta USA-tullit T-0 · 17. huhtikuuta EKP-korko · 20-23. huhtikuuta täysistunto · huhtikuun lopulla Banking Union neuvoston mandaatti · Q2 27-jäsenmaan siirtyminen) — josta tulee kaikkien seuraavien taukokierrosten toimituksellinen viiteaines. **Päivä-12 aamun rakenteellinen perusviiva on EP10:n vuosi 2 -taukojakson tiedusteluprotokolla analyyttisen tiheyden korkeimmillaan.** Tiedostokohtaiset kansiot nostavat EP10:n ennen taukoa olevan korpuksen sen kaikkein yksityiskohtaisimpaan operatiiviseen valmiustilaan.
+
+---
+
+### 🧭 3 Päätöstä, joita tämä yhteenveto tukee
+
+| # | Päätös | Päättäjä | Määräaika | Todisteet |
+|:-:|--------|----------|:---------:|-----------|
+| 1 | **Tiedostokohtainen Q2-toimeenpanon esilataus** — 18 kansiota valmiina; esilataa neuvoston koordinaattorit | Neuvoston puheenjohtajuus + EP:n esittelijät | 14. huhtikuuta mennessä | §Tiedostokohtaiset kansiot (18) |
+| 2 | **T-8 T-0 päivälaskin-ops** — 6-laukaisijasekvenssi vaatii jatkuvaa päivittäistä kynnysarvojen seurantaa | EP:n tiedusteluoperaatiot; tiedotuspalvelu | jatkuva päivittäin | §Eteenpäin katsovat laukaisijat (6-laukaisija) |
+| 3 | **Sekaitoisien raitaisten tiedostojen seuranta** — DGSD2/BRRD3 hybridiraita vaatii Renew-koordinaattoribrieffin | Renew + PPE-koordinaattorit | 14. huhtikuuta mennessä | §18-tiedoston jako (11/5/2) |
+
+---
+
+### 📰 60-sekunnin lukeminen
+
+- 🔴 **44 artefaktia, 3 391 riviä** — päivän rakenteellinen ankkuri.
+- 🟠 **18 tiedostokohtaista kansiota** — 26. maaliskuun sprinti maksimigranulariteetilla.
+- 🟢 **18-tiedoston jako:** 11 oikeakeskinen · 5 suurkoalitio · 2 sekaitoinen.
+- 🟡 **6-laukaisijasekvenssi** — 14. huhti · 15. · 17. · 20-23. · myöhemmin · Q2.
+- 🔵 **737 MEP-syöte vakaa** — perusviiva pitää.
+- 🟣 **Taukopäivä 12/18 — 67% valmis** — T-8 valiokuntaviikkoon.
+- 🩷 **Luotettavuus MEDIUM** — ennen taukoa KORKEA; Q2-ennuste MEDIUM.
+- ⚪ **Rakenteellinen perusviiva kaikille seuraaville taukokierrokille**.
+
+---
+
+### 📂 18-Tiedoston Raitajako (kierroksen erottuva panos)
+
+| Raita | Määrä | Lippulaivat | Operatiivinen huomio |
+|-------|------:|------------|---------------------|
+| **Oikeakeskinen** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · ETS-muutokset · 7 talous-rahoitus | Q2 kolmikanta-oikeakeskinen raita |
+| **Suurkoalitio** | 5 | Korruption vastainen · 4 oikeusvaltioperhe | Q2-Q4 siirtyminen |
+| **Sekaitoinen raita (hybridi)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | Renew tiedostoehdollinen linjaus |
+
+---
+
+### ⚠️ Riskihetki
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 Tärkeimmät eteenpäin katsovat laukaisijat (kierroksen julkaistu 6-sekvenssi)
+
+1. **14. huhtikuuta — Valiokuntaviikko alkaa** — kaksoisraita Päivä 1.
+2. **15. huhtikuuta — USA-tullit T-0** — ulkoinen shokki.
+3. **17. huhtikuuta — EKP:n korkopäätös** — taloudellisen kontekstin aktivointi.
+4. **20-23. huhtikuuta — ensimmäinen täysistunto tauon jälkeen** — bimodaalinen stressitesti.
+5. **Huhtikuun lopulla — Banking Union neuvoston mandaatti** — kolmikantaportti.
+6. **Q2 — 27-jäsenmaan korruption vastaisen lain siirtymisaloitus** — suurkoalition kestävyys.
+
+---
+
+### 🛡️ Lähdekvaliteetin arviointi
+
+- **18 tiedostokohtaista kansiota (A1):** ensisijainen hyväksyttyjen tekstien syöte + tiedostokohtainen metodologia.
+- **18-tiedoston jako (A2):** äänestysmallit + koalition dynamiikka ristiintarkistettu.
+- **6-laukaisijasekvenssi (A1):** institutionaalinen kalenteri + EP:n MCP-tietueet todennettavissa.
+- **737 MEP:tä (A1):** ensisijainen tietue vakaa kaikissa kierroksissa.
+- **Nettokonfidens:** 🟢 KORKEA Päivä-12-perusviivalle; 🟡 MEDIUM Q2-ennusteelle.
+
+---
+
+### 📎 Kierroksen artefaktit
+
+| Taso | Artefakti | Miksi |
+|------|----------|-------|
+| Artikkeli | `article.md` (2 562 julkaistua riviä) | Julkinen Päivä-12 aamukertomus |
+| Synteesi | `synthesis-summary.md` | 18-kansion konsolidointi |
+| Menetelmät | luokittelu · olemassa olevat · riskipisteytys · uhka-arviointi · asiakirjat (18 tiedostokohtaista kansiota) | Täysi metodologia + tiedostokohtainen taso |
+| Kumppani | breaking-2 (18:20 UTC) — iltapäivitys | Samana päivänä kumppani |
+
+---
+
+**Asiakirjanhallinta**
+- **Malliviite:** `analysis/templates/executive-brief.md`
+- **Artefaktpolku:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **Luokitus:** Julkinen
+- **Retrospektiivinen:** Yhteenveto kirjoitettu 2026-05-16 kierroksen tallennetuista artefakteista; **uusia MCP-kutsuja ei tehty**.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**L'exécution du matin du Jour 12 constitue l'ancre structurelle de la législature** — avec 44 artefacts d'analyse et 3 391 lignes, elle produit l'analyse de corpus pré-pause la plus exhaustive d'une seule exécution pour toute la période de pause de 18 jours.** Sa contribution distinctive est celle de **18 dossiers de renseignements politiques par fichier** sur le sprint du 26 mars — chaque texte adopté bénéficie d'un dossier dédié couvrant la dispersion des votes, la piste de coalition, le foyer de pouvoir en commission, l'impact sur les parties prenantes et la trajectoire de mise en œuvre Q2-Q3. L'analyse agrégée renforce le schéma de double piste coalitionnelle mis en évidence le 6 avril, mais en ajoutant de la granularité : **les 18 fichiers se divisent 11 centre-droit, 5 grande coalition, 2 piste mixte** (Banking Union DGSD2 et BRRD3 ont tous deux utilisé l'hybride PPE+ECR+S&D avec alignement conditionnel de Renew par fichier). L'exécution produit également le résumé opérationnel *T-8 à la semaine de commission* le plus cité de la période de pause — six déclencheurs confirmés (14 avril semaine de commission · 15 avril droits de douane américains T-0 · 17 avril taux BCE · 20-23 avril séance plénière · fin avril mandat du Conseil Union bancaire · Q2 démarrage transposition anti-corruption des 27 EM) — qui devient la référence éditoriale de toutes les exécutions de pause ultérieures. **La base structurelle matinale du Jour 12 est le record de renseignements de la pause de l'Année 2 de l'EP10 à son sommet de densité analytique.** Les dossiers par fichier hissent le corpus pré-pause de l'EP10 à son état de préparation opérationnelle le plus granulaire.
+
+---
+
+### 🧭 3 Décisions que ce résumé soutient
+
+| # | Décision | Qui décide | Échéance | Preuves |
+|:-:|----------|------------|:--------:|---------|
+| 1 | **Préchargement Q2 de mise en œuvre par fichier** — 18 dossiers prêts ; précharger les coordinateurs du Conseil | Présidence du Conseil + rapporteurs du PE | avant le 14 avril | §Dossiers par fichier (18) |
+| 2 | **Ops compteur T-8 à T-0** — la séquence à 6 déclencheurs requiert une surveillance quotidienne des seuils | Ops de renseignement du PE ; service de presse | quotidiennement en continu | §Déclencheurs à venir (6-déclencheurs) |
+| 3 | **Surveillance des fichiers à piste mixte** — DGSD2/BRRD3 piste hybride requiert un briefing du coordinateur Renew | Coordinateurs Renew + PPE | avant le 14 avril | §Répartition 18 fichiers (11/5/2) |
+
+---
+
+### 📰 Lecture de 60 secondes
+
+- 🔴 **44 artefacts, 3 391 lignes** — ancre structurelle de la journée.
+- 🟠 **18 dossiers par fichier** — sprint du 26 mars à granularité maximale.
+- 🟢 **Répartition 18 fichiers :** 11 centre-droit · 5 grande coalition · 2 mixte.
+- 🟡 **Séquence à 6 déclencheurs** — 14 avr · 15 · 17 · 20-23 · fin · Q2.
+- 🔵 **Alimentation 737 eurodéputés stable** — base stable.
+- 🟣 **Jour de pause 12/18 — 67% terminé** — T-8 à la semaine de commission.
+- 🩷 **Confiance MEDIUM** — pré-pause ÉLEVÉE ; prévision Q2 MEDIUM.
+- ⚪ **Base structurelle pour toutes les exécutions de pause ultérieures**.
+
+---
+
+### 📂 Répartition par piste des 18 fichiers (contribution distinctive de l'exécution)
+
+| Piste | Nombre | Fichiers phares | Note opérationnelle |
+|-------|------:|-----------------|---------------------|
+| **Centre-droit** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · amendements ETS · 7 économie-finances | Piste centre-droit trilogues Q2 |
+| **Grande coalition** | 5 | Anti-Corruption · 4 famille État de droit | Transposition Q2-Q4 |
+| **Piste mixte (hybride)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | Alignement conditionnel Renew par fichier |
+
+---
+
+### ⚠️ Instantané des risques
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 Principaux déclencheurs à venir (séquence de 6 publiée par l'exécution)
+
+1. **14 avril — Ouverture de la semaine de commission** — double piste Jour 1.
+2. **15 avril — Droits de douane américains T-0** — choc exogène.
+3. **17 avril — Décision de taux de la BCE** — activation du contexte économique.
+4. **20-23 avril — première séance plénière post-pause** — test de stress bimodal.
+5. **Fin avril — Mandat du Conseil Union bancaire** — porte de trilogue.
+6. **Q2 — Début de transposition anti-corruption des 27 EM** — durabilité de la grande coalition.
+
+---
+
+### 🛡️ Évaluation de la qualité des sources
+
+- **18 dossiers par fichier (A1) :** flux principal des textes adoptés + méthodologie par document.
+- **Répartition 18 fichiers (A2) :** schémas de vote + dynamique de coalition cross-vérifiés.
+- **Séquence à 6 déclencheurs (A1) :** calendrier institutionnel + enregistrements EP MCP vérifiables.
+- **737 eurodéputés (A1) :** enregistrement principal stable sur toutes les exécutions.
+- **Confiance nette :** 🟢 ÉLEVÉE pour la base du Jour 12 ; 🟡 MEDIUM pour la prévision Q2.
+
+---
+
+### 📎 Artefacts de l'exécution
+
+| Couche | Artefact | Pourquoi |
+|--------|----------|----------|
+| Article | `article.md` (2 562 lignes publiées) | Récit public du matin du Jour 12 |
+| Synthèse | `synthesis-summary.md` | Consolidation de 18 dossiers |
+| Méthodes | classification · existants · notation des risques · évaluation des menaces · documents (18 dossiers par fichier) | Méthodologie complète + couche par document |
+| Accompagnateur | breaking-2 (18:20 UTC) — mise à jour du soir | Accompagnateur du même jour |
+
+---
+
+**Contrôle documentaire**
+- **Référence de modèle :** `analysis/templates/executive-brief.md`
+- **Chemin d'artefact :** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **Classification :** Public
+- **Rétrospectif :** Résumé rédigé le 2026-05-16 à partir des artefacts validés de l'exécution ; **aucun nouvel appel MCP n'a été effectué**.
+
+### Executive Brief He
+
+**סיווג:** OSINT — רשומה פרלמנטרית ציבורית
+**מהימנות:** 🟡 בינוני (פגרה; ניתוח מבני לפני פגרה 🟢 גבוה)
+**ריצה:** `analysis/daily/2026-04-07/breaking/` (06:36 UTC)
+**כיסוי:** פגרת פסחא יום 12/18 — ערימת מודיעין בוקר שלישי (44 ממצאי ניתוח, 3,391 שורות)
+**נוצר:** 2026-05-16 (סיכום רטרוספקטיבי, ללא קריאות MCP חדשות)
+**מקורות ראשיים:** 18 ניתוחים של טקסטים שאומצו לפני הפגרה; כל 18 השיטות כברירת מחדל; עדכון 737 חברי פרלמנט יציב.
+
+---
+
+### 🎯 BLUF
+
+**ריצת הבוקר של יום 12 היא עוגן המבני של קדנציית המחוקק** — עם 44 ממצאי ניתוח ו-3,391 שורות, מייצרת ריצה זו את ניתוח הקורפוס לפני הפגרה המקיף ביותר בריצה בודדת בכל תקופת הפגרה של 18 הימים.** התרומה הייחודית היא **18 תיקי מודיעין פוליטי לכל קובץ** על ספרינט 26 במרץ — כל טקסט שאומץ מקבל תיק ייעודי הכולל: פיזור הצבעות, מסלול קואליציה, מוקד כוח בוועדה, השפעה על בעלי עניין ומסלול יישום Q2-Q3. הניתוח המצטבר מחזק את דפוס הקואליציה דו-המסלולי שצץ ב-6 באפריל, אך מוסיף פירוט: **18 הקבצים מתחלקים 11 מרכז-ימין, 5 קואליציה גדולה, 2 מסלול מעורב** (Banking Union DGSD2 ו-BRRD3 השתמשו בשניהם בגישה היברידית PPE+ECR+S&D עם התאמת Renew מותנית לפי קובץ). הריצה מייצרת גם את הסיכום התפעולי *T-8 לשבוע הוועדות* הנצוט ביותר בתקופת הפגרה — שישה טריגרים מאוששים קדימה (14 באפריל שבוע ועדות · 15 באפריל מכסי ארה"ב T-0 · 17 באפריל ריביות ECB · 20-23 באפריל מליאה · סוף אפריל מנדט מועצת האיחוד הבנקאי · Q2 תחילת יישום אנטי-שחיתות 27 מדינות חברות) — שהופך לאסמכתא העריכתית לכל ריצות הפגרה הבאות. **קו הבסיס המבני הבוקרי של יום 12 הוא שיא מודיעין הפגרה של שנה 2 של EP10 בצפיפות אנליטית גבוהה ביותר.** תיקי הקבצים מרימים את קורפוס EP10 לפני הפגרה למצב המוכנות התפעולית הגרנולרי ביותר.
+
+---
+
+### 🧭 3 החלטות שסיכום זה תומך בהן
+
+| # | החלטה | מי מחליט | מועד אחרון | ראיות |
+|:-:|-------|---------|:-----------:|-------|
+| 1 | **טעינה מוקדמת ליישום Q2 לכל קובץ** — 18 תיקים מוכנים; טעינת מתאמי המועצה מוקדם | יו"ר המועצה + מדווחי PE | לפני 14 באפריל | §תיקים לכל קובץ (18) |
+| 2 | **מבצעי מד ימים T-8 עד T-0** — רצף 6 טריגרים דורש מעקב יומי אחרי סף | מבצעי מודיעין PE; שירות עיתונות | יומי ברציפות | §טריגרים קדימה (6 טריגרים) |
+| 3 | **מעקב קבצי מסלול מעורב** — מסלול היברידי DGSD2/BRRD3 דורש בריפינג מתאם Renew | מתאמי Renew + PPE | לפני 14 באפריל | §חלוקת 18 קבצים (11/5/2) |
+
+---
+
+### 📰 קריאת 60 שניות
+
+- 🔴 **44 ממצאים, 3,391 שורות** — עוגן מבני של היום.
+- 🟠 **18 תיקים לכל קובץ** — ספרינט 26 במרץ בדקות מרבית.
+- 🟢 **חלוקת 18 קבצים:** 11 מרכז-ימין · 5 קואליציה גדולה · 2 מעורב.
+- 🟡 **רצף 6 טריגרים** — 14 אפר · 15 · 17 · 20-23 · סוף · Q2.
+- 🔵 **עדכון 737 חברי פרלמנט יציב** — קו בסיס יציב.
+- 🟣 **יום פגרה 12/18 — 67% הושלם** — T-8 לשבוע ועדות.
+- 🩷 **מהימנות בינוני** — לפני פגרה גבוה; תחזית Q2 בינוני.
+- ⚪ **קו בסיס מבני לכל ריצות הפגרה הבאות**.
+
+---
+
+### 📂 חלוקת מסלולי 18 קבצים (תרומה ייחודית של הריצה)
+
+| מסלול | מספר | קבצי דגל | הערה תפעולית |
+|-------|------:|----------|--------------|
+| **מרכז-ימין** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · תיקוני ETS · 7 כלכלה-פיננסים | מסלול טרילוג מרכז-ימין Q2 |
+| **קואליציה גדולה** | 5 | אנטי-שחיתות · 4 משפחת שלטון חוק | יישום Q2-Q4 |
+| **מסלול מעורב (היברידי)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | התאמת Renew מותנית לפי קובץ |
+
+---
+
+### ⚠️ תמונת מצב סיכון
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 טריגרים קדימה מובילים (רצף ה-6 שפורסם מהריצה)
+
+1. **14 באפריל — פתיחת שבוע ועדות** — מסלול כפול יום 1.
+2. **15 באפריל — מכסי ארה"ב T-0** — זעזוע אקסוגני.
+3. **17 באפריל — החלטת ריביות ECB** — הפעלת הקשר כלכלי.
+4. **20-23 באפריל — מליאה ראשונה לאחר הפגרה** — מבחן עקה דו-מודלי.
+5. **סוף אפריל — מנדט מועצת האיחוד הבנקאי** — שער טרילוג.
+6. **Q2 — תחילת יישום אנטי-שחיתות 27 מדינות חברות** — קיימות הקואליציה הגדולה.
+
+---
+
+### 🛡️ הערכת איכות מקורות
+
+- **18 תיקים לכל קובץ (A1):** עדכון טקסטים שאומצו ראשי + מתודולוגיה לכל מסמך.
+- **חלוקת 18 קבצים (A2):** דפוסי הצבעה + דינמיקת קואליציה בדיקה צולבת.
+- **רצף 6 טריגרים (A1):** לוח שנה מוסדי + רשומות EP MCP ניתנות לאימות.
+- **737 חברי פרלמנט (A1):** רשומה ראשית יציבה בכל הריצות.
+- **מהימנות נטו:** 🟢 גבוה לקו בסיס יום 12; 🟡 בינוני לתחזית Q2.
+
+---
+
+### 📎 ממצאי ריצה
+
+| שכבה | ממצא | סיבה |
+|------|------|-------|
+| מאמר | `article.md` (2,562 שורות שפורסמו) | נרטיב ציבורי בוקר יום 12 |
+| סינתזה | `synthesis-summary.md` | איחוד 18 תיקים |
+| שיטות | סיווג · קיים · ניקוד סיכון · הערכת איום · מסמכים (18 תיקים לכל קובץ) | מתודולוגיה מלאה + שכבה לכל מסמך |
+| מלווה | breaking-2 (18:20 UTC) — עדכון ערב | מלווה אותו יום |
+
+---
+
+**בקרת תיעוד**
+- **הפניית תבנית:** `analysis/templates/executive-brief.md`
+- **נתיב ממצא:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **סיווג:** ציבורי
+- **רטרוספקטיבי:** סיכום נכתב ב-2026-05-16 מתוך ממצאי ריצה שאושרו; **לא בוצעו קריאות MCP חדשות**.
+
+### Executive Brief Ja
+
+**分類:** OSINT — 公開議会記録
+**信頼度:** 🟡 中程度（休会中；休会前の構造的分析 🟢 高）
+**実行:** `analysis/daily/2026-04-07/breaking/` (06:36 UTC)
+**対象範囲:** 復活祭休会第12日/18 — 火曜朝のインテリジェンスパケット（分析成果物44件、3,391行）
+**生成日:** 2026-05-16（遡及サマリー、新規MCP呼び出しなし）
+**主要情報源:** 休会前に採択されたテキスト18件の分析；全18手法デフォルト；EU議員737人フィード安定。
+
+---
+
+### 🎯 BLUF
+
+**第12日朝の実行は会期の構造的支柱である** — 分析成果物44件・3,391行を擁し、18日間の休会全体で最も包括的な単一実行前休会コーパス分析を生み出す。**特筆すべき貢献**は3月26日スプリントに関する**ファイル単位の政治インテリジェンス・ドシエ18件**であり、採択されたテキストごとに専用ドシエ（投票分布・連立軌跡・委員会権力の焦点・利害関係者への影響・Q2-Q3実施軌跡を網羅）が付随する。集計分析は4月6日に浮上した二重路線連立パターンを裏付けると同時に、さらなる詳細を追加する：**18ファイルは中道右派11件・大連立5件・混合路線2件に分かれる**（Banking Union DGSD2・BRRD3はいずれもPPE+ECR+S&Dハイブリッドを採用し、ファイルごとに条件付きRenew整合を伴う）。実行はさらに休会期間中で最も引用された*T-8委員会週間*作戦サマリーを生み出す — 確認された6つの前方トリガー（4月14日委員会週間・4月15日米国関税T-0・4月17日ECB金利・4月20-23日本会議・4月末Banking Union理事会付託・Q2反汚職実施27加盟国開始）— これが以降のすべての休会実行の編集上の参照点となる。**第12日朝の構造的ベースラインは、EP10第2年の休会インテリジェンス記録の分析密度が最高潮に達した地点である。**ファイル単位のドシエはEP10の休会前コーパスを最も細粒度の作戦準備状態に引き上げる。
+
+---
+
+### 🧭 このブリーフが支える3つの意思決定
+
+| # | 意思決定 | 決定者 | 期限 | 根拠 |
+|:-:|---------|--------|:----:|------|
+| 1 | **ファイル単位Q2実施の事前ロード** — 18ドシエ準備完了；理事会コーディネーターを事前ロード | 理事会議長国 + EP報告者 | 4月14日前 | §ファイル単位ドシエ（18件） |
+| 2 | **T-8からT-0デーカウンター運用** — 6トリガーシーケンスは閾値の毎日監視が必要 | EPインテリジェンス運用；報道局 | 毎日継続 | §前方トリガー（6トリガー） |
+| 3 | **混合路線ファイルの監視** — DGSD2/BRRD3ハイブリッド路線はRenewコーディネーターへのブリーフィングが必要 | Renew + PPEコーディネーター | 4月14日前 | §18ファイル分割（11/5/2） |
+
+---
+
+### 📰 60秒リーディング
+
+- 🔴 **成果物44件、3,391行** — その日の構造的支柱。
+- 🟠 **ファイル単位ドシエ18件** — 3月26日スプリントを最大粒度で分析。
+- 🟢 **18ファイル分割：** 中道右派11 · 大連立5 · 混合2。
+- 🟡 **6トリガーシーケンス** — 4/14 · 15 · 17 · 20-23 · 月末 · Q2。
+- 🔵 **EU議員737人フィード安定** — ベースライン安定。
+- 🟣 **休会第12日/18 — 67%完了** — 委員会週間まであとT-8。
+- 🩷 **信頼度中程度** — 休会前は高；Q2予測は中程度。
+- ⚪ **以降すべての休会実行の構造的ベースライン。**
+
+---
+
+### 📂 18ファイル路線別分割（実行の特筆すべき貢献）
+
+| 路線 | 件数 | 主要ファイル | 作戦上の注記 |
+|------|----:|------------|------------|
+| **中道右派** | 11 | Banking Union SRMR3 · STEP-II · AI著作権 · ETS修正 · 経済財政7件 | Q2中道右派三者協議路線 |
+| **大連立** | 5 | 反汚職 · 法の支配ファミリー4件 | Q2-Q4実施 |
+| **混合路線（ハイブリッド）** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | ファイルごと条件付きRenew整合 |
+
+---
+
+### ⚠️ リスクスナップショット
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 主要前方トリガー（実行が公表した6シーケンス）
+
+1. **4月14日 — 委員会週間開幕** — 二重路線第1日。
+2. **4月15日 — 米国関税T-0** — 外生的ショック。
+3. **4月17日 — ECB金利決定** — 経済コンテキストの活性化。
+4. **4月20-23日 — 休会後初の本会議** — 二峰性ストレステスト。
+5. **4月末 — Banking Union理事会付託** — 三者協議の入口。
+6. **Q2 — 反汚職27加盟国実施開始** — 大連立の持続可能性。
+
+---
+
+### 🛡️ 情報源品質評価
+
+- **ファイル単位ドシエ18件（A1）：** 採択テキスト主要フィード ＋ 文書ごとの手法。
+- **18ファイル分割（A2）：** 投票パターン ＋ 連立ダイナミクスを相互検証済み。
+- **6トリガーシーケンス（A1）：** 機関カレンダー ＋ EP MCP記録で検証可能。
+- **EU議員737人（A1）：** すべての実行で安定した主要記録。
+- **正味信頼度：** 🟢 第12日ベースラインは高；🟡 Q2予測は中程度。
+
+---
+
+### 📎 実行成果物
+
+| 層 | 成果物 | 理由 |
+|----|--------|------|
+| 記事 | `article.md`（公開2,562行） | 第12日朝の公開ナラティブ |
+| 統合 | `synthesis-summary.md` | 18ドシエの統合 |
+| 手法 | 分類 · 既存 · リスクスコアリング · 脅威評価 · ドキュメント（ファイル単位18ドシエ） | 完全手法論 ＋ 文書単位レイヤー |
+| 同日版 | breaking-2（18:20 UTC） — 夕方更新 | 同日版 |
+
+---
+
+**文書管理**
+- **テンプレート参照：** `analysis/templates/executive-brief.md`
+- **成果物パス：** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **分類：** 公開
+- **遡及：** 2026-05-16にコミット済み実行成果物から作成したサマリー；**新規MCP呼び出しなし**。
+
+### Executive Brief Ko
+
+**분류:** OSINT — 공개 의회 기록
+**신뢰도:** 🟡 보통 (휴회 중; 휴회 전 구조 분석 🟢 높음)
+**실행:** `analysis/daily/2026-04-07/breaking/` (06:36 UTC)
+**범위:** 부활절 휴회 12일/18 — 화요일 아침 인텔리전스 패킷 (분석 산출물 44건, 3,391줄)
+**생성일:** 2026-05-16 (소급 요약, 신규 MCP 호출 없음)
+**주요 출처:** 휴회 전 채택 문서 18건 분석; 18개 방법론 모두 기본 적용; EU 의원 737명 피드 안정.
+
+---
+
+### 🎯 BLUF
+
+**12일차 아침 실행은 입법 회기의 구조적 기둥이다** — 분석 산출물 44건·3,391줄로 18일간의 전체 휴회 기간에서 가장 포괄적인 단일 실행 사전 휴회 코퍼스 분석을 생성한다. **특징적 기여**는 3월 26일 스프린트에 관한 **파일별 정치 인텔리전스 도시에 18건**으로, 채택된 텍스트마다 전용 도시에(투표 분산·연립 궤적·위원회 권력 집중·이해관계자 영향·Q2-Q3 이행 궤적 포함)가 배정된다. 집계 분석은 4월 6일에 부상한 이중 트랙 연립 패턴을 뒷받침하면서 세부 정보를 추가한다: **18개 파일은 중도우파 11건·대연립 5건·혼합 트랙 2건으로 분류**된다(Banking Union DGSD2·BRRD3는 모두 PPE+ECR+S&D 하이브리드를 활용하며 파일별 조건부 Renew 정렬을 동반). 이 실행은 또한 휴회 기간 중 가장 많이 인용되는 *T-8 위원회 주간* 작전 요약을 생성한다 — 6개 확인된 전향 트리거(4월 14일 위원회 주간·4월 15일 미국 관세 T-0·4월 17일 ECB 금리·4월 20-23일 본회의·4월 말 Banking Union 이사회 위임·Q2 27개 회원국 반부패 이행 시작) — 이는 이후 모든 휴회 실행의 편집 기준점이 된다. **12일차 아침의 구조적 기준선은 EP10 2년차 휴회 인텔리전스 기록 중 분석 밀도 최고점이다.** 파일별 도시에는 EP10 사전 휴회 코퍼스를 가장 세분화된 작전 준비 상태로 끌어올린다.
+
+---
+
+### 🧭 이 브리핑이 지원하는 3가지 결정
+
+| # | 결정 | 결정 주체 | 마감 | 근거 |
+|:-:|------|---------|:----:|------|
+| 1 | **파일별 Q2 이행 사전 로드** — 도시에 18건 준비 완료; 이사회 코디네이터 사전 로드 | 이사회 의장국 + EP 보고관 | 4월 14일 전 | §파일별 도시에 (18건) |
+| 2 | **T-8에서 T-0 카운터 작전** — 6 트리거 시퀀스는 일별 임계값 모니터링 필요 | EP 인텔리전스 작전; 언론 서비스 | 매일 지속 | §전향 트리거 (6 트리거) |
+| 3 | **혼합 트랙 파일 모니터링** — DGSD2/BRRD3 하이브리드 트랙은 Renew 코디네이터 브리핑 필요 | Renew + PPE 코디네이터 | 4월 14일 전 | §18파일 분류 (11/5/2) |
+
+---
+
+### 📰 60초 리딩
+
+- 🔴 **산출물 44건, 3,391줄** — 당일 구조적 기둥.
+- 🟠 **파일별 도시에 18건** — 3월 26일 스프린트 최대 세분화 분석.
+- 🟢 **18파일 분류:** 중도우파 11 · 대연립 5 · 혼합 2.
+- 🟡 **6 트리거 시퀀스** — 4/14 · 15 · 17 · 20-23 · 말 · Q2.
+- 🔵 **EU 의원 737명 피드 안정** — 기준선 안정.
+- 🟣 **휴회 12일/18 — 67% 완료** — 위원회 주간까지 T-8.
+- 🩷 **신뢰도 보통** — 휴회 전 높음; Q2 예측 보통.
+- ⚪ **이후 모든 휴회 실행의 구조적 기준선.**
+
+---
+
+### 📂 18파일 트랙 분류 (실행의 특징적 기여)
+
+| 트랙 | 건수 | 주요 파일 | 작전 메모 |
+|------|----:|----------|---------|
+| **중도우파** | 11 | Banking Union SRMR3 · STEP-II · AI 저작권 · ETS 개정 · 경제재정 7건 | Q2 중도우파 삼자 협의 트랙 |
+| **대연립** | 5 | 반부패 · 법치 패밀리 4건 | Q2-Q4 이행 |
+| **혼합 트랙 (하이브리드)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | 파일별 조건부 Renew 정렬 |
+
+---
+
+### ⚠️ 리스크 스냅샷
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 주요 전향 트리거 (실행이 공표한 6 시퀀스)
+
+1. **4월 14일 — 위원회 주간 개막** — 이중 트랙 1일차.
+2. **4월 15일 — 미국 관세 T-0** — 외생적 충격.
+3. **4월 17일 — ECB 금리 결정** — 경제 맥락 활성화.
+4. **4월 20-23일 — 휴회 후 첫 본회의** — 이중 양식 스트레스 테스트.
+5. **4월 말 — Banking Union 이사회 위임** — 삼자 협의 관문.
+6. **Q2 — 27개 회원국 반부패 이행 시작** — 대연립 지속가능성.
+
+---
+
+### 🛡️ 출처 품질 평가
+
+- **파일별 도시에 18건 (A1):** 채택 문서 주요 피드 + 문서별 방법론.
+- **18파일 분류 (A2):** 투표 패턴 + 연립 역학 교차 검증.
+- **6 트리거 시퀀스 (A1):** 기관 캘린더 + EP MCP 기록 검증 가능.
+- **EU 의원 737명 (A1):** 모든 실행에서 안정적인 주요 기록.
+- **순 신뢰도:** 🟢 12일차 기준선 높음; 🟡 Q2 예측 보통.
+
+---
+
+### 📎 실행 산출물
+
+| 계층 | 산출물 | 이유 |
+|------|--------|------|
+| 기사 | `article.md` (공개 2,562줄) | 12일차 아침 공개 내러티브 |
+| 종합 | `synthesis-summary.md` | 18 도시에 통합 |
+| 방법론 | 분류 · 기존 · 위험 점수화 · 위협 평가 · 문서 (파일별 18 도시에) | 전체 방법론 + 문서별 계층 |
+| 동반 | breaking-2 (18:20 UTC) — 저녁 업데이트 | 당일 동반 |
+
+---
+
+**문서 관리**
+- **템플릿 참조:** `analysis/templates/executive-brief.md`
+- **산출물 경로:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **분류:** 공개
+- **소급:** 커밋된 실행 산출물을 바탕으로 2026-05-16에 작성한 요약; **신규 MCP 호출 없음**.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**De Dag 12-ochtendrun is het structurele ankerpunt van de zittingsperiode** — met 44 analyseartifacts en 3.391 regels produceert deze de meest uitgebreide single-run pre-reces corpusanalyse van de gehele 18-daagse recesperiode.** De onderscheidende bijdrage is **18 per-bestand politieke inlichtingendossiers** over de sprint van 26 maart — elk aangenomen document krijgt een toegewijd dossier dat stemdispersie, coalitietraject, commissiemachtsfocus, stakeholderimpact en Q2-Q3 implementatietrajectorie omvat. De geaggregeerde analyse bevestigt het dubbelspoorse coalitiepatroon dat op 6 april naar voren kwam, maar voegt granulariteit toe: **de 18 bestanden verdelen zich 11 centrum-rechts, 5 grote coalitie, 2 gemengd spoor** (Banking Union DGSD2 en BRRD3 gebruikten beide hybride PPE+ECR+S&D met bestandsafhankelijke Renew-uitlijning). De run produceert ook de meest geciteerde *T-8 naar Commissievrek* operatieve samenvatting van de recesperiode — zes bevestigde vooruitkijkende triggers (14 april commissievreek · 15 april VS-tarieven T-0 · 17 april ECB-rente · 20-23 april plenumvergadering · eind april Bankenunie Raadsmandat · Q2 27-LS Anti-Corruptie implementatiestart) — die de redactionele referentie wordt voor alle volgende recessruns. **De structurele baseline van Dag 12-ochtend is het inlichtingenprotocol van de Jaar 2-recesperiode van EP10 op zijn hoogste punt van analytische dichtheid.** Per-bestand dossiers tillen het EP10 pre-reces corpus naar zijn meest granulaire operationele gereedheidsstand.
+
+---
+
+### 🧭 3 Beslissingen die deze samenvatting ondersteunt
+
+| # | Beslissing | Wie beslist | Deadline | Bewijs |
+|:-:|------------|------------|:--------:|--------|
+| 1 | **Per-bestand Q2-implementatievoorlading** — 18 dossiers gereed; Raadscoördinatoren voorladen | Raadsvoorzitterschap + EP-rapporteurs | vóór 14 april | §Per-bestand dossiers (18) |
+| 2 | **T-8 naar T-0 dagenteller-ops** — 6-triggersequentie vereist dagelijkse drempelwaakbewaking | EP inlichtingenops; persdienst | dagelijks doorlopend | §Vooruitkijkende triggers (6-trigger) |
+| 3 | **Bewaking gemengd-spoor bestanden** — DGSD2/BRRD3 hybride spoor vereist Renew-coördinatorbriefing | Renew + PPE-coördinatoren | vóór 14 april | §18-bestandsverdeling (11/5/2) |
+
+---
+
+### 📰 60-seconden lezing
+
+- 🔴 **44 artifacts, 3.391 regels** — structureel ankerpunt van de dag.
+- 🟠 **18 per-bestand dossiers** — sprint van 26 maart op maximale granulariteit.
+- 🟢 **18-bestandsverdeling:** 11 centrum-rechts · 5 grote coalitie · 2 gemengd.
+- 🟡 **6-triggersequentie** — 14 apr · 15 · 17 · 20-23 · laat · Q2.
+- 🔵 **Feed van 737 Parlementsleden stabiel** — baseline stabiel.
+- 🟣 **Recesdag 12/18 — 67% voltooid** — T-8 naar Commissieweek.
+- 🩷 **Betrouwbaarheid MEDIUM** — pre-reces HOOG; Q2-voorspelling MEDIUM.
+- ⚪ **Structurele baseline voor alle volgende recessruns**.
+
+---
+
+### 📂 18-Bestandssporverdeling (onderscheidende bijdrage van de run)
+
+| Spoor | Aantal | Vlaggeschip-bestanden | Operationele noot |
+|-------|------:|----------------------|-------------------|
+| **Centrum-rechts** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · ETS-wijzigingen · 7 economie-financiën | Q2 trilogus centrum-rechts spoor |
+| **Grote coalitie** | 5 | Anti-Corruptie · 4 rechtsstaat familie | Q2-Q4 implementatie |
+| **Gemengd spoor (hybride)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | Renew bestandsafhankelijke uitlijning |
+
+---
+
+### ⚠️ Risicomomentopname
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 Top vooruitkijkende triggers (gepubliceerde 6-sequentie van de run)
+
+1. **14 april — Commissieweek opent** — dubbel spoor Dag 1.
+2. **15 april — VS-tarieven T-0** — exogeen schok.
+3. **17 april — ECB-rentebesluit** — activering economische context.
+4. **20-23 april — eerste plenumvergadering na reces** — bimodaale stresstest.
+5. **Eind april — Bankenunie Raadsmandat** — trilogpoort.
+6. **Q2 — 27-LS Anti-Corruptie implementatiestart** — duurzaamheid grote coalitie.
+
+---
+
+### 🛡️ Bronnenkwaliteitsbeoordeling
+
+- **18 per-bestand dossiers (A1):** primaire aangenomen teksten-feed + per-document methodologie.
+- **18-bestandsverdeling (A2):** stempatronen + coalitiedynamiek kruisgecontroleerd.
+- **6-triggersequentie (A1):** institutionele kalender + EP MCP-registraties verifieerbaar.
+- **737 Parlementsleden (A1):** primair protocol stabiel in alle runs.
+- **Nettovertrouwen:** 🟢 HOOG voor Dag-12-baseline; 🟡 MEDIUM voor Q2-voorspelling.
+
+---
+
+### 📎 Run-artifacts
+
+| Laag | Artifact | Waarom |
+|------|----------|--------|
+| Artikel | `article.md` (2.562 gepubliceerde regels) | Openbare Dag-12-ochtendvertelling |
+| Synthese | `synthesis-summary.md` | 18-dossiers consolidering |
+| Methoden | classificatie · bestaande · risicoscoring · dreigingsbeoordeling · documenten (18 per-bestand dossiers) | Volledige methodologie + per-documentlaag |
+| Begeleider | breaking-2 (18:20 UTC) — avondupdate | Zelfdedag begeleider |
+
+---
+
+**Documentbeheer**
+- **Sjabloonreferentie:** `analysis/templates/executive-brief.md`
+- **Artifact-pad:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectief:** Samenvatting geschreven op 2026-05-16 op basis van de gecommittede artifacts van de run; **er zijn geen nieuwe MCP-aanroepen gedaan**.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Dag-12 morgenkjøringen er mandatperiodens strukturelle ankerpunkt** — med 44 analyseartifakter og 3 391 linjer produserer den den mest heldekkende enkelt-kjørings korpusanalyse fra perioden før oppholdet i løpet av hele 18-dagers oppholdsperioden.** Dets særegne bidrag er **18 per-fil politiske etterretningsdossier** om spurtaksjonen 26. mars — hvert vedtatt dokument får et dedikert dossier som dekker stemmefordeling, koalisjonsspor, utvalgsmagtens fokuspunkt, interessentpåvirkning og Q2-Q3 implementeringstrajectory. Den aggregerte analysen bekrefter det dobbeltsporede koalitionsmønsteret som dukket opp 6. april, men tillegger granularitet: **de 18 filene deler seg 11 høyresentrerte, 5 storkoalisjon, 2 blandede spor** (Banking Union DGSD2 og BRRD3 brukte begge hybrid PPE+ECR+S&D med filbetinget Renew-tilpasning). Kjøringen produserer også oppholdsperiodens mest siterte *T-8 til komitéuke* operative sammendrag — seks bekreftede fremadrettede triggere (14. april komitéuke · 15. april USA-toll T-0 · 17. april ECB-rente · 20-23. april plenarmøte · sent april Banking Union rådsmandat · Q2 27-MS transponering) — som blir den redaksjonelle referansen for alle etterfølgende opphold-kjøringer. **Dag-12 morgenens strukturelle baseline er EP10 År 2-oppholdsperiodens etterretningsprotokoll på sitt høyeste analytiske nivå.** Per-fil dossier løfter EP10s pre-opphold-korpus til sin mest granulerte operative beredskapstilstand.
+
+---
+
+### 🧭 3 Beslutninger dette sammendraget støtter
+
+| # | Beslutning | Beslutningstaker | Frist | Dokumentasjon |
+|:-:|------------|------------------|:-----:|---------------|
+| 1 | **Per-fil Q2-implementeringsforberedelse** — 18 dossier klare; forhåndslast rådskoordinatorer | Rådsformannskapet + EP-ordførere | innen 14. april | §Per-fil dossier (18) |
+| 2 | **T-8 til T-0 dagsteller-ops** — 6-triggersekvensen krever løpende daglig tersklovervåking | EP-etterretningsops; pressetjeneste | løpende daglig | §Fremadrettede triggere (6-trigger) |
+| 3 | **Overvåking av blandede sporsfiler** — DGSD2/BRRD3 hybridspor krever Renew-koordinatorbriefing | Renew + PPE-koordinatorer | innen 14. april | §18-filsdeling (11/5/2) |
+
+---
+
+### 📰 60-sekunders lesning
+
+- 🔴 **44 artifakter, 3 391 linjer** — dagens strukturelle ankerpunkt.
+- 🟠 **18 per-fil dossier** — 26. mars-spurten i maksimal granularitet.
+- 🟢 **18-filsdeling:** 11 høyresentrert · 5 storkoalisjon · 2 blandet.
+- 🟡 **6-triggersekvens** — 14. apr · 15. · 17. · 20-23. · sent · Q2.
+- 🔵 **737 MEP-feed stabilt** — baseline holder.
+- 🟣 **Oppholdsdag 12/18 — 67% fullført** — T-8 til komitéuke.
+- 🩷 **Konfidens MEDIUM** — før oppholdet HØY; Q2-prognose MEDIUM.
+- ⚪ **Strukturell baseline for alle etterfølgende opphold-kjøringer**.
+
+---
+
+### 📂 18-Filsdeling (kjøringens særegne bidrag)
+
+| Spor | Antall | Flaggskipsfiler | Operativ merknad |
+|------|-------:|----------------|-----------------|
+| **Høyresentrert** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · ETS-endringer · 7 økonomi-finans | Q2 trilog høyresentrert spor |
+| **Storkoalisjon** | 5 | Anti-Korrupsjon · 4 rettsstatsfamilie | Q2-Q4 transponering |
+| **Blandet spor (hybrid)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | Renew filbetinget tilpasning |
+
+---
+
+### ⚠️ Risikoøyeblikksbilde
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 Topp fremadrettede triggere (kjøringens publiserte 6-sekvens)
+
+1. **14. april — Komitéuken åpner** — dobbeltspor Dag 1.
+2. **15. april — USA-toll T-0** — eksogent sjokk.
+3. **17. april — ECB-rentebeslutning** — aktivering av økonomisk kontekst.
+4. **20-23. april — første plenarmøte etter oppholdet** — bimodal stresstest.
+5. **Sent april — Banking Union rådsmandat** — triloggport.
+6. **Q2 — 27-MS Anti-Korrupsjon transponeringsstart** — storkoalisjonens holdbarhet.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **18 per-fil dossier (A1):** primært vedtatte tekster-feed + per-dokument metodologi.
+- **18-filsdeling (A2):** avstemningsmønstre + koalisjonsdynamikk kryssverifisert.
+- **6-triggersekvens (A1):** institusjonell kalender + EP MCP-poster verifiserbare.
+- **737 MEP-er (A1):** primær protokoll stabil på tvers av alle kjøringer.
+- **Netto konfidens:** 🟢 HØY for Dag-12-baseline; 🟡 MEDIUM for Q2-prognose.
+
+---
+
+### 📎 Kjøringsartifakter
+
+| Lag | Artifakt | Hvorfor |
+|-----|----------|---------|
+| Artikkel | `article.md` (2 562 linjer publisert) | Offentlig Dag-12 morgenfortelling |
+| Syntese | `synthesis-summary.md` | 18-dossier konsolidering |
+| Metoder | klassifisering · eksisterende · risikovurdering · trusselvurdering · dokumenter (18 per-fil dossier) | Full metodologi + per-dokumentlag |
+| Ledsager | breaking-2 (18:20 UTC) — kveldsoppdatering | Sammedags ledsager |
+
+---
+
+**Dokumentkontroll**
+- **Malonreferanse:** `analysis/templates/executive-brief.md`
+- **Artifaktsti:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv:** Sammendrag skrevet 2026-05-16 fra kjøringens lagrede artifakter; **ingen nye MCP-kall ble foretatt**.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Dag-12 morgonkörningens genombrott är mandatperiodens strukturella ankare** — med 44 analysartefakter och 3 391 rader producerar den den mest heltäckande enkla körningens förupphålls-korpusanalysen under hela 18-dagarsperioden.** Dess utmärkande bidrag är **18 per-fil politiska underrättelsedossiers** om spurtaktionen den 26 mars — varje antagen text får en dedikerad dossier som täcker röstspridning, koalitionsspår, utskottsmaktens fokuspunkt, intressenters påverkan och Q2-Q3 implementeringsstrategin. Den sammanlagda analysen bekräftar det dubbla koalitionsmönstret som framträdde den 6 april men tillför detaljrikedom: **de 18 filerna delar sig 11 högercentristiska, 5 storkoalition, 2 blandspår** (Banking Union DGSD2 och BRRD3 använde båda hybrid PPE+ECR+S&D med filberoende Renew-anpassning). Körningen producerar också uppehållsperiodens mest citerade *T-8 till utskottsveckan* operativa sammanfattning — sex bekräftade framåtutlösare (14 april utskottsvecka · 15 april USA-tullar T-0 · 17 april ECB-ränta · 20-23 april plenarmöte · slutet april Banking Union rådsmandat · Q2 27-MS-transponering) — som blir den redaktionella referensen för alla efterföljande uppehållskörningar. **Dag-12 morgonens strukturella baslinje är EP10 År 2-uppehållets underrättelseprotokoll på sin höjdpunkt av analytisk densitet.** Per-fil dossiers höjer EP10:s förupphålls-korpus till sitt mest granulerade operativa beredskapsläge.
+
+---
+
+### 🧭 3 Beslut som detta sammandrag stödjer
+
+| # | Beslut | Beslutsfattare | Deadline | Bevis |
+|:-:|--------|----------------|:--------:|-------|
+| 1 | **Per-fil Q2-implementeringsförladdning** — 18 dossiers redo; förlasta rådskoordinatorer | Rådsordförandeskapet + EP-föredragande | senast 14 april | §Per-fil dossiers (18) |
+| 2 | **T-8 till T-0 dagsräknar-ops** — 6-utlösarsekvensen kräver löpande daglig tröskelövervakning | EP-underrättelseops; pressavdelning | rullande dagligen | §Framåtutlösare (6-utlösarsekvens) |
+| 3 | **Blandspårfiler bevakning** — DGSD2/BRRD3 hybridspår kräver Renew-koordinatorbriefing | Renew + PPE-koordinatorer | senast 14 april | §18-filsuppdelning (11/5/2) |
+
+---
+
+### 📰 60-sekunders läsning
+
+- 🔴 **44 artefakter, 3 391 rader** — dagens strukturella ankare.
+- 🟠 **18 per-fil dossiers** — 26 mars-spurten i maximal granularitet.
+- 🟢 **18-filsuppdelning:** 11 högercentristisk · 5 storkoalition · 2 blandat.
+- 🟡 **6-utlösarsekvens** — 14 apr · 15 · 17 · 20-23 · sen · Q2.
+- 🔵 **737 MEP-flöde stabilt** — baslinje håller.
+- 🟣 **Uppehållsdag 12/18 — 67% genomfört** — T-8 till utskottsveckan.
+- 🩷 **Konfidensgrad MEDIUM** — förupphåll HÖG; Q2-prognos MEDIUM.
+- ⚪ **Strukturell baslinje för alla efterföljande uppehållskörningar**.
+
+---
+
+### 📂 18-Filsuppdelning (körningens utmärkande bidrag)
+
+| Spår | Antal | Flaggskepp-filer | Operativ notering |
+|------|------:|-----------------|-------------------|
+| **Högercentristisk** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · ETS-ändringar · 7 ekonomi-finans | Q2 trilogue högercentristiskt spår |
+| **Storkoalition** | 5 | Anti-korruption · 4 rättsstatsfamilj | Q2-Q4 transponering |
+| **Blandat spår (hybrid)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | Renew filberoende anpassning |
+
+---
+
+### ⚠️ Riskögonblicksbild
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 Topp framåtutlösare (körningens publicerade 6-sekvens)
+
+1. **14 april — Utskottsveckan öppnar** — dubbelt spår Dag 1.
+2. **15 april — USA-tullar T-0** — exogent chock.
+3. **17 april — ECB-räntebeslut** — ekonomisk kontext aktivering.
+4. **20-23 april — första plenarmötet efter uppehåll** — bimodalt stresstest.
+5. **Slutet april — Banking Union rådsmandat** — trialog-port.
+6. **Q2 — 27-MS Anti-korruption transponeringsstart** — storkoalitionens hållbarhet.
+
+---
+
+### 🛡️ Källkvalitetsbedömning
+
+- **18 per-fil dossiers (A1):** primärt antagna texter-flöde + per-dokument metodik.
+- **18-filsuppdelning (A2):** röstmönster + koalitionsdynamik korsverifierat.
+- **6-utlösarsekvens (A1):** institutionell kalender + EP MCP-poster verifierbara.
+- **737 MEP:er (A1):** primärt protokoll stabilt i alla körningar.
+- **Nettokonfidens:** 🟢 HÖG för Dag-12-baslinje; 🟡 MEDIUM för Q2-prognos.
+
+---
+
+### 📎 Körningsartefakter
+
+| Lager | Artefakt | Varför |
+|-------|----------|--------|
+| Artikel | `article.md` (2 562 rader publicerade) | Offentlig Dag-12 morgon-berättelse |
+| Syntes | `synthesis-summary.md` | 18-dossiers konsolidering |
+| Metoder | klassificering · befintliga · riskbedömning · hotbedömning · dokument (18 per-fil dossiers) | Fullständig metodik + per-dokumentlager |
+| Kompanjong | breaking-2 (18:20 UTC) — kvällsuppdatering | Samdagskompanjong |
+
+---
+
+**Dokumentkontroll**
+- **Mallreferens:** `analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Sammandrag skrivet 2026-05-16 från körningens sparade artefakter; **inga nya MCP-anrop gjordes**.
+
+### Executive Brief Zh
+
+**分类:** OSINT — 公开议会档案
+**可信度:** 🟡 中等（休会期间；休会前结构分析 🟢 高）
+**运行:** `analysis/daily/2026-04-07/breaking/` (06:36 UTC)
+**覆盖范围:** 复活节休会第12天/18 — 周二晨间情报包（44项分析产出，3,391行）
+**生成日期:** 2026-05-16（回溯性摘要，无新MCP调用）
+**主要来源:** 休会前18份已采纳文本分析；18种方法论全部默认适用；737名欧洲议会议员数据源稳定。
+
+---
+
+### 🎯 BLUF
+
+**第12天晨间运行是本届立法期的结构性支柱** — 凭借44项分析产出和3,391行内容，本次运行在整个18天休会期间产出了最全面的单次运行休会前语料库分析。**突出贡献**是针对3月26日冲刺的**18份逐文件政治情报档案**——每份已采纳文本均获得专属档案，涵盖投票分布、联盟轨迹、委员会权力焦点、利益相关方影响及Q2-Q3执行轨迹。汇总分析印证了4月6日浮现的双轨联盟模式，同时增补了更多细节：**18份文件分布为中右翼11份、大联盟5份、混合轨道2份**（银行业联盟DGSD2和BRRD3均采用PPE+ECR+S&D混合路线，并按文件设有条件性Renew协同）。本次运行还产出了休会期间引用最多的*T-8委员会周*行动摘要——六项经确认的前瞻性触发因素（4月14日委员会周·4月15日美国关税T-0·4月17日欧洲央行利率·4月20-23日全体会议·4月底银行业联盟理事会授权·Q2二十七成员国反腐执行启动）——成为此后所有休会运行的编辑参考基准。**第12天晨间的结构性基线是EP10第二年休会情报记录在分析密度上的顶峰。**逐文件档案将EP10休会前语料库提升至最精细化的行动准备状态。
+
+---
+
+### 🧭 本简报支持的3项决策
+
+| # | 决策 | 决策者 | 截止日期 | 依据 |
+|:-:|------|--------|:--------:|------|
+| 1 | **逐文件Q2执行预载入** — 18份档案就绪；预载入理事会协调员 | 理事会轮值主席国 + 欧洲议会报告员 | 4月14日前 | §逐文件档案（18份） |
+| 2 | **T-8至T-0天数计数器行动** — 6触发因素序列需每日阈值监控 | 欧洲议会情报行动；新闻服务 | 每日持续 | §前瞻性触发（6触发） |
+| 3 | **混合轨道文件监控** — DGSD2/BRRD3混合轨道需进行Renew协调员情况简报 | Renew + PPE协调员 | 4月14日前 | §18文件分布（11/5/2） |
+
+---
+
+### 📰 60秒速读
+
+- 🔴 **44项产出，3,391行** — 当天结构性支柱。
+- 🟠 **18份逐文件档案** — 3月26日冲刺最大粒度分析。
+- 🟢 **18文件分布：** 中右翼11 · 大联盟5 · 混合2。
+- 🟡 **6触发因素序列** — 4/14 · 15 · 17 · 20-23 · 月底 · Q2。
+- 🔵 **737名欧洲议会议员数据源稳定** — 基线稳定。
+- 🟣 **休会第12天/18 — 67%已完成** — 距委员会周T-8。
+- 🩷 **可信度中等** — 休会前高；Q2预测中等。
+- ⚪ **此后所有休会运行的结构性基线。**
+
+---
+
+### 📂 18文件轨道分布（运行突出贡献）
+
+| 轨道 | 数量 | 旗舰文件 | 行动备注 |
+|------|----:|----------|---------|
+| **中右翼** | 11 | 银行业联盟SRMR3 · STEP-II · AI版权 · ETS修正案 · 经济财政7件 | Q2中右翼三方对话轨道 |
+| **大联盟** | 5 | 反腐败 · 法治家族4件 | Q2-Q4执行 |
+| **混合轨道（混合式）** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | 按文件条件性Renew协同 |
+
+---
+
+### ⚠️ 风险快照
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10521ba1) -->
+
+---
+
+### 🔮 主要前瞻性触发因素（运行公布的6序列）
+
+1. **4月14日 — 委员会周开幕** — 双轨第1天。
+2. **4月15日 — 美国关税T-0** — 外生性冲击。
+3. **4月17日 — 欧洲央行利率决定** — 经济背景激活。
+4. **4月20-23日 — 休会后首次全体会议** — 双峰压力测试。
+5. **4月底 — 银行业联盟理事会授权** — 三方对话门槛。
+6. **Q2 — 二十七成员国反腐执行启动** — 大联盟可持续性。
+
+---
+
+### 🛡️ 信源质量评估
+
+- **18份逐文件档案（A1）：** 已采纳文本主要数据源 + 逐文件方法论。
+- **18文件分布（A2）：** 投票模式 + 联盟动态交叉核验。
+- **6触发因素序列（A1）：** 机构日历 + 欧洲议会MCP记录可核实。
+- **737名欧洲议会议员（A1）：** 所有运行中主要记录稳定。
+- **综合可信度：** 🟢 第12天基线高；🟡 Q2预测中等。
+
+---
+
+### 📎 运行产出
+
+| 层级 | 产出 | 原因 |
+|------|------|------|
+| 文章 | `article.md`（已发布2,562行） | 第12天晨间公开叙述 |
+| 综合 | `synthesis-summary.md` | 18份档案整合 |
+| 方法论 | 分类 · 现有 · 风险评分 · 威胁评估 · 文件（18份逐文件档案） | 完整方法论 + 逐文件层级 |
+| 配套 | breaking-2（18:20 UTC）— 傍晚更新 | 当日配套运行 |
+
+---
+
+**文件管理**
+- **模板参考：** `analysis/templates/executive-brief.md`
+- **产出路径：** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **分类：** 公开
+- **回溯性：** 本摘要于2026-05-16依据已提交运行产出编写；**未进行新MCP调用**。
+
 ### Coalition Dynamics
 
 ### Computed Metrics (Script-Generated Context)
@@ -2664,6 +3814,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-documents | [adoptedtexts-ta-10-2026-0102-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0102-analysis.md) | `documents/adoptedtexts-ta-10-2026-0102-analysis.md` |
 | section-documents | [adoptedtexts-ta-10-2026-0103-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0103-analysis.md) | `documents/adoptedtexts-ta-10-2026-0103-analysis.md` |
 | section-documents | [adoptedtexts-ta-10-2026-0104-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0104-analysis.md) | `documents/adoptedtexts-ta-10-2026-0104-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/synthesis-summary.md) | `synthesis-summary.md` |
 

@@ -157,11 +157,11 @@ Dogs/cats traceability regulation (TA-10-2026-0115) has indirect environmental b
 ## PESTLE Impact Radar
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Impact Assessment — EP Propositions April 2026
-    axis P["Political"], E["Economic"], S["Social"], T["Technological"], L["Legal"], En["Environmental"]
-    "Impact Score" : [9, 7, 6, 8, 9, 5]
-    "Urgency Score" : [8, 7, 5, 9, 8, 4]
+    axis a1["P[\"Political\"]"], a2["E[\"Economic\"]"], a3["S[\"Social\"]"], a4["T[\"Technological\"]"], a5["L[\"Legal\"]"], a6["En[\"Environmental\"]"]
+    curve c1["Impact Score"]{9, 7, 6, 8, 9, 5}
+    curve c2["Urgency Score"]{8, 7, 5, 9, 8, 4}
 ```
 
 *Scale 1-10. Political and Legal dimensions score highest due to DMA enforcement and Armenia candidacy. Technological dimension reflects AI Act implementation and DMA gatekeeper obligations.*

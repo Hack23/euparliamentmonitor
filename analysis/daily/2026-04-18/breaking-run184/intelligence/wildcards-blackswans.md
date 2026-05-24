@@ -56,20 +56,20 @@ confidence: LOW (by definition)
 }}%%
 quadrantChart
     title Wildcard Events — Probability × Impact
-    x-axis Low Probability --> Higher (but still <20%) Probability
-    y-axis Low Impact --> Catastrophic Impact
-    quadrant-1 Critical Stress-Tests
-    quadrant-2 Monitor But Do Not Prepare
-    quadrant-3 Noise
-    quadrant-4 Over-Prepared
-    Commission No-Confidence Motion: [0.05, 0.95]
-    Major ECJ Preliminary Injunction: [0.08, 0.78]
-    Member State Financial-Stability Event: [0.08, 0.90]
-    US Federal Reserve Emergency Action: [0.05, 0.82]
-    Large MEP Defection Wave: [0.07, 0.65]
-    Major Cyber Incident (EP / Commission): [0.12, 0.75]
-    Ukraine Conflict Escalation (material): [0.18, 0.88]
-    MEP Death / Sudden Incapacity: [0.18, 0.30]
+    x-axis "Low Probability" --> "Higher (but still <20%) Probability"
+    y-axis "Low Impact" --> "Catastrophic Impact"
+    quadrant-1 "Critical Stress-Tests"
+    quadrant-2 "Monitor But Do Not Prepare"
+    quadrant-3 "Noise"
+    quadrant-4 "Over-Prepared"
+    "Commission No-Confidence Motion": [0.05, 0.95]
+    "Major ECJ Preliminary Injunction": [0.08, 0.78]
+    "Member State Financial-Stability Event": [0.08, 0.90]
+    "US Federal Reserve Emergency Action": [0.05, 0.82]
+    "Large MEP Defection Wave": [0.07, 0.65]
+    "Major Cyber Incident (EP / Commission)": [0.12, 0.75]
+    "Ukraine Conflict Escalation (material)": [0.18, 0.88]
+    "MEP Death / Sudden Incapacity": [0.18, 0.30]
 ```
 
 ---

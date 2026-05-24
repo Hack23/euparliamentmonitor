@@ -1,7 +1,7 @@
 ---
 title: "Run 193, 21 April 2026"
 description: "Run 193 (afternoon probe) crossed the 20/50 significance threshold at 22/50 and produced the first ARTICLEGENERATED gate result since the API outage began 11 April."
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Breaking Run193", "2026-04-21", "run 3ff728a7-15fa-4d2d-af0e-73c3e1ffb70e", "April", "afternoon", "probe", "crossed", "significance", "threshold", "produced", "first", "ARTICLEGENERATED", "gate"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Breaking Run193", "2026-04-21", "April", "afternoon", "probe", "crossed", "significance", "threshold"]
 date: 2026-04-21
 article_type: breaking-run193
 slug: 2026-04-21-breaking-run193

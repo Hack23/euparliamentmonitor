@@ -1,7 +1,7 @@
 ---
 title: "EP Motions, 22–29 April 2026"
 description: "The 28 April plenary day delivered 17 adopted texts spanning budget, justice, environment, trade, and institutional dossiers. The four most consequential decisions: (i) four…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-29", "run motions-run-1777445455", "April", "plenary", "delivered", "adopted", "texts", "spanning", "budget", "justice"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-29", "April", "plenary", "delivered"]
 date: 2026-04-29
 article_type: motions
 slug: 2026-04-29-motions
@@ -344,18 +344,12 @@ This is the most politically significant of the four immunity cases because:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title April 28 Session — Significance Profile
-    "Institutional Salience"
-    "Political Significance"
-    "Legislative Impact"
-    "Public Salience"
-    "Temporal Urgency"
-    "Cross-Pillar Effect"
-    "Precedent Value"
-    "MFF 2028-2034" [5, 4, 5, 3, 3, 5, 4]
-    "Consent Legislation" [4, 5, 4, 5, 3, 3, 5]
-    "Obajtek Immunity" [4, 5, 3, 5, 3, 3, 4]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"], a7["A7"]
+    curve c1["MFF 2028-2034"]{5, 4, 5, 3, 3, 5, 4}
+    curve c2["Consent Legislation"]{4, 5, 4, 5, 3, 3, 5}
+    curve c3["Obajtek Immunity"]{4, 5, 3, 5, 3, 3, 4}
 ```
 
 ---
@@ -643,14 +637,10 @@ Porter's Five Forces is adapted here for EP political dynamics:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title EP April 28 Forces Analysis
-    "EP Agenda Power"
-    "Council Countervailing Power"
-    "Commission Proposing Power"
-    "Far-Right Disruption"
-    "Civil Society Support"
-    current [7, 6, 6, 4, 7]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"]
+    curve c1["current"]{7, 6, 6, 4, 7}
 ```
 
 | Force | Direction | Strength | Net Effect |
@@ -831,17 +821,11 @@ xychart-beta
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-bar
-    title EP Political Group Seat Counts (Total: 719)
-    "EPP": 185
-    "S&D": 135
-    "PfE": 85
-    "ECR": 81
-    "Renew": 77
-    "Greens/EFA": 53
-    "The Left": 46
-    "NI": 30
-    "ESN": 27
+xychart-beta
+title "EP Political Group Seat Counts (Total: 719)"
+x-axis ["EPP", "S&D", "PfE", "ECR", "Renew", "Greens/EFA", "The Left", "NI", "ESN"]
+y-axis "Value" 0 --> 195
+bar [185, 135, 85, 81, 77, 53, 46, 30, 27]
 ```
 
 | Group | Seats | Share | Ideological Family | Typical Positions on Week's Key Issues |
@@ -1338,7 +1322,7 @@ The EIB report calls for enhanced accountability and transparency. Financial sec
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
 xychart-beta
-    title Stakeholder Impact Score (Positive=beneficial, Negative=adverse)
+    title "Stakeholder Impact Score (Positive=beneficial, Negative=adverse)"
     x-axis ["Polish Govt", "Press Freedom Orgs", "Womens Rights Orgs", "ECR/PiS Civil Society", "Orlen", "Commission", "Council", "EIB sector"]
     y-axis "Impact Score (-5 to +5)" -5 --> 5
     bar [4, 5, 5, -4, -2, 3, 1, 1]
@@ -1501,12 +1485,12 @@ graph LR
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
 quadrantChart
     title SWOT Quadrant Map
-    x-axis Adverse --> Favourable
-    y-axis Internal --> External
-    quadrant-1 Opportunities (External+Favourable)
-    quadrant-2 Strengths (Internal+Favourable)
-    quadrant-3 Weaknesses (Internal+Adverse)
-    quadrant-4 Threats (External+Adverse)
+    x-axis "Adverse" --> "Favourable"
+    y-axis "Internal" --> "External"
+    quadrant-1 "Opportunities (External+Favourable)"
+    quadrant-2 "Strengths (Internal+Favourable)"
+    quadrant-3 "Weaknesses (Internal+Adverse)"
+    quadrant-4 "Threats (External+Adverse)"
     "Rule-of-law enforcement": [0.75, 0.75]
     "MFF EP leverage": [0.65, 0.70]
     "Gender rights leadership": [0.70, 0.60]
@@ -1643,17 +1627,10 @@ EP blocking the MFF (as threatened in 2013 and 2020) creates a constitutional cr
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title SWOT Strength/Threat Profile
-    "Coalition coherence"
-    "Rule-of-law credibility"
-    "Legislative breadth"
-    "Voting transparency"
-    "MFF opportunity"
-    "Gender rights opportunity"
-    "Far-right threat"
-    "Democratic backsliding threat"
-    current [78, 71, 65, 45, 82, 68, 68, 61]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"], a7["A7"], a8["A8"]
+    curve c1["current"]{78, 71, 65, 45, 82, 68, 68, 61}
 ```
 
 | Category | Key Factor | Score | Trend |
@@ -1716,7 +1693,7 @@ radar
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#B71C1C","primaryTextColor":"#ffffff","lineColor":"#EF9A9A"}}}%%
 xychart-beta
-    title ECR Political Capital — Pre vs Post April 28
+    title "ECR Political Capital — Pre vs Post April 28"
     x-axis ["Rule-of-law credibility", "EPP cooperation potential", "S&D dialogue potential", "Coalition formation capacity", "Media reputation (EU media)"]
     y-axis "Score 0-100" 0 --> 100
     bar [30, 45, 15, 55, 25]
@@ -1773,19 +1750,14 @@ xychart-beta
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title Political Group Capital Position (April 28 Contribution)
-    "Rule-of-law credibility"
-    "Gender rights leadership"
-    "Budget/MFF influence"
-    "Coalition building capacity"
-    "Media reputation"
-    "Civil society alignment"
-    EPP [55, 40, 70, 75, 60, 50]
-    SD [75, 85, 65, 70, 70, 80]
-    Renew [70, 75, 60, 65, 70, 70]
-    ECR [15, 20, 35, 40, 25, 20]
-    PfE [20, 15, 25, 25, 20, 15]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"]
+    curve c1["EPP"]{55, 40, 70, 75, 60, 50}
+    curve c2["SD"]{75, 85, 65, 70, 70, 80}
+    curve c3["Renew"]{70, 75, 60, 65, 70, 70}
+    curve c4["ECR"]{15, 20, 35, 40, 25, 20}
+    curve c5["PfE"]{20, 15, 25, 25, 20, 15}
 ```
 
 **Summary:**
@@ -2079,14 +2051,14 @@ Threat: State-owned enterprises (SOEs) used as instruments of political power �
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#B71C1C","primaryTextColor":"#ffffff","lineColor":"#EF9A9A"}}}%%
 quadrantChart
     title Threat Priority Matrix
-    x-axis Low Likelihood --> High Likelihood
-    y-axis Low Impact --> High Impact
-    quadrant-1 Critical
-    quadrant-2 Monitor and Mitigate
-    quadrant-3 Accept
-    quadrant-4 Prevent
+    x-axis "Low Likelihood" --> "High Likelihood"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Critical"
+    quadrant-2 "Monitor and Mitigate"
+    quadrant-3 "Accept"
+    quadrant-4 "Prevent"
     "State media capture (T-INF-02)": [0.8, 0.9]
-    "Voting opacity (T-INF-01)": [1.0, 0.65]
+    "Voting opacity (T-INF-01)": [1, 0.65]
     "SOE power abuse (T-EOP-02)": [0.7, 0.85]
     "MEP immunity abuse (T-REP-01)": [0.65, 0.8]
     "ECR narrative capture (T-SPO-01)": [0.85, 0.5]
@@ -2369,15 +2341,10 @@ The reformed GSP includes stronger Paris Agreement compliance requirements for b
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title PESTLE Impact Profile
-    "Political"
-    "Economic"
-    "Social"
-    "Technological"
-    "Legal"
-    "Environmental"
-    current [85, 75, 80, 45, 80, 65]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"]
+    curve c1["current"]{85, 75, 80, 45, 80, 65}
 ```
 
 | Dimension | Dominant Factor | Impact Level | Trend |

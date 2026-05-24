@@ -148,8 +148,8 @@ Each ambition has a legislative pipeline; EP alignment with Commission proposals
 
 ```mermaid
 %%{init: {"theme": "dark"}}%%
-bar
-    title EP-Commission Alignment by Ambition (Likelihood × EP Majority Strength)
+xychart-beta
+    title "EP-Commission Alignment by Ambition (Likelihood × EP Majority Strength)"
     x-axis ["Prosperous & Competitive","Safe & Secure","Green Transition","Stronger World","Democratic","Flourishing"]
     y-axis 0 --> 10
     bar [8, 6.5, 5, 6, 8, 6]

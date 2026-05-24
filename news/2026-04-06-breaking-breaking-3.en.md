@@ -1,7 +1,7 @@
 ---
 title: "Easter Monday Run 3: API Recovery + Convergence Zone | 2026-04-06"
 description: "*Run-3 produces the day's most consequential operational finding — the first confirmed EP API endpoint recovery* during the 11-day recess: the adopted-texts feed transitioned…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Recovery", "Convergence", "Zone", "produces", "most", "consequential", "operational"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Recovery"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-3
@@ -1204,18 +1204,18 @@ quadrantChart
 ```mermaid
 quadrantChart
     title מפת חום סיכונים שני פסחא ביצוע-3 — 2026-04-06 12:15 UTC
-    x-axis הסתברות נמוכה --> הסתברות גבוהה
-    y-axis השפעה נמוכה --> השפעה גבוהה
-    quadrant-1 ניהול צמוד
-    quadrant-2 עדיפות עליונה
-    quadrant-3 ניטור
-    quadrant-4 תכנון ובקרה
+    x-axis "הסתברות נמוכה" --> "הסתברות גבוהה"
+    y-axis "השפעה נמוכה" --> "השפעה גבוהה"
+    quadrant-1 "ניהול צמוד"
+    quadrant-2 "עדיפות עליונה"
+    quadrant-3 "ניטור"
+    quadrant-4 "תכנון ובקרה"
     "עומס משא ומתן שלושה צדדים": [0.75, 0.85]
-    "תעריפי ארה"ב (גבוה-אפשרי)": [0.55, 0.85]
+    "תעריפי ארה&quot;ב (גבוה-אפשרי)": [0.55, 0.85]
     "מהירות לא בת-קיימא רב2-רב3": [0.65, 0.75]
-    "נקודת כשל יחידה EPP": [0.40, 0.90]
+    "נקודת כשל יחידה EPP": [0.4, 0.9]
     "שריפת הון Renew": [0.65, 0.65]
-    "שחזור API לא שלם": [0.50, 0.50]
+    "שחזור API לא שלם": [0.5, 0.5]
 ```
 
 ---

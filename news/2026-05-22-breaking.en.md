@@ -1,7 +1,7 @@
 ---
 title: "AI Trade Strategy: A Legislative First with Structural Implications"
 description: "TA-10-2026-0183 marks the first time the EP has adopted a resolution specifically addressing AI as a trade instrument rather than solely as a regulatory compliance challenge."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-22", "run breaking-run264-1779413941", "Trade", "Strategy", "Legislative", "First", "with", "Structural", "Implications", "marks"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-22", "Trade", "Strategy", "Legislative"]
 date: 2026-05-22
 article_type: breaking
 slug: 2026-05-22-breaking
@@ -2139,14 +2139,14 @@ Export controls for dual-use AI technologies raise sovereignty contestation: mem
 ### 2. Six-Dimension Political Threat Assessment
 
 ```mermaid
-radar
+radar-beta
     title Political Threat Landscape (0=Low, 10=High)
-    "Anti-AI Backlash" : 6
-    "Human Rights Fracture" : 5
-    "Institutional Authority" : 7
-    "Sovereignty Contestation" : 5
-    "Geopolitical Disruption" : 4
-    "Public Opposition" : 3
+    curve c1["Anti-AI Backlash"]{6}
+    curve c2["Human Rights Fracture"]{5}
+    curve c3["Institutional Authority"]{7}
+    curve c4["Sovereignty Contestation"]{5}
+    curve c5["Geopolitical Disruption"]{4}
+    curve c6["Public Opposition"]{3}
 ```
 
 ---

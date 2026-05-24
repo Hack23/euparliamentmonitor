@@ -123,7 +123,7 @@ A follow-up run with IMF connectivity will complete the quantitative macroeconom
 ```mermaid
 %%{init: {"theme":"dark"}}%%
 xychart-beta
-    title EU Economic Indicators Context (IMF-Degraded Mode)
+    title "EU Economic Indicators Context (IMF-Degraded Mode)"
     x-axis ["2022", "2023", "2024", "2025E", "2026F"]
     y-axis "GDP Growth %" -1 --> 5
     bar [3.5, 0.5, 0.8, 1.1, 1.5]

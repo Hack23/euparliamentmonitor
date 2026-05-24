@@ -1,7 +1,7 @@
 ---
 title: "EP Week in Review: April 4–11, 2026 (Easter Recess Week 3) | 2026-04-11"
 description: "Parliament was in recess all week — yet the composite political risk score rose 31% in three days (10.10 → 13.17 on April 9 → 11). This counter-intuitive escalation during…"
-keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-04-11", "Week", "Review", "April", "Easter", "Recess", "Parliament", "composite", "political", "risk", "score"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-11", "Week", "Review", "April", "Easter"]
 date: 2026-04-11
 article_type: week-in-review
 slug: 2026-04-11-week-in-review

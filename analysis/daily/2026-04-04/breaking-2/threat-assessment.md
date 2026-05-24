@@ -23,7 +23,7 @@ methodology: "Political Threat Framework v3.0 — Threat Landscape + Scenario Pl
 ## Threat Landscape Overview (6 Dimensions)
 
 ```mermaid
-radar
+radar-beta
     title Political Threat Landscape — April 2026
 ```
 
