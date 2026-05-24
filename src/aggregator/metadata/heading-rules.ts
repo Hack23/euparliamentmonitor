@@ -54,6 +54,37 @@ export const EDITORIAL_LEDE_HEADINGS: readonly string[] = [
   'situation summary',
   'situation report',
   'situation update',
+  // ── Editorial-brief specific headings introduced in the May-2026
+  //    executive-brief style guide. These sections carry the most
+  //    publishable journalism in the brief and are the user-visible
+  //    source of the title / description after this refactor.
+  'reader briefing',
+  'strategic intelligence summary',
+  'strategic assessment',
+  'top-line summary',
+  'top line summary',
+  'headline intelligence',
+  'key intelligence judgment',
+  'key intelligence judgement',
+  'key intelligence judgments',
+  'key intelligence judgements',
+  'key intelligence judgements summary',
+  'key intelligence judgments summary',
+  'intelligence assessment',
+  'intelligence assessment summary',
+  'priority intelligence items',
+  'lead intelligence assessment',
+  // ── May-2026 executive-brief "FOR IMMEDIATE ACTION" pattern. Every
+  //    14-language brief in `analysis/daily/**/propositions/` opens
+  //    the post-banner body with this H2 (translated per locale), and
+  //    its first row is the BLUF (`**Issue:** …` / `**Fråga:** …` /
+  //    `**主題:** …` / `**الموضوع:** …` …). The English header is
+  //    whitelisted here so the extractor catches it directly; the 13
+  //    translated equivalents fall through to the generic strong-prose
+  //    walker, which now strips the localized bold label via
+  //    {@link stripLeadingBoldLabel} so the same BLUF copy lands in
+  //    `<meta description>` regardless of locale.
+  'for immediate action',
 ];
 
 /**

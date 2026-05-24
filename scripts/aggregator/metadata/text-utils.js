@@ -312,6 +312,38 @@ export function stripLeadingProseLabel(line) {
     return rest;
 }
 /**
+ * Strip a leading `**Label:**` / `**Label：**` prefix from a Markdown
+ * BLUF line, in any of the 14 publishing languages. Translated
+ * executive briefs open the `## FOR IMMEDIATE ACTION` section with
+ * patterns such as `**Issue:** …`, `**Fråga:** …`, `**Asunto:** …`,
+ * `**主題:** …`, `**الموضوع:** …`, `**Thema:** …`, `**Sujet :** …` —
+ * without this stripper the localized label leaked into
+ * `<meta description>` for every non-English locale (the English
+ * `**Issue:**` line is already filtered by `METADATA_LINE_PREFIXES`).
+ *
+ * The matcher is *structural*, not vocabulary-driven: it accepts up to
+ * 5 word/glyph tokens (letters, marks, digits, spaces, hyphens),
+ * followed by either an ASCII colon `:` or full-width colon `：`,
+ * followed by `**`, followed by whitespace. Returns the line verbatim
+ * when no qualifying opener is present so it is safe to apply
+ * unconditionally.
+ *
+ * @param raw - Raw Markdown line (still carrying `**…**` decorations)
+ * @returns Line with the leading `**Label:**` prefix removed, or the
+ * original input when no such prefix exists
+ */
+export function stripLeadingBoldLabel(raw) {
+    // Allowed label characters: any Unicode letter, mark, digit, space, hyphen.
+    // 1–5 tokens (≤ 40 chars total) to avoid swallowing long inline-bold prose.
+    // Both `**Label:**` (colon inside the bold span) and `**Label**:` are
+    // observed in translations — match both shapes.
+    const pattern = /^\*\*([\p{L}\p{M}\p{N}][\p{L}\p{M}\p{N} -]{0,38})[:：]\*\*\s+|^\*\*([\p{L}\p{M}\p{N}][\p{L}\p{M}\p{N} -]{0,38})\*\*\s*[:：]\s+/u;
+    const match = pattern.exec(raw);
+    if (!match)
+        return raw;
+    return raw.slice(match[0].length);
+}
+/**
  * Strip inline Markdown decorations so we can use the remaining text as
  * plain-text meta-tag content. Removes link syntax, emphasis, inline code
  * backticks, and HTML-entity fragments that the Markdown source sometimes

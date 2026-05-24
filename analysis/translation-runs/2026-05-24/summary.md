@@ -1,20 +1,23 @@
 # Translation Run Summary — 2026-05-24
 
-**Run ID:** 260
-**Run date:** 2026-05-24
-**Briefs translated:** 2/2
+## Run Details
+- **Run ID:** 262
+- **Date:** 2026-05-24
+- **Status:** ✅ Complete — 2/2 briefs fully translated
 
-## Brief 1 — 2026-05-11/committee-reports
-- **Languages:** ar, he, ja, ko, zh (5 new, 8 already existed)
-- **Validator:** ✅ all 13 pass
-- **H2 count:** 12/12 each
+## Briefs Processed
 
-## Brief 2 — 2026-04-06/motions
-- **Languages:** sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh (13 new)
-- **Validator:** ✅ all 13 pass
-- **H2 count:** 8/8 each
+### Brief 1: term-outlook (2026-05-10)
+- **Languages:** sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh (13/13)
+- **Validator:** ✅ All pass
+- **Fixed tokens:** IMF×5, WEO×5 preserved in all 13 translations
+
+### Brief 2: breaking (2026-04-07)
+- **Languages:** sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh (13/13)
+- **Validator:** ✅ All pass
+- **Fixed tokens:** None required (no IMF/WEO in source)
+- **Mermaid parity:** ✅ quadrantChart block preserved verbatim in all 13
 
 ## Totals
-- New translation files created: 18
-- Fixed tokens preserved: IMF×2, World Bank×2, 10 TA-IDs (Brief 1); none required (Brief 2)
-- Wall-clock elapsed: ~27 min of 60 available
+- Translations produced: 26
+- Validator failures: 0
