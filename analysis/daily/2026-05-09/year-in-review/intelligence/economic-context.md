@@ -239,8 +239,8 @@ xychart-beta
     title "EU Economic Indicators 2025 vs 2026 (estimated)"
     x-axis ["GDP Growth", "Inflation", "Unemployment"]
 y-axis "Value" 0 --> 7
-    bar [1.2, 2.3, 6.0]
-    bar [1.5, 2.1, 5.8]
+    bar "2025" [1.2, 2.3, 6.0]
+    bar "2026" [1.5, 2.1, 5.8]
 ```
 
 *Note: Bar charts may render as pie charts in some environments. Data: WEO April 2026 proxies.*

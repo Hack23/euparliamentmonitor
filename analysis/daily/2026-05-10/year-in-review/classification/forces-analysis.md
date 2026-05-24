@@ -111,8 +111,8 @@ xychart-beta
     title "Driving vs. Restraining Forces (1-10 scale)"
     x-axis ["Security", "Competitiveness", "Institutional", "Fragmentation", "Migration limits", "Green tension"]
     y-axis "Force Strength" 0 --> 10
-    bar [9, 7, 5, 0, 0, 0]
-    bar [0, 0, 0, 9, 5, 5]
+    bar "Driving" [9, 7, 5, 0, 0, 0]
+    bar "Restraining" [0, 0, 0, 9, 5, 5]
 ```
 
 **Net pressure vector:** Driving forces (21 total) slightly exceed restraining forces (19 total), explaining above-average EP10 output despite structural constraints. The equilibrium is maintained by the security consensus offsetting fragmentation drag.

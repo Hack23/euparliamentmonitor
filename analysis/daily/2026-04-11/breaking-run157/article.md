@@ -500,8 +500,8 @@ The European Parliament approaches its post-Easter restart from a position of hi
 }}%%
 quadrantChart
     title EP Political SWOT - April 2026
-    x-axis "Internal <" --> "External"
-    y-axis "Negative <" --> "Positive"
+    x-axis "Internal" --> "External"
+    y-axis "Negative" --> "Positive"
     quadrant-1 "Opportunities"
     quadrant-2 "Strengths"
     quadrant-3 "Weaknesses"

@@ -2206,8 +2206,8 @@ disputes generate new inter-institutional tensions (particularly with Council).
 ```mermaid
 radar-beta
     title PESTLE Impact Level on EP Committees (1-5 scale)
-    axis a1["Political"], a2["z-axis Social"], a3["w-axis Technological"], a4["v-axis Legal"], a5["u-axis Environmental"]
-    curve c1["data PESTLE_2026"]{4, 3, 3, 5, 4}
+    axis a1["Political"], a2["Economic"], a3["Social"], a4["Technological"], a5["Legal"], a6["Environmental"]
+    curve c1["PESTLE 2026"]{4, 3, 3, 5, 4, 4}
 ```
 
 ### PESTLE Cross-Impact Matrix
