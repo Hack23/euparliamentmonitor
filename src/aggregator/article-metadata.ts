@@ -71,9 +71,12 @@ import {
   buildSeoKeywords,
   composeContextualDescription,
   composeContextualTitle,
+  deriveHeadlineFromSummary,
+  isUsableResolvedTitle,
   manifestOverrideFor,
   pickFirstNonEmpty,
   resolveEditorialContent,
+  sanitizeDescriptionCandidate,
 } from './metadata/resolve-helpers.js';
 import {
   ENRICHMENT_TRIGGER_LENGTH,
@@ -223,31 +226,38 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   );
   const title = pickFirstNonEmpty([manifestTitle, contextualTitle, input.template.title]);
 
-  const rawDescription = pickFirstNonEmpty([
-    manifestDescription,
-    editorial.summary,
-    input.template.subtitle,
-  ]);
+  const rawDescription = sanitizeDescriptionCandidate(
+    pickFirstNonEmpty([
+      manifestDescription,
+      editorial.summary,
+      input.template.subtitle,
+    ])
+  );
 
-  // Skip the contextual-prefix enrichment ("Date YYYY-MM-DD. Context:
-  // … For readers…") when the localized executive brief already
-  // supplied the description. The localized BLUF, after
-  // `stripLeadingBoldLabel` removes its `**Issue:**` / `**Fråga:**` /
-  // `**主題:**` opener, is already a richer, locale-native snippet
-  // than the boilerplate prefix — and the prefix was the single
-  // largest source of over-budget `<meta description>` tags for the
-  // CJK / RTL locales (see `seo-headers-policy.md` § 1.1).
-  const skipEnrichment = perLanguage.source === 'localized-brief' && rawDescription.length > 0;
+  const safeEditorial = {
+    headline: isUsableResolvedTitle(editorial.headline) ? editorial.headline.trim() : '',
+    summary: sanitizeDescriptionCandidate(editorial.summary),
+    extendedSummary: sanitizeDescriptionCandidate(editorial.extendedSummary),
+  };
+
+  const normalizedRawDescription = rawDescription || sanitizeDescriptionCandidate(input.template.subtitle);
+  const skipEnrichment =
+    perLanguage.source === 'localized-brief' && normalizedRawDescription.length > 0;
   const description =
-    skipEnrichment || rawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
-      ? rawDescription
+    skipEnrichment || normalizedRawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
+      ? normalizedRawDescription
       : composeContextualDescription(
           input.lang,
-          rawDescription,
-          editorial,
+          normalizedRawDescription,
+          safeEditorial,
           input.date,
           input.runId
         );
+
+  const clippedTitle = truncateTitle(title).trim();
+  const summaryDerivedTitle = deriveHeadlineFromSummary(
+    safeEditorial.summary || normalizedRawDescription
+  );
 
   // `truncateTitle` returns '' when an editorial title overruns the
   // budget with no acceptable clause boundary — fall back to the
@@ -265,15 +275,18 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // re-run) would collapse to byte-identical `<title>` strings, and
   // the duplicate-title gate in `scripts/validate-article-seo.js`
   // would (correctly) fail CI.
-  const clippedTitle = truncateTitle(title);
   const contextualFallback = composeContextualTitle(input.template.title, '', input.runId);
-  const truncatedTitle =
-    clippedTitle || truncateTitle(contextualFallback) || contextualFallback;
+  const truncatedTitle = pickFirstNonEmpty([
+    isUsableResolvedTitle(clippedTitle) ? clippedTitle : '',
+    isUsableResolvedTitle(summaryDerivedTitle) ? summaryDerivedTitle : '',
+    truncateTitle(contextualFallback),
+    contextualFallback,
+  ]);
   const truncatedDescription = truncateDescription(description);
 
-  const extendedSource = manifestDescription
-    ? manifestDescription
-    : editorial.extendedSummary || rawDescription;
+  const extendedSource = sanitizeDescriptionCandidate(
+    manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription
+  );
   const truncatedExtendedDescription = truncateExtendedDescription(extendedSource);
 
   const source: ResolvedMetadataEntry['source'] =

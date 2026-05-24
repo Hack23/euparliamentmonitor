@@ -70,7 +70,7 @@ export function stripTrailingStopWordsAndPunctuation(input) {
 export function truncateDescription(text) {
     if (text.length <= DESCRIPTION_MAX_LENGTH)
         return text;
-    const cut = text.slice(0, DESCRIPTION_MAX_LENGTH - 1);
+    const cut = text.slice(0, DESCRIPTION_MAX_LENGTH);
     // Prefer the last full sentence terminator within the cut so we don't
     // end on a dangling determiner ("…year. The"). Period/!/? followed by
     // a space marks a clean boundary. Only honour the boundary when it
@@ -79,13 +79,17 @@ export function truncateDescription(text) {
     if (sentenceEnd >= DESCRIPTION_MIN_LENGTH) {
         return cut.slice(0, sentenceEnd + 1).replace(/\s+$/, '');
     }
+    const earlySentenceEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
+    if (earlySentenceEnd >= Math.floor(DESCRIPTION_MIN_LENGTH / 3)) {
+        return cut.slice(0, earlySentenceEnd + 1).replace(/\s+$/, '');
+    }
     const lastSpace = cut.lastIndexOf(' ');
     let safe = lastSpace > DESCRIPTION_MAX_LENGTH - 60 ? cut.slice(0, lastSpace) : cut;
     // Drop dangling stop-words and trailing punctuation/ellipsis so we
     // never emit broken copy ("…year. The" → "…year.") or double-ellipsis
     // ("The……") when the upstream input already carried an ellipsis.
     safe = stripTrailingStopWordsAndPunctuation(safe);
-    return `${safe}…`;
+    return safe;
 }
 /**
  * Clamp an extended description to {@link EXTENDED_DESCRIPTION_MAX_LENGTH}
@@ -109,15 +113,19 @@ export function truncateExtendedDescription(text) {
         return '';
     if (trimmed.length <= EXTENDED_DESCRIPTION_MAX_LENGTH)
         return trimmed;
-    const cut = trimmed.slice(0, EXTENDED_DESCRIPTION_MAX_LENGTH - 1);
+    const cut = trimmed.slice(0, EXTENDED_DESCRIPTION_MAX_LENGTH);
     const sentenceEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
     if (sentenceEnd >= EXTENDED_DESCRIPTION_MIN_LENGTH) {
         return cut.slice(0, sentenceEnd + 1).replace(/\s+$/, '');
     }
+    const earlySentenceEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
+    if (earlySentenceEnd >= Math.floor(EXTENDED_DESCRIPTION_MIN_LENGTH / 2)) {
+        return cut.slice(0, earlySentenceEnd + 1).replace(/\s+$/, '');
+    }
     const lastSpace = cut.lastIndexOf(' ');
     let safe = lastSpace > EXTENDED_DESCRIPTION_MAX_LENGTH - 60 ? cut.slice(0, lastSpace) : cut;
     safe = stripTrailingStopWordsAndPunctuation(safe);
-    return `${safe}…`;
+    return safe;
 }
 /**
  * Clamp a title to `TITLE_MAX_LENGTH` characters in the same
@@ -157,10 +165,15 @@ export function truncateTitle(text) {
                 return clean;
         }
     }
-    // Second-tier fallback: rescue Reader-Briefing-style ledes whose
-    // clauses cluster in the opening 30-60 chars by accepting the
-    // strongest boundary (`: `, ` — `, ` – `) inside the harder
-    // `[HEADLINE_HARD_MIN, HEADLINE_SOFT_MIN]` floor.
+    // Second-tier fallback: when nothing landed in the soft window, look
+    // for the strongest boundary (`: ` or ` — `) inside the harder
+    // `[HEADLINE_HARD_MIN, HEADLINE_SOFT_MIN]` floor. This rescues
+    // Reader-Briefing-style ledes like
+    // `Immediate priority: DMA enforcement — …` whose clauses cluster in
+    // the opening 30-60 chars, while still keeping the soft-min guard
+    // active for runaway prose. We restrict the boundary set to `: ` and
+    // ` — ` (the two strongest semantic breaks) to avoid emitting trivial
+    // comma-split or full-stop-split fragments from short prose.
     const STRONG_BOUNDARIES = [': ', ' — ', ' – '];
     for (const boundary of STRONG_BOUNDARIES) {
         const idx = search.indexOf(boundary);

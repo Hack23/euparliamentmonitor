@@ -307,7 +307,7 @@ describe('truncateDescription — DESCRIPTION_MAX_LENGTH byte budget', () => {
     expect(truncateDescription(short)).toBe(short);
   });
 
-  it('clamps to at most DESCRIPTION_MAX_LENGTH characters (including ellipsis)', () => {
+  it('clamps to at most DESCRIPTION_MAX_LENGTH characters', () => {
     const long = 'word '.repeat(80).trim();
     const out = truncateDescription(long);
     expect(out.length).toBeLessThanOrEqual(DESCRIPTION_MAX_LENGTH);
@@ -330,15 +330,14 @@ describe('truncateDescription — DESCRIPTION_MAX_LENGTH byte budget', () => {
     const long = 'word '.repeat(80) + '…';
     const out = truncateDescription(long);
     expect(out.includes('……')).toBe(false);
+    expect(out.endsWith('…')).toBe(false);
   });
 
   it('never ends on a dangling stop-word', () => {
     const long = 'Parliament considered the policy in the committee on the '.repeat(5).trim();
     const out = truncateDescription(long);
-    if (out.endsWith('…')) {
-      const lastWord = out.slice(0, -1).trim().split(' ').pop().toLowerCase();
-      expect(TRAILING_STOP_WORDS.has(lastWord)).toBe(false);
-    }
+    const lastWord = out.trim().split(' ').pop().toLowerCase();
+    expect(TRAILING_STOP_WORDS.has(lastWord)).toBe(false);
   });
 });
 

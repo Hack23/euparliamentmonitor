@@ -124,7 +124,7 @@ describe('truncation helpers', () => {
     const long = `${'abc '.repeat(100)}`.trim();
     const truncated = truncateDescription(long);
     expect(truncated.length).toBeLessThanOrEqual(300);
-    expect(truncated.endsWith('…')).toBe(true);
+    expect(truncated.endsWith('…')).toBe(false);
     expect(truncated).not.toMatch(/ab…$/); // no mid-word break
   });
 
@@ -142,13 +142,14 @@ describe('truncation helpers', () => {
     expect(truncated.endsWith('.')).toBe(true);
   });
 
-  it('strips a pre-existing trailing ellipsis before appending its own', () => {
+  it('strips a pre-existing trailing ellipsis before returning the clipped copy', () => {
     // Guards against double-clip: if the input already carries an ellipsis
-    // (e.g. from an upstream truncation), we must not emit "X……".
+    // (e.g. from an upstream truncation), we must not emit "X……" or
+    // preserve the upstream dangling ellipsis in the final snippet.
     const seeded = `${'word '.repeat(60).trim()}…`;
     const truncated = truncateDescription(seeded);
     expect(truncated).not.toMatch(/……/);
-    expect(truncated.endsWith('…')).toBe(true);
+    expect(truncated.endsWith('…')).toBe(false);
   });
 });
 
@@ -895,6 +896,61 @@ describe('resolveArticleMetadata — priority ladder', () => {
       expect(entry.description).not.toMatch(/breaking-run\d+-\d{8,}/);
       expect(entry.title).not.toMatch(/analysis run/i);
       expect(entry.title).not.toMatch(/breaking-run\d+-\d{8,}/);
+    }
+  });
+
+  it('drops leaky follow-up sentences and keeps the clean opening sentence for SEO copy', () => {
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-03-27',
+      markdown: [
+        '# Breaking — 2026-03-27',
+        '',
+        'Routine inter-sessional day, no breaking signal. Analysis run 77fc920c-3a76-4813-9db5-43a7e9acc25e returned 0 classified political actors and overall significance ROUTINE across all five impact dimensions.',
+      ].join('\n'),
+    });
+    const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+    expect(en.description).toContain('Routine inter-sessional day, no breaking signal.');
+    expect(en.description).not.toMatch(/analysis run/i);
+    expect(en.description.endsWith('…')).toBe(false);
+  });
+
+  it('falls back to the summary when the resolved headline is too short or contains run jargon', () => {
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-04-04',
+      markdown: [
+        '# Breaking (Pre-Recess Analysis Run 3) | 2026-04-04',
+        '',
+        'No new breaking developments on 2026-04-04; the EP is in Easter recess (27 March → 13 April). This third run of the day extends prior analyses with provenance enrichment only.',
+      ].join('\n'),
+    });
+    const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+    expect(en.title).toContain('No new breaking developments');
+    expect(en.title).not.toMatch(/analysis run/i);
+    expect(en.title.length).toBeGreaterThanOrEqual(20);
+  });
+
+  it('skips WEP/admiralty banner rows when a strategic section starts with metadata', () => {
+    const tmpRoot = mkdtempSync(path.join(tmpdir(), 'wep-brief-'));
+    try {
+      const briefBody =
+        '# Executive Brief — Motions\n\n' +
+        '## Strategic Assessment\n\n' +
+        '**WEP Band: LIKELY (65-85%)** | Time Horizon: 3–6 months | Admiralty Grade: B2\n\n' +
+        "The European Parliament's May plenary produced nine politically significant adopted texts centred on rule-of-law enforcement and digital governance.\n";
+      writeFileSync(path.join(tmpRoot, 'executive-brief.md'), briefBody, 'utf8');
+      const result = resolveArticleMetadata({
+        articleType: 'motions',
+        date: '2026-05-22',
+        markdown: '# Motions — 2026-05-22\n\nAggregated body.',
+        runDir: tmpRoot,
+      });
+      const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+      expect(en.description).toContain("The European Parliament's May plenary");
+      expect(en.description).not.toMatch(/^WEP Band:/i);
+    } finally {
+      rmSync(tmpRoot, { recursive: true, force: true });
     }
   });
 

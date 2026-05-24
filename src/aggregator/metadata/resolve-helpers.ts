@@ -23,11 +23,19 @@ import { extractExtendedLedeAfterHeading, extractStrongProseLine } from './lede-
 import { isGenericHeading } from './heading-rules.js';
 import { humanizeSlug } from './slug.js';
 import { SEO_CONTEXT_LABELS } from './template-fallback.js';
-import { extractFirstSentence, truncateDescription, truncateTitle } from './text-utils.js';
+import {
+  extractFirstSentence,
+  shouldSkipDescriptionLine,
+  truncateDescription,
+  truncateTitle,
+} from './text-utils.js';
 import type { ResolveMetadataOptions } from './types.js';
 import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
 import { CROSS_SITE_KEYWORDS, isNoiseKeywordToken } from './keyword-filters.js';
+
+const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
+const SEO_TITLE_FLOOR = 20;
 
 /**
  * Extract a manifest override value for a single language. Accepts either
@@ -196,6 +204,41 @@ export function composeContextualDescription(
   return truncateDescription(parts.join(' '));
 }
 
+function hasLeakySeoToken(value: string): boolean {
+  if (!value) return false;
+  return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value);
+}
+
+function stripLeadingFragmentSeparator(value: string): string {
+  return value.replace(/^[:;—–-]\s+/u, '').trim();
+}
+
+function stripLeakySentences(value: string): string {
+  if (!value) return '';
+  const parts = value
+    .split(/(?<=[.!?])\s+/u)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  const clean = parts.filter((part) => !hasLeakySeoToken(part));
+  return (clean.length > 0 ? clean : parts).join(' ').trim();
+}
+
+function sanitizeDescriptionCandidate(value: string): string {
+  const cleaned = stripLeadingFragmentSeparator(stripLeakySentences(value));
+  return cleaned && !shouldSkipDescriptionLine(cleaned) ? cleaned : '';
+}
+
+function isUsableResolvedTitle(value: string): boolean {
+  const cleaned = stripLeadingFragmentSeparator(value);
+  return cleaned.length >= SEO_TITLE_FLOOR && !hasLeakySeoToken(cleaned);
+}
+
+function deriveHeadlineFromSummary(summary: string): string {
+  const cleaned = sanitizeDescriptionCandidate(summary);
+  if (!cleaned) return '';
+  return truncateTitle(extractFirstSentence(cleaned) || cleaned);
+}
+
 /**
  * Append a short run qualifier to otherwise duplicate-prone fallback
  * titles. Sanitizes the raw `runId` so user-facing `<title>` strings
@@ -329,3 +372,9 @@ export function pickFirstNonEmpty(candidates: readonly string[]): string {
   }
   return '';
 }
+
+export {
+  deriveHeadlineFromSummary,
+  isUsableResolvedTitle,
+  sanitizeDescriptionCandidate,
+};

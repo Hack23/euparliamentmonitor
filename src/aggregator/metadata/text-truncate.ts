@@ -85,7 +85,7 @@ export function stripTrailingStopWordsAndPunctuation(input: string): string {
  */
 export function truncateDescription(text: string): string {
   if (text.length <= DESCRIPTION_MAX_LENGTH) return text;
-  const cut = text.slice(0, DESCRIPTION_MAX_LENGTH - 1);
+  const cut = text.slice(0, DESCRIPTION_MAX_LENGTH);
   // Prefer the last full sentence terminator within the cut so we don't
   // end on a dangling determiner ("…year. The"). Period/!/? followed by
   // a space marks a clean boundary. Only honour the boundary when it
@@ -94,13 +94,21 @@ export function truncateDescription(text: string): string {
   if (sentenceEnd >= DESCRIPTION_MIN_LENGTH) {
     return cut.slice(0, sentenceEnd + 1).replace(/\s+$/, '');
   }
+  const earlySentenceEnd = Math.max(
+    cut.lastIndexOf('. '),
+    cut.lastIndexOf('! '),
+    cut.lastIndexOf('? ')
+  );
+  if (earlySentenceEnd >= Math.floor(DESCRIPTION_MIN_LENGTH / 3)) {
+    return cut.slice(0, earlySentenceEnd + 1).replace(/\s+$/, '');
+  }
   const lastSpace = cut.lastIndexOf(' ');
   let safe = lastSpace > DESCRIPTION_MAX_LENGTH - 60 ? cut.slice(0, lastSpace) : cut;
   // Drop dangling stop-words and trailing punctuation/ellipsis so we
   // never emit broken copy ("…year. The" → "…year.") or double-ellipsis
   // ("The……") when the upstream input already carried an ellipsis.
   safe = stripTrailingStopWordsAndPunctuation(safe);
-  return `${safe}…`;
+  return safe;
 }
 
 /**
@@ -122,15 +130,23 @@ export function truncateExtendedDescription(text: string): string {
   // make `og:description` shorter than `<meta description>`.
   if (trimmed.length <= DESCRIPTION_MAX_LENGTH) return '';
   if (trimmed.length <= EXTENDED_DESCRIPTION_MAX_LENGTH) return trimmed;
-  const cut = trimmed.slice(0, EXTENDED_DESCRIPTION_MAX_LENGTH - 1);
+  const cut = trimmed.slice(0, EXTENDED_DESCRIPTION_MAX_LENGTH);
   const sentenceEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
   if (sentenceEnd >= EXTENDED_DESCRIPTION_MIN_LENGTH) {
     return cut.slice(0, sentenceEnd + 1).replace(/\s+$/, '');
   }
+  const earlySentenceEnd = Math.max(
+    cut.lastIndexOf('. '),
+    cut.lastIndexOf('! '),
+    cut.lastIndexOf('? ')
+  );
+  if (earlySentenceEnd >= Math.floor(EXTENDED_DESCRIPTION_MIN_LENGTH / 2)) {
+    return cut.slice(0, earlySentenceEnd + 1).replace(/\s+$/, '');
+  }
   const lastSpace = cut.lastIndexOf(' ');
   let safe = lastSpace > EXTENDED_DESCRIPTION_MAX_LENGTH - 60 ? cut.slice(0, lastSpace) : cut;
   safe = stripTrailingStopWordsAndPunctuation(safe);
-  return `${safe}…`;
+  return safe;
 }
 
 /**

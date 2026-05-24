@@ -123,8 +123,7 @@ describe('truncateExtendedDescription', () => {
       'B'.repeat(120);
     const out = truncateExtendedDescription(long);
     expect(out.length).toBeLessThanOrEqual(300);
-    // Truncation either ends at the sentence boundary or with an ellipsis.
-    expect(out.endsWith('.') || out.endsWith('…')).toBe(true);
+    expect(out.endsWith('.')).toBe(true);
   });
 });
 

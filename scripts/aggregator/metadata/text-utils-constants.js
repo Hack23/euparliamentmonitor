@@ -54,9 +54,15 @@ export const TITLE_MAX_LENGTH = 140;
  */
 export const HEADLINE_SOFT_MIN = 60;
 /**
- * Lower floor used by `truncateTitle` as a second-tier fallback for
- * Reader-Briefing-style ledes whose clauses cluster in the opening
- * 30-60 chars (e.g. `Immediate priority: DMA enforcement — …`).
+ * Lower floor for clause-boundary acceptance when the soft-min window
+ * returns nothing. Used by {@link truncateTitle} as a second-tier
+ * fallback: when a long prose paragraph has its only natural clause
+ * boundaries (`: `, ` — `) clustered in the opening 30-60 characters
+ * (typical of Reader-Briefing-style ledes like `Immediate priority:
+ * DMA enforcement — …`), accept the strongest such boundary rather
+ * than fall through to template-fallback composition. This keeps
+ * scan-friendly editorial fragments intact while still rejecting
+ * fragments shorter than a typical news-card title.
  */
 export const HEADLINE_HARD_MIN = 30;
 /**

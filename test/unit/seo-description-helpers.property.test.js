@@ -171,9 +171,10 @@ describe('truncateExtendedDescription — sanity', () => {
     expect(out.endsWith('.')).toBe(true);
   });
 
-  it('emits an ellipsis when no sentence boundary is reachable', () => {
+  it('returns a clean word-boundary clip when no sentence boundary is reachable', () => {
     const text = 'word '.repeat(120); // 600 chars, no terminator
     const out = truncateExtendedDescription(text);
-    expect(out.endsWith('…')).toBe(true);
+    expect(out.endsWith('…')).toBe(false);
+    expect(out.length).toBeLessThanOrEqual(EXTENDED_MAX);
   });
 });

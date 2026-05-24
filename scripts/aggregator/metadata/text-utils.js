@@ -19,6 +19,8 @@
 export { ABBREVIATION_PREFIXES, DESCRIPTION_MAX_LENGTH, DESCRIPTION_MIN_LENGTH, EMOJI_BANNER_CHARS, ENRICHMENT_TRIGGER_LENGTH, EXTENDED_DESCRIPTION_MAX_LENGTH, EXTENDED_DESCRIPTION_MIN_LENGTH, HEADLINE_CLAUSE_BOUNDARIES, HEADLINE_SOFT_MIN, METADATA_LINE_PREFIXES, TITLE_MAX_LENGTH, TRAILING_PUNCT, TRAILING_STOP_WORDS, } from './text-utils-constants.js';
 export { extractFirstSentence, stripTrailingStopWordsAndPunctuation, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-truncate.js';
 import { EMOJI_BANNER_CHARS, METADATA_LINE_PREFIXES, } from './text-utils-constants.js';
+const STRUCTURAL_LINE_PREFIXES = ['#', '>', '<', '|'];
+const FENCE_LINE_PREFIXES = ['```', '~~~'];
 // ────────────────────────────────────────────────────────────────────────
 // Line-classification helpers
 // ────────────────────────────────────────────────────────────────────────
@@ -34,71 +36,53 @@ import { EMOJI_BANNER_CHARS, METADATA_LINE_PREFIXES, } from './text-utils-consta
 export function shouldSkipDescriptionLine(line) {
     if (line.length === 0)
         return true;
-    if (line.startsWith('#'))
-        return true;
-    if (line.startsWith('>'))
-        return true;
-    if (line.startsWith('<'))
-        return true;
-    if (line.startsWith('|'))
-        return true;
-    if (line.startsWith('---') || line.startsWith('==='))
-        return true;
-    if (line.startsWith('```') || line.startsWith('~~~'))
-        return true;
-    if (line.startsWith('%%'))
-        return true;
-    if (/^title\s/i.test(line))
-        return true;
-    if (EMOJI_BANNER_CHARS.some((char) => line.startsWith(char)))
-        return true;
-    // Orphan-punctuation opener: a line that begins with a separator
-    // glyph (colon, semicolon, comma, en/em-dash, hyphen) is a fragment
-    // left behind after a bold-label strip went wrong upstream — it can
-    // never stand on its own as a description (e.g. `: This brief assumes…`).
-    if (/^[:;,—–\-]\s/u.test(line))
-        return true;
-    // Numbered / lettered list-leaders are structural, not prose. Live
-    // regression: `1. 🔴 WATCH: Commission DMA enforcement…` leaked as a
-    // description (2026-05-20 propositions).
-    if (/^\(?[0-9]{1,2}[.):]\s/u.test(line))
-        return true;
-    if (/^\(?[a-z][.)]\s/iu.test(line))
-        return true;
-    // Continuation-conjunction opener: a line that begins with a
-    // sub-clause connective is a sentence fragment carved out of a
-    // longer prose paragraph — it cannot stand alone as a description.
-    if (/^(that|which|while|whereas|and|but|for|yet|so|nor|or)\s/iu.test(line))
-        return true;
-    // Trailing ellipsis: a line that ends with `…` is already truncated
-    // copy from upstream and must never be re-emitted as a description.
-    if (line.endsWith('…') || /\.{3,}$/u.test(line))
-        return true;
-    // Published-date residue: a description must not be the raw
-    // `Published YYYY-MM-DD` banner row a Stage-B agent appended.
-    if (/^published\s+\d{4}-\d{2}-\d{2}\b/iu.test(line))
-        return true;
+    return DESCRIPTION_SKIP_CHECKS.some((check) => check(line));
+}
+const DESCRIPTION_SKIP_CHECKS = [
+    (line) => startsWithAny(line, STRUCTURAL_LINE_PREFIXES),
+    (line) => line.startsWith('---') || line.startsWith('==='),
+    (line) => startsWithAny(line, FENCE_LINE_PREFIXES),
+    (line) => line.startsWith('%%'),
+    (line) => /^title\s/i.test(line),
+    (line) => EMOJI_BANNER_CHARS.some((char) => line.startsWith(char)),
+    startsWithSeparatorFragment,
+    isStructuralListLeader,
+    startsWithContinuationConjunction,
+    hasTrailingEllipsis,
+    isPublishedBanner,
+    startsWithMetadataLabel,
+    (line) => /^[-*_=~.]{3,}$/.test(line),
+    isLocalizedBannerRow,
+    isPlainPipeBannerRow,
+];
+function startsWithAny(line, prefixes) {
+    return prefixes.some((prefix) => line.startsWith(prefix));
+}
+function startsWithSeparatorFragment(line) {
+    return /^[:;,—–-]\s/u.test(line);
+}
+function isStructuralListLeader(line) {
+    return /^\(?[0-9]{1,2}[.):]\s/u.test(line) || /^\(?[a-z][.)]\s/iu.test(line);
+}
+function startsWithContinuationConjunction(line) {
+    return /^(that|which|while|whereas|and|but|for|yet|so|nor|or)\s/iu.test(line);
+}
+function hasTrailingEllipsis(line) {
+    return line.endsWith('…') || /\.{3,}$/u.test(line);
+}
+function isPublishedBanner(line) {
+    return /^published\s+\d{4}-\d{2}-\d{2}\b/iu.test(line);
+}
+function startsWithMetadataLabel(line) {
     const labelSource = line.replace(/^\*+/, '').replace(/^\*\*/, '').replace(/^_+/, '').trim();
-    for (const prefix of METADATA_LINE_PREFIXES) {
-        const lower = labelSource.toLowerCase();
+    const lower = labelSource.toLowerCase();
+    return METADATA_LINE_PREFIXES.some((prefix) => {
         const prefixLower = prefix.toLowerCase();
-        if (lower.startsWith(`${prefixLower}:`) ||
+        return (lower.startsWith(`${prefixLower}:`) ||
             lower.startsWith(`${prefixLower} :`) ||
             lower.startsWith(`${prefixLower}**:`) ||
-            lower.startsWith(`${prefixLower}*:`)) {
-            return true;
-        }
-    }
-    if (/^[-*_=~.]{3,}$/.test(line))
-        return true;
-    if (isLocalizedBannerRow(line))
-        return true;
-    // Pipe-delimited `Key: Value` banner (no bold markers) — common as a
-    // sub-banner row under the main `**Date:**` line. Three-or-more
-    // `Word: …` segments separated by ` | ` is the smoking-gun shape.
-    if (isPlainPipeBannerRow(line))
-        return true;
-    return false;
+            lower.startsWith(`${prefixLower}*:`));
+    });
 }
 /**
  * Detect a plain (non-bold) pipe-delimited banner row of the shape
@@ -213,12 +197,12 @@ export function stripLeadingBoldLabel(raw) {
         // partial bold-label removal) can leave `: rest of sentence…`
         // shapes; we never want those leading punctuation glyphs to survive
         // into the description or title.
-        return raw.replace(/^[:;—–\-]\s+/u, '');
+        return raw.replace(/^[:;—–-]\s+/u, '');
     }
     // After the bold-label match, also strip any *additional* residual
     // separator that may follow (rare, but observed when authors write
     // `**Issue**: : `).
-    return raw.slice(match[0].length).replace(/^[:;—–\-]\s+/u, '');
+    return raw.slice(match[0].length).replace(/^[:;—–-]\s+/u, '');
 }
 /**
  * Strip inline Markdown decorations so we can use the remaining text as

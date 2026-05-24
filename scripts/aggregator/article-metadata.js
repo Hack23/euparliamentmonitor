@@ -64,7 +64,7 @@
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
-import { buildSeoKeywords, composeContextualDescription, composeContextualTitle, manifestOverrideFor, pickFirstNonEmpty, resolveEditorialContent, } from './metadata/resolve-helpers.js';
+import { buildSeoKeywords, composeContextualDescription, composeContextualTitle, deriveHeadlineFromSummary, isUsableResolvedTitle, manifestOverrideFor, pickFirstNonEmpty, resolveEditorialContent, sanitizeDescriptionCandidate, } from './metadata/resolve-helpers.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './metadata/text-utils.js';
 export { shouldSkipDescriptionLine, stripLeadingProseLabel, stripInlineMarkdown, truncateDescription, truncateExtendedDescription, truncateTitle, extractFirstSentence, } from './metadata/text-utils.js';
 export { isArtifactCategoryHeading, stripArtifactCategoryAffix, isGenericHeading, } from './metadata/heading-rules.js';
@@ -122,23 +122,23 @@ function resolveOneLanguage(input) {
     const editorial = perLanguage.editorial;
     const contextualTitle = composeContextualTitle(input.template.title, editorial.headline, input.runId);
     const title = pickFirstNonEmpty([manifestTitle, contextualTitle, input.template.title]);
-    const rawDescription = pickFirstNonEmpty([
+    const rawDescription = sanitizeDescriptionCandidate(pickFirstNonEmpty([
         manifestDescription,
         editorial.summary,
         input.template.subtitle,
-    ]);
-    // Skip the contextual-prefix enrichment ("Date YYYY-MM-DD. Context:
-    // … For readers…") when the localized executive brief already
-    // supplied the description. The localized BLUF, after
-    // `stripLeadingBoldLabel` removes its `**Issue:**` / `**Fråga:**` /
-    // `**主題:**` opener, is already a richer, locale-native snippet
-    // than the boilerplate prefix — and the prefix was the single
-    // largest source of over-budget `<meta description>` tags for the
-    // CJK / RTL locales (see `seo-headers-policy.md` § 1.1).
-    const skipEnrichment = perLanguage.source === 'localized-brief' && rawDescription.length > 0;
-    const description = skipEnrichment || rawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
-        ? rawDescription
-        : composeContextualDescription(input.lang, rawDescription, editorial, input.date, input.runId);
+    ]));
+    const safeEditorial = {
+        headline: isUsableResolvedTitle(editorial.headline) ? editorial.headline.trim() : '',
+        summary: sanitizeDescriptionCandidate(editorial.summary),
+        extendedSummary: sanitizeDescriptionCandidate(editorial.extendedSummary),
+    };
+    const normalizedRawDescription = rawDescription || sanitizeDescriptionCandidate(input.template.subtitle);
+    const skipEnrichment = perLanguage.source === 'localized-brief' && normalizedRawDescription.length > 0;
+    const description = skipEnrichment || normalizedRawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
+        ? normalizedRawDescription
+        : composeContextualDescription(input.lang, normalizedRawDescription, safeEditorial, input.date, input.runId);
+    const clippedTitle = truncateTitle(title).trim();
+    const summaryDerivedTitle = deriveHeadlineFromSummary(safeEditorial.summary || normalizedRawDescription);
     // `truncateTitle` returns '' when an editorial title overruns the
     // budget with no acceptable clause boundary — fall back to the
     // localized template title in that case so we never emit an empty
@@ -149,18 +149,21 @@ function resolveOneLanguage(input) {
     // blank `<title>`.
     //
     // The fallback path passes the template title back through
-    // composeContextualTitle (with an empty editorial headline) so
-    // withRunQualifier re-appends the `— Run N` suffix. Without this,
-    // two same-date / same-articleType runs would collapse to
-    // byte-identical `<title>` strings and the duplicate-title gate
-    // in scripts/validate-article-seo.js would (correctly) fail CI.
-    const clippedTitle = truncateTitle(title);
+    // {@link composeContextualTitle} (with an empty editorial headline)
+    // so `withRunQualifier` re-appends the `— Run N` suffix. Without
+    // this, two same-date / same-articleType runs (republish, hot-fix
+    // re-run) would collapse to byte-identical `<title>` strings, and
+    // the duplicate-title gate in `scripts/validate-article-seo.js`
+    // would (correctly) fail CI.
     const contextualFallback = composeContextualTitle(input.template.title, '', input.runId);
-    const truncatedTitle = clippedTitle || truncateTitle(contextualFallback) || contextualFallback;
+    const truncatedTitle = pickFirstNonEmpty([
+        isUsableResolvedTitle(clippedTitle) ? clippedTitle : '',
+        isUsableResolvedTitle(summaryDerivedTitle) ? summaryDerivedTitle : '',
+        truncateTitle(contextualFallback),
+        contextualFallback,
+    ]);
     const truncatedDescription = truncateDescription(description);
-    const extendedSource = manifestDescription
-        ? manifestDescription
-        : editorial.extendedSummary || rawDescription;
+    const extendedSource = sanitizeDescriptionCandidate(manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription);
     const truncatedExtendedDescription = truncateExtendedDescription(extendedSource);
     const source = manifestTitle || manifestDescription ? 'manifest' : perLanguage.source;
     return {
