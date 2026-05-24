@@ -310,11 +310,11 @@ language guide is in #see footer.
 ```mermaid
 graph TD
   EP10[EP10 717 MEPs<br/>9 groups]
-  EP10 --> CENTRE[Grand Centre<br/>EPP+S&D+Renew = 56%]
+  EP10 --> CENTRE["Grand Centre<br/>EPP+S&D+Renew = 56%"]
   EP10 --> RIGHT[Right Bloc<br/>PfE+ECR+ESN = 26%]
   EP10 --> LEFT[Left Bloc<br/>Greens+Left = 14%]
-  CENTRE --> WINS[Defence | SM2.0 | MFF | AI enforcement]
-  CENTRE -.contested.-> CONT[Climate 2030+ | Migration | Enlargement]
+  CENTRE --> WINS["Defence | SM2.0 | MFF | AI enforcement"]
+  CENTRE -.contested.-> CONT["Climate 2030+ | Migration | Enlargement"]
   RIGHT -.blocking.-> CONT
   LEFT -.demanding.-> WINS
   WINS --> 2029[2029 Election<br/>litigated on record]
@@ -2088,12 +2088,12 @@ Weight × inverse-horizon proximity gives a "strategic priority" score.
 ```mermaid
 quadrantChart
     title Strength × Opportunity vs Weakness × Threat
-    x-axis Defensive --> Offensive
-    y-axis Reactive --> Proactive
-    quadrant-1 Build (S+O)
-    quadrant-2 Convert (W+O)
-    quadrant-3 Defend (S+T)
-    quadrant-4 Avoid (W+T)
+    x-axis "Defensive" --> "Offensive"
+    y-axis "Reactive" --> "Proactive"
+    quadrant-1 "Build (S+O)"
+    quadrant-2 "Convert (W+O)"
+    quadrant-3 "Defend (S+T)"
+    quadrant-4 "Avoid (W+T)"
     "S1 Coalition habit": [0.85, 0.75]
     "S2 Commission ready": [0.85, 0.75]
     "O1 MFF lock": [0.85, 0.85]

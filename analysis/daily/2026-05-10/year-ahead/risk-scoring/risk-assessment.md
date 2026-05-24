@@ -70,7 +70,7 @@ xychart-beta
     title "Risk Portfolio: Likelihood vs. Impact (EP10 2026-2027)"
     x-axis "Likelihood (1=Rare, 5=Almost Certain)" 1 --> 5
     y-axis "Impact (1=Negligible, 5=Critical)" 1 --> 5
-    scatter [{"x":3,"y":5},{"x":2,"y":4},{"x":2,"y":5},{"x":3,"y":3}]
+    %% removed unsupported scatter series
 ```
 
 | Risk | Score | Action |

@@ -1449,42 +1449,42 @@ Stakeholder mapping reveals whose interests aligned with legislative outcomes. I
 
 ```mermaid
 graph TD
-    subgraph Security Complex
+    subgraph sg_1 ["Security Complex"]
         DEF[Defence Ministries] 
         DEFIND[EU Defence Industry]
         UKR[Ukraine Advocates]
         NATO[NATO Secretariat]
     end
     
-    subgraph Digital Governance
+    subgraph sg_2 ["Digital Governance"]
         BIGTECH[Big Tech - regulated]
         EUDIGITAL[EU Digital Sector]
         CIVIL[Digital Rights NGOs]
     end
     
-    subgraph Competitiveness Coalition
+    subgraph sg_3 ["Competitiveness Coalition"]
         GERMIND[German Industry/BDI]
         AUTO[Automotive sector]
         EPP_BIZ[EPP Business wing]
     end
     
-    subgraph Climate Network
+    subgraph sg_4 ["Climate Network"]
         CAN[Climate Action Network]
         GREENCO[Green Companies]
         WWF[WWF/Greenpeace]
     end
     
-    subgraph Social Stakeholders
+    subgraph sg_5 ["Social Stakeholders"]
         ETUC[ETUC Labour]
         HOUSING[Housing NGOs]
         MIGRANT[Migration advocates]
     end
     
-    Security Complex -->|lobbied for| EDIP[EDIP + Ukraine Loan ✅]
-    Digital Governance -->|split on| DMA[DMA Enforcement ✅]
-    Competitiveness Coalition -->|lobbied for| CSRD[CSRD Rollback ✅]
-    Climate Network -->|lobbied against| CSRD
-    Social Stakeholders -->|lobbied for| HOUSING_R[Housing Resolution 🟡]
+    sg_1 -->|lobbied for| EDIP[EDIP + Ukraine Loan ✅]
+    sg_2 -->|split on| DMA[DMA Enforcement ✅]
+    sg_3 -->|lobbied for| CSRD[CSRD Rollback ✅]
+    sg_4 -->|lobbied against| CSRD
+    sg_5 -->|lobbied for| HOUSING_R[Housing Resolution 🟡]
 ```
 
 ### Power-Interest Matrix
@@ -2063,16 +2063,13 @@ Each SWOT factor scored 0-100 on:
 - **Persistence** (0-20): Short-term vs. structural factor
 
 ```mermaid
-radar
+radar-beta
     title EP10 Year 2 Quantitative SWOT
-    Strengths
-    72
-    Weaknesses
-    58
-    Opportunities
-    65
-    Threats
-    70
+    axis a1["Strengths"], a2["Weaknesses"], a3["Opportunities"], a4["Threats"]
+    curve c1["Strengths"]{72, 0, 0, 0}
+    curve c2["Weaknesses"]{58, 0, 0, 0}
+    curve c3["Opportunities"]{65, 0, 0, 0}
+    curve c4["Threats"]{70, 0, 0, 0}
 ```
 
 ### Strengths Scoring (72/100)
@@ -2772,20 +2769,15 @@ Mandate fulfilment scorecards are the mechanism democratic publics use to hold g
 ### Pillar-by-Pillar Scorecard
 
 ```mermaid
-radar
+radar-beta
     title EP10 Mandate Fulfilment by Pillar (Year 2)
-    Defence & Security
-    75
-    Digital Sovereignty
-    70
-    Economic Competitiveness
-    65
-    Rule of Law
-    45
-    Green Transition
-    35
-    Social Economy
-    50
+    axis a1["Defence & Security"], a2["Digital Sovereignty"], a3["Economic Competitiveness"], a4["Rule of Law"], a5["Green Transition"], a6["Social Economy"]
+    curve c1["Defence & Security"]{75, 0, 0, 0, 0, 0}
+    curve c2["Digital Sovereignty"]{70, 0, 0, 0, 0, 0}
+    curve c3["Economic Competitiveness"]{65, 0, 0, 0, 0, 0}
+    curve c4["Rule of Law"]{45, 0, 0, 0, 0, 0}
+    curve c5["Green Transition"]{35, 0, 0, 0, 0, 0}
+    curve c6["Social Economy"]{50, 0, 0, 0, 0, 0}
 ```
 
 | Pillar | Target | Delivery | Score | Trajectory |

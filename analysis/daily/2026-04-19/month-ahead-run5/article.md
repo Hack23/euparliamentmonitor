@@ -645,28 +645,28 @@ EPP `memberCount=0` defect is persistent across 9 consecutive runs. Escalation t
 }}%%
 quadrantChart
     title Stakeholder Power × Interest — Month-Ahead April-May 2026
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Manage Closely (Key Players)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    European Commission: [0.90, 0.95]
-    EPP Group: [0.85, 0.95]
-    S&D Group: [0.85, 0.80]
-    Renew Group: [0.75, 0.70]
-    ECON Committee: [0.85, 0.70]
-    LIBE Committee: [0.70, 0.55]
-    INTA Committee: [0.80, 0.65]
-    German Government: [0.90, 0.85]
-    French Government: [0.75, 0.70]
-    Polish Government: [0.70, 0.50]
-    Hungarian Government: [0.60, 0.40]
-    USTR / US Trade Rep: [0.85, 0.80]
-    ECR Group: [0.55, 0.65]
-    PfE Group: [0.55, 0.60]
-    Sparkassen + VOEB Lobby: [0.88, 0.80]
-    Transparency International: [0.80, 0.25]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Manage Closely (Key Players)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "European Commission": [0.90, 0.95]
+    "EPP Group": [0.85, 0.95]
+    "S&D Group": [0.85, 0.80]
+    "Renew Group": [0.75, 0.70]
+    "ECON Committee": [0.85, 0.70]
+    "LIBE Committee": [0.70, 0.55]
+    "INTA Committee": [0.80, 0.65]
+    "German Government": [0.90, 0.85]
+    "French Government": [0.75, 0.70]
+    "Polish Government": [0.70, 0.50]
+    "Hungarian Government": [0.60, 0.40]
+    "USTR / US Trade Rep": [0.85, 0.80]
+    "ECR Group": [0.55, 0.65]
+    "PfE Group": [0.55, 0.60]
+    "Sparkassen + VOEB Lobby": [0.88, 0.80]
+    "Transparency International": [0.80, 0.25]
 ```
 
 > Quadrant 1 (top-right, *Manage Closely*) contains the decisive actors for the April-May
@@ -1510,22 +1510,22 @@ flowchart TD
 }}%%
 quadrantChart
     title Wildcard Events — Probability × Impact (30-day window)
-    x-axis Very Low Probability --> Higher Probability (still <20%)
-    y-axis Low Impact --> Catastrophic Impact
-    quadrant-1 Critical Stress-Tests
-    quadrant-2 Monitor Not Prepare
-    quadrant-3 Noise
-    quadrant-4 Over-Prepared
-    Commission No-Confidence Motion: [0.04, 0.95]
-    Major ECJ Preliminary Injunction: [0.10, 0.78]
-    Member State Financial Stability Event: [0.07, 0.90]
-    US Federal Reserve Emergency Action: [0.05, 0.82]
-    EPP Leadership Resignation: [0.05, 0.75]
-    Major Cyber Incident EP or Commission: [0.12, 0.75]
-    Ukraine Conflict Escalation: [0.15, 0.88]
-    Natural Disaster Plenary Disruption: [0.04, 0.55]
-    MEP Death or Sudden Incapacity: [0.18, 0.30]
-    Ransomware on Member State Banking: [0.08, 0.85]
+    x-axis "Very Low Probability" --> "Higher Probability (still <20%)"
+    y-axis "Low Impact" --> "Catastrophic Impact"
+    quadrant-1 "Critical Stress-Tests"
+    quadrant-2 "Monitor Not Prepare"
+    quadrant-3 "Noise"
+    quadrant-4 "Over-Prepared"
+    "Commission No-Confidence Motion": [0.04, 0.95]
+    "Major ECJ Preliminary Injunction": [0.10, 0.78]
+    "Member State Financial Stability Event": [0.07, 0.90]
+    "US Federal Reserve Emergency Action": [0.05, 0.82]
+    "EPP Leadership Resignation": [0.05, 0.75]
+    "Major Cyber Incident EP or Commission": [0.12, 0.75]
+    "Ukraine Conflict Escalation": [0.15, 0.88]
+    "Natural Disaster Plenary Disruption": [0.04, 0.55]
+    "MEP Death or Sudden Incapacity": [0.18, 0.30]
+    "Ransomware on Member State Banking": [0.08, 0.85]
 ```
 
 ---

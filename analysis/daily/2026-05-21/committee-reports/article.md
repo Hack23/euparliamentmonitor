@@ -1040,26 +1040,26 @@ upon DOCEO data integration.
 ```mermaid
 quadrantChart
     title Stakeholder Power vs. Interest in EP Committee Reports
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Manage Closely)
-    quadrant-2 Meet Their Needs
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    EPP-Group: [0.9, 0.95]
-    SandD-Group: [0.85, 0.85]
-    Commission: [0.8, 0.9]
-    Council-Presidency: [0.75, 0.85]
-    PfE-Group: [0.8, 0.7]
-    Renew-Group: [0.7, 0.8]
-    ECR-Group: [0.75, 0.65]
-    ENVI-Committee: [0.85, 0.75]
-    ITRE-Committee: [0.82, 0.78]
-    Civil-Society-Env: [0.6, 0.55]
-    Industry-Lobbies: [0.7, 0.6]
-    National-Governments: [0.65, 0.8]
-    CJEU: [0.4, 0.85]
-    MEP-Rapporteurs: [0.88, 0.9]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Manage Closely)"
+    quadrant-2 "Meet Their Needs"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "EPP-Group": [0.9, 0.95]
+    "SandD-Group": [0.85, 0.85]
+    "Commission": [0.8, 0.9]
+    "Council-Presidency": [0.75, 0.85]
+    "PfE-Group": [0.8, 0.7]
+    "Renew-Group": [0.7, 0.8]
+    "ECR-Group": [0.75, 0.65]
+    "ENVI-Committee": [0.85, 0.75]
+    "ITRE-Committee": [0.82, 0.78]
+    "Civil-Society-Env": [0.6, 0.55]
+    "Industry-Lobbies": [0.7, 0.6]
+    "National-Governments": [0.65, 0.8]
+    "CJEU": [0.4, 0.85]
+    "MEP-Rapporteurs": [0.88, 0.9]
 ```
 
 ---

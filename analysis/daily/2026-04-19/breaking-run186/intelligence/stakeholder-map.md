@@ -21,24 +21,24 @@ methodology: "Mendelow stakeholder grid + 6-lens perspective model"
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800"}}}%%
 quadrantChart
     title Stakeholder Power vs Interest (April 28-30 Plenary)
-    x-axis Interest Level (Low → High)
-    y-axis Power/Influence (Low → High)
-    quadrant-1 Key Players (Manage Closely)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    EPP Group Weber: [0.95, 0.95]
-    S&D Group Rodríguez: [0.85, 0.80]
-    Commission VdL: [0.80, 0.90]
-    Renew Group: [0.75, 0.65]
-    USTR Greer: [0.50, 0.85]
-    German Bundesrat: [0.55, 0.70]
-    INTA Committee: [0.90, 0.65]
-    ECON Committee: [0.85, 0.60]
-    ECR Meloni allies: [0.70, 0.55]
-    Housing NGOs: [0.80, 0.30]
-    EU Banking sector: [0.75, 0.40]
-    Media/EP Monitor: [0.65, 0.20]
+    x-axis "Interest Level (Low → High)"
+    y-axis "Power/Influence (Low → High)"
+    quadrant-1 "Key Players (Manage Closely)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "EPP Group Weber": [0.95, 0.95]
+    "S&D Group Rodríguez": [0.85, 0.80]
+    "Commission VdL": [0.80, 0.90]
+    "Renew Group": [0.75, 0.65]
+    "USTR Greer": [0.50, 0.85]
+    "German Bundesrat": [0.55, 0.70]
+    "INTA Committee": [0.90, 0.65]
+    "ECON Committee": [0.85, 0.60]
+    "ECR Meloni allies": [0.70, 0.55]
+    "Housing NGOs": [0.80, 0.30]
+    "EU Banking sector": [0.75, 0.40]
+    "Media/EP Monitor": [0.65, 0.20]
 ```
 
 ---

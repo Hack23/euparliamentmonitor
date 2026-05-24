@@ -24,7 +24,7 @@ Analysis based on `monitor_legislative_pipeline` (30 active procedures returned)
 ```mermaid
 %%{init: {"theme":"dark"}}%%
 xychart-beta
-    title EP10 Legislative Pipeline Distribution (May 2026)
+    title "EP10 Legislative Pipeline Distribution (May 2026)"
     x-axis ["Commission Proposal", "Committee Stage", "Plenary 1st Reading", "Trilogue", "2nd Reading", "Adoption"]
     y-axis "Estimated Procedures" 0 --> 50
     bar [45, 38, 22, 18, 8, 5]

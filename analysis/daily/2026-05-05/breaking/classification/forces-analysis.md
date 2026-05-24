@@ -43,13 +43,13 @@ The ongoing Russia-Ukraine conflict, US-EU digital sovereignty competition, and 
 **Implication**: The Monitor must maintain standing coverage of geopolitical triggers that could subordinate or accelerate the April 28–30 decisions.
 
 ```mermaid
-radar
+radar-beta
     title Forces Analysis — April 28–30 Plenary
-    "Legislative Initiative Power" : 4
-    "Veto Powers" : 3
-    "Judicial Review" : 4
-    "Parliamentary Cohesion" : 3
-    "External Geopolitical Pressure" : 4
+    curve c1["Legislative Initiative Power"]{4}
+    curve c2["Veto Powers"]{3}
+    curve c3["Judicial Review"]{4}
+    curve c4["Parliamentary Cohesion"]{3}
+    curve c5["External Geopolitical Pressure"]{4}
 ```
 
 ## Reader Briefing

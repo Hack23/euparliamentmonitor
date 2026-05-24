@@ -482,6 +482,7 @@ Use these exact hex codes — they are aligned with the ISMS classification sche
 
 For **graph / flowchart / mindmap** diagrams, attach colour using `style` or `classDef` — never rely on default grey:
 
+<!-- mermaid:skip placeholder-template — contains [REQUIRED] / {x} placeholders, not a real diagram -->
 ```mermaid
 classDef critical fill:#D32F2F,stroke:#7F0000,color:#fff
 classDef high     fill:#FF9800,stroke:#7F4F00,color:#000
@@ -505,6 +506,7 @@ Every `quadrantChart` block in analysis output **MUST** be prefixed with this in
 Reusable snippet (copy verbatim into every `quadrantChart`):
 
 ````markdown
+<!-- mermaid:skip placeholder-template — contains [REQUIRED] / {x} placeholders, not a real diagram -->
 ```mermaid
 %%{init: {
   "theme": "dark",

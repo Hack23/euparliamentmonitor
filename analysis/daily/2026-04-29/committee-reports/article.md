@@ -658,13 +658,13 @@ quadrantChart
     quadrant-2 "Critical Focus"
     quadrant-3 "Low Priority"
     quadrant-4 "Manage Actively"
-    MFF-Interim: [85, 90]
-    GSP-Reform: [75, 80]
-    Budget-2027: [80, 65]
-    GHG-Transport: [70, 70]
-    Dogs-Cats: [60, 55]
-    EIB-Report: [50, 45]
-    Immunity-Waivers: [90, 20]
+    "MFF-Interim": [0.85, 0.9]
+    "GSP-Reform": [0.75, 0.8]
+    "Budget-2027": [0.8, 0.65]
+    "GHG-Transport": [0.7, 0.7]
+    "Dogs-Cats": [0.6, 0.55]
+    "EIB-Report": [0.5, 0.45]
+    "Immunity-Waivers": [0.9, 0.2]
 ```
 
 ---

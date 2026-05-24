@@ -4,11 +4,11 @@
 # Methodology Reflection (Step 10.5) — EP Motions 2026-05-12
 
 ```mermaid
-radar
+radar-beta
     title Methodology Quality Ratings (1-10)
-    x-axis ["Data Coverage", "Coalition Analysis", "Economic Context", "Threat Assessment", "Historical Context", "Stakeholder Mapping"]
-    EPP_Focus [8, 9, 7, 8, 8, 9]
-    Roll_Call_Limitation [5, 7, 9, 7, 8, 7]
+    axis a1["Data Coverage"], a2["Coalition Analysis"], a3["Economic Context"], a4["Threat Assessment"], a5["Historical Context"], a6["Stakeholder Mapping"]
+    curve c1["EPP_Focus"]{8, 9, 7, 8, 8, 9}
+    curve c2["Roll_Call_Limitation"]{5, 7, 9, 7, 8, 7}
 ```
 
 

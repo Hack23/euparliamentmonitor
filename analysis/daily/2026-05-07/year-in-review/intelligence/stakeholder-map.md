@@ -17,42 +17,42 @@ Stakeholder mapping reveals whose interests aligned with legislative outcomes. I
 
 ```mermaid
 graph TD
-    subgraph Security Complex
+    subgraph sg_1 ["Security Complex"]
         DEF[Defence Ministries] 
         DEFIND[EU Defence Industry]
         UKR[Ukraine Advocates]
         NATO[NATO Secretariat]
     end
     
-    subgraph Digital Governance
+    subgraph sg_2 ["Digital Governance"]
         BIGTECH[Big Tech - regulated]
         EUDIGITAL[EU Digital Sector]
         CIVIL[Digital Rights NGOs]
     end
     
-    subgraph Competitiveness Coalition
+    subgraph sg_3 ["Competitiveness Coalition"]
         GERMIND[German Industry/BDI]
         AUTO[Automotive sector]
         EPP_BIZ[EPP Business wing]
     end
     
-    subgraph Climate Network
+    subgraph sg_4 ["Climate Network"]
         CAN[Climate Action Network]
         GREENCO[Green Companies]
         WWF[WWF/Greenpeace]
     end
     
-    subgraph Social Stakeholders
+    subgraph sg_5 ["Social Stakeholders"]
         ETUC[ETUC Labour]
         HOUSING[Housing NGOs]
         MIGRANT[Migration advocates]
     end
     
-    Security Complex -->|lobbied for| EDIP[EDIP + Ukraine Loan ✅]
-    Digital Governance -->|split on| DMA[DMA Enforcement ✅]
-    Competitiveness Coalition -->|lobbied for| CSRD[CSRD Rollback ✅]
-    Climate Network -->|lobbied against| CSRD
-    Social Stakeholders -->|lobbied for| HOUSING_R[Housing Resolution 🟡]
+    sg_1 -->|lobbied for| EDIP[EDIP + Ukraine Loan ✅]
+    sg_2 -->|split on| DMA[DMA Enforcement ✅]
+    sg_3 -->|lobbied for| CSRD[CSRD Rollback ✅]
+    sg_4 -->|lobbied against| CSRD
+    sg_5 -->|lobbied for| HOUSING_R[Housing Resolution 🟡]
 ```
 
 ## Power-Interest Matrix

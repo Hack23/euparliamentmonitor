@@ -94,14 +94,14 @@ Roll-call data expected to be available via EP API from approximately 2026-06-14
 
 ```mermaid
 sankey-beta
-    EPP -> DMA_For : 140
-    EPP -> DMA_Against : 30
-    S_D -> DMA_For : 120
-    Renew -> DMA_For : 85
-    Greens -> DMA_For : 50
-    ECR -> DMA_Against : 60
-    PfE -> DMA_Against : 50
-    ID -> DMA_Against : 40
+EPP,DMA_For,140
+EPP,DMA_Against,30
+S_D,DMA_For,120
+Renew,DMA_For,85
+Greens,DMA_For,50
+ECR,DMA_Against,60
+PfE,DMA_Against,50
+ID,DMA_Against,40
 ```
 
 ### Estimated Voting Matrix (April 30, 2026)

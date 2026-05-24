@@ -903,11 +903,11 @@ quadrantChart
     quadrant-2 "High Urgency / Transient"
     quadrant-3 "Low Urgency / Transient"
     quadrant-4 "Low Urgency / Enduring"
-    DMA Enforcement: [0.9, 0.7]
-    Ukraine Accountability: [1.0, 0.6]
-    Armenia Resilience: [0.8, 0.5]
-    Budget 2027: [0.5, 0.4]
-    Haiti Resolution: [0.3, 0.6]
+    "DMA Enforcement": [0.9, 0.7]
+    "Ukraine Accountability": [1, 0.6]
+    "Armenia Resilience": [0.8, 0.5]
+    "Budget 2027": [0.5, 0.4]
+    "Haiti Resolution": [0.3, 0.6]
 ```
 
 ### 🎯 INSTITUTIONAL IMPACT WEIGHTING
@@ -4943,14 +4943,10 @@ Haiti's humanitarian crisis (TA-10-2026-0151) has strong environmental component
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
-radar
+radar-beta
     title PESTLE Risk Radar (1-5 scale)
-    Political: 4
-    Economic: 3
-    Social: 2
-    Technological: 4
-    Legal: 5
-    Environmental: 2
+    axis a1["Political"], a2["Economic"], a3["Social"], a4["Technological"], a5["Legal"], a6["Environmental"]
+    curve c1["PESTLE Risk Radar (1-5 scale)"]{4, 3, 2, 4, 5, 2}
 ```
 
 **Cross-dimensional synthesis:** The Legal and Political dimensions dominate this analysis — DMA is fundamentally a legal-political intervention; Ukraine accountability is similarly legal-political. This two-dimensional concentration is characteristic of legislative sessions focused on regulatory enforcement and international law rather than economic or social policy.
@@ -5432,19 +5428,19 @@ xychart-beta
 
 ```mermaid
 timeline
-    title Breaking News Analysis Depth Progression — 2026-05-10
-    section Run 1 (00:25 UTC)
+    title Breaking News Analysis Depth Progression - 2026-05-10
+    section Run 1 0025 UTC
         35 artifacts : First pass - core intelligence artifacts
         Stage C GREEN : All floors met
-    section Run 2 (07:38 UTC)
+    section Run 2 0738 UTC
         48 artifacts : +13 extended artifacts added
         9 extended docs : Cross-reference map, devils advocate, historical parallels
         15 languages : Full article render completed
-    section Run 3 (13:18 UTC)
+    section Run 3 1318 UTC
         48 artifacts : All 48 extended and deepened
         17 Mermaid diagrams : Visual intelligence layer added
         rewriteCount=48 : Full pass 2 on all artifacts
-    section Run 4 (19:16 UTC)
+    section Run 4 1916 UTC
         3 rewrites : cross-run-diff, ref-quality, extended/executive-brief
         46 carry-forwards : All extended past extendFloor
         Mermaid diagrams : Added to mermaid-missing artifacts
@@ -11054,13 +11050,14 @@ Per `per-artifact-methodologies.md` quality signal requirements:
 ### �� ARTIFACT QUALITY RADAR — RUN 4 EXTENSION
 
 ```mermaid
-radar
+radar-beta
     title Artifact Quality Dimensions — 2026-05-10 Breaking News Run 4
-    Evidence_Citations [85, 70, 90, 75]
-    Analytical_Depth [80, 75, 85, 90]
-    Mermaid_Visuals [30, 60, 90, 95]
-    Data_Currency [65, 65, 65, 65]
-    Cross_References [70, 85, 90, 92]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"]
+    curve c1["Evidence_Citations"]{85, 70, 90, 75}
+    curve c2["Analytical_Depth"]{80, 75, 85, 90}
+    curve c3["Mermaid_Visuals"]{30, 60, 90, 95}
+    curve c4["Data_Currency"]{65, 65, 65, 65}
+    curve c5["Cross_References"]{70, 85, 90, 92}
 ```
 
 ### 📈 FLOOR COMPLIANCE CHART — ALL ARTIFACTS

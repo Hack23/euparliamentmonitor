@@ -130,21 +130,21 @@ A CJEU annulment case or Advocate General Opinion on the DMA that breaks signifi
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Wildcard Risk Matrix (Probability vs. Impact)
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> High Impact
-    quadrant-1 Monitor Closely
-    quadrant-2 High Priority (unlikely but severe)
-    quadrant-3 Background Noise
-    quadrant-4 Low Priority (likely but manageable)
-    BS-1 Member State Crisis: [0.03, 0.95]
-    BS-2 US Tariff War: [0.16, 0.88]
-    BS-3 Cyber Incident: [0.08, 0.82]
-    BS-4 MEP Defection: [0.10, 0.55]
-    WC-1 ECB Signal: [0.31, 0.42]
-    WC-2 Migration Surge: [0.21, 0.72]
-    WC-3 AI Crisis: [0.09, 0.75]
-    WC-4 Eastern Europe Shift: [0.11, 0.90]
-    WC-5 DMA Challenge: [0.28, 0.65]
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Monitor Closely"
+    quadrant-2 "High Priority (unlikely but severe)"
+    quadrant-3 "Background Noise"
+    quadrant-4 "Low Priority (likely but manageable)"
+    "BS-1 Member State Crisis": [0.03, 0.95]
+    "BS-2 US Tariff War": [0.16, 0.88]
+    "BS-3 Cyber Incident": [0.08, 0.82]
+    "BS-4 MEP Defection": [0.10, 0.55]
+    "WC-1 ECB Signal": [0.31, 0.42]
+    "WC-2 Migration Surge": [0.21, 0.72]
+    "WC-3 AI Crisis": [0.09, 0.75]
+    "WC-4 Eastern Europe Shift": [0.11, 0.90]
+    "WC-5 DMA Challenge": [0.28, 0.65]
 ```
 
 ---

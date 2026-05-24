@@ -10,18 +10,18 @@ date: 2026-04-23
 
 ```mermaid
 sankey-beta
-    EPP [185] TO Trade Defence YES [155]
-    EPP [185] TO Abstain [15]
-    EPP [185] TO Banking YES [175]
-    S&D [135] TO Trade Defence YES [125]
-    S&D [135] TO Banking YES [130]
-    Renew [76] TO Trade Defence YES [65]
-    Renew [76] TO Banking YES [70]
-    ECR [79] TO Trade Defence YES [40]
-    ECR [79] TO Abstain/NO [39]
-    PfE [84] TO Trade NO/Abstain [80]
-    Greens [53] TO Banking YES [45]
-    GUE [46] TO Trade NO [35]
+EPP,Trade Defence YES,155
+EPP,Abstain,15
+EPP,Banking YES,175
+S&D,Trade Defence YES,125
+S&D,Banking YES,130
+Renew,Trade Defence YES,65
+Renew,Banking YES,70
+ECR,Trade Defence YES,40
+ECR,Abstain/NO,39
+PfE,Trade NO/Abstain,80
+Greens,Banking YES,45
+GUE,Trade NO,35
 ```
 
 ---

@@ -717,12 +717,12 @@ The force field analysis shows that EP10's legislative momentum is real but depe
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Legislative Impact — Breadth vs. Depth
-    x-axis Low Breadth (few affected) --> High Breadth (many affected)
-    y-axis Low Depth (marginal change) --> High Depth (structural change)
-    quadrant-1 Monitor
-    quadrant-2 Primary Impact Zone
-    quadrant-3 Routine
-    quadrant-4 Sector-Specific
+    x-axis "Low Breadth (few affected)" --> "High Breadth (many affected)"
+    y-axis "Low Depth (marginal change)" --> "High Depth (structural change)"
+    quadrant-1 "Monitor"
+    quadrant-2 "Primary Impact Zone"
+    quadrant-3 "Routine"
+    quadrant-4 "Sector-Specific"
     "SRMR3": [0.8, 0.9]
     "Anti-Corruption": [0.85, 0.85]
     "Animal Welfare": [0.7, 0.6]

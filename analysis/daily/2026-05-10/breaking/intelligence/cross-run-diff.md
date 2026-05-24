@@ -68,19 +68,19 @@ xychart-beta
 
 ```mermaid
 timeline
-    title Breaking News Analysis Depth Progression — 2026-05-10
-    section Run 1 (00:25 UTC)
+    title Breaking News Analysis Depth Progression - 2026-05-10
+    section Run 1 0025 UTC
         35 artifacts : First pass - core intelligence artifacts
         Stage C GREEN : All floors met
-    section Run 2 (07:38 UTC)
+    section Run 2 0738 UTC
         48 artifacts : +13 extended artifacts added
         9 extended docs : Cross-reference map, devils advocate, historical parallels
         15 languages : Full article render completed
-    section Run 3 (13:18 UTC)
+    section Run 3 1318 UTC
         48 artifacts : All 48 extended and deepened
         17 Mermaid diagrams : Visual intelligence layer added
         rewriteCount=48 : Full pass 2 on all artifacts
-    section Run 4 (19:16 UTC)
+    section Run 4 1916 UTC
         3 rewrites : cross-run-diff, ref-quality, extended/executive-brief
         46 carry-forwards : All extended past extendFloor
         Mermaid diagrams : Added to mermaid-missing artifacts

@@ -50,30 +50,30 @@ confidence: MEDIUM
 }}%%
 quadrantChart
     title Stakeholder Power × Interest — April 28 Plenary
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Manage Closely (Key Players)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    European Commission: [0.85, 0.95]
-    Von der Leyen Cabinet: [0.90, 0.90]
-    EPP Group: [0.80, 0.95]
-    S&D Group: [0.80, 0.80]
-    Renew Group: [0.70, 0.70]
-    ECR Group: [0.55, 0.65]
-    ECB: [0.55, 0.85]
-    German Government: [0.85, 0.80]
-    French Government: [0.75, 0.70]
-    Italian Government: [0.55, 0.55]
-    Polish Government: [0.60, 0.45]
-    USTR / US Trade Rep: [0.75, 0.75]
-    Sparkassen Association: [0.90, 0.80]
-    Civil Society (EDRi / Access Now): [0.80, 0.25]
-    Housing Europe / EAPN: [0.75, 0.20]
-    Bundesrat: [0.70, 0.60]
-    Greens-EFA Group: [0.75, 0.55]
-    The Left Group: [0.60, 0.35]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Manage Closely (Key Players)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "European Commission": [0.85, 0.95]
+    "Von der Leyen Cabinet": [0.90, 0.90]
+    "EPP Group": [0.80, 0.95]
+    "S&D Group": [0.80, 0.80]
+    "Renew Group": [0.70, 0.70]
+    "ECR Group": [0.55, 0.65]
+    "ECB": [0.55, 0.85]
+    "German Government": [0.85, 0.80]
+    "French Government": [0.75, 0.70]
+    "Italian Government": [0.55, 0.55]
+    "Polish Government": [0.60, 0.45]
+    "USTR / US Trade Rep": [0.75, 0.75]
+    "Sparkassen Association": [0.90, 0.80]
+    "Civil Society (EDRi / Access Now)": [0.80, 0.25]
+    "Housing Europe / EAPN": [0.75, 0.20]
+    "Bundesrat": [0.70, 0.60]
+    "Greens-EFA Group": [0.75, 0.55]
+    "The Left Group": [0.60, 0.35]
 ```
 
 > Quadrant 1 (top-right, Manage Closely) contains the decisive actors; Quadrant 2

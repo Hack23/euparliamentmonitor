@@ -220,22 +220,22 @@ flowchart TB
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Stakeholder Power vs. Interest in April 2026 EP Outcomes
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Monitor Closely)
-    quadrant-2 Keep Satisfied (Manage)
-    quadrant-3 Monitor (Low Priority)
-    quadrant-4 Keep Informed (Engage)
-    European Commission: [0.85, 0.90]
-    US Government: [0.75, 0.85]
-    Tech Gatekeepers: [0.90, 0.80]
-    European Parliament: [0.95, 0.65]
-    Council of EU: [0.80, 0.80]
-    Ukraine Government: [0.95, 0.35]
-    Armenia Government: [0.75, 0.20]
-    Civil Society Digital: [0.85, 0.25]
-    Civil Society HR: [0.80, 0.25]
-    CJEU: [0.60, 0.75]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Monitor Closely)"
+    quadrant-2 "Keep Satisfied (Manage)"
+    quadrant-3 "Monitor (Low Priority)"
+    quadrant-4 "Keep Informed (Engage)"
+    "European Commission": [0.85, 0.90]
+    "US Government": [0.75, 0.85]
+    "Tech Gatekeepers": [0.90, 0.80]
+    "European Parliament": [0.95, 0.65]
+    "Council of EU": [0.80, 0.80]
+    "Ukraine Government": [0.95, 0.35]
+    "Armenia Government": [0.75, 0.20]
+    "Civil Society Digital": [0.85, 0.25]
+    "Civil Society HR": [0.80, 0.25]
+    "CJEU": [0.60, 0.75]
 ```
 
 ---

@@ -111,7 +111,7 @@ The previous single-session record was 3 waivers (once in EP8). Five in one sess
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "EP Legislative Acts Adopted by Year (2023-2026 + Projection)"
   x-axis ["2023", "2024", "2025", "2026E"]
   y-axis 0 --> 160

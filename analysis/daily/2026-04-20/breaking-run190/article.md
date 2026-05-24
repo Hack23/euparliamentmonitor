@@ -843,10 +843,10 @@ quadrantChart
     title Stakeholder Power × Alignment (Run 190)
     x-axis "Low Alignment with EP Agenda" --> "High Alignment with EP Agenda"
     y-axis "Low Power" --> "High Power"
-    quadrant-1 Strategic Partners (High Power, High Alignment)
-    quadrant-2 Resistors (High Power, Low Alignment)
-    quadrant-3 Spectators (Low Power, Low Alignment)
-    quadrant-4 Supporters (Low Power, High Alignment)
+    quadrant-1 "Strategic Partners (High Power, High Alignment)"
+    quadrant-2 "Resistors (High Power, Low Alignment)"
+    quadrant-3 "Spectators (Low Power, Low Alignment)"
+    quadrant-4 "Supporters (Low Power, High Alignment)"
     "EPP Group": [0.72, 0.92]
     "S&D Group": [0.85, 0.82]
     "Renew Europe": [0.80, 0.72]
@@ -1375,10 +1375,10 @@ quadrantChart
     title Political Risk Matrix — Likelihood × Impact (April 20, 2026)
     x-axis "Low Impact" --> "High Impact"
     y-axis "Low Likelihood" --> "High Likelihood"
-    quadrant-1 Monitor (High Impact, High Likelihood)
-    quadrant-2 Accept (Low Impact, High Likelihood)
-    quadrant-3 Accept (Low Impact, Low Likelihood)
-    quadrant-4 Prepare (High Impact, Low Likelihood)
+    quadrant-1 "Monitor (High Impact, High Likelihood)"
+    quadrant-2 "Accept (Low Impact, High Likelihood)"
+    quadrant-3 "Accept (Low Impact, Low Likelihood)"
+    quadrant-4 "Prepare (High Impact, Low Likelihood)"
     "R1: USTR Section 301": [0.85, 0.35]
     "R2: API Non-monotonic Restoration": [0.35, 0.65]
     "R3: Banking Union Council Delay": [0.75, 0.35]
@@ -1585,10 +1585,10 @@ quadrantChart
     title EU Parliament SWOT Position — Easter Monday April 20, 2026
     x-axis "Low Strategic Impact" --> "High Strategic Impact"
     y-axis "Short-term Horizon" --> "Long-term Horizon"
-    quadrant-1 High Impact / Long-term (Strengths)
-    quadrant-2 High Impact / Short-term (Opportunities)
-    quadrant-3 Low Impact / Short-term (Weaknesses)
-    quadrant-4 Low Impact / Long-term (Threats)
+    quadrant-1 "High Impact / Long-term (Strengths)"
+    quadrant-2 "High Impact / Short-term (Opportunities)"
+    quadrant-3 "Low Impact / Short-term (Weaknesses)"
+    quadrant-4 "Low Impact / Long-term (Threats)"
     "March 26 Legislative Sprint": [0.80, 0.85]
     "Grand Centre Stability": [0.70, 0.75]
     "API Dual-Layer Discovery": [0.50, 0.80]

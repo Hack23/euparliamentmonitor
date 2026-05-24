@@ -26,19 +26,19 @@
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Legislative Priority vs. Political Feasibility
-    x-axis Low Feasibility --> High Feasibility
-    y-axis Low Priority --> High Priority
-    quadrant-1 Act Fast (High P + High F)
-    quadrant-2 Strategic Investment (High P + Low F)
-    quadrant-3 Monitor Only (Low P + Low F)
-    quadrant-4 Quick Wins (Low P + High F)
-    EDIP: [0.72, 0.82]
-    CSRD Omnibus: [0.38, 0.91]
-    EU-Mercosur: [0.41, 0.88]
-    Ukraine Package: [0.71, 0.79]
-    2027 Budget: [0.65, 0.85]
-    AI Delegated Acts: [0.78, 0.62]
-    Digital Euro: [0.42, 0.65]
+    x-axis "Low Feasibility" --> "High Feasibility"
+    y-axis "Low Priority" --> "High Priority"
+    quadrant-1 "Act Fast (High P + High F)"
+    quadrant-2 "Strategic Investment (High P + Low F)"
+    quadrant-3 "Monitor Only (Low P + Low F)"
+    quadrant-4 "Quick Wins (Low P + High F)"
+    "EDIP": [0.72, 0.82]
+    "CSRD Omnibus": [0.38, 0.91]
+    "EU-Mercosur": [0.41, 0.88]
+    "Ukraine Package": [0.71, 0.79]
+    "2027 Budget": [0.65, 0.85]
+    "AI Delegated Acts": [0.78, 0.62]
+    "Digital Euro": [0.42, 0.65]
 ```
 
 ## 🚨 Critical Forward Monitors

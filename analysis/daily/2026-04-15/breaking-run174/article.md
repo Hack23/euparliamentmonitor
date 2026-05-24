@@ -785,25 +785,25 @@ articleType: breaking
 }}%%
 quadrantChart
     title SWOT — EP Position on Tariff Activation Day
-    x-axis Negative <--> Positive
-    y-axis External <--> Internal
-    quadrant-1 Strengths
-    quadrant-2 Opportunities
-    quadrant-3 Weaknesses
-    quadrant-4 Threats
-    Record legislative output: [0.85, 0.8]
-    Pre-authorized trade response: [0.75, 0.7]
-    Committee expertise depth: [0.7, 0.85]
-    Cross-party anti-corruption: [0.8, 0.6]
-    Coalition arithmetic deficit: [0.2, 0.8]
-    EP API infrastructure gaps: [0.15, 0.6]
-    Fragmentation index 4.04: [0.25, 0.7]
-    Trade crisis urgency: [0.8, 0.3]
-    Banking Union window: [0.7, 0.2]
-    AI governance leadership: [0.75, 0.15]
-    US trade escalation: [0.2, 0.2]
-    Post-recess bottleneck: [0.3, 0.3]
-    ECR defection risk: [0.15, 0.35]
+    x-axis "Negative <" --> "Positive"
+    y-axis "External <" --> "Internal"
+    quadrant-1 "Strengths"
+    quadrant-2 "Opportunities"
+    quadrant-3 "Weaknesses"
+    quadrant-4 "Threats"
+    "Record legislative output": [0.85, 0.8]
+    "Pre-authorized trade response": [0.75, 0.7]
+    "Committee expertise depth": [0.7, 0.85]
+    "Cross-party anti-corruption": [0.8, 0.6]
+    "Coalition arithmetic deficit": [0.2, 0.8]
+    "EP API infrastructure gaps": [0.15, 0.6]
+    "Fragmentation index 4.04": [0.25, 0.7]
+    "Trade crisis urgency": [0.8, 0.3]
+    "Banking Union window": [0.7, 0.2]
+    "AI governance leadership": [0.75, 0.15]
+    "US trade escalation": [0.2, 0.2]
+    "Post-recess bottleneck": [0.3, 0.3]
+    "ECR defection risk": [0.15, 0.35]
 ```
 
 ---

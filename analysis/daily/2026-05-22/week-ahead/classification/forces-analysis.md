@@ -34,7 +34,7 @@ Net restraining forces (-): ENP=6.55 fragmentation, US tariff uncertainty, degra
 ```mermaid
 %%{init: {"theme":"dark"}}%%
 xychart-beta
-    title Force Field Analysis (Strength 0-10)
+    title "Force Field Analysis (Strength 0-10)"
     x-axis ["ReArm Urgency", "Coalition Unity", "Year 2 Momentum", "Fragmentation", "Trade Risk"]
     y-axis "Force Strength" 0 --> 10
     bar [8, 7, 6, -7, -5]

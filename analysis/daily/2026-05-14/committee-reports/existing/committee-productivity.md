@@ -33,18 +33,11 @@ Legislative output by committee cluster:
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
-bar
-    title Committee Legislative Productivity (1=Low, 5=High)
-    ECON: 5
-    IMCO: 5
-    INTA: 4
-    LIBE: 4
-    ENVI: 4
-    AGRI: 3
-    JURI: 3
-    BUDG: 4
-    AFET: 3
-    ITRE: 3
+xychart-beta
+title "Committee Legislative Productivity (1=Low, 5=High)"
+x-axis ["ECON", "IMCO", "INTA", "LIBE", "ENVI", "AGRI", "JURI", "BUDG", "AFET", "ITRE"]
+y-axis "Value" 0 --> 6
+bar [5, 5, 4, 4, 4, 3, 3, 4, 3, 3]
 ```
 
 ---

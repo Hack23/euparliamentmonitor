@@ -40,26 +40,26 @@
 %%{init: {"theme":"dark"}}%%
 quadrantChart
   title AI-Act Implementation — Stakeholder Map (2026-04-09 cut)
-  x-axis Opposed --> Supportive
-  y-axis Low Power --> High Power
-  quadrant-1 Champions (high power, supportive)
-  quadrant-2 Sceptics (high power, opposed)
-  quadrant-3 Critics (low power, opposed)
-  quadrant-4 Defenders (low power, supportive)
-  Weber: [0.85, 0.95]
-  Garcia: [0.78, 0.85]
-  Hayer: [0.65, 0.75]
-  Reintke: [0.42, 0.65]
-  Procaccini: [0.32, 0.65]
-  Bardella: [0.22, 0.55]
-  Benifei: [0.78, 0.75]
-  EPP rapp: [0.95, 0.78]
-  ITRE chair: [0.78, 0.62]
-  LIBE chair: [0.68, 0.55]
-  BE Presidency: [0.78, 0.85]
-  HU PermRep: [0.32, 0.55]
-  DG CNECT: [0.88, 0.75]
-  Industry: [0.78, 0.55]
+  x-axis "Opposed" --> "Supportive"
+  y-axis "Low Power" --> "High Power"
+  quadrant-1 "Champions (high power, supportive)"
+  quadrant-2 "Sceptics (high power, opposed)"
+  quadrant-3 "Critics (low power, opposed)"
+  quadrant-4 "Defenders (low power, supportive)"
+  "Weber": [0.85, 0.95]
+  "Garcia": [0.78, 0.85]
+  "Hayer": [0.65, 0.75]
+  "Reintke": [0.42, 0.65]
+  "Procaccini": [0.32, 0.65]
+  "Bardella": [0.22, 0.55]
+  "Benifei": [0.78, 0.75]
+  "EPP rapp": [0.95, 0.78]
+  "ITRE chair": [0.78, 0.62]
+  "LIBE chair": [0.68, 0.55]
+  "BE Presidency": [0.78, 0.85]
+  "HU PermRep": [0.32, 0.55]
+  "DG CNECT": [0.88, 0.75]
+  "Industry": [0.78, 0.55]
 ```
 
 ## Quadrant narratives (≥150 words each)

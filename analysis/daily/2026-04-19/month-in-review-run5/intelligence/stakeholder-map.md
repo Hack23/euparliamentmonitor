@@ -47,24 +47,24 @@
 %%{init: {"theme": "dark","themeVariables": {"quadrant1Fill": "#1565C0","quadrant2Fill": "#2E7D32","quadrant3Fill": "#FF9800","quadrant4Fill": "#D32F2F","quadrantTitleFill": "#ffffff","quadrantPointFill": "#ffffff","quadrantPointTextFill": "#ffffff","quadrantXAxisTextFill": "#ffffff","quadrantYAxisTextFill": "#ffffff"},"quadrantChart": {"chartWidth": 700,"chartHeight": 700,"pointLabelFontSize": 14,"titleFontSize": 22,"quadrantLabelFontSize": 18,"xAxisLabelFontSize": 16,"yAxisLabelFontSize": 16}}}%%
 quadrantChart
     title Stakeholder Power vs Interest — March 26 Mega-Session & Post-Recess Pipeline
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Manage Closely
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    EPP (185 seats): [0.88, 0.95]
-    S&D (135 seats): [0.82, 0.78]
-    Renew (77 seats): [0.72, 0.58]
-    PfE (84 seats): [0.62, 0.55]
-    ECR (81 seats): [0.78, 0.62]
-    Greens/EFA (53): [0.68, 0.42]
-    The Left (46): [0.65, 0.38]
-    ESN (27 seats): [0.48, 0.22]
-    Commission: [0.92, 0.85]
-    Council: [0.85, 0.88]
-    Banking Sector: [0.75, 0.48]
-    Civil Society: [0.58, 0.28]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Manage Closely"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "EPP (185 seats)": [0.88, 0.95]
+    "S&D (135 seats)": [0.82, 0.78]
+    "Renew (77 seats)": [0.72, 0.58]
+    "PfE (84 seats)": [0.62, 0.55]
+    "ECR (81 seats)": [0.78, 0.62]
+    "Greens/EFA (53)": [0.68, 0.42]
+    "The Left (46)": [0.65, 0.38]
+    "ESN (27 seats)": [0.48, 0.22]
+    "Commission": [0.92, 0.85]
+    "Council": [0.85, 0.88]
+    "Banking Sector": [0.75, 0.48]
+    "Civil Society": [0.58, 0.28]
 ```
 
 ## Cross-References to Daily Analyses

@@ -204,19 +204,19 @@ LOW POWER ───────────────┼───────�
 ```mermaid
 quadrantChart
     title Stakeholder Power vs Interest Matrix
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key players (manage closely)
-    quadrant-2 Keep satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep informed
-    "European Commission" : [0.9, 0.95]
-    "Council of EU" : [0.8, 0.9]
-    "EPP Group" : [0.95, 0.85]
-    "S&D Group" : [0.9, 0.75]
-    "Renew Europe" : [0.85, 0.7]
-    "Big Tech Gatekeepers" : [0.95, 0.65]
-    "Armenian Government" : [0.85, 0.4]
-    "Civil Society" : [0.7, 0.35]
-    "IMF/World Bank" : [0.5, 0.7]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key players (manage closely)"
+    quadrant-2 "Keep satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep informed"
+    "European Commission": [0.9, 0.95]
+    "Council of EU": [0.8, 0.9]
+    "EPP Group": [0.95, 0.85]
+    "S&D Group": [0.9, 0.75]
+    "Renew Europe": [0.85, 0.7]
+    "Big Tech Gatekeepers": [0.95, 0.65]
+    "Armenian Government": [0.85, 0.4]
+    "Civil Society": [0.7, 0.35]
+    "IMF/World Bank": [0.5, 0.7]
 ```

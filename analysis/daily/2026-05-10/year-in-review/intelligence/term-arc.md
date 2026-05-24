@@ -75,7 +75,7 @@ EP10 entered with the following priority commitments (from EP President Metsola'
 ```mermaid
 %%{init: {"theme":"dark"}}%%
 xychart-beta
-    title EP Term Legislative Velocity - Normalised (Year 1 = 100)
+    title "EP Term Legislative Velocity - Normalised (Year 1 = 100)"
     x-axis ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5"]
     y-axis "Relative Activity" 60 --> 140
     line [85, 100, 115, 105, 75]

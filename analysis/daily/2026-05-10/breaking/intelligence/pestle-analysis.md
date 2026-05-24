@@ -209,14 +209,10 @@ Haiti's humanitarian crisis (TA-10-2026-0151) has strong environmental component
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
-radar
+radar-beta
     title PESTLE Risk Radar (1-5 scale)
-    Political: 4
-    Economic: 3
-    Social: 2
-    Technological: 4
-    Legal: 5
-    Environmental: 2
+    axis a1["Political"], a2["Economic"], a3["Social"], a4["Technological"], a5["Legal"], a6["Environmental"]
+    curve c1["PESTLE Risk Radar (1-5 scale)"]{4, 3, 2, 4, 5, 2}
 ```
 
 **Cross-dimensional synthesis:** The Legal and Political dimensions dominate this analysis — DMA is fundamentally a legal-political intervention; Ukraine accountability is similarly legal-political. This two-dimensional concentration is characteristic of legislative sessions focused on regulatory enforcement and international law rather than economic or social policy.

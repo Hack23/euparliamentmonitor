@@ -15,24 +15,24 @@
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","secondaryColor":"#2E7D32"}}}%%
 quadrantChart
     title Stakeholder Power × Interest Matrix — April 2026
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Manage Closely)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    EPP Group: [0.95, 0.92]
-    S&D Group: [0.90, 0.82]
-    European Commission: [0.88, 0.88]
-    ECB: [0.70, 0.90]
-    Renew Group: [0.80, 0.72]
-    ECR Group: [0.75, 0.70]
-    National Governments: [0.82, 0.85]
-    Banking Sector: [0.85, 0.65]
-    Civil Society: [0.75, 0.40]
-    EU Citizens: [0.60, 0.30]
-    Tech Industry: [0.82, 0.60]
-    Trade Unions: [0.70, 0.45]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Manage Closely)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "EPP Group": [0.95, 0.92]
+    "S&D Group": [0.90, 0.82]
+    "European Commission": [0.88, 0.88]
+    "ECB": [0.70, 0.90]
+    "Renew Group": [0.80, 0.72]
+    "ECR Group": [0.75, 0.70]
+    "National Governments": [0.82, 0.85]
+    "Banking Sector": [0.85, 0.65]
+    "Civil Society": [0.75, 0.40]
+    "EU Citizens": [0.60, 0.30]
+    "Tech Industry": [0.82, 0.60]
+    "Trade Unions": [0.70, 0.45]
 ```
 
 ---

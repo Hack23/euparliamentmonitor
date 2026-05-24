@@ -72,9 +72,9 @@ flowchart LR
     D2 --> EP
     D3 --> EP
     D4 --> EP
-    EP <-- R1
-    EP <-- R2
-    EP <-- R3
+    EP --> R1
+    EP --> R2
+    EP --> R3
 ```
 
 ---

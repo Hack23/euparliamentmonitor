@@ -3070,7 +3070,7 @@ Cross-session intelligence analysis situating the April 28–30, 2026 Strasbourg
 
 ```mermaid
 xychart-beta
-    title EP10 Session Significance Score (0-10 scale)
+    title "EP10 Session Significance Score (0-10 scale)"
     x-axis ["Jul-24", "Oct-24", "Feb-25", "Mar-25", "Apr-26"]
     y-axis "Significance Score" 0 --> 10
     bar [7, 6, 7, 6, 9.5]
@@ -3263,9 +3263,9 @@ Index of all EP documents retrieved for the April 28–30, 2026 breaking news an
 - **Assessment:** ✅ Governs EP10 comfortably when three-party framework holds
 
 ```mermaid
-bar
-    title Coalition Seat Distribution (EP 2026-05-01)
-    x-axis [EPP, S&D, PfE, ECR, Renew, Greens, Left, NI, ESN]
+xychart-beta
+    title "Coalition Seat Distribution (EP 2026-05-01)"
+    x-axis ["EPP", "S&D", "PfE", "ECR", "Renew", "Greens", "Left", "NI", "ESN"]
     y-axis 0 --> 200
     bar [185, 135, 85, 81, 77, 53, 46, 30, 27]
 ```
@@ -4492,17 +4492,17 @@ Consolidated intelligence assessment of the April 28–30, 2026 Strasbourg plena
 ```mermaid
 quadrantChart
     title Intelligence Confidence Matrix — EP Breaking News
-    x-axis Low Confidence --> High Confidence
-    y-axis Low Significance --> High Significance
-    quadrant-1 Monitor (high value, uncertain)
-    quadrant-2 Act on (high value, confident)
-    quadrant-3 Lower Priority
-    quadrant-4 Validate (uncertain, lower value)
-    Ukraine Tribunal Council: [0.35, 0.90]
-    DMA First Fine: [0.65, 0.75]
-    Armenia Peace Treaty: [0.45, 0.70]
-    Budget MFF October: [0.90, 0.80]
-    EP Coalition Stability: [0.85, 0.65]
+    x-axis "Low Confidence" --> "High Confidence"
+    y-axis "Low Significance" --> "High Significance"
+    quadrant-1 "Monitor (high value, uncertain)"
+    quadrant-2 "Act on (high value, confident)"
+    quadrant-3 "Lower Priority"
+    quadrant-4 "Validate (uncertain, lower value)"
+    "Ukraine Tribunal Council": [0.35, 0.90]
+    "DMA First Fine": [0.65, 0.75]
+    "Armenia Peace Treaty": [0.45, 0.70]
+    "Budget MFF October": [0.90, 0.80]
+    "EP Coalition Stability": [0.85, 0.65]
 ```
 
 **Data Sources:** EP MCP `early_warning_system`, `analyze_coalition_dynamics`, `generate_political_landscape`; political landscape analysis; historical precedent analysis. Analysis conducted 2026-05-01.

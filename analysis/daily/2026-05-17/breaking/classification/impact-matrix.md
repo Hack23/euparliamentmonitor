@@ -23,7 +23,7 @@
 
 ```mermaid
 xychart-beta
-    title Impact Scores by Policy Domain (0-10)
+    title "Impact Scores by Policy Domain (0-10)"
     x-axis ["Digital", "Geopolitical", "Fiscal", "Security", "Human Rights"]
     y-axis "Impact Score" 0 --> 10
     bar [9, 8, 8, 5, 7]
@@ -87,7 +87,7 @@ High-impact zones across the eight April 2026 resolutions:
 
 ```mermaid
 xychart-beta
-    title Resolution Impact Heat (0=Low, 10=High)
+    title "Resolution Impact Heat (0=Low, 10=High)"
     x-axis ["DMA", "Ukraine", "Armenia", "Budget", "Cyberbullying", "Haiti", "PNR", "EIB"]
     y-axis "Impact" 0 --> 10
     bar [9, 9, 7, 8, 6, 6, 4, 4]

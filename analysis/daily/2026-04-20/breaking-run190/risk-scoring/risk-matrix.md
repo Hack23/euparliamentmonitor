@@ -24,10 +24,10 @@ quadrantChart
     title Political Risk Matrix — Likelihood × Impact (April 20, 2026)
     x-axis "Low Impact" --> "High Impact"
     y-axis "Low Likelihood" --> "High Likelihood"
-    quadrant-1 Monitor (High Impact, High Likelihood)
-    quadrant-2 Accept (Low Impact, High Likelihood)
-    quadrant-3 Accept (Low Impact, Low Likelihood)
-    quadrant-4 Prepare (High Impact, Low Likelihood)
+    quadrant-1 "Monitor (High Impact, High Likelihood)"
+    quadrant-2 "Accept (Low Impact, High Likelihood)"
+    quadrant-3 "Accept (Low Impact, Low Likelihood)"
+    quadrant-4 "Prepare (High Impact, Low Likelihood)"
     "R1: USTR Section 301": [0.85, 0.35]
     "R2: API Non-monotonic Restoration": [0.35, 0.65]
     "R3: Banking Union Council Delay": [0.75, 0.35]

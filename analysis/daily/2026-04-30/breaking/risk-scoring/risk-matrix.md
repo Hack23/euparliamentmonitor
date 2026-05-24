@@ -19,12 +19,12 @@ This risk matrix plots the primary risks arising from the April 28–30, 2026 EP
 ```mermaid
 quadrantChart
     title EP Risk Matrix — April 28-30 Plenary (Likelihood vs Impact)
-    x-axis Low Likelihood --> High Likelihood
-    y-axis Low Impact --> High Impact
-    quadrant-1 HIGH PRIORITY (Monitor Closely)
-    quadrant-2 CRITICAL (Immediate Action)
-    quadrant-3 LOW PRIORITY (Accept)
-    quadrant-4 MEDIUM PRIORITY (Manage)
+    x-axis "Low Likelihood" --> "High Likelihood"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "HIGH PRIORITY (Monitor Closely)"
+    quadrant-2 "CRITICAL (Immediate Action)"
+    quadrant-3 "LOW PRIORITY (Accept)"
+    quadrant-4 "MEDIUM PRIORITY (Manage)"
     "MFF Council Veto": [0.20, 0.95]
     "EPP RL Conditionality Veto": [0.45, 0.70]
     "ReArm EU Integration Failure": [0.40, 0.65]

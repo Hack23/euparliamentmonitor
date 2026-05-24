@@ -775,18 +775,18 @@ quadrantChart
     quadrant-2 "Powerful Opponents (Manage)"
     quadrant-3 "Low-Power Opponents (Monitor)"
     quadrant-4 "Low-Power Allies (Mobilise)"
-    EPP Group: [0.68, 0.88]
-    S&D Group: [0.75, 0.82]
-    Renew Europe: [0.72, 0.72]
-    ECR Group: [0.28, 0.75]
-    ID-PfE Group: [0.18, 0.65]
-    Greens-EFA: [0.82, 0.58]
-    European Commission: [0.70, 0.80]
-    Council Presidency: [0.58, 0.92]
-    ECB Supervisory Board: [0.65, 0.70]
-    US Trade Representative: [0.30, 0.85]
-    Tech Gatekeeper Lobby: [0.22, 0.60]
-    Agricultural Lobby (Copa-Cogeca): [0.32, 0.55]
+    "EPP Group": [0.68, 0.88]
+    "S&D Group": [0.75, 0.82]
+    "Renew Europe": [0.72, 0.72]
+    "ECR Group": [0.28, 0.75]
+    "ID-PfE Group": [0.18, 0.65]
+    "Greens-EFA": [0.82, 0.58]
+    "European Commission": [0.70, 0.80]
+    "Council Presidency": [0.58, 0.92]
+    "ECB Supervisory Board": [0.65, 0.70]
+    "US Trade Representative": [0.30, 0.85]
+    "Tech Gatekeeper Lobby": [0.22, 0.60]
+    "Agricultural Lobby (Copa-Cogeca)": [0.32, 0.55]
 ```
 
 ---
@@ -2238,19 +2238,19 @@ The NIS2 Directive (in force 2022-2024 transposition) and CER Directive provide 
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Legislative Priority vs. Political Feasibility
-    x-axis Low Feasibility --> High Feasibility
-    y-axis Low Priority --> High Priority
-    quadrant-1 Act Fast (High P + High F)
-    quadrant-2 Strategic Investment (High P + Low F)
-    quadrant-3 Monitor Only (Low P + Low F)
-    quadrant-4 Quick Wins (Low P + High F)
-    EDIP: [0.72, 0.82]
-    CSRD Omnibus: [0.38, 0.91]
-    EU-Mercosur: [0.41, 0.88]
-    Ukraine Package: [0.71, 0.79]
-    2027 Budget: [0.65, 0.85]
-    AI Delegated Acts: [0.78, 0.62]
-    Digital Euro: [0.42, 0.65]
+    x-axis "Low Feasibility" --> "High Feasibility"
+    y-axis "Low Priority" --> "High Priority"
+    quadrant-1 "Act Fast (High P + High F)"
+    quadrant-2 "Strategic Investment (High P + Low F)"
+    quadrant-3 "Monitor Only (Low P + Low F)"
+    quadrant-4 "Quick Wins (Low P + High F)"
+    "EDIP": [0.72, 0.82]
+    "CSRD Omnibus": [0.38, 0.91]
+    "EU-Mercosur": [0.41, 0.88]
+    "Ukraine Package": [0.71, 0.79]
+    "2027 Budget": [0.65, 0.85]
+    "AI Delegated Acts": [0.78, 0.62]
+    "Digital Euro": [0.42, 0.65]
 ```
 
 ### 🚨 Critical Forward Monitors

@@ -58,9 +58,9 @@ flowchart LR
     classDef brief fill:#F3E5F5,stroke:#7B1FA2,color:#311B92
     classDef stakeholder fill:#FFF3E0,stroke:#FF9800,color:#BF360C
 
-    E[Per-document<br/>intelligence (Family E)]:::evidence
-    M[EP MCP data<br/>get_meps, get_voting_records,<br/>get_adopted_texts, etc.]:::evidence
-    B[Manifest + xref map<br/>(provenance layer)]:::evidence
+    E["Per-document<br/>intelligence (Family E)"]:::evidence
+    M["EP MCP data<br/>get_meps, get_voting_records,<br/>get_adopted_texts, etc."]:::evidence
+    B["Manifest + xref map<br/>(provenance layer)"]:::evidence
     
     S1[significance-scoring.md<br/>📊 rank + DIW]:::scoring
     S2[synthesis-summary.md<br/>📋 narrative synthesis]:::synthesis

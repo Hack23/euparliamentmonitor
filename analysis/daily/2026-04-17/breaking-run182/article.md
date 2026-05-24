@@ -484,19 +484,19 @@ If ECR fractures by ~20 MEPs on trade mandate → surviving EPP-S&D-Renew majori
 }}%%
 quadrantChart
     title EP10 Risk Landscape — April 17, 2026
-    x-axis Low Impact --> High Impact
-    y-axis Low Likelihood --> High Likelihood
-    quadrant-1 Critical (Monitor Daily)
-    quadrant-2 High (Monitor Weekly)
-    quadrant-3 Low (Background)
-    quadrant-4 Medium (Track)
-    US Trade Service Retaliation: [0.75, 0.40]
-    Digital Omnibus Rollback Cascade: [0.65, 0.70]
-    ECR Coalition Fracture Trade: [0.72, 0.45]
-    Housing Commission Inadequate Response: [0.45, 0.60]
-    April 27 Plenary Disruption: [0.60, 0.35]
-    Recess Governance Gap: [0.35, 0.55]
-    ERA Act Coalition Failure: [0.55, 0.20]
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Likelihood" --> "High Likelihood"
+    quadrant-1 "Critical (Monitor Daily)"
+    quadrant-2 "High (Monitor Weekly)"
+    quadrant-3 "Low (Background)"
+    quadrant-4 "Medium (Track)"
+    "US Trade Service Retaliation": [0.75, 0.40]
+    "Digital Omnibus Rollback Cascade": [0.65, 0.70]
+    "ECR Coalition Fracture Trade": [0.72, 0.45]
+    "Housing Commission Inadequate Response": [0.45, 0.60]
+    "April 27 Plenary Disruption": [0.60, 0.35]
+    "Recess Governance Gap": [0.35, 0.55]
+    "ERA Act Coalition Failure": [0.55, 0.20]
 ```
 
 ---

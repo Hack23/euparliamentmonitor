@@ -53,32 +53,32 @@ frameworks: [Mendelow]
 }}%%
 quadrantChart
     title Stakeholder Power × Interest — Week of April 11-18, 2026
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Manage Closely (Key Players)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    European Commission: [0.90, 0.95]
-    EPP Group: [0.85, 0.95]
-    S&D Group: [0.85, 0.80]
-    Renew Group: [0.70, 0.72]
-    Greens-EFA Group: [0.75, 0.55]
-    ECR Group: [0.60, 0.65]
-    The Left Group: [0.65, 0.35]
-    PfE Group: [0.50, 0.55]
-    ECB: [0.60, 0.85]
-    German Government: [0.88, 0.82]
-    French Government: [0.72, 0.68]
-    Italian Government: [0.58, 0.55]
-    Polish Government: [0.65, 0.45]
-    Dutch Government: [0.55, 0.45]
-    USTR / US Trade Rep: [0.75, 0.72]
-    Sparkassen + BCC coalitions: [0.88, 0.78]
-    Anti-Corruption NGOs: [0.70, 0.25]
-    Housing NGOs: [0.80, 0.22]
-    Banking federations (EBF/ECBA): [0.72, 0.65]
-    UK Government: [0.35, 0.48]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Manage Closely (Key Players)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "European Commission": [0.90, 0.95]
+    "EPP Group": [0.85, 0.95]
+    "S&D Group": [0.85, 0.80]
+    "Renew Group": [0.70, 0.72]
+    "Greens-EFA Group": [0.75, 0.55]
+    "ECR Group": [0.60, 0.65]
+    "The Left Group": [0.65, 0.35]
+    "PfE Group": [0.50, 0.55]
+    "ECB": [0.60, 0.85]
+    "German Government": [0.88, 0.82]
+    "French Government": [0.72, 0.68]
+    "Italian Government": [0.58, 0.55]
+    "Polish Government": [0.65, 0.45]
+    "Dutch Government": [0.55, 0.45]
+    "USTR / US Trade Rep": [0.75, 0.72]
+    "Sparkassen + BCC coalitions": [0.88, 0.78]
+    "Anti-Corruption NGOs": [0.70, 0.25]
+    "Housing NGOs": [0.80, 0.22]
+    "Banking federations (EBF/ECBA)": [0.72, 0.65]
+    "UK Government": [0.35, 0.48]
 ```
 
 > Quadrant 1 (top-right, Manage Closely) contains actors with decisive influence on

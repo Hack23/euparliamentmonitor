@@ -522,15 +522,14 @@ The European Commission retains exclusive legislative initiative, giving it:
 
 ```mermaid
 %%{init: {"theme": "dark"}}%%
-radar
+radar-beta
     title Political Forces Intensity (EP10 2026-27)
-    x-axis Rivalry
-    y-axis New Entrants
-    Rivalry: [8]
-    New Entrants: [5]
-    Commission Power: [8]
-    Citizens Power: [5]
-    Substitute Threats: [4]
+    axis a1["Rivalry"]
+    curve c1["Rivalry"]{8}
+    curve c2["New Entrants"]{5}
+    curve c3["Commission Power"]{8}
+    curve c4["Citizens Power"]{5}
+    curve c5["Substitute Threats"]{4}
 ```
 
 **Net Forces Summary:**
@@ -2880,8 +2879,8 @@ Each ambition has a legislative pipeline; EP alignment with Commission proposals
 
 ```mermaid
 %%{init: {"theme": "dark"}}%%
-bar
-    title EP-Commission Alignment by Ambition (Likelihood × EP Majority Strength)
+xychart-beta
+    title "EP-Commission Alignment by Ambition (Likelihood × EP Majority Strength)"
     x-axis ["Prosperous & Competitive","Safe & Secure","Green Transition","Stronger World","Democratic","Flourishing"]
     y-axis 0 --> 10
     bar [8, 6.5, 5, 6, 8, 6]

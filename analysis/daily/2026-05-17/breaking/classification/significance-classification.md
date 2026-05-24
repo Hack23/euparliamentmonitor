@@ -52,7 +52,7 @@
 
 ```mermaid
 xychart-beta
-    title Significance Scores — April 2026 Adopted Texts (max 50)
+    title "Significance Scores — April 2026 Adopted Texts (max 50)"
     x-axis ["DMA Enforcement", "Ukraine", "Armenia", "Budget 2027", "Cyberbullying", "Haiti", "Iceland PNR", "EIB Report"]
     y-axis "Score" 0 --> 50
     bar [46, 44, 35, 41, 28, 25, 22, 20]

@@ -24,10 +24,10 @@ quadrantChart
     title EU Parliament SWOT Position — Easter Monday April 20, 2026
     x-axis "Low Strategic Impact" --> "High Strategic Impact"
     y-axis "Short-term Horizon" --> "Long-term Horizon"
-    quadrant-1 High Impact / Long-term (Strengths)
-    quadrant-2 High Impact / Short-term (Opportunities)
-    quadrant-3 Low Impact / Short-term (Weaknesses)
-    quadrant-4 Low Impact / Long-term (Threats)
+    quadrant-1 "High Impact / Long-term (Strengths)"
+    quadrant-2 "High Impact / Short-term (Opportunities)"
+    quadrant-3 "Low Impact / Short-term (Weaknesses)"
+    quadrant-4 "Low Impact / Long-term (Threats)"
     "March 26 Legislative Sprint": [0.80, 0.85]
     "Grand Centre Stability": [0.70, 0.75]
     "API Dual-Layer Discovery": [0.50, 0.80]

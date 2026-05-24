@@ -130,18 +130,18 @@ Per ai-driven-analysis-guide.md Step 10.5, this run applied the following SATs:
 ```mermaid
 quadrantChart
     title Analysis Quality Dimensions
-    x-axis Low Evidence Depth --> High Evidence Depth
-    y-axis Low Analytical Rigor --> High Analytical Rigor
-    quadrant-1 Rigorous but thin evidence
-    quadrant-2 High quality (target zone)
-    quadrant-3 Weak on all dimensions
-    quadrant-4 Evidence-rich but unstructured
-    methodology-reflection: [0.85, 0.90]
-    stakeholder-map: [0.80, 0.85]
-    scenario-forecast: [0.75, 0.88]
-    voting-patterns: [0.70, 0.80]
-    deep-analysis: [0.88, 0.85]
-    threat-model: [0.72, 0.78]
+    x-axis "Low Evidence Depth" --> "High Evidence Depth"
+    y-axis "Low Analytical Rigor" --> "High Analytical Rigor"
+    quadrant-1 "Rigorous but thin evidence"
+    quadrant-2 "High quality (target zone)"
+    quadrant-3 "Weak on all dimensions"
+    quadrant-4 "Evidence-rich but unstructured"
+    "methodology-reflection": [0.85, 0.90]
+    "stakeholder-map": [0.80, 0.85]
+    "scenario-forecast": [0.75, 0.88]
+    "voting-patterns": [0.70, 0.80]
+    "deep-analysis": [0.88, 0.85]
+    "threat-model": [0.72, 0.78]
 ```
 
 ---

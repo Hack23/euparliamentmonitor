@@ -47,7 +47,7 @@
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#B71C1C","primaryTextColor":"#ffffff","lineColor":"#EF9A9A"}}}%%
 xychart-beta
-    title ECR Political Capital — Pre vs Post April 28
+    title "ECR Political Capital — Pre vs Post April 28"
     x-axis ["Rule-of-law credibility", "EPP cooperation potential", "S&D dialogue potential", "Coalition formation capacity", "Media reputation (EU media)"]
     y-axis "Score 0-100" 0 --> 100
     bar [30, 45, 15, 55, 25]
@@ -104,19 +104,14 @@ xychart-beta
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title Political Group Capital Position (April 28 Contribution)
-    "Rule-of-law credibility"
-    "Gender rights leadership"
-    "Budget/MFF influence"
-    "Coalition building capacity"
-    "Media reputation"
-    "Civil society alignment"
-    EPP [55, 40, 70, 75, 60, 50]
-    SD [75, 85, 65, 70, 70, 80]
-    Renew [70, 75, 60, 65, 70, 70]
-    ECR [15, 20, 35, 40, 25, 20]
-    PfE [20, 15, 25, 25, 20, 15]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"]
+    curve c1["EPP"]{55, 40, 70, 75, 60, 50}
+    curve c2["SD"]{75, 85, 65, 70, 70, 80}
+    curve c3["Renew"]{70, 75, 60, 65, 70, 70}
+    curve c4["ECR"]{15, 20, 35, 40, 25, 20}
+    curve c5["PfE"]{20, 15, 25, 25, 20, 15}
 ```
 
 **Summary:**

@@ -1670,10 +1670,10 @@ All fiscal, monetary, trade, FDI, and exchange-rate claims in this document are 
 ```mermaid
 xychart-beta
     title "GDP Growth Rate (%) — Germany vs France 2020–2024 (WB API)"
-    x-axis [2020, 2021, 2022, 2023, 2024]
+    x-axis ["2020", "2021", "2022", "2023", "2024"]
     y-axis "GDP Growth %" -5 --> 4
-    line [Germany, -3.83, 3.15, 1.82, -0.87, -0.50]
-    line [France, -7.56, 6.81, 2.51, 1.15, 1.19]
+    line [-3.83, 3.15, 1.82, -0.87, -0.50]
+    line [-7.56, 6.81, 2.51, 1.15, 1.19]
 ```
 
 ### IMF-Degraded Sections (Documented Gaps)

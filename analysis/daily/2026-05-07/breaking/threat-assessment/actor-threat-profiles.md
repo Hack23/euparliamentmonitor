@@ -133,12 +133,12 @@ Azerbaijan's threat to the EP's Armenia resolution (TA-10-2026-0162) is primaril
 ## Diamond
 
 ```mermaid
-radar
+radar-beta
     title Threat Actor Capability Radar
-    "PfE" : [2, 8, 1, 4, 3]
-    "Russia" : [0, 9, 0, 8, 7]
-    "US Gov" : [0, 7, 7, 9, 6]
-    "Big Tech" : [0, 6, 9, 4, 8]
+    curve c1["PfE"]{2, 8, 1, 4, 3}
+    curve c2["Russia"]{0, 9, 0, 8, 7}
+    curve c3["US Gov"]{0, 7, 7, 9, 6}
+    curve c4["Big Tech"]{0, 6, 9, 4, 8}
 ```
 
 Note: Dimensions: Legislative, Narrative, Legal, Diplomatic, Network (0-10 scale)

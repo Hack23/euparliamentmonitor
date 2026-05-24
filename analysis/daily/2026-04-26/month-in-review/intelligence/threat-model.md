@@ -14,14 +14,14 @@
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title Political Threat Landscape — April 2026
-    "Coalition Shifts" : [75]
-    "Transparency Deficit" : [60]
-    "Policy Reversal Risk" : [65]
-    "Institutional Pressure" : [70]
-    "Legislative Obstruction" : [55]
-    "Democratic Erosion" : [45]
+    curve c1["Coalition Shifts"]{75}
+    curve c2["Transparency Deficit"]{60}
+    curve c3["Policy Reversal Risk"]{65}
+    curve c4["Institutional Pressure"]{70}
+    curve c5["Legislative Obstruction"]{55}
+    curve c6["Democratic Erosion"]{45}
 ```
 
 ### Dimension 1: Coalition Shifts (Score: 75/100) 🟠 HIGH

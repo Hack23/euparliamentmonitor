@@ -23,18 +23,18 @@ quadrantChart
     title Risk Matrix — EU Parliament Easter Recess Day 8 (Run 187)
     x-axis "Low Likelihood" --> "High Likelihood"
     y-axis "Low Impact" --> "High Impact"
-    quadrant-1 Critical (Monitor Continuously)
-    quadrant-2 High (Prepare Response)
-    quadrant-3 Low (Accept)
-    quadrant-4 Medium (Watch)
-    US Trade Escalation: [0.45, 0.80]
-    EU-China Political Backlash: [0.35, 0.55]
-    API Non-Restoration by April 27: [0.20, 0.50]
-    BRRD3 Bundesrat Opposition: [0.40, 0.45]
-    Housing Deadline Missed: [0.50, 0.35]
-    Coalition Fracture: [0.10, 0.85]
-    USTR Section 301 Announcement: [0.45, 0.65]
-    Recess Emergency Session: [0.08, 0.70]
+    quadrant-1 "Critical (Monitor Continuously)"
+    quadrant-2 "High (Prepare Response)"
+    quadrant-3 "Low (Accept)"
+    quadrant-4 "Medium (Watch)"
+    "US Trade Escalation": [0.45, 0.80]
+    "EU-China Political Backlash": [0.35, 0.55]
+    "API Non-Restoration by April 27": [0.20, 0.50]
+    "BRRD3 Bundesrat Opposition": [0.40, 0.45]
+    "Housing Deadline Missed": [0.50, 0.35]
+    "Coalition Fracture": [0.10, 0.85]
+    "USTR Section 301 Announcement": [0.45, 0.65]
+    "Recess Emergency Session": [0.08, 0.70]
 ```
 
 ---

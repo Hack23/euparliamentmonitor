@@ -62,7 +62,7 @@
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "EP10 Coalition Stability by Quarter (2024-2026)"
   x-axis ["Q3-24", "Q4-24", "Q1-25", "Q2-25", "Q3-25", "Q4-25", "Q1-26", "Q2-26"]
   y-axis 0 --> 100

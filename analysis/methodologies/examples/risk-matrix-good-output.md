@@ -118,17 +118,17 @@ Bands map to [`osint-tradecraft-standards.md`](../osint-tradecraft-standards.md)
 %%{init: {"theme":"dark"}}%%
 quadrantChart
   title Risk to first-reading adoption — 2026-04-23 plenary
-  x-axis Low Likelihood --> High Likelihood
-  y-axis Low Impact --> High Impact
-  quadrant-1 Top-monitor (high impact, high likelihood)
-  quadrant-2 Watch (high impact, lower likelihood)
-  quadrant-3 Accept (low impact, low likelihood)
-  quadrant-4 Manage (low impact, high likelihood)
-  R1 HU reservation: [0.78, 0.78]
-  R2 Greens block: [0.55, 0.78]
-  R3 ECR delay: [0.32, 0.55]
-  R4 Industry split: [0.32, 0.32]
-  R5 Renew pivot: [0.32, 0.95]
+  x-axis "Low Likelihood" --> "High Likelihood"
+  y-axis "Low Impact" --> "High Impact"
+  quadrant-1 "Top-monitor (high impact, high likelihood)"
+  quadrant-2 "Watch (high impact, lower likelihood)"
+  quadrant-3 "Accept (low impact, low likelihood)"
+  quadrant-4 "Manage (low impact, high likelihood)"
+  "R1 HU reservation": [0.78, 0.78]
+  "R2 Greens block": [0.55, 0.78]
+  "R3 ECR delay": [0.32, 0.55]
+  "R4 Industry split": [0.32, 0.32]
+  "R5 Renew pivot": [0.32, 0.95]
 ```
 
 ## Monitoring cadence

@@ -166,12 +166,12 @@ Black swans are defined here as events with probability <10% but impact >8/10 on
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Wildcards: Probability vs. Impact
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> High Impact
-    quadrant-1 Prepare (Monitor Closely)
-    quadrant-2 Prevent (Invest in Mitigation)
-    quadrant-3 Accept (Low Priority)
-    quadrant-4 Plan (Scenario Plan)
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Prepare (Monitor Closely)"
+    quadrant-2 "Prevent (Invest in Mitigation)"
+    quadrant-3 "Accept (Low Priority)"
+    quadrant-4 "Plan (Scenario Plan)"
     "Russia Nuclear Escalation": [0.05, 0.99]
     "Full US-EU Trade War": [0.12, 0.88]
     "CJEU Annuls DMA Decision": [0.22, 0.65]

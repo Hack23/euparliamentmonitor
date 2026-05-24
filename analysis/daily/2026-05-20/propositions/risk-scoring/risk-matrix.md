@@ -86,16 +86,16 @@ Impact │  5  │     │     │     │     │ R12 │
 ```mermaid
 quadrantChart
     title Risk Matrix: Likelihood vs. Impact
-    x-axis Low Impact --> High Impact
-    y-axis Low Likelihood --> High Likelihood
-    quadrant-1 Critical risks (monitor closely)
-    quadrant-2 High priority (manage actively)
-    quadrant-3 Low priority (accept)
-    quadrant-4 Transfer/watch
-    "DMA non-enforcement" : [0.85, 0.6]
-    "US tariff escalation" : [0.75, 0.5]
-    "Armenia peace collapse" : [0.6, 0.35]
-    "Budget deadlock" : [0.65, 0.55]
-    "EP coalition fracture" : [0.7, 0.3]
-    "Clean Industrial Deal delay" : [0.55, 0.65]
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Likelihood" --> "High Likelihood"
+    quadrant-1 "Critical risks (monitor closely)"
+    quadrant-2 "High priority (manage actively)"
+    quadrant-3 "Low priority (accept)"
+    quadrant-4 "Transfer/watch"
+    "DMA non-enforcement": [0.85, 0.6]
+    "US tariff escalation": [0.75, 0.5]
+    "Armenia peace collapse": [0.6, 0.35]
+    "Budget deadlock": [0.65, 0.55]
+    "EP coalition fracture": [0.7, 0.3]
+    "Clean Industrial Deal delay": [0.55, 0.65]
 ```

@@ -86,7 +86,7 @@ Either ceasefire (undermines Claims Commission momentum) or escalation (forces a
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "Quantitative SWOT Scores (0-10 scale)"
   x-axis ["S1 Coalition", "S2 Digital", "S3 Ukraine", "S4 Productivity", "W1 Unanimity", "W2 ETS2 Cost", "W3 Enforce", "W4 Transparency", "O1 Global Reg", "O2 Claims Model", "O3 ETS Revenue", "T1 US Trade", "T2 Russia", "T3 ECR-PfE"]
   y-axis 0 --> 10

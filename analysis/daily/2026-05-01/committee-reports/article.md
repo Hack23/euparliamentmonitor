@@ -146,21 +146,21 @@ following a recommendation. The ECR abstained en bloc per standard practice.
 %%{init: {"theme":"dark"}}%%
 quadrantChart
     title Adoption Pattern — April 28-30 Plenary Votes
-    x-axis Left-Progressive --> Right-Conservative
-    y-axis Opposition --> Support
-    quadrant-1 Core Support Right
-    quadrant-2 Core Support Left
-    quadrant-3 Opposition Left
-    quadrant-4 Opposition Right
-    EPP (185 seats): [0.65, 0.85]
-    S&D (135 seats): [0.35, 0.80]
-    Renew (77 seats): [0.55, 0.75]
-    Greens/EFA (53 seats): [0.25, 0.60]
-    ECR (81 seats): [0.75, 0.45]
-    PfE (85 seats): [0.80, 0.40]
-    The Left (46 seats): [0.15, 0.50]
-    ESN (27 seats): [0.85, 0.30]
-    NI (30 seats): [0.50, 0.40]
+    x-axis "Left-Progressive" --> "Right-Conservative"
+    y-axis "Opposition" --> "Support"
+    quadrant-1 "Core Support Right"
+    quadrant-2 "Core Support Left"
+    quadrant-3 "Opposition Left"
+    quadrant-4 "Opposition Right"
+    "EPP (185 seats)": [0.65, 0.85]
+    "S&D (135 seats)": [0.35, 0.80]
+    "Renew (77 seats)": [0.55, 0.75]
+    "Greens/EFA (53 seats)": [0.25, 0.60]
+    "ECR (81 seats)": [0.75, 0.45]
+    "PfE (85 seats)": [0.80, 0.40]
+    "The Left (46 seats)": [0.15, 0.50]
+    "ESN (27 seats)": [0.85, 0.30]
+    "NI (30 seats)": [0.50, 0.40]
 ```
 
 **Key coalition observed this week:**

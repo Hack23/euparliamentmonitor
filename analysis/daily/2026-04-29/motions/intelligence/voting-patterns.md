@@ -27,17 +27,11 @@
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-bar
-    title EP Political Group Seat Counts (Total: 719)
-    "EPP": 185
-    "S&D": 135
-    "PfE": 85
-    "ECR": 81
-    "Renew": 77
-    "Greens/EFA": 53
-    "The Left": 46
-    "NI": 30
-    "ESN": 27
+xychart-beta
+title "EP Political Group Seat Counts (Total: 719)"
+x-axis ["EPP", "S&D", "PfE", "ECR", "Renew", "Greens/EFA", "The Left", "NI", "ESN"]
+y-axis "Value" 0 --> 195
+bar [185, 135, 85, 81, 77, 53, 46, 30, 27]
 ```
 
 | Group | Seats | Share | Ideological Family | Typical Positions on Week's Key Issues |

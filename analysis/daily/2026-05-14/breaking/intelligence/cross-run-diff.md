@@ -121,14 +121,14 @@ This is the inaugural run for 2026-05-14 breaking news analysis. No prior-run di
 
 ```mermaid
 timeline
-    title Analysis Run Evolution — 2026-05-14 Breaking News
-    Run 1 (00:00 UTC) : 36 artifacts produced
+    title Analysis Run Evolution - 2026-05-14 Breaking News
+    Run 1 (00 : 00 UTC) : 36 artifacts produced
                       : Gate ANALYSIS_ONLY (33/36 below threshold)
                       : Lines ~5800
-    Run 2 (13:57 UTC) : All 36 artifacts extended
+    Run 2 (13 : 57 UTC) : All 36 artifacts extended
                       : Gate GREEN
                       : Lines 10988 (+89% from Run 1)
-    Run 3 (19:27 UTC) : 22 artifacts rewritten (Mermaid added)
+    Run 3 (19 : 27 UTC) : 22 artifacts rewritten (Mermaid added)
                       : 14 artifacts carried forward
                       : Gate target GREEN
 ```

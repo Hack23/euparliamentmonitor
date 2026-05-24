@@ -48,20 +48,20 @@ April 28–30, 2026 EP Plenary — 8 adopted texts:
 ```mermaid
 quadrantChart
     title Impact Heat Map: Immediate vs Long-Term Impact
-    x-axis Low Long-Term --> High Long-Term
-    y-axis Low Immediate --> High Immediate
-    quadrant-1 High priority (act now)
-    quadrant-2 Strategic importance (invest)
-    quadrant-3 Monitor
-    quadrant-4 Watch and wait
-    "DMA Enforcement" : [0.9, 0.6]
-    "2027 Budget" : [0.85, 0.65]
-    "Armenia" : [0.75, 0.35]
-    "Ukraine Accountability" : [0.7, 0.35]
-    "Dogs/Cats Welfare" : [0.65, 0.45]
-    "EIB Report" : [0.45, 0.25]
-    "Haiti" : [0.2, 0.2]
-    "PNR Iceland" : [0.4, 0.25]
+    x-axis "Low Long-Term" --> "High Long-Term"
+    y-axis "Low Immediate" --> "High Immediate"
+    quadrant-1 "High priority (act now)"
+    quadrant-2 "Strategic importance (invest)"
+    quadrant-3 "Monitor"
+    quadrant-4 "Watch and wait"
+    "DMA Enforcement": [0.9, 0.6]
+    "2027 Budget": [0.85, 0.65]
+    "Armenia": [0.75, 0.35]
+    "Ukraine Accountability": [0.7, 0.35]
+    "Dogs/Cats Welfare": [0.65, 0.45]
+    "EIB Report": [0.45, 0.25]
+    "Haiti": [0.2, 0.2]
+    "PNR Iceland": [0.4, 0.25]
 ```
 
 **Heat tier summary:**

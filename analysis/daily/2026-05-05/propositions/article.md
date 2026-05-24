@@ -842,7 +842,7 @@ The April 28–30 session demonstrated robust majority coalition functioning. Th
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "EP10 Coalition Stability by Quarter (2024-2026)"
   x-axis ["Q3-24", "Q4-24", "Q1-25", "Q2-25", "Q3-25", "Q4-25", "Q1-26", "Q2-26"]
   y-axis 0 --> 100
@@ -1119,7 +1119,7 @@ The expansion of the Emissions Trading System to buildings and road transport (E
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "EU ETS Carbon Price Trajectory (€/tonne CO2)"
   x-axis ["2022", "2023", "2024", "2025", "2026E", "2027E", "2028E"]
   y-axis 0 --> 120
@@ -1405,7 +1405,7 @@ Either ceasefire (undermines Claims Commission momentum) or escalation (forces a
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "Quantitative SWOT Scores (0-10 scale)"
   x-axis ["S1 Coalition", "S2 Digital", "S3 Ukraine", "S4 Productivity", "W1 Unanimity", "W2 ETS2 Cost", "W3 Enforce", "W4 Transparency", "O1 Global Reg", "O2 Claims Model", "O3 ETS Revenue", "T1 US Trade", "T2 Russia", "T3 ECR-PfE"]
   y-axis 0 --> 10
@@ -1435,7 +1435,7 @@ xyChart-beta
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "Political Capital Expenditure vs. Gain by Text (April 28-30)"
   x-axis ["DMA", "ETS2 MSR", "Ukraine Claims", "Budget", "Immunity x5"]
   y-axis -5 --> 10
@@ -2827,7 +2827,7 @@ The previous single-session record was 3 waivers (once in EP8). Five in one sess
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-xyChart-beta
+xychart-beta
   title "EP Legislative Acts Adopted by Year (2023-2026 + Projection)"
   x-axis ["2023", "2024", "2025", "2026E"]
   y-axis 0 --> 160

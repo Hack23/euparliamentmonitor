@@ -118,7 +118,7 @@ quadrantChart
 ```mermaid
 %%{init: {"theme":"dark"}}%%
 xychart-beta
-    title Legislative Activity Heat by Domain (2025-2026)
+    title "Legislative Activity Heat by Domain (2025-2026)"
     x-axis ["Security/Defence", "Migration", "Budget/MFF", "Health/Pharma", "Digital/AI", "Environment", "Trade/Competitiveness"]
     y-axis "Activity Level (0-10)" 0 --> 10
     bar [9, 8, 8, 7, 6, 5, 6]
