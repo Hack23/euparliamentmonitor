@@ -64,7 +64,7 @@
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
-import { buildSeoKeywords, composeContextualDescription, composeContextualTitle, deriveHeadlineFromSummary, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, pickFirstNonEmpty, resolveEditorialContent, sanitizeDescriptionCandidate, } from './metadata/resolve-helpers.js';
+import { buildSeoKeywords, composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, deriveHeadlineFromSummary, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, pickFirstNonEmpty, resolveEditorialContent, sanitizeDescriptionCandidate, } from './metadata/resolve-helpers.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './metadata/text-utils.js';
 export { shouldSkipDescriptionLine, stripLeadingProseLabel, stripInlineMarkdown, truncateDescription, truncateExtendedDescription, truncateTitle, extractFirstSentence, } from './metadata/text-utils.js';
 export { isArtifactCategoryHeading, stripArtifactCategoryAffix, isGenericHeading, } from './metadata/heading-rules.js';
@@ -173,7 +173,26 @@ function resolveOneLanguage(input) {
     ]);
     const truncatedDescription = truncateDescription(description);
     const extendedSource = sanitizeDescriptionCandidate(manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription);
-    const truncatedExtendedDescription = truncateExtendedDescription(extendedSource);
+    // Two-tier extended-description resolution:
+    // 1. Direct truncation — preferred when the editorial source paragraph
+    //    is already ≥181 chars (the truncator's gating threshold). This
+    //    yields the highest-fidelity og:description text.
+    // 2. Contextual synthesis — when direct truncation returns '' (source
+    //    was too short), synthesize a longer string by stitching together
+    //    `<source> + Date: YYYY-MM-DD + Context: <editorial> + <reader>`.
+    //    This is the **only** SEO path that surfaces the localized
+    //    "for democratic-accountability readers …" framing (the short
+    //    <meta description> no longer carries it — see comment in
+    //    {@link composeContextualDescription}). The synthesized string is
+    //    re-clamped to the 200–300 char og:description budget.
+    //
+    // Live regression (2026-05): 56 breaking briefs shipped with empty
+    // extendedDescription because their lead paragraph was only 80–150
+    // chars. AI-overview and Discover surfaces dropped them entirely.
+    let truncatedExtendedDescription = truncateExtendedDescription(extendedSource);
+    if (!truncatedExtendedDescription) {
+        truncatedExtendedDescription = composeContextualExtendedDescription(input.lang, extendedSource || normalizedRawDescription, safeEditorial, input.date);
+    }
     const source = manifestTitle || manifestDescription ? 'manifest' : perLanguage.source;
     return {
         title: truncatedTitle,

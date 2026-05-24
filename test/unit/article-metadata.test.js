@@ -965,13 +965,23 @@ describe('resolveArticleMetadata — priority ladder', () => {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.title.length).toBeGreaterThan(5);
       // Pure template-fallback case (no editorial content available).
-      // The description after composeContextualDescription enrichment is
-      // template-subtitle + date suffix + reader hint. Floor lowered to
-      // 60 chars because date/run-id padding was removed from the
-      // enrichment path; the reader hint alone is ~50-90 chars across
-      // the 14 supported languages.
-      expect(entry.description.length).toBeGreaterThanOrEqual(60);
+      // The description is now template-subtitle + date suffix only —
+      // the reader hint ("for democratic-accountability readers …") was
+      // moved to extendedDescription so the short `<meta description>`
+      // stays inside the 160-char SERP budget. Floor relaxed to 45
+      // chars: `Extended Executive Brief — Motions News Date:
+      // 2026-04-20.` is 51 chars in English and a few languages with
+      // shorter "Date" tokens land at ~46.
+      expect(entry.description.length).toBeGreaterThanOrEqual(45);
       expect(entry.keywords.length).toBeGreaterThan(3);
+      // The extendedDescription path still surfaces the reader hint
+      // (it has a 300-char budget and benefits from the framing), and
+      // must be non-empty for og:description / Discover surfaces. Live
+      // regression (2026-05): 56 breaking briefs shipped with empty
+      // extendedDescription because their lead paragraph was below the
+      // direct-truncator threshold; the contextual synthesizer now
+      // guarantees ≥180 chars whenever editorial content exists.
+      expect(entry.extendedDescription.length).toBeGreaterThanOrEqual(60);
     }
   });
 

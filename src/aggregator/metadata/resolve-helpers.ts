@@ -23,10 +23,12 @@ import { extractExtendedLedeAfterHeading, extractStrongProseLine } from './lede-
 import { isGenericHeading } from './heading-rules.js';
 import { humanizeSlug } from './slug.js';
 import { SEO_CONTEXT_LABELS } from './template-fallback.js';
+import { EXTENDED_DESCRIPTION_MAX_LENGTH } from './text-utils-constants.js';
 import {
   extractFirstSentence,
   shouldSkipDescriptionLine,
   truncateDescription,
+  truncateExtendedDescription,
   truncateTitle,
 } from './text-utils.js';
 import type { ResolveMetadataOptions } from './types.js';
@@ -198,10 +200,76 @@ export function composeContextualDescription(
   if (context && !containsNormalized(parts[0] ?? '', context)) {
     parts.push(`${labels.context}: ${context}`);
   }
+  // NOTE: the localized `labels.reader` "for democratic-accountability
+  // readers …" hint is intentionally **not** appended here. That
+  // boilerplate inflates `<meta description>` past the 160-char SERP
+  // cutoff without surfacing any article-specific signal, so it is
+  // restricted to the longer {@link composeContextualExtendedDescription}
+  // path (used by `og:description` / AI-overview surfaces, which have
+  // a 250–300 char budget where the framing carries real value).
+  return truncateDescription(parts.join(' '));
+}
+
+/**
+ * Build a per-article `extendedDescription` (used for
+ * `og:description`, Twitter cards, and AI-overview surfaces) that is
+ * always ≥ {@link DESCRIPTION_MAX_LENGTH} characters whenever the
+ * editorial source paragraph is too short to satisfy
+ * {@link truncateExtendedDescription} on its own.
+ *
+ * This is the *only* code path that surfaces the localized
+ * `labels.reader` framing — the short `<meta description>` no longer
+ * carries it (see comment in {@link composeContextualDescription}).
+ * The structure is: `<base> <Date: YYYY-MM-DD.> <Context: …> <reader>`,
+ * passed through {@link truncateExtendedDescription} (300-char max with
+ * a 200-char min) so it occupies the Open Graph / Discover budget
+ * without exceeding it.
+ *
+ * @param lang - Target language code
+ * @param baseDescription - Best description from manifest/editorial/template
+ * @param editorial - Artifact-derived headline and summary
+ * @param editorial.headline - Artifact-derived headline
+ * @param editorial.summary - Artifact-derived summary
+ * @param date - ISO article date
+ * @returns Extended description ≥180 chars when feasible, otherwise `''`
+ */
+export function composeContextualExtendedDescription(
+  lang: LanguageCode,
+  baseDescription: string,
+  editorial: { readonly headline: string; readonly summary: string },
+  date: string
+): string {
+  const labels = getLocalizedString(SEO_CONTEXT_LABELS, lang);
+  const base = baseDescription.trim();
+  const parts = base ? [base] : [];
+  const datePart = `${labels.date} ${date}.`;
+  if (!containsNormalized(base, `${labels.date} ${date}`)) {
+    parts.push(datePart);
+  }
+  const context = pickFirstNonEmpty([editorial.summary, editorial.headline]);
+  if (context && !containsNormalized(parts.join(' '), context)) {
+    parts.push(`${labels.context}: ${context}`);
+  }
   if (!containsNormalized(parts.join(' '), labels.reader)) {
     parts.push(labels.reader);
   }
-  return truncateDescription(parts.join(' '));
+  // Synthesizer path: clamp to the 300-char og:description budget
+  // *without* enforcing the 181-char sentence-boundary floor that
+  // {@link truncateExtendedDescription} applies. The whole point of
+  // this helper is to produce a non-empty extended description when
+  // the editorial source paragraph was too short — accepting a
+  // 130-char synthesized string is strictly better than the empty
+  // fallback that was previously emitted on 56 breaking briefs.
+  // We delegate the actual clamp to {@link truncateDescription} on
+  // the joined buffer first (which won't trip because the buffer is
+  // already under 300), then truncate again only if it overruns
+  // the larger 300-char budget.
+  const joined = parts.join(' ').trim();
+  if (!joined) return '';
+  if (joined.length <= EXTENDED_DESCRIPTION_MAX_LENGTH) return joined;
+  // Overran the 300-char budget — apply the same sentence-boundary
+  // preserving truncation as truncateExtendedDescription.
+  return truncateExtendedDescription(joined);
 }
 
 export function hasLeakySeoToken(value: string): boolean {

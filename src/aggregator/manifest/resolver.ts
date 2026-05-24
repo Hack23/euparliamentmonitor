@@ -17,6 +17,62 @@ import type { Manifest, ManifestFiles } from './types.js';
 export const UNKNOWN_ARTICLE_TYPE = 'unknown';
 
 /**
+ * Canonical article-type slugs published by the EU Parliament Monitor
+ * aggregator. Used by {@link stripRunSuffix} to reject any normalisation
+ * that would yield a non-canonical leading token.
+ */
+const CANONICAL_ARTICLE_TYPES: ReadonlySet<string> = new Set([
+  'breaking',
+  'committee-reports',
+  'motions',
+  'propositions',
+  'week-ahead',
+  'week-in-review',
+  'month-ahead',
+  'month-in-review',
+  'quarter-in-review',
+  'year-ahead',
+  'year-in-review',
+  'term-outlook',
+  'election-cycle',
+]);
+
+/**
+ * Pattern matching trailing `-run<N>` taxonomy noise that historic
+ * Stage-B writers occasionally encode into `articleType` (e.g.
+ * `committee-reports-run47`, `motions-run41`, `breaking-run193`). Also
+ * tolerates the legacy double-prefixed `motions-runmotions-run-1777010709`
+ * pattern observed in 2025 manifests where the writer concatenated the
+ * articleType and runId. The leading `-run` makes the match greedy enough
+ * to catch both single-suffix and double-prefixed forms.
+ *
+ * Exported for unit tests.
+ */
+export const RUN_SUFFIX_PATTERN: RegExp = /-run[a-zA-Z0-9-]*\d+$/u;
+
+/**
+ * Strip a trailing `-run<N>` taxonomy-noise suffix from an article-type
+ * slug, but only when doing so yields a {@link CANONICAL_ARTICLE_TYPES}
+ * token. This is conservative: a non-canonical leading token (e.g.
+ * `custom-type-run5`) is returned untouched so we never silently
+ * collapse a genuinely new article type into something it isn't.
+ *
+ * @param slug - Raw article-type slug from a manifest field
+ * @returns Canonical slug when the suffix was successfully stripped,
+ *   otherwise the original input
+ */
+export function stripRunSuffix(slug: string): string {
+  if (!slug || !RUN_SUFFIX_PATTERN.test(slug)) {
+    return slug;
+  }
+  const stripped = slug.replace(RUN_SUFFIX_PATTERN, '');
+  if (CANONICAL_ARTICLE_TYPES.has(stripped)) {
+    return stripped;
+  }
+  return slug;
+}
+
+/**
  * Resolve the article-type slug from a manifest, tolerating historic schemas.
  *
  * Resolution order (highest precedence first):
@@ -25,24 +81,27 @@ export const UNKNOWN_ARTICLE_TYPE = 'unknown';
  *   3. `articleTypes[0]` — pre-aggregator-pipeline plural array
  *   4. `runType` — historic field on older breaking-run manifests
  *
- * Falls back to `'unknown'` when none of the above is a non-empty string.
+ * Each candidate is passed through {@link stripRunSuffix} so trailing
+ * `-run<N>` taxonomy noise never leaks into JSON-LD `articleSection`,
+ * the filesystem slug, or the SEO dump's article-type histogram. Falls
+ * back to `'unknown'` when none of the above is a non-empty string.
  *
  * @param manifest - Parsed manifest (any of the supported schemas)
  * @returns Article-type slug usable as a filename component
  */
 export function resolveArticleType(manifest: Manifest): string {
   if (typeof manifest.articleType === 'string' && manifest.articleType) {
-    return manifest.articleType;
+    return stripRunSuffix(manifest.articleType);
   }
   if (typeof manifest.articleTypeSlug === 'string' && manifest.articleTypeSlug) {
-    return manifest.articleTypeSlug;
+    return stripRunSuffix(manifest.articleTypeSlug);
   }
   const first = manifest.articleTypes?.[0];
   if (typeof first === 'string' && first) {
-    return first;
+    return stripRunSuffix(first);
   }
   if (typeof manifest.runType === 'string' && manifest.runType) {
-    return manifest.runType;
+    return stripRunSuffix(manifest.runType);
   }
   return UNKNOWN_ARTICLE_TYPE;
 }
