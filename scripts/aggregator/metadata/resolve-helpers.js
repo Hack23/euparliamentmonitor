@@ -21,6 +21,9 @@ import { isGenericHeading } from './heading-rules.js';
 import { humanizeSlug } from './slug.js';
 import { SEO_CONTEXT_LABELS } from './template-fallback.js';
 import { extractFirstSentence, truncateDescription, truncateTitle } from './text-utils.js';
+import { readEnglishBriefBody } from './brief-body.js';
+import { extractBriefingHighlight } from './briefing-highlight.js';
+import { CROSS_SITE_KEYWORDS, isNoiseKeywordToken } from './keyword-filters.js';
 /**
  * Extract a manifest override value for a single language. Accepts either
  * a plain string (applied to every language) or a `LanguageMap` object.
@@ -53,14 +56,30 @@ export function manifestOverrideFor(value, lang) {
  */
 export function resolveEditorialContent(opts) {
     const { articleType, date, markdown, runDir } = opts;
+    // Tier 1 (NEW, May-2026): structural extraction of `## Strategic
+    // Intelligence Summary` and `## Reader Briefing` from the English
+    // brief. These two sections are the editorial heart of every
+    // current-style executive brief — they are journalistically richer
+    // than the first non-generic H1 the legacy walker picks up, so we
+    // try them first. Returns `null` for the ~200 historical briefs
+    // that pre-date the style guide, in which case we fall through.
+    const briefBody = readEnglishBriefBody(runDir ?? '');
+    const briefing = briefBody ? extractBriefingHighlight(briefBody) : null;
+    if (briefing && briefing.headline) {
+        return {
+            headline: briefing.headline,
+            summary: briefing.summary,
+            extendedSummary: briefing.extendedSummary || extractExtendedLedeAfterHeading(markdown),
+        };
+    }
     let artefactSummary = '';
     if (runDir) {
         const highlight = extractArtifactHighlight(runDir, articleType, date);
         if (highlight?.headline) {
             return {
                 headline: highlight.headline,
-                summary: highlight.summary,
-                extendedSummary: extractExtendedLedeAfterHeading(markdown),
+                summary: briefing?.summary || highlight.summary,
+                extendedSummary: briefing?.extendedSummary || extractExtendedLedeAfterHeading(markdown),
             };
         }
         if (highlight?.summary) {
@@ -73,11 +92,11 @@ export function resolveEditorialContent(opts) {
     if (aggregatedH1 && !isGenericHeading(aggregatedH1, articleType, date)) {
         return {
             headline: truncateTitle(aggregatedH1),
-            summary: artefactSummary || aggregatedSummary,
-            extendedSummary: aggregatedExtended,
+            summary: briefing?.summary || artefactSummary || aggregatedSummary,
+            extendedSummary: briefing?.extendedSummary || aggregatedExtended,
         };
     }
-    const summary = artefactSummary || aggregatedSummary;
+    const summary = briefing?.summary || artefactSummary || aggregatedSummary;
     if (summary) {
         // The H1 is generic (category-noun, bare-institutional, or
         // template-style) so we have to derive `<title>` from the BLUF/
@@ -89,7 +108,7 @@ export function resolveEditorialContent(opts) {
         return {
             headline: truncateTitle(firstSentence),
             summary,
-            extendedSummary: aggregatedExtended,
+            extendedSummary: briefing?.extendedSummary || aggregatedExtended,
         };
     }
     return { headline: '', summary: '', extendedSummary: '' };
@@ -190,20 +209,33 @@ export function containsNormalized(haystack, needle) {
  * @returns De-duplicated keywords for `<meta name="keywords">`
  */
 export function buildSeoKeywords(lang, articleType, date, runId, title, description) {
+    // `runId` is intentionally unused: the previous implementation
+    // emitted `run <runId>` as a synthetic keyword, which surfaced
+    // opaque tokens like `run propositions-run261-1779431162` in
+    // `<meta name="keywords">`. The argument is preserved for callsite
+    // backward compatibility.
+    void runId;
     const localized = getLocalizedString(LOCALIZED_KEYWORDS, lang);
     const base = Object.getOwnPropertyDescriptor(localized, articleType)?.value;
     const fallback = ['EU Parliament', 'European Parliament', 'political intelligence'];
     const candidates = [
+        // Always-on cross-site portfolio keywords lead the list so they
+        // are guaranteed to survive the 16-entry budget cap.
+        ...CROSS_SITE_KEYWORDS,
         ...(base ?? fallback),
         humanizeSlug(articleType),
         date,
-        ...(runId ? [`run ${runId}`] : []),
         ...extractKeywordTerms(`${title} ${description}`),
     ];
     return dedupeKeywords(candidates).slice(0, 16);
 }
 /**
  * Extract short keyword terms from resolved SEO copy.
+ *
+ * Filters out tokens that look like UUID hex fragments, run-id slugs,
+ * or digit-dominated noise (see {@link isNoiseKeywordToken}) so the
+ * keyword list never leaks internal aggregator identifiers into
+ * `<meta name="keywords">`.
  *
  * @param text - Title and description text
  * @returns Candidate terms
@@ -212,7 +244,7 @@ function extractKeywordTerms(text) {
     return text
         .split(/[^\p{L}\p{N}]+/u)
         .map((token) => token.trim())
-        .filter((token) => token.length >= 4 && !/^\d+$/.test(token))
+        .filter((token) => token.length >= 4 && !isNoiseKeywordToken(token))
         .slice(0, 18);
 }
 /**

@@ -51,6 +51,26 @@ export const EDITORIAL_LEDE_HEADINGS = [
     'situation summary',
     'situation report',
     'situation update',
+    // ── Editorial-brief specific headings introduced in the May-2026
+    //    executive-brief style guide. These sections carry the most
+    //    publishable journalism in the brief and are the user-visible
+    //    source of the title / description after this refactor.
+    'reader briefing',
+    'strategic intelligence summary',
+    'strategic assessment',
+    'top-line summary',
+    'top line summary',
+    'headline intelligence',
+    'key intelligence judgment',
+    'key intelligence judgement',
+    'key intelligence judgments',
+    'key intelligence judgements',
+    'key intelligence judgements summary',
+    'key intelligence judgments summary',
+    'intelligence assessment',
+    'intelligence assessment summary',
+    'priority intelligence items',
+    'lead intelligence assessment',
 ];
 /**
  * Artifact-category prefixes that appear inside editorial-artefact H1s as
