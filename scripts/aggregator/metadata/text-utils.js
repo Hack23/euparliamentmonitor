@@ -337,7 +337,7 @@ export function stripLeadingBoldLabel(raw) {
     // 1–5 tokens (≤ 40 chars total) to avoid swallowing long inline-bold prose.
     // Both `**Label:**` (colon inside the bold span) and `**Label**:` are
     // observed in translations — match both shapes.
-    const pattern = /^\*\*([\p{L}\p{M}\p{N}][\p{L}\p{M}\p{N} \-]{0,38})[:：]\*\*\s+|^\*\*([\p{L}\p{M}\p{N}][\p{L}\p{M}\p{N} \-]{0,38})\*\*\s*[:：]\s+/u;
+    const pattern = /^\*\*([\p{L}\p{M}\p{N}][\p{L}\p{M}\p{N} -]{0,38})[:：]\*\*\s+|^\*\*([\p{L}\p{M}\p{N}][\p{L}\p{M}\p{N} -]{0,38})\*\*\s*[:：]\s+/u;
     const match = pattern.exec(raw);
     if (!match)
         return raw;

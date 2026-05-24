@@ -52,6 +52,14 @@ import { HEADLINE_CLAUSE_BOUNDARIES } from './text-utils.js';
 export type ScriptFamily = 'latin' | 'cjk' | 'rtl';
 
 /**
+ * Iteration helper — all three script families in a deterministic
+ * order (latin → cjk → rtl). Exported so test matrices and downstream
+ * tooling can walk every column of {@link SEO_BUDGETS} without
+ * duplicating the literal list.
+ */
+export const ALL_SCRIPT_FAMILIES: readonly ScriptFamily[] = ['latin', 'cjk', 'rtl'] as const;
+
+/**
  * Classify a locale code into a script family. Used to look up the
  * correct byte cap in {@link SEO_BUDGETS}.
  *
@@ -168,6 +176,9 @@ const SOFT_MIN_RATIO = 0.55;
  * ending on a dangling separator or ellipsis. Mirrors the spirit of
  * `text-utils.ts::TRAILING_PUNCT` but keeps full-width CJK marks
  * intact when they sit at a natural sentence boundary.
+ *
+ * @param s - Input string to trim
+ * @returns Input with trailing separator-class characters removed
  */
 function trimTrailingSeparators(s: string): string {
   return s.replace(/[\s,;:—\-–·•…]+$/u, '');

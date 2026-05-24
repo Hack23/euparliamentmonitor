@@ -131,6 +131,92 @@ export interface WrapArticleOptions {
 }
 
 /**
+ * Per-surface SEO clamps for one article render. Each field is the
+ * exact string emitted into the corresponding HTML/JSON-LD surface,
+ * pre-clamped to the budget in
+ * `src/aggregator/metadata/seo-budgets.ts`.
+ *
+ * Extracted from {@link wrapArticleHtml} to keep that function's
+ * cognitive complexity within limits while still funnelling every
+ * SEO surface through a single source of truth.
+ */
+interface SeoClampedSurfaces {
+  readonly pageTitle: string;
+  readonly ogTitleClamped: string;
+  readonly twitterTitleClamped: string;
+  readonly metaDescriptionClamped: string;
+  readonly ogDescriptionClamped: string;
+  readonly twitterDescriptionClamped: string;
+  readonly imageAltClamped: string;
+  readonly jsonLdHeadline: string;
+  readonly alternativeHeadline?: string;
+}
+
+/**
+ * Compute the per-surface SEO-budget-clamped variants of the article
+ * title and description for a single render. See
+ * `analysis/methodologies/seo-headers-policy.md` § 1.1 for the
+ * documented sources of every cap.
+ *
+ * @param options - The {@link WrapArticleOptions} carrying title /
+ *                  description / extendedDescription
+ * @param lang - Validated publishing locale (already coerced to a
+ *               supported `LanguageCode`)
+ * @param siteTitle - Resolved localized site title used as the brand
+ *                    suffix
+ * @returns One {@link SeoClampedSurfaces} record per article render
+ */
+function computeSeoClamps(
+  options: WrapArticleOptions,
+  lang: LanguageCode,
+  siteTitle: string
+): SeoClampedSurfaces {
+  const pageTitle = buildPageTitle(options.title, lang, siteTitle);
+  const ogTitleClamped = clampForBudget(options.title, lang, 'ogTitle');
+  const twitterTitleClamped = clampForBudget(options.title, lang, 'twitterTitle');
+  const metaDescriptionClamped = clampForBudget(options.description, lang, 'metaDescription');
+  // og:description and twitter:description prefer the longer BLUF
+  // paragraph (extendedDescription) so social-card previews show the
+  // full lede; fall back to the short meta description when the
+  // extended one is empty.
+  const socialSource =
+    options.extendedDescription && options.extendedDescription.length > 0
+      ? options.extendedDescription
+      : options.description;
+  const ogDescriptionClamped = clampForBudget(socialSource, lang, 'ogDescription');
+  const twitterDescriptionClamped = clampForBudget(socialSource, lang, 'twitterDescription');
+  const imageAltClamped = clampForBudget(
+    `${options.title}${getTitleSeparator(lang)}${siteTitle}`,
+    lang,
+    'imageAlt'
+  );
+
+  const jsonLdHeadline = truncateHeadline(options.title);
+  // Emit an `alternativeHeadline` whenever the headline truncator
+  // dropped more than a handful of characters from the full title.
+  // Schema.org's `NewsArticle.alternativeHeadline` field is exactly
+  // for the long-form variant of `headline` and lets Google's
+  // Knowledge Graph keep both versions for retrieval. The 5-char
+  // threshold avoids emitting trivially redundant pairs when the
+  // truncator only trimmed trailing whitespace or punctuation.
+  const fullTitleTrimmed = options.title.trim();
+  const altCandidate =
+    fullTitleTrimmed.length - jsonLdHeadline.length > 5 ? fullTitleTrimmed : undefined;
+
+  return {
+    pageTitle,
+    ogTitleClamped,
+    twitterTitleClamped,
+    metaDescriptionClamped,
+    ogDescriptionClamped,
+    twitterDescriptionClamped,
+    imageAltClamped,
+    jsonLdHeadline,
+    ...(altCandidate ? { alternativeHeadline: altCandidate } : {}),
+  };
+}
+
+/**
  * Render the full article HTML document with the shared chrome.
  *
  * @param options - {@link WrapArticleOptions} describing the article and its
@@ -182,45 +268,18 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   // `src/aggregator/metadata/seo-budgets.ts` for the budget table and
   // `analysis/methodologies/seo-headers-policy.md` § 1.1 for the
   // documented sources of every cap.
-  const pageTitle = buildPageTitle(options.title, safeLang, siteTitle);
-  const ogTitleClamped = clampForBudget(options.title, safeLang, 'ogTitle');
-  const twitterTitleClamped = clampForBudget(options.title, safeLang, 'twitterTitle');
-  const metaDescriptionClamped = clampForBudget(
-    options.description,
-    safeLang,
-    'metaDescription'
-  );
-  // og:description and twitter:description prefer the longer BLUF
-  // paragraph (extendedDescription) so social-card previews show the
-  // full lede; fall back to the short meta description when the
-  // extended one is empty.
-  const socialSource =
-    options.extendedDescription && options.extendedDescription.length > 0
-      ? options.extendedDescription
-      : options.description;
-  const ogDescriptionClamped = clampForBudget(socialSource, safeLang, 'ogDescription');
-  const twitterDescriptionClamped = clampForBudget(
-    socialSource,
-    safeLang,
-    'twitterDescription'
-  );
-  const imageAltClamped = clampForBudget(
-    `${options.title}${getTitleSeparator(safeLang)}${siteTitle}`,
-    safeLang,
-    'imageAlt'
-  );
-
-  const jsonLdHeadline = truncateHeadline(options.title);
-  // Emit an `alternativeHeadline` whenever the headline truncator
-  // dropped more than a handful of characters from the full title.
-  // Schema.org's `NewsArticle.alternativeHeadline` field is exactly
-  // for the long-form variant of `headline` and lets Google's
-  // Knowledge Graph keep both versions for retrieval. The 5-char
-  // threshold avoids emitting trivially redundant pairs when the
-  // truncator only trimmed trailing whitespace or punctuation.
-  const fullTitleTrimmed = options.title.trim();
-  const alternativeHeadline =
-    fullTitleTrimmed.length - jsonLdHeadline.length > 5 ? fullTitleTrimmed : undefined;
+  const seoClamps = computeSeoClamps(options, safeLang, siteTitle);
+  const {
+    pageTitle,
+    ogTitleClamped,
+    twitterTitleClamped,
+    metaDescriptionClamped,
+    ogDescriptionClamped,
+    twitterDescriptionClamped,
+    imageAltClamped,
+    jsonLdHeadline,
+    alternativeHeadline,
+  } = seoClamps;
 
   // Build the JSON-LD image graph. Google requires NewsArticle.image
   // to be an array (or single ImageObject) with explicit width/height

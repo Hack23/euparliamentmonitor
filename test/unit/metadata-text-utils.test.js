@@ -44,6 +44,7 @@ import {
   ABBREVIATION_PREFIXES,
   shouldSkipDescriptionLine,
   stripLeadingProseLabel,
+  stripLeadingBoldLabel,
   stripInlineMarkdown,
   truncateDescription,
   truncateExtendedDescription,
@@ -222,6 +223,81 @@ describe('stripLeadingProseLabel — all-caps editorial label removal', () => {
   it('leaves an opener with too-short rest alone', () => {
     const input = 'BLUF: short';
     expect(stripLeadingProseLabel(input)).toBe(input);
+  });
+});
+
+describe('stripLeadingBoldLabel — script-agnostic bold-label removal', () => {
+  // The localized executive briefs use a `**Label:** body` pattern
+  // where the label vocabulary varies per language (Issue / Fråga /
+  // 主題 / Asunto / الموضوع / Thema / Sujet …). The lede extractor
+  // calls this helper so non-English BLUFs are captured without the
+  // label leaking into <meta description>.
+  it('strips an English **Issue:** prefix', () => {
+    expect(
+      stripLeadingBoldLabel(
+        '**Issue:** Parliament adopted a wide-ranging legislative package this week.'
+      )
+    ).toBe('Parliament adopted a wide-ranging legislative package this week.');
+  });
+
+  it('strips a Swedish **Fråga:** prefix', () => {
+    expect(
+      stripLeadingBoldLabel(
+        '**Fråga:** EP10-lagstiftningslandskapet förändras nu på flera områden.'
+      )
+    ).toBe('EP10-lagstiftningslandskapet förändras nu på flera områden.');
+  });
+
+  it('strips a Spanish **Asunto:** prefix', () => {
+    expect(
+      stripLeadingBoldLabel('**Asunto:** El Parlamento aprobó hoy el paquete.')
+    ).toBe('El Parlamento aprobó hoy el paquete.');
+  });
+
+  it('strips a German **Thema:** prefix', () => {
+    expect(
+      stripLeadingBoldLabel('**Thema:** Das Parlament hat das Paket angenommen.')
+    ).toBe('Das Parlament hat das Paket angenommen.');
+  });
+
+  it('strips a French **Sujet :** prefix (with non-breaking space before colon)', () => {
+    expect(
+      stripLeadingBoldLabel('**Sujet :** Le Parlement a adopté le paquet.')
+    ).toBe('Le Parlement a adopté le paquet.');
+  });
+
+  it('strips an Arabic **الموضوع:** prefix', () => {
+    expect(
+      stripLeadingBoldLabel('**الموضوع:** اعتمد البرلمان الأوروبي حزمة جديدة.')
+    ).toBe('اعتمد البرلمان الأوروبي حزمة جديدة.');
+  });
+
+  it('strips a Chinese **主題：** prefix (fullwidth colon)', () => {
+    expect(
+      stripLeadingBoldLabel('**主題：** 欧洲议会通过了一揽子立法措施。')
+    ).toBe('欧洲议会通过了一揽子立法措施。');
+  });
+
+  it('strips a Japanese **主題:** prefix', () => {
+    expect(
+      stripLeadingBoldLabel('**主題:** 欧州議会は今週、包括的な立法パッケージを採択した。')
+    ).toBe('欧州議会は今週、包括的な立法パッケージを採択した。');
+  });
+
+  it('strips the **Label**: shape (colon outside bold)', () => {
+    expect(
+      stripLeadingBoldLabel('**Issue**: Parliament adopted the package.')
+    ).toBe('Parliament adopted the package.');
+  });
+
+  it('leaves a line without a bold prefix untouched', () => {
+    const input = 'Parliament adopted the package without preamble.';
+    expect(stripLeadingBoldLabel(input)).toBe(input);
+  });
+
+  it('leaves an inline bold mid-sentence untouched (not a label)', () => {
+    const input = 'Today the **Parliament** adopted a new package.';
+    expect(stripLeadingBoldLabel(input)).toBe(input);
   });
 });
 
