@@ -171,7 +171,7 @@ export function composeContextualDescription(lang, baseDescription, editorial, d
     }
     return truncateDescription(parts.join(' '));
 }
-function hasLeakySeoToken(value) {
+export function hasLeakySeoToken(value) {
     if (!value)
         return false;
     return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value);

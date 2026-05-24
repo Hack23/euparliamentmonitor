@@ -128,12 +128,14 @@ function appendLine(state, line) {
     state.lines.push(line);
     state.byteCount += line.length + 1;
 }
-function normalizeBriefingLine(line) {
+function normalizeBriefingLine(line, preserveLeadingLabel = false) {
     if (shouldSkipDescriptionLine(line))
         return '';
-    return stripLeadingProseLabel(stripInlineMarkdown(stripLeadingBoldLabel(line)))
-        .replace(/^[:;—–-]\s+/u, '')
-        .trim();
+    const withoutMarkdown = stripInlineMarkdown(line);
+    const normalized = preserveLeadingLabel
+        ? withoutMarkdown
+        : stripLeadingProseLabel(stripLeadingBoldLabel(withoutMarkdown));
+    return normalized.replace(/^[:;—–-]\s+/u, '').trim();
 }
 /**
  * Decide what to do when the walker sees a `## …` heading.
@@ -367,7 +369,7 @@ function handleNumberedLine(state, line, kind) {
         if (kind !== 'numbered')
             return false;
         const m = /^1\.\s+(.*)$/u.exec(line);
-        const clean = m?.[1] ? normalizeBriefingLine(m[1]) : '';
+        const clean = m?.[1] ? normalizeBriefingLine(m[1], true) : '';
         if (clean)
             state.item.push(clean);
         return false;

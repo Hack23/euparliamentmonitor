@@ -207,6 +207,8 @@ interface PerLanguageInputs {
   readonly runId: string;
 }
 
+const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
+
 /**
  * Resolve `{title, description, keywords, source}` for one language.
  *
@@ -243,7 +245,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
 
   const normalizedRawDescription = rawDescription || sanitizeDescriptionCandidate(input.template.subtitle);
   const skipEnrichment =
-    perLanguage.source === 'localized-brief' && normalizedRawDescription.length > 0;
+    perLanguage.source === LOCALIZED_BRIEF_SOURCE && normalizedRawDescription.length > 0;
   const description =
     skipEnrichment || normalizedRawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
       ? normalizedRawDescription
@@ -257,7 +259,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
 
   const clippedTitle = truncateTitle(title).trim();
   const explicitTitle = manifestTitle && !hasLeakySeoToken(manifestTitle) ? truncateTitle(manifestTitle).trim() : '';
-  const allowShortResolvedTitle = perLanguage.source === 'localized-brief';
+  const allowShortResolvedTitle = perLanguage.source === LOCALIZED_BRIEF_SOURCE;
   const resolvedTitleCandidate =
     clippedTitle &&
     !hasLeakySeoToken(clippedTitle) &&
@@ -348,7 +350,7 @@ function resolvePerLanguageEditorial(input: PerLanguageInputs): {
           summary: localized.summary,
           extendedSummary: localized.extendedSummary,
         },
-        source: 'localized-brief',
+        source: LOCALIZED_BRIEF_SOURCE,
       };
     }
   }

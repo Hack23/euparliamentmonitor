@@ -64,7 +64,7 @@
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
-import { buildSeoKeywords, composeContextualDescription, composeContextualTitle, deriveHeadlineFromSummary, isUsableResolvedTitle, manifestOverrideFor, pickFirstNonEmpty, resolveEditorialContent, sanitizeDescriptionCandidate, } from './metadata/resolve-helpers.js';
+import { buildSeoKeywords, composeContextualDescription, composeContextualTitle, deriveHeadlineFromSummary, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, pickFirstNonEmpty, resolveEditorialContent, sanitizeDescriptionCandidate, } from './metadata/resolve-helpers.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './metadata/text-utils.js';
 export { shouldSkipDescriptionLine, stripLeadingProseLabel, stripInlineMarkdown, truncateDescription, truncateExtendedDescription, truncateTitle, extractFirstSentence, } from './metadata/text-utils.js';
 export { isArtifactCategoryHeading, stripArtifactCategoryAffix, isGenericHeading, } from './metadata/heading-rules.js';
@@ -138,6 +138,13 @@ function resolveOneLanguage(input) {
         ? normalizedRawDescription
         : composeContextualDescription(input.lang, normalizedRawDescription, safeEditorial, input.date, input.runId);
     const clippedTitle = truncateTitle(title).trim();
+    const explicitTitle = manifestTitle && !hasLeakySeoToken(manifestTitle) ? truncateTitle(manifestTitle).trim() : '';
+    const allowShortResolvedTitle = perLanguage.source === 'localized-brief';
+    const resolvedTitleCandidate = clippedTitle &&
+        !hasLeakySeoToken(clippedTitle) &&
+        (allowShortResolvedTitle || isUsableResolvedTitle(clippedTitle))
+        ? clippedTitle
+        : '';
     const summaryDerivedTitle = deriveHeadlineFromSummary(safeEditorial.summary || normalizedRawDescription);
     // `truncateTitle` returns '' when an editorial title overruns the
     // budget with no acceptable clause boundary — fall back to the
@@ -157,7 +164,8 @@ function resolveOneLanguage(input) {
     // would (correctly) fail CI.
     const contextualFallback = composeContextualTitle(input.template.title, '', input.runId);
     const truncatedTitle = pickFirstNonEmpty([
-        isUsableResolvedTitle(clippedTitle) ? clippedTitle : '',
+        explicitTitle,
+        resolvedTitleCandidate,
         isUsableResolvedTitle(summaryDerivedTitle) ? summaryDerivedTitle : '',
         truncateTitle(contextualFallback),
         contextualFallback,
