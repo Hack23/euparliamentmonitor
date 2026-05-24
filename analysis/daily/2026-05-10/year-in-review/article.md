@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Year in Review: May 2025–May 2026"
-description: "The European Parliament's tenth term (EP10) completed its first full operational year (May 2025–May 2026) amid accelerating legislative output, a structurally rightward political…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year In Review", "2026-05-10", "run year-in-review-run430-1778425601", "Parliament", "Year", "Review", "European", "tenth", "term", "EP10", "completed", "first", "full"]
+description: "🟡 MEDIUM CONFIDENCE — The EP10's first full year demonstrates structural consolidation of a right-of-centre legislative majority that has mastered the art of flexible…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year In Review", "2026-05-10", "Parliament", "Year", "Review", "MEDIUM", "CONFIDENCE", "EP10"]
 date: 2026-05-10
 article_type: year-in-review
 slug: 2026-05-10-year-in-review
@@ -741,8 +741,8 @@ xychart-beta
     title "Driving vs. Restraining Forces (1-10 scale)"
     x-axis ["Security", "Competitiveness", "Institutional", "Fragmentation", "Migration limits", "Green tension"]
     y-axis "Force Strength" 0 --> 10
-    bar [9, 7, 5, 0, 0, 0]
-    bar [0, 0, 0, 9, 5, 5]
+    bar "Driving" [9, 7, 5, 0, 0, 0]
+    bar "Restraining" [0, 0, 0, 9, 5, 5]
 ```
 
 **Net pressure vector:** Driving forces (21 total) slightly exceed restraining forces (19 total), explaining above-average EP10 output despite structural constraints. The equilibrium is maintained by the security consensus offsetting fragmentation drag.
@@ -1069,8 +1069,8 @@ xychart-beta
     title "Estimated Vote Ranges for Major Coalition Types"
     x-axis ["Security Coalition", "Migration Right", "Health/Social", "Budget", "Opposition max"]
     y-axis "Votes (of 717)" 0 --> 520
-    bar [480, 400, 500, 440, 320]
-    bar [440, 370, 450, 400, 170]
+    bar "Maximum" [480, 400, 500, 440, 320]
+    bar "Minimum" [440, 370, 450, 400, 170]
 ```
 
 **Key mathematical constraint:** 360 votes needed for majority. Table shows:

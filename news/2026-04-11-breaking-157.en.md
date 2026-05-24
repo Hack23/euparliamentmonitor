@@ -1,7 +1,7 @@
 ---
 title: "Run 157, 11 April 2026"
 description: "Run 157 is the Easter Recess Day 16, T-4 pre-Tariff-activation probe (T-0 = 15 April). Operationally: 0 live feeds usable; analysis runs against 264K characters of precomputed…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-11", "April", "Easter", "Recess", "Tariff", "activation", "probe", "Operationally", "live", "feeds"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-11", "April", "Easter", "Recess"]
 date: 2026-04-11
 article_type: breaking
 slug: 2026-04-11-breaking-157
@@ -500,23 +500,23 @@ The European Parliament approaches its post-Easter restart from a position of hi
 }}%%
 quadrantChart
     title EP Political SWOT - April 2026
-    x-axis Internal <--> External
-    y-axis Negative <--> Positive
-    quadrant-1 Opportunities
-    quadrant-2 Strengths
-    quadrant-3 Weaknesses
-    quadrant-4 Threats
-    Record Output: [0.30, 0.80]
-    MEP Stability: [0.25, 0.70]
-    Oversight Growth: [0.35, 0.65]
-    Tariff Response Window: [0.70, 0.75]
-    Renew-ECR Alliance: [0.65, 0.60]
-    No Grand Coalition: [0.30, 0.30]
-    ECON-INTA Bottleneck: [0.40, 0.25]
-    API Monitoring Gap: [0.35, 0.35]
-    Tariff Deadline: [0.75, 0.20]
-    Coalition Fracture: [0.65, 0.15]
-    External Escalation: [0.80, 0.10]
+    x-axis "Internal" --> "External"
+    y-axis "Negative" --> "Positive"
+    quadrant-1 "Opportunities"
+    quadrant-2 "Strengths"
+    quadrant-3 "Weaknesses"
+    quadrant-4 "Threats"
+    "Record Output": [0.30, 0.80]
+    "MEP Stability": [0.25, 0.70]
+    "Oversight Growth": [0.35, 0.65]
+    "Tariff Response Window": [0.70, 0.75]
+    "Renew-ECR Alliance": [0.65, 0.60]
+    "No Grand Coalition": [0.30, 0.30]
+    "ECON-INTA Bottleneck": [0.40, 0.25]
+    "API Monitoring Gap": [0.35, 0.35]
+    "Tariff Deadline": [0.75, 0.20]
+    "Coalition Fracture": [0.65, 0.15]
+    "External Escalation": [0.80, 0.10]
 ```
 
 ---

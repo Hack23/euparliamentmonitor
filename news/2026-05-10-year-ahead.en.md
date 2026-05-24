@@ -1,7 +1,7 @@
 ---
-title: "European Parliament Year Ahead — May 2026–May 2027"
-description: "The European Parliament enters the second year of its 10th term (2024–2029) at a critical juncture. With 717 MEPs distributed across nine political groups in a highly fragmented…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-10", "run year-ahead-run411-1778439890", "European", "Parliament", "Year", "Ahead", "enters", "second", "10th", "term", "critical", "juncture"]
+title: "For heads of government: EP10 Year 2 is the year when the EU's collective defence transformation either locks in (October 2026 ReArm vote)…"
+description: "For heads of government: EP10 Year 2 is the year when the EU's collective defence transformation either locks in (October 2026 ReArm vote) or stalls."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-10", "heads", "government", "EP10", "Year", "when", "collective"]
 date: 2026-05-10
 article_type: year-ahead
 slug: 2026-05-10-year-ahead
@@ -2263,7 +2263,7 @@ xychart-beta
     title "Risk Portfolio: Likelihood vs. Impact (EP10 2026-2027)"
     x-axis "Likelihood (1=Rare, 5=Almost Certain)" 1 --> 5
     y-axis "Impact (1=Negligible, 5=Critical)" 1 --> 5
-    scatter [{"x":3,"y":5},{"x":2,"y":4},{"x":2,"y":5},{"x":3,"y":3}]
+    %% removed unsupported scatter series
 ```
 
 | Risk | Score | Action |

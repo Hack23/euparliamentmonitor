@@ -1,7 +1,7 @@
 ---
 title: "Political Intelligence Analysis"
 description: "— actor motivations, coalition mathematics Published 2026-04-28. for democratic-accountability readers tracking EU institutional consequences"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-28", "run propositions-run-1777356258", "Political", "Intelligence", "Analysis", "actor", "motivations", "coalition", "mathematics", "Published"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-28", "Political", "Intelligence", "Analysis"]
 date: 2026-04-28
 article_type: propositions
 slug: 2026-04-28-propositions

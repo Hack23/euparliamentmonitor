@@ -1,7 +1,7 @@
 ---
 title: "Breaking (EP API Reliability) | 2026-04-03"
 description: "EP Open Data Portal feed API is in DEGRADED state — 5 of 8 mandatory feeds failing across three independent runs (06:00, 12:15, 18:15 UTC). geteventsfeed, getproceduresfeed…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-03", "Reliability", "Open", "Data", "Portal", "feed", "DEGRADED", "state", "mandatory", "feeds"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-03", "Reliability", "Open", "Data"]
 date: 2026-04-03
 article_type: breaking
 slug: 2026-04-03-breaking-breaking-2

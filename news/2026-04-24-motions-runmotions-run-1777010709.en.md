@@ -1,7 +1,7 @@
 ---
 title: "EP Motions, 25 March – 24 April 2026"
 description: "The March 2026 plenary cluster — three Strasbourg sitting days (10–12 March) plus two Brussels mini-sessions (25–26 March) — adopted 280+ texts and disposed of 239 individual…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Motions Runmotions Run 1777010709", "2026-04-24", "run 394ceb8d-0788-4530-b2ef-4489a56475b4", "Motions", "March", "April", "plenary", "cluster", "three", "Strasbourg", "sitting", "days", "plus"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Motions Runmotions Run 1777010709", "2026-04-24", "Motions", "March", "April", "plenary", "cluster", "three"]
 date: 2026-04-24
 article_type: motions-runmotions-run-1777010709
 slug: 2026-04-24-motions-runmotions-run-1777010709

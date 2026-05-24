@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Committee Activity, 6–13 May 2026"
 description: "The week of 6–13 May 2026 is the clearest single-week confirmation to date that EP10 has crossed from the expansion phase of EU regulation (EP9's Green Deal / AI Act / CSDDD…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-13", "run committee-reports-run249-1778650040", "Parliament", "Committee", "Activity", "week", "clearest", "single", "confirmation", "date"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-13", "Parliament", "Committee", "Activity"]
 date: 2026-05-13
 article_type: committee-reports
 slug: 2026-05-13-committee-reports

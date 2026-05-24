@@ -1,7 +1,7 @@
 ---
 title: "Breaking, 9 April 2026"
 description: "The 9 April breaking brief identifies a NEW legislative-backlog risk at 12/25 HIGH: 30+ adopted texts + 13 COD procedures must be processed in a 4-day committee window (14–17…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-09", "April", "brief", "identifies", "legislative", "backlog", "risk", "HIGH", "adopted", "texts"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-09", "April", "brief", "identifies"]
 date: 2026-04-09
 article_type: breaking
 slug: 2026-04-09-breaking

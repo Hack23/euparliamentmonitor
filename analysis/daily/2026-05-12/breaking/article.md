@@ -1,7 +1,7 @@
 ---
 title: "Synthesis — EP Breaking News"
-description: "The European Parliament's April 28–30, 2026 Strasbourg session produced outputs that simultaneously advance three distinct but intersecting political projects: (1) the EU's…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-12", "run breaking-run-1778577220", "Synthesis", "News", "European", "Parliament", "April", "Strasbourg", "session", "produced"]
+description: "The April 2026 European Parliament session can be understood as three big conversations happening at once. First, a debate about whether Europe should force American tech…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-12", "Synthesis", "News", "April"]
 date: 2026-05-12
 article_type: breaking
 slug: 2026-05-12-breaking

@@ -1,7 +1,7 @@
 ---
 title: "Week Ahead: April 27–30 Strasbourg Plenary Pre-Brief | 2026-04-17"
 description: "**The April 27–30 Strasbourg plenary is read by the run as \"among the most consequential of EP10's second year\" because three structurally different debates converge in the same…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Week Ahead Run14", "2026-04-17", "run cf7e8cd5-3b34-4755-b9ae-ae3b729cd12f", "Week", "Ahead", "April", "Strasbourg", "Plenary", "Brief", "read", "among", "most", "consequential"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Week Ahead Run14", "2026-04-17", "Week", "Ahead", "April", "Strasbourg", "Plenary", "Brief"]
 date: 2026-04-17
 article_type: week-ahead-run14
 slug: 2026-04-17-week-ahead-run14

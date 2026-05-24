@@ -1,7 +1,7 @@
 ---
 title: "We assess with HIGH CONFIDENCE"
 description: "that the April plenary marks a decisive consolidation of EP Term 10's legislative agenda across three axes:"
-keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-05-16", "assess", "with", "HIGH", "CONFIDENCE", "that", "April", "plenary", "marks", "decisive", "consolidation"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-16", "assess", "with", "HIGH", "CONFIDENCE"]
 date: 2026-05-16
 article_type: week-in-review
 slug: 2026-05-16-week-in-review

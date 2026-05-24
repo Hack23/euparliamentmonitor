@@ -1,7 +1,7 @@
 ---
 title: "European Parliament Year in Review 2025–2026"
 description: "The European Parliament's year from May 2025 to May 2026 established the defining narrative of the EP10 term: a parliament navigating the intersection of geopolitical emergency…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year In Review", "2026-05-09", "run year-in-review-run390-1778313444", "European", "Parliament", "Year", "Review", "from", "established", "defining", "narrative", "EP10", "term"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year In Review", "2026-05-09", "European", "Parliament", "Year", "Review", "from", "established"]
 date: 2026-05-09
 article_type: year-in-review
 slug: 2026-05-09-year-in-review
@@ -1705,8 +1705,8 @@ xychart-beta
     title "EU Economic Indicators 2025 vs 2026 (estimated)"
     x-axis ["GDP Growth", "Inflation", "Unemployment"]
 y-axis "Value" 0 --> 7
-    bar [1.2, 2.3, 6.0]
-    bar [1.5, 2.1, 5.8]
+    bar "2025" [1.2, 2.3, 6.0]
+    bar "2026" [1.5, 2.1, 5.8]
 ```
 
 *Note: Bar charts may render as pie charts in some environments. Data: WEO April 2026 proxies.*

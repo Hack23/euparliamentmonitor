@@ -1,7 +1,7 @@
 ---
 title: "EP Week Ahead: 19–22 May 2026"
-description: "WEP Assessment: LIKELY (60–65%) the week delivers significant legislative votes with cross-group coalition dynamics"
-keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-05-15", "Week", "Ahead", "Assessment", "LIKELY", "delivers", "significant", "legislative", "votes", "with"]
+description: "Grand coalition governance (EPP+S&D+Renew = 396 seats): This majority is working but not automatic. Three conditions must hold simultaneously for the coalition to deliver on its…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-15", "Week", "Ahead", "Grand"]
 date: 2026-05-15
 article_type: week-ahead
 slug: 2026-05-15-week-ahead

@@ -1,7 +1,7 @@
 ---
 title: "Easter Monday Run 3: API Recovery + Convergence Zone | 2026-04-06"
 description: "*Run-3 produces the day's most consequential operational finding — the first confirmed EP API endpoint recovery* during the 11-day recess: the adopted-texts feed transitioned…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Recovery", "Convergence", "Zone", "produces", "most", "consequential", "operational"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Recovery"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-3

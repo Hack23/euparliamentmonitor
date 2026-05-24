@@ -1,7 +1,7 @@
 ---
 title: "Run 175, 15 April 2026"
 description: "Run 175 is the third T-0 probe of 15 April. The article frontmatter exhibits the known recursive title: cataloguing artifact (separate downstream-pipeline issue, not analytical)."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-15", "April", "third", "probe", "article", "frontmatter", "exhibits", "known", "recursive", "title"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-15", "April", "third", "probe"]
 date: 2026-04-15
 article_type: breaking
 slug: 2026-04-15-breaking-175

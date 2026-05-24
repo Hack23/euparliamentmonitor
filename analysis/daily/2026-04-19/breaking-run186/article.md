@@ -1,7 +1,7 @@
 ---
 title: "Run 186, 19 April 2026"
 description: "Run 186 establishes the T-8 countdown intelligence baseline to the 27 April plenary return. Composite risk 17.2/50 (ANALYSISONLY); feeds at 2/13 (server reports 0/13; direct…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-19", "run 186", "April", "establishes", "countdown", "intelligence", "baseline", "plenary", "return", "Composite"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-19", "April", "establishes", "countdown"]
 date: 2026-04-19
 article_type: breaking
 slug: 2026-04-19-breaking-186

@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Week Ahead: 4–8 May 2026"
-description: "The week of 4–8 May 2026 is a committee-intensive work week with no plenary sitting in Brussels or Strasbourg. The next plenary is scheduled for 18–21 May in Strasbourg."
-keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-05-01", "run week-ahead-run-1777621917", "Parliament", "Week", "Ahead", "committee", "intensive", "work", "with", "plenary"]
+title: "Decision Window: May 4-8 Action Priorities"
+description: "For EPP Group Chair (Weber equivalent): 1. Convene trilateral briefing with Renew and S&D coordinators — secure EDIS framework understanding before ITRE formal session 2."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-01", "Decision", "Window", "Action"]
 date: 2026-05-01
 article_type: week-ahead
 slug: 2026-05-01-week-ahead

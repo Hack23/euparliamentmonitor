@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Propositions — 8 May 2026"
-description: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint, adopting 57 texts across the period January–April 2026 (101…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-08", "run propositions-run425-1778219258", "Parliament", "European", "completed", "April", "plenary", "session", "with", "historically"]
+description: "Admissibility: A2 — Official EP sources (Open Data Portal, adopted texts, tracklegislation). Plenary vote data from latestvotes tool unavailable this week (EP in recess…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-08", "Parliament", "Admissibility", "Official"]
 date: 2026-05-08
 article_type: propositions
 slug: 2026-05-08-propositions
@@ -1220,24 +1220,24 @@ LOW POWER, HIGH INTEREST:
 ```mermaid
 quadrantChart
     title Stakeholder Power-Interest Matrix
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Key Players (Monitor Closely)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Minimal Effort
-    quadrant-4 Keep Informed
-    EPP-Center: [0.85, 0.9]
-    S&D: [0.85, 0.85]
-    Commission-DG SANTE: [0.8, 0.75]
-    IME-Pharma: [0.75, 0.7]
-    Council-Industry-States: [0.7, 0.8]
-    Renew: [0.75, 0.7]
-    Greens-EFA: [0.8, 0.6]
-    SRB-EBA: [0.6, 0.65]
-    EPPO: [0.5, 0.55]
-    ECR: [0.65, 0.6]
-    PfE: [0.6, 0.55]
-    Civil-Society: [0.7, 0.3]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Key Players (Monitor Closely)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Minimal Effort"
+    quadrant-4 "Keep Informed"
+    "EPP-Center": [0.85, 0.9]
+    "S&D": [0.85, 0.85]
+    "Commission-DG SANTE": [0.8, 0.75]
+    "IME-Pharma": [0.75, 0.7]
+    "Council-Industry-States": [0.7, 0.8]
+    "Renew": [0.75, 0.7]
+    "Greens-EFA": [0.8, 0.6]
+    "SRB-EBA": [0.6, 0.65]
+    "EPPO": [0.5, 0.55]
+    "ECR": [0.65, 0.6]
+    "PfE": [0.6, 0.55]
+    "Civil-Society": [0.7, 0.3]
 ```
 
 ### Admiralty Assessment — Stakeholder Data

@@ -1,7 +1,7 @@
 ---
 title: "EP10 enters the second half of its mandate with a structurally constrained but operational grand coalition (EPP+S&D+Renew, 396 seats, +37…"
 description: "EP10 enters the second half of its mandate with a structurally constrained but operational grand coalition (EPP+S&D+Renew, 396 seats, +37 over majority threshold), facing…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-10", "run term-outlook-run294-1778452482", "EP10", "enters", "second", "half", "mandate", "with", "structurally", "constrained", "operational", "grand"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-10", "EP10", "enters", "second", "half", "mandate", "with"]
 date: 2026-05-10
 article_type: term-outlook
 slug: 2026-05-10-term-outlook
@@ -104,6 +104,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/comparative-international.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -3217,6 +3218,928 @@ Reflection on methodology applied during this run, in line with `ai-driven-analy
 - `analysis-index.md`
 - `manifest.json`
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**تاريخ الإنشاء**: 2026-05-10  |  **النمط**: موجز  |  **الجمهور المستهدف**: قيادة البرلمان الأوروبي، أمانات الكتل السياسية
+
+### Bottom-Line Up Front (BLUF)
+
+يدخل EP10 النصف الثاني من ولايته التشريعية بتحالف كبير محدود هيكلياً لكنه قادر على العمل (EPP+S&D+Renew، 396 مقعداً، +37 فوق عتبة الأغلبية)، في مواجهة الكتلة اليمينية التي باتت للمرة الأولى قابلة عددياً للتطبيق (376 مقعداً). يُتوقع أن يبلغ الإنتاج التشريعي ذروته عام 2028 (125 تشريعاً)، ثم يتراجع في عام الانتخابات 2029 (78 تشريعاً)، ليعود للارتفاع في عهد EP11 (94 → 114). البيئة الاقتصادية الكلية المستندة إلى معيار IMF WEO سبتمبر 2025 داعمة لكنها قاسية إزاء ارتداد الضغط المالي على سياسات مجلس الاتحاد. السيناريو السائد (P=35%) هو الاستمرارية الوسطية؛ والبديل الموثوق (P=30%) هو إعادة تموضع الكتلة اليمينية في ظل الضغط المالي.
+
+### خمسة توجهات استراتيجية
+
+1. **التخطيط للانخفاض الانتخابي**: يجب أن تُضغط المفاوضات الثلاثية Q3–Q4-2028 الملفات المتراكمة للتبني في Q1-2029. بناء الاحتياطي من H2-2027.
+2. **التعامل مع الكتلة اليمينية باعتبارها عاملة**: من المرجح وقوع 4–6 اختبارات تصويت باسمي سنوياً حتى 2027؛ لا يُفترض أنها لن تنجح.
+3. **الدفاع عن تحالف المناخ**: لا تصمد هامش 449 مقعداً على الملفات الخضراء/الاجتماعية إلا في ظل ضغط مالي محدود؛ الآن وقت إعداد الحجج المضادة.
+4. **استخدام الثلاثي T_+1 (LT-EL-IT 2027–2028) للملفات الصناعية/الدفاعية**؛ الاحتفاظ بالثلاثي T_+2 (ES-CY-DE 2029–2030) لإعداد ولاية EP11.
+5. **إدراج المتغيرات المفاجئة في المسح الأفقي الفصلي**: الاحتمال التراكمي للمتغيرات المفاجئة على مدى 5 سنوات مرتفع (>70%).
+
+### المرتكزات الكمية
+
+- 717 عضواً في البرلمان الأوروبي؛ 9 كتل سياسية؛ عتبة الأغلبية 359 مقعداً.
+- العدد الفعلي للأحزاب (ENP): 6.59.
+- مؤشر هيرفيندال-هيرشمان (HHI): 0.1516.
+- هامش التحالف الكبير: +37 مقعداً.
+- هامش الكتلة اليمينية: +17 مقعداً.
+- هامش تحالف المناخ: +90 مقعداً.
+- IMF WEO ناتج محلي إجمالي منطقة اليورو: 0.9% → 1.4% بحلول 2028.
+- IMF WEO رصيد الميزانية لمنطقة اليورو: -3.7% → -3.4%.
+
+### ثلاثة مخاطر للمراقبة (أفق 12 شهراً)
+
+| المخاطرة | المؤشر | العتبة |
+|----------|--------|--------|
+| قدرة الكتلة اليمينية التشغيلية | انتصارات التصويت الاسمي / ربع سنة | ≥2 من H2-2026 |
+| ارتداد الضغط المالي | فرق عوائد ITA BTP-Bund | >220 نقطة أساس بشكل مستدام |
+| بيئة المعلومات المضللة | تقارير DSA-VLOPS عن حوادث عالية التأثير | ≥3 في 12 شهراً |
+
+### احتمالات السيناريوهات
+
+| السيناريو | P | الإنتاج | التحالف |
+|-----------|---|---------|---------|
+| S1 الاستمرارية الوسطية | 35% | الخط الأساسي | التحالف الكبير يصمد |
+| S2 إعادة التموضع اليميني | 30% | -12% | الكتلة اليمينية عاملة |
+| S3 التشتت المتفكك | 22% | -25% | أغلبيات موقتة |
+| S4 التماسك المفروض بالأزمة | 13% | ارتفاع السنة الأولى ثم التراجع | توافق طارئ |
+
+### الوفاء بالولاية التشريعية (نقاط مرحلية)
+
+- الركيزة 1 القدرة التنافسية: في المسار الصحيح (الملفات المبكرة أُنجزت).
+- الركيزة 2 الدفاع والأمن: في المسار الصحيح مع جهد إضافي (التمويل معلق).
+- الركيزة 3 المناخ والتكيف: في المسار الصحيح؛ إطار التكيف حاسم 2027–2028.
+- الركيزة 4 الديمقراطية وسيادة القانون: في المسار الصحيح؛ نزاهة الانتخابات Q4-2028 حاسمة.
+- الركيزة 5 جودة الحياة: متأخر؛ طاقة للمبادرات الذاتية.
+- الركيزة 6 المكانة الدولية: في المسار الصحيح؛ الدفاع التجاري تحت ضغط.
+
+### محفزات اتخاذ القرار (الأشهر الستة القادمة)
+
+- تحديث IMF WEO Q3-2026 — إذا تمت مراجعة نمو منطقة اليورو إلى أقل من 0.7%، تصعيد خطة التأهب للضغط المالي.
+- أولويات رئاسة LT H1-2027 — تأكيد الدفاع + ترتيب الإطار المالي متعدد السنوات.
+- عدد تصويتات الكتلة اليمينية الاسمية Q3+Q4-2026 — إعادة تقييم السيناريوهات.
+
+### ملاحظة منهجية
+
+يوحّد هذا الملخص 26 قطعة تحليلية إلزامية ضمن `analysis/daily/2026-05-10/term-outlook/`. بيانات التصويت الاسمي للأعضاء غير متاحة عبر بوابة البيانات المفتوحة للبرلمان الأوروبي؛ أرقام التحالف تستند إلى حصص المقاعد مع بدائل التشابه في الحجم. بيانات الاقتصاد الكلي مستندة إلى مرساة IMF WEO سبتمبر 2025 مع تحديث نصف سنوي مخطط.
+
+### انظر أيضاً
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief Da
+
+### Bottom-Line Up Front (BLUF)
+
+EP10 træder ind i mandatperiodens anden halvdel med en strukturelt begrænset, men operationel storkoalition (EPP+S&D+Renew, 396 mandater, +37 over flertalstærsklen), og møder for første gang en numerisk levedygtig højreblok (376 mandater). Den forventede lovgivningsproduktion topper i 2028 (125 retsakter), falder i valgåret 2029 (78 retsakter) og genopbygges under EP11 (94 → 114). Makromiljøet baseret på IMF WEO Sep-2025 er støttende, men ubarmhjertigt over for finanspolitisk stress, der feedback ind i Rådet. Det dominerende scenario (P=35%) er centristisk kontinuitet; det troværdige alternativ (P=30%) er højreblok-omstrukturering under finanspolitisk pres.
+
+### Fem strategiske konklusioner
+
+1. **Planlæg for valgdipet**: Q3–Q4-2028 trilog-afslutning skal komprimere ældre sager til vedtagelse Q1-2029. Byg bufferen fra H2-2027.
+2. **Behandl højreblokken som operationel**: 4–6 navngivne afstemningssager pr. år frem til 2027 er sandsynlige; antag ikke, at de ikke kan vinde.
+3. **Forsvar klimakoalitionen**: 449-mandaters margen på grønne/sociale sager holder kun, mens finanspolitisk stress er begrænset; forbered modargumenter nu.
+4. **Brug trio T_+1 (LT-EL-IT 2027–2028) til industri-/forsvarssager**; reserver trio T_+2 (ES-CY-DE 2029–2030) til EP11 mandatopsætning.
+5. **Byg jokere ind i kvartalsvise horisontscanninger**: kumulativ jokerandel over 5 år er HØJ (>70%).
+
+### Kvantitative ankre
+
+- 717 MEP'er; 9 grupper; 359-mandaters flertalstærskel.
+- Effektivt antal partier (ENP): 6,59.
+- Herfindahl-Hirschman-indeks (HHI): 0,1516.
+- Storkoalitionsmargen: +37 mandater.
+- Højreblokmargen: +17 mandater.
+- Klimakoalitionsmargen: +90 mandater.
+- IMF WEO EA BNP: 0,9% → 1,4% inden 2028.
+- IMF WEO EA finanspolitisk saldo: -3,7% → -3,4%.
+
+### Tre risici at holde øje med (12-måneder horisont)
+
+| Risiko | Indikator | Tærskel |
+|--------|-----------|---------|
+| Højreblokoperationalitet | navngivne afstemningsgevinster / kvartal | ≥2 fra H2-2026 |
+| Finanspolitisk stressfeedback | ITA BTP-Bund-spread | >220 bp vedvarende |
+| Desinformationsmiljø | DSA-VLOPS-rapporter om høj-impact hændelser | ≥3 i 12m |
+
+### Scenariosandsynligheder
+
+| Scenario | P | Produktion | Koalition |
+|----------|---|------------|-----------|
+| S1 Centristisk kontinuitet | 35% | Baslinje | Storkoalition holder |
+| S2 Højreblok-omstrukturering | 30% | -12% | Højreblokken operationel |
+| S3 Fragmenteret drift | 22% | -25% | Ad hoc-flertal |
+| S4 Kriseforceret samhørighed | 13% | år-1 spike derefter tilbagetrækning | Nødkonsensus |
+
+### Mandatopfyldelse (foreløbig score)
+
+- Søjle 1 Konkurrenceevne: PÅ SPORET (tidlige sager afsluttet).
+- Søjle 2 Forsvar og sikkerhed: PÅ SPORET med stræk (finansiering afventer).
+- Søjle 3 Klima og tilpasning: PÅ SPORET; tilpasningsramme kritisk 2027–2028.
+- Søjle 4 Demokrati og retsstat: PÅ SPORET; valgintegritet Q4-2028 kritisk.
+- Søjle 5 Livskvalitet: BAGUD; kapacitet til egne initiativer.
+- Søjle 6 Global position: PÅ SPORET; handelsforsvar under pres.
+
+### Beslutningstriggers (næste 6 måneder)
+
+- IMF WEO opdatering Q3-2026 — hvis EA-vækst revideres <0,7%, eskalér finanspolitisk stressberedskab.
+- LT-formandskabsprioriteter H1-2027 — bekræft forsvar + MFF-rækkefølge.
+- Højreblokken navngivne afstemningsantal Q3+Q4-2026 — revurder scenarier.
+
+### Metodologisk note
+
+Dette resumé syntetiserer 26 obligatoriske analyseartifakter under `analysis/daily/2026-05-10/term-outlook/`. Per-MEP-afstemningsdata ikke tilgængelig fra EP Open Data Portal; koalitionstal er baseret på mandatandel med størrelseslighedsproxier. Makrodata er IMF WEO Sep-2025-ankeret med planlagt halvårlig opdatering.
+
+### Se også
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief De
+
+### Bottom-Line Up Front (BLUF)
+
+EP10 tritt in die zweite Hälfte seiner Amtszeit mit einer strukturell begrenzten, aber operativen Großkoalition (EPP+S&D+Renew, 396 Sitze, +37 über der Mehrheitsschwelle) ein und sieht sich erstmals einem numerisch tragfähigen Rechtsblock (376 Sitze) gegenüber. Die prognostizierte Gesetzgebungsleistung erreicht 2028 ihren Höhepunkt (125 Rechtsakte), sinkt im Wahljahr 2029 (78 Rechtsakte) und erholt sich unter EP11 (94 → 114). Das Makroumfeld auf Basis der IMF WEO Sep-2025-Basislinie ist unterstützend, aber kompromisslos gegenüber finanzpolitischem Stress, der in die Ratspolitik zurückwirkt. Das dominante Szenario (P=35%) ist zentristisches Weitermachen; die glaubwürdige Alternative (P=30%) ist eine Neuausrichtung des Rechtsblocks unter finanzpolitischem Druck.
+
+### Fünf strategische Erkenntnisse
+
+1. **Auf den Wahleinbruch vorbereiten**: Q3–Q4-2028 Trilog-Abschlüsse müssen ältere Dossiers für die Annahme Q1-2029 komprimieren. Puffer ab H2-2027 aufbauen.
+2. **Rechtsblock als operativ betrachten**: 4–6 namentliche Abstimmungsfälle pro Jahr bis 2027 sind wahrscheinlich; nicht davon ausgehen, dass sie nicht gewinnen können.
+3. **Klimakoalition verteidigen**: Die 449-Sitze-Marge bei Klima-/Sozialdossiers hält nur, solange der finanzpolitische Stress begrenzt ist; jetzt Gegenargumente vorbereiten.
+4. **Trio T_+1 (LT-EL-IT 2027–2028) für Industrie-/Verteidigungsdossiers nutzen**; Trio T_+2 (ES-CY-DE 2029–2030) für EP11-Mandatsaufstellung reservieren.
+5. **Joker in die vierteljährliche Horizontvorausschau einbauen**: Kumulative Jokerwahrscheinlichkeit über 5 Jahre ist HOCH (>70%).
+
+### Quantitative Anker
+
+- 717 Abgeordnete; 9 Fraktionen; 359-Sitze-Mehrheitsschwelle.
+- Effektive Anzahl der Parteien (ENP): 6,59.
+- Herfindahl-Hirschman-Index (HHI): 0,1516.
+- Großkoalitionsmarge: +37 Sitze.
+- Rechtsblock-Marge: +17 Sitze.
+- Klimakoalitions-Marge: +90 Sitze.
+- IMF WEO EA BIP: 0,9% → 1,4% bis 2028.
+- IMF WEO EA Haushaltssaldo: -3,7% → -3,4%.
+
+### Drei zu beobachtende Risiken (12-Monats-Horizont)
+
+| Risiko | Indikator | Schwellenwert |
+|--------|-----------|---------------|
+| Rechtsblock-Operationalität | namentliche Abstimmungsgewinne / Quartal | ≥2 ab H2-2026 |
+| Finanzpolitische Stress-Rückkopplung | ITA BTP-Bund-Spread | >220 bp anhaltend |
+| Desinformationsumfeld | DSA-VLOPS-Berichte über hochwirksame Vorfälle | ≥3 in 12m |
+
+### Szenario-Wahrscheinlichkeiten
+
+| Szenario | P | Leistung | Koalition |
+|----------|---|----------|-----------|
+| S1 Zentristisches Weitermachen | 35% | Basislinie | Großkoalition hält |
+| S2 Rechtsblock-Neuausrichtung | 30% | -12% | Rechtsblock operativ |
+| S3 Fragmentierter Drift | 22% | -25% | Ad-hoc-Mehrheiten |
+| S4 Krisenerzwungene Kohäsion | 13% | Jahr-1-Spitze dann Rückzug | Notfallkonsens |
+
+### Mandatserfüllung (Zwischenwertung)
+
+- Säule 1 Wettbewerbsfähigkeit: AUF KURS (frühe Dossiers abgeschlossen).
+- Säule 2 Verteidigung und Sicherheit: AUF KURS mit Anstrengung (Finanzierung ausstehend).
+- Säule 3 Klima und Anpassung: AUF KURS; Anpassungsrahmen 2027–2028 kritisch.
+- Säule 4 Demokratie und Rechtsstaatlichkeit: AUF KURS; Wahlintegrität Q4-2028 kritisch.
+- Säule 5 Lebensqualität: HINTER DEM PLAN; Kapazität für eigene Initiativen.
+- Säule 6 Globale Stellung: AUF KURS; Handelsverteidigung unter Druck.
+
+### Entscheidungsauslöser (nächste 6 Monate)
+
+- IMF WEO Update Q3-2026 — wenn EA-Wachstum auf <0,7% revidiert, finanzpolitische Stressnotfallplanung eskalieren.
+- LT-Ratspräsidentschaftsprioritäten H1-2027 — Verteidigung + MFF-Reihenfolge bestätigen.
+- Rechtsblock namentliche Abstimmungsanzahl Q3+Q4-2026 — Szenarien neu bewerten.
+
+### Methodologischer Hinweis
+
+Diese Zusammenfassung synthetisiert 26 obligatorische Analyseartefakte unter `analysis/daily/2026-05-10/term-outlook/`. Per-Abgeordneten-Namentlichabstimmungsdaten nicht über das EP Open Data Portal verfügbar; Koalitionszahlen basieren auf Sitzanteilen mit Größenähnlichkeits-Proxies. Makrodaten basieren auf dem IMF WEO Sep-2025-Anker mit geplanter halbjährlicher Aktualisierung.
+
+### Siehe auch
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief Es
+
+### Bottom-Line Up Front (BLUF)
+
+EP10 entra en la segunda mitad de su mandato con una gran coalición estructuralmente limitada pero operativa (EPP+S&D+Renew, 396 escaños, +37 sobre el umbral de mayoría), enfrentándose por primera vez a un bloque de derechas numéricamente viable (376 escaños). La producción legislativa prevista alcanza su máximo en 2028 (125 actos), baja en el año electoral 2029 (78 actos) y se recupera bajo EP11 (94 → 114). El entorno macro bajo la línea de base IMF WEO Sep-2025 es favorable pero implacable ante el estrés fiscal que retroalimenta la política del Consejo. El escenario dominante (P=35%) es la continuidad centrista; la alternativa creíble (P=30%) es la reorientación del bloque de derechas bajo estrés fiscal.
+
+### Cinco conclusiones estratégicas
+
+1. **Planificar el bache electoral**: el cierre de trílogos Q3–Q4-2028 debe comprimir los expedientes pendientes para su adopción en Q1-2029. Construir el margen desde H2-2027.
+2. **Tratar el bloque de derechas como operativo**: 4–6 votaciones nominales de prueba por año hasta 2027 son probables; no asumir que no pueden ganar.
+3. **Defender la coalición climática**: el margen de 449 escaños en expedientes verdes/sociales se mantiene solo mientras el estrés fiscal esté acotado; preparar contraargumentos ahora.
+4. **Usar el trío T_+1 (LT-EL-IT 2027–2028) para expedientes industria/defensa**; reservar el trío T_+2 (ES-CY-DE 2029–2030) para la configuración del mandato EP11.
+5. **Incorporar imponderables en la prospectiva trimestral**: la probabilidad acumulada de un imponderable en 5 años es ALTA (>70%).
+
+### Anclajes cuantitativos
+
+- 717 diputados; 9 grupos; umbral de mayoría de 359 escaños.
+- Número efectivo de partidos (ENP): 6,59.
+- Índice Herfindahl-Hirschman (HHI): 0,1516.
+- Margen de la gran coalición: +37 escaños.
+- Margen del bloque de derechas: +17 escaños.
+- Margen de la coalición climática: +90 escaños.
+- IMF WEO PIB ZE: 0,9% → 1,4% para 2028.
+- IMF WEO saldo fiscal ZE: -3,7% → -3,4%.
+
+### Tres riesgos a vigilar (horizonte 12 meses)
+
+| Riesgo | Indicador | Umbral |
+|--------|-----------|--------|
+| Operatividad del bloque de derechas | victorias en votación nominal / trimestre | ≥2 desde H2-2026 |
+| Retroalimentación de estrés fiscal | spread ITA BTP-Bund | >220 pb de forma sostenida |
+| Entorno de desinformación | informes DSA-VLOPS de incidentes de alto impacto | ≥3 en 12m |
+
+### Probabilidades de escenarios
+
+| Escenario | P | Producción | Coalición |
+|-----------|---|------------|-----------|
+| S1 Continuidad centrista | 35% | Línea de base | Gran coalición se mantiene |
+| S2 Reorientación del bloque de derechas | 30% | -12% | Bloque de derechas operativo |
+| S3 Deriva fragmentada | 22% | -25% | Mayorías ad hoc |
+| S4 Cohesión impuesta por la crisis | 13% | pico año-1 luego retroceso | Consenso de emergencia |
+
+### Cumplimiento del mandato (puntuación provisional)
+
+- Pilar 1 Competitividad: EN CAMINO (primeros expedientes resueltos).
+- Pilar 2 Defensa y seguridad: EN CAMINO con esfuerzo (financiación pendiente).
+- Pilar 3 Clima y adaptación: EN CAMINO; marco de adaptación crítico 2027–2028.
+- Pilar 4 Democracia y Estado de Derecho: EN CAMINO; integridad electoral Q4-2028 crítica.
+- Pilar 5 Calidad de vida: POR DETRÁS; capacidad para iniciativas propias.
+- Pilar 6 Proyección global: EN CAMINO; defensa comercial bajo presión.
+
+### Disparadores de decisión (próximos 6 meses)
+
+- Actualización IMF WEO Q3-2026 — si el crecimiento ZE se revisa a <0,7%, escalar la contingencia de estrés fiscal.
+- Prioridades de la presidencia LT H1-2027 — confirmar defensa + orden del MFP.
+- Número de votaciones nominales del bloque de derechas Q3+Q4-2026 — revisar escenarios.
+
+### Nota metodológica
+
+Este resumen sintetiza 26 artefactos de análisis obligatorios bajo `analysis/daily/2026-05-10/term-outlook/`. Los datos de votación nominal por diputado no están disponibles en el portal Open Data del PE; las cifras de coalición se basan en la distribución de escaños con aproximaciones de similitud de tamaño. Los datos macro se basan en el ancla IMF WEO Sep-2025 con actualización semestral planificada.
+
+### Véase también
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief Fi
+
+### Bottom-Line Up Front (BLUF)
+
+EP10 siirtyy toimikauden toiselle puoliskolle rakenteellisesti rajoitetun mutta toimivan suurkoalition (EPP+S&D+Renew, 396 paikkaa, +37 yli enemmistökynnyksen) kanssa, kohdaten ensimmäistä kertaa numerisesti elinkelpoisen oikeistoliittouman (376 paikkaa). Ennustettu lainsäädäntötuotos huipentuu 2028 (125 säädöstä), laskee vaalivuonna 2029 (78 säädöstä) ja elpyy EP11:n aikana (94 → 114). IMF WEO Sep-2025 -perusskenaarioon pohjautuva makroympäristö on tukeva, mutta armottoman tiukka finanssipaineesta Neuvostoon palautuvan kytköksen suhteen. Hallitseva skenaario (P=35%) on keskiryhmien jatkuvuus; uskottava vaihtoehto (P=30%) on oikeistoliittouman uudelleenjärjestäytyminen finanssipaineen alla.
+
+### Viisi strategista johtopäätöstä
+
+1. **Varaudu vaalidippiin**: Q3–Q4-2028 trilogin päätös on tiivistettävä vanhoja asiakirjoja hyväksymistä varten Q1-2029. Rakenna puskuri alkaen H2-2027.
+2. **Kohtele oikeistoliittoumaa toiminnallisena**: 4–6 nimettyä äänestystapaustausta vuodessa vuoteen 2027 asti on todennäköistä; älä oleta, etteivät ne voi voittaa.
+3. **Puolusta ilmastokoalitiota**: 449 paikan marginaali vihreiden/sosiaalisten asioiden suhteen pitää vain, kun finanssipaine on rajattu; valmistele vastaargumentit nyt.
+4. **Käytä trio T_+1 (LT-EL-IT 2027–2028) teollisuus-/puolustusasioihin**; varaa trio T_+2 (ES-CY-DE 2029–2030) EP11:n toimikauden asetteluun.
+5. **Sisällytä villikortit neljännesvuosittaiseen horisonttiskannaukseen**: kumulatiivinen villikorttitodennäköisyys 5 vuoden aikana on KORKEA (>70%).
+
+### Kvantitatiiviset ankkurit
+
+- 717 MEP:tä; 9 ryhmää; 359 paikan enemmistökynnys.
+- Tehokas puolueiden lukumäärä (ENP): 6,59.
+- Herfindahl-Hirschman-indeksi (HHI): 0,1516.
+- Suurkoalition marginaali: +37 paikkaa.
+- Oikeistoliittouman marginaali: +17 paikkaa.
+- Ilmastokoalition marginaali: +90 paikkaa.
+- IMF WEO EA BKT: 0,9% → 1,4% vuoteen 2028 mennessä.
+- IMF WEO EA finanssitasapaino: -3,7% → -3,4%.
+
+### Kolme seurattavaa riskiä (12 kuukauden horisontti)
+
+| Riski | Indikaattori | Kynnys |
+|-------|--------------|--------|
+| Oikeistoliittouman toiminnallisuus | nimettyjen äänestysvoittojen / kvartaali | ≥2 alkaen H2-2026 |
+| Finanssipaineen takaisinkytkentä | ITA BTP-Bund-spread | >220 bp kestävästi |
+| Disinformaatioympäristö | DSA-VLOPS-raportit suurivaikutteisista tapahtumista | ≥3 12 kuukaudessa |
+
+### Skenaarioiden todennäköisyydet
+
+| Skenaario | P | Tuotos | Koalitio |
+|-----------|---|--------|----------|
+| S1 Keskiryhmien jatkuvuus | 35% | Peruslinja | Suurkoalitio pitää |
+| S2 Oikeistoliittouman uudelleenjärjestäytyminen | 30% | -12% | Oikeistoliittouma toiminnallinen |
+| S3 Pirstoutunut ajelehtiminen | 22% | -25% | Ad hoc -enemmistöt |
+| S4 Kriisipakkoinen yhteenkuuluvuus | 13% | vuosi-1 piikki sitten perääntyminen | Hätäkonsensus |
+
+### Toimikauden täyttyminen (väliaikainen pistemäärä)
+
+- Pilari 1 Kilpailukyky: RAITEILLA (varhaiset asiat ratkaistu).
+- Pilari 2 Puolustus ja turvallisuus: RAITEILLA lisäponnistuksella (rahoitus odottaa).
+- Pilari 3 Ilmasto ja sopeutuminen: RAITEILLA; sopeutumiskehys kriittinen 2027–2028.
+- Pilari 4 Demokratia ja oikeusvaltio: RAITEILLA; vaalien koskemattomuus Q4-2028 kriittinen.
+- Pilari 5 Elämänlaatu: JÄLJESSÄ; kapasiteetti omille aloitteille.
+- Pilari 6 Globaali asema: RAITEILLA; kauppapuolustus paineessa.
+
+### Päätöstriggerit (seuraavat 6 kuukautta)
+
+- IMF WEO päivitys Q3-2026 — jos EA:n kasvu tarkistetaan <0,7%, eskaloi finanssipaineen varautuminen.
+- LT-puheenjohtajuuden prioriteetit H1-2027 — vahvista puolustus + MFF-järjestys.
+- Oikeistoliittouman nimettyjen äänestystenhuoltomäärä Q3+Q4-2026 — arvioi skenaariot uudelleen.
+
+### Metodologinen huomautus
+
+Tämä yhteenveto syntetisoi 26 pakollista analyysiartifaktia hakemistosta `analysis/daily/2026-05-10/term-outlook/`. MEP-kohtaisia nimenhuutoäänestystietoja ei ole saatavilla EP:n Open Data -portaalista; koalitioluvut perustuvat paikkajakoon kokoproxyjen avulla. Makrotiedot perustuvat IMF WEO Sep-2025 -ankkuriin, jonka puolivuosittainen päivitys on suunniteltu.
+
+### Katso myös
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief Fr
+
+### Bottom-Line Up Front (BLUF)
+
+EP10 entre dans la seconde moitié de son mandat avec une grande coalition structurellement contrainte mais opérationnelle (EPP+S&D+Renew, 396 sièges, +37 au-dessus du seuil de majorité), faisant face pour la première fois à un bloc de droite numériquement viable (376 sièges). La production législative prévisionnelle culmine en 2028 (125 actes), baisse lors de l'année électorale 2029 (78 actes) et se redresse sous EP11 (94 → 114). L'environnement macro basé sur la référence IMF WEO Sep-2025 est favorable mais sans indulgence face au stress budgétaire qui se répercute dans la politique du Conseil. Le scénario dominant (P=35%) est la continuité centriste ; l'alternative crédible (P=30%) est un réalignement du bloc de droite sous pression budgétaire.
+
+### Cinq orientations stratégiques
+
+1. **Anticiper le creux électoral** : les clôtures de trilogues Q3–Q4-2028 doivent compresser les dossiers en cours pour adoption Q1-2029. Constituer la réserve dès H2-2027.
+2. **Traiter le bloc de droite comme opérationnel** : 4 à 6 votes nominatifs de test par an jusqu'en 2027 sont probables ; ne pas supposer qu'ils ne peuvent pas l'emporter.
+3. **Défendre la coalition climatique** : la marge de 449 sièges sur les dossiers verts/sociaux ne tient que si le stress budgétaire reste limité ; préparer les contre-arguments dès maintenant.
+4. **Utiliser le trio T_+1 (LT-EL-IT 2027–2028) pour les dossiers industrie/défense** ; réserver le trio T_+2 (ES-CY-DE 2029–2030) pour la mise en place du mandat EP11.
+5. **Intégrer les imprévus dans les exercices de prospective trimestriels** : la probabilité cumulée d'un imprévu sur 5 ans est ÉLEVÉE (>70%).
+
+### Ancrages quantitatifs
+
+- 717 députés ; 9 groupes ; seuil de majorité 359 sièges.
+- Nombre effectif de partis (ENP) : 6,59.
+- Indice Herfindahl-Hirschman (HHI) : 0,1516.
+- Marge de la grande coalition : +37 sièges.
+- Marge du bloc de droite : +17 sièges.
+- Marge de la coalition climatique : +90 sièges.
+- IMF WEO PIB ZE : 0,9% → 1,4% d'ici 2028.
+- IMF WEO solde budgétaire ZE : -3,7% → -3,4%.
+
+### Trois risques à surveiller (horizon 12 mois)
+
+| Risque | Indicateur | Seuil |
+|--------|------------|-------|
+| Opérationnalité du bloc de droite | victoires en vote nominatif / trimestre | ≥2 à partir de H2-2026 |
+| Contagion du stress budgétaire | spread ITA BTP-Bund | >220 pb de façon soutenue |
+| Environnement désinformatif | rapports DSA-VLOPS d'incidents à fort impact | ≥3 en 12 mois |
+
+### Probabilités de scénarios
+
+| Scénario | P | Production | Coalition |
+|----------|---|------------|-----------|
+| S1 Continuité centriste | 35% | Référence | Grande coalition tient |
+| S2 Réalignement du bloc de droite | 30% | -12% | Bloc de droite opérationnel |
+| S3 Dérive fragmentée | 22% | -25% | Majorités ad hoc |
+| S4 Cohésion imposée par la crise | 13% | pic an-1 puis repli | Consensus d'urgence |
+
+### Accomplissement du mandat (score intermédiaire)
+
+- Pilier 1 Compétitivité : EN BONNE VOIE (premiers dossiers réglés).
+- Pilier 2 Défense et sécurité : EN BONNE VOIE avec effort supplémentaire (financement en attente).
+- Pilier 3 Climat et adaptation : EN BONNE VOIE ; cadre d'adaptation critique 2027–2028.
+- Pilier 4 Démocratie et État de droit : EN BONNE VOIE ; intégrité électorale Q4-2028 critique.
+- Pilier 5 Qualité de vie : EN RETARD ; capacité d'initiative propre.
+- Pilier 6 Rayonnement mondial : EN BONNE VOIE ; défense commerciale sous pression.
+
+### Déclencheurs de décision (6 prochains mois)
+
+- Mise à jour IMF WEO Q3-2026 — si la croissance ZE est révisée à <0,7%, escalader la planification de contingence liée au stress budgétaire.
+- Priorités de la présidence LT H1-2027 — confirmer l'ordre défense + CMF.
+- Nombre de votes nominatifs du bloc de droite Q3+Q4-2026 — réviser les scénarios.
+
+### Note méthodologique
+
+Ce résumé synthétise 26 artefacts d'analyse obligatoires sous `analysis/daily/2026-05-10/term-outlook/`. Les données de vote nominatif par député ne sont pas disponibles via le portail Open Data du PE ; les chiffres de coalition reposent sur les parts de sièges avec des approximations de similarité de taille. Les données macro reposent sur l'ancrage IMF WEO Sep-2025 avec une actualisation semestrielle planifiée.
+
+### Voir aussi
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief He
+
+**נוצר**: 2026-05-10  |  **מצב**: מינימלי  |  **קהל יעד**: הנהגת הפרלמנט האירופי, מזכירויות הסיעות
+
+### Bottom-Line Up Front (BLUF)
+
+EP10 נכנס למחצית השנייה של כהונתו עם קואליציה גדולה מוגבלת מבחינה מבנית אך פעילה (EPP+S&D+Renew, 396 מושבים, +37 מעל סף הרוב), ומתמודד לראשונה עם גוש ימני שניתן ליישם מבחינה מספרית (376 מושבים). הייצור החקיקתי הצפוי מגיע לשיאו ב-2028 (125 פעולות חקיקה), יורד בשנת הבחירות 2029 (78 פעולות), ומתאושש תחת EP11 (94 → 114). סביבת המאקרו על בסיס IMF WEO ספטמבר 2025 תומכת אך חסרת סלחנות כלפי לחץ פיסקלי המשתקף בחזרה לפוליטיקת המועצה. התרחיש הדומיננטי (P=35%) הוא רציפות מרכזית; החלופה האמינה (P=30%) היא רה-אורינטציה של הגוש הימני תחת לחץ פיסקלי.
+
+### חמישה מסקנות אסטרטגיות
+
+1. **תכנון לקראת הירידה הבחירותית**: סיום הטרילוגים ברבעון 3–4-2028 חייב לדחוס תיקים ישנים לאישור ברבעון 1-2029. בנו את המאגר מ-H2-2027.
+2. **התייחסו לגוש הימני כפעיל**: 4–6 הצבעות מחייבות לשם בדיקה בשנה עד 2027 הן סבירות; אל תניחו שהם לא יכולים לנצח.
+3. **הגנו על קואליציית האקלים**: מרווח 449 המושבים בתיקים ירוקים/חברתיים מחזיק רק כל עוד הלחץ הפיסקלי מוגבל; הכינו טיעוני נגד עכשיו.
+4. **השתמשו בטריו T_+1 (LT-EL-IT 2027–2028) לתיקי תעשייה/הגנה**; שמרו את טריו T_+2 (ES-CY-DE 2029–2030) להגדרת כהונת EP11.
+5. **שלבו משתנים בלתי-צפויים בסריקת אופק רבעונית**: הסתברות מצטברת למשתנה בלתי-צפוי על פני 5 שנים היא גבוהה (>70%).
+
+### עוגנים כמותיים
+
+- 717 חברי פרלמנט; 9 סיעות; סף רוב 359 מושבים.
+- מספר אפקטיבי של מפלגות (ENP): 6.59.
+- מדד הרפינדל-הירשמן (HHI): 0.1516.
+- מרווח הקואליציה הגדולה: +37 מושבים.
+- מרווח הגוש הימני: +17 מושבים.
+- מרווח קואליציית האקלים: +90 מושבים.
+- IMF WEO תל"ג אזור האירו: 0.9% → 1.4% עד 2028.
+- IMF WEO יתרת תקציב אזור האירו: -3.7% → -3.4%.
+
+### שלושה סיכונים לניטור (אופק 12 חודשים)
+
+| סיכון | מדד | סף |
+|-------|-----|-----|
+| כשירות תפעולית של הגוש הימני | ניצחונות הצבעה נומינלית / רבעון | ≥2 מ-H2-2026 |
+| משוב לחץ פיסקלי | מרווח ITA BTP-Bund | >220 נ"ב בצורה מתמשכת |
+| סביבת מידע מטעה | דוחות DSA-VLOPS על אירועים בעלי השפעה גבוהה | ≥3 ב-12 חודשים |
+
+### הסתברויות תרחישים
+
+| תרחיש | P | תפוקה | קואליציה |
+|--------|---|-------|----------|
+| S1 רציפות מרכזית | 35% | קו בסיס | הקואליציה הגדולה מחזיקה |
+| S2 רה-אורינטציה ימנית | 30% | -12% | הגוש הימני פעיל |
+| S3 סחף מפוצל | 22% | -25% | רוב אד-הוק |
+| S4 לכידות כפויה על ידי משבר | 13% | שיא שנה-1 ואז נסיגה | קונסנזוס חירום |
+
+### מילוי כהונה (ניקוד ביניים)
+
+- עמוד 1 תחרותיות: במסלול (תיקים מוקדמים הושלמו).
+- עמוד 2 הגנה וביטחון: במסלול עם מאמץ נוסף (מימון בהמתנה).
+- עמוד 3 אקלים והסתגלות: במסלול; מסגרת הסתגלות קריטית 2027–2028.
+- עמוד 4 דמוקרטיה ושלטון החוק: במסלול; יושרה בחירות Q4-2028 קריטית.
+- עמוד 5 איכות חיים: מאחור; יכולת ליוזמות עצמאיות.
+- עמוד 6 עמדה גלובלית: במסלול; הגנה מסחרית תחת לחץ.
+
+### טריגרים להחלטה (6 חודשים הקרובים)
+
+- עדכון IMF WEO Q3-2026 — אם צמיחת אזור האירו מתוקנת ל-<0.7%, הסלמת תוכנית חירום ללחץ פיסקלי.
+- עדפויות נשיאות LT H1-2027 — אישור הגנה + סדר תקציב רב-שנתי.
+- ספירת הצבעות נומינליות של הגוש הימני Q3+Q4-2026 — הערכה מחדש של תרחישים.
+
+### הערה מתודולוגית
+
+סיכום זה מסנתז 26 תוצרי ניתוח חובה תחת `analysis/daily/2026-05-10/term-outlook/`. נתוני הצבעה נומינלית לפי חבר פרלמנט אינם זמינים דרך פורטל הנתונים הפתוחים של הפרלמנט האירופי; נתוני קואליציה מבוססים על חלקי מושבים עם משתנים עזר לדמיון בגודל. נתוני מאקרו מבוססים על עוגן IMF WEO ספטמבר 2025 עם עדכון חצי-שנתי מתוכנן.
+
+### ראו גם
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief Ja
+
+**作成日**: 2026-05-10  |  **形式**: 要約  |  **対象**: 欧州議会執行部、会派事務局
+
+### Bottom-Line Up Front (BLUF)
+
+EP10は任期後半に突入しており、構造的に制約されつつも機能的な大連合（EPP+S&D+Renew、396議席、過半数閾値を+37上回る）を維持しながら、初めて数値的に実行可能な右派ブロック（376議席）と対峙している。予測される立法生産量は2028年にピーク（125件）を迎え、2029年の選挙年に落ち込み（78件）、EP11の下で回復（94 → 114）する。IMF WEO 2025年9月ベースラインのマクロ環境は支持的だが、財政ストレスが理事会政治に波及することには容赦がない。主要シナリオ（P=35%）は中道継続；有力な代替案（P=30%）は財政ストレス下での右派ブロック再編だ。
+
+### 五つの戦略的判断
+
+1. **選挙落ち込みへの対策**: Q3–Q4-2028の三者協議終結は、Q1-2029採択に向けて旧来ファイルを圧縮しなければならない。H2-2027から余裕を確保せよ。
+2. **右派ブロックを機能的として扱う**: 2027年まで年間4–6件の記名投票テストが見込まれる；勝てないと決めつけてはならない。
+3. **気候連合を守る**: 緑の党・社会系ファイルにおける449議席の余裕は、財政ストレスが限定的な間のみ持続する；今から反論を準備せよ。
+4. **三者T_+1 (LT-EL-IT 2027–2028) を産業・防衛ファイルに活用**；三者T_+2 (ES-CY-DE 2029–2030) をEP11任期設定用に確保せよ。
+5. **四半期ホライズン・スキャンにワイルドカードを組み込む**: 5年間の累積ワイルドカード確率は高い（>70%）。
+
+### 定量的アンカー
+
+- 717名のMEP；9会派；過半数閾値359議席。
+- 政党の実効数（ENP）：6.59。
+- ハーフィンダール・ハーシュマン指数（HHI）：0.1516。
+- 大連合余裕：+37議席。
+- 右派ブロック余裕：+17議席。
+- 気候連合余裕：+90議席。
+- IMF WEO ユーロ圏GDP：0.9% → 1.4%（2028年まで）。
+- IMF WEO ユーロ圏財政収支：-3.7% → -3.4%。
+
+### 注視すべき三つのリスク（12ヶ月視野）
+
+| リスク | 指標 | 閾値 |
+|--------|------|------|
+| 右派ブロックの実働性 | 記名投票の勝利数 / 四半期 | H2-2026から≥2 |
+| 財政ストレスのフィードバック | ITA BTP-Bund スプレッド | 220bp超の持続 |
+| 偽情報環境 | DSA-VLOPSによる高影響インシデント報告 | 12ヶ月内に≥3 |
+
+### シナリオ確率
+
+| シナリオ | P | 生産量 | 連合 |
+|----------|---|--------|------|
+| S1 中道継続 | 35% | ベースライン | 大連合維持 |
+| S2 右派ブロック再編 | 30% | -12% | 右派ブロック機能 |
+| S3 断片的漂流 | 22% | -25% | アドホック多数 |
+| S4 危機主導の結束 | 13% | 初年度急上昇後後退 | 緊急合意 |
+
+### 任期達成度（中間スコア）
+
+- 柱1 競争力：軌道上（初期ファイル完了）。
+- 柱2 防衛・安全保障：追加努力を要しつつ軌道上（財源待ち）。
+- 柱3 気候・適応：軌道上；適応枠組みは2027–2028年が重要。
+- 柱4 民主主義・法の支配：軌道上；Q4-2028の選挙整合性が重要。
+- 柱5 生活の質：遅れあり；自主的提案の余力あり。
+- 柱6 国際的地位：軌道上；貿易防衛に圧力。
+
+### 決定のトリガー（今後6ヶ月）
+
+- IMF WEO Q3-2026更新 — ユーロ圏成長が<0.7%に改定された場合、財政ストレス危機対応を強化。
+- LT議長国優先事項H1-2027 — 防衛+多年次財政枠組みの順序を確認。
+- 右派ブロックの記名投票数Q3+Q4-2026 — シナリオを再評価。
+
+### 方法論ノート
+
+このブリーフは`analysis/daily/2026-05-10/term-outlook/`配下の26の必須分析成果物を統合する。EP Open Data Portalから各MEPの記名投票データは利用不可；連合数値は議席シェアに基づき規模類似プロキシを使用。マクロデータはIMF WEO Sep-2025のアンカーを基礎とし、半年ごとの更新を予定。
+
+### 関連参照
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief Ko
+
+**작성일**: 2026-05-10  |  **형식**: 최소  |  **대상**: 유럽의회 지도부, 원내교섭단체 사무처
+
+### Bottom-Line Up Front (BLUF)
+
+EP10은 구조적으로 제약되어 있지만 기능하는 대연합(EPP+S&D+Renew, 396석, 과반수 임계값 +37 초과)을 유지하며 임기 후반부에 접어들었고, 처음으로 수치적으로 실현 가능한 우파 블록(376석)과 마주하고 있다. 예상 입법 생산량은 2028년에 정점(125건)을 찍고 2029년 선거해에 감소(78건)하며 EP11 아래서 회복(94 → 114)된다. IMF WEO 2025년 9월 기준선에 기반한 거시경제 환경은 지지적이지만 재정 압박이 이사회 정치로 피드백되는 것에 대해서는 가혹하다. 지배적 시나리오(P=35%)는 중도 연속성이며, 신뢰할 수 있는 대안(P=30%)은 재정 압박 하의 우파 블록 재편이다.
+
+### 다섯 가지 전략적 결론
+
+1. **선거 하락에 대비**: Q3–Q4-2028 3자 협상 종결은 Q1-2029 채택을 위해 기존 파일들을 압축해야 한다. H2-2027부터 여유를 확보하라.
+2. **우파 블록을 실전적으로 취급**: 2027년까지 연간 4–6건의 기명 투표 테스트가 예상된다; 이들이 이길 수 없다고 가정하지 말라.
+3. **기후 연합을 수호**: 녹색·사회 파일에서의 449석 여유는 재정 압박이 제한될 때만 유지된다; 반대 논거를 지금 준비하라.
+4. **T_+1 트리오 (LT-EL-IT 2027–2028)를 산업·방위 파일에 활용**; T_+2 트리오 (ES-CY-DE 2029–2030)는 EP11 임기 설정을 위해 확보하라.
+5. **분기별 지평 스캔에 와일드카드를 포함**: 5년에 걸친 와일드카드 누적 확률은 높음(>70%)이다.
+
+### 정량적 기준점
+
+- 717명의 MEP; 9개 교섭단체; 과반수 임계값 359석.
+- 유효 정당 수(ENP): 6.59.
+- 허핀달-허시만 지수(HHI): 0.1516.
+- 대연합 여유: +37석.
+- 우파 블록 여유: +17석.
+- 기후 연합 여유: +90석.
+- IMF WEO 유로존 GDP: 0.9% → 1.4%(2028년까지).
+- IMF WEO 유로존 재정 수지: -3.7% → -3.4%.
+
+### 주시해야 할 세 가지 위험 (12개월 지평)
+
+| 위험 | 지표 | 임계값 |
+|------|------|--------|
+| 우파 블록 실전 능력 | 기명 투표 승리 건수 / 분기 | H2-2026부터 ≥2 |
+| 재정 압박 피드백 | ITA BTP-분트 스프레드 | 220bp 초과 지속 |
+| 허위 정보 환경 | DSA-VLOPS의 고영향 사건 보고 | 12개월 내 ≥3 |
+
+### 시나리오 확률
+
+| 시나리오 | P | 생산량 | 연합 |
+|----------|---|--------|------|
+| S1 중도 연속성 | 35% | 기준선 | 대연합 유지 |
+| S2 우파 블록 재편 | 30% | -12% | 우파 블록 기능 |
+| S3 파편화된 표류 | 22% | -25% | 임시 다수 |
+| S4 위기 강제 결속 | 13% | 1년차 급등 후 후퇴 | 비상 합의 |
+
+### 임기 이행도 (중간 점수)
+
+- 기둥 1 경쟁력: 순조로움 (초기 파일 완료).
+- 기둥 2 국방 및 안보: 추가 노력을 요하나 순조로움 (재원 대기 중).
+- 기둥 3 기후 및 적응: 순조로움; 적응 프레임워크 2027–2028년 중요.
+- 기둥 4 민주주의 및 법치: 순조로움; Q4-2028 선거 청렴도 중요.
+- 기둥 5 삶의 질: 지연; 자체 발의 역량 있음.
+- 기둥 6 글로벌 위상: 순조로움; 무역 방어 압박 중.
+
+### 결정 트리거 (향후 6개월)
+
+- IMF WEO Q3-2026 업데이트 — 유로존 성장이 <0.7%로 수정될 경우 재정 압박 비상 계획 격상.
+- LT 의장국 H1-2027 우선순위 — 국방 + 다년도 재정 프레임워크 순서 확인.
+- 우파 블록 기명 투표 수 Q3+Q4-2026 — 시나리오 재평가.
+
+### 방법론 메모
+
+이 요약은 `analysis/daily/2026-05-10/term-outlook/` 아래의 26개 필수 분석 산출물을 종합한다. EP Open Data Portal에서 MEP별 기명 투표 데이터를 사용할 수 없음; 연합 수치는 규모 유사성 프록시를 사용한 의석 비율에 기반한다. 거시 데이터는 IMF WEO Sep-2025 기준점으로 반기별 업데이트를 계획 중이다.
+
+### 참조 항목
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief Nl
+
+### Bottom-Line Up Front (BLUF)
+
+EP10 treedt de tweede helft van zijn mandaat in met een structureel beperkte maar operationele grote coalitie (EPP+S&D+Renew, 396 zetels, +37 boven de meerderheidsdrempel), voor het eerst geconfronteerd met een numeriek levensvatbaar rechtsblok (376 zetels). De verwachte wetgevingsproductie piekt in 2028 (125 handelingen), daalt in het verkiezingsjaar 2029 (78 handelingen) en herstelt zich onder EP11 (94 → 114). De macro-omgeving op basis van de IMF WEO Sep-2025-basislijn is ondersteunend maar meedogenloos ten aanzien van begrotingsstress die terugkoppelt naar de Raadspolitiek. Het dominante scenario (P=35%) is centristische continuïteit; het geloofwaardige alternatief (P=30%) is heroriëntatie van het rechtsblok onder begrotingsstress.
+
+### Vijf strategische conclusies
+
+1. **Plannen voor de verkiezingsdip**: Q3–Q4-2028 trilooogafsluitingen moeten oudere dossiers comprimeren voor aanname Q1-2029. Bouw de buffer op vanaf H2-2027.
+2. **Behandel het rechtsblok als operationeel**: 4–6 nominale stemmingen per jaar tot en met 2027 zijn waarschijnlijk; ga er niet van uit dat ze niet kunnen winnen.
+3. **Verdedig de klimaatcoalitie**: de marge van 449 zetels op groene/sociale dossiers houdt alleen stand zolang de begrotingsstress beperkt is; bereid nu tegenargumenten voor.
+4. **Gebruik trio T_+1 (LT-EL-IT 2027–2028) voor industrie-/defensiedossiers**; reserveer trio T_+2 (ES-CY-DE 2029–2030) voor de opzet van het EP11-mandaat.
+5. **Bouw jokers in bij kwartaalhorizonverkenningen**: de cumulatieve kans op een joker over 5 jaar is HOOG (>70%).
+
+### Kwantitatieve ankers
+
+- 717 Parlementsleden; 9 fracties; meerderheidsdrempel van 359 zetels.
+- Effectief aantal partijen (ENP): 6,59.
+- Herfindahl-Hirschman Index (HHI): 0,1516.
+- Grote coalitie marge: +37 zetels.
+- Rechtsblok marge: +17 zetels.
+- Klimaatcoalitie marge: +90 zetels.
+- IMF WEO EA BBP: 0,9% → 1,4% tegen 2028.
+- IMF WEO EA begrotingssaldo: -3,7% → -3,4%.
+
+### Drie te bewaken risico's (12-maanden horizon)
+
+| Risico | Indicator | Drempel |
+|--------|-----------|---------|
+| Operationaliteit rechtsblok | nominale stemoverwinningen / kwartaal | ≥2 vanaf H2-2026 |
+| Begrotingsstress-terugkoppeling | ITA BTP-Bund-spread | >220 bp aanhoudend |
+| Desinformatie-omgeving | DSA-VLOPS-rapporten over hoog-impact incidenten | ≥3 in 12m |
+
+### Scenariokansen
+
+| Scenario | P | Productie | Coalitie |
+|----------|---|-----------|----------|
+| S1 Centristische continuïteit | 35% | Basislijn | Grote coalitie houdt stand |
+| S2 Rechtsblok-heroriëntatie | 30% | -12% | Rechtsblok operationeel |
+| S3 Gefragmenteerde drift | 22% | -25% | Ad hoc-meerderheden |
+| S4 Door crisis gedwongen cohesie | 13% | jaar-1 piek daarna terugtrekking | Noodconsensus |
+
+### Mandaatvervulling (tussentijdse score)
+
+- Pijler 1 Concurrentievermogen: OP KOERS (vroege dossiers afgerond).
+- Pijler 2 Defensie en veiligheid: OP KOERS met inspanning (financiering in afwachting).
+- Pijler 3 Klimaat en aanpassing: OP KOERS; aanpassingskader kritiek 2027–2028.
+- Pijler 4 Democratie en rechtsstaat: OP KOERS; verkiezingsintegriteit Q4-2028 kritiek.
+- Pijler 5 Levenskwaliteit: ACHTER OP SCHEMA; capaciteit voor eigen initiatieven.
+- Pijler 6 Globale positie: OP KOERS; handelsverdediging onder druk.
+
+### Beslissingsuitlossers (volgende 6 maanden)
+
+- IMF WEO update Q3-2026 — als EA-groei wordt herzien naar <0,7%, escalaeer noodplanning begrotingsstress.
+- LT-voorzitterschapsprioriteiten H1-2027 — bevestig defensie + MFK-volgorde.
+- Rechtsblok nominale stemtelling Q3+Q4-2026 — herzie scenario's.
+
+### Methodologische noot
+
+Dit overzicht synthetiseert 26 verplichte analyseartifacten onder `analysis/daily/2026-05-10/term-outlook/`. Per-Parlementslid stemdata niet beschikbaar via het EP Open Data Portal; coalitiecijfers zijn gebaseerd op zetelverdelingen met omvangsovereenkomstproxies. Macrodata is gebaseerd op het IMF WEO Sep-2025-anker met geplande halfjaarlijkse vernieuwing.
+
+### Zie ook
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief No
+
+### Bottom-Line Up Front (BLUF)
+
+EP10 går inn i mandatperiodens andre halvdel med en strukturelt begrenset, men operativ storkoalisjon (EPP+S&D+Renew, 396 seter, +37 over flertallsterskelen), og møter for første gang en numerisk levedyktig høyreblokk (376 seter). Forventet lovgivningsproduksjon topper i 2028 (125 rettsakter), synker i valgåret 2029 (78 rettsakter) og gjenoppbygges under EP11 (94 → 114). Makromiljøet basert på IMF WEO Sep-2025 er støttende, men nådeløst overfor finanspolitisk stress som feeds tilbake inn i Rådets politikk. Det dominerende scenariet (P=35%) er sentristisk kontinuitet; det troverdige alternativet (P=30%) er høyreblokk-omstrukturering under finanspolitisk stress.
+
+### Fem strategiske konklusjoner
+
+1. **Planlegg for valgdipet**: Q3–Q4-2028 trilog-avslutning må komprimere eldre saker til vedtak Q1-2029. Bygg bufferen fra H2-2027.
+2. **Behandle høyreblokken som operativ**: 4–6 navngitte avstemningssaker per år frem til 2027 er sannsynlige; ikke anta at de ikke kan vinne.
+3. **Forsvar klimakoalisjonen**: 449-seters marginen på grønne/sosiale saker holder bare mens finanspolitisk stress er begrenset; forbered motargumenter nå.
+4. **Bruk trio T_+1 (LT-EL-IT 2027–2028) for industri-/forsvarssaker**; reserver trio T_+2 (ES-CY-DE 2029–2030) for EP11 mandatoppsett.
+5. **Bygg inn jokere i kvartalsvise horisontskanninger**: kumulativ jokersannsynlighet over 5 år er HØY (>70%).
+
+### Kvantitative ankere
+
+- 717 MEP-er; 9 grupper; 359-seters flertallsterskel.
+- Effektivt antall partier (ENP): 6,59.
+- Herfindahl-Hirschman-indeks (HHI): 0,1516.
+- Storkoalisjonsmargin: +37 seter.
+- Høyreblokmargin: +17 seter.
+- Klimakoalisjonsmargin: +90 seter.
+- IMF WEO EA BNP: 0,9% → 1,4% innen 2028.
+- IMF WEO EA finanspolitisk balanse: -3,7% → -3,4%.
+
+### Tre risikoer å følge (12-måneder horisont)
+
+| Risiko | Indikator | Terskel |
+|--------|-----------|---------|
+| Høyreblokk-operationalitet | navngitte avstemningsgevinster / kvartal | ≥2 fra H2-2026 |
+| Finanspolitisk stress-feedback | ITA BTP-Bund-spread | >220 bp vedvarende |
+| Desinformasjonsmiljø | DSA-VLOPS-rapporter om høy-impact hendelser | ≥3 i 12m |
+
+### Scenariosannsynligheter
+
+| Scenario | P | Produksjon | Koalisjon |
+|----------|---|------------|-----------|
+| S1 Sentristisk kontinuitet | 35% | Basislinje | Storkoalisjon holder |
+| S2 Høyreblokk-omstrukturering | 30% | -12% | Høyreblokken operativ |
+| S3 Fragmentert drift | 22% | -25% | Ad hoc-flertall |
+| S4 Krisedrevet samhold | 13% | år-1 spike deretter tilbaketrekning | Nødkonsensus |
+
+### Mandatoppfyllelse (foreløpig score)
+
+- Pilar 1 Konkurranseevne: PÅ SPORET (tidlige saker avsluttet).
+- Pilar 2 Forsvar og sikkerhet: PÅ SPORET med strekk (finansiering avventer).
+- Pilar 3 Klima og tilpasning: PÅ SPORET; tilpasningsrammeverk kritisk 2027–2028.
+- Pilar 4 Demokrati og rettsstat: PÅ SPORET; valgintegritet Q4-2028 kritisk.
+- Pilar 5 Livskvalitet: BAK SKJEMA; kapasitet for egne initiativer.
+- Pilar 6 Global posisjon: PÅ SPORET; handelsforsvar under press.
+
+### Beslutningsutløsere (neste 6 måneder)
+
+- IMF WEO oppdatering Q3-2026 — hvis EA-vekst revideres <0,7%, eskalér finanspolitisk stressberedskap.
+- LT-formannskapsprioriteter H1-2027 — bekreft forsvar + MFF-rekkefølge.
+- Høyreblokk navngitte avstemningsantall Q3+Q4-2026 — revurder scenarier.
+
+### Metodologisk notat
+
+Dette sammendraget syntetiserer 26 obligatoriske analyseartifakter under `analysis/daily/2026-05-10/term-outlook/`. Per-MEP-rullekalledata ikke tilgjengelig fra EP Open Data Portal; koalisjonstall er basert på seteandel med størrelseslikhetsproxier. Makrodata er IMF WEO Sep-2025-ankeret med planlagt halvårlig oppdatering.
+
+### Se også
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief Sv
+
+### Bottom-Line Up Front (BLUF)
+
+EP10 går in i mandatperiodens andra hälft med en strukturellt begränsad men operativ stoalians (EPP+S&D+Renew, 396 mandat, +37 över majoritetsgränsen), och möter för första gången ett numeriskt gångbart högerblock (376 mandat). Den prognostiserade lagstiftningsproduktionen toppar 2028 (125 akter), sjunker under valåret 2029 (78 akter) och återhämtar sig under EP11 (94 → 114). Makromiljön baserad på IMF WEO Sep-2025 är stödjande men oförlåtande för finanspolitisk stress som återkopplar till rådspolitiken. Det dominerande scenariot (P=35%) är centristisk kontinuitet; det trovärdiga alternativet (P=30%) är högerblock-omstrukturering under finansstress.
+
+### Fem strategiska slutsatser
+
+1. **Planera för valtippen**: Q3–Q4-2028 trepartsdialog-avslut måste komprimera äldre ärenden för antagande Q1-2029. Bygg bufferten från H2-2027.
+2. **Behandla högerblocket som operativt**: 4–6 namngivna omröstningsfall per år till och med 2027 är sannolika; anta inte att de inte kan vinna.
+3. **Försvara klimatkoalitionen**: 449-mandat marginalen på gröna/sociala ärenden håller bara medan finansstress är begränsad; förbered motargument nu.
+4. **Använd trio T_+1 (LT-EL-IT 2027–2028) för industri-/försvarsärenden**; reservera trio T_+2 (ES-CY-DE 2029–2030) för EP11 mandatuppläggning.
+5. **Bygg in jokrar i kvartalsvisa horisontskanningar**: kumulativ jokersannolikhet över 5 år är HÖG (>70%).
+
+### Kvantitativa ankare
+
+- 717 ledamöter; 9 grupper; 359-mandat majoritetsgräns.
+- Effektivt antal partier (ENP): 6,59.
+- Herfindahl-Hirschman Index (HHI): 0,1516.
+- Stoalians marginal: +37 mandat.
+- Högerblock marginal: +17 mandat.
+- Klimatkoalition marginal: +90 mandat.
+- IMF WEO EA BNP: 0,9% → 1,4% till 2028.
+- IMF WEO EA finansiellt saldo: -3,7% → -3,4%.
+
+### Tre risker att bevaka (12-månaders horisont)
+
+| Risk | Indikator | Tröskel |
+|------|-----------|---------|
+| Högerblockets operationalitet | namngivna omröstningsvinster / kvartal | ≥2 från H2-2026 |
+| Finansstress-återkoppling | ITA BTP-Bund-spread | >220 bp varaktigt |
+| Desinformationsmiljö | DSA-VLOPS-rapporter om högriskincidenter | ≥3 på 12m |
+
+### Scenariosannolikheter
+
+| Scenario | P | Utfall | Koalition |
+|----------|---|--------|-----------|
+| S1 Centristisk kontinuitet | 35% | Baslinje | Stoalians håller |
+| S2 Högerblock-omstrukturering | 30% | -12% | Högerblocket operativt |
+| S3 Fragmenterad drift | 22% | -25% | Ad hoc-majoriteter |
+| S4 Krisnödvändigt samförstånd | 13% | år-1 spike sedan tillbakagång | Nödkonsensus |
+
+### Mandatuppfyllelse (interimspoäng)
+
+- Pelare 1 Konkurrenskraft: PÅ KURS (tidiga ärenden avslutade).
+- Pelare 2 Försvar och säkerhet: PÅ KURS med ansträngning (finansiering väntande).
+- Pelare 3 Klimat och anpassning: PÅ KURS; anpassningsramverk kritiskt 2027–2028.
+- Pelare 4 Demokrati och rättsstat: PÅ KURS; valintegritet Q4-2028 kritisk.
+- Pelare 5 Livskvalitet: EFTER SCHEMA; kapacitet för eget initiativ.
+- Pelare 6 Global ställning: PÅ KURS; handelsförsvar under stress.
+
+### Beslutsutlösare (nästa 6 månader)
+
+- IMF WEO-uppdatering Q3-2026 — om EA-tillväxt revideras <0,7%, eskalera finansstress-beredskapen.
+- LT-ordförandeprioriteter H1-2027 — bekräfta försvar + MFF-ordning.
+- Högerblockets namngivna omröstningsantal Q3+Q4-2026 — omvärdera scenarierna.
+
+### Metodnotat
+
+Detta sammandrag syntetiserar 26 obligatoriska analysartefakter under `analysis/daily/2026-05-10/term-outlook/`. Per-ledamots rullkallsdata inte tillgänglig från EP Open Data Portal; koalitionssiffror baseras på mandatandel med storlekslikhetsproxyser. Makrodata är IMF WEO Sep-2025-ankaret med planerad halvårlig uppdatering.
+
+### Se även
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
+### Executive Brief Zh
+
+**生成日期**：2026-05-10  |  **模式**：简明  |  **受众**：欧洲议会领导层、各政治团体秘书处
+
+### Bottom-Line Up Front (BLUF)
+
+EP10进入任期后半段，维持着一个结构上受限但仍能运作的大联合（EPP+S&D+Renew，396席，超过多数门槛+37席），首次面对一个在数量上具有可行性的右翼阵营（376席）。预计立法产出将于2028年达到峰值（125项立法行动），在2029年选举年回落（78项），并在EP11任期内恢复增长（94 → 114）。基于IMF WEO 2025年9月基线的宏观环境具有支持性，但对财政压力反馈至理事会政治的情况毫不宽容。主导情景（P=35%）为中间派延续；可信替代方案（P=30%）为财政压力下的右翼阵营重组。
+
+### 五项战略判断
+
+1. **为选举低谷做好规划**：Q3–Q4-2028的三方谈判应压缩旧有文件以便于Q1-2029通过。从H2-2027起建立缓冲。
+2. **将右翼阵营视为具有操作能力**：2027年前每年预计发生4–6次记名投票测试；不要假设它们无法获胜。
+3. **捍卫气候联盟**：绿色/社会领域文件中449席的优势仅在财政压力有限时才能维持；现在就准备反驳论据。
+4. **将T_+1三方（LT-EL-IT 2027–2028）用于工业/防务文件**；将T_+2三方（ES-CY-DE 2029–2030）保留用于EP11任期设置。
+5. **将不确定因素纳入季度视野扫描**：5年内不确定因素累积概率较高（>70%）。
+
+### 定量锚点
+
+- 717名欧洲议会议员；9个政治团体；多数门槛359席。
+- 有效政党数（ENP）：6.59。
+- 赫芬达尔-赫希曼指数（HHI）：0.1516。
+- 大联合席位优势：+37席。
+- 右翼阵营席位优势：+17席。
+- 气候联盟席位优势：+90席。
+- IMF WEO 欧元区GDP：0.9% → 1.4%（至2028年）。
+- IMF WEO 欧元区财政差额：-3.7% → -3.4%。
+
+### 须关注的三大风险（12个月视野）
+
+| 风险 | 指标 | 阈值 |
+|------|------|------|
+| 右翼阵营操作能力 | 记名投票胜利次数 / 季度 | H2-2026起 ≥2 |
+| 财政压力反馈 | 意大利BTP-德国国债利差 | 持续>220基点 |
+| 虚假信息环境 | DSA-VLOPS高影响事件报告 | 12个月内 ≥3 |
+
+### 情景概率
+
+| 情景 | P | 产出 | 联合 |
+|------|---|------|------|
+| S1 中间派延续 | 35% | 基线 | 大联合维持 |
+| S2 右翼阵营重组 | 30% | -12% | 右翼阵营运作 |
+| S3 碎片化漂移 | 22% | -25% | 临时多数 |
+| S4 危机驱动的凝聚 | 13% | 第1年峰值后撤退 | 紧急共识 |
+
+### 任期履约情况（中期得分）
+
+- 支柱1 竞争力：进展顺利（早期文件已完成）。
+- 支柱2 防务与安全：进展顺利但需加力（资金待落实）。
+- 支柱3 气候与适应：进展顺利；适应框架2027–2028年至关重要。
+- 支柱4 民主与法治：进展顺利；Q4-2028选举诚信至关重要。
+- 支柱5 生活质量：落后进度；具备自主提案能力。
+- 支柱6 全球地位：进展顺利；贸易防御面临压力。
+
+### 决策触发因素（未来6个月）
+
+- IMF WEO Q3-2026更新 — 若欧元区增长下调至<0.7%，升级财政压力应急预案。
+- LT轮值主席国H1-2027优先事项 — 确认防务+多年期财政框架优先顺序。
+- 右翼阵营记名投票数Q3+Q4-2026 — 重新评估情景。
+
+### 方法论说明
+
+本摘要综合了`analysis/daily/2026-05-10/term-outlook/`下的26项强制性分析成果。欧洲议会开放数据门户不提供逐议员记名投票数据；联合数据基于席位份额并使用规模相似性代理指标。宏观数据以IMF WEO 2025年9月为基准锚点，计划每半年更新一次。
+
+### 参见
+
+- `intelligence/term-arc.md`
+- `intelligence/scenario-forecast.md`
+- `intelligence/mandate-fulfilment-scorecard.md`
+- `intelligence/coalition-dynamics.md`
+- `intelligence/seat-projection.md`
+- `intelligence/forward-projection.md`
+
 > **Provenance & Audit**
 >
 > - **Article type:** `term-outlook`
@@ -3356,4 +4279,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/term-outlook/executive-brief_zh.md) | `executive-brief_zh.md` |
 

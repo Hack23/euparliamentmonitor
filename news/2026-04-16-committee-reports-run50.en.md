@@ -1,7 +1,7 @@
 ---
 title: "Committee Reports Run 50, 16 April 2026"
 description: "Run 50 documents the record Q1 2026 committee output: 114 legislative acts adopted — a +46 % increase over the full-year 2025 total of 78 acts."
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run50", "2026-04-16", "run 1677eddd-9ddd-4b92-a3b7-876a5a4ce8d4", "Committee", "Reports", "April", "documents", "record", "output", "legislative", "acts", "adopted", "increase"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Committee Reports Run50", "2026-04-16", "Committee", "Reports", "April", "documents", "record", "output"]
 date: 2026-04-16
 article_type: committee-reports-run50
 slug: 2026-04-16-committee-reports-run50

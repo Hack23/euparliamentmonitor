@@ -1,7 +1,7 @@
 ---
 title: "EU Legislative Propositions | 2026-05-20"
-description: "The European Parliament's April 28–30, 2026 Strasbourg plenary produced eight adopted texts that collectively reveal a Parliament operating simultaneously as regulator…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-20", "run propositions-run263-1779258514", "Legislative", "European", "Parliament", "April", "Strasbourg", "plenary", "produced", "eight"]
+description: "1. 🔴 WATCH: Commission DMA enforcement announcement — any formal proceedings announcement or fine announcement is the key proof-of-concept event for EP's enforcement-first…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-20", "Legislative", "WATCH", "Commission"]
 date: 2026-05-20
 article_type: propositions
 slug: 2026-05-20-propositions

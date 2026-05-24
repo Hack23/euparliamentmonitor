@@ -1,7 +1,7 @@
 ---
 title: "Key Assumptions Check"
 description: ": This brief assumes standard EP committee schedule operation during the week of 18–22 May 2026. The EP administrative calendar designates this as a committee week (no Strasbourg…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-22", "run committee-reports-run258-1779428020", "Assumptions", "Check", "This", "brief", "assumes", "standard", "committee", "schedule"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-22", "Assumptions", "Check", "This"]
 date: 2026-05-22
 article_type: committee-reports
 slug: 2026-05-22-committee-reports

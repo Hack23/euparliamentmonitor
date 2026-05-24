@@ -1,7 +1,7 @@
 ---
 title: "Run 184, 18 April 2026"
 description: "Run 184 records the first positive API recovery signal of the outage cluster (composite 18/50; mode ANALYSIS_ONLY): TA-10-2026-0099 to -0104 are now confirmed to exist in the EP…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "records", "first", "positive", "recovery", "signal", "outage", "cluster", "composite"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "records", "first"]
 date: 2026-04-18
 article_type: breaking
 slug: 2026-04-18-breaking-184

@@ -1,7 +1,7 @@
 ---
 title: "EP Breaking News: 7 May 2026"
 description: "The European Parliament's final April 2026 plenary delivered three high-impact outputs that will define the EP's political trajectory into summer recess: a confrontational…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-07", "run breaking-run-1778159307", "News", "European", "Parliament", "final", "April", "plenary", "delivered", "three"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-07", "News", "European", "Parliament"]
 date: 2026-05-07
 article_type: breaking
 slug: 2026-05-07-breaking

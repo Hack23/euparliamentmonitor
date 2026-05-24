@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Plenary Session April 28, 2026"
 description: "The European Parliament convened for a major plenary vote on April 28, 2026, adopting 19 texts across five policy domains: institutional finance, MEP immunity proceedings, trade…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-29", "run breaking-run-1777424088", "Parliament", "Plenary", "Session", "April", "European", "convened", "major", "vote"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-29", "Parliament", "Plenary", "Session"]
 date: 2026-04-29
 article_type: breaking
 slug: 2026-04-29-breaking
@@ -3319,18 +3319,14 @@ An economic shock (US tariff escalation, energy price spike, financial contagion
 ### Disruption Resilience Assessment
 
 ```mermaid
-radar
+radar-beta
     title Legislative Disruption Resilience by Domain
-    MFF Budget Architecture
-    Immunity Proceedings
-    Consent Legislation
-    Economic Shock Resistance
-    Institutional Cohesion
-    "MFF Budget Architecture" : 40
-    "Immunity Proceedings" : 65
-    "Consent Legislation" : 25
-    "Economic Shock Resistance" : 55
-    "Institutional Cohesion" : 75
+    axis a1["MFF Budget Architecture"], a2["Immunity Proceedings"], a3["Consent Legislation"], a4["Economic Shock Resistance"], a5["Institutional Cohesion"]
+    curve c1["MFF Budget Architecture"]{40, 0, 0, 0, 0}
+    curve c2["Immunity Proceedings"]{65, 0, 0, 0, 0}
+    curve c3["Consent Legislation"]{25, 0, 0, 0, 0}
+    curve c4["Economic Shock Resistance"]{55, 0, 0, 0, 0}
+    curve c5["Institutional Cohesion"]{75, 0, 0, 0, 0}
 ```
 
 **Interpretation:**

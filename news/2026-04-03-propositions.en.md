@@ -1,7 +1,7 @@
 ---
 title: "Propositions | 2026-04-03"
 description: "No new Commission propositions or EP own-initiative procedures opened on 2026-04-03. Run 9be5bca6-de96-4303-80ff-33cb5f24b51b returned \"Quantitative risk scoring across 0…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-03", "run 9be5bca6-de96-4303-80ff-33cb5f24b51b", "Commission", "initiative", "procedures", "opened", "9be5bca6", "de96", "80ff", "33cb5f24b51b"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-03", "Commission", "initiative", "procedures"]
 date: 2026-04-03
 article_type: propositions
 slug: 2026-04-03-propositions
@@ -1426,7 +1426,7 @@ graph LR
 %%{init: {"theme":"dark"}}%%
 graph LR
     R1["🟠 פג תוקף הזנת הליכים<br/>אישור 3 בדיקות<br/>L×I = 4×3 = 12"] --> CONS["סונדה חדשה 2026-04-14"]
-    R2["🟠 מסלול מהיר סחר ארה\"ב<br/>L×I = 3×4 = 12"] --> CONS
+    R2["🟠 מסלול מהיר סחר ארה&quot;ב<br/>L×I = 3×4 = 12"] --> CONS
     R3["🟡 כשירות Mercosur<br/>L×I = 3×3 = 9"] --> CONS
     style R1 fill:#FF9800,color:#000000
     style R2 fill:#FF9800,color:#000000

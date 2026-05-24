@@ -1,7 +1,7 @@
 ---
 title: "Breaking News 2026-05-09"
 description: "The European Parliament adopted 13 legislative texts in 72 hours (April 28–30, 2026) while simultaneously hosting the most significant institutional challenge of EP10: Patriots…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-09", "run breaking-run-1778332692", "News", "European", "Parliament", "adopted", "legislative", "texts", "hours", "April"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-09", "News", "European", "Parliament"]
 date: 2026-05-09
 article_type: breaking
 slug: 2026-05-09-breaking

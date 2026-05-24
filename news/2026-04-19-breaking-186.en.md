@@ -1,7 +1,7 @@
 ---
 title: "Run 186, 19 April 2026"
 description: "Run 186 establishes the T-8 countdown intelligence baseline to the 27 April plenary return. Composite risk 17.2/50 (ANALYSISONLY); feeds at 2/13 (server reports 0/13; direct…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-19", "run 186", "April", "establishes", "countdown", "intelligence", "baseline", "plenary", "return", "Composite"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-19", "April", "establishes", "countdown"]
 date: 2026-04-19
 article_type: breaking
 slug: 2026-04-19-breaking-186
@@ -446,24 +446,24 @@ These four indicator signals will collectively reveal whether the April 28-30 pl
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800"}}}%%
 quadrantChart
     title Stakeholder Power vs Interest (April 28-30 Plenary)
-    x-axis Interest Level (Low → High)
-    y-axis Power/Influence (Low → High)
-    quadrant-1 Key Players (Manage Closely)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    EPP Group Weber: [0.95, 0.95]
-    S&D Group Rodríguez: [0.85, 0.80]
-    Commission VdL: [0.80, 0.90]
-    Renew Group: [0.75, 0.65]
-    USTR Greer: [0.50, 0.85]
-    German Bundesrat: [0.55, 0.70]
-    INTA Committee: [0.90, 0.65]
-    ECON Committee: [0.85, 0.60]
-    ECR Meloni allies: [0.70, 0.55]
-    Housing NGOs: [0.80, 0.30]
-    EU Banking sector: [0.75, 0.40]
-    Media/EP Monitor: [0.65, 0.20]
+    x-axis "Interest Level (Low → High)"
+    y-axis "Power/Influence (Low → High)"
+    quadrant-1 "Key Players (Manage Closely)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "EPP Group Weber": [0.95, 0.95]
+    "S&D Group Rodríguez": [0.85, 0.80]
+    "Commission VdL": [0.80, 0.90]
+    "Renew Group": [0.75, 0.65]
+    "USTR Greer": [0.50, 0.85]
+    "German Bundesrat": [0.55, 0.70]
+    "INTA Committee": [0.90, 0.65]
+    "ECON Committee": [0.85, 0.60]
+    "ECR Meloni allies": [0.70, 0.55]
+    "Housing NGOs": [0.80, 0.30]
+    "EU Banking sector": [0.75, 0.40]
+    "Media/EP Monitor": [0.65, 0.20]
 ```
 
 ---
@@ -701,18 +701,18 @@ This is now the highest-scoring risk vector in Run 186, having risen steadily si
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800"}}}%%
 quadrantChart
     title Coalition Stress vs Policy Domain (April 28-30 Plenary Preview)
-    x-axis EPP-ECR Alliance Pressure (Low → High)
-    y-axis EPP-S&D Grand Centre Cohesion (Low → High)
-    quadrant-1 Stable Centre Majority
-    quadrant-2 Right Bloc Pressure Zone
-    quadrant-3 Coalition Crisis Zone
-    quadrant-4 Grand Centre Holds
-    Banking Union: [0.2, 0.8]
-    Housing Initiative: [0.3, 0.7]
-    Trade Response: [0.7, 0.4]
-    AI Oversight: [0.4, 0.6]
-    Defence Industrial: [0.8, 0.3]
-    Digital Markets: [0.3, 0.6]
+    x-axis "EPP-ECR Alliance Pressure (Low → High)"
+    y-axis "EPP-S&D Grand Centre Cohesion (Low → High)"
+    quadrant-1 "Stable Centre Majority"
+    quadrant-2 "Right Bloc Pressure Zone"
+    quadrant-3 "Coalition Crisis Zone"
+    quadrant-4 "Grand Centre Holds"
+    "Banking Union": [0.2, 0.8]
+    "Housing Initiative": [0.3, 0.7]
+    "Trade Response": [0.7, 0.4]
+    "AI Oversight": [0.4, 0.6]
+    "Defence Industrial": [0.8, 0.3]
+    "Digital Markets": [0.3, 0.6]
 ```
 
 **Scenario A (most likely, 55%)**: April 28-30 plenary proceeds with normal coalition discipline on financial and housing files; trade and defence items produce internal EPP tensions but majorities held.  
@@ -1021,17 +1021,17 @@ The six staged-release texts (TA-10-2026-0099-0104) represent an intelligence bl
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800"}}}%%
 quadrantChart
     title Threat Assessment: Probability vs Impact (Run 186)
-    x-axis Probability (Low → High)
-    y-axis Impact (Low → High)
-    quadrant-1 High Priority
-    quadrant-2 Monitor
-    quadrant-3 Low Priority
-    quadrant-4 Manage
-    US Trade Escalation: [0.35, 0.85]
-    Coalition Fragmentation: [0.40, 0.65]
-    Staged Release Surprise: [0.25, 0.55]
-    API Failure: [0.15, 0.35]
-    EPP Data Anomaly: [0.20, 0.25]
+    x-axis "Probability (Low → High)"
+    y-axis "Impact (Low → High)"
+    quadrant-1 "High Priority"
+    quadrant-2 "Monitor"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Manage"
+    "US Trade Escalation": [0.35, 0.85]
+    "Coalition Fragmentation": [0.40, 0.65]
+    "Staged Release Surprise": [0.25, 0.55]
+    "API Failure": [0.15, 0.35]
+    "EPP Data Anomaly": [0.20, 0.25]
 ```
 
 ---

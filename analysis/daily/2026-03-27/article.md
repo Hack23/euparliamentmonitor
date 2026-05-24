@@ -1,7 +1,7 @@
 ---
 title: "Breaking | 2026-03-27"
 description: "Routine inter-sessional day, no breaking signal. Analysis run 77fc920c-3a76-4813-9db5-43a7e9acc25e returned 0 classified political actors and overall significance ROUTINE across…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-03-27", "run 77fc920c-3a76-4813-9db5-43a7e9acc25e", "Routine", "inter", "sessional", "signal", "Analysis", "77fc920c", "3a76", "9db5"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-03-27", "Routine", "inter", "sessional"]
 date: 2026-03-27
 article_type: breaking
 slug: 2026-03-27-breaking

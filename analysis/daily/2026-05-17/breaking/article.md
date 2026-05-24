@@ -1,7 +1,7 @@
 ---
 title: "Digital Markets Act Enforcement — Structural Break in Platform Regulation"
 description: "Significance: CRITICAL | WEP: Highly Likely (85–95%) | Admiralty: A2 Published 2026-05-17. for democratic-accountability readers tracking EU institutional consequences"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-17", "run breaking-run255-1778981702", "Digital", "Markets", "Enforcement", "Structural", "Break", "Platform", "Regulation", "Significance"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-17", "Digital", "Markets", "Enforcement"]
 date: 2026-05-17
 article_type: breaking
 slug: 2026-05-17-breaking

@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Propositions Analysis"
 description: "The week of April 20–27, 2026 marks a pivotal legislative moment for the European Parliament: the SRMR3 bank resolution regulation published in the EU Official Journal on April…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-27", "run propositions-run-1777271418", "Parliament", "Analysis", "week", "April", "marks", "pivotal", "legislative", "moment"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-27", "Parliament", "Analysis", "week"]
 date: 2026-04-27
 article_type: propositions
 slug: 2026-04-27-propositions

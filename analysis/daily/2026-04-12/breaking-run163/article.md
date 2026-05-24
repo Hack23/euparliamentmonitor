@@ -1,7 +1,7 @@
 ---
 title: "Run 163, 12 April 2026"
 description: "Run 163 is the T-3 pre-activation consolidation probe — three days before TA-0096 / TA-0097 statutory operative status. The run consolidates findings across five analysis…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-12", "April", "activation", "consolidation", "probe", "three", "days", "before", "statutory", "operative"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-12", "April", "activation", "consolidation"]
 date: 2026-04-12
 article_type: breaking
 slug: 2026-04-12-breaking

@@ -1,7 +1,7 @@
 ---
 title: "EP10 Year 2 Productivity Peak Confirmed"
 description: "The April 2026 plenary close provides definitive confirmation that EP10's second full legislative year is tracking to record committee and plenary output."
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-01", "EP10", "Year", "Productivity", "Peak", "Confirmed", "April", "plenary", "close", "provides"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-01", "EP10", "Year", "Productivity"]
 date: 2026-05-01
 article_type: committee-reports
 slug: 2026-05-01-committee-reports

@@ -1,7 +1,7 @@
 ---
 title: "DMA Enforcement"
 description: "Parliament's 421–87–34 majority demands structural remedies; Commission likely to delay Published 2026-05-08. for democratic-accountability readers tracking EU institutional…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-08", "run committee-reports-run263-1778221903", "Enforcement", "Parliament", "majority", "demands", "structural", "remedies", "Commission", "likely"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-08", "Enforcement", "Parliament", "majority"]
 date: 2026-05-08
 article_type: committee-reports
 slug: 2026-05-08-committee-reports

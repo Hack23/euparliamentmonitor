@@ -1,7 +1,7 @@
 ---
 title: "Most Consequential Event: May 18-21 Strasbourg Session"
 description: "This is the most politically loaded session of the first half of 2026. It follows: (a) the April 28 Budget 2027 guidelines adoption — now in Council's hands; (b) a month of US…"
-keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-04-29", "run month-ahead-run-1777445122", "Most", "Consequential", "Event", "Strasbourg", "Session", "This", "politically", "loaded", "first"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-29", "Most", "Consequential", "Event", "Strasbourg"]
 date: 2026-04-29
 article_type: month-ahead
 slug: 2026-04-29-month-ahead

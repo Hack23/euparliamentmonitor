@@ -1,7 +1,7 @@
 ---
 title: "Run 171, 14 April 2026"
 description: "Run 171 is the synthesis run that consolidates intelligence from 8+ prior recess-period runs into a single Tariff T-0 convergence narrative. The synthesis frame: the Easter…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "April", "synthesis", "that", "consolidates", "intelligence", "from", "prior", "recess", "period"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-14", "April", "synthesis", "that"]
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-171

@@ -1,7 +1,7 @@
 ---
 title: "Breaking (Cross-Session Update) | 2026-04-05"
 description: "Cross-session intelligence update on 2026-04-05; EP recess Day 10 of 18 — no new parliamentary activity to report. This second run of the day extends the morning baseline…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-05", "Cross", "Session", "Update", "intelligence", "recess", "parliamentary", "activity", "report", "This"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-05", "Cross", "Session", "Update"]
 date: 2026-04-05
 article_type: breaking
 slug: 2026-04-05-breaking-breaking-2

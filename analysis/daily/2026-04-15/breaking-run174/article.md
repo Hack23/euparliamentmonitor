@@ -1,7 +1,7 @@
 ---
 title: "Run 174, 15 April 2026"
 description: "Run 174 extends Run 173's Tariff T-0 finding by anchoring TA-10-2026-0096 activation as the EU's first retaliatory tariff package against the United States in the current trade…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-15", "April", "extends", "Tariff", "finding", "anchoring", "activation", "first", "retaliatory", "package"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-15", "April", "extends", "Tariff"]
 date: 2026-04-15
 article_type: breaking
 slug: 2026-04-15-breaking-174

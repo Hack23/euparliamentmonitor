@@ -1,7 +1,7 @@
 ---
 title: "EP Motions, 12 April – 12 May 2026"
 description: "The 30-day cycle ending 12 May 2026 produced 101 adopted texts (above EP9 pace) and crystallised EP10's working identity: a bespoke-coalition Parliament that is firm…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-12", "run motions-run375-1778572294", "April", "cycle", "ending", "produced", "adopted", "texts", "above", "pace"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-12", "April", "cycle", "ending"]
 date: 2026-05-12
 article_type: motions
 slug: 2026-05-12-motions
@@ -277,9 +277,9 @@ The agricultural motion (TA-10-2026-0157) reflects a different but equally impor
 -->
 
 ```mermaid
-bar
-    title Motion Significance Scores (1-10)
-    x-axis [Ukraine Accountability, Claims Commission, DMA Enforcement, Armenia, Livestock/Food, Budget 2027]
+xychart-beta
+    title "Motion Significance Scores (1-10)"
+    x-axis ["Ukraine Accountability", "Claims Commission", "DMA Enforcement", "Armenia", "Livestock/Food", "Budget 2027"]
     y-axis 0 --> 10
     bar Score [9.2, 8.8, 8.5, 7.5, 7.0, 6.5]
 ```
@@ -897,9 +897,9 @@ Greens and Left added for specific social/climate riders
 ### Voting Patterns
 
 ```mermaid
-bar
-    title Estimated Group Cohesion Rates by Motion Type (%)
-    x-axis [Ukraine accountability, DMA enforcement, Agricultural motion]
+xychart-beta
+    title "Estimated Group Cohesion Rates by Motion Type (%)"
+    x-axis ["Ukraine accountability", "DMA enforcement", "Agricultural motion"]
     y-axis 0 --> 100
     bar EPP [93, 50, 90]
     bar S&D [95, 92, 15]
@@ -1638,21 +1638,21 @@ WEAKNESS vs THREAT (Compounders):
 ```mermaid
 quadrantChart
     title SWOT Analysis (Strength/Opportunity vs Weakness/Threat)
-    x-axis Negative (Weakness/Threat) --> Positive (Strength/Opportunity)
-    y-axis Internal --> External
-    quadrant-1 Strategic Opportunities
-    quadrant-2 Strengths to Leverage
-    quadrant-3 Weaknesses to Address
-    quadrant-4 Threats to Mitigate
-    Ukraine supermajority: [0.85, 0.55]
-    DMA regulatory power: [0.80, 0.45]
-    Institutional productivity: [0.78, 0.35]
-    EPP coalition fragility: [0.22, 0.40]
-    Roll-call data gap: [0.30, 0.35]
-    Claims Commission window: [0.82, 0.72]
-    Digital sovereignty opportunity: [0.75, 0.68]
-    Trade war risk: [0.18, 0.75]
-    Green Deal erosion: [0.20, 0.70]
+    x-axis "Negative (Weakness/Threat)" --> "Positive (Strength/Opportunity)"
+    y-axis "Internal" --> "External"
+    quadrant-1 "Strategic Opportunities"
+    quadrant-2 "Strengths to Leverage"
+    quadrant-3 "Weaknesses to Address"
+    quadrant-4 "Threats to Mitigate"
+    "Ukraine supermajority": [0.85, 0.55]
+    "DMA regulatory power": [0.80, 0.45]
+    "Institutional productivity": [0.78, 0.35]
+    "EPP coalition fragility": [0.22, 0.40]
+    "Roll-call data gap": [0.30, 0.35]
+    "Claims Commission window": [0.82, 0.72]
+    "Digital sovereignty opportunity": [0.75, 0.68]
+    "Trade war risk": [0.18, 0.75]
+    "Green Deal erosion": [0.20, 0.70]
 ```
 
 *SWOT mermaid: motions-run375-1778572294 | 2026-05-12*
@@ -2607,11 +2607,11 @@ graph LR
 ### Methodology Reflection
 
 ```mermaid
-radar
+radar-beta
     title Methodology Quality Ratings (1-10)
-    x-axis ["Data Coverage", "Coalition Analysis", "Economic Context", "Threat Assessment", "Historical Context", "Stakeholder Mapping"]
-    EPP_Focus [8, 9, 7, 8, 8, 9]
-    Roll_Call_Limitation [5, 7, 9, 7, 8, 7]
+    axis a1["Data Coverage"], a2["Coalition Analysis"], a3["Economic Context"], a4["Threat Assessment"], a5["Historical Context"], a6["Stakeholder Mapping"]
+    curve c1["EPP_Focus"]{8, 9, 7, 8, 8, 9}
+    curve c2["Roll_Call_Limitation"]{5, 7, 9, 7, 8, 7}
 ```
 
 **Article type:** motions | **Date:** 2026-05-12 | **Run ID:** motions-run375-1778572294

@@ -1,7 +1,7 @@
 ---
 title: "Parliament Front-Loaded its MFF Position"
 description: "Parliament adopted its interim MFF 2028-2034 report (procedure 2025/0571R) before the European Commission's formal proposal — an intentional institutional strategy to shape…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-29", "Parliament", "Front", "Loaded", "Position", "adopted", "interim", "report", "procedure", "0571R"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-29", "Parliament", "Front", "Loaded"]
 date: 2026-04-29
 article_type: committee-reports
 slug: 2026-04-29-committee-reports

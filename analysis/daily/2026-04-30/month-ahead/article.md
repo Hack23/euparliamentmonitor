@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament: April 30 – May 30, 2026"
 description: "The EU Parliament's next 30 days (April 30 – May 30, 2026) will be dominated by the May 18-21 Strasbourg plenary session, which is the key decision point for three concurrent…"
-keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-04-30", "run month-ahead-run-1777558354", "Parliament", "April", "next", "days", "will", "dominated", "Strasbourg", "plenary", "session"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-30", "Parliament", "April", "next", "days"]
 date: 2026-04-30
 article_type: month-ahead
 slug: 2026-04-30-month-ahead

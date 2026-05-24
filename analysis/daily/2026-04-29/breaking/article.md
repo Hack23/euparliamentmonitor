@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Plenary Session April 28, 2026"
 description: "The European Parliament convened for a major plenary vote on April 28, 2026, adopting 19 texts across five policy domains: institutional finance, MEP immunity proceedings, trade…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-29", "run breaking-run-1777424088", "Parliament", "Plenary", "Session", "April", "European", "convened", "major", "vote"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-29", "Parliament", "Plenary", "Session"]
 date: 2026-04-29
 article_type: breaking
 slug: 2026-04-29-breaking

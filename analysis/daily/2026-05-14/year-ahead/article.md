@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Year Ahead 2026-2027"
 description: "EPP's 183-seat dominance (25.52%) in the 10th Parliament makes it the indispensable coalition anchor for every legislative act. No majority is achievable without EPP…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-14", "run year-ahead-run-1778763163", "Parliament", "Year", "Ahead", "seat", "dominance", "10th", "makes", "indispensable", "coalition", "anchor"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-14", "Parliament", "Year", "Ahead", "seat", "dominance", "10th"]
 date: 2026-05-14
 article_type: year-ahead
 slug: 2026-05-14-year-ahead

@@ -1,7 +1,7 @@
 ---
 title: "Week Ahead: Post-Easter Return and Tariff Activation Convergence | 2026-04-14"
 description: "The week of April 14–21 is dominated by a single binary trigger: TA-10-2026-0096 tariff countermeasures activate April 15 — T-1 at run start — empowering the Commission…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Week Ahead Run13", "2026-04-14", "run d453dec8-df2f-4b80-9c0c-73659e377e8c", "Week", "Ahead", "Post", "Easter", "Return", "Tariff", "Activation", "Convergence", "April", "dominated"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Week Ahead Run13", "2026-04-14", "Week", "Ahead", "Post", "Easter", "Return", "Tariff"]
 date: 2026-04-14
 article_type: week-ahead-run13
 slug: 2026-04-14-week-ahead-run13

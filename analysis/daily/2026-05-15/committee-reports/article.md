@@ -1,7 +1,7 @@
 ---
-title: "Clean Industrial Deal Implementation"
-description: "The Clean Industrial Deal framework — the Commission's flagship industrial competitiveness strategy — is generating parallel committee work across ITRE (industry, energy)…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-15", "run committee-reports-run-1778822323", "Clean", "Industrial", "Deal", "Implementation", "framework", "Commission", "flagship", "competitiveness"]
+title: "Confidence Level: MEDIUM-HIGH | Classification: PUBLIC | Admiralty Grade"
+description: "Confidence Level: MEDIUM-HIGH | Classification: PUBLIC | Admiralty Grade: A2/D2 mixed (structural knowledge A2; live data D2) need one more line"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-15", "Confidence", "Level", "MEDIUM"]
 date: 2026-05-15
 article_type: committee-reports
 slug: 2026-05-15-committee-reports

@@ -1,7 +1,7 @@
 ---
 title: "Month Ahead | 2026-04-01"
 description: "April 2026 outlook anchored on the 27-30 April Strasbourg plenary and pre-plenary committee work-week 13-17 April. The month-ahead run returned 0 classified actors and ROUTINE…"
-keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-04-01", "run 7f928e7c-85fd-4f76-890b-f362622c3f42", "Month", "Ahead", "April", "outlook", "anchored", "Strasbourg", "plenary", "committee", "work"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-01", "Month", "Ahead", "April", "outlook"]
 date: 2026-04-01
 article_type: month-ahead
 slug: 2026-04-01-month-ahead
@@ -1600,7 +1600,7 @@ graph LR
 ```mermaid
 %%{init: {"theme":"dark"}}%%
 graph LR
-    R1["🔴 תגמול מסחרי ארה"ב-EU<br/>L×I = 3×4 = 12"] --> CONS["אפריל סטרסבורג"]
+    R1["🔴 תגמול מסחרי ארה&quot;ב-EU<br/>L×I = 3×4 = 12"] --> CONS["אפריל סטרסבורג"]
     R2["🔴 פיצול פנימי EPP (סחר או שלטון חוק)<br/>L×I = 3×4 = 12"] --> CONS
     R3["🟠 השפעות שפיכה פולניות-משפטיות בפרלמנט<br/>L×I = 4×3 = 12"] --> CONS
     R4["🟡 חוות דעת CJEU על Mercosur מפוליטיקאית את INTA<br/>L×I = 3×3 = 9"] --> CONS

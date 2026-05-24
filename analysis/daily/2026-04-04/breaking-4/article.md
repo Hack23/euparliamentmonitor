@@ -1,7 +1,7 @@
 ---
 title: "Breaking (Adopted Texts Deep Dive) | 2026-04-04"
 description: "The one-week adopted-texts feed returned 85 items spanning three distinct periods of parliamentary activity — 70 items from the current EP10 2026 session, the remainder…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "Adopted", "Texts", "Deep", "Dive", "week", "feed", "returned", "items", "spanning"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-04", "Adopted", "Texts", "Deep"]
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking-4

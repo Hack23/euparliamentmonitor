@@ -1,7 +1,7 @@
 ---
-title: "Before reading this brief, note the following analytical assumptions and their vulnerability:"
-description: "Before reading this brief, note the following analytical assumptions and their vulnerability: Published 2026-05-20. for democratic-accountability readers tracking EU…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-20", "run committee-reports-run265-1779254720", "Before", "reading", "this", "brief", "note", "following", "analytical", "assumptions"]
+title: "The European Parliament's 24 standing committees continued their legislative work during the week of 13–20 May 2026, operating…"
+description: "The European Parliament's 24 standing committees continued their legislative work during the week of 13–20 May 2026, operating in the second year of the 10th parliamentary term…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-20", "European", "Parliament", "standing"]
 date: 2026-05-20
 article_type: committee-reports
 slug: 2026-05-20-committee-reports

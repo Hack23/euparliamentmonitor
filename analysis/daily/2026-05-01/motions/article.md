@@ -1,7 +1,7 @@
 ---
 title: "EP Motions, 2026-05-01"
-description: "The European Parliament's April 28–30, 2026 plenary produced six motions of varying significance, anchored by three high-salience decisions: the Patryk Jaki immunity waiver (TIER…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-01", "run motions-run-1777618418", "European", "Parliament", "April", "plenary", "produced", "varying", "significance", "anchored"]
+description: "Short-term (0–4 weeks): Jaki immunity fallout will dominate Polish-EU relations dynamics. Watch for ECR leadership response and potential bloc solidarity challenges."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-01", "Short", "term", "weeks"]
 date: 2026-05-01
 article_type: motions
 slug: 2026-05-01-motions

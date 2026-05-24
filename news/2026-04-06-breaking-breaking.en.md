@@ -1,7 +1,7 @@
 ---
 title: "Easter Monday Recess Intelligence | 2026-04-06"
 description: "Easter Monday produced zero parliamentary activity by design — yet the run records the single most consequential structural finding of the recess fortnight: 6 of 8 EP API…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Recess", "Intelligence", "produced", "zero", "parliamentary", "activity", "design"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Recess"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking
@@ -165,7 +165,7 @@ quadrantChart
     "Post-recess logjam": [0.6, 0.4]
     "Small group margin.": [0.4, 0.6]
     "Right-bloc formal.": [0.8, 0.4]
-    "Grand coalition fracture": [1.0, 0.2]
+    "Grand coalition fracture": [1, 0.2]
 ```
 
 ### Risk Register

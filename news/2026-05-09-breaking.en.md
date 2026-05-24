@@ -1,7 +1,7 @@
 ---
 title: "Breaking News 2026-05-09"
 description: "The European Parliament adopted 13 legislative texts in 72 hours (April 28–30, 2026) while simultaneously hosting the most significant institutional challenge of EP10: Patriots…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-09", "run breaking-run-1778332692", "News", "European", "Parliament", "adopted", "legislative", "texts", "hours", "April"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-09", "News", "European", "Parliament"]
 date: 2026-05-09
 article_type: breaking
 slug: 2026-05-09-breaking
@@ -3077,20 +3077,20 @@ Based on this analysis, the following signals should be monitored in subsequent 
 ```mermaid
 quadrantChart
     title Wildcards & Black Swans — Probability vs. Impact
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> High Impact
-    quadrant-1 Monitor (Low P, High I)
-    quadrant-2 Priority (High P, High I)
-    quadrant-3 Low Priority (Low P, Low I)
-    quadrant-4 Watch (High P, Low I)
-    B1 Armed Conflict Spillover: [0.05, 0.98]
-    B2 Censure Motion Majority: [0.02, 0.92]
-    B3 WTO Trade Dispute: [0.12, 0.72]
-    W1 PfE Delegitimization: [0.15, 0.85]
-    W2 Asset Confiscation Crisis: [0.12, 0.78]
-    W3 Platform Market Exit: [0.22, 0.65]
-    W4 Pet Database Scandal: [0.08, 0.35]
-    W5 EP Session Disruption: [0.18, 0.30]
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Monitor (Low P, High I)"
+    quadrant-2 "Priority (High P, High I)"
+    quadrant-3 "Low Priority (Low P, Low I)"
+    quadrant-4 "Watch (High P, Low I)"
+    "B1 Armed Conflict Spillover": [0.05, 0.98]
+    "B2 Censure Motion Majority": [0.02, 0.92]
+    "B3 WTO Trade Dispute": [0.12, 0.72]
+    "W1 PfE Delegitimization": [0.15, 0.85]
+    "W2 Asset Confiscation Crisis": [0.12, 0.78]
+    "W3 Platform Market Exit": [0.22, 0.65]
+    "W4 Pet Database Scandal": [0.08, 0.35]
+    "W5 EP Session Disruption": [0.18, 0.30]
 ```
 
 ---

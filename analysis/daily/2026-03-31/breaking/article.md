@@ -1,7 +1,7 @@
 ---
 title: "Breaking | 2026-03-31"
 description: "No breaking signal on 2026-03-31; final day of the EP's first post-March recess week. The Parliament is in the inter-sessional gap between the Brussels mini-plenary (25-26 March)…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-03-31", "signal", "final", "first", "post", "March", "recess", "week", "Parliament", "inter"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-03-31", "signal", "final", "first"]
 date: 2026-03-31
 article_type: breaking
 slug: 2026-03-31-breaking

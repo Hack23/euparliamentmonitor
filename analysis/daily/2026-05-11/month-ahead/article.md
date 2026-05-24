@@ -1,7 +1,7 @@
 ---
 title: "Clean Industrial Deal"
 description: "Following Commission President von der Leyen's second-term recalibration of the Green Deal, the CID repackages decarbonisation targets within a competitiveness framework."
-keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-05-11", "run month-ahead-run269-1778459566", "Clean", "Industrial", "Deal", "Following", "Commission", "President", "Leyen", "second", "term"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-05-11", "Clean", "Industrial", "Deal", "Following"]
 date: 2026-05-11
 article_type: month-ahead
 slug: 2026-05-11-month-ahead

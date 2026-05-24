@@ -1,7 +1,7 @@
 ---
-title: "The week of May 13, 2026 in the European Parliament is best characterized by a single phrase: enforcement assertiveness."
-description: "The week of May 13, 2026 in the European Parliament is best characterized by a single phrase: enforcement assertiveness. The EP's major legislative actions are not about creating…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-13", "week", "European", "Parliament", "best", "characterized", "single", "phrase", "enforcement", "assertiveness"]
+title: "The five adopted texts analyzed in this run exhibit a striking strategic coherence when viewed collectively."
+description: "The five adopted texts analyzed in this run exhibit a striking strategic coherence when viewed collectively. Each addresses a different domain, but all share a common structural…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-13", "five", "adopted", "texts"]
 date: 2026-05-13
 article_type: propositions
 slug: 2026-05-13-propositions

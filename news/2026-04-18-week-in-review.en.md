@@ -1,7 +1,7 @@
 ---
 title: "EP Week in Review: April 11–18, 2026 | 2026-04-18"
 description: "The week of April 11–18, 2026 is a structural inflection point in EP10's legislative trajectory. Parliament entered Easter recess on April 14 having achieved a Q1 output (104…"
-keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-04-18", "run week-in-review-run12", "Week", "Review", "April", "structural", "inflection", "point", "EP10", "legislative", "trajectory"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-18", "Week", "Review", "April", "structural"]
 date: 2026-04-18
 article_type: week-in-review
 slug: 2026-04-18-week-in-review
@@ -287,32 +287,32 @@ The Easter recess API maintenance pattern is now documented across 6 consecutive
 }}%%
 quadrantChart
     title Stakeholder Power × Interest — Week of April 11-18, 2026
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
-    quadrant-1 Manage Closely (Key Players)
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
-    European Commission: [0.90, 0.95]
-    EPP Group: [0.85, 0.95]
-    S&D Group: [0.85, 0.80]
-    Renew Group: [0.70, 0.72]
-    Greens-EFA Group: [0.75, 0.55]
-    ECR Group: [0.60, 0.65]
-    The Left Group: [0.65, 0.35]
-    PfE Group: [0.50, 0.55]
-    ECB: [0.60, 0.85]
-    German Government: [0.88, 0.82]
-    French Government: [0.72, 0.68]
-    Italian Government: [0.58, 0.55]
-    Polish Government: [0.65, 0.45]
-    Dutch Government: [0.55, 0.45]
-    USTR / US Trade Rep: [0.75, 0.72]
-    Sparkassen + BCC coalitions: [0.88, 0.78]
-    Anti-Corruption NGOs: [0.70, 0.25]
-    Housing NGOs: [0.80, 0.22]
-    Banking federations (EBF/ECBA): [0.72, 0.65]
-    UK Government: [0.35, 0.48]
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Manage Closely (Key Players)"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "European Commission": [0.90, 0.95]
+    "EPP Group": [0.85, 0.95]
+    "S&D Group": [0.85, 0.80]
+    "Renew Group": [0.70, 0.72]
+    "Greens-EFA Group": [0.75, 0.55]
+    "ECR Group": [0.60, 0.65]
+    "The Left Group": [0.65, 0.35]
+    "PfE Group": [0.50, 0.55]
+    "ECB": [0.60, 0.85]
+    "German Government": [0.88, 0.82]
+    "French Government": [0.72, 0.68]
+    "Italian Government": [0.58, 0.55]
+    "Polish Government": [0.65, 0.45]
+    "Dutch Government": [0.55, 0.45]
+    "USTR / US Trade Rep": [0.75, 0.72]
+    "Sparkassen + BCC coalitions": [0.88, 0.78]
+    "Anti-Corruption NGOs": [0.70, 0.25]
+    "Housing NGOs": [0.80, 0.22]
+    "Banking federations (EBF/ECBA)": [0.72, 0.65]
+    "UK Government": [0.35, 0.48]
 ```
 
 > Quadrant 1 (top-right, Manage Closely) contains actors with decisive influence on
@@ -1357,16 +1357,16 @@ sensitivity.
 }}%%
 quadrantChart
     title 2×2 Scenario Space — April 21 to May 15, 2026
-    x-axis Housing Response Adequate --> Housing Response Inadequate
-    y-axis Trade Escalation --> Trade De-escalation
-    quadrant-1 Scenario 1 - Productive Recess
-    quadrant-2 Scenario 2 - Housing Stalemate
-    quadrant-3 Scenario 3 - Transatlantic Rupture
-    quadrant-4 Compound Stress (wildcard)
-    Scenario 1 Productive Recess: [0.25, 0.80]
-    Scenario 2 Housing Stalemate: [0.75, 0.75]
-    Scenario 3 Transatlantic Rupture: [0.35, 0.25]
-    Compound Stress: [0.80, 0.20]
+    x-axis "Housing Response Adequate" --> "Housing Response Inadequate"
+    y-axis "Trade Escalation" --> "Trade De-escalation"
+    quadrant-1 "Scenario 1 - Productive Recess"
+    quadrant-2 "Scenario 2 - Housing Stalemate"
+    quadrant-3 "Scenario 3 - Transatlantic Rupture"
+    quadrant-4 "Compound Stress (wildcard)"
+    "Scenario 1 Productive Recess": [0.25, 0.80]
+    "Scenario 2 Housing Stalemate": [0.75, 0.75]
+    "Scenario 3 Transatlantic Rupture": [0.35, 0.25]
+    "Compound Stress": [0.80, 0.20]
 ```
 
 | Scenario | Housing | Trade | Probability | Dominant Impact |
@@ -1693,20 +1693,20 @@ Probability of such legal intervention during April 21–26 window: ~8%.
 }}%%
 quadrantChart
     title Wildcards — Probability × Impact (Run 12)
-    x-axis Low Probability --> Higher Probability (still <20%)
-    y-axis Low Impact --> Catastrophic Impact
-    quadrant-1 Critical Stress-Tests
-    quadrant-2 Monitor But Do Not Prepare
-    quadrant-3 Noise
-    quadrant-4 Over-Prepared
-    W1 Italian Mid-Tier Bank Run: [0.08, 0.92]
-    W2 Surprise US Exec Order Section 301: [0.10, 0.82]
-    W3 CJEU Preliminary Ruling Narrowing Art 83: [0.06, 0.78]
-    W4 Major EPP or SD MEP Defection: [0.07, 0.55]
-    W5 Energy Market Shock: [0.08, 0.70]
-    W6 EP Institutional Crisis (LuxLeaks-style): [0.05, 0.88]
-    W7 German Coalition Collapse: [0.06, 0.82]
-    W8 UK Trade Realignment Signal: [0.12, 0.48]
+    x-axis "Low Probability" --> "Higher Probability (still <20%)"
+    y-axis "Low Impact" --> "Catastrophic Impact"
+    quadrant-1 "Critical Stress-Tests"
+    quadrant-2 "Monitor But Do Not Prepare"
+    quadrant-3 "Noise"
+    quadrant-4 "Over-Prepared"
+    "W1 Italian Mid-Tier Bank Run": [0.08, 0.92]
+    "W2 Surprise US Exec Order Section 301": [0.10, 0.82]
+    "W3 CJEU Preliminary Ruling Narrowing Art 83": [0.06, 0.78]
+    "W4 Major EPP or SD MEP Defection": [0.07, 0.55]
+    "W5 Energy Market Shock": [0.08, 0.70]
+    "W6 EP Institutional Crisis (LuxLeaks-style)": [0.05, 0.88]
+    "W7 German Coalition Collapse": [0.06, 0.82]
+    "W8 UK Trade Realignment Signal": [0.12, 0.48]
 ```
 
 ---

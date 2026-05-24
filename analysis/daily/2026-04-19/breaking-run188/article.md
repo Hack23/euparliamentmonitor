@@ -1,7 +1,7 @@
 ---
 title: "Run 188, 19 April 2026"
 description: "Run 188 (evening probe, Easter Recess Day 7, Series Run 10) records significance 18/50 — a modest upward drift from the 14–15/50 noise floor recorded earlier in the day (Runs…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-19", "run 188", "April", "evening", "probe", "Easter", "Recess", "Series", "records", "significance"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-19", "April", "evening", "probe"]
 date: 2026-04-19
 article_type: breaking
 slug: 2026-04-19-breaking-188

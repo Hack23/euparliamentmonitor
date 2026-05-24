@@ -1,7 +1,7 @@
 ---
 title: "Russia-Ukraine Accountability Resolution"
 description: "The Parliament adopted \"Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine\" — a binding political statement…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-04", "run breaking-run-2026-05-04", "Russia", "Ukraine", "Accountability", "Resolution", "Parliament", "adopted", "Ensuring", "justice"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-04", "Russia", "Ukraine", "Accountability"]
 date: 2026-05-04
 article_type: breaking
 slug: 2026-05-04-breaking

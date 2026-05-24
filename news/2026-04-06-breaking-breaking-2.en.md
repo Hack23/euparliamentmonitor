@@ -1,7 +1,7 @@
 ---
 title: "Easter Monday Run 2: Dual-Track Coalition Discovery | 2026-04-06"
 description: "*The Run-2 distinguishing contribution — produced 06:45 UTC on Easter Monday — is the Dual-Track Coalition Pattern discovery: SRMR3 (TA-10-2026-0092) passed via a right-of-centre…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Dual", "Track", "Coalition", "Discovery", "distinguishing", "contribution", "produced"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Dual"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-2

@@ -1,7 +1,7 @@
 ---
 title: "Propositions | 2026-04-03"
 description: "No new Commission propositions or EP own-initiative procedures opened on 2026-04-03. Run 9be5bca6-de96-4303-80ff-33cb5f24b51b returned \"Quantitative risk scoring across 0…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-03", "run 9be5bca6-de96-4303-80ff-33cb5f24b51b", "Commission", "initiative", "procedures", "opened", "9be5bca6", "de96", "80ff", "33cb5f24b51b"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-03", "Commission", "initiative", "procedures"]
 date: 2026-04-03
 article_type: propositions
 slug: 2026-04-03-propositions

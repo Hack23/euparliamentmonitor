@@ -1,7 +1,7 @@
 ---
 title: "Committee Reports: Easter Recess Day 11 Retrospective | 2026-04-06"
 description: "This Easter Monday committee-reports run produces the committee-power retrospective on the pre-recess corpus*, the analytical complement to the breaking-news cluster on the same…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-06", "run 7de43851-7add-4544-bc46-9d67a82117ca", "Committee", "Reports", "Easter", "Recess", "Retrospective", "This", "Monday", "produces"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-06", "Committee", "Reports", "Easter"]
 date: 2026-04-06
 article_type: committee-reports
 slug: 2026-04-06-committee-reports

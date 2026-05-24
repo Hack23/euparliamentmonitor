@@ -1,7 +1,7 @@
 ---
 title: "Committee Reports Run 53, 17 April 2026"
 description: "Run 53 is a recess-window analytical run that re-scores the March 2026 Strasbourg multi-domain legislative sprint across five committee jurisdictions (BUDG, AFET, AGRI, IMCO…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run53", "2026-04-17", "run f1dc673b-2d98-4641-930e-4d14497da488", "Committee", "Reports", "April", "recess", "window", "analytical", "that", "scores", "March", "Strasbourg"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Committee Reports Run53", "2026-04-17", "Committee", "Reports", "April", "recess", "window", "analytical"]
 date: 2026-04-17
 article_type: committee-reports-run53
 slug: 2026-04-17-committee-reports-run53

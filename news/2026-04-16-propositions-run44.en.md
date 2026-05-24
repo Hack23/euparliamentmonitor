@@ -1,7 +1,7 @@
 ---
 title: "Propositions Run 44, 16 April 2026"
 description: "Run 44 documents that the European Parliament has entered the 27 March – 26 April inter-session gap carrying the most ambitious legislative portfolio of EP10's current term."
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Propositions Run44", "2026-04-16", "run a44262b7-c7fe-4d49-8de1-d7e07919e39b", "Propositions", "April", "documents", "that", "European", "Parliament", "entered", "March", "inter", "session"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Propositions Run44", "2026-04-16", "Propositions", "April", "documents", "that", "European", "Parliament"]
 date: 2026-04-16
 article_type: propositions-run44
 slug: 2026-04-16-propositions-run44

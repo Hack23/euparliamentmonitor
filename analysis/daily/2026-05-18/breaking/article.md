@@ -1,7 +1,7 @@
 ---
 title: "Extended Executive Brief — Breaking News"
 description: "The April 28-30, 2026 European Parliament plenary session should be understood not merely as a discrete set of legislative outputs, but as a strategic inflection point…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-18", "run breaking-run262-1779068047", "Extended", "Executive", "Brief", "News", "April", "European", "Parliament", "plenary"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-18", "Extended", "Executive", "Brief"]
 date: 2026-05-18
 article_type: breaking
 slug: 2026-05-18-breaking

@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Propositions — 8 May 2026"
-description: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint, adopting 57 texts across the period January–April 2026 (101…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-08", "run propositions-run425-1778219258", "Parliament", "European", "completed", "April", "plenary", "session", "with", "historically"]
+description: "Admissibility: A2 — Official EP sources (Open Data Portal, adopted texts, tracklegislation). Plenary vote data from latestvotes tool unavailable this week (EP in recess…"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-08", "Parliament", "Admissibility", "Official"]
 date: 2026-05-08
 article_type: propositions
 slug: 2026-05-08-propositions

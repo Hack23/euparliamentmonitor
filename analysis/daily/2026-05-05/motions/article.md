@@ -1,7 +1,7 @@
 ---
 title: "Strategic significance"
 description: "Two immunity waivers against Polish MEPs within five weeks represents an acceleration of the pattern established in EP10. It signals that: (1) Poland's judicial authority is…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-05", "run motions-run-1777963626", "Strategic", "significance", "immunity", "waivers", "against", "Polish", "MEPs", "within"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-05", "Strategic", "significance", "immunity"]
 date: 2026-05-05
 article_type: motions
 slug: 2026-05-05-motions

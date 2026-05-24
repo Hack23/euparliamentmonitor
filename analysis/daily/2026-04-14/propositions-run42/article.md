@@ -1,7 +1,7 @@
 ---
 title: "Propositions: Day-Before-Tariff Implementation Briefing | 2026-04-14"
 description: "Parliament returns from Easter recess facing what the run characterises as \"the most consequential first-day-back agenda of the 10th parliamentary term\" — TA-10-2026-0096 US…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Propositions Run42", "2026-04-14", "run 68d9a632-9043-4f92-8e7c-ff5d558e91a5", "Propositions", "Before", "Tariff", "Implementation", "Briefing", "Parliament", "returns", "from", "Easter", "recess"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Propositions Run42", "2026-04-14", "Propositions", "Before", "Tariff", "Implementation", "Briefing", "Parliament"]
 date: 2026-04-14
 article_type: propositions-run42
 slug: 2026-04-14-propositions-run42

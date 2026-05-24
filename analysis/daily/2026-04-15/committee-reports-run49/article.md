@@ -1,7 +1,7 @@
 ---
 title: "Committee Reports Run 49, 15 April 2026"
 description: "Run 49 records the operational activation of BOTH TA-10-2026-0096 and TA-10-2026-0097 on 15 April — the 21-day compliance window from the 26 March plenary adoption has expired…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run49", "2026-04-15", "run 0ab28c94-41e0-433e-b6cf-599f19f30e71", "Committee", "Reports", "April", "records", "operational", "activation", "BOTH", "compliance", "window", "from"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Committee Reports Run49", "2026-04-15", "Committee", "Reports", "April", "records", "operational", "activation"]
 date: 2026-04-15
 article_type: committee-reports-run49
 slug: 2026-04-15-committee-reports-run49

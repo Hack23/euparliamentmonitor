@@ -1,7 +1,7 @@
 ---
 title: "Run 187, 19 April 2026"
 description: "Run 187 (mid-day probe, Easter Recess Day 8, Series Run 9) records significance 14/50 — even lower than Run 190's Easter Monday floor, confirming that mid-recess…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-19", "run 187", "April", "probe", "Easter", "Recess", "Series", "records", "significance", "even"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-19", "April", "probe", "Easter"]
 date: 2026-04-19
 article_type: breaking
 slug: 2026-04-19-breaking-187
@@ -747,18 +747,18 @@ quadrantChart
     title Risk Matrix — EU Parliament Easter Recess Day 8 (Run 187)
     x-axis "Low Likelihood" --> "High Likelihood"
     y-axis "Low Impact" --> "High Impact"
-    quadrant-1 Critical (Monitor Continuously)
-    quadrant-2 High (Prepare Response)
-    quadrant-3 Low (Accept)
-    quadrant-4 Medium (Watch)
-    US Trade Escalation: [0.45, 0.80]
-    EU-China Political Backlash: [0.35, 0.55]
-    API Non-Restoration by April 27: [0.20, 0.50]
-    BRRD3 Bundesrat Opposition: [0.40, 0.45]
-    Housing Deadline Missed: [0.50, 0.35]
-    Coalition Fracture: [0.10, 0.85]
-    USTR Section 301 Announcement: [0.45, 0.65]
-    Recess Emergency Session: [0.08, 0.70]
+    quadrant-1 "Critical (Monitor Continuously)"
+    quadrant-2 "High (Prepare Response)"
+    quadrant-3 "Low (Accept)"
+    quadrant-4 "Medium (Watch)"
+    "US Trade Escalation": [0.45, 0.80]
+    "EU-China Political Backlash": [0.35, 0.55]
+    "API Non-Restoration by April 27": [0.20, 0.50]
+    "BRRD3 Bundesrat Opposition": [0.40, 0.45]
+    "Housing Deadline Missed": [0.50, 0.35]
+    "Coalition Fracture": [0.10, 0.85]
+    "USTR Section 301 Announcement": [0.45, 0.65]
+    "Recess Emergency Session": [0.08, 0.70]
 ```
 
 ---

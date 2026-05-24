@@ -1,7 +1,7 @@
 ---
 title: "Committee Reports | 2026-04-03"
 description: "No committee documents indexed on 2026-04-03; the EP feed API is in confirmed DEGRADED state (see sibling breaking-2 formal assessment). Run 5568290b-7656-4c6e-ae61-b57740690541…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-03", "run 5568290b-7656-4c6e-ae61-b57740690541", "Committee", "Reports", "documents", "indexed", "feed", "confirmed", "DEGRADED", "state"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-03", "Committee", "Reports", "documents"]
 date: 2026-04-03
 article_type: committee-reports
 slug: 2026-04-03-committee-reports

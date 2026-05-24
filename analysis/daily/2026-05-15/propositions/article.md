@@ -1,7 +1,7 @@
 ---
 title: "Legislative Output Surge — Spring 2026 Sprint"
 description: "The European Parliament has demonstrated exceptional legislative velocity in Q1-Q2 2026, adopting 51 formal texts between January and May 2026."
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-15", "Legislative", "Output", "Surge", "Spring", "Sprint", "European", "Parliament", "demonstrated", "exceptional"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-15", "Legislative", "Output", "Surge"]
 date: 2026-05-15
 article_type: propositions
 slug: 2026-05-15-propositions

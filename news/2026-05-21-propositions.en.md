@@ -1,7 +1,7 @@
 ---
 title: "AI Trade Policy Is Becoming the Dominant Legislative Battleground"
 description: "The adoption of T10-0183/2026 on \"Opportunities and challenges presented by a comprehensive artificial intelligence strategy for EU trade\" on 20 May 2026 establishes Parliament's…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-21", "run propositions-run268-1779344794", "Trade", "Policy", "Becoming", "Dominant", "Legislative", "Battleground", "adoption", "Opportunities"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-21", "Trade", "Policy", "Becoming"]
 date: 2026-05-21
 article_type: propositions
 slug: 2026-05-21-propositions
@@ -2357,14 +2357,10 @@ the legal framework for future energy-specific agreements.
 ### PESTLE Summary
 
 ```mermaid
-radar
+radar-beta
     title PESTLE Factor Impact Scores (0-10)
-    Political : 8
-    Economic : 7
-    Social : 5
-    Technological : 9
-    Legal : 8
-    Environmental : 7
+    axis a1["Political"], a2["Economic"], a3["Social"], a4["Technological"], a5["Legal"], a6["Environmental"]
+    curve c1["PESTLE Factor Impact Scores (0-10)"]{8, 7, 5, 9, 8, 7}
 ```
 
 ### Historical Baseline

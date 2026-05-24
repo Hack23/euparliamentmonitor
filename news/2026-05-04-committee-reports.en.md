@@ -1,7 +1,7 @@
 ---
 title: "EP Committee Reports Week 27 Apr–4 May 2026"
 description: "This synthesis applies the Intelligence Community (IC) structured analytic technique of Key Assumptions Check (KAC) combined with Convergent Evidence Mapping to identify…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-04", "run committee-reports-run-1777871291", "Committee", "Reports", "Week", "This", "synthesis", "applies", "Intelligence", "Community"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-04", "Committee", "Reports", "Week"]
 date: 2026-05-04
 article_type: committee-reports
 slug: 2026-05-04-committee-reports

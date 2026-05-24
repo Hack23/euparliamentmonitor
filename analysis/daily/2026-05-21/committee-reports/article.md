@@ -1,7 +1,7 @@
 ---
 title: "Key intelligence"
 description: "It is likely (65–75%) that the European Parliament's committee season for Spring 2026 will deliver its primary legislative objectives — SAFE regulation adoption, Omnibus…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-21", "run committee-reports-run264-1779341641", "intelligence", "likely", "that", "European", "Parliament", "committee", "season", "Spring"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-21", "intelligence", "likely", "that"]
 date: 2026-05-21
 article_type: committee-reports
 slug: 2026-05-21-committee-reports

@@ -1,7 +1,7 @@
 ---
 title: "Threat Level"
 description: "🟡 MEDIUM | WEP: LIKELY (55–70%) that this narrative is active this week | Admiralty: B1 Published 2026-05-22. for democratic-accountability readers tracking EU institutional…"
-keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-05-22", "run week-ahead-run270-1779437320", "Threat", "Level", "MEDIUM", "LIKELY", "that", "this", "narrative", "active"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-22", "Threat", "Level", "MEDIUM"]
 date: 2026-05-22
 article_type: week-ahead
 slug: 2026-05-22-week-ahead
