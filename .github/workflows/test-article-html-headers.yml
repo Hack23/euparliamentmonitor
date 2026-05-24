@@ -89,6 +89,15 @@ jobs:
           tail -n 30 builds/seo-dump/brief-seo-preview-en.txt >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Validate resolved article SEO (hard gate)
+        # Hard CI gate covering the Stage-D contract: empty title/description,
+        # CJK-weighted length budgets, trailing-ellipsis truncation, reserved
+        # Stage-B prefixes, leaky run-ids / "analysis run" jargon, and the
+        # composeContextualTitle uniqueness contract for same-(date,
+        # articleType) republishes. Pairs with validate:manifest-seo which
+        # audits the Stage-B input contract.
+        run: npm run validate:seo -- --report builds/seo-dump/validate-article-seo.json
+
       - name: Upload SEO preview artifacts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
