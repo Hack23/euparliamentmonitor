@@ -166,7 +166,7 @@ function rewriteQuadrantChartLine(line) {
         const lhs = (m[2] ?? '').trim();
         const rhs = (m[3] ?? '').trim();
         const lhsHasQuotedLabel = /^"[^"]*"\s+\S/.test(lhs);
-        const rhsIsBareNumber = /^-?\d+(?:\.\d+)?$/.test(rhs);
+        const rhsIsBareNumber = /^-?\d+$/.test(rhs) || /^-?\d+\.\d+$/.test(rhs);
         if (lhsHasQuotedLabel && rhsIsBareNumber) {
             return line;
         }
