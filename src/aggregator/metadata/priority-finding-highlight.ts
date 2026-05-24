@@ -22,6 +22,7 @@ import {
   stripLeadingProseLabel,
   truncateDescription,
 } from './text-utils.js';
+import { findTitleRejectionReason } from './title-rejection.js';
 
 /**
  * Section headings inside the executive brief that introduce the
@@ -428,6 +429,13 @@ function buildPriorityResult(
 ): { readonly headline: string; readonly summary: string } | null {
   const cleaned = cleanPriorityHeadline(rawHeadline);
   if (cleaned.length < 5) return null;
+  // Reject bold-prose section labels (`Strategic significance`,
+  // `Threat Level`, `Convergence themes`, …) and other denylisted
+  // tokens. Without this, the priority-finding loop would surface a
+  // `**Strategic significance:** …` line — which the executive-brief
+  // template uses inside every dossier subsection — as the article
+  // title. See `title-rejection.ts` for the full denylist.
+  if (findTitleRejectionReason(cleaned)) return null;
   const summaryLines = collectPrioritySummaryLines(tail, lines, i);
   const summary = truncateDescription(summaryLines.join(' '));
   return { headline: cleaned, summary };

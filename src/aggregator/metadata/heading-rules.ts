@@ -262,25 +262,32 @@ export function stripArtifactCategoryAffix(heading: string): string {
   const normalized = normaliseCategoryHeading(trimmed);
   const skip = trimmed.length - normalized.length;
   const visible = trimmed.slice(skip < 0 ? 0 : skip);
-  const visibleClean = visible.replace(/\s*\([^)]{1,80}\)\s*$/u, '').trim();
-  const normalizedClean = normaliseCategoryHeading(visibleClean);
+  // For trailing-prefix detection (e.g. `Topic — Deep Analysis (date)`),
+  // we strip ANY trailing parenthetical because both the prefix and its
+  // date stamp are noise to remove. For leading-prefix detection (e.g.
+  // `Executive Brief — Year Ahead (May 2026 – May 2027)`), we keep the
+  // trailing parenthetical so substantive context survives into
+  // `cleanupAffixCore`, which only strips pure date stamps.
+  const visibleParenStripped = visible.replace(/\s*\([^)]{1,80}\)\s*$/u, '').trim();
+  const normalizedVisible = normaliseCategoryHeading(visible);
+  const normalizedParenStripped = normaliseCategoryHeading(visibleParenStripped);
 
   for (const prefix of sortedPrefixes) {
     for (const sep of [' — ', ' – ', ' - ', ': ']) {
       const candidate = `${prefix}${sep}`;
-      if (normalizedClean.startsWith(candidate)) {
-        const core = visibleClean.slice(candidate.length).trim();
+      if (normalizedVisible.startsWith(candidate)) {
+        const core = visible.slice(candidate.length).trim();
         return cleanupAffixCore(core);
       }
     }
     for (const sep of [' — ', ' – ', ' - ', ': ']) {
       const candidate = `${sep}${prefix}`;
-      if (normalizedClean.endsWith(candidate)) {
-        const core = visibleClean.slice(0, visibleClean.length - candidate.length).trim();
+      if (normalizedParenStripped.endsWith(candidate)) {
+        const core = visibleParenStripped.slice(0, visibleParenStripped.length - candidate.length).trim();
         return cleanupAffixCore(core);
       }
     }
-    if (normalizedClean === prefix) return '';
+    if (normalizedParenStripped === prefix) return '';
   }
   return trimmed;
 }
@@ -296,8 +303,14 @@ export function stripArtifactCategoryAffix(heading: string): string {
  * @returns Cleaned editorial-topic core, or empty string when too short
  */
 function cleanupAffixCore(core: string): string {
-  const withoutTrailingParens = core.replace(/\s*\([^)]{1,80}\)\s*$/u, '').trim();
-  const withoutTrailingPunct = withoutTrailingParens.replace(/[—–:;,.\s-]+$/u, '').trim();
+  // Only strip parenthetical content that is a pure date stamp
+  // (e.g. `(2026-05-08)`, `(May 2026)`, `(8 May)`). Substantive
+  // parentheticals such as `(May 2026 – May 2027)`, `(2024-2029
+  // Mandate, Mid-Term Review)`, or `(2026 → 2031)` carry editorial
+  // context and stay in the title.
+  const datelikeParen = /\s*\(\s*(?:\d{4}-\d{2}-\d{2}|\d{1,2}\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)(?:\s+\d{4})?|(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{4}|Week\s+of\s+\d{4}-\d{2}-\d{2})\s*\)\s*$/iu;
+  const withoutDateParen = core.replace(datelikeParen, '').trim();
+  const withoutTrailingPunct = withoutDateParen.replace(/[—–:;,.\s-]+$/u, '').trim();
   if (withoutTrailingPunct.length < 5) return '';
   return withoutTrailingPunct;
 }

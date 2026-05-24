@@ -121,14 +121,35 @@ function probeCandidateForHighlight(runDir, rel, articleType, date) {
     if (headline && !isGenericHeading(headline, articleType, date)) {
         return { cleanHighlight: { headline: truncateTitle(headline), summary } };
     }
-    // The artefact H1 is generic boilerplate (`Executive Brief — EU Parliament
-    // Breaking News`). Before falling back to a stripped category-core
-    // headline, try to surface the FIRST NAMED PRIORITY FINDING from the
-    // brief's `## Key Developments` / `## Priority Dossiers` /
-    // `## Top Findings` block. This is the canonical Stage-B authoring
-    // pattern (see `analysis/templates/executive-brief.md`) — every brief
-    // lists its top dossiers as `**Name** (procedure-code, date) — paragraph`
-    // or `### N. Name (committee)`. Surfacing that name produces a
+    // The artefact H1 is classified generic by the boilerplate matcher
+    // (`Executive Brief — EU Parliament Motions | 28 April – 5 May 2026`
+    // matches because it starts with the `Executive Brief —` affix). Before
+    // falling through to deeper inference, try the *stripped-affix* form
+    // FIRST — when authors hand-craft a brief H1 with date / session
+    // context (e.g. `… EU Parliament Motions | 28 April – 5 May 2026`,
+    // `… EP Committee Reports · Week of 2026-05-14–21`,
+    // `… Year Ahead — May 2026–May 2027`), the stripped tail is the
+    // canonical editorial title and must win over priority-finding
+    // inference. This fixes title-leaks where the priority-finding
+    // extractor would otherwise surface a bold-prose section label such
+    // as `Strategic significance`, `Event description`, `Threat Level`.
+    if (headline) {
+        const stripped = stripArtifactCategoryAffix(headline);
+        if (stripped &&
+            stripped !== headline &&
+            !isGenericHeading(stripped, articleType, date)) {
+            return { cleanHighlight: { headline: truncateTitle(stripped), summary } };
+        }
+    }
+    // Only when the brief H1 is both generic AND its stripped form is
+    // still generic (e.g. bare `Executive Brief — EU Parliament
+    // Propositions` with no date) do we attempt to surface the FIRST
+    // NAMED PRIORITY FINDING from the brief's `## Key Developments` /
+    // `## Priority Dossiers` / `## Top Findings` block. This is the
+    // canonical Stage-B authoring pattern (see
+    // `analysis/templates/executive-brief.md`) — every brief lists its
+    // top dossiers as `**Name** (procedure-code, date) — paragraph` or
+    // `### N. Name (committee)`. Surfacing that name produces a
     // distinctive editorial headline ("Digital Markets Act Enforcement",
     // "Ukraine War Accountability") instead of a stripped category noun.
     const priority = extractPriorityFindingHighlight(body);

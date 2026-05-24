@@ -35,6 +35,7 @@ import type { ResolveMetadataOptions } from './types.js';
 import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
 import { CROSS_SITE_KEYWORDS, isNoiseKeywordToken } from './keyword-filters.js';
+import { findTitleRejectionReason } from './title-rejection.js';
 
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
 const SEO_TITLE_FLOOR = 20;
@@ -115,6 +116,32 @@ export function resolveEditorialContent(opts: ResolveMetadataOptions): {
     if (highlightSummary) {
       artefactSummary = highlightSummary;
     }
+  }
+
+  // Per the brief-only SEO contract (2026-05-24): when an executive
+  // brief is present, we **never** fall through to the aggregated
+  // `markdown` content (which is the assembled `article.md` body
+  // including all artefact prose). The brief is the only sanctioned
+  // source for `<title>` / `<meta description>` / keywords; if it
+  // failed to yield a usable headline above, the resolver returns
+  // empty so the localized template fallback (Breaking | YYYY-MM-DD,
+  // etc.) wins. Only legacy runs that ship without a brief at all are
+  // allowed to reach the aggregated-markdown fallback.
+  const briefPresent = briefBody.trim().length > 0;
+  if (briefPresent) {
+    if (artefactSummary) {
+      const firstSentence = extractFirstSentence(artefactSummary);
+      return {
+        headline: truncateTitle(firstSentence || artefactSummary),
+        summary: briefingSummary || artefactSummary,
+        extendedSummary: briefingExtended || extractExtendedLedeAfterHeading(markdown),
+      };
+    }
+    return {
+      headline: '',
+      summary: briefingSummary,
+      extendedSummary: briefingExtended,
+    };
   }
 
   const aggregatedH1 = extractFirstH1(markdown);
@@ -298,7 +325,16 @@ function sanitizeDescriptionCandidate(value: string): string {
 
 function isUsableResolvedTitle(value: string): boolean {
   const cleaned = stripLeadingFragmentSeparator(value);
-  return cleaned.length >= SEO_TITLE_FLOOR && !hasLeakySeoToken(cleaned);
+  if (cleaned.length < SEO_TITLE_FLOOR) return false;
+  if (hasLeakySeoToken(cleaned)) return false;
+  // Reject section-header leaks, ellipsis-truncated strings, doc-IDs,
+  // and full-sentence fragments. See `title-rejection.ts` for the
+  // canonical denylist + structural rules. Without these guards, the
+  // 216-article audit (2026-05-24) showed `Strategic significance`,
+  // `Threat Level`, `Convergence themes`, `TA-10-2026-0160`, and
+  // ellipsis-cut paragraphs reaching the `<title>` surface.
+  if (findTitleRejectionReason(cleaned)) return false;
+  return true;
 }
 
 function deriveHeadlineFromSummary(summary: string): string {
