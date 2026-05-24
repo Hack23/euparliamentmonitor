@@ -11,12 +11,13 @@
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
-radar
+radar-beta
     title EU Parliament Legislative SWOT Q1-Q2 2026
-    S ["Strengths"] : 78, 72, 85, 68, 90
-    W ["Weaknesses"] : 65, 80, 70, 75, 60
-    O ["Opportunities"] : 70, 65, 80, 55, 75
-    T ["Threats"] : 60, 75, 55, 80, 70
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"]
+    curve c1["Strengths"]{78, 72, 85, 68, 90}
+    curve c2["Weaknesses"]{65, 80, 70, 75, 60}
+    curve c3["Opportunities"]{70, 65, 80, 55, 75}
+    curve c4["Threats"]{60, 75, 55, 80, 70}
 ```
 
 ---

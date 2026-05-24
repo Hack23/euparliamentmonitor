@@ -92,18 +92,12 @@ This is the most politically significant of the four immunity cases because:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title April 28 Session — Significance Profile
-    "Institutional Salience"
-    "Political Significance"
-    "Legislative Impact"
-    "Public Salience"
-    "Temporal Urgency"
-    "Cross-Pillar Effect"
-    "Precedent Value"
-    "MFF 2028-2034" [5, 4, 5, 3, 3, 5, 4]
-    "Consent Legislation" [4, 5, 4, 5, 3, 3, 5]
-    "Obajtek Immunity" [4, 5, 3, 5, 3, 3, 4]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"], a7["A7"]
+    curve c1["MFF 2028-2034"]{5, 4, 5, 3, 3, 5, 4}
+    curve c2["Consent Legislation"]{4, 5, 4, 5, 3, 3, 5}
+    curve c3["Obajtek Immunity"]{4, 5, 3, 5, 3, 3, 4}
 ```
 
 ---

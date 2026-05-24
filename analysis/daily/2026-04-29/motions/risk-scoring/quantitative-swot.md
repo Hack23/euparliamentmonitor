@@ -157,17 +157,10 @@ EP blocking the MFF (as threatened in 2013 and 2020) creates a constitutional cr
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title SWOT Strength/Threat Profile
-    "Coalition coherence"
-    "Rule-of-law credibility"
-    "Legislative breadth"
-    "Voting transparency"
-    "MFF opportunity"
-    "Gender rights opportunity"
-    "Far-right threat"
-    "Democratic backsliding threat"
-    current [78, 71, 65, 45, 82, 68, 68, 61]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"], a7["A7"], a8["A8"]
+    curve c1["current"]{78, 71, 65, 45, 82, 68, 68, 61}
 ```
 
 | Category | Key Factor | Score | Trend |

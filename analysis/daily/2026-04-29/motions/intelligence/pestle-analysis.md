@@ -108,15 +108,10 @@ The reformed GSP includes stronger Paris Agreement compliance requirements for b
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title PESTLE Impact Profile
-    "Political"
-    "Economic"
-    "Social"
-    "Technological"
-    "Legal"
-    "Environmental"
-    current [85, 75, 80, 45, 80, 65]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"]
+    curve c1["current"]{85, 75, 80, 45, 80, 65}
 ```
 
 | Dimension | Dominant Factor | Impact Level | Trend |

@@ -522,15 +522,14 @@ The European Commission retains exclusive legislative initiative, giving it:
 
 ```mermaid
 %%{init: {"theme": "dark"}}%%
-radar
+radar-beta
     title Political Forces Intensity (EP10 2026-27)
-    x-axis Rivalry
-    y-axis New Entrants
-    Rivalry: [8]
-    New Entrants: [5]
-    Commission Power: [8]
-    Citizens Power: [5]
-    Substitute Threats: [4]
+    axis a1["Rivalry"]
+    curve c1["Rivalry"]{8}
+    curve c2["New Entrants"]{5}
+    curve c3["Commission Power"]{8}
+    curve c4["Citizens Power"]{5}
+    curve c5["Substitute Threats"]{4}
 ```
 
 **Net Forces Summary:**

@@ -121,18 +121,14 @@ An economic shock (US tariff escalation, energy price spike, financial contagion
 ## Disruption Resilience Assessment
 
 ```mermaid
-radar
+radar-beta
     title Legislative Disruption Resilience by Domain
-    MFF Budget Architecture
-    Immunity Proceedings
-    Consent Legislation
-    Economic Shock Resistance
-    Institutional Cohesion
-    "MFF Budget Architecture" : 40
-    "Immunity Proceedings" : 65
-    "Consent Legislation" : 25
-    "Economic Shock Resistance" : 55
-    "Institutional Cohesion" : 75
+    axis a1["MFF Budget Architecture"], a2["Immunity Proceedings"], a3["Consent Legislation"], a4["Economic Shock Resistance"], a5["Institutional Cohesion"]
+    curve c1["MFF Budget Architecture"]{40, 0, 0, 0, 0}
+    curve c2["Immunity Proceedings"]{65, 0, 0, 0, 0}
+    curve c3["Consent Legislation"]{25, 0, 0, 0, 0}
+    curve c4["Economic Shock Resistance"]{55, 0, 0, 0, 0}
+    curve c5["Institutional Cohesion"]{75, 0, 0, 0, 0}
 ```
 
 **Interpretation:**

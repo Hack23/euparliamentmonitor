@@ -2769,16 +2769,16 @@ Cyprus presidency brought eastern neighbourhood and rule of law focus. The Febru
 This scorecard evaluates EP10's first year against the formal political mandates and campaign promises of each major political group, using adopted legislative acts as primary evidence.
 
 ```mermaid
-radar
+radar-beta
     title EP10 Group Mandate Fulfilment (First Year)
-    axis Security, Economy, Social, Environment, Democracy
-    EPP: 85, 75, 55, 40, 70
-    S&D: 70, 45, 65, 60, 75
-    PfE: 60, 65, 40, 25, 45
-    ECR: 70, 70, 40, 30, 60
-    Renew: 75, 70, 55, 50, 72
-    Greens: 60, 30, 60, 65, 75
-    Left: 55, 25, 70, 65, 70
+    axis a1["Security"], a2["Economy"], a3["Social"], a4["Environment"], a5["Democracy"]
+    curve c1["EPP"]{85, 75, 55, 40, 70}
+    curve c2["S&D"]{70, 45, 65, 60, 75}
+    curve c3["PfE"]{60, 65, 40, 25, 45}
+    curve c4["ECR"]{70, 70, 40, 30, 60}
+    curve c5["Renew"]{75, 70, 55, 50, 72}
+    curve c6["Greens"]{60, 30, 60, 65, 75}
+    curve c7["Left"]{55, 25, 70, 65, 70}
 ```
 
 *Note: Mermaid radar charts may render as flowcharts in some environments. Data represents qualitative mandate fulfilment estimates (0-100 scale).*

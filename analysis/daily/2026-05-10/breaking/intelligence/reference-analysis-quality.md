@@ -261,13 +261,14 @@ Per `per-artifact-methodologies.md` quality signal requirements:
 ## �� ARTIFACT QUALITY RADAR — RUN 4 EXTENSION
 
 ```mermaid
-radar
+radar-beta
     title Artifact Quality Dimensions — 2026-05-10 Breaking News Run 4
-    Evidence_Citations [85, 70, 90, 75]
-    Analytical_Depth [80, 75, 85, 90]
-    Mermaid_Visuals [30, 60, 90, 95]
-    Data_Currency [65, 65, 65, 65]
-    Cross_References [70, 85, 90, 92]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"]
+    curve c1["Evidence_Citations"]{85, 70, 90, 75}
+    curve c2["Analytical_Depth"]{80, 75, 85, 90}
+    curve c3["Mermaid_Visuals"]{30, 60, 90, 95}
+    curve c4["Data_Currency"]{65, 65, 65, 65}
+    curve c5["Cross_References"]{70, 85, 90, 92}
 ```
 
 ## 📈 FLOOR COMPLIANCE CHART — ALL ARTIFACTS

@@ -624,7 +624,7 @@ For each major policy decision, driving forces (pushing toward adoption/implemen
 
 ```mermaid
 graph LR
-    subgraph Driving Forces
+    subgraph sg_1 ["Driving Forces"]
         D1[Voter Demand +5]
         D2[Legal Framework +5]
         D3[EP Assertiveness +4]
@@ -632,15 +632,15 @@ graph LR
         D5[Political Pressure +3]
         D6[Global Precedent +3]
     end
-    subgraph Restraining Forces
+    subgraph sg_2 ["Restraining Forces"]
         R1[Big Tech Lobby -4]
         R2[Commission Resistance -3]
         R3[US Retaliation -3]
         R4[Court Delays -3]
         R5[EPP Conservatives -2]
     end
-    Driving Forces --> RESULT[Net: +9 Strong Driving]
-    Restraining Forces --> RESULT
+    sg_1 --> RESULT["Net: +9 Strong Driving"]
+    sg_2 --> RESULT
 ```
 
 ### Ukraine STCA — Force Field

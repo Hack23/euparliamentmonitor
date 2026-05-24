@@ -344,18 +344,12 @@ This is the most politically significant of the four immunity cases because:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title April 28 Session — Significance Profile
-    "Institutional Salience"
-    "Political Significance"
-    "Legislative Impact"
-    "Public Salience"
-    "Temporal Urgency"
-    "Cross-Pillar Effect"
-    "Precedent Value"
-    "MFF 2028-2034" [5, 4, 5, 3, 3, 5, 4]
-    "Consent Legislation" [4, 5, 4, 5, 3, 3, 5]
-    "Obajtek Immunity" [4, 5, 3, 5, 3, 3, 4]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"], a7["A7"]
+    curve c1["MFF 2028-2034"]{5, 4, 5, 3, 3, 5, 4}
+    curve c2["Consent Legislation"]{4, 5, 4, 5, 3, 3, 5}
+    curve c3["Obajtek Immunity"]{4, 5, 3, 5, 3, 3, 4}
 ```
 
 ---
@@ -643,14 +637,10 @@ Porter's Five Forces is adapted here for EP political dynamics:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title EP April 28 Forces Analysis
-    "EP Agenda Power"
-    "Council Countervailing Power"
-    "Commission Proposing Power"
-    "Far-Right Disruption"
-    "Civil Society Support"
-    current [7, 6, 6, 4, 7]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"]
+    curve c1["current"]{7, 6, 6, 4, 7}
 ```
 
 | Force | Direction | Strength | Net Effect |
@@ -1637,17 +1627,10 @@ EP blocking the MFF (as threatened in 2013 and 2020) creates a constitutional cr
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title SWOT Strength/Threat Profile
-    "Coalition coherence"
-    "Rule-of-law credibility"
-    "Legislative breadth"
-    "Voting transparency"
-    "MFF opportunity"
-    "Gender rights opportunity"
-    "Far-right threat"
-    "Democratic backsliding threat"
-    current [78, 71, 65, 45, 82, 68, 68, 61]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"], a7["A7"], a8["A8"]
+    curve c1["current"]{78, 71, 65, 45, 82, 68, 68, 61}
 ```
 
 | Category | Key Factor | Score | Trend |
@@ -1767,19 +1750,14 @@ xychart-beta
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title Political Group Capital Position (April 28 Contribution)
-    "Rule-of-law credibility"
-    "Gender rights leadership"
-    "Budget/MFF influence"
-    "Coalition building capacity"
-    "Media reputation"
-    "Civil society alignment"
-    EPP [55, 40, 70, 75, 60, 50]
-    SD [75, 85, 65, 70, 70, 80]
-    Renew [70, 75, 60, 65, 70, 70]
-    ECR [15, 20, 35, 40, 25, 20]
-    PfE [20, 15, 25, 25, 20, 15]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"]
+    curve c1["EPP"]{55, 40, 70, 75, 60, 50}
+    curve c2["SD"]{75, 85, 65, 70, 70, 80}
+    curve c3["Renew"]{70, 75, 60, 65, 70, 70}
+    curve c4["ECR"]{15, 20, 35, 40, 25, 20}
+    curve c5["PfE"]{20, 15, 25, 25, 20, 15}
 ```
 
 **Summary:**
@@ -2363,15 +2341,10 @@ The reformed GSP includes stronger Paris Agreement compliance requirements for b
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title PESTLE Impact Profile
-    "Political"
-    "Economic"
-    "Social"
-    "Technological"
-    "Legal"
-    "Environmental"
-    current [85, 75, 80, 45, 80, 65]
+    axis a1["A1"], a2["A2"], a3["A3"], a4["A4"], a5["A5"], a6["A6"]
+    curve c1["current"]{85, 75, 80, 45, 80, 65}
 ```
 
 | Dimension | Dominant Factor | Impact Level | Trend |

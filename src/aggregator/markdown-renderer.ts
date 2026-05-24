@@ -194,6 +194,17 @@ function quoteMermaidLabel(raw: string): string {
 function rewriteQuadrantChartLine(line: string): string {
   let m = line.match(/^(\s*(?:x-axis|y-axis)\s+)(.+?)\s*-{2}>\s*(.+?)\s*$/);
   if (m) {
+    // If the line already has a quoted label followed by a numeric
+    // axis-start (e.g. `x-axis "Probability" 0 --> 100`), leave it
+    // alone — re-quoting would swallow the numeric token into the
+    // label string and produce a broken `x-axis "\"…\" 0" --> "100"`.
+    const lhs = (m[2] ?? '').trim();
+    const rhs = (m[3] ?? '').trim();
+    const lhsHasQuotedLabel = /^"[^"]*"\s+\S/.test(lhs);
+    const rhsIsBareNumber = /^-?\d+(?:\.\d+)?$/.test(rhs);
+    if (lhsHasQuotedLabel && rhsIsBareNumber) {
+      return line;
+    }
     return `${m[1]}${quoteMermaidLabel(m[2] ?? '')} --> ${quoteMermaidLabel(m[3] ?? '')}`;
   }
   m = line.match(/^(\s*(?:x-axis|y-axis)\s+)(.+?)\s*$/);

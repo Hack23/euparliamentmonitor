@@ -61,18 +61,18 @@ Strategic autonomy gains (defence, digital) benefit all member states. Housing l
 
 ```mermaid
 %%{init:{"theme":"dark","themeVariables":{"primaryColor":"#1565C0","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title EP Institutional Impact Profile 2026-2027
-    options
-        max: 10
-    "Legislative Credibility": 7
-    "Accountability Role": 6
-    "Democratic Legitimacy": 7
-    "Regulatory Power": 8
-    "Budget Leverage": 7
-    "International Influence": 6
-    "Coalition Stability": 5
-    "Social Responsiveness": 5
+    axis a1["options"]
+    curve c1["max"]{10}
+    curve c2["Legislative Credibility"]{7}
+    curve c3["Accountability Role"]{6}
+    curve c4["Democratic Legitimacy"]{7}
+    curve c5["Regulatory Power"]{8}
+    curve c6["Budget Leverage"]{7}
+    curve c7["International Influence"]{6}
+    curve c8["Coalition Stability"]{5}
+    curve c9["Social Responsiveness"]{5}
 ```
 
 **Notable:** Regulatory Power (8/10) and Legislative Credibility (7/10) are EP's strongest institutional dimensions in 2026–2027. Social Responsiveness (5/10) is the greatest gap — EP is perceived as better at technical regulation than at responding to citizens' lived economic concerns.

@@ -16,20 +16,15 @@ Mandate fulfilment scorecards are the mechanism democratic publics use to hold g
 ## Pillar-by-Pillar Scorecard
 
 ```mermaid
-radar
+radar-beta
     title EP10 Mandate Fulfilment by Pillar (Year 2)
-    Defence & Security
-    75
-    Digital Sovereignty
-    70
-    Economic Competitiveness
-    65
-    Rule of Law
-    45
-    Green Transition
-    35
-    Social Economy
-    50
+    axis a1["Defence & Security"], a2["Digital Sovereignty"], a3["Economic Competitiveness"], a4["Rule of Law"], a5["Green Transition"], a6["Social Economy"]
+    curve c1["Defence & Security"]{75, 0, 0, 0, 0, 0}
+    curve c2["Digital Sovereignty"]{70, 0, 0, 0, 0, 0}
+    curve c3["Economic Competitiveness"]{65, 0, 0, 0, 0, 0}
+    curve c4["Rule of Law"]{45, 0, 0, 0, 0, 0}
+    curve c5["Green Transition"]{35, 0, 0, 0, 0, 0}
+    curve c6["Social Economy"]{50, 0, 0, 0, 0, 0}
 ```
 
 | Pillar | Target | Delivery | Score | Trajectory |

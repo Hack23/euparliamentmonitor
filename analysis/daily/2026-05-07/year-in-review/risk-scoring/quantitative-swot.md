@@ -21,16 +21,13 @@ Each SWOT factor scored 0-100 on:
 - **Persistence** (0-20): Short-term vs. structural factor
 
 ```mermaid
-radar
+radar-beta
     title EP10 Year 2 Quantitative SWOT
-    Strengths
-    72
-    Weaknesses
-    58
-    Opportunities
-    65
-    Threats
-    70
+    axis a1["Strengths"], a2["Weaknesses"], a3["Opportunities"], a4["Threats"]
+    curve c1["Strengths"]{72, 0, 0, 0}
+    curve c2["Weaknesses"]{58, 0, 0, 0}
+    curve c3["Opportunities"]{65, 0, 0, 0}
+    curve c4["Threats"]{70, 0, 0, 0}
 ```
 
 ## Strengths Scoring (72/100)

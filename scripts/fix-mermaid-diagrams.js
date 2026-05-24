@@ -146,14 +146,42 @@ function clampQuadrantCoords(body) {
     const parts = m[4].split(',').map((s) => s.trim());
     if (parts.length !== 2) return line;
     const fixed = parts.map((v) => {
-      if (/^-?\d+$/.test(v)) return v;
       const n = Number.parseFloat(v);
       if (!Number.isFinite(n)) return v;
-      if (n >= 1) return '1';
-      if (n < 0) return '0';
-      return v;
+      // Integer 0 or 1 is accepted by the v11 lexer; otherwise normalise.
+      if (/^-?\d+$/.test(v) && (n === 0 || n === 1)) return v;
+      // Out-of-range value — divide by 100 when on a 0-100 scale, else clamp.
+      let scaled = n;
+      if (Math.abs(n) > 1) scaled = n / 100;
+      if (scaled >= 1) scaled = 0.99;
+      if (scaled < 0) scaled = 0;
+      // Keep 2 decimals; mermaid accepts arbitrary precision.
+      return scaled.toFixed(2).replace(/\.?0+$/, '') || '0';
     });
     return `${m[1]}${m[2]}${m[3]}[${fixed.join(', ')}]`;
+  }).join('\n');
+}
+
+/**
+ * Escape literal `"` characters that appear *inside* an already-quoted
+ * label on a `"Label": [x, y]` row. The v11 lexer treats every `"` as a
+ * string boundary, so e.g. `"תעריפי ארה"ב"` (a Hebrew label that contains
+ * a literal quote) is parsed as `"תעריפי ארה"` + lex error on `ב"`.
+ * We rewrite each row so that any `"` between the opening `"` and the
+ * closing `":` becomes `&quot;`.
+ *
+ * @param {string} body
+ * @returns {string}
+ */
+function escapeQuadrantInnerQuotes(body) {
+  return body.split('\n').map((line) => {
+    // Match a row that looks like `[indent]"<label-with-quotes>":[ws][x,y]`
+    // where the label spans up to the LAST `":` on the line.
+    const m = line.match(/^(\s*)"(.+)"\s*:\s*(\[[^\]]+\])\s*$/);
+    if (!m) return line;
+    const inner = m[2];
+    if (!inner.includes('"')) return line;
+    return `${m[1]}"${inner.replace(/"/g, '&quot;')}": ${m[3]}`;
   }).join('\n');
 }
 
@@ -166,7 +194,7 @@ function clampQuadrantCoords(body) {
  * @returns {string}
  */
 function fixQuadrantChart(body) {
-  return clampQuadrantCoords(sanitizeMermaidQuadrantChart(body));
+  return clampQuadrantCoords(escapeQuadrantInnerQuotes(sanitizeMermaidQuadrantChart(body)));
 }
 
 /**
@@ -332,8 +360,12 @@ function fixBarDiagram(body) {
     const line = lines[i];
     const t = line.match(/^(\s*)title\s+(.+?)\s*$/);
     if (t) { titleLine = `${indent}title "${t[2].replace(/^"|"$/g, '').replace(/"/g, '\\"')}"`; continue; }
+    // Quoted form: `"Label": N`
     const row = line.match(/^\s*"([^"]+)"\s*:\s*(-?\d+(?:\.\d+)?)\s*$/);
     if (row) { labels.push(row[1]); values.push(row[2]); continue; }
+    // Unquoted form: `LABEL: N` (e.g. `ECON: 5`, `MFF-2027: 3.5`)
+    const bare = line.match(/^\s*([A-Za-z][\w .&/+-]*?)\s*:\s*(-?\d+(?:\.\d+)?)\s*$/);
+    if (bare) { labels.push(bare[1].trim()); values.push(bare[2]); continue; }
     if (line.trim() === '' || line.trim().startsWith('%%')) preserved.push(line);
   }
   if (labels.length === 0) return lines.join('\n');
@@ -362,47 +394,206 @@ function fixBarDiagram(body) {
  * @returns {string}
  */
 function fixRadar(body) {
-  const lines = body.split('\n');
-  const first = firstContentLine(lines);
+  const rawLines = body.split('\n');
+  const first = firstContentLine(rawLines);
   if (!first) return body;
-  lines[first.index] = lines[first.index].replace(/^(\s*)radar\b/, '$1radar-beta');
 
-  let curveIdx = 0;
-  for (let i = first.index + 1; i < lines.length; i++) {
-    const line = lines[i];
+  // Preserve leading init / comment / empty lines verbatim.
+  const preserved = rawLines.slice(0, first.index);
+  const indent = first.indent;
+  const bodyLines = rawLines.slice(first.index + 1);
 
-    // axis A, B, C  →  axis a1["A"], a2["B"], a3["C"]  (only when any
-    // item is multi-word — single-word items already parse).
-    const axis = line.match(/^(\s*)axis\s+(.+?)\s*$/);
-    if (axis) {
-      const items = axis[2].split(',').map((s) => s.trim()).filter(Boolean);
-      const needsQuoting = items.some((it) => /\s/.test(it) || /[^A-Za-z0-9_]/.test(it));
-      if (needsQuoting && items.length > 0) {
-        const requoted = items.map((it, idx) => {
-          // Strip any existing surrounding quotes.
-          const clean = it.replace(/^"|"$/g, '');
-          return `a${idx + 1}["${clean.replace(/"/g, '\\"')}"]`;
-        }).join(', ');
-        lines[i] = `${axis[1]}axis ${requoted}`;
+  // Collect title, axis labels, curves. Tolerant of every legacy form
+  // observed in the corpus (see `fix-mermaid-diagrams.js` doc-comments
+  // and `test/unit/fix-mermaid-diagrams.test.js` for the catalogue).
+  let title = null;
+  const axisLabels = []; // ordered, deduplicated
+  const curves = []; // { label, values: number[] }
+  const seenAxis = new Set();
+  const addAxis = (label) => {
+    const clean = String(label).trim().replace(/^"|"$/g, '').trim();
+    if (!clean) return;
+    if (seenAxis.has(clean)) return;
+    seenAxis.add(clean);
+    axisLabels.push(clean);
+  };
+
+  for (const line of bodyLines) {
+    const trimmed = line.trim();
+    if (trimmed === '' || trimmed.startsWith('%%')) continue;
+    // Stripped of the keyword-only `dataset` / `series` markers.
+    if (/^(dataset|series)\s*$/i.test(trimmed)) continue;
+
+    // title
+    const t = trimmed.match(/^title\s+(.+)$/i);
+    if (t) { title = t[1].replace(/^"|"$/g, ''); continue; }
+
+    // axis A, B, C  OR  axis a1["A"], a2["B"], …
+    const axisLine = trimmed.match(/^axis\s+(.+)$/i);
+    if (axisLine) {
+      const inner = axisLine[1];
+      // If items are already in `aN["Label"]` form just extract the labels.
+      const idForm = [...inner.matchAll(/[A-Za-z_]\w*\["([^"]+)"\]/g)].map((m) => m[1]);
+      if (idForm.length > 0) idForm.forEach(addAxis);
+      else splitArrayItems(inner).forEach((it) => addAxis(it));
+      continue;
+    }
+
+    // x-axis ["a", "b", …]  OR  x-axis a, b, c   (legacy form)
+    const xAxisArr = trimmed.match(/^x-axis\s*\[\s*(.+?)\s*\]\s*$/i);
+    if (xAxisArr) { splitArrayItems(xAxisArr[1]).forEach(addAxis); continue; }
+    const xAxisBare = trimmed.match(/^x-axis\s+(.+)$/i);
+    if (xAxisBare) {
+      const tokens = xAxisBare[1].split(/\s*,\s*/).filter(Boolean);
+      tokens.forEach(addAxis);
+      continue;
+    }
+    // y-axis is meaningless on a radar — drop silently.
+    if (/^y-axis\b/i.test(trimmed)) continue;
+    // `max N` — re-emit verbatim later via passthrough? radar-beta supports
+    // it but it has no semantic equivalent in many of these blocks; skip.
+    if (/^max\s+/i.test(trimmed)) continue;
+
+    // ID ["Label"] : v1, v2, …    or    ID [Label] : v1, v2, …
+    const idBracketRow = trimmed.match(/^([A-Za-z_]\w*)\s*\[\s*"?([^"\]]+?)"?\s*\]\s*:\s*(.+)$/);
+    if (idBracketRow) {
+      const label = idBracketRow[2].trim();
+      const nums = idBracketRow[3].split(/[,\s]+/).filter(Boolean)
+        .filter((s) => /^-?\d+(?:\.\d+)?$/.test(s)).map(Number);
+      if (nums.length > 0) { curves.push({ label, values: nums }); continue; }
+    }
+
+    // "Label" [v1, v2, …]   (brackets used in place of `:`/`{…}`)
+    const labelArr = trimmed.match(/^"([^"]+)"\s*\[\s*(.+?)\s*\]\s*$/);
+    if (labelArr) {
+      const nums = splitArrayItems(labelArr[2])
+        .filter((s) => /^-?\d+(?:\.\d+)?$/.test(s)).map(Number);
+      if (nums.length > 0) { curves.push({ label: labelArr[1], values: nums }); continue; }
+    }
+
+    // "Label" : v1, v2, …   OR   "Label": [v1, v2, …]
+    const labelColon = trimmed.match(/^"([^"]+)"\s*:\s*\[?\s*(.+?)\s*\]?\s*$/);
+    if (labelColon) {
+      const nums = labelColon[2].split(/[,\s]+/).filter(Boolean)
+        .filter((s) => /^-?\d+(?:\.\d+)?$/.test(s)).map(Number);
+      if (nums.length > 0) { curves.push({ label: labelColon[1], values: nums }); continue; }
+    }
+
+    // ID [v1, v2, …]   (lowercase identifier + values bracketed — Pass-1/Pass-2)
+    const idArr = trimmed.match(/^([A-Za-z_][\w -]*?)\s*\[\s*(.+?)\s*\]\s*$/);
+    if (idArr && !/^x-axis|y-axis|axis$/i.test(idArr[1])) {
+      const nums = splitArrayItems(idArr[2])
+        .filter((s) => /^-?\d+(?:\.\d+)?$/.test(s)).map(Number);
+      if (nums.length > 0) { curves.push({ label: idArr[1].trim(), values: nums }); continue; }
+    }
+
+    // Unquoted `Label: value` — single-value per row OR axis-with-score.
+    // Used in form 3 (`Political: 4`) and pseudo-bar radars.
+    const bareColon = trimmed.match(/^([^:[\]{}"]+?)\s*:\s*\[?\s*(.+?)\s*\]?\s*$/);
+    if (bareColon) {
+      const nums = bareColon[2].split(/[,\s]+/).filter(Boolean)
+        .filter((s) => /^-?\d+(?:\.\d+)?$/.test(s)).map(Number);
+      if (nums.length > 0) { curves.push({ label: bareColon[1].trim(), values: nums }); continue; }
+    }
+
+    // Plain numeric-only line — pairs with previous bare label line
+    // (form: `Strengths\n72\nWeaknesses\n58\n…`). Append onto the most
+    // recent zero-value curve if any; otherwise drop.
+    if (/^-?\d+(?:\.\d+)?$/.test(trimmed)) {
+      if (curves.length > 0 && curves[curves.length - 1].values.length === 0) {
+        curves[curves.length - 1].values.push(Number(trimmed));
       }
       continue;
     }
 
-    // "Label" : v1, v2, …          →  curve cN["Label"]{v1, v2, …}
-    // "Label" : [v1, v2, …]        →  curve cN["Label"]{v1, v2, …}
-    const row = line.match(/^(\s*)"([^"]+)"\s*:\s*\[?\s*([0-9 ,.+-]+?)\s*\]?\s*$/);
-    if (!row) continue;
-    const indent = row[1];
-    const label = row[2];
-    const nums = row[3]
-      .split(',')
-      .map((s) => s.trim())
-      .filter((s) => s !== '' && /^-?\d+(?:\.\d+)?$/.test(s));
-    if (nums.length === 0) continue;
-    curveIdx++;
-    lines[i] = `${indent}curve c${curveIdx}["${label.replace(/"/g, '\\"')}"]{${nums.join(', ')}}`;
+    // Bare bracketed values on their own line. Two sub-shapes:
+    //   form 5 — `series` block where each row spans 2 lines:
+    //            `"Label"\n  [v1, v2, …]`. Latch onto the most recent
+    //            placeholder curve.
+    //   form 6 — bare-label-only axes followed by a single combined
+    //            value vector matching the placeholder count. Collapse
+    //            all placeholders into a single curve with these values.
+    const bareValuesArr = trimmed.match(/^\[\s*(.+?)\s*\]\s*$/);
+    if (bareValuesArr) {
+      const nums = splitArrayItems(bareValuesArr[1])
+        .filter((s) => /^-?\d+(?:\.\d+)?$/.test(s)).map(Number);
+      if (nums.length > 0) {
+        const placeholderCurves = curves.filter((c) => c.values.length === 0);
+        if (placeholderCurves.length === nums.length && placeholderCurves.length >= 2
+            && placeholderCurves.length === curves.length) {
+          // Form 6 collapse — keep the axes (already addAxis'd), replace
+          // every placeholder curve with one combined curve.
+          const label = title || 'Score';
+          curves.length = 0;
+          curves.push({ label, values: nums });
+        } else if (curves.length > 0 && curves[curves.length - 1].values.length === 0) {
+          curves[curves.length - 1].values = nums;
+        } else {
+          curves.push({ label: `Curve ${curves.length + 1}`, values: nums });
+        }
+        continue;
+      }
+    }
+
+    // Plain unquoted label line — could be an axis label declaration
+    // (forms 5, 6 — `Political\nEconomic\n…`) OR a curve label awaiting
+    // a numeric value on the next line (interleaved bar-radar form).
+    // We greedily classify as axis when the line is short and alpha;
+    // and add a zero-value placeholder curve so a subsequent numeric line
+    // can latch onto it.
+    if (/^[A-Za-zÀ-ÿ][\w\s&/().+-]*$/.test(trimmed) && trimmed.length <= 80) {
+      addAxis(trimmed);
+      curves.push({ label: trimmed, values: [] });
+      continue;
+    }
   }
-  return lines.join('\n');
+
+  // Synthesise axis labels from curve labels if none were declared. This
+  // is form 3 (`"Axis": single_value`) and form 6 (label-only).
+  if (axisLabels.length === 0 && curves.length > 0) {
+    // If every curve has exactly one value, treat curve labels as axis
+    // names and collapse all single-value curves into one combined curve.
+    const allSingle = curves.length >= 2 && curves.every((c) => c.values.length === 1);
+    if (allSingle) {
+      curves.forEach((c) => addAxis(c.label));
+      const merged = { label: title || 'Score', values: curves.map((c) => c.values[0]) };
+      curves.length = 0;
+      curves.push(merged);
+    } else {
+      // Take the longest curve and seed axis labels A1…AN.
+      const maxLen = curves.reduce((m, c) => Math.max(m, c.values.length), 0);
+      for (let i = 1; i <= maxLen; i++) addAxis(`A${i}`);
+    }
+  }
+
+  // Drop placeholder zero-value curves that never received a value.
+  const realCurves = curves.filter((c) => c.values.length > 0);
+  if (realCurves.length === 0) return body; // give up — original will surface upstream
+
+  // Pad/truncate each curve to match axis count when known.
+  if (axisLabels.length > 0) {
+    for (const c of realCurves) {
+      if (c.values.length < axisLabels.length) {
+        while (c.values.length < axisLabels.length) c.values.push(0);
+      } else if (c.values.length > axisLabels.length) {
+        c.values.length = axisLabels.length;
+      }
+    }
+  }
+
+  // Emit canonical radar-beta.
+  const out = [...preserved, `${indent}radar-beta`];
+  if (title) out.push(`${indent}    title ${title}`);
+  if (axisLabels.length > 0) {
+    const axisExpr = axisLabels
+      .map((l, i) => `a${i + 1}["${String(l).replace(/"/g, '\\"')}"]`)
+      .join(', ');
+    out.push(`${indent}    axis ${axisExpr}`);
+  }
+  realCurves.forEach((c, i) => {
+    out.push(`${indent}    curve c${i + 1}["${String(c.label).replace(/"/g, '\\"')}"]{${c.values.join(', ')}}`);
+  });
+  return out.join('\n');
 }
 
 /**
@@ -511,18 +702,72 @@ function quoteSpecialLabels(line) {
  * @returns {string}
  */
 function fixGraphFlowchart(body) {
-  return body.split('\n').map((line) => {
+  // First pass: discover unquoted multi-word `subgraph` declarations and
+  // build a name→id map. Replace declarations AND any later references.
+  const rawLines = body.split('\n');
+  const subgraphRenames = new Map(); // originalName → id
+  let renameCounter = 0;
+  for (const line of rawLines) {
+    const m = line.match(/^\s*subgraph\s+(.+?)\s*$/);
+    if (!m) continue;
+    const rest = m[1];
+    // Already in a valid form: `subgraph id ["Label"]`, `subgraph id[Label]`,
+    // `subgraph "Label"`, or single-word id `subgraph SG1`.
+    if (/^[A-Za-z_]\w*\s*\[/.test(rest)) continue; // id[...]
+    if (/^"/.test(rest)) continue; // quoted label
+    if (/^[A-Za-z_]\w*\s*$/.test(rest)) continue; // single word id
+    // Multi-word unquoted — rename.
+    const original = rest.replace(/^"|"$/g, '').trim();
+    if (subgraphRenames.has(original)) continue;
+    renameCounter++;
+    subgraphRenames.set(original, `sg_${renameCounter}`);
+  }
+
+  return rawLines.map((line) => {
+    let out = line;
     // Unicode arrow `→` between two identifiers is a common typo for `-->`.
-    // Only rewrite when surrounded by whitespace so we don't disturb arrows
-    // embedded INSIDE label brackets (those are handled by the quoting pass).
-    let out = line.replace(/(\s)→(\s)/g, '$1-->$2');
+    out = out.replace(/(\s)→(\s)/g, '$1-->$2');
     out = out.replace(/(\s)<--(\s)/g, '$1-->$2');
-    // Escape inner double quotes in [" … "] labels (lazy match of
-    // non-`"]` content).
+
+    // Rewrite multi-word subgraph declarations.
+    const sg = out.match(/^(\s*)subgraph\s+(.+?)\s*$/);
+    if (sg && !/^[A-Za-z_]\w*\s*(?:\[|$)/.test(sg[2]) && !/^"/.test(sg[2])) {
+      const original = sg[2].replace(/^"|"$/g, '').trim();
+      const id = subgraphRenames.get(original);
+      if (id) {
+        out = `${sg[1]}subgraph ${id} ["${original.replace(/"/g, '&quot;')}"]`;
+        return out;
+      }
+    }
+
+    // Rewrite bare references to renamed subgraphs in edges. Match the
+    // original name surrounded by edge syntax or whitespace boundaries.
+    for (const [original, id] of subgraphRenames) {
+      // Edge LHS: `<original> -->` or `<original> ---`
+      const escOrig = original.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      out = out.replace(new RegExp(`(^|\\s)${escOrig}(\\s*(?:--|==|\\.\\.))`, 'g'),
+        (_, pre, post) => `${pre}${id}${post}`);
+      // Edge RHS: `--> <original>` or `--- <original>` at end-of-line
+      out = out.replace(new RegExp(`((?:--|==|\\.\\.)\\s*(?:>\\s*)?)${escOrig}(\\s|$)`, 'g'),
+        (_, pre, post) => `${pre}${id}${post}`);
+    }
+
+    // Escape inner double quotes in [" … "] labels.
     out = out.replace(/\["((?:(?!"\])[\s\S])*?)"\]/g, (_, inner) => {
       if (!inner.includes('"')) return `["${inner}"]`;
       return `["${inner.replace(/"/g, '&quot;')}"]`;
     });
+
+    // Unquoted `[Foo | Bar | Baz]` labels — the pipe character is a
+    // shape modifier and must be inside quotes. Detect bracket content
+    // with any of `|`, `&`, `,`, `(`, `:` and quote it.
+    out = out.replace(/\[([^"\[\]]*[|&,():][^"\[\]]*)\]/g, (whole, inner) => {
+      // Skip if this is actually a shape modifier like `[(`, `[/`, `[\`.
+      if (/^[(/\\>]/.test(inner)) return whole;
+      const clean = inner.trim();
+      return `["${clean.replace(/"/g, '&quot;')}"]`;
+    });
+
     out = quoteSpecialLabels(out);
     return out;
   }).join('\n');

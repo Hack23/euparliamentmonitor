@@ -3212,14 +3212,11 @@ The analysis is analytically sound, evidentially supported at the strategic leve
 ### Analytical Quality Evolution — Pass 1 → Pass 2
 
 ```mermaid
-radar
-  title Analytical Quality Dimensions (Pass 1 vs Pass 2)
-  x-axis ["Evidence Depth", "Source Diversity", "Methodological Rigor", "Completeness", "Citation Quality", "WEP Calibration"]
-  series
-    "Pass 1"
-      [60, 55, 70, 55, 60, 45]
-    "Pass 2 (Re-run)"
-      [85, 75, 88, 82, 80, 90]
+radar-beta
+    title Analytical Quality Dimensions (Pass 1 vs Pass 2)
+    axis a1["Evidence Depth"], a2["Source Diversity"], a3["Methodological Rigor"], a4["Completeness"], a5["Citation Quality"], a6["WEP Calibration"]
+    curve c1["Curve 1"]{60, 55, 70, 55, 60, 45}
+    curve c2["Curve 2"]{85, 75, 88, 82, 80, 90}
 ```
 
 ---

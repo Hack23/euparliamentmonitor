@@ -119,14 +119,10 @@ The Commission's near-monopoly on formal legislative initiative (Article 17(2) T
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
-radar
+radar-beta
     title EP Legislative Forces Intensity (1-10)
-    Institutional_Rivalry
-    New_Entrants
-    Substitutes
-    Supplier_Power
-    Buyer_Power
-    [8, 5, 4, 7, 6]
+    axis a1["Institutional_Rivalry"], a2["New_Entrants"], a3["Substitutes"], a4["Supplier_Power"], a5["Buyer_Power"]
+    curve c1["EP Legislative Forces Intensity (1-10)"]{8, 5, 4, 7, 6}
 ```
 
 | Force | Score | Trend | Key Dynamic |

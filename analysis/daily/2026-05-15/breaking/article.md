@@ -2324,15 +2324,14 @@ mindmap
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
-radar
+radar-beta
     title PESTLE Risk Intensity
-    axis Political Tension, Economic Stakes, Social Pressure, Tech Complexity, Legal Risk, Environmental Conflict
-    dataset
-        "DMA Enforcement" [9, 8, 7, 8, 8, 4]
-        "Ukraine/Russia" [9, 6, 9, 3, 9, 2]
-        "Budget 2027" [8, 9, 6, 3, 4, 7]
-        "Armenia" [7, 4, 7, 2, 5, 2]
-        "Cyberbullying" [6, 4, 8, 8, 7, 2]
+    axis a1["Political Tension"], a2["Economic Stakes"], a3["Social Pressure"], a4["Tech Complexity"], a5["Legal Risk"], a6["Environmental Conflict"]
+    curve c1["DMA Enforcement"]{9, 8, 7, 8, 8, 4}
+    curve c2["Ukraine/Russia"]{9, 6, 9, 3, 9, 2}
+    curve c3["Budget 2027"]{8, 9, 6, 3, 4, 7}
+    curve c4["Armenia"]{7, 4, 7, 2, 5, 2}
+    curve c5["Cyberbullying"]{6, 4, 8, 8, 7, 2}
 ```
 
 **PESTLE summary:** The April 2026 plenary is politically high-complexity (institutional EP-Commission tensions, coalition dynamics), economically significant (DMA gatekeeper stakes, fiscal federalism), and legally important (DMA enforcement, Ukraine tribunal). The social dimension is strong on digital safety and Ukraine civilian protection.
