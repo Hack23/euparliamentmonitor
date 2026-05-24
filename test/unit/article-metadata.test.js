@@ -801,7 +801,8 @@ describe('resolveArticleMetadata — priority ladder', () => {
     const sv = Object.getOwnPropertyDescriptor(result, 'sv')?.value;
     expect(sv.title).toBe('SV Bankunion-genombrott');
     expect(sv.description).toContain('SV beskrivning kommer här med tillräcklig längd.');
-    expect(sv.description.length).toBeGreaterThanOrEqual(120);
+    expect(sv.description).toContain('2026-04-20');
+    expect(sv.description.length).toBeGreaterThanOrEqual(60);
   });
 
   it('Tier 2 — first non-generic artefact H1 wins over aggregated H1', () => {

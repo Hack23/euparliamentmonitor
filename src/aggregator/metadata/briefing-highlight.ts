@@ -162,11 +162,13 @@ function appendLine(state: WalkerState, line: string): void {
   state.byteCount += line.length + 1;
 }
 
-function normalizeBriefingLine(line: string): string {
+function normalizeBriefingLine(line: string, preserveLeadingLabel = false): string {
   if (shouldSkipDescriptionLine(line)) return '';
-  return stripLeadingProseLabel(stripInlineMarkdown(stripLeadingBoldLabel(line)))
-    .replace(/^[:;—–-]\s+/u, '')
-    .trim();
+  const withoutMarkdown = stripInlineMarkdown(line);
+  const normalized = preserveLeadingLabel
+    ? withoutMarkdown
+    : stripLeadingProseLabel(stripLeadingBoldLabel(withoutMarkdown));
+  return normalized.replace(/^[:;—–-]\s+/u, '').trim();
 }
 
 /**
@@ -415,7 +417,7 @@ function handleNumberedLine(state: NumberedItemState, line: string, kind: LineKi
   if (state.item.length === 0) {
     if (kind !== 'numbered') return false;
     const m = /^1\.\s+(.*)$/u.exec(line);
-    const clean = m?.[1] ? normalizeBriefingLine(m[1]) : '';
+    const clean = m?.[1] ? normalizeBriefingLine(m[1], true) : '';
     if (clean) state.item.push(clean);
     return false;
   }

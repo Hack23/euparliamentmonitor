@@ -72,6 +72,7 @@ import {
   composeContextualDescription,
   composeContextualTitle,
   deriveHeadlineFromSummary,
+  hasLeakySeoToken,
   isUsableResolvedTitle,
   manifestOverrideFor,
   pickFirstNonEmpty,
@@ -255,6 +256,14 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
         );
 
   const clippedTitle = truncateTitle(title).trim();
+  const explicitTitle = manifestTitle && !hasLeakySeoToken(manifestTitle) ? truncateTitle(manifestTitle).trim() : '';
+  const allowShortResolvedTitle = perLanguage.source === 'localized-brief';
+  const resolvedTitleCandidate =
+    clippedTitle &&
+    !hasLeakySeoToken(clippedTitle) &&
+    (allowShortResolvedTitle || isUsableResolvedTitle(clippedTitle))
+      ? clippedTitle
+      : '';
   const summaryDerivedTitle = deriveHeadlineFromSummary(
     safeEditorial.summary || normalizedRawDescription
   );
@@ -277,7 +286,8 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // would (correctly) fail CI.
   const contextualFallback = composeContextualTitle(input.template.title, '', input.runId);
   const truncatedTitle = pickFirstNonEmpty([
-    isUsableResolvedTitle(clippedTitle) ? clippedTitle : '',
+    explicitTitle,
+    resolvedTitleCandidate,
     isUsableResolvedTitle(summaryDerivedTitle) ? summaryDerivedTitle : '',
     truncateTitle(contextualFallback),
     contextualFallback,

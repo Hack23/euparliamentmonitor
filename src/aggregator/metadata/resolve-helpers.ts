@@ -204,7 +204,7 @@ export function composeContextualDescription(
   return truncateDescription(parts.join(' '));
 }
 
-function hasLeakySeoToken(value: string): boolean {
+export function hasLeakySeoToken(value: string): boolean {
   if (!value) return false;
   return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value);
 }
