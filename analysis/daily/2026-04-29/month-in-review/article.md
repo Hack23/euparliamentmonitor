@@ -1,5 +1,5 @@
 ---
-title: "EU Parliament Month in Review: April 2026"
+title: "EU Parliament April 2026 Review: 4-week digest — 2026-04-29"
 description: "The EU Parliament in April 2026 delivered a historically dense legislative agenda — including 2027 Budget Guidelines, a US tariff defense package, a landmark housing framework…"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-29", "Parliament", "Month", "Review", "April"]
 date: 2026-04-29

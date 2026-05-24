@@ -1,5 +1,5 @@
 ---
-title: "EU Parliament Year Ahead 2026–2027"
+title: "Year Ahead 2026–2027: EP10 coalition outlook — 2026-05-04"
 description: "1. 🟢 HIGH CONFIDENCE — The EP10 Grand Coalition (EPP+S&D+Renew = 397 seats) will maintain a reliable majority on Ukraine support, digital governance, and defence integration…"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-04", "Parliament", "Year", "Ahead", "HIGH", "CONFIDENCE", "EP10"]
 date: 2026-05-04
