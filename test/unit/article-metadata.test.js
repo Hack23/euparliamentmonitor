@@ -9,7 +9,9 @@
 
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
+import { mkdtempSync, writeFileSync, rmSync } from 'fs';
 import os from 'os';
+import { tmpdir } from 'os';
 import path from 'path';
 import {
   buildTemplateFallback,
@@ -910,6 +912,88 @@ describe('resolveArticleMetadata — priority ladder', () => {
       // the 14 supported languages.
       expect(entry.description.length).toBeGreaterThanOrEqual(60);
       expect(entry.keywords.length).toBeGreaterThan(3);
+    }
+  });
+
+  it('always includes Riksdagsmonitor cross-site keywords in every language', () => {
+    const result = resolveArticleMetadata({
+      articleType: 'motions',
+      date: '2026-04-20',
+      markdown: '# Motions — 2026-04-20',
+    });
+    for (const lang of ALL_LANGUAGES) {
+      const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
+      const lowered = entry.keywords.map((k) => k.toLowerCase());
+      expect(lowered).toContain('riksdagsmonitor');
+      expect(lowered).toContain('riksdag');
+      expect(lowered).toContain('regeringen');
+      expect(lowered).toContain('political intelligence');
+      expect(lowered).toContain('eu parliament monitor');
+    }
+  });
+
+  it('never leaks UUID hex fragments or run-id slugs into keywords', () => {
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-03-27',
+      markdown:
+        '# Routine inter-sessional day\n\nAnalysis run 77fc920c-3a76-4813-9db5-43a7e9acc25e returned 0 classified political actors.',
+      runId: 'propositions-run261-1779431162',
+    });
+    for (const lang of ALL_LANGUAGES) {
+      const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
+      for (const kw of entry.keywords) {
+        expect(kw).not.toMatch(/^[0-9a-f]{4,}$/i);
+        expect(kw.toLowerCase()).not.toMatch(/run\s*propositions/);
+        expect(kw.toLowerCase()).not.toMatch(/^run\d+$/);
+        expect(kw.toLowerCase()).not.toMatch(/-run\d+-\d+$/);
+      }
+    }
+  });
+
+  it('uses Strategic Intelligence Summary subheading as title when the brief has one', () => {
+    const tmpRoot = mkdtempSync(path.join(tmpdir(), 'sis-brief-'));
+    try {
+      const briefBody =
+        '# Executive Brief — Propositions\n\n' +
+        '## Strategic Intelligence Summary\n\n' +
+        '### The Three-Coalition Paradox\n\n' +
+        "EP10's governing coalition (EPP+S&D+Renew = 398/719) is simultaneously strong enough to pass legislation and internally divided enough to create unpredictable outcomes on key files.\n";
+      writeFileSync(path.join(tmpRoot, 'executive-brief.md'), briefBody, 'utf8');
+      const result = resolveArticleMetadata({
+        articleType: 'propositions',
+        date: '2026-05-22',
+        markdown: '# Propositions — 2026-05-22\n\nAggregated body.',
+        runDir: tmpRoot,
+      });
+      const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+      expect(en.title).toContain('Three-Coalition Paradox');
+      expect(en.description).toContain("EP10's governing coalition");
+    } finally {
+      rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('uses Reader Briefing first numbered item as title when no Strategic Intelligence Summary', () => {
+    const tmpRoot = mkdtempSync(path.join(tmpdir(), 'rb-brief-'));
+    try {
+      const briefBody =
+        '# Executive Brief — Propositions\n\n' +
+        '## Reader Briefing\n\n' +
+        '1. **Immediate priority**: DMA enforcement — the Article 265 TFEU threat is a latent nuclear option that could reshape EP-Commission relations if activated.\n' +
+        '2. **Strategic watch**: Mercosur ECJ timeline.\n';
+      writeFileSync(path.join(tmpRoot, 'executive-brief.md'), briefBody, 'utf8');
+      const result = resolveArticleMetadata({
+        articleType: 'propositions',
+        date: '2026-05-22',
+        markdown: '# Propositions — 2026-05-22\n\nAggregated body.',
+        runDir: tmpRoot,
+      });
+      const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+      expect(en.title).toContain('Immediate priority');
+      expect(en.title).toContain('DMA');
+    } finally {
+      rmSync(tmpRoot, { recursive: true, force: true });
     }
   });
 });

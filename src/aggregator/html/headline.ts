@@ -13,10 +13,10 @@ import {
   ARTICLE_TYPE_LABELS,
   ARTICLE_TYPE_ICONS,
   getLocalizedString,
-  getTextDirection,
 } from '../../constants/languages.js';
-import type { LanguageCode } from '../../types/index.js';
+import type { LanguageCode, LanguageMap } from '../../types/index.js';
 import { ArticleCategory } from '../../types/index.js';
+import { classifyScript, clampTitleForSurface, type SeoSurface } from '../metadata/seo-budgets.js';
 
 /**
  * Resolve a localized article type label *without* the leading icon
@@ -67,20 +67,83 @@ export function truncateHeadline(title: string): string {
 
 /**
  * Build the localized `<title>` separator for the
- * `{articleTitle} {sep} {siteTitle}` pattern. LTR locales use the
- * right-pointing guillemet (»); RTL locales (Arabic, Hebrew) use the
- * left-pointing guillemet («) so the visual hierarchy reads from the
- * primary title towards the site name without breaking bidi flow.
+ * `{articleTitle} {sep} {siteTitle}` pattern.
  *
- * The previous em-dash separator collided with em-dashes inside
- * article titles (the editorial style uses `Title — Subtitle`) and
- * rendered ambiguously in screen readers.
+ * Latin scripts use the policy-mandated ASCII pipe (`" | "`), which
+ * scans cleanly in SERP cards and never collides with em-dashes that
+ * the editorial style routinely uses inside titles. CJK locales use
+ * the Katakana middle-dot (`" ・ "`, U+30FB) which is the documented
+ * Google CJK separator and renders correctly in JP / KO / ZH fonts.
+ * RTL locales use the Hebrew paseq (`" ׀ "`, U+05C0) — a vertical
+ * stroke that preserves bidi flow without injecting a Latin guillemet
+ * that would force a direction change mid-title.
  *
  * @param lang - Target language code
- * @returns `" » "` for LTR locales, `" « "` for RTL
+ * @returns Per-script separator
  */
 export function getTitleSeparator(lang: LanguageCode): string {
-  return getTextDirection(lang) === 'rtl' ? ' « ' : ' » ';
+  const family = classifyScript(lang);
+  if (family === 'cjk') return ' ・ ';
+  if (family === 'rtl') return ' ׀ ';
+  return ' | ';
+}
+
+/**
+ * Short brand fallback per script family. Used by
+ * {@link buildPageTitle} when the full `SITE_NAME` would push the
+ * `<title>` past the SERP budget but a shorter variant would fit.
+ *
+ * - Latin → "EPM" (3 chars, ASCII-safe in news cards)
+ * - CJK → "EPM" (Latin abbreviation reads correctly in JP / KO / ZH SERPs)
+ * - RTL → Arabic abbreviation "EPM" works in both Arabic and Hebrew
+ *   SERP cards (Bing/Google render the Latin token RTL-isolated)
+ *
+ * Per-locale overrides live in {@link SHORT_SITE_NAMES} below so a
+ * future editorial change (e.g. a registered Arabic brand) only
+ * touches the table.
+ */
+export const SHORT_SITE_NAMES: LanguageMap = {
+  en: 'EPM',
+  sv: 'EPM',
+  da: 'EPM',
+  no: 'EPM',
+  fi: 'EPM',
+  de: 'EPM',
+  fr: 'EPM',
+  es: 'EPM',
+  nl: 'EPM',
+  ar: 'EPM',
+  he: 'EPM',
+  ja: 'EPM',
+  ko: 'EPM',
+  zh: 'EPM',
+};
+
+/**
+ * Compose a title for one SEO surface using the per-script byte
+ * budget from `metadata/seo-budgets.ts`. Drops the brand suffix when
+ * the article title alone fills the budget (better SERP than a
+ * truncated headline followed by a clipped brand) and falls through
+ * to a short-brand variant when that fits but the full one does not.
+ *
+ * @param title - Article title (plain text, already markdown-stripped)
+ * @param lang - Target language code
+ * @param siteTitle - Full brand suffix (e.g. "EU Parliament Monitor")
+ * @param surface - Optional SEO surface; defaults to `<title>` budget
+ * @returns Composed, budget-clamped title
+ */
+export function buildPageTitle(
+  title: string,
+  lang: LanguageCode,
+  siteTitle: string,
+  surface: SeoSurface = 'title'
+): string {
+  const shortSiteTitle = getLocalizedString(SHORT_SITE_NAMES, lang);
+  return clampTitleForSurface(title, lang, surface, {
+    siteTitle,
+    shortSiteTitle,
+    separator: getTitleSeparator(lang),
+  });
 }
 
 /**

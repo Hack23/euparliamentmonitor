@@ -30,6 +30,7 @@
 import fs from 'fs';
 import path from 'path';
 import { extractFirstH1, extractLedeAfterHeading, extractExtendedLedeAfterHeading, extractStrongProseLine, isGenericHeading, stripArtifactCategoryAffix, truncateTitle, } from './article-metadata.js';
+import { extractBriefingHighlight } from './metadata/briefing-highlight.js';
 /**
  * Run-relative candidate paths for a translated brief, in precedence
  * order. Mirrors the `executive-brief.md` → `extended/executive-brief.md`
@@ -174,6 +175,28 @@ export function resolveLocalizedBriefHighlight(runDir, lang, articleType, date) 
         const body = readArtefactBody(abs);
         if (!body)
             continue;
+        // Tier 1 (NEW, May-2026): structural extraction of `## Strategic
+        // Intelligence Summary` / `## Reader Briefing` sections. The
+        // briefing extractor is language-agnostic — it matches on the
+        // English section headings, which the translation pipeline
+        // preserves verbatim under the localized brief contract — so a
+        // Swedish brief whose synthesis section is still written as
+        // `## Strategic Intelligence Summary` (with translated body
+        // prose) will resolve correctly here. When the translator has
+        // additionally localized the section heading the matcher falls
+        // back to the legacy lede/H1 path below, producing the
+        // localized H1 as headline.
+        const briefing = extractBriefingHighlight(body);
+        if (briefing && (briefing.headline || briefing.summary)) {
+            const fallbackHeadline = deriveHeadline(body, articleType, date);
+            return {
+                headline: briefing.headline || fallbackHeadline,
+                summary: briefing.summary,
+                extendedSummary: briefing.extendedSummary || extractExtendedLedeAfterHeading(body),
+                sourceFile: rel,
+                sourceLang: lang,
+            };
+        }
         const headline = deriveHeadline(body, articleType, date);
         const lede = extractLedeAfterHeading(body);
         const summary = lede || extractStrongProseLine(body);

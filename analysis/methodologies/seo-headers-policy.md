@@ -34,9 +34,9 @@ Every page MUST emit, in this order:
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Content-Language" content="<lang>">
 <meta name="referrer" content="no-referrer">
-<title>… | EU Parliament Monitor</title>
-<meta name="description" content="…"> <!-- ≤ 180 chars -->
-<meta name="keywords"   content="…"> <!-- localized -->
+<title>… | EU Parliament Monitor</title>          <!-- clamped per-script -->
+<meta name="description" content="…">             <!-- clamped per-script -->
+<meta name="keywords"   content="…">              <!-- localized -->
 <meta name="author"     content="Hack23 AB">
 <meta name="publisher"  content="Hack23 AB">
 <meta name="robots"     content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -47,28 +47,83 @@ Every page MUST emit, in this order:
 <link rel="preconnect" href="https://hack23.com" crossorigin>
 ```
 
-### 1.1 Title rules
+### 1.1 Per-script byte budgets
 
-* English uses ` | ` (space-pipe-space) as the separator.
-* RTL locales (`ar`, `he`) use ` ׀ ` (Hebrew paseq U+05C0, padded with
-  spaces) so the title doesn't reverse direction mid-string in
-  bidirectional renderers — see `getTitleSeparator()`.
-* CJK locales use the full-width middle dot ` ・ ` for typographic
-  parity with native publications.
+Google Search Central and Bing Webmaster Guidelines both document
+SERP snippet limits in **pixels**, not characters. Latin glyphs
+render at roughly half the pixel width of CJK glyphs, while
+Arabic/Hebrew letterforms sit between the two. A single character
+budget across all 14 publishing locales is wrong for at least one
+script family — typically over-truncating Latin copy *and*
+over-running CJK by a factor of two.
 
-### 1.2 Description rules
+The canonical per-surface × per-script byte table lives in
+**`src/aggregator/metadata/seo-budgets.ts`** (`SEO_BUDGETS` /
+`budgetFor()`). All four generators MUST resolve their clamps
+through that module so a budget tweak in one place flows through
+to every surface.
 
-* `<meta name="description">` ≤ **180 chars** — matches Google's
-  desktop SERP truncation budget.
+| Surface | Latin | CJK (zh/ja/ko) | RTL (ar/he) | Source |
+| --- | ---: | ---: | ---: | --- |
+| `<title>` | 60 | 30 | 55 | Google ≤580 px |
+| `<meta description>` | 155 | 78 | 150 | Google ≤155 chars |
+| `og:title` | 95 | 47 | 90 | Facebook ≤95 chars |
+| `og:description` | 200 | 100 | 195 | Facebook / LinkedIn |
+| `twitter:title` | 70 | 35 | 70 | Twitter ≤70 chars |
+| `twitter:description` | 200 | 100 | 195 | Twitter card ≤200 |
+| `og:image:alt` | 125 | 60 | 120 | a11y / OG spec |
+| JSON-LD `headline` | 110 | 110 | 110 | Schema.org / Google hard cap |
+
+Numbers carry a ~5 % safety margin so a snippet on the edge of the
+budget isn't truncated mid-glyph by the rendering platform.
+
+### 1.2 Title separator + brand-suffix policy
+
+Separator is picked from a 3-way table — see
+`getTitleSeparator(lang)` in `src/aggregator/html/headline.ts`:
+
+| Script family | Separator | Codepoint |
+| --- | --- | --- |
+| Latin | ` \| ` (space-pipe-space) | U+007C |
+| CJK   | ` ・ ` (full-width middle dot) | U+30FB |
+| RTL   | ` ׀ ` (Hebrew paseq, padded) | U+05C0 |
+
+Brand-suffix cascade (`clampTitleForSurface` →
+`buildPageTitle`):
+
+1. **Title + full brand fits the budget** → emit as-is.
+2. **Title + short brand (`EPM`) fits the budget** → use short brand
+   (`SHORT_SITE_NAMES` per locale).
+3. **Title alone exceeds the budget** → drop the brand suffix
+   entirely (better SERP than truncated headline + clipped brand
+   tail).
+
+### 1.3 Description rules
+
+* `<meta name="description">` is clamped to **`SEO_BUDGETS.metaDescription`**
+  per script family (Latin 155 / CJK 78 / RTL 150).
 * `<meta property="og:description">` / `<meta name="twitter:description">`
-  use the **extendedDescription** (≤ 300 chars) when the brief carries
-  a longer BLUF paragraph. Falls back to the short description when
-  the brief is short.
+  prefer the **extendedDescription** when the brief carries a longer
+  BLUF paragraph, then clamp to the social-surface budget
+  (Latin 200 / CJK 100 / RTL 195). Falls back to the short
+  description when the brief is short.
 * Both are extracted from the **per-language executive brief** before
   the resolver falls back to the manifest's pre-baked summary. The
   manifest summary is the safety net, not the headline source.
+* When the resolved source is `localized-brief`, the
+  `composeContextualDescription` boilerplate prefix
+  (`"2026-05-22 — 日本語 — Propositions —"`) is **skipped** —
+  the localized BLUF is already richer than the contextual prefix.
+  See `resolveOneLanguage` in `src/aggregator/article-metadata.ts`.
+* BLUF label stripping is script-agnostic: the lede extractor strips
+  any leading `**Label:**` / `**Label：**` / `**Label**:` shape
+  (regardless of language), so non-English labels like `**Fråga:**`,
+  `**主題：**`, `**Asunto:**`, `**الموضوع:**`, `**Sujet :**` are
+  removed structurally instead of leaking into the description.
+  See `stripLeadingBoldLabel` in `text-utils.ts` and its call site
+  in `lede-extractor.collectProseLine`.
 
-### 1.3 Keywords rules
+### 1.4 Keywords rules
 
 * Localized per surface in `src/generators/seo-copy.ts`. Each of the
   13 non-English locales has its own keyword string — no English

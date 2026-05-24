@@ -176,12 +176,14 @@ describe('scripts/dump-article-seo.js — buildHtmlHeadSnippet', () => {
 
   it('contains a <title> tag with site name suffix', () => {
     const snippet = buildHtmlHeadSnippet(makeRecord(), 'en');
-    expect(snippet).toMatch(/<title>Test Article Title » EU Parliament Monitor<\/title>/);
+    // Latin separator per seo-budgets.ts script-family table.
+    expect(snippet).toMatch(/<title>Test Article Title \| EU Parliament Monitor<\/title>/);
   });
 
-  it('uses left-pointing separator for RTL languages', () => {
+  it('uses RTL paseq separator for RTL languages', () => {
     const snippet = buildHtmlHeadSnippet(makeRecord(), 'ar');
-    expect(snippet).toMatch(/<title>Test Article Title « مراقب البرلمان الأوروبي<\/title>/);
+    // RTL paseq U+05C0 separator per seo-budgets.ts script-family table.
+    expect(snippet).toMatch(/<title>Test Article Title ׀ مراقب البرلمان الأوروبي<\/title>/);
   });
 
   it('contains <meta name="description">', () => {
