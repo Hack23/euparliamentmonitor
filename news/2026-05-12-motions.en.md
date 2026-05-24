@@ -1,6 +1,6 @@
 ---
 title: "EP Motions, 12 April – 12 May 2026"
-description: "The 30-day cycle ending 12 May 2026 produced 101 adopted texts (above EP9 pace) and crystallised EP10's working identity: a bespoke-coalition Parliament that is firm…"
+description: "The 30-day cycle ending 12 May 2026 produced 101 adopted texts (above EP9 pace) and crystallised EP10's working identity: a bespoke-coalition Parliament that is firm"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-12", "April", "cycle", "ending"]
 date: 2026-05-12
 article_type: motions

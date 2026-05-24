@@ -1,6 +1,6 @@
 ---
 title: "Digital sovereignty enforcement escalated"
-description: "— The EP's DMA enforcement resolution (TA-10-2026-0160) places the Commission on notice that political patience for gatekeeper non-compliance is exhausted."
+description: "The EP's DMA enforcement resolution (TA-10-2026-0160) places the Commission on notice that political patience for gatekeeper non-compliance is exhausted."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-05", "Digital", "sovereignty", "enforcement"]
 date: 2026-05-05
 article_type: propositions

@@ -1,6 +1,6 @@
 ---
 title: "The Three-Coalition Paradox"
-description: "EP10's governing coalition (EPP+S&D+Renew = 398/719) is simultaneously strong enough to pass legislation and internally divided enough to create unpredictable outcomes on key…"
+description: "EP10's governing coalition (EPP+S&D+Renew = 398/719) is simultaneously strong enough to pass legislation and internally divided enough to create unpredictable outcomes on key"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-22", "Three", "Coalition", "Paradox"]
 date: 2026-05-22
 article_type: propositions

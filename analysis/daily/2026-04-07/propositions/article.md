@@ -1,6 +1,6 @@
 ---
 title: "Propositions: Day-12 Trilogue-Bandwidth Diagnostic | 2026-04-07"
-description: "This Day-12 propositions run is the trilogue-bandwidth diagnostic on the 18-file Q2 pipeline identified in the April 6 propositions run — it asks: can 18 files trilogue in Q2…"
+description: "This Day-12 propositions run is the trilogue-bandwidth diagnostic on the 18-file Q2 pipeline identified in the April 6 propositions run — it asks: can 18 files trilogue in Q2"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-07", "Trilogue", "Bandwidth", "Diagnostic"]
 date: 2026-04-07
 article_type: propositions

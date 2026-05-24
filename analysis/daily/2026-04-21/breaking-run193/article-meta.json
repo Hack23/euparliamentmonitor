@@ -1,9 +1,9 @@
 {
   "date": "2026-04-21",
-  "articleType": "breaking-run193",
+  "articleType": "breaking",
   "runId": "3ff728a7-15fa-4d2d-af0e-73c3e1ffb70e",
   "gateResult": "PENDING",
-  "slug": "2026-04-21-breaking-run193",
+  "slug": "2026-04-21-breaking-3ff728a7-15fa-4d2d-af0e-73c3e1ff",
   "articlePath": "analysis/daily/2026-04-21/breaking-run193/article.md",
   "topFinding": "Run 193 (afternoon probe) crossed the 20/50 significance threshold at 22/50 and produced the first ARTICLEGENERATED gate result since the API outage began 11 April.",
   "keyTakeaways": [

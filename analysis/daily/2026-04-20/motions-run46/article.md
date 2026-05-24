@@ -1,6 +1,6 @@
 ---
 title: "Motions: EP10 Q1 2026 Master Synthesis | 2026-04-20"
-description: "*Q1 2026 is the master-synthesis run's defining claim: \"a decisive inflection point for EP10\" — and the data backs it. 567 roll-call votes, 180 resolutions, and 104 adopted texts…"
+description: "*Q1 2026 is the master-synthesis run's defining claim: \"a decisive inflection point for EP10\" — and the data backs it."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-20", "EP10", "Master", "Synthesis"]
 date: 2026-04-20
 article_type: motions

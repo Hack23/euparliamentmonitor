@@ -1,7 +1,7 @@
 ---
-title: "EP10 enters the second half of its mandate with a structurally constrained but operational grand coalition (EPP+S&D+Renew, 396 seats, +37…"
-description: "EP10 enters the second half of its mandate with a structurally constrained but operational grand coalition (EPP+S&D+Renew, 396 seats, +37 over majority threshold), facing…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-10", "EP10", "enters", "second", "half", "mandate", "with"]
+title: "EU Parliament Term Outlook (2026 → 2031)"
+description: "EP10 enters the second half of its mandate with a structurally constrained but operational grand coalition (EPP+S&D+Renew, 396 seats, +37 over majority threshold), facing"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-10", "Parliament", "Term", "Outlook", "EP10", "enters", "second"]
 date: 2026-05-10
 article_type: term-outlook
 slug: 2026-05-10-term-outlook

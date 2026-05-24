@@ -1,7 +1,7 @@
 ---
-title: "Political Intelligence Analysis"
-description: "— actor motivations, coalition mathematics Published 2026-04-28. for democratic-accountability readers tracking EU institutional consequences"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-28", "Political", "Intelligence", "Analysis"]
+title: "The European Parliament's 10th term entered its most consequential legislative phase of Spring 2026 during the week under review."
+description: "The European Parliament's 10th term entered its most consequential legislative phase of Spring 2026 during the week under review."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-28", "European", "Parliament", "10th"]
 date: 2026-04-28
 article_type: propositions
 slug: 2026-04-28-propositions

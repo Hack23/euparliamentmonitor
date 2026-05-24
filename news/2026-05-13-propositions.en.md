@@ -1,6 +1,6 @@
 ---
 title: "The five adopted texts analyzed in this run exhibit a striking strategic coherence when viewed collectively."
-description: "The five adopted texts analyzed in this run exhibit a striking strategic coherence when viewed collectively. Each addresses a different domain, but all share a common structural…"
+description: "The five adopted texts analyzed in this run exhibit a striking strategic coherence when viewed collectively."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-13", "five", "adopted", "texts"]
 date: 2026-05-13
 article_type: propositions

@@ -1,16 +1,16 @@
 ---
 title: "Propositions Run 45, 17 April 2026"
-description: "Run 45 is a recess-window propositions analytical run anchored on the EP10 Year-3 peak-velocity sprint thesis: the projected 935-procedure 2026 throughput peak relative…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Propositions Run45", "2026-04-17", "Propositions", "April", "recess", "window", "analytical", "anchored"]
+description: "Run 45 is a recess-window propositions analytical run anchored on the EP10 Year-3 peak-velocity sprint thesis: the projected 935-procedure 2026 throughput peak relative"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-17", "April", "recess", "window"]
 date: 2026-04-17
-article_type: propositions-run45
-slug: 2026-04-17-propositions-run45
+article_type: propositions
+slug: 2026-04-17-propositions
 source_folder: analysis/daily/2026-04-17/propositions-run45
 generated_at: 2026-04-17T00:00:00.000Z
 language: en
 layout: article
 ---
-# Propositions Run45 — 2026-04-17
+# Propositions — 2026-04-17
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -274,7 +274,7 @@ The March 2026 Strasbourg session was remarkable not for the volume of legislati
 
 > **Provenance & Audit**
 >
-> - **Article type:** `propositions-run45`
+> - **Article type:** `propositions`
 > - **Run date:** 2026-04-17
 > - **Run id:** `ecb889c2-f7ce-4177-85e4-3b9d13c7989b`
 > - **Gate result:** `PENDING`

@@ -1,7 +1,7 @@
 ---
-title: "Key Assumptions Check"
-description: ": This brief assumes standard EP committee schedule operation during the week of 18–22 May 2026. The EP administrative calendar designates this as a committee week (no Strasbourg…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-22", "Assumptions", "Check", "This"]
+title: "EU Parliament Committee Activity (Week 18–22 May 2026)"
+description: "The European Parliament's committee system enters the final stretch of the 2025–2026 legislative autumn with multiple high-priority dossiers approaching plenary-readiness."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-22", "Parliament", "Committee", "Activity"]
 date: 2026-05-22
 article_type: committee-reports
 slug: 2026-05-22-committee-reports

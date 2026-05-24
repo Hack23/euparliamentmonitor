@@ -1,7 +1,7 @@
 ---
-title: "Confidence Level: MEDIUM-HIGH | Classification: PUBLIC | Admiralty Grade"
-description: "Confidence Level: MEDIUM-HIGH | Classification: PUBLIC | Admiralty Grade: A2/D2 mixed (structural knowledge A2; live data D2) need one more line"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-15", "Confidence", "Level", "MEDIUM"]
+title: "EU Parliament Committee Activity Report: Main Committees — Run 1778822323"
+description: "need one more line Published 2026-05-15."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-15", "Parliament", "Committee", "Activity"]
 date: 2026-05-15
 article_type: committee-reports
 slug: 2026-05-15-committee-reports

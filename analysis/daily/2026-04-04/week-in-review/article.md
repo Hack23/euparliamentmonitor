@@ -1,6 +1,6 @@
 ---
-title: "Week In Review | 2026-04-04"
-description: "Week of 30 March → 4 April 2026 was a full recess week with the two defining intelligence signals being analytical/operational rather than legislative: (1) confirmation of EP…"
+title: "Week in Review: 2026-02-27 to 2026-03-27"
+description: "Week of 30 March → 4 April 2026 was a full recess week with the two defining intelligence signals being analytical/operational rather than legislative: (1) confirmation of EP"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-04", "Week", "Review", "March", "April"]
 date: 2026-04-04
 article_type: week-in-review

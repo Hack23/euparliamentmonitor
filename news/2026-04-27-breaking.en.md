@@ -1,6 +1,6 @@
 ---
 title: "EP April 2026 Strasbourg Plenary Opens Amid EU-US Trade Confrontation"
-description: "Trade War Dynamics: The EP's adoption of EU customs duty adjustments on US goods represents a structural shift in transatlantic relations (Source: EP Open Data Portal…"
+description: "Trade War Dynamics: The EP's adoption of EU customs duty adjustments on US goods represents a structural shift in transatlantic relations (Source: EP Open Data Portal"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-27", "April", "Strasbourg", "Plenary"]
 date: 2026-04-27
 article_type: breaking

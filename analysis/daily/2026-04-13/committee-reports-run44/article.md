@@ -1,10 +1,10 @@
 ---
 title: "Committee Reports Run 44, 13 April 2026"
-description: "Run 44 is a T-2 pre-Tariff-activation committee-track positioning run (T-0 = 15 April activation of TA-0096 + TA-0097). The article exhibits the known frontmatter recursion…"
+description: "Run 44 is a T-2 pre-Tariff-activation committee-track positioning run (T-0 = 15 April activation of TA-0096 + TA-0097)."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-13", "Committee", "Reports", "April"]
 date: 2026-04-13
 article_type: committee-reports
-slug: 2026-04-13-committee-reports
+slug: 2026-04-13-committee-reports-44
 source_folder: analysis/daily/2026-04-13/committee-reports-run44
 generated_at: 2026-04-13T00:00:00.000Z
 language: en

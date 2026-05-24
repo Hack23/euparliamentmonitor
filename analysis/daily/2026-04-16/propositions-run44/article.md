@@ -1,16 +1,16 @@
 ---
 title: "Propositions Run 44, 16 April 2026"
 description: "Run 44 documents that the European Parliament has entered the 27 March – 26 April inter-session gap carrying the most ambitious legislative portfolio of EP10's current term."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Propositions Run44", "2026-04-16", "Propositions", "April", "documents", "that", "European", "Parliament"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-16", "April", "documents", "that"]
 date: 2026-04-16
-article_type: propositions-run44
-slug: 2026-04-16-propositions-run44
+article_type: propositions
+slug: 2026-04-16-propositions
 source_folder: analysis/daily/2026-04-16/propositions-run44
 generated_at: 2026-04-16T00:00:00.000Z
 language: en
 layout: article
 ---
-# Propositions Run44 — 2026-04-16
+# Propositions — 2026-04-16
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -281,7 +281,7 @@ EP Open Data Portal: get_procedures (2026), get_adopted_texts (2026), get_plenar
 
 > **Provenance & Audit**
 >
-> - **Article type:** `propositions-run44`
+> - **Article type:** `propositions`
 > - **Run date:** 2026-04-16
 > - **Run id:** `a44262b7-c7fe-4d49-8de1-d7e07919e39b`
 > - **Gate result:** `PENDING`

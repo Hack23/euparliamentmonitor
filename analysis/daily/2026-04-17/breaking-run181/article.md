@@ -1,7 +1,7 @@
 ---
-title: "Run 181, 17 April 2026"
-description: "Run 181 (T+3, mid-day) extends prior recess-probe coverage with new analytical focus on the March 2026 secondary-sprint legislative cluster — texts not covered in earlier-day…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-17", "April", "extends", "prior"]
+title: "Run 181, 17 April 2026 (T+3 Secondary Sprint)"
+description: "Run 181 (T+3, mid-day) extends prior recess-probe coverage with new analytical focus on the March 2026 secondary-sprint legislative cluster — texts not covered in earlier-day Runs"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-17", "April", "Secondary", "Sprint"]
 date: 2026-04-17
 article_type: breaking
 slug: 2026-04-17-breaking-181

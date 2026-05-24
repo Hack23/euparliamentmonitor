@@ -1,16 +1,16 @@
 ---
 title: "Committee Reports Run 49, 15 April 2026"
-description: "Run 49 records the operational activation of BOTH TA-10-2026-0096 and TA-10-2026-0097 on 15 April — the 21-day compliance window from the 26 March plenary adoption has expired…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Committee Reports Run49", "2026-04-15", "Committee", "Reports", "April", "records", "operational", "activation"]
+description: "Run 49 records the operational activation of BOTH TA-10-2026-0096 and TA-10-2026-0097 on 15 April — the 21-day compliance window from the 26 March plenary adoption has expired"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-15", "Committee", "Reports", "April"]
 date: 2026-04-15
-article_type: committee-reports-run49
-slug: 2026-04-15-committee-reports-run49
+article_type: committee-reports
+slug: 2026-04-15-committee-reports
 source_folder: analysis/daily/2026-04-15/committee-reports-run49
 generated_at: 2026-04-15T00:00:00.000Z
 language: en
 layout: article
 ---
-# Committee Reports Run49 — 2026-04-15
+# Committee Reports — 2026-04-15
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -705,7 +705,7 @@ With 51 new procedures in 2026 and 13 pending COD files, the post-recess backlog
 
 > **Provenance & Audit**
 >
-> - **Article type:** `committee-reports-run49`
+> - **Article type:** `committee-reports`
 > - **Run date:** 2026-04-15
 > - **Run id:** `0ab28c94-41e0-433e-b6cf-599f19f30e71`
 > - **Gate result:** `PENDING`

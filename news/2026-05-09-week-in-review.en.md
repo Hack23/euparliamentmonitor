@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament's April 2026 plenary sessions (primarily the Strasbourg session of 27–30 April) produced a dense legislative…"
-description: "The European Parliament's April 2026 plenary sessions (primarily the Strasbourg session of 27–30 April) produced a dense legislative harvest across three strategic fault lines…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-09", "European", "Parliament", "April", "plenary"]
+title: "Week in Review (3 Apr – 1 May 2026)"
+description: "The April 2026 European Parliament period represents a qualitative shift in EP's self-conception: from a primarily legislative body managing the EU single market to an institution"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-09", "Week", "Review", "April", "European"]
 date: 2026-05-09
 article_type: week-in-review
 slug: 2026-05-09-week-in-review

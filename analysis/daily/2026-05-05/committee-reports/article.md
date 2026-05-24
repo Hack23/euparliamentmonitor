@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Committee Reports, 28 April – 5 May 2026"
-description: "The 28 April – 1 May plenary week delivered 14 adopted texts across 7 committees and is, in retrospect, the opening move of the 2027 budget cycle (TA-10-2026-0112 guidelines +…"
+description: "The 28 April – 1 May plenary week delivered 14 adopted texts across 7 committees and is, in retrospect, the opening move of the 2027 budget cycle (TA-10-2026-0112 guidelines +"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-05", "Parliament", "Committee", "Reports"]
 date: 2026-05-05
 article_type: committee-reports

@@ -1,7 +1,7 @@
 ---
-title: "EP Motions, 2026-05-01"
+title: "The European Parliament's April 2026 plenary session (28–30 April, Strasbourg) delivered a dense legislative harvest spanning immunity law"
 description: "Short-term (0–4 weeks): Jaki immunity fallout will dominate Polish-EU relations dynamics. Watch for ECR leadership response and potential bloc solidarity challenges."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-01", "Short", "term", "weeks"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-01", "European", "Parliament", "April"]
 date: 2026-05-01
 article_type: motions
 slug: 2026-05-01-motions

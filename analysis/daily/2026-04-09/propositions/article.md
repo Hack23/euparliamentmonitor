@@ -1,7 +1,7 @@
 ---
-title: "Propositions, 9 April 2026"
-description: "The 9 April propositions synthesis documents the pre-recess output baseline: 100 adopted texts between 20 January and 26 March across 6 plenary sessions."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-09", "April", "synthesis", "documents"]
+title: "🧩 Political Intelligence Synthesis — Legislative Propositions (2026-04-09)"
+description: "Post-Easter pipeline outlook — 13 new COD proposals await committee action after Q1's record output Yesterday focused on implementation outlook for banking/anti-corruption."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-09", "Political", "Intelligence", "Synthesis"]
 date: 2026-04-09
 article_type: propositions
 slug: 2026-04-09-propositions

@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Propositions — 8 May 2026"
-description: "Admissibility: A2 — Official EP sources (Open Data Portal, adopted texts, tracklegislation). Plenary vote data from latestvotes tool unavailable this week (EP in recess…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-08", "Parliament", "Admissibility", "Official"]
+title: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint"
+description: "Admissibility: A2 — Official EP sources (Open Data Portal, adopted texts, tracklegislation). Published 2026-05-08."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-08", "European", "Parliament", "completed"]
 date: 2026-05-08
 article_type: propositions
 slug: 2026-05-08-propositions

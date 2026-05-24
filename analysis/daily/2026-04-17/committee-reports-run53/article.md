@@ -1,16 +1,16 @@
 ---
 title: "Committee Reports Run 53, 17 April 2026"
-description: "Run 53 is a recess-window analytical run that re-scores the March 2026 Strasbourg multi-domain legislative sprint across five committee jurisdictions (BUDG, AFET, AGRI, IMCO…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Committee Reports Run53", "2026-04-17", "Committee", "Reports", "April", "recess", "window", "analytical"]
+description: "Run 53 is a recess-window analytical run that re-scores the March 2026 Strasbourg multi-domain legislative sprint across five committee jurisdictions (BUDG, AFET, AGRI, IMCO"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-17", "Committee", "Reports", "April"]
 date: 2026-04-17
-article_type: committee-reports-run53
-slug: 2026-04-17-committee-reports-run53
+article_type: committee-reports
+slug: 2026-04-17-committee-reports
 source_folder: analysis/daily/2026-04-17/committee-reports-run53
 generated_at: 2026-04-17T00:00:00.000Z
 language: en
 layout: article
 ---
-# Committee Reports Run53 — 2026-04-17
+# Committee Reports — 2026-04-17
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -685,7 +685,7 @@ The cross-group coalition that supported the digital sovereignty text (TA-0022) 
 
 > **Provenance & Audit**
 >
-> - **Article type:** `committee-reports-run53`
+> - **Article type:** `committee-reports`
 > - **Run date:** 2026-04-17
 > - **Run id:** `f1dc673b-2d98-4641-930e-4d14497da488`
 > - **Gate result:** `PENDING`

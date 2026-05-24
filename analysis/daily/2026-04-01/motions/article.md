@@ -1,7 +1,7 @@
 ---
-title: "Motions | 2026-04-01"
-description: "No new motions for a resolution recorded on 2026-04-01. Analysis run 6ab9ff5b-5062-4c7c-8625-af376a01eb16 returned 0 classified actors and ROUTINE significance — consistent…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-01", "resolution", "recorded", "Analysis"]
+title: "No new motions for a resolution recorded on 2026-04-01."
+description: "No new motions for a resolution recorded on 2026-04-01. Published 2026-04-01."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-01", "resolution", "recorded", "Published"]
 date: 2026-04-01
 article_type: motions
 slug: 2026-04-01-motions

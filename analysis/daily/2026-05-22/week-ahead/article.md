@@ -1,7 +1,7 @@
 ---
-title: "Threat Level"
-description: "🟡 MEDIUM | WEP: LIKELY (55–70%) that this narrative is active this week | Admiralty: B1 Published 2026-05-22. for democratic-accountability readers tracking EU institutional…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-22", "Threat", "Level", "MEDIUM"]
+title: "SAFE Regulation (ReArm Europe) — AFET/BUDG committees advancing joint procurement framework."
+description: "SAFE Regulation (ReArm Europe) — AFET/BUDG committees advancing joint procurement framework. Published 2026-05-22."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-22", "SAFE", "Regulation", "ReArm"]
 date: 2026-05-22
 article_type: week-ahead
 slug: 2026-05-22-week-ahead

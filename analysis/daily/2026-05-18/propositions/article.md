@@ -1,6 +1,6 @@
 ---
 title: "WEP Bands Applied | Admiralty Scale Used | SAT Documentation Below"
-description: "WEP Bands Applied | Admiralty Scale Used | SAT Documentation Below Published 2026-05-18. for democratic-accountability readers tracking EU institutional consequences"
+description: "WEP Bands Applied | Admiralty Scale Used | SAT Documentation Below Published 2026-05-18."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-18", "Bands", "Applied", "Admiralty"]
 date: 2026-05-18
 article_type: propositions

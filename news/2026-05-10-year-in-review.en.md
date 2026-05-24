@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Year in Review: May 2025–May 2026"
-description: "🟡 MEDIUM CONFIDENCE — The EP10's first full year demonstrates structural consolidation of a right-of-centre legislative majority that has mastered the art of flexible…"
+description: "🟡 MEDIUM CONFIDENCE — The EP10's first full year demonstrates structural consolidation of a right-of-centre legislative majority that has mastered the art of flexible coalitions"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year In Review", "2026-05-10", "Parliament", "Year", "Review", "MEDIUM", "CONFIDENCE", "EP10"]
 date: 2026-05-10
 article_type: year-in-review

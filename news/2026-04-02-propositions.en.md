@@ -1,6 +1,6 @@
 ---
-title: "Propositions | 2026-04-02"
-description: "No new Commission propositions or EP own-initiative procedures opened on 2026-04-02. Run a3fdcdee-e95c-4a90-a4de-4c41509e1c1d returned 0 classified actors and ROUTINE…"
+title: "No new Commission propositions or EP own-initiative procedures opened on 2026-04-02."
+description: "No new Commission propositions or EP own-initiative procedures opened on 2026-04-02. Published 2026-04-02."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-02", "Commission", "initiative", "procedures"]
 date: 2026-04-02
 article_type: propositions

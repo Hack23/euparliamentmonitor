@@ -1,6 +1,6 @@
 ---
-title: "Motions | 2026-04-02"
-description: "No new motions for a resolution tabled on 2026-04-02; recess week 2 of 4 continues. Run c93513b6-9f22-4b36-a984-d0512328769c returned 0 classified actors and ROUTINE…"
+title: "No new motions for a resolution tabled on 2026-04-02; recess week 2 of 4 continues."
+description: "No new motions for a resolution tabled on 2026-04-02; recess week 2 of 4 continues. Published 2026-04-02."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-02", "resolution", "tabled", "recess"]
 date: 2026-04-02
 article_type: motions

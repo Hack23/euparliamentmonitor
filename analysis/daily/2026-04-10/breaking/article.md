@@ -1,7 +1,7 @@
 ---
-title: "Breaking, 10 April 2026"
-description: "The 10 April breaking brief records Easter Recess Day 15 with dataAvailability: Unavailable. The analytical mode operates on precomputed-stats + editorial-memory substrate only…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-10", "April", "brief", "records"]
+title: "Breaking News Intelligence Brief"
+description: "dataAvailability: Unavailable (Easter recess Day 15) analyst: EU Parliament Monitor AI Agent (Opus 4.6)"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-10", "News", "Intelligence", "Brief"]
 date: 2026-04-10
 article_type: breaking
 slug: 2026-04-10-breaking-breaking

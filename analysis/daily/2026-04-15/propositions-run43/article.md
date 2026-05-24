@@ -1,16 +1,16 @@
 ---
 title: "Propositions: Tariff T-0 Pipeline Transition Day | 2026-04-15"
-description: "*On T-0 day itself, the run reframes the propositions narrative as pipeline transition from adoption to operational implementation: TA-10-2026-0096 ceases to be a parliamentary…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Propositions Run43", "2026-04-15", "Propositions", "Tariff", "Pipeline", "Transition", "itself", "reframes"]
+description: "*On T-0 day itself, the run reframes the propositions narrative as pipeline transition from adoption to operational implementation: TA-10-2026-0096 ceases to be a parliamentary"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-15", "Tariff", "Pipeline", "Transition"]
 date: 2026-04-15
-article_type: propositions-run43
-slug: 2026-04-15-propositions-run43
+article_type: propositions
+slug: 2026-04-15-propositions
 source_folder: analysis/daily/2026-04-15/propositions-run43
 generated_at: 2026-04-15T00:00:00.000Z
 language: en
 layout: article
 ---
-# Propositions Run43 — 2026-04-15
+# Propositions — 2026-04-15
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -407,7 +407,7 @@ Scenario C (Unlikely): Coalition fracture on trade response
 
 > **Provenance & Audit**
 >
-> - **Article type:** `propositions-run43`
+> - **Article type:** `propositions`
 > - **Run date:** 2026-04-15
 > - **Run id:** `56d5a875-0b05-4753-8aca-36b9af05c1e2`
 > - **Gate result:** `PENDING`

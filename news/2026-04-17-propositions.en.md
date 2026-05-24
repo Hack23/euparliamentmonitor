@@ -1,7 +1,7 @@
 ---
-title: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title…"
-description: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"t…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-17", "run ecb889c2-f7ce-4177-85e4-3b9d13c7989b", "title"]
+title: "Propositions Run 45, 17 April 2026"
+description: "Run 45 is a recess-window propositions analytical run anchored on the EP10 Year-3 peak-velocity sprint thesis: the projected 935-procedure 2026 throughput peak relative"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-17", "April", "recess", "window"]
 date: 2026-04-17
 article_type: propositions
 slug: 2026-04-17-propositions
@@ -12,13 +12,57 @@ layout: article
 ---
 # Propositions — 2026-04-17
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 45 is a **recess-window propositions analytical run** anchored on the **EP10 Year-3 peak-velocity sprint** thesis: the projected 935-procedure 2026 throughput peak relative to the 2004–2026 series. The run produces a propositions-track significance ordering for the March 2026 sprint and the projected April–June pipeline. The article's frontmatter is malformed (recursively nested title strings) which is a known cataloguing-system artifact — the substantive content beneath remains analytically valid. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Treat the EP10 Year-3 peak-velocity-sprint thesis as the canonical propositions-track frame.** With 2026 projected to deliver the highest procedure throughput in the observed series, every propositions-track run during recess is implicitly a validation or refinement of this thesis. *Confidence: HIGH.*
+2. **Flag and route the frontmatter recursion as a downstream-cataloguing system issue.** The recursive `title:` strings in the article frontmatter are a separate system-pipeline issue (not an analytical issue); they require attention from the article-aggregator pipeline rather than the analytical-runs pipeline. *Confidence: HIGH.*
+3. **Maintain recess-window propositions monitoring through plenary return.** Pre-plenary propositions activity is the leading indicator of legislative-throughput trajectory; sustained monitoring through 27 April provides the data needed to confirm or revise the Year-3 peak thesis. *Confidence: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+Recess-window propositions runs serve a forward-projection function: they re-baseline the EP10 Year-3 peak-velocity thesis against the latest available data. Run 45's contribution is the structural-thesis maintenance.
+
+The frontmatter recursion is operationally noteworthy (it is a downstream pipeline issue) but does not affect the substantive analytical content beneath it.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Year-3 peak thesis revised downward by Q2 data | LOW–MED | MED |
+| Frontmatter recursion persists into translation pipeline | MED | LOW–MED |
+| Propositions monitoring gap during recess endpoint | LOW | MED |
+
+### Source Quality
+
+- EP aggregate-stats series (2004–2026): **B2**
+- Year-3 peak-velocity thesis: **B2** (constructed framing)
+- Frontmatter recursion observation: **A1** (observable system fact)
+
+### Provenance
+
+- Run: `propositions-run45` (2026-04-17, recess window)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: thesis labelled as analytical construct; system issue separately flagged.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/synthesis-summary.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
@@ -255,6 +299,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -310,6 +355,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -322,9 +368,12 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Seo Headers Policy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/seo-headers-policy.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -333,6 +382,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/existing/deep-analysis.md) | `existing/deep-analysis.md` |

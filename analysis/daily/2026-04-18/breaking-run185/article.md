@@ -1,7 +1,7 @@
 ---
-title: "Run 185, 18 April 2026"
+title: "Run 185, 18 April 2026 (Evening)"
 description: "Run 185 (evening probe, Easter Recess Day 5) confirms API plateau stability at the post-Tier-1 state: composite 17.5/50, mode ANALYSISONLY, feeds 2/13 (direct-test confirmed)."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "evening", "probe"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "Evening", "probe"]
 date: 2026-04-18
 article_type: breaking
 slug: 2026-04-18-breaking-185

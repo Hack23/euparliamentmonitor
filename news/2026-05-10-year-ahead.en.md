@@ -1,7 +1,7 @@
 ---
-title: "For heads of government: EP10 Year 2 is the year when the EU's collective defence transformation either locks in (October 2026 ReArm vote)…"
-description: "For heads of government: EP10 Year 2 is the year when the EU's collective defence transformation either locks in (October 2026 ReArm vote) or stalls."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-10", "heads", "government", "EP10", "Year", "when", "collective"]
+title: "European Parliament Year Ahead — May 2026–May 2027"
+description: "European Parliament annual strategic outlook — Commission Work Programme, Trio Presidency, legislative priorities and 12-month risk surfaces"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-10", "European", "Parliament", "Year", "Ahead", "annual", "strategic"]
 date: 2026-05-10
 article_type: year-ahead
 slug: 2026-05-10-year-ahead

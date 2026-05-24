@@ -1,16 +1,16 @@
 ---
 title: "Legislative Procedures: Tariff Deadline Dominates Q2 Agenda | 2026-04-13"
-description: "Q2 2026 opens with a single dominant file: TA-10-2026-0096 US Tariff Countermeasures — significance 7.40 raw (7.95 unadjusted), risk 16/25 CRITICAL — adopted March 26…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Propositions Run41", "2026-04-13", "Legislative", "Procedures", "Tariff", "Deadline", "Dominates", "Agenda"]
+description: "Q2 2026 opens with a single dominant file: TA-10-2026-0096 US Tariff Countermeasures — significance 7.40 raw (7.95 unadjusted), risk 16/25 CRITICAL — adopted March 26 and entering"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-13", "Legislative", "Procedures", "Tariff"]
 date: 2026-04-13
-article_type: propositions-run41
-slug: 2026-04-13-propositions-run41
+article_type: propositions
+slug: 2026-04-13-propositions
 source_folder: analysis/daily/2026-04-13/propositions-run41
 generated_at: 2026-04-13T00:00:00.000Z
 language: en
 layout: article
 ---
-# Propositions Run41 — 2026-04-13
+# Propositions — 2026-04-13
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -1146,7 +1146,7 @@ flowchart LR
 
 > **Provenance & Audit**
 >
-> - **Article type:** `propositions-run41`
+> - **Article type:** `propositions`
 > - **Run date:** 2026-04-13
 > - **Run id:** `149c3a19-6339-45aa-a427-5c30eceb4e49`
 > - **Gate result:** `PENDING`

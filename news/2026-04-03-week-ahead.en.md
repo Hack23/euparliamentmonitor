@@ -1,7 +1,7 @@
 ---
-title: "Week Ahead | 2026-04-03"
-description: "Week of 6-12 April 2026 will be a quiet Easter-recess week — no plenary, no formal committee sittings, limited Commission Tuesday activity. Run…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-04-03", "Week", "Ahead", "April"]
+title: "Week of 6-12 April 2026 will be a quiet Easter-recess week — no plenary, no formal committee sittings, limited Commission Tuesday activity."
+description: "Week of 6-12 April 2026 will be a quiet Easter-recess week — no plenary, no formal committee sittings, limited Commission Tuesday activity."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-04-03", "Week", "April", "will"]
 date: 2026-04-03
 article_type: week-ahead
 slug: 2026-04-03-week-ahead

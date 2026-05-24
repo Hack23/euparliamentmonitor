@@ -1,6 +1,6 @@
 ---
 title: "Propositions-2, 10 April 2026"
-description: "The second propositions run of 10 April records 1 political dimension surfaced (vs. 0 in the motions run earlier). The single dimension is the ECON-bottleneck hypothesis (echoed…"
+description: "The second propositions run of 10 April records 1 political dimension surfaced (vs. 0 in the motions run earlier)."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-10", "April", "second", "records"]
 date: 2026-04-10
 article_type: propositions

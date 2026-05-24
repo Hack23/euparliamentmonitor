@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10…"
-description: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10 current term. With 51 procedures……"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-16", "run a44262b7-c7fe-4d49-8de1-d7e07919e39b", "European", "Parliament", "enters", "inter", "session", "March", "April", "carrying"]
+title: "Propositions Run 44, 16 April 2026"
+description: "Run 44 documents that the European Parliament has entered the 27 March – 26 April inter-session gap carrying the most ambitious legislative portfolio of EP10's current term."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-16", "April", "documents", "that"]
 date: 2026-04-16
 article_type: propositions
 slug: 2026-04-16-propositions
@@ -12,13 +12,57 @@ layout: article
 ---
 # Propositions — 2026-04-16
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 44 documents that the European Parliament has entered the **27 March – 26 April inter-session gap carrying the most ambitious legislative portfolio of EP10's current term**. The portfolio includes the AI Act implementation oversight, DMA enforcement demand, Ukraine Claims Commission framework, MFF 2028–2034 interim report, Livestock Strategy, and the trade-defence triple package (TA-0096/0097/0101). The structural finding is that **legislative ambition has not contracted during the inter-session gap** — the portfolio remains intact and awaits operational activation on plenary return. *Confidence: MEDIUM-HIGH; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Treat the inter-session gap as legislative-portfolio-preservation, not contraction.** The 30-day gap could in principle erode political momentum on flagship files; the empirical observation is that it has not. The portfolio is intact. *Confidence: MEDIUM-HIGH.*
+2. **Anchor the "most ambitious portfolio of EP10" framing on six headline files.** AI Act implementation, DMA enforcement, Ukraine Claims, MFF 2028–2034, Livestock Strategy, trade-defence triple — these six together constitute the operational portfolio. *Confidence: HIGH on the framing.*
+3. **Pre-position downstream consumers for portfolio-activation on plenary return.** The 27 April plenary will not introduce new flagship files — it will *activate* the preserved portfolio. Capacity planning should focus on activation throughput, not new-file ingestion. *Confidence: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+The inter-session gap is the **most analytically useful test** of whether EP10's ambitious 2026 legislative posture is structural or politically conditional. Today's evidence — at Day 19 of the 30-day gap — is that the posture is structural: no file has been visibly de-prioritised, no rapporteur has resigned, no coalition has fractured publicly.
+
+The activation question is the dominant Q2 2026 strategic question: which files convert to law fastest, which to interim political consensus, and which stall? Answer comes post-plenary.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Portfolio activation produces bottleneck on plenary return | MED–HIGH | MED |
+| Specific files (DMA enforcement, Livestock) prove politically unstable | MED | MED–HIGH |
+| Inter-session gap erodes political momentum on Ukraine Claims | LOW–MED | MED–HIGH |
+
+### Source Quality
+
+- EP10 portfolio cataloguing: **A2**
+- Inter-session gap timing: **A1**
+- Portfolio-preservation observation: **B2** (no contrary signal observed)
+
+### Provenance
+
+- Run: `propositions-run44` (2026-04-16)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: framing labelled as analytical construct.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/political-classification.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/threat-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/swot-analysis.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
@@ -262,6 +306,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -317,6 +362,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -329,9 +375,12 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Seo Headers Policy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/seo-headers-policy.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -340,6 +389,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/classification/political-classification.md) | `classification/political-classification.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |

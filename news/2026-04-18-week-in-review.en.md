@@ -1,6 +1,6 @@
 ---
 title: "EP Week in Review: April 11–18, 2026 | 2026-04-18"
-description: "The week of April 11–18, 2026 is a structural inflection point in EP10's legislative trajectory. Parliament entered Easter recess on April 14 having achieved a Q1 output (104…"
+description: "The week of April 11–18, 2026 is a structural inflection point in EP10's legislative trajectory. Published 2026-04-18."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-18", "Week", "Review", "April", "structural"]
 date: 2026-04-18
 article_type: week-in-review

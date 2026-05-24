@@ -1,6 +1,6 @@
 ---
 title: "Easter Monday Recess Intelligence | 2026-04-06"
-description: "Easter Monday produced zero parliamentary activity by design — yet the run records the single most consequential structural finding of the recess fortnight: 6 of 8 EP API…"
+description: "Easter Monday produced zero parliamentary activity by design — yet the run records the single most consequential structural finding of the recess fortnight: 6 of 8 EP API"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Recess"]
 date: 2026-04-06
 article_type: breaking

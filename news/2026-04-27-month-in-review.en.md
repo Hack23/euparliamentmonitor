@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Month in Review: March 28–April 27, 2026"
-description: "The European Parliament completed its most consequential legislative month of 2026, adopting a comprehensive defence industrial revolution (single market for defence, flagship…"
+description: "The European Parliament completed its most consequential legislative month of 2026, adopting a comprehensive defence industrial revolution (single market for defence, flagship"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-27", "Parliament", "Month", "Review", "March"]
 date: 2026-04-27
 article_type: month-in-review

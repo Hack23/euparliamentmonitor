@@ -1,7 +1,7 @@
 ---
-title: "Close to Adoption"
-description: "The European Parliament faces its most consequential twelve months since the 2024 election. EPP dominance (183/717 seats, 25.5%) within a highly fragmented nine-group chamber…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-11", "Close", "Adoption", "European", "Parliament", "faces", "most"]
+title: "EU Parliament Year Ahead (May 2026 – May 2027)"
+description: "The European Parliament faces its most consequential twelve months since the 2024 election. Published 2026-05-11."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-11", "Parliament", "Year", "Ahead", "European", "faces", "most"]
 date: 2026-05-11
 article_type: year-ahead
 slug: 2026-05-11-year-ahead

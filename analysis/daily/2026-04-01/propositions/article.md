@@ -1,6 +1,6 @@
 ---
-title: "Propositions | 2026-04-01"
-description: "No new Commission propositions or EP own-initiative dossiers indexed on 2026-04-01. Analysis run 4cf3b11a-f38e-4a3c-a81c-5c73d6eb8adc returned 0 classified actors and ROUTINE…"
+title: "No new Commission propositions or EP own-initiative dossiers indexed on 2026-04-01."
+description: "No new Commission propositions or EP own-initiative dossiers indexed on 2026-04-01. Published 2026-04-01."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-01", "Commission", "initiative", "dossiers"]
 date: 2026-04-01
 article_type: propositions

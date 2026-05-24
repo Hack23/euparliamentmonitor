@@ -1,6 +1,6 @@
 ---
-title: "Motions, 8 April 2026"
-description: "The 8 April motions analytical run records 0 political dimensions surfaced during pre-recess wind-down. Procedural-continuity output. Confidence: LOW-MEDIUM on fresh; HIGH…"
+title: "The 8 April motions analytical run records 0 political dimensions surfaced during pre-recess wind-down."
+description: "The 8 April motions analytical run records 0 political dimensions surfaced during pre-recess wind-down. Procedural-continuity output."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-08", "April", "analytical", "records"]
 date: 2026-04-08
 article_type: motions

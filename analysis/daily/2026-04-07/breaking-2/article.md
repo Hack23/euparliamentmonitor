@@ -1,6 +1,6 @@
 ---
 title: "Easter Recess Day 12 Evening Update (T-6 to Committee Week) | 2026-04-07"
-description: "*Day-12 evening breaking-2 is the 12-hour delta assessment over the morning baseline — the recess period's first structured operational example of paired AM/PM intelligence…"
+description: "*Day-12 evening breaking-2 is the 12-hour delta assessment over the morning baseline — the recess period's first structured operational example of paired AM/PM intelligence"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-07", "Easter", "Recess", "Evening"]
 date: 2026-04-07
 article_type: breaking
@@ -123,7 +123,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `synthesis-summary.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-significance">Significance</h2>
 
@@ -1302,6 +1302,1143 @@ If the EP Open Data Portal API does not recover by April 14:
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+**التصنيف:** OSINT — سجل برلماني عام  
+**مستوى الثقة:** 🟡 متوسط (إجازة؛ دلتا 12 ساعة فوق خط الأساس الصباحي لليوم 12)  
+**التشغيل:** `analysis/daily/2026-04-07/breaking-2/` (18:20 UTC)  
+**التغطية:** إجازة عيد الفصح اليوم 12/18 مساءً — دلتا 12 ساعة فوق خط الأساس الصباحي (44 مصنوعاً → دلتا + تحديد)  
+**تاريخ الإنشاء:** 2026-05-16 (موجز استرجاعي، لا مكالمات MCP جديدة)  
+**المصادر الأساسية:** خط الأساس الصباحي لليوم 12 (3,391 سطراً)؛ خلاصة النصوص المعتمدة اليومية (عنصر واحد)؛ 737 سجلاً لأعضاء البرلمان الأوروبي.
+
+---
+
+### 🎯 BLUF
+
+**تُعدّ نشرة breaking-2 لمساء اليوم 12 *تقييم دلتا 12 ساعة* فوق خط الأساس الصباحي — أول مثال تشغيلي منظم لفترة الإجازة على إيقاع استخباراتي مزدوج AM/PM.** إسهامها المميز هو **تأكيد نمط تذبذب استعادة API** على مستوى دقة اليوم: نقطة نهاية النصوص المعتمدة، التي شهدت تشغيلة-3 في 6 أبريل استعادتها عند 12:15 UTC، قد تذبذبت مجدداً — مما يؤكد أن نمط الفشل *Mode-B التذبذبي* الموثق في 6 أبريل دائم لا عابر. تُحدّد التشغيلة التخطيط التشغيلي **T-6 حتى أسبوع اللجان**: حيث أنتج خط الأساس الصباحي تسلسل المحفزات الأمامية ذات الـ 6 محفزات، تضيف التحديث المسائي *بنود مراقبة الاستعداد التشغيلي* — ثلاثة بنود للمراقبة قبل 14 أبريل: (1) الإشارة الصادرة عن فريق عمل المصارف في المجلس بشأن توقيت تفويض SRMR3 (صامتة حتى اليوم 12 = مخاطر انزلاق خفيفة)؛ (2) تقويم اجتماعات تنسيق Renew (ملفات المسار المختلط DGSD2/BRRD3 تحتاج إحاطة Renew قبل 14 أبريل)؛ (3) التواصل مع البرلمانات الوطنية لنقل قانون مكافحة الفساد (تنسيق ما قبل الربع الثاني لرئيس LIBE). التحديث المسائي هو *قائمة التحقق من الاستعداد التشغيلي* الأكثر وضوحاً في فترة الإجازة، والنموذج الهيكلي لإيقاع AM/PM اليومي اللاحق طوال بقية الإجازة (8–13 أبريل). **ترفع تشغيلة المساء إيقاع AM/PM من المراقبة إلى العمل التشغيلي** من خلال تقديم بنود مراقبة قابلة للتنفيذ بدلاً من مجرد تحديثات هيكلية لخط الأساس.
+
+---
+
+### 🧭 3 قرارات يدعمها هذا الموجز
+
+| # | القرار | من يقرر | الموعد النهائي | الأدلة |
+|:-:|--------|---------|:--------------:|--------|
+| 1 | **تصعيد صمت فريق عمل المصارف في المجلس** — الصمت حتى اليوم 12 = مخاطر انزلاق خفيفة؛ تصعيد إلى Coreper | رئاسة المجلس + مقرر البرلمان الأوروبي | قبل 10 أبريل | §بند المراقبة 1 |
+| 2 | **إحاطة Renew بشأن المسار المختلط** — تحتاج DGSD2/BRRD3 إحاطة منسق قبل 14 أبريل | منسقو Renew + تنسيق حزب الشعب الأوروبي | قبل 12 أبريل | §بند المراقبة 2 |
+| 3 | **التواصل المبكر قبل الربع الثاني لـ 27 دولة عضو في LIBE** — إعداد البرلمان الوطني لنقل قانون مكافحة الفساد | رئيس LIBE + حلقة الوصل البرلمانية الوطنية | قبل 14 أبريل | §بند المراقبة 3 |
+
+---
+
+### 📰 قراءة في 60 ثانية
+
+- 🔴 **أول إيقاع استخباراتي AM/PM منظم** — النموذج التشغيلي محدد.
+- 🟠 **نمط تذبذب API مؤكد دائم** — Mode-B تذبذبي، لا عابر.
+- 🟢 **3 بنود مراقبة استعداد تشغيلية** — مجلس BWG · Renew · LIBE.
+- 🟡 **T-6 حتى أسبوع اللجان** — العد التنازلي جارٍ.
+- 🔵 **737 عضواً في البرلمان الأوروبي مستقرون** — خط أساس اليوم 12 صامد.
+- 🟣 **1 نص معتمد في الخلاصة اليومية** — حد أدنى لكنه تشغيلي.
+- 🩷 **اليوم 12 من 18 — اكتملت 67% من الإجازة**.
+- ⚪ **الثقة متوسطة** — بنود المراقبة التشغيلية عالية؛ توقعات API متوسطة.
+
+---
+
+### 📋 بنود مراقبة الاستعداد التشغيلي (الإسهام المميز للتشغيلة)
+
+| # | البند | مؤشر الانزلاق | الموعد النهائي للتخفيف |
+|:-:|-------|--------------|------------------------|
+| 1 | **إشارة فريق عمل المصارف في المجلس بشأن تفويض SRMR3** | صامتة حتى اليوم 12 | التصعيد قبل 10 أبريل |
+| 2 | **تنسيق Renew على المسار المختلط DGSD2/BRRD3** | لا اجتماع منسق مجدول | الإحاطة قبل 12 أبريل |
+| 3 | **تواصل LIBE مع 27 دولة عضو بشأن نقل قانون مكافحة الفساد** | فجوة في حلقة الوصل البرلمانية الوطنية | التواصل قبل 14 أبريل |
+
+---
+
+### ⚠️ لمحة المخاطر
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 أبرز المحفزات الأمامية (7 أيام قادمة حتى T-0)
+
+1. **8 أبريل — اليوم 13** — الموعد النهائي لتصعيد BWG المجلس يقترب.
+2. **10 أبريل — اليوم 15** — تصعيد BWG المجلس: موعد نهائي صارم.
+3. **12 أبريل — اليوم 17** — إحاطة منسق Renew: موعد نهائي صارم.
+4. **13 أبريل — اليوم 18** — الإجازة تنتهي؛ مراجعة الاستعداد النهائية.
+5. **14 أبريل — اليوم 0** — أسبوع اللجان يبدأ؛ جميع بنود المراقبة يجب حلها.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **دلتا خط الأساس AM (A1):** مقارنة مباشرة مع تشغيلة الصباح؛ قابل للتحقق.
+- **استمرارية تذبذب API (A2):** ملاحظة مزدوجة اليوم 11 + اليوم 12؛ ثقة متوسطة.
+- **3 بنود مراقبة (A2):** منهجية الاستعداد التشغيلي؛ قابلة للتحقق مقابل التقويم المؤسسي.
+- **737 عضواً مستقرون (A1):** سجل أساسي.
+- **الثقة الصافية:** 🟢 عالية لإيقاع AM/PM؛ 🟡 متوسطة لاحتمالات انزلاق بنود المراقبة.
+
+---
+
+### 📎 مصنوعات التشغيلة
+
+| الطبقة | المصنوع | السبب |
+|--------|---------|-------|
+| المقالة | `article.md` | السرد العام لتحديث المساء |
+| التوليف | `synthesis-summary.md` | دلتا 12 ساعة + قائمة تحقق تشغيلية من 3 بنود مراقبة |
+| المنهجيات | التصنيف · الموجود · تسجيل المخاطر · تقييم التهديدات | المنهجية القياسية لـ breaking |
+| المرافق | breaking (06:36 الصباح) | خط الأساس AM لنفس اليوم |
+
+---
+
+**التحكم في الوثيقة**
+- **مرجع النموذج:** `analysis/templates/executive-brief.md`
+- **مسار المصنوع:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **التصنيف:** عام
+- **استرجاعي:** الموجز مكتوب في 2026-05-16 من المصنوعات الملتزمة للتشغيلة؛ **لم تُجرَ مكالمات MCP جديدة**.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Dag-12 aften breaking-2 er *12-timers deltaovervurderingen* over morgenbaselinen — ferieperiodens første strukturerede operationelle eksempel på parret AM/PM-efterretningsrytme.** Dens særlige bidrag er **bekræftelse af API-genopretningsoscillationsmønster** på dagniveauopløsning: endpoint for vedtagne tekster, som kørsel-3 den 6. april så genoprette sig kl. 12:15 UTC, har nu oscilleret igen — hvilket bekræfter, at det *Mode-B-oscillatoriske* fejlmønster dokumenteret den 6. april er vedvarende snarere end forbigående. Kørslen præciserer **T-6 til udvalgsugen** operationel planlægning: hvor morgenbaselinen producerede den 6-trigger fremadrettede udløsersekvens, tilføjer aftensopdateringen *operationelle beredskapsvagter* — tre elementer at overvåge inden den 14. april: (1) Rådets bankingsarbejdsgruppesignalering om SRMR3-mandatets timing (stille gennem dag 12 = mild glidningsrisiko); (2) Renews koordinationsmødekalender (blandede sporaftaler DGSD2/BRRD3 behøver Renew-briefing inden 14. april); (3) Antikorruptionstranspositions nationalparlamentarisk kontaktarbejde (LIBE-formands pre-Q2-koordination). Aftensopdateringen er ferieperiodens mest eksplicitte *operationelle beredskapsliste* og den strukturelle skabelon for efterfølgende daglige AM/PM-rytme gennem resten af ferien (8.-13. april). **Aftenkørslen løfter AM/PM-rytmen fra observationel til operationel** ved at introducere handlingsorienterede vagtelementer frem for rent strukturelle baslineopdateringer.
+
+---
+
+### 🧭 3 beslutninger denne resumé understøtter
+
+| # | Beslutning | Hvem beslutter | Frist | Dokumentation |
+|:-:|------------|---------------|:-----:|---------------|
+| 1 | **Eskalering af rådets bankingssarbejdsgruppes tavshed** — tavshed gennem dag 12 = mild glidningsrisiko; eskalér til Coreper | Rådsformandskab + EP-ordfører | inden 10. april | §Vagt 1 |
+| 2 | **Renew blandet-spor-briefing** — DGSD2/BRRD3 behøver pre-14. april koordinatorbriefing | Renew-koordinatorer + EPP-koordination | inden 12. april | §Vagt 2 |
+| 3 | **LIBE 27-MS pre-Q2 kontaktarbejde** — antikorruptionstranspositions nationalparlamentarisk forberedelse | LIBE-formand + nationalparlamentarisk kontakt | inden 14. april | §Vagt 3 |
+
+---
+
+### 📰 60-sekunders læsning
+
+- 🔴 **Første strukturerede AM/PM-efterretningsrytme** — operationel skabelon etableret.
+- 🟠 **API-oscillationsmønster bekræftet vedvarende** — Mode-B oscillatorisk, ikke forbigående.
+- 🟢 **3 operationelle beredskapsvagter** — Rådet BWG · Renew · LIBE.
+- 🟡 **T-6 til udvalgsugen** — nedtælling aktiv.
+- 🔵 **737 MEP'er stabile** — dag 12-baseline holder.
+- 🟣 **1 vedtaget tekst dagsfeed** — minimal men operationel.
+- 🩷 **Dag 12 af 18 — 67 % af ferien afsluttet**.
+- ⚪ **Tillid MIDDEL** — operationelle vagter høj; API-prognose middel.
+
+---
+
+### 📋 Operationelle beredskapsvagter (kørslens særlige bidrag)
+
+| # | Element | Glidningsindikator | Afhjælpningsfrist |
+|:-:|---------|-------------------|-------------------|
+| 1 | **Rådets bankingsarbejdsgruppes signalering om SRMR3-mandat** | Tavshed gennem dag 12 | Eskalér inden 10. april |
+| 2 | **Renew-koordination på blandet spor DGSD2/BRRD3** | Intet koordinatormøde planlagt | Briefing inden 12. april |
+| 3 | **LIBE 27-MS antikorruptionstranspositions kontaktarbejde** | Nationalparlamentarisk kontaktgab | Kontaktarbejde inden 14. april |
+
+---
+
+### ⚠️ Risikooversigt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 Top fremadrettede udløsere (næste 7 dage til T-0)
+
+1. **8. april — dag 13** — Rådets BWG-eskaleringsdeadline nærmer sig.
+2. **10. april — dag 15** — Rådets BWG-eskalering hård deadline.
+3. **12. april — dag 17** — Renew koordinatorbriefing hård deadline.
+4. **13. april — dag 18** — Ferie slutter; endelig beredskapsoversigt.
+5. **14. april — dag 0** — Udvalgsuge åbner; alle vagter skal løses.
+
+---
+
+### 🛡️ Kildekvurdering
+
+- **AM-baseline-delta (A1):** direkte sammenligning med morgenkørsel; verificerbar.
+- **API-oscillationspersistens (A2):** dag-11 + dag-12 dobbeltobservation; middeltillid.
+- **3 vagtelementer (A2):** operationel beredskapetodologi; verificerbar mod institutionel kalender.
+- **737 MEP'er stabile (A1):** primær post.
+- **Nettotillid:** 🟢 HØJ for AM/PM-rytme; 🟡 MIDDEL for vagtelementers glidningssandsynligheder.
+
+---
+
+### 📎 Kørselss artefakter
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikel | `article.md` | Offentlig aftensopdateringsfortælling |
+| Syntese | `synthesis-summary.md` | 12-timers delta + 3-vagt operationsliste |
+| Metoder | klassificering · eksisterende · risikovurdering · trusselsvurdering | Standard breaking-metodologi |
+| Ledsager | breaking (06:36 morgen) | Samme dags AM-baseline |
+
+---
+
+**Dokumentkontrol**
+- **Skabelonreference:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Resumé skrevet 2026-05-16 fra kørslens committede artefakter; **ingen nye MCP-kald blev foretaget**.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Tag-12-Abend breaking-2 ist die *12-Stunden-Delta-Bewertung* gegenüber der Morgen-Baseline — das erste strukturierte operationelle Beispiel des Urlaubszeitraums für einen paarweisen AM/PM-Nachrichtenrhythmus.** Sein besonderer Beitrag ist die **Bestätigung des API-Erholungsoszillationsmusters** auf Tagesauflösungsebene: der Endpunkt für angenommene Texte, der von Lauf-3 am 6. April um 12:15 UTC als wiederhergestellt gemeldet wurde, hat nun erneut oszilliert — und bestätigt damit, dass das am 6. April dokumentierte *Mode-B-Oszillator*-Fehlermuster dauerhaft und nicht vorübergehend ist. Der Lauf schärft die **T-6 bis Ausschusswoche** operative Planung: Während die Morgen-Baseline die 6-Auslöser-Vorwärtssequenz produzierte, fügt das Abend-Update *operative Bereitschaftswachpunkte* hinzu — drei Punkte, die bis zum 14. April zu überwachen sind: (1) Signalisierung der Bankenarbeitsgruppe des Rates zum SRMR3-Mandatszeitplan (schweigend bis Tag 12 = leichtes Verzögerungsrisiko); (2) Kalender für Renew-Koordinationssitzungen (gemischte Spurdateien DGSD2/BRRD3 benötigen Renew-Briefing vor dem 14. April); (3) Nationalparlamentarische Kontaktarbeit zur Antikorruptionstransposition (LIBE-Vorsitz-Pre-Q2-Koordination). Das Abend-Update ist die expliziteste *operative Bereitschaftsliste* des Urlaubszeitraums und die strukturelle Vorlage für den nachfolgenden täglichen AM/PM-Rhythmus bis zum Ende des Urlaubs (8.–13. April). **Der Abendlauf hebt den AM/PM-Rhythmus von beobachtend auf operationell an**, indem er umsetzbare Wachpunkte anstelle rein struktureller Baseline-Aktualisierungen einführt.
+
+---
+
+### 🧭 3 Entscheidungen, die dieses Briefing unterstützt
+
+| # | Entscheidung | Wer entscheidet | Frist | Nachweis |
+|:-:|-------------|----------------|:-----:|----------|
+| 1 | **Eskalation der Stille der Bankenarbeitsgruppe des Rates** — Stille bis Tag 12 = leichtes Verzögerungsrisiko; Eskalation an Coreper | Ratspräsidentschaft + EP-Berichterstatter | bis 10. April | §Wachpunkt 1 |
+| 2 | **Renew-Gemischtspurbriefing** — DGSD2/BRRD3 benötigen Pre-14.-April-Koordinatorbriefing | Renew-Koordinatoren + EVP-Koordination | bis 12. April | §Wachpunkt 2 |
+| 3 | **LIBE 27-MS Pre-Q2-Kontaktarbeit** — Antikorruptionstranspositions-Nationalparlaments-Vorbereitung | LIBE-Vorsitz + Nationalparlaments-Verbindung | bis 14. April | §Wachpunkt 3 |
+
+---
+
+### 📰 60-Sekunden-Lektüre
+
+- 🔴 **Erster strukturierter AM/PM-Nachrichtenrhythmus** — operative Vorlage etabliert.
+- 🟠 **API-Oszillationsmuster als dauerhaft bestätigt** — Mode-B-Oszillator, nicht vorübergehend.
+- 🟢 **3 operative Bereitschaftswachpunkte** — Rat BWG · Renew · LIBE.
+- 🟡 **T-6 bis Ausschusswoche** — Countdown aktiv.
+- 🔵 **737 MdEP stabil** — Tag-12-Baseline hält.
+- 🟣 **1 angenommener Text Tagesnachrichtenfeed** — minimal aber operationell.
+- 🩷 **Tag 12 von 18 — 67 % des Urlaubs abgeschlossen**.
+- ⚪ **Vertrauen MITTEL** — operative Wachpunkte hoch; API-Prognose mittel.
+
+---
+
+### 📋 Operative Bereitschaftswachpunkte (besonderer Beitrag des Laufs)
+
+| # | Punkt | Verzögerungsindikator | Abhilfefrist |
+|:-:|-------|----------------------|--------------|
+| 1 | **Signalisierung der Bankenarbeitsgruppe des Rates zum SRMR3-Mandat** | Stille bis Tag 12 | Eskalation bis 10. April |
+| 2 | **Renew-Koordination auf gemischtem Spur DGSD2/BRRD3** | Keine Koordinatorsitzung geplant | Briefing bis 12. April |
+| 3 | **LIBE 27-MS Antikorruptionstranspositions-Kontaktarbeit** | Nationalparlaments-Verbindungslücke | Kontaktarbeit bis 14. April |
+
+---
+
+### ⚠️ Risikoübersicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 Top-Vorwärtsauslöser (nächste 7 Tage bis T-0)
+
+1. **8. April — Tag 13** — Rats-BWG-Eskalationsfrist nähert sich.
+2. **10. April — Tag 15** — Rats-BWG-Eskalation harte Frist.
+3. **12. April — Tag 17** — Renew-Koordinatorbriefing harte Frist.
+4. **13. April — Tag 18** — Urlaub endet; abschließende Bereitschaftsüberprüfung.
+5. **14. April — Tag 0** — Ausschusswoche beginnt; alle Wachpunkte müssen gelöst sein.
+
+---
+
+### 🛡️ Quellenqualitätsbewertung
+
+- **AM-Baseline-Delta (A1):** direkter Vergleich mit Morgenlauf; verifizierbar.
+- **API-Oszillationsbeständigkeit (A2):** Tag-11 + Tag-12 Doppelbeobachtung; mittleres Vertrauen.
+- **3 Wachpunkte (A2):** operative Bereitschaftsmethodik; gegen institutionellen Kalender verifizierbar.
+- **737 MdEP stabil (A1):** Primäreintrag.
+- **Nettovertrauen:** 🟢 HOCH für AM/PM-Rhythmus; 🟡 MITTEL für Wachpunkt-Verzögerungswahrscheinlichkeiten.
+
+---
+
+### 📎 Laufartefakte
+
+| Schicht | Artefakt | Warum |
+|---------|----------|-------|
+| Artikel | `article.md` | Öffentliche Abendaktualisierungs-Erzählung |
+| Synthese | `synthesis-summary.md` | 12-Stunden-Delta + 3-Wachpunkt-operative Checkliste |
+| Methoden | Klassifizierung · bestehend · Risikobewertung · Bedrohungsbewertung | Standard-Breaking-Methodik |
+| Begleiter | breaking (06:36 morgens) | Gleichtägige AM-Baseline |
+
+---
+
+**Dokumentenkontrolle**
+- **Vorlagenreferenz:** `analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **Einstufung:** Öffentlich
+- **Retrospektiv:** Briefing erstellt am 2026-05-16 aus den committed Artefakten des Laufs; **keine neuen MCP-Aufrufe wurden getätigt**.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**La nota breaking-2 de la tarde del día 12 es la *evaluación delta de 12 horas* respecto a la línea base matutina — el primer ejemplo operacional estructurado del período de receso para un ritmo de inteligencia AM/PM emparejado.** Su contribución diferencial es la **confirmación del patrón de oscilación de recuperación de la API** a nivel de resolución diaria: el punto final de textos adoptados, que la ejecución-3 del 6 de abril vio recuperarse a las 12:15 UTC, ha vuelto a oscilar — confirmando que el patrón de fallo *Mode-B oscilatorio* documentado el 6 de abril es persistente y no transitorio. La ejecución refina la planificación operacional **T-6 hasta la semana de comisiones**: donde la línea base matutina produjo la secuencia de 6 disparadores hacia adelante, la actualización nocturna añade *puntos de vigilancia de preparación operacional* — tres elementos a supervisar antes del 14 de abril: (1) señalización del grupo de trabajo bancario del Consejo sobre el calendario del mandato SRMR3 (silencio hasta el día 12 = riesgo leve de deslizamiento); (2) calendario de reuniones de coordinación de Renew (archivos de pistas mixtas DGSD2/BRRD3 necesitan briefing de Renew antes del 14 de abril); (3) trabajo de divulgación parlamentaria nacional para la transposición anticorrupción (coordinación pre-T2 de la presidencia LIBE). La actualización nocturna es la *lista de verificación de preparación operacional* más explícita del período de receso y la plantilla estructural para el ritmo AM/PM diario posterior durante el resto del receso (8–13 de abril). **La ejecución nocturna eleva el ritmo AM/PM de observacional a operacional** al introducir puntos de vigilancia accionables en lugar de actualizaciones puramente estructurales de línea base.
+
+---
+
+### 🧭 3 decisiones que apoya esta nota
+
+| # | Decisión | Quién decide | Plazo | Evidencia |
+|:-:|----------|-------------|:-----:|-----------|
+| 1 | **Escalada del silencio del grupo de trabajo bancario del Consejo** — silencio hasta el día 12 = riesgo leve de deslizamiento; escalar al Coreper | Presidencia del Consejo + ponente del PE | antes del 10 de abril | §Punto de vigilancia 1 |
+| 2 | **Briefing de pista mixta de Renew** — DGSD2/BRRD3 necesitan briefing de coordinador antes del 14 de abril | Coordinadores de Renew + coordinación del PPE | antes del 12 de abril | §Punto de vigilancia 2 |
+| 3 | **Divulgación pre-T2 de los 27 EM de LIBE** — preparación del parlamento nacional para la transposición anticorrupción | Presidencia LIBE + enlace parlamentario nacional | antes del 14 de abril | §Punto de vigilancia 3 |
+
+---
+
+### 📰 Lectura en 60 segundos
+
+- 🔴 **Primer ritmo de inteligencia AM/PM estructurado** — plantilla operacional establecida.
+- 🟠 **Patrón de oscilación de la API confirmado persistente** — Mode-B oscilatorio, no transitorio.
+- 🟢 **3 puntos de vigilancia de preparación operacional** — Consejo BWG · Renew · LIBE.
+- 🟡 **T-6 hasta la semana de comisiones** — cuenta atrás activa.
+- 🔵 **737 eurodiputados estables** — línea base del día 12 se mantiene.
+- 🟣 **1 texto adoptado feed diario** — mínimo pero operacional.
+- 🩷 **Día 12 de 18 — 67 % del receso completado**.
+- ⚪ **Confianza MEDIA** — puntos de vigilancia operacionales alta; pronóstico API media.
+
+---
+
+### 📋 Puntos de vigilancia de preparación operacional (contribución diferencial de la ejecución)
+
+| # | Punto | Indicador de deslizamiento | Plazo de mitigación |
+|:-:|-------|---------------------------|---------------------|
+| 1 | **Señalización del grupo de trabajo bancario del Consejo sobre el mandato SRMR3** | Silencio hasta el día 12 | Escalar antes del 10 de abril |
+| 2 | **Coordinación de Renew en la pista mixta DGSD2/BRRD3** | Sin reunión de coordinador programada | Briefing antes del 12 de abril |
+| 3 | **Divulgación LIBE 27-EM sobre transposición anticorrupción** | Brecha de enlace parlamentario nacional | Divulgación antes del 14 de abril |
+
+---
+
+### ⚠️ Panorama de riesgos
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 Principales disparadores prospectivos (próximos 7 días hasta T-0)
+
+1. **8 de abril — día 13** — Se acerca el plazo de escalada del BWG del Consejo.
+2. **10 de abril — día 15** — Escalada del BWG del Consejo: plazo firme.
+3. **12 de abril — día 17** — Briefing de coordinador de Renew: plazo firme.
+4. **13 de abril — día 18** — El receso termina; revisión final de preparación.
+5. **14 de abril — día 0** — La semana de comisiones comienza; todos los puntos de vigilancia deben resolverse.
+
+---
+
+### 🛡️ Evaluación de la calidad de las fuentes
+
+- **Delta de línea base AM (A1):** comparación directa con la ejecución matutina; verificable.
+- **Persistencia de la oscilación de la API (A2):** doble observación día 11 + día 12; confianza media.
+- **3 puntos de vigilancia (A2):** metodología de preparación operacional; verificable frente al calendario institucional.
+- **737 eurodiputados estables (A1):** registro primario.
+- **Confianza neta:** 🟢 ALTA para el ritmo AM/PM; 🟡 MEDIA para las probabilidades de deslizamiento de los puntos de vigilancia.
+
+---
+
+### 📎 Artefactos de la ejecución
+
+| Capa | Artefacto | Por qué |
+|------|-----------|---------|
+| Artículo | `article.md` | Narrativa pública de actualización nocturna |
+| Síntesis | `synthesis-summary.md` | Delta de 12 horas + lista de verificación operacional de 3 puntos de vigilancia |
+| Métodos | clasificación · existente · puntuación de riesgos · evaluación de amenazas | Metodología estándar de breaking |
+| Compañero | breaking (06:36 mañana) | Línea base AM del mismo día |
+
+---
+
+**Control del documento**
+- **Referencia de plantilla:** `analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **Clasificación:** Público
+- **Retrospectivo:** Nota redactada el 2026-05-16 a partir de los artefactos comprometidos de la ejecución; **no se realizaron nuevas llamadas MCP**.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Päivä 12 ilta breaking-2 on *12 tunnin delta-arvio* aamu-lähtötasosta — lomakauden ensimmäinen jäsennelty operatiivinen esimerkki paritetusta AM/PM-tiedustelurytmistä.** Sen erottuva panos on **API-palautumisoskillaatiomallin vahvistus** päiväresoluutiotasolla: hyväksyttyjen tekstien päätepiste, jonka ajon-3 6. huhtikuuta näki palautuvan klo 12:15 UTC, on nyt oskilloinut uudelleen — vahvistaen, että *Mode-B-oskillatorinen* 6. huhtikuuta dokumentoitu virhemalli on pysyvä eikä ohimenevä. Ajo tarkentaa **T-6 valiokuntaviikkoon** operatiivista suunnittelua: siinä missä aamu-lähtötaso tuotti 6-laukaisijan eteenpäin suuntautuvan laukaisijasekvenssin, iltapäivitys lisää *operatiiviset valmiusseurantakohteet* — kolme kohdetta seurattavaksi ennen 14. huhtikuuta: (1) Neuvoston pankkityöryhmän signalointi SRMR3-toimeksiannon ajoituksesta (hiljainen päivään 12 asti = lievä luisumisriski); (2) Renewn koordinaatiokokouskalenteri (sekatietiedostot DGSD2/BRRD3 tarvitsevat Renew-tiedotuksen ennen 14. huhtikuuta); (3) Antikorruptiotranspositio kansallisparlamentaarinen yhteydenpito (LIBE-puheenjohtajan Q2-esikoordinaatio). Iltapäivitys on lomakauden eksplisiittisin *operatiivinen tarkistuslista* ja rakenteellinen malli myöhemmille päivittäisille AM/PM-rytmeille loman loppuajalle (8.–13. huhtikuuta). **Iltaajo nostaa AM/PM-rytmin havainnoivasta operatiiviseksi** ottamalla käyttöön toimenpidepohjaisia seurantakohteita pelkkien rakenteellisten lähtötasopäivitysten sijaan.
+
+---
+
+### 🧭 3 päätöstä, joita tämä yhteenveto tukee
+
+| # | Päätös | Kuka päättää | Määräaika | Näyttö |
+|:-:|--------|-------------|:----------:|--------|
+| 1 | **Neuvoston pankkityöryhmän hiljaisuuden eskalointi** — hiljaisuus päivään 12 asti = lievä luisumisriski; eskaloitu Coreperiin | Neuvoston puheenjohtajuus + EP:n esittelijä | 10. huhtikuuta mennessä | §Seurantakohde 1 |
+| 2 | **Renew sekatietojen tiedotus** — DGSD2/BRRD3 tarvitsevat ennen 14. huhtikuuta koordinaattorin tiedotuksen | Renewn koordinaattorit + EPP-koordinaatio | 12. huhtikuuta mennessä | §Seurantakohde 2 |
+| 3 | **LIBE 27 MS Q2-esi-yhteydenpito** — antikorruptiotranspositio kansallisparlamentaarinen valmistelu | LIBE-puheenjohtaja + kansallisparlamentaarinen yhteyshenkilö | 14. huhtikuuta mennessä | §Seurantakohde 3 |
+
+---
+
+### 📰 60 sekunnin luku
+
+- 🔴 **Ensimmäinen jäsennelty AM/PM-tiedustelurytmi** — operatiivinen malli luotu.
+- 🟠 **API-oskillaaatiomalli vahvistettu pysyväksi** — Mode-B oskillatorinen, ei ohimenevä.
+- 🟢 **3 operatiivista valmiusseurantakohdetta** — Neuvosto BWG · Renew · LIBE.
+- 🟡 **T-6 valiokuntaviikkoon** — lähtölaskenta käynnissä.
+- 🔵 **737 MEP:iä vakaana** — päivän 12 lähtötaso pitää.
+- 🟣 **1 hyväksytty teksti päivittäinen syöte** — minimaalinen mutta operatiivinen.
+- 🩷 **Päivä 12/18 — 67 % lomasta suoritettu**.
+- ⚪ **Luottamus KESKITASO** — operatiiviset seurantakohteet korkea; API-ennuste keskitaso.
+
+---
+
+### 📋 Operatiiviset valmiusseurantakohteet (ajon erottuva panos)
+
+| # | Kohde | Luisumisoindikaattori | Lieventämismääräaika |
+|:-:|-------|----------------------|----------------------|
+| 1 | **Neuvoston pankkityöryhmän signalointi SRMR3-toimeksiannosta** | Hiljaisuus päivään 12 asti | Eskaloi 10. huhtikuuta mennessä |
+| 2 | **Renewn koordinaatio sekatietopoluilla DGSD2/BRRD3** | Ei koordinaatiokokousta suunniteltu | Tiedotus 12. huhtikuuta mennessä |
+| 3 | **LIBE 27 MS antikorruptiotranspositio yhteydenpito** | Kansallisparlamentaarinen yhteyshenkilöaukko | Yhteydenpito 14. huhtikuuta mennessä |
+
+---
+
+### ⚠️ Riskikatsaus
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 Tärkeimmät eteenpäin suuntautuvat laukaisijat (seuraavat 7 päivää T-0:aan)
+
+1. **8. huhtikuuta — päivä 13** — Neuvoston BWG-eskalointimääräaika lähestyy.
+2. **10. huhtikuuta — päivä 15** — Neuvoston BWG-eskalointitiukka määräaika.
+3. **12. huhtikuuta — päivä 17** — Renewn koordinaattorin tiedotustiukka määräaika.
+4. **13. huhtikuuta — päivä 18** — Loma päättyy; lopullinen valmiuskatselmus.
+5. **14. huhtikuuta — päivä 0** — Valiokuntaviikko alkaa; kaikki seurantakohteet on ratkaistava.
+
+---
+
+### 🛡️ Lähteen laadun arviointi
+
+- **AM-lähtötasodelta (A1):** suora vertailu aamuajoon; todennettavissa.
+- **API-oskillaaation pysyvyys (A2):** päivä-11 + päivä-12 kaksoishavainto; keskitason luottamus.
+- **3 seurantakohdetta (A2):** operatiivinen valmiusmenetelmä; todennettavissa institutionaalista kalenteria vasten.
+- **737 MEP:iä vakaana (A1):** ensisijainen tietue.
+- **Nettoluottamus:** 🟢 KORKEA AM/PM-rytmille; 🟡 KESKITASO seurantakohteiden luisumistodennäköisyyksille.
+
+---
+
+### 📎 Ajoartefaktit
+
+| Kerros | Artefakti | Miksi |
+|--------|-----------|-------|
+| Artikkeli | `article.md` | Julkinen iltapäivityskertomus |
+| Synteesi | `synthesis-summary.md` | 12 tunnin delta + 3-seurantakohteen operatiivinen tarkistuslista |
+| Menetelmät | luokittelu · olemassa olevat · riskipisteet · uhka-arvio | Vakio breaking-metodologia |
+| Kumppani | breaking (06:36 aamu) | Saman päivän aamu-lähtötaso |
+
+---
+
+**Asiakirjahallinta**
+- **Malliviite:** `analysis/templates/executive-brief.md`
+- **Artefaktipolku:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **Luokittelu:** Julkinen
+- **Jälkikäteinen:** Yhteenveto kirjoitettu 2026-05-16 ajon committatuista artefakteista; **uusia MCP-kutsuja ei tehty**.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**La note breaking-2 du soir du jour 12 constitue *l'évaluation delta de 12 heures* par rapport à la baseline du matin — le premier exemple opérationnel structuré de la période de vacances pour un rythme de renseignement AM/PM couplé.** Sa contribution distincte est la **confirmation du schéma d'oscillation de récupération de l'API** au niveau de résolution journalière : le point de terminaison des textes adoptés, que le run-3 du 6 avril avait observé se rétablir à 12:15 UTC, a de nouveau oscillé — confirmant que le schéma de défaillance *Mode-B oscillatoire* documenté le 6 avril est persistant et non transitoire. Le run affine la planification opérationnelle **T-6 jusqu'à la semaine de commission** : là où la baseline du matin avait produit la séquence de déclencheurs à 6 déclencheurs, la mise à jour du soir ajoute des *points de surveillance de la préparation opérationnelle* — trois éléments à surveiller avant le 14 avril : (1) la signalisation du groupe de travail bancaire du Conseil sur le calendrier du mandat SRMR3 (silence jusqu'au jour 12 = risque de glissement modéré) ; (2) le calendrier des réunions de coordination de Renew (les dossiers à piste mixte DGSD2/BRRD3 nécessitent un briefing Renew avant le 14 avril) ; (3) le travail de sensibilisation des parlements nationaux pour la transposition anti-corruption (coordination pré-T2 du président LIBE). La mise à jour du soir est la *liste de vérification de la préparation opérationnelle* la plus explicite de la période de vacances et le modèle structurel pour le rythme AM/PM quotidien ultérieur pour le reste des vacances (8–13 avril). **Le run du soir élève le rythme AM/PM de l'observationnel à l'opérationnel** en introduisant des points de surveillance actionnables plutôt que de simples mises à jour de baseline structurelles.
+
+---
+
+### 🧭 3 décisions que cette note soutient
+
+| # | Décision | Qui décide | Échéance | Preuve |
+|:-:|----------|-----------|:--------:|--------|
+| 1 | **Escalade du silence du groupe de travail bancaire du Conseil** — silence jusqu'au jour 12 = risque de glissement modéré ; escalader au Coreper | Présidence du Conseil + rapporteur PE | avant le 10 avril | §Point de surveillance 1 |
+| 2 | **Briefing à piste mixte de Renew** — DGSD2/BRRD3 nécessitent un briefing de coordinateur pré-14 avril | Coordinateurs Renew + coordination PPE | avant le 12 avril | §Point de surveillance 2 |
+| 3 | **Sensibilisation pré-T2 des 27 États membres de la LIBE** — préparation du parlement national pour la transposition anti-corruption | Président LIBE + liaison parlementaire nationale | avant le 14 avril | §Point de surveillance 3 |
+
+---
+
+### 📰 Lecture en 60 secondes
+
+- 🔴 **Premier rythme de renseignement AM/PM structuré** — modèle opérationnel établi.
+- 🟠 **Schéma d'oscillation de l'API confirmé persistant** — Mode-B oscillatoire, non transitoire.
+- 🟢 **3 points de surveillance de la préparation opérationnelle** — Conseil BWG · Renew · LIBE.
+- 🟡 **T-6 jusqu'à la semaine de commission** — compte à rebours actif.
+- 🔵 **737 députés stables** — baseline du jour 12 tient.
+- 🟣 **1 texte adopté flux quotidien** — minimal mais opérationnel.
+- 🩷 **Jour 12 sur 18 — 67 % des vacances écoulées**.
+- ⚪ **Confiance MOYEN** — points de surveillance opérationnels élevés ; prévision API moyen.
+
+---
+
+### 📋 Points de surveillance de la préparation opérationnelle (contribution distinctive du run)
+
+| # | Point | Indicateur de glissement | Échéance d'atténuation |
+|:-:|-------|-------------------------|------------------------|
+| 1 | **Signalisation du groupe de travail bancaire du Conseil sur le mandat SRMR3** | Silence jusqu'au jour 12 | Escalader avant le 10 avril |
+| 2 | **Coordination de Renew sur la piste mixte DGSD2/BRRD3** | Aucune réunion de coordinateur programmée | Briefing avant le 12 avril |
+| 3 | **Sensibilisation LIBE 27-MS à la transposition anti-corruption** | Lacune dans la liaison parlementaire nationale | Sensibilisation avant le 14 avril |
+
+---
+
+### ⚠️ Aperçu des risques
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 Principaux déclencheurs prospectifs (7 prochains jours jusqu'à T-0)
+
+1. **8 avril — jour 13** — Échéance d'escalade du BWG du Conseil approche.
+2. **10 avril — jour 15** — Escalade du BWG du Conseil : échéance ferme.
+3. **12 avril — jour 17** — Briefing coordinateur Renew : échéance ferme.
+4. **13 avril — jour 18** — Les vacances se terminent ; vérification finale de la préparation.
+5. **14 avril — jour 0** — La semaine de commission commence ; tous les points de surveillance doivent être résolus.
+
+---
+
+### 🛡️ Évaluation de la qualité des sources
+
+- **Delta de la baseline AM (A1) :** comparaison directe avec le run du matin ; vérifiable.
+- **Persistance de l'oscillation de l'API (A2) :** double observation jour 11 + jour 12 ; confiance moyenne.
+- **3 points de surveillance (A2) :** méthodologie de préparation opérationnelle ; vérifiable par rapport au calendrier institutionnel.
+- **737 députés stables (A1) :** enregistrement primaire.
+- **Confiance nette :** 🟢 ÉLEVÉE pour le rythme AM/PM ; 🟡 MOYEN pour les probabilités de glissement des points de surveillance.
+
+---
+
+### 📎 Artefacts du run
+
+| Couche | Artefact | Pourquoi |
+|--------|----------|----------|
+| Article | `article.md` | Récit public de la mise à jour du soir |
+| Synthèse | `synthesis-summary.md` | Delta de 12 heures + liste de contrôle opérationnelle à 3 points de surveillance |
+| Méthodes | classification · existant · notation des risques · évaluation des menaces | Méthodologie standard de breaking |
+| Compagnon | breaking (06:36 matin) | Baseline AM du même jour |
+
+---
+
+**Contrôle du document**
+- **Référence du modèle :** `analysis/templates/executive-brief.md`
+- **Chemin de l'artefact :** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **Classification :** Public
+- **Rétrospectif :** Note rédigée le 2026-05-16 à partir des artefacts commis du run ; **aucun nouvel appel MCP n'a été effectué**.
+
+### Executive Brief He
+
+**סיווג:** OSINT — תיעוד פרלמנטרי ציבורי  
+**אמינות:** 🟡 בינונית (חופשה; דלתא של 12 שעות מעל קו הבסיס של בוקר יום 12)  
+**ריצה:** `analysis/daily/2026-04-07/breaking-2/` (18:20 UTC)  
+**כיסוי:** חופשת פסחא יום 12/18 ערב — דלתא 12 שעות מעל קו הבסיס של הבוקר (44 יצירות → דלתא + חידוד)  
+**נוצר:** 2026-05-16 (תקציר רטרוספקטיבי, ללא קריאות MCP חדשות)  
+**מקורות ראשיים:** קו הבסיס של בוקר יום 12 (3,391 שורות); פיד יומי של טקסטים שאומצו (פריט 1); 737 רשומות חברי פרלמנט.
+
+---
+
+### 🎯 BLUF
+
+**ריצת breaking-2 ערב יום 12 היא *הערכת דלתא של 12 שעות* מעל קו הבסיס של הבוקר — הדוגמה התפעולית המובנית הראשונה של תקופת החופשה לקצב מודיעין מזווג AM/PM.** תרומתה המיוחדת היא **אישור דפוס תנודת ההתאוששות של ה-API** ברמת רזולוציה יומית: נקודת הקצה של הטקסטים שאומצו, שריצה-3 ב-6 באפריל ראתה מתאוששת ב-12:15 UTC, תנודה שוב — ומאשרת שדפוס הכשל *Mode-B המתנדנד* שתועד ב-6 באפריל הוא מתמשך ולא חולף. הריצה מחדדת את התכנון התפעולי **T-6 עד שבוע הוועדות**: בעוד שקו הבסיס של הבוקר הפיק את רצף 6 הגורמים המפעילים קדימה, עדכון הערב מוסיף *פריטי מעקב מוכנות תפעולית* — שלושה פריטים לניטור לפני 14 באפריל: (1) איתות קבוצת העבודה הבנקאית של המועצה על תזמון מנדט SRMR3 (שקט עד יום 12 = סיכון החלקה קל); (2) לוח זמנים ישיבות תיאום Renew (קבצי מסלול מעורב DGSD2/BRRD3 זקוקים לתדרוך Renew לפני 14 באפריל); (3) קשר עם פרלמנטים לאומיים לטרנספוזיציה של חוק נגד שחיתות (תיאום פרה-Q2 של יו"ר LIBE). עדכון הערב הוא *רשימת הבדיקה של המוכנות התפעולית* המפורשת ביותר של תקופת החופשה והתבנית המבנית לקצב AM/PM היומי הבא לאורך שארית החופשה (8–13 באפריל). **ריצת הערב מרימה את קצב AM/PM מתצפיתי לתפעולי** על ידי הכנסת פריטי מעקב הניתנים לפעולה במקום עדכוני קו בסיס מבניים גרידא.
+
+---
+
+### 🧭 3 החלטות שתקציר זה תומך בהן
+
+| # | החלטה | מי מחליט | מועד אחרון | ראיות |
+|:-:|-------|---------|:----------:|-------|
+| 1 | **הסלמת שתיקת קבוצת העבודה הבנקאית של המועצה** — שקט עד יום 12 = סיכון החלקה קל; להסלים ל-Coreper | נשיאות המועצה + מדווח הפרלמנט האירופי | לפני 10 באפריל | §פריט מעקב 1 |
+| 2 | **תדרוך מסלול מעורב של Renew** — DGSD2/BRRD3 זקוקים לתדרוך מתאם פרה-14 באפריל | מתאמי Renew + תיאום EPP | לפני 12 באפריל | §פריט מעקב 2 |
+| 3 | **קשר פרה-Q2 עם 27 מ"ח של LIBE** — הכנת פרלמנטים לאומיים לטרנספוזיציה של חוק נגד שחיתות | יו"ר LIBE + קשר פרלמנט לאומי | לפני 14 באפריל | §פריט מעקב 3 |
+
+---
+
+### 📰 קריאה של 60 שניות
+
+- 🔴 **קצב מודיעין AM/PM מובנה ראשון** — תבנית תפעולית הוקמה.
+- 🟠 **דפוס תנודת API אושר כמתמשך** — Mode-B מתנדנד, לא חולף.
+- 🟢 **3 פריטי מעקב מוכנות תפעולית** — מועצה BWG · Renew · LIBE.
+- 🟡 **T-6 עד שבוע הוועדות** — ספירה לאחור פעילה.
+- 🔵 **737 חברי פרלמנט יציבים** — קו הבסיס של יום 12 מחזיק.
+- 🟣 **1 טקסט שאומץ בפיד היומי** — מינימלי אך תפעולי.
+- 🩷 **יום 12 מתוך 18 — 67% מהחופשה הושלמה**.
+- ⚪ **אמינות בינונית** — פריטי מעקב תפעוליים גבוהים; תחזית API בינונית.
+
+---
+
+### 📋 פריטי מעקב מוכנות תפעולית (תרומתה המיוחדת של הריצה)
+
+| # | פריט | מחוון החלקה | מועד אחרון להפחתה |
+|:-:|------|------------|-------------------|
+| 1 | **איתות קבוצת העבודה הבנקאית של המועצה על מנדט SRMR3** | שקט עד יום 12 | הסלמה לפני 10 באפריל |
+| 2 | **תיאום Renew על מסלול מעורב DGSD2/BRRD3** | אין ישיבת מתאם מתוכננת | תדרוך לפני 12 באפריל |
+| 3 | **קשר LIBE עם 27 מ"ח על טרנספוזיציה נגד שחיתות** | פער בקשר פרלמנט לאומי | קשר לפני 14 באפריל |
+
+---
+
+### ⚠️ סקירת סיכונים
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 גורמים מפעילים עתידיים עיקריים (7 ימים הבאים עד T-0)
+
+1. **8 באפריל — יום 13** — מועד ההסלמה של BWG המועצה מתקרב.
+2. **10 באפריל — יום 15** — הסלמת BWG המועצה: מועד אחרון קשיח.
+3. **12 באפריל — יום 17** — תדרוך מתאם Renew: מועד אחרון קשיח.
+4. **13 באפריל — יום 18** — החופשה נגמרת; סקירת מוכנות סופית.
+5. **14 באפריל — יום 0** — שבוע הוועדות מתחיל; כל פריטי המעקב חייבים להיפתר.
+
+---
+
+### 🛡️ הערכת איכות מקורות
+
+- **דלתא קו בסיס AM (A1):** השוואה ישירה עם ריצת הבוקר; ניתן לאימות.
+- **התמדת תנודת API (A2):** תצפית כפולה יום 11 + יום 12; אמינות בינונית.
+- **3 פריטי מעקב (A2):** מתודולוגיית מוכנות תפעולית; ניתן לאימות מול לוח שנה מוסדי.
+- **737 חברי פרלמנט יציבים (A1):** רשומה ראשית.
+- **אמינות נטו:** 🟢 גבוהה לקצב AM/PM; 🟡 בינונית להסתברויות החלקה של פריטי מעקב.
+
+---
+
+### 📎 יצירות הריצה
+
+| שכבה | יצירה | מדוע |
+|------|-------|------|
+| מאמר | `article.md` | נרטיב ציבורי של עדכון הערב |
+| סינתזה | `synthesis-summary.md` | דלתא 12 שעות + רשימת בדיקה תפעולית של 3 פריטי מעקב |
+| מתודולוגיות | סיווג · קיים · ניקוד סיכונים · הערכת איומים | מתודולוגיית breaking סטנדרטית |
+| מלווה | breaking (06:36 בוקר) | קו בסיס AM של אותו יום |
+
+---
+
+**בקרת מסמכים**
+- **הפניה לתבנית:** `analysis/templates/executive-brief.md`
+- **נתיב היצירה:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **סיווג:** ציבורי
+- **רטרוספקטיבי:** התקציר נכתב ב-2026-05-16 מהיצירות המחויבות של הריצה; **לא בוצעו קריאות MCP חדשות**.
+
+### Executive Brief Ja
+
+**分類：** OSINT — 公開議会記録  
+**信頼度：** 🟡 中程度（休会中；第12日朝のベースラインに対する12時間デルタ）  
+**実行：** `analysis/daily/2026-04-07/breaking-2/`（18:20 UTC）  
+**対象範囲：** イースター休会第12/18日夜 — 朝のベースラインに対する12時間デルタ（44アーティファクト → デルタ＋精緻化）  
+**生成日：** 2026-05-16（回顧的ブリーフ、新規MCP呼び出しなし）  
+**主要情報源：** 第12日朝のベースライン（3,391行）；採択テキスト日次フィード（1件）；737欧州議会議員レコード。
+
+---
+
+### 🎯 BLUF
+
+**第12日夜のbreaking-2は、朝のベースラインに対する*12時間デルタ評価*であり、休会期間中のAM/PM連携インテリジェンスリズムの最初の体系的な運用例である。** その際立った貢献は、日次解像度レベルでの**APIリカバリ発振パターンの確認**である。4月6日の実行-3が12:15 UTCに回復を確認していた採択テキストエンドポイントが再び発振し、4月6日に記録された*モードB発振型*障害パターンが一過性ではなく持続的であることを確認した。この実行は**T-6委員会週**の運用計画を精緻化する。朝のベースラインが6トリガーの先行トリガーシーケンスを生成したのに対し、夜間更新は*運用準備監視項目*を追加する。4月14日までに監視すべき3項目：(1) SRMR3マンデートのタイミングに関する理事会銀行業務作業部会のシグナル（第12日まで沈黙＝軽微なズレリスク）；(2) Renewの調整会議カレンダー（混合トラックファイルDGSD2/BRRD3は4月14日前にRenewブリーフィングが必要）；(3) 汚職防止転換に関する国内議会アウトリーチ（LIBE議長のQ2前調整）。夜間更新は休会期間中で最も明示的な*運用準備チェックリスト*であり、残りの休会期間（4月8日〜13日）の後続の日次AM/PMリズムの構造的テンプレートである。**夜間実行はAM/PMリズムを観測的から運用的に昇格させ**、純粋な構造的ベースライン更新ではなく実行可能な監視項目を導入する。
+
+---
+
+### 🧭 このブリーフが支援する3つの意思決定
+
+| # | 決定 | 決定者 | 期限 | 根拠 |
+|:-:|------|-------|:----:|------|
+| 1 | **理事会銀行業務作業部会の沈黙のエスカレーション** — 第12日まで沈黙＝軽微なズレリスク；Coreperにエスカレート | 理事会議長国＋欧州議会報告者 | 4月10日まで | §監視項目1 |
+| 2 | **Renew混合トラックブリーフィング** — DGSD2/BRRD3は4月14日前にコーディネーターブリーフィングが必要 | Renewコーディネーター＋EPP調整 | 4月12日まで | §監視項目2 |
+| 3 | **LIBE 27加盟国Q2前アウトリーチ** — 汚職防止転換の国内議会準備 | LIBE議長＋国内議会連絡担当 | 4月14日まで | §監視項目3 |
+
+---
+
+### 📰 60秒リーディング
+
+- 🔴 **最初の体系的AM/PMインテリジェンスリズム** — 運用テンプレート確立。
+- 🟠 **API発振パターンが持続的と確認** — モードB発振型、一過性ではない。
+- 🟢 **3つの運用準備監視項目** — 理事会BWG・Renew・LIBE。
+- 🟡 **委員会週まであとT-6** — カウントダウン実施中。
+- 🔵 **欧州議会議員737名が安定** — 第12日ベースライン維持。
+- 🟣 **採択テキスト日次フィード1件** — 最小限だが運用上有効。
+- 🩷 **18日中の第12日 — 休会の67%完了**。
+- ⚪ **信頼度 中程度** — 運用監視項目は高；APIの予測は中程度。
+
+---
+
+### 📋 運用準備監視項目（この実行の際立った貢献）
+
+| # | 項目 | ズレ指標 | 緩和期限 |
+|:-:|------|---------|---------|
+| 1 | **理事会銀行業務作業部会のSRMR3マンデートに関するシグナル** | 第12日まで沈黙 | 4月10日までにエスカレート |
+| 2 | **混合トラックDGSD2/BRRD3に関するRenew調整** | コーディネーター会議が未予定 | 4月12日までにブリーフィング |
+| 3 | **LIBE 27加盟国の汚職防止転換アウトリーチ** | 国内議会連絡ギャップ | 4月14日までにアウトリーチ |
+
+---
+
+### ⚠️ リスクスナップショット
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 主要先行トリガー（T-0まで7日間）
+
+1. **4月8日 — 第13日** — 理事会BWGエスカレーション期限が近づく。
+2. **4月10日 — 第15日** — 理事会BWGエスカレーション：ハード期限。
+3. **4月12日 — 第17日** — Renewコーディネーターブリーフィング：ハード期限。
+4. **4月13日 — 第18日** — 休会終了；最終準備状況確認。
+5. **4月14日 — 第0日** — 委員会週開始；すべての監視項目を解決する必要あり。
+
+---
+
+### 🛡️ 情報源品質評価
+
+- **AMベースラインデルタ（A1）：** 朝の実行との直接比較；検証可能。
+- **API発振持続性（A2）：** 第11日＋第12日の二重観察；中程度の信頼性。
+- **3監視項目（A2）：** 運用準備手法；機関カレンダーと照合して検証可能。
+- **欧州議会議員737名安定（A1）：** 一次レコード。
+- **総合信頼度：** 🟢 AM/PMリズムは高；🟡 監視項目のズレ確率は中程度。
+
+---
+
+### 📎 実行アーティファクト
+
+| レイヤー | アーティファクト | 理由 |
+|---------|--------------|------|
+| 記事 | `article.md` | 公開夜間更新ナラティブ |
+| 統合 | `synthesis-summary.md` | 12時間デルタ＋3監視項目の運用チェックリスト |
+| 手法 | 分類・既存・リスクスコアリング・脅威評価 | 標準breaking手法 |
+| 同伴 | breaking（06:36 朝） | 同日AMベースライン |
+
+---
+
+**文書管理**
+- **テンプレート参照：** `analysis/templates/executive-brief.md`
+- **アーティファクトパス：** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **分類：** 公開
+- **回顧的：** ブリーフは2026-05-16に実行のコミット済みアーティファクトから作成；**新規MCP呼び出しは行われなかった**。
+
+### Executive Brief Ko
+
+**분류:** OSINT — 공개 의회 기록  
+**신뢰도:** 🟡 중간 (휴회; 12일차 오전 기준선 대비 12시간 델타)  
+**실행:** `analysis/daily/2026-04-07/breaking-2/` (18:20 UTC)  
+**범위:** 부활절 휴회 12/18일 야간 — 오전 기준선 대비 12시간 델타 (44개 아티팩트 → 델타 + 정밀화)  
+**생성일:** 2026-05-16 (소급 브리핑, 새로운 MCP 호출 없음)  
+**주요 출처:** 12일차 오전 기준선 (3,391행); 채택된 텍스트 일일 피드 (1건); 유럽의회 의원 737명 기록.
+
+---
+
+### 🎯 BLUF
+
+**12일 야간 breaking-2는 오전 기준선에 대한 *12시간 델타 평가*로서 — 휴회 기간의 쌍방 AM/PM 정보 리듬을 위한 첫 번째 체계적인 운영 사례이다.** 그 독보적인 기여는 일별 해상도 수준에서의 **API 복구 진동 패턴 확인**이다: 4월 6일 실행-3이 12:15 UTC에 복구되는 것을 확인했던 채택 텍스트 엔드포인트가 다시 진동하여 — 4월 6일에 기록된 *Mode-B 진동형* 오류 패턴이 일시적이 아닌 지속적임을 확인했다. 이 실행은 **T-6 위원회 주** 운영 계획을 정밀화한다: 오전 기준선이 6개 트리거 전방 트리거 시퀀스를 생성한 반면, 야간 업데이트는 *운영 준비 감시 항목*을 추가한다 — 4월 14일 전에 모니터링해야 할 3가지 항목: (1) SRMR3 위임 일정에 관한 이사회 은행 실무그룹 신호 (12일까지 침묵 = 경미한 지연 위험); (2) Renew 조정 회의 일정 (혼합 트랙 파일 DGSD2/BRRD3는 4월 14일 전에 Renew 브리핑 필요); (3) 부패방지 전환에 관한 국가 의회 아웃리치 (LIBE 의장 Q2 이전 조정). 야간 업데이트는 휴회 기간의 가장 명시적인 *운영 준비 체크리스트*이며, 나머지 휴회 기간 동안의 후속 일일 AM/PM 리듬을 위한 구조적 템플릿이다 (4월 8일~13일). **야간 실행은 AM/PM 리듬을 관찰적에서 운영적으로 격상시키며** 순수한 구조적 기준선 업데이트 대신 실행 가능한 감시 항목을 도입한다.
+
+---
+
+### 🧭 이 브리핑이 지원하는 3가지 결정
+
+| # | 결정 | 결정자 | 기한 | 증거 |
+|:-:|------|-------|:----:|------|
+| 1 | **이사회 은행 실무그룹 침묵 에스컬레이션** — 12일까지 침묵 = 경미한 지연 위험; Coreper에 에스컬레이트 | 이사회 의장국 + 유럽의회 보고자 | 4월 10일까지 | §감시 항목 1 |
+| 2 | **Renew 혼합 트랙 브리핑** — DGSD2/BRRD3는 4월 14일 전에 조정관 브리핑 필요 | Renew 조정관 + EPP 조정 | 4월 12일까지 | §감시 항목 2 |
+| 3 | **LIBE 27개 회원국 Q2 이전 아웃리치** — 부패방지 전환 국가 의회 준비 | LIBE 의장 + 국가 의회 연락 | 4월 14일까지 | §감시 항목 3 |
+
+---
+
+### 📰 60초 읽기
+
+- 🔴 **첫 번째 체계적 AM/PM 정보 리듬** — 운영 템플릿 확립.
+- 🟠 **API 진동 패턴이 지속적으로 확인** — Mode-B 진동형, 일시적이 아님.
+- 🟢 **3개 운영 준비 감시 항목** — 이사회 BWG · Renew · LIBE.
+- 🟡 **위원회 주까지 T-6** — 카운트다운 진행 중.
+- 🔵 **유럽의회 의원 737명 안정** — 12일차 기준선 유지.
+- 🟣 **채택된 텍스트 일일 피드 1건** — 최소이지만 운영적.
+- 🩷 **18일 중 12일 — 휴회의 67% 완료**.
+- ⚪ **신뢰도 중간** — 운영 감시 항목 높음; API 예측 중간.
+
+---
+
+### 📋 운영 준비 감시 항목 (이 실행의 독보적인 기여)
+
+| # | 항목 | 지연 지표 | 완화 기한 |
+|:-:|------|---------|---------|
+| 1 | **SRMR3 위임에 관한 이사회 은행 실무그룹 신호** | 12일까지 침묵 | 4월 10일까지 에스컬레이트 |
+| 2 | **혼합 트랙 DGSD2/BRRD3에 관한 Renew 조정** | 조정관 회의 미예정 | 4월 12일까지 브리핑 |
+| 3 | **LIBE 27개 회원국 부패방지 전환 아웃리치** | 국가 의회 연락 공백 | 4월 14일까지 아웃리치 |
+
+---
+
+### ⚠️ 위험 스냅샷
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 주요 전방 트리거 (T-0까지 7일)
+
+1. **4월 8일 — 13일차** — 이사회 BWG 에스컬레이션 기한 다가옴.
+2. **4월 10일 — 15일차** — 이사회 BWG 에스컬레이션: 고정 기한.
+3. **4월 12일 — 17일차** — Renew 조정관 브리핑: 고정 기한.
+4. **4월 13일 — 18일차** — 휴회 종료; 최종 준비 점검.
+5. **4월 14일 — 0일차** — 위원회 주 개시; 모든 감시 항목 해결 필요.
+
+---
+
+### 🛡️ 출처 품질 평가
+
+- **AM 기준선 델타 (A1):** 오전 실행과의 직접 비교; 검증 가능.
+- **API 진동 지속성 (A2):** 11일차 + 12일차 이중 관측; 중간 신뢰도.
+- **3개 감시 항목 (A2):** 운영 준비 방법론; 기관 일정과 대조하여 검증 가능.
+- **유럽의회 의원 737명 안정 (A1):** 1차 기록.
+- **총 신뢰도:** 🟢 AM/PM 리듬 높음; 🟡 감시 항목 지연 확률 중간.
+
+---
+
+### 📎 실행 아티팩트
+
+| 레이어 | 아티팩트 | 이유 |
+|--------|---------|------|
+| 기사 | `article.md` | 공개 야간 업데이트 내러티브 |
+| 종합 | `synthesis-summary.md` | 12시간 델타 + 3개 감시 항목 운영 체크리스트 |
+| 방법론 | 분류 · 기존 · 위험 점수 · 위협 평가 | 표준 breaking 방법론 |
+| 동반 | breaking (06:36 오전) | 당일 AM 기준선 |
+
+---
+
+**문서 관리**
+- **템플릿 참조:** `analysis/templates/executive-brief.md`
+- **아티팩트 경로:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **분류:** 공개
+- **소급:** 브리핑은 실행의 커밋된 아티팩트에서 2026-05-16에 작성됨; **새로운 MCP 호출은 이루어지지 않았다**.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**Dag-12-avond breaking-2 is de *12-uur delta-beoordeling* ten opzichte van de ochtendbasislijn — het eerste gestructureerde operationele voorbeeld van de vakantieperiode voor een gekoppeld AM/PM-inlichtingenritme.** Zijn onderscheidende bijdrage is de **bevestiging van het API-hersteloscillatiepatroon** op dagresolutieniveau: het eindpunt voor aangenomen teksten, dat run-3 op 6 april om 12:15 UTC zag herstellen, heeft nu opnieuw geoscilleerd — en bevestigt daarmee dat het *Mode-B-oscillatorische* foutpatroon dat op 6 april werd gedocumenteerd, persistent en niet voorbijgaand is. De run verfijnt de **T-6 tot commissieweek** operationele planning: waar de ochtendbasislijn de 6-trigger voorwaartse triggersequentie produceerde, voegt de avondupdate *operationele gereedheidstoezichtpunten* toe — drie punten om te bewaken voor 14 april: (1) signalering van de Bankwerkgroep van de Raad over de timing van het SRMR3-mandaat (stil tot dag 12 = mild risico op vertraging); (2) Renew-coördinatievergaderingskalender (gemengde spoordossiers DGSD2/BRRD3 hebben Renew-briefing nodig vóór 14 april); (3) nationaal parlementair contactwerk voor de antikorruptietranspositie (pre-T2-coördinatie LIBE-voorzitter). De avondupdate is de meest expliciete *operationele gereedheidscontrolelijst* van de vakantieperiode en de structurele sjabloon voor het dagelijkse AM/PM-ritme voor de rest van de vakantie (8–13 april). **De avondrun verheft het AM/PM-ritme van observationeel naar operationeel** door uitvoerbare toezichtpunten in te voeren in plaats van puur structurele basislijnupdates.
+
+---
+
+### 🧭 3 beslissingen die dit overzicht ondersteunt
+
+| # | Beslissing | Wie beslist | Deadline | Bewijs |
+|:-:|-----------|------------|:--------:|--------|
+| 1 | **Escalatie van stilte Bankwerkgroep Raad** — stilte tot dag 12 = mild risico op vertraging; escaleren naar Coreper | Raadsvoorzitterschap + EP-rapporteur | voor 10 april | §Toezichtpunt 1 |
+| 2 | **Renew gemengd-spoor-briefing** — DGSD2/BRRD3 hebben coördinatorenbriefing vóór 14 april nodig | Renew-coördinatoren + EVP-coördinatie | voor 12 april | §Toezichtpunt 2 |
+| 3 | **LIBE 27-LS pre-T2 contactwerk** — nationaal parlementair voorbereidingswerk voor antikorruptietransposit ie | LIBE-voorzitter + nationaal parlementair contactpersoon | voor 14 april | §Toezichtpunt 3 |
+
+---
+
+### 📰 Lezen in 60 seconden
+
+- 🔴 **Eerste gestructureerd AM/PM-inlichtingenritme** — operationeel sjabloon vastgesteld.
+- 🟠 **API-oscillatiepatroon bevestigd als persistent** — Mode-B oscillatorisch, niet voorbijgaand.
+- 🟢 **3 operationele gereedheidstoezichtpunten** — Raad BWG · Renew · LIBE.
+- 🟡 **T-6 tot commissieweek** — aftelling actief.
+- 🔵 **737 MEP's stabiel** — dag-12-basislijn houdt.
+- 🟣 **1 aangenomen tekst dagelijkse feed** — minimaal maar operationeel.
+- 🩷 **Dag 12 van 18 — 67% van de vakantie voorbij**.
+- ⚪ **Vertrouwen GEMIDDELD** — operationele toezichtpunten hoog; API-prognose gemiddeld.
+
+---
+
+### 📋 Operationele gereedheidstoezichtpunten (onderscheidende bijdrage van de run)
+
+| # | Punt | Vertragingsindicator | Mitigatiedeadline |
+|:-:|------|---------------------|-------------------|
+| 1 | **Signalering Bankwerkgroep Raad over SRMR3-mandaat** | Stilte tot dag 12 | Escaleren voor 10 april |
+| 2 | **Renew-coördinatie op gemengd spoor DGSD2/BRRD3** | Geen coördinatorenvergadering gepland | Briefing voor 12 april |
+| 3 | **LIBE 27-LS antikorruptietransposit ie contactwerk** | Nationaal parlementair contactpersoonsgat | Contactwerk voor 14 april |
+
+---
+
+### ⚠️ Risico-overzicht
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 Top voorwaartse triggers (volgende 7 dagen tot T-0)
+
+1. **8 april — dag 13** — Escalatiedeadline BWG Raad nadert.
+2. **10 april — dag 15** — Escalatie BWG Raad: harde deadline.
+3. **12 april — dag 17** — Renew-coördinatorenbriefing: harde deadline.
+4. **13 april — dag 18** — Vakantie eindigt; definitieve gereedheidscontrole.
+5. **14 april — dag 0** — Commissieweek begint; alle toezichtpunten moeten zijn opgelost.
+
+---
+
+### 🛡️ Bronnenkwaliteitsbeoordeling
+
+- **AM-basislijn-delta (A1):** directe vergelijking met ochtendrrun; verifieerbaar.
+- **API-oscillatiepersistentie (A2):** dag-11 + dag-12 dubbele observatie; gemiddeld vertrouwen.
+- **3 toezichtpunten (A2):** operationele gereedheidsmethoologie; verifieerbaar aan de hand van institutionele kalender.
+- **737 MEP's stabiel (A1):** primaire record.
+- **Nettovertrouwen:** 🟢 HOOG voor AM/PM-ritme; 🟡 GEMIDDELD voor vertragingswaarschijnlijkheden van toezichtpunten.
+
+---
+
+### 📎 Run-artefacten
+
+| Laag | Artefact | Waarom |
+|------|----------|--------|
+| Artikel | `article.md` | Openbaar avondupdate-verhaal |
+| Synthese | `synthesis-summary.md` | 12-uur delta + operationele controlelijst met 3 toezichtpunten |
+| Methoden | classificatie · bestaand · risicoscoring · dreigingsbeoordeling | Standaard breaking-methodologie |
+| Begeleider | breaking (06:36 ochtend) | AM-basislijn van dezelfde dag |
+
+---
+
+**Documentbeheer**
+- **Sjabloonreferentie:** `analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectief:** Overzicht geschreven op 2026-05-16 vanuit de gecommitte artefacten van de run; **er zijn geen nieuwe MCP-oproepen gedaan**.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Dag-12 kveld breaking-2 er *12-timers delta-vurderingen* over morgenbaselinen — ferieperiodens første strukturerte operasjonelle eksempel på parret AM/PM-etterretningstakt.** Dens særegne bidrag er **bekreftelse av API-gjenoppretting-oscillasjonsmønster** på dagsoppløsningsnivå: endepunktet for vedtatte tekster, som kjøring-3 den 6. april så gjenopprette seg kl. 12:15 UTC, har nå oscillert igjen — og bekrefter at det *Mode-B-oscillatoriske* feilmønsteret dokumentert 6. april er vedvarende snarere enn forbigående. Kjøringen skjerper **T-6 til utvalgsuke** operasjonell planlegging: der morgenbaselinen produserte den 6-trigger fremover-utløsersekvensen, legger kveldsoppdateringen til *operasjonelle beredskapsvaktelementer* — tre elementer å overvåke før 14. april: (1) Rådets bankarbeidsgruppes signalering om SRMR3-mandatets timing (stille gjennom dag 12 = mild glidningsrisiko); (2) Renews koordinasjonsmøtekalender (blandede sporsfiler DGSD2/BRRD3 trenger Renew-briefing før 14. april); (3) Antikorrupsjonstransposisjonens nasjonalparlamentariske kontaktarbeid (LIBE-lederens pre-Q2-koordinasjon). Kveldsoppdateringen er ferieperiodens mest eksplisitte *operasjonelle beredskapsliste* og den strukturelle malen for påfølgende daglige AM/PM-takt gjennom resten av ferien (8.–13. april). **Kveldskjøringen løfter AM/PM-takten fra observasjonell til operasjonell** ved å introdusere handlingsorienterte vaktelementer snarere enn rent strukturelle baslineoppdateringer.
+
+---
+
+### 🧭 3 beslutninger dette sammendraget støtter
+
+| # | Beslutning | Hvem bestemmer | Frist | Dokumentasjon |
+|:-:|------------|---------------|:-----:|---------------|
+| 1 | **Eskalering av rådets bankarbeidsgruppetaushet** — taushet gjennom dag 12 = mild glidningsrisiko; eskaler til Coreper | Rådsformannskap + EP-ordfører | innen 10. april | §Vakt 1 |
+| 2 | **Renew blandet-spor-briefing** — DGSD2/BRRD3 trenger pre-14. april koordinatorbriefing | Renew-koordinatorer + EPP-koordinasjon | innen 12. april | §Vakt 2 |
+| 3 | **LIBE 27-MS pre-Q2 kontaktarbeid** — antikorrupsjonstransposisjonens nasjonalparlamentariske forberedelse | LIBE-leder + nasjonalparlamentarisk kontakt | innen 14. april | §Vakt 3 |
+
+---
+
+### 📰 60-sekunders lesing
+
+- 🔴 **Første strukturerte AM/PM-etterretningstakt** — operasjonell mal etablert.
+- 🟠 **API-oscillasjonsmønster bekreftet vedvarende** — Mode-B oscillatorisk, ikke forbigående.
+- 🟢 **3 operasjonelle beredskapsvaktelementer** — Rådet BWG · Renew · LIBE.
+- 🟡 **T-6 til utvalgsuke** — nedtelling aktiv.
+- 🔵 **737 MEPer stabile** — dag 12-baseline holder.
+- 🟣 **1 vedtatt tekst dagsfeed** — minimal men operasjonell.
+- 🩷 **Dag 12 av 18 — 67 % av ferien fullført**.
+- ⚪ **Tillit MIDDELS** — operasjonelle vaktelementer høy; API-prognose middels.
+
+---
+
+### 📋 Operasjonelle beredskapsvaktelementer (kjøringens særegne bidrag)
+
+| # | Element | Glidningsindikator | Tiltaksdeadline |
+|:-:|---------|-------------------|-----------------|
+| 1 | **Rådets bankarbeidsgruppesignalering om SRMR3-mandat** | Taushet gjennom dag 12 | Eskaler innen 10. april |
+| 2 | **Renew-koordinasjon på blandet spor DGSD2/BRRD3** | Ingen koordinatormøte planlagt | Briefing innen 12. april |
+| 3 | **LIBE 27-MS antikorrupsjonstransposisjon kontaktarbeid** | Nasjonalparlamentarisk kontaktgap | Kontaktarbeid innen 14. april |
+
+---
+
+### ⚠️ Risikooversikt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 Topp fremover-utløsere (neste 7 dager til T-0)
+
+1. **8. april — dag 13** — Rådets BWG-eskaleringsdeadline nærmer seg.
+2. **10. april — dag 15** — Rådets BWG-eskalering hard deadline.
+3. **12. april — dag 17** — Renew koordinatorbriefing hard deadline.
+4. **13. april — dag 18** — Ferie avsluttes; endelig beredskapsoversikt.
+5. **14. april — dag 0** — Utvalgsuke åpner; alle vaktelementer må løses.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **AM-baseline-delta (A1):** direkte sammenligning med morgenkjøring; verifiserbar.
+- **API-oscillasjonspersistens (A2):** dag-11 + dag-12 dobbeltobservasjon; middels tillit.
+- **3 vaktelementer (A2):** operasjonell beredskapmetodologi; verifiserbar mot institusjonell kalender.
+- **737 MEPer stabile (A1):** primær post.
+- **Nettotillit:** 🟢 HØY for AM/PM-takt; 🟡 MIDDELS for vaktelementers glidningssannsynligheter.
+
+---
+
+### 📎 Kjøringsartefakter
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikkel | `article.md` | Offentlig kveldsoppdateringsfortelling |
+| Syntese | `synthesis-summary.md` | 12-timers delta + 3-vakt operasjonsliste |
+| Metoder | klassifisering · eksisterende · risikovurdering · trusselsvurdering | Standard breaking-metodologi |
+| Følgedokument | breaking (06:36 morgen) | Samme dags AM-baseline |
+
+---
+
+**Dokumentkontroll**
+- **Malreferanse:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv:** Sammendrag skrevet 2026-05-16 fra kjøringens committede artefakter; **ingen nye MCP-kall ble foretatt**.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Dag-12 kväll breaking-2 är *12-timmarsdelta-bedömningen* mot morgonbaslinjen — uppehållsperiodens första strukturerade operationella exempel på parade AM/PM-underrättelsetakt.** Dess utmärkande bidrag är **bekräftelse av API-återhämtningsoscillationsmönster** på dagsupplösningsnivå: slutpunkten för antagna texter, som körning-3 den 6 april såg återhämta sig vid 12:15 UTC, har nu oscillerat igen — vilket bekräftar att det *Mode-B-oscillatoriska* felmönstret dokumenterat den 6 april är beständigt snarare än övergående. Körningen skärper **T-6 till utskottsvecka** operationell planering: där morgonbaslinjen producerade den 6-triggers framåtutlösarsekvensen, lägger kvällsuppdateringen till *operationsberedskapsposter* — tre poster att bevaka före den 14 april: (1) Rådets bankarbetsgruppssignalering om SRMR3-mandatets tidpunkt (tyst genom dag 12 = mild riskinträde); (2) Renews koordinationsmöteskalender (blandspårsfiler DGSD2/BRRD3 behöver Renew-genomgång före 14 april); (3) Antikorruptionsharmonisering nationellt parlamentariskt kontaktarbete (LIBE-ordförandes pre-Q2-koordination). Kvällsuppdateringen är uppehållsperiodens mest explicita *operationsberedskapslista* och den strukturella mallen för efterföljande dagliga AM/PM-takt under resten av uppehållet (8–13 april). **Kvällskörningen höjer AM/PM-takten från observationell till operationell** genom att introducera åtgärdsbara bevakningsposter snarare än enbart strukturella baslinjeuppdateringar.
+
+---
+
+### 🧭 3 beslut som denna sammanfattning stödjer
+
+| # | Beslut | Vem beslutar | Deadline | Underlag |
+|:-:|--------|-------------|:--------:|----------|
+| 1 | **Eskalering av rådets bankarbetsgruppstystnad** — tystnad genom dag 12 = mild riskinträde; eskalera till Coreper | Rådsordförandeskap + EP-föredragande | senast 10 april | §Bevakningspost 1 |
+| 2 | **Renew blandspårsgenomgång** — DGSD2/BRRD3 behöver pre-14 april koordinatörsdirektivgenomgång | Renew-koordinatorer + EPP-koordination | senast 12 april | §Bevakningspost 2 |
+| 3 | **LIBE 27 MS pre-Q2-kontaktarbete** — Antikorruptionsharmonisering nationellt parlamentariskt förberedelse | LIBE-ordförande + nationell parlamentarisk kontakt | senast 14 april | §Bevakningspost 3 |
+
+---
+
+### 📰 60-sekunders läsning
+
+- 🔴 **Första strukturerade AM/PM-underrättelsetakt** — operationell mall etablerad.
+- 🟠 **API-oscillationsmönster bekräftat beständigt** — Mode-B oscillatorisk, inte övergående.
+- 🟢 **3 operationsberedskapsposter** — Rådet BWG · Renew · LIBE.
+- 🟡 **T-6 till utskottsvecka** — nedräkning aktiv.
+- 🔵 **737 MEP stabila** — dag 12-baslinjen håller.
+- 🟣 **1 antagen text dagsfeed** — minimal men operationell.
+- 🩷 **Dag 12 av 18 — 67 % av uppehållet avklarat**.
+- ⚪ **Förtroende MEDEL** — operationella bevakningsposter högt; API-prognos medel.
+
+---
+
+### 📋 Operationsberedskapsposter (körningens utmärkande bidrag)
+
+| # | Post | Riskindikatorer | Åtgärdsdeadline |
+|:-:|------|----------------|-----------------|
+| 1 | **Rådets bankarbetsgruppssignalering om SRMR3-mandat** | Tystnad genom dag 12 | Eskalera senast 10 april |
+| 2 | **Renew-koordination på blandspår DGSD2/BRRD3** | Inget koordinatörsmöte planerat | Genomgång senast 12 april |
+| 3 | **LIBE 27 MS antikorruptionsharmonisering kontaktarbete** | Nationell parlamentarisk kontaktlucka | Kontaktarbete senast 14 april |
+
+---
+
+### ⚠️ Risköversikt
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 Topp framåtutlösare (nästa 7 dagar till T-0)
+
+1. **8 april — dag 13** — rådets BWG-eskaleringsdeadline närmar sig.
+2. **10 april — dag 15** — rådets BWG-eskalering hård deadline.
+3. **12 april — dag 17** — Renew koordinatörsdirektivgenomgång hård deadline.
+4. **13 april — dag 18** — uppehåll avslutas; slutlig beredskapsgranskning.
+5. **14 april — dag 0** — utskottsvecka öppnar; alla bevakningsposter måste lösas.
+
+---
+
+### 🛡️ Källkvalitetsbedömning
+
+- **AM-baslinjedelta (A1):** direkt jämförelse med morgonkörning; verifierbar.
+- **API-oscillationsbeständighet (A2):** dag-11 + dag-12 dubbel observation; medelförtroende.
+- **3 bevakningsposter (A2):** operationsberedskapsmetodik; verifierbar mot institutionell kalender.
+- **737 MEP stabila (A1):** primär post.
+- **Nettförtroende:** 🟢 HÖGT för AM/PM-takt; 🟡 MEDEL för bevakningsposternas risksannolikheter.
+
+---
+
+### 📎 Körningsartefakter
+
+| Lager | Artefakt | Varför |
+|-------|----------|--------|
+| Artikel | `article.md` | Offentlig kvällsuppdateringsberättelse |
+| Syntes | `synthesis-summary.md` | 12-timmars delta + 3-bevakningsposters operationslista |
+| Metoder | klassificering · befintlig · riskbedömning · hotbedömning | Standardmetodik för breaking |
+| Följedokument | breaking (06:36 morgon) | Samma dags AM-baslinje |
+
+---
+
+**Dokumentkontroll**
+- **Mallreferens:** `analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Sammanfattning skriven 2026-05-16 från körningens committed artefakter; **inga nya MCP-anrop gjordes**.
+
+### Executive Brief Zh
+
+**分类：** OSINT — 公开议会记录  
+**置信度：** 🟡 中等（休会；相对于第12日上午基线的12小时增量）  
+**运行：** `analysis/daily/2026-04-07/breaking-2/`（18:20 UTC）  
+**覆盖范围：** 复活节休会第12/18日夜 — 相对于上午基线的12小时增量（44份产物 → 增量 + 精炼）  
+**生成日期：** 2026-05-16（回顾性简报，无新MCP调用）  
+**主要来源：** 第12日上午基线（3,391行）；当日通过文本动态（1项）；737名欧洲议会议员记录。
+
+---
+
+### 🎯 BLUF
+
+**第12日夜间breaking-2是相对于上午基线的*12小时增量评估* — 休会期间配对AM/PM情报节奏的首个有结构的运营示例。** 其独特贡献在于以日分辨率水平**确认API恢复振荡模式**：4月6日运行-3于12:15 UTC目睹恢复的通过文本终端节点再次发生振荡，证实4月6日记录的*模式B振荡型*故障模式具有持续性而非偶发性。此次运行细化了**T-6直至委员会周**的运营计划：上午基线生成了6个触发器的前向触发序列，夜间更新则补充了*运营准备监控项目* — 4月14日之前需重点关注的三项内容：(1) 理事会银行工作组关于SRMR3授权时间表的信号（沉默至第12日 = 轻度滑点风险）；(2) Renew协调会议日历（混合轨道文件DGSD2/BRRD3需在4月14日前完成Renew简报）；(3) 反腐移植的国家议会推广工作（LIBE主席Q2前协调）。夜间更新是休会期间最为明确的*运营准备核查表*，也是其余休会期间（4月8日至13日）后续每日AM/PM节奏的结构模板。**夜间运行将AM/PM节奏从观察性提升至运营性**，引入可执行的监控项目，而非纯粹的结构性基线更新。
+
+---
+
+### 🧭 此简报支持的3项决策
+
+| # | 决策 | 决策者 | 截止日期 | 依据 |
+|:-:|------|-------|:-------:|------|
+| 1 | **理事会银行工作组沉默升级** — 沉默至第12日 = 轻度滑点风险；升级至常驻代表委员会 | 理事会主席国 + 欧洲议会报告人 | 4月10日前 | §监控项目1 |
+| 2 | **Renew混合轨道简报** — DGSD2/BRRD3需要4月14日前的协调员简报 | Renew协调员 + 欧洲人民党协调 | 4月12日前 | §监控项目2 |
+| 3 | **LIBE 27成员国Q2前推广** — 反腐移植国家议会准备 | LIBE主席 + 国家议会联络员 | 4月14日前 | §监控项目3 |
+
+---
+
+### 📰 60秒阅读
+
+- 🔴 **首个有结构的AM/PM情报节奏** — 运营模板建立。
+- 🟠 **API振荡模式确认为持续性** — 模式B振荡型，非偶发性。
+- 🟢 **3项运营准备监控项目** — 理事会BWG · Renew · LIBE。
+- 🟡 **距委员会周T-6** — 倒计时进行中。
+- 🔵 **737名欧洲议会议员稳定** — 第12日基线维持。
+- 🟣 **1项通过文本日度动态** — 最小但运营有效。
+- 🩷 **18天中第12天 — 休会67%完成**。
+- ⚪ **置信度中等** — 运营监控项目高；API预测中等。
+
+---
+
+### 📋 运营准备监控项目（此次运行的独特贡献）
+
+| # | 项目 | 滑点指标 | 缓解截止日期 |
+|:-:|------|---------|------------|
+| 1 | **理事会银行工作组关于SRMR3授权的信号** | 沉默至第12日 | 4月10日前升级 |
+| 2 | **Renew在混合轨道DGSD2/BRRD3上的协调** | 未安排协调员会议 | 4月12日前简报 |
+| 3 | **LIBE 27成员国反腐移植推广** | 国家议会联络缺口 | 4月14日前推广 |
+
+---
+
+### ⚠️ 风险快照
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=66504f91) -->
+
+---
+
+### 🔮 主要前向触发器（T-0前7天）
+
+1. **4月8日 — 第13日** — 理事会BWG升级截止日期临近。
+2. **4月10日 — 第15日** — 理事会BWG升级：硬性截止日期。
+3. **4月12日 — 第17日** — Renew协调员简报：硬性截止日期。
+4. **4月13日 — 第18日** — 休会结束；最终准备状态审查。
+5. **4月14日 — 第0日** — 委员会周开始；所有监控项目必须解决。
+
+---
+
+### 🛡️ 来源质量评估
+
+- **AM基线增量（A1）：** 与上午运行直接比较；可核实。
+- **API振荡持续性（A2）：** 第11日 + 第12日双重观测；中等置信度。
+- **3项监控项目（A2）：** 运营准备方法论；可对照机构日历核实。
+- **737名议员稳定（A1）：** 主要记录。
+- **综合置信度：** 🟢 AM/PM节奏高；🟡 监控项目滑点概率中等。
+
+---
+
+### 📎 运行产物
+
+| 层级 | 产物 | 原因 |
+|------|------|------|
+| 文章 | `article.md` | 公开夜间更新叙述 |
+| 综合 | `synthesis-summary.md` | 12小时增量 + 3项监控项目运营核查表 |
+| 方法论 | 分类 · 现有 · 风险评分 · 威胁评估 | 标准breaking方法论 |
+| 配套 | breaking（06:36 上午） | 当日AM基线 |
+
+---
+
+**文档控制**
+- **模板参考：** `analysis/templates/executive-brief.md`
+- **产物路径：** `analysis/daily/2026-04-07/breaking-2/executive-brief.md`
+- **分类：** 公开
+- **回顾性：** 简报于2026-05-16依据运行已提交产物撰写；**未进行新的MCP调用**。
+
 ### Synthesis Summary
 
 **📅 Analysis Date:** 2026-04-07 18:20 UTC | **📊 Confidence:** MEDIUM | **🔴 Breaking News:** NONE | **📍 Recess Day:** 12/18
@@ -1799,5 +2936,18 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/existing/deep-analysis.md) | `existing/deep-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/synthesis-summary.md) | `synthesis-summary.md` |
 

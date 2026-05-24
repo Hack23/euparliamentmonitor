@@ -1,16 +1,16 @@
 ---
 title: "Committee Reports Run 50, 16 April 2026"
 description: "Run 50 documents the record Q1 2026 committee output: 114 legislative acts adopted — a +46 % increase over the full-year 2025 total of 78 acts."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Committee Reports Run50", "2026-04-16", "Committee", "Reports", "April", "documents", "record", "output"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-16", "Committee", "Reports", "April"]
 date: 2026-04-16
-article_type: committee-reports-run50
-slug: 2026-04-16-committee-reports-run50
+article_type: committee-reports
+slug: 2026-04-16-committee-reports-1677eddd-9ddd-4b92-a3b7-876a5a4c
 source_folder: analysis/daily/2026-04-16/committee-reports-run50
 generated_at: 2026-04-16T00:00:00.000Z
 language: en
 layout: article
 ---
-# Committee Reports Run50 — 2026-04-16
+# Committee Reports — 2026-04-16
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -368,7 +368,7 @@ The most significant political development is the emergence of cross-committee l
 
 > **Provenance & Audit**
 >
-> - **Article type:** `committee-reports-run50`
+> - **Article type:** `committee-reports`
 > - **Run date:** 2026-04-16
 > - **Run id:** `1677eddd-9ddd-4b92-a3b7-876a5a4ce8d4`
 > - **Gate result:** `PENDING`

@@ -1,6 +1,6 @@
 ---
 title: "Run 169, 14 April 2026"
-description: "Run 169 is a T-1 pre-Tariff-T-0 probe (one day before TA-10-2026-0096 / TA-10-2026-0097 statutory activation on 15 April). The article frontmatter exhibits the known recursive…"
+description: "Run 169 is a T-1 pre-Tariff-T-0 probe (one day before TA-10-2026-0096 / TA-10-2026-0097 statutory activation on 15 April)."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-14", "April", "Tariff", "probe"]
 date: 2026-04-14
 article_type: breaking

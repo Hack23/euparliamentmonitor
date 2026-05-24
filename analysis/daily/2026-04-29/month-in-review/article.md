@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament April 2026 Review: 4-week digest — 2026-04-29"
-description: "The EU Parliament in April 2026 delivered a historically dense legislative agenda — including 2027 Budget Guidelines, a US tariff defense package, a landmark housing framework…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-29", "Parliament", "Month", "Review", "April"]
+description: "Comprehensive analysis of the European Parliament — legislative output, coalition dynamics, and policy trends"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-29", "Parliament", "April", "Review", "week"]
 date: 2026-04-29
 article_type: month-in-review
 slug: 2026-04-29-month-in-review

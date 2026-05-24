@@ -1,6 +1,6 @@
 ---
 title: "Decision Window: May 4-8 Action Priorities"
-description: "For EPP Group Chair (Weber equivalent): 1. Convene trilateral briefing with Renew and S&D coordinators — secure EDIS framework understanding before ITRE formal session 2."
+description: "European Parliament calendar, committee meetings, and plenary debates for the coming week Published 2026-05-01. Context: Decision Window: May 4-8 Action Priorities"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-01", "Decision", "Window", "Action"]
 date: 2026-05-01
 article_type: week-ahead

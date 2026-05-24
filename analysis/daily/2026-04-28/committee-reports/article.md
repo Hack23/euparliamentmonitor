@@ -1,7 +1,7 @@
 ---
-title: "EP Committee Reports | 28 April 2026"
-description: "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade, monetary affairs, technology sovereignty…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-28", "Committee", "Reports", "April"]
+title: "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade"
+description: "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade, monetary affairs, technology sovereignty"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-28", "European", "Parliament", "spring"]
 date: 2026-04-28
 article_type: committee-reports
 slug: 2026-04-28-committee-reports

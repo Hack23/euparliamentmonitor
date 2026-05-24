@@ -1,7 +1,7 @@
 ---
-title: "Month In Review | 2026-03-28"
-description: "EP10 ecosystem snapshot at March end, no acute month-of-March synthesis signal. Analysis run e1c8e9c5-1a6d-4f2c-9cda-312aa19023fe returned 0 classified political actors…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-03-28", "Month", "Review", "EP10", "ecosystem"]
+title: "Political Actor Mapping: EP10 Ecosystem Analysis"
+description: "The EP10 political actor ecosystem is characterised by: Published 2026-03-28."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-03-28", "Political", "Actor", "Mapping", "EP10"]
 date: 2026-03-28
 article_type: month-in-review
 slug: 2026-03-28-month-in-review

@@ -1,5 +1,5 @@
 ---
-title: "Three landmark legislative measures reached final publication or adoption in the week of 5–12 May 2026, marking a pivotal moment in EP10's…"
+title: "Three landmark legislative measures reached final publication or adoption in the week of 5–12 May 2026"
 description: "Three landmark legislative measures reached final publication or adoption in the week of 5–12 May 2026, marking a pivotal moment in EP10's first full legislative year."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-12", "Three", "landmark", "legislative"]
 date: 2026-05-12

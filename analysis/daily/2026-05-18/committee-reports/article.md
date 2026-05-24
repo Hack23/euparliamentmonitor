@@ -1,7 +1,7 @@
 ---
-title: "EP Committee Reports | 2026-05-18"
-description: "WEP Band (overall assessment): Likely (60–70% confidence in general findings) degraded-feeds EP10 standard committee calendar in effect ✓ | KA-2: EPP-S&D-Renew coalition holding…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-18", "Committee", "Reports", "Band"]
+title: "INTA, BUDG, AGRI, TRAN, CULT, FEMM"
+description: "Proceeding with normal docket work — specific document IDs unavailable due to API degradation. Published 2026-05-18."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-18", "INTA", "BUDG", "AGRI"]
 date: 2026-05-18
 article_type: committee-reports
 slug: 2026-05-18-committee-reports

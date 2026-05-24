@@ -1,16 +1,16 @@
 ---
 title: "Propositions: Day-Before-Tariff Implementation Briefing | 2026-04-14"
-description: "Parliament returns from Easter recess facing what the run characterises as \"the most consequential first-day-back agenda of the 10th parliamentary term\" — TA-10-2026-0096 US…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Propositions Run42", "2026-04-14", "Propositions", "Before", "Tariff", "Implementation", "Briefing", "Parliament"]
+description: "Parliament returns from Easter recess facing what the run characterises as \"the most consequential first-day-back agenda of the 10th parliamentary term\" — TA-10-2026-0096 US"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-14", "Before", "Tariff", "Implementation"]
 date: 2026-04-14
-article_type: propositions-run42
-slug: 2026-04-14-propositions-run42
+article_type: propositions
+slug: 2026-04-14-propositions
 source_folder: analysis/daily/2026-04-14/propositions-run42
 generated_at: 2026-04-14T00:00:00.000Z
 language: en
 layout: article
 ---
-# Propositions Run42 — 2026-04-14
+# Propositions — 2026-04-14
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -800,7 +800,7 @@ Trade deal averts confrontation. Normal legislative rhythm resumes. All 13 COD p
 
 > **Provenance & Audit**
 >
-> - **Article type:** `propositions-run42`
+> - **Article type:** `propositions`
 > - **Run date:** 2026-04-14
 > - **Run id:** `68d9a632-9043-4f92-8e7c-ff5d558e91a5`
 > - **Gate result:** `PENDING`

@@ -1,7 +1,7 @@
 ---
-title: "European Parliament Year in Review 2025–2026"
-description: "The European Parliament's year from May 2025 to May 2026 established the defining narrative of the EP10 term: a parliament navigating the intersection of geopolitical emergency…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year In Review", "2026-05-09", "European", "Parliament", "Year", "Review", "from", "established"]
+title: "European Parliament Year in Review (May 2025 – May 2026)"
+description: "The European Parliament's tenth term entered its second year under the shadow of geopolitical polycrisis, executing a demanding legislative agenda dominated by Ukrainian support"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year In Review", "2026-05-09", "European", "Parliament", "Year", "Review", "tenth", "term"]
 date: 2026-05-09
 article_type: year-in-review
 slug: 2026-05-09-year-in-review

@@ -1,6 +1,6 @@
 ---
 title: "Extended Executive Brief"
-description: "This extended executive brief synthesises the full analytical output from four consecutive EU Parliament Monitor breaking news runs on 2026-05-10, representing the most…"
+description: "This extended executive brief synthesises the full analytical output from four consecutive EU Parliament Monitor breaking news runs on 2026-05-10, representing the most"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-10", "Extended", "Executive", "Brief"]
 date: 2026-05-10
 article_type: breaking

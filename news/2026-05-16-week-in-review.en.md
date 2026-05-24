@@ -1,7 +1,7 @@
 ---
-title: "We assess with HIGH CONFIDENCE"
-description: "that the April plenary marks a decisive consolidation of EP Term 10's legislative agenda across three axes:"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-16", "assess", "with", "HIGH", "CONFIDENCE"]
+title: "EU Parliament April 2026 Plenary"
+description: "**The April 2026 EP plenary session is analytically significant as the most coherent demonstration of EP Term 10's legislative doctrine to date: fiscal assertiveness, digital"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-16", "Parliament", "April", "Plenary", "session"]
 date: 2026-05-16
 article_type: week-in-review
 slug: 2026-05-16-week-in-review

@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports | 2026-04-01"
-description: "No new committee reports identified for 2026-04-01; first full day of post-March committee recess. Run 64ada77d-c1f3-48f7-804d-be58857d0f18 returned 0 classified actors…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-01", "Committee", "Reports", "identified"]
+title: "No new committee reports identified for 2026-04-01; first full day of post-March committee recess."
+description: "No new committee reports identified for 2026-04-01; first full day of post-March committee recess. Published 2026-04-01."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-01", "committee", "reports", "identified"]
 date: 2026-04-01
 article_type: committee-reports
 slug: 2026-04-01-committee-reports

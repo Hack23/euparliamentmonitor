@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Quarter in Review — Q1 2026"
-description: "The European Parliament completed its second full quarter of EP10 (2024–2029) with a markedly high-energy legislative calendar dominated by three structural imperatives: European…"
+description: "The European Parliament completed its second full quarter of EP10 (2024–2029) with a markedly high-energy legislative calendar dominated by three structural imperatives: European"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Quarter In Review", "2026-05-05", "Parliament", "Quarter", "Review", "European", "completed", "second"]
 date: 2026-05-05
 article_type: quarter-in-review

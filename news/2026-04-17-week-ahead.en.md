@@ -1,7 +1,7 @@
 ---
-title: "📰 Weekly Intelligence Brief — Post-Easter Return (April 27–30, 2026)"
-description: "The European Parliament returns from Easter recess on 27 April 2026 to a four-day Strasbourg plenary that ranks among the most consequential of EP10's second year. Three……"
-keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-04-17", "run cf7e8cd5-3b34-4755-b9ae-ae3b729cd12f", "Weekly", "Intelligence", "Brief", "Post", "Easter", "Return", "April", "European"]
+title: "Week Ahead: April 27–30 Strasbourg Plenary Pre-Brief | 2026-04-17"
+description: "**The April 27–30 Strasbourg plenary is read by the run as \"among the most consequential of EP10's second year\" because three structurally different debates converge in the same"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-04-17", "Week", "Ahead", "April"]
 date: 2026-04-17
 article_type: week-ahead
 slug: 2026-04-17-week-ahead
@@ -12,13 +12,115 @@ layout: article
 ---
 # Week Ahead — 2026-04-17
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**The April 27–30 Strasbourg plenary is read by the run as "among the most consequential of EP10's second year" because three structurally different debates converge in the same four-day window: STEP-II defence procurement (the first joint-procurement test with binding participation commitments), AI training data and Copyright Directive Article 4 (the AI-copyright fracture line that runs through Renew), and Article 7 rule-of-law proceedings on Hungary and Poland (where Poland's Tusk-government rehabilitation request collides with continued Hungarian non-compliance).** The run's distinguishing analytical contribution is the **Renew-ECR cohesion 0.95 finding** — the highest cross-pole alignment score in EP10 to date, structurally produced by the European strategic autonomy agenda and now being stress-tested across multiple policy domains simultaneously. The **German economic backdrop** — GDP contraction −0.50% in 2024 and −0.87% in 2023 (two consecutive years) — places German MEPs as the pivotal swing voters in defence-procurement vs. industrial-competitiveness trade-offs. The run's three-debate convergence creates a *coalition stress test*: STEP-II requires Renew to align with ECR (defence autonomy), AI-Copyright fractures Renew internally (tech-friendly vs. social-democratic wings), and Article 7 forces EPP into an impossible positioning between Hungary (Orbán legacy) and Poland (Tusk rehabilitation). The week's binary stability indicator is the **ECR defection threshold on STEP-II**: ≤15 defections = managed; ≥25 = coalition crisis. The run is published in degraded-mode confidence because EP API still has residual Easter-recess pattern, but the coalition arithmetic itself is feed-verified.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **ECR-defection trip-wire monitoring on STEP-II** — 15-defection threshold needs to be measured live | EDIS committee; coordinators | April 28 vote | §Strategic Intelligence #1 |
+| 2 | **Renew internal-wing reconciliation on AI-Copyright** — tech-friendly vs. social-democratic wings need a doctrine before the Commission statement | Renew group leadership | April 27 morning | §Top Development #2 |
+| 3 | **EPP positioning doctrine on Hungary + Poland asymmetry** — Tusk rehabilitation collides with Orbán-legacy constraint; default position is unstable | EPP group leadership | April 29 debate | §Top Development #3 |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **3 simultaneous structural debates** — STEP-II defence + AI-Copyright + Article 7 rule-of-law.
+- 🟠 **Renew-ECR cohesion 0.95** — highest in EP10; stress-tested across all three domains.
+- 🟢 **114 acts in 2026 (+46% vs 2025)** — record legislative momentum context.
+- 🟡 **German GDP −0.50% (2024), −0.87% (2023)** — two-year contraction; German MEPs are pivotal swing voters.
+- 🔵 **EP10 right-bloc seat share 52.3%** — structural reality behind every fracture risk.
+- 🟣 **STEP-II arithmetic:** EPP + S&D + Renew + ECR = ~475 vs. 361 threshold — passable but ECR-conditional.
+- 🩷 **ECR-defection threshold:** 15 = fracture signal; 25+ = coalition crisis.
+- ⚪ **Confidence MEDIUM — degraded mode** — Easter-residual API pattern.
+
+---
+
+### 🎬 Three Convergent Debates (run's distinguishing contribution)
+
+| Debate | Coalition test | Fracture line | Stability indicator |
+|--------|---------------|---------------|---------------------|
+| **STEP-II Defence Procurement** | Renew + ECR alignment | ECR nationalist wing (Hungary; PiS); Article 42 TEU | ECR defections ≤15 |
+| **AI Training Data + Copyright Art. 4** | Renew internal | Tech-friendly (Dutch/French liberals) vs. social-democratic (German FDP) | Renew vote dispersion |
+| **Article 7 Hungary + Poland** | EPP positioning | Hungary (Orbán legacy) vs. Poland (Tusk rehabilitation) | EPP-S&D joint resolution? |
+
+---
+
+### ⚠️ Risk Snapshot
+
+```mermaid
+quadrantChart
+    title April 27–30 Plenary Risk Heatmap
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 Manage closely
+    quadrant-2 Top priority
+    quadrant-3 Monitor
+    quadrant-4 Plan & contain
+    "ECR fracture on STEP-II": [0.55, 0.85]
+    "Renew internal fracture on AI-Copyright": [0.60, 0.75]
+    "EPP positioning collapse on Article 7": [0.45, 0.70]
+    "German swing-vote pressure": [0.70, 0.65]
+    "STEP-II procedural instability": [0.40, 0.75]
+    "Renew-ECR 0.95 alignment break": [0.35, 0.85]
+```
+
+---
+
+### 🔮 Top Forward Triggers (this plenary week)
+
+1. **April 27 (Mon) — Plenary opens.** Commission statement on AI-Copyright; Renew internal-wing position is the first visible signal.
+2. **April 28 (Tue) — STEP-II procedure vote.** ECR defection count is the falsifier for Renew-ECR 0.95 alignment.
+3. **April 29 (Wed) — Article 7 debate.** EPP positioning is the test.
+4. **April 30 (Thu) — Plenary close.** Cross-debate coalition consistency check.
+5. **End-April / early-May — Q2 fragmentation index update.** 6.59 baseline; whether plenary stress pushes it higher.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **114-act figure (A1):** precomputed stats; primary EP record.
+- **Renew-ECR 0.95 cohesion (A2):** coalition-dynamics analysis; behavioural verification pending April 28 vote.
+- **German GDP context (A1):** IMF / Eurostat economic-context input; corroborates pivotal-swing-voter reading.
+- **STEP-II Article 42 TEU reasoning (A2):** treaty-text grounded; high analytical confidence on the legal pressure point.
+- **Net confidence:** 🟡 MEDIUM on synthesis (degraded API); 🟢 HIGH on the coalition arithmetic (475 vs. 361 is exact); 🟡 MEDIUM on the 15-defection threshold (heuristic, not feed-confirmed).
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Layer | Artifact | Why |
+|-------|----------|-----|
+| Article | `article.md` | Public-facing week-ahead narrative |
+| Synthesis | `intelligence/synthesis-summary.md` | Three-debate convergence + cohesion findings (authoritative) |
+| Classification | `classification/` | 7-dimension on plenary agenda |
+| Intelligence | `intelligence/` | Renew-ECR 0.95 cohesion analysis |
+| Companion | Run 172 (Q1 audit) / props-run43 (T-0) / breaking-run180-182 | Pre-plenary cluster |
+
+---
+
+**Document Control**
+- **Template reference:** `analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-17/week-ahead-run14/executive-brief.md`
+- **Classification:** Public
+- **Retrospective:** Brief written 2026-05-16 from the run's committed artifacts; **no new MCP calls were made**. The 🟡 MEDIUM degraded-mode confidence is preserved.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -269,6 +371,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -324,6 +427,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -336,9 +440,12 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Seo Headers Policy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/seo-headers-policy.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -347,6 +454,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 

@@ -1,7 +1,7 @@
 ---
-title: "Breaking, 8 April 2026"
-description: "The 8 April breaking brief records the pre-recess inventory snapshot: 57 adopted texts | 0 events | 0 procedures | 737 MEP updates tracked. This is the cataloguing baseline 5…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-08", "April", "brief", "records"]
+title: "🧩 Political Intelligence Synthesis — European Parliament"
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-08. Context: 🧩 Political Intelligence Synthesis — European Parliament"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-08", "Political", "Intelligence", "Synthesis"]
 date: 2026-04-08
 article_type: breaking
 slug: 2026-04-08-breaking

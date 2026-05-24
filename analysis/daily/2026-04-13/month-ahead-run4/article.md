@@ -1,16 +1,16 @@
 ---
 title: "EP10 Month Ahead: April 13 – May 13, 2026 | 2026-04-13"
-description: "Three convergent crises define the 30-day window from end-of-Easter-recess to mid-May: (1) US tariff implementation deadline April 15 (T-2 at run time) — TA-10-2026-0096…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Month Ahead Run4", "2026-04-13", "EP10", "Month", "Ahead", "April", "Three", "convergent"]
+description: "Three convergent crises define the 30-day window from end-of-Easter-recess to mid-May: (1) US tariff implementation deadline April 15 (T-2 at run time) — TA-10-2026-0096"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-13", "EP10", "Month", "Ahead", "April"]
 date: 2026-04-13
-article_type: month-ahead-run4
-slug: 2026-04-13-month-ahead-run4
+article_type: month-ahead
+slug: 2026-04-13-month-ahead
 source_folder: analysis/daily/2026-04-13/month-ahead-run4
 generated_at: 2026-04-13T00:00:00.000Z
 language: en
 layout: article
 ---
-# Month Ahead Run4 — 2026-04-13
+# Month Ahead — 2026-04-13
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -982,7 +982,7 @@ Trade, banking, and anti-corruption all stall simultaneously. ECR expands defect
 
 > **Provenance & Audit**
 >
-> - **Article type:** `month-ahead-run4`
+> - **Article type:** `month-ahead`
 > - **Run date:** 2026-04-13
 > - **Run id:** `07c000a5-e613-4ca8-98c7-cae22b3eb835`
 > - **Gate result:** `PENDING`

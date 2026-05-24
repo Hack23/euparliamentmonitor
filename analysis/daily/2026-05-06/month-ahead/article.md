@@ -1,7 +1,7 @@
 ---
-title: "Overall confidence: 🟡 MEDIUM (EP API 502 errors limit real-time data;"
+title: "The European Parliament enters its critical May–June 2026 legislative sprint with three dominant agenda clusters"
 description: "Overall confidence: 🟡 MEDIUM (EP API 502 errors limit real-time data; structural/contextual analysis applied)"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-05-06", "Overall", "confidence", "MEDIUM", "errors"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-05-06", "European", "Parliament", "enters", "critical"]
 date: 2026-05-06
 article_type: month-ahead
 slug: 2026-05-06-month-ahead

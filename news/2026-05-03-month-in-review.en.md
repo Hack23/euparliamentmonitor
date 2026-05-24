@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Month in Review: April 2026"
-description: "April 2026 marked the European Parliament's most legislatively intensive month of EP10's second year, with the Strasbourg and Brussels plenary sessions adopting 11 binding…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-05-03", "Parliament", "Month", "Review", "April"]
+title: "EU Parliament April 2026: pillar-by-pillar wrap-up — 2026-05-03"
+description: "Comprehensive analysis of the European Parliament — legislative output, coalition dynamics, and policy trends"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-05-03", "Parliament", "April", "pillar", "wrap"]
 date: 2026-05-03
 article_type: month-in-review
 slug: 2026-05-03-month-in-review

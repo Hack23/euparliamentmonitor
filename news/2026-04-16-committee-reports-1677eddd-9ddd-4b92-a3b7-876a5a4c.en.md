@@ -1,7 +1,7 @@
 ---
-title: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase…"
-description: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase over the full year 2025 total of 78……"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-16", "run 1677eddd-9ddd-4b92-a3b7-876a5a4ce8d4", "European", "Parliament", "committees", "enter", "Easter", "recess", "having", "delivered"]
+title: "Committee Reports Run 50, 16 April 2026"
+description: "Run 50 documents the record Q1 2026 committee output: 114 legislative acts adopted — a +46 % increase over the full-year 2025 total of 78 acts."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-16", "Committee", "Reports", "April"]
 date: 2026-04-16
 article_type: committee-reports
 slug: 2026-04-16-committee-reports-1677eddd-9ddd-4b92-a3b7-876a5a4c
@@ -12,14 +12,59 @@ layout: article
 ---
 # Committee Reports — 2026-04-16
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 50 documents the **record Q1 2026 committee output: 114 legislative acts adopted** — a **+46 % increase over the full-year 2025 total of 78 acts**. EP committees enter Easter recess on this record, having delivered the highest single-quarter throughput in the observed 2004–2026 series. The structural finding is that *fragmentation has not reduced output* — it has produced more bespoke coalitions and more sectoral specialisation, yielding higher aggregate legislative throughput. *Confidence: HIGH on aggregate counters; Admiralty: A2.*
+
+### Three Decisions
+
+1. **Anchor the Year-3 peak-velocity thesis on Q1 2026 = 114 acts.** The Q1 number alone exceeds 2024's full-year total (72) and approaches 2025's full year (78). This is the single most analytically powerful data point for the EP10 peak-velocity framing. *Confidence: HIGH.*
+2. **Reject the legacy assumption that fragmentation reduces parliamentary output.** Empirical evidence now firmly contradicts the pre-2024 expectation that 9-group Parliament with no two-group majority would slow legislation. The opposite has happened: more groups, more coalitions, more output. *Confidence: HIGH on the rejection; MODERATE on causal mechanism.*
+3. **Use Q1 2026 throughput peak as the calibration anchor for downstream-consumer capacity planning.** Translation pipelines, news workflows, civil-society monitoring, and member-state administrations should scale capacity assumptions to the +46 % YoY level rather than 2024 baselines. *Confidence: HIGH.*
+
+### 60-Second Read
+
+Q1 2026 = **114 legislative acts adopted** is the headline structural fact of EP10. The number alone re-frames every prior assumption about fragmented-Parliament performance. Q1's throughput exceeds 2024's full year and approaches 2025's full year — and the Parliament is on track for ≈ 935-procedure 2026 total against 923 in 2025.
+
+The political-economy interpretation: **EP10's fragmentation produced a parliament of bespoke coalitions**, and the operational consequence is *higher* output (not lower) because each file generates its own coalition-build process. The legacy "consensus parliament" model is obsolete; EP10 operates on a "bespoke-coalition" model.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Q2 2026 output drops sharply (Q1 was anomalous) | LOW–MED | MED |
+| Downstream capacity not scaled to +46 % YoY | HIGH | MED–HIGH |
+| Quality degradation suspected at peak throughput | MED | MED |
+
+### Source Quality
+
+- EP aggregate counters (Q1 2026 = 114): **A1**
+- YoY comparison vs. 2025 (78): **A1**
+- Bespoke-coalition causal interpretation: **B2**
+
+### Provenance
+
+- Run: `committee-reports-run50` (2026-04-16)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: causal interpretation flagged as analytical, not deterministic.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/political-classification.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/threat-analysis.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/swot-analysis.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
@@ -348,6 +393,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -403,6 +449,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -415,9 +462,12 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Seo Headers Policy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/seo-headers-policy.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -426,6 +476,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/political-classification.md) | `classification/political-classification.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |

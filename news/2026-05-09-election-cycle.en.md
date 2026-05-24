@@ -1,7 +1,7 @@
 ---
-title: "EPP remains dominant broker"
-description: "With 185 seats, EPP controls committee chair nominations, rapporteurships, and the agenda-setting authority of the Conference of Presidents. This structural advantage compounds…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Election Cycle", "2026-05-09", "remains", "dominant", "broker", "With", "seats", "controls"]
+title: "EPP broker role tested by 2027 election ground game — 2026-05-09"
+description: "Election cycle (2026-05-09): EPP's 185-seat broker role measured against the 2027 election ground game — committee chair nominations, rapporteurships, and Conference-of-Presidents"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Election Cycle", "2026-05-09", "broker", "role", "tested", "election", "ground", "game"]
 date: 2026-05-09
 article_type: election-cycle
 slug: 2026-05-09-election-cycle

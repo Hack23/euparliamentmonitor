@@ -1,16 +1,16 @@
 ---
-title: "Run 193, 21 April 2026"
+title: "Run 193, 21 April 2026 (Afternoon Probe)"
 description: "Run 193 (afternoon probe) crossed the 20/50 significance threshold at 22/50 and produced the first ARTICLEGENERATED gate result since the API outage began 11 April."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Breaking Run193", "2026-04-21", "April", "afternoon", "probe", "crossed", "significance", "threshold"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-21", "April", "Afternoon", "Probe"]
 date: 2026-04-21
-article_type: breaking-run193
-slug: 2026-04-21-breaking-run193
+article_type: breaking
+slug: 2026-04-21-breaking-3ff728a7-15fa-4d2d-af0e-73c3e1ff
 source_folder: analysis/daily/2026-04-21/breaking-run193
 generated_at: 2026-04-21T00:00:00.000Z
 language: en
 layout: article
 ---
-# Breaking Run193 — 2026-04-21
+# Breaking — 2026-04-21
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -834,7 +834,7 @@ The two Braun immunity waivers open the prospect of further disciplinary proceed
 
 > **Provenance & Audit**
 >
-> - **Article type:** `breaking-run193`
+> - **Article type:** `breaking`
 > - **Run date:** 2026-04-21
 > - **Run id:** `3ff728a7-15fa-4d2d-af0e-73c3e1ffb70e`
 > - **Gate result:** `PENDING`

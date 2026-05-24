@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports, 10 April 2026"
-description: "Q1 2026 output of 104 adopted texts is +46.2 % above the 2025 pace — the highest single-quarter throughput in the observed 2004–2026 series. The structural finding under…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-10", "Committee", "Reports", "April"]
+title: "Q1 2026 output of 104 adopted texts is +46.2 % above the 2025 pace — the highest single-quarter throughput in the observed 2004–2026 series."
+description: "Q1 2026 output of 104 adopted texts is +46.2 % above the 2025 pace — the highest single-quarter throughput in the observed 2004–2026 series."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-10", "output", "adopted", "texts"]
 date: 2026-04-10
 article_type: committee-reports
 slug: 2026-04-10-committee-reports

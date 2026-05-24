@@ -1,6 +1,6 @@
 ---
-title: "Breaking | 2026-04-02"
-description: "Second post-March recess day; the standout finding is data-pipeline degradation rather than EP activity. The article's YAML frontmatter is corrupted by recursive nested-quote…"
+title: "Second post-March recess day; the standout finding is data-pipeline degradation rather than EP activity."
+description: "Second post-March recess day; the standout finding is data-pipeline degradation rather than EP activity."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-02", "Second", "post", "March"]
 date: 2026-04-02
 article_type: breaking

@@ -1,6 +1,6 @@
 ---
 title: "Easter Recess Day 12 Morning Intelligence | 2026-04-07"
-description: "The Day-12 morning breaking run is the day's structural anchor — at 44 analysis artifacts and 3,391 lines, it produces the most comprehensive single-run pre-recess corpus…"
+description: "The Day-12 morning breaking run is the day's structural anchor — at 44 analysis artifacts and 3,391 lines, it produces the most comprehensive single-run pre-recess corpus analysis"
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-07", "Easter", "Recess", "Morning"]
 date: 2026-04-07
 article_type: breaking

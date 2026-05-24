@@ -1,16 +1,16 @@
 ---
-title: "March 26 plenary"
-description: "adopted 7 texts including 3 CRITICAL items. Published 2026-04-13. for democratic-accountability readers tracking EU institutional consequences"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Motions Run41", "2026-04-13", "March", "plenary", "adopted", "texts", "including", "CRITICAL"]
+title: "Motions & Resolutions: Trade Defence and Anti-Corruption Sprint (March 26 Plenary) | 2026-04-13"
+description: "The March 26 pre-Easter plenary delivered seven adopted texts of which three rank as CRITICAL — TA-10-2026-0096 (US tariff countermeasures), TA-10-2026-0094 (Anti-Corruption"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-13", "Trade", "Defence", "Anti"]
 date: 2026-04-13
-article_type: motions-run41
-slug: 2026-04-13-motions-run41
+article_type: motions
+slug: 2026-04-13-motions-b3749573-d54d-4d01-94be-4b538541
 source_folder: analysis/daily/2026-04-13/motions-run41
 generated_at: 2026-04-13T00:00:00.000Z
 language: en
 layout: article
 ---
-# Motions Run41 — 2026-04-13
+# Motions — 2026-04-13
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -697,7 +697,7 @@ EP API availability improved between run 40 (21:19Z, total outage) and run 41 (2
 
 > **Provenance & Audit**
 >
-> - **Article type:** `motions-run41`
+> - **Article type:** `motions`
 > - **Run date:** 2026-04-13
 > - **Run id:** `b3749573-d54d-4d01-94be-4b53854132bc`
 > - **Gate result:** `PENDING`

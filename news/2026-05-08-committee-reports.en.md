@@ -1,7 +1,7 @@
 ---
-title: "DMA Enforcement"
-description: "Parliament's 421–87–34 majority demands structural remedies; Commission likely to delay Published 2026-05-08. for democratic-accountability readers tracking EU institutional…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-08", "Enforcement", "Parliament", "majority"]
+title: "The European Parliament concluded a highly productive April 28–30 plenary session in Strasbourg"
+description: "The European Parliament concluded a highly productive April 28–30 plenary session in Strasbourg, adopting 19 texts and advancing its legislative agenda across digital, trade"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-08", "European", "Parliament", "concluded"]
 date: 2026-05-08
 article_type: committee-reports
 slug: 2026-05-08-committee-reports

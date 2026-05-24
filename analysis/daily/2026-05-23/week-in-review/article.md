@@ -1,7 +1,7 @@
 ---
-title: "The April 28–30, 2026 European Parliament Strasbourg plenary adopted 14 legislative items establishing the EP's strongest digital…"
-description: "The April 28–30, 2026 European Parliament Strasbourg plenary adopted 14 legislative items establishing the EP's strongest digital regulation enforcement push of the 2024–2029…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-23", "April", "European", "Parliament", "Strasbourg"]
+title: "Week in Review: 2026-04-17 to 2026-05-15 — Run 275"
+description: "The April 28–30, 2026 European Parliament Strasbourg plenary adopted 14 legislative items establishing the EP's strongest digital regulation enforcement push of the 2024–2029"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-23", "Week", "Review", "April", "European"]
 date: 2026-05-23
 article_type: week-in-review
 slug: 2026-05-23-week-in-review

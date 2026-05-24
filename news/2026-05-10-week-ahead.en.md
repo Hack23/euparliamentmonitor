@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Week Ahead: 18–21 May 2026"
-description: "The European Parliament's Strasbourg plenary of 18–21 May 2026 arrives at a decisive moment for European integration. With 53 scheduled plenary activities across four days…"
+description: "The European Parliament's Strasbourg plenary of 18–21 May 2026 arrives at a decisive moment for European integration."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-10", "Parliament", "Week", "Ahead"]
 date: 2026-05-10
 article_type: week-ahead

@@ -1,16 +1,16 @@
 ---
 title: "Committee Reports: Q1 2026 Power Rankings (ECON Leads, INTA Closes) | 2026-04-13"
-description: "Q1 2026 committee output ranks ECON and INTA as the two most consequential committees of the quarter — and the run's most operationally useful contribution is a 5-deep…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Committee Reports Run47", "2026-04-13", "Committee", "Reports", "Power", "Rankings", "ECON", "Leads"]
+description: "Q1 2026 committee output ranks ECON and INTA as the two most consequential committees of the quarter — and the run's most operationally useful contribution is a 5-deep"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-13", "Committee", "Reports", "Power"]
 date: 2026-04-13
-article_type: committee-reports-run47
-slug: 2026-04-13-committee-reports-run47
+article_type: committee-reports
+slug: 2026-04-13-committee-reports-43b9989e-4e2a-4672-aa00-f50e936a
 source_folder: analysis/daily/2026-04-13/committee-reports-run47
 generated_at: 2026-04-13T00:00:00.000Z
 language: en
 layout: article
 ---
-# Committee Reports Run47 — 2026-04-13
+# Committee Reports — 2026-04-13
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -1130,7 +1130,7 @@ graph LR
 
 > **Provenance & Audit**
 >
-> - **Article type:** `committee-reports-run47`
+> - **Article type:** `committee-reports`
 > - **Run date:** 2026-04-13
 > - **Run id:** `43b9989e-4e2a-4672-aa00-f50e936aa128`
 > - **Gate result:** `PENDING`

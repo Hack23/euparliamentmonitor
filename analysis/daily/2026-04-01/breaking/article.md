@@ -1,7 +1,7 @@
 ---
-title: "Breaking News | 2026-04-01"
-description: "No breaking news detected for 2026-04-01. The European Parliament is in a 32-day inter-sessional recess (27 March → 26 April) between the Brussels mini-plenary (25-26 March)…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-01", "News", "detected", "European"]
+title: "🔍 Breaking News Intelligence Brief — 2026-04-01"
+description: "No breaking news detected for April 1, 2026. The European Parliament is in a parliamentary recess period between the last plenary sitting (March 26, Brussels) and the next"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-01", "News", "Intelligence", "Brief"]
 date: 2026-04-01
 article_type: breaking
 slug: 2026-04-01-breaking

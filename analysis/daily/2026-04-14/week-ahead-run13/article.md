@@ -1,16 +1,16 @@
 ---
 title: "Week Ahead: Post-Easter Return and Tariff Activation Convergence | 2026-04-14"
-description: "The week of April 14–21 is dominated by a single binary trigger: TA-10-2026-0096 tariff countermeasures activate April 15 — T-1 at run start — empowering the Commission…"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Week Ahead Run13", "2026-04-14", "Week", "Ahead", "Post", "Easter", "Return", "Tariff"]
+description: "The week of April 14–21 is dominated by a single binary trigger: TA-10-2026-0096 tariff countermeasures activate April 15 — T-1 at run start — empowering the Commission"
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-04-14", "Week", "Ahead", "Post"]
 date: 2026-04-14
-article_type: week-ahead-run13
-slug: 2026-04-14-week-ahead-run13
+article_type: week-ahead
+slug: 2026-04-14-week-ahead
 source_folder: analysis/daily/2026-04-14/week-ahead-run13
 generated_at: 2026-04-14T00:00:00.000Z
 language: en
 layout: article
 ---
-# Week Ahead Run13 — 2026-04-14
+# Week Ahead — 2026-04-14
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -583,7 +583,7 @@ The three threats are interconnected: trade crisis (THR-001) amplifies capacity 
 
 > **Provenance & Audit**
 >
-> - **Article type:** `week-ahead-run13`
+> - **Article type:** `week-ahead`
 > - **Run date:** 2026-04-14
 > - **Run id:** `d453dec8-df2f-4b80-9c0c-73659e377e8c`
 > - **Gate result:** `PENDING`
