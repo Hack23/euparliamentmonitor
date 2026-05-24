@@ -105,5 +105,11 @@
     "carryForwardCount": 12,
     "rewriteCount": 27,
     "planFile": "runs/prior-run-diff.json"
+  },
+  "title": {
+    "en": "EPP brokerage holds amid ECR–PfE migration vote — 2026-05-09"
+  },
+  "description": {
+    "en": "Term outlook (2026-05-09): EPP's 185-seat broker role tested by the upcoming ECR–PfE migration vote — committee chairs, rapporteurships, and Conference-of-Presidents agenda control still intact."
   }
 }
