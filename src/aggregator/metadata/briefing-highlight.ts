@@ -15,8 +15,7 @@
  *      The first `### Sub-section` heading underneath it (e.g.
  *      "The Three-Coalition Paradox") makes a clean, journalistic
  *      `<title>`. The first prose paragraph that follows that
- *      sub-heading makes a clean `<meta description>` (and
- *      `og:description` when long enough).
+ *      sub-heading makes a clean `<meta description>`.
  *
  *   2. `## Reader Briefing` (a.k.a. `Reader Briefing (Plain Language)`)
  *      — the actionable priority list. When the section is structured
@@ -59,18 +58,49 @@ export interface BriefingHighlight {
 }
 
 /** Heading text that opens the Strategic Intelligence Summary block. */
-const STRATEGIC_SECTION_HEADINGS = [
+const STRATEGIC_SECTION_HEADINGS: readonly string[] = [
   'strategic intelligence summary',
   'strategic assessment',
   'intelligence assessment',
-] as const;
+];
 
 /** Heading text that opens the Reader Briefing block. */
-const READER_BRIEFING_HEADINGS = [
+const READER_BRIEFING_HEADINGS: readonly string[] = [
   'reader briefing',
   'reader briefing (plain language)',
   'reader briefing — plain language',
-] as const;
+];
+
+/** Sentinel returned by {@link classifyLine} when the line is benign prose. */
+type LineKind =
+  | 'fence'
+  | 'h2'
+  | 'h3'
+  | 'blank'
+  | 'structural'
+  | 'numbered'
+  | 'bullet'
+  | 'prose';
+
+/**
+ * Classify a trimmed Markdown line into one of the structural buckets
+ * the section walker cares about. Extracted from the inline walker
+ * loops to keep their cognitive complexity below the 15-point limit.
+ *
+ * @param line - Trimmed Markdown line
+ * @returns Line kind sentinel
+ */
+function classifyLine(line: string): LineKind {
+  if (line.startsWith('```') || line.startsWith('~~~')) return 'fence';
+  if (line.startsWith('## ')) return 'h2';
+  if (line.startsWith('### ')) return 'h3';
+  if (line === '') return 'blank';
+  if (line.startsWith('|') || line.startsWith('>') || line.startsWith('<')) return 'structural';
+  if (line.startsWith('---') || line.startsWith('===')) return 'structural';
+  if (/^\d+\.\s+/u.test(line)) return 'numbered';
+  if (line.startsWith('-') || line.startsWith('*')) return 'bullet';
+  return 'prose';
+}
 
 /**
  * Compare a raw `## …` heading line against a whitelist of expected
@@ -91,35 +121,107 @@ function headingMatches(raw: string, needles: readonly string[]): boolean {
     .toLowerCase();
   for (const needle of needles) {
     if (normalized === needle) return true;
-    if (normalized.startsWith(`${needle} `) || normalized.startsWith(`${needle}:`)) return true;
-    if (normalized.startsWith(`${needle} —`) || normalized.startsWith(`${needle} –`)) return true;
-    if (normalized.startsWith(`${needle} -`) || normalized.startsWith(`${needle}(`)) return true;
+    if (normalized.startsWith(`${needle} `)) return true;
+    if (normalized.startsWith(`${needle}:`)) return true;
+    if (normalized.startsWith(`${needle}(`)) return true;
+    // Em-dash, en-dash, hyphen separators.
+    if (normalized.startsWith(`${needle} —`)) return true;
+    if (normalized.startsWith(`${needle} –`)) return true;
+    if (normalized.startsWith(`${needle} -`)) return true;
   }
   return false;
 }
 
 /**
- * Iterator state for a Markdown walk through the brief body. We scan
- * line-by-line, toggling fence state, tracking whether we have entered
- * the target `## …` block, and collecting prose paragraphs.
+ * Mutable iterator state used by the section walkers. The fence-state
+ * flag tracks ``` / ~~~ pairs so we never enter a section that lives
+ * inside a code block; `inSection` flips on/off as we cross `## …`
+ * boundaries; `subHeading` captures the first `### …` we see inside
+ * the matched section (only used by the synthesis extractor).
  */
-interface BlockBuffer {
-  readonly lines: string[];
+interface WalkerState {
+  inFence: boolean;
+  inSection: boolean;
+  subHeading: string;
+  lines: string[];
   byteCount: number;
 }
 
-/** Push a prose line into a block buffer (joining with a space). */
-function pushLine(buf: BlockBuffer, line: string): void {
-  buf.lines.push(line);
-  buf.byteCount += line.length + 1;
+/**
+ * Build an empty walker state.
+ *
+ * @returns Fresh, fence-aware {@link WalkerState} with empty buffers.
+ */
+function newState(): WalkerState {
+  return { inFence: false, inSection: false, subHeading: '', lines: [], byteCount: 0 };
+}
+
+/**
+ * Push a prose line into the walker's collected buffer.
+ *
+ * @param state - Walker state (mutated)
+ * @param line - Cleaned line to append
+ */
+function appendLine(state: WalkerState, line: string): void {
+  state.lines.push(line);
+  state.byteCount += line.length + 1;
+}
+
+/**
+ * Decide what to do when the walker sees a `## …` heading.
+ *
+ * @param state - Walker state
+ * @param raw - Raw heading line (already trimmed)
+ * @param needles - Lower-case section whitelist
+ * @returns `'enter'` when the heading opens the target section,
+ *          `'leave'` when it closes an already-open target section,
+ *          `'skip'` otherwise.
+ */
+function transitionForH2(
+  state: WalkerState,
+  raw: string,
+  needles: readonly string[]
+): 'enter' | 'leave' | 'skip' {
+  const headingText = raw.replace(/^##\s+/, '');
+  if (headingMatches(headingText, needles)) return 'enter';
+  if (state.inSection) return 'leave';
+  return 'skip';
+}
+
+/**
+ * Handle a `## …` line for the sub-section walker. Returns `true`
+ * when the caller should stop walking.
+ *
+ * @param state - Walker state (mutated)
+ * @param line - Trimmed `## …` line
+ * @param needles - Section whitelist
+ * @returns `true` to stop walking
+ */
+function handleH2ForSubsection(
+  state: WalkerState,
+  line: string,
+  needles: readonly string[]
+): boolean {
+  const t = transitionForH2(state, line, needles);
+  if (t === 'enter') {
+    state.inSection = true;
+    state.subHeading = '';
+    state.lines.length = 0;
+    state.byteCount = 0;
+    return false;
+  }
+  if (t === 'leave') {
+    if (state.subHeading && state.lines.length > 0) return true;
+    state.inSection = false;
+  }
+  return false;
 }
 
 /**
  * Walk the brief body line-by-line and return the first `### …`
  * heading + its first prose paragraph that occur **inside** the
  * matched `## …` block. Returns `null` when the matched block does
- * not contain a `### …` sub-heading (so the caller can fall back to
- * its prose-only extractor).
+ * not contain a `### …` sub-heading.
  *
  * @param markdown - Brief body (SPDX preamble already stripped)
  * @param sectionNeedles - Lower-case `## …` whitelist
@@ -130,73 +232,53 @@ function extractFirstSubsectionUnderSection(
   markdown: string,
   sectionNeedles: readonly string[]
 ): { readonly subHeading: string; readonly paragraph: string } | null {
-  let inSection = false;
-  let subHeading = '';
-  const buf: BlockBuffer = { lines: [], byteCount: 0 };
-  let inFence = false;
-
+  const state = newState();
   for (const raw of markdown.split('\n')) {
     const line = raw.trim();
-    if (line.startsWith('```') || line.startsWith('~~~')) {
-      inFence = !inFence;
+    const kind = classifyLine(line);
+    if (kind === 'fence') {
+      state.inFence = !state.inFence;
       continue;
     }
-    if (inFence) continue;
-
-    if (line.startsWith('## ')) {
-      // Crossed into (or out of) the target section.
-      const headingText = line.replace(/^##\s+/, '');
-      if (headingMatches(headingText, sectionNeedles)) {
-        inSection = true;
-        subHeading = '';
-        buf.lines.length = 0;
-        buf.byteCount = 0;
-        continue;
-      }
-      if (inSection) {
-        // We've left the target section without finding a sub-heading
-        // with prose — stop walking.
-        if (subHeading && buf.lines.length > 0) break;
-        inSection = false;
-        continue;
-      }
+    if (state.inFence) continue;
+    if (kind === 'h2') {
+      if (handleH2ForSubsection(state, line, sectionNeedles)) break;
       continue;
     }
-
-    if (!inSection) continue;
-
-    if (line.startsWith('### ')) {
-      if (subHeading && buf.lines.length > 0) break;
-      subHeading = stripInlineMarkdown(line.replace(/^###\s+/, ''));
-      buf.lines.length = 0;
-      buf.byteCount = 0;
-      continue;
-    }
-
-    if (!subHeading) continue;
-
-    if (line === '') {
-      if (buf.lines.length > 0) break;
-      continue;
-    }
-
-    // Stop on structural lines we never publish (tables, blockquotes,
-    // metadata bullets that start with bold `**Label**:`, HTML).
-    if (line.startsWith('|') || line.startsWith('>') || line.startsWith('<')) {
-      if (buf.lines.length > 0) break;
-      continue;
-    }
-    if (line.startsWith('---') || line.startsWith('===')) {
-      if (buf.lines.length > 0) break;
-      continue;
-    }
-
-    pushLine(buf, stripInlineMarkdown(line));
-    if (buf.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH) break;
+    if (!state.inSection) continue;
+    if (collectSubsectionLine(state, line, kind)) break;
   }
+  if (!state.subHeading || state.lines.length === 0) return null;
+  return {
+    subHeading: state.subHeading.trim(),
+    paragraph: state.lines.join(' ').trim(),
+  };
+}
 
-  if (!subHeading || buf.lines.length === 0) return null;
-  return { subHeading: subHeading.trim(), paragraph: buf.lines.join(' ').trim() };
+/**
+ * Process one non-heading line inside the matched section for the
+ * sub-section extractor. Returns `true` to signal the caller should
+ * stop walking (paragraph boundary reached or budget exceeded).
+ *
+ * @param state - Walker state (mutated)
+ * @param line - Trimmed line being processed
+ * @param kind - Pre-classified line kind from {@link classifyLine}
+ * @returns `true` to stop walking
+ */
+function collectSubsectionLine(state: WalkerState, line: string, kind: LineKind): boolean {
+  if (kind === 'h3') {
+    if (state.subHeading && state.lines.length > 0) return true;
+    state.subHeading = stripInlineMarkdown(line.replace(/^###\s+/, ''));
+    state.lines.length = 0;
+    state.byteCount = 0;
+    return false;
+  }
+  if (!state.subHeading) return false;
+  if (kind === 'blank' || kind === 'structural') {
+    return state.lines.length > 0;
+  }
+  appendLine(state, stripInlineMarkdown(line));
+  return state.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH;
 }
 
 /**
@@ -204,8 +286,6 @@ function extractFirstSubsectionUnderSection(
  * **inside** the matched `## …` block (ignoring any `### …`
  * sub-headings). Used as the fallback extractor when the section is a
  * single-paragraph block (the term-outlook Reader Briefing style).
- *
- * Skips metadata-style bullets that begin with `**Confidence**:` etc.
  *
  * @param markdown - Brief body (SPDX preamble already stripped)
  * @param sectionNeedles - Lower-case `## …` whitelist
@@ -215,47 +295,69 @@ function extractFirstParagraphUnderSection(
   markdown: string,
   sectionNeedles: readonly string[]
 ): string {
-  let inSection = false;
-  const buf: BlockBuffer = { lines: [], byteCount: 0 };
-  let inFence = false;
-
+  const state = newState();
   for (const raw of markdown.split('\n')) {
     const line = raw.trim();
-    if (line.startsWith('```') || line.startsWith('~~~')) {
-      inFence = !inFence;
+    const kind = classifyLine(line);
+    if (kind === 'fence') {
+      state.inFence = !state.inFence;
       continue;
     }
-    if (inFence) continue;
-
-    if (line.startsWith('## ')) {
-      if (inSection && buf.lines.length > 0) break;
-      const headingText = line.replace(/^##\s+/, '');
-      inSection = headingMatches(headingText, sectionNeedles);
+    if (state.inFence) continue;
+    if (kind === 'h2') {
+      if (handleH2ForParagraph(state, line, sectionNeedles)) break;
       continue;
     }
-
-    if (!inSection) continue;
-    if (line.startsWith('### ')) continue;
-
-    if (line === '') {
-      if (buf.lines.length > 0) break;
-      continue;
-    }
-
-    if (line.startsWith('|') || line.startsWith('>') || line.startsWith('<')) {
-      if (buf.lines.length > 0) break;
-      continue;
-    }
-    if (line.startsWith('---') || line.startsWith('===')) {
-      if (buf.lines.length > 0) break;
-      continue;
-    }
-
-    pushLine(buf, stripInlineMarkdown(line));
-    if (buf.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH) break;
+    if (!state.inSection || kind === 'h3') continue;
+    if (collectParagraphLine(state, line, kind)) break;
   }
+  return state.lines.length === 0 ? '' : state.lines.join(' ').trim();
+}
 
-  return buf.lines.length === 0 ? '' : buf.lines.join(' ').trim();
+/**
+ * Handle a `## …` line for the first-paragraph walker. Returns `true`
+ * when the caller should stop walking (a complete paragraph was
+ * already captured in a prior matched section).
+ *
+ * @param state - Walker state (mutated)
+ * @param line - Trimmed `## …` line
+ * @param needles - Section whitelist
+ * @returns `true` to stop walking
+ */
+function handleH2ForParagraph(
+  state: WalkerState,
+  line: string,
+  needles: readonly string[]
+): boolean {
+  if (state.inSection && state.lines.length > 0) return true;
+  const t = transitionForH2(state, line, needles);
+  state.inSection = t === 'enter';
+  return false;
+}
+
+/**
+ * Process one non-heading line inside the matched section for the
+ * first-paragraph extractor. Returns `true` when the caller should
+ * stop walking.
+ *
+ * @param state - Walker state (mutated)
+ * @param line - Trimmed line being processed
+ * @param kind - Pre-classified line kind from {@link classifyLine}
+ * @returns `true` to stop walking
+ */
+function collectParagraphLine(state: WalkerState, line: string, kind: LineKind): boolean {
+  if (kind === 'blank' || kind === 'structural') {
+    return state.lines.length > 0;
+  }
+  appendLine(state, stripInlineMarkdown(line));
+  return state.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH;
+}
+
+/** Mutable accumulator for {@link extractFirstNumberedItemUnderSection}. */
+interface NumberedItemState {
+  inFence: boolean;
+  inSection: boolean;
+  item: string[];
 }
 
 /**
@@ -263,8 +365,7 @@ function extractFirstParagraphUnderSection(
  * appears **inside** the matched `## …` block. Recognises the
  * `1. **Immediate priority**: …` shape used by the May-2026
  * Reader Briefing style guide. The bold label and tail are joined into
- * a single headline-shaped string. Returns the empty string when no
- * numbered list is present.
+ * a single headline-shaped string.
  *
  * @param markdown - Brief body
  * @param sectionNeedles - `## …` whitelist
@@ -274,45 +375,47 @@ function extractFirstNumberedItemUnderSection(
   markdown: string,
   sectionNeedles: readonly string[]
 ): string {
-  let inSection = false;
-  let inFence = false;
-  const item: string[] = [];
-
+  const state: NumberedItemState = { inFence: false, inSection: false, item: [] };
   for (const raw of markdown.split('\n')) {
     const line = raw.trim();
-    if (line.startsWith('```') || line.startsWith('~~~')) {
-      inFence = !inFence;
+    const kind = classifyLine(line);
+    if (kind === 'fence') {
+      state.inFence = !state.inFence;
       continue;
     }
-    if (inFence) continue;
-
-    if (line.startsWith('## ')) {
-      if (inSection && item.length > 0) break;
+    if (state.inFence) continue;
+    if (kind === 'h2') {
+      if (state.inSection && state.item.length > 0) break;
       const headingText = line.replace(/^##\s+/, '');
-      inSection = headingMatches(headingText, sectionNeedles);
+      state.inSection = headingMatches(headingText, sectionNeedles);
       continue;
     }
-
-    if (!inSection) continue;
-
-    // Look for `1.` numbered-list opener.
-    if (item.length === 0) {
-      const m = /^1\.\s+(.*)$/u.exec(line);
-      if (m && m[1]) {
-        item.push(stripInlineMarkdown(m[1]).trim());
-      }
-      continue;
-    }
-
-    // Continuation line (indented or non-empty without another list marker).
-    if (line === '') break;
-    if (/^\d+\.\s+/u.test(line)) break;
-    if (line.startsWith('-') || line.startsWith('*')) break;
-    if (line.startsWith('##') || line.startsWith('### ')) break;
-    item.push(stripInlineMarkdown(line).trim());
+    if (!state.inSection) continue;
+    if (handleNumberedLine(state, line, kind)) break;
   }
+  return state.item.join(' ').trim();
+}
 
-  return item.join(' ').trim();
+/**
+ * Process one line inside the matched section for the numbered-item
+ * extractor. Returns `true` when the caller should stop walking.
+ *
+ * @param state - Numbered-item walker state (mutated)
+ * @param line - Trimmed line being processed
+ * @param kind - Pre-classified line kind from {@link classifyLine}
+ * @returns `true` to stop walking
+ */
+function handleNumberedLine(state: NumberedItemState, line: string, kind: LineKind): boolean {
+  if (state.item.length === 0) {
+    if (kind !== 'numbered') return false;
+    const m = /^1\.\s+(.*)$/u.exec(line);
+    if (m?.[1]) state.item.push(stripInlineMarkdown(m[1]).trim());
+    return false;
+  }
+  if (kind === 'blank' || kind === 'numbered' || kind === 'bullet') return true;
+  if (kind === 'h2' || kind === 'h3') return true;
+  state.item.push(stripInlineMarkdown(line).trim());
+  return false;
 }
 
 /**

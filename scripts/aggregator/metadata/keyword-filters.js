@@ -61,6 +61,42 @@ const HEX_ALPHABETIC_ALLOWLIST = new Set([
     'bad',
 ]);
 /**
+ * Detect run-id slug chains of the form
+ * `<letters>(-<letters>)*-run<digits>(-<digits>)*` — e.g.
+ * `propositions-run261-1779431162` or
+ * `breaking-news-run17-1234567890`. Implemented as a split-and-scan
+ * walker (instead of a single backtracking regex) to satisfy the
+ * `security/detect-unsafe-regex` lint rule.
+ *
+ * @param lower - Lower-case candidate token
+ * @returns `true` when the token matches the run-id slug shape
+ */
+function isRunSlugChain(lower) {
+    const parts = lower.split('-');
+    if (parts.length < 2)
+        return false;
+    let runIndex = -1;
+    for (let i = 0; i < parts.length; i++) {
+        if (/^run\d+$/u.test(parts[i] ?? '')) {
+            runIndex = i;
+            break;
+        }
+    }
+    if (runIndex <= 0)
+        return false;
+    // Every segment before `run<digits>` must be all-letters; every
+    // segment after must be all-digits.
+    for (let i = 0; i < runIndex; i++) {
+        if (!/^[a-z]+$/u.test(parts[i] ?? ''))
+            return false;
+    }
+    for (let i = runIndex + 1; i < parts.length; i++) {
+        if (!/^\d+$/u.test(parts[i] ?? ''))
+            return false;
+    }
+    return true;
+}
+/**
  * Decide whether a single keyword token should be discarded as noise.
  *
  * The current rules reject tokens that:
@@ -101,7 +137,7 @@ export function isNoiseKeywordToken(token) {
     // Reject `run<digits>` slugs and `…-run<digits>-<digits>` chains.
     if (/^run\d+$/u.test(lower))
         return true;
-    if (/^[a-z][a-z-]*-run\d+(?:-\d+)*$/u.test(lower))
+    if (isRunSlugChain(lower))
         return true;
     // Reject hex-shaped tokens unless they are common English words.
     const isHex = /^[0-9a-f]+$/u.test(lower);

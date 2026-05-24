@@ -65,25 +65,33 @@ export function resolveEditorialContent(opts) {
     // that pre-date the style guide, in which case we fall through.
     const briefBody = readEnglishBriefBody(runDir ?? '');
     const briefing = briefBody ? extractBriefingHighlight(briefBody) : null;
-    if (briefing && briefing.headline) {
+    // Bridge the briefing's `string | undefined` fields into plain
+    // strings so the downstream `||` fallback chains satisfy the
+    // `prefer-nullish-coalescing` lint rule (no nullable LHS).
+    const briefingHeadline = briefing?.headline ?? '';
+    const briefingSummary = briefing?.summary ?? '';
+    const briefingExtended = briefing?.extendedSummary ?? '';
+    if (briefingHeadline) {
         return {
-            headline: briefing.headline,
-            summary: briefing.summary,
-            extendedSummary: briefing.extendedSummary || extractExtendedLedeAfterHeading(markdown),
+            headline: briefingHeadline,
+            summary: briefingSummary,
+            extendedSummary: briefingExtended || extractExtendedLedeAfterHeading(markdown),
         };
     }
     let artefactSummary = '';
     if (runDir) {
         const highlight = extractArtifactHighlight(runDir, articleType, date);
-        if (highlight?.headline) {
+        const highlightHeadline = highlight?.headline ?? '';
+        const highlightSummary = highlight?.summary ?? '';
+        if (highlightHeadline) {
             return {
-                headline: highlight.headline,
-                summary: briefing?.summary || highlight.summary,
-                extendedSummary: briefing?.extendedSummary || extractExtendedLedeAfterHeading(markdown),
+                headline: highlightHeadline,
+                summary: briefingSummary || highlightSummary,
+                extendedSummary: briefingExtended || extractExtendedLedeAfterHeading(markdown),
             };
         }
-        if (highlight?.summary) {
-            artefactSummary = highlight.summary;
+        if (highlightSummary) {
+            artefactSummary = highlightSummary;
         }
     }
     const aggregatedH1 = extractFirstH1(markdown);
@@ -92,11 +100,11 @@ export function resolveEditorialContent(opts) {
     if (aggregatedH1 && !isGenericHeading(aggregatedH1, articleType, date)) {
         return {
             headline: truncateTitle(aggregatedH1),
-            summary: briefing?.summary || artefactSummary || aggregatedSummary,
-            extendedSummary: briefing?.extendedSummary || aggregatedExtended,
+            summary: briefingSummary || artefactSummary || aggregatedSummary,
+            extendedSummary: briefingExtended || aggregatedExtended,
         };
     }
-    const summary = briefing?.summary || artefactSummary || aggregatedSummary;
+    const summary = briefingSummary || artefactSummary || aggregatedSummary;
     if (summary) {
         // The H1 is generic (category-noun, bare-institutional, or
         // template-style) so we have to derive `<title>` from the BLUF/
@@ -108,7 +116,7 @@ export function resolveEditorialContent(opts) {
         return {
             headline: truncateTitle(firstSentence),
             summary,
-            extendedSummary: briefing?.extendedSummary || aggregatedExtended,
+            extendedSummary: briefingExtended || aggregatedExtended,
         };
     }
     return { headline: '', summary: '', extendedSummary: '' };
