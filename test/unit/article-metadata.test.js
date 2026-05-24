@@ -473,13 +473,16 @@ describe('extractFirstSentence (Round 3 fix)', () => {
     );
   });
 
-  it('falls back to original paragraph when no terminator fits the window', () => {
+  it('returns empty string when no terminator fits the window', () => {
     // No terminator in the 60-char→TITLE_MAX_LENGTH*1.5 window — return
-    // the original so downstream truncateTitle can clause-break it cleanly.
+    // '' so the resolver falls through to the next tier instead of
+    // feeding an over-budget paragraph into truncateTitle (which would
+    // also now return ''). Live regression fix 2026-05: no more
+    // mid-sentence ellipsised `<title>` strings on the news index.
     const para =
       'The European Parliament continues a sustained legislative cadence across the April 2026 Strasbourg plenary with coalition dynamics that show EPP-S&D consensus on banking-union files and a sharper split on AI Act amendments which will surface in May and June plenaries with regulatory tightening anticipated across digital and environmental policy clusters';
     const result = extractFirstSentence(para);
-    expect(result).toBe(para);
+    expect(result).toBe('');
   });
 
   it('produces grammatically complete titles when fed through truncateTitle', () => {

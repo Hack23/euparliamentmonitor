@@ -22,6 +22,36 @@ import {
 import { isTranslatedSiblingBrief } from './translated-sibling.js';
 
 /**
+ * Resolver output filenames that must NEVER be walked as a source by the
+ * top-level fallback scan in {@link extractArtifactHighlight}. These are
+ * either the resolver's own output (`article.md`, `article-meta.json`)
+ * or per-language renderings that contain transcluded metadata-banner
+ * lines (`**Threat Level:** …`, `**Key Assumptions Check**: …`) that
+ * `priority-finding-highlight.ts` Pattern C would falsely accept as
+ * editorial headlines. See the regression catalogue documented in
+ * `scripts/validate-article-seo.js` for the smoking-gun live-site
+ * defects (2026-05-22 week-ahead `<title>Threat Level</title>`,
+ * 2026-05-22 committee-reports `<title>Key Assumptions Check</title>`).
+ *
+ * Returns `true` for resolver-output filenames.
+ *
+ * @param filename - Bare filename (no path), e.g. `article.md`
+ * @returns `true` when the file is a resolver output and must be skipped
+ */
+export function isResolverOutputArtefact(filename: string): boolean {
+  if (!filename) return true;
+  if (filename === 'article.md') return true;
+  if (filename === 'article-meta.json') return true;
+  if (filename === 'article-meta.jsonl') return true;
+  // Per-language article renderings: `article.<lang>.md`, `article_<lang>.md`.
+  if (/^article[._][a-z]{2,3}\.md$/iu.test(filename)) return true;
+  // Build sidecar files emitted by the generator pipeline.
+  if (filename.endsWith('.html')) return true;
+  if (filename === 'render-log.json') return true;
+  return false;
+}
+
+/**
  * Attempt to read the first H1 and first prose paragraph from the first
  * existing artefact under {@link EDITORIAL_ARTEFACT_CANDIDATES}. Returns
  * `null` when no candidate artefact exists.
@@ -57,7 +87,11 @@ export function extractArtifactHighlight(
   // from `executive-brief_ar.md`. See {@link isTranslatedSiblingBrief}
   // and the regression test in `test/unit/article-metadata.test.js`.
   const topLevel = safeReaddir(runDir).filter(
-    (f) => f.endsWith('.md') && f !== 'manifest.json' && !isTranslatedSiblingBrief(f)
+    (f) =>
+      f.endsWith('.md') &&
+      f !== 'manifest.json' &&
+      !isTranslatedSiblingBrief(f) &&
+      !isResolverOutputArtefact(f)
   );
   const fallback = scanCandidatesForHighlight(runDir, topLevel, articleType, date);
   if (fallback.headline) return { headline: fallback.headline, summary: fallback.summary };

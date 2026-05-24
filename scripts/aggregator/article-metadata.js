@@ -139,7 +139,16 @@ function resolveOneLanguage(input) {
     const description = skipEnrichment || rawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
         ? rawDescription
         : composeContextualDescription(input.lang, rawDescription, editorial, input.date, input.runId);
-    const truncatedTitle = truncateTitle(title);
+    // `truncateTitle` returns '' when an editorial title overruns the
+    // budget with no acceptable clause boundary — fall back to the
+    // localized template title in that case so we never emit an empty
+    // `<title>`. Live regression: 2026-05-22 breaking
+    // `AI Trade Strategy: A Legislative First with Structural…` clipped
+    // to '' after the no-ellipsis guard landed; template fallback
+    // (`Extended Executive Brief — Breaking News`) is preferable to a
+    // blank `<title>`.
+    const clippedTitle = truncateTitle(title);
+    const truncatedTitle = clippedTitle || truncateTitle(input.template.title) || input.template.title;
     const truncatedDescription = truncateDescription(description);
     const extendedSource = manifestDescription
         ? manifestDescription
