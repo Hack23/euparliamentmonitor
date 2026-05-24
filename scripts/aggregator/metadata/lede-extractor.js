@@ -13,7 +13,7 @@
  * helpers) and heading-rules (for the editorial-lede whitelist and the
  * heading-text normaliser).
  */
-import { DESCRIPTION_MAX_LENGTH, EXTENDED_DESCRIPTION_MAX_LENGTH, shouldSkipDescriptionLine, stripInlineMarkdown, stripLeadingProseLabel, truncateDescription, truncateExtendedDescription, } from './text-utils.js';
+import { DESCRIPTION_MAX_LENGTH, EXTENDED_DESCRIPTION_MAX_LENGTH, shouldSkipDescriptionLine, stripInlineMarkdown, stripLeadingBoldLabel, stripLeadingProseLabel, truncateDescription, truncateExtendedDescription, } from './text-utils.js';
 import { EDITORIAL_LEDE_HEADINGS, isLedeHeadingMatch, normaliseHeadingText, } from './heading-rules.js';
 /**
  * Process one Markdown line against the in-progress paragraph buffer.
@@ -35,7 +35,16 @@ function collectProseLine(line, buf) {
         return 'continue';
     if (shouldSkipDescriptionLine(line))
         return hasBuffer ? 'break' : 'continue';
-    const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
+    // Strip the leading `**Label:**` opener (any language) *before*
+    // running the inline-markdown stripper, so localized BLUF labels
+    // like `**Fråga:**` / `**主題:**` / `**الموضوع:**` are removed
+    // structurally rather than leaking into the description as plain
+    // text (`"Fråga: …"`). The English `**Issue:**` line is already
+    // skipped earlier by METADATA_LINE_PREFIXES; this code path covers
+    // the 13 non-English locales for which the label vocabulary is
+    // open-ended.
+    const stripped = stripLeadingBoldLabel(line);
+    const plain = stripLeadingProseLabel(stripInlineMarkdown(stripped));
     if (!hasBuffer && plain.length < 40)
         return 'continue';
     buf.lines.push(plain);

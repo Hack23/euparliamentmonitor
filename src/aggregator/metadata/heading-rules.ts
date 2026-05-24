@@ -74,6 +74,17 @@ export const EDITORIAL_LEDE_HEADINGS: readonly string[] = [
   'intelligence assessment summary',
   'priority intelligence items',
   'lead intelligence assessment',
+  // ── May-2026 executive-brief "FOR IMMEDIATE ACTION" pattern. Every
+  //    14-language brief in `analysis/daily/**/propositions/` opens
+  //    the post-banner body with this H2 (translated per locale), and
+  //    its first row is the BLUF (`**Issue:** …` / `**Fråga:** …` /
+  //    `**主題:** …` / `**الموضوع:** …` …). The English header is
+  //    whitelisted here so the extractor catches it directly; the 13
+  //    translated equivalents fall through to the generic strong-prose
+  //    walker, which now strips the localized bold label via
+  //    {@link stripLeadingBoldLabel} so the same BLUF copy lands in
+  //    `<meta description>` regardless of locale.
+  'for immediate action',
 ];
 
 /**

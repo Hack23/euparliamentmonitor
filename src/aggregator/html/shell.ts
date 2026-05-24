@@ -43,9 +43,11 @@ import { getSitemapFilename } from '../../generators/sitemap/index.js';
 import {
   truncateHeadline,
   getTitleSeparator,
+  buildPageTitle,
   getLocalizedArticleType,
   getLocalizedArticleTypePlain,
 } from './headline.js';
+import { clampForBudget } from '../metadata/seo-budgets.js';
 import {
   getArticleFilename,
   buildArticleHreflangLinks,
@@ -171,6 +173,55 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const bodyText = stripHtmlTags(options.body);
   const wordCount = bodyText.split(/\s+/u).filter((w) => w.length > 0).length;
 
+  // Pre-compute the per-surface SEO-budget-clamped variants of title
+  // and description. Each surface gets its own clamp tuned to the
+  // documented platform envelope (Google/Bing SERP, Facebook/LinkedIn
+  // OG, Twitter card) and the script family (Latin / CJK / RTL —
+  // CJK glyphs render at ~2× Latin pixel width, so the same byte
+  // count occupies twice the SERP width). See
+  // `src/aggregator/metadata/seo-budgets.ts` for the budget table and
+  // `analysis/methodologies/seo-headers-policy.md` § 1.1 for the
+  // documented sources of every cap.
+  const pageTitle = buildPageTitle(options.title, safeLang, siteTitle);
+  const ogTitleClamped = clampForBudget(options.title, safeLang, 'ogTitle');
+  const twitterTitleClamped = clampForBudget(options.title, safeLang, 'twitterTitle');
+  const metaDescriptionClamped = clampForBudget(
+    options.description,
+    safeLang,
+    'metaDescription'
+  );
+  // og:description and twitter:description prefer the longer BLUF
+  // paragraph (extendedDescription) so social-card previews show the
+  // full lede; fall back to the short meta description when the
+  // extended one is empty.
+  const socialSource =
+    options.extendedDescription && options.extendedDescription.length > 0
+      ? options.extendedDescription
+      : options.description;
+  const ogDescriptionClamped = clampForBudget(socialSource, safeLang, 'ogDescription');
+  const twitterDescriptionClamped = clampForBudget(
+    socialSource,
+    safeLang,
+    'twitterDescription'
+  );
+  const imageAltClamped = clampForBudget(
+    `${options.title}${getTitleSeparator(safeLang)}${siteTitle}`,
+    safeLang,
+    'imageAlt'
+  );
+
+  const jsonLdHeadline = truncateHeadline(options.title);
+  // Emit an `alternativeHeadline` whenever the headline truncator
+  // dropped more than a handful of characters from the full title.
+  // Schema.org's `NewsArticle.alternativeHeadline` field is exactly
+  // for the long-form variant of `headline` and lets Google's
+  // Knowledge Graph keep both versions for retrieval. The 5-char
+  // threshold avoids emitting trivially redundant pairs when the
+  // truncator only trimmed trailing whitespace or punctuation.
+  const fullTitleTrimmed = options.title.trim();
+  const alternativeHeadline =
+    fullTitleTrimmed.length - jsonLdHeadline.length > 5 ? fullTitleTrimmed : undefined;
+
   // Build the JSON-LD image graph. Google requires NewsArticle.image
   // to be an array (or single ImageObject) with explicit width/height
   // covering at least one of the 1:1, 4:3, 16:9 aspect ratios for
@@ -199,8 +250,9 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: truncateHeadline(options.title),
-    description: options.description,
+    headline: jsonLdHeadline,
+    ...(alternativeHeadline ? { alternativeHeadline } : {}),
+    description: metaDescriptionClamped,
     datePublished: options.date,
     dateModified: options.date,
     inLanguage: safeLang,
@@ -275,20 +327,11 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const structuredData = [jsonLd, breadcrumbLd];
   const jsonLdString = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 
-  const pageTitle = `${options.title}${getTitleSeparator(safeLang)}${siteTitle}`;
   const keywords = (options.keywords ?? []).map((keyword) => keyword.trim()).filter(Boolean);
   const keywordsMeta =
     keywords.length > 0
       ? `  <meta name="keywords" content="${escapeHTML(keywords.join(', '))}">\n`
       : '';
-  // Use the longer extended description for og:description/twitter:description
-  // when available so social-card previews show the full BLUF
-  // paragraph; the short meta description stays within Google's
-  // ~160-char snippet budget.
-  const socialDescription =
-    options.extendedDescription && options.extendedDescription.length > 0
-      ? options.extendedDescription
-      : options.description;
   const ogLocaleTags = buildOgLocaleTags(safeLang);
   const twitterAttribution = buildTwitterAttributionTags();
   const twitterAttributionBlock = twitterAttribution ? `\n${twitterAttribution}` : '';
@@ -310,7 +353,7 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   <meta http-equiv="Content-Language" content="${safeLang}">
   <meta name="referrer" content="no-referrer">
   <title>${escapeHTML(pageTitle)}</title>
-  <meta name="description" content="${escapeHTML(options.description)}">
+  <meta name="description" content="${escapeHTML(metaDescriptionClamped)}">
 ${keywordsMeta}  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="${PUBLISHER_NAME}">
   <meta name="publisher" content="${PUBLISHER_NAME}">
@@ -325,15 +368,15 @@ ${hreflangLinks}
   <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="${BASE_URL}/rss.xml">
   <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="article">
-  <meta property="og:title" content="${escapeHTML(options.title)}">
-  <meta property="og:description" content="${escapeHTML(socialDescription)}">
+  <meta property="og:title" content="${escapeHTML(ogTitleClamped)}">
+  <meta property="og:description" content="${escapeHTML(ogDescriptionClamped)}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
 ${ogLocaleTags}
-${buildResponsiveSocialImageMeta(`${options.title}${getTitleSeparator(safeLang)}EU Parliament Monitor`)}
+${buildResponsiveSocialImageMeta(imageAltClamped)}
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${escapeHTML(options.title)}">
-  <meta name="twitter:description" content="${escapeHTML(socialDescription)}">${twitterAttributionBlock}
+  <meta name="twitter:title" content="${escapeHTML(twitterTitleClamped)}">
+  <meta name="twitter:description" content="${escapeHTML(twitterDescriptionClamped)}">${twitterAttributionBlock}
 ${buildResponsiveIconLinks('../')}
   <link rel="manifest" href="../site.webmanifest">
   <meta name="color-scheme" content="light dark">

@@ -20,6 +20,7 @@ import {
   EXTENDED_DESCRIPTION_MAX_LENGTH,
   shouldSkipDescriptionLine,
   stripInlineMarkdown,
+  stripLeadingBoldLabel,
   stripLeadingProseLabel,
   truncateDescription,
   truncateExtendedDescription,
@@ -59,7 +60,16 @@ function collectProseLine(line: string, buf: ParagraphBuffer): 'continue' | 'bre
   if (hasBuffer && line === '') return 'break';
   if (line === '') return 'continue';
   if (shouldSkipDescriptionLine(line)) return hasBuffer ? 'break' : 'continue';
-  const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
+  // Strip the leading `**Label:**` opener (any language) *before*
+  // running the inline-markdown stripper, so localized BLUF labels
+  // like `**Fråga:**` / `**主題:**` / `**الموضوع:**` are removed
+  // structurally rather than leaking into the description as plain
+  // text (`"Fråga: …"`). The English `**Issue:**` line is already
+  // skipped earlier by METADATA_LINE_PREFIXES; this code path covers
+  // the 13 non-English locales for which the label vocabulary is
+  // open-ended.
+  const stripped = stripLeadingBoldLabel(line);
+  const plain = stripLeadingProseLabel(stripInlineMarkdown(stripped));
   if (!hasBuffer && plain.length < 40) return 'continue';
   buf.lines.push(plain);
   buf.byteCount += plain.length + 1;

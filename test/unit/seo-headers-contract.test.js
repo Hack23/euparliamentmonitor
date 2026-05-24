@@ -202,12 +202,24 @@ describe('wrapArticleHtml — SEO-headers contract', () => {
     expect(html).toMatch(/"@type":"NewsMediaOrganization"/);
   });
 
-  it('uses extendedDescription for og:description / twitter:description when provided', () => {
+  it('prefers extendedDescription for og/twitter description, clamped to social budgets', () => {
     const extended =
       'A long-form social-card description that exceeds the search-snippet cap so the helper rightly prefers it for Facebook/Twitter while keeping the short description for Google search snippets — exactly the contract the new SEO pipeline guarantees.';
     const html = wrapArticleHtml({ ...base, extendedDescription: extended });
-    expect(html).toContain(`property="og:description" content="${extended}"`);
-    expect(html).toContain(`name="twitter:description" content="${extended}"`);
+    // og:description and twitter:description draw from extendedDescription
+    // (not the short description), but each is clamped to its per-surface
+    // budget in src/aggregator/metadata/seo-budgets.ts.
+    const ogMatch = html.match(/property="og:description" content="([^"]+)"/);
+    const twMatch = html.match(/name="twitter:description" content="([^"]+)"/);
+    expect(ogMatch).not.toBeNull();
+    expect(twMatch).not.toBeNull();
+    // Both pull from extendedDescription, so they share the same prefix.
+    const sharedPrefix = extended.slice(0, 50);
+    expect(ogMatch[1]).toContain(sharedPrefix);
+    expect(twMatch[1]).toContain(sharedPrefix);
+    // Both are within the Latin social-description budget (≤200).
+    expect(ogMatch[1].length).toBeLessThanOrEqual(200);
+    expect(twMatch[1].length).toBeLessThanOrEqual(200);
     // The short description is still the <meta name="description">.
     expect(html).toContain(`name="description" content="${base.description}"`);
   });

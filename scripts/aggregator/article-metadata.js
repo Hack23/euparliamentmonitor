@@ -127,7 +127,16 @@ function resolveOneLanguage(input) {
         editorial.summary,
         input.template.subtitle,
     ]);
-    const description = rawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
+    // Skip the contextual-prefix enrichment ("Date YYYY-MM-DD. Context:
+    // … For readers…") when the localized executive brief already
+    // supplied the description. The localized BLUF, after
+    // `stripLeadingBoldLabel` removes its `**Issue:**` / `**Fråga:**` /
+    // `**主題:**` opener, is already a richer, locale-native snippet
+    // than the boilerplate prefix — and the prefix was the single
+    // largest source of over-budget `<meta description>` tags for the
+    // CJK / RTL locales (see `seo-headers-policy.md` § 1.1).
+    const skipEnrichment = perLanguage.source === 'localized-brief' && rawDescription.length > 0;
+    const description = skipEnrichment || rawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
         ? rawDescription
         : composeContextualDescription(input.lang, rawDescription, editorial, input.date, input.runId);
     const truncatedTitle = truncateTitle(title);
