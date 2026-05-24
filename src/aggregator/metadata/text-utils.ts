@@ -42,10 +42,7 @@ export {
   truncateTitle,
 } from './text-truncate.js';
 
-import {
-  EMOJI_BANNER_CHARS,
-  METADATA_LINE_PREFIXES,
-} from './text-utils-constants.js';
+import { EMOJI_BANNER_CHARS, METADATA_LINE_PREFIXES } from './text-utils-constants.js';
 
 const STRUCTURAL_LINE_PREFIXES = ['#', '>', '<', '|'] as const;
 const FENCE_LINE_PREFIXES = ['```', '~~~'] as const;

@@ -231,11 +231,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   const title = pickFirstNonEmpty([manifestTitle, contextualTitle, input.template.title]);
 
   const rawDescription = sanitizeDescriptionCandidate(
-    pickFirstNonEmpty([
-      manifestDescription,
-      editorial.summary,
-      input.template.subtitle,
-    ])
+    pickFirstNonEmpty([manifestDescription, editorial.summary, input.template.subtitle])
   );
 
   const safeEditorial = {
@@ -244,7 +240,8 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
     extendedSummary: sanitizeDescriptionCandidate(editorial.extendedSummary),
   };
 
-  const normalizedRawDescription = rawDescription || sanitizeDescriptionCandidate(input.template.subtitle);
+  const normalizedRawDescription =
+    rawDescription || sanitizeDescriptionCandidate(input.template.subtitle);
   const skipEnrichment =
     perLanguage.source === LOCALIZED_BRIEF_SOURCE && normalizedRawDescription.length > 0;
   const description =
@@ -259,7 +256,8 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
         );
 
   const clippedTitle = truncateTitle(title).trim();
-  const explicitTitle = manifestTitle && !hasLeakySeoToken(manifestTitle) ? truncateTitle(manifestTitle).trim() : '';
+  const explicitTitle =
+    manifestTitle && !hasLeakySeoToken(manifestTitle) ? truncateTitle(manifestTitle).trim() : '';
   const allowShortResolvedTitle = perLanguage.source === LOCALIZED_BRIEF_SOURCE;
   const resolvedTitleCandidate =
     clippedTitle &&
@@ -291,7 +289,9 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   const truncatedTitle = pickFirstNonEmpty([
     explicitTitle,
     resolvedTitleCandidate,
-    isUsableResolvedTitle(summaryDerivedTitle, { allowFullSentence: true }) ? summaryDerivedTitle : '',
+    isUsableResolvedTitle(summaryDerivedTitle, { allowFullSentence: true })
+      ? summaryDerivedTitle
+      : '',
     truncateTitle(contextualFallback),
     contextualFallback,
   ]);

@@ -323,7 +323,10 @@ function sanitizeDescriptionCandidate(value: string): string {
   return cleaned && !shouldSkipDescriptionLine(cleaned) ? cleaned : '';
 }
 
-function isUsableResolvedTitle(value: string, options?: { readonly allowFullSentence?: boolean }): boolean {
+function isUsableResolvedTitle(
+  value: string,
+  options?: { readonly allowFullSentence?: boolean }
+): boolean {
   const cleaned = stripLeadingFragmentSeparator(value);
   if (cleaned.length < SEO_TITLE_FLOOR) return false;
   if (hasLeakySeoToken(cleaned)) return false;
@@ -485,8 +488,4 @@ export function pickFirstNonEmpty(candidates: readonly string[]): string {
   return '';
 }
 
-export {
-  deriveHeadlineFromSummary,
-  isUsableResolvedTitle,
-  sanitizeDescriptionCandidate,
-};
+export { deriveHeadlineFromSummary, isUsableResolvedTitle, sanitizeDescriptionCandidate };

@@ -24,9 +24,7 @@
  */
 
 import { humanizeSlug } from './slug.js';
-import {
-  isArtifactCategoryHeading,
-} from './artifact-category-heading.js';
+import { isArtifactCategoryHeading } from './artifact-category-heading.js';
 
 // Re-export the artifact-category surface so existing imports continue
 // to work without touching consumers.
@@ -54,15 +52,7 @@ const ARTICLE_TYPE_ALIASES: Record<string, readonly string[]> = {
  * Separators observed in the wild for brief H1s mixing the
  * article-type label with a single ISO or human-friendly date.
  */
-const GENERIC_HEADING_SEPARATORS: readonly string[] = [
-  ' — ',
-  ' - ',
-  ' – ',
-  ': ',
-  ' ',
-  ' | ',
-  ', ',
-];
+const GENERIC_HEADING_SEPARATORS: readonly string[] = [' — ', ' - ', ' – ', ': ', ' ', ' | ', ', '];
 
 /**
  * Date-shape character class: digits, dashes (ISO) plus letters and
@@ -94,11 +84,7 @@ function resolveLabelAliases(articleType: string): readonly string[] {
  * @param date - ISO date string
  * @returns `true` when the heading matches a known literal shape
  */
-function matchesLiteralLabelDateShape(
-  normalized: string,
-  label: string,
-  date: string
-): boolean {
+function matchesLiteralLabelDateShape(normalized: string, label: string, date: string): boolean {
   for (const sep of GENERIC_HEADING_SEPARATORS) {
     const p = `${label}${sep}${date}`;
     if (normalized === p) return true;

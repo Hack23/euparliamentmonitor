@@ -11,10 +11,7 @@
  */
 
 import { normaliseHeadingText } from './heading-rules.js';
-import {
-  cleanPriorityHeadline,
-  stripPriorityTailMetadata,
-} from './priority-finding-cleaning.js';
+import { cleanPriorityHeadline, stripPriorityTailMetadata } from './priority-finding-cleaning.js';
 import {
   DESCRIPTION_MAX_LENGTH,
   shouldSkipDescriptionLine,
@@ -399,7 +396,10 @@ function isMetadataBoldLine(line: string): boolean {
   // `**WEP Bands Applied | Admiralty Scale Used | SAT Documentation**`).
   // Single `|` is allowed because it occurs in legitimate headlines
   // ("Brexit | A Decade On"). Three or more delimiters is the threshold.
-  const pipeSegments = inner.split('|').map((s) => s.trim()).filter((s) => s.length > 0);
+  const pipeSegments = inner
+    .split('|')
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
   if (pipeSegments.length >= 3) return true;
   // Trailing-ellipsis bold: `**Some long banner line…**` was clipped by
   // the brief author and is not a usable editorial headline.

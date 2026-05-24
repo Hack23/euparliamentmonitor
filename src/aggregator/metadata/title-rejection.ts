@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2026 James Pether Sörling
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
 
 /**
  * Title-rejection predicates shared by the metadata resolver and the
@@ -169,12 +169,7 @@ export function looksLikeDocId(value: string): boolean {
  */
 export function findTitleRejectionReason(
   value: string
-):
-  | 'section-header'
-  | 'ellipsis-cut'
-  | 'doc-id'
-  | 'sentence-fragment'
-  | null {
+): 'section-header' | 'ellipsis-cut' | 'doc-id' | 'sentence-fragment' | null {
   if (!value) return null;
   if (looksLikeEllipsisCut(value)) return 'ellipsis-cut';
   if (looksLikeDocId(value)) return 'doc-id';

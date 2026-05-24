@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2026 James Pether Sörling
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Title-rejection predicates shared by the metadata resolver and the
  * SEO validation gate.
