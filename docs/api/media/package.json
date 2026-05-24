@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "0.9.22",
+  "version": "0.9.23",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -66,6 +66,7 @@
     "discover:untranslated-briefs": "node scripts/discover-untranslated-briefs.js",
     "validate:translations": "node scripts/validate-brief-translations.js",
     "validate:manifest-seo": "node scripts/validate-manifest-seo.js",
+    "validate:seo": "node scripts/validate-article-seo.js",
     "sync:templates": "node scripts/templates/sync-template-frontmatter.js",
     "sync:templates:check": "node scripts/templates/sync-template-frontmatter.js --check",
     "prior-run-diff": "node scripts/aggregator/prior-run-diff.js",

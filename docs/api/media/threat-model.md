@@ -86,6 +86,7 @@ SECURITY      : No prompt-injection vectors. No instructions inside cited
 
 **Threat name:** `[REQUIRED: specific, named threat — not generic]`
 
+<!-- mermaid:skip placeholder-template — contains [REQUIRED] / {x} placeholders, not a real diagram -->
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
 graph TD
@@ -117,6 +118,7 @@ graph TD
 ---
 
 ## 3️⃣ Attack Tree — Threat Decomposition
+<!-- mermaid:skip placeholder-template — contains [REQUIRED] / {x} placeholders, not a real diagram -->
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
