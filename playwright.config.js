@@ -16,15 +16,15 @@ export default defineConfig({
   // CI workers tuned for the 4-vCPU GitHub-hosted ubuntu-latest runner used
   // by release.yml / e2e.yml / test-and-report.yml. 3 (not 4) leaves CPU
   // headroom for axe-core scans on the large political-intelligence pages
-  // (~60 k lines of HTML) — running 4 axe scans in parallel on the same
-  // runner caused 30 s timeouts in run #26050940168.
+  // (~70 k lines of HTML and growing) — running 4 axe scans in parallel on
+  // the same runner caused 30 s timeouts in run #26050940168.
   workers: process.env.CI ? 3 : 2,
   // Default per-test timeout kept at the Playwright default of 30 s so that
   // genuinely hung tests (e.g. a stuck `waitForLoadState('networkidle')` or
   // a missing element on `toBeVisible()`) surface fast instead of blocking
-  // a worker for 60 s × 3 retries = 3 min on red runs. axe-heavy tests on
-  // the 60 k-line political-intelligence pages opt in to a longer 60 s
-  // budget via `test.setTimeout(60_000)` inside their `test(...)` body —
+  // a worker for 120 s × 3 retries = 6 min on red runs. axe-heavy tests on
+  // the 70 k-line political-intelligence pages opt in to a longer 120 s
+  // budget via `test.setTimeout(120_000)` inside their `test(...)` body —
   // see `horizon-nav.spec.js` and `accessibility.spec.js`.
   timeout: 30_000,
   reporter: [

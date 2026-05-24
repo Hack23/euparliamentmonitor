@@ -70,11 +70,12 @@ for (const { lang, path: pagePath } of PI_PAGES) {
     });
 
     test('passes WCAG 2.1 AA accessibility scan', async ({ page }) => {
-      // axe-core on the 60 k-line political-intelligence page legitimately
-      // takes 30-45 s under CI load — opt this single test into a longer
-      // budget instead of raising the global default (which would mask
-      // genuinely hung tests).
-      test.setTimeout(60_000);
+      // axe-core on the 70 k-line political-intelligence page legitimately
+      // takes 45-80 s under CI load (the page grows as new daily runs are
+      // added; it exceeded 60 k lines in run #26362916526). Opt this single
+      // test into a generous 120 s budget instead of raising the global
+      // default (which would mask genuinely hung tests).
+      test.setTimeout(120_000);
       await page.goto(pagePath);
       await page.waitForLoadState('networkidle');
 
