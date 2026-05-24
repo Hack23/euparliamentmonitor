@@ -22,7 +22,7 @@
  * `./artifact-category-heading.js`.
  */
 import { humanizeSlug } from './slug.js';
-import { isArtifactCategoryHeading, } from './artifact-category-heading.js';
+import { isArtifactCategoryHeading } from './artifact-category-heading.js';
 // Re-export the artifact-category surface so existing imports continue
 // to work without touching consumers.
 export { EDITORIAL_LEDE_HEADINGS, ARTIFACT_CATEGORY_PREFIXES, normaliseHeadingText, isLedeHeadingMatch, isArtifactCategoryHeading, stripArtifactCategoryAffix, } from './artifact-category-heading.js';
@@ -40,15 +40,7 @@ const ARTICLE_TYPE_ALIASES = {
  * Separators observed in the wild for brief H1s mixing the
  * article-type label with a single ISO or human-friendly date.
  */
-const GENERIC_HEADING_SEPARATORS = [
-    ' — ',
-    ' - ',
-    ' – ',
-    ': ',
-    ' ',
-    ' | ',
-    ', ',
-];
+const GENERIC_HEADING_SEPARATORS = [' — ', ' - ', ' – ', ': ', ' ', ' | ', ', '];
 /**
  * Date-shape character class: digits, dashes (ISO) plus letters and
  * single spaces (human-friendly forms like `8 April 2026`). Single-day

@@ -135,9 +135,7 @@ function probeCandidateForHighlight(runDir, rel, articleType, date) {
     // as `Strategic significance`, `Event description`, `Threat Level`.
     if (headline) {
         const stripped = stripArtifactCategoryAffix(headline);
-        if (stripped &&
-            stripped !== headline &&
-            !isGenericHeading(stripped, articleType, date)) {
+        if (stripped && stripped !== headline && !isGenericHeading(stripped, articleType, date)) {
             return { cleanHighlight: { headline: truncateTitle(stripped), summary } };
         }
     }

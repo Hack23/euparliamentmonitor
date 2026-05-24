@@ -18,7 +18,7 @@
  */
 export { ABBREVIATION_PREFIXES, DESCRIPTION_MAX_LENGTH, DESCRIPTION_MIN_LENGTH, EMOJI_BANNER_CHARS, ENRICHMENT_TRIGGER_LENGTH, EXTENDED_DESCRIPTION_MAX_LENGTH, EXTENDED_DESCRIPTION_MIN_LENGTH, HEADLINE_CLAUSE_BOUNDARIES, HEADLINE_SOFT_MIN, METADATA_LINE_PREFIXES, TITLE_MAX_LENGTH, TRAILING_PUNCT, TRAILING_STOP_WORDS, } from './text-utils-constants.js';
 export { extractFirstSentence, stripTrailingStopWordsAndPunctuation, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-truncate.js';
-import { EMOJI_BANNER_CHARS, METADATA_LINE_PREFIXES, } from './text-utils-constants.js';
+import { EMOJI_BANNER_CHARS, METADATA_LINE_PREFIXES } from './text-utils-constants.js';
 const STRUCTURAL_LINE_PREFIXES = ['#', '>', '<', '|'];
 const FENCE_LINE_PREFIXES = ['```', '~~~'];
 // ────────────────────────────────────────────────────────────────────────

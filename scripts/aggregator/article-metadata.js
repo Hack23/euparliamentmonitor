@@ -123,11 +123,7 @@ function resolveOneLanguage(input) {
     const editorial = perLanguage.editorial;
     const contextualTitle = composeContextualTitle(input.template.title, editorial.headline, input.runId);
     const title = pickFirstNonEmpty([manifestTitle, contextualTitle, input.template.title]);
-    const rawDescription = sanitizeDescriptionCandidate(pickFirstNonEmpty([
-        manifestDescription,
-        editorial.summary,
-        input.template.subtitle,
-    ]));
+    const rawDescription = sanitizeDescriptionCandidate(pickFirstNonEmpty([manifestDescription, editorial.summary, input.template.subtitle]));
     const safeEditorial = {
         headline: isUsableResolvedTitle(editorial.headline) ? editorial.headline.trim() : '',
         summary: sanitizeDescriptionCandidate(editorial.summary),
@@ -167,7 +163,9 @@ function resolveOneLanguage(input) {
     const truncatedTitle = pickFirstNonEmpty([
         explicitTitle,
         resolvedTitleCandidate,
-        isUsableResolvedTitle(summaryDerivedTitle, { allowFullSentence: true }) ? summaryDerivedTitle : '',
+        isUsableResolvedTitle(summaryDerivedTitle, { allowFullSentence: true })
+            ? summaryDerivedTitle
+            : '',
         truncateTitle(contextualFallback),
         contextualFallback,
     ]);

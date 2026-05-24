@@ -436,5 +436,5 @@ export function pickFirstNonEmpty(candidates) {
     }
     return '';
 }
-export { deriveHeadlineFromSummary, isUsableResolvedTitle, sanitizeDescriptionCandidate, };
+export { deriveHeadlineFromSummary, isUsableResolvedTitle, sanitizeDescriptionCandidate };
 //# sourceMappingURL=resolve-helpers.js.map

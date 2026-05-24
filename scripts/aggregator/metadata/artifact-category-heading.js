@@ -339,7 +339,9 @@ export function stripArtifactCategoryAffix(heading) {
         for (const sep of [' — ', ' – ', ' - ', ': ']) {
             const candidate = `${sep}${prefix}`;
             if (normalizedParenStripped.endsWith(candidate)) {
-                const core = visibleParenStripped.slice(0, visibleParenStripped.length - candidate.length).trim();
+                const core = visibleParenStripped
+                    .slice(0, visibleParenStripped.length - candidate.length)
+                    .trim();
                 return cleanupAffixCore(core);
             }
         }
