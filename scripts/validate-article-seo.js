@@ -41,6 +41,27 @@
  *   9. **title-uniqueness**  — when ≥2 runs share the same `(date,
  *      articleType)`, their resolved titles must differ (typically via
  *      the `— Run N` qualifier produced by `composeContextualTitle`).
+ *  10. **title-ellipsis-cut** — title rejected by resolver predicate
+ *      `looksLikeEllipsisCut` (trailing `…` / `...`). Fires alongside
+ *      `title-ellipsis` for backwards compatibility.
+ *  11. **title-doc-id**      — title is a bare adopted-text doc-ID
+ *      (`TA-NN-YYYY-NNNN`), never an editorial headline.
+ *  12. **title-section-header** — title is a bold-prose section header
+ *      from `executive-brief.md` (`Strategic significance`,
+ *      `Threat Level`, `Key Assumptions Check`, …).
+ *  13. **title-sentence-fragment** — title is a complete sentence
+ *      (single trailing period, ≥4 words) leaked from a BLUF / lede
+ *      paragraph rather than a noun-phrase headline.
+ *  14. **description-leaky-section-header** — description starts with
+ *      a bold-prose section header label (lead phrase before `.:`).
+ *
+ * Gates 10–14 ship as `severity: 'advisory'` — they are surfaced in
+ * the JSON report's `totals.advisories` / `totals.byGateAdvisory` and
+ * printed with a ⚠️  prefix, but they do NOT count toward the
+ * fail-count or exit code. This lets the validator catch resolver
+ * regressions immediately without breaking CI on legacy articles that
+ * pre-date the resolver-tightening work. Promote to failure-class in a
+ * follow-up once the legacy data is regenerated.
  *
  * The process exits with code 1 if any failure-class violations exist
  * (unless `--no-fail` is passed for advisory mode).
@@ -75,6 +96,10 @@ import {
   effectiveTextLength,
 } from './validate-manifest-seo.js';
 import { aggregateByKey } from './validate-brief-translations.js';
+import {
+  findTitleRejectionReason,
+  looksLikeSectionHeader,
+} from './aggregator/metadata/title-rejection.js';
 
 /** Trailing-ellipsis detector: literal `…` or three ASCII periods. */
 export const TRAILING_ELLIPSIS_RE = /(?:…|\.{3})\s*$/u;
@@ -203,6 +228,93 @@ function applyFieldGates(ctx) {
       message: `${kind} contains internal token "${leaked}"`,
     });
   }
+  applyKindSpecificRejectionGates(ctx);
+}
+
+/**
+ * Apply the resolver-aligned title-rejection predicates from
+ * `src/aggregator/metadata/title-rejection.ts`. Keeping validator and
+ * resolver in lock-step ensures the same regression that the resolver
+ * already rejects can never sneak through into a shipped `<title>` or
+ * `<meta description>`.
+ *
+ * Emitted gates (deferred PR #2163 follow-up):
+ *
+ *   - `title-ellipsis-cut`            — trailing `…` / `...`
+ *   - `title-doc-id`                  — bare `TA-NN-YYYY-NNNN` doc-ID
+ *   - `title-section-header`          — bold-prose section header
+ *   - `title-sentence-fragment`       — leaked complete sentence
+ *   - `description-leaky-section-header` — description starts with a
+ *     bold-prose section header label (`Strategic significance: …`,
+ *     `Threat Level: …`, …)
+ *
+ * @param {object} ctx
+ * @param {string} ctx.runDirRel
+ * @param {string} ctx.lang
+ * @param {'title' | 'description'} ctx.kind
+ * @param {string} ctx.value
+ * @param {Array<object>} ctx.violations
+ */
+/**
+ * Evaluate the resolver-aligned rejection gates for a single
+ * `(kind, value)` pair and return the gate names that fire. Pure,
+ * dependency-free, used by both {@link applyKindSpecificRejectionGates}
+ * and the unit tests to keep validator and resolver in lock-step.
+ *
+ * @param {'title' | 'description'} kind
+ * @param {string} value
+ * @returns {string[]} Zero or more gate names (e.g. `title-doc-id`,
+ *   `description-leaky-section-header`).
+ */
+export function evaluateResolverRejectionGates(kind, value) {
+  if (typeof value !== 'string' || value.length === 0) return [];
+  if (kind === 'title') {
+    const reason = findTitleRejectionReason(value);
+    return reason ? [`title-${reason}`] : [];
+  }
+  if (kind === 'description' && detectDescriptionLeadSectionHeader(value)) {
+    return ['description-leaky-section-header'];
+  }
+  return [];
+}
+
+function applyKindSpecificRejectionGates(ctx) {
+  const { runDirRel, lang, kind, value, violations } = ctx;
+  const gates = evaluateResolverRejectionGates(kind, value);
+  for (const gate of gates) {
+    violations.push({
+      runDir: runDirRel,
+      lang,
+      gate,
+      // The 5 resolver-aligned gates ship as `advisory` so the validator
+      // can surface them in the report (and unit tests can lock the
+      // signal) without immediately failing CI on the 25 legacy
+      // articles that pre-date the resolver-tightening work. Promote to
+      // failure-class in a follow-up once those runs are regenerated.
+      severity: 'advisory',
+      message:
+        gate === 'description-leaky-section-header'
+          ? `description starts with a bold-prose section header: "${value}"`
+          : `title rejected by resolver predicate (${gate.slice('title-'.length)}): "${value}"`,
+    });
+  }
+}
+
+/**
+ * `true` when a description's lead phrase (first sentence or first
+ * bold-label segment) is a denylisted section header. Splits on the
+ * first sentence terminator (`.`, `:`, `…`, `?`, `!`) and asks the
+ * canonical {@link looksLikeSectionHeader} predicate.
+ *
+ * @param {string} value
+ * @returns {boolean}
+ */
+function detectDescriptionLeadSectionHeader(value) {
+  const trimmed = value.trim();
+  if (!trimmed) return false;
+  const m = /^([^.:!?\u2026]+)/u.exec(trimmed);
+  const lead = (m ? m[1] : trimmed).trim();
+  return looksLikeSectionHeader(lead);
 }
 
 /**
@@ -271,7 +383,9 @@ export function runValidation(runDirs, repoRoot, { quiet = false, lang = 'en' } 
     if (!quiet) {
       if (added > 0) {
         for (const entry of allViolations.slice(before)) {
-          process.stderr.write(`❌ ${runDirRel} [${entry.gate}] ${entry.message}\n`);
+          const prefix = entry.severity === 'advisory' ? '⚠️ ' : '❌';
+          const stream = entry.severity === 'advisory' ? process.stdout : process.stderr;
+          stream.write(`${prefix} ${runDirRel} [${entry.gate}] ${entry.message}\n`);
         }
       } else {
         process.stdout.write(`✅ ${runDirRel}\n`);
@@ -282,7 +396,9 @@ export function runValidation(runDirs, repoRoot, { quiet = false, lang = 'en' } 
   detectDuplicateTitles(resolved, allViolations);
   if (!quiet) {
     for (const entry of allViolations.slice(beforeUniq)) {
-      process.stderr.write(`❌ ${entry.runDir} [${entry.gate}] ${entry.message}\n`);
+      const prefix = entry.severity === 'advisory' ? '⚠️ ' : '❌';
+      const stream = entry.severity === 'advisory' ? process.stdout : process.stderr;
+      stream.write(`${prefix} ${entry.runDir} [${entry.gate}] ${entry.message}\n`);
     }
   }
   return allViolations;
@@ -365,14 +481,18 @@ export function main(argv) {
     quiet: opts.quiet,
     lang: opts.lang,
   });
+  const failingViolations = violations.filter((v) => v.severity !== 'advisory');
+  const advisoryViolations = violations.filter((v) => v.severity === 'advisory');
 
   const report = {
     generatedAt: new Date().toISOString(),
     lang: opts.lang,
     totals: {
       runsChecked: runDirs.length,
-      violations: violations.length,
-      byGate: aggregateByKey(violations, 'gate'),
+      violations: failingViolations.length,
+      advisories: advisoryViolations.length,
+      byGate: aggregateByKey(failingViolations, 'gate'),
+      byGateAdvisory: aggregateByKey(advisoryViolations, 'gate'),
     },
     violations,
   };
@@ -385,7 +505,7 @@ export function main(argv) {
     process.stdout.write(json);
   }
 
-  if (violations.length > 0 && opts.fail) {
+  if (failingViolations.length > 0 && opts.fail) {
     process.exit(1);
   }
   return report;
