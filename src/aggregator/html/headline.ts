@@ -16,11 +16,7 @@ import {
 } from '../../constants/languages.js';
 import type { LanguageCode, LanguageMap } from '../../types/index.js';
 import { ArticleCategory } from '../../types/index.js';
-import {
-  classifyScript,
-  clampTitleForSurface,
-  type SeoSurface,
-} from '../metadata/seo-budgets.js';
+import { classifyScript, clampTitleForSurface, type SeoSurface } from '../metadata/seo-budgets.js';
 
 /**
  * Resolve a localized article type label *without* the leading icon

@@ -241,8 +241,7 @@ export function resolveLocalizedBriefHighlight(
       return {
         headline: briefing.headline || fallbackHeadline,
         summary: briefing.summary,
-        extendedSummary:
-          briefing.extendedSummary || extractExtendedLedeAfterHeading(body),
+        extendedSummary: briefing.extendedSummary || extractExtendedLedeAfterHeading(body),
         sourceFile: rel,
         sourceLang: lang,
       };

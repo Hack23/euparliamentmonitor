@@ -72,15 +72,7 @@ const READER_BRIEFING_HEADINGS: readonly string[] = [
 ];
 
 /** Sentinel returned by {@link classifyLine} when the line is benign prose. */
-type LineKind =
-  | 'fence'
-  | 'h2'
-  | 'h3'
-  | 'blank'
-  | 'structural'
-  | 'numbered'
-  | 'bullet'
-  | 'prose';
+type LineKind = 'fence' | 'h2' | 'h3' | 'blank' | 'structural' | 'numbered' | 'bullet' | 'prose';
 
 /**
  * Classify a trimmed Markdown line into one of the structural buckets

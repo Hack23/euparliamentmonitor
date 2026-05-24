@@ -237,8 +237,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // than the boilerplate prefix — and the prefix was the single
   // largest source of over-budget `<meta description>` tags for the
   // CJK / RTL locales (see `seo-headers-policy.md` § 1.1).
-  const skipEnrichment =
-    perLanguage.source === 'localized-brief' && rawDescription.length > 0;
+  const skipEnrichment = perLanguage.source === 'localized-brief' && rawDescription.length > 0;
   const description =
     skipEnrichment || rawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
       ? rawDescription

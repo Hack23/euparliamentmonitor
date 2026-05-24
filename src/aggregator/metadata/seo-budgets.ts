@@ -110,9 +110,7 @@ export type SeoSurface =
  * script-independent (Google validates the literal character count at
  * 110) — same value across the row.
  */
-export const SEO_BUDGETS: Readonly<
-  Record<SeoSurface, Readonly<Record<ScriptFamily, number>>>
-> = {
+export const SEO_BUDGETS: Readonly<Record<SeoSurface, Readonly<Record<ScriptFamily, number>>>> = {
   title: { latin: 60, cjk: 30, rtl: 55 },
   metaDescription: { latin: 155, cjk: 78, rtl: 150 },
   ogTitle: { latin: 95, cjk: 47, rtl: 90 },
@@ -194,11 +192,7 @@ function trimTrailingSeparators(s: string): string {
  * @param softMin - Soft-minimum cut position (chars)
  * @returns Cut index, or -1 when no boundary qualifies
  */
-function findClauseCut(
-  window: string,
-  boundaries: readonly string[],
-  softMin: number
-): number {
+function findClauseCut(window: string, boundaries: readonly string[], softMin: number): number {
   for (const boundary of boundaries) {
     const idx = window.lastIndexOf(boundary);
     if (idx >= softMin) {
