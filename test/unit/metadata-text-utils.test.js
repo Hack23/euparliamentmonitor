@@ -393,7 +393,7 @@ describe('truncateTitle — TITLE_MAX_LENGTH byte budget', () => {
     // and `The European Parliament's 24 standing committees continued…`
     // were emitted before this guard. Now we return '' so the resolver
     // falls through to template-fallback composition.
-    const long = 'AITradeStrategyALegislativeFirstWithStructuralImplicationsForEuropeanIndustrialPolicyAndCompetitivenessAcrossMemberStatesAndAcrossAllSectors';
+    const long = 'AITradeStrategyALegislativeFirstWithStructuralImplicationsForEuropeanIndustrialPolicyAndCompetitivenessAcrossMemberStatesAndAcrossAllSectorsAndAcrossAllPolicyAreas';
     expect(long.length).toBeGreaterThan(TITLE_MAX_LENGTH);
     const out = truncateTitle(long);
     expect(out).toBe('');

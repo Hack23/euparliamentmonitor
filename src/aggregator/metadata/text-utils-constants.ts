@@ -64,6 +64,19 @@ export const TITLE_MAX_LENGTH = 140;
 export const HEADLINE_SOFT_MIN = 60;
 
 /**
+ * Lower floor for clause-boundary acceptance when the soft-min window
+ * returns nothing. Used by {@link truncateTitle} as a second-tier
+ * fallback: when a long prose paragraph has its only natural clause
+ * boundaries (`: `, ` — `) clustered in the opening 30-60 characters
+ * (typical of Reader-Briefing-style ledes like `Immediate priority:
+ * DMA enforcement — …`), accept the strongest such boundary rather
+ * than fall through to template-fallback composition. This keeps
+ * scan-friendly editorial fragments intact while still rejecting
+ * fragments shorter than a typical news-card title.
+ */
+export const HEADLINE_HARD_MIN = 30;
+
+/**
  * Punctuation marks that signal a natural clause boundary inside a
  * BLUF / lede paragraph. Listed in preferred-break order: a colon or
  * em-dash that introduces a list of consequences is the best break,

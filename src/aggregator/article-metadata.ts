@@ -257,8 +257,18 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // to '' after the no-ellipsis guard landed; template fallback
   // (`Extended Executive Brief — Breaking News`) is preferable to a
   // blank `<title>`.
+  //
+  // The fallback path passes the template title back through
+  // {@link composeContextualTitle} (with an empty editorial headline)
+  // so `withRunQualifier` re-appends the `— Run N` suffix. Without
+  // this, two same-date / same-articleType runs (republish, hot-fix
+  // re-run) would collapse to byte-identical `<title>` strings, and
+  // the duplicate-title gate in `scripts/validate-article-seo.js`
+  // would (correctly) fail CI.
   const clippedTitle = truncateTitle(title);
-  const truncatedTitle = clippedTitle || truncateTitle(input.template.title) || input.template.title;
+  const contextualFallback = composeContextualTitle(input.template.title, '', input.runId);
+  const truncatedTitle =
+    clippedTitle || truncateTitle(contextualFallback) || contextualFallback;
   const truncatedDescription = truncateDescription(description);
 
   const extendedSource = manifestDescription

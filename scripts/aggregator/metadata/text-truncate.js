@@ -28,7 +28,7 @@
  * - **Locale-agnostic** — operates on raw prose in any of the 14
  *   publishing languages.
  */
-import { ABBREVIATION_PREFIXES, DESCRIPTION_MAX_LENGTH, DESCRIPTION_MIN_LENGTH, EXTENDED_DESCRIPTION_MAX_LENGTH, EXTENDED_DESCRIPTION_MIN_LENGTH, HEADLINE_CLAUSE_BOUNDARIES, HEADLINE_SOFT_MIN, TITLE_MAX_LENGTH, TRAILING_PUNCT, TRAILING_STOP_WORDS, } from './text-utils-constants.js';
+import { ABBREVIATION_PREFIXES, DESCRIPTION_MAX_LENGTH, DESCRIPTION_MIN_LENGTH, EXTENDED_DESCRIPTION_MAX_LENGTH, EXTENDED_DESCRIPTION_MIN_LENGTH, HEADLINE_CLAUSE_BOUNDARIES, HEADLINE_HARD_MIN, HEADLINE_SOFT_MIN, TITLE_MAX_LENGTH, TRAILING_PUNCT, TRAILING_STOP_WORDS, } from './text-utils-constants.js';
 /**
  * Remove any trailing whitespace, stop-words (the/a/an/of/…) and
  * trailing punctuation (including any pre-existing ellipsis). Implemented
@@ -157,7 +157,20 @@ export function truncateTitle(text) {
                 return clean;
         }
     }
-    // No clause boundary in the window — refuse to emit a mid-sentence
+    // Second-tier fallback: rescue Reader-Briefing-style ledes whose
+    // clauses cluster in the opening 30-60 chars by accepting the
+    // strongest boundary (`: `, ` — `, ` – `) inside the harder
+    // `[HEADLINE_HARD_MIN, HEADLINE_SOFT_MIN]` floor.
+    const STRONG_BOUNDARIES = [': ', ' — ', ' – '];
+    for (const boundary of STRONG_BOUNDARIES) {
+        const idx = search.indexOf(boundary);
+        if (idx >= HEADLINE_HARD_MIN && idx < HEADLINE_SOFT_MIN) {
+            const clean = stripTrailingStopWordsAndPunctuation(text.slice(0, idx));
+            if (clean.length >= HEADLINE_HARD_MIN)
+                return clean;
+        }
+    }
+    // No clause boundary in either window — refuse to emit a mid-sentence
     // truncation. Caller falls through to template-fallback composition.
     return '';
 }

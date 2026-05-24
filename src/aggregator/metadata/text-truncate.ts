@@ -37,6 +37,7 @@ import {
   EXTENDED_DESCRIPTION_MAX_LENGTH,
   EXTENDED_DESCRIPTION_MIN_LENGTH,
   HEADLINE_CLAUSE_BOUNDARIES,
+  HEADLINE_HARD_MIN,
   HEADLINE_SOFT_MIN,
   TITLE_MAX_LENGTH,
   TRAILING_PUNCT,
@@ -168,7 +169,24 @@ export function truncateTitle(text: string): string {
       if (clean.length >= HEADLINE_SOFT_MIN) return clean;
     }
   }
-  // No clause boundary in the window — refuse to emit a mid-sentence
+  // Second-tier fallback: when nothing landed in the soft window, look
+  // for the strongest boundary (`: ` or ` — `) inside the harder
+  // `[HEADLINE_HARD_MIN, HEADLINE_SOFT_MIN]` floor. This rescues
+  // Reader-Briefing-style ledes like
+  // `Immediate priority: DMA enforcement — …` whose clauses cluster in
+  // the opening 30-60 chars, while still keeping the soft-min guard
+  // active for runaway prose. We restrict the boundary set to `: ` and
+  // ` — ` (the two strongest semantic breaks) to avoid emitting trivial
+  // comma-split or full-stop-split fragments from short prose.
+  const STRONG_BOUNDARIES = [': ', ' — ', ' – '] as const;
+  for (const boundary of STRONG_BOUNDARIES) {
+    const idx = search.indexOf(boundary);
+    if (idx >= HEADLINE_HARD_MIN && idx < HEADLINE_SOFT_MIN) {
+      const clean = stripTrailingStopWordsAndPunctuation(text.slice(0, idx));
+      if (clean.length >= HEADLINE_HARD_MIN) return clean;
+    }
+  }
+  // No clause boundary in either window — refuse to emit a mid-sentence
   // truncation. Caller falls through to template-fallback composition.
   return '';
 }

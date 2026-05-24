@@ -126,9 +126,13 @@ export function resolveEditorialContent(opts: ResolveMetadataOptions): {
     // resulting title is grammatically self-contained — falling back
     // to clause-boundary truncation downstream when the sentence
     // itself overruns TITLE_MAX_LENGTH.
+    // Fall back to the raw summary when the first-sentence extractor
+    // returns '' — happens when the source is a single sentence with no
+    // `. ` terminator inside the soft-min window. `truncateTitle` will
+    // still apply clause-boundary truncation downstream.
     const firstSentence = extractFirstSentence(summary);
     return {
-      headline: truncateTitle(firstSentence),
+      headline: truncateTitle(firstSentence || summary),
       summary,
       extendedSummary: briefingExtended || aggregatedExtended,
     };

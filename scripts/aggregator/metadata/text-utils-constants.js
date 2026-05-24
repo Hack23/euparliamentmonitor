@@ -54,6 +54,12 @@ export const TITLE_MAX_LENGTH = 140;
  */
 export const HEADLINE_SOFT_MIN = 60;
 /**
+ * Lower floor used by `truncateTitle` as a second-tier fallback for
+ * Reader-Briefing-style ledes whose clauses cluster in the opening
+ * 30-60 chars (e.g. `Immediate priority: DMA enforcement — …`).
+ */
+export const HEADLINE_HARD_MIN = 30;
+/**
  * Punctuation marks that signal a natural clause boundary inside a
  * BLUF / lede paragraph. Listed in preferred-break order: a colon or
  * em-dash that introduces a list of consequences is the best break,
