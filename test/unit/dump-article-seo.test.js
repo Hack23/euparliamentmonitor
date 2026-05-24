@@ -144,9 +144,12 @@ describe('scripts/dump-article-seo.js — resolveRunSeo (real committed run)', (
       expect(text).toMatch(/<meta keywords>/);
       expect(text).toMatch(/resolution-tier/);
       expect(text).toMatch(/html-file/);
-      // HTML head snippet section
+      // HTML head snippet section. The title may use either the full
+      // brand suffix (`EU Parliament Monitor`) or the short-brand
+      // fallback (`EPM`) — `buildPageTitle` chooses based on the
+      // remaining SERP budget once the article title is placed.
       expect(text).toMatch(/HTML <head> block/);
-      expect(text).toMatch(/<title>.*EU Parliament Monitor<\/title>/);
+      expect(text).toMatch(/<title>.*(?:EU Parliament Monitor|EPM)<\/title>/);
       expect(text).toMatch(/<meta name="description" content=/);
       expect(text).toMatch(/<meta property="og:title" content=/);
       expect(text).toMatch(/<meta name="twitter:title" content=/);
@@ -324,9 +327,11 @@ describe('scripts/dump-article-seo.js — dumpArticleSeo', () => {
       expect(text).toMatch(/Executive Brief SEO Preview/);
       // Field analysis section
       expect(text).toMatch(/<title>/);
-      // HTML snippet section
+      // HTML snippet section. The title may use either the full
+      // brand suffix or the short-brand `EPM` fallback depending on
+      // available SERP budget for the resolved article title.
       expect(text).toMatch(/HTML <head> block/);
-      expect(text).toMatch(/<title>.*EU Parliament Monitor<\/title>/);
+      expect(text).toMatch(/<title>.*(?:EU Parliament Monitor|EPM)<\/title>/);
       expect(text).toMatch(/<meta name="description" content=/);
     },
   );

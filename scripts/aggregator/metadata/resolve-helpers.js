@@ -282,7 +282,7 @@ function sanitizeDescriptionCandidate(value) {
     const cleaned = stripLeadingFragmentSeparator(stripLeakySentences(value));
     return cleaned && !shouldSkipDescriptionLine(cleaned) ? cleaned : '';
 }
-function isUsableResolvedTitle(value) {
+function isUsableResolvedTitle(value, options) {
     const cleaned = stripLeadingFragmentSeparator(value);
     if (cleaned.length < SEO_TITLE_FLOOR)
         return false;
@@ -294,8 +294,15 @@ function isUsableResolvedTitle(value) {
     // 216-article audit (2026-05-24) showed `Strategic significance`,
     // `Threat Level`, `Convergence themes`, `TA-10-2026-0160`, and
     // ellipsis-cut paragraphs reaching the `<title>` surface.
-    if (findTitleRejectionReason(cleaned))
+    //
+    // When `allowFullSentence` is true, the `sentence-fragment` reason is
+    // tolerated. This is used for summary-derived titles where the first
+    // sentence of the summary is the intended payload (e.g. recess days
+    // whose summary leads with `No new breaking developments on …`).
+    const reason = findTitleRejectionReason(cleaned);
+    if (reason && !(options?.allowFullSentence && reason === 'sentence-fragment')) {
         return false;
+    }
     return true;
 }
 function deriveHeadlineFromSummary(summary) {

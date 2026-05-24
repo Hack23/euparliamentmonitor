@@ -96,6 +96,9 @@ const DOC_ID_RE = /^TA-\d+-\d{4}-\d{3,4}$/iu;
  * single `.` (NOT `…` and NOT `...`) on a ≥4-word candidate is the
  * cleanest signal that we are looking at sentence prose leaked from a
  * BLUF / lede paragraph rather than an editorial headline.
+ *
+ * @param value - Title candidate
+ * @returns `true` when the candidate looks like a complete sentence.
  */
 function looksLikeFullSentence(value) {
     const trimmed = value.trim();
@@ -115,6 +118,7 @@ function looksLikeFullSentence(value) {
  * significance`, `Threat Level`).
  *
  * @param value - Title candidate
+ * @returns `true` when the candidate matches the section-header denylist.
  */
 export function looksLikeSectionHeader(value) {
     if (!value)
@@ -132,11 +136,19 @@ export function looksLikeSectionHeader(value) {
 /**
  * `true` when the candidate ends with `…` or `...` (was truncated
  * over the title budget).
+ *
+ * @param value - Title candidate
+ * @returns `true` when the candidate has a trailing ellipsis.
  */
 export function looksLikeEllipsisCut(value) {
     return ELLIPSIS_TAIL_RE.test(value);
 }
-/** `true` when the candidate is a bare adopted-text doc-ID. */
+/**
+ * `true` when the candidate is a bare adopted-text doc-ID.
+ *
+ * @param value - Title candidate
+ * @returns `true` when the candidate matches the `TA-NN-YYYY-NNNN` shape.
+ */
 export function looksLikeDocId(value) {
     return DOC_ID_RE.test(value.trim());
 }
@@ -147,6 +159,7 @@ export function looksLikeDocId(value) {
  * usable.
  *
  * @param value - Title candidate
+ * @returns Reason code, or `null` when the candidate is usable.
  */
 export function findTitleRejectionReason(value) {
     if (!value)

@@ -291,7 +291,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   const truncatedTitle = pickFirstNonEmpty([
     explicitTitle,
     resolvedTitleCandidate,
-    isUsableResolvedTitle(summaryDerivedTitle) ? summaryDerivedTitle : '',
+    isUsableResolvedTitle(summaryDerivedTitle, { allowFullSentence: true }) ? summaryDerivedTitle : '',
     truncateTitle(contextualFallback),
     contextualFallback,
   ]);
