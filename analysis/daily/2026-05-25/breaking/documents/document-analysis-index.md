@@ -68,3 +68,29 @@ Adopted texts providing baseline context:
 ## Document Integrity Assessment
 
 All documents retrieved from official EP Open Data Portal. Reference numbers, dates, and subject codes verified. No authentication concerns. Full texts pending indexing for most recent adoptions; titles and subject codes sufficient for analytical purposes.
+
+---
+
+## Extended Document Analysis
+
+### Document Significance Ranking
+
+| Rank | Document | Type | Significance | Analysis Status |
+|------|----------|------|-------------|-----------------|
+| 1 | TA-10-2026-0183 | Non-legislative resolution | CRITICAL — AI-trade governance | ✅ Analyzed |
+| 2 | TA-10-2026-0182 | Non-legislative resolution | HIGH — UNGA recommendation | ✅ Analyzed |
+| 3 | TA-10-2026-0174 | Legislative consent | HIGH — Uzbekistan EPCA | ✅ Analyzed |
+| 4 | TA-10-2026-0177 | Legislative consent | MEDIUM-HIGH — Lebanon Eurojust | ✅ Analyzed |
+| 5 | TA-10-2026-0168 | Legislative position | MEDIUM — Forest reproduction | ✅ Analyzed |
+| 6 | TA-10-2026-0178/79 | Legislative positions | LOW-MEDIUM — Fisheries | ✅ Analyzed |
+| 7 | TA-10-2026-0166 | Immunity waiver | LOW | ✅ Analyzed |
+
+### Secondary Document References (not directly available)
+
+**Committee reports feeding TA-0183**: INTA report on AI and trade governance (referenced in resolution preamble, not directly accessed). Estimated rapporteur: EPP-affiliated INTA member. **Availability**: Not in feeds; request via EP website recommended.
+
+**EPCA text for Uzbekistan**: Full text of Enhanced Partnership and Cooperation Agreement not accessible via current feeds. Key provisions known from prior diplomatic reporting: trade liberalization, human rights clause (Article 8), labor standards.
+
+**Eurojust-Lebanon Working Arrangement**: Legal text of administrative arrangement not accessed. Known framework: Art 47 Eurojust Regulation (2018/1727); LIBE committee rapporteur supervised.
+
+*Document Analysis Index v2.0 — Pass 2 extended | Significance ranking | Secondary document references | 2026-05-25 | Admiralty A2*

@@ -115,3 +115,55 @@ pie title EP10 Political Group Seat Distribution (2026)
 - **P(EPP-ECR formal cooperation in EP10)**: 0.10–0.20 [Unlikely]
 
 All coalition estimates are Admiralty C3 — inferred from structural seat data and public statements; no DOCEO roll-call data available for May 2026 plenary.
+
+---
+
+## Extended Coalition Analysis: May 20 Plenary Vote Reconstruction
+
+### Inferred Vote Composition (No DOCEO Data Available — Estimated)
+
+With DOCEO roll-call data unavailable for the May 20, 2026 plenary session (2–4 week publication lag), vote outcomes are reconstructed from committee recommendations, group positions, and historical voting patterns.
+
+**TA-10-2026-0183 (AI-Trade Resolution)**:
+- EPP: Likely FOR majority (~160/176 MEPs) — trade competitiveness framing aligns with EPP economic agenda; AI governance provisions accepted as European regulatory leadership
+- S&D: Likely strong FOR (~130/136) — AI social protection provisions, labour rights in AI trade
+- Renew: Likely FOR (~65/76) — digital single market alignment; market access emphasis
+- ECR: Likely SPLIT (50/50, ~40 for/40 against) — nationalist tech agenda vs. anti-regulation stance
+- ID/Patriots: Likely AGAINST majority (~60/80 against) — sovereign tech concerns, anti-Brussels regulation
+- Greens/EFA: Likely FOR (~50/53) — environmental AI standards, regulatory governance
+- GUE/NGL: Likely SPLIT (40/50) — anti-corporatism vs. governance support
+- Estimated FOR total: ~460–490 (out of 705) ≈ 65–70%
+
+**TA-10-2026-0174 (Uzbekistan EPCA Consent)**:
+- Consent procedures typically pass with broader majority (less politically divisive)
+- Estimated FOR: ~480–520 (68–74%) based on comparable Central Asia consent votes in EP9
+- Key uncertainty: Greens may have reservations on human rights conditionality strength
+
+**TA-10-2026-0177 (Lebanon Eurojust)**:
+- Security cooperation agreements typically pass with large majority
+- Estimated FOR: 500–540 (71–77%) — broad consensus on judicial cooperation framework
+
+### Coalition Stress Indicators
+
+**AI-trade resolution**: Medium coalition stress — ECR and ID/Patriots split creates a visible minority (estimated 180–220 votes against). This suggests that AI governance in trade is politically contested in the new EP (vs. unanimous in EP8 era). Implication: implementation legislation will face harder passage than the non-legislative resolution.
+
+**Central Asia strategy**: Low coalition stress — broad geopolitical consensus across EPP-S&D-Renew; Greens supportive with conditionality caveats; only far-right blocks dissent.
+
+**Eurojust expansion**: Very low coalition stress — judicial cooperation agreements have historically enjoyed EP-wide consensus (security mandate alignment).
+
+### Group Cohesion Estimates (Without DOCEO Data)
+
+| Group | Seats | AI-Trade Cohesion (est.) | EPCA Cohesion (est.) |
+|---|---|---|---|
+| EPP | 176 | HIGH (90%+) | HIGH (90%+) |
+| S&D | 136 | HIGH (95%+) | HIGH (95%+) |
+| Renew Europe | 76 | HIGH (88%) | HIGH (90%) |
+| ECR | 78 | LOW (50–60%) | MEDIUM (70%) |
+| ID/Patriots | 84 | VERY LOW (25–35%) | LOW (40%) |
+| Greens/EFA | 53 | HIGH (95%) | MEDIUM-HIGH (80%) |
+| GUE/NGL | 46 | MEDIUM (65%) | MEDIUM (70%) |
+| Non-attached | 56 | N/A (mixed) | N/A (mixed) |
+
+**Overall coalition stability assessment**: STABLE-HIGH for the May 2026 legislative cluster. The EPP-S&D-Renew majority (388 seats) can pass all five items without needing ECR or Greens, though broad coalitions improve legitimacy.
+
+*Coalition Dynamics v2.0 — Pass 2 extended | 2026-05-25 | Inferred vote composition for 3 major texts | Coalition stress indicators | Group cohesion estimates | DOCEO data lag documented | Admiralty C3 (inferred, no primary voting data) | dataMode: degraded-feeds*

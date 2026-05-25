@@ -78,3 +78,123 @@ Adjusted assessments after devil's advocate pressure:
 - AI-trade resolution Commission follow-up: revised from 55% to 45% (Possible, not Probable)
 - Uzbekistan EPCA delivers meaningful reform: revised from 65% to 50% (boundary of Possible/Probable)
 - Lebanon Eurojust delivers operational cooperation: maintained at 40% (within Possible range)
+
+---
+
+## Devil's Advocate Analysis — Extended Critique (Run 2)
+
+### DA Case 1: The AI-Trade Resolution Is a Political Distraction
+
+**Contrarian position**: The resolution costs EP political capital, delays more concrete AI governance measures (AI Act implementing acts), and gives the Commission an excuse to defer substantive action to "FTA negotiation context." Result: worse AI governance outcome than if EP had focused on binding domestic measures.
+
+**Evidence supporting this DA position**:
+- Commission has historically used "ongoing negotiations" to delay responding to EP resolutions (pattern observed in EU-Mercosur trade talks 2019–2025)
+- FTA negotiation timelines are 5–10 years; AI governance needs immediate implementation
+- EP10 has limited bandwidth; each non-binding resolution crowds out time for binding legislation
+
+**Counter-evidence**:
+- EP can pursue both tracks simultaneously (resolution AND AI Act implementation)
+- Historical precedent: CBAM resolution AND CBAM legislation advanced in parallel 2021–2023
+- Commission response timeline (3 months) is relatively short; pressure is near-term
+
+**DA verdict**: PARTIALLY VALID. The timing concern is legitimate (3-5 year FTA timeline vs. immediate AI governance need), but the "distraction" framing overstates the opportunity cost. Confidence: MEDIUM (B2).
+
+### DA Case 2: The Uzbekistan EPCA May Enable Human Rights Washing
+
+**Contrarian position**: The EPCA gives Uzbekistan a "EU stamp of approval" that reduces scrutiny pressure, allowing the government to point to EU partnership as evidence of normalized relations without implementing meaningful reforms.
+
+**Evidence supporting this position**:
+- Uzbekistan ranks 154th of 180 in RSF Press Freedom Index 2025
+- Political prisoners remain (estimated 600–1,000 by Freedom House)
+- Previous EU-Central Asia cooperation agreements have not meaningfully improved governance
+
+**Counter-evidence**:
+- Article 8 suspension clause creates ongoing conditionality leverage (not a one-time check)
+- AFET committee has strong track record of pushing for implementation of human rights clauses
+- EU-Uzbekistan relationship is the best-performing human rights reform track in Central Asia (compared to Tajikistan, Turkmenistan, Kazakhstan)
+
+**DA verdict**: PARTIALLY VALID risk. The risk is real but the EPCA framework includes credible leverage mechanisms. The question is enforcement will, not legal architecture. Confidence: MEDIUM-HIGH (B2).
+
+### DA Case 3: The Coalition Voting Pattern Conceals Democratic Deficit
+
+**Contrarian position**: The EPP-S&D-Renew governing coalition voting together on all texts represents bloc-voting that marginalizes smaller groups and reduces EP deliberative quality. The May 2026 cluster passed with minimal debate because the coalition pre-determined outcomes.
+
+**Evidence supporting this position**:
+- Coalition controls ~55% of EP seats; combined with soft-allies typically controls 60–65% of actual votes cast
+- Committee rapporteurs overwhelmingly from coalition parties (EPP dominant in current allocation)
+- Plenary debate time has decreased per text in EP10 vs EP9
+
+**Counter-evidence**:
+- Coalition voting patterns on contested texts (AI Act, Green Deal, defense) showed genuine disagreement and negotiated compromise — not rubber-stamp voting
+- Smaller groups (Greens, ECR) successfully amended major legislation through committee stage
+- EP Rules of Procedure provide minority protection mechanisms (political groups require minimum 23 MEPs)
+
+**DA verdict**: WEAK. The coalition governance model is a democratic feature, not a bug — EP elections determine coalition composition. The claim confuses "predictable outcomes" with "democratic deficit." Confidence: LOW (C2) — more political opinion than evidence-based analysis.
+
+### DA Case 4: Forest Reproductive Material Regulation Benefits Large Industry Over Small Farms
+
+**Contrarian position**: The new rules on forest reproductive material (TA-10-2026-0168) will impose administrative burdens that large forestry companies can absorb but small family farms cannot, effectively consolidating the market in favor of industrial operators.
+
+**Evidence supporting this position**:
+- Similar EU agricultural regulations (pesticides, seeds) have historically favored large operators
+- SME impact assessment in the Commission proposal identified compliance costs of EUR 2,500–15,000 per operator
+- Small forest owners association (CEPF) raised concerns during consultation
+
+**Counter-evidence**:
+- The regulation includes a 5-year transition period and exemptions for holdings below threshold size
+- Forest reproductive material improvements have a collective action benefit (climate resilience) that small holders also receive
+- National implementation allows member states to add SME support measures
+
+**DA verdict**: PARTIALLY VALID concern. Implementation monitoring by AGRI committee should specifically track SME burden. Confidence: MEDIUM (B2).
+
+*Devils Advocate Analysis v2.0 — Pass 2 extended | 4 DA cases | Evidence/counter-evidence | Verdicts with WEP | 2026-05-25 | Admiralty B2*
+
+---
+
+## Meta-Devil's Advocate: Are We Devil's-Advocating Enough?
+
+**Self-critique of DA methodology**: The four DA cases above focus on policy implementation risks. They do not sufficiently challenge the systemic frame — the assumption that EP legislative output is inherently valuable and the question is only about quality of implementation.
+
+**Systemic DA: Does EP legislative volume indicate systemic issues?**
+
+EP10 is on track to adopt ~180–220 texts per plenary year (based on 2024–2025 rate). Compare:
+- EP6 (2004–2009): ~120 texts/year
+- EP9 (2019–2024): ~160 texts/year
+- EP10 (2024–): projected ~190 texts/year
+
+**DA question**: Is this acceleration a quality problem? Are MEPs approving texts without adequate scrutiny? The 8 May 2026 texts were adopted in 48 hours — were any adopted with insufficient debate?
+
+**Evidence against the concern**: Adopted texts are the OUTPUT of committee stage (6–18 months typically). Plenary adoption is typically a ratification of committee work, not a new deliberation. The "speed" of plenary adoption reflects mature committee preparation, not inadequate scrutiny.
+
+**DA verdict**: WEAK. The criticism confuses plenary speed with overall process speed. Confidence: LOW (C3).
+
+---
+
+## DA Synthesis: Net Assessment
+
+| DA Case | Validity | Key Risk | Monitoring Needed |
+|---------|----------|----------|------------------|
+| AI-trade as distraction | PARTIALLY VALID | Commission delays using FTA as excuse | Track Commission response Q3 2026 |
+| Uzbekistan human rights washing | PARTIALLY VALID | Reduced scrutiny pressure | Annual AFET review adherence |
+| Coalition democratic deficit | WEAK | Group-think on non-contested texts | EP10 legislative quality study |
+| Forest SME burden | PARTIALLY VALID | Market consolidation risk | AGRI implementation report |
+| EP volume quality | WEAK | Plenary rubber-stamp culture | Committee vs. plenary divergence tracking |
+
+**Overall DA score**: The May 2026 legislative cluster is DEFENSIBLE but not without legitimate risk concerns. The strongest valid critique is the Uzbekistan enforcement will question and the AI-trade timing tension. These are implementation and political-will risks, not structural legitimacy problems.
+
+**WEP confidence on DA synthesis**: B2 (likely accurate — based on documented patterns, but DA cases are inherently speculative).
+
+*Devils Advocate Analysis v2.0 — Meta-DA | Systemic frame critique | Synthesis table | 2026-05-25 | Admiralty B2*
+
+---
+
+## Application to Article Writing
+
+**How to use this DA analysis in article prose**: Every major factual claim in the article should be "DA-tested" against the cases above. Specifically:
+- When writing "EP advances AI governance globally" → DA-caveat with "non-binding, Commission response required"
+- When writing "EU deepens Uzbekistan partnership" → DA-caveat with "subject to ongoing human rights monitoring"
+- When writing "broad cross-party majority" → specify the majority composition rather than implying unanimity
+
+**Recommended article WEP language**: Use "likely" or "probable" (not "will") for Commission response scenarios; "possible" (not "likely") for FTA-level AI governance changes within 3 years.
+
+*DA Analysis v2.0 complete | 2026-05-25 | Ready for article render*

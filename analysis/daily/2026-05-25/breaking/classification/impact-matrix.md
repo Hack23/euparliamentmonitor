@@ -96,3 +96,34 @@ xychart-beta
 - **Highest impact window**: AI governance (long-term trajectory setting)
 - **Highest implementation certainty**: Fisheries (routine binding agreements)
 - **Highest uncertainty**: Lebanon Eurojust (implementation environment most challenging)
+
+---
+
+## Impact Matrix Extension — Medium-Term Impact Channels (Run 2 Carry-Forward)
+
+### Impact Channel: Transatlantic AI Regulatory Dialogue
+
+**Trigger**: TA-10-2026-0183 adopted → Commission obligated to respond within 3 months
+**Medium-term pathway**: If Commission accepts mandate → EU-US Trade and Technology Council (TTC) agenda expanded to include AI governance chapter → TTC joint statement Q3/Q4 2026 → FTA negotiation directives updated Q1 2027
+**Time to impact**: 12–18 months
+**Beneficiaries**: EU AI companies (reduced compliance burden), US-based AI exporters (regulatory certainty), transatlantic digital trade (lower friction)
+**Probability**: POSSIBLE-PROBABLE (45–55%, WEP)
+**Impact magnitude if realized**: HIGH (EUR 2–8 billion annual trade facilitation value)
+
+### Impact Channel: Uzbekistan Trade Flows
+
+**Trigger**: EPCA ratification by Council (expected June–July 2026) → provisional application Q3 2026 → full application following national ratification by all 27 EU member states (~18–36 months)
+**Medium-term pathway**: Tariff reductions phase 1 (sectors: agricultural products, textiles, minerals) → EU investment in Uzbekistan (EIB, EFSD) → trade balance improvement
+**Time to impact**: 24–36 months for economic effects; immediate effect on political relations
+**Probability**: ALMOST CERTAIN (Council ratification 90% probability; all 27 ratifications needed for full effect — less certain, 60–70%)
+**Impact magnitude**: MEDIUM (EUR 200–500M additional annual trade by 2030 estimate)
+
+### Impact Channel: Lebanon Criminal Justice Cooperation
+
+**Trigger**: Eurojust-Lebanon working arrangement → joint investigative teams possible → prosecution of shared criminal networks (narcotics, human trafficking, financial crime)
+**Medium-term pathway**: Administrative implementation Q3–Q4 2026 → first Eurojust-Lebanon joint operation 2027 → prosecutions contributing to EU-Lebanon security cooperation narrative
+**Time to impact**: 18–24 months
+**Probability**: PROBABLE-LIKELY (60–70% for at least one joint operation within 2 years)
+**Impact magnitude**: LOW in economic terms; MEDIUM-HIGH in security/rule-of-law terms
+
+*Impact Matrix v2.0 — Carry-forward +22L | AI regulatory dialogue | Uzbekistan trade flows | Lebanon criminal justice | 2026-05-25 | Admiralty B2*

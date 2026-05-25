@@ -115,3 +115,63 @@ Positive scenario: Lebanese judiciary reforms (IMF-linked conditionality under a
 | B2 (Uzbekistan disruption) | Uzbek civil society reversal | No current signal | Monitor |
 | C1 (Lebanon limited) | Eurojust case referral | Post-entry-into-force | 2027 |
 | C2 (Lebanon suspended) | EP AFET warning | Not issued | Monitor |
+
+---
+
+## Scenario Set D: UN GA / Geopolitical
+
+### D1: EP UNGA Recommendation Gains Traction in Council (WEP: Probable, 50–60%)
+**Time Horizon**: 3–9 months
+
+The EU Council translates key elements of the EP UNGA recommendation into the EU's official negotiating position for the 81st UNGA session in September 2026. Specifically, the UN Security Council reform language and the digital governance multilateralism provisions find their way into the EU Common Position. This is conditional on member state alignment, which historically requires French and German co-sponsorship of specific UNGA resolutions.
+
+**Indicators**: EU Council RELEX Working Party meeting dates (June 2026); French and German positions on UNSC reform; EU co-sponsorship patterns for September 2026 UNGA resolutions.
+**Pre-Mortem**: France's permanent UNSC seat creates a structural disincentive to back UNSC reform; French blocking likely on the structural reform provisions while supporting the digital governance elements.
+
+### D2: UNGA Recommendation Becomes Dormant (WEP: Possible, 35–45%)
+**Time Horizon**: 6 months
+
+The Council politely acknowledges the EP recommendation but adopts a standard compromise UNGA position that dilutes the substantive reform proposals. EP recommendations to Council on UNGA positions have a mixed implementation record; without a binding resolution mechanism, the Council retains full discretion.
+
+---
+
+## Scenario Set E: Fisheries Protocols — Medium-Term Outcomes
+
+### E1: Protocols Deliver Sustainable Fisheries Model (WEP: Possible, 40–50%)
+**Time Horizon**: 2–5 years
+
+The São Tomé and Cook Islands protocols contribute to measurable sustainable fisheries outcomes: fish stock stability, improved VMS compliance, local fisheries sector development financed by EU contributions. This would validate the EU's "fisheries diplomacy" approach and provide a template for next-generation protocols under the SFPA framework.
+
+**Pre-Mortem**: Monitoring capacity in partner states is the single largest failure mode. Underfunded national fisheries authorities cannot enforce VMS requirements; EU vessels may exceed quota without effective deterrence.
+
+### E2: Protocols Face Quota Compliance Failure (WEP: Probable, 55–65%)
+**Time Horizon**: 1–3 years
+
+At least one of the two new protocols faces a compliance dispute. Historically, EU fisheries protocols have experienced an average of 1–2 formal quota compliance investigations per decade across the global SFP portfolio. The Cook Islands Pacific EEZ faces particular pressure from Asian fleets that operate in overlapping WCPFC management areas.
+
+---
+
+## Composite Probability Assessment
+
+| Domain | Best Case | Base Case | Worst Case |
+|---|---|---|---|
+| AI-Trade | A1 + TTC alignment (30%) | A1 partial (45%) | A3 stalled (25%) |
+| Uzbekistan | B1 progress (35%) | B1 mixed (45%) | B2 disruption (20%) |
+| Lebanon | C1 limited success (45%) | C1 minimal (40%) | C2 suspended (15%) |
+| UNGA | D1 implementation (50%) | D1 partial (35%) | D2 dormant (15%) |
+| Fisheries | E1 sustainable (40%) | E2 compliance issues (45%) | Protocol failure (15%) |
+
+---
+
+## Methodological Transparency
+
+All scenarios constructed using Scenario Analysis + Pre-Mortem SAT methodology:
+1. Identified 3 key drivers for each domain (regulatory momentum, geopolitical stability, institutional capacity)
+2. Stress-tested each scenario against the Key Assumptions Check
+3. Assigned WEP bands using analyst judgment informed by historical base rates for comparable EP legislative outcomes
+4. Checked for anchoring bias (initial probability estimates were adjusted after Pre-Mortem exercises)
+5. Maintained Admiralty Grade B2 for EP-official-text-based assessments; C2 for third-country behavioural forecasts
+
+**Confidence in methodology**: HIGH for scenario construction logic; MEDIUM for probability assignments (limited by DOCEO data unavailability and absence of live polling/voting margin data).
+
+*Pass 2 — 2026-05-25 | SATs: Scenario Analysis, Pre-Mortem, Key Assumptions Check, Indicators | WEP bands on all scenario headlines | Admiralty B2/C2*

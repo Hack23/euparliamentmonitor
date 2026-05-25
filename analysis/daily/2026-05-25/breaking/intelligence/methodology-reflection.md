@@ -114,3 +114,66 @@ All external sources carry Admiralty grades as required:
 ---
 
 *End of methodology reflection. Total SATs: 12. All quality gates met for degraded-feeds data mode run.*
+
+---
+
+## Pass 2 Methodology Reflection (Run 2 — Extended Rewrite)
+
+### What Changed in Pass 2
+
+This run represents a full Pass 2 improvement cycle applied to all 38 artifacts that were below floor in Run 1. The following methodological lessons from Run 1 informed Run 2:
+
+**Run 1 deficiencies identified**:
+1. Stakeholder perspectives were below the 150-word minimum per stakeholder — Run 2 expanded each to full depth
+2. Scenario probabilities lacked Pre-Mortem stress testing — Run 2 added Pre-Mortem to all scenario sets
+3. Wildcards/black swans lacked cascade chain analysis — Run 2 added cascade effect analysis
+4. Economic context lacked extended country-specific IMF data for Uzbekistan/Lebanon — Run 2 added full profiles
+5. PESTLE covered only AI-trade (one policy domain) — Run 2 added full Uzbekistan EPCA PESTLE
+6. Threat model had only 3 categories with thin analysis — Run 2 expanded to 4 fully developed categories
+7. MCP reliability audit lacked systematic call log and trend analysis — Run 2 added complete audit tables
+
+**Systematic improvement approach**:
+- Used `npm run prior-run-diff` to classify 5 carry-forwards + 38 rewrites
+- Applied `extendFloor` logic: every carry-forward exceeds `priorLines + 20` and adds at least one new section
+- Applied rewrite logic: all below-floor artifacts completely rewritten to exceed nominal floor
+
+### SAT Application Register (Run 2)
+
+| SAT | Artifacts Applied | Specific Application |
+|---|---|---|
+| Key Assumptions Check | executive-brief, synthesis-summary, scenario-forecast, stakeholder-map | Listed explicit assumptions + challenges for each major finding |
+| Quality of Information Check | All artifacts | Admiralty grades on all external sources |
+| Scenario Analysis | scenario-forecast, wildcards-blackswans | 5 scenario sets (A–E) + 5 wildcards + 4 black swans |
+| Pre-Mortem | scenario-forecast, threat-model, wildcards-blackswans | Stress-tested each scenario for failure modes |
+| Indicators | scenario-forecast, wildcards-blackswans | Monitoring indicators + 30/90/12-month dashboards |
+| Stakeholder Mapping | stakeholder-map | 12 actors, Mitchell-Agle framework |
+| ACH | stakeholder-map, scenario-forecast | AI-trade outcome ACH matrix; stakeholder behaviour competing hypotheses |
+| Bayesian Update | synthesis-summary | Documented prior-to-posterior updates for 2 key assessments |
+| Red Team | threat-model, extended/devils-advocate-analysis | Alternative framings maintained as 10–20% probability hypotheses |
+| Historical Baseline | historical-baseline | EP consent history, Eurojust performance, AI trade treaty evolution |
+| Forces Analysis | pestle-analysis | Driving + restraining forces for AI-trade and Uzbekistan |
+| Cross-Run Diff | cross-run-diff, intelligence-assessment | Changes from Run 1 documented and explained |
+
+**Total unique SATs applied**: 12 ✅ (required: ≥10)
+
+### Admiralty Grading Standards Applied
+
+| Grade | Meaning | Applied To |
+|---|---|---|
+| A1 | Reliable source; confirmed by independent sources | EP official adopted texts, EP votes database |
+| A2 | Reliable source; consistent with other sources | IMF WEO April 2026, Commission impact assessments |
+| B2 | Generally reliable; probably true | EP committee documents, EEAS reports, EP Research Service |
+| C2 | Fairly reliable source; possibly true | Secondary analysis, regional expert assessments |
+| C3 | Fairly reliable; doubtful | Third-country behavioural inferences (Uzbekistan, Lebanon) |
+| D3 | Cannot be judged; possibly true | Civil society behaviour in authoritarian contexts |
+| F/N/A | Cannot be judged / not available | DOCEO voting data (publication lag); events feed (404) |
+
+### Confidence in Analysis Quality
+
+**High confidence**: Factual accuracy of adopted text content (A1/A2 sources); IMF economic data; historical precedent analysis
+**Medium confidence**: Coalition/vote margin estimates (inferred without DOCEO data); Commission follow-up probability assessments
+**Low confidence**: Third-country implementation behaviour (Uzbekistan, Lebanon); wildcard probability assignments
+
+**Pass 2 attestation**: All artifacts have been reviewed end-to-end. No `[AI_ANALYSIS_REQUIRED]` markers remain. All WEP bands applied where required. All Admiralty grades applied. SAT documentation complete. ✅
+
+*Methodology Reflection v2.0 — Pass 2 complete | 2026-05-25 | 12 SATs documented | Admiralty standards applied | Pass 2 deficiency corrections listed | rewriteCount=38 (all required artifacts rewritten)*

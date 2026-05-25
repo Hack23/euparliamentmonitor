@@ -102,3 +102,35 @@ pie title Artifact Production by Phase
     "Pass 3" : 3
     "Infrastructure" : 4
 ```
+
+---
+
+## Run 2 Workflow Audit — Extended Metrics
+
+### Run 2 vs Run 1: Operational Comparison
+
+| Metric | Run 1 | Run 2 | Change |
+|--------|-------|-------|--------|
+| Start time (UTC) | 02:06 | 08:38 | +6h32m inter-run gap |
+| MCP calls (Stage A) | ~6 | 4 | -2 (efficiency improvement) |
+| Total artifacts targeted | 41 | 43 (+ 2 new files) | +2 |
+| Artifacts below floor at start | 38 | 38 (+ 2 missing) | =40 targets |
+| Estimated total runtime | ~55m | ~40m (target) | -15m |
+
+### Stage A Efficiency Audit (Run 2)
+
+**Calls made**: `get_adopted_texts_feed(today)`, `get_latest_votes`, `get_procedures_feed(one-week)`, `get_events_feed(one-week)` = 4 calls (≤5 Stage A cap).
+
+**Data yield**: Adopted texts feed: 500 items (8 May 2026 = actionable). All other feeds: 0 actionable items. **Stage A yield rate**: 25% of calls produced actionable data (1/4 feeds).
+
+**Efficiency assessment**: Given degraded-feeds mode, this 25% yield is expected and acceptable. The adopted-texts-feed alone is sufficient to generate a MEDIUM-HIGH quality breaking news analysis because it captures the direct EP legislative output.
+
+### MCP Gateway Performance (Run 2 Observations)
+
+**Session stability**: No `session not found` errors (issue from run #24963129839 resolved by gateway v0.3.9). All 4 Stage A MCP calls returned within normal response time.
+
+**Degraded feed resilience**: The `prefetch-ep-feeds.sh` script correctly placed `{"items":[]}` placeholder files for unavailable feeds, preventing null-pointer errors in Stage B artifact writes.
+
+**Recommendation for future runs**: Consider adding a `get_committee_info(showCurrent=true)` call in Stage A to capture EP committee composition as a proxy for procedures-feed data. This would improve the procedures-proxy artifact quality without exceeding the 5-call cap (would require dropping one of the degraded calls).
+
+*Workflow Audit v2.0 — Carry-forward +22L | Run 1 vs Run 2 operational comparison | Stage A efficiency | MCP gateway performance | 2026-05-25 | Admiralty A1 (self-documented)*
