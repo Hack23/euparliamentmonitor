@@ -104,9 +104,9 @@ export default defineConfig({
         'scripts/generators/political-intelligence/copy.js',
         'scripts/generators/political-intelligence/copy/types.js',
         'scripts/generators/political-intelligence/descriptions/**',
-        // MCP client barrel re-exports (pure `export * from` modules
-        // re-exporting symbols from submodule directories — each member
-        // is covered through its own submodule).
+        // MCP client entry-point barrels / wrappers. These are mostly thin
+        // `export * from` modules; `ep-mcp-client.js` also includes side-effect
+        // mixin imports that wire tool methods onto the client prototype.
         'scripts/mcp/ep-mcp-client.js',
         'scripts/mcp/ep-open-data-client.js',
         'scripts/mcp/imf-mcp-client.js',
