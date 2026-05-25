@@ -457,7 +457,7 @@ Forecast confidence: LOW for absolute numbers; MEDIUM for relative distribution.
 
 ---
 
-## 🏛️ Section 21 — Hack23 Internal Framings (Hagbard-Celine · Marketing · BizDev · Intelligence-Operative)
+## 🏛️ Section 21 — Hack23 Internal Framings (Hagbard-Celine · Marketing · BizDev · Intelligence-Operative · Founder & Funding)
 
 This is the section the user explicitly requested. Each Hack23 agent persona — published openly in [`Hack23/homepage/.github/agents/`](https://github.com/Hack23/homepage/tree/master/.github/agents) — frames the EU Parliament Monitor project from its own professional lens.
 
@@ -490,6 +490,7 @@ This is the section the user explicitly requested. Each Hack23 agent persona —
 | Field | Value |
 |-------|-------|
 | **Headline positioning** | *"Practical Political Intelligence Through Radical Transparency"* — the civic-tech sibling of Hack23's master line *"Practical Cybersecurity Through Transparency"* |
+| **Founder authority signal** | **James Pether Sörling** (CEO/Founder, Hack23 AB) — listed among leading Swedish open-source contributors on [gitista.com/sweden](https://gitista.com/sweden/) and [committers.top/sweden](https://committers.top/sweden); [Open Hub profile](https://openhub.net/accounts/pether). Single-founder visibility is a Frame A (Hero) signal *and* a Frame B/C/E attack surface (single point of editorial failure — explicitly acknowledged in [SWOT.md W4](SWOT.md)). Use sparingly in copy: founder credibility belongs in the *About* page and conference bios, **not** in the article-byline area, where the platform brand must dominate |
 | **Primary differentiators** | (1) Only EP-monitoring platform with **public ISMS** + **public methodology** + **public analysis tree** per article; (2) 14 languages with WCAG 2.1 AA + RTL; (3) Apache 2.0 + SLSA L3 — fork-it credibility; (4) Single-org, no opaque consortium funding |
 | **Target audiences** | (a) EU-affairs journalists in non-Brussels capitals; (b) civic-tech NGOs in CEE and Southern Europe; (c) academic researchers (political science, journalism studies, AI-governance); (d) MEP staff and Council Secretariat analysts as a *desk reference*; (e) Hack23's own enterprise clients as a *capability showcase* |
 | **Key messages** | "Every article links back to the analysis run it was rendered from. Every artifact links to its methodology. Every methodology is published. No black box." — direct lift from [README.md](README.md) §Why This Exists |
@@ -508,7 +509,7 @@ This is the section the user explicitly requested. Each Hack23 agent persona —
 | **Sales conversation hooks** | (1) "You want to know how we ship? Look." (2) "You want AI-governance evidence? Look at how we govern our own LLM pipeline — [`AI Policy`](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) + Stage C completeness gate." (3) "You want SLSA L3 in production with multi-language deployment? Look at our deploy-s3 workflow." |
 | **Conflict-of-interest disclosure** | This is **the** Frame E (Hatchet job) defence. Must be visible: *no EUPM article references a Hack23 client; no Hack23 client has commissioned EUPM coverage; EUPM revenue model is donor/voluntary, not transactional*. Publish a public sub-processor register and funding statement |
 | **Partnership map** | **Tier 1 — Aligned:** Algorithm Watch, Netzpolitik, EU DisinfoLab, Open Knowledge Foundation, mySociety, Civio, OKO.press, OCCRP. **Tier 2 — Institutional:** Reuters Institute, European Journalism Centre, Knight Foundation, Pulitzer Center, OSF. **Tier 3 — Replication targets:** Folketing (DK), Bundestag (DE) civic-tech, Cortes (ES), Parlement (FR), Assembleia (PT) |
-| **Revenue posture** | *EUPM is not a profit centre.* It is a halo-effect investment. Direct monetisation paths considered and rejected (paywall, sponsored content, B2B API resale) — each would convert Frame A → Frame B/E within one news cycle. Donor / foundation funding is acceptable; consulting cross-sell via brand halo is the only sustained revenue channel |
+| **Revenue posture** | *EUPM is not a profit centre.* It is a halo-effect investment. Direct monetisation paths considered and rejected (paywall, sponsored content, B2B API resale) — each would convert Frame A → Frame B/E within one news cycle. **Acceptable revenue channels:** (a) [GitHub Sponsors — `github.com/sponsors/Hack23`](https://github.com/sponsors/Hack23) — individual + institutional sponsors, fully disclosed in a public sponsor register; (b) foundation / public-interest grants with no editorial strings (OSF, Knight, Mercator, NGI0); (c) consulting cross-sell via brand halo. Sponsor disclosure must be CIA-compliant: every sponsor over a stated threshold is named in the funding statement, and any sponsor that is *also* a subject of EUPM coverage triggers a Frame-E COI flag and is rejected outright |
 | **Risk to consulting practice** | A botched EUPM news cycle (Frame B / Frame E activating) damages the *Hack23 transparency brand* across the consulting practice. This is the single largest reputational risk Hack23 AB carries. **Mitigation: the public threat model, errata register, and methodology transparency must remain at production-grade — not "best-effort"** |
 | **KPI for BD** | (a) Inbound consulting RFPs that cite EUPM in qualification questions; (b) speaking-engagement invitations citing EUPM as case study; (c) co-marketing with Tier-1 partner orgs; (d) replication forks for sibling parliaments |
 
@@ -524,6 +525,35 @@ This is the section the user explicitly requested. Each Hack23 agent persona —
 | **Coverage of own blindspots** | (a) Hack23 is single-founder — no editorial board to dissent — *acknowledged* as Weakness in [SWOT.md W4](SWOT.md) (single-threaded LLM dependency) + W5 (limited community engagement); (b) the project is *not yet* independently audited by an external journalism-ethics body — counter-resilience plan §16 names DSA Art.40 voluntary disclosure as the bridge; (c) the Discordian agent-naming convention *is* a Frame C attack vector — counter-measure: keep it in `.github/agents/` only |
 | **PIR coverage check** | PIR-A platform reputational risk (Frame B + E) ✅. PIR-B sponsor targeting (n/a — no sponsors yet) ⚠️. PIR-C adversarial reframing (Frame C + F) ✅. PIR-D democratic legitimacy attacks (Frame F) ✅. PIR-E brand control (§21.2 marketing positioning) ✅ |
 | **Intelligence product handover** | This artifact handles off to: (a) [SWOT.md](SWOT.md) — strategic weaknesses informing this analysis are W1–W6; (b) [THREAT_MODEL.md](THREAT_MODEL.md) §T-005 (repo compromise), §T-008 (translation manipulation), §T-013 (EP MCP data poisoning), §T-014 (cross-language inconsistency) — all of which would directly trigger Frame B activation; (c) a **planned errata register workflow** — *not yet documented* in [analysis/README.md](analysis/README.md); tracked here as the single biggest pending counter-resilience asset and a gap to close before public launch |
+
+### 21.5 Founder & funding perspective — *Operator visibility and money trail*
+
+A media-framing analysis that omits the operator and the funding model is incomplete: hostile frames (B Villain, E Hatchet, F State-overlay) all attack the *person* and the *money* before the *product*. This subsection surfaces both, pre-emptively, with first-party citations.
+
+#### Operator — single founder, open-source provenance
+
+| Field | Value |
+|-------|-------|
+| **Operator (legal entity)** | **Hack23 AB** (Swedish limited company, Org.nr 5595347807) — sole owner and operator of EUPM. Registered office in Sweden; subject to Swedish corporate-disclosure law and EU jurisdiction (GDPR, DSA, CRA) |
+| **Founder / CEO** | **James Pether Sörling** — CEO/Founder of Hack23 AB, single editorial principal of EUPM |
+| **Open-source provenance** | Listed among leading Swedish open-source contributors. External, third-party ranking sources: [gitista.com/sweden](https://gitista.com/sweden/) (Sweden contributor index); [committers.top/sweden](https://committers.top/sweden) (top committers ranking); [openhub.net/accounts/pether](https://openhub.net/accounts/pether) (Open Hub cross-repo contribution profile). Languages: HTML, PHP, Java, Go, TypeScript |
+| **Public contribution footprint** | ~4.98K total contributions across public repositories (≈219 pull requests, ≈3,336 reviews, ≈1,419 issues, 3 actively maintained primary repositories, ≈192 followers). External global rank cited by third-party trackers: top-100 (currently #42 on one published index). *Numbers are third-party-sourced snapshots and will drift; treat as a directional credibility signal, not a contract* |
+| **Why this matters for framing** | Frame A (Hero) gains a *named, traceable, externally-verifiable* operator — a journalistic prerequisite for sympathetic coverage by Politico EU, Euractiv, Nieman Lab. Frame B/C/E gain a *single point of attack* — exactly the editorial-board-absence weakness already imported from [SWOT.md W4](SWOT.md). The mitigation is structural transparency (ISMS-PUBLIC, signed releases, public threat model), not the absence of the signal |
+| **Admiralty grading of operator sources** | gitista.com / committers.top / openhub.net are **B2–C2** (independent third-party aggregators of public Git data, methodology disclosed but un-audited). The Hack23 ISMS-PUBLIC repository, signed releases, and CRA-assessment are **A1** (first-party, version-controlled, signed) and are the primary evidence; the third-party trackers are corroborating, not primary |
+
+#### Funding — money trail and counter-Frame-E posture
+
+| Field | Value |
+|-------|-------|
+| **Primary funding channel** | **[GitHub Sponsors — `github.com/sponsors/Hack23`](https://github.com/sponsors/Hack23)** — the public, GitHub-managed sponsorship page for Hack23 AB. Each sponsor is visible (unless they opt to be private at GitHub level); aggregate funding levels are platform-recorded. This is the **single canonical funding URL** for EUPM and the wider Hack23 open-source portfolio |
+| **Why GitHub Sponsors specifically** | (1) Platform-enforced disclosure — sponsors who do not opt to private are publicly listed by GitHub; (2) No bilateral contract — sponsor cannot insert editorial terms via the platform; (3) Pre-existing tax / KYC handling — no shadow-NGO opacity; (4) Maps naturally onto the open-source contributor identity that already underpins the Frame A (Hero) narrative |
+| **Funding channels considered and rejected** | (a) Paywall on EUPM articles — destroys Frame A; (b) Sponsored content / native advertising — converts Frame A → Frame B within one cycle; (c) B2B API resale of EP data — duplicates EP open-data portal and undermines the public-good positioning; (d) Anonymous corporate donor pool — direct Frame E ammunition |
+| **Counter-Frame-E disclosure rules** | (1) Every individual sponsor above a stated public threshold is named in the platform-footer funding statement, refreshed quarterly; (2) Any sponsor that is *also* a subject of EUPM coverage (e.g. a lobbying body, a political group, a member-state government, a Hack23 consulting client) is rejected; (3) Tiered-benefit structures must contain **zero editorial benefits** — no preview access, no comment rights, no story placement; recognition only; (4) A change in the sponsor list that crosses the COI line triggers a Frame-E errata-style public note |
+| **Sustained revenue narrative** | EUPM remains a *halo-effect investment* for Hack23 AB's consulting practice (§21.3). GitHub Sponsors closes the *direct-public-support* gap — enabling civic-tech-aligned individuals and aligned foundations to support the platform without invoking the consulting-COI surface — but it is **not** expected to fully cover operating cost. Foundation / NGI0 / Mercator-style grants remain the second pillar; consulting halo the third |
+| **Transparency cross-references** | [README.md](README.md) Funding section (to be added if not present); [Hack23/ISMS-PUBLIC Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC); [SWOT.md](SWOT.md) Threats (donor-capture and reputational risk); [THREAT_MODEL.md](THREAT_MODEL.md) §T-005 (repo compromise — sponsor-list integrity is part of repo integrity) |
+| **WEP — donor-capture activation** | *Almost no chance (≤5%) over 12 months* that GitHub Sponsors funding alone would meet a level capable of driving editorial capture, given platform-mediated, publicly listed sponsor model and the rejection rules above. *Realistic possibility (25–45%) over 24 months* that a hostile critic frames *any* corporate sponsor as a COI regardless of disclosure quality — this is a Frame E activation risk that exists at any non-zero corporate sponsor count, and the only mitigation is rigorous public disclosure plus a documented rejection log |
+
+**Net framing impact:** publishing operator identity and funding channel openly *before* hostile coverage forces the question is itself a Level-1 prebunking move (see §16 L1). The combination of (a) named, externally-rankable open-source-developer founder, (b) Swedish-jurisdiction limited company with public ISMS, and (c) a single, platform-mediated, publicly-listed funding URL is structurally stronger against Frame E than any number of *post hoc* denial statements.
 
 ---
 
@@ -571,6 +601,10 @@ This is the section the user explicitly requested. Each Hack23 agent persona —
 | [Hack23/homepage/.github/agents/marketing-specialist.md](https://github.com/Hack23/homepage/blob/master/.github/agents/marketing-specialist.md) | A1 | §21.2 positioning |
 | [Hack23/homepage/.github/agents/business-development-specialist.md](https://github.com/Hack23/homepage/blob/master/.github/agents/business-development-specialist.md) | A1 | §21.3 strategic value |
 | [Hack23/ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC) | A1 | Information Security Policy, AI Policy, Open Source Policy, Classification Policy |
+| [github.com/sponsors/Hack23](https://github.com/sponsors/Hack23) | A1 | §21.5 canonical funding channel (platform-mediated, publicly listed sponsors) |
+| [gitista.com/sweden](https://gitista.com/sweden/) | C2 | §21.5 third-party Sweden OSS contributor index — corroborating, not primary |
+| [committers.top/sweden](https://committers.top/sweden) | C2 | §21.5 third-party top-committers ranking — corroborating, not primary |
+| [openhub.net/accounts/pether](https://openhub.net/accounts/pether) | B2 | §21.5 Open Hub cross-repo contribution profile (methodology disclosed) |
 
 ### Academic & framework references
 
@@ -581,6 +615,7 @@ Entman 1993 (framing functions); Cialdini 2021 (influence); Tversky & Kahneman 1
 | Version | Date | Changes |
 |:-------:|------|---------|
 | 1.0 | 2026-05-25 | Initial project-level media-framing analysis. Applied [`analysis/templates/media-framing-analysis.md`](analysis/templates/media-framing-analysis.md) v2.0 template to the platform itself (meta-application). Frames: Hero / Villain / Lunatic / Visionary / Hatchet / State-overlay. Added §21 Hack23 internal framings (Hagbard-Celine, marketing-specialist, business-development-specialist, intelligence-operative). |
+| 1.1 | 2026-05-25 | Added §21.5 Founder & funding perspective — named operator (James Pether Sörling, CEO/Founder, Hack23 AB), open-source provenance with third-party trackers (gitista.com, committers.top, openhub.net), and canonical funding URL (github.com/sponsors/Hack23) with Counter-Frame-E disclosure rules. Updated §21.2 marketing with founder-authority signal row and §21.3 BizDev revenue posture with GitHub Sponsors channel. Source table extended with B2/C2 third-party trackers. Replaced misleading `analysis/README.md` errata-workflow references with planned-deliverable language in §16 L4 and §21.4 handover. |
 
 ---
 
@@ -637,6 +672,7 @@ Entman 1993 (framing functions); Cialdini 2021 (influence); Tversky & Kahneman 1
 - [x] Hagbard-Celine voice (§21.1) is contained — does not leak into user-facing copy guidance
 - [x] Conflict-of-interest exposure (Frame E) explicitly named and counter-resilience prescribed
 - [x] SWOT weaknesses W1–W6 imported, not hidden
+- [x] Named operator and canonical funding URL disclosed openly (§21.5) — Frame-E prebunking at L1
 
 ---
 
