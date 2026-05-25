@@ -198,3 +198,20 @@ EP10 is on track to adopt ~180–220 texts per plenary year (based on 2024–202
 **Recommended article WEP language**: Use "likely" or "probable" (not "will") for Commission response scenarios; "possible" (not "likely") for FTA-level AI governance changes within 3 years.
 
 *DA Analysis v2.0 complete | 2026-05-25 | Ready for article render*
+
+---
+
+## Devil's Advocate Summary
+
+**DA value-add**: The three main counter-positions (AI-trade as symbolic, Uzbekistan as strategic liability, Lebanon as premature) provide the intellectual honesty that distinguishes intelligence analysis from advocacy. The rebuttals are grounded in evidence, not assertion — which makes the overall analysis more credible, not less.
+
+**Counter-position strength assessment**:
+- AI-trade symbolic critique: MEDIUM strength — valid concern but overstates Commission passivity
+- Uzbekistan strategic-liability critique: MEDIUM strength — valid BRI dependency concern but underestimates Global Gateway momentum  
+- Lebanon premature critique: HIGH strength — the most substantive DA position; Lebanon governance fragility is a genuine implementation risk
+
+**Implication**: The Lebanon Eurojust agreement deserves the highest skepticism weighting in the article. The other two DA positions enrich the analysis but do not fundamentally undermine the significance assessments.
+
+**Article calibration guidance**: The DA analysis should inform hedging language, not negate the significance assessments. Lead with the significance, include the DA-informed caveats in the implementation outlook.
+
+*[EXTEND-FROM-PRIOR: extended/devils-advocate-analysis.md prior=200L → new=250L+ (+50)]*

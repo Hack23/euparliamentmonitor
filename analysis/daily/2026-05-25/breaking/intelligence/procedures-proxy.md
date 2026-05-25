@@ -64,3 +64,14 @@ Based on adopted texts and known EP calendar:
 **Data quality**: C2 (Admiralty) — indirect inference from published text metadata; procedure reference numbers are estimated, not confirmed from primary procedure database.
 
 *Procedures Proxy v2.0 — Pass 2 rewrite | 2026-05-25 | 5 procedure references mapped | Follow-on pipeline outlined | Reliability assessment documented | Admiralty C2 (estimated references)*
+
+```mermaid
+graph LR
+    AI_RES[TA-0183 AI-Trade Resolution] --> COM[Commission Response Mandate]
+    UZB_EPCA[TA-0174 Uzbekistan EPCA] --> COUNCIL[Council Ratification]
+    LEB_EJ[TA-0177 Lebanon Eurojust] --> GOV[Gov. Formation]
+    GOV -->|YES| ACTIVATE[Agreement Activation]
+    GOV -->|NO| SUSPEND[Agreement Suspended]
+    COUNCIL --> PROV[Provisional Application 2026]
+    PROV --> FULL[Full Entry-into-Force 2028]
+```

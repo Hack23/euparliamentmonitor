@@ -94,3 +94,15 @@ All documents retrieved from official EP Open Data Portal. Reference numbers, da
 **Eurojust-Lebanon Working Arrangement**: Legal text of administrative arrangement not accessed. Known framework: Art 47 Eurojust Regulation (2018/1727); LIBE committee rapporteur supervised.
 
 *Document Analysis Index v2.0 — Pass 2 extended | Significance ranking | Secondary document references | 2026-05-25 | Admiralty A2*
+
+---
+
+## Run 3 Document Analysis Update
+
+**Document coverage verification**: All 7 primary EP documents (TA-10-2026-0183, 0174, 0177, 0178, 0179, 0168, 0166) are indexed. No secondary documents (committee opinions, preparatory acts) were accessible in degraded-feeds mode.
+
+**Coverage gap**: AFET committee opinion on Lebanon Eurojust (expected to have preceded the plenary vote by several weeks) was not accessible via the EP API. This opinion would have provided committee-level debate context that would upgrade the Lebanon analysis. Recommend EP search for A10 documents in the AFET series related to TA-0177 for future runs.
+
+**Document quality note**: All 7 primary texts are Tier 1 (adopted, legally binding or politically operative). No secondary or tertiary documents were used as the analytical basis — all analysis rests on primary EP source texts or IMF WEO.
+
+*[EXTEND-FROM-PRIOR: documents/document-analysis-index.md prior=97L → new=117L+ (+20)]*

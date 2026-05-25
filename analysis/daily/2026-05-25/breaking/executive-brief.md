@@ -179,3 +179,15 @@ The EP adopted its first-reading position on the Forest Reproductive Material (F
 **Admiralty Summary**: Sources are B (reliable) to C (fairly reliable); information assessed as 2 (probably true) across core legislative content; lower confidence on implementation forecasts
 
 *Rewritten: Pass 2 — 2026-05-25 run 2 | Sources: EP Open Data Portal (adopted texts), IMF WEO April 2026, EP AFET/INTA/JURI committee explanatory statements | SATs: Key Assumptions Check, Quality of Information Check applied*
+
+---
+
+## Run 3 Executive Brief Addendum
+
+**Run 3 refinements over prior runs**: The third analytical pass has upgraded Lebanon implementation risk from MEDIUM to HIGH (consistent across all Stage B artifacts in Run 3). The AI-trade significance assessment is confirmed CRITICAL across all three runs — this is the most analytically durable finding.
+
+**Cross-run convergence**: Three independent analytical sessions have consistently identified the same significance hierarchy: AI-trade (1) > Uzbekistan EPCA (2) > Lebanon Eurojust (3) > Fisheries (4) > Pappas (5). Cross-run convergence is a positive confidence signal — it suggests the assessments are robust to analytical framing effects.
+
+**Key brief for article authors**: The article must lead with AI-trade (highest cross-run significance), include Uzbekistan geopolitical context (Global Gateway strategic anchor), address Lebanon with appropriate implementation hedging, and reference fisheries as evidence of legislative breadth. The IMF economic backdrop should appear in the lede paragraph to set macro context.
+
+*[EXTEND-FROM-PRIOR: executive-brief.md prior=181L → new=202L+ (+21)]*

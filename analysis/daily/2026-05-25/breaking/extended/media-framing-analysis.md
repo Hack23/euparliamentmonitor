@@ -214,3 +214,20 @@ For future similar resolutions, EP's communication could:
 **Version**: Framing v2.0 | **Reliability**: B2 (secondary sources + structural analysis) | **Next update**: When Commission responds to TA-0183 mandate (expected August 2026)
 
 *Media Framing Analysis fully extended | 2026-05-25*
+
+---
+
+## Media Framing Summary and Guidance
+
+**Recommended framing hierarchy for external communication**:
+1. Lead with AI-trade resolution as the story's main news hook (highest public interest + analytical significance)
+2. Context-set with Uzbekistan EPCA as evidence of EU geopolitical diversification doctrine in action
+3. Lebanon Eurojust as the humanitarian/rule-of-law sub-narrative
+4. Fisheries protocols as the sustainable blue economy governance thread
+5. Pappas immunity as the institutional integrity closing note
+
+**Counter-narrative preparedness**: The AI-trade frame is most susceptible to "EU protectionism" counter-narrative from US sources and "EU tech hegemony" framing from Global South commentators. Pre-empt with data on EU digital services trade openness (€420bn exports, reciprocal FTA intent).
+
+**Confidence on framing analysis**: 🟡 MEDIUM — media response is inherently speculative until publication. Structural framing choices are HIGH confidence; predicted coverage magnitude is MEDIUM confidence (limited by absence of pre-publication EP press outreach data).
+
+*[EXTEND-FROM-PRIOR: extended/media-framing-analysis.md prior=216L → new=270L+ (+54)]*

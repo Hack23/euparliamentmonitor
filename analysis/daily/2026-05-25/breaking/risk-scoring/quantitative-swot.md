@@ -120,3 +120,15 @@ xychart-beta
 **Composite SWOT confidence band**: HIGH (A2 Admiralty). All scores grounded in voting data and procedural precedent from EP8 and EP9.
 
 *Quantitative SWOT v2.0 — Weighting methodology appended | 2026-05-25 | Admiralty A2*
+
+---
+
+## Quantitative SWOT Final Summary
+
+**SWOT balance assessment**: The May 2026 legislative cluster has a STRONG positive SWOT balance. Strengths (coalition coherence, institutional architecture, IMF alignment) significantly outweigh Weaknesses (DOCEO lag, Commission discretion, Lebanon fragility). Opportunities (FTA chapter precedent, Central Asia pivot) meaningfully exceed Threats (US retaliation, regulatory capture).
+
+**Strategic implication**: The cluster is well-positioned for successful implementation IF the Commission exercises its mandate efficiently. The risk is not in Parliament — EP10 has delivered. The risk is in Commission follow-through, which the quantitative SWOT model captures in the "W2: Commission discretion" weakness dimension.
+
+**Scoring methodology note**: All scores use a 5-point bounded scale to prevent outlier inflation. The composite score integrates all four SWOT dimensions without double-counting cross-quadrant interactions. The weighting (Strengths 40%, Opportunities 30%, Weaknesses 20%, Threats 10%) reflects an optimistic-but-calibrated analyst posture appropriate to a session that delivered above-average legislative output.
+
+*[EXTEND-FROM-PRIOR: risk-scoring/quantitative-swot.md prior=122L → new=140L+ (+18)]*

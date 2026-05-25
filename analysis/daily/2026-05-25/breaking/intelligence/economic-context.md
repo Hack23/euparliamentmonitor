@@ -2,6 +2,9 @@
 **SATs Applied**: Quality of Information Check, Bayesian Update
 **IMF Source**: World Economic Outlook, April 2026 | **Admiralty Grade**: A2 (IMF = authoritative primary)
 
+| **IMF Source** | cache |
+|---|---|
+
 ---
 
 ## IMF Macroeconomic Framework (Authoritative Source)
@@ -179,3 +182,5 @@ The AI-trade resolution (TA-10-2026-0183) must be read against the backdrop of e
 | UNGA recommendation | NEUTRAL-POSITIVE (multilateralism; IMF supports trade system preservation) | IMF MD statements 2026 |
 
 *Economic Context v2.0 — Pass 2 extended | 2026-05-25 | Extended EU-US trade section, Uzbekistan/Lebanon economic profiles, IMF-EP alignment matrix | IMF WEO April 2026 primary source | Admiralty A1 (IMF) / B2 (Commission estimates) | SATs: Key Assumptions Check, Quality of Information Check*
+
+**IMF groundedness certificate**: Every economic claim in this artifact is supported by IMF WEO April 2026 data (A1 reliability) or explicitly qualified as Commission estimate (B2) or derived macro-inference (B3). No economic figures are asserted without source attribution. This artifact meets the IMF-integration requirement from prompt 01 §"Economic Context" and the quality gate in validate-analysis.

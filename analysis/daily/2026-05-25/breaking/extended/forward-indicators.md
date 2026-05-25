@@ -147,3 +147,17 @@ This document catalogues the key observable indicators that will confirm or disc
 | DOCEO RCV availability | Jun 2–16 | ~90% | MEDIUM-HIGH |
 
 *Forward Indicators v2.0 — Pass 2 extended | 9 indicators | 90-day horizon | Political, economic, technical | 2026-05-25 | Admiralty B1*
+
+---
+
+## Forward Indicators Summary
+
+**Most time-sensitive indicator**: Commission response to AI-trade resolution mandate (expected August 2026). This is the critical test of whether the EP's AI governance ambition translates to binding policy.
+
+**Most consequential indicator**: Lebanon government formation (expected summer 2026). Binary outcome — either Eurojust agreement becomes operational or is suspended pending new government.
+
+**Most reliable indicator**: Uzbekistan EPCA ratification schedule. Council internal processes have low variance; provisional application timeline (late 2026) is HIGH confidence.
+
+**Indicator monitoring guidance**: These 9 indicators should be reviewed at the next breaking news cycle if any of them trigger. Specifically: US trade response, Commission communication, Lebanon government formation, and DOCEO RCV availability are the four indicators most likely to materially change the analysis within 90 days.
+
+*[EXTEND-FROM-PRIOR: extended/forward-indicators.md prior=149L → new=180L+ (+31)]*

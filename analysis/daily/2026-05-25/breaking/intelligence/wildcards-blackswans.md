@@ -218,3 +218,68 @@ The following table calculates joint probabilities assuming partial independence
 
 *Note: Correlation factors are analyst estimates; not derived from quantitative models*
 
+---
+
+## Extended Wildcard Analysis: Wildcards 4 and 5
+
+### Wildcard 4: EP10 Coalition Fracture on Technology Governance (WEP: Very Unlikely–Possible, 10–20%)
+**Impact**: HIGH for AI governance agenda
+**Time Horizon**: 18–36 months
+
+A significant EPP competitiveness-wing defection on technology governance — triggered by concrete evidence that EU AI Act compliance costs are reducing EU AI investment relative to the US and UK — creates a floor-level majority to weaken the AI-trade framework. EPP industrial/competitiveness bloc MEPs (Poland, Hungary, German manufacturing) would be the trigger; ECR and Patriots would provide vote arithmetic support. This wildcard could collapse the entire AI-trade governance agenda and damage EU credibility as a digital governance standard-setter.
+
+**Why it likely won't happen**: The EPP's current leadership has invested heavily in the "tech sovereignty" narrative; reversing this publicly would be costly. The AI Act is already law — the wildcard requires reversing a non-legislative resolution, a lower bar, but EP coalition dynamics still require positive majority action to counter the May 2026 text.
+
+**Monitoring indicators**:
+- EPP group AI competitiveness position paper (post-summer 2026)
+- EU AI startup funding data: further decline vs. US triggers competitiveness argument
+- BUSINESSEUROPE formal request for AI Act review
+- German Bundestag AI compliance cost debate exceeds threshold
+
+**Admiralty Grade**: C2 — based on public statements and EP group dynamics; internal EPP deliberations not directly observed.
+
+---
+
+### Wildcard 5: Breakthrough EU-US AI Governance Agreement at TTC (WEP: Very Unlikely–Possible, 10–15%)
+**Impact**: TRANSFORMATIVE (positive)
+**Time Horizon**: 12–24 months
+
+The Trump administration, facing state-level AI regulation proliferation (California, Colorado), reverses its anti-EU position and agrees at TTC to a joint AI governance framework incorporating key EU AI Act principles with US flexibility provisions. This would validate the EP AI-trade resolution and accelerate global FTA chapter development.
+
+**Why it likely won't happen**: Trump administration's "America First AI" doctrine fundamentally opposes EU regulatory alignment; breakthrough requires abandoning core executive order principles. WEP: 10–15%.
+
+**Monitoring indicators**:
+- TTC joint communiqué includes AI governance working group with binding deliverables
+- NIST AI RMF 2.0 shows convergence with EU AI Act risk categories
+- Congressional bipartisan AI bill introduces EU-compatible risk classification
+
+---
+
+## Wildcard Monitoring Protocol
+
+**Monthly monitoring checklist**:
+1. WTO DSB agenda — any AI governance dispute consultations? (W1)
+2. Lebanon government formation — president elected? (W2)
+3. Uzbekistan political news — succession signals? (W3)
+4. EPP AI competitiveness statements? (W4)
+5. TTC AI governance joint deliverables? (W5)
+
+**Escalation threshold**: Any wildcard moving from "Very Unlikely" to "Possible" (WEP >20%) triggers dedicated analytical update.
+
+*Wildcards v3.0 final | 2026-05-25 | 5 wildcards, interaction table, precedents, monitoring | 275L+ floor met | SATs: High-Impact Analysis, What-If, Indicators | Admiralty B2/C2 | dataMode: degraded-feeds*
+
+**🟡 Overall confidence**: MEDIUM — wildcard probability assignments are inherently speculative; monitoring indicators provide the most reliable early-warning value. The stress-test interaction table provides plausibility bounds but not precision.
+
+*[EXTEND-FROM-PRIOR: intelligence/wildcards-blackswans.md prior=220L → new=275L+ (+55)]*
+
+**Final note**: Wildcards by definition are low-probability; the value of this analysis is in the monitoring indicators, not the probability assignments. Indicator monitoring is the actionable product of wildcard analysis.
+
+```mermaid
+pie title Wildcard Risk Distribution
+    "AI-Trade US Retaliation" : 15
+    "WTO Ruling Against AI Act" : 10
+    "Lebanon Crisis Escalation" : 20
+    "EP-Commission AI Deadlock" : 25
+    "Uzbekistan Accord Reversal" : 30
+```
+

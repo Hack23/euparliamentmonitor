@@ -121,3 +121,42 @@ quadrantChart
 **Strength**: 8/10 (HIGH structural importance). Geopolitical reorientation is a multi-year force.
 
 *Forces Analysis v2.0 — Carry-forward +25L | Digital regulation race | EP10 legitimacy building | EU-Central Asia reorientation | 2026-05-25 | Admiralty A2*
+
+---
+
+## Run 3 Forces Analysis Update
+
+**Run 3 force assessment refinements**:
+- **Digital regulation race (structural force)**: Confirmed as the dominant driving force behind TA-0183. The IMF Box 1.1 on fragmentation risk provides the economic justification for EU regulatory pre-emption in AI/trade governance.
+- **EU-Central Asia reorientation (structural force)**: Upgraded from MEDIUM to HIGH driving force. IMF Central Asia assessment (Uzbekistan 7.2% GDP growth) confirms that the economic conditions for EPCA implementation are more favourable than in prior partnership cohorts.
+- **Lebanon fragility (constraining force)**: Re-confirmed as the primary constraining force on the security/JHA agenda. No change from Run 2.
+
+**Force balance assessment**: Driving forces (digital governance imperative, geopolitical diversification, legislative mandate) significantly outweigh constraining forces (implementation capacity, third-country governance gaps, US trade friction). This force balance supports a POSITIVE significance assessment for the May 2026 session cluster.
+
+## Issue Frame
+
+**Core issue**: Can the European Parliament translate its May 2026 legislative mandate into operational policy outcomes across AI governance, Central Asia partnership, and Middle East security cooperation simultaneously?
+
+## Driving Forces
+
+**Primary driving forces** (HIGH confidence): Digital sovereignty imperative, EU geopolitical diversification doctrine, EP10 legislative momentum, IMF alignment (reduces Commission resistance), market demand for AI standards certainty.
+
+**Secondary driving forces** (MEDIUM confidence): US-EU-China regulatory competition, Global Gateway funding availability, post-Ukraine security recalibration.
+
+## Restraining Forces
+
+**Primary restraining forces**: Commission implementation capacity constraints, third-country governance gaps (Lebanon), US trade retaliation risk on AI-trade, DOCEO confirmation lag limiting public accountability.
+
+## Net Pressure
+
+**Net force vector**: POSITIVE — driving forces significantly outweigh restraining forces. The 2026 legislative session cluster has above-average implementation probability (cluster average 7.6/10 per implementation-feasibility.md).
+
+## Intervention Points
+
+**Key intervention points**: Commission response to TA-0183 (August 2026 deadline); Lebanon government formation (summer 2026); Council provisional application of Uzbekistan EPCA (late 2026); DOCEO RCV release (June 2–16).
+
+## Reader Briefing
+
+**For policy practitioners**: The force balance strongly favours implementation success for Uzbekistan EPCA and AI-trade. Lebanon is the exception — government formation is the single critical path constraint. Monitor all 4 intervention points simultaneously.
+
+*[EXTEND-FROM-PRIOR: classification/forces-analysis.md prior=123L → new=144L+ (+21)]*

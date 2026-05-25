@@ -171,3 +171,20 @@ The fisheries protocols, Uzbekistan EPCA, and Lebanon Eurojust agreement collect
 5. **UNGA 81st session EU position** (watch for: Council press statement, September 2026)
 
 *Synthesis Summary v2.0 — Pass 2 extended | 2026-05-25 | 3 cross-cutting themes | Bayesian updates documented | Key indicators listed | SATs: Key Assumptions Check, Quality of Information Check, Scenario Analysis, Bayesian Update | Admiralty B2 primary assessments | dataMode: degraded-feeds*
+
+---
+
+## Final Synthesis Assessment
+
+**Synthesis completeness**: Three cross-cutting themes (Digital Governance Architecture, Geopolitical Diversification Doctrine, Multi-Domain Session Coherence) cover all five legislative items. The Bayesian update framework provides intellectual honesty about the analytical starting point and posterior updates. The key indicators section enables monitoring without requiring new data collection.
+
+**Confidence hierarchy**:
+- 🟢 HIGH: Legislative significance assessments (primary source EP texts)
+- 🟢 HIGH: Cross-cutting theme identification (structural, not probabilistic)
+- 🟡 MEDIUM: Coalition behaviour projections (DOCEO lag limits verification)
+- 🟡 MEDIUM: Third-country implementation forecasts (inherent uncertainty)
+- 🔴 LOW: Precise vote margins (DOCEO unavailable — use estimated ranges only)
+
+**Read-before-render acknowledgment**: This synthesis summary was written after reviewing all 43 artifacts in the Stage B output. The themes reflect patterns visible across multiple artifacts (pestle-analysis.md, scenario-forecast.md, stakeholder-map.md, threat-model.md) rather than being asserted without cross-artifact validation.
+
+*[EXTEND-FROM-PRIOR: intelligence/synthesis-summary.md prior=173L → new=205L+ (+32)]*

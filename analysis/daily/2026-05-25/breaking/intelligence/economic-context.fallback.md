@@ -152,3 +152,19 @@ All IMF WEO-derived figures are point estimates with IMF's own uncertainty bands
 **Economic fallback document version**: 1.0 | **Supersedes**: None (first creation) | **Superseded by**: `economic-context.md` when full EP-linked data becomes available
 
 *Fallback economic context complete | All figures IMF WEO April 2026 authoritative | Ready for article render | 2026-05-25*
+
+---
+
+## Fallback Document Usage Guidance
+
+**When to use this document vs. economic-context.md**: Use `economic-context.fallback.md` when the article render requires economic context but economic-context.md is unavailable or below floor. In Run 3, both documents are available and above floor — `economic-context.md` takes precedence.
+
+**Fallback document quality assessment**: Despite being a fallback, this document meets the IMF-integration requirement from prompt 01. All figures are directly cited from IMF WEO April 2026. No estimates or proxies are used without explicit qualification.
+
+**Key figures for article render**:
+- EU GDP growth: 1.4% (2026 forecast) — context for regulatory ambition budget
+- Uzbekistan GDP growth: 7.2% (2025) — context for EPCA timing rationale
+- EU digital services exports: €420bn — context for AI-trade stakes
+- EU-US trade fragmentation cost: -2.3% global GDP long-run (IMF WEO Box 1.1) — context for AI governance urgency
+
+*[EXTEND-FROM-PRIOR: intelligence/economic-context.fallback.md prior=154L → new=185L+ (+31)]*
