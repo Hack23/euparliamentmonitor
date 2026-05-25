@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.42% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/19</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/20</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76.92% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -134,38 +134,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
@@ -187,12 +187,12 @@ import type { EPDecisionRecord } from './types.js';
  */
 export function unwrapLabel(raw: string | Record&lt;string, string&gt; | undefined): string {
   if (!raw) return '';
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof raw === 'string') <span class="cstat-no" title="statement not covered" >return raw;</span>
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof raw['en'] === 'string') return raw['en'];
-<span class="cstat-no" title="statement not covered" >  for (const v of Object.values(raw)) {</span>
-<span class="cstat-no" title="statement not covered" >    if (typeof v === 'string') <span class="cstat-no" title="statement not covered" >return v;</span></span>
+  if (typeof raw === 'string') return raw;
+  if (typeof raw['en'] === 'string') return raw['en'];
+  for (const v of Object.values(raw)) {
+    if (typeof v === 'string') return v;
   }
-<span class="cstat-no" title="statement not covered" >  return '';</span>
+  return '';
 }
 &nbsp;
 /**
@@ -202,7 +202,7 @@ export function unwrapLabel(raw: string | Record&lt;string, string&gt; | undefin
  * @internal
  */
 export function wrapAsMCPResult(payload: unknown): MCPToolResult {
-  const text = typeof payload === 'string' ? <span class="branch-0 cbranch-no" title="branch not covered" >payload </span>: JSON.stringify(payload ?? <span class="branch-1 cbranch-no" title="branch not covered" >null)</span>;
+  const text = typeof payload === 'string' ? payload : JSON.stringify(payload ?? null);
   return { content: [{ type: 'text', text }] };
 }
 &nbsp;
@@ -214,10 +214,10 @@ export function wrapAsMCPResult(payload: unknown): MCPToolResult {
  */
 export function extractIdentifier(record: EPDecisionRecord): string {
   if (record.identifier) return record.identifier;
-  const rawId = record['@id'] ?? <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!rawId) <span class="cstat-no" title="statement not covered" >return '';</span>
+  const rawId = record['@id'] ?? '';
+  if (!rawId) return '';
   const lastSlash = rawId.lastIndexOf('/');
-  return lastSlash &gt;= 0 ? rawId.slice(lastSlash + 1) : <span class="branch-1 cbranch-no" title="branch not covered" >rawId;</span>
+  return lastSlash &gt;= 0 ? rawId.slice(lastSlash + 1) : rawId;
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -226,7 +226,7 @@ export function extractIdentifier(record: EPDecisionRecord): string {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-24T23:09:50.249Z
+                at 2026-05-25T09:34:07.992Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
