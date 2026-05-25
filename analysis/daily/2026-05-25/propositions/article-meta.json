@@ -1,0 +1,53 @@
+{
+  "date": "2026-05-25",
+  "articleType": "propositions",
+  "runId": "propositions-run270-1779690906",
+  "gateResult": "PENDING",
+  "slug": "2026-05-25-propositions",
+  "articlePath": "analysis/daily/2026-05-25/propositions/article.md",
+  "topFinding": "Date: 2026-05-25 | Classification: UNCLASSIFIED/PUBLIC | Admiralty Grade: B2 WEP Band: LIKELY (65–85%) | Time Horizon: 7-day window | Confidence: MEDIUM",
+  "keyTakeaways": [
+    "TA-10-2026-0183: *AI and EU Trade Strategy* — Non-legislative resolution (INI procedure) calling on the Commission to develop an AI-integrated trade policy framework. The EP position emphasises WTO compatibility, export control alignment, and mutual recognition frameworks with allied trading partners.",
+    "TA-10-2026-0160: *DMA Enforcement* — Resolution urging stronger Commission enforcement of the Digital Markets Act, naming specific gatekeeper compliance failures without naming platforms directly (standard EP practice). Passed with EPP-S&D-Renew majority.",
+    "TA-10-2026-0066: *Copyright and Generative AI* (March 2026 adoption, referenced for context): EP called for a targeted revision of the 2019 Copyright Directive to address generative AI text/data mining, with opt-in rather than opt-out provisions preferred.",
+    "TA-10-2026-0174: *EU–Uzbekistan EPCA* — Most significant external action adopted in May 2026. The EPCA signals a strategic realignment in EU Central Asia policy, driven by post-2022 Eurasian connectivity needs and the diversification imperative following Russia's isolation.",
+    "TA-10-2026-0177: *EU–Lebanon–Eurojust* — Judicial cooperation agreement with Lebanon; procedurally significant as Lebanon's post-Hezbollah disarmament process creates new openings for EU rule-of-law engagement.",
+    "TA-10-2026-0182: *UN General Assembly Recommendation* (81st session) — EP's standard annual UNGA direction-setting resolution; notable 2026 emphasis on multilateral development bank reform and AI governance at the UN level.",
+    "TA-10-2026-0178/0179: *Fisheries partnerships* (São Tomé and Príncipe; Cook Islands) — Sustainable fisheries protocols, reflecting EP's consistent insistence on sustainability conditionality in external fisheries."
+  ],
+  "topRisks": [
+    "Carbon price €30–60/tonne in ETS2 (2027 launch)",
+    "Average household additional cost: €50–150/year (offset by Climate Social Fund for qualifying households)",
+    "Political visibility: Fuel receipts and energy bills are highly salient; \"carbon tax\" framing will dominate media",
+    "Climate Social Fund (€65 billion, 2026–2032) — operational",
+    "MSR stability mechanism — now legislated (May 2026)",
+    "Member state implementation flexibility — some countries already proposing energy bill credits",
+    "EU Anti-Coercion Instrument (adopted EP9) activated",
+    "Bilateral safeguard clause (Mercosur model, TA-10-2026-0030) serves as template"
+  ],
+  "keyDates": [
+    "US tariff escalation to 25% on EU automotive/industrial goods (trigger: Q3 2026 WTO dispute)"
+  ],
+  "keyActors": [
+    "EPP: 188 seats (26.1%)",
+    "S&D: 136 seats (18.9%)",
+    "Patriots for Europe: 84 seats (11.7%)",
+    "ECR: 78 seats (10.8%)",
+    "Renew Europe: 77 seats (10.7%)",
+    "Greens/EFA: 53 seats (7.4%)",
+    "Left: 46 seats (6.4%)",
+    "ESN: 25 seats (3.5%)"
+  ],
+  "macroContext": "How May 2026 adopted texts would be affected under different macro scenarios:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

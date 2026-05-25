@@ -1,0 +1,53 @@
+{
+  "date": "2026-05-25",
+  "articleType": "breaking",
+  "runId": "breaking-run266-1779673155",
+  "gateResult": "pending",
+  "slug": "2026-05-25-breaking",
+  "articlePath": "analysis/daily/2026-05-25/breaking/article.md",
+  "topFinding": "Date: 2026-05-25 | Article Type: breaking | Run ID: breaking-run266-1779673155 WEP Band: Probable (55–80%) | Time Horizon: Immediate (0–7 days) | Admiralty Grade: B2",
+  "keyTakeaways": [
+    "EP adopted texts database (official, primary) → Admiralty A1",
+    "EP committee agendas and rapporteur notes (official, primary) → Admiralty A1",
+    "IMF WEO April 2026 (authoritative, published) → Admiralty A2",
+    "EP research service briefings → Admiralty B2",
+    "Commission impact assessments → Admiralty B2",
+    "News coverage (Politico EU, EUobserver) → Admiralty C3",
+    "No voting breakdown data available for May plenary (DOCEO XML unavailable) — precludes coalition analysis of specific votes"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "**Target date**: By October 2026 (3-month window from resolution adoption)",
+    "**Target date**: By September 2026 (typical Council lag after EP consent is 3–6 months)",
+    "**Target date**: June–July 2026 (next scheduled TTC meeting)",
+    "**Target date**: Within 6 months of EP immunity waiver (by November 2026)",
+    "**Observable**: EP June 2026 plenary agenda includes AI-trade follow-up or technology governance text",
+    "**Target date**: June 2026 plenary (Strasbourg, mid-June)",
+    "**Target date**: Q3 2026 data",
+    "**Target date**: September 2026 (expected review)"
+  ],
+  "keyActors": [
+    "**Role**: Adopted 7 texts on May 19–20, 2026",
+    "**Dominant coalition**: S&D + EPP + Renew Europe (54% combined)",
+    "**AI-trade resolution vote**: Estimated 420–450 FOR (S&D/EPP/RE/Greens), 150–180 AGAINST (ECR/ID), 30–50 ABSTAIN — NOTE: Admiralty C3 (inferred; no DOCEO roll-call data available)",
+    "**Uzbekistan EPCA vote**: Estimated 480+ FOR (broad consent procedure support)",
+    "**Influence level**: HIGH — originator of all legislative outputs analysed",
+    "**Role**: Must develop implementing legislation for AI-trade chapter; monitors EPCA conditionality",
+    "**AI governance position**: DG TRADE (market access) and DG CONNECT (AI Act compliance) have partially divergent interests — DG TRADE prefers mutual recognition; DG CONNECT prefers extraterritorial compliance",
+    "**Key lever**: Decision whether to include AI governance chapter in ongoing FTA negotiations with India, Indonesia, Thailand"
+  ],
+  "macroContext": "The IMF World Economic Outlook (April 2026) provides the authoritative economic baseline for contextualising EP legislative output.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

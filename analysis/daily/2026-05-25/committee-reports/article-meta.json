@@ -1,0 +1,53 @@
+{
+  "date": "2026-05-25",
+  "articleType": "committee-reports",
+  "runId": "committee-reports",
+  "gateResult": "pending",
+  "slug": "2026-05-25-committee-reports",
+  "articlePath": "analysis/daily/2026-05-25/committee-reports/article.md",
+  "topFinding": "Date: 2026-05-25 Run: committee-reports-run267-1779688077 Article Type: committee-reports Data Mode: degraded-feeds (feeds 404; strategic data HIGH quality) Confidence: 🟡 MEDIUM | Admiralty Grade: B3 WEP Band on lead assessment: LIKELY (65–80%)",
+  "keyTakeaways": [
+    "Ukraine accountability (TA-10-2026-0161) and Loan for Ukraine (TA-10-2026-0010)",
+    "Armenia democratic resilience (TA-10-2026-0162)",
+    "Haiti trafficking (TA-10-2026-0151)",
+    "Lithuania public broadcaster attack (TA-10-2026-0024)",
+    "**ENVI chaired by ECR**: First time a Eurosceptic-right group has chaired the environment committee since the committee system was established. This is constraining the pace and ambition of climate-related committee work compared to EP9.",
+    "**AFET chaired by PfE**: Patriots for Europe chairing foreign affairs is anomalous given PfE's skepticism of EU defence integration. Procedural tensions with S&D and EPP on Ukraine resolutions are a predictable consequence.",
+    "**LIBE under RE**: Renew Europe's LIBE chairmanship provides a moderating force on rule-of-law conditionality and migration."
+  ],
+  "topRisks": [
+    "R-02 (API degradation): Near-certain to continue; moderate impact on intelligence quality",
+    "R-01 (Right-bloc chairs): Near-certain to continue; medium impact on legislative ambition",
+    "R-08 (Group merger): Low probability but very high impact if it occurs",
+    "R-03, R-04, R-05, R-09: Monitor quarterly; activate specific mitigations if indicators trigger",
+    "R-07, R-10: Background risks requiring monitoring but not active mitigation"
+  ],
+  "keyDates": [
+    "ITRE committee Clean Industrial Deal vote by September 2026",
+    "Commission announcing new DMA investigation (Alphabet or Meta) Q3 2026",
+    "Advocate General opinion on EU-Mercosur compatibility issued Q3 2026 (earlier than expected)",
+    "German Finance Minister publicly challenging EP's Budget 2027 demands (September 2026)"
+  ],
+  "keyActors": [
+    "*H1 (preferred)*: ITRE rapporteur on Clean Industrial Deal attempts a centrist EPP-RE-S&D coalition, sacrificing some right-bloc (ECR/PfE) support on competitiveness subsidies while maintaining Greens' conditional support on targets.",
+    "*H2 (alternative)*: ITRE rapporteur builds an EPP-ECR-PfE coalition with weakened emissions targets and stronger subsidy provisions — plausible if EP10's political gravity continues rightward.",
+    "*H3 (stress)*: File splits into two separate rapporteurships after irreconcilable amendments in committee — historically rare but used on complex energy files.",
+    "INTA committee: Leading EU-Mercosur scrutiny; CJE opinion request filed",
+    "BUDG: Budget 2027 guidelines rapporteur — report adopted April 2026",
+    "IMCO: DMA enforcement resolution — adopted April 2026",
+    "AFET: Ukraine resolutions — adopted in rapid sequence Jan–Apr 2026",
+    "*Interests*: Advancing EPP's competitiveness, sovereignty, and fiscal responsibility agenda; maintaining EPP's dominant coordination role"
+  ],
+  "macroContext": "The European Parliament's committee agenda in 2026 is shaped by a macro-economic environment characterised by:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
