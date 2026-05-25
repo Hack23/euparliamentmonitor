@@ -104,11 +104,15 @@ export default defineConfig({
         'scripts/generators/political-intelligence/copy.js',
         'scripts/generators/political-intelligence/copy/types.js',
         'scripts/generators/political-intelligence/descriptions/**',
-        // MCP client entry-point wrappers (tested via integration tests;
+        // MCP client barrel re-exports (pure `export * from` modules
+        // re-exporting symbols from submodule directories — each member
+        // is covered through its own submodule).
+        'scripts/mcp/ep-mcp-client.js',
+        'scripts/mcp/ep-open-data-client.js',
+        'scripts/mcp/imf-mcp-client.js',
+        'scripts/mcp/mcp-connection.js',
+        // MCP transport connection (tested via integration tests;
         // spawnSync doesn't propagate v8 coverage)
-        'scripts/mcp/ep-open-data/ep-mcp-client.js',
-        'scripts/mcp/world-bank/world-bank-data-client.js',
-        'scripts/mcp/imf/imf-mcp-client.js',
         'scripts/mcp/transport/connection.js',
         // Template section-builders (tested via HTML integration output)
         'scripts/templates/section-builders.js',
