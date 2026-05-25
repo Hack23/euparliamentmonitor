@@ -1,0 +1,90 @@
+{
+  "articleType": "breaking",
+  "date": "2026-05-25",
+  "dataMode": "degraded-feeds",
+  "dataQualityFactor": 0.8,
+  "generatedAt": "2026-05-25T02:06:42Z",
+  "runId": "breaking-run266-1779673155",
+  "totalArtifacts": 41,
+  "totalLines": 3500,
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "data-availability-assessment": "data-availability-assessment.md",
+    "classification": "classification/significance-classification.md",
+    "documents": "documents/document-analysis-index.md",
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/cross-session-intelligence.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/political-threat-landscape.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/significance-scoring.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/threat-model.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/workflow-audit.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md"
+    ],
+    "extended": [
+      "extended/coalition-mathematics.md",
+      "extended/comparative-international.md",
+      "extended/cross-reference-map.md",
+      "extended/data-download-manifest.md",
+      "extended/devils-advocate-analysis.md",
+      "extended/executive-brief.md",
+      "extended/forward-indicators.md",
+      "extended/historical-parallels.md",
+      "extended/implementation-feasibility.md",
+      "extended/intelligence-assessment.md",
+      "extended/media-framing-analysis.md",
+      "extended/voter-segmentation.md"
+    ],
+    "executive-brief-top": "executive-brief.md",
+    "data-availability": "data-availability-assessment.md",
+    "classification-significance": "classification/significance-classification.md",
+    "classification-actor-mapping": "classification/actor-mapping.md",
+    "classification-forces-analysis": "classification/forces-analysis.md",
+    "classification-impact-matrix": "classification/impact-matrix.md"
+  },
+  "keyFindings": [
+    "TA-10-2026-0183: AI-trade governance resolution (HIGH significance)",
+    "TA-10-2026-0174: Uzbekistan EPCA ratification (HIGH significance)",
+    "TA-10-2026-0177: Lebanon-Eurojust cooperation (MEDIUM significance)"
+  ],
+  "dataSourcesUsed": [
+    "EP Open Data Portal: get_adopted_texts(year=2026)",
+    "EP Open Data Portal: get_adopted_texts_feed(one-week)",
+    "IMF WEO April 2026"
+  ],
+  "dataSourcesFailed": [
+    "EP events_feed (404 upstream error)",
+    "DOCEO roll-call XML (2-4 week publication lag)",
+    "generate_political_landscape (timeout)"
+  ],
+  "history": [
+    {
+      "runId": "breaking-run266-1779673155",
+      "runAt": "2026-05-25T02:06:42Z",
+      "artifactCount": 41,
+      "totalLines": 3082,
+      "gateResult": "pending",
+      "pass2": {
+        "rewriteCount": 0,
+        "note": "first-run-no-prior-artifacts"
+      }
+    }
+  ]
+}
