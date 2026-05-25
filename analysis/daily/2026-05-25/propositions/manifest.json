@@ -1,0 +1,52 @@
+{
+  "articleType": "propositions",
+  "dataMode": "degraded-feeds",
+  "degradationFactor": 0.80,
+  "generatedAt": "2026-05-25T07:04:22Z",
+  "runId": "propositions-run270-1779690906",
+  "history": [
+    {
+      "runId": "propositions-run270-1779690906",
+      "startedAt": "2026-05-25T00:00:00Z",
+      "completedAt": "2026-05-25T07:04:22Z",
+      "dataMode": "degraded-feeds",
+      "artifactCount": 24,
+      "pass2": {
+        "rewriteCount": 24,
+        "startedAt": "2026-05-25T00:00:00Z",
+        "endedAt": "2026-05-25T07:04:22Z"
+      }
+    }
+  ],
+  "pass2": {
+    "rewriteCount": 24,
+    "startedAt": "2026-05-25T00:00:00Z",
+    "endedAt": "2026-05-25T07:04:22Z"
+  },
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "data-availability-assessment": "data-availability-assessment.md",
+    "intelligence/analysis-index": "intelligence/analysis-index.md",
+    "intelligence/synthesis-summary": "intelligence/synthesis-summary.md",
+    "intelligence/historical-baseline": "intelligence/historical-baseline.md",
+    "intelligence/economic-context": "intelligence/economic-context.md",
+    "intelligence/economic-context.fallback": "intelligence/economic-context.fallback.md",
+    "intelligence/pestle-analysis": "intelligence/pestle-analysis.md",
+    "intelligence/stakeholder-map": "intelligence/stakeholder-map.md",
+    "intelligence/scenario-forecast": "intelligence/scenario-forecast.md",
+    "intelligence/threat-model": "intelligence/threat-model.md",
+    "intelligence/wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "intelligence/mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "intelligence/reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "intelligence/methodology-reflection": "intelligence/methodology-reflection.md",
+    "intelligence/procedures-proxy": "intelligence/procedures-proxy.md",
+    "intelligence/coalition-dynamics": "intelligence/coalition-dynamics.md",
+    "risk-scoring/risk-matrix": "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "extended/media-framing-analysis": "extended/media-framing-analysis.md",
+    "classification/actor-mapping": "classification/actor-mapping.md",
+    "classification/forces-analysis": "classification/forces-analysis.md",
+    "classification/impact-matrix": "classification/impact-matrix.md",
+    "classification/significance-classification": "classification/significance-classification.md"
+  }
+}
