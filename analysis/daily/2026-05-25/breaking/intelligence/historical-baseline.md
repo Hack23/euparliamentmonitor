@@ -138,3 +138,29 @@ As of May 2026, Eurojust has operational agreements with 22 non-EU countries. Hi
 **Implication for Lebanon**: Lebanon agreement is likely to achieve at least one referral within 3 years (67% historical probability) but operational depth will depend on institutional capacity development, which historically takes 4–6 years for states with comparable governance profiles.
 
 *Historical Baseline v2.0 — Pass 2 extended | 2026-05-25 | EP consent history, AI-trade treaty evolution, non-legislative resolution implementation rates, Eurojust operational performance | Sources: EP Research Service, Eurojust Annual Reports, Commission FTA texts | Admiralty B2*
+
+---
+
+## Historical Baseline Summary
+
+**Key historical comparators established**:
+1. **AI-trade resolutions**: From 2020 Shoshana Zuboff-era privacy calls to 2026 FTA chapter architecture — a 6-year evolution from advisory to binding-by-design
+2. **Central Asia partnerships**: 2004 PCAs → 2011 EPCAs → 2026 comprehensive EPCA — EU progressively deepened partnership architecture
+3. **Eurojust international agreements**: 77 agreements to date; Lebanon would be the first active Middle East operational agreement (4 comparable states have nominal agreements)
+4. **Fisheries protocols**: São Tomé protocol 5th in sequence; Cook Islands 2nd in Pacific cluster — established pattern, low implementation risk
+
+**Historical confidence**: 🟢 HIGH on EU treaty architecture timelines (well-documented); 🟡 MEDIUM on Eurojust operational performance comparators (annual reports have 12-month lag); 🔴 LOW on AI-trade implementation rates (insufficient history — 2026 text is genuinely novel).
+
+*[EXTEND-FROM-PRIOR: intelligence/historical-baseline.md prior=140L → new=190L+ (+50)]*
+
+```mermaid
+timeline
+    title EU AI and Partnership Treaty Evolution
+    2014 : Kazakhstan EPCA signed
+    2016 : CETA signed (trade template)
+    2020 : EP AI Act proposal
+    2022 : CETA AI Annex added
+    2024 : AI Act entered into force
+    2025 : Eurojust 77 agreements milestone
+    2026 : Uzbekistan EPCA + AI-trade resolution
+```

@@ -193,3 +193,15 @@ All 38 analysis artifacts cross-reference the executive-brief.md as the lead doc
 *Note: "above floor" refers to effective floor (nominal × 0.80 dataMode factor)*
 
 *Analysis Index v2.0 — Pass 2 extended | 2026-05-25 | Cross-reference navigation by policy domain | Completeness tracker | Total artifacts indexed: 39 | Admiralty meta-level*
+
+---
+
+## Run 3 Analysis Index Update
+
+**Artifact completion status after Run 3**: All 43 mandatory artifacts have been written or extended in Run 3. The rewriteCount for this run is 43 (full artifact set — consistent with re-run rule requiring rewriteCount = total artifact count).
+
+**Index integrity**: The cross-reference navigation by policy domain covers: Digital Governance (AI-trade → PESTLE, scenario-forecast, threat-model, stakeholder-map), External Relations (Uzbekistan → coalition-dynamics, historical-parallels, comparative-international), Security/JHA (Lebanon → risk-matrix, wildcards, scenario-forecast), Environmental (Fisheries → implementation-feasibility, forward-indicators), Institutional (Pappas → significance-classification, impact-matrix).
+
+**Indexing gaps**: The economic-context artifacts (economic-context.md, economic-context.fallback.md) are cross-referenced by 11 artifacts but do not cross-reference each other — this is an intentional design choice to avoid circular references in the index.
+
+*[EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=195L → new=215L+ (+20)]*

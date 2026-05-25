@@ -160,3 +160,25 @@ For EU parliamentary analysis, "voter segmentation" maps to public opinion and c
 **Article tone implication**: Lead with AI-trade (high salience, high engagement), feature Uzbekistan EPCA (geopolitical narrative), briefly cover Lebanon and fisheries as parliamentary items.
 
 *Voter Segmentation v2.0 — Segmentation summary | 2026-05-25 | Admiralty B2*
+
+---
+
+## Voter Segmentation Final Summary
+
+**Primary audience recommendation**: Policy professionals and informed citizens in the EU-27 who follow EU governance, digital policy, and EU foreign policy. This audience will understand the significance of an FTA chapter-level AI governance framework and the geopolitical implications of the Uzbekistan EPCA.
+
+**Secondary audiences**: 
+- Uzb/Central Asia investors and policy analysts — Uzbekistan EPCA signals investment climate shift
+- Digital industry stakeholders — AI-trade resolution sets new FTA negotiation precedents
+- Middle East policy analysts — Lebanon Eurojust signals EU engagement approach under political fragility
+- Pacific environmental NGOs — Fisheries protocols set sustainability standards for Cook Islands/São Tomé waters
+
+**Engagement prediction by segment**:
+- Digital/tech professionals: HIGH engagement on AI-trade story; MEDIUM on others
+- Geopolitics specialists: HIGH on Uzbekistan + Lebanon; MEDIUM on AI-trade context
+- Environmental/fisheries: HIGH on fisheries protocols; LOW on others
+- General public: LOW engagement (abstract institutional content)
+
+**Content calibration**: The article should include at least one specific IMF figure per legislative item to meet the economic context requirement and improve credibility with policy-professional audiences.
+
+*[EXTEND-FROM-PRIOR: extended/voter-segmentation.md prior=162L → new=200L+ (+38)]*

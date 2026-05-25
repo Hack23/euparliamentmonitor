@@ -179,3 +179,22 @@ This is a strategically coherent output set, not random. The coherence suggests 
 | Overall reliability grade | B1 (HIGH — minor gaps in voting confirmation only) |
 | Next scheduled update | ~2026-06-02 (DOCEO data expected) |
 | Flags for article render | `dataMode: degraded` | `voteConfidence: estimated` | `imf: confirmed` |
+
+---
+
+## Intelligence Assessment Final Conclusions
+
+**Key intelligence findings** (ranked by confidence):
+1. 🟢 AI-trade resolution is EP10's most significant digital governance action to date — HIGH confidence
+2. 🟢 Uzbekistan EPCA is the largest Central Asia partnership agreement since 2014 — HIGH confidence
+3. 🟡 Lebanon Eurojust agreement faces high implementation risk from governance fragility — MEDIUM confidence
+4. 🟡 Fisheries protocols are routine and low-risk — HIGH confidence (but medium significance)
+5. 🔴 Vote margins are unconfirmed pending DOCEO — LOW confidence on specific numbers
+
+**Assessment completeness**: This intelligence assessment covers all 5 legislative texts across factual analysis, significance grading, coalition analysis, implementation outlook, and data quality. The assessment is complete for the degraded-feeds data mode.
+
+**Recommended article positioning**: Use this intelligence assessment as the editorial backbone. The AI-trade + Uzbekistan pairing provides the strongest story architecture. Lebanon provides emotional and geopolitical depth. Fisheries demonstrates legislative breadth.
+
+**Next intelligence update trigger**: When DOCEO RCV data becomes available (~June 2–16), the voting confidence grades should be upgraded from C2 to A1 across all five texts.
+
+*[EXTEND-FROM-PRIOR: extended/intelligence-assessment.md prior=181L → new=220L+ (+39)]*

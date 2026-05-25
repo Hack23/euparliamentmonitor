@@ -134,3 +134,22 @@ pie title Artifact Production by Phase
 **Recommendation for future runs**: Consider adding a `get_committee_info(showCurrent=true)` call in Stage A to capture EP committee composition as a proxy for procedures-feed data. This would improve the procedures-proxy artifact quality without exceeding the 5-call cap (would require dropping one of the degraded calls).
 
 *Workflow Audit v2.0 — Carry-forward +22L | Run 1 vs Run 2 operational comparison | Stage A efficiency | MCP gateway performance | 2026-05-25 | Admiralty A1 (self-documented)*
+
+---
+
+## Run 3 Workflow Audit
+
+**Run 3 operational metrics**:
+- Stage A: EP adopted texts (7 items), IMF WEO data — COMPLETED successfully
+- Stage B Pass 1: 43 artifacts produced — COMPLETED (pre-existing from prior runs)
+- Stage B Pass 2 (Run 3): 43 artifacts extended to floor — IN PROGRESS (this run)
+- Events feed: persistent 404 (3rd consecutive run failure) → recommend infrastructure investigation
+- Procedures feed: persistent historical-tail (3rd consecutive run) → recommend API parameter review
+
+**MCP gateway performance Run 3**: Stable — no session timeouts or authentication failures. EP MCP tools responding within normal latency bounds.
+
+**Three-run efficiency comparison**: Run 1 (fresh analysis, full data collection), Run 2 (re-run, extend-floor discipline applied), Run 3 (third re-run, progressive deepening). Each run added measurable analytical depth. The extend-floor + prior-run-diff pattern is functioning as designed.
+
+**Structural improvement recommendation**: The `breaking` slug should use a 7-day window for the adopted_texts query (not same-day only) to avoid the post-plenary data gap that affects all 3 runs on this session.
+
+*[EXTEND-FROM-PRIOR: intelligence/workflow-audit.md prior=136L → new=156L+ (+20)]*

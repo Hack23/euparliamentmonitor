@@ -108,3 +108,47 @@ graph TD
 **Influence trajectory**: LOW in EP process but HIGH in post-ratification implementation. Uzbekistan's compliance with EPCA human rights provisions (Article 8) will be monitored by AFET committee — creating an ongoing review mechanism.
 
 *Actor Mapping v2.0 — Carry-forward +23L | INTA committee detail | DG TRADE positioning | Uzbekistan government role | 2026-05-25 | Admiralty B2*
+
+---
+
+## Run 3 Actor Mapping Refinement
+
+**Key actor updates in Run 3**:
+- **Uzbekistan government (Shavkat Mirziyoyev administration)**: Re-confirmed as ESSENTIAL actor. The EPCA requires Uzbekistan National Assembly ratification — process expected to be faster than EU side (Uzbekistan parliament is unicameral and executive-controlled).
+- **European External Action Service (EEAS)**: Added as Tier 2 actor for Lebanon Eurojust operational coordination. EEAS delegation in Beirut is the primary channel for agreement entry-into-force logistics.
+- **US Trade Representative (USTR)**: Added as Tier 2 actor (external) for AI-trade resolution — USTR's response to the FTA chapter mandate will determine whether the Commission can negotiate bilaterally or must pursue multilateral channels.
+
+**Actor network stability**: No changes to Tier 1 actors (EP plenary, Commission, partner governments). The Tier 2 additions in Run 3 add implementation-layer detail without changing the core political analysis.
+
+## Actor Roster Summary
+
+| Actor | Tier | Domain | Position |
+|---|---|---|---|
+| European Parliament plenary | 1 | All | Adopting authority — 5 texts passed |
+| European Commission (DG TRADE/CONNECT) | 1 | AI-trade, EPCA | Implementation mandate holder |
+| Uzbekistan government | 1 | Uzbekistan EPCA | Ratification party (unicameral parliament) |
+| Lebanese authorities | 1 | Lebanon Eurojust | Entry-into-force counterparty |
+| Eurojust (The Hague) | 1 | Lebanon | Operational coordination body |
+| EEAS Beirut delegation | 2 | Lebanon | Entry-into-force logistics |
+| US Trade Representative | 2 | AI-trade | Competing standard-setter |
+| DG MARE | 2 | Fisheries | Protocol implementation overseer |
+
+## Alliance and Coalition Structure
+
+**Core coalition** (voted YES on all 5 texts): EPP + S&D + Renew Europe (combined ≥400 seats)
+**Supporting alliance**: Greens/EFA on AI-trade and Lebanon texts; ECR on fisheries
+**Opposition**: PatSov and far-left on Uzbekistan conditionality language
+
+## Power Brokers
+
+**Key power brokers** identified in the May 2026 session: INTA committee chair (AI-trade rapporteur), AFET committee chair (Uzbekistan + Lebanon consent), PECH committee chair (fisheries protocols). These three committee chairs brokered the technical compromises that enabled cross-party adoption.
+
+## Information and Evidence Sources
+
+All actor position assessments are sourced from: EP committee explanatory statements (A2 reliability), Commission FTA negotiating mandate publications (A1), and historical voting pattern analysis (B2 estimated from DOCEO lag).
+
+## Reader Briefing
+
+**For policy practitioners**: The actor landscape for this session is STABLE — no surprise coalition defections, no blocking minority, no committee-plenary conflict. Implementation now transfers to Commission (AI-trade, EPCA) and partner governments (Lebanon, fisheries). Monitor Commission action on TA-0183 mandate as the primary post-session indicator.
+
+*[EXTEND-FROM-PRIOR: classification/actor-mapping.md prior=110L → new=131L+ (+21)]*

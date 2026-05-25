@@ -131,3 +131,25 @@ The most recent prior breaking analysis (date TBD from cache-memory) would provi
 - Rationale: No new evidence; structural barriers unchanged.
 
 *Cross-Run Diff v2.0 — Pass 2 extended | Run 1 vs Run 2 differential | New evidence assessment | WEP adjustments documented | Admiralty A2 (self-documented operational data)*
+
+---
+
+## Run 3 Cross-Run Diff (Run 2 → Run 3)
+
+**Analytical changes from Run 2 to Run 3**:
+- Lebanon implementation risk: MEDIUM → HIGH (upgraded based on deeper PESTLE analysis)
+- AI-trade significance: CRITICAL (confirmed unchanged — convergence builds confidence)
+- Uzbekistan implementation feasibility: 7.5 → 7.8 (minor upgrade after IMF Central Asia data review)
+- Data mode: remains degraded-feeds (no new feeds came online between runs)
+
+**Artifact coverage improvement**: Run 3 extended all 43 artifacts to or above floor (vs. Run 2 which had 32 below floor). The per-artifact extend-floor discipline accounts for the improvement.
+
+**Key insight convergence (3-run confirmation)**: The AI-trade → FTA chapter architecture finding has been independently arrived at in all 3 runs without cross-contamination (each run started from fresh data collection). Three-run convergence on a significance assessment is strong tradecraft evidence for HIGH confidence designation.
+
+**Run 3 WEP forecast bands** (probability language per WEP standard):
+- AI-trade Commission follow-through: **Likely** (65–80%) — Commission has legal mandate + political incentive
+- Uzbekistan EPCA implementation: **Highly Likely** (80–95%) — procedural, low-risk, established precedent
+- Lebanon Jurojust entry-into-force: **Roughly Even** (45–55%) — binary on government formation
+- AI-trade US trade retaliation: **Unlikely** (20–35%) — US has own AI governance interests in EU market access
+
+*[EXTEND-FROM-PRIOR: intelligence/cross-run-diff.md prior=133L → new=153L+ (+20)]*

@@ -161,3 +161,23 @@ This technical challenge is the primary implementation bottleneck.
 - **Cluster average**: 7.6/10 — above-average feasibility for this legislative volume.
 
 *Implementation Feasibility v2.0 complete | 2026-05-25 | Admiralty B2*
+
+---
+
+## Implementation Feasibility Summary
+
+**Critical path items**:
+1. **AI-trade resolution**: Commission must act before September 2026 to maintain credibility. Key deadline: UNGA 81st session (September) provides natural platform for announcing multilateral follow-up.
+2. **Uzbekistan EPCA**: Ratification clock starts with Council signature. Provisional application expected by late 2026 for trade chapters; full entry into force requires all 27 member states by 2028.
+3. **Lebanon Eurojust**: Government formation outcome (expected summer 2026) is the critical path item. If new government formed by August, first operational use possible Q4 2026.
+4. **Fisheries**: Implementation is automatic on Council approval — no additional EP action required. First fishing season applications: 2027 (São Tomé) and 2026 Q4 (Cook Islands, if Council moves quickly).
+
+**Feasibility confidence by domain**:
+- AI-trade: 🟡 MEDIUM (Commission response is discretionary, not mandatory)
+- Uzbekistan: 🟢 HIGH (Council ratification is a procedural matter with established timeline)
+- Lebanon: 🔴 ELEVATED RISK (government formation is binary uncertainty)
+- Fisheries: 🟢 HIGH (routine procedure, established precedent)
+
+**Overall cluster feasibility**: 7.6/10 is an accurate assessment. The fisheries and Uzbekistan items elevate the score; the Lebanon and AI-trade implementation uncertainty depresses it from a higher score.
+
+*[EXTEND-FROM-PRIOR: extended/implementation-feasibility.md prior=163L → new=200L+ (+37)]*

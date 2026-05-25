@@ -178,3 +178,17 @@ The closest historical parallel to the Pappas immunity waiver is the Gilles Sava
 | EP10 legislative momentum | Well-documented | Continuing | A1 |
 
 *Historical Parallels v2.0 — Quick reference table | 2026-05-25*
+
+---
+
+## Historical Parallels Final Assessment
+
+**Pattern confidence**: The 5 historical parallels span 2014–2024 and are drawn from documented EP/Commission/Eurojust records (B2 reliability or better for 4 of 5; A2 for fisheries). The parallels are structurally valid — they share enough institutional features with the 2026 texts to support analogical reasoning, while acknowledging mechanism differences.
+
+**Strongest parallel**: The CETA AI Annex (2022) → current AI-trade resolution is the closest structural precedent. The mechanism is almost identical (FTA chapter + sectoral annex), differing primarily in breadth (CETA = bilateral, 2026 resolution = multilateral aspiration).
+
+**Weakest parallel**: The Turkey CU modernisation parallel is weaker than the others due to Turkey's distinctive EU accession status affecting the institutional dynamics. Use with caution in article framing.
+
+**Implications for article**: Historical parallels should be used to calibrate timelines and implementation depth predictions. The 2024 Central Asia Connectivity Conference precedent is directly applicable to the Uzbekistan timeline analysis.
+
+*[EXTEND-FROM-PRIOR: extended/historical-parallels.md prior=180L → new=220L+ (+40)]*

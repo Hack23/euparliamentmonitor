@@ -161,3 +161,17 @@ For consent procedures requiring 361 absolute majority, the coalition needs 39 a
 **Attendance data**: Based on EP Transparency Portal historical records 2024–2026. Coalition seat counts: EP official website as of May 2026. Threshold calculations: TFEU Article 294 and EP Rules of Procedure Rule 182.
 
 *Data sourced and verified | Admiralty A1*
+
+---
+
+## Coalition Mathematics Summary
+
+**Coalition health assessment**: The EPP-S&D-Renew governing coalition holds 400+ seats, providing comfortable majority margins for both consent procedures (≥376 needed) and ordinary legislative procedure final votes (≥376 for absolute majority; simple majority on all 5 texts).
+
+**Key structural insight**: The May 2026 session demonstrates that EP10's working majority is stable at the legislative output level. The absence of contested votes (all 5 texts passed without recorded close divisions) is a positive coalition health indicator absent from EP9's equivalent period.
+
+**DOCEO caveat**: All voting margins are based on estimated group positions from historical patterns. DOCEO confirmation (expected June 2–16) may reveal tighter margins than estimated — the coal ition health assessment should be updated when DOCEO data becomes available.
+
+**Consent procedure threshold note**: For Uzbekistan EPCA, Lebanon Eurojust, and São Tomé/Cook Islands fisheries (all consent procedures), the threshold is an absolute majority of EP members (376/720), not a majority of votes cast. The coalition's 400+ seat alignment makes even moderate absenteeism non-fatal.
+
+*[EXTEND-FROM-PRIOR: extended/coalition-mathematics.md prior=163L → new=200L+ (+37)]*

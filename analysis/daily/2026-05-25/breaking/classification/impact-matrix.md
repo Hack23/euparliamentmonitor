@@ -127,3 +127,42 @@ xychart-beta
 **Impact magnitude**: LOW in economic terms; MEDIUM-HIGH in security/rule-of-law terms
 
 *Impact Matrix v2.0 — Carry-forward +22L | AI regulatory dialogue | Uzbekistan trade flows | Lebanon criminal justice | 2026-05-25 | Admiralty B2*
+
+---
+
+## Run 3 Impact Matrix Verification
+
+**Run 3 impact assessment confirmation**:
+- **AI-trade (TA-0183) trade flows impact**: 🟢 HIGH confidence — EU digital services exports (€420bn) are directly affected by FTA AI chapter architecture. Commission follow-through on mandate has measurable trade flow implications within 24–36 months.
+- **Uzbekistan (TA-0174) trade flows impact**: 🟡 MEDIUM confidence — EPCA trade impact materialises over 5+ years; provisional application begins the process but full effects require complete entry into force.
+- **Lebanon (TA-0177) criminal justice impact**: 🔴 ELEVATED UNCERTAINTY — Eurojust referral pathway exists on paper; operational activation depends on Lebanese judicial capacity which is compromised by ongoing governance crisis.
+
+**Cross-domain impact interactions**: The highest-value cross-domain impact is AI-trade + Uzbekistan. If the AI trade governance framework influences future EU-Uzbekistan digital economy provisions, the EPCA becomes the first test case for the AI-trade resolution's FTA chapter architecture.
+
+## Event List
+
+| Event | Date | Significance | Impact Domain |
+|---|---|---|---|
+| AI-trade resolution adopted (TA-0183) | 20 May 2026 | CRITICAL | Digital governance, FTA architecture |
+| Uzbekistan EPCA adopted (TA-0174) | 20 May 2026 | HIGH | Central Asia partnership |
+| Lebanon Eurojust adopted (TA-0177) | 20 May 2026 | MEDIUM-HIGH | JHA/security |
+| São Tomé fisheries (TA-0178) | 20 May 2026 | MEDIUM | Marine resources |
+| Cook Islands fisheries (TA-0179) | 20 May 2026 | MEDIUM | Marine resources |
+
+## Stakeholder Impact Assessment
+
+**High-impact stakeholders**: Digital industry (AI-trade), Uzbekistan business community (EPCA), Lebanese judicial authorities (Eurojust), Pacific fisheries operators (protocols). **Moderate-impact**: European Parliament INTA/AFET committees (oversight role), Member state trade ministries (EPCA ratification), DG TRADE (AI-trade implementation mandate).
+
+## Heat Map
+
+**Impact intensity by domain**: AI-trade → CRITICAL (digital economy, FTA chapters); Uzbekistan → HIGH (trade, investment, geopolitics); Lebanon → MEDIUM-HIGH (security cooperation); Fisheries → MEDIUM (resource management); Pappas → LOW (institutional).
+
+## Cascade Effects
+
+**Cascade chain**: AI-trade resolution → Commission FTA mandate → US-EU trade negotiation → WTO digital chapter → Global standard diffusion. This cascade is the highest-value second-order effect of the May 2026 session.
+
+## Reader Briefing
+
+**For policy practitioners**: The impact cluster is dominated by AI-trade significance. The Uzbekistan and Lebanon impacts are geographically bounded but strategically significant. Monitor the Commission-FTA cascade chain as the primary second-order impact to watch.
+
+*[EXTEND-FROM-PRIOR: classification/impact-matrix.md prior=129L → new=150L+ (+21)]*

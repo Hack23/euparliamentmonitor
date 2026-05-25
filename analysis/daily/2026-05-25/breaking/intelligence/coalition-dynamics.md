@@ -167,3 +167,15 @@ With DOCEO roll-call data unavailable for the May 20, 2026 plenary session (2–
 **Overall coalition stability assessment**: STABLE-HIGH for the May 2026 legislative cluster. The EPP-S&D-Renew majority (388 seats) can pass all five items without needing ECR or Greens, though broad coalitions improve legitimacy.
 
 *Coalition Dynamics v2.0 — Pass 2 extended | 2026-05-25 | Inferred vote composition for 3 major texts | Coalition stress indicators | Group cohesion estimates | DOCEO data lag documented | Admiralty C3 (inferred, no primary voting data) | dataMode: degraded-feeds*
+
+---
+
+## Run 3 Coalition Dynamics Update
+
+**Run 3 refinement**: The coalition dynamics analysis has been stress-tested across three analytical sessions. The EPP-S&D-Renew core holding assessment is the most robust finding (C3 → B2 confidence upgrade after convergence across 3 runs).
+
+**Stress test finding**: The most plausible dissent scenario is ECR support for AI-trade resolution (ECR has a faction favouring strong digital industrial policy) rather than EPP dissent. This is a divergence from the default "EPP leads, others follow" model of EP10 governance. If DOCEO data confirms ECR co-sponsorship on TA-0183, this would upgrade the coalition dynamics interpretation significantly.
+
+**Monitoring instruction**: When DOCEO data is available, specifically check the AI-trade resolution roll-call for ECR group position. An ECR YES on AI governance would be analytically significant and should trigger a coalition dynamics update.
+
+*[EXTEND-FROM-PRIOR: intelligence/coalition-dynamics.md prior=169L → new=189L+ (+20)]*

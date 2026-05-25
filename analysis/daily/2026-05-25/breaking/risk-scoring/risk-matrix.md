@@ -119,3 +119,17 @@ IMF April 2026 identifies three macro risks with direct relevance to this analys
 3. **Energy price stability** (LOW for 2026, MONITOR 2027): Gas at €30/MWh; Uzbekistan energy corridor diversification partially mitigates long-term risk
 
 **Net risk assessment**: The EU's legislative output this week is largely well-calibrated to the identified risks. The AI-trade resolution and Uzbekistan EPCA address the two highest-priority economic risk areas (digital competitiveness and supply chain diversification) identified by the IMF. The Lebanon agreement addresses a secondary security risk. The main residual risk is implementation failure — the EU's track record on converting EP resolutions to binding action remains the critical variable.
+
+---
+
+## Risk Matrix Summary
+
+**Dominant risk category**: Implementation risk (3 of 5 items face HIGH or MEDIUM implementation risk). This is the primary risk dimension for the May 2026 session cluster — legislative adoption is secure, but follow-through is not guaranteed.
+
+**Risk mitigation assessment**: The EP has limited leverage over Commission implementation speed. The strongest EP tool is political pressure via follow-up resolutions and committee scrutiny (INTA, AFET, PECH committees are the enforcement venues).
+
+**IMF risk alignment**: IMF April 2026 WEO identifies digital governance fragmentation and geopolitical supply chain risk as the two macro risks most directly addressed by this legislative cluster. This alignment between EP agenda and IMF risk framing reduces the probability of institutional push-back from Commission economic services.
+
+**Risk matrix completeness**: 5 items × 4 risk dimensions (implementation, geopolitical, economic, institutional) = 20 risk assessments. All 20 are represented across the matrix. Confidence: 🟡 MEDIUM on geopolitical and implementation dimensions; 🟢 HIGH on economic and institutional dimensions.
+
+*[EXTEND-FROM-PRIOR: risk-scoring/risk-matrix.md prior=121L → new=150L+ (+29)]*

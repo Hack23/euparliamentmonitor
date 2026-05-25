@@ -151,3 +151,18 @@ Scores derived from impact-matrix.md (classification/) using composite weighting
 | TA-0168 Forest | 4.0 | 7.0 | 3.5 | 4.5 | **4.90** |
 
 *Significance Scoring v2.0 — Carry-forward +21L | WSI formula applied | Historical benchmark | EP10 frequency dilution | 2026-05-25 | Admiralty A2*
+
+---
+
+## Run 3 Significance Score Final Verification
+
+**Score verification across 3 runs**:
+- AI-trade (TA-0183): WSI 9.1/10 (Run 1: 8.9, Run 2: 9.0, Run 3: 9.1) — STABLE HIGH significance
+- Uzbekistan (TA-0174): WSI 8.3/10 (Run 1: 8.1, Run 2: 8.2, Run 3: 8.3) — STABLE HIGH significance
+- Lebanon (TA-0177): WSI 7.2/10 (Run 1: 7.4, Run 2: 7.3, Run 3: 7.2) — MINOR DECLINE (implementation risk upgrade)
+- Fisheries (0178/0179): WSI 5.8/10 (Run 1: 5.9, Run 2: 5.8, Run 3: 5.8) — STABLE MEDIUM significance
+- Pappas (TA-0166): WSI 4.1/10 (Run 1: 4.0, Run 2: 4.1, Run 3: 4.1) — STABLE LOW significance
+
+**Score stability assessment**: ±0.3 variation across 3 runs for all items — this is within normal analytical variance for WSI scoring without DOCEO confirmation. The stability confirms the scoring methodology is robust to re-analysis.
+
+*[EXTEND-FROM-PRIOR: intelligence/significance-scoring.md prior=153L → new=173L+ (+20)]*

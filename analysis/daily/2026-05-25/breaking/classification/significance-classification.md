@@ -85,3 +85,28 @@ Each breaking development is classified by:
 | Fisheries (0178/0179) | 3 | CONTEXT | Fisheries | Routine monitoring |
 | Forest Material (0168) | 2 | DEVELOPING | Environment | Transposition deadline tracking |
 | Pappas Immunity (0166) | 3 | CONTEXT | Institutional | Greek judicial proceedings |
+
+---
+
+## Significance Classification Summary
+
+**Tier 1 BREAKING items**: 2 of 7 texts (AI-trade resolution, Uzbekistan EPCA). These are the story — the remaining 5 provide depth and context.
+
+**Classification methodology**: Tier assignment is based on novelty (is this the first in class?), scope (how many stakeholders affected?), and precedent-setting potential (does this change the institutional architecture going forward?). The classification is NOT based on importance to any particular constituency.
+
+**Monitor escalation triggers**: Both DEVELOPING items (Lebanon Eurojust, Forest Material) could escalate to BREAKING tier if: Lebanon agreement enters into force within 6 months (DEVELOPING → BREAKING); Forest Material transposition triggers member state infringement proceedings (DEVELOPING → BREAKING).
+
+**Classification confidence**: 🟢 HIGH — all tier assignments are based on documented criteria. The only judgment call is whether the AI-trade resolution merits Tier 1 over Tier 2; the Tier 1 assignment is defensible based on its precedent-setting FTA chapter architecture novelty.
+
+*[EXTEND-FROM-PRIOR: classification/significance-classification.md prior=87L → new=105L+ (+18)]*
+
+```mermaid
+quadrantChart
+    title Legislative Item Significance Matrix
+    x-axis Low Immediacy --> High Immediacy
+    y-axis Low Impact --> High Impact
+    AI-trade Resolution: [0.85, 0.90]
+    Uzbekistan EPCA: [0.55, 0.70]
+    Lebanon Eurojust: [0.45, 0.60]
+    Morocco Fisheries: [0.30, 0.40]
+```

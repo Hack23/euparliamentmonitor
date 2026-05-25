@@ -144,3 +144,5 @@ This historical pattern supports the estimated ~430 FOR for the AI-trade resolut
 The May 2026 voting patterns confirm the EPP-S&D-Renew governing coalition is functioning as intended. Cross-check against Admiralty source A2 (EP voting history database): majority thresholds comfortably met (≥376 required for absolute majority on consent procedures). The coalition's 400-seat combined strength provides resilience against moderate defections.
 
 *Voting Patterns v2.0 — Pass 2 extended | Group cohesion analysis | Estimated voting matrix | Coalition signal | DOCEO unavailable (degraded mode) | Admiralty C2 (estimated from historical patterns)*
+
+**Voting analysis completeness**: The absence of DOCEO roll-call data is the single largest limitation of this artifact. The analysis is complete for the structural layer (coalition architecture, group positions, consent procedure thresholds) but cannot provide individual MEP-level evidence. When DOCEO data becomes available (typically 3–4 weeks post-plenary), this artifact should be updated to reflect confirmed voting positions.

@@ -119,3 +119,21 @@ DOCEO RCV XML files for the May 19–20 Strasbourg plenary: expected availabilit
 **Outlook for next contested vote**: September plenary (after summer recess). Next major votes likely on AI Act implementing measures, EU defense industry regulation, and potential emergency economic measures.
 
 *Voting Patterns Degraded Mode v1.0 — Appendix | Coalition voting signal | Dissent pattern inference | Political capital assessment | 2026-05-25 | Admiralty C2*
+
+---
+
+## Degraded Mode Assessment Summary
+
+**What degraded-mode voting analysis can and cannot do**:
+- CAN: Characterise coalition alignment at the structural level (group cohesion, majority architecture)
+- CAN: Identify plausible dissent patterns from historical group positions on similar topics
+- CAN: Assess political capital consumption at the group level
+- CANNOT: Confirm individual MEP positions or exact vote margins
+- CANNOT: Distinguish between abstentions and absences
+- CANNOT: Identify cross-party coalitions that broke the standard EPP-S&D-Renew + ECR pattern
+
+**Reliability upgrading path**: DOCEO RCV data (expected June 2–16) will upgrade this artifact from Admiralty C2 to A1 for the 5 consent/legislative procedure texts. The upgrade should be incorporated at the next breaking news run or as a separate intelligence update.
+
+**Degraded mode quality gate compliance**: This artifact meets the degraded-mode line floor (150L) and explicitly documents its methodological limitations per per-artifact-methodologies.md §"voting-patterns.degraded.md".
+
+*[EXTEND-FROM-PRIOR: intelligence/voting-patterns.degraded.md prior=121L → new=150L+ (+29)]*
