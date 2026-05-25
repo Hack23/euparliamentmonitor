@@ -2973,6 +2973,1546 @@ Historical and projected EP10 data 2024–2026:
 
 **Admiralty Grade**: B3 — Source credibility B (EP Open Data Portal, authoritative but with 404 degradation); Information quality 3 (partial corroboration from multiple EP endpoints).
 
+### Executive Brief Ar
+
+**التاريخ**: 2026-05-25
+**التشغيل**: committee-reports-run267-1779688077
+**نوع المقال**: committee-reports
+**وضع البيانات**: degraded-feeds (تغذيات 404؛ بيانات استراتيجية جودة عالية)
+**الثقة**: 🟡 MEDIUM | **درجة الأميرالية**: B3
+**نطاق WEP للتقييم الرئيسي**: محتمل (65–80 %)
+
+---
+
+### SATs Applied
+- **Key Assumptions Check**: الافتراضات التوقعية مذكورة في §1
+- **Quality of Information Check**: قيود البيانات معترف بها في §4
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: محتمل (65–80 %)** — يعمل نظام لجان البرلمان الأوروبي في عام 2026 بكثافة غير مسبوقة تاريخياً: يُتوقع عقد 2,363 اجتماعاً للجان (الأعلى على الإطلاق)، مع ارتفاع بنسبة 46.2 % في الأعمال التشريعية مقارنةً بعام 2025 وارتفاع بنسبة 24.2 % في الأسئلة البرلمانية. يحدث هذا النشاط القياسي في ظل تشرذم سياسي أقصى (العدد الفعّال للأحزاب = 6.59، الأعلى في تاريخ البرلمان الأوروبي) وتوزيع معادٍ لرئاسات اللجان (ENVI لصالح ECR، وAFET لصالح PfE).
+
+تُفسَّر المفارقة المركزية — التشرذم الأقصى ينتج إنتاجاً أقصى — بقوى هيكلية: التوسع في الولاية التشريعية للاتحاد الأوروبي بموجب معاهدة لشبونة، والصفقة الصناعية النظيفة (Clean Industrial Deal) والاستراتيجية الأوروبية للصناعة الدفاعية التي تستلزم تنسيقاً مكثفاً عبر لجان متعددة، والتصميم المؤسسي لنظام المقرر الذي يتيح التنفيذ التشريعي الذي يقوده عضو برلمان واحد حتى في البيئات السياسية المتشرذمة.
+
+**Key Assumptions Check**: يفترض هذا التقييم أن الفصل الثاني من عام 2026 يتبع نمط التسارع الموسمي للسنوات النصفية السابقة. أهم افتراض هو عدم وقوع أي صدمة جيوسياسية كبرى (تصعيد أوكراني، أزمة مالية) تعطّل جدول أعمال اللجان في الفصل الثاني من 2026. احتمال بنسبة 20–30 % لاضطراب كبير مدرج ضمن توقعات السيناريوهات.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+استناداً إلى 20 نصاً معتمداً (يناير–أبريل 2026) والإحصاءات المولّدة:
+
+| الأولوية | مجال السياسة | اللجنة الرائدة | الحالة |
+|---------|------------|--------------|--------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, آراء EMPL | مرحلة لجنة — تصويت متوقع الربع الثالث 2026 |
+| 2 | الاستراتيجية الأوروبية للصناعة الدفاعية | AFET/SEDE + BUDG, ITRE | القراءة الأولى جارية |
+| 3 | إجراء ميزانية 2027 | BUDG | القراءة الأولى أكتوبر 2026 |
+| 4 | الإشراف على تطبيق DMA | IMCO | قرار معتمد؛ جارٍ |
+| 5 | المساءلة والدعم لأوكرانيا | AFET + CONT | قرارات متعددة معتمدة؛ جارية |
+| 6 | EU-Mercosur | INTA | طُلب رأي CJE؛ العملية معلّقة |
+| 7 | تدابير تنفيذ قانون الذكاء الاصطناعي | IMCO + LIBE | رقابة جارية |
+| 8 | قانون استعادة الطبيعة | ENVI | مراجعة تحت رئاسة ECR |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+أفرز توزيع رئاسات اللجان في EP10 وفق حساب D'Hondt نتيجتين ذواتَي أهمية سياسية:
+
+**ENVI تحت قيادة ECR** (حزب برادري إيطاليا لميلوني): لجنة البيئة التي دفعت تشريعات الصفقة الخضراء في EP9 تتولى رئاستها الآن مجموعة ترى في الأهداف المناخية عيباً تنافسياً. النتيجة الملحوظة: مراجعة قانون استعادة الطبيعة ولوائح الاستخدام المستدام لمبيدات الآفات وجميع تعديلات الصفقة الصناعية النظيفة التي تقودها ENVI تنطلق من خط أساس أكثر محافظة من نظيراتها في EP9. حملات المنظمات غير الحكومية المضادة مكثّفة.
+
+**AFET تحت قيادة PfE** (فيدز أوربان + التجمع الوطني لمارين لوبان + ليغا): لجنة الشؤون الخارجية التي تعالج القرارات الجيوسياسية للبرلمان الأوروبي تتولى رئاستها مجموعة لديها أسباب هيكلية لتلطيف لغة التضامن مع أوكرانيا. الشواهد: خمسة نصوص للسياسة الخارجية معتمدة يناير–أبريل 2026 — من مساءلة أوكرانيا إلى الصمود الديمقراطي لأرمينيا — جميعها تطلّبت التحايل على الرئيس لا العمل من خلاله.
+
+**الاستنتاج** (WEP: محتمل، 65–75 %): سينتج EP10 تشريعات مناخية أقل طموحاً وقرارات أقل وضوحاً في دعم أوكرانيا مقارنةً بـ EP9 — ليس لأن أغلبيات الجلسة العامة تحولت جذرياً، بل لأن مرحلة صياغة اللجنة تنطلق من خط أساس أكثر محافظة.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+يعمل هذا التشغيل في **وضع تغذية بيانات متدهور** (معامل الحد الأدنى: 0.80). أعادت جميع نقاط نهاية التغذية الدفعية POST الأربعة لبوابة البيانات المفتوحة للبرلمان الأوروبي HTTP 404:
+- `committee-documents-feed`: 404
+- `procedures-feed`: بيانات تاريخية فحسب (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**المصادر التعويضية المستخدمة**: 20 نصاً معتمداً (يناير–أبريل 2026) + إحصاءات مولّدة من البرلمان الأوروبي (ثقة عالية، تحديث أسبوعي) + 20 وثيقة للجنة AFCO (جودة بيانات وصفية منخفضة).
+
+**الفجوة الاستخباراتية**: لا تتوفر أنشطة محددة للجان أو تصويتات أو قرارات من الأسبوع الممتد بين 2026-05-18 و2026-05-25. يقدم التحليل استخبارات استراتيجية حول ديناميكيات لجان EP10 لا تقارير أحداث أسبوعية.
+
+---
+
+### 5. Key Signals to Watch
+
+| الإشارة | الأهمية | الإطار الزمني |
+|--------|---------|--------------|
+| تصويت لجنة ITRE على Clean Industrial Deal | أكبر حدث للجنة في 2026 | الربع الثالث 2026 |
+| اعتماد BUDG قراءة أولى لميزانية 2027 | الموعد النهائي المؤسسي السنوي | أكتوبر 2026 |
+| رأي المحامي العام CJE بشأن EU-Mercosur | قد يعرقل أكبر صفقة تجارية معلقة للاتحاد الأوروبي | 12–18 شهراً |
+| إعلانات تحقيق DMA للمفوضية | متابعة قرار IMCO | الربع الثالث–الرابع 2026 |
+| نقاشات اندماج مجموعة ECR-PfE | ستعيد هيكلة جميع رئاسات اللجان | جارٍ |
+| استعادة تغذيات بوابة البيانات المفتوحة للبرلمان الأوروبي | ستعيد الاستخبارات الفورية للجان | غير معروف |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| اللجنة | التقييم بسطر واحد |
+|--------|-----------------|
+| ITRE | سينتج نجاح أو فشل Clean Industrial Deal التشريعي إرث هذه اللجنة في EP10 |
+| ECON | دور رقابة نقدية مستقر؛ تقدم اتحاد أسواق رأس المال أبطأ من EP9 |
+| AFET | تنتج قرارات قوية بشأن أوكرانيا رغم رئاسة PfE — توتر هيكلي مرئي |
+| ENVI | رئاسة ECR تلطّف الطموح المناخي؛ حملات المنظمات غير الحكومية مكثّفة |
+| INTA | طلب رأي CJE لـ EU-Mercosur يُشير إلى توجه حمائي تحت رئاسة ECR |
+| BUDG | ميزانية 2027 على المسار؛ معمارية تمويل EDIS محل خلاف |
+| IMCO | قرار تطبيق DMA يُنشئ دوراً جديداً للرقابة البرلمانية |
+| LIBE | رئاسة RE تدافع عن مشروطية سيادة القانون؛ الهجرة لا تزال محل خلاف |
+| EMPL | مسؤولية التعاقد من الباطن (TA-10-2026-0050) تُظهر قدرة S&D على تقديم التشريعات الاجتماعية |
+| CONT | رقابة محاسبة قروض البنك الأوروبي للاستثمار وأوكرانيا بكثافة عالية |
+| AGRI | رفاهية الكلاب/القطط (TA-10-2026-0115) نجاح لحماية المستهلك عبر الكتل |
+| AFCO | إصلاح قانون الانتخاب — عقبات التصديق في الدول الأعضاء قائمة |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+نظام لجان البرلمان الأوروبي في عام 2026 هو في آنٍ واحد الأكثر نشاطاً (من حيث وتيرة الاجتماعات والإنتاج التشريعي) والأكثر جدلاً سياسياً (من حيث التشرذم وتوزيع الرئاسات على الكتلة اليمينية) في تاريخ البرلمان الأوروبي. تُختبر المرونة الهيكلية للمؤسسة — نظام المقرر، خبرة الأمانة العامة، متطلبات الأغلبية المطلقة — على نطاق واسع.
+
+**WEP (محتمل، 65–80 %)**: ستُقدّم لجان EP10 إنتاجاً تشريعياً ذا أهمية تاريخية في 2026، يرتكز على Clean Industrial Deal وEDIS. سيكون الإنتاج أكثر محافظة في طموحه المناخي وأكثر غموضاً في تأطيره لأوكرانيا مقارنةً بالإنتاج النصفي المقابل لـ EP9. تظل الوظيفة الديمقراطية لنظام اللجان سليمة؛ توجهه السياسي قد تحوّل.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**لصانعي السياسات والصحفيين ومتابعي الاتحاد الأوروبي**: ثلاثة استنتاجات من الاستخبارات البرلمانية الأسبوعية للجان البرلمان الأوروبي:
+
+1. **القياس لا يعني الجذرية**: تنتج لجان EP10 بإيقاع تاريخي، لكن التوجه السياسي تحت رئاسات ECR/PfE أكثر محافظةً من EP9 في المناخ وأكثر تحفظاً في السياسة الخارجية. الإنتاج الأقصى + التوجه المحافظ = مفارقة EP10.
+
+2. **CID هو الحدث التشريعي المحوري لعام 2026**: كل ما عداه — EDIS، ميزانية 2027، السياسة التجارية — إما ثانوي أو مشروط بنتيجة CID. راقب ITRE للحصول على إشارات حول ما ستبدو عليه نسخة CID النهائية.
+
+3. **فجوة البيانات حقيقية**: أُنتج هذا التحليل في ظروف تغذية متدهورة (أعادت جميع نقاط نهاية دفعة API للبرلمان الأوروبي الأربع 404). الاستخبارات الاستراتيجية متينة؛ أما استخبارات اللجان الأسبوعية فغير متاحة. تستوجب البنية التحتية لبوابة البيانات المفتوحة للبرلمان الأوروبي الانتباه.
+
+**درجة الأميرالية**: B3 إجمالاً | **الثقة**: MEDIUM | **WEP للتقييم الرئيسي**: محتمل (65–80 %)
+
+### Executive Brief Da
+
+### SATs Applied
+- **Key Assumptions Check**: Prognoseforudsætninger angivet i §1
+- **Quality of Information Check**: Databegrænsninger anerkendt i §4
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: SANDSYNLIGT (65–80 %)** — Europa-Parlamentets udvalgssystem opererer i 2026 med historisk enestående intensitet: 2.363 udvalgsmøder er projekteret (det højeste nogensinde registreret), en stigning på 46,2 % i lovgivningsmæssige retsakter sammenlignet med 2025 og en stigning på 24,2 % i parlamentariske spørgsmål. Denne rekordaktivitet finder sted under maksimal politisk fragmentering (Effektivt antal partier = 6,59, det højeste i EP's historie) og fjendtlige udvalgsformandsfordelinger (ENVI til ECR, AFET til PfE).
+
+Det centrale paradoks — maksimal fragmentering der producerer maksimal output — forklares af strukturelle kræfter: det ekspanderende EU-lovgivningsmandatet under Lissabontraktaten, den Rene Industriaftale (Clean Industrial Deal) og den Europæiske Forsvarsindustrielle Strategi der kræver intensiv koordination på tværs af udvalg, samt den institutionelle udformning af ordførerordningen der muliggør lovgivningsleverance drevet af en enkelt MEP selv i fragmenterede politiske miljøer.
+
+**Key Assumptions Check**: Denne vurdering antager, at H2 2026 følger det sæsonmæssige accelerationsmønster fra tidligere halvtidsår. Den mest betydningsfulde antagelse er, at intet større geopolitisk chok (Ukraine-eskalering, finanskrise) forstyrrer H2 2026's udvalgskalender. En sandsynlighed på 20–30 % for en væsentlig forstyrrelse er indregnet i scenarieprognosen.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+Baseret på 20 vedtagne tekster (jan–apr 2026) og genererede statistikker:
+
+| Prioritet | Politikområde | Ledende udvalg | Status |
+|-----------|--------------|----------------|--------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, EMPL-udtalelser | Udvalgsstadie — afstemning forventet Q3 2026 |
+| 2 | Europæisk forsvarsindustriel strategi | AFET/SEDE + BUDG, ITRE | Første behandling i gang |
+| 3 | Budget 2027-procedure | BUDG | Første behandling oktober 2026 |
+| 4 | DMA-håndhævelsesovervågning | IMCO | Beslutning vedtaget; igangværende |
+| 5 | Ukraines ansvarlighed og støtte | AFET + CONT | Adskillige beslutninger vedtaget; igangværende |
+| 6 | EU-Mercosur | INTA | CJE-udtalelse anmodet; processen suspenderet |
+| 7 | AI Act-gennemførelsesforanstaltninger | IMCO + LIBE | Igangværende tilsyn |
+| 8 | Naturgenopretningsloven | ENVI | Revision under ECR-formand |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+EP10's fordeling af udvalgsformandsposterne efter D'Hondt-beregningen resulterede i to politisk betydningsfulde udfald:
+
+**ENVI under ECR** (Melonis Fratelli d'Italia): Miljøudvalget, der under EP9 drev Green Deal-lovgivningen, ledes nu af en gruppe der betragter klimamål som en konkurrencemæssig ulempe. Observerbar konsekvens: revisionen af naturgenopretningsloven, forordningen om bæredygtig anvendelse af pesticider og alle ENVI-ledede Clean Industrial Deal-ændringsforslag udgår fra en mere konservativ baseline end EP9-ækvivalenterne. NGO-modkampagner er intensive.
+
+**AFET under PfE** (Orbáns Fidesz + Marine Le Pens RN + Lega): Udenrigsudvalget, der behandler EP's geopolitiske beslutninger, ledes af en gruppe med strukturelle grunde til at moderere sprog om Ukraine-solidaritet. Bevis: fem udenrigspolitiske tekster vedtaget jan–apr 2026 — fra Ukraines ansvarlighed til demokratisk resiliens i Armenien — krævede alle at arbejde uden om snarere end igennem formanden.
+
+**Implikation** (WEP: SANDSYNLIGT, 65–75 %): EP10 vil producere målbart mindre ambitiøs klimalovgivning og mindre entydigt pro-ukrainske beslutninger end EP9 — ikke fordi plenumflertal har skiftet dramatisk, men fordi udvalgets udformningsstadium udgår fra en mere konservativ baseline.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+Denne kørsel opererer under en **degraderet datafeedstilstand** (gulvfaktor: 0,80). Alle fire EP's Open Data Portal-batchfeed-endepunkter returnerede HTTP 404:
+- `committee-documents-feed`: 404
+- `procedures-feed`: Kun historiske data (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**Kompenserende kilder anvendt**: 20 vedtagne tekster (jan–apr 2026) + EP's genererede statistikker (HØJ konfidens, ugentlig opdatering) + 20 AFCO-udvalgs dokumenter (lav metadatakvalitet).
+
+**Efterretningslakune**: Ingen specifikke udvalgsaktiviteter, afstemninger eller beslutninger fra ugen 2026-05-18 til 2026-05-25 er tilgængelige. Analysen tilvejebringer strategisk efterretning om EP10's udvalgsdynamik snarere end ugespecifik begivenhedsrapportering.
+
+---
+
+### 5. Key Signals to Watch
+
+| Signal | Betydning | Tidsramme |
+|--------|-----------|-----------|
+| ITRE Clean Industrial Deal-udvalgsafstemning | Udvalgets største begivenhed i 2026 | Q3 2026 |
+| BUDG Budget 2027 første behandlingsvedtagelse | Institutionel årsdeadline | Oktober 2026 |
+| CJE generaladvokat-udtalelse om EU-Mercosur | Kan blokere EU's største afventende handelsaftale | 12–18 måneder |
+| Kommissionens DMA-undersøgelsesmeddelelser | IMCO-beslutningens opfølgning | Q3–Q4 2026 |
+| ECR-PfE-gruppefusionsdiskussioner | Ville omstrukturere alle udvalgsformandsposterne | Igangværende |
+| Genopretning af EP's Open Data Portal-feeds | Ville genskabe efterretning om udvalg i realtid | Ukendt |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| Udvalg | Enlinjebedømmelse |
+|--------|------------------|
+| ITRE | Clean Industrial Deals lovgivningsmæssige succes eller fiasko vil definere dette udvalgs EP10-arv |
+| ECON | Stabil monetær tilsynsrolle; Capital Markets Union-fremskridt langsommere end EP9 |
+| AFET | Producerer stærke Ukraine-beslutninger trods PfE-formand — strukturel spænding synlig |
+| ENVI | ECR-formand modererer klimaambition; NGO-kampagner intensive |
+| INTA | EU-Mercosur CJE-anmodning signalerer protektionistisk drejning under ECR-formand |
+| BUDG | Budget 2027 på rette spor; EDIS-finansieringsarkitektur omstridt |
+| IMCO | DMA-håndhævelsesbeslutning skaber ny parlamentarisk tilsynsrolle |
+| LIBE | RE-formand forsvarer retsstatsbetinget finansiering; migration stadig omstridt |
+| EMPL | Underentrepriseansvar (TA-10-2026-0050) viser S&D's evne til at fremme social lovgivning |
+| CONT | EIB og Ukraine-låneansvarlighedsovervågning på høj intensitet |
+| AGRI | Hunde/katte-velfærd (TA-10-2026-0115) som succesfuld forbrugerbeskyttelse på tværs af blokke |
+| AFCO | Valgloven reform — ratifikationshindringer i medlemsstaterne består |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+Europa-Parlamentets udvalgssystem i 2026 er på én gang det mest aktive (hvad angår mødehyppighed og lovgivningsoutput) og det mest politisk omstridte (hvad angår fragmentering og højreblok-tildeling af formandsposterne) i EP's historie. Institutionens strukturelle robusthed — ordførerordningen, sekretariatets ekspertise, absolutte flertalskrav — testes i stor skala.
+
+**WEP (SANDSYNLIGT, 65–80 %)**: EP10's udvalg vil levere en historisk set betydningsfuld lovgivningsoutput i 2026, forankret i Clean Industrial Deal og EDIS. Outputen vil være mere konservativ i sin klimaambition og mere tvetydig i sin Ukraine-framing end EP9's tilsvarende halvtidsoutput. Udvalgssystemets demokratiske funktion forbliver intakt; dets politiske retning har forskudt sig.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**For beslutningstagere, journalister og EU-iagttagere**: Tre pointer fra ugens EP-udvalgsefterretning:
+
+1. **Rekord betyder ikke radikalt**: EP10's udvalg producerer i historisk tempo, men den politiske retning under ECR/PfE-udvalgsformænd er mere konservativ end EP9 på klima og mere forsigtig i udenrigspolitikken. Maksimal output + konservativ retning = EP10-paradokset.
+
+2. **CID er 2026's afgørende lovgivningshændelse**: Alt andet — EDIS, Budget 2027, handelspolitik — er enten sekundært eller betinget af CID's udfald. Hold øje med ITRE for signaler om, hvad det endelige CID vil indebære.
+
+3. **Datagabet er reelt**: Denne analyse blev produceret under degraderede feed-forhold (alle fire EP's API-batchendepunkter returnerede 404). Den strategiske efterretning er robust; den ugespecifikke udvalgsefterretning er ikke tilgængelig. EP's Open Data Portal-infrastruktur kræver opmærksomhed.
+
+**Admiralitetsvurdering**: B3 samlet | **Konfidens**: MEDIUM | **WEP for nøglebedømmelse**: SANDSYNLIGT (65–80 %)
+
+### Executive Brief De
+
+### SATs Applied
+- **Key Assumptions Check**: Prognosenannahmen in §1 angegeben
+- **Quality of Information Check**: Datenbeschränkungen in §4 anerkannt
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: WAHRSCHEINLICH (65–80 %)** — Das Ausschusssystem des Europäischen Parlaments operiert 2026 mit historisch einzigartiger Intensität: 2.363 Ausschusssitzungen sind prognostiziert (der höchste je verzeichnete Wert), ein Anstieg von 46,2 % bei Gesetzgebungsakten im Vergleich zu 2025 und ein Anstieg von 24,2 % bei parlamentarischen Anfragen. Diese Rekordaktivität erfolgt unter Bedingungen maximaler politischer Fragmentierung (Effektive Parteienzahl = 6,59, der höchste Wert in der EP-Geschichte) und feindseligen Ausschussvorsitzzuweisungen (ENVI an ECR, AFET an PfE).
+
+Das zentrale Paradox — maximale Fragmentierung bei gleichzeitig maximaler Leistung — erklärt sich durch strukturelle Kräfte: das expandierende EU-Gesetzgebungsmandat unter dem Vertrag von Lissabon, der Clean Industrial Deal und die Europäische Verteidigungsindustrielle Strategie, die eine intensive Koordination zwischen mehreren Ausschüssen erfordern, sowie die institutionelle Gestaltung des Berichterstattungsystems, das eine von einer einzelnen MEP getriebene legislative Lieferung auch in fragmentierten politischen Umgebungen ermöglicht.
+
+**Key Assumptions Check**: Diese Bewertung geht davon aus, dass H2 2026 dem saisonalen Beschleunigungsmuster früherer Halbzeitjahre folgt. Die bedeutsamste Annahme ist, dass kein größerer geopolitischer Schock (Ukraine-Eskalation, Finanzkrise) den H2 2026-Ausschusskalender stört. Eine Wahrscheinlichkeit von 20–30 % für eine erhebliche Störung ist in die Szenarioprognose eingerechnet.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+Basierend auf 20 angenommenen Texten (Jan.–Apr. 2026) und generierten Statistiken:
+
+| Priorität | Politikbereich | Federführender Ausschuss | Status |
+|-----------|---------------|--------------------------|--------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, EMPL-Stellungnahmen | Ausschussphase — Abstimmung Q3 2026 erwartet |
+| 2 | Europäische Verteidigungsindustrielle Strategie | AFET/SEDE + BUDG, ITRE | Erste Lesung im Gange |
+| 3 | Haushaltsverfahren 2027 | BUDG | Erste Lesung Oktober 2026 |
+| 4 | DMA-Durchsetzungsüberwachung | IMCO | Entschließung angenommen; laufend |
+| 5 | Ukraine-Rechenschaftspflicht und -unterstützung | AFET + CONT | Mehrere Entschließungen angenommen; laufend |
+| 6 | EU-Mercosur | INTA | CJE-Stellungnahme beantragt; Verfahren ausgesetzt |
+| 7 | KI-Gesetz Durchführungsmaßnahmen | IMCO + LIBE | Laufende Überwachung |
+| 8 | Naturwiederherstellungsgesetz | ENVI | Überarbeitung unter ECR-Vorsitz |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+Die Zuweisung der Ausschussvorsitze in EP10 nach der D'Hondt-Berechnung hat zwei politisch bedeutsame Ergebnisse hervorgebracht:
+
+**ENVI unter ECR** (Melonis Fratelli d'Italia): Der Umweltausschuss, der in EP9 die Green-Deal-Gesetzgebung vorangetrieben hat, wird nun von einer Gruppe geleitet, die Klimaziele als Wettbewerbsnachteil betrachtet. Beobachtbare Konsequenz: Die Überarbeitung des Naturwiederherstellungsgesetzes, die Verordnung über die nachhaltige Verwendung von Pestiziden und alle von ENVI geleiteten Clean Industrial Deal-Änderungsanträge gehen von einer konservativeren Ausgangslage aus als EP9-Äquivalente. NGO-Gegenkampagnen sind intensiv.
+
+**AFET unter PfE** (Orbáns Fidesz + Marine Le Pens RN + Lega): Der Ausschuss für auswärtige Angelegenheiten, der die geopolitischen Entschließungen des EP behandelt, wird von einer Gruppe geleitet, die strukturelle Gründe hat, die Sprache zur Ukraine-Solidarität zu mäßigen. Belege: Fünf außenpolitische Texte Jan.–Apr. 2026 angenommen — von der Ukraine-Rechenschaftspflicht bis zur demokratischen Resilienz Armeniens — alle erforderten eine Umgehung des Vorsitzes anstatt eine Zusammenarbeit damit.
+
+**Implikation** (WEP: WAHRSCHEINLICH, 65–75 %): EP10 wird messbar weniger ambitionierte Klimagesetzgebung und weniger eindeutig pro-ukrainische Entschließungen produzieren als EP9 — nicht weil sich Plenarmehrheiten dramatisch verschoben haben, sondern weil die Ausschussentwurfsphase von einer konservativeren Ausgangslage aus beginnt.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+Dieser Lauf operiert unter einem **degradierten Datenfeed-Modus** (Bodenfaktor: 0,80). Alle vier EP-Open-Data-Portal-Batch-POST-Feed-Endpunkte gaben HTTP 404 zurück:
+- `committee-documents-feed`: 404
+- `procedures-feed`: Nur historische Daten (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**Verwendete Kompensationsquellen**: 20 angenommene Texte (Jan.–Apr. 2026) + EP-generierte Statistiken (HOHE Konfidenz, wöchentliche Aktualisierung) + 20 AFCO-Ausschussdokumente (geringe Metadatenqualität).
+
+**Nachrichtenlücke**: Keine spezifischen Ausschussaktivitäten, Abstimmungen oder Entscheidungen aus der Woche 2026-05-18 bis 2026-05-25 sind verfügbar. Die Analyse liefert strategische Nachrichtendaten zur EP10-Ausschussdynamik und keine wochenspezifische Ereignisberichterstattung.
+
+---
+
+### 5. Key Signals to Watch
+
+| Signal | Bedeutung | Zeitrahmen |
+|--------|-----------|-----------|
+| ITRE Clean Industrial Deal-Ausschussabstimmung | Größtes Ausschussereignis 2026 | Q3 2026 |
+| BUDG Haushalt 2027 erste Lesung Annahme | Institutionelle Jahresfrist | Oktober 2026 |
+| CJE Generalanwalt-Stellungnahme zu EU-Mercosur | Könnte EU's größtes ausstehende Handelsabkommen blockieren | 12–18 Monate |
+| DMA-Untersuchungsankündigungen der Kommission | IMCO-Entschließung Folgemaßnahmen | Q3–Q4 2026 |
+| ECR-PfE-Gruppenfusionsgespräche | Würde alle Ausschussvorsitze umstrukturieren | Laufend |
+| Wiederherstellung der EP-Open-Data-Portal-Feeds | Würde Echtzeit-Ausschussnachrichten wiederherstellen | Unbekannt |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| Ausschuss | Einzeilen-Bewertung |
+|-----------|---------------------|
+| ITRE | Der legislative Erfolg oder Misserfolg des Clean Industrial Deal wird das EP10-Vermächtnis dieses Ausschusses definieren |
+| ECON | Stabile geldpolitische Überwachungsrolle; Kapitalmarktunion-Fortschritte langsamer als EP9 |
+| AFET | Produziert trotz PfE-Vorsitz starke Ukraine-Entschließungen — strukturelle Spannung sichtbar |
+| ENVI | ECR-Vorsitz mäßigt Klimaambition; NGO-Kampagnen intensiv |
+| INTA | EU-Mercosur CJE-Antrag signalisiert protektionistischen Kurswechsel unter ECR-Vorsitz |
+| BUDG | Haushalt 2027 auf Kurs; EDIS-Finanzierungsarchitektur umstritten |
+| IMCO | DMA-Durchsetzungsentschließung schafft neue parlamentarische Überwachungsrolle |
+| LIBE | RE-Vorsitz verteidigt Rechtsstaatlichkeitskonditionalität; Migration weiterhin umstritten |
+| EMPL | Unterauftragnehmer-Haftung (TA-10-2026-0050) zeigt S&D-Fähigkeit, Sozialgesetzgebung voranzutreiben |
+| CONT | EIB- und Ukraine-Darlehen-Rechenschaftsüberwachung mit hoher Intensität |
+| AGRI | Hunde-/Katzentierschutz (TA-10-2026-0115) als blockübergreifender Verbraucherschutzerfolg |
+| AFCO | Wahlrechtsreform — Ratifizierungshürden in Mitgliedstaaten bestehen fort |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+Das Ausschusssystem des Europäischen Parlaments im Jahr 2026 ist gleichzeitig das aktivste (nach Sitzungshäufigkeit und Gesetzgebungsleistung) und das am stärksten politisch umstrittene (nach Fragmentierung und Rechtsblock-Vorsitzzuweisung) in der EP-Geschichte. Die strukturelle Widerstandsfähigkeit der Institution — Berichterstattungssystem, Sekretariatsexpertise, absolute Mehrheitserfordernisse — wird in großem Maßstab erprobt.
+
+**WEP (WAHRSCHEINLICH, 65–80 %)**: EP10-Ausschüsse werden 2026 eine historisch bedeutsame Gesetzgebungsleistung erbringen, verankert im Clean Industrial Deal und EDIS. Die Leistung wird in ihrer Klimaambition konservativer und in ihrer Ukraine-Rahmung mehrdeutiger sein als das entsprechende Halbzeitergebnis von EP9. Die demokratische Funktion des Ausschusssystems bleibt intakt; seine politische Ausrichtung hat sich verschoben.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**Für Entscheidungsträger, Journalisten und EU-Beobachter**: Drei Erkenntnisse aus der EP-Ausschussnachrichtenlage dieser Woche:
+
+1. **Rekord bedeutet nicht radikal**: EP10-Ausschüsse produzieren in historischem Tempo, aber die politische Ausrichtung unter ECR/PfE-Ausschussvorsitzenden ist konservativer als EP9 beim Klima und vorsichtiger in der Außenpolitik. Maximale Leistung + konservative Ausrichtung = das EP10-Paradox.
+
+2. **Der CID ist das entscheidende Gesetzgebungsereignis des Jahres 2026**: Alles andere — EDIS, Haushalt 2027, Handelspolitik — ist entweder sekundär oder vom CID-Ergebnis abhängig. Beobachten Sie ITRE auf Signale, wie der endgültige CID aussehen wird.
+
+3. **Die Datenlücke ist real**: Diese Analyse wurde unter degradierten Feed-Bedingungen erstellt (alle vier EP-API-Batch-Endpunkte gaben 404 zurück). Die strategischen Nachrichten sind robust; die wochenspezifischen Ausschussnachrichten sind nicht verfügbar. Die EP-Open-Data-Portal-Infrastruktur benötigt Aufmerksamkeit.
+
+**Admiralitätsnote**: B3 gesamt | **Konfidenz**: MEDIUM | **WEP für Kernbewertung**: WAHRSCHEINLICH (65–80 %)
+
+### Executive Brief Es
+
+### SATs Applied
+- **Key Assumptions Check**: Supuestos de proyección expuestos en §1
+- **Quality of Information Check**: Limitaciones de datos reconocidas en §4
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: PROBABLE (65–80 %)** — El sistema de comisiones del Parlamento Europeo opera en 2026 con una intensidad históricamente sin precedentes: se proyectan 2.363 reuniones de comisiones (el valor más alto jamás registrado), un aumento del 46,2 % en actos legislativos en comparación con 2025 y un aumento del 24,2 % en preguntas parlamentarias. Esta actividad récord se produce bajo condiciones de máxima fragmentación política (Número efectivo de partidos = 6,59, el más alto en la historia del PE) y asignaciones hostiles de presidencias de comisiones (ENVI a ECR, AFET a PfE).
+
+La paradoja central — fragmentación máxima produciendo producción máxima — se explica por fuerzas estructurales: el mandato legislativo de la UE en expansión bajo el Tratado de Lisboa, el Clean Industrial Deal y la Estrategia Industrial Europea de Defensa que requieren una coordinación intensiva entre múltiples comisiones, y el diseño institucional del sistema de ponencia que permite la entrega legislativa impulsada por un único eurodiputado incluso en entornos políticos fragmentados.
+
+**Key Assumptions Check**: Esta evaluación asume que el segundo semestre de 2026 sigue el patrón de aceleración estacional de años de mitad de mandato anteriores. El supuesto más significativo es que ningún gran choque geopolítico (escalada en Ucrania, crisis financiera) perturba el calendario de comisiones del segundo semestre de 2026. Una probabilidad del 20–30 % de perturbación significativa está incorporada en la previsión de escenarios.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+Basado en 20 textos adoptados (ene.–abr. 2026) y estadísticas generadas:
+
+| Prioridad | Área política | Comisión líder | Estado |
+|-----------|--------------|----------------|--------|
+| 1 | Clean Industrial Deal | ITRE + ITRE + ENVI, ECON, EMPL dictámenes | Fase de comisión — votación prevista T3 2026 |
+| 2 | Estrategia Industrial Europea de Defensa | AFET/SEDE + BUDG, ITRE | Primera lectura en curso |
+| 3 | Procedimiento presupuestario 2027 | BUDG | Primera lectura octubre 2026 |
+| 4 | Supervisión de la aplicación del DMA | IMCO | Resolución adoptada; en curso |
+| 5 | Responsabilidad y apoyo de Ucrania | AFET + CONT | Varias resoluciones adoptadas; en curso |
+| 6 | UE-Mercosur | INTA | Dictamen CJE solicitado; proceso suspendido |
+| 7 | Medidas de aplicación de la AI Act | IMCO + LIBE | Supervisión en curso |
+| 8 | Ley de Restauración de la Naturaleza | ENVI | Revisión bajo presidencia ECR |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+Las asignaciones de presidencias de comisiones en EP10 tras el cálculo D'Hondt produjeron dos resultados políticamente significativos:
+
+**ENVI bajo ECR** (Fratelli d'Italia de Meloni): La comisión de medio ambiente, que bajo EP9 impulsó la legislación del Pacto Verde, está ahora presidida por un grupo que considera los objetivos climáticos como una desventaja competitiva. Consecuencia observable: la revisión de la Ley de Restauración de la Naturaleza, el Reglamento sobre el uso sostenible de plaguicidas y todas las enmiendas al Clean Industrial Deal lideradas por ENVI parten de una línea de base más conservadora que sus equivalentes en EP9. Las contracampañas de ONG son intensivas.
+
+**AFET bajo PfE** (Fidesz de Orbán + RN de Marine Le Pen + Lega): La comisión de asuntos exteriores, que procesa las resoluciones geopolíticas del PE, está presidida por un grupo con razones estructurales para moderar el lenguaje de solidaridad con Ucrania. Evidencia: cinco textos de política exterior adoptados ene.–abr. 2026 — desde la responsabilidad de Ucrania hasta la resiliencia democrática de Armenia — todos requirieron sortear al presidente en lugar de trabajar a través de él.
+
+**Implicación** (WEP: PROBABLE, 65–75 %): EP10 producirá una legislación climática sensiblemente menos ambiciosa y resoluciones menos inequívocamente pro-ucranianas que EP9 — no porque las mayorías del pleno hayan cambiado dramáticamente, sino porque la fase de redacción en comisión parte de una línea de base más conservadora.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+Esta ejecución opera bajo un **modo de feeds de datos degradado** (factor suelo: 0,80). Los cuatro puntos finales de feeds batch-POST del portal de datos abiertos del PE devolvieron HTTP 404:
+- `committee-documents-feed`: 404
+- `procedures-feed`: Solo datos históricos (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**Fuentes compensatorias utilizadas**: 20 textos adoptados (ene.–abr. 2026) + estadísticas generadas por el PE (confianza ALTA, actualización semanal) + 20 documentos de la comisión AFCO (baja calidad de metadatos).
+
+**Brecha de inteligencia**: No hay actividades específicas de comisión, votaciones o decisiones de la semana del 2026-05-18 al 2026-05-25 disponibles. El análisis proporciona inteligencia estratégica sobre la dinámica de las comisiones EP10 en lugar de informes de eventos semanales específicos.
+
+---
+
+### 5. Key Signals to Watch
+
+| Señal | Importancia | Plazo |
+|-------|-------------|-------|
+| Votación de la comisión ITRE sobre el Clean Industrial Deal | El mayor evento de comisión de 2026 | T3 2026 |
+| Adopción en primera lectura del presupuesto 2027 por BUDG | Fecha límite institucional anual | Octubre 2026 |
+| Dictamen del Abogado General CJE sobre UE-Mercosur | Podría bloquear el mayor acuerdo comercial pendiente de la UE | 12–18 meses |
+| Anuncios de investigaciones DMA de la Comisión | Seguimiento de la resolución IMCO | T3–T4 2026 |
+| Debates sobre fusión de grupos ECR-PfE | Reestructuraría todas las presidencias de comisiones | En curso |
+| Restauración de los feeds del portal de datos abiertos del PE | Restauraría la inteligencia de comisiones en tiempo real | Desconocido |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| Comisión | Evaluación en una línea |
+|---------|------------------------|
+| ITRE | El éxito o fracaso legislativo del Clean Industrial Deal definirá el legado EP10 de esta comisión |
+| ECON | Estable función de supervisión monetaria; progreso de la Unión de Mercados de Capitales más lento que EP9 |
+| AFET | Produce sólidas resoluciones sobre Ucrania a pesar de la presidencia PfE — tensión estructural visible |
+| ENVI | La presidencia ECR modera la ambición climática; campañas de ONG intensivas |
+| INTA | La solicitud de dictamen CJE UE-Mercosur señala un giro proteccionista bajo la presidencia ECR |
+| BUDG | Presupuesto 2027 en camino; arquitectura de financiación EDIS impugnada |
+| IMCO | La resolución de aplicación del DMA crea un nuevo papel de supervisión parlamentaria |
+| LIBE | La presidencia RE defiende la condicionalidad del estado de derecho; la migración sigue siendo controvertida |
+| EMPL | Responsabilidad de subcontratación (TA-10-2026-0050) muestra la capacidad de S&D para impulsar la legislación social |
+| CONT | Supervisión de responsabilidad de préstamos del BEI y Ucrania con alta intensidad |
+| AGRI | Bienestar de perros/gatos (TA-10-2026-0115) como éxito de protección del consumidor inter-bloques |
+| AFCO | Reforma de la Ley Electoral — obstáculos de ratificación en los Estados miembros persisten |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+El sistema de comisiones del Parlamento Europeo en 2026 es simultáneamente el más activo (por frecuencia de reuniones y producción legislativa) y el más políticamente disputado (por fragmentación y asignación de presidencias al bloque de derechas) en la historia del PE. La resiliencia estructural de la institución — sistema de ponencia, experiencia del secretariado, requisitos de mayoría absoluta — se está poniendo a prueba a gran escala.
+
+**WEP (PROBABLE, 65–80 %)**: Las comisiones EP10 entregarán una producción legislativa históricamente significativa en 2026, anclada en el Clean Industrial Deal y el EDIS. La producción será más conservadora en su ambición climática y más ambigua en su encuadre ucraniano que la producción equivalente de mitad de mandato de EP9. La función democrática del sistema de comisiones permanece intacta; su dirección política ha cambiado.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**Para responsables políticos, periodistas y observadores de la UE**: Tres conclusiones de la inteligencia sobre las comisiones del PE de esta semana:
+
+1. **Récord no significa radical**: Las comisiones EP10 producen a un ritmo histórico, pero la dirección política bajo las presidencias ECR/PfE de las comisiones es más conservadora que EP9 en clima y más cautelosa en política exterior. Producción máxima + dirección conservadora = la paradoja EP10.
+
+2. **El CID es el evento legislativo definitorio de 2026**: Todo lo demás — EDIS, Presupuesto 2027, política comercial — es secundario o contingente al resultado del CID. Observe ITRE para obtener señales sobre cómo será el CID final.
+
+3. **La brecha de datos es real**: Este análisis fue producido bajo condiciones de feeds degradadas (los cuatro puntos finales batch de la API del PE devolvieron 404). La inteligencia estratégica es sólida; la inteligencia semanal específica de comisiones no está disponible. La infraestructura del portal de datos abiertos del PE necesita atención.
+
+**Nota de Almirantazgo**: B3 general | **Confianza**: MEDIUM | **WEP para evaluación clave**: PROBABLE (65–80 %)
+
+### Executive Brief Fi
+
+### SATs Applied
+- **Key Assumptions Check**: Ennusteolettamukset esitetty §1:ssä
+- **Quality of Information Check**: Tietorajoitukset tunnustettu §4:ssä
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: TODENNÄKÖINEN (65–80 %)** — Euroopan parlamentin valiokuntajärjestelmä toimii vuonna 2026 historiallisen poikkeuksellisella intensiteetillä: projektoidaan 2 363 valiokunnan kokousta (korkein koskaan kirjattu), 46,2 %:n kasvu lainsäädäntötoimissa vuoteen 2025 verrattuna ja 24,2 %:n kasvu parlamentaarisissa kysymyksissä. Tämä ennätysaktiivisuus tapahtuu maksimaalisen poliittisen pirstoutumisen olosuhteissa (Puolueiden efektiivinen lukumäärä = 6,59, korkein EP:n historiassa) ja vihamielisten valiokunnan puheenjohtajien jakojen myötä (ENVI ECR:lle, AFET PfE:lle).
+
+Keskeinen paradoksi — maksimaalinen pirstoutuminen tuottaa maksimaalisen tuloksen — selittyy rakenteellisilla voimilla: EU:n lainsäädäntövaltuuksien laajentuminen Lissabonin sopimuksen nojalla, Clean Industrial Deal ja Euroopan puolustus­teollinen strategia, jotka edellyttävät intensiivistä monivaliokuntaista koordinaatiota, sekä esittelijäjärjestelmän institutionaalinen rakenne, joka mahdollistaa yhden MEP:n ohjaaman lainsäädäntötuloksen jopa pirstoutuneissa poliittisissa ympäristöissä.
+
+**Key Assumptions Check**: Tämä arvio olettaa, että H2 2026 seuraa aiempien puolivälin vuosien kausiluonteista kiihtymismallia. Merkittävin olettamus on, että mikään suuri geopoliittinen shokki (Ukrainan eskaloituminen, finanssikriisi) ei häiritse H2 2026:n valiokunnan kalenteria. 20–30 %:n todennäköisyys merkittävälle häiriölle on otettu huomioon skenaariosennusteessa.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+Perustuu 20 hyväksyttyyn tekstiin (tammi–huhtikuu 2026) ja generoituihin tilastoihin:
+
+| Prioriteetti | Politiikka-alue | Johtava valiokunta | Tila |
+|--------------|----------------|-------------------|------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, EMPL-lausunnot | Valiokuntavaihe — äänestys odotettavissa Q3 2026 |
+| 2 | Euroopan puolustus­teollinen strategia | AFET/SEDE + BUDG, ITRE | Ensimmäinen käsittely käynnissä |
+| 3 | Talousarvio 2027 -menettely | BUDG | Ensimmäinen käsittely lokakuuta 2026 |
+| 4 | DMA:n täytäntöönpanon valvonta | IMCO | Päätöslauselma hyväksytty; käynnissä |
+| 5 | Ukrainan vastuullisuus ja tuki | AFET + CONT | Useita päätöslauselmia hyväksytty; käynnissä |
+| 6 | EU-Mercosur | INTA | CJE-lausunto pyydetty; prosessi keskeytetty |
+| 7 | Tekoälylain täytäntöönpanotoimenpiteet | IMCO + LIBE | Käynnissä oleva valvonta |
+| 8 | Luonnonennallistamislaki | ENVI | Tarkistus ECR-puheenjohtajan alaisuudessa |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+EP10:n valiokunnan puheenjohtajien jakaminen D'Hondt-laskelman jälkeen tuotti kaksi poliittisesti merkittävää lopputulosta:
+
+**ENVI ECR:n alaisuudessa** (Melonin Fratelli d'Italia): Ympäristövaliokunta, joka EP9:n aikana ajoi vihreän kehityksen ohjelman lainsäädäntöä, on nyt ryhmän johdossa, joka pitää ilmastotavoitteita kilpailuhaittana. Havaittava seuraus: luonnonennallistamislain tarkistus, torjunta-aineiden kestävää käyttöä koskeva asetus ja kaikki ENVI-johtoiset Clean Industrial Deal -muutokset lähtevät konservatiivisemmasta lähtökohdasta kuin EP9:n vastaavat. Kansalaisjärjestöjen vastakampanjat ovat intensiivisiä.
+
+**AFET PfE:n alaisuudessa** (Orbánin Fidesz + Marine Le Penin RN + Lega): Ulkoasiainvaliokunta, joka käsittelee EP:n geopoliittisia päätöslauselmia, on ryhmän johdossa, jolla on rakenteellisia syitä lieventää Ukraina-solidaarisuuden kieltä. Todisteet: viisi ulkosuhteita koskevaa tekstiä hyväksytty tammi–huhtikuuta 2026 — Ukrainan vastuullisuudesta Armenian demokraattiseen resilienssiin — kaikki edellyttivät puheenjohtajan kiertämistä eikä sen kautta toimimista.
+
+**Vaikutus** (WEP: TODENNÄKÖINEN, 65–75 %): EP10 tuottaa mitattavasti vähemmän kunnianhimoista ilmastolainsäädäntöä ja vähemmän yksiselitteisesti Ukrainaa tukevia päätöslauselmia kuin EP9 — ei siksi, että täysistuntoenemmistöt olisivat muuttuneet dramaattisesti, vaan siksi, että valiokunnan laadintavaihe lähtee konservatiivisemmasta lähtökohdasta.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+Tämä ajo toimii **heikentyneessä tietosyötteen tilassa** (lattiakerroin: 0,80). Kaikki neljä EP:n Open Data Portal -erä-POST-syötteen päätepistettä palauttivat HTTP 404:
+- `committee-documents-feed`: 404
+- `procedures-feed`: Vain historialliset tiedot (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**Käytetyt kompensoivat lähteet**: 20 hyväksyttyä tekstiä (tammi–huhtikuu 2026) + EP:n generoidut tilastot (KORKEA luottamus, viikoittainen päivitys) + 20 AFCO-valiokunnan asiakirjaa (matala metadatan laatu).
+
+**Tiedusteluaukko**: Mitään tiettyjä valiokunnan toimintoja, äänestyksiä tai päätöksiä viikolta 2026-05-18–2026-05-25 ei ole saatavilla. Analyysi tarjoaa strategista tiedustelua EP10:n valiokuntadynamiikasta eikä viikkokohtaista tapahtumaraportointia.
+
+---
+
+### 5. Key Signals to Watch
+
+| Signaali | Merkitys | Aikajänne |
+|----------|----------|-----------|
+| ITRE Clean Industrial Deal -valiokunnan äänestys | Valiokunnan tärkein tapahtuma vuonna 2026 | Q3 2026 |
+| BUDG Talousarvio 2027 ensimmäisen käsittelyn hyväksyminen | Institutionaalinen vuosittainen määräaika | Lokakuu 2026 |
+| CJE:n julkisasiamiehen lausunto EU-Mercosurista | Voi estää EU:n suurimman vireillä olevan kauppasopimuksen | 12–18 kuukautta |
+| Komission DMA-tutkimusilmoitukset | IMCO:n päätöslauselman seuranta | Q3–Q4 2026 |
+| ECR-PfE:n ryhmäfuusiokeskustelut | Uudelleenrakentaisi kaikki valiokunnan puheenjohtajuudet | Käynnissä |
+| EP:n Open Data Portal -syötteiden palauttaminen | Palauttaisi reaaliaikaisen valiokuntatieto­tiedustelun | Tuntematon |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| Valiokunta | Yhden rivin arvio |
+|------------|------------------|
+| ITRE | Clean Industrial Dealin lainsäädännöllinen onnistuminen tai epäonnistuminen määrittelee tämän valiokunnan EP10-perinnön |
+| ECON | Vakaa rahatalouden valvontarooli; Capital Markets Unionin edistyminen hitaampaa kuin EP9 |
+| AFET | Tuottaa vahvoja Ukraina-päätöslauselmia PfE-puheenjohtajasta huolimatta — rakenteellinen jännite näkyvissä |
+| ENVI | ECR-puheenjohtaja lieventää ilmastokunnianhimoa; kansalaisjärjestökampanjat intensiivisiä |
+| INTA | EU-Mercosur CJE-pyyntö merkitsee protektionistista käännettä ECR-puheenjohtajan alaisuudessa |
+| BUDG | Talousarvio 2027 oikealla tiellä; EDIS-rahoitusarkkitehtuuri kiistelty |
+| IMCO | DMA:n täytäntöönpanon päätöslauselma luo uuden parlamentaarisen valvontaroolin |
+| LIBE | RE-puheenjohtaja puolustaa oikeusvaltioperiaatteen mukaista rahoitusta; muuttoliike edelleen kiistanalainen |
+| EMPL | Alihankintavastuu (TA-10-2026-0050) osoittaa S&D:n kyvyn edistää sosiaalista lainsäädäntöä |
+| CONT | EIB:n ja Ukraina-lainan vastuullisuuden seuranta korkealla intensiteetillä |
+| AGRI | Koirien/kissojen hyvinvointi (TA-10-2026-0115) puolueiden välisensä kuluttajansuojan menestystarina |
+| AFCO | Vaalilain uudistus — ratifiointiesteet jäsenvaltioissa säilyvät |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+Euroopan parlamentin valiokuntajärjestelmä vuonna 2026 on samanaikaisesti aktiivisin (kokoushäufyyden ja lainsäädäntötuotoksen suhteen) ja poliittisesti kiistanalaisin (pirstoutumisen ja oikeisto­blokin puheenjohtajuuksien jaon suhteen) EP:n historiassa. Instituution rakenteellinen kestävyys — esittelijäjärjestelmä, sihteeristön asiantuntemus, absoluuttiset enemmistövaatimukset — on koetuksella laajassa mittakaavassa.
+
+**WEP (TODENNÄKÖINEN, 65–80 %)**: EP10:n valiokunnat tuottavat historiallisesti merkittävän lainsäädäntötuotoksen vuonna 2026, ankkuroituna Clean Industrial Dealiin ja EDIS:iin. Tuotos on konservatiivisempaa ilmastokunnianhimoltaan ja epäselvempää Ukraina-kehystykseltään kuin EP9:n vastaava puolivälin tuotos. Valiokuntajärjestelmän demokraattinen tehtävä pysyy ehjänä; sen poliittinen suunta on siirtynyt.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**Päätöksentekijöille, toimittajille ja EU-seuraajille**: Kolme keskeistä havaintoa tämän viikon EP-valiokunta­tiedustelusta:
+
+1. **Ennätys ei tarkoita radikaalia**: EP10:n valiokunnat tuottavat historiallisessa tahdissa, mutta poliittinen suunta ECR/PfE-valiokunnan puheenjohtajien alaisuudessa on konservatiivisempaa kuin EP9 ilmaston osalta ja varovaisempaa ulkopolitiikassa. Maksimaalinen tuotos + konservatiivinen suunta = EP10-paradoksi.
+
+2. **CID on vuoden 2026 ratkaiseva lainsäädäntötapahtuma**: Kaikki muu — EDIS, Talousarvio 2027, kauppapolitiikka — on joko toissijaista tai riippuvaista CID:n lopputuloksesta. Seuraa ITRE:ä saadaksesi signaaleja siitä, miltä lopullinen CID näyttää.
+
+3. **Tietoaukko on todellinen**: Tämä analyysi tuotettiin heikentyneissä syöte-olosuhteissa (kaikki neljä EP:n API-eräpäätepistettä palauttivat 404). Strateginen tiedustelu on vankka; viikkokohtainen valiokuntatieto­tiedustelu ei ole saatavilla. EP:n Open Data Portal -infrastruktuuri kaipaa huomiota.
+
+**Admiraliteettiarvo**: B3 kokonaisuudessaan | **Luottamus**: MEDIUM | **WEP avainarviolle**: TODENNÄKÖINEN (65–80 %)
+
+### Executive Brief Fr
+
+### SATs Applied
+- **Key Assumptions Check** : Hypothèses de projection exposées au §1
+- **Quality of Information Check** : Limites des données reconnues au §4
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP : PROBABLE (65–80 %)** — Le système de commissions du Parlement européen fonctionne en 2026 avec une intensité historiquement sans précédent : 2 363 réunions de commissions sont projetées (le record absolu), une hausse de 46,2 % des actes législatifs par rapport à 2025 et une hausse de 24,2 % des questions parlementaires. Cette activité record survient dans des conditions de fragmentation politique maximale (Nombre effectif de partis = 6,59, le plus élevé de l'histoire du PE) et d'allocations hostiles des présidences de commissions (ENVI à l'ECR, AFET au PfE).
+
+Le paradoxe central — fragmentation maximale produisant une production maximale — s'explique par des forces structurelles : le mandat législatif de l'UE en expansion sous le traité de Lisbonne, le Clean Industrial Deal et la Stratégie industrielle européenne de défense qui nécessitent une coordination intensive entre plusieurs commissions, et la conception institutionnelle du système de rapporteurship qui permet une livraison législative pilotée par un seul député même dans des environnements politiques fractionnés.
+
+**Key Assumptions Check** : Cette évaluation suppose que le second semestre 2026 suit le schéma d'accélération saisonnière des années de mi-mandat précédentes. L'hypothèse la plus importante est qu'aucun choc géopolitique majeur (escalade en Ukraine, crise financière) ne perturbe le calendrier des commissions du second semestre 2026. Une probabilité de 20–30 % de perturbation significative est intégrée dans les prévisions de scénario.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+Basé sur 20 textes adoptés (janv.–avr. 2026) et les statistiques générées :
+
+| Priorité | Domaine politique | Commission cheffe de file | Statut |
+|----------|-------------------|--------------------------|--------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, EMPL avis | Phase de commission — vote attendu T3 2026 |
+| 2 | Stratégie industrielle européenne de défense | AFET/SEDE + BUDG, ITRE | Première lecture en cours |
+| 3 | Procédure budgétaire 2027 | BUDG | Première lecture octobre 2026 |
+| 4 | Suivi de l'application du DMA | IMCO | Résolution adoptée ; en cours |
+| 5 | Responsabilité et soutien pour l'Ukraine | AFET + CONT | Plusieurs résolutions adoptées ; en cours |
+| 6 | UE-Mercosur | INTA | Avis CJE demandé ; procédure suspendue |
+| 7 | Mesures d'application de l'AI Act | IMCO + LIBE | Suivi en cours |
+| 8 | Loi sur la restauration de la nature | ENVI | Révision sous présidence ECR |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+Les attributions des présidences de commissions dans EP10 selon le calcul D'Hondt ont produit deux résultats politiquement significatifs :
+
+**ENVI sous ECR** (Fratelli d'Italia de Meloni) : La commission environnement, qui sous EP9 a porté la législation du Pacte vert, est désormais présidée par un groupe qui considère les objectifs climatiques comme un désavantage compétitif. Conséquence observable : la révision de la loi sur la restauration de la nature, le règlement sur l'utilisation durable des pesticides et tous les amendements au Clean Industrial Deal portés par ENVI partent d'une base de référence plus conservatrice que leurs équivalents EP9. Les contre-campagnes des ONG sont intenses.
+
+**AFET sous PfE** (Fidesz d'Orbán + RN de Marine Le Pen + Lega) : La commission des affaires étrangères, qui traite les résolutions géopolitiques du PE, est présidée par un groupe ayant des raisons structurelles de modérer le langage de solidarité envers l'Ukraine. Preuve : cinq textes de politique étrangère adoptés janv.–avr. 2026 — de la responsabilité de l'Ukraine à la résilience démocratique de l'Arménie — ont tous nécessité de contourner plutôt que de passer par le président.
+
+**Implication** (WEP : PROBABLE, 65–75 %) : EP10 produira une législation climatique sensiblement moins ambitieuse et des résolutions moins clairement pro-ukrainiennes qu'EP9 — non pas parce que les majorités en plénière ont radicalement changé, mais parce que la phase de rédaction en commission part d'une base de référence plus conservatrice.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+Cette exécution fonctionne sous un **mode de flux de données dégradé** (facteur plancher : 0,80). Les quatre points de terminaison de flux batch-POST du portail Open Data du PE ont retourné HTTP 404 :
+- `committee-documents-feed` : 404
+- `procedures-feed` : Données historiques uniquement (1972–1987)
+- `events-feed` : 404
+- `documents-feed` : 404
+
+**Sources compensatoires utilisées** : 20 textes adoptés (janv.–avr. 2026) + statistiques générées par le PE (confiance HAUTE, actualisation hebdomadaire) + 20 documents de la commission AFCO (faible qualité des métadonnées).
+
+**Lacune de renseignement** : Aucune activité spécifique de commission, vote ou décision de la semaine du 2026-05-18 au 2026-05-25 n'est disponible. L'analyse fournit des renseignements stratégiques sur la dynamique des commissions EP10 plutôt qu'un compte rendu d'événements de la semaine en cours.
+
+---
+
+### 5. Key Signals to Watch
+
+| Signal | Importance | Délai |
+|--------|-----------|-------|
+| Vote de la commission ITRE sur le Clean Industrial Deal | Le plus grand événement de commission de 2026 | T3 2026 |
+| Adoption en première lecture du budget 2027 par BUDG | Échéance institutionnelle annuelle | Octobre 2026 |
+| Avis de l'avocat général CJE sur l'UE-Mercosur | Pourrait bloquer le plus grand accord commercial de l'UE en attente | 12–18 mois |
+| Annonces d'enquêtes DMA de la Commission | Suivi de la résolution IMCO | T3–T4 2026 |
+| Discussions sur la fusion des groupes ECR-PfE | Restructurerait toutes les présidences de commissions | En cours |
+| Restauration des flux du portail Open Data du PE | Restaurerait les renseignements en temps réel sur les commissions | Inconnu |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| Commission | Évaluation en une ligne |
+|-----------|-------------------------|
+| ITRE | Le succès ou l'échec législatif du Clean Industrial Deal définira l'héritage EP10 de cette commission |
+| ECON | Rôle de surveillance monétaire stable ; progrès de l'Union des marchés de capitaux plus lent qu'EP9 |
+| AFET | Produit de solides résolutions sur l'Ukraine malgré la présidence PfE — tension structurelle visible |
+| ENVI | La présidence ECR modère l'ambition climatique ; campagnes d'ONG intenses |
+| INTA | La demande d'avis CJE UE-Mercosur signale un virage protectionniste sous la présidence ECR |
+| BUDG | Budget 2027 sur la bonne voie ; architecture de financement EDIS contestée |
+| IMCO | La résolution d'application du DMA crée un nouveau rôle de surveillance parlementaire |
+| LIBE | La présidence RE défend la conditionnalité de l'État de droit ; la migration reste contestée |
+| EMPL | Responsabilité sous-traitance (TA-10-2026-0050) montre la capacité de S&D à faire avancer la législation sociale |
+| CONT | Suivi de la responsabilité des prêts BEI et Ukraine à haute intensité |
+| AGRI | Bien-être des chiens/chats (TA-10-2026-0115) comme succès de protection des consommateurs inter-blocs |
+| AFCO | Réforme de la loi électorale — obstacles à la ratification dans les États membres persistent |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+Le système de commissions du Parlement européen en 2026 est à la fois le plus actif (par fréquence des réunions et production législative) et le plus politiquement contesté (par fragmentation et attribution des présidences au bloc de droite) de l'histoire du PE. La résilience structurelle de l'institution — système de rapporteurship, expertise du secrétariat, exigences de majorité absolue — est testée à grande échelle.
+
+**WEP (PROBABLE, 65–80 %)** : Les commissions EP10 fourniront une production législative historiquement significative en 2026, ancrée dans le Clean Industrial Deal et l'EDIS. La production sera plus conservatrice dans son ambition climatique et plus ambiguë dans son cadrage ukrainien que la production mi-mandat équivalente d'EP9. La fonction démocratique du système de commissions reste intacte ; son orientation politique a changé.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**Pour les décideurs politiques, les journalistes et les observateurs de l'UE** : Trois enseignements du renseignement sur les commissions du PE de cette semaine :
+
+1. **Recorde ne signifie pas radical** : Les commissions EP10 produisent à un rythme historique, mais l'orientation politique sous les présidences ECR/PfE est plus conservatrice qu'EP9 sur le climat et plus prudente en matière de politique étrangère. Production maximale + orientation conservatrice = le paradoxe EP10.
+
+2. **Le CID est l'événement législatif déterminant de 2026** : Tout le reste — EDIS, Budget 2027, politique commerciale — est soit secondaire, soit conditionné par le résultat du CID. Surveillez ITRE pour des signaux sur ce que sera le CID final.
+
+3. **L'écart de données est réel** : Cette analyse a été produite dans des conditions de flux dégradées (les quatre points de terminaison batch de l'API du PE ont retourné 404). Le renseignement stratégique est robuste ; le renseignement spécifique à la semaine sur les commissions n'est pas disponible. L'infrastructure du portail Open Data du PE nécessite une attention.
+
+**Note d'Amirauté** : B3 global | **Confiance** : MEDIUM | **WEP pour évaluation clé** : PROBABLE (65–80 %)
+
+### Executive Brief He
+
+**תאריך**: 2026-05-25
+**הרצה**: committee-reports-run267-1779688077
+**סוג מאמר**: committee-reports
+**מצב נתונים**: degraded-feeds (פידים 404; נתונים אסטרטגיים איכות גבוהה)
+**ביטחון**: 🟡 MEDIUM | **דרגת אדמירליות**: B3
+**רצועת WEP להערכה מובילה**: סביר (65–80%)
+
+---
+
+### SATs Applied
+- **Key Assumptions Check**: הנחות תחזית מפורטות בסעיף §1
+- **Quality of Information Check**: מגבלות נתונים מוכרות בסעיף §4
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: סביר (65–80%)** — מערכת הוועדות של הפרלמנט האירופי פועלת בשנת 2026 בעצימות חסרת תקדים היסטורי: 2,363 ישיבות ועדה מתוכננות (הגבוה ביותר שנרשם אי פעם), עלייה של 46.2% במעשי חקיקה לעומת 2025 ועלייה של 24.2% בשאלות פרלמנטריות. פעילות שיאית זו מתרחשת בתנאים של פיצול פוליטי מקסימלי (מספר מפלגות אפקטיבי = 6.59, הגבוה ביותר בתולדות הפרלמנט האירופי) והקצאות עוינות של יושבי ראש ועדות (ENVI ל-ECR, AFET ל-PfE).
+
+הפרדוקס המרכזי — פיצול מקסימלי המייצר תפוקה מקסימלית — מוסבר בכוחות מבניים: ההרחבה במנדט החקיקתי של האיחוד האירופי מכוח אמנת ליסבון, ה-Clean Industrial Deal והאסטרטגיה האירופית לתעשיית ההגנה הדורשים תיאום אינטנסיבי בין ועדות מרובות, והתכנון המוסדי של מערכת הדווחנים המאפשר מסירה חקיקתית מונעת על ידי חבר פרלמנט בודד אפילו בסביבות פוליטיות מפוצלות.
+
+**Key Assumptions Check**: הערכה זו מניחה שהמחצית השנייה של 2026 עוקבת אחרי דפוס ההאצה העונתי של שנות אמצע הקדנציה הקודמות. ההנחה המשמעותית ביותר היא שאין זעזוע גיאופוליטי גדול (הסלמה באוקראינה, משבר פיננסי) שמשבש את לוח הזמנים של ועדות המחצית השנייה של 2026. הסתברות של 20–30% לשיבוש משמעותי נלקחת בחשבון בתחזית התרחישים.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+מבוסס על 20 טקסטים שאומצו (ינואר–אפריל 2026) וסטטיסטיקות שנוצרו:
+
+| עדיפות | תחום מדיניות | ועדה מובילה | סטטוס |
+|-------|------------|------------|-------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, חוות דעת EMPL | שלב ועדה — הצבעה צפויה ברבעון 3 2026 |
+| 2 | האסטרטגיה האירופית לתעשיית ההגנה | AFET/SEDE + BUDG, ITRE | קריאה ראשונה בתהליך |
+| 3 | נוהל תקציב 2027 | BUDG | קריאה ראשונה אוקטובר 2026 |
+| 4 | פיקוח אכיפת DMA | IMCO | החלטה אומצה; מתמשך |
+| 5 | אחריות ותמיכה באוקראינה | AFET + CONT | מספר החלטות אומצו; מתמשך |
+| 6 | EU-Mercosur | INTA | חוות דעת CJE התבקשה; התהליך הושעה |
+| 7 | אמצעי יישום חוק הבינה המלאכותית | IMCO + LIBE | פיקוח מתמשך |
+| 8 | חוק שיקום הטבע | ENVI | עדכון תחת יושב ראש ECR |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+הקצאות יושבי ראש הוועדות ב-EP10 לאחר חישוב D'Hondt הניבו שני תוצאות פוליטיות משמעותיות:
+
+**ENVI תחת ECR** (פרטלי איטליה של מלוני): ועדת הסביבה, שתחת EP9 הניעה חקיקת הסכם הירוק, נמצאת כעת בניהולה של קבוצה הרואה ביעדי האקלים חיסרון תחרותי. תוצאה ניתנת לצפייה: עדכון חוק שיקום הטבע, תקנות השימוש בר הקיימא בחומרי הדברה וכל תיקוני ה-Clean Industrial Deal בהובלת ENVI מתחילים מנקודת מוצא שמרנית יותר מאשר מקביליהם ב-EP9. קמפיינים נגדיים של ארגונים לא ממשלתיים הם אינטנסיביים.
+
+**AFET תחת PfE** (פידס של אורבן + RN של מארין לה פן + ליגה): ועדת הענינים החיצוניים, המטפלת בהחלטות הגיאופוליטיות של הפרלמנט האירופי, מנוהלת על ידי קבוצה שיש לה סיבות מבניות לתמתן את שפת הסולידריות עם אוקראינה. ראיות: חמישה טקסטי מדיניות חוץ שאומצו ינואר–אפריל 2026 — מאחריות אוקראינה ועד חוסן דמוקרטי של ארמניה — כולם דרשו עבודה מסביב ליושב הראש ולא דרכו.
+
+**השלכה** (WEP: סביר, 65–75%): EP10 יייצר חקיקת אקלים פחות שאפתנית וממדידה ופחות פרו-אוקראינית חד-משמעית מ-EP9 — לא משום שרוב המליאה השתנה בצורה דרמטית, אלא משום ששלב ניסוח הוועדה מתחיל מנקודת מוצא שמרנית יותר.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+הרצה זו פועלת תחת **מצב פיד נתונים מושחת** (גורם רצפה: 0.80). כל ארבעת נקודות הקצה של פיד ה-batch-POST של פורטל הנתונים הפתוח של הפרלמנט האירופי החזירו HTTP 404:
+- `committee-documents-feed`: 404
+- `procedures-feed`: נתונים היסטוריים בלבד (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**מקורות מפצים בשימוש**: 20 טקסטים שאומצו (ינואר–אפריל 2026) + סטטיסטיקות שנוצרו על ידי הפרלמנט האירופי (ביטחון גבוה, עדכון שבועי) + 20 מסמכי ועדת AFCO (איכות מטא-נתונים נמוכה).
+
+**פער מודיעיני**: אין פעילויות ועדה ספציפיות, הצבעות או החלטות מהשבוע 2026-05-18 עד 2026-05-25 זמינות. הניתוח מספק מודיעין אסטרטגי על דינמיקת ועדות EP10 ולא דיווח על אירועים שבועיים ספציפיים.
+
+---
+
+### 5. Key Signals to Watch
+
+| אות | חשיבות | מסגרת זמן |
+|----|-------|----------|
+| הצבעת ועדת ITRE על Clean Industrial Deal | האירוע הגדול ביותר של הוועדה בשנת 2026 | רבעון 3 2026 |
+| אימוץ קריאה ראשונה של תקציב 2027 על ידי BUDG | מועד אחרון מוסדי שנתי | אוקטובר 2026 |
+| חוות דעת עורך הדין הכללי CJE על EU-Mercosur | עלול לחסום את הסכם הסחר הגדול ביותר בהמתנה של האיחוד האירופי | 12–18 חודשים |
+| הודעות חקירת DMA של הנציבות | מעקב אחרי החלטת IMCO | רבעון 3–4 2026 |
+| שיחות מיזוג קבוצת ECR-PfE | יבנה מחדש את כל יושבי ראש הוועדות | מתמשך |
+| שחזור פידים של פורטל הנתונים הפתוח של הפרלמנט האירופי | ישחזר מודיעין ועדות בזמן אמת | לא ידוע |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| ועדה | הערכה בשורה אחת |
+|------|----------------|
+| ITRE | הצלחה או כישלון חקיקתי של ה-Clean Industrial Deal יגדיר את מורשת EP10 של ועדה זו |
+| ECON | תפקיד פיקוח מוניטרי יציב; התקדמות איחוד שוקי ההון איטית יותר מ-EP9 |
+| AFET | מייצרת החלטות חזקות בנושא אוקראינה למרות יושב ראש PfE — מתח מבני גלוי |
+| ENVI | יושב ראש ECR ממתן שאיפות אקלים; קמפיינים של ארגונים לא ממשלתיים אינטנסיביים |
+| INTA | בקשת חוות דעת CJE לEU-Mercosur מסמנת פנייה פרוטקציוניסטית תחת יושב ראש ECR |
+| BUDG | תקציב 2027 במסלול; ארכיטקטורת מימון EDIS שנויה במחלוקת |
+| IMCO | החלטת אכיפת DMA יוצרת תפקיד חדש של פיקוח פרלמנטרי |
+| LIBE | יושב ראש RE מגן על מותנאות שלטון החוק; הגירה עדיין שנויה במחלוקת |
+| EMPL | אחריות קבלנות משנה (TA-10-2026-0050) מראה יכולת S&D לקדם חקיקה חברתית |
+| CONT | ניטור אחריות הלוואות EIB ואוקראינה בעצימות גבוהה |
+| AGRI | רווחת כלבים/חתולים (TA-10-2026-0115) כהצלחת הגנת צרכן חוצת-גושים |
+| AFCO | רפורמת חוק הבחירות — מכשולי אשרור במדינות חברות נותרים |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+מערכת הוועדות של הפרלמנט האירופי בשנת 2026 היא בו-זמנית הפעילה ביותר (לפי תדירות ישיבות ותפוקה חקיקתית) והשנויה ביותר במחלוקת פוליטית (לפי פיצול והקצאת יושבי ראש לגוש הימני) בתולדות הפרלמנט האירופי. החוסן המבני של המוסד — מערכת הדווחנים, מומחיות הסקרטריון, דרישות רוב מוחלט — עומד במבחן בקנה מידה גדול.
+
+**WEP (סביר, 65–80%)**: ועדות EP10 יספקו תפוקה חקיקתית משמעותית היסטורית בשנת 2026, עוגנת ב-Clean Industrial Deal וב-EDIS. התפוקה תהיה שמרנית יותר בשאיפת האקלים שלה ועמומה יותר בניסוח האוקראיני שלה מאשר התפוקה המקבילה באמצע הקדנציה של EP9. הפונקציה הדמוקרטית של מערכת הוועדות נשארת שלמה; כיוונה הפוליטי השתנה.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**לקובעי מדיניות, עיתונאים וצופי האיחוד האירופי**: שלוש נקודות מרכזיות ממודיעין ועדות הפרלמנט האירופי השבוע:
+
+1. **שיא לא אומר קיצוני**: ועדות EP10 מייצרות בקצב היסטורי, אך הכיוון הפוליטי תחת יושבי ראש ועדות ECR/PfE שמרני יותר מ-EP9 בנושא האקלים וזהיר יותר במדיניות חוץ. תפוקה מקסימלית + כיוון שמרני = פרדוקס EP10.
+
+2. **ה-CID הוא האירוע החקיקתי המכריע של 2026**: כל השאר — EDIS, תקציב 2027, מדיניות סחר — הוא משני או מותנה בתוצאת ה-CID. עקוב אחרי ITRE לאותות על מה שה-CID הסופי ייראה.
+
+3. **פער הנתונים הוא אמיתי**: ניתוח זה הופק בתנאי פיד מושחתים (כל ארבעת נקודות הקצה של ה-API של הפרלמנט האירופי החזירו 404). המודיעין האסטרטגי חזק; מודיעין הוועדה השבועי הספציפי אינו זמין. תשתית פורטל הנתונים הפתוח של הפרלמנט האירופי זקוקה לתשומת לב.
+
+**דרגת אדמירליות**: B3 כולל | **ביטחון**: MEDIUM | **WEP להערכה מרכזית**: סביר (65–80%)
+
+### Executive Brief Ja
+
+**日付**: 2026-05-25
+**実行番号**: committee-reports-run267-1779688077
+**記事種別**: committee-reports
+**データモード**: degraded-feeds（フィード 404；戦略データ 高品質）
+**信頼度**: 🟡 MEDIUM | **海軍評価**: B3
+**主要評価の WEP バンド**: 可能性が高い（65–80%）
+
+---
+
+### SATs Applied
+- **Key Assumptions Check**: 予測前提条件を §1 に記載
+- **Quality of Information Check**: データの制限事項を §4 に記載
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: 可能性が高い（65–80%）** — 欧州議会の委員会システムは2026年において歴史的に前例のない強度で運営されています。委員会会議は2,363回と予測されており（過去最高を記録）、2025年比で立法行為が46.2%増加し、議会質問が24.2%増加しています。この記録的な活動は、政治的分裂が最大化した状況（有効政党数 = 6.59、欧州議会史上最高）と、委員会委員長の敵対的な割り当て（ENVIをECRへ、AFETをPfEへ）のもとで発生しています。
+
+中心的なパラドックス — 分裂最大化が最大の生産を生み出す — は構造的な力によって説明されます。ローマ条約に基づくEU立法権限の拡大、複数の委員会にまたがる集中的な調整を必要とするClean Industrial Dealと欧州防衛産業戦略、そして分裂した政治環境においても一人のMEPが主導する立法成果を可能にする報告者制度の制度的設計が挙げられます。
+
+**Key Assumptions Check**: この評価は、2026年下半期が過去の中間期年における季節的加速パターンに沿って推移すると仮定しています。最も重要な前提は、ウクライナ情勢の悪化や金融危機などの大きな地政学的衝撃が2026年下半期の委員会スケジュールを乱さないということです。シナリオ予測には重大な混乱の確率20–30%が織り込まれています。
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+2026年1月–4月の採択文書20件および生成された統計に基づく：
+
+| 優先度 | 政策分野 | 主導委員会 | 状況 |
+|-------|---------|----------|------|
+| 1 | Clean Industrial Deal | ITRE + ENVI、ECON、EMPL意見 | 委員会段階 — 2026年第3四半期に投票予定 |
+| 2 | 欧州防衛産業戦略 | AFET/SEDE + BUDG、ITRE | 第1読会進行中 |
+| 3 | 2027年予算手続き | BUDG | 第1読会は2026年10月 |
+| 4 | DMA執行監視 | IMCO | 決議採択済；進行中 |
+| 5 | ウクライナの説明責任と支援 | AFET + CONT | 複数の決議採択済；進行中 |
+| 6 | EU-メルコスール | INTA | CJE意見を要請；手続き一時停止 |
+| 7 | AI法実施措置 | IMCO + LIBE | 監視継続中 |
+| 8 | 自然回復法 | ENVI | ECR委員長のもと改正中 |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+D'Hondt方式による計算後のEP10における委員会委員長の割り当ては、政治的に重大な2つの結果をもたらしました。
+
+**ENVI（ECR傘下）**（メローニのフラテッリ・ディタリア）: EP9においてグリーンディール立法を推進した環境委員会は、気候目標を競争上の不利と見なすグループによって議長が務められることになりました。観察可能な結果：自然回復法の改正、農薬の持続可能な使用に関する規則、ENVIが主導するすべてのClean Industrial Deal修正案は、EP9の同等のものより保守的な出発点から始まっています。NGOの反対キャンペーンは激しさを増しています。
+
+**AFET（PfE傘下）**（オルバンのフィデスツ + マリーヌ・ルペンのRN + レーガ）: EUの地政学的決議を処理する外務委員会は、ウクライナ連帯の言語を穏健化させる構造的な理由を持つグループによって議長が務められています。証拠：2026年1月–4月に採択された5件の外交政策文書 — ウクライナの説明責任からアルメニアの民主主義的回復力まで — すべてが委員長を通じてではなく、委員長を回避して作業することを必要としました。
+
+**示唆**（WEP: 可能性が高い、65–75%）: EP10は、EP9よりも気候立法において測定可能に野心が低く、ウクライナ支持において明確でない決議を生産するでしょう — 本会議の多数派が大幅に変化したからではなく、委員会の草案作成段階がより保守的な出発点から始まるからです。
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+この実行は**劣化したデータフィードモード**で運用されています（フロアファクター: 0.80）。欧州議会オープンデータポータルのすべての4つのバッチPOSTフィードエンドポイントがHTTP 404を返しました：
+- `committee-documents-feed`: 404
+- `procedures-feed`: 歴史的データのみ（1972–1987）
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**使用した補完的ソース**: 採択文書20件（2026年1月–4月）+ 欧州議会生成統計（高信頼度、週次更新）+ AFCO委員会文書20件（メタデータ品質低）。
+
+**インテリジェンスの空白**: 2026年5月18日から2026年5月25日の週の特定の委員会活動、投票、または決定は利用できません。分析は週次の特定イベント報告ではなく、EP10委員会ダイナミクスに関する戦略的インテリジェンスを提供します。
+
+---
+
+### 5. Key Signals to Watch
+
+| シグナル | 重要性 | 期間 |
+|--------|------|------|
+| ITRE Clean Industrial Deal委員会投票 | 2026年の委員会最大イベント | 2026年第3四半期 |
+| BUDG 2027年予算第1読会採択 | 年次機関的期限 | 2026年10月 |
+| CJE法務官EU-メルコスール意見 | EUの最大の保留中の貿易協定を阻止する可能性 | 12–18ヶ月 |
+| 欧州委員会DMA調査発表 | IMCO決議のフォローアップ | 2026年第3–4四半期 |
+| ECR-PfEグループ合併協議 | すべての委員会委員長を再編する | 進行中 |
+| 欧州議会オープンデータポータルフィードの回復 | リアルタイム委員会インテリジェンスの回復 | 不明 |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| 委員会 | 一言評価 |
+|------|--------|
+| ITRE | Clean Industrial Dealの立法的成功か失敗かが、この委員会のEP10の遺産を定める |
+| ECON | 安定した金融監視の役割；資本市場同盟の進展はEP9より遅い |
+| AFET | PfE委員長にもかかわらず強力なウクライナ決議を生産 — 構造的緊張が顕在化 |
+| ENVI | ECR委員長が気候野心を穏健化；NGOキャンペーンが激化 |
+| INTA | EU-メルコスールCJE要請がECR委員長のもとでの保護主義的転換を示す |
+| BUDG | 2027年予算は予定通り；EDIS財政アーキテクチャが争点 |
+| IMCO | DMA執行決議が新たな議会監視の役割を創設 |
+| LIBE | RE委員長が法の支配の条件性を擁護；移住は依然として争点 |
+| EMPL | 下請け責任（TA-10-2026-0050）はS&Dの社会立法推進能力を示す |
+| CONT | EIBとウクライナローン説明責任監視が高強度で継続 |
+| AGRI | 犬猫の福祉（TA-10-2026-0115）ブロックを超えた消費者保護の成功例 |
+| AFCO | 選挙法改正 — 加盟国での批准障壁が残存 |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+2026年の欧州議会の委員会システムは、EP史上最も活発（会議頻度と立法成果の面で）であると同時に、最も政治的に争われている（分裂度と右翼ブロックへの委員長割り当ての面で）存在です。機関の構造的回復力 — 報告者制度、事務局の専門知識、絶対多数要件 — が大規模に試されています。
+
+**WEP（可能性が高い、65–80%）**: EP10委員会は2026年にClean Industrial DealとEDISを軸として歴史的に重要な立法成果を届けるでしょう。その成果はEP9の同等の中間期成果より気候野心において保守的で、ウクライナの位置付けにおいて曖昧なものとなるでしょう。委員会システムの民主的機能は無傷のまま；その政治的方向性は変化しました。
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**政策立案者、ジャーナリスト、EU観察者へ**: 今週の欧州議会委員会インテリジェンスからの3つのポイント：
+
+1. **記録は急進的を意味しない**: EP10委員会は歴史的なペースで生産していますが、ECR/PfE委員会委員長のもとでの政治的方向性は気候においてEP9より保守的で、外交政策においてより慎重です。最大の産出 + 保守的方向 = EP10のパラドックス。
+
+2. **CIDは2026年の決定的な立法イベントです**: その他のすべて — EDIS、2027年予算、貿易政策 — はCIDの結果に対して二次的か条件付きです。最終的なCIDがどうなるかのシグナルをITREに注目してください。
+
+3. **データの空白は現実です**: この分析は劣化したフィード条件のもとで生産されました（欧州議会APIバッチエンドポイントの4つすべてが404を返しました）。戦略的インテリジェンスは堅固です；週次の委員会インテリジェンスは利用できません。欧州議会オープンデータポータルのインフラには注目が必要です。
+
+**海軍評価**: B3全体 | **信頼度**: MEDIUM | **主要評価のWEP**: 可能性が高い（65–80%）
+
+### Executive Brief Ko
+
+**날짜**: 2026-05-25
+**실행**: committee-reports-run267-1779688077
+**기사 유형**: committee-reports
+**데이터 모드**: degraded-feeds (피드 404; 전략 데이터 고품질)
+**신뢰도**: 🟡 MEDIUM | **해군 등급**: B3
+**주요 평가 WEP 대역**: 가능성 높음 (65–80%)
+
+---
+
+### SATs Applied
+- **Key Assumptions Check**: 예측 가정은 §1에 기술됨
+- **Quality of Information Check**: 데이터 제한 사항은 §4에서 인정됨
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: 가능성 높음 (65–80%)** — 유럽의회 위원회 시스템은 2026년 역사적으로 전례 없는 강도로 운영되고 있습니다. 위원회 회의 2,363회가 예측되며(역대 최고 기록), 2025년 대비 입법 행위가 46.2% 증가하고, 의회 질문이 24.2% 증가했습니다. 이 기록적인 활동은 최대 정치 분열(유효 정당 수 = 6.59, 유럽의회 역사상 최고)과 적대적인 위원회 의장 배분(ENVI를 ECR에, AFET를 PfE에) 상황에서 발생하고 있습니다.
+
+중심적인 역설 — 최대 분열이 최대 산출을 생성 — 은 구조적 힘으로 설명됩니다. 리스본 조약 하의 EU 입법 권한 확대, 여러 위원회에 걸쳐 집중적인 조정이 필요한 Clean Industrial Deal과 유럽 방위 산업 전략, 그리고 분열된 정치 환경에서도 단일 MEP 주도의 입법 성과를 가능하게 하는 보고원 시스템의 제도적 설계가 이에 해당합니다.
+
+**Key Assumptions Check**: 이 평가는 2026년 하반기가 이전 중간 연도의 계절적 가속화 패턴을 따른다고 가정합니다. 가장 중요한 가정은 우크라이나 확전, 금융 위기 등 대규모 지정학적 충격이 2026년 하반기 위원회 일정을 방해하지 않는다는 것입니다. 시나리오 예측에는 중대한 방해의 20–30% 확률이 반영되어 있습니다.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+2026년 1월–4월 채택 문서 20건 및 생성된 통계를 기반으로:
+
+| 우선순위 | 정책 영역 | 주도 위원회 | 상태 |
+|--------|---------|----------|------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, EMPL 의견 | 위원회 단계 — 2026년 3분기 표결 예상 |
+| 2 | 유럽 방위 산업 전략 | AFET/SEDE + BUDG, ITRE | 1차 독회 진행 중 |
+| 3 | 2027년 예산 절차 | BUDG | 1차 독회 2026년 10월 |
+| 4 | DMA 집행 감독 | IMCO | 결의안 채택; 진행 중 |
+| 5 | 우크라이나 책임 및 지원 | AFET + CONT | 다수 결의안 채택; 진행 중 |
+| 6 | EU-메르코수르 | INTA | CJE 의견 요청; 절차 중단 |
+| 7 | AI법 이행 조치 | IMCO + LIBE | 지속적 감독 |
+| 8 | 자연 복원법 | ENVI | ECR 의장 하 개정 중 |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+D'Hondt 계산 후 EP10의 위원회 의장 배분은 두 가지 정치적으로 중요한 결과를 낳았습니다.
+
+**ENVI (ECR 산하)** (멜로니의 프라텔리 디탈리아): EP9에서 그린딜 입법을 추진했던 환경 위원회는 이제 기후 목표를 경쟁적 불이익으로 보는 그룹이 의장을 맡고 있습니다. 관찰 가능한 결과: 자연 복원법 개정, 농약의 지속 가능한 사용에 관한 규정, ENVI 주도 Clean Industrial Deal 수정안 모두가 EP9 동등 제안보다 보수적인 기준점에서 출발하고 있습니다. NGO 반대 캠페인이 격렬합니다.
+
+**AFET (PfE 산하)** (오르반의 피데스 + 마린 르펜의 RN + 레가): 유럽의회의 지정학적 결의안을 처리하는 외교 위원회는 우크라이나 연대 언어를 완화할 구조적 이유가 있는 그룹이 의장을 맡고 있습니다. 증거: 2026년 1월–4월 채택된 5건의 외교 정책 문서 — 우크라이나 책임부터 아르메니아 민주주의 회복력까지 — 모두가 의장을 통해서가 아니라 의장을 우회하여 작업해야 했습니다.
+
+**함의** (WEP: 가능성 높음, 65–75%): EP10은 EP9보다 기후 입법에서 측정 가능하게 덜 야심적이고, 우크라이나 지지에서 덜 명확한 결의안을 생산할 것입니다 — 본회의 다수가 극적으로 변화했기 때문이 아니라, 위원회 초안 작성 단계가 보수적인 기준점에서 시작하기 때문입니다.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+이 실행은 **저하된 데이터 피드 모드**로 운영됩니다 (하한 계수: 0.80). 유럽의회 오픈 데이터 포털의 4개 배치 POST 피드 엔드포인트 모두가 HTTP 404를 반환했습니다.
+- `committee-documents-feed`: 404
+- `procedures-feed`: 역사적 데이터만 (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**사용된 보완 소스**: 채택 문서 20건 (2026년 1월–4월) + 유럽의회 생성 통계 (높은 신뢰도, 주간 갱신) + AFCO 위원회 문서 20건 (낮은 메타데이터 품질).
+
+**정보 공백**: 2026-05-18부터 2026-05-25 주의 특정 위원회 활동, 표결 또는 결정이 이용 불가합니다. 분석은 주간 특정 이벤트 보고가 아닌 EP10 위원회 역학에 관한 전략적 정보를 제공합니다.
+
+---
+
+### 5. Key Signals to Watch
+
+| 신호 | 중요성 | 기간 |
+|----|------|------|
+| ITRE Clean Industrial Deal 위원회 표결 | 2026년 최대 위원회 이벤트 | 2026년 3분기 |
+| BUDG 2027년 예산 1차 독회 채택 | 연간 기관 마감일 | 2026년 10월 |
+| CJE 법무관 EU-메르코수르 의견 | EU 최대 대기 무역 협정을 차단할 가능성 | 12–18개월 |
+| 유럽위원회 DMA 조사 발표 | IMCO 결의안 후속 조치 | 2026년 3–4분기 |
+| ECR-PfE 그룹 합병 논의 | 모든 위원회 의장직 재편 | 진행 중 |
+| 유럽의회 오픈 데이터 포털 피드 복구 | 실시간 위원회 정보 복구 | 미확정 |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| 위원회 | 한 줄 평가 |
+|------|----------|
+| ITRE | Clean Industrial Deal의 입법 성공 또는 실패가 이 위원회의 EP10 유산을 정의할 것입니다 |
+| ECON | 안정적인 통화 감독 역할; 자본 시장 연합 진전은 EP9보다 느림 |
+| AFET | PfE 의장에도 불구하고 강력한 우크라이나 결의안 생산 — 구조적 긴장 가시화 |
+| ENVI | ECR 의장이 기후 야심을 완화; NGO 캠페인 격화 |
+| INTA | EU-메르코수르 CJE 요청이 ECR 의장 하 보호주의적 전환을 신호 |
+| BUDG | 2027년 예산 순조로움; EDIS 자금 조달 구조 논쟁 중 |
+| IMCO | DMA 집행 결의안이 새로운 의회 감독 역할 창출 |
+| LIBE | RE 의장이 법치 조건성 옹호; 이민은 여전히 논쟁 중 |
+| EMPL | 하청 책임 (TA-10-2026-0050)은 S&D의 사회 입법 추진 능력을 보여줌 |
+| CONT | EIB 및 우크라이나 대출 책임 모니터링 고강도 유지 |
+| AGRI | 개/고양이 복지 (TA-10-2026-0115) 블록 횡단 소비자 보호 성공 |
+| AFCO | 선거법 개혁 — 회원국 비준 장벽 잔존 |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+2026년 유럽의회 위원회 시스템은 EP 역사상 가장 활발하면서(회의 빈도와 입법 산출 측면에서) 동시에 가장 정치적으로 논쟁 중인(분열 및 우파 블록 의장 배분 측면에서) 존재입니다. 기관의 구조적 회복력 — 보고원 시스템, 사무국 전문성, 절대 다수 요건 — 이 대규모로 시험되고 있습니다.
+
+**WEP (가능성 높음, 65–80%)**: EP10 위원회는 Clean Industrial Deal과 EDIS를 중심으로 2026년 역사적으로 중요한 입법 산출을 달성할 것입니다. 그 산출은 EP9의 동등한 중간 기간 산출보다 기후 야심에서 더 보수적이고 우크라이나 프레이밍에서 더 모호할 것입니다. 위원회 시스템의 민주적 기능은 온전하게 유지됩니다; 정치적 방향은 변화했습니다.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**정책 입안자, 기자 및 EU 관찰자를 위해**: 이번 주 EP 위원회 정보에서의 세 가지 핵심 사항:
+
+1. **기록이 급진적을 의미하지 않습니다**: EP10 위원회는 역사적인 속도로 생산하고 있지만, ECR/PfE 위원회 의장 하의 정치적 방향은 기후에서 EP9보다 보수적이고 외교 정책에서 더 조심스럽습니다. 최대 산출 + 보수적 방향 = EP10의 역설.
+
+2. **CID는 2026년의 결정적인 입법 이벤트입니다**: 다른 모든 것 — EDIS, 2027년 예산, 무역 정책 — 은 CID 결과에 종속되거나 그에 조건부입니다. 최종 CID가 어떻게 될지에 대한 신호를 ITRE에서 주목하십시오.
+
+3. **데이터 공백은 실재합니다**: 이 분석은 저하된 피드 조건 하에서 생산되었습니다 (유럽의회 API 배치 엔드포인트 4개 모두 404 반환). 전략적 정보는 강력합니다; 주간 특정 위원회 정보는 이용 불가합니다. 유럽의회 오픈 데이터 포털 인프라에 주의가 필요합니다.
+
+**해군 등급**: B3 전체 | **신뢰도**: MEDIUM | **핵심 평가 WEP**: 가능성 높음 (65–80%)
+
+### Executive Brief Nl
+
+### SATs Applied
+- **Key Assumptions Check**: Prognoseaannames vermeld in §1
+- **Quality of Information Check**: Gegevensbeperkingen erkend in §4
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: WAARSCHIJNLIJK (65–80 %)** — Het commissiestelsel van het Europees Parlement opereert in 2026 met historisch ongekende intensiteit: 2.363 commissievergaderingen worden geprojecteerd (het hoogste ooit geregistreerde aantal), een stijging van 46,2 % in wetgevingshandelingen ten opzichte van 2025 en een stijging van 24,2 % in parlementaire vragen. Deze recordactiviteit vindt plaats onder omstandigheden van maximale politieke fragmentering (Effectief aantal partijen = 6,59, het hoogste in de EP-geschiedenis) en vijandige toewijzingen van commissievoorzitterschappen (ENVI aan ECR, AFET aan PfE).
+
+De centrale paradox — maximale fragmentering die maximale output produceert — wordt verklaard door structurele krachten: het uitbreidende EU-wetgevingsmandat onder het Verdrag van Lissabon, de Clean Industrial Deal en de Europese Defensie-Industriële Strategie die intensieve coördinatie over meerdere commissies vereisen, en het institutionele ontwerp van het rapporteurssysteem dat wetgevingslevering door één individuele europarlementsleden mogelijk maakt, zelfs in gefragmenteerde politieke omgevingen.
+
+**Key Assumptions Check**: Deze beoordeling gaat ervan uit dat het tweede halfjaar van 2026 het seizoensmatige versnellingspatroon van eerdere halverwege-termijnjaren volgt. De meest significante aanname is dat geen grote geopolitieke schok (Oekraïne-escalatie, financiële crisis) de commissieagenda van het tweede halfjaar van 2026 verstoort. Een kans van 20–30 % op een aanzienlijke verstoring is meegenomen in de scenarioprognose.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+Gebaseerd op 20 aangenomen teksten (jan.–apr. 2026) en gegenereerde statistieken:
+
+| Prioriteit | Beleidsgebied | Leidende commissie | Status |
+|------------|--------------|-------------------|--------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, EMPL-adviezen | Commissiefase — stemming verwacht K3 2026 |
+| 2 | Europese Defensie-Industriële Strategie | AFET/SEDE + BUDG, ITRE | Eerste lezing bezig |
+| 3 | Begrotingsprocedure 2027 | BUDG | Eerste lezing oktober 2026 |
+| 4 | DMA-handhavingstoezicht | IMCO | Resolutie aangenomen; lopend |
+| 5 | Verantwoordingsplicht en steun voor Oekraïne | AFET + CONT | Meerdere resoluties aangenomen; lopend |
+| 6 | EU-Mercosur | INTA | CJE-advies gevraagd; proces opgeschort |
+| 7 | Uitvoeringsmaatregelen AI Act | IMCO + LIBE | Lopend toezicht |
+| 8 | Wet Natuurherstel | ENVI | Herziening onder ECR-voorzitter |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+De toewijzing van commissievoorzitterschappen in EP10 na de D'Hondt-berekening leverde twee politiek significante uitkomsten op:
+
+**ENVI onder ECR** (Meloni's Fratelli d'Italia): De milieucommissie, die onder EP9 de Green Deal-wetgeving aandreef, wordt nu voorgezeten door een groep die klimaatdoelstellingen beschouwt als een concurrentienadeel. Waarneembare consequentie: de herziening van de Wet Natuurherstel, de verordening inzake duurzaam gebruik van pesticiden en alle door ENVI geleide Clean Industrial Deal-amendementen starten vanuit een conservatievere uitgangspositie dan EP9-equivalenten. NGO-tegencampagnes zijn intensief.
+
+**AFET onder PfE** (Orbáns Fidesz + Marine Le Pens RN + Lega): De commissie buitenlandse zaken, die de geopolitieke resoluties van het EP verwerkt, wordt voorgezeten door een groep met structurele redenen om de taal over Oekraïne-solidariteit te matigen. Bewijs: vijf buitenlandse beleidsteksten aangenomen jan.–apr. 2026 — van Oekraïense verantwoordingsplicht tot democratische veerkracht van Armenië — vereisten allemaal werken om de voorzitter heen in plaats van erdoorheen.
+
+**Implicatie** (WEP: WAARSCHIJNLIJK, 65–75 %): EP10 zal meetbaar minder ambitieuze klimaatwetgeving en minder ondubbelzinnig pro-Oekraïense resoluties produceren dan EP9 — niet omdat plenummeerderheid dramatisch zijn verschoven, maar omdat de commissie-ontwerpfase vertrekt vanuit een conservatievere uitgangspositie.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+Deze run opereert onder een **gedegradeerde datafeedmodus** (vloerfactor: 0,80). Alle vier EP Open Data Portal-batch-POST-feed-eindpunten gaven HTTP 404 terug:
+- `committee-documents-feed`: 404
+- `procedures-feed`: Alleen historische gegevens (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**Gebruikte compenserende bronnen**: 20 aangenomen teksten (jan.–apr. 2026) + EP-gegenereerde statistieken (HOGE betrouwbaarheid, wekelijkse verversing) + 20 AFCO-commissiedocumenten (lage metadatakwaliteit).
+
+**Inlichtingenhiaat**: Geen specifieke commissieactiviteiten, stemmen of beslissingen van de week van 2026-05-18 tot 2026-05-25 zijn beschikbaar. De analyse biedt strategische inlichtingen over de EP10-commissiedynamiek in plaats van weekspecifieke verslaggeving over evenementen.
+
+---
+
+### 5. Key Signals to Watch
+
+| Signaal | Belang | Tijdschema |
+|---------|--------|-----------|
+| ITRE Clean Industrial Deal-commissiestemming | Grootste commissie-evenement van 2026 | K3 2026 |
+| BUDG Begroting 2027 eerste lezing aanneming | Jaarlijkse institutionele deadline | Oktober 2026 |
+| CJE Advocaat-generaal advies over EU-Mercosur | Kan 's EU's grootste uitstaande handelsakkoord blokkeren | 12–18 maanden |
+| Commissie DMA-onderzoeksaankondigingen | Follow-up IMCO-resolutie | K3–K4 2026 |
+| ECR-PfE-groepsfusiediscussies | Zou alle commissievoorzitterschappen herstructureren | Lopend |
+| Herstel van EP Open Data Portal-feeds | Zou real-time commissie-inlichtingen herstellen | Onbekend |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| Commissie | Beoordeling in één regel |
+|-----------|-------------------------|
+| ITRE | Het wetgevend succes of falen van de Clean Industrial Deal zal het EP10-erfgoed van deze commissie bepalen |
+| ECON | Stabiele monetaire toezichtsrol; Capital Markets Union-vooruitgang langzamer dan EP9 |
+| AFET | Produceert sterke Oekraïne-resoluties ondanks PfE-voorzitter — structurele spanning zichtbaar |
+| ENVI | ECR-voorzitter matigt klimaatambitie; NGO-campagnes intensief |
+| INTA | EU-Mercosur CJE-aanvraag signaleert protectionistische wending onder ECR-voorzitter |
+| BUDG | Begroting 2027 op koers; EDIS-financieringsarchitectuur betwist |
+| IMCO | DMA-handhavingsresolutie schept nieuwe parlementaire toezichtsrol |
+| LIBE | RE-voorzitter verdedigt rechtsstaat-conditionaliteit; migratie nog steeds betwist |
+| EMPL | Aansprakelijkheid onderaanneming (TA-10-2026-0050) toont S&D's vermogen om sociale wetgeving vooruit te helpen |
+| CONT | EIB- en Oekraïne-leningverantwoordelijkheidsmonitoring met hoge intensiteit |
+| AGRI | Honden/katten-welzijn (TA-10-2026-0115) als cross-bloc consumentenbeschermingssucces |
+| AFCO | Hervorming Kieswet — ratificatiehindernissen in lidstaten blijven bestaan |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+Het commissiestelsel van het Europees Parlement in 2026 is tegelijk het meest actieve (qua vergaderfrequentie en wetgevingsoutput) en het meest politiek betwiste (qua fragmentering en rechtsbloktoewijzing van voorzitterschappen) in de EP-geschiedenis. De structurele veerkracht van de instelling — rapporteurssysteem, expertise van het secretariaat, absolute meerderheidsvereisten — wordt op grote schaal getest.
+
+**WEP (WAARSCHIJNLIJK, 65–80 %)**: EP10-commissies zullen in 2026 een historisch significante wetgevingsoutput leveren, verankerd in de Clean Industrial Deal en EDIS. De output zal conservatiever zijn in haar klimaatambitie en dubbelzinniger in haar Oekraïne-framing dan de equivalente EP9-halverwege-termijnoutput. De democratische functie van het commissiestelsel blijft intact; haar politieke richting is verschoven.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**Voor beleidsmakers, journalisten en EU-volgers**: Drie inzichten uit de EP-commissie-inlichtingen van deze week:
+
+1. **Record betekent niet radicaal**: EP10-commissies produceren in historisch tempo, maar de politieke richting onder ECR/PfE-commissievoorzitters is conservatiever dan EP9 op klimaat en voorzichtiger in buitenlands beleid. Maximale output + conservatieve richting = de EP10-paradox.
+
+2. **De CID is het bepalende wetgevingsevenement van 2026**: Al het andere — EDIS, Begroting 2027, handelsbeleid — is ofwel secundair ofwel afhankelijk van de CID-uitkomst. Houd ITRE in de gaten voor signalen over hoe de definitieve CID eruit zal zien.
+
+3. **Het datagat is reëel**: Deze analyse werd geproduceerd onder gedegradeerde feedomstandigheden (alle vier EP API-batch-eindpunten gaven 404 terug). De strategische inlichtingen zijn robuust; de weekspecifieke commissie-inlichtingen zijn niet beschikbaar. De EP Open Data Portal-infrastructuur heeft aandacht nodig.
+
+**Admiraliteitsnoot**: B3 overall | **Betrouwbaarheid**: MEDIUM | **WEP voor kernevaluatie**: WAARSCHIJNLIJK (65–80 %)
+
+### Executive Brief No
+
+### SATs Applied
+- **Key Assumptions Check**: Prognoseforutsetninger angitt i §1
+- **Quality of Information Check**: Databegrensninger anerkjent i §4
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: SANNSYNLIG (65–80 %)** — Europaparlamentets utvalgsystem opererer i 2026 med historisk enestående intensitet: 2 363 utvalgsmøter er anslått (det høyeste noensinne registrert), en økning på 46,2 % i lovgivningsakter sammenlignet med 2025 og en økning på 24,2 % i parlamentariske spørsmål. Denne rekordaktiviteten skjer under maksimal politisk fragmentering (Effektivt antall partier = 6,59, det høyeste i EP's historie) og fiendtlige utvalgslederfordelinger (ENVI til ECR, AFET til PfE).
+
+Det sentrale paradokset — maksimal fragmentering som produserer maksimal output — forklares av strukturelle krefter: det ekspanderende EU-lovgivningmandatet under Lisboa-traktaten, den Rene Industriavtalen (Clean Industrial Deal) og den Europeiske Forsvarsindustrielle Strategien som krever intensiv koordinasjon på tvers av utvalg, samt den institusjonelle utformingen av ordførerordningen som muliggjør lovgivningsleveranse drevet av en enkelt MEP selv i fragmenterte politiske miljøer.
+
+**Key Assumptions Check**: Denne vurderingen forutsetter at H2 2026 følger det sesongmessige akselerasjonsmønsteret fra tidligere halvtidsår. Den viktigste forutsetningen er at ingen større geopolitisk sjokk (Ukraina-eskalering, finanskrise) forstyrrer H2 2026's utvalgskalender. En sannsynlighet på 20–30 % for en vesentlig forstyrrelse er innregnet i scenarieprognosen.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+Basert på 20 vedtatte tekster (jan–apr 2026) og generert statistikk:
+
+| Prioritet | Politikkområde | Ledende utvalg | Status |
+|-----------|---------------|----------------|--------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, EMPL-uttalelser | Utvalgsstadium — avstemning forventet Q3 2026 |
+| 2 | Europeisk forsvarsindustriell strategi | AFET/SEDE + BUDG, ITRE | Første behandling pågår |
+| 3 | Budsjett 2027-prosedyre | BUDG | Første behandling oktober 2026 |
+| 4 | DMA-håndhevelsesovervåkning | IMCO | Resolusjon vedtatt; pågående |
+| 5 | Ukrainas ansvarlighet og støtte | AFET + CONT | Flere resolusjoner vedtatt; pågående |
+| 6 | EU-Mercosur | INTA | CJE-uttalelse anmodet; prosessen suspendert |
+| 7 | AI Act-gjennomføringstiltak | IMCO + LIBE | Pågående tilsyn |
+| 8 | Naturrestaureringslov | ENVI | Revisjon under ECR-leder |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+EP10's fordeling av utvalgslederpostene etter D'Hondt-beregningen resulterte i to politisk betydningsfulle utfall:
+
+**ENVI under ECR** (Melonis Fratelli d'Italia): Miljøutvalget, som under EP9 drev Green Deal-lovgivningen, ledes nå av en gruppe som betrakter klimamål som en konkurransemessig ulempe. Observerbar konsekvens: revisjonen av naturrestaureringslov, forordningen om bærekraftig bruk av plantevernmidler og alle ENVI-ledede Clean Industrial Deal-endringsforslag tar utgangspunkt i en mer konservativ baseline enn EP9-ekvivalentene. NGO-motkampanjer er intensive.
+
+**AFET under PfE** (Orbáns Fidesz + Marine Le Pens RN + Lega): Utenrikskomiteen, som behandler EP's geopolitiske resolusjoner, ledes av en gruppe med strukturelle grunner til å moderere språket om Ukraina-solidaritet. Bevis: fem utenrikspolitiske tekster vedtatt jan–apr 2026 — fra Ukrainas ansvarlighet til demokratisk resiliens i Armenia — krevde alle å jobbe rundt snarere enn gjennom lederen.
+
+**Konsekvens** (WEP: SANNSYNLIG, 65–75 %): EP10 vil produsere målbart mindre ambisiøs klimalovgivning og mindre entydig pro-ukrainske resolusjoner enn EP9 — ikke fordi plenarflertall har skiftet dramatisk, men fordi utvalgets utformingsstadium tar utgangspunkt i en mer konservativ baseline.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+Denne kjøringen opererer under en **degradert datafeedtilstand** (gulvfaktor: 0,80). Alle fire EP's Open Data Portal-batchfeed-endepunkter returnerte HTTP 404:
+- `committee-documents-feed`: 404
+- `procedures-feed`: Kun historiske data (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**Kompenserende kilder brukt**: 20 vedtatte tekster (jan–apr 2026) + EP's genererte statistikk (HØY konfidens, ukentlig oppdatering) + 20 AFCO-utvalgsdokumenter (lav metadatakvalitet).
+
+**Etterretningslakune**: Ingen spesifikke utvalgsaktiviteter, avstemninger eller beslutninger fra uken 2026-05-18 til 2026-05-25 er tilgjengelige. Analysen gir strategisk etterretning om EP10's utvalgsdynamikk snarere enn ukespesifikk hendelsesrapportering.
+
+---
+
+### 5. Key Signals to Watch
+
+| Signal | Betydning | Tidsramme |
+|--------|-----------|-----------|
+| ITRE Clean Industrial Deal-utvalgsavstemning | Utvalgets viktigste hendelse i 2026 | Q3 2026 |
+| BUDG Budsjett 2027 første behandlingsvedtak | Institusjonell årsdeadline | Oktober 2026 |
+| CJE generaladvokat-uttalelse om EU-Mercosur | Kan blokkere EU's største ventende handelsavtale | 12–18 måneder |
+| Kommisjonens DMA-undersøkelseskunngjøringer | IMCO-resolusjonens oppfølging | Q3–Q4 2026 |
+| ECR-PfE-gruppefusjonsdiskusjoner | Ville omstrukturere alle utvalgslederpostene | Pågående |
+| Gjenoppretting av EP's Open Data Portal-feeder | Ville gjenopprette sanntidsutvalgsefterretning | Ukjent |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| Utvalg | Énlinjebedømmelse |
+|--------|------------------|
+| ITRE | Clean Industrial Deals lovgivningsmessige suksess eller fiasko vil definere dette utvalgets EP10-arv |
+| ECON | Stabil monetær tilsynsrolle; Capital Markets Union-fremskritt langsommere enn EP9 |
+| AFET | Produserer sterke Ukraina-resolusjoner til tross for PfE-leder — strukturell spenning synlig |
+| ENVI | ECR-leder modererer klimaambisjon; NGO-kampanjer intensive |
+| INTA | EU-Mercosur CJE-anmodning signaliserer proteksjonistisk dreining under ECR-leder |
+| BUDG | Budsjett 2027 på rett spor; EDIS-finansieringsarkitektur omstridt |
+| IMCO | DMA-håndhevelsesresolusjon skaper ny parlamentarisk tilsynsrolle |
+| LIBE | RE-leder forsvarer rettsstatsbetinget finansiering; migrasjon fortsatt omstridt |
+| EMPL | Underleverandøransvar (TA-10-2026-0050) viser S&D's evne til å fremme sosial lovgivning |
+| CONT | EIB og Ukraina-lånsansvarlighetsovervåkning på høy intensitet |
+| AGRI | Hund/katt-velferd (TA-10-2026-0115) som vellykket forbrukerbeskyttelse på tvers av blokker |
+| AFCO | Valgloven reform — ratifiseringshindringer i medlemsstatene består |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+Europaparlamentets utvalgsystem i 2026 er samtidig det mest aktive (sett til møtehyppighet og lovgivningsoutput) og det mest politisk omstridte (sett til fragmentering og høyreblokks tildeling av lederpostene) i EP's historie. Institusjonens strukturelle robusthet — ordførerordningen, sekretariatets ekspertise, absolutte flertallskrav — testes i stor skala.
+
+**WEP (SANNSYNLIG, 65–80 %)**: EP10's utvalg vil levere en historisk sett betydningsfull lovgivningsoutput i 2026, forankret i Clean Industrial Deal og EDIS. Outputen vil være mer konservativ i sin klimaambisjon og mer tvetydig i sin Ukraina-framing enn EP9's tilsvarende halvtidsoutput. Utvalgsystemets demokratiske funksjon forblir intakt; dets politiske retning har forskjøvet seg.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**For beslutningstakere, journalister og EU-observatører**: Tre poenger fra ukens EP-utvalgsetterretning:
+
+1. **Rekord betyr ikke radikalt**: EP10's utvalg produserer i historisk tempo, men den politiske retningen under ECR/PfE-utvalgsledere er mer konservativ enn EP9 på klima og mer forsiktig i utenrikspolitikken. Maksimal output + konservativ retning = EP10-paradokset.
+
+2. **CID er 2026's avgjørende lovgivningshendelse**: Alt annet — EDIS, Budsjett 2027, handelspolitikk — er enten sekundært eller betinget av CID's utfall. Hold øye med ITRE for signaler om hva det endelige CID vil innebære.
+
+3. **Datagapet er reelt**: Denne analysen ble produsert under degraderte feed-forhold (alle fire EP's API-batchendepunkter returnerte 404). Den strategiske etterretningen er robust; den ukespesifikke utvalgsefterretningen er ikke tilgjengelig. EP's Open Data Portal-infrastruktur trenger oppmerksomhet.
+
+**Admiralitetsvurdering**: B3 samlet | **Konfidens**: MEDIUM | **WEP for nøkkelvurdering**: SANNSYNLIG (65–80 %)
+
+### Executive Brief Sv
+
+### SATs Applied
+- **Key Assumptions Check**: Prognosantaganden anges i §1
+- **Quality of Information Check**: Databegränsningar erkänns i §4
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP: TROLIGT (65–80 %)** — Europaparlamentets utskottssystem arbetar under 2026 med historiskt enastående intensitet: 2 363 utskottsmöten projiceras (det högsta som någonsin registrerats), en ökning med 46,2 % av lagstiftningsakter jämfört med 2025 och en ökning med 24,2 % av parlamentariska frågor. Denna rekordaktivitet sker under maximal politisk fragmentering (Effektivt antal partier = 6,59, det högsta i EP:s historia) och fientliga utskottsordförandetilldelningar (ENVI till ECR, AFET till PfE).
+
+Den centrala paradoxen — maximal fragmentering som producerar maximal output — förklaras av strukturella krafter: den expanderande EU-lagstiftningens mandat under Lissabonfördraget, det Rena industriavtalet (Clean Industrial Deal) och den Europeiska försvarsindustrins strategi som kräver intensiv samordning mellan flera utskott, samt utskottssystemets institutionella design som möjliggör lagstiftningsleverans driven av en enda föredragande även i splittrade politiska miljöer.
+
+**Key Assumptions Check**: Denna bedömning förutsätter att H2 2026 följer det säsongsmässiga accelerationsmönstret från tidigare halvtidsår. Det viktigaste antagandet är att ingen stor geopolitisk chock (eskalering i Ukraina, finanskris) stör H2 2026:s utskottskalender. En sannolikhet på 20–30 % för en väsentlig störning är inräknad i scenarioprognosen.
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+Baserat på 20 antagna texter (jan–apr 2026) och genererade statistik:
+
+| Prioritet | Politikområde | Ledande utskott | Status |
+|-----------|--------------|-----------------|--------|
+| 1 | Clean Industrial Deal | ITRE + ENVI, ECON, EMPL-yttranden | Utskottsstadium — omröstning förväntas Q3 2026 |
+| 2 | Europeisk försvarsindustrisk strategi | AFET/SEDE + BUDG, ITRE | Första behandling pågår |
+| 3 | Budgetprocedur 2027 | BUDG | Första behandling oktober 2026 |
+| 4 | DMA-tillsynsövervakning | IMCO | Resolution antagen; pågående |
+| 5 | Ukrainas ansvarsskyldighet och stöd | AFET + CONT | Flera resolutioner antagna; pågående |
+| 6 | EU-Mercosur | INTA | CJE-yttrande begärt; processen suspenderad |
+| 7 | AI Act-genomförandeåtgärder | IMCO + LIBE | Pågående tillsyn |
+| 8 | Naturrestaureringslagen | ENVI | Revision under ECR-ordförande |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+EP10:s tilldelning av utskotdsordförandeposter efter D'Hondt-beräkningen resulterade i två politiskt betydelsefulla utfall:
+
+**ENVI under ECR** (Melonis Fratelli d'Italia): Miljöutskottet, som under EP9 drev Green Deal-lagstiftningen, leds nu av en grupp som betraktar klimatmål som en konkurrensnackdel. Observerbar konsekvens: revideringen av naturrestaureringslagen, förordningen om hållbar användning av bekämpningsmedel och samtliga ENVI-ledda Clean Industrial Deal-ändringsförslag utgår från en mer konservativ grundlinje än EP9-motsvarigheterna. NGO-motkampanjerna är intensiva.
+
+**AFET under PfE** (Orbáns Fidesz + Marine Le Pens RN + Lega): Utrikesutskottet, som handlägger EP:s geopolitiska resolutioner, leds av en grupp med strukturella skäl att moderera språket om Ukrainasolidaritet. Bevis: fem utrikespolitiska texter antagna jan–apr 2026 — från Ukrainas ansvarsskyldighet till demokratisk resiliens i Armenien — krävde alla att man kringgick snarare än gick via ordföranden.
+
+**Konsekvens** (WEP: TROLIGT, 65–75 %): EP10 kommer att producera mätbart mindre ambitiös klimatlagstiftning och mindre entydigt pro-ukrainska resolutioner än EP9 — inte för att plenarmajoriter har förskjutits dramatiskt, utan för att utskottets beredningsskede utgår från en mer konservativ grundlinje.
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+Denna körning opererar under ett **degraderat dataläge** (golvfaktor: 0,80). Alla fyra EP:s Open Data Portal-batchflödesändpunkter returnerade HTTP 404:
+- `committee-documents-feed`: 404
+- `procedures-feed`: Historiska data enbart (1972–1987)
+- `events-feed`: 404
+- `documents-feed`: 404
+
+**Kompenserande källor använda**: 20 antagna texter (jan–apr 2026) + EP:s genererade statistik (HÖG konfidens, veckouppdaterad) + 20 AFCO-utskottsdokument (låg metadatakvalitet).
+
+**Underrättelselucka**: Inga specifika utskottsaktiviteter, omröstningar eller beslut från veckan 2026-05-18 till 2026-05-25 är tillgängliga. Analysen tillhandahåller strategisk underrättelse om EP10:s utskottsdynamik snarare än veckospecifik händelserapportering.
+
+---
+
+### 5. Key Signals to Watch
+
+| Signal | Betydelse | Tidsram |
+|--------|-----------|---------|
+| ITRE Clean Industrial Deal-utskottsomröstning | Utskottets viktigaste händelse 2026 | Q3 2026 |
+| BUDG Budget 2027 förstabehandlingsantagande | Institutionell årsdeadline | Oktober 2026 |
+| CJE generaladvokatsyttrande om EU-Mercosur | Kan blockera EU:s största utestående handelsavtal | 12–18 månader |
+| Kommissionens DMA-utredningsmeddelanden | IMCO-resolutionens uppföljning | Q3–Q4 2026 |
+| ECR-PfE:s diskussioner om gruppfusion | Skulle omstrukturera alla utskottsordförandeposter | Pågående |
+| Återställning av EP:s Open Data Portal-flöden | Skulle återställa underrättelse om utskott i realtid | Okänt |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| Utskott | Ettradsbedömning |
+|---------|-----------------|
+| ITRE | Clean Industrial Deals lagstiftningsframgång eller -misslyckande kommer att definiera detta utskotts EP10-arv |
+| ECON | Stabil monetär tillsynsroll; Capital Markets Union-framstegen långsammare än EP9 |
+| AFET | Producerar starka Ukrainaresolutioner trots PfE-ordförande — strukturell spänning synlig |
+| ENVI | ECR-ordförande modererar klimatambitionen; NGO-kampanjer intensiva |
+| INTA | EU-Mercosur CJE-begäran signalerar protektionistisk vändning under ECR-ordförande |
+| BUDG | Budget 2027 på rätt spår; EDIS-finansieringsarkitektur omtvistad |
+| IMCO | DMA-tillsynsresolution skapar ny parlamentarisk tillsynsroll |
+| LIBE | RE-ordförande försvarar rättsstatsbetingad finansiering; migration fortfarande omtvistad |
+| EMPL | Underentreprenadansvar (TA-10-2026-0050) visar S&D:s förmåga att driva social lagstiftning framåt |
+| CONT | EIB och Ukrainalånets ansvarsskyldighetsövervakning på hög intensitet |
+| AGRI | Hund/kattvälfärd (TA-10-2026-0115) som framgång för konsumentskydd över partigränser |
+| AFCO | Vallagreformen — ratificeringshinder i medlemsstaterna kvarstår |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+Europaparlamentets utskottssystem 2026 är samtidigt det mest aktiva (sett till mötesfrekvens och lagstiftningsoutput) och det mest politiskt omtvistade (sett till fragmentering och höger-blockstilldelning av ordförandeposter) i EP:s historia. Institutionens strukturella motståndskraft — föredragandesystemet, sekretariatets expertis, absoluta majoritetskrav — testas i stor skala.
+
+**WEP (TROLIGT, 65–80 %)**: EP10:s utskott kommer att leverera en historiskt sett betydelsefull lagstiftningsoutput 2026, förankrad i Clean Industrial Deal och EDIS. Outputen kommer att vara mer konservativ i sin klimatambition och mer tvetydig i sin Ukrainaramning än EP9:s motsvarande halvtidsoutput. Utskottssystemets demokratiska funktion kvarstår intakt; dess politiska inriktning har förskjutits.
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**För beslutsfattare, journalister och EU-bevakare**: Tre lärdomar från veckans EP-utskottsunderrättelse:
+
+1. **Rekord betyder inte radikalt**: EP10:s utskott producerar i historisk takt, men den politiska inriktningen under ECR/PfE-utskottsordförande är mer konservativ än EP9 vad gäller klimat och mer försiktig i utrikespolitiken. Maximal output + konservativ inriktning = EP10-paradoxen.
+
+2. **CID är 2026:s avgörande lagstiftningshändelse**: Allt annat — EDIS, Budget 2027, handelspolitik — är antingen sekundärt eller beroende av CID:s utfall. Bevaka ITRE för signaler om vad det slutliga CID kommer att innebära.
+
+3. **Datagapet är verkligt**: Denna analys producerades under degraderade feeder-förhållanden (alla fyra EP:s API-batchändpunkter returnerade 404). Den strategiska underrättelsen är robust; den veckospecifika utskottsunderrättelsen är inte tillgänglig. EP:s Open Data Portal-infrastruktur behöver uppmärksamhet.
+
+**Admiralitetsbetyg**: B3 totalt | **Konfidens**: MEDIUM | **WEP på nyckelassessment**: TROLIGT (65–80 %)
+
+### Executive Brief Zh
+
+**日期**：2026-05-25
+**运行编号**：committee-reports-run267-1779688077
+**文章类型**：committee-reports
+**数据模式**：degraded-feeds（数据流 404；战略数据高质量）
+**置信度**：🟡 MEDIUM | **海军评级**：B3
+**主要评估的 WEP 区间**：可能（65–80%）
+
+---
+
+### SATs Applied
+- **Key Assumptions Check**：预测假设见 §1
+- **Quality of Information Check**：数据局限性见 §4
+
+---
+
+### 1. Principal Intelligence Assessment
+
+**WEP：可能（65–80%）** — 欧洲议会委员会系统在2026年以历史上前所未有的强度运作：预计召开委员会会议2,363次（创历史最高纪录），与2025年相比立法行为增加46.2%，议会问题增加24.2%。这一创纪录的活动发生在政治碎片化程度最高（有效政党数量 = 6.59，欧洲议会史上最高）以及委员会主席分配充满敌意（ENVI分配给ECR，AFET分配给PfE）的背景下。
+
+核心悖论 — 最大碎片化产生最大产出 — 可以用结构性力量来解释：里斯本条约下不断扩展的欧盟立法授权、需要多委员会密集协调的Clean Industrial Deal和欧洲国防工业战略，以及报告员制度的制度设计，即使在政治分裂的环境中也能由单一议员推动立法成果。
+
+**Key Assumptions Check**：此评估假设2026年下半年遵循以往中期年的季节性加速模式。最重要的假设是不会有重大地缘政治冲击（乌克兰局势升级、金融危机）干扰2026年下半年的委员会日历。情景预测中已考虑20–30%的重大干扰概率。
+
+---
+
+### 2. Legislative Priority Ranking (Evidence-Based)
+
+基于2026年1月至4月的20份采纳文本及生成统计数据：
+
+| 优先级 | 政策领域 | 牵头委员会 | 状态 |
+|------|---------|---------|------|
+| 1 | Clean Industrial Deal | ITRE + ENVI、ECON、EMPL意见 | 委员会阶段 — 预计2026年第三季度表决 |
+| 2 | 欧洲国防工业战略 | AFET/SEDE + BUDG、ITRE | 一读进行中 |
+| 3 | 2027年预算程序 | BUDG | 一读2026年10月 |
+| 4 | DMA执法监督 | IMCO | 决议已采纳；持续中 |
+| 5 | 乌克兰问责与支持 | AFET + CONT | 多项决议已采纳；持续中 |
+| 6 | 欧盟-南方共同市场 | INTA | 已申请CJE意见；程序暂停 |
+| 7 | 人工智能法实施措施 | IMCO + LIBE | 持续监督 |
+| 8 | 自然恢复法 | ENVI | 在ECR主席领导下修订 |
+
+---
+
+### 3. Political Intelligence — Committee Chair Dynamics
+
+EP10委员会主席按D'Hondt方法分配后产生了两个政治上具有重要意义的结果：
+
+**ENVI（ECR领导下）**（梅洛尼的意大利兄弟党）：在EP9时期推动绿色协议立法的环境委员会，现由一个将气候目标视为竞争劣势的政治力量主持。可观察到的结果：自然恢复法修订、农药可持续使用法规以及ENVI主导的所有Clean Industrial Deal修正案均从比EP9更为保守的基准点出发。非政府组织的反对行动十分激烈。
+
+**AFET（PfE领导下）**（欧尔班的青年民主党 + 勒庞的国民联盟 + 联盟党）：负责处理欧洲议会地缘政治决议的对外事务委员会，由一个在结构上有理由淡化乌克兰团结立场的政治力量主持。证据：2026年1月至4月采纳的五份对外政策文本 — 从乌克兰问责到亚美尼亚民主韧性 — 均需要绕开而非通过主席运作。
+
+**含义**（WEP：可能，65–75%）：EP10将产生比EP9气候立法雄心更弱、乌克兰立场更模糊的政策文件 — 不是因为全体会议多数派发生了根本性变化，而是因为委员会起草阶段从更为保守的基准出发。
+
+---
+
+### 4. Data Limitations (Quality of Information Check)
+
+本次运行在**数据流降级模式**下运作（底限系数：0.80）。欧洲议会开放数据门户的全部四个批量POST数据流端点均返回HTTP 404：
+- `committee-documents-feed`：404
+- `procedures-feed`：仅历史数据（1972–1987）
+- `events-feed`：404
+- `documents-feed`：404
+
+**使用的补充数据源**：20份采纳文本（2026年1月至4月）+ 欧洲议会生成统计数据（高置信度，每周更新）+ 20份AFCO委员会文件（元数据质量低）。
+
+**情报空白**：2026-05-18至2026-05-25当周的具体委员会活动、投票或决定均无法获取。本分析提供关于EP10委员会动态的战略情报，而非具体的每周事件报告。
+
+---
+
+### 5. Key Signals to Watch
+
+| 信号 | 重要性 | 时间框架 |
+|----|------|--------|
+| ITRE Clean Industrial Deal委员会表决 | 2026年最重要的委员会事件 | 2026年第三季度 |
+| BUDG 2027年预算一读采纳 | 年度机构性截止日期 | 2026年10月 |
+| CJE法律顾问就欧盟-南方共同市场发表意见 | 可能阻断欧盟最大的待决贸易协定 | 12–18个月 |
+| 欧盟委员会DMA调查公告 | IMCO决议后续行动 | 2026年第三至四季度 |
+| ECR-PfE合并谈判 | 将重组所有委员会主席职位 | 持续中 |
+| 欧洲议会开放数据门户数据流恢复 | 将恢复委员会实时情报 | 未知 |
+
+---
+
+### 6. One-Line Assessment for Each Major Committee (Evidence-Based)
+
+| 委员会 | 单行评估 |
+|------|--------|
+| ITRE | Clean Industrial Deal的立法成败将定义该委员会的EP10历史遗产 |
+| ECON | 货币监督职能稳定；资本市场联盟进展慢于EP9 |
+| AFET | 尽管PfE担任主席，仍产出强有力的乌克兰决议 — 结构性紧张可见 |
+| ENVI | ECR主席缓和气候雄心；非政府组织行动激烈 |
+| INTA | 欧盟-南方共同市场CJE申请标志着ECR主席下的保护主义转向 |
+| BUDG | 2027年预算进展顺利；EDIS融资架构有争议 |
+| IMCO | DMA执法决议开创新的议会监督角色 |
+| LIBE | RE主席捍卫法治条件性；移民问题仍有争议 |
+| EMPL | 分包责任（TA-10-2026-0050）展示S&D推进社会立法的能力 |
+| CONT | 欧洲投资银行及乌克兰贷款问责监督保持高强度 |
+| AGRI | 犬猫福利（TA-10-2026-0115）作为跨派别消费者保护的成功案例 |
+| AFCO | 选举法改革 — 成员国批准障碍持续存在 |
+
+---
+
+### 7. Conclusion: Record Activity Under Political Pressure
+
+2026年的欧洲议会委员会系统同时是欧洲议会历史上最活跃（以会议频率和立法产出衡量）和政治争议最激烈（以碎片化程度和右翼阵营委员会主席分配衡量）的存在。机构的结构性韧性 — 报告员制度、秘书处专业知识、绝对多数要求 — 正在大规模接受考验。
+
+**WEP（可能，65–80%）**：EP10委员会将在2026年以Clean Industrial Deal和EDIS为核心，交付具有历史意义的立法成果。其产出在气候雄心方面将比EP9同期的中期产出更为保守，在乌克兰立场的表述上更为模糊。委员会系统的民主功能保持完整；其政治方向已经改变。
+
+### 8. Legislative Calendar Outlook
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=10db5373) -->
+
+### 9. Reader Briefing — Key Takeaways
+
+**政策制定者、记者和欧盟观察人士**：本周欧洲议会委员会情报的三点核心：
+
+1. **创纪录不等于激进**：EP10委员会以历史性速度产出，但在ECR/PfE委员会主席领导下的政治方向在气候问题上比EP9更为保守，在外交政策上更为谨慎。最大产出 + 保守方向 = EP10悖论。
+
+2. **CID是2026年决定性的立法事件**：其他一切 — EDIS、2027年预算、贸易政策 — 要么是次要的，要么取决于CID的结果。关注ITRE以获取最终CID走向的信号。
+
+3. **数据空白是真实的**：本分析在数据流降级条件下生成（欧洲议会API四个批量端点均返回404）。战略情报扎实；每周具体委员会情报无法获取。欧洲议会开放数据门户基础设施需要关注。
+
+**海军评级**：B3总体 | **置信度**：MEDIUM | **核心评估WEP**：可能（65–80%）
+
 ### Procedures Proxy
 
 ### 1. Procedure Pipeline Overview (2026)
@@ -3186,5 +4726,18 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-25/committee-reports/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 

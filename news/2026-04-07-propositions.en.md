@@ -130,7 +130,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiling.md` |
 | [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-significance">Significance</h2>
 
@@ -972,6 +972,1390 @@ graph TD
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+**التصنيف:** معلومات مصدر مفتوح — سجل برلماني عام  
+**مستوى الثقة:** 🟡 متوسط (فترة استراحة؛ السجلات التشريعية قبل الاستراحة 🟢 مرتفع)  
+**التشغيل:** `analysis/daily/2026-04-07/propositions/` (05:46 بتوقيت UTC)  
+**التغطية:** استراحة عيد الفصح اليوم 12/18 — تشخيص عرض نطاق التريلوج على خط أنابيب Q2 المؤلف من 18 ملفاً.  
+**تاريخ الإنشاء:** 2026-05-16 (ملخص استعادي، لا استدعاءات MCP جديدة)  
+**المصادر الرئيسية:** مجموعة خط أنابيب التشريعات قبل الاستراحة (18 ملف تريلوج-Q2)؛ 19 ملف تحليل؛ 5 منهجيات عالية الثقة.
+
+---
+
+### 🎯 الخلاصة المبتسرة
+
+**تعمل جولة اليوم الثاني عشر للمقترحات بوصفها **تشخيص عرض نطاق التريلوج** على خط أنابيب Q2 المؤلف من 18 ملفاً والمُحدَّد في جولة المقترحات بتاريخ 6 أبريل — تطرح السؤال: هل يمكن لـ18 ملفاً إجراء مفاوضات التريلوج في Q2 (أبريل-يونيو) في ضوء قيود عرض النطاق المعروفة للمجلس والمفوضية، وما هو الإنتاجية الواقعية؟** الإجابة: **الإنتاجية الواقعية لـQ2 هي 11-13 ملفاً (≈70%)، ليست 18**، مما يترك 5-7 ملفات تنزلق إلى Q3. المساهمة المميزة لهذه الجولة هي **نموذج الإنتاجية المقيَّد بعرض النطاق** بثلاثة مدخلات هيكلية: (أ) توافر خانات المجلس Coreper-I/-II أسبوعياً (≈3 خانات/أسبوع، 12 أسبوعاً في Q2 = 36 خانة، لكن ثلاثي الاتحاد المصرفي وحده يستهلك 6، تاركاً 30 لـ15 ملفاً متبقياً = 2 خانة/ملف)؛ (ب) خط أنابيب التفسير لدى المفوضية (عرض نطاق DG-FISMA + DG-COMP + DG-JUST + DG-TRADE، مع إرهاق DG-FISMA مسبقاً بسبب الاتحاد المصرفي)؛ (ج) طاقة المقررين ذوي المهمتين المزدوجتين في البرلمان الأوروبي (12 من أصل 18 مقرراً لديهم ملفات رائدة ثانية في Q2 = ضغط على الطاقة). يُحدِّد التشخيص **5 ملفات الأعلى خطر انزلاق**: 3 ملفات سياسة بيئية (تكلفة التنسيق الثلاثي بين Renew-Greens-PPE)، وملف واحد للخدمات الرقمية (تعقيد قانوني-تقني)، وملف واحد لسيادة القانون (مقاومة البرلمانات الوطنية للنقل). يُعدُّ النموذج المقيَّد بعرض النطاق أول توقع هيكلي لإنتاجية Q2 في منهجية المقترحات ومدخلاً عملياً قابلاً للتنفيذ لتخطيط تقويم التريلوج Q2-Q3.
+
+---
+
+### 🧭 3 قرارات يدعمها هذا الملخص
+
+| # | القرار | من يقرر | الموعد النهائي | الأدلة |
+|:-:|--------|---------|:-------------:|--------|
+| 1 | **تخطيط إنتاجية تريلوج Q2** — 11-13 ملفاً واقعياً، ليس 18 | مؤتمر الرؤساء + مجلس Coreper | بحلول 14 أبريل | §نموذج عرض النطاق |
+| 2 | **تحديد 5 ملفات الأعلى خطر انزلاق** — تخطيط وقائي لانزلاق Q3 | مقررو الملفات الخمسة | بحلول 14 أبريل | §تحديد خطر الانزلاق |
+| 3 | **تدقيق المهمة المزدوجة لمقرري البرلمان الأوروبي** — 12/18 لديهم ملف رائد ثانٍ في Q2؛ فحص الطاقة | مؤتمر الرؤساء | بحلول 14 أبريل | §طاقة المقررين |
+
+---
+
+### 📰 قراءة 60 ثانية
+
+- 🔴 **نموذج إنتاجية Q2 منجز** — 11-13 ملفاً واقعياً مقابل طموح 18.
+- 🟠 **5 ملفات الأعلى خطر انزلاق مُحدَّدة** — 3 بيئية · 1 رقمية · 1 سيادة قانون.
+- 🟢 **مجلس Coreper 36 خانة في Q2** — الاتحاد المصرفي وحده يستهلك 6.
+- 🟡 **DG-FISMA مُثقَلة بالتزامات** — اختناق التفسير في المفوضية.
+- 🔵 **12/18 مقرراً ذوو مهمة مزدوجة** — ضغط على الطاقة.
+- 🟣 **5 منهجيات عالية الثقة** — ائتلاف + عبر الجلسات + عميق + أصحاب المصلحة + التصويت.
+- 🩷 **19 ملف تحليل** — تغطية كاملة لمنهجية المقترحات.
+- ⚪ **مستوى الثقة متوسط** — عمل تحليلي خلال فترة الاستراحة؛ النموذج الهيكلي مرتفع.
+
+---
+
+### 🚦 نموذج عرض نطاق التريلوج (المساهمة المميزة للجولة)
+
+| القيد | طاقة Q2 | الطلب في Q2 | ضغط الانزلاق |
+|-------|---------|------------|--------------|
+| خانات مجلس Coreper | 36 (3×12 أسبوعاً) | 36 (18 ملفاً × 2 خانة) | 0 مع التحزيم المثالي |
+| مجلس Banking WP | 6 من 36 يمتصها ثلاثي الاتحاد المصرفي | الاتحاد المصرفي مهيمن | 0 مباشرة |
+| تفسير DG-FISMA | 5 مكافئات ملف في Q2 | 7 ملفات ضمن نطاق DG-FISMA | انزلاق -2 |
+| تفسير DG-COMP | 4 مكافئات ملف في Q2 | 4 ملفات | 0 |
+| تفسير DG-JUST | 3 مكافئات ملف في Q2 | 4 ملفات | انزلاق -1 |
+| تفسير DG-TRADE | 3 مكافئات ملف في Q2 | 3 ملفات | 0 |
+| **الانزلاق الإجمالي** | — | — | **من -5 إلى -7 ملفات (انزلاق Q3)** |
+
+---
+
+### ⚠️ لقطة المخاطر
+
+```mermaid
+quadrantChart
+    title خريطة حرارة مخاطر عرض نطاق التريلوج Q2 — 2026-04-07
+    x-axis احتمالية منخفضة --> احتمالية عالية
+    y-axis تأثير منخفض --> تأثير عالٍ
+    quadrant-1 إدارة حثيثة
+    quadrant-2 أولوية قصوى
+    quadrant-3 رصد ومتابعة
+    quadrant-4 تخطيط واحتواء
+    "اختناق مفوضية DG-FISMA": [0.70, 0.80]
+    "انزلاق 5-7 ملفات إلى Q3 يتحقق": [0.85, 0.75]
+    "فشل التنسيق الثلاثي البيئي": [0.55, 0.70]
+    "مقاومة نقل سيادة القانون": [0.65, 0.60]
+    "إرهاق المقرر من المهمة المزدوجة": [0.40, 0.65]
+    "زيادة التحميل على مجلس Banking WP (هيمنة الاتحاد المصرفي)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 أبرز المحفزات المستقبلية (90 يوماً القادمة)
+
+1. **14 أبريل — انطلاق أسبوع اللجان** — أول ضغط على الأعضاء ذوي المهمتين المزدوجتين.
+2. **نهاية أبريل — أولى خانات مجلس Coreper مُخصَّصة** — التحقق من عرض النطاق.
+3. **منتصف Q2 — معالم تفسير DG-FISMA** — تأكيد الاختناق.
+4. **نهاية Q2 — إحصاء إنتاجية Q2** — التحقق من النموذج (11-13 مقابل 18).
+5. **Q3 — وضع الإنقاذ للملفات المنزلقة** — تفعيل تريلوج Q3 لـ5-7 ملفات.
+
+---
+
+### 🛡️ تقييم جودة المصادر
+
+- **خانات مجلس Coreper (A2):** منهجية التقويم المؤسسي؛ قابلة للتحقق.
+- **طاقة التفسير في DG (A3):** مجموعة استدلالية لعرض نطاق المفوضية؛ ثقة متوسطة.
+- **انزلاق 5-7 ملفات (A2):** ناتج نموذج عرض النطاق؛ محدود بالمنهجية.
+- **المهمة المزدوجة للمقرر (A1):** سجلات البرلمان الأوروبي؛ قابلة للتحقق لكل مقرر.
+- **صافي مستوى الثقة:** 🟢 مرتفع على السجلات الملفية الفردية؛ 🟡 متوسط على توقع الانزلاق الإجمالي.
+
+---
+
+### 📎 مخرجات الجولة
+
+| الطبقة | المخرج | السبب |
+|--------|--------|-------|
+| المقالة | `article.md` | الرواية العامة للمقترحات |
+| التوليف | `existing/synthesis-summary.md` | نموذج إنتاجية عرض النطاق |
+| المنهجيات | التصنيف · القائم · تقييم المخاطر · تقييم التهديدات | منهجية المقترحات القياسية |
+| المرافق | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | العنقود اليومي لليوم الثاني عشر |
+
+---
+
+**ضبط الوثيقة**
+- **مرجع النموذج:** `analysis/templates/executive-brief.md`
+- **مسار المخرج:** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **التصنيف:** عام
+- **استعادي:** الملخص كُتب في 2026-05-16 من مخرجات الجولة الملتزمة؛ **لم يُجرَ أي استدعاء MCP جديد**.
+
+### Executive Brief Da
+
+### 🎯 BLUF
+
+**Denne Dag-12-kørsel for forslag er **trilogue-båndbreddsdiagnostikken** af den 18-fils Q2-pipeline identificeret i forslagskørslen den 6. april — den spørger: kan 18 filer trilogue i Q2 (april-juni) givet kendte råds- og kommissionsbåndbreddsbegrænsninger, og hvad er den realistiske gennemstrømning?** Svar: **realistisk Q2-gennemstrømning er 11-13 filer (≈70 %), ikke 18**, hvilket efterlader 5-7 filer til at glide til Q3. Kørslens særprægede bidrag er den **båndbreddsbegrænsede gennemstrømningsmodel** med tre strukturelle input: (a) Rådet Coreper-I/-II tilgængelighed per uge for pladser (≈3 pladser/uge, 12 uger Q2 = 36 pladser, men Banking Union-triplen alene forbruger 6, efterlader 30 til de resterende 15 filer = 2 pladser/fil); (b) Kommissionens fortolkningspipeline (DG-FISMA + DG-COMP + DG-JUST + DG-TRADE båndbredde, med DG-FISMA allerede overkomitteret på Banking Union); (c) EP-rapportørers dobbeltmandatkapacitet (12 af 18 rapportører har anden flagskibsfil i Q2 = kapacitetsbelastning). Diagnostikken identificerer **5 filer med højest glidrisiko**: 3 miljøpolitiske filer (Renew-Greens-PPE trevejs koordineringsomkostning), 1 digital-tjenester-fil (juridisk-teknisk kompleksitet) og 1 retsstatsfil (nationale parlamenters transpositionsmodstand). Den båndbreddsbegrænsede model er forslagsmetodologiens første strukturelle Q2-gennemstrømningsprognose og et operationelt handlingsorienteret Q2-Q3-trilogukalenderplanlægningsinput.
+
+---
+
+### 🧭 3 Beslutninger Denne Briefing Understøtter
+
+| # | Beslutning | Hvem beslutter | Frist | Bevis |
+|:-:|------------|----------------|:-----:|-------|
+| 1 | **Q2 trilogue-gennemstrømningsplanlægning** — 11-13 filer realistiske, ikke 18 | Konferencen for formænd + Rådet Coreper | inden 14. april | §Båndbreddemodel |
+| 2 | **5 filer med højest glidrisiko identificerede** — Q3-glidplanlægning præventiv | Rapportører for 5 filer | inden 14. april | §Glidrisikoid identificering |
+| 3 | **EP-rapportørers dobbeltmandatsrevision** — 12/18 med andet Q2-flagskib; kapacitetskontrol | Konferencen for formænd | inden 14. april | §Rapportørkapacitet |
+
+---
+
+### 📰 60-Sekunders Læsning
+
+- 🔴 **Q2-gennemstrømningsmodel produceret** — 11-13 filer realistiske mod 18 ambitioner.
+- 🟠 **5 filer med højest glidrisiko identificerede** — 3 miljø · 1 digitale · 1 retsstat.
+- 🟢 **Rådet Coreper 36 pladser Q2** — Banking Union alene forbruger 6.
+- 🟡 **DG-FISMA overkomitteret** — Kommissionens fortolkningsflaskehals.
+- 🔵 **12/18 rapportører dobbeltmandaterede** — kapacitetsbelastning.
+- 🟣 **5 højkonfidensmetoder** — koalition + tværsession + dyb + interessent + afstemning.
+- 🩷 **19 analysefiler** — fuld forslagsmetodologidækning.
+- ⚪ **Konfidens MEDIUM** — analytisk arbejde under ferie; strukturmodel HØJ.
+
+---
+
+### 🚦 Trilogue Båndbreddemodel (kørslens særprægede bidrag)
+
+| Begrænsning | Q2-kapacitet | Q2-efterspørgsel | Glidtryk |
+|------------|--------------|------------------|----------|
+| Rådet Coreper-pladser | 36 (3×12 uger) | 36 (18 filer × 2 pladser) | 0 ved perfekt pakning |
+| Rådet Banking WP | 6 af 36 absorberet af Banking Union-triplen | Banking Union dominerende | 0 direkte |
+| DG-FISMA-fortolkning | 5 filækvivalenter Q2 | 7 filer i DG-FISMA-omfang | -2 glid |
+| DG-COMP-fortolkning | 4 filækvivalenter Q2 | 4 filer | 0 |
+| DG-JUST-fortolkning | 3 filækvivalenter Q2 | 4 filer | -1 glid |
+| DG-TRADE-fortolkning | 3 filækvivalenter Q2 | 3 filer | 0 |
+| **Aggregeret glid** | — | — | **-5 til -7 filer (Q3-glid)** |
+
+---
+
+### ⚠️ Risikoøjebliksbillede
+
+```mermaid
+quadrantChart
+    title Q2 Trilogue Båndbreddsrisikokort — 2026-04-07
+    x-axis Lav sandsynlighed --> Høj sandsynlighed
+    y-axis Lav påvirkning --> Høj påvirkning
+    quadrant-1 Administrer tæt
+    quadrant-2 Højeste prioritet
+    quadrant-3 Overvåg
+    quadrant-4 Planlæg & begræns
+    "DG-FISMA kommissionsflaskehals": [0.70, 0.80]
+    "5-7 fil Q3-glid materialiseres": [0.85, 0.75]
+    "Miljø trevejs koordinering mislykkes": [0.55, 0.70]
+    "Retsstatlige transpositionsmodstand": [0.65, 0.60]
+    "Rapportørs dobbeltmandatsudbrændthed": [0.40, 0.65]
+    "Rådet Banking WP-overbelastning (Banking Union-dominans)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 Top Fremtidsudløsere (næste 90 dage)
+
+1. **14. april — Udvalgsuge åbner** — rapportørers dobbeltmandats første stress.
+2. **Slutningen af april — første Rådet Coreper-pladser allokerede** — båndbreddevalidering.
+3. **Midt-Q2 — DG-FISMA-fortolkningsmilestene** — flaskehalskonfirmering.
+4. **Slutningen af Q2 — Q2-gennemstrømningstælling** — modelvalidering (11-13 mod 18).
+5. **Q3 — redningsmode for glidne filer** — 5-7 fil Q3-trilogue-aktivering.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **Rådet Coreper-pladser (A2):** institutionel kalendermetodologi; verificerbar.
+- **DG-fortolkningskapacitet (A3):** Kommissionsbåndbreddeheuristik; mellemkonfidens.
+- **5-7 fil glid (A2):** båndbreddemodelloutput; metodologibegrænset.
+- **Rapportørers dobbelt mandat (A1):** EP-optegnelser; verificerbar per rapportør.
+- **Nettokonfidens:** 🟢 HØJ på per-filoptegnelser; 🟡 MEDIUM på aggregeret glidprognose.
+
+---
+
+### 📎 Kørslens Artefakter
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikel | `article.md` | Offentlig forslagsfortælling |
+| Syntese | `existing/synthesis-summary.md` | Båndbredde-gennemstrømningsmodel |
+| Metoder | klassificering · eksisterende · risikovurdering · trusselsvurdering | Standard forslagsmetodologi |
+| Ledsager | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | Dag-12 daglig klynge |
+
+---
+
+**Dokumentkontrol**
+- **Skabelonreference:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Briefing skrevet 2026-05-16 fra kørslens committede artefakter; **ingen nye MCP-kald blev foretaget**.
+
+### Executive Brief De
+
+### 🎯 BLUF
+
+**Dieser Tag-12-Durchlauf für Vorschläge ist die **Trilogue-Bandbreitendiagnostik** der 18-Datei-Q2-Pipeline aus dem Vorschlagsdurchlauf vom 6. April — er fragt: Können 18 Dateien in Q2 (April-Juni) Trilogue-Verfahren durchlaufen angesichts bekannter Bandbreitenbeschränkungen des Rates und der Kommission, und was ist der realistische Durchsatz?** Antwort: **Der realistische Q2-Durchsatz beträgt 11-13 Dateien (≈70 %), nicht 18**, was 5-7 Dateien in Q3 rutschen lässt. Der auszeichnende Beitrag des Durchlaufs ist das **bandbreitenbeschränkte Durchsatzmodell** mit drei strukturellen Eingaben: (a) Verfügbarkeit von Slots des Rates Coreper-I/-II pro Woche (≈3 Slots/Woche, 12 Wochen Q2 = 36 Slots, aber das Banking-Union-Trio allein verbraucht 6, was 30 für die verbleibenden 15 Dateien lässt = 2 Slots/Datei); (b) Interpretationspipeline der Kommission (DG-FISMA + DG-COMP + DG-JUST + DG-TRADE Bandbreite, wobei DG-FISMA bereits bei der Bankenunion überbeansprucht ist); (c) Dual-Mandats-Kapazität der EP-Berichterstatter (12 von 18 Berichterstattern haben zweite Flaggschiff-Dateien in Q2 = Kapazitätsbelastung). Die Diagnostik identifiziert **5 höchst-Rutschrisiko-Dateien**: 3 umweltpolitische Dateien (Renew-Greens-PPE Dreiwege-Koordinierungskosten), 1 Digitaldienstleistungs-Datei (juristisch-technische Komplexität) und 1 Rechtsstaats-Datei (nationale Parlamente Transpositionswiderstand). Das bandbreitenbeschränkte Modell ist die erste strukturelle Q2-Durchsatzprognose der Vorschlagsmethodik und ein operativ handlungsorientierter Q2-Q3-Trilogue-Kalenderplanungs-Input.
+
+---
+
+### 🧭 3 Entscheidungen Die Dieses Briefing Unterstützt
+
+| # | Entscheidung | Wer entscheidet | Frist | Beweise |
+|:-:|--------------|-----------------|:-----:|---------|
+| 1 | **Q2-Trilogue-Durchsatzplanung** — 11-13 Dateien realistisch, nicht 18 | Konferenz der Präsidenten + Rat Coreper | bis 14. April | §Bandbreitenmodell |
+| 2 | **5 höchst-Rutschrisiko-Dateien identifiziert** — Q3-Rutschplanung präventiv | Berichterstatter der 5 Dateien | bis 14. April | §Risikoidentifizierung |
+| 3 | **EP-Berichterstatter-Dual-Mandats-Prüfung** — 12/18 mit zweitem Q2-Flaggschiff; Kapazitätsprüfung | Konferenz der Präsidenten | bis 14. April | §Berichterstatterkapazität |
+
+---
+
+### 📰 60-Sekunden-Lektüre
+
+- 🔴 **Q2-Durchsatzmodell erstellt** — 11-13 Dateien realistisch gegenüber 18 Ambition.
+- 🟠 **5 höchst-Rutschrisiko-Dateien identifiziert** — 3 Umwelt · 1 Digital · 1 Rechtsstaat.
+- 🟢 **Rat Coreper 36 Slots Q2** — Bankenunion allein verbraucht 6.
+- 🟡 **DG-FISMA überbeansprucht** — Interpretationsengpass der Kommission.
+- 🔵 **12/18 Berichterstatter dual-mandatiert** — Kapazitätsbelastung.
+- 🟣 **5 Hochkonfidenz-Methoden** — Koalition + Sitzungsübergreifend + Tiefe + Stakeholder + Abstimmung.
+- 🩷 **19 Analysedateien** — vollständige Vorschlags-Methodik-Abdeckung.
+- ⚪ **Konfidenzniveau MEDIUM** — Analytische Arbeit während der Pause; Strukturmodell HOCH.
+
+---
+
+### 🚦 Trilogue-Bandbreitenmodell (auszeichnender Beitrag des Durchlaufs)
+
+| Einschränkung | Q2-Kapazität | Q2-Nachfrage | Rutschdruck |
+|--------------|-------------|-------------|-------------|
+| Rat-Coreper-Slots | 36 (3×12 Wochen) | 36 (18 Dateien × 2 Slots) | 0 bei perfekter Auslastung |
+| Rat Banking WP | 6 von 36 absorbiert von Bankenunion-Trio | Bankenunion dominierend | 0 direkt |
+| DG-FISMA-Interpretation | 5 Dateiäquivalente Q2 | 7 Dateien im DG-FISMA-Bereich | -2 Rutsch |
+| DG-COMP-Interpretation | 4 Dateiäquivalente Q2 | 4 Dateien | 0 |
+| DG-JUST-Interpretation | 3 Dateiäquivalente Q2 | 4 Dateien | -1 Rutsch |
+| DG-TRADE-Interpretation | 3 Dateiäquivalente Q2 | 3 Dateien | 0 |
+| **Aggregierter Rutsch** | — | — | **-5 bis -7 Dateien (Q3-Rutsch)** |
+
+---
+
+### ⚠️ Risikoüberblick
+
+```mermaid
+quadrantChart
+    title Q2-Trilogue-Bandbreiten-Risikoübersicht — 2026-04-07
+    x-axis Geringe Wahrscheinlichkeit --> Hohe Wahrscheinlichkeit
+    y-axis Geringe Auswirkung --> Hohe Auswirkung
+    quadrant-1 Genau überwachen
+    quadrant-2 Höchste Priorität
+    quadrant-3 Beobachten
+    quadrant-4 Planen & eindämmen
+    "DG-FISMA Kommissionsengpass": [0.70, 0.80]
+    "5-7 Datei Q3-Rutsch tritt ein": [0.85, 0.75]
+    "Umwelt-Dreiwege-Koordinierung scheitert": [0.55, 0.70]
+    "Rechtsstaatlicher Transpositionswiderstand": [0.65, 0.60]
+    "Berichterstatter-Dual-Mandats-Erschöpfung": [0.40, 0.65]
+    "Rat Banking WP-Überlastung (Bankenunion-Dominanz)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 Top-Zukunftsauslöser (nächste 90 Tage)
+
+1. **14. April — Ausschusswoche öffnet** — erster Stress der Berichterstatter-Dual-Mandate.
+2. **Ende April — erste Rat-Coreper-Slots zugeteilt** — Bandbreitenvalidierung.
+3. **Mitte Q2 — DG-FISMA-Interpretationsmeilensteine** — Engpassbestätigung.
+4. **Ende Q2 — Q2-Durchsatzzählung** — Modellvalidierung (11-13 vs. 18).
+5. **Q3 — Rettungsmodus für gerutschte Dateien** — 5-7 Datei Q3-Trilogue-Aktivierung.
+
+---
+
+### 🛡️ Quellenqualitätsbewertung
+
+- **Rat-Coreper-Slots (A2):** institutionelle Kalendermethodik; verifizierbar.
+- **DG-Interpretationskapazität (A3):** Kommissions-Bandbreiten-Heuristik; mittleres Konfidenz.
+- **5-7 Datei Rutsch (A2):** Bandbreitenmodell-Output; methodologiebegrenzt.
+- **Berichterstatter-Doppelmandat (A1):** EP-Unterlagen; je Berichterstatter verifizierbar.
+- **Netto-Konfidenz:** 🟢 HOCH bei dateibasierten Unterlagen; 🟡 MEDIUM bei aggregierter Rutschprognose.
+
+---
+
+### 📎 Durchlaufsartefakte
+
+| Schicht | Artefakt | Warum |
+|---------|----------|-------|
+| Artikel | `article.md` | Öffentliche Vorschlagserzählung |
+| Synthese | `existing/synthesis-summary.md` | Bandbreite-Durchsatz-Modell |
+| Methoden | Klassifizierung · Bestehend · Risikobewertung · Bedrohungsanalyse | Standard Vorschlagsmethodik |
+| Begleitung | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | Tag-12 tägliches Cluster |
+
+---
+
+**Dokumentenkontrolle**
+- **Vorlagereferenz:** `analysis/templates/executive-brief.md`
+- **Artefaktpfad:** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **Klassifizierung:** Öffentlich
+- **Retrospektiv:** Briefing erstellt am 2026-05-16 aus den committeten Artefakten des Durchlaufs; **keine neuen MCP-Aufrufe wurden durchgeführt**.
+
+### Executive Brief Es
+
+### 🎯 BLUF
+
+**Esta ejecución del Día-12 para propuestas es el **diagnóstico de ancho de banda del trílogo** del pipeline Q2 de 18 archivos identificado en la ejecución de propuestas del 6 de abril — pregunta: ¿pueden 18 archivos completar el trílogo en Q2 (abril-junio) dados los conocidos límites de ancho de banda del Consejo y la Comisión, y cuál es el rendimiento realista?** Respuesta: **el rendimiento Q2 realista es de 11-13 archivos (≈70 %), no 18**, dejando 5-7 archivos para deslizarse a Q3. La contribución distintiva de la ejecución es el **modelo de rendimiento restringido por ancho de banda** con tres entradas estructurales: (a) disponibilidad de ranuras semanales del Consejo Coreper-I/-II (≈3 ranuras/semana, 12 semanas Q2 = 36 ranuras, pero el trío Unión Bancaria solo consume 6, dejando 30 para los 15 archivos restantes = 2 ranuras/archivo); (b) pipeline de interpretación de la Comisión (ancho de banda DG-FISMA + DG-COMP + DG-JUST + DG-TRADE, con DG-FISMA ya sobrecomprometida en la Unión Bancaria); (c) capacidad de doble mandato de los ponentes del PE (12 de 18 ponentes tienen segundos archivos insignia en Q2 = tensión de capacidad). El diagnóstico identifica **5 archivos con mayor riesgo de deslizamiento**: 3 archivos de política ambiental (costo de coordinación tripartita Renew-Greens-PPE), 1 archivo de servicios digitales (complejidad jurídico-técnica) y 1 archivo de Estado de Derecho (resistencias a la transposición de parlamentos nacionales). El modelo restringido por ancho de banda es la primera previsión estructural de rendimiento Q2 de la metodología de propuestas y una contribución operativamente accionable para la planificación del calendario de trílogo Q2-Q3.
+
+---
+
+### 🧭 3 Decisiones Que Este Resumen Apoya
+
+| # | Decisión | Quién decide | Plazo | Evidencia |
+|:-:|----------|--------------|:-----:|-----------|
+| 1 | **Planificación del rendimiento del trílogo Q2** — 11-13 archivos realistas, no 18 | Conferencia de Presidentes + Consejo Coreper | antes del 14 de abril | §Modelo de ancho de banda |
+| 2 | **5 archivos con mayor riesgo de deslizamiento identificados** — planificación preventiva del deslizamiento Q3 | Ponentes de los 5 archivos | antes del 14 de abril | §Identificación del riesgo de deslizamiento |
+| 3 | **Auditoría del doble mandato de ponentes del PE** — 12/18 con segundo insignia Q2; verificación de capacidad | Conferencia de Presidentes | antes del 14 de abril | §Capacidad de ponentes |
+
+---
+
+### 📰 Lectura de 60 Segundos
+
+- 🔴 **Modelo de rendimiento Q2 producido** — 11-13 archivos realistas frente a 18 de ambición.
+- 🟠 **5 archivos con mayor riesgo de deslizamiento identificados** — 3 medioambiente · 1 digitales · 1 Estado de Derecho.
+- 🟢 **Consejo Coreper 36 ranuras Q2** — la Unión Bancaria sola consume 6.
+- 🟡 **DG-FISMA sobrecomprometida** — cuello de botella de interpretación de la Comisión.
+- 🔵 **12/18 ponentes con doble mandato** — tensión de capacidad.
+- 🟣 **5 métodos de alta confianza** — coalición + intersesión + profundo + partes interesadas + votación.
+- 🩷 **19 archivos de análisis** — cobertura completa de la metodología de propuestas.
+- ⚪ **Confianza MEDIUM** — trabajo analítico durante el receso; modelo estructural ALTA.
+
+---
+
+### 🚦 Modelo de Ancho de Banda del Trílogo (contribución distintiva de la ejecución)
+
+| Restricción | Capacidad Q2 | Demanda Q2 | Presión de deslizamiento |
+|------------|-------------|-----------|--------------------------|
+| Ranuras Consejo Coreper | 36 (3×12 semanas) | 36 (18 archivos × 2 ranuras) | 0 con empaquetado perfecto |
+| Consejo Banking WP | 6 de 36 absorbidas por el trío Unión Bancaria | Unión Bancaria dominante | 0 directamente |
+| Interpretación DG-FISMA | 5 equivalentes-archivo Q2 | 7 archivos en ámbito DG-FISMA | -2 deslizamientos |
+| Interpretación DG-COMP | 4 equivalentes-archivo Q2 | 4 archivos | 0 |
+| Interpretación DG-JUST | 3 equivalentes-archivo Q2 | 4 archivos | -1 deslizamiento |
+| Interpretación DG-TRADE | 3 equivalentes-archivo Q2 | 3 archivos | 0 |
+| **Deslizamiento agregado** | — | — | **-5 a -7 archivos (deslizamiento Q3)** |
+
+---
+
+### ⚠️ Instantánea de Riesgos
+
+```mermaid
+quadrantChart
+    title Mapa de Riesgo de Ancho de Banda Trílogo Q2 — 2026-04-07
+    x-axis Baja probabilidad --> Alta probabilidad
+    y-axis Bajo impacto --> Alto impacto
+    quadrant-1 Gestionar de cerca
+    quadrant-2 Máxima prioridad
+    quadrant-3 Monitorear
+    quadrant-4 Planificar y contener
+    "Cuello de botella Comisión DG-FISMA": [0.70, 0.80]
+    "Deslizamiento Q3 de 5-7 archivos se materializa": [0.85, 0.75]
+    "Coordinación tripartita ambiental fracasa": [0.55, 0.70]
+    "Resistencias transposición Estado de Derecho": [0.65, 0.60]
+    "Agotamiento doble mandato ponente": [0.40, 0.65]
+    "Sobrecarga Consejo Banking WP (dominancia Unión Bancaria)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 Principales Desencadenantes Futuros (próximos 90 días)
+
+1. **14 de abril — Semana de comisiones se abre** — primer estrés de los dobles mandatos de ponentes.
+2. **Finales de abril — primeras ranuras Coreper del Consejo asignadas** — validación de ancho de banda.
+3. **Mediados de Q2 — hitos de interpretación DG-FISMA** — confirmación del cuello de botella.
+4. **Finales de Q2 — recuento de rendimiento Q2** — validación del modelo (11-13 frente a 18).
+5. **Q3 — modo rescate para archivos deslizados** — activación del trílogo Q3 de 5-7 archivos.
+
+---
+
+### 🛡️ Evaluación de la Calidad de las Fuentes
+
+- **Ranuras Consejo Coreper (A2):** metodología del calendario institucional; verificable.
+- **Capacidad de interpretación DG (A3):** heurística de ancho de banda de la Comisión; confianza media.
+- **Deslizamiento de 5-7 archivos (A2):** salida del modelo de ancho de banda; limitado por metodología.
+- **Doble mandato de ponente (A1):** registros del PE; verificable por ponente.
+- **Confianza neta:** 🟢 ALTA en registros por archivo; 🟡 MEDIUM en previsión agregada de deslizamiento.
+
+---
+
+### 📎 Artefactos de la Ejecución
+
+| Capa | Artefacto | Por qué |
+|------|-----------|---------|
+| Artículo | `article.md` | Narrativa pública de propuestas |
+| Síntesis | `existing/synthesis-summary.md` | Modelo de rendimiento de ancho de banda |
+| Métodos | clasificación · existente · puntuación de riesgos · evaluación de amenazas | Metodología estándar de propuestas |
+| Acompañante | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | Clúster diario Día-12 |
+
+---
+
+**Control documental**
+- **Referencia de plantilla:** `analysis/templates/executive-brief.md`
+- **Ruta del artefacto:** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **Clasificación:** Público
+- **Retrospectivo:** Resumen redactado el 2026-05-16 a partir de los artefactos comprometidos de la ejecución; **no se realizaron nuevas llamadas MCP**.
+
+### Executive Brief Fi
+
+### 🎯 BLUF
+
+**Tämä ehdotusten Päivä-12-ajo on 6. huhtikuun ehdotusajossa tunnistetun **trilogin kaistanleveysdiagnostiikka** 18 tiedoston Q2-putkilinjasta — se kysyy: voivatko 18 tiedostoa käydä trilogin Q2:ssa (huhtikuu-kesäkuu) ottaen huomioon tunnetut neuvoston ja komission kaistanleveysrajoitukset, ja mikä on realistinen läpimenoaste?** Vastaus: **realistinen Q2-läpimenoaste on 11-13 tiedostoa (≈70 %), ei 18**, jättäen 5-7 tiedostoa liukumaan Q3:een. Ajon erottuva panos on **kaistanleveysrajoitettu läpimenonosmalli** kolmella rakenteellisella syötteellä: (a) Neuvoston Coreper-I/-II viikkokohtainen paikkojen saatavuus (≈3 paikkaa/viikko, 12 viikkoa Q2 = 36 paikkaa, mutta Banking Union -kolmikko yksinään kuluttaa 6, jättäen 30 loppujen 15 tiedoston käyttöön = 2 paikkaa/tiedosto); (b) Komission tulkintaputkilinja (DG-FISMA + DG-COMP + DG-JUST + DG-TRADE kaistanleveys, DG-FISMA jo ylikuormittuneena Banking Unionissa); (c) EP-esittelijöiden kaksoismaniaattikapasiteetti (12/18 esittelijällä on toinen lippulaivatiedosto Q2:ssa = kapasiteettipaine). Diagnostiikka tunnistaa **5 korkeimman liukumisriskin tiedostoa**: 3 ympäristöpoliittista tiedostoa (Renew-Greens-PPE kolmikannan koordinointikustannus), 1 digitaalisten palvelujen tiedosto (oikeudellinen-tekninen monimutkaisuus) ja 1 oikeusvaltiota koskeva tiedosto (kansallisten parlamenttien täytäntöönpanon vastarinta). Kaistanleveysrajoitettu malli on ehdotusten metodologian ensimmäinen rakenteellinen Q2-läpimenoennuste ja operatiivisesti toimintakelpoinen Q2-Q3-trilogikaaviosuunnittelusyöte.
+
+---
+
+### 🧭 3 Päätöstä Joita Tämä Kooste Tukee
+
+| # | Päätös | Kuka päättää | Määräaika | Näyttö |
+|:-:|--------|--------------|:---------:|--------|
+| 1 | **Q2 trilogin läpimenosuunnittelu** — 11-13 tiedostoa realistista, ei 18 | Puheenjohtajien konferenssi + Neuvoston Coreper | 14. huhtikuuta mennessä | §Kaistanleveysnosmalli |
+| 2 | **5 korkeimman liukumisriskin tiedostoa tunnistettu** — Q3-liukumissuunnittelu ennakolta | 5 tiedoston esittelijät | 14. huhtikuuta mennessä | §Liukumisriskin tunnistus |
+| 3 | **EP-esittelijöiden kaksoismaandaatin auditointi** — 12/18:lla toinen Q2-lippulaiva; kapasiteettitarkistus | Puheenjohtajien konferenssi | 14. huhtikuuta mennessä | §Esittelijäkapasiteetti |
+
+---
+
+### 📰 60-Sekunnin Lukeminen
+
+- 🔴 **Q2-läpimenonosmalli tuotettu** — 11-13 tiedostoa realistista vs. 18 tavoitteessa.
+- 🟠 **5 korkeimman liukumisriskin tiedostoa tunnistettu** — 3 ympäristö · 1 digitaaliset · 1 oikeusvaltio.
+- 🟢 **Neuvoston Coreper 36 paikkaa Q2** — Banking Union yksin kuluttaa 6.
+- 🟡 **DG-FISMA ylikuormittunut** — Komission tulkintapullonkaula.
+- 🔵 **12/18 esittelijää kaksoismaniaateilla** — kapasiteettipaine.
+- 🟣 **5 korkean luottamuksen menetelmää** — koalitio + ristisessio + syvä + sidosryhmä + äänestys.
+- 🩷 **19 analyysitiedostoa** — täysi ehdotusmenetelmäkattavuus.
+- ⚪ **Luottamus MEDIUM** — analyyttinen työ loman aikana; rakennemalli KORKEA.
+
+---
+
+### 🚦 Trilogin Kaistanleveysnosmalli (ajon erottuva panos)
+
+| Rajoitus | Q2-kapasiteetti | Q2-kysyntä | Liukumispaine |
+|---------|----------------|------------|---------------|
+| Neuvoston Coreper-paikat | 36 (3×12 viikkoa) | 36 (18 tiedostoa × 2 paikkaa) | 0 täydellisellä pakkauksella |
+| Neuvoston Banking WP | 6/36 absorboitu Banking Union -kolmikolla | Banking Union hallitseva | 0 suoraan |
+| DG-FISMA-tulkinta | 5 tiedostoekvivalenttia Q2 | 7 tiedostoa DG-FISMA-laajuudessa | -2 liukuminen |
+| DG-COMP-tulkinta | 4 tiedostoekvivalenttia Q2 | 4 tiedostoa | 0 |
+| DG-JUST-tulkinta | 3 tiedostoekvivalenttia Q2 | 4 tiedostoa | -1 liukuminen |
+| DG-TRADE-tulkinta | 3 tiedostoekvivalenttia Q2 | 3 tiedostoa | 0 |
+| **Aggregoitu liukuminen** | — | — | **-5 - -7 tiedostoa (Q3-liukuminen)** |
+
+---
+
+### ⚠️ Riskitilannevedos
+
+```mermaid
+quadrantChart
+    title Q2 Trilogin Kaistanleveysriskikartta — 2026-04-07
+    x-axis Matala todennäköisyys --> Korkea todennäköisyys
+    y-axis Matala vaikutus --> Korkea vaikutus
+    quadrant-1 Hallitse tarkasti
+    quadrant-2 Ylin prioriteetti
+    quadrant-3 Tarkkaile
+    quadrant-4 Suunnittele & rajoita
+    "DG-FISMA komission pullonkaula": [0.70, 0.80]
+    "5-7 tiedoston Q3-liukuminen toteutuu": [0.85, 0.75]
+    "Ympäristö kolmikanta koordinointi epäonnistuu": [0.55, 0.70]
+    "Oikeusvaltion täytäntöönpanon vastarinta": [0.65, 0.60]
+    "Esittelijän kaksoismaniaatin uupumus": [0.40, 0.65]
+    "Neuvoston Banking WP -ylikuormitus (Banking Union -hallitsevuus)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 Tärkeimmät Tulevaisuuden Laukaisimet (seuraavat 90 päivää)
+
+1. **14. huhtikuuta — Valiokuntaviikko avautuu** — esittelijöiden kaksoismaniaatin ensimmäinen stressi.
+2. **Huhtikuun loppu — ensimmäiset Neuvoston Coreper-paikat allokoidaan** — kaistanleveysvalidointi.
+3. **Q2:n puoliväli — DG-FISMA-tulkintavirstanpylväät** — pullonkaulavahvistus.
+4. **Q2:n loppu — Q2-läpimeno laskenta** — mallin validointi (11-13 vs. 18).
+5. **Q3 — liukuvien tiedostojen pelastustila** — 5-7 tiedoston Q3-trilogi-aktivointi.
+
+---
+
+### 🛡️ Lähteen Laadun Arviointi
+
+- **Neuvoston Coreper-paikat (A2):** institutionaalinen kalenterimenetelmä; tarkistettavissa.
+- **DG-tulkintakapasiteetti (A3):** Komission kaistanleveysenheuristiikka; keskitason luottamus.
+- **5-7 tiedoston liukuminen (A2):** kaistanleveysmallin tuotos; menetelmärajoitettu.
+- **Esittelijöiden kaksoismaniaatti (A1):** EP-asiakirjat; tarkistettavissa esittelijäkohtaisesti.
+- **Nettokonfidenss:** 🟢 KORKEA tiedostokohtaisissa asiakirjoissa; 🟡 MEDIUM aggregoidussa liukumisennusteessa.
+
+---
+
+### 📎 Ajon Artefaktit
+
+| Kerros | Artefakti | Miksi |
+|--------|-----------|-------|
+| Artikkeli | `article.md` | Julkinen ehdostuskertomus |
+| Synteesi | `existing/synthesis-summary.md` | Kaistanleveyden läpimenonosmalli |
+| Menetelmät | luokittelu · olemassa oleva · riskipisteytys · uhka-arviointi | Standardi ehdotusmenetelmä |
+| Kumppani | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | Päivä-12 päivittäinen klusteri |
+
+---
+
+**Asiakirjanhallinta**
+- **Malliviite:** `analysis/templates/executive-brief.md`
+- **Artefaktipolku:** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **Luokitus:** Julkinen
+- **Retrospektiivinen:** Kooste kirjoitettu 2026-05-16 ajon committedista artefakteista; **uusia MCP-kutsuja ei tehty**.
+
+### Executive Brief Fr
+
+### 🎯 BLUF
+
+**Cette exécution de Jour-12 pour les propositions est le **diagnostic de bande passante trilogue** sur le pipeline Q2 de 18 fichiers identifié dans l'exécution des propositions du 6 avril — elle pose la question : 18 fichiers peuvent-ils faire l'objet d'un trilogue en Q2 (avril-juin) compte tenu des contraintes de bande passante connues du Conseil et de la Commission, et quel est le débit réaliste ?** Réponse : **le débit Q2 réaliste est de 11 à 13 fichiers (≈70 %), pas 18**, laissant 5 à 7 fichiers glisser vers Q3. La contribution distinctive de l'exécution est le **modèle de débit contraint par la bande passante** avec trois entrées structurelles : (a) disponibilité des créneaux hebdomadaires du Conseil Coreper-I/-II (≈3 créneaux/semaine, 12 semaines Q2 = 36 créneaux, mais le trio Union bancaire consomme à lui seul 6, laissant 30 pour les 15 fichiers restants = 2 créneaux/fichier) ; (b) pipeline d'interprétation de la Commission (bande passante DG-FISMA + DG-COMP + DG-JUST + DG-TRADE, DG-FISMA étant déjà sur-engagée sur l'Union bancaire) ; (c) capacité double-mandat des rapporteurs PE (12 des 18 rapporteurs ont des deuxièmes fichiers phares en Q2 = tension de capacité). Le diagnostic identifie **5 fichiers à risque de glissement le plus élevé** : 3 fichiers de politique environnementale (coût de coordination tripartite Renew-Greens-PPE), 1 fichier de services numériques (complexité juridico-technique) et 1 fichier d'État de droit (résistances à la transposition des parlements nationaux). Le modèle contraint par la bande passante constitue la première prévision structurelle de débit Q2 de la méthodologie des propositions et une contribution opérationnellement exploitable pour la planification du calendrier de trilogue Q2-Q3.
+
+---
+
+### 🧭 3 Décisions Que Cette Note Soutient
+
+| # | Décision | Qui décide | Délai | Preuves |
+|:-:|----------|------------|:-----:|---------|
+| 1 | **Planification du débit trilogue Q2** — 11-13 fichiers réalistes, pas 18 | Conférence des présidents + Conseil Coreper | avant le 14 avril | §Modèle de bande passante |
+| 2 | **5 fichiers à risque de glissement le plus élevé identifiés** — planification préventive du glissement Q3 | Rapporteurs des 5 fichiers | avant le 14 avril | §Identification des risques de glissement |
+| 3 | **Audit du double mandat des rapporteurs PE** — 12/18 avec un deuxième phare Q2 ; vérification de capacité | Conférence des présidents | avant le 14 avril | §Capacité des rapporteurs |
+
+---
+
+### 📰 Lecture en 60 Secondes
+
+- 🔴 **Modèle de débit Q2 produit** — 11-13 fichiers réalistes contre 18 ambitions.
+- 🟠 **5 fichiers à risque de glissement le plus élevé identifiés** — 3 environnement · 1 numérique · 1 État de droit.
+- 🟢 **Conseil Coreper 36 créneaux Q2** — l'Union bancaire seule consomme 6.
+- 🟡 **DG-FISMA sur-engagée** — goulot d'étranglement d'interprétation de la Commission.
+- 🔵 **12/18 rapporteurs à double mandat** — tension de capacité.
+- 🟣 **5 méthodes à haute confiance** — coalition + intersession + approfondie + parties prenantes + vote.
+- 🩷 **19 fichiers d'analyse** — couverture complète de la méthodologie des propositions.
+- ⚪ **Confiance MEDIUM** — travail analytique pendant les vacances ; modèle structurel ÉLEVÉ.
+
+---
+
+### 🚦 Modèle de Bande Passante Trilogue (contribution distinctive de l'exécution)
+
+| Contrainte | Capacité Q2 | Demande Q2 | Pression de glissement |
+|-----------|------------|-----------|------------------------|
+| Créneaux Conseil Coreper | 36 (3×12 semaines) | 36 (18 fichiers × 2 créneaux) | 0 en cas de packaging parfait |
+| Conseil Banking WP | 6 des 36 absorbés par le trio Union bancaire | Union bancaire dominante | 0 directement |
+| Interprétation DG-FISMA | 5 équivalents-fichier Q2 | 7 fichiers dans le périmètre DG-FISMA | -2 glissements |
+| Interprétation DG-COMP | 4 équivalents-fichier Q2 | 4 fichiers | 0 |
+| Interprétation DG-JUST | 3 équivalents-fichier Q2 | 4 fichiers | -1 glissement |
+| Interprétation DG-TRADE | 3 équivalents-fichier Q2 | 3 fichiers | 0 |
+| **Glissement agrégé** | — | — | **-5 à -7 fichiers (glissement Q3)** |
+
+---
+
+### ⚠️ Instantané des Risques
+
+```mermaid
+quadrantChart
+    title Carte de Risque de Bande Passante Trilogue Q2 — 2026-04-07
+    x-axis Faible probabilité --> Forte probabilité
+    y-axis Faible impact --> Fort impact
+    quadrant-1 Gérer attentivement
+    quadrant-2 Priorité absolue
+    quadrant-3 Surveiller
+    quadrant-4 Planifier & contenir
+    "Goulot d'étranglement Commission DG-FISMA": [0.70, 0.80]
+    "Glissement Q3 de 5-7 fichiers se matérialise": [0.85, 0.75]
+    "Coordination tripartite environnement échoue": [0.55, 0.70]
+    "Résistances transposition État de droit": [0.65, 0.60]
+    "Épuisement double mandat rapporteur": [0.40, 0.65]
+    "Surcharge Conseil Banking WP (dominance Union bancaire)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 Principaux Déclencheurs Futurs (90 prochains jours)
+
+1. **14 avril — La semaine des commissions s'ouvre** — premier stress des doubles mandats des rapporteurs.
+2. **Fin avril — premiers créneaux Coreper du Conseil alloués** — validation de bande passante.
+3. **Milieu Q2 — jalons d'interprétation DG-FISMA** — confirmation du goulot d'étranglement.
+4. **Fin Q2 — décompte du débit Q2** — validation du modèle (11-13 contre 18).
+5. **Q3 — mode sauvetage pour fichiers glissés** — activation du trilogue Q3 pour 5-7 fichiers.
+
+---
+
+### 🛡️ Évaluation de la Qualité des Sources
+
+- **Créneaux Conseil Coreper (A2) :** méthodologie du calendrier institutionnel ; vérifiable.
+- **Capacité d'interprétation DG (A3) :** heuristique de bande passante de la Commission ; confiance moyenne.
+- **Glissement de 5-7 fichiers (A2) :** sortie du modèle de bande passante ; limité par la méthodologie.
+- **Double mandat rapporteur (A1) :** dossiers PE ; vérifiable par rapporteur.
+- **Confiance nette :** 🟢 ÉLEVÉE sur les dossiers par fichier ; 🟡 MEDIUM sur la prévision agrégée de glissement.
+
+---
+
+### 📎 Artefacts de l'Exécution
+
+| Couche | Artefact | Pourquoi |
+|--------|----------|----------|
+| Article | `article.md` | Récit public des propositions |
+| Synthèse | `existing/synthesis-summary.md` | Modèle de débit de bande passante |
+| Méthodes | classification · existant · scoring des risques · évaluation des menaces | Méthodologie standard des propositions |
+| Accompagnement | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | Grappe quotidienne Jour-12 |
+
+---
+
+**Contrôle documentaire**
+- **Référence modèle :** `analysis/templates/executive-brief.md`
+- **Chemin de l'artefact :** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **Classification :** Public
+- **Rétrospectif :** Note rédigée le 2026-05-16 à partir des artefacts commités de l'exécution ; **aucun nouvel appel MCP n'a été effectué**.
+
+### Executive Brief He
+
+**סיווג:** מודיעין ממקורות פתוחים — תיעוד פרלמנטרי ציבורי  
+**רמת ביטחון:** 🟡 MEDIUM (הפסקה; תיעוד חקיקתי לפני ההפסקה 🟢 גבוה)  
+**ריצה:** `analysis/daily/2026-04-07/propositions/` (05:46 UTC)  
+**כיסוי:** הפסקת פסח יום 12/18 — אבחון רוחב פס טרילוג של צינור ה-Q2 בן 18 הקבצים.  
+**הופק:** 2026-05-16 (סיכום רטרוספקטיבי, ללא קריאות MCP חדשות)  
+**מקורות ראשוניים:** מאגר צינור החקיקה לפני ההפסקה (18 קבצי טרילוג-Q2); 19 קבצי ניתוח; 5 מתודולוגיות ברמת ביטחון גבוהה.
+
+---
+
+### 🎯 BLUF
+
+**ריצת יום 12 זו עבור הצעות היא **אבחון רוחב פס הטרילוג** של צינור ה-Q2 בן 18 הקבצים שזוהה בריצת ההצעות של 6 באפריל — היא שואלת: האם 18 קבצים יכולים לעבור תהליך טרילוג ב-Q2 (אפריל-יוני) לנוכח מגבלות רוחב פס מוכרות של המועצה והנציבות, ומה הוא התפוקה הריאלית?** תשובה: **תפוקת Q2 ריאלית היא 11-13 קבצים (≈70%), לא 18**, ומשאירה 5-7 קבצים להחליק ל-Q3. תרומתה המיוחדת של הריצה היא **מודל התפוקה המוגבל ברוחב פס** עם שלושה קלטים מבניים: (א) זמינות חריצי Coreper-I/-II של המועצה לשבוע (≈3 חריצים/שבוע, 12 שבועות Q2 = 36 חריצים, אך השלישייה של האיחוד הבנקאי בלבד צורכת 6, ומשאירה 30 ל-15 הקבצים הנותרים = 2 חריצים/קובץ); (ב) צינור הפרשנות של הנציבות (רוחב פס DG-FISMA + DG-COMP + DG-JUST + DG-TRADE, כאשר DG-FISMA כבר עמוסה על האיחוד הבנקאי); (ג) קיבולת מנדט כפול של מדווחי הפרלמנט האירופי (12 מתוך 18 מדווחים ​​יש להם קבצי דגל שניים ב-Q2 = לחץ קיבולת). האבחון מזהה **5 קבצים עם סיכון ההחלקה הגבוה ביותר**: 3 קבצי מדיניות סביבתית (עלות תיאום תלת-כיוונית Renew-Greens-PPE), קובץ שירותים דיגיטלי אחד (מורכבות משפטית-טכנית) וקובץ שלטון חוק אחד (התנגדות פרלמנטים לאומיים להטמעה). המודל המוגבל ברוחב פס הוא תחזית Q2 המבנית הראשונה של מתודולוגיית ההצעות ותשומה ניתנת לביצוע תפעולית לתכנון לוח זמנים של טרילוג Q2-Q3.
+
+---
+
+### 🧭 3 החלטות שסיכום זה תומך בהן
+
+| # | החלטה | מי מחליט | מועד אחרון | ראיות |
+|:-:|-------|---------|:----------:|-------|
+| 1 | **תכנון תפוקת טרילוג Q2** — 11-13 קבצים ריאליים, לא 18 | ועידת הנשיאים + מועצת Coreper | עד 14 באפריל | §מודל רוחב הפס |
+| 2 | **5 קבצים עם סיכון ההחלקה הגבוה ביותר זוהו** — תכנון מניעתי להחלקת Q3 | מדווחי 5 הקבצים | עד 14 באפריל | §זיהוי סיכון ההחלקה |
+| 3 | **ביקורת מנדט כפול של מדווחי הפרלמנט האירופי** — 12/18 עם דגל Q2 שני; בדיקת קיבולת | ועידת הנשיאים | עד 14 באפריל | §קיבולת מדווחים |
+
+---
+
+### 📰 קריאה של 60 שניות
+
+- 🔴 **מודל תפוקת Q2 הופק** — 11-13 קבצים ריאליים לעומת שאיפה של 18.
+- 🟠 **5 קבצים עם סיכון ההחלקה הגבוה ביותר זוהו** — 3 סביבתיים · 1 דיגיטלי · 1 שלטון חוק.
+- 🟢 **מועצת Coreper 36 חריצים ב-Q2** — האיחוד הבנקאי לבדו צורך 6.
+- 🟡 **DG-FISMA עמוסת עבודה** — צוואר בקבוק פרשנות של הנציבות.
+- 🔵 **12/18 מדווחים עם מנדט כפול** — לחץ קיבולת.
+- 🟣 **5 מתודולוגיות ברמת ביטחון גבוהה** — קואליציה + בין-מושב + עמוק + בעלי עניין + הצבעה.
+- 🩷 **19 קבצי ניתוח** — כיסוי מלא של מתודולוגיית ההצעות.
+- ⚪ **רמת ביטחון MEDIUM** — עבודה ניתוחית בזמן הפסקה; מודל מבני גבוה.
+
+---
+
+### 🚦 מודל רוחב פס הטרילוג (תרומתה המיוחדת של הריצה)
+
+| מגבלה | קיבולת Q2 | ביקוש Q2 | לחץ החלקה |
+|-------|----------|---------|-----------|
+| חריצי מועצת Coreper | 36 (3×12 שבועות) | 36 (18 קבצים × 2 חריצים) | 0 עם אריזה מושלמת |
+| מועצת Banking WP | 6 מתוך 36 נבלעים על ידי שלישיית האיחוד הבנקאי | האיחוד הבנקאי שולט | 0 ישירות |
+| פרשנות DG-FISMA | 5 שוות-ערך קובץ ב-Q2 | 7 קבצים בתחום DG-FISMA | החלקה -2 |
+| פרשנות DG-COMP | 4 שוות-ערך קובץ ב-Q2 | 4 קבצים | 0 |
+| פרשנות DG-JUST | 3 שוות-ערך קובץ ב-Q2 | 4 קבצים | החלקה -1 |
+| פרשנות DG-TRADE | 3 שוות-ערך קובץ ב-Q2 | 3 קבצים | 0 |
+| **החלקה מצטברת** | — | — | **מ-5 עד -7 קבצים (החלקת Q3)** |
+
+---
+
+### ⚠️ תמונת מצב סיכונים
+
+```mermaid
+quadrantChart
+    title מפת חום סיכוני רוחב פס טרילוג Q2 — 2026-04-07
+    x-axis סבירות נמוכה --> סבירות גבוהה
+    y-axis השפעה נמוכה --> השפעה גבוהה
+    quadrant-1 ניהול צמוד
+    quadrant-2 עדיפות עליונה
+    quadrant-3 ניטור
+    quadrant-4 תכנון ובלימה
+    "צוואר בקבוק נציבות DG-FISMA": [0.70, 0.80]
+    "החלקת 5-7 קבצים ל-Q3 מתממשת": [0.85, 0.75]
+    "תיאום תלת-כיווני סביבתי נכשל": [0.55, 0.70]
+    "התנגדות שלטון חוק להטמעה": [0.65, 0.60]
+    "שחיקת מנדט כפול של מדווח": [0.40, 0.65]
+    "עומס יתר מועצת Banking WP (שליטת האיחוד הבנקאי)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 מניעים עתידיים מובילים (90 הימים הבאים)
+
+1. **14 באפריל — שבוע הוועדות נפתח** — לחץ ראשון של מנדטים כפולים של מדווחים.
+2. **סוף אפריל — חריצי Coreper ראשונים של המועצה מוקצים** — אימות רוחב פס.
+3. **אמצע Q2 — אבני דרך פרשנות DG-FISMA** — אישור צוואר הבקבוק.
+4. **סוף Q2 — ספירת תפוקת Q2** — אימות מודל (11-13 לעומת 18).
+5. **Q3 — מצב חירום לקבצים שהחליקו** — הפעלת טרילוג Q3 ל-5-7 קבצים.
+
+---
+
+### 🛡️ הערכת איכות מקורות
+
+- **חריצי מועצת Coreper (A2):** מתודולוגיית לוח זמנים מוסדית; ניתן לאימות.
+- **קיבולת פרשנות DG (A3):** היוריסטיקת רוחב פס של הנציבות; ביטחון בינוני.
+- **החלקת 5-7 קבצים (A2):** פלט מודל רוחב פס; מוגבל במתודולוגיה.
+- **מנדט כפול של מדווח (A1):** תיעוד הפרלמנט האירופי; ניתן לאימות לכל מדווח.
+- **רמת ביטחון נטו:** 🟢 גבוהה על תיעוד לכל קובץ; 🟡 MEDIUM על תחזית ההחלקה המצטברת.
+
+---
+
+### 📎 תוצרי הריצה
+
+| שכבה | תוצר | מדוע |
+|------|------|------|
+| מאמר | `article.md` | נרטיב הצעות ציבורי |
+| סינתזה | `existing/synthesis-summary.md` | מודל תפוקת רוחב פס |
+| מתודולוגיות | סיווג · קיים · ניקוד סיכונים · הערכת איומים | מתודולוגיית הצעות סטנדרטית |
+| מלווה | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | אשכול יומי יום 12 |
+
+---
+
+**בקרת מסמך**
+- **הפניה לתבנית:** `analysis/templates/executive-brief.md`
+- **נתיב תוצר:** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **סיווג:** ציבורי
+- **רטרוספקטיבי:** סיכום נכתב ב-2026-05-16 מהתוצרים המחויבים של הריצה; **לא בוצעו קריאות MCP חדשות**.
+
+### Executive Brief Ja
+
+**分類**：オープンソース・インテリジェンス — 公開議会記録  
+**信頼度**：🟡 MEDIUM（休会中；休会前の立法記録 🟢 HIGH）  
+**実行**：`analysis/daily/2026-04-07/propositions/` (05:46 UTC)  
+**対象範囲**：イースター休会 第12日/18 — 18ファイルQ2パイプラインのトリローグ帯域幅診断。  
+**作成日**：2026-05-16（遡及的ブリーフ、新規MCPコールなし）  
+**主要情報源**：休会前の立法パイプライン・コーパス（18件のトリローグQ2ファイル）；19件の分析ファイル；高信頼度5手法。
+
+---
+
+### 🎯 BLUF
+
+**この提案に関する第12日実行は、4月6日の提案実行で特定された18ファイルQ2パイプラインの**トリローグ帯域幅診断**です——問いは：理事会および欧州委員会の既知の帯域幅制約を踏まえ、18ファイルがQ2（4月〜6月）中にトリローグを完了できるか、そして現実的なスループットはいくつか？** 回答：**現実的なQ2スループットは11〜13ファイル（≈70%）であり、18ではありません**。これにより5〜7ファイルがQ3へ繰り越されます。本実行の際立つ貢献は、三つの構造的インプットを持つ**帯域幅制約スループットモデル**です：(a) 理事会Coreper-I/-IIの週当たりスロット可用性（≈3スロット/週、Q2 12週 = 36スロット、ただし銀行同盟トリオだけで6を消費、残り30を15ファイルで分配 = 2スロット/ファイル）；(b) 欧州委員会の解釈パイプライン（DG-FISMA + DG-COMP + DG-JUST + DG-TRADE帯域幅、DG-FISMAはすでに銀行同盟で過負荷）；(c) 欧州議会報告者のデュアル・マンデート能力（18人の報告者のうち12人がQ2に第2の旗艦ファイルを抱える = 能力の圧迫）。診断は**最高スリップリスクの5ファイル**を特定しました：環境政策ファイル3件（Renew-Greens-PPE三者調整コスト）、デジタルサービスファイル1件（法的・技術的複雑性）、法の支配ファイル1件（国内議会の転置抵抗）。帯域幅制約モデルは提案手法論による初の構造的Q2スループット予測であり、Q2-Q3トリローグ・カレンダー計画の実用的な参照情報です。
+
+---
+
+### 🧭 このブリーフが支援する3つの意思決定
+
+| # | 決定事項 | 決定者 | 期限 | 根拠 |
+|:-:|---------|--------|:----:|------|
+| 1 | **Q2トリローグ・スループット計画** — 11〜13ファイルが現実的、18ではない | 議長会議 + 理事会Coreper | 4月14日まで | §帯域幅モデル |
+| 2 | **最高スリップリスク5ファイルの特定** — Q3スリップ計画の先手 | 5ファイルの報告者 | 4月14日まで | §スリップリスク特定 |
+| 3 | **欧州議会報告者デュアル・マンデート監査** — 12/18が第2のQ2旗艦を担当；能力確認 | 議長会議 | 4月14日まで | §報告者能力 |
+
+---
+
+### 📰 60秒要約
+
+- 🔴 **Q2スループットモデル作成** — 11〜13ファイルが現実的（目標18に対して）。
+- 🟠 **最高スリップリスク5ファイル特定** — 環境3件 · デジタル1件 · 法の支配1件。
+- 🟢 **理事会Coreper Q2に36スロット** — 銀行同盟だけで6を消費。
+- 🟡 **DG-FISMA過負荷** — 欧州委員会の解釈ボトルネック。
+- 🔵 **12/18報告者がデュアル・マンデート** — 能力の圧迫。
+- 🟣 **高信頼度5手法** — 連立 + クロスセッション + 深層 + ステークホルダー + 投票。
+- 🩷 **19件の分析ファイル** — 提案手法論の完全カバレッジ。
+- ⚪ **信頼度MEDIUM** — 休会中の分析作業；構造モデルはHIGH。
+
+---
+
+### 🚦 トリローグ帯域幅モデル（本実行の際立つ貢献）
+
+| 制約 | Q2能力 | Q2需要 | スリップ圧力 |
+|-----|-------|-------|-----------|
+| 理事会Coreperスロット | 36（3×12週） | 36（18ファイル×2スロット） | 完全充填で0 |
+| 理事会Banking WP | 銀行同盟トリオが36のうち6を吸収 | 銀行同盟が支配的 | 直接は0 |
+| DG-FISMA解釈 | Q2で5ファイル相当 | DG-FISMAスコープで7ファイル | スリップ -2 |
+| DG-COMP解釈 | Q2で4ファイル相当 | 4ファイル | 0 |
+| DG-JUST解釈 | Q2で3ファイル相当 | 4ファイル | スリップ -1 |
+| DG-TRADE解釈 | Q2で3ファイル相当 | 3ファイル | 0 |
+| **集計スリップ** | — | — | **-5〜-7ファイル（Q3スリップ）** |
+
+---
+
+### ⚠️ リスク・スナップショット
+
+```mermaid
+quadrantChart
+    title Q2トリローグ帯域幅リスク・ヒートマップ — 2026-04-07
+    x-axis 低確率 --> 高確率
+    y-axis 低影響 --> 高影響
+    quadrant-1 厳密に管理
+    quadrant-2 最優先
+    quadrant-3 監視
+    quadrant-4 計画・封じ込め
+    "DG-FISMA欧州委員会ボトルネック": [0.70, 0.80]
+    "5〜7ファイルQ3スリップが実現": [0.85, 0.75]
+    "環境三者調整が失敗": [0.55, 0.70]
+    "法の支配転置の抵抗": [0.65, 0.60]
+    "報告者デュアル・マンデート疲弊": [0.40, 0.65]
+    "理事会Banking WP過負荷（銀行同盟支配）": [0.65, 0.85]
+```
+
+---
+
+### 🔮 主要な将来トリガー（今後90日間）
+
+1. **4月14日 — 委員会週間開幕** — 報告者デュアル・マンデートへの最初のストレス。
+2. **4月末 — 理事会Coreperの最初のスロット割当** — 帯域幅検証。
+3. **Q2中盤 — DG-FISMA解釈のマイルストーン** — ボトルネック確認。
+4. **Q2末 — Q2スループット集計** — モデル検証（11〜13対18）。
+5. **Q3 — スリップしたファイルのレスキュー・モード** — 5〜7ファイルのQ3トリローグ起動。
+
+---
+
+### 🛡️ 情報源の品質評価
+
+- **理事会Coreperスロット（A2）**：機関カレンダー手法；検証可能。
+- **DG解釈能力（A3）**：欧州委員会帯域幅ヒューリスティック；中程度の信頼度。
+- **5〜7ファイル・スリップ（A2）**：帯域幅モデル出力；手法論的に制限。
+- **報告者デュアル・マンデート（A1）**：欧州議会記録；報告者ごとに検証可能。
+- **総合信頼度**：🟢 HIGH（ファイル別記録）；🟡 MEDIUM（集計スリップ予測）。
+
+---
+
+### 📎 実行アーティファクト
+
+| 層 | アーティファクト | 理由 |
+|----|--------------|------|
+| 記事 | `article.md` | 公開提案ナラティブ |
+| 統合 | `existing/synthesis-summary.md` | 帯域幅スループットモデル |
+| 手法 | 分類 · 既存 · リスクスコアリング · 脅威評価 | 標準的な提案手法論 |
+| 付随 | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | 第12日の日次クラスター |
+
+---
+
+**文書管理**
+- **テンプレート参照**：`analysis/templates/executive-brief.md`
+- **アーティファクトパス**：`analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **分類**：公開
+- **遡及的**：ブリーフは2026-05-16に実行のコミット済みアーティファクトから作成；**新規MCPコールは実施されていません**。
+
+### Executive Brief Ko
+
+**분류**: 오픈소스 정보 — 공개 의회 기록  
+**신뢰도**: 🟡 MEDIUM (휴회 중; 휴회 전 입법 기록 🟢 높음)  
+**실행**: `analysis/daily/2026-04-07/propositions/` (05:46 UTC)  
+**대상 범위**: 부활절 휴회 12일차/18 — 18개 파일 Q2 파이프라인의 트릴로그 대역폭 진단.  
+**작성일**: 2026-05-16 (소급 브리핑, 새 MCP 호출 없음)  
+**주요 출처**: 휴회 전 입법 파이프라인 코퍼스 (18개 트릴로그-Q2 파일); 19개 분석 파일; 5개 고신뢰도 방법론.
+
+---
+
+### 🎯 BLUF
+
+**제안 12일차 실행은 4월 6일 제안 실행에서 확인된 18개 파일 Q2 파이프라인에 대한 **트릴로그 대역폭 진단**입니다. 핵심 질문: 이사회와 집행위원회의 알려진 대역폭 제약을 감안할 때 18개 파일이 Q2(4월~6월) 내에 트릴로그를 완료할 수 있는가, 그리고 현실적인 처리량은 얼마인가?** 답변: **현실적인 Q2 처리량은 11~13개 파일(≈70%)이며, 18개가 아닙니다**. 이에 따라 5~7개 파일이 Q3로 이월됩니다. 이번 실행의 특별한 기여는 세 가지 구조적 입력을 갖춘 **대역폭 제약 처리량 모델**입니다: (가) 이사회 Coreper-I/-II의 주당 슬롯 가용성(≈3슬롯/주, Q2 12주 = 36슬롯, 단 Banking Union 트리오 단독으로 6개 소비, 나머지 15개 파일에 30개 배정 = 2슬롯/파일); (나) 집행위원회 해석 파이프라인(DG-FISMA + DG-COMP + DG-JUST + DG-TRADE 대역폭, DG-FISMA는 이미 Banking Union으로 과부하); (다) 유럽의회 보고자의 이중 위임 수행 능력(18명 보고자 중 12명이 Q2에 두 번째 플래그십 파일 보유 = 역량 압박). 진단은 **슬립 위험이 가장 높은 5개 파일**을 특정합니다: 환경 정책 파일 3개(Renew-Greens-PPE 3자 조정 비용), 디지털 서비스 파일 1개(법적·기술적 복잡성), 법치주의 파일 1개(국내 의회의 전환 저항). 대역폭 제약 모델은 제안 방법론의 첫 구조적 Q2 처리량 예측이자 Q2-Q3 트릴로그 일정 계획에 실용적으로 활용 가능한 입력 자료입니다.
+
+---
+
+### 🧭 이 브리핑이 지원하는 3개 결정사항
+
+| # | 결정 | 결정자 | 기한 | 근거 |
+|:-:|------|--------|:----:|------|
+| 1 | **Q2 트릴로그 처리량 계획** — 11~13개 파일이 현실적, 18개 아님 | 의장 회의 + 이사회 Coreper | 4월 14일까지 | §대역폭 모델 |
+| 2 | **슬립 위험 최고 5개 파일 특정** — Q3 슬립 계획의 선제적 수립 | 5개 파일 보고자 | 4월 14일까지 | §슬립 위험 파악 |
+| 3 | **유럽의회 보고자 이중 위임 감사** — 12/18명이 Q2 두 번째 플래그십 보유; 역량 점검 | 의장 회의 | 4월 14일까지 | §보고자 역량 |
+
+---
+
+### 📰 60초 요약
+
+- 🔴 **Q2 처리량 모델 완성** — 11~13개 파일이 현실적 (목표 18개 대비).
+- 🟠 **슬립 위험 최고 5개 파일 특정** — 환경 3개 · 디지털 1개 · 법치주의 1개.
+- 🟢 **이사회 Coreper Q2 36슬롯** — Banking Union 단독으로 6개 소비.
+- 🟡 **DG-FISMA 과부하** — 집행위원회 해석 병목.
+- 🔵 **12/18명 보고자가 이중 위임** — 역량 압박.
+- 🟣 **고신뢰도 방법론 5개** — 연립 + 교차 세션 + 심층 + 이해관계자 + 투표.
+- 🩷 **19개 분석 파일** — 제안 방법론 완전 커버리지.
+- ⚪ **신뢰도 MEDIUM** — 휴회 중 분석 작업; 구조 모델은 높음.
+
+---
+
+### 🚦 트릴로그 대역폭 모델 (이번 실행의 특별 기여)
+
+| 제약 조건 | Q2 용량 | Q2 수요 | 슬립 압력 |
+|---------|--------|--------|---------|
+| 이사회 Coreper 슬롯 | 36 (3×12주) | 36 (18파일×2슬롯) | 완벽 배분 시 0 |
+| 이사회 Banking WP | Banking Union 트리오가 36 중 6 흡수 | Banking Union 지배 | 직접적으로 0 |
+| DG-FISMA 해석 | Q2 5파일 상당 | DG-FISMA 범위 7파일 | 슬립 -2 |
+| DG-COMP 해석 | Q2 4파일 상당 | 4파일 | 0 |
+| DG-JUST 해석 | Q2 3파일 상당 | 4파일 | 슬립 -1 |
+| DG-TRADE 해석 | Q2 3파일 상당 | 3파일 | 0 |
+| **집계 슬립** | — | — | **-5~-7파일 (Q3 슬립)** |
+
+---
+
+### ⚠️ 위험 스냅샷
+
+```mermaid
+quadrantChart
+    title Q2 트릴로그 대역폭 위험 히트맵 — 2026-04-07
+    x-axis 낮은 가능성 --> 높은 가능성
+    y-axis 낮은 영향 --> 높은 영향
+    quadrant-1 면밀히 관리
+    quadrant-2 최우선 순위
+    quadrant-3 모니터링
+    quadrant-4 계획 및 억제
+    "DG-FISMA 집행위원회 병목": [0.70, 0.80]
+    "5~7파일 Q3 슬립 실현": [0.85, 0.75]
+    "환경 3자 조정 실패": [0.55, 0.70]
+    "법치주의 전환 저항": [0.65, 0.60]
+    "보고자 이중 위임 소진": [0.40, 0.65]
+    "이사회 Banking WP 과부하 (Banking Union 지배)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 주요 미래 트리거 (향후 90일)
+
+1. **4월 14일 — 위원회 주간 개막** — 보고자 이중 위임의 첫 번째 압박.
+2. **4월 말 — 이사회 Coreper 첫 슬롯 배정** — 대역폭 검증.
+3. **Q2 중반 — DG-FISMA 해석 이정표** — 병목 확인.
+4. **Q2 말 — Q2 처리량 집계** — 모델 검증 (11~13 대 18).
+5. **Q3 — 슬립 파일 구조 모드** — 5~7파일 Q3 트릴로그 활성화.
+
+---
+
+### 🛡️ 출처 품질 평가
+
+- **이사회 Coreper 슬롯 (A2)**: 기관 달력 방법론; 검증 가능.
+- **DG 해석 역량 (A3)**: 집행위원회 대역폭 휴리스틱; 중간 신뢰도.
+- **5~7파일 슬립 (A2)**: 대역폭 모델 산출물; 방법론으로 한정.
+- **보고자 이중 위임 (A1)**: 유럽의회 기록; 보고자별 검증 가능.
+- **종합 신뢰도**: 🟢 높음 (파일별 기록); 🟡 MEDIUM (집계 슬립 예측).
+
+---
+
+### 📎 실행 산출물
+
+| 계층 | 산출물 | 이유 |
+|------|--------|------|
+| 기사 | `article.md` | 공개 제안 서술 |
+| 종합 | `existing/synthesis-summary.md` | 대역폭 처리량 모델 |
+| 방법론 | 분류 · 기존 · 위험 점수화 · 위협 평가 | 표준 제안 방법론 |
+| 동반 | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | 12일차 일일 클러스터 |
+
+---
+
+**문서 통제**
+- **템플릿 참조**: `analysis/templates/executive-brief.md`
+- **산출물 경로**: `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **분류**: 공개
+- **소급적**: 브리핑은 실행의 커밋된 산출물로부터 2026-05-16에 작성됨; **새 MCP 호출 없음**.
+
+### Executive Brief Nl
+
+### 🎯 BLUF
+
+**Deze Dag-12-uitvoering voor voorstellen is de **triloog-bandbreedtediagnostiek** van de 18-bestanden-Q2-pijplijn die in de voorstellen-uitvoering van 6 april is geïdentificeerd — zij vraagt: kunnen 18 bestanden in Q2 (april-juni) een triloog doorlopen gegeven de bekende bandbreedtebeperkingen van de Raad en de Commissie, en wat is de realistische doorvoer?** Antwoord: **de realistische Q2-doorvoer is 11-13 bestanden (≈70 %), niet 18**, waardoor 5-7 bestanden naar Q3 schuiven. De onderscheidende bijdrage van de uitvoering is het **door bandbreedte beperkte doorvoermodel** met drie structurele inputs: (a) beschikbaarheid van slots van de Raad Coreper-I/-II per week (≈3 slots/week, 12 weken Q2 = 36 slots, maar het Banking Union-trio verbruikt er alleen al 6, waardoor 30 overblijven voor de resterende 15 bestanden = 2 slots/bestand); (b) interpretatiepijplijn van de Commissie (bandbreedte DG-FISMA + DG-COMP + DG-JUST + DG-TRADE, waarbij DG-FISMA al overbelast is voor de Bankenunie); (c) dubbel-mandaatcapaciteit van EP-rapporteurs (12 van de 18 rapporteurs hebben tweede vlaggenschipbestanden in Q2 = capaciteitsdruk). De diagnostiek identificeert **5 bestanden met het hoogste glijdrisico**: 3 milieubeleidbestanden (Renew-Greens-PPE driepartijencoördinatiekosten), 1 digitale-dienstenbestand (juridisch-technische complexiteit) en 1 rechtsstaatsbestand (verzet van nationale parlementen tegen omzetting). Het door bandbreedte beperkte model is de eerste structurele Q2-doorvoerprognose van de voorstellenmethodologie en een operationeel bruikbare input voor de triloog-kalenderplanning voor Q2-Q3.
+
+---
+
+### 🧭 3 Beslissingen Die Dit Briefingdocument Ondersteunt
+
+| # | Beslissing | Wie beslist | Deadline | Bewijs |
+|:-:|------------|-------------|:--------:|--------|
+| 1 | **Q2-triloog-doorvoerplanning** — 11-13 bestanden realistisch, niet 18 | Conferentie van voorzitters + Raad Coreper | vóór 14 april | §Bandbreedtemodel |
+| 2 | **5 bestanden met hoogste glijdrisico geïdentificeerd** — preventieve Q3-glijdplanning | Rapporteurs van de 5 bestanden | vóór 14 april | §Glijdrisicoidentificatie |
+| 3 | **Audit dubbel mandaat EP-rapporteurs** — 12/18 met tweede Q2-vlaggenschip; capaciteitscontrole | Conferentie van voorzitters | vóór 14 april | §Rapporteurscapaciteit |
+
+---
+
+### 📰 Lezing van 60 Seconden
+
+- 🔴 **Q2-doorvoermodel geproduceerd** — 11-13 bestanden realistisch tegenover 18 ambitie.
+- 🟠 **5 bestanden met hoogste glijdrisico geïdentificeerd** — 3 milieu · 1 digitaal · 1 rechtsstaat.
+- 🟢 **Raad Coreper 36 slots Q2** — Bankenunie alleen verbruikt er 6.
+- 🟡 **DG-FISMA overbelast** — interpretatiebottleneck van de Commissie.
+- 🔵 **12/18 rapporteurs dubbel gemandateerd** — capaciteitsdruk.
+- 🟣 **5 methodologieën met hoge betrouwbaarheid** — coalitie + dwarsessie + diep + stakeholder + stemming.
+- 🩷 **19 analysebestanden** — volledige dekking van de voorstellenmethodologie.
+- ⚪ **Betrouwbaarheid MEDIUM** — analytisch werk tijdens het reces; structuurmodel HOOG.
+
+---
+
+### 🚦 Triloog-Bandbreedtemodel (onderscheidende bijdrage van de uitvoering)
+
+| Beperking | Q2-capaciteit | Q2-vraag | Glijddruk |
+|----------|-------------|---------|-----------|
+| Raad Coreper-slots | 36 (3×12 weken) | 36 (18 bestanden × 2 slots) | 0 bij perfecte verdeling |
+| Raad Banking WP | 6 van 36 geabsorbeerd door Banking Union-trio | Bankenunie dominant | 0 direct |
+| DG-FISMA-interpretatie | 5 bestandsequivalenten Q2 | 7 bestanden in DG-FISMA-scope | -2 glijden |
+| DG-COMP-interpretatie | 4 bestandsequivalenten Q2 | 4 bestanden | 0 |
+| DG-JUST-interpretatie | 3 bestandsequivalenten Q2 | 4 bestanden | -1 glijden |
+| DG-TRADE-interpretatie | 3 bestandsequivalenten Q2 | 3 bestanden | 0 |
+| **Geaggregeerd glijden** | — | — | **-5 tot -7 bestanden (Q3-glijden)** |
+
+---
+
+### ⚠️ Risicooverzicht
+
+```mermaid
+quadrantChart
+    title Q2-Triloog-Bandbreedterisicokaart — 2026-04-07
+    x-axis Lage waarschijnlijkheid --> Hoge waarschijnlijkheid
+    y-axis Lage impact --> Hoge impact
+    quadrant-1 Nauwkeurig beheren
+    quadrant-2 Hoogste prioriteit
+    quadrant-3 Monitoren
+    quadrant-4 Plannen en beheersen
+    "DG-FISMA Commissie-bottleneck": [0.70, 0.80]
+    "5-7 bestanden Q3-glijden treedt op": [0.85, 0.75]
+    "Milieu driepartijencoördinatie mislukt": [0.55, 0.70]
+    "Rechtsstaat omzettingsverzet": [0.65, 0.60]
+    "Rapporteur dubbel-mandaat-uitputting": [0.40, 0.65]
+    "Raad Banking WP-overbelasting (Bankenunie-dominantie)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 Belangrijkste Toekomstige Triggers (komende 90 dagen)
+
+1. **14 april — Commissieweek opent** — eerste stress van dubbele mandaten rapporteurs.
+2. **Eind april — eerste Raad Coreper-slots toegewezen** — bandbreedtevalidering.
+3. **Midden Q2 — DG-FISMA-interpretatiemijlpalen** — bottleneckbevestiging.
+4. **Eind Q2 — Q2-doorvoertelling** — modelvalidering (11-13 versus 18).
+5. **Q3 — reddingsmodus voor gegleden bestanden** — activering Q3-triloog voor 5-7 bestanden.
+
+---
+
+### 🛡️ Kwaliteitsbeoordeling van Bronnen
+
+- **Raad Coreper-slots (A2):** institutionele kalendermethodologie; verifieerbaar.
+- **DG-interpretatiecapaciteit (A3):** Commissie-bandbreedteheuristiek; gemiddelde betrouwbaarheid.
+- **5-7 bestanden glijden (A2):** bandbreedtemodel-output; methodologisch begrensd.
+- **Rapporteur dubbel mandaat (A1):** EP-dossiers; verifieerbaar per rapporteur.
+- **Netto-betrouwbaarheid:** 🟢 HOOG op per-bestands-dossiers; 🟡 MEDIUM op geaggregeerde glijdprognose.
+
+---
+
+### 📎 Uitvoeringsartefacten
+
+| Laag | Artefact | Waarom |
+|------|----------|--------|
+| Artikel | `article.md` | Openbaar voorstellennarratief |
+| Synthese | `existing/synthesis-summary.md` | Bandbreedte-doorvoermodel |
+| Methoden | classificatie · bestaand · risicoscoring · dreigingsbeoordeling | Standaard voorstellenmethodologie |
+| Begeleider | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | Dag-12 dagelijks cluster |
+
+---
+
+**Documentbeheer**
+- **Sjabloonreferentie:** `analysis/templates/executive-brief.md`
+- **Artefactpad:** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **Classificatie:** Openbaar
+- **Retrospectief:** Briefingdocument opgesteld op 2026-05-16 vanuit de gecommittede artefacten van de uitvoering; **er zijn geen nieuwe MCP-aanroepen gedaan**.
+
+### Executive Brief No
+
+### 🎯 BLUF
+
+**Denne Dag-12-kjøringen for forslag er **trilogue-båndbreddsdiagnostikken** av den 18-fils Q2-pipelinen identifisert i forslagskjøringen 6. april — den spør: kan 18 filer trilogue i Q2 (april-juni) gitt kjente råds- og kommisjonsbåndbreddsbegrensninger, og hva er den realistiske gjennomstrømningen?** Svar: **realistisk Q2-gjennomstrømning er 11-13 filer (≈70 %), ikke 18**, noe som etterlater 5-7 filer til å gli til Q3. Kjøringens fremtredende bidrag er den **båndbreddsbegrensede gjennomstrømningsmodellen** med tre strukturelle innganger: (a) Rådet Coreper-I/-II per-uke plassitilgjengelighet (≈3 plasser/uke, 12 uker Q2 = 36 plasser, men Banking Union-tripelen alene forbruker 6, etterlater 30 for de resterende 15 filene = 2 plasser/fil); (b) Kommisjonens tolkningspipeline (DG-FISMA + DG-COMP + DG-JUST + DG-TRADE båndbredde, med DG-FISMA allerede overforpliktet på Banking Union); (c) EP-rapportørers dobbeltmandatkapasitet (12 av 18 rapportører har andre flaggskipsfiler i Q2 = kapasitetsbelastning). Diagnostikken identifiserer **5 filer med høyest glidrisiko**: 3 miljøpolitiske filer (Renew-Greens-PPE trebane koordineringskostnad), 1 digital-tjenester-fil (juridisk-teknisk kompleksitet) og 1 retssstatsfil (nasjonale parlamenters transposisjonsmotstander). Den båndbreddsbegrensede modellen er forslagsmetodologiens første strukturelle Q2-gjennomstrømningsprognoser og et operasjonelt handlingsorientert Q2-Q3-triloguekalenderplanleggingsinput.
+
+---
+
+### 🧭 3 Beslutninger Denne Briefingen Støtter
+
+| # | Beslutning | Hvem beslutter | Frist | Bevis |
+|:-:|------------|----------------|:-----:|-------|
+| 1 | **Q2 trilogue-gjennomstrømningsplanlegging** — 11-13 filer realistiske, ikke 18 | Konferansen for presidenter + Rådet Coreper | innen 14. april | §Båndbreddemodell |
+| 2 | **5 filer med høyest glidrisiko identifisert** — Q3-glidplanlegging forebyggende | Rapportører for 5 filer | innen 14. april | §Glidrisikoidentifisering |
+| 3 | **EP-rapportørers dobbeltmandatsrevisjon** — 12/18 med andre Q2-flaggskip; kapasitetskontroll | Konferansen for presidenter | innen 14. april | §Rapportørkapasitet |
+
+---
+
+### 📰 60-Sekunders Lesing
+
+- 🔴 **Q2-gjennomstrømningsmodell produsert** — 11-13 filer realistiske mot 18 ambisjoner.
+- 🟠 **5 filer med høyest glidrisiko identifisert** — 3 miljø · 1 digitale · 1 rettsstat.
+- 🟢 **Rådet Coreper 36 plasser Q2** — Banking Union alene forbruker 6.
+- 🟡 **DG-FISMA overforpliktet** — Kommisjonens tolkningsflaskehals.
+- 🔵 **12/18 rapportører dobbeltmandatert** — kapasitetsbelastning.
+- 🟣 **5 høykonfidensmetoder** — koalisjon + tverrsesjon + dyp + interessent + avstemning.
+- 🩷 **19 analysefiler** — full forslagsmetodologidekning.
+- ⚪ **Konfidens MEDIUM** — analytisk arbeid under ferie; strukturmodell HØY.
+
+---
+
+### 🚦 Trilogue Båndbreddemodell (kjøringens fremtredende bidrag)
+
+| Begrensning | Q2-kapasitet | Q2-etterspørsel | Glidtrykk |
+|------------|--------------|-----------------|-----------|
+| Rådet Coreper-plasser | 36 (3×12 uker) | 36 (18 filer × 2 plasser) | 0 ved perfekt pakking |
+| Rådet Banking WP | 6 av 36 absorbert av Banking Union-tripelen | Banking Union dominerende | 0 direkte |
+| DG-FISMA-tolkning | 5 filekvivalenter Q2 | 7 filer i DG-FISMA-omfang | -2 glid |
+| DG-COMP-tolkning | 4 filekvivalenter Q2 | 4 filer | 0 |
+| DG-JUST-tolkning | 3 filekvivalenter Q2 | 4 filer | -1 glid |
+| DG-TRADE-tolkning | 3 filekvivalenter Q2 | 3 filer | 0 |
+| **Aggregert glid** | — | — | **-5 til -7 filer (Q3-glid)** |
+
+---
+
+### ⚠️ Risikoøyeblikksbilde
+
+```mermaid
+quadrantChart
+    title Q2 Trilogue Båndbreddsrisikokart — 2026-04-07
+    x-axis Lav sannsynlighet --> Høy sannsynlighet
+    y-axis Lav påvirkning --> Høy påvirkning
+    quadrant-1 Administrer nøye
+    quadrant-2 Høyeste prioritet
+    quadrant-3 Overvåk
+    quadrant-4 Planlegg & begrens
+    "DG-FISMA kommisjonsflaskehals": [0.70, 0.80]
+    "5-7 fil Q3-glid materialiseres": [0.85, 0.75]
+    "Miljø trebane koordinering mislykkes": [0.55, 0.70]
+    "Rettsstatlige transposisjonsmotstander": [0.65, 0.60]
+    "Rapportørs dobbeltmandatutbrenthet": [0.40, 0.65]
+    "Rådet Banking WP-overbelastning (Banking Union-dominans)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 Topp Fremtidsutløsere (neste 90 dager)
+
+1. **14. april — Komitéuke åpner** — rapportørers dobbeltmandats første stress.
+2. **Slutten av april — første Rådet Coreper-plasser allokert** — båndbreddevalidering.
+3. **Midt-Q2 — DG-FISMA-tolkningsmilepæler** — flaskehalsbekreftelse.
+4. **Slutten av Q2 — Q2-gjennomstrømningstelling** — modellvalidering (11-13 mot 18).
+5. **Q3 — redningsmodus for glidde filer** — 5-7 fil Q3-trilogue-aktivering.
+
+---
+
+### 🛡️ Kildekvalitetsvurdering
+
+- **Rådet Coreper-plasser (A2):** institusjonell kalendermetodologi; verifiserbar.
+- **DG-tolkningskapasitet (A3):** Kommisjonsbåndbreddeheuristikk; mellomkonfidens.
+- **5-7 fil glid (A2):** båndbreddemodellutdata; metodologibegrenset.
+- **Rapportørers dobbelt mandat (A1):** EP-dokumenter; verifiserbar per rapportør.
+- **Nettokonfidens:** 🟢 HØY på per-fildokumenter; 🟡 MEDIUM på aggregert glidprognose.
+
+---
+
+### 📎 Kjøringens Artefakter
+
+| Lag | Artefakt | Hvorfor |
+|-----|----------|---------|
+| Artikkel | `article.md` | Offentlig forslagsfortelling |
+| Syntese | `existing/synthesis-summary.md` | Båndbredde-gjennomstrømningsmodell |
+| Metoder | klassifisering · eksisterende · risikoscoring · trusselsvurdering | Standard forslagsmetodologi |
+| Følgesvenn | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | Dag-12 daglig klynge |
+
+---
+
+**Dokumentkontroll**
+- **Malmreferanse:** `analysis/templates/executive-brief.md`
+- **Artefaktsti:** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **Klassifisering:** Offentlig
+- **Retrospektiv:** Sammendrag skrevet 2026-05-16 fra kjøringens committede artefakter; **ingen nye MCP-kall ble gjort**.
+
+### Executive Brief Sv
+
+### 🎯 BLUF
+
+**Denna Dag-12-körning för propositioner är **trilogue-bandbreddsdiagnostiken** av den 18-fils Q2-pipeline som identifierades i körningen för propositioner den 6 april — den frågar: kan 18 filer trilogue i Q2 (april-juni) med tanke på kända råds- och kommissionsbandbreddsbegränsningar, och vad är det realistiska genomflödet?** Svar: **realistiskt Q2-genomflöde är 11-13 filer (≈70 %), inte 18**, vilket lämnar 5-7 filer att glida till Q3. Körningens säregna bidrag är **bandbreddsbegränsad genomflödesmodell** med tre strukturella indata: (a) Rådet Coreper-I/-II tillgänglighet per vecka för platser (≈3 platser/vecka, 12 veckor Q2 = 36 platser, men enbart Banking Union-tripeln förbrukar 6, vilket lämnar 30 för de återstående 15 filerna = 2 platser/fil); (b) Kommissionens tolkningspipeline (DG-FISMA + DG-COMP + DG-JUST + DG-TRADE bandbredd, med DG-FISMA redan överbokad på Banking Union); (c) EP-rapportörers dubbelmandatskapacitet (12 av 18 rapportörer har andra flaggskeppsfiler i Q2 = kapacitetspåfrestning). Diagnostiken identifierar **5 filer med högst glidrisk**: 3 miljöpolitiska filer (Renew-Greens-PPE trevägskoordineringskostnad), 1 digital-tjänster-fil (juridisk-teknisk komplexitet) och 1 rättsstatsfil (nationella parlaments transpositionsmotstånd). Den bandbreddsbegränsade modellen är propositionsmetodologins första strukturella Q2-genomflödesprognoser och ett operativt handlingsorienterat Q2-Q3-trilogukalenderplaneringsinput.
+
+---
+
+### 🧭 3 Beslut Som Denna Briefing Stöder
+
+| # | Beslut | Vem beslutar | Tidsfrist | Evidens |
+|:-:|--------|--------------|:---------:|---------|
+| 1 | **Q2 trilogue-genomflödesplanering** — 11-13 filer realistiska, inte 18 | Konferensen för ordförande + Rådet Coreper | senast 14 april | §Bandbreddsmodell |
+| 2 | **5 filer med högst glidrisk identifierade** — Q3-glidplanering förebyggande | Rapportörer för 5 filer | senast 14 april | §Glidriskidentifiering |
+| 3 | **EP-rapportörers dubbelmandatsrevision** — 12/18 med andra Q2-flaggskepp; kapacitetskontroll | Konferensen för ordförande | senast 14 april | §Rapportörskapacitet |
+
+---
+
+### 📰 60-Sekunderläsning
+
+- 🔴 **Q2-genomflödesmodell producerad** — 11-13 filer realistiska mot 18 ambitioner.
+- 🟠 **5 filer med högst glidrisk identifierade** — 3 miljö · 1 digitala · 1 rättsstat.
+- 🟢 **Rådet Coreper 36 platser Q2** — Banking Union ensam förbrukar 6.
+- 🟡 **DG-FISMA överbokad** — Kommissionens tolkningsflaskhals.
+- 🔵 **12/18 rapportörer med dubbelt mandat** — kapacitetspåfrestning.
+- 🟣 **5 metodologier med hög konfidens** — koalition + tvärsession + djup + intressent + omröstning.
+- 🩷 **19 analysfiler** — full propositionsmetodologitäckning.
+- ⚪ **Konfidens MEDIUM** — analytiskt arbete under raster; strukturmodell HÖG.
+
+---
+
+### 🚦 Trilogue Bandbreddsmodell (körningens säregna bidrag)
+
+| Begränsning | Q2-kapacitet | Q2-efterfrågan | Glidtryck |
+|------------|--------------|----------------|-----------|
+| Rådet Coreper-platser | 36 (3×12 veckor) | 36 (18 filer × 2 platser) | 0 vid perfekt paketering |
+| Rådets Banking WP | 6 av 36 absorberade av Banking Union-tripeln | Banking Union dominerande | 0 direkt |
+| DG-FISMA-tolkning | 5 filekvivalenter Q2 | 7 filer i DG-FISMA-scope | -2 glid |
+| DG-COMP-tolkning | 4 filekvivalenter Q2 | 4 filer | 0 |
+| DG-JUST-tolkning | 3 filekvivalenter Q2 | 4 filer | -1 glid |
+| DG-TRADE-tolkning | 3 filekvivalenter Q2 | 3 filer | 0 |
+| **Aggregerat glid** | — | — | **-5 till -7 filer (Q3-glid)** |
+
+---
+
+### ⚠️ Riskögonblicksbild
+
+```mermaid
+quadrantChart
+    title Q2 Trilogue Bandbreddsriskvärmekartan — 2026-04-07
+    x-axis Låg sannolikhet --> Hög sannolikhet
+    y-axis Låg påverkan --> Hög påverkan
+    quadrant-1 Hantera noggrant
+    quadrant-2 Topprioritering
+    quadrant-3 Övervaka
+    quadrant-4 Planera & begränsa
+    "DG-FISMA kommissionsflaskhals": [0.70, 0.80]
+    "5-7 fil Q3-glid materialiseras": [0.85, 0.75]
+    "Miljö trevägskoordinering misslyckas": [0.55, 0.70]
+    "Rättsstatliga transpositionsmotstånd": [0.65, 0.60]
+    "Rapportörs dubbelmandatutbrändhet": [0.40, 0.65]
+    "Rådet Banking WP-överbelastning (Banking Union-dominans)": [0.65, 0.85]
+```
+
+---
+
+### 🔮 Topp Framåtutlösare (nästa 90 dagar)
+
+1. **14 april — Kommittéveckan öppnar** — rapportörers dubbelmandats första stress.
+2. **Slutet av april — första Rådet Coreper-platser allokerade** — bandbreddsvalidering.
+3. **Mid-Q2 — DG-FISMA-tolkningsmilstolpar** — flaskhalskonfirmering.
+4. **Slutet av Q2 — Q2-genomflödesantal** — modellvalidering (11-13 mot 18).
+5. **Q3 — räddningsläge för glidna filer** — 5-7 fil Q3-trilogue-aktivering.
+
+---
+
+### 🛡️ Källkvalitetsbedömning
+
+- **Rådet Coreper-platser (A2):** institutionell kalendermetodologi; verifierbar.
+- **DG-tolkningskapacitet (A3):** Kommissionsbandbreddsheuristik; medelkonfidens.
+- **5-7 fil glid (A2):** bandbreddsmodellutdata; metodologibegränsad.
+- **Rapportörers dubbelt mandat (A1):** EP-handlingar; verifierbar per rapportör.
+- **Nettokonfiddens:** 🟢 HÖG på per-filhandlingar; 🟡 MEDIUM på aggregerad glidprognos.
+
+---
+
+### 📎 Körningsartefakter
+
+| Lager | Artefakt | Varför |
+|-------|----------|--------|
+| Artikel | `article.md` | Offentlig propositionsberättelse |
+| Syntes | `existing/synthesis-summary.md` | Bandbredd-genomflödesmodell |
+| Metoder | klassificering · befintlig · riskpoängsättning · hotbedömning | Standard propositionsmetodologi |
+| Följeslagare | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | Dag-12 dagligt kluster |
+
+---
+
+**Dokumentkontroll**
+- **Mallreferens:** `analysis/templates/executive-brief.md`
+- **Artefaktsökväg:** `analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **Klassificering:** Offentlig
+- **Retrospektiv:** Briefing skriven 2026-05-16 från körningens committade artefakter; **inga nya MCP-anrop gjordes**.
+
+### Executive Brief Zh
+
+**分类**：开源情报 — 公开议会记录  
+**可信度**：🟡 MEDIUM（休会期间；休会前立法记录 🟢 高）  
+**运行**：`analysis/daily/2026-04-07/propositions/` (05:46 UTC)  
+**覆盖范围**：复活节休会第12天/18 — 针对18文件Q2流水线的三方对话带宽诊断。  
+**生成日期**：2026-05-16（回溯性简报，无新MCP调用）  
+**主要来源**：休会前立法流水线语料库（18个三方对话Q2文件）；19个分析文件；5种高可信度方法。
+
+---
+
+### 🎯 核心结论
+
+**本次提案第12天运行是针对4月6日提案运行所确定的18文件Q2流水线的**三方对话带宽诊断**——核心问题是：鉴于已知的理事会与委员会带宽限制，18个文件能否在Q2（4月至6月）内完成三方对话，现实可行的处理量是多少？** 答案：**现实的Q2处理量为11至13个文件（≈70%），而非18个**，将有5至7个文件滑入Q3。本次运行的独特贡献是具有三项结构性输入的**带宽约束处理量模型**：(a) 理事会Coreper-I/-II每周可用时隙（≈3个时隙/周，Q2共12周 = 36个时隙，但银行联盟三件套单独占用6个，剩余30个分配给另外15个文件 = 每文件2个时隙）；(b) 欧盟委员会解释流水线（DG-FISMA + DG-COMP + DG-JUST + DG-TRADE带宽，DG-FISMA已因银行联盟超负荷）；(c) 欧洲议会报告人的双重任务履行能力（18名报告人中12名在Q2承担第二项旗舰文件 = 能力压力）。诊断确定了**滑入风险最高的5个文件**：3个环境政策文件（Renew-Greens-PPE三方协调成本）、1个数字服务文件（法律技术复杂性）和1个法治文件（国内议会转换阻力）。带宽约束模型是提案方法论的首个结构性Q2处理量预测，是Q2-Q3三方对话日历规划中可操作的参考依据。
+
+---
+
+### 🧭 本简报支持的3项决策
+
+| # | 决策 | 决策者 | 截止日期 | 依据 |
+|:-:|------|--------|:-------:|------|
+| 1 | **Q2三方对话处理量规划** — 11至13个文件现实可行，非18个 | 主席团会议 + 理事会Coreper | 4月14日前 | §带宽模型 |
+| 2 | **确定5个最高滑入风险文件** — Q3滑入的预防性规划 | 5个文件的报告人 | 4月14日前 | §滑入风险识别 |
+| 3 | **欧洲议会报告人双重任务审计** — 12/18名报告人承担第二Q2旗舰；能力核查 | 主席团会议 | 4月14日前 | §报告人能力 |
+
+---
+
+### 📰 60秒速读
+
+- 🔴 **Q2处理量模型完成** — 11至13个文件现实可行，目标为18个。
+- 🟠 **确定5个最高滑入风险文件** — 3个环境 · 1个数字 · 1个法治。
+- 🟢 **理事会Coreper Q2共36个时隙** — 银行联盟单独消耗6个。
+- 🟡 **DG-FISMA超负荷** — 欧盟委员会解释瓶颈。
+- 🔵 **12/18名报告人承担双重任务** — 能力压力。
+- 🟣 **5种高可信度方法** — 联盟 + 跨届次 + 深度 + 利益相关方 + 投票。
+- 🩷 **19个分析文件** — 提案方法论完整覆盖。
+- ⚪ **可信度MEDIUM** — 休会期间分析工作；结构模型高。
+
+---
+
+### 🚦 三方对话带宽模型（本次运行的独特贡献）
+
+| 制约因素 | Q2容量 | Q2需求 | 滑入压力 |
+|--------|-------|-------|---------|
+| 理事会Coreper时隙 | 36（3×12周） | 36（18文件×2时隙） | 完美分配时为0 |
+| 理事会Banking WP | 银行联盟三件套占用36中的6个 | 银行联盟主导 | 直接为0 |
+| DG-FISMA解释 | Q2中5个文件当量 | DG-FISMA范围内7个文件 | 滑入 -2 |
+| DG-COMP解释 | Q2中4个文件当量 | 4个文件 | 0 |
+| DG-JUST解释 | Q2中3个文件当量 | 4个文件 | 滑入 -1 |
+| DG-TRADE解释 | Q2中3个文件当量 | 3个文件 | 0 |
+| **累计滑入** | — | — | **-5至-7个文件（Q3滑入）** |
+
+---
+
+### ⚠️ 风险快照
+
+```mermaid
+quadrantChart
+    title Q2三方对话带宽风险热图 — 2026-04-07
+    x-axis 低概率 --> 高概率
+    y-axis 低影响 --> 高影响
+    quadrant-1 密切管理
+    quadrant-2 最高优先
+    quadrant-3 监测
+    quadrant-4 规划与管控
+    "DG-FISMA委员会瓶颈": [0.70, 0.80]
+    "5至7个文件Q3滑入成真": [0.85, 0.75]
+    "环境三方协调失败": [0.55, 0.70]
+    "法治转换阻力": [0.65, 0.60]
+    "报告人双重任务倦怠": [0.40, 0.65]
+    "理事会Banking WP超载（银行联盟主导）": [0.65, 0.85]
+```
+
+---
+
+### 🔮 主要未来触发因素（未来90天）
+
+1. **4月14日 — 委员会周开幕** — 报告人双重任务的首次压力。
+2. **4月底 — 首批理事会Coreper时隙分配** — 带宽验证。
+3. **Q2中期 — DG-FISMA解释里程碑** — 瓶颈确认。
+4. **Q2末 — Q2处理量统计** — 模型验证（11至13对比18）。
+5. **Q3 — 滑入文件救援模式** — 5至7个文件Q3三方对话激活。
+
+---
+
+### 🛡️ 来源质量评估
+
+- **理事会Coreper时隙（A2）**：机构日历方法论；可核实。
+- **DG解释能力（A3）**：委员会带宽启发式；中等可信度。
+- **5至7文件滑入（A2）**：带宽模型输出；受方法论限定。
+- **报告人双重任务（A1）**：欧洲议会记录；可按报告人核实。
+- **综合可信度**：🟢 高（逐文件记录）；🟡 MEDIUM（累计滑入预测）。
+
+---
+
+### 📎 运行产出物
+
+| 层次 | 产出物 | 原因 |
+|------|--------|------|
+| 文章 | `article.md` | 公开提案叙述 |
+| 综合 | `existing/synthesis-summary.md` | 带宽处理量模型 |
+| 方法 | 分类 · 现有 · 风险评分 · 威胁评估 | 标准提案方法论 |
+| 附随 | breaking (06:36) · breaking-2 (18:20) · committee-reports · motions | 第12天日常集群 |
+
+---
+
+**文档管理**
+- **模板参考**：`analysis/templates/executive-brief.md`
+- **产出物路径**：`analysis/daily/2026-04-07/propositions/executive-brief.md`
+- **分类**：公开
+- **回溯性**：简报于2026-05-16依据运行的已提交产出物撰写；**未进行任何新的MCP调用**。
+
 ### Coalition Dynamics
 
 ### Computed Metrics (Script-Generated Context)
@@ -1185,6 +2569,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/cross-session-intelligence.md) | `existing/cross-session-intelligence.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/deep-analysis.md) | `existing/deep-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 
