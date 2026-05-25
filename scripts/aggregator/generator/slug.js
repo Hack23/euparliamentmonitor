@@ -37,27 +37,6 @@ export function buildArticleSlug(date, articleType, runSuffix) {
 export function sanitizeRunSuffix(runId) {
     return _sanitizeRunSuffix(runId);
 }
-/**
- * Return `true` when a line should be skipped when hunting for the default
- * description. Thin wrapper preserved for back-compat — real logic lives
- * in `src/aggregator/article-metadata.ts`'s `shouldSkipDescriptionLine`.
- *
- * @param line - Trimmed line from the aggregated Markdown source
- * @returns `true` when the line is not prose and should be skipped
- */
-function shouldSkipDescriptionLine(line) {
-    if (line.length === 0)
-        return true;
-    if (line.startsWith('#'))
-        return true;
-    if (line.startsWith('>'))
-        return true;
-    if (line.startsWith('<'))
-        return true;
-    if (line.startsWith('|'))
-        return true;
-    return false;
-}
 /** Description used when no prose paragraph qualifies. */
 const FALLBACK_DESCRIPTION = 'EU Parliament intelligence summary derived from committed analysis artifacts.';
 /**
@@ -73,7 +52,6 @@ const FALLBACK_DESCRIPTION = 'EU Parliament intelligence summary derived from co
  * @returns Plain-text description, truncated to ≤300 characters
  */
 export function extractDefaultDescription(markdown) {
-    void shouldSkipDescriptionLine;
     const strong = extractStrongProseLine(markdown);
     return strong.length > 0 ? strong : FALLBACK_DESCRIPTION;
 }
