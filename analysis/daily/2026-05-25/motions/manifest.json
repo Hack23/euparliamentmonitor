@@ -1,0 +1,69 @@
+{
+  "articleType": "motions",
+  "dataMode": "degraded-voting",
+  "date": "2026-05-25",
+  "generatedAt": "2026-05-25T07:57:00Z",
+  "history": [
+    {
+      "runId": "motions-run265-1779694725",
+      "startedAt": "2026-05-25T07:38:00Z",
+      "completedAt": "2026-05-25T07:57:00Z",
+      "pass": 2,
+      "artifactCount": 25,
+      "rewriteCount": 0,
+      "dataMode": "degraded-voting"
+    }
+  ],
+  "files": {
+    "data": [
+      "data/adopted-texts-feed.json",
+      "data/documents-feed.json",
+      "data/meps-feed.json",
+      "data/procedures-feed.json",
+      "data/voting-records.json",
+      "data/prefetch-status.json"
+    ],
+    "analysis": [
+      "executive-brief.md",
+      "data-availability-assessment.md",
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/cross-session-intelligence.md",
+      "intelligence/session-baseline.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/methodology-reflection.md",
+      "existing/deep-analysis.md",
+      "existing/session-baseline.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "extended/media-framing-analysis.md"
+    ],
+    "intelligence": [
+      "intelligence/coalition-dynamics.md"
+    ],
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "classification/significance-classification.md"
+    ]
+  },
+  "pass2": {
+    "rewriteCount": 28,
+    "extendedCount": 0,
+    "completedAt": "2026-05-25T07:57:00Z",
+    "startedAt": "2026-05-25T00:20:00Z",
+    "endedAt": "2026-05-25T00:34:00Z"
+  }
+}

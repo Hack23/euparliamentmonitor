@@ -1,0 +1,44 @@
+{
+  "date": "2026-05-25",
+  "articleType": "motions",
+  "runId": "motions",
+  "gateResult": "PENDING",
+  "slug": "2026-05-25-motions",
+  "articlePath": "analysis/daily/2026-05-25/motions/article.md",
+  "topFinding": "Classification: OPEN SOURCE INTELLIGENCE Date: 2026-05-25 Article Type: Motions Data Window: 2026-05-18 to 2026-05-25 Confidence: 🟡 MEDIUM (roll-call vote data not yet published; adopted-texts feed confirms plenary outcomes)",
+  "keyTakeaways": [
+    "**INTA** (lead committee): trade facilitation, customs AI, anti-dumping algorithmic tools",
+    "**ITRE**: AI technological readiness of EU exporters, SME competitiveness",
+    "**IMCO**: Digital Single Market alignment, platform economy spillovers",
+    "Annual progress reports to AFET committee on democratic reform benchmarks",
+    "Suspension clause activated if systematic human rights violations documented",
+    "Enhanced EU-Uzbekistan Inter-Parliamentary Dialogue format",
+    "Support for Uzbekistan's WTO accession (applied for in 2005; negotiations ongoing)"
+  ],
+  "topRisks": [
+    "🟢 **Winner (Best Case)**: No WTO challenge + Commission full follow-up + Uzbekistan stable = Low risk environment",
+    "🟡 **Expected**: WTO legal uncertainty + Commission partial follow-up + Uzbekistan monitored = Moderate risk",
+    "🔴 **Pessimist (Worst Case)**: WTO challenge sustained + Commission inaction + Uzbekistan regression = High risk environment"
+  ],
+  "keyDates": [
+    "Commission Work Programme 2027 (published October 2026): inclusion of \"AI-Trade Strategy\" item",
+    "TTC (EU-US Trade and Technology Council) December 2026 summit: joint statement on AI in trade",
+    "DG TRADE new policy communication: expected Q4 2026"
+  ],
+  "keyActors": [
+    "Patriots/ESN: voted against most resolutions with minimal amendment success",
+    "ECR: split votes on most files, reducing their coalition leverage"
+  ],
+  "macroContext": "Date: 2026-05-25 IMF Source: World Economic Outlook, April 2026 Confidence: 🟢 HIGH (IMF authoritative; degraded-voting mode does not affect economic data)",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
