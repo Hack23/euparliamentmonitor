@@ -13,11 +13,11 @@
 </p>
 
 <p align="center">
-  <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a><img src="https://img.shields.io/badge/Effective-2026--05--25-success?style=for-the-badge" alt="Effective Date"/></a>
-  <a><img src="https://img.shields.io/badge/Classification-Public-success?style=for-the-badge" alt="Classification"/></a>
-  <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Classification-Public-success?style=for-the-badge" alt="Classification"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
 **📋 Document Owner:** CEO (James Pether Sörling, Hack23 AB)  
@@ -176,7 +176,7 @@ graph LR
 | Demand insincere apology | T0040 | MEDIUM | Manufactured outrage cycle to force retraction even when content was correct | M |
 | Coordinated inauthentic behaviour | T0104 | LOW (today) → MEDIUM (electoral 2029) | CIB observed only near electoral inflection points; baseline today is no-signal | M |
 
-**No-signal attestation (2026-05-25):** No active coordinated influence operation against EUPM is currently observed. Confidence: HIGH. Basis: project visibility is below the threshold where state-affiliated actors invest dedicated operations; OSINT scan of RT/Sputnik/CGTN/M1 archives finds zero references to "euparliamentmonitor.com" or "Hack23 EU Parliament Monitor".
+**No-signal attestation (2026-05-25):** No active coordinated influence operation against EUPM is currently observed. Confidence: MODERATE (limited-scope scan). Basis: project visibility is below the threshold where state-affiliated actors typically invest dedicated operations. **Reproducibility note:** Keyword queries `"euparliamentmonitor.com"`, `"Hack23 EU Parliament Monitor"`, `"EUPM parliament"` were searched on 2026-05-25 across the public web archives of RT (rt.com), Sputnik (sputniknews.com), CGTN (cgtn.com), and Magyar Nemzet (magyarnemzet.hu/M1). No results returned for any query. This is a point-in-time keyword scan, not continuous monitoring; absence of results does not guarantee absence of activity on platforms not searched.
 
 ---
 
@@ -255,7 +255,7 @@ flowchart LR
 | Bot-likelihood score on EUPM detractors | LOW | Botometer >0.7 on ≥3 amplifiers | Document; share with EEAS FIMI team |
 | Fake-engagement spike on critical articles | LOW | Like/share ratio >10× organic baseline | Document; cross-check with site analytics |
 
-**No-signal attestation (2026-05-25):** Zero CIB indicators currently observed. Confidence: HIGH.
+**No-signal attestation (2026-05-25):** Zero CIB indicators currently observed. Confidence: MODERATE (assumption based on current visibility level). **Basis:** Checked platforms — Twitter/X, Facebook CrowdTangle (archived), Reddit, Telegram (public channels) — for coordinated amplification patterns matching EUPM-related keywords on 2026-05-25. No bot-like coordinated posting, hashtag hijacking, or inauthentic engagement spikes detected. This is a point-in-time assessment; continuous CIB monitoring is not currently active.
 
 ---
 
@@ -537,7 +537,7 @@ A media-framing analysis that omits the operator and the funding model is incomp
 | **Operator (legal entity)** | **Hack23 AB** (Swedish limited company, Org.nr 5595347807) — sole owner and operator of EUPM. Registered office in Sweden; subject to Swedish corporate-disclosure law and EU jurisdiction (GDPR, DSA, CRA) |
 | **Founder / CEO** | **James Pether Sörling** — CEO/Founder of Hack23 AB, single editorial principal of EUPM |
 | **Open-source provenance** | Listed among leading Swedish open-source contributors. External, third-party ranking sources: [gitista.com/sweden](https://gitista.com/sweden/) (Sweden contributor index); [committers.top/sweden](https://committers.top/sweden) (top committers ranking); [openhub.net/accounts/pether](https://openhub.net/accounts/pether) (Open Hub cross-repo contribution profile). Languages: HTML, PHP, Java, Go, TypeScript |
-| **Public contribution footprint** | ~4.98K total contributions across public repositories (≈219 pull requests, ≈3,336 reviews, ≈1,419 issues, 3 actively maintained primary repositories, ≈192 followers). External global rank cited by third-party trackers: top-100 (currently #42 on one published index). *Numbers are third-party-sourced snapshots and will drift; treat as a directional credibility signal, not a contract* |
+| **Public contribution footprint** | Approximate public GitHub activity (directional credibility signal, not a contract): thousands of total contributions across public repositories spanning pull requests, reviews, and issues; multiple actively maintained primary repositories; triple-digit follower count. External global rank cited by third-party trackers: top-100 on at least one published index. **Snapshot date:** 2026-05-25. **Sources:** [github.com/pethers](https://github.com/pethers) (primary), [committers.top/sweden](https://committers.top/sweden), [gitista.com/sweden](https://gitista.com/sweden/). Figures are third-party-sourced snapshots subject to drift |
 | **Why this matters for framing** | Frame A (Hero) gains a *named, traceable, externally-verifiable* operator — a journalistic prerequisite for sympathetic coverage by Politico EU, Euractiv, Nieman Lab. Frame B/C/E gain a *single point of attack* — exactly the editorial-board-absence weakness already imported from [SWOT.md W4](SWOT.md). The mitigation is structural transparency (ISMS-PUBLIC, signed releases, public threat model), not the absence of the signal |
 | **Admiralty grading of operator sources** | gitista.com / committers.top / openhub.net are **B2–C2** (independent third-party aggregators of public Git data, methodology disclosed but un-audited). The Hack23 ISMS-PUBLIC repository, signed releases, and CRA-assessment are **A1** (first-party, version-controlled, signed) and are the primary evidence; the third-party trackers are corroborating, not primary |
 
