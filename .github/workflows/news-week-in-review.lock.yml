@@ -54,7 +54,7 @@
 #   - actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
 #   - actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0 (source v9)
 #   - actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
-#   - actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # 53b83947a5a98c8d113130e565377fae1a50d02f
+#   - actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 53b83947a5a98c8d113130e565377fae1a50d02f
 #   - actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
 #   - github/gh-aw-actions/setup@9f050961da586148d135e113d8bb025185cdf2b8 # v0.75.4
 #   - github/gh-aw/actions/setup-cli@1a7f4119f6c4398ed2fc824f99276a55fb382e3f # v0.75.4
@@ -622,7 +622,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # 53b83947a5a98c8d113130e565377fae1a50d02f
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 53b83947a5a98c8d113130e565377fae1a50d02f
         with:
           node-version: "26"
       - name: Install dependencies
@@ -752,7 +752,7 @@ jobs:
           mkdir -p /tmp/gh-aw/safeoutputs
           mkdir -p /tmp/gh-aw/mcp-logs/safeoutputs
           cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << GH_AW_SAFE_OUTPUTS_CONFIG_0f9008e868c64739_EOF
-          {"create_pull_request":{"allowed_base_branches":["main"],"auto_close_issue":false,"draft":false,"excluded_files":["**/*.lock","node_modules/**",".github/workflows/*.lock.yml"],"expires":336,"fallback_as_issue":true,"github-token":"${GITHUB_TOKEN}","if_no_changes":"warn","labels":["agentic-news","analysis-data","type:week-in-review"],"max":1,"max_patch_files":100,"max_patch_size":10240,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"protected_files_policy":"request_review","title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"aw_context_workflows":["news-translate"],"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"report_incomplete":{}}
+          {"create_pull_request":{"allowed_base_branches":["main"],"auto_close_issue":false,"draft":false,"excluded_files":["**/*.lock","node_modules/**",".github/workflows/*.lock.yml"],"expires":336,"fallback_as_issue":true,"github-token":"${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}","if_no_changes":"warn","labels":["agentic-news","analysis-data","type:week-in-review"],"max":1,"max_patch_files":100,"max_patch_size":10240,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"protected_files_policy":"request_review","title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"aw_context_workflows":["news-translate"],"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"report_incomplete":{}}
           GH_AW_SAFE_OUTPUTS_CONFIG_0f9008e868c64739_EOF
       - name: Generate Safe Outputs Tools
         env:
