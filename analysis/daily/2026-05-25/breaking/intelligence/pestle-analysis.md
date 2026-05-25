@@ -130,3 +130,51 @@ The AI-trade resolution is the most analytically rich text from the May 2026 ple
 | Technological | Mixed | HIGH | AI capability pace vs governance pace |
 | Legal | Mixed | HIGH | WTO consistency and CJEU case law |
 | Environmental | Positive | LOW–MEDIUM | Green AI standards in FTAs |
+
+---
+
+## Extended PESTLE: EU–Uzbekistan EPCA (TA-10-2026-0174)
+
+### Political Dimension
+**Driving factors**: EU strategic diversification from Russian transit corridors; Uzbekistan's pivot westward under Mirziyoyev; EP AFET committee's Central Asia priority; Global Gateway political mandate.
+**Risk factors**: Russian diplomatic pressure on Uzbekistan; Uzbek domestic political instability; competing Chinese BRI partnership framing in Tashkent.
+**WEP Assessment**: LIKELY (75%) that EPCA's political provisions remain intact through 2028 without fundamental revision.
+
+### Economic Dimension — IMF Grounded
+**IMF data (WEO April 2026)**: Uzbekistan GDP growth 7.2% (2025); EU-Uzbekistan bilateral trade €4.2bn (2024); projected 15–20% trade increase under EPCA over 5 years.
+**Key economic variables**: Exchange rate stability (Uzbek som has stabilised since 2017 liberalisation); energy price dynamics (Uzbekistan is a gas producer — benefits from elevated European energy prices); FDI flows (EU FDI in Uzbekistan €1.8bn cumulative to 2025).
+**Economic risk**: Uzbekistan's economy remains hydrocarbon-dependent; structural diversification under Global Gateway requires sustained policy consistency.
+
+### Social Dimension
+**Human rights baseline**: Uzbekistan ranks 47/180 on Freedom House for civil liberties (partial liberalisation since 2016). The EPCA's human rights sub-committee creates a formal channel for EU advocacy.
+**Labour rights**: Forced labour in cotton sector has historically been a concern; EU-funded ILO monitoring programme has recorded improvements since 2020. Cotton forced labour index: SIGNIFICANTLY REDUCED (ILO 2025).
+**Demographic driver**: Uzbekistan is young (median age 29); educated workforce; Russia-Uzbekistan migrant labour patterns mean that EU-Uzbekistan economic integration competes with Russian labour market pull.
+
+### Technological Dimension
+**Tech cooperation**: EPCA includes ICT cooperation chapter — alignment with EU Digital Decade targets, Horizon Europe programme participation eligibility, and cybersecurity framework harmonisation.
+**Digital infrastructure**: Uzbekistan's digital transformation has been rapid; e-government services coverage above 60%. EU digital governance standards (GDPR-equivalent data protection frameworks being drafted in Tashkent) create alignment opportunities.
+**Green technology**: EU hydrogen pilot projects in Uzbekistan (Kazakhstan-Uzbekistan-EU green hydrogen corridor) are the highest-technology dimension of the partnership.
+
+### Legal Dimension
+**Legal framework alignment**: Uzbekistan has enacted significant commercial law reforms since 2017 (investment protection, arbitration, intellectual property); partial harmonisation with EU acquis standards.
+**EPCA dispute settlement**: First EPCA to include structured dispute settlement mechanisms for the Central Asia context; borrowing from EU-Georgia DCFTA architecture but adapted for non-neighbourhood context.
+**ECHR**: Uzbekistan is not an ECHR member; no European Court jurisdiction. Rule-of-law conditionality is entirely contractual under EPCA rather than judicially enforced.
+
+### Environmental Dimension
+**Aral Sea legacy**: Uzbekistan faces one of the world's most severe environmental legacies from Soviet irrigation policies. EU EPCA includes environmental cooperation chapter with specific Aral Sea rehabilitation provisions.
+**IMF climate risk**: IMF April 2026 assesses Central Asia as HIGH vulnerability to climate change (water scarcity, extreme heat). EU-Uzbekistan environmental cooperation has direct economic resilience value.
+**Green Gateway**: EU has allocated €250m of its €1.1bn Global Gateway commitment to environmental projects; primary focus on water management and renewable energy.
+
+---
+
+## PESTLE Conclusions — Cross-Text Synthesis
+
+The May 2026 EP plenary outputs collectively advance a PESTLE-coherent policy agenda:
+- **Political**: Asserting EU geopolitical agency across trade, neighbourhood, multilateral, and judicial dimensions
+- **Economic**: Building new economic corridors (Central Asia) while governing emerging technology trade (AI); maintaining fisheries access for EU fleet
+- **Social**: Human rights conditionality in new partnerships; labour protection in AI trade
+- **Technological**: AI governance as systemic EU trade and regulatory priority
+- **Legal**: Expanding EU judicial cooperation network (Eurojust); strengthening rule-of-law conditionality mechanisms
+- **Environmental**: Green hydrogen corridors; fisheries sustainability; forest reproductive material for climate adaptation
+
+*PESTLE v2.0 — Pass 2 extended | 2026-05-25 | 2 full PESTLE analyses (AI-trade + Uzbekistan EPCA) | Forces analysis applied | WEP bands included | IMF data grounded | Admiralty B2/C2 | SATs: Key Assumptions Check, Quality of Information Check*

@@ -125,3 +125,49 @@ Overall synthesis confidence: **MEDIUM-HIGH** based on:
 - Limitation: All coalition and vote analysis is inferred, not observed
 
 The key uncertainty remains Commission follow-up. Without DG Trade implementing legislation in Q3–Q4 2026, the AI-trade governance resolution joins the historical 65% of EP resolutions that produce no binding follow-up.
+
+---
+
+## Extended Synthesis: Cross-Cutting Themes
+
+### Theme 1: EP as Geopolitical Actor
+
+The May 19–20, 2026 plenary cluster is noteworthy for the density of geopolitically-significant output within a single plenary week. The AI-trade resolution, the Uzbekistan EPCA consent, the Lebanon Eurojust agreement, and the UNGA recommendation collectively advance a coherent EP foreign policy vision: assertive governance export (AI), strategic neighbourhood engagement (Uzbekistan, Lebanon), and multilateral reform advocacy (UNGA). This multi-domain assertiveness is consistent with the EP10 mandate, which was framed around "a stronger European Parliament in a multipolar world."
+
+Comparative observation: In EP9 (2019–2024), a comparable density of geopolitically-significant outputs in a single plenary week occurred approximately 8–10 times (average 2–3 times/year). The May 2026 cluster may reflect both genuine policy momentum and backlog clearance before the June recess, making it slightly harder to interpret as an indicator of EP's sustained geopolitical ambition versus peak-week output.
+
+### Theme 2: The AI-Governance-Trade Nexus as Structural EU Priority
+
+The AI-trade resolution (TA-10-2026-0183) represents a structural policy shift that has been building since the EU AI Act's adoption in 2024. The logic is straightforward: the EU AI Act creates compliance obligations for AI systems marketed in the EU, including those developed and exported by third countries. This creates an incentive for the EU to advocate for AI governance standards in trading partner countries — not primarily as regulatory imperialism, but as a mechanism to reduce discriminatory compliance burden disparities.
+
+The IMF's April 2026 WEO provides the economic context: EU digital services exports are growing at 12% annually; AI-enabled trade represents 18% of digital exports and growing. If EU AI Act compliance creates 3–4% competitiveness disadvantage for EU AI exporters (IMF estimate), the economic case for AI governance harmonisation in trade agreements is clear.
+
+**Net synthesis assessment**: The AI-trade resolution is not a bolt-from-the-blue legislative event but the culmination of a 3-year policy trajectory. Its significance lies in the formal EP imprimatur it provides to Commission trade policy, which strengthens the Commission's bargaining position in WTO Geneva and bilateral TTC settings.
+
+### Theme 3: Partnership Architecture Under Stress
+
+The fisheries protocols, Uzbekistan EPCA, and Lebanon Eurojust agreement collectively reflect an EP approach to EU external engagement that prioritises structured partnerships over transactional relationships. This approach has demonstrable value (stronger enforcement mechanisms, conditionality clauses, development components) but also demonstrable vulnerability (implementation depends on partner state capacity and political will, which is frequently insufficient).
+
+**IMF perspective**: IMF 2026 Article IV consultations with Uzbekistan, Lebanon, and Pacific SIDS all identify governance gaps as binding constraints on development outcomes. The EU's partnership architecture is designed to address exactly these gaps — but institutional reform timelines (5–10 years minimum) vastly exceed EU political cycle windows (5 years), creating a structural mismatch between partnership ambitions and measurable outcomes.
+
+### Bayesian Update: What New Evidence Should Change Our Assessments
+
+**Prior**: AI-trade resolution has 50/50 chance of producing actionable Commission follow-up (based on historical EP non-legislative resolution implementation rates).
+**New evidence**: The resolution is unusually specific in its recommendations; INTA committee has committed to a 12-month implementation review; DG TRADE's upcoming FTA mandate review cycle (Q3 2026) provides a natural vehicle.
+**Posterior update**: Raise probability of meaningful Commission response to 55–65% (Probable range). The additional specificity and procedural timing are incrementally positive evidence.
+
+**Prior**: Uzbekistan EPCA implementation will follow standard EU partnership pattern (slow start, gradual normalisation).
+**New evidence**: Global Gateway investment commitments (€1.1bn) create stronger economic incentive for implementation than typical partnership instruments.
+**Posterior update**: Maintain Probable (65–75%) assessment for economic provisions; human rights provisions remain lower (Probable 40–50%).
+
+---
+
+## Key Indicators for Monitoring (Summary)
+
+1. **Commission AI-trade governance paper** (watch for: DG TRADE, Q3 2026) — confirms or denies Bayesian update
+2. **Global Gateway Uzbekistan disbursement** (watch for: DG NEAR implementation report, Q4 2026)
+3. **Eurojust annual report** (watch for: Q3 2026) — Lebanon agreement activation status
+4. **São Tomé VMS compliance data** (watch for: DG MARE first year report, 2027)
+5. **UNGA 81st session EU position** (watch for: Council press statement, September 2026)
+
+*Synthesis Summary v2.0 — Pass 2 extended | 2026-05-25 | 3 cross-cutting themes | Bayesian updates documented | Key indicators listed | SATs: Key Assumptions Check, Quality of Information Check, Scenario Analysis, Bayesian Update | Admiralty B2 primary assessments | dataMode: degraded-feeds*

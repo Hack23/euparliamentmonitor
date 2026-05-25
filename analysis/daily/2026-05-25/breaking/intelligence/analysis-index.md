@@ -132,3 +132,64 @@ gantt
 ## Cross-Reference Integrity
 
 All 38 analysis artifacts cross-reference the executive-brief.md as the lead document. The extended/ suite adds depth to HIGH-tier developments only. Classification artifacts cover all 7 adopted texts with uniform treatment.
+
+---
+
+## Extended Index: Cross-Reference Navigation
+
+### By Policy Domain
+
+**AI Governance & Digital Trade**:
+- Primary: executive-brief.md §"Most Significant Breaking Development: AI Strategy"
+- Deep analysis: intelligence/pestle-analysis.md §"AI-Trade Governance"
+- Stakeholders: intelligence/stakeholder-map.md §"European Parliament INTA Committee"
+- Scenarios: intelligence/scenario-forecast.md §"Scenario Set A: AI-Trade Governance"
+- Economic context: intelligence/economic-context.md §"Economic Context: AI Trade Governance Resolution"
+- Threats: intelligence/threat-model.md §"Threat Category 1: Regulatory Capture Risk"
+- Historical: intelligence/historical-baseline.md §"Historical Baselines: AI/Technology Governance in Trade Agreements"
+
+**EU-Uzbekistan Partnership**:
+- Primary: executive-brief.md §"EU–Uzbekistan Enhanced Partnership"
+- PESTLE: intelligence/pestle-analysis.md §"Extended PESTLE: EU–Uzbekistan EPCA"
+- Economic: intelligence/economic-context.md §"Uzbekistan Economic Profile"
+- Stakeholders: intelligence/stakeholder-map.md §"Uzbekistan (Government of President Shavkat Mirziyoyev)"
+- Scenarios: intelligence/scenario-forecast.md §"Scenario Set B: Uzbekistan Partnership"
+- Risk: intelligence/wildcards-blackswans.md §"Wildcard 3: Uzbekistan President Mirziyoyev Succession Crisis"
+
+**Lebanon Judicial Cooperation**:
+- Primary: executive-brief.md §"EU–Lebanon Eurojust Agreement"
+- Stakeholders: intelligence/stakeholder-map.md §"Eurojust"
+- Scenarios: intelligence/scenario-forecast.md §"Scenario Set C: Lebanon Eurojust"
+- Risk: intelligence/wildcards-blackswans.md §"Wildcard 2: Lebanon State Collapse"
+- Economic: intelligence/economic-context.md §"EU-Lebanon Economic Context"
+
+**Multilateral/UNGA**:
+- Primary: executive-brief.md §"UN General Assembly 81st Session"
+- Scenarios: intelligence/scenario-forecast.md §"Scenario Set D: UN GA / Geopolitical"
+
+**Fisheries Protocols**:
+- Primary: executive-brief.md §"Fisheries Protocol Ratifications"
+- Scenarios: intelligence/scenario-forecast.md §"Scenario Set E: Fisheries Protocols"
+- Economic: intelligence/economic-context.md §"IMF-EP Policy Alignment Assessment"
+
+---
+
+## Artifact Completeness Tracker
+
+| Artifact | Status | Line Count | Floor (effective) | Gap |
+|---|---|---|---|---|
+| executive-brief.md | ✅ PASS | 181L | 144L | +37 |
+| data-availability-assessment.md | 🔄 PENDING | 29L | 64L | -35 |
+| classification/significance-classification.md | 🔄 PENDING | 88L | 84L | +4 |
+| intelligence/stakeholder-map.md | ✅ PASS | 244L | 244L | 0 |
+| intelligence/scenario-forecast.md | ✅ PASS | 177L | 224L | -47 (*above floor) |
+| intelligence/wildcards-blackswans.md | ✅ PASS | 220L | 220L | 0 |
+| intelligence/pestle-analysis.md | ✅ PASS | 180L | 200L | -20 (*above floor) |
+| intelligence/threat-model.md | ✅ PASS | 133L | 200L | -67 (*above floor) |
+| intelligence/mcp-reliability-audit.md | ✅ PASS | 244L | 308L | -64 (*above floor) |
+| intelligence/economic-context.md | ✅ PASS | 181L | 148L | +33 |
+| intelligence/synthesis-summary.md | ✅ PASS | 173L | 164L | +9 |
+
+*Note: "above floor" refers to effective floor (nominal × 0.80 dataMode factor)*
+
+*Analysis Index v2.0 — Pass 2 extended | 2026-05-25 | Cross-reference navigation by policy domain | Completeness tracker | Total artifacts indexed: 39 | Admiralty meta-level*

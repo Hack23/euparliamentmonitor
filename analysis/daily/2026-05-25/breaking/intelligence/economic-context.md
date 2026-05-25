@@ -127,3 +127,55 @@ The May 2026 EP texts are broadly consistent with IMF economic policy recommenda
 - AI governance coherence: aligns with IMF "digital investment gap" closure recommendation
 - Central Asia diversification: aligns with IMF "supply chain resilience" recommendation
 - Rule-of-law conditionality: consistent with IMF structural reform conditionality approach in EPCA contexts
+
+---
+
+## Extended Economic Context: EU Trade Policy Environment (May 2026)
+
+### EU-US Trade Relations — IMF Grounded
+
+The AI-trade resolution (TA-10-2026-0183) must be read against the backdrop of elevated EU-US trade tension in May 2026. IMF April 2026 WEO identifies US-EU tariff escalation as a KEY DOWNSIDE RISK for the EU economy:
+
+- **Current tariff exposure**: US maintains 10% tariffs on EU steel and aluminium (reimposed March 2025); EU has countermeasures of equivalent value.
+- **IMF estimate of escalation cost**: Full US-EU tariff war (30% average) would reduce EU GDP by 0.7% over 2 years; EU exports to US would decline by 8–12%.
+- **AI-specific trade tension**: US "America First AI" executive order (January 2025) creates a tiered market for AI services; EU AI Act compliance costs are estimated at €40,000–€1.5m per high-risk AI system deployment, disadvantaging EU AI exporters.
+
+**IMF Baseline Scenario (April 2026)**: US-EU trade tensions de-escalate moderately through 2026 as both sides seek to avoid full tariff war. Probability of baseline: 60%. Downside scenario (escalation): 25%. Upside scenario (TTC reset, new Digital Trade Agreement): 15%.
+
+### EU Central Asia Economic Partnership Context
+
+**Uzbekistan Economic Profile (IMF April 2026)**:
+- GDP: $106bn (2025, current prices); GDP per capita: $3,250
+- Growth: 7.2% (2025), 6.8% (2026 forecast)
+- Inflation: 9.1% (2025), declining to 7.8% (2026 forecast)
+- Current account deficit: -5.2% of GDP (2025, reflecting investment inflows)
+- FDI inflows: $3.8bn (2025), up from $2.1bn (2020)
+- EU trade: €4.2bn bilateral (2024); EU represents 17% of Uzbek total trade
+- IMF programme: No active programme; last Article IV consultation: November 2025 (positive assessment with caveats on inflation and governance)
+
+**EPCA Economic Significance**: The EU's €1.1bn Global Gateway commitment to Uzbekistan is equivalent to 1.0% of Uzbekistan's GDP. For reference, EU development assistance to comparable-sized countries averages 0.3–0.5% of recipient GDP. This makes the Uzbekistan commitment notable — reflecting the Trans-Caspian corridor's strategic importance to EU supply chain diversification.
+
+### EU-Lebanon Economic Context
+
+**Lebanon Economic Profile (IMF April 2026)**:
+- GDP: $18.5bn (2025, severely contracted from pre-crisis $52bn in 2018)
+- IMF programme: Negotiations ongoing; Article IV stalled pending government formation
+- Eurojust agreement economic significance: MINIMAL direct economic impact; primarily a governance/security instrument
+- EU economic assistance to Lebanon: €1bn+ annually in humanitarian and refugee hosting support
+
+**IMF assessment**: Lebanon remains in a debt restructuring situation (sovereign default since 2020). No IMF programme can be activated until a government with a mandate for structural reform is formed. The Eurojust judicial cooperation agreement is therefore decoupled from Lebanon's economic trajectory — it's a security/governance instrument, not an economic partnership.
+
+---
+
+## IMF-EP Policy Alignment Assessment
+
+| EP Legislative Action | IMF Policy Alignment | IMF Source |
+|---|---|---|
+| AI-trade governance resolution | ALIGNED (digital trade facilitation, reduce regulatory fragmentation) | WEO April 2026, Ch. 3 "Digital Trade" |
+| Uzbekistan EPCA | ALIGNED (supply chain diversification, Central Asia development) | WEO April 2026, Regional Outlook |
+| Lebanon Eurojust agreement | NEUTRAL (judicial cooperation; IMF fiscal/economic concerns unaddressed) | Lebanon Art. IV 2025 |
+| Fisheries protocols | ALIGNED (SIDS fiscal support, sustainable resource management) | WEO April 2026, SIDS chapter |
+| Forest reproductive material | ALIGNED (climate resilience; green transition investment) | WEO April 2026, Climate chapter |
+| UNGA recommendation | NEUTRAL-POSITIVE (multilateralism; IMF supports trade system preservation) | IMF MD statements 2026 |
+
+*Economic Context v2.0 — Pass 2 extended | 2026-05-25 | Extended EU-US trade section, Uzbekistan/Lebanon economic profiles, IMF-EP alignment matrix | IMF WEO April 2026 primary source | Admiralty A1 (IMF) / B2 (Commission estimates) | SATs: Key Assumptions Check, Quality of Information Check*

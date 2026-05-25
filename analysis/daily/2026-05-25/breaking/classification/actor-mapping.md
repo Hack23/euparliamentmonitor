@@ -83,3 +83,28 @@ graph TD
 | China | AGAINST (sovereignty) | AGAINST (competes with BRI) | Neutral |
 | Uzbekistan Government | Neutral (recipient) | Strongly FOR | N/A |
 | Lebanese Government | N/A | N/A | Cautiously FOR |
+
+---
+
+## Actor Influence Network — Extended Mapping (Run 2)
+
+### Primary Actor: EP INTA Committee (AI-Trade Lead)
+
+**Role**: Legislative initiator, rapporteur body, committee vote authority
+**Current chair**: EPP-affiliated (name TBC from MEP data) | **Rapporteur for TA-0183**: Name unavailable from current feeds
+**Influence trajectory**: HIGH and rising. INTA is the committee intersection of AI governance (shared with IMCO) and trade policy. Its growing workload (AI Act trade chapters, FTA reviews) positions it as EP10's most strategically important committee for digital economy policy.
+**External relationships**: Close working relationship with US House Ways & Means Committee (via Inter-Parliamentary Union dialogues); regular consultation with WTO e-commerce joint statement initiative participants.
+
+### Secondary Actor: European Commission DG TRADE
+
+**Role**: Exclusive competence for EU trade negotiations; Commission must respond to EP resolution within 3 months
+**Political exposure**: DG TRADE under Executive Vice-President for Trade. Pressure from both EP (AI governance demand) and US counterpart (USTR) to avoid regulatory friction in transatlantic trade.
+**Influence trajectory**: REACTIVE — responds to EP mandate rather than leading AI-trade governance agenda. Internal tensions: DG CONNECT wants AI Act globally exported; DG TRADE prefers trade facilitation over regulation.
+
+### External Actor Addition: Uzbekistan Government
+
+**Role**: Treaty partner, EPCA beneficiary
+**Key official**: Minister of Foreign Affairs (government interlocutor with EU Special Representative for Central Asia)
+**Influence trajectory**: LOW in EP process but HIGH in post-ratification implementation. Uzbekistan's compliance with EPCA human rights provisions (Article 8) will be monitored by AFET committee — creating an ongoing review mechanism.
+
+*Actor Mapping v2.0 — Carry-forward +23L | INTA committee detail | DG TRADE positioning | Uzbekistan government role | 2026-05-25 | Admiralty B2*

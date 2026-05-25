@@ -86,3 +86,64 @@ This document catalogues the key observable indicators that will confirm or disc
 **Assessment**: Most indicators have public observable forms; Lebanese political news is the most information-sparse dimension
 
 **WEP Assessment of Indicator Set**: The set of 10 indicators provides PROBABLE (65%) coverage of the main analytical uncertainties. The primary gap is the absence of indicators on EU industry AI governance lobbying intensity, which is a key variable in Commission decision-making.
+
+---
+
+## Extended Forward Indicators — 90-Day Horizon (May–August 2026)
+
+### Political Forward Indicators
+
+**Indicator 1: Commission response to TA-0183 AI mandate** — Due: ~August 2026 (3-month EP rule)
+- Tracking proxy: Commission agenda publications (agenda.ec.europa.eu); INTA committee hearing calendar
+- Signal: If Commission schedules dedicated INTA hearing on AI-trade by July 2026, substantive response is highly likely (WEP: 75%)
+- Signal: If no INTA hearing scheduled by July 2026, soft/minimal response likely (WEP: 60%)
+
+**Indicator 2: Uzbekistan Council ratification vote** — Expected: June–July 2026
+- Tracking proxy: EU Council agenda publications (consilium.europa.eu)
+- Baseline WEP: 90% Council will ratify (member state veto risk low — Uzbekistan agreement has broad support)
+
+**Indicator 3: Lebanon IMF program conclusion** — Expected: Q2–Q3 2026
+- Tracking proxy: IMF Lebanon country page; MENAP regional monitoring
+- Relevance: IMF program success is prerequisite for meaningful AML reform that the Eurojust agreement supports
+
+**Indicator 4: German federal elections (September 2026)**
+- EP impact: German MEPs (largest delegation ~96 seats) may avoid controversial votes Q3 2026
+- AI governance legislative proposals that require German EPP support may face delays
+
+### Economic Forward Indicators (IMF WEO April 2026 baseline)
+
+**Indicator 5: Euro Area inflation trajectory** — May 2026: 2.1% → Target: 2.0%
+- ECB cut probability Q3 2026: 60–70% (if inflation continues toward target)
+- Impact on EP economic legislation: Accommodative monetary environment supports investment legislation
+
+**Indicator 6: Uzbekistan FX reform progress** — Uzbekistan sum stability is prerequisite for EPCA investment provisions
+- IMF tracking metric: Exchange rate unification progress (ongoing since 2017)
+- WEP: 70% probability Uzbekistan maintains FX reform trajectory through 2026
+
+**Indicator 7: EU AI Act implementation — First prohibition enforcement** — August 2026 (6 months after publication)
+- Tracking: AI Office (EC) enforcement calendar; AISI (EU AI regulatory body) publications
+- AI Act enforcement beginning creates implementation context that gives the AI-trade resolution more urgency
+
+### Technical Forward Indicators
+
+**Indicator 8: DOCEO RCV data availability for May 2026 plenary** — Expected: ~June 2–16, 2026
+- Direct update indicator for voting-patterns.md and voting-patterns.degraded.md
+- Priority: HIGH for complete analysis
+
+**Indicator 9: EP committee document availability (INTA, AFET, LIBE)** — Expected: within 2 weeks of adoption
+- Full text of TA-0183, TA-0174, TA-0177 committee reports
+- Priority: MEDIUM-HIGH
+
+### Forward Indicator Summary Table
+
+| Indicator | Timing | WEP | Article Relevance |
+|-----------|--------|-----|-------------------|
+| Commission AI mandate response | Aug 2026 | 55–65% substantive | HIGH |
+| Uzbekistan Council ratification | Jun–Jul 2026 | 90% | MEDIUM |
+| Lebanon IMF program | Q2–Q3 2026 | 65% | MEDIUM |
+| German elections EP impact | Sep 2026 | Certain event | MEDIUM |
+| ECB Q3 cut | Q3 2026 | 60–70% | LOW-MEDIUM |
+| AI Act enforcement start | Aug 2026 | Certain | HIGH |
+| DOCEO RCV availability | Jun 2–16 | ~90% | MEDIUM-HIGH |
+
+*Forward Indicators v2.0 — Pass 2 extended | 9 indicators | 90-day horizon | Political, economic, technical | 2026-05-25 | Admiralty B1*

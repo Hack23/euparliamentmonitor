@@ -91,3 +91,33 @@ quadrantChart
 | Central Asia | Mixed (EU loses on scale, wins on quality) | MEDIUM | Strategic Priority |
 | EP coalition | Stable but under centrifugal pressure | HIGH | Monitor |
 | Lebanon security | Unfavourable (weak state, proxy forces) | LOW | Monitor |
+
+---
+
+## Forces Analysis Extension — Structural Forces (Run 2 Carry-Forward)
+
+### Structural Force: Digital Technology Regulation Race
+
+**Nature**: Systemic competitive dynamic — US, EU, China, and UK are each developing AI regulatory frameworks. The EU AI Act (2024) was first; the US Executive Order on AI (2023, Executive Order 14110) created a lighter-touch framework. The May 2026 AI-trade resolution explicitly seeks to export EU regulatory standards into bilateral FTAs.
+
+**Direction of force**: CENTRIPETAL (toward convergence) at the regulatory principles level; CENTRIFUGAL (away from convergence) at the legal specifics level. Net effect: gradual transatlantic convergence on AI safety principles, persistent divergence on liability and enforcement.
+
+**Strength**: 8/10 (HIGH). This is a multi-decade structural force that will shape all EP AI-related legislation through at least 2030.
+
+### Structural Force: EP10 Legitimacy Building
+
+**Nature**: Institutional imperative — EP10 (elected June 2024) is in its legacy-building phase. Adopting high-profile resolutions on AI, trade, and international partnerships signals institutional relevance and democratic mandate.
+
+**Direction of force**: EXPANSIVE — EP consistently seeks to expand its role in areas where it has weak formal powers (e.g., CFSP, trade initiation). The AI-trade resolution exemplifies this expansion tactic: using the inter-institutional balance to pressure Commission via non-binding but politically costly-to-ignore resolution.
+
+**Strength**: 7/10 (HIGH). Institutional legitimacy imperatives consistently shape EP legislative agenda.
+
+### Structural Force: EU-Central Asia Strategic Reorientation
+
+**Nature**: Geopolitical structural shift — following Russia's 2022 Ukraine invasion, Central Asian states (especially Uzbekistan, Kazakhstan) have accelerated diversification away from Russian dependence. EU has responded with Central Asia Strategy 2023 and now the Uzbekistan EPCA.
+
+**Direction**: EXPANSIVE (EU sphere of influence) — EU is gaining strategic partnerships in a region historically in Russia's orbit. This force will continue to drive EP consent to further Central Asian partnership agreements (Kazakhstan expected 2026–2027).
+
+**Strength**: 8/10 (HIGH structural importance). Geopolitical reorientation is a multi-year force.
+
+*Forces Analysis v2.0 — Carry-forward +25L | Digital regulation race | EP10 legitimacy building | EU-Central Asia reorientation | 2026-05-25 | Admiralty A2*

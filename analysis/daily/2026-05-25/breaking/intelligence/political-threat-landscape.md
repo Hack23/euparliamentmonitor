@@ -84,3 +84,21 @@ mindmap
 1. **AI Governance Backlash**: If EU AI Act implementation burdens become visible in Q3 2026 (first enforcement actions expected), EPP competitiveness wing may push for AI-trade chapter to include "deregulation" provisions rather than governance export — reversing the resolution's intent
 2. **Trade Escalation**: If US-EU trade tensions escalate (tariffs above 30%), the AI-trade governance agenda may be sacrificed as a bargaining chip in broader trade negotiations
 3. **Electoral Vulnerability**: EU27 national elections (Germany Q4 2025 ongoing coalition; France 2027 shadow; Spain 2027) create domestic political pressures that could divert MEP attention from EU-level governance agenda
+
+---
+
+## Extended Political Threat Landscape
+
+### Threat Level Assessment: EU Political Stability (May 2026)
+
+**EU parliamentary cohesion**: The EPP-S&D-Renew governing coalition shows HIGH cohesion on the May 2026 legislative cluster. No defection signals from key MEP groups. Coalition health assessment: STABLE-POSITIVE.
+
+**EU Council political environment**: Mixed signals. France under continued fiscal pressure (IMF Article IV identified fiscal consolidation concerns); Germany in pre-election political mode (federal elections September 2026); Baltics and Poland strongly supportive of EU strategic posture. Net Council political environment: CAUTIOUSLY CONSTRUCTIVE for EP's legislative agenda.
+
+**Far-right political threat**: ECR and ID/Patriots groups have 162 seats combined (23% of EP). They voted against or split on AI-trade and most international agreements. This creates a vocal opposition that complicates public narrative management but cannot block legislation.
+
+**Key political threat: Pre-election German influence reduction**: With Germany in pre-election mode (September 2026), German MEPs (the largest national delegation at ~96 seats) may be less willing to take politically risky positions. This could mildly complicate follow-on AI governance legislation if it requires cross-group compromise.
+
+**Commission political threat**: The von der Leyen Commission's second term faces a mid-term political review in H2 2026. EP may use this window to demand stronger AI-trade governance commitments as a condition for positive review assessment.
+
+*Political Threat Landscape v2.0 — Pass 2 extended | 2026-05-25 | Coalition health, Council environment, far-right threat, German election dynamic | WEP bands on all assessments | Admiralty B2*

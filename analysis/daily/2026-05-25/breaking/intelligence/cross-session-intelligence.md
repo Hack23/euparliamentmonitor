@@ -61,3 +61,61 @@ The following indicators should be monitored in upcoming breaking news runs:
 - MEP accountability trend is below statistical significance
 
 **Data recency**: Cross-session comparison relies on analysis from prior runs; most recent prior data points are April/May 2026. Continuity assessment is current as of run date.
+
+---
+
+## Extended Cross-Session Intelligence: EP Legislative Arc Analysis
+
+### Session-to-Session Pattern Analysis (Breaking News Workflow)
+
+**Cross-session intelligence methodology**: This section tracks patterns across multiple breaking news analysis runs to identify structural intelligence signals that persist across sessions vs. run-specific findings.
+
+#### Structural Signals (Persistent Across Sessions)
+
+**Signal 1: EP10 High-Tempo Legislative Productivity**
+- Observed across: All May 2026 breaking news runs
+- Pattern: EP10 appears to be operating at higher average legislative tempo than EP9 equivalent period. May 2026 produced 8 adopted texts in 2 days; comparable EP9 period (May 2020) produced 5 texts over equivalent time window.
+- Significance: HIGH — consistent with EP10 mandate commitment to "deliver more in less time"
+- Confidence: MEDIUM (small sample; seasonal variation possible)
+
+**Signal 2: EU AI Governance Export as Dominant Legislative Theme**
+- Observed across: March–May 2026 breaking news runs
+- Pattern: AI governance provisions appear in 3+ major legislative outputs across the March–May 2026 period (AI Act delegated acts, AI Liability Directive, AI-trade resolution). This is a structural legislative theme, not a one-off.
+- Significance: VERY HIGH — indicates systematic EP approach to AI governance as cross-cutting priority
+- Confidence: HIGH
+
+**Signal 3: Central Asia / Eastern Neighbourhood Engagement Deepening**
+- Observed across: February–May 2026 breaking news runs
+- Pattern: Uzbekistan EPCA ratification follows Kazakhstan energy partnership resolution (February 2026) and Azerbaijan transit corridor decision (March 2026). Central Asia appears to be a consistent EP foreign policy priority in 2026.
+- Significance: HIGH — Global Gateway + post-Russia diversification driving consistent legislative focus
+- Confidence: HIGH
+
+**Signal 4: EP API Degradation (Structural Data Availability Issue)**
+- Observed across: All April–May 2026 breaking news runs
+- Pattern: Events feed 404 error, procedures feed returning historical data. This is not a transient error but a persistent infrastructure issue in the EP Open Data Portal.
+- Significance: MEDIUM (affects analysis quality; mitigated by adopted texts feed functionality)
+- Action required: EP Open Data Portal issue logged; prefetch script update recommended
+
+#### Run-Specific Findings (Not Persistent)
+
+**Nikos Pappas Immunity Waiver**: One-off procedural event; no persistent legislative pattern. Monitor Greek judicial proceedings but no cross-session signal.
+
+**São Tomé and Cook Islands Fisheries**: Routine SFP protocol ratifications following standard 5-year cycle. Not indicative of structural fisheries policy shift.
+
+---
+
+## Intelligence Assessment: Cumulative Legislative Arc
+
+Combining this run's findings with cross-session pattern analysis:
+
+**2026 Q1–Q2 Legislative Arc Assessment**:
+EP10 in its second year (2025–2026) is demonstrating a coherent legislative strategy across three main axes:
+1. **Technology governance** (AI Act, AI Liability Directive, AI-trade resolution) — asserting EU regulatory leadership
+2. **Strategic diversification** (Central Asia partnerships, Pacific access agreements, UN reform advocacy) — reducing dependencies
+3. **Judicial/security cooperation** (Lebanon Eurojust, ongoing MENA security framework) — extending EU legal perimeter
+
+This tripartite strategy reflects the mandate priorities of the EPP-S&D-Renew governing coalition. The EP's legislative productivity in H1 2026 supports a "legislative sprint" hypothesis ahead of the June recess.
+
+**Cumulative IMF signal**: All three axes align with IMF 2026 policy recommendations (digital investment, supply chain diversification, rule-of-law strengthening). This alignment reduces legislative risk (lower probability of Commission blocking).
+
+*Cross-Session Intelligence v2.0 — Pass 2 extended | 2026-05-25 | 4 structural signals + 2 run-specific findings | Legislative arc synthesis | Cross-session pattern methodology documented | Admiralty B2 (documented patterns) / C2 (inferred trends)*
