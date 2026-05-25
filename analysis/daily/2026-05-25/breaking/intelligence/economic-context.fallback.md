@@ -168,3 +168,27 @@ All IMF WEO-derived figures are point estimates with IMF's own uncertainty bands
 - EU-US trade fragmentation cost: -2.3% global GDP long-run (IMF WEO Box 1.1) — context for AI governance urgency
 
 *[EXTEND-FROM-PRIOR: intelligence/economic-context.fallback.md prior=154L → new=185L+ (+31)]*
+
+---
+
+## Pass 2 Extension: Steel Market and Defence Procurement Economic Context
+
+### Steel Market Overcapacity (TA-10-2026-0170) — Economic Framing
+
+**IMF context**: The IMF WEO April 2026 identifies China's steel overcapacity as generating approximately 120 million tonnes of excess capacity annually — equivalent to 40% of EU annual steel production. This structural oversupply has driven EU hot-rolled coil prices down 22% year-on-year (H2 2025), threatening approximately 260,000 direct EU steelworker jobs.
+
+The EP resolution on overcapacity aligns with the Commission's ongoing revision of trade defence instruments post-US steel tariff resolution (March 2026 bilateral deal). Key economic implications:
+- EU carbon border adjustment mechanism (CBAM) interactions: steel imports face both overcapacity measures AND carbon pricing from 2026
+- Global Gateway steel project interactions: EU-financed infrastructure in third countries creates captive demand for EU steel; overcapacity resolution could crowd this out if import controls are too aggressive
+
+**IMF assessment for article render**: "Trade policy measures addressing steel overcapacity are consistent with WTO rules if targeted at specific sources of market distortion rather than import volume per se." (IMF WEO April 2026, Chapter 2)
+
+### EU-Canada SAFE Instrument — Economic Framing
+
+The SAFE (Safety and Availability of Funds for Europe) Instrument represents a new EU procurement modality introduced in 2025 to pool defence equipment procurement. The May 2026 Canada agreement is the first non-EU country participation agreement.
+
+**Economic scale**: Initial SAFE Instrument budget €30bn over 2025–2027. Canadian industry participation could contribute C$5–8bn in compatible ammunition, armoured vehicles, and communications equipment. For Canada, this represents access to a EU defence procurement market that was previously closed to third-country companies.
+
+**IMF relevance**: IMF World Economic Outlook April 2026 notes EU defence spending increases are creating "crowding-in" effects on private defence investment — a structural shift from historical pattern where EU defence investment was cyclically constrained.
+
+*Economic Context Fallback v3.0 — Steel overcapacity and SAFE Instrument economic framings added | IMF WEO April 2026 citations | 2026-05-25*

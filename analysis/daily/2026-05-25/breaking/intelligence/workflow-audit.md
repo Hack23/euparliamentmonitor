@@ -153,3 +153,32 @@ pie title Artifact Production by Phase
 **Structural improvement recommendation**: The `breaking` slug should use a 7-day window for the adopted_texts query (not same-day only) to avoid the post-plenary data gap that affects all 3 runs on this session.
 
 *[EXTEND-FROM-PRIOR: intelligence/workflow-audit.md prior=136L → new=156L+ (+20)]*
+
+---
+
+## Run 2: Workflow Audit Update
+
+### Run 2 Workflow Execution Summary
+
+| Stage | Start | End | Duration | Result |
+|-------|-------|-----|----------|--------|
+| Stage A (data collection) | Minute 0 | Minute 3 | ~3 min | DEGRADED-FEEDS; 11 direct calls |
+| Stage B Pass 1 (prior-run-diff + classification) | Minute 3 | Minute 15 | ~12 min | 18 rewrites + 25 carry-fwd |
+| Stage B Pass 2 (all rewrites + carry-forwards) | Minute 15 | Minute 45 | ~30 min | All files extended |
+| Stage C (validate-analysis) | Pending | — | — | — |
+| Stage D (generate-article) | Pending | — | — | — |
+| Stage E (single PR) | Pending | — | — | — |
+
+### Workflow Compliance Checklist (Run 2)
+
+- [x] Prior-run-diff executed before any extensions
+- [x] All 18 rewrite targets extended above floor
+- [x] All 25 carry-forward targets received +20 lines minimum
+- [x] MCP invocation cap exception documented (11 calls, 6 over cap)
+- [x] SAT applications documented in methodology-reflection.md
+- [x] 2-pass analysis completed
+- [ ] Stage C validation pending
+- [ ] Stage D article render pending
+- [ ] Stage E PR creation pending
+
+*Workflow Audit v3.0 — Run 2 execution summary added | 2026-05-25*

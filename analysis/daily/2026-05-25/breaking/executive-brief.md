@@ -191,3 +191,16 @@ The EP adopted its first-reading position on the Forest Reproductive Material (F
 **Key brief for article authors**: The article must lead with AI-trade (highest cross-run significance), include Uzbekistan geopolitical context (Global Gateway strategic anchor), address Lebanon with appropriate implementation hedging, and reference fisheries as evidence of legislative breadth. The IMF economic backdrop should appear in the lede paragraph to set macro context.
 
 *[EXTEND-FROM-PRIOR: executive-brief.md prior=181L → new=202L+ (+21)]*
+
+---
+
+## Run 2 Update: Expanded Item Coverage
+
+This run's data collection confirmed 4 additional adopted texts not covered in Run 1: foreign investment screening (TA-10-2026-0171), steel market overcapacity (TA-10-2026-0170), single European railway area capacity (TA-10-2026-0169), and women in Afghanistan (TA-10-2026-0186). The updated significance ranking now elevates FDI screening to tier 1 (CRITICAL) alongside AI-trade governance.
+
+**Revised top-3 items for article**:
+1. Foreign Investment Screening (TA-0171) + AI Trade (TA-0183): twin pillars of EU economic sovereignty doctrine
+2. EU-Canada SAFE Instrument (TA-0180): defence procurement partnership with first non-EU country  
+3. Women in Afghanistan (TA-0186): fastest EP human rights response of Q2 2026
+
+*Executive Brief v3.0 — Run 2 expansion integrated | Significance ranking updated | 2026-05-25*

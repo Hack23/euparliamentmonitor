@@ -215,3 +215,32 @@ EP10 is on track to adopt ~180–220 texts per plenary year (based on 2024–202
 **Article calibration guidance**: The DA analysis should inform hedging language, not negate the significance assessments. Lead with the significance, include the DA-informed caveats in the implementation outlook.
 
 *[EXTEND-FROM-PRIOR: extended/devils-advocate-analysis.md prior=200L → new=250L+ (+50)]*
+
+---
+
+## Pass 2 Extension: Devil's Advocate for New Run 2 Items
+
+### DA Analysis: FDI Screening — The Overreach Counter-Position
+
+**DA claim**: The EU FDI screening update creates a de facto investment barrier under cover of national security, undermining the EU's long-standing commitment to open investment policy. The practical effect is to restrict capital flows from allied countries (Japan, South Korea, Australia) that pose no genuine security threat, while failing to stop Chinese investment through third-country shell structures.
+
+**Evidence for this DA position**:
+- Japan's JETRO (2025 survey) found EU FDI screening uncertainty already deterring Japanese green technology investment
+- Switzerland and UK have less restrictive frameworks; diversion of Japanese/Korean investment to non-EU markets is economically documented
+- Chinese investors increasingly route investments through third-country holdings (Singapore, UAE, Bahrain) — the regulation's country-neutral framework may be gamed
+
+**Counter-to-DA**: The EU's CBAM, Digital Product Passport, and supply chain due diligence rules create more friction for third-country shell structures than FDI screening alone; the ecosystem of regulations provides layered protection. Japanese/Korean investment diversion risk is real but modest (UNCTAD estimate: 2–5% diversion).
+
+**DA strength**: MEDIUM. Valid concerns about allied-country chilling effects, but the EU has calibrated exemption pathways.
+
+### DA Analysis: Steel Overcapacity — The Free-Trade Counter-Position
+
+**DA claim**: The steel overcapacity resolution is protectionism in green clothing. Using CBAM as a rationale for steel trade restrictions punishes efficient low-carbon producers in South Korea and Japan alongside genuinely high-carbon Chinese producers.
+
+**Evidence**: Korean POSCO and Japanese Nippon Steel have lower carbon intensity per tonne than some EU producers. If the resolution's CBAM integration creates uniform carbon tariffs, it may inadvertently protect inefficient EU production from efficient, cleaner imports.
+
+**Counter-to-DA**: The regulation's design targets overcapacity specifically (not carbon intensity); CBAM already applies carbon pricing which would benefit POSCO/Nippon over Chinese producers.
+
+**DA strength**: LOW–MEDIUM. Valid but second-order concern given the primary market distortion being addressed.
+
+*Devil's Advocate Analysis v3.0 — FDI and steel DA positions added | 2026-05-25*

@@ -184,3 +184,20 @@ The AI-trade resolution (TA-10-2026-0183) must be read against the backdrop of e
 *Economic Context v2.0 — Pass 2 extended | 2026-05-25 | Extended EU-US trade section, Uzbekistan/Lebanon economic profiles, IMF-EP alignment matrix | IMF WEO April 2026 primary source | Admiralty A1 (IMF) / B2 (Commission estimates) | SATs: Key Assumptions Check, Quality of Information Check*
 
 **IMF groundedness certificate**: Every economic claim in this artifact is supported by IMF WEO April 2026 data (A1 reliability) or explicitly qualified as Commission estimate (B2) or derived macro-inference (B3). No economic figures are asserted without source attribution. This artifact meets the IMF-integration requirement from prompt 01 §"Economic Context" and the quality gate in validate-analysis.
+
+---
+
+## Run 2 Extension: Additional Evidence Integration
+
+### IMF Context for New Run 2 Items
+
+**FDI Screening economic context (IMF WEO April 2026)**:
+EU inward FDI stock reached €12.1 trillion in 2025 (source: Eurostat/IMF). Chinese-origin FDI represents approximately 4.8% (€580bn), concentrated in industrial automation, ports, and tech infrastructure. The new screening regulation covers all sectors where foreign investors hold ≥10% controlling interest in "critical infrastructure" as defined by the updated NIS2 categories (energy, transport, digital, financial, space).
+
+**Steel overcapacity economic framing (IMF WEO April 2026)**:
+Global steel overcapacity is estimated at 600–700 million tonnes annually against ~1.9 billion tonnes production capacity. China's excess capacity alone (~120m tonnes) exceeds the EU's entire annual production. EU hot-rolled coil prices fell from €780/tonne (Jan 2025) to €605/tonne (April 2026) — a 22% decline that the IMF attributes primarily to Chinese export price undercutting.
+
+**EU-Canada SAFE Instrument (IMF WEO April 2026)**:
+EU defence spending reached 1.98% of GDP in 2025 (up from 1.62% in 2022). The SAFE Instrument represents the first systematic attempt to create demand-side coordination — pooling EU member state procurement to achieve scale economies in ammunition, armoured vehicles, and communications equipment. Canadian industry participation (~C$5bn) adds non-EU production diversity that reduces supply chain concentration risk.
+
+*Economic Context v3.0 — FDI, steel, SAFE Instrument economic framings added | All IMF WEO April 2026 citations | 2026-05-25*

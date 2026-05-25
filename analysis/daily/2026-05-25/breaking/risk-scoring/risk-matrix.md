@@ -133,3 +133,54 @@ IMF April 2026 identifies three macro risks with direct relevance to this analys
 **Risk matrix completeness**: 5 items × 4 risk dimensions (implementation, geopolitical, economic, institutional) = 20 risk assessments. All 20 are represented across the matrix. Confidence: 🟡 MEDIUM on geopolitical and implementation dimensions; 🟢 HIGH on economic and institutional dimensions.
 
 *[EXTEND-FROM-PRIOR: risk-scoring/risk-matrix.md prior=121L → new=150L+ (+29)]*
+
+---
+
+## Pass 2 Extension: Risk 5 — Foreign Investment Screening Regulatory Overreach
+
+### Risk 5: FDI Screening Creates Investment Diversion to Non-EU Markets
+**WEP**: Possible (25–35%) | **Likelihood**: MEDIUM | **Impact if realised**: MEDIUM–HIGH
+**Risk type**: Economic/Unintended Consequences
+**Description**: The expanded foreign investment screening regulation (TA-10-2026-0171) may inadvertently divert strategic investments away from EU markets into UK, Switzerland, or non-EU European economies that have lighter screening frameworks. Japanese and South Korean investors in particular have expressed concern about compliance burden divergence. If 5–10% of targeted investments divert, the EU loses both capital and technology transfers.
+**Mitigation**: Clear de minimis thresholds; published implementation timelines; Mutual Recognition Arrangements (MRAs) with Japan/Korea/Canada under SAFE Instrument framework
+
+| Factor | Score | Weight | Weighted |
+|---|---|---|---|
+| Likelihood | 2/5 | 40% | 0.8 |
+| Impact | 3/5 | 40% | 1.2 |
+| Controllability | 3/5 | 20% | 0.6 |
+| **Risk Score** | | | **2.6/5 MEDIUM** |
+
+### Risk 6: Women-in-Afghanistan Resolution Exposure Without Follow-Up Mechanism
+**WEP**: Possible (35–45%) | **Likelihood**: MEDIUM–HIGH | **Impact if realised**: LOW (institutional risk)
+**Risk type**: Reputational/Institutional
+**Description**: The TA-10-2026-0186 resolution on women and girls in Afghanistan was adopted after Taliban's Criminal Procedure Code, but the EU has no enforcement mechanism. If the resolution produces no tangible policy response from the Council within 6 months, the EP faces criticism for "statement-only" diplomacy that emboldens repressive regimes.
+**Mitigation**: AFET committee tracking mandate; link to EU humanitarian aid conditionality; partnership with UN Special Rapporteur mandate
+| Factor | Score | Weight | Weighted |
+|---|---|---|---|
+| Likelihood | 3/5 | 40% | 1.2 |
+| Impact | 1/5 | 40% | 0.4 |
+| Controllability | 4/5 | 20% | 0.8 |
+| **Risk Score** | | | **2.4/5 LOW–MEDIUM** |
+
+*Risk Matrix v3.0 — 6-risk register | FDI diversion and Afghanistan follow-up risks added | 2026-05-25*
+
+### Run 2: Risk Matrix Update
+
+**Risk 7: Simultaneous Chinese Retaliation (FDI + Steel + AI Trade)**
+- *Category*: Geopolitical/Trade
+- *Likelihood*: MEDIUM (40%) — individual measures are justifiable; combined effect may trigger Chinese response
+- *Impact*: VERY HIGH — simultaneous retaliation across investment, trade, and digital sectors could cost EU €150–250bn/year in lost trade and investment flows
+- *Overall*: HIGH RISK 🔴
+- *Mitigation*: WTO-compatible design; bilateral dialogue; G7 coordination
+- *Residual*: MEDIUM-HIGH
+
+**Risk 8: SAFE Instrument Mission Creep**
+- *Category*: Institutional/Legal
+- *Likelihood*: MEDIUM (35%) — precedent of expanding SAFE to non-EU partner creates pressure for further expansion
+- *Impact*: MEDIUM — mission creep could dilute EU defence identity and create compliance complexity
+- *Overall*: MEDIUM RISK 🟡
+- *Mitigation*: Clear treaty basis for each SAFE agreement; EP oversight of each new partner
+- *Residual*: LOW-MEDIUM
+
+*Risk Matrix v3.0 — Risks 7 and 8 added | Total 8 risks now identified | 2026-05-25*

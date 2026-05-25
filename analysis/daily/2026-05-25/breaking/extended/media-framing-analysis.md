@@ -231,3 +231,38 @@ For future similar resolutions, EP's communication could:
 **Confidence on framing analysis**: 🟡 MEDIUM — media response is inherently speculative until publication. Structural framing choices are HIGH confidence; predicted coverage magnitude is MEDIUM confidence (limited by absence of pre-publication EP press outreach data).
 
 *[EXTEND-FROM-PRIOR: extended/media-framing-analysis.md prior=216L → new=270L+ (+54)]*
+
+---
+
+## Pass 2 Extension: Media Framing for Run 2 Items
+
+### Media Framing: FDI Screening — The Security vs. Openness Narrative Battleground
+
+**Likely framing by publication type**:
+- **Financial Times / Bloomberg / Reuters**: "EU tightens foreign investment controls amid geopolitical tensions" — emphasis on compliance burden for business
+- **Politico EU / EUobserver**: "Parliament approves expanded FDI gatekeeping amid China investment concerns" — balanced EU-institutional framing
+- **Der Spiegel / Le Monde**: National security angle; reference to Kuka precedent
+- **Chinese state media (Xinhua, CGTN)**: "EU protectionism masquerades as security" — strong counter-narrative predictable
+- **US business media**: "EU's FDI screening creates compliance complexity for US investors" — unintended ally-burden framing
+
+**Recommended framing for EU Parliament Monitor article**: "EU closes investment screening gaps ahead of next wave of strategic technology deals" — emphasises proactive risk management rather than reactive protectionism.
+
+### Media Framing: Steel Overcapacity — Worker-Centered Narrative Opportunity
+
+**The human angle**: 260,000 EU steel jobs at risk from dumping provides a compelling human interest frame that transcends typical trade policy abstraction. The CBAM integration gives environmental correspondents a climate angle.
+
+**Likely amplification**: Trade union confederations (ETUC, IndustriAll) will amplify this resolution; cross-border media in Belgium-Germany-Luxembourg steel corridor will run localised stories. This makes the steel resolution one of the most domestically resonant items in the cluster despite its lower institutional significance.
+
+**Recommended framing**: "Parliament demands action on steel dumping crisis threatening quarter-million EU jobs" — human impact first, policy mechanics second.
+
+### Media Framing: Afghanistan — The Fastest-Response Human Rights Frame
+
+The Taliban adopted the Criminal Procedure Code in May 2026; the EP responded within one week. This speed creates a "EP responds to breaking international rights abuse" frame that is inherently newsworthy:
+
+- **Amnesty International / HRW amplification**: Virtually certain — both organisations track EP human rights positions
+- **BBC / Guardian coverage**: Medium probability — Taliban gender restrictions receive sustained coverage
+- **Social media resonance**: HIGH — gender justice issues generate strong organic amplification on X/Twitter and Instagram
+
+**Recommended framing**: "European Parliament denounces Taliban's new criminal code targeting women and girls" — name the specific policy trigger for news cycle relevance.
+
+*Media Framing Analysis v3.0 — FDI, steel, Afghanistan framing profiles added | 2026-05-25*

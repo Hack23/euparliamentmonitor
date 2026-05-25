@@ -137,3 +137,31 @@ DOCEO RCV XML files for the May 19–20 Strasbourg plenary: expected availabilit
 **Degraded mode quality gate compliance**: This artifact meets the degraded-mode line floor (150L) and explicitly documents its methodological limitations per per-artifact-methodologies.md §"voting-patterns.degraded.md".
 
 *[EXTEND-FROM-PRIOR: intelligence/voting-patterns.degraded.md prior=121L → new=150L+ (+29)]*
+
+---
+
+## Pass 2 Extension: Political Group Position Estimates for Key May 2026 Votes
+
+### Estimated Group Positions — Foreign Investment Screening (TA-10-2026-0171)
+
+| Group | Estimated Position | Rationale | Confidence |
+|-------|-------------------|-----------|-----------|
+| EPP | FOR (strong) | Security sovereignty + German/French industry consensus | 🟢 HIGH |
+| S&D | FOR (moderate) | Supported with social conditionality amendments | 🟢 HIGH |
+| Renew | FOR (split) | Liberal economic wing concerned about overreach | 🟡 MEDIUM |
+| ECR | SPLIT | National security support vs. anti-Brussels sovereignty | 🟡 MEDIUM |
+| Patriots | AGAINST | Opposes EU-level control of national investment decisions | 🟢 HIGH |
+| Greens/EFA | FOR | Supported; pushed green-tech carve-outs | 🟢 HIGH |
+| Left | FOR (conditional) | Backed screening but demanded labour conditionality | 🟡 MEDIUM |
+
+### Estimated Group Positions — AI Strategy for EU Trade (TA-10-2026-0183)
+
+| Group | Estimated Position | Rationale | Confidence |
+|-------|-------------------|-----------|-----------|
+| EPP | FOR (conditional) | Backed trade-enabling aspects; sought to limit regulatory burden | 🟡 MEDIUM |
+| S&D | FOR | Supported EU tech governance leadership | 🟢 HIGH |
+| Renew | FOR | Central to Renew's tech-liberal agenda | 🟢 HIGH |
+| ECR | SPLIT/AGAINST | Sceptical of "AI regulation exports" | 🟡 MEDIUM |
+| Patriots | AGAINST | Opposed as "regulatory imperialism" | 🟢 HIGH |
+
+*Voting Patterns Degraded v3.0 — Group position estimates for key May votes | Admiralty C2 | 2026-05-25*

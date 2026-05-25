@@ -188,3 +188,28 @@ The fisheries protocols, Uzbekistan EPCA, and Lebanon Eurojust agreement collect
 **Read-before-render acknowledgment**: This synthesis summary was written after reviewing all 43 artifacts in the Stage B output. The themes reflect patterns visible across multiple artifacts (pestle-analysis.md, scenario-forecast.md, stakeholder-map.md, threat-model.md) rather than being asserted without cross-artifact validation.
 
 *[EXTEND-FROM-PRIOR: intelligence/synthesis-summary.md prior=173L → new=205L+ (+32)]*
+
+---
+
+## Pass 2 Extension: Integration of New Legislative Items into Synthesis
+
+### Extended Vector Analysis: Open Strategic Autonomy as Unified Framework
+
+The four new legislative items identified in this run's data collection (FDI screening TA-10-2026-0171, steel overcapacity TA-10-2026-0170, AI trade TA-10-2026-0183, SAFE-Canada TA-10-2026-0180) collectively instantiate the EU's "open strategic autonomy" (OSA) doctrine in a remarkably complete form:
+
+- **FDI screening** → OSA's "protect" pillar: defensive measure against hostile capital
+- **Steel overcapacity response** → OSA's "rebalance" pillar: corrective trade tool
+- **AI trade governance** → OSA's "promote" pillar: EU standards export
+- **SAFE-Canada** → OSA's "partner" pillar: trusted partner integration
+
+This four-pillar OSA coherence within a single week is analytically significant. It suggests the EP10 is actively and consciously orchestrating its plenary calendar to advance a coherent doctrine rather than processing items in agenda-opportunistic sequence.
+
+### New Intelligence: Women in Afghanistan as Rule-of-Law Bellwether
+
+The TA-10-2026-0186 resolution (women and girls in Afghanistan following Taliban Criminal Procedure Code adoption) was not included in the prior run's analysis. Its significance for synthesis purposes is as follows:
+
+The Taliban's May 2026 Criminal Procedure Code formalises gender-based restrictions into statute — a qualitative escalation from informal Taliban practice. The EP's response within one week of adoption is notably fast for a non-legislative resolution, suggesting strong political momentum in the AFET committee. This speed is itself a data point about EP institutional responsiveness to human rights triggers.
+
+**Synthesis implication**: The resolution adds a fifth vector to the May 2026 analytical framework — **Human Rights Documentation and Accountability** — alongside the four OSA vectors. The EU is simultaneously advancing strategic autonomy (inward-looking) and human rights promotion (outward-looking), resolving the apparent tension through contextual separation.
+
+*Synthesis Summary v3.0 — OSA doctrine framework integrated | Afghanistan resolution added as fifth vector | 2026-05-25*

@@ -288,3 +288,27 @@ graph LR
     B -->|2027| B1[WTO Dispute Panel]
     C -->|2026| C1[Eurojust Cooperation Active]
 ```
+
+---
+
+## Run 2 Extension: Additional Evidence Integration
+
+### Scenario Update: FDI Screening Outcomes
+
+**Scenario D: FDI Screening Creates EU Investment Magnet (Probability: Possible, 30%)**
+If the FDI screening regulation is paired with a simultaneous "welcome" signal for allied-country investment (e.g., a new "Trusted Investor" fast-track for Japan, Australia, South Korea, Canada), the EU could convert a defensive measure into an investment quality signal. The SAFE-Canada agreement provides the template: the same session that tightened FDI controls also opened defence procurement to a trusted partner.
+
+**Scenario E: Steel Resolution Triggers WTO Challenge (Probability: Unlikely, 15%)**
+If the EU implements the steel overcapacity resolution via quantitative restrictions rather than carbon-based safeguards, China files a WTO challenge under the anti-dumping agreement. WTO dispute resolution takes 3–5 years, during which the steel market continues to be disrupted. The EU loses the narrative (even if it ultimately wins legally). This outcome depends on Commission tool selection, not EP intent.
+
+### Forecast Table (Updated Run 2)
+
+| Development | 6m WEP | 2yr WEP | Primary Variable |
+|-------------|---------|---------|-----------------|
+| FDI screening fully operational | P=45–60% | P=70–80% | Member state framework compliance speed |
+| AI-trade → FTA AI chapter | P=35–50% | P=55–70% | Commission DG TRADE priority |
+| Steel safeguard WTO challenge | P=10–20% | P=25–35% | Commission tool selection |
+| SAFE-Canada first procurement round | P=55–70% | P=75–85% | EDA operational readiness |
+| Afghanistan policy change post-EP resolution | P=3–8% | P=5–12% | Taliban non-compliance is expected baseline |
+
+*Scenario Forecast v3.0 — Scenarios D and E added | Updated forecast table | 2026-05-25*

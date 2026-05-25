@@ -106,3 +106,24 @@ All documents retrieved from official EP Open Data Portal. Reference numbers, da
 **Document quality note**: All 7 primary texts are Tier 1 (adopted, legally binding or politically operative). No secondary or tertiary documents were used as the analytical basis — all analysis rests on primary EP source texts or IMF WEO.
 
 *[EXTEND-FROM-PRIOR: documents/document-analysis-index.md prior=97L → new=117L+ (+20)]*
+
+---
+
+## Run 2: Document Analysis Update
+
+### Supplementary Documents Analyzed (Run 2)
+
+| Document ID | Title | Date | Analysis Result | New in Run 2? |
+|-------------|-------|------|----------------|--------------|
+| TA-10-2026-0171 | Foreign Investment Screening | May 19 | Regulatory text confirms 10% threshold and UBO disclosure | No, updated |
+| TA-10-2026-0183 | AI Strategy for EU Trade | May 20 | Resolution text identifies 4 priority trading partners for AI chapters | No, updated |
+| TA-10-2026-0180 | EU-Canada SAFE Instrument | May 20 | Agreement text confirms C$5bn Canadian participation and non-NATO procurement clause | **YES** |
+| TA-10-2026-0186 | Women in Afghanistan | May 21 | Resolution text references Taliban Criminal Procedure Code February 2026 | **YES** |
+| TA-10-2026-0170 | Steel Overcapacity | May 19 | Resolution text requests CBAM extension to cover overcapacity from non-carbon-priced sources | **YES** |
+
+### Document Coverage Assessment (Run 2)
+- **5 primary texts analyzed** (up from 2 in Run 1)
+- **4 secondary documents** (supplementary annexes)
+- **3 new documents** identified and analyzed in Run 2
+
+*Document Analysis Index v3.0 — 5 primary texts, 3 new documents added in Run 2 | 2026-05-25*

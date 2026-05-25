@@ -203,3 +203,26 @@ The five legislative texts adopted on 19–20 May 2026 engage partner states acr
 **Assumption**: China's BRI is the primary competition for EU Global Gateway in Uzbekistan
 **Challenge**: Russian economic influence (Eurasian Economic Union, remittances) may be the more proximate constraint on EU-Uzbekistan partnership deepening
 **Assessment**: Challenge is valid but limited — Uzbekistan has been deliberately diversifying away from Russia-dependency since 2016; the BRI (not Russia) is the primary competing infrastructure financing vector.
+
+---
+
+## Run 2: International Comparisons — New Items
+
+### FDI Screening: US CFIUS vs EU Framework
+
+| Dimension | US CFIUS | EU FDI Screening (Post-2026) |
+|-----------|----------|------------------------------|
+| Scope | Any acquisition posing national security risk | 10%+ in critical infrastructure sectors |
+| Coverage | Federal-level (overrides states) | EU advises; member states decide |
+| Timeline | 30 days standard; 45 days if extended | 15-35 business days per member state |
+| Retroactive authority | YES (rare) | NO |
+| UBO disclosure | YES | YES (2026 update) |
+| Treaty carve-outs | Australia, Canada, UK (FVEY) | No formal carve-outs |
+
+**Assessment**: The EU framework remains more fragmented than CFIUS but the 2026 update narrows the gap on two key dimensions (UBO disclosure and coordination mechanism strength).
+
+### Steel: G7 Steel Forum vs EP Resolution
+
+The EP's steel overcapacity resolution aligns with the G7 Global Forum on Steel Excess Capacity (GFSEC) framework established in 2016. Where the GFSEC relies on peer review and non-binding commitments, the EP resolution calls for binding CBAM mechanisms — a more assertive approach that several G7 partners (Japan, South Korea) support but the US has historically resisted.
+
+*Comparative International Analysis v3.0 — FDI (CFIUS comparison) and Steel (G7 forum) comparisons added | 2026-05-25*

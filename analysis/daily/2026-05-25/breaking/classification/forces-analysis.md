@@ -160,3 +160,28 @@ quadrantChart
 **For policy practitioners**: The force balance strongly favours implementation success for Uzbekistan EPCA and AI-trade. Lebanon is the exception — government formation is the single critical path constraint. Monitor all 4 intervention points simultaneously.
 
 *[EXTEND-FROM-PRIOR: classification/forces-analysis.md prior=123L → new=144L+ (+21)]*
+
+---
+
+## Run 2: Porter's Five Forces — New Items
+
+### FDI Screening — Regulatory Forces Analysis
+
+| Force | Intensity | Key Insight |
+|-------|-----------|-------------|
+| Regulatory threat (substitutes) | HIGH | Non-EU domiciling by foreign investors is a constant pressure on the regulation's effectiveness |
+| Bargaining power of investors | MEDIUM | Large state-owned foreign investors have significant leverage via bilateral investment treaties |
+| Bargaining power of member states | HIGH | Member states retain primary screening authority; the EU mechanism only advises |
+| Internal EU rivalry (Commission vs Council) | MEDIUM | Ongoing tension between Commission's desire for centralisation and Council's sovereignty preference |
+
+### Steel — Competitive Forces Analysis
+
+| Force | Intensity | Key Insight |
+|-------|-----------|-------------|
+| Competitive rivalry | EXTREME | 30+ country overcapacity creates permanent price pressure; EU producers are cost-disadvantaged |
+| Threat of substitutes | MEDIUM | Aluminium and composites substitute in automotive; limited substitution in construction |
+| Supplier power | LOW-MEDIUM | Iron ore is globally priced; coking coal has Russia/Australia concentration risk |
+| Buyer power | HIGH | Auto sector (25% of EU steel demand) has extreme buyer power; consolidation reduced to 3 major purchasers |
+| Barriers to entry | HIGH | Steel requires billion-euro capex; but Chinese state subsidies effectively eliminate this barrier |
+
+*Forces Analysis v3.0 — FDI and Steel forces added | 2026-05-25*

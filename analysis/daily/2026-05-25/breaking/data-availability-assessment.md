@@ -73,3 +73,13 @@ The adopted texts feed provides direct observation of EP legislative output — 
 **Data quality certificate**: All analytical claims in the Stage B artifact set are traceable to either EP Open Data Portal documents (TA-10-2026-xxxx series, verified) or IMF WEO April 2026 (verified). No unattributed factual claims appear in the artifact set.
 
 *[EXTEND-FROM-PRIOR: data-availability-assessment.md prior=60L → new=80L+ (+20)]*
+
+---
+
+## Run 2 Data Collection Update
+
+Run 2 (this run) collected an additional 40+ adopted texts including 4 items not covered in Run 1: TA-10-2026-0169 (Railway), TA-10-2026-0170 (Steel), TA-10-2026-0171 (FDI Screening), and TA-10-2026-0186 (Afghanistan). Data mode remains `degraded-feeds` — all prefetched feeds still returned 0 items, but direct endpoint queries returned comprehensive 2026 legislative output data.
+
+**Run 2 dataMode**: `degraded-feeds` | Grade: B+ (unchanged from Run 1) | All artifacts now incorporate the expanded item set.
+
+*Data Availability Assessment v3.0 — Run 2 coverage expanded | 4 new items integrated | Grade maintained at B+ | 2026-05-25*

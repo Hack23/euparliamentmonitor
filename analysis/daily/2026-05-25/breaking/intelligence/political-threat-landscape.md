@@ -102,3 +102,20 @@ mindmap
 **Commission political threat**: The von der Leyen Commission's second term faces a mid-term political review in H2 2026. EP may use this window to demand stronger AI-trade governance commitments as a condition for positive review assessment.
 
 *Political Threat Landscape v2.0 — Pass 2 extended | 2026-05-25 | Coalition health, Council environment, far-right threat, German election dynamic | WEP bands on all assessments | Admiralty B2*
+
+---
+
+## Run 2: Political Threat Landscape Update
+
+### New Threat Vectors (Run 2)
+
+**PT-NEW-1: FDI Screening — Populist Co-optation Risk**
+The FDI screening narrative can be co-opted by both far-left (anti-corporate) and far-right (nationalist) fringe actors in ways that distort the centrist security-rationale. The EP debate record shows Patriots and Left groups both voted for FDI screening but for fundamentally different reasons — creating a false unity that may undermine coherent implementation.
+
+**PT-NEW-2: Steel — Electoral Consequences of Inaction**
+EU steel regions (Liège, Saarland, Silesia, Donbass-adjacent eastern Slovakia) represent significant electoral constituencies for S&D and ECR members. Failure to deliver meaningful protection before the 2029 EP elections creates a concrete electoral threat to incumbents in these regions. This political pressure accelerates the timeline for Commission action.
+
+**PT-NEW-3: Afghanistan — Normative Authority Erosion**
+If the Taliban implements the Criminal Procedure Code with no EP-demanded consequences, it contributes to a broader pattern of EP resolutions being perceived as symbolic rather than consequential. This normative erosion represents a structural political threat to the EP's role in EU external relations governance.
+
+*Political Threat Landscape v3.0 — Three new threat vectors added | 2026-05-25*

@@ -175,3 +175,39 @@ For consent procedures requiring 361 absolute majority, the coalition needs 39 a
 **Consent procedure threshold note**: For Uzbekistan EPCA, Lebanon Eurojust, and São Tomé/Cook Islands fisheries (all consent procedures), the threshold is an absolute majority of EP members (376/720), not a majority of votes cast. The coalition's 400+ seat alignment makes even moderate absenteeism non-fatal.
 
 *[EXTEND-FROM-PRIOR: extended/coalition-mathematics.md prior=163L → new=200L+ (+37)]*
+
+---
+
+## Pass 2 Extension: Coalition Mathematics for New Legislative Items
+
+### FDI Screening (TA-10-2026-0171) — Consent Procedure Coalition Analysis
+
+This is a legislative regulation requiring an absolute majority (≥376). The political coalition required broad cross-group support:
+
+| Scenario | EPP | S&D | Renew | Greens | Left | ECR | Patriots | Total |
+|----------|-----|-----|-------|--------|------|-----|---------|-------|
+| Max support | 188 | 137 | 77 | 53 | 46 | 78 | 84 | 663 |
+| Estimated actual | 185 | 130 | 65 | 48 | 40 | 50 | 10 | 528 |
+| Floor needed | | | | | | | | 376 |
+| **Comfort margin** | | | | | | | | **+152** |
+
+The regulation passed with a comfortable absolute majority. The ECR split (estimated 50 of 78 in favour on security grounds) and minimal Patriots support reflect the regulation's contested nature on sovereignty grounds.
+
+### Steel Overcapacity (TA-10-2026-0170) — Non-Legislative Resolution
+
+Non-legislative resolutions require only a majority of votes cast. These typically see lower participation (500–600 votes cast) and are politically easier to pass:
+
+| Group | Estimated position | Estimated votes |
+|-------|-------------------|----------------|
+| EPP | FOR | 175 |
+| S&D | FOR | 125 |
+| Renew | FOR (conditional) | 60 |
+| ECR | SPLIT (trade defense supporters) | 45 |
+| Greens | FOR (CBAM component) | 48 |
+| Left | FOR (workers protection) | 40 |
+| Patriots | AGAINST (trade sovereignty) | 0 |
+| **Total FOR** | | **~493** |
+
+The steel resolution, being non-legislative, faced lower procedural barriers and broader coalition support due to workers' rights framing that united Left, Greens, and S&D alongside the typically business-aligned EPP.
+
+*Coalition Mathematics v3.0 — FDI and steel coalition analyses added | 2026-05-25*

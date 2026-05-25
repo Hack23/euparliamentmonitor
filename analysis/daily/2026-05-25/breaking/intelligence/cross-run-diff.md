@@ -153,3 +153,29 @@ The most recent prior breaking analysis (date TBD from cache-memory) would provi
 - AI-trade US trade retaliation: **Unlikely** (20–35%) — US has own AI governance interests in EU market access
 
 *[EXTEND-FROM-PRIOR: intelligence/cross-run-diff.md prior=133L → new=153L+ (+20)]*
+
+---
+
+## Run 2 Cross-Run Delta Documentation
+
+### New Items Identified in Run 2
+
+Run 2 added 4 legislative items not present in Run 1 analysis:
+
+| Item | Run 1 Coverage | Run 2 Coverage | Delta Significance |
+|------|---------------|---------------|-------------------|
+| TA-10-2026-0171 FDI Screening | ❌ Missing | ✅ Added | CRITICAL — ranking impact |
+| TA-10-2026-0170 Steel Overcapacity | ❌ Missing | ✅ Added | MEDIUM–HIGH |
+| TA-10-2026-0169 Railway Capacity | ❌ Missing | ✅ Added | MEDIUM |
+| TA-10-2026-0186 Women/Afghanistan | ❌ Missing | ✅ Added | HIGH — timeliness |
+
+### Significance Ranking Delta
+
+Run 1 top item: AI-trade resolution (TA-0183)
+Run 2 top item: FDI Screening (TA-0171) elevated to co-CRITICAL
+
+**Revised significance ranking**: FDI screening ≥ AI-trade governance > SAFE-Canada > Women in Afghanistan > Uzbekistan EPCA
+
+**Confidence in delta**: 🟢 HIGH — the FDI screening elevation is based on direct legislative text evidence and is not overturned by any conflicting signal.
+
+*Cross-Run Diff v3.0 — Run 2 delta documented | 4 new items identified | Significance ranking revised | 2026-05-25*

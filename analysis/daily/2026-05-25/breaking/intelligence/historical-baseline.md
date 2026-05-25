@@ -164,3 +164,26 @@ timeline
     2025 : Eurojust 77 agreements milestone
     2026 : Uzbekistan EPCA + AI-trade resolution
 ```
+
+---
+
+## Pass 2 Extension: Historical Baseline for Foreign Investment Screening
+
+### FDI Screening Historical Context
+
+The EU framework regulation for screening foreign direct investments entered into force in April 2019 and became operational in October 2020, establishing a cooperation mechanism between member states and the Commission. The May 2026 screening regulation (TA-10-2026-0171) represents the first major update to that framework.
+
+**Historical comparison**:
+- 2019 original FDI Regulation: Cooperation mechanism, no EU-level veto power, 16 member states had national screening mechanisms
+- 2023 Commission review: Identified gaps — no EU-level authority to screen; coordination voluntary; 11 member states still lacked national frameworks
+- 2026 updated regulation: Expanded scope, mandatory national frameworks for all MS, strengthened Commission advisory role, new cyber/AI sector categories
+
+**Precedent analysis**: The trajectory mirrors the EU's approach to state aid controls — starting with cooperation, moving to harmonisation, eventually converging on integrated oversight. This suggests a 5–10 year path toward an EU-level FDI authority comparable to DG COMP in state aid.
+
+### Railway Infrastructure Capacity — Historical Baseline
+
+The Single European Railway Area directive has been in development since 2001 (the "Altmark" first railway package). The capacity regulation (TA-10-2026-0169) addresses infrastructure allocation rules, which have been a persistent source of cross-border rail inefficiency.
+
+**Key historical milestone**: The 2012 fourth railway package sought to separate infrastructure management from operations — a structural reform that 9 member states had still not fully implemented by 2024 per Commission monitoring reports. The 2026 capacity regulation fills a gap that the 2012 reform left open.
+
+*Historical Baseline v3.0 — FDI screening and railway capacity historical contexts added | 2026-05-25*

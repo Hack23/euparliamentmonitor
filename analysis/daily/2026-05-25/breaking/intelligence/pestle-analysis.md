@@ -252,3 +252,23 @@ graph LR
     DECISION --> AI_RES[AI-Trade Resolution\nCRITICAL Signal]
     DECISION --> UZB_EPCA[Uzbekistan EPCA\nHIGH Signal]
 ```
+
+---
+
+## Run 2 Extension: Additional Evidence Integration
+
+### PESTLE for New Run 2 Items
+
+**Political (FDI Screening)**: The regulation consolidates the EU's "protective" pillar of open strategic autonomy. Political consensus across EPP, S&D, and Renew (despite Renew's economic liberalism) indicates a durable shift in EU investment policy doctrine. The Patriots' opposition is principled but numerically insufficient.
+
+**Economic (Steel)**: Overcapacity represents a €40bn/year threat to EU steel sector revenue. The CBAM integration creates a first-of-kind trade instrument that prices carbon in steel trade — a structural innovation with WTO implications. IMF models suggest 1.5–2.5% EU steel sector employment protection if measures are implemented within 12 months.
+
+**Social (Afghanistan)**: The Taliban's Criminal Procedure Code creates concrete gender-based legal restrictions for 20 million Afghan women. The EP's rapid response resonates with EU value-based foreign policy commitments but faces an implementation gap (Taliban non-compliance is certain).
+
+**Technological (Railway Capacity)**: The Single European Railway Area capacity regulation (TA-10-2026-0169) enables a Digital European Train Control System (ETCS) deployment timetable that is precondition for cross-border high-speed rail on 2030 target corridors.
+
+**Legal (All items)**: All five major items from May 19–21 are primary EU legal instruments: TA-0171 is a regulation (directly applicable); TA-0183 is a resolution (advisory); TA-0170 is a resolution (advisory); TA-0169 is a regulation (directly applicable); TA-0186 is a resolution (advisory).
+
+**Environmental (SAFE-Canada)**: Defence procurement under SAFE Instrument must comply with the EU taxonomy for sustainable activities from 2027, creating a green defence procurement standard — a genuinely novel intersection of defence and sustainability law.
+
+*PESTLE Analysis v3.0 — Run 2 items integrated across all 6 PESTLE dimensions | 2026-05-25*
