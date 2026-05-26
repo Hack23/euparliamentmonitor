@@ -63,3 +63,50 @@ Key bilateral pairs:
 3. **EU ↔ Canada:** SAFE operationalisation timeline
 4. **Commission ↔ EP (INTA):** Steel safeguard report compliance
 5. **EU ↔ US:** SAFE scope and transatlantic investment screening coordination
+
+---
+
+## Actor Mapping Visualization
+
+```mermaid
+graph LR
+    ACTORS[Key Actors\nMay 2026 Package] --> EU_INST[EU Institutions]
+    ACTORS --> MS[Member States]
+    ACTORS --> EXT[External Actors]
+    EU_INST --> EP[European Parliament\n720 MEPs]
+    EU_INST --> COMM[European Commission\nDG DEFIS + DG COMP]
+    EU_INST --> COUNCIL[Council of EU\nDefense + TRADE ministers]
+    MS --> FRANCE[France 🇫🇷\nSAFE lead + champion]
+    MS --> GERMANY[Germany 🇩🇪\nEDF institutional backbone]
+    MS --> HUNGARY[Hungary 🇭🇺\nPotential ECJ challenger]
+    MS --> POLAND[Poland 🇵🇱\nFDI screening champion]
+    EXT --> CANADA[Canada 🇨🇦\nSAFE first partner]
+    EXT --> CHINA[China 🇨🇳\nAI trade + FDI respondent]
+    EXT --> UZBEK[Uzbekistan 🇺🇿\nPartnership + HR target]
+    EXT --> TALIBAN[Taliban\nAfghanistan context]
+```
+
+## Actor Power-Interest Matrix
+
+| Actor | Power | Interest | Position | Key Action Expected |
+|-------|-------|---------|---------|-------------------|
+| EPP | HIGH | HIGH | PRO | Champion implementing acts |
+| S&D | HIGH | HIGH | PRO (caveats) | Human rights monitoring |
+| Renew | MEDIUM | MEDIUM | PRO (conditional) | Fiscal scrutiny of ISA budget |
+| France | HIGH | HIGH | PRO | SAFE industrial lobby |
+| Germany | HIGH | HIGH | PRO | EDF-SAFE bridge |
+| Hungary | MEDIUM | HIGH | OPPOSED | ECJ challenge (40% prob) |
+| Poland | HIGH | HIGH | PRO | FDI screening champion |
+| Canada | MEDIUM | HIGH | PRO | OCCAR interface negotiation |
+| China | HIGH | HIGH | OPPOSED | WTO + AI counter-standards |
+| Uzbekistan | LOW | MEDIUM | MIXED | Human rights conditionality response |
+| Taliban | VERY LOW | HIGH | N/A | ICC language response |
+
+**WEP: 🟢 HIGH CONFIDENCE** on EU institutional actors; 🟡 MODERATE CONFIDENCE on external actors
+**Admiralty grade: B2** on external actor assessments
+
+---
+
+## Reader Briefing
+
+The actor mapping identifies 11 key actors across three tiers. The most consequential actor relationships for implementation are: France-Commission (SAFE champion-implementer relationship), Germany-EDF-SAFE bridge (institutional continuity), and Hungary-ECJ (potential disruptor). China's role as the primary external respondent to both AI Trade and FDI screening makes Sino-EU relations the most important external variable. Canada's OCCAR interface negotiation is the most tractable external relationship — expect progress within 12 months.

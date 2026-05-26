@@ -126,3 +126,148 @@ China's economic fragility (property sector, youth unemployment) makes trade war
 | EP-Commission Relations (FDI) | Constructive | Positive | ↑ |
 | US-EU SAFE dialogue | Active | Ongoing | → |
 | Rare earth export quotas | No reduction | Stable | → |
+
+---
+
+## Scenario Probability Matrix
+
+```mermaid
+quadrantChart
+    title Scenario Probability vs Impact (May 2026 Breaking News)
+    x-axis Low Impact --> High Impact
+    y-axis Low Probability --> High Probability
+    quadrant-1 High Impact High Probability
+    quadrant-2 Low Impact High Probability
+    quadrant-3 Low Impact Low Probability
+    quadrant-4 High Impact Low Probability
+    Managed Implementation: [0.7, 0.75]
+    Delayed by Legal: [0.55, 0.45]
+    Full Integration Acceleration: [0.85, 0.25]
+    Collapse via Hungary Veto: [0.9, 0.1]
+    Taliban Dialogue Breakthrough: [0.7, 0.05]
+    AI Trade Leadership: [0.8, 0.35]
+```
+
+### Scenario 1 — Managed Implementation (65% probability, 12-month horizon)
+
+**Core narrative:** SAFE Instrument proceeds through Commission implementing acts with normal bureaucratic friction. EU-Canada joint procurement launches 2 defence platforms by end 2026. AI trade resolution generates Commission consultation paper, but binding framework delayed to 2027. Afghan women's rights resolution escalates EU sanctions toolkit without triggering Taliban humanitarian access cutoff.
+
+**Leading indicators:**
+- Commission publishes SAFE implementing acts Q3 2026 (on schedule)
+- EU-Canada Joint Procurement Committee holds inaugural meeting Q4 2026
+- No ECJ referral from Hungary on SAFE legal basis
+- EP's AI trade rapporteur begins consultations with industry Q3 2026
+
+**WEP Assessment:** 🟢 CONFIDENT (65% ± 10%). Supported by: precedent (EDF 2019-2021 trajectory), current political majority arithmetic, absence of credible veto actors.
+
+### Scenario 2 — Legal-Administrative Delay (20% probability)
+
+**Core narrative:** Hungary files ECJ referral challenging SAFE enhanced cooperation legal basis. Commission implementing acts delayed 9-12 months pending Court Opinion. EU-Canada joint procurement proceeds but at reduced ambition (1 platform vs. 2). AI trade framework stalls in INTA Committee. Afghanistan sanctions blocked at Council level by Hungary.
+
+**Trigger conditions:**
+- Hungarian ECJ referral filed before July 1, 2026
+- Council qualified majority collapses on at least 2 implementing decisions
+- Commission issues significantly narrowed implementing act that EP challenges
+
+**WEP Assessment:** 🟡 MODERATE CONFIDENCE (20% ± 8%)
+
+### Scenario 3 — Acceleration (10% probability)
+
+**Core narrative:** SAFE success triggers rapid extension — Renew Europe + Greens push for Climate-Defense dual mandate, fast-tracking EU Battery Alliance as SAFE-adjacent. AI trade resolution becomes binding decision under Article 207 TFEU (rare but not unprecedented). Afghanistan resolution escalates to full targeted sanctions regime.
+
+**WEP Assessment:** 🔴 LOW CONFIDENCE (10% ± 5%). Would require new political shock to accelerate pace.
+
+### Scenario 4 — Collapse (5% probability)
+
+**Core narrative:** Hungary + PfE form Council blocking minority; SAFE implementing acts gutted; EU-Canada agreement ratification stalls in national parliaments; Afghan resolution triggers Taliban humanitarian access restriction.
+
+**WEP Assessment:** 🔴 VERY LOW CONFIDENCE (5% ± 3%). Structural majority too robust for collapse in 12-month window.
+
+---
+
+## Early Warning Indicator Dashboard
+
+| Indicator | Current Status | Threshold for Escalation | Monitoring Frequency |
+|-----------|---------------|--------------------------|---------------------|
+| Hungarian ECJ filing | Not filed | Filed → Scenario 2 | Weekly |
+| SAFE implementing act publication | Pending | Overdue >30d → delay risk | Monthly |
+| PfE-ECR coordination votes | 3 recent coincidences | ≥6 coincidences → blocking minority | Per plenary |
+| EP AI trade rapporteur progress | Not appointed | Appointed = progress signal | Monthly |
+| Taliban humanitarian access | Normal | Reduced = retaliation signal | Bi-weekly |
+| EU-Canada joint procurement committee | Not launched | Launched = scenario 1 confirmation | Quarterly |
+
+---
+
+## Reader Briefing
+
+The scenario forecast for this week's EP legislative output assigns **65% probability to managed implementation** of the SAFE Instrument and associated measures, with the primary downside scenario being **legal-administrative delay** (20%) driven by Hungarian ECJ challenge. Analysts should monitor the Hungarian ECJ filing timeline as the single highest-consequence leading indicator. The AI trade and Afghanistan scenarios are directionally positive but operationally less mature — the EP's intention-to-action gap on both issues historically runs 18-24 months. Invest in tracking Commission implementing act timelines as the most reliable real-world signal of legislative momentum.
+
+---
+
+## Scenario Probability Update Protocol
+
+### Bayesian Update Framework
+
+All four scenarios have explicit probability estimates that should be updated as indicator events materialize:
+
+| Trigger Event | Scenario 1 | Scenario 2 | Scenario 3 | Scenario 4 |
+|------------|-----------|-----------|-----------|-----------|
+| Hungarian ECJ announced | -15pp | +20pp | -5pp | +0pp |
+| Commission ISA on-time | +10pp | -5pp | +5pp | +0pp |
+| China bilateral dialogue agreed | +5pp | +0pp | +5pp | -5pp |
+| Commission DG DEFIS staffing confirmed | +10pp | -5pp | +0pp | +0pp |
+
+**Current base rates:**
+- Scenario 1 (Managed Implementation): 65%
+- Scenario 2 (Legal Challenge Cascade): 20%
+- Scenario 3 (Implementation Gap): 10%
+- Scenario 4 (Geopolitical Friction): 5%
+
+### Scenario 1 Deep Dive: Managed Implementation (65%)
+
+**What "managed" means:**
+- ISA founding regulation published Q3 2026 (+/-1 quarter)
+- First ISA review decision taken Q2 2027
+- SAFE/Canada OCCAR interface agreement signed 2027
+- Coalition holds through 2026 implementing acts votes
+- China response: measured WTO consultation, no escalation
+
+**Critical path:** Commission DG DEFIS → ISA roadmap → Council implementing decision → first ISA review.
+
+**Confidence calibration:** 65% reflects the MODERATE positive force balance (+12/50 from forces analysis) adjusted for implementation complexity (EDF precedent: 70% of timeline estimates were exceeded by 6-12 months).
+
+**WEP: 🟡 MODERATE CONFIDENCE** on 65% estimate (±15pp range)
+
+---
+
+### Scenario 2 Deep Dive: Legal Challenge Cascade (20%)
+
+**Trigger sequence:**
+1. Hungary announces ECJ challenge within 18 months (40% probability)
+2. ECJ grants interim measures halting SAFE implementing acts (50% if challenge filed)
+3. Council fails to agree alternative enhanced cooperation mechanism (40% if interim measures)
+
+**Combined probability: 40% × 50% × 40% = 8%** — but correlated with broader anti-EU political trend, adjusted upward to 20%.
+
+**Impact timeline:** If triggered at month 6, legal uncertainty persists 36-60 months. First SAFE procurement contract delayed to 2030-2031.
+
+**WEP: 🟡 MODERATE CONFIDENCE** on 20% estimate
+**Admiralty grade: C2** — Inferred from Hungarian political pattern
+
+---
+
+### Scenario 3 Deep Dive: Implementation Gap (10%)
+
+**Trigger:** Commission DG DEFIS publishes implementing acts with scope significantly narrower than EP mandate — driven by institutional capacity constraints, industry lobbying, or legal caution.
+
+**Impact:** SAFE framework exists legally but lacks operational substance. First procurement focused on minimal politically safe categories. EU defense industry disappointed; Canada SAFE participation delivers less than expected.
+
+**Detection window:** DG DEFIS annual work programme update (June 2026) provides first signal.
+
+**WEP: 🟡 MODERATE CONFIDENCE** on 10% estimate
+
+---
+
+## Reader Briefing
+
+The updated scenario forecast provides explicit Bayesian update rules for all four scenarios. The dominant Scenario 1 (65% managed implementation) requires three confirming signals: Commission ISA roadmap on-time, Hungary silence on ECJ, and China bilateral dialogue opening. If all three materialize by October 2026, Scenario 1 probability should be updated to 75-80%. Analysts should apply the Bayesian update table at each monitoring interval (monthly recommended) to maintain calibrated forward estimates.

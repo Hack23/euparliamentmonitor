@@ -108,3 +108,59 @@ If China retaliation materialises (Tree 1, branch 2A2), EU credibility to mainta
 
 **SAFE + US friction (Tree 2) + FDI screening**
 If US-EU SAFE friction escalates, US leverage on EU could include demands for carve-outs in FDI screening for US defence sector investors. This creates a cross-tree risk that the two flagship security items undermine each other's scope.
+
+---
+
+## Threat_Roster
+
+| Tree | Primary Threat | Initiating Event | Time Horizon |
+|------|---------------|-----------------|-------------|
+| T-1 | FDI Screening + China retaliation | Chinese acquisition blocked by ISA | 0-18 months |
+| T-2 | SAFE + US-Canada friction | US IEEPA action on EU defense sector | 6-36 months |
+| T-3 | Steel safeguard collapse | WTO dispute ruling against EU | 6-24 months |
+| T-4 | AI trade standards failure | Chinese standards bloc forms | 12-36 months |
+| T-5 | Afghanistan humanitarian crisis | Taliban NGO expulsion | 0-6 months |
+
+## Convergence
+
+### Multi-Threat Convergence Analysis
+
+```mermaid
+graph TD
+    T1[FDI + China retaliation] -->|enables| CONV[Convergence Zone]
+    T2[SAFE + US friction] -->|enables| CONV
+    T3[Steel safeguard collapse] -->|increases pressure| CONV
+    CONV -->|combined probability| OUTCOME[Implementation Failure\nP=25-35%]
+    T4[AI standards failure] -->|independent pathway| ALT_OUT[Partial Success\nP=35-40%]
+    T5[Afghanistan crisis] -->|minimal impact on\neconomic/defense tracks| MINOR[Limited Disruption\nP=60%]
+```
+
+**Key convergence finding:** Trees T-1 and T-2 are positively correlated — if China retaliates on FDI screening, EU-US coordination on SAFE becomes more important AND more fraught simultaneously. This correlation increases combined disruption probability from 25% (if independent) to ~35% (if correlated).
+
+**Trees T-3 and T-1 interaction:** Steel safeguard collapse (WTO ruling) weakens EU's general position on economic nationalism — could be used by China as negotiating leverage to demand softer FDI screening rules.
+
+**Tree T-5 is largely independent:** Afghan humanitarian consequences are contained within the Central/South Asia domain; minimal spillover to economic security legislative track.
+
+## Intervention
+
+### Intervention Strategy Matrix
+
+| Threat Vector | Intervention Point | Actor | Success Probability | Cost |
+|---------------|------------------|-------|--------------------|----|
+| China FDI retaliation | Pre-emptive bilateral negotiation | Commission | MEDIUM (45%) | HIGH (political) |
+| Hungary ECJ challenge | Legal robustness review before filing | Legal Service | HIGH (75% of preventing challenge) | MEDIUM |
+| US SAFE friction | NATO Defense Investment Pledge coordination | EEAS | MEDIUM-HIGH (60%) | LOW |
+| Steel WTO dispute | WTO Article XXI national security defense | Council Legal | MEDIUM (50%) | MEDIUM |
+| Taliban NGO expulsion | Qatar diplomatic channel | EEAS | LOW-MEDIUM (30%) | LOW |
+| AI standards bloc | Bilateral AI standards dialogue (US, Japan, Korea) | Commission DG TRADE | MEDIUM (50%) | LOW |
+
+### Recommended Intervention Sequence
+
+1. **Immediate (0-30 days):** Commission Legal Service + Hungary: attempt to head off ECJ challenge through dialogue. Probability of success: 30%, but prevents 3-4 year legal uncertainty
+2. **Short-term (30-90 days):** EEAS Central Asia team: activate Qatar channel on Taliban re: NGO access
+3. **Medium-term (90-180 days):** Commission TRADE: launch AI bilateral dialogues with US, Japan, Korea before Chinese standards bloc forms
+4. **Ongoing:** SAFE implementing acts: Commission to publish within 6 months with robust legal basis documentation
+
+## Reader_Briefing
+
+The consequence tree analysis identifies **FDI-China retaliation and SAFE-US friction as the most consequential and correlated threat vectors** for the May 2026 legislative package. Their positive correlation (if one materializes, the other becomes more likely) elevates the combined implementation failure probability to 25-35%. Intervention is most cost-effective at the Hungary ECJ challenge stage (legal robustness review now avoids 3-year court uncertainty later) and the AI bilateral dialogue stage (early standards engagement prevents Chinese standards bloc formation). The Afghanistan tree is severe for humanitarian reasons but largely independent of the economic/defense tracks — it requires separate monitoring and response capability.
