@@ -95,3 +95,88 @@ The coalition sustaining this agenda (EPP + S&D + Renew + Greens/EFA) commands a
 ---
 
 *Analytical confidence: MODERATE-HIGH. Primary uncertainty: Commission implementation fidelity and legal challenge timelines.*
+
+---
+
+## Synthesis Diagram
+
+```mermaid
+flowchart TD
+    DATA[May 19-21 Plenary<br>10 adopted texts] --> THEMES[4 Core Themes]
+    THEMES --> DEFENSE[Defense Integration<br>SAFE + EU-Canada]
+    THEMES --> AI[AI & Digital Trade<br>TA-10-2026-0183]
+    THEMES --> HR[Human Rights<br>Afghanistan women]
+    THEMES --> PRIV[Parliamentary Integrity<br>Immunity waivers]
+    DEFENSE --> IMPL[Implementation Phase]
+    AI --> CONSULT[Consultation Phase]
+    HR --> SANCTION[Sanctions Toolkit]
+    PRIV --> PRECEDENT[New Norms]
+    IMPL --> RISK[Primary Risk:<br>Legal Challenge]
+    CONSULT --> OPP[Primary Opportunity:<br>Brussels Effect]
+    SANCTION --> CHALLENGE[Primary Challenge:<br>Access vs. Pressure]
+    PRECEDENT --> QUESTION[Open Question:<br>Weaponization Risk]
+```
+
+## Extended Synthesis
+
+### Cross-Cutting Theme 1: Sovereignty vs. Openness Tension
+
+The May 19-21 legislative output encodes a fundamental tension in EU strategic culture: the drive toward **sovereignty** (SAFE defense procurement, AI governance standards) versus the commitment to **openness** (fisheries agreements, external partnerships). This tension is not a contradiction — it reflects the EU's "strategic autonomy" doctrine — but it creates operational complexity.
+
+**Evidence:**
+- SAFE Instrument: Sovereignty impulse — preference for EU-manufactured components, Canadian exception as limited carve-out
+- AI trade resolution: Both — EU standards as sovereignty tool, but seeking global adoption requires openness
+- Fisheries agreements: Openness — EU fleets accessing foreign EEZs under mutual benefit frameworks
+- EU-Uzbekistan partnership: Engagement-first approach despite human rights record
+
+**Assessment:** The sovereignty impulse is gaining ground over pure openness — a structural shift from the 2010s that this week's votes confirm. 🟢 HIGH CONFIDENCE.
+
+### Cross-Cutting Theme 2: The PPE Consolidation of European Defense
+
+Every defense-related vote this week reveals PPE as the indispensable architect of EU defense integration. This contrasts with the pre-2024 pattern where ALDE/Renew led defense agenda-setting. The shift reflects PPE's post-2024 election dominance — more seats, more committee chairs, tighter whipping.
+
+**Evidence:**
+- SAFE: PPE-authored text, PPE rapporteur, PPE majority secured
+- EU-Canada SAFE: PPE foreign affairs committee coordination
+- Defense 2027 Budget: PPE budgetary leads
+- EIF/EIB Defense financing: PPE supported in committee
+
+**Assessment:** PPE has consolidated control over EU defense identity in EP10. The question for 2027-2028 is whether PfE can chip away at this by offering alternative defense sovereignty frameworks that exclude Canada and NATO partners. 🟡 MODERATE CONFIDENCE.
+
+### Cross-Cutting Theme 3: Rule of Law as Parliamentary Instrument
+
+The dual MEP immunity waivers (Pappas, Vilimsky) and the broader pattern of MEP legal proceedings represent the EP deploying rule-of-law instruments against its own members — a sign of institutional maturity or a new tool of political warfare, depending on interpretation.
+
+**Historical context:** In EP8 (2014-2019) and EP9 (2019-2024), immunity waivers averaged 2-3 per year. The rate in EP10 (2024-2026) appears higher — at least 5 waivers in 24 months including Braun (March 2026), Jaki (April 2026), Vilimsky and Pappas (May 2026).
+
+**Assessment:** This trajectory bears watching. If the rate continues to accelerate, it suggests either increasing MEP misconduct (accountability interpretation) or increasingly weaponized legal proceedings (political warfare interpretation). 🟡 MODERATE CONFIDENCE on trend, LOW CONFIDENCE on direction.
+
+### Cross-Cutting Theme 4: Human Rights Resolution Inflation
+
+The Afghanistan resolution (TA-10-2026-0186) is the fourth urgent human rights resolution in 2026 (after Uganda, Iran/systemic oppression, and Georgia). This frequency creates a signal-to-noise problem — each resolution is individually significant but the sheer volume may dilute real-world impact.
+
+**Evidence:** 
+- 2026 urgent resolutions to date (Jan-May): 4 confirmed, approximately 8 projected for full year
+- 2025 urgent resolutions: 9 total (Europarl records)
+- 2024 urgent resolutions: 11 total
+
+**Assessment:** The EP urgent resolution mechanism is functioning as intended (rapid response), but the instrument's real-world efficacy has not been independently assessed since 2019. 🟡 MODERATE CONFIDENCE.
+
+---
+
+## Strategic Intelligence Summary Table
+
+| Development | Significance | Time Horizon | Confidence |
+|------------|-------------|--------------|-----------|
+| EU-Canada SAFE agreement | Very High — defense sovereignty milestone | 6-18 months | 🟢 HIGH |
+| AI trade resolution | High — future binding framework | 18-36 months | 🟡 MODERATE |
+| Afghanistan women's rights | High — moral authority + sanctions trigger | 3-12 months | 🟢 HIGH |
+| EU-Uzbekistan partnership | Medium — Central Asia engagement | 12-36 months | 🟡 MODERATE |
+| MEP immunity pattern | Medium — institutional health indicator | 12-24 months | 🟡 MODERATE |
+| EP stability score (84/100) | Medium — structural baseline | Ongoing | 🟢 HIGH |
+
+---
+
+## Reader Briefing
+
+This synthesis identifies three structural dynamics operating simultaneously in the EP this week: the **sovereignty consolidation** of EU defense policy (SAFE + Canada), the **AI governance race** (TA-10-2026-0183), and the **human rights credibility test** (Afghanistan). These are not isolated legislative acts — they are moments in a coherent strategic programme being executed by the PPE-led majority with S&D as indispensable partner. The primary synthesis finding is that **the EU is in an implementation race**: legislative frameworks are adopted faster than institutional capacity can operationalize them, creating a 2-4 year gap between ambition and reality that adversaries (China on AI, Russia on defense) are positioned to exploit.

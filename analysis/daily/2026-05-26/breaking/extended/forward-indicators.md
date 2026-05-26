@@ -118,3 +118,81 @@ All indicators are currently in pre-event state (legislation just adopted; no co
 **Likelihood of mixed outcome (partial implementation, major gaps):** 20%
 
 This represents the **base rate uncertainty** on EU regulatory implementation — not a pessimistic assessment, but an honest calibration based on the GDPR, ENISA, and CFIUS historical parallels.
+
+---
+
+## Forward Indicators Visualization
+
+```mermaid
+graph TD
+    WATCH[Forward Indicator\nMonitoring System] --> GREEN_TRACK[Confirming Track\n45% probability]
+    WATCH --> RED_TRACK[Disconfirming Track\n35% probability]
+    WATCH --> MIXED_TRACK[Mixed Outcome\n20% probability]
+    GREEN_TRACK --> GI1[FDI OJ published on time]
+    GREEN_TRACK --> GI2[Commission ISA draft Q3 2026]
+    GREEN_TRACK --> GI3[China bilateral dialogue\nagrees Q4 2026]
+    RED_TRACK --> RI1[Hungary ECJ announced]
+    RED_TRACK --> RI2[Commission DG DEFIS\ncapacity shortfall confirmed]
+    RED_TRACK --> RI3[China counter-standards\nmajority in ASEAN]
+    MIXED_TRACK --> MI1[SAFE partial implementation\nsome MS excluded]
+    MIXED_TRACK --> MI2[AI standards\nnon-EU majority]
+```
+
+## Extended Forward Indicator Analysis
+
+### Tier 1 Indicators (Monitor Weekly)
+
+**FI-01: Hungarian Government Statement on SAFE (0-30 days)**
+- **Signal type:** WARNING if ECJ challenge announced; CONFIRMING if silence or acceptance
+- **Current status:** No Hungarian statement observed (as of May 26, 2026)
+- **WEP:** 🟡 MODERATE CONFIDENCE — Hungarian behavior unpredictable on defense
+- **Admiralty grade: B2** — Based on Hungarian ECJ challenge pattern
+
+**FI-02: Commission DG DEFIS Work Programme Update (30-60 days)**
+- **Signal type:** CONFIRMING if ISA timeline confirmed; WARNING if delays announced
+- **Current status:** Expected June 2026 with annual planning cycle
+- **WEP:** 🟢 HIGH CONFIDENCE** — DG DEFIS publishes annual work programme reliably
+- **Admiralty grade: A1** — Institutional process is confirmed
+
+**FI-03: China Ministry of Commerce Statement on AI Trade (30-60 days)**
+- **Signal type:** WARNING if hostile response; CONFIRMING if dialogue invitation
+- **Current status:** Monitoring — no statement yet
+- **WEP:** 🟡 MODERATE CONFIDENCE — Chinese timing is unpredictable
+- **Admiralty grade: C2** — Inferred from Chinese policy communication pattern
+
+---
+
+### Tier 2 Indicators (Monitor Monthly)
+
+**FI-04: SAFE/Canada OCCAR Interface Announcement (90-180 days)**
+- **Signal type:** CONFIRMING if OCCAR joint body established; NEUTRAL if delayed
+- **WEP:** 🟡 MODERATE CONFIDENCE — institutional negotiation timelines uncertain
+
+**FI-05: EU-Uzbekistan First Human Rights Review (180 days)**
+- **Signal type:** CONFIRMING if review occurs; WARNING if waived
+- **WEP:** 🟢 HIGH CONFIDENCE on review schedule; LOW on conditionality enforcement
+
+**FI-06: EP Monitoring Report on SAFE Implementation (180 days)**
+- **Signal type:** CONFIRMING if implementation on track; WARNING if gaps identified
+- **WEP:** 🟢 HIGH CONFIDENCE** — EP AFET oversight mandate requires reporting
+
+---
+
+### Composite Probability Assessment
+
+Based on the six Tier 1-2 indicators, the composite implementation confidence is:
+
+| Track | Driver Indicators | Probability |
+|-------|----------------|------------|
+| Confirming (FI-01 silence, FI-02 on-time, FI-03 dialogue) | 3/6 confirming | 45% |
+| Disconfirming (FI-01 ECJ, FI-02 delay, FI-03 hostile) | 3/6 warning | 35% |
+| Mixed (2 confirming, 1 warning) | Mixed | 20% |
+
+**Overall implementation confidence: MODERATE**
+**WEP: 🟡 MODERATE CONFIDENCE** on probability estimates — all estimates have ±15pp uncertainty
+
+---
+
+## Reader Briefing
+
+The forward indicator analysis identifies six key signals across a 30-180 day monitoring horizon. The most important near-term indicator is FI-01 (Hungarian government statement on SAFE) — early intelligence on ECJ challenge probability. The most impactful medium-term indicator is FI-02 (Commission DG DEFIS work programme) — the first concrete test of implementation capacity. Analysts should establish a monitoring cadence of weekly checks on FI-01 through FI-03, monthly checks on FI-04 through FI-06, and update the probability estimates at each review cycle.

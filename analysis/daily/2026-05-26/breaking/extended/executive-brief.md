@@ -70,3 +70,51 @@ Three uncertainties dominate the post-session landscape:
 ---
 
 *This extended executive brief synthesises intelligence across all analysis artifacts for the May 2026 breaking session. Confidence: HIGH on factual record; MODERATE on impact projections.*
+
+---
+
+## Executive Brief Visualization
+
+```mermaid
+flowchart LR
+    EP[EP May 19-21\nPlenary] --> TOP[SAFE + EU-Canada\nCRITICAL]
+    EP --> MID[AI Trade + Afghanistan\nHIGH]
+    EP --> LOW[Fisheries + Immunity\nMODERATE-LOW]
+    TOP --> ISA[→ ISA legislation\nQ2-Q3 2026]
+    TOP --> OCCAR[→ OCCAR interface\nQ3 2026]
+    MID --> AI_DIAL[→ AI bilateral\ndialogues]
+    MID --> SANCTIONS[→ Taliban sanctions\nconsultation]
+    ISA --> Q4[SAFE first contract\nQ4 2026]
+```
+
+## Intelligence Summary for Decision-Makers
+
+### What Happened
+The European Parliament adopted 11 texts in its May 19-21, 2026 plenary session. Two items are of exceptional strategic significance: the SAFE Instrument (EU-wide defense procurement, first of its kind) and the EU-Canada SAFE agreement (first allied-nation SAFE participation). Three additional items (AI Trade Strategy, EU-Uzbekistan Partnership, Afghanistan women's rights) are of high strategic significance.
+
+### What It Means
+- **EU defense autonomy**: SAFE is operational infrastructure for EU defense procurement. It converts political commitment into legal mandate with €5-8bn budget. EU defense industry competitiveness gains direct EU institutional backing for the first time since EDF (2021).
+- **Economic security architecture**: The combination of SAFE + AI Trade + FDI screening creates a three-layer economic security framework that is now legally complete at the EP level.
+- **Values diplomacy**: The Afghanistan resolution and EU-Uzbekistan agreement demonstrate that EP values-based foreign policy is being embedded in formal treaty and resolution language.
+
+### What Comes Next
+Three decisions in the next 60 days will confirm or complicate the above assessment:
+1. Commission DG DEFIS work programme update — confirms ISA implementation timeline
+2. Hungarian government response to SAFE adoption — signals ECJ challenge probability
+3. China Ministry of Commerce statement on AI Trade Strategy — signals bilateral dialogue feasibility
+
+### Decision Recommendations
+- **Commission**: Launch ISA legislation drafting immediately; don't wait for Council
+- **AFET/INTA Committees**: Request informal DG DEFIS briefing on implementing acts scope
+- **EP President's office**: Activate EP monitoring mandate for SAFE implementation
+- **Trade DG**: Schedule China AI governance bilateral within 30 days of resolution publication
+
+**Overall confidence in this brief: HIGH** on factual record; MODERATE on impact projections; all forward-looking assessments include explicit WEP confidence labels throughout the full artifact set.
+
+**Admiralty grade: A1** — Executive brief derived from confirmed plenary records
+
+---
+
+## Reader Briefing
+
+This executive brief is designed for senior EU policy analysts and decision-makers who need a complete, actionable summary of the May 2026 plenary outcomes. The brief synthesizes all 47 analysis artifacts into 5-minute readable intelligence with explicit decision recommendations. The most time-sensitive recommendation is activating EU-China AI governance dialogue within 30 days — that window closes as Chinese alternative standards entrench in developing markets.

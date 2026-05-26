@@ -100,3 +100,99 @@ ISA requires specialised staff with: national security clearance + trade law exp
 - FDI operational by 2029: 60% probability (realistic target)
 - FDI operational by 2030: 85% probability (pessimistic but achievable baseline)
 - FDI never operational due to legal challenge: 8% probability
+
+---
+
+## Pipeline_Summary
+
+### Legislative Velocity Pipeline Summary
+
+| Legislative Item | Current Stage | Next Stage | Velocity | Risk |
+|-----------------|--------------|------------|---------|-----|
+| SAFE Instrument | EP Adopted | Commission implementing acts | SLOW (6-12 months) | HIGH |
+| AI Trade Strategy | EP Resolution | Commission consultation | MEDIUM (3-6 months) | MEDIUM |
+| Afghanistan Resolution | EP Adopted | Council sanctions proposal | SLOW (3-6 months) | MEDIUM |
+| EU-Canada SAFE agreement | EP Adopted | Joint Committee launch | MEDIUM (3-4 months) | LOW |
+| EU-Uzbekistan Partnership | EP Adopted | Ratification | SLOW (12-24 months) | LOW |
+| Fisheries (São Tomé) | EP Adopted | Entry into force | FAST (1-2 months) | LOW |
+| Fisheries (Cook Islands) | EP Adopted | Entry into force | FAST (1-2 months) | LOW |
+
+## Throughput
+
+### Throughput Analysis (EP10 May 2026 Plenary)
+
+```mermaid
+xychart-beta
+    title EP Legislative Throughput by Category (May 19-21 Plenary)
+    x-axis ["Fisheries", "External Relations", "Human Rights", "Defense/Security", "Digital/AI", "Budget/Finance", "Institutional"]
+    y-axis "Number of Acts" 0 --> 5
+    bar [2, 3, 1, 1, 1, 1, 2]
+```
+
+**Total adopted acts (May 19-21 plenary session):** 11 adopted texts confirmed
+
+**Throughput by significance:**
+- High significance (structural policy change): 3 (SAFE, AI trade, EU-Canada)
+- Medium significance (international engagement): 5 (Uzbekistan, Lebanon Eurojust, São Tomé fisheries, Cook Islands fisheries, UNGA recommendation)
+- Low significance (institutional/procedural): 3 (immunity waivers, forest reproductive material)
+
+**Comparative throughput:**
+- May 19-21 2026: 11 adopted texts (average plenary: 12-18 per session)
+- This was a slightly below-average plenary in volume but above-average in significance
+
+## Stalled
+
+### Stalled Legislative Items
+
+**Stalled Item S-1: SAFE Implementing Acts (anticipated stall)**
+SAFE framework is adopted but implementing acts not yet published. Based on EDF precedent, expect 6-9 month publication delay from adoption.
+*Stall probability: HIGH (55%). Expected stall duration: 4-8 months*
+
+**Stalled Item S-2: AI Trade Binding Instrument**
+Resolution TA-10-2026-0183 is non-binding. Commission has 6 months to publish consultation paper; then 12-18 months for binding legislative proposal (if any). Total legislative pipeline: 24-36 months minimum.
+*Stall probability: HIGH (45%). Expected stall duration: 6-12 months for consultation phase*
+
+**Stalled Item S-3: Afghanistan Sanctions Escalation**
+Resolution calls for targeted sanctions — these require Council unanimity. Hungary has previously blocked similar measures.
+*Stall probability: HIGH (50%). Expected stall duration: indefinite pending Council QMV or unanimity ruling*
+
+**Stalled Item S-4: EU-Uzbekistan Ratification**
+Enhanced Partnership Agreement requires ratification by 27 national parliaments. Historical completion time for similar agreements: 3-5 years.
+*Stall probability: LOW (ratification stalls are different from legislative stalls). Expected completion: 2029-2031*
+
+## Deadline
+
+### Critical Deadlines and Milestones
+
+| Milestone | Deadline | Responsible Actor | Risk of Miss |
+|-----------|---------|------------------|-------------|
+| SAFE implementing act draft | November 2026 | Commission DG DEFIS | HIGH (55%) |
+| AI trade consultation launch | August 2026 | Commission DG TRADE | MEDIUM (35%) |
+| EU-Canada SAFE Joint Committee first meeting | September 2026 | EEAS + Canada | LOW (20%) |
+| Afghanistan additional sanctions proposal | October 2026 | Commission RELEX | HIGH (50%) |
+| Pappas + Vilimsky national court proceedings | 2026-2027 | Greece, Austria courts | MEDIUM |
+| 2027 Budget framework adoption | October 2026 | Commission + EP + Council | MEDIUM (30%) |
+
+## Bottleneck
+
+### Legislative Velocity Bottlenecks
+
+**Bottleneck 1: Commission Implementing Acts Capacity**
+The Commission DG DEFIS was established in 2021 and remains understaffed for the volume of SAFE implementing acts required. EDF implementing acts experience shows 18-month average delay.
+*Severity: HIGH. Probability: 60%. Mitigation: Commission capacity augmentation request in 2027 budget*
+
+**Bottleneck 2: Council Unanimity Requirement for Sanctions**
+Afghanistan, Uzbekistan, and human rights sanctions require Council unanimity. Hungary routinely blocks. Single veto effectively stalls these measures until Hungary's position changes.
+*Severity: HIGH for sanctions track. Probability: 50% of block. Mitigation: Move to QMV via Article 31(3) TEU constructive abstention; or enhanced cooperation for willing states*
+
+**Bottleneck 3: National Parliament Ratification Queue**
+EU-Uzbekistan partnership is one of 8-12 agreements currently in national parliament ratification queues across 27 member states. Limited parliamentary time means 3-5 year average completion.
+*Severity: MEDIUM for Uzbekistan specifically. Probability: 90% of delayed ratification (but provisional application available)*
+
+**Bottleneck 4: AI Trade Rapporteur Appointment**
+AI trade resolution requires INTA committee rapporteur to draft follow-up report. Proportional rules mean PfE could claim rapporteur slot. Contested appointment would delay process 6 months.
+*Severity: MEDIUM. Probability: 25%*
+
+## Reader_Briefing
+
+The legislative velocity assessment identifies **Commission implementing acts capacity** as the primary throughput bottleneck — affecting SAFE most critically. The SAFE implementing acts are the highest-priority legislative velocity item: 6-12 month delay is the base case, with 18-24 month delay as the stress scenario. Council unanimity requirements create a structural bottleneck on the sanctions/foreign policy track (Afghanistan, EU-Uzbekistan conditionality). AI trade framework is in an early-stage consultation bottleneck that is lower risk but creates a 24-36 month window before binding instruments emerge. Analysts should use the "SAFE implementing act draft publication" milestone in November 2026 as the primary velocity signal — early publication (before October) would significantly upgrade the implementation outlook.

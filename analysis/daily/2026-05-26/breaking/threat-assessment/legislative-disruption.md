@@ -110,3 +110,109 @@ The AI trade governance strategy assumes EU standards will be adopted globally (
 | EPP scope narrowing | Political | 30% | 1-2 years | MEDIUM |
 | Greens steel withdrawal | Political | 40% | 1 year | MEDIUM |
 | Rare earth crisis | External | 20% | 0-2 years | CATASTROPHIC |
+
+---
+
+## Targeted
+
+### Targeted Legislative Assets (Most Disruption-Vulnerable)
+
+| Asset | Vulnerability | Disruption Vector | Priority |
+|-------|--------------|------------------|---------|
+| SAFE Instrument legal basis | HIGH — novel enhanced cooperation | ECJ annulment via Hungary | CRITICAL |
+| FDI Screening (ISA scope) | HIGH — implementing acts | Comitology narrowing | HIGH |
+| AI Trade framework | MEDIUM — resolution only (non-binding) | Commission inaction | MEDIUM |
+| Afghanistan sanctions | MEDIUM — requires Council unanimity | Hungary veto | MEDIUM |
+| Fisheries agreements | LOW — ratification straightforward | National parliament delay | LOW |
+
+## Attack_Tree
+
+### Attack Tree: SAFE Instrument Disruption
+
+```mermaid
+graph TD
+    GOAL[Goal: Disrupt SAFE Implementation] --> ECJ[ECJ Annulment\nProbability 20%]
+    GOAL --> IMPL[Implementing Act Sabotage\nProbability 25%]
+    GOAL --> POLWD[Political Withdrawal\nProbability 10%]
+    ECJ --> H1[Hungary files ECJ referral\nP=40%]
+    ECJ --> H2[ECJ finds invalid legal basis\nP=50% if referral filed]
+    IMPL --> C1[Commission under-shoots scope\nP=45%]
+    IMPL --> C2[Member state comitology blocking\nP=30%]
+    POLWD --> P1[PfE gains majority in next election\nP=10% in 24 months]
+    POLWD --> P2[Grand coalition fractures\nP=15%]
+```
+
+### Attack Tree: AI Trade Framework Disruption
+
+```mermaid
+graph TD
+    GOAL2[Goal: Prevent EU AI Standards<br>Global Adoption] --> BYPASS[Bypass Strategy\nP=65% China already active]
+    GOAL2 --> DELAY[EP-Commission Delay\nP=40%]
+    BYPASS --> B1[Chinese bilateral AI agreements\nwith Global South nations]
+    BYPASS --> B2[Alternative standards body\neg. via SCO or G77]
+    DELAY --> D1[Commission rapporteur\nnot appointed 6 months]
+    DELAY --> D2[Industry consultation\nstalls binding provisions]
+```
+
+## Technique
+
+### Disruption Techniques by Actor
+
+**Hungary — ECJ Challenge Technique:**
+1. File referral under Article 263 TFEU (direct action for annulment)
+2. Argue enhanced cooperation exceeds scope of Article 46 TEU (PESCO provisions)
+3. Argue joint procurement with Canada violates Article 346 TFEU (defense secrecy exemption)
+4. Request interim measures (suspension of SAFE pending judgment)
+- Interim measures probability: LOW (Courts rarely suspend major EU legislation)
+- Judgment timeline: 3-5 years
+- **Counter-technique:** Commission Legal Service pre-publication review; Opinion from EP Legal Affairs Committee
+
+**China — Economic Pressure Technique:**
+1. Announce rare earth export "inspection and certification" requirements (bureaucratic delay rather than formal ban — WTO-safer)
+2. Mobilise bilateral diplomatic protests in 5+ member states simultaneously
+3. Announce suspension of Chinese SOE investments in "retaliating" member states
+4. Deploy economic statecraft through BRI conditionality
+- **Counter-technique:** EU rare earth stockpiling acceleration; alternative source development (Australia, Canada, Brazil)
+
+**PfE/ECR — Parliamentary Disruption Technique:**
+1. Table 500+ amendments to SAFE implementing regulation when it comes to EP consent
+2. Request extension of consultation period at committee stage
+3. Organise MEP petition challenging EP Bureau procedure on amendment guillotine
+4. Leverage national party media to run SAFE-skeptic narrative campaigns
+- **Counter-technique:** EPP whipping operation; bureau procedure guillotine rule invocation
+
+## Detection
+
+### Early Warning Indicators
+
+| Technique | Early Warning Signal | Detection Method | Lead Time |
+|-----------|-------------------|-----------------|----------|
+| Hungary ECJ filing | Hungarian government statement on SAFE legal concerns | Legal monitoring | 30-60 days |
+| China rare earth restriction | MOFCOM "consultation" announcement | Trade monitoring | 14-30 days |
+| PfE amendment flood | Committee stage amendment lodging volume | EP monitoring | 7-14 days |
+| Commission scope under-shoot | Draft implementing act text leak | DG DEFIS monitoring | 30-60 days |
+| AI standards bypass | Chinese bilateral AI agreement signing | Diplomatic reporting | 0-30 days |
+
+## Counter
+
+### Counter-Disruption Strategy
+
+**Counter C-1: Legal Hardening**
+Commission Legal Service publishes comprehensive legal opinion on SAFE legal basis before implementing acts. Makes ECJ challenge harder and reduces uncertainty for industry partners.
+*Priority: IMMEDIATE. Cost: LOW. Effectiveness: HIGH for Hungary challenge deterrence.*
+
+**Counter C-2: Rare Earth Stockpiling Acceleration**
+Commission accelerates EU Strategic Reserves for rare earths (announced January 2026) with 6-month fast-track. Reduces Chinese leverage before implementing acts phase.
+*Priority: HIGH. Cost: MEDIUM (€2-3bn). Effectiveness: MEDIUM for reducing dependency.*
+
+**Counter C-3: AI Bilateral Engagement Blitz**
+EEAS + DG TRADE launch simultaneous AI standards dialogues with US, UK, Japan, South Korea, India before Chinese bilateral agreements gain traction.
+*Priority: HIGH. Cost: LOW (diplomatic resources). Effectiveness: MEDIUM-HIGH.*
+
+**Counter C-4: Parliamentary Procedural Preparation**
+EPP whipping team prepares guillotine procedure protocols for SAFE implementing regulation EP consent vote. Reduces PfE amendment flooding effectiveness.
+*Priority: MEDIUM. Cost: LOW. Effectiveness: HIGH for parliamentary disruption.*
+
+## Reader_Briefing
+
+The legislative disruption analysis identifies **three primary disruption techniques** with material probability of success: ECJ challenge (Hungary, 20% if referral filed → full annulment; 35% partial), implementing act scope narrowing (Commission under-shoot or comitology, 25-45%), and Chinese AI standards bypass (65% already active). Counter-strategies are available and proportionate for all three vectors. The most cost-effective counters are legal hardening (Commission Opinion published early) and AI bilateral engagement blitz (diplomatic resources only). The rare earth counter requires significant investment but is strategically essential for removing Chinese leverage over SAFE implementation. Recommended priority sequence: Legal hardening → AI bilateral engagement → Rare earth stockpiling acceleration → Parliamentary procedural preparation.

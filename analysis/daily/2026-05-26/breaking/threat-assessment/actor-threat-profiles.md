@@ -141,3 +141,114 @@ The most significant combination is:
 This creates a pincer attack that is more dangerous than any single actor: China's economic pressure could convince EU member states to negotiate bilaterally, reducing commitment to ISA multilateral approach; Hungary's ECJ challenge creates legal uncertainty that industry uses as justification for narrow scope interpretation; industry lobbies then capture comitology to institutionalise narrow scope.
 
 This aggregate scenario has probability ~25% — higher than any individual actor threat alone.
+
+---
+
+## Actor_Roster
+
+| Actor | Type | Threat Level | Domain | Confidence |
+|-------|------|-------------|--------|-----------|
+| Hungary (Orbán government) | State actor (EU internal) | HIGH | Legal/Political | 🟢 HIGH |
+| China (MFA + MOFCOM) | State actor (external) | HIGH | Economic/Trade | 🟢 HIGH |
+| United States (Trump admin) | State actor (external) | MEDIUM | Trade/Defense | 🟡 MODERATE |
+| Taliban (Islamic Emirate) | Non-state actor | MEDIUM | Humanitarian/Diplomatic | 🟡 MODERATE |
+| PfE/ECR parliamentary groups | Political actor (internal) | MEDIUM | Legislative | 🟢 HIGH |
+| Defense industry lobbies | Corporate actor | MEDIUM-LOW | Regulatory capture | 🟡 MODERATE |
+| Russian intelligence services | State actor (external) | MEDIUM | Cyber/Info ops | 🟡 MODERATE |
+
+## Capability
+
+### Actor Capability Matrix
+
+```mermaid
+quadrantChart
+    title Actor Capability vs. Intent (May 2026)
+    x-axis Low Intent --> High Intent
+    y-axis Low Capability --> High Capability
+    quadrant-1 High Capability High Intent - Primary Threats
+    quadrant-2 High Capability Low Intent - Latent Threats
+    quadrant-3 Low Capability Low Intent - Negligible
+    quadrant-4 Low Capability High Intent - Frustrated Actors
+    China: [0.85, 0.8]
+    Hungary: [0.6, 0.75]
+    Russia: [0.7, 0.65]
+    Taliban: [0.45, 0.9]
+    US-Trump: [0.55, 0.5]
+    PfE-ECR: [0.7, 0.6]
+    Industry-Lobbies: [0.6, 0.5]
+```
+
+**China Capabilities:**
+- Economic leverage: Rare earth export restrictions; bilateral investment withdrawal
+- Diplomatic: 40+ "14+1" bilateral EU member state relationships
+- Information operations: Xinhua/CGTN narrative control
+
+**Hungary Capabilities:**
+- Legal: ECJ referral filing (confirmed capability from 2018-2024 precedents)
+- Diplomatic: Council blocking in QMV when threshold close; EU budget hostage
+- Political: EPP internal pressure through Hungarian MEP delegation
+
+**PfE/ECR Parliamentary Capabilities:**
+- Procedural: Amendment flooding, committee delay tactics
+- Coalition: Can form blocking minority on specific votes with other right-wing groups
+- Information: Strong social media amplification of EU skeptic narratives
+
+## Diamond
+
+### Actor Diamond Threat Assessment
+
+**Actor: China**
+- Motivation: Protect Belt and Road investments, maintain tech standards leadership, prevent EU FDI screening from blocking Chinese acquisitions
+- Intent: HOSTILE to SAFE + FDI screening; NEUTRAL on fisheries
+- Capability: HIGH — largest bilateral trade partner, rare earth leverage
+- Opportunity: Commission implementing act stage provides maximum leverage window
+- **Diamond score: HIGH THREAT (4.5/5)**
+
+**Actor: Hungary**
+- Motivation: Sovereignty protection, protecting Orbán government's economic interests (Chinese FDI)
+- Intent: HOSTILE to SAFE legal basis; HOSTILE to FDI screening
+- Capability: MEDIUM-HIGH — ECJ referral is credible
+- Opportunity: Pre-implementing act window (now — 6 months)
+- **Diamond score: MEDIUM-HIGH THREAT (3.5/5)**
+
+**Actor: Taliban**
+- Motivation: Prevent additional sanctions; maintain humanitarian access for diplomatic leverage
+- Intent: HOSTILE to Resolution TA-10-2026-0186
+- Capability: MEDIUM — can expel EU-funded NGOs from Afghanistan
+- Opportunity: Immediate — NGO expulsion is decision that can be made unilaterally
+- **Diamond score: MEDIUM THREAT (3.0/5)**
+
+## Relationship
+
+### Actor Relationship Network
+
+**China ↔ Hungary:** Aligned — Hungary has €10bn+ in Chinese investment (BYD factory, Fudan University). Hungary's ECJ challenge serves Chinese interests by creating legal uncertainty around FDI screening and SAFE.
+
+**PfE ↔ Russia (alleged):** Intelligence reports (EEAS assessment, cited in MEP briefings) suggest PfE financing links to Russian state-connected entities. This creates a conflict of interest on EU defense integration votes.
+
+**Taliban ↔ China:** Tactical alignment — both oppose EU human rights conditionality. China has recognized Taliban de facto; supports Taliban's position at UNSC.
+
+**US ↔ EU on SAFE:** Complex partner — US values NATO burden-sharing; US defense industry has commercial interest in SAFE not succeeding (competitive threat). Trump administration's position is ambiguous.
+
+## Escalation
+
+### Escalation Ladder by Actor
+
+**China — Escalation Ladder:**
+1. Diplomatic protests (current) → 2. Targeted trade retaliation (auto/luxury goods) → 3. Rare earth export restriction → 4. Comprehensive economic decoupling
+
+*Current position: Level 1. Transition trigger for Level 2: SAFE implementing acts that include Chinese FDI restrictions*
+
+**Hungary — Escalation Ladder:**
+1. Procedural obstruction (current) → 2. ECJ referral filing → 3. Council blocking on related matters → 4. Formal withdrawal from PESCO
+
+*Current position: Level 1. Transition trigger for Level 2: Commission publishes broad SAFE implementing acts scope*
+
+**PfE/ECR — Escalation Ladder:**
+1. Voting opposition (current) → 2. Amendment flooding (implementing acts) → 3. EP no-confidence motion (extreme, requires 2/3 majority — effectively impossible) → 4. National government rollback
+
+*Current position: Level 1. Level 2 is the realistic maximum.*
+
+## Reader_Briefing
+
+The actor threat assessment identifies **China and Hungary as primary threat actors** with both high capability and high intent to disrupt the May 2026 legislative package. China's threat is primarily economic (rare earth leverage, bilateral pressure on member states) while Hungary's is primarily legal (ECJ challenge to SAFE enhanced cooperation legal basis). PfE/ECR represent a sustained but bounded parliamentary opposition. The Taliban threat is more immediate but more limited — a potential NGO expulsion in response to the Afghanistan resolution would cause humanitarian harm but would not reverse EU legislation. Analysts should prioritize monitoring the Hungary-ECJ filing timeline and China-EU trade friction indicators as the most consequential early warning signals.
