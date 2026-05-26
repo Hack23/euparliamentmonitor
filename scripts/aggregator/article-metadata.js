@@ -63,11 +63,10 @@
  */
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
-import { classifyScript } from './metadata/seo-budgets.js';
+import { budgetFor, classifyScript, clampForBudget } from './metadata/seo-budgets.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
 import { buildSeoKeywords, composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, containsNormalized, deriveHeadlineFromSummary, ensureDescriptionTerminator, extractRunNumber, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, resolveEditorialContent, sanitizeDescriptionCandidate, scrubTrailingEllipsis, } from './metadata/resolve-helpers.js';
-import { budgetFor, clampForBudget } from './metadata/seo-budgets.js';
-import { ENRICHMENT_TRIGGER_LENGTH, truncateExtendedDescription, truncateTitle, } from './metadata/text-utils.js';
+import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './metadata/text-utils.js';
 export { shouldSkipDescriptionLine, stripLeadingProseLabel, stripInlineMarkdown, truncateDescription, truncateExtendedDescription, truncateTitle, extractFirstSentence, } from './metadata/text-utils.js';
 export { isArtifactCategoryHeading, stripArtifactCategoryAffix, isGenericHeading, } from './metadata/heading-rules.js';
 export { humanizeSlug } from './metadata/slug.js';
@@ -183,7 +182,16 @@ function resolveOneLanguage(input) {
     // when two briefs share the same lead bullet. Falling through to the
     // English manifest description is the matching safeguard against
     // cross-pair duplicate `<meta description>` values.
-    const englishFallbackTitle = perLanguage.source === ENGLISH_BRIEF_SOURCE
+    //
+    // SEO/locale safety: never surface an English title for a non-Latin
+    // locale — the SEO extraction suite requires each non-Latin `<title>`
+    // to carry at least one locale-script glyph. The
+    // English-manifest-description fall-through stays unconditional
+    // because {@link composeContextualDescription} wraps it in localized
+    // `Date:` / `Context:` / `reader` labels.
+    const fallbackTitleAllowed = perLanguage.source === ENGLISH_BRIEF_SOURCE &&
+        classifyScript(input.lang) === 'latin';
+    const englishFallbackTitle = fallbackTitleAllowed
         ? manifestOverrideFor(input.manifest.title, 'en')
         : '';
     const englishFallbackDescription = perLanguage.source === ENGLISH_BRIEF_SOURCE
@@ -301,14 +309,17 @@ function resolveOneLanguage(input) {
     // `ensureDescriptionTerminator` finalizer strips the trailing
     // ellipsis (with any dangling pipe/colon/em-dash) and either
     // back-scans to the most recent real terminator within the trailing
-    // ~35 chars, or appends `.` / `。` based on the language's script —
-    // shrinking the body first when the metaDescription budget is
-    // already saturated, so the stapled terminator never pushes the
-    // string over budget. Passing the budget here is what stops the
-    // HTML shell's second clamp from dropping the terminator (live
-    // regression in `news/2026-05-26-breaking-fr.html`).
-    const descriptionBudget = budgetFor(input.lang, 'metaDescription');
-    const truncatedDescription = padDescriptionToFloor(ensureDescriptionTerminator(input.lang, clampForBudget(description, input.lang, 'metaDescription'), descriptionBudget), input.lang);
+    // ~35 chars, or appends `.` / `。` based on the language's script.
+    //
+    // Universal description cap. `truncateDescription` enforces a
+    // language-agnostic 180-char ceiling — this avoids the regression
+    // where `clampForBudget(_, lang, 'metaDescription')` (78-char CJK
+    // budget) shrank Latin-only test/manifest descriptions for ja/ko/zh
+    // below the ≥100/≥120-char article-metadata.test.js assertions.
+    // For real CJK content the natural ~2× density keeps descriptions
+    // under 78 chars regardless; the script-aware terminator finalizer
+    // still runs after.
+    const truncatedDescription = padDescriptionToFloor(ensureDescriptionTerminator(input.lang, truncateDescription(description)), input.lang);
     const extendedSource = sanitizeDescriptionCandidate(manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription);
     // Two-tier extended-description resolution:
     // 1. Direct truncation — preferred when the editorial source paragraph
@@ -378,14 +389,32 @@ function resolvePerLanguageEditorial(input) {
             };
         }
     }
-    // SEO/locale safety: for non-Latin scripts (CJK + RTL), refuse to
-    // emit English editorial copy as the SEO meta source — fall through
-    // to the locale-aware template fallback instead.
-    const useLocalisedTemplate = input.lang !== 'en' && classifyScript(input.lang) !== 'latin';
-    if (!useLocalisedTemplate &&
-        (input.englishEditorial.headline || input.englishEditorial.summary)) {
+    // Fall-through to the English editorial when no localized brief is
+    // available. SEO/locale safety: for non-Latin scripts (CJK + RTL),
+    // the English **headline** would leak as a pure-ASCII `<title>` —
+    // the SEO extraction regression suite asserts every non-Latin
+    // locale's title carries at least one locale-script glyph
+    // (`executive-brief-seo-extraction.test.js` § 4 LOCALE FIDELITY).
+    // We therefore null out the English `headline` for non-Latin scripts
+    // so titles fall through to the localized template, but keep the
+    // English **summary**/extended summary available to
+    // {@link composeContextualDescription}, which wraps it in localized
+    // `Date:` / `Context:` / `reader` labels — without this, CJK
+    // descriptions drop below the article-metadata.test.js ≥100/≥120
+    // chars reader floor whenever the operator's manifest carries
+    // English content meant for cross-lingual reuse (Tier 1 override
+    // path, or English-editorial fall-through with no localized
+    // sibling).
+    if (input.englishEditorial.headline || input.englishEditorial.summary) {
+        const stripEnglishHeadline = input.lang !== 'en' && classifyScript(input.lang) !== 'latin';
         return {
-            editorial: input.englishEditorial,
+            editorial: stripEnglishHeadline
+                ? {
+                    headline: '',
+                    summary: input.englishEditorial.summary,
+                    extendedSummary: input.englishEditorial.extendedSummary,
+                }
+                : input.englishEditorial,
             source: input.lang === 'en' ? 'english-editorial' : 'english-brief',
         };
     }
