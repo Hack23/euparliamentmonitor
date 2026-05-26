@@ -80,6 +80,8 @@ import {
   hasLeakySeoToken,
   isUsableResolvedTitle,
   manifestOverrideFor,
+  padDescriptionToFloor,
+  padTitleToFloor,
   pickFirstNonEmpty,
   resolveEditorialContent,
   sanitizeDescriptionCandidate,
@@ -405,6 +407,18 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
       }
     }
   }
+  // Final SERP-floor recovery on the resolved title. The internal
+  // branch inside `composeContextualTitle` only fires on the
+  // `fallbackTitle` path; titles selected from `manifestTitle`,
+  // `englishFallbackTitle`, or the H1-extracted `resolvedTitleCandidate`
+  // bypass it and can ship below the per-script reader floor (e.g.
+  // `"Moties | 2026-04-01"` — 19 chars, nl). `padTitleToFloor` appends
+  // ` (EP)` when (a) the title is below floor, (b) there is no
+  // isolated `EP` token already present (word-boundary check — the
+  // simpler substring scan was fooled by Dutch/German/French words
+  // such as `Europese`/`Europäische`), and (c) the result fits inside
+  // the per-script `<title>` budget.
+  seoTitle = padTitleToFloor(seoTitle, input.lang, budgetFor(input.lang, 'title'));
   // `clampForBudget` is contractually required to emit a trailing `…`
   // when it has to hard-cut mid-clause (locked by
   // `test/unit/seo-budgets.test.js:147-152`). For meta-descriptions
@@ -415,9 +429,12 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // ellipsis (with any dangling pipe/colon/em-dash) and either
   // back-scans to the most recent real terminator within the trailing
   // ~35 chars, or appends `.` / `。` based on the language's script.
-  const truncatedDescription = ensureDescriptionTerminator(
-    input.lang,
-    clampForBudget(description, input.lang, 'metaDescription')
+  const truncatedDescription = padDescriptionToFloor(
+    ensureDescriptionTerminator(
+      input.lang,
+      clampForBudget(description, input.lang, 'metaDescription')
+    ),
+    input.lang
   );
 
   const extendedSource = sanitizeDescriptionCandidate(
