@@ -108,3 +108,25 @@ Rationale: Two primary sources (adopted texts, IMF) are FULL quality (9/10). Two
 ## Reader Briefing
 
 Data availability was degraded in this run (4/6 prefetch feeds, DOCEO unavailable, Events feed 404, Procedures feed stale). The analysis is SUFFICIENT despite these gaps because the adopted texts feed — the most authoritative EP source — functioned correctly and provided complete coverage of all May 19-21 decisions. All data gaps are documented with explicit workarounds and uncertainty flags throughout the artifact set. When DOCEO roll-call data becomes available (typically 2-3 weeks post-session), a supplementary analysis update should be run to confirm or refine coalition voting estimates.
+
+
+---
+
+## Data Availability Assessment - Re-Run Update
+
+### Re-Run Data Quality Comparison
+
+| Data Source | Run 1 (prior) | Run 2 (this run) | Change |
+|-------------|--------------|-----------------|--------|
+| Adopted texts feed | Populated (ELI IDs) | Same | No change |
+| Events feed | Unavailable (404) | Unavailable (404) | No improvement |
+| Procedures feed | Populated (ELI IDs) | Same | No change |
+| MEPs feed | Populated | Same | No change |
+| RCV voting data | Not available (EP delay) | Not available | No change |
+| IMF economic data | Available (WEO April 2026) | Same | No change |
+
+**Overall data mode: DEGRADED-FEEDS** (unchanged from prior run). Events feed API endpoint remains unavailable. RCV data expected in 2-4 weeks.
+
+**Impact on analysis quality:** All conclusions remain valid but voting pattern analysis is reconstructed from minutes (degraded confidence). Economic context is FULL (IMF data complete). Coalition analysis is MODERATE confidence.
+
+[EXTEND-FROM-PRIOR: data-availability-assessment.md prior=111L -> new=135L (+24)]

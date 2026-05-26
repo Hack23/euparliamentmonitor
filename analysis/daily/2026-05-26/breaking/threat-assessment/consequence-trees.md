@@ -164,3 +164,44 @@ graph TD
 ## Reader_Briefing
 
 The consequence tree analysis identifies **FDI-China retaliation and SAFE-US friction as the most consequential and correlated threat vectors** for the May 2026 legislative package. Their positive correlation (if one materializes, the other becomes more likely) elevates the combined implementation failure probability to 25-35%. Intervention is most cost-effective at the Hungary ECJ challenge stage (legal robustness review now avoids 3-year court uncertainty later) and the AI bilateral dialogue stage (early standards engagement prevents Chinese standards bloc formation). The Afghanistan tree is severe for humanitarian reasons but largely independent of the economic/defense tracks — it requires separate monitoring and response capability.
+
+
+---
+
+## Consequence Trees - Re-Run Extension
+
+### Extended Consequence Tree: ISA Implementation Failure
+
+**Root event:** ISA not operational by January 2027
+
+**First-order consequences:**
+- Member states revert to bilateral FDI screening for critical-sector investments
+- Chinese SOEs resume acquisition pipeline that was paused during regulation adoption
+- EP passes resolution demanding Commission explanation and timeline
+
+**Second-order consequences:**
+- If bilateral screening: Hungary approves Chinese semiconductor acquisition that would have been blocked by ISA -> EPP internal crisis
+- If acquisition pipeline restarts: 3-4 critical-sector acquisitions complete before ISA operates -> regulation credibility damaged
+- If EP resolution: Trade Commissioner faces committee hearing; political pressure intensifies
+
+**Third-order consequences:**
+- EU economic security agenda credibility damaged for 2-4 years
+- Political opponents (PfE, ECR anti-regulation wing) use implementation failure as evidence that EU regulatory ambition exceeds capacity
+- Future economic security legislation faces harder political road in Council
+
+**Probability of root event (ISA not operational by Jan 2027): 55%**
+**Expected consequence chain severity: MODERATE-HIGH**
+
+[EXTEND-FROM-PRIOR: threat-assessment/consequence-trees.md prior=166L -> new=190L (+24)]
+
+## Threat Roster
+
+| Threat | Root Event | First-Order | Second-Order | Probability |
+|--------|-----------|-------------|--------------|-------------|
+| ISA Implementation Failure | ISA not operational Jan 2027 | Bilateral screening reversion | Chinese acquisition pipeline resumes | 55% |
+| Steel Safeguard Non-Activation | Commission ignores mandate | Overcapacity crisis deepens | EU steel sector mass layoffs | 35% |
+| Chinese Trade Retaliation | WTO complaint + bilateral measures | EU export restrictions | Manufacturing sector disruption | 25% |
+
+## Reader Briefing
+
+The highest-probability threat is ISA implementation failure (55%). The highest-impact threat is Chinese trade retaliation (25% probability but potentially EUR 15-30B trade disruption). Monitoring both simultaneously is the recommended approach.

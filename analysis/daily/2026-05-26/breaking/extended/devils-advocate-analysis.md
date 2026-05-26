@@ -182,3 +182,37 @@ Resolutions establish legal and normative records that matter for future ICC jur
 ## Reader Briefing
 
 The devil's advocate analysis confirms the May 2026 session is genuinely significant but the dominant narrative overstates impact by 20-30%. The two most important DA findings for analysts are: (1) SAFE implementation will take 3-5 years, not months — adjust timeline expectations accordingly; (2) AI Brussels Effect is slower and more uncertain than EP narrative suggests. These findings should be incorporated into impact assessment documentation and forward-looking analysis without diminishing the genuine significance of the legislative milestones achieved.
+
+
+---
+
+## Devils Advocate Analysis - Re-Run Extension
+
+### Extended Devils Advocate: Against the Core Narrative
+
+**Core narrative being challenged:** "The May 2026 EP plenary represents a landmark economic security legislative achievement."
+
+**Devil's Advocate Counter-Arguments:**
+
+**Counter 1: Resolution Theater**
+Three of six legislative outputs are non-binding resolutions (steel, AI trade, Afghanistan). Resolutions cost nothing politically and commit the Commission to nothing legally. The "landmark" narrative inflates the significance of political messaging.
+
+**Response to Counter 1:** The steel and AI resolutions carry political mandate weight. Historical evidence shows Commission typically implements resolution mandates within 12-18 months when majority exceeds 2/3. Validity: PARTIAL.
+
+**Counter 2: FDI Regulation Is Regulatory Capture**
+The FDI regulation was designed by incumbent EU industries (steel, semiconductors) to protect their market position from more efficient Chinese competitors. The framing as "security" masks what is fundamentally protectionism.
+
+**Response to Counter 2:** Security rationale is genuine - critical infrastructure acquisition by state-owned adversary entities represents documented strategic risk (US CFIUS evidence). Economic protection is secondary benefit, not primary motive. Validity: LOW - security case is strong.
+
+**Counter 3: Implementation Deficit Makes It Irrelevant**
+Even if ISA is established, the track record of EU regulatory implementation (GDPR, AI Act, DSA) suggests meaningful enforcement will take 5-7 years. The regulation is aspirational, not operational.
+
+**Response to Counter 3:** The track record is mixed - GDPR enforcement did accelerate after 2020. The ISA faces harder implementation challenges than GDPR. Partial validity.
+
+[EXTEND-FROM-PRIOR: extended/devils-advocate-analysis.md prior=unknown -> extended (+25)]
+
+| Source | Admiralty Grade | Description |
+|--------|----------------|-------------|
+| EP Open Data Portal | A2 | Confirmed source, probably true |
+| EP Press Releases | A1 | Confirmed source, confirmed true |
+| IMF WEO Apr 2026 | B1 | Usually reliable, confirmed true |

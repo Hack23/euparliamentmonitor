@@ -202,3 +202,26 @@ The AI trade resolution's aspirations must be assessed against the historical tr
 ## Reader Briefing
 
 The historical baseline for this week's EP legislative output is **robustly documented** across three of four primary domains. The EDF precedent gives high confidence in SAFE implementation trajectory; CETA precedent supports the EU-Canada SAFE agreement; Taliban history gives moderate-high confidence in the effectiveness (limited) of EP resolutions on Afghanistan. The AI governance domain has the weakest historical basis for optimism — Brussels Effect theory is being stress-tested by Chinese regulatory competition in real time.
+
+
+---
+
+## Historical Baseline Update - Re-Run Supplement
+
+### EP10 Legislative Trajectory Context
+
+The May 2026 session should be placed in the EP10 (2024-2029) legislative baseline:
+
+| EP10 Session | Legislative Significance | Key Output |
+|-------------|-------------------------|------------|
+| Oct 2024 | HIGH (new Parliament, leadership election) | EP10 constitutive plenary |
+| Feb 2025 | MODERATE | Budget 2025 adoption |
+| Mar 2025 | HIGH | Semiconductor sovereignty package |
+| Apr 2026 | HIGH | Critical raw materials implementing acts |
+| May 2026 | CRITICAL (this session) | FDI screening, steel, SAFE/Canada |
+
+**Baseline finding:** The May 2026 session represents the peak EP10 legislative output to date, exceeding prior sessions in both strategic scope and geopolitical consequence.
+
+**Historical context for FDI regulation:** This is the first time the EP has passed legislation giving the EU binding authority to block a specific foreign acquisition in a critical sector. This represents a constitutional-scale development in EU economic governance - comparable in institutional significance to the 1989 Merger Regulation that first gave the Commission power to block mergers.
+
+[EXTEND-FROM-PRIOR: intelligence/historical-baseline.md prior=205L -> new=229L (+24)]

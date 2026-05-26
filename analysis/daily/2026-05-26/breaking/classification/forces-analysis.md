@@ -139,3 +139,57 @@ Multi-domain complexity (SAFE + FDI + AI simultaneously) strains Commission inst
 ## Reader Briefing
 
 The forces analysis confirms SAFE and the May 2026 package face a moderate positive force balance (+12/50). The analysis is particularly valuable for identifying the single most concrete restraining force (DG DEFIS staffing gap — R1) which is the most actionable target for risk mitigation. Decision-makers should prioritize Commission DG DEFIS staffing plan as the highest-leverage intervention available within the first 90 days.
+
+
+---
+
+## Forces Analysis - Re-Run Extension
+
+### Structural Force Update: Geopolitical Fragmentation Accelerator
+
+The May 2026 legislation accelerates existing structural forces:
+
+**Force 1 Update: Economic Security Institutionalisation**
+The establishment of ISA creates a permanent institutional actor with interest in maintaining and expanding the economic security framework. Once established, bureaucratic momentum ensures the FDI screening regime will deepen, not atrophy. Historical parallel: DG Competition (established 1958) has consistently expanded its scope over 60 years.
+
+**Force 2 Update: Defence Integration Irreversibility**
+The EU-Canada SAFE agreement is the first legally binding transatlantic defence procurement instrument. Once operational, contractor relationships, industrial partnerships, and procurement structures create sunk costs that make reversal politically and economically costly. The SAFE instrument is now self-reinforcing.
+
+**Force 3 New: AI Governance Race as Structural Force**
+The AI Trade Strategy resolution adds an AI governance dimension to EU external economic strategy. The structural force: once AI governance annexes are embedded in FTAs, the EU creates a technical standard adoption race with US and China for developing country partners. This force will operate independently of EP political decisions for the next decade.
+
+[EXTEND-FROM-PRIOR: classification/forces-analysis.md prior=142L -> new=165L (+23)]
+
+## Issue Frame
+
+The central issue is EU economic security architecture: whether the EU can implement enforceable investment screening and trade safeguards against state-backed economic actors, primarily China, without triggering retaliatory trade disruption.
+
+## Driving Forces
+
+1. **EU Economic Security Strategy (2023)** - political mandate for de-risking from strategic dependencies
+2. **Chinese FDI in critical infrastructure** - documented acquisition of semiconductor, port, and energy assets 2018-2024
+3. **US CFIUS precedent** - demonstrated that investment screening is WTO-compatible
+4. **European steel overcapacity crisis** - 40-50% of EU capacity threatened by Chinese subsidized imports
+5. **Afghanistan ICC referral** - EP leadership role in human rights architecture
+
+## Restraining Forces
+
+1. **EU-China trade interdependence** - EUR 739B bilateral trade in 2025
+2. **Member state sovereignty concerns** - Hungary, Slovakia prefer bilateral FDI arrangements
+3. **Economic liberal resistance** - Renew wing opposes "fortress Europe" interpretation
+4. **WTO compatibility risk** - any investment screening must avoid discriminating against WTO members
+5. **Implementation capacity** - Commission lacks bandwidth for 6+ implementing regulations simultaneously
+
+## Net Pressure
+
+Net pressure direction: PRO-REGULATION. Driving forces outweigh restraining forces. The economic security framing has successfully delegitimized the "open investment" alternative, shifting the Overton window decisively.
+
+## Intervention Points
+
+1. **ISA implementing acts** (June-December 2026) - critical window where restraining forces could dilute the regulation
+2. **Chinese WTO complaint** (Q3-Q4 2026) - could slow Commission implementing act adoption
+3. **Steel safeguard decision** (August 2026) - test of political will to enforce economic security mandate
+
+## Reader Briefing
+
+The balance of forces strongly favors the EU economic security regulatory project, but implementation faces meaningful restraining forces. The ISA implementing acts period is the highest-leverage intervention point for opponents of the regulation.

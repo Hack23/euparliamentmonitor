@@ -227,3 +227,42 @@ graph TD
 ## Reader Briefing
 
 The media framing analysis identifies five competing frames. The European Sovereignty frame will dominate for 12-18 months but faces mounting competition from Trade War Provocation (Chinese/US response) and Implementation Reality (ISA delays). Communication strategy should: amplify sovereignty and competitiveness frames in months 1-6, prepare counter-narratives for Trade War frame in months 3-12, and manage expectations on implementation timeline proactively to prevent "broken promise" narrative in months 12-24.
+
+
+---
+
+## Extended Media Framing Analysis: Platform-Specific Strategy
+
+### Platform 1: X (formerly Twitter) / Bluesky
+
+Dominant frame: Sovereignty narrative wins in short-form. The FDI regulation headline compresses to "EU takes control of foreign investment" - a clean sovereignty message. Steel overcapacity loses nuance. Afghanistan generates emotional resonance. Recommendation: Lead with FDI regulation and Afghanistan resolution; use steel as follow-up thread content.
+
+### Platform 2: LinkedIn / Professional networks
+
+Dominant frame: Competitiveness and implementation. Professional audiences (lawyers, investors, trade policy staff) focus on ISA implementation timeline and compliance requirements. Recommendation: Publish ISA establishment timeline analysis; legal explainers on FDI screening thresholds.
+
+### Platform 3: Traditional broadcast media
+
+Dominant frame: Trade war risk. Broadcast needs conflict narrative. The "EU vs China" framing of FDI regulation and steel resolution plays well. Risk: Over-simplification inflates Chinese retaliation probability in public perception. Recommendation: Provide context on Chinese economic constraints; avoid "trade war" language without qualification.
+
+### Platform 4: EU institutional communications
+
+Dominant frame: Legislative achievement. EP communications should emphasise the legislative output coherence - six measures, one strategic direction. Internal audiences need concrete implementation milestones to validate the legislative investment.
+
+### Framing Risk Matrix
+
+| Frame | If It Dominates | If It Fails | Risk Level |
+|-------|----------------|-------------|------------|
+| European Sovereignty | Broad public support, political unity | Appears ideological, not practical | LOW |
+| EU Competitiveness | Business support, policy credibility | May exclude social policy narrative | MODERATE |
+| Trade War Provocation | Chinese reaction attention | Inflates threat perception unhelpfully | HIGH |
+| Bureaucratic Complexity | Honest but demoralizing | Implementation problems become scandals | HIGH |
+| Human Rights Leadership | Strong normative legitimacy | Afghanistan fatigue risk | LOW |
+
+---
+
+## Reader Briefing
+
+The media framing analysis identifies five competing frames with platform-specific dynamics. The European Sovereignty frame dominates for 12-18 months but faces mounting competition from Trade War Provocation (Chinese/US response) and Implementation Reality (ISA delays). Communication strategy should amplify sovereignty and competitiveness frames in months 1-6, prepare counter-narratives for Trade War frame in months 3-12, and manage expectations on implementation timeline proactively. Platform-specific strategy: sovereignty messaging for social media, implementation explainers for professional platforms, conflict-context for broadcast. The highest communication risk is the Trade War Provocation frame becoming dominant before China formally responds.
+
+[EXTEND-FROM-PRIOR: extended/media-framing-analysis.md prior=229L -> new=275L (+46)]

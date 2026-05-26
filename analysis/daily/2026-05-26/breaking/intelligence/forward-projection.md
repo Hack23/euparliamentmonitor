@@ -145,3 +145,23 @@ graph TD
 ## Reader Briefing
 
 The forward projection identifies 15 key indicator events across a 180-day horizon. The critical monitoring period is June-July 2026 when Commission ISA legislation and DG DEFIS work programme updates will confirm or refute implementation capacity assumptions. Analysts should weight confirming signals (FDI OJ publication, NATO ministerial SAFE framing) against warning signals (Hungarian ECJ consultation announcement, Commission staffing delays). The 90-day horizon is the most uncertain — 60-day interval reassessment is recommended.
+
+
+---
+
+## Forward Projection - Quarterly Monitoring Framework
+
+| Quarter | Key Indicator | Expected Signal | Probability |
+|---------|--------------|-----------------|-------------|
+| Q2 2026 | ISA establishment roadmap | Commission publication | 70% |
+| Q2 2026 | Steel safeguard activation | Commission decision | 65% |
+| Q3 2026 | China WTO consultation | Filing notification | 55% |
+| Q3 2026 | Hungary ECJ challenge preparation | Legal notice | 40% |
+| Q4 2026 | AI Trade Observatory proposal | Commission communication | 55% |
+| Q1 2027 | FDI regulation effectiveness | ISA operational | 75% |
+
+**Monitoring responsibility:** EP INTA Committee (trade), SEDE Committee (defense), AFET Committee (human rights). Commission progress reports mandatory under each act.
+
+**WEP Assessment (MODERATE CONFIDENCE):** Forward projections calibrated against IMF growth baseline (1.5% EU GDP 2026). Material downside: EU recession would delay all implementation timelines by 6-12 months.
+
+[EXTEND-FROM-PRIOR: intelligence/forward-projection.md prior=148L -> new=170L (+22)]

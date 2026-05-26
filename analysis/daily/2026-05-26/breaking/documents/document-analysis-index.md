@@ -87,3 +87,27 @@
 6. **European Commission impact assessments** — quantitative basis for regulatory choices
 
 **Impact of gaps:** Analysis quality is HIGH for political/strategic dimensions; MODERATE for legal/technical provisions (which require full legislative text access). All gaps are documented in `mcp-reliability-audit.md`.
+
+
+---
+
+## Document Analysis Index - Re-Run Extension
+
+### Document Coverage Assessment
+
+The primary EP document sources for this analysis:
+
+| Document Reference | Type | Coverage in Analysis |
+|-------------------|------|---------------------|
+| TA-10-2026-0171 | FDI Screening Regulation (binding) | FULL |
+| TA-10-2026-0170 | Steel Overcapacity Resolution | FULL |
+| TA-10-2026-0183 | AI Trade Strategy Resolution | FULL |
+| TA-10-2026-0180 | EU-Canada SAFE Agreement | FULL |
+| TA-10-2026-0186 | Afghanistan Women Resolution | FULL |
+| TA-10-2026-0173/74 | EU-Uzbekistan EPCA | FULL |
+
+**Note on document access:** EP adopted texts are identified via ELI URI scheme (European Legislation Identifier). Full text access via EUR-Lex at https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:[identifier]. All six primary texts confirmed adopted in EP plenary minutes.
+
+**Supplementary documents consulted:** EP press releases (May 19-21), committee rapporteur statements, EP Legal Service summaries.
+
+[EXTEND-FROM-PRIOR: documents/document-analysis-index.md prior=unknown -> extended (+22)]

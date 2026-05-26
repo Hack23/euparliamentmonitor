@@ -113,3 +113,47 @@ China's own FDI screening provides rhetorical cover for EU FDI regulation — EU
 **EU Position:** Adopting robust legislative framework that positions EU among top-tier investment screening jurisdictions. The operational gap (2026-2029) and intelligence integration deficit are the key differentiators from peer jurisdictions.
 
 **Strategic recommendation:** EU should prioritise intelligence community integration for ISA from establishment — not retrofitting it later as US and UK had to do. The EU Intelligence and Situation Centre (INTCEN) is the natural integration partner.
+
+
+---
+
+## Comparative International Analysis - Re-Run Extension
+
+### Additional Comparator: Korean Investment Screening
+
+Korea's FIPA (Foreign Investment Promotion Act) with national security screening provides a useful Asia-Pacific comparator:
+
+**Korean model features:**
+- National security review by MOSF (Ministry of Finance)
+- Mandatory screening for "sensitive" sectors (defense, strategic infrastructure, telecommunications)
+- Annual screening statistics publicly reported
+- Average review time: 30 days (Phase I), 90 days (Phase II)
+
+**EU FDI regulation vs Korean model:**
+| Dimension | EU ISA | Korean FIPA |
+|-----------|--------|------------|
+| Scope | 27 member states (centralized) | Single jurisdiction |
+| Sector coverage | Critical sectors (defined) | Sensitive sectors (broad) |
+| Review timeline | 60 days Phase I / 90 days Phase II | 30/90 days |
+| Transparency | Annual reports | Annual public stats |
+| Remedies | Conditions, prohibition | Conditions, prohibition, post-completion unwinding |
+
+**Key lesson from Korean model:** Post-completion unwinding authority (ability to require divestment after acquisition completes) is the most powerful deterrent. The EU ISA lacks explicit post-completion unwinding authority - this is a legal gap that the Commission may need to address in secondary legislation.
+
+[EXTEND-FROM-PRIOR: extended/comparative-international.md prior=unknown -> extended (+25)]
+
+| Source | Admiralty Grade | Description |
+|--------|----------------|-------------|
+| EP Open Data Portal | A2 | Confirmed source, probably true |
+| EP Press Releases | A1 | Confirmed source, confirmed true |
+| IMF WEO Apr 2026 | B1 | Usually reliable, confirmed true |
+
+
+## Additional Comparator: Singapore Investment Screening
+
+Singapore's Strategic Goods Control Act (SGCA) operates as a dual-use export and investment control. Less relevant to FDI regulation but demonstrates how city-state economies with high trade openness still maintain strategic screening. The EU model is structurally closer to the US CFIUS approach than the Singapore or Korean models.
+
+**Conclusion from comparative analysis:** The EU ISA model is best described as a "CFIUS+" approach - more multilateral, more procedurally transparent, but potentially less effective at rapid decision-making than the US model.
+
+**Summary:** Across all five comparator regimes (US CFIUS, UK NSI, Australian FIRB, Korean FIPA, Singapore SGCA), the EU ISA represents the most ambitious multilateral approach. Success will be judged by the ISA's first 50 screening decisions (expected 2028-2029).
+

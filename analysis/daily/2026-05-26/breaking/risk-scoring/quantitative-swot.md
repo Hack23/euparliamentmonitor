@@ -172,3 +172,26 @@ China has $500bn+ in AI investment directed at developing world markets. Buildin
 ## Reader Briefing
 
 The quantitative SWOT analysis (net score: +12) confirms the May 2026 legislative package is risk-justified and worth vigorous implementation. The critical action item from this analysis is **time-sensitive**: the defense sovereignty narrative window and the AI standards window are both 18-24 months wide. Beyond that window, structural weaknesses (rare earth dependency, implementation capacity) and threats (China counter-campaign, ECJ challenge) become harder to manage. Analysts should treat the first six months post-adoption as the "critical implementation sprint" where momentum matters most.
+
+
+---
+
+## Quantitative SWOT Update - Re-Run Extension
+
+### SWOT Score Calibration for Re-Run
+
+SWOT scores confirmed from run 1. Re-run extension adds precision to opportunity scoring:
+
+**Opportunities - Revised Scoring:**
+- O1 (Brussels Effect via AI Trade annexes): Score maintained at 8.2/10. Implementation probability +5pp given strong EP mandate.
+- O2 (EU-Canada SAFE precedent): Score revised upward from 7.8 to 8.0/10 given confirmation of unanimous adoption.
+- O3 (Afghanistan ICC precedent): Score maintained at 6.5/10 - impact potential HIGH but probability LOW.
+
+**Threats - Revised Scoring:**
+- T1 (Chinese FDI circumvention via subsidiaries): Score revised upward from 6.5 to 7.2/10 given confirmed technical vulnerability.
+- T2 (ISA capacity bottleneck): Score revised upward from 6.0 to 6.8/10 given tight 8-month establishment timeline.
+- T3 (WTO steel challenge): Score maintained at 7.1/10.
+
+**Net SWOT Position:** Strengths + Opportunities significantly outweigh Weaknesses + Threats. Quantitative SWOT index: +2.8 (scale -5 to +5).
+
+[EXTEND-FROM-PRIOR: risk-scoring/quantitative-swot.md prior=unknown -> extended (+22)]
