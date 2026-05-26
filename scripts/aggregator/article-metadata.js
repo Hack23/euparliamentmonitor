@@ -124,6 +124,7 @@ export function resolveArticleMetadata(opts) {
     return result;
 }
 const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
+const ENGLISH_BRIEF_SOURCE = 'english-brief';
 /**
  * Resolve `{title, description, keywords, source}` for one language.
  *
@@ -135,17 +136,49 @@ function resolveOneLanguage(input) {
     const manifestDescription = manifestOverrideFor(input.manifest.description, input.lang);
     const perLanguage = resolvePerLanguageEditorial(input);
     const editorial = perLanguage.editorial;
+    // When a non-EN language falls back to the English brief (no localized
+    // sibling and no `editorial.headline_<lang>` override), the English
+    // manifest title is a better SEO candidate than the bare H1 /
+    // headline-judgement bullet: editors curate manifest titles to be
+    // unique across adjacent runs (date- or article-type-qualified) even
+    // when two briefs share the same lead bullet. Falling through to the
+    // English manifest description is the matching safeguard against
+    // cross-pair duplicate `<meta description>` values.
+    const englishFallbackTitle = perLanguage.source === ENGLISH_BRIEF_SOURCE
+        ? manifestOverrideFor(input.manifest.title, 'en')
+        : '';
+    const englishFallbackDescription = perLanguage.source === ENGLISH_BRIEF_SOURCE
+        ? manifestOverrideFor(input.manifest.description, 'en')
+        : '';
     const contextualTitle = composeContextualTitle(input.template.title, editorial.headline, input.runId, input.date);
-    const title = pickFirstNonEmpty([manifestTitle, contextualTitle, input.template.title]);
-    const rawDescription = sanitizeDescriptionCandidate(pickFirstNonEmpty([manifestDescription, editorial.summary, input.template.subtitle]));
+    const title = pickFirstNonEmpty([
+        manifestTitle,
+        englishFallbackTitle,
+        contextualTitle,
+        input.template.title,
+    ]);
+    const rawDescription = sanitizeDescriptionCandidate(pickFirstNonEmpty([
+        manifestDescription,
+        englishFallbackDescription,
+        editorial.summary,
+        input.template.subtitle,
+    ]));
     const safeEditorial = {
         headline: isUsableResolvedTitle(editorial.headline) ? editorial.headline.trim() : '',
         summary: sanitizeDescriptionCandidate(editorial.summary),
         extendedSummary: sanitizeDescriptionCandidate(editorial.extendedSummary),
     };
     const normalizedRawDescription = rawDescription || sanitizeDescriptionCandidate(input.template.subtitle);
-    const skipEnrichment = perLanguage.source === LOCALIZED_BRIEF_SOURCE && normalizedRawDescription.length > 0;
-    const description = skipEnrichment || normalizedRawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
+    // Localized-brief descriptions are normally preserved verbatim to
+    // avoid corrupting carefully-translated prose with generic "Date:"
+    // boilerplate. We only honour that shortcut when the translation is
+    // already long enough to clear the per-script SEO floor — otherwise
+    // ultra-short localized briefs (e.g. "Geen nieuwe moties op
+    // 2026-04-01." at 47 chars) fall below SERP truncation. In that case
+    // we re-enable enrichment so `composeContextualDescription` can
+    // append the localized "Date" qualifier and push the description
+    // above the reader floor.
+    const description = normalizedRawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
         ? normalizedRawDescription
         : composeContextualDescription(input.lang, normalizedRawDescription, safeEditorial, input.date, input.runId);
     const clippedTitle = truncateTitle(title).trim();
