@@ -2723,6 +2723,1803 @@ The absence of live feed data necessitates reliance on known EP context and infe
 
 **Admiralty Source Grade:** F2 (Cannot be judged reliability; secondary; degraded-feeds run with no primary documentary evidence for most committees)
 
+### Executive Brief Ar
+
+**الأميرالية:** B2 — صحيح على الأرجح؛ استناداً إلى المعرفة المؤسسية للبرلمان الأوروبي والنشاط المؤكد للجنة AFCO  
+**SATs:** فحص الافتراضات الرئيسية، فحص جودة المعلومات  
+**وضع البيانات:** degraded-feeds (عامل حد أدنى 0.80)  
+**معرّف التشغيل:** committee-reports-run260-1779774042  
+
+---
+
+### BLUF — Bottom Line Up Front
+
+يدخل نظام لجان البرلمان الأوروبي أسبوع 26 مايو 2026 في مرحلة ذات طلب تشريعي مرتفع مع محدودية الرؤية الرقابية. أسفرت أعطال واجهة برمجة التطبيقات للبيانات المفتوحة للبرلمان الأوروبي (4 من أصل 5 مصادر غير متاحة) عن تقييد التأكيد الوثائقي على خط أنابيب لجنة AFCO (أكثر من 50 وثيقة مؤكدة). يُجمع التحليل المعرفةَ المؤسسية للدورة العاشرة للبرلمان الأوروبي: خمسة تيارات تشريعية نشطة (تنفيذ قانون الذكاء الاصطناعي، أجندة القدرة التنافسية، الاستراتيجية الصناعية الدفاعية، مراجعة الاتفاقية الخضراء، ميثاق الهجرة)، وأغلبية مثيرة للجدل يقودها حزب الشعب الأوروبي EPP تستلزم إدارة ائتلافية على كل ملف مهم، وارتفاع مخاطر إضعاف طموح الاتفاقية الخضراء جراء التوافق التكتيكي للجناح اليميني.
+
+**التقييمات الرئيسية:**
+
+1. 🟡 **لجنة AFCO**: تأكيد نشاط الشؤون الدستورية (50 وثيقة في سلسلة EP730–PE782). العمل على الإصلاح المؤسسي والاتفاقيات بين المؤسسات هو المحور المرجح. *الثقة: متوسطة (B2 — دليل وثائقي مباشر، لا توجد بيانات وصفية للمحتوى)*
+
+2. 🟠 **تيارات أولويات التشريع**: جميع التيارات الكبرى الخمسة للدورة العاشرة (الذكاء الاصطناعي، القدرة التنافسية، الدفاع، مراجعة الاتفاقية الخضراء، الهجرة) في مرحلة لجنة نشطة. مايو 2026 أسبوع لجان بروكسل (بعد الجلسة العامة 20-23 مايو في ستراسبورغ)، مما يعني توقع تصويتات وجلسات استماع وجلسات عمل للمقررين هذا الأسبوع. *الثقة: متوسطة إلى عالية (B2)*
+
+3. 🔴 **مخاطر إضعاف الاتفاقية الخضراء**: احتمالية تُقدَّر بـ65% (محتمل) أن تصويتات لجنة ENVI/ITRE تُنتج نتائج أضعف من مقترحات المفوضية 2019-2024، مدفوعةً بالتوافق التكتيكي بين EPP+ECR+Patriots على ملفات محددة. *الثقة: متوسطة (B2)*
+
+4. 🟡 **الأعمال المفوضة لقانون الذكاء الاصطناعي**: تنسيق لجنتي ITRE/LIBE بشأن الأعمال المفوضة ينطوي على مخاطر متساوية (50%) من تأخر 6 أشهر بسبب نزاعات الاختصاص القضائي وضغوط اللوبي الصناعي. *الثقة: متوسطة (B2)*
+
+5. 🟢 **الأساس الاقتصادي**: يتوقع IMF WEO أبريل 2026 نمو الناتج المحلي الإجمالي للاتحاد الأوروبي بنسبة 1.4% لعام 2026، مما يوفر السياق الاقتصادي الكلي لتشريعات القدرة التنافسية. تظل فجوة الاستثمار التي حددها دراغي بـ EUR 750-800 مليار هي الإطار المرجعي لعمل لجنتي ECON وITRE. *الثقة: عالية (A1 — مصدر أولي IMF)*
+
+---
+
+### Political Landscape Summary
+
+| المجموعة | المقاعد | دور اللجنة الربع الثاني 2026 |
+|---------|---------|------------------------------|
+| EPP | 189 | محدد جدول الأعمال؛ بناة الأغلبية؛ مؤيد للقدرة التنافسية |
+| S&D | 136 | شريك ائتلافي أساسي؛ مفاوض البعد الاجتماعي |
+| Patriots | 84 | أقلية مزعزِعة؛ حليف تكتيكي لـ EPP في الملفات المناسبة |
+| ECR | 78 | محافظ؛ تفاوت التوافق؛ براغماتي في السياسة الصناعية |
+| Renew | 77 | أصوات الموازنة الليبرالية؛ مؤيد للرقمنة والتجارة |
+| Greens/EFA | 53 | أقلية؛ معاقل ENVI/LIBE؛ تحالفات مع S&D/Left |
+| Left | 46 | معارضة تقدمية؛ ملفات العمل والاجتماع |
+| ESN | 25 | أقصى اليمين؛ مهمَّش |
+
+**عتبة الأغلبية:** 353/705 مقعداً. يتمتع الائتلاف الكبير (EPP+S&D+Renew = 402 مقعداً) بأغلبية مريحة للتشريعات السائدة؛ الخطر يكمن في الاستخدام التكتيكي لـ EPP لـ Patriots/ECR في ملفات يمينية التوجه.
+
+---
+
+### IMF Economic Reference
+
+**أرقام IMF WEO أبريل 2026 الرئيسية في سياق لجان البرلمان الأوروبي:**
+- نمو الناتج المحلي الإجمالي للاتحاد الأوروبي 2026: **1.4%** (فوق 1.1% لعام 2025 — تعافٍ متواضع)
+- تضخم منطقة اليورو: **2.0%** (ضمن الهدف؛ دورة تيسير حذرة للبنك المركزي الأوروبي)
+- البطالة في الاتحاد الأوروبي: **5.7%** (تنخفض ببطء)
+- العجز المالي للاتحاد الأوروبي: **~2.5% من الناتج المحلي الإجمالي** (ضمن حدود ميثاق الاستقرار والنمو بعد الإصلاح)
+
+يعزز السياق الاقتصادي إلحاحية اللجنة بشأن القدرة التنافسية وتشريعات أسواق رأس المال. يوفر الدعم الصريح من IMF لإطار دراغي غطاءً سياسياً لحزم إصلاح ECON/ITRE الطموحة.
+
+---
+
+### Monitoring Gaps
+
+هذا الملخص التنفيذي محدود صراحةً بسبب تدهور واجهة برمجة تطبيقات البرلمان الأوروبي. تسري فجوات المراقبة التالية:
+
+1. **لا توجد بيانات حديثة لتصويتات اللجان**: غير معروف أي اللجان صوّتت هذا الأسبوع وعلى أي ملفات
+2. **لا توجد بيانات عن الفعاليات/الجلسات**: الجلسات الاستماعية وشهادات الخبراء وعروض المقررين غير مرصودة
+3. **تغطية اللجان**: تم تأكيد نشاط AFCO فقط؛ 19 لجنة أخرى غير مرصودة
+4. **خط أنابيب الإجراءات**: حالة تقدم الإجراءات الحالية غير معروفة (البيانات الاحتياطية تعود إلى 1972)
+
+**توصية للتشغيل القادم:** عند استعادة واجهة برمجة التطبيقات للبرلمان الأوروبي، يجب أن تكون الاسترداد المعمق ذات الأولوية: `get_procedures_feed` (السنة الجارية)، `get_events_feed` (الجلسات الفائتة)، `get_committee_documents_feed` (التقارير الفائتة)، و`track_legislation` لتيارات الأولويات الخمسة.
+
+---
+
+### Strategic Intelligence Summary
+
+يمثّل نظام لجان البرلمان الأوروبي في أسبوع 26 مايو 2026 نقطة تحول حرجة في دورة التشريع للفترة العاشرة. خمسة تيارات أولويات تشريعية كبرى نشطة في آنٍ واحد في مرحلة اللجان، وائتلاف أغلبية EPP يتطلب إدارة معقدة، وإطار القدرة التنافسية لدراغي يوفر المرجع الاقتصادي الكلي لعمل لجنتي ECON وITRE. حدّ تدهور واجهة برمجة تطبيقات البرلمان الأوروبي من قدرة نظام المراقبة على تأكيد الأنشطة اللجنوية المحددة، لكن التحليل الهيكلي يظل متيناً استناداً إلى المعرفة المؤسسية.
+
+**لصانعي القرار وأصحاب المصلحة السياسيين:** المتغير الرئيسي في عمل لجان البرلمان الأوروبي في مايو 2026 هو كيفية تنسيق EPP مع Patriots/ECR في ملفات بيئية وميثاق الهجرة المحددة مع الحفاظ على الائتلاف الكبير لتشريعات القدرة التنافسية والذكاء الاصطناعي. رصد مواقف منسق لجنة EPP ونصوص المقررين الظل في ENVI وLIBE وITRE سيكشف عن ديناميكيات الائتلاف الفعلية.
+
+**للمواطنين:** مرحلة اللجنة هي المرحلة التي يُحدَّد فيها فعلياً محتوى القوانين التي تؤثر على الحياة اليومية. عندما تُصوِّت اللجان على الأعمال المفوضة لقانون الذكاء الاصطناعي، أو تعديلات مراجعة الاتفاقية الخضراء، أو مقترحات إجراءات الهجرة، فإنها تتخذ قرارات ذات عواقب عملية فورية. التواصل مع إجراءات اللجان — تقديم العرائض، ومتابعة عمل المقررين، وتتبع نتائج جلسات الاستماع للخبراء — هو الشكل الأكثر مباشرة للمشاركة الديمقراطية المتاحة لمواطني الاتحاد الأوروبي.
+
+---
+
+*أنتجه سير عمل EU Parliament Monitor الآلي | committee-reports | 2026-05-26 | التشغيل: committee-reports-run260-1779774042 | وضع البيانات: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**المشهد اللجوي للبرلمان الأوروبي: تحليل هيكلي لصانعي القرار**
+
+يعمل نظام لجان البرلمان الأوروبي كمرشح غرفة مسبقة لجميع تشريعات الاتحاد الأوروبي. اعتباراً من 26 مايو 2026، تُحدِّد ثلاث قوى هيكلية المشهد:
+
+**القوة 1: هيمنة EPP دون أغلبية**
+بـ189/705 مقعداً (26.8%)، EPP هي أكبر مجموعة لكنها لا تستطيع تمرير التشريعات بمفردها. هيمنة EPP على رؤاسة اللجان (ENVI وITRE وECON وAFCO وINTA) تمنحها قوة تحديد جدول الأعمال — تتحكم اللجان في التعديلات التي تصل إلى الجلسة العامة. غير أن EPP تحتاج إلى مجموعتين إضافيتين على الأقل لتشكيل أغلبية. شراكة S&D-Renew (213 مقعداً مجتمعة) هي الائتلاف المفضل لـ EPP، مكونةً الائتلاف الكبير (402 مقعد، تحقيق أغلبية 353 بهامش). استراتيجية الكتلة اليمينية البديلة لـ EPP (Patriots 84, ECR 78) لا تصل إلا إلى 351 مقعداً — اثنان أقل من الأغلبية — مما يجعل الائتلاف الكبير الخيار الرشيد الافتراضي لـ EPP.
+
+**القوة 2: مراجعة الاتفاقية الخضراء بوصفها المعركة التشريعية الحاسمة**
+عملية مراجعة الاتفاقية الخضراء للجنة ENVI هي أكثر الأنشطة اللجوية أهمية في 2026. تضغط EPP من أجل تعديلات "القدرة التنافسية" على قانون استعادة الطبيعة ولائحة التغليف وجداول تنفيذ آلية تعديل حدود الكربون CBAM. تعارض S&D وGreens/EFA وLeft التراجعات. النتيجة التشريعية تحدد ما إذا كانت التزامات الاتحاد الأوروبي المناخية ستُصان أو ستُراجَع جذرياً لفترة هدف 2030.
+
+**القوة 3: توقيت الأعمال المفوضة لقانون الذكاء الاصطناعي**
+الأعمال المفوضة لقانون الذكاء الاصطناعي (اختصاص ITRE/LIBE) تُحدِّد الجدول الزمني للتنفيذ لمتطلبات أنظمة الذكاء الاصطناعي عالية المخاطر. المفوضية تواجه ضغطاً صناعياً للتأخير. الموقف التوافقي للجنة مهم لأن الأعمال المفوضة تستلزم أغلبية حجب في البرلمان الأوروبي (353 عضواً) لرفضها. الاختصاص التشريعي لـ ITRE هنا تسيطر عليه EPP — الموقف الداخلي لـ EPP بشأن سرعة تنفيذ الذكاء الاصطناعي متغير حاسم لحوكمة الذكاء الاصطناعي الأوروبي.
+
+### Decision-Maker Priority Matrix
+
+| أصحاب المصلحة | الأولوية الفورية | أولوية 3 أشهر | القلق طويل المدى |
+|----------------|-----------------|----------------|-----------------|
+| قطاع الأعمال الأوروبي | نتائج تصويت ENVI على الاتفاقية الخضراء | جدول الأعمال المفوضة لقانون الذكاء الاصطناعي | نطاق مراجعة المعاهدة |
+| المجتمع المدني | رصد ميثاق الهجرة | مواقف LIBE بشأن قانون الذكاء الاصطناعي | تأثير الإصلاح الدستوري |
+| المفوضية | أهداف تعديلات ENVI | تعاون ITRE في الذكاء الاصطناعي | مبادرة معاهدة AFCO |
+| الدول الأعضاء | متانة الائتلاف الكبير | إشارة ظهور الكتلة اليمينية | نقاشات مبدأ التبعية |
+| إدارة البرلمان الأوروبي | تقدم تفويض AFCO | توسيع مقاعد الجلسة العامة | تقديم إجراءات جديدة |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **تاريخ تصويت يونيو وقائمة تعديلات لجنة ENVI** — حاسم لمسار الاتفاقية الخضراء
+2. **اتساق موقف منسق EPP عبر اللجان** — يحدد متانة الائتلاف  
+3. **موقف مقرر ITRE بشأن الأعمال المفوضة للذكاء الاصطناعي** — حاسم لحوكمة الذكاء الاصطناعي الأوروبي
+4. **سلسلة وثائق AFCO PE781.*** — يُشير إلى ما إذا كانت مراجعة المعاهدة وشيكة
+5. **تقدم المفاوضات الثلاثية بشأن الملفات التشريعية المعلقة** — يحدد معدل الإنتاج 2026
+
+### Reader Briefing
+
+يُجمِّع هذا الملخص التنفيذي استخبارات لجان البرلمان الأوروبي ليوم 26 مايو 2026. البرلمان الأوروبي هو الهيئة التشريعية فوق القومية المنتخبة مباشرة الوحيدة في العالم. تتولى أكثر من 20 لجنة دائمة معالجة ما يقارب 200 ملف تشريعي لكل فترة تشريعية. يمكن لكل لجنة تعديل مقترحات المفوضية قبل التصويت في الجلسة العامة؛ وتعديلات اللجان عادةً ما تصمد في القانون النهائي. يحصل المواطنون الذين يتابعون نشاط اللجان على إنذار مبكر 3-6 أشهر بشأن التغييرات التشريعية التي تؤثر على حياتهم. الرسالة الرئيسية لهذا التحليل: الائتلاف الكبير صامد، وEPP تُعتدل وتيرة التحول الأخضر، وإطار حوكمة الذكاء الاصطناعي يُتفاوض عليه في اللجنة الآن.
+
+### IMF Economic Context for Committee Legislative Activity
+
+قرارات لجان البرلمان الأوروبي بشأن مراجعة الاتفاقية الخضراء وتنظيم الذكاء الاصطناعي وسياسة الهجرة لا تحدث في فراغ اقتصادي. يوفر IMF WEO أبريل 2026 خط الأساس السياق الاقتصادي الذي يُشكّل الجدوى السياسية:
+
+- **نمو الناتج المحلي الإجمالي للاتحاد الأوروبي 2026: 1.4%** — النمو دون الاتجاه يقلل شهية EPP للتدابير المكلفة للتحول الأخضر ويزيد الدعم لتعديلات القدرة التنافسية
+- **تضخم منطقة اليورو 2026: 2.0%** — عودة التضخم إلى الهدف تقلل إلحاحية التدابير الطارئة للبنك المركزي الأوروبي؛ تُطبِّع هامش المالية العامة للاستثمار الأخضر
+- **البطالة في الاتحاد الأوروبي 2026: 5.7%** — البطالة الهيكلية تحافظ على ضغط S&D لأحكام انتقال عادل اجتماعي في كل ملف من ملفات مراجعة الاتفاقية الخضراء
+- **العجز المالي للاتحاد الأوروبي ~2.5% الناتج المحلي الإجمالي** — ضمن قواعد ميثاق الاستقرار والنمو؛ يتيح بعض الاستثمار الأخضر من الدول الأعضاء لكن يحد من برامج الإعانات في التشريعات التي يقودها البرلمان الأوروبي
+- **مصدر IMF:** `cache — WEO April 2026`
+
+**الآثار التشريعية:** يخلق النمو دون الاتجاه الظروف السياسية لرواية القدرة التنافسية لـ EPP. معركة لجنة ENVI على مراجعة الاتفاقية الخضراء تُخاض في سياق يمكن فيه لجماعات الضغط الصناعية استشهاد مخاوف النمو بمصداقية. حجة S&D المضادة — أن الاستثمار الأخضر يحفز النمو — تحظى بدعم IMF (الفصل 3 من WEO حول استثمار المناخ) لكنها أصعب في التواصل في بيئة نمو منخفضة.
+
+### Data Availability Assessment (This Run)
+
+| مصدر البيانات | الحالة | أثر الثقة |
+|--------------|--------|-----------|
+| تغذية وثائق لجان البرلمان الأوروبي | 🔴 404 غير متاح | مرتفع — لا يمكن تأكيد نشاط الأسبوع الحالي |
+| تغذية إجراءات البرلمان الأوروبي | 🟡 جزئي (ذيل تاريخي) | متوسط — البنية صالحة، التوقيت غير موثوق |
+| تغذية فعاليات البرلمان الأوروبي | 🔴 404 غير متاح | مرتفع — لا يمكن تأكيد جدول أعمال يونيو |
+| وثائق لجان البرلمان الأوروبي | 🟡 جزئي (50 وثيقة AFCO فقط) | متوسط — AFCO مؤكد؛ اللجان الأخرى مجهولة |
+| IMF WEO أبريل 2026 | 🟢 مخزون مؤقت | منخفض — خط الأساس الاقتصادي مؤكد |
+| المعرفة المؤسسية | 🟢 ثقة عالية | منخفض — توزيع مقاعد البرلمان الأوروبي، حسابات الأغلبية مُتحقَّق منها |
+
+الثقة الكلية في التحديدية الزمنية: 🔴 منخفضة — التحليل الهيكلي صالح؛ لا يمكن تأكيد نشاط لجان أسبوع 26 مايو.
+
+### Executive Brief Da
+
+### BLUF — Bottom Line Up Front
+
+Europa-Parlamentets udvalgssystem træder ind i ugen den 26. maj 2026 i en periode med høj lovgivningsefterspørgsel og begrænset overvågningssynlighed. Fejl i EP's åbne data-API (4 ud af 5 kilder utilgængelige) begrænser dokumentarisk bekræftelse til AFCO-udvalgets pipeline (50+ dokumenter bekræftet). Analysen syntetiserer EP's 10. valgperiodes institutionelle viden: fem aktive lovgivningsstrømme (implementering af AI-forordningen, Konkurrenceevnedagsordenen, Forsvarsindustriel strategi, Revision af den grønne pagt, Migrationspagten), et omstridt EPP-ledet flertal, der kræver koalitionsstyring på hver betydelig sag, og forhøjet risiko for, at den grønne pagts ambition svækkes af højreflankens taktiske tilpasning.
+
+**Centrale vurderinger:**
+
+1. 🟡 **AFCO-udvalget**: Konstitutionelle anliggender bekræftet aktive (50 dokumenter i EP730–PE782-serien). Institutionel reform og interinstitutionelt aftalearbejde er den sandsynlige fokus. *Tillid: MEDIUM (B2 — direkte dokumentbevis, ingen indholdsmetadata)*
+
+2. 🟠 **Lovgivningsprioritetsstrømme**: Alle fem store strømme i den 10. valgperiode (AI, Konkurrenceevne, Forsvar, Revision af den grønne pagt, Migration) er i aktivt udvalgsstadium. Maj 2026 er en Bruxelles-udvalgsuge (efter plenarsessionen 20.–23. maj i Strasbourg), hvilket betyder, at afstemninger, høringer og ordførerens arbejdssessioner forventes denne uge. *Tillid: MEDIUM-HØJ (B2)*
+
+3. 🔴 **Risiko for svækkelse af den grønne pagt**: Sandsynlighed vurderet til 65 % (Sandsynligt) for, at udvalgsafstemninger i ENVI/ITRE producerer resultater svagere end Kommissionens forslag 2019–2024, drevet af EPP+ECR+Patriots taktiske tilpasning på specifikke sager. *Tillid: MEDIUM (B2)*
+
+4. 🟡 **AI-forordningens delegerede retsakter**: ITRE/LIBE-udvalgets koordination om delegerede retsakter har en nogenlunde lige (50 %) risiko for 6 måneders forsinkelse på grund af jurisdiktionstvister og industrilobbyisme. *Tillid: MEDIUM (B2)*
+
+5. 🟢 **Økonomisk grundlag**: IMF WEO April 2026 forudsiger EU's BNP-vækst til 1,4 % for 2026, hvilket giver den makroøkonomiske kontekst for konkurrenceevnelovgivning. Draghis investeringsgab på EUR 750–800 mia. forbliver referencerammen for ECON- og ITRE-udvalgets arbejde. *Tillid: HØJ (A1 — IMF primærkilde)*
+
+---
+
+### Political Landscape Summary
+
+| Gruppe | Pladser | Udvalgsrolle kv. 2 2026 |
+|--------|---------|------------------------|
+| EPP | 189 | Dagsordensætter; flertalsbygger; pro-konkurrenceevne |
+| S&D | 136 | Væsentlig koalitionspartner; forhandler af social dimension |
+| Patriots | 84 | Forstyrrende minoritet; taktisk EPP-allieret i rette sager |
+| ECR | 78 | Konservativ; variabel tilpasning; pragmatisk i industripolitik |
+| Renew | 77 | Liberale svingsstemmer; pro-digitalt, pro-handel |
+| Greens/EFA | 53 | Minoritet; stærke i ENVI/LIBE; koalitioner med S&D/Left |
+| Left | 46 | Progressiv opposition; arbejdsmarkeds- og socialsager |
+| ESN | 25 | Yderste højre; marginaliseret |
+
+**Flertalstærskel:** 353/705 pladser. Den store koalition (EPP+S&D+Renew = 402 pladser) har et komfortabelt flertal for mainstream-lovgivning; risikoen er EPP's taktiske brug af Patriots/ECR for specifikke højreorienterede sager.
+
+---
+
+### IMF Economic Reference
+
+**IMF WEO April 2026 nøgletal for EP-udvalgets kontekst:**
+- EU's BNP-vækst 2026: **1,4 %** (over 2025's 1,1 % — beskeden genopretning)
+- Eurozonens inflation: **2,0 %** (på målet; ECB's forsigtigt lempende cyklus)
+- EU's arbejdsløshed: **5,7 %** (langsomt faldende)
+- EU's finansunderskud: **~2,5 % af BNP** (inden for SGP-grænser efter reform)
+
+Den økonomiske kontekst styrker udvalgets hastende arbejde med konkurrenceevne- og kapitalmarkedslovgivning. IMF's udtrykkelige støtte til Draghi-rammen giver politisk dækning for ambitiøse ECON/ITRE-reformpakker.
+
+---
+
+### Monitoring Gaps
+
+Dette udøvende resumé er eksplicit begrænset af EP API-forringelse. Følgende overvågningsgab gælder:
+
+1. **Ingen aktuelle udvalgsafstemningsdata**: Ukendt hvilke udvalg der stemte denne uge og om hvilke sager
+2. **Ingen begivenheds-/høringsdatadata**: Høringer, ekspertvidneudsagn og ordførerens præsentationer er uobserverede
+3. **Udvalgsddækning**: Kun AFCO bekræftet aktiv; 19 andre udvalg uobserverede
+4. **Procedur-pipeline**: Aktuel status for procedurefremskridt er ukendt (reservedata er fra 1972)
+
+**Anbefaling til næste kørsel:** Når EP API genoprettes, bør prioriteret dyb-hentning være: `get_procedures_feed` (indeværende år), `get_events_feed` (manglende høringer), `get_committee_documents_feed` (manglende rapporter), og `track_legislation` for de 5 prioriterede strømme.
+
+---
+
+### Strategic Intelligence Summary
+
+EP's udvalgssystem i ugen den 26. maj 2026 repræsenterer et kritisk knudepunkt i den 10. valgperiodes lovgivningscyklus. Fem store lovgivningsprioritetsstrømme er samtidig aktive i udvalgsstadiet, EPP's majoritetskoalition kræver kompleks styring, og Draghis konkurrenceevneramme giver den makroøkonomiske reference for ECON- og ITRE-udvalgets arbejde. EP API-forringelse begrænsede overvågningssystemets evne til at bekræfte specifikke udvalgsaktiviteter, men strukturanalysen forbliver robust baseret på institutionel viden.
+
+**For beslutningstagere og politiske interessenter:** Den afgørende variabel i EP's udvalgsarbejde i maj 2026 er, hvordan EPP koordinerer med Patriots/ECR om specifikke grønne og migrationssager, mens det opretholder den store koalition for konkurrenceevne- og AI-lovgivning. Overvågning af EPP's udvalgskoordinatorpositioner og skyggeordførertekster i ENVI, LIBE og ITRE vil afsløre de faktiske koalitionsdynamikker.
+
+**For borgere:** Udvalgsstadiet er, hvor indholdet i love, der påvirker hverdagen, faktisk bestemmes. Når udvalg stemmer om AI-forordningens delegerede retsakter, ændringsforslag til revisionen af den grønne pagt eller migrationsprocedureforslag, træffer de beslutninger med umiddelbare praktiske konsekvenser. Engagement i udvalgsprocedurer — indsendelse af andragender, opfølgning på ordførerarbejde, sporing af ekspertudfrågningsresultater — er den mest direkte form for demokratisk deltagelse, der er tilgængelig for EU's borgere.
+
+---
+
+*Genereret af EU Parliament Monitor automatiseret arbejdsgang | committee-reports | 2026-05-26 | Kørsel: committee-reports-run260-1779774042 | Datatilstand: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**EP's udvalgslandskab: Strukturel analyse for beslutningstagere**
+
+Europa-Parlamentets udvalgssystem fungerer som forkammerfilter for al EU-lovgivning. Fra den 26. maj 2026 definerer tre strukturkræfter landskabet:
+
+**Kraft 1: EPP-dominans uden flertal**
+Med 189/705 pladser (26,8 %) er EPP den største gruppe, men kan ikke vedtage lovgivning alene. EPP's dominans over udvalgsformandsposterne (ENVI, ITRE, ECON, AFCO, INTA) giver dagsordensættende magt — udvalg kontrollerer, hvilke ændringsforslag der når plenum. EPP kræver dog mindst to yderligere grupper for at danne et flertal. S&D-Renew-partnerskabet (213 kombinerede pladser) er EPP's foretrukne koalition og danner den store koalition (402 pladser, flertal på 353 opnået med margin). EPP's alternative højreblokstrategi (Patriots 84, ECR 78) når kun 351 pladser — to under flertalsgrænsen — hvilket gør den store koalition til EPP's rationelle standard.
+
+**Kraft 2: Revision af den grønne pagt som det afgørende lovgivningsstrid**
+ENVI-udvalgets revisionsproces af den grønne pagt er den mest afgørende udvalgsaktivitet i 2026. EPP presser på for "konkurrenceevne"-ændringer af naturgenopretningsloven, emballageforordningen og CBAM-implementeringstidsplaner. S&D, Greens/EFA og Left modsætter sig tilbagerulninger. Det lovgivningsmæssige resultat afgør, om EU's klimaforpligtelser opretholdes eller grundlæggende revideres for 2030-målperioden.
+
+**Kraft 3: Timing for AI-forordningens delegerede retsakter**
+AI-forordningens delegerede retsakter (ITRE/LIBE's jurisdiktion) fastsætter implementeringstidslinjen for krav til AI-systemer med høj risiko. Kommissionen er under industrielt pres for at forsinke. Udvalgets konsensusposition er vigtig, fordi delegerede retsakter kræver et blokerende flertal i EP (353 MEP'er) for at afvise. ITRE's lovgivningskompetence her kontrolleres af EPP — EPP's interne holdning til AI-implementeringshastighed er en afgørende variabel for EU's AI-styring.
+
+### Decision-Maker Priority Matrix
+
+| Interessent | Umiddelbar prioritet | 3-måneders prioritet | Langsigtet bekymring |
+|-------------|---------------------|---------------------|---------------------|
+| EU-erhvervsliv | ENVI-afstemningsresultater for den grønne pagt | Tidsplan for AI-forordningens delegerede retsakter | Fælles omfang for traktatrevision |
+| Civilsamfund | Overvågning af migrationspagten | AI-forordningens LIBE-positioner | Påvirkning af konstitutionel reform |
+| Kommissionen | ENVI-ændringsmål | ITRE-samarbejde om AI | AFCO-traktatinitiativ |
+| Medlemsstater | Bæredygtighed for den store koalition | Signal om højrebloks fremkomst | Subsidiaritetsdebatter |
+| EP-administrationen | AFCO-mandatfremskridt | Udvidelse af plenarpladser | Indgivelse af nye procedurer |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **ENVI-udvalgets juniafstemnigsdato og ændringsforslagnsliste** — afgørende for den grønne pagts bane
+2. **EPP-koordinatorens konsistens på tværs af udvalgspositioner** — bestemmer koalitionens holdbarhed  
+3. **ITRE-ordførerens position om AI's delegerede retsakter** — afgørende for EU's AI-styring
+4. **AFCO-dokumentserien PE781.*** — signalerer, om traktatrevision er nært forestående
+5. **Trilogfremskridt om udestående lovgivningssager** — bestemmer 2026-outputraten
+
+### Reader Briefing
+
+Dette udøvende resumé syntetiserer EP's udvalgsefterretning for den 26. maj 2026. EP er verdens eneste direkte valgte overnationale lovgivende forsamling. Dets 20+ stående udvalg håndterer ca. 200 lovgivningssager pr. valgperiode. Hvert udvalg kan ændre Kommissionens forslag inden plenartemning; udvalgsændringer overlever typisk i den endelige lov. Borgere, der overvåger udvalgsaktivitet, får 3–6 måneders forhåndsvarsel om lovgivningsændringer, der påvirker deres liv. Nøglebudskabet fra denne analyse: den store koalition holder, EPP modererer tempoet for den grønne omstilling, og AI-styrningsrammen forhandles i udvalg lige nu.
+
+### IMF Economic Context for Committee Legislative Activity
+
+EP's udvalgsbeslutninger om revision af den grønne pagt, AI-regulering og migrationspolitik sker ikke i et økonomisk vakuum. IMF WEO April 2026 basislinjen giver den økonomiske kontekst, der former politisk gennemførlighed:
+
+- **EU's BNP-vækst 2026: 1,4 %** — Under-trend vækst reducerer EPP's appetit på kostbare grønne omstillingsforanstaltninger og øger støtten til konkurrenceevneændringer
+- **Eurozonens inflation 2026: 2,0 %** — Inflationen vender tilbage til målet; reducerer hastende ECB-nødforanstaltninger; normaliserer finanspolitisk rum for grøn investering
+- **EU's arbejdsløshed 2026: 5,7 %** — Strukturel arbejdsløshed opretholdes S&D's pres for retfærdig omstilling sociale bestemmelser i hver grøn pagt revisionssag
+- **EU's finansunderskud ~2,5 % BNP** — Inden for SGP-reglerne; tillader en vis grøn investering fra medlemsstater, men begrænser subsidieprogrammer i EP-drevet lovgivning
+- **IMF-kilde:** `cache — WEO April 2026`
+
+**Lovgivningsmæssig implikation:** Under-trend vækst skaber politiske betingelser for EPP's konkurrenceevnenarrativer. ENVI-udvalgets kamp om revision af den grønne pagt udkæmpes i en kontekst, hvor erhvervslobbyer troværdigt kan citere vækstbekymringer. S&D's modargument — at grøn investering stimulerer vækst — har IMF-støtte (WEO kapitel 3 om klimainvestering), men er sværere at kommunikere i et lavvækstmiljø.
+
+### Data Availability Assessment (This Run)
+
+| Datakilde | Status | Tillidsimpakt |
+|-----------|--------|---------------|
+| EP-udvalgets dokumentfeed | 🔴 404 UTILGÆNGELIG | HØJ — Kan ikke bekræfte aktuelle ugentlige aktiviteter |
+| EP-procedureopdateringsfeed | 🟡 DELVIS (historisk hale) | MEDIUM — Struktur gyldig, timing upålidelig |
+| EP-begivenhedsfeed | 🔴 404 UTILGÆNGELIG | HØJ — Kan ikke bekræfte junidagordenen |
+| EP-udvalgets dokumenter | 🟡 DELVIS (50 AFCO-dok. kun) | MEDIUM — AFCO bekræftet; andre udvalg ukendte |
+| IMF WEO April 2026 | 🟢 CACHET | LAV — Økonomisk baseline bekræftet |
+| Institutionel viden | 🟢 HØJ TILLID | LAV — EP's pladsallokering, flertalsaritmetik verificeret |
+
+Overordnet tillid til tidsmæssig specificitet: 🔴 LAV — Strukturel analyse gyldig; ugens udvalgsaktivitet den 26. maj kan ikke bekræftes.
+
+### Executive Brief De
+
+### BLUF — Bottom Line Up Front
+
+Das Ausschusssystem des Europäischen Parlaments tritt in der Woche des 26. Mai 2026 in eine Phase mit hoher Gesetzgebungsnachfrage und eingeschränkter Überwachungssichtbarkeit ein. Ausfälle der EP Open Data API (4 von 5 Quellen nicht verfügbar) beschränken die dokumentarische Bestätigung auf die Pipeline des AFCO-Ausschusses (über 50 Dokumente bestätigt). Die Analyse synthetisiert das institutionelle Wissen der 10. Wahlperiode des EP: fünf aktive Gesetzgebungsströme (Umsetzung des KI-Gesetzes, Wettbewerbsfähigkeitsagenda, Verteidigungsindustrielle Strategie, Überarbeitung des Green Deal, Migrationspakt), eine umstrittene EPP-geführte Mehrheit, die bei jedem bedeutenden Dossier Koalitionsmanagement erfordert, und ein erhöhtes Risiko, dass die Green-Deal-Ambition durch taktische Ausrichtung des rechten Flügels geschwächt wird.
+
+**Zentrale Einschätzungen:**
+
+1. 🟡 **AFCO-Ausschuss**: Verfassungsangelegenheiten bestätigt aktiv (50 Dokumente in der EP730–PE782-Reihe). Institutionelle Reform und interinstitutionelle Vereinbarungsarbeit ist der wahrscheinliche Schwerpunkt. *Vertrauen: MITTEL (B2 — direkter Dokumentennachweis, keine Inhaltsmetadaten)*
+
+2. 🟠 **Gesetzgebungsprioritetätsströme**: Alle fünf großen Ströme der 10. Wahlperiode (KI, Wettbewerbsfähigkeit, Verteidigung, Green-Deal-Überarbeitung, Migration) befinden sich im aktiven Ausschussstadium. Mai 2026 ist eine Brüsseler Ausschusswoche (nach der Plenartagung 20.–23. Mai in Straßburg), was bedeutet, dass Abstimmungen, Anhörungen und Arbeitstagungen der Berichterstatter in dieser Woche erwartet werden. *Vertrauen: MITTEL-HOCH (B2)*
+
+3. 🔴 **Risiko der Abschwächung des Green Deal**: Wahrscheinlichkeit auf 65 % (Wahrscheinlich) eingeschätzt, dass Ausschussabstimmungen in ENVI/ITRE Ergebnisse produzieren, die schwächer sind als die Kommissionsvorschläge 2019–2024, angetrieben durch die taktische Ausrichtung von EPP+ECR+Patriots in bestimmten Dossiers. *Vertrauen: MITTEL (B2)*
+
+4. 🟡 **Delegierte Rechtsakte des KI-Gesetzes**: Die Koordinierung des ITRE/LIBE-Ausschusses zu delegierten Rechtsakten hat ein ungefähr gleiches (50 %) Risiko einer 6-monatigen Verzögerung aufgrund von Zuständigkeitsstreitigkeiten und Industrielobbyismus. *Vertrauen: MITTEL (B2)*
+
+5. 🟢 **Wirtschaftliche Grundlage**: IMF WEO April 2026 prognostiziert das EU-BIP-Wachstum auf 1,4 % für 2026, was den makroökonomischen Kontext für Wettbewerbsfähigkeitsgesetze liefert. Die Draghi-Investitionslücke von EUR 750–800 Mrd. bleibt der Referenzrahmen für die Arbeit des ECON- und ITRE-Ausschusses. *Vertrauen: HOCH (A1 — IMF Primärquelle)*
+
+---
+
+### Political Landscape Summary
+
+| Gruppe | Sitze | Ausschussrolle Q2 2026 |
+|--------|-------|------------------------|
+| EPP | 189 | Tagesordnungssetzer; Mehrheitsbauer; pro-Wettbewerbsfähigkeit |
+| S&D | 136 | Unentbehrlicher Koalitionspartner; Verhandler der sozialen Dimension |
+| Patriots | 84 | Störende Minderheit; taktischer EPP-Verbündeter bei geeigneten Dossiers |
+| ECR | 78 | Konservativ; variable Ausrichtung; pragmatisch in der Industriepolitik |
+| Renew | 77 | Liberale Stimmen; pro-digital, pro-Handel |
+| Greens/EFA | 53 | Minderheit; stark in ENVI/LIBE; Koalitionen mit S&D/Left |
+| Left | 46 | Progressive Opposition; Arbeitsmarkt- und Sozialthemen |
+| ESN | 25 | Äußerste Rechte; marginalisiert |
+
+**Mehrheitsschwelle:** 353/705 Sitze. Die Große Koalition (EPP+S&D+Renew = 402 Sitze) hat eine komfortable Mehrheit für Mainstream-Gesetzgebung; das Risiko besteht in EPP's taktischem Einsatz von Patriots/ECR für spezifische rechtsgerichtete Dossiers.
+
+---
+
+### IMF Economic Reference
+
+**IMF WEO April 2026 Schlüsselzahlen für den EP-Ausschusskontext:**
+- EU-BIP-Wachstum 2026: **1,4 %** (über dem Wert von 2025 von 1,1 % — bescheidene Erholung)
+- Inflation der Eurozone: **2,0 %** (im Zielbereich; EZB-vorsichtiger Lockerungszyklus)
+- EU-Arbeitslosigkeit: **5,7 %** (langsam sinkend)
+- EU-Haushaltsdefizit: **~2,5 % des BIP** (innerhalb der SGP-Grenzen nach der Reform)
+
+Der wirtschaftliche Kontext verstärkt die Dringlichkeit des Ausschusses bei Wettbewerbsfähigkeits- und Kapitalmarktgesetzen. IMF's ausdrückliche Befürwortung des Draghi-Rahmens bietet politischen Rückhalt für ambitionierte ECON/ITRE-Reformpakete.
+
+---
+
+### Monitoring Gaps
+
+Dieser Kurzbericht für Entscheidungsträger ist ausdrücklich durch die EP API-Degradierung begrenzt. Folgende Überwachungslücken gelten:
+
+1. **Keine aktuellen Ausschussabstimmungsdaten**: Unbekannt, welche Ausschüsse in dieser Woche über welche Dossiers abgestimmt haben
+2. **Keine Veranstaltungs-/Anhörungsdaten**: Anhörungen, Expertenzeugenaussagen und Präsentationen der Berichterstatter sind unbeobachtet
+3. **Ausschussabdeckung**: Nur AFCO als aktiv bestätigt; 19 andere Ausschüsse unbeobachtet
+4. **Verfahrens-Pipeline**: Aktueller Stand der Verfahrensfortschritte ist unbekannt (Reservedaten stammen aus 1972)
+
+**Empfehlung für den nächsten Durchlauf:** Wenn die EP API wiederhergestellt ist, sollte die prioritäre Tiefenabfrage sein: `get_procedures_feed` (laufendes Jahr), `get_events_feed` (verpasste Anhörungen), `get_committee_documents_feed` (verpasste Berichte) und `track_legislation` für die 5 prioritären Ströme.
+
+---
+
+### Strategic Intelligence Summary
+
+Das Ausschusssystem des EP in der Woche des 26. Mai 2026 repräsentiert einen kritischen Wendepunkt im Gesetzgebungszyklus der 10. Wahlperiode. Fünf große Gesetzgebungsprioritätsströme sind gleichzeitig im Ausschussstadium aktiv, EPP's Mehrheitskoalition erfordert komplexes Management, und Draghis Wettbewerbsfähigkeitsrahmen liefert die makroökonomische Referenz für die Arbeit des ECON- und ITRE-Ausschusses. Die EP API-Degradierung begrenzte die Fähigkeit des Überwachungssystems, spezifische Ausschussaktivitäten zu bestätigen, aber die Strukturanalyse bleibt robust auf der Grundlage institutionellen Wissens.
+
+**Für Entscheidungsträger und politische Interessengruppen:** Die entscheidende Variable bei der Ausschussarbeit des EP im Mai 2026 ist, wie EPP mit Patriots/ECR bei bestimmten grünen und Migrationsdossiers koordiniert, während es die Große Koalition für Wettbewerbsfähigkeits- und KI-Gesetzgebung aufrechterhält. Die Überwachung der Positionen des EPP-Ausschusskoordinators und der Schattenberichterstatter-Texte in ENVI, LIBE und ITRE wird die tatsächlichen Koalitionsdynamiken aufzeigen.
+
+**Für Bürgerinnen und Bürger:** Das Ausschussstadium ist der Ort, an dem der Inhalt von Gesetzen, die das tägliche Leben beeinflussen, tatsächlich bestimmt wird. Wenn Ausschüsse über delegierte Rechtsakte des KI-Gesetzes, Änderungsanträge zur Überarbeitung des Green Deal oder Migrationsverfahrensvorschläge abstimmen, treffen sie Entscheidungen mit unmittelbaren praktischen Konsequenzen. Die Beteiligung an Ausschussverfahren — Einreichen von Petitionen, Verfolgen der Berichterstatterarbeit, Verfolgen der Ergebnisse von Expertenhörungen — ist die direkteste Form der demokratischen Teilhabe, die EU-Bürgerinnen und -Bürgern zur Verfügung steht.
+
+---
+
+*Erstellt vom EU Parliament Monitor automatisierten Workflow | committee-reports | 2026-05-26 | Ausführung: committee-reports-run260-1779774042 | Datenmodus: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**EP-Ausschusslandschaft: Strukturanalyse für Entscheidungsträger**
+
+Das Ausschusssystem des Europäischen Parlaments fungiert als Vorkammerfilter für alle EU-Gesetzgebung. Ab dem 26. Mai 2026 definieren drei Strukturkräfte die Landschaft:
+
+**Kraft 1: EPP-Dominanz ohne Mehrheit**
+Mit 189/705 Sitzen (26,8 %) ist EPP die größte Gruppe, kann aber keine Gesetze allein verabschieden. EPP's Dominanz über Ausschussvorsitzende (ENVI, ITRE, ECON, AFCO, INTA) gibt ihr agenda-setzende Macht — Ausschüsse kontrollieren, welche Änderungsanträge das Plenum erreichen. EPP benötigt jedoch mindestens zwei weitere Gruppen, um eine Mehrheit zu bilden. Die S&D-Renew-Partnerschaft (213 kombinierte Sitze) ist EPP's bevorzugte Koalition und bildet die Große Koalition (402 Sitze, Mehrheit von 353 mit Marge erreicht). EPP's alternative Rechtsblock-Strategie (Patriots 84, ECR 78) erreicht nur 351 Sitze — zwei unter der Mehrheitsschwelle — was die Große Koalition zum rationalen Ausweg für EPP macht.
+
+**Kraft 2: Green-Deal-Überarbeitung als entscheidender Gesetzgebungskampf**
+Der Überarbeitungsprozess des ENVI-Ausschusses zum Green Deal ist die folgenreichste Ausschussaktivität im Jahr 2026. EPP drängt auf „Wettbewerbsfähigkeits"-Modifikationen des Naturwiederherstellungsgesetzes, der Verpackungsverordnung und der CBAM-Umsetzungsfristen. S&D, Greens/EFA und Left lehnen Rückschritte ab. Das Gesetzgebungsergebnis bestimmt, ob die EU-Klimazusagen eingehalten oder für den Zielzeitraum 2030 grundlegend überarbeitet werden.
+
+**Kraft 3: Timing der delegierten Rechtsakte des KI-Gesetzes**
+Die delegierten Rechtsakte des KI-Gesetzes (Zuständigkeit ITRE/LIBE) legen den Umsetzungszeitplan für die Anforderungen an KI-Systeme mit hohem Risiko fest. Die Kommission steht unter Industriedruck, Verzögerungen zu verursachen. Die Konsensposition des Ausschusses ist wichtig, da delegierte Rechtsakte eine Sperrminorität im EP (353 Abgeordnete) zur Ablehnung erfordern. ITRE's Gesetzgebungskompetenz wird von EPP kontrolliert — EPP's interne Position zur KI-Umsetzungsgeschwindigkeit ist eine entscheidende Variable für die EU-KI-Governance.
+
+### Decision-Maker Priority Matrix
+
+| Interessengruppe | Unmittelbare Priorität | 3-Monats-Priorität | Langfristige Sorge |
+|-----------------|----------------------|-------------------|-------------------|
+| EU-Unternehmen | ENVI-Abstimmungsergebnisse zum Green Deal | Zeitplan für delegierte Rechtsakte des KI-Gesetzes | Umfang der Vertragsrevision |
+| Zivilgesellschaft | Überwachung des Migrationspakts | KI-Gesetz LIBE-Positionen | Auswirkung der Verfassungsreform |
+| Kommission | ENVI-Änderungsziele | ITRE-Zusammenarbeit beim KI | AFCO-Vertragsinitiative |
+| Mitgliedstaaten | Haltbarkeit der Großen Koalition | Signal für Aufstieg des Rechtsblocks | Subsidiaritätsdebatten |
+| EP-Verwaltung | AFCO-Mandatsfortschritt | Erweiterung der Plenarplätze | Einreichung neuer Verfahren |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **Abstimmungsdatum und Änderungsantragsliste des ENVI-Ausschusses für Juni** — entscheidend für die Richtung des Green Deal
+2. **Konsistenz des EPP-Koordinators bei ausschussübergreifenden Positionen** — bestimmt die Koalitionshaltbarkeit  
+3. **Position des ITRE-Berichterstatters zu delegierten Rechtsakten des KI-Gesetzes** — entscheidend für die EU-KI-Governance
+4. **AFCO-Dokumente Serie PE781.*** — signalisiert, ob Vertragsrevision unmittelbar bevorsteht
+5. **Trilog-Fortschritt bei ausstehenden Gesetzgebungsdossiers** — bestimmt die Produktionsrate 2026
+
+### Reader Briefing
+
+Dieser Kurzbericht für Entscheidungsträger synthetisiert das EP-Ausschussgeheimdienstwissen für den 26. Mai 2026. Das EP ist das einzige direkt gewählte supranationale Gesetzgebungsorgan der Welt. Seine mehr als 20 ständigen Ausschüsse behandeln rund 200 Gesetzgebungsdossiers pro Wahlperiode. Jeder Ausschuss kann Kommissionsvorschläge vor der Plenarabstimmung ändern; Ausschussänderungen überleben typischerweise in dem endgültigen Gesetz. Bürgerinnen und Bürger, die die Ausschussaktivitäten verfolgen, erhalten 3–6 Monate Vorwarnung über Gesetzgebungsänderungen, die ihr Leben beeinflussen. Die Kernbotschaft dieser Analyse: Die Große Koalition hält, EPP moderiert das Tempo der grünen Transformation, und der KI-Governance-Rahmen wird gerade jetzt im Ausschuss verhandelt.
+
+### IMF Economic Context for Committee Legislative Activity
+
+Die Ausschussentscheidungen des EP zur Überarbeitung des Green Deal, KI-Regulierung und Migrationspolitik finden nicht in einem wirtschaftlichen Vakuum statt. Die IMF WEO April 2026 Basislinie liefert den wirtschaftlichen Kontext, der die politische Machbarkeit prägt:
+
+- **EU-BIP-Wachstum 2026: 1,4 %** — Unter-Trend-Wachstum reduziert EPP's Appetit auf kostspielige grüne Transformationsmaßnahmen und erhöht die Unterstützung für Wettbewerbsfähigkeitsänderungen
+- **Inflation der Eurozone 2026: 2,0 %** — Inflation kehrt zum Ziel zurück; reduziert Dringlichkeit für EZB-Notmaßnahmen; normalisiert fiskalischen Spielraum für grüne Investitionen
+- **EU-Arbeitslosigkeit 2026: 5,7 %** — Strukturelle Arbeitslosigkeit hält S&D's Druck für gerechte Übergangs-Sozialbestimmungen in jedem Green-Deal-Überarbeitungsdossier aufrecht
+- **EU-Haushaltsdefizit ~2,5 % BIP** — Innerhalb der SGP-Regeln; ermöglicht einige grüne Investitionen der Mitgliedstaaten, begrenzt jedoch Subventionsprogramme in EP-getriebener Gesetzgebung
+- **IMF-Quelle:** `cache — WEO April 2026`
+
+**Gesetzgebungsimplikation:** Unter-Trend-Wachstum schafft politische Bedingungen für EPP's Wettbewerbsfähigkeitsnarrativ. Der Kampf des ENVI-Ausschusses um die Überarbeitung des Green Deal findet in einem Kontext statt, in dem Unternehmenslobbyisten glaubwürdig Wachstumsbedenken anführen können. S&D's Gegenargument — dass grüne Investitionen das Wachstum ankurbeln — hat IMF-Unterstützung (WEO Kapitel 3 zu Klimainvestitionen), ist aber im Niedrigwachstumsumfeld schwieriger zu kommunizieren.
+
+### Data Availability Assessment (This Run)
+
+| Datenquelle | Status | Vertrauensauswirkung |
+|-------------|--------|---------------------|
+| EP-Ausschussdokumenten-Feed | 🔴 404 NICHT VERFÜGBAR | HOCH — Kann aktuelle Wochenaktivitäten nicht bestätigen |
+| EP-Verfahrens-Feed | 🟡 TEILWEISE (historischer Schwanz) | MITTEL — Struktur gültig, Zeitpunkte unzuverlässig |
+| EP-Veranstaltungs-Feed | 🔴 404 NICHT VERFÜGBAR | HOCH — Kann Junidagesordnung nicht bestätigen |
+| EP-Ausschussdokumente | 🟡 TEILWEISE (50 AFCO-Dok. nur) | MITTEL — AFCO bestätigt; andere Ausschüsse unbekannt |
+| IMF WEO April 2026 | 🟢 GECACHT | NIEDRIG — Wirtschaftliche Basislinie bestätigt |
+| Institutionelles Wissen | 🟢 HOHES VERTRAUEN | NIEDRIG — EP-Sitzverteilung, Mehrheitsarithmetik überprüft |
+
+Allgemeines Vertrauen in zeitliche Spezifität: 🔴 NIEDRIG — Strukturanalyse gültig; Ausschussaktivitäten der Woche des 26. Mai können nicht bestätigt werden.
+
+### Executive Brief Es
+
+### BLUF — Bottom Line Up Front
+
+El sistema de comisiones del Parlamento Europeo entra en la semana del 26 de mayo de 2026 en un período de alta demanda legislativa con visibilidad de supervisión limitada. Los fallos de la API de datos abiertos del PE (4 de 5 fuentes no disponibles) limitan la confirmación documental al pipeline de la comisión AFCO (más de 50 documentos confirmados). El análisis sintetiza el conocimiento institucional de la 10.ª legislatura del PE: cinco flujos legislativos activos (implementación del Reglamento de IA, Agenda de competitividad, Estrategia Industrial de Defensa, Revisión del Pacto Verde, Pacto de Migración), una controvertida mayoría liderada por el PPE que requiere gestión de coalición en cada expediente significativo, y un riesgo elevado de que la ambición del Pacto Verde se debilite por la alineación táctica del ala derecha.
+
+**Evaluaciones clave:**
+
+1. 🟡 **Comisión AFCO**: Asuntos constitucionales confirmados activos (50 documentos en la serie EP730–PE782). La reforma institucional y el trabajo sobre los acuerdos interinstitucionales es el probable foco de atención. *Confianza: MEDIA (B2 — evidencia documental directa, sin metadatos de contenido)*
+
+2. 🟠 **Flujos de prioridades legislativas**: Los cinco grandes flujos de la 10.ª legislatura (IA, Competitividad, Defensa, Revisión del Pacto Verde, Migración) están todos en fase activa de comisión. Mayo de 2026 es una semana de comisión en Bruselas (tras la sesión plenaria del 20 al 23 de mayo en Estrasburgo), lo que significa que se esperan votaciones, audiencias y sesiones de trabajo de los ponentes esta semana. *Confianza: MEDIA-ALTA (B2)*
+
+3. 🔴 **Riesgo de debilitamiento del Pacto Verde**: Probabilidad estimada en 65 % (Probable) de que las votaciones en comisión ENVI/ITRE produzcan resultados más débiles que las propuestas de la Comisión 2019–2024, impulsadas por la alineación táctica PPE+ECR+Patriots en expedientes específicos. *Confianza: MEDIA (B2)*
+
+4. 🟡 **Actos delegados del Reglamento de IA**: La coordinación de las comisiones ITRE/LIBE sobre los actos delegados presenta un riesgo aproximadamente equilibrado (50 %) de retraso de 6 meses debido a disputas de competencia y lobby industrial. *Confianza: MEDIA (B2)*
+
+5. 🟢 **Base económica**: IMF WEO abril 2026 proyecta el crecimiento del PIB de la UE en 1,4 % para 2026, proporcionando el contexto macroeconómico para la legislación sobre competitividad. La brecha de inversión Draghi de EUR 750–800 mil millones sigue siendo el marco de referencia para el trabajo de las comisiones ECON e ITRE. *Confianza: ALTA (A1 — fuente primaria IMF)*
+
+---
+
+### Political Landscape Summary
+
+| Grupo | Escaños | Papel en comisión T2 2026 |
+|-------|---------|---------------------------|
+| PPE | 189 | Fijador de agenda; constructor de mayoría; pro-competitividad |
+| S&D | 136 | Socio de coalición esencial; negociador de la dimensión social |
+| Patriots | 84 | Minoría disruptiva; aliado táctico del PPE en expedientes adecuados |
+| ECR | 78 | Conservador; alineación variable; pragmático en política industrial |
+| Renew | 77 | Votos liberales de equilibrio; pro-digital, pro-comercio |
+| Greens/EFA | 53 | Minoría; bastiones ENVI/LIBE; coaliciones con S&D/Left |
+| Left | 46 | Oposición progresista; expedientes laborales/sociales |
+| ESN | 25 | Extrema derecha; marginalizados |
+
+**Umbral de mayoría:** 353/705 escaños. La Gran Coalición (PPE+S&D+Renew = 402 escaños) tiene una mayoría cómoda para la legislación ordinaria; el riesgo es el uso táctico por parte del PPE de Patriots/ECR para expedientes específicos de orientación derechista.
+
+---
+
+### IMF Economic Reference
+
+**Cifras clave del IMF WEO abril 2026 para el contexto de las comisiones del PE:**
+- Crecimiento del PIB de la UE 2026: **1,4 %** (por encima del 1,1 % de 2025 — recuperación modesta)
+- Inflación de la zona euro: **2,0 %** (en el objetivo; ciclo de relajación prudente del BCE)
+- Desempleo en la UE: **5,7 %** (descendiendo lentamente)
+- Déficit fiscal de la UE: **~2,5 % del PIB** (dentro de los límites del PEC tras la reforma)
+
+El contexto económico refuerza la urgencia de las comisiones en materia de competitividad y legislación sobre mercados de capitales. El respaldo explícito del IMF al marco Draghi proporciona cobertura política para ambiciosos paquetes de reforma ECON/ITRE.
+
+---
+
+### Monitoring Gaps
+
+Este informe ejecutivo está expresamente limitado por la degradación de la API del PE. Se aplican las siguientes lagunas de supervisión:
+
+1. **No hay datos actuales de votaciones en comisión**: Se desconoce qué comisiones votaron esta semana y sobre qué expedientes
+2. **No hay datos de eventos/audiencias**: Las audiencias, los testimonios de expertos y las presentaciones de los ponentes no están supervisados
+3. **Cobertura de comisiones**: Solo AFCO confirmada activa; 19 otras comisiones sin supervisar
+4. **Pipeline de procedimientos**: El estado actual del avance de los procedimientos es desconocido (los datos de reserva datan de 1972)
+
+**Recomendación para la próxima ejecución:** Cuando se restaure la API del PE, la búsqueda en profundidad prioritaria debe ser: `get_procedures_feed` (año en curso), `get_events_feed` (audiencias perdidas), `get_committee_documents_feed` (informes perdidos), y `track_legislation` para los 5 flujos prioritarios.
+
+---
+
+### Strategic Intelligence Summary
+
+El sistema de comisiones del PE en la semana del 26 de mayo de 2026 representa un punto de inflexión crítico en el ciclo legislativo de la 10.ª legislatura. Cinco grandes flujos de prioridades legislativas están simultáneamente activos en fase de comisión, la coalición mayoritaria del PPE requiere una gestión compleja, y el marco de competitividad Draghi proporciona la referencia macroeconómica para el trabajo de las comisiones ECON e ITRE. La degradación de la API del PE limitó la capacidad del sistema de supervisión para confirmar actividades específicas de las comisiones, pero el análisis estructural sigue siendo sólido basado en el conocimiento institucional.
+
+**Para responsables de decisión y partes interesadas políticas:** La variable clave en el trabajo de las comisiones del PE en mayo de 2026 es cómo el PPE coordina con Patriots/ECR en expedientes verdes y de migración específicos mientras mantiene la Gran Coalición para la competitividad y la legislación de IA. El seguimiento de las posiciones de los coordinadores de comisión del PPE y los textos de los ponentes en la sombra en ENVI, LIBE e ITRE revelará las dinámicas de coalición reales en juego.
+
+**Para los ciudadanos:** La fase de comisión es donde se determina realmente el contenido de las leyes que afectan la vida cotidiana. Cuando las comisiones votan sobre los actos delegados del Reglamento de IA, las enmiendas a la revisión del Pacto Verde o las propuestas de procedimientos migratorios, están tomando decisiones con consecuencias prácticas inmediatas. Involucrarse en los procedimientos de comisión — presentar peticiones, seguir el trabajo de los ponentes, rastrear los resultados de las audiencias de expertos — es la forma más directa de participación democrática disponible para los ciudadanos de la UE.
+
+---
+
+*Generado por el flujo de trabajo automatizado EU Parliament Monitor | committee-reports | 2026-05-26 | Ejecución: committee-reports-run260-1779774042 | Modo de datos: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**Panorama de las comisiones del PE: Análisis estructural para responsables de decisión**
+
+El sistema de comisiones del Parlamento Europeo funciona como filtro pre-cámara para toda la legislación de la UE. A partir del 26 de mayo de 2026, tres fuerzas estructurales definen el panorama:
+
+**Fuerza 1: Dominio del PPE sin mayoría**
+Con 189/705 escaños (26,8 %), el PPE es el grupo más grande pero no puede aprobar legislación solo. El dominio del PPE sobre las presidencias de comisión (ENVI, ITRE, ECON, AFCO, INTA) le da poder de fijación de agenda — las comisiones controlan qué enmiendas llegan al pleno. Sin embargo, el PPE requiere al menos dos grupos adicionales para formar una mayoría. La asociación S&D-Renew (213 escaños combinados) es la coalición preferida del PPE, formando la Gran Coalición (402 escaños, mayoría de 353 alcanzada con margen). La estrategia alternativa de bloque de derechas del PPE (Patriots 84, ECR 78) solo alcanza 351 escaños — dos por debajo de la mayoría — haciendo de la Gran Coalición el valor predeterminado racional del PPE.
+
+**Fuerza 2: La revisión del Pacto Verde como la batalla legislativa decisiva**
+El proceso de revisión del Pacto Verde de la comisión ENVI es la actividad de comisión más trascendental de 2026. El PPE está presionando por modificaciones de «competitividad» a la Ley de Restauración de la Naturaleza, el Reglamento de Envases y los plazos de implementación del CBAM. El S&D, Greens/EFA y Left se oponen a los retrocesos. El resultado legislativo determina si se mantienen los compromisos climáticos de la UE o se revisan fundamentalmente para el período objetivo 2030.
+
+**Fuerza 3: Calendario de los actos delegados del Reglamento de IA**
+Los actos delegados del Reglamento de IA (jurisdicción ITRE/LIBE) establecen el calendario de implementación de los requisitos para los sistemas de IA de alto riesgo. La Comisión está bajo presión industrial para retrasar. La posición de consenso de la comisión importa porque los actos delegados requieren una mayoría de bloqueo en el PE (353 eurodiputados) para ser rechazados. La competencia legislativa de ITRE aquí está controlada por el PPE — la posición interna del PPE sobre la velocidad de implementación de la IA es una variable decisiva para la gobernanza europea de la IA.
+
+### Decision-Maker Priority Matrix
+
+| Parte interesada | Prioridad inmediata | Prioridad 3 meses | Preocupación a largo plazo |
+|-----------------|--------------------|--------------------|---------------------------|
+| Empresas UE | Resultados de votaciones ENVI sobre el Pacto Verde | Calendario de actos delegados del Reglamento de IA | Alcance de la revisión de los Tratados |
+| Sociedad civil | Supervisión del Pacto de Migración | Posiciones LIBE sobre el Reglamento de IA | Impacto de la reforma constitucional |
+| Comisión | Objetivos de enmiendas ENVI | Cooperación ITRE en IA | Iniciativa de Tratado AFCO |
+| Estados miembros | Durabilidad de la Gran Coalición | Señal del surgimiento del bloque de derechas | Debates sobre subsidiariedad |
+| Administración del PE | Avance del mandato AFCO | Ampliación de escaños en el pleno | Presentación de nuevos procedimientos |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **Fecha de votación de junio y lista de enmiendas de la comisión ENVI** — decisivo para la trayectoria del Pacto Verde
+2. **Coherencia del coordinador PPE en posiciones entre comisiones** — determina la durabilidad de la coalición  
+3. **Posición del ponente ITRE sobre los actos delegados de la IA** — decisivo para la gobernanza europea de la IA
+4. **Serie de documentos AFCO PE781.*** — señala si la revisión del Tratado es inminente
+5. **Avance de trílogos sobre expedientes legislativos pendientes** — determina la tasa de producción de 2026
+
+### Reader Briefing
+
+Este informe ejecutivo sintetiza la inteligencia de las comisiones del PE para el 26 de mayo de 2026. El PE es el único órgano legislativo supranacional directamente elegido del mundo. Sus más de 20 comisiones permanentes gestionan aproximadamente 200 expedientes legislativos por legislatura. Cada comisión puede enmendar las propuestas de la Comisión antes de la votación en pleno; las enmiendas de la comisión normalmente sobreviven en la ley final. Los ciudadanos que siguen la actividad de las comisiones obtienen un aviso previo de 3 a 6 meses sobre los cambios legislativos que afectan sus vidas. El mensaje clave de este análisis: la Gran Coalición se mantiene, el PPE modera el ritmo de la transición verde, y el marco de gobernanza de la IA se está negociando en comisión ahora mismo.
+
+### IMF Economic Context for Committee Legislative Activity
+
+Las decisiones de las comisiones del PE sobre la revisión del Pacto Verde, la regulación de la IA y la política migratoria no ocurren en un vacío económico. La línea de base del IMF WEO abril 2026 proporciona el contexto económico que da forma a la viabilidad política:
+
+- **Crecimiento del PIB de la UE 2026: 1,4 %** — El crecimiento por debajo de la tendencia reduce el apetito del PPE por medidas costosas de transición verde y aumenta el apoyo a las enmiendas de competitividad
+- **Inflación de la zona euro 2026: 2,0 %** — La inflación volviendo al objetivo reduce la urgencia de las medidas de emergencia del BCE; normaliza el margen fiscal para la inversión verde
+- **Desempleo en la UE 2026: 5,7 %** — El desempleo estructural mantiene la presión del S&D por disposiciones sociales de transición justa en cada expediente de revisión del Pacto Verde
+- **Déficit fiscal de la UE ~2,5 % PIB** — Dentro de las normas del PEC; permite cierta inversión verde de los Estados miembros pero limita los programas de subvenciones en la legislación impulsada por el PE
+- **Fuente IMF:** `cache — WEO April 2026`
+
+**Implicación legislativa:** El crecimiento por debajo de la tendencia crea condiciones políticas para el narrativo de competitividad del PPE. La batalla de la comisión ENVI sobre la revisión del Pacto Verde se libra en un contexto donde los grupos de lobby industriales pueden citar de manera creíble preocupaciones de crecimiento. El contraargumento del S&D — que la inversión verde estimula el crecimiento — cuenta con el apoyo del IMF (Capítulo 3 del WEO sobre inversión climática), pero es más difícil de comunicar en un entorno de bajo crecimiento.
+
+### Data Availability Assessment (This Run)
+
+| Fuente de datos | Estado | Impacto en la confianza |
+|----------------|--------|------------------------|
+| Fuente de documentos de comisión del PE | 🔴 404 NO DISPONIBLE | ALTO — No se puede confirmar la actividad de la semana actual |
+| Fuente de procedimientos del PE | 🟡 PARCIAL (cola histórica) | MEDIO — Estructura válida, tiempos poco fiables |
+| Fuente de eventos del PE | 🔴 404 NO DISPONIBLE | ALTO — No se puede confirmar la agenda de junio |
+| Documentos de comisión del PE | 🟡 PARCIAL (50 docs AFCO solo) | MEDIO — AFCO confirmado; otras comisiones desconocidas |
+| IMF WEO abril 2026 | 🟢 EN CACHÉ | BAJO — Referencia económica confirmada |
+| Conocimiento institucional | 🟢 ALTA CONFIANZA | BAJO — Distribución de escaños del PE, aritmética de mayorías verificada |
+
+Confianza global en la especificidad temporal: 🔴 BAJA — Análisis estructural válido; la actividad de las comisiones de la semana del 26 de mayo no puede confirmarse.
+
+### Executive Brief Fi
+
+### BLUF — Bottom Line Up Front
+
+Euroopan parlamentin valiokuntajärjestelmä astuu viikkoon 26. toukokuuta 2026 korkean lainsäädäntötarpeen ja rajoitetun valvontanäkyvyyden kaudella. EP:n avoimen data-ohjelmointirajapinnan virheet (4 viidestä lähteestä saavuttamattomissa) rajoittavat asiakirjavahvistuksen AFCO-valiokunnan käsittelyputkeen (yli 50 asiakirjaa vahvistettu). Analyysi syntetisoi EP:n 10. vaalikauden institutionaalista tietoa: viisi aktiivista lainsäädäntövirtaa (tekoälylain täytäntöönpano, Kilpailukykyohjelma, Puolustusteollinen strategia, Vihreän kehityksen ohjelman tarkistus, Muuttoliikesopimus), kiistelty EPP:n johtama enemmistö, joka vaatii koalitionhallintaa jokaisen merkittävän asian kohdalla, sekä kohonnut riski siitä, että vihreän kehityksen tavoitteita heikennetään oikeistosiiven taktisella linjautumisella.
+
+**Keskeiset arviot:**
+
+1. 🟡 **AFCO-valiokunta**: Perustuslailliset asiat vahvistettu aktiiviseksi (50 asiakirjaa EP730–PE782-sarjassa). Institutionaalinen uudistus ja toimielinten välinen sopimustyö on todennäköinen painopiste. *Luottamus: KESKITASO (B2 — suora asiakirjanäyttö, ei sisältömetadataa)*
+
+2. 🟠 **Lainsäädäntöprioriteettivirtaukset**: Kaikki viisi 10. vaalikauden suurta virtausta (tekoäly, kilpailukyky, puolustus, vihreän kehityksen ohjelman tarkistus, muuttoliike) ovat aktiivisessa valiokuntavaiheessa. Toukokuu 2026 on Bryssel-valiokuntaviikko (Strasbourgin täysistunnon 20.–23. toukokuuta jälkeen), joten äänestyksiä, kuulemisia ja esittelijöiden työskentelyjaksoja odotetaan tällä viikolla. *Luottamus: KESITASO-KORKEA (B2)*
+
+3. 🔴 **Vihreän kehityksen heikentämisriski**: Todennäköisyys arvioidaan 65 %:ksi (Todennäköistä), että ENVI/ITRE:n valiokuntaäänestykset tuottavat tuloksia, jotka ovat heikompia kuin komission ehdotukset 2019–2024, johtuen EPP+ECR+Patriots taktisesta linjautumisesta tietyissä asioissa. *Luottamus: KESKITASO (B2)*
+
+4. 🟡 **Tekoälylain delegoidut säädökset**: ITRE/LIBE-valiokunnan koordinoinnilla delegoiduista säädöksistä on suunnilleen tasan (50 %) riski 6 kuukauden viivästymisestä toimivaltariitojen ja teollisuuden lobbauksen vuoksi. *Luottamus: KESKITASO (B2)*
+
+5. 🟢 **Taloudellinen perusta**: IMF WEO huhtikuu 2026 ennustaa EU:n BKT-kasvun olevan 1,4 % vuodelle 2026, mikä tarjoaa makrotaloudellisen kontekstin kilpailukykylainsäädännölle. Draghin EUR 750–800 miljardin investointivaje on edelleen ECON- ja ITRE-valiokuntien työn viitekehys. *Luottamus: KORKEA (A1 — IMF primaarilähde)*
+
+---
+
+### Political Landscape Summary
+
+| Ryhmä | Paikat | Valiokuntarooli kv. 2 2026 |
+|-------|--------|---------------------------|
+| EPP | 189 | Esityslistankooste; enemmistönrakentaja; kilpailukykymyönteinen |
+| S&D | 136 | Välttämätön koalitionkumppani; sosiaalisen ulottuvuuden neuvottelija |
+| Patriots | 84 | Häiritsevä vähemmistö; taktinen EPP-liittolainen sopivissa asioissa |
+| ECR | 78 | Konservatiivinen; vaihteleva linjautuminen; pragmaattinen teollisuuspolitiikassa |
+| Renew | 77 | Liberaalit heiluriäänet; digitaalimyönteinen, kauppamyönteinen |
+| Greens/EFA | 53 | Vähemmistö; vahvat ENVI/LIBE:ssa; koalitiot S&D:n/Leftin kanssa |
+| Left | 46 | Progressiivinen oppositio; työmarkkinoiden ja sosiaaliasiat |
+| ESN | 25 | Äärioikeisto; marginalisoitu |
+
+**Enemmistökynnys:** 353/705 paikkaa. Suuri koalitio (EPP+S&D+Renew = 402 paikkaa) hallitsee valtavirtalainsäädännössä; riski on EPP:n taktinen käyttö Patriots/ECR:n kanssa tietyissä oikeistopainotteisissa asioissa.
+
+---
+
+### IMF Economic Reference
+
+**IMF WEO huhtikuu 2026 avainluvut EP:n valiokuntakontekstin kannalta:**
+- EU:n BKT-kasvu 2026: **1,4 %** (yli vuoden 2025 1,1 %:n — vaatimaton elpyminen)
+- Euroalueen inflaatio: **2,0 %** (tavoitteessa; EKP:n varovainen keventämissykli)
+- EU:n työttömyys: **5,7 %** (hitaasti laskeva)
+- EU:n rahoitusvaje: **~2,5 % BKT:sta** (SGP:n rajoissa uudistuksen jälkeen)
+
+Taloudellinen konteksti vahvistaa valiokunnan kiireellisyyttä kilpailukyky- ja pääomamarkkinalakien osalta. IMF:n nimenomainen tuki Draghi-kehykselle tarjoaa poliittisen suojan kunnianhimoisille ECON/ITRE-uudistuspaketeille.
+
+---
+
+### Monitoring Gaps
+
+Tämä toimeenpaneva tiivistelmä on nimenomaisesti rajoitettu EP:n ohjelmointirajapinnan heikentymisen vuoksi. Seuraavat valvontapuutteet pätevät:
+
+1. **Ei ajankohtaisia valiokuntaäänestystietoja**: Tuntematon, mitkä valiokunnat äänestivät tällä viikolla ja mistä asioista
+2. **Ei tapahtuma-/kuulemistietoja**: Kuulemiset, asiantuntijalausunnot ja esittelijöiden esitykset ovat tarkkailemattomia
+3. **Valiokuntakattavuus**: Ainoastaan AFCO vahvistettu aktiiviseksi; 19 muuta valiokuntaa tarkkailematta
+4. **Menettelyputki**: Nykyinen menettelyjen etenemistilanne on tuntematon (varatiedot ovat vuodelta 1972)
+
+**Suositus seuraavalle ajolle:** Kun EP:n ohjelmointirajapinta palautuu toimintaan, prioriteettihaun tulee olla: `get_procedures_feed` (kuluva vuosi), `get_events_feed` (puuttuvat kuulemiset), `get_committee_documents_feed` (puuttuvat raportit) ja `track_legislation` viidelle prioriteettivirralle.
+
+---
+
+### Strategic Intelligence Summary
+
+EP:n valiokuntajärjestelmä viikolla 26. toukokuuta 2026 edustaa kriittistä käännekohtaa 10. vaalikauden lainsäädäntösyklissä. Viisi suurta lainsäädäntöprioriteettivirtaa on samanaikaisesti aktiivisena valiokuntavaiheessa, EPP:n enemmistökoalitio vaatii monimutkaista hallintaa ja Draghin kilpailukykyviitekehys tarjoaa makrotaloudellisen viitteen ECON- ja ITRE-valiokuntien työtä varten. EP:n ohjelmointirajapinnan heikentyminen rajoitti valvontajärjestelmän kykyä vahvistaa tiettyjä valiokuntakohteita, mutta rakenteellinen analyysi on edelleen vahva institutionaalisen tiedon perusteella.
+
+**Päätöksentekijöille ja politiikan sidosryhmille:** Toukokuun 2026 EP:n valiokuntaistuntojen ratkaiseva muuttuja on, miten EPP koordinoi Patriots/ECR:n kanssa tietyissä vihreissä ja muuttoliiketilanteissa samalla kun se ylläpitää suurta koalitiota kilpailukyky- ja tekoälylainsäädäntöön. EPP:n valiokuntakoordinaattorien kantojen ja varjoesittelijöiden tekstien seuraaminen ENVI:ssä, LIBE:ssä ja ITRE:ssä paljastaa todelliset koalitiondynamiikat.
+
+**Kansalaisille:** Valiokuntavaihe on paikka, jossa jokapäiväiseen elämään vaikuttavien lakien sisältö tosiasiallisesti määritellään. Kun valiokunnat äänestävät tekoälylain delegoiduista säädöksistä, vihreän kehityksen ohjelman tarkistuksen muutosehdotuksista tai muuttoliikemenettelyehdotuksista, ne tekevät päätöksiä, joilla on välittömiä käytännön seurauksia. Osallistuminen valiokuntamenettelyihin — vetoomusten jättäminen, esittelijöiden työn seuraaminen, asiantuntijakuulemisten tulosten seuraaminen — on suorin demokratisen osallistumisen muoto, joka on EU:n kansalaisten saatavilla.
+
+---
+
+*Luonut EU Parliament Monitor automaattinen työnkulku | committee-reports | 2026-05-26 | Ajo: committee-reports-run260-1779774042 | Datatila: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**EP:n valiokuntamaisema: Rakenteellinen analyysi päätöksentekijöille**
+
+Euroopan parlamentin valiokuntajärjestelmä toimii kaikkien EU-lakien esisuodattimena. Kolme rakenteellista voimaa määrittää maisemaa 26. toukokuuta 2026 alkaen:
+
+**Voima 1: EPP:n hallitsevuus ilman enemmistöä**
+189/705 paikalla (26,8 %) EPP on suurin ryhmä, mutta ei pysty yksinään hyväksymään lainsäädäntöä. EPP:n hallitsevuus valiokuntapuheenjohtajan tehtävissä (ENVI, ITRE, ECON, AFCO, INTA) antaa esityslistoja muokkaavan vallan — valiokunnat kontrolloivat, mitkä muutosehdotukset päätyvät täysistuntoon. EPP tarvitsee kuitenkin vähintään kaksi lisäryhmää enemmistön muodostamiseen. S&D-Renew-kumppanuus (213 yhdistettyä paikkaa) on EPP:n ensisijainen koalitio, joka muodostaa suuren koalition (402 paikkaa, 353:n enemmistö saavutettu marginaalilla). EPP:n vaihtoehtoinen oikeistoblokkistrategia (Patriots 84, ECR 78) saavuttaa vain 351 paikkaa — kaksi alle enemmistökynnyksen — mikä tekee suuresta koalitiosta EPP:n rationaalisen oletuksen.
+
+**Voima 2: Vihreän kehityksen ohjelman tarkistus ratkaisevana lainsäädäntötaisteluna**
+ENVI-valiokunnan vihreän kehityksen tarkistusprosessi on vuoden 2026 merkittävin valiokuntakohde. EPP ajaa luonnonennallistamislain, pakkausasetuksen ja CBAM-toimeenpanoaikataulujen "kilpailukyky"-muutoksia. S&D, Greens/EFA ja Left vastustavat heikennyksiä. Lainsäädäntötulos määrää, säilytetäänkö EU:n ilmastositoumukset vai tarkistetaanko niitä perusteellisesti vuoden 2030 tavoitekaudelle.
+
+**Voima 3: Tekoälylain delegoitujen säädösten ajoitus**
+Tekoälylain delegoidut säädökset (ITRE/LIBE:n toimivalta) asettavat korkean riskin tekoälyjärjestelmävaatimusten toimeenpanoaikataulun. Komissio on teollisuuden paineen alla viivästyttää. Valiokunnan konsensusasema on merkittävä, koska delegoidut säädökset vaativat EP:n estävän enemmistön (353 MEP:tä) hylkäämiseksi. ITRE:n lainsäädäntötoimivalta on EPP:n hallinnassa — EPP:n sisäinen kanta tekoälyn toimeenpanon nopeudesta on ratkaiseva muuttuja EU:n tekoälyhallinnalle.
+
+### Decision-Maker Priority Matrix
+
+| Sidosryhmä | Välitön prioriteetti | 3 kuukauden prioriteetti | Pitkän aikavälin huoli |
+|------------|---------------------|------------------------|----------------------|
+| EU-yritykset | ENVI-äänestystulokset vihreästä kehityksestä | Tekoälylain delegoitujen säädösten aikataulu | Perussopimusuudistuksen laajuus |
+| Kansalaisyhteiskunta | Muuttoliikesopimuksen seuranta | Tekoälylain LIBE-kannat | Perustuslakiuudistuksen vaikutus |
+| Komissio | ENVI-muutosehdotustavoitteet | ITRE-yhteistyö tekoälyssä | AFCO-perussopimusaloite |
+| Jäsenvaltiot | Suuren koalition kestävyys | Oikeistoblokin noususignaali | Toissijaisuusperiaatekeskustelut |
+| EP-hallinto | AFCO-mandaatin eteneminen | Täysistuntopaikkojen laajennus | Uusien menettelyjen jättäminen |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **ENVI-valiokunnan kesäkuun äänestyksen päivämäärä ja muutosehdotusluettelo** — ratkaiseva vihreän kehityksen suunnalle
+2. **EPP-koordinaattorin johdonmukaisuus eri valiokuntien kannoissa** — määrää koalition kestävyyden  
+3. **ITRE:n esittelijän kanta tekoälyn delegoituihin säädöksiin** — ratkaiseva EU:n tekoälyhallinnalle
+4. **AFCO-asiakirjasarja PE781.*** — signaloi, onko perussopimusuudistus välittömästi edessä
+5. **Trilogiedistyminen kesken olevissa lainsäädäntöasioissa** — määrää vuoden 2026 tuotantonopeuden
+
+### Reader Briefing
+
+Tämä toimeenpaneva tiivistelmä syntetisoi EP:n valiokuntatiedustelun 26. toukokuuta 2026. EP on maailman ainoa suoraan valittu ylikansallinen lainsäätäjä. Sen yli 20 pysyvää valiokuntaa käsittelee noin 200 lainsäädäntöasiaa vaalikautta kohden. Kukin valiokunta voi muuttaa komission ehdotuksia ennen täysistuntoäänestystä; valiokunnan muutosehdotukset selviytyvät tyypillisesti lopulliseen lakiin. Kansalaiset, jotka seuraavat valiokuntien toimintaa, saavat 3–6 kuukauden ennakkovaroituksen lainsäädäntömuutoksista, jotka vaikuttavat heidän elämäänsä. Tämän analyysin keskeinen sanoma: suuri koalitio pitää, EPP kohtuullistaa vihreän siirtymän tahtia ja tekoälyhallintokehys neuvotellaan valiokunnassa juuri nyt.
+
+### IMF Economic Context for Committee Legislative Activity
+
+EP:n valiokunnan päätökset vihreän kehityksen tarkistuksesta, tekoälysääntelystä ja muuttoliikepolitiikasta eivät tapahdu taloudellisessa tyhjiössä. IMF WEO huhtikuu 2026 -peruslinja tarjoaa taloudellisen kontekstin, joka muokkaa poliittista toteutettavuutta:
+
+- **EU:n BKT-kasvu 2026: 1,4 %** — Trendin alapuolinen kasvu vähentää EPP:n halukkuutta kalliisiin vihreän siirtymän toimenpiteisiin ja lisää tukea kilpailukykymuutoksille
+- **Euroalueen inflaatio 2026: 2,0 %** — Inflaatio palaa tavoitteeseen; vähentää EKP:n hätätoimenpiteiden kiireellisyyttä; normalisoi finanssipoliittisen tilan vihreille investoinneille
+- **EU:n työttömyys 2026: 5,7 %** — Rakenteellinen työttömyys ylläpitää S&D:n painetta oikeudenmukaiseen siirtymään liittyviä sosiaalisia säädöksiä kohtaan jokaisessa vihreän kehityksen ohjelman tarkistustiedostossa
+- **EU:n rahoitusvaje ~2,5 % BKT:sta** — SGP:n sääntöjen puitteissa; mahdollistaa jäsenvaltioiden jonkin verran vihreää investointia, mutta rajoittaa tukiohjelmia EP:n ajamassa lainsäädännössä
+- **IMF-lähde:** `cache — WEO April 2026`
+
+**Lainsäädäntövaikutus:** Trendin alapuolinen kasvu luo poliittiset edellytykset EPP:n kilpailukykynarratiiville. ENVI-valiokunnan taistelu vihreän kehityksen tarkistuksesta käydään kontekstissa, jossa teollisuuslobbarit voivat uskottavasti vedota kasvuhuoliin. S&D:n vastaargumentti — että vihreät investoinnit stimuloivat kasvua — saa IMF:n tuen (WEO luku 3 ilmastoinvestoinneista), mutta on vaikeampi kommunikoida hitaan kasvun ympäristössä.
+
+### Data Availability Assessment (This Run)
+
+| Tietolähde | Tila | Luottamusvaikutus |
+|------------|------|-------------------|
+| EP:n valiokunta-asiakirjasyöte | 🔴 404 EI SAATAVILLA | KORKEA — Ei voida vahvistaa kuluvan viikon toimintaa |
+| EP:n menettelysyöte | 🟡 OSITTAINEN (historiallinen häntä) | KESKITASO — Rakenne pätevä, ajoitus epäluotettava |
+| EP:n tapahtumasyyöte | 🔴 404 EI SAATAVILLA | KORKEA — Ei voida vahvistaa kesäkuun esityslistaa |
+| EP:n valiokunta-asiakirjat | 🟡 OSITTAINEN (50 AFCO-dok. vain) | KESKITASO — AFCO vahvistettu; muut valiokunnat tuntemattomia |
+| IMF WEO huhtikuu 2026 | 🟢 VÄLIMUISTISSA | MATALA — Taloudellinen peruslinja vahvistettu |
+| Institutionaalinen tieto | 🟢 KORKEA LUOTTAMUS | MATALA — EP:n paikkajakauma, enemmistöaritmetiikka vahvistettu |
+
+Ajallisen tarkkuuden yleinen luottamus: 🔴 MATALA — Rakenteellinen analyysi pätevä; viikon 26. toukokuuta valiokuntakohteita ei voida vahvistaa.
+
+### Executive Brief Fr
+
+### BLUF — Bottom Line Up Front
+
+Le système de commissions du Parlement européen entre dans la semaine du 26 mai 2026 dans une période de forte demande législative avec une visibilité de surveillance limitée. Les défaillances de l'API Open Data du PE (4 sources sur 5 indisponibles) limitent la confirmation documentaire au pipeline de la commission AFCO (plus de 50 documents confirmés). L'analyse synthétise la connaissance institutionnelle de la 10e législature du PE : cinq flux législatifs actifs (mise en œuvre du règlement IA, Agenda de compétitivité, Stratégie industrielle de défense, Révision du Pacte vert, Pacte migratoire), une majorité contestée dirigée par le PPE nécessitant une gestion de coalition pour chaque dossier significatif, et un risque élevé que l'ambition du Pacte vert soit affaiblie par l'alignement tactique de l'aile droite.
+
+**Évaluations clés:**
+
+1. 🟡 **Commission AFCO**: Affaires constitutionnelles confirmées actives (50 documents dans la série EP730–PE782). La réforme institutionnelle et le travail sur les accords interinstitutionnels est le probable centre d'intérêt. *Confiance: MOYEN (B2 — preuve documentaire directe, pas de métadonnées de contenu)*
+
+2. 🟠 **Flux de priorités législatives**: Les cinq grands flux de la 10e législature (IA, Compétitivité, Défense, Révision du Pacte vert, Migration) sont tous en phase active de commission. Mai 2026 est une semaine de commission à Bruxelles (après la séance plénière du 20 au 23 mai à Strasbourg), ce qui signifie que des votes, des auditions et des sessions de travail des rapporteurs sont attendus cette semaine. *Confiance: MOYEN-ÉLEVÉ (B2)*
+
+3. 🔴 **Risque d'affaiblissement du Pacte vert**: Probabilité estimée à 65 % (Probable) que les votes en commission ENVI/ITRE produisent des résultats plus faibles que les propositions de la Commission 2019–2024, sous l'impulsion de l'alignement tactique PPE+ECR+Patriots sur des dossiers spécifiques. *Confiance: MOYEN (B2)*
+
+4. 🟡 **Actes délégués du règlement IA**: La coordination des commissions ITRE/LIBE sur les actes délégués présente un risque à peu près équilibré (50 %) de retard de 6 mois en raison de conflits de compétence et du lobbying industriel. *Confiance: MOYEN (B2)*
+
+5. 🟢 **Fondement économique**: IMF WEO avril 2026 projette une croissance du PIB de l'UE à 1,4 % pour 2026, fournissant le contexte macroéconomique de la législation sur la compétitivité. L'écart d'investissement Draghi de EUR 750–800 Mrd demeure la référence pour les travaux des commissions ECON et ITRE. *Confiance: ÉLEVÉ (A1 — source primaire IMF)*
+
+---
+
+### Political Landscape Summary
+
+| Groupe | Sièges | Rôle en commission T2 2026 |
+|--------|--------|-----------------------------|
+| PPE | 189 | Définisseur d'agenda ; constructeur de majorité ; pro-compétitivité |
+| S&D | 136 | Partenaire de coalition essentiel ; négociateur de la dimension sociale |
+| Patriots | 84 | Minorité perturbatrice ; allié tactique du PPE sur certains dossiers |
+| ECR | 78 | Conservateur ; alignement variable ; pragmatique en politique industrielle |
+| Renew | 77 | Votes libéraux d'équilibre ; pro-numérique, pro-commerce |
+| Greens/EFA | 53 | Minorité ; bastions ENVI/LIBE ; coalitions avec S&D/Left |
+| Left | 46 | Opposition progressiste ; dossiers travail/social |
+| ESN | 25 | Extrême droite ; marginalisé |
+
+**Seuil de majorité:** 353/705 sièges. La Grande Coalition (PPE+S&D+Renew = 402 sièges) dispose d'une confortable majorité pour la législation ordinaire ; le risque est l'utilisation tactique par le PPE de Patriots/ECR pour des dossiers spécifiques d'orientation droitière.
+
+---
+
+### IMF Economic Reference
+
+**Chiffres clés du IMF WEO avril 2026 pour le contexte des commissions du PE:**
+- Croissance du PIB de l'UE 2026: **1,4 %** (au-dessus du 1,1 % de 2025 — reprise modeste)
+- Inflation de la zone euro: **2,0 %** (dans la cible ; cycle d'assouplissement prudent de la BCE)
+- Chômage dans l'UE: **5,7 %** (en lente baisse)
+- Déficit budgétaire de l'UE: **~2,5 % du PIB** (dans les limites du PSC après réforme)
+
+Le contexte économique renforce l'urgence des travaux des commissions sur la compétitivité et la législation sur les marchés de capitaux. L'approbation explicite par l'IMF du cadre Draghi offre une couverture politique pour des plans de réforme ECON/ITRE ambitieux.
+
+---
+
+### Monitoring Gaps
+
+Cette note de synthèse est expressément limitée par la dégradation de l'API du PE. Les lacunes de surveillance suivantes s'appliquent:
+
+1. **Pas de données actuelles sur les votes en commission**: Il est inconnu quelles commissions ont voté cette semaine et sur quels dossiers
+2. **Pas de données sur les événements/auditions**: Les auditions, les témoignages d'experts et les présentations des rapporteurs ne sont pas observés
+3. **Couverture des commissions**: Seul AFCO est confirmé actif ; 19 autres commissions sont non observées
+4. **Pipeline des procédures**: Le statut actuel de l'avancement des procédures est inconnu (les données de secours datent de 1972)
+
+**Recommandation pour la prochaine exécution:** Lorsque l'API du PE sera restaurée, la récupération approfondie prioritaire devrait être: `get_procedures_feed` (année en cours), `get_events_feed` (auditions manquées), `get_committee_documents_feed` (rapports manqués), et `track_legislation` pour les 5 flux prioritaires.
+
+---
+
+### Strategic Intelligence Summary
+
+Le système de commissions du PE dans la semaine du 26 mai 2026 représente un tournant critique dans le cycle législatif de la 10e législature. Cinq grands flux de priorités législatives sont simultanément actifs en phase de commission, la coalition majoritaire du PPE requiert une gestion complexe, et le cadre de compétitivité Draghi fournit la référence macroéconomique pour les travaux des commissions ECON et ITRE. La dégradation de l'API du PE a limité la capacité du système de surveillance à confirmer des activités spécifiques des commissions, mais l'analyse structurelle reste robuste sur la base des connaissances institutionnelles.
+
+**Pour les décideurs et les parties prenantes politiques:** La variable clé dans les travaux des commissions du PE en mai 2026 est la façon dont le PPE coordonne avec Patriots/ECR sur des dossiers verts et migratoires spécifiques tout en maintenant la Grande Coalition pour la compétitivité et la législation sur l'IA. Le suivi des positions des coordinateurs de commission du PPE et des textes des rapporteurs fantômes en ENVI, LIBE et ITRE révélera les dynamiques de coalition réelles en jeu.
+
+**Pour les citoyens:** La phase de commission est là où le contenu des lois affectant la vie quotidienne est réellement déterminé. Lorsque les commissions votent sur les actes délégués du règlement IA, les amendements à la révision du Pacte vert ou les propositions de procédures migratoires, elles prennent des décisions aux conséquences pratiques immédiates. S'engager dans les procédures de commission — soumettre des pétitions, suivre le travail des rapporteurs, suivre les résultats des auditions d'experts — est la forme la plus directe de participation démocratique accessible aux citoyens de l'UE.
+
+---
+
+*Généré par le flux de travail automatisé EU Parliament Monitor | committee-reports | 2026-05-26 | Exécution: committee-reports-run260-1779774042 | Mode de données: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**Paysage des commissions du PE: Analyse structurelle pour les décideurs**
+
+Le système de commissions du Parlement européen fonctionne comme filtre pré-chambre pour toute la législation de l'UE. Au 26 mai 2026, trois forces structurelles définissent le paysage:
+
+**Force 1: Domination du PPE sans majorité**
+Avec 189/705 sièges (26,8 %), le PPE est le plus grand groupe, mais ne peut pas adopter de législation seul. La domination du PPE sur les présidences de commission (ENVI, ITRE, ECON, AFCO, INTA) lui donne le pouvoir de définir l'agenda — les commissions contrôlent quels amendements atteignent la plénière. Cependant, le PPE nécessite au moins deux groupes supplémentaires pour former une majorité. Le partenariat S&D-Renew (213 sièges combinés) est la coalition préférée du PPE, formant la Grande Coalition (402 sièges, majorité de 353 atteinte avec marge). La stratégie alternative de bloc de droite du PPE (Patriots 84, ECR 78) n'atteint que 351 sièges — deux en dessous de la majorité — faisant de la Grande Coalition le choix rationnel par défaut du PPE.
+
+**Force 2: La révision du Pacte vert comme bataille législative décisive**
+Le processus de révision du Pacte vert de la commission ENVI est l'activité de commission la plus conséquente en 2026. Le PPE pousse pour des modifications de « compétitivité » à la loi sur la restauration de la nature, au règlement sur les emballages et aux calendriers de mise en œuvre du CBAM. Le S&D, les Greens/EFA et Left s'opposent aux reculs. Le résultat législatif détermine si les engagements climatiques de l'UE sont maintenus ou fondamentalement révisés pour la période cible 2030.
+
+**Force 3: Calendrier des actes délégués du règlement IA**
+Les actes délégués du règlement IA (compétence ITRE/LIBE) fixent le calendrier de mise en œuvre des exigences pour les systèmes d'IA à haut risque. La Commission est sous pression de l'industrie pour retarder. La position de consensus de la commission est importante car les actes délégués nécessitent une majorité de blocage au PE (353 MEP) pour être rejetés. La compétence législative de l'ITRE ici est contrôlée par le PPE — la position interne du PPE sur la vitesse de mise en œuvre de l'IA est une variable décisive pour la gouvernance européenne de l'IA.
+
+### Decision-Maker Priority Matrix
+
+| Partie prenante | Priorité immédiate | Priorité 3 mois | Préoccupation à long terme |
+|-----------------|-------------------|-----------------|---------------------------|
+| Entreprises UE | Résultats des votes ENVI sur le Pacte vert | Calendrier des actes délégués du règlement IA | Portée de la révision des traités |
+| Société civile | Surveillance du Pacte migratoire | Positions LIBE sur le règlement IA | Impact de la réforme constitutionnelle |
+| Commission | Objectifs d'amendements ENVI | Coopération ITRE sur l'IA | Initiative de traité AFCO |
+| États membres | Durabilité de la Grande Coalition | Signal d'émergence du bloc de droite | Débats sur la subsidiarité |
+| Administration du PE | Avancement du mandat AFCO | Extension des sièges en plénière | Dépôt de nouvelles procédures |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **Date de vote de juin et liste d'amendements de la commission ENVI** — décisif pour la trajectoire du Pacte vert
+2. **Cohérence des positions inter-commissions du coordinateur PPE** — détermine la durabilité de la coalition  
+3. **Position du rapporteur ITRE sur les actes délégués de l'IA** — décisif pour la gouvernance européenne de l'IA
+4. **Série de documents AFCO PE781.*** — signale si la révision des traités est imminente
+5. **Avancement des trilogues sur les dossiers législatifs en cours** — détermine le taux de production 2026
+
+### Reader Briefing
+
+Cette note de synthèse synthétise le renseignement des commissions du PE pour le 26 mai 2026. Le PE est le seul organe législatif supranational directement élu au monde. Ses plus de 20 commissions permanentes traitent environ 200 dossiers législatifs par législature. Chaque commission peut amender les propositions de la Commission avant le vote en plénière ; les amendements de commission survivent généralement dans la loi finale. Les citoyens qui suivent l'activité des commissions bénéficient d'un préavis de 3 à 6 mois sur les changements législatifs affectant leur vie. Le message clé de cette analyse : la Grande Coalition tient, le PPE modère le rythme de la transition verte, et le cadre de gouvernance de l'IA est en cours de négociation en commission en ce moment même.
+
+### IMF Economic Context for Committee Legislative Activity
+
+Les décisions des commissions du PE sur la révision du Pacte vert, la régulation de l'IA et la politique migratoire ne se produisent pas dans un vide économique. La base de référence du IMF WEO avril 2026 fournit le contexte économique qui façonne la faisabilité politique:
+
+- **Croissance du PIB de l'UE 2026: 1,4 %** — Une croissance inférieure à la tendance réduit l'appétit du PPE pour des mesures coûteuses de transition verte et augmente le soutien aux amendements de compétitivité
+- **Inflation de la zone euro 2026: 2,0 %** — L'inflation revenant à l'objectif réduit l'urgence des mesures d'urgence de la BCE ; normalise la marge budgétaire pour l'investissement vert
+- **Chômage dans l'UE 2026: 5,7 %** — Le chômage structurel maintient la pression du S&D pour des dispositions sociales de transition juste dans chaque dossier de révision du Pacte vert
+- **Déficit budgétaire de l'UE ~2,5 % PIB** — Dans les règles du PSC ; permet certains investissements verts des États membres mais limite les programmes de subventions dans la législation portée par le PE
+- **Source IMF:** `cache — WEO April 2026`
+
+**Implication législative:** Une croissance inférieure à la tendance crée les conditions politiques pour le narratif de compétitivité du PPE. La bataille de la commission ENVI sur la révision du Pacte vert se déroule dans un contexte où les lobbies industriels peuvent citer de manière crédible des préoccupations de croissance. L'argument contraire du S&D — que l'investissement vert stimule la croissance — bénéficie du soutien de l'IMF (Chapitre 3 du WEO sur l'investissement climatique), mais est plus difficile à communiquer dans un environnement de faible croissance.
+
+### Data Availability Assessment (This Run)
+
+| Source de données | Statut | Impact sur la confiance |
+|-------------------|--------|------------------------|
+| Flux de documents de commission du PE | 🔴 404 INDISPONIBLE | ÉLEVÉ — Impossible de confirmer l'activité de la semaine en cours |
+| Flux de procédures du PE | 🟡 PARTIEL (queue historique) | MOYEN — Structure valide, timing peu fiable |
+| Flux d'événements du PE | 🔴 404 INDISPONIBLE | ÉLEVÉ — Impossible de confirmer l'agenda de juin |
+| Documents de commission du PE | 🟡 PARTIEL (50 docs AFCO seulement) | MOYEN — AFCO confirmé ; autres commissions inconnues |
+| IMF WEO avril 2026 | 🟢 EN CACHE | FAIBLE — Référence économique confirmée |
+| Connaissance institutionnelle | 🟢 CONFIANCE ÉLEVÉE | FAIBLE — Répartition des sièges du PE, arithmétique des majorités vérifiée |
+
+Confiance globale dans la spécificité temporelle: 🔴 FAIBLE — Analyse structurelle valide ; l'activité des commissions de la semaine du 26 mai ne peut être confirmée.
+
+### Executive Brief He
+
+**אדמירליות:** B2 — כנראה נכון; מבוסס על ידע מוסדי של הפרלמנט האירופי ופעילות AFCO מאושרת  
+**SATs:** בדיקת הנחות מפתח, בדיקת איכות מידע  
+**מצב נתונים:** degraded-feeds (גורם רצפה 0.80)  
+**מזהה הרצה:** committee-reports-run260-1779774042  
+
+---
+
+### BLUF — Bottom Line Up Front
+
+מערכת הוועדות של הפרלמנט האירופי נכנסת לשבוע 26 במאי 2026 בתקופה של ביקוש חקיקתי גבוה עם נראות ניטור מוגבלת. תקלות ב-API לנתונים פתוחים של הפרלמנט האירופי (4 מתוך 5 מקורות אינם זמינים) מגבילות את האישור התיעודי לצינור הוועדה AFCO (יותר מ-50 מסמכים מאושרים). הניתוח מסנתז את הידע המוסדי של כהונת ה-10 של הפרלמנט האירופי: חמישה זרמי חקיקה פעילים (יישום חוק ה-AI, סדר היום של תחרותיות, אסטרטגיה תעשייתית ביטחונית, עדכון הסכם ירוק, הסכם ההגירה), רוב שנוי במחלוקת בהנהגת EPP הדורש ניהול קואליציה בכל תיק משמעותי, וסיכון מוגבר שהשאיפה של ההסכם הירוק תיחלש בשל הסתגלות טקטית של הכנף הימנית.
+
+**הערכות מפתח:**
+
+1. 🟡 **ועדת AFCO**: ענייני חוקה מאושרים כפעילים (50 מסמכים בסדרה EP730–PE782). רפורמה מוסדית ועבודה על הסכמים בין-מוסדיים היא ככל הנראה המיקוד. *אמון: בינוני (B2 — ראיות תיעודיות ישירות, אין מטא-נתוני תוכן)*
+
+2. 🟠 **זרמי עדיפויות חקיקה**: כל חמשת הזרמים הגדולים של כהונת ה-10 (AI, תחרותיות, ביטחון, עדכון ההסכם הירוק, הגירה) בשלב ועדה פעיל. מאי 2026 הוא שבוע ועדות ברוסל (לאחר המליאה 20-23 במאי בשטרסבורג), כלומר צפויים הצבעות, שימועים ומפגשי עבודה של המדווחים השבוע. *אמון: בינוני-גבוה (B2)*
+
+3. 🔴 **סיכון להחלשת ההסכם הירוק**: הסתברות מוערכת ב-65% (סביר) שהצבעות ועדת ENVI/ITRE יפיקו תוצאות חלשות יותר מהצעות הנציבות 2019-2024, מונעות על ידי הסתגלות טקטית של EPP+ECR+Patriots על תיקים ספציפיים. *אמון: בינוני (B2)*
+
+4. 🟡 **פעולות מואצלות של חוק ה-AI**: תיאום ועדות ITRE/LIBE לגבי פעולות מואצלות נושא סיכון מאוזן בערך (50%) לעיכוב של 6 חודשים בשל מחלוקות סמכות ולחץ לובי תעשייתי. *אמון: בינוני (B2)*
+
+5. 🟢 **בסיס כלכלי**: IMF WEO אפריל 2026 מתחזית צמיחת התמ"ג של האיחוד האירופי ל-1.4% לשנת 2026, ומספק את ההקשר המקרו-כלכלי לחקיקת תחרותיות. פער ההשקעות של דראגי בגובה EUR 750-800 מיליארד נותר מסגרת הייחוס לעבודת ועדות ECON ו-ITRE. *אמון: גבוה (A1 — מקור ראשוני IMF)*
+
+---
+
+### Political Landscape Summary
+
+| קבוצה | מושבים | תפקיד בוועדה רבעון 2 2026 |
+|-------|---------|---------------------------|
+| EPP | 189 | מגדיר סדר יום; בונה רוב; תומך בתחרותיות |
+| S&D | 136 | שותף קואליציה חיוני; מנהל משא ומתן על הממד החברתי |
+| Patriots | 84 | מיעוט מפריע; בעל ברית טקטי של EPP בתיקים המתאימים |
+| ECR | 78 | שמרני; הסתגלות משתנה; פרגמטי במדיניות תעשייתית |
+| Renew | 77 | קולות איזון ליברלים; תומך דיגיטלי ומסחרי |
+| Greens/EFA | 53 | מיעוט; עמדות חזקות ב-ENVI/LIBE; קואליציות עם S&D/Left |
+| Left | 46 | אופוזיציה מתקדמת; תיקי עבודה וחברה |
+| ESN | 25 | ימין קיצוני; מודר |
+
+**סף רוב:** 353/705 מושבים. הקואליציה הגדולה (EPP+S&D+Renew = 402 מושבים) מחזיקה ברוב נוח לחקיקה עיקרית; הסיכון הוא השימוש הטקטי של EPP ב-Patriots/ECR עבור תיקים ספציפיים ימניים.
+
+---
+
+### IMF Economic Reference
+
+**נתוני מפתח IMF WEO אפריל 2026 עבור הקשר ועדות הפרלמנט האירופי:**
+- צמיחת התמ"ג של האיחוד האירופי 2026: **1.4%** (מעל 1.1% של 2025 — התאוששות צנועה)
+- אינפלציה אזור האירו: **2.0%** (ביעד; מחזור הרחבה זהיר של ה-ECB)
+- אבטלה באיחוד האירופי: **5.7%** (יורדת לאט)
+- גירעון פיסקלי באיחוד האירופי: **~2.5% מהתמ"ג** (בגבולות ה-SGP לאחר הרפורמה)
+
+ההקשר הכלכלי מחזק את הדחיפות של הוועדה בנוגע לתחרותיות ולחקיקת שווקי הון. אישור IMF המפורש למסגרת דראגי מספק כיסוי פוליטי לחבילות רפורמה שאפתניות של ECON/ITRE.
+
+---
+
+### Monitoring Gaps
+
+תקציר מנהלים זה מוגבל במפורש על ידי הידרדרות ה-API של הפרלמנט האירופי. פערי הניטור הבאים חלים:
+
+1. **אין נתוני הצבעות ועדה עדכניים**: לא ידוע אילו ועדות הצביעו השבוע ועל אילו תיקים
+2. **אין נתוני אירועים/שימועים**: שימועים, עדויות מומחים ומצגות מדווחים אינם נצפים
+3. **כיסוי ועדות**: רק AFCO מאושרת כפעילה; 19 ועדות אחרות אינן נצפות
+4. **צינור נהלים**: מצב ההתקדמות הנוכחי של ההליכים אינו ידוע (נתוני גיבוי הם מ-1972)
+
+**המלצה להרצה הבאה:** כאשר ה-API של הפרלמנט האירופי ישוחזר, אחזור מעמיק בעדיפות צריך להיות: `get_procedures_feed` (שנה שוטפת), `get_events_feed` (שימועים שהוחמצו), `get_committee_documents_feed` (דוחות שהוחמצו), ו-`track_legislation` לחמשת הזרמים בעדיפות.
+
+---
+
+### Strategic Intelligence Summary
+
+מערכת הוועדות של הפרלמנט האירופי בשבוע 26 במאי 2026 מייצגת נקודת מפנה קריטית במחזור החקיקה של כהונת ה-10. חמישה זרמי עדיפויות חקיקה גדולים פעילים בו-זמנית בשלב הוועדות, קואליציית הרוב של EPP דורשת ניהול מורכב, ומסגרת התחרותיות של דראגי מספקת את ייחוס המקרו-כלכלי לעבודת ועדות ECON ו-ITRE. הידרדרות ה-API של הפרלמנט האירופי הגבילה את יכולת מערכת הניטור לאשר פעילויות ועדה ספציפיות, אך הניתוח המבני נשאר איתן על בסיס ידע מוסדי.
+
+**לקובעי מדיניות ובעלי עניין פוליטיים:** המשתנה המרכזי בעבודת ועדות הפרלמנט האירופי במאי 2026 הוא כיצד EPP מתאם עם Patriots/ECR על תיקים ירוקים ותיקי הגירה ספציפיים תוך שמירה על הקואליציה הגדולה לחקיקת תחרותיות ו-AI. מעקב אחר עמדות רכז ועדת EPP וטקסטים של מדווחי צל ב-ENVI, LIBE ו-ITRE יחשוף את דינמיקות הקואליציה הממשיות.
+
+**לאזרחים:** שלב הוועדה הוא שם שנקבע בפועל תוכן החוקים המשפיעים על החיים היומיומיים. כאשר ועדות מצביעות על פעולות מואצלות של חוק ה-AI, תיקונים לעדכון ההסכם הירוק, או הצעות לנהלי הגירה, הן מקבלות החלטות עם השלכות מעשיות מיידיות. מעורבות בהליכי ועדה — הגשת עצומות, מעקב אחר עבודת מדווחים, מעקב אחר תוצאות שימועי מומחים — היא הצורה הישירה ביותר של השתתפות דמוקרטית הזמינה לאזרחי האיחוד האירופי.
+
+---
+
+*נוצר על ידי זרימת עבודה אוטומטית של EU Parliament Monitor | committee-reports | 2026-05-26 | הרצה: committee-reports-run260-1779774042 | מצב נתונים: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**נוף ועדות הפרלמנט האירופי: ניתוח מבני לקובעי מדיניות**
+
+מערכת הוועדות של הפרלמנט האירופי פועלת כמסנן טרום-חדר לכל חקיקת האיחוד האירופי. נכון ל-26 במאי 2026, שלוש כוחות מבניות מגדירות את הנוף:
+
+**כוח 1: דומיננטיות EPP ללא רוב**
+עם 189/705 מושבים (26.8%), EPP היא הקבוצה הגדולה ביותר אך אינה יכולה להעביר חקיקה לבדה. שליטת EPP על יו"ר הוועדות (ENVI, ITRE, ECON, AFCO, INTA) מעניקה לה כוח קביעת סדר יום — ועדות שולטות אילו תיקונים מגיעים למליאה. אולם EPP זקוקה לפחות לשתי קבוצות נוספות לגיבוש רוב. שותפות S&D-Renew (213 מושבים משולבים) היא הקואליציה המועדפת על EPP, המהווה את הקואליציה הגדולה (402 מושבים, השגת רוב 353 עם מרווח). אסטרטגיית גוש ימין החלופית של EPP (Patriots 84, ECR 78) מגיעה רק ל-351 מושבים — שניים מתחת לרוב — מה שהופך את הקואליציה הגדולה לברירת המחדל הרציונלית של EPP.
+
+**כוח 2: עדכון ההסכם הירוק כקרב החקיקה המכריע**
+תהליך עדכון ההסכם הירוק של ועדת ENVI הוא פעילות הוועדה המשמעותית ביותר ב-2026. EPP דוחקת לשינויי "תחרותיות" בחוק שיקום הטבע, תקנת האריזות ולוחות הזמנים ליישום CBAM. S&D, Greens/EFA ו-Left מתנגדים לנסיגות. התוצאה החקיקתית קובעת אם התחייבויות האקלים של האיחוד האירופי נשמרות או מתוקנות מהיסוד לתקופת יעד 2030.
+
+**כוח 3: תזמון פעולות מואצלות של חוק ה-AI**
+הפעולות המואצלות של חוק ה-AI (סמכות ITRE/LIBE) קובעות את לוח הזמנים ליישום לדרישות מערכות AI בסיכון גבוה. הנציבות נמצאת תחת לחץ תעשייתי לדחות. עמדת הקונצנזוס של הוועדה חשובה מכיוון שפעולות מואצלות דורשות רוב חוסם בפרלמנט האירופי (353 חברי פרלמנט) לדחייתן. הסמכות החקיקתית של ITRE כאן נשלטת על ידי EPP — עמדתה הפנימית של EPP על מהירות יישום ה-AI היא משתנה מכריע לממשל ה-AI האירופי.
+
+### Decision-Maker Priority Matrix
+
+| בעל עניין | עדיפות מיידית | עדיפות 3 חודשים | דאגה לטווח ארוך |
+|-----------|---------------|-----------------|----------------|
+| עסקים אירופאים | תוצאות הצבעת ENVI על ההסכם הירוק | לוח זמנים לפעולות מואצלות של חוק AI | היקף תיקון האמנה |
+| חברה אזרחית | ניטור הסכם ההגירה | עמדות LIBE על חוק AI | השפעת רפורמה חוקתית |
+| הנציבות | יעדי תיקונים של ENVI | שיתוף פעולה של ITRE ב-AI | יוזמת אמנה של AFCO |
+| מדינות חברות | חוסן הקואליציה הגדולה | אות להופעת גוש ימין | דיונים על עקרון הסובסידיאריות |
+| מינהל הפרלמנט האירופי | התקדמות מנדט AFCO | הרחבת מושבי המליאה | הגשת נהלים חדשים |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **תאריך הצבעת יוני ורשימת תיקונים של ועדת ENVI** — מכריע לנתיב ההסכם הירוק
+2. **עקביות רכז EPP בעמדות בין-ועדתיות** — קובע את חוסן הקואליציה  
+3. **עמדת מדווח ITRE על פעולות מואצלות של AI** — מכריע לממשל ה-AI האירופי
+4. **סדרת מסמכים AFCO PE781.*** — מסמן אם תיקון אמנה קרוב
+5. **התקדמות טריאלוג על תיקים חקיקתיים תלויים** — קובע קצב התפוקה לשנת 2026
+
+### Reader Briefing
+
+תקציר מנהלים זה מסנתז את מודיעין ועדות הפרלמנט האירופי ל-26 במאי 2026. הפרלמנט האירופי הוא גוף חקיקתי על-לאומי הנבחר ישירות יחיד בעולם. 20+ ועדותיו הקבועות מטפלות בכ-200 תיקים חקיקתיים לכל כהונה. כל ועדה יכולה לתקן הצעות הנציבות לפני הצבעת המליאה; תיקוני ועדה בדרך כלל שורדים בחוק הסופי. אזרחים העוקבים אחר פעילות הוועדות מקבלים התראה מוקדמת של 3-6 חודשים על שינויים חקיקתיים המשפיעים על חייהם. המסר המרכזי מניתוח זה: הקואליציה הגדולה מחזיקה, EPP ממתן את קצב המעבר הירוק, ומסגרת ממשל ה-AI מנוהלת במשא ומתן בוועדה כרגע.
+
+### IMF Economic Context for Committee Legislative Activity
+
+החלטות ועדות הפרלמנט האירופי על עדכון ההסכם הירוק, ויסות ה-AI ומדיניות ההגירה אינן מתרחשות בחלל כלכלי. קו הבסיס IMF WEO אפריל 2026 מספק את ההקשר הכלכלי המעצב את הישימות הפוליטית:
+
+- **צמיחת התמ"ג של האיחוד האירופי 2026: 1.4%** — צמיחה מתחת לטרנד מפחיתה את תיאבון EPP לצעדי מעבר ירוק יקרים ומגדילה תמיכה בתיקוני תחרותיות
+- **אינפלציה אזור האירו 2026: 2.0%** — אינפלציה חוזרת ליעד מפחיתה דחיפות לצעדי חירום של ה-ECB; מנרמלת מרחב פיסקלי להשקעה ירוקה
+- **אבטלה באיחוד האירופי 2026: 5.7%** — אבטלה מבנית שומרת על לחץ S&D להוראות חברתיות של מעבר הוגן בכל תיק עדכון ההסכם הירוק
+- **גירעון פיסקלי באיחוד האירופי ~2.5% תמ"ג** — בגבולות כללי ה-SGP; מאפשר השקעה ירוקה מסוימת של מדינות חברות אך מגביל תוכניות סובסידיות בחקיקה בהנהגת הפרלמנט האירופי
+- **מקור IMF:** `cache — WEO April 2026`
+
+**השלכה חקיקתית:** צמיחה מתחת לטרנד יוצרת תנאים פוליטיים לנרטיב התחרותיות של EPP. קרב ועדת ENVI על עדכון ההסכם הירוק מתנהל בהקשר שבו קבוצות לוביה תעשייתיות יכולות לצטט בצורה אמינה חששות צמיחה. הטיעון הנגדי של S&D — שהשקעה ירוקה מעוררת צמיחה — נהנה מתמיכת IMF (פרק 3 של WEO על השקעת אקלים) אך קשה יותר לתקשר בסביבת צמיחה נמוכה.
+
+### Data Availability Assessment (This Run)
+
+| מקור נתונים | מצב | השפעה על אמון |
+|-------------|-----|--------------|
+| עדכון מסמכי ועדות הפרלמנט האירופי | 🔴 404 לא זמין | גבוה — לא ניתן לאשר פעילות שבועית נוכחית |
+| עדכון נהלים של הפרלמנט האירופי | 🟡 חלקי (זנב היסטורי) | בינוני — מבנה תקף, עיתוי לא מהימן |
+| עדכון אירועים של הפרלמנט האירופי | 🔴 404 לא זמין | גבוה — לא ניתן לאשר סדר יום יוני |
+| מסמכי ועדות הפרלמנט האירופי | 🟡 חלקי (50 מסמכי AFCO בלבד) | בינוני — AFCO מאושרת; ועדות אחרות לא ידועות |
+| IMF WEO אפריל 2026 | 🟢 שמור מטמון | נמוך — קו בסיס כלכלי מאושר |
+| ידע מוסדי | 🟢 אמון גבוה | נמוך — חלוקת מושבים של הפרלמנט האירופי, אריתמטיקת רוב מאומתת |
+
+אמון כולל בספציפיות זמנית: 🔴 נמוך — ניתוח מבני תקף; לא ניתן לאשר פעילות ועדות שבוע 26 במאי.
+
+### Executive Brief Ja
+
+**データ状況:** degraded-feeds（信頼フロア0.80）  
+**実行ID:** committee-reports-run260-1779774042  
+
+---
+
+### BLUF — Bottom Line Up Front
+
+欧州議会の委員会システムは、可視性が限られた監視のもと、立法需要の高い状況で2026年5月26日の週を迎えている。欧州議会オープンデータAPIの障害（5つのフィードのうち4つが利用不可）により、委員会パイプラインAFCO（50件以上の文書確認済み）のドキュメンタリー確認が制限されている。本分析は第10期欧州議会の制度的知識を統合する：5つの活発な立法ストリーム（AIアクト実施、競争力アジェンダ、防衛産業戦略、グリーンディール更新、移住協定）、主要なすべての案件でコアリション管理が必要なEPP指導部の論争的多数、そして右翼適応によるグリーンディールの野心弱体化リスクの上昇。
+
+**主要な評価：**
+
+1. 🟡 **AFCO委員会**：憲法問題がアクティブとして確認済み（EPシリーズ730-PE782で50件の文書）。制度改革及び機関間協定に関する作業が最も可能性の高い焦点。*信頼度：中（B2 — 直接文書証拠、内容メタデータなし）*
+
+2. 🟠 **立法優先ストリーム**：第10期の主要5ストリームすべて（AI、競争力、安全保障、グリーンディール更新、移住）が委員会段階でアクティブ。2026年5月はブリュッセル委員会週間（5月20〜23日のストラスブール本会議後）であり、今週は採決、公聴会、報告者作業会議が予定されている。*信頼度：中高（B2）*
+
+3. 🔴 **グリーンディール弱体化リスク**：特定案件でのEPP+ECR+Patriotsの戦術的適応により、ENVI/ITRE委員会採決が2019〜2024年の欧州委員会提案より弱い成果を生む確率は65%（ほぼ確実）と推定される。*信頼度：中（B2）*
+
+4. 🟡 **AIアクト委任行為**：委任行為に関するITRE/LIBE委員会調整は、権限争議と産業ロビー圧力により6ヶ月遅延するリスクがほぼ均衡（50%）。*信頼度：中（B2）*
+
+5. 🟢 **経済的背景**：IMF WEO 2026年4月は2026年のEU GDP成長率を1.4%と予測し、競争力立法のマクロ経済的文脈を提供。ドラギの7500〜8000億ユーロの投資ギャップは引き続きECON・ITRE委員会作業の参照枠組みである。*信頼度：高（A1 — IMF一次資料）*
+
+---
+
+### Political Landscape Summary
+
+| グループ | 議席 | 2026年第2四半期委員会での役割 |
+|---------|------|--------------------------|
+| EPP | 189 | アジェンダ設定；多数派構築；競争力推進 |
+| S&D | 136 | 不可欠な連立パートナー；社会的次元の交渉 |
+| Patriots | 84 | 妨害的少数派；適切な案件でのEPPの戦術的同盟 |
+| ECR | 78 | 保守的；可変的適応；産業政策では実用的 |
+| Renew | 77 | 自由主義的均衡票；デジタル・通商支持 |
+| Greens/EFA | 53 | 少数派；ENVI/LIBEでの強固な立場；S&D/Leftとの連立 |
+| Left | 46 | 進歩的野党；労働・社会案件 |
+| ESN | 25 | 極右；周辺化 |
+
+**多数派閾値：** 353/705議席。大連立（EPP+S&D+Renew = 402議席）は主要立法で快適な多数を維持；リスクは特定の右寄り案件でのEPPによるPatriots/ECRの戦術的利用。
+
+---
+
+### IMF Economic Reference
+
+**欧州議会委員会の文脈向けIMF WEO 2026年4月の主要データ：**
+- EU GDP成長率2026：**1.4%**（2025年の1.1%以上 — 緩やかな回復）
+- ユーロ圏インフレ：**2.0%**（目標値；ECBは慎重な緩和サイクル）
+- EU失業率：**5.7%**（緩やかな低下）
+- EU財政赤字：**GDP比約2.5%**（改革後のSGP枠内）
+
+経済的文脈は競争力と資本市場法制に関する委員会の緊急性を強化する。ドラギの枠組みへのIMFの明示的な賛同は、ECON/ITRE改革パッケージへの政治的カバーを提供する。
+
+---
+
+### Monitoring Gaps
+
+本エグゼクティブブリーフは欧州議会APIの劣化により明示的に制限されている。以下の監視ギャップが適用される：
+
+1. **現在の委員会採決データなし**：今週どの委員会がどの案件で採決したかは不明
+2. **イベント/公聴会データなし**：公聴会、専門家証言、報告者プレゼンテーションは観察されていない
+3. **委員会カバレッジ**：AFCOのみアクティブとして確認済み；他の19委員会は観察されていない
+4. **手続きパイプライン**：現在の手続き進捗状況は不明（バックアップデータは1972年のもの）
+
+**次回実行への推奨事項：** 欧州議会APIが回復した場合、優先的に深堀りすべきは：`get_procedures_feed`（当年度）、`get_events_feed`（見逃した公聴会）、`get_committee_documents_feed`（見逃した報告書）、5大優先ストリームの`track_legislation`。
+
+---
+
+### Strategic Intelligence Summary
+
+2026年5月26日週の欧州議会委員会システムは、第10期立法サイクルの重要な転換点を示している。5つの主要立法優先ストリームが委員会段階で同時進行中、EPP主導の多数連立には複雑な管理が必要、そしてドラギの競争力枠組みがECON・ITRE委員会作業のマクロ経済的参照を提供する。欧州議会APIの劣化により具体的な委員会活動の確認が制限されているが、制度的知識に基づく構造分析は堅牢である。
+
+**政策立案者・政治的利害関係者へ：** 2026年5月の欧州議会委員会作業における中心変数は、EPPが競争力・AI立法の大連立を維持しつつ、特定のグリーン・移住案件でPatriots/ECRとどう調整するかである。ENVI・LIBE・ITREにおけるEPP委員会調整者の立場と影の報告者のテキストを追跡することで、実際の連立ダイナミクスが明らかになる。
+
+**市民へ：** 委員会段階は日常生活に影響する法律の内容が実質的に決まる場所である。AIアクト委任行為、グリーンディール更新修正、移住手続き提案について委員会が採決するとき、直接的な実際の影響を持つ決定を行っている。委員会手続きへの関与 — 請願の提出、報告者の作業の追跡、専門家公聴会の結果の追跡 — はEU市民が利用できる最も直接的な民主的参加の形である。
+
+---
+
+*EU Parliament Monitor自動化ワークフローにより生成 | committee-reports | 2026-05-26 | 実行：committee-reports-run260-1779774042 | データ状況：degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**欧州議会委員会のランドスケープ：政策立案者向け構造的分析**
+
+欧州議会の委員会システムはすべてのEU立法の事前審議フィルターとして機能する。2026年5月26日現在、3つの構造的力がランドスケープを定義する：
+
+**力1：多数なきEPP支配**
+189/705議席（26.8%）でEPPは最大グループだが単独で立法を通過させることはできない。委員会議長（ENVI、ITRE、ECON、AFCO、INTA）に対するEPPの支配はアジェンダ設定権を付与する — 委員会はどの修正案が本会議に到達するかをコントロールする。しかしEPPは多数を形成するために少なくとも他の2グループが必要。S&D-Renew連立（合計213議席）はEPPの優先連立パートナーであり、大連立（402議席、353議席の多数達成にマージンあり）を形成する。EPPの代替右派ブロック戦略（Patriots 84、ECR 78）は351議席にしか達せず — 多数より2議席少なく — 大連立をEPPのデフォルトとなる合理的選択にする。
+
+**力2：グリーンディール更新が決定的立法戦として**
+ENVI委員会のグリーンディール更新手続きは2026年の最も重要な委員会活動である。EPPは自然回復法、包装規制、CBAMスケジュールの「競争力」修正を推進している。S&D、Greens/EFA、Leftは後退に反対。立法上の結果はEUの気候コミットメントが維持されるか2030目標期間に向けて根本的に修正されるかを決める。
+
+**力3：AIアクト委任行為のタイミング**
+AIアクト委任行為（ITRE/LIBEの権限）は高リスクAIシステム要件の実施スケジュールを決定する。欧州委員会は産業からの延期圧力を受けている。委員会のコンセンサス立場は重要で、委任行為には却下に欧州議会の過半数ブロック（353名のMEP）が必要であるため。ITREの立法権限はここでEPPが支配する — AI実施速度に関するEPPの内部立場がヨーロッパのAIガバナンスの決定的変数。
+
+### Decision-Maker Priority Matrix
+
+| 利害関係者 | 即時優先事項 | 3ヶ月優先事項 | 長期懸念 |
+|-----------|------------|-------------|---------|
+| 欧州企業 | グリーンディールに関するENVI採決結果 | AIアクト委任行為スケジュール | 条約改正の範囲 |
+| 市民社会 | 移住協定のモニタリング | AIアクトに関するLIBEの立場 | 憲法改革の影響 |
+| 欧州委員会 | ENVIの修正目標 | AIに関するITREの協力 | AFCOの条約イニシアチブ |
+| 加盟国 | 大連立の持続性 | 右派ブロック出現のシグナル | 補完性原則の議論 |
+| EP行政 | AFCOの任命進捗 | 本会議議席の拡大 | 新手続き提出 |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **ENVI委員会の6月採決日程と修正リスト** — グリーンディール経路にとって決定的
+2. **案件間のEPP調整者立場の一貫性** — 連立の持続性を決定
+3. **ITREの委任AIアクト報告者立場** — ヨーロッパのAIガバナンスにとって決定的
+4. **AFCO文書シリーズPE781.*** — 条約改正が近いかどうかを示す
+5. **係属立法案件のトリローグ進捗** — 2026年の生産量ペースを決定
+
+### Reader Briefing
+
+本エグゼクティブブリーフは2026年5月26日の欧州議会委員会インテリジェンスを統合する。欧州議会は世界唯一の直接選挙による超国家立法機関である。20以上の常設委員会は各任期で約200件の立法案件を処理する。各委員会は本会議採決前に欧州委員会提案を修正できる；委員会修正は通常最終法律として残る。委員会活動を追跡する市民は自分の生活に影響する立法変更について3〜6ヶ月の早期警告を受ける。本分析からの中心メッセージ：大連立は持続、EPPはグリーン移行のペースを緩和、AIガバナンス枠組みは今まさに委員会で交渉中。
+
+### IMF Economic Context for Committee Legislative Activity
+
+欧州議会委員会のグリーンディール更新、AI規制、移住政策に関する決定は経済的真空の中で行われるわけではない。IMF WEO 2026年4月のベースラインは政治的実行可能性を形成する経済的文脈を提供する：
+
+- **EU GDP成長率2026：1.4%** — トレンド以下の成長はEPPの高価なグリーン移行措置への食欲を減らし、競争力修正への支持を高める
+- **ユーロ圏インフレ2026：2.0%** — 目標に戻るインフレはECBの緊急措置の緊急性を低下させる；グリーン投資への財政空間を正常化
+- **EU失業率2026：5.7%** — 構造的失業はグリーンディール更新のすべての案件でS&Dが公正移行規定を求める圧力を維持
+- **EU財政赤字GDP比約2.5%** — SGPルール内；加盟国のグリーン投資を可能にするが欧州議会主導の立法での助成金プログラムを制限
+- **IMFソース：** `cache — WEO April 2026`
+
+**立法的含意：** トレンド以下の成長はEPPの競争力ナラティブに政治的条件を作り出す。グリーンディール更新に関するENVI委員会の戦いは、産業ロビー団体が成長懸念を信頼できる形で引用できる文脈で行われる。S&Dの反論 — グリーン投資は成長を刺激する — はIMFの支持（気候投資に関するWEO第3章）を享受するが、低成長環境ではコミュニケーションが難しい。
+
+### Data Availability Assessment (This Run)
+
+| データソース | ステータス | 信頼度への影響 |
+|------------|----------|-------------|
+| EP委員会文書フィード | 🔴 404利用不可 | 高 — 現在の週次活動を確認不可 |
+| EP手続きフィード | 🟡 一部（歴史的末尾） | 中 — 構造有効、タイミング信頼不可 |
+| EPイベントフィード | 🔴 404利用不可 | 高 — 6月アジェンダ確認不可 |
+| EP委員会文書 | 🟡 一部（50件AFCO文書のみ） | 中 — AFCO確認済み；他の委員会不明 |
+| IMF WEO 2026年4月 | 🟢 キャッシュ | 低 — 経済的ベースライン確認済み |
+| 制度的知識 | 🟢 高信頼 | 低 — EP議席配分、多数算術確認済み |
+
+時間的具体性への全体的信頼度：🔴 低 — 構造分析有効；5月26日週の委員会活動確認不可。
+
+### Executive Brief Ko
+
+**데이터 상태:** degraded-feeds (신뢰 하한 0.80)  
+**실행 ID:** committee-reports-run260-1779774042  
+
+---
+
+### BLUF — Bottom Line Up Front
+
+유럽의회 위원회 시스템은 가시성이 제한된 모니터링 환경 속에서 높은 입법 수요를 배경으로 2026년 5월 26일 주를 맞이하고 있다. 유럽의회 오픈 데이터 API 장애(5개 피드 중 4개 불가)로 인해 위원회 파이프라인 AFCO(50건 이상 문서 확인)의 문서적 확인이 제한된다. 본 분석은 제10회기 유럽의회의 제도적 지식을 통합한다: 5개의 활성 입법 흐름(AI법 이행, 경쟁력 의제, 방위산업 전략, 그린딜 갱신, 이주 협약), 핵심 사안마다 연립 관리가 필요한 EPP 주도의 논쟁적 다수, 그리고 우익 적응으로 인한 그린딜 야망 약화 위험 증가.
+
+**주요 평가:**
+
+1. 🟡 **AFCO 위원회**: 헌법 문제가 활성으로 확인됨(EP730–PE782 시리즈 50건 문서). 제도 개혁 및 기관 간 협정에 관한 작업이 가장 유력한 초점. *신뢰도: 중(B2 — 직접 문서 증거, 내용 메타데이터 없음)*
+
+2. 🟠 **입법 우선 흐름**: 제10회기 5대 주요 흐름(AI, 경쟁력, 안보, 그린딜 갱신, 이주) 전체가 위원회 단계에서 활성. 2026년 5월은 브뤼셀 위원회 주간(5월 20~23일 스트라스부르 본회의 이후)으로 이번 주 투표, 청문회, 보고자 작업 회의가 예상된다. *신뢰도: 중-높음(B2)*
+
+3. 🔴 **그린딜 약화 위험**: 특정 사안에서 EPP+ECR+Patriots의 전술적 적응으로 인해 ENVI/ITRE 위원회 투표가 2019~2024년 집행위 제안보다 약한 결과를 낼 확률 65%(거의 확실)로 추정. *신뢰도: 중(B2)*
+
+4. 🟡 **AI법 위임행위**: 위임행위에 관한 ITRE/LIBE 위원회 조정은 권한 분쟁과 산업 로비 압력으로 6개월 지연 위험이 대략 균형(50%). *신뢰도: 중(B2)*
+
+5. 🟢 **경제적 배경**: IMF WEO 2026년 4월은 2026년 EU GDP 성장률을 1.4%로 전망하여 경쟁력 입법의 거시경제적 맥락을 제공. 드라기의 7500~8000억 유로 투자 격차는 ECON·ITRE 위원회 작업의 참조 틀로 남아 있다. *신뢰도: 높음(A1 — IMF 일차 자료)*
+
+---
+
+### Political Landscape Summary
+
+| 그룹 | 의석 | 2026년 2분기 위원회 역할 |
+|-----|-----|----------------------|
+| EPP | 189 | 의제 설정; 다수 구축; 경쟁력 추진 |
+| S&D | 136 | 필수 연립 파트너; 사회적 차원 협상 |
+| Patriots | 84 | 방해적 소수; 적합한 사안에서 EPP의 전술적 동맹 |
+| ECR | 78 | 보수적; 가변적 적응; 산업 정책에서 실용적 |
+| Renew | 77 | 자유주의적 균형표; 디지털·통상 지지 |
+| Greens/EFA | 53 | 소수파; ENVI/LIBE에서 강력한 입장; S&D/Left와 연립 |
+| Left | 46 | 진보적 야당; 노동·사회 사안 |
+| ESN | 25 | 극우; 주변화 |
+
+**다수 임계값:** 353/705석. 대연립(EPP+S&D+Renew = 402석)은 주요 입법에서 편안한 다수 유지; 위험은 특정 우익 사안에서 EPP의 Patriots/ECR 전술적 활용.
+
+---
+
+### IMF Economic Reference
+
+**유럽의회 위원회 맥락을 위한 IMF WEO 2026년 4월 핵심 데이터:**
+- EU GDP 성장률 2026: **1.4%** (2025년 1.1% 이상 — 완만한 회복)
+- 유로존 인플레이션: **2.0%** (목표치; ECB 신중한 완화 사이클)
+- EU 실업률: **5.7%** (완만한 하락)
+- EU 재정 적자: **GDP 약 2.5%** (개혁 후 SGP 한도 내)
+
+경제적 맥락은 경쟁력과 자본시장 입법에 관한 위원회 긴급성을 강화한다. 드라기 틀에 대한 IMF의 명시적 승인은 ECON/ITRE 개혁 패키지에 정치적 커버를 제공한다.
+
+---
+
+### Monitoring Gaps
+
+이 집행 브리핑은 유럽의회 API 저하로 인해 명시적으로 제한된다. 다음 모니터링 격차가 적용된다:
+
+1. **현재 위원회 투표 데이터 없음**: 이번 주 어느 위원회가 어떤 사안을 투표했는지 불명
+2. **이벤트/청문회 데이터 없음**: 청문회, 전문가 증언, 보고자 발표 관찰 불가
+3. **위원회 커버리지**: AFCO만 활성으로 확인됨; 다른 19개 위원회 관찰 불가
+4. **절차 파이프라인**: 현재 절차 진행 상태 불명(백업 데이터는 1972년 것)
+
+**다음 실행을 위한 권고사항:** 유럽의회 API가 복구되면 우선적으로 심층 검색해야 할 것: `get_procedures_feed`(당해 연도), `get_events_feed`(놓친 청문회), `get_committee_documents_feed`(놓친 보고서), 5대 우선 흐름의 `track_legislation`.
+
+---
+
+### Strategic Intelligence Summary
+
+2026년 5월 26일 주 유럽의회 위원회 시스템은 제10회기 입법 사이클의 중요한 전환점을 나타낸다. 5개의 주요 입법 우선 흐름이 위원회 단계에서 동시에 진행 중이고, EPP 주도 다수 연립에는 복잡한 관리가 필요하며, 드라기의 경쟁력 틀이 ECON·ITRE 위원회 작업의 거시경제적 참조를 제공한다. 유럽의회 API 저하로 특정 위원회 활동 확인이 제한되지만 제도적 지식에 기반한 구조 분석은 견고하다.
+
+**정책 입안자 및 정치적 이해관계자에게:** 2026년 5월 유럽의회 위원회 작업의 핵심 변수는 EPP가 경쟁력·AI 입법의 대연립을 유지하면서 특정 그린·이주 사안에서 Patriots/ECR과 어떻게 조율하는가이다. ENVI·LIBE·ITRE에서 EPP 위원회 조정자의 입장과 그림자 보고자 텍스트를 추적하면 실제 연립 역학이 드러날 것이다.
+
+**시민에게:** 위원회 단계는 일상생활에 영향을 미치는 법률의 내용이 실제로 결정되는 곳이다. 위원회가 AI법 위임행위, 그린딜 갱신 수정안, 이주 절차 제안에 대해 투표할 때, 직접적인 실질적 결과를 가진 결정을 내리고 있다. 위원회 절차에의 참여 — 청원 제출, 보고자 작업 추적, 전문가 청문회 결과 추적 — 는 EU 시민이 이용할 수 있는 가장 직접적인 민주적 참여 형태이다.
+
+---
+
+*EU Parliament Monitor 자동화 워크플로우에 의해 생성 | committee-reports | 2026-05-26 | 실행: committee-reports-run260-1779774042 | 데이터 상태: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**유럽의회 위원회 환경: 정책 입안자를 위한 구조적 분석**
+
+유럽의회 위원회 시스템은 모든 EU 입법의 본회의 전 필터로 기능한다. 2026년 5월 26일 현재, 세 가지 구조적 힘이 환경을 정의한다:
+
+**힘 1: 다수 없는 EPP 지배**
+189/705석(26.8%)으로 EPP는 최대 그룹이지만 단독으로 입법을 통과시킬 수 없다. 위원장 통제(ENVI, ITRE, ECON, AFCO, INTA)는 의제 설정 권한을 부여한다 — 위원회는 어떤 수정안이 본회의에 도달하는지 통제한다. 그러나 EPP는 다수 형성을 위해 적어도 다른 두 그룹이 필요하다. S&D-Renew 연립(합산 213석)은 EPP의 선호 연립 파트너이자 대연립(402석, 353석 다수 달성에 여유)을 형성한다. EPP의 대안 우파 블록 전략(Patriots 84, ECR 78)은 351석에만 도달 — 다수보다 2석 부족 — 하여 대연립을 EPP의 합리적 기본값으로 만든다.
+
+**힘 2: 결정적 입법 전투로서의 그린딜 갱신**
+ENVI 위원회의 그린딜 갱신 절차는 2026년 가장 중요한 위원회 활동이다. EPP는 자연 복원법, 포장 규정, CBAM 일정에서 '경쟁력' 수정을 추진하고 있다. S&D, Greens/EFA, Left는 후퇴에 반대한다. 입법 결과는 EU의 기후 약속이 유지되는지 아니면 2030년 목표 기간을 향해 근본적으로 개정되는지를 결정한다.
+
+**힘 3: AI법 위임행위 타이밍**
+AI법 위임행위(ITRE/LIBE 권한)는 고위험 AI 시스템 요건의 이행 일정을 결정한다. 집행위는 산업의 연기 압력을 받고 있다. 위임행위는 거부에 유럽의회 과반수 블록(353명 MEP)이 필요하므로 위원회의 합의 입장이 중요하다. ITRE의 여기서의 입법 권한은 EPP가 지배 — AI 이행 속도에 관한 EPP의 내부 입장이 유럽 AI 거버넌스의 결정적 변수.
+
+### Decision-Maker Priority Matrix
+
+| 이해관계자 | 즉시 우선사항 | 3개월 우선사항 | 장기 우려사항 |
+|-----------|------------|-------------|-------------|
+| 유럽 기업 | 그린딜에 관한 ENVI 투표 결과 | AI법 위임행위 일정 | 조약 개정 범위 |
+| 시민 사회 | 이주 협약 모니터링 | AI법에 관한 LIBE 입장 | 헌법 개혁 영향 |
+| 집행위원회 | ENVI 수정 목표 | AI에 관한 ITRE 협력 | AFCO 조약 이니셔티브 |
+| 회원국 | 대연립 지속성 | 우파 블록 출현 신호 | 보충성 원칙 논의 |
+| EP 행정부 | AFCO 임명 진행 | 본회의 의석 확대 | 새 절차 제출 |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **ENVI 위원회 6월 투표 일정 및 수정 목록** — 그린딜 경로에 결정적
+2. **사안 간 EPP 조정자 입장의 일관성** — 연립 지속성 결정
+3. **ITRE 위임 AI법 보고자 입장** — 유럽 AI 거버넌스에 결정적
+4. **AFCO 문서 시리즈 PE781.*** — 조약 개정이 임박했는지 신호
+5. **계류 중인 입법 사안의 트리로그 진행 상황** — 2026년 생산량 속도 결정
+
+### Reader Briefing
+
+이 집행 브리핑은 2026년 5월 26일 유럽의회 위원회 인텔리전스를 통합한다. 유럽의회는 세계 유일의 직접 선출 초국가 입법 기관이다. 20개 이상의 상임위원회는 각 회기마다 약 200건의 입법 사안을 처리한다. 각 위원회는 본회의 투표 전에 집행위 제안을 수정할 수 있다; 위원회 수정안은 보통 최종 법률에 남는다. 위원회 활동을 추적하는 시민은 자신의 생활에 영향을 미치는 입법 변화에 대해 3~6개월의 조기 경보를 받는다. 이 분석에서의 핵심 메시지: 대연립 유지, EPP는 녹색 전환 속도 완화, AI 거버넌스 틀은 지금 위원회에서 협상 중.
+
+### IMF Economic Context for Committee Legislative Activity
+
+유럽의회 위원회의 그린딜 갱신, AI 규제, 이주 정책에 관한 결정은 경제적 진공 속에서 일어나지 않는다. IMF WEO 2026년 4월 기준선은 정치적 실현 가능성을 형성하는 경제적 맥락을 제공한다:
+
+- **EU GDP 성장률 2026: 1.4%** — 추세 이하 성장은 EPP의 비용이 많이 드는 녹색 전환 조치에 대한 식욕을 줄이고 경쟁력 수정에 대한 지지를 높임
+- **유로존 인플레이션 2026: 2.0%** — 목표로 돌아오는 인플레이션은 ECB 긴급 조치의 긴급성을 낮춤; 녹색 투자를 위한 재정 공간 정상화
+- **EU 실업률 2026: 5.7%** — 구조적 실업은 그린딜 갱신의 모든 사안에서 S&D가 공정한 전환 조항을 요구하는 압력 유지
+- **EU 재정 적자 GDP 약 2.5%** — SGP 규칙 내; 회원국 녹색 투자 가능하지만 EP 주도 입법의 보조금 프로그램 제한
+- **IMF 출처:** `cache — WEO April 2026`
+
+**입법적 함의:** 추세 이하 성장은 EPP의 경쟁력 서사에 정치적 조건을 만들어낸다. 그린딜 갱신에 관한 ENVI 위원회 전투는 산업 로비 집단이 성장 우려를 신뢰성 있게 인용할 수 있는 맥락에서 벌어진다. S&D의 반론 — 녹색 투자는 성장을 촉진한다 — 은 IMF 지지(기후 투자에 관한 WEO 3장)를 누리지만 저성장 환경에서 소통하기 더 어렵다.
+
+### Data Availability Assessment (This Run)
+
+| 데이터 소스 | 상태 | 신뢰도 영향 |
+|-----------|-----|-----------|
+| EP 위원회 문서 피드 | 🔴 404 불가 | 높음 — 현재 주간 활동 확인 불가 |
+| EP 절차 피드 | 🟡 일부(역사적 후미) | 중간 — 구조 유효, 타이밍 신뢰 불가 |
+| EP 이벤트 피드 | 🔴 404 불가 | 높음 — 6월 의제 확인 불가 |
+| EP 위원회 문서 | 🟡 일부(AFCO 50건만) | 중간 — AFCO 확인됨; 다른 위원회 불명 |
+| IMF WEO 2026년 4월 | 🟢 캐시됨 | 낮음 — 경제적 기준선 확인됨 |
+| 제도적 지식 | 🟢 높은 신뢰 | 낮음 — EP 의석 배분, 다수 산술 확인됨 |
+
+시간적 구체성에 대한 전반적 신뢰도: 🔴 낮음 — 구조 분석 유효; 5월 26일 주 위원회 활동 확인 불가.
+
+### Executive Brief Nl
+
+### BLUF — Bottom Line Up Front
+
+Het commissiestelsel van het Europees Parlement treedt de week van 26 mei 2026 in een periode van hoge wetgevingsvraag met beperkte toezichtzichtbaarheid. API-storingen bij de open data van het EP (4 van de 5 bronnen niet beschikbaar) beperken de documentaire bevestiging tot de pipeline van de AFCO-commissie (meer dan 50 documenten bevestigd). De analyse synthetiseert de institutionele kennis van de 10e zittingsperiode van het EP: vijf actieve wetgevingsstromen (implementatie van de AI-verordening, Concurrentievermogenagenda, Defensie-industriële strategie, Herziening van de Green Deal, Migratiepact), een betwiste EPP-geleide meerderheid die coalitiemanagement vereist voor elk significant dossier, en een verhoogd risico dat de ambitie van de Green Deal wordt verzwakt door tactische afstemming van de rechtervleugel.
+
+**Kernbeoordelingen:**
+
+1. 🟡 **AFCO-commissie**: Constitutionele zaken bevestigd actief (50 documenten in de EP730–PE782-serie). Institutionele hervorming en interinstitutioneel overeenkomstenwerk is de waarschijnlijke focus. *Vertrouwen: MIDDEL (B2 — direct documentair bewijs, geen inhoudsmetadata)*
+
+2. 🟠 **Wetgevingsprioriteitstromen**: Alle vijf grote stromen van de 10e zittingsperiode (AI, Concurrentievermogen, Defensie, Herziening Green Deal, Migratie) zijn actief in de commissiefase. Mei 2026 is een Brusselse commissieweek (na de plenaire vergadering van 20–23 mei in Straatsburg), wat betekent dat stemmen, hoorzittingen en werksessies van rapporteurs deze week worden verwacht. *Vertrouwen: MIDDEL-HOOG (B2)*
+
+3. 🔴 **Risico verzwakking Green Deal**: Waarschijnlijkheid op 65 % (Waarschijnlijk) ingeschat dat commissiestemmen in ENVI/ITRE resultaten opleveren die zwakker zijn dan de Commissievoorstellen 2019–2024, aangedreven door tactische afstemming van EPP+ECR+Patriots op specifieke dossiers. *Vertrouwen: MIDDEL (B2)*
+
+4. 🟡 **Gedelegeerde handelingen AI-verordening**: De coördinatie van de ITRE/LIBE-commissie over gedelegeerde handelingen heeft een ongeveer gelijk (50 %) risico op een vertraging van 6 maanden door bevoegdheidsgeschillen en industrielobby. *Vertrouwen: MIDDEL (B2)*
+
+5. 🟢 **Economische basis**: IMF WEO april 2026 projecteert de EU-bbp-groei op 1,4 % voor 2026, wat de macroeconomische context levert voor wetgeving over concurrentievermogen. De Draghi-investeringskloof van EUR 750–800 miljard blijft het referentiekader voor het werk van de ECON- en ITRE-commissies. *Vertrouwen: HOOG (A1 — IMF primaire bron)*
+
+---
+
+### Political Landscape Summary
+
+| Groep | Zetels | Commissierol K2 2026 |
+|-------|--------|----------------------|
+| EPP | 189 | Agenda-setter; meerderheidsbouwer; pro-concurrentievermogen |
+| S&D | 136 | Essentiële coalitiepartner; onderhandelaar sociale dimensie |
+| Patriots | 84 | Ontwrichtende minderheid; tactische EPP-bondgenoot op juiste dossiers |
+| ECR | 78 | Conservatief; variabele afstemming; pragmatisch in industriebeleid |
+| Renew | 77 | Liberale zwaaistemen; pro-digitaal, pro-handel |
+| Greens/EFA | 53 | Minderheid; sterk in ENVI/LIBE; coalities met S&D/Left |
+| Left | 46 | Progressieve oppositie; arbeidsmarkt- en sociale dossiers |
+| ESN | 25 | Uiterst rechts; gemarginaliseerd |
+
+**Meerderheidsdrempel:** 353/705 zetels. De Grote Coalitie (EPP+S&D+Renew = 402 zetels) heeft een comfortabele meerderheid voor reguliere wetgeving; het risico is EPP's tactisch gebruik van Patriots/ECR voor specifieke rechtse dossiers.
+
+---
+
+### IMF Economic Reference
+
+**Sleutelfiguren IMF WEO april 2026 voor EP-commissiecontext:**
+- EU-bbp-groei 2026: **1,4 %** (boven de 1,1 % van 2025 — bescheiden herstel)
+- Inflatie eurozone: **2,0 %** (op streefwaarde; voorzichtige versoepelingscyclus ECB)
+- EU-werkloosheid: **5,7 %** (langzaam dalend)
+- EU-begrotingstekort: **~2,5 % van het bbp** (binnen SGP-grenzen na hervorming)
+
+De economische context versterkt de urgentie van de commissie voor wetgeving over concurrentievermogen en kapitaalmarkten. IMF's expliciete steun voor het Draghi-kader biedt politieke dekking voor ambitieuze ECON/ITRE-hervormingspakketten.
+
+---
+
+### Monitoring Gaps
+
+Dit uitvoerend briefingdocument is uitdrukkelijk beperkt door EP API-degradatie. De volgende toezichtslacunes zijn van toepassing:
+
+1. **Geen actuele commissiestemmingsgegevens**: Onbekend welke commissies deze week over welke dossiers hebben gestemd
+2. **Geen gegevens over evenementen/hoorzittingen**: Hoorzittingen, getuigenissen van deskundigen en presentaties van rapporteurs zijn niet geobserveerd
+3. **Commissiedekking**: Alleen AFCO bevestigd actief; 19 andere commissies niet geobserveerd
+4. **Procedurepipeline**: Huidige status van procedurevoortgang is onbekend (reservegegevens dateren uit 1972)
+
+**Aanbeveling voor de volgende uitvoering:** Wanneer de EP API is hersteld, moet de prioritaire diepte-ophaling zijn: `get_procedures_feed` (lopend jaar), `get_events_feed` (gemiste hoorzittingen), `get_committee_documents_feed` (gemiste rapporten), en `track_legislation` voor de 5 prioritaire stromen.
+
+---
+
+### Strategic Intelligence Summary
+
+Het commissiestelsel van het EP in de week van 26 mei 2026 vertegenwoordigt een kritiek keerpunt in de wetgevingscyclus van de 10e zittingsperiode. Vijf grote wetgevingsprioriteitstromen zijn gelijktijdig actief in de commissiefase, de meerderheidcoalitie van het EPP vereist complex management, en het Draghi-concurrentievermogenskader levert de macroeconomische referentie voor het werk van de ECON- en ITRE-commissies. EP API-degradatie beperkte het vermogen van het bewakingssysteem om specifieke commissieactiviteiten te bevestigen, maar de structurele analyse blijft robuust op basis van institutionele kennis.
+
+**Voor besluitvormers en politieke belanghebbenden:** De sleutelvariabele in het commissiewerk van het EP in mei 2026 is hoe EPP coördineert met Patriots/ECR op specifieke groene en migratiedossiers terwijl het de Grote Coalitie voor concurrentievermogen en AI-wetgeving handhaaft. Het bijhouden van de posities van EPP-commissiecoördinatoren en schaduwrapporteurteksten in ENVI, LIBE en ITRE zal de werkelijke coalitiedynamieken onthullen.
+
+**Voor burgers:** De commissiefase is waar de inhoud van wetten die het dagelijks leven beïnvloeden daadwerkelijk wordt bepaald. Wanneer commissies stemmen over gedelegeerde handelingen van de AI-verordening, amendementen op de herziening van de Green Deal of voorstellen voor migratieprocedures, nemen zij beslissingen met onmiddellijke praktische gevolgen. Betrokkenheid bij commissieprocedures — het indienen van verzoekschriften, het volgen van rapporteurwerk, het bijhouden van de resultaten van experthoorzittingen — is de meest directe vorm van democratische participatie die beschikbaar is voor EU-burgers.
+
+---
+
+*Gegenereerd door EU Parliament Monitor geautomatiseerde workflow | committee-reports | 2026-05-26 | Uitvoering: committee-reports-run260-1779774042 | Gegevensmodus: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**EP-commissielandschap: Structurele analyse voor besluitvormers**
+
+Het commissiestelsel van het Europees Parlement fungeert als voorkamerfilter voor alle EU-wetgeving. Vanaf 26 mei 2026 definiëren drie structurele krachten het landschap:
+
+**Kracht 1: EPP-dominantie zonder meerderheid**
+Met 189/705 zetels (26,8 %) is EPP de grootste groep maar kan geen wetgeving alleen aannemen. EPP's dominantie over commissievoorzitterschappen (ENVI, ITRE, ECON, AFCO, INTA) geeft het agenda-settende macht — commissies bepalen welke amendementen het plenaire debat bereiken. EPP heeft echter minstens twee extra groepen nodig om een meerderheid te vormen. Het S&D-Renew-partnerschap (213 gecombineerde zetels) is EPP's voorkeurscoalitie, die de Grote Coalitie vormt (402 zetels, meerderheid van 353 bereikt met marge). EPP's alternatieve rechtsblokstrategie (Patriots 84, ECR 78) bereikt slechts 351 zetels — twee onder de meerderheidsdrempel — waardoor de Grote Coalitie EPP's rationele standaard wordt.
+
+**Kracht 2: Herziening van de Green Deal als de beslissende wetgevingsstrijd**
+Het herzieningsproces van de Green Deal van de ENVI-commissie is de meest ingrijpende commissieactiviteit in 2026. EPP dringt aan op 'concurrentievermogen'-wijzigingen van de Natuurherstelwet, de Verpakkingsverordening en de CBAM-implementatietijdschema's. S&D, Greens/EFA en Left verzetten zich tegen terugdraaien. De wetgevingsuitkomst bepaalt of de EU-klimaatengagementen worden gehandhaafd of fundamenteel herzien voor de doelperiode 2030.
+
+**Kracht 3: Timing van gedelegeerde handelingen AI-verordening**
+De gedelegeerde handelingen van de AI-verordening (ITRE/LIBE-bevoegdheid) stellen het implementatietijdschema vast voor vereisten voor AI-systemen met een hoog risico. De Commissie staat onder industriële druk om te vertragen. De consensuspositie van de commissie is belangrijk omdat gedelegeerde handelingen een blokkeringsmeerderheid in het EP (353 MEP's) vereisen om te worden afgewezen. ITRE's wetgevende bevoegdheid hier wordt gecontroleerd door EPP — EPP's interne positie over de implementatiesnelheid van AI is een beslissende variabele voor EU-AI-governance.
+
+### Decision-Maker Priority Matrix
+
+| Belanghebbende | Onmiddellijke prioriteit | Prioriteit 3 maanden | Langetermijnzorg |
+|----------------|-------------------------|---------------------|-----------------|
+| EU-bedrijfsleven | ENVI-stemresultaten Green Deal | Tijdschema gedelegeerde handelingen AI-verordening | Reikwijdte verdragsherziening |
+| Maatschappelijk middenveld | Toezicht Migratiepact | AI-verordening LIBE-posities | Impact constitutionele hervorming |
+| Commissie | ENVI-wijzigingsdoelen | ITRE-samenwerking bij AI | AFCO-verdragsinitiatief |
+| Lidstaten | Duurzaamheid Grote Coalitie | Signaal opkomst rechtsblok | Subsidiariteitsdebats |
+| EP-administratie | AFCO-mandaatvoortgang | Uitbreiding plenaire zetels | Indiening nieuwe procedures |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **ENVI-commissie junistemdatum en amendementslijst** — beslissend voor de richting van de Green Deal
+2. **Consistentie EPP-coördinator in cross-commissieposities** — bepaalt coalitieduurzaamheid  
+3. **Positie ITRE-rapporteur over gedelegeerde handelingen AI** — beslissend voor EU-AI-governance
+4. **AFCO-documentenserie PE781.*** — signaleert of verdragsherziening nakende is
+5. **Trilogsvoortgang bij uitstaande wetgevingsdossiers** — bepaalt productiesnelheid 2026
+
+### Reader Briefing
+
+Dit uitvoerend briefingdocument synthetiseert EP-commissie-inlichtingen voor 26 mei 2026. Het EP is het enige rechtstreeks gekozen supranationale wetgevende orgaan ter wereld. Zijn meer dan 20 vaste commissies behandelen circa 200 wetgevingsdossiers per zittingsperiode. Elke commissie kan Commissievoorstellen amenderen vóór de plenaire stemming; commissieamendementen overleven doorgaans in de definitieve wet. Burgers die commissieactiviteiten bijhouden, krijgen 3–6 maanden voorafgaande waarschuwing over wetgevingswijzigingen die hun leven beïnvloeden. De kernboodschap van deze analyse: de Grote Coalitie houdt stand, EPP matig het tempo van de groene transitie, en het AI-governance-kader wordt momenteel in de commissie onderhandeld.
+
+### IMF Economic Context for Committee Legislative Activity
+
+EP-commissiebeslissingen over de herziening van de Green Deal, AI-regulering en migratiebeleid vinden niet plaats in een economisch vacuüm. De basisreferentie IMF WEO april 2026 levert de economische context die de politieke haalbaarheid bepaalt:
+
+- **EU-bbp-groei 2026: 1,4 %** — Onder-trendgroei vermindert EPP's bereidheid voor kostbare groene transitiemaatregelen en vergroot steun voor concurrentievermogensamendementen
+- **Inflatie eurozone 2026: 2,0 %** — Inflatie terugkerend naar streefwaarde vermindert urgentie voor ECB-noodmaatregelen; normaliseert begrotingsruimte voor groene investeringen
+- **EU-werkloosheid 2026: 5,7 %** — Structurele werkloosheid handhaaft S&D's druk voor rechtvaardige transitie sociale bepalingen in elk Green Deal herzieningsdossier
+- **EU-begrotingstekort ~2,5 % bbp** — Binnen SGP-regels; maakt enige groene investering door lidstaten mogelijk maar beperkt subsidieprogramma's in EP-gedreven wetgeving
+- **IMF-bron:** `cache — WEO April 2026`
+
+**Wetgevingsimplicatie:** Onder-trendgroei creëert politieke condities voor EPP's concurrentievermogensnarratief. De strijd van de ENVI-commissie over de herziening van de Green Deal speelt zich af in een context waarbij bedrijfslobbys geloofwaardig groeizorgen kunnen aanvoeren. S&D's tegenargument — dat groene investeringen de groei stimuleren — heeft IMF-steun (WEO Hoofdstuk 3 over klimaatinvesteringen) maar is moeilijker te communiceren in een laaggroei-omgeving.
+
+### Data Availability Assessment (This Run)
+
+| Gegevensbron | Status | Impact op vertrouwen |
+|--------------|--------|---------------------|
+| EP-commissiedocumentenvoer | 🔴 404 NIET BESCHIKBAAR | HOOG — Kan huidige weekactiviteiten niet bevestigen |
+| EP-procedurenvoer | 🟡 GEDEELTELIJK (historische staart) | MIDDEL — Structuur geldig, timing onbetrouwbaar |
+| EP-evenementenvoer | 🔴 404 NIET BESCHIKBAAR | HOOG — Kan agenda juni niet bevestigen |
+| EP-commissiedocumenten | 🟡 GEDEELTELIJK (50 AFCO-doc. alleen) | MIDDEL — AFCO bevestigd; andere commissies onbekend |
+| IMF WEO april 2026 | 🟢 GECACHED | LAAG — Economische basisreferentie bevestigd |
+| Institutionele kennis | 🟢 HOOG VERTROUWEN | LAAG — EP-zetelsverdeling, meerderheidrekensommen geverifieerd |
+
+Algeheel vertrouwen in temporele specificiteit: 🔴 LAAG — Structurele analyse geldig; commissieactiviteiten in de week van 26 mei kunnen niet worden bevestigd.
+
+### Executive Brief No
+
+### BLUF — Bottom Line Up Front
+
+Europaparlamentets komitésystem trer inn i uken 26. mai 2026 i en periode med høy lovgivningsetterspørsel og begrenset overvåkingssynlighet. Feil i EP's åpne data-API (4 av 5 kilder utilgjengelige) begrenser dokumentarisk bekreftelse til AFCO-komiteens pipeline (50+ dokumenter bekreftet). Analysen syntetiserer EP's 10. valgperiodes institusjonelle kunnskap: fem aktive lovgivningsstrømmer (implementering av AI-forordningen, Konkurranseevneagendaen, Forsvarsindustriell strategi, Revisjon av den grønne given, Migrasjonspakten), et omstridt EPP-ledet flertall som krever koalisjonsforvaltning på hver betydelig sak, og forhøyet risiko for at den grønne givens ambisjon svekkes av høyresidens taktiske tilpasning.
+
+**Sentrale vurderinger:**
+
+1. 🟡 **AFCO-komiteen**: Konstitusjonelle anliggender bekreftet aktive (50 dokumenter i EP730–PE782-serien). Institusjonell reform og interinstitusjonelt avtalearbeid er den sannsynlige fokus. *Tillit: MIDDELS (B2 — direkte dokumentbevis, ingen innholdsmetadata)*
+
+2. 🟠 **Lovgivningsprioritetsstrømmer**: Alle fem store strømmer i den 10. valgperioden (AI, Konkurranseevne, Forsvar, Revisjon av den grønne given, Migrasjon) er i aktivt komitéstadium. Mai 2026 er en Brussel-komitéuke (etter plenumssesjonen 20.–23. mai i Strasbourg), noe som betyr at avstemninger, høringer og ordførerens arbeidssesjoner forventes denne uken. *Tillit: MIDDELS-HØY (B2)*
+
+3. 🔴 **Risiko for svekkelse av den grønne given**: Sannsynlighet vurdert til 65 % (Sannsynlig) at komitéavstemninger i ENVI/ITRE produserer resultater svakere enn Kommisjonens forslag 2019–2024, drevet av EPP+ECR+Patriots taktiske tilpasning på spesifikke saker. *Tillit: MIDDELS (B2)*
+
+4. 🟡 **AI-forordningens delegerte rettsakter**: ITRE/LIBE-komiteens koordinasjon om delegerte rettsakter har en omtrent jevn (50 %) risiko for 6 måneders forsinkelse på grunn av jurisdiksjonstvist og industrilobbyisme. *Tillit: MIDDELS (B2)*
+
+5. 🟢 **Økonomisk grunnlag**: IMF WEO April 2026 projiserer EU's BNP-vekst til 1,4 % for 2026, noe som gir den makroøkonomiske konteksten for konkurranseevnelovgivning. Draghis investeringsgap på EUR 750–800 mrd. forblir referanserammen for ECON- og ITRE-komiteens arbeid. *Tillit: HØY (A1 — IMF primærkilde)*
+
+---
+
+### Political Landscape Summary
+
+| Gruppe | Seter | Komitérolle kv. 2 2026 |
+|--------|-------|------------------------|
+| EPP | 189 | Agendaskaper; flertallsbygger; pro-konkurranseevne |
+| S&D | 136 | Vesentlig koalisjonspartner; forhandler av sosial dimensjon |
+| Patriots | 84 | Forstyrrende minoritet; taktisk EPP-alliert i rette saker |
+| ECR | 78 | Konservativ; variabel tilpasning; pragmatisk i industripolitikk |
+| Renew | 77 | Liberale svingstemmer; pro-digitalt, pro-handel |
+| Greens/EFA | 53 | Minoritet; sterke i ENVI/LIBE; koalisjoner med S&D/Left |
+| Left | 46 | Progressiv opposisjon; arbeidsmarkeds- og sosialsaker |
+| ESN | 25 | Ytterste høyre; marginalisert |
+
+**Flertallsterskel:** 353/705 seter. Den store koalisjonen (EPP+S&D+Renew = 402 seter) har et komfortabelt flertall for mainstream-lovgivning; risikoen er EPP's taktiske bruk av Patriots/ECR for spesifikke høyreorienterte saker.
+
+---
+
+### IMF Economic Reference
+
+**IMF WEO April 2026 nøkkeltall for EP-komiteens kontekst:**
+- EU's BNP-vekst 2026: **1,4 %** (over 2025's 1,1 % — beskjeden gjenoppretting)
+- Eurosonens inflasjon: **2,0 %** (på målet; ECB's forsiktige lettelsessyklus)
+- EU's arbeidsledighet: **5,7 %** (sakte synkende)
+- EU's finansunderskudd: **~2,5 % av BNP** (innenfor SGP-grenser etter reform)
+
+Den økonomiske konteksten forsterker komiteens hastesaker om konkurranseevne- og kapitalmarkedslovgivning. IMF's eksplisitte støtte til Draghi-rammen gir politisk dekning for ambisiøse ECON/ITRE-reformpakker.
+
+---
+
+### Monitoring Gaps
+
+Dette utøvende sammendraget er eksplisitt begrenset av EP API-forringelse. Følgende overvåkingsgap gjelder:
+
+1. **Ingen aktuelle komitéavstemningsdata**: Ukjent hvilke komiteer som stemte denne uken og om hvilke saker
+2. **Ingen begivenhets-/høringsdatadata**: Høringer, ekspertvitnemål og ordførerens presentasjoner er uobservert
+3. **Komitédekning**: Kun AFCO bekreftet aktiv; 19 andre komiteer uobserverte
+4. **Prosedyre-pipeline**: Aktuell status for prosedyrefremgang er ukjent (reservedata er fra 1972)
+
+**Anbefaling for neste kjøring:** Når EP API gjenopprettes, bør prioritert dyp-henting være: `get_procedures_feed` (inneværende år), `get_events_feed` (tapte høringer), `get_committee_documents_feed` (tapte rapporter), og `track_legislation` for de 5 prioriterte strømmene.
+
+---
+
+### Strategic Intelligence Summary
+
+EP's komitésystem i uken 26. mai 2026 representerer et kritisk veiskille i den 10. valgperiodens lovgivningssyklus. Fem store lovgivningsprioritetsstrømmer er samtidig aktive i komitéstadiet, EPP's majoritetskoalisjon krever kompleks forvaltning, og Draghis konkurranseevneramme gir den makroøkonomiske referansen for ECON- og ITRE-komiteens arbeid. EP API-forringelse begrenset overvåkingssystemets evne til å bekrefte spesifikke komitéaktiviteter, men strukturanalysen forblir robust basert på institusjonell kunnskap.
+
+**For beslutningstakere og politiske interessenter:** Den avgjørende variabelen i EP's komitéarbeid i mai 2026 er hvordan EPP koordinerer med Patriots/ECR om spesifikke grønne og migrasjonssaker, mens det opprettholder den store koalisjonen for konkurranseevne- og AI-lovgivning. Overvåking av EPP's komitékoordinatorposisjoner og skyggeordførerens tekster i ENVI, LIBE og ITRE vil avsløre de faktiske koalisjonssdynamikkene.
+
+**For borgere:** Komitéstadiet er der innholdet i lover som påvirker hverdagen faktisk bestemmes. Når komiteer stemmer om AI-forordningens delegerte rettsakter, endringsforslag til revisjonen av den grønne given eller migrasjonsprosedyreforslag, tar de beslutninger med umiddelbare praktiske konsekvenser. Engasjement i komitéprosedyrer — innsending av begjæringer, oppfølging av ordførerarbeid, sporing av ekspertvurderingsresultater — er den mest direkte formen for demokratisk deltakelse som er tilgjengelig for EU's borgere.
+
+---
+
+*Generert av EU Parliament Monitor automatisert arbeidsflyt | committee-reports | 2026-05-26 | Kjøring: committee-reports-run260-1779774042 | Datatilstand: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**EP's komitélandskap: Strukturell analyse for beslutningstakere**
+
+Europaparlamentets komitésystem fungerer som forkammerfilter for all EU-lovgivning. Fra 26. mai 2026 definerer tre strukturkrefter landskapet:
+
+**Kraft 1: EPP-dominans uten flertall**
+Med 189/705 seter (26,8 %) er EPP den største gruppen, men kan ikke vedta lovgivning alene. EPP's dominans over komitélederstillingene (ENVI, ITRE, ECON, AFCO, INTA) gir agendaskaper-makt — komiteer kontrollerer hvilke endringsforslag som når plenum. EPP krever imidlertid minst to ytterligere grupper for å danne et flertall. S&D-Renew-partnerskapet (213 kombinerte seter) er EPP's foretrukne koalisjon og danner den store koalisjonen (402 seter, flertall på 353 oppnådd med margin). EPP's alternative høyrebokkstrategi (Patriots 84, ECR 78) når bare 351 seter — to under flertallsgrensen — noe som gjør den store koalisjonen til EPP's rasjonelle standard.
+
+**Kraft 2: Revisjon av den grønne given som det avgjørende lovgivningsslaget**
+ENVI-komiteens revisjonsprosess av den grønne given er den mest avgjørende komitéaktiviteten i 2026. EPP presser på for "konkurranseevne"-endringer av naturrestaureringslov, emballasjeforordningen og CBAM-implementeringstidsplaner. S&D, Greens/EFA og Left motsetter seg tilbaketrillinger. Det lovgivningsmessige utfallet avgjør om EU's klimaforpliktelser opprettholdes eller grunnleggende revideres for 2030-målperioden.
+
+**Kraft 3: Timing for AI-forordningens delegerte rettsakter**
+AI-forordningens delegerte rettsakter (ITRE/LIBE's jurisdiksjon) fastsetter implementeringstidslinjen for krav til AI-systemer med høy risiko. Kommisjonen er under industrielt press for å forsinke. Komiteens konsensusposisjon er viktig fordi delegerte rettsakter krever et blokkerende flertall i EP (353 MEP-er) for å avvise. ITRE's lovgivningskompetanse her kontrolleres av EPP — EPP's interne posisjon om AI-implementeringshastighet er en avgjørende variabel for EU's AI-styring.
+
+### Decision-Maker Priority Matrix
+
+| Interessent | Umiddelbar prioritet | 3-måneders prioritet | Langsiktig bekymring |
+|-------------|---------------------|---------------------|---------------------|
+| EU-næringsliv | ENVI-avstemningsresultater for den grønne given | Tidsplan for AI-forordningens delegerte rettsakter | Traktatrevisjonsomfang |
+| Sivilsamfunn | Overvåking av migrasjonspakten | AI-forordningens LIBE-posisjoner | Påvirkning av konstitusjonell reform |
+| Kommisjonen | ENVI-endringsmål | ITRE-samarbeid om AI | AFCO-traktatinitiativ |
+| Medlemsstater | Bærekraft for den store koalisjonen | Signal om høyreblokks fremkomst | Subsidiaritetsdebatter |
+| EP-administrasjonen | AFCO-mandatfremgang | Utvidelse av plenarseter | Innsending av nye prosedyrer |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **ENVI-komiteens juniavstemningsdato og endringsforslagnsliste** — avgjørende for den grønne givens bane
+2. **EPP-koordinatorens konsistens på tvers av komitéposisjoner** — bestemmer koalisjonens holdbarhet  
+3. **ITRE-ordførerens posisjon om AI's delegerte rettsakter** — avgjørende for EU's AI-styring
+4. **AFCO-dokumentserien PE781.*** — signalerer om traktatrevisjon er nær forestående
+5. **Trilogfremgang om utestående lovgivningssaker** — bestemmer 2026-produksjonsraten
+
+### Reader Briefing
+
+Dette utøvende sammendraget syntetiserer EP's komitéetterretning for 26. mai 2026. EP er verdens eneste direkte valgte overstatlige lovgivende forsamling. Dens 20+ faste komiteer håndterer ca. 200 lovgivningssaker per valgperiode. Hver komité kan endre Kommisjonens forslag før plenaravstemning; komitéendringsforslag overlever typisk i den endelige loven. Borgere som overvåker komitéaktivitet, får 3–6 måneders forhåndsvarsel om lovgivningsendringer som påvirker livene deres. Nøkkelbudskapet fra denne analysen: den store koalisjonen holder, EPP modererer tempoet for den grønne omstillingen, og AI-styringsrammen forhandles i komité akkurat nå.
+
+### IMF Economic Context for Committee Legislative Activity
+
+EP's komitébeslutninger om revisjon av den grønne given, AI-regulering og migrasjonspolitikk skjer ikke i et økonomisk vakuum. IMF WEO April 2026 basislinjen gir den økonomiske konteksten som former politisk gjennomførbarhet:
+
+- **EU's BNP-vekst 2026: 1,4 %** — Under-trend vekst reduserer EPP's appetitt på kostbare grønne omstillingstiltak og øker støtten til konkurranseevneendringer
+- **Eurosonens inflasjon 2026: 2,0 %** — Inflasjon vender tilbake til målet; reduserer hastepresset for ECB-nødtiltak; normaliserer finanspolitisk rom for grønn investering
+- **EU's arbeidsledighet 2026: 5,7 %** — Strukturell arbeidsledighet opprettholder S&D's press for rettferdig omstilling sosiale bestemmelser i hver grønn given-revisjonssak
+- **EU's finansunderskudd ~2,5 % BNP** — Innenfor SGP-reglene; tillater en viss grønn investering fra medlemsstater, men begrenser subsidieprogrammer i EP-drevet lovgivning
+- **IMF-kilde:** `cache — WEO April 2026`
+
+**Lovgivningsmessig implikasjon:** Under-trend vekst skaper politiske betingelser for EPP's konkurranseevnenarrativer. ENVI-komiteens kamp om revisjon av den grønne given utspilles i en kontekst der næringslivslobbyer troverdig kan sitere veksthensyn. S&D's motargument — at grønn investering stimulerer vekst — har IMF-støtte (WEO kapittel 3 om klimainvestering), men er vanskeligere å kommunisere i et lavvekstmiljø.
+
+### Data Availability Assessment (This Run)
+
+| Datakilde | Status | Tillitsimpakt |
+|-----------|--------|---------------|
+| EP-komiteens dokumentfeed | 🔴 404 UTILGJENGELIG | HØY — Kan ikke bekrefte aktuell ukentlig aktivitet |
+| EP-prosedyrefeed | 🟡 DELVIS (historisk hale) | MIDDELS — Struktur gyldig, timing upålitelig |
+| EP-begivenhetsfeed | 🔴 404 UTILGJENGELIG | HØY — Kan ikke bekrefte junidagordenen |
+| EP-komiteens dokumenter | 🟡 DELVIS (50 AFCO-dok. kun) | MIDDELS — AFCO bekreftet; andre komiteer ukjente |
+| IMF WEO April 2026 | 🟢 BUFRET | LAV — Økonomisk basislinje bekreftet |
+| Institusjonell kunnskap | 🟢 HØY TILLIT | LAV — EP's setesfordeling, flertallsaritmetikk verifisert |
+
+Samlet tillit til tidsmessig spesifisitet: 🔴 LAV — Strukturell analyse gyldig; uken 26. mai komitéaktivitet kan ikke bekreftes.
+
+### Executive Brief Sv
+
+### BLUF — Bottom Line Up Front
+
+Europaparlamentets utskottssystem träder in i veckan den 26 maj 2026 under en period av hög lagstiftningsefterfrågan med begränsad övervakningssynlighet. Misslyckanden i EP:s öppna data-API (4 av 5 källor otillgängliga) begränsar dokumentell bekräftelse till AFCO-utskottets pipeline (50+ dokument bekräftade). Analysen syntetiserar EP:s 10:e mandatperiods institutionella kunskap: fem aktiva lagstiftningsströmmar (genomförande av AI-förordningen, Konkurrenskraftsagendan, Industriell försvarsstrategi, Revidering av den gröna given, Migrationsöverenskommelsen), en omtvistad EPP-ledd majoritet som kräver koalitionshantering för varje betydande ärende, och förhöjd risk att den gröna givens ambition försvagas av högerflankens taktiska anpassning.
+
+**Centrala bedömningar:**
+
+1. 🟡 **AFCO-utskottet**: Konstitutionellt arbete bekräftat aktivt (50 dokument i EP730–PE782-serien). Institutionell reform och interinstitutionellt avtalssarbete är den troliga fokuspunkten. *Tillförlitlighet: MEDEL (B2 — direkt dokumentbevis, ingen innehållsmetadata)*
+
+2. 🟠 **Prioriterade lagstiftningsströmmar**: Alla fem stora strömmar under den tionde mandatperioden (AI, Konkurrenskraft, Försvar, Revidering av den gröna given, Migration) befinner sig i aktivt utskottsskede. Maj 2026 är en Bryssel-utskottsvecka (efter plenarsessionen 20–23 maj i Strasbourg), vilket innebär att omröstningar, utfrågningar och föredragandenas arbetssessioner väntas denna vecka. *Tillförlitlighet: MEDEL-HÖG (B2)*
+
+3. 🔴 **Risk för försvagning av den gröna given**: Sannolikheten är 65 % (Sannolikt) att utskottsomröstningar i ENVI/ITRE ger resultat svagare än Kommissionens förslag 2019–2024, drivet av EPP+ECR+Patriots taktiska anpassning i specifika ärenden. *Tillförlitlighet: MEDEL (B2)*
+
+4. 🟡 **AI-förordningens delegerade akter**: ITRE/LIBE-utskottets samordning om delegerade akter har en ungefär lika stor (50 %) risk för 6 månaders förseningar på grund av jurisdiktionstvister och industrilobbying. *Tillförlitlighet: MEDEL (B2)*
+
+5. 🟢 **Ekonomisk grund**: IMF WEO April 2026 projicerar EU:s BNP-tillväxt till 1,4 % för 2026, vilket ger det makroekonomiska sammanhanget för konkurrenskraftslagstiftningen. Draghis investeringsgap på EUR 750–800 miljarder kvarstår som referensram för ECON- och ITRE-utskottens arbete. *Tillförlitlighet: HÖG (A1 — IMF primärkälla)*
+
+---
+
+### Political Landscape Summary
+
+| Grupp | Platser | Utskottsroll kv. 2 2026 |
+|-------|---------|----------------------|
+| EPP | 189 | Dagordningssättare; majoritetsskapare; pro-konkurrenskraft |
+| S&D | 136 | Väsentlig koalitionspartner; förhandlare av social dimension |
+| Patriots | 84 | Störande minoritet; taktisk EPP-allierad i rätt ärenden |
+| ECR | 78 | Konservativ; variabel anpassning; pragmatisk i industripolitik |
+| Renew | 77 | Liberala svängröster; pro-digitalt, pro-handel |
+| Greens/EFA | 53 | Minoritet; starka i ENVI/LIBE; koalitioner med S&D/Left |
+| Left | 46 | Progressiv opposition; arbetsmarknads- och socialärenden |
+| ESN | 25 | Yttersta högern; marginaliserad |
+
+**Majoritetströskel:** 353/705 platser. Den stora koalitionen (EPP+S&D+Renew = 402 platser) har en bekväm majoritet för mainstream-lagstiftning; risken är EPP:s taktiska användning av Patriots/ECR för specifika högerorienterade ärenden.
+
+---
+
+### IMF Economic Reference
+
+**IMF WEO April 2026 nyckeltal för EP:s utskottskontext:**
+- EU:s BNP-tillväxt 2026: **1,4 %** (över 2025 års 1,1 % — blygsam återhämtning)
+- Eurozonens inflation: **2,0 %** (på målet; ECB:s försiktiga lättnadscykel)
+- EU:s arbetslöshet: **5,7 %** (sakta sjunkande)
+- EU:s finansunderskott: **~2,5 % av BNP** (inom SGP:s gränser efter reform)
+
+Det ekonomiska sammanhanget förstärker utskottets angelägenhet om konkurrenskraft och kapitalmarknadslagstiftning. IMF:s uttryckliga stöd för Draghi-ramen ger politiskt handlingsutrymme för ambitiösa ECON/ITRE-reformpaket.
+
+---
+
+### Monitoring Gaps
+
+Denna verkställande sammanfattning begränsas uttryckligen av EP API-försämring. Följande övervakningsluckor gäller:
+
+1. **Inga aktuella utskottsröstningsdata**: Okänt vilka utskott som röstade denna vecka och om vilka ärenden
+2. **Inga händelse-/utfrågningsdata**: Utfrågningar, expertvittnesmål och föredragandenas presentationer är oobserverade
+3. **Utskottstäckning**: Endast AFCO bekräftad aktiv; 19 övriga utskott oobserverade
+4. **Procedur-pipeline**: Aktuell status för procedurframsteg är okänd (reservdata är från 1972)
+
+**Rekommendation för nästa körning:** När EP API återställs bör prioriterad djuphämtning vara: `get_procedures_feed` (innevarande år), `get_events_feed` (missade utfrågningar), `get_committee_documents_feed` (missade rapporter), och `track_legislation` för de 5 prioriterade strömmarna.
+
+---
+
+### Strategic Intelligence Summary
+
+EP:s utskottssystem under veckan den 26 maj 2026 representerar ett kritiskt vägskäl i den tionde mandatperiodens lagstiftningscykel. Fem stora lagstiftningsprioritetströmmar är samtidigt aktiva i utskottsskede, EPP:s majoritetskoalition kräver komplex hantering och Draghis konkurrenskraftsram ger den makroekonomiska referensen för ECON- och ITRE-utskottens arbete. EP API-försämring begränsade övervakningssystemets förmåga att bekräfta specifika utskottsaktiviteter, men strukturanalysen är robust baserad på institutionell kunskap.
+
+**För beslutsfattare och politiska intressenter:** Den avgörande variabeln i EP:s utskottsarbete i maj 2026 är hur EPP samordnar med Patriots/ECR i specifika gröna ärenden och migrationsfiler medan det bibehåller den stora koalitionen för konkurrenskraft och AI-lagstiftning. Att övervaka EPP:s utskottskoordinatörspositioner och skuggföredragandenas texter i ENVI, LIBE och ITRE kommer att avslöja de faktiska koalitionsdynamikerna.
+
+**För medborgare:** Utskottsstadiet är där innehållet i lagar som påverkar det dagliga livet faktiskt bestäms. När utskott röstar om AI-förordningens delegerade akter, ändringar i revideringen av den gröna given eller förslag till migrationsprocedurer fattar de beslut med omedelbara praktiska konsekvenser. Engagemang i utskottsprocedurer — att lämna in framställningar, följa föredragandens arbete, spåra expertutfrågningarnas resultat — är den mest direkta formen av demokratiskt deltagande som är tillgänglig för EU:s medborgare.
+
+---
+
+*Genererad av EU Parliament Monitor automatiserat arbetsflöde | committee-reports | 2026-05-26 | Körning: committee-reports-run260-1779774042 | Dataläge: degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**EP:s utskottslandskap: Strukturell analys för beslutsfattare**
+
+Europaparlamentets utskottssystem fungerar som pre-kammar-filter för all EU-lagstiftning. Från och med den 26 maj 2026 definierar tre strukturkrafter landskapet:
+
+**Kraft 1: EPP-dominans utan majoritet**
+Med 189/705 platser (26,8 %) är EPP den största gruppen men kan inte anta lagstiftning ensam. EPP:s dominans över utskottsordförandeposter (ENVI, ITRE, ECON, AFCO, INTA) ger dagordningssättande makt — utskott kontrollerar vilka ändringar som når plenum. EPP behöver dock minst två ytterligare grupper för att bilda majoritet. S&D-Renew-partnerskapet (213 kombinerade platser) är EPP:s föredragna koalition, som bildar den stora koalitionen (402 platser, majoritet av 353 uppnådd med marginal). EPP:s alternativa högerblocksstrategi (Patriots 84, ECR 78) når bara 351 platser — två under majoritetsgränsen — vilket gör den stora koalitionen till EPP:s rationella standard.
+
+**Kraft 2: Revidering av den gröna given som det avgörande lagstiftningsslaget**
+ENVI-utskottets revideringsprocess av den gröna given är den mest avgörande utskottsaktiviteten 2026. EPP driver på "konkurrenskrafts"-modifieringar av naturrestaureringslagen, förpackningsförordningen och genomförandetidtabellerna för CBAM. S&D, Greens/EFA och Left motsätter sig tillbakadraganden. Det lagstiftningsmässiga resultatet avgör om EU:s klimatåtaganden upprätthålls eller grundläggande revideras för 2030-målperioden.
+
+**Kraft 3: Timing för AI-förordningens delegerade akter**
+AI-förordningens delegerade akter (ITRE/LIBE:s jurisdiktion) fastställer genomförandetidslinjen för krav på AI-system med hög risk. Kommissionen är under industrins tryck att försena. Utskottets konsensusposition spelar roll eftersom delegerade akter kräver en blockerande majoritet i EP (353 ledamöter) för att avvisas. ITRE:s lagstiftningskompetens här kontrolleras av EPP — EPP:s interna ståndpunkt om AI-genomförandehastigheten är en avgörande variabel för EU:s AI-styrning.
+
+### Decision-Maker Priority Matrix
+
+| Intressent | Omedelbar prioritet | 3-månaders prioritet | Långsiktigt problem |
+|-------------|-------------------|------------------|------------------|
+| EU-näringsliv | ENVI-röstningsresultat för den gröna given | Tidsplan för AI-förordningens delegerade akter | Scope för fördragsrevision |
+| Civilsamhälle | Övervakning av migrationsöverenskommelsen | AI-förordningens LIBE-ståndpunkter | Påverkan av konstitutionell reform |
+| Kommissionen | ENVI-ändringsmål | ITRE-samarbete om AI | AFCO-fördragsinitiativ |
+| Medlemsstater | Hållbarhet för den stora koalitionen | Signal om högerblockets framväxt | Subsidiaritetsdebatter |
+| EP-administrationen | AFCO-mandatframsteg | Utvidgning av plenarsäten | Inlämning av nya procedurer |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **ENVI-utskottets junirösningsdatum och ändringsförteckning** — avgörande för den gröna givens bana
+2. **EPP-koordinatorns konsistens i korsutskottspositioner** — bestämmer koalitionens hållbarhet  
+3. **ITRE:s föredragandes position om AI:s delegerade akter** — avgörande för EU:s AI-styrning
+4. **AFCO-dokumentserien PE781.*** — signalerar om fördragsrevision är nära förestående
+5. **Trilogframsteg om utestående lagstiftningsärenden** — bestämmer 2026 års produktionstakt
+
+### Reader Briefing
+
+Denna verkställande sammanfattning syntetiserar EP:s utskottsunderrättelse för den 26 maj 2026. EP är världens enda direkt valda överstatliga lagstiftande församling. Dess 20+ fasta utskott hanterar ungefär 200 lagstiftningsärenden per mandatperiod. Varje utskott kan ändra kommissionens förslag före plenarstemning; utskottsändringar överlever vanligtvis i den slutliga lagen. Medborgare som följer utskottsverksamheten får 3–6 månaders förhandsvarning om lagstiftningsförändringar som påverkar deras liv. Nyckelbudskapet från denna analys: den stora koalitionen håller, EPP modererar takten för den gröna omställningen och AI-styrningsramen förhandlas i utskott just nu.
+
+### IMF Economic Context for Committee Legislative Activity
+
+EP:s utskottsbeslut om revidering av den gröna given, AI-reglering och migrationspolitik sker inte i ett ekonomiskt vakuum. IMF WEO April 2026 baslinjen ger det ekonomiska sammanhang som formar politisk genomförbarhet:
+
+- **EU:s BNP-tillväxt 2026: 1,4 %** — Undertrendstillväxt minskar EPP:s aptit för kostsamma gröna omställningsåtgärder och ökar stödet för konkurrenskraftsändringar
+- **Eurozonens inflation 2026: 2,0 %** — Inflationen återgår till målet; minskar brådska för ECB:s nödåtgärder; normaliserar finanspolitiskt utrymme för grön investering
+- **EU:s arbetslöshet 2026: 5,7 %** — Strukturell arbetslöshet upprätthåller S&D:s tryck för rättvisa omställnings-sociala bestämmelser i varje fil för revidering av den gröna given
+- **EU:s finansunderskott ~2,5 % BNP** — Inom SGP:s regler; möjliggör viss grön investering av medlemsstaterna men begränsar subventionsprogram i EP-driven lagstiftning
+- **IMF-källa:** `cache — WEO April 2026`
+
+**Lagstiftningsimplikation:** Undertrendstillväxt skapar politiska förutsättningar för EPP:s konkurrenskraftsnarativ. ENVI-utskottets strid om revidering av den gröna given utkämpas i ett sammanhang där industrilobbyister trovärdigt kan åberopa tillväxtproblem. S&D:s motargument — att grön investering stimulerar tillväxt — har stöd från IMF (WEO kapitel 3 om klimatinvestering) men är svårare att kommunicera i ett lågväxtmiljö.
+
+### Data Availability Assessment (This Run)
+
+| Datakälla | Status | Konfidensimpakt |
+|-------------|--------|-----------------|
+| EP:s utskottsdokumentfeed | 🔴 404 EJ TILLGÄNGLIG | HÖG — Kan inte bekräfta aktuell veckans aktivitet |
+| EP:s procedurfeed | 🟡 PARTIELL (historisk svans) | MEDEL — Struktur giltig, tidpunkter opålitliga |
+| EP:s händelsefeed | 🔴 404 EJ TILLGÄNGLIG | HÖG — Kan inte bekräfta junidagordningen |
+| EP:s utskottsdokument | 🟡 PARTIELL (50 AFCO-dok. bara) | MEDEL — AFCO bekräftad; övriga utskott okända |
+| IMF WEO April 2026 | 🟢 CACHAD | LÅG — Ekonomisk baslinje bekräftad |
+| Institutionell kunskap | 🟢 HÖG TILLFÖRLITLIGHET | LÅG — EP:s sätefördelning, majoritetsaritmetik verifierad |
+
+Övergripande tillförlitlighet för tidsmässig specificitet: 🔴 LÅG — Strukturell analys giltig; veckans utskottsaktivitet den 26 maj kan inte bekräftas.
+
+### Executive Brief Zh
+
+**数据状态:** degraded-feeds（可信度下限 0.80）  
+**运行ID:** committee-reports-run260-1779774042  
+
+---
+
+### BLUF — Bottom Line Up Front
+
+欧洲议会委员会系统在监控可见度有限的情况下，以高立法需求迎来2026年5月26日这一周。欧洲议会开放数据API故障（5个数据源中4个不可用）限制了委员会管道AFCO（已确认50余份文件）的文件核实。本分析综合了第十届欧洲议会的制度性知识：五个活跃立法流（人工智能法落实、竞争力议程、防务工业战略、绿色协议更新、移民协议），EPP领导层存在争议的多数需要在每个重大议题上管理联合，以及右翼适应导致绿色协议雄心弱化的风险上升。
+
+**主要评估：**
+
+1. 🟡 **AFCO委员会**：宪法事务已确认为活跃状态（EP730–PE782系列50份文件）。制度改革和机构间协定工作最可能是焦点。*可信度：中（B2 — 有直接文件证据，无内容元数据）*
+
+2. 🟠 **立法优先流**：第十届议会五大主要流（人工智能、竞争力、安全、绿色协议更新、移民）全部在委员会阶段活跃。2026年5月是布鲁塞尔委员会周（5月20至23日斯特拉斯堡全会之后），意味着本周将有投票、听证会和报告员工作会议。*可信度：中高（B2）*
+
+3. 🔴 **绿色协议弱化风险**：EPP+ECR+Patriots在特定议题上的战术性适应导致ENVI/ITRE委员会投票产生弱于2019至2024年欧委会提案结果的概率估计为65%（几近确定）。*可信度：中（B2）*
+
+4. 🟡 **人工智能法授权行为**：ITRE/LIBE委员会就授权行为进行协调，因管辖权争议和产业游说压力导致6个月延迟的风险大致均衡（50%）。*可信度：中（B2）*
+
+5. 🟢 **经济背景**：IMF WEO 2026年4月预测2026年欧盟GDP增长率为1.4%，为竞争力立法提供宏观经济背景。德拉吉7500至8000亿欧元投资缺口仍是ECON和ITRE委员会工作的参照框架。*可信度：高（A1 — IMF一手资料）*
+
+---
+
+### Political Landscape Summary
+
+| 政治团体 | 席位 | 2026年第二季度委员会角色 |
+|---------|-----|----------------------|
+| EPP | 189 | 设定议程；构建多数；推进竞争力 |
+| S&D | 136 | 不可或缺的联合伙伴；谈判社会维度 |
+| Patriots | 84 | 破坏性少数；适当议题上EPP的战术盟友 |
+| ECR | 78 | 保守派；适应程度不一；产业政策上实用主义 |
+| Renew | 77 | 自由派平衡票；支持数字和贸易 |
+| Greens/EFA | 53 | 少数派；ENVI/LIBE立场强硬；与S&D/Left联合 |
+| Left | 46 | 进步派反对党；劳工和社会议题 |
+| ESN | 25 | 极右翼；边缘化 |
+
+**多数门槛：** 353/705席。大联盟（EPP+S&D+Renew = 402席）在主要立法上保持舒适多数；风险在于EPP在特定右翼议题上战术性利用Patriots/ECR。
+
+---
+
+### IMF Economic Reference
+
+**欧洲议会委员会语境下IMF WEO 2026年4月关键数据：**
+- 欧盟GDP增长率2026：**1.4%**（高于2025年的1.1% — 温和复苏）
+- 欧元区通货膨胀：**2.0%**（达标；欧洲央行审慎宽松周期）
+- 欧盟失业率：**5.7%**（缓慢下降）
+- 欧盟财政赤字：**约GDP的2.5%**（改革后SGP框架内）
+
+经济背景强化了委员会在竞争力和资本市场立法方面的紧迫性。IMF对德拉吉框架的明确认可为ECON/ITRE改革方案提供了政治掩护。
+
+---
+
+### Monitoring Gaps
+
+本执行简报因欧洲议会API降级而受到明确限制。以下监控缺口适用：
+
+1. **无当前委员会投票数据**：不知道本周哪些委员会就哪些议题投票
+2. **无事件/听证会数据**：听证会、专家证词、报告员演示未被观察到
+3. **委员会覆盖率**：仅AFCO被确认为活跃；其他19个委员会未被观察
+4. **程序管道**：当前程序进展状况不明（备份数据为1972年的）
+
+**下次运行建议：** 欧洲议会API恢复后，应优先深度检索：`get_procedures_feed`（当年），`get_events_feed`（错过的听证会），`get_committee_documents_feed`（错过的报告），以及五大优先流的`track_legislation`。
+
+---
+
+### Strategic Intelligence Summary
+
+2026年5月26日这一周，欧洲议会委员会系统代表第十届立法周期的关键转折点。五个主要立法优先流在委员会阶段同步推进，EPP主导的多数联盟需要复杂管理，德拉吉竞争力框架为ECON和ITRE委员会工作提供宏观经济参照。欧洲议会API降级限制了对具体委员会活动的确认，但基于制度知识的结构分析仍然稳健。
+
+**政策制定者和政治利益相关方：** 2026年5月欧洲议会委员会工作的核心变量是EPP如何在维持竞争力和人工智能立法大联盟的同时，在特定绿色和移民议题上与Patriots/ECR协调。追踪ENVI、LIBE、ITRE中EPP委员会协调员立场和影子报告员文本将揭示真实的联盟动态。
+
+**公民：** 委员会阶段是影响日常生活的法律内容实际上被决定的地方。当委员会对人工智能法授权行为、绿色协议更新修正案或移民程序提案进行投票时，他们正在做出具有直接实际后果的决定。参与委员会程序 — 提交请愿书、追踪报告员工作、跟踪专家听证会结果 — 是欧盟公民可用的最直接的民主参与形式。
+
+---
+
+*由EU Parliament Monitor自动化工作流生成 | committee-reports | 2026-05-26 | 运行：committee-reports-run260-1779774042 | 数据状态：degraded-feeds*
+
+### Strategic Intelligence Assessment
+
+**欧洲议会委员会格局：政策制定者结构分析**
+
+欧洲议会委员会系统作为所有欧盟立法的全会前过滤器运作。截至2026年5月26日，三股结构性力量定义了格局：
+
+**力量1：无多数的EPP主导**
+以189/705席（26.8%），EPP是最大集团但无法单独通过立法。EPP对委员会主席（ENVI、ITRE、ECON、AFCO、INTA）的控制赋予其议程设定权 — 委员会控制哪些修正案能到达全会。但EPP需要至少另外两个集团来形成多数。S&D-Renew联盟（合计213席）是EPP的首选联合伙伴，形成大联盟（402席，达到353席多数有余裕）。EPP的替代右翼集团战略（Patriots 84席，ECR 78席）仅能达到351席 — 比多数少两席 — 使大联盟成为EPP的理性默认选择。
+
+**力量2：绿色协议更新作为决定性立法战役**
+ENVI委员会的绿色协议更新程序是2026年最重要的委员会活动。EPP在自然恢复法、包装法规和CBAM时间表上推动"竞争力"修正。S&D、Greens/EFA和Left反对倒退。立法结果决定欧盟气候承诺是否得以维持，或是否被根本性修订以应对2030目标期。
+
+**力量3：人工智能法授权行为时机**
+人工智能法授权行为（ITRE/LIBE权限）决定高风险人工智能系统要求的落实时间表。欧委会承受着来自产业的延期压力。委员会共识立场很重要，因为拒绝授权行为需要欧洲议会多数阻拦（353名MEP）。ITRE在此的立法权限由EPP主导 — EPP关于人工智能落实速度的内部立场是欧洲人工智能治理的决定性变量。
+
+### Decision-Maker Priority Matrix
+
+| 利益相关方 | 即时优先事项 | 3个月优先事项 | 长期关切 |
+|----------|------------|-------------|---------|
+| 欧洲企业 | ENVI关于绿色协议的投票结果 | 人工智能法授权行为时间表 | 条约修订范围 |
+| 公民社会 | 监控移民协议 | LIBE关于人工智能法的立场 | 宪法改革影响 |
+| 欧盟委员会 | ENVI修正目标 | ITRE在人工智能上的合作 | AFCO条约倡议 |
+| 成员国 | 大联盟的持久性 | 右翼集团出现的信号 | 辅助性原则讨论 |
+| 欧洲议会行政部门 | AFCO任命进展 | 全会席位扩充 | 新程序提交 |
+
+### Intelligence Gaps Requiring Monitoring
+
+1. **ENVI委员会6月投票日程和修正清单** — 对绿色协议路径至关重要
+2. **EPP协调员跨议题立场的一致性** — 决定联盟持久性
+3. **ITRE授权人工智能法报告员立场** — 对欧洲人工智能治理至关重要
+4. **AFCO文件系列PE781.*** — 标示条约修订是否临近
+5. **待处理立法议题的三方谈判进展** — 决定2026年产出速度
+
+### Reader Briefing
+
+本执行简报综合了2026年5月26日欧洲议会委员会情报。欧洲议会是世界上唯一直接选举产生的超国家立法机构。其20余个常设委员会每届任期处理约200个立法议题。每个委员会可在全会表决前修改欧委会提案；委员会修正案通常在最终法律中得以保留。追踪委员会活动的公民可对影响其生活的立法变化获得3至6个月的预警。本分析的核心信息：大联盟维持，EPP放缓绿色转型步伐，人工智能治理框架正在委员会中谈判。
+
+### IMF Economic Context for Committee Legislative Activity
+
+欧洲议会委员会就绿色协议更新、人工智能监管和移民政策做出的决定并非发生在经济真空中。IMF WEO 2026年4月基准线为塑造政治可行性的经济背景提供依据：
+
+- **欧盟GDP增长率2026：1.4%** — 低于趋势的增长削减了EPP对昂贵绿色转型措施的胃口，并增加了对竞争力修正的支持
+- **欧元区通货膨胀2026：2.0%** — 通胀回归目标降低了欧洲央行紧急措施的紧迫性；正常化绿色投资的财政空间
+- **欧盟失业率2026：5.7%** — 结构性失业维持S&D在绿色协议更新每个议题上要求公正转型条款的压力
+- **欧盟财政赤字约GDP 2.5%** — 在SGP规则内；允许成员国一定绿色投资但限制了欧洲议会主导立法中的补贴计划
+- **IMF来源：** `cache — WEO April 2026`
+
+**立法含义：** 低于趋势的增长为EPP的竞争力叙事创造了政治条件。ENVI委员会关于绿色协议更新的战役在产业游说团体能可信引用增长关切的背景下展开。S&D的反驳论点 — 绿色投资刺激增长 — 获得IMF支持（WEO第三章关于气候投资）但在低增长环境下更难传播。
+
+### Data Availability Assessment (This Run)
+
+| 数据来源 | 状态 | 对可信度的影响 |
+|---------|-----|-------------|
+| EP委员会文件动态 | 🔴 404不可用 | 高 — 无法确认当前周活动 |
+| EP程序动态 | 🟡 部分（历史末尾） | 中 — 结构有效，时间不可靠 |
+| EP事件动态 | 🔴 404不可用 | 高 — 无法确认6月议程 |
+| EP委员会文件 | 🟡 部分（仅50份AFCO文件） | 中 — AFCO已确认；其他委员会未知 |
+| IMF WEO 2026年4月 | 🟢 已缓存 | 低 — 经济基准线已确认 |
+| 制度知识 | 🟢 高度可信 | 低 — EP席位分配，多数算术已验证 |
+
+对时间具体性的整体可信度：🔴 低 — 结构分析有效；无法确认5月26日周委员会活动。
+
 ### Economic Context.Fallback
 
 ### Fallback Economic Context: EU Committee Priorities
@@ -2994,6 +4791,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [economic-context.fallback](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/intelligence/economic-context.fallback.md) | `intelligence/economic-context.fallback.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/committee-reports/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 

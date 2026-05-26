@@ -62,7 +62,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiling.md` |
 | [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-significance">Significance</h2>
 
@@ -1059,6 +1059,461 @@ graph TD
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+### BLUF
+
+يُسجِّل التشغيل التحليلي للاقتراحات في 8 أبريل **صفر أبعاد سياسية مرصودة** خلال مرحلة التباطؤ قبيل العطلة. نتيجة استمرارية إجرائية. *الثقة: منخفضة-متوسطة للجديد؛ مرتفعة للاستمرارية؛ رمز الأميرالية: B3.*
+
+### Three Decisions
+
+1. **الحفاظ على الإيقاع الإجرائي خلال الفترة السابقة للعطلة.** الإنتاج اليومي يحافظ على توقعات المستخدمين. *الثقة: مرتفعة.*
+2. **تتبع الاستمرارية مع مجموعة اقتراحات مارس 2026 (TA-0064 / -0088 / -0094).** الإطار المرجعي الأساسي. *الثقة: مرتفعة.*
+3. **تثبيت 8 أبريل كخط أساس لمسار الاقتراحات قبل العطلة.** مرجع المجموعة. *الثقة: مرتفعة.*
+
+### 60-Second Read
+
+تشغيل الاستمرارية الإجرائية بدون أبعاد يحافظ على إيقاع خط الأنابيب خلال مرحلة التباطؤ قبيل العطلة. نمط قياسي.
+
+### Risk Snapshot
+
+| المخاطر | الاحتمالية | التأثير |
+|---|---:|---:|
+| سوء تفسير قراءة الأبعاد الصفرية على أنها فشل | متوسطة | منخفضة–متوسطة |
+| يصبح مرجع استمرارية مجموعة الاقتراحات قديماً | متوسطة | منخفضة |
+
+### Source Quality
+
+- ملاحظة الأبعاد الصفرية: **A1**
+
+### Provenance
+
+- التشغيل: `motions` (2026-04-08)
+- الامتثال: خلاصات بوابة البيانات المفتوحة للبرلمان الأوروبي حصراً. متوافق مع اللائحة العامة لحماية البيانات.
+
+---
+*الحياد التحليلي: قراءة إجرائية.*
+
+### Executive Brief Da
+
+### BLUF
+
+Den analytiske kørsel af beslutningsforslag den 8. april registrerer **0 politiske dimensioner identificeret** under nedtrapningen inden ferien. Procedurekontinuitetsresultat. *Tillid: LAV-MIDDEL for nyt; HØJ for kontinuitet; Admiralitetskode: B3.*
+
+### Three Decisions
+
+1. **Fortsæt den proceduremæssige kadence i perioden inden ferien.** Daglig produktion bevarer forbrugernes forventninger. *Tillid: HØJ.*
+2. **Spor kontinuitet til marts 2026 beslutningsforslagsklyngen (TA-0064 / -0088 / -0094).** Kanonisk referenceramme. *Tillid: HØJ.*
+3. **Forankre 8. april som udgangspunkt for beslutningsforslagssporet inden ferien.** Klyngereference. *Tillid: HØJ.*
+
+### 60-Second Read
+
+Procedurekontinuitetskørsel med 0 dimensioner bevarer pipeline-kadencen under nedtrapningen inden ferien. Standardmønster.
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| 0-dimensions-aflæsning fejlfortolkes som fejl | MIDDEL | LAV–MIDDEL |
+| Beslutningsforslagsklyngens kontinuitetsreference forældes | MIDDEL | LAV |
+
+### Source Quality
+
+- 0-dimensionsobservation: **A1**
+
+### Provenance
+
+- Kørsel: `motions` (2026-04-08)
+- Overholdelse: Kun EP Open Data Portal-feeds. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: procedureaflæsning.*
+
+### Executive Brief De
+
+### BLUF
+
+Der analytische Lauf zu Entschließungsanträgen vom 8. April verzeichnet **0 erfasste politische Dimensionen** während des Vorlaufs zur Sitzungspause. Verfahrenskontinuitätsergebnis. *Vertrauen: NIEDRIG-MITTEL für Neues; HOCH für Kontinuität; Admiralitätscode: B3.*
+
+### Three Decisions
+
+1. **Verfahrensrhythmus bis zur Sitzungspause fortführen.** Die tägliche Produktion bewahrt die Erwartungen der Nutzer. *Vertrauen: HOCH.*
+2. **Kontinuität zum Antragscluster März 2026 (TA-0064 / -0088 / -0094) nachverfolgen.** Kanonischer Referenzrahmen. *Vertrauen: HOCH.*
+3. **8. April als Ausgangswert für den Antrags-Track vor der Sitzungspause verankern.** Clusterreferenz. *Vertrauen: HOCH.*
+
+### 60-Second Read
+
+Verfahrenskontinuitätslauf mit 0 Dimensionen erhält den Pipeline-Rhythmus während des Vorlaufs zur Sitzungspause. Standardmuster.
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| 0-Dimensionen-Messung wird als Fehler fehlgedeutet | MITTEL | NIEDRIG–MITTEL |
+| Kontinuitätsreferenz des Antragsclusters wird veraltet | MITTEL | NIEDRIG |
+
+### Source Quality
+
+- 0-Dimensionen-Beobachtung: **A1**
+
+### Provenance
+
+- Lauf: `motions` (2026-04-08)
+- Compliance: Ausschließlich EP Open Data Portal-Feeds. DSGVO-konform.
+
+---
+*Analytische Neutralität: Verfahrensablesen.*
+
+### Executive Brief Es
+
+### BLUF
+
+La ejecución analítica de propuestas del 8 de abril registra **0 dimensiones políticas identificadas** durante el período de desaceleración antes del receso. Resultado de continuidad procedimental. *Confianza: BAJA-MEDIA para lo nuevo; ALTA para la continuidad; Código almirantazgo: B3.*
+
+### Three Decisions
+
+1. **Mantener el ritmo procedimental durante el período previo al receso.** La producción diaria preserva las expectativas de los usuarios. *Confianza: ALTA.*
+2. **Rastrear la continuidad con el clúster de propuestas de marzo de 2026 (TA-0064 / -0088 / -0094).** Marco de referencia canónico. *Confianza: ALTA.*
+3. **Anclar el 8 de abril como línea de base del seguimiento de propuestas antes del receso.** Referencia de clúster. *Confianza: ALTA.*
+
+### 60-Second Read
+
+La ejecución de continuidad procedimental con 0 dimensiones preserva la cadencia del pipeline durante el período de desaceleración antes del receso. Patrón estándar.
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| Lectura de 0 dimensiones interpretada erróneamente como fallo | MEDIO | BAJO–MEDIO |
+| La referencia de continuidad del clúster de propuestas queda obsoleta | MEDIO | BAJO |
+
+### Source Quality
+
+- Observación de 0 dimensiones: **A1**
+
+### Provenance
+
+- Ejecución: `motions` (2026-04-08)
+- Cumplimiento: Solo feeds del Portal de Datos Abiertos del PE. Conforme al RGPD.
+
+---
+*Neutralidad analítica: lectura procedimental.*
+
+### Executive Brief Fi
+
+### BLUF
+
+Päätöslauselmien analyyttinen ajo 8. huhtikuuta kirjaa **0 poliittista ulottuvuutta havaittu** ennen loma-ajan hiljenemistä. Menettelyllinen jatkuvuustulos. *Luotettavuus: MATALA–KESKITASO uusille; KORKEA jatkuvuudelle; Admiraliteettikoodit: B3.*
+
+### Three Decisions
+
+1. **Jatka menettelyllistä rytmiä ennen loma-aikaa.** Päivittäinen tuotanto säilyttää kuluttajien odotukset. *Luotettavuus: KORKEA.*
+2. **Jäljitä jatkuvuus maaliskuun 2026 päätöslauselmaklusteriin (TA-0064 / -0088 / -0094).** Kanoninen viitekehys. *Luotettavuus: KORKEA.*
+3. **Ankkuroi 8. huhtikuuta päätöslauselmien peruslinjana ennen loma-aikaa.** Klusteriviite. *Luotettavuus: KORKEA.*
+
+### 60-Second Read
+
+Menettelyllisen jatkuvuuden ajo ilman ulottuvuuksia säilyttää putkiston rytmin ennen loma-ajan hiljenemistä. Vakiokaava.
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| 0 ulottuvuuden havainto tulkitaan virheellisesti epäonnistumiseksi | KESKITASO | MATALA–KESKITASO |
+| Päätöslauselmaklusterin jatkuvuusviite vanhenee | KESKITASO | MATALA |
+
+### Source Quality
+
+- 0 ulottuvuuden havainto: **A1**
+
+### Provenance
+
+- Ajo: `motions` (2026-04-08)
+- Vaatimustenmukaisuus: Ainoastaan EP Open Data Portal -syötteet. GDPR-yhteensopiva.
+
+---
+*Analyyttinen neutraalius: menettelyllinen lukema.*
+
+### Executive Brief Fr
+
+### BLUF
+
+L'exécution analytique des propositions du 8 avril enregistre **0 dimension politique identifiée** lors de la phase de ralentissement avant la pause. Résultat de continuité procédurale. *Confiance : FAIBLE-MOYEN pour le nouveau ; ÉLEVÉ pour la continuité ; Code amirauté : B3.*
+
+### Three Decisions
+
+1. **Maintenir le rythme procédural pendant la période précédant la pause.** La production quotidienne préserve les attentes des utilisateurs. *Confiance : ÉLEVÉ.*
+2. **Tracer la continuité avec le cluster de propositions de mars 2026 (TA-0064 / -0088 / -0094).** Cadre de référence canonique. *Confiance : ÉLEVÉ.*
+3. **Ancrer le 8 avril comme référence de base pour la piste des propositions avant la pause.** Référence de cluster. *Confiance : ÉLEVÉ.*
+
+### 60-Second Read
+
+L'exécution de continuité procédurale sans dimension préserve la cadence du pipeline pendant la phase de ralentissement avant la pause. Schéma standard.
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| Lecture à 0 dimension interprétée à tort comme un échec | MOYEN | FAIBLE–MOYEN |
+| La référence de continuité du cluster de propositions devient obsolète | MOYEN | FAIBLE |
+
+### Source Quality
+
+- Observation à 0 dimension : **A1**
+
+### Provenance
+
+- Exécution : `motions` (2026-04-08)
+- Conformité : Flux EP Open Data Portal uniquement. Conforme au RGPD.
+
+---
+*Neutralité analytique : lecture procédurale.*
+
+### Executive Brief He
+
+### BLUF
+
+הרצת הניתוח של ההצעות ב-8 באפריל מתעדת **0 ממדים פוליטיים שזוהו** במהלך ההאטה שלפני ההפסקה. תוצאת רציפות פרוצדורלית. *אמון: נמוך-בינוני לחדש; גבוה לרציפות; קוד אדמירליות: B3.*
+
+### Three Decisions
+
+1. **המשך קצב הפרוצדורה לאורך תקופת טרום-ההפסקה.** תפוקה יומית שומרת על ציפיות המשתמשים. *אמון: גבוה.*
+2. **עקוב אחר הרציפות לאשכול ההצעות של מרץ 2026 (TA-0064 / -0088 / -0094).** מסגרת הייחוס הקנונית. *אמון: גבוה.*
+3. **עגן את 8 באפריל כקו הבסיס של מסלול ההצעות לפני ההפסקה.** הפניית אשכול. *אמון: גבוה.*
+
+### 60-Second Read
+
+הרצת רציפות פרוצדורלית ללא ממדים שומרת על הקצב של הצינור במהלך ההאטה שלפני ההפסקה. תבנית סטנדרטית.
+
+### Risk Snapshot
+
+| סיכון | הסתברות | השפעה |
+|---|---:|---:|
+| קריאת 0 ממדים מתפרשת בטעות ככשל | בינונית | נמוכה–בינונית |
+| הפניית הרציפות של אשכול ההצעות מתיישנת | בינונית | נמוכה |
+
+### Source Quality
+
+- תצפית 0 ממדים: **A1**
+
+### Provenance
+
+- הרצה: `motions` (2026-04-08)
+- ציות: זנות פורטל הנתונים הפתוח של הפרלמנט האירופי בלבד. תואם לתקנות ה-GDPR.
+
+---
+*ניטרליות אנליטית: קריאה פרוצדורלית.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月8日の動議分析実行は、休会前の終息局面において**0の政治的次元が浮上**したことを記録する。手続き継続性の出力。*信頼度：新規については低〜中；継続性については高；アドミラルティコード：B3。*
+
+### Three Decisions
+
+1. **休会前の期間を通じて手続きの規則性を維持する。** 日次の出力はユーザーの期待を保全する。*信頼度：高。*
+2. **2026年3月の動議クラスター（TA-0064 / -0088 / -0094）との継続性を追跡する。** 正規の参照フレーム。*信頼度：高。*
+3. **4月8日を休会前の動議トラック基準として定める。** クラスター参照。*信頼度：高。*
+
+### 60-Second Read
+
+次元ゼロの手続き継続性実行は、休会前の終息局面においてパイプラインの規則性を保全する。標準パターン。
+
+### Risk Snapshot
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| 0次元の読み取りが失敗と誤解される | 中 | 低〜中 |
+| 動議クラスターの継続性参照が陳腐化する | 中 | 低 |
+
+### Source Quality
+
+- 0次元の観察：**A1**
+
+### Provenance
+
+- 実行：`motions`（2026-04-08）
+- 準拠：欧州議会オープンデータポータルフィードのみ。GDPR準拠。
+
+---
+*分析的中立性：手続き的読み取り。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 8일 동의안 분석 실행은 휴회 전 마무리 단계에서 **0개의 정치적 차원 도출**을 기록한다. 절차적 연속성 출력. *신뢰도: 새로운 내용에 대해 낮음-중간; 연속성에 대해 높음; 제독 코드: B3.*
+
+### Three Decisions
+
+1. **휴회 전 기간 동안 절차적 규칙성 유지.** 일일 출력은 사용자 기대를 보존한다. *신뢰도: 높음.*
+2. **2026년 3월 동의안 클러스터(TA-0064 / -0088 / -0094)와의 연속성 추적.** 표준 참조 프레임. *신뢰도: 높음.*
+3. **4월 8일을 휴회 전 동의안 추적 기준선으로 고정.** 클러스터 참조. *신뢰도: 높음.*
+
+### 60-Second Read
+
+차원 없는 절차적 연속성 실행은 휴회 전 마무리 단계에서 파이프라인 규칙성을 보존한다. 표준 패턴.
+
+### Risk Snapshot
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| 0차원 판독이 실패로 오해됨 | 중간 | 낮음-중간 |
+| 동의안 클러스터 연속성 참조가 구식이 됨 | 중간 | 낮음 |
+
+### Source Quality
+
+- 0차원 관찰: **A1**
+
+### Provenance
+
+- 실행: `motions` (2026-04-08)
+- 준수: EP 오픈 데이터 포털 피드만 사용. GDPR 준수.
+
+---
+*분석적 중립성: 절차적 판독.*
+
+### Executive Brief Nl
+
+### BLUF
+
+De analytische run van moties op 8 april registreert **0 politieke dimensies geïdentificeerd** tijdens de afbouw voor het reces. Procedurele continuïteitsuitkomst. *Vertrouwen: LAAG-MIDDEL voor nieuw; HOOG voor continuïteit; Admiraliteitscode: B3.*
+
+### Three Decisions
+
+1. **Handhaaf het procedurele ritme gedurende de periode voor het reces.** Dagelijkse output behoudt de verwachtingen van gebruikers. *Vertrouwen: HOOG.*
+2. **Traceer continuïteit naar het motiescluster van maart 2026 (TA-0064 / -0088 / -0094).** Canoniek referentiekader. *Vertrouwen: HOOG.*
+3. **Veranker 8 april als basislijn voor de motieslijn vóór het reces.** Clusterreferentie. *Vertrouwen: HOOG.*
+
+### 60-Second Read
+
+Procedurele continuïteitsrun met 0 dimensies behoudt de pipelinecadans tijdens de afbouw voor het reces. Standaardpatroon.
+
+### Risk Snapshot
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| 0-dimensiemeting verkeerd geïnterpreteerd als fout | MIDDEL | LAAG–MIDDEL |
+| Continuïteitsreferentie van het motiescluster wordt verouderd | MIDDEL | LAAG |
+
+### Source Quality
+
+- 0-dimensieobservatie: **A1**
+
+### Provenance
+
+- Run: `motions` (2026-04-08)
+- Naleving: Alleen EP Open Data Portal-feeds. AVG-conform.
+
+---
+*Analytische neutraliteit: procedurele aflezing.*
+
+### Executive Brief No
+
+### BLUF
+
+Den analytiske kjøringen av forslag 8. april registrerer **0 politiske dimensjoner identifisert** under nedtrappingen før ferieperioden. Prosedyrekontinuitetsresultat. *Tillit: LAV-MIDDELS for nytt; HØY for kontinuitet; Admiralitetskode: B3.*
+
+### Three Decisions
+
+1. **Fortsett den prosedyremessige kadensen gjennom perioden før ferie.** Daglig produksjon bevarer forbrukernes forventninger. *Tillit: HØY.*
+2. **Spor kontinuitet til mars 2026 forslagsklyngen (TA-0064 / -0088 / -0094).** Kanonisk referanseramme. *Tillit: HØY.*
+3. **Forankre 8. april som grunnlinje for forslagssporet før ferie.** Klyngereferanse. *Tillit: HØY.*
+
+### 60-Second Read
+
+Prosedyrekontinuitetskjøring med 0 dimensjoner bevarer pipeline-kadensen under nedtrappingen før ferieperioden. Standardmønster.
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| 0-dimensjonsavlesning mistolkes som feil | MIDDELS | LAV–MIDDELS |
+| Forslagsklyngens kontinuitetsreferanse blir utdatert | MIDDELS | LAV |
+
+### Source Quality
+
+- 0-dimensjonsobservasjon: **A1**
+
+### Provenance
+
+- Kjøring: `motions` (2026-04-08)
+- Etterlevelse: Kun EP Open Data Portal-feeds. GDPR-kompatibel.
+
+---
+*Analytisk nøytralitet: prosedyreavlesning.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Den analytiska körningen av motioner den 8 april registrerar **0 politiska dimensioner identifierade** under nedvarvningen inför recessuppehållet. Procedurkontinuitetsresultat. *Tillförlitlighet: LÅG-MEDEL för nytt; HÖG för kontinuitet; Amiralitetskod: B3.*
+
+### Three Decisions
+
+1. **Fortsätt det procedurella kadansen under perioden inför recessuppehållet.** Daglig produktion bevarar konsumenternas förväntningar. *Tillförlitlighet: HÖG.*
+2. **Spåra kontinuitet till mars 2026 motionskluster (TA-0064 / -0088 / -0094).** Kanonisk referensram. *Tillförlitlighet: HÖG.*
+3. **Ankra 8 april som baslinje för motionsspåret inför recessuppehållet.** Klusterreferens. *Tillförlitlighet: HÖG.*
+
+### 60-Second Read
+
+Procedurkontinuitetskörning med 0 dimensioner bevarar pipelinekadens under nedvarvningen inför recessuppehållet. Standardmönster.
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| 0-dimensionsavläsning feltolkas som misslyckande | MEDEL | LÅG–MEDEL |
+| Motionsklusterets kontinuitetsreferens blir inaktuell | MEDEL | LÅG |
+
+### Source Quality
+
+- 0-dimensionsobservation: **A1**
+
+### Provenance
+
+- Körning: `motions` (2026-04-08)
+- Efterlevnad: Enbart EP Open Data Portal-flöden. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: proceduravläsning.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月8日动议分析运行在假期前收尾阶段记录**0个政治维度浮现**。程序连续性输出。*可信度：新内容为低-中；连续性为高；海军代码：B3。*
+
+### Three Decisions
+
+1. **在假期前期间维持程序节奏。** 日常输出保留用户期望。*可信度：高。*
+2. **追溯与2026年3月动议集群（TA-0064 / -0088 / -0094）的连续性。** 规范参考框架。*可信度：高。*
+3. **将4月8日定为假期前动议轨道基准。** 集群参考。*可信度：高。*
+
+### 60-Second Read
+
+零维度程序连续性运行在假期前收尾阶段保持管道节奏。标准模式。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 0维度读数被误读为失败 | 中 | 低-中 |
+| 动议集群连续性参考变得过时 | 中 | 低 |
+
+### Source Quality
+
+- 0维度观察：**A1**
+
+### Provenance
+
+- 运行：`motions`（2026-04-08）
+- 合规：仅限欧洲议会开放数据门户数据流。符合GDPR。
+
+---
+*分析中立性：程序性读数。*
+
 ### Coalition Dynamics
 
 ### Computed Metrics (Script-Generated Context)
@@ -1270,6 +1725,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/existing/cross-session-intelligence.md) | `existing/cross-session-intelligence.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/existing/deep-analysis.md) | `existing/deep-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/motions/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 

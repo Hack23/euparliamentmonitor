@@ -1,0 +1,58 @@
+{
+  "date": "2026-05-26",
+  "articleType": "breaking",
+  "runId": "breaking-run267-1779759215",
+  "gateResult": "PENDING",
+  "slug": "2026-05-26-breaking",
+  "articlePath": "analysis/daily/2026-05-26/breaking/article.md",
+  "topFinding": "The European Parliament's May 19-21, 2026 Strasbourg plenary session delivered a landmark legislative week, adopting six major measures that collectively reshape EU trade architecture, digital governance, and geopolitical engagement.",
+  "keyTakeaways": [
+    "Investments ≥€10m in critical sectors trigger mandatory pre-notification to a new EU Investment Screening Authority (ISA)",
+    "ISA issues binding recommendations; Commission retains final decision authority",
+    "Member States may not approve ISA-flagged investments without Commission sign-off",
+    "Horizontal cross-border review: acquisition structures designed to avoid thresholds trigger regulatory scrutiny",
+    "Assumption 1: Commission will use ISA recommendations as intended, not as procedural hurdle to clear. Risk: LOW — political incentive structure supports robust implementation given post-2024 geopolitical environment.",
+    "Assumption 2: EU court system will uphold regulation against property rights challenges. Risk: MODERATE — ECJ precedent on FDI is limited; ECHR Article 1 Protocol 1 litigation likely within 24 months.",
+    "Assumption 3: China will not retaliate in a manner that triggers Article 49 TFEU emergency measures. Risk: MODERATE — China's priority is maintaining EU market access for EV transition investment."
+  ],
+  "topRisks": [
+    "R1: Hungarian ECJ challenge (70%)",
+    "R9: ISA under-resourcing (55%)",
+    "R2: Commission scope narrowing (55%)",
+    "R3: China WTO dispute (50%)",
+    "R4: Korean FTA dispute (45%)",
+    "R5: Rare earth weaponisation (20%) — catastrophic but low probability",
+    "R7: Coalition fracture (30%)",
+    "R8: Taliban detention (15%)"
+  ],
+  "keyDates": [
+    "[ ] Commission issues ISA establishment regulation proposal by August 2026 (deadline per regulation Article 45)",
+    "[ ] Council adopts ISA founding regulation by December 2026 (optimistic) / March 2027 (realistic)",
+    "[ ] First sector-specific implementing act (semiconductors) consultation process launched Q3 2026",
+    "[ ] ISA budget line included in Commission's 2028 budget proposal (expected June 2027)",
+    "❌ No Commission ISA regulation proposal by September 2026 (suggests political de-prioritisation)",
+    "❌ Hungary/Poland file ECJ challenge before August 2026 (triggers investor uncertainty)",
+    "[ ] No rare earth export quota modification in Q3 2026 Chinese export control announcements",
+    "❌ Chinese MEA (Ministry of Economic Affairs) announces retaliatory measures list by September 2026"
+  ],
+  "keyActors": [
+    "France/Germany: Support strong FDI regime protecting strategic industries",
+    "Poland/Czech Republic: Concerned about Chinese investment pipeline; cautiously supportive",
+    "Hungary/Slovakia: Opposed on sovereignty grounds; largest FDI recipients from China relative to GDP",
+    "Nordic states: Strongly supportive; own stringent investment screening regimes"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

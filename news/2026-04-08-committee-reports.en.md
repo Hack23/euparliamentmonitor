@@ -63,7 +63,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiling.md` |
 | [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-significance">Significance</h2>
 
@@ -1320,6 +1320,474 @@ The data supports robust analysis of committee output but limits real-time commi
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+### BLUF
+
+تُسجِّل الدورة التحليلية لتقارير اللجان في 8 أبريل **صفر أبعاد سياسية من إشارات حديثة** خلال فترة ما قبل العطلة. النتيجة هي استمرارية إجرائية. يحافظ النظام على وتيرته اليومية حتى عندما تكون اللجان نفسها في مرحلة الإقفال التمهيدي قبل العطلة. *درجة الثقة: منخفضة إلى متوسطة للمحتوى الحديث؛ عالية للاستمرارية؛ تصنيف Admiralty: B3.*
+
+### ثلاثة قرارات
+
+1. **الاستمرار في إصدار الاستمرارية الإجرائية طوال مرحلة الإقفال قبل العطلة.** الموثوقية التشغيلية هي المبدأ الحاكم. *درجة الثقة: عالية.*
+2. **الإشارة إلى فهرسة الربع الأول من عام 2026 للمحتوى الاستمراري.** يمثل الخط الأساسي المكوَّن من 100 نص / 6 جلسات / 10 أسابيع للربع الأول المرجعَ القانوني. *درجة الثقة: عالية.*
+3. **تثبيت 8 أبريل نقطةَ تفتيش للذاكرة المؤسسية لمسار اللجان قبل العطلة.** تُرجَع الدورات اللاحقة لمجموعة العطلة إلى هذه النقطة. *درجة الثقة: عالية.*
+
+### قراءة في 60 ثانية
+
+تحافظ دورات الاستمرارية الإجرائية على السجل التحليلي خلال الإغلاق المؤسسي. دورة تقارير اللجان في 8 أبريل هي أحد هذه المراسي.
+
+### لمحة عن المخاطر
+
+| الخطر | الاحتمالية | التأثير |
+|---|---:|---:|
+| تفسير قراءة الصفر أبعاد خطأً على أنها عطل في الأنبوب | متوسط | منخفض–متوسط |
+| وضع الاستمرارية الإجرائية يُزيح العمق التحليلي | منخفض | منخفض |
+
+### جودة المصادر
+
+- ملاحظة الصفر أبعاد: **A1**
+- وضع الاستمرارية: **A2**
+
+### المصدر
+
+- الدورة: `committee-reports` (2026-04-08، إقفال ما قبل العطلة)
+- الامتثال: تغذيات EP Open Data Portal فحسب. متوافق مع اللائحة العامة لحماية البيانات.
+
+---
+*الحياد التحليلي: تمت الإشارة إلى قراءة الصفر أبعاد بصفة إجرائية.*
+
+### Executive Brief Da
+
+### BLUF
+
+Den analytiske kørsel af udvalgsrapporter den 8. april registrerer **0 politiske dimensioner fra friske signaler** i perioden forud for ferien. Resultatet er procedurelt kontinuitet. Sporet opretholder daglig kadence, selv når udvalgene selv er i afviklingsfasen inden ferien. *Konfidensgrad: LAV-MIDDEL for frisk indhold; HØJ for kontinuitet; Admiralty: B3.*
+
+### Tre Beslutninger
+
+1. **Fortsæt procedurelt kontinuitetsoutput under afviklingsfasen inden ferien.** Driftspålidelighed er det styrende princip. *Konfidensgrad: HØJ.*
+2. **Henvis til Q1 2026-katalogisering for kontinuitetsindhold.** Basislinjen med 100 tekster / 6 møder / 10 uger for Q1 er den kanoniske reference. *Konfidensgrad: HØJ.*
+3. **Forankre 8. april som den institutionelle hukommelseskontrolpunkt for udvalgsporet inden ferien.** Efterfølgende ferieklusterkørsler spores tilbage til dette kontrolpunkt. *Konfidensgrad: HØJ.*
+
+### 60-Sekunders Læsning
+
+Procedurelle kontinuitetskørsler bevarer analytisk register under institutionel afvikling. Den 8. april udvalgsrapportkørsel er et sådant anker.
+
+### Risikooversigt
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| 0-dimensions aflæsning fejlfortolket som pipelinefejl | MED | LAV–MED |
+| Procedurelt kontinuitetstilstand fortrænger analytisk dybde | LAV | LAV |
+
+### Kildekvalitet
+
+- 0-dimensions observation: **A1**
+- Kontinuitetstilstand: **A2**
+
+### Oprindelse
+
+- Kørsel: `committee-reports` (2026-04-08, afvikling inden ferie)
+- Overholdelse: Kun EP Open Data Portal-feeds. GDPR-kompatibelt.
+
+---
+*Analytisk neutralitet: 0-dimensions aflæsning mærket procedurelt.*
+
+### Executive Brief De
+
+### BLUF
+
+Der analytische Lauf der Ausschussberichte vom 8. April verzeichnet **0 politische Dimensionen aus frischen Signalen** während der Vor-Pause-Periode. Das Ergebnis ist verfahrensmäßige Kontinuität. Die Spur wahrt den täglichen Rhythmus, auch wenn die Ausschüsse selbst in der Abwicklungsphase vor der Pause sind. *Konfidenzgrad: NIEDRIG-MITTEL für frische Inhalte; HOCH für Kontinuität; Admiralty: B3.*
+
+### Drei Entscheidungen
+
+1. **Verfahrensmäßige Kontinuitätsausgabe während der Abwicklungsphase vor der Pause fortsetzen.** Betriebszuverlässigkeit ist das Leitprinzip. *Konfidenzgrad: HOCH.*
+2. **Auf die Q1 2026-Katalogisierung für Kontinuitätsinhalte verweisen.** Die Basislinie mit 100 Texten / 6 Sitzungen / 10 Wochen für Q1 ist die kanonische Referenz. *Konfidenzgrad: HOCH.*
+3. **8. April als institutionellen Gedächtniskontrollpunkt für den Ausschusspfad vor der Pause verankern.** Nachfolgende Pausen-Cluster-Läufe werden auf diesen Kontrollpunkt zurückgeführt. *Konfidenzgrad: HOCH.*
+
+### 60-Sekunden-Lektüre
+
+Verfahrensmäßige Kontinuitätsläufe bewahren analytische Aufzeichnungen während des institutionellen Abwickelns. Der Ausschussberichtslauf vom 8. April ist ein solcher Anker.
+
+### Risikoübersicht
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| 0-Dimensionen-Ablesung als Pipeline-Fehler missverstanden | MITTEL | NIEDRIG–MITTEL |
+| Verfahrensmäßiger Kontinuitätsbetrieb verdrängt analytische Tiefe | NIEDRIG | NIEDRIG |
+
+### Quellqualität
+
+- 0-Dimensionen-Beobachtung: **A1**
+- Kontinuitätsbetrieb: **A2**
+
+### Herkunft
+
+- Lauf: `committee-reports` (2026-04-08, Abwicklung vor Pause)
+- Konformität: Nur EP Open Data Portal-Feeds. DSGVO-konform.
+
+---
+*Analytische Neutralität: 0-Dimensionen-Ablesung verfahrensmäßig gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+El ciclo analítico de informes de comités del 8 de abril registra **0 dimensiones políticas procedentes de señales recientes** durante el período previo al receso. El resultado es continuidad procedimental. El seguimiento mantiene la cadencia diaria incluso cuando los comités mismos se encuentran en fase de cierre previo al receso. *Grado de confianza: BAJO-MEDIO para contenido reciente; ALTO para continuidad; Admiralty: B3.*
+
+### Tres Decisiones
+
+1. **Continuar la producción de continuidad procedimental durante la fase de cierre previa al receso.** La fiabilidad operativa es el principio rector. *Grado de confianza: ALTO.*
+2. **Referenciar la catalogación del T1 2026 para el contenido de continuidad.** La línea de base de 100 textos / 6 sesiones / 10 semanas para el T1 es la referencia canónica. *Grado de confianza: ALTO.*
+3. **Anclar el 8 de abril como punto de control de la memoria institucional del seguimiento de comités antes del receso.** Los ciclos posteriores del clúster de receso se remontan a este punto de control. *Grado de confianza: ALTO.*
+
+### Lectura en 60 Segundos
+
+Los ciclos de continuidad procedimental preservan el registro analítico durante el desmantelamiento institucional. El ciclo de informes de comités del 8 de abril es uno de esos puntos de anclaje.
+
+### Resumen de Riesgos
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| Lectura de 0 dimensiones malinterpretada como fallo en el pipeline | MED | BAJO–MED |
+| Modo de continuidad procedimental desplaza la profundidad analítica | BAJO | BAJO |
+
+### Calidad de Fuentes
+
+- Observación de 0 dimensiones: **A1**
+- Modo continuidad: **A2**
+
+### Procedencia
+
+- Ciclo: `committee-reports` (2026-04-08, cierre previo al receso)
+- Conformidad: Solo fuentes EP Open Data Portal. Cumple con el RGPD.
+
+---
+*Neutralidad analítica: lectura de 0 dimensiones etiquetada de forma procedimental.*
+
+### Executive Brief Fi
+
+### BLUF
+
+8. huhtikuuta valiokuntaraporttien analyyttinen ajo rekisteröi **0 poliittista ulottuvuutta tuoreista signaaleista** lomakautta edeltävänä ajanjaksona. Tulos on menettelyllinen jatkuvuus. Seuranta ylläpitää päivittäistä tahtia, vaikka valiokunnat itse ovat lomaa edeltävässä alasajovaiheessa. *Luotettavuus: MATALA-KESKITASO tuoreelle sisällölle; KORKEA jatkuvuudelle; Admiralty: B3.*
+
+### Kolme Päätöstä
+
+1. **Jatka menettelyllistä jatkuvuustuotantoa loman edeltävän alasajon aikana.** Toiminnallinen luotettavuus on ohjaava periaate. *Luotettavuus: KORKEA.*
+2. **Viittaa Q1 2026 -luettelointiin jatkuvuussisällölle.** Peruslinja, jossa on 100 tekstiä / 6 istuntoa / 10 viikkoa Q1:lle, on kanoninen viite. *Luotettavuus: KORKEA.*
+3. **Ankkuroi 8. huhtikuuta lomaa edeltäväksi valiokuntatyön institutionaalisen muistin tarkistuspisteeksi.** Seuraavat lomatauon aikaiset ajot jäljitetään tähän tarkistuspisteeseen. *Luotettavuus: KORKEA.*
+
+### 60-Sekunnin Lukeminen
+
+Menettelylliset jatkuvuusajot säilyttävät analyyttisen kirjanpidon institutionaalisen alasajon aikana. 8. huhtikuuta valiokuntaraporttien ajo on yksi tällainen ankkuri.
+
+### Riskikatsaus
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| 0-ulottuvuuden havainto tulkitaan virheellisesti putkistohäiriönä | KESKI | MATALA–KESKI |
+| Menettelyllinen jatkuvuustila syrjäyttää analyyttisen syvyyden | MATALA | MATALA |
+
+### LähdeLaatu
+
+- 0-ulottuvuuden havainto: **A1**
+- Jatkuvuustila: **A2**
+
+### Alkuperä
+
+- Ajo: `committee-reports` (2026-04-08, alasajo ennen lomataukoa)
+- Vaatimustenmukaisuus: Vain EP Open Data Portal -syötteet. GDPR-yhteensopiva.
+
+---
+*Analyyttinen neutraalisuus: 0-ulottuvuuden havainto merkitty menettelyllisesti.*
+
+### Executive Brief Fr
+
+### BLUF
+
+Le cycle analytique des rapports de commissions du 8 avril enregistre **0 dimension politique issue de signaux récents** au cours de la période de pré-pause. Le résultat est une continuité procédurale. Le suivi maintient la cadence quotidienne même lorsque les commissions elles-mêmes sont en phase de clôture avant la pause. *Degré de confiance : FAIBLE-MOYEN pour le contenu récent ; ÉLEVÉ pour la continuité ; Admiralty : B3.*
+
+### Trois Décisions
+
+1. **Poursuivre la production de continuité procédurale pendant la phase de clôture de la pré-pause.** La fiabilité opérationnelle est le principe directeur. *Degré de confiance : ÉLEVÉ.*
+2. **Se référer au catalogage du T1 2026 pour le contenu de continuité.** La ligne de base de 100 textes / 6 séances / 10 semaines pour le T1 est la référence canonique. *Degré de confiance : ÉLEVÉ.*
+3. **Ancrer le 8 avril comme point de contrôle de la mémoire institutionnelle du suivi des commissions avant la pause.** Les cycles ultérieurs du groupe de la pause renvoient à ce point de contrôle. *Degré de confiance : ÉLEVÉ.*
+
+### Lecture en 60 Secondes
+
+Les cycles de continuité procédurale préservent le registre analytique pendant le démantèlement institutionnel. Le cycle des rapports de commissions du 8 avril est l'un de ces points d'ancrage.
+
+### Aperçu des Risques
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| Lecture à 0 dimension interprétée à tort comme défaillance du pipeline | MOY | FAIBLE–MOY |
+| Mode de continuité procédurale supplante la profondeur analytique | FAIBLE | FAIBLE |
+
+### Qualité des Sources
+
+- Observation à 0 dimension : **A1**
+- Mode continuité : **A2**
+
+### Provenance
+
+- Cycle : `committee-reports` (2026-04-08, clôture avant pause)
+- Conformité : Flux EP Open Data Portal uniquement. Conforme au RGPD.
+
+---
+*Neutralité analytique : lecture à 0 dimension étiquetée de manière procédurale.*
+
+### Executive Brief He
+
+### BLUF
+
+המחזור האנליטי של דוחות הוועדות מיום 8 באפריל מתעד **0 ממדים פוליטיים מאותות רעננים** בתקופה שלפני הפגרה. התוצאה היא המשכיות פרוצדורלית. המעקב שומר על קצב יומי גם כאשר הוועדות עצמן נמצאות בשלב הסגירה שלפני הפגרה. *רמת הביטחון: נמוכה-בינונית לתוכן רענן; גבוהה להמשכיות; Admiralty: B3.*
+
+### שלושה החלטות
+
+1. **המשך בפלט המשכיות פרוצדורלית לאורך שלב הסגירה שלפני הפגרה.** אמינות תפעולית היא העיקרון המנחה. *רמת הביטחון: גבוהה.*
+2. **הפנייה לקטלוג הרבעון הראשון של 2026 לתוכן המשכיות.** קו הבסיס של 100 טקסטים / 6 ישיבות / 10 שבועות לרבעון הראשון הוא ההפניה הקנונית. *רמת הביטחון: גבוהה.*
+3. **עגינת 8 באפריל כנקודת בקרה של זיכרון מוסדי לנתיב הוועדות לפני הפגרה.** ריצות מאוחרות של אשכול הפגרה מתחקות לנקודת הבקרה הזו. *רמת הביטחון: גבוהה.*
+
+### קריאה של 60 שניות
+
+ריצות המשכיות פרוצדורליות שומרות על רישום אנליטי במהלך פירוק מוסדי. ריצת דוחות הוועדות מ-8 באפריל היא אחד מעוגנים כאלה.
+
+### סקירת סיכונים
+
+| סיכון | הסתברות | השפעה |
+|---|---:|---:|
+| קריאת 0 ממדים מתפרשת בטעות ככישלון צינור | בינוני | נמוך–בינוני |
+| מצב המשכיות פרוצדורלית מדחה עומק אנליטי | נמוך | נמוך |
+
+### איכות מקורות
+
+- תצפית 0 ממדים: **A1**
+- מצב המשכיות: **A2**
+
+### מקור
+
+- ריצה: `committee-reports` (2026-04-08, סגירה לפני פגרה)
+- ציות: הזנות EP Open Data Portal בלבד. תואם GDPR.
+
+---
+*ניטרליות אנליטית: קריאת 0 ממדים סומנה פרוצדורלית.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月8日の委員会報告書分析ランは、休会前期間中に**新鮮なシグナルからの政治的次元0件**を記録した。出力は手続き的継続性である。委員会自体が休会前の終了フェーズにある場合でも、トラックは日々のリズムを維持する。*信頼度：新鮮なコンテンツに対して低〜中；継続性に対して高；アドミラルティ：B3。*
+
+### 三つの決定
+
+1. **休会前の終了フェーズ全体を通じて手続き的継続性出力を継続する。** 運用上の信頼性が指導原則である。*信頼度：高。*
+2. **継続性コンテンツには2026年第1四半期のカタログ化を参照する。** 100テキスト / 6セッション / 10週間という第1四半期のベースラインが正規の参照である。*信頼度：高。*
+3. **4月8日を休会前の委員会トラック機関記憶チェックポイントとして確立する。** 休会クラスターの後続ランはこのチェックポイントに遡る。*信頼度：高。*
+
+### 60秒の読み
+
+手続き的継続性ランは、機関的終了中に分析記録を保持する。4月8日の委員会報告書ランはそのようなアンカーの一つである。
+
+### リスク概観
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| 0次元読み取りがパイプライン障害として誤解釈される | 中 | 低〜中 |
+| 手続き的継続性モードが分析的深度を駆逐する | 低 | 低 |
+
+### 情報源の質
+
+- 0次元観察：**A1**
+- 継続性モード：**A2**
+
+### 出所
+
+- ラン：`committee-reports`（2026-04-08、休会前終了）
+- 準拠：EPオープンデータポータルフィードのみ。GDPR準拠。
+
+---
+*分析的中立性：0次元読み取りは手続き的にラベル付けされた。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 8일 위원회 보고서 분석 실행은 휴회 전 기간 동안 **신선한 신호로부터 정치적 차원 0개**를 기록했다. 결과는 절차적 연속성이다. 위원회 자체가 휴회 전 마감 단계에 있을 때도 트랙은 일일 박자를 유지한다. *신뢰도: 신선한 콘텐츠에 대해 낮음-중간; 연속성에 대해 높음; Admiralty: B3.*
+
+### 세 가지 결정
+
+1. **휴회 전 마감 단계 전반에 걸쳐 절차적 연속성 출력 지속.** 운영 신뢰성이 지도 원칙이다. *신뢰도: 높음.*
+2. **연속성 콘텐츠를 위해 2026년 1분기 목록화를 참조.** 1분기의 100개 텍스트 / 6회 세션 / 10주 기준선이 정식 참조다. *신뢰도: 높음.*
+3. **4월 8일을 휴회 전 위원회 트랙 제도적 기억 체크포인트로 고정.** 이후의 휴회 클러스터 실행은 이 체크포인트로 소급된다. *신뢰도: 높음.*
+
+### 60초 독해
+
+절차적 연속성 실행은 제도적 마감 동안 분석 기록을 보존한다. 4월 8일 위원회 보고서 실행은 그런 앵커 중 하나다.
+
+### 위험 스냅샷
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| 0-차원 판독이 파이프라인 오류로 잘못 해석됨 | 중간 | 낮음–중간 |
+| 절차적 연속성 모드가 분석적 깊이를 밀어냄 | 낮음 | 낮음 |
+
+### 소스 품질
+
+- 0-차원 관찰: **A1**
+- 연속성 모드: **A2**
+
+### 출처
+
+- 실행: `committee-reports` (2026-04-08, 휴회 전 마감)
+- 준수: EP Open Data Portal 피드만. GDPR 준수.
+
+---
+*분석적 중립성: 0-차원 판독은 절차적으로 레이블이 붙었다.*
+
+### Executive Brief Nl
+
+### BLUF
+
+De analytische run van commissierapporten van 8 april registreert **0 politieke dimensies uit verse signalen** tijdens de periode voor het reces. De uitkomst is procedurele continuïteit. De track handhaaft het dagelijkse ritme, ook wanneer de commissies zelf in de afbouwfase voor het reces bevinden. *Betrouwbaarheidsgraad: LAAG-GEMIDDELD voor vers inhoud; HOOG voor continuïteit; Admiralty: B3.*
+
+### Drie Beslissingen
+
+1. **Ga door met procedurele continuiteitsuitslagen gedurende de afbouwfase voor het reces.** Operationele betrouwbaarheid is het leidend principe. *Betrouwbaarheidsgraad: HOOG.*
+2. **Verwijs naar de Q1 2026-catalogisering voor continuïteitsinhoud.** De basislijn met 100 teksten / 6 vergaderingen / 10 weken voor Q1 is de canonieke referentie. *Betrouwbaarheidsgraad: HOOG.*
+3. **Veranker 8 april als het institutioneel geheugenkontrolepunt voor het commissietraject voor het reces.** Opvolgende reces-clusterkoppelingen worden teruggeleid naar dit controlepunt. *Betrouwbaarheidsgraad: HOOG.*
+
+### 60-Seconden Lectuur
+
+Procedurele continuiteitruns bewaren analytische registraties tijdens institutionele afbouw. De run van commissierapporten van 8 april is zo'n anker.
+
+### Risico-overzicht
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| 0-dimensies aflezing verkeerd geïnterpreteerd als pijplijnfout | MED | LAAG–MED |
+| Procedurele continuiteitsmodus verdringt analytische diepte | LAAG | LAAG |
+
+### Bronkwaliteit
+
+- 0-dimensies observatie: **A1**
+- Continuiteitsmodus: **A2**
+
+### Herkomst
+
+- Run: `committee-reports` (2026-04-08, afbouw voor reces)
+- Naleving: Alleen EP Open Data Portal-feeds. AVG-conform.
+
+---
+*Analytische neutraliteit: 0-dimensies aflezing procedureel gelabeld.*
+
+### Executive Brief No
+
+### BLUF
+
+Den analytiske kjøringen av utvalgsrapporter 8. april registrerer **0 politiske dimensjoner fra ferske signaler** i perioden før ferien. Resultatet er prosedyremessig kontinuitet. Sporet opprettholder daglig kadense selv når utvalgene selv er i avviklingsfasen før ferien. *Konfidensgrad: LAV-MIDDELS for ferskt innhold; HØY for kontinuitet; Admiralty: B3.*
+
+### Tre Beslutninger
+
+1. **Fortsett prosedyremessig kontinuitetsutskrift gjennom avviklingsfasen før ferien.** Driftspålitelighet er det styrende prinsippet. *Konfidensgrad: HØY.*
+2. **Referer til Q1 2026-katalogisering for kontinuitetsinnhold.** Basislinjen med 100 tekster / 6 møter / 10 uker for Q1 er den kanoniske referansen. *Konfidensgrad: HØY.*
+3. **Forankre 8. april som den institusjonelle hukommelseskontrollpunktet for utvalgsporet før ferien.** Etterfølgende ferieklustrerkjøringer spores tilbake til dette kontrollpunktet. *Konfidensgrad: HØY.*
+
+### 60-Sekunders Lesning
+
+Prosedyremessige kontinuitetskjøringer bevarer analytisk register under institusjonell avvikling. Kjøringen av utvalgsrapporter 8. april er et slikt anker.
+
+### Risikooversikt
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| 0-dimensjoners avlesning feiltolket som pipelinefeil | MED | LAV–MED |
+| Prosedyremessig kontinuitetsmodus fortrenger analytisk dybde | LAV | LAV |
+
+### Kildekvalitet
+
+- 0-dimensjoners observasjon: **A1**
+- Kontinuitetsmodus: **A2**
+
+### Opprinnelse
+
+- Kjøring: `committee-reports` (2026-04-08, avvikling før ferie)
+- Etterlevelse: Kun EP Open Data Portal-feeds. GDPR-kompatibelt.
+
+---
+*Analytisk nøytralitet: 0-dimensjoners avlesning merket prosedyremessig.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Den analytiska körningen av utskottsrapporter den 8 april registrerar **0 politiska dimensioner från aktuella signaler** under perioden inför uppehåll. Resultatet är procedurell kontinuitet. Spåret upprätthåller daglig takt även när utskotten själva befinner sig i avvecklingsfas inför uppehåll. *Konfidensgrad: LÅG-MEDEL för aktuellt innehåll; HÖG för kontinuitet; Admiralty: B3.*
+
+### Tre Beslut
+
+1. **Fortsätt procedurellt kontinuitetsresultat under avvecklingsfasen inför uppehåll.** Driftstillförlitlighet är det styrande principen. *Konfidensgrad: HÖG.*
+2. **Referera till Q1 2026-katalogisering för kontinuitetsinnehåll.** Baslinjen med 100 texter / 6 sammanträden / 10 veckor för Q1 är den kanoniska referensen. *Konfidensgrad: HÖG.*
+3. **Förankra 8 april som institutionsminnes-kontrollpunkten för utskottsspåret inför uppehåll.** Efterföljande körningar under uppehållsklustret spåras tillbaka till denna kontrollpunkt. *Konfidensgrad: HÖG.*
+
+### 60-Sekunders Läsning
+
+Procedurella kontinuitetskörningar bevarar analytiskt register under institutionell avveckling. Den 8 april utskottsrapportskörning är ett sådant ankare.
+
+### Risköversikt
+
+| Risk | Sannolikhet | Inverkan |
+|---|---:|---:|
+| 0-dimensions avläsning feltolkas som pipelinefel | MED | LÅG–MED |
+| Procedurellt kontinuitetsläge tränger undan analytiskt djup | LÅG | LÅG |
+
+### Källkvalitet
+
+- 0-dimensions observation: **A1**
+- Kontinuitetsläge: **A2**
+
+### Ursprung
+
+- Körning: `committee-reports` (2026-04-08, avveckling inför uppehåll)
+- Efterlevnad: Endast EP Open Data Portal-flöden. GDPR-kompatibelt.
+
+---
+*Analytisk neutralitet: 0-dimensions avläsning märkt procedurellt.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月8日的委员会报告分析运行在休会前期间记录了**来自新鲜信号的0个政治维度**。结果是程序性连续性。即使委员会本身处于休会前结束阶段，追踪系统也维持日常节奏。*置信度：新鲜内容为低至中等；连续性为高；Admiralty：B3。*
+
+### 三项决定
+
+1. **在休会前结束阶段继续程序性连续性输出。** 运营可靠性是指导原则。*置信度：高。*
+2. **参考2026年第一季度编目作为连续性内容。** 第一季度100篇文本/6次会议/10周的基线是规范参考。*置信度：高。*
+3. **将4月8日确立为休会前委员会轨道的机构记忆检查点。** 后续休会期集群运行追溯至此检查点。*置信度：高。*
+
+### 60秒阅读
+
+程序性连续性运行在机构关闭期间保存分析记录。4月8日的委员会报告运行就是这样一个锚点。
+
+### 风险概览
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 0维度读数被误读为管道故障 | 中 | 低–中 |
+| 程序性连续性模式挤压分析深度 | 低 | 低 |
+
+### 来源质量
+
+- 0维度观察：**A1**
+- 连续性模式：**A2**
+
+### 来源
+
+- 运行：`committee-reports`（2026-04-08，休会前结束）
+- 合规：仅EP开放数据门户feeds。符合GDPR。
+
+---
+*分析中立性：0维度读数以程序性方式标注。*
+
 ### Coalition Dynamics
 
 ### Computed Metrics (Script-Generated Context)
@@ -1570,6 +2038,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/existing/cross-session-intelligence.md) | `existing/cross-session-intelligence.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/existing/deep-analysis.md) | `existing/deep-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/committee-reports/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 

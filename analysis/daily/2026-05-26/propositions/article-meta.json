@@ -1,0 +1,53 @@
+{
+  "date": "2026-05-26",
+  "articleType": "propositions",
+  "runId": "propositions",
+  "gateResult": "pending",
+  "slug": "2026-05-26-propositions",
+  "articlePath": "analysis/daily/2026-05-26/propositions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Admissibility conditionality:** Whether companies from NATO allies (particularly US, UK, Norway) can participate in co-funded programmes. Council favors restrictive EU-only; EP ITRE/AFET committee has argued for allied-country flexibility (driven by Renew and some EPP members).",
+    "**Joint procurement architecture:** Commission wants mandatory joint procurement aggregation; some member states (France, Germany) resist pooling national procurement decisions through Brussels.",
+    "**Ukraine clause:** EP has pushed for Ukraine's defence industry to receive associated partner status in EDIP supply chains. Council strongly resists.",
+    "**Article 122 vs. Article 173:** If Council uses Article 122 (emergency clause), EP role is limited to consultation. EPP has paradoxically sided with maximizing EP prerogatives here, fearing that Article 122 sets precedent for bypassing the Parliament on future emergency instruments.",
+    "**National vs. EU-coordinated conditionality:** How to ensure loan proceeds actually increase EU-produced defence capabilities rather than offsetting national budget relief.",
+    "**CSRD (Corporate Sustainability Reporting):** Narrow scope from ~50,000 to ~7,000 companies; delay implementation; weaken third-party assurance requirements",
+    "**CSDDD (Corporate Sustainability Due Diligence):** Reduce mandatory due diligence scope; extend implementation timeline; narrow liability provisions"
+  ],
+  "topRisks": [
+    "**Article 122 TFEU** (Council QMV + EP consultation only) — Commission preference for speed",
+    "**Article 173 TFEU** (ordinary legislative procedure = full EP co-decision) — EP preference for democratic legitimacy",
+    "85% → legal basis formally contested in EP resolution",
+    "50% → hybrid legal basis compromise reached (Art. 122 + Art. 173)",
+    "15% → CJEU annulment challenge (very high impact if it proceeds)"
+  ],
+  "keyDates": [
+    "Polish Presidency successfully bridges Council positions on EDIP by June 2026",
+    "EPP shadow rapporteur position on CSDDD (filed June 2026)",
+    "S&D voting discipline on JURI/EMPL joint committee vote (July 2026)",
+    "German Bundestag debate on CSDDD (scheduled June 2026) — outcome could signal EPP MEP defections"
+  ],
+  "keyActors": [
+    "**Cohesion:** HIGH — broad pro-EDIP consensus across mainstream groups",
+    "**Risk:** S&D conditioning on no Article 122 use for related instruments",
+    "**Probability of passage:** 🟢 HIGH (75–80%)",
+    "**Cohesion:** LOW — EP Legal Service challenge creates constitutional uncertainty",
+    "**Risk:** S&D may vote against if Article 122 upheld; ID/Patriots split on EU fiscal sovereignty",
+    "**Probability of passage (Art.122):** 🟡 MEDIUM (45–55%)",
+    "**Cohesion:** MEDIUM — Omnibus I divides S&D between pro-competitiveness and pro-sustainability wings",
+    "**Risk:** S&D defections could block; NGO pressure on Renew members"
+  ],
+  "macroContext": "The EU-27 economic environment in May 2026 is characterized by fragile recovery amid structural headwinds.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

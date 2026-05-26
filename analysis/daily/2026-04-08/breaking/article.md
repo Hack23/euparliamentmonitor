@@ -295,6 +295,487 @@ This three-pronged approach maximises EPP's policy influence across all major do
 *Classification: PUBLIC | Confidence: MEDIUM*
 *Run 2, extending prior analysis per ai-driven-analysis-guide.md Rule 5*
 
+### Executive Brief Ar
+
+### BLUF
+
+تُسجّل إحاطة Breaking ليوم 8 أبريل **لقطة جرد ما قبل فترة الاستراحة**: **57 نصاً معتمداً | 0 فعاليات | 0 إجراءات | 737 تحديثاً لأعضاء البرلمان** رُصدت. هذا هو خط الأساس للفهرسة قبل 5 أيام من التفعيل القانوني T-0 لـ TA-0096 / TA-0097. رقم 737 تحديثاً لأعضاء البرلمان ذو دلالة هيكلية — إذ يشير إلى دورة تحديث بيانات الأعضاء الأخيرة التي أعادت خلالها الواجهة الخلفية للبرلمان الأوروبي نشر القائمة الكاملة للأعضاء النشطين. *الثقة: MEDIUM-HIGH؛ تقدير الأدميرالية: A2.*
+
+### Three Decisions
+
+1. **توثيق لقطة الجرد قبل فترة الاستراحة بوصفها مرساة الذاكرة المؤسسية لمجموعة الاستراحة.** كل عملية تشغيل لاحقة في مجموعة الاستراحة تُقاس من هذا الخط الأساسي المكوّن من 57 نصاً و737 عضواً. *الثقة: HIGH.*
+2. **التعامل مع رقم 737 تحديثاً لأعضاء البرلمان بوصفه إشارة للتحديث الأخير.** يشير التحديث شبه الكامل لقائمة الأعضاء خلال فترة هادئة قبيل الاستراحة إلى أنشطة صيانة في الواجهة الخلفية للبرلمان، وهو أمر ذو صلة تشغيلية للمسارات النهائية التي تعتمد على حداثة بيانات الأعضاء. *الثقة: MEDIUM-HIGH.*
+3. **تثبيت الفترة الزمنية من 8 أبريل إلى T-0 (15 أبريل) بوصفها نافذة الفهرسة قبل التفعيل.** إن نافذة 7 أيام هي فترة الإعداد المؤسسية؛ وتقيس عمليات التشغيل اللاحقة التقدم نحو الجاهزية التشغيلية. *الثقة: HIGH.*
+
+### 60-Second Read
+
+تُرسي لقطات جرد ما قبل الاستراحة خطوط الأساس. لقطة اليوم — 57 نصاً و737 تحديثاً لأعضاء البرلمان — هي المرجع القانوني لمجموعة الاستراحة. إشارة تحديث قائمة الأعضاء مفيدة تشغيلياً لأي مسار يعتمد على بيانات الأعضاء (الترجمة، والأخبار، وبطاقات النتائج).
+
+### Risk Snapshot
+
+| المخاطر | الاحتمالية | التأثير |
+|---|---:|---:|
+| يُدخل تحديث قائمة الأعضاء مشكلات في جودة البيانات | LOW–MED | MED |
+| لا تُعتمد لقطة جرد ما قبل الاستراحة كخط أساس رسمي | MED | LOW–MED |
+| يُفسَّر خط أساس 0 فعاليات/0 إجراءات خطأً على أنه شذوذ | LOW | LOW |
+
+### Source Quality
+
+- 57 نصاً / 0 فعاليات / 0 إجراءات / 737 عضواً: **A1**
+- تفسير ما قبل الاستراحة: **B2**
+
+### Provenance
+
+- التشغيل: `breaking` (2026-04-08، لقطة جرد ما قبل الاستراحة)
+- الامتثال: تغذيات بوابة البيانات المفتوحة للبرلمان الأوروبي حصراً. متوافق مع اللائحة الأوروبية لحماية البيانات.
+
+---
+*الحياد التحليلي: لقطة جرد موسومة بشكل تجريبي.*
+
+### Executive Brief Da
+
+### BLUF
+
+Breaking-briefingen for 8. april registrerer **beholdningssnapshot inden pause**: **57 vedtagne tekster | 0 begivenheder | 0 procedurer | 737 MEP-opdateringer** sporet. Dette er katalogiseringsbaslinjen 5 dage inden TA-0096/TA-0097 lovpligtig T-0-aktivering. Tallet 737 MEP-opdateringer er strukturelt interessant — det tyder på en nylig MEP-dataopdateringscyklus, under hvilken EP-backenden genoffentliggjorde hele listen over aktive MEP'er. *Konfidenstilstand: MEDIUM-HIGH; Admiralitetsvurdering: A2.*
+
+### Three Decisions
+
+1. **Dokumentér beholdningssnapshotten inden pause som institutionel hukommelsesanker for pauseklyngen.** Alle efterfølgende kørsler i pauseklyngen måles fra denne baslinje med 57 tekster/737 MEP'er. *Konfidenstilstand: HIGH.*
+2. **Behandl tallet 737 MEP-opdateringer som et signal om nylig opdatering.** En næsten fuldstændig opdatering af rosteren under et stille vindue inden pause indikerer vedligeholdelsesaktivitet i EP-backenden, som er operativt relevant for downstream-pipelines afhængige af MEP-dataferskhed. *Konfidenstilstand: MEDIUM-HIGH.*
+3. **Forankr intervallet 8. april → T-0 (15. april) som katalogiseringsvinduer inden aktivering.** Det 7-dages vindue er det institutionelle forberedelsesinterval; efterfølgende kørsler måler fremskridt mod operativ beredskab. *Konfidenstilstand: HIGH.*
+
+### 60-Second Read
+
+Beholdningssnapshots inden pause etablerer baslinjer. Dagens snapshot med 57 tekster/737 MEP-opdateringer er den kanoniske reference for pauseklyngen. MEP-rostersignalet er operativt informativt for enhver pipeline nedstrøms MEP-data (oversættelse, nyheder, scorecards).
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| MEP-roster-opdatering introducerer datakvalitetsartefakter | LOW–MED | MED |
+| Beholdningssnapshot inden pause ikke vedtaget som kanonisk baslinje | MED | LOW–MED |
+| 0-begivenheder/0-procedure-baslinje fejltolket som anomali | LOW | LOW |
+
+### Source Quality
+
+- 57 tekster / 0 begivenheder / 0 procedurer / 737 MEP'er: **A1**
+- Fortolkning inden pause: **B2**
+
+### Provenance
+
+- Kørsel: `breaking` (2026-04-08, beholdningssnapshot inden pause)
+- Overholdelse: Kun EP's åbne dataportalfeeds. GDPR-kompatibelt.
+
+---
+*Analytisk neutralitet: beholdningssnapshot mærket empirisk.*
+
+### Executive Brief De
+
+### BLUF
+
+Das Breaking-Briefing vom 8. April dokumentiert den **Bestandsaufnahme-Snapshot vor der Parlamentspause**: **57 angenommene Texte | 0 Veranstaltungen | 0 Verfahren | 737 MEP-Aktualisierungen** verfolgt. Dies ist die Katalogisierungs-Basislinie 5 Tage vor der gesetzlichen T-0-Aktivierung von TA-0096/TA-0097. Die Zahl von 737 MEP-Aktualisierungen ist strukturell interessant — sie deutet auf einen kürzlichen MEP-Datenaktualisierungszyklus hin, bei dem das EP-Backend die vollständige Liste aktiver Mitglieder neu veröffentlichte. *Konfidenz: MEDIUM-HIGH; Admiralitätseinstufung: A2.*
+
+### Three Decisions
+
+1. **Dokumentieren Sie den Bestandsaufnahme-Snapshot vor der Pause als institutionellen Gedächtnisanker für den Paused-Cluster.** Jeder nachfolgende Lauf im Pause-Cluster wird von dieser Basislinie mit 57 Texten/737 MEPs gemessen. *Konfidenz: HIGH.*
+2. **Behandeln Sie die Zahl 737 MEP-Aktualisierungen als Signal für eine kürzliche Aktualisierung.** Eine nahezu vollständige Roster-Aktualisierung in einem ruhigen Fenster vor der Pause weist auf EP-Backend-Wartungsaktivitäten hin, die für nachgelagerte Pipelines operativ relevant sind, die von der MEP-Datenfrische abhängen. *Konfidenz: MEDIUM-HIGH.*
+3. **Verankern Sie das Intervall 8. April → T-0 (15. April) als Katalogisierungsfenster vor der Aktivierung.** Das 7-Tage-Fenster ist das institutionelle Vorbereitungsintervall; nachfolgende Läufe messen den Fortschritt in Richtung operativer Bereitschaft. *Konfidenz: HIGH.*
+
+### 60-Second Read
+
+Bestandsaufnahme-Snapshots vor der Pause etablieren Basislinien. Der heutige Snapshot mit 57 Texten/737 MEP-Aktualisierungen ist die kanonische Referenz für den Pause-Cluster. Das MEP-Roster-Aktualisierungssignal ist operativ informativ für jede Pipeline, die von MEP-Daten abhängt (Übersetzung, Nachrichten, Scorecards).
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| MEP-Roster-Aktualisierung führt Datenqualitäts-Artefakte ein | LOW–MED | MED |
+| Bestandsaufnahme-Snapshot vor Pause nicht als kanonische Basislinie angenommen | MED | LOW–MED |
+| 0-Veranstaltungs-/0-Verfahren-Basislinie fälschlicherweise als Anomalie interpretiert | LOW | LOW |
+
+### Source Quality
+
+- 57 Texte / 0 Veranstaltungen / 0 Verfahren / 737 MEPs: **A1**
+- Interpretation vor der Pause: **B2**
+
+### Provenance
+
+- Lauf: `breaking` (2026-04-08, Bestandsaufnahme-Snapshot vor der Pause)
+- Compliance: Nur EP-Open-Data-Portal-Feeds. DSGVO-konform.
+
+---
+*Analytische Neutralität: Bestandsaufnahme-Snapshot empirisch gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+El informe breaking del 8 de abril registra la **instantánea de inventario previa al receso**: **57 textos aprobados | 0 eventos | 0 procedimientos | 737 actualizaciones de eurodiputados** rastreadas. Esta es la línea de base de catalogación 5 días antes de la activación legal T-0 de TA-0096/TA-0097. La cifra de 737 actualizaciones de eurodiputados es estructuralmente interesante — sugiere un ciclo reciente de actualización de datos de eurodiputados durante el cual el backend del PE republicó la lista completa de eurodiputados activos. *Confianza: MEDIUM-HIGH; Calificación de Almirantazgo: A2.*
+
+### Three Decisions
+
+1. **Documentar la instantánea de inventario previa al receso como ancla de memoria institucional para el clúster de receso.** Cada ejecución posterior en el clúster de receso se mide desde esta línea de base de 57 textos/737 eurodiputados. *Confianza: HIGH.*
+2. **Tratar la cifra de 737 actualizaciones de eurodiputados como señal de actualización reciente.** Una actualización casi completa del listado en una ventana tranquila antes del receso indica actividad de mantenimiento del backend del PE que es operacionalmente relevante para los pipelines en sentido descendente que dependen de la frescura de los datos de eurodiputados. *Confianza: MEDIUM-HIGH.*
+3. **Anclar el intervalo 8 de abril → T-0 (15 de abril) como ventana de catalogación previa a la activación.** La ventana de 7 días es el intervalo de preparación institucional; las ejecuciones posteriores miden el progreso hacia la disponibilidad operacional. *Confianza: HIGH.*
+
+### 60-Second Read
+
+Las instantáneas de inventario previas al receso establecen líneas de base. La instantánea de hoy — 57 textos/737 actualizaciones de eurodiputados — es la referencia canónica para el clúster de receso. La señal de actualización del listado de eurodiputados es operacionalmente informativa para cualquier pipeline en sentido descendente de datos de eurodiputados (traducción, noticias, scorecards).
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| La actualización del listado introduce artefactos de calidad de datos | LOW–MED | MED |
+| La instantánea de inventario previa al receso no se adopta como línea de base canónica | MED | LOW–MED |
+| La línea de base 0-eventos/0-procedimientos se malinterpreta como anomalía | LOW | LOW |
+
+### Source Quality
+
+- 57 textos / 0 eventos / 0 procedimientos / 737 eurodiputados: **A1**
+- Interpretación previa al receso: **B2**
+
+### Provenance
+
+- Ejecución: `breaking` (2026-04-08, instantánea de inventario previa al receso)
+- Cumplimiento: Solo flujos del portal de datos abiertos del PE. Conforme con el RGPD.
+
+---
+*Neutralidad analítica: instantánea de inventario etiquetada empíricamente.*
+
+### Executive Brief Fi
+
+### BLUF
+
+Huhtikuun 8. päivän tiedote kirjaa **istuntotauon edeltävän inventaariokuvankaappauksen**: **57 hyväksyttyä tekstiä | 0 tapahtumaa | 0 menettelyä | 737 MEP-päivitystä** seurattu. Tämä on luettelointilähtötaso 5 päivää ennen TA-0096/TA-0097 lakisääteistä T-0-aktivointia. Luku 737 MEP-päivitystä on rakenteellisesti kiinnostava — se viittaa äskettäiseen MEP-tietojen päivityssykliin, jonka aikana EP:n taustajärjestelmä julkaisi uudelleen koko aktiivisten MEP-jäsenten listan. *Luottamus: MEDIUM-HIGH; Amiraliteettiluokitus: A2.*
+
+### Three Decisions
+
+1. **Dokumentoi istuntotauon edeltävä inventaariokuvankaappaus institutionaaliseksi muistiankkuriksi taukoryhmälle.** Jokainen myöhempi taukoryhmän ajo mitataan tästä 57 tekstin/737 MEP-jäsenen lähtötasosta. *Luottamus: HIGH.*
+2. **Käsittele luku 737 MEP-päivitystä äskettäisen päivityksen signaalina.** Lähes täydellinen rosteripäivitys hiljaisessa istuntotauon edeltävässä ikkunassa osoittaa EP:n taustajärjestelmän ylläpitotoimintaa, joka on operatiivisesti merkityksellistä MEP-tietojen tuoreudesta riippuville alajärjestelmäputkistoille. *Luottamus: MEDIUM-HIGH.*
+3. **Ankkuroi 8. huhtikuuta → T-0 (15. huhtikuuta) aikaväli aktivointia edeltäväksi luettelointiikkunaksi.** Seitsemän päivän ikkuna on institutionaalinen valmistautumisjakso; myöhemmät ajot mittaavat edistymistä kohti operatiivista valmiutta. *Luottamus: HIGH.*
+
+### 60-Second Read
+
+Istuntotauon edeltävät inventaariokuvankaappaukset luovat lähtötasoja. Tämän päivän kuvankaappaus, 57 tekstiä/737 MEP-päivitystä, on taukoryhmän kanoninen viitekohtaus. MEP-rorosteripäivityssignaali on operatiivisesti informatiivinen kaikille MEP-datan alavirran putkistoille (käännös, uutiset, tuloskortit).
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| MEP-rosterin päivitys tuo mukanaan tietolaatuhäiriöitä | LOW–MED | MED |
+| Istuntotauon edeltävää inventaariokuvankaappausta ei hyväksytä kanoniseksi lähtötasoksi | MED | LOW–MED |
+| 0-tapahtuma/0-menettely-lähtötaso tulkitaan virheellisesti poikkeamaksi | LOW | LOW |
+
+### Source Quality
+
+- 57 tekstiä / 0 tapahtumaa / 0 menettelyä / 737 MEP-jäsentä: **A1**
+- Istuntotauon edeltävä tulkinta: **B2**
+
+### Provenance
+
+- Ajo: `breaking` (2026-04-08, istuntotauon edeltävä inventaariokuvankaappaus)
+- Vaatimustenmukaisuus: Vain EP:n avoimen tietoportaalin syötteet. GDPR-yhteensopiva.
+
+---
+*Analyyttinen puolueettomuus: inventaariokuvankaappaus merkitty empiirisesti.*
+
+### Executive Brief Fr
+
+### BLUF
+
+La note de synthèse Breaking du 8 avril enregistre l'**instantané d'inventaire avant suspension de session** : **57 textes adoptés | 0 événements | 0 procédures | 737 mises à jour de députés** suivies. Il s'agit de la ligne de base de catalogage, 5 jours avant l'activation légale T-0 de TA-0096/TA-0097. Le chiffre de 737 mises à jour de députés est structurellement intéressant — il suggère un cycle récent d'actualisation des données des députés, au cours duquel le backend du PE a republié l'intégralité de la liste des députés actifs. *Confiance : MEDIUM-HIGH ; Évaluation Admirauté : A2.*
+
+### Three Decisions
+
+1. **Documenter l'instantané d'inventaire avant suspension comme ancre de mémoire institutionnelle pour la grappe de suspension.** Chaque exécution ultérieure dans la grappe de suspension est mesurée à partir de cette ligne de base de 57 textes/737 députés. *Confiance : HIGH.*
+2. **Traiter le chiffre de 737 mises à jour de députés comme un signal d'actualisation récente.** Une actualisation quasi complète de la liste dans une fenêtre calme avant suspension indique une activité de maintenance du backend du PE qui est opérationnellement pertinente pour les pipelines en aval dépendant de la fraîcheur des données des députés. *Confiance : MEDIUM-HIGH.*
+3. **Ancrer l'intervalle 8 avril → T-0 (15 avril) comme fenêtre de catalogage pré-activation.** La fenêtre de 7 jours est l'intervalle de préparation institutionnel ; les exécutions ultérieures mesurent les progrès vers la disponibilité opérationnelle. *Confiance : HIGH.*
+
+### 60-Second Read
+
+Les instantanés d'inventaire avant suspension établissent des lignes de base. L'instantané d'aujourd'hui — 57 textes/737 mises à jour de députés — est la référence canonique pour la grappe de suspension. Le signal d'actualisation de la liste des députés est opérationnellement informatif pour tout pipeline en aval des données des députés (traduction, actualités, tableaux de bord).
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| L'actualisation de la liste introduit des artefacts de qualité des données | LOW–MED | MED |
+| L'instantané d'inventaire avant suspension n'est pas adopté comme ligne de base canonique | MED | LOW–MED |
+| La ligne de base 0-événement/0-procédure est mal interprétée comme anomalie | LOW | LOW |
+
+### Source Quality
+
+- 57 textes / 0 événements / 0 procédures / 737 députés : **A1**
+- Interprétation avant suspension : **B2**
+
+### Provenance
+
+- Exécution : `breaking` (2026-04-08, instantané d'inventaire avant suspension)
+- Conformité : Flux du portail de données ouvertes du PE uniquement. Conforme au RGPD.
+
+---
+*Neutralité analytique : instantané d'inventaire étiqueté empiriquement.*
+
+### Executive Brief He
+
+### BLUF
+
+תקציר ה-Breaking מ-8 באפריל מתעד את **תצלום המלאי לפני הפגרה**: **57 טקסטים מאומצים | 0 אירועים | 0 הליכים | 737 עדכוני חברי פרלמנט** נרשמו. זהו קו הבסיס לקטלוג 5 ימים לפני ההפעלה הסטטוטורית T-0 של TA-0096/TA-0097. מספר 737 עדכוני חברי פרלמנט מעניין מבחינה מבנית — הוא מצביע על מחזור רענון נתונים אחרון של חברי הפרלמנט שבמהלכו ה-backend של הפרלמנט הגרמי פרסם מחדש את רשימת חברי הפרלמנט הפעילים במלואה. *רמת ביטחון: MEDIUM-HIGH; אדמירלות: A2.*
+
+### Three Decisions
+
+1. **לתעד את תצלום המלאי לפני הפגרה כעוגן זיכרון מוסדי לאשכול הפגרה.** כל הרצה עוקבת באשכול הפגרה נמדדת מקו הבסיס הזה של 57 טקסטים/737 חברי פרלמנט. *רמת ביטחון: HIGH.*
+2. **להתייחס למספר 737 עדכוני חברי פרלמנט כאות לרענון אחרון.** רענון כמעט מלא של הרשימה בחלון שקט לפני הפגרה מצביע על פעילות תחזוקה ב-backend של הפרלמנט הגרמי שרלוונטית מבחינה תפעולית לצינורות מורידים התלויים בעדכניות נתוני חברי הפרלמנט. *רמת ביטחון: MEDIUM-HIGH.*
+3. **לעגן את המרווח 8 באפריל → T-0 (15 באפריל) כחלון הקטלוג לפני ההפעלה.** חלון 7 הימים הוא מרווח ההכנה המוסדי; הרצות עוקבות מודדות התקדמות לקראת מוכנות תפעולית. *רמת ביטחון: HIGH.*
+
+### 60-Second Read
+
+תצלומי מלאי לפני פגרה מבססים קווי בסיס. תצלום היום — 57 טקסטים/737 עדכוני חברי פרלמנט — הוא ההפניה הקנונית לאשכול הפגרה. אות הרענון של רשימת חברי הפרלמנט אינפורמטיבי מבחינה תפעולית לכל צינור מוריד של נתוני חברי פרלמנט (תרגום, חדשות, כרטיסי ניקוד).
+
+### Risk Snapshot
+
+| סיכון | סבירות | השפעה |
+|---|---:|---:|
+| רענון רשימת חברי הפרלמנט מציג ארטיפקטים של איכות נתונים | LOW–MED | MED |
+| תצלום המלאי לפני הפגרה לא מאומץ כקו בסיס קנוני | MED | LOW–MED |
+| קו הבסיס 0-אירועים/0-הליכים מתפרש בטעות כאנומליה | LOW | LOW |
+
+### Source Quality
+
+- 57 טקסטים / 0 אירועים / 0 הליכים / 737 חברי פרלמנט: **A1**
+- פרשנות לפני הפגרה: **B2**
+
+### Provenance
+
+- הרצה: `breaking` (2026-04-08, תצלום מלאי לפני פגרה)
+- ציות: רק עדכוני פורטל הנתונים הפתוחים של הפרלמנט הגרמי. תואם GDPR.
+
+---
+*ניטרליות אנליטית: תצלום מלאי מסומן אמפירית.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月8日のBreakingブリーフは**休会前在庫スナップショット**を記録しています：**採択文書57件 | イベント0件 | 手続き0件 | 議員更新737件**追跡済み。これはTA-0096/TA-0097の法定T-0起動5日前のカタログ化基準点です。737件の議員更新という数字は構造的に興味深い — 欧州議会のバックエンドが現役議員の完全リストを再公開した、最近の議員データ更新サイクルを示唆しています。*信頼度: MEDIUM-HIGH; 海軍省評価: A2。*
+
+### Three Decisions
+
+1. **休会前在庫スナップショットを休会クラスターの機関記憶アンカーとして文書化する。** 休会クラスターにおける以降のすべての実行は、この57件テキスト/737議員の基準点から測定されます。*信頼度: HIGH。*
+2. **737件の議員更新という数字を最近の更新シグナルとして扱う。** 休会前の静かな時間帯における議員リストのほぼ完全な更新は、議員データの鮮度に依存する下流パイプラインにとって運用上関連性のある欧州議会バックエンドのメンテナンス活動を示します。*信頼度: MEDIUM-HIGH。*
+3. **4月8日 → T-0（4月15日）の期間を起動前カタログ化ウィンドウとして確定する。** 7日間のウィンドウは機関の準備期間であり、以降の実行は運用準備に向けた進捗を測定します。*信頼度: HIGH。*
+
+### 60-Second Read
+
+休会前在庫スナップショットは基準点を確立します。本日のスナップショット — 57件テキスト/737件議員更新 — は休会クラスターの正規参照点です。議員リスト更新シグナルは、議員データに依存する下流パイプライン（翻訳、ニュース、スコアカード）にとって運用上有益な情報です。
+
+### Risk Snapshot
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| 議員リスト更新がデータ品質アーティファクトを導入する | LOW–MED | MED |
+| 休会前在庫スナップショットが正規基準点として採用されない | MED | LOW–MED |
+| 0イベント/0手続きの基準点が異常として誤解される | LOW | LOW |
+
+### Source Quality
+
+- 57件テキスト / 0件イベント / 0件手続き / 737人議員: **A1**
+- 休会前解釈: **B2**
+
+### Provenance
+
+- 実行: `breaking`（2026-04-08、休会前在庫スナップショット）
+- コンプライアンス: 欧州議会オープン・データ・ポータル・フィードのみ。GDPR準拠。
+
+---
+*分析的中立性: 在庫スナップショットを経験的にラベリング。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 8일 Breaking 브리핑은 **휴회 전 재고 스냅샷**을 기록합니다: **채택 문서 57건 | 이벤트 0건 | 절차 0건 | 의원 업데이트 737건** 추적됨. 이것은 TA-0096/TA-0097 법정 T-0 활성화 5일 전의 목록화 기준선입니다. 737건의 의원 업데이트 수치는 구조적으로 흥미롭습니다 — 유럽의회 백엔드가 전체 현역 의원 명단을 재게시한 최근의 의원 데이터 갱신 주기를 시사합니다. *신뢰도: MEDIUM-HIGH; 해군성 평가: A2.*
+
+### Three Decisions
+
+1. **휴회 전 재고 스냅샷을 휴회 클러스터의 기관 기억 닻으로 문서화한다.** 휴회 클러스터의 모든 후속 실행은 이 57건 텍스트/737명 의원 기준선으로부터 측정됩니다. *신뢰도: HIGH.*
+2. **737건의 의원 업데이트 수치를 최근 갱신의 신호로 처리한다.** 휴회 전 조용한 기간 동안의 거의 완전한 명단 갱신은 의원 데이터 신선도에 의존하는 다운스트림 파이프라인에 운영상 관련성이 있는 EP 백엔드 유지관리 활동을 나타냅니다. *신뢰도: MEDIUM-HIGH.*
+3. **4월 8일 → T-0(4월 15일) 기간을 활성화 전 목록화 창으로 고정한다.** 7일 창은 기관 준비 기간이며, 후속 실행은 운영 준비 상태를 향한 진행 상황을 측정합니다. *신뢰도: HIGH.*
+
+### 60-Second Read
+
+휴회 전 재고 스냅샷은 기준선을 수립합니다. 오늘의 스냅샷 — 57건 텍스트/737건 의원 업데이트 — 은 휴회 클러스터의 정규 참조 기준입니다. 의원 명단 갱신 신호는 의원 데이터에 의존하는 모든 다운스트림 파이프라인(번역, 뉴스, 스코어카드)에 운영상 유용한 정보입니다.
+
+### Risk Snapshot
+
+| 리스크 | 가능성 | 영향 |
+|---|---:|---:|
+| 의원 명단 갱신으로 데이터 품질 아티팩트 발생 | LOW–MED | MED |
+| 휴회 전 재고 스냅샷이 정규 기준선으로 채택되지 않음 | MED | LOW–MED |
+| 0이벤트/0절차 기준선이 이상 현상으로 오해됨 | LOW | LOW |
+
+### Source Quality
+
+- 57건 텍스트 / 0건 이벤트 / 0건 절차 / 737명 의원: **A1**
+- 휴회 전 해석: **B2**
+
+### Provenance
+
+- 실행: `breaking` (2026-04-08, 휴회 전 재고 스냅샷)
+- 준수: EP 오픈 데이터 포털 피드만 사용. GDPR 준수.
+
+---
+*분석적 중립성: 재고 스냅샷 경험적으로 레이블링됨.*
+
+### Executive Brief Nl
+
+### BLUF
+
+Het breaking-briefingrapport van 8 april registreert de **inventarisatiesnapshot vóór reces**: **57 aangenomen teksten | 0 evenementen | 0 procedures | 737 MEP-updates** gevolgd. Dit is de catalogiseringsbasislijn 5 dagen vóór de wettelijke T-0-activering van TA-0096/TA-0097. Het cijfer van 737 MEP-updates is structureel interessant — het duidt op een recente MEP-datavernieuwingscyclus waarbij de EP-backend de volledige lijst van actieve MEP's opnieuw publiceerde. *Vertrouwen: MEDIUM-HIGH; Admiraliteitsbeoordeling: A2.*
+
+### Three Decisions
+
+1. **Documenteer de inventarisatiesnapshot vóór reces als institutioneel geheugenanker voor het recescluster.** Elke volgende run in het recescluster wordt gemeten vanaf deze basislijn van 57 teksten/737 MEP's. *Vertrouwen: HIGH.*
+2. **Behandel het cijfer van 737 MEP-updates als een signaal voor een recente vernieuwing.** Een vrijwel volledige roostervernieuwing in een rustig venster vóór het reces wijst op onderhoudswerkzaamheden in de EP-backend die operationeel relevant zijn voor stroomafwaartse pipelines die afhankelijk zijn van de actualiteit van MEP-gegevens. *Vertrouwen: MEDIUM-HIGH.*
+3. **Verankerd het interval 8 april → T-0 (15 april) als het catalogiseringsvenster vóór activering.** Het venster van 7 dagen is het institutionele voorbereidingsinterval; volgende runs meten de voortgang naar operationele gereedheid. *Vertrouwen: HIGH.*
+
+### 60-Second Read
+
+Inventarisatiesnapshots vóór reces leggen basislijnen vast. De snapshot van vandaag — 57 teksten/737 MEP-updates — is de canonieke referentie voor het recescluster. Het MEP-roostervernieuwingssignaal is operationeel informatief voor elke pipeline die afhankelijk is van MEP-gegevens (vertaling, nieuws, scorecards).
+
+### Risk Snapshot
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| MEP-roostervernieuwing introduceert datakwaliteitsartefacten | LOW–MED | MED |
+| Inventarisatiesnapshot vóór reces niet aangenomen als canonieke basislijn | MED | LOW–MED |
+| Basislijn met 0 evenementen/0 procedures verkeerd geïnterpreteerd als anomalie | LOW | LOW |
+
+### Source Quality
+
+- 57 teksten / 0 evenementen / 0 procedures / 737 MEP's: **A1**
+- Interpretatie vóór reces: **B2**
+
+### Provenance
+
+- Run: `breaking` (2026-04-08, inventarisatiesnapshot vóór reces)
+- Naleving: Alleen EP-open-dataportaalfeeds. GDPR-conform.
+
+---
+*Analytische neutraliteit: inventarisatiesnapshot empirisch gelabeld.*
+
+### Executive Brief No
+
+### BLUF
+
+Breaking-briefingen for 8. april registrerer **beholdningssnapshot før pause**: **57 vedtatte tekster | 0 hendelser | 0 prosedyrer | 737 MEP-oppdateringer** sporet. Dette er katalogiseringsbaslinjen 5 dager før TA-0096/TA-0097 lovpålagt T-0-aktivering. Tallet 737 MEP-oppdateringer er strukturelt interessant — det tyder på en nylig MEP-dataoppdateringssyklus der EP-backenden publiserte hele listen over aktive MEP-er på nytt. *Konfidens: MEDIUM-HIGH; Admiralitetsvurdering: A2.*
+
+### Three Decisions
+
+1. **Dokumenter beholdningssnapshotet før pause som institusjonelt minneanker for pauseklyngen.** Alle påfølgende kjøringer i pauseklyngen måles fra denne baslinjen med 57 tekster/737 MEP-er. *Konfidens: HIGH.*
+2. **Behandle tallet 737 MEP-oppdateringer som et signal om nylig oppdatering.** En nær fullstendig oppdatering av rosteret i et stille vindu før pause indikerer vedlikeholdsaktivitet i EP-backenden som er operasjonelt relevant for nedstrøms-pipelines avhengig av MEP-dataferskheten. *Konfidens: MEDIUM-HIGH.*
+3. **Forankre intervallet 8. april → T-0 (15. april) som katalogiseringsvinduet før aktivering.** Det 7-dagers vinduet er det institusjonelle forberedelsesintervallet; påfølgende kjøringer måler fremgang mot operativ beredskap. *Konfidens: HIGH.*
+
+### 60-Second Read
+
+Beholdningssnapshots før pause etablerer baslinjer. Dagens snapshot med 57 tekster/737 MEP-oppdateringer er den kanoniske referansen for pauseklyngen. MEP-rostersignalet er operasjonelt informativt for enhver pipeline nedstrøms MEP-data (oversettelse, nyheter, scorecards).
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| MEP-roster-oppdatering introduserer datakvalitetsartefakter | LOW–MED | MED |
+| Beholdningssnapshot før pause ikke vedtatt som kanonisk baslinje | MED | LOW–MED |
+| 0-hendelser/0-prosedyre-baslinje mistolket som anomali | LOW | LOW |
+
+### Source Quality
+
+- 57 tekster / 0 hendelser / 0 prosedyrer / 737 MEP-er: **A1**
+- Tolkning før pause: **B2**
+
+### Provenance
+
+- Kjøring: `breaking` (2026-04-08, beholdningssnapshot før pause)
+- Samsvar: Kun EP-åpent-dataportalfeeder. GDPR-kompatibelt.
+
+---
+*Analytisk nøytralitet: beholdningssnapshot merket empirisk.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Breakingbriefingen för 8 april registrerar **inventaringssnapshot inför uppehåll**: **57 antagna texter | 0 evenemang | 0 förfaranden | 737 MEP-uppdateringar** spårade. Detta är katalogiseringsbaslinjen 5 dagar innan TA-0096/TA-0097 lagstadgad T-0-aktivering. Siffran 737 MEP-uppdateringar är strukturellt intressant — den tyder på en nyligen genomförd MEP-datauppdateringscykel under vilken EP:s backend återpublicerade hela roslistan med aktiva MEP:er. *Konfidens: MEDIUM-HIGH; Amiralitetsklassificering: A2.*
+
+### Three Decisions
+
+1. **Dokumentera inventaringssnapshoten inför uppehåll som institutionellt minnesankare för uppehållsklustret.** Varje efterföljande körning i uppehållsklustret mäts från denna baslinje med 57 texter/737 MEP:er. *Konfidens: HIGH.*
+2. **Behandla siffran 737 MEP-uppdateringar som en signal för nylig uppdatering.** En nästintill fullständig uppdatering av roslistan under ett lugnt fönster inför uppehåll indikerar underhållsaktivitet i EP:s backend som är operativt relevant för nedströmspipelines som är beroende av MEP-dataaktualitet. *Konfidens: MEDIUM-HIGH.*
+3. **Förankra intervallet 8 april → T-0 (15 april) som katalogiseringsfönster inför aktivering.** Det 7-dagars fönstret är det institutionella förberedningsintervallet; efterföljande körningar mäter framsteg mot operativ beredskap. *Konfidens: HIGH.*
+
+### 60-Second Read
+
+Inventaringssnapshots inför uppehåll etablerar baslinjer. Dagens snapshot med 57 texter/737 MEP-uppdateringar är den kanoniska referensen för uppehållsklustret. MEP-roslistan-uppdateringssignalen är operativt informativ för varje pipeline nedströms MEP-data (översättning, nyheter, scorecards).
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| MEP-roster-uppdatering introducerar datakvalitetsartefakter | LOW–MED | MED |
+| Inventaringssnapshot inför uppehåll antas inte som kanonisk baslinje | MED | LOW–MED |
+| 0-evenemang/0-förfarande-baslinje feltolkas som anomali | LOW | LOW |
+
+### Source Quality
+
+- 57 texter / 0 evenemang / 0 förfaranden / 737 MEP:er: **A1**
+- Tolkning inför uppehåll: **B2**
+
+### Provenance
+
+- Körning: `breaking` (2026-04-08, inventaringssnapshot inför uppehåll)
+- Efterlevnad: Enbart EP:s öppna dataportals flöden. GDPR-kompatibelt.
+
+---
+*Analytisk neutralitet: inventaringssnapshot märkt empiriskt.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月8日Breaking简报记录了**休会前库存快照**：**57份通过文本 | 0个事件 | 0项程序 | 737条议员更新**已追踪。这是TA-0096/TA-0097法定T-0激活前5天的目录化基准线。737条议员更新这一数字具有结构性意义——它表明最近经历了一次议员数据刷新周期，欧洲议会后端在此期间重新发布了全部现役议员名单。*置信度：MEDIUM-HIGH；海军部评级：A2。*
+
+### Three Decisions
+
+1. **将休会前库存快照记录为休会集群的机构记忆锚点。** 休会集群中每次后续运行均从这一57份文本/737位议员的基准线进行衡量。*置信度：HIGH。*
+2. **将737条议员更新视为近期刷新的信号。** 在休会前安静时段内进行的几乎完整的名单刷新，表明欧洲议会后端存在维护活动，这对依赖议员数据时效性的下游管道具有运营层面的相关性。*置信度：MEDIUM-HIGH。*
+3. **将4月8日→T-0（4月15日）时间段固定为激活前目录化窗口。** 7天窗口是机构准备间隔；后续运行衡量朝向运营就绪状态的进展。*置信度：HIGH。*
+
+### 60-Second Read
+
+休会前库存快照建立基准线。今日快照——57份文本/737条议员更新——是休会集群的规范参考。议员名单刷新信号对于任何依赖议员数据的下游管道（翻译、新闻、评分卡）均具有运营参考价值。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 议员名单刷新引入数据质量瑕疵 | LOW–MED | MED |
+| 休会前库存快照未被采纳为规范基准线 | MED | LOW–MED |
+| 0事件/0程序基准线被误读为异常 | LOW | LOW |
+
+### Source Quality
+
+- 57份文本 / 0个事件 / 0项程序 / 737位议员：**A1**
+- 休会前解读：**B2**
+
+### Provenance
+
+- 运行：`breaking`（2026-04-08，休会前库存快照）
+- 合规：仅使用欧洲议会开放数据门户源。符合GDPR。
+
+---
+*分析中立性：库存快照经验性标注。*
+
 ### Political Landscape Analysis
 
 **📅 Analysis Date:** 2026-04-08 06:34 UTC
@@ -1562,6 +2043,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/cross-session-intelligence.md) | `cross-session-intelligence.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [political-landscape-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/political-landscape-analysis.md) | `political-landscape-analysis.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/risk-assessment.md) | `risk-assessment.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/synthesis-summary.md) | `synthesis-summary.md` |
