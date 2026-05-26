@@ -295,3 +295,22 @@ Fiscal assessment: SAFE borrowing under enhanced cooperation — off-balance-she
 The stakeholder landscape for this week's EP legislative output is defined by a **functional EPP-S&D centrist coalition** on most issues, with **PfE as the coherent opposition** on defense and sovereignty questions. The SAFE Instrument is the highest-stakes stakeholder battleground: it aligns most groups but faces structured opposition from Hungary at Council level and PfE at EP level. The Afghanistan resolution represents rare near-unanimity — human rights mobilizes cross-group consensus in ways defense never fully achieves. Analysts should monitor PfE's evolving position on AI governance, where their traditional sovereignty concerns (limiting EU Commission authority) conflict with their trade-nationalist preferences (protecting EU industries from AI-enabled Asian competition). The 12-month forward projection indicates Commission implementation quality as the decisive variable — all other stakeholder actions are responses to that primary signal.
 
 [EXTEND-FROM-PRIOR: stakeholder-map.md prior=259L → new=310L (+51)]
+
+
+---
+
+## Pass-2 Extension: Additional Stakeholders
+
+### Stakeholder: European Commission DG TRADE
+
+**Power:** High | **Alignment:** Supportive | **Key Interest:** Implementing AI-trade strategy
+
+The Commission will be the primary implementer of TA-10-2026-0183 recommendations. DG TRADE has existing capacity gaps in AI regulatory expertise, creating a principal-agent tension between the EP ambitious AI-trade vision and the Commission implementation bandwidth. The expected Commission response timeline of 3 months aligns with the pre-summer legislative schedule.
+
+### Stakeholder: Uzbekistan Government
+
+**Power:** Low-Medium | **Alignment:** Cooperative | **Key Interest:** EU market access and international legitimacy
+
+The EU-Uzbekistan Enhanced Partnership (TA-10-2026-0174) is part of the broader Central Asia strategy. Uzbekistan engagement follows Kazakhstan earlier partnership, reflecting a competitive dynamic in the region for EU economic relationships. The human rights conditionality clauses remain the primary tension point in the ratification process.
+
+*[EXTEND-FROM-PRIOR: intelligence/stakeholder-map.md prior=297L new=311L (+14)]*

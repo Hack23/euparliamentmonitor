@@ -225,3 +225,33 @@ The May 2026 session should be placed in the EP10 (2024-2029) legislative baseli
 **Historical context for FDI regulation:** This is the first time the EP has passed legislation giving the EU binding authority to block a specific foreign acquisition in a critical sector. This represents a constitutional-scale development in EU economic governance - comparable in institutional significance to the 1989 Merger Regulation that first gave the Commission power to block mergers.
 
 [EXTEND-FROM-PRIOR: intelligence/historical-baseline.md prior=205L -> new=229L (+24)]
+
+
+---
+
+## Pass-2 Extension: 30-Day and 90-Day Baseline Updates
+
+**Admiralty: B3 | Confidence: MEDIUM**
+
+### 30-Day Baseline (April 26 to May 26, 2026)
+
+| Metric | 30-Day Count | vs 90-Day Average | Signal |
+|--------|-------------|-------------------|--------|
+| Adopted texts (all types) | 8 (May session) + ~10 (April session) | approximately 8-10 per session | At baseline |
+| Urgency resolutions | 4 in April session | 3-5 per session average | Normal range |
+| External partnership agreements | 3 (Uzbekistan plus 2 fisheries) | 1-2 per session average | Above baseline |
+| Digital economy acts | 2 (DMA enforcement plus AI-trade) | 0.5 per session average | Significantly elevated |
+
+### 90-Day Baseline (February 26 to May 26, 2026)
+
+Q1-Q2 2026 EP legislative output has been dominated by three themes:
+
+First, external relations: Armenia, Georgia, Ukraine, Haiti, Lebanon, Uzbekistan, Cook Islands, and Sao Tome all received EP action in this period, reflecting an unusually active foreign-affairs agenda driven by the geopolitical shock environment of 2025-2026.
+
+Second, digital economy: DMA enforcement and AI-trade strategy represent two significant digital policy acts in consecutive sessions, building a coherent digital sovereignty narrative.
+
+Third, agricultural and environmental sectors: forest material regulation and animal welfare legislation represent routine but electorally relevant sectoral legislation maintaining EP connection with rural constituencies.
+
+The 90-day external-relations intensity is notably above the EP9 baseline for the comparable period, driven by the ongoing Ukraine conflict and the Central Asia strategic competition with China and Russia.
+
+*[EXTEND-FROM-PRIOR: intelligence/historical-baseline.md prior=226L new=247L (+21)]*

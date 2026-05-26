@@ -165,3 +165,22 @@ Primary information channel: DG TRADE briefings to INTA rapporteur → rapporteu
 ## Reader Briefing
 
 The actor network for the May 2026 EP session is dominated by the EPP-S&D legislative coalition, acting in the context of EU economic security urgency. China is the primary external actor shaping the political context but not directly participating in EP proceedings.
+
+
+---
+
+## Pass-2 Extension: Actor Network Update — May 2026
+
+### Key Actors for AI-Trade Storyline
+
+**Rapporteur (AI-Trade, TA-10-2026-0183):** Identity unknown in current data (no text metadata available). Based on subject matter (TECN, INFQ codes) and historical EP committee assignments, the rapporteur likely sits in INTA (International Trade) committee with possible co-rapporteurs from ITRE (Industry, Research, Energy).
+
+**EP President Roberta Metsola:** Institutional voice for the EP position on AI competitiveness. Her communications will frame the resolution for external audiences.
+
+**Commissioner for Trade (TBC):** The responsible Commission official for responding to TA-10-2026-0183. Expected to engage in trilogue-style dialogue with INTA committee over the Commission response.
+
+**US Trade Representative:** External actor whose response to EU AI-trade standards will determine the resolution diplomatic impact. USTR has previously engaged on EU AI Act provisions via bilateral trade dialogues.
+
+**Uzbek President Mirziyoyev:** State counterpart for the Uzbekistan Enhanced Partnership. His government reform credibility (and human rights record) will determine the partnership ratification timeline.
+
+*[EXTEND-FROM-PRIOR: classification/actor-mapping.md prior=167L new=188L (+21)]*

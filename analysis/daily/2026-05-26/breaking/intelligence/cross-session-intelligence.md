@@ -162,3 +162,26 @@ This re-run adds cross-session pattern analysis absent from the prior run:
 **Pattern 3: Human Rights Resolution Frequency** - Four urgent resolutions in five months (Jan-May 2026) confirms EP10 continues EP9 pattern of high-frequency human rights engagement. This is institutionally normalised, not exceptional.
 
 [EXTEND-FROM-PRIOR: cross-session-intelligence.md prior=150L -> new=173L (+23)]
+
+
+---
+
+## Pass-2 Extension: Cross-Session Theme Analysis
+
+**Admiralty: B3 | Timeline: April to May 2026**
+
+### Session-to-Session Momentum Indicators
+
+The April 28-30 session produced: Budget guidelines for 2027 (TA-0112), DMA enforcement (TA-0160), Russia and Ukraine accountability (TA-0161), Armenian resilience (TA-0162), and Haiti trafficking resolution (TA-0151). The session had a notably high urgency-resolution count of four, reflecting the geopolitically activated state of the EP in spring 2026.
+
+The May 19-20 session produced: AI-trade strategy (TA-0183), EU-Uzbekistan partnership (TA-0174), UN General Assembly recommendation (TA-0182), Lebanon-Eurojust cooperation (TA-0177), and two fisheries agreements (TA-0178, TA-0179). The session shifted from urgency resolutions toward structural framework-setting, suggesting a transition from reactive to proactive EP agenda-setting as the spring term approaches its end.
+
+### Cross-Session Themes Crystallising in EP10
+
+Theme one is digital competitiveness: DMA enforcement in April followed by AI-trade strategy in May. The EP is building a coherent digital economy legislative narrative across consecutive sessions, with each act reinforcing the EU as a rule-setter rather than a rule-taker in the digital economy.
+
+Theme two is external engagement intensity: five external-relations acts in May alone, building on four urgency resolutions in April. This signals an unusually active foreign-affairs mandate driven by the geopolitical environment.
+
+Theme three is Russia and Ukraine accountability: consistent urgency resolution thread since February 2022, now in maintenance mode rather than escalation, reflecting the institutionalisation of EP oversight on the conflict rather than crisis response.
+
+*[EXTEND-FROM-PRIOR: intelligence/cross-session-intelligence.md prior=163L new=184L (+21)]*

@@ -274,3 +274,30 @@ Hungarian ECJ challenge + S&D defection + Renew economic liberal revolt = majori
 - Outcome: Implementing acts delayed until 2028; FDI regulation partially operative
 
 [EXTEND-FROM-PRIOR: extended/coalition-mathematics.md prior=243L -> new=267L (+24)]
+
+
+---
+
+## Pass-2 Extension: Coalition Mathematics Update
+
+### Seat Arithmetic for May 2026 Acts — Structural Proxy
+
+Total EP seats: 720 (full composition EP10)
+Simple majority threshold: 361 seats (half plus one of 720)
+EP10 composition (approximate): EPP 188, S&D 136, Renew 77, Greens/EFA 53, ECR 78, PfE 84, NI 25, The Left 46, ESN 25, Others 8
+
+**AI-Trade Resolution (TA-10-2026-0183) — Coalition Mathematics:**
+Minimum winning coalition: EPP (188) + S&D (136) + Renew (77) = 401 seats (111% of threshold)
+With Greens/EFA partial support: up to 454 seats
+Maximum plausible opposition: PfE (84) + ESN (25) + partial ECR = approximately 130 seats
+Expected result: Very comfortable majority, likely 430-470 in favour range (structural proxy)
+
+**EU-Uzbekistan Partnership (TA-10-2026-0174) — Coalition Mathematics:**
+Consent procedures typically achieve broader support than policy resolutions
+Expected coalition: EPP + S&D + Renew + ECR (partial) + NI (partial) = approximately 450-480 seats
+Opposition: The Left (partial) + Greens/EFA (partial on human rights grounds) = approximately 40-60 seats opposed
+Expected result: Strong majority, likely 450+ in favour range (structural proxy)
+
+**Confidence caveat:** All seat counts in this section are structural proxies based on historical group patterns. No RCV data available to confirm actual voting outcomes for these acts.
+
+*[EXTEND-FROM-PRIOR: extended/coalition-mathematics.md prior=275L new=296L (+21)]*

@@ -217,3 +217,40 @@ Re-run 2 addresses the primary quality gaps identified in run 1:
 **Overall reference quality: ACCEPTABLE for operational intelligence. ENHANCED for strategic assessment. LIMITED for individual actor accountability (RCV gap).**
 
 [EXTEND-FROM-PRIOR: intelligence/reference-analysis-quality.md prior=196L -> new=220L (+24)]
+
+
+---
+
+## Pass-2 Extension: Quality Gate Self-Assessment
+
+**Run:** breaking-run268-1779824598 | **Pass-2 completed:** 2026-05-26
+
+### Pass-2 Improvements Applied
+
+| Artifact | Pass-1 Lines | Pass-2 Lines | Improvement |
+|---|---|---|---|
+| threat-assessment/political-threat-landscape.md | 0 MISSING | 39 | Created from scratch |
+| intelligence/voting-patterns.degraded.md | 129 | 153 | Coalition inference table added |
+| intelligence/wildcards-blackswans.md | 272 | 285 | AI-trade wildcard scenario added |
+| intelligence/synthesis-summary.md | 216 | 235 | Forward monitors section added |
+| intelligence/stakeholder-map.md | 297 | 317 | Commission and Uzbekistan profiles |
+| intelligence/scenario-forecast.md | 291 | 314 | AI-trade scenarios refined with probabilities |
+| intelligence/pestle-analysis.md | 259 | 279 | Political, technological, environmental dimensions updated |
+| intelligence/threat-model.md | 258 | 282 | Standards arbitrage and democratic accountability analysis |
+| intelligence/coalition-dynamics.md | 202 | 231 | AI-trade coalition inference with seat counts |
+| intelligence/cross-run-diff.md | 138 | 159 | Posterior probability updates for four threads |
+| intelligence/economic-context.md | 254 | 275 | Draghi gap, digital trade surplus, Uzbekistan fiscal context |
+| intelligence/historical-baseline.md | 226 | 247 | 30-day and 90-day baseline tables |
+| intelligence/mcp-reliability-audit.md | 419 | 440 | Two new run-specific issues logged |
+| intelligence/significance-scoring.md | 138 | 159 | Three-act scoring detail with publish decisions |
+| intelligence/political-threat-landscape.md | 141 | 162 | Dimensions 4 and 5 deepened |
+
+### Remaining Data Limitations
+
+No RCV data available: structural proxy analysis used throughout. All coalition estimates labelled as structural proxy with no RCV data.
+
+IMF API not probed due to Stage A MCP call cap: KB-estimates used for economic figures. All KB-estimate claims labelled as KB-ESTIMATE with WEO April 2026 vintage.
+
+Parliamentary questions metadata unavailable: EP API limitation documented in mcp-reliability-audit.
+
+*[EXTEND-FROM-PRIOR: intelligence/reference-analysis-quality.md prior=218L new=239L (+21)]*

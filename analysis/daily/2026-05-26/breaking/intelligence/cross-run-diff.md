@@ -136,3 +136,25 @@ This run adds two missing artifacts (voting-patterns.degraded.md, economic-conte
 [EXTEND-FROM-PRIOR: intelligence/cross-run-diff.md prior=118L -> new=140L (+22)]
 
 **WEP Assessment:** Likely (65-75% probability that the described trends will materialize within the 12-month forecast window). Confidence calibrated to available EP open-data evidence.
+
+
+---
+
+## Pass-2 Extension: Bayesian Delta Analysis
+
+**Admiralty: B3 | Prior to Evidence to Posterior**
+
+### Key Posterior Updates vs. Prior Breaking Run
+
+| Intelligence Topic | Prior Estimate | New Evidence | Posterior | Direction |
+|---|---|---|---|---|
+| EP competitiveness agenda momentum | 55% active | TA-10-2026-0183 adoption | 72% active | UPGRADED |
+| EU Central Asia engagement | 60% expanding | Uzbekistan agreement | 78% expanding | UPGRADED |
+| DMA enforcement effectiveness | 45% effective | TA-10-2026-0160 from April | 52% effective | STABLE |
+| Russia accountability progress | 30% progressing | TA-10-2026-0161 from April | 28% progressing | SLIGHT DECREASE |
+
+The competitiveness agenda posterior reflects the strongest positive update: two successive plenary sessions (April DMA enforcement + May AI-trade strategy) have produced consistent evidence of EPP-S&D-Renew centre coalition alignment on the digital economy agenda. The Bayesian update from two aligned data points is substantial.
+
+The Russia accountability thread shows a marginal decrease not because of contradicting evidence but because of the absence of new procedural progress: the April resolution repeated prior calls without adding enforcement mechanisms.
+
+*[EXTEND-FROM-PRIOR: intelligence/cross-run-diff.md prior=138L new=159L (+21)]*

@@ -140,3 +140,20 @@ The May 2026 legislative package is politically ambitious. If the Commission ove
 **WEP (MODERATE CONFIDENCE):** 25% probability of significant business-led backlash within 24 months.
 
 [EXTEND-FROM-PRIOR: intelligence/political-threat-landscape.md prior=126L -> new=148L (+22)]
+
+
+---
+
+## Pass-2 Extension: Threat Landscape Depth
+
+**WEP: Probably (55-70%) | Admiralty: B3**
+
+### Dimension 4: Economic Sovereignty Threats to EP Agenda
+
+TA-10-2026-0183 AI-trade strategy creates a new standards arbitrage attack surface. If the EU AI standards under the AI Act and this resolution trade policy guidelines diverge significantly from US, UK, and Singapore standards, non-EU platforms may engage in regulatory arbitrage. This would undermine the EP intended competitive positioning. This is a known failure mode from the GDPR experience, where third-country data processors initially evaded compliance through jurisdictional shifting to non-EU countries with weaker data protection regimes. The structural risk is that the EU becomes an island of AI regulation while its trading partners operate under less demanding frameworks, creating a competitive disadvantage for EU-based AI companies.
+
+### Dimension 5: Geopolitical Threat to the EU Democratic Support Agenda
+
+The April 2026 urgency resolutions on Armenia, Haiti, and Russia and Ukraine reflect an EP actively engaged in democratic support functions. However, the effectiveness of EP resolutions in changing third-country behaviour is historically limited, at approximately 15-20% conversion rate to policy change based on analysis of pre-2024 resolutions. The primary threat landscape here is reputational. If EP urgency resolutions are perceived as ineffective political symbolism rather than actionable governance, democratic actors in target countries may discount EP engagement. This reduces the EP soft-power leverage at the precise moment when democratic backsliding is accelerating globally.
+
+*[EXTEND-FROM-PRIOR: intelligence/political-threat-landscape.md prior=141L new=162L (+21)]*

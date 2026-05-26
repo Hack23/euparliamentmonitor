@@ -258,3 +258,21 @@ The PESTLE analysis confirms that **political factors are both the primary drive
 **Overall PESTLE Balance:** Strongly positive political-social factors overcome moderate economic-environmental headwinds and serious legal uncertainties. The legislative programme is implementable, with caveats on WTO compatibility of CBAM extension and FDI screening scope.
 
 [EXTEND-FROM-PRIOR: pestle-analysis.md prior=237L -> new=258L (+21)]
+
+
+---
+
+## Pass-2 Extension: PESTLE Dimension Updates
+
+**Admiralty: B3 | Confidence: MEDIUM**
+
+### Political Update
+The immunity waiver for Nikos Pappas (TA-10-2026-0166) sets a precedent. The EP JURI committee facilitation of national judicial proceedings against sitting MEPs signals a democratic accountability enhancement. Greek government relations with the EP are a secondary consideration. The primary political signal is institutional: the EP will not protect members from legitimate judicial processes.
+
+### Technological Update
+TA-10-2026-0183 on AI and trade represents a significant technological-political milestone. The EP explicitly frames AI as a trade policy instrument rather than merely a regulatory challenge. This creates both opportunity (EU as AI standards setter for trade) and structural risk (retaliatory digital trade measures from non-EU tech powers, notably the United States where regulatory divergence is growing).
+
+### Environmental Update
+The forest reproductive material regulation (TA-10-2026-0168) aligns with the EU Nature Restoration Law downstream implementation needs. Forest genetic diversity management is a second-order climate resilience measure. It is often underreported in breaking news cycles but is significant for long-term EU biodiversity commitments under the CBD Kunming-Montreal framework adopted in 2022.
+
+*[EXTEND-FROM-PRIOR: intelligence/pestle-analysis.md prior=259L new=280L (+21)]*

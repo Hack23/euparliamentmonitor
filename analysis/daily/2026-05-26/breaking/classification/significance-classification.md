@@ -135,3 +135,38 @@ Re-run 2 confirms all significance classifications from run 1. One calibration n
 **Revised summary:** May 19-21 Strasbourg plenary = the most significant EP output of EP10 (2024-2029) to date, with two CRITICAL-tier and three HIGH-tier legislative outputs in a single week.
 
 [EXTEND-FROM-PRIOR: classification/significance-classification.md prior=121L -> new=145L (+24)]
+
+
+---
+
+## Pass-2 Extension: Significance Classification Update
+
+### Classification Rubric Applied to May 2026 Acts
+
+Five-dimension significance rubric for each act:
+
+**TA-10-2026-0183 (AI and EU Trade Strategy):**
+Dimension 1 Political salience: HIGH — directly relevant to EU strategic autonomy debate
+Dimension 2 Legislative novelty: HIGH — no prior EP resolution on AI as trade policy instrument
+Dimension 3 Stakeholder breadth: HIGH — affects all EU trading relationships involving AI
+Dimension 4 Time urgency: HIGH — Commission Work Programme 2027 drafting window
+Dimension 5 Democratic significance: MEDIUM — non-binding resolution but significant normative signal
+Classification: PUBLISH as breaking news lead story
+
+**TA-10-2026-0161 (Russia and Ukraine accountability):**
+Dimension 1 Political salience: HIGH — ongoing armed conflict
+Dimension 2 Legislative novelty: LOW — continuation of existing EP resolution series
+Dimension 3 Stakeholder breadth: HIGH — affects EU foreign policy, defence, justice
+Dimension 4 Time urgency: HIGH — active conflict with ongoing documentation needs
+Dimension 5 Democratic significance: HIGH — accountability for serious crimes under international law
+Classification: PUBLISH as significant context story
+
+**TA-10-2026-0174 (EU-Uzbekistan Partnership):**
+Dimension 1 Political salience: MEDIUM — Central Asia strategy is specialist-interest
+Dimension 2 Legislative novelty: HIGH — first enhanced partnership with Uzbekistan
+Dimension 3 Stakeholder breadth: MEDIUM — primarily EU-Central Asia trade relationships
+Dimension 4 Time urgency: LOW — ratification timeline flexible
+Dimension 5 Democratic significance: MEDIUM — human rights conditionality is democratically significant
+Classification: PUBLISH as secondary story
+
+*[EXTEND-FROM-PRIOR: classification/significance-classification.md prior=136L new=157L (+21)]*

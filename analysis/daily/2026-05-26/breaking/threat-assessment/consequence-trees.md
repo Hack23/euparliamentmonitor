@@ -205,3 +205,24 @@ The consequence tree analysis identifies **FDI-China retaliation and SAFE-US fri
 ## Reader Briefing
 
 The highest-probability threat is ISA implementation failure (55%). The highest-impact threat is Chinese trade retaliation (25% probability but potentially EUR 15-30B trade disruption). Monitoring both simultaneously is the recommended approach.
+
+
+---
+
+## Pass-2 Extension: Consequence Trees Update
+
+### Tree 3: AI-Trade Resolution Implementation Failure
+
+Action: Commission ignores or minimally responds to TA-10-2026-0183
+First-order consequences: EP credibility as legislative initiator eroded; INTA committee rapporteur faces political capital loss; EU AI companies receive no policy certainty on trade standards compliance
+Second-order consequences: EU AI startups disadvantaged in US and Asian markets relative to companies operating under clearer regulatory frameworks; EP10 competitiveness agenda narrative weakened heading into EP10 mid-term review; increased MEP support for binding legislation approach (raising regulatory risk for industry)
+Democratic outcome: Erosion of EP soft legislative power; risk of EP bypassing Commission in future competitiveness agenda by seeking mandatory legislative procedures rather than resolutions
+
+### Tree 4: EU-Uzbekistan Partnership Deterioration
+
+Action: Uzbekistan human rights situation deteriorates significantly within 12 months of partnership entry into force
+First-order consequences: Human rights organisations call for EP to trigger the partnership human rights clause; S&D and Greens/EFA demand review; diplomatic tension between EU and Uzbekistan
+Second-order consequences: EU Central Asia strategy credibility damaged; other Central Asia states (Kazakhstan, Kyrgyzstan) read the review as EU unreliability signal; China strengthens Central Asia partnerships at EU expense
+Democratic outcome: The partnership conditionality architecture is tested for the first time; outcome determines EU credibility in using partnerships as democratic leverage instruments
+
+*[EXTEND-FROM-PRIOR: threat-assessment/consequence-trees.md prior=207L new=228L (+21)]*

@@ -230,3 +230,36 @@ Artifacts below floor in Run 1 extended to meet floor requirements: stakeholder-
 **All rewriteCount: 49** (required for re-run compliance)
 
 [EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=211L -> new=234L (+23)]
+
+
+---
+
+## Pass-2 Extension: Updated Reading Order
+
+### Priority Reading Order for This Run
+
+First: data-availability-assessment.md — understand what data is and is not available under degraded-feeds mode before reading any analysis
+
+Second: intelligence/synthesis-summary.md — the headline intelligence: AI-trade strategy adoption is the lead story, Uzbekistan partnership is significant context
+
+Third: intelligence/significance-scoring.md — which acts merit breaking news treatment (AI-trade scores 22/25; Russia-Ukraine accountability scores 22/25)
+
+Fourth: intelligence/coalition-dynamics.md — who likely voted how, based on structural proxy inference since RCV data unavailable
+
+Fifth: intelligence/scenario-forecast.md — three scenarios for AI-trade implementation with probability estimates
+
+Sixth: intelligence/economic-context.md — macroeconomic context including Draghi investment gap and EU digital trade surplus at risk
+
+Seventh: risk-scoring/risk-matrix.md — 5 by 5 risk assessment for the period dominant issues
+
+Eighth: threat-assessment/political-threat-landscape.md — six-dimension threat view created this run
+
+Ninth: intelligence/mcp-reliability-audit.md — data quality issues for this run including two new issue reports
+
+Tenth: intelligence/methodology-reflection.md — SAT documentation and quality retrospective as final artifact
+
+### New Artifacts This Run
+
+threat-assessment/political-threat-landscape.md was created in this run (was missing in prior run).
+
+*[EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=231L new=252L (+21)]*

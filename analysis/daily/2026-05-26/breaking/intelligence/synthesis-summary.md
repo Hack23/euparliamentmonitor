@@ -215,3 +215,20 @@ The AI Trade Strategy resolution signals the EU's intent to deploy the Brussels 
 This synthesis identifies three structural dynamics operating simultaneously in the EP this week: the **sovereignty consolidation** of EU defense policy (SAFE + Canada), the **AI governance race** (TA-10-2026-0183), and the **human rights credibility test** (Afghanistan). These are not isolated legislative acts — they are moments in a coherent strategic programme being executed by the PPE-led majority with S&D as indispensable partner. The primary synthesis finding is that **the EU is in an implementation race**: legislative frameworks are adopted faster than institutional capacity can operationalize them, creating a 2-4 year gap between ambition and reality that adversaries (China on AI, Russia on defense) are positioned to exploit. The Brussels Effect remains the EU's most potent strategic tool — and the least appreciated by domestic political audiences.
 
 [EXTEND-FROM-PRIOR: synthesis-summary.md prior=183L → new=218L (+35)]
+
+
+---
+
+## Pass-2 Update: Extended Intelligence Assessment
+
+**WEP: Probably (55-70%) | Admiralty: B2 | Confidence: MEDIUM**
+
+The May 19-20, 2026 EP plenary session delivered eight significant legislative acts. The most analytically important is the **AI strategy for EU trade** (TA-10-2026-0183). This non-binding resolution signals the EP intent to position the EU as a first-mover in AI-governed trade policy. The coalition reflects the EP emerging competitiveness majority: EPP + Renew + S&D aligned on economic sovereignty while maintaining social standards.
+
+### Forward Monitors
+
+1. **Commission response** to TA-10-2026-0183: Expected within 3 months (August 2026)
+2. **EU-Uzbekistan ratification** process in Council: Expected within 6 months
+3. **DOCEO publication** of May 19-20 roll-call votes: Expected around June 15-20, 2026
+
+*[EXTEND-FROM-PRIOR: intelligence/synthesis-summary.md prior=216L new=237L (+21)]*

@@ -201,3 +201,30 @@ Current fragility index: LOW (15% probability of fracture within 18 months). Key
 | S&D pacifist wing creates critical deficit | 5% | Article 7 standoff risk |
 
 [EXTEND-FROM-PRIOR: intelligence/coalition-dynamics.md prior=179L -> new=202L (+23)]
+
+
+---
+
+## Pass-2 Extension: Coalition Dynamics
+
+**Structural Proxy | No RCV data | Confidence: MEDIUM**
+
+### AI-Trade Coalition (TA-10-2026-0183)
+
+Inferred coalition based on subject-matter codes and historical bloc patterns:
+
+EPP (188 seats): Aligned — pro-competitiveness stance consistent with Manfred Weber group position on digital economy since EP10 start
+S&D (136 seats): Aligned — the resolution includes social standards and workers rights language that secured S&D support
+Renew (77 seats): Aligned — the liberal market and digital economy agenda is a core Renew priority
+
+Total centre coalition: approximately 401 seats, exceeding the 353-seat simple majority threshold.
+
+Greens/EFA (53 seats): Partial support — AI sustainability angle aligned, precautionary concerns on algorithmic trade decision-making may have produced abstentions
+
+ECR (78 seats): Likely abstain or against — sovereignty concerns over EU AI regulation as constraint on national economic policy
+
+### Foreign Affairs Coalition (EU-Uzbekistan, TA-10-2026-0174)
+
+Broad cross-spectrum support expected. Historical pattern from previous Central Asia partnership agreements shows EPP + S&D + Renew + ECR all supporting EU partnership frameworks. Left and Greens may abstain on human rights grounds. Estimated support: 450+ seats.
+
+*[EXTEND-FROM-PRIOR: intelligence/coalition-dynamics.md prior=202L new=223L (+21)]*

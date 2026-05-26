@@ -146,3 +146,22 @@ This map documents which analysis artifacts are cross-referenced to which primar
 **Cross-reference completeness: HIGH.** All major claims in the analysis set trace to primary sources.
 
 [EXTEND-FROM-PRIOR: extended/cross-reference-map.md prior=unknown -> extended (+22)]
+
+
+---
+
+## Pass-2 Extension: Cross-Reference Map Update
+
+### AI-Trade Resolution Cross-Reference Network
+
+TA-10-2026-0183 (AI-trade strategy) cross-references:
+
+Upstream regulatory context: EU AI Act (Regulation 2024/1689), in full application from August 2024; Digital Services Act; Digital Markets Act (TA-10-2026-0160 enforcement resolution from April 2026)
+
+Downstream implementation: Commission Work Programme 2027 (forthcoming); DG TRADE AI capacity development; EU free trade agreement digital chapter negotiations (EU-India, EU-Mercosur in progress)
+
+International framework alignment: G7 Hiroshima AI Process; OECD AI Principles; WTO e-commerce discussions
+
+Draghi Report (September 2024): The competitiveness framework underpinning the resolution derives directly from Draghi Report recommendations, creating an explicit lineage from independent advisory input to EP legislative action.
+
+*[EXTEND-FROM-PRIOR: extended/cross-reference-map.md prior=147L new=162L (+15)]*

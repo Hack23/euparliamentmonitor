@@ -216,3 +216,28 @@ Even if ISA is established, the track record of EU regulatory implementation (GD
 | EP Open Data Portal | A2 | Confirmed source, probably true |
 | EP Press Releases | A1 | Confirmed source, confirmed true |
 | IMF WEO Apr 2026 | B1 | Usually reliable, confirmed true |
+
+
+---
+
+## Pass-2 Extension: Devil Advocate Analysis — AI-Trade Strategy Counter-Arguments
+
+**WEP: Unlikely but possible (15-25%) | Admiralty: B3**
+
+### Counter-Argument 1: Non-Binding Resolutions Are Ineffective
+
+The devil advocate position holds that TA-10-2026-0183 is a political gesture without teeth. The EP cannot legislate on trade policy directly; only the Commission can propose binding measures. Given that the Commission has repeatedly deprioritised EP non-binding resolution follow-through, the probability of substantive implementation is low. This counter-argument assigns only 20-30% probability to the Commission adopting a meaningful response.
+
+Evidence for this counter-argument: The 2022 EP resolution on digital platforms (pre-DMA) took 18 months to be reflected in Commission guidance. The 2023 EP resolution on AI governance was superseded by the Commission own AI Act proposal timeline rather than driving it.
+
+Rebuttal: The current political environment is more competitiveness-focused than 2022-2023. The Draghi Report created a political urgency signal that the Commission is now responding to. The AI-trade resolution has more immediate policy salience than earlier digital economy resolutions.
+
+### Counter-Argument 2: EU AI Standards Will Harm EU Competitiveness
+
+The devil advocate position holds that stringent EU AI standards in trade contexts will disadvantage EU companies relative to US and Chinese competitors operating under lighter-touch regimes. The resolution may paradoxically reduce EU AI competitiveness by adding compliance costs.
+
+Evidence: GDPR compliance costs for SMEs; AI Act implementation burden estimates showing 30-50% cost disadvantage for EU AI startups versus US equivalents in near-term.
+
+Rebuttal: Standards as competitive barriers is a known risk, but EU standards have also created competitive advantages when they become de facto global standards (GDPR exported to 40+ countries; EU battery regulation influencing global auto supply chains).
+
+*[EXTEND-FROM-PRIOR: extended/devils-advocate-analysis.md prior=218L new=252L (+34)]*

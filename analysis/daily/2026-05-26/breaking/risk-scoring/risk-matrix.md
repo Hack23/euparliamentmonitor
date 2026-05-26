@@ -232,3 +232,36 @@ The risk matrix identifies four priority risks requiring active management, all 
 | EP Open Data Portal | A2 | Confirmed source, probably true |
 | EP Press Releases | A1 | Confirmed source, confirmed true |
 | IMF WEO Apr 2026 | B1 | Usually reliable, confirmed true |
+
+
+---
+
+## Pass-2 Extension: Risk Matrix Update — May 2026
+
+### AI-Trade Implementation Risk Register (Additional Entries)
+
+**Risk R-005: WTO Challenge to EU AI Standards**
+Likelihood: 3/5 (moderate, given known US USTR concerns about EU digital regulation)
+Impact: 5/5 (critical — would invalidate the trade policy framework)
+Risk score: 15/25 — HIGH
+Monitoring trigger: US filing WTO Technical Barriers to Trade notification referencing EU AI Act or TA-10-2026-0183 guidelines within 12 months
+
+**Risk R-006: Commission Non-Response Delay**
+Likelihood: 3/5 (moderate, based on Commission AI regulatory bandwidth constraints)
+Impact: 3/5 (significant — erodes EP legislative initiative credibility)
+Risk score: 9/25 — MEDIUM
+Monitoring trigger: Commission Work Programme 2027 published without AI-trade action item by October 2026
+
+**Risk R-007: Central Asia Partnership Strategic Reversal**
+Likelihood: 2/5 (low, Uzbekistan government incentivised by EU relationship)
+Impact: 4/5 (significant — signals limits of EU Central Asia strategy)
+Risk score: 8/25 — MEDIUM
+Monitoring trigger: Uzbekistan human rights deterioration index (Freedom House) declining by 5 or more points within 12 months of partnership entry into force
+
+**Risk R-008: EP Centre Coalition Fracture on Digital Agenda**
+Likelihood: 2/5 (low in near term, medium in EP10 second half)
+Impact: 4/5 (significant — would stall remaining digital competitiveness legislation)
+Risk score: 8/25 — MEDIUM
+Monitoring trigger: S&D split on GDPR enforcement vs. competitiveness legislation; or EPP-Renew divergence on AI liability rules
+
+*[EXTEND-FROM-PRIOR: risk-scoring/risk-matrix.md prior=234L new=255L (+21)]*

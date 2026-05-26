@@ -266,3 +266,22 @@ Dominant frame: Legislative achievement. EP communications should emphasise the 
 The media framing analysis identifies five competing frames with platform-specific dynamics. The European Sovereignty frame dominates for 12-18 months but faces mounting competition from Trade War Provocation (Chinese/US response) and Implementation Reality (ISA delays). Communication strategy should amplify sovereignty and competitiveness frames in months 1-6, prepare counter-narratives for Trade War frame in months 3-12, and manage expectations on implementation timeline proactively. Platform-specific strategy: sovereignty messaging for social media, implementation explainers for professional platforms, conflict-context for broadcast. The highest communication risk is the Trade War Provocation frame becoming dominant before China formally responds.
 
 [EXTEND-FROM-PRIOR: extended/media-framing-analysis.md prior=229L -> new=275L (+46)]
+
+
+---
+
+## Pass-2 Extension: Media Framing Update
+
+### Expected Media Framing — Post-May Session
+
+The AI-trade resolution (TA-10-2026-0183) will likely be framed in three competing narratives:
+
+**Competitiveness narrative (mainstream economic press):** EU Parliament calls for AI leadership in trade — framed positively as EU response to US-China digital competition, emphasising the Draghi Report investment gap as context
+
+**Regulatory burden narrative (business press and centre-right commentary):** Yet more EU AI regulation — framed negatively as adding compliance complexity to an already-regulated sector, emphasising potential trade partner retaliation risks
+
+**Democratic accountability narrative (civil society and left-leaning press):** EP demands AI trade transparency — framed positively for the workers rights and AI transparency provisions, but questioning the enforcement gap in a non-binding resolution
+
+The Russia/Ukraine accountability resolution (TA-10-2026-0161) will receive significant coverage in Eastern European and Ukrainian media but limited coverage in Western European general press given the continuation framing.
+
+*[EXTEND-FROM-PRIOR: extended/media-framing-analysis.md prior=267L new=270L (+3)]*
