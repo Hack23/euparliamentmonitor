@@ -81,6 +81,7 @@ import {
   resolveEditorialContent,
   sanitizeDescriptionCandidate,
 } from './metadata/resolve-helpers.js';
+import { clampForBudget } from './metadata/seo-budgets.js';
 import {
   ENRICHMENT_TRIGGER_LENGTH,
   truncateDescription,
@@ -262,7 +263,8 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
     input.template.title,
     editorial.headline,
     input.runId,
-    input.date
+    input.date,
+    input.lang
   );
   const title = pickFirstNonEmpty([
     manifestTitle,
@@ -342,7 +344,8 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
     input.template.title,
     '',
     input.runId,
-    input.date
+    input.date,
+    input.lang
   );
   const truncatedTitle = pickFirstNonEmpty([
     explicitTitle,
@@ -353,7 +356,17 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
     truncateTitle(contextualFallback),
     contextualFallback,
   ]);
-  const truncatedDescription = truncateDescription(description);
+  // Per-script SEO title clamp. `truncateTitle` enforces the
+  // 140-char hard cap but is too lax for the optimal SERP range
+  // (25-60 Latin / 12-30 CJK / 25-55 RTL) — the
+  // `executive-brief-seo-extraction` regression suite checks the
+  // grapheme count of every published `<title>` against that band.
+  // `clampForBudget(_, lang, 'title')` reads the per-script
+  // `SEO_BUDGETS.title` table (60/30/55) and breaks at a clause
+  // boundary so we never ship a mid-word ellipsis on a CJK
+  // headline.
+  const seoTitle = clampForBudget(truncatedTitle, input.lang, 'title');
+  const truncatedDescription = clampForBudget(description, input.lang, 'metaDescription');
 
   const extendedSource = sanitizeDescriptionCandidate(
     manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription
@@ -388,7 +401,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
     manifestTitle || manifestDescription ? 'manifest' : perLanguage.source;
 
   return {
-    title: truncatedTitle,
+    title: seoTitle,
     description: truncatedDescription,
     extendedDescription: truncatedExtendedDescription,
     keywords: buildSeoKeywords(
@@ -396,7 +409,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
       input.articleType,
       input.date,
       input.runId,
-      truncatedTitle,
+      seoTitle,
       truncatedDescription
     ),
     source,
