@@ -1,3 +1,43 @@
+# Translation Run Summary — 2026-05-25 (Run 269)
+
+## Overview
+
+- **Run date**: 2026-05-25
+- **Run ID**: 269
+- **Total translations produced**: 26 (13 per brief × 2 briefs)
+- **Validator result**: ✅ 26/26 PASS
+
+## Briefs Translated
+
+### Brief 1: `analysis/daily/2026-05-25/propositions/executive-brief.md`
+- **H2 count**: 11
+- **Languages**: sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
+- **Fixed tokens preserved**: IMF (2×), WEO (1×), 20× TA-10-2026-XXXX IDs, 7× procedure IDs
+
+### Brief 2: `analysis/daily/2026-04-08/breaking/executive-brief.md`
+- **H2 count**: 6
+- **Languages**: sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
+- **YAML frontmatter**: Copied verbatim with localized title/description values
+
+## Quality Matrix
+
+| Lang | Brief 1 | Brief 2 |
+|------|---------|---------|
+| sv   | ✅      | ✅      |
+| da   | ✅      | ✅      |
+| no   | ✅      | ✅      |
+| fi   | ✅      | ✅      |
+| de   | ✅      | ✅      |
+| fr   | ✅      | ✅      |
+| es   | ✅      | ✅      |
+| nl   | ✅      | ✅      |
+| ar   | ✅      | ✅      |
+| he   | ✅      | ✅      |
+| ja   | ✅      | ✅      |
+| ko   | ✅      | ✅      |
+| zh   | ✅      | ✅      |
+
+---
 # Translation Run Summary — 2026-05-25 (Run #266)
 
 ## Completed
