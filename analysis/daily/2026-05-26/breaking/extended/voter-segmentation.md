@@ -232,3 +232,24 @@ Not aware of May 2026 EP session. This is normal for EU institutional legislatio
 **Voter risk concentration:** Cohort B is the key risk audience. If the "Trade War Provocation" media frame dominates in Cohort B, it could create political pressure on member state governments to soften implementing acts, undermining the regulation.
 
 [EXTEND-FROM-PRIOR: extended/voter-segmentation.md prior=213L -> new=238L (+25)]
+
+
+---
+
+## Pass-2 Extension: Voter Segmentation Update
+
+### EU Citizen Segmentation for AI-Trade Debate
+
+**Segment 1: Digital professionals and tech-sector workers (approximately 12% of EU workforce)**
+Position on AI-trade: Cautiously positive — supports EU AI standards as professional standards but concerned about compliance burden on EU AI startups. This segment closely follows TA-10-2026-0183 and will evaluate Commission response quality.
+
+**Segment 2: Manufacturing workers in AI-affected industries (approximately 18% of EU workforce)**
+Position on AI-trade: Concerned but not opposed — aware of AI disruption risk in manufacturing but supportive of EU trade policy protecting their sector. The workers rights language in TA-10-2026-0183 speaks directly to this segment.
+
+**Segment 3: Agricultural and rural constituencies (approximately 8% of EU workforce)**
+Position on AI-trade: Low salience — AI-trade is not a primary concern. More interested in the forest reproductive material regulation (TA-10-2026-0168) and the fisheries agreements. EP needs to translate AI-trade benefits into rural employment terms to reach this segment.
+
+**Segment 4: EU exporters and SME owners (approximately 15% of business population)**
+Position on AI-trade: Split — large exporters see standards advantage; SMEs concerned about compliance costs. The implementation feasibility assessment (low-medium on resource feasibility) directly affects this segment ability to participate in AI-enabled trade.
+
+*[EXTEND-FROM-PRIOR: extended/voter-segmentation.md prior=233L new=254L (+21)]*

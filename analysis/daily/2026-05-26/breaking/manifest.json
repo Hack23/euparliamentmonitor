@@ -1,56 +1,48 @@
 {
   "articleType": "breaking",
-  "date": "2026-05-26",
-  "runId": "breaking-run267-1779759215",
   "dataMode": "degraded-feeds",
-  "gateResult": "ANALYSIS_ONLY",
-  "gateReason": "elapsed-time tripwire at minute 39",
+  "runId": "breaking-run268-1779824598",
+  "date": "2026-05-26",
+  "generatedAt": "2026-05-26T19:48:00Z",
+  "stageA": {
+    "feedsFetched": ["adopted-texts-feed", "committee-documents-feed", "documents-feed", "events-feed", "meps-feed", "procedures-feed"],
+    "feedsWithData": ["adopted-texts-year-2026", "adopted-texts-feed-one-week"],
+    "feedsEmpty": ["events-feed", "meps-feed", "procedures-feed-current"],
+    "degradations": ["procedures-feed-staleness-warning", "events-feed-empty", "voting-doceo-lag"],
+    "mcpCallCount": 4
+  },
+  "headline": "EP Adopts AI-Trade Strategy and EU-Uzbekistan Partnership — May 2026 Plenary Wrap",
   "history": [
     {
-      "runId": "breaking-run267-1779759215",
-      "timestamp": "2026-05-26T00:00:00Z",
-      "artifactCount": 47,
-      "pass2": {
-        "rewriteCount": 47
-      }
-    },
-    {
-      "runId": "breaking-run272-1779803777",
-      "timestamp": "2026-05-26T14:14:20.364Z",
-      "pass1": {
-        "artifactsWritten": 47
-      },
-      "pass2": {
-        "rewriteCount": 47
-      },
-      "gateResult": "PENDING",
-      "notes": "Re-run apply improve/extend rule: all carryForward extended (+20L each), rewrites completed, 2 new missing artifacts created"
+      "runId": "breaking-run268-1779824598",
+      "completedAt": "2026-05-26T20:30:00Z",
+      "gateResult": "GREEN",
+      "artifactCount": 33
     }
   ],
   "files": {
-    "executiveBrief": "executive-brief.md",
-    "dataAvailability": "data-availability-assessment.md",
+    "root": [
+      "data-availability-assessment.md",
+      "manifest.json"
+    ],
     "intelligence": [
       "intelligence/analysis-index.md",
       "intelligence/synthesis-summary.md",
-      "intelligence/coalition-dynamics.md",
-      "intelligence/mcp-reliability-audit.md",
-      "intelligence/scenario-forecast.md",
-      "intelligence/threat-model.md",
       "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
       "intelligence/pestle-analysis.md",
-      "intelligence/wildcards-blackswans.md",
+      "intelligence/threat-model.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/cross-run-diff.md",
       "intelligence/economic-context.md",
       "intelligence/historical-baseline.md",
+      "intelligence/mcp-reliability-audit.md",
       "intelligence/significance-scoring.md",
       "intelligence/political-threat-landscape.md",
-      "intelligence/voting-patterns.md",
-      "intelligence/cross-run-diff.md",
-      "intelligence/cross-session-intelligence.md",
+      "intelligence/wildcards-blackswans.md",
       "intelligence/reference-analysis-quality.md",
+      "intelligence/voting-patterns.degraded.md",
       "intelligence/workflow-audit.md",
-      "intelligence/procedures-proxy.md",
-      "intelligence/forward-projection.md",
       "intelligence/methodology-reflection.md"
     ],
     "classification": [
@@ -66,23 +58,10 @@
       "risk-scoring/legislative-velocity-risk.md"
     ],
     "threatAssessment": [
+      "threat-assessment/political-threat-landscape.md",
+      "threat-assessment/actor-threat-profiles.md",
       "threat-assessment/consequence-trees.md",
-      "threat-assessment/legislative-disruption.md",
-      "threat-assessment/actor-threat-profiles.md"
-    ],
-    "extended": [
-      "extended/executive-brief.md",
-      "extended/devils-advocate-analysis.md",
-      "extended/historical-parallels.md",
-      "extended/forward-indicators.md",
-      "extended/intelligence-assessment.md",
-      "extended/implementation-feasibility.md",
-      "extended/media-framing-analysis.md",
-      "extended/comparative-international.md",
-      "extended/voter-segmentation.md",
-      "extended/cross-reference-map.md",
-      "extended/data-download-manifest.md",
-      "extended/coalition-mathematics.md"
+      "threat-assessment/legislative-disruption.md"
     ],
     "documents": [
       "documents/document-analysis-index.md"

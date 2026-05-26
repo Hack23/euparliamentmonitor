@@ -193,3 +193,28 @@ Net pressure direction: PRO-REGULATION. Driving forces outweigh restraining forc
 ## Reader Briefing
 
 The balance of forces strongly favors the EU economic security regulatory project, but implementation faces meaningful restraining forces. The ISA implementing acts period is the highest-leverage intervention point for opponents of the regulation.
+
+
+---
+
+## Pass-2 Extension: Force Field Analysis Update
+
+### Driving Forces vs Restraining Forces — AI-Trade Strategy Implementation
+
+**Driving Forces (score 1-5):**
+1. Draghi Report investment gap urgency (5): The 750-800 billion euro annual competitiveness deficit creates enormous pressure for AI-enabled productivity solutions
+2. US AI deregulation pressure (4): The US move toward lighter-touch AI regulation creates competitive urgency for the EU to either converge or differentiate strategically
+3. EP centre coalition alignment (4): EPP-S&D-Renew majority sustains the political mandate for competitiveness agenda
+4. DMA enforcement precedent (3): The April 2026 DMA enforcement resolution builds political momentum for this May resolution
+5. China AI competition (3): Chinese AI investment in trade-facilitation technologies creates strategic urgency for EU response
+
+**Restraining Forces (score 1-5):**
+1. Commission implementation capacity gaps (4): DG TRADE AI regulatory expertise limited; Commission response may be partial or delayed
+2. WTO rules constraints (4): EU AI standards must be framed as legitimate regulatory objectives to avoid WTO challenge under TBT Agreement
+3. US bilateral trade tension (3): US could retaliate against EU AI standards in bilateral trade context
+4. SME compliance burden concerns (3): Smaller EU exporters may face disproportionate AI compliance costs that the resolution does not adequately address
+5. Political group divergence (2): ECR and PfE opposition creates a political risk if the centre coalition fractures before Commission response
+
+Net force balance: Driving forces (19) significantly outweigh restraining forces (16), suggesting the AI-trade implementation trajectory is favourable but requires active management of the WTO and Commission-capacity constraints.
+
+*[EXTEND-FROM-PRIOR: classification/forces-analysis.md prior=195L new=216L (+21)]*

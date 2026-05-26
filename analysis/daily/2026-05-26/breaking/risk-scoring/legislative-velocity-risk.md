@@ -237,3 +237,24 @@ The EU economic security legislative pipeline post-May 2026 session:
 ## Reader Briefing
 
 The most critical pipeline items are the 4 high-velocity-risk implementing acts for the FDI regulation. All must complete by January 2027. Current Commission bandwidth is assessed as insufficient for parallel development. Recommended monitoring: Commission ISA roadmap publication (June 2026) as the leading indicator.
+
+
+---
+
+## Pass-2 Extension: Legislative Velocity Risk Update
+
+### Pipeline Throughput Assessment — May 2026
+
+The May 2026 session confirms a consistent legislative throughput for EP10 year two. The pattern of 8 adopted texts per plenary session (combining legislative and non-legislative acts) represents a productive pace relative to EP10 baseline projections.
+
+### Stalled Procedure Risk Assessment
+
+Based on the adopted texts procedure reference field analysis:
+
+Long-pending procedures now completed: TA-10-2026-0177 (EU-Lebanon, procedure initiated 2024-0155) and TA-10-2026-0178 (Sao Tome fisheries, procedure initiated 2025-0202) both moved from committee consent to plenary adoption within 12-18 months, which is within the normal range for international agreement consent procedures.
+
+Deadline exposure analysis: The most significant deadline pressure is the Commission Work Programme 2027 drafting process (typically October-November). AI-trade implementation requests in TA-10-2026-0183 must reach the Commission as a formal EP institutional communication by August 2026 at the latest to influence the 2027 programme. This creates a 3-month window risk for the resolution impact.
+
+Trilogue pipeline: No active ordinary legislative procedure (COD) trilogue identified from the May 19-20 session acts. All May acts were either consent procedures (international agreements) or own-initiative non-legislative resolutions. This confirms the inter-session gap period typical before the June mini-plenary, where trilogues advance without EP floor action.
+
+*[EXTEND-FROM-PRIOR: risk-scoring/legislative-velocity-risk.md prior=239L new=260L (+21)]*

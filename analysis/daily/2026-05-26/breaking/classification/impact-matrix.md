@@ -193,3 +193,23 @@ FDI Regulation → ISA established → Chinese acquisition pipeline blocked → 
 ## Reader Briefing
 
 The impact matrix identifies FDI screening + Chinese retaliation as the highest-priority risk nexus. All other legislative outputs are secondary. Monitoring focus should be on ISA implementation timeline and Chinese trade response.
+
+
+---
+
+## Pass-2 Extension: Impact Matrix Update
+
+### Event by Stakeholder Impact Analysis — May 2026
+
+| Stakeholder | AI-Trade (TA-0183) | Uzbekistan (TA-0174) | Russia-Ukraine (TA-0161) | UN GA (TA-0182) |
+|---|---|---|---|---|
+| EU exporters (manufacturing) | HIGH positive — AI productivity gains legitimised in trade law | LOW positive — new Central Asia market access | LOW neutral | LOW neutral |
+| EU digital sector | HIGH positive — EU standards as competitive advantage | LOW positive | LOW neutral | LOW neutral |
+| Commission DG TRADE | HIGH — implementation mandate created | MEDIUM — ratification coordination | LOW neutral | LOW neutral |
+| Council (EU member states) | MEDIUM — policy signal to integrate in national trade strategies | MEDIUM — consent given | LOW positive | LOW positive |
+| Third countries (US, UK) | MEDIUM negative — standards divergence risk | LOW neutral | LOW negative (if Russia-aligned) | MEDIUM positive (multilateral) |
+| Uzbekistan government | LOW neutral | HIGH positive — EU legitimacy and market access | LOW neutral | LOW neutral |
+| Ukrainian civil society | LOW neutral | LOW neutral | HIGH positive — international accountability signal | MEDIUM positive |
+| EP political groups (EPP, S&D, Renew) | HIGH positive — legislative success | MEDIUM positive — foreign affairs mandate | HIGH positive — accountability stance | MEDIUM positive |
+
+*[EXTEND-FROM-PRIOR: classification/impact-matrix.md prior=195L new=216L (+21)]*

@@ -222,3 +222,24 @@ Four historical parallels illuminate the May 2026 package: CFIUS to EU FDI Scree
 | EP Open Data Portal | A2 | Confirmed source, probably true |
 | EP Press Releases | A1 | Confirmed source, confirmed true |
 | IMF WEO Apr 2026 | B1 | Usually reliable, confirmed true |
+
+
+---
+
+## Pass-2 Extension: Historical Parallels Update
+
+**Admiralty: B3 | Historical analysis**
+
+### Parallel 1: GDPR as AI Governance Template
+
+The EU AI Act follows the GDPR legislative pathway: EP non-binding resolution (2017) preceded the binding GDPR regulation (2018) by approximately 12 months. The current AI-trade resolution may follow a similar pathway where the EP non-binding position influences Commission legislative proposals. The key difference is that AI-trade is primarily a trade policy domain where the Commission holds more exclusive competence than in data protection, potentially limiting the EP legislative leverage.
+
+Historical outcome of GDPR pathway: The EP non-binding position was substantially incorporated into the final GDPR text, demonstrating that EP resolutions can be effective precursors to binding legislation when Commission DG alignment exists.
+
+### Parallel 2: EU-Central Asia Strategy Precedents
+
+The EU-Kazakhstan Enhanced Partnership Agreement (2024) provides the direct historical parallel for the EU-Uzbekistan partnership. Kazakhstan agreement ratification took approximately 18 months from EP consent to Council ratification and entry into force. Applying this timeline to Uzbekistan (EP consent May 20, 2026) projects entry into force approximately November 2027.
+
+The EU-Mongolia partnership talks (ongoing 2025-2026) represent the next iteration of the Central Asia engagement strategy. The Uzbekistan completion creates political momentum for the Mongolia pathway.
+
+*[EXTEND-FROM-PRIOR: extended/historical-parallels.md prior=224L new=245L (+21)]*

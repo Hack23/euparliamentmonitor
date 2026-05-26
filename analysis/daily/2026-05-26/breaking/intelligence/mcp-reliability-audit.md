@@ -418,3 +418,31 @@ EP API events feed has been unavailable in both runs today. This represents a pe
 **Reliability rating for this session: 3/5** (degraded but analytically sufficient given pre-fetched feed coverage from the earlier morning prefetch-ep-feeds.sh run which captured full data before the event feed degradation).
 
 [EXTEND-FROM-PRIOR: intelligence/mcp-reliability-audit.md prior=398L -> new=422L (+24)]
+
+
+---
+
+## Pass-2 Extension: Run-Specific MCP Reliability Observations — 2026-05-26
+
+### New Observations This Run
+
+| Endpoint | Call | Result | Grade | New Issue |
+|----------|------|--------|-------|-----------|
+| get_adopted_texts(year=2026) | 1 | 31 items returned | A2 | No — confirmed reliable |
+| get_adopted_texts_feed(one-week) | 2 | 230 items (mixed years) | B2 | No — historical items included |
+| get_plenary_sessions(dateFrom=2026-05-12) | 3 | 0 items despite total=21 | C3 | YES — filter mismatch |
+| get_parliamentary_questions(dateFrom=2026-05-19) | 4 | 16 IDs with no text | D4 | YES — metadata missing |
+| generate_political_landscape | 5 | Timeout after 100 seconds | F6 | No — known timeout pattern |
+
+### Issue Log 2026-05-26
+
+Issue 2026-05-26-001: get_plenary_sessions with dateFrom filter returns empty data array despite total=21. The filteredTotal=0 field suggests the server-side date filter is not applied correctly. The plenary session IDs may not have date fields matching the filter parameter format. Recommended workaround: use get_plenary_sessions with year=2026 and limit=50 as the primary approach; avoid dateFrom/dateTo parameters.
+
+Issue 2026-05-26-002: get_parliamentary_questions for recent date range returns question IDs with all metadata fields empty. Author is Unknown, date is empty, and topic field contains only the question ID. The EP API does not currently expose full question metadata for recently submitted questions. Recommended status: treat parliamentary questions as analytically unavailable for breaking news runs until the EP API resolves this limitation.
+
+### Cumulative Reliability Scores (Updated)
+
+A2-grade endpoints with consistent performance: get_adopted_texts(year=YYYY), get_procedures(processId), get_mep_details
+B2-grade endpoints with reliable but partial data: get_adopted_texts_feed, get_speeches, get_plenary_session_documents
+
+*[EXTEND-FROM-PRIOR: intelligence/mcp-reliability-audit.md prior=419L new=440L (+21)]*

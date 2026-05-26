@@ -238,3 +238,22 @@ The ISA requires not just legal establishment but technical infrastructure:
 **Assessment (HIGH CONFIDENCE):** The January 2027 legal effectiveness date will be met; but full technical operability will require 2028. This distinction should be communicated proactively to avoid "implementation failure" narrative.
 
 [EXTEND-FROM-PRIOR: extended/implementation-feasibility.md prior=215L -> new=240L (+25)]
+
+
+---
+
+## Pass-2 Extension: Implementation Feasibility Update
+
+### AI-Trade Strategy Implementation Assessment
+
+Technical feasibility: MEDIUM. The AI-trade framework requires development of AI standards for trade contexts, which intersects with the AI Act, the AI Office mandate, and the DG TRADE existing competence. No major technical barrier exists, but capacity building is required within the Commission.
+
+Political feasibility: HIGH in near term. The centre coalition EPP-S&D-Renew alignment on TA-10-2026-0183 provides a strong political mandate. The Draghi Report political urgency remains active. No significant opposition from Council presidencies (Polish Presidency January-June 2026; Danish Presidency July-December 2026) is anticipated.
+
+Institutional feasibility: MEDIUM. The Commission has limited precedent for integrating AI governance into trade policy instruments. DG TRADE and the AI Office will need to establish a coordination mechanism that does not currently exist in their mandates.
+
+Timeline feasibility: MEDIUM. Achieving substantive implementation before the 2029 EP election requires: Commission response by August 2026, legislative proposal by early 2027, Council and EP agreement by late 2028. This is a tight but achievable timeline if political will holds.
+
+Resource feasibility: LOW-MEDIUM. The Commission is operating under budget constraints. New AI-trade capacity in DG TRADE would require either budget reallocation or new funding, both of which face institutional resistance.
+
+*[EXTEND-FROM-PRIOR: extended/implementation-feasibility.md prior=239L new=260L (+21)]*

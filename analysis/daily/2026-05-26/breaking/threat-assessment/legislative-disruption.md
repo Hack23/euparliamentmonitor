@@ -261,3 +261,26 @@ To disrupt the FDI regulation implementing acts, an adversary would need to:
 ## Reader Briefing
 
 The most credible legislative disruption vector is Council blocking minority formation (Vector A). This is achievable without external state involvement and requires only 3-4 member states to align with Hungary. Early warning indicator: Council working party composition for ISA regulation (expected September 2026).
+
+
+---
+
+## Pass-2 Extension: Legislative Disruption Analysis Update
+
+### AI-Trade Strategy: Disruption Scenarios
+
+The adoption of TA-10-2026-0183 creates four legislative disruption pathways:
+
+**Pathway 1: WTO Challenge Blocking Implementation**
+If the US or another major trading partner files a WTO Technical Barriers to Trade challenge against EU AI standards developed pursuant to TA-10-2026-0183, the Commission would face legal uncertainty during the dispute resolution process (12-24 months minimum). This would stall AI-trade standard-setting and undermine the resolution impact.
+
+**Pathway 2: AI Act Revision Pressure**
+If the AI-trade resolution generates significant implementation friction with the AI Act (which entered full application in August 2026), a rushed AI Act revision process could disrupt both the foundational regulation and the trade policy framework simultaneously.
+
+**Pathway 3: Commission Work Programme 2027 Exclusion**
+If the Commission deprioritises AI-trade in the 2027 Work Programme (to be adopted October-November 2026), the resolution becomes an orphaned EP initiative. The EP then faces the choice of filing a formal request for a legislative initiative under TFEU Article 225 or accepting the resolution lapse.
+
+**Pathway 4: Centre Coalition Fracture Before Commission Response**
+If the EPP-S&D-Renew coalition fractures on a related digital economy vote before August 2026, the Commission may recalibrate its response to TA-10-2026-0183 downward, sensing weakened EP political support.
+
+*[EXTEND-FROM-PRIOR: threat-assessment/legislative-disruption.md prior=263L new=284L (+21)]*

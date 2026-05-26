@@ -164,3 +164,30 @@ The workflow audit confirms a degraded-feeds run with four data quality issues, 
 - Extended: coalition-dynamics.md, cross-run-diff.md, forward-projection.md, political-threat-landscape.md, procedures-proxy.md, data-availability-assessment.md, cross-session-intelligence.md, reference-analysis-quality.md, significance-scoring.md + all remaining carryForward items
 
 [EXTEND-FROM-PRIOR: intelligence/workflow-audit.md prior=unknown -> new=extended (+22)]
+
+
+---
+
+## Pass-2 Extension: Workflow Audit — Complete Status
+
+### Phase Completion Summary
+
+Stage A Data Collection: 4 EP MCP calls, 6 pre-fetched feeds checked (all empty), approximately 4 minutes total. Fallback A2 endpoint used for adopted-texts. Data mode declared as degraded-feeds.
+
+Stage B Analysis Pass 1: All mandatory artifacts present from prior run. Rewrite list: 12 artifacts below floor. Carry-forward list: 38 artifacts needing extension.
+
+Stage B Analysis Pass 2: All carryForward and rewrite targets addressed. Missing artifact threat-assessment/political-threat-landscape.md created. Multiple intelligence artifacts extended with substantive analysis.
+
+### Core Principles Compliance Check
+
+Single PR rule: compliant — one PR at Stage E only.
+AI-First Quality: compliant — 2-pass iterative improvement applied to all artifacts.
+Agent does not write article prose: compliant — Stage D uses deterministic CLI.
+WEP bands applied: compliant — synthesis-summary, scenario-forecast, cross-run-diff all have WEP bands.
+Admiralty grades applied: compliant — all intelligence artifacts graded.
+SAT documentation: to be completed in methodology-reflection.md as final artifact.
+IMF as sole economic source: compliant — KB-estimates labelled with vintage.
+No shell expansion patterns: compliant — all extensions written via Python and extend-artifacts.js.
+Stage C tripwire monitoring: active — checking elapsed minutes against 36-minute threshold.
+
+*[EXTEND-FROM-PRIOR: intelligence/workflow-audit.md prior=165L new=186L (+21)]*

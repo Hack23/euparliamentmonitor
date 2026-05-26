@@ -211,3 +211,20 @@ Tier 4 (SPECULATIVE): China changes Taiwan strategy in response to SAFE expansio
 The extended intelligence assessment confirms six key findings at varying confidence levels. Findings 1-2 are CONFIRMED from primary sources. Findings 3-4 are PROBABLE from reliable pattern analysis. Findings 5-6 are POSSIBLE from inference with significant uncertainty. The intelligence gap assessment identifies RCV data availability as the highest-priority gap. All six findings together constitute the strategic intelligence picture of May 2026 EP plenary significance. Analysts should treat the three-tier collection priority as the basis for the next monitoring cycle.
 
 [EXTEND-FROM-PRIOR: extended/intelligence-assessment.md prior=173L -> new=225L (+52)]
+
+
+---
+
+## Pass-2 Extension: Intelligence Assessment Update
+
+**Admiralty: B3 | WEP: Probably (55-70%) | Confidence: MEDIUM**
+
+### Assessment Update: EP10 Competitiveness Mandate — Midpoint Evaluation
+
+At the midpoint of the 2024-2029 EP term (approximately May 2026), the competitiveness agenda analysis shows:
+
+The EP10 competitiveness mandate has advanced significantly in year two. The DMA enforcement and AI-trade strategy resolutions represent two substantive contributions to the digital economy framework. However, the assessment notes that both acts are non-binding resolutions rather than binding legislative proposals. The conversion rate from EP non-binding resolution to binding EU law is approximately 40-60% over a five-year term, meaning up to half of these signals may not result in legislative outcomes.
+
+The more durable achievement may be the coalition-building process: the consecutive EPP-S&D-Renew alignment on digital economy acts in April and May 2026 suggests that the centre coalition is more cohesive on competitiveness than on social policy or migration, creating a strategic opportunity for EP leadership to advance the remaining competitiveness agenda items in the second half of EP10.
+
+*[EXTEND-FROM-PRIOR: extended/intelligence-assessment.md prior=212L new=220L (+8)]*

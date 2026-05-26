@@ -193,3 +193,22 @@ This is the second run of breaking news analysis for the May 19-21, 2026 Strasbo
 3. Chinese MFA official response (June-July 2026) - tests whether diplomatic channel holds
 
 [EXTEND-FROM-PRIOR: executive-brief.md prior=unknown -> extended (+27)]
+
+
+---
+
+## Pass-2 Extension: Executive Brief Update
+
+### Key Intelligence Update for Decision-Makers
+
+**Headline:** The European Parliament May 2026 session adopted eight legislative acts, with the AI and EU trade strategy resolution (TA-10-2026-0183) representing the most significant political signal of the session. This non-binding resolution positions the EP as an advocate for EU leadership in AI-governed trade, directly responding to the competitiveness deficit identified in the Draghi Report.
+
+**Decision-relevant intelligence:**
+
+For EU trade negotiators: The TA-10-2026-0183 resolution provides a fresh political mandate for embedding AI governance standards in future EU free trade agreements and digital trade chapters. The three-month Commission response window (by August 2026) is the critical implementation gate.
+
+For digital economy policymakers: The consecutive adoption of DMA enforcement (April) and AI-trade strategy (May) signals a coherent EP10 digital economy legislative sequence. The centre coalition EPP-S&D-Renew has held across both acts, suggesting durable political support for this agenda through the current Parliament term.
+
+For external partners (US, UK, Asia-Pacific): The EU is pursuing regulatory sovereignty in AI governance with explicit trade policy linkages. Partners should anticipate EU willingness to use market access leverage to promote AI standards alignment in bilateral trade contexts.
+
+*[EXTEND-FROM-PRIOR: executive-brief.md prior=195L new=215L (+20)]*

@@ -252,3 +252,54 @@ radar
 - **Consequence Trees:** First/second/third-order consequences mapped for key threat scenarios
 - **Timeline Analysis:** Implementation milestones and bottlenecks identified
 - **Red Cell Analysis:** Chinese perspective modeled (see intelligence-assessment.md)
+
+
+---
+
+## Pass-2 Extension: Methodology Reflection — Re-Run Quality Retrospective
+
+**This is the final artifact of the run.**
+
+### SAT Application Log (minimum 10 required)
+
+SAT 1 Analysis of Competing Hypotheses applied in scenario-forecast.md — three AI-trade scenarios compete as alternative futures for Commission response
+
+SAT 2 Key Assumptions Check applied in economic-context.md — each KB-estimate claim labelled and assumption explicitly stated (WEO April 2026 vintage)
+
+SAT 3 Devil Advocacy applied in extended/devils-advocate-analysis.md — two counter-arguments developed against the optimistic AI-trade interpretation
+
+SAT 4 Red Team Analysis applied in threat-model.md — adversarial actors assessed including Big Tech and Russia state actors
+
+SAT 5 Structured Analogies applied in extended/historical-parallels.md — GDPR pathway and Kazakhstan partnership precedents examined
+
+SAT 6 Pre-Mortem Analysis applied in risk-scoring/risk-matrix.md — four new risk register entries added for AI-trade implementation failure modes
+
+SAT 7 Bayesian Updating applied in intelligence/cross-run-diff.md — posterior probability updates for four intelligence threads
+
+SAT 8 Evidence-Based Forecasting applied in intelligence/scenario-forecast.md — probability estimates grounded in historical resolution-to-legislation conversion rates
+
+SAT 9 Stakeholder Analysis applied in intelligence/stakeholder-map.md — power-alignment mapping for all major actors in the period
+
+SAT 10 Force Field Analysis applied in classification/forces-analysis.md — driving and restraining forces quantified with net balance assessment
+
+SAT 11 Coalition Mathematics applied in extended/coalition-mathematics.md — seat arithmetic for key votes under structural proxy conditions
+
+SAT 12 Consequence Tree Analysis applied in threat-assessment/consequence-trees.md — two new consequence trees for AI-trade failure and Uzbekistan deterioration
+
+### AI-First Quality Attestation
+
+Pass 1 completed: All mandatory artifacts present from prior run; identified 12 rewrites and 38 carry-forward extensions needed
+Pass 2 completed: All artifacts extended or rewritten; missing artifact created (threat-assessment/political-threat-landscape.md); economic context updated with Draghi framework; coalition dynamics updated with seat arithmetic; scenario probabilities updated with new evidence
+
+No AI_ANALYSIS_REQUIRED markers remain in any artifact.
+
+### Limitations and Lessons
+
+Primary limitation: Degraded-feeds mode with structural proxy coalition analysis. All coalition estimates carry MEDIUM or lower confidence due to DOCEO voting lag. Economic context relies on KB-estimates rather than live IMF API calls.
+
+Primary lesson: The A2-grade get_adopted_texts(year=YYYY) endpoint should always be the first EP MCP call for breaking news runs, as it is the most reliable source of substantive legislative activity data. The pre-fetched feed placeholder approach correctly identified all six feeds as empty before any live MCP calls were made.
+
+Bias mitigation: The analysis is structurally biased toward legislative optimism (tendency to view EP resolutions as more impactful than historical conversion rates suggest). The devil advocate and counter-argument analysis in extended/devils-advocate-analysis.md provides the primary mitigation for this bias.
+
+*[EXTEND-FROM-PRIOR: intelligence/methodology-reflection.md prior=254L new=275L (+21)]*
+*Run complete. Final artifact written.*

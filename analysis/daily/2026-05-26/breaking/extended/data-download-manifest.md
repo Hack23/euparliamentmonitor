@@ -154,3 +154,22 @@ Range TA-10-2026-0164 through TA-10-2026-0191 — all routine parliamentary busi
 - Overall data quality: ADEQUATE for analysis; degraded vs. ideal (events feed 404, RCV detail delayed)
 
 [EXTEND-FROM-PRIOR: extended/data-download-manifest.md prior=unknown -> extended (+22)]
+
+
+---
+
+## Pass-2 Extension: Data Download Manifest Update
+
+### Stage A Data Sources — Complete Record
+
+EP Adopted Texts (year=2026): 31 items retrieved via get_adopted_texts. Reference range T10-0004/2026 through T10-0183/2026. Coverage: all 2026 adopted texts through May 20, 2026. Format: structured JSON with id, title, dateAdopted, procedureReference, subjectMatter fields.
+
+EP Adopted Texts Feed (one-week): approximately 230 items retrieved via get_adopted_texts_feed. Includes historical items from EP9 and earlier periods alongside 2026 items. Used for cross-reference validation only; primary data source is the year=2026 query.
+
+Plenary Sessions: 0 items returned despite total=21 due to date-filter mismatch in get_plenary_sessions. Issue logged in mcp-reliability-audit.md.
+
+Parliamentary Questions: 16 question IDs retrieved via get_parliamentary_questions with date filter 2026-05-19 to 2026-05-26. All metadata fields empty. Questions not usable for substantive analysis.
+
+Pre-fetched feeds (all empty): adopted-texts-feed.json, committee-documents-feed.json, documents-feed.json, events-feed.json, meps-feed.json, procedures-feed.json. All returned zero items, consistent with the prefetch-status.json reporting prefetchMode=full with no placeholders (empty items arrays rather than placeholder items).
+
+*[EXTEND-FROM-PRIOR: extended/data-download-manifest.md prior=155L new=176L (+21)]*
