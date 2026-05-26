@@ -515,10 +515,10 @@ elif [ "$session_not_found" = false ] && [ "$safe_outputs_failed" = true ] && [ 
 fi
 
 # Inventory of what was staged, for the body summary.
-eligible_total=$(wc -l < "$eligible_changed" | awk '{print $1}')
+eligible_total=$(wc -l "$eligible_changed" | awk '{print $1}')
 disallowed_total=0
 if [ -s "$disallowed_changed" ]; then
-  disallowed_total=$(wc -l < "$disallowed_changed" | awk '{print $1}')
+  disallowed_total=$(wc -l "$disallowed_changed" | awk '{print $1}')
 fi
 article_files=$(grep -cE '^(analysis/daily/[^/]+/[^/]+/article(\.[a-z]+)?\.md|news/.+\.md)$' "$eligible_changed" || true)
 analysis_files=$(grep -cE '^analysis/daily/[^/]+/[^/]+/(intelligence|classification|risk-scoring|threat-assessment|economic-context|stage-[a-e]|manifest)\.' "$eligible_changed" || true)
