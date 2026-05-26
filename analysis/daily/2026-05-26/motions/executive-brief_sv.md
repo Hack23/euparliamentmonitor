@@ -26,8 +26,8 @@
 | Koalitionen "Fortress Europe" är hållbar | SANNOLIK (3) | B2 | Strukturell proxy |
 | Genomförande av FDI-förlängningen 2026 | MYCKET SANNOLIK (4) | A1 | Text antagen; kommissionen har fått mandat |
 | AI-handel WTO-process initierad | SANNOLIK (3) | B2 | Resolutionen ger kommissionen mandat att agera |
-| SAFE-instrumentet ratificerat ≤12 månader | UNGEFÄR LIKA TROLIGT (3−) | B3 | Risk för canadensiska senaten |
-| Storgranskoalitionen spricker i Mercosusfrågan | SANNOLIK (3) | B2 | Historisk och strukturell signal |
+| SAFE-instrumentet ratificerat ≤12 månader | UNGEFÄR LIKA TROLIGT (3−) | B3 | Risk för kanadensiska senaten |
+| Storgranskoalitionen spricker i Mercosurfrågan | SANNOLIK (3) | B2 | Historisk och strukturell signal |
 
 ---
 
@@ -118,6 +118,6 @@ Denna sammanfattning är utformad för att informera artikelgenerering (steg D).
 1. **Ledare:** "Fortress Europe"-doktrinens kristallisering — den mest betydande handelslagstiftningen under en enda session i EP10
 2. **Ekonomisk ankring:** IMF BNP 1,8 % + handelskrigets nedsidesrisk som makroekonomisk ram
 3. **Koalitionsankring:** 478–524 säters majoritet för ekonomisk säkerhet (strukturell proxy — kvalificera alla påståenden)
-4. **Balans för mänskliga rättigheter:** Afghansitanens brådskande fråga visar att det dubbla spåret lever
+4. **Balans för mänskliga rättigheter:** Afghanistans brådskande fråga visar att det dubbla spåret lever
 5. **Framåtblick:** Mercosur-sprickrisk som nästa stora test
 6. **Datavarning:** Nedgraderat röstningsläge — alla röstanalyser är strukturell proxy; DOCEO XML väntar

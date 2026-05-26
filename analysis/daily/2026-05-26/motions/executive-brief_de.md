@@ -52,7 +52,7 @@ Die Plenarsitzung des Europäischen Parlaments vom 19.–23. Mai 2026 schloss da
 | EPP-ECR-S&D-Koalition stabil bei wirtschaftlicher Sicherheit | PLAUSIBEL | Wenn ECR bei bestimmten FDI-Umfangsbestimmungen revoltiert, verengt sich die Koalition, behält aber die Mehrheit |
 | Kommission wird FDI-Erweiterung wie geschrieben umsetzen | PLAUSIBEL | Wenn Kommission Verwässerung über Durchführungsrechtsakte anstrebt, hat das EP Überstimmungsrecht, aber der Prozess dauert 12+ Monate |
 | China-EU-Handelsbeziehungen bleiben im kontrollierten Wettbewerb | PLAUSIBEL | Wenn China auf formellen WTO-Streit eskaliert, wird die defensive Glaubwürdigkeit des EP getestet |
-| Afghaniatan-Resolution hat EU-weite Zivilgesellschaftsunterstützung | PLAUSIBEL | Wenn Mitgliedstaatenregierungen der Sanktionserweiterung widerstehen, bleibt die Resolution symbolisch |
+| Afghanistan-Resolution hat EU-weite Zivilgesellschaftsunterstützung | PLAUSIBEL | Wenn Mitgliedstaatenregierungen der Sanktionserweiterung widerstehen, bleibt die Resolution symbolisch |
 
 ---
 
@@ -118,6 +118,6 @@ Diese Zusammenfassung dient der Informierung der Artikelgenerierung (Phase D). W
 1. **Aufmacher:** Kristallisierung der „Fortress Europe"-Doktrin — bedeutendste Handelsgesetzgebung einer einzelnen Sitzung in EP10
 2. **Wirtschaftlicher Anker:** IMF BIP 1,8 % + Abwärtsrisiko des Handelskriegs als makroökonomischer Rahmen
 3. **Koalitionsanker:** 478–524-Sitze-Mehrheit für wirtschaftliche Sicherheit (struktureller Proxy — alle Aussagen qualifizieren)
-4. **Menschenrechts-Balance:** Afghaniatan-Dringlichkeit zeigt, dass das Doppelspurkonzept lebt
-5. **Vorausblick:** Mercosur-Frakturrisko als nächster großer Test
+4. **Menschenrechts-Balance:** Afghanistan-Dringlichkeit zeigt, dass das Doppelspurkonzept lebt
+5. **Vorausblick:** Mercosur-Frakturrisiko als nächster großer Test
 6. **Datenvorbehalt:** Herabgestufter Abstimmungsmodus — alle Abstimmungsanalysen sind strukturelle Proxys; DOCEO XML steht aus

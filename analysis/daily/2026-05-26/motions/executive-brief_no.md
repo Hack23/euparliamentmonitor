@@ -66,7 +66,7 @@ Europaparlamentets plenumsmøte 19.–23. mai 2026 avsluttet den mest avgjørend
 
 4. **For geopolitisk analyse:** Usbekistan EPCA representerer EUs mest betydningsfulle strategiske engasjement i Sentral-Asia siden 2019. Menneskerettighetsprotokoll skaper betingelsesmekanisme — vil bli testet av Usbekistans overholdelsesrapportering i 2027.
 
-5. **For parlamentarisk overvåkning:** INTA-komiteens avstemning om Mercosur (forventet juni 2026) er den eneste høyrisikobegivenheten for EP10-koalisjonssstabilitet. S&D's posisjon vil avgjøre om storkoalisjonen sprekker.
+5. **For parlamentarisk overvåkning:** INTA-komiteens avstemning om Mercosur (forventet juni 2026) er den eneste høyrisikobegivenheten for EP10-koalisjonsstabilitet. S&D's posisjon vil avgjøre om storkoalisjonen sprekker.
 
 ---
 

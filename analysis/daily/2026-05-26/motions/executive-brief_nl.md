@@ -37,7 +37,7 @@ De plenaire vergadering van het Europees Parlement van 19 tot 23 mei 2026 sloot 
 
 1. **TA-10-2026-0170** — Beschermingsinstrument tegen staalovercapaciteit → activeert de antisubsidiebeoordeling van de Commissie tegen Chinese/Indiase overcapaciteit die 327.000+ EU-staalwerkers treft
 2. **TA-10-2026-0171** — Verlenging BDI-screening (bindend) → breidt het toepassingsgebied van Verordening 2019/452 uit naar kritieke infrastructuur, geavanceerde technologie, media, voedselvoorzieningsketens; bindende medebeslissing
-3. **TA-10-2026-0183** — AI en handelsstrategie → eerste EU-resolutie die AI als soevereiniteitsgereedschap framt; bepaalt de AI-handelswetgevingsagenda van de Commissie 2026–27
+3. **TA-10-2026-0183** — AI en handelsstrategie → eerste EU-resolutie die AI als soevereiniteitsgereedschap framet; bepaalt de AI-handelswetgevingsagenda van de Commissie 2026–27
 4. **TA-10-2026-0180** — EU-Canada SAFE → bilaterale defensie-industriële cofinanciering, €2 mrd./5 jaar; verdiept het post-CETA transatlantisch partnerschap
 5. **TA-10-2026-0173/0174** — EU-Oezbekistan EPCA → Centraal-Aziatisch partnerschap met bindend mensenrechtenprotocol; tegenstrategie voor Belt-and-Road
 

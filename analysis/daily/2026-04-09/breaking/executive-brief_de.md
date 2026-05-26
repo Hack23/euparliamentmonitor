@@ -1,6 +1,6 @@
 ---
 title: "Exekutivbriefing — EP Breaking, 9. April 2026"
-description: "Gesetzgebungsrückstanrisiko 12/25 HOCH: 30+ angenommene Texte + 13 COD-Verfahren müssen in einem 4-tägigen Ausschussfenster (14.–17. April) bearbeitet werden."
+description: "Gesetzgebungsrückstandsrisiko 12/25 HOCH: 30+ angenommene Texte + 13 COD-Verfahren müssen in einem 4-tägigen Ausschussfenster (14.–17. April) bearbeitet werden."
 date: 2026-04-09
 article_type: breaking
 slug: 2026-04-09-breaking

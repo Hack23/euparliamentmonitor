@@ -13,9 +13,9 @@
 | Kenttä | Arvo |
 |-------|-------|
 | **Tarkoitettu kohderyhmä** | Vanhemmat politiikka-analyytikot, parlamentin henkilökunta, strategiset ammattilaiset |
-| **Päätösrelevanssi** | Kauppapolitiikka, ulkomaisten suorien sijoitusten sääntelyn noudattaminen, tekoälyn hallinta, transatlantttiset suhteet |
+| **Päätösrelevanssi** | Kauppapolitiikka, ulkomaisten suorien sijoitusten sääntelyn noudattaminen, tekoälyn hallinta, transatlanttiset suhteet |
 | **Vaadittu toimenpide** | Tietoisuus ja strateginen asemointi; ei välittömiä operatiivisia päätöksiä |
-| **Aikaherkkkyys** | Tiivistelmä pysyy voimassa 4–6 viikkoa DOCEO-julkaisua ja komission vastausta odottaessa |
+| **Aikaherkkyys** | Tiivistelmä pysyy voimassa 4–6 viikkoa DOCEO-julkaisua ja komission vastausta odottaessa |
 
 ---
 
