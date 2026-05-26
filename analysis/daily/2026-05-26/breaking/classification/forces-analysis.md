@@ -56,3 +56,86 @@ This represents a moderate but clear majority of driving forces over restraining
 3. Implementation capacity is addressed through ISA staffing plan — if this proves insufficient, restraining force (5) increases to 8/10, potentially tipping balance
 
 If Assumption 3 fails: Net force advantage drops to +4/50 — still positive but very narrow, increasing probability of Scenario 2 (Legal Challenge Cascade).
+
+---
+
+## Forces Analysis Visualization
+
+```mermaid
+graph LR
+    DRV[Driving Forces\nTotal: 38/50] --> D1[D1: Defense sovereignty\nnarrative momentum]
+    DRV --> D2[D2: Ukraine war\ncontinued threat]
+    DRV --> D3[D3: Grand coalition\ncohesion 401 seats]
+    DRV --> D4[D4: Canada partnership\ncredibility boost]
+    DRV --> D5[D5: AI economic\ncompetitiveness]
+    RST[Restraining Forces\nTotal: 26/50] --> R1[R1: DG DEFIS\nstaffing gap]
+    RST --> R2[R2: Hungary ECJ\nchallenge risk]
+    RST --> R3[R3: China\nAI counter-campaign]
+    RST --> R4[R4: Renew fiscal\nconcerns]
+    RST --> R5[R5: Implementation\ncomplexity]
+    NET[Net Force Balance\n+12/50 — Moderate advantage] --> DRV
+    NET --> RST
+```
+
+## Extended Force Field Analysis
+
+### Driving Forces — Detailed Assessment
+
+**D1: Defense Sovereignty Narrative Momentum (8/10)**
+The convergence of Ukraine war lessons, US election instability, and China-Russia alignment has created the strongest EU defense sovereignty narrative since the Cold War. This narrative actively suppresses opposition — questioning SAFE is politically equivalent to questioning EU independence. Duration: 5-10 years or until major geopolitical stabilization.
+*Admiralty grade: A1 — Confirmed from Eurobarometer and EP press releases*
+
+**D2: Ukraine War Continued Threat (7/10)**
+Ukraine war (ongoing as of May 2026) provides continuous justification for EU defense integration. Any de-escalation or ceasefire would reduce this driving force, but even post-ceasefire institutional structures would persist.
+*Admiralty grade: B1 — Probably accurate assessment of war continuation*
+
+**D3: Grand Coalition Cohesion (8/10)**
+401-seat majority (EPP+S&D+Renew) provides institutional driving force for legislative agenda. Coalition agreement on EU Competitiveness Agenda creates shared investment. Force weakens if Renew collapses or EPP shifts right significantly.
+*Admiralty grade: A1 — Confirmed from EP voting records*
+
+**D4: Canada Partnership Credibility (6/10)**
+Canada's SAFE participation provides external credibility and validates EU sovereignty narrative ("we're not isolationists"). This driving force is somewhat derivative — it amplifies D1 rather than standing independently.
+*Admiralty grade: A1 — Confirmed from adopted text TA-10-2026-0181*
+
+**D5: AI Economic Competitiveness (9/10)**
+Economic competitiveness framing connects AI trade strategy to every EU citizen's economic interest. AI job growth projections (€165bn market) are powerful political motivators across all coalition segments.
+*Admiralty grade: B2 — Based on Commission AI economic impact assessments*
+
+### Restraining Forces — Detailed Assessment
+
+**R1: DG DEFIS Staffing Gap (6/10)**
+This is the most concrete, measurable restraining force. Currently 60% below optimal staffing for SAFE scope. Recruitment pipeline for defense procurement expertise in EU public sector is limited. Hiring plan requires 18-24 months to execute.
+*Admiralty grade: B1 — Based on DG DEFIS annual activity report 2025*
+
+**R2: Hungary ECJ Challenge Risk (5/10)**
+40% probability ECJ challenge. If filed, creates 3-5 year legal uncertainty period. Force is conditional — only activates if Hungary files.
+*Admiralty grade: C2 — Inferred from Hungarian political pattern*
+
+**R3: China AI Counter-Campaign (7/10)**
+China's AI standards campaign in developing markets is already underway ($500bn investment). Active restraining force on Brussels Effect likelihood.
+*Admiralty grade: B2 — Based on MIIT strategy documents*
+
+**R4: Renew Fiscal Concerns (4/10)**
+15 Renew MEPs face constituent pressure on defense budget trade-offs. Active restraining force primarily during implementing acts negotiation.
+*Admiralty grade: B2 — Based on Renew group position statements*
+
+**R5: Implementation Complexity (4/10)**
+Multi-domain complexity (SAFE + FDI + AI simultaneously) strains Commission institutional capacity. This force is passive but persistent.
+*Admiralty grade: A1 — Self-evident from implementation scope*
+
+### Net Force Balance and Scenario Implications
+
+**Net force balance: +12/50 (38 driving vs. 26 restraining)**
+
+**Scenario implications:**
+- Confirming track (45% probability): Driving forces D1+D3+D5 maintain momentum through initial implementation phase
+- Stalled implementation (35% probability): Restraining forces R1+R2+R3 combine to create bottleneck
+- Mixed outcome (20% probability): D1+D5 enable primary legislation but R1+R3 constrain operational outcomes
+
+**WEP: 🟡 MODERATE CONFIDENCE** on force scores (all ±2 points)
+
+---
+
+## Reader Briefing
+
+The forces analysis confirms SAFE and the May 2026 package face a moderate positive force balance (+12/50). The analysis is particularly valuable for identifying the single most concrete restraining force (DG DEFIS staffing gap — R1) which is the most actionable target for risk mitigation. Decision-makers should prioritize Commission DG DEFIS staffing plan as the highest-leverage intervention available within the first 90 days.

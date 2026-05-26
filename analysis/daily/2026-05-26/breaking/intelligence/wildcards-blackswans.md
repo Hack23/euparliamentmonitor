@@ -117,3 +117,108 @@ Black swans: low-probability, high-impact events that are difficult to predict b
 Using independence assumption: 1 - (0.75 × 0.80 × 0.85 × 0.90 × 0.92) = 1 - 0.474 = **~52%**
 
 This is a high composite probability — suggesting that at least one significant surprise from this legislative package is more likely than not over a 24-month horizon. This reinforces the need for indicator monitoring (see Scenario Forecast) and flexible implementation architecture in Commission implementing acts.
+
+---
+
+## Black Swan Event Catalog
+
+```mermaid
+mindmap
+  root((Wild Cards<br>May 2026))
+    Defense Domain
+      US-EU military crisis
+      SAFE program cancellation
+      NATO collapse signal
+    Technology
+      AI regulatory capture
+      Deepfake EP vote manipulation
+      Quantum-enabled treaty leak
+    Geopolitics
+      Russia-China defense pact
+      Central Asia realignment
+      Afghanistan diplomatic pivot
+    Institutional
+      EP no-confidence motion
+      Commission resignation
+      Treaty revision shock
+```
+
+### Wild Card W-1: US Sanctions on EU Defense Contractors (Probability: 3%, Impact: CRITICAL)
+
+**Trigger:** Trump administration invokes IEEPA (International Emergency Economic Powers Act) to sanction EU defense firms participating in SAFE Instrument, citing "undermining NATO burden-sharing."
+
+**Pathway:** US intelligence assessment that EU autonomous defense capability threatens interoperability; Treasury OFAC designations; EU firms face dollar-clearing restrictions.
+
+**First-order effects:**
+- SAFE Instrument collapses — no EU-Canada agreement possible under US sanctions pressure
+- EU-US trade war escalates from steel/aluminum to defense sectors
+- EPP splits — Atlantic wing (Ireland, Netherlands, Poland) vs. European autonomy wing (France, Germany)
+
+**Counters:** WTO Article XXI national security exception; EU sovereign bond issuance for direct defense financing avoiding US dollar system.
+
+**Admiralty grade:** E3 — Source reliability low, but pathway mechanically plausible. **🔴 LOW CONFIDENCE**
+
+---
+
+### Wild Card W-2: Afghan Women Appeal to ICC (Probability: 8%, Impact: HIGH)
+
+**Trigger:** Afghan women's rights organizations file ICC referral citing Taliban Criminal Procedure Code as crime against humanity under Rome Statute Article 7. ICC Pre-Trial Chamber accepts jurisdiction.
+
+**Pathway:** EP resolution TA-10-2026-0186 provides political legitimacy; ICC Prosecutor Khan (or successor) opens formal investigation; Taliban responds by expelling all European NGO workers from Afghanistan.
+
+**First-order effects:**
+- Humanitarian crisis in Afghanistan — 6.5M people dependent on EU-funded NGO programs face access loss
+- EU emergency humanitarian budget invoked (Article 214 TFEU)
+- Taliban designated as terrorist organization under new EU terrorism framework
+
+**WEP Assessment:** 🟡 MODERATE CONFIDENCE (8% probability but HIGH impact justifies monitoring)
+
+---
+
+### Wild Card W-3: Chinese AI Regulatory Dumping (Probability: 12%, Impact: HIGH)
+
+**Trigger:** China offers free AI services to developing nations conditioned on "AI governance carve-outs" that explicitly exclude EU standards. Creates parallel AI governance architecture globally.
+
+**Pathway:** EP AI trade resolution (TA-10-2026-0183) assumes EU standards become global norm; Chinese counter-strategy creates Global South alternative standards bloc.
+
+**First-order effects:**
+- EU AI governance framework confined to 27 member states + close partners
+- EU tech companies lose developing world markets as Chinese AI dominates
+- Commission's "Brussels Effect" theory of AI governance invalidated
+
+**WEP Assessment:** 🟡 MODERATE CONFIDENCE (12% is non-trivial given Chinese track record on standards competition)
+
+---
+
+### Wild Card W-4: MEP Immunity Cascade (Probability: 6%, Impact: MEDIUM)
+
+**Trigger:** Immunity waivers for Nikos Pappas (Greece, S&D) and Harald Vilimsky (Austria, FPÖ/PfE) are followed by a pattern of coordinated legal proceedings against opposition MEPs in multiple member states.
+
+**Pathway:** Following the EP's willingness to waive immunity on May 19, national prosecutors in Hungary, Poland, Italy file immunity waiver requests for 8+ MEPs simultaneously, creating parliamentary crisis.
+
+**First-order effects:**
+- EP debates rule changes to immunity procedures
+- PfE and NI groups accuse governments of "judicial warfare" against opposition
+- Commission forced to invoke Article 7 proceedings against Hungary over prosecutorial independence
+
+**WEP Assessment:** 🟡 MODERATE CONFIDENCE (6% probability; precedent exists in European parliamentary history)
+
+---
+
+### Composite Wild Card Probability Assessment
+
+```
+P(at least one Wild Card W-1 through W-4 materializes within 24 months) 
+= 1 - P(none materialize)
+= 1 - (0.97 × 0.92 × 0.88 × 0.94)
+= 1 - 0.740
+= ~26%
+```
+
+**Interpretation:** There is approximately a **1-in-4 chance** that at least one of these wild-card scenarios materializes within 24 months. This reinforces the need for contingency planning in all four domains.
+
+---
+
+## Reader Briefing
+
+The wild-card assessment for this week's EP legislative output identifies **Chinese AI standards competition** as the highest probability black-swan (12%), followed by the **MEP immunity cascade** (6%) and **Afghan ICC referral** (8%). The catastrophic US sanctions scenario (3%) is lower probability but warrants contingency planning given current US-EU trade friction. Analysts should note that the composite probability (~26%) of at least one materializing within 24 months is non-trivial and should be reflected in risk appetite assessments for major stakeholders in the defense integration and AI governance spaces.

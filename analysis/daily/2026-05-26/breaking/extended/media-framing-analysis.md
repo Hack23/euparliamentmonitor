@@ -126,3 +126,104 @@ Media framing analysis examines how different media actors are expected to const
 | Chinese State Media | CGTN/Xinhua/GT | HIGH intensity, LOW EU impact | Sustained |
 
 **Assessment:** The "European Sovereignty" frame will dominate initial coverage. The "Trade War Provocation" and "Not Enough, Too Late" frames will become more prominent as implementation delays become apparent (2027-2028). The critical political window for maintaining implementation momentum is approximately 12-18 months — the interval before Chinese response becomes a liability and ISA delays become visible.
+
+---
+
+## Media Framing Analysis Visualization
+
+```mermaid
+graph TD
+    EP[May 2026 Plenary\nAdopted Texts] --> F1[Frame 1:\nEuropean Sovereignty]
+    EP --> F2[Frame 2:\nTrade War Provocation]
+    EP --> F3[Frame 3:\nNot Enough Too Late]
+    EP --> F4[Frame 4:\nEurosceptic Obstructionism]
+    EP --> F5[Frame 5:\nBureaucratic Expansion]
+    F1 --> M1[Mainstream EU media\nFT, Der Spiegel, Le Monde]
+    F2 --> M2[Business/trade media\nFinancial Times trade desk]
+    F3 --> M3[Progressive/NGO media\nHuman rights orgs]
+    F4 --> M4[Far-right media\nRT adjacents, PfE channels]
+    F5 --> M5[Critical analytical\nThe Economist, Politico EU]
+```
+
+## Extended Media Framing Analysis
+
+### Frame 1: European Sovereignty (DOMINANT — 60-70% of initial coverage)
+
+**Key narrative:** "EU takes control of its defense and technology future; no longer dependent on US or China."
+
+**Typical headline pattern:**
+- "EU Parliament approves landmark defense procurement pact"
+- "Europe's SAFE: A turning point in strategic autonomy"
+- "EU-Canada deal marks new era of Western defense cooperation"
+
+**Primary outlets:** FT, Der Spiegel, Le Monde, Politico EU (news coverage), Euronews, European Parliament press releases
+
+**Activation timeline:** Peaks in days 1-14 post-plenary. Fades as implementation delays become visible.
+
+**Political function:** Validates EPP/S&D/Renew grand coalition narrative. Suppresses opposition by framing critics as anti-sovereignty.
+
+**Durability:** 🟡 12-18 months — then "sovereignty frame fatigue" sets in as ISA delays become apparent
+
+---
+
+### Frame 2: Trade War Provocation (EMERGING — 20-30% of coverage)
+
+**Key narrative:** "EU's AI trade resolution risks triggering Chinese retaliation and US friction on defense."
+
+**Typical headline pattern:**
+- "China warns EU over AI technology governance plans"
+- "SAFE challenges NATO procurement norms, US officials say"
+- "EU's AI push: Brussels overreaching into transatlantic tech competition"
+
+**Primary outlets:** FT trade desk, Wall Street Journal Europe, Nikkei Asia (EU coverage), Bloomberg Trade
+
+**Activation timeline:** Emerges within 30-60 days as Chinese and US responses materialize.
+
+**Political function:** Tests Renew group cohesion — fiscal conservative Renew MEPs are most susceptible to "trade war risk" framing.
+
+**Durability:** 🟢 Sustained — becomes dominant frame if China escalates
+
+---
+
+### Frame 3: Not Enough, Too Late (PROGRESSIVE COUNTER-NARRATIVE — 15-20% of coverage)
+
+**Key narrative:** "EP Afghanistan resolution is symbolic; conditionality on Uzbekistan will be waived; defense spending doesn't address root causes of EU security deficit."
+
+**Primary outlets:** Human rights NGO publications, The Guardian EU desk, Medya News (Kurdish media), Euractiv progressive commentary
+
+**Activation timeline:** Simultaneous with Frame 1; peaks in weeks 2-4.
+
+**Political function:** Maintains pressure from progressive flank; prevents S3 voter segment drift toward left-wing parties.
+
+**Key spokespeople:** Afghan women's rights organizations, Amnesty International EU, Human Rights Watch Geneva
+
+---
+
+### Frame 4: Eurosceptic Obstructionism (PfE-ECR COUNTER-NARRATIVE — 15%)
+
+**Key narrative:** "Brussels bureaucrats expand EU power at expense of national sovereignty; SAFE undermines NATO; AI regulation will kill European tech."
+
+**Primary outlets:** PfE-ECR parliamentary communications, Hungarian government media (hirado.hu), Alternative for Germany social media
+
+**Activation timeline:** Immediate and sustained throughout implementation process.
+
+**Political function:** Base mobilization for PfE-ECR. Provides amendment justification in AFET/INTA committee.
+
+---
+
+### Overall Media Trajectory Assessment
+
+**Month 1-3:** European Sovereignty frame dominates. High momentum. ISA launch framing positive.
+
+**Month 4-12:** Frame competition. Chinese response and SAFE implementation timeline begin mattering. Trade War and Not Enough frames gain ground.
+
+**Month 13-24:** Implementation reality sets in. "EU ambition vs. reality" becomes meta-narrative. Chinese AI standards entrenchment creates liability.
+
+**WEP: 🟡 MODERATE CONFIDENCE** on media trajectory — based on GDPR and EDF media coverage patterns
+**Admiralty grade: B2** — Historical media cycle analysis for similar EU legislation
+
+---
+
+## Reader Briefing
+
+The media framing analysis identifies five competing frames. The European Sovereignty frame will dominate for 12-18 months but faces mounting competition from Trade War Provocation (Chinese/US response) and Implementation Reality (ISA delays). Communication strategy should: amplify sovereignty and competitiveness frames in months 1-6, prepare counter-narratives for Trade War frame in months 3-12, and manage expectations on implementation timeline proactively to prevent "broken promise" narrative in months 12-24.

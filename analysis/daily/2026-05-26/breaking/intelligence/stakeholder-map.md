@@ -143,3 +143,116 @@ LOW POWER:
 **US ↔ Canada/EU on SAFE:** Three-way dynamic. Canada as honest broker between US concerns and EU ambitions — Canadian government will facilitate rather than aggravate.
 
 **Steel industry ↔ Commission on CBAM:** Industry wants maximum scope; Commission needs WTO cover. The compromise: CBAM extension to road transport, not steel trading — satisfies political optics without triggering Korean FTA dispute.
+
+---
+
+## Stakeholder Power-Interest Network Map
+
+```mermaid
+graph TD
+    EPP[PPE/EPP<br>185 seats - Dominant] -->|controls| AGENDA[Legislative Agenda]
+    SD[S&D<br>Second largest] -->|coalition partner| AGENDA
+    EPP -->|challenges| PfE[PfE/Patriots<br>Far-right bloc]
+    SD -->|opposes on security| LEFT[The Left<br>Small group]
+    AGENDA -->|shapes| SAFE[SAFE Instrument<br>Defense Procurement]
+    AGENDA -->|shapes| AI_TRADE[AI Trade Strategy<br>Resolution]
+    AGENDA -->|shapes| AFGHAN[Afghanistan<br>Women's Rights]
+    COMMISSION[European Commission] -->|proposes| AGENDA
+    COUNCIL[EU Council] -->|co-decides| AGENDA
+    HUNGARY[Hungary<br>Orbán govt] -.->|ECJ challenge risk| SAFE
+    US[United States<br>Trump admin] -.->|Section 232 leverage| SAFE
+    CANADA[Canada] -->|SAFE partner| SAFE
+    TALIBAN[Taliban regime] -.->|target of| AFGHAN
+```
+
+---
+
+## Extended Stakeholder Profiles
+
+### Tier 1 — Direct Legislative Actors
+
+#### European Parliament Political Groups
+
+**PPE (European People's Party) — 185 seats**
+Interest level: CRITICAL — PPE chairs key committees and controls the legislative calendar
+Power level: DOMINANT — 36% of seats; no majority without PPE
+Position: Broadly supportive of defense integration (SAFE) and economic security measures; divided on AI governance stringency
+Influence vectors: Committee chairs (ECON, AFET, INTA), EP Presidency, rapporteur nominations
+Key personalities: Ursula von der Leyen (Commission President, EPP affiliated); multiple PPE committee chairs
+Strategic calculus: PPE must balance center-right coalition with PfE far-right on defense, while managing S&D demands on social provisions
+
+**S&D (Socialists and Democrats) — ~138 seats**
+Interest level: HIGH — Second largest group; necessary for EPP grand coalition
+Power level: SIGNIFICANT — without S&D, EPP must turn to right-wing partners
+Position: Supportive of workers' rights provisions; skeptical on SAFE scope; demanding stronger human rights conditionality in trade agreements
+Influence vectors: Budget committee, social affairs, civil liberties
+Key concerns: Subcontracting protections for defense supply chain workers; AI governance stringency
+
+**PfE (Patriots for Europe) — ~85 seats**
+Interest level: HIGH — Growing force opposing EU defense integration
+Power level: SIGNIFICANT — largest right-of-EPP bloc; can form blocking minority with others
+Position: Hostile to SAFE (sovereignty concerns); ambiguous on AI trade; critical of Ukraine support
+Risk factor: PfE + ECR coordination can block legislation requiring qualified majority in Council
+
+**Renew Europe — ~45 seats**
+Interest level: MEDIUM — Former kingmaker reduced by electoral losses
+Power level: LIMITED — below 10% threshold
+Position: Strongly pro-SAFE, pro-AI governance, pro-Ukraine; most consistently Europeanist
+Strategic value: Tiebreaker in EPP-S&D coalition for centrist positions
+
+**Greens/EFA — ~53 seats**
+Interest level: MEDIUM — Environmental and rights emphasis
+Power level: MODEST — needed for progressive majorities on specific issues
+Position: Concerned about SAFE's exemptions from environmental standards; supportive on Afghanistan/rights resolutions
+
+### Tier 2 — Institutional Actors
+
+**European Commission (Defense & Trade Directorates)**
+Role: Implementer and rule-setter for SAFE, AI trade strategy, fisheries agreements
+Position: Strongly supportive — both SAFE and AI trade represent Commission's Competitiveness Agenda priorities
+Key officers: Commissioner for Defense Industry (newly established DG DEFIS), EVP for Trade
+Implementation authority: SAFE implementing acts; AI trade monitoring framework; fisheries protocol oversight
+Timeline pressure: Commission must publish SAFE implementing acts within 6 months of entry into force
+
+**EU Council (Defense Ministers / Trade Council)**
+Position: Divided — France/Germany/Poland enthusiastic on SAFE; Hungary skeptical; Baltic states maximalist
+Key dynamic: Qualified majority voting applies to most SAFE provisions — Hungary cannot veto alone
+Upcoming: June 2026 Defense Council expected to discuss SAFE implementation timelines
+
+### Tier 3 — External Stakeholders
+
+**Canada (Global Affairs Canada / Department of National Defence)**
+Role: Primary non-EU SAFE participant under the May 20 agreement
+Stake: Access to EU defense procurement market estimated at €15-20bn/year
+Position: Supportive — Canada sees SAFE as pathway to deeper transatlantic industrial integration
+Risk: US pressure on Canada to limit depth of EU defense cooperation
+
+**Taliban (Islamic Emirate of Afghanistan)**
+Role: Target/subject of TA-10-2026-0186 resolution
+Position: Hostile — Criminal Procedure Code represents escalation of gender apartheid
+Leverage: Controls humanitarian access; can expel NGOs from Afghanistan
+EP response options: Targeted sanctions designation; diplomatic isolation; supporting ICC referral
+
+**IMF / World Bank**
+Economic context: IMF World Economic Outlook (April 2026) projects EU growth at 1.4% in 2026, improving to 1.9% in 2027; defense investment (0.3% GDP via SAFE) adds modest growth impulse
+Fiscal assessment: SAFE borrowing under enhanced cooperation — off-balance-sheet for Stability Pact purposes; IMF neutral on structure
+
+---
+
+## Stakeholder Alignment Matrix
+
+| Issue | PPE | S&D | PfE | Renew | Greens | Commission |
+|-------|-----|-----|-----|-------|--------|------------|
+| SAFE defense procurement | ✅ | ✅⚠️ | ❌ | ✅ | ⚠️ | ✅ |
+| AI trade strategy | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ |
+| Afghanistan women's rights | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ |
+| EU-Uzbekistan partnership | ✅ | ⚠️ | ✅ | ✅ | ❌ | ✅ |
+| MEP immunity waivers | ✅ | ✅ | ⚠️ | ✅ | ✅ | N/A |
+
+**Legend:** ✅ Support | ⚠️ Conditional/divided | ❌ Oppose
+
+---
+
+## Reader Briefing
+
+The stakeholder landscape for this week's EP legislative output is defined by a **functional EPP-S&D centrist coalition** on most issues, with **PfE as the coherent opposition** on defense and sovereignty questions. The SAFE Instrument is the highest-stakes stakeholder battleground: it aligns most groups but faces structured opposition from Hungary at Council level and PfE at EP level. The Afghanistan resolution represents rare near-unanimity — human rights mobilizes cross-group consensus in ways defense never fully achieves. Analysts should monitor PfE's evolving position on AI governance, where their traditional sovereignty concerns (limiting EU Commission authority) conflict with their trade-nationalist preferences (protecting EU industries from AI-enabled Asian competition).

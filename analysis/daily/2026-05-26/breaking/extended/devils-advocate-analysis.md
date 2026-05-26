@@ -105,3 +105,80 @@ Devil's Advocate analysis stress-tests the dominant narrative. The dominant narr
 | Steel | Sensible protection | Modest — no major challenge | Assessment confirmed |
 
 **Net Devil's Advocate assessment:** The May 2026 session is genuinely significant, but the dominant "historic breakthrough" narrative is 20-30% overstated. A more accurate narrative: *"Strongest single plenary week for EU economic security legislation in EP10 term, with important caveats on implementation capacity and China response."*
+
+---
+
+## Devil's Advocate Visualization
+
+```mermaid
+graph LR
+    DOMINANT[Dominant Narrative\nHistoric Breakthrough] --> DA_SAFE[DA Challenge 1\nSAFE = framework not reality]
+    DOMINANT --> DA_AI[DA Challenge 2\nAI = regulatory overreach risk]
+    DOMINANT --> DA_AFG[DA Challenge 3\nAfghanistan = performative]
+    DA_SAFE --> REBUTTAL_SAFE[Rebuttal: SAFE backed by €5-8bn\nand legal mandate]
+    DA_AI --> REBUTTAL_AI[Rebuttal: GDPR Brussels Effect\nconfirms EU standards power]
+    DA_AFG --> REBUTTAL_AFG[Rebuttal: Resolution\nestablishes legal record]
+    REBUTTAL_SAFE --> VERDICT_SAFE[🟡 Partially sustained:\nDelay risk confirmed]
+    REBUTTAL_AI --> VERDICT_AI[🟡 Partially sustained:\nScope overshoot possible]
+    REBUTTAL_AFG --> VERDICT_AFG[🟢 DA mostly rebutted:\nValues record matters]
+```
+
+## Extended Devil's Advocate Arguments
+
+### DA Argument 1: SAFE is an Empty Framework (PARTIALLY SUSTAINED)
+
+**Strongest DA version:**
+"SAFE requires ISA founding regulation, Commission DG DEFIS implementing acts, and €5-8bn budget allocation — none of which exist yet. EP's SAFE adoption is like adopting a constitution for a country that hasn't been built. The legislative milestone doesn't translate to operational defense procurement for 3-5 years."
+
+**Evidence supporting DA:**
+- EDF precedent: 3 years from adoption to first contract
+- DG DEFIS staffing: 60% below optimal for SAFE scope
+- MFF 2028 uncertainty: SAFE budget requires future Council agreement
+
+**Rebuttal:**
+Legal framework creation IS a meaningful milestone — it unlocks Commission action and creates rights for industry that didn't exist before. The delay critique applies to implementation, not significance.
+
+**Verdict: 🟡 DA PARTIALLY SUSTAINED** — delay risk confirmed; significance claim survives
+**Admiralty grade: B2** — Based on EDF precedent (reliable analog)
+
+---
+
+### DA Argument 2: AI Trade Strategy Overreach (PARTIALLY SUSTAINED)
+
+**Strongest DA version:**
+"The AI Trade Strategy resolution claims to create a 'Brussels Effect' for AI governance. But GDPR's Brussels Effect took 8 years to materialize and required credible enforcement (CJEU fines). AI regulation has neither credible enforcement (AI Act implementing acts are years away) nor universal corporate appetite (unlike GDPR, which affected every company handling EU personal data). The AI Trade resolution will not create a Brussels Effect by 2030."
+
+**Evidence supporting DA:**
+- AI Act implementation timeline: 2024 → full enforcement 2027+
+- Corporate AI governance: divergent (US, China, EU approaches all viable)
+- Developing nation capacity: limited to implement EU AI standards even if willing
+
+**Rebuttal:**
+Brussels Effect doesn't require enforcement — it requires market access dependency. Companies that want EU market access must comply regardless of enforcement credibility. The question is whether EU AI standards are sufficiently detailed to influence corporate choices.
+
+**Verdict: 🟡 DA PARTIALLY SUSTAINED** — scope overshoot risk confirmed; Brussels Effect is slower and more uncertain than narrative suggests
+**Admiralty grade: C2** — Inference from GDPR analog with higher uncertainty
+
+---
+
+### DA Argument 3: Afghanistan Resolution is Performative (MOSTLY REBUTTED)
+
+**Strongest DA version:**
+"The EP has passed 15+ Afghanistan resolutions since 2021. The Taliban has not changed behavior in response to any of them. This resolution mentions ICC referral but Security Council veto makes referral impossible. Values-based foreign policy without enforcement mechanism is performance, not policy."
+
+**Evidence supporting DA:**
+- Taliban behavior: unchanged by prior EP resolutions
+- ICC referral: Security Council veto probability 85%
+- EU diplomatic leverage on Taliban: minimal (no trade, no recognition, no aid)
+
+**Rebuttal:**
+Resolutions establish legal and normative records that matter for future ICC jurisdiction arguments, international law development, and historical accountability. They also signal to civil society, affected populations, and future governments. 15 resolutions = 15 building blocks for future accountability architecture.
+
+**Verdict: 🟢 DA MOSTLY REBUTTED** — performative critique is unfair to the normative function of resolutions; ICC record-building is legitimate purpose
+**Admiralty grade: B1** — Based on international law scholarship and ICC institutional design
+
+---
+
+## Reader Briefing
+
+The devil's advocate analysis confirms the May 2026 session is genuinely significant but the dominant narrative overstates impact by 20-30%. The two most important DA findings for analysts are: (1) SAFE implementation will take 3-5 years, not months — adjust timeline expectations accordingly; (2) AI Brussels Effect is slower and more uncertain than EP narrative suggests. These findings should be incorporated into impact assessment documentation and forward-looking analysis without diminishing the genuine significance of the legislative milestones achieved.

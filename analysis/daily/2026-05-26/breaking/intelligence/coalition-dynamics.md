@@ -96,3 +96,83 @@ Watch for:
 The EPP-S&D-Renew governing majority is **structurally stable but tactically fragile**. It commands enough votes to adopt all three major legislative texts, but implementing acts will require repeated coalition management. The critical variable for the next 6 months is whether Commission proposes secondary legislation that honours Parliament's ambitious timelines or quietly dilutes scope.
 
 **WEP Assessment (MODERATE CONFIDENCE, 65%):** The current coalition holds through end of 2026 legislative programme. Primary risk: Commission draft implementing acts that undershoot EP mandate, triggering EP Resolution challenging Commission, fraying majority cohesion on next budget round.
+
+---
+
+## Coalition Dynamics Diagram
+
+```mermaid
+sankey-beta
+    PPE-185, Grand Coalition, 185
+    S&D-138, Grand Coalition, 138
+    Grand Coalition, Legislative Majority, 323
+    Renew-45, Swing Votes, 45
+    Greens-53, Swing Votes, 53
+    Swing Votes, Legislative Majority, 98
+    PfE-85, Opposition Bloc, 85
+    ECR-78, Opposition Bloc, 78
+    Left-35, Soft Opposition, 35
+    NI-30, Soft Opposition, 30
+    Opposition Bloc, Blocking Potential, 163
+```
+
+## Extended Coalition Analysis
+
+### Majority Architecture in EP10 (2024-2029)
+
+**Core Coalition (PPE + S&D):** 323 seats of 720 = 44.9%
+For majority: Need 361 votes (50% + 1). Core coalition must add ~38 seats from:
+- Renew Europe (45): Usually available for centrist measures
+- Greens/EFA (53): Available on environmental, rights measures
+- The Left (35): Available on social measures
+- Non-attached (30): Unpredictable, case-by-case
+
+**Majority Mathematics for May 2026 Package:**
+- SAFE Instrument: PPE + S&D + Renew + parts of Greens = ~420 votes ✅
+- AI Trade Resolution: PPE + S&D + Renew + Greens = ~449 votes ✅
+- Afghanistan Resolution: Near-unanimous = ~600+ votes ✅
+- EU-Uzbekistan: PPE + S&D + Renew (conditional) = ~366+ votes ✅
+
+### Coalition Cohesion Metrics
+
+**PPE Internal Cohesion (estimated 87%):**
+- Drag factors: Hungarian EPP delegation (12 MEPs) on SAFE; Baltic maximalists pushing faster timelines
+- Cohesion anchors: Commission alignment, EPP committee chair appointments
+- WEP: 🟢 CONFIDENT that cohesion remains >80% through 2026
+
+**S&D Internal Cohesion (estimated 83%):**
+- Drag factors: Southern European delegations on fisheries (want stronger provisions); Northern on SAFE (pacifist wings)
+- Cohesion anchors: S&D-led EMPL committee; workers' rights provisions in SAFE
+- WEP: 🟡 MODERATE CONFIDENCE cohesion holds
+
+**Renew Internal Cohesion (estimated 78%):**
+- Drag factors: Reduced to 45 seats — existential pressure to demonstrate relevance
+- Cohesion anchors: Strong pro-EU identity; SAFE and AI trade aligned with Renew priorities
+- WEP: 🟡 MODERATE CONFIDENCE
+
+### PfE-ECR Opposition Architecture
+
+**PfE (~85 seats) + ECR (~78 seats) = 163 seats:**
+This is the largest coherent opposition bloc. Key dynamics:
+- On SAFE: United in opposition (sovereignty concerns)
+- On AI trade: Divided (PfE nationalist vs ECR market liberal)
+- On human rights: Divergent (ECR more hawkish on authoritarian states; PfE more transactional)
+
+**Blocking minority thresholds:**
+- QMV in Council: PfE + ECR cannot block (need 35.5% of EU population; Hungary alone insufficient)
+- EP majority: Can deny absolute majority (361 votes) if they secure other opposition support
+- Constructive obstruction: Amendment flooding remains PfE/ECR's most effective tool
+
+### Admiralty Assessment for Coalition Data
+
+| Source | Reliability | Credibility | Grade |
+|--------|------------|-------------|-------|
+| Early warning system seat counts | Usually reliable | Confirmed | C1 |
+| Group cohesion estimates | Usually reliable | Probably true | C2 |
+| Voting projections | Occasionally reliable | Probably true | D2 |
+
+---
+
+## Reader Briefing
+
+The coalition analysis confirms a **structurally stable EPP-led majority** for the May 2026 legislative package, with each major item achieving comfortable parliamentary margins. The key coalition management challenge is **not this week's votes** (already secured) but **the implementing acts phase**: Commission secondary legislation will require repeated EP consent, giving PfE/ECR multiple new opportunities for procedural delay and amendment pressure. Analysts should monitor INTA and AFET committee dynamics as the primary early warning indicators of coalition cohesion under implementation stress.

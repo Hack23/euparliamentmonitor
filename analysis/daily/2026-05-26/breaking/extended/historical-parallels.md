@@ -111,3 +111,85 @@ Historical parallels provide structured analogies that calibrate expectations, i
 | Uzbekistan (2007-2014) | Very High | Human rights conditionality will erode | HIGH |
 
 **Aggregate historical lesson:** EU is capable of building effective regulatory frameworks but consistently underestimates implementation time (CFIUS parallel), creates enforcement inconsistency across member states (GDPR parallel), and allows strategic interests to erode normative commitments (Uzbekistan parallel). The May 2026 package is genuine progress; historical parallels suggest the gap between legislative ambition and operational reality will be significant.
+
+---
+
+## Historical Parallels Visualization
+
+```mermaid
+timeline
+    title Historical Parallels Timeline
+    section US Analog
+        1988 : Exon-Florio Amendment\nFDI national security review
+        1992 : CFIUS created
+        2018 : FIRRMA expansion\nfull maturation
+    section EU Defense
+        2021 : EDF created
+        2024 : EDF first contracts
+        2026 : SAFE created
+        2029 : SAFE first contracts (projected)
+    section Data Governance
+        2016 : GDPR adopted
+        2018 : GDPR applied
+        2024 : Brussels Effect confirmed
+        2026 : AI Act applying
+    section Values Diplomacy
+        2007 : EU-Uzbekistan partnership
+        2014 : Human rights concerns raised
+        2019 : Partnership renewed despite concerns
+        2026 : New partnership with conditionality
+```
+
+## Extended Historical Parallels Analysis
+
+### Parallel 1: US CFIUS → EU FDI Screening (HIGHLY APPLICABLE)
+
+**Historical baseline:** The US Committee on Foreign Investment in the United States (CFIUS) was created in 1988 via Exon-Florio Amendment, expanded to FIRRMA in 2018. In 30 years, CFIUS evolved from a Cold War national security tool to a comprehensive FDI screening regime.
+
+**EU trajectory:** EU FDI Screening Regulation adopted 2019, now strengthened in 2026. Based on CFIUS analog, EU FDI screening will reach operational maturity by 2030-2035.
+
+**Key lessons from CFIUS:**
+1. Congressional oversight evolved over 30 years — EU Parliamentary oversight will similarly evolve
+2. False positive rate (blocked beneficial investments) was a persistent criticism — EU must establish transparent appeals mechanism
+3. US allies sought CFIUS equivalents (Australia 2021, UK 2021) — EU should coordinate with allies on reciprocal screening frameworks
+
+**Admiralty grade: A1** — CFIUS is well-documented and the parallel is direct
+**WEP: 🟢 HIGH CONFIDENCE** on structural trajectory; MODERATE on timing specifics
+
+---
+
+### Parallel 2: GDPR → AI Act Brussels Effect (MODERATE APPLICABILITY)
+
+**Historical baseline:** GDPR adopted 2016, applied 2018, Brussels Effect confirmed by mid-2021 when major US corporations announced global GDPR-equivalent compliance. Timeline: 5 years from adoption to global standard-setting.
+
+**AI Act trajectory:** Adopted 2024, full enforcement 2027, Brussels Effect plausible by 2029-2031. The AI resolution accelerates political commitment but doesn't change technical enforcement timeline.
+
+**Applicability limitations:**
+- GDPR affected all companies processing EU personal data (near-universal)
+- AI Act affects only AI systems deployed in EU market (more selective)
+- Enforcement credibility gap is larger for AI than GDPR (AI systems harder to audit)
+
+**Admiralty grade: B2** — GDPR analog is partially applicable; structural differences acknowledged
+**WEP: 🟡 MODERATE CONFIDENCE** on Brussels Effect replication (slower and more uncertain)
+
+---
+
+### Parallel 3: EU-Uzbekistan 2007 vs. 2026 (MODERATE APPLICABILITY)
+
+**Historical baseline:** EU-Uzbekistan Enhanced Partnership Agreement 2007 included human rights conditionality. By 2014, conditionality provisions were routinely waived due to strategic interests (energy, Central Asia connectivity). In 2019, partnership renewed without meaningful enforcement of human rights provisions.
+
+**2026 trajectory:** New EU-Uzbekistan CPCA has strengthened conditionality language (TA-10-2026-0170). Historical pattern suggests high probability of erosion within 5-7 years as strategic interests (China-bypass connectivity, rare earth access) outweigh normative commitments.
+
+**Counterarguments to historical erosion:**
+- EP oversight mandate is stronger in EP10 than EP6
+- Afghan context gives renewed legitimacy to Central Asia human rights focus
+- Uzbek political reform since 2016 (Mirziyoyev) is real (if limited)
+
+**Admiralty grade: A1** — Historical record is confirmed; probability of erosion is high
+**WEP: 🟢 HIGH CONFIDENCE** on erosion risk; MODERATE on timeline
+
+---
+
+## Reader Briefing
+
+Three historical parallels illuminate the May 2026 package: CFIUS → EU FDI Screening (30-year maturation trajectory confirms EU is on track), GDPR → AI Trade (Brussels Effect slower than EP narrative), and EU-Uzbekistan 2007 → 2026 (conditionality erosion risk very high). The aggregate historical lesson is sobering but not pessimistic: EU legislative architecture is durable, implementation is slower than planned, and normative commitments erode when strategic interests conflict. Planning for a 5-year implementation horizon for SAFE and a 15-year horizon for FDI full maturity is historically grounded.
