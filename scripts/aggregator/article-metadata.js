@@ -66,7 +66,8 @@ import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 import { classifyScript } from './metadata/seo-budgets.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
 import { buildSeoKeywords, composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, deriveHeadlineFromSummary, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, pickFirstNonEmpty, resolveEditorialContent, sanitizeDescriptionCandidate, } from './metadata/resolve-helpers.js';
-import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './metadata/text-utils.js';
+import { clampForBudget } from './metadata/seo-budgets.js';
+import { ENRICHMENT_TRIGGER_LENGTH, truncateExtendedDescription, truncateTitle, } from './metadata/text-utils.js';
 export { shouldSkipDescriptionLine, stripLeadingProseLabel, stripInlineMarkdown, truncateDescription, truncateExtendedDescription, truncateTitle, extractFirstSentence, } from './metadata/text-utils.js';
 export { isArtifactCategoryHeading, stripArtifactCategoryAffix, isGenericHeading, } from './metadata/heading-rules.js';
 export { humanizeSlug } from './metadata/slug.js';
@@ -150,7 +151,7 @@ function resolveOneLanguage(input) {
     const englishFallbackDescription = perLanguage.source === ENGLISH_BRIEF_SOURCE
         ? manifestOverrideFor(input.manifest.description, 'en')
         : '';
-    const contextualTitle = composeContextualTitle(input.template.title, editorial.headline, input.runId, input.date);
+    const contextualTitle = composeContextualTitle(input.template.title, editorial.headline, input.runId, input.date, input.lang);
     const title = pickFirstNonEmpty([
         manifestTitle,
         englishFallbackTitle,
@@ -206,7 +207,7 @@ function resolveOneLanguage(input) {
     // re-run) would collapse to byte-identical `<title>` strings, and
     // the duplicate-title gate in `scripts/validate-article-seo.js`
     // would (correctly) fail CI.
-    const contextualFallback = composeContextualTitle(input.template.title, '', input.runId, input.date);
+    const contextualFallback = composeContextualTitle(input.template.title, '', input.runId, input.date, input.lang);
     const truncatedTitle = pickFirstNonEmpty([
         explicitTitle,
         resolvedTitleCandidate,
@@ -216,7 +217,17 @@ function resolveOneLanguage(input) {
         truncateTitle(contextualFallback),
         contextualFallback,
     ]);
-    const truncatedDescription = truncateDescription(description);
+    // Per-script SEO title clamp. `truncateTitle` enforces the
+    // 140-char hard cap but is too lax for the optimal SERP range
+    // (25-60 Latin / 12-30 CJK / 25-55 RTL) — the
+    // `executive-brief-seo-extraction` regression suite checks the
+    // grapheme count of every published `<title>` against that band.
+    // `clampForBudget(_, lang, 'title')` reads the per-script
+    // `SEO_BUDGETS.title` table (60/30/55) and breaks at a clause
+    // boundary so we never ship a mid-word ellipsis on a CJK
+    // headline.
+    const seoTitle = clampForBudget(truncatedTitle, input.lang, 'title');
+    const truncatedDescription = clampForBudget(description, input.lang, 'metaDescription');
     const extendedSource = sanitizeDescriptionCandidate(manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription);
     // Two-tier extended-description resolution:
     // 1. Direct truncation — preferred when the editorial source paragraph
@@ -240,10 +251,10 @@ function resolveOneLanguage(input) {
     }
     const source = manifestTitle || manifestDescription ? 'manifest' : perLanguage.source;
     return {
-        title: truncatedTitle,
+        title: seoTitle,
         description: truncatedDescription,
         extendedDescription: truncatedExtendedDescription,
-        keywords: buildSeoKeywords(input.lang, input.articleType, input.date, input.runId, truncatedTitle, truncatedDescription),
+        keywords: buildSeoKeywords(input.lang, input.articleType, input.date, input.runId, seoTitle, truncatedDescription),
         source,
     };
 }

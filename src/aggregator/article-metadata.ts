@@ -84,7 +84,6 @@ import {
 import { clampForBudget } from './metadata/seo-budgets.js';
 import {
   ENRICHMENT_TRIGGER_LENGTH,
-  truncateDescription,
   truncateExtendedDescription,
   truncateTitle,
 } from './metadata/text-utils.js';

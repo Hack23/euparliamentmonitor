@@ -27,7 +27,6 @@ import { EXTENDED_DESCRIPTION_MAX_LENGTH } from './text-utils-constants.js';
 import {
   extractFirstSentence,
   shouldSkipDescriptionLine,
-  truncateDescription,
   truncateExtendedDescription,
   truncateTitle,
 } from './text-utils.js';
@@ -36,7 +35,7 @@ import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
 import { CROSS_SITE_KEYWORDS, isNoiseKeywordToken } from './keyword-filters.js';
 import { findTitleRejectionReason } from './title-rejection.js';
-import { budgetFor, classifyScript, clampForBudget } from './seo-budgets.js';
+import { classifyScript, clampForBudget } from './seo-budgets.js';
 
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
 
