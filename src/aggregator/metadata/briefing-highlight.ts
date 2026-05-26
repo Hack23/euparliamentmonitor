@@ -185,6 +185,31 @@ function appendLine(state: WalkerState, line: string): void {
 }
 
 /**
+ * Strip intelligence tradecraft labels (WEP probability bands, KJ-N
+ * prefixes, Admiralty grades) from a paragraph so they don't pollute
+ * reader-facing headlines. These are analyst-internal markers that
+ * readers find confusing.
+ *
+ * @param text - Raw paragraph text
+ * @returns Text with tradecraft labels removed
+ */
+function stripTradecraftLabels(text: string): string {
+  return text
+    // "KJ-1 [WEP: HIGHLY LIKELY, 90–95%]: " prefix
+    .replace(/^KJ-?\d+\s*\[.*?\]:\s*/iu, '')
+    // "[WEP: LIKELY (60-75%)]" or "(WEP Probable, 60–75% confidence)" inline
+    .replace(/\[WEP:?\s*[^\]]+\]\s*/giu, '')
+    .replace(/\(WEP\s+[^)]+\)\s*/giu, '')
+    // "Admiralty Grade: B2" or similar
+    .replace(/Admiralty\s+(?:Source\s+)?Grade:?\s*[A-Z]\d\s*/giu, '')
+    // Leading numbered list prefix "1. ", "2. " etc.
+    .replace(/^\d+\.\s+/, '')
+    // "(Admiralty B2)" or "*(Admiralty B2)*" trailing references
+    .replace(/\*?\(Admiralty\s+[A-Z]\d\)\*?\s*$/giu, '')
+    .trim();
+}
+
+/**
  * Boilerplate sentence patterns that should never surface as headlines
  * or descriptions. These are self-referential meta-prose that describes
  * the brief itself rather than the substantive intelligence content.
@@ -508,33 +533,62 @@ export function extractStrategicSynthesisHighlight(markdown: string): BriefingHi
 }
 
 /**
- * Strip intelligence tradecraft labels (WEP probability bands, KJ-N
- * prefixes, Admiralty grades) from a paragraph so they don't pollute
- * reader-facing headlines. These are analyst-internal markers that
- * readers find confusing.
- *
- * @param text - Raw paragraph text
- * @returns Text with tradecraft labels removed
+ * Patterns that indicate a "news hook" — the most compelling claim in a
+ * paragraph. Journalist editors call this the "nut graf" or "top line."
+ * We extract the sentence or clause containing these signals.
  */
-function stripTradecraftLabels(text: string): string {
-  return text
-    // "KJ-1 [WEP: HIGHLY LIKELY, 90–95%]: " prefix
-    .replace(/^KJ-?\d+\s*\[.*?\]:\s*/iu, '')
-    // "[WEP: LIKELY (60-75%)]" or "(WEP Probable, 60–75% confidence)" inline
-    .replace(/\[WEP:?\s*[^\]]+\]\s*/giu, '')
-    .replace(/\(WEP\s+[^)]+\)\s*/giu, '')
-    // "Admiralty Grade: B2" or similar
-    .replace(/Admiralty\s+(?:Source\s+)?Grade:?\s*[A-Z]\d\s*/giu, '')
-    // Leading numbered list prefix "1. ", "2. " etc.
-    .replace(/^\d+\.\s+/, '')
-    .trim();
+const NEWS_HOOK_PATTERNS: readonly RegExp[] = [
+  /\blandmark\b/i,
+  /\bmost (?:significant|consequential|ambitious|contentious|comprehensive)\b/i,
+  /\bunprecedented\b/i,
+  /\bhistoric(?:ally)?\b/i,
+  /\bfirst[\s-](?:ever|time)\b/i,
+  /\boverhaul\b/i,
+  /\breshape[sd]?\b/i,
+  /\brecord[\s-]/i,
+  /\bsweeping\b/i,
+  /\bbreakthrough\b/i,
+  /\bparadox\b/i,
+  /\bgame[\s-]chang/i,
+  /\bturning[\s-]point\b/i,
+  /\bcrisis\b/i,
+  /\bshowdown\b/i,
+  /\bfracture[sd]?\b/i,
+];
+
+/**
+ * Extract the most newsworthy sentence from a paragraph. Looks for
+ * sentences containing strong editorial signals (superlatives, novelty
+ * claims, dramatic verbs) rather than always taking the first sentence
+ * which is typically bland context-setting.
+ *
+ * @param paragraph - Cleaned paragraph text
+ * @returns The most compelling sentence, or '' if none found
+ */
+function extractNewsHookSentence(paragraph: string): string {
+  // Split into sentences (handles ". ", "! ", "? " boundaries)
+  const sentences = paragraph
+    .split(/(?<=[.!?])\s+/)
+    .filter((s) => s.length > 20);
+
+  // Find the first sentence with a news hook signal
+  for (const sentence of sentences) {
+    if (NEWS_HOOK_PATTERNS.some((re) => re.test(sentence))) {
+      const result = truncateTitle(sentence);
+      if (result) return result;
+    }
+  }
+  return '';
 }
 
 /**
  * Derive a usable headline from a paragraph when no explicit `### …`
- * sub-heading is available. Tries the first sentence via `truncateTitle`;
- * falls back to extracting the strongest independent clause up to the
- * first comma, semicolon, or dash that exceeds 30 characters.
+ * sub-heading is available. Uses a journalist's editorial hierarchy:
+ *
+ * 1. Find the sentence with the strongest news hook (superlatives, novelty)
+ * 2. Fall back to the first sentence via `truncateTitle`
+ * 3. Extract a clause at a natural boundary (comma, semicolon, dash)
+ * 5. Hard-cut at word boundary as last resort
  *
  * @param paragraph - Source paragraph (already normalized)
  * @returns Headline string, or `''` when no usable clause can be derived
@@ -542,17 +596,23 @@ function stripTradecraftLabels(text: string): string {
 function deriveHeadlineFromParagraph(paragraph: string): string {
   // Strip tradecraft labels before headline derivation.
   const cleaned = stripTradecraftLabels(paragraph);
-  // First attempt: let truncateTitle find a clean clause boundary.
+
+  // Priority 1: Find the most newsworthy sentence (superlatives, drama).
+  const newsHook = extractNewsHookSentence(cleaned);
+  if (newsHook) return newsHook;
+
+  // Priority 3: First sentence via truncateTitle.
   const direct = truncateTitle(cleaned);
   if (direct) return direct;
-  // Second attempt: extract the first sentence and try truncateTitle.
+
+  // Priority 4: Extract the first sentence and try truncateTitle.
   const sentenceMatch = /^(.*?[.!?])(?:\s|$)/.exec(cleaned);
   if (sentenceMatch?.[1]) {
     const sentenceResult = truncateTitle(sentenceMatch[1]);
     if (sentenceResult) return sentenceResult;
   }
-  // Third attempt: take the text up to the first significant comma or
-  // semicolon that is beyond 30 characters — a natural clause break.
+
+  // Priority 5: Take text up to first significant clause separator.
   const CLAUSE_SEPARATORS = [', ', '; ', ' — ', ' – ', ' - '] as const;
   for (const sep of CLAUSE_SEPARATORS) {
     const idx = cleaned.indexOf(sep, 30);
@@ -560,6 +620,7 @@ function deriveHeadlineFromParagraph(paragraph: string): string {
       return cleaned.slice(0, idx).trim();
     }
   }
+
   // Final fallback: hard-cut at 120 chars on a word boundary.
   if (cleaned.length > 120) {
     const slice = cleaned.slice(0, 120);
