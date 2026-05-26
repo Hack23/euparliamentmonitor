@@ -189,8 +189,7 @@ function resolveOneLanguage(input) {
     // English-manifest-description fall-through stays unconditional
     // because {@link composeContextualDescription} wraps it in localized
     // `Date:` / `Context:` / `reader` labels.
-    const fallbackTitleAllowed = perLanguage.source === ENGLISH_BRIEF_SOURCE &&
-        classifyScript(input.lang) === 'latin';
+    const fallbackTitleAllowed = perLanguage.source === ENGLISH_BRIEF_SOURCE && classifyScript(input.lang) === 'latin';
     const englishFallbackTitle = fallbackTitleAllowed
         ? manifestOverrideFor(input.manifest.title, 'en')
         : '';

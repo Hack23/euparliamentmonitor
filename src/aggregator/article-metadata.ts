@@ -301,8 +301,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // because {@link composeContextualDescription} wraps it in localized
   // `Date:` / `Context:` / `reader` labels.
   const fallbackTitleAllowed =
-    perLanguage.source === ENGLISH_BRIEF_SOURCE &&
-    classifyScript(input.lang) === 'latin';
+    perLanguage.source === ENGLISH_BRIEF_SOURCE && classifyScript(input.lang) === 'latin';
   const englishFallbackTitle = fallbackTitleAllowed
     ? manifestOverrideFor(input.manifest.title, 'en' as LanguageCode)
     : '';
@@ -585,8 +584,7 @@ function resolvePerLanguageEditorial(input: PerLanguageInputs): {
   // path, or English-editorial fall-through with no localized
   // sibling).
   if (input.englishEditorial.headline || input.englishEditorial.summary) {
-    const stripEnglishHeadline =
-      input.lang !== 'en' && classifyScript(input.lang) !== 'latin';
+    const stripEnglishHeadline = input.lang !== 'en' && classifyScript(input.lang) !== 'latin';
     return {
       editorial: stripEnglishHeadline
         ? {
