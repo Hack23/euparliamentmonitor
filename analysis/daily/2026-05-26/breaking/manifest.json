@@ -1,0 +1,79 @@
+{
+  "articleType": "breaking",
+  "date": "2026-05-26",
+  "runId": "breaking-run267-1779759215",
+  "dataMode": "degraded-feeds",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 39",
+  "history": [
+    {
+      "runId": "breaking-run267-1779759215",
+      "timestamp": "2026-05-26T00:00:00Z",
+      "artifactCount": 47,
+      "pass2": {
+        "rewriteCount": 47
+      }
+    }
+  ],
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "dataAvailability": "data-availability-assessment.md",
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/significance-scoring.md",
+      "intelligence/political-threat-landscape.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/cross-session-intelligence.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/forward-projection.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "threatAssessment": [
+      "threat-assessment/consequence-trees.md",
+      "threat-assessment/legislative-disruption.md",
+      "threat-assessment/actor-threat-profiles.md"
+    ],
+    "extended": [
+      "extended/executive-brief.md",
+      "extended/devils-advocate-analysis.md",
+      "extended/historical-parallels.md",
+      "extended/forward-indicators.md",
+      "extended/intelligence-assessment.md",
+      "extended/implementation-feasibility.md",
+      "extended/media-framing-analysis.md",
+      "extended/comparative-international.md",
+      "extended/voter-segmentation.md",
+      "extended/cross-reference-map.md",
+      "extended/data-download-manifest.md",
+      "extended/coalition-mathematics.md"
+    ],
+    "documents": [
+      "documents/document-analysis-index.md"
+    ]
+  }
+}
