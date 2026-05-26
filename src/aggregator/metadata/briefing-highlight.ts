@@ -36,6 +36,14 @@
  * from `text-utils`. No I/O, no upward imports.
  */
 
+import type { LanguageCode } from '../../types/languages.js';
+import {
+  resolveBoilerplatePatterns,
+  resolveHeadingNeedles,
+  READER_BRIEFING_HEADINGS_BY_LANG,
+  STRATEGIC_SECTION_HEADINGS_BY_LANG,
+  TOP_FINDINGS_HEADINGS_BY_LANG,
+} from './briefing-highlight-i18n.js';
 import {
   EXTENDED_DESCRIPTION_MAX_LENGTH,
   shouldSkipDescriptionLine,
@@ -146,9 +154,22 @@ function classifyLine(line: string): LineKind {
 function headingMatches(raw: string, needles: readonly string[]): boolean {
   const normalized = stripInlineMarkdown(raw)
     .replace(/[*_`#]+/g, '')
-    .replace(/^[^A-Za-z0-9]+/, '')
+    // Strip leading non-letter / non-digit characters across all
+    // Unicode scripts (emoji, ASCII punctuation, fullwidth punctuation
+    // such as `（`, `：`). Using `\p{L}\p{N}` keeps Arabic, Hebrew,
+    // CJK and other non-Latin headings intact — the previous
+    // `[A-Za-z0-9]` form silently stripped the entire heading text
+    // for those scripts.
+    .replace(/^[^\p{L}\p{N}]+/u, '')
     // Strip leading numeric list prefix (e.g. "1. ", "7. ")
     .replace(/^\d+\.\s+/, '')
+    // Normalise fullwidth ASCII variants commonly used in CJK headings
+    // so a heading written as `主要判断（要約）` matches the lower-cased
+    // ASCII needle `主要判断 (要約)` shape.
+    .replace(/[\uFF08]/g, '(')
+    .replace(/[\uFF09]/g, ')')
+    .replace(/[\uFF1A]/g, ':')
+    .replace(/\u3000/g, ' ')
     .trim()
     .toLowerCase();
   for (const needle of needles) {
@@ -245,10 +266,15 @@ const BOILERPLATE_PATTERNS: readonly RegExp[] = [
   /^subject:/iu,
 ];
 
-function normalizeBriefingLine(line: string, preserveLeadingLabel = false): string {
+function normalizeBriefingLine(
+  line: string,
+  preserveLeadingLabel = false,
+  lang: LanguageCode = 'en'
+): string {
   if (shouldSkipDescriptionLine(line)) return '';
   const withoutMarkdown = stripInlineMarkdown(line);
-  if (BOILERPLATE_PATTERNS.some((re) => re.test(withoutMarkdown.trim()))) return '';
+  const patterns = resolveBoilerplatePatterns(BOILERPLATE_PATTERNS, lang);
+  if (patterns.some((re) => re.test(withoutMarkdown.trim()))) return '';
   // Strip tradecraft labels from the normalized output.
   const stripped = stripTradecraftLabels(withoutMarkdown);
   const normalized = preserveLeadingLabel
@@ -320,7 +346,8 @@ function handleH2ForSubsection(
  */
 function extractFirstSubsectionUnderSection(
   markdown: string,
-  sectionNeedles: readonly string[]
+  sectionNeedles: readonly string[],
+  lang: LanguageCode = 'en'
 ): { readonly subHeading: string; readonly paragraph: string } | null {
   const state = newState();
   for (const raw of markdown.split('\n')) {
@@ -336,7 +363,7 @@ function extractFirstSubsectionUnderSection(
       continue;
     }
     if (!state.inSection) continue;
-    if (collectSubsectionLine(state, line, kind)) break;
+    if (collectSubsectionLine(state, line, kind, lang)) break;
   }
   if (!state.subHeading || state.lines.length === 0) return null;
   return {
@@ -355,7 +382,12 @@ function extractFirstSubsectionUnderSection(
  * @param kind - Pre-classified line kind from {@link classifyLine}
  * @returns `true` to stop walking
  */
-function collectSubsectionLine(state: WalkerState, line: string, kind: LineKind): boolean {
+function collectSubsectionLine(
+  state: WalkerState,
+  line: string,
+  kind: LineKind,
+  lang: LanguageCode = 'en'
+): boolean {
   if (kind === 'h3') {
     if (state.subHeading && state.lines.length > 0) return true;
     state.subHeading = stripInlineMarkdown(line.replace(/^###\s+/, ''));
@@ -367,7 +399,7 @@ function collectSubsectionLine(state: WalkerState, line: string, kind: LineKind)
   if (kind === 'blank' || kind === 'structural') {
     return state.lines.length > 0;
   }
-  const clean = normalizeBriefingLine(line);
+  const clean = normalizeBriefingLine(line, false, lang);
   if (!clean) return state.lines.length > 0;
   appendLine(state, clean);
   return state.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH;
@@ -385,7 +417,8 @@ function collectSubsectionLine(state: WalkerState, line: string, kind: LineKind)
  */
 function extractFirstParagraphUnderSection(
   markdown: string,
-  sectionNeedles: readonly string[]
+  sectionNeedles: readonly string[],
+  lang: LanguageCode = 'en'
 ): string {
   const state = newState();
   for (const raw of markdown.split('\n')) {
@@ -401,7 +434,7 @@ function extractFirstParagraphUnderSection(
       continue;
     }
     if (!state.inSection || kind === 'h3') continue;
-    if (collectParagraphLine(state, line, kind)) break;
+    if (collectParagraphLine(state, line, kind, lang)) break;
   }
   return state.lines.length === 0 ? '' : state.lines.join(' ').trim();
 }
@@ -437,11 +470,16 @@ function handleH2ForParagraph(
  * @param kind - Pre-classified line kind from {@link classifyLine}
  * @returns `true` to stop walking
  */
-function collectParagraphLine(state: WalkerState, line: string, kind: LineKind): boolean {
+function collectParagraphLine(
+  state: WalkerState,
+  line: string,
+  kind: LineKind,
+  lang: LanguageCode = 'en'
+): boolean {
   if (kind === 'blank' || kind === 'structural') {
     return state.lines.length > 0;
   }
-  const clean = normalizeBriefingLine(line);
+  const clean = normalizeBriefingLine(line, false, lang);
   if (!clean) return state.lines.length > 0;
   appendLine(state, clean);
   return state.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH;
@@ -467,7 +505,8 @@ interface NumberedItemState {
  */
 function extractFirstNumberedItemUnderSection(
   markdown: string,
-  sectionNeedles: readonly string[]
+  sectionNeedles: readonly string[],
+  lang: LanguageCode = 'en'
 ): string {
   const state: NumberedItemState = { inFence: false, inSection: false, item: [] };
   for (const raw of markdown.split('\n')) {
@@ -485,7 +524,7 @@ function extractFirstNumberedItemUnderSection(
       continue;
     }
     if (!state.inSection) continue;
-    if (handleNumberedLine(state, line, kind)) break;
+    if (handleNumberedLine(state, line, kind, lang)) break;
   }
   return state.item.join(' ').trim();
 }
@@ -499,17 +538,22 @@ function extractFirstNumberedItemUnderSection(
  * @param kind - Pre-classified line kind from {@link classifyLine}
  * @returns `true` to stop walking
  */
-function handleNumberedLine(state: NumberedItemState, line: string, kind: LineKind): boolean {
+function handleNumberedLine(
+  state: NumberedItemState,
+  line: string,
+  kind: LineKind,
+  lang: LanguageCode = 'en'
+): boolean {
   if (state.item.length === 0) {
     if (kind !== 'numbered') return false;
     const m = /^1\.\s+(.*)$/u.exec(line);
-    const clean = m?.[1] ? normalizeBriefingLine(m[1], true) : '';
+    const clean = m?.[1] ? normalizeBriefingLine(m[1], true, lang) : '';
     if (clean) state.item.push(clean);
     return false;
   }
   if (kind === 'blank' || kind === 'numbered' || kind === 'bullet') return true;
   if (kind === 'h2' || kind === 'h3') return true;
-  const clean = normalizeBriefingLine(line);
+  const clean = normalizeBriefingLine(line, false, lang);
   if (!clean) return state.item.length > 0;
   state.item.push(clean);
   return false;
@@ -524,8 +568,16 @@ function handleNumberedLine(state: NumberedItemState, line: string, kind: LineKi
  * @param markdown - Brief body
  * @returns Resolved highlight, or `null` when the section is absent
  */
-export function extractStrategicSynthesisHighlight(markdown: string): BriefingHighlight | null {
-  const sub = extractFirstSubsectionUnderSection(markdown, STRATEGIC_SECTION_HEADINGS);
+export function extractStrategicSynthesisHighlight(
+  markdown: string,
+  lang: LanguageCode = 'en'
+): BriefingHighlight | null {
+  const strategicNeedles = resolveHeadingNeedles(
+    STRATEGIC_SECTION_HEADINGS_BY_LANG,
+    STRATEGIC_SECTION_HEADINGS,
+    lang
+  );
+  const sub = extractFirstSubsectionUnderSection(markdown, strategicNeedles, lang);
   if (sub) {
     return {
       headline: truncateTitle(stripTradecraftLabels(sub.subHeading)),
@@ -533,7 +585,7 @@ export function extractStrategicSynthesisHighlight(markdown: string): BriefingHi
       extendedSummary: truncateExtendedDescription(sub.paragraph),
     };
   }
-  const paragraph = extractFirstParagraphUnderSection(markdown, STRATEGIC_SECTION_HEADINGS);
+  const paragraph = extractFirstParagraphUnderSection(markdown, strategicNeedles, lang);
   if (!paragraph) return null;
   // Derive a headline from the paragraph. Try the first sentence first;
   // if truncateTitle returns '' (sentence too long with no clean clause
@@ -658,8 +710,15 @@ function deriveHeadlineFromParagraph(paragraph: string): string {
  * @param markdown - Brief body
  * @returns Resolved highlight, or `null` when the section is absent
  */
-export function extractTopFindingsHighlight(markdown: string): BriefingHighlight | null {
-  const sub = extractFirstSubsectionUnderSection(markdown, TOP_FINDINGS_HEADINGS);
+export function extractTopFindingsHighlight(
+  markdown: string,
+  lang: LanguageCode = 'en'
+): BriefingHighlight | null {
+  const sub = extractFirstSubsectionUnderSection(
+    markdown,
+    resolveHeadingNeedles(TOP_FINDINGS_HEADINGS_BY_LANG, TOP_FINDINGS_HEADINGS, lang),
+    lang
+  );
   if (!sub) return null;
   // Strip numbered/finding prefixes: "Finding 1 — X", "1. X — Y"
   const raw = stripTradecraftLabels(sub.subHeading);
@@ -692,14 +751,22 @@ export function extractTopFindingsHighlight(markdown: string): BriefingHighlight
  * @param markdown - Brief body
  * @returns Resolved highlight, or `null` when the section is absent
  */
-export function extractReaderBriefingHighlight(markdown: string): BriefingHighlight | null {
-  const firstItem = extractFirstNumberedItemUnderSection(markdown, READER_BRIEFING_HEADINGS);
-  const paragraph = extractFirstParagraphUnderSection(markdown, READER_BRIEFING_HEADINGS);
+export function extractReaderBriefingHighlight(
+  markdown: string,
+  lang: LanguageCode = 'en'
+): BriefingHighlight | null {
+  const readerNeedles = resolveHeadingNeedles(
+    READER_BRIEFING_HEADINGS_BY_LANG,
+    READER_BRIEFING_HEADINGS,
+    lang
+  );
+  const firstItem = extractFirstNumberedItemUnderSection(markdown, readerNeedles, lang);
+  const paragraph = extractFirstParagraphUnderSection(markdown, readerNeedles, lang);
   if (!firstItem && !paragraph) return null;
   // Filter out self-referential boilerplate — "This executive brief
   // synthesizes…" is never a usable headline or summary.
-  const usableItem = firstItem && !looksLikeBoilerplate(firstItem) ? firstItem : '';
-  const usableParagraph = paragraph && !looksLikeBoilerplate(paragraph) ? paragraph : '';
+  const usableItem = firstItem && !looksLikeBoilerplate(firstItem, lang) ? firstItem : '';
+  const usableParagraph = paragraph && !looksLikeBoilerplate(paragraph, lang) ? paragraph : '';
   const headlineSource = usableItem || usableParagraph;
   const headline = headlineSource ? truncateTitle(headlineSource) : '';
   const summary = usableParagraph
@@ -739,22 +806,30 @@ export function extractReaderBriefingHighlight(markdown: string): BriefingHighli
  * @returns Best `{headline, summary, extendedSummary}`, or `null`
  *          when no usable section exists
  */
-export function extractBriefingHighlight(markdown: string): BriefingHighlight | null {
+export function extractBriefingHighlight(
+  markdown: string,
+  lang: LanguageCode = 'en'
+): BriefingHighlight | null {
+  const strategicNeedles = resolveHeadingNeedles(
+    STRATEGIC_SECTION_HEADINGS_BY_LANG,
+    STRATEGIC_SECTION_HEADINGS,
+    lang
+  );
   // --- Phase 1: Sub-heading-derived titles (crafted headlines) ---
   // These are the best source because an intelligence analyst wrote them
   // as compact, journalistic headlines.
 
   // Fallback 1: Strategic section ### sub-heading
-  const strategicSub = extractFirstSubsectionUnderSection(markdown, STRATEGIC_SECTION_HEADINGS);
+  const strategicSub = extractFirstSubsectionUnderSection(markdown, strategicNeedles, lang);
   const strategicSubHeadline = strategicSub
     ? truncateTitle(stripTradecraftLabels(strategicSub.subHeading))
     : '';
 
   // Fallback 2: Top Findings / Key Events ### sub-heading
-  const findings = extractTopFindingsHighlight(markdown);
+  const findings = extractTopFindingsHighlight(markdown, lang);
 
   // Fallback 3: Reader Briefing numbered item
-  const reader = extractReaderBriefingHighlight(markdown);
+  const reader = extractReaderBriefingHighlight(markdown, lang);
 
   // --- Phase 2: Paragraph-derived titles (heuristic extraction) ---
   // These are lower quality — only used when no crafted headline exists.
@@ -763,8 +838,8 @@ export function extractBriefingHighlight(markdown: string): BriefingHighlight | 
   const strategicParagraph = strategicSub
     ? null
     : (() => {
-        const paragraph = extractFirstParagraphUnderSection(markdown, STRATEGIC_SECTION_HEADINGS);
-        if (!paragraph || looksLikeBoilerplate(paragraph)) return null;
+        const paragraph = extractFirstParagraphUnderSection(markdown, strategicNeedles, lang);
+        if (!paragraph || looksLikeBoilerplate(paragraph, lang)) return null;
         const headline = deriveHeadlineFromParagraph(paragraph);
         if (!headline) return null;
         return {

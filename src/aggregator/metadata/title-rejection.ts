@@ -20,6 +20,9 @@
  * shipped in the first place.
  */
 
+import type { LanguageCode } from '../../types/languages.js';
+import { BOILERPLATE_STEM_PATTERNS_BY_LANG } from './briefing-highlight-i18n.js';
+
 /**
  * Bold-prose labels that appear inside `executive-brief.md` as
  * `**Label:** …` lines. The priority-finding extractor was treating
@@ -201,10 +204,14 @@ const BOILERPLATE_TITLE_PATTERNS: readonly RegExp[] = Object.freeze([
  * @param value - Title candidate
  * @returns `true` when the candidate matches a boilerplate pattern
  */
-export function looksLikeBoilerplate(value: string): boolean {
+export function looksLikeBoilerplate(value: string, lang: LanguageCode = 'en'): boolean {
   if (!value) return false;
   const trimmed = value.trim();
-  return BOILERPLATE_TITLE_PATTERNS.some((re) => re.test(trimmed));
+  if (BOILERPLATE_TITLE_PATTERNS.some((re) => re.test(trimmed))) return true;
+  if (lang === 'en') return false;
+  const localised = BOILERPLATE_STEM_PATTERNS_BY_LANG[lang];
+  if (!localised || localised.length === 0) return false;
+  return localised.some((re) => re.test(trimmed));
 }
 
 /**

@@ -1,23 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-/**
- * Title-rejection predicates shared by the metadata resolver and the
- * SEO validation gate.
- *
- * Every English `<title>` and `<meta description>` on the site is
- * resolved from the run's `executive-brief.md` via
- * {@link ./resolve-helpers.ts}. Bold-prose labels inside the brief
- * (`**Strategic significance:** …`, `**Threat Level:** …`,
- * `**Key Assumptions Check:** …`) and trailing ellipsis fragments
- * from over-budget strong-prose paragraphs have leaked into the
- * `<title>` surface (216-article audit, 2026-05-24). This module
- * provides the canonical denylist + structural rejection rules so
- * resolver and validator stay in lock-step.
- *
- * NEVER inline these predicates — duplicating the denylist makes the
- * validator and resolver drift, which is exactly how the bad titles
- * shipped in the first place.
- */
+import { BOILERPLATE_STEM_PATTERNS_BY_LANG } from './briefing-highlight-i18n.js';
 /**
  * Bold-prose labels that appear inside `executive-brief.md` as
  * `**Label:** …` lines. The priority-finding extractor was treating
@@ -194,11 +177,18 @@ const BOILERPLATE_TITLE_PATTERNS = Object.freeze([
  * @param value - Title candidate
  * @returns `true` when the candidate matches a boilerplate pattern
  */
-export function looksLikeBoilerplate(value) {
+export function looksLikeBoilerplate(value, lang = 'en') {
     if (!value)
         return false;
     const trimmed = value.trim();
-    return BOILERPLATE_TITLE_PATTERNS.some((re) => re.test(trimmed));
+    if (BOILERPLATE_TITLE_PATTERNS.some((re) => re.test(trimmed)))
+        return true;
+    if (lang === 'en')
+        return false;
+    const localised = BOILERPLATE_STEM_PATTERNS_BY_LANG[lang];
+    if (!localised || localised.length === 0)
+        return false;
+    return localised.some((re) => re.test(trimmed));
 }
 /**
  * Master rejection predicate. Returns the reason code (one of

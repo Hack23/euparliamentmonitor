@@ -235,7 +235,7 @@ export function resolveLocalizedBriefHighlight(
     // additionally localized the section heading the matcher falls
     // back to the legacy lede/H1 path below, producing the
     // localized H1 as headline.
-    const briefing = extractBriefingHighlight(body);
+    const briefing = extractBriefingHighlight(body, lang);
     if (briefing && (briefing.headline || briefing.summary)) {
       const fallbackHeadline = deriveHeadline(body, articleType, date);
       return {
