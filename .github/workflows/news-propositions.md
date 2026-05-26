@@ -110,7 +110,7 @@ steps:
       npm run copy-vendor
 
   - name: Pre-fetch EP feeds (deterministic Stage A)
-    run: bash scripts/prefetch-ep-feeds.sh propositions procedures external-documents committee-documents
+    run: bash scripts/prefetch-ep-feeds.sh propositions procedures external-documents committee-documents adopted-texts
 
 # post-steps + jobs.pat-pr-fallback inherited from shared/config/news-pat-pr-fallback.md.
 
