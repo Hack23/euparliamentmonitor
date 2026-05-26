@@ -182,3 +182,39 @@ For EU parliamentary analysis, "voter segmentation" maps to public opinion and c
 **Content calibration**: The article should include at least one specific IMF figure per legislative item to meet the economic context requirement and improve credibility with policy-professional audiences.
 
 *[EXTEND-FROM-PRIOR: extended/voter-segmentation.md prior=162L → new=200L+ (+38)]*
+
+---
+
+## Pass 2 Extension: Audience Segmentation for New Run 2 Items
+
+### Segment Analysis: FDI Screening — High Policy-Specialist Interest
+
+**Primary audience**: Corporate lawyers, investment bankers, M&A advisors, national investment promotion agencies
+**Secondary audience**: Academic IR scholars, competition policy experts, trade law specialists
+**General public interest**: LOW (abstract legal framework)
+
+**Content recommendation**: The article should include a concrete example of an investment that would be screened under the new rules (e.g., a hypothetical Chinese AI startup acquisition of an EU cybersecurity company) to make the abstract legal framework tangible for non-specialist readers.
+
+### Segment Analysis: Steel Overcapacity — Trade Union and Industrial Constituency
+
+**Primary audience**: Steel workers and trade union representatives; industrial policy specialists; MEPs from steel-producing regions (Wallonia, Saarland, Silesia, Walloon/Liège corridor)
+**Secondary audience**: Environmental advocates (CBAM integration); WTO trade law specialists
+
+**Regional engagement pattern**: Steel-producing constituencies in Germany, Belgium, France, Poland, and Czech Republic have high reader engagement with steel trade policy. Articles in German (DE), French (FR), and Polish (PL equivalent) should lead with the workers' rights dimension.
+
+### Segment Analysis: Women in Afghanistan — Broad Audience but Strong Women's Rights Community
+
+**Primary audience**: Women's rights organisations, human rights NGOs, feminist political networks, Afghan diaspora community
+**Secondary audience**: Development policy specialists, humanitarian aid professionals, AFET committee stakeholders
+
+**Emotional engagement potential**: HIGH. The Taliban Criminal Procedure Code is a concrete, tangible harm that resonates beyond policy specialist audiences. Framing the EU resolution as a direct institutional response to a specific Taliban act creates a clear narrative arc.
+
+### Updated Audience Priority Ranking (incorporating Run 2 items)
+
+1. **Policy specialists / Brussels insiders** (AI-trade, FDI screening) — highest analysis depth required
+2. **Trade union / industrial workers** (steel overcapacity) — emotional engagement hook
+3. **Women's rights community** (Afghanistan resolution) — strongest normative engagement
+4. **Central Asia specialists** (Uzbekistan EPCA) — niche but high-engagement
+5. **Defence/security analysts** (SAFE-Canada) — growing audience in 2026 geopolitical context
+
+*Voter Segmentation v3.0 — FDI, steel, Afghanistan, SAFE audience segments added | 2026-05-25*

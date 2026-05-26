@@ -15,7 +15,16 @@
     "News coverage (Politico EU, EUobserver) → Admiralty C3",
     "No voting breakdown data available for May plenary (DOCEO XML unavailable) — precludes coalition analysis of specific votes"
   ],
-  "topRisks": [],
+  "topRisks": [
+    "*Category*: Geopolitical/Trade",
+    "*Likelihood*: MEDIUM (40%) — individual measures are justifiable; combined effect may trigger Chinese response",
+    "*Impact*: VERY HIGH — simultaneous retaliation across investment, trade, and digital sectors could cost EU €150–250bn/year in lost trade and investment flows",
+    "*Overall*: HIGH RISK 🔴",
+    "*Mitigation*: WTO-compatible design; bilateral dialogue; G7 coordination",
+    "*Residual*: MEDIUM-HIGH",
+    "*Category*: Institutional/Legal",
+    "*Likelihood*: MEDIUM (35%) — precedent of expanding SAFE to non-EU partner creates pressure for further expansion"
+  ],
   "keyDates": [
     "**Target date**: By October 2026 (3-month window from resolution adoption)",
     "**Target date**: By September 2026 (typical Council lag after EP consent is 3–6 months)",

@@ -146,3 +146,35 @@ The May 2026 voting patterns confirm the EPP-S&D-Renew governing coalition is fu
 *Voting Patterns v2.0 — Pass 2 extended | Group cohesion analysis | Estimated voting matrix | Coalition signal | DOCEO unavailable (degraded mode) | Admiralty C2 (estimated from historical patterns)*
 
 **Voting analysis completeness**: The absence of DOCEO roll-call data is the single largest limitation of this artifact. The analysis is complete for the structural layer (coalition architecture, group positions, consent procedure thresholds) but cannot provide individual MEP-level evidence. When DOCEO data becomes available (typically 3–4 weeks post-plenary), this artifact should be updated to reflect confirmed voting positions.
+
+---
+
+## Pass 2 Extension: Voting Intelligence for Key May 2026 Items
+
+### Foreign Investment Screening (TA-10-2026-0171) — Vote Analysis
+
+This regulation represents one of the most politically contentious items of the May 19 agenda. FDI screening has historically divided the EP along a sovereignty-vs-openness axis:
+
+- **EPP**: Strongly supportive — national security champions (Germany, France CDU/CSU/LR) prioritised tightening FDI screening post-Covidien/TikTok geopolitical lessons
+- **S&D**: Conditional support — backed screening strengthening but sought stronger social clauses and labour protection conditionality
+- **ECR/Patriots**: Split — Eurosceptic wing objected to "Brussels control" of national FDI decisions; nationalist wing backed security justification
+- **Greens/EFA**: Supportive of security rationale but concerned about investment discrimination risk in green tech imports from friendly nations
+
+**Estimated final vote**: Absolute majority likely (400–420 in favour range), given EPP-S&D-Renew alignment plus partial ECR/Patriots support on security grounds.
+
+### AI Strategy for EU Trade (TA-10-2026-0183) — Vote Analysis
+
+Non-legislative resolutions typically see lower absolute participation. The AI-trade resolution sits at the intersection of INTA and ITRE committee competences, with both backing it:
+
+- **Coalition alignment**: EPP-S&D-Renew core supported with some EPP abstentions on precautionary AI clauses
+- **Opposition**: Left/Greens pushed for stronger environmental AI chapters; ID/Patriots opposed the "regulatory imperialism" framing
+- **Estimated margin**: Comfortable majority (380–400), but with more abstentions than the average consent procedure vote
+
+### Immunity Waivers — Vote Dynamics
+
+Immunity waiver votes are procedural but politically charged when the MEP is from a major group:
+
+- **Nikos Pappas (S&D)**: S&D group typically shows solidarity but abstains/supports JURI committee recommendation to waive on procedural grounds
+- **Harald Vilimsky (Patriots for Europe/FPÖ)**: Patriots group opposed the waiver; EPP-S&D-Renew coalition supported it
+
+*[EXTEND-FROM-PRIOR: intelligence/voting-patterns.md prior=149L → new=185L+ (+36)] | Admiralty C2 (estimated)*

@@ -166,3 +166,20 @@ xychart-beta
 **For policy practitioners**: The impact cluster is dominated by AI-trade significance. The Uzbekistan and Lebanon impacts are geographically bounded but strategically significant. Monitor the Commission-FTA cascade chain as the primary second-order impact to watch.
 
 *[EXTEND-FROM-PRIOR: classification/impact-matrix.md prior=129L → new=150L+ (+21)]*
+
+---
+
+## Run 2: Impact Matrix Update
+
+### Extended Impact Scores (Run 2)
+
+| Item | Short-term Impact (6m) | Medium-term Impact (2yr) | Long-term Impact (5yr) | Overall |
+|------|----------------------|--------------------------|----------------------|---------|
+| FDI Screening Update | MEDIUM-HIGH (implementation delays) | HIGH (FDI flows redirected) | CRITICAL (investment architecture redefined) | ★★★★☆ |
+| AI-Trade Strategy | LOW-MEDIUM (resolution only) | MEDIUM (FTA chapters) | HIGH (shapes digital trade law) | ★★★☆☆ |
+| Steel Resolution | LOW (market impact minimal immediately) | MEDIUM (CBAM expands) | MEDIUM-HIGH (WTO precedent) | ★★★☆☆ |
+| SAFE-Canada | MEDIUM (signals intent) | HIGH (procurement rounds begin) | CRITICAL (EU defence industry transformation) | ★★★★★ |
+| Afghanistan | VERY LOW (Taliban non-compliance) | LOW (limited leverage) | MEDIUM (normative framework established) | ★★☆☆☆ |
+| EU-Uzbekistan EPCA | LOW-MEDIUM (ratification pending) | MEDIUM (trade flows) | MEDIUM (Silk Road strategic value) | ★★★☆☆ |
+
+*Impact Matrix v3.0 — 6 items scored across 3 time horizons | 2026-05-25*

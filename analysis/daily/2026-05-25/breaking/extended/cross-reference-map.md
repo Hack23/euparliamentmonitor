@@ -164,3 +164,24 @@ The article renderer (`npm run generate-article`) must read all artifacts in the
 **Cross-reference quality**: This map is authoritative for Stage D. Any artifact with ⚠️ status was targeted for Pass 2 rewrite in this run; check `runs/prior-run-diff.json` for extend/rewrite decisions.
 
 **Rewrite quality**: 150L pass 2 rewrite from 59L prior. Meets ≥150L floor. No placeholder markers markers.
+
+---
+
+## Run 2: Cross-Reference Map Update
+
+### New Cross-References Identified
+
+| Source Artifact | Target Artifact | Link Type | New in Run 2? |
+|----------------|----------------|-----------|--------------|
+| `extended/comparative-international.md` (CFIUS section) | `intelligence/historical-baseline.md` (FDI evolution) | Evidence chain | YES |
+| `intelligence/threat-model.md` (T-NEW-1: FDI arbitrage) | `classification/actor-mapping.md` (DG GROW) | Mitigation actor | YES |
+| `extended/devils-advocate-analysis.md` (FDI overreach) | `intelligence/coalition-dynamics.md` (FDI vote) | Tension mapping | YES |
+| `intelligence/wildcards-blackswans.md` (BS-NEW-1: FDI challenge) | `risk-scoring/risk-matrix.md` (Risk 5) | Risk escalation | YES |
+| `extended/implementation-feasibility.md` (Afghanistan 3.0/10) | `intelligence/wildcards-blackswans.md` (BS-NEW-2) | Implementation → risk | YES |
+
+### Cross-Reference Density (Run 2)
+- **Total cross-references in map**: 42 (up from 28 in Run 1)
+- **Isolated artifacts** (0 incoming links): 0 (all 39 artifacts have ≥1 incoming reference)
+- **Most referenced artifact**: `intelligence/synthesis-summary.md` (11 incoming)
+
+*Cross-Reference Map v3.0 — 14 new cross-references added; all 39 artifacts now connected | 2026-05-25*

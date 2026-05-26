@@ -166,3 +166,20 @@ Scores derived from impact-matrix.md (classification/) using composite weighting
 **Score stability assessment**: ±0.3 variation across 3 runs for all items — this is within normal analytical variance for WSI scoring without DOCEO confirmation. The stability confirms the scoring methodology is robust to re-analysis.
 
 *[EXTEND-FROM-PRIOR: intelligence/significance-scoring.md prior=153L → new=173L+ (+20)]*
+
+---
+
+## Run 2: Significance Scoring Update
+
+| Item | Run 1 Score | Run 2 Score | Delta | Reason |
+|------|------------|------------|-------|--------|
+| FDI Screening | 9.2/10 | 9.2/10 | 0 | Confirmed |
+| AI-Trade Strategy | 8.8/10 | 8.8/10 | 0 | Confirmed |
+| SAFE-Canada | 8.1/10 | 8.7/10 | +0.6 | EU-non-EU precedent elevates |
+| Women in Afghanistan | 8.4/10 | 8.4/10 | 0 | Confirmed |
+| Steel Resolution | 7.2/10 | 7.8/10 | +0.6 | CBAM integration elevates |
+| EU-Uzbekistan EPCA | 7.8/10 | 7.8/10 | 0 | Confirmed |
+| EU-Lebanon Eurojust | 6.3/10 | 6.3/10 | 0 | Confirmed |
+| Immunity Waivers | 6.1/10 | 6.1/10 | 0 | Confirmed |
+
+*Significance Scoring v3.0 — SAFE-Canada and Steel re-scored upward | 2026-05-25*

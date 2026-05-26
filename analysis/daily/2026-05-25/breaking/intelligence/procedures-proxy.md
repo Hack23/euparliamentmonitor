@@ -75,3 +75,22 @@ graph LR
     COUNCIL --> PROV[Provisional Application 2026]
     PROV --> FULL[Full Entry-into-Force 2028]
 ```
+
+---
+
+## Run 2: Procedures Proxy Update
+
+### Extended Procedure Tracking (Run 2)
+
+The EP's procedures API returned no data for May 2026 (API delay confirmed). The following procedure tracking is based on adopted text metadata:
+
+| Procedure | Type | Expected Next Step | Timeline |
+|-----------|------|-------------------|----------|
+| FDI Screening (TA-0171) | 2023/0123(COD) | Council formal adoption | Q3 2026 |
+| AI-Trade (TA-0183) | 2026/2015(INI) | Commission response | Q4 2026 |
+| SAFE-Canada (TA-0180) | 2025/0089(NLE) | Council decision + signature | Q2 2026 |
+| Afghanistan (TA-0186) | 2026/2053(RSP) | No follow-up procedure required | — |
+| Steel (TA-0170) | 2026/2022(INI) | Commission action plan | Q4 2026 |
+| Uzbekistan EPCA (TA-0173/0174) | 2022/0177(NLE) | Council + Uzbekistan ratification | 2026-2027 |
+
+*Procedures Proxy v3.0 — 6 procedures tracked with next steps | 2026-05-25*

@@ -110,3 +110,18 @@ quadrantChart
     Lebanon Eurojust: [0.45, 0.60]
     Morocco Fisheries: [0.30, 0.40]
 ```
+
+---
+
+## Run 2: Significance Re-Classification
+
+| Item | Run 1 Tier | Run 2 Tier | Change | Reason |
+|------|-----------|-----------|--------|--------|
+| FDI Screening | CRITICAL | CRITICAL | → | No change; confirmed structural significance |
+| AI-Trade Strategy | CRITICAL | CRITICAL | → | No change |
+| SAFE-Canada | HIGH | CRITICAL | ↑ | Run 2 analysis reveals first use of EU SAFE mechanism with non-EU partner; precedent-setting |
+| Women in Afghanistan | HIGH | HIGH | → | No change; moral-normative significance |
+| Steel Resolution | MEDIUM-HIGH | HIGH | ↑ | CBAM integration dimension elevates significance |
+| EU-Uzbekistan EPCA | HIGH | HIGH | → | No change |
+
+*Significance Classification v3.0 — SAFE-Canada and Steel elevated | 2026-05-25*

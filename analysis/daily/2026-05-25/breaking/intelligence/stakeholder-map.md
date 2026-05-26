@@ -315,3 +315,31 @@ graph TD
     CSO[Civil Society] -->|lobby| EP
     INDUSTRY[AI Industry] -->|lobby| COM
 ```
+
+---
+
+## Run 2 Extension: Additional Evidence Integration
+
+### New Stakeholders: FDI Screening and Steel
+
+**Stakeholder: European FDI Screening Coordination Group (new)**
+*Role*: The Commission-chaired body responsible for coordinating national screening decisions under the 2019 regulation (now expanded). 
+*Interests*: Effective multi-lateral screening without undue delay of legitimate investment
+*Position on 2026 update*: Supportive — expanded mandate and enhanced secretariat resources in the updated regulation
+*Power*: HIGH (advisory role over all screening decisions; can trigger EU-level reviews)
+*Influence path*: Commission DG GROW → Council → Member state screening authorities
+
+**Stakeholder: EUROFER (European Steel Association)**
+*Role*: Lobby organisation for EU steel producers including ArcelorMittal, ThyssenKrupp, Tata Steel Europe
+*Interests*: Trade defense measures against dumped imports; CBAM effective implementation; energy cost reduction for energy-intensive production
+*Position on steel resolution*: STRONGLY SUPPORTIVE — EUROFER has campaigned for enhanced overcapacity response for 3 years
+*Power*: MEDIUM (important but not decisive; must compete with auto sector and construction steel buyers who prefer lower prices)
+*Influence path*: EP ITRE/INTA committees → Commission DG TRADE → Council trade committee
+
+**Stakeholder: IndustriAll European Trade Union**
+*Role*: Represents 7 million workers in manufacturing, mining, and energy across EU
+*Interests*: Job protection in steel, automotive, and energy sectors; just transition in green economy
+*Position on steel resolution*: STRONGLY SUPPORTIVE — joins EUROFER in demanding action
+*Power*: MEDIUM-HIGH (strong S&D and Left group access; EP social policy leverage)
+
+*Stakeholder Map v3.0 — FDI Coordination Group, EUROFER, IndustriAll added | 2026-05-25*

@@ -258,3 +258,32 @@ graph TD
     IMPL_RISK -->|escalation| WTO[WTO Dispute Path]
     LEGAL_RISK -->|escalation| CJEU[CJEU Referral]
 ```
+
+---
+
+## Run 2 Extension: Additional Evidence Integration
+
+### Threat Update: FDI Screening and AI Trade Risks
+
+**Threat T-NEW-1: FDI Screening Regulatory Arbitrage**
+*Description*: Non-EU companies restructure through subsidiary legal entities in Switzerland, UK, or Türkiye to avoid EU screening thresholds
+*Likelihood*: MEDIUM (Swiss/UK channels already used for US-sanctioned entities)
+*Impact*: HIGH (regulatory intent is defeated; screening becomes performative)
+*Mitigation*: The 2026 update requires disclosure of ultimate beneficial owner regardless of intermediate jurisdiction — directly addresses this threat
+*Residual risk*: MEDIUM (sophisticated actors can still use opaque trust structures)
+
+**Threat T-NEW-2: AI Trade Strategy IP Capture Risk**
+*Description*: EU AI trade strategy promotes data sharing agreements with trading partners; these agreements create channels for adversaries to harvest EU AI training datasets
+*Likelihood*: LOW-MEDIUM (requires sophisticated state-level technical capability)
+*Impact*: HIGH (EU AI competitive advantage is diminished if training data is compromised)
+*Mitigation*: The resolution calls for "trusted AI partner" status with technical equivalency requirements — but enforcement mechanisms are underdeveloped
+*Residual risk*: MEDIUM-HIGH
+
+**Threat T-NEW-3: Afghanistan Resolution Non-Compliance Normalization**
+*Description*: Taliban continues gender apartheid; EP resolutions have no enforcement mechanism; repeated non-complied-with resolutions erode EP normative authority
+*Likelihood*: HIGH (Taliban has not complied with any EU normative demand since 2021)
+*Impact*: MEDIUM (reputational risk for EP; concrete harm remains to Afghan women)
+*Mitigation*: Conditioning development aid and recognition on Taliban compliance — but impact is limited given Taliban's isolation strategy
+*Residual risk*: HIGH
+
+*Threat Model v3.0 — Three new threats added (FDI arbitrage, AI IP capture, Afghanistan normalization erosion) | 2026-05-25*

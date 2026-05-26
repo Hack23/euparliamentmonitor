@@ -179,3 +179,21 @@ With DOCEO roll-call data unavailable for the May 20, 2026 plenary session (2–
 **Monitoring instruction**: When DOCEO data is available, specifically check the AI-trade resolution roll-call for ECR group position. An ECR YES on AI governance would be analytically significant and should trigger a coalition dynamics update.
 
 *[EXTEND-FROM-PRIOR: intelligence/coalition-dynamics.md prior=169L → new=189L+ (+20)]*
+
+---
+
+## Run 2 Extension: FDI Screening and Steel Overcapacity Coalition Analysis
+
+### Coalition Dynamics for FDI Screening (TA-10-2026-0171)
+
+The FDI screening regulation represents a rare instance where the EPP-S&D-Renew core was supplemented by partial ECR support (on national security grounds) while facing opposition from the Patriots group (on sovereignty grounds). This "security coalition" pattern — EPP-ECR security overlap exceeding the normal governing coalition — is a feature of defence, security, and strategic autonomy legislation in EP10.
+
+**Coalition pattern**: EPP-S&D-Renew + partial ECR (security wing) vs. Patriots + partial Renew abstentions (economic liberals). Estimated FOR margin: 120+ above minimum threshold.
+
+### Coalition Dynamics for Steel Overcapacity (TA-10-2026-0170)
+
+Non-legislative resolutions exhibit a different coalition pattern: workers' rights framing creates a S&D-Left-Greens-EPP (industrial wing) coalition. The ECR trade-defense wing joins; the Patriots split on protectionism vs. sovereignty grounds.
+
+**Key observation**: The steel resolution demonstrates the EP's capacity to build "super-majority" coalitions (550+ votes) on issues where economic nationalism and progressive labour protection converge. This left-right economic nationalism convergence is distinctive and worth monitoring as a structural EP10 trend.
+
+*Coalition Dynamics v3.0 — FDI and steel coalition patterns documented | Run 2 extension | 2026-05-25*

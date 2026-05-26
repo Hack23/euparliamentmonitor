@@ -152,3 +152,27 @@ All actor position assessments are sourced from: EP committee explanatory statem
 **For policy practitioners**: The actor landscape for this session is STABLE — no surprise coalition defections, no blocking minority, no committee-plenary conflict. Implementation now transfers to Commission (AI-trade, EPCA) and partner governments (Lebanon, fisheries). Monitor Commission action on TA-0183 mandate as the primary post-session indicator.
 
 *[EXTEND-FROM-PRIOR: classification/actor-mapping.md prior=110L → new=131L+ (+21)]*
+
+---
+
+## Run 2 Actor Updates
+
+### New Actors: FDI Screening, Steel, SAFE-Canada
+
+**Actor: European Commission DG GROW (FDI Screening)**
+*Role*: Lead DG for FDI screening framework implementation
+*Mandate*: Administer expanded FDI screening coordination mechanism post-2026 update
+*Coalition alignment*: EPP/Renew (market-oriented but supports screening for security)
+*Key constraint*: Must balance investment openness with security concerns; faces business lobby pressure to keep screening proportionate
+
+**Actor: EUROFER (Steel)**
+*Type*: Industry lobby, non-governmental
+*Voting power*: None directly; strong access to ITRE and INTA committees
+*Coalition alignment*: Works across EPP, S&D, ECR on steel defense (unusual cross-partisan coalition)
+
+**Actor: Canada ISED (EU-Canada SAFE)**
+*Type*: Canadian government ministry (Innovation, Science, Economic Development)
+*Role*: Canadian side of SAFE-Canada defence procurement coordination
+*Constraint*: Operates under Canadian domestic procurement rules; SAFE participation requires legislative carve-outs
+
+*Actor Mapping v3.0 — FDI/Steel/SAFE-Canada actors added | 2026-05-25*

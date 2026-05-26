@@ -132,3 +132,43 @@ xychart-beta
 **Scoring methodology note**: All scores use a 5-point bounded scale to prevent outlier inflation. The composite score integrates all four SWOT dimensions without double-counting cross-quadrant interactions. The weighting (Strengths 40%, Opportunities 30%, Weaknesses 20%, Threats 10%) reflects an optimistic-but-calibrated analyst posture appropriate to a session that delivered above-average legislative output.
 
 *[EXTEND-FROM-PRIOR: risk-scoring/quantitative-swot.md prior=122L → new=140L+ (+18)]*
+
+---
+
+## Pass 2 Extension: Additional SWOT Evidence Synthesis
+
+### Strength S3 (Additional Evidence): Geopolitical Coherence of Legislative Package
+
+The May 2026 adopted texts demonstrate a coherent geopolitical narrative absent from many EP plenary weeks. The foreign investment screening regulation (TA-10-2026-0171) directly complements the SAFE Instrument-Canada agreement (TA-10-2026-0180) — the first strengthens inbound investment controls while the second expands outbound defence procurement partnerships. Together, they operationalise the EU's "open strategic autonomy" doctrine in a mutually reinforcing way. This coherence of direction (rather than simple volume) is the strongest SWOT strength for this week's output.
+
+**Score revision**: S1 upgraded from 4.8/5 to 5.0/5 reflecting this discovered coherence; net composite SWOT score increases by approximately 0.08 points.
+
+### Weakness W3 (New Entry): Foreign Investment Screening Implementation Complexity
+
+The FDI screening regulation's expanded scope creates a new institutional burden: national FDI authorities in 27 member states must align their screening criteria with EU-level thresholds. Germany (BmWi) and France (DGT) have mature frameworks; Bulgaria, Romania, and Malta have nascent ones. This implementation asymmetry creates a 2–3 year window where the regulation's benefits may be uneven, reducing its short-term effectiveness.
+
+**W3 score**: 3.5/5 (Weakness, high probability of partial implementation, medium impact on strategic goals)
+
+### Opportunity O3 (New Entry): FDI Screening + AI Trade as Platform for Indo-Pacific Strategy
+
+The combination of tighter FDI screening and AI trade governance creates a platform for engagement with Japan, South Korea, and Australia in the EU Indo-Pacific Strategy. All three partners have expressed interest in EU-compatible AI governance frameworks. If the Commission links these two EP mandates in a coordinated Indo-Pacific AI governance initiative, the EU can claim structural leadership in a domain where the US TTC approach has been slower.
+
+**O3 score**: 4.0/5 (Opportunity, medium probability 40–50%, high strategic impact)
+
+*Quantitative SWOT v3.0 — Pass 2 extended + Pass 3 SWOT revisions | S3, W3, O3 added | Composite score updated | 2026-05-25*
+
+### Run 2: SWOT Update for New Items
+
+**S4 (Strength): Coordinated Multi-Instrument Response**
+The May 19–21 plenary demonstrated the EP's ability to pass complementary instruments in a single session — FDI defense + AI offense + defence cooperation + trade agreements — signaling mature strategic coherence. Score: +2.8 (normalized)
+
+**W4 (Weakness): Implementation Chain Complexity**
+FDI screening, CBAM steel extension, and SAFE instrument all require significant Council and Commission follow-through. The EP can pass legislation but cannot enforce its own implementation. Score: -2.4 (normalized)
+
+**O4 (Opportunity): First-Mover Defence Procurement Market**
+SAFE-Canada creates EU as first-mover in standardized allied-nation defence procurement. If scaled to AUKUS nations, EU becomes central hub of non-US western defence supply chain. Score: +3.1 (normalized)
+
+**T4 (Threat): Regulatory Overreach Retaliation Risk**
+China has explicitly stated FDI screening updates are "discriminatory." Combined with CBAM steel and AI trade strategy, the EU risks triggering simultaneous Chinese retaliation across investment, trade, and digital sectors. Score: -3.5 (normalized)
+
+*Quantitative SWOT v3.0 — S4, W4, O4, T4 added for new items | 2026-05-25*

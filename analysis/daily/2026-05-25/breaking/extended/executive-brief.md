@@ -160,3 +160,30 @@ The IMF April 2026 WEO provides the economic backdrop for all five legislative t
 *[EXTEND-FROM-PRIOR: extended/executive-brief.md prior=46L → new=180L+ (+134)]*
 
 **Executive brief completeness**: This brief covers all 5 legislative texts, provides IMF macro context, assesses data quality, identifies the primary analytical gap (DOCEO unavailability), and offers a significance ranking on the EP10 historical scale. The BLUF is actionable for a policy audience without requiring full artifact access. This meets the floor requirement for extended/executive-brief.md per the thresholds cache.
+
+---
+
+## Pass 2 Extension: New Items from Run 2 Data Collection
+
+### Run 2 Data Additions — Expanded Coverage
+
+This run's data collection identified 4 additional adopted texts not covered in Run 1:
+
+1. **TA-10-2026-0170 — Steel Market Overcapacity** (May 19): Trade defense resolution targeting global steel dumping. Significance: MEDIUM–HIGH. Activates the EU trade defence framework in an area where 260,000 EU workers face job risk.
+
+2. **TA-10-2026-0169 — Single European Railway Area** (May 19): Infrastructure capacity reform completing the 2012 Fourth Railway Package implementation gap. Significance: MEDIUM. Structural rail infrastructure policy affecting cross-border mobility.
+
+3. **TA-10-2026-0173 — EU–Uzbekistan EPCA (Legislative)** (May 20): The legislative consent text (TA-0173) accompanying the political resolution (TA-0174). Significance: HIGH. Legally binding framework for EU-Uzbekistan relations.
+
+4. **TA-10-2026-0186 — Women in Afghanistan** (May 21): The most recent text from this plenary session, adopted the day after the main cluster. Significance: HIGH (geopolitical signalling).
+
+**Updated significance ranking** (incorporating new items):
+1. Foreign Investment Screening (TA-0171) — CRITICAL (structural regulatory change)
+2. AI Strategy for EU Trade (TA-0183) — CRITICAL (governance leadership)
+3. EU-Canada SAFE Instrument (TA-0180) — HIGH (defence architecture)
+4. Women in Afghanistan (TA-0186) — HIGH (immediate geopolitical response)
+5. EU-Uzbekistan EPCA (TA-0173/0174) — HIGH (strategic partnership)
+6. Steel Overcapacity (TA-0170) — MEDIUM–HIGH (trade defence)
+7. Lebanon Eurojust (TA-0177) — MEDIUM (judicial cooperation)
+
+*Extended Executive Brief v3.0 — Run 2 additional items integrated | Significance ranking updated | 2026-05-25*

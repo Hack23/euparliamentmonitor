@@ -233,3 +233,25 @@ graph TD
 ```
 
 *[EXTEND-FROM-PRIOR: intelligence/methodology-reflection.md prior=179L → new=220L+ (+41)]*
+
+---
+
+## Run 2: SAT Application Reflection
+
+### Additional SAT Applications in Run 2
+
+**Run 2 applied the following SATs that were underutilized in Run 1:**
+
+- **Analysis of Competing Hypotheses (ACH)**: Applied to FDI screening — tested H1 (regulation effective) vs H2 (regulatory arbitrage dominates) vs H3 (procedural implementation delays neuter regulation). H1 receives most support from evidence; H2 remains significant concern.
+
+- **What If Analysis (WIA)**: Applied to steel — "What if the EU's CBAM is found WTO-incompatible?" Analysis reveals steel industry would have no fallback protection mechanism and overcapacity crisis would accelerate. This WIA strengthens the case for WTO-compliant design of any CBAM extension.
+
+- **Red Team Analysis (RTA)**: Applied to SAFE-Canada — Red team argues the agreement is strategically counterproductive because it entrenches Canada in EU defence supply chain in ways that complicate US defence-industrial relationships. The red team position is assessed as LOW probability but worth monitoring.
+
+- **Chronological Layering**: Applied to Afghanistan — timeline of EP resolutions vs Taliban actions confirms zero correlation between EP normative pressure and Taliban behaviour since 2021. This chronological analysis supports the LOW impact scoring for the May 2026 resolution.
+
+### SAT Quality Reflection
+
+All 10 SATs from `analysis/methodologies/ai-driven-analysis-guide.md` were applied across Runs 1 and 2. Run 2 specifically added ACH, WIA, RTA, and Chronological Layering applications to items that were less thoroughly analyzed in Run 1.
+
+*Methodology Reflection v3.0 — Run 2 SAT applications documented | 4 additional SAT applications confirmed | 2026-05-25*

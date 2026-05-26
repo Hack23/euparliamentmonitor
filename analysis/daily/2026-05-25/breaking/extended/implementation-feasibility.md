@@ -181,3 +181,43 @@ This technical challenge is the primary implementation bottleneck.
 **Overall cluster feasibility**: 7.6/10 is an accurate assessment. The fisheries and Uzbekistan items elevate the score; the Lebanon and AI-trade implementation uncertainty depresses it from a higher score.
 
 *[EXTEND-FROM-PRIOR: extended/implementation-feasibility.md prior=163L → new=200L+ (+37)]*
+
+---
+
+## Pass 2 Extension: Implementation Feasibility for New Run 2 Items
+
+### FDI Screening Regulation — Feasibility Analysis
+
+**Assessment**: 6.5/10 (Medium)
+
+**Enabling factors**:
+- Commission has clear mandate — regulation is directly applicable, no transposition needed
+- Council and EP alignment achieved (hence adoption)
+- 27 member states committed to national framework updates
+
+**Constraining factors**:
+- 11 member states lack mature national screening frameworks (requires 18-month buildup)
+- Defining "critical technology sectors" for AI and cyber requires technical expert consultation (risk of slow process)
+- Coordination mechanism depends on member state notification compliance (voluntary culture risk)
+
+**Critical path**: The 18-month member state framework update deadline is the bottleneck. If Bulgaria, Malta, Cyprus, and 3–4 other MS miss this deadline (historically likely given institutional capacity constraints), the regulation creates a "weak link" that sophisticated investors will identify.
+
+**Feasibility confidence**: 🟡 MEDIUM — administrative complexity is the primary constraint, not political opposition.
+
+### Women in Afghanistan Resolution — Operational Feasibility
+
+**Assessment**: 3.0/10 (Low — consistent with other human rights resolutions)
+
+**Enabling factors**:
+- EP has strong institutional will (rapid adoption is evidence)
+- EU humanitarian aid to Afghanistan is an existing leverage instrument (€200m/year)
+- UN Human Rights Council collaboration is feasible
+
+**Constraining factors**:
+- Taliban does not recognise EU jurisdiction over domestic law
+- EU engagement with Taliban is indirect and mediated through Pakistan/Qatar
+- EU member states are divided on Taliban engagement policy (pragmatists vs. principled non-engagement)
+
+**Realistic outcome**: The resolution may produce a Council statement and humanitarian aid conditionality language, but not direct policy change in Afghanistan. Success metric should be EU institutional coherence, not Afghan policy outcomes.
+
+*Implementation Feasibility v3.0 — FDI and Afghanistan feasibility analyses added | 2026-05-25*

@@ -192,3 +192,31 @@ The closest historical parallel to the Pappas immunity waiver is the Gilles Sava
 **Implications for article**: Historical parallels should be used to calibrate timelines and implementation depth predictions. The 2024 Central Asia Connectivity Conference precedent is directly applicable to the Uzbekistan timeline analysis.
 
 *[EXTEND-FROM-PRIOR: extended/historical-parallels.md prior=180L → new=220L+ (+40)]*
+
+---
+
+## Pass 2 Extension: New Historical Parallels for Run 2 Items
+
+### Parallel 6: EU FDI Screening 2019 → 2026 Update (Internal Policy Evolution)
+
+The original FDI Regulation (EU) 2019/452 established a cooperation mechanism without EU-level veto authority. Its passage was politically complex — Germany, France, and Italy pushed for the regulation following Chinese acquisition of Kuka Robotics (Germany, 2016), which served as the political trigger for EU-level action.
+
+**Structural comparison with 2026 update**:
+- **2019**: Cooperation mechanism, 11 member states without national frameworks
+- **2026**: Mandatory harmonisation, expanded scope (cyber/AI sectors), Commission advisory role strengthened
+- **Pattern**: EU begins with coordination, progresses to harmonisation — identical to financial services (ESMA evolution 2011–2022), data protection (DPD 1995 → GDPR 2018), and competition enforcement (Regulation 1/2003)
+
+**Lesson for analysis**: The 2026 update represents a predictable evolutionary step, not a structural break. The next evolution (EU-level veto authority) is probable within 5–7 years, following the GDPR model.
+
+### Parallel 7: Steel Overcapacity Measures — 2016 CRTA Steel Safeguards Precedent
+
+In 2016, the EU activated provisional safeguard measures on steel imports in response to Chinese-origin overcapacity, initiating a WTO-compatible protection framework that was updated in 2018, 2019, and 2021.
+
+**Structural comparison with 2026 resolution**:
+- **2016**: Emergency provisional safeguards; quantitative restrictions on 26 steel categories
+- **2018 revision**: Updated to reflect US Section 232 tariff diversion effects  
+- **2026 resolution**: Calls for new measures incorporating CBAM, Digital Product Passport (DPP), and supply chain traceability requirements alongside traditional safeguards
+
+**Historical lesson**: The EU's steel protection framework has a 10-year track record of adaptation. The 2026 resolution adds a CBAM dimension that represents genuine policy innovation, not just restatement of existing tools.
+
+*Historical Parallels v3.0 — FDI and steel overcapacity parallels added | 7 total parallels | 2026-05-25*

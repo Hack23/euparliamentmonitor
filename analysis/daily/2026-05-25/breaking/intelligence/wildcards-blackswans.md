@@ -283,3 +283,28 @@ pie title Wildcard Risk Distribution
     "Uzbekistan Accord Reversal" : 30
 ```
 
+
+---
+
+## Run 2 Extension: Additional Evidence Integration
+
+### Black Swan Update: Run 2 Events
+
+**Black Swan BS-NEW-1: Simultaneous FDI Screening Legal Challenge**
+*Scenario*: China (WTO), a non-EU state investor (ICSID), and a domestic EU company (ECJ) simultaneously challenge the FDI screening regulation on grounds of discrimination, violation of investment treaties, and constitutional property rights respectively
+*Probability*: Very Low (2–4%)
+*Impact*: CATASTROPHIC — simultaneous challenges across three legal orders would freeze the entire EU investment screening system for 5–7 years
+*Why it's plausible*: All three challenge vectors are legally viable; coordination would require unusual adversary cooperation
+
+**Black Swan BS-NEW-2: Afghan Women Asylum Wave Triggers EU Political Crisis**
+*Scenario*: Taliban implements Criminal Procedure Code with mass enforcement, triggering a new large-scale asylum movement (500k+ per year); EP resolution becomes the reference text for European asylum policy; this creates major political tensions within the EU
+*Probability*: Very Low (3–5%)
+*Impact*: HIGH — would test EU external borders policy, Afghanistan relations, and the coherence of the EP's human rights conditionality framework
+*Why it's plausible*: Previous Afghan migration waves (2015, 2021) were triggered by sudden policy changes
+
+**Wildcard W-NEW-1: SAFE-Canada Expansion to Australia, Japan**
+*Scenario*: EU-Canada SAFE success prompts the Commission to propose SAFE-Pacific (Australia, Japan, South Korea, New Zealand) within 18 months, creating a de facto Five Eyes + Japan defence procurement bloc
+*Probability*: Possible (20–30%)
+*Impact*: STRATEGIC POSITIVE — significantly enhances EU defence procurement diversity and interoperability
+
+*Wildcards and Black Swans v3.0 — Two new black swans, one new wildcard added | 2026-05-25*

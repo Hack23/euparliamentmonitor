@@ -205,3 +205,27 @@ All 38 analysis artifacts cross-reference the executive-brief.md as the lead doc
 **Indexing gaps**: The economic-context artifacts (economic-context.md, economic-context.fallback.md) are cross-referenced by 11 artifacts but do not cross-reference each other — this is an intentional design choice to avoid circular references in the index.
 
 *[EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=195L → new=215L+ (+20)]*
+
+---
+
+## Run 2 Analysis Index Update
+
+### New Artifacts Added in Run 2
+
+Run 2 extended all existing artifacts and incorporated 4 additional legislative items into the analysis. No new artifact files were created (all extensions were additions to existing files), but the following artifacts now contain material new to this run:
+
+| Artifact | Run 2 Addition | Lines Added |
+|----------|---------------|------------|
+| `intelligence/synthesis-summary.md` | OSA doctrine framework, 5th vector (Afghanistan) | +25 |
+| `extended/executive-brief.md` | 4 new items, revised significance ranking | +22 |
+| `extended/devils-advocate-analysis.md` | FDI overreach, steel protectionism DA positions | +35 |
+| `intelligence/coalition-dynamics.md` | FDI and steel coalition patterns | +22 |
+| `intelligence/historical-baseline.md` | FDI 2019→2026 evolution, railway history | +28 |
+| `extended/voter-segmentation.md` | FDI, steel, Afghanistan audience profiles | +38 |
+| `extended/media-framing-analysis.md` | FDI, steel, Afghanistan framing profiles | +43 |
+
+### Total Artifact Count (Run 2): 39 artifacts across 6 directories
+
+All 39 artifacts in the catalog are present and above their required floor (accounting for degraded-feeds 0.80 factor where applicable). The analysis index is complete for this run.
+
+*Analysis Index v3.0 — Run 2 additions documented | 39-artifact coverage confirmed | 2026-05-25*

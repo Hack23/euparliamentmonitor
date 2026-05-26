@@ -198,3 +198,41 @@ This is a strategically coherent output set, not random. The coherence suggests 
 **Next intelligence update trigger**: When DOCEO RCV data becomes available (~June 2–16), the voting confidence grades should be upgraded from C2 to A1 across all five texts.
 
 *[EXTEND-FROM-PRIOR: extended/intelligence-assessment.md prior=181L → new=220L+ (+39)]*
+
+---
+
+## Pass 2 Extension: Intelligence Assessment for Run 2 Additional Items
+
+### FDI Screening — Intelligence Grade: HIGH
+
+**Significance**: The foreign investment screening regulation update is the most significant legislative event of this session from a structural institutional perspective. The previous framework (2019) had known gaps — 11 member states lacked national screening frameworks, and the cyber/AI sector was not explicitly covered. The 2026 update closes both gaps.
+
+**Intelligence assessment**: 
+- **Factual confidence**: 🟢 HIGH (text adopted May 19, procedure reference confirmed, direct EP endpoint)
+- **Coalition inference**: 🟡 MEDIUM (DOCEO unavailable; estimated based on historical EPP-S&D security convergence patterns)
+- **Implementation forecast**: 🟡 MEDIUM (administrative capacity constraints in 11 member states identified)
+- **Geopolitical implication**: 🟢 HIGH (EU strategic autonomy doctrine operationalised in investment domain)
+
+**Admiralty grade**: A1 on facts, B2 on coalition, C2 on implementation speed
+
+### Steel Overcapacity — Intelligence Grade: MEDIUM–HIGH
+
+**Significance**: The steel overcapacity resolution builds on the 2016 EU safeguard framework and adds CBAM integration — a genuine policy innovation. The economic stakes are material: 260,000 EU steel jobs and €80bn in annual production value.
+
+**Intelligence assessment**:
+- **Factual confidence**: 🟢 HIGH (text adopted May 19, trade defense context well-documented)
+- **Economic context**: 🟢 HIGH (IMF WEO April 2026 iron and steel section provides direct support)
+- **Implementation forecast**: 🟡 MEDIUM (Commission has discretion on tool selection)
+
+**Admiralty grade**: A1 on facts, B2 on economic context, C2 on Commission tool selection
+
+### Women in Afghanistan — Intelligence Grade: HIGH (Geopolitical Signal)
+
+**Significance**: The Taliban's May 2026 Criminal Procedure Code is a documented escalation of gender-based legal restrictions. The EP's rapid response (adopted within one week) signals high institutional sensitivity. Geopolitical intelligence value: high for human rights monitoring networks, moderate for EU foreign policy planning.
+
+**Intelligence assessment**:
+- **Factual confidence**: 🟢 HIGH (Taliban Criminal Procedure Code adoption is publicly confirmed)
+- **EU policy impact**: 🟡 MEDIUM (mechanisms for enforcement are indirect)
+- **Third-country impact**: 🔴 LOW (Taliban unresponsive to EU legislative pressure)
+
+*Extended Intelligence Assessment v3.0 — FDI, steel, Afghanistan assessments added | 2026-05-25*

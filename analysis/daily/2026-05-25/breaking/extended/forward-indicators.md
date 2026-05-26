@@ -161,3 +161,33 @@ This document catalogues the key observable indicators that will confirm or disc
 **Indicator monitoring guidance**: These 9 indicators should be reviewed at the next breaking news cycle if any of them trigger. Specifically: US trade response, Commission communication, Lebanon government formation, and DOCEO RCV availability are the four indicators most likely to materially change the analysis within 90 days.
 
 *[EXTEND-FROM-PRIOR: extended/forward-indicators.md prior=149L → new=180L+ (+31)]*
+
+---
+
+## Pass 2 Extension: New Indicators from Run 2 Analysis
+
+### Indicator 10: EU Steel Market Prices (Monthly monitoring)
+**What to watch**: Hot-rolled coil (HRC) prices in EU (€/tonne), Chinese export prices, safeguard utilisation rates
+**Trigger**: If EU HRC prices remain below €550/tonne for 3 consecutive months post-resolution → resolution's immediate market impact is limited; Commission needs to supplement with additional safeguard measures
+**Source**: Eurofer monthly market report; World Steel Association (WSA)
+**Timeline**: Monthly, beginning June 2026
+
+### Indicator 11: SAFE Instrument Defence Procurement Rounds
+**What to watch**: Commission notice of first SAFE procurement tender with Canadian industry participation
+**Trigger**: If no tender notice by December 2026 → SAFE-Canada agreement is aspirational/symbolic rather than operational; requires EP follow-up
+**Source**: EU Official Journal (S-series); EDA (European Defence Agency) press releases
+**Timeline**: Q3–Q4 2026
+
+### Indicator 12: Afghan Women International Mechanism Activation
+**What to watch**: Whether the TA-10-2026-0186 Afghanistan resolution triggers a Council Common Position under the EU Global Human Rights Sanctions mechanism
+**Trigger**: Council silence beyond 90 days → EP's human rights diplomacy tool is not being used effectively; possible EP urgency resolution follow-up in September 2026
+**Source**: Council press releases; EEAS human rights reports
+**Timeline**: Q3 2026 (within 90 days of May 21 adoption)
+
+### Indicator 13: FDI Screening Regulation National Implementation Notifications
+**What to watch**: Member state notifications to Commission of updated national screening frameworks (required within 18 months of regulation entry into force)
+**Trigger**: If >5 member states miss first notification deadline → regulation's harmonisation objective is unmet in short-term
+**Source**: Commission FDI Coordination Group reports; DG GROW quarterly updates
+**Timeline**: Q1 2027 (first milestone)
+
+*Forward Indicators v3.0 — 4 new indicators (steel, SAFE procurement, Afghanistan, FDI notifications) | 13 total indicators | 2026-05-25*
