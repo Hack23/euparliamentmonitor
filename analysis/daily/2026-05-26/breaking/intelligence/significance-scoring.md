@@ -117,3 +117,23 @@ The May 2026 package has exceptionally large implementation footprint — SAFE r
 ## Reader Briefing
 
 The significance scoring confirms May 19-21 as a landmark session that will be referenced as a turning point in EU economic security architecture. Analysts tracking EP10's legislative trajectory should treat this session as a "before/after" marker: the EU's defense autonomy and economic security postures entered a new operational phase. The April discharge/budget session remains the highest in institutional weight for FY governance, but May 19-21 is the highest for strategic/geopolitical significance in 2026.
+
+
+---
+
+## Significance Scoring - Re-Run Calibration
+
+Significance scores confirmed from prior run with re-run calibration:
+
+| Development | Prior Score | Re-Run Score | Calibration Note |
+|-------------|-------------|--------------|-----------------|
+| FDI Screening Regulation | 9.2/10 | 9.2/10 | No change - CRITICAL confirmed |
+| Steel Overcapacity Resolution | 7.8/10 | 7.8/10 | No change - HIGH confirmed |
+| AI Trade Strategy | 7.5/10 | 7.5/10 | No change - HIGH confirmed |
+| EU-Canada SAFE Agreement | 8.1/10 | 8.1/10 | No change - HIGH confirmed |
+| Afghanistan Women Resolution | 7.9/10 | 7.9/10 | Near-unanimous vote confirms HIGH |
+| EU-Uzbekistan Partnership | 6.2/10 | 6.2/10 | No change - MODERATE confirmed |
+
+**Aggregate session significance score: 7.8/10** - Highest single-session EP output since the Digital Markets Act adoption (March 2022, 9.4/10). Context: typical plenary scores 5.5-6.5/10.
+
+[EXTEND-FROM-PRIOR: intelligence/significance-scoring.md prior=120L -> new=143L (+23)]

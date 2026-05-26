@@ -395,3 +395,26 @@ quadrantChart
 **Conclusion:** Two persistent issues (events-feed 404, procedures-feed staleness) are now confirmed across two consecutive runs. These should be escalated to the EP MCP server maintainer as structural issues rather than transient failures.
 
 **Admiralty grade for persistent issues: A1** — Confirmed from two independent runs
+
+
+---
+
+## MCP Reliability Audit - Re-Run 2 Entry
+
+### Run 2 MCP Performance
+
+| Tool | Calls | Success | Failure | Notes |
+|------|-------|---------|---------|-------|
+| get_adopted_texts_feed | 1 | 1 | 0 | Returned ELI IDs, no titles |
+| get_events_feed | 1 | 0 | 1 | 404 error (upstream unavailable) |
+| european-parliament tools | 2 total | 1 | 1 | 50% availability |
+
+### Cumulative MCP Reliability Assessment (Run 1 + Run 2)
+
+EP API events feed has been unavailable in both runs today. This represents a persistent upstream issue with the EP admin.data.europarl.europa.eu enrichment endpoint. The adopted-texts feed returns ELI identifiers without titles, limiting its analytical utility.
+
+**Recommendation for future runs:** Implement fallback to get_plenary_sessions for event data when events_feed is unavailable. The plenary sessions endpoint provided complete data in prior-session runs.
+
+**Reliability rating for this session: 3/5** (degraded but analytically sufficient given pre-fetched feed coverage from the earlier morning prefetch-ep-feeds.sh run which captured full data before the event feed degradation).
+
+[EXTEND-FROM-PRIOR: intelligence/mcp-reliability-audit.md prior=398L -> new=422L (+24)]

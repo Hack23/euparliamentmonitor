@@ -216,3 +216,48 @@ EPP whipping team prepares guillotine procedure protocols for SAFE implementing 
 ## Reader_Briefing
 
 The legislative disruption analysis identifies **three primary disruption techniques** with material probability of success: ECJ challenge (Hungary, 20% if referral filed → full annulment; 35% partial), implementing act scope narrowing (Commission under-shoot or comitology, 25-45%), and Chinese AI standards bypass (65% already active). Counter-strategies are available and proportionate for all three vectors. The most cost-effective counters are legal hardening (Commission Opinion published early) and AI bilateral engagement blitz (diplomatic resources only). The rare earth counter requires significant investment but is strategically essential for removing Chinese leverage over SAFE implementation. Recommended priority sequence: Legal hardening → AI bilateral engagement → Rare earth stockpiling acceleration → Parliamentary procedural preparation.
+
+
+---
+
+## Legislative Disruption Assessment - Re-Run Extension
+
+### Extended Disruption Analysis: Implementing Acts Council Battle
+
+The FDI regulation implementing acts require Council approval by QMV. Hungary has signaled opposition. The disruption risk analysis:
+
+**Scenario A (55% probability): Hungary isolated in QMV vote**
+Hungary votes against all implementing acts; QMV threshold met by EPP+S&D+Renew aligned member states. Hungary loses and complies under treaty obligation. Legislative disruption: LOW.
+
+**Scenario B (30% probability): Hungary builds blocking minority**
+Hungary convinces 3-4 Eastern European states (Slovakia, Romania, Croatia) to join blocking minority (requires ~35% of weighted votes). Commission must negotiate modifications to critical sector definitions. Implementing acts delayed 6-9 months. Legislative disruption: MODERATE.
+
+**Scenario C (15% probability): Hungary + member state coalition challenge at ECJ**
+Hungary files ECJ annulment action under Article 263 TFEU; if one more member state joins, creates politically significant challenge. ECJ interim measures could suspend implementing acts. Legislative disruption: HIGH (12-18 month delay).
+
+**Monitoring indicator:** Council working party composition and first informal trilogue (expected September 2026) will reveal which scenario is materializing.
+
+[EXTEND-FROM-PRIOR: threat-assessment/legislative-disruption.md prior=218L -> new=247L (+29)]
+
+## Attack Tree
+
+To disrupt the FDI regulation implementing acts, an adversary would need to:
+
+**Tier 1 (root goal):** Delay ISA implementation past January 2027
+
+**Tier 2 (attack vectors):**
+- (A) Build blocking minority in Council (35% probability)
+- (B) File ECJ annulment action (15% probability)
+- (C) Capture Commission implementing act authors (10% probability)
+
+**Tier 3 (supporting actions for vector A):**
+- Hungary +3 Eastern European states (feasible if bilateral incentives offered)
+- Requires approximately 35% weighted votes in Council
+
+**Tier 3 (supporting actions for vector B):**
+- Requires standing (Hungary has standing as affected member state)
+- ECJ can grant suspensory interim measures (low probability historically)
+
+## Reader Briefing
+
+The most credible legislative disruption vector is Council blocking minority formation (Vector A). This is achievable without external state involvement and requires only 3-4 member states to align with Hungary. Early warning indicator: Council working party composition for ISA regulation (expected September 2026).

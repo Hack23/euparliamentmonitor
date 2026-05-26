@@ -252,3 +252,36 @@ quadrantChart
 ## Reader_Briefing
 
 The actor threat assessment identifies **China and Hungary as primary threat actors** with both high capability and high intent to disrupt the May 2026 legislative package. China's threat is primarily economic (rare earth leverage, bilateral pressure on member states) while Hungary's is primarily legal (ECJ challenge to SAFE enhanced cooperation legal basis). PfE/ECR represent a sustained but bounded parliamentary opposition. The Taliban threat is more immediate but more limited — a potential NGO expulsion in response to the Afghanistan resolution would cause humanitarian harm but would not reverse EU legislation. Analysts should prioritize monitoring the Hungary-ECJ filing timeline and China-EU trade friction indicators as the most consequential early warning signals.
+
+
+---
+
+## Actor Threat Profiles - Re-Run Extension
+
+### Extended Threat Profile: ISA as Future Threat Actor
+
+**Actor: EU Investment Screening Authority (ISA) - Prospective**
+**Threat type: Mission creep / regulatory overreach**
+
+Once established, the ISA faces structural incentives to expand its mandate and increase screening activity. The EU merger control analogy: DG Competition consistently expanded the scope of the 1989 Merger Regulation through 65 years of case law. An activist ISA that screens more transactions than the regulation technically requires could generate backlash from legitimate investors and trading partners.
+
+**Threat profile: SPECULATIVE but historically grounded.**
+
+**Mitigation design:** The regulation includes proportionality provisions, explicit critical-sector limitations, and appeal rights. These are meaningful constraints if rigorously applied. The first ISA leadership appointments will be the leading indicator of the institution's culture.
+
+**Assessment (LOW CONFIDENCE, 24-month horizon):** ISA culture will be set by first 18 months of operation. Risk of overreach is real but manageable through EP scrutiny and judicial oversight.
+
+[EXTEND-FROM-PRIOR: threat-assessment/actor-threat-profiles.md prior=254L -> new=278L (+24)]
+
+## Actor Roster
+
+| Actor | Threat Category | Capability | Motivation | Current Activity |
+|-------|-----------------|------------|------------|-----------------|
+| China MOFCOM | Regulatory Obstruction | HIGH | Anti-FDI screening | WTO complaint preparation |
+| Hungary Government | Internal Obstruction | MODERATE | Anti-centralization | Council blocking minority |
+| PfE/ECR (EP far-right) | Legislative Disruption | LOW | Anti-EU regulation | Media amplification |
+| Lobbying (Chinese tech SOEs) | Regulatory Capture | MODERATE | Weaken ISA scope | Bilateral approaches to member states |
+
+## Reader Briefing
+
+The primary threat actors are external (China MOFCOM) and internal/member-state (Hungary). Far-right EP groups pose low procedural threat but meaningful narrative threat. The combination of Chinese pressure + Hungarian internal obstruction is the most likely disruptive scenario.

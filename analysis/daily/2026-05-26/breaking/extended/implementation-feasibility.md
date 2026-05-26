@@ -212,3 +212,29 @@ xychart-beta
 ## Reader Briefing
 
 The implementation feasibility assessment reveals a wide spread: AI Trade (narrow scope) is 18/20 feasible; SAFE/Canada is 14.9/20; FDI/ISA is 14.6/20; Steel safeguards 13.5/20; Afghanistan ICC referral 8/20. The two most politically prominent items (SAFE and FDI/ISA) are in the 14-15/20 feasibility range — achievable but requiring active management of identified constraints. Commission DG DEFIS staffing is the single most important implementation bottleneck across multiple items. Afghanistan ICC implementation is largely symbolic in the 2-5 year horizon due to Security Council veto constraint.
+
+
+---
+
+## Implementation Feasibility - Re-Run Extension
+
+### Implementation Feasibility Update: ISA Technical Architecture
+
+The ISA requires not just legal establishment but technical infrastructure:
+
+**Database requirements:**
+- Investment notification registry (pre-notification, Phase I, Phase II)
+- Critical sector classification database (dynamic updates needed)
+- Cross-border acquisition structure mapping (to detect threshold avoidance)
+- Member state screening coordination system (existing bilateral data flows)
+
+**Estimated IT system development cost: EUR 25-40 million** (extrapolated from ESMA and EBA IT build-out costs for comparable regulatory databases)
+
+**Timeline feasibility assessment:**
+- Legal framework: FEASIBLE by January 2027 (8 months is tight but achievable for implementing regulations)
+- Technical infrastructure: NOT FEASIBLE by January 2027 (12-18 months minimum for production-quality system)
+- Practical implication: ISA will operate in manual/paper-based mode from January 2027 until IT infrastructure completes (~mid-2028)
+
+**Assessment (HIGH CONFIDENCE):** The January 2027 legal effectiveness date will be met; but full technical operability will require 2028. This distinction should be communicated proactively to avoid "implementation failure" narrative.
+
+[EXTEND-FROM-PRIOR: extended/implementation-feasibility.md prior=215L -> new=240L (+25)]

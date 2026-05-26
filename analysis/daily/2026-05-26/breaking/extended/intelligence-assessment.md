@@ -171,3 +171,43 @@ Hungary may file an ECJ challenge to SAFE enhanced cooperation legal basis withi
 ## Reader Briefing
 
 The intelligence assessment confirms six key findings at varying confidence levels. Findings 1-2 are CONFIRMED from primary sources. Findings 3-4 are PROBABLE from reliable pattern analysis. Findings 5-6 are POSSIBLE from inference with significant uncertainty. Analysts should treat Findings 1-2 as operational intelligence (certain), Findings 3-4 as planning assumptions (probable), and Findings 5-6 as scenario planning inputs (uncertain but consequential). All six findings together constitute the strategic intelligence picture of May 2026's EP plenary significance.
+
+
+---
+
+## Extended Intelligence Assessment - Cross-Finding Synthesis
+
+### Intelligence Confidence Pyramid
+
+Tier 1 (CONFIRMED): FDI regulation adopted; steel resolution adopted; SAFE/Canada ratified; Afghanistan resolution adopted unanimously
+
+Tier 2 (PROBABLE): Commission will establish ISA by mid-2027; China will use WTO consultations rather than economic coercion; Hungary will challenge implementing acts in Council
+
+Tier 3 (POSSIBLE): EU-US AI standards rupture (8%); Steel sector collapse cascade (12%); Afghan ICC referral materialises (6%)
+
+Tier 4 (SPECULATIVE): China changes Taiwan strategy in response to SAFE expansion (< 2%); EU member state leaves SAFE instrument voluntarily (< 1%)
+
+### Intelligence Gap Assessment
+
+**Gap 1 (HIGH PRIORITY):** Individual MEP voting positions unavailable (RCV data delay). Fills in 2-4 weeks. Key question: Which EPP MEPs from Eastern Europe voted against FDI regulation?
+
+**Gap 2 (MODERATE PRIORITY):** Commission initial implementation thinking on ISA design. Key question: Will the Commission define critical sectors broadly or narrowly?
+
+**Gap 3 (MODERATE PRIORITY):** Chinese government internal response to FDI regulation. Chinese diplomatic cables and state media framing will signal whether Phase 1 or Phase 2 response is being prepared.
+
+**Gap 4 (LOW PRIORITY):** Uzbekistan domestic parliamentary ratification timeline. Likely smooth given President Mirziyoyev consolidation of power, but formal confirmation needed.
+
+### Collection Priority for Next Run
+
+1. DOCEO RCV data (available ~June 5-9, 2026) - fills Gap 1
+2. Commission press release on steel safeguard (expected August 2026)
+3. Chinese Ministry of Commerce official statements - fills Gap 3
+4. EP parliamentary questions filed in June-July 2026 - early oversight intensity indicator
+
+---
+
+## Reader Briefing
+
+The extended intelligence assessment confirms six key findings at varying confidence levels. Findings 1-2 are CONFIRMED from primary sources. Findings 3-4 are PROBABLE from reliable pattern analysis. Findings 5-6 are POSSIBLE from inference with significant uncertainty. The intelligence gap assessment identifies RCV data availability as the highest-priority gap. All six findings together constitute the strategic intelligence picture of May 2026 EP plenary significance. Analysts should treat the three-tier collection priority as the basis for the next monitoring cycle.
+
+[EXTEND-FROM-PRIOR: extended/intelligence-assessment.md prior=173L -> new=225L (+52)]

@@ -193,3 +193,32 @@ timeline
 ## Reader Briefing
 
 Three historical parallels illuminate the May 2026 package: CFIUS → EU FDI Screening (30-year maturation trajectory confirms EU is on track), GDPR → AI Trade (Brussels Effect slower than EP narrative), and EU-Uzbekistan 2007 → 2026 (conditionality erosion risk very high). The aggregate historical lesson is sobering but not pessimistic: EU legislative architecture is durable, implementation is slower than planned, and normative commitments erode when strategic interests conflict. Planning for a 5-year implementation horizon for SAFE and a 15-year horizon for FDI full maturity is historically grounded.
+
+
+---
+
+## Additional Historical Parallel 4: EU-US Steel Dispute (2002-2003)
+
+The Bush administration imposed Section 201 steel safeguards in March 2002 (8-30% tariffs on EU steel imports). The EU challenged at WTO and won in November 2003; the US revoked tariffs after WTO authorised EU retaliation. This parallel is directly relevant to the May 2026 steel overcapacity resolution.
+
+**Parallel strength: HIGH.** The May 2026 EP steel resolution follows the same political dynamics: industry pressure, legislative mandate, Commission action, WTO challenge risk. The 2002-2003 case established that multilateral trade defence measures are more durable than unilateral ones.
+
+**Key difference:** The 2026 EU measures are more sophisticated (CBAM extension, volume quotas, sectoral safeguards) and face a more complex WTO legal environment post-Appellate Body paralysis.
+
+**Historical lesson:** The 2002-2003 case was resolved in 21 months through WTO dispute settlement. The EP should plan for a similar 18-24 month legal resolution timeline for any Chinese WTO challenge to EU steel safeguards.
+
+**WEP Assessment (MODERATE CONFIDENCE):** Steel safeguard legal challenge resolution trajectory mirrors 2002-2003 case with 60% probability.
+
+---
+
+## Reader Briefing
+
+Four historical parallels illuminate the May 2026 package: CFIUS to EU FDI Screening (30-year maturation trajectory confirms EU is on track), GDPR to AI Trade (Brussels Effect slower than EP narrative), EU-Uzbekistan 2007 to 2026 (conditionality erosion risk very high), and EU-US Steel 2002-2003 (WTO challenge resolution timeline ~21 months). The aggregate historical lesson is sobering but not pessimistic: EU legislative architecture is durable, implementation is slower than planned, and normative commitments erode when strategic interests conflict. Planning for a 5-year implementation horizon for SAFE and a 15-year horizon for FDI full maturity is historically grounded.
+
+[EXTEND-FROM-PRIOR: extended/historical-parallels.md prior=195L -> new=227L (+32)]
+
+| Source | Admiralty Grade | Description |
+|--------|----------------|-------------|
+| EP Open Data Portal | A2 | Confirmed source, probably true |
+| EP Press Releases | A1 | Confirmed source, confirmed true |
+| IMF WEO Apr 2026 | B1 | Usually reliable, confirmed true |

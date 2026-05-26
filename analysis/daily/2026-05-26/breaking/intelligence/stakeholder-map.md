@@ -253,6 +253,45 @@ Fiscal assessment: SAFE borrowing under enhanced cooperation — off-balance-she
 
 ---
 
+## Stakeholder Influence Timeline — 12-Month Forward Projection
+
+| Month | Actor | Expected Action | Influence on Outcome |
+|-------|-------|-----------------|---------------------|
+| June 2026 | Commission | Publish ISA (Investment Screening Authority) establishment roadmap | HIGH — sets FDI regulation implementation pace |
+| June-July 2026 | Steel industry | File formal safeguard activation request with Commission | MODERATE — accelerates Commission timeline |
+| July 2026 | China MFA | Issue formal diplomatic démarche on FDI regulation | LOW-MODERATE — expected; limited practical impact |
+| Q3 2026 | Hungary | Challenge FDI implementing act in Council; seek ECJ annulment | HIGH — if successful, delays implementation 12-18 months |
+| Q3 2026 | EPP leadership | Decide whether to discipline Hungarian delegation for voting against group | HIGH — precedent-setting for EP internal cohesion |
+| October 2026 | Commission | File implementing acts on steel safeguard mechanism | MODERATE-HIGH — fulfills parliamentary mandate |
+| Q4 2026 | Chinese SOEs | Announce restructuring of acquisition vehicles to comply with threshold design | MODERATE — signals accommodation rather than confrontation |
+| Q4 2026 | Afghan women's organisations | Submit evidence dossier to ICC Prosecutor | LOW-MODERATE — begins ICC timeline |
+| Q1 2027 | US State Department | Raise SAFE/Canada precedent in transatlantic trade consultations | MODERATE — could complicate SAFE expansion to UK |
+| Q1 2027 | EP INTA Committee | First scrutiny hearing on FDI regulation implementing acts | HIGH — EP oversight function activates |
+
+---
+
+## Stakeholder Coalition Fragility Assessment
+
+**Most durable coalition:** EPP-S&D on economic security legislation
+- Shared interest in industrial competitiveness protection
+- Shared post-2024 geopolitical consensus on Chinese economic coercion
+- Risk of fracture: LOW (15% probability within 18 months)
+- Trigger for fracture: If Commission over-restricts investment in ways that hurt EPP business constituency
+
+**Most fragile coalition:** EPP-Renew on SAFE instrument scope
+- Renew's economic liberalism conflicts with broad SAFE preferences
+- Risk of fracture: MODERATE (35% probability on specific votes)
+- Trigger: SAFE extension to controversial defence sectors (nuclear, offensive systems)
+
+**Wildcard actor:** ECR internal politics
+- Polish/Czech pro-security wing vs. Italian/Spanish sovereignty wing
+- Expected behavior: Increasing fragmentation as EPP-ECR competition intensifies
+- Impact on majority: Low (core majority does not require ECR)
+
+---
+
 ## Reader Briefing
 
-The stakeholder landscape for this week's EP legislative output is defined by a **functional EPP-S&D centrist coalition** on most issues, with **PfE as the coherent opposition** on defense and sovereignty questions. The SAFE Instrument is the highest-stakes stakeholder battleground: it aligns most groups but faces structured opposition from Hungary at Council level and PfE at EP level. The Afghanistan resolution represents rare near-unanimity — human rights mobilizes cross-group consensus in ways defense never fully achieves. Analysts should monitor PfE's evolving position on AI governance, where their traditional sovereignty concerns (limiting EU Commission authority) conflict with their trade-nationalist preferences (protecting EU industries from AI-enabled Asian competition).
+The stakeholder landscape for this week's EP legislative output is defined by a **functional EPP-S&D centrist coalition** on most issues, with **PfE as the coherent opposition** on defense and sovereignty questions. The SAFE Instrument is the highest-stakes stakeholder battleground: it aligns most groups but faces structured opposition from Hungary at Council level and PfE at EP level. The Afghanistan resolution represents rare near-unanimity — human rights mobilizes cross-group consensus in ways defense never fully achieves. Analysts should monitor PfE's evolving position on AI governance, where their traditional sovereignty concerns (limiting EU Commission authority) conflict with their trade-nationalist preferences (protecting EU industries from AI-enabled Asian competition). The 12-month forward projection indicates Commission implementation quality as the decisive variable — all other stakeholder actions are responses to that primary signal.
+
+[EXTEND-FROM-PRIOR: stakeholder-map.md prior=259L → new=310L (+51)]

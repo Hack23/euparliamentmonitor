@@ -200,3 +200,49 @@ Commission political capital in global tech governance peaked with GDPR enforcem
 ## Reader_Briefing
 
 The political capital risk assessment identifies **SAFE implementation failure** as the single highest political capital risk for the EPP and Commission, with a combined probability of ~30% based on ECJ challenge + scope under-shoot pathways. EPP's defense integration narrative and von der Leyen's legacy are structurally aligned with SAFE success, creating strong institutional incentive for implementation. The AI trade resolution represents a moderate capital risk for Renew Europe — their reduced seat count means they need visible policy wins to maintain coalition influence. Political capital monitoring should focus on the Hungary-ECJ filing timeline (most consequential single event) and Commission implementing act text (first substantive signal of implementation fidelity).
+
+
+---
+
+## Political Capital Risk - Re-Run Extension
+
+### Political Capital Expenditure Assessment - Re-Run Update
+
+The May 2026 session represents significant political capital expenditure by the EPP-led majority. Key political capital flows:
+
+**Political capital SPENT:**
+- EPP discipline challenge on Hungary delegation (FDI vote against group whip)
+- S&D pacifist wing management on SAFE agreement
+- Renew economic liberal wing management on FDI screening scope
+
+**Political capital GAINED:**
+- EP demonstrated capacity for high-density legislative output on strategic agenda
+- EPP reinforced leadership as economic security driver
+- S&D gained credibility on security/defense evolution
+
+**Net political capital position:** POSITIVE. The legislative output generates more political capital (visible achievement, media coverage, constituency validation) than it costs (internal group management, opposition criticism).
+
+**Risk to political capital:** Commission non-implementation of steel mandate (August 2026) would damage EP political capital by exposing legislative-to-implementation gap.
+
+[EXTEND-FROM-PRIOR: risk-scoring/political-capital-risk.md prior=unknown -> extended (+22)]
+
+## Capital Table
+
+| Actor | Capital Spent | Capital Gained | Net |
+|-------|--------------|----------------|-----|
+| EPP Group | Discipline on Hungary (HIGH) | Economic security leadership | POSITIVE |
+| S&D Group | Pacifist wing management | Defense evolution credibility | POSITIVE |
+| Renew Europe | Economic liberal wing | Digital agenda on AI trade | NEUTRAL |
+| Commission | DG TRADE bandwidth | Economic security mandate | POSITIVE |
+
+## Capital Exposure
+
+EPP has the highest political capital exposure. If the ISA is not established by January 2027, EPP loses the narrative that it can "deliver" on economic security. This would be exploited by PfE (Patriots for Europe) as evidence that EU regulation is ineffective.
+
+## Capital Flow
+
+Capital flows from legislative success → implementation credibility → political capital for next mandate. The flow breaks if implementation fails. The key bottleneck is Commission implementing act capacity (not political will).
+
+## Reader Briefing
+
+Political capital risk is MODERATE. The May 2026 legislative output generates political capital, but this capital is contingent on implementation. A failed ISA establishment would erase the gains and hand political ammunition to the far-right opposition.

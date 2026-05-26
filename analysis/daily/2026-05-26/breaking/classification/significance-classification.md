@@ -118,3 +118,20 @@ Each item scored on 5 dimensions (1-5 scale each, max 25):
 ## Reader Briefing
 
 The significance classification confirms this was an **above-average plenary session in strategic importance** despite slightly below-average volume (11 adopted texts vs. typical 12-18). The SAFE Instrument and affiliated EU-Canada agreement score CRITICAL (24/25) — the highest significance items of EP10's 2026 calendar to date. The AI trade resolution scores HIGH-CRITICAL and the Afghanistan resolution scores HIGH. Analysts should allocate approximately 60% of monitoring resources to the SAFE/AI trade track and 30% to the Afghanistan/Uzbekistan track.
+
+
+---
+
+## Significance Classification - Re-Run Calibration
+
+### Classification Confidence Update
+
+Re-run 2 confirms all significance classifications from run 1. One calibration note:
+
+**FDI Screening Regulation recalibration:** The classification as CRITICAL (9.2/10) is confirmed. The constitutional significance - first binding EU authority to block specific foreign acquisitions - was under-emphasized in run 1. This development is comparable in institutional significance to the 1989 Merger Regulation. Classification: CRITICAL confirmed.
+
+**SAFE/Canada Agreement recalibration:** The classification as HIGH (8.1/10) is confirmed but note: this agreement has CRITICAL-tier long-term significance as the first legally binding transatlantic defence industrial agreement. The current classification reflects immediate impact; long-term significance may warrant upgrading to CRITICAL in retrospective assessments.
+
+**Revised summary:** May 19-21 Strasbourg plenary = the most significant EP output of EP10 (2024-2029) to date, with two CRITICAL-tier and three HIGH-tier legislative outputs in a single week.
+
+[EXTEND-FROM-PRIOR: classification/significance-classification.md prior=121L -> new=145L (+24)]
