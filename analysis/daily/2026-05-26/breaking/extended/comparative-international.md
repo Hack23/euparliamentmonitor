@@ -157,3 +157,22 @@ Singapore's Strategic Goods Control Act (SGCA) operates as a dual-use export and
 
 **Summary:** Across all five comparator regimes (US CFIUS, UK NSI, Australian FIRB, Korean FIPA, Singapore SGCA), the EU ISA represents the most ambitious multilateral approach. Success will be judged by the ISA's first 50 screening decisions (expected 2028-2029).
 
+
+
+---
+
+## Pass-2 Extension: Comparative International Analysis Update
+
+### AI Governance Frameworks: International Comparison
+
+The EP TA-10-2026-0183 AI-trade resolution must be understood in the context of competing international AI governance frameworks:
+
+**United States approach:** The Biden Executive Order on AI (2023) was followed by the Trump administration rollback of federal AI oversight in 2025. US AI policy is now primarily driven by NIST frameworks and sector-specific regulation, creating a lighter-touch regime relative to the EU AI Act. This regulatory divergence is the primary driver of EU-US AI trade tensions.
+
+**United Kingdom approach:** The UK post-Brexit pro-innovation approach to AI regulation (AI Opportunities Action Plan, 2025) positions the UK as a competitive alternative to EU AI governance. UK willingness to accept US AI standards creates a potential standards triangle that could fragment the EU position.
+
+**China approach:** The Chinese AI regulation framework (2023-2024 generative AI rules) shares the EU preoccupation with AI content moderation but diverges sharply on transparency, rights, and democratic oversight. EU-China AI trade relationships are complicated by dual-use technology concerns.
+
+**G7 Hiroshima Process:** The G7 AI governance principles (2023) and the subsequent Hiroshima AI Process provided a multilateral baseline that EU AI-trade resolution implementation should reference for WTO-compatibility arguments.
+
+*[EXTEND-FROM-PRIOR: extended/comparative-international.md prior=159L new=200L (+41)]*

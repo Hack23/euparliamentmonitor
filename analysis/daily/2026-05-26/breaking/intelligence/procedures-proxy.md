@@ -87,3 +87,27 @@ The adopted procedures represent the visible output. This proxy analysis estimat
 **Pipeline health assessment (MODERATE CONFIDENCE):** The May 2026 output clears backlog; Q3 2026 expected to be lighter. Q4 2026 aligns with October European Council industrial competitiveness agenda.
 
 [EXTEND-FROM-PRIOR: intelligence/procedures-proxy.md prior=72L -> new=94L (+22)]
+
+
+---
+
+## Pass-2 Extension: Procedures Proxy Update
+
+**STALENESS WARNING applied | Admiralty: C4**
+
+### Mitigation Applied This Run
+
+The procedures-feed STALENESS_WARNING showing 1972-1987 historical tail was mitigated by: using get_adopted_texts(year=2026) as the primary legislative activity signal and cross-referencing procedureReference fields on the 31 adopted texts to identify active procedure IDs.
+
+### Procedure References from May 19-20 Session
+
+TA-10-2026-0174 (Uzbekistan): procedure reference eli/dl/event/2024-0260M-DEC-DCPL-2026-05-20, type Consent procedure
+TA-10-2026-0177 (Lebanon-Eurojust): procedure reference eli/dl/event/2024-0155-DEC-DCPL-2026-05-20, type Consent procedure
+TA-10-2026-0178 (Sao Tome fisheries): procedure reference eli/dl/event/2025-0202-DEC-DCPL-2026-05-20, type Consent procedure
+TA-10-2026-0179 (Cook Islands fisheries): procedure reference eli/dl/event/2025-0287-DEC-DCPL-2026-05-20, type Consent procedure
+TA-10-2026-0182 (UN GA recommendation): procedure reference eli/dl/event/2025-2167-DEC-DCPL-2026-05-20, type Own-initiative non-legislative
+TA-10-2026-0183 (AI-trade): procedure reference eli/dl/event/2025-2112-DEC-DCPL-2026-05-20, type Own-initiative non-legislative
+
+Cross-session intelligence: all May 20 procedures completed on the same day, confirming a concentrated end-of-session vote schedule rather than spread across multiple days.
+
+*[EXTEND-FROM-PRIOR: intelligence/procedures-proxy.md prior=88L new=109L (+21)]*

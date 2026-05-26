@@ -111,3 +111,24 @@ The primary EP document sources for this analysis:
 **Supplementary documents consulted:** EP press releases (May 19-21), committee rapporteur statements, EP Legal Service summaries.
 
 [EXTEND-FROM-PRIOR: documents/document-analysis-index.md prior=unknown -> extended (+22)]
+
+
+---
+
+## Pass-2 Extension: Document Analysis Index Update
+
+### Additional Document References
+
+The following documents were referenced in analysis artifacts but not individually deep-fetched due to the Stage A MCP call cap:
+
+**TA-10-2026-0183:** Available at EP website under adopted texts for term 10. The full resolution text on AI strategy for EU trade is not available in the current data extract. Analysis is based on title, subject-matter codes (TECN, INFQ), and procedure reference only. Confidence level for content-based analysis: LOW.
+
+**TA-10-2026-0161:** Full text on Russia/Ukraine accountability available via EP Plenary documents portal but not retrieved in this run. Analysis is based on the title pattern consistent with previous Ukraine accountability resolutions from this series.
+
+**TA-10-2026-0174:** EU-Uzbekistan Enhanced Partnership text not retrieved. Analysis based on the known EU Central Asia strategy framework and precedent from the EU-Kazakhstan partnership structure.
+
+### Stage A Document Coverage Rationale
+
+The Stage A MCP cap of 5 calls was reached after the four core data-gathering calls. Deep-fetching individual document texts would have required additional calls beyond the cap. The adopted-texts metadata (title, date, procedure reference, subject matter) provides sufficient basis for analytical coverage at degraded-feeds quality level.
+
+*[EXTEND-FROM-PRIOR: documents/document-analysis-index.md prior=113L new=133L (+20)]*

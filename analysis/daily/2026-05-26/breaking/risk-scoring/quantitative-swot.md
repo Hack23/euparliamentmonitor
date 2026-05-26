@@ -195,3 +195,24 @@ SWOT scores confirmed from run 1. Re-run extension adds precision to opportunity
 **Net SWOT Position:** Strengths + Opportunities significantly outweigh Weaknesses + Threats. Quantitative SWOT index: +2.8 (scale -5 to +5).
 
 [EXTEND-FROM-PRIOR: risk-scoring/quantitative-swot.md prior=unknown -> extended (+22)]
+
+
+---
+
+## Pass-2 Extension: SWOT Update — May 2026 Session
+
+### Updated TOWS Cross-Quadrant Strategies
+
+**SO (Strengths x Opportunities) Strategy:**
+The EP demonstrated centre-coalition cohesion (strength) on the AI-trade resolution at the moment of peak digital competitiveness urgency (opportunity). The strategic recommendation is to move rapidly from resolution to legislative proposal: EP should press the Commission for a formal legislative initiative on AI trade standards within the three-month response window, converting the political momentum into institutional durable frameworks.
+
+**ST (Strengths x Threats) Strategy:**
+Strong centre coalition (strength) against WTO standards challenge (threat). The EP and Commission should coordinate to pre-frame the AI-trade guidelines as legitimate regulatory objectives under TBT Agreement Article 2.2, establishing a defensive legal record before any WTO challenge is filed.
+
+**WO (Weaknesses x Opportunities) Strategy:**
+Degraded data quality for this run (weakness) amid ongoing legislative activity (opportunity). For the next breaking news run, address the plenary session date-filter issue in get_plenary_sessions to ensure session metadata is available for real-time legislative tracking.
+
+**WT (Weaknesses x Threats) Strategy:**
+No RCV data available (weakness) combined with coalition fracture risk (threat). The structural proxy analysis provides insufficient confidence in coalition stability estimates. Recommendation: delay major coalition assessments until DOCEO RCV data for May 19-20 is published, approximately mid-June 2026.
+
+*[EXTEND-FROM-PRIOR: risk-scoring/quantitative-swot.md prior=196L new=217L (+21)]*

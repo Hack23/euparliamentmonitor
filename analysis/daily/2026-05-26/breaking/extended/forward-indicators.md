@@ -220,3 +220,34 @@ This single signal will determine whether the implementation race is running on 
 [EXTEND-FROM-PRIOR: extended/forward-indicators.md prior=199L -> new=224L (+25)]
 
 **WEP Assessment:** Likely (65-75% probability that the described trends will materialize within the 12-month forecast window). Confidence calibrated to available EP open-data evidence.
+
+
+---
+
+## Pass-2 Extension: Forward Indicators Update
+
+**WEP: Probably (55-70%) | Admiralty: B3**
+
+### Leading Indicators for AI-Trade Strategy Track
+
+Positive indicators to monitor:
+- Commission issues formal reply letter to EP INTA within 4 weeks: high-probability positive signal (60%)
+- AI Office publishes AI-trade standards working group terms of reference within 8 weeks: moderate probability (45%)
+- EU-India FTA digital chapter explicitly references AI governance standards: moderate probability for next negotiating round (40%)
+
+Negative indicators (early warning):
+- US USTR publishes formal objection to EU AI-trade standard framework within 60 days: low probability (15%) but high impact
+- Commission Work Programme 2027 published without AI-trade action item: moderate probability (30%), high impact on EP credibility
+- EPP-S&D split on related digital legislation before September 2026: low probability (20%) but would undermine coalition signal
+
+### Leading Indicators for EU-Uzbekistan Partnership Track
+
+Positive indicators:
+- Council ratification process launched within 3 months: high probability (75%)
+- Uzbekistan announces concrete reform measure citing EU partnership: moderate probability (35%)
+
+Negative indicators:
+- Freedom House downgrades Uzbekistan score by 5+ points within 12 months: low probability (20%)
+- EU member state raises human rights concern blocking Council ratification: very low probability (8%)
+
+*[EXTEND-FROM-PRIOR: extended/forward-indicators.md prior=222L new=243L (+21)]*

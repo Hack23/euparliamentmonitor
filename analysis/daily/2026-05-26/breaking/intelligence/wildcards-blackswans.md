@@ -271,3 +271,14 @@ The wild-card assessment for this week's EP legislative output identifies **Chin
 With the extended wild card set, the composite probability rises to approximately **48%** — a 1-in-2 chance that at least one scenario materializes within 24 months. The EU's legislative ambition significantly exceeds its implementation track record, making wild card materialisation more likely than comfortable. Analysts should prioritise steel sector collapse (W-7) and SAFE expansion (W-8) monitoring given their higher probabilities and systemic impact.
 
 [EXTEND-FROM-PRIOR: wildcards-blackswans.md prior=225L → new=278L (+53)]
+
+
+---
+
+## ⚡ Pass-2 Update: Additional Low-Probability/High-Impact Scenarios
+
+### Wildcard: Sudden AI Regulatory Divergence
+
+Following TA-10-2026-0183 (AI/trade strategy), a unilateral US trade action targeting EU AI standards could rapidly invalidate the EP's framework. *Probability: 🔴 Very Low (8–12%) | Impact: 🔴 Extreme*
+
+**Trigger:** US USTR filing WTO challenge against EU AI Act provisions as non-tariff barriers within 90 days of May 20 adoption.

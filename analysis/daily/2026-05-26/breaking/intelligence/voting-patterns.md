@@ -182,3 +182,24 @@ graph LR
 ## Reader Briefing
 
 In the absence of DOCEO roll-call data (publication lag: 3-5 business days after May 19-21 plenary), voting pattern analysis relies on structural modeling. Key findings: the SAFE instrument passed with an estimated **409-240 margin** (not overwhelming, but decisive); AI trade was near-consensus with **~486-163**; Afghanistan was near-unanimous at **~600**. The divergence between these coalitions demonstrates that EP10's voting architecture is **multi-modal** — defense questions split along sovereignty lines while human rights mobilizes cross-partisan consensus. Analysts should obtain actual DOCEO data when published (est. May 26-28) to verify these estimates.
+
+
+---
+
+## Pass-2 Extension: Bloc Behaviour Analysis — May 2026
+
+**Structural proxy — no RCV data | Confidence: MEDIUM**
+
+### Inferred Cohesion Assessment by Political Group
+
+EPP (188 seats): AI-Trade Cohesion HIGH — the EP largest group has consistently supported digital competitiveness since EP10 start under Manfred Weber leadership. Foreign Affairs Cohesion HIGH — EPP supports EU external partnership frameworks as instruments of EU geopolitical influence. Overall cohesion estimated HIGH.
+
+S&D (136 seats): AI-Trade Cohesion HIGH — the AI-trade resolution incorporates social standards language (workers rights in AI-driven trade processes) that secured S&D support. Foreign Affairs Cohesion HIGH — S&D supports multilateral frameworks and EU neighbourhood engagement. Overall cohesion estimated HIGH.
+
+Renew Europe (77 seats): AI-Trade Cohesion HIGH — the liberal market and digital economy agenda is a core Renew priority that aligns with the resolution competitiveness focus. Foreign Affairs Cohesion HIGH. Overall cohesion estimated HIGH.
+
+Greens/EFA (53 seats): AI-Trade Cohesion MEDIUM — the AI sustainability framing in the resolution provides a hook for Greens support, but precautionary concerns about algorithmic trade decision-making may have produced some abstentions. Foreign Affairs Cohesion MEDIUM — Greens support democratic neighbourhood engagement but raise human rights conditionality concerns. Overall cohesion estimated MEDIUM.
+
+ECR (78 seats): AI-Trade Cohesion MIXED — sovereignty concerns about EU AI regulation constraining national economic policy, but some ECR members align on competitiveness against China and the United States. Overall cohesion estimated MEDIUM with significant internal division.
+
+*[EXTEND-FROM-PRIOR: intelligence/voting-patterns.md prior=184L new=205L (+21)]*

@@ -137,3 +137,38 @@ Significance scores confirmed from prior run with re-run calibration:
 **Aggregate session significance score: 7.8/10** - Highest single-session EP output since the Digital Markets Act adoption (March 2022, 9.4/10). Context: typical plenary scores 5.5-6.5/10.
 
 [EXTEND-FROM-PRIOR: intelligence/significance-scoring.md prior=120L -> new=143L (+23)]
+
+
+---
+
+## Pass-2 Extension: Significance Scoring Detail
+
+### Top-3 High-Significance Acts — Scoring Detail
+
+Act: TA-10-2026-0183 (AI and EU Trade Strategy)
+Political Impact: 5 — sets EU trade policy framework for AI era
+Novelty: 5 — first EP resolution explicitly linking AI governance to trade competitiveness
+Breadth: 4 — affects all sectors using AI in export-import chains
+Time-Sensitivity: 4 — Commission Work Programme 2027 window approaching
+Media Salience: 4 — high tech sector interest, strong MEP communication
+Total: 22 out of 25 — HIGH significance
+
+Act: TA-10-2026-0161 (Russia/Ukraine accountability)
+Political Impact: 5 — directly addresses ongoing armed conflict accountability
+Novelty: 3 — continuation of existing EP resolution thread
+Breadth: 5 — affects EU foreign policy, defence, and justice dimensions
+Time-Sensitivity: 5 — active conflict with ongoing war crimes documentation
+Media Salience: 4 — high media interest; Russia-Ukraine remains top EU political story
+Total: 22 out of 25 — HIGH significance
+
+Act: TA-10-2026-0174 (EU-Uzbekistan Enhanced Partnership)
+Political Impact: 4 — significant for EU Central Asia strategy
+Novelty: 4 — first enhanced partnership with Uzbekistan
+Breadth: 3 — primarily affects EU-Central Asia trade and political relations
+Time-Sensitivity: 3 — ratification timeline flexible
+Media Salience: 3 — moderate specialist interest
+Total: 17 out of 25 — MEDIUM-HIGH significance
+
+Publish decision: All acts above 15/25 threshold warrant news coverage.
+
+*[EXTEND-FROM-PRIOR: intelligence/significance-scoring.md prior=138L new=159L (+21)]*

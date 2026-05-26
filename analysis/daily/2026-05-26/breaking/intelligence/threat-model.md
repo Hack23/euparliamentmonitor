@@ -256,3 +256,26 @@ The threat model for this week's EP legislative output identifies **Commission i
 
 
 **WEP Assessment:** Likely (65-75% probability that the described trends will materialize within the 12-month forecast window). Confidence calibrated to available EP open-data evidence.
+
+
+---
+
+## Pass-2 Extension: Threat Model Update
+
+**Admiralty: B3 | WEP: Probably (55-70%)**
+
+### Attack Tree: AI-Trade Policy Capture Risk
+
+The adoption of TA-10-2026-0183 creates a new regulatory attack surface in which industry actors can seek to shape the Commission implementation in ways that favour dominant incumbents over new market entrants or public interest goals. This is a known pattern from GDPR implementation (2018-2021) where large platforms shaped guidance documents through regulatory capture of national data protection authorities.
+
+Threat vectors:
+- Big Tech lobbying of DG TRADE during Commission response drafting
+- Trade association input shaping AI standardisation bodies (CEN/CENELEC)
+- Third-country regulatory arbitrage (non-EU AI platforms operating under weaker regimes)
+- Epistemic gap: MEP expertise on frontier AI capabilities lagging behind market developments by 18-24 months
+
+### Democratic Accountability Analysis
+
+The Russia accountability resolution (TA-10-2026-0161, April 30) and the Armenian democratic resilience resolution (TA-10-2026-0162) reflect the EP persistent engagement with democratic backsliding in the EU neighbourhood. The threat to effectiveness is high: EP resolutions historically achieve measurable policy change in target countries in approximately 15-20% of cases. The primary defensive value is normative rather than instrumental.
+
+*[EXTEND-FROM-PRIOR: intelligence/threat-model.md prior=258L new=279L (+21)]*

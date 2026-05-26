@@ -246,3 +246,28 @@ Capital flows from legislative success → implementation credibility → politi
 ## Reader Briefing
 
 Political capital risk is MODERATE. The May 2026 legislative output generates political capital, but this capital is contingent on implementation. A failed ISA establishment would erase the gains and hand political ammunition to the far-right opposition.
+
+
+---
+
+## Pass-2 Extension: Political Capital Risk Assessment Update
+
+### AI-Trade Strategy Political Capital Dynamics
+
+The adoption of TA-10-2026-0183 creates political capital risk for:
+
+**INTA Committee rapporteur (identity unknown):** If the Commission response is weak or delayed, the rapporteur who invested political capital in the resolution faces reputational risk. The three-month response window is a key monitoring point.
+
+**EP President Metsola:** By publicly endorsing the EP competitiveness agenda, she is personally invested in the AI-trade framework delivering results. A Commission non-response would erode her institutional credibility.
+
+**EPP Group Weber:** Weber publicly championed the competitiveness agenda as EP10 strategic priority. A failure of TA-10-2026-0183 to generate Commission action would be interpreted as a setback for his group agenda.
+
+### Immunity Waiver Political Capital Risk (TA-10-2026-0166)
+
+The waiver of Nikos Pappas immunity creates political capital risk for:
+
+**S&D Group:** Pappas is a Greek S&D MEP. The group faced the political choice between solidarity with a member and adherence to judicial cooperation principles. The decision to not oppose the waiver reflects the group calculation that resistance would have greater reputational cost than the precedent.
+
+**JURI Committee:** The JURI committee recommendation for the waiver demonstrates its willingness to facilitate member state judicial proceedings. This strengthens the committee institutional credibility but creates precedent pressure for future immunity cases.
+
+*[EXTEND-FROM-PRIOR: risk-scoring/political-capital-risk.md prior=248L new=269L (+21)]*

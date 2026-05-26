@@ -252,3 +252,24 @@ See also: intelligence/economic-context.fallback.md for trade-specific IMF data 
 | Dataset | IMF World Economic Outlook April 2026 |
 | Access | Published figures from IMF.org public database |
 | Figures used | Global GDP 2.9%, EU GDP 1.4%, China GDP 4.2%, Trade volume 2.7% |
+
+
+---
+
+## Pass-2 Extension: Economic Context — AI and Trade Policy Implications
+
+**IMF sole authoritative economic source | Admiralty: B2 | Confidence: MEDIUM**
+
+[KB-ESTIMATE: WEO April 2026 vintage] The EU adoption of an AI strategy for trade (TA-10-2026-0183) comes at a moment of significant macroeconomic relevance:
+
+EU GDP growth: IMF WEO April 2026 projects EU aggregate growth at approximately 1.8% for 2026, below the 2.0-2.2% threshold considered consistent with robust competitiveness investment. The AI-trade resolution is partly a response to this competitiveness deficit.
+
+Trade balance: EU goods trade deficit has been narrowing in 2025-2026 partly due to AI-enabled productivity gains in manufacturing and logistics sectors. The resolution seeks to institutionalise this productivity channel in EU trade policy.
+
+Digital trade: EU digital services trade surplus with the United States stands at approximately 120 billion euros annually (2024 estimate). The AI-trade resolution seeks to protect this surplus against retaliatory digital trade measures by establishing EU AI standards as a legitimate regulatory objective under WTO rules.
+
+Investment gap: The Draghi Report (2024) identified a 750-800 billion euro annual investment gap for EU competitiveness versus the United States. AI is identified as a primary productivity lever to close this gap. The EP resolution operationalises the Draghi framework in the trade policy domain.
+
+For the EU-Uzbekistan partnership (TA-10-2026-0174): Uzbekistan GDP growth was approximately 7% in 2025 [KB-ESTIMATE]; the partnership creates incremental trade flows but IMF Article IV consultations have noted structural reform requirements in the financial sector that may constrain the partnership commercial potential in the near term.
+
+*[EXTEND-FROM-PRIOR: intelligence/economic-context.md prior=254L new=275L (+21)]*

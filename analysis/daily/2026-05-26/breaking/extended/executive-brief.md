@@ -161,3 +161,28 @@ This executive brief is designed for senior EU policy analysts and decision-make
 This extended executive brief provides senior decision-makers with the action tables and monitoring calendar missing from the core brief. The three critical decisions identified above represent the minimum agenda for EU institutional actors in the 90 days following the May plenary. The monitoring calendar should be integrated into institutional risk management frameworks for all stakeholders with exposure to EU economic security legislation.
 
 [EXTEND-FROM-PRIOR: extended/executive-brief.md prior=120L -> new=181L (+61)]
+
+
+---
+
+## Pass-2 Extension: Extended Executive Brief Update
+
+### Operational Intelligence for EU Decision-Makers
+
+**Immediate actions required (0-30 days):**
+
+1. Commission DG TRADE: Initiate internal scoping study on TA-10-2026-0183 implementation options; identify lead official for Commission response
+2. EP INTA Committee: Issue formal EP position letter to Commission formalising the TA-10-2026-0183 request within the Article 225 TFEU framework
+3. EU AI Office: Map intersection between AI Act implementing acts timeline and the AI-trade strategy requests in TA-10-2026-0183
+
+**Medium-term monitoring (30-90 days):**
+
+1. Track Commission Work Programme 2027 consultation (expected June-July 2026): ensure AI-trade action item is included
+2. Monitor US USTR response to EU AI-trade standards signalling: any WTO Technical Barriers to Trade notification would be an early warning of escalation
+3. Track EU-Uzbekistan ratification progress in Council: the consent procedure is complete on the EP side; the ball is now in the Council court for ratification of the enhanced partnership framework
+
+**Geopolitical context:**
+
+The May 2026 session occurred during the EU summer legislative calendar transition, with the next full plenary scheduled for June. The inter-session period is when Committee work advances and the Commission prepares its Work Programme response window. Intelligence monitoring priority should shift to Commission internal communications on the AI-trade response during this period.
+
+*[EXTEND-FROM-PRIOR: extended/executive-brief.md prior=162L new=183L (+21)]*

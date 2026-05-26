@@ -290,3 +290,24 @@ This section provides a structured monthly update protocol for monitoring scenar
 All probabilities carry ±10% epistemic uncertainty reflecting limited data availability. Scenario 1 (managed implementation) remains the base case but requires active confirmation. Scenario 4 (delayed fragmentation) is the most likely failure mode and should be explicitly planned for by EP oversight committees.
 
 [EXTEND-FROM-PRIOR: scenario-forecast.md prior=273L → new=289L (+16)]
+
+
+---
+
+## Pass-2 Extension: AI-Trade Strategy Scenario Probabilities
+
+**WEP: Probably (55-70%) | Admiralty: B3**
+
+**Scenario A: Commission adopts EP framework fully (35% probability)**
+- Trigger: Commission Communication aligned with TA-10-2026-0183 by Q3 2026
+- Indicators: DG TRADE budget reallocation for AI capacity; EEAS coordination on digital trade chapters in free trade agreements
+
+**Scenario B: Partial implementation with modifications (50% probability)**
+- Trigger: Commission proposes legislative measure drawing on EP resolution but narrowing scope
+- Indicators: Council working group discussions on digital trade; G7 AI process alignment; US-EU bilateral AI governance dialogue
+
+**Scenario C: EP resolution remains non-binding advisory only (15% probability)**
+- Trigger: Commission deprioritises AI-trade in Work Programme 2027
+- Indicators: Budget constraints from EU fiscal framework; trade partner objections at WTO dispute bodies; US-EU trade tensions escalating over AI Act provisions
+
+*[EXTEND-FROM-PRIOR: intelligence/scenario-forecast.md prior=291L new=312L (+21)]*

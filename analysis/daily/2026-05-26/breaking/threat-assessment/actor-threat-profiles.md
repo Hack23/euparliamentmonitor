@@ -285,3 +285,29 @@ Once established, the ISA faces structural incentives to expand its mandate and 
 ## Reader Briefing
 
 The primary threat actors are external (China MOFCOM) and internal/member-state (Hungary). Far-right EP groups pose low procedural threat but meaningful narrative threat. The combination of Chinese pressure + Hungarian internal obstruction is the most likely disruptive scenario.
+
+
+---
+
+## Pass-2 Extension: Actor Threat Profiles Update
+
+### Profile Update: Big Tech as AI-Trade Policy Threat Actor
+
+Following TA-10-2026-0183 adoption, large technology companies (US-headquartered, notably in cloud computing and large language model sectors) emerge as the primary corporate policy-capture threat actor vis-a-vis the EP AI-trade framework implementation.
+
+Intent: Shape Commission response to TA-10-2026-0183 in ways that entrench incumbents and raise barriers for EU AI startups under the guise of AI standardisation.
+Capability: HIGH — extensive Brussels lobbying presence, direct relationships with DG TRADE staff, participation in European standardisation bodies (CEN, CENELEC), and ability to shape the AI Office agenda.
+Opportunity: HIGH — Commission response drafting phase is the primary policy window.
+Attack surface: DG TRADE consultation processes, AI Office working groups, EP ITRE and INTA committee expert hearings.
+
+Mitigation: Mandatory transparency register disclosure for AI lobbying contacts; balanced expert panel composition; EP institutional memory of GDPR regulatory capture lessons.
+
+### Profile Update: Russian State as Democratic Disruption Actor
+
+The April 2026 urgency resolution on Russia and Ukraine accountability (TA-10-2026-0161) elevates Russia state actors on the EP threat landscape. Russian strategic communication targeting EP members who support the accountability framework — through disinformation and selective leaks — is an active and documented threat pattern.
+
+Intent: Weaken EP normative pressure on Russia accountability by delegitimising the resolution authors and generating internal EP division.
+Capability: MEDIUM — reduced since 2022 expulsion of Russia-funded EP networks, but persistent social media and alternative media operations remain.
+Opportunity: MEDIUM — the inter-session recess (May 26 onwards) reduces EP counter-response bandwidth.
+
+*[EXTEND-FROM-PRIOR: threat-assessment/actor-threat-profiles.md prior=287L new=308L (+21)]*

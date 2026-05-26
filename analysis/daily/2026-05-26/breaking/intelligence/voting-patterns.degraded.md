@@ -126,3 +126,55 @@ Hungary's voting pattern — against FDI regulation, against SAFE, abstaining on
 The reconstructed voting pattern confirms a **structurally stable but not unassailable EPP-S&D-Renew majority** governing the May 2026 legislative output. The core coalition's internal discipline — EPP's trade-hawk wing aligning with S&D's security-realists despite ideological distance — reflects the post-2024 geopolitical consensus that economic security legislation is politically necessary. The primary risk to implementation is not parliamentary reversal but coalition fragmentation at the Council level, where Hungary's isolation is more consequential than its isolation in the EP chamber.
 
 [EXTEND-FROM-PRIOR: voting-patterns.degraded.md prior=0L → new=155L (+155)]
+
+---
+
+## ⚙️ Pass-2 Extension: Structural Coalition Analysis — May 2026 Session
+
+**STRUCTURAL PROXY — NO RCV DATA (expected DOCEO lag)**
+
+The May 19-20, 2026 plenary session produced eight adopted texts, all requiring at least simple majority (≥353 MEPs). Based on subject-matter codes and historical bloc patterns:
+
+### Coalition Inference from Subject-Matter Codes
+
+| Adopted Text | Subject Code | Likely Coalition | Centre-Right Bloc | Centre-Left Bloc |
+|---|---|---|---|---|
+| TA-10-2026-0183 (AI/Trade) | TECN, INFQ | Pro-competitiveness majority | EPP ✅ Renew ✅ | S&D likely ✅ |
+| TA-10-2026-0174 (Uzbekistan) | EXT | Broad foreign affairs majority | EPP ✅ | S&D ✅ ECR likely ✅ |
+| TA-10-2026-0182 (UN GA) | EXT | Near-unanimous | All mainstream groups | All mainstream groups |
+| TA-10-2026-0168 (Forestry) | SILV, SEME | Agriculture majority | EPP ✅ S&D likely ✅ | Greens/EFA ? |
+| TA-10-2026-0177 (Lebanon/Eurojust) | COJP, EXT | Justice majority | EPP ✅ Renew ✅ S&D ✅ | — |
+
+*All confidence labels capped at 🟡 MEDIUM per degraded-voting protocol. Structural proxy — no RCV data.*
+
+### Forward Monitor
+
+Next plenary (estimated June 2026): Full RCV data expected to be published for May 19-20 session by ~June 15-20, 2026 (per 2-4 week DOCEO lag pattern).
+
+
+---
+
+## Structural Proxy Coalition Diagram
+
+The following diagram illustrates estimated coalition alignments based on structural seat-count proxies. These are not derived from DOCEO roll-call data (not yet published for the May 19-20, 2026 session).
+
+```mermaid
+graph LR
+    EPP[EPP 188 seats] -->|coalition| AI_TRADE[TA-10-2026-0183 Adopted]
+    SD[S&D 136 seats] -->|coalition| AI_TRADE
+    RENEW[Renew 77 seats] -->|coalition| AI_TRADE
+    ECR[ECR 78 seats] -->|partial support| AI_TRADE
+    GREENS[Greens/EFA 53 seats] -->|opposition| AI_TRADE
+    LEFT[The Left 46 seats] -->|opposition| AI_TRADE
+    PFE[Patriots 84 seats] -->|abstain| AI_TRADE
+    ESN[ESN 25 seats] -->|abstain| AI_TRADE
+    NI[NI 29 seats] -->|split| AI_TRADE
+    style AI_TRADE fill:green,color:white
+    style EPP fill:blue,color:white
+    style SD fill:red,color:white
+    style RENEW fill:gold,color:black
+```
+
+*Confidence: LOW — structural proxy only. DOCEO RCV data not yet published (2-4 week publication lag expected).*
+
+*[EXTEND-FROM-PRIOR: intelligence/voting-patterns.degraded.md pass3 mermaid-diagram-added]*
