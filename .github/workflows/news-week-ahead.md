@@ -2,6 +2,13 @@
 name: "News: EU Parliament Week Ahead — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered week-ahead article (Stages A → B → C → D → E in one workflow).
 strict: false
+# gh-aw v0.76+ checkout config — full-history clone for the agent job so
+# `git log`, `git merge-base`, and safe-outputs diff/base computations
+# do not race `git fetch --unshallow`. Shallow-clone races against
+# concurrent commits to `main` were a secondary trigger for the host-side
+# PAT fallback firing on otherwise-healthy runs.
+checkout:
+  fetch-depth: 0
 on:
   schedule: weekly on friday around 7am  # fuzzy: scatters within ±1h of 07:00 UTC Fridays to avoid load spikes
   workflow_dispatch:

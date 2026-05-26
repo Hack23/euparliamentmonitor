@@ -2,6 +2,13 @@
 name: "News: EU Parliament Committee Reports — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered committee-reports article (Stages A → B → C → D → E in one workflow).
 strict: false
+# gh-aw v0.76+ checkout config — full-history clone for the agent job so
+# `git log`, `git merge-base`, and safe-outputs diff/base computations
+# do not race `git fetch --unshallow`. Shallow-clone races against
+# concurrent commits to `main` were a secondary trigger for the host-side
+# PAT fallback firing on otherwise-healthy runs.
+checkout:
+  fetch-depth: 0
 on:
   schedule:
     - cron: "0 4 * * 1-5"  # weekdays around 04:00 UTC

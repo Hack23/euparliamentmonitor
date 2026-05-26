@@ -9,6 +9,13 @@ description: |
   scripts/validate-brief-translations.js so the workflow body stays focused
   on AI orchestration.
 strict: false
+# gh-aw v0.76+ checkout config — full-history clone for the agent job so
+# `git log`, `git merge-base`, and safe-outputs diff/base computations
+# do not race `git fetch --unshallow`. Shallow-clone races against
+# concurrent commits to `main` were a secondary trigger for the host-side
+# PAT fallback firing on otherwise-healthy runs.
+checkout:
+  fetch-depth: 0
 on:
   # 3 scheduled runs / day at 06:30, 12:30, 18:30 UTC, staggered against
   # article-generation workflows (which cluster around the top of each hour

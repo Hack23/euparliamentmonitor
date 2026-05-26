@@ -394,7 +394,18 @@ while IFS= read -r file; do
   case "$file" in
     analysis/daily/*|news/*|analysis/translation-runs/*)
       case "$file" in
-        *.lock|.github/*|.github/workflows/*.lock.yml|node_modules/*)
+        # Protected / never-eligible paths:
+        #   * lock files — must never be force-pushed
+        #   * .github/** — workflow drift would be invisible
+        #   * gh-aw compiled locks
+        #   * vendored deps
+        #   * Pre-fetched EP Open Data Portal feed JSONs under
+        #     analysis/<date>/<slug>/data/ — they are large
+        #     (meps-feed.json alone is ≈8 MB), gitignored, and pushed
+        #     them up the bundle path past the 10 MB safe-outputs cap,
+        #     which is the original reason the PAT fallback fires.
+        #     Re-staging them here would just recreate the bloat.
+        *.lock|.github/*|.github/workflows/*.lock.yml|node_modules/*|analysis/daily/*/data/*|analysis/daily/*/*/data/*)
           printf '%s\n' "$file" >> "$disallowed_changed"
           ;;
         *)
@@ -463,7 +474,36 @@ if [ -z "$headline" ]; then
   fi
 fi
 
-title="[news] $headline"
+# Slug → emoji icon. Keep this aligned with the
+# news-unified-stages.md Stage E spec so the bundle path and the PAT
+# fallback path produce identical-looking PRs.
+case "$slug" in
+  breaking)        slug_icon="📰" ;;
+  motions)         slug_icon="🗳️" ;;
+  week-ahead)      slug_icon="📅" ;;
+  forecasts)       slug_icon="🔮" ;;
+  digest)          slug_icon="📋" ;;
+  committees)      slug_icon="🏛️" ;;
+  questions)       slug_icon="❓" ;;
+  declarations)    slug_icon="📑" ;;
+  delegations)     slug_icon="🌍" ;;
+  procedures)      slug_icon="⚖️" ;;
+  propositions)    slug_icon="💡" ;;
+  voting-rcv)      slug_icon="🗳️" ;;
+  political-groups) slug_icon="🤝" ;;
+  events)          slug_icon="📆" ;;
+  translate)       slug_icon="🌐" ;;
+  *)               slug_icon="📰" ;;
+esac
+
+case "$gate_result" in
+  PASS|pass|Pass) gate_icon="✅" ;;
+  WARN|warn|Warn) gate_icon="⚠️" ;;
+  FAIL|fail|Fail) gate_icon="❌" ;;
+  *)              gate_icon="❔" ;;
+esac
+
+title="${slug_icon} [news/${slug}] ${headline}"
 
 fallback_reason="safeoutputs MCP session expired with \`session not found\`"
 if [ "$session_not_found" = false ] && [ "$has_recovery_patch" = true ]; then
@@ -474,25 +514,64 @@ elif [ "$session_not_found" = false ] && [ "$safe_outputs_failed" = true ] && [ 
   fallback_reason="safe_outputs create_pull_request failed with bundle only and no patch (bundle prerequisite race; applying aw-agent-recovery.patch from workspace git diff)"
 fi
 
+# Inventory of what was staged, for the body summary.
+eligible_total=$(wc -l < "$eligible_changed" | awk '{print $1}')
+disallowed_total=0
+if [ -s "$disallowed_changed" ]; then
+  disallowed_total=$(wc -l < "$disallowed_changed" | awk '{print $1}')
+fi
+article_files=$(grep -cE '^(analysis/daily/[^/]+/[^/]+/article(\.[a-z]+)?\.md|news/.+\.md)$' "$eligible_changed" || true)
+analysis_files=$(grep -cE '^analysis/daily/[^/]+/[^/]+/(intelligence|classification|risk-scoring|threat-assessment|economic-context|stage-[a-e]|manifest)\.' "$eligible_changed" || true)
+translation_files=$(grep -cE '^analysis/daily/.+/executive-brief_[a-z]+\.md$' "$eligible_changed" || true)
+
 cat > "$body_file" <<EOF_BODY
-Host-side PAT fallback created this PR after the normal gh-aw safeoutputs PR creation path failed.
+# ${slug_icon} ${headline}
 
-- Workflow: $workflow_name
-- Run: $run_url
-- Branch: $branch
-- Article type: $slug
-- Analysis directory: $analysis_dir
-- Gate result: $gate_result
-- Fallback reason: $fallback_reason
-- Fallback credential: \`COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN\` from the host workflow environment
+> **Host-side PAT fallback** — this PR was created by \`scripts/gh-aw-pat-pr-fallback.sh\` because the normal gh-aw \`safe_outputs.create_pull_request\` path could not land the bundle. The eligible workspace diff was rescued and pushed via the host PAT so the run is not lost.
 
-Changed file summary:
+## 📊 Summary
+
+| Field | Value |
+| --- | --- |
+| Article type | \`${slug}\` ${slug_icon} |
+| Date | \`${today}\` |
+| Gate result | ${gate_icon} \`${gate_result}\` |
+| Analysis directory | \`${analysis_dir}\` |
+| Branch | \`${branch}\` |
+| Workflow | \`${workflow_name}\` |
+| Run | [${GITHUB_RUN_ID:-unknown}](${run_url}) |
+| Created by | Host-side PAT fallback (\`COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN\`) |
+
+## 🛟 Fallback reason
+
+${fallback_reason}
+
+## 📁 Staged paths
+
+- Eligible files staged: **${eligible_total}**
+- Analysis artifacts: **${analysis_files}**
+- Article / news Markdown: **${article_files}**
+- Translation files: **${translation_files}**
+- Disallowed paths left unstaged: **${disallowed_total}** (lock files, \`.github/**\`, \`analysis/**/data/**\`, \`node_modules/**\`, …)
 
 \`\`\`
 $(cat "$stat_file")
 \`\`\`
 
-The fallback stages only eligible \`analysis/daily/**\`, \`analysis/translation-runs/**\`, and \`news/**\` paths, leaves protected paths unstaged, and reuses an existing open PR for this branch when present.
+## 🔎 What the fallback does
+
+The fallback stages only eligible \`analysis/daily/**\`, \`analysis/translation-runs/**\`, and \`news/**\` paths (Markdown + manifest sidecars). It explicitly skips:
+
+- compiled gh-aw lock files (\`.github/workflows/*.lock.yml\`)
+- anything under \`.github/**\` (workflow drift would be invisible)
+- pre-fetched EP Open Data Portal feed JSONs under \`analysis/**/data/**\` (large raw API dumps that previously pushed patches over the gh-aw 10 MB cap)
+- \`node_modules/**\` and other vendored dirs
+
+When an open PR already exists for this branch it is reused — only the title and body are refreshed.
+
+---
+
+<sub>🤖 Generated by \`scripts/gh-aw-pat-pr-fallback.sh\` · Stability docs: \`.github/workflows/shared/config/news-pat-pr-fallback.md\`</sub>
 EOF_BODY
 
 git commit -m "news: publish $slug fallback output for $today"
