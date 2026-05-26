@@ -329,11 +329,7 @@ function containsEpToken(text: string): boolean {
  * @param titleBudget - Per-script `<title>` budget (60 latin / 30 cjk / 55 rtl)
  * @returns Title padded to the SERP floor when feasible
  */
-export function padTitleToFloor(
-  title: string,
-  lang: LanguageCode,
-  titleBudget: number
-): string {
+export function padTitleToFloor(title: string, lang: LanguageCode, titleBudget: number): string {
   const trimmed = title.trim();
   if (!trimmed) return trimmed;
   const family = classifyScript(lang);
@@ -369,10 +365,7 @@ export function padTitleToFloor(
  * @param lang - Target language code
  * @returns Description padded to the SERP-fill floor when feasible
  */
-export function padDescriptionToFloor(
-  description: string,
-  lang: LanguageCode
-): string {
+export function padDescriptionToFloor(description: string, lang: LanguageCode): string {
   const trimmed = description.trim();
   if (!trimmed) return trimmed;
   const family = classifyScript(lang);
@@ -444,10 +437,7 @@ export function composeContextualDescription(
   // safe.
   const floor = DESCRIPTION_SERP_FILL_FLOOR[family];
   const beforePad = parts.join(' ').trim();
-  if (
-    [...beforePad].length < floor &&
-    !containsNormalized(beforePad, labels.reader)
-  ) {
+  if ([...beforePad].length < floor && !containsNormalized(beforePad, labels.reader)) {
     parts.push(labels.reader);
   }
   // Per-script clamp. `clampForBudget` honours `budgetFor(lang,

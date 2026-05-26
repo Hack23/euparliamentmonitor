@@ -399,8 +399,7 @@ export function composeContextualDescription(lang, baseDescription, editorial, d
     // safe.
     const floor = DESCRIPTION_SERP_FILL_FLOOR[family];
     const beforePad = parts.join(' ').trim();
-    if ([...beforePad].length < floor &&
-        !containsNormalized(beforePad, labels.reader)) {
+    if ([...beforePad].length < floor && !containsNormalized(beforePad, labels.reader)) {
         parts.push(labels.reader);
     }
     // Per-script clamp. `clampForBudget` honours `budgetFor(lang,
