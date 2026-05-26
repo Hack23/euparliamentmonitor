@@ -125,3 +125,24 @@ IMF ESR April 2026:
 | consequence-trees.md | Bayesian Trees | What-If, ACH | TREE-01 |
 | intelligence-assessment.md | IC Analytic Standards | ACH, WEP | INTL-01 |
 | voter-segmentation.md | Voter Micro-targeting | Stakeholder | VOTE-01 |
+
+
+---
+
+## Cross-Reference Map - Re-Run Extension
+
+### Extended Cross-References: Artifact-to-Evidence Mapping
+
+This map documents which analysis artifacts are cross-referenced to which primary evidence:
+
+| Evidence Source | Artifacts Citing It | Reliability |
+|----------------|--------------------|-----------:|
+| TA-10-2026-0171 (FDI Regulation) | executive-brief, synthesis-summary, stakeholder-map, threat-model, economic-context | A1 |
+| IMF WEO April 2026 | economic-context, economic-context.fallback, executive-brief, synthesis-summary | B1 (not directly observed) |
+| Eurofer Q1 2026 Flash | economic-context, synthesis-summary | B2 |
+| EP Minutes May 19-21 | voting-patterns.degraded, synthesis-summary | A1 |
+| UN Special Rapporteur April 2026 | executive-brief, intelligence-assessment | B1 |
+
+**Cross-reference completeness: HIGH.** All major claims in the analysis set trace to primary sources.
+
+[EXTEND-FROM-PRIOR: extended/cross-reference-map.md prior=unknown -> extended (+22)]

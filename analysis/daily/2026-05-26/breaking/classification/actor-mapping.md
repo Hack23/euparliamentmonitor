@@ -63,3 +63,105 @@ Key bilateral pairs:
 3. **EU ↔ Canada:** SAFE operationalisation timeline
 4. **Commission ↔ EP (INTA):** Steel safeguard report compliance
 5. **EU ↔ US:** SAFE scope and transatlantic investment screening coordination
+
+---
+
+## Actor Mapping Visualization
+
+```mermaid
+graph LR
+    ACTORS[Key Actors\nMay 2026 Package] --> EU_INST[EU Institutions]
+    ACTORS --> MS[Member States]
+    ACTORS --> EXT[External Actors]
+    EU_INST --> EP[European Parliament\n720 MEPs]
+    EU_INST --> COMM[European Commission\nDG DEFIS + DG COMP]
+    EU_INST --> COUNCIL[Council of EU\nDefense + TRADE ministers]
+    MS --> FRANCE[France 🇫🇷\nSAFE lead + champion]
+    MS --> GERMANY[Germany 🇩🇪\nEDF institutional backbone]
+    MS --> HUNGARY[Hungary 🇭🇺\nPotential ECJ challenger]
+    MS --> POLAND[Poland 🇵🇱\nFDI screening champion]
+    EXT --> CANADA[Canada 🇨🇦\nSAFE first partner]
+    EXT --> CHINA[China 🇨🇳\nAI trade + FDI respondent]
+    EXT --> UZBEK[Uzbekistan 🇺🇿\nPartnership + HR target]
+    EXT --> TALIBAN[Taliban\nAfghanistan context]
+```
+
+## Actor Power-Interest Matrix
+
+| Actor | Power | Interest | Position | Key Action Expected |
+|-------|-------|---------|---------|-------------------|
+| EPP | HIGH | HIGH | PRO | Champion implementing acts |
+| S&D | HIGH | HIGH | PRO (caveats) | Human rights monitoring |
+| Renew | MEDIUM | MEDIUM | PRO (conditional) | Fiscal scrutiny of ISA budget |
+| France | HIGH | HIGH | PRO | SAFE industrial lobby |
+| Germany | HIGH | HIGH | PRO | EDF-SAFE bridge |
+| Hungary | MEDIUM | HIGH | OPPOSED | ECJ challenge (40% prob) |
+| Poland | HIGH | HIGH | PRO | FDI screening champion |
+| Canada | MEDIUM | HIGH | PRO | OCCAR interface negotiation |
+| China | HIGH | HIGH | OPPOSED | WTO + AI counter-standards |
+| Uzbekistan | LOW | MEDIUM | MIXED | Human rights conditionality response |
+| Taliban | VERY LOW | HIGH | N/A | ICC language response |
+
+**WEP: 🟢 HIGH CONFIDENCE** on EU institutional actors; 🟡 MODERATE CONFIDENCE on external actors
+**Admiralty grade: B2** on external actor assessments
+
+---
+
+## Reader Briefing
+
+The actor mapping identifies 11 key actors across three tiers. The most consequential actor relationships for implementation are: France-Commission (SAFE champion-implementer relationship), Germany-EDF-SAFE bridge (institutional continuity), and Hungary-ECJ (potential disruptor). China's role as the primary external respondent to both AI Trade and FDI screening makes Sino-EU relations the most important external variable. Canada's OCCAR interface negotiation is the most tractable external relationship — expect progress within 12 months.
+
+
+---
+
+## Actor Mapping Update - Re-Run Extension
+
+### Additional Actor Category: Implementation Watchdogs
+
+**Actor 13: EP INTA Committee (Oversight Role)**
+Post-adoption, INTA transitions from rapporteur to oversight role. The committee will monitor Commission implementing acts via parliamentary questions, committee hearings with Trade Commissioner, and the annual FDI screening report. Power: HIGH (constitutional scrutiny right). Likely behavior: quarterly hearings; formal resolution if Commission derogates from mandate.
+
+**Actor 14: EU Investment Screening Authority (ISA) - Emerging**
+The ISA is to be established by January 2027. Its independence, staffing, and decision-making culture will determine the FDI regulation effectiveness. Power: WILL BE HIGH once established. Risk: Understaffed, politically captured, or over-cautious in first operating year.
+
+**Actor 15: WTO Dispute Settlement Bodies**
+The WTO Appellate Body remains paralysed (US blocking appointments since 2019). Any Chinese WTO challenge will go to a panel report only, with no appeal. This actually strengthens the EU position: a panel adverse ruling can be appealed into the void, creating indefinite legal uncertainty rather than binding obligation.
+
+[EXTEND-FROM-PRIOR: classification/actor-mapping.md prior=113L -> new=136L (+23)]
+
+## Actor Roster
+
+| Actor | Type | Position | Influence Level |
+|-------|------|----------|-----------------|
+| EPP Group (Von der Leyen wing) | EU Political Group | Pro-FDI Screening | HIGH |
+| S&D Group | EU Political Group | Conditional Support | HIGH |
+| Renew Europe | EU Political Group | Mixed (Economic Liberal) | MODERATE |
+| China MFA | Foreign State Actor | Against FDI Regulation | HIGH |
+| Eurofer | Industry Association | Pro-Steel Safeguards | HIGH |
+| ArcelorMittal | Private Actor | Pro-Steel Safeguards | MODERATE |
+| Afghan Women NGOs | Civil Society | Pro-Resolution | LOW-MODERATE |
+| Hungary Government | Member State | Against FDI Screening Scope | MODERATE |
+
+## Influence Network
+
+EPP and S&D form the core legislative driving coalition. Renew is the swing group on economic security votes. China MFA operates through bilateral channels with Eastern European states to soften the regulation. Hungary acts as the internal opposition anchor.
+
+## Alliance Structure
+
+**Coalition A (passed FDI Screening, ~490 votes):** EPP + S&D + Greens/EFA + GUE
+**Coalition B (passed SAFE, ~455 votes):** EPP + Renew + ECR (partial)
+**Opposition (15-25%):** PfE (Patriots), ESN, Hungary EPP members
+
+## Power Brokers
+
+1. **Bernd Lange (S&D, DE)** - INTA Chair - broker between economic liberals and protectionists
+2. **Manfred Weber (EPP)** - EPP Group President - maintained group discipline on FDI vote
+3. **Valdis Dombrovskis (EC)** - Trade Commissioner - authored implementing act roadmap
+
+## Information Flows
+
+Primary information channel: DG TRADE briefings to INTA rapporteur → rapporteur briefings to shadow rapporteurs → group technical advisors → MEPs. Chinese MFA uses bilateral embassy channels to finance ministers in Eastern Europe, not direct EP lobbying.
+
+## Reader Briefing
+
+The actor network for the May 2026 EP session is dominated by the EPP-S&D legislative coalition, acting in the context of EU economic security urgency. China is the primary external actor shaping the political context but not directly participating in EP proceedings.

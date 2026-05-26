@@ -98,6 +98,39 @@ has no pre-fetched equivalent), log an explicit acknowledged exception:
 ```
 This exception must appear in `intelligence/mcp-reliability-audit.md`.
 
+### Rule 2a — Persistent degraded feeds (May 2026 known-issues table)
+
+The following EP API feeds are documented as **persistently degraded**
+across `intelligence/mcp-reliability-audit.md` runs in April–May 2026
+(see `analysis/daily/2026-05-2*/`). Do **not** spend Stage A invocations
+re-probing these feeds when their pre-fetched placeholder is already on
+disk — instead call the named fallback tool **once** to recover the
+missing data, then proceed to Stage B.
+
+| Degraded feed (placeholder on disk) | Failure mode | Canonical Stage A fallback (1 MCP call) |
+|---|---|---|
+| `procedures-feed.json` | Historical-tail ordering — items dated 1972–1990 (`STALENESS_WARNING`) | `get_adopted_texts(year=YYYY)` — cross-reference `procedureReference` field on each adopted text |
+| `events-feed.json` | HTTP 404 from `/events/?view-version=v2.1` | `get_plenary_sessions(dateFrom=D-14)` — paginated non-feed endpoint, unaffected by the events 404 |
+| `committee-documents-feed.json` | HTTP 404 or empty fixed-window response | `get_committee_documents(limit=50)` — direct paginated endpoint |
+| `documents-feed.json` | HTTP 404 from enrichment layer | `get_adopted_texts_feed(timeframe=one-week)` for adopted output; `get_external_documents(limit=50)` for Council/Commission docs |
+| `external-documents-feed.json` | Zero-item windows (freshness ambiguity) | `get_external_documents(limit=50)` paginated endpoint |
+| DOCEO roll-call votes (any week within last 4 weeks) | Expected 2–4 week DOCEO XML publication lag — **not a failure** | Do not retry within window; declare `degraded-voting` in `manifest.dataMode` |
+
+**Highest-reliability EP endpoint (A2 grade, ~90% success):**
+`get_adopted_texts(year=YYYY, limit=50)` — direct, paginated, non-feed.
+Every analysis run that lost primary feed coverage in May 2026 recovered
+its analytical floor by calling this tool once. The `breaking`,
+`committee-reports`, `motions`, `propositions`, `month-in-review`,
+`quarter-in-review`, `week-in-review`, and `year-in-review` slugs already
+pre-fetch the `adopted-texts` feed. Backward-looking review slugs that
+need legislative substance and currently rely on procedures/documents
+feeds alone should add `adopted-texts` to their prefetch list.
+
+**Do not** spend a 6th invocation on the same degraded feed after the
+prefetch placeholder is on disk — the placeholder is the authoritative
+"this feed is unavailable for this run" signal. The fallback tool above
+is the only call that recovers analytical floor in degraded-feeds mode.
+
 ### Rule 3 — Stage B write-first with thresholds cache (no re-reads per artifact)
 
 At the **start of Stage B** (before writing any artifact), call:

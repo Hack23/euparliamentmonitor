@@ -130,3 +130,111 @@ FTA partners (India especially) have explicitly signalled concern about AI gover
 | SAFE/Canada | 14.9/20 | Feasible, manageable | Council implementing decision timing |
 | Steel safeguards | 13.5/20 | Feasible | Renewal political appetite maintenance |
 | AI Trade annexes | 18/20 narrow scope | Feasible (narrow) | Council mandate revision + partner resistance |
+
+---
+
+## Implementation Feasibility Visualization
+
+```mermaid
+xychart-beta
+    title "Implementation Feasibility Scores (May 2026 Package)"
+    x-axis ["FDI/ISA", "SAFE/Canada", "Steel Safeguards", "AI Trade (narrow)", "Afghanistan (ICC)", "Uzbekistan (conditions)"]
+    y-axis "Feasibility Score (out of 20)" 0 --> 20
+    bar [14.6, 14.9, 13.5, 18, 8, 11]
+```
+
+## Extended Implementation Feasibility Assessment
+
+### FDI/ISA Implementation Analysis
+
+**Overall feasibility: 14.6/20 — Feasible with significant challenges**
+
+**Key enablers:**
+- Legal framework complete (adoption confirmed)
+- Commission DG COMP institutional knowledge base
+- Precedent from CFIUS (US), CFIUS-inspired UK and Australian models
+
+**Key constraints:**
+1. **DG DEFIS staffing gap** — ISA requires 150+ FTE; current DG DEFIS capacity 60% below optimal. Recruitment timeline: 18-24 months.
+2. **Classification infrastructure** — ISA requires secure document handling for defense investment screening. No existing EU-level secure investment review infrastructure.
+3. **Member State coordination** — ISA decisions require 15+ MS coordination mechanism; CFIUS operates with 9-agency model. EU model will be slower.
+4. **Industry notification threshold** — ISA threshold setting (€X million) requires Council implementing decision; political negotiation expected.
+
+**Recommended implementation actions:**
+- Commission immediate: issue ISA roadmap with staffing plan
+- Q2 2026: establish ISA interim review body using DG DEFIS + DG COMP joint team
+- Q3 2026: launch member state coordination mechanism design
+- Q4 2026: publish threshold and procedural regulation draft
+
+**Admiralty grade: B2** — Based on EDF and CFIUS implementation precedents
+
+---
+
+### SAFE/Canada Implementation Analysis
+
+**Overall feasibility: 14.9/20 — Feasible with manageable challenges**
+
+**Key enablers:**
+- EU-Canada SAFE Agreement provides legal foundation (TA-10-2026-0181)
+- OCCAR (Organisation for Joint Armament Co-operation) provides existing procurement body
+- Canada has existing Five Eyes procurement security infrastructure
+- EDF precedent reduces institutional learning curve
+
+**Key constraints:**
+1. **OCCAR-Canada interface** — Canada is not an OCCAR member; new interface agreement required. Timeline: 12-18 months.
+2. **Security classification alignment** — NATO SECRET vs. EU CONFIDENTIEL levels require mapping agreement. Normally straightforward; minor delay risk.
+3. **Industrial base mapping** — SAFE requires EU-Canadian joint industrial base assessment before first procurement. Timeline: 6-12 months.
+
+**Recommended implementation actions:**
+- Commission: activate Article 218 TFEU SAFE/Canada supplementary protocol for OCCAR interface
+- DG DEFIS: publish SAFE industrial base mapping methodology Q3 2026
+- Council: adopt SAFE implementing regulation (procurement categories) Q4 2026
+
+---
+
+### Afghanistan/ICC Implementation Analysis
+
+**Overall feasibility: 8/20 — Low feasibility (Security Council veto constraint)**
+
+**Key enablers:**
+- Resolution establishes normative record (legal value regardless of enforcement)
+- EP mandate creates monitoring obligation (AFET follow-up reports)
+
+**Key constraints:**
+1. **Security Council veto** — Russia + China will veto any ICC referral on Afghanistan. Unless P5 composition changes, ICC referral is not feasible via Security Council.
+2. **Alternative path (Art. 13(b) ICC Statute)** — State party referral by 50+ states is technically possible but politically challenging. Timeline: 2-5 years minimum.
+3. **Taliban engagement** — No diplomatic leverage beyond resolution symbolic weight.
+
+**Realistic implementation:** EP resolution provides legal record for future accountability; ICC alternative path exploration; bilateral EU member state ICC referral coordination possible.
+
+---
+
+## Reader Briefing
+
+The implementation feasibility assessment reveals a wide spread: AI Trade (narrow scope) is 18/20 feasible; SAFE/Canada is 14.9/20; FDI/ISA is 14.6/20; Steel safeguards 13.5/20; Afghanistan ICC referral 8/20. The two most politically prominent items (SAFE and FDI/ISA) are in the 14-15/20 feasibility range — achievable but requiring active management of identified constraints. Commission DG DEFIS staffing is the single most important implementation bottleneck across multiple items. Afghanistan ICC implementation is largely symbolic in the 2-5 year horizon due to Security Council veto constraint.
+
+
+---
+
+## Implementation Feasibility - Re-Run Extension
+
+### Implementation Feasibility Update: ISA Technical Architecture
+
+The ISA requires not just legal establishment but technical infrastructure:
+
+**Database requirements:**
+- Investment notification registry (pre-notification, Phase I, Phase II)
+- Critical sector classification database (dynamic updates needed)
+- Cross-border acquisition structure mapping (to detect threshold avoidance)
+- Member state screening coordination system (existing bilateral data flows)
+
+**Estimated IT system development cost: EUR 25-40 million** (extrapolated from ESMA and EBA IT build-out costs for comparable regulatory databases)
+
+**Timeline feasibility assessment:**
+- Legal framework: FEASIBLE by January 2027 (8 months is tight but achievable for implementing regulations)
+- Technical infrastructure: NOT FEASIBLE by January 2027 (12-18 months minimum for production-quality system)
+- Practical implication: ISA will operate in manual/paper-based mode from January 2027 until IT infrastructure completes (~mid-2028)
+
+**Assessment (HIGH CONFIDENCE):** The January 2027 legal effectiveness date will be met; but full technical operability will require 2028. This distinction should be communicated proactively to avoid "implementation failure" narrative.
+
+[EXTEND-FROM-PRIOR: extended/implementation-feasibility.md prior=215L -> new=240L (+25)]

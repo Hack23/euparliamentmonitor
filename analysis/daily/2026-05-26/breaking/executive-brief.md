@@ -105,3 +105,91 @@ The May 2026 plenary reflects a European Parliament increasingly comfortable wie
 ---
 
 *Sources: EP Official Records (Admiralty A1); IMF World Economic Outlook April 2026 (Admiralty A2); UN Special Rapporteur report April 2026 (Admiralty B2); EP plenary vote records May 19-21, 2026.*
+
+---
+
+## Executive Brief Visualization
+
+```mermaid
+flowchart LR
+    SESSION[May 19-21 Plenary\n11 items] --> TIER1[TIER 1 CRITICAL\n2 items]
+    SESSION --> TIER2[TIER 2 HIGH\n4 items]
+    SESSION --> TIER3[TIER 3 MODERATE\n5 items]
+    TIER1 --> SAFE[SAFE Instrument\nDefense procurement]
+    TIER1 --> EUCAN[EU-Canada SAFE\nFirst ally partner]
+    TIER2 --> AI[AI Trade Strategy]
+    TIER2 --> AFGH[Afghanistan resolution]
+    TIER2 --> UZBEK[EU-Uzbekistan CPCA]
+    TIER2 --> EUROJUST[Eurojust-Lebanon]
+    TIER3 --> OTHER[Fisheries + Immunity\n+ UNGA]
+```
+
+## Extended Executive Analysis
+
+### Strategic Assessment
+
+The May 19-21 EP plenary session represents the single most strategically significant week in the EP10 term's economic security agenda. The combination of SAFE adoption, EU-Canada SAFE agreement, and AI Trade Strategy in the same 72-hour window is not coincidental — it is the culmination of a 15-month legislative programme coordinated by EPP President Roberta Metsola and Commission President von der Leyen.
+
+**Why this matters for the EU's global position:**
+Three doctrinal shifts are now legally operative:
+1. **Defense autonomy doctrine**: EU can now fund and coordinate defense procurement independently of NATO procurement processes (complementary to, not competing with, NATO).
+2. **Economic security doctrine**: FDI screening + SAFE + AI trade governance = a three-layer economic security architecture that was legally incomplete before May 2026.
+3. **Values-based conditionality**: Afghanistan ICC language + Uzbekistan CPCA conditionality = strengthened but still imperfect human rights enforcement architecture.
+
+### Timeline to Impact
+
+| Impact type | Timeline | Probability | Key dependencies |
+|------------|---------|------------|----------------|
+| SAFE legal framework operational | Immediate | 100% CONFIRMED | None — already adopted |
+| ISA first review decisions | 12-18 months | 70% | Commission implementing acts |
+| First SAFE procurement contract | 24-36 months | 55% | OCCAR interface + Canada agreement |
+| AI Brussels Effect first evidence | 36-60 months | 45% | Bilateral dialogue success |
+| Afghanistan ICC referral filed | 24-60 months | 25% | Security Council composition change |
+
+### Immediate Action Priorities
+
+**For EU Institutions (first 30 days):**
+1. Commission: Launch DG DEFIS ISA implementation roadmap
+2. AFET/INTA: Request Commission informal consultation on implementing acts scope
+3. EP Legal Affairs: Prepare ECJ challenge defence brief (proactive)
+4. Council: Schedule SAFE/Canada OCCAR interface negotiating mandate
+
+**For EU Policy Analysts (first 30 days):**
+1. Monitor: Hungarian government statement on SAFE (ECJ challenge signal)
+2. Track: Commission DG DEFIS work programme update (June 2026)
+3. Watch: China Ministry of Commerce statement on AI Trade resolution
+4. Document: NATO informal reaction to SAFE scope (transatlantic coherence)
+
+**WEP: 🟢 HIGH CONFIDENCE** on immediate action priorities
+**Admiralty grade: A1** on confirmed facts; B2 on probabilistic projections
+
+---
+
+## Reader Briefing
+
+This executive brief synthesizes intelligence from all 47 analysis artifacts for the May 2026 breaking session. The core message is: **the EU has adopted a legally complete economic security architecture; implementation success depends on three variables (Commission capacity, China response, Hungary ECJ)**. The brief is designed to be read as a stand-alone 5-minute document for senior decision-makers, with the full artifact set providing supporting evidence for each claim. All forward-looking assessments are explicitly probability-weighted with WEP labels and Admiralty grades. Confidence: HIGH on factual record; MODERATE on impact projections (reflecting genuine 12-36 month uncertainty).
+
+
+---
+
+## Executive Brief - Re-Run Update (Run 2: 2026-05-26)
+
+### Re-Run Summary
+
+This is the second run of breaking news analysis for the May 19-21, 2026 Strasbourg plenary. The re-run adds deeper analysis on implementation risks, coalition mathematics precision, and forward indicator calibration.
+
+**Key updates in re-run:**
+1. **Risk scoring recalibrated:** AI subsidiary circumvention risk elevated to 9.1/10 (highest risk this session)
+2. **Coalition mathematics updated:** Three scenarios modeled with probability estimates (65% full delivery, 25% partial, 10% fracture)
+3. **Implementation feasibility added:** ISA IT infrastructure gap identified - legal effectiveness by Jan 2027 but technical operability delayed to ~mid-2028
+4. **Forward indicator table added:** 7 measurable indicators with expected dates for Q3-Q4 2026 monitoring
+5. **Devil's advocate analysis completed:** Three counter-arguments evaluated and addressed
+
+**Overall assessment maintained:** TRANSFORMATIVE-SIGNIFICANT. Six legislative outputs in one session is historically unusual and reflects the political urgency of EU economic security in 2026. Implementation remains the critical uncertainty.
+
+**Action items for monitoring (top 3):**
+1. Commission ISA roadmap (June 2026) - most critical near-term signal
+2. Steel safeguard decision (August 2026) - tests whether resolution mandate translates to action
+3. Chinese MFA official response (June-July 2026) - tests whether diplomatic channel holds
+
+[EXTEND-FROM-PRIOR: executive-brief.md prior=unknown -> extended (+27)]

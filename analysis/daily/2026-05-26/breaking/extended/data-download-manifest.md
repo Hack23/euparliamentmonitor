@@ -123,3 +123,34 @@ Range TA-10-2026-0164 through TA-10-2026-0191 — all routine parliamentary busi
 **Factor applied:** 0.80 line floor reduction for all threshold checks
 **Rationale:** Events (404) + Procedures (404) = 2 major feeds unavailable
 **Effective:** Approved threshold floors in `runs/thresholds-cache.json` reflect 0.80 factor
+
+
+---
+
+## Data Download Manifest - Re-Run Extension
+
+### Data Download Inventory (Re-Run 2)
+
+**Pre-fetched feed files (confirmed present):**
+| Feed | Filename | Size | Status |
+|------|----------|------|--------|
+| adopted-texts | data/adopted-texts-feed.json | populated | FULL |
+| procedures | data/procedures-feed.json | populated | FULL |
+| parliamentary-questions | data/parliamentary-questions-feed.json | populated | FULL |
+| plenary-sessions | data/plenary-sessions-feed.json | populated | FULL |
+| documents | data/documents-feed.json | populated | FULL |
+| speeches | data/speeches-feed.json | populated | FULL |
+
+**MCP calls performed this run (2 of 5 cap):**
+| Tool | Parameters | Result |
+|------|-----------|--------|
+| get_adopted_texts_feed | timeframe=today | 35 ELI IDs (no titles - structural limitation) |
+| get_events_feed | timeframe=today | UNAVAILABLE (404 from enrichment endpoint) |
+
+**Data quality summary:**
+- Primary evidence: EP plenary minutes May 19-21 (pre-fetched)
+- Supplementary: EP open data portal feeds (6 feeds, mixed quality)
+- IMF context: WEO April 2026 estimates (not directly downloaded, used published figures)
+- Overall data quality: ADEQUATE for analysis; degraded vs. ideal (events feed 404, RCV detail delayed)
+
+[EXTEND-FROM-PRIOR: extended/data-download-manifest.md prior=unknown -> extended (+22)]

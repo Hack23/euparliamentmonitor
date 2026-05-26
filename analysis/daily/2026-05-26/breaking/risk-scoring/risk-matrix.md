@@ -96,3 +96,139 @@ High risk zone (score ≥ 10): R1, R2, R5, R9
 2. Commission implementing acts are drafted in good faith (likelihood 65%): Reduction occurs, but not systematic undermining of EP mandate
 3. China's economic interests in EU market constrain rare earth weaponisation (likelihood 80%): Based on 2010-2025 historical pattern of rare earth use as signal, not sustained weapon
 4. ISA can be staffed adequately from existing EU agency personnel pipeline (likelihood 55%): Uncertain — cybersecurity and AI expertise are scarce in EU public sector
+
+---
+
+## Risk Matrix Visualization
+
+```mermaid
+quadrantChart
+    title Risk Matrix: Probability vs. Severity (May 2026 Legislative Package)
+    x-axis Low Severity --> High Severity
+    y-axis Low Probability --> High Probability
+    quadrant-1 Manage Actively
+    quadrant-2 Monitor
+    quadrant-3 Accept
+    quadrant-4 Contingency Plan
+    Commission-capacity-gap: [0.7, 0.75]
+    MS-implementation-delay: [0.6, 0.75]
+    China-AI-counter-campaign: [0.65, 0.8]
+    Hungary-ECJ-challenge: [0.8, 0.4]
+    US-sanctions-EU-defense: [0.95, 0.05]
+    PfE-amendment-flood: [0.55, 0.65]
+    Taliban-NGO-expulsion: [0.65, 0.45]
+    Rare-earth-restriction: [0.85, 0.25]
+```
+
+## Extended Risk Assessment
+
+### Risk R-1: Commission Implementing Acts Scope Under-Shoot (HIGH RISK)
+
+**Description:** Commission publishes SAFE implementing acts that significantly narrow the EP mandate — either due to industry lobbying, legal caution, or institutional capacity limitations.
+
+**Probability:** 45% | **Severity:** MEDIUM-HIGH | **WEP: 🟡 MODERATE CONFIDENCE**
+
+**Materialization indicators:**
+- Commission Legal Service issues "interpretive note" narrowing definition of "joint procurement"
+- DG DEFIS annual work programme shows fewer implementing acts than EP expected
+- Draft implementing act leaks show omission of key EP provisions
+
+**Risk treatment:** Monitor DG DEFIS communications; request EP AFET/INTA informal consultation before formal implementing act adoption; prepare EP scrutiny resolution if scope is narrowed.
+
+**Admiralty grade: B2** — Based on EDF implementing acts precedent (usually reliable source, probably accurate extrapolation)
+
+---
+
+### Risk R-2: Council Unanimity Bottleneck on Sanctions (HIGH RISK)
+
+**Description:** Council is unable to reach unanimity on Afghanistan sanctions escalation and EU-Uzbekistan human rights conditionality enforcement due to Hungarian veto.
+
+**Probability:** 50% | **Severity:** MEDIUM (for human rights track) | **WEP: 🟢 HIGH CONFIDENCE**
+
+**Materialization indicators:**
+- Hungary announces opposition to Afghanistan sanctions at General Affairs Council
+- No Council working group meeting on Central Asia sanctions in Q3 2026
+- Commission fails to publish sanctions proposal within 6 months of EP resolution
+
+**Risk treatment:** Commission proposes enhanced cooperation among willing member states; or activates Article 31(3) TEU constructive abstention mechanism; or shifts to autonomous EP sanctions recommendation (non-binding but reputationally significant).
+
+**Admiralty grade: A1** — Hungary veto pattern is confirmed institutional behavior
+
+---
+
+### Risk R-3: Chinese AI Standards Counter-Campaign Accelerates (HIGH RISK)
+
+**Description:** China accelerates bilateral AI governance agreements with African Union, ASEAN, and SCO members that explicitly exclude EU audit and transparency requirements.
+
+**Probability:** 65% (already underway) | **Severity:** MEDIUM-HIGH | **WEP: 🟡 MODERATE CONFIDENCE**
+
+**Materialization indicators:**
+- China-AU AI governance MoU signed before EU bilateral dialogues launch
+- ASEAN AI governance framework published without EU standards reference
+- SCO AI cooperation agreement (Chinese draft) circulated to members
+
+**Risk treatment:** Emergency priority for EU DG TRADE AI bilateral dialogues; link to existing economic partnership agreements; offer technical assistance to developing nations on EU-compatible AI governance.
+
+**Admiralty grade: B2** — Based on Chinese MIIT documents and Belt and Road digital standards precedent
+
+---
+
+### Risk R-4: Hungary ECJ Challenge (HIGH RISK)
+
+**Description:** Hungary files ECJ challenge to SAFE enhanced cooperation legal basis, creating 3-5 year legal uncertainty for implementing acts.
+
+**Probability:** 40% | **Severity:** HIGH | **WEP: 🟡 MODERATE CONFIDENCE**
+
+**Materialization indicators:**
+- Hungarian government Minister for Justice announces "legal concerns" about SAFE
+- Hungarian ruling coalition passes parliamentary resolution opposing SAFE
+- Hungary initiates pre-filing consultation with European Court registrar
+
+**Risk treatment:** Commission pre-emptive legal opinion publication; PESCO-SAFE overlap documentation demonstrating valid legal basis; Article 46 TEU expert legal support from EP Legal Affairs Committee.
+
+**Admiralty grade: C2** — Inferred from Hungarian political behavior pattern; no confirmed filing yet
+
+---
+
+## Aggregate Risk Profile
+
+**Overall risk score: MEDIUM-HIGH (Risk-adjusted implementation probability: 60-70%)**
+
+The aggregate risk profile confirms that SAFE implementation faces significant but manageable risks. No single risk vector has high probability + high severity in combination sufficient to derail the entire package. The most dangerous combination (China AI counter-campaign + Commission scope under-shoot + Hungary ECJ) has a correlated probability of ~25%.
+
+**WEP: 🟡 MODERATE CONFIDENCE on aggregate assessment**
+
+---
+
+## Reader Briefing
+
+The risk matrix identifies four priority risks requiring active management, all in the MEDIUM-HIGH category: Commission implementing acts scope under-shoot (45% probability), Council unanimity bottleneck on sanctions (50%), Chinese AI standards counter-campaign (65%), and Hungary ECJ challenge (40%). None individually is likely to cause complete implementation failure, but their positive correlation creates a ~25% combined disruption risk. Risk treatment priorities should be sequenced as: legal hardening (Hungary ECJ deterrence) → AI bilateral dialogue launch (time-sensitive window) → Commission implementing acts monitoring → Council alternative mechanisms for sanctions. All assumptions underlying this matrix are explicitly stated with WEP confidence bands and Admiralty grades.
+
+
+---
+
+## Risk Matrix Update - Re-Run Extension
+
+### New Risk Entries from Re-Run Analysis
+
+| Risk ID | Description | Probability | Impact | Risk Score | Owner |
+|---------|-------------|-------------|--------|------------|-------|
+| R-NEW-1 | ISA establishment delay (>Jan 2027) | 55% | HIGH | 8.25/10 | Commission |
+| R-NEW-2 | AI subsidiary circumvention of FDI screening | 70% | HIGH | 9.1/10 | ISA+Commission |
+| R-NEW-3 | Steel sector collapse cascade | 12% | CRITICAL | 8.4/10 | Commission+Council |
+| R-NEW-4 | EU-US AI standards rupture | 8% | CRITICAL | 7.6/10 | DG TRADE |
+
+**Highest overall risk this session: AI subsidiary circumvention (R-NEW-2, score 9.1/10)** - This is an architectural gap in the FDI regulation that requires secondary legislation to close.
+
+**Risk mitigation priority ranking:**
+1. ISA establishment timeline (addressable now - Commission action in June 2026)
+2. AI circumvention gap (requires secondary legislation - Commission proposal needed by Q3 2026)
+3. Steel safeguard activation (time-bound mandate - August 2026 deadline)
+
+[EXTEND-FROM-PRIOR: risk-scoring/risk-matrix.md prior=205L -> new=230L (+25)]
+
+| Source | Admiralty Grade | Description |
+|--------|----------------|-------------|
+| EP Open Data Portal | A2 | Confirmed source, probably true |
+| EP Press Releases | A1 | Confirmed source, confirmed true |
+| IMF WEO Apr 2026 | B1 | Usually reliable, confirmed true |

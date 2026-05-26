@@ -9,6 +9,23 @@ description: |
   scripts/validate-brief-translations.js so the workflow body stays focused
   on AI orchestration.
 strict: false
+# Checkout (gh-aw v0.76+): full-history clone (fetch-depth: 0) is the
+# optimal setting for stability of the safe-outputs bundle path. Rationale:
+#   * `git log`, `git merge-base`, and safe-outputs base/diff computations
+#     need real history — a shallow clone forces an in-job
+#     `git fetch --unshallow` that races concurrent merges to `main` and
+#     was a documented secondary trigger of the host-side PAT-fallback
+#     firing on otherwise-healthy runs.
+#   * Real-data feeds (`analysis/**/data/**`) are gitignored and excluded
+#     by safe-outputs `excluded-files`, so full history does not grow
+#     unbounded.
+#   * The one-time clone cost is amortised across the 60-minute budget;
+#     stability >> a few seconds of checkout time for unattended cron.
+# Per the gh-aw v0.76 schema, `checkout.fetch-depth: 0` is honoured only
+# on top-level workflow files (placing it in a shared/imported config is
+# silently ignored), which is why it lives here in every news-*.md.
+checkout:
+  fetch-depth: 0
 on:
   # 3 scheduled runs / day at 06:30, 12:30, 18:30 UTC, staggered against
   # article-generation workflows (which cluster around the top of each hour
@@ -114,12 +131,17 @@ safe-outputs:
   # failure issues are noise. Suppress them (learned from riksdagsmonitor).
   report-failure-as-issue: false
   # Per-run patch ≈ 300-450 KB of markdown (no HTML, no Chart.js, no images).
-  # The gh-aw default 1024 KB is plenty but we leave headroom for catch-up
-  # days when an operator overrides max_briefs=4 (push closer to 600 KB).
-  max-patch-size: 4096
-  # Explicit file ceiling: max_briefs=4 × 13 langs = 52 files per flush.
-  # 100 gives headroom for validator reports and retry flushes.
-  max-patch-files: 100
+  # Raised to the gh-aw v0.76 schema maximum (10240 KB) for headroom on
+  # operator-driven catch-up runs and to share a single ceiling with the
+  # 14 article workflows. Real data is excluded via `excluded-files`
+  # (`analysis/daily/**/data/**`), so headroom does not weaken the
+  # "analysis artifacts only" guarantee.
+  max-patch-size: 10240
+  # Explicit file ceiling raised to the schema-unbounded "max" we standardise
+  # on across all news-* workflows. Translation flushes ≤ max_briefs × 13
+  # langs ≈ 52 files; 1000 gives ample headroom for validator reports and
+  # retry flushes without ever approaching the cap.
+  max-patch-files: 1000
   steps:
     - name: Fetch triggering commit for bundle prerequisites
       # The safe_outputs job checks out the current branch tip with
