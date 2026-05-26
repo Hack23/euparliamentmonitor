@@ -138,3 +138,29 @@ flowchart TD
 ## Reader Briefing
 
 The workflow audit confirms a degraded-feeds run with four data quality issues, all of which have been handled through documented workarounds. The analysis quality is HIGH despite degraded inputs because the adopted texts feed (the most reliable EP source) functioned correctly and provided full coverage of all May 19-21 decisions. The workflows's key risk is timeline pressure: 9 MCP calls consumed more budget than the 5-cap recommended allocation, and Stage B pass-2 extension is extensive. Elapsed-time tripwire monitoring is active.
+
+
+---
+
+## Workflow Audit - Re-Run 2 Entry
+
+**Run ID:** breaking-run272-1779803777
+**Date:** 2026-05-26
+**Stage A:** Completed (data pre-fetched; 2 MCP calls: get_adopted_texts_feed, get_events_feed)
+**Stage B:** Completed (49 artifacts; all extends and rewrites applied)
+**Stage C:** Running
+**Data Mode:** degraded-feeds (events feed unavailable, RCV delayed)
+**Re-Run Rule Applied:** Yes - prior-run-diff.json persisted; all carryForward extended; all rewrite items rewritten
+
+**MCP Calls This Run:**
+- get_adopted_texts_feed (Stage A top-up): returned ELI IDs, no titles
+- get_events_feed (Stage A top-up): unavailable (404)
+- Total EP MCP calls: 2 (within 5-call Stage A cap)
+
+**Artifact Extensions Applied:**
+- Created: voting-patterns.degraded.md (+155L), economic-context.fallback.md (+186L)
+- Extended: stakeholder-map.md (+51L), threat-model.md (+43L), wildcards-blackswans.md (+48L), synthesis-summary.md (+34L), scenario-forecast.md (+16L), pestle-analysis.md (+21L), methodology-reflection.md (+37L)
+- Extended: extended/executive-brief.md (+43L), extended/historical-parallels.md (+22L), extended/intelligence-assessment.md (+40L), extended/media-framing-analysis.md (+39L)
+- Extended: coalition-dynamics.md, cross-run-diff.md, forward-projection.md, political-threat-landscape.md, procedures-proxy.md, data-availability-assessment.md, cross-session-intelligence.md, reference-analysis-quality.md, significance-scoring.md + all remaining carryForward items
+
+[EXTEND-FROM-PRIOR: intelligence/workflow-audit.md prior=unknown -> new=extended (+22)]

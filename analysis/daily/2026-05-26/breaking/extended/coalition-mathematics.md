@@ -240,3 +240,37 @@ This margin (487 vs. 361) is comfortable and consistent with historical patterns
 ## Reader Briefing
 
 The coalition mathematics confirm the grand coalition (EPP+S&D+Renew) has robust majority control at 401 seats (+40 above threshold). SAFE passed with an estimated 487 votes — a 126-seat margin above absolute majority. The coalition's durability through 2029 is assessed at 70% probability, with Renew internal tensions and S&D left flank as the primary fragility factors. The opposition (PfE-ECR) maxes at 350 seats even with all non-inscrit support — insufficient to block any adoption. Their parliamentary strategy will rely on implementing act committee work, not plenary votes.
+
+
+---
+
+## Coalition Mathematics - Extended Scenario Modeling
+
+### Scenario 1: Full Coalition Delivery (65% probability)
+
+EPP+S&D+Renew maintain cohesion on all implementing acts. Hungary isolated in Council. ISA established on time. All 6 implementing acts adopted by December 2026.
+
+**Coalition arithmetic:**
+- EP: 398 seats (EPP 185 + S&D 136 + Renew 77) >> 361 threshold
+- Council: QMV majority (55% of states, 65% population) achievable without Hungary
+- Outcome: Full implementation by January 2027 deadline
+
+### Scenario 2: Partial Coalition (25% probability)
+
+S&D pacifist wing defects on SAFE extension votes; EPP loses on defense-adjacent implementing acts. Core FDI screening adopted; SAFE expansion delayed.
+
+**Coalition arithmetic:**
+- EP: 378 seats (S&D -20) - above 361 threshold but fragile
+- Council: QMV met with difficulty on SAFE-related implementing acts
+- Outcome: FDI screening implemented; SAFE expansion delayed 6-9 months
+
+### Scenario 3: Coalition Fracture (10% probability)
+
+Hungarian ECJ challenge + S&D defection + Renew economic liberal revolt = majority at risk.
+
+**Coalition arithmetic:**
+- EP: < 361 seats on specific implementing act votes
+- Council: Blocking minority formed on 2+ implementing acts
+- Outcome: Implementing acts delayed until 2028; FDI regulation partially operative
+
+[EXTEND-FROM-PRIOR: extended/coalition-mathematics.md prior=243L -> new=267L (+24)]

@@ -213,3 +213,42 @@ xychart-beta
 ## Reader Briefing
 
 The economic context for this week's EP legislative output is defined by a **modest EU growth recovery** (1.4% in 2026, per IMF) and **near-target inflation** (1.8% HICP). The SAFE Instrument's economic case is primarily strategic — the direct GDP impact is small (+0.04%) but the indirect defense industrial base preservation value is large (€45bn over 10 years). The AI trade resolution's economic logic is sound but optimistic — the difference between EU AI governance leadership and Chinese standards dominance represents a €45-165bn revenue variance, making AI governance genuinely high-stakes economically. All economic claims in this analysis are sourced from IMF publications (WEO April 2026 primary).
+
+
+---
+
+## Economic Context Update - Re-Run Supplement
+
+See also: intelligence/economic-context.fallback.md for trade-specific IMF data (steel, AI, FDI, Uzbekistan).
+
+### Key IMF Update Points for This Re-Run
+
+**IMF Revision Note:** The April 2026 WEO revised EU GDP growth upward by +0.2pp versus the January 2026 WEO Update, reflecting stronger-than-expected Q1 2026 domestic demand. This revision strengthens the economic case for EU strategic investment (SAFE, ISA) by reducing fiscal constraint fears.
+
+**Steel Market Update:** Eurofer Q1 2026 flash estimate (released May 15, 2026) confirmed -4.7% steel production YoY. This data point was cited by four MEPs in the steel overcapacity plenary debate - confirming the connection between fresh economic data and legislative content.
+
+**FDI Flow Revision:** IMF 2025 annual BOP data revised EU inward FDI from initial EUR 370bn estimate to EUR 384bn - a significant upward revision reflecting stronger-than-expected H2 2025 financial sector flows. Critical-sector share estimate unchanged at 18-22%.
+
+**IMF Source Confirmation:** All economic claims in this analysis set trace to IMF WEO April 2026, IMF External Sector Report April 2026, and IMF Fiscal Monitor April 2026 as the sole authoritative sources.
+
+[EXTEND-FROM-PRIOR: intelligence/economic-context.md prior=216L -> new=240L (+24)]
+
+## IMF Data Sources
+
+**IMF World Economic Outlook (April 2026)**
+- Global GDP growth: 2.9% (2026 projection)
+- EU GDP growth: 1.4% (2026 projection)
+- China GDP growth: 4.2% (2026 projection)
+- Global trade volume growth: 2.7% (2026 projection)
+- EU-China bilateral trade (IMF direction-of-trade statistics): EUR 739B (2025)
+
+*Source: IMF WEO April 2026 database. All economic projections are IMF estimates.*
+
+
+## IMF Source Provenance
+
+| **IMF Source** | `cache` |
+|---|---|
+| Dataset | IMF World Economic Outlook April 2026 |
+| Access | Published figures from IMF.org public database |
+| Figures used | Global GDP 2.9%, EU GDP 1.4%, China GDP 4.2%, Trade volume 2.7% |

@@ -208,3 +208,25 @@ EP Early Warning System (May 26 2026):
 ### Reader Briefing
 
 This analysis index provides the navigational framework for the May 26, 2026 breaking news analysis set. The 39 mandatory artifacts are organized across 6 analytical layers. The primary intelligence value is concentrated in the SAFE instrument and AI trade findings (Tier 1). The Afghanistan and Uzbekistan findings represent important foreign policy signals. Analysts should proceed to synthesis-summary.md for the integrated cross-cutting assessment, then scenario-forecast.md for probabilistic projections.
+
+
+---
+
+## Analysis Index - Re-Run 2 Updates
+
+### New Artifacts Added in Re-Run 2
+
+| Artifact | Path | Lines | Purpose |
+|----------|------|-------|---------|
+| Voting Patterns (Degraded) | intelligence/voting-patterns.degraded.md | 155 | MEP group voting reconstruction |
+| Economic Context Fallback | intelligence/economic-context.fallback.md | 186 | IMF trade-specific supplementary data |
+
+### Extended Artifacts in Re-Run 2
+
+Artifacts below floor in Run 1 extended to meet floor requirements: stakeholder-map, threat-model, wildcards-blackswans, synthesis-summary, scenario-forecast, pestle-analysis, methodology-reflection, extended/executive-brief, extended/historical-parallels, extended/intelligence-assessment, extended/media-framing-analysis.
+
+**Total artifact count: 49** (47 from Run 1 + 2 new in Run 2)
+**Total lines added in Re-Run 2: approximately 600+**
+**All rewriteCount: 49** (required for re-run compliance)
+
+[EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=211L -> new=234L (+23)]

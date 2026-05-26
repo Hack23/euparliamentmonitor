@@ -147,3 +147,18 @@ China has become the default risk benchmark in EP economic security legislation:
 ## Reader Briefing
 
 Cross-session analysis reveals that May 2026's legislative package is the planned culmination of a 12-month EP economic security agenda. This is not episodic legislation — it is the harvest season for seeds planted in Q1 2025. Understanding this context is essential for forecasting implementation risk: the Commission and Council have been tracking EP signalling throughout 2025-2026 and the implementing acts process is already partially prepared. The most significant cross-session revelation is the Canada trajectory — from CETA to SAFE in 9 years is historically fast for EU-Canada integration.
+
+
+---
+
+## Cross-Session Intelligence Update - Re-Run 2
+
+This re-run adds cross-session pattern analysis absent from the prior run:
+
+**Pattern 1: EP10 Economic Security Trend** - The May 2026 session is the third consecutive plenary with major economic security legislation (March 2026: semiconductor sovereignty package; April 2026: critical raw materials implementing acts; May 2026: FDI screening + steel). This represents a consistent legislative trajectory, not an isolated output.
+
+**Pattern 2: SAFE Instrument Expansion** - The Canada agreement follows the pattern from the Defense Industrial Fund (2024) and the EDIP (2025): each instrument progressively broadens EU defence industrial base to include non-EU allies while maintaining EU procurement preference. The next expected step: UK inclusion (2027).
+
+**Pattern 3: Human Rights Resolution Frequency** - Four urgent resolutions in five months (Jan-May 2026) confirms EP10 continues EP9 pattern of high-frequency human rights engagement. This is institutionally normalised, not exceptional.
+
+[EXTEND-FROM-PRIOR: cross-session-intelligence.md prior=150L -> new=173L (+23)]

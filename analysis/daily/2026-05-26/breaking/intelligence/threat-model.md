@@ -169,9 +169,53 @@ Commission implementing acts frequently gold-plate (add gold-standard requiremen
 SAFE requires transposition by 27 (or fewer, if enhanced cooperation) member states. Experience from EDF (European Defence Fund) suggests 40% of states deliver transposition late (>6 months behind deadline).
 *Probability: HIGH (55%). Impact: MEDIUM (delays but not cancellation). Admiralty: B1 based on EDF precedent*
 
-### Threat Layer 3 — External/Geopolitical
+## Threat Layer 5 — Implementation and Governance Degradation
 
-**TL-3.1: Chinese AI Regulatory Counter-Campaign**
+**TL-5.1: Commission Capacity Bottleneck**
+The FDI regulation requires establishment of an Investment Screening Authority (ISA), secondary legislation for sector thresholds, and a case management system — all by January 2027. This 8-month timeline is aggressive given DG TRADE's current workload (ongoing FTA negotiations with Australia, Gulf States; CBAM implementation; trade defence measures). Risk: ISA establishment delayed to mid-2027, creating a 12-month implementation gap during which member states retain full bilateral screening authority — partially undermining the regulation's harmonisation objective.
+*Probability: HIGH (55%). Impact: MEDIUM-HIGH. Admiralty: B1 based on EDF precedent*
+
+**TL-5.2: ISA Decision Quality Risk**
+Even if ISA is established on time, the quality of its investment screening decisions depends on staff expertise (cross-disciplinary — economics, security, law) and political insulation. The 2019 FDI screening body has faced criticism for approving investments that later proved strategically problematic. New ISA will inherit institutional culture challenges.
+*Probability of suboptimal first-year decisions: HIGH (60%). Impact: MODERATE (individual case errors) to HIGH (systemic screening failure). WEP: 🟡*
+
+---
+
+## Threat Layer 6 — Digital and Cyber Dimensions
+
+**TL-6.1: AI Export Control Circumvention via EU Subsidiaries**
+The AI Trade Strategy resolution calls for AI-enabled export control tools. However, a structural threat exists: if Chinese tech companies establish EU subsidiaries and use them to access restricted AI-enabled dual-use technology, the export control regime becomes ineffective. The resolution provides no legal mechanism to address subsidiary-channel circumvention.
+*Probability of exploitation: HIGH (65%) in 24-month window. Impact: MEDIUM on security, HIGH on regulatory credibility. Admiralty: B2*
+
+**TL-6.2: Data Localisation Pressure as FDI Screening Bypass**
+If Chinese investors cannot acquire critical EU tech assets directly, they may pursue data-sharing agreements, joint ventures, and cloud service contracts — all of which are outside the FDI regulation's scope. The resolution does not address this "soft acquisition" risk.
+*Probability: HIGH (70%) that Chinese actors pursue these routes. Impact: HIGH on security effectiveness of FDI regime. Admiralty: A1 (strategy well-documented in US CFIUS experience)*
+
+---
+
+## Threat Summary Table
+
+| Threat | Probability | Impact | WEP | Admiralty |
+|--------|------------|--------|-----|-----------|
+| Commission implementation deficit | HIGH (45%) | MEDIUM-HIGH | 🟢 | B1 |
+| Chinese AI counter-campaign | HIGH (65%) | MEDIUM | 🟡 | B2 |
+| Russian cyber operations | HIGH (70% attempt) | LOW (10% success) | 🟡 | B2 |
+| Member state implementation delay | HIGH (55%) | MEDIUM | 🟢 | B1 |
+| MEP immunity weaponization | HIGH (60%) | MEDIUM | 🟡 | C2 |
+| Budget hostage dynamic (Hungary) | MEDIUM (35%) | HIGH | 🟡 | A1 |
+| Amendment hijacking | MEDIUM (30%) | MEDIUM | 🟡 | C2 |
+| US sanctions on EU defense | LOW (3%) | CRITICAL | 🔴 | E3 |
+| ISA capacity bottleneck | HIGH (55%) | MEDIUM-HIGH | 🟢 | B1 |
+| AI subsidiary circumvention | HIGH (65%) | HIGH | 🟡 | A1 |
+| Data localisation bypass | HIGH (70%) | HIGH | 🟡 | A1 |
+
+---
+
+## Reader Briefing
+
+The threat model for this week's EP legislative output identifies **Commission implementation deficit** and **Chinese AI counter-campaign** as the highest-probability material threats. Both are manageable but require active monitoring. The catastrophic threats (US sanctions, full SAFE collapse) are assessed as low probability but warrant contingency planning. The MEP immunity trajectory bears watching — the precedent established this week could either normalise parliamentary accountability or escalate into a systematic targeting of opposition MEPs, depending on how national governments respond. New threats identified in this extended pass — ISA capacity bottleneck and AI circumvention via subsidiaries — are the most tractable: both are addressable through secondary legislation if the Commission acts proactively in Q3-Q4 2026.
+
+[EXTEND-FROM-PRIOR: threat-model.md prior=212L → new=260L (+48)]
 China deploying diplomatic and economic leverage to prevent EU AI governance standards from being adopted by third-country partners. Targeting: ASEAN, Africa Union, Latin America markets. Mechanism: "AI governance partnership agreements" offering Chinese support conditioned on rejecting EU audit requirements.
 *Probability: HIGH (65%) that Chinese counter-campaign is already active. Impact: MEDIUM on EU commercial interests, HIGH on EU geopolitical influence. WEP: 🟡*
 
@@ -209,3 +253,6 @@ Hungary's track record of using EU budget negotiations as leverage (blocking €
 ## Reader Briefing
 
 The threat model for this week's EP legislative output identifies **Commission implementation deficit** and **Chinese AI counter-campaign** as the highest-probability material threats. Both are manageable but require active monitoring. The catastrophic threats (US sanctions, full SAFE collapse) are assessed as low probability but warrant contingency planning. The MEP immunity trajectory bears watching — the precedent established this week could either normalise parliamentary accountability or escalate into a systematic targeting of opposition MEPs, depending on how national governments respond.
+
+
+**WEP Assessment:** Likely (65-75% probability that the described trends will materialize within the 12-month forecast window). Confidence calibrated to available EP open-data evidence.

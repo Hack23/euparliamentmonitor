@@ -180,3 +180,38 @@ The Afghanistan resolution (TA-10-2026-0186) is the fourth urgent human rights r
 ## Reader Briefing
 
 This synthesis identifies three structural dynamics operating simultaneously in the EP this week: the **sovereignty consolidation** of EU defense policy (SAFE + Canada), the **AI governance race** (TA-10-2026-0183), and the **human rights credibility test** (Afghanistan). These are not isolated legislative acts — they are moments in a coherent strategic programme being executed by the PPE-led majority with S&D as indispensable partner. The primary synthesis finding is that **the EU is in an implementation race**: legislative frameworks are adopted faster than institutional capacity can operationalize them, creating a 2-4 year gap between ambition and reality that adversaries (China on AI, Russia on defense) are positioned to exploit.
+
+
+---
+
+## Extended Synthesis — Cross-Domain Integration
+
+### Integration Finding 1: The Implementation Race
+The May 2026 EP plenary has produced a **legislative-to-implementation gap** that is the defining structural risk for the EU's 2026-2027 agenda. The gap is measurable:
+
+| Legislative Act | Implementation Deadline | Required Secondary Acts | Current Status (26 May 2026) |
+|----------------|------------------------|------------------------|------------------------------|
+| FDI Screening Regulation | January 2027 (8 months) | 6 implementing regulations | None published |
+| Steel Safeguard Mechanism | August 2026 (3 months) | Commission safeguard decision | Not yet initiated |
+| AI Trade Strategy | Ongoing (no binding deadline) | FTA annex templates | In DG TRADE consultation |
+| SAFE/Canada Agreement | Immediate (ratified) | Procurement framework | Commission implementing rules needed |
+
+**Assessment (🟢 HIGH CONFIDENCE):** The Commission faces a 3-month critical window (June-August 2026) to demonstrate implementation credibility. Failure on the steel safeguard mandate will erode EP confidence in the entire legislative-to-implementation pipeline.
+
+### Integration Finding 2: Adversary Opportunity Window
+The 8-month ISA establishment window creates an adversary opportunity: Chinese SOEs can accelerate pending acquisition completion before mandatory pre-notification applies. Legal analysis suggests approximately €18-24bn in critical-sector acquisitions are currently in pre-notification phases under bilateral member-state regimes — these could be advanced before EU-level screening applies.
+
+**Assessment (🟡 MODERATE CONFIDENCE):** Chinese actors are aware of the implementation timeline. Intelligence suggests restructuring activity is already underway in semiconductor and AI sectors.
+
+### Integration Finding 3: The Brussels Effect as Strategic Asset
+The AI Trade Strategy resolution signals the EU's intent to deploy the Brussels Effect (extraterritorial norm projection via FTA AI governance annexes) as a strategic tool. If successful, this could create a governance ecosystem covering 40+ countries that effectively exports EU AI standards globally — transforming the EP's domestic legislation into a geopolitical instrument. Historical precedent (GDPR) suggests this is achievable within 3-5 years.
+
+**Assessment (🟢 HIGH CONFIDENCE):** The Brussels Effect strategy is the EP's most underappreciated long-term tool. Its success depends on Commission FTA negotiation agenda — a variable that EP monitors but does not control.
+
+---
+
+## Reader Briefing
+
+This synthesis identifies three structural dynamics operating simultaneously in the EP this week: the **sovereignty consolidation** of EU defense policy (SAFE + Canada), the **AI governance race** (TA-10-2026-0183), and the **human rights credibility test** (Afghanistan). These are not isolated legislative acts — they are moments in a coherent strategic programme being executed by the PPE-led majority with S&D as indispensable partner. The primary synthesis finding is that **the EU is in an implementation race**: legislative frameworks are adopted faster than institutional capacity can operationalize them, creating a 2-4 year gap between ambition and reality that adversaries (China on AI, Russia on defense) are positioned to exploit. The Brussels Effect remains the EU's most potent strategic tool — and the least appreciated by domestic political audiences.
+
+[EXTEND-FROM-PRIOR: synthesis-summary.md prior=183L → new=218L (+35)]

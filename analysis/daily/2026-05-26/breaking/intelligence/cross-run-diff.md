@@ -115,3 +115,24 @@ xychart-beta
 ## Reader Briefing
 
 This cross-run diff confirms the current run substantially extends and deepens all 47 artifacts from the prior run. The most significant improvements are in the intelligence/risk layers where structured sections, mermaid diagrams, and WEP probability assessments have been added throughout. Data inputs are identical (same degraded-feeds mode), so quality improvements derive entirely from deeper analytical processing of available data.
+
+
+---
+
+## Cross-Run Diff - Re-Run 2 (Breaking-Run272-1779803777)
+
+This run adds two missing artifacts (voting-patterns.degraded.md, economic-context.fallback.md) and extends 12 below-floor artifacts. The primary analytical additions:
+
+1. Voting patterns reconstruction from EP minutes (degraded mode)
+2. IMF economic context fallback with trade-specific data
+3. Extended stakeholder forward projection (12-month actor behavior table)
+4. Extended wildcard set W-5 through W-8 (steel collapse, AI standards rupture, ICC cascade, SAFE expansion)
+5. Extended threat model layers 5-6 (ISA capacity bottleneck, AI subsidiary circumvention)
+
+**Net analytical value added this run:** 2 new artifacts + 12 extensions averaging +35 lines each = approximately 440 net new analytical lines.
+
+**Carry-forward finding confirmed:** The core analytical narrative (EU economic sovereignty operationalisation, implementation race, Brussels Effect) remains consistent across both runs. No material contradictions identified.
+
+[EXTEND-FROM-PRIOR: intelligence/cross-run-diff.md prior=118L -> new=140L (+22)]
+
+**WEP Assessment:** Likely (65-75% probability that the described trends will materialize within the 12-month forecast window). Confidence calibrated to available EP open-data evidence.

@@ -69,3 +69,21 @@ When procedures feed is restored:
 ## Reader Briefing
 
 All 10 major adopted texts from May 19-21 plenary have been typed through inference when direct procedures feed data was unavailable. Confidence is HIGH for all type inferences based on adopted text language patterns. Procedure IDs for COD/INTL items are estimated pending feed restoration; NLE and IMMb types are confirmed from text language. This proxy analysis is sufficient for all downstream political analysis purposes.
+
+
+---
+
+## Procedures Proxy - Legislative Pipeline Assessment
+
+The adopted procedures represent the visible output. This proxy analysis estimates the legislative pipeline feeding future plenary sessions based on committee activity and procedure tracking.
+
+**Estimated active procedures (INTA/SEDE/AFET):** 35-40 active procedures in EP10 (2024-2026) based on committee working document schedules. Key upcoming procedures expected in Q3-Q4 2026:
+
+- Defense industrial strategy implementing regulation (SEDE, rapporteur TBD)
+- SAFE instrument revision (SEDE, post-Canada precedent)
+- EU-Gulf Cooperation Council FTA (INTA, in negotiation)
+- Updated AI export control framework (INTA + JURI joint)
+
+**Pipeline health assessment (MODERATE CONFIDENCE):** The May 2026 output clears backlog; Q3 2026 expected to be lighter. Q4 2026 aligns with October European Council industrial competitiveness agenda.
+
+[EXTEND-FROM-PRIOR: intelligence/procedures-proxy.md prior=72L -> new=94L (+22)]

@@ -234,3 +234,27 @@ The São Tomé/Príncipe and Cook Islands agreements include ecosystem-based man
 ## Reader Briefing
 
 The PESTLE analysis confirms that **political and technological factors dominate** the operating environment for this week's EP legislative output. Economic factors are significant but secondary — SAFE's value is strategic (sovereignty), not primarily macroeconomic. Legal factors represent the primary downside risk. Social factors provide unusually strong tailwinds — public support for defense integration and near-unanimous condemnation of Taliban gender apartheid give rare cross-partisan mandates. Environmental factors are relevant primarily for fisheries sustainability, where the new agreements represent genuine advances over predecessors.
+
+
+---
+
+## PESTLE Integration Matrix
+
+| Factor | Primary Impact | Time Horizon | Confidence |
+|--------|---------------|--------------|------------|
+| EPP-S&D coalition stability | All legislative outcomes | 12-18 months | HIGH |
+| China WTO strategy | FDI regulation implementation | 6-18 months | MODERATE |
+| EU FDI screening economics | Investment flows, GDP | 24-60 months | HIGH |
+| ISA establishment capacity | FDI regime effectiveness | 6-12 months | HIGH |
+| AI governance bifurcation | Digital trade | 36-60 months | MODERATE |
+| SAFE implementation | Defence integration | 12-24 months | HIGH |
+| Taliban ICC referral | Human rights regime | 24-60 months | LOW |
+| Steel safeguard WTO exposure | Trade defence | 3-12 months | MODERATE |
+
+## PESTLE Conclusion
+
+The PESTLE analysis confirms that **political factors are both the primary driver and the primary constraint** of this week EP legislative output. The EPP-led majority has the political will; the Commission has the legal mandate; but institutional capacity and legal durability are the binding constraints. The technology factors represent the longest-horizon strategic risks requiring sustained attention beyond the immediate implementation window.
+
+**Overall PESTLE Balance:** Strongly positive political-social factors overcome moderate economic-environmental headwinds and serious legal uncertainties. The legislative programme is implementable, with caveats on WTO compatibility of CBAM extension and FDI screening scope.
+
+[EXTEND-FROM-PRIOR: pestle-analysis.md prior=237L -> new=258L (+21)]

@@ -168,3 +168,28 @@ Three doctrinal shifts are now legally operative:
 ## Reader Briefing
 
 This executive brief synthesizes intelligence from all 47 analysis artifacts for the May 2026 breaking session. The core message is: **the EU has adopted a legally complete economic security architecture; implementation success depends on three variables (Commission capacity, China response, Hungary ECJ)**. The brief is designed to be read as a stand-alone 5-minute document for senior decision-makers, with the full artifact set providing supporting evidence for each claim. All forward-looking assessments are explicitly probability-weighted with WEP labels and Admiralty grades. Confidence: HIGH on factual record; MODERATE on impact projections (reflecting genuine 12-36 month uncertainty).
+
+
+---
+
+## Executive Brief - Re-Run Update (Run 2: 2026-05-26)
+
+### Re-Run Summary
+
+This is the second run of breaking news analysis for the May 19-21, 2026 Strasbourg plenary. The re-run adds deeper analysis on implementation risks, coalition mathematics precision, and forward indicator calibration.
+
+**Key updates in re-run:**
+1. **Risk scoring recalibrated:** AI subsidiary circumvention risk elevated to 9.1/10 (highest risk this session)
+2. **Coalition mathematics updated:** Three scenarios modeled with probability estimates (65% full delivery, 25% partial, 10% fracture)
+3. **Implementation feasibility added:** ISA IT infrastructure gap identified - legal effectiveness by Jan 2027 but technical operability delayed to ~mid-2028
+4. **Forward indicator table added:** 7 measurable indicators with expected dates for Q3-Q4 2026 monitoring
+5. **Devil's advocate analysis completed:** Three counter-arguments evaluated and addressed
+
+**Overall assessment maintained:** TRANSFORMATIVE-SIGNIFICANT. Six legislative outputs in one session is historically unusual and reflects the political urgency of EU economic security in 2026. Implementation remains the critical uncertainty.
+
+**Action items for monitoring (top 3):**
+1. Commission ISA roadmap (June 2026) - most critical near-term signal
+2. Steel safeguard decision (August 2026) - tests whether resolution mandate translates to action
+3. Chinese MFA official response (June-July 2026) - tests whether diplomatic channel holds
+
+[EXTEND-FROM-PRIOR: executive-brief.md prior=unknown -> extended (+27)]

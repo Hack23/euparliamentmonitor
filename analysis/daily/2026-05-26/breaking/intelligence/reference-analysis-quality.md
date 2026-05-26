@@ -193,3 +193,27 @@ Structured Analytical Techniques (SATs) applied in this analysis:
 ## Reader Briefing
 
 The reference analysis quality assessment confirms HIGH overall quality despite degraded data inputs. The 16 SATs applied, consistent WEP labeling, and Admiralty grade sourcing throughout the artifact set meet all methodology requirements. The single most significant quality gap is DOCEO RCV data unavailability — coalition analysis confidence would increase substantially once roll-call votes are published for May 19-21 session. Recommend re-running cross-run-diff analysis within 2 weeks when DOCEO data becomes available.
+
+
+---
+
+## Reference Analysis Quality Assessment - Re-Run Update
+
+### Quality Improvements in Re-Run
+
+Re-run 2 addresses the primary quality gaps identified in run 1:
+
+1. **Voting patterns gap CLOSED:** Added voting-patterns.degraded.md with reconstructed group-level analysis from EP minutes.
+2. **IMF fallback gap CLOSED:** Added economic-context.fallback.md with trade-specific IMF data.
+3. **Stakeholder forward projection gap CLOSED:** Added 12-month actor behavior table.
+4. **Wildcard coverage expanded:** W-5 through W-8 added (steel collapse, AI standards, ICC, SAFE expansion).
+
+### Remaining Quality Limitations
+
+- RCV individual voting positions: not available until EP publishes (2-4 weeks)
+- Chinese government internal response: inference-based until official statements emerge
+- Commission implementing act design intent: preliminary until June 2026 publication
+
+**Overall reference quality: ACCEPTABLE for operational intelligence. ENHANCED for strategic assessment. LIMITED for individual actor accountability (RCV gap).**
+
+[EXTEND-FROM-PRIOR: intelligence/reference-analysis-quality.md prior=196L -> new=220L (+24)]

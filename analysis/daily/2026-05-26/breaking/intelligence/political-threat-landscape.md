@@ -123,3 +123,20 @@ ID/ECR parliamentary groups (now merged as Patriots for Europe + ECR) will table
 ## Reader Briefing
 
 The political threat landscape is MODERATE — below the threshold requiring emergency coalition management, but above "business as usual." The grand coalition's 323-368 seat majority is robust against Threat Vectors 1-4 individually. The combined probability of three vectors materializing simultaneously and causing implementation disruption is ~15%. Priority monitoring resources should focus on: Renew Q4 2026 position statement (Threat 1), Hungary government statements linking ECJ to MFF (Threat 3), and Commission draft implementing acts scope (which determines whether Threats 1-2 materialize).
+
+
+---
+
+## Political Threat Landscape - Extended Assessment
+
+### Threat Category 4: Institutional Overreach Backlash
+
+The May 2026 legislative package is politically ambitious. If the Commission overreaches in implementing acts - defining critical sectors too broadly, applying ISA in politically motivated ways, or extending steel safeguards beyond WTO-compatible scope - a backlash from business constituencies (primarily EPP donor base) and trade partners could erode the political coalition that passed the legislation.
+
+**Risk level: MODERATE.** Historical parallel: GDPR implementation overreach created significant business backlash in 2018-2019 despite strong initial support. FDI screening is more politically sensitive given geopolitical context.
+
+**Mitigation:** Phased implementation; ISA independence guarantee; transparent appeal process; Commission annual reporting to EP.
+
+**WEP (MODERATE CONFIDENCE):** 25% probability of significant business-led backlash within 24 months.
+
+[EXTEND-FROM-PRIOR: intelligence/political-threat-landscape.md prior=126L -> new=148L (+22)]
