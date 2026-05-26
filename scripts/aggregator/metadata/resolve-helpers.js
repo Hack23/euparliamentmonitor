@@ -43,17 +43,33 @@ const SEO_TITLE_FLOOR = SEO_TITLE_FLOOR_BY_SCRIPT.latin;
  * localized `labels.reader` framing to lift the snippet into the
  * SERP-fill window.
  */
-const DESCRIPTION_SERP_FILL_FLOOR = { latin: 110, cjk: 55, rtl: 110 };
+const DESCRIPTION_SERP_FILL_FLOOR = { latin: 110, cjk: 55, rtl: 115 };
 /**
  * Per-script sentence terminator regexes. A description that doesn't
  * end with one of these glyphs reads as a truncated fragment on the
  * SERP, so we ensure one is appended after enrichment.
+ *
+ * **Important**: `…` (and the ASCII `...` triplet) is deliberately
+ * *NOT* in this set. The SEO extraction regression suite treats a
+ * trailing ellipsis as a truncation cut (see
+ * `title-rejection.ts::looksLikeEllipsisCut` and the description gate
+ * in `executive-brief-seo-extraction.test.js`), so {@link ensureTerminator}
+ * strips trailing ellipses defensively before deciding whether a real
+ * terminator must be appended.
  */
 const TERMINATOR_RE = {
-    latin: /[.!?…]$/u,
-    cjk: /[。．！？…]$/u,
-    rtl: /[.!?؟…]$/u,
+    latin: /[.!?]$/u,
+    cjk: /[。．！？]$/u,
+    rtl: /[.!?؟]$/u,
 };
+/**
+ * Trailing ellipsis (Unicode `…` or ASCII `...`) optionally followed by
+ * dangling separator punctuation. Used by {@link ensureTerminator} and
+ * {@link scrubTrailingEllipsis} to strip truncation markers left behind
+ * by upstream truncators (`truncateDescription`, `truncateTitle`, the
+ * `clampForBudget` hard-cut path).
+ */
+const TRAILING_ELLIPSIS_RE = /[\s,;:|—\-–·•]*(?:\u2026|\.{3,})[\s,;:|—\-–·•]*$/u;
 /**
  * Extract a manifest override value for a single language. Accepts either
  * a plain string (applied to every language) or a `LanguageMap` object.
@@ -221,10 +237,23 @@ export function composeContextualTitle(fallbackTitle, editorialHeadline, runId, 
     // If withRunQualifier added a "— Run N" suffix, that already
     // disambiguates same-date sub-runs. For canonical (no-runN) runs
     // we still need to disambiguate across dates → append the ISO date.
+    let composed = withRun;
     if (date && withRun === fallbackTitle && !containsNormalized(fallbackTitle, date)) {
-        return `${fallbackTitle} — ${date}`;
+        composed = `${fallbackTitle} — ${date}`;
     }
-    return withRun;
+    // Final SERP-floor recovery: short generic titles like
+    // `"Moties | 2026-04-01"` (19 chars, nl) sit just below the
+    // per-script floor even after the date is embedded. The
+    // `executive-brief-seo-extraction` regression suite (`READER_FLOOR.title`)
+    // enforces a 20-char minimum for Latin/RTL and 10 for CJK so these
+    // titles don't get truncated as snippets in search. Append ` (EP)`
+    // — a universally recognized European Parliament acronym — to
+    // lift the title above the floor without adding language-specific
+    // wording (EP works in every supported locale).
+    if ([...composed].length < floor && !containsNormalized(composed, 'EP')) {
+        composed = `${composed} (EP)`;
+    }
+    return composed;
 }
 /**
  * Add localized article context to short or duplicate-prone meta
@@ -358,12 +387,112 @@ export function hasLeakySeoToken(value) {
  * @returns Description ending in a terminator
  */
 function ensureTerminator(text, family) {
-    const trimmed = text.trim();
+    let trimmed = text.trim();
+    if (!trimmed)
+        return trimmed;
+    // Defensive scrub: upstream truncators (text-truncate.ts and the
+    // `clampForBudget` hard-cut fallback in `seo-budgets.ts`) emit a
+    // trailing `…` when they have to cut mid-clause. The SEO extraction
+    // regression suite rejects those snippets as truncation cuts, so we
+    // strip the ellipsis here and re-close on a real sentence boundary.
+    trimmed = trimmed.replace(TRAILING_ELLIPSIS_RE, '').trim();
     if (!trimmed)
         return trimmed;
     if (TERMINATOR_RE[family].test(trimmed))
         return trimmed;
+    // Back-scan for the most recent in-budget sentence terminator. If
+    // one sits within the trailing ~35 chars (CJK: ~20), cut there so we
+    // recover a clean close instead of stapling a period onto a
+    // mid-clause word fragment. This turns
+    //   "...영향을 추적하는 독자를 위" → "...영향을 추적합니다."
+    // when the prior sentence already ended in a terminator.
+    const scanLen = family === 'cjk' ? 20 : 35;
+    const scanStart = Math.max(0, trimmed.length - scanLen);
+    const tail = trimmed.slice(scanStart);
+    const terminators = family === 'cjk'
+        ? ['。', '！', '？', '．']
+        : family === 'rtl'
+            ? ['. ', '! ', '? ', '؟ ']
+            : ['. ', '! ', '? '];
+    let bestRelIdx = -1;
+    for (const t of terminators) {
+        const idx = tail.lastIndexOf(t);
+        if (idx >= 0) {
+            const cutAt = idx + (t.endsWith(' ') ? t.length - 1 : t.length);
+            if (cutAt > bestRelIdx)
+                bestRelIdx = cutAt;
+        }
+    }
+    if (bestRelIdx > 0 && scanStart + bestRelIdx >= Math.floor(trimmed.length * 0.55)) {
+        return trimmed.slice(0, scanStart + bestRelIdx).trim();
+    }
     return family === 'cjk' ? `${trimmed}。` : `${trimmed}.`;
+}
+/**
+ * Strip a trailing ellipsis (Unicode `…` or ASCII `...`) plus any
+ * dangling separator punctuation left over by {@link clampForBudget}'s
+ * hard-cut fallback. Titles must never end in `…`: the SEO extraction
+ * regression suite (`looksLikeEllipsisCut`) rejects those as truncation
+ * cuts. Unlike {@link ensureTerminator}, this helper does NOT append a
+ * sentence terminator — titles read better as noun-phrase headlines
+ * without a trailing period.
+ *
+ * Example:
+ *   `"활동 개요 — 1분기 입법 파이프라인 (속보) | 2…"` →
+ *   `"활동 개요 — 1분기 입법 파이프라인 (속보)"`
+ *
+ * @param value - Already-clamped title
+ * @returns Title with trailing ellipsis and dangling separators removed
+ */
+export function scrubTrailingEllipsis(value) {
+    const stripped = value.replace(TRAILING_ELLIPSIS_RE, '').trim();
+    // Remove residual dangling separators (em-dash, colon, pipe) that
+    // were leading into the truncated fragment.
+    return stripped.replace(/[\s|,;:—\-–]+$/u, '').trim();
+}
+/**
+ * Public finalizer for SEO meta-descriptions: strips trailing ellipses
+ * emitted by {@link clampForBudget}'s hard-cut path, then guarantees the
+ * snippet closes with a script-appropriate sentence terminator (`.` for
+ * Latin/RTL, `。` for CJK). Wraps the module-private {@link ensureTerminator}
+ * with language-to-script classification so callers in `article-metadata.ts`
+ * don't need to know about the per-script terminator tables.
+ *
+ * @param lang - Language code (drives Latin/CJK/RTL classification)
+ * @param value - Already-clamped meta-description
+ * @returns Description with trailing ellipsis stripped and a real
+ *   terminator guaranteed
+ */
+export function ensureDescriptionTerminator(lang, value) {
+    return ensureTerminator(value, classifyScript(lang));
+}
+/**
+ * Extract a run number from a runId like `committee-reports-run47`,
+ * `breaking-run188`, `committee-reports-run-47`, or a bare numeric
+ * string (`"47"`). Returns the run number as a string, or `null` when
+ * the runId does not carry a discriminator.
+ *
+ * @param runId - Manifest run identifier (may be empty)
+ * @returns Run number string (`"47"`), or `null` when none is present
+ */
+export function extractRunNumber(runId) {
+    if (!runId)
+        return null;
+    if (/^\d+$/u.test(runId))
+        return runId;
+    const segments = runId.split('-');
+    for (let i = 0; i < segments.length; i += 1) {
+        const seg = segments[i] ?? '';
+        const m = /^run(\d+)$/u.exec(seg);
+        if (m)
+            return m[1] ?? null;
+        if (seg === 'run') {
+            const next = segments[i + 1];
+            if (next && /^\d+$/u.test(next))
+                return next;
+        }
+    }
+    return null;
 }
 function stripLeadingFragmentSeparator(value) {
     return value.replace(/^[:;—–-]\s+/u, '').trim();

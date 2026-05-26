@@ -73,15 +73,19 @@ import {
   composeContextualDescription,
   composeContextualExtendedDescription,
   composeContextualTitle,
+  containsNormalized,
   deriveHeadlineFromSummary,
+  ensureDescriptionTerminator,
+  extractRunNumber,
   hasLeakySeoToken,
   isUsableResolvedTitle,
   manifestOverrideFor,
   pickFirstNonEmpty,
   resolveEditorialContent,
   sanitizeDescriptionCandidate,
+  scrubTrailingEllipsis,
 } from './metadata/resolve-helpers.js';
-import { clampForBudget } from './metadata/seo-budgets.js';
+import { budgetFor, clampForBudget } from './metadata/seo-budgets.js';
 import {
   ENRICHMENT_TRIGGER_LENGTH,
   truncateExtendedDescription,
@@ -364,8 +368,57 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // `SEO_BUDGETS.title` table (60/30/55) and breaks at a clause
   // boundary so we never ship a mid-word ellipsis on a CJK
   // headline.
-  const seoTitle = clampForBudget(truncatedTitle, input.lang, 'title');
-  const truncatedDescription = clampForBudget(description, input.lang, 'metaDescription');
+  //
+  // **Post-clamp scrub**: `clampForBudget` is contractually required
+  // to emit a trailing `…` when it has to hard-cut mid-clause
+  // (locked by `test/unit/seo-budgets.test.js:147-152`). Titles,
+  // however, must not carry that ellipsis: `title-rejection.ts`
+  // flags `…`-suffixed titles as truncation cuts. We strip the
+  // ellipsis after the clamp, then — when the runId carries a
+  // `runN` discriminator — append ` — Run N` so multiple sub-runs
+  // on the same date emit distinct titles (the SEO suite's
+  // duplicate-title detector triggers on identical (date, articleType)
+  // pairs). Budget reservation: if the suffix would push the title
+  // over the per-script budget, we re-clamp the editorial portion to
+  // make room.
+  const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
+  let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
+  const runNumber = extractRunNumber(input.runId ?? '');
+  if (runNumber && !containsNormalized(seoTitle, `Run ${runNumber}`)) {
+    const titleBudget = budgetFor(input.lang, 'title');
+    const suffix = ` — Run ${runNumber}`;
+    const suffixLen = Array.from(suffix).length;
+    const seoTitleGraphemes = Array.from(seoTitle);
+    if (seoTitleGraphemes.length + suffixLen <= titleBudget) {
+      seoTitle = `${seoTitle}${suffix}`;
+    } else if (suffixLen < titleBudget) {
+      // Reserve budget: trim editorial portion to leave room for the
+      // ` — Run N` suffix without exceeding the per-script clamp.
+      const headroom = titleBudget - suffixLen;
+      const trimmedHead = seoTitleGraphemes
+        .slice(0, headroom)
+        .join('')
+        .replace(/[\s|,;:—\-–]+$/u, '')
+        .trim();
+      if (trimmedHead) {
+        seoTitle = `${trimmedHead}${suffix}`;
+      }
+    }
+  }
+  // `clampForBudget` is contractually required to emit a trailing `…`
+  // when it has to hard-cut mid-clause (locked by
+  // `test/unit/seo-budgets.test.js:147-152`). For meta-descriptions
+  // we need a real sentence terminator instead — the SEO suite's
+  // description-ellipsis gate (`executive-brief-seo-extraction.test.js`
+  // line 706) rejects snippets ending in `…` or `...`. The
+  // `ensureDescriptionTerminator` finalizer strips the trailing
+  // ellipsis (with any dangling pipe/colon/em-dash) and either
+  // back-scans to the most recent real terminator within the trailing
+  // ~35 chars, or appends `.` / `。` based on the language's script.
+  const truncatedDescription = ensureDescriptionTerminator(
+    input.lang,
+    clampForBudget(description, input.lang, 'metaDescription')
+  );
 
   const extendedSource = sanitizeDescriptionCandidate(
     manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription
