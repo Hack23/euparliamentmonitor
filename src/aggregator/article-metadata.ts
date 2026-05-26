@@ -66,6 +66,7 @@
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import type { LangTitleSubtitle, LanguageCode } from '../types/index.js';
 import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
+import { classifyScript } from './metadata/seo-budgets.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
 import {
   buildSeoKeywords,
@@ -160,7 +161,20 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
   const manifest = opts.manifest ?? {};
   const englishEditorial = resolveEditorialContent(opts);
   const template = buildTemplateFallback(opts.articleType, opts.date, manifest.committee);
-  const runId = manifest.runId?.trim() ?? '';
+  // Manifests may carry runId as a string (UUID) or a number (incrementing counter).
+  // Coerce to string before trimming to avoid `runId?.trim is not a function` on numeric IDs.
+  // When runId is a UUID (no embedded `runN` token), fall back to `articleTypeSlug`
+  // (e.g. "committee-reports-run50") which carries the run number we need for
+  // disambiguating same-date sub-runs.
+  const rawRunId =
+    manifest.runId === undefined || manifest.runId === null ? '' : String(manifest.runId).trim();
+  const slugForRun =
+    typeof (manifest as { articleTypeSlug?: unknown }).articleTypeSlug === 'string'
+      ? String((manifest as { articleTypeSlug?: string }).articleTypeSlug).trim()
+      : '';
+  const runId = /(?:^|-)run\d+/u.test(rawRunId) || /^\d+$/u.test(rawRunId)
+    ? rawRunId
+    : (slugForRun && /-run\d+$/u.test(slugForRun) ? slugForRun : rawRunId);
 
   const result: Record<LanguageCode, ResolvedMetadataEntry> = Object.create(null) as Record<
     LanguageCode,
@@ -226,7 +240,8 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   const contextualTitle = composeContextualTitle(
     input.template.title,
     editorial.headline,
-    input.runId
+    input.runId,
+    input.date
   );
   const title = pickFirstNonEmpty([manifestTitle, contextualTitle, input.template.title]);
 
@@ -285,7 +300,12 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // re-run) would collapse to byte-identical `<title>` strings, and
   // the duplicate-title gate in `scripts/validate-article-seo.js`
   // would (correctly) fail CI.
-  const contextualFallback = composeContextualTitle(input.template.title, '', input.runId);
+  const contextualFallback = composeContextualTitle(
+    input.template.title,
+    '',
+    input.runId,
+    input.date
+  );
   const truncatedTitle = pickFirstNonEmpty([
     explicitTitle,
     resolvedTitleCandidate,
@@ -350,6 +370,23 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
  * preferring the translated `executive-brief_<lang>.md` over the English
  * brief.
  *
+ * For **non-Latin script locales** (`ar`, `he`, `ja`, `ko`, `zh`), if no
+ * translated sibling exists we DROP the English editorial and fall
+ * through to the empty pair so the locale-aware template fallback in
+ * {@link buildTemplateFallback} can supply localised title/description.
+ * Serving English `<title>` / meta-description text to a reader of a
+ * non-Latin script is a clear SEO + UX bug — it pushes the page out of
+ * locale matching for search, and the reader sees prose they cannot
+ * parse. See the failing cases in
+ * `test/unit/executive-brief-seo-extraction.test.js` (e.g. Korean run
+ * for `2026-05-09/term-outlook` previously emitted the English
+ * headline "EPP remains dominant broker" verbatim).
+ *
+ * For Latin non-EN locales (sv/da/no/fi/de/fr/es/nl) we keep the
+ * existing `english-brief` fallback because (a) most users with that
+ * publishing locale read English, and (b) the localised brief is
+ * usually present so this path is rare.
+ *
  * @param input - Per-language inputs
  * @returns Editorial pair plus the tier that produced it
  */
@@ -379,7 +416,15 @@ function resolvePerLanguageEditorial(input: PerLanguageInputs): {
       };
     }
   }
-  if (input.englishEditorial.headline || input.englishEditorial.summary) {
+  // SEO/locale safety: for non-Latin scripts (CJK + RTL), refuse to
+  // emit English editorial copy as the SEO meta source — fall through
+  // to the locale-aware template fallback instead.
+  const useLocalisedTemplate =
+    input.lang !== 'en' && classifyScript(input.lang) !== 'latin';
+  if (
+    !useLocalisedTemplate &&
+    (input.englishEditorial.headline || input.englishEditorial.summary)
+  ) {
     return {
       editorial: input.englishEditorial,
       source: input.lang === 'en' ? 'english-editorial' : 'english-brief',

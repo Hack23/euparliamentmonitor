@@ -182,18 +182,38 @@ export function resolveEditorialContent(opts: ResolveMetadataOptions): {
  * Pick the per-language SEO title from the resolved editorial pair and
  * the localized template fallback.
  *
+ * When falling back to the localized template (no editorial headline
+ * available), append an ISO date suffix so two runs of the same
+ * article type on different dates do not produce identical titles.
+ * The user's bug report explicitly allows this prefix: "ok to prefix
+ * with 'article type date' in short form if no real data exist".
+ *
+ * The ISO suffix uses an en-dash separator (` — YYYY-MM-DD`) which
+ * is locale-neutral, fits CJK/RTL clamping behaviour (see
+ * `seo-budgets.ts` clause boundaries), and is already used by
+ * {@link withRunQualifier}.
+ *
  * @param fallbackTitle - Localized article-type template title
  * @param editorialHeadline - Editorial headline (localized or English)
  * @param runId - Optional run id used only when no editorial headline exists
+ * @param date - Optional ISO date appended when no editorial headline exists
  * @returns SEO title candidate
  */
 export function composeContextualTitle(
   fallbackTitle: string,
   editorialHeadline: string,
-  runId: string
+  runId: string,
+  date?: string
 ): string {
   if (editorialHeadline) return editorialHeadline;
-  return withRunQualifier(fallbackTitle, runId);
+  const withRun = withRunQualifier(fallbackTitle, runId);
+  // If withRunQualifier added a "— Run N" suffix, that already
+  // disambiguates same-date sub-runs. For canonical (no-runN) runs
+  // we still need to disambiguate across dates → append the ISO date.
+  if (date && withRun === fallbackTitle && !containsNormalized(fallbackTitle, date)) {
+    return `${fallbackTitle} — ${date}`;
+  }
+  return withRun;
 }
 
 /**
@@ -365,6 +385,11 @@ function deriveHeadlineFromSummary(summary: string): string {
  */
 export function withRunQualifier(title: string, runId: string): string {
   if (!runId) return title;
+  // Accept bare numeric runId (manifests carry just "44" or "188" for
+  // multi-run days — observed in committee-reports-run44 and
+  // breaking-run188). Without this branch, same-date sub-runs collapse
+  // to byte-identical titles, and the duplicate-title gate fires.
+  if (/^\d+$/u.test(runId)) return `${title} — Run ${runId}`;
   const segments = runId.split('-');
   for (const seg of segments) {
     const m = /^run(\d+)$/u.exec(seg);
