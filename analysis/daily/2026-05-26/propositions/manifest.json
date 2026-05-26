@@ -1,0 +1,43 @@
+{
+  "articleType": "propositions",
+  "dataMode": "degraded-feeds",
+  "runDate": "2026-05-26",
+  "generatedAt": "2026-05-26T06:45:00Z",
+  "pass2": {
+    "startedAt": "2026-05-26T06:45:00Z",
+    "endedAt": "2026-05-26T06:55:00Z",
+    "rewriteCount": 19
+  },
+  "files": {
+    "all": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/threat-model.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/analysis-index.md",
+      "extended/media-framing-analysis.md",
+      "intelligence/methodology-reflection.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "propositions-run277-1779777175",
+      "timestamp": "2026-05-26T06:45:00Z",
+      "artifactCount": 19,
+      "dataMode": "degraded-feeds",
+      "gateResult": "pending"
+    }
+  ]
+}
