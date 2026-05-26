@@ -271,3 +271,22 @@ All four scenarios have explicit probability estimates that should be updated as
 ## Reader Briefing
 
 The updated scenario forecast provides explicit Bayesian update rules for all four scenarios. The dominant Scenario 1 (65% managed implementation) requires three confirming signals: Commission ISA roadmap on-time, Hungary silence on ECJ, and China bilateral dialogue opening. If all three materialize by October 2026, Scenario 1 probability should be updated to 75-80%. Analysts should apply the Bayesian update table at each monitoring interval (monthly recommended) to maintain calibrated forward estimates.
+
+
+---
+
+## Scenario Probability Update Protocol
+
+This section provides a structured monthly update protocol for monitoring scenario probabilities against key indicators. Analysts should update probabilities at each monthly monitoring cycle using the Bayesian update rules documented above.
+
+### Monthly Monitoring Checklist (June 2026)
+- [ ] Commission publishes ISA establishment roadmap → if YES, update Scenario 1 by +5%
+- [ ] Steel safeguard activation initiated → if YES, update Scenario 1 by +3%
+- [ ] China files WTO consultation → if YES, update Scenario 2 by +8%
+- [ ] Hungary notifies ECJ annulment intent → if YES, update Scenario 3 by +10%
+- [ ] Commission delays implementing acts → if YES, update Scenario 4 by +5%
+
+### Calibration Note
+All probabilities carry ±10% epistemic uncertainty reflecting limited data availability. Scenario 1 (managed implementation) remains the base case but requires active confirmation. Scenario 4 (delayed fragmentation) is the most likely failure mode and should be explicitly planned for by EP oversight committees.
+
+[EXTEND-FROM-PRIOR: scenario-forecast.md prior=273L → new=289L (+16)]

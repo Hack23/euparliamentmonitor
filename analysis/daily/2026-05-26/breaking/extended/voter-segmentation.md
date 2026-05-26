@@ -210,3 +210,25 @@ graph LR
 ## Reader Briefing
 
 The voter segmentation analysis confirms the May 2026 package has majority support across segments S1 (40%) + S2 (25% conditional) + S3 (15%) = 70-80% of the EU electorate for the core items. The S5 pacifist left (5%) is a minority concern; S4 Eurosceptic right (15%) will oppose through amendment campaigns rather than electoral challenge. Communication strategy should be differentiated: sovereignty and jobs for S1-S2, rights and governance for S3, monitoring PfE-ECR amendment activity for S4 management.
+
+
+---
+
+## Voter Segmentation - Re-Run Extension
+
+### Extended Voter Segmentation: Implementation Awareness Cohorts
+
+Beyond the initial voter reaction segments, a second dimension of segmentation by implementation awareness:
+
+**Cohort A: Policy-aware (15% of EU adult population)**
+Understand the FDI regulation, know what ISA means, track Commission implementing acts. Primary concern: implementation quality and timeline. Communication channel: quality press, policy newsletters, LinkedIn.
+
+**Cohort B: Headline-aware (35% of EU adult population)**
+Know "EU controls foreign investment" and "EU protects steel jobs" from headline coverage. No implementation detail. Primary concern: "will it actually work?" Communication channel: national broadcast, major newspapers.
+
+**Cohort C: Uninformed (50% of EU adult population)**
+Not aware of May 2026 EP session. This is normal for EU institutional legislation. Awareness rises only if: (a) implementation delivers visible results (positive), or (b) Chinese retaliation creates economic impact (negative), or (c) steel sector collapse despite resolution (negative).
+
+**Voter risk concentration:** Cohort B is the key risk audience. If the "Trade War Provocation" media frame dominates in Cohort B, it could create political pressure on member state governments to soften implementing acts, undermining the regulation.
+
+[EXTEND-FROM-PRIOR: extended/voter-segmentation.md prior=213L -> new=238L (+25)]

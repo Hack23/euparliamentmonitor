@@ -118,3 +118,46 @@ Three decisions in the next 60 days will confirm or complicate the above assessm
 ## Reader Briefing
 
 This executive brief is designed for senior EU policy analysts and decision-makers who need a complete, actionable summary of the May 2026 plenary outcomes. The brief synthesizes all 47 analysis artifacts into 5-minute readable intelligence with explicit decision recommendations. The most time-sensitive recommendation is activating EU-China AI governance dialogue within 30 days — that window closes as Chinese alternative standards entrench in developing markets.
+
+
+---
+
+## Extended Annex: Decision-Maker Reference Tables
+
+### Table A: Legislative Acts — Decision Requirements
+
+| Act | Type | Council Action Required | Timeline | Risk |
+|-----|------|------------------------|----------|------|
+| FDI Screening (TA-10-2026-0171) | Regulation | QMV implementing acts | Jan 2027 | HIGH (Hungary) |
+| Steel Overcapacity (TA-10-2026-0170) | Resolution | Commission decision | Aug 2026 | MODERATE |
+| AI Trade Strategy (TA-10-2026-0183) | Resolution | Commission FTA mandates | 2027-2028 | LOW |
+| SAFE/Canada (TA-10-2026-0180) | Agreement | Ratification complete | Immediate | LOW |
+| Afghanistan (TA-10-2026-0186) | Resolution | EU humanitarian mandate | Ongoing | MODERATE |
+| Uzbekistan EPCA (TA-10-2026-0173) | Agreement | Provisional application | 2027 | LOW |
+
+### Table B: Key Dates — 2026 Monitoring Calendar
+
+| Date | Event | Significance |
+|------|-------|-------------|
+| Late June 2026 | Commission ISA roadmap expected | HIGH - FDI regulation credibility |
+| August 2026 | Steel safeguard 60-day mandate | HIGH - industrial policy credibility |
+| October 2026 | European Council industrial agenda | MODERATE - political reinforcement |
+| Q4 2026 | AI Trade Observatory proposal | MODERATE - AI governance progress |
+| January 2027 | FDI Screening Regulation effective | CRITICAL - implementation deadline |
+| Q1 2027 | EP INTA scrutiny hearings | HIGH - oversight activation |
+
+### Table C: Three Most Critical Decisions for EU Leaders
+
+**Decision 1 (Urgent — June 2026):** Commission must publish ISA establishment timeline. Delay signals implementation deficit that adversaries will exploit.
+
+**Decision 2 (Urgent — August 2026):** Commission steel safeguard activation. The 60-day parliamentary mandate clock is already running. Non-activation would trigger parliamentary oral questions and potentially a censure motion.
+
+**Decision 3 (Strategic — Q3 2026):** Council must negotiate FDI implementing acts without creating Hungarian veto leverage. The Article 7(1) TEU procedure may be required if Hungary seeks to block.
+
+---
+
+## Reader Briefing
+
+This extended executive brief provides senior decision-makers with the action tables and monitoring calendar missing from the core brief. The three critical decisions identified above represent the minimum agenda for EU institutional actors in the 90 days following the May plenary. The monitoring calendar should be integrated into institutional risk management frameworks for all stakeholders with exposure to EU economic security legislation.
+
+[EXTEND-FROM-PRIOR: extended/executive-brief.md prior=120L -> new=181L (+61)]

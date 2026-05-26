@@ -196,3 +196,27 @@ Based on the six Tier 1-2 indicators, the composite implementation confidence is
 ## Reader Briefing
 
 The forward indicator analysis identifies six key signals across a 30-180 day monitoring horizon. The most important near-term indicator is FI-01 (Hungarian government statement on SAFE) — early intelligence on ECJ challenge probability. The most impactful medium-term indicator is FI-02 (Commission DG DEFIS work programme) — the first concrete test of implementation capacity. Analysts should establish a monitoring cadence of weekly checks on FI-01 through FI-03, monthly checks on FI-04 through FI-06, and update the probability estimates at each review cycle.
+
+
+---
+
+## Forward Indicators - Re-Run Extension
+
+### Additional Leading Indicators for Q3-Q4 2026
+
+| Indicator | Expected Date | Signal Value | Threshold |
+|-----------|--------------|--------------|-----------|
+| Commission ISA roadmap publication | June 2026 | HIGH | On time = positive |
+| Steel safeguard decision | August 2026 | HIGH | Within mandate = positive |
+| Chinese MFA official statement on FDI regulation | June-July 2026 | MODERATE | Consultative tone = positive |
+| EP INTA oral questions filed | July-August 2026 | MODERATE | < 5 questions = smooth |
+| ArcelorMittal capacity reversal announcement | Q4 2026 | HIGH | Any reversal = safeguards working |
+| ISA staff recruitment announcement | Q3 2026 | HIGH | > 50 FTEs announced = serious |
+| Uzbekistan domestic ratification | Q4 2026 | LOW | Expected to ratify smoothly |
+
+**Most critical leading indicator: Commission ISA roadmap (June 2026)**
+This single signal will determine whether the implementation race is running on track. Delay or vague roadmap = negative signal requiring escalation.
+
+[EXTEND-FROM-PRIOR: extended/forward-indicators.md prior=199L -> new=224L (+25)]
+
+**WEP Assessment:** Likely (65-75% probability that the described trends will materialize within the 12-month forecast window). Confidence calibrated to available EP open-data evidence.

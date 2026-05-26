@@ -222,3 +222,52 @@ P(at least one Wild Card W-1 through W-4 materializes within 24 months)
 ## Reader Briefing
 
 The wild-card assessment for this week's EP legislative output identifies **Chinese AI standards competition** as the highest probability black-swan (12%), followed by the **MEP immunity cascade** (6%) and **Afghan ICC referral** (8%). The catastrophic US sanctions scenario (3%) is lower probability but warrants contingency planning given current US-EU trade friction. Analysts should note that the composite probability (~26%) of at least one materializing within 24 months is non-trivial and should be reflected in risk appetite assessments for major stakeholders in the defense integration and AI governance spaces.
+
+
+---
+
+### Extended Wild Cards W-5 through W-8
+
+**W-5: EU-US AI Standards Rupture (Black Swan)**
+**Description:** The EU AI Act's extraterritorial reach, combined with AI trade governance annexes in FTAs, triggers formal US complaint to WTO and US legislative response, fundamentally bifurcating the transatlantic digital economy.
+*Probability: 8%. Impact: CRITICAL. WEP: 🔴 LOW CONFIDENCE but HIGH IMPACT.*
+**Key indicators (monitor):**
+- US USTR registers formal trade concern with AI Act enforcement
+- US Congress introduces Digital Trade Reciprocity Act legislation
+- EU-US TTC fails to agree AI governance annex format in 2026
+**WEP Assessment:** 🔴 LOW CONFIDENCE (8% probability; HIGH IMPACT if materializes)
+
+**W-6: Afghanistan ICC Referral Cascade (Wild Card)**
+**Description:** EP's call for ICC gender apartheid referral catalyses a formal UN General Assembly resolution triggering ICC preliminary examination of Taliban leadership — first prosecution of a non-state actor for systematic gender crimes.
+*Probability: 6%. Impact: HIGH — precedent-setting international law development. WEP: 🔴 LOW CONFIDENCE.*
+**Key indicators:**
+- UN Special Rapporteur submits formal ICC referral request (Q3 2026)
+- Five-plus UN Security Council members support UNGA resolution language
+- ICC Prosecutor opens preliminary examination under Article 18
+**WEP Assessment:** 🔴 LOW CONFIDENCE (6% probability; HIGH normative impact)
+
+**W-7: European Steel Sector Collapse Cascade (Structural Risk)**
+**Description:** Commission fails to activate safeguard measures; ArcelorMittal and ThyssenKrupp announce simultaneous capacity reduction decisions; EU steel employment falls below 300,000 — triggering state aid requests that conflict with EU state aid rules and produce constitutional crisis.
+*Probability: 12%. Impact: CRITICAL — industrial policy and state aid regime tested. WEP: 🟡 MODERATE CONFIDENCE.*
+**Key indicators:**
+- Commission misses 60-day mandate deadline (August 2026)
+- Second major steel producer announces closures within 8 weeks of ArcelorMittal
+- National governments authorise unilateral state aid exceeding Commission notification thresholds
+**WEP Assessment:** 🟡 MODERATE CONFIDENCE (12% probability; CRITICAL if materializes)
+
+**W-8: SAFE Alliance Expansion Rupture (Geopolitical Wild Card)**
+**Description:** UK formally applies for SAFE participation; US objects; EU forced to choose between transatlantic relationship and strategic autonomy — revealing limits of post-Brexit EU-UK defence cooperation under US pressure.
+*Probability: 14% (UK application in 2026). Impact: HIGH — EU strategic autonomy credibility test. WEP: 🟡 MODERATE CONFIDENCE.*
+**Key indicators:**
+- UK PM requests SAFE participation in bilateral EU-UK summit (Q4 2026)
+- US NSC signals opposition to UK inclusion without US firms as co-beneficiaries
+- EU Council presidency position on UK SAFE inclusion
+**WEP Assessment:** 🟡 MODERATE CONFIDENCE (14% probability; decision outcome uncertain)
+
+---
+
+### Extended Composite Probability (W-1 through W-8)
+
+With the extended wild card set, the composite probability rises to approximately **48%** — a 1-in-2 chance that at least one scenario materializes within 24 months. The EU's legislative ambition significantly exceeds its implementation track record, making wild card materialisation more likely than comfortable. Analysts should prioritise steel sector collapse (W-7) and SAFE expansion (W-8) monitoring given their higher probabilities and systemic impact.
+
+[EXTEND-FROM-PRIOR: wildcards-blackswans.md prior=225L → new=278L (+53)]

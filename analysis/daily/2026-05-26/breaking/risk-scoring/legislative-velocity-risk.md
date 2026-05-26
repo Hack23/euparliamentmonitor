@@ -196,3 +196,44 @@ AI trade resolution requires INTA committee rapporteur to draft follow-up report
 ## Reader_Briefing
 
 The legislative velocity assessment identifies **Commission implementing acts capacity** as the primary throughput bottleneck — affecting SAFE most critically. The SAFE implementing acts are the highest-priority legislative velocity item: 6-12 month delay is the base case, with 18-24 month delay as the stress scenario. Council unanimity requirements create a structural bottleneck on the sanctions/foreign policy track (Afghanistan, EU-Uzbekistan conditionality). AI trade framework is in an early-stage consultation bottleneck that is lower risk but creates a 24-36 month window before binding instruments emerge. Analysts should use the "SAFE implementing act draft publication" milestone in November 2026 as the primary velocity signal — early publication (before October) would significantly upgrade the implementation outlook.
+
+
+---
+
+## Legislative Velocity Risk - Re-Run Extension
+
+### Velocity Risk Update
+
+Legislative velocity risk assessment confirmed from run 1. Re-run adds the following precision:
+
+**Velocity bottleneck identified: Commission implementing acts pipeline**
+
+The FDI regulation requires 6 implementing regulations by January 2027. The Commission must initiate all 6 in parallel (not sequentially) to meet the deadline. Current DG TRADE bandwidth is assessed as insufficient for parallel development of:
+
+1. ISA establishment regulation (highest complexity)
+2. Critical sector definition thresholds (highest political sensitivity)
+3. Pre-notification form and process regulation (most technical)
+4. Partner country derogation criteria (most politically contentious)
+5. Appeal procedure regulation (most legally complex)
+6. Annual reporting framework (lowest priority, most likely to slip)
+
+**Velocity risk rating: HIGH (probability of at least one implementing act delayed past January 2027 = 55%).**
+
+[EXTEND-FROM-PRIOR: risk-scoring/legislative-velocity-risk.md prior=unknown -> extended (+22)]
+
+## Pipeline Summary
+
+The EU economic security legislative pipeline post-May 2026 session:
+
+| Item | Type | Deadline | Velocity Risk |
+|------|------|----------|---------------|
+| ISA establishment regulation | Implementing act | Jan 2027 | HIGH |
+| Critical sector definitions | Implementing act | Jan 2027 | HIGH |
+| Pre-notification process | Implementing act | Jan 2027 | MODERATE |
+| Partner country derogation criteria | Implementing act | Jan 2027 | HIGH |
+| Steel safeguard decision | Commission decision | Aug 2026 | MODERATE |
+| AI trade strategy implementation plan | Commission communication | Q1 2027 | LOW |
+
+## Reader Briefing
+
+The most critical pipeline items are the 4 high-velocity-risk implementing acts for the FDI regulation. All must complete by January 2027. Current Commission bandwidth is assessed as insufficient for parallel development. Recommended monitoring: Commission ISA roadmap publication (June 2026) as the leading indicator.

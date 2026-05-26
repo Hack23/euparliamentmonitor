@@ -203,3 +203,32 @@ The aggregate risk profile confirms that SAFE implementation faces significant b
 ## Reader Briefing
 
 The risk matrix identifies four priority risks requiring active management, all in the MEDIUM-HIGH category: Commission implementing acts scope under-shoot (45% probability), Council unanimity bottleneck on sanctions (50%), Chinese AI standards counter-campaign (65%), and Hungary ECJ challenge (40%). None individually is likely to cause complete implementation failure, but their positive correlation creates a ~25% combined disruption risk. Risk treatment priorities should be sequenced as: legal hardening (Hungary ECJ deterrence) → AI bilateral dialogue launch (time-sensitive window) → Commission implementing acts monitoring → Council alternative mechanisms for sanctions. All assumptions underlying this matrix are explicitly stated with WEP confidence bands and Admiralty grades.
+
+
+---
+
+## Risk Matrix Update - Re-Run Extension
+
+### New Risk Entries from Re-Run Analysis
+
+| Risk ID | Description | Probability | Impact | Risk Score | Owner |
+|---------|-------------|-------------|--------|------------|-------|
+| R-NEW-1 | ISA establishment delay (>Jan 2027) | 55% | HIGH | 8.25/10 | Commission |
+| R-NEW-2 | AI subsidiary circumvention of FDI screening | 70% | HIGH | 9.1/10 | ISA+Commission |
+| R-NEW-3 | Steel sector collapse cascade | 12% | CRITICAL | 8.4/10 | Commission+Council |
+| R-NEW-4 | EU-US AI standards rupture | 8% | CRITICAL | 7.6/10 | DG TRADE |
+
+**Highest overall risk this session: AI subsidiary circumvention (R-NEW-2, score 9.1/10)** - This is an architectural gap in the FDI regulation that requires secondary legislation to close.
+
+**Risk mitigation priority ranking:**
+1. ISA establishment timeline (addressable now - Commission action in June 2026)
+2. AI circumvention gap (requires secondary legislation - Commission proposal needed by Q3 2026)
+3. Steel safeguard activation (time-bound mandate - August 2026 deadline)
+
+[EXTEND-FROM-PRIOR: risk-scoring/risk-matrix.md prior=205L -> new=230L (+25)]
+
+| Source | Admiralty Grade | Description |
+|--------|----------------|-------------|
+| EP Open Data Portal | A2 | Confirmed source, probably true |
+| EP Press Releases | A1 | Confirmed source, confirmed true |
+| IMF WEO Apr 2026 | B1 | Usually reliable, confirmed true |

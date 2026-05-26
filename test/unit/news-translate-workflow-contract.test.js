@@ -283,10 +283,12 @@ describe('news-translate workflow contract', () => {
     );
   });
 
-  it('inlines safe-outputs.max-patch-size (does not propagate via imports)', () => {
+  it('inlines safe-outputs.max-patch-size at the gh-aw schema maximum', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
-    // 4096 KB headroom for catch-up days with max_briefs=4.
-    expect(workflow).toMatch(/max-patch-size:\s*4096\b/);
+    // 10240 KB = gh-aw v0.76 schema cap. Raw EP-API feed dumps are excluded
+    // via `excluded-files: analysis/daily/**/data/**`, so headroom is
+    // reserved exclusively for analysis + translation artifacts.
+    expect(workflow).toMatch(/max-patch-size:\s*10240\b/);
   });
 
   it('cites the canonical translator guide and template by basename', () => {
