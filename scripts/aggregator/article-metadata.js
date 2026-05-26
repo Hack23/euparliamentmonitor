@@ -65,7 +65,7 @@ import { ALL_LANGUAGES } from '../constants/language-core.js';
 import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 import { classifyScript } from './metadata/seo-budgets.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
-import { buildSeoKeywords, composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, containsNormalized, deriveHeadlineFromSummary, ensureDescriptionTerminator, extractRunNumber, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, pickFirstNonEmpty, resolveEditorialContent, sanitizeDescriptionCandidate, scrubTrailingEllipsis, } from './metadata/resolve-helpers.js';
+import { buildSeoKeywords, composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, containsNormalized, deriveHeadlineFromSummary, ensureDescriptionTerminator, extractRunNumber, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, resolveEditorialContent, sanitizeDescriptionCandidate, scrubTrailingEllipsis, } from './metadata/resolve-helpers.js';
 import { budgetFor, clampForBudget } from './metadata/seo-budgets.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateExtendedDescription, truncateTitle, } from './metadata/text-utils.js';
 export { shouldSkipDescriptionLine, stripLeadingProseLabel, stripInlineMarkdown, truncateDescription, truncateExtendedDescription, truncateTitle, extractFirstSentence, } from './metadata/text-utils.js';
@@ -126,6 +126,44 @@ export function resolveArticleMetadata(opts) {
 }
 const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
 const ENGLISH_BRIEF_SOURCE = 'english-brief';
+/**
+ * Append ` — Run N` to a clamped SEO title when the manifest runId
+ * carries a discriminator. Reserves budget headroom by trimming the
+ * editorial portion (whole-grapheme aware, with trailing separator
+ * scrub) before stapling the suffix so we never exceed the per-script
+ * `<title>` clamp. Extracted from {@link resolveOneLanguage} to keep
+ * its cognitive complexity below the project lint cap.
+ *
+ * @param seoTitle - Already-clamped, ellipsis-scrubbed SEO title
+ * @param lang - Language code (drives the per-script title budget)
+ * @param runId - Manifest run identifier (may be empty)
+ * @returns Title with ` — Run N` appended, or the unchanged input when
+ *   no runId is present or the suffix can't fit inside budget
+ */
+function appendRunNumberSuffix(seoTitle, lang, runId) {
+    const runNumber = extractRunNumber(runId);
+    if (!runNumber || containsNormalized(seoTitle, `Run ${runNumber}`)) {
+        return seoTitle;
+    }
+    const titleBudget = budgetFor(lang, 'title');
+    const suffix = ` — Run ${runNumber}`;
+    const suffixLen = Array.from(suffix).length;
+    const seoTitleGraphemes = Array.from(seoTitle);
+    if (seoTitleGraphemes.length + suffixLen <= titleBudget) {
+        return `${seoTitle}${suffix}`;
+    }
+    if (suffixLen >= titleBudget)
+        return seoTitle;
+    // Reserve budget: trim editorial portion to leave room for the
+    // ` — Run N` suffix without exceeding the per-script clamp.
+    const headroom = titleBudget - suffixLen;
+    const trimmedHead = seoTitleGraphemes
+        .slice(0, headroom)
+        .join('')
+        .replace(/[\s|,;:—\-–]+$/u, '')
+        .trim();
+    return trimmedHead ? `${trimmedHead}${suffix}` : seoTitle;
+}
 /**
  * Resolve `{title, description, keywords, source}` for one language.
  *
@@ -241,29 +279,19 @@ function resolveOneLanguage(input) {
     // make room.
     const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
     let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
-    const runNumber = extractRunNumber(input.runId ?? '');
-    if (runNumber && !containsNormalized(seoTitle, `Run ${runNumber}`)) {
-        const titleBudget = budgetFor(input.lang, 'title');
-        const suffix = ` — Run ${runNumber}`;
-        const suffixLen = Array.from(suffix).length;
-        const seoTitleGraphemes = Array.from(seoTitle);
-        if (seoTitleGraphemes.length + suffixLen <= titleBudget) {
-            seoTitle = `${seoTitle}${suffix}`;
-        }
-        else if (suffixLen < titleBudget) {
-            // Reserve budget: trim editorial portion to leave room for the
-            // ` — Run N` suffix without exceeding the per-script clamp.
-            const headroom = titleBudget - suffixLen;
-            const trimmedHead = seoTitleGraphemes
-                .slice(0, headroom)
-                .join('')
-                .replace(/[\s|,;:—\-–]+$/u, '')
-                .trim();
-            if (trimmedHead) {
-                seoTitle = `${trimmedHead}${suffix}`;
-            }
-        }
-    }
+    seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');
+    // Final SERP-floor recovery on the resolved title. The internal
+    // branch inside `composeContextualTitle` only fires on the
+    // `fallbackTitle` path; titles selected from `manifestTitle`,
+    // `englishFallbackTitle`, or the H1-extracted `resolvedTitleCandidate`
+    // bypass it and can ship below the per-script reader floor (e.g.
+    // `"Moties | 2026-04-01"` — 19 chars, nl). `padTitleToFloor` appends
+    // ` (EP)` when (a) the title is below floor, (b) there is no
+    // isolated `EP` token already present (word-boundary check — the
+    // simpler substring scan was fooled by Dutch/German/French words
+    // such as `Europese`/`Europäische`), and (c) the result fits inside
+    // the per-script `<title>` budget.
+    seoTitle = padTitleToFloor(seoTitle, input.lang, budgetFor(input.lang, 'title'));
     // `clampForBudget` is contractually required to emit a trailing `…`
     // when it has to hard-cut mid-clause (locked by
     // `test/unit/seo-budgets.test.js:147-152`). For meta-descriptions
@@ -273,8 +301,14 @@ function resolveOneLanguage(input) {
     // `ensureDescriptionTerminator` finalizer strips the trailing
     // ellipsis (with any dangling pipe/colon/em-dash) and either
     // back-scans to the most recent real terminator within the trailing
-    // ~35 chars, or appends `.` / `。` based on the language's script.
-    const truncatedDescription = ensureDescriptionTerminator(input.lang, clampForBudget(description, input.lang, 'metaDescription'));
+    // ~35 chars, or appends `.` / `。` based on the language's script —
+    // shrinking the body first when the metaDescription budget is
+    // already saturated, so the stapled terminator never pushes the
+    // string over budget. Passing the budget here is what stops the
+    // HTML shell's second clamp from dropping the terminator (live
+    // regression in `news/2026-05-26-breaking-fr.html`).
+    const descriptionBudget = budgetFor(input.lang, 'metaDescription');
+    const truncatedDescription = padDescriptionToFloor(ensureDescriptionTerminator(input.lang, clampForBudget(description, input.lang, 'metaDescription'), descriptionBudget), input.lang);
     const extendedSource = sanitizeDescriptionCandidate(manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription);
     // Two-tier extended-description resolution:
     // 1. Direct truncation — preferred when the editorial source paragraph

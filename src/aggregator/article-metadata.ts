@@ -235,6 +235,44 @@ const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
 const ENGLISH_BRIEF_SOURCE = 'english-brief';
 
 /**
+ * Append ` — Run N` to a clamped SEO title when the manifest runId
+ * carries a discriminator. Reserves budget headroom by trimming the
+ * editorial portion (whole-grapheme aware, with trailing separator
+ * scrub) before stapling the suffix so we never exceed the per-script
+ * `<title>` clamp. Extracted from {@link resolveOneLanguage} to keep
+ * its cognitive complexity below the project lint cap.
+ *
+ * @param seoTitle - Already-clamped, ellipsis-scrubbed SEO title
+ * @param lang - Language code (drives the per-script title budget)
+ * @param runId - Manifest run identifier (may be empty)
+ * @returns Title with ` — Run N` appended, or the unchanged input when
+ *   no runId is present or the suffix can't fit inside budget
+ */
+function appendRunNumberSuffix(seoTitle: string, lang: LanguageCode, runId: string): string {
+  const runNumber = extractRunNumber(runId);
+  if (!runNumber || containsNormalized(seoTitle, `Run ${runNumber}`)) {
+    return seoTitle;
+  }
+  const titleBudget = budgetFor(lang, 'title');
+  const suffix = ` — Run ${runNumber}`;
+  const suffixLen = Array.from(suffix).length;
+  const seoTitleGraphemes = Array.from(seoTitle);
+  if (seoTitleGraphemes.length + suffixLen <= titleBudget) {
+    return `${seoTitle}${suffix}`;
+  }
+  if (suffixLen >= titleBudget) return seoTitle;
+  // Reserve budget: trim editorial portion to leave room for the
+  // ` — Run N` suffix without exceeding the per-script clamp.
+  const headroom = titleBudget - suffixLen;
+  const trimmedHead = seoTitleGraphemes
+    .slice(0, headroom)
+    .join('')
+    .replace(/[\s|,;:—\-–]+$/u, '')
+    .trim();
+  return trimmedHead ? `${trimmedHead}${suffix}` : seoTitle;
+}
+
+/**
  * Resolve `{title, description, keywords, source}` for one language.
  *
  * @param input - Per-language inputs
@@ -385,28 +423,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // make room.
   const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
   let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
-  const runNumber = extractRunNumber(input.runId ?? '');
-  if (runNumber && !containsNormalized(seoTitle, `Run ${runNumber}`)) {
-    const titleBudget = budgetFor(input.lang, 'title');
-    const suffix = ` — Run ${runNumber}`;
-    const suffixLen = Array.from(suffix).length;
-    const seoTitleGraphemes = Array.from(seoTitle);
-    if (seoTitleGraphemes.length + suffixLen <= titleBudget) {
-      seoTitle = `${seoTitle}${suffix}`;
-    } else if (suffixLen < titleBudget) {
-      // Reserve budget: trim editorial portion to leave room for the
-      // ` — Run N` suffix without exceeding the per-script clamp.
-      const headroom = titleBudget - suffixLen;
-      const trimmedHead = seoTitleGraphemes
-        .slice(0, headroom)
-        .join('')
-        .replace(/[\s|,;:—\-–]+$/u, '')
-        .trim();
-      if (trimmedHead) {
-        seoTitle = `${trimmedHead}${suffix}`;
-      }
-    }
-  }
+  seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');
   // Final SERP-floor recovery on the resolved title. The internal
   // branch inside `composeContextualTitle` only fires on the
   // `fallbackTitle` path; titles selected from `manifestTitle`,
@@ -428,11 +445,18 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   // `ensureDescriptionTerminator` finalizer strips the trailing
   // ellipsis (with any dangling pipe/colon/em-dash) and either
   // back-scans to the most recent real terminator within the trailing
-  // ~35 chars, or appends `.` / `。` based on the language's script.
+  // ~35 chars, or appends `.` / `。` based on the language's script —
+  // shrinking the body first when the metaDescription budget is
+  // already saturated, so the stapled terminator never pushes the
+  // string over budget. Passing the budget here is what stops the
+  // HTML shell's second clamp from dropping the terminator (live
+  // regression in `news/2026-05-26-breaking-fr.html`).
+  const descriptionBudget = budgetFor(input.lang, 'metaDescription');
   const truncatedDescription = padDescriptionToFloor(
     ensureDescriptionTerminator(
       input.lang,
-      clampForBudget(description, input.lang, 'metaDescription')
+      clampForBudget(description, input.lang, 'metaDescription'),
+      descriptionBudget
     ),
     input.lang
   );

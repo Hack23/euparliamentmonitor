@@ -125,6 +125,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 
 import { discoverAnalysisRuns } from '../../scripts/aggregator/generator/discovery.js';
@@ -147,6 +148,8 @@ import {
   TITLE_REJECTION_DENYLIST,
 } from '../../scripts/aggregator/metadata/title-rejection.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const SAMPLE_PER_TYPE = 10;
 

@@ -215,6 +215,7 @@ export function resolveEditorialContent(opts) {
  * @param editorialHeadline - Editorial headline (localized or English)
  * @param runId - Optional run id used only when no editorial headline exists
  * @param date - Optional ISO date appended when no editorial headline exists
+ * @param lang - Optional language code; drives per-script floor/budget classification
  * @returns SEO title candidate
  */
 export function composeContextualTitle(fallbackTitle, editorialHeadline, runId, date, lang) {
@@ -249,11 +250,117 @@ export function composeContextualTitle(fallbackTitle, editorialHeadline, runId, 
     // titles don't get truncated as snippets in search. Append ` (EP)`
     // — a universally recognized European Parliament acronym — to
     // lift the title above the floor without adding language-specific
-    // wording (EP works in every supported locale).
-    if ([...composed].length < floor && !containsNormalized(composed, 'EP')) {
+    // wording (EP works in every supported locale). Word-boundary check
+    // so `"Europese …"` (which contains the substring `ep`) does not
+    // short-circuit the pad.
+    if ([...composed].length < floor && !containsEpToken(composed)) {
         composed = `${composed} (EP)`;
     }
     return composed;
+}
+/**
+ * Word-boundary check for the literal `EP` token. The simpler
+ * `containsNormalized(_, 'EP')` is fooled by Dutch/German/French words
+ * such as `Europese`, `Europäische`, `européen` whose lowercased forms
+ * embed the substring `ep`; that short-circuited the `(EP)` SERP-floor
+ * pad and let `"Moties | 2026-04-01"` (19 chars, nl) ship below the
+ * 20-char Latin reader floor.
+ *
+ * @param text - Title text under inspection
+ * @returns True when an isolated `EP` token (case-insensitive) appears
+ */
+function containsEpToken(text) {
+    return /(^|[^A-Za-z])EP(?=$|[^A-Za-z])/iu.test(text);
+}
+/**
+ * Post-resolution SERP-floor recovery for `<title>`. The internal
+ * branch inside {@link composeContextualTitle} only fires on the
+ * `fallbackTitle` path; titles picked from `manifestTitle`,
+ * `englishFallbackTitle`, or the H1-extracted `resolvedTitleCandidate`
+ * bypass it. This wrapper applies the same `(EP)` pad to the FINAL
+ * resolved title so short briefs (e.g. `"Moties | 2026-04-01"`, 19 chars)
+ * clear the per-script reader floor regardless of which candidate
+ * `pickFirstNonEmpty` selected.
+ *
+ * No-op when the title already clears the floor or already contains an
+ * isolated `EP` token (word-boundary check — see {@link containsEpToken}).
+ * The pad is only appended when the resulting title fits inside
+ * `budgetFor(lang, 'title')`.
+ *
+ * @param title - Resolved SEO title
+ * @param lang - Target language code
+ * @param titleBudget - Per-script `<title>` budget (60 latin / 30 cjk / 55 rtl)
+ * @returns Title padded to the SERP floor when feasible
+ */
+export function padTitleToFloor(title, lang, titleBudget) {
+    const trimmed = title.trim();
+    if (!trimmed)
+        return trimmed;
+    const family = classifyScript(lang);
+    const floor = SEO_TITLE_FLOOR_BY_SCRIPT[family];
+    const currentLen = [...trimmed].length;
+    if (currentLen >= floor)
+        return trimmed;
+    if (containsEpToken(trimmed))
+        return trimmed;
+    const suffix = ' (EP)';
+    const suffixLen = [...suffix].length;
+    if (currentLen + suffixLen > titleBudget)
+        return trimmed;
+    return `${trimmed}${suffix}`;
+}
+/**
+ * Post-resolution SERP-fill recovery for `<meta description>`. The
+ * internal branch inside {@link composeContextualDescription} only fires
+ * on the contextual-synthesis path (when `normalizedRawDescription` is
+ * below {@link ENRICHMENT_TRIGGER_LENGTH}); descriptions picked
+ * verbatim from a longer editorial summary bypass it and can land
+ * below the per-script SERP-fill floor after `clampForBudget` cuts at
+ * a natural clause boundary. This wrapper appends the localized
+ * `labels.reader` framing to the FINAL resolved description so short
+ * snippets clear the `OPTIMAL_DESC` lower bound (110 / 55 / 110) used
+ * by the `executive-brief-seo-extraction` regression suite.
+ *
+ * No-op when the description already clears the floor or already
+ * contains the reader label. The pad is only appended when the
+ * resulting description fits inside `budgetFor(lang, 'metaDescription')`
+ * (155 / 78 / 150) — when it doesn't, we leave the description as-is
+ * rather than ship a truncated reader-label fragment.
+ *
+ * @param description - Final clamped, terminator-closed description
+ * @param lang - Target language code
+ * @returns Description padded to the SERP-fill floor when feasible
+ */
+export function padDescriptionToFloor(description, lang) {
+    const trimmed = description.trim();
+    if (!trimmed)
+        return trimmed;
+    const family = classifyScript(lang);
+    const floor = DESCRIPTION_SERP_FILL_FLOOR[family];
+    const currentLen = [...trimmed].length;
+    if (currentLen >= floor)
+        return trimmed;
+    const labels = getLocalizedString(SEO_CONTEXT_LABELS, lang);
+    if (containsNormalized(trimmed, labels.reader))
+        return trimmed;
+    const separator = ' ';
+    // Strip any existing trailing terminator before joining — the
+    // re-finalized result reapplies a script-appropriate terminator
+    // below. Without this we would emit `". لقراء…"`-style dangling
+    // punctuation between the date sentence and the reader framing.
+    const stripped = trimmed.replace(/[.!?。．！？؟]+$/u, '').trim();
+    const candidate = `${stripped}${separator}${labels.reader}`;
+    // Re-clamp + re-close so the result respects the per-script
+    // metaDescription budget (155 / 78 / 150) and ends on a real
+    // sentence terminator. When the reader label by itself would push
+    // the buffer over budget, `clampForBudget` cuts at the nearest
+    // clause boundary and `ensureTerminator` back-scans for a real
+    // terminator before stapling a script-appropriate `.` / `。`.
+    const clamped = clampForBudget(candidate, lang, 'metaDescription');
+    const finalized = ensureTerminator(clamped, family);
+    // Reject the pad if it would shorten the buffer below the original
+    // (e.g. clamp ate the label entirely) — we'd be making things worse.
+    return [...finalized].length >= currentLen ? finalized : trimmed;
 }
 /**
  * Add localized article context to short or duplicate-prone meta
@@ -386,7 +493,70 @@ export function hasLeakySeoToken(value) {
  * @param family - Script family (`latin` / `cjk` / `rtl`)
  * @returns Description ending in a terminator
  */
-function ensureTerminator(text, family) {
+/**
+ * Terminator candidates per script family. Latin/RTL entries are 2-char
+ * sequences (punct + trailing space) so we don't over-match mid-word
+ * abbreviations like `e.g.`; the trailing space is dropped from the cut
+ * index before slicing. CJK uses full-width punctuation only.
+ */
+const TERMINATOR_CANDIDATES = {
+    cjk: ['。', '！', '？', '．'],
+    rtl: ['. ', '! ', '? ', '؟ '],
+    latin: ['. ', '! ', '? '],
+};
+/**
+ * Back-scan a description tail for the right-most sentence terminator
+ * that sits inside the in-budget window. Returns -1 when no terminator
+ * is found. Extracted from {@link ensureTerminator} to keep its
+ * cognitive complexity below the project lint cap.
+ *
+ * @param tail - Trailing slice of the description being closed
+ * @param family - Script family driving the terminator set
+ * @returns Cut offset (relative to `tail`), or -1 when none found
+ */
+function findTerminatorCutInTail(tail, family) {
+    const terminators = TERMINATOR_CANDIDATES[family];
+    let bestRelIdx = -1;
+    for (const t of terminators) {
+        const idx = tail.lastIndexOf(t);
+        if (idx < 0)
+            continue;
+        const cutAt = idx + (t.endsWith(' ') ? t.length - 1 : t.length);
+        if (cutAt > bestRelIdx)
+            bestRelIdx = cutAt;
+    }
+    return bestRelIdx;
+}
+/**
+ * Append a script-appropriate terminator to `trimmed`, shrinking the
+ * body first when `maxLength` would otherwise be exceeded. The trim
+ * preserves whole graphemes (Array.from) so CJK/RTL clusters are never
+ * cut mid-codepoint, and trailing dangling separators are scrubbed
+ * before stapling the terminator so we don't emit `… —.` artefacts.
+ *
+ * @param trimmed - Body without trailing whitespace
+ * @param family - Script family (drives the terminator glyph)
+ * @param maxLength - Optional total grapheme budget the result must fit in
+ * @returns Body + terminator, never longer than `maxLength` when given
+ */
+function appendTerminator(trimmed, family, maxLength) {
+    const terminator = family === 'cjk' ? '。' : '.';
+    if (maxLength === undefined)
+        return `${trimmed}${terminator}`;
+    const graphemes = Array.from(trimmed);
+    if (graphemes.length < maxLength)
+        return `${trimmed}${terminator}`;
+    // No room for the terminator inside `maxLength` — drop trailing
+    // graphemes plus any dangling separator residue before stapling.
+    const headroom = Math.max(0, maxLength - 1);
+    const head = graphemes
+        .slice(0, headroom)
+        .join('')
+        .replace(/[\s|,;:—\-–]+$/u, '')
+        .trim();
+    return head ? `${head}${terminator}` : trimmed;
+}
+function ensureTerminator(text, family, maxLength) {
     let trimmed = text.trim();
     if (!trimmed)
         return trimmed;
@@ -409,24 +579,11 @@ function ensureTerminator(text, family) {
     const scanLen = family === 'cjk' ? 20 : 35;
     const scanStart = Math.max(0, trimmed.length - scanLen);
     const tail = trimmed.slice(scanStart);
-    const terminators = family === 'cjk'
-        ? ['。', '！', '？', '．']
-        : family === 'rtl'
-            ? ['. ', '! ', '? ', '؟ ']
-            : ['. ', '! ', '? '];
-    let bestRelIdx = -1;
-    for (const t of terminators) {
-        const idx = tail.lastIndexOf(t);
-        if (idx >= 0) {
-            const cutAt = idx + (t.endsWith(' ') ? t.length - 1 : t.length);
-            if (cutAt > bestRelIdx)
-                bestRelIdx = cutAt;
-        }
-    }
+    const bestRelIdx = findTerminatorCutInTail(tail, family);
     if (bestRelIdx > 0 && scanStart + bestRelIdx >= Math.floor(trimmed.length * 0.55)) {
         return trimmed.slice(0, scanStart + bestRelIdx).trim();
     }
-    return family === 'cjk' ? `${trimmed}。` : `${trimmed}.`;
+    return appendTerminator(trimmed, family, maxLength);
 }
 /**
  * Strip a trailing ellipsis (Unicode `…` or ASCII `...`) plus any
@@ -458,13 +615,22 @@ export function scrubTrailingEllipsis(value) {
  * with language-to-script classification so callers in `article-metadata.ts`
  * don't need to know about the per-script terminator tables.
  *
+ * When `maxLength` is supplied, the finalizer reserves space for the
+ * terminator before stapling it — never returning a string longer than
+ * the caller's budget. Without this, `clampForBudget(_, lang,
+ * 'metaDescription')` returns a string at exactly the budget, the
+ * stapled terminator pushes it 1 grapheme over, and the second clamp in
+ * the HTML shell drops the terminator and cuts mid-word (live
+ * regression in `news/2026-05-26-breaking-fr.html`).
+ *
  * @param lang - Language code (drives Latin/CJK/RTL classification)
  * @param value - Already-clamped meta-description
+ * @param maxLength - Optional grapheme budget the result must fit in
  * @returns Description with trailing ellipsis stripped and a real
  *   terminator guaranteed
  */
-export function ensureDescriptionTerminator(lang, value) {
-    return ensureTerminator(value, classifyScript(lang));
+export function ensureDescriptionTerminator(lang, value, maxLength) {
+    return ensureTerminator(value, classifyScript(lang), maxLength);
 }
 /**
  * Extract a run number from a runId like `committee-reports-run47`,

@@ -242,6 +242,7 @@ export function resolveEditorialContent(opts: ResolveMetadataOptions): {
  * @param editorialHeadline - Editorial headline (localized or English)
  * @param runId - Optional run id used only when no editorial headline exists
  * @param date - Optional ISO date appended when no editorial headline exists
+ * @param lang - Optional language code; drives per-script floor/budget classification
  * @returns SEO title candidate
  */
 export function composeContextualTitle(
@@ -544,7 +545,77 @@ export function hasLeakySeoToken(value: string): boolean {
  * @param family - Script family (`latin` / `cjk` / `rtl`)
  * @returns Description ending in a terminator
  */
-function ensureTerminator(text: string, family: 'latin' | 'cjk' | 'rtl'): string {
+/**
+ * Terminator candidates per script family. Latin/RTL entries are 2-char
+ * sequences (punct + trailing space) so we don't over-match mid-word
+ * abbreviations like `e.g.`; the trailing space is dropped from the cut
+ * index before slicing. CJK uses full-width punctuation only.
+ */
+const TERMINATOR_CANDIDATES: Record<'latin' | 'cjk' | 'rtl', readonly string[]> = {
+  cjk: ['。', '！', '？', '．'],
+  rtl: ['. ', '! ', '? ', '؟ '],
+  latin: ['. ', '! ', '? '],
+};
+
+/**
+ * Back-scan a description tail for the right-most sentence terminator
+ * that sits inside the in-budget window. Returns -1 when no terminator
+ * is found. Extracted from {@link ensureTerminator} to keep its
+ * cognitive complexity below the project lint cap.
+ *
+ * @param tail - Trailing slice of the description being closed
+ * @param family - Script family driving the terminator set
+ * @returns Cut offset (relative to `tail`), or -1 when none found
+ */
+function findTerminatorCutInTail(tail: string, family: 'latin' | 'cjk' | 'rtl'): number {
+  const terminators = TERMINATOR_CANDIDATES[family];
+  let bestRelIdx = -1;
+  for (const t of terminators) {
+    const idx = tail.lastIndexOf(t);
+    if (idx < 0) continue;
+    const cutAt = idx + (t.endsWith(' ') ? t.length - 1 : t.length);
+    if (cutAt > bestRelIdx) bestRelIdx = cutAt;
+  }
+  return bestRelIdx;
+}
+
+/**
+ * Append a script-appropriate terminator to `trimmed`, shrinking the
+ * body first when `maxLength` would otherwise be exceeded. The trim
+ * preserves whole graphemes (Array.from) so CJK/RTL clusters are never
+ * cut mid-codepoint, and trailing dangling separators are scrubbed
+ * before stapling the terminator so we don't emit `… —.` artefacts.
+ *
+ * @param trimmed - Body without trailing whitespace
+ * @param family - Script family (drives the terminator glyph)
+ * @param maxLength - Optional total grapheme budget the result must fit in
+ * @returns Body + terminator, never longer than `maxLength` when given
+ */
+function appendTerminator(
+  trimmed: string,
+  family: 'latin' | 'cjk' | 'rtl',
+  maxLength: number | undefined
+): string {
+  const terminator = family === 'cjk' ? '。' : '.';
+  if (maxLength === undefined) return `${trimmed}${terminator}`;
+  const graphemes = Array.from(trimmed);
+  if (graphemes.length < maxLength) return `${trimmed}${terminator}`;
+  // No room for the terminator inside `maxLength` — drop trailing
+  // graphemes plus any dangling separator residue before stapling.
+  const headroom = Math.max(0, maxLength - 1);
+  const head = graphemes
+    .slice(0, headroom)
+    .join('')
+    .replace(/[\s|,;:—\-–]+$/u, '')
+    .trim();
+  return head ? `${head}${terminator}` : trimmed;
+}
+
+function ensureTerminator(
+  text: string,
+  family: 'latin' | 'cjk' | 'rtl',
+  maxLength?: number
+): string {
   let trimmed = text.trim();
   if (!trimmed) return trimmed;
   // Defensive scrub: upstream truncators (text-truncate.ts and the
@@ -564,24 +635,11 @@ function ensureTerminator(text: string, family: 'latin' | 'cjk' | 'rtl'): string
   const scanLen = family === 'cjk' ? 20 : 35;
   const scanStart = Math.max(0, trimmed.length - scanLen);
   const tail = trimmed.slice(scanStart);
-  const terminators =
-    family === 'cjk'
-      ? ['。', '！', '？', '．']
-      : family === 'rtl'
-        ? ['. ', '! ', '? ', '؟ ']
-        : ['. ', '! ', '? '];
-  let bestRelIdx = -1;
-  for (const t of terminators) {
-    const idx = tail.lastIndexOf(t);
-    if (idx >= 0) {
-      const cutAt = idx + (t.endsWith(' ') ? t.length - 1 : t.length);
-      if (cutAt > bestRelIdx) bestRelIdx = cutAt;
-    }
-  }
+  const bestRelIdx = findTerminatorCutInTail(tail, family);
   if (bestRelIdx > 0 && scanStart + bestRelIdx >= Math.floor(trimmed.length * 0.55)) {
     return trimmed.slice(0, scanStart + bestRelIdx).trim();
   }
-  return family === 'cjk' ? `${trimmed}。` : `${trimmed}.`;
+  return appendTerminator(trimmed, family, maxLength);
 }
 
 /**
@@ -615,13 +673,26 @@ export function scrubTrailingEllipsis(value: string): string {
  * with language-to-script classification so callers in `article-metadata.ts`
  * don't need to know about the per-script terminator tables.
  *
+ * When `maxLength` is supplied, the finalizer reserves space for the
+ * terminator before stapling it — never returning a string longer than
+ * the caller's budget. Without this, `clampForBudget(_, lang,
+ * 'metaDescription')` returns a string at exactly the budget, the
+ * stapled terminator pushes it 1 grapheme over, and the second clamp in
+ * the HTML shell drops the terminator and cuts mid-word (live
+ * regression in `news/2026-05-26-breaking-fr.html`).
+ *
  * @param lang - Language code (drives Latin/CJK/RTL classification)
  * @param value - Already-clamped meta-description
+ * @param maxLength - Optional grapheme budget the result must fit in
  * @returns Description with trailing ellipsis stripped and a real
  *   terminator guaranteed
  */
-export function ensureDescriptionTerminator(lang: LanguageCode, value: string): string {
-  return ensureTerminator(value, classifyScript(lang));
+export function ensureDescriptionTerminator(
+  lang: LanguageCode,
+  value: string,
+  maxLength?: number
+): string {
+  return ensureTerminator(value, classifyScript(lang), maxLength);
 }
 
 /**

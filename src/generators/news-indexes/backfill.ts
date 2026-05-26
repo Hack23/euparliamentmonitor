@@ -233,9 +233,36 @@ export function buildLegacyBackfillDescription(
   const prefix = [date, languageLabel, label, qualifier]
     .filter((part) => part.length > 0)
     .join(' — ');
-  const body = trimmedDescription || label;
+  // Idempotency guard: when this helper is called against an HTML that
+  // already carries a backfilled description (re-running backfill on
+  // a previously-processed file, or a `forceContextPrefix:true` call
+  // whose input was the prior pass' output), the trimmed description
+  // already starts with `${date} — ${languageLabel} — ${label} — `.
+  // Without this strip, the prefix is doubled, producing
+  //   "2026-05-26 — 日本語 — Breaking — 2026-05-26 — 日本語 — Breaking — …"
+  // (live regression in `news/2026-05-26-breaking-{ja,ko}.html`).
+  const body = stripDuplicatedLegacyPrefix(trimmedDescription, prefix) || label;
   const contextual = `${prefix} — ${body}`.replace(/\s+/g, ' ').trim();
   return capDescriptionLength(contextual);
+}
+
+/**
+ * Strip a leading copy of the legacy backfill prefix from a description
+ * candidate to keep {@link buildLegacyBackfillDescription} idempotent.
+ * Matches the exact computed prefix (followed by ` — `). Returns the
+ * input unchanged when no prefix is detected.
+ *
+ * @param trimmedDescription - Trimmed candidate description
+ * @param prefix - Prefix that would be prepended by this backfill pass
+ * @returns Description with any leading legacy prefix removed
+ */
+function stripDuplicatedLegacyPrefix(trimmedDescription: string, prefix: string): string {
+  if (!trimmedDescription) return trimmedDescription;
+  const exact = `${prefix} — `;
+  if (trimmedDescription.startsWith(exact)) {
+    return trimmedDescription.slice(exact.length).trim();
+  }
+  return trimmedDescription;
 }
 
 /**
