@@ -36,7 +36,7 @@ import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
 import { CROSS_SITE_KEYWORDS, isNoiseKeywordToken } from './keyword-filters.js';
 import { findTitleRejectionReason } from './title-rejection.js';
-import { classifyScript, clampForBudget } from './seo-budgets.js';
+import { classifyScript } from './seo-budgets.js';
 
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
 
