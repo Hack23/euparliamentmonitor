@@ -1,0 +1,254 @@
+{
+  "runId": "committee-reports-run260-1779774042",
+  "date": "2026-05-26",
+  "articleTypeSlug": "committee-reports",
+  "articleType": "committee-reports",
+  "dataMode": "degraded-feeds",
+  "startTime": "2026-05-26T05:00:42.000Z",
+  "endTime": "2026-05-26T05:30:00.000Z",
+  "articleTypes": [
+    "committee-reports"
+  ],
+  "methods": [
+    {
+      "method": "executive-brief",
+      "status": "completed",
+      "outputFile": "executive-brief.md",
+      "confidence": "high",
+      "duration": 1,
+      "summary": "executive-brief analysis completed successfully"
+    },
+    {
+      "method": "data-availability-assessment",
+      "status": "completed",
+      "outputFile": "data-availability-assessment.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "data-availability-assessment analysis completed successfully"
+    },
+    {
+      "method": "analysis-index",
+      "status": "completed",
+      "outputFile": "intelligence/analysis-index.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "analysis-index analysis completed successfully"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "intelligence/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "synthesis-summary analysis completed successfully"
+    },
+    {
+      "method": "historical-baseline",
+      "status": "completed",
+      "outputFile": "intelligence/historical-baseline.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "historical-baseline analysis completed successfully"
+    },
+    {
+      "method": "economic-context",
+      "status": "completed",
+      "outputFile": "intelligence/economic-context.md",
+      "confidence": "high",
+      "duration": 1,
+      "summary": "economic-context analysis completed successfully"
+    },
+    {
+      "method": "pestle-analysis",
+      "status": "completed",
+      "outputFile": "intelligence/pestle-analysis.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "pestle-analysis analysis completed successfully"
+    },
+    {
+      "method": "stakeholder-map",
+      "status": "completed",
+      "outputFile": "intelligence/stakeholder-map.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "stakeholder-map analysis completed successfully"
+    },
+    {
+      "method": "scenario-forecast",
+      "status": "completed",
+      "outputFile": "intelligence/scenario-forecast.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "scenario-forecast analysis completed successfully"
+    },
+    {
+      "method": "threat-model",
+      "status": "completed",
+      "outputFile": "intelligence/threat-model.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "threat-model analysis completed successfully"
+    },
+    {
+      "method": "wildcards-blackswans",
+      "status": "completed",
+      "outputFile": "intelligence/wildcards-blackswans.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "wildcards-blackswans analysis completed successfully"
+    },
+    {
+      "method": "mcp-reliability-audit",
+      "status": "completed",
+      "outputFile": "intelligence/mcp-reliability-audit.md",
+      "confidence": "high",
+      "duration": 1,
+      "summary": "mcp-reliability-audit analysis completed successfully"
+    },
+    {
+      "method": "reference-analysis-quality",
+      "status": "completed",
+      "outputFile": "intelligence/reference-analysis-quality.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "reference-analysis-quality analysis completed successfully"
+    },
+    {
+      "method": "methodology-reflection",
+      "status": "completed",
+      "outputFile": "intelligence/methodology-reflection.md",
+      "confidence": "high",
+      "duration": 1,
+      "summary": "methodology-reflection analysis completed successfully"
+    },
+    {
+      "method": "procedures-proxy",
+      "status": "completed",
+      "outputFile": "intelligence/procedures-proxy.md",
+      "confidence": "low",
+      "duration": 1,
+      "summary": "procedures-proxy analysis completed successfully"
+    },
+    {
+      "method": "economic-context-fallback",
+      "status": "completed",
+      "outputFile": "intelligence/economic-context.fallback.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "economic-context-fallback analysis completed successfully"
+    },
+    {
+      "method": "coalition-dynamics",
+      "status": "completed",
+      "outputFile": "intelligence/coalition-dynamics.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "coalition-dynamics analysis completed successfully"
+    },
+    {
+      "method": "voting-patterns",
+      "status": "completed",
+      "outputFile": "intelligence/voting-patterns.md",
+      "confidence": "low",
+      "duration": 1,
+      "summary": "voting-patterns analysis completed successfully"
+    },
+    {
+      "method": "risk-matrix",
+      "status": "completed",
+      "outputFile": "risk-scoring/risk-matrix.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "risk-matrix analysis completed successfully"
+    },
+    {
+      "method": "quantitative-swot",
+      "status": "completed",
+      "outputFile": "risk-scoring/quantitative-swot.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "quantitative-swot analysis completed successfully"
+    },
+    {
+      "method": "media-framing-analysis",
+      "status": "completed",
+      "outputFile": "extended/media-framing-analysis.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "media-framing-analysis analysis completed successfully"
+    },
+    {
+      "method": "significance-classification",
+      "status": "completed",
+      "outputFile": "classification/significance-classification.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "significance-classification analysis completed successfully"
+    },
+    {
+      "method": "actor-mapping",
+      "status": "completed",
+      "outputFile": "classification/actor-mapping.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "actor-mapping analysis completed successfully"
+    },
+    {
+      "method": "forces-analysis",
+      "status": "completed",
+      "outputFile": "classification/forces-analysis.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "forces-analysis analysis completed successfully"
+    },
+    {
+      "method": "impact-matrix",
+      "status": "completed",
+      "outputFile": "classification/impact-matrix.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "impact-matrix analysis completed successfully"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ep-mcp-degraded",
+    "institutional-knowledge",
+    "imf-weo-april-2026"
+  ],
+  "documentsAnalyzed": 50,
+  "analyzedDocumentIds": [
+    "AFCO-AD-592152-through-AFCO-PR-751801"
+  ],
+  "history": [],
+  "files": {
+    "all": [
+      "executive-brief.md",
+      "data-availability-assessment.md",
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/voting-patterns.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "extended/media-framing-analysis.md",
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ]
+  }
+}

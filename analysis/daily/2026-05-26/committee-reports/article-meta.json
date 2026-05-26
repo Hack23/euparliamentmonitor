@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-26",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run260-1779774042",
+  "gateResult": "PENDING",
+  "slug": "2026-05-26-committee-reports",
+  "articlePath": "analysis/daily/2026-05-26/committee-reports/article.md",
+  "topFinding": "The European Parliament's committee system enters the week of 26 May 2026 in a period of high legislative demand with constrained monitoring visibility.",
+  "keyTakeaways": [
+    "EPP + ECR + Patriots: ~351 seats (0 short of 353 majority in 705-seat chamber)",
+    "EPP + S&D + Renew: ~402 seats (robust majority for centrist legislation)",
+    "EPP + S&D alone: ~325 seats (insufficient for majority)",
+    "**Competitiveness (ITRE):** demands reduced regulatory burden, streamlined permitting, R&D investment",
+    "**Defence (SEDE/BUDG):** demands EUR 100bn+ new spending, diverts from civilian priorities",
+    "**Green Deal (ENVI):** demands regulatory stability, carbon price certainty, continued investment mandates",
+    "EU GDP growth 2026: **1.4%** (above 2025's 1.1% — modest recovery)"
+  ],
+  "topRisks": [
+    "2030 targets for emissions reduction effectively softened through implementation flexibility",
+    "Nature Restoration Act coverage reduced in ENVI committee vote",
+    "Combustion engine 2035 ban challenged via ITRE review",
+    "EU taxonomy criteria expanded to include gas/nuclear more favourably",
+    "R-06 (API degradation) reduces civil society monitoring capacity",
+    "Reduced monitoring reduces accountability pressure on MEPs",
+    "Lower accountability enables more extreme policy positions in committee",
+    "Systemic risk amplifier: **LOW** (EP remains a public institution with multiple accountability mechanisms)"
+  ],
+  "keyDates": [
+    "🔴 LOW confidence: Specific June 2026 vote outcomes, rapporteur positions"
+  ],
+  "keyActors": [
+    "Treaty interpretation and institutional reform",
+    "Interinstitutional Agreement oversight",
+    "Electoral law harmonisation",
+    "European political party regulation"
+  ],
+  "macroContext": "IMF WEO April 2026 reports EU real GDP growth at 1.4% for 2026, recovering from the 1.1% outturn in 2025.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
