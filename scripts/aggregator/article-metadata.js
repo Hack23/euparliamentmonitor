@@ -99,7 +99,9 @@ export function resolveArticleMetadata(opts) {
         : '';
     const runId = /(?:^|-)run\d+/u.test(rawRunId) || /^\d+$/u.test(rawRunId)
         ? rawRunId
-        : (slugForRun && /-run\d+$/u.test(slugForRun) ? slugForRun : rawRunId);
+        : slugForRun && /-run\d+$/u.test(slugForRun)
+            ? slugForRun
+            : rawRunId;
     const result = Object.create(null);
     for (const lang of ALL_LANGUAGES) {
         const entry = resolveOneLanguage({

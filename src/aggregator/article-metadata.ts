@@ -172,9 +172,12 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
     typeof (manifest as { articleTypeSlug?: unknown }).articleTypeSlug === 'string'
       ? String((manifest as { articleTypeSlug?: string }).articleTypeSlug).trim()
       : '';
-  const runId = /(?:^|-)run\d+/u.test(rawRunId) || /^\d+$/u.test(rawRunId)
-    ? rawRunId
-    : (slugForRun && /-run\d+$/u.test(slugForRun) ? slugForRun : rawRunId);
+  const runId =
+    /(?:^|-)run\d+/u.test(rawRunId) || /^\d+$/u.test(rawRunId)
+      ? rawRunId
+      : slugForRun && /-run\d+$/u.test(slugForRun)
+        ? slugForRun
+        : rawRunId;
 
   const result: Record<LanguageCode, ResolvedMetadataEntry> = Object.create(null) as Record<
     LanguageCode,
@@ -419,8 +422,7 @@ function resolvePerLanguageEditorial(input: PerLanguageInputs): {
   // SEO/locale safety: for non-Latin scripts (CJK + RTL), refuse to
   // emit English editorial copy as the SEO meta source — fall through
   // to the locale-aware template fallback instead.
-  const useLocalisedTemplate =
-    input.lang !== 'en' && classifyScript(input.lang) !== 'latin';
+  const useLocalisedTemplate = input.lang !== 'en' && classifyScript(input.lang) !== 'latin';
   if (
     !useLocalisedTemplate &&
     (input.englishEditorial.headline || input.englishEditorial.summary)
