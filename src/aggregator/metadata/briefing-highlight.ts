@@ -46,6 +46,7 @@ import {
   truncateExtendedDescription,
   truncateTitle,
 } from './text-utils.js';
+import { looksLikeBoilerplate } from './title-rejection.js';
 
 /**
  * One resolved brief highlight. Both `headline` and `summary` may be
@@ -85,6 +86,20 @@ const STRATEGIC_SECTION_HEADINGS: readonly string[] = [
   'wep assessment summary',
   'strategic context',
   'conclusion',
+];
+
+/** Heading text that opens the Top Findings / Key Findings block. */
+const TOP_FINDINGS_HEADINGS: readonly string[] = [
+  'top findings',
+  '1. top findings',
+  'key findings',
+  'critical findings',
+  'key events',
+  'lead story',
+  'top items',
+  'primary breaking items',
+  'three tier-1 breaking items',
+  'for immediate action',
 ];
 
 /** Heading text that opens the Reader Briefing block. */
@@ -631,6 +646,43 @@ function deriveHeadlineFromParagraph(paragraph: string): string {
 }
 
 /**
+ * Extract the {@link BriefingHighlight} for a `## Top Findings` /
+ * `## Key Findings` section. The `### …` sub-headings under these
+ * sections are crafted as journalistic headlines (e.g. "AI Trade
+ * Strategy: A Legislative First with Structural Implications").
+ *
+ * When the sub-heading has a numeric prefix + em-dash
+ * (`### Finding 1 — AI Trade Strategy: ...`), the text after the dash
+ * is extracted as the headline.
+ *
+ * @param markdown - Brief body
+ * @returns Resolved highlight, or `null` when the section is absent
+ */
+export function extractTopFindingsHighlight(markdown: string): BriefingHighlight | null {
+  const sub = extractFirstSubsectionUnderSection(markdown, TOP_FINDINGS_HEADINGS);
+  if (!sub) return null;
+  // Strip numbered/finding prefixes: "Finding 1 — X", "1. X — Y"
+  const raw = stripTradecraftLabels(sub.subHeading);
+  const cleaned = raw
+    .replace(/^(?:finding|item)\s*\d+\s*[—–:\-]\s*/iu, '')
+    .replace(/^\d+\.\s*/, '')
+    // Strip parenthetical reference codes: (TA-10-2026-0171), (COM(2024)123)
+    .replace(/\s*\([A-Z]{1,4}[-/]?\d[\w/()-]*\)\s*/g, ' ')
+    // Strip trailing date stamps: "— 19 May 2026", "– 2026-05-19"
+    .replace(/\s*[—–\-]\s*\d{1,2}\s+\w+\s+\d{4}\s*$/, '')
+    .replace(/\s*[—–\-]\s*\d{4}-\d{2}-\d{2}\s*$/, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+  const headline = cleaned ? truncateTitle(cleaned) : '';
+  if (!headline) return null;
+  return {
+    headline,
+    summary: truncateDescription(sub.paragraph),
+    extendedSummary: truncateExtendedDescription(sub.paragraph),
+  };
+}
+
+/**
  * Extract the {@link BriefingHighlight} for a `## Reader Briefing` (or
  * compatible) section. Prefers the first numbered-list item as
  * headline when the section is structured as a priority list; falls
@@ -644,42 +696,114 @@ export function extractReaderBriefingHighlight(markdown: string): BriefingHighli
   const firstItem = extractFirstNumberedItemUnderSection(markdown, READER_BRIEFING_HEADINGS);
   const paragraph = extractFirstParagraphUnderSection(markdown, READER_BRIEFING_HEADINGS);
   if (!firstItem && !paragraph) return null;
-  const headlineSource = firstItem || paragraph;
+  // Filter out self-referential boilerplate — "This executive brief
+  // synthesizes…" is never a usable headline or summary.
+  const usableItem = firstItem && !looksLikeBoilerplate(firstItem) ? firstItem : '';
+  const usableParagraph = paragraph && !looksLikeBoilerplate(paragraph) ? paragraph : '';
+  const headlineSource = usableItem || usableParagraph;
   const headline = headlineSource ? truncateTitle(headlineSource) : '';
-  const summary = paragraph
-    ? truncateDescription(paragraph)
-    : firstItem
-      ? truncateDescription(firstItem)
+  const summary = usableParagraph
+    ? truncateDescription(usableParagraph)
+    : usableItem
+      ? truncateDescription(usableItem)
       : '';
-  const extendedSummary = paragraph
-    ? truncateExtendedDescription(paragraph)
-    : truncateExtendedDescription(firstItem);
+  const extendedSummary = usableParagraph
+    ? truncateExtendedDescription(usableParagraph)
+    : truncateExtendedDescription(usableItem);
   if (!headline && !summary) return null;
   return { headline, summary, extendedSummary };
 }
 
 /**
- * Combined extractor that runs the Strategic Intelligence Summary path
- * first (highest editorial value) and falls back to Reader Briefing
- * when Strategic Intelligence Summary is absent. Merges the two so a
- * brief that contains **both** sections can use the strategic
- * sub-heading as headline and the reader-briefing prose as the
- * extended description.
+ * Combined extractor with a 4-level fallback chain designed to always
+ * produce "banger" titles (concise, actor/procedure-led headlines):
+ *
+ *   **Fallback 1** — `## Strategic Intelligence Summary` → first
+ *   `### …` sub-heading (e.g. "The Three-Coalition Paradox").
+ *
+ *   **Fallback 2** — `## Top Findings` / `## Key Findings` → first
+ *   `### …` sub-heading with numeric prefix stripped
+ *   (e.g. "AI Trade Strategy: A Legislative First").
+ *
+ *   **Fallback 3** — `## Reader Briefing` → first numbered-list item
+ *   (e.g. "DMA enforcement — Article 265 TFEU threat").
+ *
+ *   **Fallback 4** — Strategic section paragraph-derived headline
+ *   (first newsworthy sentence, truncated to title budget).
+ *
+ * The chain prefers sub-heading-derived titles because they are
+ * crafted as journalistic headlines by the intelligence analyst,
+ * whereas paragraph-derived titles require heuristic truncation.
  *
  * @param markdown - Brief body (SPDX preamble already stripped)
  * @returns Best `{headline, summary, extendedSummary}`, or `null`
- *          when neither section exists
+ *          when no usable section exists
  */
 export function extractBriefingHighlight(markdown: string): BriefingHighlight | null {
-  const strategic = extractStrategicSynthesisHighlight(markdown);
+  // --- Phase 1: Sub-heading-derived titles (crafted headlines) ---
+  // These are the best source because an intelligence analyst wrote them
+  // as compact, journalistic headlines.
+
+  // Fallback 1: Strategic section ### sub-heading
+  const strategicSub = extractFirstSubsectionUnderSection(markdown, STRATEGIC_SECTION_HEADINGS);
+  const strategicSubHeadline = strategicSub
+    ? truncateTitle(stripTradecraftLabels(strategicSub.subHeading))
+    : '';
+
+  // Fallback 2: Top Findings / Key Events ### sub-heading
+  const findings = extractTopFindingsHighlight(markdown);
+
+  // Fallback 3: Reader Briefing numbered item
   const reader = extractReaderBriefingHighlight(markdown);
-  if (!strategic && !reader) return null;
-  if (strategic && reader) {
-    return {
-      headline: strategic.headline || reader.headline,
-      summary: strategic.summary || reader.summary,
-      extendedSummary: strategic.extendedSummary || reader.extendedSummary,
-    };
-  }
-  return strategic ?? reader;
+
+  // --- Phase 2: Paragraph-derived titles (heuristic extraction) ---
+  // These are lower quality — only used when no crafted headline exists.
+
+  // Fallback 4: Strategic section paragraph → newsworthy sentence
+  const strategicParagraph = strategicSub
+    ? null
+    : (() => {
+        const paragraph = extractFirstParagraphUnderSection(markdown, STRATEGIC_SECTION_HEADINGS);
+        if (!paragraph || looksLikeBoilerplate(paragraph)) return null;
+        const headline = deriveHeadlineFromParagraph(paragraph);
+        if (!headline) return null;
+        return {
+          headline,
+          summary: truncateDescription(paragraph),
+          extendedSummary: truncateExtendedDescription(paragraph),
+        } as BriefingHighlight;
+      })();
+
+  // Pick headline: sub-heading sources first, then paragraph-derived.
+  const headline =
+    strategicSubHeadline ||
+    findings?.headline ||
+    reader?.headline ||
+    strategicParagraph?.headline ||
+    '';
+
+  // Pick summary/extendedSummary from the richest available source.
+  const strategicSubResult: BriefingHighlight | null = strategicSub
+    ? {
+        headline: strategicSubHeadline,
+        summary: truncateDescription(strategicSub.paragraph),
+        extendedSummary: truncateExtendedDescription(strategicSub.paragraph),
+      }
+    : null;
+
+  const summary =
+    strategicSubResult?.summary ||
+    findings?.summary ||
+    reader?.summary ||
+    strategicParagraph?.summary ||
+    '';
+  const extendedSummary =
+    strategicSubResult?.extendedSummary ||
+    findings?.extendedSummary ||
+    reader?.extendedSummary ||
+    strategicParagraph?.extendedSummary ||
+    '';
+
+  if (!headline && !summary) return null;
+  return { headline, summary, extendedSummary };
 }

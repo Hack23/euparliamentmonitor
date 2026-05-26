@@ -1,7 +1,7 @@
 ---
-title: "EDIP Phase II (EU defence industry programme) will reach European Parliament plenary vote before September 2026."
-description: "EDIP Phase II (EU defence industry programme) will reach European Parliament plenary vote before September 2026."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-26", "EDIP", "Phase", "defence"]
+title: "The European Parliament enters the week of 26 May 2026"
+description: "The European Parliament enters the week of 26 May 2026 with the most complex legislative dossier balance since the post-COVID period of 2021."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-26", "European", "Parliament", "enters"]
 date: 2026-05-26
 article_type: propositions
 slug: 2026-05-26-propositions
@@ -3003,6 +3003,1372 @@ Despite the degraded feeds, sufficient analytical material exists for a substant
 
 *Stage A consumed the full 5-call budget. No `track_legislation` deep-fetches were possible. The `intelligence/procedures-proxy.md` artifact documents this constraint and provides methodology-triangulated procedure coverage. Intelligence artifacts use Admiralty-graded secondary sources to compensate.*
 
+### Executive Brief Ar
+
+**التصنيف:** عام | **الجمهور المستهدف:** الجمهور العام المهتم بالسياسات
+**وحدات SAT الإلزامية:** فحص الافتراضات الرئيسية ✅ | فحص جودة المعلومات ✅
+**نطاقات WEP:** مطبقة على جميع الأحكام الخمسة الرئيسية
+**درجة مصدر Admiralty:** B2 (مصادر ثانوية مُتحقق منها تبادلياً)؛ A2 لوثائق المجلس SP
+**مستوى الثقة:** 🟡 متوسط-مرتفع — تحليل مؤسسي هيكلي؛ تتبع الإجراءات في الوقت الفعلي محدود
+
+---
+
+### 🗝️ خمسة أحكام رئيسية (ملخص الاستخبارات)
+
+1. **[محتمل — 65%]** سيصل برنامج EDIP المرحلة الثانية (برنامج صناعة الدفاع الأوروبية) إلى التصويت في الجلسة العامة للبرلمان الأوروبي قبل سبتمبر 2026. تُوجد السردية الأمنية العاجلة وإدارة رئاسة المجلس البولندية الفاعلة زخماً سياسياً كافياً. يُشكّل النزاع حول بند أوكرانيا العقبة النهائية الأرجح. *(Admiralty B2)*
+
+2. **[ممكن-محتمل — 50–55%]** سيُعتمد حزمة Omnibus I لتبسيط التنظيم في شكل معدَّل جوهرياً، مع تضييق نطاق CSRD مع الحفاظ على CSDDD إلى حد بعيد. سيناريو التسوية التفاوضية هو الناتج الأكثر تناسقاً تاريخياً للتشريعات الأوروبية في ظل الضغط الائتلافي. *(Admiralty B2)*
+
+3. **[شبه مؤكد — 85%+]** ستُعتمد اللوائح التنفيذية لقانون الذكاء الاصطناعي الخاصة بأنظمة الذكاء الاصطناعي عالية المخاطر (معايير التصنيف في الملحق الثالث) من قِبل المفوضية قبل الربع الرابع من 2026. لا يتطلب ذلك تصويت البرلمان الأوروبي؛ إذ يُعدّ إجراءً تنفيذياً للمفوضية. يسير مكتب الذكاء الاصطناعي وفق الجدول الزمني رغم القيود على القدرات. *(Admiralty B2)*
+
+4. **[شبه مؤكد — 90%+]** ستواجه آلية SAFE (تسهيل قروض بقيمة €150 مليار مدعوم أوروبياً للدفاع) طعناً رسمياً في أساسها القانوني، إذ يحتج الخدمة القانونية للبرلمان الأوروبي بضرورة اللجوء إلى المادة 173 (إجراء المشاركة في القرار) بدلاً من المادة 122 (الإجراء الطارئ) التي تُفضّلها المفوضية. يكاد يكون هذا الطعن مؤكداً في تأخير SAFE بما لا يقل عن 3–6 أشهر. *(Admiralty A2–B2)*
+
+5. **[ممكن — 20%]** يؤثر الجمود التشريعي على ملف رئيسي واحد على الأقل (Omnibus I أو EDIP) مسبباً تأخيراً يتجاوز العام التقويمي 2026. يُحرّك هذه المخاطرة الانقسامات الداخلية في مجموعة EPP حول CSDDD (عامل CDU/CSU الألماني) لا تحركات كتلة المعارضة. *(Admiralty B3)*
+
+---
+
+### 🌍 السياق الاستراتيجي
+
+يدخل البرلمان الأوروبي أسبوع 26 مايو 2026 حاملاً أعقد توازن لمستودعات الملفات التشريعية منذ حقبة ما بعد كوفيد عام 2021. ثلاثة تيارات تشريعية متزامنة تستلزم اهتماماً سياسياً وإدارة ائتلافية:
+
+**التيار الأول: الأمن والدفاع** — أفرز الرد الأوروبي على الضغط الجيوسياسي المستمر (النزاع الروسي-الأوكراني المستمر؛ هدف الناتو للإنفاق بنسبة 2% من الناتج المحلي الإجمالي؛ عدم قدرة الولايات المتحدة على التنبؤ) وسيلتين تشريعيتين كبيرتين: EDIP المرحلة الثانية (برنامج صناعي) وSAFE (أداة تمويل). كلتاهما تحظى بدعم مبدئي عبر حدود الأحزاب، لكنهما تصطدمان بعقبات إجرائية ودستورية بالغة الأهمية.
+
+**التيار الثاني: تبسيط التنظيم** — تمثل حزمة Omnibus I لمفوضية فون دير لاين أهم انسحاب من الإرث التنظيمي للاستدامة الذي أرسته الفترة البرلمانية التاسعة. قسّمت التعديلات المقترحة على CSRD (توجيه الإفصاح عن معلومات الاستدامة للشركات) وCSDDD (توجيه العناية الواجبة في الاستدامة للشركات) الاقتصاد السياسي الأوروبي إلى معسكرين: الصناعة (مؤيد) وقطاعات العمل والاستدامة ومجتمع المستثمرين (معارض). هذا هو الميدان التشريعي الأكثر إثارة للجدل سياسياً في الدورة البرلمانية الحالية.
+
+**التيار الثالث: الذكاء الاصطناعي والحوكمة الرقمية** — يستلزم قانون الذكاء الاصطناعي (المُعتمد عام 2024) لوائح تنفيذية قبل تطبيقه. معايير تصنيف أنظمة الذكاء الاصطناعي عالية المخاطر، ومدونة قواعد GPAI، وعتبات إعفاء المؤسسات الصغيرة والمتوسطة هي المخرجات الحيوية على المدى القريب. يواجه مكتب الذكاء الاصطناعي قيوداً على القدرات في الوقت الذي يتسارع فيه نشر الذكاء الاصطناعي في بيئات الشركات والقطاع العام الأوروبي.
+
+---
+
+### 🏛️ ملخص ديناميكيات الائتلاف
+
+يعمل البرلمان الأوروبي العاشر دون ائتلاف أغلبية مستقر لأي تيار تشريعي بمفرده. EPP (188 مقعداً) الحزب الذي لا غنى عنه لكنه لا يستطيع تشريع القوانين بمفرده:
+
+| الائتلاف | المقاعد | مجال الاستخدام | الاستقرار |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | الدفاع، التبسيط | متوسط — Renew تنقسم على CSDDD |
+| EPP + S&D + Renew | ~401 | الملفات ذات الائتلاف الواسع | منخفض — تناقضات EPP/S&D في التبسيط |
+| EPP + S&D + Greens | ~377 | الحفاظ على الاستدامة | منخفض — يستلزم أن تعارض EPP مفوضيتها ذاتها |
+| EPP + ECR + Patriots | ~350 | ائتلاف متشكك بأوروبا | منخفض — يعارض عموماً عمق التكامل الأوروبي |
+
+**حكم ائتلافي:** استراتيجية "الائتلاف المزدوج" (شركاء مختلفون لملفات مختلفة) هي المسار الوحيد المجدي لـ EPP. المعدل التاريخي الأساسي لنجاح الائتلاف المزدوج في البرلمان: ~60% من الملفات تجد أغلبية، ~40% تشهد تأخيراً أو تعديلاً جوهرياً.
+
+---
+
+### 📊 البُعد الاقتصادي
+
+تنطوي المقترحات المُحللة على آثار مالية جوهرية:
+- EDIP المرحلة الثانية: تعرض مباشر للميزانية الأوروبية بقيمة €1.5 مليار (2025–2027)
+- آلية SAFE: €150 مليار في قروض مضمونة أوروبياً (التزام محتمل)
+- تخفيف تكاليف الامتثال في Omnibus I: €0.5–2.5 مليار سنوياً للشركات الأوروبية (من تقليص CSRD)
+- تكاليف تقييم المطابقة لقانون الذكاء الاصطناعي: €2–5 مليار استثمار لمرة واحدة للقطاع الخاص
+
+الأثر الاقتصادي الصافي للأجندة التشريعية الحالية إيجابي بشكل طفيف لتنافسية الاتحاد الأوروبي (التبسيط + الاستثمارات في صناعة الدفاع)، لكنه ينطوي على مخاطر هبوطية ناجمة عن تدهور جودة بيانات الاستدامة (التي تؤثر على مقاييس الاستثمار ESG) وعن طعون محتملة أمام محكمة العدل الأوروبية تُوجد حالة من عدم اليقين التنظيمي.
+
+*ملاحظة: لم يُستعلم عن البيانات الاقتصادية لصندوق IMF مباشرةً في هذه الجولة (قيد الاستدعاء). البيانات الاقتصادية مصدرها توقعات الربيع 2026 للمفوضية الأوروبية وإيروستات. راجع `intelligence/economic-context.md` للتحليل الكامل.*
+
+---
+
+### ⚠️ إشارات المخاطر الرئيسية (قائمة المراقبة)
+
+| الإشارة | التاريخ المتوقع | التداعية إذا تحققت |
+|--------|-------------|------------------------|
+| تقديم موقف المقرر الظل لـ EPP بشأن CSDDD | يونيو 2026 | يحدد جدوى Omnibus I |
+| إعلان المفوضية عن الأساس القانوني لـ SAFE | يونيو 2026 | المادة 122 ← نزاع دستوري مع البرلمان |
+| نتيجة الاتفاق الثنائي البولندي-المجري بشأن EDIP | 30 مايو 2026 | يحسم أو يؤكد خطر الحصار في المجلس |
+| نقاش البوندستاغ الألماني CDU/CSU بشأن CSDDD | يونيو 2026 | إشارة احتمالية انشقاق EPP |
+| أولويات الرئاسة الدنماركية التشريعية (مُعلنة يوليو) | 1 يوليو 2026 | إعادة موازنة الاستدامة مقابل التبسيط |
+
+---
+
+### 🔮 التوقعات للثلاثة أشهر القادمة
+
+**أحداث عالية الثقة (يونيو–أغسطس 2026):**
+- طرح نزاع الأساس القانوني لـ SAFE رسمياً من قِبل الخدمة القانونية للبرلمان الأوروبي: *شبه مؤكد (90%+)*
+- اختتام التشاور العام بشأن لائحة تنفيذية الذكاء الاصطناعي عالي المخاطر: *شبه مؤكد (85%)*
+- إتمام الرئاسة البولندية لتقرير تقدم مسار المفاوضات الثلاثية EDIP: *محتمل (75%)*
+
+**نقاط تحول غير مؤكدة:**
+- هل يتوصل EPP-S&D إلى صيغة تسوية بشأن CSDDD قبل الرئاسة الدنماركية: *ممكن (40%)*
+- هل يُطلق حدث أمني دورة استثنائية للبرلمان حول الدفاع: *ممكن (35%)*
+- هل تعكس حادثة مناخية الزخم السياسي لـ Omnibus I: *غير محتمل (15%)*
+
+---
+
+### 📋 الانعكاسات السياسية
+
+**للشركات الخاضعة لـ CSRD/CSDDD:** الحفاظ على قدرة إعداد التقارير وفق سيناريوهين (الالتزام الكامل محفوظ أو النطاق المُضيَّق). نافذة عدم اليقين هي 6–12 شهراً. ينبغي الاستمرار في التخطيط للسنة المالية 2027 وفق المتطلبات الحالية حتى إقرار النص التشريعي نهائياً.
+
+**لصناعة الدفاع الأوروبية:** الجدول الزمني لـ EDIP المرحلة الثانية موثوق؛ يمكن المضي في قرارات الاستثمار في القدرات للفترة 2026–2028 بناءً على افتراض العمل باستمرارية EDIP. الجدول الزمني لآلية SAFE أقل موثوقية بسبب نزاع الأساس القانوني؛ لا ينبغي ربط الخطط التمويلية طويلة المدى بـ SAFE قبل حل قضية الأساس القانوني.
+
+**لمطوري الذكاء الاصطناعي:** ستُعتمد اللوائح التنفيذية للملحق الثالث من قانون الذكاء الاصطناعي وفق الجدول الزمني الحالي. ستُوضَّح معايير تصنيف الأنظمة عالية المخاطر بحلول الربع الرابع من 2026. لموردي GPAI: الامتثال لمدونة قواعد السلوك هو الأولوية الآنية؛ توقعوا تدقيقاً متزايداً من مكتب الذكاء الاصطناعي في النصف الثاني من 2026.
+
+---
+
+### 📍 إشعار وضع البيانات
+
+هذا الموجز مُنتَج في إطار وضع البيانات `degraded-feeds` (معامل الحد الأدنى 0.80). أرجع تدفق إجراءات البرلمان الأوروبي بيانات تاريخية من سبعينيات وثمانينيات القرن الماضي بدلاً من المقترحات الحالية؛ ويوفر المصنَّف `intelligence/procedures-proxy.md` تغطية مثلثية منهجياً للمقترحات النشطة استناداً إلى مصادر ثانوية. ينبغي التعامل مع معرّفات الإجراءات المُستشهد بها باعتبارها استرشادية حتى تتوفر التحقق المباشر عبر واجهة برمجة تطبيقات البرلمان الأوروبي. راجع `intelligence/mcp-reliability-audit.md` للسياق التقني الكامل.
+
+---
+
+*التحليل منتج في: 2026-05-26 | الجولة: propositions | 18 مصنفاً | 12 وحدة SAT | وضع degraded-feeds*
+*الجولة التالية الموصى بها: 2026-06-02 (بعد تقرير تقدم الرئاسة البولندية بشأن EDIP ووثيقة موقف EPP بشأن CSDDD)*
+
+### Executive Brief Da
+
+### 🗝️ Fem Nøglevurderinger (Efterretningsresumé)
+
+1. **[SANDSYNLIGT — 65%]** EDIP fase II (EU's program for forsvarsindustrien) vil nå Europa-Parlamentets plenumsstemme inden september 2026. Den sikkerhedsmæssige urgensfortælling og Polens aktive præsidentskabsstyring skaber tilstrækkelig politisk momentum. Tvisten om Ukraine-klausulen er den mest sandsynlige endelige forhindring. *(Admiralty B2)*
+
+2. **[MULIGT-SANDSYNLIGT — 50–55%]** Omnibus I-pakken til regelforenkling vil blive vedtaget i væsentligt ændret form, med CSRD-anvendelsesområdet indsnævret, men CSDDD stort set bevaret. Det forhandlede kompromisscenarie er det historisk mest konsistente udfald for EU-lovgivning under koalitionspres. *(Admiralty B2)*
+
+3. **[NÆSTEN SIKKERT — 85%+]** AI-aktens gennemførelsesbestemmelser for høj-risiko AI-systemer (klassificeringskriterier i bilag III) vil blive vedtaget af Kommissionen inden Q4 2026. Dette kræver ikke EP-afstemning; det er Kommissionens eksekutive handling. AI-kontoret er på tidsplan trods kapacitetsbegrænsninger. *(Admiralty B2)*
+
+4. **[NÆSTEN SIKKERT — 90%+]** SAFE-instrumentet (€150 mia. EU-forsvarsbacket lånefacilitet) vil møde en formel juridisk udfordring, idet EP's Juridiske Tjeneste argumenterer for artikel 173 medbeslutning frem for Kommissionens foretrukne artikel 122-nødprocedure. Denne udfordring er næsten sikker på at forsinke SAFE med mindst 3–6 måneder. *(Admiralty A2–B2)*
+
+5. **[MULIGT — 20%]** Lovgivningsblokering rammer mindst én stor sag (Omnibus I eller EDIP), hvilket medfører en forsinkelse ud over kalenderåret 2026. Risikoen er drevet af EPP's interne splittelse om CSDDD (den tyske CDU/CSU-faktor) snarere end oppositionsblokens handlinger. *(Admiralty B3)*
+
+---
+
+### 🌍 Strategisk Kontekst
+
+Europa-Parlamentet indleder ugen den 26. maj 2026 med den mest komplekse lovgivningsmæssige saldoafvejning siden post-COVID-perioden i 2021. Tre samtidige lovgivningsstrømme kræver politisk opmærksomhed og koalitionsstyring:
+
+**Strøm 1: Sikkerhed og forsvar** — EU's svar på vedvarende geopolitisk pres (den igangværende Rusland-Ukraine-konflikt; NATO's 2 %-af-BNP-udgiftsmål; USA's uforudsigelighed) har genereret to store lovgivningsbiler: EDIP fase II (industriprogram) og SAFE (finansieringsinstrument). Begge har principstøtte fra tværpartier, men møder betydelige proceduremæssige og konstitutionelle forhindringer.
+
+**Strøm 2: Regelforenkling** — Von der Leyen-Kommissionens Omnibus I-pakke repræsenterer den mest betydelige tilbagetrækning af EP-9's arv inden for bæredygtighedsregulering. Foreslåede ændringer til CSRD (direktivet om virksomheders bæredygtighedsrapportering) og CSDDD (direktivet om virksomheders due diligence-forpligtelser) har delt EU's politiske økonomi i to lejre: erhvervsliv (støttende) og arbejdsmarked/bæredygtighed/investorsamfund (modstand). Dette er den mest politisk omstridte lovgivningsarena i den nuværende valgperiode.
+
+**Strøm 3: AI og digital forvaltning** — AI-akten (vedtaget 2024) kræver gennemførelsesbestemmelser, før den kan håndhæves. Klassificeringskriterier for høj-risiko AI-systemer, GPAI's adfærdskodeks og SMV-fritagelsestærskler er de kritiske leverancer på kort sigt. AI-kontoret møder kapacitetsbegrænsninger, mens AI-deployment accelererer i EU's virksomheds- og offentlige sektormiljøer.
+
+---
+
+### 🏛️ Resumé af Koalitionsdynamik
+
+EP-10 opererer uden en stabil majoritetskoalition for nogen enkelt lovgivningsstrøm. EPP (188 pladser) er det uundværlige parti, men kan ikke levere lovgivning alene:
+
+| Koalition | Pladser | Anvendelsestilfælde | Stabilitet |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | Forsvar, forenkling | MEDIUM — Renew splittes om CSDDD |
+| EPP + S&D + Renew | ~401 | Storkoalitionssager | LAV — EPP/S&D-modsætninger om forenkling |
+| EPP + S&D + Greens | ~377 | Bæredygtighedsbevaring | LAV — kræver, at EPP modsætter sig sin egen Kommission |
+| EPP + ECR + Patriots | ~350 | Euroskeptisk koalition | LAV — modsætter sig generelt EU-integrationens dybde |
+
+**Koalitionsvurdering:** "Dobbelt koalitions"-strategien (forskellige partnere til forskellige sager) er EPP's eneste levedygtige vej. Historisk basisrate for dobbelt koalitionssucces i EP: ~60% af sagerne finder et flertal, ~40% oplever betydelig forsinkelse eller ændring.
+
+---
+
+### 📊 Økonomisk Dimension
+
+Forslagene under analyse bærer væsentlige fiskale implikationer:
+- EDIP fase II: €1,5 mia. direkte EU-budgeteksponering (2025–2027)
+- SAFE-instrumentet: €150 mia. i EU-garanterede lån (betinget forpligtelse)
+- Omnibus I-regelefterlevelsesomkostningslettelse: €0,5–2,5 mia. årligt for EU-virksomheder (fra CSRD-indsnævring)
+- AI-aktens overensstemmelsesvurderingsomkostninger: €2–5 mia. privatsektorers engangssinvestering
+
+Den samlede økonomiske effekt af den nuværende lovgivningsdagsorden er svagt positiv for EU's konkurrenceevne (forenkling + investeringer i forsvarsindustrien), men bærer nedsiderisici fra forringelse af bæredygtighedsdatakvalitet (der påvirker ESG-investeringsmålinger) og potentielle CJEU-udfordringer, der skaber regulatorisk usikkerhed.
+
+*Bemærk: IMF's økonomiske data blev ikke direkte forespurgt i dette løb (opkaldsgrænse). Økonomiske tal er hentet fra EC's forårsprognose 2026 og Eurostat. Se `intelligence/economic-context.md` for fuld analyse.*
+
+---
+
+### ⚠️ Nøglerisikosignaler (Overvågningsliste)
+
+| Signal | Forventet dato | Implikation, hvis udløst |
+|--------|-------------|------------------------|
+| EPP's skyggeordfører-position om CSDDD indgivet | Juni 2026 | Afgør Omnibus I's levedygtighed |
+| Kommissionens SAFE-retsgrundlagsmeddelelse | Juni 2026 | Artikel 122 → EP's konstitutionelle konflikt |
+| Udfald af polsk-ungarsk EDIP-bilateral aftale | 30. maj 2026 | Løser eller bekræfter Rådsblokering |
+| Tysk CDU/CSU Forbundsdags-debat om CSDDD | Juni 2026 | EPP-afvigelsessandsynlighedssignal |
+| Dansk præsidentskabs lovgivningsprioriteter (annonceret juli) | 1. juli 2026 | Genbalancering bæredygtighed vs. forenkling |
+
+---
+
+### 🔮 Tre-måneders Udsigt
+
+**Højtillidshændelser (juni–august 2026):**
+- SAFE-retsgrundlagskonflikt formelt rejst af EP's Juridiske Tjeneste: *Næsten sikkert (90%+)*
+- AI-aktens høj-risiko gennemførelsesregulering offentlig høring afsluttet: *Næsten sikkert (85%)*
+- Polsk præsidentskab afslutter EDIP-trialog-statusrapport: *Sandsynligt (75%)*
+
+**Usikre vendepunkter:**
+- Om EPP-S&D når CSDDD-kompromisformel inden dansk præsidentskab: *Muligt (40%)*
+- Om en sikkerhedshændelse udløser EP's ekstraordinære session om forsvar: *Muligt (35%)*
+- Om klimahændelse vender Omnibus I's politiske momentum: *Usandsynligt (15%)*
+
+---
+
+### 📋 Politiske Implikationer
+
+**For virksomheder underlagt CSRD/CSDDD:** Oprethold kapacitet til dobbelt-scenario-rapportering (fuld forpligtelse bibeholdt ELLER indsnævret anvendelsesområde). Usikkerhedsvinduet er 6–12 måneder. Planlægning for regnskabsåret 2027 bør fortsætte under nuværende krav, indtil lovteksten er færdiggjort.
+
+**For EU's forsvarsindustri:** EDIP fase II-tidsplan er troværdig; kapacitetsinvesteringsbeslutninger for 2026–2028 kan fortsættes på arbejdsantagelsen om EDIP-kontinuitet. SAFE-instrumentets tidsplan er mindre pålidelig på grund af retsgrundlagskonflikt; forankre ikke langsigtede finansieringsplaner til SAFE, før retsgrundlaget er løst.
+
+**For AI-udviklere:** AI-aktens bilag III-gennemførelsesbestemmelser vil blive vedtaget efter nuværende tidsplan. Klassificeringskriterier for høj-risikosystemer vil blive afklaret inden Q4 2026. GPAI-udbydere: overholdelse af adfærdskodeks er den nærmeste prioritet; forvent øget kontrol fra AI-kontoret i H2 2026.
+
+---
+
+### 📍 Datamoderådgivning
+
+Denne briefing er produceret under datamoden `degraded-feeds` (0,80-gulvfaktor). EP's procedurefeed returnerede historiske data fra 1970'erne-1980'erne snarere end aktuelle forslag; artefakten `intelligence/procedures-proxy.md` leverer metodologitrianguleret dækning af aktive forslag baseret på sekundære kilder. Procedure-id'er, der citeres, bør behandles som vejledende, indtil direkte EP API-verificering er tilgængelig. Se `intelligence/mcp-reliability-audit.md` for fuld teknisk kontekst.
+
+---
+
+*Analyse produceret: 2026-05-26 | Løb: propositions | 18 artefakter | 12 SAT'er | degraded-feeds-tilstand*
+*Næste anbefalede løb: 2026-06-02 (efter polsk præsidentskab EDIP-statusrapport og EPP CSDDD-positionspapir)*
+
+### Executive Brief De
+
+### 🗝️ Fünf Schlüsselurteile (Geheimdienstübersicht)
+
+1. **[WAHRSCHEINLICH — 65%]** EDIP Phase II (EU-Programm für die Verteidigungsindustrie) wird vor September 2026 zur Abstimmung im Plenum des Europäischen Parlaments gelangen. Die Sicherheitsdringlichkeitsnarrative und Polens aktives Ratsvorsitzungsmanagement schaffen ausreichend politischen Schwung. Der Streit um die Ukraine-Klausel ist das wahrscheinlichste letzte Hindernis. *(Admiralty B2)*
+
+2. **[MÖGLICH-WAHRSCHEINLICH — 50–55%]** Das Omnibus-I-Paket zur Regulierungsvereinfachung wird in wesentlich modifizierter Form verabschiedet werden, wobei der Anwendungsbereich der CSRD eingeschränkt, die CSDDD jedoch weitgehend erhalten bleibt. Das ausgehandelte Kompromissszenario ist das historisch konsistenteste Ergebnis für EU-Gesetzgebung unter Koalitionsdruck. *(Admiralty B2)*
+
+3. **[NAHEZU GEWISS — 85%+]** Die Durchführungsvorschriften des KI-Gesetzes für Hochrisiko-KI-Systeme (Klassifizierungskriterien des Anhangs III) werden vor Q4 2026 von der Kommission verabschiedet. Dies erfordert keine EP-Abstimmung; es handelt sich um eine Exekutivaktion der Kommission. Das KI-Büro liegt trotz Kapazitätsengpässen im Plan. *(Admiralty B2)*
+
+4. **[NAHEZU GEWISS — 90%+]** Das SAFE-Instrument (€150 Mrd. EU-gesicherter Kreditrahmen für die Verteidigung) wird einer formellen Rechtsgrundlagenherausforderung ausgesetzt sein, da der Juristischen Dienst des EP für Artikel 173 Mitentscheidung statt des von der Kommission bevorzugten Artikel 122-Dringlichkeitsverfahrens plädiert. Diese Herausforderung wird SAFE mit nahezu Sicherheit um mindestens 3–6 Monate verzögern. *(Admiralty A2–B2)*
+
+5. **[MÖGLICH — 20%]** Ein gesetzgeberischer Stillstand trifft mindestens ein großes Dossier (Omnibus I oder EDIP) und verursacht eine Verzögerung über das Kalenderjahr 2026 hinaus. Das Risiko wird durch interne EPP-Spaltungen zu CSDDD (Faktor CDU/CSU) angetrieben, nicht durch die Oppositionsblockaktionen. *(Admiralty B3)*
+
+---
+
+### 🌍 Strategischer Kontext
+
+Das Europäische Parlament tritt in die Woche vom 26. Mai 2026 mit dem komplexesten Gesetzgebungsdossier-Gleichgewicht seit der Post-COVID-Periode 2021 ein. Drei simultane Gesetzgebungsströme verlangen politische Aufmerksamkeit und Koalitionsmanagement:
+
+**Strom 1: Sicherheit und Verteidigung** — Die EU-Reaktion auf anhaltenden geopolitischen Druck (laufender Russland-Ukraine-Konflikt; NATO-Ausgabenziel von 2 % des BIP; Unberechenbarkeit der USA) hat zwei wichtige Gesetzgebungsfahrzeuge erzeugt: EDIP Phase II (Industrieprogramm) und SAFE (Finanzierungsinstrument). Beide haben prinzipielle Unterstützung über Parteigrenzen hinweg, stoßen aber auf erhebliche verfahrens- und verfassungsrechtliche Hindernisse.
+
+**Strom 2: Regulierungsvereinfachung** — Das Omnibus-I-Paket der Von-der-Leyen-Kommission stellt den bedeutendsten Rückzug vom Nachhaltigkeitsregulierungserbe der EP-9 dar. Die vorgeschlagenen Änderungen an der CSRD (Richtlinie über die Nachhaltigkeitsberichterstattung von Unternehmen) und CSDDD (Richtlinie über die Sorgfaltspflichten von Unternehmen im Hinblick auf Nachhaltigkeit) haben die politische Wirtschaft der EU in zwei Lager gespalten: Industrie (befürwortend) und Arbeit/Nachhaltigkeit/Investorengemeinschaft (ablehnend). Dies ist der politisch umstrittenste Gesetzgebungsschauplatz der laufenden Legislaturperiode.
+
+**Strom 3: KI und digitale Governance** — Das KI-Gesetz (angenommen 2024) erfordert Durchführungsvorschriften, bevor es durchgesetzt werden kann. Klassifizierungskriterien für Hochrisiko-KI-Systeme, GPAI-Verhaltenskodex und KMU-Ausnahmechwellen sind die kritischen kurzfristigen Lieferables. Das KI-Büro steht vor Kapazitätsengpässen, während sich die KI-Einführung in den EU-Unternehmens- und Behördenumgebungen beschleunigt.
+
+---
+
+### 🏛️ Zusammenfassung der Koalitionsdynamik
+
+Das EP-10 operiert ohne eine stabile Mehrheitskoalition für einen einzelnen Gesetzgebungsstrom. Die EPP (188 Sitze) ist die unverzichtbare Partei, kann aber Gesetzgebung nicht alleine liefern:
+
+| Koalition | Sitze | Anwendungsfall | Stabilität |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | Verteidigung, Vereinfachung | MITTEL — Renew spaltet sich bei CSDDD |
+| EPP + S&D + Renew | ~401 | Große Koalitionsdossiers | NIEDRIG — EPP/S&D-Widersprüche bei Vereinfachung |
+| EPP + S&D + Greens | ~377 | Nachhaltigkeitswahrung | NIEDRIG — erfordert, dass EPP gegen die eigene Kommission vorgeht |
+| EPP + ECR + Patriots | ~350 | Euroskeptische Koalition | NIEDRIG — lehnen EU-Integrationstiefe generell ab |
+
+**Koalitionsurteil:** Die „Doppelkoalitions"-Strategie (verschiedene Partner für verschiedene Dossiers) ist EPPs einziger praktikabler Weg. Historische Basis-Rate für Doppelkoalitionserfolg im EP: ~60% der Dossiers finden eine Mehrheit, ~40% erleben erhebliche Verzögerung oder Modifikation.
+
+---
+
+### 📊 Wirtschaftliche Dimension
+
+Die analysierten Vorschläge tragen erhebliche fiskalische Implikationen:
+- EDIP Phase II: €1,5 Mrd. direktes EU-Haushaltsengagement (2025–2027)
+- SAFE-Instrument: €150 Mrd. EU-garantierte Darlehen (Eventualverbindlichkeit)
+- Omnibus-I-Compliance-Kostenentlastung: €0,5–2,5 Mrd. jährlich für EU-Unternehmen (aus CSRD-Einschränkung)
+- KI-Gesetz-Konformitätsbewertungskosten: €2–5 Mrd. einmalige Privatsektor-Investition
+
+Der Netto-Wirtschaftseffekt der aktuellen Gesetzgebungsagenda ist leicht positiv für die EU-Wettbewerbsfähigkeit (Vereinfachung + Verteidigungsindustrie-Investitionen), trägt aber Abwärtsrisiken aus der Verschlechterung der Nachhaltigkeitsdatenqualität (beeinflusst ESG-Investitionskennzahlen) und potenziellen EuGH-Anfragen, die regulatorische Unsicherheit schaffen.
+
+*Hinweis: IMF-Wirtschaftsdaten wurden in diesem Lauf nicht direkt abgefragt (Aufruf-Cap). Wirtschaftliche Zahlen stammen aus der EC-Frühjahresprognose 2026 und Eurostat. Siehe `intelligence/economic-context.md` für vollständige Analyse.*
+
+---
+
+### ⚠️ Wichtige Risikosignale (Beobachtungsliste)
+
+| Signal | Erwartetes Datum | Implikation wenn ausgelöst |
+|--------|-------------|------------------------|
+| EPP-Schattenberichterstatter-Position zu CSDDD eingereicht | Juni 2026 | Bestimmt die Lebensfähigkeit von Omnibus I |
+| Kommission gibt SAFE-Rechtsgrundlage bekannt | Juni 2026 | Artikel 122 → verfassungsrechtlicher Konflikt des EP |
+| Ergebnis polnisch-ungarischer EDIP-bilateraler Vereinbarung | 30. Mai 2026 | Löst oder bestätigt Ratsblockierungsrisiko |
+| Deutsche CDU/CSU-Bundestagsdebatte zu CSDDD | Juni 2026 | EPP-Abweichungswahrscheinlichkeitssignal |
+| Dänische Ratspräsidentschaft Gesetzgebungsprioritäten (angekündigt Juli) | 1. Juli 2026 | Neugewichtung Nachhaltigkeit vs. Vereinfachung |
+
+---
+
+### 🔮 Drei-Monats-Ausblick
+
+**Hochkonfidenz-Ereignisse (Juni–August 2026):**
+- SAFE-Rechtsgrundlagsstreit formell vom Juristischen Dienst des EP erhoben: *Nahezu gewiss (90%+)*
+- Öffentliche Konsultation zu KI-Gesetz-Hochrisiko-Durchführungsverordnung abgeschlossen: *Nahezu gewiss (85%)*
+- Polnische Ratspräsidentschaft schließt EDIP-Trilog-Fortschrittsbericht ab: *Wahrscheinlich (75%)*
+
+**Unsichere Wendepunkte:**
+- Ob EPP-S&D vor dänischer Ratspräsidentschaft eine CSDDD-Kompromissformel erreicht: *Möglich (40%)*
+- Ob ein Sicherheitsereignis eine außerordentliche EP-Sitzung zur Verteidigung auslöst: *Möglich (35%)*
+- Ob ein Klimaereignis den politischen Schwung von Omnibus I umkehrt: *Unwahrscheinlich (15%)*
+
+---
+
+### 📋 Politische Implikationen
+
+**Für Unternehmen, die CSRD/CSDDD unterliegen:** Doppel-Szenario-Berichterstattungskapazität aufrechterhalten (volle Verpflichtung beibehalten ODER eingeschränkter Anwendungsbereich). Das Unsicherheitsfenster beträgt 6–12 Monate. Die Planung für das Geschäftsjahr 2027 sollte unter den aktuellen Anforderungen fortgesetzt werden, bis der Gesetzestext abgeschlossen ist.
+
+**Für die EU-Verteidigungsindustrie:** Der EDIP-Phase-II-Zeitplan ist glaubwürdig; Kapazitätsinvestitionsentscheidungen für 2026–2028 können unter der Arbeitshypothese der EDIP-Kontinuität fortgesetzt werden. Der Zeitplan des SAFE-Instruments ist aufgrund des Rechtsgrundlagenstreits weniger zuverlässig; langfristige Finanzierungspläne nicht auf SAFE verankern, bis die Rechtsgrundlage geklärt ist.
+
+**Für KI-Entwickler:** Die Durchführungsbestimmungen des KI-Gesetzes zu Anhang III werden nach aktuellem Zeitplan angenommen. Klassifizierungskriterien für Hochrisiksysteme werden bis Q4 2026 geklärt. GPAI-Anbieter: Einhaltung des Verhaltenskodex ist die nächste Priorität; erhöhte KI-Büro-Überprüfung in H2 2026 erwarten.
+
+---
+
+### 📍 Datenmodusberatung
+
+Diese Übersicht wurde im Datenmodus `degraded-feeds` (0,80-Bodenfaktor) erstellt. Das EP-Verfahrensfeed lieferte historische Daten aus den 1970er–1980er Jahren statt aktueller Vorschläge; das Artefakt `intelligence/procedures-proxy.md` bietet methodologisch triangulierte Abdeckung aktiver Vorschläge auf Basis sekundärer Quellen. Zitierte Verfahrensidentifikatoren sollten als Richtwerte behandelt werden, bis eine direkte EP-API-Überprüfung verfügbar ist. Siehe `intelligence/mcp-reliability-audit.md` für vollständigen technischen Kontext.
+
+---
+
+*Analyse erstellt: 2026-05-26 | Lauf: propositions | 18 Artefakte | 12 SATs | degraded-feeds-Modus*
+*Nächster empfohlener Lauf: 2026-06-02 (nach polnischem Ratsvorsitz EDIP-Fortschrittsbericht und EPP CSDDD-Positionspapier)*
+
+### Executive Brief Es
+
+### 🗝️ Cinco Juicios Clave (Resumen de Inteligencia)
+
+1. **[PROBABLE — 65%]** La EDIP fase II (programa de la industria de defensa de la UE) alcanzará la votación plenaria del Parlamento Europeo antes de septiembre de 2026. La narrativa de urgencia de seguridad y la gestión activa de la presidencia polaca crean suficiente impulso político. La disputa sobre la cláusula de Ucrania es el obstáculo final más probable. *(Admiralty B2)*
+
+2. **[POSIBLE-PROBABLE — 50–55%]** El paquete Omnibus I de simplificación regulatoria se aprobará en forma sustancialmente modificada, con el ámbito de la CSRD reducido pero la CSDDD ampliamente preservada. El escenario de compromiso negociado es el resultado históricamente más consistente para la legislación de la UE bajo presión de coalición. *(Admiralty B2)*
+
+3. **[CASI CIERTO — 85%+]** Los reglamentos de ejecución de la Ley de IA para sistemas de IA de alto riesgo (criterios de clasificación del Anexo III) serán adoptados por la Comisión antes del T4 2026. Esto no requiere votación del PE; es una acción ejecutiva de la Comisión. La Oficina de IA está en calendario a pesar de las limitaciones de capacidad. *(Admiralty B2)*
+
+4. **[CASI CIERTO — 90%+]** El instrumento SAFE (facilidad de préstamo de €150.000 M respaldada por la UE para defensa) enfrentará un desafío formal sobre su base jurídica, con el Servicio Jurídico del PE argumentando por la codecisión del artículo 173 en lugar del procedimiento de emergencia del artículo 122 preferido por la Comisión. Este desafío casi con certeza retrasará SAFE al menos 3–6 meses. *(Admiralty A2–B2)*
+
+5. **[POSIBLE — 20%]** Un bloqueo legislativo afecta al menos a un expediente importante (Omnibus I o EDIP), causando un retraso más allá del año civil 2026. El riesgo viene impulsado por las divisiones internas de la EPP sobre la CSDDD (factor CDU/CSU alemán) en lugar de la acción del bloque de oposición. *(Admiralty B3)*
+
+---
+
+### 🌍 Contexto Estratégico
+
+El Parlamento Europeo entra en la semana del 26 de mayo de 2026 con el equilibrio de expedientes legislativos más complejo desde el período poscovid de 2021. Tres corrientes legislativas simultáneas exigen atención política y gestión de coaliciones:
+
+**Corriente 1: Seguridad y defensa** — La respuesta de la UE a la presión geopolítica sostenida (conflicto Rusia-Ucrania en curso; objetivo de la OTAN del 2 % del PIB en gasto de defensa; imprevisibilidad de EE. UU.) ha generado dos vehículos legislativos importantes: EDIP fase II (programa industrial) y SAFE (instrumento de financiación). Ambos cuentan con apoyo de principio transversal, pero se enfrentan a obstáculos procedimentales y constitucionales significativos.
+
+**Corriente 2: Simplificación regulatoria** — El paquete Omnibus I de la Comisión Von der Leyen representa el retroceso más significativo del legado regulatorio de sostenibilidad del EP-9. Los cambios propuestos a la CSRD (Directiva sobre divulgación de información sobre sostenibilidad empresarial) y la CSDDD (Directiva sobre diligencia debida en sostenibilidad empresarial) han dividido la economía política de la UE en dos campos: industria (favorable) y trabajo/sostenibilidad/comunidad inversora (opuesto). Este es el campo legislativo más políticamente controvertido del mandato actual.
+
+**Corriente 3: IA y gobernanza digital** — La Ley de IA (adoptada en 2024) requiere reglamentos de ejecución antes de poder aplicarse. Los criterios de clasificación para los sistemas de IA de alto riesgo, el código de prácticas GPAI y los umbrales de exención para pymes son los entregables críticos a corto plazo. La Oficina de IA enfrenta limitaciones de capacidad mientras el despliegue de IA se acelera en los entornos empresariales y del sector público de la UE.
+
+---
+
+### 🏛️ Resumen de la Dinámica de Coaliciones
+
+El PE-10 opera sin una coalición mayoritaria estable para ninguna corriente legislativa única. La EPP (188 escaños) es el partido indispensable pero no puede entregar legislación por sí sola:
+
+| Coalición | Escaños | Caso de uso | Estabilidad |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | Defensa, simplificación | MEDIO — Renew se divide en la CSDDD |
+| EPP + S&D + Renew | ~401 | Expedientes de gran coalición | BAJO — contradicciones EPP/S&D en simplificación |
+| EPP + S&D + Greens | ~377 | Preservación de sostenibilidad | BAJO — requiere que la EPP se oponga a su propia Comisión |
+| EPP + ECR + Patriots | ~350 | Coalición euroescéptica | BAJO — se oponen generalmente a la profundidad de la integración europea |
+
+**Juicio de coalición:** La estrategia de "doble coalición" (diferentes socios para diferentes expedientes) es el único camino viable de la EPP. Tasa base histórica de éxito de doble coalición en el PE: ~60% de los expedientes encuentran una mayoría, ~40% experimentan un retraso o modificación significativos.
+
+---
+
+### 📊 Dimensión Económica
+
+Las proposiciones analizadas conllevan implicaciones fiscales sustanciales:
+- EDIP fase II: €1.500 M de exposición presupuestaria directa de la UE (2025–2027)
+- Instrumento SAFE: €150.000 M en préstamos garantizados por la UE (pasivo contingente)
+- Alivio del coste de cumplimiento Omnibus I: €500–2.500 M anuales para empresas de la UE (reducción CSRD)
+- Costes de evaluación de conformidad de la Ley de IA: €2.000–5.000 M de inversión única del sector privado
+
+El impacto económico neto de la agenda legislativa actual es ligeramente positivo para la competitividad de la UE (simplificación + inversiones en industria de defensa), pero conlleva riesgos a la baja derivados de la degradación de la calidad de los datos de sostenibilidad (que afecta a las métricas de inversión ESG) y posibles impugnaciones ante el TJUE que crea incertidumbre regulatoria.
+
+*Nota: los datos económicos del IMF no se consultaron directamente en esta ejecución (límite de llamadas). Las cifras económicas proceden de la Previsión de Primavera 2026 de la CE y Eurostat. Véase `intelligence/economic-context.md` para análisis completo.*
+
+---
+
+### ⚠️ Señales de Riesgo Clave (Lista de vigilancia)
+
+| Señal | Fecha prevista | Implicación si se activa |
+|--------|-------------|------------------------|
+| Posición del ponente ficticio EPP sobre la CSDDD presentada | Junio 2026 | Determina la viabilidad de Omnibus I |
+| Anuncio de base jurídica SAFE de la Comisión | Junio 2026 | Artículo 122 → conflicto constitucional del PE |
+| Resultado del acuerdo bilateral EDIP polaco-húngaro | 30 mayo 2026 | Resuelve o confirma el riesgo de bloqueo en el Consejo |
+| Debate del Bundestag CDU/CSU alemán sobre la CSDDD | Junio 2026 | Señal de probabilidad de deserción EPP |
+| Prioridades legislativas de la presidencia danesa (anunciadas en julio) | 1 julio 2026 | Reequilibrio sostenibilidad frente a simplificación |
+
+---
+
+### 🔮 Perspectiva a Tres Meses
+
+**Eventos de alta confianza (junio–agosto 2026):**
+- Disputa sobre base jurídica SAFE planteada formalmente por el Servicio Jurídico del PE: *Casi cierto (90%+)*
+- Consulta pública sobre el reglamento de ejecución de IA de alto riesgo finalizada: *Casi cierto (85%)*
+- La presidencia polaca concluye el informe de avance del trílogo EDIP: *Probable (75%)*
+
+**Giros inciertos:**
+- Si EPP-S&D alcanza una fórmula de compromiso sobre la CSDDD antes de la presidencia danesa: *Posible (40%)*
+- Si un evento de seguridad desencadena una sesión extraordinaria del PE sobre defensa: *Posible (35%)*
+- Si un evento climático invierte el impulso político de Omnibus I: *Poco probable (15%)*
+
+---
+
+### 📋 Implicaciones Políticas
+
+**Para empresas sujetas a CSRD/CSDDD:** Mantener capacidad de informes con doble escenario (obligación plena mantenida O ámbito reducido). La ventana de incertidumbre es de 6–12 meses. La planificación para el ejercicio fiscal 2027 debe continuar bajo los requisitos actuales hasta que el texto legislativo sea finalizado.
+
+**Para la industria de defensa de la UE:** El calendario EDIP fase II es creíble; las decisiones de inversión de capacidad para 2026–2028 pueden continuar bajo el supuesto de trabajo de la continuidad EDIP. El calendario del instrumento SAFE es menos fiable debido a la disputa sobre la base jurídica; no anclar planes de financiación a largo plazo a SAFE hasta que se resuelva la base jurídica.
+
+**Para los desarrolladores de IA:** Los reglamentos de ejecución del Anexo III de la Ley de IA se adoptarán según el calendario actual. Los criterios de clasificación de sistemas de alto riesgo se aclararán antes del T4 2026. Proveedores GPAI: el cumplimiento del código de prácticas es la prioridad a corto plazo; esperar mayor escrutinio de la Oficina de IA en el S2 2026.
+
+---
+
+### 📍 Aviso sobre el Modo de Datos
+
+Este informe se produce bajo el modo de datos `degraded-feeds` (factor suelo 0,80). El feed de procedimientos del PE devolvió datos históricos de los años 1970–1980 en lugar de propuestas actuales; el artefacto `intelligence/procedures-proxy.md` proporciona cobertura triangulada metodológicamente de propuestas activas basada en fuentes secundarias. Los identificadores de procedimiento citados deben tratarse como indicativos hasta que esté disponible la verificación directa de la API del PE. Véase `intelligence/mcp-reliability-audit.md` para contexto técnico completo.
+
+---
+
+*Análisis producido: 2026-05-26 | Ejecución: propositions | 18 artefactos | 12 SATs | modo degraded-feeds*
+*Próxima ejecución recomendada: 2026-06-02 (tras el informe de avance EDIP de la presidencia polaca y el documento de posición EPP sobre la CSDDD)*
+
+### Executive Brief Fi
+
+### 🗝️ Viisi Keskeistä Arviota (Tiedusteluyhteenveto)
+
+1. **[TODENNÄKÖISTÄ — 65%]** EDIP vaihe II (EU:n puolustusalan ohjelma) saavuttaa Euroopan parlamentin täysistuntoäänestyksen ennen syyskuuta 2026. Turvallisuuspoliittinen kiireellisyyskertomus ja Puolan aktiivinen puheenjohtajuuskauden hallinta luovat riittävän poliittisen liikevauhtia. Ukraina-lauseketta koskeva kiista on todennäköisin viimeinen este. *(Admiralty B2)*
+
+2. **[MAHDOLLISESTI-TODENNÄKÖISTÄ — 50–55%]** Omnibus I -sääntelynkevennyspaketit hyväksytään olennaisesti muutetussa muodossa siten, että CSRD:n soveltamisala supistuu mutta CSDDD säilytetään laajalti. Neuvoteltu kompromissiskenaario on historiallisesti johdonmukaisin tulos EU-lainsäädännölle koalitiopaineessa. *(Admiralty B2)*
+
+3. **[LÄHES VARMAA — 85%+]** Tekoälylain täytäntöönpanosäädökset korkean riskin tekoälyjärjestelmiä varten (liitteen III luokittelukriteerit) hyväksytään komissiossa ennen neljättä vuosineljännestä 2026. Tämä ei edellytä EP:n äänestystä; se on komission toimeenpaneva toimi. Tekoälyvirasto pysyy aikataulussa kapasiteettirajoituksista huolimatta. *(Admiralty B2)*
+
+4. **[LÄHES VARMAA — 90%+]** SAFE-instrumentti (€150 mrd. EU:n puolustustakaamat lainajärjestely) kohtaa muodollisen oikeudellisen haasteen, kun EP:n oikeudellinen yksikkö väittää puolesta, että artikla 173 yhteispäätösmenettelyä tarvitaan komission suosiman artiklan 122 hätämenettelyn sijasta. Tämä haaste viivästyttää SAFE:a lähes varmasti vähintään 3–6 kuukautta. *(Admiralty A2–B2)*
+
+5. **[MAHDOLLISTA — 20%]** Lainsäädäntöpattitilanne koettaa vähintään yhtä suurta asiakirjaa (Omnibus I tai EDIP) ja aiheuttaa viivästyksen kalenterivuotta 2026 pidemmälle. Riski johtuu EPP:n sisäisestä hajaannuksesta CSDDD:n suhteen (Saksan CDU/CSU-tekijä) eikä oppositioblokin toimista. *(Admiralty B3)*
+
+---
+
+### 🌍 Strateginen Konteksti
+
+Euroopan parlamentti aloittaa viikon 26. toukokuuta 2026 monimutkaisimmalla lainsäädäntödossiereiden saldolla sitten COVID-jälkeisen kauden 2021. Kolme samanaikaista lainsäädäntövirtaa vaativat poliittista huomiota ja koalitionhallintaa:
+
+**Virta 1: Turvallisuus ja puolustus** — EU:n vastaus jatkuvaan geopoliittiseen paineeseen (Venäjä-Ukraina-konflikti käynnissä; Naton 2 %:n BKT-menotavoite; Yhdysvaltojen ennakoimattomuus) on tuottanut kaksi suurta lainsäädäntövälinettä: EDIP vaihe II (teollisuusohjelma) ja SAFE (rahoitusinstrumentti). Molemmilla on periaatteellinen tuki usealta puolueelta, mutta ne kohtaavat merkittäviä menettelyllisiä ja perustuslaillisia esteitä.
+
+**Virta 2: Sääntelyn keventäminen** — Von der Leyen -komission Omnibus I -paketti edustaa EP-9:n kestävyyssääntelyperinnön merkittävintä purkamista. Ehdotetut muutokset CSRD:hen (yritysten kestävyysraportointidirektiivi) ja CSDDD:hen (yritysten due diligence -velvoitedirektiivi) ovat jakaneet EU:n poliittisen talouden kahteen leiriin: elinkeinoelämä (kannattava) ja työ/kestävyys/sijoittajayhteisö (vastustava). Tämä on nykyisen istuntokauden poliittisesti kiistanalaisin lainsäädäntötaistelukenttä.
+
+**Virta 3: Tekoäly ja digitaalinen hallinto** — Tekoälylaki (hyväksytty 2024) vaatii täytäntöönpanosäädöksiä ennen kuin sitä voidaan panna täytäntöön. Korkean riskin tekoälyjärjestelmien luokittelukriteerit, GPAI-käytännesäännöt ja pk-yrityspoikkeuskynnykset ovat kriittiset lähiajan toimitukset. Tekoälyvirasto kohtaa kapasiteettirajoituksia samalla kun tekoälyn käyttöönotto kiihtyy EU:n yritysten ja julkisen sektorin ympäristöissä.
+
+---
+
+### 🏛️ Koalitiodynamiikan Yhteenveto
+
+EP-10 toimii ilman vakaata enemmistökoalitiota minkään yksittäisen lainsäädäntövirran osalta. EPP (188 paikkaa) on korvaamaton puolue, mutta se ei pysty toimittamaan lainsäädäntöä yksin:
+
+| Koalitio | Paikat | Käyttötapaus | Vakaus |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | Puolustus, yksinkertaistaminen | KESKITASO — Renew jakautuu CSDDD:n suhteen |
+| EPP + S&D + Renew | ~401 | Suurkoalitioasiakirjat | MATALA — EPP/S&D-ristiriidat yksinkertaistamisessa |
+| EPP + S&D + Greens | ~377 | Kestävyyden säilyttäminen | MATALA — vaatii EPP:tä vastustamaan omaa komissiotaan |
+| EPP + ECR + Patriots | ~350 | EU-skeptinen koalitio | MATALA — vastustaa yleisesti EU-integraation syvyyttä |
+
+**Koalitioarvio:** "Kaksoiskoalitio"-strategia (eri kumppanit eri asiakirjoille) on EPP:n ainoa elinkelpoiseen polku. Historiallinen peruskanta kaksoiskoalitioiden menestykselle EP:ssä: ~60% asiakirjoista löytää enemmistön, ~40% kokee merkittävän viivästyksen tai muutoksen.
+
+---
+
+### 📊 Taloudellinen Ulottuvuus
+
+Analysoitavat esitykset kantavat huomattavia fiskaalisia vaikutuksia:
+- EDIP vaihe II: €1,5 mrd. suora EU:n budjettivaikutus (2025–2027)
+- SAFE-instrumentti: €150 mrd. EU-taattuina lainoina (ehdollinen velka)
+- Omnibus I sääntelyn noudattamiskustannusten helpotus: €0,5–2,5 mrd. vuosittain EU-yrityksille (CSRD-supistuksesta)
+- Tekoälylain vaatimustenmukaisuuden arviointikustannukset: €2–5 mrd. yksityisen sektorin kertaluonteinen investointi
+
+Nykyisen lainsäädäntöohjelman kokonaistaloudellinen vaikutus on lievästi positiivinen EU:n kilpailukyvylle (yksinkertaistaminen + puolustusalan teollisuusinvestoinnit), mutta se kantaa kestävyysdatan laadun heikkenemisen (vaikuttaa ESG-investointimittareihin) ja CJEU:n mahdollisten haasteiden alasriskejä, jotka luovat sääntelyllistä epävarmuutta.
+
+*Huom: IMF:n taloudellisia tietoja ei haettu suoraan tässä ajossa (kutsuraja). Talousluvut peräisin EK:n kevätennusteesta 2026 ja Eurostatista. Katso `intelligence/economic-context.md` täydellisestä analyysistä.*
+
+---
+
+### ⚠️ Keskeisiä Riskisignaaleja (Tarkkailulista)
+
+| Signaali | Odotettu päivämäärä | Vaikutus jos laukaistu |
+|--------|-------------|------------------------|
+| EPP:n varjoesittelijäkanta CSDDD:stä jätetty | Kesäkuu 2026 | Ratkaisee Omnibus I:n elinkelpoisuuden |
+| Komission SAFE-oikeudellinen perustailmoitus | Kesäkuu 2026 | Artikla 122 → EP:n perustuslaillinen konflikti |
+| Puolan ja Unkarin välisen EDIP-kahdenvälisen sopimuksen tulos | 30. toukokuuta 2026 | Ratkaisee tai vahvistaa neuvoston estämisriskin |
+| Saksan CDU/CSU Bundestag-debatti CSDDD:stä | Kesäkuu 2026 | EPP-poikkeamistodennäköisyyden signaali |
+| Tanskan puheenjohtajuuden lainsäädäntöprioriteetit (ilmoitetaan heinäkuussa) | 1. heinäkuuta 2026 | Kestävyyden vs. yksinkertaistamisen tasapainottaminen |
+
+---
+
+### 🔮 Kolmen Kuukauden Näkymät
+
+**Korkean luottamuksen tapahtumat (kesä–elokuu 2026):**
+- SAFE-oikeudellinen perusta kiista virallisesti nostettu EP:n oikeudellisen palvelun toimesta: *Lähes varmaa (90%+)*
+- Tekoälylain korkean riskin täytäntöönpanosäädös julkinen kuuleminen päättyy: *Lähes varmaa (85%)*
+- Puolan puheenjohtajuus päättää EDIP-trilogistatus-raportin: *Todennäköistä (75%)*
+
+**Epävarmat käännekohdat:**
+- Saavuttaako EPP-S&D CSDDD-kompromissikaavan ennen Tanskan puheenjohtajuutta: *Mahdollista (40%)*
+- Laukaiseeko turvallisuustapahtuma EP:n ylimääräisen istunnon puolustuksesta: *Mahdollista (35%)*
+- Kääntääkö ilmastotapahtuma Omnibus I:n poliittisen liikevauhtia: *Epätodennäköistä (15%)*
+
+---
+
+### 📋 Poliittiset Vaikutukset
+
+**Yrityksille, joihin sovelletaan CSRD/CSDDD:tä:** Ylläpidä kaksois-skenaarioraportointikapasiteettia (koko velvollisuus säilyy TAI kapea soveltamisala). Epävarmuusikkuna on 6–12 kuukautta. Tilikauden 2027 suunnittelun tulee jatkua nykyisten vaatimusten mukaisesti, kunnes lainsäädäntöteksti on viimeistelty.
+
+**EU:n puolustusalan yrityksille:** EDIP vaihe II:n aikataulu on uskottava; kapasiteetti-investointipäätökset vuosille 2026–2028 voidaan jatkaa EDIP-jatkuvuuden toimintaoletuksen mukaisesti. SAFE-instrumentin aikataulu on vähemmän luotettava oikeudellisen perustakiistan vuoksi; älä ankkuroi pitkäaikaisia rahoitussuunnitelmia SAFE:een ennen kuin oikeudellinen perusta on ratkaistu.
+
+**Tekoälykehittäjille:** Tekoälylain liitteen III täytäntöönpanosäädökset hyväksytään nykyisen aikataulun mukaisesti. Korkean riskin järjestelmien luokittelukriteerit selkenevät Q4 2026 mennessä. GPAI-palveluntarjoajat: käytännesäännösten noudattaminen on lähiajan prioriteetti; odota tekoälyviraston lisääntyvää valvontaa H2 2026:ssa.
+
+---
+
+### 📍 Datatilan Neuvonanto
+
+Tämä tiedote on tuotettu `degraded-feeds`-datatilassa (0,80 lattiakerroin). EP:n menettelysyöttö palautti historiallisia tietoja 1970–1980-luvuilta nykyisten ehdotusten sijaan; artefakti `intelligence/procedures-proxy.md` tarjoaa menetelmätrianguloitua kattavuutta aktiivisista ehdotuksista toissijaisten lähteiden perusteella. Viitattuihin menettelyidentifioijiin tulee suhtautua ohjeellisina, kunnes suora EP API -vahvistus on saatavilla. Katso `intelligence/mcp-reliability-audit.md` täydellisestä teknisestä kontekstista.
+
+---
+
+*Analyysi tuotettu: 2026-05-26 | Ajo: propositions | 18 artefaktia | 12 SAT:ia | degraded-feeds-tila*
+*Seuraava suositeltu ajo: 2026-06-02 (Puolan puheenjohtajuuden EDIP-statusraportin ja EPP:n CSDDD-kantapaperin jälkeen)*
+
+### Executive Brief Fr
+
+### 🗝️ Cinq Jugements Clés (Synthèse de renseignement)
+
+1. **[PROBABLE — 65%]** L'EDIP phase II (programme de l'industrie de défense de l'UE) atteindra le vote en séance plénière du Parlement européen avant septembre 2026. La narrative d'urgence sécuritaire et la gestion active de la présidence polonaise créent une dynamique politique suffisante. Le différend sur la clause Ukraine est l'obstacle final le plus probable. *(Admiralty B2)*
+
+2. **[POSSIBLE-PROBABLE — 50–55%]** Le paquet Omnibus I de simplification réglementaire sera adopté sous une forme substantiellement modifiée, avec le champ d'application de la CSRD réduit mais la CSDDD largement préservée. Le scénario de compromis négocié est le résultat historiquement le plus cohérent pour la législation de l'UE sous pression de coalition. *(Admiralty B2)*
+
+3. **[QUASI-CERTAIN — 85%+]** Les règlements d'exécution de l'AI Act pour les systèmes d'IA à haut risque (critères de classification de l'annexe III) seront adoptés par la Commission avant le T4 2026. Cela ne requiert pas de vote du PE ; il s'agit d'une action exécutive de la Commission. Le Bureau de l'IA est dans les délais malgré les contraintes de capacité. *(Admiralty B2)*
+
+4. **[QUASI-CERTAIN — 90%+]** L'instrument SAFE (facilité de prêt de €150 Mrd garantie par l'UE pour la défense) fera face à un défi formel sur sa base juridique, le Service juridique du PE plaidant pour la co-décision de l'article 173 plutôt que la procédure d'urgence de l'article 122 préférée par la Commission. Ce défi retardera quasi certainement SAFE d'au moins 3 à 6 mois. *(Admiralty A2–B2)*
+
+5. **[POSSIBLE — 20%]** Une paralysie législative affecte au moins un dossier majeur (Omnibus I ou EDIP), causant un retard au-delà de l'année civile 2026. Le risque est porté par les divisions internes de l'EPP sur la CSDDD (facteur CDU/CSU allemand) plutôt que par l'action du bloc d'opposition. *(Admiralty B3)*
+
+---
+
+### 🌍 Contexte Stratégique
+
+Le Parlement européen aborde la semaine du 26 mai 2026 avec l'équilibre des dossiers législatifs le plus complexe depuis la période post-COVID de 2021. Trois flux législatifs simultanés exigent attention politique et gestion des coalitions :
+
+**Flux 1 : Sécurité et défense** — La réponse de l'UE à la pression géopolitique persistante (conflit Russie-Ukraine en cours ; objectif OTAN de 2 % du PIB en dépenses de défense ; imprévisibilité des États-Unis) a généré deux grands véhicules législatifs : EDIP phase II (programme industriel) et SAFE (instrument de financement). Les deux bénéficient d'un soutien de principe transpartisan, mais se heurtent à d'importants obstacles procéduraux et constitutionnels.
+
+**Flux 2 : Simplification réglementaire** — Le paquet Omnibus I de la Commission Von der Leyen représente le retrait le plus significatif de l'héritage réglementaire en matière de développement durable de l'EP-9. Les modifications proposées à la CSRD (directive sur la publication d'informations en matière de durabilité par les entreprises) et à la CSDDD (directive sur le devoir de vigilance des entreprises en matière de durabilité) ont divisé l'économie politique de l'UE en deux camps : l'industrie (favorable) et le travail/durabilité/communauté des investisseurs (opposé). C'est le terrain législatif le plus contesté de la législature actuelle.
+
+**Flux 3 : IA et gouvernance numérique** — L'AI Act (adopté en 2024) requiert des règlements d'exécution avant de pouvoir être appliqué. Les critères de classification des systèmes d'IA à haut risque, le code de conduite GPAI et les seuils d'exemption pour les PME sont les livrables prioritaires à court terme. Le Bureau de l'IA fait face à des contraintes de capacité alors que le déploiement de l'IA s'accélère dans les environnements d'entreprise et du secteur public de l'UE.
+
+---
+
+### 🏛️ Résumé de la Dynamique des Coalitions
+
+L'EP-10 fonctionne sans coalition majoritaire stable pour aucun flux législatif unique. L'EPP (188 sièges) est le parti indispensable mais ne peut pas livrer de législation seul :
+
+| Coalition | Sièges | Cas d'usage | Stabilité |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | Défense, simplification | MOYEN — Renew se divise sur la CSDDD |
+| EPP + S&D + Renew | ~401 | Dossiers de grande coalition | FAIBLE — contradictions EPP/S&D sur la simplification |
+| EPP + S&D + Greens | ~377 | Préservation de la durabilité | FAIBLE — exige que l'EPP s'oppose à sa propre Commission |
+| EPP + ECR + Patriots | ~350 | Coalition eurosceptique | FAIBLE — s'oppose généralement à la profondeur de l'intégration européenne |
+
+**Jugement de coalition :** La stratégie de « double coalition » (partenaires différents selon les dossiers) est la seule voie viable de l'EPP. Taux de base historique de succès de la double coalition au PE : ~60 % des dossiers trouvent une majorité, ~40 % connaissent un retard ou une modification significatifs.
+
+---
+
+### 📊 Dimension Économique
+
+Les propositions analysées comportent des implications fiscales substantielles :
+- EDIP phase II : €1,5 Mrd d'exposition directe au budget de l'UE (2025–2027)
+- Instrument SAFE : €150 Mrd en prêts garantis par l'UE (passif éventuel)
+- Allègement du coût de conformité Omnibus I : €0,5–2,5 Mrd annuels pour les entreprises de l'UE (réduction CSRD)
+- Coûts d'évaluation de conformité de l'AI Act : €2–5 Mrd d'investissement ponctuel du secteur privé
+
+L'impact économique net de l'agenda législatif actuel est légèrement positif pour la compétitivité de l'UE (simplification + investissements industriels dans la défense), mais comporte des risques à la baisse liés à la dégradation de la qualité des données de durabilité (affectant les métriques d'investissement ESG) et aux éventuels recours devant la CJUE créant une incertitude réglementaire.
+
+*Remarque : les données économiques de l'IMF n'ont pas été interrogées directement lors de cette exécution (limite d'appel). Les chiffres économiques proviennent des prévisions du printemps 2026 de la CE et d'Eurostat. Voir `intelligence/economic-context.md` pour l'analyse complète.*
+
+---
+
+### ⚠️ Signaux de Risque Clés (Liste de surveillance)
+
+| Signal | Date prévue | Implication si déclenché |
+|--------|-------------|------------------------|
+| Position du rapporteur fictif EPP sur la CSDDD déposée | Juin 2026 | Détermine la viabilité d'Omnibus I |
+| Annonce de la base juridique SAFE par la Commission | Juin 2026 | Article 122 → conflit constitutionnel du PE |
+| Résultat de l'accord bilatéral EDIP polono-hongrois | 30 mai 2026 | Résout ou confirme le risque de blocage au Conseil |
+| Débat du Bundestag CDU/CSU allemand sur la CSDDD | Juin 2026 | Signal de probabilité de défection EPP |
+| Priorités législatives de la présidence danoise (annoncées en juillet) | 1er juillet 2026 | Rééquilibrage durabilité vs. simplification |
+
+---
+
+### 🔮 Perspectives à Trois Mois
+
+**Événements à haute confiance (juin–août 2026) :**
+- Différend sur la base juridique SAFE formellement soulevé par le Service juridique du PE : *Quasi-certain (90%+)*
+- Consultation publique sur le règlement d'exécution à haut risque de l'AI Act finalisée : *Quasi-certain (85%)*
+- La présidence polonaise conclut le rapport d'avancement du trilogue EDIP : *Probable (75%)*
+
+**Pivots incertains :**
+- Si l'EPP-S&D atteint une formule de compromis sur la CSDDD avant la présidence danoise : *Possible (40%)*
+- Si un événement sécuritaire déclenche une session extraordinaire du PE sur la défense : *Possible (35%)*
+- Si un événement climatique inverse l'élan politique d'Omnibus I : *Peu probable (15%)*
+
+---
+
+### 📋 Implications Politiques
+
+**Pour les entreprises soumises à la CSRD/CSDDD :** Maintenir la capacité de double-scénario de reporting (obligation pleine maintenue OU périmètre réduit). La fenêtre d'incertitude est de 6 à 12 mois. La planification pour l'exercice 2027 devrait se poursuivre sous les exigences actuelles jusqu'à ce que le texte législatif soit finalisé.
+
+**Pour l'industrie de défense de l'UE :** Le calendrier EDIP phase II est crédible ; les décisions d'investissement capacitaire pour 2026–2028 peuvent se poursuivre sur l'hypothèse de travail de la continuité EDIP. Le calendrier de l'instrument SAFE est moins fiable en raison du différend sur la base juridique ; ne pas ancrer les plans de financement à long terme sur SAFE tant que la base juridique n'est pas résolue.
+
+**Pour les développeurs d'IA :** Les règlements d'exécution de l'AI Act sur l'annexe III seront adoptés selon le calendrier actuel. Les critères de classification des systèmes à haut risque seront clarifiés avant le T4 2026. Fournisseurs GPAI : la conformité au code de conduite est la priorité à court terme ; s'attendre à un contrôle accru du Bureau de l'IA au S2 2026.
+
+---
+
+### 📍 Avis sur le Mode de Données
+
+Cette note de synthèse est produite sous le mode de données `degraded-feeds` (facteur plancher 0,80). Le flux de procédures du PE a retourné des données historiques des années 1970–1980 plutôt que des propositions actuelles ; l'artefact `intelligence/procedures-proxy.md` fournit une couverture triangulée méthodologiquement des propositions actives basée sur des sources secondaires. Les identifiants de procédure cités doivent être traités comme indicatifs jusqu'à ce qu'une vérification directe via l'API du PE soit disponible. Voir `intelligence/mcp-reliability-audit.md` pour le contexte technique complet.
+
+---
+
+*Analyse produite : 2026-05-26 | Exécution : propositions | 18 artefacts | 12 SATs | mode degraded-feeds*
+*Prochaine exécution recommandée : 2026-06-02 (après le rapport d'avancement EDIP de la présidence polonaise et le document de position EPP sur la CSDDD)*
+
+### Executive Brief He
+
+**סיווג:** ציבורי | **קהל יעד:** ציבור רחב בעל עניין בקביעת מדיניות
+**SAT חובה:** בדיקת הנחות מפתח ✅ | בדיקת איכות מידע ✅
+**רצועות WEP:** מיושמות על כל חמשת ההלכות המרכזיות
+**דרגת מקור Admiralty:** B2 (מקורות משניים מאוששים הדדית); A2 למסמכי SP של המועצה
+**רמת אמון:** 🟡 בינוני-גבוה — ניתוח מוסדי מבני; מעקב הליכים בזמן אמת מוגבל
+
+---
+
+### 🗝️ חמש הלכות מרכזיות (סיכום מודיעיני)
+
+1. **[סביר — 65%]** EDIP שלב II (תוכנית תעשיית הביטחון האירופית) יגיע להצבעה במליאת הפרלמנט האירופי לפני ספטמבר 2026. נרטיב הדחיפות הביטחונית וניהול נשיאות המועצה הפולנית הפעילה יוצרים מומנטום פוליטי מספיק. המחלוקת על סעיף אוקראינה היא המכשול הסופי הסביר ביותר. *(Admiralty B2)*
+
+2. **[אפשרי-סביר — 50–55%]** חבילת Omnibus I לפישוט רגולטורי תתקבל בנוסח שונה מהותית, עם צמצום תחולת CSRD אך שמירה רחבה של CSDDD. תרחיש הפשרה המוסכם הוא התוצאה ההיסטורית העקבית ביותר לחקיקה אירופית תחת לחץ קואליציוני. *(Admiralty B2)*
+
+3. **[כמעט ודאי — 85%+]** תקנות יישום חוק הבינה המלאכותית עבור מערכות בינה מלאכותית בסיכון גבוה (קריטריוני סיווג בנספח III) יאומצו על ידי הנציבות לפני הרבעון הרביעי של 2026. אין צורך בהצבעת הפרלמנט; זוהי פעולת ביצוע של הנציבות. משרד הבינה המלאכותית עומד בלוח הזמנים למרות מגבלות הקיבולת. *(Admiralty B2)*
+
+4. **[כמעט ודאי — 90%+]** מכשיר SAFE (מתקן הלוואות €150 מיליארד מובטח אירופאי לביטחון) יעמוד בפני אתגר רשמי על בסיסו המשפטי, כאשר השירות המשפטי של הפרלמנט האירופי טוען לטובת שיתוף בקבלת החלטות לפי סעיף 173 לעומת הליך החירום לפי סעיף 122 שהנציבות מעדיפה. אתגר זה כמעט ודאי יעכב את SAFE לפחות 3–6 חודשים. *(Admiralty A2–B2)*
+
+5. **[אפשרי — 20%]** קיפאון חקיקתי פוגע לפחות בתיק מרכזי אחד (Omnibus I או EDIP) וגורם לעיכוב מעבר לשנת הלוח 2026. הסיכון נובע מהפיצולים הפנימיים ב-EPP על CSDDD (גורם CDU/CSU הגרמני) ולא מפעולות גוש האופוזיציה. *(Admiralty B3)*
+
+---
+
+### 🌍 הקשר אסטרטגי
+
+הפרלמנט האירופי נכנס לשבוע של 26 במאי 2026 עם האיזון המורכב ביותר של תיקי חקיקה מאז תקופת פוסט-קוביד של 2021. שלושה זרמי חקיקה בו-זמניים דורשים תשומת לב פוליטית וניהול קואליציוני:
+
+**זרם 1: ביטחון והגנה** — תגובת האיחוד האירופי ללחץ גיאופוליטי מתמשך (הסכסוך רוסיה-אוקראינה המתמשך; יעד ההוצאות של NATO בשיעור 2% מהתמ"ג; חוסר הניבוי האמריקאי) הניבה שני כלי חקיקה מרכזיים: EDIP שלב II (תוכנית תעשייתית) ו-SAFE (מכשיר מימון). לשניהם תמיכה עקרונית חוצת-מפלגות, אך הם נתקלים במכשולים נהליים וחוקתיים משמעותיים.
+
+**זרם 2: פישוט רגולטורי** — חבילת Omnibus I של נציבות פון דר ליין מייצגת את הנסיגה המשמעותית ביותר מהמורשת הרגולטורית לקיימות של EP-9. השינויים המוצעים ל-CSRD (הנחיית גילוי מידע קיימות של חברות) ו-CSDDD (הנחיית בדיקת נאותות קיימות של חברות) חילקו את הכלכלה הפוליטית האירופית לשני מחנות: תעשייה (תומכת) ועבודה/קיימות/קהילת משקיעים (מתנגדת). זהו שדה הקרב החקיקתי השנוי ביותר במחלוקת פוליטית בתקופת הכהונה הנוכחית.
+
+**זרם 3: בינה מלאכותית וממשל דיגיטלי** — חוק הבינה המלאכותית (שאומץ ב-2024) דורש תקנות יישום לפני שניתן לאכפו. קריטריוני סיווג למערכות בינה מלאכותית בסיכון גבוה, קוד פרקטיקה GPAI וסף פטורים לעסקים קטנים ובינוניים הם המסירות הקריטיות לטווח הקרוב. משרד הבינה המלאכותית מתמודד עם מגבלות קיבולת בעוד פריסת הבינה המלאכותית מואצת בסביבות העסקיות והממשלתיות של האיחוד האירופי.
+
+---
+
+### 🏛️ סיכום דינמיקת הקואליציה
+
+EP-10 פועל ללא קואליציית רוב יציבה לאף זרם חקיקה בודד. EPP (188 מושבים) היא המפלגה הבלתי-ניתנת להחלפה אך אינה יכולה לספק חקיקה לבדה:
+
+| קואליציה | מושבים | מקרה שימוש | יציבות |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | הגנה, פישוט | בינוני — Renew מתפצלת על CSDDD |
+| EPP + S&D + Renew | ~401 | תיקי קואליציה רחבה | נמוך — סתירות EPP/S&D בפישוט |
+| EPP + S&D + Greens | ~377 | שימור קיימות | נמוך — מחייב ש-EPP תתנגד לנציבותה שלה |
+| EPP + ECR + Patriots | ~350 | קואליציה אירוסקפטית | נמוך — מתנגדת בדרך כלל לעומק האינטגרציה האירופאית |
+
+**פסיקת קואליציה:** אסטרטגיית "קואליציה כפולה" (שותפים שונים לתיקים שונים) היא המסלול הישים היחיד של EPP. שיעור הבסיס ההיסטורי להצלחת קואליציה כפולה בפרלמנט: ~60% מהתיקים מוצאים רוב, ~40% חווים עיכוב משמעותי או שינוי.
+
+---
+
+### 📊 הממד הכלכלי
+
+ההצעות הנותחות נושאות השלכות פיסקליות מהותיות:
+- EDIP שלב II: חשיפת תקציב ישירה של האיחוד האירופי בסך €1.5 מיליארד (2025–2027)
+- מכשיר SAFE: €150 מיליארד בהלוואות מובטחות אירופאיות (התחייבות תלויה)
+- הקלת עלויות עמידה ב-Omnibus I: €0.5–2.5 מיליארד לשנה לחברות אירופאיות (מצמצום CSRD)
+- עלויות הערכת תאימות לחוק הבינה המלאכותית: €2–5 מיליארד השקעה חד-פעמית של המגזר הפרטי
+
+ההשפעה הכלכלית הנטו של אג'נדת החקיקה הנוכחית חיובית במידת מה לתחרותיות האיחוד האירופי (פישוט + השקעות בתעשיית הביטחון), אך נושאת סיכוני ירידה מהידרדרות איכות נתוני הקיימות (המשפיעה על מדדי ההשקעה ESG) ואתגרים פוטנציאליים בבית הדין האירופי לצדק היוצרים אי-ודאות רגולטורית.
+
+*הערה: לא בוצעה שאילתא ישירה לנתונים הכלכליים של IMF בהרצה זו (הגבלת קריאות). הנתונים הכלכליים מקורם בתחזית האביב 2026 של הנציבות האירופית ומ-Eurostat. ראו `intelligence/economic-context.md` לניתוח מלא.*
+
+---
+
+### ⚠️ אותות סיכון מרכזיים (רשימת מעקב)
+
+| אות | תאריך צפוי | השלכה אם הופעל |
+|--------|-------------|------------------------|
+| עמדת הדוח-הצל של EPP על CSDDD הוגשה | יוני 2026 | קובעת כדאיות Omnibus I |
+| הודעת הנציבות על בסיס משפטי ל-SAFE | יוני 2026 | סעיף 122 ← סכסוך חוקתי עם הפרלמנט |
+| תוצאת הסכם בילטרלי פולני-הונגרי בנושא EDIP | 30 במאי 2026 | פותר או מאשר סיכון חסימת המועצה |
+| עצרת הבונדסטאג הגרמני CDU/CSU בנושא CSDDD | יוני 2026 | אות להסתברות עריקות EPP |
+| עדיפויות חקיקה של נשיאות הדנמרק (מוכרזות יולי) | 1 ביולי 2026 | איזון מחדש קיימות לעומת פישוט |
+
+---
+
+### 🔮 תחזית לשלושה חודשים
+
+**אירועים ברמת אמון גבוהה (יוני–אוגוסט 2026):**
+- סכסוך בסיס משפטי SAFE שהועלה רשמית על-ידי השירות המשפטי של הפרלמנט האירופי: *כמעט ודאי (90%+)*
+- התייעצות ציבורית על תקנת יישום בינה מלאכותית בסיכון גבוה הושלמה: *כמעט ודאי (85%)*
+- נשיאות פולין מסיימת דוח התקדמות הטרלוג EDIP: *סביר (75%)*
+
+**ציר מפנה לא-ודאי:**
+- האם EPP-S&D מגיע לנוסחת פשרה ל-CSDDD לפני נשיאות דנמרק: *אפשרי (40%)*
+- האם אירוע ביטחוני מפעיל מושב חירום בפרלמנט בנושא ביטחון: *אפשרי (35%)*
+- האם אירוע אקלימי מהפך את המומנטום הפוליטי של Omnibus I: *לא סביר (15%)*
+
+---
+
+### 📋 השלכות מדיניות
+
+**לחברות הכפופות ל-CSRD/CSDDD:** שמרו על יכולת דיווח בתרחיש כפול (חובה מלאה נשמרת OR תחולה מצומצמת). חלון אי-הוודאות הוא 6–12 חודשים. תכנון לשנת הכספים 2027 צריך להמשיך תחת הדרישות הנוכחיות עד להשלמת הנוסח החקיקתי.
+
+**לתעשיית הביטחון האירופית:** לוח הזמנים של EDIP שלב II אמין; ניתן להמשיך בהחלטות השקעה בקיבולת לשנים 2026–2028 תחת הנחת העבודה של רציפות EDIP. לוח הזמנים של מכשיר SAFE פחות אמין בשל המחלוקת על הבסיס המשפטי; אל תעגנו תוכניות מימון ארוכות-טווח ל-SAFE עד לפתרון הבסיס המשפטי.
+
+**למפתחי בינה מלאכותית:** תקנות יישום נספח III של חוק הבינה המלאכותית יאומצו לפי לוח הזמנים הנוכחי. קריטריוני הסיווג למערכות בסיכון גבוה יובהרו עד הרבעון הרביעי של 2026. ספקי GPAI: עמידה בקוד הפרקטיקה היא העדיפות הקרובה; צפו לגברת בדיקות מצד משרד הבינה המלאכותית ב-H2 2026.
+
+---
+
+### 📍 הודעת מצב נתונים
+
+תדריך זה הופק תחת מצב נתונים `degraded-feeds` (גורם רצפה 0.80). זרם ההליכים של הפרלמנט האירופי החזיר נתונים היסטוריים משנות ה-70 וה-80 של המאה הקודמת במקום הצעות נוכחיות; חפץ `intelligence/procedures-proxy.md` מספק כיסוי משולש מתודולוגית של הצעות פעילות המבוסס על מקורות משניים. יש לטפל בזיהויי ההליכים המצוטטים כאינדיקטיביים עד שאימות ישיר דרך ה-API של הפרלמנט האירופי יהיה זמין. ראו `intelligence/mcp-reliability-audit.md` לתוכן הטכני המלא.
+
+---
+
+*הניתוח הופק: 2026-05-26 | הרצה: propositions | 18 חפצים | 12 SAT | מצב degraded-feeds*
+*ההרצה הבאה המומלצת: 2026-06-02 (לאחר דוח התקדמות EDIP של נשיאות פולין ומסמך עמדת EPP על CSDDD)*
+
+### Executive Brief Ja
+
+**分類：** 公開 | **対象読者：** 政策志向の一般市民
+**必須SAT：** 主要前提の検証 ✅ | 情報品質チェック ✅
+**WEPバンド：** 五つの主要判断全てに適用
+**アドミラルティ情報源格付：** B2（二次交差検証済み情報源）；A2（理事会SP文書）
+**信頼度：** 🟡 中-高 — 構造的機関分析；手続きのリアルタイム追跡は限定的
+
+---
+
+### 🗝️ 五つの主要判断（インテリジェンス要約）
+
+1. **[可能性高い — 65%]** EDIP第二フェーズ（EU防衛産業プログラム）は、2026年9月以前に欧州議会本会議での採決に至る見込みです。安全保障上の緊急性の論理とポーランド議長国の積極的な運営が十分な政治的勢いを生み出しています。ウクライナ条項をめぐる対立が最終的な障壁として最も可能性が高いです。*(アドミラルティ B2)*
+
+2. **[可能-可能性高い — 50–55%]** Omnibus I規制簡素化パッケージは、CSRDの適用範囲が縮小されつつもCSDDDが概ね維持された形で、実質的に修正された形で採択される見込みです。交渉による妥協シナリオは、連立圧力下でのEU立法の歴史的に最も一貫した結果です。*(アドミラルティ B2)*
+
+3. **[ほぼ確実 — 85%+]** 高リスクAIシステム向けAI法施行規則（附属書IIIの分類基準）は、2026年第4四半期以前に欧州委員会によって採択される見込みです。これは欧州議会の採決を必要とせず、欧州委員会の行政行為です。AIオフィスは能力制約にもかかわらずスケジュール通りに進んでいます。*(アドミラルティ B2)*
+
+4. **[ほぼ確実 — 90%+]** SAFE機器（€1,500億EU保証付き防衛ローン制度）は法的根拠に関する正式な異議申し立てに直面する見込みです。欧州議会法務部は、欧州委員会が優先する第122条の緊急手続きではなく、第173条の共同決定手続きを採用すべきと主張しています。この異議申し立ては、ほぼ確実にSAFEを少なくとも3〜6か月遅延させます。*(アドミラルティ A2–B2)*
+
+5. **[可能性あり — 20%]** 少なくとも一つの主要案件（Omnibus IまたはEDIP）で立法上の行き詰まりが生じ、2026暦年を超えた遅延が発生する可能性があります。このリスクは野党ブロックの行動よりも、CSDDDに関するEPP内部の分裂（ドイツCDU/CSU要因）によって推進されています。*(アドミラルティ B3)*
+
+---
+
+### 🌍 戦略的背景
+
+欧州議会は、2021年のコロナ禍後以来最も複雑な立法ドシエバランスで2026年5月26日の週に入ります。三つの同時並行する立法の流れが政治的注目と連立管理を要求しています。
+
+**流れ1：安全保障と防衛** — 継続的な地政学的圧力（ロシア・ウクライナ紛争継続；NATOのGDP2%支出目標；米国の予測不可能性）に対するEUの対応が、二つの主要立法手段を生み出しました：EDIP第二フェーズ（産業プログラム）とSAFE（資金調達手段）。両者は原則として超党派の支持を得ていますが、手続き上・憲法上の重大な障壁に直面しています。
+
+**流れ2：規制簡素化** — フォン・デア・ライエン欧州委員会のOmnibus Iパッケージは、EP-9の持続可能性規制遺産の最も大幅な後退を示しています。CSRD（企業持続可能性報告指令）とCSDDD（企業持続可能性デューデリジェンス指令）への提案された変更により、EUの政治経済は二つの陣営に分かれました：産業界（支持）と労働・持続可能性・投資家コミュニティ（反対）。これが現任期で政治的に最も論争的な立法戦場です。
+
+**流れ3：AIとデジタルガバナンス** — AI法（2024年採択）は執行前に施行規則を必要とします。高リスクAIシステムの分類基準、GPAI行動規範、中小企業免除閾値が短期的な重要成果物です。AIオフィスは、EU企業・公共部門環境全体でAI導入が加速する中、能力制約に直面しています。
+
+---
+
+### 🏛️ 連立力学要約
+
+EP-10は、いずれの単一立法流においても安定した過半数連立なしに運営されています。EPP（188議席）は不可欠な政党ですが、単独で立法を実現することはできません。
+
+| 連立 | 議席 | 用途 | 安定性 |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | 防衛、簡素化 | 中程度 — RenewはCSDDDで分裂 |
+| EPP + S&D + Renew | ~401 | 大連立ドシエ | 低 — 簡素化でEPP/S&D矛盾 |
+| EPP + S&D + Greens | ~377 | 持続可能性保全 | 低 — EPPが自らの委員会に反対することを要求 |
+| EPP + ECR + Patriots | ~350 | EU懐疑的連立 | 低 — 一般的にEU統合の深化に反対 |
+
+**連立判断：** 「二重連立」戦略（異なるドシエに異なるパートナー）がEPPの唯一実行可能な道です。欧州議会での二重連立成功の歴史的ベース率：約60%のドシエが過半数を確保、約40%が大幅な遅延または修正を経験します。
+
+---
+
+### 📊 経済的側面
+
+分析対象の提案には相当な財政的影響があります：
+- EDIP第二フェーズ：EU予算への直接露出 €15億（2025–2027年）
+- SAFE機器：EU保証付きローン €1,500億（偶発債務）
+- Omnibus I準拠コスト軽減：EU企業に対し年間 €5億〜25億（CSRD縮小による）
+- AI法適合性評価コスト：民間部門の一時的投資 €20億〜50億
+
+現在の立法アジェンダの純経済的影響は、EU競争力に対してわずかに好影響（簡素化＋防衛産業投資）ですが、持続可能性データ品質の悪化（ESG投資指標に影響）と潜在的なEU司法裁判所の異議申し立てによる規制上の不確実性からのダウンサイドリスクを伴います。
+
+*注記：今回の実行ではIMFの経済データを直接照会しませんでした（呼び出し上限）。経済数値はEC春季予測2026およびユーロスタットから入手しています。全分析は `intelligence/economic-context.md` を参照してください。*
+
+---
+
+### ⚠️ 主要リスクシグナル（監視リスト）
+
+| シグナル | 予想日付 | 発生時の影響 |
+|--------|-------------|------------------------|
+| CSDDDに関するEPP影子報告者の立場提出 | 2026年6月 | Omnibus Iの実現可能性を決定 |
+| 欧州委員会によるSAFE法的根拠の発表 | 2026年6月 | 第122条 → 欧州議会の憲法上の紛争 |
+| ポーランド・ハンガリーEDIP二国間合意の結果 | 2026年5月30日 | 理事会阻止リスクの解消または確認 |
+| ドイツCDU/CSU連邦議会でのCSDDD討論 | 2026年6月 | EPP離反確率シグナル |
+| デンマーク議長国の立法優先事項（7月発表） | 2026年7月1日 | 持続可能性対簡素化の再バランス |
+
+---
+
+### 🔮 三か月見通し
+
+**信頼度の高い出来事（2026年6月〜8月）：**
+- 欧州議会法務部によるSAFE法的根拠紛争の正式提起：*ほぼ確実（90%+）*
+- AI法高リスク施行規則のパブリックコンサルテーション完了：*ほぼ確実（85%）*
+- ポーランド議長国によるEDIP三者協議進捗報告書の完成：*可能性高い（75%）*
+
+**不確実な転換点：**
+- EPP-S&DがデンマークEU議長国以前にCSDDD妥協式に達するか：*可能性あり（40%）*
+- 安全保障事象が防衛に関する欧州議会臨時会期を引き起こすか：*可能性あり（35%）*
+- 気候事象がOmnibus Iの政治的勢いを逆転させるか：*可能性低い（15%）*
+
+---
+
+### 📋 政策的示唆
+
+**CSRD/CSDDD適用企業：** 二重シナリオ報告能力（完全義務維持または適用範囲縮小）を維持してください。不確実性ウィンドウは6〜12か月です。2027年度の計画は、立法文書が確定するまで現行要件に基づいて進める必要があります。
+
+**EU防衛産業：** EDIP第二フェーズのスケジュールは信頼できます；2026〜2028年の能力投資決定はEDIP継続の作業仮定の下で進めることができます。SAFE機器のスケジュールは法的根拠紛争により信頼性が低いです；法的根拠が解決されるまでSAFEに長期資金調達計画を依存させないでください。
+
+**AI開発者：** AI法附属書IIIの施行規則は現在のスケジュールで採択されます。高リスクシステムの分類基準は2026年第4四半期までに明確化されます。GPAIプロバイダー：行動規範への準拠が近期の優先事項です；2026年下半期にAIオフィスの監視強化を見込んでください。
+
+---
+
+### 📍 データモード・アドバイザリー
+
+このブリーフィングは `degraded-feeds` データモード（0.80フロアファクター）の下で作成されています。欧州議会の手続きフィードは現在の提案ではなく1970〜1980年代の歴史的データを返しました；アーティファクト `intelligence/procedures-proxy.md` は二次情報源に基づく活動中の提案の方法論的三角測量カバレッジを提供します。引用された手続き識別子は、欧州議会APIによる直接検証が可能になるまで参考値として扱う必要があります。完全な技術的背景については `intelligence/mcp-reliability-audit.md` を参照してください。
+
+---
+
+*分析作成日：2026-05-26 | 実行：propositions | 18成果物 | 12 SAT | degraded-feedsモード*
+*次の推奨実行：2026-06-02（ポーランド議長国EDIP進捗報告書およびEPP CSDDDポジションペーパー後）*
+
+### Executive Brief Ko
+
+**분류:** 공개 | **대상:** 정책 지향 일반 대중
+**필수 SAT:** 핵심 가정 점검 ✅ | 정보 품질 점검 ✅
+**WEP 밴드:** 다섯 가지 핵심 판단 모두에 적용
+**Admiralty 출처 등급:** B2 (이차 교차 검증 출처); A2 이사회 SP 문서
+**신뢰도:** 🟡 중-고 — 구조적 제도 분석; 절차 실시간 추적 제한
+
+---
+
+### 🗝️ 다섯 가지 핵심 판단 (정보 요약)
+
+1. **[가능성 높음 — 65%]** EDIP 2단계(EU 방위산업 프로그램)는 2026년 9월 이전에 유럽의회 본회의 표결에 이를 것입니다. 안보 긴급성 서사와 폴란드의 적극적인 의장국 운영이 충분한 정치적 모멘텀을 만들어 냅니다. 우크라이나 조항을 둘러싼 분쟁이 가장 가능성 높은 최종 장애물입니다. *(Admiralty B2)*
+
+2. **[가능-가능성 높음 — 50–55%]** Omnibus I 규제 간소화 패키지는 CSRD 범위가 축소되되 CSDDD는 대체로 유지된 실질적으로 수정된 형태로 채택될 것입니다. 협상된 타협 시나리오는 연립 압박 하에서 EU 입법에 대한 역사적으로 가장 일관된 결과입니다. *(Admiralty B2)*
+
+3. **[거의 확실 — 85%+]** 고위험 AI 시스템에 대한 AI법 이행 규정(부속서 III 분류 기준)은 2026년 4분기 이전에 유럽위원회에 의해 채택될 것입니다. 이는 유럽의회 표결이 필요하지 않으며 유럽위원회의 집행 조치입니다. AI 사무소는 역량 제약에도 불구하고 일정에 따라 진행 중입니다. *(Admiralty B2)*
+
+4. **[거의 확실 — 90%+]** SAFE 수단(€1,500억 EU 보증 방위 대출 시설)은 법적 근거에 대한 공식적인 이의 제기에 직면할 것입니다. 유럽의회 법률 서비스는 유럽위원회가 선호하는 제122조 긴급 절차 대신 제173조 공동결정 절차를 주장합니다. 이 이의 제기는 SAFE를 거의 확실히 최소 3–6개월 지연시킬 것입니다. *(Admiralty A2–B2)*
+
+5. **[가능성 있음 — 20%]** 입법 교착 상태가 최소 하나의 주요 안건(Omnibus I 또는 EDIP)에 영향을 미쳐 2026 역년을 넘는 지연을 야기할 수 있습니다. 이 위험은 야당 블록의 행동보다 CSDDD에 관한 EPP 내부 분열(독일 CDU/CSU 요인)에 의해 추동됩니다. *(Admiralty B3)*
+
+---
+
+### 🌍 전략적 맥락
+
+유럽의회는 2021년 코로나19 이후 시기 이래 가장 복잡한 입법 안건 균형으로 2026년 5월 26일 주에 들어섭니다. 세 가지 동시 입법 흐름이 정치적 주의와 연립 관리를 요구합니다.
+
+**흐름 1: 안보와 방위** — 지속적인 지정학적 압박(지속되는 러시아-우크라이나 분쟁; NATO GDP 2% 지출 목표; 미국의 예측 불가능성)에 대한 EU의 대응은 두 가지 주요 입법 수단을 만들어 냈습니다. EDIP 2단계(산업 프로그램)와 SAFE(금융 수단)입니다. 둘 다 원칙적으로 초당적 지지를 받지만 중요한 절차적·헌법적 장애물에 직면해 있습니다.
+
+**흐름 2: 규제 간소화** — 폰 데어 라이엔 유럽위원회의 Omnibus I 패키지는 EP-9의 지속가능성 규제 유산의 가장 중요한 후퇴를 나타냅니다. CSRD(기업 지속가능성 공시 지침)와 CSDDD(기업 지속가능성 실사 지침)에 대한 제안된 변경은 EU의 정치경제를 두 진영으로 분열시켰습니다. 산업계(지지)와 노동/지속가능성/투자자 커뮤니티(반대)입니다. 이것이 현 임기에서 정치적으로 가장 논쟁적인 입법 전장입니다.
+
+**흐름 3: AI와 디지털 거버넌스** — AI법(2024년 채택)은 시행되기 전에 이행 규정을 필요로 합니다. 고위험 AI 시스템 분류 기준, GPAI 행동 강령, 중소기업 면제 임계값이 단기적인 핵심 결과물입니다. AI 사무소는 EU 기업 및 공공 부문 환경에서 AI 배포가 가속화되는 동안 역량 제약에 직면해 있습니다.
+
+---
+
+### 🏛️ 연립 역학 요약
+
+EP-10은 어떤 단일 입법 흐름에 대해서도 안정적인 과반수 연립 없이 운영됩니다. EPP(188석)는 불가결한 정당이지만 단독으로 입법을 실현할 수 없습니다.
+
+| 연립 | 의석 | 사용 사례 | 안정성 |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | 방위, 간소화 | 중간 — Renew가 CSDDD에서 분열 |
+| EPP + S&D + Renew | ~401 | 대연립 안건 | 낮음 — 간소화에서 EPP/S&D 모순 |
+| EPP + S&D + Greens | ~377 | 지속가능성 보전 | 낮음 — EPP가 자체 위원회에 반대하도록 요구 |
+| EPP + ECR + Patriots | ~350 | EU 회의주의 연립 | 낮음 — 일반적으로 EU 통합 심화에 반대 |
+
+**연립 판단:** "이중 연립" 전략(다른 안건에 다른 파트너)이 EPP의 유일한 실행 가능한 경로입니다. 유럽의회에서 이중 연립 성공의 역사적 기준율: 약 60%의 안건이 과반수를 찾고, 약 40%는 상당한 지연 또는 수정을 겪습니다.
+
+---
+
+### 📊 경제적 차원
+
+분석된 제안들은 상당한 재정적 함의를 내포합니다.
+- EDIP 2단계: EU 예산 직접 노출 €15억 (2025–2027)
+- SAFE 수단: EU 보증 대출 €1,500억 (우발부채)
+- Omnibus I 준수 비용 절감: EU 기업에 연간 €5억–25억 (CSRD 축소에서)
+- AI법 적합성 평가 비용: 민간 부문 일회성 투자 €20억–50억
+
+현재 입법 의제의 순경제적 영향은 EU 경쟁력에 약간 긍정적(간소화 + 방위산업 투자)이지만, 지속가능성 데이터 품질 저하(ESG 투자 지표 영향)와 규제 불확실성을 만드는 잠재적 EU사법재판소 이의 제기로부터의 하방 위험을 내포합니다.
+
+*주의: 이번 실행에서 IMF 경제 데이터를 직접 조회하지 않았습니다 (호출 한도). 경제 수치는 EC 봄 2026 전망 및 유로스타트에서 출처. 전체 분석은 `intelligence/economic-context.md` 참조.*
+
+---
+
+### ⚠️ 핵심 위험 신호 (감시 목록)
+
+| 신호 | 예상 날짜 | 발생 시 함의 |
+|--------|-------------|------------------------|
+| CSDDD에 관한 EPP 그림자 보고자 입장 제출 | 2026년 6월 | Omnibus I의 실행 가능성 결정 |
+| 유럽위원회 SAFE 법적 근거 발표 | 2026년 6월 | 제122조 → 유럽의회 헌법적 분쟁 |
+| 폴란드-헝가리 EDIP 양자 합의 결과 | 2026년 5월 30일 | 이사회 차단 위험 해소 또는 확인 |
+| 독일 CDU/CSU 연방의회 CSDDD 토론 | 2026년 6월 | EPP 이탈 확률 신호 |
+| 덴마크 의장국 입법 우선순위 발표 (7월) | 2026년 7월 1일 | 지속가능성 대 간소화 재균형 |
+
+---
+
+### 🔮 3개월 전망
+
+**높은 신뢰도 사건 (2026년 6월–8월):**
+- 유럽의회 법률 서비스에 의한 SAFE 법적 근거 분쟁 공식 제기: *거의 확실 (90%+)*
+- AI법 고위험 이행 규정 공개 협의 완료: *거의 확실 (85%)*
+- 폴란드 의장국의 EDIP 삼자 협의 진행 보고서 완성: *가능성 높음 (75%)*
+
+**불확실한 전환점:**
+- EPP-S&D가 덴마크 의장국 이전에 CSDDD 타협식에 도달할지 여부: *가능성 있음 (40%)*
+- 안보 사건이 방위에 관한 유럽의회 특별 회기를 촉발할지 여부: *가능성 있음 (35%)*
+- 기후 사건이 Omnibus I의 정치적 모멘텀을 역전시킬지 여부: *가능성 낮음 (15%)*
+
+---
+
+### 📋 정책적 함의
+
+**CSRD/CSDDD 적용 기업:** 이중 시나리오 보고 역량(완전한 의무 유지 또는 범위 축소)을 유지하십시오. 불확실성 창은 6–12개월입니다. 2027 회계연도 계획은 입법 텍스트가 확정될 때까지 현행 요건 하에서 진행해야 합니다.
+
+**EU 방위산업:** EDIP 2단계 일정은 신뢰할 수 있습니다; 2026–2028년 역량 투자 결정은 EDIP 연속성의 작업 가정 하에서 진행할 수 있습니다. SAFE 수단의 일정은 법적 근거 분쟁으로 덜 신뢰할 수 있습니다; 법적 근거가 해결될 때까지 장기 자금 조달 계획을 SAFE에 의존하지 마십시오.
+
+**AI 개발자:** AI법 부속서 III 이행 규정은 현재 일정에 따라 채택됩니다. 고위험 시스템 분류 기준은 2026년 4분기까지 명확해질 것입니다. GPAI 제공업체: 행동 강령 준수가 근접 우선순위입니다; 2026년 하반기에 AI 사무소의 심사 강화를 예상하십시오.
+
+---
+
+### 📍 데이터 모드 권고
+
+이 브리핑은 `degraded-feeds` 데이터 모드(0.80 하한 계수) 하에서 작성되었습니다. 유럽의회 절차 피드는 현재 제안이 아닌 1970–1980년대의 역사적 데이터를 반환했습니다; 아티팩트 `intelligence/procedures-proxy.md`는 이차 출처를 기반으로 활성 제안의 방법론적 삼각측량 커버리지를 제공합니다. 인용된 절차 식별자는 유럽의회 API를 통한 직접 검증이 가능해질 때까지 참고용으로 처리되어야 합니다. 전체 기술적 맥락은 `intelligence/mcp-reliability-audit.md` 참조.
+
+---
+
+*분석 작성일: 2026-05-26 | 실행: propositions | 18 아티팩트 | 12 SAT | degraded-feeds 모드*
+*다음 권장 실행: 2026-06-02 (폴란드 의장국 EDIP 진행 보고서 및 EPP CSDDD 입장 문서 후)*
+
+### Executive Brief Nl
+
+### 🗝️ Vijf Sleuteloordeelen (Inlichtingensamenvatting)
+
+1. **[WAARSCHIJNLIJK — 65%]** EDIP fase II (EU-programma voor de defensie-industrie) zal vóór september 2026 een plenaire stemming in het Europees Parlement bereiken. De urgentienarratie rond veiligheid en het actieve presidiummanagement van Polen creëren voldoende politiek momentum. Het geschil over de Oekraïne-clausule is het meest waarschijnlijke laatste obstakel. *(Admiralty B2)*
+
+2. **[MOGELIJK-WAARSCHIJNLIJK — 50–55%]** Het Omnibus I-pakket voor regelgevingsvereenvoudiging zal in substantieel gewijzigde vorm worden aangenomen, waarbij het toepassingsgebied van de CSRD wordt versmald maar de CSDDD grotendeels wordt bewaard. Het onderhandelde compromisscenario is het historisch meest consistente resultaat voor EU-wetgeving onder coalitiedruk. *(Admiralty B2)*
+
+3. **[VRIJWEL ZEKER — 85%+]** De uitvoeringsverordeningen van de AI-wet voor hoog-risico AI-systemen (classificatiecriteria van bijlage III) zullen vóór Q4 2026 door de Commissie worden aangenomen. Dit vereist geen EP-stemming; het is een uitvoeringshandeling van de Commissie. Het AI-bureau ligt op schema ondanks capaciteitsbeperkingen. *(Admiralty B2)*
+
+4. **[VRIJWEL ZEKER — 90%+]** Het SAFE-instrument (€150 miljard EU-gegarandeerde leenfaciliteit voor defensie) zal een formele rechtsgrondlage-aanvechting ondervinden, waarbij de Juridische Dienst van het EP pleit voor artikel 173 medebeslissing in plaats van de door de Commissie geprefereerde artikel 122-noodprocedure. Deze aanvechting zal SAFE vrijwel zeker minimaal 3–6 maanden vertragen. *(Admiralty A2–B2)*
+
+5. **[MOGELIJK — 20%]** Wetgevingsblokkade treft ten minste één groot dossier (Omnibus I of EDIP) en veroorzaakt een vertraging voorbij het kalenderjaar 2026. Het risico wordt aangedreven door interne EPP-verdeeldheid over de CSDDD (de Duitse CDU/CSU-factor) en niet door actie van het oppositieblok. *(Admiralty B3)*
+
+---
+
+### 🌍 Strategische Context
+
+Het Europees Parlement treedt de week van 26 mei 2026 binnen met de meest complexe wetgevingsdossier-balans since de post-COVID-periode van 2021. Drie gelijktijdige wetgevingsstromen vragen politieke aandacht en coalitiemanagement:
+
+**Stroom 1: Veiligheid en defensie** — De EU-reactie op aanhoudende geopolitieke druk (voortdurend Rusland-Oekraïne-conflict; NAVO-uitgavendoel van 2% van het bbp; onvoorspelbaarheid van de VS) heeft twee grote wetgevingsvehikels gegenereerd: EDIP fase II (industrieprogramma) en SAFE (financieringsinstrument). Beide hebben principiële steun van meerdere partijen, maar stuiten op aanzienlijke procedurele en constitutionele obstakels.
+
+**Stroom 2: Regelgevingsvereenvoudiging** — Het Omnibus I-pakket van de Commissie-Von der Leyen vertegenwoordigt de meest significante terugdraaiing van het duurzaamheidsregelgevingserrfgoed van EP-9. Voorgestelde wijzigingen aan de CSRD (richtlijn duurzaamheidsrapportage ondernemingen) en CSDDD (richtlijn gepaste zorgvuldigheid ondernemingen op het gebied van duurzaamheid) hebben de politieke economie van de EU in twee kampen gesplitst: industrie (ondersteunend) en arbeid/duurzaamheid/investeerdersgemeenschap (tegengesteld). Dit is het meest politiek betwiste wetgevingsterrein van de huidige zittingsperiode.
+
+**Stroom 3: AI en digitaal bestuur** — De AI-wet (aangenomen 2024) vereist uitvoeringsverordeningen voordat deze kan worden gehandhaafd. Classificatiecriteria voor hoog-risico AI-systemen, GPAI-gedragscode en KMO-vrijstellingsdrempels zijn de kritische korte-termijnleveringen. Het AI-bureau kampt met capaciteitsbeperkingen terwijl AI-implementatie versnelt in EU-bedrijfs- en overheidsomgevingen.
+
+---
+
+### 🏛️ Samenvatting van Coalitiedynamiek
+
+Het EP-10 opereert zonder een stabiele meerderheidscoalitie voor welke afzonderlijke wetgevingsstroom dan ook. EPP (188 zetels) is de onmisbare partij maar kan wetgeving niet alleen leveren:
+
+| Coalitie | Zetels | Toepassingsgeval | Stabiliteit |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | Defensie, vereenvoudiging | MEDIUM — Renew splitst bij CSDDD |
+| EPP + S&D + Renew | ~401 | Grote-coalitiedossiers | LAAG — EPP/S&D-tegenstellingen bij vereenvoudiging |
+| EPP + S&D + Greens | ~377 | Duurzaamheidsbehoud | LAAG — vereist dat EPP zich verzet tegen zijn eigen Commissie |
+| EPP + ECR + Patriots | ~350 | Eurosceptische coalitie | LAAG — verzetten zich over het algemeen tegen diepte van EU-integratie |
+
+**Coalitie-oordeel:** De "dubbele coalitie"-strategie (verschillende partners voor verschillende dossiers) is EPP's enige levensvatbare weg. Historische basispercentage voor succes van dubbele coalitie in EP: ~60% van de dossiers vindt een meerderheid, ~40% ervaart aanzienlijke vertraging of wijziging.
+
+---
+
+### 📊 Economische Dimensie
+
+De geanalyseerde voorstellen dragen substantiële fiscale implicaties:
+- EDIP fase II: €1,5 miljard directe EU-begrotingsblootstelling (2025–2027)
+- SAFE-instrument: €150 miljard in EU-gegarandeerde leningen (voorwaardelijke verplichting)
+- Omnibus I nalevingskostenlastenverlichting: €0,5–2,5 miljard per jaar voor EU-bedrijven (uit CSRD-versmalling)
+- AI-wet conformiteitsbeoordelingskosten: €2–5 miljard eenmalige particuliere sectorinvestering
+
+Het netto economische effect van de huidige wetgevingsagenda is licht positief voor het EU-concurrentievermogen (vereenvoudiging + investeringen in defensie-industrie), maar draagt neerwaartse risico's van verslechtering van duurzaamheidsdatakwaliteit (die ESG-investeringsstatistieken beïnvloedt) en potentiële HvJ EU-aanvechtingen die regulatoire onzekerheid creëren.
+
+*Opmerking: IMF economische data werd niet rechtstreeks bevraagd in deze run (aanroplimiet). Economische cijfers zijn afkomstig uit de EC-Lenteverwachting 2026 en Eurostat. Zie `intelligence/economic-context.md` voor volledige analyse.*
+
+---
+
+### ⚠️ Belangrijke Risicosignalen (Aandachtslijst)
+
+| Signaal | Verwachte datum | Implicatie indien getriggerd |
+|--------|-------------|------------------------|
+| EPP-schaduwrapporteurpositie over CSDDD ingediend | Juni 2026 | Bepaalt levensvatbaarheid Omnibus I |
+| Commissie kondigt rechtsgrondslag SAFE aan | Juni 2026 | Artikel 122 → constitutioneel conflict EP |
+| Resultaat Pools-Hongaarse bilaterale EDIP-overeenkomst | 30 mei 2026 | Lost op of bevestigt Raadsblokkering |
+| Duits CDU/CSU Bondsdagdebat over CSDDD | Juni 2026 | EPP-defectiewaarschijnlijkheidssignaal |
+| Prioriteiten wetgevingsagenda Deens voorzitterschap (aangekondigd juli) | 1 juli 2026 | Herbalancering duurzaamheid vs. vereenvoudiging |
+
+---
+
+### 🔮 Driemandenperspecief
+
+**Hooggvertrouwensgebeurtenissen (juni–augustus 2026):**
+- SAFE rechtsgrondlagegeschil formeel opgeworpen door Juridische Dienst EP: *Vrijwel zeker (90%+)*
+- AI-wet hoog-risico uitvoeringsverordening openbare raadpleging afgerond: *Vrijwel zeker (85%)*
+- Pools voorzitterschap rondt EDIP-triloogvoortgangsrapport af: *Waarschijnlijk (75%)*
+
+**Onzekere schakelpunten:**
+- Of EPP-S&D CSDDD-compromisformule bereikt vóór Deens voorzitterschap: *Mogelijk (40%)*
+- Of een veiligheidsgebeurtenis buitengewone EP-zitting over defensie triggert: *Mogelijk (35%)*
+- Of klimaatgebeurtenis politiek momentum Omnibus I omkeert: *Onwaarschijnlijk (15%)*
+
+---
+
+### 📋 Politieke Implicaties
+
+**Voor bedrijven onderworpen aan CSRD/CSDDD:** Dubbel-scenario-rapportagecapaciteit handhaven (volledige verplichting gehandhaafd OF versmald toepassingsgebied). Het onzekerheidsvenster is 6–12 maanden. Planning voor boekjaar 2027 dient voort te gaan op basis van huidige vereisten totdat de wetgevingstekst definitief is.
+
+**Voor EU-defensie-industrie:** EDIP fase II-tijdlijn is geloofwaardig; capaciteitsinvesteringsbeslissingen voor 2026–2028 kunnen doorgaan op de werkaanname van EDIP-continuïteit. De tijdlijn van het SAFE-instrument is minder betrouwbaar vanwege het rechtsgrondlagegeschil; geen langetermijnfinancieringsplannen verankeren aan SAFE totdat de rechtsgrondlag is opgelost.
+
+**Voor AI-ontwikkelaars:** AI-wet bijlage III uitvoeringsverordeningen worden aangenomen op basis van de huidige tijdlijn. Classificatiecriteria voor hoog-risicosystemen worden vóór Q4 2026 verduidelijkt. GPAI-aanbieders: naleving gedragscode is de nabije prioriteit; verhoogde AI-bureau-controle in H2 2026 verwachten.
+
+---
+
+### 📍 Advies Datamodus
+
+Deze briefing is geproduceerd onder datamodus `degraded-feeds` (0,80 vloerfactor). De EP-procedurefeed retourneerde historische gegevens uit de jaren 1970–1980 in plaats van huidige voorstellen; het artefact `intelligence/procedures-proxy.md` biedt methodologisch getrianguleerde dekking van actieve voorstellen op basis van secundaire bronnen. Geciteerde procedure-ID's dienen als indicatief te worden behandeld totdat directe EP API-verificatie beschikbaar is. Zie `intelligence/mcp-reliability-audit.md` voor volledige technische context.
+
+---
+
+*Analyse geproduceerd: 2026-05-26 | Run: propositions | 18 artefacten | 12 SAT's | degraded-feeds-modus*
+*Volgende aanbevolen run: 2026-06-02 (na Pools voorzitterschap EDIP-voortgangsrapport en EPP CSDDD-positiepapier)*
+
+### Executive Brief No
+
+### 🗝️ Fem Nøkkelvurderinger (Etterretningssammendrag)
+
+1. **[SANNSYNLIG — 65%]** EDIP fase II (EUs program for forsvarsindustrien) vil nå Europaparlamentets plenumsavstemning før september 2026. Den sikkerhetspolitiske urgensfortelling og Polens aktive presidentskapsforvaltning skaper tilstrekkelig politisk momentum. Tvisten om Ukraina-klausulen er det mest sannsynlige siste hinderet. *(Admiralty B2)*
+
+2. **[MULIG-SANNSYNLIG — 50–55%]** Omnibus I-pakken for regelforenkling vil bli vedtatt i vesentlig modifisert form, med CSRD-virkeområdet innsnevret, men CSDDD i stor grad bevart. Det forhandlede kompromissscenariet er det historisk mest konsistente utfallet for EU-lovgivning under koalisjonspress. *(Admiralty B2)*
+
+3. **[NESTEN SIKKERT — 85%+]** AI-aktens gjennomføringsbestemmelser for høy-risiko AI-systemer (klassifiseringskriterier i vedlegg III) vil bli vedtatt av Kommisjonen før Q4 2026. Dette krever ingen EP-avstemning; det er Kommisjonens eksekutive handling. AI-kontoret er i rute til tross for kapasitetsbegrensninger. *(Admiralty B2)*
+
+4. **[NESTEN SIKKERT — 90%+]** SAFE-instrumentet (€150 mrd. EU-forsvarsbacked lånefasilitet) vil møte en formell rettslig utfordring, der EP's juridiske tjeneste argumenterer for artikkel 173 medbestemmelse fremfor Kommisjonens foretrukne artikkel 122-nødsprosedyre. Denne utfordringen er nesten sikker på å forsinke SAFE med minst 3–6 måneder. *(Admiralty A2–B2)*
+
+5. **[MULIG — 20%]** Lovgivningsblokering rammer minst én større sak (Omnibus I eller EDIP) og forårsaker en forsinkelse utover kalenderåret 2026. Risikoen drives av EPPs interne splittelse om CSDDD (den tyske CDU/CSU-faktoren) snarere enn opposisjonsblokkens handlinger. *(Admiralty B3)*
+
+---
+
+### 🌍 Strategisk Kontekst
+
+Europaparlamentet innleder uken 26. mai 2026 med den mest komplekse lovgivningsmessige dossierbalansen siden post-COVID-perioden i 2021. Tre samtidige lovgivningsstrømmer krever politisk oppmerksomhet og koalisjonsforvaltning:
+
+**Strøm 1: Sikkerhet og forsvar** — EUs svar på vedvarende geopolitisk press (den pågående Russland-Ukraina-konflikten; NATOs 2 %-av-BNP-utgiftsmål; USAs uforutsigbarhet) har generert to store lovgivningsbiler: EDIP fase II (industriprogram) og SAFE (finansieringsinstrument). Begge har prinsippiell støtte fra tverrgående partier, men møter betydelige prosessuelle og konstitusjonelle hindre.
+
+**Strøm 2: Regelforenkling** — Von der Leyen-Kommisjonens Omnibus I-pakke representerer den mest betydelige tilbaketrekkingen av EP-9s arv innen bærekraftsregulering. Foreslåtte endringer av CSRD (direktivet om foretakets bærekraftsrapportering) og CSDDD (direktivet om foretakets due diligence-forpliktelser) har delt EUs politiske økonomi i to leire: næringsliv (støttende) og arbeidsliv/bærekraft/investorsamfunn (motstand). Dette er den mest politisk omstridte lovgivningsarenaen i den nåværende valgperioden.
+
+**Strøm 3: AI og digital styring** — AI-akten (vedtatt 2024) krever gjennomføringsbestemmelser før den kan håndheves. Klassifiseringskriterier for høy-risiko AI-systemer, GPAI-atferdskodeks og SMB-unntaksgrenseverdier er de kritiske leveransene på kort sikt. AI-kontoret møter kapasitetsbegrensninger mens AI-implementering akselererer i EUs bedrifts- og offentlige sektormiljøer.
+
+---
+
+### 🏛️ Sammendrag av Koalisjonsdynamikk
+
+EP-10 opererer uten en stabil flertallskoalisjon for noen enkelt lovgivningsstrøm. EPP (188 seter) er det uunnværlige partiet, men kan ikke levere lovgivning alene:
+
+| Koalisjon | Seter | Brukstilfelle | Stabilitet |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | Forsvar, forenkling | MEDIUM — Renew splittes om CSDDD |
+| EPP + S&D + Renew | ~401 | Storkoalisjonsaker | LAV — EPP/S&D-motsetninger om forenkling |
+| EPP + S&D + Greens | ~377 | Bærekraftsbevaring | LAV — krever at EPP motsetter seg sin egen Kommisjon |
+| EPP + ECR + Patriots | ~350 | EU-skeptisk koalisjon | LAV — motsetter seg generelt EU-integrasjonens dybde |
+
+**Koalisjonsvurdering:** "Dobbel koalisjons"-strategien (ulike partnere for ulike saker) er EPPs eneste levedyktige vei. Historisk basisrate for dobbel koalisjonssuksess i EP: ~60% av sakene finner et flertall, ~40% opplever betydelig forsinkelse eller modifisering.
+
+---
+
+### 📊 Økonomisk Dimensjon
+
+Proposisjonene under analyse bærer vesentlige fiskale implikasjoner:
+- EDIP fase II: €1,5 mrd. direkte EU-budsjetteksponering (2025–2027)
+- SAFE-instrumentet: €150 mrd. i EU-garanterte lån (betinget ansvar)
+- Omnibus I regeletterlevelseskostnadsavlastning: €0,5–2,5 mrd. årlig for EU-foretak (fra CSRD-innsnevring)
+- AI-aktens samsvarsvurderingskostnader: €2–5 mrd. privat sektors engangssinvestering
+
+Den samlede økonomiske effekten av den nåværende lovgivningsagendaen er svakt positiv for EUs konkurranseevne (forenkling + investeringer i forsvarsindustrien), men bærer nedsiderisiko fra forringelse av bærekraftsdatakvalitet (som påvirker ESG-investeringsmålinger) og potensielle CJEU-utfordringer som skaper regulatorisk usikkerhet.
+
+*Merk: IMF's økonomiske data ble ikke direkte forespurt i dette løpet (anropsgrense). Økonomiske tall er hentet fra ECs vårprognose 2026 og Eurostat. Se `intelligence/economic-context.md` for fullstendig analyse.*
+
+---
+
+### ⚠️ Nøkkelrisikosignaler (Overvåkningsliste)
+
+| Signal | Forventet dato | Implikasjon hvis utløst |
+|--------|-------------|------------------------|
+| EPPs skyggeordfører-posisjon om CSDDD innsendt | Juni 2026 | Avgjør Omnibus I's levedyktighet |
+| Kommisjonens SAFE-rettsgrunnlagskunngjøring | Juni 2026 | Artikkel 122 → EP's konstitusjonelle konflikt |
+| Utfall av polsk-ungarsk EDIP-bilateral avtale | 30. mai 2026 | Løser eller bekrefter Rådsblokering |
+| Tysk CDU/CSU Forbundsdags-debatt om CSDDD | Juni 2026 | EPP-avvikssannsynlighetssignal |
+| Dansk presidentskaps lovgivningsprioriteter (kunngjort juli) | 1. juli 2026 | Rebalansering bærekraft vs. forenkling |
+
+---
+
+### 🔮 Tre-månedersperspektiv
+
+**Høytillitshendelser (juni–august 2026):**
+- SAFE rettsgrunnlagskonflikt formelt reist av EP's juridiske tjeneste: *Nesten sikkert (90%+)*
+- AI-aktens høy-risiko gjennomføringsregulering offentlig høring avsluttet: *Nesten sikkert (85%)*
+- Polsk presidentskap avslutter EDIP-trilogue-statusrapport: *Sannsynlig (75%)*
+
+**Usikre vendepunkter:**
+- Om EPP-S&D oppnår CSDDD-kompromissformel før dansk presidentskap: *Mulig (40%)*
+- Om en sikkerhetshendelse utløser EP's ekstraordinære sesjon om forsvar: *Mulig (35%)*
+- Om klimahendelse reverserer Omnibus I's politiske momentum: *Usannsynlig (15%)*
+
+---
+
+### 📋 Politiske Implikasjoner
+
+**For foretak underlagt CSRD/CSDDD:** Oppretthold kapasitet for dobbelt-scenarirapportering (full forpliktelse beholdt ELLER innsnevret virkeområde). Usikkerhetsvinduet er 6–12 måneder. Planlegging for regnskapsåret 2027 bør fortsette under gjeldende krav inntil lovteksten er ferdigstilt.
+
+**For EUs forsvarsindustri:** EDIP fase II-tidsplan er troverdig; kapasitetsinvesteringsbeslutninger for 2026–2028 kan fortsettes med arbeidsforutsetningen om EDIP-kontinuitet. SAFE-instrumentets tidsplan er mindre pålitelig på grunn av rettsgrunnlagskonflikt; ikke ankre langsiktige finansieringsplaner til SAFE inntil rettsgrunnlaget er løst.
+
+**For AI-utviklere:** AI-aktens vedlegg III gjennomføringsbestemmelser vil bli vedtatt etter gjeldende tidsplan. Klassifiseringskriterier for høy-risikosystemer vil bli avklart innen Q4 2026. GPAI-leverandører: overholdelse av atferdskodeks er den nærmeste prioriteten; forvent økt gransking fra AI-kontoret i H2 2026.
+
+---
+
+### 📍 Datamodusrådgivning
+
+Denne briefingen er produsert under datamodus `degraded-feeds` (0,80 gulvfaktor). EP's prosedyrestrøm returnerte historiske data fra 1970- og 1980-tallet snarere enn nåværende forslag; artefakten `intelligence/procedures-proxy.md` gir metodologitriangulert dekning av aktive forslag basert på sekundære kilder. Prosedyreidentifikatorer som siteres bør behandles som veiledende inntil direkte EP API-verifisering er tilgjengelig. Se `intelligence/mcp-reliability-audit.md` for fullstendig teknisk kontekst.
+
+---
+
+*Analyse produsert: 2026-05-26 | Løp: propositions | 18 artefakter | 12 SAT-er | degraded-feeds-modus*
+*Neste anbefalte løp: 2026-06-02 (etter polsk presidentskap EDIP-statusrapport og EPP CSDDD-posisjonsnotat)*
+
+### Executive Brief Sv
+
+### 🗝️ Fem nyckelomdömen (underrättelsesammanfattning)
+
+1. **[TROLIGT — 65%]** EDIP fas II (EU:s program för försvarsindustrin) kommer att nå omröstning i Europaparlamentets plenum före september 2026. Den säkerhetspolitiska urgensen och Polens aktiva ordförandeskapshantering skapar tillräckligt politiskt momentum. Tvisten om Ukraina-klausulen är det mest sannolika sista hindret. *(Admiralty B2)*
+
+2. **[MÖJLIGT-TROLIGT — 50–55%]** Omnibus I-paketet för regelförenkling kommer att antas i väsentligt modifierad form, med CSRD-tillämpningsområdet avsmalnande men CSDDD i stort sett bevarat. Det förhandlade kompromissscenariot är det historiskt mest konsekventa utfallet för EU-lagstiftning under koalitionstryck. *(Admiralty B2)*
+
+3. **[NÄSTAN SÄKERT — 85%+]** AI-aktens genomförandebestämmelser för AI-system med hög risk (klassificeringskriterier i bilaga III) kommer att antas av kommissionen före Q4 2026. Detta kräver ingen EP-omröstning; det är kommissionens exekutiva åtgärd. AI-kontoret håller tidsplanen trots kapacitetsbegränsningar. *(Admiralty B2)*
+
+4. **[NÄSTAN SÄKERT — 90%+]** SAFE-instrumentet (€150 md EU-försvarsbackad lånefacilitet) kommer att möta en formell rättslig utmaning, med EP:s juridiska tjänst som argumenterar för artikel 173 medbeslutande framför kommissionens föredragna artikel 122 om nödfallsförfarande. Denna utmaning är nästan säker på att försena SAFE med minst 3–6 månader. *(Admiralty A2–B2)*
+
+5. **[MÖJLIGT — 20%]** Lagstiftningsblockering drabbar minst ett stort ärende (Omnibus I eller EDIP) och orsakar en försening bortom kalenderåret 2026. Risken drivs av EPP:s interna splittring kring CSDDD (den tyska CDU/CSU-faktorn) snarare än oppositionsblockets agerande. *(Admiralty B3)*
+
+---
+
+### 🌍 Strategiskt sammanhang
+
+Europaparlamentet inleder veckan den 26 maj 2026 med den mest komplexa lagstiftningsdossierbalansen sedan post-COVID-perioden 2021. Tre simultana lagstiftningsströmmar kräver politisk uppmärksamhet och koalitionshantering:
+
+**Ström 1: Säkerhet och försvar** — EU:s svar på ihållande geopolitiskt tryck (det pågående Ryssland-Ukrainakonfliktet; NATO:s mål om 2 % BNP-utgifter; USA:s oförutsägbarhet) har genererat två stora lagstiftningsfordon: EDIP fas II (industriprogram) och SAFE (finansieringsinstrument). Båda har principiellt stöd från flera partier men möter betydande procedurella och konstitutionella hinder.
+
+**Ström 2: Regelförenkling** — Von der Leyen-kommissionens Omnibus I-paket representerar den mest betydande tillbakadragningen av EP-9:s arv inom hållbarhetreglering. Föreslagna förändringar av CSRD (direktivet om företagens hållbarhetsrapportering) och CSDDD (direktivet om företagens due diligence-skyldigheter) har delat EU:s politiska ekonomi i två läger: näringsliv (stödjande) och arbetsmarknad/hållbarhet/investerarsamhälle (motstånd). Detta är det mest politiskt omstridda lagstiftningsslagfältet under den nuvarande mandatperioden.
+
+**Ström 3: AI och digital styrning** — AI-akten (antagen 2024) kräver genomförandebestämmelser innan den kan verkställas. Klassificeringskriterier för AI-system med hög risk, GPAI uppförandekod och SME-undantagsgränsvärden är de kritiska leverablerna på kort sikt. AI-kontoret möter kapacitetsbegränsningar samtidigt som AI-driftsättning accelererar i EU:s företags- och offentliga sektormiljöer.
+
+---
+
+### 🏛️ Sammanfattning av koalitionsdynamik
+
+EP-10 fungerar utan en stabil majoritetskoalition för något enskilt lagstiftningsflöde. EPP (188 platser) är det oumbärliga partiet men kan inte leverera lagstiftning ensamt:
+
+| Koalition | Platser | Användningsfall | Stabilitet |
+|-----------|-------|---------|---------|
+| EPP + ECR + Renew | ~343 | Försvar, förenkling | MEDIUM — Renew splittras kring CSDDD |
+| EPP + S&D + Renew | ~401 | Stordossierkoalition | LÅG — EPP/S&D-motsättningar kring förenkling |
+| EPP + S&D + Greens | ~377 | Hållbarhetsbevaring | LÅG — kräver att EPP motsätter sig sin egen kommission |
+| EPP + ECR + Patriots | ~350 | EU-skeptisk koalition | LÅG — motsätter sig generellt EU-integrationens djup |
+
+**Koalitionsomdöme:** "Dubbel koalitions"-strategin (olika partner för olika dossier) är EPP:s enda hållbara väg. Historisk basränta för dubbel koalitionsframgång i EP: ~60% av dossierna finner en majoritet, ~40% upplever betydande försening eller modifiering.
+
+---
+
+### 📊 Ekonomisk dimension
+
+Propositionerna under analys bär väsentliga fiskala konsekvenser:
+- EDIP fas II: €1,5 md direkt EU-budgetexponering (2025–2027)
+- SAFE-instrumentet: €150 md i EU-garanterade lån (contingent liability)
+- Omnibus I regelefterlevnadskostnadsavlastning: €0,5–2,5 md per år för EU-bolag (från CSRD-minskning)
+- AI-aktens överensstämmelsebedömningskostnader: €2–5 md privat sektors engångsinvestering
+
+Den sammantagna ekonomiska effekten av den nuvarande lagstiftningsagendan är svagt positiv för EU:s konkurrenskraft (förenkling + investeringar i försvarsindustri) men bär nedsidrisker från försämrad datakvalitet inom hållbarhet (påverkar ESG-investeringsmätningar) och potentiella CJEU-utmaningar som skapar regulatorisk osäkerhet.
+
+*Obs: IMF:s ekonomiska data hämtades inte direkt under denna körning (anropsgräns). Ekonomiska siffror sourced från EC:s vårprognos 2026 och Eurostat. Se `intelligence/economic-context.md` för fullständig analys.*
+
+---
+
+### ⚠️ Nyckelrisksignaler (bevakningslista)
+
+| Signal | Förväntat datum | Konsekvens om utlöst |
+|--------|-------------|------------------------|
+| EPP:s skuggrapportörposition om CSDDD inlämnad | Juni 2026 | Avgör Omnibus I:s livskraft |
+| Kommissionens SAFE-rättsliga grunntilägg | Juni 2026 | Artikel 122 → EP:s konstitutionella konflikt |
+| Resultat av det polsk-ungerska bilaterala EDIP-avtalet | 30 maj 2026 | Löser eller bekräftar rådsblockering |
+| Tysk CDU/CSU Bundestag-debatt om CSDDD | Juni 2026 | Signal för EPP-avvikelsesannolikhet |
+| Danska ordförandeskapets lagstiftningsprioriteringar (aviseras juli) | 1 juli 2026 | Ombalansering hållbarhet vs. förenkling |
+
+---
+
+### 🔮 Treperspektiv
+
+**Händelser med hög konfidentialitet (juni–augusti 2026):**
+- SAFE rättslig grunntilägg formellt aktualiserat av EP:s juridiska tjänst: *Nästan säkert (90%+)*
+- AI-aktens genomförandebestämmelse för hög risk offentliga samrådsmöten avslutade: *Nästan säkert (85%)*
+- Polskt ordförandeskap avslutar EDIP trilogue-lägesrapport: *Troligt (75%)*
+
+**Osäkra vändpunkter:**
+- Om EPP-S&D når CSDDD-kompromissformel före danskt ordförandeskap: *Möjligt (40%)*
+- Om ett säkerhetshändelse utlöser EP:s extraordinära session om försvar: *Möjligt (35%)*
+- Om klimathändelse vänder Omnibus I politiskt momentum: *Osannolikt (15%)*
+
+---
+
+### 📋 Politiska implikationer
+
+**För företag som omfattas av CSRD/CSDDD:** Bibehåll dubbelt scenarierapporteringskapacitet (full skyldighet bibehållen ELLER smalare tillämpningsområde). Osäkerhetsfönstret är 6–12 månader. Planering för räkenskapsåret 2027 bör fortsätta under nuvarande krav tills lagstiftningstext är finaliserad.
+
+**För EU:s försvarsindustri:** EDIP fas II tidsplan är trovärdig; kapacitetsinvesteringsbeslut för 2026–2028 kan fortsätta med arbetsantagandet om EDIP-kontinuitet. SAFE-instrumentets tidsplan är mindre tillförlitlig på grund av rättslig grunntiläggstvist; förankra inte långsiktiga finansieringsplaner mot SAFE förrän rättslig grund lösts.
+
+**För AI-utvecklare:** AI-aktens bilaga III genomförandebestämmelser kommer att antas enligt nuvarande tidsplan. Klassificeringskriterier för högriskssystem klargörs senast Q4 2026. GPAI-leverantörer: efterlevnad av uppförandekoden är den närmaste prioriteten; förvänta ökad granskning från AI-kontoret under H2 2026.
+
+---
+
+### 📍 Datalägesrådgivning
+
+Denna briefing är producerad under dataläget `degraded-feeds` (0,80 golvfaktor). EP:s procedurflöde returnerade historiska data från 1970- och 1980-talen snarare än aktuella förslag; artefakten `intelligence/procedures-proxy.md` ger metodologitriangulerad täckning av aktiva förslag baserat på sekundära källor. Proceduridentifierare som citeras bör behandlas som vägledande tills direkt EP API-verifiering är tillgänglig. Se `intelligence/mcp-reliability-audit.md` för fullständig teknisk kontext.
+
+---
+
+*Analys producerad: 2026-05-26 | Körning: propositions | 18 artefakter | 12 SAT:er | degraded-feeds-läge*
+*Nästa rekommenderade körning: 2026-06-02 (efter polskt ordförandeskap EDIP-lägesrapport och EPP CSDDD-positionspapper)*
+
+### Executive Brief Zh
+
+**分类：** 公开 | **受众：** 政策导向的普通读者
+**必须SAT：** 关键假设核查 ✅ | 信息质量核查 ✅
+**WEP区间：** 适用于所有五项关键判断
+**海军消息来源等级：** B2（经二次交叉验证来源）；A2 适用于理事会SP文件
+**置信度：** 🟡 中至高 — 结构性制度分析；实时程序追踪有限
+
+---
+
+### 🗝️ 五项关键判断（情报摘要）
+
+1. **[可能性较高 — 65%]** EDIP第二阶段（欧盟防务工业计划）将在2026年9月前提交欧洲议会全体表决。安全紧迫性叙事与波兰轮值主席国的积极管理创造了足够的政治动力。乌克兰条款争议是最可能的最终障碍。*（海军B2）*
+
+2. **[可能至较高 — 50–55%]** Omnibus I监管简化一揽子方案将以实质性修改后的形式获批——CSRD适用范围缩窄，但CSDDD基本得以保留。谈判妥协方案是欧盟立法在联合政府压力下历史上最具一致性的结果。*（海军B2）*
+
+3. **[几乎确定 — 85%以上]** 针对高风险人工智能系统（附件三分类标准）的《人工智能法案》实施法规将于2026年第四季度前由欧盟委员会采纳。这无需欧洲议会投票，属于委员会行政行为。AI办公室尽管面临能力限制，仍按计划推进。*（海军B2）*
+
+4. **[几乎确定 — 90%以上]** SAFE（1500亿欧元欧盟国防贷款便利）将面临正式法律基础质疑，欧洲议会法律服务部将主张适用第173条共同决策程序，而非委员会偏好的第122条紧急程序。这一质疑几乎必然使SAFE延迟至少3–6个月。*（海军A2–B2）*
+
+5. **[有可能 — 20%]** 立法僵局影响至少一项重大议案（Omnibus I或EDIP），导致延迟超过2026年历法年。这一风险源于EPP在CSDDD问题上的内部分裂（德国CDU/CSU因素），而非反对派阵营的行动。*（海军B3）*
+
+---
+
+### 🌍 战略背景
+
+欧洲议会以2021年后新冠疫情时期以来最为复杂的立法格局进入2026年5月26日这一周。三条同步推进的立法轨道要求政治关注与联合政府管理。
+
+**轨道一：安全与防务** — 欧盟对持续地缘政治压力（俄乌冲突持续；北约向成员国施压，要求将国防支出提升至GDP的2%；美国政策不可预测性）的回应催生了两大立法载体：EDIP第二阶段（工业计划）与SAFE（融资工具）。两者均在原则上获得跨党派广泛支持，但面临重大的程序性与宪法性障碍。
+
+**轨道二：监管简化** — 冯德莱恩委员会推出的Omnibus I一揽子方案是对第九届欧洲议会可持续性监管遗产最大规模的回撤。CSRD（企业可持续报告指令）与CSDDD（企业可持续尽职调查指令）拟议修订将欧盟政治经济划分为两大阵营：产业界（支持）与劳工/可持续性/投资者群体（反对）。这是现届任期内政治争议最激烈的立法战场。
+
+**轨道三：人工智能与数字治理** — 《人工智能法案》（2024年通过）须制定实施法规方可执行。高风险AI系统分类标准、通用目的AI行为规范，以及中小企业豁免门槛是近期最关键的交付物。AI办公室在应对能力制约的同时，欧盟企业与公共部门中AI部署正在加速。
+
+---
+
+### 🏛️ 联合政府动态摘要
+
+第十届欧洲议会在任何单一立法轨道上均无稳定的多数联合政府。EPP（188席）是不可或缺的政党，但无法单独推动立法。
+
+| 联合政府 | 议席 | 适用情景 | 稳定性 |
+|---------|------|---------|--------|
+| EPP + ECR + Renew | 约343 | 防务、简化 | 中等 — Renew在CSDDD问题上存在分歧 |
+| EPP + S&D + Renew | 约401 | 大联合政府议案 | 低 — EPP/S&D在简化议题上存在矛盾 |
+| EPP + S&D + Greens | 约377 | 可持续性保留 | 低 — 要求EPP反对其自身委员会 |
+| EPP + ECR + Patriots | 约350 | 疑欧联合政府 | 低 — 通常反对欧盟一体化深化 |
+
+**联合政府判断：** "双重联合政府"策略（不同议案搭配不同伙伴）是EPP唯一可行的路径。欧洲议会双重联合政府历史成功基准率：约60%的议案能够找到多数，约40%的议案经历重大延迟或修改。
+
+---
+
+### 📊 经济维度
+
+所分析的提案具有重大财政影响。
+- EDIP第二阶段：15亿欧元欧盟预算直接敞口（2025–2027年）
+- SAFE：1500亿欧元欧盟担保贷款（或有负债）
+- Omnibus I合规成本节省：因CSRD压缩，每年为欧盟企业节省5–25亿欧元
+- AI法案合规评估成本：私营部门一次性投资20–50亿欧元
+
+当前立法议程的净经济影响对欧盟竞争力略有正面作用（简化+防务工业投资），但也承担来自可持续数据质量下降（影响ESG投资指标）以及可能引发监管不确定性的潜在欧盟法院诉讼的下行风险。
+
+*注：IMF经济数据未在此次执行中直接查询（调用上限）。经济数字来源于欧盟委员会2026年春季预测及Eurostat。完整分析见`intelligence/economic-context.md`。*
+
+---
+
+### ⚠️ 关键风险信号（监测清单）
+
+| 信号 | 预期日期 | 触发后的影响 |
+|------|---------|-------------|
+| EPP的CSDDD影子报告员提交立场 | 2026年6月 | 决定Omnibus I可行性 |
+| 委员会发布SAFE法律基础声明 | 2026年6月 | 第122条 → 与欧洲议会的宪法冲突 |
+| 波兰与匈牙利EDIP双边协议结果 | 2026年5月30日 | 化解或确认理事会阻断风险 |
+| 德国CDU/CSU联邦议院就CSDDD辩论 | 2026年6月 | EPP倒戈可能性的信号 |
+| 丹麦轮值主席国立法优先事项公布（7月） | 2026年7月1日 | 可持续性与简化的再平衡 |
+
+---
+
+### 🔮 三个月展望
+
+**高置信度事件（2026年6–8月）：**
+- 欧洲议会法律服务部正式提出SAFE法律基础争议：*几乎确定（90%以上）*
+- AI法案高风险实施法规公开征询完成：*几乎确定（85%）*
+- 波兰轮值主席国完成EDIP三方协商进展报告：*可能性较高（75%）*
+
+**不确定转折点：**
+- EPP-S&D是否在丹麦轮值主席国前达成CSDDD妥协方案：*有可能（40%）*
+- 安全事件是否触发欧洲议会就防务召开特别会期：*有可能（35%）*
+- 气候事件是否扭转Omnibus I的政治动力：*可能性低（15%）*
+
+---
+
+### 📋 政策影响
+
+**适用CSRD/CSDDD的企业：** 维持双场景报告能力（完整义务保留或缩窄范围）。不确定性窗口为6–12个月。在立法文本最终确定之前，2027财年的规划应按现行要求推进。
+
+**欧盟防务工业：** EDIP第二阶段时间表可信；2026–2028年产能投资决策可在EDIP延续的工作假设下推进。SAFE因法律基础争议时间表较不可靠；在法律基础明确之前，不要将长期融资计划与SAFE挂钩。
+
+**AI开发者：** AI法案附件三实施法规将按现有时间表采纳。高风险系统分类标准将于2026年第四季度前明确。通用目的AI提供商：遵守行为规范是近期优先事项；预计AI办公室在2026年下半年加强审查。
+
+---
+
+### 📍 数据模式通知
+
+本简报在`degraded-feeds`数据模式（底限系数0.80）下生成。欧洲议会程序数据流返回了20世纪70至80年代的历史数据，而非当前提案；`intelligence/procedures-proxy.md`基于二次来源提供方法论三角验证的活跃提案覆盖。所引用的程序标识符在通过欧洲议会API直接核实前应视为参考性信息。完整技术背景请参见`intelligence/mcp-reliability-audit.md`。
+
+---
+
+*分析生成：2026-05-26 | 执行：提案 | 18个工件 | 12个SAT | degraded-feeds模式*
+*下次建议执行：2026-06-02（波兰轮值主席国EDIP进展报告及EPP CSDDD立场文件发布后）*
+
 ### Procedures Proxy
 
 ### 1. Proxy Methodology
@@ -3203,5 +4569,18 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-26/propositions/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 

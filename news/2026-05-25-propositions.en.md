@@ -1,7 +1,7 @@
 ---
-title: "Legislative Procedures: European Parliament Monitor — Run 270"
-description: "KJ-1 [WEP: HIGHLY LIKELY, 90–95%]: The May 19–21 Strasbourg plenary produced one of the most diplomatically significant legislative tranches of EP10, with the EU–Uzbekistan EPCA"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-25", "Legislative", "Procedures", "European"]
+title: "The May 19–21 Strasbourg plenary produced one of t — Run 270"
+description: "The May 19–21 Strasbourg plenary produced one of the most diplomatically significant legislative tranches of EP10, with the EU–Uzbekistan EPCA adoption marking the most."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-25", "Strasbourg", "plenary", "produced"]
 date: 2026-05-25
 article_type: propositions
 slug: 2026-05-25-propositions

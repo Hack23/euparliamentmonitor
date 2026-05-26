@@ -1,7 +1,7 @@
 ---
-title: "This executive brief synthesizes intelligence from all 47 analysis artifacts for the May 2026 breaking session. The core message is"
-description: "This executive brief synthesizes intelligence from all 47 analysis artifacts for the May 2026 breaking session."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-26", "This", "executive", "brief"]
+title: "Foreign Investment Screening Regulation — Run 268"
+description: "Significance: CRITICAL | Parliament adopted the Regulation on screening of foreign investments in the Union, replacing the 2019 voluntary-cooperation framework with mandatory."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-26", "Foreign", "Investment", "Screening"]
 date: 2026-05-26
 article_type: breaking
 slug: 2026-05-26-breaking

@@ -1,7 +1,7 @@
 ---
-title: "EU Legislative Propositions | 2026-05-20"
-description: "The European Parliament's April 28–30, 2026 Strasbourg plenary produced eight adopted texts that collectively reveal a Parliament operating simultaneously as regulator"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-20", "Legislative", "European", "Parliament"]
+title: "The European Parliament's April 28–30 — Run 263"
+description: "The European Parliament's April 28–30, 2026 Strasbourg plenary produced eight adopted texts that collectively reveal a Parliament operating simultaneously as regulator."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-20", "European", "Parliament", "April"]
 date: 2026-05-20
 article_type: propositions
 slug: 2026-05-20-propositions
