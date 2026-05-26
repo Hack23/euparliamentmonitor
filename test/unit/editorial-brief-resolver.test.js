@@ -155,7 +155,8 @@ describe('resolveLocalizedBriefHighlight', () => {
     );
     const result = resolveLocalizedBriefHighlight(runDir, 'nl', 'breaking', '2026-05-16');
     expect(result).not.toBeNull();
-    expect(result.headline).toBe('');
+    // When the H1 is generic, the headline is derived from the BLUF content
+    expect(result.headline).toContain('Het bankuniecompromis');
     expect(result.summary).toContain('Het bankuniecompromis');
   });
 
@@ -178,7 +179,8 @@ describe('resolveLocalizedBriefHighlight', () => {
     );
     const result = resolveLocalizedBriefHighlight(runDir, 'sv', 'breaking', '2026-05-16');
     expect(result).not.toBeNull();
-    expect(result.headline).toBe('');
+    // When the H1 stub is generic, the headline is derived from BLUF content
+    expect(result.headline).toContain('Banksamarbetet');
     expect(result.summary).toContain('Banksamarbetet');
   });
 
