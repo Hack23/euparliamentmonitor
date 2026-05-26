@@ -252,8 +252,10 @@ export const TOP_FINDINGS_HEADINGS_BY_LANG = Object.freeze({
         'tärkeät tapahtumat',
         'tärkeimmät tapahtumat',
         'avaintapahtumat',
+        'keskeiset tapahtumat',
         'tärkeimmät havainnot',
         'avainhavainnot',
+        'keskeiset havainnot',
     ],
     de: [
         'schlüsselereignisse',
@@ -307,6 +309,9 @@ export const TOP_FINDINGS_HEADINGS_BY_LANG = Object.freeze({
         '主要な発見',
         '主要な所見',
         '重要な所見',
+        '主要イベント',
+        'トップ・ファインディングス',
+        'キーファインディングス',
     ],
     ko: [
         '주요 사건',
@@ -424,51 +429,47 @@ export const READER_BRIEFING_HEADINGS_BY_LANG = Object.freeze({
 export const BOILERPLATE_STEM_PATTERNS_BY_LANG = Object.freeze({
     en: [],
     sv: [
-        /^denna (?:verkställande )?sammanfattning (?:syntetiserar|sammanfattar|presenterar|täcker)/iu,
-        /^detta verkställande sammandrag (?:syntetiserar|sammanfattar)/iu,
-        /^denna (?:rapport|analys|bedömning) (?:syntetiserar|sammanfattar|presenterar)/iu,
+        /^denna (?:verkställande )?sammanfattning[^.\n]{0,80}?(?:syntetiserar|sammanfattar|presenterar|täcker)/iu,
+        /^detta verkställande sammandrag[^.\n]{0,80}?(?:syntetiserar|sammanfattar)/iu,
+        /^denna (?:rapport|analys|bedömning)[^.\n]{0,80}?(?:syntetiserar|sammanfattar|presenterar)/iu,
     ],
     da: [
-        /^dette (?:udøvende )?(?:resumé|sammendrag) (?:syntetiserer|sammenfatter|præsenterer|dækker)/iu,
-        /^denne (?:rapport|analyse|vurdering) (?:syntetiserer|sammenfatter|præsenterer)/iu,
+        /^dette (?:udøvende )?(?:resumé|sammendrag)[^.\n]{0,80}?(?:syntetiserer|sammenfatter|præsenterer|dækker)/iu,
+        /^denne (?:rapport|analyse|vurdering)[^.\n]{0,80}?(?:syntetiserer|sammenfatter|præsenterer)/iu,
     ],
     no: [
-        /^dette (?:utøvende )?sammendrag(?:et)? (?:syntetiserer|oppsummerer|presenterer|dekker)/iu,
-        /^denne (?:rapporten|analysen|vurderingen) (?:syntetiserer|oppsummerer|presenterer)/iu,
+        /^dette (?:utøvende )?sammendrag(?:et)?[^.\n]{0,80}?(?:syntetiserer|oppsummerer|presenterer|dekker)/iu,
+        /^denne (?:rapporten|analysen|vurderingen)[^.\n]{0,80}?(?:syntetiserer|oppsummerer|presenterer)/iu,
     ],
     fi: [
-        /^tämä (?:toimeenpaneva )?(?:tiivistelmä|yhteenveto) (?:syntetisoi|kokoaa|kattaa|esittää)/iu,
-        /^tämä (?:raportti|analyysi|arvio) (?:syntetisoi|kokoaa|kattaa|esittää)/iu,
+        /^tämä (?:toimeenpaneva )?(?:tiivistelmä|yhteenveto)[^.\n]{0,80}?(?:syntetisoi|kokoaa|kattaa|esittää)/iu,
+        /^tämä (?:raportti|analyysi|arvio)[^.\n]{0,80}?(?:syntetisoi|kokoaa|kattaa|esittää)/iu,
     ],
     de: [
-        /^dieser (?:kurzbericht|exekutivbericht|bericht) (?:synthetisiert|fasst zusammen|umfasst|deckt|präsentiert)/iu,
-        /^dieses (?:executive (?:briefing|summary)|kurzdossier) (?:synthetisiert|fasst zusammen|umfasst|deckt)/iu,
-        /^diese (?:analyse|bewertung|zusammenfassung) (?:synthetisiert|fasst zusammen|umfasst)/iu,
+        /^dieser (?:kurzbericht|exekutivbericht|bericht)[^.\n]{0,80}?(?:synthetisiert|fasst zusammen|umfasst|deckt|präsentiert)/iu,
+        /^dieses (?:executive (?:briefing|summary)|kurzdossier)[^.\n]{0,80}?(?:synthetisiert|fasst zusammen|umfasst|deckt)/iu,
+        /^diese (?:analyse|bewertung|zusammenfassung)[^.\n]{0,80}?(?:synthetisiert|fasst zusammen|umfasst)/iu,
     ],
     fr: [
-        /^ce (?:briefing exécutif|résumé exécutif|résumé|rapport) (?:synthétise|résume|couvre|présente|contient)/iu,
-        /^cette (?:analyse|évaluation|note) (?:synthétise|résume|couvre|présente)/iu,
+        /^ce (?:briefing exécutif|résumé exécutif|résumé|rapport|document)[^.\n]{0,80}?(?:synthétise|résume|couvre|présente|contient)/iu,
+        /^cette (?:analyse|évaluation|note(?: de synthèse)?)[^.\n]{0,80}?(?:synthétise|résume|couvre|présente)/iu,
     ],
     es: [
-        /^este (?:informe ejecutivo|resumen ejecutivo|resumen|informe) (?:sintetiza|resume|cubre|presenta|contiene)/iu,
-        /^esta (?:análisis|evaluación|nota) (?:sintetiza|resume|cubre|presenta)/iu,
+        /^este (?:informe ejecutivo|resumen ejecutivo|resumen|informe|documento)[^.\n]{0,80}?(?:sintetiza|resume|cubre|presenta|contiene)/iu,
+        /^esta (?:análisis|evaluación|nota)[^.\n]{0,80}?(?:sintetiza|resume|cubre|presenta)/iu,
     ],
     nl: [
-        /^deze (?:executive briefing|samenvatting|briefing|rapportage) (?:synthetiseert|vat samen|dekt|behandelt|presenteert)/iu,
-        /^dit (?:rapport|document|verslag) (?:synthetiseert|vat samen|dekt|behandelt|presenteert)/iu,
+        /^deze (?:executive briefing|samenvatting|briefing|rapportage)[^.\n]{0,80}?(?:synthetiseert|vat samen|dekt|behandelt|presenteert)/iu,
+        /^dit (?:uitvoerend(?:e)? briefingdocument|rapport|document|verslag|briefingdocument)[^.\n]{0,80}?(?:synthetiseert|vat samen|dekt|behandelt|presenteert)/iu,
     ],
     ar: [
-        /^يلخص هذا (?:الموجز التنفيذي|التقرير|التحليل|الموجز)/u,
-        /^يتناول هذا (?:التقرير|الموجز|التحليل)/u,
-        /^يجمع هذا (?:الموجز التنفيذي|التقرير)/u,
+        /^(?:يلخص|يجمع|يتناول|يجمِّع|يُجمِّع|يُلخِّص)\s+هذا(?:\s+(?:الموجز(?: التنفيذي)?|التقرير|التحليل|الملخص(?: التنفيذي)?))?/u,
     ],
     he: [
-        /^תקציר (?:ניהולי |מנהלים )?זה (?:מסכם|מציג|מכסה|מסנתז)/u,
-        /^דו"ח זה (?:מסכם|מציג|מכסה|מסנתז)/u,
-        /^מסמך זה (?:מסכם|מציג|מכסה|מסנתז)/u,
+        /^(?:תקציר(?: ניהולי| מנהלים)?\s+זה|דו"ח\s+זה|מסמך\s+זה|דוח\s+זה)[^.\n]{0,80}?(?:מסכם|מציג|מכסה|מסנתז)/u,
     ],
     ja: [
-        /^(?:この|本)(?:エグゼクティブ )?(?:ブリーフィング|要約|サマリー|レポート|報告書)(?:は|では)/u,
+        /^(?:この|本)(?:エグゼクティブ・?|エグゼクティブ ?)?(?:ブリーフィング|ブリーフ|要約|サマリー|レポート|報告書)(?:は|では)/u,
     ],
     ko: [
         /^이 (?:집행|행정|경영진)?\s*(?:브리핑|요약|보고서|간추림)(?:은|는|이|가)/u,

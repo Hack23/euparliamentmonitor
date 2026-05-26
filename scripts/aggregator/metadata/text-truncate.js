@@ -174,7 +174,7 @@ export function truncateTitle(text) {
     // active for runaway prose. We restrict the boundary set to `: ` and
     // ` — ` (the two strongest semantic breaks) to avoid emitting trivial
     // comma-split or full-stop-split fragments from short prose.
-    const STRONG_BOUNDARIES = [': ', ' — ', ' – '];
+    const STRONG_BOUNDARIES = [': ', ' — ', ' – ', '。', '！', '？', '؟', '؛'];
     for (const boundary of STRONG_BOUNDARIES) {
         const idx = search.indexOf(boundary);
         if (idx >= HEADLINE_HARD_MIN && idx < HEADLINE_SOFT_MIN) {

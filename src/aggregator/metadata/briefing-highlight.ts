@@ -633,9 +633,10 @@ const NEWS_HOOK_PATTERNS: readonly RegExp[] = [
  * @returns The most compelling sentence, or '' if none found
  */
 function extractNewsHookSentence(paragraph: string): string {
-  // Split into sentences (handles ". ", "! ", "? " boundaries)
+  // Split into sentences (handles ". ", "! ", "? " boundaries — plus
+  // CJK 。！？ and Arabic ؟ which have no trailing space).
   const sentences = paragraph
-    .split(/(?<=[.!?])\s+/)
+    .split(/(?<=[.!?])\s+|(?<=[。！？؟])/)
     .filter((s) => s.length > 20);
 
   // Find the first sentence with a news hook signal
@@ -673,7 +674,8 @@ function deriveHeadlineFromParagraph(paragraph: string): string {
   if (direct) return direct;
 
   // Priority 4: Extract the first sentence and try truncateTitle.
-  const sentenceMatch = /^(.*?[.!?])(?:\s|$)/.exec(cleaned);
+  // Recognise CJK 。！？ and Arabic ؟ in addition to Western . ! ?.
+  const sentenceMatch = /^(.*?(?:[.!?](?=\s|$)|[。！？؟]))/.exec(cleaned);
   if (sentenceMatch?.[1]) {
     const sentenceResult = truncateTitle(sentenceMatch[1]);
     if (sentenceResult) return sentenceResult;
