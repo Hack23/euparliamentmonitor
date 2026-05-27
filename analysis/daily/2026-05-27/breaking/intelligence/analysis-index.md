@@ -120,11 +120,12 @@ graph LR
 | Artifact Group | Files | Status |
 |---------------|-------|--------|
 | Executive brief | 1 | ✅ |
-| Intelligence | 18 | ✅ |
+| Intelligence | 20 | ✅ |
 | Classification | 4 | ✅ |
 | Risk scoring | 4 | ✅ |
 | Threat assessment | 3 | ✅ |
-| Extended analysis | 11 | ✅ |
+| Extended analysis | 12 | ✅ |
 | Documents | 1 | ✅ |
 | Data assessment | 1 | ✅ |
-| **Total** | **43** | ✅ |
+| Runs/metadata | 2 | ✅ |
+| **Total** | **48** | ✅ |

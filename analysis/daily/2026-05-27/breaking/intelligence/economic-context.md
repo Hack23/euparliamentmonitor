@@ -154,15 +154,15 @@ Resolution TA-10-2026-0170 calls for CBAM extension to cover finished steel prod
 
 *Note: This section draws on IMF Article IV consultation for the Euro Area (April 2026) and IMF Global Financial Stability Report (April 2026).*
 
-**Key IMF Observations Relevant to EP Outputs**:
+**Key IMF-Methodology-Derived Observations Relevant to EP Outputs**:
 
-1. *"The EU's Foreign Investment Screening reform should be calibrated to minimise investment diversion while addressing genuine security concerns. The proposed mandatory national mechanism is broadly consistent with G7 CFIUS-equivalent frameworks."* — IMF Article IV Background Paper (hypothetical representative language based on IMF methodology)
+1. The EU's Foreign Investment Screening reform should be calibrated to minimise investment diversion while addressing genuine security concerns. The proposed mandatory national mechanism is broadly consistent with G7 CFIUS-equivalent frameworks. *(Analyst assessment based on IMF Article IV methodology; not a direct IMF quotation.)*
 
-2. *"Steel overcapacity from China and emerging markets represents a structural headwind for EU manufacturing competitiveness. Safeguard measures may be necessary but should be time-limited and WTO-compatible."* — IMF World Trade Report 2026
+2. Steel overcapacity from China and emerging markets represents a structural headwind for EU manufacturing competitiveness. Safeguard measures may be necessary but should be time-limited and WTO-compatible. *(Analyst assessment derived from IMF World Trade Report 2026 methodology.)*
 
-3. *"EU defence spending increases represent a structural shift in fiscal priorities. The IMF notes that moderate increases in productive government spending (including defence and security) can have positive supply-side effects through technological spillovers."*
+3. EU defence spending increases represent a structural shift in fiscal priorities. Moderate increases in productive government spending (including defence and security) can have positive supply-side effects through technological spillovers. *(Analyst assessment based on IMF fiscal multiplier research.)*
 
-**Caveat**: The above IMF language is representative/paraphrased based on IMF published methodology and past statements. Direct IMF MCP feed not available for this run.
+**Caveat**: The above observations are analyst assessments derived from IMF published methodology and past analytical frameworks. They are not direct IMF quotations. Direct IMF MCP feed was not available for this run.
 
 ## Summary Economic Intelligence Assessment
 

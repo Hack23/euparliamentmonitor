@@ -11,7 +11,7 @@
 
 ## HEADLINE
 
-**EP Adopts Landmark Foreign Investment Screening Regulation and Condemns Taliban Criminalisation of Women — Strategic Autonomy and Human Rights Dominate 19–21 May 2026 Plenary**
+**EP Adopts Landmark Foreign Investment Screening Regulation and Condemns Taliban Criminalisation of Women's Education — Strategic Autonomy and Human Rights Dominate 19–21 May 2026 Plenary**
 
 ---
 

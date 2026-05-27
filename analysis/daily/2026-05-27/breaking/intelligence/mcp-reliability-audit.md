@@ -9,7 +9,7 @@
 
 This audit documents the reliability and availability of all MCP data sources
 queried during the breaking news analysis run. The run operated in degraded-feeds
-mode with 2 of 6 primary feeds unavailable.
+mode with 4 of 6 primary feeds unavailable.
 
 ---
 
