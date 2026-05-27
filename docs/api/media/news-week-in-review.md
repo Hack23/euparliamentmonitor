@@ -2,6 +2,23 @@
 name: "News: EU Parliament Week in Review — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered week-in-review article (Stages A → B → C → D → E in one workflow).
 strict: false
+# Checkout (gh-aw v0.76+): full-history clone (fetch-depth: 0) is the
+# optimal setting for stability of the safe-outputs bundle path. Rationale:
+#   * `git log`, `git merge-base`, and safe-outputs base/diff computations
+#     need real history — a shallow clone forces an in-job
+#     `git fetch --unshallow` that races concurrent merges to `main` and
+#     was a documented secondary trigger of the host-side PAT-fallback
+#     firing on otherwise-healthy runs.
+#   * Real-data feeds (`analysis/**/data/**`) are gitignored and excluded
+#     by safe-outputs `excluded-files`, so full history does not grow
+#     unbounded.
+#   * The one-time clone cost is amortised across the 60-minute budget;
+#     stability >> a few seconds of checkout time for unattended cron.
+# Per the gh-aw v0.76 schema, `checkout.fetch-depth: 0` is honoured only
+# on top-level workflow files (placing it in a shared/imported config is
+# silently ignored), which is why it lives here in every news-*.md.
+checkout:
+  fetch-depth: 0
 on:
   schedule: weekly on saturday around 9am  # fuzzy: scatters within ±1h of 09:00 UTC Saturdays to avoid load spikes
   workflow_dispatch:
@@ -45,11 +62,16 @@ concurrency:
 # tools: inherited from shared/config/news-tools.md (parameterized by slug).
 
 safe-outputs:
-  # max-patch-size kept inline: gh-aw v0.74.1 does NOT propagate
-  # safe-outputs.max-patch-size via imports (resets to default 1024).
-  # 10 MB ceiling prevents legitimate analysis-only patches from being rejected.
+  # max-patch-size kept inline: gh-aw still does not propagate
+  # safe-outputs.max-patch-size via imports as of v0.76 (it silently resets
+  # to the gh-aw default of 1024 in the compiled lock when set in a shared
+  # config). 10240 KB is the schema maximum — raw EP-API feed dumps are
+  # excluded below via `excluded-files: analysis/**/data/**`, so this
+  # headroom is reserved exclusively for analysis + article artifacts.
   max-patch-size: 10240
-  # Explicit file ceiling — analysis + article + artifact files can reach 50+.
+  # Explicit file ceiling raised to 2500 (schema has no upper bound). Single
+  # runs typically touch ≤50 files (analysis + article + meta); 2500 gives
+  # generous headroom for large analysis runs and catch-up flushes.
   max-patch-files: 2500
   # Cron retries handle failures; auto-created failure issues are noise.
   report-failure-as-issue: false
@@ -86,6 +108,9 @@ safe-outputs:
       - "**/*.lock"
       - "node_modules/**"
       - ".github/workflows/*.lock.yml"
+      - "analysis/**/data/**"         # raw EP API pre-fetched feeds (meps-feed.json
+                                      # can exceed 8 MB alone); analysis artifacts
+                                      # are in sibling dirs and are committed
   dispatch-workflow:
     workflows: [news-translate]
     max: 1

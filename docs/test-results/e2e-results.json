@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/61b3fa5d9c6c8941c997806b3fcd10506ee6a08a",
-        "commitHash": "61b3fa5d9c6c8941c997806b3fcd10506ee6a08a",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26393437967"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/f8811c738c74a77e1e6fbaac9a90a25b4c9061b9",
+        "commitHash": "f8811c738c74a77e1e6fbaac9a90a25b4c9061b9",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26544990670"
       },
       "gitCommit": {
-        "shortHash": "61b3fa5d9c",
-        "hash": "61b3fa5d9c6c8941c997806b3fcd10506ee6a08a",
-        "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
-        "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26392667623\n",
+        "shortHash": "f8811c738c",
+        "hash": "f8811c738c74a77e1e6fbaac9a90a25b4c9061b9",
+        "subject": "chore: recompile agentic workflow lock files",
+        "body": "chore: recompile agentic workflow lock files\n",
         "author": {
           "name": "github-actions[bot]",
           "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1779700257000
+          "time": 1779924683000
         },
         "committer": {
           "name": "github-actions[bot]",
           "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1779700257000
+          "time": 1779924683000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/61b3fa5d9c6c8941c997806b3fcd10506ee6a08a",
-            "commitHash": "61b3fa5d9c6c8941c997806b3fcd10506ee6a08a",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26393437967"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/f8811c738c74a77e1e6fbaac9a90a25b4c9061b9",
+            "commitHash": "f8811c738c74a77e1e6fbaac9a90a25b4c9061b9",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26544990670"
           },
           "gitCommit": {
-            "shortHash": "61b3fa5d9c",
-            "hash": "61b3fa5d9c6c8941c997806b3fcd10506ee6a08a",
-            "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
-            "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26392667623\n",
+            "shortHash": "f8811c738c",
+            "hash": "f8811c738c74a77e1e6fbaac9a90a25b4c9061b9",
+            "subject": "chore: recompile agentic workflow lock files",
+            "body": "chore: recompile agentic workflow lock files\n",
             "author": {
               "name": "github-actions[bot]",
               "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1779700257000
+              "time": 1779924683000
             },
             "committer": {
               "name": "github-actions[bot]",
               "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1779700257000
+              "time": 1779924683000
             },
             "branch": "main"
           },
@@ -148,12 +148,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1506,
+                      "duration": 1531,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-25T09:34:30.409Z",
+                      "startTime": "2026-05-27T23:41:31.440Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,12 +182,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1264,
+                      "duration": 1290,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-25T09:34:30.322Z",
+                      "startTime": "2026-05-27T23:41:31.513Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -216,12 +216,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1163,
+                      "duration": 1194,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-25T09:34:30.420Z",
+                      "startTime": "2026-05-27T23:41:31.432Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -250,12 +250,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 955,
+                      "duration": 1075,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-25T09:34:31.835Z",
+                      "startTime": "2026-05-27T23:41:32.918Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -284,12 +284,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1175,
+                      "duration": 1206,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-25T09:34:31.941Z",
+                      "startTime": "2026-05-27T23:41:33.013Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -318,12 +318,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 942,
+                      "duration": 982,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-25T09:34:32.153Z",
+                      "startTime": "2026-05-27T23:41:33.229Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -343,8 +343,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-25T09:34:28.735Z",
-    "duration": 4459.861,
+    "startTime": "2026-05-27T23:41:29.742Z",
+    "duration": 4571.814,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

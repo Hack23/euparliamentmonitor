@@ -597,7 +597,21 @@
 <a name='L532'></a><a href='#L532'>532</a>
 <a name='L533'></a><a href='#L533'>533</a>
 <a name='L534'></a><a href='#L534'>534</a>
-<a name='L535'></a><a href='#L535'>535</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L535'></a><a href='#L535'>535</a>
+<a name='L536'></a><a href='#L536'>536</a>
+<a name='L537'></a><a href='#L537'>537</a>
+<a name='L538'></a><a href='#L538'>538</a>
+<a name='L539'></a><a href='#L539'>539</a>
+<a name='L540'></a><a href='#L540'>540</a>
+<a name='L541'></a><a href='#L541'>541</a>
+<a name='L542'></a><a href='#L542'>542</a>
+<a name='L543'></a><a href='#L543'>543</a>
+<a name='L544'></a><a href='#L544'>544</a>
+<a name='L545'></a><a href='#L545'>545</a>
+<a name='L546'></a><a href='#L546'>546</a>
+<a name='L547'></a><a href='#L547'>547</a>
+<a name='L548'></a><a href='#L548'>548</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -928,6 +942,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -948,6 +973,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1148,9 +1174,8 @@
  * Why a separate gate? `manifest.json` is the Stage-B *input* contract.
  * The Stage-D *output* contract is the resolved entry returned by
  * `resolveArticleMetadata`, which threads through editorial-highlight
- * extraction, BLUF-summary derivation, contextual title composition
- * (including `— Run N` run-qualifier for same-date/same-articleType
- * republishes), and CJK-aware length budgets. Bugs in any of those
+ * extraction, BLUF-summary derivation, contextual title composition,
+ * and CJK-aware length budgets. Bugs in any of those
  * downstream layers can ship a degraded `&lt;head&gt;` even when manifest.json
  * is clean.
  *
@@ -1172,8 +1197,10 @@
  *   8. **leaky-runid**       — title/description must not contain
  *      internal run-id tokens or "analysis run" jargon.
  *   9. **title-uniqueness**  — when ≥2 runs share the same `(date,
- *      articleType)`, their resolved titles must differ (typically via
- *      the `— Run N` qualifier produced by `composeContextualTitle`).
+ *      articleType)`, their resolved titles must differ. Each run must
+ *      produce a distinct readable headline derived from editorial
+ *      content (H1 / lede / topFinding / lead topic / key actor).
+ *      Run-number qualifiers are forbidden.
  *  10. **title-ellipsis-cut** — title rejected by resolver predicate
  *      `looksLikeEllipsisCut` (trailing `…` / `...`). Fires alongside
  *      `title-ellipsis` for backwards compatibility.
@@ -1452,10 +1479,21 @@ function detectDescriptionLeadSectionHeader(value) {
 &nbsp;
 /**
  * After resolving every run, detect duplicate titles within the same
- * `(date, articleType)` collision group. The `— Run N` qualifier from
- * `composeContextualTitle` is the contracted differentiator for
- * same-date/same-articleType republishes; missing it is a
- * uniqueness-gate failure.
+ * `(date, articleType)` collision group. Resolved `&lt;title&gt;` values
+ * must be unique per collision group — duplicate titles confuse
+ * Google Search Console / Bing Webmaster Tools (rel=canonical
+ * collisions, "Duplicate, Google chose different canonical" warnings)
+ * and dilute SERP ranking signals.
+ *
+ * Run-number disambiguation is no longer used (titles must always be
+ * readable headlines without workflow identifiers — see
+ * {@link withRunQualifier} / {@link appendRunNumberSuffix}). When this
+ * gate fires the upstream fix lives in the editorial-headline
+ * extraction path: the executive brief for the colliding run must
+ * carry a distinct H1 / lede / `topFinding`, OR the resolver must
+ * derive a content-based qualifier (lead topic, key actor, lead risk)
+ * from the brief content so the title differs by editorial substance
+ * rather than by workflow metadata.
  *
  * @param {Array&lt;{record: ReturnType&lt;typeof resolveRunSeo&gt;, lang: string}&gt;} resolvedList
  * @param {Array&lt;object&gt;} violations
@@ -1488,9 +1526,10 @@ function detectDuplicateTitles(resolvedList, violations) {
         affectedRuns: dirs,
         message:
           `${dirs.length} runs in collision group "${key}" share the ` +
-          `resolved title "${title}" — composeContextualTitle must ` +
-          `append a "— Run N" qualifier (or equivalent) so the per-run ` +
-          `articles are distinguishable in SERPs and social cards`,
+          `resolved title "${title}" — each run must produce a distinct, ` +
+          `readable headline (derive from the editorial brief's H1, lede, ` +
+          `topFinding, or a content-based qualifier such as lead topic / ` +
+          `key actor). Run-number qualifiers are forbidden.`,
       });
     }
   }
@@ -1672,7 +1711,7 @@ export {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-25T09:34:07.885Z
+                at 2026-05-27T23:41:09.026Z
             </div>
         <script src="../prettify.js"></script>
         <script>
