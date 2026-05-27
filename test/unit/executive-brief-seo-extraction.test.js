@@ -878,18 +878,25 @@ describe.each(ALL_LANGUAGES)(
           }
 
           /* ============================================================
-           * 5. CROSS-RUN UNIQUENESS (advisory — same-date re-runs may
-           *    legitimately share a title when no distinct editorial
-           *    headline exists; run-number disambiguation is not used)
+           * 5. CROSS-RUN UNIQUENESS — every (date, articleType) re-run
+           *    must resolve to a distinct readable headline. Run-number
+           *    qualifiers are forbidden, so when two runs collide the
+           *    editorial brief must carry a distinct H1 / lede /
+           *    topFinding (or the resolver must derive a content-based
+           *    differentiator). Duplicate titles dilute SERP signals
+           *    and trigger Google Search Console / Bing Webmaster
+           *    "Duplicate, Google chose different canonical" warnings.
            * ============================================================ */
 
           const uniqKey = `${aggregated.date}|${aggregated.articleType}`;
           const prev = titleSeenForKey.get(uniqKey);
-          if (!prev) {
+          if (prev && prev === title) {
+            failures.push(
+              `[${ctx}] duplicate title within same (date, articleType): "${title}"`
+            );
+          } else if (!prev) {
             titleSeenForKey.set(uniqKey, title);
           }
-          // Same-date/same-type duplicate titles are acceptable —
-          // articles must use readable headlines without run numbers.
           allTitles.push({
             date: aggregated.date,
             articleType: aggregated.articleType,

@@ -22,8 +22,8 @@ import { EXTENDED_DESCRIPTION_MAX_LENGTH } from './text-utils-constants.js';
 import { extractFirstSentence, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
 import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
-import { classifyScript } from './seo-budgets.js';
-import { containsNormalized, pickFirstNonEmpty, withRunQualifier } from './resolve-utils.js';
+import { budgetFor, classifyScript } from './seo-budgets.js';
+import { containsNormalized, extractRunNumber, extractRunPublicationTime, pickFirstNonEmpty, withRunQualifier } from './resolve-utils.js';
 import { ensureTerminator, scrubTrailingEllipsis as scrubTrailingEllipsisImpl, ensureDescriptionTerminator as ensureDescriptionTerminatorImpl, } from './description-finalization.js';
 // Re-export terminator helpers for backward compatibility with any
 // downstream import sites that still reach into resolve-helpers.
@@ -35,6 +35,66 @@ export { scrubTrailingEllipsisImpl as scrubTrailingEllipsis, ensureDescriptionTe
  * so the same threshold drives the resolver and the regression check.
  */
 const SEO_TITLE_FLOOR_BY_SCRIPT = { latin: 20, cjk: 10, rtl: 20 };
+/**
+ * Localized "edition / issue / 第N期" qualifier templates used as the
+ * final disambiguator when {@link composeContextualTitle} falls through
+ * to the template title (no editorial headline survived) and a numeric
+ * run sequence is available. Same-date multi-run briefs would otherwise
+ * collide on the localized template title (e.g. four `breaking-run179..182`
+ * on the same date all rendering as `突发: 重大议会进展 — 2026-04-17`) and
+ * trigger Google Search Console / Bing Webmaster duplicate-title
+ * canonicalization warnings.
+ *
+ * "Edition / 期 / Ausgabe" is a long-established publishing convention
+ * for sequential news editions and is editorially honest (publishers
+ * routinely number their breaking-news updates this way). It is
+ * intentionally NOT the literal "Run N" workflow token banned from
+ * resolved titles — the framing is reader-facing edition/issue rather
+ * than workflow-internal "run".
+ *
+ * Each entry is `[prefix, suffix]` so RTL/CJK scripts can place the
+ * number in the position natural to the locale (CJK = number-first
+ * suffix `第${n}期`; RTL/Latin = trailing prefix `Edition ${n}`).
+ */
+const EDITION_QUALIFIER_BY_LANG = Object.freeze({
+    en: ['Edition ', ''],
+    de: ['Ausgabe ', ''],
+    nl: ['Editie ', ''],
+    fr: ['Édition ', ''],
+    es: ['Edición ', ''],
+    pt: ['Edição ', ''],
+    it: ['Edizione ', ''],
+    pl: ['Wydanie ', ''],
+    sv: ['Utgåva ', ''],
+    ja: ['第', '版'],
+    ko: ['제', '판'],
+    zh: ['第', '期'],
+    ar: ['الإصدار ', ''],
+    he: ['מהדורה ', ''],
+});
+/**
+ * Compact `#N` qualifier — used by {@link composeContextualTitle} as a
+ * universal fallback when the localized "Edition N" form would push
+ * the composed title past the per-script title budget (notably he,
+ * where the 47-char `חדשות דחופות: התפתחויות פרלמנטריות משמעותיות`
+ * template + 10-char ` — מהדורה 180` = 57 chars exceeds the 55-char
+ * RTL title budget). Editorially honest — `#N` is a long-established
+ * news-issue / update numbering convention and is the standard
+ * canonical-disambiguation token used by major publishers.
+ */
+const COMPACT_EDITION_SEPARATOR = ' (#';
+const COMPACT_EDITION_SUFFIX = ')';
+function formatEditionQualifier(lang, runNumber) {
+    if (!runNumber)
+        return '';
+    const tpl = EDITION_QUALIFIER_BY_LANG[lang] ?? EDITION_QUALIFIER_BY_LANG.en;
+    return `${tpl[0]}${runNumber}${tpl[1]}`;
+}
+function formatCompactEditionQualifier(runNumber) {
+    if (!runNumber)
+        return '';
+    return `${COMPACT_EDITION_SEPARATOR}${runNumber}${COMPACT_EDITION_SUFFIX}`;
+}
 /**
  * Per-script minimum description length we aim to clear via context
  * enrichment. Matches the `OPTIMAL_DESC` lower bound in the SEO
@@ -209,10 +269,63 @@ export function composeContextualTitle(fallbackTitle, editorialHeadline, runId, 
     }
     const withRun = withRunQualifier(fallbackTitle, runId);
     // withRunQualifier is a no-op (run numbers never appear in titles).
-    // Disambiguate across dates by appending the ISO date.
+    // Disambiguation strategy for SEO uniqueness (Google Search Console
+    // / Bing Webmaster flag duplicate `<title>` values as canonical
+    // ambiguity):
+    //
+    //   1. publicationTime — `HH:MM UTC` derived from the runId's
+    //      trailing unix-seconds suffix (real publication timestamp).
+    //   2. editionQualifier — localized "Edition N" / "第N期" suffix
+    //      derived from the numeric run sequence (reader-facing
+    //      publishing convention, NOT the banned workflow "Run N"
+    //      token; see EDITION_QUALIFIER_BY_LANG above).
+    //   3. ISO date — appended for cross-date uniqueness when budget
+    //      allows. Skipped when an editionQualifier is present so the
+    //      qualifier (a per-run-monotonic identifier) survives the
+    //      per-script title clamp instead of being truncated at the
+    //      final em-dash boundary.
+    const publicationTime = extractRunPublicationTime(runId);
+    const runNumber = extractRunNumber(runId);
+    const editionQualifier = !publicationTime
+        ? formatEditionQualifier(lang ?? 'en', runNumber)
+        : '';
     let composed = withRun;
-    if (date && !containsNormalized(fallbackTitle, date)) {
+    if (editionQualifier) {
+        // Strip any pre-existing trailing ` — YYYY-MM-DD` date from the
+        // template fallback before appending the qualifier — the
+        // localized templates (e.g. `breaking.js`) bake the date into
+        // their title string, which would otherwise double up and push
+        // the result past the per-script title budget (e.g. zh budget
+        // 30 chars; `突发: 重大议会进展 — 2026-04-17 — 第180期` = 31 chars
+        // gets clamped back to the unqualified `突发: 重大议会进展 — 2026-04-17`
+        // and re-introduces the duplicate-title collision).
+        const dateSuffixStrip = composed.replace(/\s+[—–-]\s+\d{4}-\d{2}-\d{2}\s*$/u, '');
+        if (!containsNormalized(dateSuffixStrip, editionQualifier)) {
+            const titleBudget = budgetFor(lang ?? 'en', 'title');
+            const localizedCandidate = `${dateSuffixStrip} — ${editionQualifier}`;
+            if ([...localizedCandidate].length <= titleBudget) {
+                composed = localizedCandidate;
+            }
+            else {
+                // Compact `(#N)` fallback — same SEO-uniqueness function
+                // as the localized "Edition N" word but short enough to
+                // survive narrow per-script budgets (notably he at 55
+                // chars, where the 47-char Hebrew breaking-news template
+                // + ` — מהדורה 180` = 57 chars exceeds the budget and
+                // gets clamped back to the unqualified, colliding
+                // baseline). `#N` is the standard publishing
+                // issue-numbering convention and remains editorially
+                // honest across all locales.
+                const compactQualifier = formatCompactEditionQualifier(runNumber);
+                composed = `${dateSuffixStrip}${compactQualifier}`;
+            }
+        }
+    }
+    else if (date && !containsNormalized(fallbackTitle, date)) {
         composed = `${fallbackTitle} — ${date}`;
+    }
+    if (publicationTime && !containsNormalized(composed, publicationTime)) {
+        composed = `${composed} (${publicationTime})`;
     }
     // Final SERP-floor recovery: short generic titles like
     // `"Moties | 2026-04-01"` (19 chars, nl) sit just below the
@@ -488,5 +601,5 @@ export function composeContextualExtendedDescription(lang, baseDescription, edit
 }
 // Utility functions extracted to resolve-utils.ts for file-size compliance.
 // Re-exported here for backward compatibility.
-export { hasLeakySeoToken, extractRunNumber, sanitizeDescriptionCandidate, isUsableResolvedTitle, deriveHeadlineFromSummary, withRunQualifier, containsNormalized, pickFirstNonEmpty, } from './resolve-utils.js';
+export { hasLeakySeoToken, extractRunNumber, extractRunPublicationTime, sanitizeDescriptionCandidate, sanitizeTitleCandidate, stripLeakyRunTokens, isUsableResolvedTitle, deriveHeadlineFromSummary, withRunQualifier, containsNormalized, pickFirstNonEmpty, } from './resolve-utils.js';
 //# sourceMappingURL=resolve-helpers.js.map

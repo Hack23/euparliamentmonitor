@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { budgetFor, classifyScript, clampForBudget } from './seo-budgets.js';
-import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, containsNormalized, deriveHeadlineFromSummary, ensureDescriptionTerminator, extractRunNumber, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
+import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, containsNormalized, deriveHeadlineFromSummary, ensureDescriptionTerminator, extractRunNumber, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
 import { buildSeoKeywords } from './seo-keywords.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
 const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
@@ -200,7 +200,14 @@ export function resolveOneLanguage(input) {
     const englishFallbackDescription = perLanguage.source === ENGLISH_BRIEF_SOURCE
         ? manifestOverrideFor(input.manifest.description, 'en')
         : '';
-    const contextualTitle = composeContextualTitle(input.template.title, editorial.headline, input.runId, input.date, input.lang);
+    // Token-level sanitization rescues editorial H1s such as
+    // `Run 180, 17 April 2026` → `17 April 2026` instead of falling
+    // through to a duplicate template title. The sentence-level
+    // {@link sanitizeDescriptionCandidate} preserves description prose
+    // by stripping leaky `Run N` / `analysis run` / internal run-id
+    // tokens word-level when every sentence is leaky.
+    const sanitizedEditorialHeadline = sanitizeTitleCandidate(editorial.headline);
+    const contextualTitle = composeContextualTitle(input.template.title, sanitizedEditorialHeadline, input.runId, input.date, input.lang);
     const title = pickFirstNonEmpty([
         manifestTitle,
         englishFallbackTitle,
@@ -214,7 +221,7 @@ export function resolveOneLanguage(input) {
         input.template.subtitle,
     ]));
     const safeEditorial = {
-        headline: isUsableResolvedTitle(editorial.headline) ? editorial.headline.trim() : '',
+        headline: isUsableResolvedTitle(sanitizedEditorialHeadline) ? sanitizedEditorialHeadline.trim() : '',
         summary: sanitizeDescriptionCandidate(editorial.summary),
         extendedSummary: sanitizeDescriptionCandidate(editorial.extendedSummary),
     };
@@ -267,9 +274,12 @@ export function resolveOneLanguage(input) {
     //
     // The fallback path passes the template title back through
     // {@link composeContextualTitle} (with an empty editorial headline)
-    // which disambiguates via ISO date. Same-date re-runs with identical
-    // editorial headlines are acceptable — the duplicate-title gate is
-    // advisory-only since run numbers are never used in user-facing titles.
+    // which disambiguates via ISO date. Distinct (date, articleType)
+    // pairs naturally diverge through editorial headlines / H1s;
+    // same-key collisions are caught by the `title-uniqueness` gate
+    // in `validate-article-seo.js` and must be fixed by sourcing a
+    // richer headline from the editorial brief — run-number
+    // qualifiers are forbidden.
     const contextualFallback = composeContextualTitle(input.template.title, '', input.runId, input.date, input.lang);
     const truncatedTitle = pickResolvedTitle(input, {
         explicitTitle,

@@ -15,9 +15,8 @@
  * Why a separate gate? `manifest.json` is the Stage-B *input* contract.
  * The Stage-D *output* contract is the resolved entry returned by
  * `resolveArticleMetadata`, which threads through editorial-highlight
- * extraction, BLUF-summary derivation, contextual title composition
- * (including `— Run N` run-qualifier for same-date/same-articleType
- * republishes), and CJK-aware length budgets. Bugs in any of those
+ * extraction, BLUF-summary derivation, contextual title composition,
+ * and CJK-aware length budgets. Bugs in any of those
  * downstream layers can ship a degraded `<head>` even when manifest.json
  * is clean.
  *
@@ -39,8 +38,10 @@
  *   8. **leaky-runid**       — title/description must not contain
  *      internal run-id tokens or "analysis run" jargon.
  *   9. **title-uniqueness**  — when ≥2 runs share the same `(date,
- *      articleType)`, their resolved titles must differ (typically via
- *      the `— Run N` qualifier produced by `composeContextualTitle`).
+ *      articleType)`, their resolved titles must differ. Each run must
+ *      produce a distinct readable headline derived from editorial
+ *      content (H1 / lede / topFinding / lead topic / key actor).
+ *      Run-number qualifiers are forbidden.
  *  10. **title-ellipsis-cut** — title rejected by resolver predicate
  *      `looksLikeEllipsisCut` (trailing `…` / `...`). Fires alongside
  *      `title-ellipsis` for backwards compatibility.
@@ -319,9 +320,21 @@ function detectDescriptionLeadSectionHeader(value) {
 
 /**
  * After resolving every run, detect duplicate titles within the same
- * `(date, articleType)` collision group. Reports as advisory since
- * run-number disambiguation is no longer used — articles must always
- * have readable titles without workflow identifiers.
+ * `(date, articleType)` collision group. Resolved `<title>` values
+ * must be unique per collision group — duplicate titles confuse
+ * Google Search Console / Bing Webmaster Tools (rel=canonical
+ * collisions, "Duplicate, Google chose different canonical" warnings)
+ * and dilute SERP ranking signals.
+ *
+ * Run-number disambiguation is no longer used (titles must always be
+ * readable headlines without workflow identifiers — see
+ * {@link withRunQualifier} / {@link appendRunNumberSuffix}). When this
+ * gate fires the upstream fix lives in the editorial-headline
+ * extraction path: the executive brief for the colliding run must
+ * carry a distinct H1 / lede / `topFinding`, OR the resolver must
+ * derive a content-based qualifier (lead topic, key actor, lead risk)
+ * from the brief content so the title differs by editorial substance
+ * rather than by workflow metadata.
  *
  * @param {Array<{record: ReturnType<typeof resolveRunSeo>, lang: string}>} resolvedList
  * @param {Array<object>} violations
@@ -347,20 +360,17 @@ function detectDuplicateTitles(resolvedList, violations) {
     }
     for (const [title, dirs] of byTitle.entries()) {
       if (dirs.length < 2) continue;
-      // Same-date/same-articleType runs with identical editorial
-      // headlines are acceptable — articles should always use
-      // readable titles without run-number qualifiers. Log a
-      // warning but do not treat as a hard violation.
       violations.push({
         runDir: dirs.join(', '),
         lang: items[0].lang,
         gate: 'title-uniqueness',
-        severity: 'advisory',
         affectedRuns: dirs,
         message:
           `${dirs.length} runs in collision group "${key}" share the ` +
-          `resolved title "${title}" — consider using distinct editorial ` +
-          `headlines in the executive brief to improve SERP differentiation`,
+          `resolved title "${title}" — each run must produce a distinct, ` +
+          `readable headline (derive from the editorial brief's H1, lede, ` +
+          `topFinding, or a content-based qualifier such as lead topic / ` +
+          `key actor). Run-number qualifiers are forbidden.`,
       });
     }
   }
