@@ -16,10 +16,10 @@
 | Greens/EFA | 53 | 7.4% | Philippe Lamberts |
 | ESN | 25 | 3.5% | Far right |
 | The Left (GUE-NGL) | 46 | 6.5% | Various |
-| Non-attached | 25 | 3.5% | |
-| **TOTAL** | **712** | 100% | |
+| Non-attached | 29 | 4.1% | |
+| **TOTAL** | **716** | 100% | |
 
-*Majority threshold: 357 seats (absolute); 284+ present = simple majority*
+*Majority threshold: 359 seats (absolute); 284+ present = simple majority*
 
 ---
 

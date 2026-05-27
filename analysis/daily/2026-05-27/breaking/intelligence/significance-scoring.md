@@ -55,10 +55,10 @@ Composite score = (Immediacy + Breadth + Precedent + Geopolitical) / 4
 ## Significance Score Mermaid
 
 ```mermaid
-bar
-    title Legislative Significance Scores - May 19-21 2026
-    x-axis [FDI-Screen, SAFE-Canada, Afghanistan, AI-Trade, Steel, Uzbekistan]
-    y-axis Score 0 --> 10
+xychart-beta
+    title "Legislative Significance Scores - May 19-21 2026"
+    x-axis ["FDI-Screen", "SAFE-Canada", "Afghanistan", "AI-Trade", "Steel", "Uzbekistan"]
+    y-axis "Score" 0 --> 10
     bar [9.2, 8.5, 7.8, 6.5, 6.8, 5.5]
 ```
 

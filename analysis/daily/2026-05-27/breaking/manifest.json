@@ -95,7 +95,7 @@
       "documents/document-analysis-index.md"
     ],
     "devils-advocate": [
-      "extended/devils-advocate.md"
+      "extended/devils-advocate-analysis.md"
     ],
     "historical-parallels": [
       "extended/historical-parallels.md"
@@ -111,9 +111,6 @@
     ],
     "implementation-feasibility": [
       "extended/implementation-feasibility.md"
-    ],
-    "media-framing": [
-      "extended/media-framing-analysis.md"
     ],
     "comparative-international": [
       "extended/comparative-international.md"

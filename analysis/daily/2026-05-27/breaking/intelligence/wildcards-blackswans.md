@@ -120,7 +120,7 @@ Black swans are events that: (1) appear implausible in advance, (2) have outsize
 
 ## Extended Wildcards Analysis
 
-### W4: Sudden US-EU Trade War Escalation
+### W7: Sudden US-EU Trade War Escalation
 
 **Description**: A Trump administration decision to impose 25%+ tariffs on EU manufactured goods (automotive, aerospace, chemicals) triggers a trade war that forces the EU to deprioritise the China-centric strategic autonomy agenda in favour of managing the transatlantic relationship.
 
@@ -133,7 +133,7 @@ Black swans are events that: (1) appear implausible in advance, (2) have outsize
 
 **Key signals to watch**: US Treasury designation of EU as currency manipulator; US Section 232 extension to EU; US withdrawal from NATO burden-sharing commitments
 
-### W5: EU Member State Financial Crisis
+### W8: EU Member State Financial Crisis
 
 **Description**: A sovereign debt crisis in a major EU economy (Italy or France) forces a political crisis that consumes all EU institutional bandwidth, delaying all strategic autonomy implementation.
 
@@ -141,7 +141,7 @@ Black swans are events that: (1) appear implausible in advance, (2) have outsize
 
 **Impact**: Halts all FDI screening implementing acts; SAFE procurement delayed; strategic autonomy agenda deprioritised for 12–24 months
 
-### W6: Russian Ceasefire and EU Strategic Ambiguity
+### W9: Russian Ceasefire and EU Strategic Ambiguity
 
 **Description**: A Russia-Ukraine ceasefire is agreed, reducing the security mobilisation narrative that has driven EU strategic autonomy. Political will for defence spending and FDI screening may weaken as "peace dividend" thinking returns.
 
@@ -159,14 +159,14 @@ mindmap
   root((Wildcards & Black Swans))
     Geopolitical
       W1-Ceasefire Ukraine
-      W4-US-EU Trade War
+      W7-US-EU Trade War
       Iran-Taliban Escalation
     Economic
-      W5-EU Financial Crisis
+      W8-EU Financial Crisis
       Energy Price Shock
       Chinese Recession
     Political
-      W6-Russia Peace Dividend
+      W9-Russia Peace Dividend
       Orbán Exit/Replacement
       EP10 Coalition Fracture
     Technological

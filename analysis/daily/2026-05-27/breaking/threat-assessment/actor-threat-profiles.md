@@ -119,12 +119,18 @@ The Taliban government seeks to preserve international diplomatic relationships 
 ## Threat Diamond Diagram
 
 ```mermaid
-radar
-    title Threat Actor Capability Comparison
-    China : 9, 10, 8, 6, 8
-    Hungary : 3, 5, 10, 8, 4
-    Taliban : 2, 2, 2, 5, 3
-    Russia : 6, 5, 3, 6, 7
+quadrantChart
+    title Threat Actor Capability Comparison (Economic vs Diplomatic)
+    x-axis Low Economic --> High Economic
+    y-axis Low Diplomatic --> High Diplomatic
+    quadrant-1 High Leverage
+    quadrant-2 Diplomatic Focus
+    quadrant-3 Low Impact
+    quadrant-4 Economic Focus
+    China: [0.90, 0.90]
+    Hungary: [0.30, 0.50]
+    Taliban: [0.20, 0.20]
+    Russia: [0.60, 0.60]
 ```
 
 Note: Axes = Diplomatic, Economic, Legal, Political, Asymmetric
