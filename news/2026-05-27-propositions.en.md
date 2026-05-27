@@ -1,7 +1,7 @@
 ---
-title: "Propositions Run 2026-05-27"
-description: "The May 2026 plenary package signals three inter-connected priorities: Published 2026-05-27."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-27", "plenary", "package", "signals"]
+title: "🟢 HIGH CONFIDENCE (WEP: 90–95%) — Run 262"
+description: "🟢 HIGH CONFIDENCE (WEP: 90–95%) — The European Parliament's May 2026 plenary session delivered a landmark cluster of legislative completions and."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-27", "HIGH", "CONFIDENCE", "European"]
 date: 2026-05-27
 article_type: propositions
 slug: 2026-05-27-propositions
