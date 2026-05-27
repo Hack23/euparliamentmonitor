@@ -69,10 +69,10 @@ safe-outputs:
   # excluded below via `excluded-files: analysis/**/data/**`, so this
   # headroom is reserved exclusively for analysis + article artifacts.
   max-patch-size: 10240
-  # Explicit file ceiling raised to 1000 (schema has no upper bound). Single
-  # runs typically touch ≤50 files (analysis + article + meta); 1000 gives
-  # generous headroom for catch-up flushes without ever approaching the cap.
-  max-patch-files: 1000
+  # Explicit file ceiling raised to 2500 (schema has no upper bound). Single
+  # runs typically touch ≤50 files (analysis + article + meta); 2500 gives
+  # generous headroom for large analysis runs and catch-up flushes.
+  max-patch-files: 2500
   # Cron retries handle failures; auto-created failure issues are noise.
   report-failure-as-issue: false
   # threat-detection + bundle-prerequisite steps + allowed-domains are inherited
