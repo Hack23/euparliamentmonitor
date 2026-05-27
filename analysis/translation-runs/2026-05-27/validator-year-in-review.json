@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-05-27T01:50:12.863Z",
+  "totals": {
+    "filesChecked": 13,
+    "violations": 0,
+    "blocking": 0,
+    "byGate": {},
+    "byLang": {}
+  },
+  "violations": []
+}
