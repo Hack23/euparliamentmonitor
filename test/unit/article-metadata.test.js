@@ -712,7 +712,12 @@ describe('resolveArticleMetadata — priority ladder', () => {
     });
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
-      expect(entry.title).toBe('OPERATOR HEADLINE');
+      // Manifest override still wins, but short titles (<20-char Latin
+      // / RTL floor) are SERP-floor-padded with ` (EP)` so they clear
+      // Google's reader-snippet truncation threshold. `toContain` keeps
+      // the override-priority assertion intact while permitting the
+      // SEO pad — see `padTitleToFloor` in `resolve-helpers.ts`.
+      expect(entry.title).toContain('OPERATOR HEADLINE');
       expect(entry.description).toContain('OPERATOR DESCRIPTION THAT MEETS THE LENGTH BAR.');
       expect(entry.description.length).toBeGreaterThanOrEqual(120);
     }
@@ -727,13 +732,15 @@ describe('resolveArticleMetadata — priority ladder', () => {
         title: { en: 'EN TITLE', sv: 'SV TITEL' },
       },
     });
-    expect(Object.getOwnPropertyDescriptor(result, 'en')?.value.title).toBe('EN TITLE');
-    expect(Object.getOwnPropertyDescriptor(result, 'sv')?.value.title).toBe('SV TITEL');
+    // Manifest override still wins, but short titles (<20-char Latin
+    // floor) gain the ` (EP)` SERP pad — see `padTitleToFloor`.
+    expect(Object.getOwnPropertyDescriptor(result, 'en')?.value.title).toContain('EN TITLE');
+    expect(Object.getOwnPropertyDescriptor(result, 'sv')?.value.title).toContain('SV TITEL');
     // Languages without an explicit override must NOT inherit the English
     // value — they fall through to the localized template so every locale
     // stays in its own language.
     const de = Object.getOwnPropertyDescriptor(result, 'de')?.value.title;
-    expect(de).not.toBe('EN TITLE');
+    expect(de).not.toContain('EN TITLE');
     expect(de.length).toBeGreaterThan(5);
   });
 
@@ -764,12 +771,14 @@ describe('resolveArticleMetadata — priority ladder', () => {
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.title.length).toBeGreaterThan(5);
-      // Clean prose ledes ≥ 100 chars are now preserved verbatim (no
-      // date-padding boilerplate). The fixture lede is 103 chars; the
-      // assertion floor is set just below it so the test asserts the
-      // new "no enrichment when description already substantive"
-      // contract rather than the old "always pad to 120+" behaviour.
-      expect(entry.description.length).toBeGreaterThanOrEqual(100);
+      // Clean prose ledes ≥ 100 chars are preserved verbatim for Latin
+      // locales. For CJK/RTL locales the SEO extraction Gate 4b forces
+      // enrichment (to inject locale-script labels) and then the tight
+      // per-script budget clamps the result (78 CJK / 150 RTL), so those
+      // locales legitimately produce shorter descriptions.
+      const NON_LATIN_LOCALES = ['ar', 'he', 'ja', 'ko', 'zh'];
+      const minLen = NON_LATIN_LOCALES.includes(lang) ? 50 : 100;
+      expect(entry.description.length).toBeGreaterThanOrEqual(minLen);
       expect(entry.keywords.length).toBeGreaterThan(3);
     }
   });

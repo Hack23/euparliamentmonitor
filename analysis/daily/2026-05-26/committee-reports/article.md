@@ -1,7 +1,7 @@
 ---
-title: "This executive brief synthesises EP committee intelligence for 26 May 2026"
-description: "The EP committee system in the week of 26 May 2026 represents a critical juncture in the 10th parliamentary term's legislative cycle."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-26", "This", "executive", "brief"]
+title: "The European Parliament's committee system enters — Run 260"
+description: "The European Parliament's committee system enters the week of 26 May 2026 in a period of high legislative demand with constrained monitoring visibility."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-26", "European", "Parliament", "committee"]
 date: 2026-05-26
 article_type: committee-reports
 slug: 2026-05-26-committee-reports

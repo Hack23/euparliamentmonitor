@@ -64,30 +64,12 @@
  */
 
 import { ALL_LANGUAGES } from '../constants/language-core.js';
-import type { LangTitleSubtitle, LanguageCode } from '../types/index.js';
+import type { LanguageCode } from '../types/index.js';
 import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
+import { resolveOneLanguage } from './metadata/per-language-resolver.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
-import {
-  buildSeoKeywords,
-  composeContextualDescription,
-  composeContextualExtendedDescription,
-  composeContextualTitle,
-  deriveHeadlineFromSummary,
-  hasLeakySeoToken,
-  isUsableResolvedTitle,
-  manifestOverrideFor,
-  pickFirstNonEmpty,
-  resolveEditorialContent,
-  sanitizeDescriptionCandidate,
-} from './metadata/resolve-helpers.js';
-import {
-  ENRICHMENT_TRIGGER_LENGTH,
-  truncateDescription,
-  truncateExtendedDescription,
-  truncateTitle,
-} from './metadata/text-utils.js';
+import { resolveEditorialContent } from './metadata/resolve-helpers.js';
 import type {
-  MetadataManifest,
   ResolvedMetadata,
   ResolvedMetadataEntry,
   ResolveMetadataOptions,
@@ -145,7 +127,7 @@ export {
   deriveElectionCycleLabel,
 } from './metadata/date-labels.js';
 
-export { buildSeoKeywords } from './metadata/resolve-helpers.js';
+export { buildSeoKeywords } from './metadata/seo-keywords.js';
 
 // --- Resolver orchestrator ---
 
@@ -160,7 +142,23 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
   const manifest = opts.manifest ?? {};
   const englishEditorial = resolveEditorialContent(opts);
   const template = buildTemplateFallback(opts.articleType, opts.date, manifest.committee);
-  const runId = manifest.runId?.trim() ?? '';
+  // Manifests may carry runId as a string (UUID) or a number (incrementing counter).
+  // Coerce to string before trimming to avoid `runId?.trim is not a function` on numeric IDs.
+  // When runId is a UUID (no embedded `runN` token), fall back to `articleTypeSlug`
+  // (e.g. "committee-reports-run50") which carries the run number we need for
+  // disambiguating same-date sub-runs.
+  const rawRunId =
+    manifest.runId === undefined || manifest.runId === null ? '' : String(manifest.runId).trim();
+  const slugForRun =
+    typeof (manifest as { articleTypeSlug?: unknown }).articleTypeSlug === 'string'
+      ? String((manifest as { articleTypeSlug?: string }).articleTypeSlug).trim()
+      : '';
+  const runId =
+    /(?:^|-)run\d+/u.test(rawRunId) || /^\d+$/u.test(rawRunId)
+      ? rawRunId
+      : slugForRun && /-run\d+$/u.test(slugForRun)
+        ? slugForRun
+        : rawRunId;
 
   const result: Record<LanguageCode, ResolvedMetadataEntry> = Object.create(null) as Record<
     LanguageCode,
@@ -177,6 +175,7 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
       articleType: opts.articleType,
       date: opts.date,
       runId,
+      resolveLocalizedBrief: resolveLocalizedBriefHighlight,
     });
     Object.defineProperty(result, lang, {
       value: entry,
@@ -187,206 +186,4 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
   }
 
   return result;
-}
-
-/**
- * Inputs to {@link resolveOneLanguage}. Extracting this struct keeps the
- * resolver's per-language loop body free of long argument lists.
- */
-interface PerLanguageInputs {
-  readonly lang: LanguageCode;
-  readonly manifest: MetadataManifest;
-  readonly englishEditorial: {
-    readonly headline: string;
-    readonly summary: string;
-    readonly extendedSummary: string;
-  };
-  readonly template: LangTitleSubtitle;
-  readonly runDir?: string | undefined;
-  readonly articleType: string;
-  readonly date: string;
-  readonly runId: string;
-}
-
-const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
-
-/**
- * Resolve `{title, description, keywords, source}` for one language.
- *
- * @param input - Per-language inputs
- * @returns One resolved metadata entry
- */
-function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
-  const manifestTitle = manifestOverrideFor(input.manifest.title, input.lang);
-  const manifestDescription = manifestOverrideFor(input.manifest.description, input.lang);
-
-  const perLanguage = resolvePerLanguageEditorial(input);
-  const editorial = perLanguage.editorial;
-
-  const contextualTitle = composeContextualTitle(
-    input.template.title,
-    editorial.headline,
-    input.runId
-  );
-  const title = pickFirstNonEmpty([manifestTitle, contextualTitle, input.template.title]);
-
-  const rawDescription = sanitizeDescriptionCandidate(
-    pickFirstNonEmpty([manifestDescription, editorial.summary, input.template.subtitle])
-  );
-
-  const safeEditorial = {
-    headline: isUsableResolvedTitle(editorial.headline) ? editorial.headline.trim() : '',
-    summary: sanitizeDescriptionCandidate(editorial.summary),
-    extendedSummary: sanitizeDescriptionCandidate(editorial.extendedSummary),
-  };
-
-  const normalizedRawDescription =
-    rawDescription || sanitizeDescriptionCandidate(input.template.subtitle);
-  const skipEnrichment =
-    perLanguage.source === LOCALIZED_BRIEF_SOURCE && normalizedRawDescription.length > 0;
-  const description =
-    skipEnrichment || normalizedRawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
-      ? normalizedRawDescription
-      : composeContextualDescription(
-          input.lang,
-          normalizedRawDescription,
-          safeEditorial,
-          input.date,
-          input.runId
-        );
-
-  const clippedTitle = truncateTitle(title).trim();
-  const explicitTitle =
-    manifestTitle && !hasLeakySeoToken(manifestTitle) ? truncateTitle(manifestTitle).trim() : '';
-  const allowShortResolvedTitle = perLanguage.source === LOCALIZED_BRIEF_SOURCE;
-  const resolvedTitleCandidate =
-    clippedTitle &&
-    !hasLeakySeoToken(clippedTitle) &&
-    (allowShortResolvedTitle || isUsableResolvedTitle(clippedTitle))
-      ? clippedTitle
-      : '';
-  const summaryDerivedTitle = deriveHeadlineFromSummary(
-    safeEditorial.summary || normalizedRawDescription
-  );
-
-  // `truncateTitle` returns '' when an editorial title overruns the
-  // budget with no acceptable clause boundary — fall back to the
-  // localized template title in that case so we never emit an empty
-  // `<title>`. Live regression: 2026-05-22 breaking
-  // `AI Trade Strategy: A Legislative First with Structural…` clipped
-  // to '' after the no-ellipsis guard landed; template fallback
-  // (`Extended Executive Brief — Breaking News`) is preferable to a
-  // blank `<title>`.
-  //
-  // The fallback path passes the template title back through
-  // {@link composeContextualTitle} (with an empty editorial headline)
-  // so `withRunQualifier` re-appends the `— Run N` suffix. Without
-  // this, two same-date / same-articleType runs (republish, hot-fix
-  // re-run) would collapse to byte-identical `<title>` strings, and
-  // the duplicate-title gate in `scripts/validate-article-seo.js`
-  // would (correctly) fail CI.
-  const contextualFallback = composeContextualTitle(input.template.title, '', input.runId);
-  const truncatedTitle = pickFirstNonEmpty([
-    explicitTitle,
-    resolvedTitleCandidate,
-    isUsableResolvedTitle(summaryDerivedTitle, { allowFullSentence: true })
-      ? summaryDerivedTitle
-      : '',
-    truncateTitle(contextualFallback),
-    contextualFallback,
-  ]);
-  const truncatedDescription = truncateDescription(description);
-
-  const extendedSource = sanitizeDescriptionCandidate(
-    manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription
-  );
-  // Two-tier extended-description resolution:
-  // 1. Direct truncation — preferred when the editorial source paragraph
-  //    is already ≥181 chars (the truncator's gating threshold). This
-  //    yields the highest-fidelity og:description text.
-  // 2. Contextual synthesis — when direct truncation returns '' (source
-  //    was too short), synthesize a longer string by stitching together
-  //    `<source> + Date: YYYY-MM-DD + Context: <editorial> + <reader>`.
-  //    This is the **only** SEO path that surfaces the localized
-  //    "for democratic-accountability readers …" framing (the short
-  //    <meta description> no longer carries it — see comment in
-  //    {@link composeContextualDescription}). The synthesized string is
-  //    re-clamped to the 200–300 char og:description budget.
-  //
-  // Live regression (2026-05): 56 breaking briefs shipped with empty
-  // extendedDescription because their lead paragraph was only 80–150
-  // chars. AI-overview and Discover surfaces dropped them entirely.
-  let truncatedExtendedDescription = truncateExtendedDescription(extendedSource);
-  if (!truncatedExtendedDescription) {
-    truncatedExtendedDescription = composeContextualExtendedDescription(
-      input.lang,
-      extendedSource || normalizedRawDescription,
-      safeEditorial,
-      input.date
-    );
-  }
-
-  const source: ResolvedMetadataEntry['source'] =
-    manifestTitle || manifestDescription ? 'manifest' : perLanguage.source;
-
-  return {
-    title: truncatedTitle,
-    description: truncatedDescription,
-    extendedDescription: truncatedExtendedDescription,
-    keywords: buildSeoKeywords(
-      input.lang,
-      input.articleType,
-      input.date,
-      input.runId,
-      truncatedTitle,
-      truncatedDescription
-    ),
-    source,
-  };
-}
-
-/**
- * Select the editorial `{headline, summary}` pair for one language,
- * preferring the translated `executive-brief_<lang>.md` over the English
- * brief.
- *
- * @param input - Per-language inputs
- * @returns Editorial pair plus the tier that produced it
- */
-function resolvePerLanguageEditorial(input: PerLanguageInputs): {
-  readonly editorial: {
-    readonly headline: string;
-    readonly summary: string;
-    readonly extendedSummary: string;
-  };
-  readonly source: ResolvedMetadataEntry['source'];
-} {
-  if (input.lang !== 'en' && input.runDir) {
-    const localized = resolveLocalizedBriefHighlight(
-      input.runDir,
-      input.lang,
-      input.articleType,
-      input.date
-    );
-    if (localized && (localized.headline || localized.summary)) {
-      return {
-        editorial: {
-          headline: localized.headline,
-          summary: localized.summary,
-          extendedSummary: localized.extendedSummary,
-        },
-        source: LOCALIZED_BRIEF_SOURCE,
-      };
-    }
-  }
-  if (input.englishEditorial.headline || input.englishEditorial.summary) {
-    return {
-      editorial: input.englishEditorial,
-      source: input.lang === 'en' ? 'english-editorial' : 'english-brief',
-    };
-  }
-  return {
-    editorial: { headline: '', summary: '', extendedSummary: '' },
-    source: 'template',
-  };
 }

@@ -1,7 +1,7 @@
 ---
-title: "Admiralty Grade Summary"
-description: "Overall Admiralty Grade: C3 (Fairly Reliable; Possibly True) — sufficient for strategic intelligence purposes"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-25", "Admiralty", "Grade", "Summary"]
+title: "AI Strategy for Trade — Landmark Non-Legislative"
+description: "The European Parliament adopted T10-0183/2026 — \"Opportunities and challenges presented by a comprehensive artificial intelligence strategy for EU trade\" — on 20 May 2026."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-25", "Strategy", "Trade", "Landmark"]
 date: 2026-05-25
 article_type: motions
 slug: 2026-05-25-motions

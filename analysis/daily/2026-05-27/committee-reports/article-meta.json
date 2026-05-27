@@ -1,0 +1,47 @@
+{
+  "date": "2026-05-27",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run271-1779861057",
+  "gateResult": "PENDING",
+  "slug": "2026-05-27-committee-reports",
+  "articlePath": "analysis/daily/2026-05-27/committee-reports/article.md",
+  "topFinding": "The European Parliament's May 2026 plenary marked a high-output legislative week that advanced three strategic priorities simultaneously: AI trade governance, fisheries diplomacy, and external partnership architecture.",
+  "keyTakeaways": [
+    "The WTO compatibility question: EU AI standards embedded in trade deals create potential",
+    "The China dimension: TECN subject coding in the context of AI trade invariably engages the",
+    "The US alignment question: Post-TTIP failure, any AI trade instrument needs to balance",
+    "TA-10-2026-0178: EC–São Tomé and Príncipe Fisheries Partnership (2025–2029 protocol)",
+    "TA-10-2026-0179: EU–Cook Islands Sustainable Fisheries Partnership (2025–2032 protocol)",
+    "TA-10-2026-0174: EU–Uzbekistan Enhanced Partnership and Cooperation Agreement (Resolution)",
+    "TA-10-2026-0177: EU–Lebanon Agreement on Eurojust cooperation (criminal justice)"
+  ],
+  "topRisks": [
+    "**Evidence strength** (1–5): Quality of supporting evidence",
+    "**Strategic weight** (1–5): Importance to EP10 mandate",
+    "**Time horizon** (Short/Medium/Long): When impact materialises"
+  ],
+  "keyDates": [
+    "US–EU TTC ministerial outcome (expected Q3 2026): AI governance agenda item?",
+    "US mid-cycle election outcome (November 2026) shifting US trade posture",
+    "If EP fails to pass follow-up INI resolution by October 2026: increases scenario C probability"
+  ],
+  "keyActors": [
+    "EP Plenary ← Committee reports (INTA, PECH, JURI, AFET)",
+    "EP ← Commission legislative proposals and negotiated texts",
+    "EP ← Civil society and industry lobbying (written opinions, hearings)",
+    "EP → Media (press releases, debates, vote outcomes)",
+    "EP → Third countries (signals via adopted texts)"
+  ],
+  "macroContext": "The EP's May 2026 legislative output operates against a backdrop of:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -82,8 +82,29 @@ export const HEADLINE_HARD_MIN = 30;
  * em-dash that introduces a list of consequences is the best break,
  * full stops are next, and semicolons last. Single ASCII space is
  * always a fallback boundary handled separately.
+ *
+ * The CJK / Arabic / Hebrew terminators at the tail (no trailing space)
+ * preserve sentence breaks in `executive-brief_<ja|ko|zh|ar|he>.md`
+ * where Western `. ` never appears. CJK uses `。！？`, Arabic uses
+ * `؟؛،`, Hebrew uses plain `.` without trailing space (rare; the
+ * primary marker is the same Latin set).
  */
-export const HEADLINE_CLAUSE_BOUNDARIES: readonly string[] = [': ', ' — ', ' – ', '. ', '; ', ', '];
+export const HEADLINE_CLAUSE_BOUNDARIES: readonly string[] = [
+  ': ',
+  ' — ',
+  ' – ',
+  '. ',
+  '; ',
+  ', ',
+  '。',
+  '！',
+  '？',
+  '；',
+  '，',
+  '،',
+  '؛',
+  '؟',
+];
 
 // ────────────────────────────────────────────────────────────────────────
 // Banner / metadata-row vocabularies
