@@ -1,5 +1,5 @@
 ---
-title: "KJ-01: AI Trade Strategy Resolution (#271)"
+title: "AI Trade Strategy Resolution — Landmark or Aspirational?"
 description: "Assessment: More likely to be landmark than aspirational (55–65%), but execution is not guaranteed. Published 2026-05-27."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-27", "Trade", "Strategy", "Resolution"]
 date: 2026-05-27

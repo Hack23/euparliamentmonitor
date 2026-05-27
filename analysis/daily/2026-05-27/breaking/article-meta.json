@@ -20,7 +20,8 @@
     "**Priority**: R < 5 = LOW; 5–9 = MEDIUM; 10–15 = HIGH; >15 = CRITICAL",
     "`intelligence/threat-model.md` for threat-specific analysis",
     "`intelligence/scenario-forecast.md` for scenario development",
-    "`intelligence/wildcards-blackswans.md` for tail risk analysis"
+    "`intelligence/wildcards-blackswans.md` for tail risk analysis",
+    "EP `get_adopted_texts(year=2026)` — primary legislative record — Grade A2"
   ],
   "keyDates": [
     "🟡 Transposition variance between member states visible by Q2 2027",

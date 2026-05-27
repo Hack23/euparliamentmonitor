@@ -19,6 +19,8 @@ const RUN_TOKEN_STRIP_RE = /\bRun\s+\d[\d-]*/giu;
 const RUNID_TOKEN_STRIP_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}[\s,;:|/]*/giu;
 /** "analysis run" phrase strip. */
 const ANALYSIS_RUN_STRIP_RE = /\banalysis\s+run\s*\d*[\s,;:|/]*/giu;
+/** All-caps document-reference prefix (e.g. "KJ-01: ", "SITUATION: "). */
+const DOC_REF_PREFIX_RE = /^[A-Z][A-Z0-9 -]{1,40}:\s+/u;
 
 /** Minimum title length below which a title is unusable. */
 const SEO_TITLE_FLOOR = 20;
@@ -76,7 +78,9 @@ export function stripLeakyRunTokens(value: string): string {
 export function sanitizeTitleCandidate(value: string): string {
   if (!value) return '';
   if (/\banalysis\s+run\b/iu.test(value)) return '';
-  return stripLeadingFragmentSeparator(stripLeakyRunTokens(value));
+  const stripped = stripLeadingFragmentSeparator(stripLeakyRunTokens(value));
+  // Strip all-caps document-reference prefixes (KJ-01:, SITUATION:, etc.)
+  return stripped.replace(DOC_REF_PREFIX_RE, '');
 }
 
 /**

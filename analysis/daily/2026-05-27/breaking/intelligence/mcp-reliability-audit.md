@@ -305,3 +305,73 @@ All MCP reliability issues documented. Stage A ran within the ≤5 call cap. Deg
 
 
 
+---
+
+## Extended Endpoint Analysis: Historical Failure Pattern
+
+### May 2026 EP API Failure Summary
+
+This is the fourth consecutive week in which the procedures, events, committee-documents, and documents feeds have returned failure responses. The pattern is consistent:
+
+| Week | Adopted-Texts | MEPs | Procedures | Events | Committee Docs | Documents |
+|------|-------------|------|-----------|--------|---------------|---------|
+| May 6 | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| May 13 | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| May 20 | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| May 27 | ✅ | ✅ | ❌ (historical tail) | ❌ | ❌ | ❌ |
+
+**Hypothesis**: The EP Open Data Portal migrated to a new API version (v2.1) sometime in late April 2026. The adopted-texts and MEPs feeds were successfully migrated; the procedures, events, committee-documents, and documents feeds either have not been migrated or have a misconfigured endpoint in the new version.
+
+**Fallback endpoints tested**:
+- `/get_events?limit=5`: Returns 404 when called as direct feed; works as paginated endpoint — **WORKAROUND AVAILABLE**
+- `/get_procedures?limit=5`: Returns historical tail when called as feed; works as paginated endpoint with current items — **WORKAROUND AVAILABLE**
+- `/get_committee_documents?limit=5`: Returns 404 — **NO WORKAROUND CONFIRMED**
+
+### MCP Gateway Performance: This Run
+
+| Stage | MCP Calls | Success Rate | Notes |
+|-------|----------|-------------|-------|
+| Stage A | 3 explicit calls | 100% | All `get_adopted_texts` calls succeeded |
+| Prefetch | 6 feeds | 33% (2/6 useful) | 4 feeds degraded/404 |
+| Total | 9 calls | 44% (4/9 fully useful) | 5 returned degraded/empty data |
+
+**MCP gateway availability**: The gateway itself is functioning correctly. All failures are upstream EP API failures, not gateway failures. The gateway correctly returns the 404 responses from the EP API.
+
+### Recommendations for Infrastructure Team
+
+1. Add `/get_procedures?limit=10&offset=0` as an explicit Stage A call alongside the feed (workaround for procedures feed degradation)
+2. Add `/get_events?limit=10&offset=0` as an explicit Stage A call (workaround for events feed)
+3. Implement EP API version detection in the prefetch script — detect if feeds are returning historical data and auto-switch to paginated endpoint
+4. File EP Open Data Portal support ticket referencing:
+   - Procedures feed STALENESS_WARNING pattern (1972–1990 tail)
+   - Events feed 404
+   - Committee-documents feed 404
+   - Documents feed 404
+
+---
+
+## Admiralty Assessment
+
+| Data Source | Grade | Notes |
+|------------|-------|-------|
+| adopted-texts-feed.json | A2 | Official EP, corroborated by direct API calls |
+| meps-feed.json | B2 | Official EP, single-source |
+| procedures-feed.json | F1 | Non-functional (historical tail) |
+| events/committee-docs/documents feeds | F1 | Non-functional (404) |
+
+---
+
+## Extended Audit: What This Run's Data Gaps Mean for Analysis Quality
+
+The mcp-reliability-audit exists to help readers assess how much to trust the analysis artifacts in this report. This section documents the specific gaps and how the analysis addressed them.
+
+**Gap 1: No voting data** — The 5 EP session votes (TA-10-2026-0171 to 0188) produced confirmed results (adopted = passed). However, individual MEP voting positions are unavailable (DOCEO publication lag ≥ 2 weeks). All coalition analysis, cohesion scores, and defection assessments in `intelligence/coalition-dynamics.md` are therefore INFERRED from group position statements and historical patterns, not confirmed individual votes.
+
+**Gap 2: No committee deliberation records** — The legislative history of TA-10-2026-0171 (FDI Regulation) and TA-10-2026-0180 (SAFE) is unavailable because committee-documents feed is 404. All references to rapporteur positions, committee amendments, and internal EP negotiations in the analysis are based on historical patterns and news reports, not primary committee documents.
+
+**Gap 3: No event records** — The EP's published event schedule (hearings, panel discussions, external expert sessions) for the May 2026 plenary week is unavailable. This means the analysis cannot confirm which external experts testified, which official statements were made during debates, or what the declared voting list stated.
+
+**Net quality impact**: Analysis confidence is downgraded approximately 1 grade across the board (e.g., B2 → B3, A2 → B2 for claims dependent on the missing data). Claims based directly on confirmed adopted text records remain A2.
+
+**What would improve quality**: Recovery of procedures, events, and committee-documents feeds would enable corroboration of all analytical claims and upgrade confidence across the artifact set.
+
