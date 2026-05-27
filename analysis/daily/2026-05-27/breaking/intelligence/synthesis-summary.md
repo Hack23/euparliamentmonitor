@@ -142,3 +142,27 @@ graph TD
 
 **What this means for citizens**: The European Parliament this week quietly completed one of the most significant weeks of legislation in the EU's current parliament. The mandatory foreign investment screening law, the Canada defence partnership, and the Afghanistan women's rights resolution together represent the EU's most comprehensive exercise of its economic security and values mandates since the founding of the current parliament in 2024. Whether any of this matters in practice depends on what happens in the next 90 days at the Commission and Council levels.
 
+---
+
+## Extended Analysis: Third-Order Consequences
+
+**1. Institutional Precedent Effects**: The FDI Screening Regulation's passage through COD creates a Treaty interpretation precedent. Future regulations asserting economic security justifications for market restrictions will cite TA-10-2026-0171 as the template. Expect Commission proposals on critical raw materials (lithium, cobalt) and pharmaceutical supply chains in H2 2026 to follow the same Article 207 + Art. 114 TFEU basis.
+
+**2. SAFE Expansion Trajectory**: Following Canada, the SAFE Instrument will likely expand to Japan (AFET committee mandate from earlier EP10 session) and Australia (Quad alignment). Each expansion normalises the EU as a defence partnership actor in multilateral security architectures — a role the EU has carefully avoided since the CFSP/ESDP debates of the 1990s.
+
+**3. Human Rights Architecture**: The three urgent resolutions (Iran, Afghanistan, Indonesia) form part of the EP's broader effort to create a "parliamentary human rights record" that the Council cannot simply ignore. The EP systematically links financial instruments to human rights benchmarks in committee reports; the urgency resolutions are the public face of this behind-the-scenes conditionality work.
+
+**4. Slovakia Governance Crisis: Scenarios**:
+- Scenario S1 (45%): Fico government survives; EU applies financial conditionality through Cohesion Fund; Slovakia "muddles through" maintaining EU membership while receiving reduced transfers
+- Scenario S2 (35%): Early elections in Slovakia (2026 or 2027); new coalition aligns with EU norms; Article 7 proceedings suspended
+- Scenario S3 (15%): Fico doubles down; full Article 7(2) TEU sanctions procedure (requires 4/5 Council majority — may not be achievable given Hungary veto)
+- Scenario S4 (5%): Slovak constitutional court overturns challenged provisions; crisis defused without EU intervention
+
+---
+
+## Sources and Confidence
+
+- EP `get_adopted_texts(year=2026)` — 192 items — Grade A2
+- `intelligence/mcp-reliability-audit.md` — data mode documentation
+- `classification/significance-classification.md` — significance framework
+

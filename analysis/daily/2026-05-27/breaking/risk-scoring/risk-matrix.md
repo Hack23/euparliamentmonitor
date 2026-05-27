@@ -135,3 +135,30 @@ quadrantChart
 | Unlikely | 15–44% |
 | Almost No Chance | 1–14% |
 
+---
+
+## Extended Risk Register: Implementation Risks
+
+The risk matrix above addresses political risks. The following register addresses implementation risks — risks that arise after the legislation enters force and during Council and Commission follow-through:
+
+| Risk ID | Risk Description | Likelihood | Impact | Score | Mitigation |
+|---------|-----------------|-----------|--------|-------|-----------|
+| IMPL-01 | Member State gold-plating of FDI screening thresholds — some MS create stricter national rules, fragmenting single market | 60% | Medium | 12 | Commission guidance notes; infringement proceedings if excessive |
+| IMPL-02 | Council implementation decision delays (>12 months post-EP) on SAFE–Canada | 45% | Medium | 9 | EP budget committee leverage via consent-procedure precedent |
+| IMPL-03 | China WTO challenge to FDI screening regulation under GATT Art. XVII | 55% | High | 17 | EU WTO defence team preparedness; security exception (GATT Art. XXI) arguable |
+| IMPL-04 | Slovak government non-compliance with EP human rights conditions | 70% | Medium | 14 | Cohesion fund conditionality (already available under Rule of Conditionality Reg.) |
+| IMPL-05 | AI trade strategy ignored by Commission — no follow-up legislative proposal | 65% | Low | 7 | EP own-initiative reports have follow-up; INTA committee pressure |
+| IMPL-06 | Afghanistan Taliban escalation before Council FAC meeting — renders resolution obsolete | 15% | High | 12 | Automatic trigger for emergency Council discussion |
+| IMPL-07 | SAFE instrument legal challenge at CJEU (Art. 267 TFEU reference) | 25% | High | 15 | EP Legal Service opinion (assumed favourable); CJEU recent jurisprudence on CFSP |
+
+**Overall implementation risk**: MEDIUM — Legal framework is solid but execution depends on Commission and Member State political will.
+
+---
+
+## Sources
+
+- EP `get_adopted_texts(year=2026)` — primary legislative record — Grade A2
+- `intelligence/threat-model.md` — threat actor context
+- IMF WEO April 2026 — economic risk baseline
+- `intelligence/scenario-forecast.md` — scenario probability inputs
+

@@ -114,3 +114,21 @@ graph LR
 
 **For citizens**: This index shows all the research and analysis that underpins the news article you are reading. Each artifact is a structured analytical product using a specific intelligence methodology — not editorial opinion. The executive-brief.md gives you the quick version; the extended/ artifacts give you the expert-level detail.
 
+---
+
+## Artifact Count Summary
+
+| Directory | Count | Status |
+|-----------|-------|--------|
+| Root level | 3 | executive-brief.md, data-availability-assessment.md, manifest.json |
+| classification/ | 5 | actor-mapping, forces-analysis, impact-matrix, significance-classification, (other) |
+| intelligence/ | ~18 | synthesis-summary, scenario-forecast, stakeholder-map, etc. |
+| risk-scoring/ | 4 | quantitative-swot, risk-matrix, legislative-velocity, political-capital |
+| threat-assessment/ | 3 | actor-threat-profiles, consequence-trees, legislative-disruption |
+| extended/ | ~12 | all extended analysis artifacts |
+| documents/ | 1 | document-analysis-index |
+| data/ | 6 | all pre-fetched feed files |
+| runs/ | 3 | thresholds-cache, prior-run-diff, workflow-audit |
+
+**Total artifacts**: ~55 files across all directories (manifest authoritative)
+

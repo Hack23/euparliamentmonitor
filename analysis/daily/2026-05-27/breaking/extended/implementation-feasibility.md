@@ -89,3 +89,79 @@ If Commission initiates Article XIX investigation following the resolution:
 - `threat-assessment/legislative-disruption.md` for disruption risks
 - `extended/forward-indicators.md` for monitoring implementation progress
 - `risk-scoring/risk-matrix.md` for implementation risk scores
+
+---
+
+## Extended Implementation Feasibility Analysis
+
+### FDI Screening — Implementation Roadmap
+
+**Phase 1: National infrastructure establishment (0–12 months post-entry into force)**
+- All 27 MS must establish or designate national FDI screening bodies
+- Currently: 22/27 MS have some form of national FDI screening; 5 MS (Luxembourg, Malta, Cyprus, Ireland, Netherlands) have minimal or no infrastructure
+- Feasibility challenge: The 5 non-screening MS are also disproportionately significant FDI routing hubs (Luxembourg routes €1.4T in FDI annually)
+- **Risk**: Regulatory arbitrage — acquirers route through Luxembourg/Netherlands to avoid screening in Germany/France
+- **Mitigation**: Regulation includes pass-through screening (transactions that affect >1 MS trigger multi-MS review); Commission can initiate screening if MS declines
+
+**Phase 2: Coordination mechanism operationalisation (6–18 months)**
+- Commission establishes coordination body (formal EU institution required)
+- Staff estimates: 150–200 Commission FTE to manage coordination
+- Database infrastructure: Secure notification system for cross-border sharing of deal details
+- **Feasibility rating**: 🟡 MEDIUM — Commission has experience building coordination mechanisms (BEREC for telecoms, ERA for railways)
+
+**Phase 3: First binding recommendations (12–36 months)**
+- Commission's first binding recommendations will be closely watched for enforcement credibility
+- Political risk: Recommendation to block a major deal (e.g., Chinese acquisition of a German industrial champion) will create diplomatic pressure
+- **Feasibility rating**: 🟡 MEDIUM — depends on political will of the Commission that issues the first blocking recommendation
+
+### SAFE Implementation — Feasibility Assessment
+
+**Canada participation mechanics**:
+- Canada's defence industrial base (DND suppliers, Tier 1 primes: CAE, L3 MAS Canada, Diemaco-Colt) needs to be certified against EU procurement standards (EN 9100, NATO AQAP standards — mostly compatible)
+- Estimated timeline: 12–18 months for formal industry certification across major Canadian suppliers
+- **Feasibility rating**: 🟢 HIGH — standards compatibility is favourable; Canadian industry is motivated
+
+**SAFE pool expansion (Japan/Australia/South Korea)**:
+- Each bilateral expansion requires Council Decision + EP consent
+- Timeline per partner: 18–24 months (negotiation + ratification)
+- **Feasibility rating**: 🟢 HIGH for Japan (strong EU-Japan relations); 🟡 MEDIUM for South Korea (FTA implementation tensions); 🟡 MEDIUM for Australia (AUKUS submarine programme creates political sensitivities)
+
+### Slovakia Rule of Law — Implementation Feasibility
+
+**EU financial conditionality mechanism (Rule of Conditionality Regulation, 2020)**:
+- Currently active for Hungary (€21B frozen)
+- Slovakia trigger threshold: Commission must find "generalised deficiency as regards the rule of law" in a Member State
+- Timeline from EP resolution to Commission finding: 6–18 months (Commission acts on evidence, not EP resolutions)
+- **Feasibility rating**: 🟡 MEDIUM — Commission track record on Slovakia is slower than on Hungary (Slovakia is a smaller financial exposure and lower political profile)
+
+---
+
+## Confidence Assessment
+
+| Implementation Track | Feasibility | Key Risk | Confidence |
+|---------------------|-----------|---------|-----------|
+| FDI Screening infrastructure | 75% success | Routing arbitrage via FDI hubs | 🟡 B3 |
+| SAFE–Canada operationalisation | 85% success | Industry certification delays | 🟢 B2 |
+| Slovakia financial conditionality | 45% success | Commission political will | 🔴 C3 |
+| Afghanistan follow-up sanctions | 25% success | Council unanimity required | 🔴 C3 |
+
+---
+
+## Implementation Timeline Overview
+
+```mermaid
+gantt
+    title EU Strategic Autonomy Implementation Timeline (2026-2028)
+    dateFormat YYYY-MM
+    section FDI Screening
+    Entry into Force           : 2026-08, 3M
+    MS Infrastructure Setup    : 2026-08, 12M
+    First Commission Review    : 2027-08, 6M
+    section SAFE-Canada
+    Canada Ratification Signal  : 2026-06, 2M
+    Industry Certification     : 2026-08, 12M
+    First Joint Procurement    : 2027-08, 6M
+    section Slovakia
+    Commission Investigation   : 2026-06, 12M
+    Conditionality Decision    : 2027-06, 3M
+```

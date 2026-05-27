@@ -195,3 +195,38 @@ quadrantChart
     Steel-Safeguard-Success: [0.55, 0.55]
 ```
 
+---
+
+## Extended Scenario Context: External Triggers
+
+**Trigger 1: US-China trade war escalation** — If the US imposes additional technology export controls on EU companies (extraterritorial application), the EP's strategic autonomy agenda accelerates dramatically. *Likely* (WEP 60%) that some form of US-EU trade tension emerges in 2026–2027.
+
+**Trigger 2: Another Russian escalation** — If Russia expands its military activity beyond Ukraine (Moldova, Baltic states), the SAFE instrument's scope expands rapidly. Commission and Council would fast-track additional SAFE bilateral agreements. *Unlikely* (WEP 20%) in the 12-month horizon; *Roughly Even* (WEP 45%) in 5-year horizon.
+
+**Trigger 3: Chinese action on Taiwan** — If China takes coercive action against Taiwan, FDI screening implementation would be dramatically accelerated. National security exception claims would override any WTO challenge. *Almost No Chance* (WEP 8%) in 12-month horizon; *Unlikely* (WEP 25%) in 5-year horizon.
+
+**Admiralty grades**: All trigger assessments are C3 (speculative, unconfirmed). The base-case scenario probabilities use A2 source data for confirmed EP votes; C3 for geopolitical scenario modelling.
+
+---
+
+## Scenario Confidence Summary Table
+
+| Scenario | WEP Probability | Confidence Grade | Key Uncertainty |
+|---------|----------------|----------------|----------------|
+| Scenario A: Full implementation | *Likely* (60%) | B3 | MS implementation quality |
+| Scenario B: Partial — FDI weakened | *Roughly Even* (35%) | C2 | WTO/Council politics |
+| Scenario C: Reversal | *Almost No Chance* (5%) | C3 | Hypothetical coalition collapse |
+| Scenario D: Acceleration (US-China shock) | *Unlikely* (20%) | C3 | External trigger dependent |
+| Scenario E: SAFE expansion | *Roughly Even* (40%) | C2 | Canada ratification + EP budget |
+
+**Composite scenario forecast** (weighted expected outcome):
+- 60% × Scenario A (full implementation) = 0.60 weighted share
+- 35% × Scenario B (partial) = 0.35 weighted share  
+- 5% × other scenarios = 0.05 weighted share
+
+**Bottom line**: The most likely outcome is that 2 of the 5 adopted measures achieve substantial implementation; 1 achieves partial implementation; and 2 (human rights resolutions) remain largely symbolic. This is the base-case scenario for this analysis.
+
+---
+
+*Sources*: Scenario probabilities derived from `extended/forward-indicators.md`, `intelligence/threat-model.md`, `extended/historical-parallels.md`, and current political dynamics. All scenario assessments are Grade B3–C2 (analytical inference).
+
