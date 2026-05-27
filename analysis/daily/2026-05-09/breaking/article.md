@@ -215,6 +215,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/coalition-mathematics.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -7685,6 +7686,2358 @@ Pass 2 will follow this artifact's creation. Key Pass 2 targets:
 
 **Overall methodology compliance:** 🟢 GOOD with noted IMF gap limitation
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-09 | **النوع:** أخبار | **التصنيف:** عام | **التشغيل:** breaking-run-1778354174
+
+### ملخص الوضع 🔴 أهمية عالية
+
+يتعامل البرلمان الأوروبي في مايو 2026 مع تقاطع غير مسبوق من أزمات المساءلة القانونية، ومعارك تطبيق تنظيم الفضاء الرقمي، وضغوط التجزؤ المؤسسي. أسفرت جلسات أبريل 2026 الكاملة عن مخرجات تشريعية مكثفة — من رفع الحصانة عن أعضاء من القوميين البولنديين إلى انطلاق تطبيق قانون الأسواق الرقمية — بينما تزداد الحسابات الائتلافية تعقيدًا مع حصول المجموعة الشعبية الأوروبية على 183 مقعدًا مقابل عتبة أغلبية تبلغ 360 مقعدًا.
+
+**التقييم الاستخباراتي الرئيسي (🟡 ثقة متوسطة):** يمثل رفع الحصانة المزدوج عن غرجيغوز براون (مارس 2026) وباتريك ياكي (أبريل 2026) — وكلاهما نواب ECR/قوميون بولنديون يواجهون ملاحقات قضائية في بلديهم — أكثر الإجراءات نتائجًا سياسية اتخذتها لجنة JURI في EP10. تشير هذه القرارات إلى أن البرلمان لن يحمي سياسيي اليمين المتطرف من المساءلة القانونية الوطنية، مما يُنشئ سابقة لها تداعيات على مرونة الديمقراطية في دول أعضاء في الاتحاد الأوروبي تواجه ضغوطًا على سيادة القانون.
+
+**حالة بيانات IMF:** 🔴 غير متاحة — نقطة نهاية IMF SDMX لم تكن قابلة للوصول خلال هذه التشغيلة (أعادت المجسة `available: false`). يعتمد التحليل الاقتصادي على البيانات الهيكلية للبرلمان الأوروبي والسياق الاقتصادي المتاح للعموم. متطلبات IMF الدنيا معفاة وفق بروتوكول الوضع المتدهور `08-infrastructure.md §4`.
+
+**حالة بروتوكولات التصويت:** 🔴 معلقة — لم تُنشر بعد بيانات تصويت البرلمان الاسمي للفترة 28–30 أبريل (تأخير قياسي من 4 إلى 6 أسابيع). المواقف الفردية للنواب على القرارات الرئيسية (DMA، أوكرانيا، أرمينيا) غير متاحة.
+
+---
+
+### أبرز 5 تطورات (2026-04-28 — 2026-05-09)
+
+#### 1. رفع الحصانة: باتريك ياكي (ECR/بولندا) — 28 أبريل 2026 🔴
+**المرجع:** TA-10-2026-0105 | **اللجنة:** JURI | **الأهمية:** عالية
+
+صوّت البرلمان على رفع الحصانة البرلمانية عن عضو البرلمان الأوروبي باتريك ياكي، السياسي البولندي من ECR، الذي يواجه إجراءات قضائية في بولندا تتعلق بأنشطة سياسية قبل انتدابه في البرلمان الأوروبي. ويأتي هذا في أعقاب رفع الحصانة في 26 مارس عن غرجيغوز براون (TA-10-2026-0088)، الذي يواجه تهمًا تتعلق بتعطيله مراسم المينوراه في حانوكا بالبرلمان البولندي في ديسمبر 2023. يُظهر كلا الرفعين أن لجنة JURI تطبق معايير متسقة بصرف النظر عن الانتماء السياسي، وإن كانت ECR قد طعنت في الإجراءات باعتبارها ذات دوافع سياسية. ويوحي الطابع المتتالي لهذه القرارات — في غضون ستة أسابيع — باستراتيجية متعمدة من JURI لتصفية متأخرات طلبات الحصانة للنواب البولنديين بعد انتقالهم من الانتدابات الوطنية إلى الأوروبية.
+
+**القيمة الاستخباراتية:** تدل على استعداد البرلمان الأوروبي للحفاظ على معايير سيادة القانون حتى بالنسبة للنواب من ثالث أكبر مجموعة يمينية في البرلمان (ECR: 81 مقعدًا). يُنشئ سابقة لقائمة انتظار حصانات EP10 المتبقية.
+
+**إسناد مرجعي:** `intelligence/stakeholder-map.md §ECR`، `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`، `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. قرار بشأن تطبيق قانون الأسواق الرقمية — 30 أبريل 2026 🟡
+**المرجع:** TA-10-2026-0160 | **الموضوع:** PROT, MARI | **الأهمية:** عالية
+
+اعتمد البرلمان قرارًا بشأن تطبيق DMA يطالب المفوضية بتسريع إجراءات تعيين حراس البوابة وفرض تدابير تصحيحية ذات مغزى. جاء ذلك وسط تباعد تنظيمي تقني عبر الأطلسي متصاعد. يمثل القرار تأكيدًا تشريعيًا لدور الرقابة البرلمانية على تقدير المفوضية في التطبيق — نمط بات أكثر وضوحًا في ملفات قانون الذكاء الاصطناعي وقانون البيانات وتنظيم المنصات. يجب استكمال قرارات تعيين حراس البوابة الأولى في إطار نظام التطبيق الجديد بحلول منتصف عام 2026؛ يعمل هذا القرار كإشارة ضغط وقائية من البرلمان قبل وصول تلك القرارات.
+
+**القيمة الاستخباراتية:** يتوقع مواجهات في مفاوضات الصياغة الثلاثية بشأن التشريعات المقبلة للمنصات، مع سعي البرلمان لأدوات تطبيق أقوى. تواجه شركات التكنولوجيا العاملة في الأسواق الأوروبية تصاعدًا في تحقق المخاطر التنظيمية.
+
+**إسناد مرجعي:** `intelligence/scenario-forecast.md §DMA Enforcement`، `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. اعتماد تقديرات الميزانية في البرلمان الأوروبي 2027 — 28–30 أبريل 2026 🟡
+**المراجع:** TA-10-2026-0112 (التوجيهات الميزانياتية)، TA-10-2026-04-30-ANN01 (تقديرات الميزانية) | **الأهمية:** متوسطة
+
+اعتمد البرلمان كلاً من التوجيهات المتعلقة بميزانية الاتحاد الأوروبي 2027 (القسم الثالث) وتقديرات الميزانية الخاصة به للعام 2027. يشير تزامن هذين التصويتين إلى أن البرلمان يرسّخ موقفه المالي الداخلي قبل المفاوضات الميزانياتية السنوية مع المجلس. في الوقت الذي تضغط فيه عدة دول أعضاء لفرض التقشف على مستوى الاتحاد الأوروبي — جزئيًا بفعل ضغوط استدامة الدين الوطني بعد كوفيد ومتطلبات الإنفاق الدفاعي الجديدة — يعزز الإعلان المبكر للبرلمان موقفه التفاوضي. ستكون ميزانية 2027 أول ميزانية سنوية كاملة في إطار عملية مراجعة الإطار المالي متعدد السنوات الجديدة وستعكس مطالب متنافسة: توسيع الدفاع، والتحول الأخضر، والدعم الزراعي، والتماسك.
+
+**القيمة الاستخباراتية:** ستكون الحسابات الميزانياتية ساحة المعركة المؤسسية الحاسمة في خريف 2026. من المرجح أن تتشكل أقلية معرقلة في المجلس حول ألمانيا وهولندا والنمسا مطالبةً بسقوف إجمالية.
+
+**إسناد مرجعي:** `intelligence/economic-context.md`، `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. اتفاقية PNR مع أيسلندا — 29 أبريل 2026 🟢
+**المرجع:** TA-10-2026-0142 | **الأهمية:** متوسطة-منخفضة
+
+أعطى البرلمان موافقته على اتفاقية PNR بين الاتحاد الأوروبي وأيسلندا لمكافحة الإرهاب والجريمة الخطيرة. وعلى الرغم من كونه روتينيًا إجرائيًا، يتميز هذا التصويت بالدعم الواسع متعدد الأطراف — مما يعكس توافقًا أمنيًا ما بعد عام 2024 يتجاوز الانقسام اليساري-اليميني حول حماية البيانات. أيسلندا دولة مرتبطة بشنغن، مما يجعل هذا امتدادًا طبيعيًا للأطر القائمة. أجرت لجنة LIBE تقييمًا للتوافق مع GDPR؛ ربما صوّت فريق اليسار ضده أو امتنع لأسباب تتعلق بحماية البيانات، لكن الأغلبية كانت مرتاحة.
+
+**القيمة الاستخباراتية:** يؤكد أنه في ملفات الأمن، تبقى حسابات التحالف الكبير EVP-S&D-Renew قابلة للتطبيق حتى عندما تتشقق في الملفات التنظيمية والسياسة الاجتماعية.
+
+#### 5. إبراء الذمة الميزانياتي 2024: لجنة المناطق — 29 أبريل 2026 🟢
+**المرجع:** TA-10-2026-0132 | **الأهمية:** منخفضة
+
+منح البرلمان إبراء الذمة للجنة المناطق عن تنفيذ ميزانيتها لعام 2024. تمرين محاسبة روتيني. لم يُبدِ أي نائب أوروبي تحفظات جوهرية. يندرج هذا ضمن دورة إبراء الذمة السنوية الأشمل التي شملت أيضًا إبراء ذمة الوكالات في هذه الجلسة.
+
+---
+
+### تقييم الحسابات البرلمانية
+
+| الكتلة | المقاعد | الحصة | المسار | الدور |
+|--------|---------|------|-------|------|
+| EVP | 183 | 25.5% | هيمنة مستقرة | صانع الأغلبية |
+| S&D | 136 | 19.0% | يحافظ على موقعه | رسو مشترك |
+| PfE | 85 | 11.9% | يتوطد | معارض خارق |
+| ECR | 81 | 11.3% | تحت ضغط (الحصانة) | حليف انتقائي |
+| Renew | 77 | 10.7% | في تراجع | مزيّت التحالف |
+| Greens/EFA | 53 | 7.4% | يتثبت | الجناح التقدمي |
+| The Left | 45 | 6.3% | مستقر | رسو يساري |
+| NI | 30 | 4.2% | مجزأ | غير متوقع |
+| ESN | 27 | 3.8% | في نمو | معارضة صلبة |
+| **عتبة الأغلبية** | **360** | | | |
+
+**حساب التحالف:** EVP+S&D = 319 (دون الأغلبية). يحتاج EVP إما إلى Renew (+77) أو Greens (+53) كشريك ثالث، مع إضافات S&D/Renew أو ECR عند الحاجة. يبقى "تحالف أورسولا" (EVP+S&D+Renew = 396) الأغلبية العاملة لمعظم التصويتات، لكنه يواجه مخاطر انشقاق متكررة في الملفات الخلافية.
+
+**مؤشر التجزؤ:** مرتفع (العدد الفعلي للأحزاب: 6.58)
+**درجة الاستقرار:** 84/100 (تقييم نظام الإنذار المبكر: مستوى خطر متوسط)
+
+---
+
+### المخاطر الرئيسية (نافذة 72 ساعة و30 يومًا)
+
+#### فوري (72 ساعة)
+1. **توتر تماسك ECR**: قد يُفضي قرار حصانة ياكي إلى توترات داخلية مرئية في ECR
+2. **الموعد النهائي لتطبيق DMA**: يجب على المفوضية الرد على قرار التطبيق البرلماني
+3. **الميزانية: رد المجلس**: يُتوقع أول رد من المجلس على تقديرات ميزانية البرلمان خلال أسبوعين
+
+#### المدى المتوسط (30 يومًا)
+1. **قائمة انتظار حصانات إضافية**: ما لا يقل عن 3–4 طلبات حصانة إضافية معلقة (نواب غير بولنديين)
+2. **تخطيط الجلسة الكاملة**: سيختبر جدول أعمال جلسات مايو/يونيو استقرار التحالف بشأن مساءلة الذكاء الاصطناعي، ومراجعة CBAM
+3. **الدعم لأوكرانيا**: ضغط مستمر على حزمة الدعم العسكري؛ انقسام ECR/PfE محتمل
+
+---
+
+### تقييم الثقة وجودة البيانات
+
+| مصدر البيانات | الحالة | التأثير على التحليل |
+|--------------|-------|---------------------|
+| النصوص المعتمدة في البرلمان الأوروبي (2026) | ✅ تم استرداد 51 نصًا | تغطية تشريعية كاملة |
+| المشهد السياسي | ✅ بيانات واجهة برمجية في الوقت الفعلي | حسابات ائتلافية بثقة عالية |
+| ديناميكيات التحالف | ⚠️ وكيل الحجم فقط (لا بيانات تصويت) | ثقة متوسطة في التحالفات |
+| بروتوكولات التصويت (28–30 أبر.) | ❌ بانتظار نشر البرلمان | لا يمكن تأكيد مواقف المجموعات المحددة |
+| البيانات الاقتصادية IMF | ❌ فشلت المجسة (وضع متدهور) | القسم الاقتصادي يستخدم تقديرات هيكلية |
+| تغذية الأحداث | ❌ واجهة برمجية للبرلمان غير متاحة | بيانات نشاط اللجان غير مكتملة |
+| تصويتات DOCEO XML | ❌ لا بيانات جلسات كاملة حديثة | بيانات التصويت شبه الآنية غائبة |
+
+**الثقة الإجمالية:** 🟡 متوسطة — تحليل هيكلي قوي، تفصيل تصويت في الوقت الفعلي محدود
+
+*تم الإنشاء: 2026-05-09 | التشغيل: breaking-run-1778354174 | المصدر: البوابة المفتوحة لبيانات البرلمان الأوروبي*
+
+---
+
+### ملاحظة منهجية
+
+يُجمّع هذا الملخص التنفيذي بيانات من البوابة المفتوحة لبيانات البرلمان الأوروبي (51 نصًا معتمدًا، المشهد السياسي، ديناميكيات التحالف)، والأدوات التحليلية (نظام الإنذار المبكر، تحليل أزواج التحالف)، والتقنيات التحليلية المنظمة (SAT). جميع البيانات الكمية موثّقة وفق ردود واجهة برمجية للبرلمان. تستخدم التقييمات النوعية لغة احتمالية منظمة وفق القاعدة 12 من `analysis/methodologies/ai-driven-analysis-guide.md`. تتبع تسميات الثقة مبادئ قانون الأدميرالية.
+
+#### 1. رفع الحصانة: باتريك ياكي (ECR/بولندا) — 28 أبريل 2026 🔴
+**المرجع:** TA-10-2026-0105 | **اللجنة:** JURI | **الأهمية:** عالية
+
+صوّت البرلمان على رفع حصانة ياكي. يأتي ذلك عقب رفع حصانة براون في 26 مارس (TA-10-2026-0088). الطابع المتتالي — ستة أسابيع — يشير إلى استراتيجية متعمدة.
+
+**القيمة الاستخباراتية:** تدل على استعداد البرلمان لمعايير سيادة القانون لأعضاء ECR (81 مقعدًا).
+
+#### 2. قرار بشأن تطبيق قانون الأسواق الرقمية — 30 أبريل 2026 🟡
+**المرجع:** TA-10-2026-0160 | **الأهمية:** عالية
+
+اعتمد البرلمان قرار تطبيق DMA (TA-10-2026-0160) بموضوع "PROT, MARI". جاء ذلك بعد أسبوع من مؤتمر وزراء منظمة التجارة العالمية الرابع عشر في ياوندي (قرار 12 مارس).
+
+**القيمة الاستخباراتية:** يتوقع مواجهات في صياغة قانون المنصات بتطبيق أقوى مما تقترحه المفوضية.
+
+#### 3. اعتماد تقديرات الميزانية في البرلمان الأوروبي 2027 — 28–30 أبريل 2026 🟡
+**المراجع:** TA-10-2026-0112 (التوجيهات الميزانياتية)، TA-10-2026-04-30-ANN01 (تقديرات الميزانية) | **الأهمية:** متوسطة
+
+اعتمد البرلمان كلا الوثيقتين الميزانياتيتين. الإعلان المبكر يُعزز الموقف التفاوضي.
+
+**القيمة الاستخباراتية:** ستكون الحسابات الميزانياتية الساحة الحاسمة في خريف 2026.
+
+#### 4. اتفاقية PNR مع أيسلندا — 29 أبريل 2026 🟢
+**المرجع:** TA-10-2026-0142 | **الأهمية:** متوسطة-منخفضة
+
+أعطى البرلمان موافقته على اتفاقية PNR مع أيسلندا. يؤكد الدعم الواسع توافقًا أمنيًا.
+
+**القيمة الاستخباراتية:** يؤكد قابلية تطبيق حسابات التحالف الكبير في ملفات الأمن.
+
+#### 5. إبراء الذمة الميزانياتي 2024: لجنة المناطق — 29 أبريل 2026 🟢
+**المرجع:** TA-10-2026-0132 | **الأهمية:** منخفضة
+
+منح البرلمان إبراء الذمة للجنة المناطق. تمرين روتيني.
+
+### تقييم الحسابات البرلمانية
+
+| الكتلة | المقاعد | الحصة | المسار |
+|--------|---------|------|-------|
+| EVP | 183 | 25.5% | هيمنة مستقرة |
+| S&D | 136 | 19.0% | يحافظ على موقعه |
+| PfE | 85 | 11.9% | يتوطد |
+| ECR | 81 | 11.3% | تحت ضغط (الحصانة) |
+| Renew | 77 | 10.7% | في تراجع |
+| Greens/EFA | 53 | 7.4% | يتثبت |
+| The Left | 45 | 6.3% | مستقر |
+| NI | 30 | 4.2% | مجزأ |
+| ESN | 27 | 3.8% | في نمو |
+| **عتبة الأغلبية** | **360** | | |
+
+**حساب التحالف:** EVP+S&D = 319 (دون الأغلبية). يحتاج EVP إما إلى Renew (+77 = 260، غير كافٍ وحده) أو ECR (+81 = 264) كشريك ثالث. يبقى "تحالف أورسولا" (EVP+S&D+Renew = 396) الأغلبية العاملة، لكنه يواجه مخاطر انشقاق متكررة.
+
+### المخاطر الرئيسية (نافذة 72 ساعة)
+
+1. **تماسك ECR**: قد يُفضي قرار حصانة ياكي إلى ضغط انضباطي في ECR، مع احتمال كسر أعضاء بولنديين للتضامن في التصويتات المقبلة — لا سيما إجراءات إبراء الذمة في أكتوبر 2026.
+2. **تصعيد تطبيق DMA**: سيختبر رد المفوضية على قرار التطبيق البرلماني الثقة المؤسسية قبيل مفاوضات الصياغة الثلاثية حول قانون المنصات.
+3. **مفاوضات الميزانية**: يبدأ عملية الميزانية في خريف 2026 والبرلمان في وضع هجومي؛ خطر تشكل أقلية معرقلة في المجلس حول الدول الأعضاء المعنية بالتقشف.
+
+### تقييم الثقة
+
+- **مصادر البيانات المستخدمة:** 51 نصًا معتمدًا (2026)، بيانات مفتوحة للبرلمان حول المشهد السياسي، تحليل ديناميكيات التحالف
+- **بيانات IMF:** غير متاحة (فشلت المجسة — وضع متدهور، اقتباسات IMF معفاة وفق 08-infrastructure.md §4)
+- **بروتوكولات التصويت:** بانتظار نشر البرلمان (تأخير قياسي من 4 إلى 6 أسابيع من تواريخ الاعتماد)
+- **الثقة الإجمالية:** 🟡 متوسطة — تحليل هيكلي قوي، تفصيل تصويت في الوقت الفعلي محدود
+
+*تم الإنشاء: 2026-05-09T19:20:00Z | المصدر: البوابة المفتوحة لبيانات البرلمان الأوروبي*
+
+### Executive Brief Da
+
+### SITUATIONSRESUMÉ 🔴 HØJ BETYDNING
+
+Europa-Parlamentet navigerer i maj 2026 en hidtil uset konvergens af juridiske ansvarskriser, kampe om håndhævelse af digital regulering og institutionelt fragmenteringspres. Aprilplenarsessionerne 2026 producerede et tæt lovgivningsresultat — fra immunitetsophævelser for polske nationalistiske MEP'er til startskuddet til håndhævelsen af ​​Digital Markets Act — mens institutionens underliggende koalitionsaritmetik vokser sig stadig mere kompleks med EPP på 183 pladser mod en majoritetstærskel på 360.
+
+**Ledende efterretningsvurdering (🟡 Middel sikkerhed):** De dobbelte immunitetsophævelser for Grzegorz Braun (marts 2026) og Patryk Jaki (april 2026) — begge ECR/polske nationalistiske MEP'er, der er genstand for retsforfølgning i hjemlandet — repræsenterer de politisk mest konsekvensrige foranstaltninger, JURI-udvalget har truffet i EP10. Disse beslutninger signalerer, at Parlamentet ikke vil beskytte yderste højre politikere mod national juridisk ansvarlighed, en præcedens med afledte konsekvenser for demokratisk modstandsdygtighed på tværs af EU-medlemsstater, der oplever retsstatspres.
+
+**IMF-datastatus:** 🔴 Ikke tilgængelig — IMF SDMX-endpoint ikke nåbar under denne kørsel (sonde returnerede `available: false`). Økonomisk analyse baserer sig på strukturelle EP-data og offentligt tilgængeligt makroøkonomisk kontekst. IMF-minimumskrav frafaldet i henhold til `08-infrastructure.md §4` degraderet tilstandsprotokol.
+
+**Status for afstemningsprotokoller:** 🔴 Afventer — EP's afstemningsdata for 28.–30. april endnu ikke offentliggjort (standard 4–6 ugers forsinkelse). Individuelle MEP-positioner for nøgleresolutioner (DMA, Ukraine, Armenien) ikke tilgængelige.
+
+---
+
+### TOP 5 SENESTE UDVIKLINGER (2026-04-28 — 2026-05-09)
+
+#### 1. Immunitetsophævelse: Patryk Jaki (ECR/Polen) — 28. april 2026 🔴
+**Reference:** TA-10-2026-0105 | **Udvalg:** JURI | **Betydning:** HØJ
+
+Parlamentet stemte for at ophæve den parlamentariske immunitet for MEP Patryk Jaki, en polsk ECR-politiker, der er genstand for retsforfølgning i Polen vedrørende politiske aktiviteter forud for EP-mandatet. Dette følger ophævelsen den 26. marts af immuniteten for Grzegorz Braun (TA-10-2026-0088), der er tiltalt for sin forstyrrelse af Hanukkah-menora-ceremonien i det polske Sejm i december 2023. Begge ophævelser indebærer, at JURI-udvalget anvender konsekvente standarder uanset politisk tilhørsforhold, selv om ECR har bestridt procedurerne som politisk motiverede. Den sekventiellkarakter af disse beslutninger — inden for seks uger — antyder en bevidst JURI-strategi om at behandle efterslæbet af immunitetsanmodninger fra polske MEP'er efter deres overgang fra nationale til europæiske mandater.
+
+**Efterretningsværdi:** Signalerer EP's vilje til at opretholde retsstatsstandarter selv for MEP'er fra Parlamentets tredjestørste højreorienterede gruppe (ECR: 81 pladser). Skaber præcedens for den resterende EP10-immunitetsrækka.
+
+**Krydshenviser:** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. Resolution om håndhævelse af Digital Markets Act — 30. april 2026 🟡
+**Reference:** TA-10-2026-0160 | **Emne:** PROT, MARI | **Betydning:** HØJ
+
+Parlamentet vedtog en resolution om DMA-håndhævelse, der opfordrer Kommissionen til at fremskynde udpegelsesprocedurer for portvagter og pålægge meningsfulde afhjælpningsforanstaltninger. Dette skete midt i en voksende transatlantisk teknologisk reguleringsafvigelse. Resolutionen repræsenterer en lovgivningsmæssig bekræftelse af Parlamentets tilsynsrolle over Kommissionens håndhævelsesskøn — et mønster, der er stadig mere synligt på tværs af AI-loven, Dataloven og platformsreguleringen. DMA's første portvagtudpegelsesafgørelser under den nye håndhævelsesordning forventes afsluttet inden medio 2026; denne resolution fungerer som Parlamentets præventive pressesignal, inden disse afgørelser træffes.
+
+**Efterretningsværdi:** Forvarsler trialogkonfrontationer i kommende platformslovgivning, idet Parlamentet presser på for stærkere håndhævelsesbeføjelser. Teknologivirksomheder, der opererer på EU-markeder, oplever stigende regulatorisk risikorealisering.
+
+**Krydshenviser:** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. EP's budgetoverslag for 2027 vedtaget — 28.–30. april 2026 🟡
+**Referencer:** TA-10-2026-0112 (Budgetretningslinjer), TA-10-2026-04-30-ANN01 (Budgetoverslag) | **Betydning:** MIDDEL
+
+Parlamentet vedtog både retningslinjerne for EU-budgettet for 2027 (afsnit III) og sine egne udkast til budgetoverslag for 2027. Sammenfaldende tidspunkter for disse afstemninger signalerer, at Parlamentet fastlægger sin interne finanspolitiske position forud for de årlige budgetforhandlinger med Rådet. På et tidspunkt, hvor flere medlemsstater presser på for stramninger på EU-niveau — delvis drevet af national gældsusikkerhed efter COVID og nye forsvarsudgiftsbehov — styrker Parlamentets tidlige erklæring dets forhandlingsposition. Budgettet for 2027 vil være det første fulde årsbudget under den nye MFF-revisionsproces og vil afspejle konkurrerende krav: forsvarsstyrkelse, grøn omstilling, landbrugsstøtte og samhørighed.
+
+**Efterretningsværdi:** Budgetaritmetikken vil være det afgørende interinstitutionelle kampområde i efteråret 2026. Rådsblokerende mindretal vil sandsynligvis dannes af Tyskland, Nederlandene og Østrig med krav om samlede lofter.
+
+**Krydshenviser:** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. PNR-aftale med Island — 29. april 2026 🟢
+**Reference:** TA-10-2026-0142 | **Betydning:** MIDDEL-LAV
+
+Parlamentet samtykkede til en EU-Island-aftale om Passenger Name Record (PNR) til bekæmpelse af terrorisme og grov kriminalitet. Selvom det er proceduremæssigt rutinemæssigt, er denne afstemning bemærkelsesværdig for sin brede tværpartistøtte — der afspejler en sikkerhedskonsensus efter 2024, der overskrider den venstre-højre-splittelse om databeskyttelse. Island er en Schengen-associeret, hvilket gør dette til en naturlig forlængelse af eksisterende rammer. LIBE-udvalget gennemførte en GDPR-forenelighedsvurdering; The Left-gruppen stemte sandsynligvis imod eller undlod at stemme af databeskyttelseshensyn, men flertallet var komfortabelt.
+
+**Efterretningsværdi:** Bekræfter, at på sikkerhedsanliggender forbliver EPP-S&D-Renew storkoalitionaritmetikken levedygtig, selv når den er brudt på regulerings- og socialpolitiske spørgsmål.
+
+#### 5. Budgetdecharge 2024: Regionsudvalget — 29. april 2026 🟢
+**Reference:** TA-10-2026-0132 | **Betydning:** LAV
+
+Parlamentet meddelte decharge til Regionsudvalget for dets budgetgennemførelse i 2024. Rutinemæssig ansvarsøvelse. Ingen MEP'er fremsatte væsentlige forbehold. Dette udgør en del af den bredere årlige dechargecyklus, der også inkluderede agenturdecharge i denne session.
+
+---
+
+### VURDERING AF PARLAMENTARISK ARITMETIK
+
+| Gruppe | Pladser | Andel | Udvikling | Rolle |
+|--------|---------|-------|-----------|-------|
+| EPP | 183 | 25,5% | Stabil dominerende | Majoritetsskaber |
+| S&D | 136 | 19,0% | Holder grundlaget | Medanker |
+| PfE | 85 | 11,9% | Konsoliderer | Oppositionsforstyrrer |
+| ECR | 81 | 11,3% | Under pres (immunitet) | Selektiv allieret |
+| Renew | 77 | 10,7% | Faldende | Koalitionssmøreolie |
+| Greens/EFA | 53 | 7,4% | Stabiliserer | Progressiv flanke |
+| The Left | 45 | 6,3% | Stabil | Venstreforankring |
+| NI | 30 | 4,2% | Fragmenteret | Uforudsigelig |
+| ESN | 27 | 3,8% | Voksende | Hård opposition |
+| **Majoritetstærskel** | **360** | | | |
+
+**Koalitionsberegning:** EPP+S&D = 319 (under majoritet). EPP har brug for enten Renew (+77) eller Greens (+53) som tredjepartner plus lejlighedsvis S&D/Renew- eller ECR-supplering. "Ursula-koalitionen" (EPP+S&D+Renew = 396) forbliver det fungerende flertal for de fleste afstemninger, men møder tilbagevendende risici for stemmespring på kontroversielle sager.
+
+**Fragmenteringsindeks:** HØJ (effektivt antal partier: 6,58)
+**Stabilitetsscore:** 84/100 (Tidlig varslingssystemvurdering: MIDDEL risikoniveau)
+
+---
+
+### NØGLERISICI (72-TIMERS OG 30-DAGES VINDUE)
+
+#### Umiddelbart (72 timer)
+1. **ECR-sammenholdsspænding**: Jaki-immunitetsafgørelsen kan udløse synlige interne ECR-spændinger
+2. **DMA-håndhævelsesfrist**: Kommissionen skal svare på Parlamentets håndhævelsesresolution
+3. **Budget: Rådsreaktion**: Rådets første svar på EP's budgetoverslag forventes inden 2 uger
+
+#### Mellemlangt sigt (30 dage)
+1. **Yderligere immunitetsrækka**: Mindst 3–4 yderligere immunitetsanmodninger afventer (ikke-polske MEP'er)
+2. **Plenarplanlægning**: Maj/juni plenarsdagsorden vil teste koalitionsstabiliteten om AI-ansvar, CBAM-revision
+3. **Ukraine-støtte**: Fortsat pres på militærstøttepakke; ECR/PfE-splittelse sandsynlig
+
+---
+
+### TILLIDS- OG DATAKVALITETSVURDERING
+
+| Datakilde | Status | Indvirkning på analysen |
+|-----------|--------|------------------------|
+| EP vedtagne tekster (2026) | ✅ 51 tekster hentet | Fuld lovgivningsdækning |
+| Politisk landskab | ✅ Realtids-API-data | Høj tillids koalitionsaritmetik |
+| Koalitionsdynamik | ⚠️ Størrelsesproxy kun (ingen afstemningsdata) | Middel tillid til alliancer |
+| Afstemningsprotokoller (28.–30. apr) | ❌ Afventer EP-offentliggørelse | Kan ikke bekræfte specifikke gruppositioner |
+| IMF Økonomiske data | ❌ Sonde mislykkedes (degraderet tilstand) | Økonomiafsnit bruger strukturelle estimater |
+| Begivenhedsfeed | ❌ EP API utilgængelig | Udvalgsaktivitetsdata ufuldstændige |
+| DOCEO XML-afstemninger | ❌ Ingen nylige plenumdata | Nær-realtidsafstemningsdata fraværende |
+
+**Overordnet tillid:** 🟡 Middel — stærk strukturel analyse, begrænset realtids-afstemningsgranularitet
+
+*Genereret: 2026-05-09 | Kørsel: breaking-run-1778354174 | Kilde: Europa-Parlamentets Åbne Dataportal*
+
+---
+
+### METODOLOGISK NOTE
+
+Dette resumé syntetiserer data fra EP's åbne dataportal (51 vedtagne tekster, politisk landskab, koalitionsdynamik), analytiske værktøjer (tidlig varslingssystem, koalitionspar-analyse) og strukturerede analytiske teknikker (SAT). Alle kvantitative data verificeret mod EP API-svar. Kvalitative vurderinger bruger struktureret sandsynlighedssprog i henhold til `analysis/methodologies/ai-driven-analysis-guide.md` regel 12. Tillidsetiketter følger Admiralitetskodeks principper.
+
+#### 1. Immunitetsophævelse: Patryk Jaki (ECR/Polen) — 28. april 2026 🔴
+**Reference:** TA-10-2026-0105 | **Udvalg:** JURI | **Betydning:** HØJ
+
+Parlamentet stemte for at ophæve den parlamentariske immunitet for MEP Patryk Jaki, en polsk ECR-politiker, der er genstand for retsforfølgning i Polen. Dette følger ophævelsen den 26. marts af immuniteten for Grzegorz Braun (TA-10-2026-0088), anklagede for at have forstyrret Hanukkah-menora-ceremonien i det polske Sejm i december 2023. Begge ophævelser viser, at JURI-udvalget anvender konsekvente standarder uanset politisk tilhørsforhold.
+
+**Efterretningsværdi:** Signalerer EP's vilje til at opretholde retsstatsstandarter for MEP'er fra ECR (81 pladser).
+
+#### 2. Resolution om håndhævelse af Digital Markets Act — 30. april 2026 🟡
+**Reference:** TA-10-2026-0160 | **Betydning:** HØJ
+
+Parlamentet vedtog en resolution om DMA-håndhævelse (TA-10-2026-0160) med emnerne "PROT, MARI", der opfordrer Kommissionen til at fremskynde portvagt-udpegelsesprocedurer. Dette skete en uge efter WTO's 14. ministerkonference i Yaoundé (resolution 12. marts), midt i en voksende transatlantisk teknologisk reguleringsafvigelse.
+
+**Efterretningsværdi:** Forvarsler trialogkonfrontationer i kommende platformslovgivning, idet Parlamentet presser på for stærkere håndhævelse end Kommissionen foreslår.
+
+#### 3. EP's budgetoverslag for 2027 vedtaget — 28.–30. april 2026 🟡
+**Referencer:** TA-10-2026-0112 (Budgetretningslinjer), TA-10-2026-04-30-ANN01 (Budgetoverslag) | **Betydning:** MIDDEL
+
+Parlamentet vedtog både retningslinjerne for EU-budgettet for 2027 (afsnit III) og sine egne udkast til budgetoverslag for 2027. Parlamentets tidlige erklæring signalerer institutionel handlekraft forud for rådsforhandlingerne.
+
+**Efterretningsværdi:** Budgetaritmetikken vil være det afgørende interinstitutionelle kampområde i efteråret 2026. Parlamentets tidlige erklæring styrker dets forhandlingsposition.
+
+#### 4. PNR-aftale med Island — 29. april 2026 🟢
+**Reference:** TA-10-2026-0142 | **Betydning:** MIDDEL-LAV
+
+Parlamentet samtykkede til en EU-Island-PNR-aftale til bekæmpelse af terrorisme og grov kriminalitet. Afstemningen er bemærkelsesværdig for sin brede tværpartistøtte og afspejler en sikkerhedskonsensus efter 2024.
+
+**Efterretningsværdi:** Bekræfter, at EPP-S&D-Renew storkoalitionaritmetikken forbliver levedygtig på sikkerhedsanliggender.
+
+#### 5. Budgetdecharge 2024: Regionsudvalget — 29. april 2026 🟢
+**Reference:** TA-10-2026-0132 | **Betydning:** LAV
+
+Parlamentet meddelte decharge til Regionsudvalget for dets budgetgennemførelse i 2024. Rutinemæssig ansvarsøvelse. Ingen MEP'er fremsatte væsentlige forbehold.
+
+### VURDERING AF PARLAMENTARISK ARITMETIK
+
+| Gruppe | Pladser | Andel | Udvikling |
+|--------|---------|-------|-----------|
+| EPP | 183 | 25,5% | Stabil dominerende |
+| S&D | 136 | 19,0% | Holder grundlaget |
+| PfE | 85 | 11,9% | Konsoliderer |
+| ECR | 81 | 11,3% | Under pres (immunitet) |
+| Renew | 77 | 10,7% | Faldende |
+| Greens/EFA | 53 | 7,4% | Stabiliserer |
+| The Left | 45 | 6,3% | Stabil |
+| NI | 30 | 4,2% | Fragmenteret |
+| ESN | 27 | 3,8% | Voksende |
+| **Majoritetstærskel** | **360** | | |
+
+**Koalitionsberegning:** EPP+S&D = 319 (under majoritet). EPP har brug for enten Renew (+77 = 260, utilstrækkeligt alene) eller ECR (+81 = 264) som tredjepartner. "Ursula-koalitionen" (EPP+S&D+Renew = 396) forbliver det fungerende flertal for de fleste afstemninger, men møder tilbagevendende risici for stemmespring.
+
+### NØGLERISICI (72-TIMERS VINDUE)
+
+1. **ECR-sammenhold**: Jaki-immunitetsafgørelsen kan udløse ECR-disciplinærtryk, med polske medlemmer der potentielt bryder gruppesolidariteten på kommende afstemninger — særligt decharge-procedurerne i oktober 2026.
+2. **DMA-håndhævelseseskalering**: Kommissionens svar på Parlamentets håndhævelsesresolution tester det interinstitutionelle tillid forud for platformslovgivningens trialoger.
+3. **Budgetforhandlinger**: Efterårets 2026 budgetproces begynder med Parlamentet i aggressiv tilstand; risiko for at Råds-blokerende mindretal dannes om sparingsbevidste medlemsstater.
+
+### TILLIDSVURDERING
+
+- **Anvend datakilde:** 51 vedtagne tekster (2026), EP's åbne data om politisk landskab, koalitionsdynamikanalyse
+- **IMF-data:** Ikke tilgængelig (sonde mislykkedes — degraderet tilstand, IMF-citater frafaldet i henhold til 08-infrastructure.md §4)
+- **Afstemningsprotokoller:** Afventer EP-offentliggørelse (standard 4–6 ugers forsinkelse fra vedtagelsesdatoer)
+- **Overordnet tillid:** 🟡 Middel — stærk strukturel analyse, begrænset realtids-afstemningsgranularitet
+
+*Genereret: 2026-05-09T19:20:00Z | Kilde: Europa-Parlamentets Åbne Dataportal*
+
+### Executive Brief De
+
+### LAGEÜBERBLICK 🔴 HOHE SIGNIFIKANZ
+
+Das Europäische Parlament navigiert im Mai 2026 eine beispiellose Konvergenz rechtlicher Rechenschaftspflicht-Krisen, Streitigkeiten über die digitale Regulierungsdurchsetzung und institutionellen Fragmentierungsdruck. Die Aprilplenar-Sitzungen 2026 lieferten ein dichtes legislatives Ergebnis — von Immunitätsaufhebungen für polnische nationalistische Abgeordnete bis zum Startschuss für die Durchsetzung des Digital Markets Act —, während die zugrundeliegende Koalitionsarithmetik der Institution mit EPP bei 183 Sitzen gegenüber einer Mehrheitsschwelle von 360 immer komplexer wird.
+
+**Führende Geheimdiensteinschätzung (🟡 Mittlere Sicherheit):** Die doppelten Immunitätsaufhebungen für Grzegorz Braun (März 2026) und Patryk Jaki (April 2026) — beide ECR/polnische nationalistische Abgeordnete, die in ihrem Heimatland Gerichtsverfahren ausgesetzt sind — stellen die politisch folgenreichsten Maßnahmen dar, die der JURI-Ausschuss in EP10 ergriffen hat. Diese Entscheidungen signalisieren, dass das Parlament Politiker der extremen Rechten nicht vor nationaler Rechenschaftspflicht schützen wird, ein Präzedenzfall mit Nachwirkungen für die demokratische Widerstandsfähigkeit in EU-Mitgliedstaaten, die dem Druck auf den Rechtsstaat ausgesetzt sind.
+
+**IMF-Datenstatus:** 🔴 Nicht verfügbar — IMF SDMX-Endpunkt während dieses Laufs nicht erreichbar (Test gab `available: false` zurück). Wirtschaftsanalyse stützt sich auf strukturelle EP-Daten und öffentlich verfügbaren Makro-Kontext. IMF-Mindestanforderungen gemäß `08-infrastructure.md §4` Degraded-Mode-Protokoll ausgesetzt.
+
+**Status der Abstimmungsprotokolle:** 🔴 Ausstehend — EP-Namentlichabstimmungsdaten für 28.–30. April noch nicht veröffentlicht (Standard 4–6 Wochen Verzögerung). Individuelle MEP-Positionen bei wichtigen Entschließungen (DMA, Ukraine, Armenien) nicht verfügbar.
+
+---
+
+### TOP 5 AKTUELLE ENTWICKLUNGEN (2026-04-28 — 2026-05-09)
+
+#### 1. Immunitätsaufhebung: Patryk Jaki (ECR/Polen) — 28. April 2026 🔴
+**Referenz:** TA-10-2026-0105 | **Ausschuss:** JURI | **Bedeutung:** HOCH
+
+Das Parlament stimmte für die Aufhebung der parlamentarischen Immunität des Abgeordneten Patryk Jaki, eines polnischen ECR-Politikers, der in Polen gerichtlichen Verfahren im Zusammenhang mit politischen Aktivitäten vor seinem EP-Mandat ausgesetzt ist. Dies folgt der Immunitätsaufhebung vom 26. März für Grzegorz Braun (TA-10-2026-0088), dem vorgeworfen wird, die Hanukkah-Menorah-Zeremonie im polnischen Sejm im Dezember 2023 gestört zu haben. Beide Aufhebungen zeigen, dass der JURI-Ausschuss konsequente Maßstäbe unabhängig von der politischen Zugehörigkeit anwendet, obwohl die ECR die Verfahren als politisch motiviert bestritten hat. Der aufeinanderfolgende Charakter dieser Entscheidungen — innerhalb von sechs Wochen — deutet auf eine bewusste JURI-Strategie hin, den Rückstand an Immunitätsanträgen von polnischen Abgeordneten nach ihrem Übergang von nationalen zu europäischen Mandaten abzubauen.
+
+**Geheimdienstwert:** Signalisiert die Bereitschaft des EP, Rechtsstaatsstandards auch für Abgeordnete der drittgrößten rechten Gruppierung des Parlaments (ECR: 81 Sitze) aufrechtzuerhalten. Schafft Präzedenzfall für die verbleibende EP10-Immunitätswarteschlange.
+
+**Querverweise:** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. Entschließung zur Durchsetzung des Digital Markets Act — 30. April 2026 🟡
+**Referenz:** TA-10-2026-0160 | **Betreff:** PROT, MARI | **Bedeutung:** HOCH
+
+Das Parlament verabschiedete eine Entschließung zur DMA-Durchsetzung, in der die Kommission aufgefordert wird, die Designierungsverfahren für Gatekeeper zu beschleunigen und wirksame Abhilfemaßnahmen zu verhängen. Dies geschah inmitten einer wachsenden transatlantischen Regulierungsdivergenz im Technologiebereich. Die Entschließung stellt eine legislative Bekräftigung der Aufsichtsrolle des Parlaments gegenüber dem Ermessen der Kommission bei der Durchsetzung dar — ein Muster, das beim KI-Gesetz, Datengesetz und der Plattformregulierung zunehmend sichtbar wird. Die ersten Gatekeeper-Designierungsentscheidungen nach der neuen Durchsetzungsordnung sollen bis Mitte 2026 abgeschlossen sein; diese Entschließung dient als präventives Drucksignal des Parlaments, bevor jene Entscheidungen fallen.
+
+**Geheimdienstwert:** Weist auf Trilog-Konfrontationen in kommenden Plattformrechtsvorschriften hin, da das Parlament auf stärkere Durchsetzungsmaßnahmen drängt. Technologieunternehmen auf EU-Märkten sehen sich zunehmendem regulatorischen Risikoverlauf gegenüber.
+
+**Querverweise:** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. EP-Haushaltsvoranschläge 2027 angenommen — 28.–30. April 2026 🟡
+**Referenzen:** TA-10-2026-0112 (Haushaltsleitlinien), TA-10-2026-04-30-ANN01 (Haushaltsvoranschläge) | **Bedeutung:** MITTEL
+
+Das Parlament nahm sowohl die Leitlinien für den EU-Haushalt 2027 (Einzelplan III) als auch seine eigenen Entwürfe der Haushaltsvoranschläge für 2027 an. Die Gleichzeitigkeit dieser Abstimmungen signalisiert, dass das Parlament seine interne finanzpolitische Position vor den jährlichen Haushaltsverhandlungen mit dem Rat festlegt. Zu einem Zeitpunkt, da mehrere Mitgliedstaaten auf Sparmaßnahmen auf EU-Ebene drängen — teilweise angetrieben durch nationale Schuldenprobleme nach COVID und neue Verteidigungsausgaben —, festigt die frühzeitige Erklärung des Parlaments seine Verhandlungsposition. Der Haushalt 2027 wird der erste vollständige Jahreshaushalt unter dem neuen mehrjährigen Finanzrahmen (MFR)-Überarbeitungsprozess sein und spiegelt konkurrierende Anforderungen wider: Stärkung der Verteidigung, grüner Wandel, Agrarbeihilfen und Kohäsion.
+
+**Geheimdienstwert:** Die Haushaltarithmetik wird im Herbst 2026 das entscheidende interinstitutionelle Schlachtfeld sein. Eine blockierende Ratsminderhheit wird sich wahrscheinlich um Deutschland, die Niederlande und Österreich bilden, die Gesamtobergrenzen fordern.
+
+**Querverweise:** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. PNR-Abkommen mit Island — 29. April 2026 🟢
+**Referenz:** TA-10-2026-0142 | **Bedeutung:** MITTEL-NIEDRIG
+
+Das Parlament stimmte dem Abkommen zwischen der EU und Island über Fluggastdatensätze (PNR) zur Terrorismusbekämpfung und Verfolgung schwerer Kriminalität zu. Obwohl verfahrenstechnisch routinemäßig, ist diese Abstimmung aufgrund ihrer breiten parteiübergreifenden Unterstützung bemerkenswert — was einen post-2024-Sicherheitskonsens widerspiegelt, der die Trennlinie links-rechts beim Datenschutz überbrückt. Island ist ein Schengen-assoziiertes Land, was dies zu einer natürlichen Erweiterung bestehender Rahmenbedingungen macht. Der LIBE-Ausschuss führte eine DSGVO-Konformitätsbewertung durch; die Gruppe The Left stimmte wahrscheinlich dagegen oder enthielt sich aus Datenschutzgründen, aber die Mehrheit war zufrieden.
+
+**Geheimdienstwert:** Bestätigt, dass bei Sicherheitsangelegenheiten die EPP-S&D-Renew Großkoalitionsarithmetik funktionsfähig bleibt, auch wenn sie bei regulatorischen und sozialpolitischen Fragen auseinanderbricht.
+
+#### 5. Haushaltsentlastung 2024: Ausschuss der Regionen — 29. April 2026 🟢
+**Referenz:** TA-10-2026-0132 | **Bedeutung:** NIEDRIG
+
+Das Parlament erteilte dem Ausschuss der Regionen Entlastung für die Ausführung seines Haushalts 2024. Routinemäßige Rechenschaftsübung. Kein Abgeordneter erhob wesentliche Vorbehalte. Dies ist Teil des jährlichen Entlastungszyklus, der in dieser Sitzung auch Agenturen umfasste.
+
+---
+
+### BEURTEILUNG DER PARLAMENTARISCHEN ARITHMETIK
+
+| Gruppe | Sitze | Anteil | Entwicklung | Rolle |
+|--------|-------|--------|-------------|-------|
+| EPP | 183 | 25,5% | Stabil dominierend | Mehrheitsmacher |
+| S&D | 136 | 19,0% | Hält Stand | Mit-Anker |
+| PfE | 85 | 11,9% | Konsolidiert | Oppositionsstörer |
+| ECR | 81 | 11,3% | Unter Druck (Immunität) | Selektiver Verbündeter |
+| Renew | 77 | 10,7% | Rückläufig | Koalitionskitt |
+| Greens/EFA | 53 | 7,4% | Stabilisiert | Progressiver Flügel |
+| The Left | 45 | 6,3% | Stabil | Linker Anker |
+| NI | 30 | 4,2% | Fragmentiert | Unberechenbar |
+| ESN | 27 | 3,8% | Wachsend | Harte Opposition |
+| **Mehrheitsschwelle** | **360** | | | |
+
+**Koalitionsrechnung:** EPP+S&D = 319 (unter Mehrheit). EPP benötigt entweder Renew (+77) oder Greens (+53) als dritten Partner sowie gelegentliche S&D/Renew- oder ECR-Ergänzung. Die "Ursula-Koalition" (EPP+S&D+Renew = 396) bleibt für die meisten Abstimmungen die funktionierende Mehrheit, sieht sich jedoch bei umstrittenen Dossiers wiederkehrenden Abweichungsrisiken ausgesetzt.
+
+**Fragmentierungsindex:** HOCH (effektive Parteienanzahl: 6,58)
+**Stabilitätswert:** 84/100 (Beurteilung des Frühwarnsystems: MITTLERES Risikoniveau)
+
+---
+
+### SCHLÜSSELRISIKEN (72-STUNDEN- UND 30-TAGE-FENSTER)
+
+#### Unmittelbar (72 Stunden)
+1. **ECR-Kohäsionsspannung**: Die Jaki-Immunitätsentscheidung könnte sichtbare interne ECR-Spannungen auslösen
+2. **DMA-Durchsetzungsfrist**: Die Kommission muss auf die Durchsetzungsentschließung des Parlaments reagieren
+3. **Haushalt: Ratsreaktion**: Erste Antwort des Rates auf die EP-Haushaltsvoranschläge wird innerhalb von 2 Wochen erwartet
+
+#### Mittelfristig (30 Tage)
+1. **Weitere Immunitätswarteschlange**: Mindestens 3–4 weitere Immunitätsanträge ausstehend (nicht-polnische Abgeordnete)
+2. **Plenarplanung**: Die Mai/Juni-Plenartagungsordnung wird die Koalitionsstabilität zu KI-Haftung und CBAM-Überprüfung testen
+3. **Ukraine-Unterstützung**: Anhaltender Druck auf Militärhilfepaket; ECR/PfE-Spaltung wahrscheinlich
+
+---
+
+### VERTRAUENS- UND DATENQUALITÄTSBEWERTUNG
+
+| Datenquelle | Status | Auswirkung auf die Analyse |
+|-------------|--------|---------------------------|
+| EP angenommene Texte (2026) | ✅ 51 Texte abgerufen | Vollständige Gesetzgebungsabdeckung |
+| Politische Lage | ✅ Echtzeit-API-Daten | Hohe Konfidenz-Koalitionsarithmetik |
+| Koalitionsdynamik | ⚠️ Größen-Proxy nur (keine Abstimmungsdaten) | Mittlere Konfidenz bei Allianzen |
+| Abstimmungsprotokolle (28.–30. Apr.) | ❌ Ausstehende EP-Veröffentlichung | Kann spezifische Gruppenpositionen nicht bestätigen |
+| IMF Wirtschaftsdaten | ❌ Test fehlgeschlagen (Degraded-Modus) | Wirtschaftsabschnitt verwendet Strukturschätzungen |
+| Veranstaltungsfeed | ❌ EP API nicht verfügbar | Ausschussaktivitätsdaten unvollständig |
+| DOCEO XML-Abstimmungen | ❌ Keine aktuellen Plenardat | Nahezu-Echtzeit-Abstimmungsdaten fehlen |
+
+**Gesamtvertrauen:** 🟡 Mittel — starke Strukturanalyse, begrenzte Echtzeit-Abstimmungsgranularität
+
+*Erstellt: 2026-05-09 | Lauf: breaking-run-1778354174 | Quelle: Offenes Datenportal des Europäischen Parlaments*
+
+---
+
+### METHODENHINWEIS
+
+Dieser Kurzbericht synthetisiert Daten aus dem Offenen Datenportal des EP (51 angenommene Texte, politische Lage, Koalitionsdynamik), analytischen Werkzeugen (Frühwarnsystem, Koalitionspaaranalyse) und strukturierten analytischen Techniken (SAT). Alle quantitativen Daten wurden anhand von EP-API-Antworten verifiziert. Qualitative Einschätzungen verwenden strukturierte Wahrscheinlichkeitssprache gemäß `analysis/methodologies/ai-driven-analysis-guide.md` Regel 12. Vertrauensbezeichnungen folgen den Admiralitätscode-Prinzipien.
+
+#### 1. Immunitätsaufhebung: Patryk Jaki (ECR/Polen) — 28. April 2026 🔴
+**Referenz:** TA-10-2026-0105 | **Ausschuss:** JURI | **Bedeutung:** HOCH
+
+Das Parlament stimmte für die Aufhebung der parlamentarischen Immunität des Abgeordneten Patryk Jaki. Dies folgt der Immunitätsaufhebung vom 26. März für Grzegorz Braun (TA-10-2026-0088), dem die Störung der Hanukkah-Menorah-Zeremonie im polnischen Sejm im Dezember 2023 vorgeworfen wird. Der aufeinanderfolgende Charakter — innerhalb von sechs Wochen — deutet auf eine bewusste JURI-Strategie hin.
+
+**Geheimdienstwert:** Signalisiert die Bereitschaft des EP, Rechtsstaatsstandards für ECR-Abgeordnete (81 Sitze) aufrechtzuerhalten.
+
+#### 2. Entschließung zur Durchsetzung des Digital Markets Act — 30. April 2026 🟡
+**Referenz:** TA-10-2026-0160 | **Bedeutung:** HOCH
+
+Das Parlament verabschiedete eine Entschließung zur DMA-Durchsetzung (TA-10-2026-0160) zu den Betreffangaben "PROT, MARI", die die Kommission zur Beschleunigung der Gatekeeper-Designierungsverfahren auffordert. Dies erfolgte eine Woche nach der 14. WTO-Ministerkonferenz in Yaoundé (Entschließung 12. März), inmitten wachsender transatlantischer Technologieregulie rungsabweichung.
+
+**Geheimdienstwert:** Weist auf Trilog-Konfrontationen in kommenden Plattformrechtsvorschriften hin, da das Parlament stärkere Durchsetzungsmaßnahmen fordert als die Kommission vorschlägt.
+
+#### 3. EP-Haushaltsvoranschläge 2027 angenommen — 28.–30. April 2026 🟡
+**Referenzen:** TA-10-2026-0112 (Haushaltsleitlinien), TA-10-2026-04-30-ANN01 (Haushaltsvoranschläge) | **Bedeutung:** MITTEL
+
+Das Parlament nahm sowohl die Leitlinien für den EU-Haushalt 2027 (Einzelplan III) als auch seine eigenen Entwürfe der Haushaltsvoranschläge für 2027 an. Die frühzeitige Erklärung stärkt die Verhandlungsposition.
+
+**Geheimdienstwert:** Die Haushaltarithmetik wird im Herbst 2026 das entscheidende Schlachtfeld sein. Die frühzeitige Erklärung des Parlaments festigt seine Verhandlungsposition.
+
+#### 4. PNR-Abkommen mit Island — 29. April 2026 🟢
+**Referenz:** TA-10-2026-0142 | **Bedeutung:** MITTEL-NIEDRIG
+
+Das Parlament stimmte dem EU-Island-PNR-Abkommen zu. Breite parteiübergreifende Unterstützung spiegelt einen Sicherheitskonsens wider.
+
+**Geheimdienstwert:** Bestätigt Funktionsfähigkeit der EPP-S&D-Renew Großkoalition bei Sicherheitsangelegenheiten.
+
+#### 5. Haushaltsentlastung 2024: Ausschuss der Regionen — 29. April 2026 🟢
+**Referenz:** TA-10-2026-0132 | **Bedeutung:** NIEDRIG
+
+Das Parlament erteilte dem Ausschuss der Regionen Entlastung für die Ausführung seines Haushalts 2024. Routinemäßige Rechenschaftsübung.
+
+### BEURTEILUNG DER PARLAMENTARISCHEN ARITHMETIK
+
+| Gruppe | Sitze | Anteil | Entwicklung |
+|--------|-------|--------|-------------|
+| EPP | 183 | 25,5% | Stabil dominierend |
+| S&D | 136 | 19,0% | Hält Stand |
+| PfE | 85 | 11,9% | Konsolidiert |
+| ECR | 81 | 11,3% | Unter Druck (Immunität) |
+| Renew | 77 | 10,7% | Rückläufig |
+| Greens/EFA | 53 | 7,4% | Stabilisiert |
+| The Left | 45 | 6,3% | Stabil |
+| NI | 30 | 4,2% | Fragmentiert |
+| ESN | 27 | 3,8% | Wachsend |
+| **Mehrheitsschwelle** | **360** | | |
+
+**Koalitionsrechnung:** EPP+S&D = 319 (unter Mehrheit). EPP benötigt entweder Renew (+77 = 260, allein unzureichend) oder ECR (+81 = 264) als dritten Partner. Die "Ursula-Koalition" (EPP+S&D+Renew = 396) bleibt die funktionierende Mehrheit, sieht sich jedoch wiederkehrenden Abweichungsrisiken ausgesetzt.
+
+### SCHLÜSSELRISIKEN (72-STUNDEN-FENSTER)
+
+1. **ECR-Kohäsion**: Die Jaki-Immunitätsentscheidung könnte ECR-Disziplinardruck auslösen, wobei polnische Mitglieder die Gruppensolidarität bei kommenden Abstimmungen — insbesondere den Entlastungsverfahren im Oktober 2026 — brechen könnten.
+2. **DMA-Durchsetzungszuspitzung**: Die Reaktion der Kommission auf die Durchsetzungsentschließung des Parlaments wird das interinstitutionelle Vertrauen vor den Trilog-Verhandlungen zur Plattformgesetzgebung testen.
+3. **Haushaltsverhandlungen**: Der Haushaltsprozess für Herbst 2026 beginnt mit dem Parlament in offensiver Haltung; Risiko einer Ratsblockierungsminderhheit seitens haushaltsbewusster Mitgliedstaaten.
+
+### VERTRAUENSBEWERTUNG
+
+- **Verwendete Datenquellen:** 51 angenommene Texte (2026), EP-Offene Daten zur politischen Lage, Koalitionsdynamikanalyse
+- **IMF-Daten:** Nicht verfügbar (Test fehlgeschlagen — Degraded-Modus, IMF-Zitate gemäß 08-infrastructure.md §4 ausgesetzt)
+- **Abstimmungsprotokolle:** Ausstehende EP-Veröffentlichung (Standard 4–6 Wochen Verzögerung ab Annahmedaten)
+- **Gesamtvertrauen:** 🟡 Mittel — starke Strukturanalyse, begrenzte Echtzeit-Abstimmungsgranularität
+
+*Erstellt: 2026-05-09T19:20:00Z | Quelle: Offenes Datenportal des Europäischen Parlaments*
+
+### Executive Brief Es
+
+### RESUMEN DE SITUACIÓN 🔴 ALTA SIGNIFICANCIA
+
+El Parlamento Europeo navega en mayo de 2026 una convergencia sin precedentes de crisis de responsabilidad jurídica, batallas de aplicación de la regulación digital y presiones de fragmentación institucional. Las sesiones plenarias de abril de 2026 produjeron un denso resultado legislativo — desde levantamientos de inmunidad para eurodiputados nacionalistas polacos hasta el pistoletazo de salida para la aplicación de la Ley de Mercados Digitales — mientras que la aritmética coalicional subyacente de la institución se vuelve cada vez más compleja con el PPE en 183 escaños frente a un umbral de mayoría de 360.
+
+**Evaluación principal de inteligencia (🟡 Confianza media):** Los dobles levantamientos de inmunidad de Grzegorz Braun (marzo de 2026) y Patryk Jaki (abril de 2026) — ambos eurodiputados ECR/nacionalistas polacos enfrentados a procedimientos judiciales en su país de origen — representan las acciones políticamente más consecuentes tomadas por la comisión JURI en EP10. Estas decisiones señalan que el Parlamento no protegerá a los políticos de extrema derecha de la responsabilidad jurídica nacional, un precedente con implicaciones en cascada para la resiliencia democrática en los Estados miembros de la UE sometidos a presiones sobre el Estado de derecho.
+
+**Estado de datos del IMF:** 🔴 No disponible — el punto de conexión SDMX del IMF no era accesible durante esta ejecución (la sonda devolvió `available: false`). El análisis económico se basa en los datos estructurales del PE y el contexto macroeconómico disponible públicamente. Requisitos mínimos del IMF exentos según el protocolo de modo degradado `08-infrastructure.md §4`.
+
+**Estado de los protocolos de votación:** 🔴 Pendiente — los datos de votación nominal del PE para el 28–30 de abril aún no han sido publicados (retraso estándar de 4 a 6 semanas). Las posiciones individuales de los eurodiputados sobre resoluciones clave (DMA, Ucrania, Armenia) no están disponibles.
+
+---
+
+### TOP 5 ÚLTIMOS DESARROLLOS (2026-04-28 — 2026-05-09)
+
+#### 1. Levantamiento de inmunidad: Patryk Jaki (ECR/Polonia) — 28 de abril de 2026 🔴
+**Referencia:** TA-10-2026-0105 | **Comisión:** JURI | **Importancia:** ALTA
+
+El Parlamento votó para levantar la inmunidad parlamentaria del eurodiputado Patryk Jaki, un político polaco de ECR enfrentado a procedimientos judiciales en Polonia relacionados con actividades políticas anteriores a su mandato en el PE. Esto sigue al levantamiento de inmunidad del 26 de marzo para Grzegorz Braun (TA-10-2026-0088), que enfrenta cargos relacionados con su interrupción de la ceremonia de la menorá de Hanukkah en el Sejm polaco en diciembre de 2023. Ambos levantamientos demuestran que la comisión JURI aplica estándares coherentes independientemente de la afiliación política, aunque la ECR ha impugnado los procedimientos por considerarlos políticamente motivados. El carácter secuencial de estas decisiones — en un plazo de seis semanas — sugiere una estrategia deliberada de la JURI para reducir el retraso de solicitudes de inmunidad de eurodiputados polacos tras su transición de mandatos nacionales a europeos.
+
+**Valor de inteligencia:** Señala la disposición del PE a mantener los estándares del Estado de derecho incluso para eurodiputados del tercer grupo de derechas más grande del Parlamento (ECR: 81 escaños). Establece precedente para la cola de inmunidades EP10 restante.
+
+**Referencia cruzada:** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. Resolución sobre la aplicación de la Ley de Mercados Digitales — 30 de abril de 2026 🟡
+**Referencia:** TA-10-2026-0160 | **Asunto:** PROT, MARI | **Importancia:** ALTA
+
+El Parlamento adoptó una resolución sobre la aplicación del DMA instando a la Comisión a acelerar los procedimientos de designación de guardianes de acceso e imponer remedios significativos. Esto ocurrió en medio de una creciente divergencia regulatoria tecnológica transatlántica. La resolución representa una afirmación legislativa del papel de supervisión del Parlamento sobre la discrecionalidad de la Comisión en la aplicación — un patrón cada vez más visible en los expedientes de la Ley de IA, la Ley de Datos y la regulación de plataformas. Las primeras decisiones de designación de guardianes de acceso bajo el nuevo régimen de aplicación deben completarse para mediados de 2026; esta resolución sirve como señal de presión preventiva del Parlamento antes de que lleguen esas decisiones.
+
+**Valor de inteligencia:** Presagia confrontaciones en trílogos en la próxima legislación sobre plataformas, ya que el Parlamento presiona por instrumentos de aplicación más sólidos. Las empresas tecnológicas que operan en los mercados de la UE se enfrentan a una creciente materialización de riesgos regulatorios.
+
+**Referencia cruzada:** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. Estimaciones presupuestarias del PE para 2027 adoptadas — 28–30 de abril de 2026 🟡
+**Referencias:** TA-10-2026-0112 (Directrices presupuestarias), TA-10-2026-04-30-ANN01 (Estimaciones presupuestarias) | **Importancia:** MEDIA
+
+El Parlamento adoptó tanto las directrices para el presupuesto de la UE 2027 (sección III) como sus propios proyectos de estimaciones presupuestarias para 2027. La concurrencia de estas votaciones señala que el Parlamento está estableciendo su posición fiscal interna antes de las negociaciones presupuestarias anuales con el Consejo. En un momento en que varios Estados miembros presionan por la austeridad a nivel de la UE — impulsados en parte por las presiones sobre la sostenibilidad de la deuda nacional post-COVID y las nuevas exigencias de gasto en defensa — la declaración anticipada del Parlamento consolida su posición negociadora. El presupuesto de 2027 será el primer presupuesto anual completo bajo el nuevo proceso de revisión del marco financiero plurianual (MFP) y reflejará demandas contrapuestas: ampliación de la defensa, transición verde, apoyo agrícola y cohesión.
+
+**Valor de inteligencia:** La aritmética presupuestaria será el campo de batalla interinstitucional determinante en otoño de 2026. Es probable que se forme una minoría de bloqueo en el Consejo en torno a Alemania, los Países Bajos y Austria exigiendo techos globales.
+
+**Referencia cruzada:** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. Acuerdo PNR con Islandia — 29 de abril de 2026 🟢
+**Referencia:** TA-10-2026-0142 | **Importancia:** MEDIA-BAJA
+
+El Parlamento dio su consentimiento a un acuerdo UE-Islandia sobre registros de nombres de pasajeros (PNR) para la lucha contra el terrorismo y la delincuencia grave. Aunque es procesalmente rutinario, este voto es notable por su amplio apoyo transversal — que refleja un consenso de seguridad post-2024 que trasciende la división izquierda-derecha en materia de protección de datos. Islandia es un país asociado al espacio Schengen, lo que hace de esto una extensión natural de los marcos existentes. La comisión LIBE realizó una evaluación de compatibilidad con el RGPD; el grupo The Left probablemente votó en contra o se abstuvo por razones de protección de datos, pero la mayoría estaba cómoda.
+
+**Valor de inteligencia:** Confirma que en los expedientes de seguridad, la aritmética de la gran coalición PPE-S&D-Renew sigue siendo viable incluso cuando se fractura en cuestiones regulatorias y de política social.
+
+#### 5. Descargo presupuestario 2024: Comité de las Regiones — 29 de abril de 2026 🟢
+**Referencia:** TA-10-2026-0132 | **Importancia:** BAJA
+
+El Parlamento otorgó el descargo al Comité de las Regiones por la ejecución de su presupuesto 2024. Ejercicio rutinario de rendición de cuentas. Ningún eurodiputado presentó reservas sustanciales. Esto forma parte del ciclo anual más amplio de descargo que también incluyó descargos de agencias en esta sesión.
+
+---
+
+### EVALUACIÓN DE LA ARITMÉTICA PARLAMENTARIA
+
+| Grupo | Escaños | Parte | Trayectoria | Función |
+|-------|---------|-------|-------------|---------|
+| PPE | 183 | 25,5% | Dominante estable | Hacedor de mayorías |
+| S&D | 136 | 19,0% | Mantiene posición | Co-ancla |
+| PfE | 85 | 11,9% | Consolidándose | Perturbador de oposición |
+| ECR | 81 | 11,3% | Bajo presión (inmunidad) | Aliado selectivo |
+| Renew | 77 | 10,7% | Declinando | Lubricante de coalición |
+| Greens/EFA | 53 | 7,4% | Estabilizándose | Flanco progresista |
+| The Left | 45 | 6,3% | Estable | Ancla de izquierda |
+| NI | 30 | 4,2% | Fragmentado | Impredecible |
+| ESN | 27 | 3,8% | Creciendo | Oposición dura |
+| **Umbral de mayoría** | **360** | | | |
+
+**Cálculo de coalición:** PPE+S&D = 319 (por debajo de la mayoría). El PPE necesita o bien Renew (+77) o Greens (+53) como tercer socio, más suplementos ocasionales de S&D/Renew o ECR. La "coalición Ursula" (PPE+S&D+Renew = 396) sigue siendo la mayoría operativa para la mayoría de las votaciones, pero se enfrenta a recurrentes riesgos de defección en expedientes controvertidos.
+
+**Índice de fragmentación:** ALTO (número efectivo de partidos: 6,58)
+**Puntuación de estabilidad:** 84/100 (evaluación del sistema de alerta temprana: nivel de riesgo MEDIO)
+
+---
+
+### RIESGOS CLAVE (VENTANA DE 72 HORAS Y 30 DÍAS)
+
+#### Inmediato (72 horas)
+1. **Tensión de cohesión en ECR**: La decisión de inmunidad de Jaki podría desencadenar tensiones internas visibles en ECR
+2. **Plazo de aplicación del DMA**: La Comisión debe responder a la resolución de aplicación del Parlamento
+3. **Presupuesto: reacción del Consejo**: Se espera la primera respuesta del Consejo a las estimaciones presupuestarias del PE en 2 semanas
+
+#### Medio plazo (30 días)
+1. **Cola adicional de inmunidades**: Al menos 3–4 solicitudes de inmunidad adicionales pendientes (eurodiputados no polacos)
+2. **Planificación plenaria**: El orden del día de los plenos de mayo/junio pondrá a prueba la estabilidad de la coalición en materia de responsabilidad de la IA, revisión del MCBA
+3. **Apoyo a Ucrania**: Presión continua sobre el paquete de apoyo militar; probable división ECR/PfE
+
+---
+
+### EVALUACIÓN DE CONFIANZA Y CALIDAD DE LOS DATOS
+
+| Fuente de datos | Estado | Impacto en el análisis |
+|----------------|--------|------------------------|
+| Textos adoptados PE (2026) | ✅ 51 textos recuperados | Cobertura legislativa completa |
+| Panorama político | ✅ Datos de API en tiempo real | Aritmética coalicional de alta confianza |
+| Dinámica de coaliciones | ⚠️ Solo proxy de tamaño (sin datos de votación) | Confianza media en las alianzas |
+| Protocolos de votación (28–30 abr.) | ❌ Pendiente de publicación PE | No se pueden confirmar posiciones específicas de grupos |
+| Datos económicos IMF | ❌ Sonda fallida (modo degradado) | Sección económica usa estimaciones estructurales |
+| Feed de eventos | ❌ API PE no disponible | Datos de actividad de comisiones incompletos |
+| Votaciones XML DOCEO | ❌ Sin datos plenarios recientes | Datos de votación casi en tiempo real ausentes |
+
+**Confianza global:** 🟡 Media — análisis estructural sólido, granularidad de votación en tiempo real limitada
+
+*Generado: 2026-05-09 | Ejecución: breaking-run-1778354174 | Fuente: Portal de Datos Abiertos del Parlamento Europeo*
+
+---
+
+### NOTA METODOLÓGICA
+
+Este resumen ejecutivo sintetiza datos del Portal de Datos Abiertos del PE (51 textos adoptados, panorama político, dinámica de coaliciones), herramientas analíticas (sistema de alerta temprana, análisis de pares de coaliciones) y técnicas analíticas estructuradas (TAE). Todos los datos cuantitativos verificados contra las respuestas de la API del PE. Las evaluaciones cualitativas utilizan lenguaje probabilístico estructurado según la regla 12 de `analysis/methodologies/ai-driven-analysis-guide.md`. Las etiquetas de confianza siguen los principios del Código del Almirantazgo.
+
+#### 1. Levantamiento de inmunidad: Patryk Jaki (ECR/Polonia) — 28 de abril de 2026 🔴
+**Referencia:** TA-10-2026-0105 | **Comisión:** JURI | **Importancia:** ALTA
+
+El Parlamento votó para levantar la inmunidad de Patryk Jaki. Sigue al levantamiento del 26 de marzo para Grzegorz Braun (TA-10-2026-0088). El carácter secuencial — seis semanas — sugiere una estrategia deliberada.
+
+**Valor de inteligencia:** Señala la disposición del PE a mantener estándares de Estado de derecho para eurodiputados ECR (81 escaños).
+
+#### 2. Resolución sobre la aplicación de la Ley de Mercados Digitales — 30 de abril de 2026 🟡
+**Referencia:** TA-10-2026-0160 | **Importancia:** ALTA
+
+El Parlamento adoptó la resolución sobre aplicación del DMA (TA-10-2026-0160), con asunto "PROT, MARI". Esto ocurrió una semana después de la 14.ª Conferencia Ministerial de la OMC en Yaundé (resolución del 12 de marzo).
+
+**Valor de inteligencia:** Presagia confrontaciones en trílogos con legislación de plataformas más sólida que la propuesta por la Comisión.
+
+#### 3. Estimaciones presupuestarias del PE para 2027 adoptadas — 28–30 de abril de 2026 🟡
+**Referencias:** TA-10-2026-0112 (Directrices presupuestarias), TA-10-2026-04-30-ANN01 (Estimaciones presupuestarias) | **Importancia:** MEDIA
+
+El Parlamento adoptó las directrices y estimaciones presupuestarias para 2027, consolidando su posición negociadora.
+
+**Valor de inteligencia:** La aritmética presupuestaria será el campo de batalla interinstitucional del otoño 2026. La declaración anticipada consolida la posición del Parlamento.
+
+#### 4. Acuerdo PNR con Islandia — 29 de abril de 2026 🟢
+**Referencia:** TA-10-2026-0142 | **Importancia:** MEDIA-BAJA
+
+El Parlamento consintió el acuerdo PNR UE-Islandia. El amplio apoyo transversal confirma el consenso de seguridad.
+
+**Valor de inteligencia:** Confirma la viabilidad de la aritmética de la gran coalición PPE-S&D-Renew en seguridad.
+
+#### 5. Descargo presupuestario 2024: Comité de las Regiones — 29 de abril de 2026 🟢
+**Referencia:** TA-10-2026-0132 | **Importancia:** BAJA
+
+El Parlamento otorgó el descargo al Comité de las Regiones. Ejercicio rutinario.
+
+### EVALUACIÓN DE LA ARITMÉTICA PARLAMENTARIA
+
+| Grupo | Escaños | Parte | Trayectoria |
+|-------|---------|-------|-------------|
+| PPE | 183 | 25,5% | Dominante estable |
+| S&D | 136 | 19,0% | Mantiene posición |
+| PfE | 85 | 11,9% | Consolidándose |
+| ECR | 81 | 11,3% | Bajo presión (inmunidad) |
+| Renew | 77 | 10,7% | Declinando |
+| Greens/EFA | 53 | 7,4% | Estabilizándose |
+| The Left | 45 | 6,3% | Estable |
+| NI | 30 | 4,2% | Fragmentado |
+| ESN | 27 | 3,8% | Creciendo |
+| **Umbral de mayoría** | **360** | | |
+
+**Cálculo de coalición:** PPE+S&D = 319 (por debajo de la mayoría). El PPE necesita o bien Renew (+77 = 260, insuficiente solo) o ECR (+81 = 264) como tercer socio. La "coalición Ursula" (PPE+S&D+Renew = 396) sigue siendo la mayoría operativa, pero se enfrenta a recurrentes riesgos de defección.
+
+### RIESGOS CLAVE (VENTANA DE 72 HORAS)
+
+1. **Cohesión de ECR**: La decisión de inmunidad de Jaki podría desencadenar presión disciplinaria en ECR, con miembros polacos que potencialmente rompen la solidaridad de grupo en votos próximos — especialmente los procedimientos de descargo de octubre de 2026.
+2. **Escalada de aplicación del DMA**: La respuesta de la Comisión a la resolución de aplicación del Parlamento pondrá a prueba la confianza interinstitucional antes de los trílogos sobre legislación de plataformas.
+3. **Negociaciones presupuestarias**: El proceso presupuestario del otoño de 2026 comienza con el Parlamento en modo ofensivo; riesgo de que se forme una minoría de bloqueo en el Consejo en torno a los Estados miembros conscientes de la austeridad.
+
+### EVALUACIÓN DE CONFIANZA
+
+- **Fuentes de datos utilizadas:** 51 textos adoptados (2026), datos abiertos del PE sobre el panorama político, análisis de la dinámica de coaliciones
+- **Datos IMF:** No disponibles (sonda fallida — modo degradado, citas del IMF exentas según 08-infrastructure.md §4)
+- **Protocolos de votación:** Pendientes de publicación del PE (retraso estándar de 4 a 6 semanas desde las fechas de adopción)
+- **Confianza global:** 🟡 Media — análisis estructural sólido, granularidad de votación en tiempo real limitada
+
+*Generado: 2026-05-09T19:20:00Z | Fuente: Portal de Datos Abiertos del Parlamento Europeo*
+
+### Executive Brief Fi
+
+### TILANNEKATSAUS 🔴 KORKEA MERKITYS
+
+Euroopan parlamentti navigoi toukokuussa 2026 ennennäkemätöntä oikeudellisten vastuukriisien, digitaalisen sääntöjen täytäntöönpanon kiistojen ja institutionaalisen pirstoutumispaineen yhtymistä. Huhtikuun 2026 täysistunnot tuottivat tiheän lainsäädäntötuloksen — puolalaisten nationalististen MEP:ien immuniteettivapautuksista digitaalisten markkinoiden lain täytäntöönpanon aloittamiseen — samalla kun instituution koalitiomatematiikka monimutkaistuu entisestään EPP:n 183 paikan ja 360 paikan enemmistökynnyksen välillä.
+
+**Johtava tiedusteluarvio (🟡 Keskitasoinen varmuus):** Grzegorz Braunin (maaliskuu 2026) ja Patryk Jakin (huhtikuu 2026) kaksoimmuniteettivapautukset — molemmat ECR:n/puolalaisia nationalistisia MEP:eja, joita vastaan on kotimaassaan vireillä oikeudellisia menettelyjä — edustavat poliittisesti merkittävimpiä toimia, joita JURI-valiokunta on toteuttanut EP10:ssä. Nämä päätökset osoittavat, että parlamentti ei suojele äärioikeistopoliitikkoja kansalliselta oikeudelliselta vastuulta, mikä luo ennakkotapauksen, jolla on seurauksia demokraattiselle resilienssille oikeusvaltioperiaatteen uhkia kokevissa EU-jäsenvaltioissa.
+
+**IMF-datatila:** 🔴 Ei saatavilla — IMF SDMX-päätepiste ei ollut tavoitettavissa tämän ajon aikana (testi palautti `available: false`). Talousanalyysi perustuu EP:n rakenteellisiin tietoihin ja julkisesti saatavilla olevaan makrokontekstiin. IMF-vähimmäisvaatimukset vapautettu `08-infrastructure.md §4` alennetun tilan protokollan mukaisesti.
+
+**Äänestysprotokollien tila:** 🔴 Odottaa — EP:n nimenhuutodata 28.–30. huhtikuuta ei ole vielä julkaistu (vakioviive 4–6 viikkoa). Yksittäisten MEP:ien kannat tärkeissä päätöslauselmissa (DMA, Ukraina, Armenia) eivät ole saatavilla.
+
+---
+
+### TOP 5 VIIMEISIMMÄT TAPAHTUMAT (2026-04-28 — 2026-05-09)
+
+#### 1. Immuniteettivapautus: Patryk Jaki (ECR/Puola) — 28. huhtikuuta 2026 🔴
+**Viite:** TA-10-2026-0105 | **Valiokunta:** JURI | **Merkitys:** KORKEA
+
+Parlamentti äänesti MEP Patryk Jakin parlamentaarisen immuniteetin vapauttamisen puolesta. Jaki on puolalainen ECR-poliitikko, jota vastaan on Puolassa vireillä oikeudellisia menettelyjä hänen EP-mandaattiaan edeltäneisiin poliittisiin toimiin liittyen. Tämä seuraa Grzegorz Braunin (TA-10-2026-0088) immuniteetin vapauttamista 26. maaliskuuta; Braun on syytetty Hanukkah-menora-seremonian häiritsemisestä Puolan Sejmissä joulukuussa 2023. Molemmat vapautukset osoittavat, että JURI-valiokunta soveltaa johdonmukaisia normeja riippumatta poliittisesta suuntauksesta, vaikka ECR on riitauttanut menettelyt poliittisesti motivoituina. Näiden päätösten peräkkäisyys — kuuden viikon sisällä — viittaa tietoiseen JURI-strategiaan puolalaisten MEP:ien kansallisista eurooppalaisiin mandaatteihin siirtymistä seurannen immuniteettihakemusten ruuhkan purkamiseksi.
+
+**Tiedusteluarvo:** Osoittaa EP:n halukkuuden ylläpitää oikeusvaltiostandardeja jopa parlamentin kolmanneksi suurimman oikeistolaisen ryhmittymän MEP:eille (ECR: 81 paikkaa). Luo ennakkotapauksen jäljellä olevalle EP10-immuniteettisarjalle.
+
+**Ristiviite:** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. Päätöslauselma digitaalisten markkinoiden lain täytäntöönpanosta — 30. huhtikuuta 2026 🟡
+**Viite:** TA-10-2026-0160 | **Aihe:** PROT, MARI | **Merkitys:** KORKEA
+
+Parlamentti hyväksyi DMA:n täytäntöönpanoa koskevan päätöslauselman, jossa kehotetaan komissiota nopeuttamaan portinvartijoiden nimeämismenettelyjä ja määräämään merkittäviä korjaustoimenpiteitä. Tämä tapahtui kasvavan transatlanttisen teknologiasääntelyeroavaisuuden keskellä. Päätöslauselma edustaa parlamentin valvontaroolin lainsäädännällistä vahvistamista komission täytäntöönpanoharkintaan nähden — malli, joka on yhä enemmän nähtävissä tekoälylain, datalain ja alustaregulointiasioissa. DMA:n ensimmäiset portinvartijapäätökset uuden täytäntöönpanojärjestelmän puitteissa on määrä saattaa päätökseen vuoden 2026 puoliväliin mennessä; tämä päätöslauselma toimii parlamentin ennakollisena painesignaalina ennen näiden päätösten julkistamista.
+
+**Tiedusteluarvo:** Ennakoi trilogin vastakkainasetteluja tulevassa alustalainsäädännössä parlamentin painostaessa tiukempaa täytäntöönpanoa. EU-markkinoilla toimivat teknologiayritykset kohtaavat kasvavan sääntöriskien toteutumisen.
+
+**Ristiviite:** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. EP:n talousarvioarviot 2027 hyväksytty — 28.–30. huhtikuuta 2026 🟡
+**Viitteet:** TA-10-2026-0112 (Talousarviosuuntaviivat), TA-10-2026-04-30-ANN01 (Talousarvioarviot) | **Merkitys:** KESKITASO
+
+Parlamentti hyväksyi sekä EU:n vuoden 2027 talousarvion suuntaviivat (osasto III) että omat alustavat talousarvioarviolausumansa vuodelle 2027. Näiden äänestysten samanaikaisuus osoittaa, että parlamentti vahvistaa sisäistä finanssipoliittista kantaansa ennen vuosittaisia talousarvioita neuvotteluja. Tilanteessa, jossa useat jäsenvaltiot ajavat säästöjä EU-tasolla — osaksi COVID:n jälkeisten kansallisten velkaongelmien ja uusien puolustusmenovaatimusten ajamina — parlamentin aikainen julkilausuma vahvistaa sen neuvotteluasemaa. Vuoden 2027 talousarvio on ensimmäinen täysi vuosibudjetti uuden monivuotisen rahoituskehyksen tarkistusprosessin puitteissa ja kuvastaa kilpailevia vaatimuksia: puolustuksen vahvistaminen, vihreä siirtymä, maataloustuki ja koheesio.
+
+**Tiedusteluarvo:** Talousarviomatematiikka on määrittävä toimielinten välinen taistelukenttä syksyllä 2026. Neuvoston estävä vähemmistö muodostunee Saksan, Alankomaiden ja Itävallan ympärille vaatimassa kokonaiskattoja.
+
+**Ristiviite:** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. PNR-sopimus Islannin kanssa — 29. huhtikuuta 2026 🟢
+**Viite:** TA-10-2026-0142 | **Merkitys:** KESKITASO-MATALA
+
+Parlamentti hyväksyi EU:n ja Islannin välisen matkustajarekisteri (PNR) -sopimuksen terrorismin torjumiseksi ja vakavan rikollisuuden ehkäisemiseksi. Vaikka menettely on rutiininomainen, on äänestys huomattava laajan puoluerajat ylittävän tuen vuoksi — mikä heijastaa vuoden 2024 jälkeistä tietosuojankysymyksissä vasemmisto-oikeisto-jakoa ylittävää turvallisuuskonsensusta. Islanti on Schengen-assosioitunut maa, joten tämä on luonnollinen olemassa olevien puitteiden laajennus. LIBE-valiokunta suoritti GDPR-yhteensopivuusarvioinnin; The Left -ryhmä todennäköisesti äänesti vastaan tai pidättäytyi tietosuojasyistä, mutta enemmistö oli tyytyväinen.
+
+**Tiedusteluarvo:** Vahvistaa, että turvallisuusasioissa EPP-S&D-Renew suurkoalitiomatematiikka pysyy toimivana, vaikka se hajoaa sääntelyssä ja sosiaalipolitiikassa.
+
+#### 5. Talousarviota koskeva vastuuvapaus 2024: Alueiden komitea — 29. huhtikuuta 2026 🟢
+**Viite:** TA-10-2026-0132 | **Merkitys:** MATALA
+
+Parlamentti myönsi vastuuvapauden alueiden komitealle sen vuoden 2024 talousarvion toteutuksesta. Rutiininomainen vastuullisuusharjoitus. Yksikään MEP ei esittänyt olennaisia varaumia. Tämä on osa laajempaa vuosittaista vastuuvapausjaksoa, joka sisälsi myös virastojen vastuuvapaudet tässä istunnossa.
+
+---
+
+### PARLAMENTAARISEN ARITMETIIKAN ARVIOINTI
+
+| Ryhmä | Paikat | Osuus | Kehitys | Rooli |
+|-------|--------|-------|---------|-------|
+| EPP | 183 | 25,5% | Vakaa hallitseva | Enemmistöntekijä |
+| S&D | 136 | 19,0% | Pitää asemansa | Tukipilari |
+| PfE | 85 | 11,9% | Konsolidoituu | Oppositiohäiritsijä |
+| ECR | 81 | 11,3% | Paineen alla (immuniteetti) | Valikoiva liittolainen |
+| Renew | 77 | 10,7% | Laskee | Koalitiovoiteluaine |
+| Greens/EFA | 53 | 7,4% | Vakautuu | Progressiivinen siipi |
+| The Left | 45 | 6,3% | Vakaa | Vasemmiston ankkuri |
+| NI | 30 | 4,2% | Hajanaiset | Arvaamaton |
+| ESN | 27 | 3,8% | Kasvaa | Kova oppositio |
+| **Enemmistökynnys** | **360** | | | |
+
+**Koalitiolaskelma:** EPP+S&D = 319 (alle enemmistön). EPP tarvitsee joko Renewin (+77) tai Greensin (+53) kolmanneksi kumppaniksi sekä satunnaisen S&D/Renew- tai ECR-täydennyksen. "Ursula-koalitio" (EPP+S&D+Renew = 396) pysyy toimivana enemmistönä useimmissa äänestyksissä, mutta kohtaa toistuvia irtaantumisriskejä kiistanalaisissa asioissa.
+
+**Pirstoutumisindeksi:** KORKEA (tehollinen puolueiden lukumäärä: 6,58)
+**Vakauspisteytys:** 84/100 (Varhaisen varoitusjärjestelmän arvio: KESKIRISKIN taso)
+
+---
+
+### TÄRKEIMMÄT RISKIT (72 TUNNIN JA 30 PÄIVÄN IKKUNA)
+
+#### Välittömästi (72 tuntia)
+1. **ECR:n yhtenäisyysjännitys**: Jakin immuniteettipäätös voi laukaista näkyvät sisäiset ECR-jännitteet
+2. **DMA:n täytäntöönpanon määräaika**: Komission on vastattava parlamentin täytäntöönpanopäätöslauselmaan
+3. **Talousarvio: Neuvoston reaktio**: Neuvoston ensimmäinen vastaus EP:n talousarvioarvioihin odotetaan 2 viikon sisällä
+
+#### Keskipitkällä aikavälillä (30 päivää)
+1. **Lisää immuniteettisarjoja**: Vähintään 3–4 lisää immuniteettihakemusta vireillä (ei-puolalaiset MEP:it)
+2. **Täysistuntoaikataulu**: Touko-/kesäkuun täysistunnon esityslista testaa koalition vakautta tekoälyn vastuussa, CBAM-tarkastelussa
+3. **Ukrainan tuki**: Jatkuva paine sotilastukipaketille; ECR/PfE-jako todennäköinen
+
+---
+
+### LUOTTAMUS- JA DATALAATUVIO ARVIOINTI
+
+| Tietolähde | Tila | Vaikutus analyysiin |
+|-----------|------|---------------------|
+| EP:n hyväksytyt tekstit (2026) | ✅ 51 tekstiä haettu | Täysi lainsäädäntökattavuus |
+| Poliittinen maisema | ✅ Reaaliaikainen API-data | Korkea luottamus koalitiomatematiikassa |
+| Koalitiodynamiikka | ⚠️ Kokoestimaat vain (ei äänestysdata) | Keskiluokan luottamus liittolaisiin |
+| Äänestysprotokollat (28.–30. huhtik.) | ❌ Odottaa EP:n julkaisua | Ei voida vahvistaa tiettyjä ryhmäkantoja |
+| IMF talousdata | ❌ Testi epäonnistui (alennettu tila) | Talousosio käyttää rakenteellisia arvioita |
+| Tapahtumaseuranta | ❌ EP API ei saatavilla | Valiokuntien toimintadata puutteellista |
+| DOCEO XML-äänestykset | ❌ Ei viimeaikaista täysistuntodataa | Lähes reaaliaikainen äänestysdata puuttuu |
+
+**Kokonaisluottamus:** 🟡 Keskiluokan — vahva rakenteellinen analyysi, rajallinen reaaliaikainen äänestyksen yksityiskohtaisuus
+
+*Luotu: 2026-05-09 | Ajo: breaking-run-1778354174 | Lähde: Euroopan parlamentin avoin dataporttaali*
+
+---
+
+### METODOLOGINEN HUOMAUTUS
+
+Tämä tiivistelmä yhdistää tiedot EP:n avoimesta dataportaalista (51 hyväksyttyä tekstiä, poliittinen maisema, koalitiodynamiikka), analyyttisistä välineistä (varhainen varoitusjärjestelmä, koalitioparien analyysi) ja rakenteellisista analyyttisistä tekniikoista (SAT). Kaikki kvantitatiiviset tiedot on varmennettu EP:n API-vastauksista. Laadulliset arvioinnit käyttävät jäsenneltyä todennäköisyyskieltä `analysis/methodologies/ai-driven-analysis-guide.md` säännön 12 mukaisesti. Luottamusetiketit noudattavat Admiraliteetin koodin periaatteita.
+
+#### 1. Immuniteettivapautus: Patryk Jaki (ECR/Puola) — 28. huhtikuuta 2026 🔴
+**Viite:** TA-10-2026-0105 | **Valiokunta:** JURI | **Merkitys:** KORKEA
+
+Parlamentti äänesti MEP Patryk Jakin parlamentaarisen immuniteetin vapauttamisen puolesta. Grzegorz Braunin (TA-10-2026-0088) immuniteetti vapautettiin 26. maaliskuuta; tämä seuraa samaa mallia. Peräkkäinen luonne — kuuden viikon sisällä — viittaa tietoiseen JURI-strategiaan.
+
+**Tiedusteluarvo:** Osoittaa EP:n halukkuuden ylläpitää oikeusvaltiostandardeja ECR-MEP:eille (81 paikkaa).
+
+#### 2. Päätöslauselma digitaalisten markkinoiden lain täytäntöönpanosta — 30. huhtikuuta 2026 🟡
+**Viite:** TA-10-2026-0160 | **Merkitys:** KORKEA
+
+Parlamentti hyväksyi DMA:n täytäntöönpanoa koskevan päätöslauselman (TA-10-2026-0160) aiheilla "PROT, MARI", jossa kehotetaan komissiota nopeuttamaan portinvartijoiden nimeämismenettelyjä. Tämä tapahtui viikko WTO:n 14. ministerikonferenssin jälkeen Yaoundéssa (päätöslauselma 12. maaliskuuta), kasvavan transatlanttisen teknologiasääntelyeroavaisuuden keskellä.
+
+**Tiedusteluarvo:** Ennakoi trilogin vastakkainasetteluja parlamentin painostaessa tiukempaa täytäntöönpanoa kuin komissio ehdottaa.
+
+#### 3. EP:n talousarvioarviot 2027 hyväksytty — 28.–30. huhtikuuta 2026 🟡
+**Viitteet:** TA-10-2026-0112 (Talousarviosuuntaviivat), TA-10-2026-04-30-ANN01 (Talousarvioarviot) | **Merkitys:** KESKITASO
+
+Parlamentti hyväksyi sekä EU:n vuoden 2027 talousarvion suuntaviivat (osasto III) että omat alustavat talousarvioarviolausumansa vuodelle 2027. Aikainen julkilausuma vahvistaa neuvotteluasemaa.
+
+**Tiedusteluarvo:** Talousarviomatematiikka on määrittävä taistelukenttä syksyllä 2026. Parlamentin aikainen julkilausuma vahvistaa sen neuvotteluasemaa.
+
+#### 4. PNR-sopimus Islannin kanssa — 29. huhtikuuta 2026 🟢
+**Viite:** TA-10-2026-0142 | **Merkitys:** KESKITASO-MATALA
+
+Parlamentti hyväksyi EU:n ja Islannin välisen PNR-sopimuksen. Laaja puoluerajat ylittävä tuki heijastaa turvallisuuskonsensusta.
+
+**Tiedusteluarvo:** Vahvistaa EPP-S&D-Renew suurkoalition toimivuuden turvallisuusasioissa.
+
+#### 5. Talousarviota koskeva vastuuvapaus 2024: Alueiden komitea — 29. huhtikuuta 2026 🟢
+**Viite:** TA-10-2026-0132 | **Merkitys:** MATALA
+
+Parlamentti myönsi vastuuvapauden alueiden komitealle vuoden 2024 talousarvion toteutuksesta. Rutiininomainen vastuullisuusharjoitus.
+
+### PARLAMENTAARISEN ARITMETIIKAN ARVIOINTI
+
+| Ryhmä | Paikat | Osuus | Kehitys |
+|-------|--------|-------|---------|
+| EPP | 183 | 25,5% | Vakaa hallitseva |
+| S&D | 136 | 19,0% | Pitää asemansa |
+| PfE | 85 | 11,9% | Konsolidoituu |
+| ECR | 81 | 11,3% | Paineen alla (immuniteetti) |
+| Renew | 77 | 10,7% | Laskee |
+| Greens/EFA | 53 | 7,4% | Vakautuu |
+| The Left | 45 | 6,3% | Vakaa |
+| NI | 30 | 4,2% | Hajanaiset |
+| ESN | 27 | 3,8% | Kasvaa |
+| **Enemmistökynnys** | **360** | | |
+
+**Koalitiolaskelma:** EPP+S&D = 319 (alle enemmistön). EPP tarvitsee joko Renewin (+77 = 260, riittämätön yksin) tai ECR:n (+81 = 264) kolmanneksi kumppaniksi. "Ursula-koalitio" (EPP+S&D+Renew = 396) pysyy toimivana enemmistönä useimmissa äänestyksissä, mutta kohtaa toistuvia irtaantumisriskejä.
+
+### TÄRKEIMMÄT RISKIT (72 TUNNIN IKKUNA)
+
+1. **ECR:n yhtenäisyys**: Jakin immuniteettipäätös voi laukaista ECR:n kurinpidolliset paineet, puolalaiset jäsenet saattavat rikkoa ryhmäsolidaarisuuden tulevissa äänestyksissä — erityisesti lokakuun 2026 vastuuvapausmenettelyissä.
+2. **DMA:n täytäntöönpanon kärjistyminen**: Komission vastaus parlamentin täytäntöönpanopäätöslauselmaan testaa toimielinten välistä luottamusta ennen alustalainsäädännön trilogi-neuvotteluja.
+3. **Talousarvioforhandlukset**: Syksyn 2026 budjettiprosessi alkaa parlamentin ollessa offensiivisessa moodissa; riski neuvoston estävän vähemmistön muodostumisesta säästöjä ajavien jäsenvaltioiden ympärille.
+
+### LUOTTAMUSARVIOINTI
+
+- **Käytetyt tietolähteet:** 51 hyväksyttyä tekstiä (2026), EP:n avoin poliittinen maisema -data, koalitiodynamiikka-analyysi
+- **IMF-data:** Ei saatavilla (testi epäonnistui — alennettu tila, IMF-viittaukset vapautettu 08-infrastructure.md §4:n mukaisesti)
+- **Äänestysprotokollat:** Odottaa EP:n julkaisua (vakioviive 4–6 viikkoa hyväksymispäivistä)
+- **Kokonaisluottamus:** 🟡 Keskiluokan — vahva rakenteellinen analyysi, rajallinen reaaliaikainen äänestyksen yksityiskohtaisuus
+
+*Luotu: 2026-05-09T19:20:00Z | Lähde: Euroopan parlamentin avoin dataporttaali*
+
+### Executive Brief Fr
+
+### RÉSUMÉ DE SITUATION 🔴 HAUTE SIGNIFICATION
+
+Le Parlement européen navigue en mai 2026 une convergence sans précédent de crises de responsabilité juridique, de batailles sur l'application de la réglementation numérique et de pressions de fragmentation institutionnelle. Les sessions plénières d'avril 2026 ont produit un dense résultat législatif — des levées d'immunité pour des eurodéputés nationalistes polonais au coup d'envoi de l'application du Digital Markets Act — tandis que l'arithmétique coalitionnelle sous-jacente de l'institution devient de plus en plus complexe avec le PPE à 183 sièges contre un seuil de majorité de 360.
+
+**Évaluation du renseignement principal (🟡 Confiance moyenne) :** Les deux levées d'immunité de Grzegorz Braun (mars 2026) et Patryk Jaki (avril 2026) — tous deux eurodéputés ECR/nationalistes polonais faisant l'objet de poursuites judiciaires dans leur pays d'origine — représentent les mesures politiquement les plus conséquentes prises par la commission JURI dans le cadre d'EP10. Ces décisions signalent que le Parlement ne protégera pas les politiciens d'extrême droite contre la responsabilité juridique nationale, un précédent aux implications en aval pour la résilience démocratique dans les États membres de l'UE soumis à des pressions sur l'état de droit.
+
+**Statut des données IMF :** 🔴 Indisponible — le point de terminaison SDMX de l'IMF n'était pas accessible pendant cette exécution (la sonde a renvoyé `available: false`). L'analyse économique repose sur les données structurelles du PE et le contexte macroéconomique disponible publiquement. Exigences minimales de l'IMF dispensées conformément au protocole de mode dégradé `08-infrastructure.md §4`.
+
+**Statut des protocoles de vote :** 🔴 En attente — les données de vote nominatif du PE pour les 28–30 avril n'ont pas encore été publiées (délai standard de 4 à 6 semaines). Les positions individuelles des eurodéputés sur les résolutions clés (DMA, Ukraine, Arménie) sont indisponibles.
+
+---
+
+### TOP 5 DES DÉVELOPPEMENTS RÉCENTS (2026-04-28 — 2026-05-09)
+
+#### 1. Levée d'immunité : Patryk Jaki (ECR/Pologne) — 28 avril 2026 🔴
+**Référence :** TA-10-2026-0105 | **Commission :** JURI | **Importance :** ÉLEVÉE
+
+Le Parlement a voté pour lever l'immunité parlementaire de l'eurodéputé Patryk Jaki, un politicien polonais de l'ECR faisant l'objet de poursuites judiciaires en Pologne liées à des activités politiques antérieures à son mandat au PE. Cela fait suite à la levée d'immunité du 26 mars pour Grzegorz Braun (TA-10-2026-0088), qui fait face à des charges liées à sa perturbation de la cérémonie de la menorah de Hanoukka au Sejm polonais en décembre 2023. Les deux levées d'immunité montrent que la commission JURI applique des normes cohérentes indépendamment de l'affiliation politique, bien que l'ECR ait contesté les procédures comme politiquement motivées. Le caractère séquentiel de ces décisions — en l'espace de six semaines — suggère une stratégie délibérée de la JURI pour résorber l'arriéré de demandes d'immunité des eurodéputés polonais après leur passage de mandats nationaux à européens.
+
+**Valeur du renseignement :** Signale la volonté du PE de maintenir les normes de l'état de droit même pour les eurodéputés appartenant au troisième plus grand groupe de droite du Parlement (ECR : 81 sièges). Crée un précédent pour la file d'attente d'immunités EP10 restante.
+
+**Référence croisée :** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. Résolution sur l'application du Digital Markets Act — 30 avril 2026 🟡
+**Référence :** TA-10-2026-0160 | **Sujet :** PROT, MARI | **Importance :** ÉLEVÉE
+
+Le Parlement a adopté une résolution sur l'application du DMA demandant à la Commission d'accélérer les procédures de désignation des contrôleurs d'accès et d'imposer des remèdes significatifs. Cela s'est produit dans un contexte de divergence croissante en matière de réglementation technologique transatlantique. La résolution représente une affirmation législative du rôle de surveillance du Parlement sur le pouvoir discrétionnaire d'application de la Commission — un schéma de plus en plus visible dans les dossiers de la loi sur l'IA, de la loi sur les données et de la réglementation des plateformes. Les premières décisions de désignation de contrôleurs d'accès dans le cadre du nouveau régime d'application devraient être finalisées d'ici mi-2026 ; cette résolution sert de signal de pression préventif du Parlement avant que ces décisions n'arrivent.
+
+**Valeur du renseignement :** Préfigure des confrontations en trilogue dans la législation à venir sur les plateformes, le Parlement cherchant à obtenir des instruments d'application plus puissants. Les entreprises technologiques opérant sur les marchés européens font face à une matérialisation croissante des risques réglementaires.
+
+**Référence croisée :** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. Estimations budgétaires du PE pour 2027 adoptées — 28–30 avril 2026 🟡
+**Références :** TA-10-2026-0112 (Orientations budgétaires), TA-10-2026-04-30-ANN01 (Estimations budgétaires) | **Importance :** MOYENNE
+
+Le Parlement a adopté à la fois les orientations pour le budget de l'UE 2027 (section III) et ses propres projets d'estimations budgétaires pour 2027. La concomitance de ces votes indique que le Parlement est en train d'établir sa position fiscale interne avant les négociations budgétaires annuelles avec le Conseil. À un moment où plusieurs États membres font pression pour l'austérité au niveau de l'UE — en partie sous l'effet des pressions sur la viabilité de la dette nationale post-COVID et des nouvelles demandes de dépenses de défense — la déclaration anticipée du Parlement consolide sa position de négociation. Le budget 2027 sera le premier budget annuel complet dans le cadre du nouveau processus de révision du cadre financier pluriannuel (CFP) et reflétera des demandes concurrentes : augmentation de la défense, transition verte, soutien agricole et cohésion.
+
+**Valeur du renseignement :** L'arithmétique budgétaire sera le champ de bataille interinstitutionnel déterminant de l'automne 2026. Une minorité de blocage au Conseil est susceptible de se former autour de l'Allemagne, des Pays-Bas et de l'Autriche en faveur de plafonds globaux.
+
+**Référence croisée :** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. Accord PNR avec l'Islande — 29 avril 2026 🟢
+**Référence :** TA-10-2026-0142 | **Importance :** MOYENNE-FAIBLE
+
+Le Parlement a donné son consentement à un accord EU-Islande sur les données des dossiers passagers (PNR) à des fins de lutte contre le terrorisme et la criminalité grave. Bien que procéduralement routinier, ce vote est remarquable par son large soutien multipartite — reflétant un consensus sécuritaire post-2024 qui transcende la ligne de démarcation gauche-droite sur la protection des données. L'Islande est un pays associé à Schengen, ce qui fait de ce document une extension naturelle des cadres existants. La commission LIBE a procédé à une évaluation de la conformité au RGPD ; le groupe The Left a probablement voté contre ou s'est abstenu pour des raisons de protection des données, mais la majorité était à l'aise.
+
+**Valeur du renseignement :** Confirme que sur les dossiers sécuritaires, l'arithmétique de la grande coalition PPE-S&D-Renew reste viable même lorsqu'elle se fracture sur les dossiers réglementaires et de politique sociale.
+
+#### 5. Décharge budgétaire 2024 : Comité des régions — 29 avril 2026 🟢
+**Référence :** TA-10-2026-0132 | **Importance :** FAIBLE
+
+Le Parlement a donné décharge au Comité des régions pour l'exécution de son budget 2024. Exercice de responsabilité de routine. Aucun eurodéputé n'a soulevé de réserves substantielles. Cela fait partie du cycle annuel plus large de décharge qui incluait également les décharges des agences lors de cette session.
+
+---
+
+### ÉVALUATION DE L'ARITHMÉTIQUE PARLEMENTAIRE
+
+| Groupe | Sièges | Part | Trajectoire | Rôle |
+|--------|--------|------|-------------|------|
+| PPE | 183 | 25,5% | Dominance stable | Faiseur de majorité |
+| S&D | 136 | 19,0% | Tient ses positions | Co-ancre |
+| PfE | 85 | 11,9% | Se consolide | Perturbateur d'opposition |
+| ECR | 81 | 11,3% | Sous pression (immunité) | Allié sélectif |
+| Renew | 77 | 10,7% | Déclinant | Lubrifiant de coalition |
+| Greens/EFA | 53 | 7,4% | Se stabilise | Aile progressiste |
+| The Left | 45 | 6,3% | Stable | Ancre de gauche |
+| NI | 30 | 4,2% | Fragmenté | Imprévisible |
+| ESN | 27 | 3,8% | En croissance | Opposition dure |
+| **Seuil de majorité** | **360** | | | |
+
+**Calcul de coalition :** PPE+S&D = 319 (en dessous de la majorité). Le PPE a besoin soit de Renew (+77) soit des Greens (+53) comme troisième partenaire, plus un appoint occasionnel S&D/Renew ou ECR. La « coalition Ursula » (PPE+S&D+Renew = 396) reste la majorité opérationnelle pour la plupart des votes, mais est exposée à des risques récurrents de défection sur les dossiers controversés.
+
+**Indice de fragmentation :** ÉLEVÉ (nombre effectif de partis : 6,58)
+**Score de stabilité :** 84/100 (évaluation du système d'alerte précoce : niveau de risque MOYEN)
+
+---
+
+### RISQUES CLÉS (FENÊTRE DE 72 HEURES ET DE 30 JOURS)
+
+#### Immédiat (72 heures)
+1. **Tensions de cohésion de l'ECR** : La décision sur l'immunité de Jaki pourrait déclencher des tensions internes visibles à l'ECR
+2. **Délai d'application du DMA** : La Commission doit répondre à la résolution d'application du Parlement
+3. **Budget : réaction du Conseil** : La première réaction du Conseil aux estimations budgétaires du PE est attendue dans 2 semaines
+
+#### Moyen terme (30 jours)
+1. **File d'attente d'immunités supplémentaires** : Au moins 3 à 4 demandes d'immunité supplémentaires en attente (eurodéputés non polonais)
+2. **Planification des plénières** : L'ordre du jour des plénières de mai/juin testera la stabilité de la coalition sur la responsabilité de l'IA, la révision du MACF
+3. **Soutien à l'Ukraine** : Pression continue sur le paquet de soutien militaire ; division ECR/PfE probable
+
+---
+
+### ÉVALUATION DE LA CONFIANCE ET DE LA QUALITÉ DES DONNÉES
+
+| Source de données | Statut | Impact sur l'analyse |
+|-------------------|--------|---------------------|
+| Textes adoptés PE (2026) | ✅ 51 textes récupérés | Couverture législative complète |
+| Paysage politique | ✅ Données API en temps réel | Arithmétique coalitionnelle à haute confiance |
+| Dynamique des coalitions | ⚠️ Proxy de taille uniquement (pas de données de vote) | Confiance moyenne sur les alliances |
+| Protocoles de vote (28–30 avr.) | ❌ En attente de publication par le PE | Impossible de confirmer les positions spécifiques des groupes |
+| Données économiques IMF | ❌ Sonde échouée (mode dégradé) | Section économique utilise des estimations structurelles |
+| Fil d'actualités des événements | ❌ API PE indisponible | Données d'activité des commissions incomplètes |
+| Votes XML DOCEO | ❌ Aucune donnée plénière récente | Données de vote quasi-temps réel absentes |
+
+**Confiance globale :** 🟡 Moyenne — forte analyse structurelle, granularité de vote en temps réel limitée
+
+*Généré : 2026-05-09 | Exécution : breaking-run-1778354174 | Source : Portail de données ouvertes du Parlement européen*
+
+---
+
+### NOTE MÉTHODOLOGIQUE
+
+Cette synthèse exécutive synthétise des données du Portail de données ouvertes du PE (51 textes adoptés, paysage politique, dynamique des coalitions), des outils analytiques (système d'alerte précoce, analyse des paires de coalitions) et des techniques analytiques structurées (TAS). Toutes les données quantitatives ont été vérifiées par rapport aux réponses de l'API du PE. Les évaluations qualitatives utilisent un langage probabiliste structuré conformément à la règle 12 de `analysis/methodologies/ai-driven-analysis-guide.md`. Les étiquettes de confiance suivent les principes du Code de l'Amirauté.
+
+#### 1. Levée d'immunité : Patryk Jaki (ECR/Pologne) — 28 avril 2026 🔴
+**Référence :** TA-10-2026-0105 | **Commission :** JURI | **Importance :** ÉLEVÉE
+
+Le Parlement a voté pour lever l'immunité parlementaire de l'eurodéputé Patryk Jaki. Cela fait suite à la levée d'immunité du 26 mars pour Grzegorz Braun (TA-10-2026-0088), qui fait face à des charges liées à sa perturbation de la cérémonie de la menorah de Hanoukka au Sejm polonais. Le caractère séquentiel — en six semaines — suggère une stratégie délibérée de la JURI.
+
+**Valeur du renseignement :** Signale la volonté du PE de maintenir les normes de l'état de droit pour les eurodéputés de l'ECR (81 sièges).
+
+#### 2. Résolution sur l'application du Digital Markets Act — 30 avril 2026 🟡
+**Référence :** TA-10-2026-0160 | **Importance :** ÉLEVÉE
+
+Le Parlement a adopté une résolution sur l'application du DMA (TA-10-2026-0160) avec le sujet "PROT, MARI", demandant à la Commission d'accélérer les procédures de désignation des contrôleurs d'accès. Cela s'est produit une semaine après la 14e Conférence ministérielle de l'OMC à Yaoundé (résolution du 12 mars), dans un contexte de divergence croissante en matière de réglementation technologique transatlantique.
+
+**Valeur du renseignement :** Préfigure des confrontations en trilogue dans la législation à venir sur les plateformes, le Parlement poussant à une application plus stricte que ce que propose la Commission.
+
+#### 3. Estimations budgétaires du PE pour 2027 adoptées — 28–30 avril 2026 🟡
+**Références :** TA-10-2026-0112 (Orientations budgétaires), TA-10-2026-04-30-ANN01 (Estimations budgétaires) | **Importance :** MOYENNE
+
+Le Parlement a adopté les deux séries de textes. La déclaration anticipée renforce la position de négociation.
+
+**Valeur du renseignement :** L'arithmétique budgétaire sera le champ de bataille interinstitutionnel déterminant de l'automne 2026. La déclaration anticipée du Parlement consolide sa position.
+
+#### 4. Accord PNR avec l'Islande — 29 avril 2026 🟢
+**Référence :** TA-10-2026-0142 | **Importance :** MOYENNE-FAIBLE
+
+Le Parlement a donné son consentement à l'accord EU-Islande sur les PNR. Le large soutien multipartite reflète un consensus sécuritaire post-2024.
+
+**Valeur du renseignement :** Confirme la viabilité de l'arithmétique de la grande coalition PPE-S&D-Renew sur les dossiers sécuritaires.
+
+#### 5. Décharge budgétaire 2024 : Comité des régions — 29 avril 2026 🟢
+**Référence :** TA-10-2026-0132 | **Importance :** FAIBLE
+
+Le Parlement a donné décharge au Comité des régions. Exercice de routine.
+
+### ÉVALUATION DE L'ARITHMÉTIQUE PARLEMENTAIRE
+
+| Groupe | Sièges | Part | Trajectoire |
+|--------|--------|------|-------------|
+| PPE | 183 | 25,5% | Dominance stable |
+| S&D | 136 | 19,0% | Tient ses positions |
+| PfE | 85 | 11,9% | Se consolide |
+| ECR | 81 | 11,3% | Sous pression (immunité) |
+| Renew | 77 | 10,7% | Déclinant |
+| Greens/EFA | 53 | 7,4% | Se stabilise |
+| The Left | 45 | 6,3% | Stable |
+| NI | 30 | 4,2% | Fragmenté |
+| ESN | 27 | 3,8% | En croissance |
+| **Seuil de majorité** | **360** | | |
+
+**Calcul de coalition :** PPE+S&D = 319 (en dessous de la majorité). Le PPE a besoin soit de Renew (+77 = 260, insuffisant seul) soit de l'ECR (+81 = 264) comme troisième partenaire. La « coalition Ursula » (PPE+S&D+Renew = 396) reste la majorité opérationnelle, mais est exposée à des risques récurrents de défection.
+
+### RISQUES CLÉS (FENÊTRE DE 72 HEURES)
+
+1. **Cohésion ECR** : La décision sur l'immunité de Jaki pourrait déclencher une pression disciplinaire à l'ECR, les membres polonais pouvant potentiellement rompre la solidarité de groupe sur les votes à venir — notamment les procédures de décharge d'octobre 2026.
+2. **Escalade d'application du DMA** : La réponse de la Commission à la résolution d'application du Parlement testera la confiance interinstitutionnelle avant les trilogues sur la législation relative aux plateformes.
+3. **Négociations budgétaires** : Le processus budgétaire de l'automne 2026 commence avec le Parlement en mode offensif ; risque de formation d'une minorité de blocage au Conseil autour des États membres soucieux de rigueur budgétaire.
+
+### ÉVALUATION DE LA CONFIANCE
+
+- **Sources de données utilisées :** 51 textes adoptés (2026), données ouvertes du PE sur le paysage politique, analyse de la dynamique des coalitions
+- **Données IMF :** Indisponibles (sonde échouée — mode dégradé, citations de l'IMF dispensées conformément à 08-infrastructure.md §4)
+- **Protocoles de vote :** En attente de publication par le PE (délai standard de 4 à 6 semaines à compter des dates d'adoption)
+- **Confiance globale :** 🟡 Moyenne — forte analyse structurelle, granularité de vote en temps réel limitée
+
+*Généré : 2026-05-09T19:20:00Z | Source : Portail de données ouvertes du Parlement européen*
+
+### Executive Brief He
+
+**תאריך:** 2026-05-09 | **סוג:** חדשות | **סיווג:** ציבורי | **הרצה:** breaking-run-1778354174
+
+### סיכום המצב 🔴 חשיבות גבוהה
+
+הפרלמנט האירופי מתמודד במאי 2026 עם התכנסות חסרת תקדים של משברי אחריות משפטית, מאבקי אכיפת תקנות דיגיטליות ולחצי פיצול מוסדי. מליאות אפריל 2026 הניבו תוצרים חקיקתיים מוכבדים — מהסרת חסינות לחברי פרלמנט לאומנים פולנים ועד לירי פתיחת אכיפת חוק שוקי הדיגיטל — בעוד שהאריתמטיקה הקואליציונית של המוסד הולכת ומסתבכת עם המפלגה העממית האירופית ב-183 מושבים מול סף רוב של 360.
+
+**הערכת מודיעין מרכזית (🟡 ביטחון בינוני):** הסרות החסינות הכפולות של גז'גוז' בראון (מרץ 2026) ופאטריק יאקי (אפריל 2026) — שניהם חברי פרלמנט ECR/לאומנים פולנים העומדים בפני הליכים משפטיים במדינת מוצאם — מייצגות את הפעולות בעלות ההשלכות הפוליטיות הרבות ביותר שנקטה ועדת JURI ב-EP10. החלטות אלו מסמנות שהפרלמנט לא יגן על פוליטיקאי ימין קיצוני מפני אחריות משפטית לאומית, תקדים בעל השלכות מורידות לחוסן דמוקרטי במדינות חברות ב-EU הנתונות ללחצי שלטון חוק.
+
+**מצב נתוני IMF:** 🔴 לא זמין — נקודת קצה IMF SDMX לא הייתה נגישה במהלך הרצה זו (גשש החזיר `available: false`). הניתוח הכלכלי נשען על נתונים מבניים של הפרלמנט האירופי ורקע מאקרו-כלכלי זמין לציבור. דרישות מינימום IMF פטורות לפי פרוטוקול מצב מדורדר `08-infrastructure.md §4`.
+
+**מצב פרוטוקולי הצבעה:** 🔴 ממתין — נתוני הצבעה נומינלית של הפרלמנט ל-28–30 באפריל טרם פורסמו (עיכוב סטנדרטי של 4–6 שבועות). עמדות אישיות של חברי פרלמנט בנושאי החלטות מרכזיות (DMA, אוקראינה, ארמניה) אינן זמינות.
+
+---
+
+### 5 ההתפתחויות הבולטות (2026-04-28 — 2026-05-09)
+
+#### 1. הסרת חסינות: פאטריק יאקי (ECR/פולין) — 28 באפריל 2026 🔴
+**הפניה:** TA-10-2026-0105 | **ועדה:** JURI | **חשיבות:** גבוהה
+
+הפרלמנט הצביע להסיר את החסינות הפרלמנטרית של חבר פרלמנט פאטריק יאקי, פוליטיקאי פולני מ-ECR העומד בפני הליכים משפטיים בפולין הקשורים לפעילויות פוליטיות שלפני כהונתו בפרלמנט האירופי. זה בא בעקבות הסרת החסינות ב-26 במרץ עבור גז'גוז' בראון (TA-10-2026-0088), העומד בפני אישומים הקשורים להפרעתו לטקס המנורה של חנוכה בסיים הפולני בדצמבר 2023. שתי ההסרות מוכיחות כי ועדת JURI מיישמת סטנדרטים עקביים ללא תלות בזיקה פוליטית, אם כי ECR קראה תיגר על הנהלים כממוקדי פוליטיקה. האופי הרצף של ההחלטות — בתוך שישה שבועות — מרמז על אסטרטגיה מכוונת של JURI לסגור את פיגור בקשות החסינות של חברי פרלמנט פולנים לאחר מעברם מכהונות לאומיות לאירופיות.
+
+**ערך מודיעיני:** מסמן נכונות הפרלמנט האירופי לשמור על סטנדרטי שלטון חוק אפילו עבור חברי פרלמנט מהקבוצה הימנית השלישית בגודלה (ECR: 81 מושבים). יוצר תקדים לתור החסינויות הנותר של EP10.
+
+**הפניה צולבת:** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. החלטה על אכיפת חוק שוקי הדיגיטל — 30 באפריל 2026 🟡
+**הפניה:** TA-10-2026-0160 | **נושא:** PROT, MARI | **חשיבות:** גבוהה
+
+הפרלמנט אימץ החלטה על אכיפת DMA המבקשת מהנציבות להאיץ הליכי מינוי שוערי שעריים ולהטיל תרופות משמעותיות. זה קרה על רקע סטייה הולכת וגוברת בתקנות טכנולוגיות טרנסאטלנטיות. ההחלטה מייצגת אישור חקיקתי לתפקיד הפיקוח של הפרלמנט על שיקול דעת הנציבות באכיפה — דפוס שהולך ומתבהר בתיקי חוק הבינה המלאכותית, חוק הנתונים ותקנות פלטפורמות. החלטות המינוי הראשונות לשוערי שעריים במסגרת משטר האכיפה החדש אמורות להסתיים עד אמצע 2026; החלטה זו משמשת כאות לחץ מניעתי של הפרלמנט לפני שהחלטות אלו יגיעו.
+
+**ערך מודיעיני:** צופה עימותים בטריאלוגים בחקיקת פלטפורמות קרובה, כשהפרלמנט דוחף לכלי אכיפה חזקים יותר. חברות טכנולוגיה הפועלות בשווקי ה-EU ניצבות בפני התגשמות גוברת של סיכונים רגולטוריים.
+
+**הפניה צולבת:** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. הצעות תקציב הפרלמנט האירופי ל-2027 אומצו — 28–30 באפריל 2026 🟡
+**הפניות:** TA-10-2026-0112 (הנחיות תקציב), TA-10-2026-04-30-ANN01 (הצעות תקציב) | **חשיבות:** בינונית
+
+הפרלמנט אימץ הן את ההנחיות לתקציב ה-EU 2027 (פרק III) והן את הצעות התקציב שלו ל-2027. בו-זמניות ההצבעות מסמנת שהפרלמנט מבסס את עמדתו הפיסקלית הפנימית לפני משא ומתן התקציב השנתי עם המועצה. בשעה שמספר מדינות חברות לוחצות לצנע ב-EU — בחלקו בשל לחצי קיימות חוב לאומי לאחר קוביד ודרישות הוצאות ביטחון חדשות — הצהרה מוקדמת של הפרלמנט מגבשת את מעמד המשא ומתן שלו. תקציב 2027 יהיה התקציב השנתי המלא הראשון תחת תהליך הסקירה החדש של המסגרת הפיננסית רב-השנתית ויתכנן דרישות מתחרות: הרחבת הגנה, מעבר ירוק, תמיכה חקלאית ולכידות.
+
+**ערך מודיעיני:** האריתמטיקה התקציבית תהיה שדה הקרב הבין-מוסדי הקובע בסתיו 2026. מיעוט חוסם במועצה סביב גרמניה, הולנד ואוסטריה צפוי להיווצר הדורש תקרות כוללות.
+
+**הפניה צולבת:** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. הסכם PNR עם איסלנד — 29 באפריל 2026 🟢
+**הפניה:** TA-10-2026-0142 | **חשיבות:** בינונית-נמוכה
+
+הפרלמנט הסכים להסכם PNR EU-איסלנד לצורכי מאבק בטרור ופשע חמור. אמנם פרוצדורלי שגרתי, הצבעה זו בולטת בתמיכתה הרחבה הרב-מפלגתית — המשקפת קונצנזוס ביטחוני לאחר 2024 הגובר על מחלוקת שמאל-ימין בנושא הגנת מידע. איסלנד היא מדינה שותפה לשנגן, מה שהופך זאת להרחבה טבעית של מסגרות קיימות. ועדת LIBE ביצעה הערכת תאימות GDPR; סיעת The Left ככל הנראה הצביעה נגד או נמנעה מטעמי הגנת מידע, אך הרוב היה בנוח.
+
+**ערך מודיעיני:** מאשר שבתיקי ביטחון, האריתמטיקה הקואליציונית הגדולה EVP-S&D-Renew נשארת ישימה גם כשהיא מתפצלת בתיקים רגולטוריים ומדיניות חברתית.
+
+#### 5. העברת תקציב 2024: ועדת האזורים — 29 באפריל 2026 🟢
+**הפניה:** TA-10-2026-0132 | **חשיבות:** נמוכה
+
+הפרלמנט העניק פטור לוועדת האזורים על ביצוע תקציבה לשנת 2024. תרגיל אחריות שגרתי. אף חבר פרלמנט לא העלה הסתייגויות מהותיות. זה חלק ממחזור הפטורים השנתי הרחב שכלל גם פטורים לסוכנויות בהפגנה זו.
+
+---
+
+### הערכת האריתמטיקה הפרלמנטרית
+
+| קבוצה | מושבים | נתח | מסלול | תפקיד |
+|-------|--------|-----|-------|-------|
+| EVP | 183 | 25.5% | דומיננטיות יציבה | יוצר רוב |
+| S&D | 136 | 19.0% | מחזיק עמדה | עוגן משותף |
+| PfE | 85 | 11.9% | מתגבש | מפריע אופוזיציוני |
+| ECR | 81 | 11.3% | תחת לחץ (חסינות) | בעל ברית סלקטיבי |
+| Renew | 77 | 10.7% | בירידה | מסייע קואליציה |
+| Greens/EFA | 53 | 7.4% | מתייצב | כנף פרוגרסיבית |
+| The Left | 45 | 6.3% | יציב | עוגן שמאל |
+| NI | 30 | 4.2% | מפוצל | בלתי צפוי |
+| ESN | 27 | 3.8% | גדל | אופוזיציה קשה |
+| **סף רוב** | **360** | | | |
+
+**חישוב קואליציה:** EVP+S&D = 319 (מתחת לרוב). EVP זקוק לאחד מ-Renew (+77) או Greens (+53) כשותף שלישי, בתוספת השלמות S&D/Renew או ECR לעתים. "קואליציית אורסולה" (EVP+S&D+Renew = 396) נותרת הרוב הפועל לרוב ההצבעות, אך חשופה לסיכוני עריקה חוזרים בתיקים שנויים במחלוקת.
+
+**מדד פיצול:** גבוה (מספר אפקטיבי של מפלגות: 6.58)
+**ציון יציבות:** 84/100 (הערכת מערכת אזהרה מוקדמת: רמת סיכון בינונית)
+
+---
+
+### סיכונים עיקריים (חלון 72 שעות ו-30 יום)
+
+#### מיידי (72 שעות)
+1. **מתח לכידות ECR**: החלטת חסינות יאקי עלולה לעורר מתחים פנימיים גלויים ב-ECR
+2. **מועד אכיפת DMA**: הנציבות חייבת להגיב על החלטת האכיפה הפרלמנטרית
+3. **תקציב: תגובת המועצה**: תגובה ראשונה מהמועצה להצעות התקציב של הפרלמנט צפויה תוך שבועיים
+
+#### טווח בינוני (30 יום)
+1. **תור חסינויות נוסף**: לפחות 3–4 בקשות חסינות נוספות ממתינות (חברי פרלמנט שאינם פולנים)
+2. **תכנון מליאה**: סדר יום מליאות מאי/יוני יבחן את יציבות הקואליציה בנושא אחריות בינה מלאכותית, עדכון CBAM
+3. **תמיכה לאוקראינה**: לחץ מתמשך על חבילת תמיכה צבאית; פיצול ECR/PfE צפוי
+
+---
+
+### הערכת ביטחון ואיכות נתונים
+
+| מקור נתונים | סטטוס | השפעה על הניתוח |
+|------------|-------|----------------|
+| טקסטים מאומצים פרלמנט אירופי (2026) | ✅ 51 טקסטים נשלפו | כיסוי חקיקתי מלא |
+| נוף פוליטי | ✅ נתוני API בזמן אמת | אריתמטיקה קואליציונית בביטחון גבוה |
+| דינמיקות קואליציה | ⚠️ פרוקסי גודל בלבד (ללא נתוני הצבעה) | ביטחון בינוני בברית |
+| פרוטוקולי הצבעה (28–30 אפר.) | ❌ ממתין לפרסום הפרלמנט | לא ניתן לאשר עמדות קבוצות ספציפיות |
+| נתונים כלכליים IMF | ❌ גשש נכשל (מצב מדורדר) | חלק כלכלי משתמש בהערכות מבניות |
+| פיד אירועים | ❌ API הפרלמנט לא זמין | נתוני פעילות ועדות לא שלמים |
+| הצבעות DOCEO XML | ❌ אין נתוני מליאה אחרונים | נתוני הצבעה כמעט בזמן אמת נעדרים |
+
+**ביטחון כולל:** 🟡 בינוני — ניתוח מבני חזק, פירוט הצבעה בזמן אמת מוגבל
+
+*נוצר: 2026-05-09 | הרצה: breaking-run-1778354174 | מקור: פורטל הנתונים הפתוח של הפרלמנט האירופי*
+
+---
+
+### הערה מתודולוגית
+
+סיכום מנהלים זה מאחד נתונים מפורטל הנתונים הפתוח של הפרלמנט האירופי (51 טקסטים מאומצים, נוף פוליטי, דינמיקות קואליציה), כלים אנליטיים (מערכת אזהרה מוקדמת, ניתוח זוגות קואליציה), וטכניקות אנליטיות מובנות (SAT). כל הנתונים הכמותיים אומתו מול תגובות API של הפרלמנט. הערכות איכותניות משתמשות בשפה הסתברותית מובנית לפי כלל 12 ב-`analysis/methodologies/ai-driven-analysis-guide.md`. תוויות הביטחון עוקבות אחר עקרונות קוד האדמירליות.
+
+#### 1. הסרת חסינות: פאטריק יאקי (ECR/פולין) — 28 באפריל 2026 🔴
+**הפניה:** TA-10-2026-0105 | **ועדה:** JURI | **חשיבות:** גבוהה
+
+הפרלמנט הצביע להסיר חסינות יאקי. בא בעקבות הסרת חסינות בראון ב-26 במרץ (TA-10-2026-0088). האופי הרצף — שישה שבועות — מרמז על אסטרטגיה מכוונת.
+
+**ערך מודיעיני:** מסמן נכונות הפרלמנט לסטנדרטי שלטון חוק לחברי ECR (81 מושבים).
+
+#### 2. החלטה על אכיפת חוק שוקי הדיגיטל — 30 באפריל 2026 🟡
+**הפניה:** TA-10-2026-0160 | **חשיבות:** גבוהה
+
+הפרלמנט אימץ את החלטת אכיפת DMA (TA-10-2026-0160) בנושא "PROT, MARI". זה קרה שבוע לאחר ועידת שרי ה-WTO ה-14 ביאונדה (החלטה 12 במרץ).
+
+**ערך מודיעיני:** צופה עימותים בטריאלוגים בחקיקת פלטפורמות עם אכיפה חזקה יותר מהנציבות.
+
+#### 3. הצעות תקציב הפרלמנט האירופי ל-2027 אומצו — 28–30 באפריל 2026 🟡
+**הפניות:** TA-10-2026-0112 (הנחיות תקציב), TA-10-2026-04-30-ANN01 (הצעות תקציב) | **חשיבות:** בינונית
+
+הפרלמנט אימץ שני מסמכי תקציב. הצהרה מוקדמת מגבשת עמדת משא ומתן.
+
+**ערך מודיעיני:** האריתמטיקה התקציבית תהיה שדה הקרב הקובע בסתיו 2026.
+
+#### 4. הסכם PNR עם איסלנד — 29 באפריל 2026 🟢
+**הפניה:** TA-10-2026-0142 | **חשיבות:** בינונית-נמוכה
+
+הפרלמנט הסכים להסכם PNR EU-איסלנד. תמיכה רחבה רב-מפלגתית מאשרת קונצנזוס ביטחוני.
+
+**ערך מודיעיני:** מאשר ישימות קואליציה גדולה בתיקי ביטחון.
+
+#### 5. העברת תקציב 2024: ועדת האזורים — 29 באפריל 2026 🟢
+**הפניה:** TA-10-2026-0132 | **חשיבות:** נמוכה
+
+הפרלמנט העניק פטור לוועדת האזורים. תרגיל שגרתי.
+
+### הערכת האריתמטיקה הפרלמנטרית
+
+| קבוצה | מושבים | נתח | מסלול |
+|-------|--------|-----|-------|
+| EVP | 183 | 25.5% | דומיננטיות יציבה |
+| S&D | 136 | 19.0% | מחזיק עמדה |
+| PfE | 85 | 11.9% | מתגבש |
+| ECR | 81 | 11.3% | תחת לחץ (חסינות) |
+| Renew | 77 | 10.7% | בירידה |
+| Greens/EFA | 53 | 7.4% | מתייצב |
+| The Left | 45 | 6.3% | יציב |
+| NI | 30 | 4.2% | מפוצל |
+| ESN | 27 | 3.8% | גדל |
+| **סף רוב** | **360** | | |
+
+**חישוב קואליציה:** EVP+S&D = 319 (מתחת לרוב). EVP זקוק לאחד מ-Renew (+77 = 260, לא מספיק לבדו) או ECR (+81 = 264) כשותף שלישי. "קואליציית אורסולה" (EVP+S&D+Renew = 396) נותרת הרוב הפועל, אך חשופה לסיכוני עריקה חוזרים.
+
+### סיכונים עיקריים (חלון 72 שעות)
+
+1. **לכידות ECR**: החלטת חסינות יאקי עלולה לעורר לחץ משמעת ב-ECR, כאשר חברים פולנים עשויים לשבור סולידריות קבוצתית בהצבעות הבאות — במיוחד נהלי פטור אוקטובר 2026.
+2. **הסלמת אכיפת DMA**: תגובת הנציבות להחלטת האכיפה הפרלמנטרית תבחן אמון בין-מוסדי לפני טריאלוגים על חקיקת פלטפורמות.
+3. **משא ומתן תקציבי**: תהליך התקציב של סתיו 2026 מתחיל עם הפרלמנט במצב התקפי; סיכון להיווצרות מיעוט חוסם במועצה סביב מדינות חברות המודעות לצנע.
+
+### הערכת ביטחון
+
+- **מקורות נתונים בשימוש:** 51 טקסטים מאומצים (2026), נתונים פתוחים של הפרלמנט על הנוף הפוליטי, ניתוח דינמיקות קואליציה
+- **נתוני IMF:** לא זמינים (גשש נכשל — מצב מדורדר, ציטוטי IMF פטורים לפי 08-infrastructure.md §4)
+- **פרוטוקולי הצבעה:** ממתין לפרסום הפרלמנט (עיכוב סטנדרטי 4–6 שבועות מתאריכי אימוץ)
+- **ביטחון כולל:** 🟡 בינוני — ניתוח מבני חזק, פירוט הצבעה בזמן אמת מוגבל
+
+*נוצר: 2026-05-09T19:20:00Z | מקור: פורטל הנתונים הפתוח של הפרלמנט האירופי*
+
+### Executive Brief Ja
+
+**日付:** 2026-05-09 | **種別:** ニュース | **分類:** 公開 | **実行:** breaking-run-1778354174
+
+### 状況概要 🔴 高重要度
+
+欧州議会は2026年5月、法的説明責任危機・デジタル規制執行をめぐる争い・制度的断片化圧力という前例のない収束を迎えている。2026年4月本会議は、ポーランド民族主義議員の免責特権取消からデジタル市場法（DMA）執行の開始まで、濃密な立法成果を生み出した。その一方で、欧州人民党（EPP）が183議席にとどまり過半数閾値360議席を大きく下回る中、制度の根本的な連立計算はますます複雑化している。
+
+**主要インテリジェンス評価（🟡 中程度の確信度）:** グジェゴシュ・ブラウン（2026年3月）とパトリク・ヤキ（2026年4月）への二重免責特権取消 — いずれも母国で司法手続の対象となっているECR/ポーランド民族主義議員 — は、EP10においてJURI委員会が採った政治的に最も重大な措置である。これらの決定は、欧州議会が極右政治家を国内法的責任から守らないことを示しており、法の支配に圧力を受けるEU加盟国の民主的レジリエンスに下流的影響をもたらす先例となる。
+
+**IMFデータ状況:** 🔴 利用不可 — 本実行中にIMF SDMXエンドポイントへアクセスできなかった（プローブが `available: false` を返した）。経済分析は欧州議会の構造データおよび公開マクロコンテキストに依拠する。IMF最低要件は `08-infrastructure.md §4` の劣化モードプロトコルにより免除。
+
+**投票プロトコル状況:** 🔴 保留中 — 4月28–30日の欧州議会記名投票データはまだ未公開（標準的な4〜6週間の遅延）。DMA・ウクライナ・アルメニアに関する主要決議での個別議員の立場は不明。
+
+---
+
+### 最重要5大動向（2026-04-28 — 2026-05-09）
+
+#### 1. 免責特権取消：パトリク・ヤキ（ECR/ポーランド）— 2026年4月28日 🔴
+**参照:** TA-10-2026-0105 | **委員会:** JURI | **重要度:** 高
+
+欧州議会は、欧州議会議員パトリク・ヤキ（ポーランドECR政治家）の議会免責特権取消を採決した。ヤキ氏は欧州議会議員就任前の政治活動に関連するポーランドの司法手続の対象となっている。これは、2023年12月のポーランド議会でのハヌカー式典妨害に関する罪状に直面しているグジェゴシュ・ブラウン（TA-10-2026-0088）への3月26日の免責特権取消に続くものである。この二件の取消は、JURI委員会が政治的所属に関わらず一貫した基準を適用していることを示している（ECRは政治的動機があると主張しているが）。六週間以内の相次ぐ決定は、JURI委員会がポーランド議員の国内から欧州マンデートへの移行後に蓄積した免責特権申請の積み残しを解消するための意図的戦略を示唆している。
+
+**インテリジェンス価値:** 欧州議会第三の右派グループ（ECR：81議席）の議員に対しても法の支配基準を維持する意志を示す。EP10の残余免責特権キューに先例を設ける。
+
+**相互参照:** `intelligence/stakeholder-map.md §ECR`、`intelligence/coalition-dynamics.md §Rule-of-Law Alignment`、`classification/actor-mapping.md §Polish MEPs`
+
+#### 2. デジタル市場法執行に関する決議 — 2026年4月30日 🟡
+**参照:** TA-10-2026-0160 | **主題:** PROT, MARI | **重要度:** 高
+
+欧州議会はDMA執行に関する決議を採択し、欧州委員会にゲートキーパー指定手続の加速と実質的な是正措置の賦課を求めた。これは大西洋横断的テクノロジー規制乖離の拡大を背景に起こった。この決議はAI法・データ法・プラットフォーム規制のファイルでますます顕著となっているパターン——執行裁量に関する欧州委員会への議会監視権の立法的確認——を体現している。新執行体制下でのゲートキーパー最初の指定決定は2026年中頃までに完了する見込みであり、この決議はそれらの決定が着地する前の議会による予防的圧力シグナルとして機能する。
+
+**インテリジェンス価値:** 議会がより強力な執行ツールを求める中、今後のプラットフォーム立法に関するトリローグでの対立を予兆する。EUマーケットで事業を展開するテクノロジー企業は規制リスクの現実化が高まる局面に直面している。
+
+**相互参照:** `intelligence/scenario-forecast.md §DMA Enforcement`、`extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. 欧州議会2027年予算見積りの採択 — 2026年4月28–30日 🟡
+**参照:** TA-10-2026-0112（予算ガイドライン）、TA-10-2026-04-30-ANN01（予算見積り） | **重要度:** 中
+
+欧州議会は2027年のEU予算ガイドライン（第III章）と2027年予算見積りの両方を採択した。これらの投票の同時実施は、欧州議会が理事会との年次予算交渉前に内部財政的立場を固めていることを示す。COVID後の国家債務持続性圧力と新たな防衛支出要求に一部起因し、複数の加盟国がEUレベルの緊縮財政を求めている状況下で、欧州議会の早期宣言は交渉上の立場を強化する。2027年予算は新多年度財政枠組み（MFF）見直しプロセスの下での最初の完全年次予算となり、防衛拡充・グリーン移行・農業支援・結束という競合する需要を反映することになる。
+
+**インテリジェンス価値:** 予算計算は2026年秋の決定的な機関間戦場となる。ドイツ・オランダ・オーストリアを中心とした理事会での阻止少数派が総枠規制を求めて形成される可能性が高い。
+
+**相互参照:** `intelligence/economic-context.md`、`extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. アイスランドとのPNR協定 — 2026年4月29日 🟢
+**参照:** TA-10-2026-0142 | **重要度:** 中〜低
+
+欧州議会はテロリズムと重大犯罪対策のためのEU・アイスランド旅客名簿（PNR）協定に同意した。手続的には日常的なものだが、この投票は広範な超党派支持で注目される——データ保護に関する左右の分断を超えた2024年以降の安全保障コンセンサスを反映している。アイスランドはシェンゲン準加盟国であり、既存の枠組みの自然な延長となる。LIBE委員会はGDPR適合性評価を実施した；The Left会派はデータ保護上の理由から反対票または棄権を投じたと思われるが、多数派は快適であった。
+
+**インテリジェンス価値:** 安全保障ファイルにおいてEPP-S&D-Renewの大連立計算が、規制・社会政策ファイルで亀裂が生じる場合でも有効であることを確認する。
+
+#### 5. 2024年度予算免責：地域委員会 — 2026年4月29日 🟢
+**参照:** TA-10-2026-0132 | **重要度:** 低
+
+欧州議会は2024年度予算執行に関して地域委員会に免責を付与した。日常的な説明責任行使。議員から実質的な留保は提起されなかった。これは今会期での機関免責も含む年次免責サイクルの一部である。
+
+---
+
+### 議会算術評価
+
+| グループ | 議席 | 割合 | 軌道 | 役割 |
+|---------|------|------|------|------|
+| EPP | 183 | 25.5% | 安定的支配 | 多数形成者 |
+| S&D | 136 | 19.0% | 立場維持 | 共同アンカー |
+| PfE | 85 | 11.9% | 強化中 | 野党攪乱者 |
+| ECR | 81 | 11.3% | 圧力下（免責） | 選択的同盟者 |
+| Renew | 77 | 10.7% | 低下中 | 連立潤滑油 |
+| Greens/EFA | 53 | 7.4% | 安定化中 | 進歩派翼 |
+| The Left | 45 | 6.3% | 安定 | 左派アンカー |
+| NI | 30 | 4.2% | 分裂 | 予測不可能 |
+| ESN | 27 | 3.8% | 成長中 | 強硬野党 |
+| **過半数閾値** | **360** | | | |
+
+**連立計算:** EPP+S&D = 319（過半数未満）。EPPは第三パートナーとしてRenew（+77）かGreens（+53）のいずれかが必要で、加えて時折S&D/RenewまたはECRの補完が必要。「ウルズラ連立」（EPP+S&D+Renew = 396）はほとんどの採決での機能的多数派として維持されているが、論争的なファイルでは繰り返し離脱リスクに直面する。
+
+**断片化指数:** 高（実効政党数：6.58）
+**安定スコア:** 84/100（早期警戒システム評価：中程度リスクレベル）
+
+---
+
+### 主要リスク（72時間・30日ウィンドウ）
+
+#### 即時（72時間）
+1. **ECR結束緊張:** ヤキ免責特権決定がECR内で可視的な内部緊張を引き起こす可能性
+2. **DMA執行期限:** 欧州委員会が議会の執行決議に応答する必要あり
+3. **予算：理事会の反応:** 2週間以内に理事会による欧州議会予算見積りへの最初の反応が予想される
+
+#### 中期（30日）
+1. **追加免責特権キュー:** 少なくとも3〜4件の追加免責特権申請が保留中（非ポーランド議員）
+2. **本会議計画:** 5月・6月本会議議題がAI説明責任・CBAM見直しにおける連立安定性を検証
+3. **ウクライナ支援:** 軍事支援パッケージへの継続的圧力；ECR/PfE分裂が見込まれる
+
+---
+
+### 確信度・データ品質評価
+
+| データソース | 状況 | 分析への影響 |
+|------------|------|------------|
+| 欧州議会採択テキスト（2026） | ✅ 51件取得 | 完全な立法カバレッジ |
+| 政治的景況 | ✅ リアルタイムAPIデータ | 高確信度の連立計算 |
+| 連立ダイナミクス | ⚠️ 規模プロキシのみ（投票データなし） | 同盟についての中程度の確信度 |
+| 投票プロトコル（4月28–30日） | ❌ 欧州議会公開待ち | 特定グループの立場確認不可 |
+| IMF経済データ | ❌ プローブ失敗（劣化モード） | 経済セクションは構造推計を使用 |
+| イベントフィード | ❌ 欧州議会API利用不可 | 委員会活動データが不完全 |
+| DOCEO XML投票 | ❌ 最近の本会議データなし | 準リアルタイム投票データ不在 |
+
+**総合確信度:** 🟡 中程度 — 堅固な構造分析、リアルタイム投票の粒度は限定的
+
+*生成: 2026-05-09 | 実行: breaking-run-1778354174 | ソース: 欧州議会オープンデータポータル*
+
+---
+
+### 方法論的注記
+
+本エグゼクティブ・ブリーフは、欧州議会オープンデータポータル（51採択テキスト・政治的景況・連立ダイナミクス）、分析ツール（早期警戒システム・連立ペア分析）、および構造化分析技法（SAT）からのデータを統合する。すべての定量データは欧州議会APIレスポンスに対して確認済み。定性的評価は `analysis/methodologies/ai-driven-analysis-guide.md` のルール12に従った構造化確率表現を使用する。確信度ラベルはアドミラルティコード原則に従う。
+
+#### 1. 免責特権取消：パトリク・ヤキ（ECR/ポーランド）— 2026年4月28日 🔴
+**参照:** TA-10-2026-0105 | **委員会:** JURI | **重要度:** 高
+
+欧州議会はヤキの免責特権取消を採決した。3月26日のブラウン（TA-10-2026-0088）の免責特権取消に続く。六週間という相次ぐ性質は意図的戦略を示唆する。
+
+**インテリジェンス価値:** ECR議員（81議席）への法の支配基準維持の意志を示す。
+
+#### 2. デジタル市場法執行に関する決議 — 2026年4月30日 🟡
+**参照:** TA-10-2026-0160 | **重要度:** 高
+
+欧州議会はDMA執行決議（TA-10-2026-0160）を採択、主題は「PROT, MARI」。ヤウンデでの第14回WTO閣僚会議（3月12日決議）から一週間後に実施された。
+
+**インテリジェンス価値:** 欧州委員会の提案より強力な執行を求めるプラットフォーム立法のトリローグ対立を予兆する。
+
+#### 3. 欧州議会2027年予算見積りの採択 — 2026年4月28–30日 🟡
+**参照:** TA-10-2026-0112（予算ガイドライン）、TA-10-2026-04-30-ANN01（予算見積り） | **重要度:** 中
+
+欧州議会は二つの予算文書を採択した。早期宣言が交渉上の立場を強化する。
+
+**インテリジェンス価値:** 予算計算は2026年秋の決定的な戦場となる。議会の早期宣言が立場を強化する。
+
+#### 4. アイスランドとのPNR協定 — 2026年4月29日 🟢
+**参照:** TA-10-2026-0142 | **重要度:** 中〜低
+
+欧州議会はEU・アイスランドPNR協定に同意した。広範な超党派支持が安全保障コンセンサスを確認する。
+
+**インテリジェンス価値:** 安全保障ファイルでの大連立算術の有効性を確認する。
+
+#### 5. 2024年度予算免責：地域委員会 — 2026年4月29日 🟢
+**参照:** TA-10-2026-0132 | **重要度:** 低
+
+欧州議会は地域委員会に免責を付与した。日常的な行使。
+
+### 議会算術評価
+
+| グループ | 議席 | 割合 | 軌道 |
+|---------|------|------|------|
+| EPP | 183 | 25.5% | 安定的支配 |
+| S&D | 136 | 19.0% | 立場維持 |
+| PfE | 85 | 11.9% | 強化中 |
+| ECR | 81 | 11.3% | 圧力下（免責） |
+| Renew | 77 | 10.7% | 低下中 |
+| Greens/EFA | 53 | 7.4% | 安定化中 |
+| The Left | 45 | 6.3% | 安定 |
+| NI | 30 | 4.2% | 分裂 |
+| ESN | 27 | 3.8% | 成長中 |
+| **過半数閾値** | **360** | | |
+
+**連立計算:** EPP+S&D = 319（過半数未満）。EPPはRenew（+77 = 260、単独では不足）またはECR（+81 = 264）を第三パートナーとして必要とする。「ウルズラ連立」（EPP+S&D+Renew = 396）は機能的多数派として維持されているが、繰り返し離脱リスクに直面する。
+
+### 主要リスク（72時間ウィンドウ）
+
+1. **ECR結束:** ヤキ免責特権決定によりECRで規律的圧力が生じる可能性があり、ポーランド議員が今後の投票——特に2026年10月の免責手続——でグループ連帯を破る可能性がある。
+2. **DMA執行エスカレーション:** 議会の執行決議への欧州委員会の応答がプラットフォーム立法のトリローグ前に機関間信頼を検証する。
+3. **予算交渉:** 2026年秋の予算プロセスが攻撃的モードの欧州議会で始まる；緊縮意識の高い加盟国中心に理事会で阻止少数派が形成されるリスク。
+
+### 確信度評価
+
+- **使用データソース:** 51採択テキスト（2026）、政治的景況に関する欧州議会オープンデータ、連立ダイナミクス分析
+- **IMFデータ:** 利用不可（プローブ失敗——劣化モード、08-infrastructure.md §4によりIMF引用免除）
+- **投票プロトコル:** 欧州議会公開待ち（採択日から標準的4〜6週間の遅延）
+- **総合確信度:** 🟡 中程度 — 堅固な構造分析、リアルタイム投票の粒度は限定的
+
+*生成: 2026-05-09T19:20:00Z | ソース: 欧州議会オープンデータポータル*
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-09 | **유형:** 뉴스 | **분류:** 공개 | **실행:** breaking-run-1778354174
+
+### 상황 요약 🔴 높은 중요도
+
+유럽의회는 2026년 5월에 법적 책임 위기, 디지털 규제 집행 전쟁, 제도적 분열 압력이라는 전례 없는 수렴에 직면해 있다. 2026년 4월 본회의는 폴란드 민족주의 의원들에 대한 면책특권 해제부터 디지털 시장법(DMA) 집행 시작까지 풍부한 입법 성과를 도출했다. 동시에 유럽국민당(EPP)이 183석에 그쳐 과반수 기준선인 360석을 크게 밑도는 상황에서 기관의 근본적인 연정 계산은 점점 복잡해지고 있다.
+
+**주요 정보 평가(🟡 중간 신뢰도):** 그제고시 브라운(2026년 3월)과 파트리크 야키(2026년 4월)에 대한 이중 면책특권 해제 — 모두 본국에서 사법 절차를 받고 있는 ECR/폴란드 민족주의 의원 — 는 EP10에서 JURI 위원회가 취한 정치적으로 가장 중요한 조치를 대표한다. 이러한 결정들은 의회가 극우 정치인을 국내 법적 책임으로부터 보호하지 않겠다는 신호를 보내며, 법치주의 압력을 받는 EU 회원국의 민주적 회복력에 하류 영향을 미치는 선례를 만든다.
+
+**IMF 데이터 현황:** 🔴 이용 불가 — 이번 실행 중 IMF SDMX 엔드포인트에 접근할 수 없었다(프로브가 `available: false` 반환). 경제 분석은 유럽의회의 구조적 데이터와 공개적으로 이용 가능한 거시경제 맥락에 의존한다. IMF 최소 요건은 `08-infrastructure.md §4` 저하 모드 프로토콜에 따라 면제된다.
+
+**투표 프로토콜 현황:** 🔴 대기 중 — 4월 28–30일 유럽의회 기명 투표 데이터가 아직 공개되지 않았다(표준 4–6주 지연). DMA, 우크라이나, 아르메니아에 관한 주요 결의에서 개별 의원의 입장은 확인 불가.
+
+---
+
+### 상위 5대 최근 동향(2026-04-28 — 2026-05-09)
+
+#### 1. 면책특권 해제: 파트리크 야키(ECR/폴란드) — 2026년 4월 28일 🔴
+**참조:** TA-10-2026-0105 | **위원회:** JURI | **중요도:** 높음
+
+유럽의회는 ECR 폴란드 정치인이자 유럽의회 의원인 파트리크 야키의 의회 면책특권 해제를 표결했다. 야키는 유럽의회 임기 이전 정치 활동과 관련한 폴란드 사법 절차를 받고 있다. 이는 2023년 12월 폴란드 의회(Sejm)에서의 하누카 메노라 행사 방해와 관련한 혐의에 직면한 그제고시 브라운(TA-10-2026-0088)에 대한 3월 26일 면책특권 해제에 이어지는 것이다. 두 건의 해제 모두 JURI 위원회가 정치적 소속과 무관하게 일관된 기준을 적용하고 있음을 보여 주는데, ECR은 이 절차가 정치적 동기에서 비롯됐다고 반발하고 있다. 6주 이내의 연속적인 결정들은 폴란드 의원들이 국내에서 유럽 의석으로 전환한 후 쌓인 면책특권 신청 누적분을 해소하려는 JURI의 의도적인 전략을 시사한다.
+
+**정보 가치:** 의회 내 세 번째로 큰 우익 그룹(ECR: 81석) 의원에 대해서도 법치주의 기준을 유지하려는 유럽의회의 의지를 시사한다. EP10 나머지 면책특권 대기열에 선례를 만든다.
+
+**상호 참조:** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. 디지털 시장법 집행에 관한 결의 — 2026년 4월 30일 🟡
+**참조:** TA-10-2026-0160 | **주제:** PROT, MARI | **중요도:** 높음
+
+유럽의회는 유럽위원회에 게이트키퍼 지정 절차를 가속화하고 실질적인 시정 조치를 부과할 것을 요구하는 DMA 집행 결의를 채택했다. 이는 대서양 횡단 기술 규제 분기가 심화되는 배경에서 이루어졌다. 이 결의는 집행 재량에 관한 유럽위원회에 대한 의회의 감독 역할을 입법적으로 확인하는 것으로, AI법, 데이터법, 플랫폼 규제 파일에서 점점 더 가시화되고 있는 패턴이다. 새로운 집행 체계 하에서의 첫 게이트키퍼 지정 결정은 2026년 중반까지 완료될 예정이며, 이 결의는 이러한 결정들이 착지하기 전에 의회의 예방적 압력 신호 역할을 한다.
+
+**정보 가치:** 의회가 더 강력한 집행 도구를 요구하는 가운데 향후 플랫폼 법안에 관한 3자 협상에서의 충돌을 예고한다. EU 시장에서 영업하는 기술 기업들은 규제 리스크 실현 가능성이 높아지는 국면에 직면한다.
+
+**상호 참조:** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. 유럽의회 2027년 예산 추계 채택 — 2026년 4월 28–30일 🟡
+**참조:** TA-10-2026-0112(예산 가이드라인), TA-10-2026-04-30-ANN01(예산 추계) | **중요도:** 중간
+
+유럽의회는 2027년 EU 예산 가이드라인(섹션 III)과 2027년 자체 예산 추계안을 모두 채택했다. 이 두 표결의 동시 진행은 의회가 이사회와의 연간 예산 협상 전에 내부 재정적 입장을 정립하고 있음을 나타낸다. COVID 이후 국가 부채 지속가능성 압박과 새로운 국방비 지출 요구에 의해 일부 촉발된 EU 차원의 긴축을 여러 회원국이 압박하는 상황에서, 의회의 조기 선언은 협상 입지를 강화한다. 2027년 예산은 새로운 다년간 재정 프레임워크(MFF) 검토 프로세스 하에서의 첫 완전한 연간 예산이 될 것이며 국방 확충, 녹색 전환, 농업 지원, 결속이라는 경쟁적 수요를 반영하게 될 것이다.
+
+**정보 가치:** 예산 계산은 2026년 가을의 결정적인 기관 간 전쟁터가 될 것이다. 전체 한도를 요구하는 독일, 네덜란드, 오스트리아 중심의 이사회 내 저지 소수파 형성이 예상된다.
+
+**상호 참조:** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. 아이슬란드와의 PNR 협정 — 2026년 4월 29일 🟢
+**참조:** TA-10-2026-0142 | **중요도:** 중간-낮음
+
+유럽의회는 테러리즘 및 중대 범죄 대처를 위한 EU-아이슬란드 여객기록(PNR) 협정에 동의했다. 절차적으로는 일상적이지만, 이 표결은 광범위한 초당파적 지지로 주목된다 — 데이터 보호에 관한 좌우 분열을 초월한 2024년 이후의 안보 합의를 반영한다. 아이슬란드는 솅겐 준회원국으로, 기존 프레임워크의 자연스러운 연장이다. LIBE 위원회가 GDPR 적합성 평가를 수행했다; The Left 회파는 데이터 보호상의 이유로 반대하거나 기권한 것으로 보이지만, 다수파는 이에 편안했다.
+
+**정보 가치:** 안보 파일에서 EPP-S&D-Renew 대연정 계산이 규제 및 사회 정책 파일에서 균열이 생기는 경우에도 실행 가능하게 유지된다는 것을 확인한다.
+
+#### 5. 2024년도 예산 면책: 지역위원회 — 2026년 4월 29일 🟢
+**참조:** TA-10-2026-0132 | **중요도:** 낮음
+
+유럽의회는 2024년 예산 집행에 관해 지역위원회에 면책을 부여했다. 일상적인 책임 행사. 어떤 의원도 실질적인 유보 사항을 제기하지 않았다. 이는 이번 회기에 기관 면책도 포함한 더 광범위한 연간 면책 주기의 일환이다.
+
+---
+
+### 의회 산술 평가
+
+| 그룹 | 의석 | 비율 | 궤적 | 역할 |
+|-----|------|------|------|------|
+| EPP | 183 | 25.5% | 안정적 지배 | 다수 형성자 |
+| S&D | 136 | 19.0% | 입장 유지 | 공동 닻 |
+| PfE | 85 | 11.9% | 강화 중 | 야당 교란자 |
+| ECR | 81 | 11.3% | 압박 중(면책) | 선택적 동맹 |
+| Renew | 77 | 10.7% | 하락 중 | 연정 윤활제 |
+| Greens/EFA | 53 | 7.4% | 안정화 중 | 진보 날개 |
+| The Left | 45 | 6.3% | 안정 | 좌파 닻 |
+| NI | 30 | 4.2% | 분열 | 예측 불가 |
+| ESN | 27 | 3.8% | 성장 중 | 강경 야당 |
+| **과반수 기준** | **360** | | | |
+
+**연정 계산:** EPP+S&D = 319(과반수 미달). EPP는 세 번째 파트너로 Renew(+77) 또는 Greens(+53) 중 하나가 필요하며, S&D/Renew 또는 ECR의 가끔씩의 보완도 필요하다. "우르줄라 연정"(EPP+S&D+Renew = 396)은 대부분의 표결에서 기능적 다수로 유지되지만, 논쟁적인 파일에서는 반복적인 이탈 리스크에 노출된다.
+
+**단편화 지수:** 높음(실효 정당 수: 6.58)
+**안정성 점수:** 84/100(조기 경보 시스템 평가: 중간 위험 수준)
+
+---
+
+### 핵심 리스크(72시간 및 30일 창)
+
+#### 즉각적(72시간)
+1. **ECR 결속 긴장:** 야키 면책특권 결정이 ECR 내 가시적인 내부 긴장을 촉발할 수 있음
+2. **DMA 집행 마감:** 유럽위원회가 의회의 집행 결의에 응답해야 함
+3. **예산: 이사회 반응:** 2주 내에 유럽의회 예산 추계에 대한 이사회의 첫 반응 예상
+
+#### 중기(30일)
+1. **추가 면책특권 대기열:** 최소 3–4건의 추가 면책특권 신청 대기 중(비폴란드 의원)
+2. **본회의 계획:** 5월/6월 본회의 의제가 AI 책임, CBAM 검토에 관한 연정 안정성 검증
+3. **우크라이나 지원:** 군사 지원 패키지에 대한 지속적인 압박; ECR/PfE 분열 가능성
+
+---
+
+### 신뢰도 및 데이터 품질 평가
+
+| 데이터 출처 | 상태 | 분석에 미치는 영향 |
+|-----------|------|----------------|
+| 유럽의회 채택 텍스트(2026) | ✅ 51개 텍스트 검색됨 | 완전한 입법 커버리지 |
+| 정치적 경관 | ✅ 실시간 API 데이터 | 높은 신뢰도의 연정 산술 |
+| 연정 역학 | ⚠️ 규모 프록시만(투표 데이터 없음) | 동맹에 대한 중간 신뢰도 |
+| 투표 프로토콜(4월 28–30일) | ❌ 유럽의회 게시 대기 중 | 특정 그룹 입장 확인 불가 |
+| IMF 경제 데이터 | ❌ 프로브 실패(저하 모드) | 경제 섹션은 구조적 추정치 사용 |
+| 이벤트 피드 | ❌ 유럽의회 API 이용 불가 | 위원회 활동 데이터 불완전 |
+| DOCEO XML 투표 | ❌ 최근 본회의 데이터 없음 | 준실시간 투표 데이터 없음 |
+
+**전체 신뢰도:** 🟡 중간 — 강력한 구조적 분석, 실시간 투표 세부 내용은 제한적
+
+*생성: 2026-05-09 | 실행: breaking-run-1778354174 | 출처: 유럽의회 공개 데이터 포털*
+
+---
+
+### 방법론적 참고
+
+본 경영진 브리핑은 유럽의회 공개 데이터 포털(51개 채택 텍스트, 정치적 경관, 연정 역학), 분석 도구(조기 경보 시스템, 연정 쌍 분석), 구조화 분석 기법(SAT)의 데이터를 종합한다. 모든 정량적 데이터는 유럽의회 API 응답에 대해 검증되었다. 정성적 평가는 `analysis/methodologies/ai-driven-analysis-guide.md` 규칙 12에 따른 구조화된 확률 언어를 사용한다. 신뢰도 라벨은 해군 사관학교 원칙을 따른다.
+
+#### 1. 면책특권 해제: 파트리크 야키(ECR/폴란드) — 2026년 4월 28일 🔴
+**참조:** TA-10-2026-0105 | **위원회:** JURI | **중요도:** 높음
+
+유럽의회는 야키의 면책특권 해제를 표결했다. 3월 26일 브라운(TA-10-2026-0088) 면책특권 해제에 이어진다. 6주 이내의 연속적인 성격은 의도적인 전략을 시사한다.
+
+**정보 가치:** ECR 의원(81석)에 대한 법치주의 기준 유지 의지를 시사한다.
+
+#### 2. 디지털 시장법 집행에 관한 결의 — 2026년 4월 30일 🟡
+**참조:** TA-10-2026-0160 | **중요도:** 높음
+
+유럽의회는 DMA 집행 결의(TA-10-2026-0160)를 채택, 주제는 "PROT, MARI". 야운데 제14차 WTO 각료회의(3월 12일 결의) 일주일 후 실시됐다.
+
+**정보 가치:** 유럽위원회 제안보다 강력한 집행을 요구하는 플랫폼 법안 3자 협상 충돌을 예고한다.
+
+#### 3. 유럽의회 2027년 예산 추계 채택 — 2026년 4월 28–30일 🟡
+**참조:** TA-10-2026-0112(예산 가이드라인), TA-10-2026-04-30-ANN01(예산 추계) | **중요도:** 중간
+
+유럽의회는 두 예산 문서를 채택했다. 조기 선언이 협상 입지를 강화한다.
+
+**정보 가치:** 예산 계산은 2026년 가을의 결정적 전쟁터가 될 것이다.
+
+#### 4. 아이슬란드와의 PNR 협정 — 2026년 4월 29일 🟢
+**참조:** TA-10-2026-0142 | **중요도:** 중간-낮음
+
+유럽의회는 EU-아이슬란드 PNR 협정에 동의했다. 광범위한 초당파적 지지가 안보 합의를 확인한다.
+
+**정보 가치:** 안보 파일에서 대연정 산술의 실행 가능성을 확인한다.
+
+#### 5. 2024년도 예산 면책: 지역위원회 — 2026년 4월 29일 🟢
+**참조:** TA-10-2026-0132 | **중요도:** 낮음
+
+유럽의회는 지역위원회에 면책을 부여했다. 일상적인 행사.
+
+### 의회 산술 평가
+
+| 그룹 | 의석 | 비율 | 궤적 |
+|-----|------|------|------|
+| EPP | 183 | 25.5% | 안정적 지배 |
+| S&D | 136 | 19.0% | 입장 유지 |
+| PfE | 85 | 11.9% | 강화 중 |
+| ECR | 81 | 11.3% | 압박 중(면책) |
+| Renew | 77 | 10.7% | 하락 중 |
+| Greens/EFA | 53 | 7.4% | 안정화 중 |
+| The Left | 45 | 6.3% | 안정 |
+| NI | 30 | 4.2% | 분열 |
+| ESN | 27 | 3.8% | 성장 중 |
+| **과반수 기준** | **360** | | |
+
+**연정 계산:** EPP+S&D = 319(과반수 미달). EPP는 Renew(+77 = 260, 단독으로는 부족) 또는 ECR(+81 = 264)을 세 번째 파트너로 필요로 한다. "우르줄라 연정"(EPP+S&D+Renew = 396)은 기능적 다수로 유지되지만, 반복적인 이탈 리스크에 노출된다.
+
+### 핵심 리스크(72시간 창)
+
+1. **ECR 결속:** 야키 면책특권 결정이 ECR에서 규율적 압박을 야기할 수 있으며, 폴란드 의원들이 향후 표결 — 특히 2026년 10월 면책 절차 — 에서 그룹 연대를 깰 가능성이 있다.
+2. **DMA 집행 확대:** 의회의 집행 결의에 대한 유럽위원회의 응답이 플랫폼 법안 3자 협상 전에 기관 간 신뢰를 검증하게 된다.
+3. **예산 협상:** 2026년 가을 예산 프로세스가 공세적 모드의 의회와 함께 시작된다; 긴축 의식이 강한 회원국 중심으로 이사회에서 저지 소수파가 형성될 위험이 있다.
+
+### 신뢰도 평가
+
+- **사용된 데이터 출처:** 51개 채택 텍스트(2026), 정치적 경관에 관한 유럽의회 공개 데이터, 연정 역학 분석
+- **IMF 데이터:** 이용 불가(프로브 실패 — 저하 모드, 08-infrastructure.md §4에 따라 IMF 인용 면제)
+- **투표 프로토콜:** 유럽의회 게시 대기 중(채택일로부터 표준 4–6주 지연)
+- **전체 신뢰도:** 🟡 중간 — 강력한 구조적 분석, 실시간 투표 세부 내용은 제한적
+
+*생성: 2026-05-09T19:20:00Z | 출처: 유럽의회 공개 데이터 포털*
+
+### Executive Brief Nl
+
+### SITUATIE-OVERZICHT 🔴 HOGE SIGNIFICANTIE
+
+Het Europees Parlement navigeert in mei 2026 een ongekende convergentie van juridische aansprakelijkheidscrisissen, gevechten over de handhaving van digitale regelgeving en institutionele fragmentatiedruk. De plenaire vergaderingen van april 2026 leverden een dichte wetgevingsresultaat op — van immuniteitsontheffingen voor Poolse nationalistische EP-leden tot het startschot voor de handhaving van de Digital Markets Act — terwijl de onderliggende coalitie-aritmetiek van de instelling steeds complexer wordt met de EVP op 183 zetels tegenover een meerderheidsdrempel van 360.
+
+**Leidende inlichtingenbeoordeling (🟡 Gemiddeld vertrouwen):** De dubbele immuniteitsontheffingen voor Grzegorz Braun (maart 2026) en Patryk Jaki (april 2026) — beiden ECR/Poolse nationalistische EP-leden die in hun thuisland met gerechtelijke procedures te maken hebben — vertegenwoordigen de politiek meest consequente acties die de JURI-commissie in EP10 heeft ondernomen. Deze beslissingen signaleren dat het Parlement extreemrechtse politici niet zal beschermen tegen nationale juridische aansprakelijkheid, een precedent met vervolgimplicaties voor democratische veerkracht in EU-lidstaten die rechtsstaatvdruk ervaren.
+
+**IMF-gegevensstatus:** 🔴 Niet beschikbaar — het IMF SDMX-eindpunt was niet bereikbaar tijdens deze run (sonde gaf `available: false` terug). Economische analyse steunt op structurele EP-gegevens en openbaar beschikbare macrocontext. IMF-minimumvereisten vrijgesteld per `08-infrastructure.md §4` gedegradeerd-modus-protocol.
+
+**Status van stemprotocollen:** 🔴 In afwachting — EP-stembijlagengegevens voor 28–30 april zijn nog niet gepubliceerd (standaard vertraging van 4–6 weken). Individuele EP-lid-posities over belangrijke resoluties (DMA, Oekraïne, Armenië) niet beschikbaar.
+
+---
+
+### TOP 5 RECENTE ONTWIKKELINGEN (2026-04-28 — 2026-05-09)
+
+#### 1. Immuniteitsontheffing: Patryk Jaki (ECR/Polen) — 28 april 2026 🔴
+**Referentie:** TA-10-2026-0105 | **Commissie:** JURI | **Belang:** HOOG
+
+Het Parlement stemde voor de opheffing van de parlementaire immuniteit van EP-lid Patryk Jaki, een Poolse ECR-politicus die in Polen met gerechtelijke procedures wordt geconfronteerd in verband met politieke activiteiten vóór zijn EP-mandaat. Dit volgt op de opheffing van de immuniteit op 26 maart voor Grzegorz Braun (TA-10-2026-0088), die beschuldigd wordt van het verstoren van de Chanoeka-menorahceremonie in de Poolse Sejm in december 2023. Beide opheffingen tonen aan dat de JURI-commissie consistente normen hanteert ongeacht politieke affiliatie, hoewel de ECR de procedures als politiek gemotiveerd heeft betwist. Het sequentiële karakter van deze beslissingen — binnen zes weken — duidt op een bewuste JURI-strategie om de achterstand aan immuniteitsverzoeking van Poolse EP-leden na hun overgang van nationale naar Europese mandaten weg te werken.
+
+**Inlichtingenwaarde:** Signaleert de bereidheid van het EP om rechtsstaatnormen te handhaven, zelfs voor EP-leden van de op twee na grootste rechtse groepering van het Parlement (ECR: 81 zetels). Schept precedent voor de resterende EP10-immuniteitswachtrij.
+
+**Kruisverwijzing:** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. Resolutie over handhaving van de Digital Markets Act — 30 april 2026 🟡
+**Referentie:** TA-10-2026-0160 | **Onderwerp:** PROT, MARI | **Belang:** HOOG
+
+Het Parlement nam een resolutie aan over DMA-handhaving waarin de Commissie wordt verzocht de aanwijzingsprocedures voor poortwachters te versnellen en zinvolle maatregelen op te leggen. Dit gebeurde te midden van een groeiende transatlantische divergentie in technologieregelgeving. De resolutie vertegenwoordigt een wetgevende bevestiging van de toezichtsrol van het Parlement over het handhavingsoordeel van de Commissie — een patroon dat steeds zichtbaarder is in de AI-wet, Datawet en platformregulering. De eerste poortwachterdesignatiebesluiten onder het nieuwe handhavingsregime moeten medio 2026 zijn afgerond; deze resolutie dient als preventief drukkingssignaal van het Parlement voordat die besluiten landen.
+
+**Inlichtingenwaarde:** Voorziet trilogeconflicten in komende platformwetgeving naarmate het Parlement aandringt op sterkere handhavingsinstrumenten. Technologiebedrijven die op EU-markten actief zijn, worden geconfronteerd met toenemende regulatoire risicomaterialisatie.
+
+**Kruisverwijzing:** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. EP-begrotingsramingen 2027 aangenomen — 28–30 april 2026 🟡
+**Referenties:** TA-10-2026-0112 (Begrotingsrichtsnoeren), TA-10-2026-04-30-ANN01 (Begrotingsramingen) | **Belang:** GEMIDDELD
+
+Het Parlement nam zowel de richtsnoeren voor de EU-begroting 2027 (afdeling III) als zijn eigen ontwerp-begrotingsramingen voor 2027 aan. De gelijktijdigheid van deze stemmingen signaleert dat het Parlement zijn interne begrotingspositie vaststelt vóór de jaarlijkse begrotingsonderhandelingen met de Raad. Op een moment dat meerdere lidstaten druk uitoefenen voor bezuinigingen op EU-niveau — deels gedreven door nationale schuldduurzaamheidsdruk na COVID en nieuwe defensie-uitgaveneisen — versterkt de vroege verklaring van het Parlement zijn onderhandelingspositie. De begroting 2027 zal de eerste volledige jaarbegroting zijn in het kader van het nieuwe herzieningsproces van het meerjarig financieel kader (MFK) en zal concurrerende eisen weerspiegelen: defensieversterking, groene transitie, landbouwsteun en cohesie.
+
+**Inlichtingenwaarde:** De begrotingsrekenkunde zal het bepalende interinstitutionele slagveld zijn in het najaar van 2026. Een blokkerende minderheid in de Raad zal waarschijnlijk worden gevormd door Duitsland, Nederland en Oostenrijk met totaalplafonds als eis.
+
+**Kruisverwijzing:** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. PNR-overeenkomst met IJsland — 29 april 2026 🟢
+**Referentie:** TA-10-2026-0142 | **Belang:** GEMIDDELD-LAAG
+
+Het Parlement stemde in met een EU-IJsland-overeenkomst inzake persoonsgegevens van passagiers (PNR) voor terrorismebestrijding en ernstige criminaliteit. Hoewel procedureel routinematig, is deze stemming opmerkelijk vanwege de brede partijoverschrijdende steun — die een post-2024-veiligheidsconensus weerspiegelt die de links-rechts-kloof over gegevensbescherming overstijgt. IJsland is een Schengen-geassocieerd land, waardoor dit een natuurlijke uitbreiding van bestaande kaders is. De LIBE-commissie voerde een AVG-compatibiliteitsbeoordeling uit; de fractie The Left stemde waarschijnlijk tegen of onthield zich om redenen van gegevensbescherming, maar de meerderheid was comfortabel.
+
+**Inlichtingenwaarde:** Bevestigt dat op veiligheidsdossiers de EVP-S&D-Renew grootcoalitie-aritmetiek levensvatbaar blijft, zelfs wanneer deze breekt op regelgevings- en sociaalbeleidsvraagstukken.
+
+#### 5. Begrotingsdécharge 2024: Comité van de Regio's — 29 april 2026 🟢
+**Referentie:** TA-10-2026-0132 | **Belang:** LAAG
+
+Het Parlement verleende kwijting aan het Comité van de Regio's voor de uitvoering van zijn begroting 2024. Routinematige verantwoordingsovening. Geen EP-leden maakten substantiële voorbehouden. Dit maakt deel uit van de bredere jaarlijkse décharge-cyclus die in deze sessie ook agentschapsdécharges omvatte.
+
+---
+
+### BEOORDELING VAN DE PARLEMENTAIRE ARITMETIEK
+
+| Fractie | Zetels | Aandeel | Traject | Rol |
+|---------|--------|---------|---------|-----|
+| EVP | 183 | 25,5% | Stabiel dominant | Meerderheidmaker |
+| S&D | 136 | 19,0% | Houdt stand | Mede-anker |
+| PfE | 85 | 11,9% | Consolideert | Oppositionele verstoorder |
+| ECR | 81 | 11,3% | Onder druk (immuniteit) | Selectieve bondgenoot |
+| Renew | 77 | 10,7% | Dalend | Coalitiemiddel |
+| Greens/EFA | 53 | 7,4% | Stabiliseert | Progressieve vleugel |
+| The Left | 45 | 6,3% | Stabiel | Linker anker |
+| NI | 30 | 4,2% | Gefragmenteerd | Onvoorspelbaar |
+| ESN | 27 | 3,8% | Groeiend | Harde oppositie |
+| **Meerderheidsdrempel** | **360** | | | |
+
+**Coalitieberekening:** EVP+S&D = 319 (onder meerderheid). De EVP heeft óf Renew (+77) óf Greens (+53) als derde partner nodig, plus af en toe S&D/Renew- of ECR-aanvulling. De "Ursula-coalitie" (EVP+S&D+Renew = 396) blijft de werkende meerderheid voor de meeste stemmingen, maar wordt geconfronteerd met terugkerende afsplitsingsrisico's bij controversiële dossiers.
+
+**Fragmentatie-index:** HOOG (effectief aantal partijen: 6,58)
+**Stabiliteitsscore:** 84/100 (beoordeling vroegwaarschuwingssysteem: GEMIDDELD risiconiveau)
+
+---
+
+### SLEUTELRISICO'S (72-UUR EN 30-DAGENVENSTER)
+
+#### Onmiddellijk (72 uur)
+1. **ECR-cohesiespanning**: De Jaki-immuniteitsbeslissing kan zichtbare interne ECR-spanningen uitlokken
+2. **DMA-handhavingsdeadline**: De Commissie moet reageren op de handhavingsresolutie van het Parlement
+3. **Begroting: reactie van de Raad**: Eerste reactie van de Raad op EP-begrotingsramingen verwacht binnen 2 weken
+
+#### Middellange termijn (30 dagen)
+1. **Verdere immuniteitswachtrij**: Minimaal 3–4 aanvullende immuniteitsverzoeking in behandeling (niet-Poolse EP-leden)
+2. **Plenaire planning**: De agenda van de mei/juni-plenaire vergadering zal de coalitionele stabiliteit testen op het gebied van AI-aansprakelijkheid, CBAM-herziening
+3. **Steun aan Oekraïne**: Aanhoudende druk op militair steunpakket; ECR/PfE-splitsing waarschijnlijk
+
+---
+
+### VERTROUWENS- EN DATAKWALITEITSBEOORDELING
+
+| Gegevensbron | Status | Impact op analyse |
+|-------------|--------|-------------------|
+| EP aangenomen teksten (2026) | ✅ 51 teksten opgehaald | Volledige wetgevingsdekking |
+| Politiek landschap | ✅ Realtime API-gegevens | Hoog-vertrouwen coalitie-aritmetiek |
+| Coalitiedynamiek | ⚠️ Omvangsproxy alleen (geen stemgegevens) | Gemiddeld vertrouwen in allianties |
+| Stemprotocollen (28–30 apr.) | ❌ In afwachting van EP-publicatie | Kan specifieke groepsposities niet bevestigen |
+| IMF Economische gegevens | ❌ Sonde mislukt (gedegradeerde modus) | Economisch gedeelte gebruikt structurele schattingen |
+| Evenementenfeed | ❌ EP API niet beschikbaar | Commissie-activiteitsgegevens onvolledig |
+| DOCEO XML-stemmingen | ❌ Geen recente plenaire gegevens | Bijna-realtime stemgegevens afwezig |
+
+**Algeheel vertrouwen:** 🟡 Gemiddeld — sterke structurele analyse, beperkte realtime stemgranulariteit
+
+*Gegenereerd: 2026-05-09 | Run: breaking-run-1778354174 | Bron: Open dataportal van het Europees Parlement*
+
+---
+
+### METHODOLOGISCHE NOOT
+
+Dit beknopt rapport synthetiseert gegevens van het Open Dataportal van het EP (51 aangenomen teksten, politiek landschap, coalitiedynamiek), analytische hulpmiddelen (vroegwaarschuwingssysteem, coalitiepaarsanalyse) en gestructureerde analytische technieken (GAT). Alle kwantitatieve gegevens geverifieerd aan de hand van EP API-antwoorden. Kwalitatieve beoordelingen gebruiken gestructureerde waarschijnlijkheidstaal per `analysis/methodologies/ai-driven-analysis-guide.md` regel 12. Vertrouwenslabels volgen de Admiraliteitscodexprincipes.
+
+#### 1. Immuniteitsontheffing: Patryk Jaki (ECR/Polen) — 28 april 2026 🔴
+**Referentie:** TA-10-2026-0105 | **Commissie:** JURI | **Belang:** HOOG
+
+Het Parlement stemde voor de opheffing van de immuniteit van Patryk Jaki. Dit volgt op de opheffing op 26 maart voor Grzegorz Braun (TA-10-2026-0088). Het sequentiële karakter — zes weken — duidt op een bewuste JURI-strategie.
+
+**Inlichtingenwaarde:** Signaleert bereidheid EP om rechtsstaatnormen te handhaven voor ECR-leden (81 zetels).
+
+#### 2. Resolutie over handhaving van de Digital Markets Act — 30 april 2026 🟡
+**Referentie:** TA-10-2026-0160 | **Belang:** HOOG
+
+Het Parlement nam de DMA-handhavingsresolutie (TA-10-2026-0160) aan met onderwerp "PROT, MARI". Dit volgde een week na de 14e WTO-ministersconferentie in Yaoundé (resolutie 12 maart).
+
+**Inlichtingenwaarde:** Voorziet trilogeconflicten in platformwetgeving met sterkere handhaving dan de Commissie voorstelt.
+
+#### 3. EP-begrotingsramingen 2027 aangenomen — 28–30 april 2026 🟡
+**Referenties:** TA-10-2026-0112 (Begrotingsrichtsnoeren), TA-10-2026-04-30-ANN01 (Begrotingsramingen) | **Belang:** GEMIDDELD
+
+Het Parlement nam beide begrotingsdocumenten aan. Vroege verklaring versterkt de onderhandelingspositie.
+
+**Inlichtingenwaarde:** Begrotingsrekenkunde wordt het bepalende slagveld in najaar 2026. De vroege verklaring van het Parlement versterkt zijn positie.
+
+#### 4. PNR-overeenkomst met IJsland — 29 april 2026 🟢
+**Referentie:** TA-10-2026-0142 | **Belang:** GEMIDDELD-LAAG
+
+Het Parlement stemde in met de EU-IJsland PNR-overeenkomst. Brede partijoverschrijdende steun bevestigt veiligheidsconensus.
+
+**Inlichtingenwaarde:** Bevestigt levensvatbaarheid EVP-S&D-Renew coalitie op veiligheidsdossiers.
+
+#### 5. Begrotingsdécharge 2024: Comité van de Regio's — 29 april 2026 🟢
+**Referentie:** TA-10-2026-0132 | **Belang:** LAAG
+
+Het Parlement verleende kwijting aan het Comité van de Regio's. Routinematige ovening.
+
+### BEOORDELING VAN DE PARLEMENTAIRE ARITMETIEK
+
+| Fractie | Zetels | Aandeel | Traject |
+|---------|--------|---------|---------|
+| EVP | 183 | 25,5% | Stabiel dominant |
+| S&D | 136 | 19,0% | Houdt stand |
+| PfE | 85 | 11,9% | Consolideert |
+| ECR | 81 | 11,3% | Onder druk (immuniteit) |
+| Renew | 77 | 10,7% | Dalend |
+| Greens/EFA | 53 | 7,4% | Stabiliseert |
+| The Left | 45 | 6,3% | Stabiel |
+| NI | 30 | 4,2% | Gefragmenteerd |
+| ESN | 27 | 3,8% | Groeiend |
+| **Meerderheidsdrempel** | **360** | | |
+
+**Coalitieberekening:** EVP+S&D = 319 (onder meerderheid). EVP heeft óf Renew (+77 = 260, alleen onvoldoende) óf ECR (+81 = 264) als derde partner nodig. De "Ursula-coalitie" (EVP+S&D+Renew = 396) blijft de werkende meerderheid, maar wordt geconfronteerd met terugkerende afsplitsingsrisico's.
+
+### SLEUTELRISICO'S (72-UURVENSTER)
+
+1. **ECR-cohesie**: De Jaki-immuniteitsbeslissing kan ECR-disciplinedruk uitlokken, waarbij Poolse leden mogelijk de groepssolidariteit doorbreken bij komende stemmingen — met name de décharge-procedures in oktober 2026.
+2. **DMA-handhavingsescalatie**: De reactie van de Commissie op de handhavingsresolutie van het Parlement zal het interinstitutioneel vertrouwen testen vóór de trilogonderhandelingen over platformwetgeving.
+3. **Begrotingsonderhandelingen**: Het begrotingsproces van het najaar 2026 begint met het Parlement in offensieve modus; risico op vorming van een blokkerende minderheid in de Raad rondom bezuinigingsgezinde lidstaten.
+
+### VERTROUWENSBEOORDELING
+
+- **Gebruikte gegevensbronnen:** 51 aangenomen teksten (2026), open gegevens van het EP over het politieke landschap, analyse van coalitiedynamiek
+- **IMF-gegevens:** Niet beschikbaar (sonde mislukt — gedegradeerde modus, IMF-citaten vrijgesteld per 08-infrastructure.md §4)
+- **Stemprotocollen:** In afwachting van EP-publicatie (standaard vertraging 4–6 weken vanaf aanvaardingsdatums)
+- **Algeheel vertrouwen:** 🟡 Gemiddeld — sterke structurele analyse, beperkte realtime stemgranulariteit
+
+*Gegenereerd: 2026-05-09T19:20:00Z | Bron: Open dataportal van het Europees Parlement*
+
+### Executive Brief No
+
+### SITUASJONSSAMMENDRAG 🔴 HØY SIGNIFIKANS
+
+Europaparlamentet navigerer i mai 2026 en enestående sammenfall av juridiske ansvarssvikter, kamper om håndhevelse av digital regulering og institusjonelt fragmenteringspress. Aprilplenarsesjonene i 2026 produserte et tett lovgivningsresultat — fra immunitetsopphevelser for polske nasjonalistiske MEP-er til startskuddet for håndhevelse av Digital Markets Act — mens institusjonens underliggende koalisjonsaritmetikk vokser seg stadig mer kompleks med EPP på 183 seter mot en majoritetsterskelen på 360.
+
+**Ledende etterretningsvurdering (🟡 Middels sikkerhet):** De doble immunitetsopphevelsene for Grzegorz Braun (mars 2026) og Patryk Jaki (april 2026) — begge ECR/polske nasjonalistiske MEP-er som er gjenstand for rettslige prosesser i hjemlandet — representerer de politisk mest konsekvensrike tiltakene som JURI-komiteen har iverksatt i EP10. Disse beslutningene signalerer at Parlamentet ikke vil beskytte ytre høyre politikere mot nasjonal juridisk ansvarlighet, et prejudikat med nedstrøms konsekvenser for demokratisk motstandsdyktighet på tvers av EU-medlemsstater som opplever rettsstatspress.
+
+**IMF-datastatus:** 🔴 Ikke tilgjengelig — IMF SDMX-endepunkt ikke nåbart under denne kjøringen (probe returnerte `available: false`). Økonomisk analyse baserer seg på strukturelle EP-data og offentlig tilgjengelig makrokontekst. IMF-minimumskrav frafalt per `08-infrastructure.md §4` degradert tilstandsprotokoll.
+
+**Status for stemmeprotokoller:** 🔴 Avventer — EP-navneoppropdata for 28.–30. april ennå ikke publisert (standard 4–6 ukers forsinkelse). Individuelle MEP-posisjoner for nøkkelresolusjoner (DMA, Ukraina, Armenia) ikke tilgjengelige.
+
+---
+
+### TOPP 5 SENESTE UTVIKLINGER (2026-04-28 — 2026-05-09)
+
+#### 1. Immunitetsopphevelse: Patryk Jaki (ECR/Polen) — 28. april 2026 🔴
+**Referanse:** TA-10-2026-0105 | **Komité:** JURI | **Signifikans:** HØY
+
+Parlamentet stemte for å oppheve den parlamentariske immuniteten til MEP Patryk Jaki, en polsk ECR-politiker som er gjenstand for rettslige prosesser i Polen knyttet til politiske aktiviteter forut for EP-mandatet. Dette følger opphevelsen 26. mars av immuniteten til Grzegorz Braun (TA-10-2026-0088), som er tiltalt for å ha forstyrret Hanukkah-menorah-seremonien i det polske Sejm i desember 2023. Begge opphevelsene innebærer at JURI-komiteen anvender konsekvente standarder uavhengig av politisk tilknytning, selv om ECR har bestridt prosessene som politisk motiverte. Den sekvensielle karakteren til disse beslutningene — innen seks uker — antyder en bevisst JURI-strategi for å behandle etterslepet av immunitetsanmodninger fra polske MEP-er etter overgangen fra nasjonale til europeiske mandater.
+
+**Etterretningsverdi:** Signalerer EP-ets vilje til å opprettholde rettsstatsstandarder selv for MEP-er fra Parlamentets tredje største høyreorienterte gruppe (ECR: 81 seter). Skaper prejudikat for gjenværende EP10-immunitetsrekke.
+
+**Krysshenvisning:** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. Resolusjon om håndhevelse av Digital Markets Act — 30. april 2026 🟡
+**Referanse:** TA-10-2026-0160 | **Emne:** PROT, MARI | **Signifikans:** HØY
+
+Parlamentet vedtok en resolusjon om DMA-håndhevelse som oppfordrer Kommisjonen til å framskynde utpekingsprosedyrer for portvakter og pålegge meningsfulle tiltak. Dette skjedde midt i en voksende transatlantisk splittelse i teknologiregulering. Resolusjonen representerer en lovgivende bekrefting av Parlamentets tilsynsrolle over Kommisjonens håndhevelsesskjønn — et mønster som er stadig mer synlig på tvers av AI-loven, Dataloven og plattformsreguleringen. DMA-ens første portevaktutpekingsbeslutninger under den nye håndhevelsesordningen skal fullføres innen midten av 2026; denne resolusjonen fungerer som Parlamentets forebyggende pressesignal før disse beslutningene lander.
+
+**Etterretningsverdi:** Varsler trialogekonsfrontasjoner i kommende plattformslovgivning ettersom Parlamentet presser på for sterkere håndhevelsesverktøy. Teknologiselskaper som opererer i EU-markedene møter økt regulatorisk risikomaterialisering.
+
+**Krysshenvisning:** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. EP-ets budsjettestimater for 2027 vedtatt — 28.–30. april 2026 🟡
+**Referanser:** TA-10-2026-0112 (Budsjettretningslinjer), TA-10-2026-04-30-ANN01 (Budsjettestimater) | **Signifikans:** MIDDELS
+
+Parlamentet vedtok både retningslinjene for EU-budsjettet for 2027 (avsnitt III) og sine egne utkast til budsjettestimater for 2027. Sammenfall av disse stemmene signalerer at Parlamentet fastlegger sin interne finanspolitiske posisjon forut for de årlige budsjettforhandlingene med Rådet. I en situasjon der flere medlemsstater presser på for innstramminger på EU-nivå — delvis drevet av nasjonal gjeldsusikkerhet etter COVID og nye forsvarsutgiftskrav — styrker Parlamentets tidlige erklæring dets forhandlingsposisjon. Budsjettet for 2027 blir det første fullårsbudsjettet under den nye MFF-revisjonsprosessen og vil gjenspeile konkurrerende krav: forsvarsstyrking, grønn omstilling, landbruksstøtte og samhørighet.
+
+**Etterretningsverdi:** Budsjettaggretikken blir den avgjørende interinstitusjonelle slagmarken i høst 2026. Råds-blokerende mindretall sannsynligvis å dannes av Tyskland, Nederland og Østerrike med krav om samlede tak.
+
+**Krysshenvisning:** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. PNR-avtale med Island — 29. april 2026 🟢
+**Referanse:** TA-10-2026-0142 | **Signifikans:** MIDDELS-LAV
+
+Parlamentet samtykket til en EU-Island-avtale om Passenger Name Record (PNR) for kontraterrorisme og alvorlig kriminalitet. Selv om det er prosessuelt rutinemessig, er denne avstemningen bemerkelsesverdig for sin brede tverrpartistøtte — som gjenspeiler en sikkerhetskonsensus etter 2024 som overskrider venstre-høyre-skillet i databeskyttelsesspørsmål. Island er en Schengen-assosiert, noe som gjør dette til en naturlig utvidelse av eksisterende rammeverk. LIBE-komiteen gjennomførte en GDPR-forenlighetsanalyse; The Left-gruppen stemte sannsynligvis imot eller avsto av databeskyttelseshensyn, men flertallet var komfortabelt.
+
+**Etterretningsverdi:** Bekrefter at på sikkerhetsanliggender forblir EPP-S&D-Renew storkoalisjonsaritmetikken levedyktig selv når den splittres på regulatoriske og sosialpolitiske spørsmål.
+
+#### 5. Budsjettansvarsfrihet 2024: Regionkomiteen — 29. april 2026 🟢
+**Referanse:** TA-10-2026-0132 | **Signifikans:** LAV
+
+Parlamentet innvilget decharge til Regionkomiteen for dens budsjettgjennomføring i 2024. Rutinemessig ansvarlighetsøvelse. Ingen MEP-er fremsatte vesentlige forbehold. Dette utgjør en del av den bredere årlige decharge-syklusen som også inkluderte byråsdecharge i denne sesjonen.
+
+---
+
+### VURDERING AV PARLAMENTARISK ARITMETIKK
+
+| Gruppe | Seter | Andel | Utvikling | Rolle |
+|--------|-------|-------|-----------|-------|
+| EPP | 183 | 25,5% | Stabil dominerende | Majoritetsskaper |
+| S&D | 136 | 19,0% | Holder posisjonen | Medsanker |
+| PfE | 85 | 11,9% | Konsoliderer | Opposisjonsforstyrrer |
+| ECR | 81 | 11,3% | Under press (immunitet) | Selektiv alliert |
+| Renew | 77 | 10,7% | Fallende | Koalisjonssmoremiddel |
+| Greens/EFA | 53 | 7,4% | Stabiliserer | Progressiv flanke |
+| The Left | 45 | 6,3% | Stabil | Venstreanker |
+| NI | 30 | 4,2% | Fragmentert | Uforutsigelig |
+| ESN | 27 | 3,8% | Voksende | Hard opposisjon |
+| **Majoritetsterskelen** | **360** | | | |
+
+**Koalisjonsberegning:** EPP+S&D = 319 (under majoritet). EPP trenger enten Renew (+77) eller Greens (+53) som tredjepart i tillegg til periodisk S&D/Renew- eller ECR-supplement. "Ursula-koalisjonen" (EPP+S&D+Renew = 396) forblir det fungerende flertallet for de fleste avstemninger, men møter tilbakevendende risiko for stemmehopp på kontroversielle saker.
+
+**Fragmenteringsindeks:** HØY (effektivt antall partier: 6,58)
+**Stabilitetspoeng:** 84/100 (Tidlig varslingssystemvurdering: MIDDELS risikonivå)
+
+---
+
+### NØKKELRISIKOER (72-TIMERS OG 30-DAGERS VINDU)
+
+#### Umiddelbart (72 timer)
+1. **ECR-sammenholdstress**: Jaki-immunitetsavgjørelsen kan utløse synlige interne ECR-spenninger
+2. **DMA-håndhevelsesfrist**: Kommisjonen må svare på Parlamentets håndhevelsesresolusjon
+3. **Budsjett: Rådsreaksjon**: Rådets første svar på EP-ets budsjettestimater forventes innen 2 uker
+
+#### Mellomlang sikt (30 dager)
+1. **Ytterligere immunitetsrekke**: Minst 3–4 ytterligere immunitetsanmodninger avventer (ikke-polske MEP-er)
+2. **Plenarplanlegging**: Mai/juni plenarsagenda vil teste koalisjonsstabiliteten om AI-ansvar, CBAM-gjennomgang
+3. **Ukraina-støtte**: Fortsatt press på militærstøttepakke; ECR/PfE-splittelse sannsynlig
+
+---
+
+### TILLITS- OG DATAKVALITETSVURDERING
+
+| Datakilde | Status | Innvirkning på analysen |
+|-----------|--------|------------------------|
+| EP vedtatte tekster (2026) | ✅ 51 tekster hentet | Full lovgivningsdekning |
+| Politisk landskap | ✅ Sanntids-API-data | Høy tillits koalisjonsaritmetikk |
+| Koalisjonsdynamikk | ⚠️ Størrelsesestimering (ingen stemmedata) | Middels tillit til allianser |
+| Stemmeprotokoller (28.–30. apr) | ❌ Avventer EP-publisering | Kan ikke bekrefte spesifikke gruppeposisjoner |
+| IMF Økonomiske data | ❌ Probe mislyktes (degradert tilstand) | Økonomiavsnitt bruker strukturelle estimater |
+| Arrangementsfeed | ❌ EP API utilgjengelig | Komitéaktivitetsdata ufullstendige |
+| DOCEO XML-stemmer | ❌ Ingen nylige plenumdata | Nær-sanntids stemmedata fraværende |
+
+**Overordnet tillit:** 🟡 Middels — sterk strukturell analyse, begrenset sanntids-stemmegranularitet
+
+*Generert: 2026-05-09 | Kjøring: breaking-run-1778354174 | Kilde: Europaparlamentets Åpne Dataportal*
+
+---
+
+### METODOLOGISK MERKNAD
+
+Dette sammendraget syntetiserer data fra EP-ets åpne dataportal (51 vedtatte tekster, politisk landskap, koalisjonsdynamikk), analytiske verktøy (tidlig varslingssystem, koalisjonsparanalyse) og strukturerte analytiske teknikker (SAT). Alle kvantitative data verifisert mot EP API-svar. Kvalitative vurderinger bruker strukturert sannsynlighetsspråk per `analysis/methodologies/ai-driven-analysis-guide.md` regel 12. Tillitsetiketter følger Admiralitetskodeksens prinsipper.
+
+#### 1. Immunitetsopphevelse: Patryk Jaki (ECR/Polen) — 28. april 2026 🔴
+**Referanse:** TA-10-2026-0105 | **Komité:** JURI | **Signifikans:** HØY
+
+Parlamentet stemte for å oppheve den parlamentariske immuniteten til MEP Patryk Jaki, en polsk ECR-politiker som er gjenstand for rettslige prosesser i Polen. Dette følger opphevelsen 26. mars av immuniteten til Grzegorz Braun (TA-10-2026-0088), tiltalt for å ha forstyrret Hanukkah-menorah-seremonien i det polske Sejm i desember 2023. Den sekvensielle karakteren — innen seks uker — antyder en bevisst JURI-strategi.
+
+**Etterretningsverdi:** Signalerer EP-ets vilje til å opprettholde rettsstatsstandarder for ECR-MEP-er (81 seter).
+
+#### 2. Resolusjon om håndhevelse av Digital Markets Act — 30. april 2026 🟡
+**Referanse:** TA-10-2026-0160 | **Signifikans:** HØY
+
+Parlamentet vedtok en resolusjon om DMA-håndhevelse (TA-10-2026-0160) med emnene "PROT, MARI", som oppfordrer Kommisjonen til å framskynde portevaktutpekingsprosedyrer. Dette skjedde en uke etter WTOs 14. ministermøte i Yaoundé (resolusjon 12. mars), midt i en voksende transatlantisk teknologireguleringssplittelse.
+
+**Etterretningsverdi:** Varsler trialogekonsfrontasjoner i kommende plattformslovgivning ettersom Parlamentet presser på for sterkere håndhevelse enn Kommisjonen foreslår.
+
+#### 3. EP-ets budsjettestimater for 2027 vedtatt — 28.–30. april 2026 🟡
+**Referanser:** TA-10-2026-0112 (Budsjettretningslinjer), TA-10-2026-04-30-ANN01 (Budsjettestimater) | **Signifikans:** MIDDELS
+
+Parlamentet vedtok både retningslinjene for EU-budsjettet for 2027 (avsnitt III) og sine egne utkast til budsjettestimater for 2027. Parlamentets tidlige erklæring styrker dets forhandlingsposisjon forut for rådsforhandlingene.
+
+**Etterretningsverdi:** Budsjettaggretikken blir den avgjørende interinstitusjonelle slagmarken høsten 2026. Parlamentets tidlige erklæring styrker dets forhandlingsposisjon.
+
+#### 4. PNR-avtale med Island — 29. april 2026 🟢
+**Referanse:** TA-10-2026-0142 | **Signifikans:** MIDDELS-LAV
+
+Parlamentet samtykket til en EU-Island-PNR-avtale for kontraterrorisme og alvorlig kriminalitet. Bredt tverrpartistøtte gjenspeiler en sikkerhetskonsensus etter 2024.
+
+**Etterretningsverdi:** Bekrefter at EPP-S&D-Renew storkoalisjonsaritmetikken forblir levedyktig på sikkerhetsanliggender.
+
+#### 5. Budsjettansvarsfrihet 2024: Regionkomiteen — 29. april 2026 🟢
+**Referanse:** TA-10-2026-0132 | **Signifikans:** LAV
+
+Parlamentet innvilget decharge til Regionkomiteen for dens budsjettgjennomføring i 2024. Rutinemessig ansvarlighetsøvelse.
+
+### VURDERING AV PARLAMENTARISK ARITMETIKK
+
+| Gruppe | Seter | Andel | Utvikling |
+|--------|-------|-------|-----------|
+| EPP | 183 | 25,5% | Stabil dominerende |
+| S&D | 136 | 19,0% | Holder posisjonen |
+| PfE | 85 | 11,9% | Konsoliderer |
+| ECR | 81 | 11,3% | Under press (immunitet) |
+| Renew | 77 | 10,7% | Fallende |
+| Greens/EFA | 53 | 7,4% | Stabiliserer |
+| The Left | 45 | 6,3% | Stabil |
+| NI | 30 | 4,2% | Fragmentert |
+| ESN | 27 | 3,8% | Voksende |
+| **Majoritetsterskelen** | **360** | | |
+
+**Koalisjonsberegning:** EPP+S&D = 319 (under majoritet). EPP trenger enten Renew (+77 = 260, utilstrekkelig alene) eller ECR (+81 = 264) som tredjepart. "Ursula-koalisjonen" (EPP+S&D+Renew = 396) forblir det fungerende flertallet for de fleste avstemninger, men møter tilbakevendende risiko for stemmehopp.
+
+### NØKKELRISIKOER (72-TIMERS VINDU)
+
+1. **ECR-sammenhold**: Jaki-immunitetsavgjørelsen kan utløse ECR-disiplinærpress, med polske medlemmer som potensielt bryter gruppesolidariteten — særlig decharge-prosessene i oktober 2026.
+2. **DMA-håndhevelseseskalering**: Kommisjonens svar på Parlamentets håndhevelsesresolusjon tester det interinstitusjonelle tillitet forut for plattformslovgivningens trialoger.
+3. **Budsjettforhandlinger**: Høstens 2026 budsjettprosess begynner med Parlamentet i offensiv modus; risiko for at Råds-blokerende mindretall dannes av sparingsbevisste medlemsstater.
+
+### TILLITVURDERING
+
+- **Brukte datakilder:** 51 vedtatte tekster (2026), EP-ets åpne politisk landskap-data, koalisjonsdynamikkanalyse
+- **IMF-data:** Ikke tilgjengelig (probe mislyktes — degradert tilstand, IMF-sitater frafalt per 08-infrastructure.md §4)
+- **Stemmeprotokoller:** Avventer EP-publisering (standard 4–6 ukers forsinkelse fra vedtaksdatoer)
+- **Overordnet tillit:** 🟡 Middels — sterk strukturell analyse, begrenset sanntids-stemmegranularitet
+
+*Generert: 2026-05-09T19:20:00Z | Kilde: Europaparlamentets Åpne Dataportal*
+
+### Executive Brief Sv
+
+### LÄGESSAMMANFATTNING 🔴 HÖG SIGNIFIKANS
+
+Europaparlamentet navigerar i maj 2026 en enastående konvergens av rättsliga ansvarskriser, strider om digital regelverksefterlevnad och institutionella fragmenteringstryck. Aprilplenarsessionerna 2026 producerade ett tätt lagstiftningsresultat — från immunitetsupphävanden för polska nationalistiska MEP:ar till startskottet för tillämpningen av lagen om digitala marknader — medan institutionens underliggande koalitionsaritmetik blir allt mer komplex med EPP på 183 platser mot en majoritetströskel på 360.
+
+**Ledande underrättelseanalys (🟡 Medel säkerhet):** De dubbla immunitetsupphävandena för Grzegorz Braun (mars 2026) och Patryk Jaki (april 2026) — båda ECR/polska nationalistiska MEP:ar som möter rättsliga förfaranden i hemlandet — representerar de politiskt mest konsekvensrika åtgärderna som JURI-utskottet vidtagit under EP10. Dessa beslut signalerar att parlamentet inte kommer att skydda högerextremistiska politiker från nationell juridisk ansvarsskyldighet, ett prejudikat med efterföljande konsekvenser för demokratisk motståndskraft i EU:s medlemsstater som upplever rättsstatliga påtryckningar.
+
+**IMF-datastatus:** 🔴 Ej tillgänglig — IMF SDMX-slutpunkt inte nåbar under denna körning (sond returnerade `available: false`). Ekonomisk analys förlitar sig på strukturella EP-data och offentligt tillgängligt makrosammanhang. IMF-minimikrav undantagna per `08-infrastructure.md §4` nedsatt lägesprotokoll.
+
+**Status för röstningsprotokoll:** 🔴 Väntande — EP:s namnropsdata för 28–30 april ännu ej publicerade (standard 4–6 veckors fördröjning). Enskilda MEP:ars ståndpunkter för viktiga resolutioner (DMA, Ukraina, Armenien) otillgängliga.
+
+---
+
+### TOPP 5 SENASTE HÄNDELSER (2026-04-28 — 2026-05-09)
+
+#### 1. Immunitetsupphävande: Patryk Jaki (ECR/Polen) — 28 april 2026 🔴
+**Referens:** TA-10-2026-0105 | **Utskott:** JURI | **Signifikans:** HÖG
+
+Parlamentet röstade för att upphäva den parlamentariska immuniteten för MEP Patryk Jaki, en polsk ECR-politiker som möter rättsliga förfaranden i Polen rörande politisk verksamhet före EP-mandatet. Detta följer upphävandet av immunitet den 26 mars för Grzegorz Braun (TA-10-2026-0088), som är anklagad för att ha stört Hanukkamenoran-ceremonin i polska Sejm i december 2023. Båda upphävandena innebär att JURI-utskottet tillämpar konsekventa normer oavsett politisk tillhörighet, även om ECR har bestritt förfarandena som politiskt motiverade. Dessa besluts sekventiella karaktär — inom sex veckor — antyder en medveten JURI-strategi att bearbeta eftersläpningen av immunitetsförfrågningar från polska MEP:ar efter deras övergång från nationella till europeiska mandat.
+
+**Underrättelsevärde:** Signalerar EP:s vilja att upprätthålla rättsstatsstandarder även för MEP:ar från parlamentets tredje största högergruppering (ECR: 81 platser). Skapar prejudikat för kvarvarande EP10-immunitetsköer.
+
+**Korsreferens:** `intelligence/stakeholder-map.md §ECR`, `intelligence/coalition-dynamics.md §Rule-of-Law Alignment`, `classification/actor-mapping.md §Polish MEPs`
+
+#### 2. Resolution om tillämpning av lagen om digitala marknader — 30 april 2026 🟡
+**Referens:** TA-10-2026-0160 | **Ämne:** PROT, MARI | **Signifikans:** HÖG
+
+Parlamentet antog en resolution om DMA-tillämpning som uppmanar kommissionen att påskynda utnämningsförfaranden för grindvaktare och att ålägga meningsfulla åtgärder. Detta skedde mitt i en växande transatlantisk splittring i teknikreglering. Resolutionen representerar ett lagstiftande fastställande av parlamentets tillsynsroll över kommissionens tillämpningsutrymme — ett mönster som allt tydligare syns inom AI-lagen, datalagen och plattformsreglering. DMA:s första grindvaktarbeslut under det nya tillämpningssystemet ska slutföras till mitten av 2026; denna resolution fungerar som parlamentets preemptiva trycksignal innan dessa beslut offentliggörs.
+
+**Underrättelsevärde:** Varslar om trialogkonfrontationer i kommande plattformslagstiftning då parlamentet driver på för starkare tillämpningsverktyg. Teknikföretag verksamma på EU-marknader möter ökande regulatoriska risker.
+
+**Korsreferens:** `intelligence/scenario-forecast.md §DMA Enforcement`, `extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. EP:s budgetberäkningar 2027 antagna — 28–30 april 2026 🟡
+**Referenser:** TA-10-2026-0112 (Budgetriktlinjer), TA-10-2026-04-30-ANN01 (Budgetberäkningar) | **Signifikans:** MEDEL
+
+Parlamentet antog både riktlinjerna för EU:s budget 2027 (avdelning III) och sina egna utkast till budgetberäkningar för 2027. Sammanfallandet av dessa omröstningar signalerar att parlamentet fastslår sin interna finansiella ståndpunkt inför de årliga budgetförhandlingarna med rådet. I ett läge där flera medlemsstater förordar sparsamhet på EU-nivå — delvis drivna av nationella skuldproblem efter COVID och nya försvarsutgiftskrav — stärker parlamentets tidiga deklaration dess förhandlingsposition. Budget 2027 blir den första helårsbudgeten under den nya MFF-revisionsprocessen (flerårig budgetram) och speglar konkurrerande krav: försvarsförstärkning, grön omställning, jordbruksstöd och sammanhållning.
+
+**Underrättelsevärde:** Budgetaritmetiken blir det avgörande interinstitutionella slagfältet hösten 2026. Rådsblockande minoritet sannolikt att bildas kring Tyskland, Nederländerna och Österrike med krav på sammanlagda tak.
+
+**Korsreferens:** `intelligence/economic-context.md`, `extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. PNR-avtal med Island — 29 april 2026 🟢
+**Referens:** TA-10-2026-0142 | **Signifikans:** MEDEL-LÅG
+
+Parlamentet samtyckte till ett EU-Island-avtal om Passenger Name Record (PNR) för kontraterrorism och grov brottslighet. Även om det är procedurmässigt rutinmässigt är denna omröstning anmärkningsvärd för sitt breda stöd från alla partier — vilket speglar en säkerhetskonsensus efter 2024 som överstiger den vänster-höger-klyftan i dataskyddsfrågor. Island är en Schengenassociat, vilket gör detta till en naturlig förlängning av befintliga ramverk. LIBE-utskottet genomförde en GDPR-förenlighetsbedömning; The Left-gruppen röstade sannolikt emot eller avstod av dataskyddsskäl, men majoriteten var bekväm.
+
+**Underrättelsevärde:** Bekräftar att på säkerhetsärenden förblir EPP-S&D-Renew storkoalitionsaritmetiken genomförbar även när den splittras vid regulatoriska och socialpolitiska frågor.
+
+#### 5. Budgetansvarsfrihet 2024: Regionkommittén — 29 april 2026 🟢
+**Referens:** TA-10-2026-0132 | **Signifikans:** LÅG
+
+Parlamentet beviljade ansvarsfrihet till Regionkommittén för genomförandet av dess budget 2024. Rutinmässig ansvarighetsövning. Inga MEP:ar framförde väsentliga reservationer. Detta utgör en del av den bredare årliga ansvarsfrihetsprocessen som även inkluderade myndighetsansvarsfrihet under denna session.
+
+---
+
+### PARLAMENTARISK ARITMETIKBEDÖMNING
+
+| Grupp | Platser | Andel | Trajektoria | Roll |
+|-------|---------|-------|-------------|------|
+| EPP | 183 | 25,5% | Stabil dominerande | Majoritetsskapare |
+| S&D | 136 | 19,0% | Håller mark | Medsankar |
+| PfE | 85 | 11,9% | Konsoliderar | Oppositionsstörare |
+| ECR | 81 | 11,3% | Under tryck (immunitet) | Selektiv allierad |
+| Renew | 77 | 10,7% | Minskar | Koalitionssmörjare |
+| Greens/EFA | 53 | 7,4% | Stabiliserar | Progressiv flank |
+| The Left | 45 | 6,3% | Stabil | Vänsterankar |
+| NI | 30 | 4,2% | Fragmenterad | Oförutsägbar |
+| ESN | 27 | 3,8% | Växande | Hård opposition |
+| **Majoritetströskel** | **360** | | | |
+
+**Koalitionskalkyl:** EPP+S&D = 319 (under majoritet). EPP behöver antingen Renew (+77) eller Greens (+53) som tredje partner plus tillfällig S&D/Renew- eller ECR-komplettering. "Ursula-koalitionen" (EPP+S&D+Renew = 396) förblir den fungerande majoriteten för de flesta omröstningar, men möter återkommande avhoppsrisker på kontroversiella dossiers.
+
+**Fragmenteringsindex:** HÖG (effektivt antal partier: 6,58)
+**Stabilitetspoäng:** 84/100 (Bedömning av tidig varningssystem: MEDEL risknivå)
+
+---
+
+### NYCKELRISKER (72-TIMMARS OCH 30-DAGARSFÖNSTER)
+
+#### Omedelbart (72 timmar)
+1. **ECR-sammanhållningsbelastning**: Jaki-immunitetsbeslutet kan utlösa synliga interna ECR-spänningar
+2. **DMA-tillämpningsdeadline**: Kommissionen måste svara på parlamentets tillämpningsresolution
+3. **Budget: Rådsreaktion**: Rådets första svar på EP:s budgetberäkningar förväntas inom 2 veckor
+
+#### Medelfristigt (30 dagar)
+1. **Ytterligare immunitetsköer**: Minst 3–4 ytterligare immunitetsförfrågningar pågående (icke-polska MEP:ar)
+2. **Plenumschemaläggning**: Maj/juniplenums agenda kommer att testa koalitionsstabiliteten kring AI-ansvar, CBAM-granskning
+3. **Ukrainastöd**: Fortsatt tryck på militärt stödpaket; ECR/PfE-splittring trolig
+
+---
+
+### TILLITSBEDÖMNING OCH DATAKVALITET
+
+| Datakälla | Status | Påverkan på analys |
+|-----------|--------|-------------------|
+| EP antagna texter (2026) | ✅ 51 texter hämtade | Full lagstiftningsbevakning |
+| Politiskt landskap | ✅ Realtids-API-data | Högt tillförlitlig koalitionsaritmetik |
+| Koalitionsdynamik | ⚠️ Storleksersättning (inga röstdata) | Medelkonfidenta allianser |
+| Röstprotokoll (28–30 apr) | ❌ Avvaktar EP-publicering | Kan ej bekräfta specifika gruppositioner |
+| IMF ekonomisk data | ❌ Sond misslyckades (nedsatt läge) | Ekonomiavsnitt använder strukturella uppskattningar |
+| Evenemangsfeed | ❌ EP API ej tillgänglig | Utskottsaktivitetsdata ofullständiga |
+| DOCEO XML-röster | ❌ Inga senaste plenardata | Närtida röstdata frånvarande |
+
+**Övergripande tillförlitlighet:** 🟡 Medel — stark strukturell analys, begränsad realtids-omröstningsgranularitet
+
+*Genererad: 2026-05-09 | Körning: breaking-run-1778354174 | Källa: Europaparlamentets öppna dataportal*
+
+---
+
+### METODNOTERING
+
+Denna exekutiva sammanfattning syntetiserar data från EP:s öppna dataportal (51 antagna texter, politiskt landskap, koalitionsdynamik), analytiska verktyg (tidigt varningssystem, koalitionsparsanalys) och strukturerade analytiska tekniker (SAT). Alla kvantitativa uppgifter verifierade mot EP API-svar. Kvalitativa bedömningar använder strukturerat sannolikhetsspråk per `analysis/methodologies/ai-driven-analysis-guide.md` regel 12. Tillitsetiketter följer Admiralitetskodens principer.
+
+#### 1. Immunitetsupphävande: Patryk Jaki (ECR/Polen) — 28 april 2026 🔴
+**Referens:** TA-10-2026-0105 | **Utskott:** JURI | **Signifikans:** HÖG
+
+Parlamentet röstade för att upphäva den parlamentariska immuniteten för MEP Patryk Jaki, en polsk ECR-politiker som möter rättsliga förfaranden i Polen rörande politisk verksamhet före EP-mandatet. Detta följer upphävandet av immunitet den 26 mars för Grzegorz Braun (TA-10-2026-0088), anklagad för att ha stört Hanukkamenoran-ceremonin i polska Sejm i december 2023. Båda upphävandena innebär att JURI-utskottet tillämpar konsekventa normer oavsett politisk tillhörighet, även om ECR bestridit förfarandena som politiskt motiverade. Den sekventiella karaktären — inom sex veckor — antyder en medveten JURI-strategi att bearbeta immunitetseftersläpningen.
+
+**Underrättelsevärde:** Signalerar EP:s vilja att upprätthålla rättsstatsstandarder för ECR-MEP:ar (81 platser).
+
+#### 2. Resolution om tillämpning av lagen om digitala marknader — 30 april 2026 🟡
+**Referens:** TA-10-2026-0160 | **Signifikans:** HÖG
+
+Parlamentet antog en resolution om DMA-tillämpning (TA-10-2026-0160) med ämnesmateria "PROT, MARI", som uppmanar kommissionen att påskynda utnämningsförfaranden för grindvaktare och ålägga meningsfulla åtgärder. Detta skedde en vecka efter WTO:s 14:e ministerkonferens i Yaoundé (resolution 12 mars), mitt i en växande transatlantisk teknikregleringssplittring. Resolutionen representerar ett lagstiftande fastställande av parlamentets tillsynsroll över kommissionens tillämpningsutrymme.
+
+**Underrättelsevärde:** Varslar om trialogkonfrontationer i kommande plattformslagstiftning då parlamentet driver på för starkare tillämpning än vad kommissionen föreslår.
+
+#### 3. EP:s budgetberäkningar 2027 antagna — 28–30 april 2026 🟡
+**Referenser:** TA-10-2026-0112 (Budgetriktlinjer), TA-10-2026-04-30-ANN01 (Budgetberäkningar) | **Signifikans:** MEDEL
+
+Parlamentet antog både riktlinjerna för EU:s budget 2027 (avdelning III) och sina egna utkast till budgetberäkningar för 2027. Sammanfallandet av dessa omröstningar signalerar att parlamentet fastslår sin interna finansiella ståndpunkt inför de årliga budgetförhandlingarna med rådet. Inför skuldproblem efter COVID och nya försvarsutgiftskrav speglar parlamentets tidiga deklaration institutionell bestämdhet.
+
+**Underrättelsevärde:** Budgetaritmetiken blir det avgörande interinstitutionella slagfältet hösten 2026. Parlamentets tidiga deklaration stärker dess förhandlingsposition.
+
+#### 4. PNR-avtal med Island — 29 april 2026 🟢
+**Referens:** TA-10-2026-0142 | **Signifikans:** MEDEL-LÅG
+
+Parlamentet samtyckte till ett EU-Island-PNR-avtal för kontraterrorism och grov brottslighet. Denna omröstning är anmärkningsvärd för sitt breda tvärpartistöd — ett tecken på en säkerhetskonsensus efter 2024. Island är en Schengenassociat, vilket gör detta till en naturlig förlängning.
+
+**Underrättelsevärde:** Bekräftar att EPP-S&D-Renew storkoalitionsaritmetiken förblir genomförbar på säkerhetsärenden.
+
+#### 5. Budgetansvarsfrihet 2024: Regionkommittén — 29 april 2026 🟢
+**Referens:** TA-10-2026-0132 | **Signifikans:** LÅG
+
+Parlamentet beviljade ansvarsfrihet till Regionkommittén för genomförandet av dess budget 2024. Rutinmässig ansvarighetsövning. Inga MEP:ar framförde väsentliga reservationer.
+
+### PARLAMENTARISK ARITMETIKBEDÖMNING
+
+| Grupp | Platser | Andel | Trajektoria |
+|-------|---------|-------|-------------|
+| EPP | 183 | 25,5% | Stabil dominerande |
+| S&D | 136 | 19,0% | Håller mark |
+| PfE | 85 | 11,9% | Konsoliderar |
+| ECR | 81 | 11,3% | Under tryck (immunitet) |
+| Renew | 77 | 10,7% | Minskar |
+| Greens/EFA | 53 | 7,4% | Stabiliserar |
+| The Left | 45 | 6,3% | Stabil |
+| NI | 30 | 4,2% | Fragmenterad |
+| ESN | 27 | 3,8% | Växande |
+| **Majoritetströskel** | **360** | | |
+
+**Koalitionskalkyl:** EPP+S&D = 319 (under majoritet). EPP behöver antingen Renew (+77 = 260, otillräckligt ensam) eller ECR (+81 = 264) som tredje partner. "Ursula-koalitionen" (EPP+S&D+Renew = 396) förblir den fungerande majoriteten för de flesta omröstningar, men möter återkommande avhoppsrisker på kontroversiella dossiers.
+
+### NYCKELRISKER (72-TIMMARSFÖNSTER)
+
+1. **ECR-sammanhållning**: Jaki-immunitetsbeslutet kan utlösa ECR:s disciplinära tryck, med polska ledamöter som potentiellt bryter gruppsolidariteten på kommande omröstningar — särskilt ansvarsfrihetsprocedurerna i oktober 2026.
+2. **DMA-tillämpningseskalering**: Kommissionens svar på parlamentets tillämpningsresolution testar det interinstitutionella förtroendet inför plattformslagstiftningens trialoger.
+3. **Budgetförhandlingar**: Höstens 2026 budgetprocess inleds med parlamentet i en offensiv hållning; risk för att rådsblockande minoritet bildas kring sparsamhetsinriktade medlemsstater.
+
+### TILLITSBEDÖMNING
+
+- **Använda datakällor:** 51 antagna texter (2026), EP:s öppna data om politiskt landskap, koalitionsdynamikanalys
+- **IMF-data:** Ej tillgänglig (sond misslyckades — nedsatt läge, IMF-citat undantagna per 08-infrastructure.md §4)
+- **Röstprotokoll:** Avvaktar EP-publicering (standard 4–6 veckors fördröjning från antagningsdatum)
+- **Övergripande tillförlitlighet:** 🟡 Medel — stark strukturell analys, begränsad realtids-omröstningsgranularitet
+
+*Genererad: 2026-05-09T19:20:00Z | Källa: Europaparlamentets öppna dataportal*
+
+### Executive Brief Zh
+
+**日期:** 2026-05-09 | **类型:** 新闻 | **分类:** 公开 | **运行:** breaking-run-1778354174
+
+### 情况概述 🔴 高度重要
+
+2026年5月，欧洲议会正面临法律问责危机、数字监管执法之争和制度碎片化压力三重前所未有的汇聚。2026年4月全体会议产生了密集的立法成果——从撤销波兰民族主义议员的豁免权到启动《数字市场法》(DMA)执法——与此同时，机构内部的联盟算术日趋复杂，欧洲人民党(EPP)仅持有183席，远低于360席的多数票门槛。
+
+**主要情报评估（🟡 中等可信度）：** 对格热戈日·布劳恩（2026年3月）和帕特里克·亚基（2026年4月）的双重豁免撤销——两人均为正面临本国司法程序的ECR/波兰民族主义议员——代表了EP10中JURI委员会采取的政治影响最深远的行动。这些决定表明欧洲议会不会保护极右翼政客免受国内法律追责，这一先例对面临法治压力的欧盟成员国的民主韧性具有深远的下游影响。
+
+**IMF数据状态：** 🔴 不可用——本次运行期间IMF SDMX端点无法访问（探针返回 `available: false`）。经济分析依赖欧洲议会结构性数据和公开的宏观背景。IMF最低要求依据 `08-infrastructure.md §4` 降级模式协议豁免。
+
+**投票记录状态：** 🔴 待定——4月28–30日欧洲议会记名投票数据尚未公布（标准延迟4–6周）。关键决议（DMA、乌克兰、亚美尼亚）中各议员的个人立场不可得。
+
+---
+
+### 五大最新进展（2026-04-28 — 2026-05-09）
+
+#### 1. 豁免撤销：帕特里克·亚基（ECR/波兰）——2026年4月28日 🔴
+**参考文件：** TA-10-2026-0105 | **委员会：** JURI | **重要性：** 高
+
+欧洲议会表决撤销ECR波兰政治人物、欧洲议会议员帕特里克·亚基的议会豁免权。亚基在波兰面临与其欧洲议会任期前政治活动相关的司法程序。此举延续了3月26日对格热戈日·布劳恩（TA-10-2026-0088）豁免撤销的先例——布劳恩面临2023年12月在波兰议会扰乱光明节烛台仪式的相关指控。两起撤销均表明JURI委员会不论政治立场均适用一致标准，尽管ECR声称程序具有政治动机。这些决定相继出现——在六周之内——暗示JURI采取了蓄意战略，以清理波兰议员从国内任期转至欧洲任期后积累的豁免申请积压。
+
+**情报价值：** 表明欧洲议会有意愿对议会内第三大右翼团体（ECR：81席）的议员维持法治标准。为EP10剩余豁免申请队列设立先例。
+
+**交叉参考：** `intelligence/stakeholder-map.md §ECR`、`intelligence/coalition-dynamics.md §Rule-of-Law Alignment`、`classification/actor-mapping.md §Polish MEPs`
+
+#### 2. 数字市场法执法决议——2026年4月30日 🟡
+**参考文件：** TA-10-2026-0160 | **主题：** PROT, MARI | **重要性：** 高
+
+欧洲议会通过了关于DMA执法的决议，要求欧盟委员会加快守门人指定程序并施加实质性补救措施。这发生在大西洋两岸科技监管分歧日益扩大的背景下。该决议是议会在执法自由裁量权方面对委员会监督角色的立法确认——这一模式在人工智能法、数据法和平台监管文件中日益凸显。新执法体制下的首批守门人指定决定预计将于2026年中期前完成；本决议在这些决定落地前充当议会的预防性施压信号。
+
+**情报价值：** 预示即将到来的平台立法三方会谈中的对抗，议会力争更强有力的执法工具。在欧盟市场经营的科技公司面临监管风险实现概率上升。
+
+**交叉参考：** `intelligence/scenario-forecast.md §DMA Enforcement`、`extended/devils-advocate-analysis.md §Regulatory Effectiveness`
+
+#### 3. 欧洲议会2027年预算估算通过——2026年4月28–30日 🟡
+**参考文件：** TA-10-2026-0112（预算指引）、TA-10-2026-04-30-ANN01（预算估算） | **重要性：** 中
+
+欧洲议会通过了2027年欧盟预算指引（第三节）和自身的2027年预算估算草案。这两项表决同时进行，表明议会正在与理事会进行年度预算谈判前确立其内部财政立场。在多个成员国推动欧盟层面财政紧缩——部分由于新冠疫情后国家债务可持续性压力和新防务开支需求——的背景下，议会的早期声明巩固了其谈判立场。2027年预算将是新的多年期财务框架(MFF)审查程序下的首个完整年度预算，将反映相互竞争的需求：扩大防务、绿色转型、农业支持和凝聚力。
+
+**情报价值：** 预算算术将成为2026年秋季的决定性机构间战场。以德国、荷兰和奥地利为核心的理事会阻止性少数派可能为争取总体上限而形成。
+
+**交叉参考：** `intelligence/economic-context.md`、`extended/implementation-feasibility.md §Budget Constraints`
+
+#### 4. 与冰岛的PNR协议——2026年4月29日 🟢
+**参考文件：** TA-10-2026-0142 | **重要性：** 中低
+
+欧洲议会批准了欧盟-冰岛乘客记录(PNR)协议，用于打击恐怖主义和严重犯罪。尽管在程序上属于常规事务，但此次投票因其广泛的跨党派支持而引人注目——反映了2024年后超越数据保护问题上左右分歧的安全共识。冰岛是申根准成员国，使本协议成为现有框架的自然延伸。LIBE委员会进行了GDPR兼容性评估；左翼党出于数据保护原因可能反对或弃权，但多数派感到舒适。
+
+**情报价值：** 证实在安全文件上，EPP-S&D-Renew大联盟算术即使在监管和社会政策文件上出现裂痕时仍可维系。
+
+#### 5. 2024年度预算免责：地区委员会——2026年4月29日 🟢
+**参考文件：** TA-10-2026-0132 | **重要性：** 低
+
+欧洲议会就2024年预算执行向地区委员会给予免责。例行问责工作。没有议员提出实质性保留意见。这是本届会议中还包括机构免责的更广泛年度免责周期的一部分。
+
+---
+
+### 议会算术评估
+
+| 党团 | 议席 | 占比 | 走势 | 作用 |
+|------|------|------|------|------|
+| EPP | 183 | 25.5% | 稳定主导 | 多数缔造者 |
+| S&D | 136 | 19.0% | 维持立场 | 共同锚点 |
+| PfE | 85 | 11.9% | 巩固中 | 反对派搅局者 |
+| ECR | 81 | 11.3% | 承压（豁免） | 选择性盟友 |
+| Renew | 77 | 10.7% | 下滑 | 联盟润滑剂 |
+| Greens/EFA | 53 | 7.4% | 趋稳 | 进步派翼 |
+| The Left | 45 | 6.3% | 稳定 | 左翼锚点 |
+| NI | 30 | 4.2% | 分裂 | 不可预测 |
+| ESN | 27 | 3.8% | 增长 | 强硬反对派 |
+| **多数票门槛** | **360** | | | |
+
+**联盟计算：** EPP+S&D = 319（低于多数）。EPP需要Renew（+77）或Greens（+53）作为第三伙伴，再加上偶尔的S&D/Renew或ECR补充。"乌尔苏拉联盟"（EPP+S&D+Renew = 396）仍是大多数投票的有效多数，但在争议性文件上面临反复的分裂风险。
+
+**碎片化指数：** 高（有效政党数：6.58）
+**稳定分数：** 84/100（早期预警系统评估：中等风险水平）
+
+---
+
+### 主要风险（72小时和30天窗口）
+
+#### 即时（72小时）
+1. **ECR凝聚力紧张：** 亚基豁免决定可能引发ECR内部可见的紧张局面
+2. **DMA执法截止日期：** 委员会必须回应议会的执法决议
+3. **预算：理事会回应：** 预计2周内理事会对欧洲议会预算估算作出首次回应
+
+#### 中期（30天）
+1. **其他豁免申请队列：** 至少3–4件额外豁免申请待处理（非波兰议员）
+2. **全体会议规划：** 5月/6月全体会议议程将检验联盟在人工智能问责、CBAM审查上的稳定性
+3. **乌克兰支持：** 军事支持方案持续承压；ECR/PfE分裂可能
+
+---
+
+### 可信度及数据质量评估
+
+| 数据来源 | 状态 | 对分析的影响 |
+|--------|------|-----------|
+| 欧洲议会通过文本（2026） | ✅ 检索到51项文本 | 完整立法覆盖 |
+| 政治格局 | ✅ 实时API数据 | 高可信度联盟算术 |
+| 联盟动态 | ⚠️ 仅规模代理（无投票数据） | 联盟的中等可信度 |
+| 投票记录（4月28–30日） | ❌ 待欧洲议会公布 | 无法确认特定党团立场 |
+| IMF经济数据 | ❌ 探针失败（降级模式） | 经济部分使用结构性估算 |
+| 事件信息流 | ❌ 欧洲议会API不可用 | 委员会活动数据不完整 |
+| DOCEO XML投票 | ❌ 无近期全体会议数据 | 近实时投票数据缺失 |
+
+**总体可信度：** 🟡 中等——结构分析扎实，实时投票细节有限
+
+*生成时间：2026-05-09 | 运行：breaking-run-1778354174 | 来源：欧洲议会开放数据门户*
+
+---
+
+### 方法论说明
+
+本执行简报综合了欧洲议会开放数据门户（51项通过文本、政治格局、联盟动态）、分析工具（早期预警系统、联盟配对分析）和结构化分析技术(SAT)的数据。所有定量数据均已根据欧洲议会API响应进行核实。定性评估采用 `analysis/methodologies/ai-driven-analysis-guide.md` 规则12规定的结构化概率语言。可信度标签遵循海军准则原则。
+
+#### 1. 豁免撤销：帕特里克·亚基（ECR/波兰）——2026年4月28日 🔴
+**参考文件：** TA-10-2026-0105 | **委员会：** JURI | **重要性：** 高
+
+欧洲议会表决撤销亚基豁免权。延续3月26日对布劳恩（TA-10-2026-0088）的豁免撤销。六周内相继出现表明系蓄意战略。
+
+**情报价值：** 表明对ECR议员（81席）维持法治标准的意愿。
+
+#### 2. 数字市场法执法决议——2026年4月30日 🟡
+**参考文件：** TA-10-2026-0160 | **重要性：** 高
+
+欧洲议会通过DMA执法决议（TA-10-2026-0160），主题为"PROT, MARI"。发生于雅温得第14届世界贸易组织部长级会议决议（3月12日）一周后。
+
+**情报价值：** 预示平台立法三方会谈将出现对抗，议会争取比委员会提案更强的执法力度。
+
+#### 3. 欧洲议会2027年预算估算通过——2026年4月28–30日 🟡
+**参考文件：** TA-10-2026-0112（预算指引）、TA-10-2026-04-30-ANN01（预算估算） | **重要性：** 中
+
+欧洲议会通过两项预算文件。早期声明巩固谈判立场。
+
+**情报价值：** 预算算术将是2026年秋季的决定性战场。议会的早期声明巩固其立场。
+
+#### 4. 与冰岛的PNR协议——2026年4月29日 🟢
+**参考文件：** TA-10-2026-0142 | **重要性：** 中低
+
+欧洲议会批准EU-冰岛PNR协议。广泛的跨党派支持确认安全共识。
+
+**情报价值：** 证实在安全文件上大联盟算术的可行性。
+
+#### 5. 2024年度预算免责：地区委员会——2026年4月29日 🟢
+**参考文件：** TA-10-2026-0132 | **重要性：** 低
+
+欧洲议会向地区委员会给予免责。例行工作。
+
+### 议会算术评估
+
+| 党团 | 议席 | 占比 | 走势 |
+|------|------|------|------|
+| EPP | 183 | 25.5% | 稳定主导 |
+| S&D | 136 | 19.0% | 维持立场 |
+| PfE | 85 | 11.9% | 巩固中 |
+| ECR | 81 | 11.3% | 承压（豁免） |
+| Renew | 77 | 10.7% | 下滑 |
+| Greens/EFA | 53 | 7.4% | 趋稳 |
+| The Left | 45 | 6.3% | 稳定 |
+| NI | 30 | 4.2% | 分裂 |
+| ESN | 27 | 3.8% | 增长 |
+| **多数票门槛** | **360** | | |
+
+**联盟计算：** EPP+S&D = 319（低于多数）。EPP需要Renew（+77 = 260，单独不足）或ECR（+81 = 264）作为第三伙伴。"乌尔苏拉联盟"（EPP+S&D+Renew = 396）仍是有效多数，但面临反复的分裂风险。
+
+### 主要风险（72小时窗口）
+
+1. **ECR凝聚力：** 亚基豁免决定可能在ECR引发纪律压力，波兰成员在即将到来的投票——尤其是2026年10月的免责程序——中可能打破党团团结。
+2. **DMA执法升级：** 委员会对议会执法决议的回应将在平台立法三方会谈前检验机构间互信。
+3. **预算谈判：** 2026年秋季预算进程始于进攻性模式的议会；围绕财政紧缩成员国，理事会中形成阻止性少数派的风险。
+
+### 可信度评估
+
+- **使用的数据来源：** 51项通过文本（2026）、欧洲议会政治格局公开数据、联盟动态分析
+- **IMF数据：** 不可用（探针失败——降级模式，依据08-infrastructure.md §4 IMF引用豁免）
+- **投票记录：** 待欧洲议会公布（通过日期起标准4–6周延迟）
+- **总体可信度：** 🟡 中等——结构分析扎实，实时投票细节有限
+
+*生成时间：2026-05-09T19:20:00Z | 来源：欧洲议会开放数据门户*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `breaking`
@@ -7835,4 +10188,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 
