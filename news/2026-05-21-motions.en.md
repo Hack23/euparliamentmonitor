@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Motions Week 2026-05-21"
-description: "The European Parliament adopted eight texts in its May 19-20 Strasbourg plenary, with the AI strategy for EU trade (TA-10-2026-0183) as the most strategically consequential"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-21", "Parliament", "Week", "European"]
+title: "The European Parliament adopted eight texts in its — Run 264"
+description: "The European Parliament adopted eight texts in its May 19-20 Strasbourg plenary, with the AI strategy for EU trade (TA-10-2026-0183) as the most strategically consequential."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-21", "European", "Parliament", "adopted"]
 date: 2026-05-21
 article_type: motions
 slug: 2026-05-21-motions

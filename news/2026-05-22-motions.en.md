@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Motions & Resolutions"
-description: "The European Parliament's May 19-21, 2026 Strasbourg plenary produced nine politically significant adopted texts (T10-0165 through T10-0191), representing a dense legislative"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-22", "Parliament", "European", "Strasbourg"]
+title: "The European Parliament's May 19-21 — Run 289"
+description: "The European Parliament's May 19-21, 2026 Strasbourg plenary produced nine politically significant adopted texts (T10-0165 through T10-0191), representing a dense legislative."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-22", "European", "Parliament", "Strasbourg"]
 date: 2026-05-22
 article_type: motions
 slug: 2026-05-22-motions

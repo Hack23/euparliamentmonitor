@@ -39,8 +39,17 @@ const PREFERRED_HEADINGS = [
     'bottom line up front',
     'top findings',
     'key judgments',
+    'key judgements',
     'lead',
     'headline',
+    'top line',
+    'critical findings',
+    'situation assessment',
+    'strategic synthesis',
+    'summary assessment',
+    'priority intelligence',
+    'most significant',
+    'principal intelligence',
 ];
 /**
  * Split a Markdown document into headed sections. Fenced code blocks are

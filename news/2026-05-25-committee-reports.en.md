@@ -1,7 +1,7 @@
 ---
-title: "EP Committee Reports: The Record-Activity Paradox"
-description: "degraded-feeds (feeds 404; strategic data HIGH quality) Published 2026-05-25."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-25", "Committee", "Reports", "Record"]
+title: "Record does not mean radical: EP10 committees are"
+description: "Analysis of recent legislative output, effectiveness metrics, and key committee activities Published 2026-05-25."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-25", "Record", "does", "mean"]
 date: 2026-05-25
 article_type: committee-reports
 slug: 2026-05-25-committee-reports

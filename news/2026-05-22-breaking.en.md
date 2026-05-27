@@ -1,5 +1,5 @@
 ---
-title: "AI Trade Strategy: A Legislative First with Structural Implications"
+title: "AI Trade Strategy: A Legislative First with Struct — Run 264"
 description: "TA-10-2026-0183 marks the first time the EP has adopted a resolution specifically addressing AI as a trade instrument rather than solely as a regulatory compliance challenge."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-22", "Trade", "Strategy", "Legislative"]
 date: 2026-05-22

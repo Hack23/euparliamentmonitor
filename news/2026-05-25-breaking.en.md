@@ -1,7 +1,7 @@
 ---
-title: "EP Breaking News (Pass 2 Extended)"
-description: "Overall Assessment: The May 20 plenary cluster represents a characteristically broad EP legislative output — combining high-profile external affairs resolutions with technical"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-25", "News", "Pass", "Extended"]
+title: "The EP resolution on AI and EU trade is the most — Run 266"
+description: "The EP resolution on AI and EU trade is the most significant breaking legislative output of the past week for democratic-accountability readers tracking EU institutional."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-25", "resolution", "trade", "most"]
 date: 2026-05-25
 article_type: breaking
 slug: 2026-05-25-breaking
