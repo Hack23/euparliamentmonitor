@@ -161,11 +161,12 @@ describe('detectLeakyRunIdOrJargon', () => {
     expect(detectLeakyRunIdOrJargon(undefined)).toBeNull();
     expect(detectLeakyRunIdOrJargon(42)).toBeNull();
   });
-  it('does not flag short ordinal-only mentions (Run 255)', () => {
-    // Stage-B may legitimately emit short collision-disambiguators like
-    // " — Run 255" in fallback titles after withRunQualifier sanitisation.
-    // The detector must NOT flag these — only the long unix-ts form is leaky.
-    expect(detectLeakyRunIdOrJargon('Breaking — 2026-05-16 — Run 255')).toBeNull();
+  it('flags workflow run-number patterns (Run 255)', () => {
+    // Run numbers must never appear in user-facing titles, descriptions,
+    // or keywords. They are workflow identifiers, not readable content.
+    const result = detectLeakyRunIdOrJargon('Breaking — 2026-05-16 — Run 255');
+    expect(result).not.toBeNull();
+    expect(result).toContain('Run 255');
   });
 });
 

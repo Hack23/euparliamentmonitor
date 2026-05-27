@@ -8,12 +8,14 @@
 import { extractFirstSentence, shouldSkipDescriptionLine, truncateTitle } from './text-utils.js';
 import { findTitleRejectionReason } from './title-rejection.js';
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
+/** Matches workflow run-number patterns like "Run 271" or "— Run 42" in titles. */
+const RUN_NUMBER_RE = /(?:^|[\s—–-])Run\s+\d+/u;
 /** Minimum title length below which a title is unusable. */
 const SEO_TITLE_FLOOR = 20;
 export function hasLeakySeoToken(value) {
     if (!value)
         return false;
-    return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value);
+    return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value) || RUN_NUMBER_RE.test(value);
 }
 /**
  * Extract a run number from a runId like `committee-reports-run47`,
@@ -79,32 +81,16 @@ export function deriveHeadlineFromSummary(summary) {
     return truncateTitle(extractFirstSentence(cleaned) || cleaned);
 }
 /**
- * Append a short run qualifier to otherwise duplicate-prone fallback
- * titles. Sanitizes the raw `runId` so user-facing `<title>` strings
- * never expose Unix timestamps or the full opaque token.
+ * Previously appended a short run qualifier to fallback titles for
+ * disambiguation. Now a no-op: run numbers must never appear in
+ * user-facing article titles. Titles should always be readable
+ * article headlines without workflow identifiers.
  *
- * @param title - Base title to qualify
- * @param runId - Raw run identifier token
- * @returns Title with appended run number qualifier
+ * @param title - Base title (returned unchanged)
+ * @param _runId - Raw run identifier token (ignored)
+ * @returns Title unchanged
  */
-export function withRunQualifier(title, runId) {
-    if (!runId)
-        return title;
-    if (/^\d+$/u.test(runId))
-        return `${title} — Run ${runId}`;
-    const segments = runId.split('-');
-    for (const seg of segments) {
-        const m = /^run(\d+)$/u.exec(seg);
-        if (m)
-            return `${title} — Run ${m[1]}`;
-        const m2 = /^run$/u.exec(seg);
-        if (m2) {
-            const idx = segments.indexOf(seg);
-            const next = segments[idx + 1];
-            if (next && /^\d+$/u.test(next))
-                return `${title} — Run ${next}`;
-        }
-    }
+export function withRunQualifier(title, _runId) {
     return title;
 }
 /**

@@ -38,61 +38,22 @@ function contentMatchesLocaleScript(text, lang) {
     return RTL_GLYPH_RE.test(text);
 }
 /**
- * Append ` — Run N` to a clamped SEO title when the manifest runId
- * carries a discriminator. Reserves budget headroom by trimming the
- * editorial portion (whole-grapheme aware, with trailing separator
- * scrub) before stapling the suffix so we never exceed the per-script
- * `<title>` clamp. Extracted from {@link resolveOneLanguage} to keep
- * its cognitive complexity below the project lint cap.
+ * No-op: run numbers must never appear in user-facing article titles.
+ * Titles should always be readable article headlines without workflow
+ * identifiers. This function is preserved for callsite backward
+ * compatibility.
  *
- * @param seoTitle - Already-clamped, ellipsis-scrubbed SEO title
- * @param lang - Language code (drives the per-script title budget)
- * @param runId - Manifest run identifier (may be empty)
- * @returns Title with ` — Run N` appended, or the unchanged input when
- *   no runId is present or the suffix can't fit inside budget
+ * @param seoTitle - SEO title (returned unchanged)
+ * @param _lang - Language code (ignored)
+ * @param _runId - Manifest run identifier (ignored)
+ * @returns The unchanged input title
  */
-export function appendRunNumberSuffix(seoTitle, lang, runId) {
-    const runNumber = extractRunNumber(runId);
-    if (!runNumber || containsNormalized(seoTitle, `Run ${runNumber}`)) {
-        return seoTitle;
-    }
-    const titleBudget = budgetFor(lang, 'title');
-    const suffix = ` — Run ${runNumber}`;
-    const suffixLen = Array.from(suffix).length;
-    const seoTitleGraphemes = Array.from(seoTitle);
-    if (seoTitleGraphemes.length + suffixLen <= titleBudget) {
-        return `${seoTitle}${suffix}`;
-    }
-    if (suffixLen >= titleBudget)
-        return seoTitle;
-    // Reserve budget: trim editorial portion to leave room for the
-    // ` — Run N` suffix without exceeding the per-script clamp.
-    const headroom = titleBudget - suffixLen;
-    const rawHead = seoTitleGraphemes.slice(0, headroom).join('');
-    // Avoid mid-word truncation: find the last word boundary (space or
-    // separator) within the headroom slice. For CJK scripts word-boundary
-    // trimming is unnecessary since each grapheme is already a word, but
-    // for Latin/RTL we must snap back to a whole word.
-    const family = classifyScript(lang);
-    let trimmedHead;
-    if (family === 'cjk') {
-        trimmedHead = rawHead.replace(/[\s|,;:—\-–]+$/u, '').trim();
-    }
-    else {
-        // Find last space/separator — snap to whole word
-        const lastSep = rawHead.search(/[\s|,;:—\-–][^\s|,;:—\-–]*$/u);
-        if (lastSep > 0) {
-            trimmedHead = rawHead.slice(0, lastSep).trim();
-        }
-        else {
-            // No separator found — entire string is one word, keep it if it
-            // won't be a truncated fragment (< 4 chars likely means mangled)
-            trimmedHead = rawHead.replace(/[\s|,;:—\-–]+$/u, '').trim();
-            if (trimmedHead.length < 4)
-                return seoTitle;
-        }
-    }
-    return trimmedHead ? `${trimmedHead}${suffix}` : seoTitle;
+export function appendRunNumberSuffix(seoTitle, _lang, _runId) {
+    // Run numbers must never appear in user-facing article titles.
+    // Titles should always be readable article headlines without
+    // workflow identifiers. This function is preserved as a no-op
+    // for callsite backward compatibility.
+    return seoTitle;
 }
 /**
  * Build the editorial source object for one language. Prefers a translated
@@ -307,10 +268,11 @@ export function resolveOneLanguage(input) {
     // The fallback path passes the template title back through
     // {@link composeContextualTitle} (with an empty editorial headline)
     // so `withRunQualifier` re-appends the `— Run N` suffix. Without
-    // this, two same-date / same-articleType runs (republish, hot-fix
-    // re-run) would collapse to byte-identical `<title>` strings, and
-    // the duplicate-title gate in `scripts/validate-article-seo.js`
-    // would (correctly) fail CI.
+    // The fallback path passes the template title back through
+    // {@link composeContextualTitle} (with an empty editorial headline)
+    // which disambiguates via ISO date. Same-date re-runs with identical
+    // editorial headlines are acceptable — the duplicate-title gate is
+    // advisory-only since run numbers are never used in user-facing titles.
     const contextualFallback = composeContextualTitle(input.template.title, '', input.runId, input.date, input.lang);
     const truncatedTitle = pickResolvedTitle(input, {
         explicitTitle,
@@ -318,10 +280,10 @@ export function resolveOneLanguage(input) {
         summaryDerivedTitle,
         contextualFallback,
     });
-    // Per-script SEO title clamp + ellipsis scrub + run-number disambiguation.
-    // See `clampForBudget` (seo-budgets.ts), `scrubTrailingEllipsis`
-    // (resolve-helpers.ts), and `appendRunNumberSuffix` (above) for the
-    // rationale on each transform.
+    // Per-script SEO title clamp + ellipsis scrub.
+    // See `clampForBudget` (seo-budgets.ts) and `scrubTrailingEllipsis`
+    // (resolve-helpers.ts) for the rationale on each transform.
+    // `appendRunNumberSuffix` is a no-op: run numbers never appear in titles.
     const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
     let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
     seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');

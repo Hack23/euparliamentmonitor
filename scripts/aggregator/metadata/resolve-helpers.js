@@ -208,11 +208,10 @@ export function composeContextualTitle(fallbackTitle, editorialHeadline, runId, 
         return editorialHeadline;
     }
     const withRun = withRunQualifier(fallbackTitle, runId);
-    // If withRunQualifier added a "— Run N" suffix, that already
-    // disambiguates same-date sub-runs. For canonical (no-runN) runs
-    // we still need to disambiguate across dates → append the ISO date.
+    // withRunQualifier is a no-op (run numbers never appear in titles).
+    // Disambiguate across dates by appending the ISO date.
     let composed = withRun;
-    if (date && withRun === fallbackTitle && !containsNormalized(fallbackTitle, date)) {
+    if (date && !containsNormalized(fallbackTitle, date)) {
         composed = `${fallbackTitle} — ${date}`;
     }
     // Final SERP-floor recovery: short generic titles like

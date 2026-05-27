@@ -319,10 +319,9 @@ function detectDescriptionLeadSectionHeader(value) {
 
 /**
  * After resolving every run, detect duplicate titles within the same
- * `(date, articleType)` collision group. The `— Run N` qualifier from
- * `composeContextualTitle` is the contracted differentiator for
- * same-date/same-articleType republishes; missing it is a
- * uniqueness-gate failure.
+ * `(date, articleType)` collision group. Reports as advisory since
+ * run-number disambiguation is no longer used — articles must always
+ * have readable titles without workflow identifiers.
  *
  * @param {Array<{record: ReturnType<typeof resolveRunSeo>, lang: string}>} resolvedList
  * @param {Array<object>} violations
@@ -348,16 +347,20 @@ function detectDuplicateTitles(resolvedList, violations) {
     }
     for (const [title, dirs] of byTitle.entries()) {
       if (dirs.length < 2) continue;
+      // Same-date/same-articleType runs with identical editorial
+      // headlines are acceptable — articles should always use
+      // readable titles without run-number qualifiers. Log a
+      // warning but do not treat as a hard violation.
       violations.push({
         runDir: dirs.join(', '),
         lang: items[0].lang,
         gate: 'title-uniqueness',
+        severity: 'advisory',
         affectedRuns: dirs,
         message:
           `${dirs.length} runs in collision group "${key}" share the ` +
-          `resolved title "${title}" — composeContextualTitle must ` +
-          `append a "— Run N" qualifier (or equivalent) so the per-run ` +
-          `articles are distinguishable in SERPs and social cards`,
+          `resolved title "${title}" — consider using distinct editorial ` +
+          `headlines in the executive brief to improve SERP differentiation`,
       });
     }
   }
