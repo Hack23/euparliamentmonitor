@@ -1,7 +1,7 @@
 ---
-title: "Run 190, 20 April 2026 (Easter Monday)"
-description: "Run 190 is the 11th consecutive ANALYSIS_ONLY run of the Easter Recess Series and the first probe on Easter Monday — the institutional calendar's single lowest-activity day."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-20", "April", "Easter", "Monday"]
+title: "Run 190 is the 11th consecutive ANALYSIS_ONLY run of the"
+description: "Run 190 is the 11th consecutive ANALYSIS_ONLY run of the Easter Recess Series and the first probe on Easter Monday."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-20", "11th", "consecutive", "ANALYSIS"]
 date: 2026-04-20
 article_type: breaking
 slug: 2026-04-20-breaking-190

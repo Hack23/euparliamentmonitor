@@ -1,6 +1,6 @@
 ---
 title: "The European Parliament plenary of 19–23 May 2026 — Run 272"
-description: "The European Parliament plenary of 19–23 May 2026 concluded the most consequential single-session trade and security legislative package in the EP10 parliamentary term."
+description: "The European Parliament plenary of 19–23 May 2026 concluded the most consequential single-session trade and security legislative package in the EP10."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-26", "European", "Parliament", "plenary"]
 date: 2026-05-26
 article_type: motions

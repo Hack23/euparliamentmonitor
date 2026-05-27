@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Committee Reports, April 28, 2026"
-description: "April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its trade preference architecture"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-29", "Parliament", "Committee", "Reports"]
+title: "Parliament Front-Loaded its MFF Position (HIGH SIGNIFICANCE)"
+description: "Parliament adopted its interim MFF 2028-2034 report (procedure 2025/0571R) before the European Commission's formal proposal."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-29", "Parliament", "Front", "Loaded"]
 date: 2026-04-29
 article_type: committee-reports
 slug: 2026-04-29-committee-reports

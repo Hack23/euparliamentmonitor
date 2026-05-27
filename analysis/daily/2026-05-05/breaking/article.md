@@ -1,7 +1,7 @@
 ---
-title: "Extended Executive Brief — Breaking News | 2026-05-05"
-description: "The April 28–30, 2026 Strasbourg plenary represents the highest-output session of the 2026 calendar year to date, with 7 of 21 total 2026 adopted texts originating from this"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-05", "Extended", "Executive", "Brief"]
+title: "The April 28–30, 2026 Strasbourg plenary — Run 1777942844"
+description: "The April 28–30, 2026 Strasbourg plenary represents the highest-output session of the 2026 calendar year to date."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-05", "April", "Strasbourg", "plenary"]
 date: 2026-05-05
 article_type: breaking
 slug: 2026-05-05-breaking

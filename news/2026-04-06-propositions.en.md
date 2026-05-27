@@ -1,7 +1,7 @@
 ---
-title: "Propositions: Pre-Recess Legislative Pipeline Retrospective | 2026-04-06"
-description: "This Easter Monday propositions run produces the Q1 2026 legislative-pipeline retrospective — at 11,320 article lines and 20 analytical methods, the most comprehensive single-run"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-06", "Recess", "Legislative", "Pipeline"]
+title: "This Easter Monday propositions run produces the Q1 2026"
+description: "This Easter Monday propositions run produces the Q1 2026 legislative-pipeline retrospective for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-06", "This", "Easter", "Monday"]
 date: 2026-04-06
 article_type: propositions
 slug: 2026-04-06-propositions

@@ -1,7 +1,7 @@
 ---
-title: "Legislative Procedures: Tariff Deadline Dominates Q2 Agenda | 2026-04-13"
-description: "Q2 2026 opens with a single dominant file: TA-10-2026-0096 US Tariff Countermeasures — significance 7.40 raw (7.95 unadjusted), risk 16/25 CRITICAL — adopted March 26 and entering"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-13", "Legislative", "Procedures", "Tariff"]
+title: "Q2 2026 opens with a single dominant file"
+description: "Q2 2026 opens with a single dominant file: TA-10-2026-0096 US Tariff Countermeasures — significance 7.40 raw (7.95 unadjusted), risk 16/25 CRITICAL."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-13", "opens", "with", "single"]
 date: 2026-04-13
 article_type: propositions
 slug: 2026-04-13-propositions

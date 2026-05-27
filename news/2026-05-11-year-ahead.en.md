@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Year Ahead (May 2026 – May 2027)"
+title: "The European Parliament faces its most — Run 598"
 description: "The European Parliament faces its most consequential twelve months since the 2024 election. Published 2026-05-11."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-11", "Parliament", "Year", "Ahead", "European", "faces", "most"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year ahead", "annual outlook", "legislative agenda", "2026-05-11", "European", "Parliament", "faces", "most"]
 date: 2026-05-11
 article_type: year-ahead
 slug: 2026-05-11-year-ahead

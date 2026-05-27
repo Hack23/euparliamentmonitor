@@ -1,7 +1,7 @@
 ---
-title: "Motions & Resolutions: Trade Defence and Anti-Corruption Sprint (March 26 Plenary) | 2026-04-13"
-description: "The March 26 pre-Easter plenary delivered seven adopted texts of which three rank as CRITICAL — TA-10-2026-0096 (US tariff countermeasures), TA-10-2026-0094 (Anti-Corruption"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-13", "Trade", "Defence", "Anti"]
+title: "The March 26 pre-Easter plenary delivered seven adopted"
+description: "The March 26 pre-Easter plenary delivered seven adopted texts of which three rank as CRITICAL for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-13", "March", "Easter", "plenary"]
 date: 2026-04-13
 article_type: motions
 slug: 2026-04-13-motions-b3749573-d54d-4d01-94be-4b538541

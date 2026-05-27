@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports: Six-Stakeholder Stress Test on Pre-Easter Output | 2026-04-14"
-description: "This run's distinguishing contribution is the six-stakeholder-perspective stress test on the March 26 committee output — citizens, MEPs, Council, Commission, third-country trade"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-14", "Committee", "Reports", "Stakeholder"]
+title: "The Q1 record output — 100+ adopted texts"
+description: "This run's distinguishing contribution is the six-stakeholder-perspective stress test on the March 26 committee output."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-14", "record", "output", "adopted"]
 date: 2026-04-14
 article_type: committee-reports
 slug: 2026-04-14-committee-reports

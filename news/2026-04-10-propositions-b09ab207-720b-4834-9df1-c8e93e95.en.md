@@ -1,7 +1,7 @@
 ---
-title: "Propositions-2, 10 April 2026"
+title: "The second propositions run of 10 April records 1"
 description: "The second propositions run of 10 April records 1 political dimension surfaced (vs. 0 in the motions run earlier)."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-10", "April", "second", "records"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-10", "second", "April", "records"]
 date: 2026-04-10
 article_type: propositions
 slug: 2026-04-10-propositions-b09ab207-720b-4834-9df1-c8e93e95

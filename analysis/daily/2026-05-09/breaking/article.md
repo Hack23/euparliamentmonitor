@@ -1,6 +1,6 @@
 ---
-title: "The European Parliament enters May 2026 navigating an unprecedented convergence of legal accountability crises"
-description: "The European Parliament enters May 2026 navigating an unprecedented convergence of legal accountability crises, digital regulatory enforcement battles, and institutional"
+title: "The European Parliament enters May 2026 — Run 1778332692"
+description: "The European Parliament enters May 2026 navigating an unprecedented convergence of legal accountability crises, digital regulatory enforcement battles."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-09", "European", "Parliament", "enters"]
 date: 2026-05-09
 article_type: breaking

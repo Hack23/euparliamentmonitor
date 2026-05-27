@@ -1,7 +1,7 @@
 ---
-title: "EP Month Ahead: April 26 – May 26, 2026"
+title: "The European Parliament enters its most consequential"
 description: "The European Parliament enters its most consequential 30-day window since the start of EP10 year 2. Published 2026-04-26."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-26", "Month", "Ahead", "April", "European"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-26", "European", "Parliament", "enters", "most"]
 date: 2026-04-26
 article_type: month-ahead
 slug: 2026-04-26-month-ahead

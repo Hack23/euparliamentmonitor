@@ -1,7 +1,7 @@
 ---
-title: "EP10 Month Ahead: April 13 – May 13, 2026 | 2026-04-13"
-description: "Three convergent crises define the 30-day window from end-of-Easter-recess to mid-May: (1) US tariff implementation deadline April 15 (T-2 at run time) — TA-10-2026-0096"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-13", "EP10", "Month", "Ahead", "April"]
+title: "The Renew-ECR cohesion at 0.95 on competitiveness/trade is"
+description: "Three convergent crises define the 30-day window from end-of-Easter-recess to mid-May for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-13", "Renew", "cohesion", "competitiveness", "trade"]
 date: 2026-04-13
 article_type: month-ahead
 slug: 2026-04-13-month-ahead

@@ -1,7 +1,7 @@
 ---
-title: "EP Month Ahead: April 27 – May 27, 2026"
-description: "**The April 27 session is already underway — this is the moment of truth for the EPP coalition strategy.** With 8 debates today, 21+ debates tomorrow, and the heaviest voting"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-27", "Month", "Ahead", "April", "session"]
+title: "The European Parliament is now in session — Run 1777304697"
+description: "The European Parliament is now in session — the April 27–30 Strasbourg plenary opened today as the first full legislative week after the March 26 vote on."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-27", "European", "Parliament", "session", "April"]
 date: 2026-04-27
 article_type: month-ahead
 slug: 2026-04-27-month-ahead

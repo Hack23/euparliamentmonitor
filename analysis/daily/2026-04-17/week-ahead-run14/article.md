@@ -1,7 +1,7 @@
 ---
-title: "Week Ahead: April 27–30 Strasbourg Plenary Pre-Brief | 2026-04-17"
-description: "**The April 27–30 Strasbourg plenary is read by the run as \"among the most consequential of EP10's second year\" because three structurally different debates converge in the same"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-04-17", "Week", "Ahead", "April"]
+title: "The run's three-debate convergence creates a coalition"
+description: "**The April 27–30 Strasbourg plenary is read by the run as \"among the most consequential of EP10's second year\" because three structurally different."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-04-17", "three", "debate", "convergence"]
 date: 2026-04-17
 article_type: week-ahead
 slug: 2026-04-17-week-ahead

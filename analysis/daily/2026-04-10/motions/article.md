@@ -1,6 +1,6 @@
 ---
-title: "The 10 April motions analytical run records 0 political dimensions surfaced from fresh signal during Easter Recess Day 15."
-description: "The 10 April motions analytical run records 0 political dimensions surfaced from fresh signal during Easter Recess Day 15. The output is procedural-continuity, not fresh-content."
+title: "The 10 April motions analytical run records 0 political"
+description: "The 10 April motions analytical run records 0 political dimensions surfaced from fresh signal during Easter Recess Day 15."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-10", "April", "analytical", "records"]
 date: 2026-04-10
 article_type: motions

@@ -1,6 +1,6 @@
 ---
 title: "No new motions for a resolution recorded on 2026-04-01."
-description: "No new motions for a resolution recorded on 2026-04-01. Published 2026-04-01."
+description: "No new motions for a resolution recorded on 2026-04-01. Published 2026-04-01. for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-01", "resolution", "recorded", "Published"]
 date: 2026-04-01
 article_type: motions

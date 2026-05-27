@@ -1,7 +1,7 @@
 ---
-title: "EPP brokerage holds amid ECR–PfE migration vote — 2026-05-09"
-description: "Term outlook (2026-05-09): EPP's 185-seat broker role tested by the upcoming ECR–PfE migration vote — committee chairs, rapporteurships, and Conference-of-Presidents agenda"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-09", "brokerage", "holds", "amid", "migration", "vote", "Term"]
+title: "EPP brokerage holds amid ECR–PfE migration vote — — Run 336"
+description: "Term outlook (2026-05-09): EPP's 185-seat broker role tested by the upcoming ECR–PfE migration vote for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "term outlook", "parliamentary term", "strategic forecast", "2026-05-09", "brokerage", "holds", "amid", "migration"]
 date: 2026-05-09
 article_type: term-outlook
 slug: 2026-05-09-term-outlook

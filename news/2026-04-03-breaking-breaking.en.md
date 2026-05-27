@@ -1,7 +1,7 @@
 ---
-title: "Breaking (Coalition Dynamics) | 2026-04-03"
+title: "EP10 coalition arithmetic shows a structurally asymmetric"
 description: "EP10 coalition arithmetic shows a structurally asymmetric parliament centred on PPE (38% sampled seats) with a notable Renew–ECR cohesion signal of 0.95."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-03", "Coalition", "Dynamics", "EP10"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-03", "EP10", "coalition", "arithmetic"]
 date: 2026-04-03
 article_type: breaking
 slug: 2026-04-03-breaking-breaking

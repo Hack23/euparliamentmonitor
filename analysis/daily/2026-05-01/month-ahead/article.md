@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Month Ahead: May 2026"
-description: "The European Parliament enters May 2026 with a single full Strasbourg plenary session (18–21 May) against a backdrop of accelerating legislative momentum: EP10 has already adopted"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-05-01", "Parliament", "Month", "Ahead", "European"]
+title: "The European Parliament enters May 2026 — Run 1777624891"
+description: "The European Parliament enters May 2026 with a single full Strasbourg plenary session (18–21 May) against a backdrop of accelerating legislative."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-05-01", "European", "Parliament", "enters", "with"]
 date: 2026-05-01
 article_type: month-ahead
 slug: 2026-05-01-month-ahead

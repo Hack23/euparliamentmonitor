@@ -1,7 +1,7 @@
 ---
-title: "Breaking News Intelligence Brief - European Parliament"
-description: "The European Parliament remains in Easter recess (27 March - 13 April 2026). No parliamentary sessions, committee meetings, or votes are scheduled."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-05", "News", "Intelligence", "Brief"]
+title: "No breaking news developments on 2026-04-05"
+description: "No breaking news developments on 2026-04-05; EP is in Easter recess (Day 10 of 18, 27 March → 13 April 2026) for democratic-accountability readers tracking EU institutional."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-05", "news", "developments", "Easter"]
 date: 2026-04-05
 article_type: breaking
 slug: 2026-04-05-breaking-breaking

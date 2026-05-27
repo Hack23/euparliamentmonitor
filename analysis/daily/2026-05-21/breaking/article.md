@@ -1,6 +1,6 @@
 ---
 title: "Breaking: Significant Parliamentary Developments — Run 258"
-description: "The 19-20 May 2026 European Parliament plenary session produced eight legislative and non-legislative texts that collectively advance three interconnected strategic agendas: (1)."
+description: "The 19-20 May 2026 European Parliament plenary session produced eight legislative and non-legislative texts that collectively advance three."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-21", "Significant", "Parliamentary", "Developments"]
 date: 2026-05-21
 article_type: breaking

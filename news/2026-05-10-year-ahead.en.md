@@ -1,7 +1,7 @@
 ---
-title: "European Parliament Year Ahead — May 2026–May 2027"
-description: "European Parliament annual strategic outlook — Commission Work Programme, Trio Presidency, legislative priorities and 12-month risk surfaces"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-10", "European", "Parliament", "Year", "Ahead", "annual", "strategic"]
+title: "European Parliament Year Ahead — May 2026–May 2027 — Run 411"
+description: "European Parliament annual strategic outlook — Commission Work Programme, Trio Presidency, legislative priorities and 12-month risk surfaces."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year ahead", "annual outlook", "legislative agenda", "2026-05-10", "European", "Parliament", "Year", "Ahead"]
 date: 2026-05-10
 article_type: year-ahead
 slug: 2026-05-10-year-ahead
@@ -5934,6 +5934,2381 @@ The European Commission's Work Programme defines the legislative proposals expec
 
 *Source: European Commission Work Programme 2026 (public domain); EP Open Data Portal · Apache-2.0 · Hack23 AB 2026*
 
+### Executive Brief Ar
+
+**التصنيف:** مفتوح · **تاريخ الإصدار:** 2026-05-10 · **نوع المقال:** year-ahead · **مستوى الثقة:** 🟡 متوسط
+
+---
+
+### تقييم الوضع الاستراتيجي
+
+يدخل البرلمان الأوروبي العام الثاني من دورته العاشرة (2024–2029) عند منعطف بالغ الأهمية. يضم البرلمان 717 عضواً موزعين على تسعة كتل سياسية في جمعية مجزأة للغاية، ويواجه ديناميكيات حوكمة تتسم بالتحالفات المتعددة، وجناح يميني متطرف أكثر تأكيداً لذاته، وأجندة تشريعية طموحة من المفوضية تستلزم التوافق عبر الحدود الحزبية في كل تصويت تقريباً. غياب ائتلاف أغلبية طبيعي — يحتاج حزب الشعب الأوروبي (183 مقعداً) إلى شركاء بمجموع 177 صوتاً إضافياً على الأقل للوصول لعتبة 360 مقعداً — يعني أن كل نتيجة تشريعية كبرى ستكون موضع خلاف.
+
+يتكشّف العام المقبل (مايو 2026 – مايو 2027) في خضم اضطراب جيوسياسي: تستمر حرب أوكرانيا-روسيا في تشكيل النقاشات حول الإنفاق الدفاعي، وتُعيد التوترات التجارية عبر الأطلسي توجيه أولويات سياسة التجارة الأوروبية، وتواجه أجندة التحول الأخضر للاتحاد الأوروبي مقاومة متزايدة من التحولات السياسية الوطنية في فرنسا وألمانيا وبولندا.
+
+**أبرز النتائج الاستراتيجية:**
+
+1. **تجزؤ الائتلاف هو القيد الهيكلي المحدد.** مع مؤشر تجزؤ مصنف بدرجة عالية وعدد فعلي للأحزاب يبلغ 6.58، لا توجد أغلبية بكتلتين. التحالف التقليدي بين حزب الشعب الأوروبي والاشتراكيين والديمقراطيين (319 مقعداً مجتمعة) يقصر 41 مقعداً عن عتبة الأغلبية البالغة 360. وهذا يستلزم هيكلياً أصوات تجمع أوروبا المتجددة (77) أو تحالفات مخصصة يمينية.
+
+2. **محور حزب الشعب الأوروبي–المحافظون والإصلاحيون الأوروبيون–أوطاننا هو القوة الأكثر إزعاجاً في البرلمان.** حزب الشعب (183) + المحافظون (81) + أوطاننا (85) = 349 مقعداً — 11 مقعداً فقط عن الأغلبية. عندما يتوحّد هذا الكتلة الوسطى اليمينية حول ملفات بعينها (الهجرة، مراقبة الحدود، إلغاء القيود الزراعية)، يستطيع تعطيل التشريعات التقدمية أو إعادة تشكيلها.
+
+3. **تجمع أوروبا المتجددة هو الكتلة المحورية الحاسمة.** بـ 77 مقعداً، يمتلك تجمع أوروبا المتجددة حق النقض الهيكلي: دونه، لا يصل الكتلة الوسطى اليسارية (حزب الشعب + الاشتراكيون = 319) ولا التحالف المحافظ (حزب الشعب + المحافظون + أوطاننا = 349) وحده إلى عتبة الأغلبية.
+
+4. **الأجندة التشريعية للاتفاقية الخضراء لا تزال مثيرة للجدل لكنها حية.** يتضمن برنامج عمل المفوضية لعام 2026 لوائح تنفيذية حاسمة لقانون استعادة الطبيعة، وجداول الاندماج لآلية تعديل حدود الكربون، ومراجعة نظام الإفصاح عن التمويل المستدام. كل ملف يواجه تحديات تشكيل الائتلاف.
+
+5. **الدفاع وأوكرانيا يبقيان الملفات الأكثر إلحاحاً على أجندة البرلمان.** مرفق إعادة تسليح أوروبا بـ500 مليار يورو وحزم الدعم المالي الموسعة لأوكرانيا ستهيمن على جدول أعمال لجنتي الميزانية والشؤون الخارجية في 2026.
+
+6. **بيانات IMF غير متاحة — السياق المالي مستند حصرياً إلى بيانات البرلمان الأوروبي.** 🔴 أعادت بوابة IMF SDMX استجابة HTTP 204 خلال جمع بيانات المرحلة الأولى. جميع السياق الاقتصادي في هذا التحليل مستمد من النصوص المعتمدة من البرلمان الأوروبي والنقاشات البرلمانية.
+
+---
+
+### الملفات التشريعية ذات الأولوية للعام المقبل
+
+| الملف | اللجنة الرائدة | مسار الائتلاف | مستوى المخاطرة |
+|-------|--------------|--------------|---------------|
+| تنفيذ قانون استعادة الطبيعة | ENVI | حزب الشعب + الاشتراكيون + تجمع أوروبا المتجددة (هش) | 🔴 عالٍ |
+| التصديق على اتفاقية التجارة بين الاتحاد الأوروبي وميركوسور | INTA | حزب الشعب + تجمع أوروبا المتجددة + المحافظون (الاشتراكيون منقسمون) | 🟡 متوسط |
+| الاستراتيجية الأوروبية للصناعة الدفاعية (EDIS) | AFET/ITRE | توافق واسع ما عدا اليسار | 🟢 منخفض |
+| مراجعة نظام الإفصاح عن التمويل المستدام SFDR | ECON | حزب الشعب + تجمع أوروبا المتجددة + الاشتراكيون (مُتنازَع عليه) | 🟡 متوسط |
+| إطار الأدوية الحيوية | ENVI/SANT | واسع (مُعتمد بالفعل TA-10-2026-0001) | 🟢 منخفض |
+| تنفيذ ميثاق الهجرة واللجوء | LIBE | حزب الشعب + المحافظون + أوطاننا مقابل الاشتراكيون + تجمع أوروبا المتجددة | 🔴 عالٍ |
+| إصلاح قانون الانتخاب الأوروبي | AFCO | معطّل — عقبات التصديق قائمة | 🔴 عالٍ |
+| البنية التحتية الرقمية / السيادة | ITRE | حزب الشعب + تجمع أوروبا المتجددة + الاشتراكيون | 🟡 متوسط |
+| اتحاد الادخار والاستثمار (SIU) | ECON | حزب الشعب + تجمع أوروبا المتجددة + المحافظون | 🟡 متوسط |
+| تشريع الاغتصاب القائم على الموافقة (إطار الاتحاد الأوروبي) | FEMM/LIBE | الاشتراكيون + تجمع أوروبا المتجددة + الخضر + اليسار | 🟡 متوسط |
+| الدبلوماسية البحرية / الصيد | PECH | مجزأة (المصالح الوطنية مهيمنة) | 🟡 متوسط |
+| إصلاح بنك الاستثمار الأوروبي / التقرير السنوي | CONT/BUDG | واسع (موقف رقابي) | 🟢 منخفض |
+
+---
+
+### التقويم البرلماني — أبرز الأحداث (مايو 2026 – مايو 2027)
+
+استناداً إلى جدول الجلسات الرسمي للبرلمان الأوروبي (مصدر: البوابة الإلكترونية للبيانات المفتوحة للبرلمان الأوروبي، 2026-05-10):
+
+- **مايو 2026:** جلسة ستراسبورغ 18–21 مايو؛ بروكسل 27 مايو
+- **يونيو 2026:** ستراسبورغ 15–18 يونيو؛ بروكسل 24 يونيو
+- **يوليو 2026:** ستراسبورغ 6–9 يوليو (قبل العطلة الصيفية)
+- **سبتمبر 2026:** ستراسبورغ 14–17 سبتمبر؛ بروكسل 30 سبتمبر
+- **أكتوبر 2026:** ستراسبورغ 19–22 أكتوبر؛ بروكسل 28–29 أكتوبر
+- **نوفمبر 2026:** ستراسبورغ 23–26 نوفمبر؛ بروكسل 25 نوفمبر
+- **ديسمبر 2026:** ستراسبورغ 14–17 ديسمبر (الجلسة البرلمانية للميزانية — حاسمة)
+- **يناير 2027:** ستراسبورغ 18–21 يناير؛ بروكسل 27 يناير
+- **فبراير 2027:** ستراسبورغ 8–11 فبراير؛ بروكسل 24 فبراير
+- **مارس 2027:** ستراسبورغ 9–12 مارس؛ بروكسل 25–26 مارس
+- **أبريل 2027:** ستراسبورغ (مواعيد تُحدَّد)
+- **مايو 2027:** ستراسبورغ (اقتراب منتصف الولاية البرلمانية)
+
+---
+
+### أولويات الاستخبارات السياسية
+
+#### 1. مسألة النضج المؤسسي لليمين المتطرف
+يمتلك أوطاننا (85 مقعداً) والسيادة الأوروبية (27 مقعداً) معاً 112 مقعداً — 15.6% من البرلمان. يصبح اليمين المتطرف بشكل متزايد قادراً مؤسسياً: يشغل نائبي رؤساء اللجان، ويشارك بفاعلية في مفاوضات ثلاثية الأطراف، ويقدم تعديلات تشريعية مفصّلة. الانتقال من سياسة الاحتجاج إلى النفوذ التشريعي التعاملي هو الاتجاه الهيكلي الأجدر بالمتابعة الدقيقة حتى عام 2027.
+
+#### 2. الوضع المُقيَّد للاشتراكيين والديمقراطيين
+يواجه الاشتراكيون والديمقراطيون (136 مقعداً، 18.97%) معضلة استراتيجية: الكتلة الثانية حجماً لكنها عاجزة عن تشكيل أغلبية دون حزب الشعب الأوروبي أو تجمع أوروبا المتجددة. وتتنافس اليسار (45 مقعداً) والخضر/التحالف الأوروبي الحر (53 مقعداً) على الإرث التقدمي.
+
+#### 3. العلاقة بين المفوضية والبرلمان في ظل ولاية فون دير لاين الثانية
+تعمل مفوضية فون دير لاين الثانية، المُؤكَّدة في أواخر عام 2024، بتفويض أوسط يمينية أكثر صراحة من المفوضية الأولى. تُولّد أجندة "التبسيط" الخاصة بها احتكاكاً مع الاشتراكيين والخضر واليسار.
+
+#### 4. عدم اليقين في إطار التجارة بين الاتحاد الأوروبي والولايات المتحدة
+يتشكّل مسار مفاوضات تعريفات الولايات المتحدة والاتحاد الأوروبي (إثر إجراءات ترامب التجارية) لتحديد أجندة لجنة INTA حتى الربع الرابع من عام 2026.
+
+---
+
+### مؤشرات العملية المؤسسية
+
+- **النصوص المعتمدة منذ بداية العام (2026):** أكثر من 100 نص مُعتمَد، يشمل ملفات حاسمة حول الأدوية والاستقرار المالي وإصلاح حق التصويت والطائرات المسيّرة والسيادة الرقمية ودعم أوكرانيا.
+- **نشاط اللجان:** AFET وECON وENVI وITRE وLIBE وINTA هي اللجان الأكثر نشاطاً.
+- **درجة الاستقرار:** 84/100 (نظام الإنذار المبكر للبرلمان الأوروبي، 2026-05-10). تحذير تجزؤ عالٍ نشط.
+
+---
+
+### تقييم مستوى الثقة
+
+| المجال | الثقة | الأساس |
+|--------|--------|--------|
+| تكوين مقاعد الكتل | 🟢 عالية | البيانات المفتوحة للبرلمان الأوروبي في الوقت الفعلي |
+| تحليل مسار الائتلاف | 🟡 متوسطة | بيانات وكلاء تشابه الحجم |
+| توقع خط الأنابيب التشريعية | 🟡 متوسطة | تغذية البرلمان + النصوص المعتمدة |
+| السياق الاقتصادي | 🔴 منخفضة | بوابة IMF غير متاحة |
+| التقويم البرلماني | 🟢 عالية | جدول الجلسات المؤكَّد للبرلمان |
+| تقييمات التهديد | 🟡 متوسطة | تحليل هيكلي |
+
+---
+
+### إشعار عدم توفر بيانات IMF
+
+🔴 **بيانات IMF غير متاحة (الوضع المتردي نشط)**
+
+أعادت بوابة IMF SDMX استجابة HTTP 204 خلال مسح المرحلة الأولى لهذه العملية (2026-05-10T19:05:XX UTC). لا تُستشهَد بأي بيانات اقتصادية كلية من IMF في هذا التحليل. معايير IMF الدنيا مُعفاة لهذه الجولة وفقاً لبروتوكول الوضع المتردي. يُنصح المحللون بالرجوع بشكل منفصل إلى تقرير IMF للآفاق الاقتصادية العالمية (نشرة أبريل 2026) ونشرة البنك المركزي الأوروبي الاقتصادية (العدد 3، 2026).
+
+---
+
+*المصدر: البوابة الإلكترونية للبيانات المفتوحة للبرلمان الأوروبي (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### التقييم الاستخباراتي الاستراتيجي: 5 قرارات رئيسية في 2026–2027
+
+#### القرار 1: ميثاق الدفاع
+**ما يجري:** يُصوّت البرلمان الأوروبي على لائحة تمويل إعادة تسليح أوروبا — الهدف: أكتوبر 2026
+**من يقرر:** ائتلاف حزب الشعب الأوروبي + الاشتراكيون + تجمع أوروبا المتجددة (يُرجَّح >450 صوتاً)
+**ما يُنتظر:** قدرة الاتحاد الأوروبي على الردع الموثوق ضد العدوان الروسي
+**التقييم الاستخباراتي:** شبه مؤكد (>95%) أن التشريع سيُعتمَد؛ الخلاف حول التفاصيل
+
+#### القرار 2: اتفاقية الميزانية
+**ما يجري:** عملية التوفيق في ميزانية الاتحاد الأوروبي لعام 2027 — نوفمبر–ديسمبر 2026
+**من يقرر:** لجنة التوفيق بين البرلمان والمجلس؛ رئاسة دنماركية للتوسط
+**ما يُنتظر:** توزيع 200+ مليار يورو من نفقات الاتحاد الأوروبي
+**التقييم الاستخباراتي:** محتمل (70%) نجاح التوفيق قبل عيد الميلاد 2026
+
+#### القرار 3: تسوية الهجرة
+**ما يجري:** أول اختبار حقيقي لآلية التضامن في ميثاق الهجرة — جارٍ طوال 2026
+**من يقرر:** لجنة LIBE في مقدمة المشهد؛ قرار بياني محتمل في الربع الرابع
+**ما يُنتظر:** ما إذا كان نهج الاتحاد الأوروبي الجديد في إدارة الهجرة سيصمد
+**التقييم الاستخباراتي:** احتمال متساوٍ (50%) أن أول تفعيل لآلية التضامن يُفجّر أزمة سياسية
+
+#### القرار 4: معيار حوكمة الذكاء الاصطناعي
+**ما يجري:** دخول لوائح GPAI بموجب قانون الذكاء الاصطناعي حيز التنفيذ
+**من يقرر:** المفوضية تقترح؛ ITRE/LIBE يدرسان؛ لا اعتراض = دخول حيز التنفيذ
+**ما يُنتظر:** يُصبح الاتحاد الأوروبي محدد معايير حوكمة الذكاء الاصطناعي عالمياً
+**التقييم الاستخباراتي:** شبه مؤكد (95%) أن قواعد GPAI ستُطبَّق بنهاية 2026
+
+#### القرار 5: اختبار بقاء الاتفاقية الخضراء
+**ما يجري:** انتهاء صلاحية خطط العمل الوطنية لقانون استعادة الطبيعة؛ هجوم مضاد من لوبي الزراعة
+**من يقرر:** لجنة ENVI والأغلبية البرلمانية
+**ما يُنتظر:** ما إذا كان إطار التنوع البيولوجي للاتحاد الأوروبي سينجو من أول اختبار تنفيذ
+**التقييم الاستخباراتي:** مستبعد (<35%) إلغاء قانون استعادة الطبيعة رسمياً
+
+---
+
+### ملخص تقييم WEP (العام المقبل)
+
+| النطاق | التوقع | الملفات/الأحداث |
+|--------|--------|----------------|
+| **شبه مؤكد** | الائتلاف الكبير يُحافظ على الأغلبية لدعم أوكرانيا | ميزانية 2027 التزام أوكرانيا؛ قرارات AFET |
+| **شبه مؤكد** | اعتماد ميزانية الاتحاد الأوروبي 2027 قبل يناير 2027 | الرئاسة الدنماركية تُنجز |
+| **شبه مؤكد** | نشر لوائح GPAI التنفيذية لقانون الذكاء الاصطناعي | التزام قانوني؛ المفوضية ملزَمة |
+| **محتمل** | اعتماد إعادة تسليح أوروبا بائتلاف واسع | الجلسة البرلمانية أكتوبر 2026 |
+| **محتمل** | استمرار خفض الفائدة من البنك المركزي الأوروبي في 2026 | تطبيع التضخم |
+| **بالتساوي** | أزمة تنفيذ قانون استعادة الطبيعة (لوبي الزراعة ينجح) | جدل ENVI 2026 |
+| **مستبعد** | تحوّل حزب الشعب الأوروبي رسمياً نحو استراتيجية ائتلافية أكثر يمينية | حسابات الائتلاف تمنع ذلك |
+| **مستحيل تقريباً** | أي تصويت في البرلمان يُخلّ بالتزامات معاهدة الاتحاد الأوروبي | قيد دستوري |
+
+**درجة الأدميرالية: B3** — التحليل مستند إلى بيانات هيكلية موثوقة للبرلمان الأوروبي؛ الأفق الاستشرافي لـ12 شهراً ينطوي على عدم يقين متأصل.
+
+---
+
+*الموجز التنفيذي مكتمل · درجة الأدميرالية B3 · تقدير الاحتمالات WEP مطبّق · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### إحاطة للقرّاء
+
+**لقادة الحكومات:** العام الثاني لـBP10 هو العام الذي تتجذّر فيه التحولات الدفاعية الجماعية للاتحاد الأوروبي (تصويت إعادة تسليح أوروبا أكتوبر 2026) أو تتعثر. الحسابات الأمنية لبلدكم للفترة 2027–2030 تعتمد اعتماداً كبيراً على ما سيجري في الجلسة البرلمانية للبرلمان الأوروبي في أكتوبر 2026.
+
+**لقطاع الأعمال:** نافذة أكتوبر–نوفمبر 2026 هي موعد إتمام ميزانية الاتحاد الأوروبي 2027. كل برنامج اتحادي يهمكم — منح هورايزون يوروب، صناديق التماسك، عقود SAFE الدفاعية، اليقين بشأن امتثال SFDR — يكون على المحك في وقت واحد.
+
+**للمواطنين:** القرارات الثلاثة الأكثر تأثيراً مباشرة على حياتكم اليومية: (1) هل سيرفع الاتحاد الأوروبي الإنفاق الدفاعي (ضرائبكم)؛ (2) هل ستنجو الاتفاقية الخضراء (بيئتكم)؛ (3) كيف سيعمل ميثاق الهجرة عملياً (أمن حدودكم ونظام اللجوء). الثلاثة تصل لنقاط حاسمة في خريف 2026.
+
+---
+
+*موجز تنفيذي: استخبارات سياسية على مستوى جودة ذا إيكونوميست للبرلمان الأوروبي 2026–2027 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief Da
+
+### Strategisk Situationsvurdering
+
+Europa-Parlamentet indleder det andet år af sin 10. valgperiode (2024–2029) på et afgørende tidspunkt. Med 717 MEP'er fordelt på ni politiske grupper i en stærkt fragmenteret forsamling møder institutionen et styringsbillede præget af multi-koalitionsafhængigheder, en mere offensiv yderste højre og en ambitiøs lovgivningsmæssig dagsorden fra Kommissionen, der kræver kompromiser på tværs af partigrænser ved næsten alle afstemninger. Fraværet af en naturlig flertalskoalition — EPP (183 mandater) ville have brug for partnere med mindst 177 yderligere stemmer for at nå grænsen på 360 mandater — betyder, at ethvert større lovgivningsresultat vil være omstridt.
+
+Det kommende år (maj 2026–maj 2027) udspilles mod en baggrund af geopolitisk turbulens: krigen mellem Ukraine og Rusland fortsætter med at forme forsvarsudgiftsdebatten, transatlantiske handelsspændinger omarrangerer EU's handelspolitiske prioriteter, og EU's grønne omstillingsagenda møder modstand fra politiske skift på nationalt niveau i Frankrig, Tyskland og Polen. Disse ydre pres vil gennemsyre næsten alle lovgivningsakter på parlamentets dagsorden.
+
+**Centrale Strategiske Konklusioner:**
+
+1. **Koalitionsfragmentering er den afgørende strukturelle begrænsning.** Med et Fragmenteringsindeks klassificeret som HØJT og et Effektivt Partiantal på 6,58 eksisterer der ingen to-gruppers flertal. Den traditionelle storkoalition EPP–S&D (319 samlede mandater) er 41 mandater under flertalsgrænsen 360. Dette kræver strukturelt Renew Europes 77 stemmer eller ad hoc-kombinationer til højre.
+
+2. **EPP–ECR–PfE-aksen er parlamentets mest forstyrrende kraft.** EPP (183) + ECR (81) + PfE (85) = 349 mandater — blot 11 mandater fra et flertal. Når denne center-højre-blok samles om specifikke sagområder (migration, grænse kontrol, landbrugsdereglering), kan den blokere eller omforme progressiv lovgivning. Sandsynligheden for selektiv sagvis konvergens er HØJ. 🟡
+
+3. **Renew Europe er den afgørende svingegruppe.** Med 77 mandater besidder Renew et strukturelt veto: uden den når hverken center-venstre-blokken (EPP+S&D = 319) eller en konservativ koalition (EPP+ECR+PfE = 349) flertalsgrænsen alene. Renews interne ideologiske spændinger — mellem dens markedsliberale tyske og nordiske delegationer og dens reguleringsvenlige franske og belgiske fløje — vil gentagne gange blive prøvet i 2026.
+
+4. **Den grønne dagsordens lovgivningspipeline er fortsat omstridt men i live.** Kommissionens arbejdsprogram for 2026 indeholder kritiske gennemførelsesforordninger for naturgendannelsesloven, indfasningsplaner for CBAM (kulstofgrænsetilpasningsmekanismen) og revisionen af forordningen om bæredygtighedsrelaterede oplysninger (SFDR). Hvert akter møder en koalitionsopbygningsudfordring, hvor PfE og dele af ECR vil søge svækkende ændringsforslag.
+
+5. **Forsvar og Ukraine forbliver parlamentets højest prioriterede dagsordenspunkter.** ReArm Europe-faciliteten på 500 milliarder euro og udvidede finansielle bistandspakker til Ukraine (efter Lånereglering for Ukraine vedtaget i januar 2026) vil dominere budget- og AFET-udvalgets dagsorden i 2026. Den tværgruppsvise konsensus om støtte til Ukraine er bredt intakt, men finansieringsregnskabet for både forsvar og traditionelle samhørigheds- og landbrugstransfers er akut omstridt.
+
+6. **IMF-økonomidata utilgængelige — finanspolitisk kontekst baseret udelukkende på EP-data.** 🔴 IMF SDMX-gatewayen returnerede HTTP 204 under Stage A's dataindsamling. Al økonomisk kontekst i denne analyse er hentet fra EP-vedtagne tekster og parlamentariske debatter. Makroøkonomiske fremskrivninger og vurderinger af finanspolitisk holdbarhed bør krydses med ECB/Eurostat-kilder separat.
+
+---
+
+### Prioriterede Lovgivningssager for det Kommende År
+
+| Sag | Ledende Udvalg | Koalitionsvej | Risikoniveau |
+|-----|----------------|---------------|-------------|
+| Gennemførelse af naturgendannelsesloven | ENVI | EPP+S&D+Renew (skrøbelig) | 🔴 HØJ |
+| Ratificering af handelsaftalen EU–Mercosur | INTA | EPP+Renew+ECR (S&D splittet) | 🟡 MEDIUM |
+| Europæisk forsvarsindstriel strategi (EDIS) | AFET/ITRE | Bred konsensus minus Venstre | 🟢 LAV |
+| SFDR-revision | ECON | EPP+Renew+S&D (omstridt) | 🟡 MEDIUM |
+| Ramme for kritiske lægemidler | ENVI/SANT | Bred (allerede vedtaget TA-10-2026-0001) | 🟢 LAV |
+| Gennemførelse af asyl- og migrationspagten | LIBE | EPP+ECR+PfE mod S&D+Renew | 🔴 HØJ |
+| Reform af europæisk valglov | AFCO | Hængt — ratificeringshindringer forbliver | 🔴 HØJ |
+| Digital infrastruktur / suverænitet | ITRE | EPP+Renew+S&D | 🟡 MEDIUM |
+| Opsparing og investeringsunionen (SIU) | ECON | EPP+Renew+ECR | 🟡 MEDIUM |
+| Samtykkebaseret voldtægtslovgivning (EU-ramme) | FEMM/LIBE | S&D+Renew+Greens+Venstre | 🟡 MEDIUM |
+| Havdiplomati / Fiskeri | PECH | Fragmenteret (nationale interesser dominerer) | 🟡 MEDIUM |
+| EIB-reform / Årsberetning | CONT/BUDG | Bred (overvågningsposition) | 🟢 LAV |
+
+---
+
+### Plenarkalender — Højdepunkter (Maj 2026–Maj 2027)
+
+Baseret på bekræftet EP-plenarplanlægning (data: EP Open Data Portal, 2026-05-10):
+
+- **Maj 2026:** Strasbourgsamling 18–21. maj (næste møde om 8 dage); Bruxelles 27. maj
+- **Juni 2026:** Strasbourg 15–18. juni; Bruxelles 24. juni
+- **Juli 2026:** Strasbourg 6–9. juli (inden sommerrecess)
+- **September 2026:** Strasbourg 14–17. sept.; Bruxelles 30. sept. (vender tilbage fra sommerrecess)
+- **Oktober 2026:** Strasbourg 19–22. okt.; Bruxelles 28–29. okt.
+- **November 2026:** Strasbourg 23–26. nov.; Bruxelles 25. nov.
+- **December 2026:** Strasbourg 14–17. dec. (Budgetplenum — kritisk)
+- **Januar 2027:** Strasbourg 18–21. jan.; Bruxelles 27. jan.
+- **Februar 2027:** Strasbourg 8–11. feb.; Bruxelles 24. feb.
+- **Marts 2027:** Strasbourg 9–12. mar.; Bruxelles 25–26. mar.
+- **April 2027:** Strasbourg (datoer under fastlæggelse)
+- **Maj 2027:** Strasbourg (EP-valgperiodens midtpunkt nærmer sig)
+
+**December-budgetsessionen** bliver kalenderårets enkelt mest afgørende møde. Debatten om EU's budget 2027, forhandlinger om forsvarstoppen og gennemgangen af Ukrainefaciliteten samles i et flerdages afstemningsmaraton.
+
+---
+
+### Politiske Efterretningsprioriteter
+
+#### 1. Problemet med Yderste Højres Institutionelle Modenhed
+PfE (85 mandater) og ESN (27 mandater) besidder tilsammen 112 mandater — 15,6 % af parlamentet. I modsætning til EP8's EFDD- eller ENF-grupper er både PfE og ESN i stigende grad institutionelt kapable: de besidder udvalgets næstformandsposter, deltager aktivt i triloger og fremsætter detaljerede lovgivningsændringsforslag. Yderste højres overgang fra protestpolitik til transaktionelt lovgivningsmæssigt indflydelse er den strukturelle tendens, der bør følges tættest frem til 2027.
+
+#### 2. S&D's Klemmede Position
+S&D (136 mandater, 18,97 %) står over for et strategisk dilemma: det er den næststørste gruppe, men kan ikke konstruere et flertal uden enten EPP (kompromiser til højre) eller Renew (centristisk men ofte erhvervsvenlig). På sociale og arbejdsmarkedspolitiske sager udfordres S&D's venstrefløj i stigende grad af Venstre (45 mandater) og Greens/EFA (53 mandater), der søger stærkere holdninger. S&D's evne til at opretholde intern sammenhæng blandt 25 nationale partier — herunder SPD (Tyskland efter valget), PS (Frankrig i opposition) og PES-tilknyttede i CEE — vil blive prøvet.
+
+#### 3. Kommission–Parlamentrelationer Under von der Leyen II-Mandatet
+Den anden von der Leyen-Kommission, bekræftet i slutningen af 2024, opererer med et mere eksplicit center-højre-mandat end Kommission I. Kommissionens "forenklingsagenda" (reducering af regelbyrden) stemmer overens med EPP og Renew, men skaber friktion med S&D, Greens og Venstre. ECON- og ENVI-udvalgene vil fungere som institutionelle slagmarker for denne spænding.
+
+#### 4. Usikkerhed om EU–USA's Handelsramme
+Afstemningen i april 2026 om EU–Mercosur-handelsaftalen (bilateral sikkerhedsklausul) signalerer parlamentets stemning om handelsliberalisering: omstridt men i sidste ende støttende, når forsyningssikkerhed og gensidighed adresseres. Trajektorien for USA–EU-toldforhandlingerne (efter Trumps handelsforanstaltninger) vil forme INTA-udvalgets dagsorden frem til Q4 2026.
+
+---
+
+### Institutionelle Procesindikatorer
+
+- **Vedtagne Tekster År til Dato (2026):** 100+ tekster vedtaget (EP Open Data, til maj 2026), herunder kritiske sager om lægemidler, finansiel stabilitet, valgreform, droner/krigsførelse, digital suverænitet og støtte til Ukraine.
+- **Udvalgsaktivitet:** AFET, ECON, ENVI, ITRE, LIBE og INTA er de mest aktive udvalg. PECH og FEMM håndterer specifikke omstridte sager.
+- **Parlamentariske Spørgsmål:** Mundtlige og skriftlige spørgsmål om AI-forvaltning, desinformation, forsvarsindkøb og landbrugsjordkoncentration er stigende indikatorer for fremvoksende prioriteter.
+- **Stabilitetscore:** 84/100 (EP's tidlige advarselssystem, 2026-05-10). HØJ fragmenteringsadvarsel aktiv; koncentrationsrisiko for dominerende gruppe (EPP) markeret som HØJ.
+
+---
+
+### Tillidsvurdering
+
+| Domæne | Tillid | Grundlag |
+|--------|--------|---------|
+| Gruppemandat-sammensætning | 🟢 HØJ | Realtids EP Open Data (717 MEP'er, 9 grupper) |
+| Koalitionsvejanalyse | 🟡 MEDIUM | Størrelseslighedsproxies; ingen stemmeniveaukohæsionsdata tilgængelige |
+| Lovgivningspipeline-prognose | 🟡 MEDIUM | EP-feeds + vedtagne tekster; ingen granulære trilogdata |
+| Økonomisk kontekst | 🔴 LAV | IMF-gateway utilgængelig; al makrokontekst udeladt per degraderet-tilstand-protokol |
+| Plenarkalender | 🟢 HØJ | EP's bekræftede sessionsplan |
+| Trusselvurderinger | 🟡 MEDIUM | Strukturel analyse; ingen hemmeligstemplet efterretning |
+
+---
+
+### IMF-Utilgængelighedsmeddelelse
+
+🔴 **IMF-Data Utilgængelige (Degraderet Tilstand Aktiv)**
+
+IMF SDMX API-gatewayen returnerede HTTP 204 under denne kørselssondning af Stage A (2026-05-10T19:05:XX UTC). Ingen IMF-makroøkonomiske data (BNP-vækst, inflation, finansunderskud, løbende konto, ECB's politikrente) er citeret i denne analyse. Sondesammendraget gemmes på `cache/imf/probe-summary.json`. Al økonomi-politisk kontekst er udelukkende hentet fra EP-vedtagne tekster, parlamentariske debatter og ECB/Eurostat-referencer tilgængelige via EP Open Data. IMF-minimumskrav er fraveget for denne kørsel i henhold til protokollen for degraderet tilstand i `08-infrastructure.md §4`.
+
+Analytikere, der har brug for makroøkonomisk kontekst, bør konsultere IMF World Economic Outlook (april 2026-udgaven) og ECB's Økonomiske Bulletin (udgave 3, 2026) separat.
+
+---
+
+*Kilde: Europa-Parlamentets Open Data Portal (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Strategisk Efterretningsvurdering: 5 Nøglebeslutninger i 2026–2027
+
+#### Beslutning 1: Forsvarskompromiset
+**Hvad der sker:** EP stemmer om ReArm Europe Finansieringsforordningen — mål oktober 2026
+**Hvem beslutter:** Koalitionen EPP+S&D+Renew (>450 stemmer sandsynligt; ECR betinget støtte)
+**Hvad der er på spil:** EU's evne til troværdigt at afskrække russisk aggression; sikkerhedsgarantien for Polen og de baltiske stater
+**Efterretningsvurdering:** Næsten Sikkert (>95%) at lovgivningen vedtages; tvisten drejer sig om detaljerne (konditionalitet, tilsyn, lån mod tilskud)
+
+#### Beslutning 2: Budgetaftalen
+**Hvad der sker:** EU's budget 2027 forligsprocedure — november–december 2026
+**Hvem beslutter:** EP's og Rådets forligsudvalg; mægling af det danske formandskab
+**Hvad der er på spil:** Fordeling af 200+ milliarder euro i EU-udgifter for det sidste MFF 2021–2027-år; præcedens for MFF 2028–2034
+**Efterretningsvurdering:** Sandsynligt (70%) at forlig opnås inden jul 2026; hvis det mislykkes, gælder foreløbige tolvtedele (stort politisk nederlag)
+
+#### Beslutning 3: Migrationens Opgørelse
+**Hvad der sker:** Første reelle test af migrationspaktens solidaritetsmekanisme — løbende 2026
+**Hvem beslutter:** LIBE-udvalget leder; plenarresolution sandsynligvis Q4 2026
+**Hvad der er på spil:** Om EU's nye tilgang til migrationsstyring holder under reelt pres
+**Efterretningsvurdering:** Fifty-fifty chance (50%) for at den første aktivering af solidaritetsmekanismen udløser politisk krise i EP; næsten sikkert at LIBE producerer kontroversiel resolution
+
+#### Beslutning 4: AI-Styringsstandarden
+**Hvad der sker:** AI-retsaktens GPAI-gennemførelsesforordninger træder i kraft
+**Hvem beslutter:** Kommissionen fremlægger; ITRE/LIBE gennemgår; ingen indsigelse = ikrafttræden
+**Hvad der er på spil:** EU bliver global sætter af AI-styringsstandarden
+**Efterretningsvurdering:** Næsten Sikkert (95%) at GPAI-reglerne træder i kraft inden udgangen af 2026; tvisten drejer sig om omfanget af høj-risiko-klassificering
+
+#### Beslutning 5: Den Grønne Aftales Overlevelsestest
+**Hvad der sker:** NRL's nationale handlingsplaner forfalder; landbrugslobbyen kontraoffensiv; ENVI-overvågningsresolution
+**Hvem beslutter:** ENVI-udvalget og plenaret flertal
+**Hvad der er på spil:** Om EU's ramme for biodiversitet overlever sin første implementeringstest
+**Efterretningsvurdering:** Usandsynligt (<35%) at NRL formelt ophæves; sandsynligt (65%) at implementeringen blødgøres gennem landbrugskompensationsmekanismer
+
+---
+
+### WEP Sammenfattende Vurdering (Kommende År)
+
+| Band | Fremskrivning | Sager/Begivenheder |
+|------|--------------|-------------------|
+| **Næsten Sikkert** | Storkoalitionen opretholder flertal for Ukraine-støtte | Budget 2027 Ukraine-forpligtelse; AFET-resolutioner |
+| **Næsten Sikkert** | EU's budget 2027 vedtaget inden januar 2027 | Det danske formandskab leverer |
+| **Næsten Sikkert** | AI-retsaktens GPAI-gennemførelsesforordninger offentliggjort | Retlig forpligtelse; Kommissionen bundet |
+| **Sandsynligt** | ReArm Europe vedtaget med bred koalition | Oktober 2026 plenum |
+| **Sandsynligt** | ECB's rentenedsættelser fortsætter i 2026 | Inflationsnormalisering |
+| **Fifty-fifty** | NRL-implementeringskrise (landbrugslobbyen lykkes) | ENVI-kontrovers 2026 |
+| **Usandsynligt** | EPP skifter formelt til højrekoalitionsstrategi | Koalitionsaritmetik forhindrer |
+| **Næsten Ingen Chance** | Nogen EP-afstemning krænker EU's traktatforpligtelser | Konstitutionel begrænsning |
+
+**Admiralty: B3** — Analyse baseret på pålidelige EP-strukturdata; 12-måneders fremadrettet horisont indebærer naturlig usikkerhed.
+
+---
+
+*Udøvende resumé komplet · Admiralty B3 · WEP anvendt · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Læserbriefing
+
+**For statsledere:** EP10 År 2 er det år, hvor EU's kollektive forsvarstransformation enten låses fast (oktobers 2026 ReArm-afstemning) eller går i stå. Dit lands sikkerhedsregnskab for 2027–2030 afhænger i væsentlig grad af, hvad der sker i EP's plenarsal i oktober 2026. Polske og baltiske statsregeringer bør være mest aktivt engageret med EPP- og ECR-MEP'er i denne periode.
+
+**For erhvervslivet:** Oktober–november 2026-vinduet er, når EU's budget 2027 afsluttes. Ethvert EU-program, der er vigtigt for din virksomhed — Horizon Europe-tilskud, samhørighedsfondadgang, SAFE-forsvarskontrakter, SFDR-overholdelsessikkerhed — er på spil samtidigt. Budget- og brancheforeningsengagement bør intensiveres i september–oktober 2026.
+
+**For borgere:** De tre beslutninger, der mest direkte påvirker dit daglige liv er: (1) Øger EU's forsvarsudgifter (din skat); (2) Overlever den grønne aftale (dit miljø); (3) Hvordan fungerer migrationspagten i praksis (din grænse-sikkerhed og asylsystem). Alle tre når afgørende øjeblikke i efteråret 2026.
+
+---
+
+*Udøvende resumé: Economist-niveau politisk efterretning for EU-parlamentets kommende år 2026–2027 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief De
+
+### Strategische Lagebeurteilung
+
+Das Europäische Parlament tritt in das zweite Jahr seiner zehnten Wahlperiode (2024–2029) in einer entscheidenden Phase ein. Mit 717 Abgeordneten, die auf neun politische Gruppen in einer stark fragmentierten Versammlung verteilt sind, sieht sich die Institution einer Steuerungslandschaft gegenüber, die durch Multi-Koalitionsabhängigkeiten, eine selbstbewusstere extreme Rechte und eine ambitionierte Gesetzgebungsagenda der Kommission geprägt ist, die bei nahezu jeder Abstimmung überparteiliche Kompromisse erfordert. Das Fehlen einer natürlichen Mehrheitskoalition — die EVP (183 Sitze) würde Partner mit insgesamt mindestens 177 zusätzlichen Stimmen benötigen, um die 360-Sitze-Schwelle zu überschreiten — bedeutet, dass jedes wichtige Gesetzgebungsergebnis umkämpft sein wird.
+
+Das kommende Jahr (Mai 2026–Mai 2027) entfaltet sich vor dem Hintergrund geopolitischer Turbulenzen: Der Ukraine-Russland-Krieg prägt weiterhin die Verteidigungsausgabendebatte, transatlantische Handelsspannungen gewichten die handelspolitischen Prioritäten der EU neu, und die Agenda der EU für den grünen Wandel sieht sich dem Widerstand nationalpolitischer Veränderungen in Frankreich, Deutschland und Polen gegenüber. Diese äußeren Drücke werden nahezu jede Gesetzgebungsakte auf der Parlamentsagenda durchdringen.
+
+**Wichtigste Strategische Erkenntnisse:**
+
+1. **Koalitionsfragmentierung ist die bestimmende strukturelle Einschränkung.** Mit einem als HOCH eingestuften Fragmentierungsindex und einer Effektiven Parteizahl von 6,58 existiert keine Zweigruppen-Mehrheit. Die traditionelle EVP–S&D-Große Koalition (319 kombinierte Sitze) liegt 41 Sitze unter der 360-Mehrheitsschwelle. Dies erfordert strukturell die 77 Stimmen von Renew Europe oder Ad-hoc-Kombinationen von rechts.
+
+2. **Die EVP–EKR–PfE-Achse ist die disruptivste Kraft des Parlaments.** EVP (183) + EKR (81) + PfE (85) = 349 Sitze — nur 11 Sitze von einer Mehrheit entfernt. Wenn dieser Mitte-Rechts-Block bei spezifischen Themen (Migration, Grenzkontrolle, landwirtschaftliche Deregulierung) zusammenhält, kann er progressive Gesetzgebung blockieren oder umformen. Die Wahrscheinlichkeit selektiver sachbezogener Konvergenz ist HOCH. 🟡
+
+3. **Renew Europe ist die entscheidende Swing-Gruppe.** Mit 77 Sitzen besitzt Renew ein strukturelles Veto: Ohne sie erreicht weder der Mitte-Links-Block (EVP+S&D = 319) noch eine konservative Koalition (EVP+EKR+PfE = 349) allein die Mehrheitsschwelle. Renews interne ideologische Spannungen — zwischen seinen marktliberalen deutschen und nordischen Delegationen und seinen regulierungsfreundlichen französischen und belgischen Flügeln — werden im Jahr 2026 wiederholt auf die Probe gestellt.
+
+4. **Die Gesetzgebungspipeline des Grünen Deals bleibt umstritten, ist aber lebendig.** Das Arbeitsprogramm der Kommission für 2026 umfasst kritische Durchführungsverordnungen zur Naturwiederherstellungsverordnung, Einführungszeitpläne für den CBAM (Carbon Border Adjustment Mechanism) und die Überarbeitung der Verordnung über nachhaltigkeitsbezogene Offenlegungspflichten (SFDR). Jede Akte sieht sich einer Koalitionsbildungsherausforderung gegenüber, bei der PfE und Teile der EKR schwächende Änderungsanträge anstreben werden.
+
+5. **Verteidigung und die Ukraine bleiben die Themen mit der höchsten Priorität des Parlaments.** Die ReArm Europe-Fazilität in Höhe von 500 Milliarden Euro und erweiterte Finanzhilfepakete für die Ukraine (nach der im Januar 2026 verabschiedeten Ukraine-Darlehensverordnung) werden die Tagesordnung des Haushalts- und AFET-Ausschusses 2026 dominieren. Der gruppenübergreifende Konsens zur Unterstützung der Ukraine bleibt weitgehend intakt, aber die fiskalische Arithmetik zur Finanzierung sowohl der Verteidigung als auch der traditionellen Kohäsions- und Agrarübertragungen ist akut umstritten.
+
+6. **IMF-Wirtschaftsdaten nicht verfügbar — finanzpolitischer Kontext basiert ausschließlich auf EP-Daten.** 🔴 Das IMF SDMX-Gateway gab HTTP 204 während der Stage-A-Datenerhebung zurück. Alle wirtschaftlichen Zusammenhänge in dieser Analyse stammen aus vom EP angenommenen Texten und parlamentarischen Debatten. Makroökonomische Projektionen und Bewertungen der fiskalen Tragfähigkeit sollten separat mit ECB/Eurostat-Quellen gegengeprüft werden.
+
+---
+
+### Prioritäre Gesetzgebungsakte für das Kommende Jahr
+
+| Akte | Federführender Ausschuss | Koalitionspfad | Risikoniveau |
+|------|--------------------------|----------------|-------------|
+| Umsetzung der Naturwiederherstellungsverordnung | ENVI | EVP+S&D+Renew (brüchig) | 🔴 HOCH |
+| Ratifizierung des EU–Mercosur-Handelsabkommens | INTA | EVP+Renew+EKR (S&D gespalten) | 🟡 MITTEL |
+| Europäische Verteidigungsindustrielle Strategie (EDIS) | AFET/ITRE | Breiter Konsens minus Die Linke | 🟢 NIEDRIG |
+| SFDR-Überarbeitung | ECON | EVP+Renew+S&D (umstritten) | 🟡 MITTEL |
+| Rahmen für kritische Arzneimittel | ENVI/SANT | Breit (bereits angenommen TA-10-2026-0001) | 🟢 NIEDRIG |
+| Umsetzung des Asyl- und Migrationspakts | LIBE | EVP+EKR+PfE vs. S&D+Renew | 🔴 HOCH |
+| Reform des Europäischen Wahlrechts | AFCO | Patt — Ratifizierungshürden bleiben | 🔴 HOCH |
+| Digitale Infrastruktur / Souveränität | ITRE | EVP+Renew+S&D | 🟡 MITTEL |
+| Spar- und Investitionsunion (SIU) | ECON | EVP+Renew+EKR | 🟡 MITTEL |
+| Zustimmungsbasierte Vergewaltigungsgesetzgebung (EU-Rahmen) | FEMM/LIBE | S&D+Renew+Greens+Die Linke | 🟡 MITTEL |
+| Ozeandiplomatie / Fischerei | PECH | Fragmentiert (nationale Interessen dominieren) | 🟡 MITTEL |
+| EIB-Reform / Jahresbericht | CONT/BUDG | Breit (Überwachungspostur) | 🟢 NIEDRIG |
+
+---
+
+### Plenarkalender — Höhepunkte (Mai 2026–Mai 2027)
+
+Basierend auf dem bestätigten EP-Plenarplan (Daten: EP Open Data Portal, 2026-05-10):
+
+- **Mai 2026:** Straßburger Tagung 18.–21. Mai (nächste Sitzung in 8 Tagen); Brüssel 27. Mai
+- **Juni 2026:** Straßburg 15.–18. Juni; Brüssel 24. Juni
+- **Juli 2026:** Straßburg 6.–9. Juli (vor der Sommerpause)
+- **September 2026:** Straßburg 14.–17. Sept.; Brüssel 30. Sept. (Rückkehr aus der Sommerpause)
+- **Oktober 2026:** Straßburg 19.–22. Okt.; Brüssel 28.–29. Okt.
+- **November 2026:** Straßburg 23.–26. Nov.; Brüssel 25. Nov.
+- **Dezember 2026:** Straßburg 14.–17. Dez. (Haushaltsplenum — entscheidend)
+- **Januar 2027:** Straßburg 18.–21. Jan.; Brüssel 27. Jan.
+- **Februar 2027:** Straßburg 8.–11. Feb.; Brüssel 24. Feb.
+- **März 2027:** Straßburg 9.–12. Mär.; Brüssel 25.–26. Mär.
+- **April 2027:** Straßburg (Termine noch festzulegen)
+- **Mai 2027:** Straßburg (Halbzeitpunkt der EP-Wahlperiode nähert sich)
+
+**Die Dezember-Haushaltssitzung** ist die mit Abstand folgenreichste Sitzung des Kalenderjahres. Die Debatte über den EU-Haushalt 2027, Verhandlungen über das Verteidigungssupplement und die Ukraine-Fazilitätsüberprüfungen konvergieren in einem mehrtägigen Abstimmungsmarathon.
+
+---
+
+### Politische Nachrichtenprioritäten
+
+#### 1. Das Problem der Institutionellen Reifung der Extremen Rechten
+PfE (85 Sitze) und ESN (27 Sitze) halten zusammen 112 Sitze — 15,6 % des Parlaments. Im Gegensatz zu den EFDD- oder ENF-Gruppen von EP8 sind sowohl PfE als auch ESN zunehmend institutionell kompetent: Sie halten Ausschuss-Vizevorsitze, engagieren sich aktiv in Trilog-Verhandlungen und legen detaillierte Gesetzesänderungsanträge vor. Der Übergang der extremen Rechten von Protestpolitik zu transaktionalem gesetzgeberischem Einfluss ist der strukturelle Trend, der bis 2027 am genauesten verfolgt werden sollte.
+
+#### 2. Die Eingeengte Position der S&D
+S&D (136 Sitze, 18,97 %) steht vor einem strategischen Dilemma: Sie ist die zweitgrößte Gruppe, kann aber ohne entweder die EVP (Kompromisse nach rechts) oder Renew (zentristisch, aber oft wirtschaftsfreundlich) keine Mehrheit konstruieren. Bei sozialen und arbeitsmarktpolitischen Fragen wird der linke Flügel der S&D zunehmend von Die Linke (45 Sitze) und Greens/EFA (53 Sitze) herausgefordert, die stärkere Positionen anstreben. S&D's Fähigkeit, die interne Kohäsion unter 25 nationalen Parteien — einschließlich SPD (Deutschland nach der Wahl), PS (Frankreich in der Opposition) und PES-Verbundenen in CEE — aufrechtzuerhalten, wird auf die Probe gestellt.
+
+#### 3. Kommission–Parlament-Beziehungen Unter dem von der Leyen II-Mandat
+Die zweite von der Leyen-Kommission, Ende 2024 bestätigt, agiert mit einem expliziter rechts-von-der-Mitte-orientierten Mandat als Kommission I. Die „Vereinfachungsagenda" der Kommission (Abbau regulatorischer Belastungen) stimmt mit EVP und Renew überein, erzeugt aber Reibung mit S&D, Greens und Die Linke. Die Ausschüsse ECON und ENVI werden als institutionelle Gefechtsfelder für diese Spannung dienen.
+
+#### 4. Unsicherheit über den EU–USA-Handelsrahmen
+Die Abstimmung im April 2026 über das EU–Mercosur-Handelsabkommen (bilaterale Schutzklausel) signalisiert die Stimmung des Parlaments zur Handelsliberalisierung: umstritten, aber letztlich unterstützend, wenn Versorgungssicherheit und Gegenseitigkeit adressiert werden. Die Trajektorie der USA–EU-Zollverhandlungen (nach Trumps Handelsmaßnahmen) wird die Tagesordnung des INTA-Ausschusses bis Q4 2026 prägen.
+
+---
+
+### Institutionelle Prozessindikatoren
+
+- **Angenommene Texte im bisherigen Jahresverlauf (2026):** 100+ Texte angenommen (EP Open Data, bis Mai 2026), einschließlich kritischer Fragen zu Arzneimitteln, Finanzstabilität, Wahlreform, Drohnen/Kriegsführung, digitaler Souveränität und Ukraine-Unterstützung.
+- **Ausschussaktivität:** AFET, ECON, ENVI, ITRE, LIBE und INTA sind die aktivsten Ausschüsse. PECH und FEMM tragen spezifische umstrittene Dossiers.
+- **Parlamentarische Anfragen:** Mündliche und schriftliche Anfragen zu KI-Governance, Desinformation, Verteidigungsbeschaffung und Konzentration von Agrarflächen sind steigende Indikatoren für aufkommende Agendaprioritäten.
+- **Stabilitätswert:** 84/100 (EP-Frühwarnsystem, 2026-05-10). HOHE Fragmentierungswarnung aktiv; Konzentrationsrisiko der dominierenden Gruppe (EVP) als HOCH markiert.
+
+---
+
+### Konfidenzbewertung
+
+| Bereich | Konfidenz | Grundlage |
+|---------|----------|----------|
+| Gruppen-Sitzkomposition | 🟢 HOCH | Echtzeit-EP Open Data (717 MdEP, 9 Gruppen) |
+| Koalitionspfadanalyse | 🟡 MITTEL | Größenähnlichkeits-Proxys; keine Abstimmungsebenen-Kohäsionsdaten verfügbar |
+| Gesetzgebungspipeline-Prognose | 🟡 MITTEL | EP-Feeds + angenommene Texte; keine granularen Trilog-Daten |
+| Wirtschaftlicher Kontext | 🔴 NIEDRIG | IMF-Gateway nicht verfügbar; alle Makro-Zusammenhänge per Degraded-Mode-Protokoll ausgelassen |
+| Plenarkalender | 🟢 HOCH | Bestätigter EP-Sitzungsplan |
+| Bedrohungsbewertungen | 🟡 MITTEL | Strukturelle Analyse; keine geheimdienstlichen Erkenntnisse |
+
+---
+
+### IMF-Nichtverfügbarkeitshinweis
+
+🔴 **IMF-Daten Nicht Verfügbar (Degradierter Modus Aktiv)**
+
+Das IMF SDMX-API-Gateway gab HTTP 204 während der Stage-A-Sondierung dieses Laufs zurück (2026-05-10T19:05:XX UTC). Keine IMF-makroökonomischen Daten (BIP-Wachstum, Inflation, Haushaltsdefizit, Leistungsbilanz, EZB-Leitzins) werden in dieser Analyse zitiert. Die Sondierungszusammenfassung wird unter `cache/imf/probe-summary.json` gespeichert. Alle wirtschaftspolitischen Zusammenhänge stammen ausschließlich aus vom EP angenommenen Texten, parlamentarischen Debatten und über EP Open Data verfügbaren EZB/Eurostat-Referenzen. Die IMF-Mindestanforderungen sind für diesen Lauf gemäß dem Degraded-Mode-Protokoll in `08-infrastructure.md §4` ausgesetzt.
+
+Analysten, die makroökonomischen Kontext benötigen, sollten den IMF World Economic Outlook (April 2026-Ausgabe) und das EZB-Wirtschaftsbulletin (Ausgabe 3, 2026) separat konsultieren.
+
+---
+
+*Quelle: Europäisches Parlament Open Data Portal (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Strategische Nachrichtenbewertung: 5 Schlüsselentscheidungen 2026–2027
+
+#### Entscheidung 1: Der Verteidigungspakt
+**Was passiert:** Das EP stimmt über die ReArm Europe Finanzierungsverordnung ab — Ziel Oktober 2026
+**Wer entscheidet:** Koalition EVP+S&D+Renew (wahrscheinlich >450 Stimmen; EKR bedingte Unterstützung)
+**Was auf dem Spiel steht:** Fähigkeit der EU, russische Aggression glaubwürdig abzuschrecken; Sicherheitsgarantie für Polen und die baltischen Staaten
+**Nachrichtenbewertung:** Fast Sicher (>95%), dass die Gesetzgebung verabschiedet wird; Streit dreht sich um Details (Konditionalität, Aufsicht, Darlehen vs. Zuschüsse)
+
+#### Entscheidung 2: Der Haushaltskompromiss
+**Was passiert:** EU-Haushalt 2027-Vermittlungsverfahren — November–Dezember 2026
+**Wer entscheidet:** Vermittlungsausschuss von EP und Rat; Vermittlung durch die dänische Ratspräsidentschaft
+**Was auf dem Spiel steht:** Verteilung von 200+ Milliarden Euro EU-Ausgaben für das letzte MFR 2021–2027-Jahr; Präzedenzfall für MFR 2028–2034
+**Nachrichtenbewertung:** Wahrscheinlich (70%), dass die Vermittlung vor Weihnachten 2026 gelingt; scheitert sie, gelten vorläufige Zwölftelsätze (großes politisches Scheitern)
+
+#### Entscheidung 3: Die Migrationsabrechnung
+**Was passiert:** Erster echter Test des Solidaritätsmechanismus des Migrationspakts — laufend 2026
+**Wer entscheidet:** LIBE-Ausschuss führt; Plenarresolution wahrscheinlich Q4 2026
+**Was auf dem Spiel steht:** Ob der neue EU-Ansatz zur Migrationsverwaltung echtem Druck standhält
+**Nachrichtenbewertung:** Fifty-fifty (50%), dass die erste Aktivierung des Solidaritätsmechanismus eine politische Krise im EP auslöst; Fast Sicher, dass LIBE eine kontroverse Resolution produziert
+
+#### Entscheidung 4: Der KI-Governance-Standard
+**Was passiert:** KI-Gesetz GPAI-Durchführungsverordnungen treten in Kraft
+**Wer entscheidet:** Kommission legt vor; ITRE/LIBE prüft; kein Einwand = Inkrafttreten
+**Was auf dem Spiel steht:** EU wird globaler KI-Governance-Standard-Setzer
+**Nachrichtenbewertung:** Fast Sicher (95%), dass GPAI-Regeln bis Ende 2026 in Kraft treten; Streit dreht sich um Umfang der Hochrisikoeinstufung
+
+#### Entscheidung 5: Der Stresstest des Grünen Deals
+**Was passiert:** Nationale NRL-Aktionspläne fällig; Gegenstoß der Agrarlobby; ENVI-Überwachungsresolution
+**Wer entscheidet:** ENVI-Ausschuss und Plenarmehrheit
+**Was auf dem Spiel steht:** Ob der EU-Biodiversitätsrahmen seinen ersten Umsetzungstest übersteht
+**Nachrichtenbewertung:** Unwahrscheinlich (<35%), dass NRL formal aufgehoben wird; Wahrscheinlich (65%), dass die Umsetzung durch Landwirtschaftliche Kompensationsmechanismen abgemildert wird
+
+---
+
+### WEP Zusammenfassende Bewertung (Kommendes Jahr)
+
+| Band | Projektion | Akten/Ereignisse |
+|------|-----------|-----------------|
+| **Fast Sicher** | Große Koalition behält Mehrheit für Ukraine-Unterstützung | Haushalt 2027 Ukraine-Verpflichtung; AFET-Resolutionen |
+| **Fast Sicher** | EU-Haushalt 2027 vor Januar 2027 verabschiedet | Dänische Präsidentschaft liefert |
+| **Fast Sicher** | KI-Gesetz GPAI-Durchführungsverordnungen veröffentlicht | Rechtliche Verpflichtung; Kommission gebunden |
+| **Wahrscheinlich** | ReArm Europe mit breiter Koalition verabschiedet | Oktober 2026 Plenum |
+| **Wahrscheinlich** | EZB-Zinssenkungen setzen sich 2026 fort | Inflationsnormalisierung |
+| **Fifty-fifty** | NRL-Umsetzungskrise (Agrarlobby erfolgreich) | ENVI-Kontroverse 2026 |
+| **Unwahrscheinlich** | EVP wechselt formal zur rechten Koalitionsstrategie | Koalitionsarithmetik verhindert es |
+| **Fast Keine Chance** | Irgendeine EP-Abstimmung verstößt gegen EU-Vertragspflichten | Verfassungsrechtliche Beschränkung |
+
+**Admiralty: B3** — Analyse basierend auf zuverlässigen EP-Strukturdaten; 12-Monats-Vorausschau birgt inhärente Unsicherheit.
+
+---
+
+*Führungszusammenfassung vollständig · Admiralty B3 · WEP angewendet · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Leser-Briefing
+
+**Für Regierungschefs:** EP10 Jahr 2 ist das Jahr, in dem sich die kollektive Verteidigungstransformation der EU entweder festigt (Oktober 2026 ReArm-Abstimmung) oder ins Stocken gerät. Das Sicherheitskalkül Ihres Landes für 2027–2030 hängt wesentlich davon ab, was im Oktober 2026 im EP-Plenarsaal geschieht. Polnische und baltische Staatsregierungen sollten sich in dieser Zeit am aktivsten mit EVP- und EKR-Abgeordneten auseinandersetzen.
+
+**Für die Wirtschaft:** Das Oktober–November-2026-Fenster ist das, in dem der EU-Haushalt 2027 finalisiert wird. Jedes EU-Programm, das für Ihr Unternehmen wichtig ist — Horizon Europe-Förderungen, Kohäsionsfond-Zugang, SAFE-Verteidigungsverträge, SFDR-Compliance-Sicherheit — steht gleichzeitig auf dem Spiel. Das Budget- und Verbandsengagement sollte im September–Oktober 2026 intensiviert werden.
+
+**Für Bürger:** Die drei Entscheidungen, die Ihr tägliches Leben am direktesten betreffen, sind: (1) Erhöht die EU die Verteidigungsausgaben (Ihre Steuern); (2) Übersteht der Grüne Deal (Ihre Umwelt); (3) Wie funktioniert der Migrationspakt in der Praxis (Ihre Grenzsicherheit und Ihr Asylsystem). Alle drei erreichen im Herbst 2026 entscheidende Momente.
+
+---
+
+*Führungszusammenfassung: Economist-Qualität politische Nachrichten für das Europäische Parlament 2026–2027 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief Es
+
+### Evaluación Estratégica de la Situación
+
+El Parlamento Europeo inicia el segundo año de su décima legislatura (2024–2029) en un momento decisivo. Con 717 eurodiputados distribuidos en nueve grupos políticos en una asamblea muy fragmentada, la institución se enfrenta a un panorama de gobernanza definido por dependencias de múltiples coaliciones, una extrema derecha cada vez más asertiva y un ambicioso programa legislativo de la Comisión que exige compromisos bipartidistas en casi cada votación. La ausencia de una coalición mayoritaria natural — el PPE (183 escaños) necesitaría socios que sumen al menos 177 votos adicionales para superar el umbral de 360 escaños — significa que cada resultado legislativo importante estará en disputa.
+
+El año venidero (mayo 2026–mayo 2027) se desarrolla en un contexto de turbulencia geopolítica: la guerra Ucrania-Rusia continúa moldeando los debates sobre gasto en defensa, las tensiones comerciales transatlánticas están recalibrando las prioridades de política comercial de la UE, y la agenda de transición verde de la UE enfrenta resistencia de los cambios políticos a nivel nacional en Francia, Alemania y Polonia. Estas presiones externas impregnará prácticamente todos los expedientes legislativos de la agenda del Parlamento.
+
+**Conclusiones Estratégicas Clave:**
+
+1. **La fragmentación de coaliciones es la restricción estructural determinante.** Con un Índice de Fragmentación clasificado como ALTO y un Número Efectivo de Partidos de 6,58, no existe ninguna mayoría de dos grupos. La coalición de gobierno tradicional PPE–S&D (319 escaños combinados) está 41 escaños por debajo del umbral de mayoría de 360. Esto requiere estructuralmente los 77 votos de Renew Europe o combinaciones ad hoc de derechas.
+
+2. **El eje PPE–ECR–PfE es la fuerza más disruptiva del Parlamento.** PPE (183) + ECR (81) + PfE (85) = 349 escaños — solo 11 por debajo de una mayoría. Cuando este bloque de centro derecha se cohesiona en expedientes específicos (migración, control fronterizo, desregulación agrícola), puede bloquear o reformular la legislación progresista. La probabilidad de convergencia selectiva expediente por expediente es ALTA. 🟡
+
+3. **Renew Europe es el grupo bisagra decisivo.** Con 77 escaños, Renew posee un veto estructural: sin él, ni el bloque de centro izquierda (PPE+S&D = 319) ni una coalición conservadora (PPE+ECR+PfE = 349) alcanza por sí sola el umbral de mayoría. Las tensiones ideológicas internas de Renew — entre sus delegaciones alemanas y nórdicas liberales de mercado y sus alas pro-regulación francesas y belgas — serán puestas a prueba repetidamente en 2026.
+
+4. **La cartera legislativa del Pacto Verde permanece en disputa pero viva.** El Programa de Trabajo de la Comisión para 2026 incluye los reglamentos de ejecución críticos de la Ley de Restauración de la Naturaleza, los calendarios de introducción progresiva del CBAM (Mecanismo de Ajuste en Frontera por Carbono) y la revisión del Reglamento sobre divulgación de información en materia de finanzas sostenibles (SFDR). Cada expediente enfrenta un desafío de construcción de coalición en el que PfE y partes del ECR buscarán enmiendas debilitadoras.
+
+5. **La defensa y Ucrania siguen siendo los puntos de mayor saliencia de la agenda del Parlamento.** La facilidad ReArm Europe de 500 mil millones de euros y los paquetes ampliados de asistencia financiera a Ucrania (tras el Reglamento de Préstamo para Ucrania adoptado en enero de 2026) dominarán la agenda de la comisión de presupuestos y AFET durante 2026. El consenso intergrupal sobre el apoyo a Ucrania permanece ampliamente intacto, pero la aritmética fiscal de financiar tanto la defensa como las transferencias tradicionales de cohesión y agrícolas es agudamente disputada.
+
+6. **Datos económicos del IMF no disponibles — contexto fiscal basado únicamente en datos del PE.** 🔴 La pasarela IMF SDMX devolvió HTTP 204 durante la recopilación de datos de la Fase A. Todo el contexto económico de este análisis procede de textos adoptados por el PE y debates parlamentarios. Las proyecciones macroeconómicas y las evaluaciones de sostenibilidad fiscal deben cotejarse con fuentes BCE/Eurostat por separado.
+
+---
+
+### Expedientes Legislativos Prioritarios para el Año Venidero
+
+| Expediente | Comisión principal | Vía de coalición | Nivel de riesgo |
+|------------|-------------------|------------------|----------------|
+| Aplicación de la Ley de Restauración de la Naturaleza | ENVI | PPE+S&D+Renew (frágil) | 🔴 ALTO |
+| Ratificación del Acuerdo Comercial UE-Mercosur | INTA | PPE+Renew+ECR (S&D dividido) | 🟡 MEDIO |
+| Estrategia Industrial Europea de Defensa (EDIS) | AFET/ITRE | Amplio consenso menos La Izquierda | 🟢 BAJO |
+| Revisión del SFDR | ECON | PPE+Renew+S&D (en disputa) | 🟡 MEDIO |
+| Marco para Medicamentos Críticos | ENVI/SANT | Amplio (ya adoptado TA-10-2026-0001) | 🟢 BAJO |
+| Aplicación del Pacto sobre Asilo y Migración | LIBE | PPE+ECR+PfE vs. S&D+Renew | 🔴 ALTO |
+| Reforma de la Ley Electoral Europea | AFCO | Bloqueado — obstáculos de ratificación persisten | 🔴 ALTO |
+| Infraestructura Digital / Soberanía | ITRE | PPE+Renew+S&D | 🟡 MEDIO |
+| Unión de Ahorro e Inversiones (UAI) | ECON | PPE+Renew+ECR | 🟡 MEDIO |
+| Legislación sobre Violación Basada en Consentimiento (Marco UE) | FEMM/LIBE | S&D+Renew+Greens+La Izquierda | 🟡 MEDIO |
+| Diplomacia Oceánica / Pesca | PECH | Fragmentado (intereses nacionales dominantes) | 🟡 MEDIO |
+| Reforma del BEI / Informe Anual | CONT/BUDG | Amplio (postura de seguimiento) | 🟢 BAJO |
+
+---
+
+### Destacados del Calendario Plenario (Mayo 2026–Mayo 2027)
+
+Basado en la programación plenaria confirmada del PE (datos: Portal Open Data del PE, 2026-05-10):
+
+- **Mayo 2026:** Sesión de Estrasburgo del 18 al 21 de mayo (próxima sesión en 8 días); Bruselas 27 de mayo
+- **Junio 2026:** Estrasburgo 15–18 de junio; Bruselas 24 de junio
+- **Julio 2026:** Estrasburgo 6–9 de julio (antes del receso estival)
+- **Septiembre 2026:** Estrasburgo 14–17 sept.; Bruselas 30 sept. (regreso del receso estival)
+- **Octubre 2026:** Estrasburgo 19–22 oct.; Bruselas 28–29 oct.
+- **Noviembre 2026:** Estrasburgo 23–26 nov.; Bruselas 25 nov.
+- **Diciembre 2026:** Estrasburgo 14–17 dic. (Pleno Presupuestario — crítico)
+- **Enero 2027:** Estrasburgo 18–21 ene.; Bruselas 27 ene.
+- **Febrero 2027:** Estrasburgo 8–11 feb.; Bruselas 24 feb.
+- **Marzo 2027:** Estrasburgo 9–12 mar.; Bruselas 25–26 mar.
+- **Abril 2027:** Estrasburgo (fechas por confirmar)
+- **Mayo 2027:** Estrasburgo (se acerca el punto medio del mandato del PE)
+
+**La sesión presupuestaria de diciembre** será la sesión más trascendental del año natural. El debate sobre el Presupuesto UE 2027, las negociaciones sobre el suplemento de defensa y las revisiones de la facilidad para Ucrania convergerán en un maratón de votaciones de varios días.
+
+---
+
+### Prioridades de Inteligencia Política
+
+#### 1. El Problema de la Maduración Institucional de la Extrema Derecha
+PfE (85 escaños) y ESN (27 escaños) juntos ostentan 112 escaños — el 15,6 % del Parlamento. A diferencia de los grupos EFDD o ENF del PE8, tanto PfE como ESN son cada vez más capaces institucionalmente: ostentan vicepresidencias de comisión, participan activamente en los trílogos y presentan enmiendas legislativas detalladas. La transición de la extrema derecha de la política de protesta a la influencia legislativa transaccional es la tendencia estructural que hay que seguir más de cerca hasta 2027.
+
+#### 2. La Posición Encorsetada del S&D
+S&D (136 escaños, 18,97 %) se enfrenta a un dilema estratégico: es el segundo grupo más grande pero no puede construir una mayoría sin el PPE (concesiones hacia la derecha) o Renew (centrista pero a menudo favorable a las empresas). En los expedientes sociales y laborales, el ala izquierda del S&D es cada vez más cuestionada por La Izquierda (45 escaños) y Greens/EFA (53 escaños), que buscan posiciones más sólidas. La capacidad del S&D para mantener la coherencia interna entre 25 partidos nacionales — incluido el SPD (Alemania poselectoral), el PS (Francia en la oposición) y los afiliados PES en la CEE — será puesta a prueba.
+
+#### 3. Relaciones Comisión–Parlamento Bajo el Mandato von der Leyen II
+La segunda Comisión von der Leyen, confirmada a finales de 2024, opera con un mandato de centro derecha más explícito que la Comisión I. La "agenda de simplificación" de la Comisión (reducción de las cargas regulatorias) se alinea con el PPE y Renew pero genera fricción con S&D, Greens y La Izquierda. Las comisiones ECON y ENVI servirán como campos de batalla institucionales para esta tensión.
+
+#### 4. Incertidumbre sobre el Marco Comercial UE–EE.UU.
+La votación de abril de 2026 sobre el acuerdo comercial UE-Mercosur (cláusula de salvaguardia bilateral) señala el estado de ánimo del Parlamento sobre la liberalización comercial: disputada pero en última instancia favorable cuando se abordan la seguridad del suministro y la reciprocidad. La trayectoria de las negociaciones arancelarias EE.UU.–UE (tras las acciones comerciales de Trump) determinará la agenda de la comisión INTA hasta el T4 2026.
+
+---
+
+### Indicadores del Proceso Institucional
+
+- **Textos Adoptados en el Año en Curso (2026):** Más de 100 textos adoptados (EP Open Data, hasta mayo de 2026), incluidos expedientes críticos sobre medicamentos, estabilidad financiera, reforma electoral, drones/guerra, soberanía digital y apoyo a Ucrania.
+- **Actividad de las Comisiones:** AFET, ECON, ENVI, ITRE, LIBE e INTA son las comisiones con mayor actividad. PECH y FEMM llevan expedientes contestados específicos.
+- **Preguntas Parlamentarias:** Las preguntas orales y escritas sobre gobernanza de la IA, desinformación, adquisición de defensa y concentración de tierras agrícolas son indicadores crecientes de prioridades emergentes de la agenda.
+- **Puntuación de Estabilidad:** 84/100 (sistema de alerta temprana del PE, 2026-05-10). Advertencia de ALTA fragmentación activa; riesgo de concentración del grupo dominante (PPE) señalado como ALTO.
+
+---
+
+### Evaluación de la Confianza
+
+| Ámbito | Confianza | Base |
+|--------|----------|------|
+| Composición de escaños por grupo | 🟢 ALTA | EP Open Data en tiempo real (717 eurodiputados, 9 grupos) |
+| Análisis de vías de coalición | 🟡 MEDIA | Proxies de similitud de tamaño; sin datos de cohesión a nivel de votación disponibles |
+| Previsión de la cartera legislativa | 🟡 MEDIA | Feeds del PE + textos adoptados; sin datos granulares de trílogo |
+| Contexto económico | 🔴 BAJA | Pasarela IMF no disponible; todo el contexto macro omitido por protocolo de modo degradado |
+| Calendario plenario | 🟢 ALTA | Calendario de sesiones confirmado del PE |
+| Evaluaciones de amenazas | 🟡 MEDIA | Análisis estructural; sin inteligencia clasificada |
+
+---
+
+### Aviso de Indisponibilidad del IMF
+
+🔴 **Datos del IMF No Disponibles (Modo Degradado Activo)**
+
+La pasarela API IMF SDMX devolvió HTTP 204 durante el sondeo de la Fase A de esta ejecución (2026-05-10T19:05:XX UTC). No se cita ningún dato macroeconómico del IMF (crecimiento del PIB, inflación, déficit fiscal, cuenta corriente, tipo de interés del BCE) en este análisis. El resumen del sondeo se guarda en `cache/imf/probe-summary.json`. Todo el contexto de política económica se deriva exclusivamente de textos adoptados por el PE, debates parlamentarios y referencias BCE/Eurostat disponibles a través de EP Open Data. Los requisitos mínimos del IMF quedan exentos para esta ejecución de acuerdo con el protocolo de modo degradado en `08-infrastructure.md §4`.
+
+Los analistas que necesiten contexto macroeconómico deben consultar por separado el IMF World Economic Outlook (edición de abril de 2026) y el Boletín Económico del BCE (número 3, 2026).
+
+---
+
+*Fuente: Portal Open Data del Parlamento Europeo (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Evaluación de Inteligencia Estratégica: 5 Decisiones Clave en 2026–2027
+
+#### Decisión 1: El Pacto de Defensa
+**Lo que sucede:** El PE vota el Reglamento de Financiación ReArm Europe — objetivo octubre 2026
+**Quién decide:** Coalición PPE+S&D+Renew (probablemente >450 votos; apoyo condicional del ECR)
+**Lo que está en juego:** Capacidad de la UE para disuadir de manera creíble la agresión rusa; garantía de seguridad para Polonia y los Estados bálticos
+**Evaluación de inteligencia:** Casi Seguro (>95%) que la legislación se aprueba; la disputa gira en torno a los detalles (condicionalidad, supervisión, préstamos vs. subvenciones)
+
+#### Decisión 2: El Compromiso Presupuestario
+**Lo que sucede:** Conciliación del Presupuesto UE 2027 — noviembre–diciembre 2026
+**Quién decide:** Comité de conciliación PE-Consejo; mediación de la presidencia danesa
+**Lo que está en juego:** Distribución de más de 200 mil millones de euros en gasto de la UE para el último año del MFP 2021–2027; precedente para el MFP 2028–2034
+**Evaluación de inteligencia:** Probable (70%) que la conciliación tenga éxito antes de Navidad de 2026; si fracasa, se aplican dozavos provisionales (gran fracaso político)
+
+#### Decisión 3: El Ajuste de Cuentas sobre la Migración
+**Lo que sucede:** Primera prueba real del mecanismo de solidaridad del Pacto de Migración — en curso 2026
+**Quién decide:** Comisión LIBE al frente; resolución plenaria probable en T4 2026
+**Lo que está en juego:** Si el nuevo enfoque de gestión migratoria de la UE se sostiene ante la presión real
+**Evaluación de inteligencia:** Chances Iguales (50%) de que la primera activación del mecanismo de solidaridad desencadene una crisis política en el PE; Casi Seguro que LIBE produce una resolución polémica
+
+#### Decisión 4: El Estándar de Gobernanza IA
+**Lo que sucede:** Los reglamentos de ejecución GPAI de la Ley de IA entran en vigor
+**Quién decide:** La Comisión presenta; ITRE/LIBE examina; sin objeción = entrada en vigor
+**Lo que está en juego:** La UE se convierte en el regulador global de la gobernanza IA
+**Evaluación de inteligencia:** Casi Seguro (95%) que las normas GPAI entran en vigor antes de finales de 2026; la disputa gira en torno al alcance de la clasificación de alto riesgo
+
+#### Decisión 5: La Prueba de Supervivencia del Pacto Verde
+**Lo que sucede:** Planes de acción nacionales de la LRN vencen; contraofensiva del lobby agrícola; resolución de seguimiento ENVI
+**Quién decide:** Comisión ENVI y mayoría plenaria
+**Lo que está en juego:** Si el marco de biodiversidad de la UE supera su primera prueba de implementación
+**Evaluación de inteligencia:** Improbable (<35%) que la LRN sea formalmente derogada; Probable (65%) que la implementación se suavice a través de mecanismos de compensación agrícola
+
+---
+
+### Evaluación Resumida WEP (Año por Venir)
+
+| Banda | Proyección | Expedientes/Eventos |
+|-------|-----------|---------------------|
+| **Casi Seguro** | La gran coalición mantiene mayoría para el apoyo a Ucrania | Presupuesto 2027 compromiso Ucrania; resoluciones AFET |
+| **Casi Seguro** | Presupuesto UE 2027 adoptado antes de enero de 2027 | La presidencia danesa cumple |
+| **Casi Seguro** | Reglamentos de ejecución GPAI de la Ley de IA publicados | Obligación legal; Comisión vinculada |
+| **Probable** | ReArm Europe adoptado con amplia coalición | Pleno octubre 2026 |
+| **Probable** | Las bajadas de tipos del BCE continúan durante 2026 | Normalización de la inflación |
+| **Chances Iguales** | Crisis de implementación de la LRN (lobby agrícola triunfa) | Controversia ENVI 2026 |
+| **Improbable** | El PPE cambia formalmente a una estrategia de coalición de derechas | La aritmética de coalición lo impide |
+| **Casi Sin Posibilidades** | Alguna votación del PE viola las obligaciones del tratado de la UE | Restricción constitucional |
+
+**Admiralty: B3** — Análisis basado en datos estructurales fiables del PE; el horizonte de previsión a 12 meses conlleva una incertidumbre inherente.
+
+---
+
+*Resumen ejecutivo completo · Admiralty B3 · WEP aplicado · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Briefing para Lectores
+
+**Para jefes de gobierno:** EP10 Año 2 es el año en que la transformación colectiva de defensa de la UE se consolida (votación ReArm de octubre de 2026) o se estanca. El cálculo de seguridad de su país para 2027–2030 depende significativamente de lo que ocurra en la sala del pleno del PE en octubre de 2026. Los gobiernos polaco y bálticos deberían estar más activamente comprometidos con los eurodiputados del PPE y el ECR durante este período.
+
+**Para empresas:** La ventana octubre–noviembre de 2026 es cuando se finaliza el Presupuesto UE 2027. Cada programa de la UE que importa a su empresa — subvenciones Horizon Europe, acceso a fondos de cohesión, contratos de defensa SAFE, certeza de cumplimiento SFDR — está en juego simultáneamente. El compromiso presupuestario y de asociaciones comerciales debería intensificarse en septiembre–octubre de 2026.
+
+**Para ciudadanos:** Las tres decisiones que más directamente afectan su vida cotidiana son: (1) ¿Aumenta la UE el gasto en defensa (sus impuestos)?; (2) ¿Sobrevive el Pacto Verde (su medio ambiente)?; (3) ¿Cómo funciona el Pacto de Migración en la práctica (su seguridad fronteriza y sistema de asilo)? Las tres alcanzan momentos decisivos en otoño de 2026.
+
+---
+
+*Resumen ejecutivo: Inteligencia política de calidad Economist para el año 2026–2027 del Parlamento Europeo · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief Fi
+
+### Strateginen Tilannearvio
+
+Euroopan parlamentti aloittaa kymmenennen toimikautensa (2024–2029) toisen vuoden kriittisessä käännekohdassa. 717 jäsenellä yhdeksän poliittisen ryhmän kesken voimakkaasti pirstoutuneessa kokouksessa instituutio kohtaa hallintomaiseman, jota määrittävät monijärjestelmäriippuvuudet, äärioikeiston kasvava aggressiivisuus sekä Euroopan komission kunnianhimoinen lainsäädäntöohjelma, joka edellyttää puoluerajat ylittäviä kompromisseja lähes jokaisessa äänestyksessä. Luontevan enemmistökoalition puuttuminen — EPP (183 paikkaa) tarvitsisi yhteensä vähintään 177 lisä-ääntä ylittääkseen 360 paikan kynnysarvon — tarkoittaa, että jokainen merkittävä lainsäädäntötulos on riitelyn kohteena.
+
+Tuleva vuosi (toukokuu 2026–toukokuu 2027) kehittyy geopoliittisen turbulenssin taustaa vasten: Ukrainan ja Venäjän välinen sota muokkaa edelleen puolustusmenokeskustelua, transatlanttinen kauppakiistoja elvyttää EU:n kauppapolitiikan prioriteetteja, ja EU:n vihreän siirtymän ohjelma kohtaa vastustusta kansallisen tason poliittisilta muutoksilta Ranskassa, Saksassa ja Puolassa. Nämä ulkoiset paineet läpäisevät käytännöllisesti katsoen jokaisen parlamentin asialistalla olevan lainsäädäntöasian.
+
+**Keskeiset Strategiset Havainnot:**
+
+1. **Koalitiopirstoutuminen on määräävä rakenteellinen rajoite.** Fragmentaatioindeksin ollessa luokiteltu KORKEAKSI ja efektiivisen puoluekokouksen ollessa 6,58, ei kahden ryhmän enemmistöä ole olemassa. Perinteinen EPP–S&D-suurkoalitio (319 yhteistä paikkaa) jää 41 paikkaa alle 360 enemmistörajan. Tämä edellyttää rakenteellisesti Renew Europen 77 ääntä tai ad hoc -yhdistelmiä oikealta.
+
+2. **EPP–ECR–PfE-akseli on parlamentin häiritsevin voima.** EPP (183) + ECR (81) + PfE (85) = 349 paikkaa — vain 11 paikkaa enemmistöstä. Kun tämä oikeisto-keskustablokki koheree tietyissä asioissa (maahanmuutto, rajavalvonta, maatalouden sääntelyn purkaminen), se voi estää tai muokata progressiivista lainsäädäntöä. Valikoivan asiakysymyskohtaisen konvergenssin todennäköisyys on KORKEA. 🟡
+
+3. **Renew Europe on ratkaiseva swing-ryhmä.** 77 paikallaan Renewillä on rakenteellinen veto-oikeus: ilman sitä keski-vasemmistoblokki (EPP+S&D = 319) eikä konservatiivinen koalitio (EPP+ECR+PfE = 349) yksin saavuta enemmistökynnystä. Renewin sisäiset ideologiset jännitteet — sen markkinointimarkkinamalliliberaalien saksalaisten ja pohjoismaisten delegaatioiden sekä sääntelyä kannattavien ranskalaisten ja belgialaisten siipien välillä — testataan toistuvasti vuonna 2026.
+
+4. **Vihreän sopimuksen lainsäädäntöputki on edelleen kiistelty mutta elossa.** Komission vuoden 2026 työohjelma sisältää kriittiset luontojen ennallistamislakia koskevat täytäntöönpanoasetukset, CBAM:n (hiilirajajärjestelmän) vaiheistusaikataulut ja kestävyyteen liittyvien tietojen julkistamisasetuksen (SFDR) tarkistuksen. Jokainen asiakirja kohtaa koalition rakentamisen haasteen, jossa PfE ja osat ECR:stä pyrkivät heikentäviin muutosehdotuksiin.
+
+5. **Puolustus ja Ukraina pysyvät parlamentin korkeimman prioriteetin asialistakohteina.** 500 miljardin euron ReArm Europe -välineistö ja Ukrainan laajennetut taloudelliset tukipaketit (tammikuussa 2026 hyväksytyn Ukraina-lainasäädännön jälkeen) hallitsevat budjetti- ja AFET-valiokunnan asialistaa koko vuoden 2026 ajan. Laajapohjainen ryhmien välinen konsensus Ukrainan tuesta pysyy suurelta osin eheänä, mutta sekä puolustuksen että perinteisten koheesio- ja maataloussiirtojen rahoittamisen taloudellinen laskutoimitus on akuutisti riitanalainen.
+
+6. **IMF-taloustiedot saatavilla ole — finanssipoliittinen konteksti perustuu yksinomaan EP-dataan.** 🔴 IMF SDMX-yhdyskäytävä palautti HTTP 204 -virheen vaiheen A datan keräämisen aikana. Kaikki tämän analyysin taloudellinen konteksti on peräisin EP:n hyväksymistä teksteistä ja parlamentaarisista keskusteluista. Makrotaloudelliset ennusteet ja finanssipoliittisen kestävyyden arvioinnit tulisi ristiintarkistaa erikseen ECB/Eurostat-lähteistä.
+
+---
+
+### Prioriteettiset Lainsäädäntöasiat Tulevalle Vuodelle
+
+| Asia | Johtava Valiokunta | Koalitiokulku | Riskitaso |
+|------|-------------------|---------------|-----------|
+| Luontojen ennallistamislain täytäntöönpano | ENVI | EPP+S&D+Renew (hauras) | 🔴 KORKEA |
+| EU–Mercosur-kauppasopimuksen ratifiointi | INTA | EPP+Renew+ECR (S&D jaettu) | 🟡 MEDIUM |
+| Eurooppalainen puolustusalan teollinen strategia (EDIS) | AFET/ITRE | Laaja konsensus ilman Vasemmistoa | 🟢 MATALA |
+| SFDR-tarkistus | ECON | EPP+Renew+S&D (kiistelty) | 🟡 MEDIUM |
+| Kriittisten lääkevalmisteiden kehys | ENVI/SANT | Laaja (jo hyväksytty TA-10-2026-0001) | 🟢 MATALA |
+| Turvapaikan ja maahanmuuton sopimuksen täytäntöönpano | LIBE | EPP+ECR+PfE vs. S&D+Renew | 🔴 KORKEA |
+| Euroopan vaalilain uudistus | AFCO | Pattiasema — ratifiointiesteissä pysyy | 🔴 KORKEA |
+| Digitaalinen infrastruktuuri / suvereniteetti | ITRE | EPP+Renew+S&D | 🟡 MEDIUM |
+| Säästö- ja investointiunioni (SIU) | ECON | EPP+Renew+ECR | 🟡 MEDIUM |
+| Suostumukseen perustuva raiskauslainsäädäntö (EU-kehys) | FEMM/LIBE | S&D+Renew+Greens+Vasemmisto | 🟡 MEDIUM |
+| Meridiplomaatia / Kalastus | PECH | Pirstoutunut (kansalliset edut hallitsevat) | 🟡 MEDIUM |
+| EIP-uudistus / Vuosikertomus | CONT/BUDG | Laaja (seurantaposisio) | 🟢 MATALA |
+
+---
+
+### Täysistuntokalenteri — Kohokohdat (Toukokuu 2026–Toukokuu 2027)
+
+Perustuu vahvistettuun EP:n täysistuntosuunnitteluun (data: EP Open Data Portal, 2026-05-10):
+
+- **Toukokuu 2026:** Strasbourg-istunto 18.–21. toukokuuta (seuraava istunto 8 päivän kuluttua); Bryssel 27. toukokuuta
+- **Kesäkuu 2026:** Strasbourg 15.–18. kesäkuuta; Bryssel 24. kesäkuuta
+- **Heinäkuu 2026:** Strasbourg 6.–9. heinäkuuta (ennen kesätaukoa)
+- **Syyskuu 2026:** Strasbourg 14.–17. syyskuuta; Bryssel 30. syyskuuta (paluu kesätauolta)
+- **Lokakuu 2026:** Strasbourg 19.–22. lokakuuta; Bryssel 28.–29. lokakuuta
+- **Marraskuu 2026:** Strasbourg 23.–26. marraskuuta; Bryssel 25. marraskuuta
+- **Joulukuu 2026:** Strasbourg 14.–17. joulukuuta (Budjetin täysistunto — kriittinen)
+- **Tammikuu 2027:** Strasbourg 18.–21. tammikuuta; Bryssel 27. tammikuuta
+- **Helmikuu 2027:** Strasbourg 8.–11. helmikuuta; Bryssel 24. helmikuuta
+- **Maaliskuu 2027:** Strasbourg 9.–12. maaliskuuta; Bryssel 25.–26. maaliskuuta
+- **Huhtikuu 2027:** Strasbourg (päivämäärät vahvistetaan)
+- **Toukokuu 2027:** Strasbourg (EP:n toimikauden puoliväli lähestyy)
+
+**Joulukuun budjetti-istunto** on kalenterivuoden yksittäisesti ratkaisevimmat kokous. EU:n budjetin 2027 debatti, puolustustäydennysneuvottelut ja Ukraina-välineen tarkastelut yhdistyvät monipäiväiseksi äänestysmaratoniksi.
+
+---
+
+### Poliittisen Tiedustelun Prioriteetit
+
+#### 1. Äärioikeiston Institutionaalisen Kypsymisen Ongelma
+PfE (85 paikkaa) ja ESN (27 paikkaa) pitävät yhdessä 112 paikkaa — 15,6 % parlamentista. Toisin kuin EP8:n EFDD- tai ENF-ryhmät, sekä PfE että ESN ovat yhä institutionaalisesti kykeneviä: ne pitävät valiokuntien varapuheenjohtajuuksia, osallistuvat aktiivisesti trilogeihin ja esittävät yksityiskohtaisia lainsäädäntömuutosehdotuksia. Äärioikeiston siirtyminen protestipolitiikasta transaktiolliseen lainsäädännölliseen vaikutusvaltaan on rakenteellinen trendi, jota on seurattava tarkimmin vuoteen 2027 asti.
+
+#### 2. S&D:n Puristettu Asema
+S&D (136 paikkaa, 18,97 %) kohtaa strategisen dilemman: se on toiseksi suurin ryhmä, mutta ei voi rakentaa enemmistöä ilman EPP:tä (kompromissit oikealle) tai Renew'tä (centristinen mutta usein liiketoimintaystävällinen). Sosiaali- ja työmarkkinapoliittisissa asioissa S&D:n vasenta siipeä haastaa yhä enemmän Vasemmisto (45 paikkaa) ja Greens/EFA (53 paikkaa), jotka pyrkivät vahvempiin kannanottoihin. S&D:n kyky ylläpitää sisäistä yhteenkuuluvuutta 25 kansallisen puolueen kesken — mukaan lukien SPD (Saksa vaalien jälkeen), PS (Ranska oppositiossa) ja PES-liitännäiset CEE:ssä — testataan.
+
+#### 3. Komissio–Parlamenttisuhteet von der Leyen II:n Toimeksiannon Aikana
+Toinen von der Leyen -komissio, vahvistettu vuoden 2024 lopussa, toimii eksplisiittisemmällä oikeisto-keskiluokka-mandaatilla kuin Komissio I. Komission "yksinkertaistamisagenda" (sääntelytaakan vähentäminen) on yhdenmukainen EPP:n ja Renew'n kanssa, mutta aiheuttaa kitkaa S&D:n, Greensin ja Vasemmiston kanssa. ECON- ja ENVI-valiokunnat toimivat institutionaalisina taistelutantereinaan tälle jännitteelle.
+
+#### 4. EU–USA:n Kauppakehyksen Epävarmuus
+Huhtikuussa 2026 tehty EU–Mercosur-kauppasopimuksen äänestys (kahdenvälinen suojalauseke) osoittaa parlamentin mielialan kaupan vapauttamisesta: kiistelty mutta lopulta tukeva, kun toimitusvarmuus ja vastavuoroisuus on käsitelty. USA–EU-tullineuvottelujen suunta (Trumpin kauppatoimien jälkeen) muokkaa INTA-valiokunnan asialistaa neljänteen kvartaaliin 2026 asti.
+
+---
+
+### Institutionaaliset Prosessi-indikaattorit
+
+- **Hyväksytyt Tekstit Vuoden Alusta (2026):** 100+ tekstiä hyväksytty (EP Open Data, toukokuuhun 2026 asti), mukaan lukien kriittiset asiakirjat lääkkeistä, rahoitusvakaudesta, vaalireformista, lennokeista/sodankäynnistä, digitaalisesta suvereniteetistä ja Ukrainan tuesta.
+- **Valiokuntien Toiminta:** AFET, ECON, ENVI, ITRE, LIBE ja INTA ovat aktiivisimmat valiokunnat. PECH ja FEMM käsittelevät erityisiä kiistanalaisia asioita.
+- **Parlamentaariset Kysymykset:** Suulliset ja kirjalliset kysymykset tekoälyhallinnosta, disinformaatiosta, puolustushankinnoista ja maatalousmaan keskittymisestä ovat kasvavia indikaattoreita nousevista asialistan prioriteeteista.
+- **Vakausindeksi:** 84/100 (EP:n varhainen varoitusjärjestelmä, 2026-05-10). KORKEA fragmentaatiovaroitus aktiivinen; hallitsevan ryhmän (EPP) konsentraatioriski merkitty KORKEAKSI.
+
+---
+
+### Luotettavuusarvio
+
+| Alue | Luotettavuus | Perusta |
+|------|-------------|--------|
+| Ryhmien paikkajakaumakoostumus | 🟢 KORKEA | Reaaliaikainen EP Open Data (717 MEP, 9 ryhmää) |
+| Koalitiokulun analyysi | 🟡 MEDIUM | Kokovertailun proxyt; ei äänestystason koheesiodataa saatavilla |
+| Lainsäädäntöputken ennuste | 🟡 MEDIUM | EP-syötteet + hyväksytyt tekstit; ei yksityiskohtaista trilogidata |
+| Taloudellinen konteksti | 🔴 MATALA | IMF-yhdyskäytävä saatavilla ole; kaikki makrokonteksti poisjätetty alennetun tilan protokollan mukaan |
+| Täysistuntokalenteri | 🟢 KORKEA | EP:n vahvistettu istuntoaikataulu |
+| Uhkien arvioinnit | 🟡 MEDIUM | Rakenteellinen analyysi; ei salaisluokiteltua tiedustelua |
+
+---
+
+### IMF-Saatavuushäiriöilmoitus
+
+🔴 **IMF-Data Ei Saatavilla (Alennettu Tila Aktiivinen)**
+
+IMF SDMX API -yhdyskäytävä palautti HTTP 204:n tässä ajossa vaiheen A luotauksessa (2026-05-10T19:05:XX UTC). Yhtään IMF-makrotaloudellista dataa (BKT-kasvu, inflaatio, finanssivaje, vaihtotase, EKP:n ohjaamiskorko) ei ole lainattu tässä analyysissa. Luotaussummary tallennetaan polkuun `cache/imf/probe-summary.json`. Kaikki talouspolitiikan konteksti on peräisin yksinomaan EP:n hyväksymistä teksteistä, parlamentaarisista keskusteluista ja EKP/Eurostatin viitteistä, jotka ovat saatavilla EP Open Datan kautta. IMF:n vähimmäisvaatimuksista on luovuttu tässä ajossa `08-infrastructure.md §4`:n alennetun tilan protokollan mukaisesti.
+
+Makrotaloudellista kontekstia tarvitsevien analyytikkojen tulisi tutustua IMF World Economic Outlookiin (huhtikuu 2026 -painos) ja EKP:n taloudelliseen tiedotteeseen (numero 3, 2026) erikseen.
+
+---
+
+*Lähde: Euroopan parlamentin Open Data Portal (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Strateginen Tiedustelun Arviointi: 5 Avainpäätöstä Vuosina 2026–2027
+
+#### Päätös 1: Puolustussopimus
+**Mitä tapahtuu:** EP äänestää ReArm Europe -rahoitusasetuksesta — tavoite lokakuu 2026
+**Kuka päättää:** EPP+S&D+Renew-koalitio (todennäköisesti >450 ääntä; ECR ehdollinen tuki)
+**Mikä on panoksena:** EU:n kyky uskottavasti pelotella Venäjän aggressiota; Puolan ja Baltian maiden turvallisuustakuu
+**Tiedustelun arvio:** Lähes Varmaa (>95%), että lainsäädäntö hyväksytään; kiista koskee yksityiskohtia (ehdollisuus, valvonta, lainat vs. avustukset)
+
+#### Päätös 2: Budjettisopimus
+**Mitä tapahtuu:** EU:n budjetin 2027 sovittelumenettely — marras–joulukuu 2026
+**Kuka päättää:** EP:n ja neuvoston sovittelukomitea; Tanskan puheenjohtajuuden välitys
+**Mikä on panoksena:** 200+ miljardin euron EU-menojen jakaminen viimeiselle MFF 2021–2027-vuodelle; ennakkotapaus MFF 2028–2034:lle
+**Tiedustelun arvio:** Todennäköistä (70%), että sovittelu onnistuu ennen joulua 2026; jos epäonnistuu, sovelletaan väliaikaisia kahdestoistavuosiosia (suuri poliittinen epäonnistuminen)
+
+#### Päätös 3: Muuttoliikkeen Selvitys
+**Mitä tapahtuu:** Muuttoliikesopimuksen solidaarisuusmekanismin ensimmäinen todellinen testi — käynnissä 2026
+**Kuka päättää:** LIBE-valiokunta johtaa; täysistunnon päätöslauselma todennäköisesti neljännellä kvartaalilla 2026
+**Mikä on panoksena:** Pitääkö EU:n uusi muuttoliikehallinnan lähestymistapa todellisen paineen alla
+**Tiedustelun arvio:** Tasan (50%) todennäköisyys, että solidaarisuusmekanismin ensimmäinen aktivointi laukaisee poliittisen kriisin EP:ssä; lähes varmaa, että LIBE tuottaa kiistanalaisen päätöslauselman
+
+#### Päätös 4: Tekoälyhallinnon Standardi
+**Mitä tapahtuu:** Tekoälyasetus GPAI:n täytäntöönpanoasetukset tulevat voimaan
+**Kuka päättää:** Komissio esittää; ITRE/LIBE tarkastelee; ei vastalausetta = voimaantulo
+**Mikä on panoksena:** EU:sta tulee globaali tekoälyhallinnon standardinasettaja
+**Tiedustelun arvio:** Lähes Varmaa (95%), että GPAI-säännöt tulevat voimaan vuoden 2026 loppuun mennessä; kiista koskee korkean riskin luokittelun laajuutta
+
+#### Päätös 5: Vihreän Sopimuksen Selviytymistesti
+**Mitä tapahtuu:** NRL:n kansalliset toimintasuunnitelmat erääntyvät; maatalouslobbyisti vastaoffensiivi; ENVI-seurantapäätöslauselma
+**Kuka päättää:** ENVI-valiokunta ja täysistunnon enemmistö
+**Mikä on panoksena:** Selviääkö EU:n biodiversiteettikehys ensimmäisestä täytäntöönpanotestistä
+**Tiedustelun arvio:** Epätodennäköistä (<35%), että NRL kumotaan muodollisesti; todennäköistä (65%), että täytäntöönpanoa pehmennetään maatalouskompensaatiomekanismeilla
+
+---
+
+### WEP Yhteenvetoarvio (Tuleva Vuosi)
+
+| Kaista | Ennuste | Asiat/Tapahtumat |
+|--------|---------|-----------------|
+| **Lähes Varmaa** | Suurkoalitio ylläpitää enemmistön Ukrainan tuelle | Budjetti 2027 Ukraina-sitoumus; AFET-päätöslauselmat |
+| **Lähes Varmaa** | EU:n budjetti 2027 hyväksytty ennen tammikuuta 2027 | Tanskan puheenjohtajuus toimittaa |
+| **Lähes Varmaa** | Tekoälyasetus GPAI:n täytäntöönpanoasetukset julkaistu | Oikeudellinen velvollisuus; komissio sitoutunut |
+| **Todennäköistä** | ReArm Europe hyväksytty laajalla koalitiolla | Lokakuun 2026 täysistunto |
+| **Todennäköistä** | EKP:n korkolaskut jatkuvat vuoden 2026 ajan | Inflaation normalisoituminen |
+| **Tasan** | NRL:n täytäntöönpanokriisi (maatalouslobby onnistuu) | ENVI-kiista 2026 |
+| **Epätodennäköistä** | EPP siirtää muodollisesti oikeistokokoalitiosta strategiaan | Koalitioaritmetiikka estää |
+| **Lähes Ei Mahdollisuutta** | Mikään EP-äänestys ei riko EU:n sopimusvelvoitteita | Perustuslaillinen rajoite |
+
+**Admiralty: B3** — Analyysi perustuu luotettavaan EP:n rakenteelliseen dataan; 12 kuukauden eteenpäin suuntautuva horisontti sisältää luontaista epävarmuutta.
+
+---
+
+*Johtava yhteenveto valmis · Admiralty B3 · WEP sovellettu · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Lukijalle Suunnattu Yhteenveto
+
+**Valtion johtajille:** EP10 Vuosi 2 on vuosi, jolloin EU:n kollektiivinen puolustusmuutos joko lukittuu (lokakuun 2026 ReArm-äänestys) tai pysähtyy. Maasi turvallisuuskalkyyli vuosille 2027–2030 riippuu merkittävästi siitä, mitä tapahtuu EP:n täysistuntosalissa lokakuussa 2026. Puolan ja Baltian maiden hallitusten tulisi olla aktiivisimmin tekemisissä EPP:n ja ECR:n MEP-jäsenten kanssa tänä aikana.
+
+**Yrityksille:** Lokakuu–marraskuun 2026 ikkuna on se, kun EU:n budjetti 2027 viimeistellään. Jokainen EU-ohjelma, joka on tärkeä yrityksellesi — Horizon Europe -avustukset, koheesiorahoituksen saatavuus, SAFE-puolustussopimukset, SFDR-vaatimustenmukaisuusvarmuus — on pelissä samanaikaisesti. Budjetti- ja toimialajärjestöjen sitoutumista tulisi tehostaa syys-lokakuussa 2026.
+
+**Kansalaisille:** Kolme päätöstä, jotka vaikuttavat eniten jokapäiväiseen elämääsi, ovat: (1) Kasvattaako EU puolustusmenojaan (sinun verosi); (2) Selviääkö vihreä sopimus (sinun ympäristösi); (3) Miten muuttoliikesopimus toimii käytännössä (rajaturvallisuutesi ja turvapaikkajärjestelmäsi). Kaikki kolme saavuttavat ratkaisevat hetket syksyllä 2026.
+
+---
+
+*Johtava yhteenveto: Economist-tason poliittinen tiedustelu EU-parlamentin tulevalle vuodelle 2026–2027 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief Fr
+
+### Évaluation Stratégique de la Situation
+
+Le Parlement européen entame la deuxième année de sa dixième législature (2024–2029) à un tournant décisif. Avec 717 eurodéputés répartis en neuf groupes politiques au sein d'une assemblée très fragmentée, l'institution est confrontée à un paysage de gouvernance marqué par des dépendances de coalitions multiples, une extrême droite de plus en plus affirmée et un programme législatif ambitieux de la Commission qui exige des compromis interpartis à presque chaque vote. L'absence d'une coalition majoritaire naturelle — le PPE (183 sièges) aurait besoin de partenaires totalisant au moins 177 voix supplémentaires pour atteindre le seuil de 360 sièges — signifie que chaque résultat législatif majeur sera contesté.
+
+L'année à venir (mai 2026–mai 2027) se déroule sur fond de turbulences géopolitiques : la guerre Ukraine-Russie continue de façonner les débats sur les dépenses de défense, les tensions commerciales transatlantiques réétalonnent les priorités de la politique commerciale de l'UE, et l'agenda de transition verte de l'UE fait face à une résistance des évolutions politiques nationales en France, en Allemagne et en Pologne. Ces pressions extérieures imprégneront pratiquement chaque dossier législatif à l'ordre du jour du Parlement.
+
+**Principales Conclusions Stratégiques :**
+
+1. **La fragmentation des coalitions est la contrainte structurelle déterminante.** Avec un Indice de Fragmentation classifié comme ÉLEVÉ et un Nombre Effectif de Partis à 6,58, aucune majorité à deux groupes n'existe. La grande coalition traditionnelle PPE–S&D (319 sièges combinés) est à 41 sièges en dessous du seuil de majorité de 360. Cela nécessite structurellement les 77 voix de Renew Europe ou des combinaisons ad hoc à droite.
+
+2. **L'axe PPE–ECR–PfE est la force la plus perturbatrice du Parlement.** PPE (183) + ECR (81) + PfE (85) = 349 sièges — à seulement 11 sièges d'une majorité. Lorsque ce bloc de centre droit se coagule sur des dossiers spécifiques (migration, contrôle des frontières, déréglementation agricole), il peut bloquer ou reformuler la législation progressive. La probabilité d'une convergence sélective dossier par dossier est ÉLEVÉE. 🟡
+
+3. **Renew Europe est le groupe pivot décisif.** Avec 77 sièges, Renew détient un veto structurel : sans lui, ni le bloc de centre gauche (PPE+S&D = 319) ni une coalition conservatrice (PPE+ECR+PfE = 349) n'atteint seul le seuil de majorité. Les tensions idéologiques internes de Renew — entre ses délégations libérales-de-marché allemandes et nordiques et ses ailes pro-réglementaires françaises et belges — seront maintes fois mises à l'épreuve en 2026.
+
+4. **Le pipeline législatif du Pacte vert reste contesté mais vivant.** Le programme de travail de la Commission pour 2026 comprend des règlements d'exécution critiques de la loi sur la restauration de la nature, les calendriers de montée en charge du MACF (mécanisme d'ajustement carbone aux frontières) et la révision du règlement sur la publication d'informations en matière de durabilité (SFDR). Chaque dossier fait face à un défi de construction de coalition dans lequel PfE et des parties de l'ECR chercheront des amendements affaiblissants.
+
+5. **La défense et l'Ukraine restent les points à l'ordre du jour les plus prioritaires du Parlement.** La facilité ReArm Europe de 500 milliards d'euros et les paquets d'assistance financière renforcés à l'Ukraine (suite au règlement relatif au prêt à l'Ukraine adopté en janvier 2026) domineront l'ordre du jour de la commission du budget et de l'AFET tout au long de 2026. Le consensus intergroupes sur le soutien à l'Ukraine demeure largement intact, mais l'arithmétique fiscale pour financer à la fois la défense et les transferts traditionnels de cohésion et agricoles est vivement contestée.
+
+6. **Données économiques du IMF indisponibles — contexte budgétaire basé uniquement sur les données du PE.** 🔴 La passerelle IMF SDMX a retourné HTTP 204 lors de la collecte de données de la Phase A. Tout contexte économique dans cette analyse est dérivé des textes adoptés par le PE et des débats parlementaires. Les projections macroéconomiques et les évaluations de la viabilité budgétaire devraient être croisées avec des sources BCE/Eurostat séparément.
+
+---
+
+### Dossiers Législatifs Prioritaires pour l'Année à Venir
+
+| Dossier | Commission chef de file | Voie de coalition | Niveau de risque |
+|---------|------------------------|-------------------|-----------------|
+| Mise en œuvre de la loi sur la restauration de la nature | ENVI | PPE+S&D+Renew (fragile) | 🔴 ÉLEVÉ |
+| Ratification de l'accord commercial UE-Mercosur | INTA | PPE+Renew+ECR (S&D divisé) | 🟡 MOYEN |
+| Stratégie industrielle européenne de défense (EDIS) | AFET/ITRE | Large consensus moins La Gauche | 🟢 FAIBLE |
+| Révision du SFDR | ECON | PPE+Renew+S&D (contesté) | 🟡 MOYEN |
+| Cadre pour les médicaments critiques | ENVI/SANT | Large (déjà adopté TA-10-2026-0001) | 🟢 FAIBLE |
+| Mise en œuvre du pacte sur l'asile et la migration | LIBE | PPE+ECR+PfE vs. S&D+Renew | 🔴 ÉLEVÉ |
+| Réforme de la loi électorale européenne | AFCO | Bloqué — obstacles à la ratification persistants | 🔴 ÉLEVÉ |
+| Infrastructure numérique / Souveraineté | ITRE | PPE+Renew+S&D | 🟡 MOYEN |
+| Union de l'épargne et des investissements (UEI) | ECON | PPE+Renew+ECR | 🟡 MOYEN |
+| Législation sur le viol basée sur le consentement (cadre UE) | FEMM/LIBE | S&D+Renew+Greens+La Gauche | 🟡 MOYEN |
+| Diplomatie maritime / Pêche | PECH | Fragmenté (intérêts nationaux dominants) | 🟡 MOYEN |
+| Réforme de la BEI / Rapport annuel | CONT/BUDG | Large (posture de surveillance) | 🟢 FAIBLE |
+
+---
+
+### Points Forts du Calendrier Plénier (Mai 2026–Mai 2027)
+
+Basé sur le planning plénier EP confirmé (données : Portail Open Data PE, 2026-05-10) :
+
+- **Mai 2026 :** Session de Strasbourg du 18 au 21 mai (prochaine séance dans 8 jours) ; Bruxelles 27 mai
+- **Juin 2026 :** Strasbourg 15–18 juin ; Bruxelles 24 juin
+- **Juillet 2026 :** Strasbourg 6–9 juillet (avant la pause estivale)
+- **Septembre 2026 :** Strasbourg 14–17 sept. ; Bruxelles 30 sept. (retour de la pause estivale)
+- **Octobre 2026 :** Strasbourg 19–22 oct. ; Bruxelles 28–29 oct.
+- **Novembre 2026 :** Strasbourg 23–26 nov. ; Bruxelles 25 nov.
+- **Décembre 2026 :** Strasbourg 14–17 déc. (Plénière budgétaire — critique)
+- **Janvier 2027 :** Strasbourg 18–21 jan. ; Bruxelles 27 jan.
+- **Février 2027 :** Strasbourg 8–11 févr. ; Bruxelles 24 févr.
+- **Mars 2027 :** Strasbourg 9–12 mar. ; Bruxelles 25–26 mar.
+- **Avril 2027 :** Strasbourg (dates à confirmer)
+- **Mai 2027 :** Strasbourg (mi-mandat du PE approche)
+
+**La session budgétaire de décembre** sera la séance la plus décisive de l'année civile. Le débat sur le budget UE 2027, les négociations sur le supplément de défense et les examens de la facilité pour l'Ukraine convergeront en un marathon de votes de plusieurs jours.
+
+---
+
+### Priorités du Renseignement Politique
+
+#### 1. Le Problème de la Maturisation Institutionnelle de l'Extrême Droite
+PfE (85 sièges) et ESN (27 sièges) détiennent ensemble 112 sièges — 15,6 % du Parlement. Contrairement aux groupes EFDD ou ENF du PE8, PfE et ESN sont de plus en plus capables sur le plan institutionnel : ils détiennent des vice-présidences de commission, s'engagent activement dans les trilogues et soumettent des amendements législatifs détaillés. La transition de l'extrême droite de la politique de protestation à l'influence législative transactionnelle est la tendance structurelle à surveiller le plus étroitement jusqu'en 2027.
+
+#### 2. La Position en Étau du S&D
+S&D (136 sièges, 18,97 %) est confronté à un dilemme stratégique : c'est le deuxième groupe le plus grand mais il ne peut pas construire une majorité sans soit le PPE (compromis vers la droite) soit Renew (centriste mais souvent favorable aux entreprises). Sur les dossiers sociaux et du travail, l'aile gauche du S&D est de plus en plus contestée par La Gauche (45 sièges) et Greens/EFA (53 sièges), qui cherchent des positions plus fortes. La capacité du S&D à maintenir la cohésion interne entre 25 partis nationaux — dont le SPD (Allemagne après les élections), le PS (France dans l'opposition) et les affiliés PES en CEE — sera mise à l'épreuve.
+
+#### 3. Relations Commission–Parlement Sous le Mandat von der Leyen II
+La deuxième Commission von der Leyen, confirmée fin 2024, opère avec un mandat de centre droit plus explicite que la Commission I. L'«agenda de simplification» de la Commission (réduction des charges réglementaires) s'aligne sur le PPE et Renew mais génère des frictions avec S&D, Greens et La Gauche. Les commissions ECON et ENVI serviront de champs de bataille institutionnels pour cette tension.
+
+#### 4. Incertitude sur le Cadre Commercial UE–États-Unis
+Le vote d'avril 2026 sur l'accord commercial UE-Mercosur (clause de sauvegarde bilatérale) signale l'humeur du Parlement sur la libéralisation commerciale : contesté mais finalement favorable lorsque la sécurité d'approvisionnement et la réciprocité sont abordées. La trajectoire des négociations tarifaires UE-États-Unis (après les mesures commerciales de Trump) façonnera l'ordre du jour de la commission INTA jusqu'au T4 2026.
+
+---
+
+### Indicateurs du Processus Institutionnel
+
+- **Textes Adoptés Depuis le Début de l'Année (2026) :** Plus de 100 textes adoptés (EP Open Data, jusqu'à mai 2026), dont des dossiers critiques sur les médicaments, la stabilité financière, la réforme électorale, les drones/guerre, la souveraineté numérique et le soutien à l'Ukraine.
+- **Activité des Commissions :** AFET, ECON, ENVI, ITRE, LIBE et INTA sont les commissions les plus actives. PECH et FEMM portent des dossiers spécifiques contestés.
+- **Questions Parlementaires :** Les questions orales et écrites sur la gouvernance de l'IA, la désinformation, les marchés publics de défense et la concentration des terres agricoles sont des indicateurs croissants des priorités émergentes de l'agenda.
+- **Score de Stabilité :** 84/100 (système d'alerte précoce du PE, 2026-05-10). Avertissement de HAUTE fragmentation actif ; risque de concentration du groupe dominant (PPE) signalé comme ÉLEVÉ.
+
+---
+
+### Évaluation de la Confiance
+
+| Domaine | Confiance | Base |
+|---------|----------|------|
+| Composition des sièges des groupes | 🟢 ÉLEVÉE | EP Open Data en temps réel (717 eurodéputés, 9 groupes) |
+| Analyse des voies de coalition | 🟡 MOYENNE | Proxys de similarité de taille ; pas de données de cohésion au niveau des votes disponibles |
+| Prévision du pipeline législatif | 🟡 MOYENNE | Flux PE + textes adoptés ; pas de données granulaires sur les trilogues |
+| Contexte économique | 🔴 FAIBLE | Passerelle IMF indisponible ; tout contexte macro omis par protocole de mode dégradé |
+| Calendrier plénier | 🟢 ÉLEVÉE | Calendrier de session confirmé du PE |
+| Évaluations des menaces | 🟡 MOYENNE | Analyse structurelle ; pas de renseignements classifiés |
+
+---
+
+### Avis d'Indisponibilité du IMF
+
+🔴 **Données IMF Indisponibles (Mode Dégradé Actif)**
+
+La passerelle API IMF SDMX a retourné HTTP 204 lors de la sonde Stage A de cette exécution (2026-05-10T19:05:XX UTC). Aucune donnée macroéconomique du IMF (croissance du PIB, inflation, déficit budgétaire, compte courant, taux directeur de la BCE) n'est citée dans cette analyse. Le résumé de la sonde est enregistré sous `cache/imf/probe-summary.json`. Tout contexte de politique économique est dérivé exclusivement des textes adoptés par le PE, des débats parlementaires et des références BCE/Eurostat disponibles via EP Open Data. Les exigences minimales du IMF sont levées pour cette exécution conformément au protocole de mode dégradé dans `08-infrastructure.md §4`.
+
+Les analystes ayant besoin d'un contexte macroéconomique devraient consulter séparément le IMF World Economic Outlook (édition d'avril 2026) et le Bulletin économique de la BCE (numéro 3, 2026).
+
+---
+
+*Source : Portail Open Data du Parlement européen (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Évaluation du Renseignement Stratégique : 5 Décisions Clés en 2026–2027
+
+#### Décision 1 : Le Pacte de Défense
+**Ce qui se passe :** Le PE vote sur le règlement de financement ReArm Europe — cible octobre 2026
+**Qui décide :** Coalition PPE+S&D+Renew (probablement >450 voix ; ECR soutien conditionnel)
+**Ce qui est en jeu :** Capacité de l'UE à dissuader de manière crédible l'agression russe ; garantie de sécurité pour la Pologne et les États baltes
+**Évaluation du renseignement :** Presque Certain (>95%) que la législation sera adoptée ; le différend porte sur les détails (conditionnalité, supervision, prêts vs. subventions)
+
+#### Décision 2 : Le Compromis Budgétaire
+**Ce qui se passe :** Conciliation sur le budget UE 2027 — novembre–décembre 2026
+**Qui décide :** Comité de conciliation PE-Conseil ; médiation de la présidence danoise
+**Ce qui est en jeu :** Distribution de plus de 200 milliards d'euros de dépenses UE pour la dernière année du CFP 2021–2027 ; précédent pour le CFP 2028–2034
+**Évaluation du renseignement :** Probable (70%) que la conciliation réussisse avant Noël 2026 ; si elle échoue, des douzièmes provisoires s'appliquent (échec politique majeur)
+
+#### Décision 3 : Le Règlement de Compte sur la Migration
+**Ce qui se passe :** Premier vrai test du mécanisme de solidarité du Pacte Migration — en cours 2026
+**Qui décide :** Commission LIBE en tête ; résolution en plénière probable T4 2026
+**Ce qui est en jeu :** Si la nouvelle approche de l'UE en matière de gestion migratoire tient sous pression réelle
+**Évaluation du renseignement :** Chances Égales (50%) que la première activation du mécanisme de solidarité déclenche une crise politique au PE ; Presque Certain que LIBE produit une résolution controversée
+
+#### Décision 4 : La Norme de Gouvernance IA
+**Ce qui se passe :** Les règlements d'exécution GPAI de la loi sur l'IA entrent en vigueur
+**Qui décide :** La Commission présente ; ITRE/LIBE examine ; pas d'objection = entrée en vigueur
+**Ce qui est en jeu :** L'UE devient le référent mondial de la gouvernance IA
+**Évaluation du renseignement :** Presque Certain (95%) que les règles GPAI entrent en vigueur d'ici fin 2026 ; le différend porte sur la portée de la classification à haut risque
+
+#### Décision 5 : Le Test de Survie du Pacte Vert
+**Ce qui se passe :** Plans d'action nationaux NRL dus ; contre-offensive du lobby agricole ; résolution de surveillance ENVI
+**Qui décide :** Commission ENVI et majorité en plénière
+**Ce qui est en jeu :** Si le cadre UE de biodiversité survit à son premier test de mise en œuvre
+**Évaluation du renseignement :** Improbable (<35%) que la NRL soit formellement abrogée ; Probable (65%) que la mise en œuvre soit assouplie via des mécanismes de compensation agricole
+
+---
+
+### Évaluation Récapitulative WEP (Année à Venir)
+
+| Bande | Projection | Dossiers/Événements |
+|-------|-----------|---------------------|
+| **Presque Certain** | La grande coalition maintient la majorité pour le soutien à l'Ukraine | Budget 2027 engagement Ukraine ; résolutions AFET |
+| **Presque Certain** | Budget UE 2027 adopté avant janvier 2027 | La présidence danoise livre |
+| **Presque Certain** | Règlements d'exécution GPAI de la loi sur l'IA publiés | Obligation légale ; Commission liée |
+| **Probable** | ReArm Europe adopté avec large coalition | Plénière octobre 2026 |
+| **Probable** | Les baisses de taux de la BCE se poursuivent en 2026 | Normalisation de l'inflation |
+| **Chances Égales** | Crise de mise en œuvre NRL (lobby agricole réussit) | Controverse ENVI 2026 |
+| **Improbable** | Le PPE passe formellement à une stratégie de coalition de droite | L'arithmétique de coalition l'empêche |
+| **Presque Aucune Chance** | Un vote PE viole les obligations du traité UE | Contrainte constitutionnelle |
+
+**Admiralty : B3** — Analyse basée sur des données structurelles PE fiables ; l'horizon prévisionnel de 12 mois comporte une incertitude inhérente.
+
+---
+
+*Note exécutive complète · Admiralty B3 · WEP appliqué · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Briefing pour les Lecteurs
+
+**Pour les chefs de gouvernement :** EP10 Année 2 est l'année où la transformation collective de la défense de l'UE se consolide (vote ReArm d'octobre 2026) ou s'enlise. Le calcul sécuritaire de votre pays pour 2027–2030 dépend significativement de ce qui se passe dans la salle de plénière du PE en octobre 2026. Les gouvernements polonais et baltes devraient être les plus activement engagés avec les eurodéputés PPE et ECR durant cette période.
+
+**Pour les entreprises :** La fenêtre octobre–novembre 2026 est celle où le budget UE 2027 est finalisé. Chaque programme UE qui compte pour votre entreprise — financements Horizon Europe, accès aux fonds de cohésion, contrats de défense SAFE, certitude de conformité SFDR — est en jeu simultanément. L'engagement budgétaire et associatif devrait être intensifié en septembre–octobre 2026.
+
+**Pour les citoyens :** Les trois décisions qui affectent le plus directement votre vie quotidienne sont : (1) L'UE augmente-t-elle les dépenses de défense (vos impôts) ; (2) Le Pacte vert survit-il (votre environnement) ; (3) Comment le Pacte Migration fonctionne-t-il en pratique (votre sécurité aux frontières et votre système d'asile). Les trois atteignent des moments décisifs à l'automne 2026.
+
+---
+
+*Note exécutive : Renseignement politique de qualité Economist pour l'année 2026–2027 du Parlement européen · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief He
+
+**סיווג:** פתוח · **הופק:** 2026-05-10 · **סוג מאמר:** year-ahead · **אמינות:** 🟡 בינונית
+
+---
+
+### הערכת המצב האסטרטגי
+
+הפרלמנט האירופי פותח את השנה השנייה של הכהונה העשירית (2024–2029) בנקודת מפנה קריטית. עם 717 חברים המפולגים לתשע קבוצות פוליטיות באסיפה מפוצלת מאוד, ניצב המוסד בפני דינמיקת ממשל המאופיינת בתלות בקואליציות מרובות, אגף ימין קיצוני אסרטיבי יותר ויותר, ואג'נדה חקיקתית שאפתנית מהוועדה הדורשת פשרות חוצות-מחנות בכמעט כל הצבעה. היעדר קואליציית רוב טבעית — מפלגת העם האירופית (183 מושבים) צריכה שותפים עם לפחות 177 קולות נוספים להגיע לסף 360 — פירושו שכל תוצאה חקיקתית מרכזית תהיה שנויה במחלוקת.
+
+השנה הקרובה (מאי 2026 – מאי 2027) מתפתחת על רקע תסיסה גיאו-פוליטית: מלחמת רוסיה-אוקראינה ממשיכה לעצב את הדיונים על ההוצאה הביטחונית, המתחים המסחריים הטרנס-אטלנטיים מכוונים מחדש את סדרי עדיפויות מדיניות הסחר האירופית, ואג'נדת המעבר הירוק של האיחוד האירופי נתקלת בהתנגדות גוברת משינויים פוליטיים לאומיים בצרפת, גרמניה ופולין.
+
+**ממצאים אסטרטגיים מרכזיים:**
+
+1. **פיצול הקואליציה הוא המגבלה המבנית הקובעת.** עם מדד פיצול המדורג גבוה ומספר אפקטיבי של מפלגות 6.58, אין רוב של שתי קבוצות. הקואליציה הגדולה המסורתית EPP–S&D (319 מושבים משולבים) חסרה 41 מושבים לסף הרוב של 360.
+
+2. **ציר EPP–ECR–PfE הוא הכוח המפריע ביותר בפרלמנט.** EPP (183) + ECR (81) + PfE (85) = 349 מושבים — 11 מושבים בלבד מרוב. כשגוש ימין-מרכז זה מתאחד בנושאים ספציפיים, הוא יכול לחסום או לעצב מחדש חקיקה פרוגרסיבית.
+
+3. **Renew Europe היא כוח ציר מכריע.** עם 77 מושבים, ל-Renew יש וטו מבני: ללא תמיכתה, אף גוש — מרכז-שמאל (EPP+S&D=319) ולא קואליציה שמרנית (EPP+ECR+PfE=349) — אינו מגיע לסף הרוב בכוחות עצמו.
+
+4. **צנרת החקיקה של עסקת הירוק נשארת שנויה במחלוקת אך חיה.** תוכנית העבודה של הוועדה לשנת 2026 כוללת תקנות יישום קריטיות לחוק שיקום הטבע, לוחות זמנים לכניסה ל-CBAM, ומחדש של SFDR. כל תיק עומד בפני אתגרי גיבוש קואליציה.
+
+5. **ביטחון ואוקראינה נשארים הנושאים הדחופים ביותר בסדר יום הפרלמנט.** מתקן ReArm Europe בשווי 500 מיליארד יורו יחד עם חבילות תמיכה פיננסית מורחבות לאוקראינה ישלטו בסדר יום ועדות התקציב ו-AFET.
+
+6. **נתוני IMF אינם זמינים — הקשר פיסקלי מבוסס אך ורק על נתוני ה-EP.** 🔴 שער IMF SDMX החזיר HTTP 204 במהלך איסוף נתוני שלב A. כל ההקשר הכלכלי בניתוח זה נשאב מטקסטים שאומצו על ידי ה-EP ומדיונים פרלמנטריים.
+
+---
+
+### תיקי חקיקה בעדיפות לשנה הקרובה
+
+| תיק | ועדה מובילה | נתיב קואליציה | רמת סיכון |
+|-----|------------|--------------|----------|
+| יישום חוק שיקום הטבע | ENVI | EPP+S&D+Renew (שביר) | 🔴 גבוהה |
+| אשרור הסכם הסחר EU-Mercosur | INTA | EPP+Renew+ECR (S&D מפוצל) | 🟡 בינונית |
+| האסטרטגיה הביטחונית-תעשייתית האירופית (EDIS) | AFET/ITRE | קונצנזוס רחב מלבד The Left | 🟢 נמוכה |
+| סקירת SFDR | ECON | EPP+Renew+S&D (שנוי במחלוקת) | 🟡 בינונית |
+| מסגרת תרופות קריטיות | ENVI/SANT | רחב (כבר אומץ TA-10-2026-0001) | 🟢 נמוכה |
+| יישום הסכם ההגירה והמקלט | LIBE | EPP+ECR+PfE נגד S&D+Renew | 🔴 גבוהה |
+| רפורמת חוק הבחירות האירופי | AFCO | חסום — מכשולי אשרור נמשכים | 🔴 גבוהה |
+| תשתיות דיגיטליות / ריבונות | ITRE | EPP+Renew+S&D | 🟡 בינונית |
+| איחוד החיסכון וההשקעות (SIU) | ECON | EPP+Renew+ECR | 🟡 בינונית |
+| חקיקת אונס מבוססת הסכמה (מסגרת EU) | FEMM/LIBE | S&D+Renew+Greens+The Left | 🟡 בינונית |
+| דיפלומטיית אוקיינוסים / דיג | PECH | מפוצל (אינטרסים לאומיים שולטים) | 🟡 בינונית |
+| רפורמת EIB / דוח שנתי | CONT/BUDG | רחב (עמדת פיקוח) | 🟢 נמוכה |
+
+---
+
+### לוח שנה מליאה — נקודות ציון (מאי 2026 – מאי 2027)
+
+מבוסס על לוח הישיבות המאושר של ה-EP (נתונים: EP Open Data Portal, 2026-05-10):
+
+- **מאי 2026:** ישיבת שטרסבורג 18–21 מאי; בריסל 27 מאי
+- **יוני 2026:** שטרסבורג 15–18 יוני; בריסל 24 יוני
+- **יולי 2026:** שטרסבורג 6–9 יולי (לפני פגרת הקיץ)
+- **ספטמבר 2026:** שטרסבורג 14–17 ספטמבר; בריסל 30 ספטמבר
+- **אוקטובר 2026:** שטרסבורג 19–22 אוקטובר; בריסל 28–29 אוקטובר
+- **נובמבר 2026:** שטרסבורג 23–26 נובמבר; בריסל 25 נובמבר
+- **דצמבר 2026:** שטרסבורג 14–17 דצמבר (מליאת תקציב — קריטי)
+- **ינואר 2027:** שטרסבורג 18–21 ינואר; בריסל 27 ינואר
+- **פברואר 2027:** שטרסבורג 8–11 פברואר; בריסל 24 פברואר
+- **מרץ 2027:** שטרסבורג 9–12 מרץ; בריסל 25–26 מרץ
+- **אפריל 2027:** שטרסבורג (תאריכים ייקבעו)
+- **מאי 2027:** שטרסבורג (מחצית הכהונה הפרלמנטרית מתקרבת)
+
+---
+
+### סדרי עדיפויות של מודיעין פוליטי
+
+#### 1. בעיית הבגרות המוסדית של הימין הקיצוני
+PfE (85 מושבים) ו-ESN (27 מושבים) יחד מחזיקים ב-112 מושבים — 15.6% מהפרלמנט. בניגוד לקבוצות EFDD או ENF בכהונה ה-8, הימין הקיצוני הופך יותר ויותר לבעל יכולת מוסדית: מחזיק בסגני יושב-ראש ועדה, משתתף פעיל במשולשים, ומגיש תיקונים חקיקתיים מפורטים. המעבר מפוליטיקת מחאה להשפעה חקיקתית עסקאית הוא המגמה המבנית שיש לעקוב אחריה באדיקות עד 2027.
+
+#### 2. עמדתה הכבולה של S&D
+S&D (136 מושבים, 18.97%) ניצבת לפני דילמה אסטרטגית: הסיעה השנייה בגודלה אך לא מסוגלת ליצור רוב ללא EPP (פשרות ימינה) או Renew (מרכז אך לרוב ידידות עסקים). The Left (45 מושבים) וה-Greens/EFA (53 מושבים) מאתגרות את הירושה הפרוגרסיבית.
+
+#### 3. יחסי ועדה-פרלמנט תחת כהונת פון דר ליין השנייה
+ועדת פון דר ליין השנייה, שאושרה בסוף 2024, פועלת עם מנדט ימין-מרכז מפורש יותר. אג'נדת "הפשטת" הועדה מייצרת חיכוך עם S&D, Greens ו-The Left.
+
+#### 4. אי-ודאות במסגרת הסחר EU–ארה"ב
+מסלול משא ומתן על תעריפים EU-ארה"ב (בעקבות מהלכי טראמפ המסחריים) יעצב את סדר יום ועדת INTA עד Q4 2026.
+
+---
+
+### מחוונים של תהליכים מוסדיים
+
+- **טקסטים שאומצו מתחילת השנה (2026):** 100+ טקסטים אומצו, כולל תיקים קריטיים בנושא תרופות, יציבות פיננסית, רפורמת זכות הצבעה, כלי טיס, ריבונות דיגיטלית ותמיכה באוקראינה.
+- **פעילות ועדות:** AFET, ECON, ENVI, ITRE, LIBE ו-INTA הן הועדות הפעילות ביותר.
+- **ציון יציבות:** 84/100 (מערכת האזהרה המוקדמת של ה-EP, 2026-05-10). אזהרת פיצול גבוה פעילה.
+
+---
+
+### הערכת אמינות
+
+| תחום | אמינות | בסיס |
+|------|--------|------|
+| הרכב מושבי סיעות | 🟢 גבוהה | נתונים פתוחים בזמן אמת של ה-EP |
+| ניתוח נתיב קואליציה | 🟡 בינונית | שאלות גודל-דמיון-פרוקסי |
+| תחזית צנרת חקיקה | 🟡 בינונית | פידים של EP + טקסטים שאומצו |
+| הקשר כלכלי | 🔴 נמוכה | שער IMF לא זמין |
+| לוח שנה מליאה | 🟢 גבוהה | לוח ישיבות מאושר של EP |
+| הערכות איום | 🟡 בינונית | ניתוח מבני |
+
+---
+
+### הודעה על אי-זמינות IMF
+
+🔴 **נתוני IMF אינם זמינים (מצב מתדרדר פעיל)**
+
+שער IMF SDMX החזיר HTTP 204 במהלך בדיקת שלב A של ריצה זו (2026-05-10T19:05:XX UTC). לא מצוטטים נתוני מאקרו-כלכלה של IMF בניתוח זה. דרישות מינימום IMF פטורות לריצה זו לפי פרוטוקול המצב המתדרדר. המנתחים הזקוקים להקשר מאקרו-כלכלי מוזמנים לעיין בנפרד ב-IMF World Economic Outlook (מהדורת אפריל 2026) ובעלון ה-ECB הכלכלי (גיליון 3, 2026).
+
+---
+
+*מקור: EP Open Data Portal (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### הערכת מודיעין אסטרטגי: 5 החלטות מפתח ב-2026–2027
+
+#### החלטה 1: הסכם הביטחון
+**מה קורה:** ה-EP מצביע על תקנת מימון ReArm Europe — יעד אוקטובר 2026
+**מי מחליט:** קואליציית EPP+S&D+Renew (סביר >450 קולות; ECR תמיכה מותנית)
+**מה על הכף:** יכולת האיחוד האירופי להרתיע בצורה אמינה תוקפנות רוסית
+**הערכת מודיעין:** כמעט בטוח (>95%) שהחקיקה תאומץ; המחלוקת היא על הפרטים
+
+#### החלטה 2: הסכם התקציב
+**מה קורה:** תהליך גישור תקציב האיחוד האירופי לשנת 2027 — נובמבר–דצמבר 2026
+**מי מחליט:** ועדת גישור EP-מועצה; יו"ר דני מגשר
+**מה על הכף:** חלוקת 200+ מיליארד יורו של הוצאות האיחוד האירופי
+**הערכת מודיעין:** סביר (70%) שהגישור יצליח לפני חג המולד 2026
+
+#### החלטה 3: פסיקת ההגירה
+**מה קורה:** המבחן הראשון האמיתי של מנגנון הסולידריות של הסכם ההגירה — שוטף 2026
+**מי מחליט:** ועדת LIBE בחזית; החלטת מליאה סביר Q4 2026
+**מה על הכף:** האם הגישה האירופית החדשה לניהול הגירה תעמוד בלחץ
+**הערכת מודיעין:** חמישים-חמישים (50%) שהפעלת מנגנון הסולידריות הראשונה תחולל משבר פוליטי
+
+#### החלטה 4: תקן ממשל AI
+**מה קורה:** תקנות יישום GPAI של חוק ה-AI נכנסות לתוקף
+**מי מחליט:** הוועדה מגישה; ITRE/LIBE בוחנות; אין התנגדות = כניסה לתוקף
+**מה על הכף:** האיחוד האירופי הופך לקובע תקני ממשל AI עולמי
+**הערכת מודיעין:** כמעט בטוח (95%) שכללי GPAI ייכנסו לתוקף בסוף 2026
+
+#### החלטה 5: מבחן ההישרדות של עסקת הירוק
+**מה קורה:** תוכניות פעולה לאומיות של NRL פגות; התקפת נגד של לוביסטים חקלאיים; החלטת ניטור ENVI
+**מי מחליט:** ועדת ENVI ורוב מליאה
+**מה על הכף:** האם מסגרת המגוון הביולוגי של האיחוד האירופי תשרוד את מבחן היישום הראשון
+**הערכת מודיעין:** לא סביר (<35%) שה-NRL יבוטל רשמית
+
+---
+
+### הערכת סיכום WEP (שנה קרובה)
+
+| רצועה | תחזית | תיקים/אירועים |
+|-------|--------|--------------|
+| **כמעט בטוח** | קואליציה גדולה שומרת על רוב לתמיכה באוקראינה | תקציב 2027 מחויבות אוקראינה; החלטות AFET |
+| **כמעט בטוח** | תקציב האיחוד האירופי 2027 אומץ לפני ינואר 2027 | נשיאות דנמרק מספקת |
+| **כמעט בטוח** | תקנות יישום GPAI של חוק ה-AI מפורסמות | חובה חוקית; הוועדה מחויבת |
+| **סביר** | ReArm Europe אומצה עם קואליציה רחבה | מליאת אוקטובר 2026 |
+| **סביר** | הורדות ריבית ECB ממשיכות ב-2026 | נורמליזציית אינפלציה |
+| **חמישים-חמישים** | משבר יישום NRL (לוביסטים חקלאיים מצליחים) | מחלוקת ENVI 2026 |
+| **לא סביר** | EPP עוברת רשמית לאסטרטגיית קואליציה ימנית יותר | מניעה חשבונאית של קואליציה |
+| **כמעט בלתי אפשרי** | הצבעה כלשהי בפרלמנט מפרה התחייבויות האמנה של האיחוד האירופי | מגבלה חוקתית |
+
+**דרגת אדמירלות: B3** — ניתוח המבוסס על נתונים מבניים אמינים של EP; אופק של 12 חודשים כולל אי-ודאות מובנית.
+
+---
+
+*תקציר מנהלים מלא · דרגת אדמירלות B3 · WEP מיושם · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### הבריפינג לקוראים
+
+**למנהיגי ממשלות:** שנה 2 של EP10 היא השנה שבה טרנספורמציית הביטחון הקולקטיבית של האיחוד האירופי מתמצקת (הצבעת ReArm אוקטובר 2026) או נתקעת. חשבון הביטחון של מדינתכם ל-2027–2030 תלוי במידה משמעותית במה שיקרה במליאת ה-EP באוקטובר 2026.
+
+**לעסקים:** חלון אוקטובר–נובמבר 2026 הוא מועד גיבוש תקציב האיחוד האירופי לשנת 2027. כל תוכנית אירופית שחשובה לעסקיכם — מענקי Horizon Europe, גישה לקרנות לכידות, חוזי SAFE ביטחוניים, ודאות ציות SFDR — עומדת על הכף בעת ובעונה אחת.
+
+**לאזרחים:** שלוש ההחלטות שישפיעו הכי ישירות על חיי היום-יום שלכם: (1) האם האיחוד האירופי יגדיל הוצאות ביטחוניות (המסים שלכם); (2) האם עסקת הירוק תשרוד (הסביבה שלכם); (3) איך הסכם ההגירה עובד בפועל (ביטחון הגבול ומערכת המקלט שלכם). שלושתם מגיעים לנקודות מכריעות בסתיו 2026.
+
+---
+
+*תקציר מנהלים: מודיעין פוליטי ברמת איכות The Economist לפרלמנט האירופי 2026–2027 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief Ja
+
+**分類：** 公開 · **作成日：** 2026-05-10 · **記事種別：** year-ahead · **信頼度：** 🟡 中程度
+
+---
+
+### 戦略的状況評価
+
+欧州議会は第10会期（2024年〜2029年）の2年目を重大な転換点で迎えています。9つの政治グループに分かれた717名の議員を擁する高度に分断されたこの議会は、複数連立依存・より積極的になった極右勢力・ほぼすべての票決で党派横断的な妥協を必要とする欧州委員会の野心的な立法アジェンダという統治ダイナミクスに直面しています。自然な過半数連立が存在しないこと——欧州人民党（EPP、183議席）は360議席の過半数に達するために少なくともさらに177票が必要——は、すべての主要な立法成果が争われることを意味します。
+
+今後1年間（2026年5月〜2027年5月）は、地政学的混乱を背景に展開されます。ロシア・ウクライナ戦争は防衛支出に関する議論を引き続き左右し、大西洋横断の貿易摩擦はEU貿易政策の優先事項を再編し、EUのグリーン・トランジション・アジェンダはフランス・ドイツ・ポーランドにおける国内政治の変化からの反発に直面しています。
+
+**主要戦略的知見：**
+
+1. **連立の断片化が決定的な構造的制約です。** 断片化指数が高く、有効政党数が6.58であるため、2党による過半数は存在しません。伝統的なEPP–S&D大連立（合計319議席）は360議席の過半数に41議席届きません。これは構造的にRenew Europe（77票）か右派の臨時連立を必要とします。
+
+2. **EPP–ECR–PfE枢軸が議会で最も攪乱的な勢力です。** EPP（183）＋ECR（81）＋PfE（85）＝349議席——過半数まであと11議席。この中道右派ブロックが移民・国境管理・農業規制緩和などの特定課題で結束すると、進歩的な立法を阻止または改変できます。
+
+3. **Renew Europeが決定的な要の勢力です。** 77議席を持つRenewは構造的な拒否権を有しています：その支持なしには、中道左派ブロック（EPP+S&D=319）も保守連立（EPP+ECR+PfE=349）も単独で過半数に達しません。
+
+4. **グリーンディールの立法パイプラインは依然として争われつつも生きています。** 委員会の2026年作業計画には、自然回復法の重要な実施規則、炭素国境調整メカニズム（CBAM）の段階的スケジュール、持続可能な金融情報開示規制（SFDR）の見直しが含まれます。
+
+5. **防衛とウクライナは議会の最も緊急の議題として残ります。** 5,000億ユーロのReArm Europe施設とウクライナへの拡大財政支援パッケージが予算委員会とAFET委員会の議題を支配します。
+
+6. **IMFデータ入手不可——財政的文脈はEPデータのみに基づきます。** 🔴 フェーズAのデータ収集中にIMF SDMX APIゲートウェイがHTTP 204を返しました。この分析における経済的文脈はすべてEPが採択したテキストと議会討議から得られたものです。
+
+---
+
+### 今後1年間の優先立法ファイル
+
+| ファイル | 主導委員会 | 連立経路 | リスクレベル |
+|---------|-----------|---------|------------|
+| 自然回復法の実施 | ENVI | EPP+S&D+Renew（脆弱） | 🔴 高 |
+| EU–メルコスル貿易協定の批准 | INTA | EPP+Renew+ECR（S&D分裂） | 🟡 中 |
+| 欧州防衛産業戦略（EDIS） | AFET/ITRE | The Leftを除く広範な合意 | 🟢 低 |
+| SFDR見直し | ECON | EPP+Renew+S&D（争われている） | 🟡 中 |
+| 重要医薬品フレームワーク | ENVI/SANT | 広範（TA-10-2026-0001は既に採択） | 🟢 低 |
+| 亡命・移民協定の実施 | LIBE | EPP+ECR+PfE対S&D+Renew | 🔴 高 |
+| 欧州選挙法改革 | AFCO | 阻止——批准障害が続く | 🔴 高 |
+| デジタルインフラ/主権 | ITRE | EPP+Renew+S&D | 🟡 中 |
+| 貯蓄・投資連合（SIU） | ECON | EPP+Renew+ECR | 🟡 中 |
+| 同意に基づくレイプ法制（EUの枠組み） | FEMM/LIBE | S&D+Renew+Greens+The Left | 🟡 中 |
+| 海洋外交/漁業 | PECH | 断片化（国家利益が支配） | 🟡 中 |
+| EIB改革/年次報告 | CONT/BUDG | 広範（監視的立場） | 🟢 低 |
+
+---
+
+### 本会議カレンダー——主要日程（2026年5月〜2027年5月）
+
+EPの確定した本会議スケジュールに基づく（データ：EP Open Data Portal、2026-05-10）：
+
+- **2026年5月：** ストラスブール会期 5月18〜21日；ブリュッセル 5月27日
+- **2026年6月：** ストラスブール 6月15〜18日；ブリュッセル 6月24日
+- **2026年7月：** ストラスブール 7月6〜9日（夏季休会前）
+- **2026年9月：** ストラスブール 9月14〜17日；ブリュッセル 9月30日
+- **2026年10月：** ストラスブール 10月19〜22日；ブリュッセル 10月28〜29日
+- **2026年11月：** ストラスブール 11月23〜26日；ブリュッセル 11月25日
+- **2026年12月：** ストラスブール 12月14〜17日（予算本会議——重要）
+- **2027年1月：** ストラスブール 1月18〜21日；ブリュッセル 1月27日
+- **2027年2月：** ストラスブール 2月8〜11日；ブリュッセル 2月24日
+- **2027年3月：** ストラスブール 3月9〜12日；ブリュッセル 3月25〜26日
+- **2027年4月：** ストラスブール（日程確定予定）
+- **2027年5月：** ストラスブール（議会任期の中間点が近づく）
+
+---
+
+### 政治情報優先事項
+
+#### 1. 極右勢力の制度的成熟の問題
+PfE（85議席）とESN（27議席）は合わせて112議席——議会の15.6%。第8会期のEFDD・ENFグループとは異なり、PfEとESNはますます制度的に有能になっています：委員会副委員長ポストを保有し、三者協議に積極的に参加し、詳細な立法修正案を提出しています。抗議政治から取引的な立法影響力への移行は2027年まで最も注目すべき構造的趨勢です。
+
+#### 2. S&Dの閉塞した立場
+S&D（136議席、18.97%）は戦略的ジレンマに直面しています：第2の政治グループだが、EPP（右寄りの妥協）やRenew（中道だが多くの場合ビジネス寄り）なしには過半数を形成できません。The Left（45議席）とGreens/EFA（53議席）が進歩的な遺産をめぐって競合しています。
+
+#### 3. フォン・デア・ライエン委員会第2期における委員会・議会関係
+2024年末に発足した第2次フォン・デア・ライエン委員会は、第1次よりも明確な中道右派の委任事項で活動しています。委員会の「簡素化」アジェンダはS&D、Greens、The Leftとの摩擦を生んでいます。
+
+#### 4. EU–米国貿易フレームワークの不確実性
+EU–米国関税交渉（トランプの貿易措置後）の軌道がINTA委員会の2026年第4四半期までの議題を形成します。
+
+---
+
+### 制度的プロセス指標
+
+- **年初来採択テキスト（2026年）：** 100件以上のテキストが採択され、医薬品・金融安定・投票改革・ドローン・デジタル主権・ウクライナ支援に関する重要ファイルを含みます。
+- **委員会活動：** AFET、ECON、ENVI、ITRE、LIBE、INTAが最も活発な委員会です。
+- **安定スコア：** 84/100（EP早期警報システム、2026-05-10）。高断片化警告が発動中。
+
+---
+
+### 信頼度評価
+
+| 領域 | 信頼度 | 根拠 |
+|------|-------|------|
+| 会派議席構成 | 🟢 高 | EPリアルタイムオープンデータ（717名、9会派） |
+| 連立経路分析 | 🟡 中 | 規模類似プロキシ |
+| 立法パイプライン予測 | 🟡 中 | EPフィード＋採択テキスト |
+| 経済的文脈 | 🔴 低 | IMFゲートウェイ利用不可 |
+| 本会議カレンダー | 🟢 高 | EP確定会期スケジュール |
+| 脅威評価 | 🟡 中 | 構造的分析 |
+
+---
+
+### IMF利用不可通知
+
+🔴 **IMFデータ利用不可（縮退モード稼働中）**
+
+IMF SDMX APIゲートウェイは本ランのフェーズAプローブ中にHTTP 204を返しました（2026-05-10T19:05:XX UTC）。この分析ではIMFマクロ経済データは引用されていません。IMFの最低要件は縮退モードプロトコルに基づき本ランでは免除されます。マクロ経済的文脈を必要とするアナリストは、IMF世界経済見通し（2026年4月版）およびECB経済報告（第3号、2026年）を別途参照してください。
+
+---
+
+*出典：欧州議会オープンデータポータル（data.europarl.europa.eu）· Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### 戦略的情報評価：2026〜2027年の5つの重要決定
+
+#### 決定1：防衛協定
+**何が起きるか：** 欧州議会がReArm Europe資金調達規則について採決——目標：2026年10月
+**誰が決定するか：** EPP+S&D+Renew連立（おそらく450票以上；ECRが条件付き支持）
+**何が賭けられているか：** ロシアの侵略を信頼性を持って抑止するEUの能力
+**情報評価：** ほぼ確実（>95%）に立法が採択される；論争は詳細（条件付き・監視・融資対補助金）にある
+
+#### 決定2：予算合意
+**何が起きるか：** EU 2027年度予算の調停プロセス——2026年11月〜12月
+**誰が決定するか：** EP・理事会調停委員会；デンマーク議長国が仲介
+**何が賭けられているか：** 200億ユーロ以上のEU支出配分；MFF 2028〜2034の先例
+**情報評価：** クリスマス前2026年に調停が成功する確率は高い（70%）
+
+#### 決定3：移民の決算
+**何が起きるか：** 移民協定の連帯メカニズムの最初の実質的テスト——2026年通年
+**誰が決定するか：** LIBE委員会が先頭；2026年第4四半期に本会議決議が見込まれる
+**何が賭けられているか：** EUの移民管理の新アプローチが実際の圧力下で機能するか
+**情報評価：** 連帯メカニズムの最初の発動がEP内で政治的危機を引き起こす確率は五分五分（50%）
+
+#### 決定4：AIガバナンス基準
+**何が起きるか：** AI法のGPAI実施規則が発効
+**誰が決定するか：** 委員会が提案；ITRE/LIBEが審査；異議なし＝発効
+**何が賭けられているか：** EUがグローバルAIガバナンス基準設定者になる
+**情報評価：** ほぼ確実（95%）にGPAIルールが2026年末までに発効
+
+#### 決定5：グリーンディール存続テスト
+**何が起きるか：** NRL国家行動計画が期限切れ；農業ロビーの反撃；ENVI監視決議
+**誰が決定するか：** ENVI委員会と本会議過半数
+**何が賭けられているか：** EUの生物多様性フレームワークが最初の実施テストを生き延びるか
+**情報評価：** NRLが正式に廃止される可能性は低い（<35%）
+
+---
+
+### WEP要約評価（今後1年間）
+
+| バンド | 予測 | ファイル/イベント |
+|-------|------|----------------|
+| **ほぼ確実** | 大連立がウクライナ支援の過半数を維持 | 2027年度予算ウクライナ誓約；AFET決議 |
+| **ほぼ確実** | EU 2027年度予算が2027年1月前に採択 | デンマーク議長国が実現 |
+| **ほぼ確実** | AI法GPAI実施規則が公布 | 法的義務；委員会が拘束される |
+| **ほぼ確実** | ReArm Europeが広範な連立で採択 | 2026年10月本会議 |
+| **可能性あり** | ECBの利下げが2026年も継続 | インフレの正常化 |
+| **五分五分** | NRL実施危機（農業ロビーが成功） | 2026年ENVI論争 |
+| **可能性低い** | EPPが正式により右傾化した連立戦略に転換 | 連立計算が阻む |
+| **ほぼあり得ない** | 議会内の議決がEU条約上の義務に違反 | 憲法上の制約 |
+
+**海軍元帥評価：B3** — EUPの信頼性の高い構造的データに基づく分析；12ヶ月の先読みには本質的な不確実性がある。
+
+---
+
+*エグゼクティブ・ブリーフ完結 · 海軍元帥評価B3 · WEP適用済み · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### 読者へのブリーフィング
+
+**政府指導者へ：** EP10の第2年は欧州EUの集団的防衛変容が定着する年（ReArm採決 2026年10月）か停滞する年かが決まります。2027〜2030年のあなたの国の安全保障計算は2026年10月のEP本会議で起きることに大きく依存しています。
+
+**ビジネス界へ：** 2026年10月〜11月のウィンドウは2027年EU予算が確定する時期です。あなたのビジネスに関わるすべてのEUプログラム——Horizon Europe助成金・結束基金へのアクセス・SAFE防衛契約・SFDRコンプライアンスの確実性——が同時に賭けられています。
+
+**市民へ：** あなたの日常生活に最も直接影響する3つの決定：（1）EUが防衛支出を増やすか（あなたの税金）；（2）グリーンディールが生き残るか（あなたの環境）；（3）移民協定が実際にどう機能するか（あなたの国境安全と庇護制度）。3つとも2026年秋に決定的な局面を迎えます。
+
+---
+
+*エグゼクティブ・ブリーフ：2026〜2027年欧州議会に関するエコノミスト品質の政治情報 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief Ko
+
+**분류:** 공개 · **작성일:** 2026-05-10 · **기사 유형:** year-ahead · **신뢰도:** 🟡 보통
+
+---
+
+### 전략적 상황 평가
+
+유럽의회는 제10대(2024~2029) 임기 2년차를 중대한 전환점에서 맞이하고 있습니다. 9개 정치 그룹에 717명의 의원이 분산된 고도로 분열된 이 의회는 다중 연립 의존, 점점 더 적극적으로 변하는 극우 세력, 거의 모든 표결에서 당파를 초월한 타협을 요구하는 집행위원회의 야심 찬 입법 의제라는 거버넌스 역학에 직면해 있습니다. 자연스러운 과반수 연립이 존재하지 않는 상황에서——유럽국민당(EPP, 183석)은 360석의 과반수 기준선에 도달하기 위해 최소 177표가 더 필요——모든 주요 입법 결과가 논쟁적일 수밖에 없습니다.
+
+향후 1년(2026년 5월~2027년 5월)은 지정학적 격동을 배경으로 전개됩니다. 러시아-우크라이나 전쟁은 방위비 지출 논의를 계속 형성하고, 대서양 양안의 무역 긴장은 EU 무역 정책 우선순위를 재편하며, EU의 녹색 전환 의제는 프랑스·독일·폴란드의 국내 정치 변화로부터 점증하는 반발에 직면해 있습니다.
+
+**핵심 전략적 발견:**
+
+1. **연립 분열이 결정적인 구조적 제약입니다.** 높게 분류된 분열 지수와 6.58의 유효 정당 수로 인해 2당 과반수는 존재하지 않습니다. 전통적인 EPP–S&D 대연립(합산 319석)은 360석의 과반수 기준선에 41석이 부족합니다.
+
+2. **EPP–ECR–PfE 축이 의회에서 가장 파괴적인 세력입니다.** EPP(183)+ECR(81)+PfE(85)=349석——과반수까지 불과 11석. 이 중도우파 블록이 이민·국경 통제·농업 규제 완화 같은 특정 사안에서 결집할 때, 진보적 입법을 차단하거나 개정할 수 있습니다.
+
+3. **Renew Europe이 결정적인 중추 세력입니다.** 77석으로 Renew는 구조적 거부권을 갖습니다: 그 지지 없이는 중도좌파 블록(EPP+S&D=319)도 보수 연립(EPP+ECR+PfE=349)도 단독으로 과반수 기준선에 도달하지 못합니다.
+
+4. **그린딜의 입법 파이프라인은 여전히 논쟁적이지만 살아있습니다.** 집행위원회의 2026년 작업 계획에는 자연복원법의 주요 이행 규정, 탄소국경조정메커니즘(CBAM) 단계적 일정, 지속가능금융공시규정(SFDR) 개정안이 포함됩니다.
+
+5. **방위와 우크라이나가 의회의 가장 긴급한 의제로 남아 있습니다.** 5,000억 유로 규모의 ReArm Europe 시설과 확대된 우크라이나 재정 지원 패키지가 예산·외교위원회(AFET) 의제를 지배할 것입니다.
+
+6. **IMF 데이터 이용 불가 — 재정적 맥락은 EP 데이터에만 근거합니다.** 🔴 IMF SDMX API 게이트웨이가 1단계 데이터 수집 중 HTTP 204를 반환했습니다. 이 분석의 모든 경제적 맥락은 EP 채택 텍스트와 의회 토론에서 도출되었습니다.
+
+---
+
+### 향후 1년 우선 입법 파일
+
+| 파일 | 주도 위원회 | 연립 경로 | 위험 수준 |
+|------|-----------|---------|---------|
+| 자연복원법 이행 | ENVI | EPP+S&D+Renew (취약) | 🔴 높음 |
+| EU-메르코수르 무역협정 비준 | INTA | EPP+Renew+ECR (S&D 분열) | 🟡 보통 |
+| 유럽방위산업전략(EDIS) | AFET/ITRE | The Left 제외 광범위한 합의 | 🟢 낮음 |
+| SFDR 개정 | ECON | EPP+Renew+S&D (논쟁 중) | 🟡 보통 |
+| 필수 의약품 프레임워크 | ENVI/SANT | 광범위(TA-10-2026-0001 이미 채택) | 🟢 낮음 |
+| 망명·이민 협약 이행 | LIBE | EPP+ECR+PfE 대 S&D+Renew | 🔴 높음 |
+| 유럽선거법 개혁 | AFCO | 차단 — 비준 장애물 지속 | 🔴 높음 |
+| 디지털 인프라/주권 | ITRE | EPP+Renew+S&D | 🟡 보통 |
+| 저축·투자 연합(SIU) | ECON | EPP+Renew+ECR | 🟡 보통 |
+| 동의에 기반한 강간법(EU 프레임워크) | FEMM/LIBE | S&D+Renew+Greens+The Left | 🟡 보통 |
+| 해양 외교/수산업 | PECH | 분열(국가 이익이 지배) | 🟡 보통 |
+| EIB 개혁/연간 보고 | CONT/BUDG | 광범위(감시적 자세) | 🟢 낮음 |
+
+---
+
+### 본회의 일정 — 주요 일정(2026년 5월~2027년 5월)
+
+EP 확정 본회의 일정에 근거함(데이터: EP 오픈 데이터 포털, 2026-05-10):
+
+- **2026년 5월:** 스트라스부르 회기 5월 18~21일; 브뤼셀 5월 27일
+- **2026년 6월:** 스트라스부르 6월 15~18일; 브뤼셀 6월 24일
+- **2026년 7월:** 스트라스부르 7월 6~9일(여름 휴회 전)
+- **2026년 9월:** 스트라스부르 9월 14~17일; 브뤼셀 9월 30일
+- **2026년 10월:** 스트라스부르 10월 19~22일; 브뤼셀 10월 28~29일
+- **2026년 11월:** 스트라스부르 11월 23~26일; 브뤼셀 11월 25일
+- **2026년 12월:** 스트라스부르 12월 14~17일(예산 본회의 — 중요)
+- **2027년 1월:** 스트라스부르 1월 18~21일; 브뤼셀 1월 27일
+- **2027년 2월:** 스트라스부르 2월 8~11일; 브뤼셀 2월 24일
+- **2027년 3월:** 스트라스부르 3월 9~12일; 브뤼셀 3월 25~26일
+- **2027년 4월:** 스트라스부르(날짜 확정 예정)
+- **2027년 5월:** 스트라스부르(의회 임기 중반점이 다가옴)
+
+---
+
+### 정치 정보 우선순위
+
+#### 1. 극우 세력의 제도적 성숙 문제
+PfE(85석)와 ESN(27석)은 합산 112석——의회의 15.6%. EP8기의 EFDD·ENF 그룹과 달리, PfE와 ESN은 점점 더 제도적으로 역량 있게 변하고 있습니다: 위원회 부의장직을 맡고, 삼자 협의에 적극 참여하며, 상세한 입법 수정안을 제출합니다. 항의 정치에서 거래적 입법 영향력으로의 전환은 2027년까지 가장 주목해야 할 구조적 추세입니다.
+
+#### 2. S&D의 구속된 위치
+S&D(136석, 18.97%)는 전략적 딜레마에 직면해 있습니다: 제2의 정치 그룹이지만 EPP(우측 타협) 또는 Renew(중도이지만 종종 친기업)없이는 과반수를 형성할 수 없습니다. The Left(45석)와 Greens/EFA(53석)가 진보적 유산을 두고 경쟁합니다.
+
+#### 3. 폰 데어 라이엔 2기 위원회 하에서의 위원회-의회 관계
+2024년 말 발족한 제2차 폰 데어 라이엔 위원회는 1기보다 더 명시적인 중도우파 위임으로 운영됩니다. 위원회의 "단순화" 의제는 S&D, Greens, The Left와 마찰을 일으킵니다.
+
+#### 4. EU-미국 무역 프레임워크의 불확실성
+EU-미국 관세 협상 궤적(트럼프의 무역 조치 이후)이 INTA 위원회의 2026년 4분기까지 의제를 형성합니다.
+
+---
+
+### 제도적 프로세스 지표
+
+- **연초 이후 채택 텍스트(2026년):** 100개 이상의 텍스트가 채택되었으며, 의약품·금융 안정·투표 개혁·드론·디지털 주권·우크라이나 지원에 관한 중요 파일을 포함합니다.
+- **위원회 활동:** AFET, ECON, ENVI, ITRE, LIBE, INTA가 가장 활발한 위원회입니다.
+- **안정성 점수:** 84/100(EP 조기 경보 시스템, 2026-05-10). 높은 분열 경고 발동 중.
+
+---
+
+### 신뢰도 평가
+
+| 영역 | 신뢰도 | 근거 |
+|------|-------|------|
+| 교섭단체 의석 구성 | 🟢 높음 | EP 실시간 오픈 데이터(717명, 9개 그룹) |
+| 연립 경로 분석 | 🟡 보통 | 규모 유사성 대리 지표 |
+| 입법 파이프라인 예측 | 🟡 보통 | EP 피드+채택 텍스트 |
+| 경제적 맥락 | 🔴 낮음 | IMF 게이트웨이 이용 불가 |
+| 본회의 일정 | 🟢 높음 | EP 확정 회기 일정 |
+| 위협 평가 | 🟡 보통 | 구조적 분석 |
+
+---
+
+### IMF 이용 불가 통지
+
+🔴 **IMF 데이터 이용 불가 (저하 모드 가동 중)**
+
+IMF SDMX API 게이트웨이는 이번 런의 1단계 프로브 중 HTTP 204를 반환했습니다(2026-05-10T19:05:XX UTC). 이 분석에서는 IMF 거시경제 데이터가 인용되지 않습니다. IMF 최소 요구 사항은 저하 모드 프로토콜에 따라 이번 런에서 면제됩니다. 거시경제적 맥락이 필요한 분석가는 IMF 세계경제전망(2026년 4월판) 및 ECB 경제 보고서(3호, 2026년)를 별도로 참고하시기 바랍니다.
+
+---
+
+*출처: 유럽의회 오픈 데이터 포털(data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### 전략적 정보 평가: 2026~2027년 5가지 핵심 결정
+
+#### 결정 1: 방위 협약
+**무슨 일이 일어나나:** 유럽의회가 ReArm Europe 자금 조달 규정에 표결 — 목표: 2026년 10월
+**누가 결정하나:** EPP+S&D+Renew 연립(450표 이상으로 예상; ECR 조건부 지지)
+**무엇이 걸려 있나:** 러시아의 공격을 신뢰할 수 있게 억지하는 EU의 능력
+**정보 평가:** 입법이 채택될 가능성이 거의 확실(>95%); 논쟁은 세부 사항에 있음
+
+#### 결정 2: 예산 합의
+**무슨 일이 일어나나:** EU 2027년도 예산 조정 절차 — 2026년 11월~12월
+**누가 결정하나:** EP-이사회 조정 위원회; 덴마크 의장국이 중재
+**무엇이 걸려 있나:** 2,000억 유로 이상의 EU 지출 배분
+**정보 평가:** 2026년 크리스마스 전 조정 성공 가능성(70%)
+
+#### 결정 3: 이민 결산
+**무슨 일이 일어나나:** 이민 협약 연대 메커니즘의 첫 번째 실질적 테스트 — 2026년 내내
+**누가 결정하나:** LIBE 위원회가 선봉; 2026년 4분기 본회의 결의 예상
+**무엇이 걸려 있나:** 새로운 EU 이민 관리 접근법이 실제 압력에서 유지되는지
+**정보 평가:** 연대 메커니즘 첫 발동이 EP 내 정치적 위기를 촉발할 가능성 오십오십(50%)
+
+#### 결정 4: AI 거버넌스 기준
+**무슨 일이 일어나나:** AI법 GPAI 이행 규정 발효
+**누가 결정하나:** 집행위원회가 제출; ITRE/LIBE 심사; 이의 없으면 발효
+**무엇이 걸려 있나:** EU가 글로벌 AI 거버넌스 기준 설정자가 됨
+**정보 평가:** GPAI 규정이 2026년 말까지 발효될 가능성 거의 확실(95%)
+
+#### 결정 5: 그린딜 생존 테스트
+**무슨 일이 일어나나:** NRL 국가 행동 계획 만료; 농업 로비의 반격; ENVI 모니터링 결의
+**누가 결정하나:** ENVI 위원회와 본회의 다수
+**무엇이 걸려 있나:** EU 생물다양성 프레임워크가 첫 번째 이행 테스트를 통과하는지
+**정보 평가:** NRL이 공식적으로 폐기될 가능성 낮음(<35%)
+
+---
+
+### WEP 요약 평가 (향후 1년)
+
+| 밴드 | 예측 | 파일/이벤트 |
+|-----|------|-----------|
+| **거의 확실** | 대연립이 우크라이나 지원 과반수 유지 | 2027년 예산 우크라이나 약속; AFET 결의 |
+| **거의 확실** | EU 2027년도 예산이 2027년 1월 전 채택 | 덴마크 의장국 실현 |
+| **거의 확실** | AI법 GPAI 이행 규정 공포 | 법적 의무; 집행위원회 구속 |
+| **가능성 높음** | ReArm Europe이 광범위한 연립으로 채택 | 2026년 10월 본회의 |
+| **가능성 높음** | ECB 금리 인하가 2026년에도 계속 | 인플레이션 정상화 |
+| **오십오십** | NRL 이행 위기(농업 로비 성공) | 2026년 ENVI 논쟁 |
+| **가능성 낮음** | EPP가 공식적으로 더 우편향된 연립 전략으로 전환 | 연립 계산이 방해 |
+| **거의 불가능** | 의회 표결이 EU 조약 의무 위반 | 헌법적 제약 |
+
+**제독 등급: B3** — 신뢰할 수 있는 EP 구조 데이터에 기반한 분석; 12개월 선행 지평은 본질적 불확실성을 수반합니다.
+
+---
+
+*집행 브리핑 완결 · 제독 등급 B3 · WEP 적용 · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### 독자 브리핑
+
+**정부 지도자에게:** EP10의 2년차는 EU의 집단적 방위 변환이 공고화되거나(ReArm 표결 2026년 10월) 교착 상태에 빠지는 해입니다. 2027~2030년 귀국의 안보 계산은 2026년 10월 EP 본회의에서 일어나는 일에 크게 달려 있습니다.
+
+**기업계에:** 2026년 10~11월은 EU 2027년도 예산이 확정되는 시기입니다. 귀사 사업에 중요한 모든 EU 프로그램——Horizon Europe 보조금, 결속 기금 접근, SAFE 방위 계약, SFDR 준수 확실성——이 동시에 걸려 있습니다.
+
+**시민에게:** 귀하의 일상생활에 가장 직접적으로 영향을 미치는 세 가지 결정: (1) EU가 방위비를 늘릴지(귀하의 세금); (2) 그린딜이 살아남을지(귀하의 환경); (3) 이민 협약이 실제로 어떻게 작동할지(귀하의 국경 안전과 망명 제도). 세 가지 모두 2026년 가을에 결정적인 시점을 맞이합니다.
+
+---
+
+*집행 브리핑: 2026~2027년 유럽의회에 관한 이코노미스트 수준 정치 정보 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief Nl
+
+### Strategische Situatiebeoordeling
+
+Het Europees Parlement begint het tweede jaar van zijn tiende zittingsperiode (2024–2029) op een kritiek keerpunt. Met 717 leden verdeeld over negen politieke fracties in een sterk gefragmenteerde vergadering staat de instelling voor een bestuursdynamiek die wordt gekenmerkt door multi-coalitieafhankelijkheden, een steeds assertievere extreem-rechtse flank en een ambitieuze wetgevingsagenda van de Commissie die bij vrijwel elke stemming compromissen over partijgrenzen heen vereist. Het ontbreken van een natuurlijke meerderheidscoalitie — de EVP (183 zetels) zou partners nodig hebben met in totaal minstens 177 extra stemmen om de drempel van 360 zetels te halen — betekent dat elk belangrijk wetgevingsresultaat omstreden zal zijn.
+
+Het komende jaar (mei 2026–mei 2027) ontvouwt zich tegen een achtergrond van geopolitieke turbulentie: de Oekraïne-Rusland oorlog blijft de discussie over defensie-uitgaven bepalen, transatlantische handelsspanningen heroriënteren de EU-handelsbeleidsprioriteiten, en de EU-agenda voor de groene transitie stuit op tegenstand van nationale politieke verschuivingen in Frankrijk, Duitsland en Polen. Deze externe druk zal vrijwel elk wetgevingsdossier op de parlementaire agenda doordringen.
+
+**Belangrijkste Strategische Bevindingen:**
+
+1. **Coalitie-fragmentatie is de bepalende structurele beperking.** Met een als HOOG geclassificeerde Fragmentatie-index en een Effectief Aantal Partijen van 6,58 bestaat er geen meerderheid van twee fracties. De traditionele EVP–S&D-grote coalitie (319 gecombineerde zetels) is 41 zetels te kort voor de meerderheidsdrempel van 360. Dit vereist structureel de 77 stemmen van Renew Europe of ad hoc-combinaties rechts.
+
+2. **De EVP–ECR–PfE-as is de meest disruptieve kracht in het Parlement.** EVP (183) + ECR (81) + PfE (85) = 349 zetels — slechts 11 zetels verwijderd van een meerderheid. Wanneer dit centrumrechts blok samenkomt op specifieke dossiers (migratie, grenscontrole, landbouwderegulering), kan het progressieve wetgeving blokkeren of hervormen. De kans op selectieve dossier-per-dossier convergentie is HOOG. 🟡
+
+3. **Renew Europe is de beslissende scharnierfractie.** Met 77 zetels heeft Renew een structureel veto: zonder haar bereikt noch het centrumlinkse blok (EVP+S&D = 319) noch een conservatieve coalitie (EVP+ECR+PfE = 349) op eigen kracht de meerderheidsdrempel. De interne ideologische spanningen van Renew — tussen haar marktliberale Duitse en Scandinavische delegaties en haar pro-reguleringsgerichte Franse en Belgische vleugels — zullen in 2026 herhaaldelijk worden getest.
+
+4. **De wetgevingspijplijn van de Green Deal blijft omstreden maar springlevend.** Het werkprogramma van de Commissie voor 2026 omvat kritieke uitvoeringsverordeningen voor de Natuurherstelwet, ingroeiplanningen voor het CBAM (koolstofgrenscorrectie-mechanisme) en de herziening van de Sustainable Finance Disclosure Regulation (SFDR). Elk dossier stuit op een coalitievorming-uitdaging waarbij PfE en delen van ECR verzwakkende amendementen zullen nastreven.
+
+5. **Defensie en Oekraïne blijven de meest urgente agendapunten van het Parlement.** De ReArm Europe-faciliteit van 500 miljard euro en uitgebreide financiële steunpakketten voor Oekraïne (na de in januari 2026 aangenomen Leningregeling voor Oekraïne) zullen de agenda van de begrotings- en AFET-commissie in 2026 domineren. De fractie-overschrijdende consensus over steun aan Oekraïne blijft grotendeels intact, maar de fiscale rekenmethode voor het financieren van zowel defensie als traditionele cohesie- en landbouwoverdrachten is acuut omstreden.
+
+6. **IMF-economische data niet beschikbaar — fiscale context uitsluitend gebaseerd op EP-data.** 🔴 De IMF SDMX-gateway retourneerde HTTP 204 tijdens de gegevensverzameling van Fase A. Alle economische context in deze analyse is afkomstig van door het EP aangenomen teksten en parlementaire debatten. Macro-economische projecties en beoordelingen van fiscale houdbaarheid moeten afzonderlijk worden getoetst aan ECB/Eurostat-bronnen.
+
+---
+
+### Prioritaire Wetgevingsdossiers voor het Komende Jaar
+
+| Dossier | Leidende Commissie | Coalitiepad | Risiconiveau |
+|---------|-------------------|-------------|-------------|
+| Uitvoering van de Natuurherstelwet | ENVI | EVP+S&D+Renew (broos) | 🔴 HOOG |
+| Ratificering van het EU-Mercosur Handelsakkoord | INTA | EVP+Renew+ECR (S&D verdeeld) | �� MIDDEL |
+| Europese Defensie Industriële Strategie (EDIS) | AFET/ITRE | Brede consensus minus The Left | 🟢 LAAG |
+| SFDR-herziening | ECON | EVP+Renew+S&D (betwist) | 🟡 MIDDEL |
+| Kader voor Kritieke Geneesmiddelen | ENVI/SANT | Breed (reeds aangenomen TA-10-2026-0001) | 🟢 LAAG |
+| Uitvoering van het Asiel- en Migratiepact | LIBE | EVP+ECR+PfE vs. S&D+Renew | 🔴 HOOG |
+| Hervorming van de Europese Kieswet | AFCO | Geblokkeerd — ratificatiehindernissen blijven | 🔴 HOOG |
+| Digitale Infrastructuur / Soevereiniteit | ITRE | EVP+Renew+S&D | 🟡 MIDDEL |
+| Spaar- en Investeringsunie (SIU) | ECON | EVP+Renew+ECR | 🟡 MIDDEL |
+| Op Toestemming Gebaseerde Verkrachtingswetgeving (EU-kader) | FEMM/LIBE | S&D+Renew+Greens+The Left | 🟡 MIDDEL |
+| Oceaandiplomatie / Visserij | PECH | Gefragmenteerd (nationale belangen dominant) | 🟡 MIDDEL |
+| EIB-Hervorming / Jaarverslag | CONT/BUDG | Breed (toezichtshouding) | 🟢 LAAG |
+
+---
+
+### Plenaire Kalender — Hoogtepunten (Mei 2026–Mei 2027)
+
+Gebaseerd op de bevestigde EP-plenaire planning (gegevens: EP Open Data Portal, 2026-05-10):
+
+- **Mei 2026:** Straatsburg-zitting 18–21 mei (volgende zitting over 8 dagen); Brussel 27 mei
+- **Juni 2026:** Straatsburg 15–18 juni; Brussel 24 juni
+- **Juli 2026:** Straatsburg 6–9 juli (voor het zomerreces)
+- **September 2026:** Straatsburg 14–17 sept.; Brussel 30 sept. (terugkeer van het zomerreces)
+- **Oktober 2026:** Straatsburg 19–22 okt.; Brussel 28–29 okt.
+- **November 2026:** Straatsburg 23–26 nov.; Brussel 25 nov.
+- **December 2026:** Straatsburg 14–17 dec. (Begrotingsplenaire vergadering — kritiek)
+- **Januari 2027:** Straatsburg 18–21 jan.; Brussel 27 jan.
+- **Februari 2027:** Straatsburg 8–11 feb.; Brussel 24 feb.
+- **Maart 2027:** Straatsburg 9–12 mrt.; Brussel 25–26 mrt.
+- **April 2027:** Straatsburg (datums worden vastgesteld)
+- **Mei 2027:** Straatsburg (middelpunt van EP-mandaat nadert)
+
+**De begrotingszitting in december** wordt de enkel meest bepalende vergadering van het kalenderjaar. Het debat over de EU-begroting 2027, onderhandelingen over het defensiesupplement en reviews van de Oekraïne-faciliteit convergeren in een meerdaags stemmarathon.
+
+---
+
+### Politieke Inlichtingenprioriteiten
+
+#### 1. Het Probleem van de Institutionele Volwassenheid van Extreem-Rechts
+PfE (85 zetels) en ESN (27 zetels) bezitten samen 112 zetels — 15,6% van het Parlement. In tegenstelling tot de EFDD- of ENF-groepen van EP8 zijn zowel PfE als ESN in toenemende mate institutioneel capabel: zij bekleden commissie-vicevoorzitterschappen, nemen actief deel aan trilogues en dienen gedetailleerde wetgevingsamendementen in. De transitie van extreem-rechts van protestpolitiek naar transactionele wetgevende invloed is de structurele tendens die tot 2027 het nauwst moet worden gevolgd.
+
+#### 2. De Beklemde Positie van S&D
+S&D (136 zetels, 18,97 %) staat voor een strategisch dilemma: het is de op een na grootste fractie maar kan zonder de EVP (compromissen naar rechts) of Renew (centristisch maar vaak bedrijfsvriendelijk) geen meerderheid vormen. Op sociale en arbeidsmarktdossiers wordt de linkervleugel van S&D in toenemende mate betwist door The Left (45 zetels) en Greens/EFA (53 zetels), die sterkere posities nastreven. S&D's vermogen om interne cohesie te handhaven onder 25 nationale partijen — waaronder SPD (Duitsland na de verkiezingen), PS (Frankrijk in de oppositie) en PES-gelieerde partijen in CEE — zal op de proef worden gesteld.
+
+#### 3. Commissie–Parlement-Relaties Onder het Mandaat von der Leyen II
+De tweede Commissie-von der Leyen, bevestigd in eind 2024, opereert met een explicieter centrum-rechts mandaat dan Commissie I. De "vereenvoudingsagenda" van de Commissie (vermindering van regeldruk) sluit aan bij de EVP en Renew maar genereert wrijving met S&D, Greens en The Left. De commissies ECON en ENVI zullen dienen als institutionele strijdtonelen voor deze spanning.
+
+#### 4. Onzekerheid over het EU–VS-Handelskader
+De stemming in april 2026 over het EU-Mercosur handelsakkkoord (bilaterale vrijwaringsclausule) geeft de stemming van het Parlement over handelsliberalisering aan: omstreden maar uiteindelijk steunend wanneer leveringszekerheid en wederkerigheid worden aangepakt. De trajectorie van de VS-EU-tariefonderhandelingen (na de handelsmaatregelen van Trump) zal de agenda van de INTA-commissie tot Q4 2026 bepalen.
+
+---
+
+### Institutionele Procesindicatoren
+
+- **Aangenomen Teksten Jaar-tot-Datum (2026):** 100+ teksten aangenomen (EP Open Data, tot mei 2026), inclusief kritieke dossiers over geneesmiddelen, financiële stabiliteit, kieshervorming, drones/oorlogsvoering, digitale soevereiniteit en steun aan Oekraïne.
+- **Commissie-activiteit:** AFET, ECON, ENVI, ITRE, LIBE en INTA zijn de actiefste commissies. PECH en FEMM dragen specifieke betwiste dossiers.
+- **Parlementaire Vragen:** Mondelinge en schriftelijke vragen over AI-governance, desinformatie, defensieaanbestedingen en agrarische grondenconcentratie zijn stijgende indicatoren van opkomende agendaprioriteiten.
+- **Stabiliteitsscore:** 84/100 (EP vroegtijdig waarschuwingssysteem, 2026-05-10). Hoge fragmentatiewaarschuwing actief; concentratierisico van de dominerende fractie (EVP) als HOOG aangeduid.
+
+---
+
+### Betrouwbaarheidsbeoordeling
+
+| Domein | Betrouwbaarheid | Basis |
+|--------|----------------|-------|
+| Fractiezetelsamenstelling | 🟢 HOOG | Real-time EP Open Data (717 leden, 9 fracties) |
+| Coalitiepadanalyse | 🟡 MIDDEL | Grootte-gelijkheids-proxies; geen stemniveaukohesiedata beschikbaar |
+| Wetgevingspijplijn-prognose | 🟡 MIDDEL | EP-feeds + aangenomen teksten; geen granulaire triloguedata |
+| Economische context | 🔴 LAAG | IMF-gateway niet beschikbaar; alle macro-context weggelaten per degraded-mode protocol |
+| Plenaire kalender | 🟢 HOOG | EP bevestigd sessierooster |
+| Dreigingsbeoordelingen | 🟡 MIDDEL | Structurele analyse; geen geclassificeerde inlichtingen |
+
+---
+
+### IMF-Onbeschikbaarheidsmededeling
+
+🔴 **IMF-Data Niet Beschikbaar (Degraded Mode Actief)**
+
+De IMF SDMX API-gateway retourneerde HTTP 204 tijdens de Stage A-sonde van deze run (2026-05-10T19:05:XX UTC). Er wordt geen IMF-macroeconomische data (bbp-groei, inflatie, begrotingstekort, lopende rekening, ECB-beleidsrente) geciteerd in deze analyse. De sondesamenvatting wordt opgeslagen in `cache/imf/probe-summary.json`. Alle economisch-beleidscontext is uitsluitend afkomstig van door het EP aangenomen teksten, parlementaire debatten en ECB/Eurostat-referenties beschikbaar via EP Open Data. De IMF-minimumvereisten zijn voor deze run vrijgesteld overeenkomstig het degraded-mode protocol in `08-infrastructure.md §4`.
+
+Analisten die macroeconomische context nodig hebben, dienen afzonderlijk het IMF World Economic Outlook (april 2026-editie) en het ECB-Economisch Bulletin (nummer 3, 2026) te raadplegen.
+
+---
+
+*Bron: Europees Parlement Open Data Portal (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Strategische Inlichtingenbeoordeling: 5 Sleutelbeslissingen in 2026–2027
+
+#### Beslissing 1: Het Defensiepact
+**Wat er gebeurt:** EP stemt over de ReArm Europe Financieringsverordening — doel oktober 2026
+**Wie beslist:** Coalitie EVP+S&D+Renew (waarschijnlijk >450 stemmen; ECR voorwaardelijke steun)
+**Wat er op het spel staat:** EU-vermogen om Russische agressie geloofwaardig af te schrikken; veiligheidsgarantie voor Polen en de Baltische staten
+**Inlichtingenbeoordeling:** Vrijwel Zeker (>95%) dat de wetgeving wordt aangenomen; het geschil gaat over de details (conditionaliteit, toezicht, leningen vs. subsidies)
+
+#### Beslissing 2: Het Begrotingsakkoord
+#### Beslissing 2: Het Begrotingsakkoord
+**Wat er gebeurt:** EU-begroting 2027 bemiddelingsproces — november–december 2026
+**Wie beslist:** EP- en Raads-bemiddelingscomité; bemiddeling door het Deense voorzitterschap
+**Wat er op het spel staat:** Verdeling van 200+ miljard euro EU-uitgaven voor het laatste MFK 2021–2027 jaar; precedent voor MFK 2028–2034
+**Inlichtingenbeoordeling:** Waarschijnlijk (70%) dat bemiddeling slaagt voor Kerstmis 2026; als het mislukt, gelden voorlopige twaalfden (groot politiek falen)
+
+#### Beslissing 3: De Migratieafrekening
+**Wat er gebeurt:** Eerste echte test van het solidariteitsmechanisme van het Migratiepact — lopend 2026
+**Wie beslist:** LIBE-commissie voorop; plenaire resolutie waarschijnlijk Q4 2026
+**Wat er op het spel staat:** Of de nieuwe EU-aanpak voor migratiebeheer stand houdt onder echte druk
+**Inlichtingenbeoordeling:** Fifty-fifty kans (50%) dat de eerste activering van het solidariteitsmechanisme een politieke crisis in het EP uitlokt; Vrijwel Zeker dat LIBE een controversiële resolutie produceert
+
+#### Beslissing 4: De AI-Governance-Standaard
+**Wat er gebeurt:** AI-Verordening GPAI-uitvoeringsverordeningen treden in werking
+**Wie beslist:** Commissie legt voor; ITRE/LIBE onderzoekt; geen bezwaar = inwerkingtreding
+**Wat er op het spel staat:** EU wordt wereldwijde AI-governance-standaardsetter
+**Inlichtingenbeoordeling:** Vrijwel Zeker (95%) dat GPAI-regels eind 2026 in werking treden; geschil gaat over de reikwijdte van hoog-risicoclassificatie
+
+#### Beslissing 5: De Overlevingstest van de Green Deal
+**Wat er gebeurt:** NRL nationale actieplannen vervallen; tegenaanval landbouwlobby; ENVI-monitoringresolutie
+**Wie beslist:** ENVI-commissie en plenaire meerderheid
+**Wat er op het spel staat:** Of het EU-biodiversiteitskader zijn eerste implementatietest overleeft
+**Inlichtingenbeoordeling:** Onwaarschijnlijk (<35%) dat NRL formeel wordt ingetrokken; Waarschijnlijk (65%) dat implementatie wordt afgezwakt via landbouwcompensatiemechanismen
+
+---
+
+### WEP Samenvattende Beoordeling (Komend Jaar)
+
+| Band | Projectie | Dossiers/Gebeurtenissen |
+|------|----------|------------------------|
+| **Vrijwel Zeker** | Grote coalitie handhaaft meerderheid voor steun aan Oekraïne | Begroting 2027 Oekraïne-verbintenis; AFET-resoluties |
+| **Vrijwel Zeker** | EU-begroting 2027 aangenomen voor januari 2027 | Deens voorzitterschap levert |
+| **Vrijwel Zeker** | AI-Verordening GPAI-uitvoeringsverordeningen gepubliceerd | Wettelijke verplichting; Commissie gebonden |
+| **Waarschijnlijk** | ReArm Europe aangenomen met brede coalitie | Oktober 2026 plenaire vergadering |
+| **Waarschijnlijk** | ECB-renteverlagingen zetten door in 2026 | Inflatienormalisering |
+| **Fifty-fifty** | NRL-implementatiecrisis (landbouwlobby slaagt) | ENVI-controverse 2026 |
+| **Onwaarschijnlijk** | EVP schakelt formeel over naar rechter coalitiesstrategie | Coalitie-rekenmethode verhindert dit |
+| **Vrijwel Geen Kans** | Enige EP-stemming schendt EU-verdragsverplichtingen | Constitutionele beperking |
+
+**Admiralty: B3** — Analyse gebaseerd op betrouwbare EP-structurele gegevens; de 12-maanden vooruitkijkende horizon kent inherente onzekerheid.
+
+---
+
+*Uitvoerende samenvatting volledig · Admiralty B3 · WEP toegepast · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Lezers-Briefing
+
+**Voor regeringsleiders:** EP10 Jaar 2 is het jaar waarin de collectieve defensietransformatie van de EU ofwel vastlegt (ReArm-stemming oktober 2026) ofwel stagneert. De veiligheidscalculus van uw land voor 2027–2030 hangt aanzienlijk af van wat er in oktober 2026 in de EP-plenaire vergadering gebeurt. Poolse en Baltische staatsregeringen moeten zich het meest actief engageren met EVP- en ECR-leden in deze periode.
+
+**Voor het bedrijfsleven:** Het oktober–november 2026-venster is wanneer de EU-begroting 2027 wordt afgerond. Elk EU-programma dat voor uw bedrijf van belang is — Horizon Europe-subsidies, toegang tot cohesiefondsen, SAFE-defensiecontracten, SFDR-compliance-zekerheid — staat tegelijkertijd op het spel. Budget- en brancheverenigingsengagement moet in september–oktober 2026 worden geïntensiveerd.
+
+**Voor burgers:** De drie beslissingen die uw dagelijks leven het meest direct beïnvloeden zijn: (1) Verhoogt de EU de defensie-uitgaven (uw belastingen); (2) Overleeft de Green Deal (uw milieu); (3) Hoe werkt het Migratiepact in de praktijk (uw grensveiligheid en asielstelsel). Alle drie bereiken beslissende momenten in de herfst van 2026.
+
+---
+
+*Uitvoerende samenvatting: Economist-kwaliteit politieke inlichtingen voor het Europees Parlement 2026–2027 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief No
+
+### Strategisk Situasjonsvurdering
+
+Europaparlamentet innleder det andre året av sin 10. valgperiode (2024–2029) på et kritisk tidspunkt. Med 717 MEP-er fordelt på ni politiske grupper i en sterkt fragmentert forsamling møter institusjonen et styringsbilde preget av multi-koalisjonsavhengigheter, en mer offensiv ytterste høyre og en ambisiøs lovgivningsmessig agenda fra Kommisjonen som krever kompromisser på tvers av partigrenser ved nesten alle avstemninger. Fraværet av en naturlig flertallskoalisjon — EPP (183 mandater) ville ha trengt partnere med minst 177 ekstra stemmer for å nå grensen på 360 mandater — betyr at ethvert større lovgivningsresultat vil være omstridt.
+
+Det kommende året (mai 2026–mai 2027) utspiller seg mot en bakgrunn av geopolitisk turbulens: krigen mellom Ukraina og Russland fortsetter å forme forsvarsutgiftsdebatten, transatlantiske handelsspenninger ompriorireter EUs handelspolitiske prioriteringer, og EUs grønne omstillingsagenda møter motstand fra politiske skifter på nasjonalt nivå i Frankrike, Tyskland og Polen. Disse ytre pressene vil gjennomsyre praktisk talt alle lovgivningssaker på parlamentets dagsorden.
+
+**Viktige Strategiske Funn:**
+
+1. **Koalisjonsoppsplitting er den avgjørende strukturelle begrensningen.** Med et Fragmenteringsindeks klassifisert som HØYT og et Effektivt Antall Partier på 6,58 eksisterer ingen to-gruppers flertall. Den tradisjonelle storkoalisjonen EPP–S&D (319 samlede mandater) er 41 mandater under flertallsgrensen 360. Dette krever strukturelt Renew Europes 77 stemmer eller ad hoc-kombinasjoner til høyre.
+
+2. **EPP–ECR–PfE-aksen er parlamentets mest destabiliserende kraft.** EPP (183) + ECR (81) + PfE (85) = 349 mandater — bare 11 mandater fra et flertall. Når denne sentrum-høyre-blokken samler seg om spesifikke saksområder (migrasjon, grensekontroll, landbruksderegulering), kan den blokkere eller omforme progressiv lovgivning. Sannsynligheten for selektiv saksmessig konvergens er HØY. 🟡
+
+3. **Renew Europe er den avgjørende svinggruppen.** Med 77 mandater besitter Renew et strukturelt veto: uten den når verken sentrum-venstre-blokken (EPP+S&D = 319) eller en konservativ koalisjon (EPP+ECR+PfE = 349) flertallsgrensen alene. Renews interne ideologiske spenninger — mellom dens markedsliberale tyske og nordiske delegasjoner og dens reguleringsvennlige franske og belgiske fløyer — vil gjentatte ganger bli prøvet i 2026.
+
+4. **Den grønne agendaens lovgivningspipeline er fortsatt omstridt men i live.** Kommisjonens arbeidsprogram for 2026 inkluderer kritiske gjennomføringsforordninger for naturrestaureringslovens, innfasingsplaner for CBAM (karbongrensejusteringsmekanismen) og revisjonen av forordningen om bærekraftsrelatert informasjon (SFDR). Hvert akt møter en koalisjonsbyggende utfordring der PfE og deler av ECR vil søke svekkende endringsforslag.
+
+5. **Forsvar og Ukraina forblir parlamentets høyest prioriterte dagsordenpunkter.** ReArm Europe-fasiliteten på 500 milliarder euro og utvidede finansielle bistandspakker til Ukraina (etter Lånereglering for Ukraina vedtatt i januar 2026) vil dominere budsjett- og AFET-komiteens dagsorden gjennom 2026. Den tverrgruppsmessige konsensus om støtte til Ukraina forblir bredt intakt, men det finansielle regnestykkет for å finansiere både forsvar og tradisjonelle samhørighets- og landbruksoverføringer er akutt omstridt.
+
+6. **IMF-økonomidata utilgjengelige — finanspolitisk kontekst basert utelukkende på EP-data.** 🔴 IMF SDMX-gatewayen returnerte HTTP 204 under Stage A-datasam datainnsamlingen. All økonomisk kontekst i denne analysen er hentet fra EP-vedtatte tekster og parlamentariske debatter. Makroøkonomiske prognoser og vurderinger av finanspolitisk bærekraft bør kryss-refereres mot ECB/Eurostat-kilder separat.
+
+---
+
+### Prioriterte Lovgivningssaker for det Kommende Året
+
+| Sak | Ledende Komité | Koalisjonssti | Risikonivå |
+|-----|----------------|---------------|-----------|
+| Gjennomføring av naturrestaureringslov | ENVI | EPP+S&D+Renew (skjør) | 🔴 HØY |
+| Ratifisering av handelsavtalen EU–Mercosur | INTA | EPP+Renew+ECR (S&D splittet) | 🟡 MEDIUM |
+| Europeisk forsvarsindustriell strategi (EDIS) | AFET/ITRE | Bred konsensus minus Venstre | 🟢 LAV |
+| SFDR-revisjon | ECON | EPP+Renew+S&D (omstridt) | 🟡 MEDIUM |
+| Rammeverk for kritiske legemidler | ENVI/SANT | Bredt (allerede vedtatt TA-10-2026-0001) | 🟢 LAV |
+| Gjennomføring av asyl- og migrasjonspakten | LIBE | EPP+ECR+PfE mot S&D+Renew | 🔴 HØY |
+| Reform av europeisk valglov | AFCO | Hengekøye — ratifiseringshindringer gjenstår | 🔴 HØY |
+| Digital infrastruktur / suverenitet | ITRE | EPP+Renew+S&D | 🟡 MEDIUM |
+| Spare- og investeringsunionen (SIU) | ECON | EPP+Renew+ECR | 🟡 MEDIUM |
+| Samtykkebasert voldtektslovgivning (EU-rammeverk) | FEMM/LIBE | S&D+Renew+Greens+Venstre | 🟡 MEDIUM |
+| Havdiplomati / Fiskeri | PECH | Fragmentert (nasjonale interesser dominerer) | 🟡 MEDIUM |
+| EIB-reform / Årsrapport | CONT/BUDG | Bredt (overvåkingsposisjon) | 🟢 LAV |
+
+---
+
+### Plenumkalender — Høydepunkter (Mai 2026–Mai 2027)
+
+Basert på bekreftet EP-plenumplanlegging (data: EP Open Data Portal, 2026-05-10):
+
+- **Mai 2026:** Strasbourg-sesjon 18–21. mai (neste møte om 8 dager); Brussel 27. mai
+- **Juni 2026:** Strasbourg 15–18. juni; Brussel 24. juni
+- **Juli 2026:** Strasbourg 6–9. juli (før sommerrecess)
+- **September 2026:** Strasbourg 14–17. sept.; Brussel 30. sept. (tilbake fra sommerrecess)
+- **Oktober 2026:** Strasbourg 19–22. okt.; Brussel 28–29. okt.
+- **November 2026:** Strasbourg 23–26. nov.; Brussel 25. nov.
+- **Desember 2026:** Strasbourg 14–17. des. (Budsjettplenum — kritisk)
+- **Januar 2027:** Strasbourg 18–21. jan.; Brussel 27. jan.
+- **Februar 2027:** Strasbourg 8–11. feb.; Brussel 24. feb.
+- **Mars 2027:** Strasbourg 9–12. mar.; Brussel 25–26. mar.
+- **April 2027:** Strasbourg (datoer under fastsetting)
+- **Mai 2027:** Strasbourg (EP-valgperiodens midtpunkt nærmer seg)
+
+**Desember-budsjettssesjonen** blir kalenderårets enkelt mest avgjørende møte. Debatten om EUs budsjett 2027, forhandlinger om forsvarstillegget og gjennomgangen av Ukraina-fasiliteten konvergerer i et flerdagers avstemningsmaraton.
+
+---
+
+### Politiske Etterretningsprioriteringer
+
+#### 1. Problemet med Ytterste Høyres Institusjonelle Modenhet
+PfE (85 mandater) og ESN (27 mandater) besitter tilsammen 112 mandater — 15,6 % av parlamentet. I motsetning til EP8s EFDD- eller ENF-grupper er både PfE og ESN i økende grad institusjonelt kapable: de besitter komiteenes nestlederposisjoner, deltar aktivt i triloger og fremmer detaljerte lovgivningsendringsforslag. Ytterste høyres overgang fra protestpolitikk til transaksjonsbasert lovgivningsmessig innflytelse er den strukturelle trenden som bør følges nærmest frem til 2027.
+
+#### 2. S&Ds Klemte Posisjon
+S&D (136 mandater, 18,97 %) står overfor et strategisk dilemma: det er den nest største gruppen, men kan ikke konstruere et flertall uten enten EPP (kompromisser til høyre) eller Renew (sentristisk men ofte næringsvennlig). På sosiale og arbeidsmarkedspolitiske saker utfordres S&Ds venstrefløy i økende grad av Venstre (45 mandater) og Greens/EFA (53 mandater), som søker sterkere posisjoner. S&Ds evne til å opprettholde intern sammenheng blant 25 nasjonale partier — inkludert SPD (Tyskland etter valget), PS (Frankrike i opposisjon) og PES-tilknyttede i CEE — vil bli prøvet.
+
+#### 3. Kommisjon–Parlamentrelasjoner Under von der Leyen II-Mandatet
+Den andre von der Leyen-Kommisjonen, bekreftet i slutten av 2024, opererer med et mer eksplisitt sentrum-høyre-mandat enn Kommisjon I. Kommisjonens "forenklingsagenda" (reduksjon av reguleringsbyrden) samsvarer med EPP og Renew, men genererer friksjon med S&D, Greens og Venstre. ECON- og ENVI-komiteene vil fungere som institusjonelle slagmarker for denne spenningen.
+
+#### 4. Usikkerhet om EU–USAs Handelsramme
+Avstemningen i april 2026 om EU–Mercosur-handelsavtalen (bilateral sikkerhetsklausul) signaliserer parlamentets stemning om handelsliberalisering: omstridt men til syvende og sist støttende når forsyningssikkerhet og gjensidighet adresseres. Trajektorien for USA–EU-tollfforhandlingene (etter Trumps handelstiltak) vil forme INTA-komiteens dagsorden gjennom kvartal 4 2026.
+
+---
+
+### Institusjonelle Prosessindikatorer
+
+- **Vedtatte Tekster År til Dato (2026):** 100+ tekster vedtatt (EP Open Data, til mai 2026), inkludert kritiske saker om legemidler, finansiell stabilitet, valgreform, droner/krigsføring, digital suverenitet og støtte til Ukraina.
+- **Komitéaktivitet:** AFET, ECON, ENVI, ITRE, LIBE og INTA er de mest aktive komiteene. PECH og FEMM håndterer spesifikke omstridte saker.
+- **Parlamentariske Spørsmål:** Muntlige og skriftlige spørsmål om AI-styring, desinformasjon, forsvarsanskaffelser og landbruksjordkonsentrasjon er stigende indikatorer for fremvoksende prioriteringer.
+- **Stabilitetspoeng:** 84/100 (EPs tidlige varslingssystem, 2026-05-10). HØY fragmenteringsadvarsel aktiv; konsentrasjonsrisiko for dominerende gruppe (EPP) flagget som HØY.
+
+---
+
+### Tillitsvurdering
+
+| Domene | Tillit | Grunnlag |
+|--------|--------|---------|
+| Gruppemandat-sammensetning | 🟢 HØY | Sanntids EP Open Data (717 MEP-er, 9 grupper) |
+| Koalisjonssti-analyse | 🟡 MEDIUM | Størrelselikhets-proxier; ingen stemmenivåkohesjonsdataerdata tilgjengelige |
+| Lovgivningspipeline-prognose | 🟡 MEDIUM | EP-feeds + vedtatte tekster; ingen granulære trilogdata |
+| Økonomisk kontekst | 🔴 LAV | IMF-gateway utilgjengelig; all makrokontekst utelatt per degradert-modus-protokollen |
+| Plenumkalender | 🟢 HØY | EPs bekreftede sesjonsplan |
+| Trussel vurderinger | 🟡 MEDIUM | Strukturell analyse; ingen hemmeligstemplet etterretning |
+
+---
+
+### IMF-Utilgjengelighetsmelding
+
+🔴 **IMF-Data Utilgjengelige (Degradert Modus Aktiv)**
+
+IMF SDMX API-gatewayen returnerte HTTP 204 under denne kjøringens Stage A-probe (2026-05-10T19:05:XX UTC). Ingen IMF-makroøkonomiske data (BNP-vekst, inflasjon, finansunderskudd, driftsregnskap, ECBs styringsrente) er sitert i denne analysen. Probesammendraget lagres på `cache/imf/probe-summary.json`. All økonomi-politisk kontekst er utelukkende hentet fra EP-vedtatte tekster, parlamentariske debatter og ECB/Eurostat-referanser tilgjengelige via EP Open Data. IMF-minimumskrav er frafalt for denne kjøringen i henhold til protokollen for degradert modus i `08-infrastructure.md §4`.
+
+Analytikere som trenger makroøkonomisk kontekst, bør konsultere IMF World Economic Outlook (april 2026-utgaven) og ECBs Økonomiske Bulletin (utgave 3, 2026) separat.
+
+---
+
+*Kilde: Europaparlamentets Open Data Portal (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Strategisk Etterretningsvurdering: 5 Nøkkelbeslutninger i 2026–2027
+
+#### Beslutning 1: Forsvarspakten
+**Hva som skjer:** EP stemmer over ReArm Europe Finansieringsforordningen — mål oktober 2026
+**Hvem bestemmer:** Koalisjonen EPP+S&D+Renew (>450 stemmer sannsynlig; ECR betinget støtte)
+**Hva som står på spill:** EUs evne til troverdig å avskrekke russisk aggresjon; sikkerhetsgarantien for Polen og de baltiske statene
+**Etterretningsvurdering:** Nesten Sikkert (>95%) at lovgivningen vedtas; tvisten dreier seg om detaljene (konditionalitet, tilsyn, lån mot tilskudd)
+
+#### Beslutning 2: Budsjettforhandlingen
+**Hva som skjer:** EUs budsjett 2027 forliksprosedyre — november–desember 2026
+**Hvem bestemmer:** EPs og Rådets forlikskomité; mekling av det danske presidentskapet
+**Hva som står på spill:** Fordeling av 200+ milliarder euro i EU-utgifter for det siste MFF 2021–2027-året; presedens for MFF 2028–2034
+**Etterretningsvurdering:** Sannsynlig (70%) at forlik oppnås før jul 2026; hvis det mislykkes, gjelder provisoriske tolvdeler (stort politisk nederlag)
+
+#### Beslutning 3: Migrasjonsoppgjøret
+**Hva som skjer:** Første reelle test av migrasjonspaktens solidaritetsmekanisme — pågående 2026
+**Hvem bestemmer:** LIBE-komiteen leder; plenumresolusjon sannsynligvis kvartal 4 2026
+**Hva som står på spill:** Om EUs nye tilnærming til migrasjonsforvaltning holder under reelt press
+**Etterretningsvurdering:** Fifty-fifty sjanse (50%) for at første aktivering av solidaritetsmekanismen utløser politisk krise i EP; nesten sikkert at LIBE produserer kontroversiell resolusjon
+
+#### Beslutning 4: AI-Styringsstandarden
+**Hva som skjer:** AI-forordningens GPAI-gjennomføringsforordninger trer i kraft
+**Hvem bestemmer:** Kommisjonen fremlegger; ITRE/LIBE gransker; ingen innvending = ikrafttredelse
+**Hva som står på spill:** EU blir global standard-setter for AI-styring
+**Etterretningsvurdering:** Nesten Sikkert (95%) at GPAI-reglene trer i kraft innen utgangen av 2026; tvisten dreier seg om omfanget av høy-risiko-klassifisering
+
+#### Beslutning 5: Den Grønne Dealens Overlevelsestest
+**Hva som skjer:** NRLs nasjonale handlingsplaner forfaller; landbrukslobbyen kontraoffensiv; ENVI-overvåkingsresolusjon
+**Hvem bestemmer:** ENVI-komiteen og plenarflyktallet
+**Hva som står på spill:** Om EUs ramme for biologisk mangfold overlever sin første implementeringstest
+**Etterretningsvurdering:** Usannsynlig (<35%) at NRL formelt oppheves; sannsynlig (65%) at implementeringen mykgjøres gjennom landbrukskompensasjonsmekanismer
+
+---
+
+### WEP Sammendragsvurdering (Kommende År)
+
+| Band | Fremskrivning | Saker/Hendelser |
+|------|--------------|----------------|
+| **Nesten Sikkert** | Storkoalisjonen opprettholder flertall for Ukraina-støtte | Budsjett 2027 Ukraina-forpliktelse; AFET-resolusjoner |
+| **Nesten Sikkert** | EUs budsjett 2027 vedtatt før januar 2027 | Det danske presidentskapet leverer |
+| **Nesten Sikkert** | AI-forordningens GPAI-gjennomføringsforordninger publisert | Rettslig forpliktelse; Kommisjonen bundet |
+| **Sannsynlig** | ReArm Europe vedtatt med bred koalisjon | Oktober 2026 plenum |
+| **Sannsynlig** | ECBs rentekutt fortsetter gjennom 2026 | Inflasjonsnormalisering |
+| **Fifty-fifty** | NRL-implementeringskrise (landbrugslobbyen lykkes) | ENVI-kontrovers 2026 |
+| **Usannsynlig** | EPP skifter formelt til høyre-koalisjonsstrategi | Koalisjonsaritmetikk forhindrer |
+| **Nesten Ingen Sjanse** | Noen EP-avstemning krenker EUs traktatforpliktelser | Konstitusjonell begrensning |
+
+**Admiralty: B3** — Analyse basert på pålitelig EP-strukturdata; 12-månedershorisonten fremover innebærer iboende usikkerhet.
+
+---
+
+*Utøvende sammendrag komplett · Admiralty B3 · WEP anvendt · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Leserbriefing
+
+**For statsledere:** EP10 År 2 er det året EUs kollektive forsvarstransformasjon enten låses fast (oktobers 2026 ReArm-avstemning) eller stopper. Ditt lands sikkerhetsregnestykke for 2027–2030 avhenger i vesentlig grad av hva som skjer i EPs plenumsal i oktober 2026. Polske og baltiske statsregjeringer bør være mest aktivt engasjert med EPP- og ECR-MEP-er i denne perioden.
+
+**For næringsliv:** Oktober–november 2026-vinduet er når EUs budsjett 2027 ferdigstilles. Ethvert EU-program som er viktig for din virksomhet — Horizon Europe-tilskudd, samhørighetsfondet tilgang, SAFE-forsvarskontrakter, SFDR-overholdelsessikkerhet — er på spill samtidig. Budsjett- og bransjeforeningsengasjement bør intensiveres i september–oktober 2026.
+
+**For borgere:** De tre beslutningene som mest direkte påvirker ditt daglige liv er: (1) Øker EUs forsvarsutgifter (din skatt); (2) Overlever den grønne avtalen (ditt miljø); (3) Hvordan fungerer migrasjonspakten i praksis (din grensesikkerhet og asylsystem). Alle tre når avgjørende øyeblikk i høsten 2026.
+
+---
+
+*Utøvende sammendrag: Economist-nivå politisk etterretning for EU-parlamentets kommende år 2026–2027 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief Sv
+
+### Strategisk lägesbedömning
+
+Europaparlamentet inleder det andra året av sin tionde mandatperiod (2024–2029) vid ett avgörande vägskäl. Med 717 ledamöter fördelade på nio politiska grupper i en starkt fragmenterad församling möter institutionen ett styrningsklimat präglat av koalitionsberoende på flera nivåer, en alltmer offensiv ytterst-höger och ett ambitiöst lagstiftningsprogram från kommissionen som kräver kompromisser över partigränserna vid nästan varje omröstning. Avsaknaden av en naturlig majoritetskoalition — EPP (183 mandat) skulle behöva partner med sammanlagt minst 177 extra röster för att nå tröskeln på 360 mandat — innebär att varje viktig lagstiftningsutfall kommer att vara omstritt.
+
+Året som kommer (maj 2026–maj 2027) utspelar sig mot en bakgrund av geopolitisk turbulens: kriget mellan Ukraina och Ryssland fortsätter att forma debatten om försvarsutgifter, transatlantiska handelsspänningar håller på att omprioritera EU:s handelspolitik, och EU:s agenda för grön omställning möter motstånd från politiska skiften på nationell nivå i Frankrike, Tyskland och Polen. Dessa yttre tryck kommer att genomsyra i det närmaste varje lagstiftningsärende på parlamentets dagordning.
+
+**Viktiga strategiska slutsatser:**
+
+1. **Koalitionsfragmentering är den avgörande strukturella begränsningen.** Med ett Fragmenteringsindex klassificerat som HÖGT och ett Effektivt Partital på 6,58 existerar ingen tvågruppsmajoritet. Den traditionella storkoalitionen EPP–S&D (319 sammanlagda mandat) är 41 mandat under majoritetsgränsen 360. Detta kräver strukturellt Renew Europes 77 röster eller ad hoc-kombinationer till höger.
+
+2. **EPP–ECR–PfE-axeln är parlamentets mest störande kraft.** EPP (183) + ECR (81) + PfE (85) = 349 mandat — bara 11 mandat från majoriteten. När detta center-högerblock samlar sig kring specifika sakfrågor (migration, gränskontroll, jordbruksavreglering) kan det blockera eller omforma progressiv lagstiftning. Sannolikheten för selektiv sakfrågevis konvergens är HÖG. 🟡
+
+3. **Renew Europe är den avgörande svängggruppen.** Med 77 mandat innehar Renew en strukturell veto: utan den når varken center-vänsterblocket (EPP+S&D = 319) eller en konservativ koalition (EPP+ECR+PfE = 349) majoritetsgränsen på egen hand. Renews interna ideologiska spänningar — mellan dess marknadsliberala tyska och nordiska delegationer och dess regleringsvänliga franska och belgiska flyglar — kommer upprepade gånger att prövas under 2026.
+
+4. **Den gröna agendans lagstiftningspipeline är fortsatt omstridd men vid liv.** Kommissionens arbetsprogram för 2026 inkluderar kritiska genomförandeförordningar för naturrestaureringslagen, infasningsscheman för CBAM (koldioxidgränsjusteringsmekanismen) och revisionen av förordningen om hållbarhetsrelaterade upplysningar (SFDR). Varje ärende möter en koalitionsbyggande utmaning där PfE och delar av ECR kommer att söka försvagande ändringsförslag.
+
+5. **Försvar och Ukraina förblir parlamentets mest prioriterade dagordningspunkter.** ReArm Europe-anläggningen på 500 miljarder euro och utökade ekonomiska stödpaket till Ukraina (efter låneregleringen för Ukraina som antogs i januari 2026) kommer att dominera budget- och AFET-kommitténs dagordning under 2026. Den tvärgruppsvisa konsensussen om stöd till Ukraina kvarstår i stort, men den finansiella aritmetiken för att finansiera både försvar och traditionella sammanhållnings- och jordbruksöverföringar är akut omstridd.
+
+6. **IMF-ekonomiska data otillgängliga — finanspolitisk kontext baseras enbart på EP-data.** 🔴 IMF SDMX-gatewayen returnerade HTTP 204 under Stage A:s datainsamling. All ekonomisk kontext i denna analys härrör från EP:s antagna texter och parlamentariska debatter. Makroekonomiska prognoser och bedömningar av finanspolitisk hållbarhet bör korsrefereras mot ECB/Eurostat-källor separat.
+
+---
+
+### Prioriterade lagstiftningsärenden för det kommande året
+
+| Ärende | Ledande utskott | Koalitionsväg | Risknivå |
+|--------|----------------|---------------|----------|
+| Genomförande av naturrestaureringslagen | ENVI | EPP+S&D+Renew (skört) | 🔴 HÖG |
+| Ratificering av handelsavtalet EU–Mercosur | INTA | EPP+Renew+ECR (S&D splittrad) | 🟡 MEDIUM |
+| Europeisk försvarsindustrisk strategi (EDIS) | AFET/ITRE | Bred konsensus minus Vänstern | 🟢 LÅG |
+| SFDR-revision | ECON | EPP+Renew+S&D (omstridd) | 🟡 MEDIUM |
+| Ramverk för kritiska läkemedel | ENVI/SANT | Brett (redan antaget TA-10-2026-0001) | 🟢 LÅG |
+| Genomförande av asyl- och migrationspakten | LIBE | EPP+ECR+PfE mot S&D+Renew | 🔴 HÖG |
+| Reform av europeisk vallag | AFCO | Låst — ratificeringssvårigheter kvarstår | 🔴 HÖG |
+| Digital infrastruktur / suveränitet | ITRE | EPP+Renew+S&D | 🟡 MEDIUM |
+| Spar- och investeringsunionen (SIU) | ECON | EPP+Renew+ECR | 🟡 MEDIUM |
+| Samtyckebaserad våldtäktslagstiftning (EU-ramverk) | FEMM/LIBE | S&D+Renew+Greens+Vänstern | 🟡 MEDIUM |
+| Havsdiplomati / Fiske | PECH | Fragmenterat (nationella intressen dominerar) | 🟡 MEDIUM |
+| EIB-reform / Årsrapport | CONT/BUDG | Brett (övervakningsinriktning) | 🟢 LÅG |
+
+---
+
+### Plenumkalender — höjdpunkter (maj 2026–maj 2027)
+
+Baserat på bekräftad EP-plenumplanering (data: EP Open Data Portal, 2026-05-10):
+
+- **Maj 2026:** Strasbourg-session 18–21 maj (nästa sammanträde om 8 dagar); Bryssel 27 maj
+- **Juni 2026:** Strasbourg 15–18 juni; Bryssel 24 juni
+- **Juli 2026:** Strasbourg 6–9 juli (före sommaruppehåll)
+- **September 2026:** Strasbourg 14–17 sept; Bryssel 30 sept (återgång från sommaruppehåll)
+- **Oktober 2026:** Strasbourg 19–22 okt; Bryssel 28–29 okt
+- **November 2026:** Strasbourg 23–26 nov; Bryssel 25 nov
+- **December 2026:** Strasbourg 14–17 dec (Budgetplenum — kritiskt)
+- **Januari 2027:** Strasbourg 18–21 jan; Bryssel 27 jan
+- **Februari 2027:** Strasbourg 8–11 feb; Bryssel 24 feb
+- **Mars 2027:** Strasbourg 9–12 mar; Bryssel 25–26 mar
+- **April 2027:** Strasbourg (datum under fastställande)
+- **Maj 2027:** Strasbourg (parlamentets mandatperiods mitt-punkt nalkas)
+
+**December-sessionen för budget** blir kalenderårets enskilt mest avgörande sammanträde. Debatten om EU:s budget 2027, förhandlingar om försvarsanslaget och genomgången av Ukrainafaciliteten sammanfaller i ett flerdagars omröstningsmaraton.
+
+---
+
+### Politiska underrättelseprioriteringar
+
+#### 1. Problemet med ytterhögerns institutionella mognad
+PfE (85 mandat) och ESN (27 mandat) innehar tillsammans 112 mandat — 15,6 % av parlamentet. Till skillnad från EP8:s EFDD- eller ENF-grupper är både PfE och ESN i ökande grad institutionellt kapabla: de innehar utskottets vice-ordförandepost, deltar aktivt i triloger och lägger fram detaljerade lagstiftningsändringsförslag. Ytterhögerns övergång från protestpolitik till transaktionellt lagstiftande inflytande är den strukturella trend som bör följas mest noggrant fram till 2027.
+
+#### 2. S&D:s inträngda position
+S&D (136 mandat, 18,97 %) står inför ett strategiskt dilemma: det är den näst största gruppen men kan inte konstruera en majoritet utan antingen EPP (kompromisser åt höger) eller Renew (centrist men ofta affärsvänlig). På sociala och arbetsmarknadspolitiska ärenden är S&D:s vänsterflygel i ökande grad utmanad av Vänstern (45 mandat) och Greens/EFA (53 mandat), som söker starkare positioner. S&D:s förmåga att upprätthålla intern sammanhållning bland 25 nationella partier — inklusive SPD (Tyskland efter valet), PS (Frankrike i opposition) och PES-affilierade i CEE — kommer att prövas.
+
+#### 3. Kommission–parlamentrelationer under von der Leyen II-mandatet
+Den andra von der Leyen-kommissionen, bekräftad i slutet av 2024, verkar med ett mer uttalat höger-av-centrum-mandat än Kommission I. Kommissionens "förenklingsagenda" (minskning av regelbördan) stämmer överens med EPP och Renew men genererar friktion med S&D, Greens och Vänstern. ECON- och ENVI-utskotten kommer att fungera som institutionella slagfält för denna spänning.
+
+#### 4. Osäkerhet kring EU–USA:s handelsram
+Omröstningen i april 2026 om handelsavtalet EU–Mercosur (bilateralt säkerhetsklausul) signalerar parlamentets stämning om handelsliberalisering: omstridd men i slutändan stödjande när försörjningstrygghet och ömsesidighet adresseras. Trajektorin för USA–EU-tullförhandlingarna (efter Trumps handelsåtgärder) kommer att forma INTA-utskottets dagordning under kvartal 4 2026.
+
+---
+
+### Institutionella processindikatorer
+
+- **Antagna texter år till datum (2026):** 100+ texter antagna (EP Open Data, till maj 2026), inklusive kritiska ärenden om läkemedel, finansiell stabilitet, valreform, drönare/krigföring, digital suveränitet och stöd till Ukraina.
+- **Utskottsaktivitet:** AFET, ECON, ENVI, ITRE, LIBE och INTA är de mest aktiva utskotten. PECH och FEMM hanterar specifika omtvistade ärenden.
+- **Parlamentariska frågor:** Muntliga och skriftliga frågor om AI-styrning, desinformation, försvarsupphandling och jordbruksmarkkoncentration är stigande indikatorer på framväxande dagordningsprioriteringar.
+- **Stabilitetspoäng:** 84/100 (EP:s tidiga varningssystem, 2026-05-10). HÖG fragmenteringsvarning aktiv; koncentrationsrisk för dominerande grupp (EPP) flaggad som HÖG.
+
+---
+
+### Konfidenssbedömning
+
+| Domän | Konfidensgrad | Underlag |
+|-------|--------------|---------|
+| Gruppmandatsammansättning | 🟢 HÖG | Realtids EP Open Data (717 MEP, 9 grupper) |
+| Koalitionsväganalys | 🟡 MEDIUM | Storlekslikhetsproxies; inga röstnivåkohesindata tillgängliga |
+| Lagstiftningspipelinens prognos | 🟡 MEDIUM | EP-flöden + antagna texter; inga granulära trilogdata |
+| Ekonomisk kontext | 🔴 LÅG | IMF-gateway otillgänglig; all makrokontext utesluten per degraderat läge-protokoll |
+| Plenumkalender | 🟢 HÖG | EP:s bekräftade sessionschema |
+| Hotbedömningar | 🟡 MEDIUM | Strukturell analys; ingen hemligstämplad underrättelse |
+
+---
+
+### IMF-otillgänglighetsmeddelande
+
+🔴 **IMF-data otillgängliga (degraderat läge aktivt)**
+
+IMF SDMX API-gatewayen returnerade HTTP 204 under denna körnads Stage A-sondning (2026-05-10T19:05:XX UTC). Inga IMF-makroekonomiska data (BNP-tillväxt, inflation, underskott i offentliga finanser, bytesbalans, ECB:s styrränta) citeras i denna analys. Sondningssammanfattningen sparas på `cache/imf/probe-summary.json`. All ekonomisk politisk kontext härrör uteslutande från EP:s antagna texter, parlamentariska debatter och ECB/Eurostat-referenser tillgängliga via EP Open Data. IMF:s minimikrav är undantagna för denna körning enligt protokollet för degraderat läge i `08-infrastructure.md §4`.
+
+Analytiker som behöver makroekonomisk kontext bör konsultera IMF World Economic Outlook (april 2026-utgåvan) och ECB:s ekonomiska bulletin (nummer 3, 2026) separat.
+
+---
+
+*Källa: Europaparlamentets Open Data Portal (data.europarl.europa.eu) · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Strategisk underrättelsebedömning: 5 Nyckelbeslut 2026–2027
+
+#### Beslut 1: Försvarsöverenskommelsen
+**Vad som händer:** EP röstar om finansieringsförordningen ReArm Europe — mål oktober 2026
+**Vem beslutar:** Koalitionen EPP+S&D+Renew (>450 röster sannolikt; ECR villkorat stöd)
+**Vad som står på spel:** EU:s förmåga att trovärdigt avskräcka rysk aggression; säkerhetsgarantin för Polen och de baltiska staterna
+**Underrättelsebedömning:** Nästan säkert (>95%) att lagstiftningen antas; tvisten gäller detaljerna (konditionalitet, tillsyn, lån kontra bidrag)
+
+#### Beslut 2: Budgetöverenskommelsen
+**Vad som händer:** Förlikning om EU:s budget 2027 — november–december 2026
+**Vem beslutar:** Förlikningskommittén för EP och rådet; medling av det danska ordförandeskapet
+**Vad som står på spel:** Fördelning av 200+ miljarder euro i EU-utgifter för det sista MFF 2021–2027-året; prejudikat för MFF 2028–2034
+**Underrättelsebedömning:** Troligt (70%) att förlikning uppnås före jul 2026; om det misslyckas tillämpas provisoriska tolvtedelar (stort politiskt misslyckande)
+
+#### Beslut 3: Migrationens uppgörelse
+**Vad som händer:** Första verkliga test av migrationspaktens solidaritetsmekanism — pågående 2026
+**Vem beslutar:** LIBE-kommittén leder; plenumresolution sannolikt kvartal 4 2026
+**Vad som står på spel:** Om EU:s nya migrationshanterings-approach håller under verkligt tryck
+**Underrättelsebedömning:** Jämnt odds (50%) att den första aktiveringen av solidaritetsmekanismen utlöser politisk kris i EP; nästan säkert att LIBE producerar kontroversiell resolution
+
+#### Beslut 4: AI-styrningsstandarden
+**Vad som händer:** AI-rättsaktens GPAI-genomförandeförordningar träder i kraft
+**Vem beslutar:** Kommissionen lägger fram; ITRE/LIBE granskar; ingen invändning = ikraftträdande
+**Vad som står på spel:** EU blir global standard-sättare för AI-styrning
+**Underrättelsebedömning:** Nästan säkert (95%) att GPAI-reglerna träder i kraft i slutet av 2026; tvisten gäller klassificeringens räckvidd av hög risk
+
+#### Beslut 5: Det gröna avtalets överlevnadstest
+**Vad som händer:** NRL:s nationella handlingsplaner förfaller; jordbrukslobbyns motoffensiv; ENVI-övervakningsresolution
+**Vem beslutar:** ENVI-kommittén och plenarflyktalet
+**Vad som står på spel:** Om EU:s ramverk för biologisk mångfald överlever sitt första genomförandetest
+**Underrättelsebedömning:** Osannolikt (<35%) att NRL formellt upphävs; troligt (65%) att genomförandet mjukas upp genom jordbrukskompensationsmekanismer
+
+---
+
+### WEP Sammanfattande bedömning (Kommande år)
+
+| Band | Prognos | Ärenden/Händelser |
+|------|---------|-------------------|
+| **Nästan säkert** | Storkoalitionen upprätthåller majoritet för Ukrainastöd | Budget 2027 Ukrainaåtagande; AFET-resolutioner |
+| **Nästan säkert** | EU:s budget 2027 antagen före januari 2027 | Det danska ordförandeskapet levererar |
+| **Nästan säkert** | AI-rättsaktens GPAI-genomförandeförordningar publicerade | Rättslig skyldighet; kommissionen bunden |
+| **Troligt** | ReArm Europe antas med bred koalition | Oktober 2026 plenum |
+| **Troligt** | ECB:s räntesänkningar fortsätter under 2026 | Inflationsnormalisering |
+| **Jämnt odds** | NRL-genomförandekris (jordbrukslobbyn lyckas) | ENVI-kontrovers 2026 |
+| **Osannolikt** | EPP skiftar formellt till höger-av-centrum-koalitionsstrategi | Koalitionsaritmetik förhindrar |
+| **Nästan ingen chans** | Någon EP-omröstning kränker EU:s fördragsförpliktelser | Konstitutionell begränsning |
+
+**Admiralty: B3** — Analys baserad på tillförlitliga EP-strukturdata; 12-månadersprognoshorisont medför inneboende osäkerhet.
+
+---
+
+*Exekutiv sammanfattning komplett · Admiralty B3 · WEP tillämpat · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### Läsarbriefing
+
+**För statschefer:** EP10 År 2 är det år då EU:s kollektiva försvarsomvandling antingen låses fast (oktobers 2026 ReArm-omröstning) eller stannar av. Ditt lands säkerhetskalkyl för 2027–2030 beror väsentligen på vad som händer i EP:s plenumsal i oktober 2026. Polska och baltiska statsregeringar bör vara mest aktivt engagerade med EPP- och ECR-ledamöter under denna period.
+
+**För näringsliv:** Oktober–novemberfönstret 2026 är när EU:s budget 2027 slutförhandlas. Varje EU-program som är viktigt för din verksamhet — Horizon Europe-bidrag, sammanhållningsfondstillgång, SAFE-försvarskontrakt, SFDR-efterlevnadssäkerhet — är på spel samtidigt. Budget- och branschorganisationsengagemang bör intensifieras under september–oktober 2026.
+
+**För medborgare:** De tre besluten som mest direkt påverkar ditt dagliga liv är: (1) Ökar EU:s försvarsutgifter (din skatt); (2) Överlever det gröna avtalet (din miljö); (3) Hur fungerar migrationspakten i praktiken (din gränssäkerhet och asylsystem). Alla tre når avgörande ögonblick under hösten 2026.
+
+---
+
+*Exekutiv sammanfattning: Economist-nivå politisk underrättelse för EU-parlamentets kommande år 2026–2027 · Apache-2.0 · Hack23 AB 2026*
+
+### Executive Brief Zh
+
+**分类：** 公开 · **制作日期：** 2026-05-10 · **文章类型：** year-ahead · **可信度：** 🟡 中等
+
+---
+
+### 战略形势评估
+
+欧洲议会在第十届会期（2024–2029）第二年开始之际面临关键转折点。717名议员分布于九个政治党团，构成高度分裂的议会，面临多重联合依赖、更具进攻性的极右翼力量以及欧盟委员会在几乎每次投票中都要求跨党派妥协的雄心勃勃的立法议程等治理挑战。自然多数联合体的缺失——欧洲人民党（EPP，183席）需要至少额外177票才能达到360席的多数门槛——意味着每一项重要立法成果都将充满争议。
+
+未来一年（2026年5月至2027年5月）将在地缘政治动荡的背景下展开。俄乌战争持续影响防务支出讨论，跨大西洋贸易紧张局势重塑欧盟贸易政策优先事项，欧盟绿色转型议程面临法国、德国和波兰国内政治变化带来的日益增加的阻力。
+
+**核心战略发现：**
+
+1. **联合分裂是决定性的结构制约。** 碎片化指数被评为高级，有效政党数为6.58，不存在两党多数。传统的EPP–S&D大联合（合计319席）距360席的多数门槛差41席。这在结构上需要欧洲复兴党（77票）或临时右翼组合。
+
+2. **EPP–ECR–PfE轴心是议会中最具破坏性的力量。** EPP（183）+ECR（81）+PfE（85）=349席——仅距多数差11席。当这一中右翼阵营在特定议题（移民、边境控制、农业放松管制）上结成联盟时，可以阻止或改变进步立法。
+
+3. **欧洲复兴党是关键枢纽力量。** 凭借77席，欧洲复兴党拥有结构性否决权：没有其支持，中左翼阵营（EPP+S&D=319）和保守派联合（EPP+ECR+PfE=349）都无法单独达到多数门槛。
+
+4. **绿色协议立法管道仍充满争议但依然活跃。** 委员会2026年工作计划包括自然恢复法的关键实施法规、碳边界调整机制（CBAM）分阶段时间表以及可持续金融信息披露条例（SFDR）修订。每个议题都面临联合构建挑战。
+
+5. **防务与乌克兰仍是议会最紧迫的议程项目。** 5000亿欧元的"重新武装欧洲"工具与扩大对乌克兰的财政支持方案将主导预算委员会和AFET委员会2026年议程。
+
+6. **IMF数据不可用——财政背景仅依赖欧洲议会数据。** 🔴 IMF SDMX API网关在A阶段数据收集期间返回HTTP 204。本分析中的所有经济背景均源自欧洲议会通过的文本和议会辩论。
+
+---
+
+### 未来一年优先立法文件
+
+| 文件 | 主导委员会 | 联合路径 | 风险水平 |
+|------|-----------|---------|---------|
+| 自然恢复法实施 | ENVI | EPP+S&D+Renew（脆弱） | 🔴 高 |
+| 欧盟-南方共同市场贸易协定批准 | INTA | EPP+Renew+ECR（S&D分裂） | 🟡 中 |
+| 欧洲防务工业战略（EDIS） | AFET/ITRE | 广泛共识（The Left除外） | 🟢 低 |
+| SFDR修订 | ECON | EPP+Renew+S&D（争议中） | 🟡 中 |
+| 关键药品框架 | ENVI/SANT | 广泛（TA-10-2026-0001已采纳） | 🟢 低 |
+| 庇护与移民协议实施 | LIBE | EPP+ECR+PfE对S&D+Renew | 🔴 高 |
+| 欧洲选举法改革 | AFCO | 受阻——批准障碍持续存在 | 🔴 高 |
+| 数字基础设施/主权 | ITRE | EPP+Renew+S&D | 🟡 中 |
+| 储蓄与投资联盟（SIU） | ECON | EPP+Renew+ECR | 🟡 中 |
+| 基于同意的强奸立法（欧盟框架） | FEMM/LIBE | S&D+Renew+Greens+The Left | 🟡 中 |
+| 海洋外交/渔业 | PECH | 分裂（国家利益主导） | 🟡 中 |
+| 欧洲投资银行改革/年度报告 | CONT/BUDG | 广泛（监督立场） | 🟢 低 |
+
+---
+
+### 全体大会日程——重要节点（2026年5月至2027年5月）
+
+基于欧洲议会确认的全体大会时间表（数据来源：EP开放数据门户，2026-05-10）：
+
+- **2026年5月：** 斯特拉斯堡会期5月18–21日；布鲁塞尔5月27日
+- **2026年6月：** 斯特拉斯堡6月15–18日；布鲁塞尔6月24日
+- **2026年7月：** 斯特拉斯堡7月6–9日（暑假前）
+- **2026年9月：** 斯特拉斯堡9月14–17日；布鲁塞尔9月30日
+- **2026年10月：** 斯特拉斯堡10月19–22日；布鲁塞尔10月28–29日
+- **2026年11月：** 斯特拉斯堡11月23–26日；布鲁塞尔11月25日
+- **2026年12月：** 斯特拉斯堡12月14–17日（预算全会——关键）
+- **2027年1月：** 斯特拉斯堡1月18–21日；布鲁塞尔1月27日
+- **2027年2月：** 斯特拉斯堡2月8–11日；布鲁塞尔2月24日
+- **2027年3月：** 斯特拉斯堡3月9–12日；布鲁塞尔3月25–26日
+- **2027年4月：** 斯特拉斯堡（日期待定）
+- **2027年5月：** 斯特拉斯堡（议会任期中点临近）
+
+---
+
+### 政治情报优先事项
+
+#### 1. 极右翼制度成熟问题
+PfE（85席）和ESN（27席）合计112席——占议会15.6%。与第八届议会的EFDD或ENF不同，PfE和ESN日益具备制度能力：担任委员会副主席、积极参与三方会谈并提交详细的立法修正案。从抗议政治向交易性立法影响力的转变是直至2027年最值得追踪的结构性趋势。
+
+#### 2. S&D的受约束处境
+S&D（136席，18.97%）面临战略困境：第二大党团但在没有EPP（向右妥协）或Renew（中间偏右但常亲商）情况下无法形成多数。The Left（45席）和Greens/EFA（53席）对进步遗产形成竞争。
+
+#### 3. 冯德莱恩第二届委员会下的委员会-议会关系
+2024年底组建的第二届冯德莱恩委员会以比第一届更明确的中右翼授权运作。委员会的"简化"议程与S&D、Greens和The Left产生摩擦。
+
+#### 4. 欧盟-美国贸易框架的不确定性
+欧盟-美国关税谈判轨迹（特朗普贸易举措后）将影响INTA委员会至2026年第四季度的议程。
+
+---
+
+### 制度进程指标
+
+- **年初至今通过文本（2026年）：** 已通过100多项文本，涵盖药品、金融稳定、投票改革、无人机、数字主权和乌克兰支持等关键议题。
+- **委员会活动：** AFET、ECON、ENVI、ITRE、LIBE和INTA是最活跃的委员会。
+- **稳定性评分：** 84/100（EP预警系统，2026-05-10）。高碎片化警告激活中。
+
+---
+
+### 可信度评估
+
+| 领域 | 可信度 | 依据 |
+|------|-------|------|
+| 党团席位构成 | 🟢 高 | EP实时开放数据（717名成员，9个党团） |
+| 联合路径分析 | 🟡 中 | 规模相似代理数据 |
+| 立法管道预测 | 🟡 中 | EP数据源+通过文本 |
+| 经济背景 | 🔴 低 | IMF网关不可用 |
+| 全体大会日程 | 🟢 高 | EP确认的会议时间表 |
+| 威胁评估 | 🟡 中 | 结构性分析 |
+
+---
+
+### IMF不可用通知
+
+🔴 **IMF数据不可用（降级模式激活）**
+
+IMF SDMX API网关在本次运行的A阶段探测期间返回HTTP 204（2026-05-10T19:05:XX UTC）。本分析中未引用任何IMF宏观经济数据。根据降级模式协议，IMF最低要求在本次运行中豁免。需要宏观经济背景的分析师应另行参考IMF《世界经济展望》（2026年4月版）和ECB经济报告（第3期，2026年）。
+
+---
+
+*来源：欧洲议会开放数据门户（data.europarl.europa.eu）· Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### 战略情报评估：2026–2027年五项关键决策
+
+#### 决策一：防务协议
+**正在发生什么：** 欧洲议会就"重新武装欧洲"融资法规投票——目标：2026年10月
+**谁来决定：** EPP+S&D+Renew联合（预计450票以上；ECR有条件支持）
+**什么处于危险之中：** 欧盟可信地威慑俄罗斯侵略的能力
+**情报评估：** 立法几乎肯定（>95%）会被采纳；争议在于细节
+
+#### 决策二：预算协议
+**正在发生什么：** 欧盟2027年预算调解程序——2026年11月至12月
+**谁来决定：** EP-理事会调解委员会；丹麦主席国斡旋
+**什么处于危险之中：** 分配2000亿欧元以上的欧盟支出
+**情报评估：** 调解可能（70%）在2026年圣诞节前成功
+
+#### 决策三：移民清算
+**正在发生什么：** 移民协议团结机制的首次真实测试——持续至2026年
+**谁来决定：** LIBE委员会领衔；预计2026年第四季度全体决议
+**什么处于危险之中：** 欧盟新移民管理方式能否承受实际压力
+**情报评估：** 五五开（50%）团结机制首次启动会在EP内引发政治危机
+
+#### 决策四：人工智能治理标准
+**正在发生什么：** AI法案GPAI实施法规生效
+**谁来决定：** 委员会提交；ITRE/LIBE审查；无异议=生效
+**什么处于危险之中：** 欧盟成为全球人工智能治理标准制定者
+**情报评估：** GPAI规则几乎肯定（95%）在2026年底生效
+
+#### 决策五：绿色协议生存测试
+**正在发生什么：** 自然恢复法国家行动计划到期；农业游说的反击；ENVI监督决议
+**谁来决定：** ENVI委员会和全体大会多数
+**什么处于危险之中：** 欧盟生物多样性框架能否通过首次实施测试
+**情报评估：** 自然恢复法被正式废除的可能性不大（<35%）
+
+---
+
+### WEP综合评估（未来一年）
+
+| 级别 | 预测 | 文件/事件 |
+|-----|------|---------|
+| **几乎确定** | 大联合维持对乌克兰支持的多数 | 2027年预算乌克兰承诺；AFET决议 |
+| **几乎确定** | 欧盟2027年预算在2027年1月前采纳 | 丹麦主席国交付 |
+| **几乎确定** | AI法案GPAI实施法规颁布 | 法律义务；委员会受约束 |
+| **可能** | "重新武装欧洲"经广泛联合采纳 | 2026年10月全会 |
+| **可能** | 欧洲央行2026年持续降息 | 通胀正常化 |
+| **五五开** | 自然恢复法实施危机（农业游说成功） | 2026年ENVI争议 |
+| **不太可能** | EPP正式转向更偏右的联合战略 | 联合算术阻止 |
+| **几乎不可能** | 任何议会投票违反欧盟条约义务 | 宪法约束 |
+
+**海军上将评级：B3** — 分析基于可靠的EP结构数据；12个月前瞻时间段内含本质不确定性。
+
+---
+
+*执行简报完整 · 海军上将评级B3 · WEP已应用 · Apache-2.0 · Hack23 AB 2026*
+
+---
+
+### 读者简报
+
+**政府领导人：** EP10第二年是欧盟集体防务转型巩固（"重新武装欧洲"投票2026年10月）或陷入僵局的年份。贵国2027–2030年的安全计算在很大程度上取决于2026年10月EP全会上发生的事情。
+
+**商界：** 2026年10–11月是欧盟2027年预算最终确定的时间窗口。与贵公司业务相关的所有欧盟项目——Horizon Europe资助、凝聚力基金准入、SAFE防务合同、SFDR合规确定性——同时处于危险之中。
+
+**公民：** 对您日常生活影响最直接的三项决策：(1) 欧盟是否增加防务支出（您的税收）；(2) 绿色协议能否生存（您的环境）；(3) 移民协议在实践中如何运作（您的边境安全和庇护制度）。三者都将在2026年秋季迎来决定性时刻。
+
+---
+
+*执行简报：2026–2027年欧洲议会经济学人级政治情报 · Apache-2.0 · Hack23 AB 2026*
+
 ### Forward Projection
 
 ### Forward Projection Framework
@@ -7303,6 +9678,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [commission-wp-alignment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/commission-wp-alignment.md) | `commission-wp-alignment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [forward-projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/forward-projection.md) | `forward-projection.md` |
 | section-supplementary-intelligence | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/intelligence/actor-mapping.md) | `intelligence/actor-mapping.md` |
 | section-supplementary-intelligence | [actor-threat-profiles](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-ahead/intelligence/actor-threat-profiles.md) | `intelligence/actor-threat-profiles.md` |

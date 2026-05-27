@@ -1,7 +1,7 @@
 ---
-title: "Breaking News Intelligence Brief"
-description: "dataAvailability: Unavailable (Easter recess Day 15) analyst: EU Parliament Monitor AI Agent (Opus 4.6)"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-10", "News", "Intelligence", "Brief"]
+title: "The 10 April breaking brief records Easter Recess Day 15"
+description: "The 10 April breaking brief records Easter Recess Day 15 with dataAvailability: Unavailable. Published 2026-04-10."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-10", "April", "brief", "records"]
 date: 2026-04-10
 article_type: breaking
 slug: 2026-04-10-breaking-breaking
@@ -57,9 +57,503 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `political-classification.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+### BLUF
+
+يُسجّل الموجز الصادر في 10 أبريل **اليوم الخامس عشر من عطلة عيد الفصح** مع `dataAvailability: Unavailable`. يعمل الوضع التحليلي حصراً على الإحصاءات المحسوبة مسبقاً وركيزة الذاكرة التحريرية؛ لا يمكن توظيف أي إشارة مباشرة من تغذيات البرلمان الأوروبي. تكمن القيمة الاستراتيجية للموجز في *الحفاظ على الاستمرارية* خلال انقطاع مطوّل في التغذيات — صون إيقاع خط الأنابيب التحليلي حتى يتمكن المستهلكون في المراحل اللاحقة من الوصول إلى القطع حتى في ظروف متردية. *الثقة: متوسطة (ركيزة تحليلية فحسب)؛ تقييم الأميرال: B3.*
+
+### ثلاثة قرارات
+
+1. **الحفاظ على الإيقاع اليومي لموجزات Breaking خلال انعدام توفر التغذيات المطوّل.** تعتمد قيمة خط الأنابيب جزئياً على موثوقيته؛ الإنتاج اليومي حتى مع بيانات متردية يحافظ على توقعات المستهلكين اللاحقين. *الثقة: عالية.*
+2. **مواصلة تحديد مواقع التفعيل المسبق T-N حتى 14 أبريل (T-1).** مع تحديد T-0 في 15 أبريل، تمثل الأيام الخمسة القادمة نافذة التقارب؛ تحافظ الاستطلاعات اليومية على السجل التحليلي. *الثقة: عالية.*
+3. **توثيق حالة dataAvailability بشكل صريح في كل استطلاع.** عندما تكون التغذيات غير متاحة، يكون التسمية الصريحة أهم من المعتاد — لا ينبغي للمستهلكين افتراض الحداثة. *الثقة: عالية.*
+
+### القراءة في 60 ثانية
+
+اليوم الخامس عشر من عطلة عيد الفصح هو من الناحية التشغيلية أعمق نقطة لانعدام توفر التغذيات. يعمل خط الأنابيب على ركيزة إحصائية محسوبة مسبقاً وينتج بيانات استمرارية. القيمة الجوهرية إجرائية (استمرارية) لا محتوى طازج (لا شيء متاح).
+
+### لقطة المخاطر
+
+| المخاطرة | الاحتمالية | التأثير |
+|---|---:|---:|
+| تبقى التغذيات غير متاحة حتى T-0 | منخفض–متوسط | متوسط |
+| وضع الاستمرارية يُفهم خطأً على أنه وضع إشارة حديثة | متوسط | منخفض–متوسط |
+| انجراف الذاكرة التحريرية خلال انقطاع مطوّل | منخفض | متوسط |
+
+### جودة المصادر
+
+- الإحصاءات المحسوبة مسبقاً: **B2**
+- الذاكرة التحريرية: **C2**
+- ملاحظة عدم توفر البيانات: **A1**
+
+### المصدر
+
+- التشغيل: `breaking` (2026-04-10، يوم الإجازة 15)
+- الامتثال: EP Open Data Portal + إحصاءات محسوبة مسبقاً. متوافق مع اللائحة الأوروبية لحماية البيانات.
+
+---
+*الحياد التحليلي: وضع الاستمرارية مُسمَّى بشكل صريح.*
+
+### Executive Brief Da
+
+### BLUF
+
+Orienteringen fra 10. april dokumenterer **påskeferiedag 15** med `dataAvailability: Unavailable`. Den analytiske tilstand opererer udelukkende på forudberegnede statistikker og redaktionelt hukommelsessubstrat; ingen live EP-feeds kan anvendes. Orienteringens strategiske værdi er *kontinuitetsbevarelse* under vedvarende feedafbrydelse — opretholdelse af analytisk pipeline-kadence så nedstrømskonsumenter har adgang til artefakter selv under forringede forhold. *Tillid: MEDIUM (kun analytisk substrat); Admiralsvurdering: B3.*
+
+### Tre Beslutninger
+
+1. **Oprethold daglig breaking-brief-kadence under vedvarende feedutilgængelighed.** Pipelinensværdi afhænger delvist af dens pålidelighed; daglig produktion selv med forringede input bevarer nedstrømskonsumenters forventninger. *Tillid: HØJ.*
+2. **Fortsæt T-N foraktiverings-positionering frem til 14. april (T-1).** Med T-0 den 15. april er de næste 5 dage konvergensvinduesperioden; daglige prober bevarer den analytiske dokumentation. *Tillid: HØJ.*
+3. **Dokumentér dataAvailability-tilstanden eksplicit i hver probe.** Når feeds er utilgængelige, er den eksplicitte mærkning vigtigere end normalt — forbrugere bør ikke antage aktualitet. *Tillid: HØJ.*
+
+### 60-Sekunders Læsning
+
+Dag 15 af påskeferien er driftsmæssigt det dybeste punkt for feedutilgængelighed. Pipelinen kører på forudberegnet statistisk grundlag og producerer kontinuitetsdataoutput. Den substantielle værdi er proceduremæssig (kontinuitet) snarere end indholdsfris (ingen tilgængelig).
+
+### Risikooversigt
+
+| Risiko | Sandsynlighed | Indvirkning |
+|---|---:|---:|
+| Feeds forbliver utilgængelige frem til T-0 | LAV–MED | MED |
+| Kontinuitetstilstand fejlagtigt fortolket som fris-signal-tilstand af forbrugere | MED | LAV–MED |
+| Redaktionel hukommelsesdrift under vedvarende afbrydelse | LAV | MED |
+
+### Kildekvalitet
+
+- Forudberegnet statistik: **B2**
+- Redaktionel hukommelse: **C2**
+- Observation om datautilgængelighed: **A1**
+
+### Oprindelse
+
+- Kørsel: `breaking` (2026-04-10, feriedag 15)
+- Overholdelse: EP Open Data Portal + forudberegnet statistik. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: kontinuitetstilstand eksplicit mærket.*
+
+### Executive Brief De
+
+### BLUF
+
+Das Briefing vom 10. April dokumentiert **Osterferiertag 15** mit `dataAvailability: Unavailable`. Der analytische Modus operiert ausschließlich auf vorberechneten Statistiken und redaktionellem Gedächtnissubstrat; kein live EP-Feed-Signal ist verwertbar. Der strategische Wert des Briefings besteht in der *Kontinuitätserhaltung* während eines anhaltenden Feed-Ausfalls — Aufrechterhaltung der analytischen Pipeline-Kadenz, damit nachgelagerte Nutzer auch unter degradierten Bedingungen Zugang zu Artefakten haben. *Vertrauen: MITTEL (nur analytisches Substrat); Admiralsbewertung: B3.*
+
+### Drei Entscheidungen
+
+1. **Tägliche Breaking-Brief-Kadenz während anhaltender Feed-Nichtverfügbarkeit aufrechterhalten.** Der Wert der Pipeline hängt teilweise von ihrer Zuverlässigkeit ab; tägliche Ausgabe auch bei degradierten Eingaben bewahrt die Erwartungen nachgelagerter Nutzer. *Vertrauen: HOCH.*
+2. **T-N Voraktivierungspositionierung bis zum 14. April (T-1) fortsetzen.** Mit T-0 am 15. April sind die nächsten 5 Tage das Konvergenzfenster; tägliche Sonden bewahren den analytischen Datensatz. *Vertrauen: HOCH.*
+3. **Den dataAvailability-Status in jeder Sonde explizit dokumentieren.** Wenn Feeds nicht verfügbar sind, ist die explizite Kennzeichnung wichtiger als gewöhnlich — Nutzer sollten keine Aktualität voraussetzen. *Vertrauen: HOCH.*
+
+### 60-Sekunden-Lektüre
+
+Tag 15 der Osterferien ist operativ der tiefste Punkt der Feed-Nichtverfügbarkeit. Die Pipeline läuft auf vorberechneter statistischer Grundlage und produziert Kontinuitätsausgaben. Der substanzielle Wert ist prozedural (Kontinuität) und nicht inhaltlich frisch (keiner verfügbar).
+
+### Risikoübersicht
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| Feeds bleiben bis T-0 nicht verfügbar | NIEDRIG–MITTEL | MITTEL |
+| Kontinuitätsmodus wird von Nutzern fälschlicherweise als Frischsignalmodus interpretiert | MITTEL | NIEDRIG–MITTEL |
+| Redaktionelle Gedächtnisdrift während anhaltenden Ausfalls | NIEDRIG | MITTEL |
+
+### Quellqualität
+
+- Vorberechnete Statistiken: **B2**
+- Redaktionelles Gedächtnis: **C2**
+- Beobachtung zur Datennichtverfügbarkeit: **A1**
+
+### Herkunft
+
+- Lauf: `breaking` (2026-04-10, Ferientag 15)
+- Konformität: EP Open Data Portal + vorberechnete Statistiken. DSGVO-konform.
+
+---
+*Analytische Neutralität: Kontinuitätsmodus explizit gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+El informe del 10 de abril registra el **día 15 de vacaciones de Pascua** con `dataAvailability: Unavailable`. El modo analítico opera exclusivamente sobre estadísticas precalculadas y el sustrato de memoria editorial; ninguna señal de feed del PE en vivo es aprovechable. El valor estratégico del informe reside en la *preservación de la continuidad* durante una interrupción prolongada de los feeds — el mantenimiento de la cadencia del pipeline analítico para que los consumidores aguas abajo tengan disponibilidad de artefactos incluso en condiciones degradadas. *Confianza: MEDIA (solo sustrato analítico); Calificación almirante: B3.*
+
+### Tres Decisiones
+
+1. **Mantener la cadencia diaria de breaking briefs durante la no disponibilidad prolongada de feeds.** El valor del pipeline depende en parte de su fiabilidad; la producción diaria incluso con entradas degradadas preserva las expectativas de los consumidores aguas abajo. *Confianza: ALTA.*
+2. **Continuar el posicionamiento de preactivación T-N hasta el 14 de abril (T-1).** Con T-0 el 15 de abril, los próximos 5 días son la ventana de convergencia; las sondas diarias preservan el registro analítico. *Confianza: ALTA.*
+3. **Documentar el estado dataAvailability explícitamente en cada sonda.** Cuando los feeds no están disponibles, el etiquetado explícito es más importante de lo habitual — los consumidores no deben asumir frescura. *Confianza: ALTA.*
+
+### Lectura en 60 Segundos
+
+El día 15 de las vacaciones de Pascua es operativamente el punto más profundo de no disponibilidad de feeds. El pipeline funciona sobre sustrato estadístico precalculado y produce datos de continuidad. El valor sustancial es procedimental (continuidad) en lugar de fresco en contenido (ninguno disponible).
+
+### Instantánea de Riesgos
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| Los feeds permanecen no disponibles hasta T-0 | BAJO–MED | MED |
+| Modo continuidad confundido con modo señal fresca por consumidores | MED | BAJO–MED |
+| Deriva de la memoria editorial durante interrupción prolongada | BAJO | MED |
+
+### Calidad de Fuentes
+
+- Estadísticas precalculadas: **B2**
+- Memoria editorial: **C2**
+- Observación de no disponibilidad de datos: **A1**
+
+### Procedencia
+
+- Ejecución: `breaking` (2026-04-10, día de vacaciones 15)
+- Cumplimiento: EP Open Data Portal + estadísticas precalculadas. Conforme con el RGPD.
+
+---
+*Neutralidad analítica: modo continuidad etiquetado explícitamente.*
+
+### Executive Brief Fi
+
+### BLUF
+
+10. huhtikuuta päivätty tiedote dokumentoi **pääsiäisloman päivän 15** tilalla `dataAvailability: Unavailable`. Analyyttinen tila toimii yksinomaan ennalta laskettuun tilastotieto- ja toimitukselliseen muistiaineistoon perustuen; yhtään live EP-syötettä ei voida käyttää. Tiedotteen strateginen arvo on *jatkuvuuden säilyttäminen* pitkittyneen syötekatkoksen aikana — analyyttisen putkilinjan tahdin ylläpitäminen niin, että alaspäin sijaitsevilla kuluttajilla on artefaktien saatavuus myös heikentyneissä olosuhteissa. *Luottamus: KESKITASO (vain analyyttinen aineisto); Amiraaliluokitus: B3.*
+
+### Kolme Päätöstä
+
+1. **Ylläpidä päivittäistä breaking-brief-tahtia pitkittyneen syötteen saatavuushäiriön aikana.** Putkilinjan arvo riippuu osittain sen luotettavuudesta; päivittäinen tuotanto heikentyneilläkin syötteillä säilyttää alaspäin sijaitsevien kuluttajien odotukset. *Luottamus: KORKEA.*
+2. **Jatka T-N esiasennoitumista 14. huhtikuuta (T-1) asti.** Kun T-0 on 15. huhtikuuta, seuraavat 5 päivää ovat lähentymisikkuna; päivittäiset anturit säilyttävät analyyttisen kirjanpidon. *Luottamus: KORKEA.*
+3. **Dokumentoi dataAvailability-tila eksplisiittisesti jokaisessa anturissa.** Kun syötteet ovat saavuttamattomissa, eksplisiittinen merkitseminen on tärkeämpää kuin tavallisesti — kuluttajien ei pidä olettaa tuoreutta. *Luottamus: KORKEA.*
+
+### 60 Sekunnin Lukeminen
+
+Pääsiäisloman päivä 15 on toiminnallisesti syötteen saavuttamattomuuden syvin piste. Putkilinja toimii ennalta lasketulla tilastollisella alustalla ja tuottaa jatkuvuuslähtöä. Sisällöllinen arvo on proseduraalinen (jatkuvuus) eikä sisällöltään tuore (ei saatavilla).
+
+### Riskikatsaus
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| Syötteet pysyvät saavuttamattomissa T-0:aan asti | MATALA–KESKI | KESKI |
+| Jatkuvuustila virheellisesti tulkitaan tuoreen signaalin tilaksi kuluttajien toimesta | KESKI | MATALA–KESKI |
+| Toimituksellinen muistivääristymä pitkittyneen katkoksen aikana | MATALA | KESKI |
+
+### Lähteen Laatu
+
+- Ennalta laskettu tilastotieto: **B2**
+- Toimituksellinen muisti: **C2**
+- Havainto tietojen saavuttamattomuudesta: **A1**
+
+### Alkuperä
+
+- Ajo: `breaking` (2026-04-10, lomavälivuoro 15)
+- Vaatimustenmukaisuus: EP Open Data Portal + ennalta laskettu tilastotieto. GDPR-yhteensopiva.
+
+---
+*Analyyttinen puolueettomuus: jatkuvuustila eksplisiittisesti merkitty.*
+
+### Executive Brief Fr
+
+### BLUF
+
+La note du 10 avril enregistre le **jour 15 de vacances de Pâques** avec `dataAvailability: Unavailable`. Le mode analytique opère exclusivement sur les statistiques précalculées et le substrat de mémoire éditoriale ; aucun signal live de flux EP n'est exploitable. La valeur stratégique de la note réside dans la *préservation de la continuité* pendant une interruption prolongée des flux — le maintien de la cadence du pipeline analytique afin que les consommateurs en aval disposent d'artefacts même en conditions dégradées. *Confiance : MOYENNE (substrat analytique uniquement) ; Note d'amiral : B3.*
+
+### Trois Décisions
+
+1. **Maintenir la cadence quotidienne des breaking briefs pendant l'indisponibilité prolongée des flux.** La valeur du pipeline dépend en partie de sa fiabilité ; une production quotidienne même avec des données dégradées préserve les attentes des consommateurs en aval. *Confiance : ÉLEVÉE.*
+2. **Poursuivre le positionnement de pré-activation T-N jusqu'au 14 avril (T-1).** T-0 étant fixé au 15 avril, les 5 jours suivants constituent la fenêtre de convergence ; les sondes quotidiennes préservent l'enregistrement analytique. *Confiance : ÉLEVÉE.*
+3. **Documenter explicitement l'état dataAvailability dans chaque sonde.** Lorsque les flux sont indisponibles, l'étiquetage explicite est plus important que d'habitude — les consommateurs ne doivent pas présumer de l'actualité des données. *Confiance : ÉLEVÉE.*
+
+### Lecture en 60 Secondes
+
+Le jour 15 des vacances de Pâques est opérationnellement le point le plus profond d'indisponibilité des flux. Le pipeline fonctionne sur un substrat statistique précalculé et produit des données de continuité. La valeur substantielle est procédurale (continuité) et non fraîche en contenu (aucune disponible).
+
+### Instantané des Risques
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| Les flux restent indisponibles jusqu'à T-0 | FAIBLE–MOY | MOY |
+| Mode continuité confondu avec mode signal frais par les consommateurs | MOY | FAIBLE–MOY |
+| Dérive de la mémoire éditoriale pendant l'interruption prolongée | FAIBLE | MOY |
+
+### Qualité des Sources
+
+- Statistiques précalculées : **B2**
+- Mémoire éditoriale : **C2**
+- Observation d'indisponibilité des données : **A1**
+
+### Provenance
+
+- Exécution : `breaking` (2026-04-10, jour de vacances 15)
+- Conformité : EP Open Data Portal + statistiques précalculées. Conforme au RGPD.
+
+---
+*Neutralité analytique : mode continuité explicitement étiqueté.*
+
+### Executive Brief He
+
+### BLUF
+
+הבריפינג מה-10 באפריל מתעד את **יום 15 בחופשת הפסחא** עם `dataAvailability: Unavailable`. המצב האנליטי פועל אך ורק על סטטיסטיקות מחושבות מראש ועל סובסטרט הזיכרון העורכי; אין ניתן להשתמש באות חי ממזינות ה-EP. הערך האסטרטגי של הבריפינג הוא *שימור הרצף* במהלך הפסקת מזין ממושכת — שמירה על קצב ה-pipeline האנליטי כך שלצרכנים במורד הזרם תהיה גישה לארטיפקטים גם בתנאים מואטים. *ביטחון: בינוני (סובסטרט אנליטי בלבד); דירוג אדמיירל: B3.*
+
+### שלושה החלטות
+
+1. **שמור על קצב יומי של breaking briefs במהלך אי-זמינות ממושכת של המזינות.** ערך ה-pipeline תלוי חלקית באמינותו; פלט יומי אפילו עם קלטים מואטים שומר על ציפיות הצרכנים במורד הזרם. *ביטחון: גבוה.*
+2. **המשך ב-T-N מיצוב טרום-הפעלה עד ל-14 באפריל (T-1).** כשה-T-0 הוא ב-15 באפריל, 5 הימים הבאים הם חלון ההתכנסות; בדיקות יומיות שומרות על הרשומה האנליטית. *ביטחון: גבוה.*
+3. **תיעד את מצב dataAvailability במפורש בכל בדיקה.** כשמזינות אינן זמינות, תיוג מפורש חשוב יותר מהרגיל — צרכנים לא צריכים להניח עדכניות. *ביטחון: גבוה.*
+
+### קריאה ב-60 שניות
+
+יום 15 של חופשת הפסחא הוא מבחינה תפעולית הנקודה העמוקה ביותר של אי-זמינות מזינות. ה-pipeline פועל על בסיס סטטיסטי מחושב מראש ומפיק פלט רצף. הערך המהותי הוא פרוצדורלי (רצף) ולא טרי בתוכן (אין זמין).
+
+### תמונת-עצב של סיכונים
+
+| סיכון | סבירות | השפעה |
+|---|---:|---:|
+| מזינות נשארות לא זמינות עד T-0 | נמוך–בינוני | בינוני |
+| מצב רצף מתפרש בטעות כמצב אות טרי על ידי צרכנים | בינוני | נמוך–בינוני |
+| סחף זיכרון עורכי במהלך הפסקה ממושכת | נמוך | בינוני |
+
+### איכות מקורות
+
+- סטטיסטיקות מחושבות מראש: **B2**
+- זיכרון עורכי: **C2**
+- תצפית על אי-זמינות נתונים: **A1**
+
+### מקור
+
+- ריצה: `breaking` (2026-04-10, יום חופשה 15)
+- תאימות: EP Open Data Portal + סטטיסטיקות מחושבות מראש. תואם GDPR.
+
+---
+*ניטרליות אנליטית: מצב רצף מתויג במפורש.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月10日付のブリーフィングは `dataAvailability: Unavailable` 状態での**イースター休暇15日目**を記録します。分析モードは事前計算された統計と編集記憶サブストレートのみで動作します；ライブEPフィード信号は使用不可です。このブリーフィングの戦略的価値は、フィード障害が長引く中での*継続性の維持*にあります — 分析パイプラインのリズムを保ち、ダウンストリームの消費者が劣化した環境でもアーティファクトにアクセスできるようにすることです。*信頼度：中程度（分析サブストレートのみ）；提督評価：B3。*
+
+### 三つの決定
+
+1. **フィード長期不可用時も日次 breaking brief のリズムを維持する。** パイプラインの価値はその信頼性に一部由来します；劣化した入力でも日次出力することでダウンストリーム消費者の期待を維持します。*信頼度：高。*
+2. **4月14日（T-1）までT-Nプレアクティベーション・ポジショニングを継続する。** T-0が4月15日であるため、今後5日間が収束ウィンドウです；日次プローブが分析記録を保持します。*信頼度：高。*
+3. **各プローブでdataAvailabilityの状態を明示的に記録する。** フィードが利用不可の場合、明示的なラベリングは通常以上に重要です — 消費者は鮮度を仮定すべきではありません。*信頼度：高。*
+
+### 60秒レビュー
+
+イースター休暇の15日目は運用上フィード不可用の最深部です。パイプラインは事前計算された統計サブストレートで動作し、継続性出力を生成します。実質的価値は手続的（継続性）であり、コンテンツの鮮度（利用可能なものなし）ではありません。
+
+### リスクスナップショット
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| フィードがT-0まで利用不可のまま | 低〜中 | 中 |
+| 継続性モードが消費者に鮮度信号モードと誤解される | 中 | 低〜中 |
+| 長引く障害中の編集記憶ドリフト | 低 | 中 |
+
+### ソース品質
+
+- 事前計算統計：**B2**
+- 編集記憶：**C2**
+- データ利用不可観察：**A1**
+
+### 出典
+
+- 実行：`breaking`（2026-04-10、休暇15日目）
+- 準拠：EP Open Data Portal + 事前計算統計。GDPRコンプライアント。
+
+---
+*分析的中立性：継続性モードを明示的にラベル付け。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 10일자 브리핑은 `dataAvailability: Unavailable` 상태에서의 **부활절 휴가 15일차**를 기록합니다. 분석 모드는 사전 계산된 통계와 편집 기억 기반에서만 작동하며, 어떤 라이브 EP 피드 신호도 사용할 수 없습니다. 브리핑의 전략적 가치는 피드 중단이 장기화되는 동안의 *연속성 보존*에 있습니다 — 하류 소비자들이 열화된 환경에서도 아티팩트에 접근할 수 있도록 분석 파이프라인의 리듬을 유지하는 것입니다. *신뢰도: 보통(분석 기반만); 제독 등급: B3.*
+
+### 세 가지 결정
+
+1. **피드 장기 불가용 시에도 일일 breaking brief 리듬을 유지한다.** 파이프라인의 가치는 부분적으로 신뢰성에서 나옵니다; 열화된 입력으로도 일일 출력을 지속하면 하류 소비자의 기대를 유지합니다. *신뢰도: 높음.*
+2. **4월 14일(T-1)까지 T-N 사전 활성화 포지셔닝을 계속한다.** T-0이 4월 15일이므로 향후 5일이 수렴 윈도우입니다; 일일 프로브가 분석 기록을 보존합니다. *신뢰도: 높음.*
+3. **각 프로브에서 dataAvailability 상태를 명시적으로 기록한다.** 피드가 이용 불가할 때 명시적 레이블링은 평소보다 더 중요합니다 — 소비자들은 최신성을 가정해서는 안 됩니다. *신뢰도: 높음.*
+
+### 60초 리뷰
+
+부활절 휴가 15일차는 운영상 피드 불가용의 가장 깊은 지점입니다. 파이프라인은 사전 계산된 통계 기반에서 실행되며 연속성 출력을 생성합니다. 실질적 가치는 절차적(연속성)이며 콘텐츠 신선도(이용 가능한 것 없음)가 아닙니다.
+
+### 리스크 스냅샷
+
+| 리스크 | 가능성 | 영향 |
+|---|---:|---:|
+| 피드가 T-0까지 이용 불가 상태 유지 | 낮음–보통 | 보통 |
+| 연속성 모드가 소비자에게 신선 신호 모드로 오해받음 | 보통 | 낮음–보통 |
+| 장기 중단 동안 편집 기억 드리프트 | 낮음 | 보통 |
+
+### 소스 품질
+
+- 사전 계산 통계: **B2**
+- 편집 기억: **C2**
+- 데이터 이용 불가 관찰: **A1**
+
+### 출처
+
+- 실행: `breaking` (2026-04-10, 휴가 15일차)
+- 준수: EP Open Data Portal + 사전 계산 통계. GDPR 호환.
+
+---
+*분석적 중립성: 연속성 모드 명시적으로 레이블 지정.*
+
+### Executive Brief Nl
+
+### BLUF
+
+Het briefing van 10 april registreert **paasvakantiedag 15** met `dataAvailability: Unavailable`. De analytische modus opereert uitsluitend op voorberekende statistieken en het redactionele geheugensubstraat; geen enkel live EP-feeder-signaal is bruikbaar. De strategische waarde van het briefing is *continuïteitsbehouding* tijdens een aanhoudende feedonderbreking — het handhaven van de analytische pipeline-cadans zodat downstream-gebruikers toegang tot artefacten hebben zelfs onder verslechterde omstandigheden. *Vertrouwen: MIDDEL (alleen analytisch substraat); Admiraalsbeoordeling: B3.*
+
+### Drie Beslissingen
+
+1. **Handhaaf dagelijkse breaking-brief-cadans tijdens aanhoudende feedonbeschikbaarheid.** De waarde van de pipeline hangt deels af van de betrouwbaarheid; dagelijkse productie zelfs met verslechterde invoer behoudt de verwachtingen van downstream-gebruikers. *Vertrouwen: HOOG.*
+2. **Voortzetten van T-N pre-activeringspositionering tot en met 14 april (T-1).** Met T-0 op 15 april zijn de komende 5 dagen het convergentievenster; dagelijkse sondes bewaren de analytische documentatie. *Vertrouwen: HOOG.*
+3. **Documenteer de dataAvailability-status expliciet in elke sonde.** Wanneer feeds niet beschikbaar zijn, is de expliciete etikettering belangrijker dan gewoonlijk — gebruikers mogen geen actualiteit veronderstellen. *Vertrouwen: HOOG.*
+
+### 60-Seconden Lezing
+
+Dag 15 van de paasvakantie is operationeel het diepste punt van feedonbeschikbaarheid. De pipeline draait op voorberekende statistische basis en produceert continuïteitsuitvoer. De substantiële waarde is procedureel (continuïteit) in plaats van inhoudelijk fris (geen beschikbaar).
+
+### Risicosnapshot
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| Feeds blijven niet beschikbaar tot T-0 | LAAG–MED | MED |
+| Continuïteitsmodus ten onrechte geïnterpreteerd als versignaal-modus door gebruikers | MED | LAAG–MED |
+| Redactioneel geheugendrift tijdens aanhoudende onderbreking | LAAG | MED |
+
+### Bronkwaliteit
+
+- Voorberekende statistieken: **B2**
+- Redactioneel geheugen: **C2**
+- Observatie van gegevensonbeschikbaarheid: **A1**
+
+### Herkomst
+
+- Uitvoering: `breaking` (2026-04-10, vakantiedag 15)
+- Conformiteit: EP Open Data Portal + voorberekende statistieken. GDPR-compatibel.
+
+---
+*Analytische neutraliteit: continuïteitsmodus expliciet gelabeld.*
+
+### Executive Brief No
+
+### BLUF
+
+Orienteringen fra 10. april dokumenterer **påskefeierdag 15** med `dataAvailability: Unavailable`. Den analytiske modusen opererer utelukkende på forhåndsberegnede statistikker og redaksjonelt minnesubstrat; ingen live EP-feeder kan brukes. Orienteringens strategiske verdi er *kontinuitetsbevaring* under vedvarende feedavbrudd — opprettholdelse av analytisk pipeline-kadans slik at nedstrømsforbrukere har tilgang til artefakter selv under forringede forhold. *Tillit: MEDIUM (kun analytisk substrat); Admiralsvurdering: B3.*
+
+### Tre Beslutninger
+
+1. **Oppretthold daglig breaking-brief-kadans under vedvarende feedutilgjengelighet.** Pipelinens verdi avhenger delvis av påliteligheten; daglig produksjon selv med forringede inndata bevarer nedstrømsforbrukeres forventninger. *Tillit: HØY.*
+2. **Fortsett T-N foraktiveringsposisjonering frem til 14. april (T-1).** Med T-0 den 15. april er de neste 5 dagene konvergensvindusperioden; daglige prober bevarer den analytiske dokumentasjonen. *Tillit: HØY.*
+3. **Dokumentér dataAvailability-tilstanden eksplisitt i hver probe.** Når feeder er utilgjengelige, er den eksplisitte merkingen viktigere enn vanlig — forbrukere bør ikke anta aktualitet. *Tillit: HØY.*
+
+### 60-Sekunders Lesning
+
+Dag 15 av påskeferien er driftsmessig det dypeste punktet for feedutilgjengelighet. Pipelinen kjører på forhåndsberegnet statistisk grunnlag og produserer kontinuitetsdata. Den substansielle verdien er prosedyremessig (kontinuitet) snarere enn innholdsferskt (ingen tilgjengelig).
+
+### Risikooversikt
+
+| Risiko | Sannsynlighet | Innvirkning |
+|---|---:|---:|
+| Feeder forblir utilgjengelige frem til T-0 | LAV–MED | MED |
+| Kontinuitetsmodus feilaktig tolket som ferskt-signal-modus av forbrukere | MED | LAV–MED |
+| Redaksjonell minnesdrift under vedvarende avbrudd | LAV | MED |
+
+### Kildekvalitet
+
+- Forhåndsberegnet statistikk: **B2**
+- Redaksjonelt minne: **C2**
+- Observasjon om datatilgjengelighet: **A1**
+
+### Opprinnelse
+
+- Kjøring: `breaking` (2026-04-10, feriedag 15)
+- Etterlevelse: EP Open Data Portal + forhåndsberegnet statistikk. GDPR-kompatibel.
+
+---
+*Analytisk nøytralitet: kontinuitetsmodus eksplisitt merket.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Det 10 april-baserade breaking-briefet dokumenterar **påskuppehåll dag 15** med `dataAvailability: Unavailable`. Det analytiska läget baseras uteslutande på förberäknad statistik och redaktionellt minne; inga live-EP-feeder kan användas. Briefets strategiska värde är *kontinuitetsbevarande* under ett längre feede-avbrott — att upprätthålla analytisk pipeline-kadans så att nedströmskonsumenter har tillgång till artefakter även under försämrade förhållanden. *Konfidens: MEDIUM (analytiskt underlag enbart); Amiralsgrad: B3.*
+
+### Tre Beslut
+
+1. **Behåll daglig breaking-brief-kadans under längre feede-otillgänglighet.** Pipelinens värde beror delvis på dess tillförlitlighet; daglig produktion även med försämrade indata bevarar nedströmskonsumenters förväntningar. *Konfidens: HÖG.*
+2. **Fortsätt T-N föraktiveringspositionering till och med 14 april (T-1).** Med T-0 den 15 april är de kommande 5 dagarna konvergensfönstret; dagliga prober bevarar den analytiska dokumentationen. *Konfidens: HÖG.*
+3. **Dokumentera dataAvailability-tillståndet explicit i varje prob.** När feeds inte är tillgängliga är den explicita märkningen viktigare än vanligt — konsumenter bör inte anta att data är aktuella. *Konfidens: HÖG.*
+
+### 60-Sekunders Läsning
+
+Dag 15 av påskuppehållet är driftsmässigt den djupaste punkten av feede-otillgänglighet. Pipelinen körs på förberäknad statistisk grund och producerar kontinuitetsutdata. Det substantiella värdet är procedurellt (kontinuitet) snarare än innehållsfräscht (inget tillgängligt).
+
+### Risköversikt
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| Feeds förblir otillgängliga till T-0 | LÅG–MED | MED |
+| Kontinuitetsläge felaktigt tolkat som fräscht-signal-läge av konsumenter | MED | LÅG–MED |
+| Redaktionellt minnesglidande under längre avbrott | LÅG | MED |
+
+### Källkvalitet
+
+- Förberäknad statistik: **B2**
+- Redaktionellt minne: **C2**
+- Observation om datainaktivitet: **A1**
+
+### Ursprung
+
+- Körning: `breaking` (2026-04-10, uppehållsdag 15)
+- Efterlevnad: EP Open Data Portal + förberäknad statistik. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: kontinuitetsläge uttryckligen märkt.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月10日简报记录了 `dataAvailability: Unavailable` 状态下的**复活节假期第15天**。分析模式仅在预计算统计数据和编辑记忆底层上运行；不可使用任何欧洲议会实时数据流信号。该简报的战略价值在于在数据流长期中断期间的*连续性保存* — 维持分析管道节奏，使下游消费者即使在降级条件下也能获取分析产出。*信心：中等（仅分析底层）；提督等级：B3。*
+
+### 三项决策
+
+1. **在数据流长期不可用期间维持每日 breaking brief 节奏。** 管道的价值部分来自其可靠性；即使输入降级，每日产出也能维护下游消费者的预期。*信心：高。*
+2. **继续T-N预激活定位直到4月14日（T-1）。** T-0定在4月15日，接下来5天是收敛窗口期；每日探针保存分析记录。*信心：高。*
+3. **在每次探针中明确记录dataAvailability状态。** 当数据流不可用时，明确标注比平时更为重要 — 消费者不应假定数据的新鲜度。*信心：高。*
+
+### 60秒速读
+
+复活节假期第15天在运营上是数据流不可用的最深点。管道在预计算统计底层上运行并生成连续性输出。实质价值是程序性的（连续性），而非内容新鲜度（无可用内容）。
+
+### 风险快照
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 数据流在T-0之前持续不可用 | 低–中 | 中 |
+| 连续性模式被消费者误解为新鲜信号模式 | 中 | 低–中 |
+| 长期中断期间编辑记忆漂移 | 低 | 中 |
+
+### 来源质量
+
+- 预计算统计数据：**B2**
+- 编辑记忆：**C2**
+- 数据不可用观察：**A1**
+
+### 出处
+
+- 运行：`breaking`（2026-04-10，假期第15天）
+- 合规性：EP开放数据门户 + 预计算统计数据。符合GDPR。
+
+---
+*分析中立性：连续性模式已明确标注。*
 
 ### Political Classification
 
@@ -1814,6 +2308,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | Section | Artifact | Path |
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief.md) | `executive-brief.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/political-classification.md) | `political-classification.md` |
 | section-supplementary-intelligence | [political-risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/political-risk-assessment.md) | `political-risk-assessment.md` |
 | section-supplementary-intelligence | [pre-restart-intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/pre-restart-intelligence-brief.md) | `pre-restart-intelligence-brief.md` |

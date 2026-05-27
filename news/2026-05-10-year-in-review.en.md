@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Year in Review: May 2025–May 2026"
-description: "🟡 MEDIUM CONFIDENCE — The EP10's first full year demonstrates structural consolidation of a right-of-centre legislative majority that has mastered the art of flexible coalitions"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year In Review", "2026-05-10", "Parliament", "Year", "Review", "MEDIUM", "CONFIDENCE", "EP10"]
+title: "Key Intelligence Judgments — Run 430"
+description: "EPP-led centrist coalition holds through 2026 The EPP-S&D-Renew structural coalition (396/717 seats for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year in review", "annual summary", "legislative achievements", "2026-05-10", "Intelligence", "Judgments", "centrist", "coalition"]
 date: 2026-05-10
 article_type: year-in-review
 slug: 2026-05-10-year-in-review
@@ -133,6 +133,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/historical-parallels.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -3948,6 +3949,1315 @@ This year-in-review analysis provides a comprehensive assessment of EP10's first
 
 The IMF data gap limits economic context depth but does not undermine the political intelligence value of the analysis. The article generation stage (Stage D) should emphasise the geopolitical transformation themes where data confidence is highest.
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التصنيف:** عام | **الثقة:** 🟡 متوسط (بيانات IMF غير متاحة — وضع مخفّض) | **التاريخ:** 2026-05-10 | **نوع المقال:** year-in-review
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+أنهى البرلمان الأوروبي في دورته العاشرة (EP10) عامه التشغيلي الكامل الأول (مايو 2025–مايو 2026) في خضمّ تسارعٍ في الإنتاج التشريعي، وتوازنٍ سياسي انزاح هيكلياً نحو اليمين، وتوافقٍ غير مسبوق على أولويتين مزدوجتين: الإنفاق الدفاعي والتنافسية الصناعية. اعتمد البرلمان **347 نصاً** عام 2025، وهو في طريقه إلى اعتماد **164+ نصاً** في الربع الأول من 2026 وحده — وهو وتيرة تشير إلى مستوى قياسي للإنتاج في عام 2026 كاملاً. تحوّل مركز الثقل السياسي بشكل حاسم: يرسّخ محور EPP–ECR الآن معظم الأغلبيات التشريعية، في حين تعثّر الزخم التنظيمي للصفقة الخضراء لصالح إطار "أجندة التنافسية".
+
+---
+
+### 60-Second Read
+
+**ما الذي جرى (أبرز 5 أحداث، مايو 2025 – مايو 2026):**
+
+1. **تشريع قرض أوكرانيا (TA-10-2026-0010، TA-10-2026-0035):** وافق البرلمان على *التعاون المعزّز لإنشاء قرض لأوكرانيا* (يناير 2026) واللائحة المصاحبة التي تُفعّل تسهيل الـ50 مليار يورو. يمثّل هذا التصويت الجيوسياسي الأبرز في EP10 حتى الآن، بدعم شبه إجماعي تجاوز الانقسام بين EPP وS&D.
+
+2. **المحور الدفاعي والأمني (TA-10-2026-0012، TA-10-2026-0020، TA-10-2026-0040):** اعتُمدت ثلاثة نصوص دفاعية كبرى في يناير–فبراير 2026: التقرير السنوي عن *السياسة الخارجية والأمنية المشتركة*، وقرار *الطائرات المسيّرة وأنظمة الحرب الجديدة*، و*شراكات الدفاع والأمن الاستراتيجية للاتحاد الأوروبي*. قادت لجنتا AFET/SEDE في البرلمان التوافقَ بين EPP وECR وS&D وRenew — وهو تحالف نادر من أربع مجموعات يُشير إلى تحوّل هيكلي في الموقف الأمني للبرلمان الأوروبي.
+
+3. **تعديل الإطار المالي متعدد السنوات (TA-10-2026-0037):** وافق البرلمان على مراجعة منتصف المدة للإطار المالي متعدد السنوات في فبراير 2026 — وهو إعادة توزيع مثيرة للجدل سياسياً رفعت الإنفاق المرتبط بالدفاع وخفّضت الصناديق الهيكلية للصفقة الخضراء. دعم ECR وPfE المراجعة إلى جانب EPP وS&D، مُسجِّلَيْن أول تصويت رئيسي تُشكّل فيه المجموعات اليمينية المتطرفة بشكل حاسم بنية ميزانية الاتحاد الأوروبي.
+
+4. **إطار الأدوية (TA-10-2026-0001):** تعكس لائحة *الأدوية الحيوية* المعتمدة في يناير 2026 نمطاً EP10 أوسع لتشريعات مرونة سلاسل التوريد — مُمتدّةً منطق "الاستقلالية الاستراتيجية" من أشباه الموصلات والدفاع إلى سلاسل توريد الأدوية.
+
+5. **جدل الإبراء المالي لعام 2023 (TA-10-2025-0077 حتى TA-10-2025-0092):** شهدت تصويتات الإبراء في مايو 2025 مصادقة البرلمان على حسابات 2023 مع أوسع مجموعة تحفظات منذ عام 2017، مما يعكس توترات مستمرة حول آلية المشروطية المرتبطة بسيادة القانون وتجميد الأموال المجرية.
+
+---
+
+### Top Trigger Indicators
+
+| المؤشر | القيمة | الإشارة |
+|-----------|-------|--------|
+| جلسات EP10 العامة المنعقدة (2025) | 53 | +6% مقارنة بـ2024 |
+| الأعمال التشريعية المعتمدة (2025) | 78 | +8.3% مقارنة بـ2024 |
+| التصويتات بالنداء الاسمي (2025) | 420 | +12% مقارنة بـ2024 |
+| الأسئلة البرلمانية (2025) | 4,947 | +66.6% مقارنة بـ2024 |
+| الموافقة على مراجعة الإطار المالي | نعم | تحوّل هيكلي في الميزانية |
+| تسهيل قرض أوكرانيا | 50 مليار يورو موافقٌ عليها | توافق جيوسياسي |
+| نصوص الصفقة الخضراء في تراجع | ↓ | إعادة توجيه سياسي |
+| نصوص الدفاع/الأمن | ↑↑ | تأكيد المحور الاستراتيجي |
+| حصة مقاعد الكتلة اليمينية | 52.3% | أغلبية EPP+ECR+PfE+ESN |
+| مؤشر التشتت | 6.59 | تحالف متعدد ضروري |
+
+---
+
+### Key Stakeholders
+
+- **EPP (183 مقعداً، 25.5%):** القوة المهيمنة. تحتفظ مفوضية فون دير لايين بالتحالف الأغلبي عبر EPP. تقود إطار "أجندة التنافسية" في الصناعة والدفاع والرقمنة.
+- **S&D (136 مقعداً، 19.0%):** شريك تحالف ثانوي في ملفَّي أوكرانيا والدفاع؛ قوة تعطيل ضد تفكيك الصفقة الخضراء. يتعرض لتهميش متزايد في مناظرات الهجرة وسيادة القانون.
+- **ECR (81 مقعداً، 11.3%):** مجموعة تأرجح حاسمة. تدعم EPP في الدفاع والهجرة؛ تعارضها في سيادة القانون والتشريعات الاجتماعية. مجموعة جيورجيا ميلوني.
+- **PfE (85 مقعداً، 11.9%):** Patriots for Europe (أوربان). معارض ثابت لمساعدة أوكرانيا وحمايات مجتمع الميم والصفقة الخضراء. يتفق مع ECR في الهجرة؛ ينقسم عنه في أوكرانيا.
+- **Renew (77 مقعداً، 10.7%):** كتلة ليبرالية مُستقِرة. تدعم EPP في السوق الموحدة وأجندة الرقمنة؛ تتباعد في الهجرة والاستقلالية القضائية.
+- **Greens/EFA (53 مقعداً، 7.4%):** متضعّفة هيكلياً لكنها لا تزال محورية في التشريعات البيئية. متوافقة مع S&D وThe Left في التصويتات الاجتماعية والمناخية.
+- **The Left (45 مقعداً، 6.3%):** كتلة معارضة. ضد الإنفاق الدفاعي، مع الحقوق الاجتماعية، ناقد ثابت لثغرات إنفاذ المفوضية.
+- **ESN (27 مقعداً، 3.8%):** Europe of Sovereign Nations (AfD، اليمين المتطرف البولندي). أكثر المجموعات تشككاً في الاتحاد؛ تصويتات تعطيل ثابتة ضد التكامل الأوروبي.
+- **NI (30 مقعداً، 4.2%):** نواب أوروبيون غير منتسبين — متباينون.
+
+---
+
+### Strategic Assessment
+
+🟡 **ثقة متوسطة** — يُبرهن العام الكامل الأول من EP10 على التوطيد الهيكلي لأغلبية تشريعية يمين-وسط أتقنت فن التحالفات المرنة: EPP+ECR+Renew للتشريع الصناعي والتجاري؛ EPP+S&D+ECR+Renew لأوكرانيا/الدفاع؛ EPP+Greens/EFA+S&D للالتزامات البيئية المتبقية. التوازن السياسي مستقر لكنه هشّ — انسحاب أي مجموعة واحدة من تحالف بعينه قد يُغيّر النتائج.
+
+أبرز التطورات المؤسسية **تراجع معيار التحالف الكبير**: ثنائية EPP–S&D التي هيمنت على EP6–EP8 (2004–2019) أصبحت الآن متقاعدة بشكل دائم. يستوجب كل تصويت هندسة تحالف مُصمَّمة خصيصاً، مما يرفع تكاليف المعاملات ويجعل الإنتاج التشريعي أكثر هشاشة أمام الصدمات السياسية.
+
+---
+
+### Data Freshness
+
+- بيانات واجهة برمجة تطبيقات البرلمان الأوروبي: فورية (مايو 2026)
+- البيانات الاقتصادية لـIMF: **غير متاحة** (خطأ خدمة 503) — السياق الاقتصادي الكلي في هذا التحليل لا يستشهد بأرقام مدعومة من IMF
+- بيانات World Bank: متاحة (WB MCP يعمل)
+- تصويتات XML DOCEO: غير متاحة (أسبوع الجلسة العامة الأخير لم يُنشر بعد)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: محتمل** — يسير EP10 لولاية البرلمان الأوروبي (2024–2029) نحو متوسطه التاريخي في الإنتاج التشريعي مع استقرار سياسي فوق المتوسط خلال الفترة 2024–2026، على الرغم من التمثيل الأعلى لليمين المتطرف والضغوط الجيوسياسية الخارجية.
+
+Admiralty: B2 — المصدر موثوق (بوابة البيانات المفتوحة للبرلمان الأوروبي)، المعلومات صحيحة على الأرجح (تحليل توجهات مؤسسية مبني على البيانات الإحصائية المؤكدة لعام 2025).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: التحالف الوسطي بقيادة EPP يصمد حتى 2026**
+أبدى التحالف الهيكلي EPP–S&D–Renew (396/717 مقعداً، 55.2%) تماسكاً تصويتياً ثابتاً في الحزم التشريعية الكبرى بما فيها مساعدة أوكرانيا وتنفيذ قانون الذكاء الاصطناعي ومراجعة الإطار المالي متعدد السنوات. الحوافز الهيكلية تدعم الاستمرارية. **التقدير: محتمل (55–65% ثقة)**
+
+**KIJ-2: الإنتاج التشريعي فوق خط الأساس EP9**
+أداء EP10 في 2025: 78 عملاً تشريعياً، 347 نصاً معتمداً، 420 تصويتاً بالنداء الاسمي — جميعها فوق المتوسطات السنوية لـEP9. توفر أجندتا الأمن والتحول الرقمي زخماً تشريعياً يُبقي على إنتاج فوق المتوسط على الأقل حتى 2026. **التقدير: شبه مؤكد لعام 2026**
+
+**KIJ-3: نفوذ اليمين المتطرف يتنامى لكنه لا يحكم**
+PfE + ESN = 112 مقعداً (15.6%) تمثل أكبر كتلة يمين متطرف في تاريخ البرلمان الأوروبي نسبياً، لكنها تبقى دون عتبة 20% للقدرة على التعطيل المنهجي. يتمركز نفوذها في: تصويتات الهجرة، نقاشات الدعم الزراعي، والضغط البلاغي على موقع EPP. **التقدير: محتمل ارتفاع هامشي قبل انتخابات 2029**
+
+**KIJ-4: توافق الإنفاق الأمني/الدفاعي يُعيد تشكيل الأجندة التشريعية**
+خلقت حرب أوكرانيا وضغوط إنفاق الناتو واستراتيجية الصناعة الدفاعية الأوروبية توافقاً أمنياً عابراً للأحزاب لم يُسبق له مثيل. التشريعات الدفاعية (ReArm EU، صندوق الدفاع الأوروبي، التنقل العسكري) تتقدم بوتيرة أسرع من أي تجمع سياساتي مماثل في EP8 أو EP9. **التقدير: مؤكد — مستمر حتى 2027**
+
+#### Strategic Implications for Monitoring
+
+1. **رصد أنماط التعاون EPP–PfE**: أي اتفاقية تعاون رسمية حول التصويتات الهجرية أو الزراعية يُشير إلى انزياح استراتيجي نحو اليمين مع تداعيات على تنفيذ الصفقة الخضراء.
+2. **تتبع تأخرات التريلوج**: 18 تريلوجاً نشطاً يعني أن غياب مقرر رئيسي قد يُفضي إلى اختناقات تشريعية في النصف الثاني من 2026.
+3. **مراقبة تنفيذ قانون الذكاء الاصطناعي**: سيكون أول موعد نهائي لالتزامات GPAI (منتصف 2026) اختبار الأداء لقدرة البرلمان الأوروبي الجديدة على تطبيق اللوائح الرقمية.
+4. **استمرارية مساعدة أوكرانيا**: تستوجب الدفعات اللاحقة من تسهيل أوكرانيا البالغ 50 مليار يورو تصويتات في البرلمان؛ يجب إدارة معارضة PfE المحتملة في كل تصويت.
+
+### Executive Brief Da
+
+### BLUF (Bottom Line Up Front)
+
+Europa-Parlamentets tiende valgperiode (EP10) afsluttede sit første fulde driftsår (maj 2025–maj 2026) midt i accelererende lovgivningsoutput, en strukturelt højreforskudt politisk balance og en enestående dual-prioritetskonsensus om forsvarsudgifter og industriel konkurrenceevne. Parlamentet vedtog **347 tekster** i 2025 og er på vej mod **164+ vedtagne tekster** alene i Q1 2026 — et tempo der antyder rekordniveau for hele 2026. Det politiske tyngdepunkt har forskydt sig afgørende: EPP–ECR-aksen forankrer nu de fleste lovgivende flertal, mens den Grønne Aftales regulatoriske momentum er gået i stå til fordel for en "Konkurrenceevneagenda"-framing.
+
+---
+
+### 60-Second Read
+
+**Hvad skete der (top 5 begivenheder, maj 2025 – maj 2026):**
+
+1. **Ukraine-lånelovgivning (TA-10-2026-0010, TA-10-2026-0035):** Parlamentet godkendte *Styrket samarbejde om oprettelse af et lån til Ukraine* (januar 2026) og den tilhørende forordning om gennemførelse af €50 milliarder-faciliteten. Dette repræsenterer den vigtigste EP10 geopolitiske afstemning til dato med næsten enstemmig opbakning der overskred EPP–S&D-skillelinjen.
+
+2. **Forsvars- og sikkerhedspivot (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040):** Tre store forsvarstekster vedtaget januar–februar 2026: rapporten om *Den fælles udenrigs- og sikkerhedspolitik*, resolutionen om *Droner og nye krigssystemer* og *EU's strategiske forsvars- og sikkerhedspartnerskaber*. Parlamentets AFET/SEDE-udvalg drev konsensus frem på tværs af EPP, ECR, S&D og Renew — en sjælden firegruppe-koalition der signalerer et strukturelt skift i EP's sikkerhedsholdning.
+
+3. **Ændring af den flerårige finansielle ramme (TA-10-2026-0037):** Parlamentet godkendte midtvejsrevisionen af FFR i februar 2026 — en politisk omstridt omfordeling der øgede forsvarsrelaterede udgifter og reducerede den Grønne Aftales strukturfonde. ECR og PfE støttede revisionen sammen med EPP og S&D, hvilket markerer den første store afstemning hvor højreorienterede grupper afgørende formede EU's budgetarkitektur.
+
+4. **Ramme for lægemidler (TA-10-2026-0001):** Forordningen om *Kritiske lægemidler* vedtaget januar 2026 afspejler et bredere EP10-mønster af forsyningskæderobusthed — der udvider logikken om "strategisk autonomi" fra halvledere og forsvar til farmaceutiske forsyningskæder.
+
+5. **Kontrovers om decharge 2023 (TA-10-2025-0077 til TA-10-2025-0092):** Dechargeafstemningerne i maj 2025 så Parlamentet godkende 2023-regnskaberne med det mest omfattende sæt forbehold siden 2017, hvilket afspejler vedvarende spændinger omkring retsstatsbetingelsesmekanismen og ungarske fondssuspensioner.
+
+---
+
+### Top Trigger Indicators
+
+| Indikator | Værdi | Signal |
+|-----------|-------|--------|
+| EP10 plenarmøder afholdt (2025) | 53 | +6% vs 2024 |
+| Lovgivningsmæssige retsakter vedtaget (2025) | 78 | +8,3% vs 2024 |
+| Afstemninger med navneopråb (2025) | 420 | +12% vs 2024 |
+| Parlamentariske spørgsmål (2025) | 4.947 | +66,6% vs 2024 |
+| FFR-revision godkendt | Ja | Strukturelt budgetskift |
+| Ukraine-låne-facilitet | €50 mia godkendt | Geopolitisk konsensus |
+| Grøn Aftale-tekster reduceret | ↓ | Politisk omorienterting |
+| Forsvars-/sikkerhedstekster | ↑↑ | Strategisk pivot bekræftet |
+| Højrebloks mandatandel | 52,3% | EPP+ECR+PfE+ESN-flertal |
+| Fragmenteringsindeks | 6,59 | Multi-koalition nødvendig |
+
+---
+
+### Key Stakeholders
+
+- **EPP (183 mandater, 25,5%):** Dominerende kraft. Von der Leyens Kommission fastholder majoritetskoalitionen via EPP. Driver "Konkurrenceevneagenda"-framing inden for industri, forsvar og digitalt.
+- **S&D (136 mandater, 19,0%):** Junior koalitionspartner om Ukraine og forsvar; blokerende kraft mod Grøn Aftale-afvikling. Stigende marginalisering i migrations- og retsstatsdebatter.
+- **ECR (81 mandater, 11,3%):** Afgørende svinggruppe. Støtter EPP om forsvar og migration; modsat om retsstat og social lovgivning. Giorgia Melonis gruppe.
+- **PfE (85 mandater, 11,9%):** Patriots for Europe (Orbán). Konsekvent modstander af Ukraine-hjælp, LGBTQ+-beskyttelse, Grøn Aftale. Samstemmende med ECR om migration; splittret med ECR om Ukraine.
+- **Renew (77 mandater, 10,7%):** Stabiliserende liberalt blok. Støtter EPP om det indre marked og den digitale dagsorden; divergerer om migration og retslig uafhængighed.
+- **Greens/EFA (53 mandater, 7,4%):** Strukturelt svækket men stadig afgørende for miljølovgivning. Aligneret med S&D og The Left om sociale og klimaafstemninger.
+- **The Left (45 mandater, 6,3%):** Oppositionsblok. Imod forsvarsudgifter, for sociale rettigheder, konsekvent kritiker af Kommissionens håndhævelseshuller.
+- **ESN (27 mandater, 3,8%):** Europe of Sovereign Nations (AfD, polsk højreekstremisme). Mest euroskeptiske gruppe; konsekvente blokeringsafstemninger mod EU-integration.
+- **NI (30 mandater, 4,2%):** Ikke-tilknyttede MEP'er — heterogene.
+
+---
+
+### Strategic Assessment
+
+🟡 **MEDIUM KONFIDENSGRAD** — EP10's første fulde år demonstrerer strukturel konsolidering af et center-højre lovgivende flertal der har mestret kunsten af fleksible koalitioner: EPP+ECR+Renew til industri- og handelslovgivning; EPP+S&D+ECR+Renew til Ukraine/forsvar; EPP+Greens/EFA+S&D til resterende miljøforpligtelser. Den politiske balance er stabil men skrøbelig — enhver enkelt gruppes frafald fra en bestemt koalition kan forskyde resultater.
+
+Den vigtigste institutionelle udvikling er **nedgangen af storkoalitionsnormen**: EPP–S&D-duopolet der dominerede EP6–EP8 (2004–2019) er nu permanent pensioneret. Enhver afstemning kræver skræddersyet koalitionsteknik, hvilket øger transaktionsomkostningerne og gør lovgivningsoutput mere sårbar over for politiske chok.
+
+---
+
+### Data Freshness
+
+- EP API-data: Realtid (maj 2026)
+- IMF økonomidata: **UTILGÆNGELIG** (503 tjenestefejl) — makroøkonomisk kontekst i denne analyse citerer ikke IMF-baserede tal
+- World Bank data: Tilgængelig (WB MCP operationel)
+- DOCEO XML-afstemninger: Utilgængelig (seneste plenaruge endnu ikke offentliggjort)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: Sandsynligt** — Europa-Parlamentets EP10-mandat (2024–2029) sporer mod sit historiske gennemsnitlige lovgivningsoutput med over-gennemsnitlig politisk stabilitet i 2024–2026-perioden, trods forhøjet højreekstrem repræsentation og eksternt geopolitisk pres.
+
+Admiralty: B2 — Kilde pålidelig (EP Open Data Portal), information sandsynligvis sand (institutionel trendanalyse baseret på bekræftet 2025 statistisk data).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: EPP-ledet centristkoalition holder frem til 2026**
+EPP–S&D–Renew strukturkoalitionen (396/717 mandater, 55,2%) har demonstreret konsekvent afstemningskohæsion ved store lovgivningspakker herunder Ukraine-hjælp, AI Act-implementering og FFR-revision. Strukturelle incitamenter favoriserer fortsættelse. **Vurdering: Sandsynligt (55–65% konfidensgrad)**
+
+**KIJ-2: Lovgivningsoutput over EP9-baseline**
+EP10 2025-præstation: 78 lovgivningsmæssige retsakter, 347 vedtagne tekster, 420 navneopråbsafstemninger — alle over EP9's årsgennemsnit. Sikkerheds- og digitaltransformationsagendaerne tilbyder lovgivningsmomentum der opretholdt over-gennemsnitlig output i hvert fald frem til 2026. **Vurdering: Næsten sikkert for 2026**
+
+**KIJ-3: Højreekstremismens indflydelse vokser men styrer ikke**
+PfE + ESN = 112 mandater (15,6%) repræsenterer det største højreekstreme blok i EP-historien procentmæssigt, men forbliver under 20%-tærsklen for systemisk blokeringsmagt. Deres indflydelse er koncentreret i: migrationsafstemninger, landbrugssubsidiedebatter og retorisk pres på EPP's positionering. **Vurdering: Sandsynligt at stige marginalt inden 2029-valg**
+
+**KIJ-4: Sikkerheds-/forsvarsudgiftskonsensus omformer lovgivningsdagsordenen**
+Ukraine-krigen, NATO-udgiftspres og EU's forsvarsindistristrategi har skabt en enestående tværpartilig sikkerhedskonsensus. Forsvarsrelateret lovgivning (ReArm EU, Den Europæiske Forsvarsfond, militær mobilitet) skrider frem hurtigere end noget sammenligneligt politikklynge i EP8 eller EP9. **Vurdering: Bekræftet — opretholdt frem til 2027**
+
+#### Strategic Implications for Monitoring
+
+1. **Observer EPP–PfE samarbejdsmønstre**: Enhver formel samarbejdsaftale om migrations- eller landbrugsafstemninger signalerer strategisk højreforskydning med konsekvenser for Grøn Aftale-implementering.
+2. **Spor trialogbackloggen**: 18 aktive trialoge betyder at manglende tilgængelighed for en nøgleordfører kan skabe lovgivningsflaskehalse i H2 2026.
+3. **Overvåg AI Act-implementeringen**: Den første GPAI-forpligtelsesfrist (midt-2026) vil være testcasen for EP's nye digitale reguleringskapacitet.
+4. **Ukraine-hjælpens kontinuitet**: Efterfølgende trancher af €50 mia Ukraine-faciliteten kræver EP-afstemninger; potentielt PfE-modstand skal håndteres i hver afstemning.
+
+### Executive Brief De
+
+### BLUF (Bottom Line Up Front)
+
+Die zehnte Wahlperiode des Europäischen Parlaments (EP10) schloss ihr erstes vollständiges Betriebsjahr (Mai 2025–Mai 2026) inmitten beschleunigter Gesetzgebungsproduktion, einer strukturell nach rechts verschobenen politischen Balance und einem beispiellosen doppelten Prioritätskonsens über Verteidigungsausgaben und industrielle Wettbewerbsfähigkeit ab. Das Parlament verabschiedete **347 Texte** im Jahr 2025 und ist auf dem Weg zu **164+ angenommenen Texten** allein im Q1 2026 — ein Tempo, das auf eine Rekordleistung für das gesamte Jahr 2026 hindeutet. Das politische Gravitationszentrum hat sich entscheidend verschoben: Die EPP–ECR-Achse verankert nun die meisten gesetzgebenden Mehrheiten, während der regulatorische Schwung des Green Deal zugunsten einer "Wettbewerbsfähigkeitsagenda"-Rahmung zum Stillstand gekommen ist.
+
+---
+
+### 60-Second Read
+
+**Was geschah (Top-5-Ereignisse, Mai 2025 – Mai 2026):**
+
+1. **Ukraine-Darlehensgesetzgebung (TA-10-2026-0010, TA-10-2026-0035):** Das Parlament genehmigte die *Verstärkte Zusammenarbeit zur Errichtung eines Darlehens für die Ukraine* (Januar 2026) und die begleitende Verordnung zur Umsetzung der 50-Milliarden-Euro-Fazilität. Dies stellt die bedeutendste geopolitische Abstimmung in EP10 bis dato dar, mit nahezu einstimmiger Unterstützung, die die EPP–S&D-Trennlinie überschritt.
+
+2. **Verteidigungs- und Sicherheitspivot (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040):** Drei wichtige Verteidigungstexte wurden Januar–Februar 2026 verabschiedet: der Jahresbericht zur *Gemeinsamen Außen- und Sicherheitspolitik*, die Entschließung zu *Drohnen und neuen Kriegssystemen* und *Strategische Verteidigungs- und Sicherheitspartnerschaften der EU*. Die AFET/SEDE-Ausschüsse des Parlaments trieben den Konsens zwischen EPP, ECR, S&D und Renew voran — eine seltene Viergruppen-Koalition, die einen strukturellen Wandel in der Sicherheitshaltung des EP signalisiert.
+
+3. **Änderung des Mehrjährigen Finanzrahmens (TA-10-2026-0037):** Das Parlament genehmigte im Februar 2026 die MFR-Halbzeitrevision — eine politisch strittige Umverteilung, die verteidigungsnahe Ausgaben erhöhte und Strukturfonds des Green Deal reduzierte. ECR und PfE unterstützten die Revision neben EPP und S&D, was die erste wichtige Abstimmung markiert, bei der rechtsextreme Gruppen die EU-Budgetarchitektur maßgeblich mitgestalteten.
+
+4. **Arzneimittelrahmen (TA-10-2026-0001):** Die im Januar 2026 verabschiedete Verordnung über *Kritische Arzneimittel* spiegelt ein breiteres EP10-Muster der Lieferketten-Resilienzgesetzgebung wider — die Logik der "strategischen Autonomie" von Halbleitern und Verteidigung auf pharmazeutische Lieferketten ausdehnend.
+
+5. **Kontroverse um die Entlastung 2023 (TA-10-2025-0077 bis TA-10-2025-0092):** Bei den Entlastungsabstimmungen im Mai 2025 billigte das Parlament die Rechnungsabschlüsse 2023 mit dem umfangreichsten Vorbehaltpaket seit 2017, was anhaltende Spannungen um den Rechtsstaatlichkeits-Konditionalitätsmechanismus und ungarische Fondssperrungen widerspiegelt.
+
+---
+
+### Top Trigger Indicators
+
+| Indikator | Wert | Signal |
+|-----------|-------|--------|
+| EP10 Plenarsitzungen abgehalten (2025) | 53 | +6% vs. 2024 |
+| Angenommene Rechtsakte (2025) | 78 | +8,3% vs. 2024 |
+| Namentliche Abstimmungen (2025) | 420 | +12% vs. 2024 |
+| Parlamentarische Anfragen (2025) | 4.947 | +66,6% vs. 2024 |
+| MFR-Revision genehmigt | Ja | Strukturelle Haushaltsverschiebung |
+| Ukraine-Darlehensfazilität | €50 Mrd. genehmigt | Geopolitischer Konsens |
+| Green-Deal-Texte rückläufig | ↓ | Politische Neuausrichtung |
+| Verteidigungs-/Sicherheitstexte | ↑↑ | Strategischer Pivot bestätigt |
+| Rechtsblock-Mandatsanteil | 52,3% | EPP+ECR+PfE+ESN-Mehrheit |
+| Fragmentierungsindex | 6,59 | Mehrkoalition erforderlich |
+
+---
+
+### Key Stakeholders
+
+- **EPP (183 Sitze, 25,5%):** Dominierende Kraft. Von der Leyens Kommission behält Mehrheitskoalition via EPP. Treibt "Wettbewerbsfähigkeitsagenda"-Rahmung in Industrie, Verteidigung und Digital voran.
+- **S&D (136 Sitze, 19,0%):** Juniorkoalitionspartner zu Ukraine und Verteidigung; blockierende Kraft gegen Green-Deal-Rückbau. Zunehmend marginalisiert in Migrations- und Rechtsstaatsdebatten.
+- **ECR (81 Sitze, 11,3%):** Entscheidende Schwinggruppe. Unterstützt EPP bei Verteidigung und Migration; opponiert bei Rechtsstaat und sozialer Gesetzgebung. Giorgia Melonis Gruppe.
+- **PfE (85 Sitze, 11,9%):** Patriots for Europe (Orbán). Konsequenter Gegner von Ukraine-Hilfe, LGBTQ+-Schutz, Green Deal. Eint sich mit ECR bei Migration; trennt sich von ECR bei Ukraine.
+- **Renew (77 Sitze, 10,7%):** Stabilisierender liberaler Block. Unterstützt EPP beim Binnenmarkt und der digitalen Agenda; divergiert bei Migration und richterlicher Unabhängigkeit.
+- **Greens/EFA (53 Sitze, 7,4%):** Strukturell geschwächt, aber weiterhin entscheidend bei Umweltgesetzgebung. Mit S&D und The Left bei sozialen und Klimaabstimmungen ausgerichtet.
+- **The Left (45 Sitze, 6,3%):** Oppositionsblock. Gegen Verteidigungsausgaben, für soziale Rechte, konsequenter Kritiker der Vollzugslücken der Kommission.
+- **ESN (27 Sitze, 3,8%):** Europe of Sovereign Nations (AfD, polnische Rechtsextremen). Euroskeptischste Gruppe; konsequente Blockierungsabstimmungen gegen EU-Integration.
+- **NI (30 Sitze, 4,2%):** Fraktionslose Abgeordnete — heterogen.
+
+---
+
+### Strategic Assessment
+
+🟡 **MITTLERE KONFIDENZ** — Das erste vollständige Jahr von EP10 demonstriert die strukturelle Konsolidierung einer mitte-rechts Gesetzgebungsmehrheit, die die Kunst flexibler Koalitionen gemeistert hat: EPP+ECR+Renew für Industrie- und Handelsgesetzgebung; EPP+S&D+ECR+Renew für Ukraine/Verteidigung; EPP+Greens/EFA+S&D für verbleibende Umweltverpflichtungen. Die politische Balance ist stabil, aber fragil — der Abfall einer einzelnen Gruppe von einer bestimmten Koalition kann Ergebnisse verschieben.
+
+Die bedeutendste institutionelle Entwicklung ist der **Rückgang der Großkoalitionsnorm**: Das EPP–S&D-Duopol, das EP6–EP8 (2004–2019) dominierte, ist nun dauerhaft verabschiedet. Jede Abstimmung erfordert maßgeschneidertes Koalitionsengineering, was die Transaktionskosten erhöht und die Gesetzgebungsproduktion anfälliger für politische Schocks macht.
+
+---
+
+### Data Freshness
+
+- EP-API-Daten: Echtzeit (Mai 2026)
+- IMF Wirtschaftsdaten: **NICHT VERFÜGBAR** (503 Dienstfehler) — makroökonomischer Kontext in dieser Analyse zitiert keine IMF-gestützten Zahlen
+- World Bank Daten: Verfügbar (WB MCP operativ)
+- DOCEO-XML-Abstimmungen: Nicht verfügbar (letzte Plenarwoche noch nicht veröffentlicht)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: Wahrscheinlich** — Das EP10-Mandat des Europäischen Parlaments (2024–2029) entwickelt sich in Richtung seines historischen durchschnittlichen Gesetzgebungsoutputs mit überdurchschnittlicher politischer Stabilität im Zeitraum 2024–2026, trotz erhöhter rechtsextremer Repräsentation und externem geopolitischem Druck.
+
+Admiralty: B2 — Quelle zuverlässig (EP Open Data Portal), Information wahrscheinlich wahr (institutionelle Trendanalyse basierend auf bestätigten statistischen Daten von 2025).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: EPP-geführte Zentristenkoalition hält bis 2026**
+Die EPP–S&D–Renew-Strukturkoalition (396/717 Sitze, 55,2%) hat bei großen Gesetzgebungspaketen einschließlich Ukraine-Hilfe, KI-Gesetz-Umsetzung und MFR-Revision konsequente Abstimmungskohäsion gezeigt. Strukturelle Anreize begünstigen Fortsetzung. **Einschätzung: Wahrscheinlich (55–65% Konfidenz)**
+
+**KIJ-2: Gesetzgebungsoutput über EP9-Basislinie**
+EP10-Leistung 2025: 78 Rechtsakte, 347 angenommene Texte, 420 namentliche Abstimmungen — alle über dem EP9-Jahresdurchschnitt. Die Sicherheits- und Digitaltransformationsagenden bieten Gesetzgebungsmomentum, das überdurchschnittlichen Output bis mindestens 2026 aufrechterhält. **Einschätzung: Fast sicher für 2026**
+
+**KIJ-3: Rechtsextremer Einfluss wächst, regiert aber nicht**
+PfE + ESN = 112 Sitze (15,6%) stellen historisch den größten rechtsextremen Block im EP-Prozentsatz, bleiben jedoch unter der 20%-Schwelle für systemische Blockierungsmacht. Ihr Einfluss ist konzentriert auf: Migrationsabstimmungen, Agrarsubventionsdebatten und rhetorischen Druck auf die EPP-Positionierung. **Einschätzung: Wahrscheinlich geringfügiger Anstieg bis zur Wahl 2029**
+
+**KIJ-4: Sicherheits-/Verteidigungsausgabenkonsens prägt Gesetzgebungsagenda**
+Der Ukraine-Krieg, NATO-Ausgabendruck und die EU-Verteidigungsindistristrategie haben einen beispiellosen parteiübergreifenden Sicherheitskonsens geschaffen. Verteidigungsbezogene Gesetzgebung (ReArm EU, Europäischer Verteidigungsfonds, militärische Mobilität) schreitet schneller voran als jedes vergleichbare Politikcluster in EP8 oder EP9. **Einschätzung: Bestätigt — bis 2027 aufrechterhalten**
+
+#### Strategic Implications for Monitoring
+
+1. **EPP–PfE-Kooperationsmuster beobachten**: Jede formale Kooperationsvereinbarung bei Migrations- oder Agrarfragen signalisiert strategischen Rechtsruck mit Implikationen für die Umsetzung des Green Deal.
+2. **Trilog-Rückstau verfolgen**: 18 aktive Triloge bedeuten, dass die Nichtverfügbarkeit eines wichtigen Berichterstatters im H2 2026 Gesetzgebungsengpässe erzeugen kann.
+3. **KI-Gesetz-Umsetzung beobachten**: Die erste GPAI-Verpflichtungsfrist (Mitte 2026) wird der Testfall für die neue digitale Regulierungskapazität des EP sein.
+4. **Kontinuität der Ukraine-Hilfe**: Nachfolgende Tranchen der 50-Milliarden-Euro-Ukraine-Fazilität erfordern EP-Abstimmungen; potenzieller PfE-Widerstand muss bei jeder Abstimmung gehandhabt werden.
+
+### Executive Brief Es
+
+### BLUF (Bottom Line Up Front)
+
+La décima legislatura del Parlamento Europeo (PE10) completó su primer año completo de actividad (mayo 2025–mayo 2026) en medio de una producción legislativa acelerada, un equilibrio político estructuralmente desplazado hacia la derecha y un consenso de doble prioridad sin precedentes sobre el gasto en defensa y la competitividad industrial. El Parlamento adoptó **347 textos** en 2025 y está en camino de alcanzar **164+ textos adoptados** solo en el T1 de 2026 — un ritmo que sugiere una producción récord para todo el año 2026. El centro de gravedad político se ha desplazado de manera decisiva: el eje PPE–ECR ancla ahora la mayoría de las mayorías legislativas, mientras que el impulso regulatorio del Pacto Verde se ha estancado en favor de un encuadre de "Agenda de Competitividad".
+
+---
+
+### 60-Second Read
+
+**Qué ocurrió (top 5 eventos, mayo 2025 – mayo 2026):**
+
+1. **Legislación sobre el préstamo a Ucrania (TA-10-2026-0010, TA-10-2026-0035):** El Parlamento aprobó la *Cooperación reforzada para el establecimiento de un préstamo para Ucrania* (enero de 2026) y el reglamento de acompañamiento que aplica el mecanismo de 50.000 millones de euros. Esto representa la votación geopolítica más significativa del PE10 hasta la fecha, con un apoyo casi unánime que trascendió la división PPE–S&D.
+
+2. **Giro en defensa y seguridad (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040):** Tres textos importantes sobre defensa adoptados en enero–febrero de 2026: el informe anual sobre la *Política Exterior y de Seguridad Común*, la resolución sobre *Drones y nuevos sistemas de guerra* y las *Asociaciones estratégicas de defensa y seguridad de la UE*. Las comisiones AFET/SEDE del Parlamento impulsaron el consenso entre PPE, ECR, S&D y Renew — una rara coalición de cuatro grupos que señala un cambio estructural en la postura de seguridad del PE.
+
+3. **Modificación del Marco Financiero Plurianual (TA-10-2026-0037):** El Parlamento aprobó la revisión de mitad de período del MFP en febrero de 2026 — una redistribución políticamente controvertida que aumentó el gasto relacionado con la defensa y redujo los fondos estructurales del Pacto Verde. El ECR y PfE apoyaron la revisión junto al PPE y S&D, marcando la primera votación importante en la que grupos de extrema derecha dieron forma de manera decisiva a la arquitectura presupuestaria de la UE.
+
+4. **Marco para medicamentos (TA-10-2026-0001):** El reglamento sobre *Medicamentos Críticos* adoptado en enero de 2026 refleja un patrón más amplio del PE10 de legislación sobre resiliencia de cadenas de suministro — extendiendo la lógica de "autonomía estratégica" de los semiconductores y la defensa a las cadenas de suministro farmacéuticas.
+
+5. **Controversia sobre la descarga presupuestaria de 2023 (TA-10-2025-0077 a TA-10-2025-0092):** Las votaciones de descarga de mayo de 2025 vieron al Parlamento aprobar las cuentas de 2023 con el conjunto más extenso de reservas desde 2017, reflejando las tensiones persistentes en torno al mecanismo de condicionalidad del Estado de Derecho y las suspensiones de fondos húngaros.
+
+---
+
+### Top Trigger Indicators
+
+| Indicador | Valor | Señal |
+|-----------|-------|--------|
+| Sesiones plenarias PE10 celebradas (2025) | 53 | +6% vs. 2024 |
+| Actos legislativos adoptados (2025) | 78 | +8,3% vs. 2024 |
+| Votaciones por llamada nominal (2025) | 420 | +12% vs. 2024 |
+| Preguntas parlamentarias (2025) | 4.947 | +66,6% vs. 2024 |
+| Revisión MFP aprobada | Sí | Cambio estructural presupuestario |
+| Mecanismo de préstamo Ucrania | 50.000 M€ aprobados | Consenso geopolítico |
+| Textos Pacto Verde en descenso | ↓ | Reorientación política |
+| Textos defensa/seguridad | ↑↑ | Giro estratégico confirmado |
+| Cuota de escaños bloque de derecha | 52,3% | Mayoría PPE+ECR+PfE+ESN |
+| Índice de fragmentación | 6,59 | Coalición múltiple necesaria |
+
+---
+
+### Key Stakeholders
+
+- **PPE (183 escaños, 25,5%):** Fuerza dominante. La Comisión de von der Leyen mantiene la coalición mayoritaria a través del PPE. Impulsa el encuadre "Agenda de Competitividad" en industria, defensa y digital.
+- **S&D (136 escaños, 19,0%):** Socio junior de coalición sobre Ucrania y defensa; fuerza de bloqueo contra el desmantelamiento del Pacto Verde. Cada vez más marginalizado en debates sobre migración y Estado de Derecho.
+- **ECR (81 escaños, 11,3%):** Grupo bisagra decisivo. Apoya al PPE en defensa y migración; se opone en Estado de Derecho y legislación social. Grupo de Giorgia Meloni.
+- **PfE (85 escaños, 11,9%):** Patriots for Europe (Orbán). Opositor sistemático de la ayuda a Ucrania, las protecciones LGBTQ+, el Pacto Verde. Coincide con el ECR en migración; se divide con el ECR en Ucrania.
+- **Renew (77 escaños, 10,7%):** Bloque liberal estabilizador. Apoya al PPE en el mercado único y la agenda digital; diverge en migración e independencia judicial.
+- **Greens/EFA (53 escaños, 7,4%):** Estructuralmente debilitado pero aún determinante en legislación ambiental. Alineado con S&D y The Left en votaciones sociales y climáticas.
+- **The Left (45 escaños, 6,3%):** Bloque de oposición. Contra el gasto en defensa, a favor de los derechos sociales, crítico sistemático de las lagunas en la aplicación de la Comisión.
+- **ESN (27 escaños, 3,8%):** Europe of Sovereign Nations (AfD, extrema derecha polaca). Grupo más euroescéptico; votos de bloqueo sistemáticos contra la integración europea.
+- **NI (30 escaños, 4,2%):** Diputados no adscritos — heterogéneos.
+
+---
+
+### Strategic Assessment
+
+🟡 **CONFIANZA MEDIA** — El primer año completo del PE10 demuestra la consolidación estructural de una mayoría legislativa de centroderecha que ha dominado el arte de las coaliciones flexibles: PPE+ECR+Renew para la legislación industrial y comercial; PPE+S&D+ECR+Renew para Ucrania/defensa; PPE+Greens/EFA+S&D para las obligaciones medioambientales restantes. El equilibrio político es estable pero frágil — la deserción de cualquier grupo de una coalición determinada puede alterar los resultados.
+
+El desarrollo institucional más significativo es el **declive de la norma de gran coalición**: el duopolio PPE–S&D que dominó PE6–PE8 (2004–2019) está ahora definitivamente retirado. Cada votación requiere una ingeniería de coalición a medida, lo que aumenta los costes de transacción y hace que la producción legislativa sea más vulnerable a los choques políticos.
+
+---
+
+### Data Freshness
+
+- Datos API del PE: Tiempo real (mayo 2026)
+- Datos económicos del IMF: **NO DISPONIBLES** (error de servicio 503) — el contexto macroeconómico de este análisis no cita cifras respaldadas por el IMF
+- Datos World Bank: Disponibles (WB MCP operativo)
+- Votos XML DOCEO: No disponibles (última semana plenaria aún no publicada)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: Probable** — El mandato PE10 del Parlamento Europeo (2024–2029) se dirige hacia su producción legislativa media histórica con una estabilidad política superior a la media durante el período 2024–2026, a pesar de una mayor representación de extrema derecha y la presión geopolítica externa.
+
+Admiralty: B2 — Fuente fiable (Portal de Datos Abiertos del PE), información probablemente verdadera (análisis de tendencias institucionales basado en datos estadísticos de 2025 confirmados).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: La coalición centrista liderada por el PPE se mantiene hasta 2026**
+La coalición estructural PPE–S&D–Renew (396/717 escaños, 55,2%) ha demostrado una cohesión de voto coherente en grandes paquetes legislativos, incluida la ayuda a Ucrania, la implementación de la Ley de IA y la revisión del MFP. Los incentivos estructurales favorecen la continuación. **Evaluación: Probable (confianza 55–65%)**
+
+**KIJ-2: Producción legislativa por encima de la base del PE9**
+Rendimiento del PE10 en 2025: 78 actos legislativos, 347 textos adoptados, 420 votaciones por llamada nominal — todos por encima de las medias anuales del PE9. Las agendas de seguridad y transformación digital proporcionan impulso legislativo que mantiene una producción superior a la media al menos hasta 2026. **Evaluación: Casi seguro para 2026**
+
+**KIJ-3: La influencia de la extrema derecha crece pero no gobierna**
+PfE + ESN = 112 escaños (15,6%) representan el mayor bloque de extrema derecha en la historia del PE en porcentaje, pero permanecen por debajo del umbral del 20% para el poder de bloqueo sistémico. Su influencia está concentrada en: votaciones sobre migración, debates sobre subsidios agrícolas y presión retórica sobre el posicionamiento del PPE. **Evaluación: Probable incremento marginal antes de las elecciones de 2029**
+
+**KIJ-4: El consenso sobre el gasto en seguridad/defensa remodela la agenda legislativa**
+La guerra en Ucrania, la presión de gasto de la OTAN y la estrategia industrial de defensa de la UE han creado un consenso de seguridad interpartidista sin precedentes. La legislación relacionada con la defensa (ReArm EU, Fondo Europeo de Defensa, movilidad militar) avanza más rápido que cualquier otro clúster de políticas comparable en PE8 o PE9. **Evaluación: Confirmado — sostenido hasta 2027**
+
+#### Strategic Implications for Monitoring
+
+1. **Vigilar los patrones de cooperación PPE–PfE**: Cualquier acuerdo formal de cooperación en votaciones migratorias o agrícolas señala un desplazamiento estratégico hacia la derecha, con implicaciones para la implementación del Pacto Verde.
+2. **Seguir el atraso en trílogos**: 18 trílogos activos significan que la indisponibilidad de un ponente clave podría crear cuellos de botella legislativos en el S2 de 2026.
+3. **Supervisar la implementación de la Ley de IA**: El primer plazo de obligaciones GPAI (mediados de 2026) será el caso de prueba para la nueva capacidad de aplicación regulatoria digital del PE.
+4. **Continuidad de la ayuda a Ucrania**: Los tramos posteriores del mecanismo de 50.000 M€ para Ucrania requieren votaciones en el PE; la posible oposición de PfE deberá gestionarse en cada votación.
+
+### Executive Brief Fi
+
+### BLUF (Bottom Line Up Front)
+
+Euroopan parlamentin kymmenes vaalikausi (EP10) päätti ensimmäisen täyden toimintavuotensa (toukokuu 2025–toukokuu 2026) kiihtyvän lainsäädäntötuotannon, rakenteellisesti oikeistovaltaisen poliittisen tasapainon ja ennennäkemättömän kaksoisprioriteettikonsensuksen — puolustusmenojen ja teollisen kilpailukyvyn — keskellä. Parlamentti hyväksyi **347 tekstiä** vuonna 2025 ja on matkalla kohti **164+ hyväksyttyä tekstiä** pelkästään Q1 2026:n aikana — tahti, joka viittaa ennätystasolle koko vuodelle 2026. Poliittinen painopiste on siirtynyt ratkaisevasti: EPP–ECR-akseli ankkuroi nyt useimmat lainsäädännölliset enemmistöt, kun taas Vihreän kehityksen ohjelman sääntelyn vauhti on pysähtynyt "Kilpailukykyagenda"-kehyksen hyväksi.
+
+---
+
+### 60-Second Read
+
+**Mitä tapahtui (top 5 tapahtumaa, toukokuu 2025 – toukokuu 2026):**
+
+1. **Ukrainan lainalainsäädäntö (TA-10-2026-0010, TA-10-2026-0035):** Parlamentti hyväksyi *Tehostetun yhteistyön Ukrainalle myönnettävän lainan perustamiseksi* (tammikuu 2026) ja siihen liittyvän asetuksen, jolla pantiin täytäntöön 50 miljardin euron järjestely. Tämä edustaa EP10:n tähänastista merkittävintä geopoliittista äänestystä, lähes yksimielisellä tuella, joka ylitti EPP–S&D-jakolinjan.
+
+2. **Puolustus- ja turvallisuuspivotti (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040):** Kolme merkittävää puolustustekstiä hyväksyttiin tammikuu–helmikuussa 2026: *Yhteistä ulko- ja turvallisuuspolitiikkaa koskeva vuosikertomus*, päätöslauselma *Drooneista ja uusista sodankäyntijärjestelmistä* sekä *EU:n strategiset puolustus- ja turvallisuuskumppanuudet*. Parlamentin AFET/SEDE-valiokunnat ajoivat konsensuksen läpi EPP:n, ECR:n, S&D:n ja Renewn kesken — harvinainen neljän ryhmän koalitio, joka signaloi rakenteellista muutosta EP:n turvallisuusasennossa.
+
+3. **Monivuotisen rahoituskehyksen muutos (TA-10-2026-0037):** Parlamentti hyväksyi MFF:n väliarvioinnin helmikuussa 2026 — poliittisesti kiistanalainen uudelleenjako, joka kasvatti puolustukseen liittyviä menoja ja vähensi Vihreän kehityksen ohjelman rakennerahastoja. ECR ja PfE tukivat tarkistusta yhdessä EPP:n ja S&D:n kanssa, mikä merkitsee ensimmäistä merkittävää äänestystä, jossa äärioikeistolaiset ryhmät muovasivat ratkaisevasti EU:n budjettirakennetta.
+
+4. **Lääkkeiden kehys (TA-10-2026-0001):** Tammikuussa 2026 hyväksytty *Kriittisten lääkkeiden* asetus heijastaa laajempaa EP10-mallia toimitusketjun resilienssilainsäädännöstä — ulottaen "strategisen autonomian" logiikan puolijohteista ja puolustuksesta lääkealan toimitusketjuihin.
+
+5. **Vuoden 2023 talousarvion vastuuvapausriita (TA-10-2025-0077–TA-10-2025-0092):** Toukokuun 2025 vastuuvapausäänestyksissä parlamentti hyväksyi vuoden 2023 tilit laajimmalla varaumapaketilla sitten vuoden 2017, mikä heijastaa jatkuvia jännitteitä oikeusvaltioperiaatteen ehdollisuusmekanismin ja Unkarin rahastojen jäädyttämisten ympärillä.
+
+---
+
+### Top Trigger Indicators
+
+| Indikaattori | Arvo | Signaali |
+|-----------|-------|--------|
+| EP10 täysistunnot toteutuneet (2025) | 53 | +6% vs 2024 |
+| Hyväksytyt lainsäädäntötoimet (2025) | 78 | +8,3% vs 2024 |
+| Namentliche äänestykset (2025) | 420 | +12% vs 2024 |
+| Parlamentaariset kysymykset (2025) | 4 947 | +66,6% vs 2024 |
+| MFF-tarkistus hyväksytty | Kyllä | Rakenteellinen budjettisiirtymä |
+| Ukrainan lainajärjestely | 50 mrd € hyväksytty | Geopoliittinen konsensus |
+| Vihreän kehityksen ohjelman tekstit vähentyneet | ↓ | Politiikan uudelleensuuntaus |
+| Puolustus-/turvallisuustekstit | ↑↑ | Strateginen pivotti vahvistettu |
+| Oikeistoblokin mandaattiosuus | 52,3% | EPP+ECR+PfE+ESN-enemmistö |
+| Fragmentaatioindeksi | 6,59 | Monikoalitio vaaditaan |
+
+---
+
+### Key Stakeholders
+
+- **EPP (183 paikkaa, 25,5%):** Hallitseva voima. Von der Leyenin komissio säilyttää enemmistökoalition EPP:n kautta. Ajaa "Kilpailukykyagenda"-kehystä teollisuudessa, puolustuksessa ja digitaalisesti.
+- **S&D (136 paikkaa, 19,0%):** Nuorempi koalitiopartneri Ukrainan ja puolustuksen suhteen; estävä voima Vihreän kehityksen ohjelman purkamista vastaan. Yhä enemmän syrjäytetty maahanmuutto- ja oikeusvaltiodebateissa.
+- **ECR (81 paikkaa, 11,3%):** Ratkaiseva heilahteluryhmä. Tukee EPP:tä puolustuksessa ja maahanmuutossa; vastustaa oikeusvaltiossa ja sosiaalisessa lainsäädännössä. Giorgia Melonin ryhmä.
+- **PfE (85 paikkaa, 11,9%):** Patriots for Europe (Orbán). Johdonmukainen vastustaja Ukraina-avulle, LGBTQ+-suojelulle, Vihreälle kehitysohjelmalle. Yhteneväinen ECR:n kanssa maahanmuutossa; jakautunut ECR:stä Ukrainassa.
+- **Renew (77 paikkaa, 10,7%):** Vakauttava liberaali blokki. Tukee EPP:tä sisämarkkina- ja digitaaliagendalla; eroaa maahanmuutossa ja oikeudellisessa riippumattomuudessa.
+- **Greens/EFA (53 paikkaa, 7,4%):** Rakenteellisesti heikentynyt mutta edelleen ratkaiseva ympäristölainsäädännölle. Yhdensuuntainen S&D:n ja The Leftin kanssa sosiaalisissa ja ilmastoäänestyksissä.
+- **The Left (45 paikkaa, 6,3%):** Oppositioblokki. Puolustusmenoja vastaan, sosiaalisten oikeuksien puolesta, johdonmukainen komission täytäntöönpanoaukkojen kriitikko.
+- **ESN (27 paikkaa, 3,8%):** Europe of Sovereign Nations (AfD, puolalainen äärioikeisto). Euroskeptisin ryhmä; johdonmukaiset estopäätökset EU-integraatiota vastaan.
+- **NI (30 paikkaa, 4,2%):** Sitoutumattomat MEP-jäsenet — heterogeeniset.
+
+---
+
+### Strategic Assessment
+
+🟡 **KOHTALAINEN LUOTETTAVUUS** — EP10:n ensimmäinen täysi vuosi osoittaa oikeistokeskeisen lainsäädäntöenemmistön rakenteellisen konsolidoinnin, joka on hallinnut joustavan koalition taidon: EPP+ECR+Renew teollisuus- ja kauppalainsäädännölle; EPP+S&D+ECR+Renew Ukrainalle/puolustukselle; EPP+Greens/EFA+S&D jäljellä oleville ympäristövelvoitteille. Poliittinen tasapaino on vakaa mutta hauras — jonkin yksittäisen ryhmän irtaantuminen tietystä koalitiosta voi muuttaa tuloksia.
+
+Tärkein institutionaalinen kehitys on **suuren koalition normin lasku**: EPP–S&D-duopoli, joka hallitsi EP6–EP8:a (2004–2019), on nyt pysyvästi eläköitynyt. Jokainen äänestys vaatii räätälöityä koalitionrakennusta, mikä nostaa transaktiokustannuksia ja tekee lainsäädäntötuotannosta haavoittuvampaa poliittisille shokeille.
+
+---
+
+### Data Freshness
+
+- EP API-tiedot: Reaaliaikainen (toukokuu 2026)
+- IMF taloustiedot: **EI SAATAVILLA** (503 palveluvirhe) — makrotaloudellinen konteksti tässä analyysissä ei viittaa IMF-perusteisiin lukuihin
+- World Bank tiedot: Saatavilla (WB MCP käytössä)
+- DOCEO XML-äänestykset: Ei saatavilla (uusinta täysistuntoviikkoa ei vielä julkaistu)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: Todennäköinen** — Euroopan parlamentin EP10-mandaatti (2024–2029) seuraa historiallista keskimääräistä lainsäädäntötuotantoaan yli-keskimääräisellä poliittisella vakaudella 2024–2026-kaudella, huolimatta kohonneesta äärioikeistoedustuksesta ja ulkoisesta geopoliittisesta paineesta.
+
+Admiralty: B2 — Lähde luotettava (EP Open Data Portal), tieto todennäköisesti totta (institutionaalinen trendianalyysi vahvistetun 2025 tilastotiedon perusteella).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: EPP-johtainen sentristikoalitio kestää vuoteen 2026**
+EPP–S&D–Renew rakennekoalitio (396/717 paikkaa, 55,2%) on osoittanut johdonmukaisen äänestyskoheesion suurissa lainsäädäntöpaketeissa, kuten Ukraina-apu, tekoälylain täytäntöönpano ja MFF-tarkistus. Rakenteelliset kannustimet suosivat jatkumista. **Arviointi: Todennäköinen (55–65% luotettavuus)**
+
+**KIJ-2: Lainsäädäntötuotos EP9-peruslinjan yläpuolella**
+EP10 2025-suoritukset: 78 lainsäädäntötointa, 347 hyväksyttyä tekstiä, 420 namentliche-äänestystä — kaikki EP9:n vuosikeskiarvojen yläpuolella. Turvallisuus- ja digitaalisen muutoksen agendaot tarjoavat lainsäädäntövauhtia, joka ylläpitää yli-keskimääräistä tuotantoa vähintään vuoteen 2026. **Arviointi: Lähes varma vuodelle 2026**
+
+**KIJ-3: Äärioikeiston vaikutus kasvaa mutta ei hallitse**
+PfE + ESN = 112 paikkaa (15,6%) edustaa suurinta äärioikeistoblokkia EP:n historiassa prosentuaalisesti, mutta pysyy alle 20%:n kynnyksen systeemiselle estovoimalle. Niiden vaikutus on keskittynyt: maahanmuuttoäänestyksissä, maatalousbonusdebateissa ja retorisessa paineessa EPP:n asemointiin. **Arviointi: Todennäköisesti kasvaa marginaalisesti ennen vuoden 2029 vaaleja**
+
+**KIJ-4: Turvallisuus-/puolustusmenojen konsensus muotoilee lainsäädäntöagendaa**
+Ukrainan sota, NATO-menopaineeet ja EU:n puolustusstrategia ovat luoneet ennennäkemättömän puolueiden rajat ylittävän turvallisuuskonsensuksen. Puolustukseen liittyvä lainsäädäntö (ReArm EU, Euroopan puolustusrahasto, sotilasliikkuvuus) etenee nopeammin kuin mikään vastaava politiikkarykelmä EP8:ssa tai EP9:ssa. **Arviointi: Vahvistettu — jatketaan vuoteen 2027**
+
+#### Strategic Implications for Monitoring
+
+1. **Seuraa EPP–PfE-yhteistyömalleja**: Mikä tahansa virallinen yhteistyösopimus maahanmuutto- tai maatalousäänestyksissä merkitsee strategista oikealle siirtymistä, mikä vaikuttaa Vihreän kehityksen ohjelman täytäntöönpanoon.
+2. **Seuraa trilogirästiä**: 18 aktiivista trilogia tarkoittaa, että avainraportoijan saavuttamattomuus voi luoda lainsäädäntöpullonkauloja H2 2026:lla.
+3. **Tarkkaile tekoälylain täytäntöönpanoa**: Ensimmäinen GPAI-velvoitedeadline (vuoden 2026 puolivälissä) on EP:n uuden digitaalisen sääntelykapasiteetin testitapaus.
+4. **Ukraina-avun jatkuvuus**: Seuraavat erät 50 miljardin euron Ukraina-järjestelystä vaativat EP-äänestykset; potentiaalinen PfE-vastustus on hallittava jokaisessa äänestyksessä.
+
+### Executive Brief Fr
+
+### BLUF (Bottom Line Up Front)
+
+La dixième législature du Parlement européen (PE10) a achevé sa première année complète d'activité (mai 2025–mai 2026) dans un contexte d'accélération de la production législative, d'un équilibre politique structurellement décalé vers la droite et d'un consensus inédit à double priorité sur les dépenses de défense et la compétitivité industrielle. Le Parlement a adopté **347 textes** en 2025 et est en passe d'atteindre **164+ textes adoptés** pour le seul T1 2026 — un rythme laissant présager une production record pour l'ensemble de l'année 2026. Le centre de gravité politique s'est déplacé de manière décisive : l'axe PPE–ECR ancre désormais la plupart des majorités législatives, tandis que l'élan réglementaire du Pacte vert s'est enrayé au profit d'un cadrage « Agenda de compétitivité ».
+
+---
+
+### 60-Second Read
+
+**Ce qui s'est passé (top 5 événements, mai 2025 – mai 2026) :**
+
+1. **Législation sur le prêt à l'Ukraine (TA-10-2026-0010, TA-10-2026-0035) :** Le Parlement a approuvé la *Coopération renforcée pour l'établissement d'un prêt à l'Ukraine* (janvier 2026) et le règlement d'accompagnement mettant en œuvre la facilité de 50 milliards d'euros. Il s'agit du vote géopolitique le plus important de PE10 à ce jour, avec un soutien quasi unanime transcendant la division PPE–S&D.
+
+2. **Pivot défense et sécurité (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040) :** Trois textes majeurs sur la défense adoptés en janvier–février 2026 : le rapport annuel sur la *Politique étrangère et de sécurité commune*, la résolution sur les *Drones et nouveaux systèmes de guerre* et les *Partenariats stratégiques de défense et de sécurité de l'UE*. Les commissions AFET/SEDE du Parlement ont fait émerger le consensus entre PPE, ECR, S&D et Renew — une coalition rare de quatre groupes signalant un changement structurel dans la posture sécuritaire du PE.
+
+3. **Révision du Cadre financier pluriannuel (TA-10-2026-0037) :** Le Parlement a approuvé la révision à mi-parcours du CFP en février 2026 — une redistribution politiquement controversée qui a augmenté les dépenses liées à la défense et réduit les fonds structurels du Pacte vert. L'ECR et PfE ont soutenu la révision aux côtés du PPE et du S&D, marquant le premier vote important où des groupes d'extrême droite ont contribué de façon décisive à l'architecture budgétaire de l'UE.
+
+4. **Cadre pour les médicaments (TA-10-2026-0001) :** Le règlement sur les *Médicaments critiques* adopté en janvier 2026 reflète un schéma plus large de PE10 en matière de législation sur la résilience des chaînes d'approvisionnement — étendant la logique d'« autonomie stratégique » des semi-conducteurs et de la défense aux chaînes d'approvisionnement pharmaceutiques.
+
+5. **Controverse sur la décharge 2023 (TA-10-2025-0077 à TA-10-2025-0092) :** Les votes de décharge de mai 2025 ont vu le Parlement approuver les comptes 2023 avec l'ensemble de réserves le plus étendu depuis 2017, reflétant les tensions persistantes autour du mécanisme de conditionnalité liée à l'état de droit et des suspensions de fonds hongrois.
+
+---
+
+### Top Trigger Indicators
+
+| Indicateur | Valeur | Signal |
+|-----------|-------|--------|
+| Séances plénières PE10 tenues (2025) | 53 | +6 % vs 2024 |
+| Actes législatifs adoptés (2025) | 78 | +8,3 % vs 2024 |
+| Votes par appel nominal (2025) | 420 | +12 % vs 2024 |
+| Questions parlementaires (2025) | 4 947 | +66,6 % vs 2024 |
+| Révision CFP approuvée | Oui | Déplacement budgétaire structurel |
+| Facilité de prêt Ukraine | 50 Md€ approuvés | Consensus géopolitique |
+| Textes Pacte vert en baisse | ↓ | Réorientation politique |
+| Textes défense/sécurité | ↑↑ | Pivot stratégique confirmé |
+| Part de sièges du bloc de droite | 52,3 % | Majorité PPE+ECR+PfE+ESN |
+| Indice de fragmentation | 6,59 | Multi-coalition requise |
+
+---
+
+### Key Stakeholders
+
+- **PPE (183 sièges, 25,5 %) :** Force dominante. La Commission von der Leyen maintient la coalition majoritaire via le PPE. Pilote le cadrage « Agenda de compétitivité » dans l'industrie, la défense et le numérique.
+- **S&D (136 sièges, 19,0 %) :** Partenaire de coalition junior sur l'Ukraine et la défense ; force de blocage contre le démantèlement du Pacte vert. De plus en plus marginalisé dans les débats sur la migration et l'état de droit.
+- **ECR (81 sièges, 11,3 %) :** Groupe pivot décisif. Soutient le PPE sur la défense et la migration ; s'y oppose sur l'état de droit et la législation sociale. Groupe de Giorgia Meloni.
+- **PfE (85 sièges, 11,9 %) :** Patriots for Europe (Orbán). Adversaire constant de l'aide à l'Ukraine, des protections LGBTQ+, du Pacte vert. Convergent avec l'ECR sur la migration ; divergent avec l'ECR sur l'Ukraine.
+- **Renew (77 sièges, 10,7 %) :** Bloc libéral stabilisateur. Soutient le PPE sur le marché unique et l'agenda numérique ; diverge sur la migration et l'indépendance judiciaire.
+- **Greens/EFA (53 sièges, 7,4 %) :** Structurellement affaibli mais encore déterminant pour la législation environnementale. Aligné avec le S&D et The Left sur les votes sociaux et climatiques.
+- **The Left (45 sièges, 6,3 %) :** Bloc d'opposition. Contre les dépenses de défense, pour les droits sociaux, critique constant des lacunes d'application de la Commission.
+- **ESN (27 sièges, 3,8 %) :** Europe of Sovereign Nations (AfD, extrême droite polonaise). Groupe le plus eurosceptique ; votes de blocage systématiques contre l'intégration européenne.
+- **NI (30 sièges, 4,2 %) :** Eurodéputés non-inscrits — hétérogènes.
+
+---
+
+### Strategic Assessment
+
+🟡 **CONFIANCE MOYENNE** — La première année complète de PE10 démontre la consolidation structurelle d'une majorité législative de centre-droit ayant maîtrisé l'art des coalitions flexibles : PPE+ECR+Renew pour la législation industrielle et commerciale ; PPE+S&D+ECR+Renew pour l'Ukraine/la défense ; PPE+Greens/EFA+S&D pour les obligations environnementales restantes. L'équilibre politique est stable mais fragile — le retrait d'un seul groupe d'une coalition donnée peut faire basculer les résultats.
+
+L'évolution institutionnelle la plus significative est le **déclin de la norme de grande coalition** : le duopole PPE–S&D qui dominait PE6–PE8 (2004–2019) est désormais définitivement révolu. Chaque vote requiert une ingénierie de coalition sur mesure, ce qui augmente les coûts de transaction et rend la production législative plus vulnérable aux chocs politiques.
+
+---
+
+### Data Freshness
+
+- Données API PE : Temps réel (mai 2026)
+- Données économiques IMF : **INDISPONIBLES** (erreur de service 503) — le contexte macroéconomique de cette analyse ne cite pas les chiffres soutenus par l'IMF
+- Données World Bank : Disponibles (WB MCP opérationnel)
+- Votes XML DOCEO : Indisponibles (dernière semaine de plénière pas encore publiée)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP : Probable** — Le mandat PE10 du Parlement européen (2024–2029) se dirige vers sa production législative moyenne historique avec une stabilité politique supérieure à la moyenne au cours de la période 2024–2026, malgré une représentation d'extrême droite accrue et une pression géopolitique externe.
+
+Admiralty: B2 — Source fiable (Portail de données ouvertes PE), information probablement vraie (analyse de tendance institutionnelle basée sur les données statistiques 2025 confirmées).
+
+#### Key Intelligence Judgments
+
+**KIJ-1 : La coalition centriste dirigée par le PPE tient jusqu'en 2026**
+La coalition structurelle PPE–S&D–Renew (396/717 sièges, 55,2 %) a démontré une cohésion de vote cohérente lors de grands paquets législatifs, notamment l'aide à l'Ukraine, la mise en œuvre de l'acte sur l'IA et la révision du CFP. Les incitations structurelles favorisent la continuation. **Évaluation : Probable (confiance 55–65 %)**
+
+**KIJ-2 : Production législative au-dessus de la base PE9**
+Performance PE10 en 2025 : 78 actes législatifs, 347 textes adoptés, 420 votes par appel nominal — tous au-dessus des moyennes annuelles de PE9. Les agendas de sécurité et de transformation numérique fournissent un élan législatif maintenant une production supérieure à la moyenne au moins jusqu'en 2026. **Évaluation : Quasi certain pour 2026**
+
+**KIJ-3 : L'influence de l'extrême droite croît mais ne gouverne pas**
+PfE + ESN = 112 sièges (15,6 %) représentent le plus grand bloc d'extrême droite en pourcentage dans l'histoire du PE, mais restent en deçà du seuil de 20 % de pouvoir de blocage systémique. Leur influence est concentrée sur : les votes sur la migration, les débats sur les subventions agricoles et la pression rhétorique sur le positionnement du PPE. **Évaluation : Probable d'augmenter marginalement avant les élections de 2029**
+
+**KIJ-4 : Le consensus sur les dépenses de sécurité/défense remodèle l'agenda législatif**
+La guerre en Ukraine, la pression sur les dépenses de l'OTAN et la stratégie industrielle de défense de l'UE ont créé un consensus de sécurité interpartis sans précédent. La législation liée à la défense (ReArm EU, Fonds européen de défense, mobilité militaire) progresse plus rapidement que tout autre cluster politique comparable dans PE8 ou PE9. **Évaluation : Confirmé — maintenu jusqu'en 2027**
+
+#### Strategic Implications for Monitoring
+
+1. **Observer les schémas de coopération PPE–PfE** : Tout accord de coopération formel sur les votes migratoires ou agricoles signale un déplacement stratégique vers la droite, avec des implications pour la mise en œuvre du Pacte vert.
+2. **Suivre l'arriéré de trilogues** : 18 trilogues actifs signifient que l'indisponibilité d'un rapporteur clé pourrait créer des goulots d'étranglement législatifs au S2 2026.
+3. **Surveiller la mise en œuvre de l'acte sur l'IA** : La première échéance d'obligations GPAI (mi-2026) sera le cas test pour la nouvelle capacité de mise en application numérique du PE.
+4. **Continuité de l'aide à l'Ukraine** : Les tranches ultérieures de la facilité Ukraine de 50 Md€ nécessitent des votes au PE ; l'opposition potentielle du PfE devra être gérée lors de chaque vote.
+
+### Executive Brief He
+
+**סיווג:** ציבורי | **רמת ביטחון:** 🟡 בינוני (נתוני IMF אינם זמינים — מצב מופחת) | **תאריך:** 2026-05-10 | **סוג מאמר:** year-in-review
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+הפרלמנט האירופי בכהונתו העשירית (EP10) סיים את שנת הפעילות המלאה הראשונה (מאי 2025–מאי 2026) בתוך האצה בתפוקה החקיקתית, איזון פוליטי שהתמקם מבנית לכיוון ימין, וקונצנזוס כפול חסר תקדים על הוצאות ביטחוניות ותחרותיות תעשייתית. הפרלמנט אימץ **347 טקסטים** ב-2025 ונמצא בדרך לאמץ **164+ טקסטים** ברבעון הראשון של 2026 בלבד — קצב המצביע על רמה שיא לכל שנת 2026. מרכז הכובד הפוליטי השתנה באופן מכריע: ציר EPP–ECR מעגן כעת את רוב הרוב החקיקתיים, בעוד המומנטום הרגולטורי של ה-Green Deal נעצר לטובת מסגרת "אג'נדת התחרותיות".
+
+---
+
+### 60-Second Read
+
+**מה קרה (5 אירועים מובילים, מאי 2025 – מאי 2026):**
+
+1. **חקיקת הלוואת אוקראינה (TA-10-2026-0010, TA-10-2026-0035):** הפרלמנט אישר את *שיתוף הפעולה המוגבר להקמת הלוואה לאוקראינה* (ינואר 2026) ואת התקנה המלווה ליישום ה-50 מיליארד אירו. זהו ההצבעה הגיאופוליטית המשמעותית ביותר של EP10 עד כה, עם תמיכה כמעט פה אחד שחצתה את הקו המפריד EPP–S&D.
+
+2. **ציר הביטחון וההגנה (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040):** שלושה טקסטי הגנה מרכזיים אומצו בינואר–פברואר 2026: הדוח השנתי על *המדיניות החוץ והביטחון המשותפת*, ההחלטה על *כטב"מים ומערכות לחימה חדשות* ו*שותפויות הגנה ואסטרטגיה של האיחוד האירופי*. ועדות AFET/SEDE של הפרלמנט הובילו הסכמה בין EPP, ECR, S&D ו-Renew — קואליציה נדירה של ארבע קבוצות המסמנת שינוי מבני בעמדת הפרלמנט בנושאי ביטחון.
+
+3. **תיקון המסגרת הפיננסית הרב-שנתית (TA-10-2026-0037):** הפרלמנט אישר את הסקירה לאמצע התקופה של MFF בפברואר 2026 — חלוקה מחדש שנויה במחלוקת פוליטית שהגדילה את ההוצאות הקשורות להגנה והפחיתה את הקרנות המבניות של ה-Green Deal. ECR ו-PfE תמכו בתיקון לצד EPP ו-S&D, המסמן את ההצבעה המרכזית הראשונה שבה קבוצות קיצוניות מן הימין עיצבו באופן מכריע את ארכיטקטורת התקציב של האיחוד האירופי.
+
+4. **מסגרת תרופות (TA-10-2026-0001):** תקנת *תרופות קריטיות* שאומצה בינואר 2026 משקפת דפוס רחב יותר של EP10 לחקיקת חוסן שרשראות אספקה — הרחבת ההיגיון של "אוטונומיה אסטרטגית" מחצאי מוליכים והגנה לשרשראות אספקה פרמצבטיות.
+
+5. **מחלוקת הפטור התקציבי 2023 (TA-10-2025-0077 עד TA-10-2025-0092):** הצבעות ההפטור במאי 2025 ראו את הפרלמנט מאשר את חשבונות 2023 עם המגוון הרחב ביותר של הסתייגויות מאז 2017, המשקף מתחים מתמשכים סביב מנגנון התנאיות לשלטון החוק והשעיית קרנות הונגריות.
+
+---
+
+### Top Trigger Indicators
+
+| מדד | ערך | אות |
+|-----------|-------|--------|
+| ישיבות מליאה EP10 שנערכו (2025) | 53 | +6% לעומת 2024 |
+| מעשים חקיקתיים שאומצו (2025) | 78 | +8.3% לעומת 2024 |
+| הצבעות בקריאת שם (2025) | 420 | +12% לעומת 2024 |
+| שאלות פרלמנטריות (2025) | 4,947 | +66.6% לעומת 2024 |
+| סקירת MFF אושרה | כן | שינוי מבני בתקציב |
+| מנגנון הלוואת אוקראינה | 50 מיליארד אירו אושרו | קונצנזוס גיאופוליטי |
+| טקסטי Green Deal ירדו | ↓ | שינוי כיוון מדיניות |
+| טקסטי הגנה/ביטחון | ↑↑ | ציר אסטרטגי אושר |
+| נתח מושבים הגוש הימני | 52.3% | רוב EPP+ECR+PfE+ESN |
+| מדד פיצול | 6.59 | קואליציה מרובה נדרשת |
+
+---
+
+### Key Stakeholders
+
+- **EPP (183 מושבים, 25.5%):** הכוח הדומיננטי. נציבות פון דר לאיין שומרת על קואליציית הרוב דרך EPP. מובילה את מסגרת "אג'נדת התחרותיות" בתעשייה, הגנה ורקמה דיגיטלית.
+- **S&D (136 מושבים, 19.0%):** שותף קואליציה משני בנושאי אוקראינה והגנה; כוח חוסם כנגד פירוק ה-Green Deal. נדחק יותר ויותר בדיונים על הגירה ושלטון החוק.
+- **ECR (81 מושבים, 11.3%):** קבוצת ציר מכרעת. תומכת ב-EPP בהגנה ובהגירה; מתנגדת בשלטון החוק ובחקיקה חברתית. קבוצתה של ג'ורג'יה מלוני.
+- **PfE (85 מושבים, 11.9%):** Patriots for Europe (אורבן). מתנגד עקבי לסיוע לאוקראינה, להגנות LGBTQ+, ל-Green Deal. מתואם עם ECR בהגירה; חלוק עם ECR באוקראינה.
+- **Renew (77 מושבים, 10.7%):** גוש ליברלי מייצב. תומך ב-EPP בשוק המשותף ובסדר היום הדיגיטלי; נבדל בהגירה ובעצמאות שיפוטית.
+- **Greens/EFA (53 מושבים, 7.4%):** מוחלש מבנית אך עדיין מכריע בחקיקה סביבתית. מתואם עם S&D ו-The Left בהצבעות חברתיות ואקלימיות.
+- **The Left (45 מושבים, 6.3%):** גוש אופוזיציה. נגד הוצאות הגנה, בעד זכויות חברתיות, מבקר עקבי של פערי אכיפה של הנציבות.
+- **ESN (27 מושבים, 3.8%):** Europe of Sovereign Nations (AfD, הימין הקיצוני הפולני). הקבוצה האירו-סקפטית ביותר; הצבעות חסימה עקביות כנגד אינטגרציה אירופית.
+- **NI (30 מושבים, 4.2%):** חברי פרלמנט אירופי לא מסונפים — הטרוגניים.
+
+---
+
+### Strategic Assessment
+
+🟡 **ביטחון בינוני** — השנה המלאה הראשונה של EP10 מדגימה את האיחוד המבני של רוב חקיקתי ימין-מרכז שבקיא באמנות הקואליציות הגמישות: EPP+ECR+Renew לחקיקה תעשייתית וסחר; EPP+S&D+ECR+Renew לאוקראינה/הגנה; EPP+Greens/EFA+S&D לחובות סביבתיות שנותרו. האיזון הפוליטי יציב אך רופף — נשירת קבוצה אחת מקואליציה מסוימת עשויה לשנות תוצאות.
+
+ההתפתחות המוסדית המשמעותית ביותר היא **דעיכת נורמת הקואליציה הגדולה**: הדואופול EPP–S&D שהיה דומיננטי ב-EP6–EP8 (2004–2019) פרש כעת באופן קבוע. כל הצבעה דורשת הנדסת קואליציה מותאמת, מה שמגדיל עלויות עסקה ועושה את התפוקה החקיקתית פגיעה יותר לזעזועים פוליטיים.
+
+---
+
+### Data Freshness
+
+- נתוני API של הפרלמנט האירופי: בזמן אמת (מאי 2026)
+- נתונים כלכליים של IMF: **לא זמינים** (שגיאת שירות 503) — הקשר המקרו-כלכלי בניתוח זה אינו מציין נתונים הנסמכים על IMF
+- נתוני World Bank: זמינים (WB MCP פועל)
+- הצבעות XML DOCEO: לא זמינות (שבוע המליאה האחרון טרם פורסם)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: סביר** — מנדט EP10 של הפרלמנט האירופי (2024–2029) מצוי במסלול לעבר תפוקתו החקיקתית הממוצעת ההיסטורית עם יציבות פוליטית מעל הממוצע בתקופה 2024–2026, על אף ייצוג גבוה יותר של הימין הקיצוני ולחץ גיאופוליטי חיצוני.
+
+Admiralty: B2 — מקור אמין (פורטל הנתונים הפתוח של הפרלמנט האירופי), מידע נכון ככל הנראה (ניתוח מגמות מוסדי המבוסס על נתונים סטטיסטיים מאושרים של 2025).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: קואליציית המרכז בהנהגת EPP מחזיקה עד 2026**
+הקואליציה המבנית EPP–S&D–Renew (396/717 מושבים, 55.2%) הפגינה אחידות הצבעה עקבית בחבילות חקיקתיות גדולות כולל סיוע לאוקראינה, יישום חוק הבינה המלאכותית ותיקון MFF. תמריצים מבניים מעדיפים המשכיות. **הערכה: סביר (ביטחון 55–65%)**
+
+**KIJ-2: תפוקה חקיקתית מעל בסיס EP9**
+ביצועי EP10 ב-2025: 78 מעשים חקיקתיים, 347 טקסטים שאומצו, 420 הצבעות בקריאת שם — כולם מעל הממוצעים השנתיים של EP9. אג'נדות הביטחון והטרנספורמציה הדיגיטלית מספקות מומנטום חקיקתי השומר על תפוקה מעל הממוצע לפחות עד 2026. **הערכה: כמעט ודאי ל-2026**
+
+**KIJ-3: השפעת הימין הקיצוני גדלה אך אינה שולטת**
+PfE + ESN = 112 מושבים (15.6%) מייצגים את הגוש הימני-קיצוני הגדול ביותר בהיסטוריית הפרלמנט האירופי באחוזים, אך נשארים מתחת לסף 20% לכוח חסימה מערכתי. השפעתם מרוכזת ב: הצבעות הגירה, דיונים על סובסידיות חקלאיות, ולחץ רטורי על עמדת EPP. **הערכה: סביר עלייה מתונה לפני בחירות 2029**
+
+**KIJ-4: קונצנזוס הוצאות ביטחון/הגנה מעצב מחדש את הסדר היום החקיקתי**
+מלחמת אוקראינה, לחץ הוצאות נאט"ו ואסטרטגיית התעשייה הביטחונית האירופית יצרו קונצנזוס ביטחוני חוצה מפלגות חסר תקדים. חקיקה ביטחונית (ReArm EU, קרן הגנה אירופאית, ניידות צבאית) מתקדמת מהר יותר מכל צבר מדיניות דומה ב-EP8 או EP9. **הערכה: מאושר — נמשך עד 2027**
+
+#### Strategic Implications for Monitoring
+
+1. **מעקב אחר דפוסי שיתוף פעולה EPP–PfE**: כל הסכם שיתוף פעולה רשמי על הצבעות הגירה או חקלאות מסמן הסטה אסטרטגית ימינה, עם השלכות על יישום ה-Green Deal.
+2. **מעקב אחר פיגור בטרילוגים**: 18 טרילוגים פעילים אומרים שאי-זמינות של מדווח מפתח עלולה ליצור צווארי בקבוק חקיקתיים ב-H2 2026.
+3. **ניטור יישום חוק הבינה המלאכותית**: המועד האחרון הראשון להתחייבויות GPAI (אמצע 2026) יהיה מבחן היכולת החדשה של הפרלמנט לאכיפה רגולטורית דיגיטלית.
+4. **רציפות סיוע לאוקראינה**: מנות נוספות של 50 מיליארד אירו ממנגנון אוקראינה דורשות הצבעות בפרלמנט; יש לנהל התנגדות PfE אפשרית בכל הצבעה.
+
+### Executive Brief Ja
+
+**分類：** 公開 | **信頼度：** 🟡 中程度（IMFデータ利用不可 — 縮退モード） | **日付：** 2026-05-10 | **記事タイプ：** year-in-review
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+欧州議会第10期（EP10）は、その最初の通常運営年（2025年5月～2026年5月）を、立法生産の加速、構造的に右傾化した政治バランス、そして防衛支出と産業競争力における前例のない二重優先コンセンサスのもとで完了しました。議会は2025年に**347件の文書**を採択し、2026年第1四半期だけで**164件以上の採択文書**が見込まれています。これは2026年通年で記録的な水準を示唆するペースです。政治的重心は決定的に変化しました。EPP–ECR軸が現在ほとんどの立法多数派を支え、グリーンディールの規制的な勢いは「競争力アジェンダ」の枠組みに取って代わられました。
+
+---
+
+### 60-Second Read
+
+**主要5事件（2025年5月～2026年5月）：**
+
+1. **ウクライナ融資立法（TA-10-2026-0010、TA-10-2026-0035）：** 議会は*ウクライナへの融資設立に関する強化協力*（2026年1月）および500億ユーロ規模の施設を実施する付随規則を承認しました。これはEP10で最も重要な地政学的投票であり、EPP–S&D間の対立を超えてほぼ全会一致の支持を得ました。
+
+2. **防衛・安全保障のピボット（TA-10-2026-0012、TA-10-2026-0020、TA-10-2026-0040）：** 2026年1月～2月に採択された3件の主要防衛文書：*共通外交安全保障政策年次報告書*、*無人機と新兵器システム*に関する決議、および*EU戦略的防衛・安全保障パートナーシップ*。議会のAFET/SEDE委員会がEPP、ECR、S&D、Renewの間のコンセンサスを形成しました。これはEPの安全保障姿勢における構造的な変化を示す稀な四グループ連立です。
+
+3. **中期財政枠組みの修正（TA-10-2026-0037）：** 議会は2026年2月にMFFの中間見直しを承認しました。これは防衛関連支出を増加させ、グリーンディールの構造基金を削減した政治的に論争的な再配分です。ECRとPfEはEPPおよびS&Dとともに見直しを支持し、極右グループがEU予算構造を決定的に形成した最初の主要投票となりました。
+
+4. **医薬品フレームワーク（TA-10-2026-0001）：** 2026年1月に採択された*重要医薬品*規則は、サプライチェーン強靭性立法のより広いEP10パターンを反映しており、半導体と防衛から医薬品サプライチェーンへと「戦略的自律性」の論理を拡張するものです。
+
+5. **2023年度予算免除をめぐる論争（TA-10-2025-0077～TA-10-2025-0092）：** 2025年5月の免除投票において、議会は2017年以降で最も広範な留保を伴って2023年度決算を承認しました。これは法の支配条件付きメカニズムとハンガリーの基金停止をめぐる継続的な緊張を反映しています。
+
+---
+
+### Top Trigger Indicators
+
+| 指標 | 数値 | シグナル |
+|-----------|-------|--------|
+| EP10本会議開催回数（2025年） | 53 | 2024年比+6% |
+| 採択立法行為数（2025年） | 78 | 2024年比+8.3% |
+| 記名投票数（2025年） | 420 | 2024年比+12% |
+| 議会質問数（2025年） | 4,947 | 2024年比+66.6% |
+| MFF見直し承認 | あり | 構造的予算転換 |
+| ウクライナ融資施設 | 500億ユーロ承認 | 地政学的コンセンサス |
+| グリーンディール文書減少 | ↓ | 政策的再方向付け |
+| 防衛・安全保障文書 | ↑↑ | 戦略的ピボット確認 |
+| 右派ブロック議席占有率 | 52.3% | EPP+ECR+PfE+ESN過半数 |
+| 断片化指数 | 6.59 | 多重連立必要 |
+
+---
+
+### Key Stakeholders
+
+- **EPP（183議席、25.5%）：** 支配的勢力。フォン・デア・ライエン欧州委員会はEPPを通じて過半数連立を維持。産業、防衛、デジタル分野で「競争力アジェンダ」の枠組みを推進。
+- **S&D（136議席、19.0%）：** ウクライナと防衛における副連立パートナー。グリーンディール縮小に対する阻止勢力。移住と法の支配の議論でますます周辺化。
+- **ECR（81議席、11.3%）：** 決定的な揺れ動きグループ。防衛と移住でEPPを支持。法の支配と社会立法では反対。ジョルジャ・メローニのグループ。
+- **PfE（85議席、11.9%）：** Patriots for Europe（オルバン）。ウクライナ支援、LGBTQ+保護、グリーンディールへの一貫した反対。移住ではECRと一致。ウクライナではECRと分裂。
+- **Renew（77議席、10.7%）：** 安定的リベラルブロック。単一市場とデジタルアジェンダでEPPを支持。移住と司法独立では見解が分かれる。
+- **Greens/EFA（53議席、7.4%）：** 構造的に弱体化したが環境立法においてはまだ重要。社会・気候投票でS&DとThe Leftと協調。
+- **The Left（45議席、6.3%）：** 野党ブロック。防衛支出反対、社会的権利推進、欧州委員会の執行ギャップの一貫した批判者。
+- **ESN（27議席、3.8%）：** Europe of Sovereign Nations（AfD、ポーランド極右）。最も欧州懐疑的なグループ。EU統合に対する一貫した阻止投票。
+- **NI（30議席、4.2%）：** 無会派MEP — 多様。
+
+---
+
+### Strategic Assessment
+
+🟡 **中程度の信頼度** — EP10の最初の完全な年は、柔軟な連立の技を習得した中道右派立法多数派の構造的強化を示しています。EPP+ECR+Renewが産業・貿易立法に、EPP+S&D+ECR+Renewがウクライナ/防衛に、EPP+Greens/EFA+S&Dが残りの環境義務に対応しています。政治的バランスは安定していますが脆弱で、特定の連立から単一グループが離脱すると結果が変わる可能性があります。
+
+最も重要な制度的発展は**大連立規範の衰退**です。EP6–EP8（2004–2019）を支配したEPP–S&Dの二頭政治は現在永続的に引退しました。各投票には特注の連立エンジニアリングが必要であり、取引コストが増加し、政治的衝撃に対して立法生産がより脆弱になります。
+
+---
+
+### Data Freshness
+
+- EP APIデータ：リアルタイム（2026年5月）
+- IMF経済データ：**利用不可**（503サービスエラー） — 本分析のマクロ経済的文脈はIMFに基づく数値を引用していません
+- World Bankデータ：利用可能（WB MCPが稼働中）
+- DOCEO XML投票：利用不可（最新の本会議週がまだ公開されていない）
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP：可能性が高い** — 欧州議会EP10マンデート（2024–2029）は、2024–2026年期に極右代表の増加と外部の地政学的圧力にもかかわらず、平均以上の政治的安定を伴いながら、歴史的平均的な立法生産水準に向かって推移しています。
+
+Admiralty: B2 — 信頼できる情報源（EP公開データポータル）、情報はおそらく真実（2025年確認済み統計データに基づく制度的トレンド分析）。
+
+#### Key Intelligence Judgments
+
+**KIJ-1：EPP主導の中道連立は2026年まで維持**
+EPP–S&D–Renew構造連立（396/717議席、55.2%）は、ウクライナ支援、AI法施行、MFF見直しを含む主要立法パッケージにおいて一貫した投票凝集を示しました。構造的インセンティブは継続を支持しています。**評価：可能性が高い（信頼度55–65%）**
+
+**KIJ-2：立法生産がEP9基準ラインを上回る**
+EP10 2025年実績：78件の立法行為、347件の採択文書、420件の記名投票 — すべてEP9の年間平均を上回っています。安全保障とデジタル変革のアジェンダが少なくとも2026年まで平均以上の生産を維持する立法的勢いを提供しています。**評価：2026年についてはほぼ確実**
+
+**KIJ-3：極右の影響力は増大しているが統治はしていない**
+PfE + ESN = 112議席（15.6%）はEP史上割合として最大の極右ブロックを代表していますが、システム的な阻止力のための20%閾値を下回っています。影響力は移住投票、農業補助金議論、EPPの立場に対する修辞的圧力に集中しています。**評価：2029年選挙前に若干増加する可能性が高い**
+
+**KIJ-4：安全保障/防衛支出コンセンサスが立法アジェンダを再形成**
+ウクライナ戦争、NATO支出圧力、EU防衛産業戦略が前例のない党派横断的な安全保障コンセンサスを生み出しました。防衛関連立法（ReArm EU、欧州防衛基金、軍事移動性）はEP8またはEP9のいかなる比較可能な政策クラスターよりも速く進展しています。**評価：確認済み — 2027年まで維持**
+
+#### Strategic Implications for Monitoring
+
+1. **EPP–PfE協力パターンを監視**：移住または農業投票に関する公式協力協定はいずれも、グリーンディール実施への影響を伴う戦略的右傾化を示します。
+2. **トリローグ滞留状況を追跡**：18件の進行中のトリローグは、主要報告者の不在がH2 2026に立法のボトルネックを生じさせる可能性があることを意味します。
+3. **AI法施行を監視**：最初のGPAI義務期限（2026年中頃）はEPの新しいデジタル規制施行能力のテストケースとなります。
+4. **ウクライナ支援の継続性**：500億ユーロのウクライナ施設の後続融資はEP投票を必要とします。各投票においてPfEの潜在的反対を管理する必要があります。
+
+### Executive Brief Ko
+
+**분류:** 공개 | **신뢰도:** 🟡 보통 (IMF 데이터 이용 불가 — 저하 모드) | **날짜:** 2026-05-10 | **기사 유형:** year-in-review
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+유럽의회 제10기 (EP10)는 첫 번째 완전한 운영 연도(2025년 5월~2026년 5월)를 입법 생산의 가속화, 구조적으로 우경화된 정치적 균형, 그리고 국방 지출과 산업 경쟁력에 관한 전례 없는 이중 우선순위 합의 속에서 마감했습니다. 의회는 2025년에 **347개 문서**를 채택했으며 2026년 1분기에만 **164개 이상의 채택 문서**를 향해 나아가고 있습니다. 이는 2026년 전체에서 기록적인 생산 수준을 시사하는 속도입니다. 정치적 중심이 결정적으로 이동했습니다. EPP–ECR 축이 이제 대부분의 입법 다수파를 지지하는 반면, 그린딜의 규제 모멘텀은 "경쟁력 의제" 프레이밍을 위해 멈췄습니다.
+
+---
+
+### 60-Second Read
+
+**무슨 일이 있었나 (주요 5대 사건, 2025년 5월 ~ 2026년 5월):**
+
+1. **우크라이나 대출 입법 (TA-10-2026-0010, TA-10-2026-0035):** 의회는 *우크라이나 대출 설립을 위한 강화된 협력*(2026년 1월)과 500억 유로 시설을 이행하는 동반 규정을 승인했습니다. 이는 EPP–S&D 분열을 초월하는 거의 만장일치 지지로 EP10의 가장 중요한 지정학적 표결입니다.
+
+2. **국방 및 안보 피봇 (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040):** 2026년 1월~2월에 채택된 세 가지 주요 국방 문서: *공동 외교안보정책 연례 보고서*, *드론 및 새로운 전쟁 시스템*에 관한 결의안, *EU 전략적 국방 및 안보 파트너십*. 의회의 AFET/SEDE 위원회가 EPP, ECR, S&D, Renew 간의 합의를 이끌어냈습니다. 이는 EP의 안보 자세에서 구조적 변화를 신호하는 드문 4개 그룹 연합입니다.
+
+3. **다년도 재정 프레임워크 개정 (TA-10-2026-0037):** 의회는 2026년 2월에 MFF 중간 검토를 승인했습니다. 이는 국방 관련 지출을 늘리고 그린딜 구조기금을 줄인 정치적으로 논란이 많은 재배분입니다. ECR과 PfE가 EPP 및 S&D와 함께 개정을 지지했으며, 이는 극우 그룹이 EU 예산 구조를 결정적으로 형성한 첫 번째 주요 표결입니다.
+
+4. **의약품 프레임워크 (TA-10-2026-0001):** 2026년 1월에 채택된 *핵심 의약품* 규정은 공급망 회복력 입법의 더 넓은 EP10 패턴을 반영하며, 반도체와 국방에서 제약 공급망으로 "전략적 자율성" 논리를 확장합니다.
+
+5. **2023년 예산 면제 논란 (TA-10-2025-0077~TA-10-2025-0092):** 2025년 5월 면제 표결에서 의회는 2017년 이후 가장 광범위한 유보 사항과 함께 2023년 결산을 승인했습니다. 이는 법치주의 조건부 메커니즘과 헝가리 기금 정지를 둘러싼 지속적인 긴장을 반영합니다.
+
+---
+
+### Top Trigger Indicators
+
+| 지표 | 값 | 신호 |
+|-----------|-------|--------|
+| EP10 본회의 개최 횟수 (2025년) | 53 | 2024년 대비 +6% |
+| 채택 입법 행위 수 (2025년) | 78 | 2024년 대비 +8.3% |
+| 기명 표결 수 (2025년) | 420 | 2024년 대비 +12% |
+| 의회 질문 수 (2025년) | 4,947 | 2024년 대비 +66.6% |
+| MFF 개정 승인 | 예 | 구조적 예산 전환 |
+| 우크라이나 대출 시설 | 500억 유로 승인 | 지정학적 합의 |
+| 그린딜 문서 감소 | ↓ | 정책 재조정 |
+| 국방/안보 문서 | ↑↑ | 전략적 피봇 확인 |
+| 우파 블록 의석 점유율 | 52.3% | EPP+ECR+PfE+ESN 다수 |
+| 분열 지수 | 6.59 | 다중 연합 필요 |
+
+---
+
+### Key Stakeholders
+
+- **EPP (183석, 25.5%):** 지배적 세력. 폰 데어 라이엔 집행위원회가 EPP를 통해 다수 연합을 유지. 산업, 국방, 디지털 분야에서 "경쟁력 의제" 프레이밍 추진.
+- **S&D (136석, 19.0%):** 우크라이나와 국방에서 부차적 연합 파트너; 그린딜 해제에 대한 차단 세력. 이민 및 법치주의 토론에서 점점 더 소외됨.
+- **ECR (81석, 11.3%):** 결정적 흔들림 그룹. 국방과 이민에서 EPP 지지; 법치주의와 사회 입법에서 반대. 조르자 멜로니의 그룹.
+- **PfE (85석, 11.9%):** Patriots for Europe (오르반). 우크라이나 지원, LGBTQ+ 보호, 그린딜에 대한 일관된 반대자. 이민에서 ECR과 일치; 우크라이나에서 ECR과 분열.
+- **Renew (77석, 10.7%):** 안정화 자유주의 블록. 단일 시장과 디지털 의제에서 EPP 지지; 이민과 사법 독립에서 분리.
+- **Greens/EFA (53석, 7.4%):** 구조적으로 약화됐지만 환경 입법에서는 여전히 중요. 사회적, 기후 표결에서 S&D 및 The Left와 일치.
+- **The Left (45석, 6.3%):** 야당 블록. 국방 지출 반대, 사회적 권리 지지, 집행위원회의 집행 격차에 대한 일관된 비판.
+- **ESN (27석, 3.8%):** Europe of Sovereign Nations (AfD, 폴란드 극우). 가장 유로회의주의적 그룹; EU 통합에 대한 일관된 차단 표결.
+- **NI (30석, 4.2%):** 무소속 MEP — 이질적.
+
+---
+
+### Strategic Assessment
+
+🟡 **보통 신뢰도** — EP10의 첫 번째 완전한 해는 유연한 연합의 기술을 숙달한 중도우파 입법 다수파의 구조적 통합을 보여줍니다. EPP+ECR+Renew는 산업·무역 입법에, EPP+S&D+ECR+Renew는 우크라이나/국방에, EPP+Greens/EFA+S&D는 남은 환경 의무에 대응합니다. 정치적 균형은 안정적이지만 취약합니다. 특정 연합에서 단일 그룹의 이탈은 결과를 바꿀 수 있습니다.
+
+가장 중요한 제도적 발전은 **대연립 규범의 쇠퇴**입니다. EP6–EP8(2004–2019)를 지배했던 EPP–S&D 이두정치는 이제 영구적으로 은퇴했습니다. 각 표결에는 맞춤형 연합 엔지니어링이 필요하며, 이는 거래 비용을 높이고 입법 생산을 정치적 충격에 더 취약하게 만듭니다.
+
+---
+
+### Data Freshness
+
+- EP API 데이터: 실시간 (2026년 5월)
+- IMF 경제 데이터: **이용 불가** (503 서비스 오류) — 이 분석의 거시경제적 맥락은 IMF 지원 수치를 인용하지 않습니다
+- World Bank 데이터: 이용 가능 (WB MCP 작동 중)
+- DOCEO XML 표결: 이용 불가 (최신 본회의 주가 아직 게시되지 않음)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: 가능성 높음** — 유럽의회 EP10 임기(2024–2029)는 극우 대표 증가와 외부 지정학적 압력에도 불구하고 2024–2026 기간 동안 평균 이상의 정치적 안정을 보이며 역사적 평균 입법 생산 수준을 향해 나아가고 있습니다.
+
+Admiralty: B2 — 신뢰할 수 있는 출처 (EP 공개 데이터 포털), 정보는 아마도 사실 (2025년 확인된 통계 데이터에 기반한 제도적 추세 분석).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: EPP 주도 중도파 연합이 2026년까지 유지**
+EPP–S&D–Renew 구조적 연합(396/717석, 55.2%)은 우크라이나 지원, AI법 이행, MFF 개정을 포함한 주요 입법 패키지에서 일관된 표결 결집을 보여왔습니다. 구조적 인센티브가 지속을 지지합니다. **평가: 가능성 높음 (신뢰도 55–65%)**
+
+**KIJ-2: 입법 생산이 EP9 기준선 초과**
+EP10 2025년 실적: 78건의 입법 행위, 347건의 채택 문서, 420건의 기명 표결 — 모두 EP9의 연간 평균을 초과. 안보 및 디지털 전환 의제가 적어도 2026년까지 평균 이상의 생산을 유지하는 입법 모멘텀을 제공합니다. **평가: 2026년에 대해서는 거의 확실**
+
+**KIJ-3: 극우의 영향력 증대하지만 집권하지 않음**
+PfE + ESN = 112석 (15.6%)은 EP 역사상 비율로 가장 큰 극우 블록을 대표하지만, 시스템적 차단 능력을 위한 20% 임계값 아래에 머물러 있습니다. 영향력은 이민 표결, 농업 보조금 토론, EPP 포지셔닝에 대한 수사적 압력에 집중되어 있습니다. **평가: 2029년 선거 전 소폭 증가 가능성 높음**
+
+**KIJ-4: 안보/국방 지출 합의가 입법 의제 재편**
+우크라이나 전쟁, NATO 지출 압력, EU 방위 산업 전략이 전례 없는 정당 횡단 안보 합의를 창출했습니다. 방위 관련 입법(ReArm EU, 유럽방위기금, 군사 이동성)이 EP8이나 EP9의 어떤 유사 정책 클러스터보다 빠르게 진전되고 있습니다. **평가: 확인됨 — 2027년까지 지속**
+
+#### Strategic Implications for Monitoring
+
+1. **EPP–PfE 협력 패턴 관찰**: 이민이나 농업 표결에 관한 공식 협력 협약은 그린딜 이행에 영향을 미치는 전략적 우경화를 신호합니다.
+2. **트릴로그 잔고 추적**: 18건의 진행 중인 트릴로그는 핵심 보고자의 부재가 2026년 하반기에 입법 병목을 야기할 수 있음을 의미합니다.
+3. **AI법 이행 모니터링**: 첫 번째 GPAI 의무 기한(2026년 중반)이 EP의 새로운 디지털 규제 집행 능력의 테스트 케이스가 됩니다.
+4. **우크라이나 지원 지속성**: 500억 유로 우크라이나 시설의 후속 분할은 EP 표결을 필요로 합니다. 각 표결에서 잠재적 PfE 반대를 관리해야 합니다.
+
+### Executive Brief Nl
+
+### BLUF (Bottom Line Up Front)
+
+De tiende zittingsperiode van het Europees Parlement (EP10) sloot haar eerste volledige werkjaar af (mei 2025–mei 2026) te midden van een accelererende wetgevingsproductie, een structureel naar rechts verschoven politieke balans en een ongekende dubbele prioriteitsconsensus over defensie-uitgaven en industriële concurrentievermogen. Het Parlement heeft in 2025 **347 teksten** aangenomen en koerst op **164+ aangenomen teksten** in alleen al Q1 2026 — een tempo dat wijst op een recordproductie voor heel 2026. Het politieke zwaartepunt is beslissend verschoven: de EVP–ECR-as verankert nu de meeste wetgevende meerderheden, terwijl de regulatoire impuls van de Green Deal is gestopt ten gunste van een "Concurrentievermogensagenda"-kader.
+
+---
+
+### 60-Second Read
+
+**Wat er gebeurde (top 5 gebeurtenissen, mei 2025 – mei 2026):**
+
+1. **Wetgeving over lening aan Oekraïne (TA-10-2026-0010, TA-10-2026-0035):** Het Parlement keurde de *Versterkte samenwerking voor het instellen van een lening voor Oekraïne* goed (januari 2026) en de begeleidende verordening die de €50 miljard-faciliteit uitvoert. Dit vertegenwoordigt de meest significante geopolitieke stemming van EP10 tot nu toe, met vrijwel unaniem steun die de EVP–S&D-scheidslijn overschreed.
+
+2. **Defensie- en veiligheidspivot (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040):** Drie belangrijke defensieteksten aangenomen in januari–februari 2026: het jaarverslag over het *Gemeenschappelijk buitenlands en veiligheidsbeleid*, de resolutie over *Drones en nieuwe oorlogssystemen* en *EU Strategische defensie- en veiligheidspartnerschappen*. De AFET/SEDE-commissies van het Parlement bereikten consensus tussen EVP, ECR, S&D en Renew — een zeldzame coalitie van vier groepen die een structurele verschuiving in EP's veiligheidspositie signaleert.
+
+3. **Wijziging van het Meerjarig Financieel Kader (TA-10-2026-0037):** Het Parlement keurde de tussentijdse herziening van het MFK in februari 2026 goed — een politiek omstreden herverdeling die defensiegerelateerde uitgaven verhoogde en structuurfondsen van de Green Deal verminderde. ECR en PfE steunden de herziening naast EVP en S&D, wat de eerste grote stemming markeert waarbij extreemrechtse groepen de EU-begrotingsarchitectuur beslissend vormden.
+
+4. **Kader voor geneesmiddelen (TA-10-2026-0001):** De in januari 2026 aangenomen verordening over *Kritieke geneesmiddelen* weerspiegelt een breder EP10-patroon van wetgeving over veerkracht van toeleveringsketens — waarbij de logica van "strategische autonomie" wordt uitgebreid van halfgeleiders en defensie naar farmaceutische toeleveringsketens.
+
+5. **Controverse over decharge 2023 (TA-10-2025-0077 tot TA-10-2025-0092):** Bij de dechargestemmingen van mei 2025 keurde het Parlement de rekeningen van 2023 goed met het meest uitgebreide pakket voorbehouden sinds 2017, wat de aanhoudende spanningen rond het rechtsstaat-conditionaliteitsmechanisme en Hongaarse fondssuspensies weerspiegelt.
+
+---
+
+### Top Trigger Indicators
+
+| Indicator | Waarde | Signaal |
+|-----------|-------|--------|
+| EP10 plenaire vergaderingen gehouden (2025) | 53 | +6% t.o.v. 2024 |
+| Wetgevingshandelingen aangenomen (2025) | 78 | +8,3% t.o.v. 2024 |
+| Hoofdelijke stemmingen (2025) | 420 | +12% t.o.v. 2024 |
+| Parlementaire vragen (2025) | 4.947 | +66,6% t.o.v. 2024 |
+| MFK-herziening goedgekeurd | Ja | Structurele begrotingsverschuiving |
+| Oekraïne-leningsfaciliteit | €50 mrd goedgekeurd | Geopolitieke consensus |
+| Green Deal-teksten gedaald | ↓ | Politieke heroriëntering |
+| Defensie-/veiligheidsteksten | ↑↑ | Strategische pivot bevestigd |
+| Zetelsdeel rechtse blok | 52,3% | EVP+ECR+PfE+ESN-meerderheid |
+| Fragmentatie-index | 6,59 | Multi-coalitie vereist |
+
+---
+
+### Key Stakeholders
+
+- **EVP (183 zetels, 25,5%):** Dominerende kracht. De Commissie-Von der Leyen behoudt de meerderheidsscoalitie via de EVP. Drijft het "Concurrentievermogensagenda"-kader aan in industrie, defensie en digitaal.
+- **S&D (136 zetels, 19,0%):** Jnior-coalitiegenoot bij Oekraïne en defensie; blokkerende kracht tegen ontmanteling van de Green Deal. Steeds meer gemarginaliseerd in migratie- en rechtsstaatdebatten.
+- **ECR (81 zetels, 11,3%):** Beslissende zwenkgroep. Steunt EVP bij defensie en migratie; opponeert bij rechtsstaat en sociale wetgeving. Giorgia Meloni's groep.
+- **PfE (85 zetels, 11,9%):** Patriots for Europe (Orbán). Consequent tegenstander van hulp aan Oekraïne, LGBTQ+-bescherming, Green Deal. Convergent met ECR bij migratie; verdeeld van ECR bij Oekraïne.
+- **Renew (77 zetels, 10,7%):** Stabiliserende liberale blok. Steunt EVP bij de interne markt en de digitale agenda; divergeert bij migratie en rechterlijke onafhankelijkheid.
+- **Greens/EFA (53 zetels, 7,4%):** Structureel verzwakt maar nog steeds doorslaggevend voor milieuwetgeving. Uitgelijnd met S&D en The Left bij sociale en klimaatstemmingen.
+- **The Left (45 zetels, 6,3%):** Oppositieblok. Tegen defensie-uitgaven, voor sociale rechten, consequent criticus van handhavingsgaten van de Commissie.
+- **ESN (27 zetels, 3,8%):** Europe of Sovereign Nations (AfD, Poolse extreemrechts). Meest eurosceptische groep; consequente blokkeerstemmingen tegen EU-integratie.
+- **NI (30 zetels, 4,2%):** Niet-ingeschreven EP-leden — heterogeen.
+
+---
+
+### Strategic Assessment
+
+🟡 **GEMIDDELDE BETROUWBAARHEID** — Het eerste volledige jaar van EP10 demonstreert de structurele consolidatie van een centrum-rechtse wetgevende meerderheid die de kunst van flexibele coalities heeft beheerst: EVP+ECR+Renew voor industrie- en handelswetgeving; EVP+S&D+ECR+Renew voor Oekraïne/defensie; EVP+Greens/EFA+S&D voor resterende milieuverpfl​ichtingen. De politieke balans is stabiel maar broos — het afvallen van één enkele groep van een bepaalde coalitie kan uitkomsten verschuiven.
+
+De meest significante institutionele ontwikkeling is het **verval van de grote-coalitienorm**: het EVP–S&D-duopolie dat EP6–EP8 (2004–2019) domineerde is nu permanent gepensioneerd. Elke stemming vereist op maat gemaakte coalitie-engineering, wat de transactiekosten verhoogt en de wetgevingsproductie kwetsbaarder maakt voor politieke schokken.
+
+---
+
+### Data Freshness
+
+- EP API-gegevens: Realtime (mei 2026)
+- IMF economische gegevens: **NIET BESCHIKBAAR** (503 servicefout) — macroeconomische context in deze analyse citeert geen IMF-gebaseerde cijfers
+- World Bank gegevens: Beschikbaar (WB MCP operationeel)
+- DOCEO XML-stemmingen: Niet beschikbaar (laatste plenaire week nog niet gepubliceerd)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: Waarschijnlijk** — Het EP10-mandaat van het Europees Parlement (2024–2029) koerst op zijn historisch gemiddelde wetgevingsproductie met bovengemiddelde politieke stabiliteit in de periode 2024–2026, ondanks een hogere extreemrechtse vertegenwoordiging en externe geopolitieke druk.
+
+Admiralty: B2 — Bron betrouwbaar (EP Open Data Portal), informatie waarschijnlijk waar (institutionele trendanalyse gebaseerd op bevestigde statistieken van 2025).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: Door EVP geleide centrist-coalitie houdt stand tot 2026**
+De EVP–S&D–Renew-structuurcoalitie (396/717 zetels, 55,2%) heeft consistente stemcohesie aangetoond bij grote wetgevingspakketten, waaronder hulp aan Oekraïne, implementatie van de AI-wet en MFK-herziening. Structurele prikkels begunstigen continuering. **Beoordeling: Waarschijnlijk (55–65% betrouwbaarheid)**
+
+**KIJ-2: Wetgevingsproductie boven EP9-basislijn**
+EP10-prestaties in 2025: 78 wetgevingshandelingen, 347 aangenomen teksten, 420 hoofdelijke stemmingen — alle boven EP9's jaargemiddelden. De veiligheids- en digitale transformatieagenda's bieden wetgevingsimpuls die bovengemiddelde output ten minste tot 2026 handhaaft. **Beoordeling: Nagenoeg zeker voor 2026**
+
+**KIJ-3: Extreemrechtse invloed groeit maar regeert niet**
+PfE + ESN = 112 zetels (15,6%) vertegenwoordigen het grootste extreemrechtse blok in EP-geschiedenis in percentage, maar blijven onder de 20%-drempel voor systemische blokkeersmacht. Hun invloed is geconcentreerd in: migratiestemmen, debaten over landbouwsubsidies en retorische druk op EVP's positionering. **Beoordeling: Waarschijnlijk marginale toename voor de verkiezingen van 2029**
+
+**KIJ-4: Consensus over veiligheids-/defensie-uitgaven herschikt wetgevingsagenda**
+De oorlog in Oekraïne, NAVO-uitgavendruk en EU's defensie-industriestrategie hebben een ongekende partijoverschrijdende veiligheidsconsensus gecreëerd. Defensiegerelateerde wetgeving (ReArm EU, Europees Defensiefonds, militaire mobiliteit) vordert sneller dan enig vergelijkbaar beleidscluster in EP8 of EP9. **Beoordeling: Bevestigd — voortgezet tot 2027**
+
+#### Strategic Implications for Monitoring
+
+1. **EVP–PfE-samenwerkingspatronen observeren**: Elk formeel samenwerkingsakkoord over migratie- of landbouwstemmen signaleert strategische rechtsverschuiving, met implicaties voor de uitvoering van de Green Deal.
+2. **Trialoog-achterstand volgen**: 18 actieve trialogen betekenen dat de onbeschikbaarheid van een sleutelrapporteur wetgevende knelpunten kan veroorzaken in H2 2026.
+3. **Implementatie AI-wet bewaken**: De eerste GPAI-verplichtingsdeadline (midden 2026) zal de testcase zijn voor EP's nieuwe digitale handhavingscapaciteit.
+4. **Continuïteit van de hulp aan Oekraïne**: Opeenvolgende tranches van de €50 mrd Oekraïne-faciliteit vereisen EP-stemmingen; potentiële PfE-oppositie moet bij elke stemming worden beheerd.
+
+### Executive Brief No
+
+### BLUF (Bottom Line Up Front)
+
+Europaparlamentets tiende valgperiode (EP10) avsluttet sitt første fulle driftsår (mai 2025–mai 2026) midt i akselererende lovgivningsoutput, en strukturelt høyrevridd politisk balanse og en enestående dobbel prioritetskonsensus om forsvarsutgifter og industriell konkurransekraft. Parlamentet vedtok **347 tekster** i 2025 og er på vei mot **164+ vedtatte tekster** bare i Q1 2026 — et tempo som antyder rekordnivå for hele 2026. Det politiske tyngdepunktet har forskjøvet seg avgjørende: EPP–ECR-aksen forankrer nå de fleste lovgivende flertall, mens Den grønne avtalens regulatoriske momentum har stoppet til fordel for en "Konkurransekraftsagenda"-innramning.
+
+---
+
+### 60-Second Read
+
+**Hva skjedde (topp 5 hendelser, mai 2025 – mai 2026):**
+
+1. **Ukraina-lånelovgivning (TA-10-2026-0010, TA-10-2026-0035):** Parlamentet godkjente *Styrket samarbeid om opprettelse av et lån for Ukraina* (januar 2026) og den medfølgende forordningen som implementerte €50 milliarder-fasiliteten. Dette representerer den viktigste EP10 geopolitiske avstemningen til dato, med nær enstemmig støtte som overskred EPP–S&D-skillelinjen.
+
+2. **Forsvars- og sikkerhetspivot (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040):** Tre store forsvarstekster vedtatt januar–februar 2026: rapporten om *Felles utenriks- og sikkerhetspolitikk*, resolusjonen om *Droner og nye krigsführingssystemer* og *EUs strategiske forsvars- og sikkerhetspartnerskap*. Parlamentets AFET/SEDE-komiteer drev frem konsensus på tvers av EPP, ECR, S&D og Renew — en sjelden firegruppkoalisjon som signalerer et strukturelt skift i EPs sikkerhetsholdning.
+
+3. **Endring av den flerårige finansielle rammen (TA-10-2026-0037):** Parlamentet godkjente halvtidsrevisjonen av MFF i februar 2026 — en politisk omstridt omfordeling som økte forsvarsrelaterte utgifter og reduserte Den grønne avtalens strukturfond. ECR og PfE støttet revisjonen sammen med EPP og S&D, noe som markerer den første store avstemningen der høyreorienterte grupper avgjørende formet EUs budsjettarkitektur.
+
+4. **Ramme for legemidler (TA-10-2026-0001):** Forordningen om *Kritiske legemidler* vedtatt i januar 2026 gjenspeiler et bredere EP10-mønster av forsyningskjederobusthet — som utvider logikken om "strategisk autonomi" fra halvledere og forsvar til farmasøytiske forsyningskjeder.
+
+5. **Kontrovers rundt ansvarsfrihet 2023 (TA-10-2025-0077 til TA-10-2025-0092):** Ansvarsfrihetsavstemmingene i mai 2025 så Parlamentet godkjenne 2023-regnskapene med det mest omfattende settet av forbehold siden 2017, noe som gjenspeiler vedvarende spenninger rundt rettsstatskondisjonsmekanismen og ungarske fondssuspensjoner.
+
+---
+
+### Top Trigger Indicators
+
+| Indikator | Verdi | Signal |
+|-----------|-------|--------|
+| EP10 plenumsmøter gjennomført (2025) | 53 | +6% vs 2024 |
+| Lovgivningsmessige rettsakter vedtatt (2025) | 78 | +8,3% vs 2024 |
+| Avstemninger med navneopprop (2025) | 420 | +12% vs 2024 |
+| Parlamentariske spørsmål (2025) | 4 947 | +66,6% vs 2024 |
+| MFF-revisjon godkjent | Ja | Strukturelt budsjettskifte |
+| Ukraina-lånefasilitet | €50 mrd godkjent | Geopolitisk konsensus |
+| Grønn avtale-tekster redusert | ↓ | Politisk reorientering |
+| Forsvars-/sikkerhetstekster | ↑↑ | Strategisk pivot bekreftet |
+| Høyreblokkens mandat-andel | 52,3% | EPP+ECR+PfE+ESN-flertall |
+| Fragmenteringsindeks | 6,59 | Multi-koalisjon nødvendig |
+
+---
+
+### Key Stakeholders
+
+- **EPP (183 mandater, 25,5%):** Dominerende kraft. Von der Leyens Kommisjon beholder majoritetskoalisjonen via EPP. Driver "Konkurransekraftsagenda"-innramning innen industri, forsvar og digitalt.
+- **S&D (136 mandater, 19,0%):** Junior koalisjonspartner om Ukraina og forsvar; blokkerende kraft mot Den grønne avtalens avregulering. Stadig mer marginalisert i migrasjons- og rettsstatsdebatten.
+- **ECR (81 mandater, 11,3%):** Avgjørende svinggruppe. Støtter EPP om forsvar og migrasjon; motarbeider om rettsstat og sosial lovgivning. Giorgia Melonis gruppe.
+- **PfE (85 mandater, 11,9%):** Patriots for Europe (Orbán). Konsekvent motstander av Ukraina-hjelp, LGBTQ+-beskyttelse, Den grønne avtalen. Samstemt med ECR om migrasjon; splittet med ECR om Ukraina.
+- **Renew (77 mandater, 10,7%):** Stabiliserende liberalt blokk. Støtter EPP om det indre marked og den digitale agendaen; divergerer om migrasjon og rettslig uavhengighet.
+- **Greens/EFA (53 mandater, 7,4%):** Strukturelt svekket men fortsatt avgjørende for miljølovgivning. Tilpasset S&D og The Left om sosiale og klimaavstemninger.
+- **The Left (45 mandater, 6,3%):** Opposisjonsblokk. Mot forsvarsutgifter, for sosiale rettigheter, konsekvent kritiker av Kommisjonens håndhevelseshuller.
+- **ESN (27 mandater, 3,8%):** Europe of Sovereign Nations (AfD, polsk høyreekstremisme). Mest euroskeptiske gruppe; konsekvente blokkeringsavstemninger mot EU-integrasjon.
+- **NI (30 mandater, 4,2%):** Ikke-tilknyttede MEP-er — heterogene.
+
+---
+
+### Strategic Assessment
+
+🟡 **MEDIUM KONFIDENSNIVÅ** — EP10s første fulle år demonstrerer strukturell konsolidering av et senter-høyre lovgivende flertall som har mestret kunsten av fleksible koalisjoner: EPP+ECR+Renew for industri- og handelslovgivning; EPP+S&D+ECR+Renew for Ukraina/forsvar; EPP+Greens/EFA+S&D for gjenværende miljøforpliktelser. Den politiske balansen er stabil men skjør — ethvert enkelt grupps frafall fra en bestemt koalisjon kan forskyve utfall.
+
+Den viktigste institusjonelle utviklingen er **nedgangen av storgkoalisjonsnormen**: EPP–S&D-duopolet som dominerte EP6–EP8 (2004–2019) er nå permanent pensjonert. Hver avstemning krever skreddersydd koalisjonsteknikk, noe som øker transaksjonskostnader og gjør lovgivningsoutput mer sårbar for politiske sjokk.
+
+---
+
+### Data Freshness
+
+- EP API-data: Sanntid (mai 2026)
+- IMF økonomidata: **UTILGJENGELIG** (503 tjenestefeil) — makroøkonomisk kontekst i denne analysen siterer ikke IMF-baserte tall
+- World Bank data: Tilgjengelig (WB MCP operativ)
+- DOCEO XML-avstemninger: Utilgjengelig (siste plenumsuke ennå ikke publisert)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: Sannsynlig** — Europaparlamentets EP10-mandat (2024–2029) sporer mot sitt historiske gjennomsnittlige lovgivningsoutput med over-gjennomsnittlig politisk stabilitet i 2024–2026-perioden, til tross for økt høyreekstrem representasjon og eksternt geopolitisk press.
+
+Admiralty: B2 — Kilde pålitelig (EP Open Data Portal), informasjon trolig sann (institusjonell trendanalyse basert på bekreftet 2025 statistisk data).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: EPP-ledet sentristkoalisjon holder frem til 2026**
+EPP–S&D–Renew strukturkoalisjonen (396/717 mandater, 55,2%) har demonstrert konsekvent avstemningskohesjon ved store lovgivningspakker inkludert Ukraina-hjelp, AI Act-implementering og MFF-revisjon. Strukturelle insentiver favoriserer fortsettelse. **Vurdering: Sannsynlig (55–65% konfidensnivå)**
+
+**KIJ-2: Lovgivningsoutput over EP9-basislinje**
+EP10 2025-prestasjoner: 78 lovgivningsmessige rettsakter, 347 vedtatte tekster, 420 navneoppropsstemmer — alle over EP9s årsgjennomsnitt. Sikkerhets- og digitaltransformasjonsagendaene tilbyr lovgivningsmomentum som opprettholder over-gjennomsnittlig output i hvert fall frem til 2026. **Vurdering: Nesten sikkert for 2026**
+
+**KIJ-3: Høyreekstremismens innflytelse vokser men styrer ikke**
+PfE + ESN = 112 mandater (15,6%) representerer det største høyreekstreme blokket i EP-historien prosentmessig, men forblir under 20%-terskelen for systemisk blokkeringsmakt. Deres innflytelse er konsentrert i: migrasjonsavstemninger, landbrukssubsidiedebatter og retorisk press på EPPs posisjonering. **Vurdering: Sannsynlig å øke marginalt frem til 2029-valg**
+
+**KIJ-4: Sikkerhets-/forsvarsutgiftskonsensus omformer lovgivningsagendaen**
+Ukraina-krigen, NATO-utgiftspress og EUs forsvarsindistristrategi har skapt en enestående tverrpartilig sikkerhetskonsensus. Forsvarsrelatert lovgivning (ReArm EU, Den europeiske forsvarsfonden, militær mobilitet) skrider frem raskere enn noe sammenlignbart politikkklynge i EP8 eller EP9. **Vurdering: Bekreftet — opprettholdt frem til 2027**
+
+#### Strategic Implications for Monitoring
+
+1. **Observer EPP–PfE samarbeidsmønstre**: Enhver formell samarbeidsavtale om migrasjons- eller landbruksavstemninger signalerer strategisk høyreforskyvning med konsekvenser for Den grønne avtalens implementering.
+2. **Spor trialog-etterslepet**: 18 aktive trialoger betyr at utilgjengeligheten til en nøkkelordfører kan skape lovgivningsflaskehalser i H2 2026.
+3. **Overvåk AI Act-implementeringen**: Den første GPAI-forpliktelsesfristen (midt-2026) vil være testsaken for EPs nye digitale reguleringskapacitet.
+4. **Ukraina-hjelpens kontinuitet**: Etterfølgende trancher av €50 mrd Ukraina-fasiliteten krever EP-avsemninger; potensielt PfE-motstand må håndteres ved hver avstemning.
+
+### Executive Brief Sv
+
+### BLUF (Bottom Line Up Front)
+
+Europaparlamentets tionde mandatperiod (EP10) avslutade sitt första fullständiga verksamhetsår (maj 2025–maj 2026) mitt under accelererande lagstiftningsproduktion, en strukturellt högerförskjuten politisk balans och en enastående dubbel prioritetskonsensus om försvarsutgifter och industriell konkurrenskraft. Parlamentet antog **347 texter** under 2025 och är på väg mot **164+ antagna texter** under enbart Q1 2026 — ett tempo som indikerar rekordnivå för helåret 2026. Politikens tyngdpunkt har förskjutits avgörande: EPP–ECR-axeln förankrar nu de flesta lagstiftande majoriteter, medan Gröna avtalets regulatoriska momentum har stannat till förmån för en "Konkurrenskraftsagenda"-inramning.
+
+---
+
+### 60-Second Read
+
+**Vad hände (topp 5 händelser, maj 2025 – maj 2026):**
+
+1. **Ukrainalånelagstiftning (TA-10-2026-0010, TA-10-2026-0035):** Parlamentet godkände *Fördjupat samarbete om inrättande av ett lån för Ukraina* (januari 2026) och tillhörande förordning om genomförande av €50 miljarder-faciliteten. Detta representerar den mest betydelsefulla geopolitiska omröstningen i EP10 hittills, med nästan enhälligt stöd som överskred EPP–S&D-skiljelinjen.
+
+2. **Försvars- och säkerhetspivot (TA-10-2026-0012, TA-10-2026-0020, TA-10-2026-0040):** Tre stora försvarsakter antogs januari–februari 2026: rapporten om *Gemensam utrikes- och säkerhetspolitik*, resolutionen om *Drönare och nya krigföringssystem* och *EU:s strategiska försvars- och säkerhetspartnerskap*. Parlamentets AFET/SEDE-kommittéer drev fram konsensus inom EPP, ECR, S&D och Renew — en sällsynt fyrgruppkoalition som signalerar en strukturell förändring i EP:s säkerhetshållning.
+
+3. **Ändring av den fleråriga budgetramen (TA-10-2026-0037):** Parlamentet godkände halvtidsrevideringen av MFF i februari 2026 — en politiskt omtvistad omfördelning som ökade försvarsrelaterade utgifter och minskade Gröna avtalets strukturfonder. ECR och PfE stödde revisionen tillsammans med EPP och S&D, vilket markerar den första stora omröstningen där högerextrema grupper på ett avgörande sätt formade EU:s budgetarkitektur.
+
+4. **Regelverk för läkemedel (TA-10-2026-0001):** Förordningen om *Kritiska läkemedel* som antogs i januari 2026 återspeglar ett bredare EP10-mönster av försörjningskedjans motståndskraftslagstiftning — som utvidgar logiken om "strategisk autonomi" från halvledare och försvar till läkemedelsförsörjningskedjor.
+
+5. **Kontrovers kring budgetansvarsfrihet 2023 (TA-10-2025-0077 till TA-10-2025-0092):** Ansvarsfrihetomröstningarna i maj 2025 såg Parlamentet godkänna 2023 års räkenskaper med den mest omfattande uppsättningen reservationer sedan 2017, vilket återspeglar pågående spänningar kring mekanismen för rättsstatlighetsbetingelse och ungerska fondavstängningar.
+
+---
+
+### Top Trigger Indicators
+
+| Indikator | Värde | Signal |
+|-----------|-------|--------|
+| EP10 plenarsammanträden genomförda (2025) | 53 | +6% vs 2024 |
+| Lagstiftningsakter antagna (2025) | 78 | +8,3% vs 2024 |
+| Omröstningar med namnupprop (2025) | 420 | +12% vs 2024 |
+| Parlamentariska frågor (2025) | 4 947 | +66,6% vs 2024 |
+| MFF-revision godkänd | Ja | Strukturell budgetförändring |
+| Ukrainalånefacilitet | €50 miljarder godkänt | Geopolitisk konsensus |
+| Gröna avtalets texter minskade | ↓ | Politisk omorienterting |
+| Försvars-/säkerhetstexter | ↑↑ | Strategisk pivot bekräftad |
+| Högerblockets andel av mandaten | 52,3% | EPP+ECR+PfE+ESN-majoritet |
+| Fragmenteringsindex | 6,59 | Flerkoalition krävs |
+
+---
+
+### Key Stakeholders
+
+- **EPP (183 mandat, 25,5%):** Dominerande kraft. Von der Leyens kommission behåller majoritetskoalitionen via EPP. Driver "Konkurrenskraftsagenda"-inramning inom industri, försvar och digitalt.
+- **S&D (136 mandat, 19,0%):** Junior koalitionspartner om Ukraina och försvar; blockerande kraft mot Gröna avtalets avreglering. Alltmer marginaliserad i migrations- och rättsstatsdebatter.
+- **ECR (81 mandat, 11,3%):** Avgörande svänggrupp. Stödjer EPP om försvar och migration; motsätter sig om rättsstat och social lagstiftning. Giorgia Melonis grupp.
+- **PfE (85 mandat, 11,9%):** Patriots for Europe (Orbán). Konsekvent motståndare till Ukrainahjälp, HBTQ+-skydd, Gröna avtalet. Samstämmig med ECR om migration; splittrad med ECR om Ukraina.
+- **Renew (77 mandat, 10,7%):** Stabiliserande liberalt block. Stödjer EPP om den inre marknaden och den digitala agendan; skiljer sig åt om migration och rättslig självständighet.
+- **Greens/EFA (53 mandat, 7,4%):** Strukturellt försvagad men fortfarande avgörande vid miljölagstiftning. I linje med S&D och The Left om sociala och klimatrelaterade omröstningar.
+- **The Left (45 mandat, 6,3%):** Oppositionsblock. Mot försvarsutgifter, för sociala rättigheter, konsekvent kritiker av kommissionens verkställighetsluckor.
+- **ESN (27 mandat, 3,8%):** Europe of Sovereign Nations (AfD, polsk högerextremism). Mest euroskeptiska grupp; konsekventa blockeringsomröstningar mot EU-integration.
+- **NI (30 mandat, 4,2%):** Icke-anslutna ledamöter — heterogena.
+
+---
+
+### Strategic Assessment
+
+🟡 **MEDIUM KONFIDENSGRAD** — EP10:s första fullständiga år demonstrerar strukturell konsolidering av en center-höger lagstiftande majoritet som bemästrat konsten av flexibla koalitioner: EPP+ECR+Renew för industri- och handelslagstiftning; EPP+S&D+ECR+Renew för Ukraina/försvar; EPP+Greens/EFA+S&D för återstående miljöåtaganden. Den politiska balansen är stabil men skör — vilket enskilt grupps avhopp från en viss koalition kan förskjuta utfallen.
+
+Den viktigaste institutionella utvecklingen är **nedgången av normen om storgkoalitionen**: EPP–S&D-duopolet som dominerade EP6–EP8 (2004–2019) är nu permanent pensionerat. Varje omröstning kräver skräddarsydd koalitionsteknik, vilket ökar transaktionskostnaderna och gör lagstiftningsproduktionen mer sårbar för politiska chocker.
+
+---
+
+### Data Freshness
+
+- EP API-data: Realtid (maj 2026)
+- IMF ekonomisk data: **OTILLGÄNGLIG** (503 tjänstfel) — makroekonomiskt sammanhang i denna analys citerar inte IMF-backade siffror
+- World Bank data: Tillgänglig (WB MCP operativ)
+- DOCEO XML-omröstningar: Otillgänglig (senaste plenumsveckan ännu ej publicerad)
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP: Sannolikt** — Europaparlamentets EP10-mandat (2024–2029) spårar mot sin historiska genomsnittliga lagstiftningsproduktion med en ovanlig politisk stabilitet under 2024–2026, trots förhöjd högerextremt representation och externt geopolitiskt tryck.
+
+Admiralty: B2 — Källa tillförlitlig (EP:s öppna dataportal), information troligen sann (institutionell trendanalys baserad på bekräftad statistisk data för 2025).
+
+#### Key Intelligence Judgments
+
+**KIJ-1: EPP-ledd centristkoalition håller till 2026**
+EPP–S&D–Renew strukturkoalitionen (396/717 mandat, 55,2%) har visat konsekvent omröstningskohesion vid stora lagstiftningspaket inklusive Ukrainahjälp, AI-aktens genomförande och MFF-revision. Strukturella incitament gynnar fortsättning. **Bedömning: Sannolikt (55–65% konfidensgrad)**
+
+**KIJ-2: Lagstiftningsproduktionen över EP9-baslinjen**
+EP10:s prestanda 2025: 78 lagstiftningsakter, 347 antagna texter, 420 namnuppropomröstningar — alla över EP9:s årsgenomsnitt. Säkerhets- och digitaltransformationsagendorna tillhandahåller lagstiftningsmomentum som upprätthåller ovanlig genomsnittsproduktion åtminstone till 2026. **Bedömning: Nästan säkert för 2026**
+
+**KIJ-3: Högerextremismens inflytande växer men styr ej**
+PfE + ESN = 112 mandat (15,6%) representerar det största högerextrema blocket i EP-historien i procent, men förblir under 20%-tröskeln för systemisk blockeringsmakt. Deras inflytande är koncentrerat till: migrationsomröstningar, jordbrukssubventionsdebatter och retoriskt tryck på EPP:s positionering. **Bedömning: Sannolikt att öka marginellt fram till 2029 val**
+
+**KIJ-4: Säkerhets-/försvarsutgiftskonsensus omformar lagstiftningsagendan**
+Ukrainakriget, NATO-utgiftstrycket och EU:s försvarsindistristrategi har skapat en enastående tvärpartilig säkerhetskonsensus. Försvarsrelaterad lagstiftning (ReArm EU, Europeiska försvarsfonden, militär mobilitet) avancerar snabbare än något jämförbart politikkluster i EP8 eller EP9. **Bedömning: Bekräftad — upprätthålls till 2027**
+
+#### Strategic Implications for Monitoring
+
+1. **Bevaka EPP–PfE samarbetsmönster**: Varje formellt samarbetsavtal om migrations- eller jordbruksomröstningar signalerar strategisk högerförflyttning, med konsekvenser för genomförandet av Gröna avtalet.
+2. **Spåra trialogbackloggen**: 18 aktiva trialoger innebär att otillgängligheten hos en nyckelföredragande kan skapa lagstiftningsflaskhalsar under H2 2026.
+3. **Övervaka AI-aktens genomförande**: Den första GPAI-skyldighetsdeadlinen (mitten av 2026) kommer att vara testet för EP:s nya digitala regleringsverkställighetskapacitet.
+4. **Ukrainahjälpens kontinuitet**: Efterföljande trancher av €50 miljarder Ukrainafaciliteten kräver EP-omröstningar; eventuellt PfE-motstånd måste hanteras vid varje omröstning.
+
+### Executive Brief Zh
+
+**分类：** 公开 | **可信度：** 🟡 中等（IMF数据不可用 — 降级模式） | **日期：** 2026-05-10 | **文章类型：** year-in-review
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+欧洲议会第十届任期（EP10）在立法产出加速、政治格局结构性右倾以及前所未有的防务支出与工业竞争力双重优先共识的背景下，完成了首个完整运营年（2025年5月至2026年5月）。议会2025年通过了**347项文本**，仅2026年第一季度就有望通过**164项以上文本**——这一速度表明2026年全年产出可能创下历史纪录。政治重心已发生决定性转变：EPP–ECR轴线现已支撑起大多数立法多数，而《绿色协议》的监管势头已让位于"竞争力议程"框架。
+
+---
+
+### 60-Second Read
+
+**发生了什么（2025年5月至2026年5月五大事件）：**
+
+1. **乌克兰贷款立法（TA-10-2026-0035，TA-10-2026-0010）：** 议会于2026年1月批准*关于设立乌克兰贷款的加强合作*及配套法规，落实500亿欧元融资安排。此次投票代表EP10迄今最重要的地缘政治决策，以几乎压倒性的一致支持打破了EPP与S&D之间的分歧。
+
+2. **国防与安全战略转向（TA-10-2026-0012，TA-10-2026-0020，TA-10-2026-0040）：** 2026年1月至2月通过三项重大国防文本：*共同外交与安全政策年度报告*、关于*无人机与新型战争系统*的决议，以及*欧盟战略防务与安全伙伴关系*。议会AFET/SEDE委员会推动EPP、ECR、S&D与Renew之间达成共识——这一罕见四党联盟标志着欧洲议会安全立场的结构性转变。
+
+3. **多年期财务框架修订（TA-10-2026-0037）：** 议会2026年2月批准MFF中期审查——这一具有政治争议性的重新分配增加了与防务相关的支出，削减了《绿色协议》结构基金。ECR和PfE与EPP、S&D共同支持修订，标志着极右翼团体首次决定性地塑造欧盟预算架构。
+
+4. **药品框架（TA-10-2026-0001）：** 2026年1月采纳的*关键药品*法规体现了EP10在供应链韧性立法方面的更广泛模式——将"战略自主"逻辑从半导体和防务延伸至制药供应链。
+
+5. **2023年预算免责争议（TA-10-2025-0077至TA-10-2025-0092）：** 2025年5月的免责投票中，议会以2017年以来最多的保留条件批准了2023年账目，反映了围绕法治条件性机制和匈牙利基金冻结的持续紧张局势。
+
+---
+
+### Top Trigger Indicators
+
+| 指标 | 数值 | 信号 |
+|-----------|-------|--------|
+| EP10已举行全体会议次数（2025年） | 53 | 较2024年+6% |
+| 通过立法行为数量（2025年） | 78 | 较2024年+8.3% |
+| 记名表决次数（2025年） | 420 | 较2024年+12% |
+| 议会质询数量（2025年） | 4,947 | 较2024年+66.6% |
+| MFF修订获批 | 是 | 预算结构性转变 |
+| 乌克兰贷款安排 | 500亿欧元获批 | 地缘政治共识 |
+| 绿色协议文本减少 | ↓ | 政策重新定向 |
+| 防务/安全文本 | ↑↑ | 战略转向确认 |
+| 右翼阵营席位占比 | 52.3% | EPP+ECR+PfE+ESN多数 |
+| 碎片化指数 | 6.59 | 需要多党联合 |
+
+---
+
+### Key Stakeholders
+
+- **EPP（183席，25.5%）：** 主导力量。冯德莱恩委员会通过EPP维持多数联盟。推动产业、防务和数字领域的"竞争力议程"框架。
+- **S&D（136席，19.0%）：** 在乌克兰和防务问题上的次级联盟伙伴；阻止《绿色协议》倒退的力量。在移民和法治辩论中日益边缘化。
+- **ECR（81席，11.3%）：** 关键摇摆团体。在防务和移民问题上支持EPP；在法治和社会立法上持反对立场。乔治亚·梅洛尼的团体。
+- **PfE（85席，11.9%）：** Patriots for Europe（欧尔班）。乌克兰援助、LGBTQ+保护和《绿色协议》的一贯反对者。在移民上与ECR一致；在乌克兰问题上与ECR分裂。
+- **Renew（77席，10.7%）：** 稳定性自由主义阵营。在单一市场和数字议程上支持EPP；在移民和司法独立问题上存在分歧。
+- **Greens/EFA（53席，7.4%）：** 结构性弱化，但在环境立法上仍具关键作用。在社会和气候投票上与S&D及The Left保持一致。
+- **The Left（45席，6.3%）：** 反对派阵营。反对防务开支，支持社会权利，是委员会执法缺口的一贯批评者。
+- **ESN（27席，3.8%）：** Europe of Sovereign Nations（德国选择党，波兰极右翼）。欧洲怀疑情绪最强团体；在欧盟一体化问题上进行系统性阻挠表决。
+- **NI（30席，4.2%）：** 无党派欧洲议员——异质性强。
+
+---
+
+### Strategic Assessment
+
+🟡 **中等可信度** — EP10的首个完整年度表明，中右翼立法多数派已在结构上巩固，并掌握了灵活联盟的艺术：EPP+ECR+Renew负责产业与贸易立法；EPP+S&D+ECR+Renew负责乌克兰/防务；EPP+Greens/EFA+S&D负责剩余环境义务。政治格局稳定但脆弱——任何单一团体退出特定联盟都可能改变结果。
+
+最重大的制度性发展是**大联合规范的衰落**：主导EP6至EP8（2004–2019）的EPP–S&D双头政治如今已永久退出历史舞台。每次投票都需要量身定制的联盟工程，这提高了交易成本，使立法产出更易受政治冲击影响。
+
+---
+
+### Data Freshness
+
+- EP API数据：实时（2026年5月）
+- IMF经济数据：**不可用**（503服务错误）— 本分析的宏观经济背景未引用IMF支持的数据
+- World Bank数据：可用（WB MCP运行中）
+- DOCEO XML表决：不可用（最近一周全体会议尚未发布）
+
+---
+
+### Bottom Line Up Front (BLUF) — Extended Assessment
+
+**WEP：可能性较大** — 欧洲议会EP10任期（2024–2029）在极右翼代表性增加和外部地缘政治压力的情况下，以2024–2026年期间高于平均水平的政治稳定性，向其历史平均立法产出水平推进。
+
+Admiralty: B2 — 信源可靠（欧洲议会开放数据门户），信息很可能属实（基于2025年确认统计数据的机构趋势分析）。
+
+#### Key Intelligence Judgments
+
+**KIJ-1：EPP主导的中间派联盟维持至2026年**
+EPP–S&D–Renew结构性联盟（396/717席，55.2%）在包括乌克兰援助、人工智能法案实施和MFF修订在内的重大立法一揽子方案中表现出一致的投票凝聚力。结构性激励有利于延续。**评估：可能性较大（可信度55–65%）**
+
+**KIJ-2：立法产出高于EP9基准线**
+EP10 2025年绩效：78项立法行为、347项通过文本、420次记名表决——均高于EP9年度平均水平。安全与数字转型议程提供立法动力，在至少2026年前维持高于平均水平的产出。**评估：2026年几乎可以确定**
+
+**KIJ-3：极右翼影响力增长但未执政**
+PfE + ESN = 112席（15.6%），按比例代表EP历史上最大的极右翼阵营，但仍低于系统性否决权的20%门槛。其影响力集中在：移民投票、农业补贴辩论以及对EPP立场的修辞压力。**评估：2029年选举前可能小幅增长**
+
+**KIJ-4：安全/防务支出共识重塑立法议程**
+乌克兰战争、北约支出压力和欧盟防务工业战略共同创造了前所未有的跨党派安全共识。与EP8或EP9中任何可比政策群相比，防务相关立法（ReArm EU、欧洲防务基金、军事流动性）推进速度更快。**评估：已确认——持续至2027年**
+
+#### Strategic Implications for Monitoring
+
+1. **观察EPP–PfE合作模式**：任何关于移民或农业投票的正式合作协议均标志着战略性右转，对《绿色协议》实施产生影响。
+2. **跟踪三方谈判积压**：18项进行中的三方谈判意味着，主要报告员不可用可能在2026年下半年造成立法瓶颈。
+3. **监测人工智能法案实施**：首个GPAI义务截止日期（2026年中）将成为欧洲议会新型数字监管执法能力的检验案例。
+4. **乌克兰援助连续性**：500亿欧元乌克兰融资的后续分批拨付需要欧洲议会投票；需在每次投票中管控PfE的潜在反对意见。
+
 > **Provenance & Audit**
 >
 > - **Article type:** `year-in-review`
@@ -4088,4 +5398,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/methodology-reflection.md) | `methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-10/year-in-review/executive-brief_zh.md) | `executive-brief_zh.md` |
 

@@ -1,6 +1,6 @@
 ---
-title: "The European Parliament adopted eight texts in its — Run 264"
-description: "The European Parliament adopted eight texts in its May 19-20 Strasbourg plenary, with the AI strategy for EU trade (TA-10-2026-0183) as the most strategically consequential."
+title: "The European Parliament adopted eight texts in — Run 264"
+description: "The European Parliament adopted eight texts in its May 19-20 Strasbourg plenary, with the AI strategy for EU trade (TA-10-2026-0183) as the most."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-21", "European", "Parliament", "adopted"]
 date: 2026-05-21
 article_type: motions

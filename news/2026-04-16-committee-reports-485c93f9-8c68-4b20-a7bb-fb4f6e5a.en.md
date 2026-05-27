@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports Run 52, 16 April 2026"
-description: "Run 52 is the independent re-confirmation of the Q1 2026 record (104 adopted texts + 114 legislative acts; +46 % vs. full-year 2025) generated separately from Run 50."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-16", "Committee", "Reports", "April"]
+title: "Run 52 is the independent re-confirmation of the Q1 2026"
+description: "Run 52 is the independent re-confirmation of the Q1 2026 record (104 adopted texts + 114 legislative acts; +46 % vs."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-16", "independent", "confirmation", "record"]
 date: 2026-04-16
 article_type: committee-reports
 slug: 2026-04-16-committee-reports-485c93f9-8c68-4b20-a7bb-fb4f6e5a

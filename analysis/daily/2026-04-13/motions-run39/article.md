@@ -1,7 +1,7 @@
 ---
-title: "Motions Run 39, 13 April 2026"
-description: "Run 39 is a T-2 pre-Tariff-activation motions-track positioning run. Published 2026-04-13."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-13", "April", "Tariff", "activation"]
+title: "Run 39 is a T-2 pre-Tariff-activation motions-track"
+description: "Run 39 is a T-2 pre-Tariff-activation motions-track positioning run. Published 2026-04-13 for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-13", "Tariff", "activation", "track"]
 date: 2026-04-13
 article_type: motions
 slug: 2026-04-13-motions-39

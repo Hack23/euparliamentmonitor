@@ -1,7 +1,7 @@
 ---
-title: "Breaking News Intelligence Analysis — 2026-03-31"
-description: "No breaking news significance detected for 2026-03-31. Published 2026-03-31."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-03-31", "News", "Intelligence", "Analysis"]
+title: "No breaking signal on 2026-03-31; final day of the EP's"
+description: "No breaking signal on 2026-03-31; final day of the EP's first post-March recess week. Published 2026-03-31."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-03-31", "signal", "final", "first"]
 date: 2026-03-31
 article_type: breaking
 slug: 2026-03-31-breaking

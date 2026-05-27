@@ -1,6 +1,6 @@
 ---
 title: "Foreign Investment Screening Regulation — Run 268"
-description: "Significance: CRITICAL | Parliament adopted the Regulation on screening of foreign investments in the Union, replacing the 2019 voluntary-cooperation framework with mandatory."
+description: "Significance: CRITICAL | Parliament adopted the Regulation on screening of foreign investments in the Union for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-26", "Foreign", "Investment", "Screening"]
 date: 2026-05-26
 article_type: breaking

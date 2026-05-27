@@ -1,6 +1,6 @@
 ---
-title: "The 9 April committee-reports analytical run records 0 political dimensions surfaced from fresh signal during Easter recess."
-description: "The 9 April committee-reports analytical run records 0 political dimensions surfaced from fresh signal during Easter recess. The output is procedural-continuity."
+title: "The 9 April committee-reports analytical run records 0"
+description: "The 9 April committee-reports analytical run records 0 political dimensions surfaced from fresh signal during Easter recess."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-09", "April", "committee", "reports"]
 date: 2026-04-09
 article_type: committee-reports
@@ -65,7 +65,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
 | [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-significance">Significance</h2>
 
@@ -4402,6 +4402,487 @@ No description available
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+### BLUF
+
+سجّل التشغيل التحليلي لتقارير اللجان في 9 أبريل **0 أبعاد سياسية محددة من إشارات جديدة** خلال عطلة عيد الفصح. الناتج في وضع الاستمرارية الإجرائية. القيمة الجوهرية: التحقق من أن مسار تقارير اللجان يحافظ على إيقاعه خلال توقف مطوّل. *الموثوقية: منخفضة–متوسطة للمحتوى الجديد؛ عالية للاستمرارية؛ Admiralty: B3.*
+
+### Three Decisions
+
+1. **مواصلة التشغيلات الإجرائية صفرية الأبعاد بوصفها معياراً تشغيلياً خلال فترات التوقف.** تتطلب موثوقية خط الأنابيب إنتاجاً يومياً حتى في الأيام الخالية من إشارات جديدة. *الموثوقية: عالية.*
+2. **الرجوع إلى كتالوج المجموعات السابق للمحتوى الاستمراري.** عند غياب الإشارة الجديدة، يحافظ التتبع الرجعي إلى تصنيف الربع الأول 2026 (104 نصوص، +46.2% سنوياً) على السجل التحليلي. *الموثوقية: عالية.*
+3. **توثيق النمط الصفري الأبعاد في فترات التوقف بوصفه خاصية معمارية لا عيباً.** إخفاء مخرجات الإشارة الفارغة سيُنشئ فجوة في المراحل اللاحقة؛ إنتاج عناصر صفرية الأبعاد هو التصميم الصحيح. *الموثوقية: عالية.*
+
+### 60-Second Read
+
+النمط ذاته كما في تشغيلات وضع الاستمرارية للاقتراحات في 10 أبريل وتقارير اللجان في 10 أبريل. يحافظ خط الأنابيب على الإيقاع اليومي حتى في فترات عدم توافر المصادر الممتدة.
+
+### Risk Snapshot
+
+| المخاطر | الاحتمالية | التأثير |
+|---|---:|---:|
+| الخلط بين العناصر صفرية الأبعاد وأعطال خط الأنابيب | متوسطة | منخفضة–متوسطة |
+| وضع الاستمرارية يُهمّش العمق التحليلي | منخفضة | منخفضة |
+| مخرجات مجموعة التوقف غير مميزة عن أيام الإشارة المنخفضة | متوسطة | منخفضة |
+
+### Source Quality
+
+- الملاحظة صفرية الأبعاد: **A1**
+- تصميم وضع الاستمرارية: **A2**
+
+### Provenance
+
+- التشغيل: `committee-reports` (2026-04-09)
+- الامتثال: مصادر بوابة البيانات المفتوحة للبرلمان الأوروبي حصراً. متوافق مع اللائحة الأوروبية لحماية البيانات GDPR.
+
+---
+*الحياد التحليلي: قراءة صفرية الأبعاد مُصنَّفة إجرائياً.*
+
+### Executive Brief Da
+
+### BLUF
+
+Det analytiske løb for udvalgsrapporter den 9. april registrerer **0 politiske dimensioner identificeret fra friske signaler** under påskepausen. Resultatet er procedurekontinuitet. Den substantielle værdi: validering af, at udvalgsrapportssporet opretholder kadencen under vedvarende pause. *Tillid: LAV-MEDIUM på frisk indhold; HØJ på kontinuitet; Admiralty: B3.*
+
+### Three Decisions
+
+1. **Fortsæt 0-dimension proceduremæssige løb som operationel norm under pauseperioder.** Pipelinepålidelighed kræver daglig produktion selv på dage uden frisk signal. *Tillid: HØJ.*
+2. **Henvis til tidligere klusterkatalog for kontinuitetsindhold.** Når frisk signal er fraværende, bevarer tilbagesporingen til Q1 2026-katalogisering (104 tekster, +46,2 % ÅoÅ) den analytiske registrering. *Tillid: HØJ.*
+3. **Dokumenter 0-dimension pausemønster som arkitektonisk funktion, ikke fejl.** Undertrykkelse af tomt-signal-output ville skabe en nedstrøms gap; produktion af 0-dimension artefakter er det korrekte design. *Tillid: HØJ.*
+
+### 60-Second Read
+
+Samme mønster som 10. april bevægelser og 10. april udvalgsrapporter kontinuitetsløb. Pipeline opretholder daglig kadence selv under vedvarende feedutilgængelighed.
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Virkning |
+|---|---:|---:|
+| 0-dimension artefakter forvekslet med pipelinefejl | MED | LAV–MED |
+| Kontinuitetstilstand fortrænger dybde | LAV | LAV |
+| Pausekluster output ikke differentieret fra lav-signal-dage | MED | LAV |
+
+### Source Quality
+
+- 0-dimension observation: **A1**
+- Kontinuitetstilstand design: **A2**
+
+### Provenance
+
+- Løb: `committee-reports` (2026-04-09)
+- Overholdelse: Kun EP Open Data Portal-feeds. GDPR-konformt.
+
+---
+*Analytisk neutralitet: 0-dimension aflæsning proceduremæssigt betegnet.*
+
+### Executive Brief De
+
+### BLUF
+
+Der analytische Lauf für Ausschussberichte vom 9. April verzeichnet **0 politische Dimensionen aus neuen Signalen identifiziert** während der Osterpause. Die Ausgabe ist prozeduraler Kontinuitätsmodus. Der substanzielle Wert: Validierung, dass der Ausschussberichtspfad die Taktung während einer anhaltenden Pause aufrechterhalten kann. *Vertrauenswürdigkeit: NIEDRIG–MITTEL für neuen Inhalt; HOCH für Kontinuität; Admiralty: B3.*
+
+### Three Decisions
+
+1. **Nulldimensionale prozedurale Läufe als operationelle Norm in Pausezeiträumen fortsetzen.** Pipeline-Zuverlässigkeit erfordert tägliche Produktion auch an Tagen ohne neue Signale. *Vertrauenswürdigkeit: HOCH.*
+2. **Frühere Clusterkatalogisierung für Kontinuitätsinhalt referenzieren.** Wenn kein neues Signal vorhanden ist, bewahrt die Rückverfolgung zur Q1-2026-Katalogisierung (104 Texte, +46,2 % JüJ) das analytische Register. *Vertrauenswürdigkeit: HOCH.*
+3. **Nulldimensionales Pausemuster als architektonisches Merkmal dokumentieren, nicht als Fehler.** Das Unterdrücken leerer Signalausgaben würde eine nachgelagerte Lücke erzeugen; die Produktion nulldimensionaler Artefakte ist das korrekte Design. *Vertrauenswürdigkeit: HOCH.*
+
+### 60-Second Read
+
+Gleiches Muster wie die Läufe für Anträge vom 10. April und Ausschussberichte vom 10. April im Kontinuitätsmodus. Die Pipeline hält die tägliche Taktung auch bei anhaltender Feed-Nichtverfügbarkeit aufrecht.
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| Nulldimensionale Artefakte mit Pipeline-Fehlern verwechselt | MITTEL | NIEDRIG–MITTEL |
+| Kontinuitätsmodus verdrängt Tiefe | NIEDRIG | NIEDRIG |
+| Pausecluster-Ausgabe nicht von Niedrigsignaltagen unterscheidbar | MITTEL | NIEDRIG |
+
+### Source Quality
+
+- Nulldimensionale Beobachtung: **A1**
+- Kontinuitätsmodus-Design: **A2**
+
+### Provenance
+
+- Lauf: `committee-reports` (2026-04-09)
+- Compliance: Ausschließlich EP-Open-Data-Portal-Feeds. DSGVO-konform.
+
+---
+*Analytische Neutralität: nulldimensionale Ablesung prozedural gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+La ejecución analítica de informes de comisión del 9 de abril registra **0 dimensiones políticas identificadas a partir de señales nuevas** durante la pausa de Semana Santa. La salida se encuentra en modo de continuidad procedimental. El valor sustancial: validación de que la pista de informes de comisión mantiene su cadencia durante una pausa prolongada. *Fiabilidad: BAJA–MEDIA para contenido nuevo; ALTA para continuidad; Admiralty: B3.*
+
+### Three Decisions
+
+1. **Continuar ejecuciones procedurales de dimensión cero como norma operativa durante períodos de pausa.** La fiabilidad del pipeline requiere producción diaria incluso en días sin señales nuevas. *Fiabilidad: ALTA.*
+2. **Remitirse al catálogo de clústeres anterior para contenido de continuidad.** En ausencia de señal nueva, la trazabilidad hacia la catalogación del T1 2026 (104 textos, +46,2 % interanual) preserva el registro analítico. *Fiabilidad: ALTA.*
+3. **Documentar el patrón de pausa de dimensión cero como característica arquitectónica, no como defecto.** Suprimir las salidas de señal vacía crearía una brecha descendente; producir artefactos de dimensión cero es el diseño correcto. *Fiabilidad: ALTA.*
+
+### 60-Second Read
+
+Mismo patrón que las ejecuciones en modo continuidad de mociones del 10 de abril e informes de comisión del 10 de abril. El pipeline mantiene su cadencia diaria incluso durante períodos prolongados de inaccesibilidad de fuentes.
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| Artefactos de dimensión cero confundidos con fallos del pipeline | MEDIO | BAJO–MEDIO |
+| Modo continuidad desplaza la profundidad | BAJO | BAJO |
+| Salida del clúster de pausa no diferenciada de los días de señal baja | MEDIO | BAJO |
+
+### Source Quality
+
+- Observación de dimensión cero: **A1**
+- Diseño del modo continuidad: **A2**
+
+### Provenance
+
+- Ejecución: `committee-reports` (2026-04-09)
+- Cumplimiento: Solo fuentes del portal Open Data del PE. Conforme con el RGPD.
+
+---
+*Neutralidad analítica: lectura de dimensión cero designada de forma procedimental.*
+
+### Executive Brief Fi
+
+### BLUF
+
+9. huhtikuuta valiokuntaraporttien analyyttinen ajo rekisteröi **0 poliittista ulottuvuutta tunnistettu uusista signaaleista** pääsiäistauon aikana. Tuloste on menettelyllinen jatkuvuustila. Olennainen arvo: validointi siitä, että valiokuntaraporttipolku ylläpitää tahdistusta pitkän tauon aikana. *Luotettavuus: MATALA–KOHTALAINEN uudelle sisällölle; KORKEA jatkuvuudelle; Admiralty: B3.*
+
+### Three Decisions
+
+1. **Jatka 0-ulotteisia menettelyllisiä ajoja operatiivisena normina taukokausilla.** Putkiston luotettavuus vaatii päivittäistä tuotantoa jopa päivinä ilman uusia signaaleja. *Luotettavuus: KORKEA.*
+2. **Viittaa aiempaan klusteriluetteloon jatkuvuussisältöä varten.** Kun uutta signaalia ei ole, takaisinviittaus Q1 2026 -luokitteluun (104 tekstiä, +46,2 % VoV) säilyttää analyyttisen rekisterin. *Luotettavuus: KORKEA.*
+3. **Dokumentoi 0-ulotteinen taukokuvio arkkitehtuurisena ominaisuutena, ei virheenä.** Tyhjän signaalin tulosteen tukahduttaminen loisi alajuoksun aukon; 0-ulotteisten artefaktien tuottaminen on oikea suunnittelu. *Luotettavuus: KORKEA.*
+
+### 60-Second Read
+
+Sama kuvio kuin 10. huhtikuuta ehdotusajot ja 10. huhtikuuta valiokuntaraporttiajot jatkuvuustilassa. Putkisto ylläpitää päivittäistä tahdistusta jopa pitkien syötteiden saavuttamattomuusjaksojen aikana.
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| 0-ulotteiset artefaktit sekoitetaan putkistovirheisiin | KOHTALAINEN | MATALA–KOHTALAINEN |
+| Jatkuvuustila syrjäyttää syvyyden | MATALA | MATALA |
+| Taukoklusterituloste ei erottuva alhaisen signaalin päivistä | KOHTALAINEN | MATALA |
+
+### Source Quality
+
+- 0-ulotteinen havainto: **A1**
+- Jatkuvuustilan suunnittelu: **A2**
+
+### Provenance
+
+- Ajo: `committee-reports` (2026-04-09)
+- Vaatimustenmukaisuus: Vain EP Open Data Portal -syötteet. GDPR-vaatimusten mukainen.
+
+---
+*Analyyttinen puolueettomuus: 0-ulotteinen havainto menettelyllisesti merkitty.*
+
+### Executive Brief Fr
+
+### BLUF
+
+L'exécution analytique des rapports de commission du 9 avril enregistre **0 dimension politique identifiée à partir de nouveaux signaux** pendant la pause pascale. La sortie est en mode de continuité procédurale. La valeur substantielle : validation du fait que la piste des rapports de commission maintient sa cadence lors d'une pause prolongée. *Fiabilité : FAIBLE–MOYENNE pour le nouveau contenu ; ÉLEVÉE pour la continuité ; Admiralty : B3.*
+
+### Three Decisions
+
+1. **Continuer les exécutions procédurales à dimension zéro comme norme opérationnelle pendant les périodes de pause.** La fiabilité de la chaîne de traitement nécessite une production quotidienne, même les jours sans nouveaux signaux. *Fiabilité : ÉLEVÉE.*
+2. **Se référer au catalogue de clusters antérieur pour le contenu de continuité.** En l'absence de nouveaux signaux, le retour au catalogue Q1 2026 (104 textes, +46,2 % d'une année sur l'autre) préserve le registre analytique. *Fiabilité : ÉLEVÉE.*
+3. **Documenter le modèle de pause à dimension zéro comme caractéristique architecturale, non comme défaut.** Supprimer les sorties de signal vide créerait une lacune en aval ; la production d'artefacts à dimension zéro est la conception correcte. *Fiabilité : ÉLEVÉE.*
+
+### 60-Second Read
+
+Même modèle que les exécutions en mode continuité des motions du 10 avril et des rapports de commission du 10 avril. La chaîne de traitement maintient sa cadence quotidienne même lors de périodes prolongées d'indisponibilité des flux.
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| Artefacts à dimension zéro confondus avec des défaillances de la chaîne | MOYEN | FAIBLE–MOYEN |
+| Mode continuité supplante la profondeur | FAIBLE | FAIBLE |
+| Sortie du cluster de pause non différenciée des jours à signal faible | MOYEN | FAIBLE |
+
+### Source Quality
+
+- Observation à dimension zéro : **A1**
+- Conception du mode continuité : **A2**
+
+### Provenance
+
+- Exécution : `committee-reports` (2026-04-09)
+- Conformité : Uniquement les flux du portail Open Data du PE. Conforme au RGPD.
+
+---
+*Neutralité analytique : lecture à dimension zéro désignée de manière procédurale.*
+
+### Executive Brief He
+
+### BLUF
+
+ההרצה האנליטית של דוחות הוועדות ב-9 באפריל מתעדת **0 ממדים פוליטיים שזוהו מאותות חדשים** במהלך חופשת הפסחא. הפלט נמצא במצב המשכיות פרוצדורלית. הערך המהותי: אימות שמסלול דוחות הוועדות שומר על הקצב שלו בתקופת הפסקה ממושכת. *אמינות: נמוכה–בינונית לתוכן חדש; גבוהה להמשכיות; Admiralty: B3.*
+
+### Three Decisions
+
+1. **להמשיך הרצות פרוצדורליות אפס-ממדיות כנורמה תפעולית בתקופות הפסקה.** אמינות הצינור מחייבת ייצור יומי אפילו בימים ללא אותות חדשים. *אמינות: גבוהה.*
+2. **להפנות לקטלוג האשכולות הקודם לתוכן המשכיות.** בהיעדר אות חדש, המעקב לאחור אל קיטלוג Q1 2026 (104 טקסטים, +46.2% שנה אחר שנה) שומר על הרשומה האנליטית. *אמינות: גבוהה.*
+3. **לתעד את הדפוס האפס-ממדי של ימי הפסקה כמאפיין ארכיטקטוני, לא כליקוי.** הדחקת פלטים של אות ריק תיצור פער במורד הזרם; ייצור ארטיפקטים אפס-ממדיים הוא התכנון הנכון. *אמינות: גבוהה.*
+
+### 60-Second Read
+
+אותו דפוס כמו הרצות מצב ההמשכיות של הצעות ב-10 באפריל ודוחות ועדות ב-10 באפריל. הצינור שומר על הקצב היומי אפילו בתקופות ממושכות של אי-זמינות הפיד.
+
+### Risk Snapshot
+
+| סיכון | הסתברות | השפעה |
+|---|---:|---:|
+| ארטיפקטים אפס-ממדיים מבולבלים עם תקלות צינור | בינונית | נמוכה–בינונית |
+| מצב המשכיות מדחק עומק אנליטי | נמוכה | נמוכה |
+| פלט אשכול ימי הפסקה אינו מובחן מימי אות נמוך | בינונית | נמוכה |
+
+### Source Quality
+
+- תצפית אפס-ממדית: **A1**
+- תכנון מצב המשכיות: **A2**
+
+### Provenance
+
+- הרצה: `committee-reports` (2026-04-09)
+- עמידה בדרישות: פיד פורטל הנתונים הפתוחים של הפרלמנט האירופי בלבד. תואם GDPR.
+
+---
+*ניטרליות אנליטית: קריאה אפס-ממדית המסומנת כפרוצדורלית.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月9日の委員会報告分析実行では、イースター休暇中に**新規シグナルから特定された政治的次元が0件**と記録されました。出力は手続き的継続性モードにあります。実質的な価値：委員会報告のトラックが長期休暇中もカデンスを維持できることの検証。*信頼度：新規コンテンツに対して低〜中；継続性に対して高；Admiralty: B3。*
+
+### Three Decisions
+
+1. **休止期間中もゼロ次元手続き実行を運用標準として継続する。** パイプラインの信頼性は、新規シグナルのない日でも日々の生産を必要とします。*信頼度：高。*
+2. **継続性コンテンツのために以前のクラスター目録を参照する。** 新規シグナルが不在の場合、2026年第1四半期のカタログ（テキスト104件、前年比+46.2%）への逆参照が分析記録を維持します。*信頼度：高。*
+3. **ゼロ次元の休止パターンを欠陥ではなくアーキテクチャ上の特性として文書化する。** 空シグナル出力を抑制すれば下流にギャップが生まれます；ゼロ次元アーティファクトを生成することが正しい設計です。*信頼度：高。*
+
+### 60-Second Read
+
+4月10日の動議と委員会報告の継続性モード実行と同じパターンです。パイプラインはフィードが長期間利用不可能であっても日次カデンスを維持します。
+
+### Risk Snapshot
+
+| リスク | 発生可能性 | 影響 |
+|---|---:|---:|
+| ゼロ次元アーティファクトがパイプライン障害と混同される | 中 | 低〜中 |
+| 継続性モードが深度分析を置き換える | 低 | 低 |
+| 休止クラスター出力が低シグナル日と区別されない | 中 | 低 |
+
+### Source Quality
+
+- ゼロ次元観測：**A1**
+- 継続性モード設計：**A2**
+
+### Provenance
+
+- 実行：`committee-reports`（2026-04-09）
+- コンプライアンス：欧州議会オープンデータポータルフィードのみ使用。GDPR準拠。
+
+---
+*分析的中立性：ゼロ次元読み取りは手続き的に指定されています。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 9일 위원회 보고서 분석 실행에서 부활절 휴가 기간 **새로운 신호로부터 식별된 정치적 차원 0건**이 기록되었습니다. 출력은 절차적 연속성 모드에 있습니다. 실질적 가치: 위원회 보고서 트랙이 장기 휴식 기간 동안에도 케이던스를 유지할 수 있음을 검증합니다. *신뢰도: 새 콘텐츠에 대해 낮음–중간; 연속성에 대해 높음; Admiralty: B3.*
+
+### Three Decisions
+
+1. **휴식 기간 동안 제로 차원 절차 실행을 운영 표준으로 계속한다.** 파이프라인 신뢰성은 새로운 신호가 없는 날에도 일일 생산을 필요로 합니다. *신뢰도: 높음.*
+2. **연속성 콘텐츠를 위해 이전 클러스터 카탈로그를 참조한다.** 새로운 신호가 없을 때, 2026년 1분기 목록화(텍스트 104건, 전년 대비 +46.2%)로의 역추적이 분석 기록을 보존합니다. *신뢰도: 높음.*
+3. **제로 차원 휴식 패턴을 결함이 아닌 아키텍처 특성으로 문서화한다.** 빈 신호 출력을 억제하면 하류에 공백이 생깁니다; 제로 차원 아티팩트를 생성하는 것이 올바른 설계입니다. *신뢰도: 높음.*
+
+### 60-Second Read
+
+4월 10일 동의안 및 위원회 보고서의 연속성 모드 실행과 동일한 패턴입니다. 파이프라인은 피드가 장기간 이용 불가능하더라도 일일 케이던스를 유지합니다.
+
+### Risk Snapshot
+
+| 위험 | 발생 가능성 | 영향 |
+|---|---:|---:|
+| 제로 차원 아티팩트가 파이프라인 오류로 혼동됨 | 중간 | 낮음–중간 |
+| 연속성 모드가 심층 분석을 대체함 | 낮음 | 낮음 |
+| 휴식 클러스터 출력이 낮은 신호 날과 구분되지 않음 | 중간 | 낮음 |
+
+### Source Quality
+
+- 제로 차원 관측: **A1**
+- 연속성 모드 설계: **A2**
+
+### Provenance
+
+- 실행: `committee-reports` (2026-04-09)
+- 컴플라이언스: 유럽의회 오픈 데이터 포털 피드만 사용. GDPR 준수.
+
+---
+*분석적 중립성: 제로 차원 판독은 절차적으로 지정됩니다.*
+
+### Executive Brief Nl
+
+### BLUF
+
+De analytische run van commissierapporten van 9 april registreert **0 politieke dimensies geïdentificeerd uit nieuwe signalen** tijdens de paasvakantie. De uitvoer staat in procedurele continuiteitsmodus. De substantiële waarde: validatie dat het commissierapportenspoor de cadans handhaaft tijdens een langdurige pauze. *Betrouwbaarheid: LAAG–GEMIDDELD voor nieuwe inhoud; HOOG voor continuïteit; Admiralty: B3.*
+
+### Three Decisions
+
+1. **Nuldimensionale procedurele runs voortzetten als operationele norm tijdens pauzeperioden.** Betrouwbaarheid van de pipeline vereist dagelijkse productie, ook op dagen zonder nieuwe signalen. *Betrouwbaarheid: HOOG.*
+2. **Verwijzen naar eerdere clustercatalogus voor continuïteitsinhoud.** Wanneer er geen nieuw signaal is, bewaart terugverwijzing naar de Q1 2026-catalogisering (104 teksten, +46,2 % j-o-j) het analytisch register. *Betrouwbaarheid: HOOG.*
+3. **Nuldimensionaal pauzepatroon documenteren als architecturale eigenschap, niet als defect.** Het onderdrukken van lege signaaluitvoer zou een stroomafwaartse kloof creëren; het produceren van nuldimensionale artefacten is het juiste ontwerp. *Betrouwbaarheid: HOOG.*
+
+### 60-Second Read
+
+Hetzelfde patroon als de continuiteitsmodus-runs van moties op 10 april en commissierapporten op 10 april. De pipeline handhaaft de dagelijkse cadans zelfs tijdens langdurige perioden van feed-onbeschikbaarheid.
+
+### Risk Snapshot
+
+| Risico | Kans | Impact |
+|---|---:|---:|
+| Nuldimensionale artefacten verward met pipelinefouten | GEMIDDELD | LAAG–GEMIDDELD |
+| Continuiteitsmodus verdringt diepgang | LAAG | LAAG |
+| PauzeCluster-uitvoer niet gedifferentieerd van laag-signaal-dagen | GEMIDDELD | LAAG |
+
+### Source Quality
+
+- Nuldimensionale observatie: **A1**
+- Continuiteitsmodus-ontwerp: **A2**
+
+### Provenance
+
+- Run: `committee-reports` (2026-04-09)
+- Compliance: Uitsluitend EP Open Data Portal-feeds. GDPR-conform.
+
+---
+*Analytische neutraliteit: nuldimensionale aflezing procedureel aangeduid.*
+
+### Executive Brief No
+
+### BLUF
+
+Den analytiske kjøringen for komitérapporter 9. april registrerer **0 politiske dimensjoner identifisert fra nye signaler** under påskepausen. Utdata er prosedyremessig kontinuitetsmodus. Den substansielle verdien: validering av at komitérapportssporet opprettholder kadensen under vedvarende pause. *Pålitelighet: LAV–MIDDELS for nytt innhold; HØY for kontinuitet; Admiralty: B3.*
+
+### Three Decisions
+
+1. **Fortsett 0-dimensjonale prosedyrekjøringer som operasjonell norm i pauseperioder.** Pålitelighet i pipeline krever daglig produksjon selv på dager uten nye signaler. *Pålitelighet: HØY.*
+2. **Henvis til tidligere klusterkatalog for kontinuitetsinnhold.** Når nytt signal er fraværende, bevarer tilbakesporingen til Q1 2026-katalogisering (104 tekster, +46,2 % ÅoÅ) det analytiske registeret. *Pålitelighet: HØY.*
+3. **Dokumenter 0-dimensjonalt pausemønster som arkitektonisk egenskap, ikke feil.** Å undertrykke tom-signal-utdata ville skape et hull nedstrøms; å produsere 0-dimensjonale artefakter er riktig design. *Pålitelighet: HØY.*
+
+### 60-Second Read
+
+Samme mønster som kjøringene for bevegelser 10. april og komitérapporter 10. april i kontinuitetsmodus. Pipeline opprettholder daglig kadense selv under vedvarende feede utilgjengelighet.
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| 0-dimensjonale artefakter forvekslet med pipelinefeil | MIDDELS | LAV–MIDDELS |
+| Kontinuitetsmodus fortrenges av dybdeanalyse | LAV | LAV |
+| Pausekluster-utdata ikke differensiert fra lavt-signal-dager | MIDDELS | LAV |
+
+### Source Quality
+
+- 0-dimensjonal observasjon: **A1**
+- Kontinuitetsmodus-design: **A2**
+
+### Provenance
+
+- Kjøring: `committee-reports` (2026-04-09)
+- Samsvar: Kun EP Open Data Portal-feeder. GDPR-konformt.
+
+---
+*Analytisk nøytralitet: 0-dimensjonal avlesning prosedyremessig betegnet.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Den analytiska körningen för kommittérapporter den 9 april registrerar **0 politiska dimensioner identifierade från nya signaler** under påskuppehållet. Utdata är procedurellt kontinuitetsläge. Det substansiella värdet: validering av att kommittérapportsspåret upprätthåller kadensen under ett längre uppehåll. *Tillförlitlighet: LÅG-MEDIUM för nytt innehåll; HÖG för kontinuitet; Admiralty: B3.*
+
+### Three Decisions
+
+1. **Fortsätt nolldimensionella procedurella körningar som operationell norm under uppehållsperioder.** Pipelinesäkerhet kräver daglig produktion även på dagar utan nya signaler. *Tillförlitlighet: HÖG.*
+2. **Hänvisa till tidigare klusterkatalog för kontinuitetsinnehåll.** När ny signal saknas bevarar spårningen tillbaka till Q1 2026-katalogiseringen (104 texter, +46,2 % YoY) det analytiska registret. *Tillförlitlighet: HÖG.*
+3. **Dokumentera nolldimensionellt uppehållsmönster som arkitektonisk egenskap, inte fel.** Att undertrycka tomma-signal-utdata skulle skapa en nedströmslucka; att producera nolldimensionella artefakter är rätt design. *Tillförlitlighet: HÖG.*
+
+### 60-Second Read
+
+Samma mönster som körningarna för motioner den 10 april och kommittérapporter den 10 april i kontinuitetsläge. Pipelinen upprätthåller daglig kadensen även under längre perioder med otillgängliga flöden.
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| Nolldimensionella artefakter förväxlas med pipelinefel | MED | LÅG–MED |
+| Kontinuitetsläge tränger undan djupanalys | LÅG | LÅG |
+| Uppehållsklusterutdata ej differentierat från lågsingaldagar | MED | LÅG |
+
+### Source Quality
+
+- Nolldimensionell observation: **A1**
+- Kontinuitetslägesdesign: **A2**
+
+### Provenance
+
+- Körning: `committee-reports` (2026-04-09)
+- Efterlevnad: Endast EP Open Data Portal-flöden. GDPR-konformt.
+
+---
+*Analytisk neutralitet: nolldimensionell avläsning procedurellt betecknad.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月9日的委员会报告分析运行记录在复活节假期期间**从新信号中识别到0个政治维度**。输出处于程序性持续性模式。实质价值：验证委员会报告跟踪能在长时间暂停期间维持节奏。*可信度：新内容低至中；持续性高；Admiralty: B3。*
+
+### Three Decisions
+
+1. **在暂停期间继续将零维度程序运行作为运营标准。** 管道可靠性要求即使在没有新信号的日子也进行日常生产。*可信度：高。*
+2. **参考先前的集群目录以获取持续性内容。** 当没有新信号时，追溯至2026年第一季度目录（104个文本，同比+46.2%）可保留分析记录。*可信度：高。*
+3. **将零维度暂停模式记录为架构特性，而非缺陷。** 抑制空信号输出会在下游造成间隙；生成零维度工件是正确的设计。*可信度：高。*
+
+### 60-Second Read
+
+与4月10日动议和委员会报告持续性模式运行的模式相同。即使在长时间馈送不可用期间，管道也会维持日常节奏。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 零维度工件被误认为管道故障 | 中等 | 低至中 |
+| 持续性模式取代深度分析 | 低 | 低 |
+| 暂停集群输出与低信号日无法区分 | 中等 | 低 |
+
+### Source Quality
+
+- 零维度观测：**A1**
+- 持续性模式设计：**A2**
+
+### Provenance
+
+- 运行：`committee-reports`（2026-04-09）
+- 合规性：仅使用欧洲议会开放数据门户馈送。符合GDPR。
+
+---
+*分析中立性：零维度读数已程序性指定。*
+
 ### Coalition Dynamics
 
 ### Computed Metrics (Script-Generated Context)
@@ -4664,6 +5145,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-documents | [adoptedtexts-ta-10-2026-0096-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/documents/adoptedtexts-ta-10-2026-0096-analysis.md) | `documents/adoptedtexts-ta-10-2026-0096-analysis.md` |
 | section-documents | [adoptedtexts-ta-10-2026-0099-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/documents/adoptedtexts-ta-10-2026-0099-analysis.md) | `documents/adoptedtexts-ta-10-2026-0099-analysis.md` |
 | section-documents | [adoptedtexts-ta-10-2026-0103-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/documents/adoptedtexts-ta-10-2026-0103-analysis.md) | `documents/adoptedtexts-ta-10-2026-0103-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 

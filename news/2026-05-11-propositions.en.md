@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament is navigating a period of intense legislative consolidation in spring 2026."
-description: "The European Parliament is navigating a period of intense legislative consolidation in spring 2026. Published 2026-05-11."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-11", "European", "Parliament", "navigating"]
+title: "The spring 2026 legislative cycle demonstrates — Run 251"
+description: "The spring 2026 legislative cycle demonstrates the EP10's capacity to complete complex multi-year negotiations."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-11", "spring", "legislative", "cycle"]
 date: 2026-05-11
 article_type: propositions
 slug: 2026-05-11-propositions

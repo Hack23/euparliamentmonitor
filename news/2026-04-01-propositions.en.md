@@ -1,5 +1,5 @@
 ---
-title: "No new Commission propositions or EP own-initiative dossiers indexed on 2026-04-01."
+title: "No new Commission propositions or EP own-initiative"
 description: "No new Commission propositions or EP own-initiative dossiers indexed on 2026-04-01. Published 2026-04-01."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-01", "Commission", "initiative", "dossiers"]
 date: 2026-04-01

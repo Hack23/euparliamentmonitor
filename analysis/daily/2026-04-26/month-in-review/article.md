@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Month in Review: March 27 – April 26, 2026"
-description: "The European Parliament completed a landmark legislative sprint in March-April 2026 achieving the most consequential 30-day output since the 2020 COVID recovery legislation"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-26", "Parliament", "Month", "Review", "March"]
+title: "The European Parliament completed a — Run 1777207349"
+description: "The European Parliament completed a landmark legislative sprint in March-April 2026 achieving the most consequential 30-day output since the 2020 COVID."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-26", "European", "Parliament", "completed", "landmark"]
 date: 2026-04-26
 article_type: month-in-review
 slug: 2026-04-26-month-in-review

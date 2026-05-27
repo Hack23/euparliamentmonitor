@@ -1,5 +1,5 @@
 ---
-title: "No new breaking developments on 2026-04-04; the EP is in Easter recess (27 March → 13 April)."
+title: "No new breaking developments on 2026-04-04"
 description: "No new breaking developments on 2026-04-04; the EP is in Easter recess (27 March → 13 April). Published 2026-04-04."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-04", "developments", "Easter", "recess"]
 date: 2026-04-04

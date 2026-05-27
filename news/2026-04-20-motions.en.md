@@ -1,7 +1,7 @@
 ---
-title: "Motions: EP10 Q1 2026 Master Synthesis | 2026-04-20"
+title: "(2) Defence Integration Breakthrough"
 description: "*Q1 2026 is the master-synthesis run's defining claim: \"a decisive inflection point for EP10\" — and the data backs it."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-20", "EP10", "Master", "Synthesis"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-20", "Defence", "Integration", "Breakthrough"]
 date: 2026-04-20
 article_type: motions
 slug: 2026-04-20-motions

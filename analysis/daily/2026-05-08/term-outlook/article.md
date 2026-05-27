@@ -1,7 +1,7 @@
 ---
-title: "EPP remains dominant broker — Term Outlook 2026-05-08"
-description: "Term outlook (2026-05-08): with 185 seats, EPP controls committee chair nominations, rapporteurships, and the agenda-setting authority of the Conference of Presidents."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-08", "remains", "dominant", "broker", "Term", "Outlook", "with"]
+title: "EPP remains dominant broker — Term Outlook 2026 — Run 444"
+description: "Term outlook (2026-05-08): with 185 seats, EPP controls committee chair nominations, rapporteurships for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "term outlook", "parliamentary term", "strategic forecast", "2026-05-08", "remains", "dominant", "broker", "Term"]
 date: 2026-05-08
 article_type: term-outlook
 slug: 2026-05-08-term-outlook

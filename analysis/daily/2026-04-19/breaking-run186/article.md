@@ -1,7 +1,7 @@
 ---
-title: "Run 186, 19 April 2026 (T-8 to Plenary)"
+title: "Run 186 establishes the T-8 countdown intelligence"
 description: "Run 186 establishes the T-8 countdown intelligence baseline to the 27 April plenary return. Published 2026-04-19."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-19", "April", "Plenary", "establishes"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-19", "establishes", "countdown", "intelligence"]
 date: 2026-04-19
 article_type: breaking
 slug: 2026-04-19-breaking-186

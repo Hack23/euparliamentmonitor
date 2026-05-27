@@ -1,6 +1,6 @@
 ---
-title: "EU Parliament Committee Activity (Week 18–22 May 2 — Run 258"
-description: "The European Parliament's committee system enters the final stretch of the 2025–2026 legislative autumn with multiple high-priority dossiers approaching plenary-readiness."
+title: "EU Parliament Committee Activity (Week 18–22 May — Run 258"
+description: "The European Parliament's committee system enters the final stretch of the 2025–2026 legislative autumn with multiple high-priority dossiers approaching."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-22", "Parliament", "Committee", "Activity"]
 date: 2026-05-22
 article_type: committee-reports

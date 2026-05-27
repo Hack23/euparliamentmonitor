@@ -1,7 +1,7 @@
 ---
-title: "Run 176, 16 April 2026"
+title: "Run 176 is a per-document-intelligence consolidation probe"
 description: "Run 176 is a per-document-intelligence consolidation probe during the post-Easter inter-session monitoring period (14–26 April)."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-16", "April", "document", "intelligence"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-16", "document", "intelligence", "consolidation"]
 date: 2026-04-16
 article_type: breaking
 slug: 2026-04-16-breaking-176
