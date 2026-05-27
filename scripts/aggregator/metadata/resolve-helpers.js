@@ -356,14 +356,39 @@ export function composeContextualDescription(lang, baseDescription, editorial, d
     const labels = getLocalizedString(SEO_CONTEXT_LABELS, lang);
     const family = classifyScript(lang);
     const base = baseDescription.trim();
-    const parts = [base];
+    // For non-Latin locales where the base content is pure ASCII (English
+    // fallback without a translated sibling), PREPEND the locale-script
+    // labels so they survive the 180-char `truncateDescription` clamp.
+    // Without this, long English descriptions (150+ chars) crowd out the
+    // localized labels and the final description ends up all-ASCII,
+    // violating Gate 4b of `executive-brief-seo-extraction.test.js`.
+    const baseIsAscii = family !== 'latin' && /^[\x00-\x7F]*$/u.test(base);
+    const parts = [];
     const datePart = `${labels.date} ${date}.`;
-    if (!containsNormalized(base, `${labels.date} ${date}`)) {
-        parts.push(datePart);
+    if (baseIsAscii) {
+        // Locale-script labels first so they survive truncation
+        if (!containsNormalized(base, `${labels.date} ${date}`)) {
+            parts.push(datePart);
+        }
+        parts.push(base);
+    }
+    else {
+        parts.push(base);
+        if (!containsNormalized(base, `${labels.date} ${date}`)) {
+            parts.push(datePart);
+        }
     }
     const context = pickFirstNonEmpty([editorial.summary, editorial.headline]);
-    if (context && !containsNormalized(parts[0] ?? '', context)) {
-        parts.push(`${labels.context}: ${context}`);
+    if (context && !containsNormalized(parts.join(' '), context)) {
+        // For ASCII-only base with non-Latin locale, insert context label
+        // right after the date label (before the English base) so the locale
+        // glyphs cluster at the front of the description.
+        if (baseIsAscii && parts.length > 1) {
+            parts.splice(1, 0, `${labels.context}: ${context}`);
+        }
+        else {
+            parts.push(`${labels.context}: ${context}`);
+        }
     }
     // SERP-fill pad. When the joined buffer is still below the per-
     // script `OPTIMAL_DESC` lower floor (110 Latin / 55 CJK / 110 RTL),

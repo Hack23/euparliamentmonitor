@@ -173,7 +173,7 @@ function pickResolvedTitle(input, candidates) {
     const family = classifyScript(input.lang);
     const summaryTitleAllowed = candidates.summaryDerivedTitle &&
         isUsableResolvedTitle(candidates.summaryDerivedTitle, { allowFullSentence: true }) &&
-        !(family !== 'latin' && ASCII_ONLY_RE.test(candidates.summaryDerivedTitle));
+        !(family !== 'latin' && !contentMatchesLocaleScript(candidates.summaryDerivedTitle, input.lang));
     return pickFirstNonEmpty([
         candidates.explicitTitle,
         candidates.resolvedTitleCandidate,
@@ -256,10 +256,18 @@ export function resolveOneLanguage(input) {
         ? composeContextualDescription(input.lang, normalizedRawDescription, safeEditorial, input.date, input.runId)
         : normalizedRawDescription;
     const clippedTitle = truncateTitle(title).trim();
-    const explicitTitle = manifestTitle && !hasLeakySeoToken(manifestTitle) ? truncateTitle(manifestTitle).trim() : '';
+    // Manifest-derived explicit titles are intentional operator overrides —
+    // respect them even for non-Latin locales.
+    const explicitTitle = manifestTitle && !hasLeakySeoToken(manifestTitle)
+        ? truncateTitle(manifestTitle).trim()
+        : '';
     const allowShortResolvedTitle = perLanguage.source === LOCALIZED_BRIEF_SOURCE;
+    // Gate 4a defense-in-depth: reject resolved title candidates for
+    // non-Latin locales when they lack locale-script glyphs.
+    const nonLatinFamily = classifyScript(input.lang) !== 'latin';
     const resolvedTitleCandidate = clippedTitle &&
         !hasLeakySeoToken(clippedTitle) &&
+        !(nonLatinFamily && !contentMatchesLocaleScript(clippedTitle, input.lang)) &&
         (allowShortResolvedTitle || isUsableResolvedTitle(clippedTitle))
         ? clippedTitle
         : '';
