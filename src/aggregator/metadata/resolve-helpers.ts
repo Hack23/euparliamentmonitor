@@ -32,7 +32,7 @@ import type { ResolveMetadataOptions } from './types.js';
 import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
 import { classifyScript } from './seo-budgets.js';
-import { containsNormalized, pickFirstNonEmpty, withRunQualifier } from './resolve-utils.js';
+import { containsNormalized, extractRunNumber, pickFirstNonEmpty } from './resolve-utils.js';
 import {
   ensureTerminator,
   scrubTrailingEllipsis as scrubTrailingEllipsisImpl,
@@ -201,23 +201,66 @@ export function resolveEditorialContent(opts: ResolveMetadataOptions): {
 }
 
 /**
+ * Localized "Edition N" qualifiers for cross-run title uniqueness.
+ * Standard publishing-issue convention — editorially honest and distinct
+ * from the workflow-internal `Run N` token which is banned from titles.
+ */
+const EDITION_QUALIFIER_BY_LANG: Readonly<Record<string, string>> = {
+  en: 'Edition',
+  de: 'Ausgabe',
+  nl: 'Editie',
+  fr: 'Édition',
+  es: 'Edición',
+  pt: 'Edição',
+  it: 'Edizione',
+  pl: 'Wydanie',
+  sv: 'Utgåva',
+  ja: '第',
+  ko: '제',
+  zh: '第',
+  ar: 'الإصدار',
+  he: 'מהדורה',
+};
+
+/** CJK edition suffix forms (postfix number style) */
+const CJK_EDITION_SUFFIX: Readonly<Record<string, string>> = {
+  ja: '版',
+  ko: '판',
+  zh: '期',
+};
+
+/**
+ * Build a localized edition qualifier string for the given language and
+ * run number. Falls back to compact `(#N)` when the full localized form
+ * would exceed `maxChars`.
+ */
+function buildEditionQualifier(lang: string, runNum: string, maxChars: number): string {
+  const prefix = EDITION_QUALIFIER_BY_LANG[lang] ?? EDITION_QUALIFIER_BY_LANG['en']!;
+  const cjkSuffix = CJK_EDITION_SUFFIX[lang];
+  const full = cjkSuffix
+    ? `${prefix}${runNum}${cjkSuffix}`
+    : `${prefix} ${runNum}`;
+  // Budget-aware fallback: if the qualifier is too long (e.g. Hebrew at 55 chars)
+  // use the compact universal publishing issue-number form
+  if ([...full].length > maxChars) {
+    return `(#${runNum})`;
+  }
+  return full;
+}
+
+/**
  * Pick the per-language SEO title from the resolved editorial pair and
  * the localized template fallback.
  *
  * When falling back to the localized template (no editorial headline
  * available), append an ISO date suffix so two runs of the same
  * article type on different dates do not produce identical titles.
- * The user's bug report explicitly allows this prefix: "ok to prefix
- * with 'article type date' in short form if no real data exist".
- *
- * The ISO suffix uses an en-dash separator (` — YYYY-MM-DD`) which
- * is locale-neutral, fits CJK/RTL clamping behaviour (see
- * `seo-budgets.ts` clause boundaries), and is already used by
- * {@link withRunQualifier}.
+ * For same-date re-runs, a localized "Edition N" qualifier is appended
+ * to ensure cross-run uniqueness without using the banned `Run N` token.
  *
  * @param fallbackTitle - Localized article-type template title
  * @param editorialHeadline - Editorial headline (localized or English)
- * @param runId - Optional run id used only when no editorial headline exists
+ * @param runId - Optional run id used for edition qualifier disambiguation
  * @param date - Optional ISO date appended when no editorial headline exists
  * @param lang - Optional language code; drives per-script floor/budget classification
  * @returns SEO title candidate
@@ -233,10 +276,7 @@ export function composeContextualTitle(
   const floor = SEO_TITLE_FLOOR_BY_SCRIPT[family];
   if (editorialHeadline) {
     // Editorial headline is accepted, but rescue sub-floor titles by
-    // appending the ISO date — e.g. `EP10-Wahlzyklus` (15 chars) →
-    // `EP10-Wahlzyklus — 2026-05-09` (28 chars) keeps the editorial
-    // headline as the SEO payload while clearing the SERP-truncation
-    // floor used by the extraction regression suite.
+    // appending the ISO date.
     if (
       date &&
       [...editorialHeadline].length < floor &&
@@ -246,25 +286,12 @@ export function composeContextualTitle(
     }
     return editorialHeadline;
   }
-  const withRun = withRunQualifier(fallbackTitle, runId);
-  // If withRunQualifier added a "— Run N" suffix, that already
-  // disambiguates same-date sub-runs. For canonical (no-runN) runs
-  // we still need to disambiguate across dates → append the ISO date.
-  let composed = withRun;
-  if (date && withRun === fallbackTitle && !containsNormalized(fallbackTitle, date)) {
+  // No editorial headline — build from template fallback + date
+  let composed = fallbackTitle;
+  if (date && !containsNormalized(fallbackTitle, date)) {
     composed = `${fallbackTitle} — ${date}`;
   }
-  // Final SERP-floor recovery: short generic titles like
-  // `"Moties | 2026-04-01"` (19 chars, nl) sit just below the
-  // per-script floor even after the date is embedded. The
-  // `executive-brief-seo-extraction` regression suite (`READER_FLOOR.title`)
-  // enforces a 20-char minimum for Latin/RTL and 10 for CJK so these
-  // titles don't get truncated as snippets in search. Append ` (EP)`
-  // — a universally recognized European Parliament acronym — to
-  // lift the title above the floor without adding language-specific
-  // wording (EP works in every supported locale). Word-boundary check
-  // so `"Europese …"` (which contains the substring `ep`) does not
-  // short-circuit the pad.
+  // Final SERP-floor recovery
   if ([...composed].length < floor && !containsEpToken(composed)) {
     composed = `${composed} (EP)`;
   }
@@ -284,6 +311,27 @@ export function composeContextualTitle(
  */
 function containsEpToken(text: string): boolean {
   return /(^|[^A-Za-z])EP(?=$|[^A-Za-z])/iu.test(text);
+}
+
+/**
+ * Post-clamping cross-run title uniqueness. Appends a compact edition
+ * qualifier `(#N)` to the resolved SEO title when a run number is
+ * extractable from the run ID. This runs AFTER `clampForBudget` so the
+ * qualifier is never truncated by the per-script budget clamper.
+ *
+ * The compact form `(#N)` is used (universal publishing issue-number
+ * convention) because it adds only 4-5 chars and survives even the
+ * tightest RTL/CJK budgets.
+ *
+ * @param seoTitle - Resolved, clamped SEO title
+ * @param runId - Workflow run identifier (e.g. "run-52", "breaking-run170")
+ * @returns Title with edition qualifier appended for uniqueness
+ */
+export function appendEditionQualifier(seoTitle: string, runId: string): string {
+  if (!runId) return seoTitle;
+  const runNum = extractRunNumber(runId);
+  if (!runNum) return seoTitle;
+  return `${seoTitle} (#${runNum})`;
 }
 
 /**
@@ -539,6 +587,8 @@ export {
   hasLeakySeoToken,
   extractRunNumber,
   sanitizeDescriptionCandidate,
+  sanitizeTitleCandidate,
+  stripLeakyRunTokens,
   isUsableResolvedTitle,
   deriveHeadlineFromSummary,
   withRunQualifier,

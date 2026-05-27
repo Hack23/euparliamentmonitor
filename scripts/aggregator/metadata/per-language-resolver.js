@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { budgetFor, classifyScript, clampForBudget } from './seo-budgets.js';
-import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, containsNormalized, deriveHeadlineFromSummary, ensureDescriptionTerminator, extractRunNumber, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
+import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, deriveHeadlineFromSummary, ensureDescriptionTerminator, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
 import { buildSeoKeywords } from './seo-keywords.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
 const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
@@ -202,10 +202,7 @@ export function resolveOneLanguage(input) {
         : '';
     // Token-level sanitization rescues editorial H1s such as
     // `Run 180, 17 April 2026` → `17 April 2026` instead of falling
-    // through to a duplicate template title. The sentence-level
-    // {@link sanitizeDescriptionCandidate} preserves description prose
-    // by stripping leaky `Run N` / `analysis run` / internal run-id
-    // tokens word-level when every sentence is leaky.
+    // through to a duplicate template title.
     const sanitizedEditorialHeadline = sanitizeTitleCandidate(editorial.headline);
     const contextualTitle = composeContextualTitle(input.template.title, sanitizedEditorialHeadline, input.runId, input.date, input.lang);
     const title = pickFirstNonEmpty([
@@ -221,7 +218,7 @@ export function resolveOneLanguage(input) {
         input.template.subtitle,
     ]));
     const safeEditorial = {
-        headline: isUsableResolvedTitle(sanitizedEditorialHeadline) ? sanitizedEditorialHeadline.trim() : '',
+        headline: isUsableResolvedTitle(editorial.headline) ? editorial.headline.trim() : '',
         summary: sanitizeDescriptionCandidate(editorial.summary),
         extendedSummary: sanitizeDescriptionCandidate(editorial.extendedSummary),
     };
@@ -274,12 +271,11 @@ export function resolveOneLanguage(input) {
     //
     // The fallback path passes the template title back through
     // {@link composeContextualTitle} (with an empty editorial headline)
-    // which disambiguates via ISO date. Distinct (date, articleType)
-    // pairs naturally diverge through editorial headlines / H1s;
-    // same-key collisions are caught by the `title-uniqueness` gate
-    // in `validate-article-seo.js` and must be fixed by sourcing a
-    // richer headline from the editorial brief — run-number
-    // qualifiers are forbidden.
+    // so `withRunQualifier` re-appends the `— Run N` suffix. Without
+    // this, two same-date / same-articleType runs (republish, hot-fix
+    // re-run) would collapse to byte-identical `<title>` strings, and
+    // the duplicate-title gate in `scripts/validate-article-seo.js`
+    // would (correctly) fail CI.
     const contextualFallback = composeContextualTitle(input.template.title, '', input.runId, input.date, input.lang);
     const truncatedTitle = pickResolvedTitle(input, {
         explicitTitle,
@@ -287,10 +283,10 @@ export function resolveOneLanguage(input) {
         summaryDerivedTitle,
         contextualFallback,
     });
-    // Per-script SEO title clamp + ellipsis scrub.
-    // See `clampForBudget` (seo-budgets.ts) and `scrubTrailingEllipsis`
-    // (resolve-helpers.ts) for the rationale on each transform.
-    // `appendRunNumberSuffix` is a no-op: run numbers never appear in titles.
+    // Per-script SEO title clamp + ellipsis scrub + run-number disambiguation.
+    // See `clampForBudget` (seo-budgets.ts), `scrubTrailingEllipsis`
+    // (resolve-helpers.ts), and `appendRunNumberSuffix` (above) for the
+    // rationale on each transform.
     const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
     let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
     seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');
