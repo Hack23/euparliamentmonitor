@@ -257,13 +257,14 @@ export function resolveOneLanguage(input) {
         : normalizedRawDescription;
     const clippedTitle = truncateTitle(title).trim();
     // Manifest-derived explicit titles are intentional operator overrides —
-    // respect them even for non-Latin locales.
+    // respect them even for non-Latin locales (the operator chose them).
     const explicitTitle = manifestTitle && !hasLeakySeoToken(manifestTitle)
         ? truncateTitle(manifestTitle).trim()
         : '';
     const allowShortResolvedTitle = perLanguage.source === LOCALIZED_BRIEF_SOURCE;
     // Gate 4a defense-in-depth: reject resolved title candidates for
-    // non-Latin locales when they lack locale-script glyphs.
+    // non-Latin locales when they lack locale-script glyphs — prevents
+    // English editorial H1s from leaking into CJK/RTL pages.
     const nonLatinFamily = classifyScript(input.lang) !== 'latin';
     const resolvedTitleCandidate = clippedTitle &&
         !hasLeakySeoToken(clippedTitle) &&

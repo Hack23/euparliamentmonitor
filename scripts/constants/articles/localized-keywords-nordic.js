@@ -545,3 +545,4 @@ export const LOCALIZED_KEYWORDS_NORDIC = {
         ],
     },
 };
+//# sourceMappingURL=localized-keywords-nordic.js.map

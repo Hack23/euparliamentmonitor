@@ -24,7 +24,6 @@ import { SEO_CONTEXT_LABELS } from './template-fallback.js';
 import { EXTENDED_DESCRIPTION_MAX_LENGTH } from './text-utils-constants.js';
 import {
   extractFirstSentence,
-  shouldSkipDescriptionLine,
   truncateDescription,
   truncateExtendedDescription,
   truncateTitle,
@@ -32,8 +31,8 @@ import {
 import type { ResolveMetadataOptions } from './types.js';
 import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
-import { findTitleRejectionReason } from './title-rejection.js';
 import { classifyScript } from './seo-budgets.js';
+import { containsNormalized, pickFirstNonEmpty, withRunQualifier } from './resolve-utils.js';
 import {
   ensureTerminator,
   scrubTrailingEllipsis as scrubTrailingEllipsisImpl,
@@ -47,8 +46,6 @@ export {
   ensureDescriptionTerminatorImpl as ensureDescriptionTerminator,
 };
 
-const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
-
 /**
  * Per-script minimum title length below which we append an ISO date
  * suffix to lift the title above SERP truncation. Mirrors the
@@ -56,7 +53,6 @@ const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
  * so the same threshold drives the resolver and the regression check.
  */
 const SEO_TITLE_FLOOR_BY_SCRIPT = { latin: 20, cjk: 10, rtl: 20 } as const;
-const SEO_TITLE_FLOOR = SEO_TITLE_FLOOR_BY_SCRIPT.latin;
 
 /**
  * Per-script minimum description length we aim to clear via context

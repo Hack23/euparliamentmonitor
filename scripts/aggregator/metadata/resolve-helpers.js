@@ -19,16 +19,15 @@ import { extractExtendedLedeAfterHeading, extractStrongProseLine } from './lede-
 import { isGenericHeading } from './heading-rules.js';
 import { SEO_CONTEXT_LABELS } from './template-fallback.js';
 import { EXTENDED_DESCRIPTION_MAX_LENGTH } from './text-utils-constants.js';
-import { extractFirstSentence, shouldSkipDescriptionLine, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
+import { extractFirstSentence, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
 import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
-import { findTitleRejectionReason } from './title-rejection.js';
 import { classifyScript } from './seo-budgets.js';
+import { containsNormalized, pickFirstNonEmpty, withRunQualifier } from './resolve-utils.js';
 import { ensureTerminator, scrubTrailingEllipsis as scrubTrailingEllipsisImpl, ensureDescriptionTerminator as ensureDescriptionTerminatorImpl, } from './description-finalization.js';
 // Re-export terminator helpers for backward compatibility with any
 // downstream import sites that still reach into resolve-helpers.
 export { scrubTrailingEllipsisImpl as scrubTrailingEllipsis, ensureDescriptionTerminatorImpl as ensureDescriptionTerminator, };
-const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
 /**
  * Per-script minimum title length below which we append an ISO date
  * suffix to lift the title above SERP truncation. Mirrors the
@@ -36,7 +35,6 @@ const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
  * so the same threshold drives the resolver and the regression check.
  */
 const SEO_TITLE_FLOOR_BY_SCRIPT = { latin: 20, cjk: 10, rtl: 20 };
-const SEO_TITLE_FLOOR = SEO_TITLE_FLOOR_BY_SCRIPT.latin;
 /**
  * Per-script minimum description length we aim to clear via context
  * enrichment. Matches the `OPTIMAL_DESC` lower bound in the SEO
@@ -487,143 +485,7 @@ export function composeContextualExtendedDescription(lang, baseDescription, edit
     // preserving truncation as truncateExtendedDescription.
     return truncateExtendedDescription(joined);
 }
-export function hasLeakySeoToken(value) {
-    if (!value)
-        return false;
-    return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value);
-}
-/**
- * Extract a run number from a runId like `committee-reports-run47`,
- * `breaking-run188`, `committee-reports-run-47`, or a bare numeric
- * string (`"47"`). Returns the run number as a string, or `null` when
- * the runId does not carry a discriminator.
- *
- * @param runId - Manifest run identifier (may be empty)
- * @returns Run number string (`"47"`), or `null` when none is present
- */
-export function extractRunNumber(runId) {
-    if (!runId)
-        return null;
-    if (/^\d+$/u.test(runId))
-        return runId;
-    const segments = runId.split('-');
-    for (let i = 0; i < segments.length; i += 1) {
-        const seg = segments[i] ?? '';
-        const m = /^run(\d+)$/u.exec(seg);
-        if (m)
-            return m[1] ?? null;
-        if (seg === 'run') {
-            const next = segments[i + 1];
-            if (next && /^\d+$/u.test(next))
-                return next;
-        }
-    }
-    return null;
-}
-function stripLeadingFragmentSeparator(value) {
-    return value.replace(/^[:;—–-]\s+/u, '').trim();
-}
-function stripLeakySentences(value) {
-    if (!value)
-        return '';
-    const parts = value
-        .split(/(?<=[.!?])\s+/u)
-        .map((part) => part.trim())
-        .filter(Boolean);
-    const clean = parts.filter((part) => !hasLeakySeoToken(part));
-    return (clean.length > 0 ? clean : parts).join(' ').trim();
-}
-function sanitizeDescriptionCandidate(value) {
-    const cleaned = stripLeadingFragmentSeparator(stripLeakySentences(value));
-    return cleaned && !shouldSkipDescriptionLine(cleaned) ? cleaned : '';
-}
-function isUsableResolvedTitle(value, options) {
-    const cleaned = stripLeadingFragmentSeparator(value);
-    if (cleaned.length < SEO_TITLE_FLOOR)
-        return false;
-    if (hasLeakySeoToken(cleaned))
-        return false;
-    // Reject section-header leaks, ellipsis-truncated strings, doc-IDs,
-    // and full-sentence fragments. See `title-rejection.ts` for the
-    // canonical denylist + structural rules. Without these guards, the
-    // 216-article audit (2026-05-24) showed `Strategic significance`,
-    // `Threat Level`, `Convergence themes`, `TA-10-2026-0160`, and
-    // ellipsis-cut paragraphs reaching the `<title>` surface.
-    //
-    // When `allowFullSentence` is true, the `sentence-fragment` reason is
-    // tolerated. This is used for summary-derived titles where the first
-    // sentence of the summary is the intended payload (e.g. recess days
-    // whose summary leads with `No new breaking developments on …`).
-    const reason = findTitleRejectionReason(cleaned);
-    if (reason && !(options?.allowFullSentence && reason === 'sentence-fragment')) {
-        return false;
-    }
-    return true;
-}
-function deriveHeadlineFromSummary(summary) {
-    const cleaned = sanitizeDescriptionCandidate(summary);
-    if (!cleaned)
-        return '';
-    return truncateTitle(extractFirstSentence(cleaned) || cleaned);
-}
-/**
- * Append a short run qualifier to otherwise duplicate-prone fallback
- * titles. Sanitizes the raw `runId` so user-facing `<title>` strings
- * never expose Unix timestamps or the full opaque token.
- *
- * @param title - Base title
- * @param runId - Optional run id (sanitized before use)
- * @returns Title with short run qualifier, or unchanged when sanitization fails
- */
-export function withRunQualifier(title, runId) {
-    if (!runId)
-        return title;
-    // Accept bare numeric runId (manifests carry just "44" or "188" for
-    // multi-run days — observed in committee-reports-run44 and
-    // breaking-run188). Without this branch, same-date sub-runs collapse
-    // to byte-identical titles, and the duplicate-title gate fires.
-    if (/^\d+$/u.test(runId))
-        return `${title} — Run ${runId}`;
-    const segments = runId.split('-');
-    for (const seg of segments) {
-        const m = /^run(\d+)$/u.exec(seg);
-        if (m)
-            return `${title} — Run ${m[1]}`;
-        const m2 = /^run$/u.exec(seg);
-        if (m2) {
-            const idx = segments.indexOf(seg);
-            const next = segments[idx + 1];
-            if (next && /^\d+$/u.test(next))
-                return `${title} — Run ${next}`;
-        }
-    }
-    return title;
-}
-/**
- * Case-insensitive containment check after whitespace normalization.
- *
- * @param haystack - Text to search
- * @param needle - Text to locate
- * @returns True when `needle` is already present in `haystack`
- */
-export function containsNormalized(haystack, needle) {
-    const cleanHaystack = haystack.toLowerCase().replace(/\s+/g, ' ');
-    const cleanNeedle = needle.toLowerCase().replace(/\s+/g, ' ');
-    return cleanNeedle.length > 0 && cleanHaystack.includes(cleanNeedle);
-}
-/**
- * Return the first non-empty, trimmed entry from a candidate list, or
- * the empty string when every entry is blank.
- *
- * @param candidates - Ordered list of candidate strings
- * @returns First non-empty entry
- */
-export function pickFirstNonEmpty(candidates) {
-    for (const c of candidates) {
-        if (typeof c === 'string' && c.trim().length > 0)
-            return c.trim();
-    }
-    return '';
-}
-export { deriveHeadlineFromSummary, isUsableResolvedTitle, sanitizeDescriptionCandidate };
+// Utility functions extracted to resolve-utils.ts for file-size compliance.
+// Re-exported here for backward compatibility.
+export { hasLeakySeoToken, extractRunNumber, sanitizeDescriptionCandidate, isUsableResolvedTitle, deriveHeadlineFromSummary, withRunQualifier, containsNormalized, pickFirstNonEmpty, } from './resolve-utils.js';
 //# sourceMappingURL=resolve-helpers.js.map
