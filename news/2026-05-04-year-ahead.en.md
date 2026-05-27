@@ -1,7 +1,7 @@
 ---
-title: "Year Ahead 2026–2027: EP10 coalition outlook — 2026-05-04"
-description: "European Parliament annual strategic outlook — Commission Work Programme, Trio Presidency, legislative priorities and 12-month risk surfaces"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year Ahead", "2026-05-04", "Year", "Ahead", "EP10", "coalition", "outlook", "European"]
+title: "Year Ahead 2026–2027: EP10 coalition — Run 1777854128"
+description: "European Parliament annual strategic outlook — Commission Work Programme, Trio Presidency, legislative priorities and 12-month risk surfaces."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year ahead", "annual outlook", "legislative agenda", "2026-05-04", "Year", "Ahead", "EP10", "coalition"]
 date: 2026-05-04
 article_type: year-ahead
 slug: 2026-05-04-year-ahead

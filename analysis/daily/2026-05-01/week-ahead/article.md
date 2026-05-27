@@ -1,6 +1,6 @@
 ---
-title: "Decision Window: May 4-8 Action Priorities"
-description: "European Parliament calendar, committee meetings, and plenary debates for the coming week Published 2026-05-01. Context: Decision Window: May 4-8 Action Priorities"
+title: "Decision Window: May 4-8 Action Priorities — Run 1777621917"
+description: "European Parliament calendar, committee meetings, and plenary debates for the coming week Published 2026-05-01."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-01", "Decision", "Window", "Action"]
 date: 2026-05-01
 article_type: week-ahead

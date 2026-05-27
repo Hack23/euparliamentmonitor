@@ -1,7 +1,7 @@
 ---
-title: "Breaking (Q1 Legislative Pipeline) | 2026-04-04"
-description: "EP10's first quarter of 2026 produced a substantively productive legislative pipeline despite the structural fragility of the dominant-PPE coalition arithmetic."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-04", "Legislative", "Pipeline", "EP10"]
+title: "EP10's first quarter of 2026 produced a substantively"
+description: "EP10's first quarter of 2026 produced a substantively productive legislative pipeline despite the structural fragility of the dominant-PPE coalition."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-04", "EP10", "first", "quarter"]
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking-2

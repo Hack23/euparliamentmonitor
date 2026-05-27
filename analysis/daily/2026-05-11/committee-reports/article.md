@@ -1,7 +1,7 @@
 ---
-title: "EP Committee Activity, Week of 4–11 May 2026"
-description: "The European Parliament's committee system during the week of 4–11 May 2026 is operating in a characteristic inter-plenary consolidation mode, with 24 standing committees"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-11", "Committee", "Activity", "Week"]
+title: "The absence of plenary sessions this week places — Run 251"
+description: "The European Parliament's committee landscape during the week of 4–11 May 2026 is characterised by post-April consolidation and pre-June plenary."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-11", "absence", "plenary", "sessions"]
 date: 2026-05-11
 article_type: committee-reports
 slug: 2026-05-11-committee-reports

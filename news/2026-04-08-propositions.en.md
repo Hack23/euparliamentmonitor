@@ -1,6 +1,6 @@
 ---
-title: "The 8 April propositions analytical run records 0 political dimensions surfaced during pre-recess wind-down."
-description: "The 8 April propositions analytical run records 0 political dimensions surfaced during pre-recess wind-down."
+title: "The 8 April propositions analytical run records 0"
+description: "The 8 April propositions analytical run records 0 political dimensions surfaced during pre-recess wind-down for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-08", "April", "analytical", "records"]
 date: 2026-04-08
 article_type: propositions
@@ -63,7 +63,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiling.md` |
 | [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-significance">Significance</h2>
 
@@ -883,6 +883,474 @@ graph TD
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+### BLUF
+
+يُسجّل التحليل الاستراتيجي للمقترحات بتاريخ 8 أبريل **0 أبعاد سياسية رُصدت** خلال مرحلة التقليص التي تسبق العطلة البرلمانية. مخرجات استمرارية إجرائية مرتكزة على خط الأساس للربع الأول من عام 2026 (100 نص / 6 جلسات عامة / 10 أسابيع؛ فرضية عنق الزجاجة ECON قيد المعالجة). *الثقة: منخفضة–متوسطة للعناصر الجديدة؛ عالية للاستمرارية؛ تصنيف الأدميرالية: B3.*
+
+### ثلاثة قرارات
+
+1. **الحفاظ على الاستمرارية في مسار المقترحات خلال مرحلة التقليص التي تسبق العطلة.** إيقاع خط الأنابيب هو القيمة الجوهرية. *الثقة: عالية.*
+2. **ربط الاستمرارية بخط أساس مقترحات الربع الأول من 2026 (100 نص).** مرجع قياسي. *الثقة: عالية.*
+3. **إعداد فرضية عنق الزجاجة ECON للتحقق منها بعد انتهاء العطلة.** تصبح الفرضية قابلة للاختبار عند استئناف مسار مقترحات الربع الثاني. *الثقة: متوسطة–عالية.*
+
+### القراءة في 60 ثانية
+
+مخرجات استمرارية إجرائية قياسية قبل العطلة. يحافظ مسار المقترحات على إيقاعه؛ فرضية عنق الزجاجة ECON جاهزة للاختبار في الربع الثاني.
+
+### لمحة المخاطر
+
+| المخاطرة | الاحتمال | الأثر |
+|---|---:|---:|
+| بيانات مقترحات الربع الثاني تدحض فرضية عنق الزجاجة ECON | متوسط | منخفض–متوسط |
+| خط الأساس السابق للعطلة يصبح قديماً | منخفض | منخفض |
+
+### جودة المصادر
+
+- ملاحظة ذات 0 أبعاد: **A1**
+- الإحالة إلى خط أساس الربع الأول: **A1**
+
+### المصدر والإسناد
+
+- التشغيل: `المقترحات` (2026-04-08، قبل العطلة)
+- الامتثال: موجزات بوابة البيانات المفتوحة للبرلمان الأوروبي فقط. متوافق مع اللائحة العامة لحماية البيانات.
+
+---
+*الحياد التحليلي: قراءة إجرائية.*
+
+### Executive Brief Da
+
+### BLUF
+
+Den analytiske kørsel for forslag den 8. april registrerer **0 politiske dimensioner identificeret** under afvikling inden recessepause. Proceduremæssig kontinuitetsoutput forankret i Q1 2026-basislinjen (100 tekster / 6 plenarsamlinger / 10 uger; ECON-flaskehalsshypotese under undersøgelse). *Tillid: LAV–MIDDEL for nyt; HØJ for kontinuitet; Admiralitetsvurdering: B3.*
+
+### Tre beslutninger
+
+1. **Oprethold kontinuitet på forslagssporet under afvikling inden recessepause.** Pipelines kadence er kerneværdien. *Tillid: HØJ.*
+2. **Forankr kontinuitet til Q1 2026 forslagsbasislinje (100 tekster).** Kanonisk reference. *Tillid: HØJ.*
+3. **Forbered ECON-flaskehalsshypotesen til validering efter recessepausen.** Hypotesen kan testes, når Q2 forslagssporet genoptages. *Tillid: MIDDEL–HØJ.*
+
+### 60-sekunders læsning
+
+Standard proceduremæssig kontinuitetsoutput inden recessepause. Forslagssporet bevarer kadencen; ECON-flaskehalsshypotesen forberedt til Q2-testning.
+
+### Risikooversigt
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| Q2 forslagsdata afkræfter ECON-flaskehalsshypotesen | MIDDEL | LAV–MIDDEL |
+| Basislinje inden recessepause forældes | LAV | LAV |
+
+### Kildekvalitet
+
+- 0-dimensionel observation: **A1**
+- Reference til Q1-basislinje: **A1**
+
+### Herkomst
+
+- Kørsel: `forslag` (2026-04-08, inden recessepause)
+- Overholdelse: Kun EP Open Data Portal-feeds. GDPR-kompatibelt.
+
+---
+*Analytisk neutralitet: proceduremæssig læsning.*
+
+### Executive Brief De
+
+### BLUF
+
+Der analytische Lauf für Vorschläge vom 8. April verzeichnet **0 erkannte politische Dimensionen** während der Abwicklung vor der Sitzungspause. Verfahrenskontinuitätsausgabe verankert an der Q1 2026-Basislinie (100 Texte / 6 Plenartagungen / 10 Wochen; ECON-Engpasshypothese in Prüfung). *Konfidenz: NIEDRIG–MITTEL für Neues; HOCH für Kontinuität; Admiralitätsbewertung: B3.*
+
+### Drei Entscheidungen
+
+1. **Kontinuität auf dem Vorschlagspfad während der Abwicklung vor der Sitzungspause aufrechterhalten.** Der Rhythmus der Pipeline ist der Kernwert. *Konfidenz: HOCH.*
+2. **Kontinuität an der Q1 2026-Vorschlagsbasislinie (100 Texte) verankern.** Kanonische Referenz. *Konfidenz: HOCH.*
+3. **ECON-Engpasshypothese für Validierung nach der Sitzungspause vorbereiten.** Die Hypothese wird testbar, wenn das Q2-Vorschlagspfad wieder aufgenommen wird. *Konfidenz: MITTEL–HOCH.*
+
+### 60-Sekunden-Lektüre
+
+Standard-Verfahrenskontinuitätsausgabe vor der Sitzungspause. Der Vorschlagspfad bewahrt den Rhythmus; ECON-Engpasshypothese für Q2-Testing vorbereitet.
+
+### Risikoübersicht
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| Q2-Vorschlagsdaten widerlegen die ECON-Engpasshypothese | MITTEL | NIEDRIG–MITTEL |
+| Vorpausen-Basislinie veraltet | NIEDRIG | NIEDRIG |
+
+### Quellenqualität
+
+- 0-dimensionale Beobachtung: **A1**
+- Referenz zur Q1-Basislinie: **A1**
+
+### Herkunft
+
+- Lauf: `Vorschläge` (2026-04-08, vor Sitzungspause)
+- Compliance: Nur EP Open Data Portal-Feeds. DSGVO-konform.
+
+---
+*Analytische Neutralität: verfahrensorientierte Lektüre.*
+
+### Executive Brief Es
+
+### BLUF
+
+La ejecución analítica de propuestas del 8 de abril registra **0 dimensiones políticas identificadas** durante la fase de desaceleración previa al receso. Resultado de continuidad procedimental anclado en la línea de base del Q1 2026 (100 textos / 6 sesiones plenarias / 10 semanas; hipótesis del cuello de botella ECON pendiente de validación). *Confianza: BAJA–MEDIA para novedades; ALTA para continuidad; Calificación Almirantazgo: B3.*
+
+### Tres decisiones
+
+1. **Mantener la continuidad en el circuito de propuestas durante la desaceleración previa al receso.** La cadencia del pipeline es el valor central. *Confianza: ALTA.*
+2. **Anclar la continuidad en la línea de base de propuestas del Q1 2026 (100 textos).** Referencia canónica. *Confianza: ALTA.*
+3. **Preparar la hipótesis del cuello de botella ECON para validación posterior al receso.** La hipótesis se vuelve verificable cuando se reanude el circuito de propuestas del Q2. *Confianza: MEDIA–ALTA.*
+
+### Lectura en 60 segundos
+
+Resultado estándar de continuidad procedimental previo al receso. El circuito de propuestas preserva la cadencia; hipótesis del cuello de botella ECON preparada para pruebas en Q2.
+
+### Instantánea de riesgos
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| Los datos Q2 de propuestas invalidan la hipótesis del cuello de botella ECON | MEDIA | BAJA–MEDIA |
+| La línea de base previa al receso queda obsoleta | BAJA | BAJA |
+
+### Calidad de fuentes
+
+- Observación de 0 dimensiones: **A1**
+- Referencia a la línea de base Q1: **A1**
+
+### Procedencia
+
+- Ejecución: `propuestas` (2026-04-08, previo al receso)
+- Cumplimiento: Solo feeds de EP Open Data Portal. Conforme al RGPD.
+
+---
+*Neutralidad analítica: lectura procedimental.*
+
+### Executive Brief Fi
+
+### BLUF
+
+8. huhtikuuta tehty ehdotusten analyyttinen ajo kirjaa **0 tunnistettua poliittista ulottuvuutta** istuntotauon edeltävän vaiheen purkamisen aikana. Menettelyllinen jatkuvuustuloste perustuu Q1 2026 -lähtötasoon (100 tekstiä / 6 täysistuntoa / 10 viikkoa; ECON-pullonkaulahypoteesi arvioitavana). *Luotettavuus: MATALA–KOHTALAINEN uusien osalta; KORKEA jatkuvuuden osalta; Amiraalikuntoluokitus: B3.*
+
+### Kolme päätöstä
+
+1. **Ylläpidä jatkuvuutta ehdotuskanavassa istuntotauon edeltävän vaiheen purkamisen aikana.** Käsittelyputken tahdistus on keskeinen arvo. *Luotettavuus: KORKEA.*
+2. **Ankkuroi jatkuvuus Q1 2026 ehdotusten lähtötasoon (100 tekstiä).** Kanoninen viitereferenssi. *Luotettavuus: KORKEA.*
+3. **Valmistele ECON-pullonkaulahypoteesi validointia varten istuntotauon jälkeen.** Hypoteesi on testattavissa Q2-ehdotuskanavan käynnistyessä uudelleen. *Luotettavuus: KOHTALAINEN–KORKEA.*
+
+### 60 sekunnin tiivistelmä
+
+Tavanomainen menettelyllinen jatkuvuustuloste ennen istuntotaukoa. Ehdotuskanava säilyttää tahdistuksensa; ECON-pullonkaulahypoteesi valmisteltu Q2-testausta varten.
+
+### Riskikatsaus
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| Q2-ehdotusdata kumoaa ECON-pullonkaulahypoteesin | KOHTALAINEN | MATALA–KOHTALAINEN |
+| Istuntotauon edeltävä lähtötaso vanhenee | MATALA | MATALA |
+
+### Lähdelaatu
+
+- 0-ulotteinen havainto: **A1**
+- Viite Q1-lähtötasoon: **A1**
+
+### Alkuperä
+
+- Ajo: `ehdotukset` (2026-04-08, ennen istuntotaukoa)
+- Vaatimustenmukaisuus: Ainoastaan EP Open Data Portal -syötteet. GDPR-yhteensopiva.
+
+---
+*Analyyttinen neutraalius: menettelyllinen tarkastelu.*
+
+### Executive Brief Fr
+
+### BLUF
+
+L'analyse des propositions du 8 avril enregistre **0 dimension politique identifiée** lors du ralentissement pré-suspension. Sortie de continuité procédurale ancrée sur la référence Q1 2026 (100 textes / 6 sessions plénières / 10 semaines ; hypothèse de goulot d'étranglement ECON en attente de validation). *Confiance : FAIBLE–MOYEN pour le nouveau ; ÉLEVÉ pour la continuité ; Cotation Amirauté : B3.*
+
+### Trois décisions
+
+1. **Maintenir la continuité sur le parcours des propositions pendant le ralentissement pré-suspension.** La cadence du pipeline est la valeur centrale. *Confiance : ÉLEVÉ.*
+2. **Ancrer la continuité sur la référence Q1 2026 des propositions (100 textes).** Référence canonique. *Confiance : ÉLEVÉ.*
+3. **Préparer l'hypothèse de goulot d'étranglement ECON pour validation post-suspension.** L'hypothèse devient testable à la reprise du parcours des propositions Q2. *Confiance : MOYEN–ÉLEVÉ.*
+
+### Lecture en 60 secondes
+
+Sortie de continuité procédurale standard avant suspension. Le parcours des propositions préserve la cadence ; hypothèse de goulot d'étranglement ECON préparée pour les tests Q2.
+
+### Aperçu des risques
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| Les données Q2 sur les propositions invalident l'hypothèse ECON | MOYEN | FAIBLE–MOYEN |
+| La référence pré-suspension devient obsolète | FAIBLE | FAIBLE |
+
+### Qualité des sources
+
+- Observation à 0 dimension : **A1**
+- Référence à la base Q1 : **A1**
+
+### Provenance
+
+- Exécution : `propositions` (2026-04-08, pré-suspension)
+- Conformité : Flux EP Open Data Portal uniquement. Conforme RGPD.
+
+---
+*Neutralité analytique : lecture procédurale.*
+
+### Executive Brief He
+
+### BLUF
+
+הריצה האנליטית של ההצעות מיום 8 באפריל מתעדת **0 ממדים פוליטיים שזוהו** במהלך שלב הירידה שלפני הפגרה. פלט המשכיות נוהלית מעוגן בקו הבסיס של הרבעון הראשון 2026 (100 טקסטים / 6 מושבים מליאה / 10 שבועות; השערת צוואר הבקבוק של ECON ממתינה לאימות). *ביטחון: נמוך–בינוני לחדש; גבוה להמשכיות; דירוג אדמירליות: B3.*
+
+### שלושה החלטות
+
+1. **שמור על המשכיות במסלול ההצעות במהלך שלב הירידה שלפני הפגרה.** קצב הצינור הוא הערך המרכזי. *ביטחון: גבוה.*
+2. **עגן את ההמשכיות בקו הבסיס של הצעות הרבעון הראשון 2026 (100 טקסטים).** עיון קנוני. *ביטחון: גבוה.*
+3. **הכן את השערת צוואר הבקבוק של ECON לאימות לאחר הפגרה.** ההשערה תהיה ניתנת לבדיקה עם חידוש מסלול ההצעות ברבעון השני. *ביטחון: בינוני–גבוה.*
+
+### קריאה של 60 שניות
+
+פלט המשכיות נוהלית סטנדרטי לפני פגרה. מסלול ההצעות שומר על קצבו; השערת צוואר הבקבוק של ECON מוכנה לבדיקות ברבעון השני.
+
+### תמונת מצב סיכונים
+
+| סיכון | סבירות | השפעה |
+|---|---:|---:|
+| נתוני הצעות הרבעון השני מפריכים את השערת צוואר הבקבוק של ECON | בינוני | נמוך–בינוני |
+| קו הבסיס שלפני הפגרה הופך למיושן | נמוך | נמוך |
+
+### איכות מקורות
+
+- תצפית בת 0 ממדים: **A1**
+- הפניה לקו הבסיס של הרבעון הראשון: **A1**
+
+### מקור
+
+- ריצה: `הצעות` (2026-04-08, לפני פגרה)
+- ציות: רק עדכוני שער הנתונים הפתוח של הפרלמנט האירופי. תואם GDPR.
+
+---
+*ניטרליות אנליטית: קריאה נוהלית.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月8日の提案分析実行は、休会前の縮小期において**政治的側面0件確認**を記録する。Q1 2026ベースライン（テキスト100件 / 本会議6回 / 10週間；ECON ボトルネック仮説を保留中）に基づく手続き的継続性出力。*信頼度：新規事項につき低〜中；継続性につき高；海軍省評価：B3。*
+
+### 三つの決定
+
+1. **休会前の縮小期において、提案トラックの継続性を維持する。** パイプラインのリズムが核心的価値である。*信頼度：高。*
+2. **Q1 2026提案ベースライン（テキスト100件）に継続性を紐付ける。** 標準的参照基準。*信頼度：高。*
+3. **ECONボトルネック仮説を休会後の検証に向けて準備する。** Q2提案トラックが再開された時点で仮説が検証可能となる。*信頼度：中〜高。*
+
+### 60秒リード
+
+休会前の標準的な手続き的継続性出力。提案トラックはリズムを維持；ECONボトルネック仮説をQ2テスト向けに準備済み。
+
+### リスク概要
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| Q2提案データがECONボトルネック仮説を否定 | 中 | 低〜中 |
+| 休会前ベースラインが陳腐化 | 低 | 低 |
+
+### ソース品質
+
+- 0次元観察：**A1**
+- Q1ベースラインへの参照：**A1**
+
+### 出典
+
+- 実行：`提案`（2026-04-08、休会前）
+- コンプライアンス：欧州議会オープンデータポータルフィードのみ。GDPR準拠。
+
+---
+*分析的中立性：手続き的読み取り。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 8일 제안 분석 실행은 휴회 전 축소 기간 중 **정치적 차원 0건 확인**을 기록한다. 2026년 1분기 기준선(텍스트 100건 / 본회의 6회 / 10주; ECON 병목 가설 검토 중)에 기반한 절차적 연속성 출력. *신뢰도: 신규 사항에 대해 낮음〜보통; 연속성에 대해 높음; 해군 평가: B3.*
+
+### 세 가지 결정
+
+1. **휴회 전 축소 기간 동안 제안 트랙의 연속성을 유지한다.** 파이프라인의 리듬이 핵심 가치다. *신뢰도: 높음.*
+2. **2026년 1분기 제안 기준선(텍스트 100건)에 연속성을 연결한다.** 표준 참조 기준. *신뢰도: 높음.*
+3. **ECON 병목 가설을 휴회 후 검증을 위해 준비한다.** 가설은 2분기 제안 트랙이 재개될 때 검증 가능해진다. *신뢰도: 보통〜높음.*
+
+### 60초 읽기
+
+휴회 전 표준 절차적 연속성 출력. 제안 트랙은 리듬을 유지; ECON 병목 가설을 2분기 테스트를 위해 준비 완료.
+
+### 리스크 스냅샷
+
+| 리스크 | 가능성 | 영향 |
+|---|---:|---:|
+| 2분기 제안 데이터가 ECON 병목 가설을 부정 | 보통 | 낮음〜보통 |
+| 휴회 전 기준선이 오래됨 | 낮음 | 낮음 |
+
+### 소스 품질
+
+- 0차원 관찰: **A1**
+- 1분기 기준선 참조: **A1**
+
+### 출처
+
+- 실행: `제안`（2026-04-08, 휴회 전）
+- 준수: 유럽의회 오픈 데이터 포털 피드만 사용. GDPR 준수.
+
+---
+*분석적 중립성: 절차적 읽기.*
+
+### Executive Brief Nl
+
+### BLUF
+
+De analytische run voor voorstellen van 8 april registreert **0 geïdentificeerde politieke dimensies** tijdens de afwikkeling vóór reces. Procedurele continuïteitsuitvoer verankerd op de Q1 2026-basislijn (100 teksten / 6 plenaire vergaderingen / 10 weken; ECON-knelpuntshypothese in behandeling). *Vertrouwen: LAAG–GEMIDDELD voor nieuw; HOOG voor continuïteit; Admiraliteitsbeoordeling: B3.*
+
+### Drie beslissingen
+
+1. **Continuïteit op het voorstellentraject handhaven tijdens de afwikkeling vóór reces.** De cadans van de pipeline is de kernwaarde. *Vertrouwen: HOOG.*
+2. **Continuïteit verankeren aan de Q1 2026-voorstellen basislijn (100 teksten).** Canonieke referentie. *Vertrouwen: HOOG.*
+3. **ECON-knelpuntshypothese voorbereiden voor validatie na reces.** De hypothese wordt testbaar wanneer het Q2-voorstellentraject hervat wordt. *Vertrouwen: GEMIDDELD–HOOG.*
+
+### Lezing in 60 seconden
+
+Standaard procedurele continuïteitsuitvoer vóór reces. Het voorstellentraject behoudt de cadans; ECON-knelpuntshypothese voorbereid voor Q2-testen.
+
+### Risicooverzicht
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| Q2-voorstellendata weerlegt de ECON-knelpuntshypothese | GEMIDDELD | LAAG–GEMIDDELD |
+| Pre-reces basislijn raakt verouderd | LAAG | LAAG |
+
+### Kwaliteit van bronnen
+
+- 0-dimensionele observatie: **A1**
+- Referentie naar Q1-basislijn: **A1**
+
+### Herkomst
+
+- Run: `voorstellen` (2026-04-08, voor reces)
+- Naleving: Alleen EP Open Data Portal-feeds. AVG-conform.
+
+---
+*Analytische neutraliteit: procedurele lezing.*
+
+### Executive Brief No
+
+### BLUF
+
+Den analytiske kjøringen for forslag 8. april registrerer **0 politiske dimensjoner identifisert** under avvikling før resesspause. Prosessuell kontinuitetsutdata forankret i Q1 2026-basislinjen (100 tekster / 6 plenumssesjoner / 10 uker; ECON-flaskehalshypotese til vurdering). *Konfidens: LAV–MIDDELS for nytt; HØY for kontinuitet; Admiralitetsvurdering: B3.*
+
+### Tre beslutninger
+
+1. **Oppretthold kontinuitet på forslagssporet under avvikling før resesspause.** Pipelines kadense er kjerneverdien. *Konfidens: HØY.*
+2. **Forankr kontinuitet til Q1 2026 forslagsbaslinje (100 tekster).** Kanonisk referanse. *Konfidens: HØY.*
+3. **Forbered ECON-flaskehalshypotesen for validering etter resesspausen.** Hypotesen kan testes når Q2 forslagssporet gjenopptas. *Konfidens: MIDDELS–HØY.*
+
+### 60-sekunders lesning
+
+Standard prosessuell kontinuitetsutdata før resesspause. Forslagssporet bevarer kadensen; ECON-flaskehalshypotesen forberedt for Q2-testing.
+
+### Risikooversikt
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| Q2 forslagsdata avkrefter ECON-flaskehalshypotesen | MIDDELS | LAV–MIDDELS |
+| Baslinje før resesspause blir foreldet | LAV | LAV |
+
+### Kildekvalitet
+
+- 0-dimensjonal observasjon: **A1**
+- Referanse til Q1-baslinje: **A1**
+
+### Opphav
+
+- Kjøring: `forslag` (2026-04-08, før resesspause)
+- Overholdelse: Kun EP Open Data Portal-strømmer. GDPR-kompatibelt.
+
+---
+*Analytisk nøytralitet: prosessuell lesning.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Den analytiska körningen för propositioner den 8 april registrerar **0 politiska dimensioner identifierade** under avveckling inför recessuppehåll. Procedurell kontinuitetsoutput förankrad i Q1 2026-baslinjen (100 texter / 6 plenarsessioner / 10 veckor; ECON-flaskhalsshypotes under utredning). *Förtroende: LÅGT–MEDEL för nytt; HÖGT för kontinuitet; Admiralitetsgradering: B3.*
+
+### Tre beslut
+
+1. **Upprätthåll kontinuitet på propositionsspåret under avveckling inför recessuppehåll.** Ledtiden i pipelinen är det centrala värdet. *Förtroende: HÖGT.*
+2. **Förankra kontinuitet mot Q1 2026 propositionsbaslinje (100 texter).** Kanonisk referens. *Förtroende: HÖGT.*
+3. **Förbered ECON-flaskhalsshypotesen för validering efter recessuppehållet.** Hypotesen kan testas när Q2 propositionsspåret återupptas. *Förtroende: MEDEL–HÖGT.*
+
+### 60-sekundersläsning
+
+Standard procedurell kontinuitetsoutput inför recessuppehåll. Propositionsspåret bevarar ledtiden; ECON-flaskhalsshypotesen förberedd för Q2-testning.
+
+### Risköversikt
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| Q2 propositionsdata motbevisar ECON-flaskhalsshypotesen | MEDEL | LÅGT–MEDEL |
+| Baslinje inför recessuppehåll föråldras | LÅGT | LÅGT |
+
+### Källkvalitet
+
+- 0-dimensionell observation: **A1**
+- Referens till Q1-baslinje: **A1**
+
+### Härkomst
+
+- Körning: `propositioner` (2026-04-08, inför recessuppehåll)
+- Efterlevnad: Enbart EP Open Data Portal-flöden. GDPR-kompatibelt.
+
+---
+*Analytisk neutralitet: procedurell läsning.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月8日提案分析运行在休会前缩减阶段记录**确认0个政治维度**。程序性连续性输出以2026年第一季度基准线为锚点（100个文本 / 6次全体会议 / 10周；ECON瓶颈假设待定）。*置信度：新事项为低至中；连续性为高；海军省评级：B3。*
+
+### 三项决定
+
+1. **在休会前缩减阶段维持提案轨道的连续性。** 管道节奏是核心价值。*置信度：高。*
+2. **将连续性与2026年第一季度提案基准线（100个文本）挂钩。** 标准参考基准。*置信度：高。*
+3. **准备ECON瓶颈假设以便休会后进行验证。** 当第二季度提案轨道恢复时，假设变得可测试。*置信度：中至高。*
+
+### 60秒速读
+
+休会前标准程序性连续性输出。提案轨道保持节奏；ECON瓶颈假设已为第二季度测试做好准备。
+
+### 风险快照
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 第二季度提案数据否定ECON瓶颈假设 | 中等 | 低至中 |
+| 休会前基准线变得过时 | 低 | 低 |
+
+### 来源质量
+
+- 0维度观察：**A1**
+- 第一季度基准线参考：**A1**
+
+### 来源
+
+- 运行：`提案`（2026-04-08，休会前）
+- 合规性：仅使用欧洲议会开放数据门户数据流。符合GDPR。
+
+---
+*分析中立性：程序性读取。*
+
 ### Coalition Dynamics
 
 ### Computed Metrics (Script-Generated Context)
@@ -1094,6 +1562,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/existing/cross-session-intelligence.md) | `existing/cross-session-intelligence.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/existing/deep-analysis.md) | `existing/deep-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/propositions/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 

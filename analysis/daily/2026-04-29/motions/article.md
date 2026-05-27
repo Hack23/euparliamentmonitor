@@ -1,7 +1,7 @@
 ---
-title: "EP Motions, 22–29 April 2026"
+title: "The four most consequential decisions — Run 1777445455"
 description: "The 28 April plenary day delivered 17 adopted texts spanning budget, justice, environment, trade, and institutional dossiers."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-29", "April", "plenary", "delivered"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-29", "four", "most", "consequential"]
 date: 2026-04-29
 article_type: motions
 slug: 2026-04-29-motions

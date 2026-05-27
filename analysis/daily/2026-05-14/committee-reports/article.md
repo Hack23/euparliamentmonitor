@@ -1,7 +1,7 @@
 ---
-title: "Legislative Density — April–May 2026 Plenary Wave"
-description: "Between January and April 2026, the European Parliament adopted 50+ texts across financial regulation (SRMR3), environmental policy (livestock, emissions), digital markets, trade"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-14", "Legislative", "Density", "April"]
+title: "The European Parliament's committee system — Run 330"
+description: "The European Parliament's committee system entered the week of 12–16 May 2026 with a packed legislative agenda across at least seven standing committees."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-14", "European", "Parliament", "committee"]
 date: 2026-05-14
 article_type: committee-reports
 slug: 2026-05-14-committee-reports

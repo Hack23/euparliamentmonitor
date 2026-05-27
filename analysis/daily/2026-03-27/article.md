@@ -1,6 +1,6 @@
 ---
 title: "Routine inter-sessional day, no breaking signal."
-description: "Routine inter-sessional day, no breaking signal. Published 2026-03-27."
+description: "Routine inter-sessional day, no breaking signal. Published 2026-03-27. for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-03-27", "Routine", "inter", "sessional"]
 date: 2026-03-27
 article_type: breaking

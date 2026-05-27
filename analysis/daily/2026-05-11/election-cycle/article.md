@@ -1,7 +1,7 @@
 ---
-title: "EP10 Electoral-Cycle Overlay (2024–2029) | 2026-05-11"
+title: "The 2024 election left EP10 with 717 MEPs across nine"
 description: "The 2024 election left EP10 with 717 MEPs across nine groups, fragmentation index 6.58 — the highest reading since EP6 (2004–2009)."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Election Cycle", "2026-05-11", "EP10", "Electoral", "Cycle", "Overlay", "election", "left"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "election cycle", "elections", "political landscape", "2026-05-11", "election", "left", "EP10", "with"]
 date: 2026-05-11
 article_type: election-cycle
 slug: 2026-05-11-election-cycle

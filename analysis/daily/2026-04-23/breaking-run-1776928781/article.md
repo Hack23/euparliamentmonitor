@@ -1,7 +1,7 @@
 ---
-title: "Breaking: Tariff Retrospective Reframing One Week Post-Activation | 2026-04-23"
-description: "*Eight days after T-0, the run undertakes a retrospective reframing of the March 26 plenary session: the file was adopted exactly one week before President Trump's April 2 tariff"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-23", "Tariff", "Retrospective", "Reframing"]
+title: "*Eight days after T-0, the run undertakes — Run 1776928781"
+description: "*Eight days after T-0, the run undertakes a retrospective reframing of the March 26 plenary session for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-23", "Eight", "days", "after"]
 date: 2026-04-23
 article_type: breaking
 slug: 2026-04-23-breaking

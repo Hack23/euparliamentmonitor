@@ -1,7 +1,7 @@
 ---
-title: "Political Actor Mapping: EP10 Ecosystem Analysis"
-description: "The EP10 political actor ecosystem is characterised by: Published 2026-03-28."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-03-28", "Political", "Actor", "Mapping", "EP10"]
+title: "EP10 ecosystem snapshot at March end"
+description: "EP10 ecosystem snapshot at March end, no acute month-of-March synthesis signal. Published 2026-03-28 for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-03-28", "EP10", "ecosystem", "snapshot", "March"]
 date: 2026-03-28
 article_type: month-in-review
 slug: 2026-03-28-month-in-review

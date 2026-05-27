@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament elected in June 2024 is now in its second year. The most important fact"
-description: "The European Parliament's 10th parliamentary term (2024–2029) has entered its second year of operation at a critical inflection point."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-04", "European", "Parliament", "elected", "June", "second", "year"]
+title: "The European Parliament elected in June — Run 1777895963"
+description: "The European Parliament elected in June 2024 is now in its second year. Published 2026-05-04 for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "term outlook", "parliamentary term", "strategic forecast", "2026-05-04", "European", "Parliament", "elected", "June"]
 date: 2026-05-04
 article_type: term-outlook
 slug: 2026-05-04-term-outlook

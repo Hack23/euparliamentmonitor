@@ -1,7 +1,7 @@
 ---
-title: "EP10 Term Outlook to 2029 | 2026-05-11"
-description: "EP10 will deliver a partial, multi-coalition legislative record between now and the 2029 election — the term's strategic frame is structural fiscal pressure, not acute political"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Term Outlook", "2026-05-11", "EP10", "Term", "Outlook", "will", "deliver", "partial"]
+title: "EP10 will deliver a partial, multi-coalition — Run 348"
+description: "EP10 will deliver a partial, multi-coalition legislative record between now and the 2029 election for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "term outlook", "parliamentary term", "strategic forecast", "2026-05-11", "EP10", "will", "deliver", "partial"]
 date: 2026-05-11
 article_type: term-outlook
 slug: 2026-05-11-term-outlook

@@ -1,7 +1,7 @@
 ---
-title: "🧩 Political Intelligence Synthesis — European Parliament"
-description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-09. Context: 🧩 Political Intelligence Synthesis — European Parliament"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-09", "Political", "Intelligence", "Synthesis"]
+title: "The 9 April breaking brief identifies a NEW"
+description: "The 9 April breaking brief identifies a NEW legislative-backlog risk at 12/25 HIGH: 30+ adopted texts + 13 COD procedures must be processed in a 4-day."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-09", "April", "brief", "identifies"]
 date: 2026-04-09
 article_type: breaking
 slug: 2026-04-09-breaking
@@ -341,6 +341,500 @@ S&D's improving positioning catalyses a progressive counter-movement. Greens/EFA
 *Methodology: political-risk-methodology.md + political-threat-framework.md + political-swot-framework.md*
 *Frameworks applied: Institutional Positioning + Coalition Dynamics + Risk Matrix + Stakeholder Impact + Scenario Planning*
 *New data: Sentiment tracker Q1 2026 + political group comparison + updated coalition dynamics*
+
+### Executive Brief Ar
+
+### BLUF
+
+يحدد الموجز الصادر في 9 أبريل **خطرًا جديدًا لتراكم التشريعات عند مستوى 12/25 عالٍ**: **يجب معالجة 30+ نص معتمد + 13 إجراء COD في نافذة لجنة مدتها 4 أيام (14-17 أبريل)**. الخطر هيكلي: لا تملك أسبوع اللجنة عقب استراحة عيد الفصح طاقة استيعابية تقويمية كافية لحجم العمل المتراكم، مما يخلق اختناقًا سيمتد إلى أسبوع الجلسة العامة وما بعدها. *مستوى الثقة: متوسط-عالٍ؛ Admiralty: B2.*
+
+### Three Decisions
+
+1. **تثبيت نافذة لجنة 14-17 أبريل باعتبارها اختبار ضغط معدل الإنتاجية Q2 لـ EP10.** هل تستطيع البنية التحتية للجنة التعامل مع 30+ نص + 13 COD في 4 أيام — وهذا يحدد مسار الإنتاجية في Q2. *مستوى الثقة: عالٍ.*
+2. **تهيئة المستهلكين من المراحل اللاحقة مسبقًا لحجم إشارات أسبوع اللجنة.** يجب على خط أنابيب التحليل وخط أنابيب الترجمة وسير عمل الأخبار توسيع الطاقة لاستيعاب ذروة الحمل في 14-17 أبريل. *مستوى الثقة: عالٍ.*
+3. **التعامل مع خطر التراكم 12/25 عالٍ كخطر قابل للتنفيذ، لا مجرد استشاري.** مستويات المخاطر بهذه الضخامة تستوجب توعية قيادة اللجنة وانضباط الأولويات. *مستوى الثقة: متوسط-عالٍ.*
+
+### 60-Second Read
+
+خطر تراكم التشريعات هو النتيجة المهيمنة لدورة معدل الإنتاجية Q2 2026. 30+ نص + 13 COD على مدار 4 أيام = ما يقارب 11 إجراء ملف يوميًا، وهو ما يتجاوز إنتاجية أسبوع اللجنة التاريخية. الاختناق تجريبي وليس افتراضيًا.
+
+### Risk Snapshot
+
+| الخطر | الاحتمالية | التأثير |
+|---|---:|---:|
+| التراكم يمتد إلى أسبوع الجلسة العامة 27-30 أبريل | عالٍ | متوسط-عالٍ |
+| لا تستطيع قيادة اللجنة تحديد الأولويات بفعالية | متوسط | متوسط |
+| تأخر ملفات المفاوضات الثلاثية بسبب تراكم أسبوع اللجنة | متوسط | متوسط-عالٍ |
+
+### Source Quality
+
+- عدد التراكمات (30+ نص + 13 COD): **A2**
+- نافذة لجنة 4 أيام: **A1**
+- تصنيف 12/25 عالٍ: **B2**
+
+### Provenance
+
+- التشغيل: `breaking` (2026-04-09)
+- الامتثال: تغذيات بوابة EP Open Data فقط. متوافق مع اللائحة العامة لحماية البيانات (GDPR).
+
+---
+*الحياد التحليلي: خطر التراكم مُصنَّف بدرجة خطورة.*
+
+### Executive Brief Da
+
+### BLUF
+
+Den 9. april-orientering identificerer en **NY lovgivningsmæssig efterslæbsrisiko ved 12/25 HØJ**: **30+ vedtagne tekster + 13 COD-procedurer skal behandles i et 4-dages udvalgsvindue (14–17. april)**. Risikoen er strukturel: udvalgsugen efter påskepausen har utilstrækkelig kalenderkapacitet til den akkumulerede arbejdsbyrde, hvilket skaber en flaskehals, der vil spilde over i plenumugen og derefter. *Konfidensgrad: MEDIUM-HØJ; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Forankr 14–17. april udvalgsvinduet som EP10 Q2 gennemstrømningstests.** Hvorvidt udvalgsinfrastrukturen håndterer 30+ tekster + 13 COD'er på 4 dage definerer Q2-gennemstrømningsbanen. *Konfidensgrad: HØJ.*
+2. **Forhåndspositionér efterfølgende forbrugere til udvalgsugessignalvolumen.** Analytisk pipeline, oversættelsespipeline og nyhedsworkflows bør skalere kapacitet til toppbelastning 14–17. april. *Konfidensgrad: HØJ.*
+3. **Behandl 12/25 HØJ efterslæbsrisiko som handlingsbar, ikke kun rådgivende.** Risikoniveauer af denne størrelse berettiger til bevidsthed hos udvalgsledelsen og prioriteringsdisciplin. *Konfidensgrad: MEDIUM-HØJ.*
+
+### 60-Second Read
+
+Den lovgivningsmæssige efterslæbsrisiko er det dominerende Q2 2026-gennemstrømningscyklus-fund. 30+ tekster + 13 COD'er over 4 dage = cirka 11 filhandlinger pr. dag, hvilket overstiger historisk udvalgsugegennemstrømning. Flaskehalsen er empirisk, ikke hypotetisk.
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| Efterslæb spiller ind i plenumugen 27–30. april | HØJ | MED–HØJ |
+| Udvalgsledelsen kan ikke prioritere effektivt | MED | MED |
+| Trilogfiler forsinket af udvalgsuge-efterslæb | MED | MED–HØJ |
+
+### Source Quality
+
+- Efterslæbsantal (30+ tekster + 13 COD'er): **A2**
+- 4-dages udvalgsvindue: **A1**
+- 12/25 HØJ klassificering: **B2**
+
+### Provenance
+
+- Kørsel: `breaking` (2026-04-09)
+- Overholdelse: Kun EP Open Data Portal-feeds. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: efterslæbsrisiko mærket med alvorlighedsgrad.*
+
+### Executive Brief De
+
+### BLUF
+
+Das Briefing vom 9. April identifiziert ein **NEUES Gesetzgebungsrückstandsrisiko bei 12/25 HOCH**: **30+ angenommene Texte + 13 COD-Verfahren müssen in einem 4-tägigen Ausschussfenster (14.–17. April) bearbeitet werden**. Das Risiko ist struktureller Natur: Die Ausschusswoche nach der Osterpause hat unzureichende Kalenderkapazität für den angesammelten Arbeitsaufwand, wodurch ein Engpass entsteht, der in die Plenumwoche und darüber hinaus ausufern wird. *Konfidenz: MEDIUM-HOCH; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Das Ausschussfenster vom 14.–17. April als EP10 Q2 Durchsatzstresstest verankern.** Ob die Ausschussinfrastruktur 30+ Texte + 13 CODs in 4 Tagen bewältigt, definiert die Q2-Durchsatztrajektorie. *Konfidenz: HOCH.*
+2. **Nachgelagerte Verbraucher vorab für das Signalvolumen der Ausschusswoche positionieren.** Analytische Pipeline, Übersetzungspipeline und News-Workflows sollten die Kapazität für die Spitzenlast vom 14.–17. April skalieren. *Konfidenz: HOCH.*
+3. **Das 12/25 HOCH-Rückstandsrisiko als handlungswürdig, nicht nur beratend behandeln.** Risikoniveaus dieser Größenordnung erfordern Bewusstsein der Ausschussleitung und Priorisierungsdisziplin. *Konfidenz: MEDIUM-HOCH.*
+
+### 60-Second Read
+
+Das Gesetzgebungsrückstandsrisiko ist der dominante Q2 2026-Durchsatzzyklus-Befund. 30+ Texte + 13 CODs über 4 Tage = ca. 11 Dateiaktionen pro Tag, was den historischen Ausschusswochendurchsatz übersteigt. Der Engpass ist empirisch, nicht hypothetisch.
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| Rückstand schwappt in Plenumwoche 27.–30. April | HOCH | MED–HOCH |
+| Ausschussleitung kann nicht effektiv priorisieren | MED | MED |
+| Trilogdateien durch Ausschusswochenrückstand verzögert | MED | MED–HOCH |
+
+### Source Quality
+
+- Rückstandsanzahl (30+ Texte + 13 CODs): **A2**
+- 4-tägiges Ausschussfenster: **A1**
+- 12/25 HOCH-Klassifizierung: **B2**
+
+### Provenance
+
+- Lauf: `breaking` (2026-04-09)
+- Compliance: Nur EP Open Data Portal-Feeds. DSGVO-konform.
+
+---
+*Analytische Neutralität: Rückstandsrisiko mit Schweregrad gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+El informe del 9 de abril identifica un **NUEVO riesgo de retraso legislativo a 12/25 ALTO**: **30+ textos adoptados + 13 procedimientos COD deben procesarse en una ventana de comité de 4 días (14-17 de abril)**. El riesgo es estructural: la semana de comité tras el receso pascual tiene capacidad calendaria insuficiente para la carga de trabajo acumulada, creando un cuello de botella que se derramará en la semana plenaria y más allá. *Confianza: MEDIO-ALTO; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Anclar la ventana de comité del 14-17 de abril como prueba de estrés de rendimiento Q2 de EP10.** Si la infraestructura del comité maneja 30+ textos + 13 CODs en 4 días define la trayectoria de rendimiento Q2. *Confianza: ALTO.*
+2. **Preposicionar a los consumidores intermedios para el volumen de señales de la semana de comité.** La tubería analítica, la tubería de traducción y los flujos de trabajo de noticias deben escalar capacidad para la carga máxima del 14-17 de abril. *Confianza: ALTO.*
+3. **Tratar el riesgo de retraso 12/25 ALTO como procesable, no meramente consultivo.** Los niveles de riesgo de esta magnitud justifican la concienciación de la dirección del comité y la disciplina de priorización. *Confianza: MEDIO-ALTO.*
+
+### 60-Second Read
+
+El riesgo de retraso legislativo es el hallazgo dominante del ciclo de rendimiento Q2 2026. 30+ textos + 13 CODs durante 4 días = aproximadamente 11 acciones de archivo por día, lo que supera el rendimiento histórico de la semana de comité. El cuello de botella es empírico, no hipotético.
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| El retraso se desborda en la semana plenaria 27-30 de abril | ALTO | MED–ALTO |
+| La dirección del comité no puede priorizar eficazmente | MED | MED |
+| Archivos de trílogos retrasados por el retraso de la semana de comité | MED | MED–ALTO |
+
+### Source Quality
+
+- Conteo de retrasos (30+ textos + 13 CODs): **A2**
+- Ventana de comité de 4 días: **A1**
+- Clasificación 12/25 ALTO: **B2**
+
+### Provenance
+
+- Ejecución: `breaking` (2026-04-09)
+- Cumplimiento: Solo feeds del portal EP Open Data. Compatible con RGPD.
+
+---
+*Neutralidad analítica: riesgo de retraso etiquetado con grado de severidad.*
+
+### Executive Brief Fi
+
+### BLUF
+
+9. huhtikuuta tiedote tunnistaa **UUDEN lainsäädäntöruuhkan riskin tasolla 12/25 KORKEA**: **30+ hyväksyttyä tekstiä + 13 COD-menettelyä on käsiteltävä 4 päivän valiokuntaikkunassa (14.–17. huhtikuuta)**. Riski on rakenteellinen: pääsiäistauon jälkeisellä valiokuntatyöviikolla ei ole riittävää kalenterikapasiteettia kertyneelle työmäärälle, mikä luo pullonkaulan, joka ylittyy täysistuntoviikolla ja sen jälkeen. *Luottamustaso: MEDIUM-KORKEA; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Asemoi 14.–17. huhtikuuta valiokuntatyöikkuna EP10 Q2:n läpivirtaustestinä.** Se, pystyykö valiokuntainfrastruktuuri käsittelemään 30+ tekstiä + 13 COD:ia 4 päivässä, määrittää Q2:n läpivirtaussuunnan. *Luottamustaso: KORKEA.*
+2. **Asemoi loppukäyttäjät etukäteen valiokuntatyöviikon signaalimäärälle.** Analytiikkaputki, käännösputki ja uutistyönkulut tulee skaalata kapasiteettia 14.–17. huhtikuuta huippukuormitukselle. *Luottamustaso: KORKEA.*
+3. **Käsittele 12/25 KORKEA ruuhkariski toimintaa vaativana, ei vain neuvoa-antavana.** Tämän suuruiset riskitasot edellyttävät valiokuntajohdon tietoisuutta ja priorisointikuria. *Luottamustaso: MEDIUM-KORKEA.*
+
+### 60-Second Read
+
+Lainsäädäntöruuhkan riski on hallitseva Q2 2026:n läpivirtaussyklin löydös. 30+ tekstiä + 13 COD:ia 4 päivässä = noin 11 tiedostotoimenpidettä päivässä, mikä ylittää historiallisen valiokuntatyöviikon läpivirtauksen. Pullonkaula on empiirinen, ei hypoteettinen.
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| Ruuhka ylittyy täysistuntoviikolla 27.–30. huhtikuuta | KORKEA | MED–KORKEA |
+| Valiokuntajohto ei pysty priorisoimaan tehokkaasti | MED | MED |
+| Trilogiasiakirjat viivästyvät valiokuntatyöviikon ruuhkasta | MED | MED–KORKEA |
+
+### Source Quality
+
+- Ruuhkalaskenta (30+ tekstiä + 13 COD:ia): **A2**
+- 4 päivän valiokuntaikkuna: **A1**
+- 12/25 KORKEA-luokittelu: **B2**
+
+### Provenance
+
+- Ajo: `breaking` (2026-04-09)
+- Vaatimustenmukaisuus: Vain EP Open Data Portal -syötteet. GDPR-yhteensopiva.
+
+---
+*Analyyttinen puolueettomuus: ruuhkariski merkitty vakavuusluokituksella.*
+
+### Executive Brief Fr
+
+### BLUF
+
+La note du 9 avril identifie un **NOUVEAU risque d'arriéré législatif à 12/25 ÉLEVÉ** : **30+ textes adoptés + 13 procédures COD doivent être traités dans une fenêtre de commission de 4 jours (14-17 avril)**. Le risque est structurel : la semaine de commission après la pause pascale n'a pas la capacité calendaire suffisante pour la charge de travail accumulée, créant un goulot d'étranglement qui se déversera dans la semaine plénière et au-delà. *Confiance : MEDIUM-ÉLEVÉ ; Admiralty : B2.*
+
+### Three Decisions
+
+1. **Ancrer la fenêtre de commission du 14-17 avril comme test de contrainte de débit Q2 EP10.** La capacité de l'infrastructure des commissions à traiter 30+ textes + 13 CODs en 4 jours définit la trajectoire de débit Q2. *Confiance : ÉLEVÉ.*
+2. **Positionner à l'avance les consommateurs en aval pour le volume de signaux de la semaine de commission.** Le pipeline analytique, le pipeline de traduction et les flux de travail d'actualités doivent adapter leur capacité pour la charge de pointe des 14-17 avril. *Confiance : ÉLEVÉ.*
+3. **Traiter le risque d'arriéré 12/25 ÉLEVÉ comme actionnable, et non simplement consultatif.** Des niveaux de risque de cette ampleur justifient la sensibilisation de la direction des commissions et une discipline de priorisation. *Confiance : MEDIUM-ÉLEVÉ.*
+
+### 60-Second Read
+
+Le risque d'arriéré législatif est le résultat dominant du cycle de débit Q2 2026. 30+ textes + 13 CODs sur 4 jours = environ 11 actions de fichiers par jour, ce qui dépasse le débit historique de la semaine de commission. Le goulot d'étranglement est empirique, non hypothétique.
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| L'arriéré déborde sur la semaine plénière 27-30 avril | ÉLEVÉ | MED–ÉLEVÉ |
+| La direction des commissions ne peut pas prioriser efficacement | MED | MED |
+| Fichiers de trilogue retardés par l'arriéré de la semaine de commission | MED | MED–ÉLEVÉ |
+
+### Source Quality
+
+- Décompte de l'arriéré (30+ textes + 13 CODs) : **A2**
+- Fenêtre de commission de 4 jours : **A1**
+- Classification 12/25 ÉLEVÉ : **B2**
+
+### Provenance
+
+- Exécution : `breaking` (2026-04-09)
+- Conformité : Flux du portail EP Open Data Portal uniquement. Conforme au RGPD.
+
+---
+*Neutralité analytique : risque d'arriéré étiqueté avec un grade de sévérité.*
+
+### Executive Brief He
+
+### BLUF
+
+התקציר מ-9 באפריל מזהה **סיכון חדש לפיגור חקיקתי ברמה 12/25 גבוה**: **30+ טקסטים שאומצו + 13 הליכי COD חייבים להיות מעובדים בחלון ועדה של 4 ימים (14–17 באפריל)**. הסיכון הוא מבני: לשבוע הוועדות לאחר חופשת הפסחא אין קיבולת לוח שנה מספקת לעומס העבודה שהצטבר, ויוצרת צוואר בקבוק שיגלוש לשבוע המליאה ואילך. *רמת אמון: בינוני-גבוה; Admiralty: B2.*
+
+### Three Decisions
+
+1. **לעגן את חלון הוועדות 14–17 באפריל כמבחן עמידות תפוקה Q2 של EP10.** האם תשתית הוועדה מסוגלת לטפל ב-30+ טקסטים + 13 CODs ב-4 ימים — זה מגדיר את מסלול תפוקת Q2. *רמת אמון: גבוה.*
+2. **למקם מראש צרכנים הבאים בזרימה לנפח האותות של שבוע הוועדות.** צינור אנליטיקה, צינור תרגום וזרמי עבודה של חדשות צריכים להרחיב קיבולת לעומס השיא של 14–17 באפריל. *רמת אמון: גבוה.*
+3. **להתייחס לסיכון הפיגור 12/25 גבוה כאל בר-פעולה, לא רק כייעוץ.** רמות סיכון בגודל כזה מצדיקות מודעות הנהגת הוועדה ומשמעת תעדוף. *רמת אמון: בינוני-גבוה.*
+
+### 60-Second Read
+
+סיכון הפיגור החקיקתי הוא הממצא הדומיננטי של מחזור תפוקת Q2 2026. 30+ טקסטים + 13 CODs ב-4 ימים = כ-11 פעולות קובץ ביום, העולה על תפוקת שבוע הוועדות ההיסטורית. צוואר הבקבוק הוא אמפירי, לא היפותטי.
+
+### Risk Snapshot
+
+| סיכון | סבירות | השפעה |
+|---|---:|---:|
+| הפיגור גולש לשבוע המליאה 27–30 באפריל | גבוה | בינוני–גבוה |
+| הנהגת הוועדה אינה מסוגלת לתעדף ביעילות | בינוני | בינוני |
+| קבצי טרילוג מתעכבים בגלל פיגור שבוע הוועדות | בינוני | בינוני–גבוה |
+
+### Source Quality
+
+- ספירת פיגורים (30+ טקסטים + 13 CODs): **A2**
+- חלון ועדה של 4 ימים: **A1**
+- סיווג 12/25 גבוה: **B2**
+
+### Provenance
+
+- ריצה: `breaking` (2026-04-09)
+- עמידה בדרישות: פידים של EP Open Data Portal בלבד. תואם GDPR.
+
+---
+*ניטרליות אנליטית: סיכון פיגור מסומן בדרגת חומרה.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月9日付ブリーフは**新たな立法バックログリスク（12/25 高）**を特定する：**採択文書30件以上と13件のCOD手続きを、4日間の委員会ウィンドウ（4月14〜17日）内で処理しなければならない**。リスクは構造的なものである。イースター休暇明けの委員会週は、蓄積された作業量に対してカレンダー上の余裕が不足しており、本会議週以降へとあふれ出るボトルネックを形成する。*信頼度：中〜高；Admiralty：B2。*
+
+### Three Decisions
+
+1. **4月14〜17日の委員会ウィンドウをEP10 Q2のスループット・ストレステストとして位置づける。** 委員会インフラが30件以上のテキストと13件のCODを4日間で処理できるかどうかが、Q2スループット・トラジェクトリーを規定する。*信頼度：高。*
+2. **委員会週のシグナル量に備えて下流の関係者を事前に配置する。** 分析パイプライン、翻訳パイプライン、ニュースワークフローは、4月14〜17日のピーク負荷に向けた処理能力のスケーリングを行う必要がある。*信頼度：高。*
+3. **12/25 高のバックログリスクを、単なる助言にとどまらず行動可能なものとして扱う。** この規模のリスクレベルは、委員会リーダーシップの認識と優先順位付けの規律を必要とする。*信頼度：中〜高。*
+
+### 60-Second Read
+
+立法バックログリスクは2026年Q2スループット・サイクルにおける支配的な知見である。4日間に30件以上のテキストと13件のCOD＝1日あたり約11件のファイル処理であり、これは委員会週の歴史的スループットを上回る。このボトルネックは仮説的なものではなく、実証的なものである。
+
+### Risk Snapshot
+
+| リスク | 蓋然性 | 影響 |
+|---|---:|---:|
+| バックログが4月27〜30日の本会議週に波及する | 高 | 中〜高 |
+| 委員会リーダーシップが効果的に優先順位を付けられない | 中 | 中 |
+| 三者協議ファイルが委員会週のバックログにより遅延する | 中 | 中〜高 |
+
+### Source Quality
+
+- バックログ件数（30件以上のテキストと13件のCOD）：**A2**
+- 4日間の委員会ウィンドウ：**A1**
+- 12/25 高の分類：**B2**
+
+### Provenance
+
+- 実行：`breaking`（2026-04-09）
+- コンプライアンス：EP Open Data Portalフィードのみ使用。GDPR準拠。
+
+---
+*分析的中立性：バックログリスクには重大度グレードを付記。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 9일 브리핑은 **새로운 입법 잔여분 위험(12/25 높음)**을 식별한다: **채택된 문서 30건 이상과 13건의 COD 절차를 4일간의 위원회 창구(4월 14~17일)에서 처리해야 한다**. 위험은 구조적이다: 부활절 휴회 이후 위원회 주간은 누적된 업무량에 비해 일정 여유가 부족하여, 본회의 주간 이후로 넘쳐흐를 병목 현상을 만들어 낸다. *신뢰도: 중-높음; Admiralty: B2.*
+
+### Three Decisions
+
+1. **4월 14~17일 위원회 창구를 EP10 Q2 처리량 스트레스 테스트로 설정한다.** 위원회 인프라가 4일 내에 30건 이상의 텍스트와 13건의 COD를 처리할 수 있는지 여부가 Q2 처리량 궤적을 결정한다. *신뢰도: 높음.*
+2. **위원회 주간 신호량에 대비하여 다운스트림 수요자를 사전 배치한다.** 분석 파이프라인, 번역 파이프라인, 뉴스 워크플로는 4월 14~17일 최대 부하를 위한 용량을 확장해야 한다. *신뢰도: 높음.*
+3. **12/25 높음 잔여분 위험을 단순 자문이 아닌 실행 가능한 것으로 취급한다.** 이 규모의 위험 수준은 위원회 리더십의 인식과 우선순위 지정 규율을 필요로 한다. *신뢰도: 중-높음.*
+
+### 60-Second Read
+
+입법 잔여분 위험은 2026년 Q2 처리 사이클의 지배적인 발견이다. 4일에 걸쳐 30건 이상의 텍스트와 13건의 COD = 하루 약 11건의 파일 처리로, 이는 위원회 주간의 역사적 처리량을 초과한다. 병목 현상은 실증적이며 가설적이지 않다.
+
+### Risk Snapshot
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| 잔여분이 4월 27~30일 본회의 주간으로 넘쳐흐름 | 높음 | 중-높음 |
+| 위원회 리더십이 효과적으로 우선순위를 정하지 못함 | 중 | 중 |
+| 삼자 협상 파일이 위원회 주간 잔여분으로 지연 | 중 | 중-높음 |
+
+### Source Quality
+
+- 잔여분 집계(30건 이상의 텍스트 + 13건의 COD): **A2**
+- 4일간의 위원회 창구: **A1**
+- 12/25 높음 분류: **B2**
+
+### Provenance
+
+- 실행: `breaking` (2026-04-09)
+- 준수: EP Open Data Portal 피드만 사용. GDPR 준수.
+
+---
+*분석적 중립성: 잔여분 위험에 심각도 등급 표시.*
+
+### Executive Brief Nl
+
+### BLUF
+
+De briefing van 9 april identificeert een **NIEUW wetgevingsachterstandsrisico bij 12/25 HOOG**: **30+ aangenomen teksten + 13 COD-procedures moeten worden verwerkt in een 4-daags commissievenster (14-17 april)**. Het risico is structureel: de commissieweek na het paasverlof heeft onvoldoende kalenderruimte voor de geaccumuleerde werklast, wat een knelpunt creëert dat zal overlopen naar de plenaire week en daarna. *Vertrouwen: MEDIUM-HOOG; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Veranker het commissievenster van 14-17 april als EP10 Q2-doorvoerstresstest.** Of de commissie-infrastructuur 30+ teksten + 13 COD's in 4 dagen aankan, bepaalt de Q2-doorvoertrajectorie. *Vertrouwen: HOOG.*
+2. **Positioneer vooraf downstream verbruikers voor het signaalvolume van de commissieweek.** Analytische pipeline, vertaalpipeline en nieuwsworkflows moeten capaciteit opschalen voor de piekbelasting van 14-17 april. *Vertrouwen: HOOG.*
+3. **Behandel het 12/25 HOOG achterstandsrisico als uitvoerbaar, niet slechts adviserend.** Risiconiveaus van deze omvang rechtvaardigen bewustzijn bij commissieleiding en prioriteringsdiscipline. *Vertrouwen: MEDIUM-HOOG.*
+
+### 60-Second Read
+
+Het wetgevingsachterstandsrisico is de dominante Q2 2026-doorvoercyclusbevinding. 30+ teksten + 13 COD's over 4 dagen = ongeveer 11 bestandsacties per dag, wat de historische commissiewekdoorvoer overschrijdt. Het knelpunt is empirisch, niet hypothetisch.
+
+### Risk Snapshot
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| Achterstand loopt over naar plenaire week 27-30 april | HOOG | MED–HOOG |
+| Commissieleiding kan niet effectief prioriteren | MED | MED |
+| Trilogebestanden vertraagd door commissieweekachterstand | MED | MED–HOOG |
+
+### Source Quality
+
+- Achterstandstelling (30+ teksten + 13 COD's): **A2**
+- 4-daags commissievenster: **A1**
+- 12/25 HOOG-classificatie: **B2**
+
+### Provenance
+
+- Uitvoering: `breaking` (2026-04-09)
+- Naleving: Alleen EP Open Data Portal-feeds. AVG-conform.
+
+---
+*Analytische neutraliteit: achterstandsrisico gemarkeerd met ernstgraad.*
+
+### Executive Brief No
+
+### BLUF
+
+Den 9. april-orienteringen identifiserer en **NY lovgivningsmessig ettersleprisiko ved 12/25 HØY**: **30+ vedtatte tekster + 13 COD-prosedyrer må behandles i et 4-dagers komitévindu (14–17. april)**. Risikoen er strukturell: komitéuken etter påskepausen har utilstrekkelig kalenderkapasitet for den akkumulerte arbeidsbyrden, noe som skaper en flaskehals som vil spille over i plenumsuken og videre. *Konfidensnivå: MEDIUM-HØY; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Forankre 14–17. april komitévinduet som EP10 Q2 gjennomstrømningstest.** Hvorvidt komitéinfrastrukturen håndterer 30+ tekster + 13 COD-er på 4 dager definerer Q2-gjennomstrømningsbanen. *Konfidensnivå: HØY.*
+2. **Forhåndsposisjonér nedstrøms forbrukere for komitéuke-signalvolum.** Analytisk pipeline, oversettingspipeline og nyhetsarbeidsflyter bør skalere kapasitet for toppbelastning 14–17. april. *Konfidensnivå: HØY.*
+3. **Behandle 12/25 HØY ettersleprisiko som handlingsbar, ikke bare rådgivende.** Risikonivåer av denne størrelsen berettiger komitéledelsens bevissthet og prioriteringsdisiplin. *Konfidensnivå: MEDIUM-HØY.*
+
+### 60-Second Read
+
+Den lovgivningsmessige ettersleprisikoen er det dominerende Q2 2026-gjennomstrømningssyklusfunnet. 30+ tekster + 13 COD-er over 4 dager = omtrent 11 filhandlinger per dag, noe som overstiger historisk komitéuke-gjennomstrømning. Flaskehalsen er empirisk, ikke hypotetisk.
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| Etterslepet spiller inn i plenumsuken 27–30. april | HØY | MED–HØY |
+| Komitéledelsen kan ikke prioritere effektivt | MED | MED |
+| Trilogfiler forsinket av komitéuke-etterslep | MED | MED–HØY |
+
+### Source Quality
+
+- Etterslepantall (30+ tekster + 13 COD-er): **A2**
+- 4-dagers komitévindu: **A1**
+- 12/25 HØY-klassifisering: **B2**
+
+### Provenance
+
+- Kjøring: `breaking` (2026-04-09)
+- Samsvar: Kun EP Open Data Portal-feeder. GDPR-kompatibel.
+
+---
+*Analytisk nøytralitet: ettersleprisiko merket med alvorlighetsgrad.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Det 9 aprilbriefet identifierar en **NY lagstiftningseftersläpningsrisk vid 12/25 HÖG**: **30+ antagna texter + 13 COD-procedurer måste behandlas i ett 4-dagarsfönster för utskottsmöten (14–17 april)**. Risken är strukturell: veckan med utskottsmöten efter påskuppehållet har otillräcklig kalenderkapacitet för den ackumulerade arbetsbelastningen, vilket skapar en flaskhals som spiller över i plenarveckan och bortom. *Konfidensgrad: MEDIUM-HÖG; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Förankra 14–17 aprilperioden med utskottsmöten som EP10 Q2:s genomströmningstest.** Huruvida utskottsinfrastrukturen hanterar 30+ texter + 13 COD:ar på 4 dagar definierar Q2:s genomströmningsbana. *Konfidensgrad: HÖG.*
+2. **Positionera efterföljande konsumenter i förväg för signalvolym under utskottsveckan.** Analytisk pipeline, översättningspipeline och nyhetsarbetsflöden bör skala kapaciteten för toppbelastningen 14–17 april. *Konfidensgrad: HÖG.*
+3. **Behandla 12/25 HÖG eftersläpningsrisk som åtgärdsbar, inte enbart rådgivande.** Risknivåer av denna magnitud motiverar medvetenhet hos utskottsledningen och prioriteringsdisciplin. *Konfidensgrad: MEDIUM-HÖG.*
+
+### 60-Second Read
+
+Lagstiftningseftersläpningsrisken är det dominerande Q2 2026 genomströmningscykelfyndet. 30+ texter + 13 COD:ar under 4 dagar = ungefär 11 filåtgärder per dag, vilket överstiger den historiska genomströmningskapaciteten för utskottsveckor. Flaskhalsen är empirisk, inte hypotetisk.
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| Eftersläpningen spiller in i plenarveckan 27–30 april | HÖG | MED–HÖG |
+| Utskottsledningen kan inte prioritera effektivt | MED | MED |
+| Trilogfiler försenas av utskottsveckans eftersläpning | MED | MED–HÖG |
+
+### Source Quality
+
+- Eftersläpningsantal (30+ texter + 13 COD:ar): **A2**
+- 4-dagars utskottsfönster: **A1**
+- 12/25 HÖG-klassificering: **B2**
+
+### Provenance
+
+- Kör: `breaking` (2026-04-09)
+- Efterlevnad: Enbart EP Open Data Portal-flöden. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: eftersläpningsrisk märkt med allvarlighetsgrad.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月9日简报识别到**新的立法积压风险（12/25 高）**：**30件以上已通过文本 + 13项COD程序必须在4天委员会窗口（4月14-17日）内处理**。风险具有结构性：复活节休会后的委员会周日历容量不足以应对累积的工作量，形成将蔓延至全体会议周及此后的瓶颈。*置信度：中-高；Admiralty：B2。*
+
+### Three Decisions
+
+1. **将4月14-17日委员会窗口确立为EP10 Q2吞吐量压力测试。** 委员会基础设施能否在4天内处理30件以上文本 + 13项COD，决定了Q2吞吐量轨迹。*置信度：高。*
+2. **提前为下游消费者配置委员会周信号量。** 分析管道、翻译管道和新闻工作流应为4月14-17日的峰值负载扩展容量。*置信度：高。*
+3. **将12/25 高积压风险视为可执行项，而非仅为咨询性建议。** 这一量级的风险水平需要委员会领导层的意识和优先级管理纪律。*置信度：中-高。*
+
+### 60-Second Read
+
+立法积压风险是2026年Q2吞吐量周期的主要发现。4天内处理30件以上文本 + 13项COD = 每天约11项文件操作，超过委员会周的历史吞吐量。该瓶颈是实证性的，而非假设性的。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 积压延伸至4月27-30日全体会议周 | 高 | 中-高 |
+| 委员会领导层无法有效排定优先级 | 中 | 中 |
+| 三方协商文件因委员会周积压而延误 | 中 | 中-高 |
+
+### Source Quality
+
+- 积压数量（30件以上文本 + 13项COD）：**A2**
+- 4天委员会窗口：**A1**
+- 12/25 高分类：**B2**
+
+### Provenance
+
+- 运行：`breaking`（2026-04-09）
+- 合规：仅使用EP Open Data Portal数据源。符合GDPR要求。
+
+---
+*分析中立性：积压风险已标注严重性等级。*
 
 ### Political Classification
 
@@ -2712,6 +3206,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [coalition-sentiment-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/coalition-sentiment-analysis.md) | `coalition-sentiment-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/political-classification.md) | `political-classification.md` |
 | section-supplementary-intelligence | [post-recess-preparedness](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/post-recess-preparedness.md) | `post-recess-preparedness.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/risk-assessment.md) | `risk-assessment.md` |

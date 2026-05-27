@@ -1,7 +1,7 @@
 ---
-title: "EP Week Ahead: 19–22 May 2026"
+title: "Grand coalition governance (EPP+S&D+Renew = 396 seats)"
 description: "Grand coalition governance (EPP+S&D+Renew = 396 seats): This majority is working but not automatic. Published 2026-05-15."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-15", "Week", "Ahead", "Grand"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-15", "Grand", "coalition", "governance"]
 date: 2026-05-15
 article_type: week-ahead
 slug: 2026-05-15-week-ahead

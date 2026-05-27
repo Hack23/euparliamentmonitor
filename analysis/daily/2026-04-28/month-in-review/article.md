@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Month in Review: March 29–April 28, 2026"
-description: "The European Parliament's March–April 2026 legislative cycle produced a historic output of 104 adopted texts, anchored by three interlocking strategic clusters: defence industrial"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-28", "Parliament", "Month", "Review", "March"]
+title: "The European Parliament's March–April 2026 — Run 1777373049"
+description: "The European Parliament's March–April 2026 legislative cycle produced a historic output of 104 adopted texts for democratic-accountability readers tracking EU institutional."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-28", "European", "Parliament", "March", "April"]
 date: 2026-04-28
 article_type: month-in-review
 slug: 2026-04-28-month-in-review

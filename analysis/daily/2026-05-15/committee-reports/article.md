@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Committee Activity Report: Main Committees — Run 1778822323"
-description: "need one more line Published 2026-05-15."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-15", "Parliament", "Committee", "Activity"]
+title: "need one more line — 2026-05-15 — Run 1778822323"
+description: "need one more line Published 2026-05-15. for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-15", "need", "more", "line"]
 date: 2026-05-15
 article_type: committee-reports
 slug: 2026-05-15-committee-reports

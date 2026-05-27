@@ -1,6 +1,6 @@
 ---
-title: "The Governance Milestone: Anti-Corruption Regulation"
-description: "The signing of the Anti-Corruption Regulation (Regulation 2026/XXX, based on procedure 2023/0135/COD) on April 29, 2026 constitutes the most significant EU institutional"
+title: "The Governance Milestone: Anti-Corruption — Run 1777615486"
+description: "The signing of the Anti-Corruption Regulation (Regulation 2026/XXX, based on procedure 2023/0135/COD) on April 29."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-01", "Governance", "Milestone", "Anti"]
 date: 2026-05-01
 article_type: propositions

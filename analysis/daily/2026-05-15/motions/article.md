@@ -1,6 +1,6 @@
 ---
-title: "Digital Regulation Enforcement Has Become the EP's Dominant Legislative Lever"
-description: "The April 2026 motions cluster represents the EP at peak assertiveness in its mid-term cycle. Published 2026-05-15."
+title: "KJ-1: Digital Regulation Enforcement Has — Run 1778828850"
+description: "🟢 High Confidence (WEP: Almost Certain, 90%+) Published 2026-05-15. for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-15", "Digital", "Regulation", "Enforcement"]
 date: 2026-05-15
 article_type: motions

@@ -1,7 +1,7 @@
 ---
-title: "Plenary Votes & Resolutions: 2026-05-11 — Run 393"
-description: "The European Parliament's April 28–30, 2026 Strasbourg plenary delivered a dense legislative agenda that simultaneously advanced digital rights enforcement, reaffirmed"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-11", "Plenary", "Votes", "European"]
+title: "The European Parliament's April 28–30 — Run 393"
+description: "The European Parliament's April 28–30, 2026 Strasbourg plenary delivered a dense legislative agenda that simultaneously advanced digital rights."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-11", "European", "Parliament", "April"]
 date: 2026-05-11
 article_type: motions
 slug: 2026-05-11-motions

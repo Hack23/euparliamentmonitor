@@ -1,6 +1,6 @@
 ---
-title: "EU Parliament Motions | 28 April – 5 May 2026"
-description: "The European Parliament's April plenary session was bookended by a politically explosive act: the approval of a request to lift the parliamentary immunity of Patryk Jaki (ECR"
+title: "EU Parliament Motions | 28 April – 5 May — Run 1777963626"
+description: "The European Parliament's April plenary session was bookended by a politically explosive act for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-05", "Parliament", "April", "European"]
 date: 2026-05-05
 article_type: motions

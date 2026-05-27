@@ -1,7 +1,7 @@
 ---
-title: "Breaking News: Post-Recess Convergence Intelligence (T-2 to Tariff Activation) | 2026-04-13"
+title: "*This is an analysis-only run on the final recess day"
 description: "*This is an analysis-only run on the final recess day — the decision not to publish a breaking article is itself the headline."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-13", "News", "Post", "Recess"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-13", "This", "analysis", "only"]
 date: 2026-04-13
 article_type: breaking
 slug: 2026-04-13-breaking

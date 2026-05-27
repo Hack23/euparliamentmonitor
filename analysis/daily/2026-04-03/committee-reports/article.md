@@ -1,5 +1,5 @@
 ---
-title: "No committee documents indexed on 2026-04-03; the EP feed API is in confirmed DEGRADED state (see sibling breaking-2 formal assessment)."
+title: "No committee documents indexed on 2026-04-03"
 description: "No committee documents indexed on 2026-04-03; the EP feed API is in confirmed DEGRADED state (see sibling breaking-2 formal assessment)."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-03", "committee", "documents", "indexed"]
 date: 2026-04-03

@@ -1,5 +1,5 @@
 ---
-title: "No new Commission propositions or EP own-initiative procedures opened on 2026-04-03."
+title: "No new Commission propositions or EP own-initiative"
 description: "No new Commission propositions or EP own-initiative procedures opened on 2026-04-03. Published 2026-04-03."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-03", "Commission", "initiative", "procedures"]
 date: 2026-04-03

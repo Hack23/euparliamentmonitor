@@ -1,7 +1,7 @@
 ---
-title: "EP10 Month in Review: April 2026 | 2026-04-19"
-description: "The March 26, 2026 mini-plenary produced 18 adopted texts in a single sitting — the highest single-session legislative density of EP10's second year, consuming roughly 40%"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-19", "EP10", "Month", "Review", "April"]
+title: "The single most intelligence-valuable observation"
+description: "The March 26, 2026 mini-plenary produced 18 adopted texts in a single sitting — the highest single-session legislative density of EP10's second year."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-19", "single", "most", "intelligence", "valuable"]
 date: 2026-04-19
 article_type: month-in-review
 slug: 2026-04-19-month-in-review

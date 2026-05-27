@@ -1,7 +1,7 @@
 ---
-title: "EP Motions & Adopted Texts"
+title: "The European Parliament in EP10 Year 2 (2026) is — Run 431"
 description: "The European Parliament in EP10 Year 2 (2026) is operating under a structurally right-shifted composition with the right bloc holding 52.3% of seats."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-06", "Adopted", "Texts", "European"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-06", "European", "Parliament", "EP10"]
 date: 2026-05-06
 article_type: motions
 slug: 2026-05-06-motions

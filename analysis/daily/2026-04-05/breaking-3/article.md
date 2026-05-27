@@ -1,7 +1,7 @@
 ---
-title: "Breaking (Mid-Recess Strategic Synthesis) | 2026-04-05"
+title: "Mid-recess strategic synthesis (Day 10 of 18) confirms"
 description: "Mid-recess strategic synthesis (Day 10 of 18) confirms three persistent intelligence themes carrying into Q2 2026."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-05", "Recess", "Strategic", "Synthesis"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-05", "recess", "strategic", "synthesis"]
 date: 2026-04-05
 article_type: breaking
 slug: 2026-04-05-breaking-breaking-3

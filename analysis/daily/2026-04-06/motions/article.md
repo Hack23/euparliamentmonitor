@@ -1,7 +1,7 @@
 ---
-title: "Motions: Pre-Recess Vote-Dispersion Retrospective | 2026-04-06"
-description: "This Easter Monday motions run produces the pre-recess RCV vote-dispersion retrospective — the analytical complement to the committee-reports run on the same date."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-06", "Recess", "Vote", "Dispersion"]
+title: "This Easter Monday motions run produces the pre-recess RCV"
+description: "This Easter Monday motions run produces the pre-recess RCV vote-dispersion retrospective for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-06", "This", "Easter", "Monday"]
 date: 2026-04-06
 article_type: motions
 slug: 2026-04-06-motions

@@ -1,6 +1,6 @@
 ---
-title: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint"
-description: "Admissibility: A2 — Official EP sources (Open Data Portal, adopted texts, tracklegislation). Published 2026-05-08."
+title: "The European Parliament completed its April 2026 — Run 425"
+description: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-08", "European", "Parliament", "completed"]
 date: 2026-05-08
 article_type: propositions

@@ -1,7 +1,7 @@
 ---
-title: "EP Motions · Week of 28–30 April 2026"
-description: "The April 28–30 Strasbourg plenary adopted 15+ motions and legislative acts covering digital governance, food security, foreign policy accountability, and institutional budget"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-08", "Week", "April", "Strasbourg"]
+title: "The April 28–30 Strasbourg plenary adopted 15+ — Run 380"
+description: "The April 28–30 Strasbourg plenary adopted 15+ motions and legislative acts covering digital governance, food security, foreign policy accountability."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-08", "April", "Strasbourg", "plenary"]
 date: 2026-05-08
 article_type: motions
 slug: 2026-05-08-motions

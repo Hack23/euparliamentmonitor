@@ -1,7 +1,7 @@
 ---
-title: "Breaking News: EP April 2026 Plenary Outcomes"
-description: "The April 2026 plenary reflects a Parliament operating at the intersection of three concurrent crises:"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-15", "News", "April", "Plenary"]
+title: "The European Parliament's April 28–30 — Run 343"
+description: "The European Parliament's April 28–30, 2026 plenary session produced six significant legislative and political actions that collectively signal three."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-15", "European", "Parliament", "April"]
 date: 2026-05-15
 article_type: breaking
 slug: 2026-05-15-breaking

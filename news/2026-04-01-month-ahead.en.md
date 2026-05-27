@@ -1,5 +1,5 @@
 ---
-title: "April 2026 outlook anchored on the 27-30 April Strasbourg plenary and pre-plenary committee work-week 13-17 April."
+title: "April 2026 outlook anchored on the 27-30 April Strasbourg"
 description: "April 2026 outlook anchored on the 27-30 April Strasbourg plenary and pre-plenary committee work-week 13-17 April."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-01", "April", "outlook", "anchored", "Strasbourg"]
 date: 2026-04-01

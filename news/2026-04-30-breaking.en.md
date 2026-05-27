@@ -1,6 +1,6 @@
 ---
-title: "EU Parliament Breaking News: April 28–30, 2026"
-description: "TA-10-2026-0112 | Procedure: 2025/2246(BUI) | dateAdopted: 2026-04-28 The European Parliament formally adopted its guidelines for the EU 2027 budget (Section III, covering"
+title: "EU Parliament Breaking News: April 28–30, — Run 1777532537"
+description: "TA-10-2026-0112 | Procedure: 2025/2246(BUI) | dateAdopted: 2026-04-28 The European Parliament formally adopted its guidelines for the EU 2027 budget."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-30", "Parliament", "News", "April"]
 date: 2026-04-30
 article_type: breaking

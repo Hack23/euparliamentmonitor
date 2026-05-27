@@ -1,7 +1,7 @@
 ---
-title: "Breaking (Anti-Corruption & Institutional Reform) | 2026-04-03"
-description: "The March 2026 plenary sessions produced a coherent four-text institutional-reform package — the most significant such cluster since the December 2022 Qatargate crisis."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-03", "Anti", "Corruption", "Institutional"]
+title: "The March 2026 plenary sessions produced a coherent"
+description: "The March 2026 plenary sessions produced a coherent four-text institutional-reform package for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-03", "March", "plenary", "sessions"]
 date: 2026-04-03
 article_type: breaking
 slug: 2026-04-03-breaking-breaking-3

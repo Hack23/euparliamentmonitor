@@ -1,7 +1,7 @@
 ---
-title: "Run 156, 10 April 2026 (Easter Recess Day 15, T-5)"
+title: "Run 156 is the Easter Recess Day 15, T-5 breaking probe"
 description: "Run 156 is the Easter Recess Day 15, T-5 breaking probe, conducted over a 28-minute analysis window (18:17–18:45 UTC)."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-10", "April", "Easter", "Recess"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-10", "Easter", "Recess", "probe"]
 date: 2026-04-10
 article_type: breaking
 slug: 2026-04-10-breaking-156
@@ -56,9 +56,490 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `precomputed-stats.analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+### BLUF
+
+الجلسة 156 هي **مسبار إجازة عيد الفصح اليوم 15، T-5** الطارئ، أُجري خلال نافذة تحليل مدتها 28 دقيقة (18:17–18:45 UTC). T-5 = 5 أيام قبل التفعيل القانوني لـ TA-0096 / TA-0097 في 15 أبريل. يمثّل موضع اليوم 15 نقطة المنتصف الهيكلية لمجموعة الإجازة؛ تتقارب الجلسات اللاحقة تدريجياً نحو تاريخ التفعيل. *مستوى الثقة: متوسط؛ Admiralty: B2.*
+
+### Three Decisions
+
+1. **توثيق بيانات القياس عن بُعد لنافذة التحليل المدتها 28 دقيقة بوصفها في حالة تشغيلية صحية.** يؤكد وقت تشغيل التحليل ضمن المظروف كفاءة الأنابيب في ظروف التغذية المتدهورة. *مستوى الثقة: عالٍ.*
+2. **تثبيت قراءة T-5 كخط أساس التفعيل المسبق في منتصف الإجازة.** تقيس الجلسات المستقبلية المسار نحو T-0 مقارنةً بهذه نقطة الارتكاز. *مستوى الثقة: متوسط-عالٍ.*
+3. **الحفاظ على انضباط ANALYSIS_ONLY حتى T-5.** لا يُتوقع أي تجاوز لعتبة إشارة جديدة؛ يجب أن تصمد وظيفة البوابة. *مستوى الثقة: عالٍ.*
+
+### 60-Second Read
+
+تُعدّ مسابير منتصف الإجازة T-5 روتينية تشغيلياً لكنها مهمة إجرائياً: إذ تحافظ على الإيقاع اليومي لأنابيب التحليل وتُثبت أن حتى أيام منتصف الإجازة يمكنها إنتاج مصنوعات ذات جودة مرجعية عند استخدام مدخلات متدهورة.
+
+### Risk Snapshot
+
+| المخاطر | الاحتمالية | التأثير |
+|---|---:|---:|
+| تعطّل بوابة ANALYSIS_ONLY في تقويم T-N | منخفضة | منخفض |
+| خروج قياس أنابيب عن بُعد من المظروف | منخفضة | متوسط |
+| عدم اتساق قراءة T-5 مع نقاط T-N السابقة | منخفضة | منخفض–متوسط |
+
+### Source Quality
+
+- قياس الأنابيب عن بُعد (18:17–18:45 UTC): **A1**
+- قراءة مرساة T-N: **B2**
+
+### Provenance
+
+- الجلسة: `breaking-run156` (2026-04-10، يوم الإجازة 15، T-5)
+- الامتثال: تغذيات بوابة البيانات المفتوحة للبرلمان الأوروبي فقط. متوافق مع اللائحة الأوروبية لحماية البيانات.
+
+---
+*الحياد التحليلي: إطار T-N مُعلَّم.*
+
+### Executive Brief Da
+
+### BLUF
+
+Kørsel 156 er **Påskeferie Dag 15, T-5** breaking-sondering, gennemført over et 28-minutters analysevindue (18:17–18:45 UTC). T-5 = 5 dage før TA-0096 / TA-0097 lovpligtig aktivering den 15. april. Dag-15-positionen er ferieklustrrets strukturelle midtpunkt; efterfølgende kørsler konvergerer progressivt mod aktiveringsdatoen. *Konfidensgrad: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Dokumentér telemetrien for det 28-minutters analysevindue som operationelt sundt.** Analytisk køretid inden for kuverten bekræfter pipeline-effektivitet ved nedgraderede feedbetingelser. *Konfidensgrad: HØJ.*
+2. **Forankr T-5-aflæsningen som mid-ferie-foraktiverings-baseline.** Fremtidige kørsler måler trajektorie mod T-0 i forhold til dette ankerpunkt. *Konfidensgrad: MEDIUM-HØJ.*
+3. **Oprethold ANALYSIS_ONLY-disciplin gennem T-5.** Ingen ny signaltærskloverskridning forventes; portfunktionen skal holde. *Konfidensgrad: HØJ.*
+
+### 60-Second Read
+
+T-5 mid-ferie-sondering er operationelt rutinepræget, men proceduremæssigt vigtig: det opretholder analysepipelinens daglige kadence og viser, at selv midt-ferie-dage kan producere referencekvalitets­artefakter ved nedgraderet input.
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| ANALYSIS_ONLY-porten fejler på T-N-kalender | LAV | LAV |
+| Pipeline-telemetri glider uden for kuverten | LAV | MEDIUM |
+| T-5-aflæsning inkonsistent med tidligere T-N-punkter | LAV | LAV–MEDIUM |
+
+### Source Quality
+
+- Pipeline-telemetri (18:17–18:45 UTC): **A1**
+- T-N-ankeranlæsning: **B2**
+
+### Provenance
+
+- Kørsel: `breaking-run156` (2026-04-10, Feriedag 15, T-5)
+- Overensstemmelse: Kun EP Open Data Portal-feeds. GDPR-kompatibelt.
+
+---
+*Analytisk neutralitet: T-N-ramme mærket.*
+
+### Executive Brief De
+
+### BLUF
+
+Sitzung 156 ist die **Osterferien Tag 15, T-5** Breaking-Sondierung, durchgeführt in einem 28-minütigen Analysefenster (18:17–18:45 UTC). T-5 = 5 Tage vor der gesetzlichen Aktivierung von TA-0096 / TA-0097 am 15. April. Die Dag-15-Position ist der strukturelle Mittelpunkt des Ferienclusters; nachfolgende Sitzungen konvergieren progressiv auf das Aktivierungsdatum. *Vertrauensniveau: MITTEL; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Dokumentiere die 28-minütige Analysefenster-Telemetrie als operativ gesund.** Analytische Laufzeit innerhalb des Briefumschlags bestätigt Pipeline-Effizienz unter degradierten Feed-Bedingungen. *Vertrauensniveau: HOCH.*
+2. **Verankere die T-5-Messung als Ferienmitte-Voraktivierungs-Baseline.** Zukünftige Sitzungen messen die Trajektorie in Richtung T-0 anhand dieses Ankerpunkts. *Vertrauensniveau: MITTEL-HOCH.*
+3. **Aufrechterhalten der ANALYSIS_ONLY-Disziplin durch T-5.** Es wird keine neue Signalschwellenüberschreitung erwartet; die Gate-Funktion muss halten. *Vertrauensniveau: HOCH.*
+
+### 60-Second Read
+
+T-5 Ferienmitte-Sondierungen sind operativ routinemäßig, aber verfahrenstechnisch wichtig: Sie wahren die tägliche Kadenz der Analyse-Pipeline und zeigen, dass selbst Ferienmittetage Referenzqualitäts-Artefakte bei degradierten Eingaben produzieren können.
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| ANALYSIS_ONLY-Gate schlägt beim T-N-Kalender fehl | NIEDRIG | NIEDRIG |
+| Pipeline-Telemetrie gleitet aus dem Briefumschlag heraus | NIEDRIG | MITTEL |
+| T-5-Messung inkonsistent mit früheren T-N-Punkten | NIEDRIG | NIEDRIG–MITTEL |
+
+### Source Quality
+
+- Pipeline-Telemetrie (18:17–18:45 UTC): **A1**
+- T-N-Anker-Messung: **B2**
+
+### Provenance
+
+- Sitzung: `breaking-run156` (2026-04-10, Ferientag 15, T-5)
+- Konformität: Nur EP Open Data Portal-Feeds. DSGVO-konform.
+
+---
+*Analytische Neutralität: T-N-Rahmen gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+La ejecución 156 es el sondeo breaking **Vacaciones de Pascua Día 15, T-5**, realizado durante una ventana de análisis de 28 minutos (18:17–18:45 UTC). T-5 = 5 días antes de la activación legal de TA-0096 / TA-0097 el 15 de abril. La posición Día-15 es el punto medio estructural del clúster de vacaciones; las ejecuciones posteriores convergen progresivamente hacia la fecha de activación. *Nivel de confianza: MEDIO; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Documentar la telemetría de la ventana de análisis de 28 minutos como operativamente saludable.** El tiempo de ejecución analítica dentro del sobre confirma la eficiencia del pipeline bajo condiciones de feed degradadas. *Nivel de confianza: ALTO.*
+2. **Anclar la lectura T-5 como línea de base de pre-activación a mitad de vacaciones.** Las ejecuciones futuras miden la trayectoria hacia T-0 respecto a este punto de anclaje. *Nivel de confianza: MEDIO-ALTO.*
+3. **Mantener la disciplina ANALYSIS_ONLY hasta T-5.** No se espera ningún cruce de umbral de señal nuevo; la función de compuerta debe mantenerse. *Nivel de confianza: ALTO.*
+
+### 60-Second Read
+
+Los sondeos de mitad de vacaciones T-5 son operativamente rutinarios pero proceduralmente importantes: mantienen la cadencia diaria del pipeline de análisis y demuestran que incluso los días de mitad de vacaciones pueden producir artefactos de calidad de referencia con entradas degradadas.
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| La compuerta ANALYSIS_ONLY falla en el calendario T-N | BAJA | BAJA |
+| La telemetría del pipeline se sale del sobre | BAJA | MEDIA |
+| Lectura T-5 inconsistente con los puntos T-N anteriores | BAJA | BAJA–MEDIA |
+
+### Source Quality
+
+- Telemetría del pipeline (18:17–18:45 UTC): **A1**
+- Lectura del ancla T-N: **B2**
+
+### Provenance
+
+- Ejecución: `breaking-run156` (2026-04-10, Día de vacaciones 15, T-5)
+- Cumplimiento: Solo feeds del Portal de Datos Abiertos del PE. Conforme al RGPD.
+
+---
+*Neutralidad analítica: marco T-N etiquetado.*
+
+### Executive Brief Fi
+
+### BLUF
+
+Ajo 156 on **Pääsiäisloma Päivä 15, T-5** -katkosluotaus, toteutettu 28 minuutin analyysi-ikkunan aikana (18:17–18:45 UTC). T-5 = 5 päivää ennen TA-0096 / TA-0097:n lakisääteistä aktivointia 15. huhtikuuta. Päivä-15-sijainti on lomaklusterin rakenteellinen keskipiste; seuraavat ajot lähestyvät progressiivisesti aktivointipäivämäärää. *Luottamustaso: KESKITASO; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Dokumentoi 28 minuutin analyysikkunan telemetria operatiivisesti terveeksi.** Analyyttinen suoritusaika kirjekuoren sisällä vahvistaa pipeline-tehokkuuden heikentyneissä syötetiloissa. *Luottamustaso: KORKEA.*
+2. **Ankkuroi T-5-lukema loman puolivälin esiaktivoinnin lähtötasoksi.** Tulevat ajot mittaavat liikeradan T-0:aa vasten tätä ankkuripistettä vasten. *Luottamustaso: KESKI-KORKEA.*
+3. **Ylläpidä ANALYSIS_ONLY-kuriini T-5:n läpi.** Mitään uuden signaalin kynnysylitystä ei odoteta; porttitoiminnon on pidettävä. *Luottamustaso: KORKEA.*
+
+### 60-Second Read
+
+T-5 loman puolivälin luotaukset ovat operatiivisesti rutiininomaisia, mutta menettelyllisesti tärkeitä: ne ylläpitävät analyysipipelinen päivittäistä tahtia ja osoittavat, että jopa loman puolivälipäivät voivat tuottaa viitetason artefakteja heikentyneillä syötteillä.
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| ANALYSIS_ONLY-portti epäonnistuu T-N-kalenterissa | MATALA | MATALA |
+| Pipeline-telemetria liukuu kirjekuoren ulkopuolelle | MATALA | KESKI |
+| T-5-lukema epäjohdonmukainen aiempien T-N-pisteiden kanssa | MATALA | MATALA–KESKI |
+
+### Source Quality
+
+- Pipeline-telemetria (18:17–18:45 UTC): **A1**
+- T-N-ankkurilukema: **B2**
+
+### Provenance
+
+- Ajo: `breaking-run156` (2026-04-10, Lomapäivä 15, T-5)
+- Vaatimustenmukaisuus: Vain EP Open Data Portal -syötteet. GDPR-yhteensopiva.
+
+---
+*Analyyttinen puolueettomuus: T-N-kehys merkitty.*
+
+### Executive Brief Fr
+
+### BLUF
+
+L'exécution 156 est le sondage breaking **Vacances de Pâques Jour 15, T-5**, conduit sur une fenêtre d'analyse de 28 minutes (18:17–18:45 UTC). T-5 = 5 jours avant l'activation légale de TA-0096 / TA-0097 le 15 avril. La position Jour-15 est le point médian structurel du cluster de vacances ; les exécutions suivantes convergent progressivement vers la date d'activation. *Niveau de confiance : MOYEN ; Admiralty : B2.*
+
+### Three Decisions
+
+1. **Documenter la télémétrie de la fenêtre d'analyse de 28 minutes comme opérationnellement saine.** Le temps d'exécution analytique dans l'enveloppe confirme l'efficacité du pipeline dans des conditions de flux dégradées. *Niveau de confiance : ÉLEVÉ.*
+2. **Ancrer la lecture T-5 comme référence de pré-activation mi-vacances.** Les exécutions futures mesurent la trajectoire vers T-0 par rapport à ce point d'ancrage. *Niveau de confiance : MOYEN-ÉLEVÉ.*
+3. **Maintenir la discipline ANALYSIS_ONLY jusqu'à T-5.** Aucun franchissement de seuil de signal nouveau n'est attendu ; la fonction de porte doit tenir. *Niveau de confiance : ÉLEVÉ.*
+
+### 60-Second Read
+
+Les sondages de mi-vacances T-5 sont opérationnellement routiniers mais procéduralement importants : ils maintiennent la cadence quotidienne du pipeline d'analyse et démontrent que même les jours de mi-vacances peuvent produire des artefacts de qualité de référence sur des entrées dégradées.
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| La porte ANALYSIS_ONLY échoue sur le calendrier T-N | FAIBLE | FAIBLE |
+| La télémétrie du pipeline glisse hors de l'enveloppe | FAIBLE | MOYEN |
+| Lecture T-5 incohérente avec les points T-N précédents | FAIBLE | FAIBLE–MOYEN |
+
+### Source Quality
+
+- Télémétrie du pipeline (18:17–18:45 UTC) : **A1**
+- Lecture d'ancre T-N : **B2**
+
+### Provenance
+
+- Exécution : `breaking-run156` (2026-04-10, Jour de vacances 15, T-5)
+- Conformité : Flux du Portail Open Data du PE uniquement. Conforme au RGPD.
+
+---
+*Neutralité analytique : cadre T-N étiqueté.*
+
+### Executive Brief He
+
+### BLUF
+
+הפעלה 156 היא בדיקת **חופשת פסחא יום 15, T-5** המפסיקה, שנערכה בחלון ניתוח של 28 דקות (18:17–18:45 UTC). T-5 = 5 ימים לפני ההפעלה החוקית של TA-0096 / TA-0097 ב-15 באפריל. מיקום יום-15 הוא נקודת האמצע המבנית של אשכול החופשה; הפעלות עוקבות מתכנסות בהדרגה לקראת תאריך ההפעלה. *רמת ביטחון: בינונית; Admiralty: B2.*
+
+### Three Decisions
+
+1. **לתעד את הטלמטריה של חלון הניתוח של 28 דקות כבריאה תפעולית.** זמן ריצה אנליטי בתוך המעטפה מאשר יעילות צינור בתנאי הזנה מדורדרים. *רמת ביטחון: גבוהה.*
+2. **לעגן את קריאת T-5 כקו בסיס טרום-הפעלה באמצע החופשה.** הפעלות עתידיות מודדות מסלול לכיוון T-0 ביחס לנקודת עוגן זו. *רמת ביטחון: בינונית-גבוהה.*
+3. **לשמור על משמעת ANALYSIS_ONLY דרך T-5.** לא צפויה חציית סף אות חדשה; פונקציית השער חייבת להחזיק. *רמת ביטחון: גבוהה.*
+
+### 60-Second Read
+
+בדיקות T-5 של אמצע חופשה הן שגרתיות תפעולית אך חשובות מבחינה נוהלית: הן שומרות על הקצב היומי של צינור הניתוח ומוכיחות שגם ימי אמצע חופשה יכולים לייצר חפצי תוצאה ברמת ייחוס עם קלט מדורדר.
+
+### Risk Snapshot
+
+| סיכון | הסתברות | השפעה |
+|---|---:|---:|
+| שער ANALYSIS_ONLY נכשל בלוח הזמנים T-N | נמוכה | נמוכה |
+| טלמטריית צינור חורגת מהמעטפה | נמוכה | בינונית |
+| קריאת T-5 אינה עקבית עם נקודות T-N קודמות | נמוכה | נמוכה–בינונית |
+
+### Source Quality
+
+- טלמטריית צינור (18:17–18:45 UTC): **A1**
+- קריאת עוגן T-N: **B2**
+
+### Provenance
+
+- הפעלה: `breaking-run156` (2026-04-10, יום חופשה 15, T-5)
+- ציות: הזנות פורטל נתונים פתוח של EP בלבד. תואם GDPR.
+
+---
+*ניטרליות אנליטית: מסגרת T-N מסומנת.*
+
+### Executive Brief Ja
+
+### BLUF
+
+セッション156は、**イースター休暇15日目・T-5**のブレーキング・プローブです。28分の分析ウィンドウ（18:17–18:45 UTC）で実施されました。T-5 = 4月15日の TA-0096 / TA-0097 法定発動まで残り5日。15日目のポジションは休暇クラスターの構造的中間点であり、以降のセッションは発動日に向けて段階的に収束します。*信頼度：中；Admiralty：B2。*
+
+### Three Decisions
+
+1. **28分の分析ウィンドウのテレメトリーを運用上健全として記録する。** 封筒内の分析実行時間は、フィードが劣化した状況でのパイプライン効率を確認します。*信頼度：高。*
+2. **T-5読み取り値を休暇中盤の事前発動ベースラインとして確定する。** 将来のセッションは、このアンカーポイントを基準にT-0への軌跡を測定します。*信頼度：中～高。*
+3. **T-5を通じて ANALYSIS_ONLY 規律を維持する。** 新たなシグナル閾値越えは予期されない；ゲート機能は維持されなければなりません。*信頼度：高。*
+
+### 60-Second Read
+
+T-5の休暇中盤プローブは運用上は定型的ですが、手順上は重要です。これらは分析パイプラインの日次サイクルを維持し、休暇中盤でも劣化した入力から基準品質のアーティファクトを生成できることを実証します。
+
+### Risk Snapshot
+
+| リスク | 発生可能性 | 影響 |
+|---|---:|---:|
+| ANALYSIS_ONLY ゲートが T-N カレンダーで失敗する | 低 | 低 |
+| パイプラインのテレメトリーが封筒外に逸脱する | 低 | 中 |
+| T-5 読み取り値が以前の T-N ポイントと矛盾する | 低 | 低～中 |
+
+### Source Quality
+
+- パイプラインのテレメトリー（18:17–18:45 UTC）：**A1**
+- T-N アンカー読み取り値：**B2**
+
+### Provenance
+
+- セッション：`breaking-run156`（2026-04-10、休暇15日目、T-5）
+- コンプライアンス：EP オープンデータポータル・フィードのみ。GDPR 準拠。
+
+---
+*分析的中立性：T-N フレームワークにラベル付き。*
+
+### Executive Brief Ko
+
+### BLUF
+
+세션 156은 **부활절 휴가 15일차, T-5** 긴급 탐색 운영으로, 28분 분석 창(18:17–18:45 UTC) 동안 수행되었습니다. T-5 = 4월 15일 TA-0096 / TA-0097 법정 발동까지 5일 전. 15일차 위치는 휴가 클러스터의 구조적 중간점이며, 이후 세션들은 발동일을 향해 점진적으로 수렴합니다. *신뢰도: 중간; Admiralty: B2.*
+
+### Three Decisions
+
+1. **28분 분석 창 텔레메트리를 운영상 정상으로 문서화합니다.** 봉투 내 분석 실행 시간은 피드 저하 조건에서의 파이프라인 효율성을 확인합니다. *신뢰도: 높음.*
+2. **T-5 판독치를 휴가 중반 사전 발동 기준선으로 설정합니다.** 향후 세션들은 이 앵커 포인트 대비 T-0을 향한 궤적을 측정합니다. *신뢰도: 중간-높음.*
+3. **T-5를 통해 ANALYSIS_ONLY 규율을 유지합니다.** 새로운 신호 임계값 초과는 예상되지 않으며, 게이트 기능은 유지되어야 합니다. *신뢰도: 높음.*
+
+### 60-Second Read
+
+T-5 휴가 중반 탐색은 운영상 정례적이지만 절차상 중요합니다. 이는 분석 파이프라인의 일일 케이던스를 유지하며, 휴가 중반일에도 저하된 입력으로 기준 품질의 아티팩트를 생성할 수 있음을 증명합니다.
+
+### Risk Snapshot
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| ANALYSIS_ONLY 게이트가 T-N 캘린더에서 실패 | 낮음 | 낮음 |
+| 파이프라인 텔레메트리가 봉투 밖으로 이탈 | 낮음 | 중간 |
+| T-5 판독치가 이전 T-N 포인트와 불일치 | 낮음 | 낮음–중간 |
+
+### Source Quality
+
+- 파이프라인 텔레메트리 (18:17–18:45 UTC): **A1**
+- T-N 앵커 판독치: **B2**
+
+### Provenance
+
+- 세션: `breaking-run156` (2026-04-10, 휴가 15일차, T-5)
+- 준수: EP 오픈 데이터 포털 피드만 사용. GDPR 준수.
+
+---
+*분석적 중립성: T-N 프레임워크 레이블 적용.*
+
+### Executive Brief Nl
+
+### BLUF
+
+Run 156 is de **Paasvakantie Dag 15, T-5** breaking-peiling, uitgevoerd binnen een 28-minuten analysevenster (18:17–18:45 UTC). T-5 = 5 dagen vóór de wettelijke activering van TA-0096 / TA-0097 op 15 april. De Dag-15-positie is het structurele middelpunt van het vakantieclusters; volgende runs convergeren progressief richting de activeringsdatum. *Betrouwbaarheidsniveau: GEMIDDELD; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Documenteer de 28-minuten analysevenster-telemetrie als operationeel gezond.** Analytische doorlooptijd binnen de envelop bevestigt pipeline-efficiëntie onder gedegradeerde feedomstandigheden. *Betrouwbaarheidsniveau: HOOG.*
+2. **Veranker de T-5-meting als mid-vakantie pre-activeringsbasislijn.** Toekomstige runs meten de trajectorie richting T-0 ten opzichte van dit ankerpunt. *Betrouwbaarheidsniveau: GEMIDDELD-HOOG.*
+3. **Handhaaf de ANALYSIS_ONLY-discipline tot T-5.** Er wordt geen nieuwe signaaldrempeloverschrijding verwacht; de poortfunctie moet stand houden. *Betrouwbaarheidsniveau: HOOG.*
+
+### 60-Second Read
+
+T-5 mid-vakantie peilingen zijn operationeel routinematig maar procedureel belangrijk: ze handhaven de dagelijkse cadans van de analysepipeline en tonen aan dat zelfs mid-vakantie-dagen referentiekwaliteitsartefacten kunnen produceren bij gedegradeerde invoer.
+
+### Risk Snapshot
+
+| Risico | Kans | Impact |
+|---|---:|---:|
+| ANALYSIS_ONLY-poort mislukt op T-N-kalender | LAAG | LAAG |
+| Pipeline-telemetrie glijdt buiten de envelop | LAAG | GEMIDDELD |
+| T-5-meting inconsistent met eerdere T-N-punten | LAAG | LAAG–GEMIDDELD |
+
+### Source Quality
+
+- Pipeline-telemetrie (18:17–18:45 UTC): **A1**
+- T-N-ankermeting: **B2**
+
+### Provenance
+
+- Run: `breaking-run156` (2026-04-10, Vakantiedag 15, T-5)
+- Naleving: Alleen EP Open Data Portal-feeds. AVG-conform.
+
+---
+*Analytische neutraliteit: T-N-kader gelabeld.*
+
+### Executive Brief No
+
+### BLUF
+
+Kjøring 156 er **Påskeferie Dag 15, T-5** breaking-sondering, gjennomført over et 28-minutters analysevindu (18:17–18:45 UTC). T-5 = 5 dager før TA-0096 / TA-0097 lovpålagt aktivering 15. april. Dag-15-posisjonen er ferieklustrets strukturelle midtpunkt; påfølgende kjøringer konvergerer progressivt mot aktiveringsdatoen. *Konfidensgrad: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Dokumenter telemetrien for det 28-minutters analysevinduet som operativt friskt.** Analytisk kjøretid innenfor konvolutten bekrefter pipeline-effektivitet under degraderte feedbetingelser. *Konfidensgrad: HØY.*
+2. **Forankre T-5-avlesningen som midtferie-foraktiverings-baseline.** Fremtidige kjøringer måler trajektori mot T-0 opp mot dette ankerpunktet. *Konfidensgrad: MEDIUM-HØY.*
+3. **Oppretthold ANALYSIS_ONLY-disiplin gjennom T-5.** Ingen ny signalterskelkryssing forventes; portfunksjonen må holde. *Konfidensgrad: HØY.*
+
+### 60-Second Read
+
+T-5 midtferie-sonderinger er operativt rutinepregede, men prosedyremessig viktige: de opprettholder analysepipelinens daglige kadense og viser at selv midtferie-dager kan produsere referansekvalitets-artefakter ved nedgradert inndata.
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| ANALYSIS_ONLY-porten svikter på T-N-kalender | LAV | LAV |
+| Pipeline-telemetri glir utenfor konvolutten | LAV | MEDIUM |
+| T-5-avlesning inkonsistent med tidligere T-N-punkter | LAV | LAV–MEDIUM |
+
+### Source Quality
+
+- Pipeline-telemetri (18:17–18:45 UTC): **A1**
+- T-N-anker-avlesning: **B2**
+
+### Provenance
+
+- Kjøring: `breaking-run156` (2026-04-10, Feriedag 15, T-5)
+- Samsvar: Kun EP Open Data Portal-feeder. GDPR-kompatibelt.
+
+---
+*Analytisk nøytralitet: T-N-rammeverk merket.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Run 156 är **Påskuppehåll Dag 15, T-5** breaking-sonderings­körning, genomförd under ett 28-minutersanalys­fönster (18:17–18:45 UTC). T-5 = 5 dagar före TA-0096 / TA-0097 lagstadgad aktivering den 15 april. Dag-15-positionen är uppehålls­klustrets strukturella mittpunkt; efterföljande körningar konvergerar successivt mot aktiveringsdatumet. *Konfidensgrad: MEDEL; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Dokumentera telemetrin för det 28-minuters långa analysperiod­fönstret som operativt frisk.** Analytisk körtid inom kuvertet bekräftar pipeline­effektivitet vid nedsatt flödes­förhållanden. *Konfidensgrad: HÖG.*
+2. **Förankra T-5-avläsningen som mittuppehållets förhandlings­baslinje.** Framtida körningar mäter trajektorn mot T-0 mot detta ankare. *Konfidensgrad: MEDEL-HÖG.*
+3. **Upprätthåll ANALYSIS_ONLY-disciplin genom T-5.** Ingen ny signaltröskelöverskridning förväntas; grindfunktionen måste hålla. *Konfidensgrad: HÖG.*
+
+### 60-Second Read
+
+T-5 mittuppehålls­sonderingar är operativt rutinmässiga men procedurellt viktiga: de upprätthåller analyspipeline­ns dagliga kadens och visar att även dagar mitt i uppehållet kan producera referensgrads­artefakter vid nedsatt indata.
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| ANALYSIS_ONLY-grinden misslyckas på T-N-kalender | LÅG | LÅG |
+| Pipeline-telemetri glider utanför kuvertet | LÅG | MEDEL |
+| T-5-avläsning inkonsekvent med tidigare T-N-punkter | LÅG | LÅG–MEDEL |
+
+### Source Quality
+
+- Pipeline-telemetri (18:17–18:45 UTC): **A1**
+- T-N-ankar­avläsning: **B2**
+
+### Provenance
+
+- Körning: `breaking-run156` (2026-04-10, Uppehållsdag 15, T-5)
+- Efterlevnad: Enbart EP Open Data Portal-flöden. GDPR-kompatibelt.
+
+---
+*Analytisk neutralitet: T-N-ramverk etiketterat.*
+
+### Executive Brief Zh
+
+### BLUF
+
+会话156是**复活节休假第15天，T-5**突发探测运行，在28分钟分析窗口（18:17–18:45 UTC）内完成。T-5 = 4月15日 TA-0096 / TA-0097 法定激活前5天。第15天位置是休假簇的结构性中间点；后续会话逐步向激活日期收敛。*可信度：中等；Admiralty：B2。*
+
+### Three Decisions
+
+1. **将28分钟分析窗口遥测记录为运营健康状态。** 信封内的分析运行时间确认了在降级馈送条件下的管道效率。*可信度：高。*
+2. **将T-5读数确定为假期中段预激活基准线。** 未来会话将以此锚点为基准测量T-0方向的轨迹。*可信度：中至高。*
+3. **在T-5期间维持ANALYSIS_ONLY纪律。** 不预期有新的信号阈值突破；门控功能必须保持。*可信度：高。*
+
+### 60-Second Read
+
+T-5假期中段探测在运营上是例行的，但在程序上非常重要：它们维持分析管道的日常节奏，并证明即使在假期中段，也能在降级输入下产生参考质量的工件。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| ANALYSIS_ONLY门控在T-N日历上失败 | 低 | 低 |
+| 管道遥测超出信封范围 | 低 | 中 |
+| T-5读数与之前的T-N点不一致 | 低 | 低～中 |
+
+### Source Quality
+
+- 管道遥测（18:17–18:45 UTC）：**A1**
+- T-N锚点读数：**B2**
+
+### Provenance
+
+- 会话：`breaking-run156`（2026-04-10，休假第15天，T-5）
+- 合规性：仅使用欧洲议会开放数据门户馈送。符合GDPR。
+
+---
+*分析中立性：T-N框架已标注。*
 
 ### Precomputed Stats.Analysis
 
@@ -1146,6 +1627,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | Section | Artifact | Path |
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief.md) | `executive-brief.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [precomputed-stats.analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/precomputed-stats.analysis.md) | `precomputed-stats.analysis.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/risk-assessment.md) | `risk-assessment.md` |
 | section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/significance-scoring.md) | `significance-scoring.md` |

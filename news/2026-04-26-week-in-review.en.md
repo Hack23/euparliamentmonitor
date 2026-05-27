@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Week-in-Review"
+title: "The European Parliament's week of April 19 — Run 1777235041"
 description: "The European Parliament's week of April 19–26, 2026 demonstrated high legislative productivity under increasing structural political stress."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-26", "Parliament", "Week", "Review", "European"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-26", "European", "Parliament", "week", "April"]
 date: 2026-04-26
 article_type: week-in-review
 slug: 2026-04-26-week-in-review

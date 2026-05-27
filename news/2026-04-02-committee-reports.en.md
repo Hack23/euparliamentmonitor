@@ -1,6 +1,6 @@
 ---
-title: "No new committee reports on 2026-04-02; recess week 2 of 4 continues."
-description: "No new committee reports on 2026-04-02; recess week 2 of 4 continues. Published 2026-04-02."
+title: "No new committee reports on 2026-04-02"
+description: "No new committee reports on 2026-04-02; recess week 2 of 4 continues. Published 2026-04-02 for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-02", "committee", "reports", "recess"]
 date: 2026-04-02
 article_type: committee-reports

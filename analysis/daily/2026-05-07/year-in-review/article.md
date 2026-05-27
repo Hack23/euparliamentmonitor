@@ -1,7 +1,7 @@
 ---
-title: "EP10 Year 2 in Review (May 2025 – May 2026) | 2026-05-07"
+title: "EP10 Year 2 is the most consequential parliamentary"
 description: "EP10 Year 2 is the most consequential parliamentary reorientation since Lisbon (2009) — but in the opposite direction from EP9's Green Deal ambition."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "Year In Review", "2026-05-07", "EP10", "Year", "Review", "most", "consequential", "parliamentary"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year in review", "annual summary", "legislative achievements", "2026-05-07", "EP10", "Year", "most", "consequential"]
 date: 2026-05-07
 article_type: year-in-review
 slug: 2026-05-07-year-in-review

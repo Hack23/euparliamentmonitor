@@ -1,7 +1,7 @@
 ---
-title: "Propositions: Tariff T-0 Pipeline Transition Day | 2026-04-15"
-description: "*On T-0 day itself, the run reframes the propositions narrative as pipeline transition from adoption to operational implementation: TA-10-2026-0096 ceases to be a parliamentary"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-15", "Tariff", "Pipeline", "Transition"]
+title: "The structural finding is that EP10's record adoption"
+description: "*On T-0 day itself, the run reframes the propositions narrative as pipeline transition from adoption to operational implementation."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-15", "structural", "finding", "that"]
 date: 2026-04-15
 article_type: propositions
 slug: 2026-04-15-propositions

@@ -1,7 +1,7 @@
 ---
-title: "EP10 Month Ahead: April 19 – May 19, 2026 | 2026-04-19"
-description: "Parliament returns from Easter recess on April 27, 2026 — Day 14 of the recess — to face the densest post-break legislative programme since the first post-COVID return"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-19", "EP10", "Month", "Ahead", "April"]
+title: "Parliament returns from Easter recess on April 27, — Run 5"
+description: "Parliament returns from Easter recess on April 27, 2026 — Day 14 of the recess — to face the densest post-break legislative programme since the first."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-19", "Parliament", "returns", "from", "Easter"]
 date: 2026-04-19
 article_type: month-ahead
 slug: 2026-04-19-month-ahead

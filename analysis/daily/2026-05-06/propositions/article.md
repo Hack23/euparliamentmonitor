@@ -1,6 +1,6 @@
 ---
-title: "The week of 29 April – 6 May 2026 sees the European Parliament's legislative pipeline operating at record pace for EP10's second year"
-description: "The week of 29 April – 6 May 2026 sees the European Parliament's legislative pipeline operating at record pace for EP10's second year, with 935 active procedures and 114"
+title: "The week of 29 April – 6 May 2026 sees the — Run 265"
+description: "The week of 29 April – 6 May 2026 sees the European Parliament's legislative pipeline operating at record pace for EP10's second year."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-06", "week", "April", "sees"]
 date: 2026-05-06
 article_type: propositions

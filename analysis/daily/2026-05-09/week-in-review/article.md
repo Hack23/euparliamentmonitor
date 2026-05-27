@@ -1,7 +1,7 @@
 ---
-title: "Week in Review (3 Apr – 1 May 2026)"
-description: "The April 2026 European Parliament period represents a qualitative shift in EP's self-conception: from a primarily legislative body managing the EU single market to an institution"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-09", "Week", "Review", "April", "European"]
+title: "Five developments demand immediate — Run 1778309196"
+description: "Five developments demand immediate attention: Published 2026-05-09. for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-09", "Five", "developments", "demand", "immediate"]
 date: 2026-05-09
 article_type: week-in-review
 slug: 2026-05-09-week-in-review

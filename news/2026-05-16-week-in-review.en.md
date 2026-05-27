@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament April 2026 Plenary"
-description: "**The April 2026 EP plenary session is analytically significant as the most coherent demonstration of EP Term 10's legislative doctrine to date: fiscal assertiveness, digital"
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-16", "Parliament", "April", "Plenary", "session"]
+title: "Judgement 1 — Budget 2027: EP vs. Council Confrontation"
+description: "The adoption of 2027 budget guidelines prioritising strategic autonomy, defense co-investment for democratic-accountability readers tracking EU institutional consequences."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-16", "Judgement", "Budget", "Council", "Confrontation"]
 date: 2026-05-16
 article_type: week-in-review
 slug: 2026-05-16-week-in-review

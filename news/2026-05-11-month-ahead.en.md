@@ -1,6 +1,6 @@
 ---
-title: "EU Parliament Month Ahead: 11 May – 10 June 2026"
-description: "🟡 Medium (EP API partial data — full agenda not yet published) Published 2026-05-11."
+title: "EU Parliament Month Ahead: 11 May – 10 June 2026 — Run 269"
+description: "🟡 Medium (EP API partial data — full agenda not yet published) Published 2026-05-11. for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-05-11", "Parliament", "Month", "Ahead", "June"]
 date: 2026-05-11
 article_type: month-ahead

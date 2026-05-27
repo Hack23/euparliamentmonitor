@@ -1,6 +1,6 @@
 ---
-title: "EU Parliament April 2026 Review: 4-week digest — 2026-04-29"
-description: "Comprehensive analysis of the European Parliament — legislative output, coalition dynamics, and policy trends"
+title: "EU Parliament April 2026 Review: 4-week — Run 1777448086"
+description: "Comprehensive analysis of the European Parliament — legislative output, coalition dynamics, and policy trends."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-29", "Parliament", "April", "Review", "week"]
 date: 2026-04-29
 article_type: month-in-review

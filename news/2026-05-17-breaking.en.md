@@ -1,6 +1,6 @@
 ---
-title: "Digital Markets Act Enforcement — Structural Break in Platform Regulation"
-description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-05-17."
+title: "Digital Markets Act Enforcement — Structural — Run 255"
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-05-17 for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-17", "Digital", "Markets", "Enforcement"]
 date: 2026-05-17
 article_type: breaking

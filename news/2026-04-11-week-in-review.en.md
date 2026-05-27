@@ -1,7 +1,7 @@
 ---
-title: "EP Week in Review: April 4–11, 2026 (Easter Recess Week 3) | 2026-04-11"
+title: "It is driven by three converging external pressures the"
 description: "Parliament was in recess all week — yet the composite political risk score rose 31% in three days (10.10 → 13.17 on April 9 → 11)."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-11", "Week", "Review", "April", "Easter"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-11", "driven", "three", "converging", "external"]
 date: 2026-04-11
 article_type: week-in-review
 slug: 2026-04-11-week-in-review

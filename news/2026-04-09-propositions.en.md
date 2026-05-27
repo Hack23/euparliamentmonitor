@@ -1,7 +1,7 @@
 ---
-title: "🧩 Political Intelligence Synthesis — Legislative Propositions (2026-04-09)"
-description: "Post-Easter pipeline outlook — 13 new COD proposals await committee action after Q1's record output Yesterday focused on implementation outlook for banking/anti-corruption."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-09", "Political", "Intelligence", "Synthesis"]
+title: "The 9 April propositions synthesis documents the"
+description: "The 9 April propositions synthesis documents the pre-recess output baseline: 100 adopted texts between 20 January and 26 March across 6 plenary sessions."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-09", "April", "synthesis", "documents"]
 date: 2026-04-09
 article_type: propositions
 slug: 2026-04-09-propositions
@@ -66,7 +66,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
 | [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-significance">Significance</h2>
 
@@ -2089,6 +2089,500 @@ No description available
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+### BLUF
+
+يوثّق ملخص المقترحات الصادر في 9 أبريل **خط الأساس للإنتاج قبل عطلة البرلمان: 100 نص مُعتمد بين 20 يناير و26 مارس في 6 جلسات عامة**. العدد (100 خلال حوالي 10 أسابيع و6 جلسات) يُعطي متوسطاً بنحو 16.7 نص/جلسة ونحو 10 نصوص/أسبوع. هذا هو خط الأساس التجريبي لإنتاجية الربع الأول من عام 2026 الذي سيُقاس في ضوئه مسار الربع الثاني. *الثقة: عالية في البيانات العددية؛ Admiralty: A1.*
+
+### Three Decisions
+
+1. **تثبيت 100 نص مُعتمد / 10 أسابيع / 6 جلسات بوصفه خط الأساس القياسي للإنتاجية في الربع الأول 2026.** أي انحراف في الربع الثاني عن نحو 16.7 نص/جلسة يُقاس بالنسبة إلى هذه النقطة المرجعية. *الثقة: عالية.*
+2. **التعامل مع المتوسط لكل جلسة (نحو 16.7 نص) بوصفه وحدة التخطيط في المسار التحليلي.** ينبغي لتخطيط الطاقة وتوسّع مسار الترجمة وتحديد نطاق سير عمل الأخبار أن يعتمدوا هذه الوحدة. *الثقة: عالية.*
+3. **توثيق الفترة 20 يناير–26 مارس بوصفها النافذة التشغيلية للربع الأول من السنة الثالثة EP10.** تُصبح حدود هذه النافذة مرجعاً للذاكرة المؤسسية في المقارنات الفصلية اللاحقة. *الثقة: عالية.*
+
+### 60-Second Read
+
+نقطة الارتكاز 100 نص / 6 جلسات / 10 أسابيع هي **المقياس الأحادي الأكثر نفعاً تحليلياً للإنتاجية في الربع الأول 2026**. تُحوِّل الملخص الرأسي المجرد بـ+46.2 % على أساس سنوي إلى وحدات تخطيط عملية. تُنتج كل جلسة عامة في المتوسط 16.7 نصاً — رقم يمكن لتخطيط الطاقة القياس إليه.
+
+### Risk Snapshot
+
+| المخاطرة | الاحتمالية | التأثير |
+|---|---:|---:|
+| ينخفض متوسط الربع الثاني لكل جلسة إلى ما دون 16.7 نص | متوسطة | متوسطة |
+| عدم اعتماد إطار وحدة التخطيط من قِبل المستخدمين في مرحلة ما بعد | متوسطة | منخفضة–متوسطة |
+| حجم عينة الربع الأول من 6 جلسات غير كافٍ لاستقراء الاتجاه | منخفضة–متوسطة | منخفضة |
+
+### Source Quality
+
+- 100 نص / 6 جلسات / 10 أسابيع: **A1**
+- المتوسط لكل جلسة: **A2** (مُستنتج)
+- النافذة الزمنية 20 يناير–26 مارس: **A1**
+
+### Provenance
+
+- الجولة: `propositions` (2026-04-09، معرّف الجولة PROP-2026-04-09-001)
+- الامتثال: بوابة البيانات المفتوحة للبرلمان الأوروبي حصراً. متوافقة مع اللائحة العامة لحماية البيانات.
+
+---
+*الحياد التحليلي: قراءة خط الأساس مُرتكزة على البيانات العددية المنشورة من البرلمان الأوروبي.*
+
+### Executive Brief Da
+
+### BLUF
+
+Forslagssyntesen af 9. april dokumenterer **basislinjen for produktion inden parlamentets ferie: 100 vedtagne tekster mellem 20. januar og 26. marts fordelt på 6 plenarsamlinger**. Antallet (100 over ca. 10 uger og 6 samlinger) giver et gennemsnit på ca. 16,7 tekster/samling og ca. 10 tekster/uge. Dette er den empiriske gennemstrømningsmæssige basislinje for K1 2026, som K2's udvikling vil blive målt imod. *Tillid: HØJ på tælledata; Admiralty: A1.*
+
+### Three Decisions
+
+1. **Forankre 100 vedtagne tekster / 10 uger / 6 samlinger som den kanoniske gennemstrømmingsbasislinje for K1 2026.** Enhver K2-afvigelse fra ca. 16,7 tekster/samling måles mod dette ankerpunkt. *Tillid: HØJ.*
+2. **Behandle gennemsnittet pr. samling (ca. 16,7 tekster) som planlægningsenheden i den analytiske pipeline.** Kapacitetsplanlægning, skalering af oversættelses-pipeline og afgrænsning af nyhedsworkflow bør anvende denne enhed. *Tillid: HØJ.*
+3. **Dokumentere 20. januar–26. marts som det operationelle vindue for EP10 År-3 K1.** Vinduets grænser bliver den institutionelle hukommelsesreference for efterfølgende kvartalssammenligninger. *Tillid: HØJ.*
+
+### 60-Second Read
+
+Ankerpunktet 100 tekster / 6 samlinger / 10 uger er den **analytisk mest anvendelige enkle gennemstrømmingsindikator for K1 2026**. Det omsætter den abstrakte overskriftstalabstraktion på +46,2 % YoY til operationelle planlægningsenheder. Hver plenarsamling giver gennemsnitligt 16,7 tekster — et tal som kapacitetsplanlægningen kan skalere imod.
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Konsekvens |
+|---|---:|---:|
+| K2 gennemsnit pr. samling falder under 16,7 tekster | MED | MED |
+| Planlægningsenhedens ramme ikke adopteret af nedstrømsbrugere | MED | LAV–MED |
+| K1's stikprøvestørrelse med 6 samlinger utilstrækkelig for trendekstrapolation | LAV–MED | LAV |
+
+### Source Quality
+
+- 100 tekster / 6 samlinger / 10 uger: **A1**
+- Gennemsnit pr. samling: **A2** (afledt)
+- Vinduet 20. januar–26. marts: **A1**
+
+### Provenance
+
+- Kørsel: `propositions` (2026-04-09, kørsel-ID PROP-2026-04-09-001)
+- Overholdelse: Kun EP's portal for åbne data. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: basislinjefastlæggelse forankret på EP-publicerede tælledata.*
+
+### Executive Brief De
+
+### BLUF
+
+Die Propositionssynthese vom 9. April dokumentiert die **Produktionsbasislinie vor der parlamentarischen Pause: 100 angenommene Texte zwischen dem 20. Januar und dem 26. März in 6 Plenartagungen**. Die Zahl (100 in ca. 10 Wochen und 6 Tagungen) ergibt einen Durchschnitt von ca. 16,7 Texten/Tagung und ca. 10 Texten/Woche. Dies ist die empirische Durchsatzbasislinie für Q1 2026, an der die Q2-Entwicklung gemessen wird. *Zuverlässigkeit: HOCH bei Zähldaten; Admiralty: A1.*
+
+### Three Decisions
+
+1. **100 angenommene Texte / 10 Wochen / 6 Tagungen als kanonische Durchsatzbasislinie für Q1 2026 verankern.** Jede Q2-Abweichung von ca. 16,7 Texten/Tagung wird an diesem Ankerpunkt gemessen. *Zuverlässigkeit: HOCH.*
+2. **Den Durchschnitt je Tagung (ca. 16,7 Texte) als Planungseinheit der analytischen Pipeline behandeln.** Kapazitätsplanung, Skalierung der Übersetzungspipeline und Abgrenzung des Nachrichten-Workflows sollten diese Einheit verwenden. *Zuverlässigkeit: HOCH.*
+3. **Den 20. Januar–26. März als operatives Fenster des EP10 Jahr-3 Q1 dokumentieren.** Die Grenzen dieses Fensters werden zur institutionellen Gedächtnisreferenz für nachfolgende Quartalsvergleiche. *Zuverlässigkeit: HOCH.*
+
+### 60-Second Read
+
+Der Ankerpunkt 100 Texte / 6 Tagungen / 10 Wochen ist die **analytisch nützlichste einzelne Durchsatzkennzahl für Q1 2026**. Er überführt die abstrakte Schlagzeile +46,2 % YoY in operative Planungseinheiten. Jede Plenartagung erzeugt im Durchschnitt 16,7 Texte — eine Zahl, gegen die Kapazitätsplanung skalieren kann.
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| Q2-Durchschnitt je Tagung fällt unter 16,7 Texte | MITTEL | MITTEL |
+| Planungseinheits-Rahmen nicht von nachgelagerten Nutzern übernommen | MITTEL | NIEDRIG–MITTEL |
+| Q1-Stichprobengröße von 6 Tagungen unzureichend für Trendextrapolation | NIEDRIG–MITTEL | NIEDRIG |
+
+### Source Quality
+
+- 100 Texte / 6 Tagungen / 10 Wochen: **A1**
+- Durchschnitt je Tagung: **A2** (abgeleitet)
+- Fenster 20. Januar–26. März: **A1**
+
+### Provenance
+
+- Durchlauf: `propositions` (2026-04-09, Durchlauf-ID PROP-2026-04-09-001)
+- Compliance: Ausschließlich EP-Portal für offene Daten. DSGVO-konform.
+
+---
+*Analytische Neutralität: Basislinienmessung verankert an EP-veröffentlichten Zähldaten.*
+
+### Executive Brief Es
+
+### BLUF
+
+La síntesis de proposiciones del 9 de abril documenta la **línea de base de producción antes del receso parlamentario: 100 textos adoptados entre el 20 de enero y el 26 de marzo en 6 sesiones plenarias**. El número (100 en aproximadamente 10 semanas y 6 sesiones) produce un promedio de aproximadamente 16,7 textos/sesión y aproximadamente 10 textos/semana. Esta es la línea de base empírica de rendimiento del T1 2026 frente a la cual se medirá la trayectoria del T2. *Confianza: ALTA en contadores; Admiralty: A1.*
+
+### Three Decisions
+
+1. **Anclar 100 textos adoptados / 10 semanas / 6 sesiones como la línea de base canónica de rendimiento del T1 2026.** Cualquier desviación del T2 de aproximadamente 16,7 textos/sesión se medirá frente a este ancla. *Confianza: ALTA.*
+2. **Tratar el promedio por sesión (aproximadamente 16,7 textos) como la unidad de planificación en la cadena analítica.** La planificación de capacidades, el escalado de la cadena de traducción y el alcance del flujo de trabajo de noticias deben utilizar esta unidad. *Confianza: ALTA.*
+3. **Documentar el 20 de enero–26 de marzo como la ventana operativa del T1 Año 3 EP10.** Los límites de esta ventana se convierten en la referencia de memoria institucional para comparaciones trimestrales posteriores. *Confianza: ALTA.*
+
+### 60-Second Read
+
+El ancla de 100 textos / 6 sesiones / 10 semanas es la **métrica de rendimiento unitaria analíticamente más útil para el T1 2026**. Convierte la abstracción del titular +46,2 % interanual en unidades de planificación operativas. Cada sesión plenaria promedia 16,7 textos — un número contra el que la planificación de capacidades puede escalar.
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| El promedio del T2 por sesión cae por debajo de 16,7 textos | MED | MED |
+| El marco de unidad de planificación no adoptado por consumidores posteriores | MED | BAJO–MED |
+| El tamaño de muestra del T1 de 6 sesiones insuficiente para extrapolación de tendencia | BAJO–MED | BAJO |
+
+### Source Quality
+
+- 100 textos / 6 sesiones / 10 semanas: **A1**
+- Promedio por sesión: **A2** (derivado)
+- Ventana 20 de enero–26 de marzo: **A1**
+
+### Provenance
+
+- Ejecución: `propositions` (2026-04-09, ID de ejecución PROP-2026-04-09-001)
+- Cumplimiento: Solo portal de datos abiertos del PE. Conforme con el RGPD.
+
+---
+*Neutralidad analítica: lectura de la línea de base anclada en contadores publicados por el PE.*
+
+### Executive Brief Fi
+
+### BLUF
+
+Huhtikuun 9. päivän ehdotussynteesi dokumentoi **tuotannon peruslinjan ennen parlamenttilomaa: 100 hyväksyttyä tekstiä 20. tammikuuta – 26. maaliskuuta kuudessa täysistuntokokouksessa**. Lukumäärä (100 noin 10 viikon ja 6 istunnon aikana) antaa keskiarvoksi noin 16,7 tekstiä/istunto ja noin 10 tekstiä/viikko. Tämä on vuoden 2026 Q1:n empiirinen läpimenon peruslinja, jota vasten Q2:n kehitystä mitataan. *Luottamus: KORKEA laskentadatan osalta; Admiralty: A1.*
+
+### Three Decisions
+
+1. **Ankkuroida 100 hyväksyttyä tekstiä / 10 viikkoa / 6 istuntoa vuoden 2026 Q1:n kanoniseksi läpimenon peruslinjana.** Jokainen Q2-poikkeama noin 16,7 tekstistä/istunto mitataan tätä ankkuripistettä vasten. *Luottamus: KORKEA.*
+2. **Käsitellä istuntokohtaista keskiarvoa (n. 16,7 tekstiä) analyyttisen putkilinjan suunnitteluyksikkönä.** Kapasiteettisuunnittelussa, käännösputkilinjan skaalauksessa ja uutistyönkulun rajauksessa tulee käyttää tätä yksikköä. *Luottamus: KORKEA.*
+3. **Dokumentoida 20. tammikuuta – 26. maaliskuuta EP10 vuosi-3 Q1:n operatiivisena ikkunana.** Ikkunan rajat muodostuvat institutionaaliseksi muistireferenssiksi myöhemmille kvartaalivertailuille. *Luottamus: KORKEA.*
+
+### 60-Second Read
+
+Ankkuripiste 100 tekstiä / 6 istuntoa / 10 viikkoa on **analyyttisesti hyödyllisin yksittäinen läpimenomittari Q1 2026:lle**. Se muuntaa abstraktin otsikon +46,2 % vuosimuutoksen operatiivisiksi suunnitteluyksiköiksi. Jokainen täysistunto tuottaa keskimäärin 16,7 tekstiä — luku, jota vasten kapasiteettisuunnittelu voi skaalata.
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| Q2 istuntokohtainen keskiarvo putoaa alle 16,7 tekstin | KESKI | KESKI |
+| Suunnitteluyksikön viitekehystä ei omaksuta jatkokäyttäjien toimesta | KESKI | MATALA–KESKI |
+| Q1:n 6 istunnon otoskoko riittämätön trendiekspolointiin | MATALA–KESKI | MATALA |
+
+### Source Quality
+
+- 100 tekstiä / 6 istuntoa / 10 viikkoa: **A1**
+- Istuntokohtainen keskiarvo: **A2** (johdettu)
+- Ikkuna 20. tammikuuta – 26. maaliskuuta: **A1**
+
+### Provenance
+
+- Ajo: `propositions` (2026-04-09, ajo-ID PROP-2026-04-09-001)
+- Vaatimustenmukaisuus: Vain EP:n avoimen datan portaali. GDPR-yhteensopiva.
+
+---
+*Analyyttinen neutraalisuus: peruslinjamittaus ankkuroitu EP:n julkaisemiin laskentadatoihin.*
+
+### Executive Brief Fr
+
+### BLUF
+
+La synthèse des propositions du 9 avril documente la **référence de production avant la pause parlementaire : 100 textes adoptés entre le 20 janvier et le 26 mars lors de 6 sessions plénières**. Ce nombre (100 sur environ 10 semaines et 6 séances) donne une moyenne d'environ 16,7 textes/séance et d'environ 10 textes/semaine. Il s'agit de la référence empirique de débit pour le T1 2026 par rapport à laquelle la trajectoire du T2 sera mesurée. *Confiance : ÉLEVÉE sur les compteurs ; Admiralty : A1.*
+
+### Three Decisions
+
+1. **Ancrer 100 textes adoptés / 10 semaines / 6 séances comme référence canonique de débit pour le T1 2026.** Tout écart du T2 par rapport à environ 16,7 textes/séance sera mesuré par rapport à cet ancre. *Confiance : ÉLEVÉE.*
+2. **Traiter la moyenne par séance (environ 16,7 textes) comme l'unité de planification dans la chaîne analytique.** La planification des capacités, le dimensionnement de la chaîne de traduction et la délimitation du flux de travail d'information doivent utiliser cette unité. *Confiance : ÉLEVÉE.*
+3. **Documenter le 20 janvier–26 mars comme la fenêtre opérationnelle du T1 de l'EP10 Année 3.** Les limites de cette fenêtre deviennent la référence mémorielle institutionnelle pour les comparaisons trimestrielles ultérieures. *Confiance : ÉLEVÉE.*
+
+### 60-Second Read
+
+L'ancre 100 textes / 6 séances / 10 semaines est la **métrique de débit unique la plus analytiquement utile pour le T1 2026**. Elle convertit l'abstraction de la manchette +46,2 % en glissement annuel en unités de planification opérationnelles. Chaque séance plénière produit en moyenne 16,7 textes — un nombre contre lequel la planification des capacités peut se calibrer.
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| La moyenne T2 par séance passe sous les 16,7 textes | MED | MED |
+| Le cadre d'unité de planification non adopté par les utilisateurs en aval | MED | FAIBLE–MED |
+| La taille d'échantillon T1 de 6 séances insuffisante pour l'extrapolation de tendance | FAIBLE–MED | FAIBLE |
+
+### Source Quality
+
+- 100 textes / 6 séances / 10 semaines : **A1**
+- Moyenne par séance : **A2** (dérivée)
+- Fenêtre 20 janvier–26 mars : **A1**
+
+### Provenance
+
+- Exécution : `propositions` (2026-04-09, ID d'exécution PROP-2026-04-09-001)
+- Conformité : Portail de données ouvertes du PE exclusivement. Conforme au RGPD.
+
+---
+*Neutralité analytique : lecture de la référence ancrée sur les compteurs publiés par le PE.*
+
+### Executive Brief He
+
+### BLUF
+
+סינתזת ההצעות מ-9 באפריל מתעדת את **קו הבסיס של הייצור לפני הפסקת הפרלמנט: 100 טקסטים שאומצו בין 20 בינואר ל-26 במרץ ב-6 מושבים פלנריים**. המספר (100 בפרק זמן של כ-10 שבועות ו-6 מושבים) מניב ממוצע של כ-16.7 טקסטים/מושב וכ-10 טקסטים/שבוע. זהו קו הבסיס האמפירי של תפוקת הרבעון הראשון 2026 שכנגדו ייבחן מסלול הרבעון השני. *רמת ביטחון: גבוהה לנתוני ספירה; Admiralty: A1.*
+
+### Three Decisions
+
+1. **לעגן 100 טקסטים שאומצו / 10 שבועות / 6 מושבים כקו הבסיס הקאנוני של תפוקת הרבעון הראשון 2026.** כל סטייה ברבעון השני מ-16.7 טקסטים/מושב בקירוב תיבחן מול נקודת עיגון זו. *רמת ביטחון: גבוהה.*
+2. **להתייחס לממוצע לכל מושב (כ-16.7 טקסטים) כיחידת התכנון ב-pipeline האנליטי.** תכנון קיבולת, הרחבת ה-pipeline לתרגום, ותיחום תזרים עבודת החדשות צריכים להשתמש ביחידה זו. *רמת ביטחון: גבוהה.*
+3. **לתעד את 20 בינואר–26 במרץ כחלון הפעולה של הרבעון הראשון שנה 3 EP10.** גבולות חלון זה יהפכו לאסמכתה של זיכרון מוסדי להשוואות רבעוניות עתידיות. *רמת ביטחון: גבוהה.*
+
+### 60-Second Read
+
+נקודת העיגון 100 טקסטים / 6 מושבים / 10 שבועות היא **מדד התפוקה הבודד המועיל ביותר מבחינה אנליטית לרבעון הראשון 2026**. היא ממירה את הכותרת המופשטת של +46.2% ביחס שנה לשנה ליחידות תכנון מבצעיות. כל מושב פלנרי מניב בממוצע 16.7 טקסטים — מספר שתכנון הקיבולת יכול להתבסס עליו.
+
+### Risk Snapshot
+
+| סיכון | הסתברות | השפעה |
+|---|---:|---:|
+| ממוצע הרבעון השני לכל מושב יורד מ-16.7 טקסטים | בינוני | בינוני |
+| מסגרת יחידת התכנון אינה מאומצת על-ידי משתמשים במורד הזרם | בינוני | נמוך–בינוני |
+| גודל המדגם של הרבעון הראשון מ-6 מושבים אינו מספיק לחיזוי מגמות | נמוך–בינוני | נמוך |
+
+### Source Quality
+
+- 100 טקסטים / 6 מושבים / 10 שבועות: **A1**
+- ממוצע לכל מושב: **A2** (נגזר)
+- חלון 20 בינואר–26 במרץ: **A1**
+
+### Provenance
+
+- ריצה: `propositions` (2026-04-09, מזהה ריצה PROP-2026-04-09-001)
+- ציות: פורטל הנתונים הפתוחים של הפרלמנט האירופי בלבד. תואם GDPR.
+
+---
+*ניטרליות אנליטית: קריאת קו הבסיס מעוגנת על נתוני ספירה שפורסמו על-ידי הפרלמנט האירופי.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月9日の提案統合は**議会休会前の産出ベースライン：2026年1月20日から3月26日の間に6回の本会議で採択された100件のテキスト**を文書化しています。件数（約10週間・6回の会期で100件）は1会期あたり約16.7件、1週間あたり約10件の平均を示します。これがQ2の軌跡を測るための2026年Q1の経験的スループットベースラインです。*信頼度：カウンターは高；標準：A1。*
+
+### Three Decisions
+
+1. **採択テキスト100件 / 10週間 / 6会期を2026年Q1の正規スループットベースラインとして確立する。** 1会期あたり約16.7件からのQ2の乖離はすべてこのアンカーを基準に測定されます。*信頼度：高。*
+2. **1会期あたりの平均（約16.7件）を分析パイプラインの計画単位として扱う。** 能力計画、翻訳パイプラインのスケーリング、ニュースワークフローの範囲設定はこの単位を使用すること。*信頼度：高。*
+3. **1月20日–3月26日をEP10第3年Q1の運用ウィンドウとして記録する。** このウィンドウの境界が後続のQ対Q比較の機関的記憶参照となります。*信頼度：高。*
+
+### 60-Second Read
+
+100件 / 6会期 / 10週間のアンカーは**2026年Q1の単一スループット指標として最も分析的に有用なもの**です。見出しの抽象的な前年同期比+46.2%を運用計画単位に変換します。各本会議は平均16.7件のテキストを産出 — 能力計画がスケールできる数字です。
+
+### Risk Snapshot
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| Q2の1会期あたり平均が16.7件を下回る | 中 | 中 |
+| 計画単位の枠組みが下流の消費者に採用されない | 中 | 低–中 |
+| 6会期のQ1サンプルサイズがトレンド外挿に不十分 | 低–中 | 低 |
+
+### Source Quality
+
+- 100件 / 6会期 / 10週間：**A1**
+- 1会期あたり平均：**A2**（導出）
+- 1月20日–3月26日のウィンドウ：**A1**
+
+### Provenance
+
+- 実行：`propositions`（2026-04-09、実行ID PROP-2026-04-09-001）
+- コンプライアンス：EP開放データポータルのみ。GDPR準拠。
+
+---
+*分析的中立性：EP発表のカウンターに基づいたベースライン読み取り。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 9일 제안 종합보고서는 **의회 휴회 전 산출 기준선：2026년 1월 20일부터 3월 26일 사이 6회의 본회의에서 채택된 100건의 텍스트**를 문서화합니다. 건수（약 10주·6회 회기에 걸친 100건）는 회기당 약 16.7건, 주당 약 10건의 평균을 나타냅니다. 이것이 2026년 Q2 궤적을 측정할 Q1 2026의 경험적 처리량 기준선입니다. *신뢰도：카운터는 높음；표준：A1。*
+
+### Three Decisions
+
+1. **채택 텍스트 100건 / 10주 / 6회기를 2026년 Q1의 표준 처리량 기준선으로 확립합니다.** 회기당 약 16.7건으로부터의 Q2 편차는 모두 이 앵커를 기준으로 측정됩니다. *신뢰도：높음。*
+2. **회기당 평균（약 16.7건）을 분석 파이프라인의 계획 단위로 취급합니다.** 역량 계획, 번역 파이프라인 확장, 뉴스 워크플로우 범위 설정은 이 단위를 사용해야 합니다. *신뢰도：높음。*
+3. **1월 20일–3월 26일을 EP10 3년차 Q1의 운영 창으로 기록합니다.** 이 창의 경계는 이후 분기 비교를 위한 기관 기억 참조가 됩니다. *신뢰도：높음。*
+
+### 60-Second Read
+
+100건 / 6회기 / 10주 앵커는 **2026년 Q1의 단일 처리량 지표로서 분석적으로 가장 유용한 것**입니다. 전년 동기 대비 +46.2%라는 추상적인 헤드라인을 운영 계획 단위로 전환합니다. 각 본회의는 평균 16.7건의 텍스트를 산출 — 역량 계획이 기준으로 삼을 수 있는 수치입니다。
+
+### Risk Snapshot
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| Q2 회기당 평균이 16.7건 미만으로 하락 | 중간 | 중간 |
+| 계획 단위 프레임워크가 하류 소비자에게 채택되지 않음 | 중간 | 낮음–중간 |
+| 6회기의 Q1 표본 크기가 추세 외삽에 불충분 | 낮음–중간 | 낮음 |
+
+### Source Quality
+
+- 100건 / 6회기 / 10주：**A1**
+- 회기당 평균：**A2**（도출）
+- 1월 20일–3월 26일 창：**A1**
+
+### Provenance
+
+- 실행：`propositions`（2026-04-09, 실행 ID PROP-2026-04-09-001）
+- 준수：EP 오픈 데이터 포털 전용. GDPR 준수。
+
+---
+*분석적 중립성：EP 발표 카운터에 기반한 기준선 읽기。*
+
+### Executive Brief Nl
+
+### BLUF
+
+De propositionssynthese van 9 april documenteert de **productiebasislijn vóór het parlementair reces: 100 aangenomen teksten tussen 20 januari en 26 maart in 6 plenaire vergaderingen**. Het aantal (100 in ca. 10 weken en 6 vergaderingen) levert een gemiddelde op van ca. 16,7 teksten/vergadering en ca. 10 teksten/week. Dit is de empirische doorvoerbasislijn voor K1 2026 waaraan de K2-trajectorie wordt afgemeten. *Betrouwbaarheid: HOOG op telgegevens; Admiralty: A1.*
+
+### Three Decisions
+
+1. **100 aangenomen teksten / 10 weken / 6 vergaderingen verankeren als de canonieke doorvoerbasislijn voor K1 2026.** Elke K2-afwijking van ca. 16,7 teksten/vergadering wordt gemeten aan dit ankerpunt. *Betrouwbaarheid: HOOG.*
+2. **Het gemiddelde per vergadering (ca. 16,7 teksten) als planningseenheid van de analytische pipeline behandelen.** Capaciteitsplanning, schaling van de vertaalpipeline en afbakening van de nieuwsworkflow dienen deze eenheid te gebruiken. *Betrouwbaarheid: HOOG.*
+3. **20 januari–26 maart documenteren als het operationele venster van EP10 Jaar-3 K1.** De grenzen van dit venster worden de institutionele geheugenreferentie voor opvolgende kwartaalsvergelijkingen. *Betrouwbaarheid: HOOG.*
+
+### 60-Second Read
+
+Het ankerpunt 100 teksten / 6 vergaderingen / 10 weken is de **analytisch nuttigste enkelvoudige doorvoermaatstaf voor K1 2026**. Het vertaalt de abstracte koptekst +46,2 % j-o-j naar operationele planningseenheden. Elke plenaire vergadering produceert gemiddeld 16,7 teksten — een getal waaraan capaciteitsplanning kan schalen.
+
+### Risk Snapshot
+
+| Risico | Kans | Impact |
+|---|---:|---:|
+| K2-gemiddelde per vergadering daalt onder 16,7 teksten | MED | MED |
+| Kader van planningseenheid niet overgenomen door downstream-afnemers | MED | LAAG–MED |
+| K1-steekproefgrootte van 6 vergaderingen onvoldoende voor trendextrapolatie | LAAG–MED | LAAG |
+
+### Source Quality
+
+- 100 teksten / 6 vergaderingen / 10 weken: **A1**
+- Gemiddelde per vergadering: **A2** (afgeleid)
+- Venster 20 januari–26 maart: **A1**
+
+### Provenance
+
+- Run: `propositions` (2026-04-09, run-ID PROP-2026-04-09-001)
+- Naleving: Uitsluitend EP-portaal voor open data. AVG-conform.
+
+---
+*Analytische neutraliteit: basislijnmeting verankerd aan door het EP gepubliceerde telgegevens.*
+
+### Executive Brief No
+
+### BLUF
+
+Proposisjonssyntetsen av 9. april dokumenterer **produksjonsbaselinjen før parlamentets pause: 100 vedtatte tekster mellom 20. januar og 26. mars fordelt på 6 plenumssamlinger**. Antallet (100 over ca. 10 uker og 6 samlinger) gir et gjennomsnitt på ca. 16,7 tekster/samling og ca. 10 tekster/uke. Dette er den empiriske gjennomstrømningsbaseline for K1 2026 som K2-utviklingen vil bli målt mot. *Tillit: HØY på telledata; Admiralty: A1.*
+
+### Three Decisions
+
+1. **Forankre 100 vedtatte tekster / 10 uker / 6 samlinger som den kanoniske gjennomstrømningsbaseline for K1 2026.** Enhver K2-avvik fra ca. 16,7 tekster/samling måles mot dette ankerpunktet. *Tillit: HØY.*
+2. **Behandle gjennomsnittet per samling (ca. 16,7 tekster) som planleggingsenheten i den analytiske pipeline.** Kapasitetsplanlegging, skalering av oversettelsespipeline og avgrensning av nyhetsarbeidsflyt bør benytte denne enheten. *Tillit: HØY.*
+3. **Dokumentere 20. januar–26. mars som det operasjonelle vinduet for EP10 År-3 K1.** Vinduets grenser blir den institusjonelle minneferansen for etterfølgende kvartalsvise sammenligninger. *Tillit: HØY.*
+
+### 60-Second Read
+
+Ankerpunktet 100 tekster / 6 samlinger / 10 uker er den **analytisk mest nyttige enkle gjennomstrømningsindikatoren for K1 2026**. Det omgjør den abstrakte overskriften +46,2 % YoY til operasjonelle planleggingsenheter. Hvert plenumsmøte gir gjennomsnittlig 16,7 tekster — et tall som kapasitetsplanleggingen kan skalere mot.
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Konsekvens |
+|---|---:|---:|
+| K2 gjennomsnitt per samling faller under 16,7 tekster | MED | MED |
+| Planleggingsenhetens rammeverk ikke adoptert av nedstrømsbrukere | MED | LAV–MED |
+| K1s utvalgsstørrelse med 6 samlinger utilstrekkelig for trendekstrapolasjon | LAV–MED | LAV |
+
+### Source Quality
+
+- 100 tekster / 6 samlinger / 10 uker: **A1**
+- Gjennomsnitt per samling: **A2** (avledet)
+- Vinduet 20. januar–26. mars: **A1**
+
+### Provenance
+
+- Kjøring: `propositions` (2026-04-09, kjørings-ID PROP-2026-04-09-001)
+- Etterlevelse: Kun EP-portalen for åpne data. GDPR-kompatibel.
+
+---
+*Analytisk nøytralitet: baselinelesing forankret på EP-publiserte telledata.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Propositionssyntetsen av den 9 april dokumenterar **baslinjen för produktion före parlamentsrecess: 100 antagna texter mellan 20 januari och 26 mars fördelade på 6 plenarsammanträden**. Antalet (100 under ca 10 veckor och 6 sammanträden) ger ett genomsnitt på ca 16,7 texter/sammanträde och ca 10 texter/vecka. Detta är den empiriska genomströmningsmässiga baslinjen för K1 2026 mot vilken K2:s rörelseriktning kommer att mätas. *Tillförlitlighet: HÖG avseende räknedata; Admiralty: A1.*
+
+### Three Decisions
+
+1. **Förankra 100 antagna texter / 10 veckor / 6 sammanträden som den kanoniska genomströmningsbaslinjen för K1 2026.** Varje K2-avvikelse från ca 16,7 texter/sammanträde kommer att mätas mot denna ankarpunkt. *Tillförlitlighet: HÖG.*
+2. **Behandla genomsnittet per sammanträde (ca 16,7 texter) som planeringsenheten i den analytiska pipeline.** Kapacitetsplanering, skalning av översättningspipeline och avgränsning av nyhetsarbetsflödet bör använda denna enhet. *Tillförlitlighet: HÖG.*
+3. **Dokumentera 20 januari–26 mars som det operativa fönstret för EP10 År-3 K1.** Fönstrets gränser blir den institutionella minnesreferensen för efterföljande kvartalsjämförelser. *Tillförlitlighet: HÖG.*
+
+### 60-Second Read
+
+Ankarpunkten 100 texter / 6 sammanträden / 10 veckor är den **analytiskt mest användbara enskilda genomströmningsindikatorn för K1 2026**. Den omvandlar den abstrakta rubriksiffran +46,2 % YoY till operativa planeringsenheter. Varje plenarsession ger i genomsnitt 16,7 texter — ett tal som kapacitetsplaneringen kan skala mot.
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Konsekvens |
+|---|---:|---:|
+| K2 genomsnitt per sammanträde sjunker under 16,7 texter | MED | MED |
+| Planeringsenhetens ramverk tas inte upp av nedströmsanvändare | MED | LÅG–MED |
+| K1:s stickprovsstorlek med 6 sammanträden otillräcklig för trendextrapolation | LÅG–MED | LÅG |
+
+### Source Quality
+
+- 100 texter / 6 sammanträden / 10 veckor: **A1**
+- Genomsnitt per sammanträde: **A2** (härlett)
+- Fönstret 20 januari–26 mars: **A1**
+
+### Provenance
+
+- Körning: `propositions` (2026-04-09, körnings-ID PROP-2026-04-09-001)
+- Efterlevnad: Enbart EP:s portal för öppna data. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: baslinjeavläsning förankrad på EP-publicerade räknedata.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月9日提案综合报告记录了**议会休会前的产出基准线：2026年1月20日至3月26日期间在6次全体会议上通过的100项文本**。数量（约10周、6次会议中的100项）产生约16.7项/次和约10项/周的平均值。这是2026年Q1的经验性吞吐量基准线，Q2的轨迹将以此衡量。*可信度：计数数据高；标准：A1。*
+
+### Three Decisions
+
+1. **将100项通过文本 / 10周 / 6次会议确立为2026年Q1的标准吞吐量基准线。** Q2相对于约16.7项/次的任何偏差均以此锚点衡量。*可信度：高。*
+2. **将每次会议平均值（约16.7项）作为分析管道中的规划单位。** 能力规划、翻译管道扩展和新闻工作流程范围界定应使用该单位。*可信度：高。*
+3. **将1月20日–3月26日记录为EP10第三年Q1的运营窗口。** 该窗口的边界成为后续季度比较的机构记忆参考。*可信度：高。*
+
+### 60-Second Read
+
+100项 / 6次会议 / 10周锚点是**2026年Q1分析上最有用的单一吞吐量指标**。它将+46.2%同比这一抽象标题转换为可操作的规划单位。每次全体会议平均产出16.7项文本——一个能力规划可以据此扩展的数字。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| Q2每次会议平均值跌破16.7项 | 中 | 中 |
+| 规划单位框架未被下游用户采用 | 中 | 低–中 |
+| 6次会议的Q1样本量不足以进行趋势外推 | 低–中 | 低 |
+
+### Source Quality
+
+- 100项 / 6次会议 / 10周：**A1**
+- 每次会议平均值：**A2**（推导）
+- 1月20日–3月26日窗口：**A1**
+
+### Provenance
+
+- 运行：`propositions`（2026-04-09，运行ID PROP-2026-04-09-001）
+- 合规：仅使用EP开放数据门户。符合GDPR。
+
+---
+*分析中立性：以EP发布的计数数据为基础的基准线读取。*
+
 ### Coalition Dynamics
 
 ### Computed Metrics (Script-Generated Context)
@@ -2519,6 +3013,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-documents | [externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0185-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0185-analysis.md) | `documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0185-analysis.md` |
 | section-documents | [externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0313-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0313-analysis.md) | `documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0313-analysis.md` |
 | section-documents | [externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2026-0030-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2026-0030-analysis.md) | `documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2026-0030-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/intelligence/deep-analysis.md) | `intelligence/deep-analysis.md` |

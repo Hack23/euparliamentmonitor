@@ -1,7 +1,7 @@
 ---
-title: "WEP Bands Applied | Admiralty Scale Used | SAT Documentation Below"
-description: "WEP Bands Applied | Admiralty Scale Used | SAT Documentation Below Published 2026-05-18."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-18", "Bands", "Applied", "Admiralty"]
+title: "The European Parliament's 10th term is operating — Run 256"
+description: "The European Parliament's 10th term is operating at peak legislative velocity (+46.2% YoY in enacted legislation) under structurally fragile coalition."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-18", "European", "Parliament", "10th"]
 date: 2026-05-18
 article_type: propositions
 slug: 2026-05-18-propositions
