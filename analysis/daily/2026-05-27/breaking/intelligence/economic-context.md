@@ -1,7 +1,7 @@
 # Economic Context — EU Parliament Breaking News, 2026-05-27
 
 **Date**: 2026-05-27 | **Data Mode**: degraded-feeds | **Admiralty Grade**: B3 (reliable source, not corroborated by IMF direct feed)
-**IMF Source Note**: IMF World Economic Outlook April 2026 data used for macroeconomic context. IMF is the sole authoritative source for all economic/fiscal/monetary/trade/FDI/banking-soundness claims.
+**IMF Source Note**: IMF World Economic Outlook April 2026 data anchors core macro baselines; sector and implementation details in this brief include explicitly labelled non-IMF proxy sources (Eurostat, ECB, Eurofer/Commission, OECD, NATO/EU aggregates, and policy impact estimates).
 
 ---
 
@@ -192,12 +192,12 @@ and IMF WEO April 2026 public release. economic-context.fallback.md contains add
 
 ## IMF Source Citation
 
-*All economic and fiscal data in this section derives from the following IMF sources:*
+*IMF-derived baseline indicators in this section use the following sources:*
 - **IMF World Economic Outlook, April 2026**: GDP growth, inflation, unemployment projections
-- **IMF Global Financial Stability Report, April 2026**: Banking sector stability metrics
-- **IMF Article IV Consultation, Euro Area, April 2026**: EU fiscal and monetary context
+- **IMF Global Financial Stability Report, April 2026**: Banking-sector context and systemic-risk framing
+- **IMF Article IV Consultation, Euro Area, April 2026**: Fiscal and monetary baseline context
 
-*IMF is the sole authoritative source for all macroeconomic claims in this document.*
+*Non-IMF proxy inputs are explicitly used for selected sector, trade-flow, labour, defence-spending, and implementation estimates (including Eurostat, ECB, Eurofer/Commission, OECD, NATO/EU aggregates, and policy impact assessments).*
 
 ```mermaid
 graph LR

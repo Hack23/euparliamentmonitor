@@ -83,10 +83,10 @@
 
 | Document Ref | Type | Date | Significance |
 |-------------|------|------|-------------|
-| TA-10-2026-0171 | Adopted text (COD) | 2026-05-20 | FDI Screening — HIGH |
+| TA-10-2026-0171 | Adopted text (COD) | 2026-05-19 | FDI Screening — HIGH |
 | TA-10-2026-0186 | Adopted text (RSP) | 2026-05-21 | Afghanistan — HIGH |
 | TA-10-2026-0183 | Adopted text (INI) | 2026-05-21 | AI-Trade — HIGH |
-| TA-10-2026-0180 | Adopted text (COD) | 2026-05-20 | EU-Canada SAFE — MEDIUM |
+| TA-10-2026-0180 | Adopted text (CONSENT) | 2026-05-20 | EU-Canada SAFE — MEDIUM |
 | TA-10-2026-0170 | Adopted text (COD) | 2026-05-19 | Steel Safeguards — MEDIUM |
 | TA-10-2026-0185 | Adopted text (RSP) | 2026-05-21 | Iran Repression — MEDIUM |
 | TA-10-2026-0190 | Adopted text (INI) | 2026-05-21 | Care Society — MEDIUM |
