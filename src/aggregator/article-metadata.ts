@@ -69,7 +69,6 @@ import { resolveOneLanguage } from './metadata/per-language-resolver.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
 import { resolveEditorialContent } from './metadata/resolve-helpers.js';
 import type {
-  MetadataManifest,
   ResolvedMetadata,
   ResolvedMetadataEntry,
   ResolveMetadataOptions,
