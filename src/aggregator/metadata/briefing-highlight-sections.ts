@@ -151,20 +151,22 @@ function appendLine(state: WalkerState, line: string): void {
  * @returns Text with tradecraft labels removed
  */
 export function stripTradecraftLabels(text: string): string {
-  return text
-    // "KJ-1 [WEP: HIGHLY LIKELY, 90–95%]: " prefix
-    .replace(/^KJ-?\d+\s*\[.*?\]:\s*/iu, '')
-    // "[WEP: LIKELY (60-75%)]" or "(WEP Probable, 60–75% confidence)" inline
-    .replace(/\[WEP:?\s*[^\]]+\]\s*/giu, '')
-    .replace(/\(WEP\s+[^)]+\)\s*/giu, '')
-    // "Admiralty Grade: B2" or similar
-    // eslint-disable-next-line security/detect-unsafe-regex
-    .replace(/Admiralty\s+(?:Source\s+)?Grade:?\s*[A-Z]\d\s*/giu, '')
-    // Leading numbered list prefix "1. ", "2. " etc.
-    .replace(/^\d+\.\s+/, '')
-    // "(Admiralty B2)" or "*(Admiralty B2)*" trailing references
-    .replace(/\*?\(Admiralty\s+[A-Z]\d\)\*?\s*$/giu, '')
-    .trim();
+  return (
+    text
+      // "KJ-1 [WEP: HIGHLY LIKELY, 90–95%]: " prefix
+      .replace(/^KJ-?\d+\s*\[.*?\]:\s*/iu, '')
+      // "[WEP: LIKELY (60-75%)]" or "(WEP Probable, 60–75% confidence)" inline
+      .replace(/\[WEP:?\s*[^\]]+\]\s*/giu, '')
+      .replace(/\(WEP\s+[^)]+\)\s*/giu, '')
+      // "Admiralty Grade: B2" or similar
+      // eslint-disable-next-line security/detect-unsafe-regex
+      .replace(/Admiralty\s+(?:Source\s+)?Grade:?\s*[A-Z]\d\s*/giu, '')
+      // Leading numbered list prefix "1. ", "2. " etc.
+      .replace(/^\d+\.\s+/, '')
+      // "(Admiralty B2)" or "*(Admiralty B2)*" trailing references
+      .replace(/\*?\(Admiralty\s+[A-Z]\d\)\*?\s*$/giu, '')
+      .trim()
+  );
 }
 
 /**

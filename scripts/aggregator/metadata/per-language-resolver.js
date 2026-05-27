@@ -68,9 +68,7 @@ export function appendRunNumberSuffix(seoTitle, lang, runId) {
     // Reserve budget: trim editorial portion to leave room for the
     // ` — Run N` suffix without exceeding the per-script clamp.
     const headroom = titleBudget - suffixLen;
-    const rawHead = seoTitleGraphemes
-        .slice(0, headroom)
-        .join('');
+    const rawHead = seoTitleGraphemes.slice(0, headroom).join('');
     // Avoid mid-word truncation: find the last word boundary (space or
     // separator) within the headroom slice. For CJK scripts word-boundary
     // trimming is unnecessary since each grapheme is already a word, but

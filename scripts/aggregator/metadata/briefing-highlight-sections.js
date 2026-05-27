@@ -108,7 +108,7 @@ function appendLine(state, line) {
  * @returns Text with tradecraft labels removed
  */
 export function stripTradecraftLabels(text) {
-    return text
+    return (text
         // "KJ-1 [WEP: HIGHLY LIKELY, 90–95%]: " prefix
         .replace(/^KJ-?\d+\s*\[.*?\]:\s*/iu, '')
         // "[WEP: LIKELY (60-75%)]" or "(WEP Probable, 60–75% confidence)" inline
@@ -121,7 +121,7 @@ export function stripTradecraftLabels(text) {
         .replace(/^\d+\.\s+/, '')
         // "(Admiralty B2)" or "*(Admiralty B2)*" trailing references
         .replace(/\*?\(Admiralty\s+[A-Z]\d\)\*?\s*$/giu, '')
-        .trim();
+        .trim());
 }
 /**
  * Boilerplate sentence patterns that should never surface as headlines

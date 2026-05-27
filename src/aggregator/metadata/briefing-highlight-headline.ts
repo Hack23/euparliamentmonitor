@@ -56,9 +56,7 @@ const NEWS_HOOK_PATTERNS: readonly RegExp[] = [
 function extractNewsHookSentence(paragraph: string): string {
   // Split into sentences (handles ". ", "! ", "? " boundaries — plus
   // CJK 。！？ and Arabic ؟ which have no trailing space).
-  const sentences = paragraph
-    .split(/(?<=[.!?])\s+|(?<=[。！？؟])/)
-    .filter((s) => s.length > 20);
+  const sentences = paragraph.split(/(?<=[.!?])\s+|(?<=[。！？؟])/).filter((s) => s.length > 20);
 
   // Find the first sentence with a news hook signal
   for (const sentence of sentences) {

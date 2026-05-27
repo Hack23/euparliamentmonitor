@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Unit tests for description-finalization.ts
  * Covers Korean terminator fix and ensureTerminator/appendTerminator behavior.

@@ -296,12 +296,7 @@ export const TOP_FINDINGS_HEADINGS_BY_LANG = Object.freeze({
         'النتائج الرئيسية',
         'أبرز 5 تطورات عاجلة',
     ],
-    he: [
-        'אירועים מרכזיים',
-        'אירועי מפתח',
-        'תוצאות מרכזיות',
-        'ממצאים מרכזיים',
-    ],
+    he: ['אירועים מרכזיים', 'אירועי מפתח', 'תוצאות מרכזיות', 'ממצאים מרכזיים'],
     ja: [
         '主要な出来事',
         '主要事象',
@@ -313,21 +308,8 @@ export const TOP_FINDINGS_HEADINGS_BY_LANG = Object.freeze({
         'トップ・ファインディングス',
         'キーファインディングス',
     ],
-    ko: [
-        '주요 사건',
-        '핵심 사건',
-        '주요 발견',
-        '핵심 발견',
-        '주요 결과',
-    ],
-    zh: [
-        '主要事件',
-        '关键事件',
-        '重大事件',
-        '主要发现',
-        '关键发现',
-        '主要结果',
-    ],
+    ko: ['주요 사건', '핵심 사건', '주요 발견', '핵심 발견', '주요 결과'],
+    zh: ['主要事件', '关键事件', '重大事件', '主要发现', '关键发现', '主要结果'],
 });
 /**
  * Localised needles for the `## Reader Briefing` family of section
@@ -351,12 +333,7 @@ export const READER_BRIEFING_HEADINGS_BY_LANG = Object.freeze({
         '60-sekunders læsning',
         'læservenlig læsning',
     ],
-    no: [
-        'leserbriefing',
-        'leserbriefing (vanlig språk)',
-        '60-sekunders lesing',
-        'lettlest lesing',
-    ],
+    no: ['leserbriefing', 'leserbriefing (vanlig språk)', '60-sekunders lesing', 'lettlest lesing'],
     fi: [
         'lukijabriefing',
         'lukijabriefing (selkokielellä)',
@@ -389,33 +366,16 @@ export const READER_BRIEFING_HEADINGS_BY_LANG = Object.freeze({
         '60-seconden lectuur',
         '60 seconden lezen',
     ],
-    ar: [
-        'موجز القارئ',
-        'موجز القارئ (لغة مبسطة)',
-        'قراءة 60 ثانية',
-        'قراءة في 60 ثانية',
-    ],
-    he: [
-        'תקציר לקורא',
-        'תקציר לקורא (שפה פשוטה)',
-        'קריאה של 60 שניות',
-    ],
+    ar: ['موجز القارئ', 'موجز القارئ (لغة مبسطة)', 'قراءة 60 ثانية', 'قراءة في 60 ثانية'],
+    he: ['תקציר לקורא', 'תקציר לקורא (שפה פשוטה)', 'קריאה של 60 שניות'],
     ja: [
         '読者向けブリーフィング',
         '読者向けブリーフィング (平易な表現)',
         '60秒読み',
         '60秒読み (平易な表現)',
     ],
-    ko: [
-        '독자 브리핑',
-        '독자 브리핑 (평이한 언어)',
-        '60초 읽기',
-    ],
-    zh: [
-        '读者简报',
-        '读者简报 (通俗语言)',
-        '60秒阅读',
-    ],
+    ko: ['독자 브리핑', '독자 브리핑 (평이한 언어)', '60초 읽기'],
+    zh: ['读者简报', '读者简报 (通俗语言)', '60秒阅读'],
 });
 /**
  * Localised stems of the "This executive brief synthesizes…"
@@ -477,10 +437,7 @@ export const BOILERPLATE_STEM_PATTERNS_BY_LANG = Object.freeze({
         /^이 (?:집행|행정|경영진)?\s*(?:브리핑|요약|보고서|간추림)(?:은|는|이|가)/u,
         /^본 (?:집행|행정|경영진)?\s*(?:브리핑|요약|보고서)(?:은|는|이|가)/u,
     ],
-    zh: [
-        /^本(?:执行)?(?:简报|摘要|报告|文件)/u,
-        /^这份?(?:执行)?(?:简报|摘要|报告)/u,
-    ],
+    zh: [/^本(?:执行)?(?:简报|摘要|报告|文件)/u, /^这份?(?:执行)?(?:简报|摘要|报告)/u],
 });
 /**
  * Resolve the active needle list for a section family + target
