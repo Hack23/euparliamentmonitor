@@ -144,3 +144,20 @@ quadrantChart
 
 The unavailability of DOCEO and procedures data represents the primary analytical limitation. All claims relying on voting margins or legislative history should be treated as B2 or C2, not A1.
 
+---
+
+## Extended Quality Assessment
+
+**Run-level quality**: This run (run273) represents a significant improvement over run266. Key quality dimensions:
+
+| Quality Dimension | run266 | run273 | Change |
+|------------------|--------|--------|--------|
+| Artifacts above floor | 9 | ~40 | +31 |
+| Pass 2 complete | No | Yes | ✅ |
+| mermaid diagrams | Present in core | Extended to new artifacts | ✅ |
+| WEP bands | Core artifacts only | Extended to required list | ✅ |
+| Admiralty grades | Partial | Full | ✅ |
+| IMF source field | Missing | Present | ✅ |
+
+**Confidence in analytical quality**: The extension of analysis across all artifacts significantly improves the analytical product. The degraded-feeds data mode (80% floor factor) remains the primary quality ceiling.
+

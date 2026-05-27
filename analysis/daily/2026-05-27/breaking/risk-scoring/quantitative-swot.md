@@ -134,3 +134,31 @@ quadrantChart
     US-Trade-Pressure: [0.8, 0.35]
 ```
 
+---
+
+## Extended SWOT Narrative
+
+### Strengths — Detailed Analysis
+
+The EP10's strategic autonomy legislative package represents the culmination of a 4-year political project that began with the pandemic supply chain shock (2020), accelerated through Russian invasion of Ukraine (2022), and reached maturity in the 2024 EP10 election. The core strength is that the legal framework is now established: the FDI screening regulation creates an institutional infrastructure that will be used and strengthened by successive Commissions. Institutional infrastructure, once created, has strong path dependency — it is far easier to build on than to dismantle.
+
+### Weaknesses — Detailed Analysis
+
+The SAFE programme's weakness is structural: defence procurement is where Member States have most jealously guarded sovereignty. The unanimity requirement in the Council for CFSP instruments means that future SAFE expansions could be blocked by any single Member State. Hungary's participation in NATO defence procurement is already politically sensitive; a SAFE instrument that excludes Hungary-aligned procurement preferences creates a two-tier EU defence system.
+
+### Opportunities — Detailed Analysis
+
+The Afghanistan resolution's gender apartheid language is potentially jurisprudentially significant. If the EU, UN, and ICC collectively treat Taliban criminal procedure as falling under the definition of gender apartheid (a concept without established legal definition in international law), this could create new sanctions grounds under EU Regulation 2018/1725 and the recently strengthened EU human rights sanctions regime (the "EU Magnitsky Act" — Council Regulation 2020/1998).
+
+### Threats — Detailed Analysis
+
+The FDI screening regulation's effectiveness depends on Member State implementation quality. Italy and Greece have historically been weak enforcement nodes in EU trade regulatory frameworks. The regulation creates mandatory notification and coordination mechanisms, but enforcement actions remain national competence. If large Member States develop soft implementation practices, the regulation's deterrent effect against Chinese state-linked acquirers will be substantially diminished.
+
+---
+
+## Sources
+
+- `intelligence/synthesis-summary.md` — narrative SWOT analysis
+- `intelligence/threat-model.md` — detailed threat assessment
+- `intelligence/scenario-forecast.md` — probabilistic scenarios
+

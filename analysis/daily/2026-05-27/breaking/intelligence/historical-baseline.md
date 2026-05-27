@@ -110,3 +110,42 @@ timeline
 *WEP 40%: A new geopolitical shock in 2026–28 catalyses a third legislative wave by 2028–29*
 The most likely triggers: US-China Taiwan Strait confrontation, Russian escalation in Baltic states, or a major cyber attack on EU critical infrastructure.
 
+---
+
+## Extended Historical Baseline: EU Strategic Autonomy Doctrine Timeline
+
+### Phase 1 — Conceptual Origins (2000–2015)
+
+The term "strategic autonomy" entered EU vocabulary through the European Security Strategy (2003) and European Defence Agency's establishment (2004). However, it remained largely rhetorical during this phase — the EU relied on NATO for hard security guarantees and US for trade leadership.
+
+**Key indicators from this phase**:
+- 23 EU MS in NATO; defence spending declining post-Cold War
+- EU-US trade relationship growing; minimal investment screening concerns
+- Chinese FDI in EU: under €5B annually (negligible)
+
+**Baseline conclusion**: Pre-2015 EU had essentially no strategic autonomy infrastructure beyond the CFSP framework and the European External Action Service.
+
+### Phase 2 — Catalysis (2016–2021)
+
+Three shocks transformed the strategic autonomy debate:
+1. Trump election (2016): Raised doubts about US security commitment reliability
+2. Chinese acquisition spree (2015–2018): KUKA, EDF grid assets, port infrastructure; European Commission raised alarms
+3. COVID-19 (2020–2021): Medical supply chain vulnerability made abstract strategic concerns concrete
+
+The 2020 European Commission Communication "A New Industrial Strategy for Europe" introduced "open strategic autonomy" as explicit doctrine. Several MS enacted or strengthened national FDI screening (France, Germany, Italy, Spain).
+
+**Baseline shift**: EU moved from reactive (case-by-case national blocking) to proactive (seeking EU-level coordination). However, no mandatory EU mechanism existed.
+
+### Phase 3 — Institutionalisation (2022–2026)
+
+The Russian invasion of Ukraine (February 2022) was the most significant catalyst:
+- SAFE concept emerged from REPowerEU and European Defence Industry Survey (2022–2023)
+- Commission FDI Screening Regulation proposal (2024): moved from coordinating national screening to mandatory EU-wide review
+- May 2026 EP adoption marks completion of this institutionalisation phase
+
+**Current baseline**: EU now has the full strategic autonomy legislative architecture. The May 2026 session is the conclusion of a 4-year institutionalisation process, not a sudden policy shift.
+
+---
+
+*Admiralty*: Phase 1 baseline A2 (historical record); Phase 2 B2 (corroborated news sources + Commission documents); Phase 3 A2 (EP official records).
+

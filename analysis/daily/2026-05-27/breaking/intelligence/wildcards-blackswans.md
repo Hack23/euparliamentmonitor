@@ -179,3 +179,41 @@ mindmap
 
 **What this means**: The low-probability, high-impact events listed here are the ones that could make the current legislative agenda irrelevant or dramatically more urgent. While they are unlikely individually, the cumulative probability that at least one wildcard event occurs within 24 months is estimated at 50–60%.
 
+---
+
+## Additional Wildcard Scenarios
+
+**Wildcard 5: EP coalition collapse** (*Almost No Chance* WEP 5%)
+If the EPP fractures (e.g., Fidesz-aligned parties rejoin EPP under a new leadership) and EPP shifts toward PfE, the entire strategic autonomy agenda collapses. This is considered very unlikely given EPP's current leadership commitments but cannot be dismissed for the 2029 election horizon.
+
+**Wildcard 6: CJEU strikes down FDI Screening** (*Unlikely* WEP 15%)
+A CJEU reference from a national constitutional court (e.g., German BVerfG) could challenge the proportionality of mandatory FDI screening. CJEU has generally upheld broad EU trade policy measures, but the mandatory character of this regulation (vs. purely directive-type) creates some challenge surface.
+
+**Wildcard 7: Snap Slovak elections produce pro-EU government** (*Unlikely* WEP 30% within 12 months)
+Fico's coalition is fragile. A confidence vote failure or internal coalition collapse could produce snap elections. If Progressive Slovakia wins a snap election, the Article 7 proceedings become moot and EU–Slovakia relations normalize.
+
+**Wildcard 8: Taliban collapses internally** (*Almost No Chance* WEP 3% within 5 years)
+Internal Taliban faction conflicts could produce a power struggle that creates a window for international engagement or a less extreme governing faction. This would render the Afghanistan resolution's advocacy moot but would represent a positive humanitarian outcome.
+
+---
+
+**Admiralty**: All wildcard assessments are C3 (analytical projections; no confirmed intelligence).
+**WEP calibration**: Individual wildcards are low probability; their analytical value is in forcing contingency planning.
+
+---
+
+## Wildcard Scenario Integration Matrix
+
+The wildcards above interact with the base scenarios. If Wildcard 5 (EP coalition collapse) or Wildcard 6 (CJEU strike-down) occurs, Scenario A probability drops from 60% to ~25%. The conditional probability tree:
+
+| Wildcard trigger | Impact on Scenario A | Impact on Scenario B | Net |
+|----------------|---------------------|---------------------|-----|
+| W5: EP collapse | −35pp → ~25% | +20pp → ~55% | Negative |
+| W6: CJEU challenge | −15pp → ~45% | +15pp → ~50% | Moderately negative |
+| W7: Slovakia snap election | 0pp (neutral) | 0pp (neutral) | Neutral |
+| W8: Taliban collapse | 0pp (neutral) | 0pp (neutral) | Neutral |
+| W4: US escalation | +15pp → ~75% | −15pp → ~20% | Positive |
+| W3: Russian escalation | +20pp → ~80% | −20pp → ~15% | Strongly positive |
+
+**Net wildcard adjustment to base case**: The set of all wildcards has a small net *positive* bias on Scenario A probability (+2–3pp), because positive wildcards (W3, W4) have higher probability than negative wildcards (W5, W6). The cumulative risk-adjusted scenario probability remains: Scenario A ~62% (slightly above the unconditional 60%).
+

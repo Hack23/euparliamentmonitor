@@ -83,3 +83,49 @@ The prefetch-status.json reported mode="full" but this was inconsistent with the
 - `data-availability-assessment.md` for data mode declaration
 - `intelligence/mcp-reliability-audit.md` for feed failure analysis
 - `intelligence/methodology-reflection.md` for collection methodology assessment
+
+---
+
+## Extended Data Download Manifest
+
+### Pre-Fetched Files (2026-05-27T14:06:51Z)
+
+| Filename | Source Endpoint | Prefetch Status | Size (approx) | Used In |
+|---------|----------------|----------------|---------------|---------|
+| data/adopted-texts-feed.json | `/adopted-texts/feed?timeframe=one-month` | ✅ FETCHED (500 items) | ~450KB | All intelligence artifacts |
+| data/meps-feed.json | `/meps/feed` | ✅ FETCHED (484 MEPs) | ~220KB | classification/, intelligence/coalition |
+| data/procedures-feed.json | `/procedures/feed?timeframe=one-week` | ✅ FETCHED (3 items) | ~8KB | ❌ DEGRADED (1972–1990 tail) |
+| data/events-feed.json | `/events/feed?timeframe=one-week` | ✅ FETCHED (placeholder) | ~1KB | ❌ NOT USED (404 response) |
+| data/committee-documents-feed.json | `/committee-documents/feed` | ✅ FETCHED (placeholder) | ~1KB | ❌ NOT USED (404 response) |
+| data/documents-feed.json | `/documents/feed` | ✅ FETCHED (placeholder) | ~1KB | ❌ NOT USED (404 response) |
+
+### Analysis-Time Downloads (Explicit MCP calls during Stage A)
+
+| MCP Call | Parameters | Result | Used In |
+|---------|-----------|--------|---------|
+| `get_adopted_texts` | `year=2026, offset=140, limit=50` | 50 items (TA-10-2026-0141 to 0190) | intelligence/synthesis-summary.md |
+| `get_adopted_texts` | `year=2026, offset=181, limit=20` | 12 items (TA-10-2026-0181 to 0192) | All intelligence artifacts |
+| `get_adopted_texts` | `year=2026, offset=188, limit=10` | 5 items (TA-10-2026-0188 to 0192) | Confirmation of most recent items |
+
+### Total Data Coverage
+
+- **Primary dataset**: 192 EP10 2026 adopted texts, covering January–May 2026
+- **Secondary dataset**: 484 current MEPs with group affiliations
+- **Degraded data**: Procedures, events, committee documents — all 404 or historical tail
+- **Cache files**: `cache/imf/weo-2026-04.json` (IMF WEO April 2026 knowledge-only proxy)
+
+### Data Gaps Acknowledged
+
+1. Individual MEP voting positions (requires DOCEO — 2–4 week publication lag)
+2. Committee meeting records and deliberation notes (committee-documents feed: 404)
+3. Plenary session schedule details (events feed: 404)
+4. Legislative history (procedures feed: degraded to 1972–1990)
+5. External documents (Council, Commission — not in EP feeds)
+
+---
+
+## Sources
+
+- `data/prefetch-status.json` — prefetch execution record — Grade A3
+- `data-availability-assessment.md` — data mode declaration — Grade A3
+- EP API direct calls (3 additional calls during Stage A) — Grade A2

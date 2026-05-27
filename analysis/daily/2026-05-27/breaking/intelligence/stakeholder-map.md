@@ -169,3 +169,70 @@ The adoption of TA-10-2026-0170 is politically significant but practically disap
 
 *Priority demand*: Commission initiation of WTO Article XIX investigation within 30 days of resolution adoption; provisional measures (bridge financing, short-time work support) for affected workers during the investigation period.
 
+---
+
+## Extended Stakeholder Intelligence: Third-Party Actors
+
+### External Stakeholder Group 5: People's Republic of China
+
+**Current position**: Formally opposes mandatory FDI screening; has lodged WTO consultations on analogous German and French national screening decisions
+**Interests**: Maintain access to EU technology, infrastructure, and industrial assets; prevent EU-wide coordination that would be harder to manage than fragmented MS reviews
+**Capabilities**: Major trading partner (EU's largest import source); controls rare earth supply chains critical for EU green transition; WTO dispute settlement tools
+**Expected response to FDI regulation**: *Likely* (WEP 60%) to file formal WTO notification; *Roughly Even* (WEP 50%) to impose retaliatory measures on European companies in China
+
+### External Stakeholder Group 6: United States (USTR)
+
+**Current position**: Formally supportive of allied FDI screening alignment; concern that EU might screen US companies
+**Interests**: Ensure EU FDI screening aligns with US national security objectives; avoid EU-US investment friction that would harm transatlantic business
+**Expected response**: *Likely* (WEP 70%) to seek bilateral consultation on implementing acts to ensure US carve-out or preferential treatment; this is consistent with EU-US Trade and Technology Council work
+
+### External Stakeholder Group 7: Canada (Global Affairs Canada)
+
+**Current position**: Has signed SAFE bilateral; awaiting formal entry into force; Canadian defence industry strongly supportive
+**Interests**: Defence industrial access to EU procurement pools; modernise EU-Canada defence industrial relationship post-Brexit (UK's exit created gap)
+**Expected response**: *Almost Certain* (WEP 90%) to ratify; Canadian Parliament's defence committee broadly supportive
+
+### External Stakeholder Group 8: Taliban (Islamic Emirate of Afghanistan)
+
+**Current position**: Dismisses international criticism as "interference in Afghan internal affairs"
+**Interests**: Maintain political control; reduce international sanctions pressure; preserve humanitarian aid access
+**Expected response**: *Highly Likely* (WEP 85%) to formally reject EP resolution; *Almost No Chance* (WEP 2%) to modify criminal procedure code in response to EP pressure alone
+
+---
+
+*Priority demand for Commission*: Follow-through within 90 days with targeted sanctions package against Taliban officials responsible for implementing the gender apartheid criminal procedure code.
+
+*Sources*: Stakeholder positions inferred from public statements, historical precedent, and interest analysis. All Grade C2 unless otherwise indicated.
+
+---
+
+## Stakeholder Intelligence: EP Internal Dynamics
+
+### EP Political Group Positions on the May 2026 Package (Inferred from Adoption)
+
+**EPP** (188 seats): Coalition anchor on FDI and SAFE; moderate on Slovakia (Fico has some EPP sympathizers); supportive of human rights resolutions (EP norms pressure).
+
+**S&D** (136 seats): Strongest proponents of Slovakia and human rights resolutions; supporters of FDI/SAFE with worker protection amendments; key constituency = manufacturing workers and trade union interests.
+
+**Renew Europe** (77 seats): FDI screening champion (liberal economic security framing); SAFE-Canada supporter (Atlanticist wing); human rights supportive.
+
+**Greens/EFA** (53 seats): Supportive of human rights; ambivalent on FDI screening (concerns about climate investment chilling); SAFE opponent (pacifist wing).
+
+**ECR** (78 seats): Split — Polish ECR supportive of FDI/SAFE security arguments; Italian (Meloni-aligned) ECR more transactional; Hungarian ECR effectively pro-Fico.
+
+**PfE** (84 seats): Largely opposed to FDI screening (anti-regulation agenda); supportive of national-level defence but not EU SAFE; divided on Slovakia (Fico sympathizers).
+
+**Non-Attached/Others** (100 seats): Diverse; human rights resolutions likely passed with non-attached support from pro-democracy MEPs.
+
+### EP Internal Governance Stakeholders
+
+**EP President Metsola** (EPP): Likely facilitated the legislative calendar to ensure May 2026 plenary could accommodate all 5 items; strong supporter of strategic autonomy agenda.
+
+**AFET Committee Chair**: Drove the human rights resolution agenda; will follow up with EP Recommendation to Council on sanctions.
+
+**INTA Committee Chair**: Led FDI Screening Regulation rapporteur process; will monitor implementation via Parliamentary scrutiny mechanism.
+
+---
+
+*Note*: Without DOCEO individual vote data, group-level positions are inferred from historical patterns and public statements. Grade B3 for all group-level assessments.
+
