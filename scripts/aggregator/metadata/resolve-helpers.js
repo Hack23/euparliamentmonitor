@@ -332,7 +332,7 @@ export function padDescriptionToFloor(description, lang) {
     // floor. For real CJK content the natural ~2× density keeps the
     // result inside 78 chars regardless.
     const clamped = truncateDescription(candidate);
-    const finalized = ensureTerminator(clamped, family);
+    const finalized = ensureTerminator(clamped, family, undefined, lang);
     // Reject the pad if it would shorten the buffer below the original
     // (e.g. clamp ate the label entirely) — we'd be making things worse.
     return [...finalized].length >= currentLen ? finalized : trimmed;
@@ -427,7 +427,7 @@ export function composeContextualDescription(lang, baseDescription, editorial, d
     // cap is a safe universal upper bound; the script-aware clean-up still
     // runs in {@link ensureDescriptionTerminator} downstream.
     const clamped = truncateDescription(parts.join(' '));
-    return ensureTerminator(clamped, family);
+    return ensureTerminator(clamped, family, undefined, lang);
 }
 /**
  * Build a per-article `extendedDescription` (used for

@@ -15,7 +15,7 @@ import { classifyScript } from './seo-budgets.js';
  */
 const TERMINATOR_RE = {
     latin: /[.!?]$/u,
-    cjk: /[。．！？]$/u,
+    cjk: /[。．！？.!?]$/u,
     rtl: /[.!?؟]$/u,
 };
 /**
@@ -71,10 +71,12 @@ function findTerminatorCutInTail(tail, family) {
  * @param trimmed - Body without trailing whitespace
  * @param family - Script family (drives the terminator glyph)
  * @param maxLength - Optional total grapheme budget the result must fit in
+ * @param lang - Optional language code for Korean-specific handling
  * @returns Body + terminator, never longer than `maxLength` when given
  */
-function appendTerminator(trimmed, family, maxLength) {
-    const terminator = family === 'cjk' ? '。' : '.';
+export function appendTerminator(trimmed, family, maxLength, lang) {
+    // Korean uses Western-style period `.` not ideographic `。`
+    const terminator = family === 'cjk' && lang !== 'ko' ? '。' : '.';
     if (maxLength === undefined)
         return `${trimmed}${terminator}`;
     const graphemes = Array.from(trimmed);
@@ -98,9 +100,10 @@ function appendTerminator(trimmed, family, maxLength) {
  * @param text - Body (already clamped to the caller's budget)
  * @param family - Script family
  * @param maxLength - Optional grapheme budget the result must fit in
+ * @param lang - Optional language code for Korean-specific terminator
  * @returns Body closed with a sentence terminator, or '' when input is blank
  */
-export function ensureTerminator(text, family, maxLength) {
+export function ensureTerminator(text, family, maxLength, lang) {
     let trimmed = text.trim();
     if (!trimmed)
         return trimmed;
@@ -127,7 +130,7 @@ export function ensureTerminator(text, family, maxLength) {
     if (bestRelIdx > 0 && scanStart + bestRelIdx >= Math.floor(trimmed.length * 0.55)) {
         return trimmed.slice(0, scanStart + bestRelIdx).trim();
     }
-    return appendTerminator(trimmed, family, maxLength);
+    return appendTerminator(trimmed, family, maxLength, lang);
 }
 /**
  * Strip a trailing ellipsis (Unicode `…` or ASCII `...`) plus any
@@ -174,6 +177,6 @@ export function scrubTrailingEllipsis(value) {
  *   terminator guaranteed
  */
 export function ensureDescriptionTerminator(lang, value, maxLength) {
-    return ensureTerminator(value, classifyScript(lang), maxLength);
+    return ensureTerminator(value, classifyScript(lang), maxLength, lang);
 }
 //# sourceMappingURL=description-finalization.js.map

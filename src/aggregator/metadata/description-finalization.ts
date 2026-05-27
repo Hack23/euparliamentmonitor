@@ -44,7 +44,7 @@ import { classifyScript } from './seo-budgets.js';
  */
 const TERMINATOR_RE = {
   latin: /[.!?]$/u,
-  cjk: /[。．！？]$/u,
+  cjk: /[。．！？.!?]$/u,
   rtl: /[.!?؟]$/u,
 } as const;
 
@@ -102,14 +102,17 @@ function findTerminatorCutInTail(tail: string, family: 'latin' | 'cjk' | 'rtl'):
  * @param trimmed - Body without trailing whitespace
  * @param family - Script family (drives the terminator glyph)
  * @param maxLength - Optional total grapheme budget the result must fit in
+ * @param lang - Optional language code for Korean-specific handling
  * @returns Body + terminator, never longer than `maxLength` when given
  */
-function appendTerminator(
+export function appendTerminator(
   trimmed: string,
   family: 'latin' | 'cjk' | 'rtl',
-  maxLength: number | undefined
+  maxLength: number | undefined,
+  lang?: string
 ): string {
-  const terminator = family === 'cjk' ? '。' : '.';
+  // Korean uses Western-style period `.` not ideographic `。`
+  const terminator = family === 'cjk' && lang !== 'ko' ? '。' : '.';
   if (maxLength === undefined) return `${trimmed}${terminator}`;
   const graphemes = Array.from(trimmed);
   if (graphemes.length < maxLength) return `${trimmed}${terminator}`;
@@ -132,12 +135,14 @@ function appendTerminator(
  * @param text - Body (already clamped to the caller's budget)
  * @param family - Script family
  * @param maxLength - Optional grapheme budget the result must fit in
+ * @param lang - Optional language code for Korean-specific terminator
  * @returns Body closed with a sentence terminator, or '' when input is blank
  */
 export function ensureTerminator(
   text: string,
   family: 'latin' | 'cjk' | 'rtl',
-  maxLength?: number
+  maxLength?: number,
+  lang?: string
 ): string {
   let trimmed = text.trim();
   if (!trimmed) return trimmed;
@@ -162,7 +167,7 @@ export function ensureTerminator(
   if (bestRelIdx > 0 && scanStart + bestRelIdx >= Math.floor(trimmed.length * 0.55)) {
     return trimmed.slice(0, scanStart + bestRelIdx).trim();
   }
-  return appendTerminator(trimmed, family, maxLength);
+  return appendTerminator(trimmed, family, maxLength, lang);
 }
 
 /**
@@ -215,5 +220,5 @@ export function ensureDescriptionTerminator(
   value: string,
   maxLength?: number
 ): string {
-  return ensureTerminator(value, classifyScript(lang), maxLength);
+  return ensureTerminator(value, classifyScript(lang), maxLength, lang);
 }

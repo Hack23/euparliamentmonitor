@@ -51,7 +51,7 @@ function contentMatchesLocaleScript(text, lang) {
  * @returns Title with ` — Run N` appended, or the unchanged input when
  *   no runId is present or the suffix can't fit inside budget
  */
-function appendRunNumberSuffix(seoTitle, lang, runId) {
+export function appendRunNumberSuffix(seoTitle, lang, runId) {
     const runNumber = extractRunNumber(runId);
     if (!runNumber || containsNormalized(seoTitle, `Run ${runNumber}`)) {
         return seoTitle;
@@ -68,11 +68,32 @@ function appendRunNumberSuffix(seoTitle, lang, runId) {
     // Reserve budget: trim editorial portion to leave room for the
     // ` — Run N` suffix without exceeding the per-script clamp.
     const headroom = titleBudget - suffixLen;
-    const trimmedHead = seoTitleGraphemes
+    const rawHead = seoTitleGraphemes
         .slice(0, headroom)
-        .join('')
-        .replace(/[\s|,;:—\-–]+$/u, '')
-        .trim();
+        .join('');
+    // Avoid mid-word truncation: find the last word boundary (space or
+    // separator) within the headroom slice. For CJK scripts word-boundary
+    // trimming is unnecessary since each grapheme is already a word, but
+    // for Latin/RTL we must snap back to a whole word.
+    const family = classifyScript(lang);
+    let trimmedHead;
+    if (family === 'cjk') {
+        trimmedHead = rawHead.replace(/[\s|,;:—\-–]+$/u, '').trim();
+    }
+    else {
+        // Find last space/separator — snap to whole word
+        const lastSep = rawHead.search(/[\s|,;:—\-–][^\s|,;:—\-–]*$/u);
+        if (lastSep > 0) {
+            trimmedHead = rawHead.slice(0, lastSep).trim();
+        }
+        else {
+            // No separator found — entire string is one word, keep it if it
+            // won't be a truncated fragment (< 4 chars likely means mangled)
+            trimmedHead = rawHead.replace(/[\s|,;:—\-–]+$/u, '').trim();
+            if (trimmedHead.length < 4)
+                return seoTitle;
+        }
+    }
     return trimmedHead ? `${trimmedHead}${suffix}` : seoTitle;
 }
 /**
