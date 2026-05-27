@@ -878,7 +878,14 @@ describe.each(ALL_LANGUAGES)(
           }
 
           /* ============================================================
-           * 5. CROSS-RUN UNIQUENESS
+           * 5. CROSS-RUN UNIQUENESS — every (date, articleType) re-run
+           *    must resolve to a distinct readable headline. Run-number
+           *    qualifiers are forbidden, so when two runs collide the
+           *    editorial brief must carry a distinct H1 / lede /
+           *    topFinding (or the resolver must derive a content-based
+           *    differentiator). Duplicate titles dilute SERP signals
+           *    and trigger Google Search Console / Bing Webmaster
+           *    "Duplicate, Google chose different canonical" warnings.
            * ============================================================ */
 
           const uniqKey = `${aggregated.date}|${aggregated.articleType}`;

@@ -1,5 +1,5 @@
 ---
-title: "KJ-01: AI Trade Strategy Resolution — Run 271"
+title: "AI Trade Strategy Resolution — Run 271"
 description: "Assessment: More likely to be landmark than aspirational (55–65%), but execution is not guaranteed. Published 2026-05-27."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-27", "Trade", "Strategy", "Resolution"]
 date: 2026-05-27
@@ -3346,6 +3346,1694 @@ subject-matter codes rather than direct committee vote records.
 and stakeholder mapping based on legislative output signals. Insufficient for detailed
 procedural analysis (vote margins, rapporteur identification, committee composition).
 
+### Executive Brief Ar
+
+**التصنيف**: تقييم استخباراتي من مصادر مفتوحة
+**الفترة**: 2026-05-20 إلى 2026-05-27
+**أُعدَّ لـ**: EU Parliament Monitor
+**وضع البيانات**: degraded-feeds (معامل الحد الأدنى 0.80)
+**مستوى الثقة الإجمالي**: 🟡 MEDIUM-HIGH
+**تقدير الأميرالية**: B2 (مركّب؛ A1 للنصوص المعتمدة، C3 للإسناد على مستوى اللجنة)
+
+---
+
+### التقييم الرئيسي
+
+**شكّلت الجلسة العامة لشهر مايو 2026 للبرلمان الأوروبي أسبوعاً تشريعياً شديد الإنتاجية أدفع في آنٍ واحد ثلاث أولويات استراتيجية: حوكمة تجارة الذكاء الاصطناعي، والدبلوماسية السمكية، وهندسة الشراكات الخارجية. تُمثّل القرار المتعلق باستراتيجية الذكاء الاصطناعي (TA-10-2026-0183) الناتجَ الأبرز، إذ يُرسّخ مكانة الاتحاد الأوروبي بوصفه مُصدِّراً عالمياً لحوكمة الذكاء الاصطناعي للمرة الأولى عبر أداة السياسة التجارية.**
+
+**تقييم WEP**: يُرجَّح (55–70 %) أن تُصدر المفوضية بلاغاً متابعاً بشأن الذكاء الاصطناعي والتجارة في غضون 12–18 شهراً. يواجه التحوّل إلى تفويضات مجلسية ملزمة شكوكاً أعلى (متقاربة تقريباً، 35–50 %).
+
+**تقدير الأميرالية للتقييم الرئيسي**: B2 — أدلة موثوقة على النصوص المعتمدة؛ إسناد مستوى اللجنة مُستنتَج من رموز الموضوع.
+
+---
+
+### الأحكام الرئيسية
+
+#### الحكم الرئيسي 01: قرار استراتيجية تجارة الذكاء الاصطناعي — معلمٌ بارز أم طموح؟
+
+**التقييم**: يُرجَّح أن يكون معلماً بارزاً أكثر من كونه مجرد طموح (55–65 %)، إلا أن التنفيذ غير مضمون.
+
+يقوم أهمية القرار على ثلاثة أركان:
+1. **تحالف عابر للجان**: يؤكد الترميز الموضوعي TECN + INFQ الملكيةَ المشتركة لـ ITRE/INTA
+2. **سابقة تأثير بروكسل**: يُثبت GDPR وقانون الذكاء الاصطناعي قدرة الاتحاد الأوروبي المُجرَّبة على تصدير الأُطر التنظيمية
+3. **الضغط على المفوضية**: المسار المنصوص عليه في المادة 225 متاح إذا تأخرت المفوضية في الاستجابة
+
+**التقييم المضاد**: أجندة المفوضية التشريعية مزدحمة؛ يتنافس قرار تجارة الذكاء الاصطناعي مع اتحاد التنافسية، وصفقة الصناعة النظيفة، وحزمة السوق الداخلية. تبلغ نسبة المتابعة للقرارات غير الملزمة ~50 % خلال 24 شهراً (خط الأساس التاريخي).
+
+**الدلالة الاستخباراتية**: رصد برنامج عمل المفوضية 2027 (المتوقع في أكتوبر 2026) للتحقق من الإدراج الصريح لبلاغ تجارة الذكاء الاصطناعي.
+
+#### الحكم الرئيسي 02: تعزيز محفظة مصايد الأسماك
+
+**التقييم**: يُرجَّح (65–75 %) أن ينتقل كلا اتفاقيتَي الشراكة السمكية الجديدتين (سان تومي، جزر كوك) إلى التطبيق المؤقت دون اضطرابات كبرى في غضون 6 أشهر.
+
+يُشير الاعتماد المزدوج إلى نضج عمل لجنة PECH. تُمثّل مدة البروتوكول البالغة 7 سنوات لجزر كوك إشارة ثقة غير اعتيادية من الطرفين. يظل الامتثال البيئي المتجه الأبرز للمخاطر (تقييم Oceana متوقع خلال 12 شهراً؛ انظر RISK-02).
+
+**الدلالة الاستخباراتية**: جدولة تشغيل متابعة للربع الرابع من 2026 لتقييم حالة التطبيق المؤقت لاتفاقية الشراكة السمكية وتقارير رصد الاستدامة الأولية.
+
+#### الحكم الرئيسي 03: التموضع الاستراتيجي في آسيا الوسطى
+
+**التقييم**: يُرجَّح (65–75 %) أن يكون اتفاق EPCA بين الاتحاد الأوروبي وأوزبكستان نشطاً تشغيلياً في غضون 12 شهراً، مع تخطيط لعقد الاجتماع الأول للجنة المشتركة.
+
+يُعزّز التصديق على EPCA (TA-10-2026-0174) استراتيجية الاتحاد الأوروبي تجاه آسيا الوسطى (المُنقَّحة 2019؛ المُحدَّثة عقب الغزو الروسي لأوكرانيا 2022) وخطة الاستثمار في Global Gateway للمنطقة. يوفر تنويع سلاسل التوريد بعيداً عن الصين (العناصر الأرضية النادرة، اليورانيوم، القطن) مسوّغاً استراتيجياً راسخاً يتخطى الخلافات السياسية الحزبية داخل EP10.
+
+**مخاطر اشتراطات حقوق الإنسان**: يُستبعَد أن تُعرقل الاتفاقية (20–30 %)، غير أن رصد EP DROI يحافظ على الضغط من أجل استمرار تقدم الإصلاحات.
+
+#### الحكم الرئيسي 04: الحفاظ على معايير الحصانة البرلمانية
+
+**التقييم**: ثقة عالية (80–90 %) بأن قراري رفع الحصانة المزدوجين (Vilimsky/FPÖ وPappas/SYRIZA) سيسلكان المسارات القضائية الوطنية دون أن يتحولا إلى حوادث سياسية على مستوى الاتحاد الأوروبي.
+
+يُشكّل التطبيق المتسق سياسياً للمعايير من قِبَل لجنة JURI قوةً مؤسسيةً حقيقية. يعكس رفع الحصانتين سلوكاً لا صلة له بالانتداب البرلماني (معايير الموافقة القياسية لرفع الحصانة). يظل خطر التسييس على المستوى الإعلامي الوطني (النمسا، اليونان) دون المستوى المؤسسي للاتحاد الأوروبي.
+
+---
+
+### إشارات السياسات للرصد
+
+| الإشارة | ما يجب مراقبته | الجدول الزمني | دلالة السيناريو |
+|---------|---------------|----------------|----------------|
+| برنامج عمل المفوضية 2027 | إدراج بلاغ تجارة الذكاء الاصطناعي | أكتوبر 2026 | A → B إذا أُدرج |
+| الاجتماع الوزاري الأمريكي–الأوروبي TTC | أجندة حوكمة الذكاء الاصطناعي | الربع الثالث 2026 | A → B إذا أُدرج |
+| تقييم Oceana لاتفاقية الشراكة السمكية | تحليل مخزون جزر كوك | الربع الأول 2027 | تفعيل RISK-02 |
+| تقديم EP INTA INI | طلب المادة 225 لتجارة الذكاء الاصطناعي | سبتمبر 2026 | إشارة السيناريو B |
+| تقرير مخزون WCPFC | وفرة التونة في المحيط الهادئ | فبراير 2027 | إنذار مبكر RISK-02 |
+| مراجعة EEAS لأوزبكستان | تقييم حقوق الإنسان | الربع الثاني 2027 | رصد RISK-03 |
+
+---
+
+### تصنيف الثقة التحليلية
+
+| المجال | الثقة | الأساس |
+|-------|--------|--------|
+| تحديد المخرجات التشريعية | 🟢 HIGH | A1 النصوص المعتمدة |
+| محتوى قرار تجارة الذكاء الاصطناعي | 🟢 HIGH | تحليل النص الأولي |
+| إسناد اللجنة | 🔴 LOW | C3 — رموز الموضوع فقط |
+| هوامش التصويت | 🔴 LOW | تأخر DOCEO؛ غير متاح |
+| تحديد هوية المقرر | 🔴 LOW | خطأ 404 في تغذية الإجراءات |
+| السياق الاقتصادي | 🟡 MEDIUM | تقديرات تقريبية لـ IMF WEO |
+| التوقعات المستقبلية | 🟡 MEDIUM | سيناريوهات معايرة وفق WEP |
+| مواقف أصحاب المصلحة | 🟡 MEDIUM | استدلال هيكلي |
+
+---
+
+### الثغرات الاستخباراتية التي تستدعي الاهتمام مستقبلاً
+
+1. **بيانات تصويت DOCEO** (متاحة في 2–4 أسابيع): توافق الكتل السياسية على جميع النصوص التسعة
+2. **سجلات إجراءات اللجنة** (عند استعادة التغذية): أسماء المقررين، هوامش التصويت
+3. **استعلام مباشر عن بيانات IMF**: أرقام الناتج المحلي الإجمالي/التجارة مع اقتباس كامل
+4. **مراقبة الإعلام**: التغطية الفعلية لقرار تجارة الذكاء الاصطناعي (Euractiv، POLITICO Europe)
+5. **تتبع استجابة المفوضية**: أجندة المديرية العامة للتجارة بعد القرار
+
+---
+
+### ملحق: ملخص النصوص المعتمدة — 19 و20 مايو 2026
+
+| المرجع | العنوان | المجال | التاريخ |
+|--------|--------|--------|---------|
+| TA-10-2026-0183 | استراتيجية الذكاء الاصطناعي للتجارة الأوروبية | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | توصية بشأن الجمعية العامة للأمم المتحدة الدورة 81 | EXT | 2026-05-20 |
+| TA-10-2026-0179 | اتفاقية الشراكة السمكية EU–جزر كوك 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | شراكة EC–سان تومي في مجال الصيد | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | اتفاقية EU–لبنان Eurojust | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU–أوزبكستان EPCA (قرار) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | مواد التكاثر الحرجي | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | رفع الحصانة — نيكوس باباس | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | رفع الحصانة — هارالد فيلمسكي | PRIV | 2026-05-19 |
+
+---
+
+*أُنشئ هذا الموجز بواسطة خط الأنابيب الوكيلي لـ EU Parliament Monitor.*
+*وضع البيانات: degraded-feeds | التشغيل: committee-reports-run271-1779861057*
+*الإطار التحليلي: معايير الاستخبارات الأمريكية CIA OSINT + منهجية تحليل التشريعات البرلمانية الأوروبية*
+
+---
+
+### فهرس الإحالات المتقاطعة (للقطع الأثرية ذات الصلة)
+
+| السؤال | القطعة الأثرية |
+|--------|---------------|
+| تحليل أصحاب المصلحة الكامل | `intelligence/stakeholder-map.md` |
+| توقعات السيناريو لـ 12 شهراً | `intelligence/scenario-forecast.md` |
+| الأحداث العشوائية/البجع الأسود | `intelligence/wildcards-blackswans.md` |
+| سجل التهديدات | `intelligence/threat-model.md` |
+| تحليل PESTLE | `intelligence/pestle-analysis.md` |
+| السياق الاقتصادي (IMF) | `intelligence/economic-context.md` |
+| مصفوفة المخاطر | `risk-scoring/risk-matrix.md` |
+| تحليل SWOT | `risk-scoring/quantitative-swot.md` |
+| تأطير الإعلام | `extended/media-framing-analysis.md` |
+| جودة بيانات MCP | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief Da
+
+### Overskriftsvurdering
+
+**Europa-Parlamentets majplenum 2026 markerede en lovgivningsuge med høj produktion, der simultant fremrykkede tre strategiske prioriteter: AI-handelsstyring, fiskeriidiplomati og ekstern partnerskabsarkitektur. AI-strategiresolutionen (TA-10-2026-0183) er det afgørende resultat — den positionerer EU som global AI-styringseksportør for første gang via handelspolitikkinstrumentet.**
+
+**WEP-vurdering**: Det er sandsynligt (55–70 %), at Kommissionen vil producere en opfølgende meddelelse om AI og handel inden for 12–18 måneder. Oversættelsen til bindende Rådsmandat møder højere usikkerhed (omtrent jævn, 35–50 %).
+
+**Admiralty Grade for overskrift**: B2 — pålidelig bevis for vedtagne tekster; udvalgsattribution udledt fra fagkoder.
+
+---
+
+### Nøgledomme
+
+#### ND-01: AI-handelsstrategibeslutning — Milepæl eller aspirerende?
+
+**Vurdering**: Mere sandsynligt at være en milepæl end aspirerende (55–65 %), men gennemførelse er ikke garanteret.
+
+Beslutningens betydning hviler på tre søjler:
+1. **Tværudvalgskoalition**: TECN + INFQ fagkodning bekræfter ITRE/INTA fælles ejerskab
+2. **Bruxelles-effektens præcedens**: GDPR og AI-forordningen demonstrerer EU's beviste kapacitet til at eksportere regulatoriske normer
+3. **Kommissionspres**: Artikel 225-vej tilgængelig, hvis Kommissionen forsinker svaret
+
+**Modvurdering**: Kommissionens lovgivningsdagsorden er overfyldt; AI-handelsresolutionen konkurrerer med Konkurrenceevneunionen, Ren Industriaftale og Indre Markedspakke. Ikke-bindende beslutninger har ~50 % opfølgningsrate inden for 24 måneder (historisk baseline).
+
+**Efterretningsimplikation**: Overvåg Kommissionens arbejdsprogram 2027 (forventet oktober 2026) for eksplicit inkludering af AI-handelsmeddelelse.
+
+#### ND-02: Konsolidering af fiskerisportfolio
+
+**Vurdering**: Sandsynligt (65–75 %) at begge nye SFP (São Tomé, Cookøerne) vil gå videre til foreløbig anvendelse uden større forstyrrelser inden for 6 måneder.
+
+Den dobbelte vedtagelse signalerer en moden PECH-udvalgsproces. Cookøernes 7-årige protokolvarighed er et usædvanligt stærkt tillidsignal fra begge parter. Miljøoverholdelse er den primære risikovektor (Oceana-vurdering forventet inden for 12 måneder; se RISK-02).
+
+**Efterretningsimplikation**: Planlæg opfølgningskørsel for Q4 2026 for at vurdere SFP foreløbig anvendelsesstatus og indledende bæredygtighedsovervågningsrapporter.
+
+#### ND-03: Centralasiatisk strategisk positionering
+
+**Vurdering**: Sandsynligt (65–75 %) at EU–Usbekistan EPCA vil være operationelt aktivt inden for 12 måneder, med første fælles udvalgsmøde planlagt.
+
+EPCA-ratificeringen (TA-10-2026-0174) fremrykker EU's Centralasiensstrategi (revideret 2019; opdateret efter Ukraine-invasionen 2022) og Global Gateway-investeringsplanen for regionen. Forsyningskæde-diversificering fra Kina (sjældne jordarter, uran, bomuld) giver et holdbart strategisk rationale, der overskrider partipolitiske forskelle inden for EP10.
+
+**Risiko for menneskerettighedsbetingelser**: Usandsynligt at afspore (20–30 %), men EP DROI-overvågning opretholder pres for fortsat reformfremgang.
+
+#### ND-04: Parlamentariske immunitetsstandarter opretholdt
+
+**Vurdering**: Høj tillid (80–90 %) til at de dobbelte immunitetsophævningsgodkendelser (Vilimsky/FPÖ og Pappas/SYRIZA) vil gennemgå nationale retskanaler uden at blive EU-politiske hændelser.
+
+JURI-udvalgets politisk konsistente standardanvendelse er en reel institutionel styrke. Begge ophævninger afspejler adfærd, der er urelated til parlamentarisk mandat (standard ophævningsgodkendelseskriterier). Politiseringsrisiko eksisterer primært på nationalt medieniveau (Østrig, Grækenland) frem for på EU-institutionelt niveau.
+
+---
+
+### Politiksignaler til overvågning
+
+| Signal | Hvad der skal overvåges | Tidslinje | Scenarioimplication |
+|--------|------------------------|-----------|---------------------|
+| Kommissionens arbejdsprogram 2027 | AI-handelsmeddelelsesinkludering | Oktober 2026 | A → B hvis inkluderet |
+| USA–EU TTC ministermøde | AI-styrningsdagsorden | Q3 2026 | A → B hvis inkluderet |
+| Oceana SFP-vurdering | Cookøernes fiskebestandsanalyse | Q1 2027 | RISK-02 aktivering |
+| EP INTA INI-indgivelse | Artikel 225 AI-handelsanmodning | September 2026 | Scenario B signal |
+| WCPFC fiskebestandsrapport | Stillehavstunasoverflod | Februar 2027 | RISK-02 tidlig advarsel |
+| EEAS Usbekistan-gennemgang | Menneskerettighedsvurdering | Q2 2027 | RISK-03 overvågning |
+
+---
+
+### Analytisk tillidsopdeling
+
+| Domæne | Tillid | Grundlag |
+|--------|--------|----------|
+| Lovgivningsoutput-identifikation | 🟢 HIGH | A1 vedtagne tekster |
+| AI-handelsresolutionsindhold | 🟢 HIGH | Primær tekstanalyse |
+| Udvalgsattribution | 🔴 LOW | C3 — fagkoder kun |
+| Stemmeandele | 🔴 LOW | DOCEO-forsinkelse; utilgængelig |
+| Ordfører-identifikation | 🔴 LOW | Procedurefeed 404 |
+| Økonomisk kontekst | 🟡 MEDIUM | IMF WEO-tilnærmelser |
+| Fremadrettede projektioner | 🟡 MEDIUM | WEP-kalibrerede scenarier |
+| Interessentpositioner | 🟡 MEDIUM | Strukturel inferens |
+
+---
+
+### Efterretningsgab der kræver fremtidig opmærksomhed
+
+1. **DOCEO-afstemningsdata** (tilgængelig om 2–4 uger): Politisk gruppetilpasning for alle 9 tekster
+2. **Udvalgsprocedureposter** (når feed er genoprettet): Ordførernavne, stemmeandele
+3. **IMF direkte dataforespørgsel**: BNP/handelsdata med fuld citering
+4. **Medieovervågning**: Faktisk dækning af AI-handelsresolution (Euractiv, POLITICO Europe)
+5. **Kommissionssvarssporing**: DG HANDEL-dagsorden efter resolution
+
+---
+
+### Appendiks: Oversigt over vedtagne tekster — 19.–20. maj 2026
+
+| Reference | Titel | Domæne | Dato |
+|-----------|-------|--------|------|
+| TA-10-2026-0183 | AI-strategi for EU-handel | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | Henstilling om 81. UNGA | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU–Cookøerne SFP 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EF–São Tomé Fiskerpartnerskab | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | EU–Libanon Eurojust-aftale | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU–Usbekistan EPCA (Beslutning) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | Skovreproduktionsmateriale | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | Immunitetsophævning — Nikos Pappas | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | Immunitetsophævning — Harald Vilimsky | PRIV | 2026-05-19 |
+
+---
+
+*Denne orientering blev genereret af EU Parliament Monitors agentpipeline.*
+*Datatilstand: degraded-feeds | Kørsel: committee-reports-run271-1779861057*
+*Analytisk ramme: CIA OSINT-håndværksstandarder + EP lovgivningsanalysemetodologi*
+
+---
+
+### Krydsreferenceindeks (for relaterede artefakter)
+
+| Spørgsmål | Artefakt |
+|-----------|---------|
+| Fuld interessentanalyse | `intelligence/stakeholder-map.md` |
+| 12-månedersprognose | `intelligence/scenario-forecast.md` |
+| Jokerhændelser/sorte svaner | `intelligence/wildcards-blackswans.md` |
+| Trusselregister | `intelligence/threat-model.md` |
+| PESTLE-analyse | `intelligence/pestle-analysis.md` |
+| Økonomisk kontekst (IMF) | `intelligence/economic-context.md` |
+| Risikoematrix | `risk-scoring/risk-matrix.md` |
+| SWOT-analyse | `risk-scoring/quantitative-swot.md` |
+| Medieindramning | `extended/media-framing-analysis.md` |
+| MCP-datakvalitet | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief De
+
+### Hauptbewertung
+
+**Das Mai-Plenum 2026 des Europäischen Parlaments markierte eine gesetzgebungsintensive Woche, die gleichzeitig drei strategische Prioritäten vorantrieb: KI-Handelspolitik, Fischereidiplomatie und Architektur externer Partnerschaften. Die KI-Strategieentschließung (TA-10-2026-0183) ist das richtungsweisende Ergebnis — sie positioniert die EU als globalen KI-Governance-Exporteur zum ersten Mal durch das handelspolitische Instrument.**
+
+**WEP-Bewertung**: Es ist wahrscheinlich (55–70 %), dass die Kommission innerhalb von 12–18 Monaten eine Folgemitteilung zu KI und Handel vorlegen wird. Die Umsetzung in bindende Ratsmandate ist mit höherer Unsicherheit behaftet (etwa ausgewogen, 35–50 %).
+
+**Admiralty Grade für Hauptbewertung**: B2 — verlässliche Beweise für angenommene Texte; Ausschusszuordnung aus Fachgebietscodes abgeleitet.
+
+---
+
+### Kernurteile
+
+#### KU-01: KI-Handelsstrategieentschließung — Meilenstein oder Absichtserklärung?
+
+**Bewertung**: Eher Meilenstein als Absichtserklärung (55–65 %), jedoch ist die Umsetzung nicht garantiert.
+
+Die Bedeutung der Entschließung ruht auf drei Säulen:
+1. **Ausschussübergreifende Koalition**: TECN + INFQ-Fachgebietskodierung bestätigt gemeinsames ITRE/INTA-Eigentum
+2. **Brüssel-Effekt-Präzedenz**: DSGVO und KI-Verordnung belegen die bewährte EU-Kapazität zum Export regulatorischer Normen
+3. **Kommissionsdruck**: Artikel-225-Weg verfügbar, wenn die Kommission die Antwort verzögert
+
+**Gegenbewertung**: Die Legislativagenda der Kommission ist überladen; die KI-Handelsentschließung konkurriert mit der Wettbewerbsfähigkeitsunion, dem Sauberen Industrieabkommen und dem Binnenmarktpaket. Nicht-bindende Entschließungen haben eine Folgemaquote von ~50 % innerhalb von 24 Monaten (historische Basislinie).
+
+**Nachrichtendienstliche Implikation**: Überwachen Sie das Arbeitsprogramm der Kommission 2027 (erwartet Oktober 2026) auf die ausdrückliche Aufnahme einer KI-Handelsmitteilung.
+
+#### KU-02: Konsolidierung des Fischereiportfolios
+
+**Bewertung**: Wahrscheinlich (65–75 %), dass beide neuen SFP (São Tomé, Cookinseln) innerhalb von 6 Monaten ohne größere Störungen zur vorläufigen Anwendung übergehen werden.
+
+Die doppelte Annahme signalisiert einen ausgereiften PECH-Ausschussprozess. Die 7-jährige Protokolllaufzeit der Cookinseln ist ein ungewöhnlich starkes Vertrauenssignal beider Parteien. Umwelt-Compliance ist der primäre Risikoweg (Oceana-Bewertung innerhalb von 12 Monaten erwartet; siehe RISK-02).
+
+**Nachrichtendienstliche Implikation**: Folge-Run für Q4 2026 planen, um den vorläufigen Anwendungsstatus des SFP und erste Nachhaltigkeitsberichte zu bewerten.
+
+#### KU-03: Zentralasiatische strategische Positionierung
+
+**Bewertung**: Wahrscheinlich (65–75 %), dass das EU–Usbekistan-EPCA innerhalb von 12 Monaten operativ aktiv sein wird, mit dem ersten gemeinsamen Ausschussmeeting geplant.
+
+Die EPCA-Ratifizierung (TA-10-2026-0174) fördert die EU-Zentralasienstrategie (überarbeitet 2019; aktualisiert nach der Ukraine-Invasion 2022) und den Global-Gateway-Investitionsplan für die Region. Lieferkettendiversifizierung aus China (Seltene Erden, Uran, Baumwolle) bietet ein dauerhaftes strategisches Kalkül, das parteiübergreifende politische Unterschiede innerhalb von EP10 übersteigt.
+
+**Risiko durch Menschenrechtsbedingungen**: Unwahrscheinlich, dass es scheitert (20–30 %), aber die EP-DROI-Überwachung übt weiterhin Druck für Reformfortschritte aus.
+
+#### KU-04: Parlamentarische Immunitätsstandards gewahrt
+
+**Bewertung**: Hohes Vertrauen (80–90 %), dass die doppelten Immunitätsaufhebungsgenehmigungen (Vilimsky/FPÖ und Pappas/SYRIZA) durch nationale Justizkanäle laufen werden, ohne zu EU-politischen Ereignissen zu werden.
+
+Die politisch konsequente Standardanwendung des JURI-Ausschusses ist eine echte institutionelle Stärke. Beide Aufhebungen spiegeln Verhalten wider, das nichts mit dem parlamentarischen Mandat zu tun hat (Standard-Genehmigungskriterien für Aufhebungen). Das Politisierungsrisiko besteht hauptsächlich auf nationaler Medienebene (Österreich, Griechenland) und nicht auf EU-institutioneller Ebene.
+
+---
+
+### Politiksignale zur Überwachung
+
+| Signal | Was zu beobachten ist | Zeitplan | Szenarioimplika­tion |
+|--------|----------------------|----------|---------------------|
+| Arbeitsprogramm der Kommission 2027 | Aufnahme einer KI-Handelsmitteilung | Oktober 2026 | A → B wenn aufgenommen |
+| USA–EU TTC Ministerial | KI-Governance-Agenda | Q3 2026 | A → B wenn aufgenommen |
+| Oceana-SFP-Bewertung | Cookinseln-Bestandsanalyse | Q1 2027 | RISK-02-Aktivierung |
+| EP INTA INI-Einreichung | Artikel-225-KI-Handelsantrag | September 2026 | Szenario-B-Signal |
+| WCPFC-Bestandsbericht | Pazifik-Thunfischvorkommen | Februar 2027 | RISK-02-Frühwarnung |
+| EEAS-Usbekistan-Überprüfung | Menschenrechtsbewertung | Q2 2027 | RISK-03-Überwachung |
+
+---
+
+### Analytische Vertrauensaufschlüsselung
+
+| Bereich | Vertrauen | Grundlage |
+|---------|-----------|-----------|
+| Identifikation legislativer Ergebnisse | 🟢 HIGH | A1 angenommene Texte |
+| Inhalt der KI-Handelsentschließung | 🟢 HIGH | Primäre Textanalyse |
+| Ausschusszuordnung | 🔴 LOW | C3 — nur Fachgebietscodes |
+| Abstimmungsmargen | 🔴 LOW | DOCEO-Verzögerung; nicht verfügbar |
+| Berichterstatter-Identifikation | 🔴 LOW | Verfahrens-Feed 404 |
+| Wirtschaftlicher Kontext | 🟡 MEDIUM | IMF WEO-Näherungswerte |
+| Zukunftsprojektionen | 🟡 MEDIUM | WEP-kalibrierte Szenarien |
+| Interessenpositionen | 🟡 MEDIUM | Strukturelle Schlussfolgerung |
+
+---
+
+### Nachrichtendienstliche Lücken, die künftiger Aufmerksamkeit bedürfen
+
+1. **DOCEO-Abstimmungsdaten** (in 2–4 Wochen verfügbar): Politische Gruppenausrichtung bei allen 9 Texten
+2. **Ausschussverfahrenseinträge** (nach Feed-Wiederherstellung): Namen der Berichterstatter, Abstimmungsmargen
+3. **IMF-Direktdatenabfrage**: BIP/Handelsdaten mit vollständiger Quellenangabe
+4. **Medienüberwachung**: Tatsächliche Berichterstattung über die KI-Handelsentschließung (Euractiv, POLITICO Europe)
+5. **Kommissionsantwortsverfolgung**: DG-HANDEL-Agenda nach der Entschließung
+
+---
+
+### Anhang: Zusammenfassung der angenommenen Texte — 19.–20. Mai 2026
+
+| Referenz | Titel | Bereich | Datum |
+|----------|-------|---------|-------|
+| TA-10-2026-0183 | KI-Strategie für den EU-Handel | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | Empfehlung zur 81. UNGA | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU–Cookinseln SFP 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EG–São Tomé Fischereipartnerschaft | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | EU–Libanon Eurojust-Abkommen | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU–Usbekistan EPCA (Entschließung) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | Forstliches Vermehrungsgut | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | Immunitätsaufhebung — Nikos Pappas | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | Immunitätsaufhebung — Harald Vilimsky | PRIV | 2026-05-19 |
+
+---
+
+*Diese Zusammenfassung wurde von der agentischen Pipeline des EU Parliament Monitor erstellt.*
+*Datenmodus: degraded-feeds | Lauf: committee-reports-run271-1779861057*
+*Analytischer Rahmen: CIA OSINT-Handwerksstandards + EP-Gesetzgebungsanalysemethodik*
+
+---
+
+### Querverweisindex (für verwandte Artefakte)
+
+| Frage | Artefakt |
+|-------|---------|
+| Vollständige Interessentenanalyse | `intelligence/stakeholder-map.md` |
+| 12-Monats-Szenarioprognose | `intelligence/scenario-forecast.md` |
+| Wildcard-/Schwarzer-Schwan-Ereignisse | `intelligence/wildcards-blackswans.md` |
+| Bedrohungsregister | `intelligence/threat-model.md` |
+| PESTLE-Analyse | `intelligence/pestle-analysis.md` |
+| Wirtschaftlicher Kontext (IMF) | `intelligence/economic-context.md` |
+| Risikomatrix | `risk-scoring/risk-matrix.md` |
+| SWOT-Analyse | `risk-scoring/quantitative-swot.md` |
+| Medienrahmung | `extended/media-framing-analysis.md` |
+| MCP-Datenqualität | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief Es
+
+### Evaluación Principal
+
+**El pleno de mayo de 2026 del Parlamento Europeo marcó una semana legislativa de alta producción que impulsó simultáneamente tres prioridades estratégicas: gobernanza del comercio de IA, diplomacia pesquera y arquitectura de asociaciones externas. La resolución sobre estrategia de IA (TA-10-2026-0183) es el resultado definitorio — posiciona a la UE como exportador mundial de gobernanza de IA por primera vez a través del instrumento de política comercial.**
+
+**Evaluación WEP**: Es probable (55–70 %) que la Comisión produzca una comunicación de seguimiento sobre IA y comercio en un plazo de 12 a 18 meses. La traducción a mandatos vinculantes del Consejo enfrenta mayor incertidumbre (aproximadamente equilibrada, 35–50 %).
+
+**Calificación Almirantazgo para evaluación principal**: B2 — evidencia fiable de textos aprobados; atribución a nivel de comisión inferida a partir de códigos temáticos.
+
+---
+
+### Juicios Clave
+
+#### JC-01: Resolución sobre Estrategia Comercial de IA — ¿Hito o Aspiracional?
+
+**Evaluación**: Más probable que sea un hito que aspiracional (55–65 %), pero la ejecución no está garantizada.
+
+La importancia de la resolución descansa en tres pilares:
+1. **Coalición transcomisión**: La codificación temática TECN + INFQ confirma la copropiedad ITRE/INTA
+2. **Precedente del Efecto Bruselas**: El RGPD y la Ley de IA demuestran la capacidad probada de la UE para exportar normas regulatorias
+3. **Presión sobre la Comisión**: La vía del artículo 225 disponible si la Comisión retrasa su respuesta
+
+**Contraevaluación**: La agenda legislativa de la Comisión está sobrecargada; la resolución sobre comercio de IA compite con la Unión de Competitividad, el Pacto Industrial Limpio y el Paquete del Mercado Único. Las resoluciones no vinculantes tienen una tasa de seguimiento de ~50 % en 24 meses (referencia histórica).
+
+**Implicación para la inteligencia**: Monitorear el Programa de Trabajo 2027 de la Comisión (previsto para octubre de 2026) para la inclusión explícita de una comunicación sobre comercio de IA.
+
+#### JC-02: Consolidación de la Cartera Pesquera
+
+**Evaluación**: Probable (65–75 %) que ambos nuevos APP (Santo Tomé, Islas Cook) procedan a la aplicación provisional sin interrupciones importantes en 6 meses.
+
+La doble aprobación señala un proceso maduro de la comisión PECH. La duración del protocolo de 7 años de las Islas Cook es una señal de confianza inusualmente fuerte de ambas partes. El cumplimiento ambiental es el vector de riesgo primario (evaluación Oceana prevista en 12 meses; véase RISK-02).
+
+**Implicación para la inteligencia**: Programar una ejecución de seguimiento para el cuarto trimestre de 2026 para evaluar el estado de aplicación provisional del APP e informes iniciales de supervisión de sostenibilidad.
+
+#### JC-03: Posicionamiento Estratégico en Asia Central
+
+**Evaluación**: Probable (65–75 %) que el APCP UE–Uzbekistán esté operativamente activo en 12 meses, con la primera reunión del Comité Mixto programada.
+
+La ratificación del APCP (TA-10-2026-0174) hace avanzar la Estrategia de la UE para Asia Central (revisada en 2019; actualizada tras la invasión de Ucrania de 2022) y el plan de inversión Global Gateway para la región. La diversificación de la cadena de suministro desde China (tierras raras, uranio, algodón) proporciona un fundamento estratégico duradero que trasciende las diferencias políticas partidistas dentro del EP10.
+
+**Riesgo por condiciones de derechos humanos**: Poco probable que lo haga descarrilar (20–30 %), pero el seguimiento del EP DROI mantiene presión para el progreso continuado de las reformas.
+
+#### JC-04: Normas de Inmunidad Parlamentaria Mantenidas
+
+**Evaluación**: Alta confianza (80–90 %) en que las dobles aprobaciones de levantamiento de inmunidad (Vilimsky/FPÖ y Pappas/SYRIZA) seguirán los cauces judiciales nacionales sin convertirse en incidentes políticos a nivel de la UE.
+
+La aplicación coherente de los estándares por la comisión JURI es una fortaleza institucional genuina. Ambos levantamientos reflejan conducta no relacionada con el mandato parlamentario (criterios estándar de aprobación de levantamiento). El riesgo de politización existe principalmente a nivel de medios nacionales (Austria, Grecia) más que a nivel institucional de la UE.
+
+---
+
+### Señales de Política para el Seguimiento
+
+| Señal | Qué observar | Plazo | Implicación de escenario |
+|-------|-------------|-------|--------------------------|
+| Programa de Trabajo 2027 de la Comisión | Inclusión de comunicación sobre comercio de IA | Octubre 2026 | A → B si se incluye |
+| Reunión ministerial TTC UE–EE.UU. | Agenda de gobernanza de IA | T3 2026 | A → B si se incluye |
+| Evaluación APP Oceana | Análisis de stocks de Islas Cook | T1 2027 | Activación RISK-02 |
+| Presentación EP INTA INI | Solicitud artículo 225 comercio IA | Septiembre 2026 | Señal escenario B |
+| Informe de stocks WCPFC | Abundancia de atún del Pacífico | Febrero 2027 | Alerta temprana RISK-02 |
+| Revisión SEAE Uzbekistán | Evaluación de derechos humanos | T2 2027 | Seguimiento RISK-03 |
+
+---
+
+### Desglose de Confianza Analítica
+
+| Dominio | Confianza | Base |
+|---------|-----------|------|
+| Identificación de resultados legislativos | 🟢 HIGH | A1 textos aprobados |
+| Contenido de la resolución sobre comercio de IA | 🟢 HIGH | Análisis del texto primario |
+| Atribución a la comisión | 🔴 LOW | C3 — solo códigos temáticos |
+| Márgenes de votación | 🔴 LOW | Retraso DOCEO; no disponible |
+| Identificación del ponente | 🔴 LOW | Flujo de procedimientos 404 |
+| Contexto económico | 🟡 MEDIUM | Aproximaciones IMF WEO |
+| Proyecciones prospectivas | 🟡 MEDIUM | Escenarios calibrados WEP |
+| Posiciones de las partes interesadas | 🟡 MEDIUM | Inferencia estructural |
+
+---
+
+### Brechas de Inteligencia que Requieren Atención Futura
+
+1. **Datos de votación DOCEO** (disponibles en 2–4 semanas): Alineación de grupos políticos en los 9 textos
+2. **Registros de procedimientos de comisión** (al restaurar el flujo): Nombres de ponentes, márgenes de votación
+3. **Consulta directa de datos IMF**: Cifras PIB/comercio con cita completa
+4. **Seguimiento de medios**: Cobertura real de la resolución sobre comercio de IA (Euractiv, POLITICO Europe)
+5. **Seguimiento de respuesta de la Comisión**: Agenda DG COMERCIO tras la resolución
+
+---
+
+### Apéndice: Resumen de Textos Aprobados — 19 y 20 de mayo de 2026
+
+| Referencia | Título | Ámbito | Fecha |
+|------------|--------|--------|-------|
+| TA-10-2026-0183 | Estrategia de IA para el Comercio de la UE | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | Recomendación sobre la 81.ª AGNU | EXT | 2026-05-20 |
+| TA-10-2026-0179 | APP UE–Islas Cook 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | Asociación Pesquera CE–Santo Tomé | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | Acuerdo UE–Líbano Eurojust | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | APCP UE–Uzbekistán (Resolución) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | Materiales Forestales de Reproducción | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | Levantamiento de Inmunidad — Nikos Pappas | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | Levantamiento de Inmunidad — Harald Vilimsky | PRIV | 2026-05-19 |
+
+---
+
+*Esta nota fue generada por el pipeline agentivo del EU Parliament Monitor.*
+*Modo de datos: degraded-feeds | Ejecución: committee-reports-run271-1779861057*
+*Marco analítico: estándares OSINT de la CIA + metodología de análisis legislativo del PE*
+
+---
+
+### Índice de Referencias Cruzadas (para Artefactos Relacionados)
+
+| Pregunta | Artefacto |
+|---------|---------|
+| Análisis completo de partes interesadas | `intelligence/stakeholder-map.md` |
+| Previsión de escenarios a 12 meses | `intelligence/scenario-forecast.md` |
+| Eventos comodín/cisnes negros | `intelligence/wildcards-blackswans.md` |
+| Registro de amenazas | `intelligence/threat-model.md` |
+| Análisis PESTLE | `intelligence/pestle-analysis.md` |
+| Contexto económico (IMF) | `intelligence/economic-context.md` |
+| Matriz de riesgos | `risk-scoring/risk-matrix.md` |
+| Análisis SWOT | `risk-scoring/quantitative-swot.md` |
+| Encuadre mediático | `extended/media-framing-analysis.md` |
+| Calidad de datos MCP | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief Fi
+
+### Otsikkkoarviointi
+
+**Euroopan parlamentin toukokuun 2026 täysistunto merkitsi korkeatuotantoista lainsäädäntöviikkoa, joka edisti samanaikaisesti kolmea strategista prioriteettia: tekoälykauppahallinto, kalastusdiplomaatia ja ulkoinen kumppanuusarkkitehtuuri. Tekoälystrategiapäätöslauselma (TA-10-2026-0183) on määräävä tuotos — se asemoi EU:n maailmanlaajuiseksi tekoälyhallinnon vientimaaksi ensimmäistä kertaa kauppapolitiikan instrumentin kautta.**
+
+**WEP-arviointi**: On todennäköistä (55–70 %), että komissio tuottaa seurantaviestinnän tekoälystä ja kaupasta 12–18 kuukauden kuluessa. Muuntaminen sitoviksi neuvoston mandaateiksi kohtaa korkeampaa epävarmuutta (suunnilleen tasan, 35–50 %).
+
+**Admiralty Grade otsikosta**: B2 — luotettava hyväksyttyjen tekstien näyttö; valiokuntatasoattribuutio johdettu aihekoodeista.
+
+---
+
+### Tärkeimmät päätelmät
+
+#### TP-01: Tekoälykauppastrattegiapäätöslauselma — Merkkipaalu vai pyrkimys?
+
+**Arviointi**: Todennäköisemmin merkkipaalu kuin pyrkimys (55–65 %), mutta toteutus ei ole taattu.
+
+Päätöslauselman merkitys perustuu kolmeen pilariin:
+1. **Poikkivaliokuntakoalitio**: TECN + INFQ-aihekoodaus vahvistaa ITRE/INTA:n yhteisomistuksen
+2. **Bryssel-efektin ennakkotapaus**: GDPR ja tekoälylaki osoittavat EU:n todistetun kyvyn viedä sääntelynormeja
+3. **Komissiopaine**: 225 artiklan reitti käytettävissä, jos komissio viivästyttää vastaustaan
+
+**Vastaarviointi**: Komission lainsäädäntöagenda on ruuhkautunut; tekoälykaupan päätöslauselma kilpailee kilpailukykyunionin, puhtaan teollisuuden sopimuksen ja sisämarkkinapaketin kanssa. Ei-sitovilla päätöslauselmilla on ~50 %:n seuranta-aste 24 kuukauden kuluessa (historiallinen lähtötaso).
+
+**Tiedusteluvaikutus**: Seuraa komission vuoden 2027 työohjelmaa (odotetaan lokakuussa 2026) tekoälykaupan viestinnän nimenomaisen sisällyttämisen osalta.
+
+#### TP-02: Kalastussalkun konsolidointi
+
+**Arviointi**: Todennäköistä (65–75 %), että molemmat uudet SFP (São Tomé, Cookinsaaret) etenevät väliaikaiseen soveltamiseen ilman merkittäviä häiriöitä 6 kuukauden kuluessa.
+
+Kaksinkertainen hyväksyminen merkitsee kypsää PECH-valiokuntaprosessia. Cookinsaarten 7 vuoden protokollan kesto on epätavallisen vahva luottamusmerkki molemmilta osapuolilta. Ympäristömääräysten noudattaminen on ensisijainen riskivektori (Oceana-arviointi odotetaan 12 kuukauden kuluessa; ks. RISK-02).
+
+**Tiedusteluvaikutus**: Suunnittele seurantakierros Q4 2026:lle arvioidaksesi SFP:n väliaikaista soveltamisstatusta ja alustavia kestävyysseurantaraportteja.
+
+#### TP-03: Keski-Aasian strateginen asemointi
+
+**Arviointi**: Todennäköistä (65–75 %), että EU–Uzbekistan EPCA on operatiivisesti aktiivinen 12 kuukauden kuluessa, ensimmäisen yhteisen valiokuntakokouksen ollessa suunniteltu.
+
+EPCA-ratifiointi (TA-10-2026-0174) edistää EU:n Keski-Aasian strategiaa (tarkistettu 2019; päivitetty Ukrainan hyökkäyksen jälkeen 2022) ja Global Gateway -investointisuunnitelmaa alueelle. Toimitusketjun monipuolistaminen Kiinasta (harvinaiset maametaillit, uraani, puuvilla) tarjoaa kestävän strategisen perustelun, joka ylittää puoluepoliittiset erot EP10:ssä.
+
+**Ihmisoikeusehtoriskit**: Epätodennäköistä, että ne kaatavat (20–30 %), mutta EP DROI -seuranta ylläpitää painetta jatkuvan uudistusedistyksen osalta.
+
+#### TP-04: Parlamentin immuniteetistandardit säilytetty
+
+**Arviointi**: Korkea luotettavuus (80–90 %), että kaksinkertaiset immuniteettipoistojen hyväksynnät (Vilimsky/FPÖ ja Pappas/SYRIZA) etenevät kansallisten oikeudellisten kanavien kautta tulematta EU-tason poliittisiksi tapahtumiksi.
+
+JURI-valiokunnan poliittisesti johdonmukainen standardisovellusmenettely on aito institutionaalinen vahvuus. Molemmat poistot heijastavat käyttäytymistä, joka ei liity parlamentaariseen toimeksiantoon (standardit immuniteettien poistojen hyväksymiskriteerit). Politisoitumisriski on ensisijaisesti kansallisella mediatasolla (Itävalta, Kreikka) eikä EU:n institutionaalisella tasolla.
+
+---
+
+### Seurantaan liittyvät politiikkasignaalit
+
+| Signaali | Mitä seurataan | Aikataulu | Skenaarioimplisaatio |
+|---------|---------------|-----------|---------------------|
+| Komission vuoden 2027 työohjelma | Tekoälykaupan viestinnän sisällyttäminen | Lokakuu 2026 | A → B jos sisällytetty |
+| USA–EU TTC ministerikokoukset | Tekoälyhallinnon agenda | Q3 2026 | A → B jos sisällytetty |
+| Oceana SFP-arviointi | Cookinsaarten kalakantojen analyysi | Q1 2027 | RISK-02 aktivointi |
+| EP INTA INI -hakemus | 225 artiklan tekoälykauppapyyntö | Syyskuu 2026 | Skenaario B -signaali |
+| WCPFC kalakantojen raportti | Tyynenmeren tonnikalan runsaus | Helmikuu 2027 | RISK-02 varhainen varoitus |
+| EEAS Uzbekistanin tarkastelu | Ihmisoikeusarviointi | Q2 2027 | RISK-03 seuranta |
+
+---
+
+### Analyyttinen luotettavuusjakauma
+
+| Alue | Luotettavuus | Perusta |
+|------|-------------|---------|
+| Lainsäädäntötuotannon tunnistaminen | 🟢 HIGH | A1 hyväksytyt tekstit |
+| Tekoälykaupan päätöslauselman sisältö | 🟢 HIGH | Ensisijainen tekstianalyysi |
+| Valiokuntaattribuutio | 🔴 LOW | C3 — vain aihekoodit |
+| Äänestymarginaalit | 🔴 LOW | DOCEO-viive; ei saatavilla |
+| Esittelijän tunnistaminen | 🔴 LOW | Menettelysyöte 404 |
+| Taloudellinen konteksti | 🟡 MEDIUM | IMF WEO -lähentymät |
+| Tulevaisuuden projektiot | 🟡 MEDIUM | WEP-kalibroituja skenaarioita |
+| Sidosryhmäpositiot | 🟡 MEDIUM | Rakenteellinen päättely |
+
+---
+
+### Tiedustelupuutteet, jotka vaativat tulevaa huomiota
+
+1. **DOCEO-äänestystiedot** (saatavilla 2–4 viikon kuluttua): Poliittisten ryhmien yhteensovittaminen kaikille 9 tekstille
+2. **Valiokuntamenettelytietueet** (kun syöte on palautettu): Esittelijöiden nimet, äänestysmarginaalit
+3. **IMF suorakysely**: BKT/kauppatiedot täydellisellä lähdeviitteellä
+4. **Mediaseuranta**: Tekoälykaupan päätöslauselman todellinen kattavuus (Euractiv, POLITICO Europe)
+5. **Komission vastauksenseuranta**: DG KAUPPA -agenda päätöslauselman jälkeen
+
+---
+
+### Liite: Hyväksyttyjen tekstien yhteenveto — 19.–20. toukokuuta 2026
+
+| Viite | Otsikko | Alue | Päivämäärä |
+|-------|---------|------|-----------|
+| TA-10-2026-0183 | EU-kaupan tekoälystrategia | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | Suositus 81. YK:n yleiskokouksesta | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU–Cookinsaaret SFP 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EY–São Tomé Kalastuskumppanuus | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | EU–Libanon Eurojust-sopimus | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU–Uzbekistan EPCA (Päätöslauselma) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | Metsänuistamisaineisto | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | Immuniteetin poistaminen — Nikos Pappas | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | Immuniteetin poistaminen — Harald Vilimsky | PRIV | 2026-05-19 |
+
+---
+
+*Tämä tiivistelmä on tuotettu EU Parliament Monitorin agenttipipelinen avulla.*
+*Datatila: degraded-feeds | Kierros: committee-reports-run271-1779861057*
+*Analyyttinen viitekehys: CIA OSINT -ammattistandardit + EP:n lainsäädäntöanalyysimetodologia*
+
+---
+
+### Ristiviiteindeksi (liittyvät artefaktit)
+
+| Kysymys | Artefakti |
+|---------|---------|
+| Täydellinen sidosryhmäanalyysi | `intelligence/stakeholder-map.md` |
+| 12 kuukauden skenaarioennuste | `intelligence/scenario-forecast.md` |
+| Jokeri-/musta joutsen -tapahtumat | `intelligence/wildcards-blackswans.md` |
+| Uhkarekisteri | `intelligence/threat-model.md` |
+| PESTLE-analyysi | `intelligence/pestle-analysis.md` |
+| Taloudellinen konteksti (IMF) | `intelligence/economic-context.md` |
+| Riskimatriisi | `risk-scoring/risk-matrix.md` |
+| SWOT-analyysi | `risk-scoring/quantitative-swot.md` |
+| Median kehystäminen | `extended/media-framing-analysis.md` |
+| MCP-datalaatu | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief Fr
+
+### Évaluation principale
+
+**La session plénière de mai 2026 du Parlement européen a marqué une semaine législative à haute production, faisant progresser simultanément trois priorités stratégiques : la gouvernance du commerce de l'IA, la diplomatie halieutique et l'architecture des partenariats extérieurs. La résolution sur la stratégie d'IA (TA-10-2026-0183) constitue le résultat déterminant — elle positionne l'UE comme exportateur mondial de gouvernance de l'IA pour la première fois via l'instrument de politique commerciale.**
+
+**Évaluation WEP** : Il est probable (55–70 %) que la Commission produira une communication de suivi sur l'IA et le commerce dans les 12 à 18 mois. La traduction en mandats du Conseil contraignants est confrontée à une incertitude plus élevée (à peu près équilibrée, 35–50 %).
+
+**Cote Amirauté pour l'évaluation principale** : B2 — preuves fiables des textes adoptés ; attribution au niveau commission déduite des codes de matière.
+
+---
+
+### Jugements clés
+
+#### JC-01 : Résolution sur la stratégie commerciale de l'IA — Étape majeure ou déclaration d'intention ?
+
+**Évaluation** : Plus susceptible d'être une étape majeure qu'une déclaration d'intention (55–65 %), mais l'exécution n'est pas garantie.
+
+La portée de la résolution repose sur trois piliers :
+1. **Coalition transcommission** : Le codage TECN + INFQ confirme la copropriété ITRE/INTA
+2. **Précédent de l'effet Bruxelles** : Le RGPD et la loi sur l'IA démontrent la capacité avérée de l'UE à exporter des normes réglementaires
+3. **Pression sur la Commission** : La voie de l'article 225 est disponible si la Commission retarde sa réponse
+
+**Contre-évaluation** : L'agenda législatif de la Commission est surchargé ; la résolution sur le commerce de l'IA entre en concurrence avec l'Union pour la compétitivité, le Pacte industriel propre et le Paquet marché intérieur. Les résolutions non contraignantes ont un taux de suivi d'environ 50 % dans les 24 mois (référence historique).
+
+**Implication pour le renseignement** : Surveiller le programme de travail 2027 de la Commission (attendu en octobre 2026) pour l'inclusion explicite d'une communication sur le commerce de l'IA.
+
+#### JC-02 : Consolidation du portefeuille halieutique
+
+**Évaluation** : Probable (65–75 %) que les deux nouveaux APP (São Tomé, Îles Cook) passeront à l'application provisoire sans perturbation majeure dans les 6 mois.
+
+La double adoption signale un processus mature de la commission PECH. La durée de 7 ans du protocole des Îles Cook est un signal de confiance inhabituellement fort des deux parties. La conformité environnementale est le vecteur de risque primaire (évaluation Oceana attendue dans les 12 mois ; voir RISK-02).
+
+**Implication pour le renseignement** : Planifier un suivi au quatrième trimestre 2026 pour évaluer le statut d'application provisoire de l'APP et les premiers rapports de surveillance de la durabilité.
+
+#### JC-03 : Positionnement stratégique en Asie centrale
+
+**Évaluation** : Probable (65–75 %) que l'APCP UE–Ouzbékistan sera opérationnellement actif dans les 12 mois, avec la première réunion du Comité mixte prévue.
+
+La ratification de l'APCP (TA-10-2026-0174) fait avancer la stratégie de l'UE pour l'Asie centrale (révisée en 2019 ; mise à jour après l'invasion de l'Ukraine en 2022) et le plan d'investissement Global Gateway pour la région. La diversification de la chaîne d'approvisionnement en provenance de Chine (terres rares, uranium, coton) fournit un raisonnement stratégique durable qui transcende les différences politiques partisanes au sein d'EP10.
+
+**Risque lié aux conditions de droits de l'homme** : Peu probable que cela déraille (20–30 %), mais la surveillance EP DROI maintient une pression pour la poursuite des progrès dans les réformes.
+
+#### JC-04 : Normes d'immunité parlementaire maintenues
+
+**Évaluation** : Haute confiance (80–90 %) que les doubles approbations de levée d'immunité (Vilimsky/FPÖ et Pappas/SYRIZA) suivront les voies judiciaires nationales sans devenir des incidents politiques de niveau européen.
+
+L'application cohérente des normes par la commission JURI est un véritable atout institutionnel. Les deux levées reflètent un comportement sans rapport avec le mandat parlementaire (critères standard d'approbation de levée). Le risque de politisation existe principalement au niveau des médias nationaux (Autriche, Grèce) plutôt qu'au niveau institutionnel de l'UE.
+
+---
+
+### Signaux politiques à surveiller
+
+| Signal | Quoi surveiller | Calendrier | Implication pour le scénario |
+|--------|----------------|------------|------------------------------|
+| Programme de travail 2027 de la Commission | Inclusion d'une communication sur le commerce de l'IA | Octobre 2026 | A → B si incluse |
+| Ministériel USA–UE TTC | Agenda de gouvernance de l'IA | T3 2026 | A → B si inclus |
+| Évaluation APP Oceana | Analyse des stocks des Îles Cook | T1 2027 | Activation RISK-02 |
+| Dépôt EP INTA INI | Demande article 225 commerce IA | Septembre 2026 | Signal scénario B |
+| Rapport de stocks WCPFC | Abondance de thon du Pacifique | Février 2027 | Alerte précoce RISK-02 |
+| Examen SEAE Ouzbékistan | Évaluation des droits de l'homme | T2 2027 | Surveillance RISK-03 |
+
+---
+
+### Décomposition de la confiance analytique
+
+| Domaine | Confiance | Fondement |
+|---------|-----------|-----------|
+| Identification des résultats législatifs | 🟢 HIGH | A1 textes adoptés |
+| Contenu de la résolution commerce IA | 🟢 HIGH | Analyse du texte primaire |
+| Attribution à la commission | 🔴 LOW | C3 — codes de matière uniquement |
+| Marges de vote | 🔴 LOW | Retard DOCEO ; non disponible |
+| Identification du rapporteur | 🔴 LOW | Flux procédures 404 |
+| Contexte économique | 🟡 MEDIUM | Approximations IMF WEO |
+| Projections prospectives | 🟡 MEDIUM | Scénarios calibrés WEP |
+| Positions des parties prenantes | 🟡 MEDIUM | Déduction structurelle |
+
+---
+
+### Lacunes de renseignement nécessitant une attention future
+
+1. **Données de vote DOCEO** (disponibles dans 2 à 4 semaines) : Alignement des groupes politiques sur les 9 textes
+2. **Dossiers de procédure de la commission** (à la restauration du flux) : Noms des rapporteurs, marges de vote
+3. **Requête de données directes IMF** : Chiffres PIB/commerce avec citation complète
+4. **Surveillance des médias** : Couverture réelle de la résolution sur le commerce de l'IA (Euractiv, POLITICO Europe)
+5. **Suivi des réponses de la Commission** : Agenda DG COMMERCE après la résolution
+
+---
+
+### Annexe : Récapitulatif des textes adoptés — 19 et 20 mai 2026
+
+| Référence | Titre | Domaine | Date |
+|-----------|-------|---------|------|
+| TA-10-2026-0183 | Stratégie d'IA pour le commerce de l'UE | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | Recommandation sur la 81e AGNU | EXT | 2026-05-20 |
+| TA-10-2026-0179 | APP UE–Îles Cook 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | Partenariat CE–São Tomé dans le domaine de la pêche | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | Accord UE–Liban Eurojust | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | APCP UE–Ouzbékistan (Résolution) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | Matériels forestiers de reproduction | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | Levée d'immunité — Nikos Pappas | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | Levée d'immunité — Harald Vilimsky | PRIV | 2026-05-19 |
+
+---
+
+*Cette note de synthèse a été générée par le pipeline agentique d'EU Parliament Monitor.*
+*Mode de données : degraded-feeds | Exécution : committee-reports-run271-1779861057*
+*Cadre analytique : normes du renseignement OSINT de la CIA + méthodologie d'analyse législative du PE*
+
+---
+
+### Index de références croisées (pour les artefacts connexes)
+
+| Question | Artefact |
+|---------|---------|
+| Analyse complète des parties prenantes | `intelligence/stakeholder-map.md` |
+| Prévision de scénarios à 12 mois | `intelligence/scenario-forecast.md` |
+| Événements imprévisibles/cygnes noirs | `intelligence/wildcards-blackswans.md` |
+| Registre des menaces | `intelligence/threat-model.md` |
+| Analyse PESTLE | `intelligence/pestle-analysis.md` |
+| Contexte économique (IMF) | `intelligence/economic-context.md` |
+| Matrice des risques | `risk-scoring/risk-matrix.md` |
+| Analyse SWOT | `risk-scoring/quantitative-swot.md` |
+| Cadrage médiatique | `extended/media-framing-analysis.md` |
+| Qualité des données MCP | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief He
+
+**סיווג**: הערכת מודיעין ממקורות פתוחים
+**תקופה**: 2026-05-20 עד 2026-05-27
+**הוכן עבור**: EU Parliament Monitor
+**מצב נתונים**: degraded-feeds (גורם רצפה 0.80)
+**רמת אמינות כוללת**: 🟡 MEDIUM-HIGH
+**ציון האדמירליות**: B2 (מורכב; A1 לטקסטים שאומצו, C3 לייחוס ברמת הוועדה)
+
+---
+
+### הערכה ראשית
+
+**מושב המליאה של מאי 2026 של הפרלמנט האירופי סימן שבוע חקיקה בעל תפוקה גבוהה שקידם בו-זמנית שלוש עדיפויות אסטרטגיות: ממשל סחר בינה מלאכותית, דיפלומטיה דיגית ואדריכלות שותפויות חיצוניות. החלטת אסטרטגיית הבינה המלאכותית (TA-10-2026-0183) היא התוצר המכונן — המיצוב של האיחוד האירופי כמייצא גלובלי של ממשל בינה מלאכותית לראשונה דרך מכשיר המדיניות המסחרית.**
+
+**הערכת WEP**: סביר (55–70 %) שהנציבות תפיק תקשורת מעקב בנושא בינה מלאכותית ומסחר בתוך 12–18 חודשים. תרגום לאשכולות מחייבים של המועצה מתמודד עם אי-ודאות גבוהה יותר (כמעט שווה, 35–50 %).
+
+**ציון האדמירליות להערכה ראשית**: B2 — ראיות אמינות על טקסטים שאומצו; ייחוס ברמת הוועדה הסקת מקודי נושא.
+
+---
+
+### שיפוטים מרכזיים
+
+#### שיפוט מרכזי 01: החלטת אסטרטגיית סחר הבינה המלאכותית — ציון דרך או שאיפה?
+
+**הערכה**: סביר יותר שתהיה ציון דרך מאשר שאיפה (55–65 %), אך ביצוע אינו מובטח.
+
+חשיבות ההחלטה נשענת על שלושה עמודים:
+1. **קואליציה בין-ועדתית**: קידוד נושא TECN + INFQ מאשר בעלות משותפת של ITRE/INTA
+2. **תקדים אפקט בריסל**: GDPR וחוק הבינה המלאכותית מדגימים את יכולת האיחוד האירופי המוכחת לייצא נורמות רגולטוריות
+3. **לחץ על הנציבות**: נתיב סעיף 225 זמין אם הנציבות תעכב תגובה
+
+**הערכה נגדית**: סדר יום חקיקה של הנציבות עמוס; החלטת סחר הבינה המלאכותית מתחרה עם האיחוד לתחרותיות, ההסכם התעשייתי הנקי וחבילת השוק הפנימי. להחלטות לא-מחייבות שיעור מעקב של ~50 % תוך 24 חודשים (קו בסיס היסטורי).
+
+**השלכה מודיעינית**: מעקב אחר תוכנית עבודה 2027 של הנציבות (צפויה אוקטובר 2026) לגבי הכללה מפורשת של תקשורת סחר הבינה המלאכותית.
+
+#### שיפוט מרכזי 02: איחוד תיק הדיג
+
+**הערכה**: סביר (65–75 %) ששני ה-SFP החדשים (סאו טומה, איי קוק) יתקדמו ליישום זמני ללא שיבושים משמעותיים תוך 6 חודשים.
+
+האימוץ הכפול מסמן תהליך ועדת PECH בוגר. משך הפרוטוקול של 7 שנים לאיי קוק הוא אות אמינות חריג משני הצדדים. עמידה בדרישות סביבתיות היא וקטור הסיכון הראשוני (הערכת Oceana צפויה תוך 12 חודשים; ראה RISK-02).
+
+**השלכה מודיעינית**: לתזמן ריצת מעקב לרבעון הרביעי של 2026 להערכת מצב היישום הזמני של ה-SFP ודוחות ניטור קיימות ראשוניים.
+
+#### שיפוט מרכזי 03: מיצוב אסטרטגי במרכז אסיה
+
+**הערכה**: סביר (65–75 %) שה-EPCA בין האיחוד האירופי לאוזבקיסטן יהיה פעיל מבצעית תוך 12 חודשים, עם ישיבה ראשונה של הוועדה המשותפת מתוכננת.
+
+אשרור ה-EPCA (TA-10-2026-0174) מקדם את אסטרטגיית מרכז אסיה של האיחוד האירופי (מתוקנת 2019; מעודכנת לאחר פלישת אוקראינה 2022) ותוכנית ההשקעות Global Gateway לאזור. גיוון שרשרת האספקה מסין (אדמות נדירות, אורניום, כותנה) מספק נימוק אסטרטגי מתמשך שמתעלה על הבדלים פוליטיים מפלגתיים ב-EP10.
+
+**סיכון של תנאי זכויות אדם**: לא סביר שיסכל (20–30 %), אך ניטור EP DROI שומר על לחץ להמשך קידמת הרפורמות.
+
+#### שיפוט מרכזי 04: שמירה על תקני חסינות פרלמנטרית
+
+**הערכה**: אמינות גבוהה (80–90 %) שאישורי הסרת החסינות הכפולים (Vilimsky/FPÖ ו-Pappas/SYRIZA) יעברו דרך ערוצים שיפוטיים לאומיים מבלי להפוך לאירועים פוליטיים ברמת האיחוד האירופי.
+
+יישום עקבי מבחינה פוליטית של סטנדרטים על ידי ועדת JURI הוא חוזק מוסדי אמיתי. שתי הסרות החסינות משקפות התנהגות שאינה קשורה לאנדט פרלמנטרי (קריטריוני אישור הסרה סטנדרטיים). סיכון הפוליטיזציה קיים בעיקר ברמת המדיה הלאומית (אוסטריה, יוון) ולא ברמה המוסדית של האיחוד האירופי.
+
+---
+
+### אותות מדיניות למעקב
+
+| האות | מה לצפות | ציר הזמן | השלכת תרחיש |
+|------|---------|----------|--------------|
+| תוכנית עבודה 2027 של הנציבות | הכללת תקשורת סחר בינה מלאכותית | אוקטובר 2026 | A → B אם נכלל |
+| שרים TTC ארה"ב–אירופה | סדר יום ממשל בינה מלאכותית | רבעון ג 2026 | A → B אם נכלל |
+| הערכת Oceana SFP | ניתוח מלאי איי קוק | רבעון א 2027 | הפעלת RISK-02 |
+| הגשת EP INTA INI | בקשת סחר בינה מלאכותית סעיף 225 | ספטמבר 2026 | אות תרחיש B |
+| דוח מלאי WCPFC | שפע טונה בפסיפיק | פברואר 2027 | אזהרה מוקדמת RISK-02 |
+| סקירת EEAS אוזבקיסטן | הערכת זכויות אדם | רבעון ב 2027 | ניטור RISK-03 |
+
+---
+
+### פירוט אמינות אנליטית
+
+| תחום | אמינות | בסיס |
+|------|--------|------|
+| זיהוי תפוקות חקיקה | 🟢 HIGH | A1 טקסטים שאומצו |
+| תוכן החלטת סחר הבינה המלאכותית | 🟢 HIGH | ניתוח טקסט ראשוני |
+| ייחוס ועדה | 🔴 LOW | C3 — קודי נושא בלבד |
+| שוליים של הצבעה | 🔴 LOW | עיכוב DOCEO; לא זמין |
+| זיהוי דווח | 🔴 LOW | פיד נהלים 404 |
+| הקשר כלכלי | 🟡 MEDIUM | קירובי IMF WEO |
+| תחזיות קדימה | 🟡 MEDIUM | תרחישים מכוילים WEP |
+| עמדות בעלי עניין | 🟡 MEDIUM | הסקה מבנית |
+
+---
+
+### פערים מודיעיניים הדורשים תשומת לב עתידית
+
+1. **נתוני הצבעת DOCEO** (זמינים בעוד 2–4 שבועות): התאמה של קבוצות פוליטיות לכל 9 הטקסטים
+2. **רשומות נהלי ועדות** (עם שחזור הפיד): שמות דוחים, שוליים הצבעה
+3. **שאילתת נתונים ישירה IMF**: נתוני תמ"ג/מסחר עם ציטוט מלא
+4. **ניטור תקשורת**: כיסוי בפועל של החלטת סחר הבינה המלאכותית (Euractiv, POLITICO Europe)
+5. **מעקב תגובת הנציבות**: סדר יום DG TRADE לאחר ההחלטה
+
+---
+
+### נספח: סיכום טקסטים שאומצו — 19–20 במאי 2026
+
+| מסמך | כותרת | תחום | תאריך |
+|------|--------|------|--------|
+| TA-10-2026-0183 | אסטרטגיית בינה מלאכותית לסחר האיחוד האירופי | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | המלצה על עצרת כללית ה-81 של האו"ם | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU–איי קוק SFP 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EC–שותפות דיג סאו טומה | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | הסכם EU–לבנון Eurojust | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU–אוזבקיסטן EPCA (החלטה) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | חומר רבייה יערי | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | הסרת חסינות — ניקוס פאפאס | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | הסרת חסינות — הראלד וילימסקי | PRIV | 2026-05-19 |
+
+---
+
+*סיכום זה הופק על ידי הצינור הסוכני של EU Parliament Monitor.*
+*מצב נתונים: degraded-feeds | ריצה: committee-reports-run271-1779861057*
+*מסגרת אנליטית: תקני מודיעין OSINT של ה-CIA + מתודולוגיית ניתוח חקיקה פרלמנטרית אירופאית*
+
+---
+
+### אינדקס הפניות מוצלבות (לחפצים קשורים)
+
+| שאלה | חפץ |
+|------|-----|
+| ניתוח בעלי עניין מלא | `intelligence/stakeholder-map.md` |
+| תחזית תרחישים ל-12 חודשים | `intelligence/scenario-forecast.md` |
+| אירועי ג'וקר/ברבור שחור | `intelligence/wildcards-blackswans.md` |
+| רשם איומים | `intelligence/threat-model.md` |
+| ניתוח PESTLE | `intelligence/pestle-analysis.md` |
+| הקשר כלכלי (IMF) | `intelligence/economic-context.md` |
+| מטריצת סיכונים | `risk-scoring/risk-matrix.md` |
+| ניתוח SWOT | `risk-scoring/quantitative-swot.md` |
+| מסגור תקשורתי | `extended/media-framing-analysis.md` |
+| איכות נתוני MCP | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief Ja
+
+**分類**：オープンソース情報評価
+**対象期間**：2026-05-20 ～ 2026-05-27
+**作成対象**：EU Parliament Monitor
+**データモード**：degraded-feeds（フロア係数 0.80）
+**総合信頼度**：🟡 MEDIUM-HIGH
+**海軍省評価**：B2（複合；採択文書に対して A1、委員会レベルの帰属に対して C3）
+
+---
+
+### ヘッドライン評価
+
+**2026年5月の欧州議会本会議は、AI貿易ガバナンス、漁業外交、外部パートナーシップのアーキテクチャという三つの戦略的優先事項を同時に推進した高生産性の立法週となった。AI戦略決議（TA-10-2026-0183）は最も画期的な成果であり、貿易政策手段を通じて初めてEUをグローバルなAIガバナンス輸出国として位置づけた。**
+
+**WEP評価**：欧州委員会が12〜18ヶ月以内にAIと貿易に関するフォローアップ通知を発出する可能性は高い（55〜70%）。拘束力のある理事会マンデートへの転換はより高い不確実性に直面している（おおよそ半々、35〜50%）。
+
+**ヘッドラインの海軍省評価**：B2 — 採択文書に関する信頼できる証拠；委員会レベルの帰属は主題コードから推測。
+
+---
+
+### 主要判断
+
+#### 主要判断 01：AI貿易戦略決議 — 画期的か、単なる理念か？
+
+**評価**：画期的である可能性が高い（55〜65%）が、実施は保証されない。
+
+決議の重要性は三つの柱に依拠する：
+1. **委員会横断連合**：TECN + INFQ 主題コーディングにより ITRE/INTA の共同所有が確認される
+2. **ブリュッセル効果の先例**：GDPR と AI 法は EU が規制規範を輸出する実証済みの能力を示している
+3. **欧州委員会への圧力**：委員会が対応を遅らせた場合、第225条の経路が利用可能
+
+**反対評価**：委員会の立法アジェンダは混雑している；AI貿易決議は競争力同盟、クリーン産業協定、単一市場パッケージと競合している。非拘束的決議は24ヶ月以内に約50%のフォローアップ率を持つ（歴史的ベースライン）。
+
+**情報上の示唆**：2027年委員会作業計画（2026年10月に予定）のAI貿易通知の明示的な組み込みを監視すること。
+
+#### 主要判断 02：漁業ポートフォリオの統合
+
+**評価**：両新規 SFP（サントメ、クック諸島）が6ヶ月以内に大きな混乱なく暫定適用に進む可能性は高い（65〜75%）。
+
+二重採択は成熟した PECH 委員会プロセスを示している。クック諸島の7年間のプロトコル期間は両当事者からの異例に強いシグナルである。環境遵守が主要リスクベクターである（Oceana 評価は12ヶ月以内に予定；RISK-02 参照）。
+
+**情報上の示唆**：SFP の暫定適用状況と初期持続可能性監視報告書を評価するため、2026年第4四半期にフォローアップを計画すること。
+
+#### 主要判断 03：中央アジアにおける戦略的位置づけ
+
+**評価**：EU・ウズベキスタン EPCA が12ヶ月以内に運用可能になり、第一回合同委員会会合が予定される可能性は高い（65〜75%）。
+
+EPCA 批准（TA-10-2026-0174）は、EU の中央アジア戦略（2019年改訂、2022年ウクライナ侵攻後更新）と地域への Global Gateway 投資計画を推進する。中国からのサプライチェーン多様化（希土類、ウラン、綿）は、EP10 内の党派的政治的差異を超えた持続的な戦略的根拠を提供する。
+
+**人権条件リスク**：頓挫する可能性は低い（20〜30%）が、EP DROI モニタリングは改革の継続的進捗への圧力を維持する。
+
+#### 主要判断 04：議会免除基準の維持
+
+**評価**：二重免除放棄承認（Vilimsky/FPÖ と Pappas/SYRIZA）が EU レベルの政治的事件となることなく国内司法チャネルを通じて進む高い信頼度（80〜90%）。
+
+JURI 委員会による政治的に一貫した基準適用は真の制度的強みである。両放棄は議会的任務とは無関係の行動を反映している（標準的な放棄承認基準）。政治化リスクは EU 制度レベルではなく、主として国内メディアレベル（オーストリア、ギリシャ）に存在する。
+
+---
+
+### 監視のための政策シグナル
+
+| シグナル | 注視すべき内容 | タイムライン | シナリオへの示唆 |
+|---------|-------------|------------|----------------|
+| 欧州委員会 2027 年作業計画 | AI貿易通知の組み込み | 2026年10月 | A → B（組み込まれた場合） |
+| 米国・EU TTC 閣僚会議 | AIガバナンスアジェンダ | 2026年Q3 | A → B（組み込まれた場合） |
+| Oceana SFP 評価 | クック諸島の漁獲量分析 | 2027年Q1 | RISK-02 発動 |
+| EP INTA INI 申請 | 第225条AI貿易要請 | 2026年9月 | シナリオ B シグナル |
+| WCPFC 漁獲量報告書 | 太平洋マグロ資源量 | 2027年2月 | RISK-02 早期警報 |
+| EEAS ウズベキスタン審査 | 人権評価 | 2027年Q2 | RISK-03 監視 |
+
+---
+
+### 分析的信頼度の内訳
+
+| 分野 | 信頼度 | 根拠 |
+|------|--------|------|
+| 立法成果の特定 | 🟢 HIGH | A1 採択文書 |
+| AI貿易決議の内容 | 🟢 HIGH | 一次テキスト分析 |
+| 委員会帰属 | 🔴 LOW | C3 — 主題コードのみ |
+| 投票マージン | 🔴 LOW | DOCEO 遅延；入手不可 |
+| 報告者の特定 | 🔴 LOW | 手続きフィード 404 |
+| 経済的背景 | 🟡 MEDIUM | IMF WEO 近似値 |
+| 将来的予測 | 🟡 MEDIUM | WEP 調整シナリオ |
+| ステークホルダーの立場 | 🟡 MEDIUM | 構造的推論 |
+
+---
+
+### 将来的な注意を要する情報ギャップ
+
+1. **DOCEO 投票データ**（2〜4週間後に入手可能）：全9文書に対する政治グループの整合性
+2. **委員会手続き記録**（フィード復旧後）：報告者名、投票マージン
+3. **IMF 直接データクエリ**：完全な引用付きのGDP/貿易データ
+4. **メディア監視**：AI貿易決議の実際の報道（Euractiv、POLITICO Europe）
+5. **欧州委員会対応追跡**：決議後のDG TRADE アジェンダ
+
+---
+
+### 付録：採択文書サマリー — 2026年5月19〜20日
+
+| 参照 | タイトル | 分野 | 日付 |
+|------|---------|------|------|
+| TA-10-2026-0183 | EU貿易のためのAI戦略 | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | 第81回国連総会に関する勧告 | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU・クック諸島 SFP 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EC・サントメ漁業パートナーシップ | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | EU・レバノン Eurojust 協定 | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU・ウズベキスタン EPCA（決議） | EXT | 2026-05-20 |
+| TA-10-2026-0168 | 森林繁殖材料 | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | 免除放棄 — ニコス・パパス | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | 免除放棄 — ハラルド・ヴィルムスキー | PRIV | 2026-05-19 |
+
+---
+
+*このブリーフは EU Parliament Monitor のエージェントパイプラインによって生成されました。*
+*データモード：degraded-feeds | 実行：committee-reports-run271-1779861057*
+*分析フレームワーク：CIA OSINT ハンドクラフト基準 + 欧州議会立法分析方法論*
+
+---
+
+### 相互参照インデックス（関連成果物）
+
+| 質問 | 成果物 |
+|------|--------|
+| 完全なステークホルダー分析 | `intelligence/stakeholder-map.md` |
+| 12ヶ月シナリオ予測 | `intelligence/scenario-forecast.md` |
+| ワイルドカード/ブラックスワン事象 | `intelligence/wildcards-blackswans.md` |
+| 脅威レジスター | `intelligence/threat-model.md` |
+| PESTLE分析 | `intelligence/pestle-analysis.md` |
+| 経済的背景（IMF） | `intelligence/economic-context.md` |
+| リスクマトリックス | `risk-scoring/risk-matrix.md` |
+| SWOT分析 | `risk-scoring/quantitative-swot.md` |
+| メディアフレーミング | `extended/media-framing-analysis.md` |
+| MCPデータ品質 | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief Ko
+
+**분류**: 공개 출처 정보 평가
+**기간**: 2026-05-20 ~ 2026-05-27
+**작성 대상**: EU Parliament Monitor
+**데이터 모드**: degraded-feeds (하한 계수 0.80)
+**전체 신뢰도**: 🟡 MEDIUM-HIGH
+**해군성 등급**: B2 (복합; 채택 텍스트에 A1, 위원회 수준 귀속에 C3)
+
+---
+
+### 헤드라인 평가
+
+**2026년 5월 유럽의회 본회의는 AI 무역 거버넌스, 어업 외교, 외부 파트너십 아키텍처라는 세 가지 전략적 우선순위를 동시에 진전시킨 고생산성 입법 주간으로 기록되었다. AI 전략 결의안(TA-10-2026-0183)은 무역 정책 수단을 통해 EU를 처음으로 글로벌 AI 거버넌스 수출국으로 자리매김한 결정적인 성과다.**
+
+**WEP 평가**: 집행위원회가 12~18개월 이내에 AI와 무역에 관한 후속 통보를 발표할 가능성이 높다 (55~70%). 구속력 있는 이사회 위임으로의 전환은 더 높은 불확실성에 직면한다 (거의 반반, 35~50%).
+
+**헤드라인 해군성 등급**: B2 — 채택 텍스트에 대한 신뢰할 수 있는 증거; 위원회 수준 귀속은 주제 코드에서 추론.
+
+---
+
+### 핵심 판단
+
+#### 핵심 판단 01: AI 무역 전략 결의안 — 이정표인가, 포부인가?
+
+**평가**: 포부보다 이정표일 가능성이 높다 (55~65%), 단 실행은 보장되지 않는다.
+
+결의안의 중요성은 세 가지 기둥에 기반한다:
+1. **위원회 횡단 연합**: TECN + INFQ 주제 코딩이 ITRE/INTA 공동 소유권을 확인함
+2. **브뤼셀 효과의 선례**: GDPR과 AI 법은 EU의 규제 규범 수출 능력을 입증함
+3. **집행위원회에 대한 압력**: 집행위원회가 응답을 지연할 경우 제225조 경로 활용 가능
+
+**반대 평가**: 집행위원회의 입법 의제는 과부하 상태다; AI 무역 결의안은 경쟁력 연합, 청정 산업 협정, 단일 시장 패키지와 경쟁한다. 비구속적 결의안은 24개월 이내 약 50% 후속 조치율을 보인다 (역사적 기준선).
+
+**정보 함의**: 2027년 집행위원회 업무 프로그램(2026년 10월 예정)에서 AI 무역 통보의 명시적 포함 여부를 모니터링할 것.
+
+#### 핵심 판단 02: 어업 포트폴리오 통합
+
+**평가**: 두 개의 신규 SFP(상투메, 쿡 제도)가 6개월 이내에 주요 혼란 없이 잠정 적용으로 진행될 가능성이 높다 (65~75%).
+
+이중 채택은 성숙한 PECH 위원회 프로세스를 나타낸다. 쿡 제도의 7년 프로토콜 기간은 양 당사자로부터의 이례적으로 강한 신뢰 신호다. 환경 준수가 주요 위험 벡터다 (Oceana 평가 12개월 이내 예정; RISK-02 참조).
+
+**정보 함의**: SFP 잠정 적용 현황 및 초기 지속 가능성 모니터링 보고서를 평가하기 위해 2026년 4분기에 후속 실행을 계획할 것.
+
+#### 핵심 판단 03: 중앙아시아 전략적 포지셔닝
+
+**평가**: EU-우즈베키스탄 EPCA가 12개월 이내에 운영 가능해지고 첫 번째 합동 위원회 회의가 예정될 가능성이 높다 (65~75%).
+
+EPCA 비준(TA-10-2026-0174)은 EU의 중앙아시아 전략(2019년 개정; 2022년 우크라이나 침공 이후 업데이트)과 지역을 위한 Global Gateway 투자 계획을 진전시킨다. 중국으로부터의 공급망 다양화(희토류, 우라늄, 면화)는 EP10 내 당파적 정치 차이를 초월하는 지속적인 전략적 근거를 제공한다.
+
+**인권 조건 위험**: 이탈할 가능성은 낮다 (20~30%), 하지만 EP DROI 모니터링은 지속적인 개혁 진전을 위한 압력을 유지한다.
+
+#### 핵심 판단 04: 의회 면책 기준 유지
+
+**평가**: 이중 면책 포기 승인(Vilimsky/FPÖ와 Pappas/SYRIZA)이 EU 수준의 정치적 사건 없이 국내 사법 채널을 통해 진행될 높은 신뢰도 (80~90%).
+
+JURI 위원회의 정치적으로 일관된 기준 적용은 진정한 제도적 강점이다. 두 포기 모두 의회 위임과 무관한 행동을 반영한다 (표준 포기 승인 기준). 정치화 위험은 EU 제도적 수준보다는 주로 국내 미디어 수준(오스트리아, 그리스)에 존재한다.
+
+---
+
+### 모니터링을 위한 정책 신호
+
+| 신호 | 관찰할 내용 | 타임라인 | 시나리오 함의 |
+|------|-----------|----------|-------------|
+| 집행위원회 2027 업무 프로그램 | AI 무역 통보 포함 여부 | 2026년 10월 | A → B (포함 시) |
+| 미국-EU TTC 각료회의 | AI 거버넌스 의제 | 2026년 Q3 | A → B (포함 시) |
+| Oceana SFP 평가 | 쿡 제도 어획량 분석 | 2027년 Q1 | RISK-02 발동 |
+| EP INTA INI 제출 | 제225조 AI 무역 요청 | 2026년 9월 | 시나리오 B 신호 |
+| WCPFC 어획량 보고서 | 태평양 참치 풍부도 | 2027년 2월 | RISK-02 조기 경보 |
+| EEAS 우즈베키스탄 검토 | 인권 평가 | 2027년 Q2 | RISK-03 모니터링 |
+
+---
+
+### 분석적 신뢰도 분류
+
+| 도메인 | 신뢰도 | 근거 |
+|--------|--------|------|
+| 입법 성과 식별 | 🟢 HIGH | A1 채택 텍스트 |
+| AI 무역 결의안 내용 | 🟢 HIGH | 원문 텍스트 분석 |
+| 위원회 귀속 | 🔴 LOW | C3 — 주제 코드만 |
+| 투표 마진 | 🔴 LOW | DOCEO 지연; 입수 불가 |
+| 보고자 식별 | 🔴 LOW | 절차 피드 404 |
+| 경제적 맥락 | 🟡 MEDIUM | IMF WEO 근사값 |
+| 미래 전망 | 🟡 MEDIUM | WEP 보정 시나리오 |
+| 이해관계자 입장 | 🟡 MEDIUM | 구조적 추론 |
+
+---
+
+### 향후 주의가 필요한 정보 격차
+
+1. **DOCEO 투표 데이터** (2~4주 후 입수 가능): 모든 9개 텍스트에 대한 정치 그룹 정렬
+2. **위원회 절차 기록** (피드 복구 시): 보고자 이름, 투표 마진
+3. **IMF 직접 데이터 쿼리**: 완전한 인용이 포함된 GDP/무역 수치
+4. **미디어 모니터링**: AI 무역 결의안의 실제 보도 (Euractiv, POLITICO Europe)
+5. **집행위원회 응답 추적**: 결의안 이후 DG 무역 의제
+
+---
+
+### 부록: 채택 텍스트 요약 — 2026년 5월 19~20일
+
+| 참조 | 제목 | 분야 | 날짜 |
+|------|------|------|------|
+| TA-10-2026-0183 | EU 무역을 위한 AI 전략 | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | 제81차 유엔총회에 관한 권고 | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU-쿡 제도 SFP 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EC-상투메 어업 파트너십 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | EU-레바논 Eurojust 협정 | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU-우즈베키스탄 EPCA (결의안) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | 산림 번식 자재 | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | 면책 포기 — 니코스 파파스 | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | 면책 포기 — 하랄트 빌림스키 | PRIV | 2026-05-19 |
+
+---
+
+*이 브리핑은 EU Parliament Monitor의 에이전트 파이프라인에 의해 생성되었습니다.*
+*데이터 모드: degraded-feeds | 실행: committee-reports-run271-1779861057*
+*분석 프레임워크: CIA OSINT 기술 기준 + 유럽의회 입법 분석 방법론*
+
+---
+
+### 교차 참조 색인 (관련 산출물)
+
+| 질문 | 산출물 |
+|------|--------|
+| 전체 이해관계자 분석 | `intelligence/stakeholder-map.md` |
+| 12개월 시나리오 예측 | `intelligence/scenario-forecast.md` |
+| 와일드카드/블랙스완 사건 | `intelligence/wildcards-blackswans.md` |
+| 위협 레지스터 | `intelligence/threat-model.md` |
+| PESTLE 분석 | `intelligence/pestle-analysis.md` |
+| 경제적 맥락 (IMF) | `intelligence/economic-context.md` |
+| 위험 매트릭스 | `risk-scoring/risk-matrix.md` |
+| SWOT 분석 | `risk-scoring/quantitative-swot.md` |
+| 미디어 프레이밍 | `extended/media-framing-analysis.md` |
+| MCP 데이터 품질 | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief Nl
+
+### Hoofdbeoordeling
+
+**De mei 2026-plenaire vergadering van het Europees Parlement markeerde een hoge-productiviteitswetgevingsweek die tegelijkertijd drie strategische prioriteiten bevorderde: AI-handelsbestuur, visserijdiplomatie en externe partnerschapsarchitectuur. De AI-strategieresolutie (TA-10-2026-0183) is het bepalende resultaat — het positioneert de EU voor de eerste keer als mondiale exporteur van AI-governance via het handelspolitieke instrument.**
+
+**WEP-beoordeling**: Het is waarschijnlijk (55–70 %) dat de Commissie binnen 12–18 maanden een vervolgmededeling over AI en handel zal opstellen. De vertaling naar bindende Raadsmanaten heeft te maken met hogere onzekerheid (ruwweg gelijk, 35–50 %).
+
+**Admiralty Grade voor de hoofdbeoordeling**: B2 — betrouwbaar bewijs voor aangenomen teksten; commissietoewijzing afgeleid uit vakgebiedscodes.
+
+---
+
+### Kernbeoordelingen
+
+#### KB-01: AI-handelsstrategieresolutie — Mijlpaal of Aspirationeel?
+
+**Beoordeling**: Waarschijnlijker een mijlpaal dan aspirationeel (55–65 %), maar uitvoering is niet gegarandeerd.
+
+Het belang van de resolutie rust op drie pijlers:
+1. **Commissieoverschrijdende coalitie**: TECN + INFQ-vakgebiedcodering bevestigt gezamenlijk ITRE/INTA-eigendom
+2. **Brussel-effect-precedent**: AVG en AI-wet tonen de bewezen EU-capaciteit om regelgevingsnormen te exporteren
+3. **Commissiedruk**: Artikel 225-route beschikbaar als de Commissie de reactie vertraagt
+
+**Tegenbeoordeling**: De wetgevingsagenda van de Commissie is overvol; de AI-handelsresolutie concurreert met de Concurrentievermogensunie, het Schoon Industriepact en het Interne Marktpakket. Niet-bindende resoluties hebben een opvolgingspercentage van ~50 % binnen 24 maanden (historische basislijn).
+
+**Inlichtingsimplicatie**: Monitor het Werkprogramma van de Commissie 2027 (verwacht oktober 2026) op expliciete opname van een AI-handelsmededeling.
+
+#### KB-02: Consolidatie van het Visserijportfolio
+
+**Beoordeling**: Waarschijnlijk (65–75 %) dat beide nieuwe VPA's (São Tomé, Cookeilanden) binnen 6 maanden zonder grote verstoringen tot voorlopige toepassing zullen overgaan.
+
+De dubbele aanneming signaleert een volwassen PECH-commissieproces. De 7-jarige protocolduur van de Cookeilanden is een ongewoon sterk vertrouwenssignaal van beide partijen. Milieunaleving is de primaire risicorichting (Oceana-beoordeling verwacht binnen 12 maanden; zie RISK-02).
+
+**Inlichtingsimplicatie**: Vervolgonderzoek plannen voor het vierde kwartaal van 2026 om de voorlopige toepassingsstatus van de VPA en eerste duurzaamheidsmonitoringrapportages te beoordelen.
+
+#### KB-03: Centraal-Aziatische Strategische Positionering
+
+**Beoordeling**: Waarschijnlijk (65–75 %) dat het EU–Oezbekistan EPCG binnen 12 maanden operationeel actief zal zijn, met de eerste vergadering van het Gemengd Comité gepland.
+
+De EPCG-ratificatie (TA-10-2026-0174) bevordert de EU-strategie voor Centraal-Azië (herzien in 2019; bijgewerkt na de Oekraïne-invasie 2022) en het Global Gateway-investeringsplan voor de regio. Diversificatie van de toeleveringsketen vanuit China (zeldzame aardmetalen, uranium, katoen) biedt een duurzame strategische rationale die partijpolitieke verschillen binnen EP10 overstijgt.
+
+**Risico van mensenrechtenvoorwaarden**: Onwaarschijnlijk dat het ontspoort (20–30 %), maar EP DROI-monitoring handhaaft druk voor voortdurende hervormingsvoortgang.
+
+#### KB-04: Parlementaire Immuniteitsnormen Gehandhaafd
+
+**Beoordeling**: Groot vertrouwen (80–90 %) dat de dubbele immuniteitsontheffingsgodkeuringen (Vilimsky/FPÖ en Pappas/SYRIZA) door nationale juridische kanalen zullen lopen zonder EU-politieke incidenten te worden.
+
+De politiek consequente standaardtoepassing van de JURI-commissie is een echte institutionele kracht. Beide ontheffingen weerspiegelen gedrag dat geen verband houdt met het parlementair mandaat (standaard goedkeuringscriteria voor ontheffingen). Politiseringsrisico bestaat voornamelijk op nationaal medianiveau (Oostenrijk, Griekenland) in plaats van op EU-institutioneel niveau.
+
+---
+
+### Beleidssignalen voor Monitoring
+
+| Signaal | Wat te observeren | Tijdlijn | Scenarioimplicatie |
+|---------|------------------|----------|---------------------|
+| Werkprogramma van de Commissie 2027 | Opname van AI-handelsmededeling | Oktober 2026 | A → B indien opgenomen |
+| VS–EU TTC ministerieel | AI-governanceagenda | K3 2026 | A → B indien opgenomen |
+| Oceana VPA-beoordeling | Cookeilanden-voorraadanalyse | K1 2027 | RISK-02 activering |
+| EP INTA INI-indiening | Artikel 225 AI-handelverzoek | September 2026 | Scenario B-signaal |
+| WCPFC-voorraadrapport | Abundantie Pacifische tonijn | Februari 2027 | RISK-02 vroegtijdige waarschuwing |
+| EDEO Oezbekistan-herziening | Mensenrechtenbeoordeling | K2 2027 | RISK-03 monitoring |
+
+---
+
+### Analytische Vertrouwensopsplitsing
+
+| Domein | Vertrouwen | Basis |
+|--------|------------|-------|
+| Identificatie wetgevingsresultaten | 🟢 HIGH | A1 aangenomen teksten |
+| Inhoud AI-handelsresolutie | 🟢 HIGH | Primaire tekstanalyse |
+| Commissietoewijzing | 🔴 LOW | C3 — alleen vakgebiedscodes |
+| Stemmarges | 🔴 LOW | DOCEO-vertraging; niet beschikbaar |
+| Identificatie rapporteur | 🔴 LOW | Procedurefeed 404 |
+| Economische context | 🟡 MEDIUM | IMF WEO-benaderingen |
+| Vooruitkijkende projecties | 🟡 MEDIUM | WEP-gecalibreerde scenario's |
+| Standpunten van belanghebbenden | 🟡 MEDIUM | Structurele inferentie |
+
+---
+
+### Inlichtingslacunes die Toekomstige Aandacht Vereisen
+
+1. **DOCEO-stemgegevens** (beschikbaar over 2–4 weken): Politieke groepsuitlijning op alle 9 teksten
+2. **Commissieproceduredossiers** (bij herstel van de feed): Rapporteursnamen, stemmarges
+3. **IMF directe datavraag**: BBP/handelscijfers met volledige citering
+4. **Mediamonitoring**: Werkelijke berichtgeving over de AI-handelsresolutie (Euractiv, POLITICO Europe)
+5. **Commissiereactiebewaking**: DG HANDEL-agenda na de resolutie
+
+---
+
+### Bijlage: Overzicht van Aangenomen Teksten — 19 en 20 mei 2026
+
+| Referentie | Titel | Domein | Datum |
+|------------|-------|--------|-------|
+| TA-10-2026-0183 | AI-strategie voor de EU-handel | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | Aanbeveling over de 81ste AVVN | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU–Cookeilanden VPA 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EG–São Tomé Visserijpartnerschap | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | EU–Libanon Eurojust-overeenkomst | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU–Oezbekistan EPCG (Resolutie) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | Bosbouwkundig Teeltmateriaal | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | Immuniteitsontheffing — Nikos Pappas | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | Immuniteitsontheffing — Harald Vilimsky | PRIV | 2026-05-19 |
+
+---
+
+*Deze samenvatting is gegenereerd door de agentische pipeline van EU Parliament Monitor.*
+*Gegevensmodus: degraded-feeds | Uitvoering: committee-reports-run271-1779861057*
+*Analytisch kader: CIA OSINT-vakstandaarden + EP-wetgevingsanalyse-methodologie*
+
+---
+
+### Kruisverwijzingsindex (voor Gerelateerde Artefacten)
+
+| Vraag | Artefact |
+|-------|---------|
+| Volledige belanghebbendenanalyse | `intelligence/stakeholder-map.md` |
+| 12-maanden scenarioprognose | `intelligence/scenario-forecast.md` |
+| Wildcard-/zwarte-zwaan-gebeurtenissen | `intelligence/wildcards-blackswans.md` |
+| Dreigingsregister | `intelligence/threat-model.md` |
+| PESTLE-analyse | `intelligence/pestle-analysis.md` |
+| Economische context (IMF) | `intelligence/economic-context.md` |
+| Risicomatrix | `risk-scoring/risk-matrix.md` |
+| SWOT-analyse | `risk-scoring/quantitative-swot.md` |
+| Mediakadering | `extended/media-framing-analysis.md` |
+| MCP-datakwaliteit | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief No
+
+### Overskriftsvurdering
+
+**Europaparlamentets majplenum 2026 markerte en lovgivningsuke med høy produksjon som simultant fremmet tre strategiske prioriteringer: AI-handelsstyring, fiskeridiplomati og ekstern partnerskapsarkitektur. AI-strategiresolusjonen (TA-10-2026-0183) er den definerende produksjonen — den posisjonerer EU som global AI-styringseksportør for første gang gjennom handelspolitikkinstrumentet.**
+
+**WEP-vurdering**: Det er sannsynlig (55–70 %) at Kommisjonen vil produsere en oppfølgende meddelelse om AI og handel innen 12–18 måneder. Oversettelsen til bindende Rådsmandat møter høyere usikkerhet (omtrent jevn, 35–50 %).
+
+**Admiralty Grade for overskrift**: B2 — pålitelig bevis for vedtatte tekster; komitéattribusjon utledet fra fagkoder.
+
+---
+
+### Nøkkeldomstoler
+
+#### ND-01: AI-handelsstrategiresolusjonen — Milepæl eller aspirerende?
+
+**Vurdering**: Mer sannsynlig å være en milepæl enn aspirerende (55–65 %), men gjennomføring er ikke garantert.
+
+Resolusjonens betydning hviler på tre søyler:
+1. **Tverrkomiténoalition**: TECN + INFQ fagkoding bekrefter ITRE/INTA felles eierskap
+2. **Brussel-effektens presedens**: GDPR og AI-forordningen demonstrerer EU:s beviste evne til å eksportere regulatoriske normer
+3. **Kommisjonspress**: Artikkel 225-vei tilgjengelig hvis Kommisjonen forsinker svar
+
+**Motvurdering**: Kommisjonens lovgivningsagenda er overfylt; AI-handelsresolusjonen konkurrerer med Konkurransedyktighetsunionen, Ren Industriavtale og Indre Markedspakke. Ikke-bindende resolusjoner har ~50 % oppfølgingsrate innen 24 måneder (historisk baseline).
+
+**Etterretningsimplikasjon**: Overvåk Kommisjonens arbeidsprogram 2027 (forventet oktober 2026) for eksplisitt inkludering av AI-handelsmeddelelse.
+
+#### ND-02: Konsolidering av fiskerisportfolio
+
+**Vurdering**: Sannsynlig (65–75 %) at begge nye SFP (São Tomé, Cookøyene) vil gå videre til foreløpig anvendelse uten større forstyrrelser innen 6 måneder.
+
+Den doble vedtakelsen signaliserer en moden PECH-komitéprosess. Cookøyenes 7-årige protokollvarighet er et uvanlig sterkt tillitssignal fra begge parter. Miljøoverholdelse er den primære risikovektor (Oceana-vurdering forventet innen 12 måneder; se RISK-02).
+
+**Etterretningsimplikasjon**: Planlegg oppfølgingskjøring for Q4 2026 for å vurdere SFP foreløpig anvendelsesstatus og innledende bærekraftsovervåkingsrapporter.
+
+#### ND-03: Sentralasiatisk strategisk posisjonering
+
+**Vurdering**: Sannsynlig (65–75 %) at EU–Usbekistan EPCA vil være operativt aktivt innen 12 måneder, med første felles komitémøte planlagt.
+
+EPCA-ratifiseringen (TA-10-2026-0174) fremmer EU:s Sentralasia-strategi (revidert 2019; oppdatert etter Ukraina-invasjonen 2022) og Global Gateway-investeringsplanen for regionen. Forsyningskjeде-diversifisering fra Kina (sjeldne jordarter, uran, bomull) gir et holdbart strategisk rasjonale som overskrider partipolitiske forskjeller innen EP10.
+
+**Risiko for menneskerettighetsbetingelser**: Usannsynlig å avspoре (20–30 %), men EP DROI-overvåking opprettholder press for fortsatt reformframgang.
+
+#### ND-04: Parlamentariske immunitetsstandarter opprettholdt
+
+**Vurdering**: Høy tillit (80–90 %) til at de doble immunitetsopphevingsgodkjennelsene (Vilimsky/FPÖ og Pappas/SYRIZA) vil gå gjennom nasjonale rettskanaler uten å bli EU-politiske hendelser.
+
+JURI-komitéens politisk konsistente standardanvendelse er en reell institusjonell styrke. Begge opphevingene gjenspeiler atferd urelatert til parlamentarisk mandat (standard opphevingsgodkjenningskriterier). Politiseringsrisiko eksisterer primært på nasjonalt medienivå (Østerrike, Hellas) snarere enn på EU-institusjonelt nivå.
+
+---
+
+### Politikksignaler for overvåking
+
+| Signal | Hva som skal overvåkes | Tidslinje | Scenarioimplisasjon |
+|--------|----------------------|-----------|---------------------|
+| Kommisjonens arbeidsprogram 2027 | AI-handelsmeddelelseinkludering | Oktober 2026 | A → B hvis inkludert |
+| USA–EU TTC ministermøte | AI-styringsagenda | Q3 2026 | A → B hvis inkludert |
+| Oceana SFP-vurdering | Cookøyenes fiskebestandsanalyse | Q1 2027 | RISK-02 aktivering |
+| EP INTA INI-innlevering | Artikkel 225 AI-handelsforespørsel | September 2026 | Scenario B signal |
+| WCPFC fiskebestandsrapport | Stillehavstunrikelighet | Februar 2027 | RISK-02 tidlig advarsel |
+| EEAS Usbekistan-gjennomgang | Menneskerettighetsvurdering | Q2 2027 | RISK-03 overvåking |
+
+---
+
+### Analytisk tillidsnedbrytning
+
+| Domene | Tillit | Grunnlag |
+|--------|--------|----------|
+| Lovgivningsproduksjonsidentifikasjon | 🟢 HIGH | A1 vedtatte tekster |
+| AI-handelsresolusjonens innhold | 🟢 HIGH | Primær tekstanalyse |
+| Komitéattribusjon | 🔴 LOW | C3 — fagkoder bare |
+| Stemmeandeler | 🔴 LOW | DOCEO-forsinkelse; utilgjengelig |
+| Identifikasjon av ordfører | 🔴 LOW | Prosedyrefeed 404 |
+| Økonomisk kontekst | 🟡 MEDIUM | IMF WEO-tilnærminger |
+| Fremoverprojeksjoner | 🟡 MEDIUM | WEP-kalibrerte scenarier |
+| Interessentposisjoner | 🟡 MEDIUM | Strukturell inferens |
+
+---
+
+### Etterretningsgap som krever fremtidig oppmerksomhet
+
+1. **DOCEO-stemmingsdata** (tilgjengelig om 2–4 uker): Politisk gruppetilpasning for alle 9 tekster
+2. **Komitéprosedyreposter** (når feed er gjenopprettet): Ordførernavne, stemmeandeler
+3. **IMF direktedataforespørsel**: BNP/handelsdata med full sitering
+4. **Medieovervåking**: Faktisk dekning av AI-handelsresolusjonen (Euractiv, POLITICO Europe)
+5. **Kommisjonssvarssporing**: DG HANDEL-agenda etter resolusjon
+
+---
+
+### Vedlegg: Oversikt over vedtatte tekster — 19.–20. mai 2026
+
+| Referanse | Tittel | Domene | Dato |
+|-----------|--------|--------|------|
+| TA-10-2026-0183 | AI-strategi for EU-handel | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | Anbefaling om 81. UNGA | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU–Cookøyene SFP 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EF–São Tomé Fiskerispartnerskap | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | EU–Libanon Eurojust-avtale | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU–Usbekistan EPCA (Resolusjon) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | Skogreproduktivt materiale | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | Immunitetsopphevelse — Nikos Pappas | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | Immunitetsopphevelse — Harald Vilimsky | PRIV | 2026-05-19 |
+
+---
+
+*Denne orienteringen ble generert av EU Parliament Monitors agentpipeline.*
+*Datatilstand: degraded-feeds | Kjøring: committee-reports-run271-1779861057*
+*Analytisk rammeverk: CIA OSINT-håndverksstandarder + EP lovgivningsanalysemetodologi*
+
+---
+
+### Kryssreferanseindeks (for relaterte artefakter)
+
+| Spørsmål | Artefakt |
+|----------|---------|
+| Full interessentanalyse | `intelligence/stakeholder-map.md` |
+| 12-månedersprognose | `intelligence/scenario-forecast.md` |
+| Jokerhendelser/svarte svaner | `intelligence/wildcards-blackswans.md` |
+| Trusselregister | `intelligence/threat-model.md` |
+| PESTLE-analyse | `intelligence/pestle-analysis.md` |
+| Økonomisk kontekst (IMF) | `intelligence/economic-context.md` |
+| Risikomatrise | `risk-scoring/risk-matrix.md` |
+| SWOT-analyse | `risk-scoring/quantitative-swot.md` |
+| Medierammesetting | `extended/media-framing-analysis.md` |
+| MCP-datakvalitet | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief Sv
+
+**Övergripande säkerhet**: 🟡 MEDIUM-HIGH
+**Admiralty Grade**: B2 (sammansatt; A1 för antagna texter, C3 för utskottsnivåattribution)
+
+---
+
+### Rubrikbedömning
+
+**Europaparlamentets majplenum 2026 markerade en lagstiftningsvecka med hög produktion som simultaneously avancerade tre strategiska prioriteringar: AI-handelsstyrning, fiskeridiplomati och arkitektur för externa partnerskap. AI-strategiresolutionen (TA-10-2026-0183) är den avgörande produktionen — den positionerar EU som global exportör av AI-styrning för första gången via handelspolitiska instrument.**
+
+**WEP-bedömning**: Det är sannolikt (55–70 %) att kommissionen kommer att producera ett uppföljnings-meddelande om AI och handel inom 12–18 månader. Omvandlingen till bindande rådets mandat möter högre osäkerhet (ungefär lika stor, 35–50 %).
+
+**Admiralty Grade för rubrik**: B2 — tillförlitliga bevis på antagna texter; attribution på utskottsnivå härledd från ämneskoder.
+
+---
+
+### Nyckeldomslut
+
+#### NB-01: AI-handelsstrategiresolution — Vägmärke eller aspirerande?
+
+**Bedömning**: Mer sannolikt att vara ett vägmärke än aspirerande (55–65 %), men genomförandet är inte garanterat.
+
+Resolutionens betydelse vilar på tre pelare:
+1. **Tvärkommitténoalition**: TECN + INFQ ämneskodning bekräftar ITRE/INTA:s gemensamma ägandeskap
+2. **Brysseleffektens prejudikat**: GDPR och AI-förordningen visar EU:s bevisade förmåga att exportera regulatoriska normer
+3. **Kommissionstryck**: Artikel 225-vägen finns tillgänglig om kommissionen fördröjer svaret
+
+**Motbedömning**: Kommissionens lagstiftningsagenda är överfylld; AI-handelsresolutionen konkurrerar med Konkurrenskraftsunionen, Ren industrideal och Inre marknadspaket. Icke-bindande resolutioner har ~50 % uppföljningsgrad inom 24 månader (historisk baslinje).
+
+**Underrättelsekonsekvens**: Övervaka kommissionens arbetsprogram för 2027 (förväntas oktober 2026) för explicit inkludering av AI-handelsmeddelande.
+
+#### NB-02: Konsolidering av fiskerisportfolion
+
+**Bedömning**: Sannolikt (65–75 %) att båda nya SFP (São Tomé, Cooköarna) kommer att gå vidare till provisorisk tillämpning utan större störningar inom 6 månader.
+
+Det dubbla antagandet signalerar en mogen PECH-kommittéprocess. Cooköarnas 7-åriga protokollduration är en ovanligt stark förtroendesignal från båda parter. Miljöefterlevnad är den primära riskvektorn (Oceana-bedömning förväntas inom 12 månader; se RISK-02).
+
+**Underrättelsekonsekvens**: Planera uppföljningskörning för Q4 2026 för att bedöma SFP:s provisoriska tillämpningsstatus och inledande hållbarhetsövervakningsrapporter.
+
+#### NB-03: Centralasiatisk strategisk positionering
+
+**Bedömning**: Sannolikt (65–75 %) att EU–Uzbekistan EPCA kommer att vara operativt aktivt inom 12 månader, med första gemensamma kommittémötet planerat.
+
+EPCA-ratificeringen (TA-10-2026-0174) avancerar EU:s Centralasiastrategi (reviderad 2019; uppdaterad efter Ukrainainvasionen 2022) och Global Gateway-investeringsplanen för regionen. Diversifiering av försörjningskedjan från Kina (sällsynta jordartsmetaller, uran, bomull) ger ett hållbart strategiskt skäl som överskrider partipolitiska skillnader inom EP10.
+
+**Risk för villkor för mänskliga rättigheter**: Osannolikt att det ska urspåra (20–30 %), men EP DROI-övervakning upprätthåller tryck för fortsatt reformframsteg.
+
+#### NB-04: Parlamentariska immunitetsstandards upprätthållna
+
+**Bedömning**: Hög säkerhet (80–90 %) att de dubbla immunitetsupphävningsgodkännandena (Vilimsky/FPÖ och Pappas/SYRIZA) kommer att gå igenom nationella rättsliga kanaler utan att bli EU-nivå politiska incidenter.
+
+JURI-kommitténs politiskt konsekventa tillämpning av standarder är en genuin institutionell styrka. Båda upphävningarna återspeglar beteende utan koppling till parlamentariska uppdrag (standardkriterier för upphävning). Politiseringrisk finns primärt på nationell medienivå (Österrike, Grekland) snarare än på EU-institutionell nivå.
+
+---
+
+### Policysignaler för övervakning
+
+| Signal | Vad ska bevakas | Tidslinje | Scenarioimplication |
+|--------|----------------|-----------|---------------------|
+| Kommissionens arbetsprogram 2027 | Inkludering av AI-handelsmeddelande | Oktober 2026 | A → B om inkluderat |
+| USA–EU TTC ministerial | AI-styrningsagenda | Q3 2026 | A → B om inkluderat |
+| Oceana SFP-bedömning | Cooköarnas fångstanalys | Q1 2027 | RISK-02-aktivering |
+| EP INTA INI-inlämning | Artikel 225 AI-handelsförfrågan | September 2026 | Scenario B-signal |
+| WCPFC fångstrapport | Stillahavstunets rikedom | Februari 2027 | Tidig varning RISK-02 |
+| EEAS Uzbekistanöversyn | Bedömning av mänskliga rättigheter | Q2 2027 | RISK-03-övervakning |
+
+---
+
+### Analysförtroendgenombrytning
+
+| Domän | Säkerhet | Grund |
+|-------|----------|-------|
+| Identifiering av lagstiftningsproduktion | 🟢 HIGH | A1 antagna texter |
+| AI-handelsresolutionens innehåll | 🟢 HIGH | Primär textanalys |
+| Kommittéattribution | 🔴 LOW | C3 — ämneskoder enbart |
+| Omröstningsmarginaler | 🔴 LOW | DOCEO-fördröjning; ej tillgängligt |
+| Identifiering av föredragande | 🔴 LOW | Procedurflöde 404 |
+| Ekonomisk kontext | 🟡 MEDIUM | IMF WEO-approximationer |
+| Framåtprojektioner | 🟡 MEDIUM | WEP-kalibrerade scenarier |
+| Intressentpositioner | 🟡 MEDIUM | Strukturell inferens |
+
+---
+
+### Underrättelsegap som kräver framtida uppmärksamhet
+
+1. **DOCEO-röstningsdata** (tillgänglig om 2–4 veckor): Politisk grupptillhörighet för alla 9 texter
+2. **Kommittéförfarandeposter** (när flödet återställs): Föredragandenamn, röstningsmarginaler
+3. **IMF direktdataförfrågan**: BNP/handelsdata med fullständig citering
+4. **Medieövervakning**: Faktisk täckning av AI-handelsresolution (Euractiv, POLITICO Europe)
+5. **Kommissionssvarsspårning**: DG HANDEL-agenda efter resolution
+
+---
+
+### Bilaga: Sammanfattning av antagna texter — 19–20 maj 2026
+
+| Referens | Titel | Domän | Datum |
+|----------|-------|-------|-------|
+| TA-10-2026-0183 | AI-strategi för EU-handel | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | Rekommendation om 81:a UNGA | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU–Cooköarna SFP 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EG–São Tomé fiskerispartnerskap | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | EU–Libanon Eurojust-avtal | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU–Uzbekistan EPCA (Resolution) | EXT | 2026-05-20 |
+| TA-10-2026-0168 | Skogsreproduktionsmaterial | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | Immunitetsupphävning — Nikos Pappas | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | Immunitetsupphävning — Harald Vilimsky | PRIV | 2026-05-19 |
+
+---
+
+*Denna översikt genererades av EU Parliament Monitor:s agentpipeline.*
+*Dataläge: degraded-feeds | Körning: committee-reports-run271-1779861057*
+*Analytiskt ramverk: CIA OSINT-hantverk + EP:s lagstiftningsanalysmetodik*
+
+---
+
+### Korsreferensindex (för relaterade artefakter)
+
+| Fråga | Artefakt |
+|-------|---------|
+| Fullständig intressentanalys | `intelligence/stakeholder-map.md` |
+| 12-månaders scenarioprognos | `intelligence/scenario-forecast.md` |
+| Jokerhändelser/svarta svanar | `intelligence/wildcards-blackswans.md` |
+| Hotregister | `intelligence/threat-model.md` |
+| PESTLE-analys | `intelligence/pestle-analysis.md` |
+| Ekonomisk kontext (IMF) | `intelligence/economic-context.md` |
+| Riskmatris | `risk-scoring/risk-matrix.md` |
+| SWOT-analys | `risk-scoring/quantitative-swot.md` |
+| Medieraminläggning | `extended/media-framing-analysis.md` |
+| MCP-datakvalitet | `intelligence/mcp-reliability-audit.md` |
+
+### Executive Brief Zh
+
+**分类**：开源情报评估
+**时期**：2026-05-20 至 2026-05-27
+**编制对象**：EU Parliament Monitor
+**数据模式**：degraded-feeds（底部系数 0.80）
+**总体置信度**：🟡 MEDIUM-HIGH
+**海军部等级**：B2（综合；通过文本为 A1，委员会层面归属为 C3）
+
+---
+
+### 头条评估
+
+**2026年5月欧洲议会全体会议标志着一个高产出立法周，同时推进了三个战略优先事项：人工智能贸易治理、渔业外交和外部伙伴关系架构。人工智能战略决议（TA-10-2026-0183）是决定性成果——首次通过贸易政策工具将欧盟定位为全球人工智能治理输出国。**
+
+**WEP评估**：欧盟委员会在12至18个月内就人工智能与贸易问题发出后续通报的可能性较高（55-70%）。向具有约束力的理事会授权转化面临更高不确定性（大致持平，35-50%）。
+
+**头条海军部等级**：B2 — 通过文本的可靠证据；委员会级别归属从主题代码推断而来。
+
+---
+
+### 核心判断
+
+#### 核心判断 01：人工智能贸易战略决议 — 里程碑还是愿景？
+
+**评估**：更可能是里程碑而非纯粹愿景（55-65%），但实施不保证。
+
+决议的重要性依托三大支柱：
+1. **跨委员会联盟**：TECN + INFQ 主题编码确认 ITRE/INTA 联合所有权
+2. **布鲁塞尔效应先例**：GDPR 和人工智能法证明了欧盟出口监管规范的既有能力
+3. **委员会压力**：若委员会延迟答复，第225条途径可用
+
+**反向评估**：委员会立法议程负担过重；人工智能贸易决议与竞争力联盟、清洁工业协议和单一市场一揽子计划竞争。非约束性决议在24个月内约有50%的后续行动率（历史基准）。
+
+**情报含义**：监测欧盟委员会2027年工作计划（预计2026年10月），关注是否明确纳入人工智能贸易通报。
+
+#### 核心判断 02：渔业组合整合
+
+**评估**：两个新的 SFP（圣多美、库克群岛）在6个月内无重大中断地推进临时适用的可能性较高（65-75%）。
+
+双重通过表明 PECH 委员会程序已趋于成熟。库克群岛7年协议期限是双方发出的异常强烈的信心信号。环境合规是主要风险向量（Oceana 评估预计在12个月内完成；参见 RISK-02）。
+
+**情报含义**：计划在2026年第四季度进行后续审查，评估 SFP 临时适用状态及初始可持续性监测报告。
+
+#### 核心判断 03：中亚战略定位
+
+**评估**：欧盟-乌兹别克斯坦 EPCA 在12个月内运营激活的可能性较高（65-75%），首次联合委员会会议已计划召开。
+
+EPCA 批准（TA-10-2026-0174）推进了欧盟中亚战略（2019年修订；2022年乌克兰入侵后更新）和该地区的 Global Gateway 投资计划。来自中国的供应链多元化（稀土、铀、棉花）提供了跨越EP10内部党派政治分歧的持久战略理由。
+
+**人权条件风险**：脱轨可能性低（20-30%），但 EP DROI 监测持续施压以推动改革进展。
+
+#### 核心判断 04：议会豁免标准得以维持
+
+**评估**：高置信度（80-90%），双重豁免弃权批准（Vilimsky/FPÖ 和 Pappas/SYRIZA）将通过国内司法渠道进行，不会成为欧盟层面的政治事件。
+
+JURI 委员会在政治上一致地适用标准是真正的制度优势。两项弃权均反映与议会授权无关的行为（标准弃权批准标准）。政治化风险主要存在于国内媒体层面（奥地利、希腊），而非欧盟制度层面。
+
+---
+
+### 监测政策信号
+
+| 信号 | 需观察内容 | 时间线 | 情景含义 |
+|------|---------|--------|---------|
+| 欧盟委员会2027年工作计划 | 人工智能贸易通报纳入 | 2026年10月 | A → B（若纳入） |
+| 美欧 TTC 部长级会议 | 人工智能治理议程 | 2026年Q3 | A → B（若纳入） |
+| Oceana SFP 评估 | 库克群岛渔获量分析 | 2027年Q1 | RISK-02 触发 |
+| EP INTA INI 提交 | 第225条人工智能贸易请求 | 2026年9月 | 情景B信号 |
+| WCPFC 渔获量报告 | 太平洋金枪鱼资源量 | 2027年2月 | RISK-02 早期预警 |
+| EEAS 乌兹别克斯坦审查 | 人权评估 | 2027年Q2 | RISK-03 监测 |
+
+---
+
+### 分析置信度分类
+
+| 领域 | 置信度 | 依据 |
+|------|--------|------|
+| 立法成果识别 | 🟢 HIGH | A1 通过文本 |
+| 人工智能贸易决议内容 | 🟢 HIGH | 原文分析 |
+| 委员会归属 | 🔴 LOW | C3 — 仅主题代码 |
+| 投票差距 | 🔴 LOW | DOCEO 延迟；不可用 |
+| 报告员识别 | 🔴 LOW | 程序信息流404 |
+| 经济背景 | 🟡 MEDIUM | IMF WEO 近似值 |
+| 前瞻性预测 | 🟡 MEDIUM | WEP 校准情景 |
+| 利益相关方立场 | 🟡 MEDIUM | 结构性推断 |
+
+---
+
+### 需要未来关注的情报缺口
+
+1. **DOCEO 投票数据**（2-4周后可用）：所有9份文本的政治集团立场
+2. **委员会程序记录**（信息流恢复后）：报告员姓名、投票差距
+3. **IMF 直接数据查询**：附完整引注的GDP/贸易数据
+4. **媒体监测**：人工智能贸易决议的实际报道（Euractiv、POLITICO Europe）
+5. **欧盟委员会回应跟踪**：决议后 DG 贸易议程
+
+---
+
+### 附录：通过文本摘要 — 2026年5月19-20日
+
+| 参考文献 | 标题 | 领域 | 日期 |
+|---------|------|------|------|
+| TA-10-2026-0183 | 欧盟贸易人工智能战略 | TECN, INFQ | 2026-05-20 |
+| TA-10-2026-0182 | 关于第81届联合国大会的建议 | EXT | 2026-05-20 |
+| TA-10-2026-0179 | EU-库克群岛 SFP 2025–2032 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0178 | EC-圣多美渔业伙伴关系 | PECH, EXT | 2026-05-20 |
+| TA-10-2026-0177 | EU-黎巴嫩 Eurojust 协议 | EXT, COJP | 2026-05-20 |
+| TA-10-2026-0174 | EU-乌兹别克斯坦 EPCA（决议） | EXT | 2026-05-20 |
+| TA-10-2026-0168 | 林木繁殖材料 | SILV, SEME | 2026-05-19 |
+| TA-10-2026-0166 | 豁免弃权 — 尼科斯·帕帕斯 | PRIV | 2026-05-19 |
+| TA-10-2026-0164 | 豁免弃权 — 哈拉尔德·维尔姆斯基 | PRIV | 2026-05-19 |
+
+---
+
+*本摘要由 EU Parliament Monitor 智能代理流水线生成。*
+*数据模式：degraded-feeds | 运行：committee-reports-run271-1779861057*
+*分析框架：美国中央情报局开源情报手工艺标准 + 欧洲议会立法分析方法论*
+
+---
+
+### 交叉参考索引（相关成果物）
+
+| 问题 | 成果物 |
+|------|--------|
+| 完整利益相关方分析 | `intelligence/stakeholder-map.md` |
+| 12个月情景预测 | `intelligence/scenario-forecast.md` |
+| 通配符/黑天鹅事件 | `intelligence/wildcards-blackswans.md` |
+| 威胁登记册 | `intelligence/threat-model.md` |
+| PESTLE 分析 | `intelligence/pestle-analysis.md` |
+| 经济背景（IMF） | `intelligence/economic-context.md` |
+| 风险矩阵 | `risk-scoring/risk-matrix.md` |
+| SWOT 分析 | `risk-scoring/quantitative-swot.md` |
+| 媒体框架分析 | `extended/media-framing-analysis.md` |
+| MCP 数据质量 | `intelligence/mcp-reliability-audit.md` |
+
 ### Procedures Proxy
 
 ### Active Procedure References Identified (May 2026)
@@ -3532,5 +5220,18 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/committee-reports/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 

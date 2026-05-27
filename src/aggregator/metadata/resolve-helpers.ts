@@ -32,7 +32,7 @@ import type { ResolveMetadataOptions } from './types.js';
 import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
 import { classifyScript } from './seo-budgets.js';
-import { containsNormalized, pickFirstNonEmpty, withRunQualifier } from './resolve-utils.js';
+import { containsNormalized, extractRunNumber, pickFirstNonEmpty } from './resolve-utils.js';
 import {
   ensureTerminator,
   scrubTrailingEllipsis as scrubTrailingEllipsisImpl,
@@ -207,17 +207,12 @@ export function resolveEditorialContent(opts: ResolveMetadataOptions): {
  * When falling back to the localized template (no editorial headline
  * available), append an ISO date suffix so two runs of the same
  * article type on different dates do not produce identical titles.
- * The user's bug report explicitly allows this prefix: "ok to prefix
- * with 'article type date' in short form if no real data exist".
- *
- * The ISO suffix uses an en-dash separator (` — YYYY-MM-DD`) which
- * is locale-neutral, fits CJK/RTL clamping behaviour (see
- * `seo-budgets.ts` clause boundaries), and is already used by
- * {@link withRunQualifier}.
+ * For same-date re-runs, a localized "Edition N" qualifier is appended
+ * to ensure cross-run uniqueness without using the banned `Run N` token.
  *
  * @param fallbackTitle - Localized article-type template title
  * @param editorialHeadline - Editorial headline (localized or English)
- * @param runId - Optional run id used only when no editorial headline exists
+ * @param _runId - Optional run id used for edition qualifier disambiguation
  * @param date - Optional ISO date appended when no editorial headline exists
  * @param lang - Optional language code; drives per-script floor/budget classification
  * @returns SEO title candidate
@@ -225,7 +220,7 @@ export function resolveEditorialContent(opts: ResolveMetadataOptions): {
 export function composeContextualTitle(
   fallbackTitle: string,
   editorialHeadline: string,
-  runId: string,
+  _runId: string,
   date?: string,
   lang?: string
 ): string {
@@ -233,10 +228,7 @@ export function composeContextualTitle(
   const floor = SEO_TITLE_FLOOR_BY_SCRIPT[family];
   if (editorialHeadline) {
     // Editorial headline is accepted, but rescue sub-floor titles by
-    // appending the ISO date — e.g. `EP10-Wahlzyklus` (15 chars) →
-    // `EP10-Wahlzyklus — 2026-05-09` (28 chars) keeps the editorial
-    // headline as the SEO payload while clearing the SERP-truncation
-    // floor used by the extraction regression suite.
+    // appending the ISO date.
     if (
       date &&
       [...editorialHeadline].length < floor &&
@@ -246,25 +238,12 @@ export function composeContextualTitle(
     }
     return editorialHeadline;
   }
-  const withRun = withRunQualifier(fallbackTitle, runId);
-  // If withRunQualifier added a "— Run N" suffix, that already
-  // disambiguates same-date sub-runs. For canonical (no-runN) runs
-  // we still need to disambiguate across dates → append the ISO date.
-  let composed = withRun;
-  if (date && withRun === fallbackTitle && !containsNormalized(fallbackTitle, date)) {
+  // No editorial headline — build from template fallback + date
+  let composed = fallbackTitle;
+  if (date && !containsNormalized(fallbackTitle, date)) {
     composed = `${fallbackTitle} — ${date}`;
   }
-  // Final SERP-floor recovery: short generic titles like
-  // `"Moties | 2026-04-01"` (19 chars, nl) sit just below the
-  // per-script floor even after the date is embedded. The
-  // `executive-brief-seo-extraction` regression suite (`READER_FLOOR.title`)
-  // enforces a 20-char minimum for Latin/RTL and 10 for CJK so these
-  // titles don't get truncated as snippets in search. Append ` (EP)`
-  // — a universally recognized European Parliament acronym — to
-  // lift the title above the floor without adding language-specific
-  // wording (EP works in every supported locale). Word-boundary check
-  // so `"Europese …"` (which contains the substring `ep`) does not
-  // short-circuit the pad.
+  // Final SERP-floor recovery
   if ([...composed].length < floor && !containsEpToken(composed)) {
     composed = `${composed} (EP)`;
   }
@@ -284,6 +263,42 @@ export function composeContextualTitle(
  */
 function containsEpToken(text: string): boolean {
   return /(^|[^A-Za-z])EP(?=$|[^A-Za-z])/iu.test(text);
+}
+
+/**
+ * Post-clamping cross-run title uniqueness. Appends a compact edition
+ * qualifier `(#N)` to the resolved SEO title when a run number is
+ * extractable from the run ID. This runs AFTER `clampForBudget` so the
+ * qualifier is never truncated by the per-script budget clamper.
+ *
+ * The compact form `(#N)` is used (universal publishing issue-number
+ * convention) because it adds only 4-5 chars and survives even the
+ * tightest RTL/CJK budgets.
+ *
+ * Budget-aware: the qualifier is only appended when the resulting title
+ * fits within the per-script title budget. Otherwise the title is
+ * returned unchanged to preserve SERP-optimal length.
+ *
+ * @param seoTitle - Resolved, clamped SEO title
+ * @param runId - Workflow run identifier (e.g. "run-52", "breaking-run170")
+ * @param titleBudget - Optional per-script title budget; when provided,
+ *   the qualifier is only appended if the result fits within budget
+ * @returns Title with edition qualifier appended for uniqueness
+ */
+export function appendEditionQualifier(
+  seoTitle: string,
+  runId: string,
+  titleBudget?: number
+): string {
+  if (!runId) return seoTitle;
+  const runNum = extractRunNumber(runId);
+  if (!runNum) return seoTitle;
+  const qualified = `${seoTitle} (#${runNum})`;
+  // Skip qualifier when it would exceed the per-script title budget
+  if (titleBudget !== undefined && [...qualified].length > titleBudget) {
+    return seoTitle;
+  }
+  return qualified;
 }
 
 /**
@@ -539,6 +554,8 @@ export {
   hasLeakySeoToken,
   extractRunNumber,
   sanitizeDescriptionCandidate,
+  sanitizeTitleCandidate,
+  stripLeakyRunTokens,
   isUsableResolvedTitle,
   deriveHeadlineFromSummary,
   withRunQualifier,

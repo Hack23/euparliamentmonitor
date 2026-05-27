@@ -135,6 +135,9 @@ export const FORBIDDEN_SUBSTRINGS = Object.freeze([
  */
 export const FORBIDDEN_PATTERNS = Object.freeze([
   /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu,
+  // Workflow run-number patterns like "— Run 271" or "Run 42" must never
+  // appear in user-facing SEO surfaces (titles, descriptions, keywords).
+  /(?:^|[\s—–-])Run\s+\d+/u,
 ]);
 
 /**

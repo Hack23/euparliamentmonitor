@@ -139,9 +139,9 @@ safe-outputs:
   max-patch-size: 10240
   # Explicit file ceiling raised to the schema-unbounded "max" we standardise
   # on across all news-* workflows. Translation flushes ≤ max_briefs × 13
-  # langs ≈ 52 files; 1000 gives ample headroom for validator reports and
+  # langs ≈ 52 files; 2500 gives ample headroom for validator reports and
   # retry flushes without ever approaching the cap.
-  max-patch-files: 1000
+  max-patch-files: 2500
   steps:
     - name: Fetch triggering commit for bundle prerequisites
       # The safe_outputs job checks out the current branch tip with
