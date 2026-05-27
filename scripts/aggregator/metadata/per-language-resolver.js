@@ -267,9 +267,6 @@ export function resolveOneLanguage(input) {
     //
     // The fallback path passes the template title back through
     // {@link composeContextualTitle} (with an empty editorial headline)
-    // so `withRunQualifier` re-appends the `— Run N` suffix. Without
-    // The fallback path passes the template title back through
-    // {@link composeContextualTitle} (with an empty editorial headline)
     // which disambiguates via ISO date. Same-date re-runs with identical
     // editorial headlines are acceptable — the duplicate-title gate is
     // advisory-only since run numbers are never used in user-facing titles.
