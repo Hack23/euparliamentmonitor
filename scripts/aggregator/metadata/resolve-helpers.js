@@ -200,8 +200,11 @@ const CJK_EDITION_SUFFIX = {
  * Build a localized edition qualifier string for the given language and
  * run number. Falls back to compact `(#N)` when the full localized form
  * would exceed `maxChars`.
+ *
+ * @internal Used by appendEditionQualifier via the compact (#N) path;
+ * retained for future locale-aware expansion.
  */
-function buildEditionQualifier(lang, runNum, maxChars) {
+export function buildEditionQualifier(lang, runNum, maxChars) {
     const prefix = EDITION_QUALIFIER_BY_LANG[lang] ?? EDITION_QUALIFIER_BY_LANG['en'];
     const cjkSuffix = CJK_EDITION_SUFFIX[lang];
     const full = cjkSuffix
@@ -231,50 +234,25 @@ function buildEditionQualifier(lang, runNum, maxChars) {
  * @param lang - Optional language code; drives per-script floor/budget classification
  * @returns SEO title candidate
  */
-export function composeContextualTitle(fallbackTitle, editorialHeadline, runId, date, lang) {
+export function composeContextualTitle(fallbackTitle, editorialHeadline, _runId, date, lang) {
     const family = lang ? classifyScript(lang) : 'latin';
     const floor = SEO_TITLE_FLOOR_BY_SCRIPT[family];
-    const runNum = runId ? extractRunNumber(runId) : null;
-    const langKey = lang ?? 'en';
     if (editorialHeadline) {
-        let result = editorialHeadline;
-        // Rescue sub-floor titles by appending the ISO date
+        // Editorial headline is accepted, but rescue sub-floor titles by
+        // appending the ISO date.
         if (date &&
             [...editorialHeadline].length < floor &&
             !containsNormalized(editorialHeadline, date)) {
-            result = `${editorialHeadline} — ${date}`;
+            return `${editorialHeadline} — ${date}`;
         }
-        // Cross-run uniqueness: append localized edition qualifier when
-        // a run number is available, ensuring same-date re-runs produce
-        // distinct titles without using the banned `Run N` token.
-        if (runNum) {
-            const qualifier = buildEditionQualifier(langKey, runNum, 15);
-            result = `${result} — ${qualifier}`;
-        }
-        return result;
+        return editorialHeadline;
     }
-    // No editorial headline — build from template fallback + date + edition qualifier
+    // No editorial headline — build from template fallback + date
     let composed = fallbackTitle;
     if (date && !containsNormalized(fallbackTitle, date)) {
         composed = `${fallbackTitle} — ${date}`;
     }
-    // Cross-run uniqueness: append a localized edition qualifier when
-    // a run number is available. This replaces the banned `Run N` token
-    // with a publishing-industry standard form (e.g. "Edition 3", "Ausgabe 3").
-    if (runNum) {
-        // Strip trailing date suffix before appending qualifier to avoid
-        // double-suffix truncation under budget clamping
-        const dateSuffixRe = / — \d{4}-\d{2}-\d{2}$/u;
-        const basePart = composed.replace(dateSuffixRe, '');
-        const datePart = dateSuffixRe.test(composed) ? composed.slice(basePart.length) : '';
-        // Allow up to 15 chars for the qualifier portion
-        const qualifier = buildEditionQualifier(langKey, runNum, 15);
-        composed = `${basePart} — ${qualifier}${datePart}`;
-    }
-    // Final SERP-floor recovery: short generic titles like
-    // `"Moties | 2026-04-01"` (19 chars, nl) sit just below the
-    // per-script floor even after the date is embedded. Append ` (EP)`
-    // to lift the title above the floor.
+    // Final SERP-floor recovery
     if ([...composed].length < floor && !containsEpToken(composed)) {
         composed = `${composed} (EP)`;
     }
@@ -293,6 +271,39 @@ export function composeContextualTitle(fallbackTitle, editorialHeadline, runId, 
  */
 function containsEpToken(text) {
     return /(^|[^A-Za-z])EP(?=$|[^A-Za-z])/iu.test(text);
+}
+/**
+ * Post-clamping cross-run title uniqueness. Appends a compact edition
+ * qualifier `(#N)` to the resolved SEO title when a run number is
+ * extractable from the run ID. This runs AFTER `clampForBudget` so the
+ * qualifier is never truncated by the per-script budget clamper.
+ *
+ * The compact form `(#N)` is used (universal publishing issue-number
+ * convention) because it adds only 4-5 chars and survives even the
+ * tightest RTL/CJK budgets.
+ *
+ * Budget-aware: the qualifier is only appended when the resulting title
+ * fits within the per-script title budget. Otherwise the title is
+ * returned unchanged to preserve SERP-optimal length.
+ *
+ * @param seoTitle - Resolved, clamped SEO title
+ * @param runId - Workflow run identifier (e.g. "run-52", "breaking-run170")
+ * @param titleBudget - Optional per-script title budget; when provided,
+ *   the qualifier is only appended if the result fits within budget
+ * @returns Title with edition qualifier appended for uniqueness
+ */
+export function appendEditionQualifier(seoTitle, runId, titleBudget) {
+    if (!runId)
+        return seoTitle;
+    const runNum = extractRunNumber(runId);
+    if (!runNum)
+        return seoTitle;
+    const qualified = `${seoTitle} (#${runNum})`;
+    // Skip qualifier when it would exceed the per-script title budget
+    if (titleBudget !== undefined && [...qualified].length > titleBudget) {
+        return seoTitle;
+    }
+    return qualified;
 }
 /**
  * Post-resolution SERP-floor recovery for `<title>`. The internal

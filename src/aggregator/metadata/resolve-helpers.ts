@@ -233,8 +233,11 @@ const CJK_EDITION_SUFFIX: Readonly<Record<string, string>> = {
  * Build a localized edition qualifier string for the given language and
  * run number. Falls back to compact `(#N)` when the full localized form
  * would exceed `maxChars`.
+ *
+ * @internal Used by appendEditionQualifier via the compact (#N) path;
+ * retained for future locale-aware expansion.
  */
-function buildEditionQualifier(lang: string, runNum: string, maxChars: number): string {
+export function buildEditionQualifier(lang: string, runNum: string, maxChars: number): string {
   const prefix = EDITION_QUALIFIER_BY_LANG[lang] ?? EDITION_QUALIFIER_BY_LANG['en']!;
   const cjkSuffix = CJK_EDITION_SUFFIX[lang];
   const full = cjkSuffix
@@ -268,7 +271,7 @@ function buildEditionQualifier(lang: string, runNum: string, maxChars: number): 
 export function composeContextualTitle(
   fallbackTitle: string,
   editorialHeadline: string,
-  runId: string,
+  _runId: string,
   date?: string,
   lang?: string
 ): string {
@@ -323,15 +326,26 @@ function containsEpToken(text: string): boolean {
  * convention) because it adds only 4-5 chars and survives even the
  * tightest RTL/CJK budgets.
  *
+ * Budget-aware: the qualifier is only appended when the resulting title
+ * fits within the per-script title budget. Otherwise the title is
+ * returned unchanged to preserve SERP-optimal length.
+ *
  * @param seoTitle - Resolved, clamped SEO title
  * @param runId - Workflow run identifier (e.g. "run-52", "breaking-run170")
+ * @param titleBudget - Optional per-script title budget; when provided,
+ *   the qualifier is only appended if the result fits within budget
  * @returns Title with edition qualifier appended for uniqueness
  */
-export function appendEditionQualifier(seoTitle: string, runId: string): string {
+export function appendEditionQualifier(seoTitle: string, runId: string, titleBudget?: number): string {
   if (!runId) return seoTitle;
   const runNum = extractRunNumber(runId);
   if (!runNum) return seoTitle;
-  return `${seoTitle} (#${runNum})`;
+  const qualified = `${seoTitle} (#${runNum})`;
+  // Skip qualifier when it would exceed the per-script title budget
+  if (titleBudget !== undefined && [...qualified].length > titleBudget) {
+    return seoTitle;
+  }
+  return qualified;
 }
 
 /**

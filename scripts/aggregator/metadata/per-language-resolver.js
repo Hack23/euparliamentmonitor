@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { budgetFor, classifyScript, clampForBudget } from './seo-budgets.js';
-import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, deriveHeadlineFromSummary, ensureDescriptionTerminator, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
+import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, appendEditionQualifier, deriveHeadlineFromSummary, ensureDescriptionTerminator, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
 import { buildSeoKeywords } from './seo-keywords.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
 const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
@@ -290,6 +290,9 @@ export function resolveOneLanguage(input) {
     const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
     let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
     seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');
+    // Cross-run uniqueness: append compact edition qualifier (#N) post-clamping
+    // Budget-aware: only append when it fits within the per-script title budget
+    seoTitle = appendEditionQualifier(seoTitle, input.runId ?? '', budgetFor(input.lang, 'title'));
     // Final SERP-floor recovery on the resolved title (see `padTitleToFloor`
     // in resolve-helpers.ts for the (EP) suffix rationale).
     seoTitle = padTitleToFloor(seoTitle, input.lang, budgetFor(input.lang, 'title'));

@@ -442,7 +442,8 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
   let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
   seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');
   // Cross-run uniqueness: append compact edition qualifier (#N) post-clamping
-  seoTitle = appendEditionQualifier(seoTitle, input.runId ?? '');
+  // Budget-aware: only append when it fits within the per-script title budget
+  seoTitle = appendEditionQualifier(seoTitle, input.runId ?? '', budgetFor(input.lang, 'title'));
   // Final SERP-floor recovery on the resolved title (see `padTitleToFloor`
   // in resolve-helpers.ts for the (EP) suffix rationale).
   seoTitle = padTitleToFloor(seoTitle, input.lang, budgetFor(input.lang, 'title'));
