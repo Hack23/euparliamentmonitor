@@ -202,6 +202,7 @@ const BOILERPLATE_TITLE_PATTERNS: readonly RegExp[] = Object.freeze([
  * describes the brief itself rather than the intelligence content.
  *
  * @param value - Title candidate
+ * @param lang - Language code for locale-specific patterns
  * @returns `true` when the candidate matches a boilerplate pattern
  */
 export function looksLikeBoilerplate(value: string, lang: LanguageCode = 'en'): boolean {

@@ -18,6 +18,7 @@ const ENGLISH_BRIEF_SOURCE = 'english-brief';
  */
 const CJK_GLYPH_RE = /[\u3040-\u30FF\u3400-\u9FFF\uAC00-\uD7AF]/u;
 const RTL_GLYPH_RE = /[\u0590-\u05FF\u0600-\u06FF]/u;
+// eslint-disable-next-line no-control-regex
 const ASCII_ONLY_RE = /^[\x00-\x7F]*$/u;
 /**
  * Test whether `text` contains a glyph in the script family expected for
@@ -167,6 +168,10 @@ function shouldEnrichDescription(rawDescription, lang) {
  *
  * @param input - Per-language inputs (for locale)
  * @param candidates - Title candidate inputs (in priority order)
+ * @param candidates.explicitTitle - Manifest operator override title
+ * @param candidates.resolvedTitleCandidate - H1/document-derived title
+ * @param candidates.summaryDerivedTitle - Summary-first-sentence title
+ * @param candidates.contextualFallback - Final fallback title
  * @returns Picked title (always non-empty when the contextual fallback fires)
  */
 function pickResolvedTitle(input, candidates) {
@@ -258,9 +263,7 @@ export function resolveOneLanguage(input) {
     const clippedTitle = truncateTitle(title).trim();
     // Manifest-derived explicit titles are intentional operator overrides —
     // respect them even for non-Latin locales (the operator chose them).
-    const explicitTitle = manifestTitle && !hasLeakySeoToken(manifestTitle)
-        ? truncateTitle(manifestTitle).trim()
-        : '';
+    const explicitTitle = manifestTitle && !hasLeakySeoToken(manifestTitle) ? truncateTitle(manifestTitle).trim() : '';
     const allowShortResolvedTitle = perLanguage.source === LOCALIZED_BRIEF_SOURCE;
     // Gate 4a defense-in-depth: reject resolved title candidates for
     // non-Latin locales when they lack locale-script glyphs — prevents
@@ -360,9 +363,7 @@ export function resolveOneLanguage(input) {
     // article-metadata.test.js ≥100/≥120 reader floor) and budget reservation
     // must use that ceiling, not the 78/150 tight budget, or the terminator
     // step would over-trim the description.
-    const terminatorBudget = useTightBudget
-        ? budgetFor(input.lang, 'metaDescription')
-        : undefined;
+    const terminatorBudget = useTightBudget ? budgetFor(input.lang, 'metaDescription') : undefined;
     const truncatedDescription = padDescriptionToFloor(ensureDescriptionTerminator(input.lang, clampedDescription, terminatorBudget), input.lang);
     const extendedSource = sanitizeDescriptionCandidate(manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription);
     // Two-tier extended-description resolution:

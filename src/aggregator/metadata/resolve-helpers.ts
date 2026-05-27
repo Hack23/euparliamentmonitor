@@ -386,6 +386,7 @@ export function padDescriptionToFloor(description: string, lang: LanguageCode): 
  * @param _runId - Reserved (formerly emitted; no longer used)
  * @returns Description in the target language context
  */
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export function composeContextualDescription(
   lang: LanguageCode,
   baseDescription: string,
@@ -402,6 +403,7 @@ export function composeContextualDescription(
   // Without this, long English descriptions (150+ chars) crowd out the
   // localized labels and the final description ends up all-ASCII,
   // violating Gate 4b of `executive-brief-seo-extraction.test.js`.
+  // eslint-disable-next-line no-control-regex
   const baseIsAscii = family !== 'latin' && /^[\x00-\x7F]*$/u.test(base);
   const parts: string[] = [];
   const datePart = `${labels.date} ${date}.`;

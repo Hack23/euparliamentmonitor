@@ -115,6 +115,7 @@ export function stripTradecraftLabels(text) {
         .replace(/\[WEP:?\s*[^\]]+\]\s*/giu, '')
         .replace(/\(WEP\s+[^)]+\)\s*/giu, '')
         // "Admiralty Grade: B2" or similar
+        // eslint-disable-next-line security/detect-unsafe-regex
         .replace(/Admiralty\s+(?:Source\s+)?Grade:?\s*[A-Z]\d\s*/giu, '')
         // Leading numbered list prefix "1. ", "2. " etc.
         .replace(/^\d+\.\s+/, '')

@@ -463,12 +463,14 @@ export const BOILERPLATE_STEM_PATTERNS_BY_LANG = Object.freeze({
         /^dit (?:uitvoerend(?:e)? briefingdocument|rapport|document|verslag|briefingdocument)[^.\n]{0,80}?(?:synthetiseert|vat samen|dekt|behandelt|presenteert)/iu,
     ],
     ar: [
+        // eslint-disable-next-line security/detect-unsafe-regex
         /^(?:يلخص|يجمع|يتناول|يجمِّع|يُجمِّع|يُلخِّص)\s+هذا(?:\s+(?:الموجز(?: التنفيذي)?|التقرير|التحليل|الملخص(?: التنفيذي)?))?/u,
     ],
     he: [
         /^(?:תקציר(?: ניהולי| מנהלים)?\s+זה|דו"ח\s+זה|מסמך\s+זה|דוח\s+זה)[^.\n]{0,80}?(?:מסכם|מציג|מכסה|מסנתז)/u,
     ],
     ja: [
+        // eslint-disable-next-line security/detect-unsafe-regex
         /^(?:この|本)(?:エグゼクティブ・?|エグゼクティブ ?)?(?:ブリーフィング|ブリーフ|要約|サマリー|レポート|報告書)(?:は|では)/u,
     ],
     ko: [

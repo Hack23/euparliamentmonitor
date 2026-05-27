@@ -51,11 +51,7 @@ import {
   extractFirstSubsectionUnderSection,
   stripTradecraftLabels,
 } from './briefing-highlight-sections.js';
-import {
-  truncateDescription,
-  truncateExtendedDescription,
-  truncateTitle,
-} from './text-utils.js';
+import { truncateDescription, truncateExtendedDescription, truncateTitle } from './text-utils.js';
 import { looksLikeBoilerplate } from './title-rejection.js';
 
 /**
@@ -187,13 +183,13 @@ export function extractTopFindingsHighlight(
   // Strip numbered/finding prefixes: "Finding 1 — X", "1. X — Y"
   const raw = stripTradecraftLabels(sub.subHeading);
   const cleaned = raw
-    .replace(/^(?:finding|item)\s*\d+\s*[—–:\-]\s*/iu, '')
+    .replace(/^(?:finding|item)\s*\d+\s*[—–:-]\s*/iu, '')
     .replace(/^\d+\.\s*/, '')
     // Strip parenthetical reference codes: (TA-10-2026-0171), (COM(2024)123)
     .replace(/\s*\([A-Z]{1,4}[-/]?\d[\w/()-]*\)\s*/g, ' ')
     // Strip trailing date stamps: "— 19 May 2026", "– 2026-05-19"
-    .replace(/\s*[—–\-]\s*\d{1,2}\s+\w+\s+\d{4}\s*$/, '')
-    .replace(/\s*[—–\-]\s*\d{4}-\d{2}-\d{2}\s*$/, '')
+    .replace(/\s*[—–-]\s*\d{1,2}\s+\w+\s+\d{4}\s*$/, '')
+    .replace(/\s*[—–-]\s*\d{4}-\d{2}-\d{2}\s*$/, '')
     .replace(/\s{2,}/g, ' ')
     .trim();
   const headline = cleaned ? truncateTitle(cleaned) : '';
@@ -308,14 +304,16 @@ export function extractBriefingHighlight(
         if (!paragraph || looksLikeBoilerplate(paragraph, lang)) return null;
         const headline = deriveHeadlineFromParagraph(paragraph);
         if (!headline) return null;
-        return {
+        const result: BriefingHighlight = {
           headline,
           summary: truncateDescription(paragraph),
           extendedSummary: truncateExtendedDescription(paragraph),
-        } as BriefingHighlight;
+        };
+        return result;
       })();
 
   // Pick headline: sub-heading sources first, then paragraph-derived.
+  /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
   const headline =
     strategicSubHeadline ||
     findings?.headline ||
@@ -344,6 +342,7 @@ export function extractBriefingHighlight(
     reader?.extendedSummary ||
     strategicParagraph?.extendedSummary ||
     '';
+  /* eslint-enable @typescript-eslint/prefer-nullish-coalescing */
 
   if (!headline && !summary) return null;
   return { headline, summary, extendedSummary };

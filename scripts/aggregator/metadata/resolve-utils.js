@@ -5,7 +5,7 @@
  * @description Low-level utility functions extracted from resolve-helpers
  * to keep each leaf module under the 600-line drift guard.
  */
-import { extractFirstSentence, shouldSkipDescriptionLine, truncateTitle, } from './text-utils.js';
+import { extractFirstSentence, shouldSkipDescriptionLine, truncateTitle } from './text-utils.js';
 import { findTitleRejectionReason } from './title-rejection.js';
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
 /** Minimum title length below which a title is unusable. */
@@ -20,6 +20,9 @@ export function hasLeakySeoToken(value) {
  * `breaking-run188`, `committee-reports-run-47`, or a bare numeric
  * string (`"47"`). Returns the run number as a string, or `null` when
  * the runId does not carry a discriminator.
+ *
+ * @param runId - Raw run identifier token
+ * @returns Extracted numeric portion, or `null` when absent
  */
 export function extractRunNumber(runId) {
     if (!runId)
@@ -79,6 +82,10 @@ export function deriveHeadlineFromSummary(summary) {
  * Append a short run qualifier to otherwise duplicate-prone fallback
  * titles. Sanitizes the raw `runId` so user-facing `<title>` strings
  * never expose Unix timestamps or the full opaque token.
+ *
+ * @param title - Base title to qualify
+ * @param runId - Raw run identifier token
+ * @returns Title with appended run number qualifier
  */
 export function withRunQualifier(title, runId) {
     if (!runId)
@@ -102,6 +109,10 @@ export function withRunQualifier(title, runId) {
 }
 /**
  * Case-insensitive containment check after whitespace normalization.
+ *
+ * @param haystack - Text to search within
+ * @param needle - Substring to look for
+ * @returns `true` when `needle` is found within `haystack`
  */
 export function containsNormalized(haystack, needle) {
     const cleanHaystack = haystack.toLowerCase().replace(/\s+/g, ' ');
@@ -111,6 +122,9 @@ export function containsNormalized(haystack, needle) {
 /**
  * Return the first non-empty, trimmed entry from a candidate list, or
  * the empty string when every entry is blank.
+ *
+ * @param candidates - Ordered list of candidate strings
+ * @returns First non-blank candidate, or empty string
  */
 export function pickFirstNonEmpty(candidates) {
     for (const c of candidates) {
