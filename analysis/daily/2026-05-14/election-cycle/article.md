@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament you elected in — Run 1778754201"
+title: "The European Parliament you elected in June 2024 has"
 description: "The European Parliament you elected in June 2024 has roughly three legislative years left before campaigning starts again."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "election cycle", "elections", "political landscape", "2026-05-14", "European", "Parliament", "elected", "June"]
 date: 2026-05-14

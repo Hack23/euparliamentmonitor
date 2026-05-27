@@ -1,5 +1,5 @@
 ---
-title: "EU Parliament Propositions, 28–30 April — Run 1777874745"
+title: "EU Parliament Propositions, 28–30 April 2026 (#1777874745)"
 description: "The April 28–30 Strasbourg plenary completed an unusually dense legislative sprint, adopting 18 significant acts across technology regulation."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-04", "Parliament", "April", "Strasbourg"]
 date: 2026-05-04

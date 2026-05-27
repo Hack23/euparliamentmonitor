@@ -1,5 +1,5 @@
 ---
-title: "The April 28–30, 2026 Strasbourg plenary — Run 1777942844"
+title: "The April 28–30, 2026 Strasbourg plenary represents the"
 description: "The April 28–30, 2026 Strasbourg plenary represents the highest-output session of the 2026 calendar year to date."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-05", "April", "Strasbourg", "plenary"]
 date: 2026-05-05

@@ -1,5 +1,5 @@
 ---
-title: "Run 182 is the fourth breaking probe of 17 April and the"
+title: "is the fourth breaking probe of 17 April and the run where"
 description: "Run 182 is the fourth breaking probe of 17 April and the run where the \"Institutional Self-Contradiction Thesis\" was first established as EP10's defining."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-17", "fourth", "probe", "April"]
 date: 2026-04-17

@@ -1,5 +1,5 @@
 ---
-title: "Run 190 is the 11th consecutive ANALYSIS_ONLY run of the"
+title: "is the 11th consecutive ANALYSIS_ONLY run of the Easter"
 description: "Run 190 is the 11th consecutive ANALYSIS_ONLY run of the Easter Recess Series and the first probe on Easter Monday."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-20", "11th", "consecutive", "ANALYSIS"]
 date: 2026-04-20

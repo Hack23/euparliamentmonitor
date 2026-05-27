@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's final April 2026 — Run 1778159307"
+title: "The European Parliament's final April 2026 plenary"
 description: "The European Parliament's final April 2026 plenary delivered three high-impact outputs that will define the EP's political trajectory into summer recess."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-07", "European", "Parliament", "final"]
 date: 2026-05-07

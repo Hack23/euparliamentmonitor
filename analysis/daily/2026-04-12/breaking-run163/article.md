@@ -1,5 +1,5 @@
 ---
-title: "Run 163 is the T-3 pre-activation consolidation probe"
+title: "is the T-3 pre-activation consolidation probe"
 description: "Run 163 is the T-3 pre-activation consolidation probe — three days before TA-0096 / TA-0097 statutory operative status."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-12", "activation", "consolidation", "probe"]
 date: 2026-04-12

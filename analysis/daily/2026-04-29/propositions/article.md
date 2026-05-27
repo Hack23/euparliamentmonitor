@@ -1,5 +1,5 @@
 ---
-title: "The April 28, 2026 Strasbourg plenary — Run 1777442543"
+title: "The April 28, 2026 Strasbourg plenary session was one of"
 description: "The April 28, 2026 Strasbourg plenary session was one of the most legislatively dense sittings of EP10, adopting 22 texts across nine policy domains."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-29", "April", "Strasbourg", "plenary"]
 date: 2026-04-29

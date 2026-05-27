@@ -1,5 +1,5 @@
 ---
-title: "Run 170 identifies three independent threat vectors"
+title: "identifies three independent threat vectors converging on"
 description: "Run 170 identifies three independent threat vectors converging on the EP's 15 April recess-return for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-14", "identifies", "three", "independent"]
 date: 2026-04-14

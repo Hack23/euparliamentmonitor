@@ -1,5 +1,5 @@
 ---
-title: "Key Intelligence Judgments — Run 430"
+title: "Key Intelligence Judgments (#430)"
 description: "EPP-led centrist coalition holds through 2026 The EPP-S&D-Renew structural coalition (396/717 seats for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year in review", "annual summary", "legislative achievements", "2026-05-10", "Intelligence", "Judgments", "centrist", "coalition"]
 date: 2026-05-10

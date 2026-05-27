@@ -1,5 +1,5 @@
 ---
-title: "The EP resolution on AI and EU trade is the most — Run 266"
+title: "The EP resolution on AI and EU trade is the most (#266)"
 description: "The EP resolution on AI and EU trade is the most significant breaking legislative output of the past week for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-25", "resolution", "trade", "most"]
 date: 2026-05-25

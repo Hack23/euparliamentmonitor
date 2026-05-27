@@ -1,5 +1,5 @@
 ---
-title: "Run 157 is the Easter Recess Day 16"
+title: "is the Easter Recess Day 16, T-4 pre-Tariff-activation"
 description: "Run 157 is the Easter Recess Day 16, T-4 pre-Tariff-activation probe (T-0 = 15 April). Published 2026-04-11."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-11", "Easter", "Recess", "Tariff"]
 date: 2026-04-11

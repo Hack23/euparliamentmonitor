@@ -1,5 +1,5 @@
 ---
-title: "The absence of plenary sessions this week places — Run 251"
+title: "The absence of plenary sessions this week places the (#251)"
 description: "The European Parliament's committee landscape during the week of 4–11 May 2026 is characterised by post-April consolidation and pre-June plenary."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-11", "absence", "plenary", "sessions"]
 date: 2026-05-11

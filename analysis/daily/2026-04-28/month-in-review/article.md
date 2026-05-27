@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's March–April 2026 — Run 1777373049"
+title: "The European Parliament's March–April 2026 legislative"
 description: "The European Parliament's March–April 2026 legislative cycle produced a historic output of 104 adopted texts for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-28", "European", "Parliament", "March", "April"]
 date: 2026-04-28

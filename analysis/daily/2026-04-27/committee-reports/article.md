@@ -1,5 +1,5 @@
 ---
-title: "The most consequential near-term dossiers — Run 1777275816"
+title: "The most consequential near-term dossiers are (#1777275816)"
 description: "The European Parliament's legislative committees delivered substantial output in Q1 2026, adopting texts across trade defence (US tariffs, EU-Mercosur)."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-27", "most", "consequential", "near"]
 date: 2026-04-27

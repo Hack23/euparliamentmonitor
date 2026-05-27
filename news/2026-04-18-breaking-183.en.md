@@ -1,5 +1,5 @@
 ---
-title: "Run 183 (Easter Recess Day 5) records the highest"
+title: "(Easter Recess Day 5) records the highest composite-risk"
 description: "Run 183 (Easter Recess Day 5) records the highest composite-risk score of the recess series so far for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-18", "Easter", "Recess", "records"]
 date: 2026-04-18

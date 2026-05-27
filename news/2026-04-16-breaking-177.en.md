@@ -1,5 +1,5 @@
 ---
-title: "Run 177 is the T+2 post-tariff inter-session probe (T = 2"
+title: "is the T+2 post-tariff inter-session probe (T = 2 April"
 description: "Run 177 is the T+2 post-tariff inter-session probe (T = 2 April Trump tariffs; T+2 = 16 April) for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-16", "post", "tariff", "inter"]
 date: 2026-04-16

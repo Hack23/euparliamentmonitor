@@ -1,5 +1,5 @@
 ---
-title: "Trade War Dynamics: The EP's adoption of — Run 1777273481"
+title: "Trade War Dynamics: The EP's adoption of EU customs duty"
 description: "Trade War Dynamics: The EP's adoption of EU customs duty adjustments on US goods represents a structural shift in transatlantic relations (Source."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-27", "Trade", "Dynamics", "adoption"]
 date: 2026-04-27

@@ -1,5 +1,5 @@
 ---
-title: "Run 185 (evening probe, Easter Recess Day 5) confirms API"
+title: "(evening probe, Easter Recess Day 5) confirms API plateau"
 description: "Run 185 (evening probe, Easter Recess Day 5) confirms API plateau stability at the post-Tier-1 state for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-18", "evening", "probe", "Easter"]
 date: 2026-04-18

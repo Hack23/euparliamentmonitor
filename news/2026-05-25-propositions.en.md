@@ -1,5 +1,5 @@
 ---
-title: "The May 19–21 Strasbourg plenary produced one of — Run 270"
+title: "The May 19–21 Strasbourg plenary produced one of the most"
 description: "The May 19–21 Strasbourg plenary produced one of the most diplomatically significant legislative tranches of EP10."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-25", "Strasbourg", "plenary", "produced"]
 date: 2026-05-25

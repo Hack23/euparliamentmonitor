@@ -1,5 +1,5 @@
 ---
-title: "The April 28-30, 2026 European Parliament plenary — Run 262"
+title: "The April 28-30, 2026 European Parliament plenary session"
 description: "The April 28-30, 2026 European Parliament plenary session should be understood not merely as a discrete set of legislative outputs."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-18", "April", "European", "Parliament"]
 date: 2026-05-18

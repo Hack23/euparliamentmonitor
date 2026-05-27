@@ -1,5 +1,5 @@
 ---
-title: "Run 158 (Easter Recess Final Weekend) extends Run 157 with"
+title: "(Easter Recess Final Weekend) extends with an additional"
 description: "Run 158 (Easter Recess Final Weekend) extends Run 157 with an additional 11.6K characters of coalition-dynamics analysis layered onto the 264K."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-11", "Easter", "Recess", "Final"]
 date: 2026-04-11

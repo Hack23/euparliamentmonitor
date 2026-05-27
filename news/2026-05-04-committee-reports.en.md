@@ -1,5 +1,5 @@
 ---
-title: "The only binding legal act adopted this — Run 1777871291"
+title: "The only binding legal act adopted this week is the"
 description: "The European Parliament's committee system delivered a significant legislative output batch in the week of 27 April."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-04", "only", "binding", "legal"]
 date: 2026-05-04

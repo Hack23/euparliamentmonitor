@@ -59,7 +59,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/political-risk-matrix.md` |
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/threat-landscape.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `intelligence/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
@@ -172,6 +172,487 @@ The two highest-risk items are directly connected: trade emergency capacity in I
 Overall threat trajectory: **STABLE** (no escalation since April 9, but T-4 proximity increases urgency)
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+### BLUF
+
+يحدد تركيب مقترحات 10 أبريل **تركيز عبء العمل الهيكلي للجنة ECON** بوصفه الإشارة المهيمنة لمسار المقترحات في الربع الثاني من عام 2026: **3 ملفات لثلاثية الاتحاد المصرفي + إجراءات COD الجديدة لعام 2026 + ملفات إشراف البنك المركزي الأوروبي** تتقاطع جميعها مع طاقة ECON. يُقدّم التركيب لجنة ECON باعتبارها نقطة الاختناق في البرلمان الأوروبي العاشر في سنته الثالثة — اللجنة التي تُحدد طاقتها التشغيلية الحد الأعلى لسرعة التشريع التنظيمي المالي في الاتحاد الأوروبي. *مستوى الثقة: متوسط-مرتفع؛ تقييم المصدر: B2.*
+
+### Three Decisions
+
+1. **ترسيخ فرضية اختناق ECON كإطار مهيمن لمسار المقترحات في الربع الثاني من 2026.** مع وجود ثلاثية الاتحاد المصرفي + إجراءات COD الجديدة + إشراف البنك المركزي الأوروبي جميعها في ECON، تمثل طاقة اللجنة القيد الملزم لسرعة التشريع المالي. *مستوى الثقة: متوسط-مرتفع.*
+2. **توثيق عبء العمل ثلاثي المسارات للجنة ECON (الثلاثية + COD + الإشراف) بوصفها مسارات متمايزة تحليلياً.** تستلزم ملفات الثلاثية طاقة تفاوض مجلس الاتحاد الأوروبي؛ وتستلزم إجراءات COD طاقة المقررين؛ ويستلزم إشراف البنك المركزي الأوروبي طاقة الاستماع. تتنافس الأنواع الثلاثة لمسارات العمل على موارد مختلفة داخل ECON. *مستوى الثقة: مرتفع.*
+3. **إعداد المستهلكين اللاحقين لزيادة حجم الإشارات المتعلقة بـ ECON في الربع الثاني.** ينبغي توسيع تخطيط الطاقة لاستيعاب عبء ECON ثلاثي المسارات. *مستوى الثقة: مرتفع.*
+
+### 60-Second Read
+
+تُعدّ فرضية اختناق ECON إشارة العنوان الرئيسي لمسار المقترحات في الربع الثاني من 2026. إن تقاطع ثلاثة مسارات عمل مستقلة نحو لجنة واحدة يخلق نقطة الاختناق الطبيعية في خط الأنابيب؛ وتقيس الجولات اللاحقة المسار الزمني مقابل هذا المرساة.
+
+### Risk Snapshot
+
+| المخاطرة | الاحتمالية | التأثير |
+|---|---:|---:|
+| تشبع طاقة ECON في الربع الثاني مما يُنتج تأخيرات في الثلاثية | MED–HIGH | MED–HIGH |
+| توقف ثلاثية الاتحاد المصرفي (مسألة مجلس الاتحاد) | MED | HIGH |
+| ملفات إشراف البنك المركزي الأوروبي تُزيح طاقة المقررين | MED | MED |
+
+### Source Quality
+
+- تحديد عبء عمل ECON: **B2**
+- فهرسة ثلاثية الاتحاد المصرفي + COD + إشراف البنك المركزي الأوروبي: **A2**
+
+### Provenance
+
+- الجولة: `propositions` (2026-04-10، معرّف الجولة PROP-2026-04-10-001)
+- الامتثال: موجزات بوابة البيانات المفتوحة للبرلمان الأوروبي حصراً. متوافق مع اللائحة العامة لحماية البيانات.
+
+---
+*الحياد التحليلي: فرضية الاختناق موسومة.*
+
+### Executive Brief Da
+
+### BLUF
+
+Forslagssynteseanalysen for den 10. april identificerer **ECON-udvalgets strukturelle arbejdsbyrdekoncentration** som det dominerende Q2 2026-forslagssporets signal: **3 Bankunionstriloge-filer + nye COD-procedurer 2026 + ECB-tilsynsfiler** konvergerer alle mod ECON's kapacitet. Syntesen fremstiller ECON som EP10's flaskehals i år 3 — det udvalg, hvis operationelle kapacitet definerer den øvre grænse for EU's finansielle-regulatoriske lovgivningshastighed. *Konfidens: MEDIUM-HØJ; Admiralitet: B2.*
+
+### Three Decisions
+
+1. **Forankre ECON-flaskehalshypotesen som den dominerende ramme for forslagssporet Q2 2026.** Med Bankunionstrilogen + nye COD'er + ECB-tilsyn alle i ECON er udvalgets kapacitet den bindende begrænsning for den finansielle lovgivningshastighed. *Konfidens: MEDIUM-HØJ.*
+2. **Dokumentere ECON's tre-sporede arbejdsbyrde (triloge + COD'er + tilsyn) som analytisk distinkte.** Trilogefiler kræver Rådets forhandlingskapacitet; COD'er kræver ordførerkapacitet; ECB-tilsyn kræver høringkapacitet. De tre arbejdsstrømstyper konkurrerer om forskellige ressourcer inden for ECON. *Konfidens: HØJ.*
+3. **Forberede nedstrømsforbrugere til øget ECON-relateret signalmængde i Q2.** Kapacitetsplanlægning bør skaleres til den tre-sporede ECON-belastning. *Konfidens: HØJ.*
+
+### 60-Second Read
+
+ECON-flaskehalshypotesen er overskriftssignalet for forslagssporet Q2 2026. Tre uafhængige arbejdsbyrdestrømme, der konvergerer mod et enkelt udvalg, skaber det naturlige pipeline-snævert; efterfølgende kørsler måler trajektorien mod dette anker.
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| ECON's kapacitet mættes i Q2 og giver trilogeforsinkelser | MED–HIGH | MED–HIGH |
+| Bankunionstrilogen går i stå (Rådsanliggende) | MED | HIGH |
+| ECB-tilsynsfiler fortrænger ordførerkapacitet | MED | MED |
+
+### Source Quality
+
+- ECON-arbejdsbyrdeidentifikation: **B2**
+- Bankunionstrilogen + COD + ECB-tilsynskatalogisering: **A2**
+
+### Provenance
+
+- Kørsel: `propositions` (2026-04-10, kørsels-ID PROP-2026-04-10-001)
+- Overholdelse: Kun EP Open Data Portal-feeds. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: flaskehalshypotesen er mærket.*
+
+### Executive Brief De
+
+### BLUF
+
+Die Vorschlagssynthese vom 10. April identifiziert die **strukturelle Arbeitslastkonzentration des ECON-Ausschusses** als dominierendes Signal des Vorschlagspfads für Q2 2026: **3 Bankenunion-Trilog-Dateien + neue COD-Verfahren 2026 + EZB-Aufsichtsdateien** konvergieren alle auf die ECON-Kapazität. Die Synthese stellt ECON als Engpass des EP10 im Jahr 3 dar — denjenigen Ausschuss, dessen operative Kapazität die Obergrenze der legislativen Geschwindigkeit der EU im Bereich Finanzregulierung definiert. *Vertrauen: MITTEL-HOCH; Admiralität: B2.*
+
+### Three Decisions
+
+1. **ECON-Engpass-Hypothese als dominierenden Rahmen des Vorschlagspfads Q2 2026 verankern.** Mit Bankenunion-Trilog + neuen CODs + EZB-Aufsicht alle in ECON ist die Kapazität des Ausschusses die bindende Beschränkung der legislativen Geschwindigkeit im Finanzbereich. *Vertrauen: MITTEL-HOCH.*
+2. **Die dreigleisige ECON-Arbeitslast (Trilog + CODs + Aufsicht) als analytisch eigenständig dokumentieren.** Trilog-Dateien erfordern Ratsverhandlungskapazität; CODs erfordern Berichterstatterkapazität; EZB-Aufsicht erfordert Anhörungskapazität. Die drei Arbeitsstromtypen konkurrieren um unterschiedliche Ressourcen innerhalb von ECON. *Vertrauen: HOCH.*
+3. **Nachgelagerte Verbraucher auf erhöhtes ECON-bezogenes Signalvolumen in Q2 vorbereiten.** Die Kapazitätsplanung sollte auf die dreigleisige ECON-Last skaliert werden. *Vertrauen: HOCH.*
+
+### 60-Second Read
+
+Die ECON-Engpass-Hypothese ist das Schlagzeilen-Signal des Vorschlagspfads Q2 2026. Drei unabhängige Arbeitslastströme, die auf einen einzigen Ausschuss konvergieren, schaffen den natürlichen Pipeline-Engpass; nachfolgende Läufe messen die Trajektorie gegen diesen Anker.
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| ECON-Kapazität sättigt sich in Q2 und verursacht Trilog-Verzögerungen | MED–HIGH | MED–HIGH |
+| Bankenunion-Trilog stockt (Ratsangelegenheit) | MED | HIGH |
+| EZB-Aufsichtsdateien verdrängen Berichterstatterkapazität | MED | MED |
+
+### Source Quality
+
+- ECON-Arbeitslastidentifikation: **B2**
+- Bankenunion-Trilog + COD + EZB-Aufsichtskatalogisierung: **A2**
+
+### Provenance
+
+- Lauf: `propositions` (2026-04-10, Lauf-ID PROP-2026-04-10-001)
+- Compliance: Ausschließlich EP Open Data Portal-Feeds. DSGVO-konform.
+
+---
+*Analytische Neutralität: Engpass-Hypothese ist gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+La síntesis de propuestas del 10 de abril identifica la **concentración estructural de carga de trabajo del comité ECON** como la señal dominante de la pista de propuestas del segundo trimestre de 2026: **3 archivos del Trílogo de la Unión Bancaria + nuevos procedimientos COD de 2026 + archivos de supervisión del BCE** convergen todos en la capacidad de ECON. La síntesis presenta a ECON como el cuello de botella del EP10 en su tercer año — el comité cuya capacidad operativa define el límite superior de la velocidad legislativa regulatoria financiera de la UE. *Confianza: MEDIO-ALTA; Almirantazgo: B2.*
+
+### Three Decisions
+
+1. **Anclar la hipótesis del cuello de botella ECON como el marco dominante de la pista de propuestas del segundo trimestre de 2026.** Con el Trílogo de la Unión Bancaria + los nuevos COD + la supervisión del BCE todos en ECON, la capacidad del comité es la restricción vinculante de la velocidad legislativa financiera. *Confianza: MEDIO-ALTA.*
+2. **Documentar la carga de trabajo de tres vías de ECON (trílogo + COD + supervisión) como analíticamente distintas.** Los archivos de trílogo requieren capacidad de negociación del Consejo; los COD requieren capacidad de ponente; la supervisión del BCE requiere capacidad de audiencia. Los tres tipos de flujo de trabajo compiten por diferentes recursos dentro de ECON. *Confianza: ALTA.*
+3. **Preparar a los consumidores posteriores para un aumento del volumen de señales relacionadas con ECON en el segundo trimestre.** La planificación de capacidades debe escalarse a la carga de tres vías de ECON. *Confianza: ALTA.*
+
+### 60-Second Read
+
+La hipótesis del cuello de botella ECON es la señal principal de la pista de propuestas del segundo trimestre de 2026. Tres flujos de carga de trabajo independientes que convergen en un único comité crean el punto de estrangulamiento natural de la canalización; las ejecuciones posteriores miden la trayectoria frente a este ancla.
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| La capacidad de ECON se satura en el T2 produciendo retrasos en el trílogo | MED–HIGH | MED–HIGH |
+| El Trílogo de la Unión Bancaria se bloquea (cuestión del Consejo) | MED | HIGH |
+| Los archivos de supervisión del BCE desplazan la capacidad del ponente | MED | MED |
+
+### Source Quality
+
+- Identificación de carga de trabajo ECON: **B2**
+- Catalogación del Trílogo de la Unión Bancaria + COD + supervisión del BCE: **A2**
+
+### Provenance
+
+- Ejecución: `propositions` (2026-04-10, ID de ejecución PROP-2026-04-10-001)
+- Cumplimiento: Solo feeds del Portal de Datos Abiertos del PE. Conforme con el RGPD.
+
+---
+*Neutralidad analítica: la hipótesis del cuello de botella está etiquetada.*
+
+### Executive Brief Fi
+
+### BLUF
+
+10. huhtikuun ehdotussynteesianalyysi tunnistaa **ECON-valiokunnan rakenteellisen työtaakkakonsentraation** Q2 2026:n ehdotusraidan hallitsevaksi signaaliksi: **3 Pankkiuniontrilogi-tiedostoa + uudet COD-menettelyt 2026 + EKP:n valvontatiedostot** kaikki supistuvat ECON:n kapasiteettiin. Synteesi esittää ECON:n EP10:n kolmannen vuoden pullonkaulana — se valiokunta, jonka operationaalinen kapasiteetti määrittää EU:n rahoitussääntelyn lainsäädäntövauhdin ylärajan. *Luottamus: KESKI-KORKEA; Admiraliteetti: B2.*
+
+### Three Decisions
+
+1. **Ankkuroi ECON-pullonkaulahypoteesi Q2 2026 ehdotusraidan hallitsevaksi kehykseksi.** Kun Pankkiuniontrilogi + uudet COD:t + EKP:n valvonta kaikki ovat ECON:ssa, valiokunnan kapasiteetti on rahoituslainsäädäntövauhdin sitova rajoite. *Luottamus: KESKI-KORKEA.*
+2. **Dokumentoi ECON:n kolmiraitainen työtaakka (trilogi + COD:t + valvonta) analyyttisesti erillisinä.** Trilogitiedostot vaativat neuvoston neuvottelukapasiteettia; COD:t vaativat esittelijäkapasiteettia; EKP:n valvonta vaatii kuulemiskapasiteettia. Kolme työnkulkutyyppiä kilpailevat eri resursseista ECON:n sisällä. *Luottamus: KORKEA.*
+3. **Valmistele jatkokäyttäjät ECON-liittyvän signaalimäärän kasvuun Q2:ssa.** Kapasiteettisuunnittelu on skaalattava kolmiraitaiseen ECON-kuormaan. *Luottamus: KORKEA.*
+
+### 60-Second Read
+
+ECON-pullonkaulahypoteesi on Q2 2026 ehdotusraidan otsikkoasignaaali. Kolme itsenäistä työtaakkavirtaa, jotka supistuvat yhdelle valiokunnalle, luo putkiston luontaisen kuristuskohdan; myöhemmät ajot mittaavat radan tätä ankkuria vasten.
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| ECON:n kapasiteetti kylläistyy Q2:ssa tuottaen trilogiviivästyksiä | MED–HIGH | MED–HIGH |
+| Pankkiuniontrilogi pysähtyy (neuvoston asia) | MED | HIGH |
+| EKP:n valvontatiedostot syrjäyttävät esittelijäkapasiteettia | MED | MED |
+
+### Source Quality
+
+- ECON-työtaakkatunnistus: **B2**
+- Pankkiuniontrilogi + COD + EKP:n valvontakatalogisaatio: **A2**
+
+### Provenance
+
+- Ajo: `propositions` (2026-04-10, ajon tunnus PROP-2026-04-10-001)
+- Vaatimustenmukaisuus: Vain EP:n avoimen tiedon portaalin syötteet. GDPR-yhteensopiva.
+
+---
+*Analyyttinen neutraalisuus: pullonkaulahypoteesi on merkitty.*
+
+### Executive Brief Fr
+
+### BLUF
+
+La synthèse des propositions du 10 avril identifie la **concentration structurelle de la charge de travail de la commission ECON** comme le signal dominant de la piste des propositions pour le deuxième trimestre 2026 : **3 fichiers de la trilogie Union bancaire + nouvelles procédures COD 2026 + fichiers de surveillance BCE** convergent tous vers la capacité de l'ECON. La synthèse présente l'ECON comme le goulot d'étranglement de l'EP10 en troisième année — la commission dont la capacité opérationnelle définit la limite supérieure de la vélocité législative régulatoire financière de l'UE. *Confiance : MOYEN-ÉLEVÉ ; Amirauté : B2.*
+
+### Three Decisions
+
+1. **Ancrer l'hypothèse du goulot d'étranglement ECON comme cadre dominant de la piste des propositions T2 2026.** Avec la trilogie Union bancaire + les nouveaux COD + la surveillance BCE tous dans l'ECON, la capacité de la commission est la contrainte contraignante de la vélocité législative financière. *Confiance : MOYEN-ÉLEVÉ.*
+2. **Documenter la charge de travail à trois volets de l'ECON (trilogie + COD + surveillance) comme analytiquement distincts.** Les fichiers de trilogie requièrent la capacité de négociation du Conseil ; les COD requièrent la capacité de rapporteur ; la surveillance BCE requiert la capacité d'audition. Les trois types de flux de travail se disputent différentes ressources au sein de l'ECON. *Confiance : ÉLEVÉ.*
+3. **Préparer les consommateurs en aval à une augmentation du volume de signaux liés à l'ECON au T2.** La planification des capacités doit être dimensionnée à la charge à trois volets de l'ECON. *Confiance : ÉLEVÉ.*
+
+### 60-Second Read
+
+L'hypothèse du goulot d'étranglement ECON est le signal principal de la piste des propositions T2 2026. Trois flux de charge de travail indépendants convergeant vers une seule commission créent le point d'étranglement naturel du pipeline ; les exécutions suivantes mesurent la trajectoire par rapport à cet ancre.
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| La capacité ECON se sature au T2 et génère des retards de trilogie | MED–HIGH | MED–HIGH |
+| La trilogie Union bancaire se bloque (question du Conseil) | MED | HIGH |
+| Les fichiers de surveillance BCE évincent la capacité de rapporteur | MED | MED |
+
+### Source Quality
+
+- Identification de la charge de travail ECON : **B2**
+- Catalogage de la trilogie Union bancaire + COD + surveillance BCE : **A2**
+
+### Provenance
+
+- Exécution : `propositions` (2026-04-10, ID d'exécution PROP-2026-04-10-001)
+- Conformité : Flux du portail Open Data du PE uniquement. Conforme au RGPD.
+
+---
+*Neutralité analytique : l'hypothèse du goulot d'étranglement est étiquetée.*
+
+### Executive Brief He
+
+### BLUF
+
+סינתזת ההצעות מה-10 באפריל מזהה את **ריכוז עומס העבודה המבני של ועדת ECON** כסיגנל השולט במסלול ההצעות לרבעון השני של 2026: **3 קבצי שלישיית האיחוד הבנקאי + הליכי COD חדשים 2026 + קבצי פיקוח ECB** מתכנסים כולם לכיוון קיבולת ה-ECON. הסינתזה מציגה את ה-ECON כצוואר הבקבוק של EP10 בשנת ה-3 — הוועדה שקיבולתה המבצעית מגדירה את הגבול העליון של מהירות החקיקה הרגולטורית הפיננסית של האיחוד האירופי. *רמת ביטחון: בינונית-גבוהה; אדמירליות: B2.*
+
+### Three Decisions
+
+1. **לעגן את היפותזת צוואר הבקבוק של ECON כמסגרת הדומיננטית של מסלול ההצעות לרבעון השני של 2026.** כאשר שלישיית האיחוד הבנקאי + הליכי COD חדשים + פיקוח ECB כולם ב-ECON, קיבולת הוועדה היא המגבלה המחייבת של מהירות החקיקה הפיננסית. *רמת ביטחון: בינונית-גבוהה.*
+2. **לתעד את עומס העבודה התלת-מסלולי של ECON (שלישייה + COD + פיקוח) כנפרדים אנליטית.** קבצי שלישייה דורשים קיבולת משא ומתן של המועצה; הליכי COD דורשים קיבולת מרפדים; פיקוח ECB דורש קיבולת שימועים. שלושת סוגי זרמי העבודה מתחרים על משאבים שונים בתוך ECON. *רמת ביטחון: גבוהה.*
+3. **להכין צרכנים שלאחר הזרם לעלייה בנפח האותות הקשורים ל-ECON ברבעון השני.** תכנון קיבולת צריך לשקף את עומס ה-ECON התלת-מסלולי. *רמת ביטחון: גבוהה.*
+
+### 60-Second Read
+
+היפותזת צוואר הבקבוק של ECON היא סיגנל הכותרת של מסלול ההצעות לרבעון השני של 2026. שלושה זרמי עומס עבודה עצמאיים המתכנסים לוועדה אחת יוצרים את נקודת הלחץ הטבעית של הצינור; ריצות עוקבות מודדות את המסלול מול עוגן זה.
+
+### Risk Snapshot
+
+| סיכון | סבירות | השפעה |
+|---|---:|---:|
+| קיבולת ECON מתרוקנת ברבעון השני ומייצרת עיכובים בשלישייה | MED–HIGH | MED–HIGH |
+| שלישיית האיחוד הבנקאי נתקעת (ענין מועצה) | MED | HIGH |
+| קבצי פיקוח ECB מדיחים קיבולת מרפדים | MED | MED |
+
+### Source Quality
+
+- זיהוי עומס עבודה ECON: **B2**
+- קטלוג שלישיית האיחוד הבנקאי + COD + פיקוח ECB: **A2**
+
+### Provenance
+
+- ריצה: `propositions` (2026-04-10, מזהה ריצה PROP-2026-04-10-001)
+- תאימות: עדכוני פורטל נתונים פתוחים של PE בלבד. תואם GDPR.
+
+---
+*נייטרליות אנליטית: היפותזת צוואר הבקבוק מסומנת.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月10日の提案合成は、**ECON委員会の構造的な作業負荷集中**を2026年第2四半期の提案トラックの支配的なシグナルとして特定します：**銀行同盟トリローグ3ファイル＋2026年新COD手続き＋ECB監督ファイル**がすべてECONの能力に収束しています。この合成はECONをEP10の3年目のスループット・ボトルネックとして位置づけます——その運営能力がEUの金融規制立法速度の上限を定義する委員会です。*信頼度：中高；情報源評価：B2。*
+
+### Three Decisions
+
+1. **ECONボトルネック仮説を2026年Q2提案トラックの支配的フレームとして定着させる。**銀行同盟トリローグ＋新COD＋ECB監督がすべてECONにある状況で、委員会の能力が金融規制立法速度の拘束的制約となっています。*信頼度：中高。*
+2. **ECONの三段階作業負荷（トリローグ＋COD＋監督）を分析的に区別して記録する。**トリローグファイルは理事会交渉能力を必要とします；CODは報告者能力を必要とします；ECB監督は公聴会能力を必要とします。三種の作業フロータイプはECON内で異なるリソースをめぐって競合します。*信頼度：高。*
+3. **Q2においてECON関連シグナル量が増加することに対して下流の消費者を事前に備えさせる。**キャパシティ計画はECONの三段階負荷に合わせてスケールされるべきです。*信頼度：高。*
+
+### 60-Second Read
+
+ECONボトルネック仮説は2026年Q2提案トラックの見出しシグナルです。単一の委員会に収束する三つの独立した作業負荷フローが自然なパイプラインの絞り点を作り出します；後続のランはこのアンカーに対してトラジェクトリを測定します。
+
+### Risk Snapshot
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| Q2にECON能力が飽和しトリローグ遅延が発生する | MED–HIGH | MED–HIGH |
+| 銀行同盟トリローグが停滞する（理事会問題） | MED | HIGH |
+| ECB監督ファイルが報告者能力を圧迫する | MED | MED |
+
+### Source Quality
+
+- ECON作業負荷識別：**B2**
+- 銀行同盟トリローグ＋COD＋ECB監督カタログ化：**A2**
+
+### Provenance
+
+- ラン：`propositions`（2026-04-10、ランID PROP-2026-04-10-001）
+- コンプライアンス：EP Open Data Portalフィードのみ。GDPR準拠。
+
+---
+*分析的中立性：ボトルネック仮説はラベル付けされています。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 10일 제안서 합성 분석은 **ECON 위원회의 구조적 업무 부하 집중**을 2026년 2분기 제안서 트랙의 지배적 신호로 파악합니다: **은행동맹 삼자협의 3개 파일 + 2026년 신규 COD 절차 + ECB 감독 파일**이 모두 ECON 역량으로 수렴합니다. 합성은 ECON을 EP10 3년차의 처리량 병목으로 제시합니다 — EU 금융 규제 입법 속도의 상한을 결정하는 위원회입니다. *신뢰도: 중상; 출처 신뢰성: B2.*
+
+### Three Decisions
+
+1. **ECON 병목 가설을 2026년 Q2 제안서 트랙의 지배적 프레임으로 확립한다.** 은행동맹 삼자협의 + 신규 COD + ECB 감독이 모두 ECON에 있는 상황에서, 위원회 역량이 금융 입법 속도의 구속적 제약입니다. *신뢰도: 중상.*
+2. **ECON의 3트랙 업무 부하(삼자협의 + COD + 감독)를 분석적으로 구분하여 문서화한다.** 삼자협의 파일은 이사회 협상 역량을 필요로 하고; COD는 보고자 역량을 필요로 하며; ECB 감독은 청문 역량을 필요로 합니다. 세 가지 업무 흐름 유형은 ECON 내에서 서로 다른 자원을 두고 경쟁합니다. *신뢰도: 높음.*
+3. **Q2에 ECON 관련 신호 량 증가에 대해 하위 소비자를 사전 준비시킨다.** 용량 계획은 ECON의 3트랙 부하에 맞게 확장되어야 합니다. *신뢰도: 높음.*
+
+### 60-Second Read
+
+ECON 병목 가설은 2026년 Q2 제안서 트랙의 헤드라인 신호입니다. 단일 위원회로 수렴하는 세 개의 독립적 업무 부하 흐름이 파이프라인의 자연스러운 병목 지점을 만들어냅니다; 후속 실행은 이 닻을 기준으로 궤적을 측정합니다.
+
+### Risk Snapshot
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| Q2에 ECON 역량이 포화되어 삼자협의 지연 발생 | MED–HIGH | MED–HIGH |
+| 은행동맹 삼자협의 중단(이사회 문제) | MED | HIGH |
+| ECB 감독 파일이 보고자 역량 잠식 | MED | MED |
+
+### Source Quality
+
+- ECON 업무 부하 파악: **B2**
+- 은행동맹 삼자협의 + COD + ECB 감독 목록화: **A2**
+
+### Provenance
+
+- 실행: `propositions` (2026-04-10, 실행 ID PROP-2026-04-10-001)
+- 준수: EP 공개 데이터 포털 피드만. GDPR 준수.
+
+---
+*분석적 중립성: 병목 가설이 표시되었습니다.*
+
+### Executive Brief Nl
+
+### BLUF
+
+De voorstellensynthese van 10 april identificeert de **structurele werkbelastingsconcentratie van de ECON-commissie** als het dominante signaal van het voorstellenspoor voor Q2 2026: **3 Bankunie-triloogbestanden + nieuwe COD-procedures 2026 + ECB-toezichtsbestanden** convergeren alle naar de ECON-capaciteit. De synthese stelt ECON voor als het knelpunt van EP10 in jaar 3 — de commissie waarvan de operationele capaciteit de bovengrens van de EU's financieel-regulatoire wetgevingssnelheid bepaalt. *Vertrouwen: MIDDEN-HOOG; Admiraliteit: B2.*
+
+### Three Decisions
+
+1. **ECON-knelpunthypothese verankeren als het dominante kader voor het voorstellenspoor Q2 2026.** Met Bankunie-triloog + nieuwe COD's + ECB-toezicht allemaal in ECON is de capaciteit van de commissie de bindende beperking van de financiële wetgevingssnelheid. *Vertrouwen: MIDDEN-HOOG.*
+2. **De driesporige werklast van ECON (triloog + COD's + toezicht) als analytisch onderscheiden documenteren.** Triloogbestanden vereisen Raadsonderhandelingscapaciteit; COD's vereisen rapporteurcapaciteit; ECB-toezicht vereist hoorzittingscapaciteit. De drie werkstroomtypes concurreren om verschillende middelen binnen ECON. *Vertrouwen: HOOG.*
+3. **Stroomafwaartse consumenten voorbereiden op verhoogd ECON-gerelateerd signaalvolume in Q2.** Capaciteitsplanning moet worden geschaald naar de driesporige ECON-belasting. *Vertrouwen: HOOG.*
+
+### 60-Second Read
+
+De ECON-knelpunthypothese is het kopregel-signaal van het voorstellenspoor Q2 2026. Drie onafhankelijke werkbelastingsstromen die convergeren naar één commissie creëren het natuurlijke pijplijn-knelpunt; volgende runs meten de baan tegen dit anker.
+
+### Risk Snapshot
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| ECON-capaciteit raakt verzadigd in Q2 en veroorzaakt triloogvertragingen | MED–HIGH | MED–HIGH |
+| Bankunie-triloog stagneert (Raadskwestie) | MED | HIGH |
+| ECB-toezichtsbestanden verdringen rapporteurcapaciteit | MED | MED |
+
+### Source Quality
+
+- ECON-werkbelastingsidentificatie: **B2**
+- Bankunie-triloog + COD + ECB-toezichtscatalogisering: **A2**
+
+### Provenance
+
+- Run: `propositions` (2026-04-10, run-ID PROP-2026-04-10-001)
+- Compliance: Uitsluitend EP Open Data Portal-feeds. GDPR-conform.
+
+---
+*Analytische neutraliteit: knelpunthypothese is gelabeld.*
+
+### Executive Brief No
+
+### BLUF
+
+Proposisjonssynteseanalysen for 10. april identifiserer **ECON-komiteens strukturelle arbeidsbelastningskonsentrasjon** som det dominerende Q2 2026-proposisjonssporets signal: **3 Bankunionstriloge-filer + nye COD-prosedyrer 2026 + ECB-tilsynsfiler** konvergerer alle mot ECON-kapasiteten. Syntesen fremstiller ECON som EP10s flaskehals i år 3 — den komiteen hvis operasjonelle kapasitet definerer den øvre grensen for EUs finansielle-regulatoriske lovgivningstakt. *Konfidens: MIDDELS-HØY; Admiralitet: B2.*
+
+### Three Decisions
+
+1. **Forankre ECON-flaskehals-hypotesen som den dominerende rammen for proposisjonssporet Q2 2026.** Med Bankunionstrilogen + nye COD-er + ECB-tilsyn alle i ECON er komiteens kapasitet den bindende begrensningen for finansiell lovgivningshastighet. *Konfidens: MIDDELS-HØY.*
+2. **Dokumentere ECONs tre-sporede arbeidsbelastning (triloge + COD-er + tilsyn) som analytisk distinkte.** Trilogefiler krever Rådets forhandlingskapasitet; COD-er krever ordførerkapasitet; ECB-tilsyn krever høringkapasitet. De tre arbeidsflytstypene konkurrerer om forskjellige ressurser innenfor ECON. *Konfidens: HØY.*
+3. **Forberede nedstrømsforbrukere på økt ECON-relatert signalvolum i Q2.** Kapasitetsplanlegging bør skaleres til den tre-sporede ECON-belastningen. *Konfidens: HØY.*
+
+### 60-Second Read
+
+ECON-flaskehals-hypotesen er overskriftssignalet for proposisjonssporet Q2 2026. Tre uavhengige arbeidsbelastningsstrømmer som konvergerer mot en enkelt komité, skaper det naturlige pipelinens snørepunkt; etterfølgende kjøringer måler banen mot dette ankeret.
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| ECON-kapasitet mettet i Q2 gir trilogeforsinkelser | MED–HIGH | MED–HIGH |
+| Bankunionstrilogen stopper (Rådsanliggende) | MED | HIGH |
+| ECB-tilsynsfiler fortrenger ordførerkapasitet | MED | MED |
+
+### Source Quality
+
+- ECON-arbeidsbelastningsidentifikasjon: **B2**
+- Bankunionstrilogen + COD + ECB-tilsynskatalogisering: **A2**
+
+### Provenance
+
+- Kjøring: `propositions` (2026-04-10, kjørings-ID PROP-2026-04-10-001)
+- Overholdelse: Kun EP Open Data Portal-feeder. GDPR-kompatibel.
+
+---
+*Analytisk nøytralitet: flaskehals-hypotesen er merket.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Propositionssammanfattningen för den 10 april identifierar **ECON-utskottets strukturella arbetsbelastningskoncentration** som det dominerande signalet för propositionsspåret under Q2 2026: **3 Bankunionstriloge-filer + nya COD-procedurer 2026 + ECB-tillsynsfiler** konvergerar samtliga mot ECON:s kapacitet. Sammanfattningen framställer ECON som EP10:s flaskhals under år 3 — det utskott vars operationella kapacitet definierar den övre gränsen för EU:s finansiella-regulatoriska lagstiftningstakt. *Förtroende: MEDEL-HÖG; Admiralitet: B2.*
+
+### Three Decisions
+
+1. **Förankra ECON-flaskhals-hypotesen som den dominerande ramen för propositionsspåret Q2 2026.** Med Bankunionstrilogen + nya COD:er + ECB-tillsyn alla i ECON är utskottets kapacitet den bindande begränsningen för den finansiella lagstiftningshastigheten. *Förtroende: MEDEL-HÖG.*
+2. **Dokumentera ECON:s tre-spåriga arbetsbelastning (triloge + COD:er + tillsyn) som analytiskt distinkta.** Triloge-filer kräver rådets förhandlingskapacitet; COD:er kräver föredragandekapacitet; ECB-tillsyn kräver utskottshörningskapacitet. De tre arbetsflöden konkurrerar om olika resurser inom ECON. *Förtroende: HÖG.*
+3. **Förbered nedströmskonsumenter för ökad ECON-relaterad signalvolym under Q2.** Kapacitetsplanering bör skalas till ECON:s tre-spåriga belastning. *Förtroende: HÖG.*
+
+### 60-Second Read
+
+ECON-flaskhals-hypotesen är rubriksignalen för propositionsspåret Q2 2026. Tre oberoende arbetsbelastningsflöden som konvergerar mot ett enda utskott skapar den naturliga pipelinens nödpunkt; efterföljande körningar mäter trajektorin mot detta ankare.
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| ECON:s kapacitet mättas under Q2 och ger triloge-förseningar | MED–HIGH | MED–HIGH |
+| Bankunionstrilogen stannar (rådsärende) | MED | HIGH |
+| ECB-tillsynsfiler tränger undan föredragandekapacitet | MED | MED |
+
+### Source Quality
+
+- ECON arbetsbelastningsidentifiering: **B2**
+- Bankunionstrilogen + COD + ECB-tillsynskatalogisering: **A2**
+
+### Provenance
+
+- Körning: `propositions` (2026-04-10, körnings-ID PROP-2026-04-10-001)
+- Efterlevnad: Enbart EP Open Data Portal-flöden. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: flaskhals-hypotesen är märkt.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月10日提案综合分析将**ECON委员会的结构性工作负荷集中**确定为2026年第二季度提案轨道的主导信号：**3个银行联盟三方谈判文件 + 2026年新COD程序 + 欧洲央行监督文件**全部汇聚于ECON的工作能力。综合分析将ECON定位为EP10第三年的吞吐量瓶颈——该委员会的运营能力决定了欧盟金融监管立法速度的上限。*置信度：中高；来源可靠性：B2。*
+
+### Three Decisions
+
+1. **将ECON瓶颈假说确立为2026年第二季度提案轨道的主导框架。** 银行联盟三方谈判 + 新COD程序 + 欧洲央行监督均在ECON范围内，委员会能力是金融立法速度的约束性限制。*置信度：中高。*
+2. **将ECON三轨工作负荷（三方谈判 + COD + 监督）记录为分析上相互独立的部分。** 三方谈判文件需要理事会谈判能力；COD需要报告员能力；欧洲央行监督需要听证能力。三类工作流程在ECON内部争夺不同资源。*置信度：高。*
+3. **为下游使用者做好应对第二季度ECON相关信号量增加的准备。** 容量规划应根据ECON三轨负荷进行扩展。*置信度：高。*
+
+### 60-Second Read
+
+ECON瓶颈假说是2026年第二季度提案轨道的头条信号。三条独立的工作负荷流汇聚到单一委员会，产生了管道的自然瓶颈点；后续运行以此锚点为参照测量轨迹。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| ECON能力在第二季度饱和，导致三方谈判延迟 | MED–HIGH | MED–HIGH |
+| 银行联盟三方谈判陷入僵局（理事会问题） | MED | HIGH |
+| 欧洲央行监督文件挤占报告员能力 | MED | MED |
+
+### Source Quality
+
+- ECON工作负荷识别：**B2**
+- 银行联盟三方谈判 + COD + 欧洲央行监督目录化：**A2**
+
+### Provenance
+
+- 运行：`propositions`（2026-04-10，运行ID PROP-2026-04-10-001）
+- 合规性：仅使用EP开放数据门户信息源。符合GDPR。
+
+---
+*分析中立性：瓶颈假说已标注。*
 
 ### Deep Analysis
 
@@ -521,6 +1002,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-risk | [political-risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/risk-scoring/political-risk-matrix.md) | `risk-scoring/political-risk-matrix.md` |
 | section-threat | [threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/threat-assessment/threat-landscape.md) | `threat-assessment/threat-landscape.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/intelligence/deep-analysis.md) | `intelligence/deep-analysis.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/synthesis-summary.md) | `synthesis-summary.md` |
 

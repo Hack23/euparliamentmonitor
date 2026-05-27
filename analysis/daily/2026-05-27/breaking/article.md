@@ -1,5 +1,5 @@
 ---
-title: "The week of 19–21 May 2026 saw the European — Run 266"
+title: "The week of 19–21 May 2026 saw the European Parliament act"
 description: "The week of 19–21 May 2026 saw the European Parliament act on three strategically interconnected fronts for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-27", "week", "European", "Parliament"]
 date: 2026-05-27

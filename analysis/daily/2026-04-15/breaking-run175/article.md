@@ -1,6 +1,6 @@
 ---
-title: "Run 175 is the third T-0 probe of 15 April."
-description: "Run 175 is the third T-0 probe of 15 April. The article frontmatter exhibits the known recursive title for democratic-accountability readers tracking EU institutional consequences."
+title: "is the third T-0 probe of 15 April."
+description: "The article frontmatter exhibits the known recursive title: cataloguing artifact (separate downstream-pipeline issue, not analytical)."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-15", "third", "probe", "April"]
 date: 2026-04-15
 article_type: breaking

@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's 10th term — Run 1777356258"
+title: "The European Parliament's 10th term entered its most"
 description: "The European Parliament's 10th term entered its most consequential legislative phase of Spring 2026 during the week under review."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-28", "European", "Parliament", "10th"]
 date: 2026-04-28

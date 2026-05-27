@@ -1,5 +1,5 @@
 ---
-title: "Breaking: Significant Parliamentary Developments — Run 605"
+title: "Breaking: Significant Parliamentary Developments (#605)"
 description: "This extended executive brief synthesises the full analytical output from four consecutive EU Parliament Monitor breaking news runs on 2026-05-10."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-10", "Significant", "Parliamentary", "Developments"]
 date: 2026-05-10

@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament completed its April 2026 — Run 425"
+title: "The European Parliament completed its April 2026 plenary"
 description: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-08", "European", "Parliament", "completed"]
 date: 2026-05-08

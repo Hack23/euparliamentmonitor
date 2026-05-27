@@ -1,5 +1,5 @@
 ---
-title: "*Day-12 evening breaking-2 is the 12-hour — Run 24097229534"
+title: "*Day-12 evening breaking-2 is the 12-hour delta assessment"
 description: "*Day-12 evening breaking-2 is the 12-hour delta assessment over the morning baseline — the recess period's first structured operational example of paired."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-07", "evening", "hour", "delta"]
 date: 2026-04-07

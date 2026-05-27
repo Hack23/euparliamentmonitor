@@ -1,5 +1,5 @@
 ---
-title: "European Parliament Year Ahead — May 2026–May 2027 — Run 411"
+title: "European Parliament Year Ahead — May 2026–May 2027 (#411)"
 description: "European Parliament annual strategic outlook — Commission Work Programme, Trio Presidency, legislative priorities and 12-month risk surfaces."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year ahead", "annual outlook", "legislative agenda", "2026-05-10", "European", "Parliament", "Year", "Ahead"]
 date: 2026-05-10

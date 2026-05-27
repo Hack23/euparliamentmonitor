@@ -1,5 +1,5 @@
 ---
-title: "The April 28–30, 2026 European Parliament — Run 275"
+title: "The April 28–30, 2026 European Parliament Strasbourg (#275)"
 description: "The April 28–30, 2026 European Parliament Strasbourg plenary adopted 14 legislative items establishing the EP's strongest digital regulation enforcement."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-23", "April", "European", "Parliament", "Strasbourg"]
 date: 2026-05-23

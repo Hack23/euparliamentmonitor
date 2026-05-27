@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's tenth term entered its — Run 390"
+title: "The European Parliament's tenth term entered its second"
 description: "The European Parliament's tenth term entered its second year under the shadow of geopolitical polycrisis for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year in review", "annual summary", "legislative achievements", "2026-05-09", "European", "Parliament", "tenth", "term"]
 date: 2026-05-09

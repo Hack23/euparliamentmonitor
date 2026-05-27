@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's April Strasbourg — Run 1777638113"
+title: "The European Parliament's April Strasbourg plenary (28–30"
 description: "The European Parliament's April Strasbourg plenary (28–30 April 2026) delivered nine major legislative and political actions in three days."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-01", "European", "Parliament", "April"]
 date: 2026-05-01

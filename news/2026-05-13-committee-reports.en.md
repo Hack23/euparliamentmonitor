@@ -1,5 +1,5 @@
 ---
-title: "The week of 6–13 May 2026 is the clearest single — Run 249"
+title: "The week of 6–13 May 2026 is the clearest single-week (#249)"
 description: "The week of 6–13 May 2026 is the clearest single-week confirmation to date that EP10 has crossed from the expansion phase of EU regulation (EP9's Green."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-13", "week", "clearest", "single"]
 date: 2026-05-13

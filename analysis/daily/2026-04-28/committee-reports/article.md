@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's spring 2026 — Run 1777353028"
+title: "The European Parliament's spring 2026 legislative session"
 description: "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade, monetary affairs."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-28", "European", "Parliament", "spring"]
 date: 2026-04-28

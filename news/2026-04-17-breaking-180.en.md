@@ -1,5 +1,5 @@
 ---
-title: "Run 180 (T+3 recess probe) is a DEGRADED-mode run"
+title: "(T+3 recess probe) is a DEGRADED-mode run (#180)"
 description: "Run 180 (T+3 recess probe) is a DEGRADED-mode run — the EP server health endpoint was unavailable for the probe."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-17", "recess", "probe", "DEGRADED"]
 date: 2026-04-17

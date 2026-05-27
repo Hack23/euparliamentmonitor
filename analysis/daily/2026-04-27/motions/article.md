@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament convenes its April — Run 1777278029"
+title: "The European Parliament convenes its April 2026 full"
 description: "The European Parliament convenes its April 2026 full Strasbourg plenary (27–30 April) at a moment of intensifying geopolitical and institutional pressure."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-27", "European", "Parliament", "convenes"]
 date: 2026-04-27
