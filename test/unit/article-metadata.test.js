@@ -771,12 +771,14 @@ describe('resolveArticleMetadata — priority ladder', () => {
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.title.length).toBeGreaterThan(5);
-      // Clean prose ledes ≥ 100 chars are now preserved verbatim (no
-      // date-padding boilerplate). The fixture lede is 103 chars; the
-      // assertion floor is set just below it so the test asserts the
-      // new "no enrichment when description already substantive"
-      // contract rather than the old "always pad to 120+" behaviour.
-      expect(entry.description.length).toBeGreaterThanOrEqual(100);
+      // Clean prose ledes ≥ 100 chars are preserved verbatim for Latin
+      // locales. For CJK/RTL locales the SEO extraction Gate 4b forces
+      // enrichment (to inject locale-script labels) and then the tight
+      // per-script budget clamps the result (78 CJK / 150 RTL), so those
+      // locales legitimately produce shorter descriptions.
+      const NON_LATIN_LOCALES = ['ar', 'he', 'ja', 'ko', 'zh'];
+      const minLen = NON_LATIN_LOCALES.includes(lang) ? 50 : 100;
+      expect(entry.description.length).toBeGreaterThanOrEqual(minLen);
       expect(entry.keywords.length).toBeGreaterThan(3);
     }
   });

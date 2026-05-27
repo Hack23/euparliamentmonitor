@@ -65,6 +65,7 @@
 
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import type { LanguageCode } from '../types/index.js';
+import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 import { resolveOneLanguage } from './metadata/per-language-resolver.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
 import { resolveEditorialContent } from './metadata/resolve-helpers.js';
@@ -174,6 +175,7 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
       articleType: opts.articleType,
       date: opts.date,
       runId,
+      resolveLocalizedBrief: resolveLocalizedBriefHighlight,
     });
     Object.defineProperty(result, lang, {
       value: entry,
@@ -185,4 +187,3 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
 
   return result;
 }
-

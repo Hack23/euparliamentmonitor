@@ -43,7 +43,6 @@
  */
 
 import type { LangTitleSubtitle, LanguageCode } from '../../types/index.js';
-import { resolveLocalizedBriefHighlight } from '../editorial-brief-resolver.js';
 import { budgetFor, classifyScript, clampForBudget } from './seo-budgets.js';
 import {
   composeContextualDescription,
@@ -88,6 +87,13 @@ export interface PerLanguageInputs {
   readonly articleType: string;
   readonly date: string;
   readonly runId: string;
+  /** Injected dependency — resolves localized brief highlight for a language. */
+  readonly resolveLocalizedBrief?: (
+    runDir: string,
+    lang: LanguageCode,
+    articleType: string,
+    date: string
+  ) => { headline: string; summary: string; extendedSummary: string } | null;
 }
 
 const LOCALIZED_BRIEF_SOURCE: ResolvedMetadataEntry['source'] = 'localized-brief';
@@ -121,32 +127,6 @@ function contentMatchesLocaleScript(text: string, lang: LanguageCode): boolean {
   if (family === 'latin') return true;
   if (family === 'cjk') return CJK_GLYPH_RE.test(text);
   return RTL_GLYPH_RE.test(text);
-}
-
-/**
- * Apply a script-aware clamp to the resolved meta-description. Always clamps
- * Latin locales to `SEO_BUDGETS.metaDescription.latin` (155) so their copy
- * lands inside the 110–155 SERP-fill band enforced by
- * `executive-brief-seo-extraction.test.js`. For CJK / RTL locales the
- * tight 78 / 150 budget is only applied when the description content
- * actually carries locale-script glyphs — English-content fallbacks keep
- * the universal {@link truncateDescription} 180-char cap so the
- * `article-metadata.test.js` ≥100/≥120 cross-lingual reader-floor
- * assertions still hold for synthetic English manifests.
- *
- * @param text - Final composed description (already terminator-closed)
- * @param lang - Publishing locale
- * @returns Description clamped to the locale-appropriate budget
- */
-function clampDescriptionForLocale(text: string, lang: LanguageCode): string {
-  const family = classifyScript(lang);
-  if (family === 'latin') {
-    return clampForBudget(text, lang, 'metaDescription');
-  }
-  if (contentMatchesLocaleScript(text, lang)) {
-    return clampForBudget(text, lang, 'metaDescription');
-  }
-  return truncateDescription(text);
 }
 
 /**
@@ -219,8 +199,8 @@ export function resolvePerLanguageEditorial(input: PerLanguageInputs): {
   };
   readonly source: ResolvedMetadataEntry['source'];
 } {
-  if (input.lang !== 'en' && input.runDir) {
-    const localized = resolveLocalizedBriefHighlight(
+  if (input.lang !== 'en' && input.runDir && input.resolveLocalizedBrief) {
+    const localized = input.resolveLocalizedBrief(
       input.runDir,
       input.lang,
       input.articleType,
@@ -486,14 +466,42 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
   // regression note inside `ensureDescriptionTerminator` for the live
   // 2026-05-26 breaking-fr.html failure that motivated the budget
   // hand-off.
-  const clampedDescription = clampDescriptionForLocale(description, input.lang);
+  // Script-match check determines which description budget to apply.
+  //
+  // Three scenarios for non-Latin locales:
+  //
+  // 1. Source content has locale-script glyphs (real translated brief)
+  //    → tight budget (55-78 CJK / 115-150 RTL) so it lands in SERP band.
+  //
+  // 2. Source is English AND enrichment fired because it's pure-ASCII for
+  //    a non-Latin locale (the `ASCII_ONLY_RE` gate in
+  //    `shouldEnrichDescription`). The enriched output now carries locale
+  //    labels → tight budget so the SERP-fill band assertion holds.
+  //
+  // 3. Source is short English (< ENRICHMENT_TRIGGER_LENGTH) and enrichment
+  //    padded it UP with locale labels. In this case the universal 180-char
+  //    cap preserves the article-metadata.test.js ≥100/≥120 reader-floor
+  //    for synthetic English manifests routed to non-Latin locales.
+  //
+  // Latin locales: always use the tight budget (155) since their content
+  // is Latin by definition.
+  const sourceMatchesLocale = contentMatchesLocaleScript(normalizedRawDescription, input.lang);
+  const family = classifyScript(input.lang);
+  const asciiOnlyEnrichment =
+    family !== 'latin' &&
+    normalizedRawDescription.length >= ENRICHMENT_TRIGGER_LENGTH &&
+    ASCII_ONLY_RE.test(normalizedRawDescription);
+  const useTightBudget = sourceMatchesLocale || family === 'latin' || asciiOnlyEnrichment;
+  const clampedDescription = useTightBudget
+    ? clampForBudget(description, input.lang, 'metaDescription')
+    : truncateDescription(description);
   // Only hand the per-script budget to `ensureDescriptionTerminator` when
-  // `clampDescriptionForLocale` actually clamped to it — for English-content
-  // fallbacks in non-Latin locales the clamp is the universal 180-char cap
-  // (preserves the article-metadata.test.js ≥100/≥120 reader floor) and
-  // budget reservation must use that ceiling, not the 78/150 tight budget,
-  // or the terminator step would over-trim the description.
-  const terminatorBudget = contentMatchesLocaleScript(description, input.lang)
+  // the tight budget was used — for English-content fallbacks in non-Latin
+  // locales the clamp is the universal 180-char cap (preserves the
+  // article-metadata.test.js ≥100/≥120 reader floor) and budget reservation
+  // must use that ceiling, not the 78/150 tight budget, or the terminator
+  // step would over-trim the description.
+  const terminatorBudget = useTightBudget
     ? budgetFor(input.lang, 'metaDescription')
     : undefined;
   const truncatedDescription = padDescriptionToFloor(

@@ -62,6 +62,7 @@
  * preserved for backward compatibility with existing call sites.
  */
 import { ALL_LANGUAGES } from '../constants/language-core.js';
+import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 import { resolveOneLanguage } from './metadata/per-language-resolver.js';
 import { buildTemplateFallback } from './metadata/template-fallback.js';
 import { resolveEditorialContent } from './metadata/resolve-helpers.js';
@@ -111,6 +112,7 @@ export function resolveArticleMetadata(opts) {
             articleType: opts.articleType,
             date: opts.date,
             runId,
+            resolveLocalizedBrief: resolveLocalizedBriefHighlight,
         });
         Object.defineProperty(result, lang, {
             value: entry,
