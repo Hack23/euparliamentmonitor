@@ -1,0 +1,95 @@
+{
+  "articleType": "propositions",
+  "dataMode": "degraded-feeds",
+  "runId": "propositions-run262-1779864156",
+  "date": "2026-05-27",
+  "files": {
+    "data": [
+      "data-availability-assessment.md"
+    ],
+    "executive": [
+      "executive-brief.md"
+    ],
+    "analysis-index": [
+      "intelligence/analysis-index.md"
+    ],
+    "synthesis-summary": [
+      "intelligence/synthesis-summary.md"
+    ],
+    "historical-baseline": [
+      "intelligence/historical-baseline.md"
+    ],
+    "economic-context": [
+      "intelligence/economic-context.md"
+    ],
+    "economic-context-fallback": [
+      "intelligence/economic-context.fallback.md"
+    ],
+    "pestle-analysis": [
+      "intelligence/pestle-analysis.md"
+    ],
+    "stakeholder-map": [
+      "intelligence/stakeholder-map.md"
+    ],
+    "scenario-forecast": [
+      "intelligence/scenario-forecast.md"
+    ],
+    "threat-model": [
+      "intelligence/threat-model.md"
+    ],
+    "wildcards-blackswans": [
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "mcp-reliability-audit": [
+      "intelligence/mcp-reliability-audit.md"
+    ],
+    "reference-analysis-quality": [
+      "intelligence/reference-analysis-quality.md"
+    ],
+    "procedures-proxy": [
+      "intelligence/procedures-proxy.md"
+    ],
+    "methodology-reflection": [
+      "intelligence/methodology-reflection.md"
+    ],
+    "coalition-dynamics": [
+      "intelligence/coalition-dynamics.md"
+    ],
+    "risk-matrix": [
+      "risk-scoring/risk-matrix.md"
+    ],
+    "quantitative-swot": [
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "media-framing-analysis": [
+      "extended/media-framing-analysis.md"
+    ],
+    "actor-mapping": [
+      "classification/actor-mapping.md"
+    ],
+    "forces-analysis": [
+      "classification/forces-analysis.md"
+    ],
+    "impact-matrix": [
+      "classification/impact-matrix.md"
+    ],
+    "significance-classification": [
+      "classification/significance-classification.md"
+    ]
+  },
+  "pass2": {
+    "rewriteCount": 19,
+    "completedAt": "2026-05-27T07:01:16Z",
+    "startedAt": "2026-05-27T00:30:00Z",
+    "endedAt": "2026-05-27T00:40:00Z"
+  },
+  "history": [
+    {
+      "runId": "propositions-run262-1779864156",
+      "timestamp": "2026-05-27T07:01:16Z",
+      "dataMode": "degraded-feeds",
+      "artifactCount": 19,
+      "pass2RewriteCount": 19
+    }
+  ]
+}
