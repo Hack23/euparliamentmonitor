@@ -168,6 +168,31 @@ function pickResolvedTitle(input, candidates) {
     ]);
 }
 /**
+ * Decide whether `clippedTitle` is usable as the resolved title candidate.
+ * Extracted from `resolveOneLanguage` to keep cognitive complexity under
+ * the SonarJS threshold (15).
+ *
+ * @param args - Title candidate inputs
+ * @param args.clippedTitle - The truncated editorial/manifest title to evaluate
+ * @param args.headlineWasContaminated - True when the editorial headline was rejected by sanitize
+ * @param args.nonLatinFamily - True for CJK/RTL locales requiring locale-script glyphs
+ * @param args.allowShortResolvedTitle - True when the source is a localized brief
+ * @param args.lang - Target language code
+ * @returns The clipped title when usable, '' otherwise
+ */
+function pickResolvedTitleCandidate(args) {
+    const { clippedTitle, headlineWasContaminated, nonLatinFamily, allowShortResolvedTitle, lang } = args;
+    if (headlineWasContaminated || !clippedTitle)
+        return '';
+    if (hasLeakySeoToken(clippedTitle))
+        return '';
+    if (nonLatinFamily && !contentMatchesLocaleScript(clippedTitle, lang))
+        return '';
+    if (!allowShortResolvedTitle && !isUsableResolvedTitle(clippedTitle))
+        return '';
+    return clippedTitle;
+}
+/**
  * Resolve `{title, description, keywords, source}` for one language.
  *
  * @param input - Per-language inputs
@@ -253,12 +278,19 @@ export function resolveOneLanguage(input) {
     // non-Latin locales when they lack locale-script glyphs — prevents
     // English editorial H1s from leaking into CJK/RTL pages.
     const nonLatinFamily = classifyScript(input.lang) !== 'latin';
-    const resolvedTitleCandidate = clippedTitle &&
-        !hasLeakySeoToken(clippedTitle) &&
-        !(nonLatinFamily && !contentMatchesLocaleScript(clippedTitle, input.lang)) &&
-        (allowShortResolvedTitle || isUsableResolvedTitle(clippedTitle))
-        ? clippedTitle
-        : '';
+    // Track whether the editorial headline was contaminated (had leaky
+    // run tokens that sanitizeTitleCandidate refused to salvage). When
+    // contaminated, the resolvedTitleCandidate path is skipped so the
+    // summary-derived title wins in pickResolvedTitle — matching the
+    // pre-existing semantics where a leaky H1 forced summary fallback.
+    const headlineWasContaminated = !!editorial.headline && !sanitizedEditorialHeadline;
+    const resolvedTitleCandidate = pickResolvedTitleCandidate({
+        clippedTitle,
+        headlineWasContaminated,
+        nonLatinFamily,
+        allowShortResolvedTitle,
+        lang: input.lang,
+    });
     const summaryDerivedTitle = deriveHeadlineFromSummary(safeEditorial.summary || normalizedRawDescription);
     // `truncateTitle` returns '' when an editorial title overruns the
     // budget with no acceptable clause boundary — fall back to the

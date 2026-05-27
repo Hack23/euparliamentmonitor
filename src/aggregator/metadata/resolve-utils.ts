@@ -60,11 +60,22 @@ export function stripLeakyRunTokens(value: string): string {
  * Sanitize a single-line title candidate by word-level stripping any
  * leaky workflow tokens.
  *
+ * Salvage is only attempted when the contamination is a clean
+ * prefix/suffix tag (e.g. `Run 180, 17 April 2026` → `17 April 2026`).
+ * When the headline embeds the phrase `analysis run` the contamination
+ * is structural (an editorial-paragraph leak embedded inside parens or
+ * other punctuation) — token-level stripping would leave dangling
+ * fragments like `Analysis ) | …`. In that case we refuse to salvage and
+ * return the empty string so the caller falls through to the
+ * summary-derived title.
+ *
  * @param value - Raw title candidate that may contain run tokens
- * @returns Sanitized title with leaky tokens removed
+ * @returns Sanitized title with leaky tokens removed, or empty string
+ *   when the contamination is too structural to safely salvage
  */
 export function sanitizeTitleCandidate(value: string): string {
   if (!value) return '';
+  if (/\banalysis\s+run\b/iu.test(value)) return '';
   return stripLeadingFragmentSeparator(stripLeakyRunTokens(value));
 }
 

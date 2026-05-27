@@ -201,60 +201,6 @@ export function resolveEditorialContent(opts: ResolveMetadataOptions): {
 }
 
 /**
- * Localized "Edition N" qualifiers for cross-run title uniqueness.
- * Standard publishing-issue convention — editorially honest and distinct
- * from the workflow-internal `Run N` token which is banned from titles.
- */
-const EDITION_QUALIFIER_BY_LANG: Readonly<Record<string, string>> = {
-  en: 'Edition',
-  de: 'Ausgabe',
-  nl: 'Editie',
-  fr: 'Édition',
-  es: 'Edición',
-  pt: 'Edição',
-  it: 'Edizione',
-  pl: 'Wydanie',
-  sv: 'Utgåva',
-  ja: '第',
-  ko: '제',
-  zh: '第',
-  ar: 'الإصدار',
-  he: 'מהדורה',
-};
-
-/** CJK edition suffix forms (postfix number style) */
-const CJK_EDITION_SUFFIX: Readonly<Record<string, string>> = {
-  ja: '版',
-  ko: '판',
-  zh: '期',
-};
-
-/**
- * Build a localized edition qualifier string for the given language and
- * run number. Falls back to compact `(#N)` when the full localized form
- * would exceed `maxChars`.
- *
- * @internal Used by appendEditionQualifier via the compact (#N) path;
- * retained for future locale-aware expansion.
- * @param lang - Language code (e.g. "en", "de", "ja")
- * @param runNum - Numeric run identifier as a string
- * @param maxChars - Maximum character budget for the qualifier
- * @returns Localized edition qualifier string
- */
-export function buildEditionQualifier(lang: string, runNum: string, maxChars: number): string {
-  const enFallback = EDITION_QUALIFIER_BY_LANG['en'] ?? 'Edition';
-  const prefix = EDITION_QUALIFIER_BY_LANG[lang] ?? enFallback;
-  const cjkSuffix = CJK_EDITION_SUFFIX[lang];
-  const full = cjkSuffix ? `${prefix}${runNum}${cjkSuffix}` : `${prefix} ${runNum}`;
-  // Budget-aware fallback: if the qualifier is too long (e.g. Hebrew at 55 chars)
-  // use the compact universal publishing issue-number form
-  if ([...full].length > maxChars) {
-    return `(#${runNum})`;
-  }
-  return full;
-}
-
-/**
  * Pick the per-language SEO title from the resolved editorial pair and
  * the localized template fallback.
  *
