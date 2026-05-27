@@ -1,0 +1,158 @@
+{
+  "articleType": "breaking",
+  "dataMode": "degraded-feeds",
+  "generatedAt": "2026-05-27T01:50:00Z",
+  "date": "2026-05-27",
+  "runId": "breaking-run266-1779846371",
+  "history": [
+    {
+      "runId": "breaking-run266-1779846371",
+      "timestamp": "2026-05-27T02:11:45Z",
+      "artifactCount": 46,
+      "dataMode": "degraded-feeds",
+      "pass1Complete": true,
+      "pass2Complete": false,
+      "rewriteCount": 46
+    }
+  ],
+  "files": {
+    "executive-brief": [
+      "executive-brief.md"
+    ],
+    "data-availability": [
+      "data-availability-assessment.md"
+    ],
+    "analysis-index": [
+      "intelligence/analysis-index.md"
+    ],
+    "synthesis-summary": [
+      "intelligence/synthesis-summary.md"
+    ],
+    "coalition-dynamics": [
+      "intelligence/coalition-dynamics.md"
+    ],
+    "cross-run-diff": [
+      "intelligence/cross-run-diff.md"
+    ],
+    "economic-context": [
+      "intelligence/economic-context.md"
+    ],
+    "historical-baseline": [
+      "intelligence/historical-baseline.md"
+    ],
+    "mcp-reliability-audit": [
+      "intelligence/mcp-reliability-audit.md"
+    ],
+    "pestle-analysis": [
+      "intelligence/pestle-analysis.md"
+    ],
+    "political-threat-landscape": [
+      "intelligence/political-threat-landscape.md"
+    ],
+    "scenario-forecast": [
+      "intelligence/scenario-forecast.md"
+    ],
+    "significance-scoring": [
+      "intelligence/significance-scoring.md"
+    ],
+    "stakeholder-map": [
+      "intelligence/stakeholder-map.md"
+    ],
+    "threat-model": [
+      "intelligence/threat-model.md"
+    ],
+    "wildcards-blackswans": [
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "reference-analysis-quality": [
+      "intelligence/reference-analysis-quality.md"
+    ],
+    "voting-patterns": [
+      "intelligence/voting-patterns.md"
+    ],
+    "workflow-audit": [
+      "intelligence/workflow-audit.md"
+    ],
+    "cross-session-intelligence": [
+      "intelligence/cross-session-intelligence.md"
+    ],
+    "methodology-reflection": [
+      "intelligence/methodology-reflection.md"
+    ],
+    "procedures-proxy": [
+      "intelligence/procedures-proxy.md"
+    ],
+    "risk-matrix": [
+      "risk-scoring/risk-matrix.md"
+    ],
+    "quantitative-swot": [
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "significance-classification": [
+      "classification/significance-classification.md"
+    ],
+    "document-analysis-index": [
+      "documents/document-analysis-index.md"
+    ],
+    "devils-advocate": [
+      "extended/devils-advocate.md"
+    ],
+    "historical-parallels": [
+      "extended/historical-parallels.md"
+    ],
+    "coalition-mathematics": [
+      "extended/coalition-mathematics.md"
+    ],
+    "forward-indicators": [
+      "extended/forward-indicators.md"
+    ],
+    "intelligence-assessment": [
+      "extended/intelligence-assessment.md"
+    ],
+    "implementation-feasibility": [
+      "extended/implementation-feasibility.md"
+    ],
+    "media-framing": [
+      "extended/media-framing-analysis.md"
+    ],
+    "comparative-international": [
+      "extended/comparative-international.md"
+    ],
+    "voter-segmentation": [
+      "extended/voter-segmentation.md"
+    ],
+    "cross-reference-map": [
+      "extended/cross-reference-map.md"
+    ],
+    "data-download-manifest": [
+      "extended/data-download-manifest.md"
+    ],
+    "political-capital-risk": [
+      "risk-scoring/political-capital-risk.md"
+    ],
+    "legislative-velocity-risk": [
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "actor-mapping": [
+      "classification/actor-mapping.md"
+    ],
+    "forces-analysis": [
+      "classification/forces-analysis.md"
+    ],
+    "impact-matrix": [
+      "classification/impact-matrix.md"
+    ],
+    "consequence-trees": [
+      "threat-assessment/consequence-trees.md"
+    ],
+    "legislative-disruption": [
+      "threat-assessment/legislative-disruption.md"
+    ],
+    "actor-threat-profiles": [
+      "threat-assessment/actor-threat-profiles.md"
+    ],
+    "media-framing-analysis": [
+      "extended/media-framing-analysis.md"
+    ]
+  }
+}
