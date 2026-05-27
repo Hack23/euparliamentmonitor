@@ -112,3 +112,11 @@ For Stage D article renderer, the key cross-references per article section:
 
 - `intelligence/analysis-index.md` for the flat artifact inventory
 - `manifest.json` for the machine-readable file listing
+
+## Cross-Reference Completeness
+
+| Artifact A | Artifact B | Cross-Reference Type |
+|-----------|-----------|---------------------|
+| intelligence-assessment.md | stakeholder-map.md | Actor profiles ← → Intelligence findings |
+| scenario-forecast.md | forward-indicators.md | Scenarios ← → Leading indicators |
+| historical-parallels.md | coalition-mathematics.md | History ← → Current arithmetic |

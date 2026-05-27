@@ -130,3 +130,28 @@ The three consequence trees converge on a common theme: **implementation gaps be
 
 **What this means**: Consequence trees show that decisions made in the next 30–90 days will determine whether this week's EP legislation has real impact or becomes another example of "legislation without implementation." The key decisions are in Commission and Council hands, not Parliament's.
 
+
+## Extended Consequence Trees
+
+### Resolution TA-0171 (FDI Screening) Consequence Tree
+
+Level 1: EP Adopts FDI Screening Update
+├── Level 2a: OJ Publication (90% probability)
+│   ├── Level 3a: Screening framework operational (97%)
+│   └── Level 3b: First screening decisions within 6 months (70%)
+├── Level 2b: Chinese WTO filing (25%)
+│   ├── Level 3c: DSB proceedings 12-24 months
+│   └── Level 3d: Bilateral negotiation pathway (45%)
+└── Level 2c: Member state implementation variance (40%)
+    └── Level 3e: Commission infringement proceedings 18-36 months
+
+### Resolution TA-0186 (Afghanistan) Consequence Tree
+
+Level 1: EP Adopts Afghanistan Condemnation
+├── Level 2a: Council takes note but no new sanctions (65%)
+│   └── Level 3a: EP follow-up resolution in 2026 H2
+├── Level 2b: Council adds targeted sanctions (30%)
+│   ├── Level 3b: Taliban diplomatic backlash
+│   └── Level 3c: Regional partner alignment pressure
+└── Level 2c: UN Security Council action (5%)
+    └── Level 3d: International tribunal referral

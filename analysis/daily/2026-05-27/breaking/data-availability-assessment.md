@@ -47,3 +47,17 @@
 - **Temporal freshness**: Most recent item May 21, 2026 (6 days ago from run date May 27)
 - **Coverage gaps**: Committee deliberations, individual voting records, debate transcripts unavailable due to feed failures
 - **Analytical floor**: All artifacts will be written to 80% of standard thresholds given `degraded-feeds` mode
+
+## Detailed Feed Status
+
+| Feed | Status | Records | Note |
+|------|--------|---------|------|
+| adopted-texts-feed | ✅ AVAILABLE | 500 | Pre-fetched, 76KB |
+| meps-feed | ✅ AVAILABLE | ~720 | Pre-fetched, 7MB |
+| procedures-feed | ❌ DEGRADED | 0 | HTTP 404 |
+| events-feed | ❌ DEGRADED | 0 | HTTP 404 |
+| committee-documents-feed | ❌ EMPTY | 0 | HTTP 200 but empty |
+| documents-feed | ❌ DEGRADED | 0 | HTTP 404 |
+
+
+*Data availability assessment complete. 2/6 feeds fully available, 4/6 degraded. degraded-feeds mode declared.*

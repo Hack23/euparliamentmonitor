@@ -5,15 +5,15 @@
   "gateResult": "PENDING",
   "slug": "2026-05-27-breaking",
   "articlePath": "analysis/daily/2026-05-27/breaking/article.md",
-  "topFinding": "EP Adopts Landmark Foreign Investment Screening Regulation and Condemns Taliban's Criminalisation of Women's Education — Strategic Autonomy and Human Rights Dominate the Week",
+  "topFinding": "EP Adopts Landmark Foreign Investment Screening Regulation and Condemns Taliban Criminalisation of Women — Strategic Autonomy and Human Rights Dominate 19–21 May 2026 Plenary",
   "keyTakeaways": [
-    "See `intelligence/coalition-dynamics.md` for voting bloc analysis",
-    "See `intelligence/economic-context.md` for macroeconomic context on FDI and steel",
-    "See `risk-scoring/risk-matrix.md` for probability-weighted risk scenarios",
-    "See `extended/historical-parallels.md` for comparison with 2009–2012 EU economic security legislation",
-    "**FDI Screening** addresses Chinese state-backed investment (economic security)",
-    "**AI Trade Strategy** addresses Chinese AI company market access (digital competitiveness)",
-    "**Steel Safeguards** addresses Chinese overcapacity (industrial policy)"
+    "**EPP (186 seats)**: Supported FDI Screening, steel protection, SAFE Canada. Split on care society resolution. Supported both Afghanistan and Iran resolutions.",
+    "**S&D (136 seats)**: Supported all economic security texts, all human rights resolutions, strongly supported care society and work fatalities texts.",
+    "**Renew Europe (77 seats)**: Supported FDI Screening with reservations on Commission preemption powers. Supported AI-trade, SAFE Canada, all human rights resolutions.",
+    "**ECR (78 seats)**: Supported steel protection (national industry framing). Split on FDI Screening (sovereignty concern vs. economic nationalism). Voted against care society resolution.",
+    "**PfE/ID (~75 seats)**: Supported steel protection. Split on FDI Screening. Voted against care society, gender care gap, work fatalities resolutions (subsidiarity arguments).",
+    "**Greens/EFA (53 seats)**: Supported all human rights resolutions strongly. Split on steel protection (environmental concerns). Supported AI-trade with amendment on transparency.",
+    "**The Left/GUE-NGL (46 seats)**: Supported human rights, care society. Split on SAFE Canada (antimilitarism concerns)."
   ],
   "topRisks": [
     "**Probability (P)**: 1 (Very Low, <10%) to 5 (Very High, >70%)",
@@ -38,10 +38,11 @@
     "Key actors: Commissioner for Trade, Commissioner for Defence Industry and Space",
     "Next action: Publishing FDI screening guidelines within 90 days; SAFE implementing regulations"
   ],
-  "macroContext": "The EP's May 2026 legislative agenda is taking place against a specific macroeconomic context that directly shapes the political calculus behind each major vote:",
+  "macroContext": "Date: 2026-05-27 | Data Mode: degraded-feeds | Admiralty Grade: B3 (reliable source, not corroborated by IMF direct feed) IMF Source Note: IMF World Economic Outlook April 2026 data used for macroeconomic context.",
   "sources": [
     "classification/actor-mapping.md",
     "executive-brief.md",
+    "extended/executive-brief.md",
     "extended/forward-indicators.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",

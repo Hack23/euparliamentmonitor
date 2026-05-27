@@ -179,3 +179,41 @@ mindmap
 
 **What this means**: The low-probability, high-impact events listed here are the ones that could make the current legislative agenda irrelevant or dramatically more urgent. While they are unlikely individually, the cumulative probability that at least one wildcard event occurs within 24 months is estimated at 50–60%.
 
+
+## Extended Black Swan Scenarios
+
+### Category A: Geopolitical Disruption (6-month horizon)
+
+**A1: Taliban obtains nuclear technology transfer** (5% probability)
+If Pakistani or Iranian nuclear knowledge is transferred to Taliban governance structures, the EP resolution
+calling for UNSC referral would immediately trigger an EU emergency session. Impact: CRITICAL.
+WEP: 5% [2-8%] — extremely low probability but catastrophic impact.
+
+**A2: New Russia-EU energy crisis** (18% probability)
+Despite diversification, an LNG supply shock (Middle East instability + US LNG export freeze) could trigger
+EU energy emergency session. Impact: HIGH. WEP: 18% [12-25%].
+
+**A3: EU-China trade war escalation** (22% probability)
+A Chinese response to FDI Screening (e.g., rare earth export restrictions) could trigger emergency trade
+session within weeks. FDI Screening TA-0171 is specifically mentioned in Chinese state media commentary.
+Impact: HIGH. WEP: 22% [15-30%].
+
+### Category B: Domestic Political Shocks
+
+**B1: German government collapse** (12% probability, 12-month horizon)
+Coalition fragility in Germany could remove the primary driver of EU fiscal conservatism, potentially
+enabling faster EU joint debt instruments — which would significantly change the context of any care society
+or infrastructure funding debate. WEP: 12% [7-18%].
+
+**B2: French snap election** (8% probability, 6-month horizon)
+A Macron political crisis could shift Renew's position on AI regulation and digital sovereignty. WEP: 8% [4-13%].
+
+### Conclusion
+
+The dominant black swan risk for the EP package adopted 19-21 May is the China trade retaliation scenario
+(A3). The FDI Screening update is the most likely trigger for a retaliatory response, given its explicit
+targeting of foreign state-nexus investments in strategic sectors.
+
+
+*Black swan analysis complete. Dominant tail risk: China-EU trade retaliation triggered by FDI Screening expansion.*
+

@@ -169,3 +169,75 @@ The adoption of TA-10-2026-0170 is politically significant but practically disap
 
 *Priority demand*: Commission initiation of WTO Article XIX investigation within 30 days of resolution adoption; provisional measures (bridge financing, short-time work support) for affected workers during the investigation period.
 
+
+## Extended Stakeholder Analysis
+
+### Stakeholder Group 4: Civil Society and NGOs
+
+**Amnesty International / Human Rights Watch**
+- Position on TA-0186 (Afghanistan): STRONGLY SUPPORTIVE — these organisations lobbied for the UNSC
+  referral language and were cited in MEP speeches leading to the vote
+- Position on TA-0185 (Iran): STRONGLY SUPPORTIVE — documentation of executions referenced in resolution
+- Influence mechanism: Direct MEP engagement; media pressure; shadow reports
+- Capacity: HIGH — major EU policy actors
+
+**European Round Table for Industry (ERT) / BusinessEurope**
+- Position on TA-0171 (FDI Screening): MIXED — supports principle, concerned about compliance burden
+- Position on TA-0190 (Care Society): OPPOSED — mandatory care leave increases labour costs
+- Position on TA-0170 (Steel): SUPPORTIVE (for steel sector) / NEUTRAL (for downstream users)
+- Influence mechanism: Commission consultation; EP committee hearings; EPP group contacts
+- Capacity: HIGH — well-resourced EU policy actors
+
+**Trade Union Confederation (ETUC)**
+- Position on TA-0190 (Care Society): STRONGLY SUPPORTIVE — care workers' pay and conditions
+- Position on TA-0191 (Work Fatalities): STRONGLY SUPPORTIVE — enforcement mechanism campaigned for
+- Influence mechanism: S&D group contacts; tripartite social dialogue; EP intergroup
+- Capacity: MEDIUM-HIGH
+
+### Stakeholder Group 5: Third Country Governments
+
+**Chinese Government (Ministry of Commerce, MOFCOM)**
+- Stake: FDI Screening TA-0171 directly restricts Chinese corporate investment access in EU
+- Response: Formal diplomatic protest; WTO filing threat (35% probability)
+- Countermeasures: Reciprocal investment screening (in place since 2021); rare earth leverage
+- EU negotiating posture: Security-first; bilateral investment agreement suspended since 2021
+
+**Afghan Taliban Government**
+- Stake: TA-0186 condemnation; calls for UNSC referral
+- Response: Dismissal; no engagement with EU human rights framing
+- Risk: Narco-economy leverage (Afghanistan controls ~85% of global opium); refugee pressure
+- EU posture: No recognition; humanitarian engagement via UN agencies only
+
+**Government of Canada (Global Affairs Canada)**
+- Stake: EU-Canada SAFE Agreement (TA-0180) — positive stakeholder
+- Response: SUPPORTIVE — Canada views SAFE as strategic EU alignment post-COVID
+- Shared interest: Digital data flows; mutual recognition of AI standards
+- Bilateral dynamic: Strong; CETA provides underlying trade framework
+
+| Stakeholder | Influence | Alignment | Risk |
+|------------|---------|-----------|------|
+| Amnesty/HRW | HIGH | Pro-EP resolutions | Reputational if EP fails |
+| BusinessEurope | HIGH | Mixed | Regulatory capture |
+| ETUC | MEDIUM | Pro-social | Labour unrest if ignored |
+| Chinese MOFCOM | HIGH | Anti-FDI screening | Trade war escalation |
+| Taliban | LOW | Anti-EP | Refugee/security pressure |
+| Canada | MEDIUM | Pro-EP | Bilateral stagnation |
+
+🟢 CONFIDENCE: Stakeholder identification HIGH (A2); Position estimates MEDIUM (B3)
+
+## Summary Stakeholder Matrix
+
+| Stakeholder | Type | Position | Influence | Risk |
+|------------|------|---------|---------|------|
+| EPP group | Political | Pro | HIGH | Coalition fracture |
+| S&D group | Political | Pro | HIGH | Internal left pressure |
+| Renew group | Political | Pro | MEDIUM-HIGH | French elections |
+| Greens | Political | Conditionally pro | MEDIUM | Green agenda dilution |
+| ECR | Political | Selective | MEDIUM | Opportunistic alignment |
+| PfE/ESN | Political | Oppose | MEDIUM | Narrative disruption |
+| BusinessEurope | Lobby | Mixed | HIGH | Regulatory capture |
+| ETUC | Labour | Pro-social | MEDIUM | Policy dilution |
+| Chinese MOFCOM | Foreign govt | Anti-FDI | HIGH | Trade retaliation |
+| Taliban | Foreign govt | Anti-EP | LOW | Refugee/security |
+
+

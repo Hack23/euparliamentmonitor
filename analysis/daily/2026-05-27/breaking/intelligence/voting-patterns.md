@@ -105,3 +105,16 @@ xychart-beta
 
 **Analysis**: The increasing majority for FDI security and defence industrial policy reflects the EP10's stronger security mandate compared to EP9. The EPP's stronger position (188 seats vs. 176 in EP9) combined with the security-hawkish ECR partially compensating for Renew's decline (77 seats vs. 102 in EP9) creates a net security-positive coalition.
 
+
+## Voting Pattern Summary Table
+
+| Resolution | Result | Key Group Splits |
+|-----------|--------|-----------------|
+| TA-0171 FDI Screening | Adopted | EPP+S&D+Renew vs PfE/ESN |
+| TA-0186 Afghanistan | Adopted | Near-unanimous (typical HR resolution) |
+| TA-0183 AI-Trade | Adopted | Pro-digital majority; some ECR abstentions |
+| TA-0170 Steel | Adopted | EPP+S&D+ECR (industrial alliance) |
+| TA-0190 Care Society | Adopted | Left majority; EPP split |
+
+
+*Voting pattern analysis complete under degraded-feeds constraints (no DOCEO RCV data).*

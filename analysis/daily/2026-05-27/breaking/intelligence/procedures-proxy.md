@@ -40,3 +40,9 @@ graph TD
 | Committee responsible | Not available — procedures feed down | Not assessed |
 | Rapporteur names | Not available — procedures feed down | Not assessed |
 
+
+## Proxy Data Limitations
+
+The procedures-feed was unavailable (HTTP 404) for this run. The proxy analysis is limited to:
+- Reference numbers from adopted texts (TA-10-2026-XXXX) to infer COD/RSP/INI procedure types
+- Subject taxonomy from adopted texts titles and EP reference codes

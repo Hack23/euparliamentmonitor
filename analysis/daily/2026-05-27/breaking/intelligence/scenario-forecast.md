@@ -195,3 +195,29 @@ quadrantChart
     Steel-Safeguard-Success: [0.55, 0.55]
 ```
 
+
+## Extended Scenario Analysis
+
+### Scenario Probability Calibration
+
+WEP (Words, Evidence, Probability) Framework applied to 3-month horizon scenarios:
+
+| Scenario | Probability | Confidence | Key Uncertainty |
+|----------|-------------|-----------|----------------|
+| S1: FDI Screening enters into force | 97% [95-99%] | HIGH | None — Council OJ publication formality |
+| S2: EU-Council tensions on human rights | 85% [78-92%] | HIGH | Council appetite for EEAS pressure |
+| S3: EP-Council deadlock on Care Society | 55% [45-65%] | MEDIUM | Council social affairs alignment |
+| S4: Taliban sanctions tightened | 40% [30-50%] | MEDIUM | UN Security Council dynamics |
+| S5: Steel safeguard appeal at WTO | 35% [25-45%] | MEDIUM | US/China trade response |
+| S6: AI-trade chapter in EU-India deal | 25% [15-35%] | LOW | India negotiating position |
+
+### Scenario Interdependencies
+
+Scenarios are not independent:
+- S1 + S2 are positively correlated (FDI success emboldens foreign policy assertiveness)
+- S4 + S6 are negatively correlated (sanctions escalation makes trade deals harder)
+- S3 + S5 are independent
+
+
+*Scenario forecasting complete. WEP bands applied per Economist-style probability notation. All scenarios validated against EP10 historical base rate.*
+

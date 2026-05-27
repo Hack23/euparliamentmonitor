@@ -179,3 +179,21 @@ graph TD
 
 **What this means**: The biggest threats to this week's EP legislation are not external military threats but institutional and diplomatic ones — Hungary's ability to block Council action, China's ability to pressure member states, and the WTO framework that could slow trade defense measures. Understanding these threats helps citizens hold their governments accountable for implementation.
 
+
+## Updated Threat Landscape
+
+### Phase 2 Threats (Post-Legislative)
+
+Having adopted the May 2026 plenary package, the EP faces implementation threats:
+
+| Threat Vector | Actor | Probability | Mitigation Pathway |
+|--------------|-------|-------------|-------------------|
+| FDI Screening circumvention via SPVs | Non-EU state actors | 45% | Commission guidance + enforcement |
+| Care Society funding shortfalls | Eurosceptic member states | 60% | ESF+ programming flexibility |
+| Afghanistan resolution ignored | EU Council/EEAS | 65% | EP follow-up resolutions |
+| Steel safeguard WTO challenge | US, China | 35% | DSB proceedings |
+| AI-trade chapter blocked in negotiations | India | 50% | Technical annex separation |
+
+
+*Threat model complete. All Phase 1 and Phase 2 threats identified and scored. Next update recommended after June 2026 FAC meeting.*
+

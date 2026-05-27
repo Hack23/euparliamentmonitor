@@ -114,3 +114,17 @@ graph LR
 
 **For citizens**: This index shows all the research and analysis that underpins the news article you are reading. Each artifact is a structured analytical product using a specific intelligence methodology — not editorial opinion. The executive-brief.md gives you the quick version; the extended/ artifacts give you the expert-level detail.
 
+
+## Run Completion Status
+
+| Artifact Group | Files | Status |
+|---------------|-------|--------|
+| Executive brief | 1 | ✅ |
+| Intelligence | 18 | ✅ |
+| Classification | 4 | ✅ |
+| Risk scoring | 4 | ✅ |
+| Threat assessment | 3 | ✅ |
+| Extended analysis | 11 | ✅ |
+| Documents | 1 | ✅ |
+| Data assessment | 1 | ✅ |
+| **Total** | **43** | ✅ |

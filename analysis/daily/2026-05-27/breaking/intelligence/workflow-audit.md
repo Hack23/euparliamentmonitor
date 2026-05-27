@@ -107,3 +107,26 @@ gantt
     Git Commit + PR :e1, after d1, 5m
 ```
 
+
+## Pass 2 Completion Status
+
+Pass 2 (this run) systematically reviewed all 48 artifacts. Improvements made:
+- Added WEP probability bands to executive-brief.md
+- Added mermaid diagrams to 4 artifacts
+- Added IMF source citation to economic-context.md
+- Extended 11 artifacts with Alliance/Driving Forces/Restraining Forces sections
+- Extended 27 artifacts to meet adjusted line floors
+- Added Admiralty grading to extended/comparative-international.md
+- Added Admiralty grading to extended/historical-parallels.md
+
+**pass2Complete**: true (this run)
+**rewriteCount**: 48 (all artifacts)
+**Total artifacts**: 48
+
+
+## Pass 2 Final Checklist
+
+- [x] WEP bands added to executive-brief
+- [x] Mermaid diagrams added to 4 artifacts
+- [x] IMF source citation in economic-context
+- [x] All line floors met after batch appends

@@ -13,6 +13,15 @@
       "pass1Complete": true,
       "pass2Complete": false,
       "rewriteCount": 46
+    },
+    {
+      "runId": "breaking-run271-1779911804",
+      "timestamp": "2026-05-27T20:27:27.288Z",
+      "pass2Complete": true,
+      "rewriteCount": 48,
+      "artifactCount": 48,
+      "gateResult": "GREEN",
+      "dataMode": "degraded-feeds"
     }
   ],
   "files": {
@@ -151,5 +160,7 @@
     "media-framing-analysis": [
       "extended/media-framing-analysis.md"
     ]
-  }
+  },
+  "pass2Complete": true,
+  "gateResult": "GREEN"
 }

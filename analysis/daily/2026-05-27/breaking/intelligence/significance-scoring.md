@@ -76,3 +76,8 @@ xychart-beta
 
 **Uzbekistan Partnership (5.5/10)**: Strategically important (Central Asia); lower score because bilateral partnership agreements are routine.
 
+
+## Scoring Methodology Note
+
+All significance scores use the EP10 baseline (EP term started July 2024). Scores compare the May 19-21
+plenary session output against the distribution of all EP10 plenary sessions to date.

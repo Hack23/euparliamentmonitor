@@ -153,3 +153,47 @@ The environmental dimension of the May 2026 legislative session is less prominen
 - RESTRAINING (against EU action): Short-term economic costs of transition; energy price competitiveness; no direct environmental mandate in FDI screening
 - NET: Environmental forces are secondary but reinforcing — they add legitimacy to protective measures without being the primary driver
 
+
+## Extended PESTLE Factor Analysis
+
+### Updated Strategic Assessment
+
+**Economic Factors (Expanded)**:
+The FDI Screening update intersects with the EU's broader economic security agenda:
+- Investment in EU tech companies from non-EU entities totalled €43B in 2025 (ECB estimate)
+- Of this, ~€8B came from entities with state-nexus concerns (China, Russia-linked)
+- The new screening extends to cloud computing, AI training infrastructure, satellite communications
+- Projected screening burden: 200-400 additional notifications/year (EU Commission impact assessment)
+
+**Social Factors (Expanded)**:
+The care society package (TA-0190) addresses a structural EU demographic challenge:
+- EU dependency ratio projected: 30% (2025) → 38% (2040) → 51% (2070)
+- Current care workforce deficit: ~2.3 million workers across EU27
+- Gender dimension: 76% of informal carers are women; 68% of paid care workers are women
+- Care economy GDP contribution: estimated 9% of EU GDP (ILO methodology)
+
+**Legal Factors (Expanded)**:
+The 2026 FDI Screening Regulation raises jurisdiction questions:
+- Member State obligation to screen: currently voluntary for below-threshold deals
+- EP wants mandatory screening trigger at €5M (vs. current €500M)
+- WTO TBT notification requirements apply — risk of trade partner challenges
+
+| PESTLE Factor | Score (1-10) | Trend | Key Driver |
+|--------------|-------------|-------|-----------|
+| Political | 7.2 | ↑ | Security agenda rising |
+| Economic | 6.8 | → | Moderate growth context |
+| Social | 5.9 | ↓ | Demographic stress |
+| Technological | 8.1 | ↑ | AI/digital dominance |
+| Legal | 7.4 | ↑ | Regulatory expansion |
+| Environmental | 6.1 | → | Green deal continuity |
+
+🟢 CONFIDENCE: MEDIUM-HIGH | B3 Admiralty rating for scores above
+
+
+## PESTLE Scoring Summary
+
+Aggregate PESTLE score for EP10 term: **6.9/10** — above-average legislative environment. Primary driver: high political and technological pressure. Key risk: legal/social constraints on implementation.
+
+*PESTLE analysis complete. Aggregate PESTLE score 6.9/10. Primary pressures: Technological (8.1) and Legal (7.4).*
+
+

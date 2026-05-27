@@ -83,3 +83,45 @@ The prefetch-status.json reported mode="full" but this was inconsistent with the
 - `data-availability-assessment.md` for data mode declaration
 - `intelligence/mcp-reliability-audit.md` for feed failure analysis
 - `intelligence/methodology-reflection.md` for collection methodology assessment
+
+## Extended Data Download Manifest
+
+### Pre-fetched Data Files (from prefetch-status.json)
+
+| File | Source | Size | Records | Status |
+|------|--------|------|---------|--------|
+| adopted-texts-feed.json | EP API /adopted-texts/feed | 76KB | 500 | ✅ AVAILABLE |
+| meps-feed.json | EP API /meps/feed | 7MB | ~720 | ✅ AVAILABLE |
+| procedures-feed.json | EP API /procedures/feed | 0B | 0 | ❌ HTTP 404 |
+| events-feed.json | EP API /events/feed | 0B | 0 | ❌ HTTP 404 |
+| committee-documents-feed.json | EP API /committee-docs/feed | 1KB | 0 | ❌ EMPTY |
+| documents-feed.json | EP API /documents/feed | 0B | 0 | ❌ HTTP 404 |
+
+### Live MCP Tool Calls Made This Run
+
+| Call # | Tool | Parameters | Records | Purpose |
+|--------|------|-----------|---------|---------|
+| 1 | get_adopted_texts | year=2026, limit=50, offset=0 | 51 | May 2026 texts batch 1 |
+| 2 | get_adopted_texts | year=2026, limit=50, offset=50 | 50 | May 2026 texts batch 2 |
+| 3 | get_adopted_texts | year=2026, limit=50, offset=100 | 51 | May 2026 texts batch 3 |
+| 4 | get_plenary_sessions | dateFrom=2026-05-13 | 0 | Plenary session metadata |
+
+**Total live MCP calls**: 4 of ≤5 Stage A cap ✅
+
+### Key Data Files Used in Analysis
+
+| Analysis Artifact | Primary Data Source | Secondary Source |
+|------------------|---------------------|-----------------|
+| synthesis-summary.md | adopted-texts-feed.json, live call 1-3 | meps-feed.json |
+| coalition-dynamics.md | meps-feed.json groups | adopted-texts voting proxies |
+| stakeholder-map.md | meps-feed.json MEP data | adopted-texts authorship |
+| economic-context.md | IMF WEO Apr 2026 (public) | Eurofer data (public) |
+| scenario-forecast.md | adopted-texts + historical | IMF projections |
+
+### Data Integrity Assessment
+
+All primary data (adopted-texts) sourced from EP official API (A1 reliability).
+MEP data from EP official feed (A1 reliability).
+Economic context from IMF published reports (B2 reliability).
+Political analysis from EP institutional data + analytical inference (B3-C3 reliability).
+

@@ -89,3 +89,71 @@ If Commission initiates Article XIX investigation following the resolution:
 - `threat-assessment/legislative-disruption.md` for disruption risks
 - `extended/forward-indicators.md` for monitoring implementation progress
 - `risk-scoring/risk-matrix.md` for implementation risk scores
+
+## Implementation Feasibility Analysis (Extended)
+
+### Feasibility Assessment Framework
+
+Using the PESTLE × Resource Matrix for each adopted text:
+
+**TA-0171 FDI Screening Implementation**
+| Dimension | Feasibility | Score |
+|-----------|-------------|-------|
+| Political | Council has approved; executive authority exists | HIGH (8/10) |
+| Economic | Commission has budget; compliance cost borne by investors | HIGH (7/10) |
+| Social | No significant opposition from civil society | HIGH (9/10) |
+| Technical | Notification system (SIF tool) already operational | HIGH (8/10) |
+| Legal | OJ publication pending; no known court challenges | HIGH (9/10) |
+| Environmental | N/A | N/A |
+| **Overall** | | **8.2/10 — FEASIBLE** |
+
+**TA-0190 Care Society Implementation**
+| Dimension | Feasibility | Score |
+|-----------|-------------|-------|
+| Political | Requires new Commission directive + Council approval | MEDIUM (5/10) |
+| Economic | €15-25B/year MS compliance cost — contested | MEDIUM (4/10) |
+| Social | Strong ETUC support; business opposition | MEDIUM (6/10) |
+| Technical | Monitoring/enforcement systems needed | MEDIUM (5/10) |
+| Legal | INI stage — no binding force yet | LOW (3/10) |
+| **Overall** | | **4.6/10 — CHALLENGING** |
+
+**TA-0186 Afghanistan Condemnation Implementation**
+| Dimension | Feasibility | Score |
+|-----------|-------------|-------|
+| Political | Non-binding; FAC must act independently | LOW (3/10) |
+| Economic | Sanctions would have modest economic impact | LOW (4/10) |
+| Social | Strong public support for women's rights | HIGH (8/10) |
+| Technical | Targeted sanctions regime already exists | HIGH (7/10) |
+| Legal | UNSC veto makes ICC referral infeasible | VERY LOW (1/10) |
+| **Overall** | | **4.6/10 — CHALLENGING (for UNSC referral)** |
+
+### Implementation Risk Summary
+
+| Resolution | Feasibility Score | Primary Risk | Mitigation |
+|-----------|-------------------|-------------|-----------|
+| FDI Screening | 8.2/10 ✅ | Circumvention via SPVs | Delegated act criteria |
+| Steel Safeguards | 7.5/10 ✅ | WTO challenge | DSB proceedings |
+| AI-Trade Strategy | 6.0/10 🔶 | India resistance | Technical annex separation |
+| Care Society | 4.6/10 🔶 | Council + fiscal | ESF+ programming |
+| Afghanistan (UNSC) | 2.5/10 ❌ | P5 veto | Bilateral sanctions fallback |
+
+🟢 CONFIDENCE: Feasibility scoring MEDIUM; based on public institutional capacity data
+
+## Implementation Monitoring Plan
+
+| Resolution | 3-month Milestone | 12-month Milestone | Success Criteria |
+|-----------|-----------------|------------------|----------------|
+| FDI Screening | OJ publication | First screening decision | Zero circumvention detected |
+| Steel Safeguards | Commission implement | WTO response | Safeguard maintained |
+| AI-Trade Strategy | Commission mandate | Chapter in negotiations | AI chapter included |
+| Care Society | Commission proposal | Council position | Directive tabled |
+| Afghanistan | FAC response | Sanctions decision | Any targeted sanctions |
+
+*Implementation feasibility monitoring recommended quarterly from Q3 2026.*
+
+🟢 CONFIDENCE: Implementation plan MEDIUM — based on institutional timelines and historical precedent
+
+*Implementation feasibility analysis complete. FDI Screening: HIGH (8.2/10); Afghanistan UNSC referral: VERY LOW (2.5/10).*
+
+
+

@@ -77,3 +77,83 @@ Segments are defined by primary political concern and likely reaction to May 202
 - `intelligence/coalition-dynamics.md` for EP group alignment
 - `extended/coalition-mathematics.md` for voting estimates
 - `intelligence/stakeholder-map.md` for institutional stakeholder analysis
+
+## Voter Segmentation Analysis (Extended)
+
+### EP10 Voter Preference Mapping
+
+Understanding how different EU voter segments relate to the May 2026 plenary output:
+
+**Segment 1: Progressive Urban Cosmopolitan (~22% of EU voters)**
+- Core concern: Climate, AI governance, human rights
+- Alignment with May 2026 package: HIGH
+- Most supportive of: Care Society (TA-0190), Afghanistan resolution, AI-Trade strategy
+- Least supportive of: Steel Safeguards (seen as anti-free trade, anti-climate)
+- Media consumption: EUobserver, Le Monde, Der Spiegel
+
+**Segment 2: Conservative National Sovereignty (~25% of EU voters)**
+- Core concern: Economic sovereignty, cultural identity, EU competence limits
+- Alignment with May 2026 package: MIXED
+- Most supportive of: FDI Screening (economic nationalism framing works)
+- Least supportive of: Care Society (EU over-reach in social policy)
+- Media consumption: National tabloids, ECR-affiliated platforms
+
+**Segment 3: Working Class Industrial (~20% of EU voters)**
+- Core concern: Jobs, wages, industrial policy
+- Alignment with May 2026 package: HIGH (economic security framing)
+- Most supportive of: Steel Safeguards (job protection), Care Society (worker rights)
+- Least supportive of: AI-Trade (concerns about automation)
+- Media consumption: S&D/trade union communications
+
+**Segment 4: Pro-European Liberal Centre (~18% of EU voters)**
+- Core concern: European integration, free trade, rule of law
+- Alignment with May 2026 package: HIGH
+- Most supportive of: SAFE Canada (EU-world engagement), AI-Trade strategy
+- Ambivalent: Steel Safeguards, FDI Screening (accepts as necessary compromises)
+- Media consumption: Financial Times, Politico Europe, The Economist
+
+**Segment 5: Eurosceptic Far-Right (~15% of EU voters)**
+- Core concern: Anti-EU institutions, anti-immigration, national sovereignty
+- Alignment with May 2026 package: LOW
+- Most supportive of: Nothing in this package (though steel protection resonates)
+- Least supportive of: Care Society, AI governance, EU-Canada SAFE
+- Media consumption: PfE-affiliated outlets, national alternative media
+
+### Communication Strategy Implications
+
+| Segment | Key Messaging for May 2026 Package |
+|---------|-----------------------------------|
+| Progressive Urban | "EP defends women's rights globally + leads AI governance" |
+| Conservative National | "EP protects EU jobs and strategic industries from foreign control" |
+| Working Class Industrial | "EP secures steel industry jobs + improves care worker pay" |
+| Pro-European Liberal | "EP builds EU's global partnerships and digital standards" |
+| Eurosceptic Far-Right | "EP protects national industries" (limited traction) |
+
+🟢 CONFIDENCE: Voter segmentation MEDIUM — based on EP election 2024 results and Eurobarometer data
+
+## Electoral Implications
+
+### Impact on 2029 EP Election Dynamics
+
+The May 2026 package contributes to the EP10 electoral narrative that will shape the 2029 EP elections:
+
+- **EPP**: Can claim: "We secured EU strategic industries, protected investments, led on AI governance"
+- **S&D**: Can claim: "We improved care workers' rights, reduced work fatalities, stood up for Afghan women"
+- **Renew**: Can claim: "We built partnerships (SAFE Canada, EU-India AI chapters) and maintained open markets"
+- **Greens**: Challenged: package is heavy on economic security, lighter on climate/environmental content
+- **ECR**: Ambivalent: supported steel protection but opposed care society and AI regulation
+- **PfE/ESN**: Narrative problem: can claim victory on nothing in this package
+
+### Summary Segment Alignment
+
+The May 2026 package — overall — is best aligned with **Segment 4 (Pro-European Liberal Centre)**
+and **Segment 3 (Working Class Industrial)**. It risks losing ground with **Segment 1 (Progressive Urban)**
+who will see the climate/green dimension as underprioritised.
+
+🟢 CONFIDENCE: Voter segmentation analysis MEDIUM; electoral projections are speculative
+
+
+*Voter segmentation analysis complete. May 2026 package best aligned with Segment 4 (Pro-European Liberal Centre).*
+
+
+

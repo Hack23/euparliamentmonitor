@@ -135,3 +135,28 @@ For obstructionist actors (Hungary):
 
 **What this means**: The EU is currently in a strong position to advance its economic security agenda because external threats (Russia, China, US uncertainty) are creating political will. But this political window may not last — if external pressures ease, the political will to implement costly regulatory changes may weaken.
 
+
+## Driving Forces
+
+The following forces are actively propelling the EP legislative agenda observed in the May 19-21 session:
+
+1. **Economic Security Doctrine**: Post-Ukraine (2022), post-COVID (2020-2023) consensus that EU must
+   reduce strategic dependencies. Drives: FDI Screening, AI-Trade strategy, SAFE agreements.
+2. **Demographic Pressure**: Ageing EU population creating fiscal and social policy urgency.
+   Drives: Care Society legislation, work fatalities reform.
+3. **Far-right Political Competition**: EPP and S&D feeling competitive pressure from PfE/ESN bloc,
+   motivating stronger positions on sovereignty and human rights (to differentiate from far-right).
+   Drives: Afghanistan condemnation escalation.
+
+## Restraining Forces
+
+Forces constraining or counterbalancing the EP agenda:
+
+1. **Council Unanimity Requirement**: Human rights resolutions that require Council action (sanctions)
+   face the unanimity veto — Hungary, Slovakia could block.
+2. **Trade Partner Retaliation Risk**: FDI Screening risks WTO challenge and bilateral trade retaliation.
+   Restrains: scope of screening, enforcement timelines.
+3. **Fiscal Conservatism**: Care Society and labour regulation impose compliance costs — business
+   lobbying and fiscal-hawk member states push back.
+4. **Procedural Capacity**: EP committee workload is at record high (see committee-activity data) —
+   limiting bandwidth for parallel negotiations.

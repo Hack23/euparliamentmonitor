@@ -154,3 +154,28 @@ Key information flows:
 
 **What this means**: The actors who will determine whether this legislation actually works are not the MEPs who voted for it, but the Commission officials who write the implementing rules, the member state bureaucrats who create screening authorities, and the Council diplomats who decide whether to follow through on the Afghanistan mandate.
 
+
+## Alliance Analysis
+
+### Key Political Alliances Active in May 2026 Plenary
+
+**Pro-Strategic-Autonomy Alliance**:
+- Core: EPP + S&D + Renew Europe
+- Consistent across: FDI Screening, AI-Trade, SAFE Canada
+- Seat count: ~460/720 (64%) — workable supermajority on foreign economic policy
+
+**Industrial Protection Alliance**:
+- Core: EPP + ECR (partial) + S&D
+- Consistent across: Steel Safeguards
+- Seat count: variable ~380-420 depending on abstentions
+
+**Human Rights Consensus**:
+- Broad: EPP + S&D + Renew + Greens + ECR (partial) + Left
+- Consistent across: Afghanistan, Iran resolutions
+- Seat count: 550+ — near-consensual
+- Exclusion: PfE/ESN typically abstain or vote against
+
+**Sovereignist Dissent Bloc**:
+- Core: PfE + ESN (combined ~105 seats)
+- Consistent opposition: FDI Screening, AI regulation, Care Society
+- Cannot block majorities but shapes political narrative
