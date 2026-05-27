@@ -140,7 +140,11 @@ function contentMatchesLocaleScript(text: string, lang: LanguageCode): boolean {
  * @param _runId - Manifest run identifier (ignored)
  * @returns The unchanged input title
  */
-export function appendRunNumberSuffix(seoTitle: string, _lang: LanguageCode, _runId: string): string {
+export function appendRunNumberSuffix(
+  seoTitle: string,
+  _lang: LanguageCode,
+  _runId: string
+): string {
   // Run numbers must never appear in user-facing article titles.
   // Titles should always be readable article headlines without
   // workflow identifiers. This function is preserved as a no-op

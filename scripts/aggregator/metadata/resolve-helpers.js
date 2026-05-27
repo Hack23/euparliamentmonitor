@@ -212,9 +212,7 @@ export function buildEditionQualifier(lang, runNum, maxChars) {
     const enFallback = EDITION_QUALIFIER_BY_LANG['en'] ?? 'Edition';
     const prefix = EDITION_QUALIFIER_BY_LANG[lang] ?? enFallback;
     const cjkSuffix = CJK_EDITION_SUFFIX[lang];
-    const full = cjkSuffix
-        ? `${prefix}${runNum}${cjkSuffix}`
-        : `${prefix} ${runNum}`;
+    const full = cjkSuffix ? `${prefix}${runNum}${cjkSuffix}` : `${prefix} ${runNum}`;
     // Budget-aware fallback: if the qualifier is too long (e.g. Hebrew at 55 chars)
     // use the compact universal publishing issue-number form
     if ([...full].length > maxChars) {

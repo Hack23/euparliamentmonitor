@@ -25,7 +25,11 @@ const SEO_TITLE_FLOOR = 20;
 
 export function hasLeakySeoToken(value: string): boolean {
   if (!value) return false;
-  return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value) || RUN_NUMBER_RE.test(value);
+  return (
+    value.toLowerCase().includes('analysis run') ||
+    LEAKY_RUNID_RE.test(value) ||
+    RUN_NUMBER_RE.test(value)
+  );
 }
 
 /**

@@ -21,7 +21,9 @@ const SEO_TITLE_FLOOR = 20;
 export function hasLeakySeoToken(value) {
     if (!value)
         return false;
-    return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value) || RUN_NUMBER_RE.test(value);
+    return (value.toLowerCase().includes('analysis run') ||
+        LEAKY_RUNID_RE.test(value) ||
+        RUN_NUMBER_RE.test(value));
 }
 /**
  * Word-level strip of leaky workflow tokens from a single line of text.
