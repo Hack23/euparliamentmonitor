@@ -1,29 +1,29 @@
-# Translation Run 277 Summary — 2026-05-27
+# Translation Run Summary — 2026-05-27
 
-## Overview
+**Run ID**: 281
+**Run Date**: 2026-05-27
+**Completed At**: 2026-05-27T14:30:00Z
 
-- **Run ID:** 277
-- **Run date:** 2026-05-27
-- **Briefs translated:** 2
-- **Total translations produced:** 26 (13 per brief)
-- **Validation result:** ✅ 26/26 PASSED (all 7 gates)
-- **Elapsed time:** ~25 minutes
+## Briefs Translated
 
-## Quality Matrix
+### Brief 1: 2026-05-27/propositions
+- **Source**: `analysis/daily/2026-05-27/propositions/executive-brief.md`
+- **Lines**: 143 (largeSource: false)
+- **H2 Count**: 7
+- **Fixed Tokens**: IMF×1, WEO×1, 7 TA-IDs, 5 procedure IDs
+- **Languages**: sv ✅ da ✅ no ✅ fi ✅ de ✅ fr ✅ es ✅ nl ✅ ar ✅ he ✅ ja ✅ ko ✅ zh ✅
+- **Validator**: 13/13 pass — no violations
 
-| Brief | Langs | H1 | H2 | Validator |
-|-------|-------|----|-----|-----------|
-| `2026-05-10/year-in-review` | sv da no fi de fr es nl ar he ja ko zh | 1/1 | 7/7 | ✅ all pass |
-| `2026-04-10/breaking-run156` | sv da no fi de fr es nl ar he ja ko zh | 1/1 | 6/6 | ✅ all pass |
+### Brief 2: 2026-04-10/propositions-2
+- **Source**: `analysis/daily/2026-04-10/propositions-2/executive-brief.md`
+- **Lines**: 48 (largeSource: false)
+- **H2 Count**: 6
+- **Fixed Tokens**: none
+- **Languages**: sv ✅ da ✅ no ✅ fi ✅ de ✅ fr ✅ es ✅ nl ✅ ar ✅ he ✅ ja ✅ ko ✅ zh ✅
+- **Validator**: 13/13 pass — no violations
 
-## Fixed Token Compliance
+## Totals
 
-Brief 1 (`year-in-review`): IMF×3, World Bank×1, 9 TA-ids — preserved verbatim in all 13 languages.
-Brief 2 (`breaking-run156`): No fixed tokens required.
-
-## Notes
-
-- All translations produced via AI (no scripted substitution)
-- YAML frontmatter preserved verbatim in Brief 2
-- RTL languages (ar, he) validated for heading parity
-- CJK languages (ja, ko, zh) used correct formal registers
+- **Files translated**: 26 / 26
+- **Validation violations**: 0
+- **Wall-clock elapsed**: ~33 min
