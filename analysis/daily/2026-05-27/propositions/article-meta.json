@@ -1,0 +1,47 @@
+{
+  "date": "2026-05-27",
+  "articleType": "propositions",
+  "runId": "propositions-run262-1779864156",
+  "gateResult": "PENDING",
+  "slug": "2026-05-27-propositions",
+  "articlePath": "analysis/daily/2026-05-27/propositions/article.md",
+  "topFinding": "🟢 HIGH CONFIDENCE (WEP: 90–95%) — The European Parliament's May 2026 plenary session delivered a landmark cluster of legislative completions and strategic resolutions, with the adoption of AI strategy for EU trade (2025/2112(INI), TA-10-2026-0183) as the week's signature political statement.",
+  "keyTakeaways": [
+    "2023/0228(COD) SIGNED: Forest seed regulation — binding, novel climate-adaptation mechanism",
+    "2023/0447(COD) ADOPTED: Pet welfare — binding consumer/animal welfare regulation with 2028 DB deadline",
+    "TA-10-2026-0174: EU-Uzbekistan EPA — strategic partnership with Central Asia; not legally binding pending Council ratification",
+    "TA-10-2026-0177: EU-Lebanon Eurojust — judicial cooperation enhancement",
+    "TA-10-2026-0178, 0179: Fisheries agreements (São Tomé + Cook Islands) — routine partnership protocol renewals",
+    "2025/2112(INI): AI trade strategy — non-binding but high political weight; Commission mandate",
+    "Calls on the Commission to integrate AI into the **EU Digital Trade Strategy**, expected Q3 2026"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "US USTR de-escalates on EU AI Act extraterritoriality concerns post-November 2026 US midterms",
+    "TTC June 2026 joint communiqué includes AI governance language",
+    "INTA committee requests formal Commission response (Article 225 TFEU) by October 2026",
+    "New US Administration (post-November 2026 midterms) takes hard line against EU digital regulation"
+  ],
+  "keyActors": [
+    "**AI Trade Alliance**: EP INTA + Commission DG TRADE + EU AI Industry (DigitalEurope) + Japan/Korea diplomatic interests",
+    "**Environmental Alliance**: EP ENVI + AGRI + Nordic/Alpine Member States + IUFRO scientific community",
+    "**Pet Welfare Alliance**: EP ENVI + Animal Welfare NGOs + 95%+ citizen mandate + legal certified breeder associations",
+    "**DMA Enforcement Alliance**: EP IMCO/JURI + Commission DG COMP + SME associations + consumer protection NGOs",
+    "EP Open Data Portal: Adopted texts, procedure tracking — 🟢 available (partial)",
+    "DOCEO XML roll-call data: MEP-level voting — 🔴 unavailable (2–4 week lag)",
+    "Commission consultation documents: Q3 2026 Digital Trade Strategy — 🔴 not yet published",
+    "Member State implementation plans: Forest seed + pet welfare — 🔴 not yet published"
+  ],
+  "macroContext": "Quality of Information Check (SAT): IMF WEO April 2026 provides aggregate EU data.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

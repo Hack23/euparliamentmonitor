@@ -1,0 +1,48 @@
+{
+  "date": "2026-05-27",
+  "articleType": "motions",
+  "runId": "motions-run276-1779868581",
+  "gateResult": "pending",
+  "slug": "2026-05-27-motions",
+  "articlePath": "analysis/daily/2026-05-27/motions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "`intelligence/stakeholder-map.md` — MEP profiles for INTA, AFET, SEDE rapporteurs",
+    "`intelligence/pestle-analysis.md` — Geopolitical context for AI trade and defence motions",
+    "`intelligence/scenario-forecast.md` — Commission follow-up scenarios on AI-trade mandate",
+    "`intelligence/threat-model.md` — Risks from AI/trade tensions with US and China",
+    "`existing/deep-analysis.md` — Full per-motion legislative analysis",
+    "`risk-scoring/risk-matrix.md` — Political risk assessment for key motions",
+    "**June 2026:** Commission Work Programme update — does it include AI Trade Strategy Communication?"
+  ],
+  "topRisks": [
+    "**Threat actor:** US USTR or WTO member filing",
+    "**Attack vector:** WTO TBT Article 2.2 complaint against EU AI Act extraterritorial scope",
+    "**Impact category:** Legal/regulatory — would halt Commission AI trade strategy implementation",
+    "**Probability over 24 months:** 18–25%",
+    "**Consequence if triggered:** Commission implementation on hold 12–36 months; potential WTO-mandated revision of AI Act provisions",
+    "**Current countermeasures:** TTC (EU-US Trade and Technology Council) engagement; DG Trade WTO proofing of AI trade provisions",
+    "**Threat actor:** Uzbek government non-compliance",
+    "**Attack vector:** Formal non-compliance with named benchmarks; structural inability to enforce EPCA conditionality"
+  ],
+  "keyDates": [
+    "Commission legislative planning for AI trade (June 2026 Commission Work Programme update)"
+  ],
+  "keyActors": [
+    "**Bernd Lange** (S&D, Germany) — Veteran INTA chair; known for insisting on workers' rights in trade agreements. Likely played key role in AI-trade provisions on labour displacement.",
+    "**Markus Ferber** (EPP, Germany) — EPP financial markets/tech specialist; member of ECON with INTA crossover interest.",
+    "**Svenja Hahn** (Renew, Germany) — Digital policy specialist; has been active on AI governance.",
+    "**Nathalie Loiseau** (Renew, France) — Former SEDE chair; champion of EU defence industrial strategy; likely instrumental in fast-tracking Canada SAFE.",
+    "**Michael Gahler** (EPP, Germany) — Long-standing AFET member; known for strong Ukraine/NATO positions."
+  ],
+  "macroContext": "---",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

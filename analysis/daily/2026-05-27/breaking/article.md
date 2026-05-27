@@ -5094,6 +5094,834 @@ All mandatory artifacts written. Pass 1 complete. Pass 2 deepening applied to 12
 - **Coverage gaps**: Committee deliberations, individual voting records, debate transcripts unavailable due to feed failures
 - **Analytical floor**: All artifacts will be written to 80% of standard thresholds given `degraded-feeds` mode
 
+### Executive Brief Ar
+
+**التصنيف**: غير سري / تحليل استخباراتي عام
+**التاريخ**: 2026-05-27 | **معرّف التشغيل**: breaking-run266-1779846371
+**درجة الأدميرالية**: B2 — مصدر موثوق، مؤكد من سجلات البرلمان الأوروبي الرسمية
+**نطاق WEP**: 80–95% ثقة في الادعاءات الواقعية المتعلقة بالنصوص المعتمدة؛ 55–70% في التوقعات المستقبلية
+
+---
+
+### HEADLINE
+
+**البرلمان الأوروبي يعتمد لائحة تاريخية لفحص الاستثمارات الأجنبية ويدين تجريم طالبان لتعليم المرأة — الاستقلالية الاستراتيجية وحقوق الإنسان تهيمنان على الأسبوع**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **فحص الاستثمارات الأجنبية (TA-10-2026-0171، 19 مايو)** — اعتمد البرلمان الأوروبي لائحة جديدة تشدّد فحص الاستثمارات الأجنبية المباشرة من خارج الاتحاد الأوروبي في جميع الدول الأعضاء. يمثّل ذلك تحولاً نوعياً في بنية الأمن الاقتصادي للاتحاد الأوروبي، بما يتوافق مع أنظمة FDI المعمول بها لدى شركاء حلف الناتو. *WEP: ثقة عالية (85%)* بأن هذا سيواجه تحديات تنفيذية في الدول الأعضاء الأصغر ذات القدرة المحدودة على الفحص.
+
+2. **قانون الإجراءات الجنائية لطالبان: قرار حقوق المرأة (TA-10-2026-0186، 21 مايو)** — اعتمد البرلمان قراراً عاجلاً يدين قانون الإجراءات الجنائية لطالبان الذي يُجرّم فعلياً حصول الفتيات على التعليم ما بعد المرحلة الابتدائية ويحظر على النساء الوصول إلى معظم الأماكن العامة. *WEP: شبه مؤكد (95%)* بأن ذلك سيعزز الدعوات الأوروبية لفرض عقوبات مستهدفة على قيادة طالبان.
+
+3. **استراتيجية الذكاء الاصطناعي للتجارة الأوروبية (TA-10-2026-0183، 20 مايو)** — اعتمد البرلمان قراراً غير ملزم يضع الذكاء الاصطناعي باعتباره أداة استراتيجية لتعزيز تنافسية التجارة الأوروبية. يدعو النص إلى معايير متناسقة للذكاء الاصطناعي في الاتفاقيات التجارية وتدابير مضادة للإغراق التجاري الممكّن بالذكاء الاصطناعي. *WEP: ثقة معتدلة (60%)* بأن ذلك سيُدرج في المفاوضات التجارية الجارية بين الاتحاد الأوروبي والولايات المتحدة وآسيا.
+
+4. **أداة SAFE بين الاتحاد الأوروبي وكندا (TA-10-2026-0180، 20 مايو)** — منح البرلمان الأوروبي موافقته على اتفاقية المشتريات الدفاعية مع كندا في إطار أداة SAFE. يُعدّ هذا أول اتفاق ثنائي مع دولة ثالثة في إطار SAFE، مما يضع سابقة لمزيد من التكامل في أسواق الدفاع بين الحلفاء. *WEP: ثقة عالية (80%)* بأن أستراليا واليابان ستبرمان اتفاقيات مماثلة في غضون 12 شهراً.
+
+5. **حماية سوق الصلب (TA-10-2026-0170، 19 مايو)** — طالب البرلمان باتخاذ تدابير وقائية عاجلة ضد فائض الطاقة الإنتاجية للصلب من خارج الاتحاد الأوروبي، لا سيما من الصين، مستنداً إلى انخفاض بنسبة 23% في أسعار المرجعية للصلب الأوروبي خلال 2025–26. يهدد ذلك ما يُقدَّر بـ 80.000 عامل أوروبي في قطاع الصلب.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+شهد الأسبوع الممتد من 19 إلى 21 مايو 2026 تحرك البرلمان الأوروبي على ثلاثة محاور استراتيجية متشابكة: **الأمن الاقتصادي** (فحص الاستثمارات الأجنبية)، **التكامل الدفاعي** (أداة SAFE بين الاتحاد الأوروبي وكندا)، و**تنافسية التجارة الرقمية** (استراتيجية الذكاء الاصطناعي). تعكس هذه الإجراءات مجتمعةً توافقاً متنامياً في أوساط EPP وS&D وRenew على أن الاتحاد الأوروبي يجب أن يُجسّد الاستقلالية الاستراتيجية عملياً لا أن يكتفي بالإعلان عنها. وتؤكد قرار حقوق المرأة في أفغانستان استمرار نشاط البرلمان الأوروبي في مجال حقوق الإنسان، وإن كان أثره العملي رهيناً بإجراءات المتابعة من جانب المجلس.
+
+---
+
+### Significance Assessment
+
+| الأولوية | القضية | التوافق السياسي | الأفق الزمني |
+|----------|-------|--------------------|-|
+| 🔴 بالغ الأهمية | فحص الاستثمارات الأجنبية | تحالف واسع (EPP+S&D+Renew+ECR) | فوري (الربع الثالث 2026) |
+| 🔴 بالغ الأهمية | قرار أفغانستان/طالبان | تحالف واسع (EPP+S&D+Renew+Greens) | قصير المدى (3–6 أشهر) |
+| 🟡 مرتفع | أداة SAFE بين الاتحاد الأوروبي وكندا | أغلبية مؤيدة للدفاع | متوسط المدى (6–12 شهراً) |
+| 🟡 مرتفع | استراتيجية الذكاء الاصطناعي/التجارة | أغلبية وسطية | متوسط المدى (6–18 شهراً) |
+| 🟡 مرتفع | تدابير مكافحة فائض طاقة الصلب | تحالف واسع عابر للكتل | قصير المدى (3–6 أشهر) |
+| 🟢 معتدل | شراكة الاتحاد الأوروبي وأوزبكستان | EPP+S&D+Renew | طويل المدى (2–5 سنوات) |
+
+---
+
+### Political Context
+
+تنعقد جلسة مايو 2026 العامة في ظل بيئة أمنية أوروبية يحكمها:
+- النزاع المستمر في أوكرانيا (في عامه الخامس إثر الغزو الروسي عام 2022)
+- التوترات التجارية عبر الأطلسي في ظل سياسة "أمريكا أولاً" للإدارة الأمريكية
+- تصاعد القلق من الإكراه الاقتصادي الصيني والاستثمار الأجنبي المباشر في القطاعات الحساسة
+- تسارع التكامل الدفاعي الأوروبي عبر SAFE وEDIP وReARM Europe
+
+تعكس الإنتاجية التشريعية للبرلمان الأوروبي في هذه الدورة قدرة الأغلبية بقيادة EPP على بناء أغلبيات موسّعة في القضايا الأمنية الاقتصادية، مع الحفاظ على التحالفات التقدمية في مجال حقوق الإنسان. تبقى خطوط الانقسام في قضايا الهجرة (الكتلة اليمينية مقابل الكتلة التقدمية)، ووتيرة تطبيق التنظيم الرقمي، وكفاية الإنفاق الدفاعي.
+
+---
+
+### Sources
+
+- بوابة البيانات المفتوحة للبرلمان الأوروبي: `get_adopted_texts(year=2026)` — درجة الأدميرالية B2
+- تغذية بيانات أعضاء البرلمان: 484 عضواً حالياً بانتماءاتهم الجماعية — الدرجة B2
+- تاريخ إنتاج التحليل: 2026-05-27T01:50:00Z
+- التحقق من الافتراضات الرئيسية: يفترض هذا الموجز أن سجلات النصوص المعتمدة للبرلمان الأوروبي دقيقة وكاملة للفترة من 19 إلى 21 مايو 2026. المصدر الرئيسي لعدم اليقين: هوامش التصويت ومواقف الأعضاء الفردية غير متاحة نظراً لتأخر نشر DOCEO.
+- التحقق من جودة المعلومات: 4 من أصل 6 روابط API للبرلمان الأوروبي غير متاحة؛ الاستنتاجات التحليلية مستمدة من سجلات النصوص المعتمدة فحسب. لا تتوفر بيانات التصويت الفردي لهذه الدورة.
+
+### Executive Brief Da
+
+### HEADLINE
+
+**Europa-Parlamentet vedtager banebrydende forordning om screening af udenlandske investeringer og fordømmer Talibans kriminalisering af kvinders uddannelse — Strategisk autonomi og menneskerettigheder dominerer ugen**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **Screening af udenlandske investeringer (TA-10-2026-0171, 19. maj)** — Europa-Parlamentet har vedtaget en ny forordning, der stramme screeningen af ikke-EU udenlandske direkte investeringer i alle medlemsstater. Dette repræsenterer et paradigmeskift i EU's arkitektur for økonomisk sikkerhed og bringer den i overensstemmelse med NATO-partnernes FDI-regimer. *WEP: HØJ KONFIDENS (85%)* for, at dette vil møde implementeringsudfordringer i mindre medlemsstater med begrænset screeningskapacitet.
+
+2. **Talibans strafferetslige procedurelov: Resolution om kvinders rettigheder (TA-10-2026-0186, 21. maj)** — Parlamentet vedtog en hastende resolution, der fordømmer Talibans strafferetslige procedurelov, som i praksis kriminaliserer pigers adgang til uddannelse ud over grundskolen og forbyder kvinder adgang til de fleste offentlige rum. *WEP: NÆSTEN SIKKERT (95%)* for, at dette vil forstærke EU's krav om målrettede sanktioner mod Talibans lederskab.
+
+3. **AI-strategi for EU's handel (TA-10-2026-0183, 20. maj)** — Parlamentet vedtog en ikke-bindende resolution, der positionerer AI som et strategisk redskab for EU's handelskonkurrenceevne. Teksten opfordrer til harmoniserede AI-standarder i handelsaftaler og modforanstaltninger mod AI-muliggjort dumping. *WEP: MODERAT KONFIDENS (60%)* for, at dette vil blive indarbejdet i de igangværende EU–USA og EU–Asien handelsforhandlinger.
+
+4. **EU–Canada SAFE-instrumentet (TA-10-2026-0180, 20. maj)** — EP's samtykke blev givet til forsvarsindkøbsaftalen med Canada under SAFE-instrumentets ramme. Dette er det første bilaterale tredjelandsaftale under SAFE og skaber præcedens for yderligere integration af allierede forsvarsmarkeder. *WEP: HØJ KONFIDENS (80%)* for, at Australien og Japan vil indgå lignende aftaler inden for 12 måneder.
+
+5. **Beskyttelse af stålmarkedet (TA-10-2026-0170, 19. maj)** — Parlamentet opfordrede til hasteforanstaltninger mod ikke-EU ståloverkapacitet, særligt fra Kina, og henviste til et prisfald på 23% i EU's stålreferenceindeks i 2025–26. Dette truer anslåede 80.000 europæiske stålarbejdere.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+Ugen fra 19.–21. maj 2026 så Europa-Parlamentet agere på tre strategisk sammenkoblede fronter: **økonomisk sikkerhed** (screening af udenlandske investeringer), **forsvarsintegration** (EU–Canada SAFE-instrumentet) og **digital handelskonkurrenceevne** (AI-strategi). Disse skridt afspejler tilsammen en konsoliderende konsensus på tværs af EPP, S&D og Renew om, at EU må operationalisere strategisk autonomi frem for blot at proklamere den. Resolutionen om Talibans krænkelse af kvinders rettigheder understreger fortsat EP-aktivisme på menneskerettighedsområdet, om end dens operative virkning afhænger af Rådets opfølgning.
+
+---
+
+### Significance Assessment
+
+| Prioritet | Emne | Politisk tilpasning | Tidshorisont |
+|----------|-------|--------------------|-|
+| 🔴 KRITISK | Screening af udenlandske investeringer | Bred koalition (EPP+S&D+Renew+ECR) | Umiddelbar (Q3 2026) |
+| 🔴 KRITISK | Afghanistan/Taliban-resolution | Bred koalition (EPP+S&D+Renew+Greens) | Kortsigtet (3–6 måneder) |
+| 🟡 HØJ | EU–Canada SAFE-instrumentet | Forsvarspositiv flertal | Mellemlang sigt (6–12 måneder) |
+| 🟡 HØJ | AI/Handelsstrategi | Centerflertal | Mellemlang sigt (6–18 måneder) |
+| 🟡 HØJ | Foranstaltninger mod ståloverkapacitet | Bredt tværgruppesamarbejde | Kortsigtet (3–6 måneder) |
+| 🟢 MODERAT | EU–Usbekistan-partnerskab | EPP+S&D+Renew | Langsigtet (2–5 år) |
+
+---
+
+### Political Context
+
+Plenarsamlingen i maj 2026 finder sted i et europæisk sikkerhedsmiljø præget af:
+- Den igangværende Ukraine-konflikt (nu i sit femte år efter Ruslands invasion i 2022)
+- Transatlantiske handelsspændinger under den amerikanske administrations America-First-politik
+- Voksende bekymring over kinesisk økonomisk tvang og FDI i følsomme sektorer
+- Accelererende EU-forsvarsintegration via SAFE, EDIP og ReARM Europe
+
+EP's lovgivningsmæssige produktivitet i denne session afspejler EPP-ledede flertals evne til at opbygge superflertals i spørgsmål om økonomisk sikkerhed, mens progressive koalitioner opretholdes på menneskerettighedsområdet. Brudlinjerne forbliver i indvandringsspørgsmålet (højreblokken kontra den progressive blok), tempoet i håndhævelsen af digital regulering og tilstrækkeligheden af forsvarsudgifterne.
+
+---
+
+### Sources
+
+- EP Open Data Portal: `get_adopted_texts(year=2026)` — Admiralitetsgrad B2
+- EP MEP-feed: 484 nuværende MEP'er med grupptilhørsforhold — Grad B2
+- Analyse genereret: 2026-05-27T01:50:00Z
+- Kontrol af nøgleantagelser: Denne underretning forudsætter, at EP's registre over vedtagne tekster er nøjagtige og fuldstændige for perioden 19.–21. maj 2026. Primær usikkerhed: stemmeandele og individuelle MEP-positioner ikke tilgængelige på grund af forsinkelse i DOCEO-publicering.
+- Kontrol af informationskvalitet: 4 af 6 EP API-feeds utilgængelige; analytiske konklusioner udelukkende baseret på registre over vedtagne tekster. Ingen individuelle afstemningsdata tilgængelige for denne session.
+
+### Executive Brief De
+
+### HEADLINE
+
+**Das Europäische Parlament verabschiedet wegweisende Verordnung zur Überprüfung ausländischer Investitionen und verurteilt die Kriminalisierung der Frauenbildung durch die Taliban — Strategische Autonomie und Menschenrechte prägen die Woche**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **Überprüfung ausländischer Investitionen (TA-10-2026-0171, 19. Mai)** — Das Europäische Parlament hat eine neue Verordnung verabschiedet, die die Überprüfung ausländischer Direktinvestitionen aus Nicht-EU-Staaten in allen Mitgliedstaaten verschärft. Dies stellt einen Paradigmenwechsel in der EU-Architektur für wirtschaftliche Sicherheit dar und bringt diese mit den FDI-Regimen der NATO-Partner in Einklang. *WEP: HOHES KONFIDENZNIVEAU (85%)*, dass dies in kleineren Mitgliedstaaten mit begrenzter Prüfungskapazität auf Umsetzungsprobleme stoßen wird.
+
+2. **Taliban-Strafprozessordnung: Resolution zu Frauenrechten (TA-10-2026-0186, 21. Mai)** — Das Parlament verabschiedete eine dringende Resolution, die die Taliban-Strafprozessordnung verurteilt, die den Mädchen den Zugang zu Bildung über die Grundschule hinaus faktisch kriminalisiert und Frauen von den meisten öffentlichen Räumen ausschließt. *WEP: NAHEZU SICHER (95%)*, dass dies die EU-Forderungen nach gezielten Sanktionen gegen die Taliban-Führung verstärken wird.
+
+3. **KI-Strategie für den EU-Handel (TA-10-2026-0183, 20. Mai)** — Das Parlament verabschiedete eine unverbindliche Entschließung, die KI als strategisches Werkzeug für die Handelswettbewerbsfähigkeit der EU positioniert. Der Text fordert harmonisierte KI-Standards in Handelsabkommen sowie Gegenmaßnahmen gegen KI-gestütztes Dumping. *WEP: MODERATES KONFIDENZNIVEAU (60%)*, dass dies in laufende EU–USA und EU–Asien Handelsverhandlungen einfließen wird.
+
+4. **EU–Kanada SAFE-Instrument (TA-10-2026-0180, 20. Mai)** — Das EP stimmte dem Rüstungsbeschaffungsabkommen mit Kanada im Rahmen des SAFE-Instruments zu. Dies ist das erste bilaterale Drittstaatenabkommen unter SAFE und schafft einen Präzedenzfall für die weitere Integration der Verteidigungsmärkte der Verbündeten. *WEP: HOHES KONFIDENZNIVEAU (80%)*, dass Australien und Japan innerhalb von 12 Monaten ähnliche Abkommen abschließen werden.
+
+5. **Schutz des Stahlmarktes (TA-10-2026-0170, 19. Mai)** — Das Parlament forderte dringende Schutzmaßnahmen gegen Stahlüberkapazitäten aus Nicht-EU-Staaten, insbesondere aus China, unter Berufung auf einen Preisrückgang von 23% bei den EU-Stahlreferenzwerten in 2025–26. Dies bedroht schätzungsweise 80.000 europäische Stahlarbeiter.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+In der Woche vom 19.–21. Mai 2026 handelte das Europäische Parlament auf drei strategisch miteinander verknüpften Ebenen: **wirtschaftliche Sicherheit** (Überprüfung ausländischer Investitionen), **Verteidigungsintegration** (EU–Kanada SAFE-Instrument) und **digitale Handelswettbewerbsfähigkeit** (KI-Strategie). Diese Schritte spiegeln insgesamt einen konsolidierenden Konsens in EPP, S&D und Renew wider, dass die EU strategische Autonomie operationalisieren und nicht nur proklamieren muss. Die Resolution zu den Frauenrechten der Taliban unterstreicht den anhaltenden Aktivismus des EP im Bereich der Menschenrechte, obwohl ihre operative Wirkung von der Nachverfolgung durch den Rat abhängt.
+
+---
+
+### Significance Assessment
+
+| Priorität | Thema | Politische Ausrichtung | Zeithorizont |
+|----------|-------|--------------------|-|
+| 🔴 KRITISCH | Überprüfung ausländischer Investitionen | Breite Koalition (EPP+S&D+Renew+ECR) | Sofortig (Q3 2026) |
+| 🔴 KRITISCH | Afghanistan/Taliban-Resolution | Breite Koalition (EPP+S&D+Renew+Greens) | Kurzfristig (3–6 Monate) |
+| 🟡 HOCH | EU–Kanada SAFE-Instrument | Verteidigungsfreundliche Mehrheit | Mittelfristig (6–12 Monate) |
+| 🟡 HOCH | KI/Handelsstrategie | Zentrumsmehrheit | Mittelfristig (6–18 Monate) |
+| 🟡 HOCH | Maßnahmen gegen Stahlüberkapazitäten | Breite fraktionsübergreifende Koalition | Kurzfristig (3–6 Monate) |
+| 🟢 MODERAT | EU–Usbekistan-Partnerschaft | EPP+S&D+Renew | Langfristig (2–5 Jahre) |
+
+---
+
+### Political Context
+
+Die Plenartagung im Mai 2026 findet in einem europäischen Sicherheitsumfeld statt, das geprägt ist von:
+- Dem andauernden Ukraine-Konflikt (nun im fünften Jahr nach der russischen Invasion 2022)
+- Transatlantischen Handelsspannungen unter der America-First-Politik der US-Regierung
+- Wachsender Besorgnis über chinesischen wirtschaftlichen Zwang und FDI in sensiblen Sektoren
+- Beschleunigter EU-Verteidigungsintegration durch SAFE, EDIP und ReARM Europe
+
+Die Gesetzgebungsproduktivität des EP in dieser Sitzung spiegelt die Fähigkeit der EPP-geführten Mehrheit wider, in Fragen der wirtschaftlichen Sicherheit Supermehrheiten aufzubauen, während progressive Koalitionen bei den Menschenrechten erhalten bleiben. Die Bruchlinien bleiben in der Einwanderungsfrage (Rechtsblock vs. Progressiver Block), dem Tempo der Durchsetzung der digitalen Regulierung und der Angemessenheit der Verteidigungsausgaben bestehen.
+
+---
+
+### Sources
+
+- EP Open Data Portal: `get_adopted_texts(year=2026)` — Admiralitätsgrad B2
+- EP MEP-Feed: 484 aktuelle Abgeordnete mit Fraktionszugehörigkeiten — Grad B2
+- Analyse erstellt: 2026-05-27T01:50:00Z
+- Überprüfung der Kernannahmen: Diese Analyse setzt voraus, dass die EP-Aufzeichnungen zu angenommenen Texten für den Zeitraum 19.–21. Mai 2026 korrekt und vollständig sind. Hauptunsicherheit: Abstimmungsmargen und individuelle Positionen der Abgeordneten nicht verfügbar aufgrund von Verzögerungen bei der DOCEO-Veröffentlichung.
+- Überprüfung der Informationsqualität: 4 von 6 EP-API-Feeds nicht verfügbar; analytische Schlussfolgerungen ausschließlich auf Basis von Aufzeichnungen angenommener Texte gezogen. Keine individuellen namentlichen Abstimmungsdaten für diese Sitzung verfügbar.
+
+### Executive Brief Es
+
+### HEADLINE
+
+**El Parlamento Europeo adopta un reglamento histórico sobre el control de inversiones extranjeras y condena la criminalización de la educación de las mujeres por los talibanes — La autonomía estratégica y los derechos humanos dominan la semana**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **Control de inversiones extranjeras (TA-10-2026-0171, 19 de mayo)** — El Parlamento Europeo ha adoptado un nuevo reglamento que refuerza el control de las inversiones extranjeras directas de fuera de la UE en todos los Estados miembros. Esto representa un cambio de paradigma en la arquitectura de seguridad económica de la UE, alineándola con los regímenes de IED de los socios de la OTAN. *WEP: ALTA CONFIANZA (85%)* en que esto enfrentará dificultades de implementación en los Estados miembros más pequeños con capacidad de control limitada.
+
+2. **Código de procedimiento penal talibán: resolución sobre los derechos de las mujeres (TA-10-2026-0186, 21 de mayo)** — El Parlamento adoptó una resolución urgente que condena el código de procedimiento penal talibán que criminaliza efectivamente el acceso de las niñas a la educación más allá de la primaria y prohíbe a las mujeres el acceso a la mayoría de los espacios públicos. *WEP: CASI SEGURO (95%)* en que esto ampliará los llamamientos de la UE a sanciones específicas contra el liderazgo talibán.
+
+3. **Estrategia de IA para el comercio de la UE (TA-10-2026-0183, 20 de mayo)** — El Parlamento adoptó una resolución no vinculante que posiciona la IA como herramienta estratégica para la competitividad comercial de la UE. El texto aboga por normas de IA armonizadas en los acuerdos comerciales y contramedidas contra el dumping facilitado por la IA. *WEP: CONFIANZA MODERADA (60%)* en que esto se incorporará a las negociaciones comerciales UE–EE.UU. y UE–Asia en curso.
+
+4. **Instrumento SAFE UE–Canadá (TA-10-2026-0180, 20 de mayo)** — El PE otorgó su consentimiento al acuerdo de adquisición de defensa con Canadá en el marco del instrumento SAFE. Este es el primer acuerdo bilateral con un tercer país bajo SAFE, sentando un precedente para una mayor integración de los mercados de defensa aliados. *WEP: ALTA CONFIANZA (80%)* en que Australia y Japón concluirán acuerdos similares en los próximos 12 meses.
+
+5. **Protección del mercado del acero (TA-10-2026-0170, 19 de mayo)** — El Parlamento instó a medidas de salvaguardia urgentes contra el exceso de capacidad siderúrgica extracomunitaria, particularmente de China, citando una caída del 23% en los precios de referencia del acero en la UE en 2025–26. Esto amenaza a un estimado de 80.000 trabajadores europeos del acero.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+La semana del 19 al 21 de mayo de 2026 vio al Parlamento Europeo actuar en tres frentes estratégicamente interconectados: **seguridad económica** (control de inversiones extranjeras), **integración de la defensa** (instrumento SAFE UE–Canadá) y **competitividad del comercio digital** (estrategia de IA). Estas medidas reflejan colectivamente un consenso consolidado en el PPE, S&D y Renew de que la UE debe operacionalizar la autonomía estratégica en lugar de simplemente proclamarla. La resolución sobre los derechos de las mujeres de los talibanes subraya el activismo continuo del PE en materia de derechos humanos, aunque su impacto operativo depende del seguimiento del Consejo.
+
+---
+
+### Significance Assessment
+
+| Prioridad | Asunto | Alineación política | Horizonte temporal |
+|----------|-------|--------------------|-|
+| 🔴 CRÍTICO | Control de inversiones extranjeras | Amplia coalición (EPP+S&D+Renew+ECR) | Inmediato (T3 2026) |
+| 🔴 CRÍTICO | Resolución Afganistán/talibanes | Amplia coalición (EPP+S&D+Renew+Greens) | Corto plazo (3–6 meses) |
+| 🟡 ALTO | Instrumento SAFE UE–Canadá | Mayoría pro-defensa | Medio plazo (6–12 meses) |
+| 🟡 ALTO | Estrategia IA/Comercio | Mayoría de centro | Medio plazo (6–18 meses) |
+| 🟡 ALTO | Medidas contra el exceso de capacidad siderúrgica | Amplia coalición transversal | Corto plazo (3–6 meses) |
+| 🟢 MODERADO | Asociación UE–Uzbekistán | EPP+S&D+Renew | Largo plazo (2–5 años) |
+
+---
+
+### Political Context
+
+La sesión plenaria de mayo de 2026 se celebra en un entorno de seguridad europeo marcado por:
+- El conflicto en curso en Ucrania (ahora en su quinto año tras la invasión rusa de 2022)
+- Las tensiones comerciales transatlánticas bajo la postura America-First de la administración estadounidense
+- La creciente preocupación por la coerción económica china y la IED en sectores sensibles
+- La acelerada integración de la defensa europea a través de SAFE, EDIP y ReARM Europe
+
+La productividad legislativa del PE en esta sesión refleja la capacidad de la mayoría liderada por el PPE para construir supermayorías en cuestiones de seguridad económica, manteniendo al mismo tiempo coaliciones progresistas en materia de derechos humanos. Las líneas de fractura permanecen en la inmigración (bloque de derechas frente al bloque progresista), el ritmo de aplicación de la regulación digital y la adecuación del gasto en defensa.
+
+---
+
+### Sources
+
+- Portal de datos abiertos del PE: `get_adopted_texts(year=2026)` — Grado Almirantazgo B2
+- Feed de MEP del PE: 484 MEP actuales con afiliaciones de grupo — Grado B2
+- Análisis generado: 2026-05-27T01:50:00Z
+- Verificación de hipótesis clave: Este resumen asume que los registros de textos adoptados del PE son precisos y completos para el período del 19 al 21 de mayo de 2026. Principal incertidumbre: márgenes de votación y posiciones individuales de los MEP no disponibles debido al retraso en la publicación DOCEO.
+- Verificación de la calidad de la información: 4 de 6 feeds API del PE no disponibles; conclusiones analíticas extraídas únicamente de registros de textos adoptados. No se dispone de datos individuales de votación nominal para esta sesión.
+
+### Executive Brief Fi
+
+### HEADLINE
+
+**Euroopan parlamentti hyväksyy merkittävän ulkomaisten investointien seulontaa koskevan asetuksen ja tuomitsee Talibanin naisten koulutuksen kriminalisoinnin — Strateginen autonomia ja ihmisoikeudet hallitsevat viikkoa**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **Ulkomaisten investointien seulonta (TA-10-2026-0171, 19. toukokuuta)** — Euroopan parlamentti on hyväksynyt uuden asetuksen, joka tiukentaa EU:n ulkopuolisten ulkomaisten suorien sijoitusten seulontaa kaikissa jäsenvaltioissa. Tämä edustaa paradigmamuutosta EU:n talousturvallisuusarkkitehtuurissa ja linjautuu NATO-kumppaneiden FDI-järjestelmien kanssa. *WEP: KORKEA LUOTETTAVUUS (85%)* siitä, että tämä kohtaa täytäntöönpanohaasteita pienemmissä jäsenvaltioissa, joilla on rajoitettu seulontakapasiteetti.
+
+2. **Talibanin rikosoikeudellinen menettelylaki: Naisten oikeuksia koskeva päätöslauselma (TA-10-2026-0186, 21. toukokuuta)** — Parlamentti hyväksyi kiireellisen päätöslauselman, joka tuomitsee Talibanin rikosoikeudellisen menettelylain, joka käytännössä kriminalisoi tyttöjen pääsyn peruskoulutason ylittävään koulutukseen ja kieltää naisilta pääsyn useimpiin julkisiin tiloihin. *WEP: LÄHES VARMA (95%)* siitä, että tämä vahvistaa EU:n vaatimuksia kohdennetuista pakotteista Talibanin johtoa vastaan.
+
+3. **EU:n kaupan tekoälystrategia (TA-10-2026-0183, 20. toukokuuta)** — Parlamentti hyväksyi ei-sitovan päätöslauselman, joka asemoi tekoälyn strategiseksi välineeksi EU:n kaupan kilpailukyvyn edistämisessä. Teksti vaatii harmonisoituja tekoälystandardeja kauppasopimuksiin ja vastatoimia tekoälyn mahdollistamaa polkumyyntiä vastaan. *WEP: KOHTALAINEN LUOTETTAVUUS (60%)* siitä, että tämä sisällytetään käynnissä oleviin EU–USA ja EU–Aasia kauppaneuvotteluihin.
+
+4. **EU–Kanada SAFE-instrumentti (TA-10-2026-0180, 20. toukokuuta)** — EP antoi suostumuksensa Kanadan kanssa tehdylle puolustushankintojen sopimukselle SAFE-instrumentin puitteissa. Tämä on ensimmäinen kolmansien maiden välinen kahdenvälinen sopimus SAFE:n alla ja luo ennakkotapauksen liittoutuneiden puolustusmarkkinoiden laajemmalle integraatiolle. *WEP: KORKEA LUOTETTAVUUS (80%)* siitä, että Australia ja Japani tekevät vastaavat sopimukset 12 kuukauden kuluessa.
+
+5. **Teräsmarkkinoiden suoja (TA-10-2026-0170, 19. toukokuuta)** — Parlamentti vaati kiireellisiä suojatoimia EU:n ulkopuolista teräsylikapasiteettia vastaan, erityisesti Kiinalta, viitaten 23 prosentin hintojen laskuun EU:n teräsviitearvoissa 2025–26. Tämä uhkaa arviolta 80 000 eurooppalaista terästyöntekijää.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+Viikolla 19.–21. toukokuuta 2026 Euroopan parlamentti toimi kolmella strategisesti toisiinsa liittyvällä rintamalla: **talousturvallisuus** (ulkomaisten investointien seulonta), **puolustusintegraatio** (EU–Kanada SAFE-instrumentti) ja **digitaalinen kaupan kilpailukyky** (tekoälystrategia). Nämä toimet heijastavat kokonaisuutena konsolidoituvaa konsensusta EPP:n, S&D:n ja Renewin piirissä siitä, että EU:n on operationalisoitava strateginen autonomia pelkän julistamisen sijaan. Talibanin naisten oikeuksia koskeva päätöslauselma korostaa EP:n jatkuvaa aktivismia ihmisoikeuksien alalla, vaikka sen operatiivinen vaikutus riippuu neuvoston toimenpiteistä.
+
+---
+
+### Significance Assessment
+
+| Prioriteetti | Asia | Poliittinen linjaus | Aikajänne |
+|----------|-------|--------------------|-|
+| 🔴 KRIITTINEN | Ulkomaisten investointien seulonta | Laaja koalitio (EPP+S&D+Renew+ECR) | Välitön (Q3 2026) |
+| 🔴 KRIITTINEN | Afganistan/Taliban-päätöslauselma | Laaja koalitio (EPP+S&D+Renew+Greens) | Lyhyen aikavälin (3–6 kuukautta) |
+| 🟡 KORKEA | EU–Kanada SAFE-instrumentti | Puolustuspositiviinen enemmistö | Keskipitkän aikavälin (6–12 kuukautta) |
+| 🟡 KORKEA | Tekoäly/Kauppastrategia | Keskustaenemmistö | Keskipitkän aikavälin (6–18 kuukautta) |
+| 🟡 KORKEA | Teräsylikapasiteetin vastatoimet | Laaja ryhmien välinen yhteistyö | Lyhyen aikavälin (3–6 kuukautta) |
+| 🟢 KOHTALAINEN | EU–Uzbekistan-kumppanuus | EPP+S&D+Renew | Pitkän aikavälin (2–5 vuotta) |
+
+---
+
+### Political Context
+
+Toukokuun 2026 täysistunto järjestetään eurooppalaisen turvallisuusympäristön piirissä, johon vaikuttavat:
+- Ukrainan käynnissä oleva konflikti (nyt viidennellä vuodellaan Venäjän vuoden 2022 hyökkäyksen jälkeen)
+- Transatlanttinen kauppajännitys Yhdysvaltain hallinnon America First -politiikan seurauksena
+- Kasvava huoli Kiinan taloudellisesta pakottamisesta ja FDI:stä herkillä aloilla
+- Kiihtyvä EU:n puolustusintegraatio SAFE:n, EDIP:n ja ReARM Europen kautta
+
+EP:n lainsäädännöllinen tuottavuus tässä istunnossa heijastaa EPP-johtoisen enemmistön kykyä rakentaa superenemmistöjä talousturvallisuuskysymyksissä samalla kun progressiiviset koalitiot ihmisoikeuksissa säilyvät. Jakolinjat pysyvät maahanmuuttokysymyksessä (oikeistoblokki vastaan progressiivinen blokki), digitaalisen sääntelyn täytäntöönpanon tahdissa ja puolustusmenojen riittävyydessä.
+
+---
+
+### Sources
+
+- EP Open Data Portal: `get_adopted_texts(year=2026)` — Admiraliteettiluokka B2
+- EP MEP-syöte: 484 nykyistä parlamentin jäsentä ryhmäjäsenyyksillä — Luokka B2
+- Analyysi tuotettu: 2026-05-27T01:50:00Z
+- Keskeisten oletusten tarkistus: Tämä katsaus olettaa, että EP:n hyväksyttyjen tekstien rekisterit ovat tarkkoja ja täydellisiä ajanjaksolta 19.–21. toukokuuta 2026. Pääepävarmuus: äänestysmarginaalit ja yksittäisten parlamentin jäsenten kannat eivät ole saatavilla DOCEO-julkaisun viivästymisen vuoksi.
+- Tietolaatuun liittyvä tarkistus: 4/6 EP API -syötteistä ei saatavilla; analyyttiset johtopäätökset perustuvat yksinomaan hyväksyttyjen tekstien rekistereihin. Yksittäisiä äänestystietoja ei ole saatavilla tälle istunnolle.
+
+### Executive Brief Fr
+
+### HEADLINE
+
+**Le Parlement européen adopte un règlement historique sur le filtrage des investissements étrangers et condamne la criminalisation de l'éducation des femmes par les Taliban — L'autonomie stratégique et les droits humains dominent la semaine**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **Filtrage des investissements étrangers (TA-10-2026-0171, 19 mai)** — Le Parlement européen a adopté un nouveau règlement renforçant le filtrage des investissements directs étrangers hors UE dans tous les États membres. Cela représente un changement de paradigme dans l'architecture de sécurité économique de l'UE, en l'alignant sur les régimes d'IDE des partenaires de l'OTAN. *WEP : HAUTE CONFIANCE (85%)* que cela se heurtera à des difficultés de mise en œuvre dans les États membres de plus petite taille disposant d'une capacité de filtrage limitée.
+
+2. **Code de procédure pénale des Taliban : résolution sur les droits des femmes (TA-10-2026-0186, 21 mai)** — Le Parlement a adopté une résolution d'urgence condamnant le code de procédure pénale des Taliban qui criminalise effectivement l'accès des filles à l'éducation au-delà du niveau primaire et interdit aux femmes l'accès à la plupart des espaces publics. *WEP : QUASI-CERTITUDE (95%)* que cela amplifiera les appels de l'UE à des sanctions ciblées contre la direction des Taliban.
+
+3. **Stratégie d'IA pour le commerce de l'UE (TA-10-2026-0183, 20 mai)** — Le Parlement a adopté une résolution non contraignante positionnant l'IA comme outil stratégique pour la compétitivité commerciale de l'UE. Le texte préconise des normes d'IA harmonisées dans les accords commerciaux et des contre-mesures contre le dumping facilité par l'IA. *WEP : CONFIANCE MODÉRÉE (60%)* que cela sera intégré dans les négociations commerciales UE–États-Unis et UE–Asie en cours.
+
+4. **Instrument SAFE UE–Canada (TA-10-2026-0180, 20 mai)** — Le PE a accordé son consentement à l'accord de passation de marchés de défense avec le Canada dans le cadre de l'instrument SAFE. Il s'agit du premier accord bilatéral avec un pays tiers dans le cadre de SAFE, établissant un précédent pour une intégration plus poussée des marchés de défense des alliés. *WEP : HAUTE CONFIANCE (80%)* que l'Australie et le Japon concluront des accords similaires dans les 12 mois.
+
+5. **Protection du marché de l'acier (TA-10-2026-0170, 19 mai)** — Le Parlement a appelé à des mesures de sauvegarde urgentes contre la surcapacité sidérurgique hors UE, notamment en provenance de Chine, citant une baisse des prix de 23% sur les références sidérurgiques de l'UE en 2025–26. Cela menace environ 80 000 travailleurs européens de l'acier.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+La semaine du 19 au 21 mai 2026 a vu le Parlement européen agir sur trois fronts stratégiquement interconnectés : **la sécurité économique** (filtrage des investissements étrangers), **l'intégration de la défense** (instrument SAFE UE–Canada) et **la compétitivité du commerce numérique** (stratégie d'IA). Ces mesures reflètent collectivement un consensus consolidant au sein du PPE, du S&D et de Renew selon lequel l'UE doit opérationnaliser l'autonomie stratégique plutôt que de simplement la proclamer. La résolution sur les droits des femmes des Taliban souligne l'activisme continu du PE en matière de droits humains, bien que son impact opérationnel dépende du suivi du Conseil.
+
+---
+
+### Significance Assessment
+
+| Priorité | Enjeu | Alignement politique | Horizon temporel |
+|----------|-------|--------------------|-|
+| 🔴 CRITIQUE | Filtrage des investissements étrangers | Large coalition (EPP+S&D+Renew+ECR) | Immédiat (T3 2026) |
+| 🔴 CRITIQUE | Résolution Afghanistan/Taliban | Large coalition (EPP+S&D+Renew+Greens) | Court terme (3–6 mois) |
+| 🟡 ÉLEVÉ | Instrument SAFE UE–Canada | Majorité pro-défense | Moyen terme (6–12 mois) |
+| 🟡 ÉLEVÉ | Stratégie IA/Commerce | Majorité de centre | Moyen terme (6–18 mois) |
+| 🟡 ÉLEVÉ | Mesures contre la surcapacité sidérurgique | Large coalition trans-groupes | Court terme (3–6 mois) |
+| 🟢 MODÉRÉ | Partenariat UE–Ouzbékistan | EPP+S&D+Renew | Long terme (2–5 ans) |
+
+---
+
+### Political Context
+
+La session plénière de mai 2026 se déroule dans un environnement sécuritaire européen façonné par :
+- Le conflit ukrainien en cours (maintenant dans sa cinquième année après l'invasion russe de 2022)
+- Les tensions commerciales transatlantiques sous la posture America-First de l'administration américaine
+- La préoccupation croissante concernant la coercition économique chinoise et les IDE dans les secteurs sensibles
+- L'accélération de l'intégration de la défense européenne à travers SAFE, EDIP et ReARM Europe
+
+La productivité législative du PE lors de cette session reflète la capacité de la majorité dirigée par le PPE à bâtir des supermajorités sur les questions de sécurité économique tout en maintenant des coalitions progressistes sur les droits humains. Les lignes de fracture subsistent sur l'immigration (bloc de droite contre bloc progressiste), le rythme de l'application de la réglementation numérique et l'adéquation des dépenses de défense.
+
+---
+
+### Sources
+
+- Portail Open Data du PE : `get_adopted_texts(year=2026)` — Grade Amirauté B2
+- Flux MEP du PE : 484 MEP actuels avec leurs affiliations de groupe — Grade B2
+- Analyse générée : 2026-05-27T01:50:00Z
+- Vérification des hypothèses clés : Cette note suppose que les registres des textes adoptés du PE sont exacts et complets pour la période du 19 au 21 mai 2026. Principale incertitude : les marges de vote et les positions individuelles des MEP ne sont pas disponibles en raison du délai de publication DOCEO.
+- Vérification de la qualité de l'information : 4 des 6 flux API du PE indisponibles ; les conclusions analytiques sont tirées uniquement des registres des textes adoptés. Aucune donnée de vote nominatif individuel disponible pour cette session.
+
+### Executive Brief He
+
+**סיווג**: לא מסווג / ניתוח מודיעיני פתוח
+**תאריך**: 2026-05-27 | **מזהה ריצה**: breaking-run266-1779846371
+**דרגת אדמירליות**: B2 — מקור מהימן, מאומת לפי רשומות רשמיות של הפרלמנט האירופי
+**רצועת WEP**: 80–95% ביטחון לטענות עובדתיות בנוגע לטקסטים שאומצו; 55–70% לתחזיות עתידיות
+
+---
+
+### HEADLINE
+
+**הפרלמנט האירופי מאמץ תקנה היסטורית לבדיקת השקעות זרות ומגנה את הפללת חינוך הנשים על ידי הטליבאן — אוטונומיה אסטרטגית וזכויות אדם שולטות בשבוע**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **בדיקת השקעות זרות (TA-10-2026-0171, 19 במאי)** — הפרלמנט האירופי אימץ תקנה חדשה המחמירה את הבדיקה של השקעות ישירות זרות שאינן מהאיחוד האירופי בכל המדינות החברות. זה מייצג שינוי פרדיגמה בארכיטקטורת הביטחון הכלכלי של האיחוד האירופי, תוך התאמה עם משטרי FDI של שותפי נאט"ו. *WEP: ביטחון גבוה (85%)* שזה יתקל בקשיי יישום במדינות חברות קטנות יותר בעלות יכולת בדיקה מוגבלת.
+
+2. **קוד הנוהל הפלילי של הטליבאן: החלטה בנושא זכויות נשים (TA-10-2026-0186, 21 במאי)** — הפרלמנט אימץ החלטה דחופה המגנה את קוד הנוהל הפלילי של הטליבאן המפליל בפועל את גישת הבנות לחינוך מעבר לבית הספר היסודי ואוסר על נשים לגשת לרוב המרחבים הציבוריים. *WEP: כמעט בטוח (95%)* שזה יגביר את קריאות האיחוד האירופי להטלת סנקציות ממוקדות על מנהיגות הטליבאן.
+
+3. **אסטרטגיית AI לסחר האיחוד האירופי (TA-10-2026-0183, 20 במאי)** — הפרלמנט אימץ החלטה לא מחייבת הממצבת AI ככלי אסטרטגי לתחרותיות המסחרית של האיחוד האירופי. הטקסט קורא לתקנים מתואמים של AI בהסכמי סחר ולאמצעי נגד כנגד ריקון מחירים המאופשר על ידי AI. *WEP: ביטחון מתון (60%)* שזה ייכלל בניהולים המסחריים המתמשכים בין האיחוד האירופי לארה"ב ולאסיה.
+
+4. **מכשיר SAFE בין האיחוד האירופי לקנדה (TA-10-2026-0180, 20 במאי)** — ניתנה הסכמת הפרלמנט האירופי להסכם רכש הביטחון עם קנדה במסגרת מכשיר SAFE. זהו ההסכם הדו-צדדי הראשון עם מדינה שלישית תחת SAFE, ומהווה תקדים לאינטגרציה נוספת של שוקי הביטחון של בנות הברית. *WEP: ביטחון גבוה (80%)* שאוסטרליה ויפן יסיימו הסכמים דומים תוך 12 חודשים.
+
+5. **הגנת שוק הפלדה (TA-10-2026-0170, 19 במאי)** — הפרלמנט קרא לנקיטת אמצעי הגנה דחופים נגד עודף קיבולת פלדה שאינה מהאיחוד האירופי, בעיקר מסין, בציינו ירידה של 23% במדדי הפלדה של האיחוד האירופי ב-2025–26. זה מאיים על כ-80,000 עובדי פלדה אירופיים.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+השבוע שבין 19–21 במאי 2026 ראה את הפרלמנט האירופי פועל בשלושה חזיתות קשורות אסטרטגית: **ביטחון כלכלי** (בדיקת השקעות זרות), **אינטגרציה ביטחונית** (מכשיר SAFE בין האיחוד האירופי לקנדה), ו**תחרותיות מסחר דיגיטלי** (אסטרטגיית AI). צעדים אלה משקפים ביחד קונצנזוס מתגבש ב-EPP, S&D, ו-Renew שעל האיחוד האירופי לאפשר אוטונומיה אסטרטגית בפועל ולא רק להכריז עליה. ההחלטה בנושא זכויות הנשים של הטליבאן מדגישה את האקטיביזם המתמשך של הפרלמנט האירופי בתחום זכויות האדם, אם כי השפעתה המבצעית תלויה במעקב של המועצה.
+
+---
+
+### Significance Assessment
+
+| עדיפות | נושא | יישור פוליטי | אופק זמן |
+|----------|-------|--------------------|-|
+| 🔴 קריטי | בדיקת השקעות זרות | קואליציה רחבה (EPP+S&D+Renew+ECR) | מיידי (Q3 2026) |
+| 🔴 קריטי | החלטת אפגניסטן/טליבאן | קואליציה רחבה (EPP+S&D+Renew+Greens) | טווח קצר (3–6 חודשים) |
+| 🟡 גבוה | מכשיר SAFE בין האיחוד האירופי לקנדה | רוב תומך הגנה | טווח בינוני (6–12 חודשים) |
+| 🟡 גבוה | אסטרטגיית AI/מסחר | רוב מרכזי | טווח בינוני (6–18 חודשים) |
+| 🟡 גבוה | אמצעים נגד עודף קיבולת פלדה | קואליציה רחבה חוצת קבוצות | טווח קצר (3–6 חודשים) |
+| 🟢 מתון | שותפות האיחוד האירופי ואוזבקיסטן | EPP+S&D+Renew | טווח ארוך (2–5 שנים) |
+
+---
+
+### Political Context
+
+מושב המליאה במאי 2026 מתקיים בתוך סביבת ביטחון אירופית מעוצבת על ידי:
+- הסכסוך המתמשך באוקראינה (כעת בשנתו החמישית לאחר פלישת רוסיה ב-2022)
+- מתחים מסחריים טרנס-אטלנטיים תחת מדיניות "אמריקה ראשונה" של הממשל האמריקאי
+- דאגה גוברת מכפייה כלכלית סינית ו-FDI במגזרים רגישים
+- אינטגרציה ביטחונית מואצת של האיחוד האירופי דרך SAFE, EDIP, ו-ReARM Europe
+
+הפרודוקטיביות החקיקתית של הפרלמנט האירופי במושב זה משקפת את יכולת הרוב בהנהגת EPP לבנות על-רובים בנושאי ביטחון כלכלי תוך שמירה על קואליציות פרוגרסיביות בזכויות אדם. קווי השבר נותרים בנושא ההגירה (הגוש הימני מול הגוש הפרוגרסיבי), קצב אכיפת הרגולציה הדיגיטלית ומידת הלימות ההוצאות הביטחוניות.
+
+---
+
+### Sources
+
+- פורטל הנתונים הפתוח של הפרלמנט האירופי: `get_adopted_texts(year=2026)` — דרגת אדמירליות B2
+- הזנת נתוני חברי הפרלמנט: 484 חברי פרלמנט נוכחיים עם שיוכי קבוצות — דרגה B2
+- ניתוח הופק: 2026-05-27T01:50:00Z
+- בדיקת הנחות מפתח: מסמך זה מניח שרשומות הטקסטים שאומצו של הפרלמנט האירופי מדויקות ושלמות לתקופה 19–21 במאי 2026. אי-הוודאות העיקרי: שוליים בהצבעה ועמדות של חברי פרלמנט בודדים אינן זמינות בשל עיכוב פרסום DOCEO.
+- בדיקת איכות המידע: 4 מתוך 6 API feeds של הפרלמנט האירופי אינם זמינים; מסקנות אנליטיות נגזרות מרשומות טקסטים שאומצו בלבד. אין נתוני הצבעה אישית זמינים עבור מושב זה.
+
+### Executive Brief Ja
+
+**分類**: 非機密 / 公開インテリジェンス分析
+**日付**: 2026-05-27 | **実行ID**: breaking-run266-1779846371
+**アドミラルティ評価**: B2 — 信頼性の高い情報源、欧州議会の公式記録により確認済み
+**WEP帯域**: 採択テキストに関する事実的主張について80–95%の信頼性；将来予測について55–70%
+
+---
+
+### HEADLINE
+
+**欧州議会が外国投資審査に関する画期的な規制を採択し、タリバンによる女性教育の犯罪化を非難 — 戦略的自律性と人権が今週を支配**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **外国投資審査（TA-10-2026-0171、5月19日）** — 欧州議会は、すべての加盟国においてEU域外からの外国直接投資（FDI）の審査を強化する新規制を採択しました。これはEUの経済安全保障の枠組みにおけるパラダイムシフトを意味し、NATOパートナーのFDI体制との整合を図るものです。*WEP: 高信頼性（85%）* — 審査能力が限られた小規模加盟国での実施に課題が生じる可能性があります。
+
+2. **タリバン刑事訴訟法：女性の権利に関する決議（TA-10-2026-0186、5月21日）** — 欧州議会は、女子の初等教育以上へのアクセスを事実上犯罪化し、女性のほとんどの公共空間へのアクセスを禁止するタリバンの刑事訴訟法を非難する緊急決議を採択しました。*WEP: ほぼ確実（95%）* — これによりEUのタリバン指導部への制裁を求める声が高まります。
+
+3. **EU貿易のためのAI戦略（TA-10-2026-0183、5月20日）** — 欧州議会は、EUの貿易競争力のための戦略的ツールとしてAIを位置づける非拘束的決議を採択しました。テキストは貿易協定における調和されたAI基準と、AIを利用したダンピングへの対抗措置を求めています。*WEP: 中程度の信頼性（60%）* — これが進行中のEU–米国およびEU–アジア貿易交渉に組み込まれる可能性があります。
+
+4. **EU–カナダSAFEインストゥルメント（TA-10-2026-0180、5月20日）** — SAFEインストゥルメントの枠組みにおけるカナダとの防衛調達協定に対してEPが同意を付与しました。これはSAFEの下での最初の第三国二国間協定であり、同盟国の防衛市場統合のさらなる拡大の先例を作りました。*WEP: 高信頼性（80%）* — オーストラリアと日本が12か月以内に同様の協定を締結します。
+
+5. **鉄鋼市場保護（TA-10-2026-0170、5月19日）** — 欧州議会は、特に中国からのEU域外鉄鋼過剰能力に対する緊急的なセーフガード措置を求め、2025–26年にEUの鉄鋼指標が23%下落したことを引用しました。これは推定8万人の欧州鉄鋼労働者を脅かしています。
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+2026年5月19日から21日の週は、欧州議会が戦略的に相互連関した三つの分野で行動した週となりました：**経済安全保障**（外国投資審査）、**防衛統合**（EU–カナダSAFEインストゥルメント）、**デジタル貿易競争力**（AI戦略）。これらの行動は、EPP、S&D、Renewの間で、EUは戦略的自律性を単に宣言するのではなく、実際に実現しなければならないという統合されたコンセンサスを集合的に反映しています。タリバンの女性の権利に関する決議は、人権分野における欧州議会の継続的な活動を強調するものですが、その実際の影響は理事会のフォローアップに依存します。
+
+---
+
+### Significance Assessment
+
+| 優先度 | 課題 | 政治的方向性 | 時間軸 |
+|----------|-------|--------------------|-|
+| 🔴 重大 | 外国投資審査 | 広範な連立（EPP+S&D+Renew+ECR） | 即時（2026年第3四半期） |
+| 🔴 重大 | アフガニスタン/タリバン決議 | 広範な連立（EPP+S&D+Renew+Greens） | 短期（3–6か月） |
+| 🟡 高 | EU–カナダSAFEインストゥルメント | 防衛支持多数派 | 中期（6–12か月） |
+| 🟡 高 | AI/貿易戦略 | 中道多数派 | 中期（6–18か月） |
+| 🟡 高 | 鉄鋼過剰能力対策 | 広範なグループ横断連立 | 短期（3–6か月） |
+| 🟢 中程度 | EU–ウズベキスタン・パートナーシップ | EPP+S&D+Renew | 長期（2–5年） |
+
+---
+
+### Political Context
+
+2026年5月本会議は、以下によって形作られた欧州の安全保障環境の中で開催されます：
+- ウクライナの継続的な紛争（2022年のロシアの侵攻から5年目）
+- 米国政権のアメリカ・ファースト政策による大西洋横断的な貿易緊張
+- 敏感な分野における中国の経済的強制とFDIへの高まる懸念
+- SAFE、EDIP、ReARM Europeを通じた加速するEU防衛統合
+
+今回の会期における欧州議会の立法生産性は、経済安全保障問題において超多数派を構築しつつ、人権問題における進歩的連立を維持するEPP主導の多数派の能力を反映しています。断層線は移民問題（右翼ブロック対進歩ブロック）、デジタル規制施行のペース、防衛費の妥当性において依然として残っています。
+
+---
+
+### Sources
+
+- EP Open Data Portal: `get_adopted_texts(year=2026)` — アドミラルティ評価B2
+- EP MEPフィード：484人の現職議員とグループ所属 — 評価B2
+- 分析生成日時：2026-05-27T01:50:00Z
+- 主要仮定の確認：本ブリーフは、2026年5月19日から21日の期間における欧州議会の採択テキスト記録が正確かつ完全であることを前提としています。主な不確実性：DOCEO公開遅延のため、投票差と個々の議員の立場が入手不可。
+- 情報品質確認：6つのEP APIフィードのうち4つが利用不可；分析的結論は採択テキスト記録のみから導出。本会議の個別記名投票データは入手不可。
+
+### Executive Brief Ko
+
+**분류**: 비밀해제 / 공개 정보 분석
+**날짜**: 2026-05-27 | **실행 ID**: breaking-run266-1779846371
+**해군성 등급**: B2 — 신뢰할 수 있는 출처, 유럽의회 공식 기록으로 확인됨
+**WEP 대역**: 채택 텍스트에 대한 사실적 주장에서 80–95% 신뢰도; 미래 전망에서 55–70%
+
+---
+
+### HEADLINE
+
+**유럽의회, 획기적인 외국인 투자 심사 규정 채택 및 탈레반의 여성 교육 범죄화 규탄 — 전략적 자율성과 인권이 이번 주를 지배**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **외국인 투자 심사 (TA-10-2026-0171, 5월 19일)** — 유럽의회는 모든 회원국에서 비EU 외국인 직접투자(FDI) 심사를 강화하는 새로운 규정을 채택했습니다. 이는 EU 경제 안보 아키텍처의 패러다임 전환을 의미하며, NATO 파트너의 FDI 체제와 일치시키는 것입니다. *WEP: 높은 신뢰도 (85%)* — 심사 역량이 제한된 소규모 회원국에서 이행 과제가 발생할 가능성이 있습니다.
+
+2. **탈레반 형사소송법: 여성 권리 결의안 (TA-10-2026-0186, 5월 21일)** — 유럽의회는 초등 교육 이상의 여학생 교육 접근을 사실상 범죄화하고 여성의 대부분의 공공장소 접근을 금지하는 탈레반 형사소송법을 규탄하는 긴급 결의안을 채택했습니다. *WEP: 거의 확실 (95%)* — 이는 탈레반 지도부에 대한 표적 제재를 요구하는 EU의 목소리를 강화할 것입니다.
+
+3. **EU 무역을 위한 AI 전략 (TA-10-2026-0183, 5월 20일)** — 유럽의회는 EU 무역 경쟁력을 위한 전략적 도구로 AI를 위치시키는 비구속적 결의안을 채택했습니다. 이 텍스트는 무역 협정에서 조화된 AI 기준과 AI 기반 덤핑에 대한 대응 조치를 촉구합니다. *WEP: 중간 신뢰도 (60%)* — 이것이 진행 중인 EU–미국 및 EU–아시아 무역 협상에 통합될 가능성이 있습니다.
+
+4. **EU–캐나다 SAFE 인스트루먼트 (TA-10-2026-0180, 5월 20일)** — SAFE 인스트루먼트 프레임워크 하에서 캐나다와의 방위 조달 협정에 대해 유럽의회의 동의가 부여되었습니다. 이는 SAFE 하의 첫 번째 제3국 양자 협정으로, 동맹국 방위 시장 통합의 추가 확대를 위한 선례를 만들었습니다. *WEP: 높은 신뢰도 (80%)* — 호주와 일본이 12개월 내에 유사한 협정을 체결할 것입니다.
+
+5. **철강 시장 보호 (TA-10-2026-0170, 5월 19일)** — 유럽의회는 특히 중국의 비EU 철강 공급 과잉에 대한 긴급 세이프가드 조치를 촉구하며, 2025–26년 EU 철강 벤치마크에서 23% 가격 하락을 인용했습니다. 이는 약 8만 명의 유럽 철강 노동자를 위협합니다.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+2026년 5월 19일부터 21일의 주에 유럽의회는 전략적으로 상호 연결된 세 가지 분야에서 행동했습니다: **경제 안보** (외국인 투자 심사), **방위 통합** (EU–캐나다 SAFE 인스트루먼트), **디지털 무역 경쟁력** (AI 전략). 이러한 조치들은 EPP, S&D, Renew 전반에서 EU가 전략적 자율성을 단순히 선언하는 것이 아니라 실현해야 한다는 통합된 합의를 집합적으로 반영합니다. 탈레반 여성 권리 결의안은 인권 분야에서 유럽의회의 지속적인 활동을 강조하지만, 실제 영향은 이사회의 후속 조치에 달려 있습니다.
+
+---
+
+### Significance Assessment
+
+| 우선순위 | 사안 | 정치적 방향 | 시간 범위 |
+|----------|-------|--------------------|-|
+| 🔴 중대 | 외국인 투자 심사 | 광범위한 연립 (EPP+S&D+Renew+ECR) | 즉각적 (2026년 3분기) |
+| 🔴 중대 | 아프가니스탄/탈레반 결의안 | 광범위한 연립 (EPP+S&D+Renew+Greens) | 단기 (3–6개월) |
+| 🟡 높음 | EU–캐나다 SAFE 인스트루먼트 | 방위 지지 다수파 | 중기 (6–12개월) |
+| 🟡 높음 | AI/무역 전략 | 중도 다수파 | 중기 (6–18개월) |
+| 🟡 높음 | 철강 공급 과잉 대응 조치 | 광범위한 그룹 횡단 연립 | 단기 (3–6개월) |
+| 🟢 보통 | EU–우즈베키스탄 파트너십 | EPP+S&D+Renew | 장기 (2–5년) |
+
+---
+
+### Political Context
+
+2026년 5월 본회의는 다음에 의해 형성된 유럽 안보 환경에서 개최됩니다:
+- 우크라이나 진행 중인 분쟁 (2022년 러시아 침공 이후 5년째)
+- 미국 행정부의 미국 우선 정책 하의 대서양 횡단 무역 긴장
+- 민감한 분야에서 중국의 경제적 강압과 FDI에 대한 우려 증가
+- SAFE, EDIP, ReARM Europe을 통한 가속화되는 EU 방위 통합
+
+이번 회기에서 유럽의회의 입법 생산성은 경제 안보 문제에서 초다수파를 구축하면서 동시에 인권에 대한 진보적 연립을 유지하는 EPP 주도 다수파의 능력을 반영합니다. 이민(우파 블록 대 진보 블록), 디지털 규제 시행 속도, 방위비 적절성 등에서 단층선은 여전히 남아 있습니다.
+
+---
+
+### Sources
+
+- EP Open Data Portal: `get_adopted_texts(year=2026)` — 해군성 등급 B2
+- EP MEP 피드: 484명의 현직 의원 및 그룹 소속 — 등급 B2
+- 분석 생성: 2026-05-27T01:50:00Z
+- 주요 가정 확인: 이 브리핑은 2026년 5월 19일부터 21일 기간 동안 유럽의회의 채택 텍스트 기록이 정확하고 완전하다고 가정합니다. 주요 불확실성: DOCEO 게재 지연으로 인해 투표 격차와 개별 의원 입장을 이용할 수 없습니다.
+- 정보 품질 확인: 6개 EP API 피드 중 4개 이용 불가; 분석적 결론은 채택 텍스트 기록만을 기반으로 도출됨. 이번 회기의 개별 기명 투표 데이터 이용 불가.
+
+### Executive Brief Nl
+
+### HEADLINE
+
+**Het Europees Parlement neemt baanbrekende verordening aan voor screening van buitenlandse investeringen en veroordeelt de criminalisering van vrouwenonderwijs door de Taliban — Strategische autonomie en mensenrechten domineren de week**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **Screening van buitenlandse investeringen (TA-10-2026-0171, 19 mei)** — Het Europees Parlement heeft een nieuwe verordening aangenomen die de screening van niet-EU buitenlandse directe investeringen in alle lidstaten aanscherpt. Dit vertegenwoordigt een paradigmashift in de EU-architectuur voor economische veiligheid en sluit aan bij de FDI-regimes van NAVO-partners. *WEP: HOGE BETROUWBAARHEID (85%)* dat dit uitvoeringsproblemen zal ondervinden in kleinere lidstaten met beperkte screeningscapaciteit.
+
+2. **Taliban Wetboek van Strafvordering: Resolutie inzake vrouwenrechten (TA-10-2026-0186, 21 mei)** — Het Parlement nam een urgente resolutie aan die het Taliban-wetboek van strafvordering veroordeelt dat meisjes de toegang tot onderwijs boven het basisonderwijs effectief criminaliseert en vrouwen verbant uit de meeste publieke ruimtes. *WEP: NAGENOEG ZEKER (95%)* dat dit de EU-oproepen voor gerichte sancties tegen de Taliban-leiding zal versterken.
+
+3. **AI-strategie voor de EU-handel (TA-10-2026-0183, 20 mei)** — Het Parlement nam een niet-bindende resolutie aan die AI positioneert als strategisch instrument voor de handelsconcurrentiepositie van de EU. De tekst pleit voor geharmoniseerde AI-normen in handelsovereenkomsten en tegenmaatregelen tegen door AI gefaciliteerde dumping. *WEP: MATIGE BETROUWBAARHEID (60%)* dat dit zal worden opgenomen in de lopende EU–VS en EU–Azië handelsonderhandelingen.
+
+4. **EU–Canada SAFE-instrument (TA-10-2026-0180, 20 mei)** — Het EP verleende zijn instemming met de defensieprocurementovereenkomst met Canada in het kader van het SAFE-instrument. Dit is het eerste bilaterale verderdelandsakkoord onder SAFE en schept een precedent voor verdere integratie van de defensiemarkten van bondgenoten. *WEP: HOGE BETROUWBAARHEID (80%)* dat Australië en Japan binnen 12 maanden vergelijkbare overeenkomsten zullen sluiten.
+
+5. **Bescherming van de staalmarkt (TA-10-2026-0170, 19 mei)** — Het Parlement drong aan op urgente vrijwaringsmaatregelen tegen overcapaciteit van niet-EU staal, met name uit China, en verwees naar een prijsdaling van 23% in de EU-staalreferentiewaarden in 2025–26. Dit bedreigt naar schatting 80.000 Europese staalarbeiders.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+De week van 19–21 mei 2026 zag het Europees Parlement optreden op drie strategisch met elkaar verbonden fronten: **economische veiligheid** (screening van buitenlandse investeringen), **defensie-integratie** (EU–Canada SAFE-instrument) en **digitale handelsconcurrentie** (AI-strategie). Deze stappen weerspiegelen gezamenlijk een consoliderende consensus binnen EPP, S&D en Renew dat de EU strategische autonomie moet operationaliseren in plaats van slechts te proclameren. De resolutie over de vrouwenrechten van de Taliban onderstreept het aanhoudende EP-activisme op het gebied van mensenrechten, hoewel de operationele impact afhankelijk is van follow-up door de Raad.
+
+---
+
+### Significance Assessment
+
+| Prioriteit | Kwestie | Politieke afstemming | Tijdshorizon |
+|----------|-------|--------------------|-|
+| 🔴 KRITIEK | Screening van buitenlandse investeringen | Brede coalitie (EPP+S&D+Renew+ECR) | Onmiddellijk (Q3 2026) |
+| 🔴 KRITIEK | Afghanistan/Taliban-resolutie | Brede coalitie (EPP+S&D+Renew+Greens) | Kortetermijn (3–6 maanden) |
+| 🟡 HOOG | EU–Canada SAFE-instrument | Pro-defensie meerderheid | Middellange termijn (6–12 maanden) |
+| 🟡 HOOG | AI/Handelsstrategie | Centrummeerderheid | Middellange termijn (6–18 maanden) |
+| 🟡 HOOG | Maatregelen tegen staalovercapaciteit | Brede fractie-overschrijdende coalitie | Kortetermijn (3–6 maanden) |
+| 🟢 MATIG | EU–Oezbekistan-partnerschap | EPP+S&D+Renew | Langetermijn (2–5 jaar) |
+
+---
+
+### Political Context
+
+De plenaire vergadering van mei 2026 vindt plaats in een Europees veiligheidsomgeving die wordt gevormd door:
+- Het voortdurende Oekraïne-conflict (nu in zijn vijfde jaar na de Russische invasie van 2022)
+- Transatlantische handelsspanningen onder de America-First-koers van de Amerikaanse regering
+- Toenemende bezorgdheid over Chinese economische dwang en FDI in gevoelige sectoren
+- Versnellende EU-defensie-integratie via SAFE, EDIP en ReARM Europe
+
+De wetgevende productiviteit van het EP tijdens deze zitting weerspiegelt het vermogen van de EPP-geleide meerderheid om supermeerder­heden op te bouwen bij economische veiligheidskwesties, terwijl progressieve coalities op het gebied van mensenrechten gehandhaafd blijven. De breuklijnen blijven bestaan bij immigratie (rechterblok vs. progressief blok), het tempo van handhaving van digitale regelgeving en de toereikendheid van de defensie-uitgaven.
+
+---
+
+### Sources
+
+- EP Open Data Portal: `get_adopted_texts(year=2026)` — Admiraliteitsgraad B2
+- EP MEP-feed: 484 huidige MEP's met groepslidmaatschappen — Graad B2
+- Analyse gegenereerd: 2026-05-27T01:50:00Z
+- Verificatie van kernveronderstellingen: Dit overzicht gaat ervan uit dat de EP-registers van aangenomen teksten nauwkeurig en volledig zijn voor de periode 19–21 mei 2026. Voornaamste onzekerheid: stemmarges en individuele MEP-posities niet beschikbaar wegens vertraging in DOCEO-publicatie.
+- Verificatie van de informatienkwaliteit: 4 van de 6 EP API-feeds niet beschikbaar; analytische conclusies uitsluitend gebaseerd op registers van aangenomen teksten. Geen individuele stemdata beschikbaar voor deze zitting.
+
+### Executive Brief No
+
+### HEADLINE
+
+**Europaparlamentet vedtar banebrytende forordning om screening av utenlandske investeringer og fordømmer Talibans kriminalisering av kvinners utdanning — Strategisk autonomi og menneskerettigheter dominerer uken**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **Screening av utenlandske investeringer (TA-10-2026-0171, 19. mai)** — Europaparlamentet har vedtatt en ny forordning som skjerper screeningen av ikke-EU utenlandske direkte investeringer i alle medlemsstater. Dette representerer et paradigmeskifte i EUs arkitektur for økonomisk sikkerhet og bringer den i tråd med NATO-partnernes FDI-regimer. *WEP: HØY KONFIDENS (85%)* for at dette vil møte implementeringsutfordringer i mindre medlemsstater med begrenset screeningskapasitet.
+
+2. **Talibans strafferettslige prosedyrelov: Resolusjon om kvinners rettigheter (TA-10-2026-0186, 21. mai)** — Parlamentet vedtok en hasteresolusjon som fordømmer Talibans strafferettslige prosedyrelov, som i praksis kriminaliserer jenters tilgang til utdanning utover grunnskolen og forbyr kvinner adgang til de fleste offentlige rom. *WEP: NESTEN SIKKERT (95%)* for at dette vil forsterke EUs krav om målrettede sanksjoner mot Talibans ledelse.
+
+3. **AI-strategi for EUs handel (TA-10-2026-0183, 20. mai)** — Parlamentet vedtok en ikke-bindende resolusjon som posisjonerer AI som et strategisk verktøy for EUs handelskonkurranseevne. Teksten oppfordrer til harmoniserte AI-standarder i handelsavtaler og mottiltak mot AI-muliggjort dumping. *WEP: MODERAT KONFIDENS (60%)* for at dette vil bli innarbeidet i de pågående EU–USA og EU–Asia handelsforhandlingene.
+
+4. **EU–Canada SAFE-instrumentet (TA-10-2026-0180, 20. mai)** — EPs samtykke ble gitt til forsvarsanskaffelsesavtalen med Canada under SAFE-instrumentets rammeverk. Dette er den første bilaterale tredjelandsavtalen under SAFE og skaper presedens for videre integrasjon av alliertes forsvarsmarkeder. *WEP: HØY KONFIDENS (80%)* for at Australia og Japan vil inngå lignende avtaler innen 12 måneder.
+
+5. **Beskyttelse av stålmarkedet (TA-10-2026-0170, 19. mai)** — Parlamentet oppfordret til hastetiltak mot ikke-EU ståloverkapasitet, særlig fra Kina, med henvisning til et prisfall på 23% i EUs stålreferanseindekser i 2025–26. Dette truer anslagsvis 80 000 europeiske stålarbeidere.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+Uken 19.–21. mai 2026 så Europaparlamentet handle på tre strategisk sammenkoblede fronter: **økonomisk sikkerhet** (screening av utenlandske investeringer), **forsvarsintegrasjon** (EU–Canada SAFE-instrumentet) og **digital handelskonkurranseevne** (AI-strategi). Disse tiltakene gjenspeiler samlet sett en konsoliderende konsensus på tvers av EPP, S&D og Renew om at EU må operasjonalisere strategisk autonomi fremfor bare å proklamere den. Resolusjonen om Talibans krenkelse av kvinners rettigheter understreker fortsatt EP-aktivisme på menneskerettighetsfeltet, selv om dens operative virkning avhenger av Rådets oppfølging.
+
+---
+
+### Significance Assessment
+
+| Prioritet | Sak | Politisk tilpasning | Tidshorisont |
+|----------|-------|--------------------|-|
+| 🔴 KRITISK | Screening av utenlandske investeringer | Bred koalisjon (EPP+S&D+Renew+ECR) | Umiddelbar (Q3 2026) |
+| 🔴 KRITISK | Afghanistan/Taliban-resolusjon | Bred koalisjon (EPP+S&D+Renew+Greens) | Kortsiktig (3–6 måneder) |
+| 🟡 HØY | EU–Canada SAFE-instrumentet | Forsvarspositivt flertall | Mellomlang sikt (6–12 måneder) |
+| 🟡 HØY | AI/Handelsstrategi | Sentrumsflertall | Mellomlang sikt (6–18 måneder) |
+| 🟡 HØY | Tiltak mot ståloverkapasitet | Bredt tverrgruppesamarbeid | Kortsiktig (3–6 måneder) |
+| 🟢 MODERAT | EU–Usbekistan-partnerskap | EPP+S&D+Renew | Langsiktig (2–5 år) |
+
+---
+
+### Political Context
+
+Plenumssesjonen i mai 2026 finner sted innenfor et europeisk sikkerhetsmiljø preget av:
+- Den pågående konflikten i Ukraina (nå i sitt femte år etter Russlands invasjon i 2022)
+- Transatlantiske handelsspenninger under den amerikanske administrasjonens America-First-politikk
+- Voksende bekymring for kinesisk økonomisk tvang og FDI i sensitive sektorer
+- Akselererende EU-forsvarsintegrasjon gjennom SAFE, EDIP og ReARM Europe
+
+EPs lovgivningsmessige produktivitet i denne sesjonen gjenspeiler EPP-ledede flertalls evne til å bygge superflertall i spørsmål om økonomisk sikkerhet, mens progressive koalisjoner opprettholdes på menneskerettighetsfeltet. Bruddlinjene forblir i innvandringsspørsmålet (høyreblokken mot den progressive blokken), tempoet i håndhevingen av digital regulering og tilstrekkeligheten av forsvarsutgiftene.
+
+---
+
+### Sources
+
+- EP Open Data Portal: `get_adopted_texts(year=2026)` — Admiralitetsgrad B2
+- EP MEP-feed: 484 nåværende MEP-er med grupptilhørighet — Grad B2
+- Analyse generert: 2026-05-27T01:50:00Z
+- Kontroll av nøkkelantagelser: Denne rapporten forutsetter at EPs registre over vedtatte tekster er nøyaktige og fullstendige for perioden 19.–21. mai 2026. Primær usikkerhet: stemmeandeler og individuelle MEP-posisjoner ikke tilgjengelige grunnet forsinkelse i DOCEO-publisering.
+- Kontroll av informasjonskvalitet: 4 av 6 EP API-feeder utilgjengelige; analytiske konklusjoner utelukkende basert på registre over vedtatte tekster. Ingen individuelle avstemningsdata tilgjengelige for denne sesjonen.
+
+### Executive Brief Sv
+
+### HEADLINE
+
+**Europaparlamentet antar banbrytande förordning om screening av utländska investeringar och fördömer talibanernas kriminalisering av kvinnors utbildning — Strategisk autonomi och mänskliga rättigheter dominerar veckan**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **Screening av utländska investeringar (TA-10-2026-0171, 19 maj)** — Europaparlamentet har antagit en ny förordning som skärper granskningen av utländska direktinvesteringar från länder utanför EU i alla medlemsstater. Detta innebär ett paradigmskifte i EU:s arkitektur för ekonomisk säkerhet och anpassar sig till NATO-partnernas FDI-regimer. *WEP: HÖG KONFIDENS (85%)* att detta kommer att möta genomförandeutmaningar i mindre medlemsstater med begränsad granskningskapacitet.
+
+2. **Talibanernas straffprocesslag: Resolution om kvinnors rättigheter (TA-10-2026-0186, 21 maj)** — Parlamentet antog en brådskande resolution som fördömer talibanernas straffprocesslag som i praktiken kriminaliserar flickors tillgång till utbildning utöver grundskolan och förbjuder kvinnor från de flesta offentliga platser. *WEP: NÄSTAN SÄKERT (95%)* att detta kommer att förstärka EU:s krav på riktade sanktioner mot talibanledarskapet.
+
+3. **AI-strategi för EU:s handel (TA-10-2026-0183, 20 maj)** — Parlamentet antog en icke-bindande resolution som positionerar AI som ett strategiskt verktyg för EU:s handelskompetitivitet. Texten efterlyser harmoniserade AI-standarder i handelsavtal och motåtgärder mot AI-möjliggjord dumpning. *WEP: MÅTTLIG KONFIDENS (60%)* att detta kommer att inkorporeras i pågående EU–USA och EU–Asien handelsförhandlingar.
+
+4. **EU–Kanada SAFE-instrumentet (TA-10-2026-0180, 20 maj)** — EP-samtycke beviljades för försvarsupphandlingsavtalet med Kanada inom ramen för SAFE-instrumentet. Detta är det första bilaterala tredjelands­avtalet under SAFE och sätter ett prejudikat för ytterligare integration av allierades försvarsmarknader. *WEP: HÖG KONFIDENS (80%)* att Australien och Japan kommer att ingå liknande avtal inom 12 månader.
+
+5. **Skydd av stålmarknaden (TA-10-2026-0170, 19 maj)** — Parlamentet uppmanade till brådskande skyddsåtgärder mot icke-EU stålöverskottskapacitet, särskilt från Kina, och hänvisade till ett prisfall på 23% i EU:s stålriktmärken 2025–26. Detta hotar uppskattningsvis 80 000 europeiska stålarbetare.
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+Veckan 19–21 maj 2026 såg Europaparlamentet agera på tre strategiskt sammankopplade fronter: **ekonomisk säkerhet** (screening av utländska investeringar), **försvarsintegration** (EU–Kanada SAFE-instrumentet) och **digital handelskompetitivitet** (AI-strategi). Dessa åtgärder återspeglar sammantaget en konsoliderande konsensus inom EPP, S&D och Renew om att EU måste operationalisera strategisk autonomi snarare än att enbart proklamera den. Resolutionen om talibanernas kränkning av kvinnors rättigheter understryker fortsatt EP-aktivism inom mänskliga rättigheter, även om dess operativa verkan beror på rådets uppföljning.
+
+---
+
+### Significance Assessment
+
+| Prioritet | Fråga | Politisk inriktning | Tidshorisont |
+|----------|-------|--------------------|-|
+| 🔴 KRITISK | Screening av utländska investeringar | Bred koalition (EPP+S&D+Renew+ECR) | Omedelbar (Q3 2026) |
+| 🔴 KRITISK | Afghanistan/Taliban-resolution | Bred koalition (EPP+S&D+Renew+Greens) | Kortsiktig (3–6 månader) |
+| 🟡 HÖG | EU–Kanada SAFE-instrumentet | Försvarspositivt flertal | Medellång sikt (6–12 månader) |
+| 🟡 HÖG | AI/Handelsstrategi | Centermajoritet | Medellång sikt (6–18 månader) |
+| 🟡 HÖG | Åtgärder mot stålöverskottskapacitet | Bred tvärgrupps-koalition | Kortsiktig (3–6 månader) |
+| 🟢 MÅTTLIG | EU–Uzbekistan partnerskap | EPP+S&D+Renew | Långsiktig (2–5 år) |
+
+---
+
+### Political Context
+
+Maj 2026 plenarsessionen äger rum inom ett europeiskt säkerhetsklimat präglat av:
+- Den pågående konflikten i Ukraina (nu inne på sitt femte år efter Rysslands invasion 2022)
+- Transatlantiska handelsspänningar under den amerikanska administrationens America-First-politik
+- Växande oro för kinesisk ekonomisk tvångspolitik och FDI i känsliga sektorer
+- Accelererande EU-försvarsintegration genom SAFE, EDIP och ReARM Europe
+
+Europaparlamentets lagstiftningsproduktivitet under denna session återspeglar EPP-ledda majoritetens förmåga att bygga supermajoriteter i ekonomiska säkerhetsfrågor, samtidigt som progressiva koalitioner upprätthålls för mänskliga rättigheter. Sprickorna kvarstår i invandringsfrågan (högerblocket kontra det progressiva blocket), takten i tillämpningen av digital reglering och tillräckligheten av försvarsutgifter.
+
+---
+
+### Sources
+
+- EP Open Data Portal: `get_adopted_texts(year=2026)` — Admiralitetsbetyg B2
+- EP MEP-flöde: 484 nuvarande ledamöter med grupptillhörigheter — Betyg B2
+- Analys genererad: 2026-05-27T01:50:00Z
+- Kontroll av nyckelantaganden: Denna underrättelse förutsätter att EP:s uppgifter om antagna texter är korrekta och fullständiga för perioden 19–21 maj 2026. Huvudosäkerhet: röstningsmarginaler och enskilda ledamöters ståndpunkter inte tillgängliga på grund av försenad DOCEO-publicering.
+- Kontroll av informationskvalitet: 4 av 6 EP API-flöden otillgängliga; analytiska slutsatser baserade enbart på uppgifter om antagna texter. Inga individuella omröstningsdata tillgängliga för denna session.
+
+### Executive Brief Zh
+
+**分类**：非保密 / 公开情报分析
+**日期**：2026-05-27 | **运行ID**：breaking-run266-1779846371
+**海军部评级**：B2 — 可靠来源，经欧洲议会官方记录证实
+**WEP区间**：关于已通过文本的事实性陈述可信度80–95%；前瞻性预测55–70%
+
+---
+
+### HEADLINE
+
+**欧洲议会通过具有里程碑意义的外国投资审查法规，并谴责塔利班将妇女受教育权利入罪化 — 战略自主与人权主导本周议程**
+
+---
+
+### Key Intelligence Judgements (KIJ)
+
+1. **外国投资审查（TA-10-2026-0171，5月19日）** — 欧洲议会通过了一项新法规，加强对所有成员国非欧盟外国直接投资的审查。这标志着欧盟经济安全架构的范式转变，使其与北约伙伴的FDI机制保持一致。*WEP：高可信度（85%）* — 审查能力有限的小型成员国在实施方面可能面临挑战。
+
+2. **塔利班刑事诉讼法典：妇女权利决议（TA-10-2026-0186，5月21日）** — 议会通过了一项紧急决议，谴责塔利班的刑事诉讼法典，该法典实际上将女童在小学以上阶段的受教育权利入罪化，并禁止妇女进入大多数公共场所。*WEP：近乎确定（95%）* — 这将加大欧盟要求对塔利班领导层实施定向制裁的呼声。
+
+3. **欧盟贸易人工智能战略（TA-10-2026-0183，5月20日）** — 议会通过了一项非约束性决议，将人工智能定位为提升欧盟贸易竞争力的战略工具。文本呼吁在贸易协定中采用统一的人工智能标准，并采取反制措施应对人工智能驱动的倾销。*WEP：中等可信度（60%）* — 这将被纳入正在进行的欧盟–美国和欧盟–亚洲贸易谈判。
+
+4. **欧盟–加拿大SAFE机制（TA-10-2026-0180，5月20日）** — 欧洲议会批准了在SAFE机制框架下与加拿大签订的国防采购协议。这是SAFE框架下第一个与第三国签订的双边协议，为进一步整合盟国国防市场开创了先例。*WEP：高可信度（80%）* — 澳大利亚和日本将在12个月内签署类似协议。
+
+5. **钢铁市场保护（TA-10-2026-0170，5月19日）** — 议会呼吁对欧盟以外（尤其是来自中国）的钢铁产能过剩采取紧急保障措施，理由是2025–26年间欧盟钢铁基准价格下跌23%。这威胁到约8万名欧洲钢铁工人的就业。
+
+---
+
+### BLUF (Bottom Line Up Front)
+
+2026年5月19日至21日这一周，欧洲议会在三个战略上相互关联的领域采取行动：**经济安全**（外国投资审查）、**国防整合**（欧盟–加拿大SAFE机制）和**数字贸易竞争力**（人工智能战略）。这些举措整体上反映出EPP、S&D和Renew之间日益形成的共识：欧盟必须将战略自主付诸实践，而不仅仅是宣示。塔利班妇女权利决议凸显了欧洲议会在人权领域的持续积极行动，但其实际效果取决于理事会的后续跟进。
+
+---
+
+### Significance Assessment
+
+| 优先级 | 议题 | 政治方向 | 时间范围 |
+|----------|-------|--------------------|-|
+| 🔴 关键 | 外国投资审查 | 广泛联盟（EPP+S&D+Renew+ECR） | 即时（2026年第三季度） |
+| 🔴 关键 | 阿富汗/塔利班决议 | 广泛联盟（EPP+S&D+Renew+Greens） | 短期（3–6个月） |
+| 🟡 高 | 欧盟–加拿大SAFE机制 | 支持国防的多数派 | 中期（6–12个月） |
+| 🟡 高 | 人工智能/贸易战略 | 中间派多数 | 中期（6–18个月） |
+| 🟡 高 | 应对钢铁产能过剩措施 | 广泛跨派系联盟 | 短期（3–6个月） |
+| 🟢 适中 | 欧盟–乌兹别克斯坦伙伴关系 | EPP+S&D+Renew | 长期（2–5年） |
+
+---
+
+### Political Context
+
+2026年5月全体会议在以下因素塑造的欧洲安全环境中召开：
+- 乌克兰持续冲突（继2022年俄罗斯入侵后已进入第五年）
+- 美国政府"美国优先"立场引发的跨大西洋贸易紧张局势
+- 对中国经济胁迫和在敏感领域FDI的日益担忧
+- 通过SAFE、EDIP和ReARM Europe加速推进欧盟国防整合
+
+欧洲议会在本届会议的立法效率体现了EPP主导的多数派在经济安全议题上构建超级多数的能力，同时在人权问题上维持着进步联盟。在移民问题（右翼阵营对进步阵营）、数字监管执法节奏以及国防开支充足性方面，内部分歧依然存在。
+
+---
+
+### Sources
+
+- EP开放数据门户：`get_adopted_texts(year=2026)` — 海军部评级B2
+- 欧洲议会议员数据：484名现任议员及其派系归属 — 评级B2
+- 分析生成时间：2026-05-27T01:50:00Z
+- 主要假设核查：本简报假定欧洲议会2026年5月19日至21日期间已通过文本记录准确完整。主要不确定因素：因DOCEO出版延迟，投票差距和个别议员立场无法获取。
+- 信息质量核查：6个EP API数据源中有4个不可用；分析结论仅依据已通过文本记录得出。本届会议无法获取个人点名表决数据。
+
 ### Procedures Proxy
 
 ### Proxy Methodology
@@ -5286,5 +6114,18 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-27/breaking/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 

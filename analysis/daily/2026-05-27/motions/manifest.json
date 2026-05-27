@@ -1,0 +1,57 @@
+{
+  "articleType": "motions",
+  "dataMode": "degraded-voting",
+  "runId": "motions-run276-1779868581",
+  "date": "2026-05-27",
+  "analysisDir": "analysis/daily/2026-05-27/motions",
+  "generatedAt": "2026-05-27T00:00:00Z",
+  "pass2": {
+    "rewriteCount": 26,
+    "extendCount": 26
+  },
+  "history": [
+    {
+      "runId": "motions-run276-1779868581",
+      "generatedAt": "2026-05-27T00:00:00Z",
+      "artifactCount": 26,
+      "dataMode": "degraded-voting",
+      "gateResult": "pending"
+    }
+  ],
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "dataAvailability": "data-availability-assessment.md",
+    "intelligence": {
+      "analysisIndex": "intelligence/analysis-index.md",
+      "synthesisSummary": "intelligence/synthesis-summary.md",
+      "historicalBaseline": "intelligence/historical-baseline.md",
+      "economicContext": "intelligence/economic-context.md",
+      "economicContextFallback": "intelligence/economic-context.fallback.md",
+      "pestleAnalysis": "intelligence/pestle-analysis.md",
+      "stakeholderMap": "intelligence/stakeholder-map.md",
+      "scenarioForecast": "intelligence/scenario-forecast.md",
+      "threatModel": "intelligence/threat-model.md",
+      "wildcardsBlackswans": "intelligence/wildcards-blackswans.md",
+      "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+      "referenceAnalysisQuality": "intelligence/reference-analysis-quality.md",
+      "votingPatterns": "intelligence/voting-patterns.md",
+      "votingPatternsDegraded": "intelligence/voting-patterns.degraded.md",
+      "workflowAudit": "intelligence/workflow-audit.md",
+      "crossSessionIntelligence": "intelligence/cross-session-intelligence.md",
+      "sessionBaseline": "intelligence/session-baseline.md",
+      "proceduresProxy": "intelligence/procedures-proxy.md",
+      "methodologyReflection": "intelligence/methodology-reflection.md"
+    },
+    "existing": {
+      "deepAnalysis": "existing/deep-analysis.md",
+      "sessionBaseline": "existing/session-baseline.md"
+    },
+    "riskScoring": {
+      "riskMatrix": "risk-scoring/risk-matrix.md",
+      "quantitativeSwot": "risk-scoring/quantitative-swot.md"
+    },
+    "extended": {
+      "mediaFramingAnalysis": "extended/media-framing-analysis.md"
+    }
+  }
+}
