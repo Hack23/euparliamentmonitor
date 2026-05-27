@@ -139,3 +139,23 @@ xychart-beta
 
 **What this means**: The EP has just produced an unusually productive session. The real question is whether the Commission and member states can keep up with implementation. Legislative velocity means nothing if implementation stalls.
 
+
+## Extended Legislative Velocity Risk
+
+### Per-Procedure Velocity Assessment
+
+| Adopted Text | Procedure Type | Stage | Velocity Risk | Bottleneck |
+|-------------|---------------|-------|--------------|-----------|
+| TA-0171 FDI Screening | COD | Third reading | LOW | Council OJ publication pending |
+| TA-0186 Afghanistan | RSP | Non-legislative | LOW | Non-binding |
+| TA-0183 AI-Trade | INI | Own-initiative | MEDIUM | Council follow-through unclear |
+| TA-0170 Steel Safeguards | COD | Delegated review | LOW | Commission implementation |
+| TA-0190 Care Society | INI→COD | Own-initiative | HIGH | Council social affairs alignment |
+
+*Evidence*: EP Open Data Portal adopted-texts references (TA-10-2026 series), May 2026
+
+*Source diversity*: EP published data (A2); Commission notifications (B2); media monitoring (C3)
+
+
+*Legislative velocity risk assessment complete. Low risk overall for formally adopted texts; high risk for INI-stage social legislation.*
+

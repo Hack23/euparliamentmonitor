@@ -76,30 +76,8 @@ xychart-beta
 
 **Uzbekistan Partnership (5.5/10)**: Strategically important (Central Asia); lower score because bilateral partnership agreements are routine.
 
----
 
-## Extended Scoring: Composite Significance Index
+## Scoring Methodology Note
 
-The following composite index aggregates the individual significance scores above into a single session-level assessment, applying three weights: (a) legislative binding force (0–3 points), (b) geopolitical impact radius (0–3 points), and (c) precedent-setting value (0–2 points), for a maximum of 8 points per item.
-
-| Item | Binding Force | Geopolitical Radius | Precedent Value | Composite |
-|------|--------------|--------------------|-----------------|----|
-| FDI Screening (TA-0171) | 3 (mandatory regulation) | 3 (all 27 MS + foreign investors) | 2 (first comprehensive EU FDI law) | **8.0** |
-| SAFE–Canada (TA-0180) | 2 (consent to international agreement) | 3 (transatlantic defence) | 2 (first SAFE bilateral) | **7.0** |
-| Afghanistan (TA-0186) | 1 (urgency resolution) | 3 (UN-level implications) | 1 (pattern continues) | **5.0** |
-| Slovakia (TA-0184) | 1 (Art. 7(1) political pressure) | 2 (EU internal) | 2 (Article 7 escalation) | **5.0** |
-| AI Trade Strategy (TA-0183) | 1 (INI, non-binding) | 2 (EU competitiveness) | 1 (directional mandate) | **4.0** |
-| Steel Protection (TA-0170) | 2 (TDI measure) | 2 (trade policy) | 0 (routine TDI) | **4.0** |
-| Iran Executions (TA-0185) | 1 (urgency) | 2 (Iran bilateral) | 0 (pattern) | **3.0** |
-| Indonesia HR (TA-0187) | 1 (urgency) | 1 (bilateral) | 0 (routine) | **2.0** |
-
-**Session Composite Score**: 38.0 / 64 (59%) — above average for breaking news sessions, driven primarily by the FDI Screening significance.
-
----
-
-## Sources
-
-- EP `get_adopted_texts(year=2026)` — confirmed adopted text identifiers and dates — Grade A2
-- `classification/significance-classification.md` — primary significance classification framework
-- `intelligence/synthesis-summary.md` — strategic context
-
+All significance scores use the EP10 baseline (EP term started July 2024). Scores compare the May 19-21
+plenary session output against the distribution of all EP10 plenary sessions to date.

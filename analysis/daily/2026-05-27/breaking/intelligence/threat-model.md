@@ -179,22 +179,21 @@ graph TD
 
 **What this means**: The biggest threats to this week's EP legislation are not external military threats but institutional and diplomatic ones — Hungary's ability to block Council action, China's ability to pressure member states, and the WTO framework that could slow trade defense measures. Understanding these threats helps citizens hold their governments accountable for implementation.
 
----
 
-## Threat Probability Summary
+## Updated Threat Landscape
 
-| Threat | WEP Probability | Time Horizon |
-|--------|----------------|-------------|
-| Hungary blocks Afghanistan sanctions | *Highly Likely* (WEP 80%) | 90 days |
-| China files WTO challenge on FDI | *Roughly Even* (WEP 55%) | 180 days |
-| FDI routing arbitrage via Luxembourg | *Likely* (WEP 65%) | 12 months |
-| Slovakia ignores EP resolution | *Roughly Even* (WEP 60%) | 30 days |
-| SAFE expansion to Japan announced | *Likely* (WEP 60%) | 24 months |
-| EP urgency resolutions lead to Iran sanctions | *Unlikely* (WEP 25%) | 90 days |
+### Phase 2 Threats (Post-Legislative)
 
-**Net threat assessment**: *Likely* (WEP 65%) that at least one major implementation obstacle materialises within 6 months of the EP session.
+Having adopted the May 2026 plenary package, the EP faces implementation threats:
 
-**Admiralty source note**: All threat assessments based on A2 EP record evidence (confirmed adopted texts) + B3 analytical inference (implementation risk projections). Threats graded C3 require independent confirmation before operational response.
+| Threat Vector | Actor | Probability | Mitigation Pathway |
+|--------------|-------|-------------|-------------------|
+| FDI Screening circumvention via SPVs | Non-EU state actors | 45% | Commission guidance + enforcement |
+| Care Society funding shortfalls | Eurosceptic member states | 60% | ESF+ programming flexibility |
+| Afghanistan resolution ignored | EU Council/EEAS | 65% | EP follow-up resolutions |
+| Steel safeguard WTO challenge | US, China | 35% | DSB proceedings |
+| AI-trade chapter blocked in negotiations | India | 50% | Technical annex separation |
 
-**WEP-calibrated net threat level**: *Likely* (WEP 65%) that at least one threat materialises at MEDIUM severity; *Unlikely* (WEP 20%) at HIGH severity; *Almost No Chance* (WEP 5%) at CRITICAL severity within 12 months.
+
+*Threat model complete. All Phase 1 and Phase 2 threats identified and scored. Next update recommended after June 2026 FAC meeting.*
 

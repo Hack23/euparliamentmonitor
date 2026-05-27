@@ -78,96 +78,82 @@ Segments are defined by primary political concern and likely reaction to May 202
 - `extended/coalition-mathematics.md` for voting estimates
 - `intelligence/stakeholder-map.md` for institutional stakeholder analysis
 
----
+## Voter Segmentation Analysis (Extended)
 
-## Extended Voter Segmentation: MEP Constituency Interests
+### EP10 Voter Preference Mapping
 
-### Constituency Mapping: Who Benefits Politically from May 2026 Legislation
+Understanding how different EU voter segments relate to the May 2026 plenary output:
 
-**FDI Screening (TA-10-2026-0171) — Constituency Beneficiaries**:
+**Segment 1: Progressive Urban Cosmopolitan (~22% of EU voters)**
+- Core concern: Climate, AI governance, human rights
+- Alignment with May 2026 package: HIGH
+- Most supportive of: Care Society (TA-0190), Afghanistan resolution, AI-Trade strategy
+- Least supportive of: Steel Safeguards (seen as anti-free trade, anti-climate)
+- Media consumption: EUobserver, Le Monde, Der Spiegel
 
-| MEP Constituency Type | Interest | Expected Vote |
-|-----------------------|---------|--------------|
-| German industrial districts (Bavaria, Baden-Württemberg) | Protect Mittelstand from Chinese acquisition | STRONG FOR |
-| French strategic industries (Île-de-France, Normandy) | Protect aerospace, energy champions | STRONG FOR |
-| Central/Eastern European industrial bases (Poland, Czechia) | Mixed — benefit from FDI but concerned about selectivity | MODERATE FOR |
-| Irish financial services (Dublin) | Potential regulatory burden on FDI routing | MODERATE AGAINST / ABSTAIN |
-| Luxembourg financial centre | Same as Ireland — FDI intermediary concern | AGAINST |
-| Nordic high-tech corridors (Stockholm, Helsinki, Copenhagen) | Support on chips/telecoms; concerned about openness | MODERATE FOR |
+**Segment 2: Conservative National Sovereignty (~25% of EU voters)**
+- Core concern: Economic sovereignty, cultural identity, EU competence limits
+- Alignment with May 2026 package: MIXED
+- Most supportive of: FDI Screening (economic nationalism framing works)
+- Least supportive of: Care Society (EU over-reach in social policy)
+- Media consumption: National tabloids, ECR-affiliated platforms
 
-**SAFE–Canada (TA-10-2026-0180) — Constituency Beneficiaries**:
+**Segment 3: Working Class Industrial (~20% of EU voters)**
+- Core concern: Jobs, wages, industrial policy
+- Alignment with May 2026 package: HIGH (economic security framing)
+- Most supportive of: Steel Safeguards (job protection), Care Society (worker rights)
+- Least supportive of: AI-Trade (concerns about automation)
+- Media consumption: S&D/trade union communications
 
-| MEP Constituency Type | Interest | Expected Vote |
-|-----------------------|---------|--------------|
-| French defence industry (Toulouse, Bordeaux) | MBDA, Airbus Defence access to Canadian market | STRONG FOR |
-| German defence industry (Bavaria, Saxony) | Rheinmetall, KNDS partnership potential | STRONG FOR |
-| Nordic defence exporters (Sweden, Finland) | Saab, Patria — SAFE framework creates export opportunities | FOR |
-| Small state MEPs (Malta, Estonia, Lithuania) | Baltic states strongly support any NATO-complementary EU defence initiative | STRONG FOR |
-| Hungarian MEPs (Fidesz/PfE) | Orbán's neutralist foreign policy creates ambivalence | AGAINST / ABSTAIN |
+**Segment 4: Pro-European Liberal Centre (~18% of EU voters)**
+- Core concern: European integration, free trade, rule of law
+- Alignment with May 2026 package: HIGH
+- Most supportive of: SAFE Canada (EU-world engagement), AI-Trade strategy
+- Ambivalent: Steel Safeguards, FDI Screening (accepts as necessary compromises)
+- Media consumption: Financial Times, Politico Europe, The Economist
 
-**Slovakia Resolution (TA-10-2026-0184) — Constituency Beneficiaries**:
+**Segment 5: Eurosceptic Far-Right (~15% of EU voters)**
+- Core concern: Anti-EU institutions, anti-immigration, national sovereignty
+- Alignment with May 2026 package: LOW
+- Most supportive of: Nothing in this package (though steel protection resonates)
+- Least supportive of: Care Society, AI governance, EU-Canada SAFE
+- Media consumption: PfE-affiliated outlets, national alternative media
 
-| MEP Group | Interest | Expected Vote |
-|-----------|---------|--------------|
-| Slovak opposition MEPs (PS — Progressive Slovakia) | Domestic political support for EP engagement | STRONG FOR |
-| Slovak government coalition MEPs (Smer) | Oppose — reputational damage | AGAINST |
-| CEE rights-of-law reformers (Polish, Romanian MEPs post-2024 reform) | Solidarity with rule of law agenda | FOR |
-| Visegrad solidarity bloc | Fragmented — Hungary opposes, Czechia/Poland indifferent | MIXED |
+### Communication Strategy Implications
 
-### Segmentation Conclusion
+| Segment | Key Messaging for May 2026 Package |
+|---------|-----------------------------------|
+| Progressive Urban | "EP defends women's rights globally + leads AI governance" |
+| Conservative National | "EP protects EU jobs and strategic industries from foreign control" |
+| Working Class Industrial | "EP secures steel industry jobs + improves care worker pay" |
+| Pro-European Liberal | "EP builds EU's global partnerships and digital standards" |
+| Eurosceptic Far-Right | "EP protects national industries" (limited traction) |
 
-The May 2026 legislative package has differentiated constituency effects: FDI screening benefits industrial heartland constituencies; SAFE benefits defence-industrial constituencies; human rights resolutions benefit values-oriented constituencies. The absence of a unified constituency cost (i.e., no major European industry sector is materially harmed by this package) explains the wide coalition support. The main opposition constituency (FDI routing hubs — Luxembourg, Netherlands, Ireland) is politically marginal in EP coalition mathematics.
+🟢 CONFIDENCE: Voter segmentation MEDIUM — based on EP election 2024 results and Eurobarometer data
 
----
+## Electoral Implications
 
-## Sources
+### Impact on 2029 EP Election Dynamics
 
-- EP MEPs feed (484 current MEPs with constituency data) — Grade A2
-- `extended/coalition-mathematics.md` — seat arithmetic
-- `classification/actor-mapping.md` — actor role analysis
+The May 2026 package contributes to the EP10 electoral narrative that will shape the 2029 EP elections:
 
----
+- **EPP**: Can claim: "We secured EU strategic industries, protected investments, led on AI governance"
+- **S&D**: Can claim: "We improved care workers' rights, reduced work fatalities, stood up for Afghan women"
+- **Renew**: Can claim: "We built partnerships (SAFE Canada, EU-India AI chapters) and maintained open markets"
+- **Greens**: Challenged: package is heavy on economic security, lighter on climate/environmental content
+- **ECR**: Ambivalent: supported steel protection but opposed care society and AI regulation
+- **PfE/ESN**: Narrative problem: can claim victory on nothing in this package
 
-## Extended Voter Segmentation: Policy Preference Patterns
+### Summary Segment Alignment
 
-### Cross-Cutting Issue: FDI Screening Voter Impacts
+The May 2026 package — overall — is best aligned with **Segment 4 (Pro-European Liberal Centre)**
+and **Segment 3 (Working Class Industrial)**. It risks losing ground with **Segment 1 (Progressive Urban)**
+who will see the climate/green dimension as underprioritised.
 
-The FDI screening regulation affects different voter segments differently:
+🟢 CONFIDENCE: Voter segmentation analysis MEDIUM; electoral projections are speculative
 
-**Segment 1: Manufacturing workers in FDI-exposed industries** (~12% of EU voters)
-- Automotive (Volkswagen, Stellantis, Renault): Heavily exposed to Chinese EV competitors
-- Steel and metals: Exposed to Chinese overcapacity dumping
-- Semiconductors: Exposed to Chinese investment in competing Asian fabs
-- **FDI screening impact**: *Protective* — regulation restricts Chinese acquisitions of their employers
-- **WEP alignment**: *Likely* (WEP 65%) to support; *Unlikely* (WEP 25%) to oppose if they perceive it as protectionism that increases costs
 
-**Segment 2: High-tech / digital workers** (~8% of EU voters)
-- Software, AI, digital services: Investors from China, US, Korea, Japan all active
-- Many companies have received or sought non-EU investment
-- **FDI screening impact**: *Mixed* — restricts Chinese acquisition but also creates review friction for all foreign investment
-- **WEP alignment**: *Roughly Even* (WEP 45%) support; concerned about broader investment chilling
+*Voter segmentation analysis complete. May 2026 package best aligned with Segment 4 (Pro-European Liberal Centre).*
 
-**Segment 3: Security-focused citizens (post-Ukraine)** (~30% of EU voters, estimated)
-- Cross-partisan; emerged strongly after February 2022 invasion
-- Strong support for SAFE, defence spending, and strategic autonomy broadly
-- **FDI screening impact**: *Highly supportive* — see it as part of security response to Russian/Chinese threat
-- **WEP alignment**: *Highly Likely* (WEP 80%) to support the May 2026 package overall
 
-**Segment 4: Human rights advocates** (~10% of EU voters, organized)
-- Core supporters of EP Iran, Afghanistan, Indonesia resolutions
-- Will follow-up to demand Council sanctions action
-- **Expected behaviour**: *Almost Certain* (WEP 90%) to engage with their MEPs on this; *Unlikely* (WEP 25%) to be satisfied with EP resolutions alone
 
-### Political Segment Alignment Summary
-
-| Segment | FDI Screening | SAFE | Slovakia/HR | Net EP support |
-|---------|-------------|------|------------|---------------|
-| Manufacturing workers | ✅ Supportive | 🔶 Neutral | 🔶 Neutral | +moderate |
-| High-tech workers | 🔶 Mixed | 🔶 Neutral | 🟢 Supportive | +slight |
-| Security-focused | ✅ Supportive | ✅ Supportive | 🔶 Neutral | +strong |
-| HR advocates | 🔶 Neutral | 🔶 Neutral | ✅ Supportive | +moderate |
-| Free trade advocates | ❌ Opposing | 🔶 Neutral | 🔶 Neutral | -moderate |
-
----
-
-*Sources*: Eurobarometer spring 2026 data (published April 2026, GP B2); EP election 2024 analysis; post-Ukraine polling shifts (B2-B3).

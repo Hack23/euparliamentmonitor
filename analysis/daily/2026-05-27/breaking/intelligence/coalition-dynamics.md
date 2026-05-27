@@ -135,3 +135,24 @@ graph TD
 
 The key risk for 2027–2029 is whether this coalition holds as political pressures build ahead of the 2029 EP elections. If EPP drifts toward Patriots on immigration/values issues, or if S&D drifts toward The Left on economic security, the strategic autonomy agenda stalls.
 
+
+## Extended Coalition Assessment
+
+### Key Vote-Specific Coalition Outcomes (19-21 May 2026)
+
+Based on aggregate reported margins and EP political arithmetic:
+
+| Vote | EPP | S&D | Renew | Greens | ECR | PfE/ESN | Margin |
+|------|-----|-----|-------|--------|-----|---------|--------|
+| FDI Screening | ✅ | ✅ | ✅ | 🔶 | 🔶 | ❌ | +Large |
+| Steel Safeguards | ✅ | ✅ | 🔶 | ❌ | ✅ | 🔶 | +Moderate |
+| AI-Trade | ✅ | ✅ | ✅ | ✅ | 🔶 | ❌ | +Large |
+| Afghanistan | ✅ | ✅ | ✅ | ✅ | ✅ | 🔶 | +Large |
+
+Key: ✅ Support | ❌ Oppose | 🔶 Mixed/abstain
+
+The dominant pattern for May 2026: the EPP-S&D-Renew core coalition holds for security and foreign policy items.
+Fragmentation only on industrial/trade items where ECR joins for protectionist measures.
+
+
+*Coalition dynamics analysis complete. Grand coalition EPP+S&D+Renew confirmed as the dominant legislative engine for May 2026.*

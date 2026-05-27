@@ -113,20 +113,10 @@ For Stage D article renderer, the key cross-references per article section:
 - `intelligence/analysis-index.md` for the flat artifact inventory
 - `manifest.json` for the machine-readable file listing
 
----
+## Cross-Reference Completeness
 
-## Extended Cross-Reference Map
-
-**Thematic clusters and their primary analytical chain**:
-
-**Cluster A: FDI Screening (TA-10-2026-0171)**
-- `classification/significance-classification.md` → `intelligence/synthesis-summary.md` → `extended/comparative-international.md` → `extended/implementation-feasibility.md` → `risk-scoring/risk-matrix.md`
-
-**Cluster B: SAFE–Canada (TA-10-2026-0180)**
-- `classification/actor-mapping.md` → `extended/coalition-mathematics.md` → `intelligence/coalition-dynamics.md` → `risk-scoring/political-capital-risk.md`
-
-**Cluster C: Human Rights (TA-10-2026-0185, 0186, 0187)**
-- `threat-assessment/actor-threat-profiles.md` → `intelligence/threat-model.md` → `extended/historical-parallels.md` → `threat-assessment/consequence-trees.md`
-
-**Cluster D: Rule of Law — Slovakia (TA-10-2026-0184)**
-- `intelligence/political-threat-landscape.md` → `extended/devils-advocate-analysis.md` → `risk-scoring/legislative-velocity-risk.md` → `threat-assessment/legislative-disruption.md`
+| Artifact A | Artifact B | Cross-Reference Type |
+|-----------|-----------|---------------------|
+| intelligence-assessment.md | stakeholder-map.md | Actor profiles ← → Intelligence findings |
+| scenario-forecast.md | forward-indicators.md | Scenarios ← → Leading indicators |
+| historical-parallels.md | coalition-mathematics.md | History ← → Current arithmetic |

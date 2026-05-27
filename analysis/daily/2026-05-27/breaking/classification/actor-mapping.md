@@ -154,26 +154,28 @@ Key information flows:
 
 **What this means**: The actors who will determine whether this legislation actually works are not the MEPs who voted for it, but the Commission officials who write the implementing rules, the member state bureaucrats who create screening authorities, and the Council diplomats who decide whether to follow through on the Afghanistan mandate.
 
----
 
-## Alliance Map
+## Alliance Analysis
 
-```mermaid
-graph LR
-    EPP -- "Primary coalition" --> SD
-    SD -- "Secondary partner" --> Renew
-    EPP -- "Tactical alignment on FDI/SAFE" --> ECR
-    Renew -- "Values alliance" --> Greens
-    PfE -- "Opposition anchor" --> ESN
-    EP_core["EPP+S&D+Renew\n(401 seats)"] -. "majority" .-> threshold["Majority: 359"]
-    ECR -- "Tactical support (FDI, SAFE)" --> EP_core
-```
+### Key Political Alliances Active in May 2026 Plenary
 
-**Alliance summary**:
-- **Core coalition** (EPP + S&D + Renew): 401 seats — primary legislative vehicle for all strategic autonomy legislation in EP10
-- **Extended coalition** (EPP + S&D + Renew + ECR): 479 seats — includes ECR on security/economic sovereignty issues; excludes ECR on social and rule of law
-- **Values coalition** (EPP + S&D + Renew + Greens): 454 seats — used for human rights resolutions; Greens may split on defence spending
-- **Opposition bloc** (PfE + ESN): 109 seats — can coordinate to delay but not block
+**Pro-Strategic-Autonomy Alliance**:
+- Core: EPP + S&D + Renew Europe
+- Consistent across: FDI Screening, AI-Trade, SAFE Canada
+- Seat count: ~460/720 (64%) — workable supermajority on foreign economic policy
 
-**Alliance stability**: 🟢 HIGH for the core coalition on strategic autonomy issues. The EPP has been the indispensable centre — without EPP, no majority is achievable from either direction.
+**Industrial Protection Alliance**:
+- Core: EPP + ECR (partial) + S&D
+- Consistent across: Steel Safeguards
+- Seat count: variable ~380-420 depending on abstentions
 
+**Human Rights Consensus**:
+- Broad: EPP + S&D + Renew + Greens + ECR (partial) + Left
+- Consistent across: Afghanistan, Iran resolutions
+- Seat count: 550+ — near-consensual
+- Exclusion: PfE/ESN typically abstain or vote against
+
+**Sovereignist Dissent Bloc**:
+- Core: PfE + ESN (combined ~105 seats)
+- Consistent opposition: FDI Screening, AI regulation, Care Society
+- Cannot block majorities but shapes political narrative

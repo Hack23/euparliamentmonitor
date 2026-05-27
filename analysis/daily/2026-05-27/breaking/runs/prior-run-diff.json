@@ -1,0 +1,321 @@
+{
+  "enabled": true,
+  "mode": "improve-and-extend",
+  "runDir": "analysis/daily/2026-05-27/breaking",
+  "articleType": "breaking",
+  "priorRunId": "breaking-run266-1779846371",
+  "carryForward": [
+    {
+      "relativePath": "classification/actor-mapping.md",
+      "lines": 157,
+      "priorLines": 157,
+      "floor": 30,
+      "extendFloor": 177,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "classification/forces-analysis.md",
+      "lines": 138,
+      "priorLines": 138,
+      "floor": 30,
+      "extendFloor": 158,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "classification/impact-matrix.md",
+      "lines": 158,
+      "priorLines": 158,
+      "floor": 30,
+      "extendFloor": 178,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "intelligence/coalition-dynamics.md",
+      "lines": 138,
+      "priorLines": 138,
+      "floor": 135,
+      "extendFloor": 158,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "intelligence/political-threat-landscape.md",
+      "lines": 104,
+      "priorLines": 104,
+      "floor": 90,
+      "extendFloor": 124,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "intelligence/workflow-audit.md",
+      "lines": 110,
+      "priorLines": 110,
+      "floor": 100,
+      "extendFloor": 130,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "risk-scoring/legislative-velocity-risk.md",
+      "lines": 142,
+      "priorLines": 142,
+      "floor": 30,
+      "extendFloor": 162,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "risk-scoring/political-capital-risk.md",
+      "lines": 144,
+      "priorLines": 144,
+      "floor": 30,
+      "extendFloor": 164,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "threat-assessment/actor-threat-profiles.md",
+      "lines": 164,
+      "priorLines": 164,
+      "floor": 30,
+      "extendFloor": 184,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "threat-assessment/consequence-trees.md",
+      "lines": 133,
+      "priorLines": 133,
+      "floor": 30,
+      "extendFloor": 153,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    },
+    {
+      "relativePath": "threat-assessment/legislative-disruption.md",
+      "lines": 144,
+      "priorLines": 144,
+      "floor": 30,
+      "extendFloor": 164,
+      "source": "extend-from-prior:breaking-run266-1779846371"
+    }
+  ],
+  "rewrite": [
+    {
+      "relativePath": "classification/significance-classification.md",
+      "lines": 84,
+      "floor": 105,
+      "reason": "short:84<105"
+    },
+    {
+      "relativePath": "data-availability-assessment.md",
+      "lines": 50,
+      "floor": 80,
+      "reason": "short:50<80"
+    },
+    {
+      "relativePath": "documents/document-analysis-index.md",
+      "lines": 79,
+      "floor": 95,
+      "reason": "short:79<95"
+    },
+    {
+      "relativePath": "executive-brief.md",
+      "lines": 68,
+      "floor": 180,
+      "reason": "short:68<180"
+    },
+    {
+      "relativePath": "extended/coalition-mathematics.md",
+      "lines": 92,
+      "floor": 200,
+      "reason": "short:92<200"
+    },
+    {
+      "relativePath": "extended/comparative-international.md",
+      "lines": 73,
+      "floor": 200,
+      "reason": "short:73<200"
+    },
+    {
+      "relativePath": "extended/cross-reference-map.md",
+      "lines": 115,
+      "floor": 150,
+      "reason": "short:115<150"
+    },
+    {
+      "relativePath": "extended/data-download-manifest.md",
+      "lines": 86,
+      "floor": 160,
+      "reason": "short:86<160"
+    },
+    {
+      "relativePath": "extended/devils-advocate-analysis.md",
+      "lines": 68,
+      "floor": 250,
+      "reason": "short:68<250"
+    },
+    {
+      "relativePath": "extended/executive-brief.md",
+      "lines": 0,
+      "floor": 180,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "extended/forward-indicators.md",
+      "lines": 77,
+      "floor": 180,
+      "reason": "short:77<180"
+    },
+    {
+      "relativePath": "extended/historical-parallels.md",
+      "lines": 67,
+      "floor": 220,
+      "reason": "short:67<220"
+    },
+    {
+      "relativePath": "extended/implementation-feasibility.md",
+      "lines": 92,
+      "floor": 200,
+      "reason": "short:92<200"
+    },
+    {
+      "relativePath": "extended/intelligence-assessment.md",
+      "lines": 67,
+      "floor": 220,
+      "reason": "short:67<220"
+    },
+    {
+      "relativePath": "extended/media-framing-analysis.md",
+      "lines": 161,
+      "floor": 270,
+      "reason": "short:161<270"
+    },
+    {
+      "relativePath": "extended/voter-segmentation.md",
+      "lines": 80,
+      "floor": 200,
+      "reason": "short:80<200"
+    },
+    {
+      "relativePath": "intelligence/analysis-index.md",
+      "lines": 117,
+      "floor": 160,
+      "reason": "short:117<160"
+    },
+    {
+      "relativePath": "intelligence/cross-run-diff.md",
+      "lines": 64,
+      "floor": 100,
+      "reason": "short:64<100"
+    },
+    {
+      "relativePath": "intelligence/cross-session-intelligence.md",
+      "lines": 53,
+      "floor": 150,
+      "reason": "short:53<150"
+    },
+    {
+      "relativePath": "intelligence/economic-context.fallback.md",
+      "lines": 0,
+      "floor": 185,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "intelligence/economic-context.md",
+      "lines": 76,
+      "floor": 185,
+      "reason": "short:76<185"
+    },
+    {
+      "relativePath": "intelligence/historical-baseline.md",
+      "lines": 113,
+      "floor": 190,
+      "reason": "short:113<190"
+    },
+    {
+      "relativePath": "intelligence/mcp-reliability-audit.md",
+      "lines": 229,
+      "floor": 385,
+      "reason": "short:229<385"
+    },
+    {
+      "relativePath": "intelligence/methodology-reflection.md",
+      "lines": 193,
+      "floor": 220,
+      "reason": "short:193<220"
+    },
+    {
+      "relativePath": "intelligence/pestle-analysis.md",
+      "lines": 156,
+      "floor": 250,
+      "reason": "short:156<250"
+    },
+    {
+      "relativePath": "intelligence/procedures-proxy.md",
+      "lines": 43,
+      "floor": 60,
+      "reason": "short:43<60"
+    },
+    {
+      "relativePath": "intelligence/reference-analysis-quality.md",
+      "lines": 147,
+      "floor": 190,
+      "reason": "short:147<190"
+    },
+    {
+      "relativePath": "intelligence/scenario-forecast.md",
+      "lines": 198,
+      "floor": 280,
+      "reason": "short:198<280"
+    },
+    {
+      "relativePath": "intelligence/significance-scoring.md",
+      "lines": 79,
+      "floor": 105,
+      "reason": "short:79<105"
+    },
+    {
+      "relativePath": "intelligence/stakeholder-map.md",
+      "lines": 172,
+      "floor": 305,
+      "reason": "short:172<305"
+    },
+    {
+      "relativePath": "intelligence/synthesis-summary.md",
+      "lines": 145,
+      "floor": 205,
+      "reason": "short:145<205"
+    },
+    {
+      "relativePath": "intelligence/threat-model.md",
+      "lines": 182,
+      "floor": 250,
+      "reason": "short:182<250"
+    },
+    {
+      "relativePath": "intelligence/voting-patterns.degraded.md",
+      "lines": 0,
+      "floor": 150,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "intelligence/voting-patterns.md",
+      "lines": 108,
+      "floor": 150,
+      "reason": "short:108<150"
+    },
+    {
+      "relativePath": "intelligence/wildcards-blackswans.md",
+      "lines": 182,
+      "floor": 275,
+      "reason": "short:182<275"
+    },
+    {
+      "relativePath": "risk-scoring/quantitative-swot.md",
+      "lines": 137,
+      "floor": 140,
+      "reason": "short:137<140"
+    },
+    {
+      "relativePath": "risk-scoring/risk-matrix.md",
+      "lines": 138,
+      "floor": 150,
+      "reason": "short:138<150"
+    }
+  ]
+}

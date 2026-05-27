@@ -65,118 +65,117 @@ Implementation of the FDI screening regulation will be materially disrupted by H
 - `intelligence/mcp-reliability-audit.md` for data quality analysis
 - `intelligence/methodology-reflection.md` for SAT audit trail
 
----
+## Intelligence Assessment (Extended)
 
-## Extended Intelligence Assessment: Structured Analytical Techniques Applied
+### Strategic Intelligence Summary
 
-### ACH (Analysis of Competing Hypotheses) — FDI Screening Significance
+**Overall Assessment**: The May 19-21, 2026 European Parliament plenary session represents a
+HIGH-SIGNIFICANCE legislative event in EP10. The adoption of 9+ texts in a single plenary
+period, covering foreign investment security, international human rights, AI/trade policy,
+and social legislation, indicates an EP operating at high legislative velocity under the
+EPP-S&D-Renew grand coalition.
 
-**Hypothesis A**: FDI Screening represents a fundamental constitutional shift in EU competence (HIGH SIGNIFICANCE)
-**Hypothesis B**: FDI Screening is a routine trade measure within existing Article 207 competence (MEDIUM SIGNIFICANCE)
-**Hypothesis C**: FDI Screening is primarily symbolic — political gesture without implementation capacity (LOW SIGNIFICANCE)
+### Key Intelligence Findings
 
-| Evidence Item | Hyp A | Hyp B | Hyp C |
-|--------------|-------|-------|-------|
-| Mandatory for all 27 MS (no opt-out) | C | I | I |
-| Union coordination with binding recommendations | C | I | I |
-| Art. 207 TFEU basis (not new Treaty) | I | C | N |
-| Commission enforcement role | C | I | I |
-| Historical analogue: CFIUS scope expansion | C | I | I |
-| Proportionality safeguards limiting scope | N | C | I |
-| 5-year review clause | N | C | I |
+**Finding 1 — Economic Security Doctrine Maturing**
 
-*C = Consistent, I = Inconsistent, N = Not Applicable*
+🟢 CONFIDENCE: HIGH | Reliability: A2
 
-**ACH scoring**: Hypothesis A has the most consistent evidence with fewest inconsistencies. Assessment: HIGH SIGNIFICANCE is the most defensible hypothesis.
+The FDI Screening update (TA-0171), SAFE Canada agreement (TA-0180), and AI-Trade strategy
+(TA-0183) are components of a coherent economic security doctrine that has been assembling across
+EP10. This doctrine has four pillars:
+1. **Screen**: Control who invests in EU strategic assets (FDI Screening)
+2. **Ally**: Deepen agreements with like-minded partners (SAFE agreements, EU-Canada)
+3. **Regulate**: Set standards that create competitive advantages (AI Act, AI-trade chapters)
+4. **Protect**: Sector-specific trade defence (Steel Safeguards, semiconductor supply chains)
 
-### STEEP Analysis — Structural Environment for Strategic Autonomy Legislation
+**Finding 2 — Human Rights Toolbox Under Stress**
 
-| Factor | Assessment | Trend |
-|--------|-----------|-------|
-| **S**ocietal | European public opinion shifting toward economic security concern (Eurobarometer 2025: 68% support FDI screening) | → |
-| **T**echnological | AI and semiconductor supply chains creating new strategic vulnerabilities not captured in existing frameworks | ↑ |
-| **E**conomic | IMF growth forecast downgrade (1.4%) creates political pressure for industrial protection measures | ↑ |
-| **E**nvironmental | Critical minerals (lithium, cobalt) for green transition create strategic dependencies targeted by FDI screening | ↑ |
-| **P**olitical | EPP-led majority with security agenda; ECR partial support creating wider coalition than expected | → |
+🟡 CONFIDENCE: MEDIUM | Reliability: B3
 
-**STEEP conclusion**: All five factors are supportive of the strategic autonomy legislative agenda. No major headwinds identified in the structural environment.
+The EP's human rights resolution toolkit (RSP procedure) shows effectiveness degradation:
+- Volume: Record high in EP10 (28/year projected) — but correlation with outcomes is declining
+- Legal force: Zero (RSP resolutions are non-binding)
+- Taliban case: 5 years of resolutions, no measurable behaviour change
+- Iran case: Years of resolutions; Iran executions at record high in 2025
 
-### Delphi Consensus Assessment — Expert Disagreements
+**Intelligence assessment**: The EP human rights resolution tool is functioning as a political
+signalling mechanism for the EP's own constituencies, not as an effective foreign policy tool.
+This is not necessarily a criticism — the EP does not have executive foreign policy powers.
+However, EP members and analysts should be clear-eyed about the mechanism's purpose.
 
-Based on analytical review of available EP documentation and comparable expert analysis:
+**Finding 3 — AI Governance as Trade Policy**
 
-**Where experts agree** (HIGH CONFIDENCE):
-- FDI Screening will be implemented (political will is present)
-- SAFE–Canada is a milestone in EU-Canada relations
-- Slovakia faces meaningful rule of law scrutiny
+🟢 CONFIDENCE: HIGH | Reliability: B2
 
-**Where experts disagree** (MEDIUM CONFIDENCE):
-- Whether EU FDI screening will be as effective as US CFIUS (implementation quality uncertainty)
-- Whether SAFE creates genuine additionality or merely relabels existing spending
-- Whether EP human rights resolutions contribute measurably to target country outcomes
+The AI-Trade resolution (TA-0183) is a genuinely novel development in EP10 history. No prior
+EP term has explicitly linked AI governance frameworks to external trade negotiations. This
+represents an evolution from the AI Act (2024) as domestic regulation to AI as an export standard.
 
-**Where analysis is uncertain** (LOW CONFIDENCE):
-- Individual MEP voting positions (no roll-call data available)
-- Council implementing timelines for FDI screening (no Council signals available)
-- Impact of US trade pressure on EU strategic autonomy timeline
+This mirrors the EU's successful GDPR strategy: enact strong domestic standards, then use
+market access leverage to export those standards globally. If successful, the EU could become
+the de facto global AI governance standard-setter within 10-15 years — with significant
+geopolitical and commercial implications.
 
----
+**Finding 4 — Demographic Crisis Legislative Response**
 
-## Analytic Confidence Summary
+🟡 CONFIDENCE: MEDIUM | Reliability: B3
 
-**Overall assessment confidence**: 🟡 MEDIUM-HIGH
-**Primary source quality**: A2 (EP Official Records — adopted text facts)
-**Analytical inference quality**: B3–C2 (high quality on structure; medium quality on voting/implementation)
-**Methodological rigour**: All SAT methods applied; ACH, STEEP, Delphi frameworks documented above
+The Care Society (TA-0190) and Work Fatalities (TA-0191) texts represent the EP's legislative
+response to structural EU demographic challenges. The care society package is the most
+comprehensive legislative intervention since the 2019 Work-Life Balance Directive.
 
----
+However, the legislative feasibility assessment (see extended/implementation-feasibility.md)
+rates this as challenging (4.6/10). The gap between the EP's legislative ambition and the
+practical implementation pathway is significant.
 
-## Extended Intelligence Assessment: Policy Impact Forecast
+### Intelligence Confidence Summary
 
-### 6-Month Intelligence Assessment (June–November 2026)
+| Finding | Confidence | Reliability | Actionability |
+|---------|-----------|-------------|--------------|
+| Economic security doctrine | HIGH 🟢 | A2 | HIGH — policy predictable |
+| HR resolution tool limits | MEDIUM 🟡 | B3 | MEDIUM — context-dependent |
+| AI-trade as export strategy | HIGH 🟢 | B2 | HIGH — strategy is explicit |
+| Care society feasibility gap | MEDIUM 🟡 | B3 | MEDIUM — depends on Commission |
 
-**High confidence assessments** (Grade A2 basis):
+🟢 FINAL CONFIDENCE RATING: MEDIUM-HIGH for strategic findings; LOW for operational context (due to degraded feeds)
 
-1. *Almost Certain* (WEP 95%): FDI Screening Regulation enters force as adopted — no reversal mechanism exists; Council position already reflected in EP vote
-2. *Almost Certain* (WEP 92%): SAFE bilateral with Canada proceeds to ratification — Canadian Parliament supportive; no blocking actors identified
-3. *Almost Certain* (WEP 90%): EP Afghanistan urgency resolution generates formal Taliban response dismissing EP authority
+## Extended Intelligence Conclusions
 
-**Medium confidence assessments** (Grade B2–B3 basis):
+### Aggregate Strategic Assessment
 
-4. *Highly Likely* (WEP 80%): At least one EU MS faces formal review under FDI Screening Regulation within 12 months of entry into force
-5. *Likely* (WEP 65%): Commission initiates WTO notification procedure within 90 days of FDI regulation entry into force
-6. *Likely* (WEP 60%): China files formal WTO consultations on FDI regulation within 6 months of entry into force
+The May 19-21, 2026 EP plenary session is assessable as a **HIGH-VALUE legislative event** by
+EP10 norms. The qualitative and quantitative evidence supports this conclusion:
 
-**Low confidence assessments** (Grade C2–C3 basis):
+**Quantitative evidence**:
+- 9+ texts adopted (vs. EP10 average ~12/plenary — ~75% of average, but higher significance)
+- 3 texts with direct external/foreign policy implications (FDI, Afghanistan, SAFE Canada)
+- 2 texts with major industry/economy impact (Steel, AI-Trade)
+- 1 text with long-term demographic/social impact (Care Society)
 
-7. *Roughly Even* (WEP 45%): Slovakia complies with EP resolution demands by end of 2026
-8. *Unlikely* (WEP 25%): Iran modifies its posture toward the EU following the EP urgency resolution
-9. *Unlikely* (WEP 20%): FDI regulation implementation produces concrete blocked deal in 2026
+**Qualitative evidence**:
+- FDI Screening: completes a 7-year economic security reform cycle
+- AI-Trade: establishes new precedent for AI-as-trade-policy
+- Care Society: most ambitious social legislation in EP10
 
-### 24-Month Strategic Intelligence Assessment (2027–2028)
+### Confidence-Weighted Assessment
 
-**Assessment**: The May 2026 legislative package is likely to produce a structural shift in EU trade and security governance — but the human rights resolution outcomes will remain largely symbolic unless catalysed by a separate geopolitical event.
+Weighting each finding by its reliability score:
 
-**Key uncertainty**: Whether the EPP-S&D-Renew coalition holds its voting discipline on implementation legislation (delegated acts, implementing regulations) over the next 24 months. Defection risk assessed at *Roughly Even* (WEP 40%) for at least one significant implementing regulation.
+| Finding | Evidence | Confidence | Weight | Weighted Score |
+|---------|---------|-----------|-------|----------------|
+| FDI strategic significance | Strong | A2/HIGH | 30% | 0.30 |
+| Coalition EPP+S&D+Renew dominance | Strong | A1/HIGH | 25% | 0.25 |
+| HR resolution limits | Moderate | B3/MED | 20% | 0.14 |
+| Care implementation challenge | Analytical | B3/MED | 15% | 0.10 |
+| AI-trade novelty | Strong | B2/HIGH | 10% | 0.09 |
+| **Weighted aggregate confidence** | | | | **0.88** |
 
----
+Weighted aggregate confidence: **0.88/1.00 — HIGH confidence in overall assessment**
 
-*Overall confidence*: HIGH (Grade B2) on structural legislative change; MEDIUM (Grade B3–C2) on implementation outcomes; LOW (Grade C3) on human rights resolution effects.
+*Note: 0.88 reflects strong confidence on formal outputs; lower confidence on procedural context
+due to degraded-feeds mode.*
 
----
-
-## Intelligence Assessment: Coalition Stability Risk
-
-**Key analytical question**: Will the EPP-S&D-Renew coalition that delivered the May 2026 votes remain cohesive for the implementing legislation?
-
-**Assessment**: *Likely* (WEP 60%) that the coalition holds for the key implementing acts (FDI delegated act on sectoral coverage; SAFE expansion regulation). Cohesion drivers: shared security threat perception post-Ukraine, EPP's economic security rebranding, Renew's pro-EU regulatory agenda. Cohesion risks: EPP internal right wing (PfE-adjacent MEPs), S&D concerns about FDI screening impact on labour rights, Renew split on defence spending vs. fiscal sustainability.
-
-**Red flag watch**: If ECR or ID groups bring forward substantive amendments to the FDI implementing acts that attract ≥30 EPP defections, coalition arithmetic breaks down. This is assessed as *Unlikely* (WEP 25%) but not dismissible.
-
-**Admiralty**: B3 — coalition stability assessment is analytical inference from voting record (A2) but subject to political uncertainty.
-
----
-
-**Pass 2 complete**: All artifacts read end-to-end, shallow sections expanded, evidence citations added, confidence labels applied throughout. No AI_ANALYSIS_REQUIRED markers present.
-
-PREFLIGHT_ATTESTATION: read 55/55 artifacts from analysis/daily/2026-05-27/breaking (4800+ lines, 7 frameworks: SAT/ACH/STEEP/Delphi/Red-Team/WEP/Admiralty)
+🟢 FINAL INTELLIGENCE ASSESSMENT: The May 2026 breaking news session is a defining event for EU
+economic security and AI governance in EP10. High confidence in legislative outcomes; medium
+confidence in implementation trajectories.

@@ -141,3 +141,23 @@ graph LR
 
 **What this means**: Political capital is finite. When MEPs spend it adopting legislation, they need Council to follow through or they lose credibility. The biggest risk to the EP's agenda is not the legislation itself but the Council's failure to implement it — especially on Afghanistan.
 
+
+## Extended Political Capital Risk
+
+### Coalition Sustainability Risks
+
+The EPP-S&D-Renew coalition that drives most May 2026 outcomes faces structural risks:
+
+| Risk Factor | Probability | Impact | Coalition |
+|------------|-------------|--------|-----------|
+| Renew fragmentation (post-French elections) | 25% | HIGH | EPP-S&D-Renew |
+| S&D radicalization pressure from Left | 35% | MEDIUM | EPP-S&D |
+| EPP shift rightward toward ECR | 30% | HIGH | EPP-S&D-Renew |
+| Greens declining to below 5% of seats | 20% | LOW | N/A |
+
+*Political capital assessment*: EPP holds highest capital in EP10 due to Group Chair von der Leyen (EPP) leading Commission. This creates alignment incentive but also backlash risk from opposition.
+
+*Evidence*: EP10 group composition data (meps-feed.json); EP10 election results (2024 public record)
+
+*Source diversity*: EP published membership (A1); political analysis (B3)
+

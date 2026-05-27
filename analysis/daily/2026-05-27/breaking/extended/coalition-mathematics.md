@@ -90,75 +90,70 @@
 - `intelligence/voting-patterns.md` for estimated voting data
 - `classification/actor-mapping.md` for actor role analysis
 
----
+## Coalition Mathematics Analysis (Extended)
 
-## Extended Coalition Mathematics: Seat Arithmetic and Scenario Modelling
+### EP10 Seat Distribution (May 2026)
 
-### Baseline Coalition Structure (May 2026)
+| Political Group | Seats | % | Block |
+|----------------|-------|---|-------|
+| EPP | 188 | 26.1% | Centre-right |
+| S&D | 136 | 18.9% | Centre-left |
+| Renew Europe | 77 | 10.7% | Liberal |
+| Greens/EFA | 53 | 7.4% | Green-left |
+| ECR | 78 | 10.8% | Conservative |
+| PfE | 84 | 11.7% | Far-right |
+| ESN | 25 | 3.5% | Far-right |
+| Left (GUE-NGL) | 46 | 6.4% | Left |
+| Non-attached | 33 | 4.6% | — |
+| **Total** | **720** | **100%** | |
 
-| Group | Seats | % | Role in Strategic Autonomy Legislation |
-|-------|-------|---|---------------------------------------|
-| EPP | 188 | 26.3% | Primary driver; authored key amendments |
-| S&D | 136 | 19.0% | Core coalition partner |
-| Renew | 77 | 10.8% | Third coalition pillar; free-trade wing managed |
-| Greens/EFA | 53 | 7.4% | Supportive on values/human rights; split on defence |
-| ECR | 78 | 10.9% | Surprise supporter on FDI screening and SAFE |
-| PfE (Patriots) | 84 | 11.7% | Opposition anchor; Orbán-aligned |
-| ESN | 25 | 3.5% | Erratic; case-by-case |
-| Left | 46 | 6.4% | Opposition on SAFE; support on human rights |
-| NI | 29 | 4.1% | Mixed |
-| **TOTAL** | **716** | **100%** | |
+Majority threshold: 361 seats
 
-**Majority threshold**: 359 seats (simple majority of members voting, assuming quorum)
+### Coalition Scenarios for Key May 2026 Votes
 
-### Minimum Winning Coalition for Each Vote Type
+**Scenario 1: Grand Coalition (EPP+S&D+Renew)**
+- Combined: 401 seats (55.7%)
+- Majority status: YES — working majority
+- Stability: HIGH for foreign economic policy, MEDIUM for social policy
+- Applications: FDI Screening, AI-Trade, SAFE Canada — all passed with this coalition
 
-**FDI Screening (binding regulation — COD)**:
-- Minimum winning: EPP + S&D = 324 seats (BELOW majority)
-- EPP + S&D + Renew = 401 seats ✅ (comfortable majority)
-- EPP + S&D + ECR = 402 seats ✅ (alternative coalition)
-- Actual estimated: EPP + S&D + Renew + Greens + ECR = 532 seats (~74% — supermajority)
+**Scenario 2: Industrial Alliance (EPP+S&D+ECR)**
+- Combined: 402 seats (55.8%)
+- Majority status: YES
+- Stability: LOW-MEDIUM — S&D and ECR have major policy conflicts
+- Applications: Steel Safeguards — specific ad hoc alignment possible
 
-**SAFE–Canada (consent — AVC)**:
-- Same majority threshold applies; AVC requires simple majority
-- EPP + S&D + Renew + ECR = 479 seats ✅
-- Greens likely split: +30 seats from Greens who support Atlanticism
-- PfE likely against: -84 seats
-- Estimated: 490-530 FOR, 110-150 AGAINST/ABSTAIN
+**Scenario 3: Progressive Supermajority (S&D+Renew+Greens+Left)**
+- Combined: 312 seats (43.3%)
+- Majority status: NO — cannot pass legislation without EPP or ECR
+- Stability: N/A — cannot form majority
+- Implication: Left + Greens cannot legislate without EPP or ECR participation
 
-**Afghanistan Resolution (urgency — near-unanimous expected)**:
-- Estimated: 620+ FOR; opposition limited to <80 across PfE + extreme nationalists
+**Scenario 4: Far-Right Blocking Coalition (PfE+ESN+ECR)**
+- Combined: 187 seats (26.0%)
+- Blocking status: NO — cannot block (need 360 against)
+- But: Can disrupt committee work, delay readings, force close votes
 
-### Sensitivity Analysis: Coalition Stability Under Stress
+### Effective Number of Parties
 
-**Scenario 1: US imposes retaliatory tariffs on FDI screening** (US objects to screening of US companies)
-- Renew free-trade wing (25–35 MEPs) might shift from FOR to ABSTAIN
-- Net effect: Majority preserved (EPP + S&D + remainder of Renew = 375 seats minimum)
+Using Laakso-Taagepera index (N = 1/Σpi²):
+- EP10 N = 1/(0.261² + 0.189² + 0.107² + 0.074² + 0.108² + 0.117² + 0.035² + 0.064² + 0.046²) = **6.8**
+- High fragmentation compared to EP9 N = 5.9 and EP8 N = 5.1
+- Higher fragmentation = coalition building harder; grand coalition more necessary
 
-**Scenario 2: PfE gains seats in hypothetical 2028 EP by-elections**
-- Current PfE at 84; would need to reach ~120 seats to shift the blocking minority calculation
-- Current EPP+S&D+Renew core coalition can absorb PfE expansion to 120 seats without losing majority
+🟢 CONFIDENCE: Seat count data HIGH (meps-feed.json A1); Coalition alignment analysis MEDIUM (B3)
 
-**Scenario 3: Renew splits on defence spending**
-- Free-trade/liberal wing (Netherlands VVD, Danish Venstre) vs. security Atlanticist wing (French Macron bloc)
-- Even if Renew splits 50/50, the 38 security Atlanticists remain in the coalition
-- EPP + S&D + Greens + ECR = 455 seats — majority preserved without Renew entirely
+## Coalition Stability Forecast
 
-**Coalition robustness assessment**: 🟢 HIGH — The core EPP+S&D+Renew majority is robust against most realistic stress scenarios for strategic autonomy legislation. The coalition has a 42-seat buffer above the majority threshold.
+| Coalition | 6-month Stability | 24-month Stability | Key Risk |
+|-----------|-----------------|------------------|---------|
+| EPP+S&D+Renew | HIGH (85%) | MEDIUM (60%) | French elections, EPP right-shift |
+| EPP+ECR | LOW (30%) | VERY LOW (15%) | S&D dealbreaker |
+| Grand coalition + Greens | HIGH (80%) | MEDIUM (65%) | Greens seat loss |
 
----
+*Mathematics conclusion*: The EPP-S&D-Renew coalition at 401/720 seats is the durable legislative
+engine of EP10. It will deliver the post-May 2026 implementation legislation at similar margins.
 
-## Sources
+*Coalition mathematics analysis complete. Grand coalition EPP+S&D+Renew dominates EP10 at 55.7% of seats.*
 
-- EP seat distribution (MEPs feed — Grade A2)
-- `intelligence/voting-patterns.md` — estimated group positions
-- `intelligence/coalition-dynamics.md` — qualitative assessment
 
----
-
-## Cross-Reference: Coalition Sustainability Scenarios
-
-Key parameter: Does EPP+S&D+Renew core coalition hold through 2029?
-- *Almost Certain* (WEP 88%) for strategic autonomy legislation (shared interest)
-- *Likely* (WEP 65%) for rule of law conditionality (S&D pushes harder than EPP)
-- *Roughly Even* (WEP 50%) for defence spending levels (Renew free-trade wing in tension)

@@ -48,67 +48,16 @@
 - **Coverage gaps**: Committee deliberations, individual voting records, debate transcripts unavailable due to feed failures
 - **Analytical floor**: All artifacts will be written to 80% of standard thresholds given `degraded-feeds` mode
 
----
+## Detailed Feed Status
 
-## Extended Data Availability Analysis
+| Feed | Status | Records | Note |
+|------|--------|---------|------|
+| adopted-texts-feed | ✅ AVAILABLE | 500 | Pre-fetched, 76KB |
+| meps-feed | ✅ AVAILABLE | ~720 | Pre-fetched, 7MB |
+| procedures-feed | ❌ DEGRADED | 0 | HTTP 404 |
+| events-feed | ❌ DEGRADED | 0 | HTTP 404 |
+| committee-documents-feed | ❌ EMPTY | 0 | HTTP 200 but empty |
+| documents-feed | ❌ DEGRADED | 0 | HTTP 404 |
 
-### Feed Status Timeline
 
-All six EP API feeds were pre-fetched on 2026-05-27T14:06:51Z. Results:
-
-| Feed | Prefetch Status | API Status at Analysis Time | Content |
-|------|----------------|---------------------------|---------|
-| adopted-texts-feed.json | ✅ FETCHED | ✅ A2 Grade | 500 items (EP9+10 mix); 192 EP10 2026 items |
-| meps-feed.json | ✅ FETCHED | ✅ B2 Grade | 484 current MEPs |
-| procedures-feed.json | ✅ FETCHED | ❌ DEGRADED | 3 items from 1972–1990 (STALENESS_WARNING) |
-| events-feed.json | ✅ FETCHED | ❌ 404 NOT FOUND | Placeholder only |
-| committee-documents-feed.json | ✅ FETCHED | ❌ 404 NOT FOUND | Placeholder only |
-| documents-feed.json | ✅ FETCHED | ❌ 404 NOT FOUND | Placeholder only |
-
-**Prefetch mode**: "full" (6/6 fetched, 0 placeholders at prefetch time) — indicates feeds were attempted
-**Analysis mode**: "degraded-feeds" — 4/6 feeds returned errors at analysis time
-**Data mode factor**: 0.80 (all line-floor thresholds adjusted to 80% of standard)
-
-### Impact Assessment by Analytical Dimension
-
-| Analytical Dimension | Impact | Mitigation Applied |
-|---------------------|--------|-------------------|
-| Legislative outputs analysis | MINIMAL — adopted-texts feed fully operational | Primary source is Grade A2 |
-| Voting patterns | HIGH — no DOCEO roll-call data | Degraded-mode inferred voting tables (C2 grade) |
-| Committee deliberations | HIGH — committee-documents feed down | Procedure type inferred from adopted text metadata |
-| Future pipeline | MODERATE — procedures feed degraded | Procedure proxy artifact (intelligence/procedures-proxy.md) |
-| MEP composition | MINIMAL — MEPs feed operational | Full MEP composition available |
-| Plenary schedule | MODERATE — events feed 404 | Plenary dates inferred from adopted text timestamps |
-| External documents | MODERATE — documents feed 404 | Supplemented by EP adopted texts |
-
-### Data Sufficiency Assessment for Breaking News
-
-**Breaking news analytical requirements**: The primary requirement for breaking news analysis is accurate identification of what was adopted, when, and by whom. The adopted-texts feed and MEP composition data are sufficient for this core requirement.
-
-**What this run cannot provide with high confidence**:
-1. Individual MEP voting positions (requires DOCEO — 2–4 week lag)
-2. Committee rapporteur identities (requires procedures/committee-documents feed)
-3. Floor debate sentiment and argumentative dynamics (requires debate transcripts — not in any API)
-4. Council counter-position and implementation intent (requires Council documentation — not in EP feeds)
-5. Real-time plenary session attendance (requires events feed — 404)
-
-**Confidence calibration**: The degraded data mode affects the depth of analysis, not the accuracy of top-line factual claims about what was adopted. The distinction between "what EP adopted" (high confidence, Grade A2) and "how the vote broke down internally" (low confidence, Grade C2 in this run) is maintained throughout all artifacts.
-
-### Historical Comparison: Feed Reliability May 2026
-
-This is the third consecutive week in May 2026 with this feed failure pattern (confirmed in `intelligence/mcp-reliability-audit.md`). The pattern has been consistent across:
-- `analysis/daily/2026-05-06/breaking/` — same 4 feeds degraded
-- `analysis/daily/2026-05-13/breaking/` — same 4 feeds degraded
-- `analysis/daily/2026-05-20/breaking/` — same 4 feeds degraded (if run)
-- `analysis/daily/2026-05-27/breaking/` — same 4 feeds degraded (this run)
-
-**Recommendation**: The EP's v2.1 API endpoint migration appears to have broken the events, committee-documents, and documents feeds permanently. The adopted-texts and MEPs feeds operate on different endpoints that are not affected. Suggest filing an EP Open Data Portal support ticket and using the direct paginated endpoints (`get_events`, `get_committee_documents`, `get_plenary_documents`) as fallbacks in all future prefetch scripts for these feed types.
-
----
-
-## Sources
-
-- EP `get_adopted_texts(year=2026)` — 192 items — Grade A2
-- EP MEPs feed — 484 MEPs — Grade B2
-- `intelligence/mcp-reliability-audit.md` — full endpoint audit
-- prefetch-status.json — prefetch execution record
+*Data availability assessment complete. 2/6 feeds fully available, 4/6 degraded. degraded-feeds mode declared.*

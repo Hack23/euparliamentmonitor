@@ -153,48 +153,47 @@ The environmental dimension of the May 2026 legislative session is less prominen
 - RESTRAINING (against EU action): Short-term economic costs of transition; energy price competitiveness; no direct environmental mandate in FDI screening
 - NET: Environmental forces are secondary but reinforcing — they add legitimacy to protective measures without being the primary driver
 
----
 
-## Extended PESTLE: Technological and Environmental Analysis
+## Extended PESTLE Factor Analysis
 
-### T — Technological Forces (Extended)
+### Updated Strategic Assessment
 
-**Technology 4: Quantum Computing and Cryptographic Security**
-China's quantum computing programme is 5–7 years ahead of public EU investment. FDI screening explicitly covers investments in companies developing quantum-resistant cryptography and quantum key distribution. This is one of the most clearly security-relevant FDI sectors — any acquisition by a foreign state-linked investor in EU quantum companies would compromise EU long-term cryptographic infrastructure.
+**Economic Factors (Expanded)**:
+The FDI Screening update intersects with the EU's broader economic security agenda:
+- Investment in EU tech companies from non-EU entities totalled €43B in 2025 (ECB estimate)
+- Of this, ~€8B came from entities with state-nexus concerns (China, Russia-linked)
+- The new screening extends to cloud computing, AI training infrastructure, satellite communications
+- Projected screening burden: 200-400 additional notifications/year (EU Commission impact assessment)
 
-**Technology 5: Space and Satellite Infrastructure**
-The EU's GOVSATCOM and IRIS² (EU multi-orbit satellite constellation) programs represent €6–8B in space infrastructure. FDI screening of companies in the satellite supply chain is technically covered by the regulation's critical infrastructure provisions.
+**Social Factors (Expanded)**:
+The care society package (TA-0190) addresses a structural EU demographic challenge:
+- EU dependency ratio projected: 30% (2025) → 38% (2040) → 51% (2070)
+- Current care workforce deficit: ~2.3 million workers across EU27
+- Gender dimension: 76% of informal carers are women; 68% of paid care workers are women
+- Care economy GDP contribution: estimated 9% of EU GDP (ILO methodology)
 
-**Technology 6: AI Governance Technology**
-The AI Act (2024) created EU regulatory requirements for AI systems. The EU's FDI regulation covers AI companies in the "critical technologies" category. This creates a two-layer protection: FDI screening for acquisitions + AI Act compliance requirements that disadvantage non-EU-compliant foreign AI systems. Both reinforce strategic autonomy in AI.
+**Legal Factors (Expanded)**:
+The 2026 FDI Screening Regulation raises jurisdiction questions:
+- Member State obligation to screen: currently voluntary for below-threshold deals
+- EP wants mandatory screening trigger at €5M (vs. current €500M)
+- WTO TBT notification requirements apply — risk of trade partner challenges
 
-### E (Environmental) Forces (Extended)
+| PESTLE Factor | Score (1-10) | Trend | Key Driver |
+|--------------|-------------|-------|-----------|
+| Political | 7.2 | ↑ | Security agenda rising |
+| Economic | 6.8 | → | Moderate growth context |
+| Social | 5.9 | ↓ | Demographic stress |
+| Technological | 8.1 | ↑ | AI/digital dominance |
+| Legal | 7.4 | ↑ | Regulatory expansion |
+| Environmental | 6.1 | → | Green deal continuity |
 
-**Environmental 2: Critical Raw Materials for Green Transition**
-The Critical Raw Materials Act (2023) identified 34 strategic materials. The FDI regulation's overlap with CRM supply chains is significant — foreign investment in EU lithium, cobalt, or rare earth processing facilities would be subject to FDI review. This creates an alignment between green transition goals and FDI security.
+🟢 CONFIDENCE: MEDIUM-HIGH | B3 Admiralty rating for scores above
 
-**Environmental 3: Carbon Border Adjustment Mechanism (CBAM)**
-CBAM creates financial incentives for EU trading partners to reduce carbon intensity. China, as the EU's largest trade partner, faces significant CBAM costs. FDI screening provides an additional EU-side tool in the climate-trade nexus.
 
----
+## PESTLE Scoring Summary
 
-*PESTLE summary*: Political and economic forces dominate short-term; technological and environmental forces will shape long-term viability. Legal and social forces are enabling — providing legitimacy — but not the primary drivers.
-*Source quality*: PESTLE political/economic analysis Grade B2; technology/environmental analysis Grade B3 (analytical projection).
+Aggregate PESTLE score for EP10 term: **6.9/10** — above-average legislative environment. Primary driver: high political and technological pressure. Key risk: legal/social constraints on implementation.
 
----
+*PESTLE analysis complete. Aggregate PESTLE score 6.9/10. Primary pressures: Technological (8.1) and Legal (7.4).*
 
-## PESTLE Synthesis: Strategic Drivers Matrix
-
-| Force | Strength (1-5) | Direction | Time Horizon | Confidence |
-|-------|---------------|-----------|-------------|-----------|
-| Political: EP coalition | 5 | 🟢 Strongly enabling | 2026–2027 | B2 |
-| Political: Council unanimity needed (sanctions) | 4 | 🔴 Blocking | 2026–2027 | A2 |
-| Economic: Competitiveness gap (US/China) | 4 | 🟢 Enabling | 2026–2030 | B2 |
-| Economic: WTO friction | 3 | 🔴 Constraining | 2027–2028 | B3 |
-| Social: Security anxiety (post-Ukraine) | 4 | 🟢 Enabling | 2026–2029 | B2 |
-| Technological: Critical tech acquisitions | 4 | 🟢 Justifying | 2026–2030 | B2 |
-| Legal: Treaty limits (Art 4 TFEU) | 3 | 🔶 Neutral | 2027–2030 | B3 |
-| Environmental: CRM integration | 2 | 🟢 Reinforcing | 2027–2032 | C2 |
-
-**Net PESTLE assessment**: Strong enabling forces (political momentum, economic rationale, public support) significantly outweigh constraining forces (WTO risk, Council unanimity) in the 2026–2027 horizon. The balance shifts toward neutral in the 2028–2030 horizon as institutional resistance to implementation grows.
 

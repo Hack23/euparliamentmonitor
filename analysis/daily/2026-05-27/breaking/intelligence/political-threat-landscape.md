@@ -101,3 +101,24 @@ graph LR
 | Russian information operation | 40% | Even Chance |
 | US trade friction | 25% | Unlikely |
 
+
+## Extended Political Threat Analysis
+
+### Systemic Threats to EP Legislative Capacity
+
+1. **Procedural obstruction risk**: ECR/PfE bloc has incentive to slow-walk secondary legislation
+   implementing the FDI Screening update. Risk: MEDIUM — they lack majority but can delay via
+   committee referrals, reconsultation demands, and technical objections.
+
+2. **Council blocking risk for human rights resolutions**: Afghanistan/Iran/EU-Uzbekistan resolutions
+   are non-binding on Council. However, they create political pressure. EEAS compliance probability: 60%.
+
+3. **Far-right coalescence on security**: ECR and PfE show increasing alignment on "strategic autonomy"
+   framing (FDI, steel) while diverging on human rights and labour legislation.
+
+| Threat | Probability | Impact | Timeline |
+|--------|-------------|--------|----------|
+| EP-Council deadlock on FDI secondary acts | 35% | HIGH | 6-12 months |
+| Human rights resolutions ignored by Council | 65% | MEDIUM | Ongoing |
+| Far-right veto on care society implementation | 40% | HIGH | 12-24 months |
+| Steel safeguard extension fight | 55% | MEDIUM | 6 months |

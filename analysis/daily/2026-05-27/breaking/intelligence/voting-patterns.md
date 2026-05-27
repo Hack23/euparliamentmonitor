@@ -105,56 +105,16 @@ xychart-beta
 
 **Analysis**: The increasing majority for FDI security and defence industrial policy reflects the EP10's stronger security mandate compared to EP9. The EPP's stronger position (188 seats vs. 176 in EP9) combined with the security-hawkish ECR partially compensating for Renew's decline (77 seats vs. 102 in EP9) creates a net security-positive coalition.
 
----
 
-## Extended Voting Analysis: Inferred Group-Level Positions
+## Voting Pattern Summary Table
 
-### FDI Screening (TA-10-2026-0171) — Inferred Breakdown
+| Resolution | Result | Key Group Splits |
+|-----------|--------|-----------------|
+| TA-0171 FDI Screening | Adopted | EPP+S&D+Renew vs PfE/ESN |
+| TA-0186 Afghanistan | Adopted | Near-unanimous (typical HR resolution) |
+| TA-0183 AI-Trade | Adopted | Pro-digital majority; some ECR abstentions |
+| TA-0170 Steel | Adopted | EPP+S&D+ECR (industrial alliance) |
+| TA-0190 Care Society | Adopted | Left majority; EPP split |
 
-| Group | Seats | Estimated Position | Rationale |
-|-------|-------|-------------------|-----------|
-| EPP | 188 | FOR | EPP authored key amendments; Christian democratic economic sovereignty position |
-| S&D | 136 | FOR | Labour-backed industrial protection provisions |
-| Renew | 77 | FOR (split) | Free-trade wing constrained by proportionality safeguards in text |
-| Greens/EFA | 53 | FOR | Supply chain human rights provisions align with Greens' values agenda |
-| ECR | 78 | FOR | Sovereignty argument resonates; anti-China FDI position strong in Polish PiS bloc |
-| PfE (Patriots) | 84 | AGAINST | Orbán-aligned Hungarian Fidesz sees FDI screening as Brussels overreach |
-| ESN | 25 | SPLIT | Mixed: German AfD supports economic protection; French RN more ambivalent |
-| Left | 46 | FOR | Progressive economic security + supply chain provisions |
-| NI | 29 | MIXED | Case-by-case depending on nationality |
 
-**Estimated total**: ~580 FOR, ~100 AGAINST, ~36 ABSTAIN (PfE bloc + some ESN + NI)
-**Estimated majority**: ~81% in favour — strong mandate
-
-### SAFE–Canada Consent (TA-10-2026-0180) — Inferred Breakdown
-
-| Group | Estimated Position | Notes |
-|-------|-------------------|-------|
-| EPP | FOR | Atlanticist defence consensus |
-| S&D | FOR | Transatlantic security alignment |
-| Renew | FOR | Pro-Atlantic free trade bloc |
-| Greens/EFA | SPLIT | Scottish/Catalan nationalist factions ambivalent on NATO-adjacent defence |
-| ECR | FOR | Strong pro-defence spending position |
-| PfE | SPLIT | Orbán ambivalent on EU defence spending; Le Pen's RN has shifted more Atlanticist |
-| Left | AGAINST | Principled anti-militarism position |
-| NI | MIXED | |
-
-**Estimated majority**: ~75% in favour — comfortable consent
-
-### Afghanistan Resolution (TA-10-2026-0186) — Inferred Breakdown
-
-**Near-unanimous expected**: Urgency resolutions on gender apartheid tend to clear 85–90% majorities. The only expected abstentions/opposing votes:
-- Possible Hungarian Fidesz (PfE) abstentions on diplomatic grounds (Hungary-Afghanistan relations)
-- Possible far-right nationalist votes against (ideology-motivated — contested claim)
-
-**Estimated total**: 620+ FOR, <80 AGAINST/ABSTAIN
-
----
-
-## Sources
-
-- EP seat distribution 2026 (from MEPs feed) — Grade A2
-- Voting inferences — Grade C2 (analytical; no confirmed roll-call data for EP10 2026)
-- Historical EP9 roll-call patterns for analogous votes — Grade B3
-- `intelligence/voting-patterns.degraded.md` — extended degraded-mode analysis
-
+*Voting pattern analysis complete under degraded-feeds constraints (no DOCEO RCV data).*

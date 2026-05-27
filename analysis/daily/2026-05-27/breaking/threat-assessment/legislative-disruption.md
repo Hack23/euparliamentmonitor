@@ -141,3 +141,28 @@ graph TD
 
 **What this means**: Disruption of EU legislation doesn't require military force or dramatic action — it requires patient institutional obstruction (Hungary's veto), market exploitation of gaps (jurisdiction shopping), and legal process manipulation (WTO timing). These are the real threats to this week's legislation.
 
+
+## Extended Legislative Disruption Analysis
+
+### Disruption Risk by Procedure Type
+
+| Procedure | Disruption Risk | Key Disruptors | Mitigation |
+|-----------|----------------|---------------|------------|
+| COD (FDI Screening) | LOW | None anticipated | OJ publication |
+| INI (AI-Trade, Care Society) | MEDIUM-HIGH | Council non-follow-up | Commission proposal trigger |
+| RSP (Afghanistan, Iran) | LOW | No legal effect | Political pressure mechanism |
+
+### Procedural Delay Scenarios
+
+**Scenario D1: Care Society COD Delayed (55% probability)**
+The EP INI on care society requires a Commission legislative proposal for COD status.
+If Commission delays this proposal (awaiting Council signal), the full COD cycle is pushed to 2027-2028.
+Estimated delay: 6-18 months.
+
+**Scenario D2: AI-Trade Chapter Stalled (45% probability)**
+The AI-trade resolution mandates inclusion of AI governance chapters in bilateral trade negotiations.
+The EU-India negotiation is the primary vehicle. India's reservations about data sovereignty could
+block AI chapter progress for 12-24 months.
+
+*Evidence*: EP rules of procedure; Commission work programme 2026; EU-India negotiation status reports
+*Source diversity*: EP institutional data (A2); Commission announcements (B2); trade reports (C3)

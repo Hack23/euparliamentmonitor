@@ -155,3 +155,23 @@ graph LR
 
 **What this means**: The legislation adopted this week will set off chains of events over the next 12–24 months. The most consequential chain starts with FDI screening — if the Commission gets the implementation right, this becomes a lasting shift in how Europe protects its strategic industries. If implementation is weak, it becomes another paper exercise.
 
+
+## Extended Impact Assessment
+
+### Multi-Year Impact Timeline
+
+| Resolution | Y1 Impact | Y3 Impact | Y5 Impact | Reversibility |
+|-----------|-----------|-----------|-----------|---------------|
+| FDI Screening (TA-0171) | HIGH — screening begins | HIGH — jurisprudence develops | MEDIUM — routine | LOW |
+| Afghanistan (TA-0186) | LOW — non-binding | MEDIUM — if sanctions follow | MEDIUM | HIGH |
+| AI-Trade (TA-0183) | MEDIUM — negotiations | HIGH — if chapters agreed | HIGH — sets standards | MEDIUM |
+| Steel Safeguards (TA-0170) | HIGH — immediate | MEDIUM — WTO outcome | LOW/MEDIUM | MEDIUM |
+| Care Society (TA-0190) | MEDIUM — directive draft | HIGH — transposition | HIGH — structural | LOW |
+
+### Geographic Impact Distribution
+
+| Resolution | EU Level | Member State | Third Country | Global |
+|-----------|---------|-------------|--------------|--------|
+| FDI Screening | PRIMARY | Secondary | Tertiary | Quaternary |
+| Afghanistan | Tertiary | Secondary | PRIMARY (AFG) | Secondary |
+| Steel Safeguards | Secondary | PRIMARY | Tertiary (CN, IN) | Quaternary |

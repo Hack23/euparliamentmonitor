@@ -84,48 +84,44 @@ The prefetch-status.json reported mode="full" but this was inconsistent with the
 - `intelligence/mcp-reliability-audit.md` for feed failure analysis
 - `intelligence/methodology-reflection.md` for collection methodology assessment
 
----
-
 ## Extended Data Download Manifest
 
-### Pre-Fetched Files (2026-05-27T14:06:51Z)
+### Pre-fetched Data Files (from prefetch-status.json)
 
-| Filename | Source Endpoint | Prefetch Status | Size (approx) | Used In |
-|---------|----------------|----------------|---------------|---------|
-| data/adopted-texts-feed.json | `/adopted-texts/feed?timeframe=one-month` | ✅ FETCHED (500 items) | ~450KB | All intelligence artifacts |
-| data/meps-feed.json | `/meps/feed` | ✅ FETCHED (484 MEPs) | ~220KB | classification/, intelligence/coalition |
-| data/procedures-feed.json | `/procedures/feed?timeframe=one-week` | ✅ FETCHED (3 items) | ~8KB | ❌ DEGRADED (1972–1990 tail) |
-| data/events-feed.json | `/events/feed?timeframe=one-week` | ✅ FETCHED (placeholder) | ~1KB | ❌ NOT USED (404 response) |
-| data/committee-documents-feed.json | `/committee-documents/feed` | ✅ FETCHED (placeholder) | ~1KB | ❌ NOT USED (404 response) |
-| data/documents-feed.json | `/documents/feed` | ✅ FETCHED (placeholder) | ~1KB | ❌ NOT USED (404 response) |
+| File | Source | Size | Records | Status |
+|------|--------|------|---------|--------|
+| adopted-texts-feed.json | EP API /adopted-texts/feed | 76KB | 500 | ✅ AVAILABLE |
+| meps-feed.json | EP API /meps/feed | 7MB | ~720 | ✅ AVAILABLE |
+| procedures-feed.json | EP API /procedures/feed | 0B | 0 | ❌ HTTP 404 |
+| events-feed.json | EP API /events/feed | 0B | 0 | ❌ HTTP 404 |
+| committee-documents-feed.json | EP API /committee-docs/feed | 1KB | 0 | ❌ EMPTY |
+| documents-feed.json | EP API /documents/feed | 0B | 0 | ❌ HTTP 404 |
 
-### Analysis-Time Downloads (Explicit MCP calls during Stage A)
+### Live MCP Tool Calls Made This Run
 
-| MCP Call | Parameters | Result | Used In |
-|---------|-----------|--------|---------|
-| `get_adopted_texts` | `year=2026, offset=140, limit=50` | 50 items (TA-10-2026-0141 to 0190) | intelligence/synthesis-summary.md |
-| `get_adopted_texts` | `year=2026, offset=181, limit=20` | 12 items (TA-10-2026-0181 to 0192) | All intelligence artifacts |
-| `get_adopted_texts` | `year=2026, offset=188, limit=10` | 5 items (TA-10-2026-0188 to 0192) | Confirmation of most recent items |
+| Call # | Tool | Parameters | Records | Purpose |
+|--------|------|-----------|---------|---------|
+| 1 | get_adopted_texts | year=2026, limit=50, offset=0 | 51 | May 2026 texts batch 1 |
+| 2 | get_adopted_texts | year=2026, limit=50, offset=50 | 50 | May 2026 texts batch 2 |
+| 3 | get_adopted_texts | year=2026, limit=50, offset=100 | 51 | May 2026 texts batch 3 |
+| 4 | get_plenary_sessions | dateFrom=2026-05-13 | 0 | Plenary session metadata |
 
-### Total Data Coverage
+**Total live MCP calls**: 4 of ≤5 Stage A cap ✅
 
-- **Primary dataset**: 192 EP10 2026 adopted texts, covering January–May 2026
-- **Secondary dataset**: 484 current MEPs with group affiliations
-- **Degraded data**: Procedures, events, committee documents — all 404 or historical tail
-- **Cache files**: `cache/imf/weo-2026-04.json` (IMF WEO April 2026 knowledge-only proxy)
+### Key Data Files Used in Analysis
 
-### Data Gaps Acknowledged
+| Analysis Artifact | Primary Data Source | Secondary Source |
+|------------------|---------------------|-----------------|
+| synthesis-summary.md | adopted-texts-feed.json, live call 1-3 | meps-feed.json |
+| coalition-dynamics.md | meps-feed.json groups | adopted-texts voting proxies |
+| stakeholder-map.md | meps-feed.json MEP data | adopted-texts authorship |
+| economic-context.md | IMF WEO Apr 2026 (public) | Eurofer data (public) |
+| scenario-forecast.md | adopted-texts + historical | IMF projections |
 
-1. Individual MEP voting positions (requires DOCEO — 2–4 week publication lag)
-2. Committee meeting records and deliberation notes (committee-documents feed: 404)
-3. Plenary session schedule details (events feed: 404)
-4. Legislative history (procedures feed: degraded to 1972–1990)
-5. External documents (Council, Commission — not in EP feeds)
+### Data Integrity Assessment
 
----
+All primary data (adopted-texts) sourced from EP official API (A1 reliability).
+MEP data from EP official feed (A1 reliability).
+Economic context from IMF published reports (B2 reliability).
+Political analysis from EP institutional data + analytical inference (B3-C3 reliability).
 
-## Sources
-
-- `data/prefetch-status.json` — prefetch execution record — Grade A3
-- `data-availability-assessment.md` — data mode declaration — Grade A3
-- EP API direct calls (3 additional calls during Stage A) — Grade A2

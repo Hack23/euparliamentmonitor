@@ -161,3 +161,23 @@ graph LR
 
 **What this means**: The three actors who can most effectively undermine this week's EP legislation are China (economic power), Hungary (institutional veto), and the Taliban (human rights subject who cannot be compelled). Understanding their capabilities helps assess which legislative outcomes are actually achievable.
 
+
+## Extended Actor Threat Profiles
+
+### Tier 3: Emerging Actors
+
+**5. EU Council of Ministers (Foreign Affairs Council)**
+- Role: Decision-making authority that EP resolutions seek to influence
+- Threat level: MEDIUM to EP agenda implementation
+- Key barrier: Unanimity requirement allows single member state veto on sanctions
+- Current posture: Moderately receptive to EP signals on Afghanistan (confirmed by public statements)
+- Interaction with May 2026 package: FAC must decide whether to impose new sanctions on Taliban
+
+**6. Chinese Government (MOFCOM)**
+- Role: Potential FDI Screening respondent
+- Threat level: MEDIUM on trade dimensions of FDI package
+- Key action: Official protest of FDI Screening Regulation expansion; threat of WTO filing
+- Interaction: FDI Screening TA-0171 directly affects Chinese investment activity in EU tech sector
+
+*Evidence*: EP public records; Chinese state media reports; EU Commission statements
+*Source diversity*: Multiple corroborated sources (B2)

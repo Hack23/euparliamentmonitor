@@ -135,33 +135,28 @@ For obstructionist actors (Hungary):
 
 **What this means**: The EU is currently in a strong position to advance its economic security agenda because external threats (Russia, China, US uncertainty) are creating political will. But this political window may not last — if external pressures ease, the political will to implement costly regulatory changes may weaken.
 
----
 
 ## Driving Forces
 
-The following forces are driving adoption of the EP's strategic autonomy legislative package:
+The following forces are actively propelling the EP legislative agenda observed in the May 19-21 session:
 
-1. **Russian invasion of Ukraine (2022–present)**: Shattered post-Cold War assumptions about EU security; created urgency for defence procurement coordination and strategic autonomy
-2. **Chinese industrial overcapacity and strategic acquisition patterns**: Repeated incidents (Kuka acquisition 2016, BioNTech supply-chain exclusion 2020) created political will for mandatory FDI screening
-3. **US trade policy unpredictability**: Under successive administrations, the US has applied tariffs and technology export controls that affect EU industries; structural uncertainty creates EU incentive to reduce dependency
-4. **EP10 election mandate**: The 2024 EP elections produced a more security-hawkish majority; the EPP campaign explicitly included economic sovereignty
-5. **Commission strategic agenda**: Von der Leyen II Commission's "Competitiveness Compass" (De la Rosa Report implementation) directly motivates FDI screening and SAFE expansion
+1. **Economic Security Doctrine**: Post-Ukraine (2022), post-COVID (2020-2023) consensus that EU must
+   reduce strategic dependencies. Drives: FDI Screening, AI-Trade strategy, SAFE agreements.
+2. **Demographic Pressure**: Ageing EU population creating fiscal and social policy urgency.
+   Drives: Care Society legislation, work fatalities reform.
+3. **Far-right Political Competition**: EPP and S&D feeling competitive pressure from PfE/ESN bloc,
+   motivating stronger positions on sovereignty and human rights (to differentiate from far-right).
+   Drives: Afghanistan condemnation escalation.
 
 ## Restraining Forces
 
-The following forces are restraining full implementation:
+Forces constraining or counterbalancing the EP agenda:
 
-1. **Member State sovereignty preferences**: National capitals (especially Hungary, Ireland, Luxembourg) resist Commission competence expansion into FDI and defence procurement
-2. **WTO obligations**: EU's FDI screening regulation must comply with GATT obligations; over-broad screening would expose EU to WTO dispute settlement (China is a certain challenger)
-3. **Economic costs of strategic autonomy**: FDI screening, SAFE procurement premium, and AI regulation all impose efficiency costs on the EU economy; IMF estimates 0.1–0.3% GDP over 5 years
-4. **Unanimity requirement for CFSP/sanctions follow-through**: The Hungary veto on Council decisions (Afghanistan sanctions, Slovakia conditionality, Iran designations) significantly restrains EP resolution follow-through at the Council level
-5. **Rule of law instrument fatigue**: Multiple simultaneous Art. 7 proceedings (Hungary, Poland, Slovakia) risk diluting the political and legal force of the mechanism; "boy who cried wolf" risk
-
----
-
-## Sources
-
-- EP `get_adopted_texts(year=2026)` — Grade A2
-- `intelligence/stakeholder-map.md` — actor interest analysis
-- `intelligence/coalition-dynamics.md` — coalition structure
-
+1. **Council Unanimity Requirement**: Human rights resolutions that require Council action (sanctions)
+   face the unanimity veto — Hungary, Slovakia could block.
+2. **Trade Partner Retaliation Risk**: FDI Screening risks WTO challenge and bilateral trade retaliation.
+   Restrains: scope of screening, enforcement timelines.
+3. **Fiscal Conservatism**: Care Society and labour regulation impose compliance costs — business
+   lobbying and fiscal-hawk member states push back.
+4. **Procedural Capacity**: EP committee workload is at record high (see committee-activity data) —
+   limiting bandwidth for parallel negotiations.

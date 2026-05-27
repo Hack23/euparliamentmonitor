@@ -90,78 +90,70 @@ If Commission initiates Article XIX investigation following the resolution:
 - `extended/forward-indicators.md` for monitoring implementation progress
 - `risk-scoring/risk-matrix.md` for implementation risk scores
 
----
+## Implementation Feasibility Analysis (Extended)
 
-## Extended Implementation Feasibility Analysis
+### Feasibility Assessment Framework
 
-### FDI Screening — Implementation Roadmap
+Using the PESTLE × Resource Matrix for each adopted text:
 
-**Phase 1: National infrastructure establishment (0–12 months post-entry into force)**
-- All 27 MS must establish or designate national FDI screening bodies
-- Currently: 22/27 MS have some form of national FDI screening; 5 MS (Luxembourg, Malta, Cyprus, Ireland, Netherlands) have minimal or no infrastructure
-- Feasibility challenge: The 5 non-screening MS are also disproportionately significant FDI routing hubs (Luxembourg routes €1.4T in FDI annually)
-- **Risk**: Regulatory arbitrage — acquirers route through Luxembourg/Netherlands to avoid screening in Germany/France
-- **Mitigation**: Regulation includes pass-through screening (transactions that affect >1 MS trigger multi-MS review); Commission can initiate screening if MS declines
+**TA-0171 FDI Screening Implementation**
+| Dimension | Feasibility | Score |
+|-----------|-------------|-------|
+| Political | Council has approved; executive authority exists | HIGH (8/10) |
+| Economic | Commission has budget; compliance cost borne by investors | HIGH (7/10) |
+| Social | No significant opposition from civil society | HIGH (9/10) |
+| Technical | Notification system (SIF tool) already operational | HIGH (8/10) |
+| Legal | OJ publication pending; no known court challenges | HIGH (9/10) |
+| Environmental | N/A | N/A |
+| **Overall** | | **8.2/10 — FEASIBLE** |
 
-**Phase 2: Coordination mechanism operationalisation (6–18 months)**
-- Commission establishes coordination body (formal EU institution required)
-- Staff estimates: 150–200 Commission FTE to manage coordination
-- Database infrastructure: Secure notification system for cross-border sharing of deal details
-- **Feasibility rating**: 🟡 MEDIUM — Commission has experience building coordination mechanisms (BEREC for telecoms, ERA for railways)
+**TA-0190 Care Society Implementation**
+| Dimension | Feasibility | Score |
+|-----------|-------------|-------|
+| Political | Requires new Commission directive + Council approval | MEDIUM (5/10) |
+| Economic | €15-25B/year MS compliance cost — contested | MEDIUM (4/10) |
+| Social | Strong ETUC support; business opposition | MEDIUM (6/10) |
+| Technical | Monitoring/enforcement systems needed | MEDIUM (5/10) |
+| Legal | INI stage — no binding force yet | LOW (3/10) |
+| **Overall** | | **4.6/10 — CHALLENGING** |
 
-**Phase 3: First binding recommendations (12–36 months)**
-- Commission's first binding recommendations will be closely watched for enforcement credibility
-- Political risk: Recommendation to block a major deal (e.g., Chinese acquisition of a German industrial champion) will create diplomatic pressure
-- **Feasibility rating**: 🟡 MEDIUM — depends on political will of the Commission that issues the first blocking recommendation
+**TA-0186 Afghanistan Condemnation Implementation**
+| Dimension | Feasibility | Score |
+|-----------|-------------|-------|
+| Political | Non-binding; FAC must act independently | LOW (3/10) |
+| Economic | Sanctions would have modest economic impact | LOW (4/10) |
+| Social | Strong public support for women's rights | HIGH (8/10) |
+| Technical | Targeted sanctions regime already exists | HIGH (7/10) |
+| Legal | UNSC veto makes ICC referral infeasible | VERY LOW (1/10) |
+| **Overall** | | **4.6/10 — CHALLENGING (for UNSC referral)** |
 
-### SAFE Implementation — Feasibility Assessment
+### Implementation Risk Summary
 
-**Canada participation mechanics**:
-- Canada's defence industrial base (DND suppliers, Tier 1 primes: CAE, L3 MAS Canada, Diemaco-Colt) needs to be certified against EU procurement standards (EN 9100, NATO AQAP standards — mostly compatible)
-- Estimated timeline: 12–18 months for formal industry certification across major Canadian suppliers
-- **Feasibility rating**: 🟢 HIGH — standards compatibility is favourable; Canadian industry is motivated
+| Resolution | Feasibility Score | Primary Risk | Mitigation |
+|-----------|-------------------|-------------|-----------|
+| FDI Screening | 8.2/10 ✅ | Circumvention via SPVs | Delegated act criteria |
+| Steel Safeguards | 7.5/10 ✅ | WTO challenge | DSB proceedings |
+| AI-Trade Strategy | 6.0/10 🔶 | India resistance | Technical annex separation |
+| Care Society | 4.6/10 🔶 | Council + fiscal | ESF+ programming |
+| Afghanistan (UNSC) | 2.5/10 ❌ | P5 veto | Bilateral sanctions fallback |
 
-**SAFE pool expansion (Japan/Australia/South Korea)**:
-- Each bilateral expansion requires Council Decision + EP consent
-- Timeline per partner: 18–24 months (negotiation + ratification)
-- **Feasibility rating**: 🟢 HIGH for Japan (strong EU-Japan relations); 🟡 MEDIUM for South Korea (FTA implementation tensions); 🟡 MEDIUM for Australia (AUKUS submarine programme creates political sensitivities)
+🟢 CONFIDENCE: Feasibility scoring MEDIUM; based on public institutional capacity data
 
-### Slovakia Rule of Law — Implementation Feasibility
+## Implementation Monitoring Plan
 
-**EU financial conditionality mechanism (Rule of Conditionality Regulation, 2020)**:
-- Currently active for Hungary (€21B frozen)
-- Slovakia trigger threshold: Commission must find "generalised deficiency as regards the rule of law" in a Member State
-- Timeline from EP resolution to Commission finding: 6–18 months (Commission acts on evidence, not EP resolutions)
-- **Feasibility rating**: 🟡 MEDIUM — Commission track record on Slovakia is slower than on Hungary (Slovakia is a smaller financial exposure and lower political profile)
+| Resolution | 3-month Milestone | 12-month Milestone | Success Criteria |
+|-----------|-----------------|------------------|----------------|
+| FDI Screening | OJ publication | First screening decision | Zero circumvention detected |
+| Steel Safeguards | Commission implement | WTO response | Safeguard maintained |
+| AI-Trade Strategy | Commission mandate | Chapter in negotiations | AI chapter included |
+| Care Society | Commission proposal | Council position | Directive tabled |
+| Afghanistan | FAC response | Sanctions decision | Any targeted sanctions |
 
----
+*Implementation feasibility monitoring recommended quarterly from Q3 2026.*
 
-## Confidence Assessment
+🟢 CONFIDENCE: Implementation plan MEDIUM — based on institutional timelines and historical precedent
 
-| Implementation Track | Feasibility | Key Risk | Confidence |
-|---------------------|-----------|---------|-----------|
-| FDI Screening infrastructure | 75% success | Routing arbitrage via FDI hubs | 🟡 B3 |
-| SAFE–Canada operationalisation | 85% success | Industry certification delays | 🟢 B2 |
-| Slovakia financial conditionality | 45% success | Commission political will | 🔴 C3 |
-| Afghanistan follow-up sanctions | 25% success | Council unanimity required | 🔴 C3 |
+*Implementation feasibility analysis complete. FDI Screening: HIGH (8.2/10); Afghanistan UNSC referral: VERY LOW (2.5/10).*
 
----
 
-## Implementation Timeline Overview
 
-```mermaid
-gantt
-    title EU Strategic Autonomy Implementation Timeline (2026-2028)
-    dateFormat YYYY-MM
-    section FDI Screening
-    Entry into Force           : 2026-08, 3M
-    MS Infrastructure Setup    : 2026-08, 12M
-    First Commission Review    : 2027-08, 6M
-    section SAFE-Canada
-    Canada Ratification Signal  : 2026-06, 2M
-    Industry Certification     : 2026-08, 12M
-    First Joint Procurement    : 2027-08, 6M
-    section Slovakia
-    Commission Investigation   : 2026-06, 12M
-    Conditionality Decision    : 2027-06, 3M
-```
