@@ -1,5 +1,5 @@
 ---
-title: "The April 28–29 Strasbourg plenary — Run 1777531962"
+title: "The April 28–29 Strasbourg plenary (attendance 663 / 92.2 %"
 description: "The April 28–29 Strasbourg plenary (attendance 663 / 92.2 % — among the highest of EP10) adopted 12 texts dominated by three concurrent political."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-30", "April", "Strasbourg", "plenary"]
 date: 2026-04-30

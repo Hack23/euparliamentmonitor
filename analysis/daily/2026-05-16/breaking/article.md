@@ -1,5 +1,5 @@
 ---
-title: "The April 2026 EU Parliament session produced a — Run 255"
+title: "The April 2026 EU Parliament session produced a strong"
 description: "The April 2026 EU Parliament session produced a strong legislative record on geopolitical (Ukraine), regulatory (DMA)."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-16", "April", "Parliament", "session"]
 date: 2026-05-16

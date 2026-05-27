@@ -1,7 +1,7 @@
 ---
-title: "Most Consequential Event: May 18-21 — Run 1777445122"
+title: "Most Consequential Event: May 18-21 Strasbourg Session"
 description: "This is the most politically loaded session of the first half of 2026. Published 2026-04-29 for democratic-accountability readers tracking EU institutional consequences."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-29", "Most", "Consequential", "Event", "This"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-29", "Most", "Consequential", "Event", "Strasbourg"]
 date: 2026-04-29
 article_type: month-ahead
 slug: 2026-04-29-month-ahead

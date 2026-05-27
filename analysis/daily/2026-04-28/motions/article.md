@@ -1,5 +1,5 @@
 ---
-title: "A landmark cluster of resolutions adopted — Run 1777359929"
+title: "A landmark cluster of resolutions adopted in late March"
 description: "The European Parliament has entered its most legislatively productive phase of the EP10 term, with 567 roll-call votes recorded in 2026 alone."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-28", "landmark", "cluster", "adopted"]
 date: 2026-04-28

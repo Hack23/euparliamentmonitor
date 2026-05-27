@@ -1,5 +1,5 @@
 ---
-title: "The week of April 11–18, 2026 is a structural — Run 12"
+title: "The week of April 11–18, 2026 is a structural inflection"
 description: "The week of April 11–18, 2026 is a structural inflection point in EP10's legislative trajectory. Published 2026-04-18."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-04-18", "week", "April", "structural", "inflection"]
 date: 2026-04-18

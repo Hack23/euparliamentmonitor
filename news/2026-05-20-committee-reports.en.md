@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's 24 standing committees — Run 265"
+title: "The European Parliament's 24 standing committees continued"
 description: "The European Parliament's 24 standing committees continued their legislative work during the week of 13–20 May 2026."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-20", "European", "Parliament", "standing"]
 date: 2026-05-20

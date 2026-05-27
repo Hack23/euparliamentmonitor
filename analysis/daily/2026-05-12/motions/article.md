@@ -1,5 +1,5 @@
 ---
-title: "The 30-day cycle ending 12 May 2026 produced 101 — Run 375"
+title: "The 30-day cycle ending 12 May 2026 produced 101 adopted"
 description: "The 30-day cycle ending 12 May 2026 produced 101 adopted texts (above EP9 pace) and crystallised EP10's working identity."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-12", "cycle", "ending", "produced"]
 date: 2026-05-12

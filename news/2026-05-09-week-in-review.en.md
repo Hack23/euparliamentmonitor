@@ -1,5 +1,5 @@
 ---
-title: "Five developments demand immediate — Run 1778309196"
+title: "Five developments demand immediate attention (#1778309196)"
 description: "Five developments demand immediate attention: Published 2026-05-09. for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week in review", "summary", "legislation", "2026-05-09", "Five", "developments", "demand", "immediate"]
 date: 2026-05-09

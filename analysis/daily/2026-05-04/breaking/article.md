@@ -1,5 +1,5 @@
 ---
-title: "Three Tier-1 Breaking Items (April 30, 2026) — Run 2026"
+title: "Three Tier-1 Breaking Items (April 30, 2026) (#2026)"
 description: "Russia-Ukraine Accountability Resolution (TA-10-2026-0161) The Parliament adopted \"Ensuring accountability and justice in response to Russia's continued."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-04", "Three", "Tier", "Items"]
 date: 2026-05-04

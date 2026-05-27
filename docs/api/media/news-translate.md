@@ -119,7 +119,7 @@ safe-outputs:
   max-patch-size: 4096
   # Explicit file ceiling: max_briefs=4 × 13 langs = 52 files per flush.
   # 100 gives headroom for validator reports and retry flushes.
-  max-patch-files: 100
+  max-patch-files: 2500
   steps:
     - name: Fetch triggering commit for bundle prerequisites
       # The safe_outputs job checks out the current branch tip with

@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's April 28–30 — Run 1777878822"
+title: "The European Parliament's April 28–30 (#1777878822)"
 description: "The European Parliament's April 28–30, 2026 Strasbourg plenary adopted eleven substantive texts spanning digital regulation enforcement."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-04", "European", "Parliament", "April"]
 date: 2026-05-04

@@ -1,5 +1,5 @@
 ---
-title: "The week of April 20–27, 2026 marks a — Run 1777271418"
+title: "The week of April 20–27, 2026 marks a pivotal legislative"
 description: "The week of April 20–27, 2026 marks a pivotal legislative moment for the European Parliament for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-27", "week", "April", "marks"]
 date: 2026-04-27

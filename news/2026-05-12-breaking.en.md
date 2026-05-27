@@ -1,5 +1,5 @@
 ---
-title: "Synthesis — EP Breaking News — Run 1778577220"
+title: "Synthesis — EP Breaking News (#1778577220)"
 description: "The April 2026 European Parliament session can be understood as three big conversations happening at once for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-12", "Synthesis", "News", "April"]
 date: 2026-05-12

@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's April 28–30 — Run 313"
+title: "The European Parliament's April 28–30 (#313)"
 description: "The European Parliament's April 28–30, 2026 Strasbourg plenary produced a landmark wave of legislation spanning digital enforcement."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-14", "European", "Parliament", "April"]
 date: 2026-05-14

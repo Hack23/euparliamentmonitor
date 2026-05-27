@@ -1,5 +1,5 @@
 ---
-title: "The 28 April – 1 May plenary week — Run 1777957656"
+title: "The 28 April – 1 May plenary week delivered 14 adopted"
 description: "The 28 April – 1 May plenary week delivered 14 adopted texts across 7 committees and is, in retrospect for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-05", "April", "plenary", "week"]
 date: 2026-05-05

@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament completed its most — Run 1777296132"
+title: "The European Parliament completed its most consequential"
 description: "The European Parliament completed its most consequential legislative month of 2026, adopting a comprehensive defence industrial revolution (single market."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-04-27", "European", "Parliament", "completed", "most"]
 date: 2026-04-27

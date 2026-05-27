@@ -1,5 +1,5 @@
 ---
-title: "EP10 will deliver a partial, multi-coalition — Run 348"
+title: "EP10 will deliver a partial, multi-coalition legislative"
 description: "EP10 will deliver a partial, multi-coalition legislative record between now and the 2029 election for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "term outlook", "parliamentary term", "strategic forecast", "2026-05-11", "EP10", "will", "deliver", "partial"]
 date: 2026-05-11

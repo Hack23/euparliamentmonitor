@@ -1,5 +1,5 @@
 ---
-title: "INTA, BUDG, AGRI, TRAN, CULT, FEMM — Run 262"
+title: "INTA, BUDG, AGRI, TRAN, CULT, FEMM (#262)"
 description: "Proceeding with normal docket work — specific document IDs unavailable due to API degradation. Published 2026-05-18."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-18", "INTA", "BUDG", "AGRI"]
 date: 2026-05-18

@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's May 2026 mini-plenary — Run 268"
+title: "The European Parliament's May 2026 mini-plenary session"
 description: "The European Parliament's May 2026 mini-plenary session (19-20 May) adopted 7 legislative acts covering AI/trade strategy, forest governance."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-21", "European", "Parliament", "mini"]
 date: 2026-05-21

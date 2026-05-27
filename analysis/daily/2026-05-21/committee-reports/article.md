@@ -1,5 +1,5 @@
 ---
-title: "EP Committee Reports · Week of 2026-05-14–21 — Run 264"
+title: "EP Committee Reports · Week of 2026-05-14–21 (#264)"
 description: "It is likely (65–75%) that the European Parliament's committee season for Spring 2026 will deliver its primary legislative objectives."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-21", "Committee", "Reports", "Week"]
 date: 2026-05-21

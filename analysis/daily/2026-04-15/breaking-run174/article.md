@@ -1,5 +1,5 @@
 ---
-title: "Run 174 extends Run 173's Tariff T-0 finding by anchoring"
+title: "extends 's Tariff T-0 finding by anchoring TA-10-2026-0096"
 description: "Run 174 extends Run 173's Tariff T-0 finding by anchoring TA-10-2026-0096 activation as the EU's first retaliatory tariff package against the United."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-15", "extends", "Tariff", "finding"]
 date: 2026-04-15

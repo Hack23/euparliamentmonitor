@@ -50,7 +50,7 @@ safe-outputs:
   # 10 MB ceiling prevents legitimate analysis-only patches from being rejected.
   max-patch-size: 10240
   # Explicit file ceiling — analysis + article + artifact files can reach 50+.
-  max-patch-files: 100
+  max-patch-files: 2500
   # Cron retries handle failures; auto-created failure issues are noise.
   report-failure-as-issue: false
   # threat-detection + bundle-prerequisite steps + allowed-domains are inherited

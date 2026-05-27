@@ -8,12 +8,70 @@
 import { extractFirstSentence, shouldSkipDescriptionLine, truncateTitle } from './text-utils.js';
 import { findTitleRejectionReason } from './title-rejection.js';
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
+/** Matches workflow run-number patterns like "Run 271" or "— Run 42" in titles. */
+const RUN_NUMBER_RE = /(?:^|[\s—–\-(,;:|/])Run\s+\d+/u;
+/** Word-level strip pattern for "Run N" tokens (with optional hyphenated suffix). */
+const RUN_TOKEN_STRIP_RE = /\bRun\s+\d[\d-]*/giu;
+/** Internal run-id slug strip (e.g. `breaking-run180-1779846371`). */
+const RUNID_TOKEN_STRIP_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}[\s,;:|/]*/giu;
+/** "analysis run" phrase strip. */
+const ANALYSIS_RUN_STRIP_RE = /\banalysis\s+run\s*\d*[\s,;:|/]*/giu;
 /** Minimum title length below which a title is unusable. */
 const SEO_TITLE_FLOOR = 20;
 export function hasLeakySeoToken(value) {
     if (!value)
         return false;
-    return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value);
+    return (value.toLowerCase().includes('analysis run') ||
+        LEAKY_RUNID_RE.test(value) ||
+        RUN_NUMBER_RE.test(value));
+}
+/**
+ * Word-level strip of leaky workflow tokens from a single line of text.
+ *
+ * @param value - Raw text that may contain workflow run tokens
+ * @returns Cleaned text with all leaky run tokens removed
+ */
+export function stripLeakyRunTokens(value) {
+    if (!value)
+        return '';
+    let cleaned = value
+        .replace(RUNID_TOKEN_STRIP_RE, '')
+        .replace(RUN_TOKEN_STRIP_RE, '')
+        .replace(ANALYSIS_RUN_STRIP_RE, '');
+    cleaned = cleaned
+        .replace(/\(\s*[,;:|/\-—–]+\s*/gu, '(')
+        .replace(/\s*[,;:|/\-—–]+\s*\)/gu, ')')
+        .replace(/\(\s*\)/gu, '')
+        .replace(/\s*[,;:|/]\s*[,;:|/]+\s*/gu, ', ')
+        .replace(/^[\s,;:|/\-—–]+/u, '')
+        .replace(/[\s,;:|/\-—–]+$/u, '')
+        .replace(/\s{2,}/gu, ' ')
+        .trim();
+    return cleaned;
+}
+/**
+ * Sanitize a single-line title candidate by word-level stripping any
+ * leaky workflow tokens.
+ *
+ * Salvage is only attempted when the contamination is a clean
+ * prefix/suffix tag (e.g. `Run 180, 17 April 2026` → `17 April 2026`).
+ * When the headline embeds the phrase `analysis run` the contamination
+ * is structural (an editorial-paragraph leak embedded inside parens or
+ * other punctuation) — token-level stripping would leave dangling
+ * fragments like `Analysis ) | …`. In that case we refuse to salvage and
+ * return the empty string so the caller falls through to the
+ * summary-derived title.
+ *
+ * @param value - Raw title candidate that may contain run tokens
+ * @returns Sanitized title with leaky tokens removed, or empty string
+ *   when the contamination is too structural to safely salvage
+ */
+export function sanitizeTitleCandidate(value) {
+    if (!value)
+        return '';
+    if (/\banalysis\s+run\b/iu.test(value))
+        return '';
+    return stripLeadingFragmentSeparator(stripLeakyRunTokens(value));
 }
 /**
  * Extract a run number from a runId like `committee-reports-run47`,
@@ -79,32 +137,14 @@ export function deriveHeadlineFromSummary(summary) {
     return truncateTitle(extractFirstSentence(cleaned) || cleaned);
 }
 /**
- * Append a short run qualifier to otherwise duplicate-prone fallback
- * titles. Sanitizes the raw `runId` so user-facing `<title>` strings
- * never expose Unix timestamps or the full opaque token.
+ * No-op: run numbers must never appear in user-facing article titles.
+ * Preserved for callsite backward compatibility.
  *
- * @param title - Base title to qualify
- * @param runId - Raw run identifier token
- * @returns Title with appended run number qualifier
+ * @param title - Base title (returned unchanged)
+ * @param _runId - Raw run identifier token (ignored)
+ * @returns The unchanged input title
  */
-export function withRunQualifier(title, runId) {
-    if (!runId)
-        return title;
-    if (/^\d+$/u.test(runId))
-        return `${title} — Run ${runId}`;
-    const segments = runId.split('-');
-    for (const seg of segments) {
-        const m = /^run(\d+)$/u.exec(seg);
-        if (m)
-            return `${title} — Run ${m[1]}`;
-        const m2 = /^run$/u.exec(seg);
-        if (m2) {
-            const idx = segments.indexOf(seg);
-            const next = segments[idx + 1];
-            if (next && /^\d+$/u.test(next))
-                return `${title} — Run ${next}`;
-        }
-    }
+export function withRunQualifier(title, _runId) {
     return title;
 }
 /**

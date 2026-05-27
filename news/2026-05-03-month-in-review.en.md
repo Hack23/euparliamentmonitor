@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament April 2026: pillar-by-pillar — Run 1777850961"
+title: "EU Parliament April 2026: pillar-by-pillar wrap-up"
 description: "Comprehensive analysis of the European Parliament — legislative output, coalition dynamics, and policy trends."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-05-03", "Parliament", "April", "pillar", "Comprehensive"]
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month in review", "summary", "legislative review", "2026-05-03", "Parliament", "April", "pillar", "wrap"]
 date: 2026-05-03
 article_type: month-in-review
 slug: 2026-05-03-month-in-review

@@ -1,5 +1,5 @@
 ---
-title: "MFF 2028-2034 Interim Report Adopted — Run 1778722670"
+title: "MFF 2028-2034 Interim Report Adopted (#1778722670)"
 description: "The Parliament adopted its interim report on the Multiannual Financial Framework for 2028-2034 for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-14", "Interim", "Report", "Adopted"]
 date: 2026-05-14

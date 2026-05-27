@@ -1,5 +1,5 @@
 ---
-title: "Run 49 records the operational activation of BOTH"
+title: "records the operational activation of BOTH TA-10-2026-0096"
 description: "Run 49 records the operational activation of BOTH TA-10-2026-0096 and TA-10-2026-0097 on 15 April for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-15", "records", "operational", "activation"]
 date: 2026-04-15

@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's April 2026 — Run 1777618418"
+title: "The European Parliament's April 2026 plenary session"
 description: "The European Parliament's April 2026 plenary session (28–30 April, Strasbourg) delivered a dense legislative harvest spanning immunity law."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-01", "European", "Parliament", "April"]
 date: 2026-05-01

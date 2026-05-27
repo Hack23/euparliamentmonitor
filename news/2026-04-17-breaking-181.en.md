@@ -1,5 +1,5 @@
 ---
-title: "Run 181 (T+3, mid-day) extends prior recess-probe coverage"
+title: "(T+3, mid-day) extends prior recess-probe coverage with"
 description: "Run 181 (T+3, mid-day) extends prior recess-probe coverage with new analytical focus on the March 2026 secondary-sprint legislative cluster."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-17", "extends", "prior", "recess"]
 date: 2026-04-17

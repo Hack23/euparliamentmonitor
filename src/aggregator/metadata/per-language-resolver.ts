@@ -18,9 +18,8 @@
  *      that picks across (manifest override → editorial headline →
  *      summary-derived → contextual fallback), clamps to the per-script SEO
  *      budgets, and stitches localized SEO labels into both surfaces.
- *   3. {@link appendRunNumberSuffix} — the `— Run N` disambiguator that
- *      prevents same-date / same-articleType sub-runs (republish, hot-fix
- *      re-run) from collapsing to byte-identical `<title>` strings.
+ *   3. {@link appendRunNumberSuffix} — preserved as a no-op for backward
+ *      compatibility. Run numbers never appear in user-facing titles.
  *
  * SEO-fidelity contracts enforced here:
  *
@@ -48,10 +47,9 @@ import {
   composeContextualDescription,
   composeContextualExtendedDescription,
   composeContextualTitle,
-  containsNormalized,
+  appendEditionQualifier,
   deriveHeadlineFromSummary,
   ensureDescriptionTerminator,
-  extractRunNumber,
   hasLeakySeoToken,
   isUsableResolvedTitle,
   manifestOverrideFor,
@@ -59,6 +57,7 @@ import {
   padTitleToFloor,
   pickFirstNonEmpty,
   sanitizeDescriptionCandidate,
+  sanitizeTitleCandidate,
   scrubTrailingEllipsis,
 } from './resolve-helpers.js';
 import { buildSeoKeywords } from './seo-keywords.js';
@@ -131,57 +130,26 @@ function contentMatchesLocaleScript(text: string, lang: LanguageCode): boolean {
 }
 
 /**
- * Append ` — Run N` to a clamped SEO title when the manifest runId
- * carries a discriminator. Reserves budget headroom by trimming the
- * editorial portion (whole-grapheme aware, with trailing separator
- * scrub) before stapling the suffix so we never exceed the per-script
- * `<title>` clamp. Extracted from {@link resolveOneLanguage} to keep
- * its cognitive complexity below the project lint cap.
+ * No-op: run numbers must never appear in user-facing article titles.
+ * Titles should always be readable article headlines without workflow
+ * identifiers. This function is preserved for callsite backward
+ * compatibility.
  *
- * @param seoTitle - Already-clamped, ellipsis-scrubbed SEO title
- * @param lang - Language code (drives the per-script title budget)
- * @param runId - Manifest run identifier (may be empty)
- * @returns Title with ` — Run N` appended, or the unchanged input when
- *   no runId is present or the suffix can't fit inside budget
+ * @param seoTitle - SEO title (returned unchanged)
+ * @param _lang - Language code (ignored)
+ * @param _runId - Manifest run identifier (ignored)
+ * @returns The unchanged input title
  */
-export function appendRunNumberSuffix(seoTitle: string, lang: LanguageCode, runId: string): string {
-  const runNumber = extractRunNumber(runId);
-  if (!runNumber || containsNormalized(seoTitle, `Run ${runNumber}`)) {
-    return seoTitle;
-  }
-  const titleBudget = budgetFor(lang, 'title');
-  const suffix = ` — Run ${runNumber}`;
-  const suffixLen = Array.from(suffix).length;
-  const seoTitleGraphemes = Array.from(seoTitle);
-  if (seoTitleGraphemes.length + suffixLen <= titleBudget) {
-    return `${seoTitle}${suffix}`;
-  }
-  if (suffixLen >= titleBudget) return seoTitle;
-  // Reserve budget: trim editorial portion to leave room for the
-  // ` — Run N` suffix without exceeding the per-script clamp.
-  const headroom = titleBudget - suffixLen;
-  const rawHead = seoTitleGraphemes.slice(0, headroom).join('');
-  // Avoid mid-word truncation: find the last word boundary (space or
-  // separator) within the headroom slice. For CJK scripts word-boundary
-  // trimming is unnecessary since each grapheme is already a word, but
-  // for Latin/RTL we must snap back to a whole word.
-  const family = classifyScript(lang);
-  let trimmedHead: string;
-  if (family === 'cjk') {
-    trimmedHead = rawHead.replace(/[\s|,;:—\-–]+$/u, '').trim();
-  } else {
-    // Find last space/separator — snap to whole word
-    const lastSep = rawHead.search(/[\s|,;:—\-–][^\s|,;:—\-–]*$/u);
-    if (lastSep > 0) {
-      trimmedHead = rawHead.slice(0, lastSep).trim();
-    } else {
-      // No separator found — entire string is one word, keep it if it
-      // won't be a truncated fragment (< 4 chars likely means mangled)
-      trimmedHead = rawHead.replace(/[\s|,;:—\-–]+$/u, '').trim();
-      if (trimmedHead.length < 4) return seoTitle;
-    }
-  }
-  return trimmedHead ? `${trimmedHead}${suffix}` : seoTitle;
+export function appendRunNumberSuffix(
+  seoTitle: string,
+  _lang: LanguageCode,
+  _runId: string
+): string {
+  // Run numbers must never appear in user-facing article titles.
+  // Titles should always be readable article headlines without
+  // workflow identifiers. This function is preserved as a no-op
+  // for callsite backward compatibility.
+  return seoTitle;
 }
 
 /**
@@ -320,6 +288,35 @@ function pickResolvedTitle(
 }
 
 /**
+ * Decide whether `clippedTitle` is usable as the resolved title candidate.
+ * Extracted from `resolveOneLanguage` to keep cognitive complexity under
+ * the SonarJS threshold (15).
+ *
+ * @param args - Title candidate inputs
+ * @param args.clippedTitle - The truncated editorial/manifest title to evaluate
+ * @param args.headlineWasContaminated - True when the editorial headline was rejected by sanitize
+ * @param args.nonLatinFamily - True for CJK/RTL locales requiring locale-script glyphs
+ * @param args.allowShortResolvedTitle - True when the source is a localized brief
+ * @param args.lang - Target language code
+ * @returns The clipped title when usable, '' otherwise
+ */
+function pickResolvedTitleCandidate(args: {
+  clippedTitle: string;
+  headlineWasContaminated: boolean;
+  nonLatinFamily: boolean;
+  allowShortResolvedTitle: boolean;
+  lang: LanguageCode;
+}): string {
+  const { clippedTitle, headlineWasContaminated, nonLatinFamily, allowShortResolvedTitle, lang } =
+    args;
+  if (headlineWasContaminated || !clippedTitle) return '';
+  if (hasLeakySeoToken(clippedTitle)) return '';
+  if (nonLatinFamily && !contentMatchesLocaleScript(clippedTitle, lang)) return '';
+  if (!allowShortResolvedTitle && !isUsableResolvedTitle(clippedTitle)) return '';
+  return clippedTitle;
+}
+
+/**
  * Resolve `{title, description, keywords, source}` for one language.
  *
  * @param input - Per-language inputs
@@ -357,9 +354,13 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
       ? manifestOverrideFor(input.manifest.description, 'en' as LanguageCode)
       : '';
 
+  // Token-level sanitization rescues editorial H1s such as
+  // `Run 180, 17 April 2026` → `17 April 2026` instead of falling
+  // through to a duplicate template title.
+  const sanitizedEditorialHeadline = sanitizeTitleCandidate(editorial.headline);
   const contextualTitle = composeContextualTitle(
     input.template.title,
-    editorial.headline,
+    sanitizedEditorialHeadline,
     input.runId,
     input.date,
     input.lang
@@ -426,13 +427,19 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
   // non-Latin locales when they lack locale-script glyphs — prevents
   // English editorial H1s from leaking into CJK/RTL pages.
   const nonLatinFamily = classifyScript(input.lang) !== 'latin';
-  const resolvedTitleCandidate =
-    clippedTitle &&
-    !hasLeakySeoToken(clippedTitle) &&
-    !(nonLatinFamily && !contentMatchesLocaleScript(clippedTitle, input.lang)) &&
-    (allowShortResolvedTitle || isUsableResolvedTitle(clippedTitle))
-      ? clippedTitle
-      : '';
+  // Track whether the editorial headline was contaminated (had leaky
+  // run tokens that sanitizeTitleCandidate refused to salvage). When
+  // contaminated, the resolvedTitleCandidate path is skipped so the
+  // summary-derived title wins in pickResolvedTitle — matching the
+  // pre-existing semantics where a leaky H1 forced summary fallback.
+  const headlineWasContaminated = !!editorial.headline && !sanitizedEditorialHeadline;
+  const resolvedTitleCandidate = pickResolvedTitleCandidate({
+    clippedTitle,
+    headlineWasContaminated,
+    nonLatinFamily,
+    allowShortResolvedTitle,
+    lang: input.lang,
+  });
   const summaryDerivedTitle = deriveHeadlineFromSummary(
     safeEditorial.summary || normalizedRawDescription
   );
@@ -473,6 +480,9 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
   const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
   let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
   seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');
+  // Cross-run uniqueness: append compact edition qualifier (#N) post-clamping
+  // Budget-aware: only append when it fits within the per-script title budget
+  seoTitle = appendEditionQualifier(seoTitle, input.runId ?? '', budgetFor(input.lang, 'title'));
   // Final SERP-floor recovery on the resolved title (see `padTitleToFloor`
   // in resolve-helpers.ts for the (EP) suffix rationale).
   seoTitle = padTitleToFloor(seoTitle, input.lang, budgetFor(input.lang, 'title'));

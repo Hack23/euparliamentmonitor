@@ -1,5 +1,5 @@
 ---
-title: "The week of 10–17 April covers Parliament's — Run 12"
+title: "The week of 10–17 April covers Parliament's transition (#12)"
 description: "The week of 10–17 April covers Parliament's transition from Easter recess into the 14-17 April committee restart week."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-04-10", "week", "April", "covers"]
 date: 2026-04-10

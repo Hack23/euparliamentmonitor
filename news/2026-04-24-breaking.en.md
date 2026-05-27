@@ -1,5 +1,5 @@
 ---
-title: "The 24 April breaking-news probe (≈ 06:00 — Run 1777011267"
+title: "The 24 April breaking-news probe (≈ 06:00 UTC window)"
 description: "The 24 April breaking-news probe (≈ 06:00 UTC window) recorded no fresh EP10 breaking event. Published 2026-04-24."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-24", "April", "news", "probe"]
 date: 2026-04-24

@@ -65,7 +65,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
 | [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
 | [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-significance">Significance</h2>
 
@@ -3304,6 +3304,487 @@ No description available
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+### BLUF
+
+تُسجّل الجولة الثانية من المقترحات بتاريخ 10 أبريل **بُعدًا سياسيًا واحدًا تمت مشاهدته** (مقابل صفر في جولة الاقتراحات السابقة). البُعد الوحيد هو فرضية اختناق ECON (مُكررة من الجولة الأولى الرئيسية للمقترحات). تتوافق كثافة الجولة الثانية يوميًا على مسار المقترحات مع نمط الجولات المتعددة يوميًا المُلاحظ في تجمع فترة الاستراحة. *الثقة: متوسطة؛ تقييم الأدميرالية: B2.*
+
+### ثلاثة قرارات
+
+1. **معاملة قراءة البُعد الواحد كخط أساسي ليوم الاستراحة ذي الإشارة الواحدة.** تُنتج معظم أيام الاستراحة صفر أبعاد؛ أما الأيام التي تُسجّل بُعدًا واحدًا فهي المؤشر الإشاري الرائد لضغط ما قبل التفعيل. *الثقة: متوسطة إلى عالية.*
+2. **تعزيز إطار اختناق ECON من خلال التحقق المتقاطع بين الجولات.** جولتان مستقلتان في اليوم ذاته (المقترحات + المقترحات-2) كلاهما تكشفان عن فرضية ECON؛ هذا تحقق متقارب. *الثقة: عالية بشأن الاختناق.*
+3. **الحفاظ على إيقاع الجولة الثانية من المقترحات حتى العودة إلى الجلسة العامة.** يلتقط إيقاع الجولات المتعددة يوميًا في نافذة ما قبل التفعيل هذه إشارات ضغط مبكرة لن يرصدها إيقاع الجولة الواحدة. *الثقة: متوسطة إلى عالية.*
+
+### القراءة في 60 ثانية
+
+تخدم الجولة-2 من المقترحات بتاريخ 10 أبريل التحقق المتقاطع من الجولة الرئيسية. كلتاهما تكشفان عن فرضية اختناق ECON؛ ويُعزز هذا التقارب الثقة التحليلية إلى أبعد مما ستوفره جولة واحدة.
+
+### لقطة المخاطر
+
+| المخاطرة | الاحتمالية | الأثر |
+|---|---:|---:|
+| قراءة البُعد الواحد مُضخَّمة بسبب عناصر إجرائية | منخفضة-متوسطة | منخفضة |
+| إطار اختناق ECON ضيق جدًا لاتخاذ قرارات استراتيجية في الربع الثاني | متوسطة | متوسطة |
+| التخلي عن إيقاع الجولات المتعددة تحت ضغط الجلسة العامة | متوسطة | منخفضة-متوسطة |
+
+### جودة المصادر
+
+- قراءة البُعد الواحد: **A1**
+- التحقق المتقاطع من اختناق ECON: **B2**
+
+### المصدر والمرجع
+
+- الجولة: `المقترحات-2` (2026-04-10، الجولة الثانية من المقترحات في اليوم)
+- الامتثال: تغذيات بوابة البيانات المفتوحة للبرلمان الأوروبي فقط. متوافقة مع اللائحة العامة لحماية البيانات.
+
+---
+*الحياد التحليلي: إطار التحقق المتقاطع مُصنَّف.*
+
+### Executive Brief Da
+
+### BLUF
+
+Den anden forslagskørsel den 10. april registrerer **1 politisk dimension afdækket** (mod 0 i den tidligere forslagskørsel). Den eneste dimension er ECON-flaskehalshypotesen (gentaget fra den primære forslagskørsel). Den anden-kørsel-om-dagen-kadence på forslagssporet er i overensstemmelse med det observerede flerkørsel-per-dag-mønster i friperiodeklyngen. *Sikkerhedsniveau: MIDDEL; Admiralitetsvurdering: B2.*
+
+### Tre Beslutninger
+
+1. **Behandl 1-dimensionsmålingen som baseline for enkelt-signal friperiodedag.** De fleste friperiodedage giver 0 dimensioner; dage med 1 dimension er den ledende signalindicator for præ-aktiveringspres. *Sikkerhedsniveau: MIDDEL-HØJ.*
+2. **Forstærk ECON-flaskehals-indramningen via krydsvalidering på tværs af kørsler.** To uafhængige samme-dags-kørsler (forslag + forslag-2) afdækker begge ECON-hypotesen; dette er konvergent validering. *Sikkerhedsniveau: HØJ for flaskehalsen.*
+3. **Oprethold anden-forslags-kørsel-kadencen frem til plenargenoptagelse.** Flerkørsel-per-dag-kadencen i dette præ-aktiveringsvindue fanger tidlige pressignaler, som enkeltrundes-kadence ville gå glip af. *Sikkerhedsniveau: MIDDEL-HØJ.*
+
+### 60-Sekunders Læsning
+
+Kørsel-2 af forslag den 10. april har til formål at krydsvalisere den primære forslagskørsel. Begge afdækker ECON-flaskehalshypotesen; konvergensen styrker den analytiske sikkerhed ud over, hvad en enkelt kørsel ville give.
+
+### Risikooversigt
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| 1-dimensionsmåling oppustet af procedurartefakt | LAV–MIDDEL | LAV |
+| ECON-flaskehals-indramning for snæver til at drive Q2-strategiske beslutninger | MIDDEL | MIDDEL |
+| Flerkørsel-kadence opgivet under plenarbelastning | MIDDEL | LAV–MIDDEL |
+
+### Kildekvalitet
+
+- 1-dimensionsmåling: **A1**
+- ECON-flaskehals-krydsvalidering: **B2**
+
+### Oprindelse
+
+- Kørsel: `forslag-2` (2026-04-10, anden forslagskørsel for dagen)
+- Overholdelse: Kun EP's åbne dataportaldatakilder. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: krydsvalideringsindramning mærket.*
+
+### Executive Brief De
+
+### BLUF
+
+Der zweite Antragsdurchlauf vom 10. April verzeichnet **1 ermittelte politische Dimension** (gegenüber 0 im früheren Antragsrun). Die einzige Dimension ist die ECON-Flaschenhals-Hypothese (aus dem primären Antragsdurchlauf übernommen). Das Zweiter-Durchlauf-pro-Tag-Kadenzmuster auf der Antragsschiene stimmt mit dem Mehrfachdurchlauf-pro-Tag-Muster überein, das in der Plenarpause-Cluster beobachtet wurde. *Konfidenz: MITTEL; Admiralitätsgrad: B2.*
+
+### Drei Entscheidungen
+
+1. **Die 1-Dimension-Ablesung als Basiswert für den Einzelsignal-Sitzungspausentag behandeln.** An den meisten Plenarpausentagen werden 0 Dimensionen ermittelt; Tage mit 1 Dimension sind der Leitindikator für Voraktivierungsdruck. *Konfidenz: MITTEL-HOCH.*
+2. **Die ECON-Flaschenhals-Rahmung durch Kreuzvalidierung über Durchläufe hinweg festigen.** Zwei unabhängige Durchläufe am selben Tag (Anträge + Anträge-2) ermitteln beide die ECON-Hypothese; dies ist konvergente Validierung. *Konfidenz: HOCH für den Flaschenhals.*
+3. **Das zweite-Antrags-Durchlauf-Kadenz bis zur Plenarwiederaufnahme aufrechterhalten.** Das Mehrfachdurchlauf-pro-Tag-Kadenzmuster in diesem Voraktivierungsfenster erfasst frühe Drucksignale, die ein Einzeldurchlauf-Kadenzmuster übersehen würde. *Konfidenz: MITTEL-HOCH.*
+
+### 60-Sekunden-Lektüre
+
+Durchlauf-2 der Anträge am 10. April dient der Kreuzvalidierung des primären Antragsdurchlaufs. Beide ermitteln die ECON-Flaschenhals-Hypothese; die Konvergenz stärkt die analytische Konfidenz über das hinaus, was ein einziger Durchlauf bieten würde.
+
+### Risikoübersicht
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| 1-Dimension-Ablesung durch prozedurale Artefakte überhöht | NIEDRIG–MITTEL | NIEDRIG |
+| ECON-Flaschenhals-Rahmung zu eng für Q2-strategische Entscheidungen | MITTEL | MITTEL |
+| Mehrfachdurchlauf-Kadenz unter Plenarlast aufgegeben | MITTEL | NIEDRIG–MITTEL |
+
+### Quellenqualität
+
+- 1-Dimension-Ablesung: **A1**
+- ECON-Flaschenhals-Kreuzvalidierung: **B2**
+
+### Herkunft
+
+- Durchlauf: `Anträge-2` (2026-04-10, zweiter Antragsdurchlauf des Tages)
+- Compliance: Ausschließlich EP-Open-Data-Portal-Feeds. DSGVO-konform.
+
+---
+*Analytische Neutralität: Kreuzvalidierungs-Rahmung gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+La segunda ejecución de propuestas del 10 de abril registra **1 dimensión política identificada** (frente a 0 en la ejecución de mociones anterior). La única dimensión es la hipótesis de cuello de botella ECON (repetida desde la ejecución de propuestas primaria). La cadencia de segunda-ejecución-por-día en la vía de propuestas es coherente con el patrón de múltiples-ejecuciones-por-día observado en el clúster de receso. *Confianza: MEDIA; Grado Almirantazgo: B2.*
+
+### Tres Decisiones
+
+1. **Tratar la lectura de 1 dimensión como línea base del día de receso de señal única.** La mayoría de los días de receso producen 0 dimensiones; los días con 1 dimensión son el indicador de señal anticipada de presión de preactivación. *Confianza: MEDIA-ALTA.*
+2. **Reforzar el encuadre de cuello de botella ECON mediante validación cruzada entre ejecuciones.** Dos ejecuciones independientes el mismo día (propuestas + propuestas-2) identifican ambas la hipótesis ECON; esto es validación convergente. *Confianza: ALTA para el cuello de botella.*
+3. **Mantener la cadencia de segunda-ejecución-de-propuestas hasta el regreso al pleno.** La cadencia de múltiples-ejecuciones-por-día en esta ventana de preactivación capta señales tempranas de presión que una cadencia de ejecución única pasaría por alto. *Confianza: MEDIA-ALTA.*
+
+### Lectura en 60 Segundos
+
+La Ejecución-2 de propuestas del 10 de abril sirve para validar de manera cruzada la ejecución de propuestas primaria. Ambas identifican la hipótesis de cuello de botella ECON; la convergencia refuerza la confianza analítica más allá de lo que una sola ejecución proporcionaría.
+
+### Panorama de Riesgos
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| Lectura de 1 dimensión inflada por artefacto procedimental | BAJA–MEDIA | BAJA |
+| Encuadre cuello de botella ECON demasiado estrecho para impulsar decisiones estratégicas Q2 | MEDIA | MEDIA |
+| Cadencia de múltiples ejecuciones abandonada bajo carga plenaria | MEDIA | BAJA–MEDIA |
+
+### Calidad de Fuentes
+
+- Lectura de 1 dimensión: **A1**
+- Validación cruzada cuello de botella ECON: **B2**
+
+### Procedencia
+
+- Ejecución: `propuestas-2` (2026-04-10, segunda ejecución de propuestas del día)
+- Cumplimiento: Solo feeds del portal de datos abiertos del PE. Conforme con el RGPD.
+
+---
+*Neutralidad analítica: encuadre de validación cruzada etiquetado.*
+
+### Executive Brief Fi
+
+### BLUF
+
+10. huhtikuuta tehdyn toisen ehdotusajon tuloksena on **1 poliittinen ulottuvuus löydetty** (verrattuna 0:aan aiemmassa aloiteajossa). Ainoa ulottuvuus on ECON-pullonkaulahypoteesi (toistettuna ensisijaisesta ehdotusajosta). Toinen ajo päivässä -tahti ehdotusraiteella on yhdenmukainen useita ajoja päivässä -mallin kanssa, jota on havaittu taukoryhmässä. *Luottamus: KESKITASO; Siviilimeriluokka: B2.*
+
+### Kolme Päätöstä
+
+1. **Käsitellä 1-ulottuvuusmittaus taukopäivän yhden signaalin perustasona.** Useimmilla taukopäivillä saadaan 0 ulottuvuutta; 1 ulottuvuuden päivät ovat johtava signaalin indikaattori esi-aktivaatiopaineelle. *Luottamus: KESKI-KORKEA.*
+2. **Vahvistaa ECON-pullonkaula-kehys ristiinvalidoinnilla ajojen välillä.** Kaksi riippumatonta saman päivän ajoa (ehdotukset + ehdotukset-2) löytävät molemmat ECON-hypoteesin; tämä on konvergentti validointi. *Luottamus: KORKEA pullonkaulan suhteen.*
+3. **Ylläpitää toisen ehdotusajon tahti täysistuntoon paluuseen saakka.** Useita ajoja päivässä -tahti tässä esi-aktivaatioikkunassa sieppaa varhaisia painesignaaleja, jotka yksittäisajo-tahti jäisi paitsi. *Luottamus: KESKI-KORKEA.*
+
+### 60 Sekunnin Lukeminen
+
+Ehdotusajo-2 10. huhtikuuta toimii ensisijaisen ehdotusajon ristiinvalidointina. Molemmat löytävät ECON-pullonkaulahypoteesin; konvergenssi vahvistaa analyyttistä luottamusta sen yli, mitä yksi ajo tarjoaisi.
+
+### Riskitilannearvio
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| 1-ulottuvuusmittaus ylikorostunut menettelyllisellä artefaktilla | MATALA–KESKI | MATALA |
+| ECON-pullonkaula-kehys liian kapea ohjaamaan Q2-strategisia päätöksiä | KESKI | KESKI |
+| Useita ajoja päivässä -tahti hylätty täysistuntokuormituksen aikana | KESKI | MATALA–KESKI |
+
+### Lähteen Laatu
+
+- 1-ulottuvuusmittaus: **A1**
+- ECON-pullonkaula-ristiinvalidointi: **B2**
+
+### Provenienssi
+
+- Ajo: `ehdotukset-2` (2026-04-10, toinen ehdotusajo päivässä)
+- Vaatimustenmukaisuus: Vain EP:n avoimen dataporttaalin syötteet. GDPR-yhteensopiva.
+
+---
+*Analyyttinen neutraalisuus: ristiinvalidointi-kehys merkitty.*
+
+### Executive Brief Fr
+
+### BLUF
+
+La deuxième exécution propositions du 10 avril enregistre **1 dimension politique identifiée** (contre 0 lors de l'exécution motions précédente). La dimension unique est l'hypothèse de goulot d'étranglement ECON (reprise de l'exécution propositions primaire). La cadence deuxième-exécution-par-jour sur le volet propositions est cohérente avec le schéma à exécutions-multiples-par-jour observé dans la grappe de congé. *Confiance : MOYEN ; Gradation amirauté : B2.*
+
+### Trois Décisions
+
+1. **Traiter la lecture 1-dimension comme référence de base journée-de-congé à signal unique.** La plupart des jours de congé produisent 0 dimension ; les jours avec 1 dimension constituent l'indicateur signal avancé de la pression de pré-activation. *Confiance : MOYEN-ÉLEVÉ.*
+2. **Renforcer le cadrage goulot-d'étranglement ECON par validation croisée entre exécutions.** Deux exécutions indépendantes le même jour (propositions + propositions-2) identifient toutes deux l'hypothèse ECON ; il s'agit d'une validation convergente. *Confiance : ÉLEVÉ pour le goulot.*
+3. **Maintenir la cadence de la deuxième exécution propositions jusqu'au retour en plénière.** La cadence à exécutions-multiples-par-jour dans cette fenêtre de pré-activation capte les signaux de pression précoces qu'une cadence à exécution unique manquerait. *Confiance : MOYEN-ÉLEVÉ.*
+
+### Lecture en 60 Secondes
+
+L'exécution-2 des propositions du 10 avril sert à valider de manière croisée l'exécution propositions primaire. Les deux identifient l'hypothèse de goulot d'étranglement ECON ; la convergence renforce la confiance analytique au-delà de ce qu'une seule exécution fournirait.
+
+### Aperçu des Risques
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| Lecture 1-dimension gonflée par un artefact procédural | FAIBLE–MOYEN | FAIBLE |
+| Cadrage goulot ECON trop étroit pour orienter les décisions stratégiques Q2 | MOYEN | MOYEN |
+| Cadence multi-exécutions abandonnée sous charge plénière | MOYEN | FAIBLE–MOYEN |
+
+### Qualité des Sources
+
+- Lecture 1-dimension : **A1**
+- Validation croisée goulot ECON : **B2**
+
+### Provenance
+
+- Exécution : `propositions-2` (2026-04-10, deuxième exécution propositions de la journée)
+- Conformité : Flux portail données ouvertes PE uniquement. Conforme au RGPD.
+
+---
+*Neutralité analytique : cadrage validation croisée labellisé.*
+
+### Executive Brief He
+
+### BLUF
+
+ריצת ההצעות השנייה של 10 באפריל מתעדת **ממד מדיני 1 שזוהה** (לעומת 0 בריצת ההחלטות הקודמת). הממד היחיד הוא השערת צוואר-הבקבוק ECON (חוזר מריצת ההצעות הראשית). קצב ריצה-שנייה-ליום במסלול ההצעות עולה בקנה אחד עם דפוס ריצות-מרובות-ליום שנצפה באשכול ההפסקה. *אמון: בינוני; דירוג אדמירלות: B2.*
+
+### שלושה החלטות
+
+1. **לטפל בקריאת ממד-1 כבסיס יום-הפסקה של אות יחיד.** רוב ימי ההפסקה מניבים 0 ממדים; ימים עם ממד 1 הם מדד האות המוביל ללחץ טרום-הפעלה. *אמון: בינוני-גבוה.*
+2. **לחזק את מסגרת צוואר-הבקבוק ECON באמצעות אימות צולב בין ריצות.** שתי ריצות עצמאיות באותו יום (הצעות + הצעות-2) מזהות שתיהן את השערת ECON; זהו אימות מתכנס. *אמון: גבוה לגבי צוואר הבקבוק.*
+3. **לשמור על קצב ריצת-ההצעות-השנייה עד לחזרה למליאה.** קצב ריצות-מרובות-ליום בחלון הטרום-הפעלה הזה קולט אותות לחץ מוקדמים שקצב ריצה-יחידה היה מפסיד. *אמון: בינוני-גבוה.*
+
+### קריאה ב-60 שניות
+
+ריצה-2 של הצעות ב-10 באפריל משמשת לאימות צולב של ריצת ההצעות הראשית. שתיהן מזהות את השערת צוואר-הבקבוק ECON; ההתכנסות מחזקת את האמון האנליטי מעבר למה שריצה בודדת תספק.
+
+### תמונת מצב סיכונים
+
+| סיכון | סבירות | השפעה |
+|---|---:|---:|
+| קריאת ממד-1 מנופחת על ידי ארטיפקט פרוצדורלי | נמוכה–בינונית | נמוכה |
+| מסגרת צוואר-בקבוק ECON צרה מדי לקבלת החלטות אסטרטגיות Q2 | בינונית | בינונית |
+| קצב ריצות-מרובות ננטש תחת עומס מליאה | בינונית | נמוכה–בינונית |
+
+### איכות מקורות
+
+- קריאת ממד-1: **A1**
+- אימות צולב צוואר-בקבוק ECON: **B2**
+
+### פרובננס
+
+- ריצה: `הצעות-2` (2026-04-10, ריצת הצעות שנייה ביום)
+- ציות: פידים של פורטל הנתונים הפתוחים של PE בלבד. תואם GDPR.
+
+---
+*ניטרליות אנליטית: מסגרת אימות-צולב מתוייגת.*
+
+### Executive Brief Ja
+
+### BLUF
+
+4月10日の第2回提案ランは、**確認された政治的次元1件**を記録した（先の動議ランでの0件に対して）。唯一の次元はECONボトルネック仮説（主要提案ランから引き継がれたもの）である。提案トラックにおける2回目/日のカデンスは、休会期間クラスターで観察された複数回/日のパターンと一致している。*信頼度：中；アドミラルティ評価：B2。*
+
+### 三つの決定
+
+1. **1次元読み取りを単一シグナル休会日のベースラインとして扱う。** 大半の休会日は0次元を産出する；1次元の日は事前活性化圧力の先行シグナル指標である。*信頼度：中〜高。*
+2. **ラン間のクロス検証によりECONボトルネック枠組みを強化する。** 同日2件の独立ランがともにECON仮説を確認（提案 + 提案-2）；これは収束的検証である。*信頼度：ボトルネックに関して高。*
+3. **本会議再開まで第2提案ランのカデンスを維持する。** この事前活性化ウィンドウにおける複数回/日のカデンスは、単一ランのカデンスでは見逃すであろう早期圧力シグナルを捕捉する。*信頼度：中〜高。*
+
+### 60秒要約
+
+4月10日の提案ラン2は主要提案ランのクロス検証に機能する。双方ともECONボトルネック仮説を確認；この収束は単一ランが提供するよりも高い分析的信頼度をもたらす。
+
+### リスク概況
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| 手続き上のアーティファクトによる1次元読み取りの誇大化 | 低〜中 | 低 |
+| ECON ボトルネック枠組みがQ2戦略的決定を牽引するには狭すぎる | 中 | 中 |
+| 本会議負荷で複数回カデンスが放棄される | 中 | 低〜中 |
+
+### ソース品質
+
+- 1次元読み取り：**A1**
+- ECONボトルネッククロス検証：**B2**
+
+### 出処
+
+- ラン：`提案-2`（2026-04-10、当日第2提案ラン）
+- コンプライアンス：EP公開データポータルフィードのみ。GDPR準拠。
+
+---
+*分析的中立性：クロス検証枠組みにラベル付き。*
+
+### Executive Brief Ko
+
+### BLUF
+
+4월 10일의 두 번째 제안 실행은 **확인된 정치적 차원 1개**를 기록한다(앞선 동의 실행에서 0개와 비교). 유일한 차원은 ECON 병목 가설(주요 제안 실행에서 반복됨)이다. 제안 트랙에서의 일 2회 실행 간격은 휴회 클러스터에서 관찰된 일 다중 실행 패턴과 일치한다. *신뢰도: 중간; 해군성 등급: B2.*
+
+### 세 가지 결정
+
+1. **1차원 판독값을 단일 신호 휴회일의 기준선으로 취급한다.** 대부분의 휴회일은 0차원을 산출한다; 1차원인 날은 사전 활성화 압력의 선행 신호 지표이다. *신뢰도: 중간-높음.*
+2. **실행 간 교차 검증을 통해 ECON 병목 프레이밍을 강화한다.** 같은 날 두 개의 독립적 실행(제안 + 제안-2)이 모두 ECON 가설을 확인한다; 이것은 수렴적 검증이다. *신뢰도: 병목에 대해 높음.*
+3. **본회의 복귀까지 두 번째 제안 실행 간격을 유지한다.** 이 사전 활성화 창에서의 일 다중 실행 간격은 단일 실행 간격이 놓칠 초기 압력 신호를 포착한다. *신뢰도: 중간-높음.*
+
+### 60초 요약
+
+4월 10일의 제안 실행-2는 주요 제안 실행의 교차 검증 역할을 한다. 둘 다 ECON 병목 가설을 확인한다; 수렴은 단일 실행이 제공하는 것을 넘어 분석적 신뢰도를 강화한다.
+
+### 위험 현황
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| 절차적 아티팩트에 의해 부풀려진 1차원 판독값 | 낮음-중간 | 낮음 |
+| ECON 병목 프레이밍이 Q2 전략적 결정을 유도하기에 너무 좁음 | 중간 | 중간 |
+| 본회의 부하 하에 다중 실행 간격 포기 | 중간 | 낮음-중간 |
+
+### 소스 품질
+
+- 1차원 판독값: **A1**
+- ECON 병목 교차 검증: **B2**
+
+### 출처
+
+- 실행: `제안-2`(2026-04-10, 당일 두 번째 제안 실행)
+- 준수: EP 공개 데이터 포털 피드만. GDPR 준수.
+
+---
+*분석적 중립성: 교차 검증 프레이밍 라벨 부착.*
+
+### Executive Brief Nl
+
+### BLUF
+
+De tweede voorstellenrun van 10 april registreert **1 politieke dimensie gevonden** (tegenover 0 bij de eerdere moties-run). De enige dimensie is de ECON-knelpunthypothese (overgenomen van de primaire voorstellenrun). De tweede-run-per-dag-cadans op het voorstellenspoor is consistent met het meerdere-runs-per-dag-patroon dat in de recessiecluster werd waargenomen. *Betrouwbaarheid: MIDDEL; Admiraliteitsgraad: B2.*
+
+### Drie Beslissingen
+
+1. **De 1-dimensiemeting behandelen als basiswaarde voor de recessiedag met één signaal.** De meeste recessiedagen leveren 0 dimensies op; dagen met 1 dimensie zijn de voorlopende signaalindicator van pre-activatiedruk. *Betrouwbaarheid: MIDDEL-HOOG.*
+2. **Het ECON-knelpunt-kader versterken door kruisvalidatie over runs heen.** Twee onafhankelijke runs op dezelfde dag (voorstellen + voorstellen-2) identificeren allebei de ECON-hypothese; dit is convergente validatie. *Betrouwbaarheid: HOOG voor het knelpunt.*
+3. **De cadans van de tweede-voorstellen-run handhaven tot plenumhervatting.** De meerdere-runs-per-dag-cadans in dit pre-activatievenster vangt vroege druksignalen op die een enkele-run-cadans zou missen. *Betrouwbaarheid: MIDDEL-HOOG.*
+
+### 60-Secondenlezing
+
+Run-2 van voorstellen op 10 april dient ter kruisvalidatie van de primaire voorstellenrun. Beide identificeren de ECON-knelpunthypothese; de convergentie versterkt het analytische vertrouwen boven hetgeen één enkele run zou bieden.
+
+### Risicooverzicht
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| 1-dimensiemeting opgeblazen door procedureel artefact | LAAG–MIDDEL | LAAG |
+| ECON-knelpunt-kader te smal voor Q2-strategische beslissingen | MIDDEL | MIDDEL |
+| Meerdere-runs-cadans verlaten onder plenumbelasting | MIDDEL | LAAG–MIDDEL |
+
+### Kwaliteit van Bronnen
+
+- 1-dimensiemeting: **A1**
+- ECON-knelpunt-kruisvalidatie: **B2**
+
+### Herkomst
+
+- Run: `voorstellen-2` (2026-04-10, tweede voorstellenrun van de dag)
+- Naleving: Uitsluitend EP Open Data Portal-feeds. GDPR-conform.
+
+---
+*Analytische neutraliteit: kruisvalidatie-kader gelabeld.*
+
+### Executive Brief No
+
+### BLUF
+
+Den andre forslagskjøringen 10. april registrerer **1 politisk dimensjon avdekket** (mot 0 i den tidligere forslagskjøringen). Den eneste dimensjonen er ECON-flaskehals-hypotesen (gjentatt fra den primære forslagskjøringen). Andre-kjøring-per-dag-kadensen på forslagssporet er i samsvar med flerkjøring-per-dag-mønsteret observert i friperiodeklyngen. *Konfidens: MIDDELS; Marinegrad: B2.*
+
+### Tre Beslutninger
+
+1. **Behandle 1-dimensjonsmålingen som grunnlinje for enkelt-signal friperiodedag.** De fleste friperiodedager gir 0 dimensjoner; dager med 1 dimensjon er den ledende signalindikator for pre-aktiveringspress. *Konfidens: MIDDELS-HØY.*
+2. **Forsterke ECON-flaskehalsinramningen gjennom kryss-kjøringsvalidering.** To uavhengige samme-dags-kjøringer (forslag + forslag-2) avdekker begge ECON-hypotesen; dette er konvergent validering. *Konfidens: HØY for flaskehalsen.*
+3. **Opprettholde andre-forslags-kjøring-kadensen frem til plenumsretur.** Flerkjøring-per-dag-kadensen i dette pre-aktiveringsvinduet fanger tidlige pressignaler som enkeltrundes-kadense ville gå glipp av. *Konfidens: MIDDELS-HØY.*
+
+### 60-Sekunders Lesning
+
+Kjøring-2 av forslag 10. april tjener til å kryss-validere den primære forslagskjøringen. Begge avdekker ECON-flaskehals-hypotesen; konvergensen styrker den analytiske konfidensen utover hva en enkelt kjøring ville gi.
+
+### Risikooversikt
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| 1-dimensjonsmåling oppblåst av prosedyrartefakt | LAV–MIDDELS | LAV |
+| ECON-flaskehalsinramning for snever til å drive Q2-strategiske beslutninger | MIDDELS | MIDDELS |
+| Flerkjøring-kadensen forlatt under plenarbelastning | MIDDELS | LAV–MIDDELS |
+
+### Kildekvalitet
+
+- 1-dimensjonsmåling: **A1**
+- ECON-flaskehals-kryss-validering: **B2**
+
+### Opprinnelse
+
+- Kjøring: `forslag-2` (2026-04-10, andre forslagskjøring for dagen)
+- Etterlevelse: Kun EPs åpne dataportaldatastrømmer. GDPR-kompatibel.
+
+---
+*Analytisk nøytralitet: kryss-valideringsinramning merket.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Den andra propositionskörningen den 10 april registrerar **1 politisk dimension identifierad** (jämfört med 0 i motionskörningen tidigare). Den enda dimensionen är ECON-flaskhalshypotesen (upprepas från den primära propositionskörningen). Tvåkörnings-per-dag-kadensen på propositionsspåret stämmer överens med flerkörnings-per-dag-mönstret som observerats i riksmötesuppehållets kluster. *Konfidens: MEDEL; Admiralitetsgrad: B2.*
+
+### Tre Beslut
+
+1. **Behandla 1-dimensionsavläsningen som baslinje för enskilt signal under riksdagsuppehåll.** De flesta uppehållsdagar ger 0 dimensioner; dagar med 1 dimension är den ledande signalindikatorn för föraktivationstryck. *Konfidens: MEDEL-HÖG.*
+2. **Förstärk ECON-flaskhalsinramningen genom korsvalidering mellan körningar.** Två oberoende körningar samma dag (propositioner + propositioner-2) identifierar båda ECON-hypotesen; detta är konvergent validering. *Konfidens: HÖG för flaskhals.*
+3. **Upprätthåll kadensen för andra propositionskörningar till plenumåterkomst.** Flerkörnings-per-dag-kadensen i detta föraktiveringsönster fångar tidiga trycksignaler som enkla körningskadenser skulle missa. *Konfidens: MEDEL-HÖG.*
+
+### 60-Sekunders Läsning
+
+Körning-2 av propositioner den 10 april syftar till att korsvalidera den primära propositionskörningen. Båda identifierar ECON-flaskhalshypotesen; konvergensen stärker den analytiska konfidensen bortom vad en enda körning skulle ge.
+
+### Risköversikt
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| 1-dimensionsavläsning förstärkt av procedurartefakt | LÅG–MEDEL | LÅG |
+| ECON-flaskhalsinramning för smal för att driva Q2-strategiska beslut | MEDEL | MEDEL |
+| Flerkörnings-kadensen övergiven under plenarbelastning | MEDEL | LÅG–MEDEL |
+
+### Källkvalitet
+
+- 1-dimensionsavläsning: **A1**
+- ECON-flaskhals korsvalidering: **B2**
+
+### Ursprung
+
+- Körning: `propositioner-2` (2026-04-10, andra propositionskörning för dagen)
+- Efterlevnad: Enbart EP:s öppna dataportalflöden. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: korsvalideringsinramning märkt.*
+
+### Executive Brief Zh
+
+### BLUF
+
+4月10日第二次提案执行记录了**1个已确认的政治维度**（相对于此前动议执行中的0个）。唯一维度是ECON瓶颈假设（从主要提案执行中延续而来）。提案轨道上每日第二次执行的节奏与在休会集群中观察到的每日多次执行模式一致。*信心水平：中等；海军准将评级：B2。*
+
+### 三项决定
+
+1. **将1维度读数作为单信号休会日的基准线处理。** 大多数休会日产生0个维度；出现1个维度的日子是预激活压力的领先信号指标。*信心水平：中高。*
+2. **通过执行间交叉验证强化ECON瓶颈框架。** 同一天两次独立执行（提案 + 提案-2）均确认ECON假设；这是收敛性验证。*信心水平：对瓶颈而言高。*
+3. **在全体会议恢复之前保持第二次提案执行节奏。** 在此预激活窗口中的每日多次执行节奏捕获了单次执行节奏会错过的早期压力信号。*信心水平：中高。*
+
+### 60秒摘要
+
+4月10日的提案执行-2用于对主要提案执行进行交叉验证。两次均确认ECON瓶颈假设；这种收敛强化了超越单次执行所能提供的分析信心。
+
+### 风险快照
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 1维度读数因程序性工件而被夸大 | 低-中 | 低 |
+| ECON瓶颈框架过窄无法推动Q2战略决策 | 中 | 中 |
+| 多次执行节奏在全体会议负荷下被放弃 | 中 | 低-中 |
+
+### 来源质量
+
+- 1维度读数：**A1**
+- ECON瓶颈交叉验证：**B2**
+
+### 来源信息
+
+- 执行：`提案-2`（2026-04-10，当日第二次提案执行）
+- 合规性：仅EP开放数据门户feeds。符合GDPR。
+
+---
+*分析中立性：交叉验证框架已标注。*
+
 ### Coalition Dynamics
 
 ### Computed Metrics (Script-Generated Context)
@@ -3549,6 +4030,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-documents | [procedures-2026-0078-cod-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0078-cod-analysis.md) | `documents/procedures-2026-0078-cod-analysis.md` |
 | section-documents | [procedures-2026-0084-cod-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0084-cod-analysis.md) | `documents/procedures-2026-0084-cod-analysis.md` |
 | section-documents | [procedures-2026-0085-cod-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0085-cod-analysis.md) | `documents/procedures-2026-0085-cod-analysis.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 

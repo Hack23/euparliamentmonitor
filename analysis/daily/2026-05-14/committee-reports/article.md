@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's committee system — Run 330"
+title: "The European Parliament's committee system entered the"
 description: "The European Parliament's committee system entered the week of 12–16 May 2026 with a packed legislative agenda across at least seven standing committees."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-14", "European", "Parliament", "committee"]
 date: 2026-05-14
