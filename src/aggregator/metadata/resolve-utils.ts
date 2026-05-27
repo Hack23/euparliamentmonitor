@@ -13,8 +13,8 @@ import { findTitleRejectionReason } from './title-rejection.js';
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
 /** Matches workflow run-number patterns like "Run 271" or "— Run 42" in titles. */
 const RUN_NUMBER_RE = /(?:^|[\s—–\-(,;:|/])Run\s+\d+/u;
-/** Word-level strip pattern for "Run N" tokens. */
-const RUN_TOKEN_STRIP_RE = /\bRun\s+\d+(?:-[A-Za-z][\w-]*)*[\s,;:|/]*/giu;
+/** Word-level strip pattern for "Run N" tokens (with optional hyphenated suffix). */
+const RUN_TOKEN_STRIP_RE = /\bRun\s+\d[\d-]*/giu;
 /** Internal run-id slug strip (e.g. `breaking-run180-1779846371`). */
 const RUNID_TOKEN_STRIP_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}[\s,;:|/]*/giu;
 /** "analysis run" phrase strip. */
@@ -30,6 +30,9 @@ export function hasLeakySeoToken(value: string): boolean {
 
 /**
  * Word-level strip of leaky workflow tokens from a single line of text.
+ *
+ * @param value - Raw text that may contain workflow run tokens
+ * @returns Cleaned text with all leaky run tokens removed
  */
 export function stripLeakyRunTokens(value: string): string {
   if (!value) return '';
@@ -52,6 +55,9 @@ export function stripLeakyRunTokens(value: string): string {
 /**
  * Sanitize a single-line title candidate by word-level stripping any
  * leaky workflow tokens.
+ *
+ * @param value - Raw title candidate that may contain run tokens
+ * @returns Sanitized title with leaky tokens removed
  */
 export function sanitizeTitleCandidate(value: string): string {
   if (!value) return '';

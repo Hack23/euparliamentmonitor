@@ -203,9 +203,14 @@ const CJK_EDITION_SUFFIX = {
  *
  * @internal Used by appendEditionQualifier via the compact (#N) path;
  * retained for future locale-aware expansion.
+ * @param lang - Language code (e.g. "en", "de", "ja")
+ * @param runNum - Numeric run identifier as a string
+ * @param maxChars - Maximum character budget for the qualifier
+ * @returns Localized edition qualifier string
  */
 export function buildEditionQualifier(lang, runNum, maxChars) {
-    const prefix = EDITION_QUALIFIER_BY_LANG[lang] ?? EDITION_QUALIFIER_BY_LANG['en'];
+    const enFallback = EDITION_QUALIFIER_BY_LANG['en'] ?? 'Edition';
+    const prefix = EDITION_QUALIFIER_BY_LANG[lang] ?? enFallback;
     const cjkSuffix = CJK_EDITION_SUFFIX[lang];
     const full = cjkSuffix
         ? `${prefix}${runNum}${cjkSuffix}`
@@ -229,7 +234,7 @@ export function buildEditionQualifier(lang, runNum, maxChars) {
  *
  * @param fallbackTitle - Localized article-type template title
  * @param editorialHeadline - Editorial headline (localized or English)
- * @param runId - Optional run id used for edition qualifier disambiguation
+ * @param _runId - Optional run id used for edition qualifier disambiguation
  * @param date - Optional ISO date appended when no editorial headline exists
  * @param lang - Optional language code; drives per-script floor/budget classification
  * @returns SEO title candidate
