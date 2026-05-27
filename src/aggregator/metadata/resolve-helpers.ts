@@ -15,13 +15,11 @@
  */
 
 import { getLocalizedString } from '../../constants/language-core.js';
-import { LOCALIZED_KEYWORDS } from '../../constants/language-articles.js';
 import type { LanguageCode } from '../../types/index.js';
 import { extractArtifactHighlight } from './artifact-highlight.js';
 import { extractFirstH1 } from './h1-extractor.js';
 import { extractExtendedLedeAfterHeading, extractStrongProseLine } from './lede-extractor.js';
 import { isGenericHeading } from './heading-rules.js';
-import { humanizeSlug } from './slug.js';
 import { SEO_CONTEXT_LABELS } from './template-fallback.js';
 import { EXTENDED_DESCRIPTION_MAX_LENGTH } from './text-utils-constants.js';
 import {
@@ -34,9 +32,20 @@ import {
 import type { ResolveMetadataOptions } from './types.js';
 import { readEnglishBriefBody } from './brief-body.js';
 import { extractBriefingHighlight } from './briefing-highlight.js';
-import { CROSS_SITE_KEYWORDS, isNoiseKeywordToken } from './keyword-filters.js';
 import { findTitleRejectionReason } from './title-rejection.js';
 import { classifyScript } from './seo-budgets.js';
+import {
+  ensureTerminator,
+  scrubTrailingEllipsis as scrubTrailingEllipsisImpl,
+  ensureDescriptionTerminator as ensureDescriptionTerminatorImpl,
+} from './description-finalization.js';
+
+// Re-export terminator helpers for backward compatibility with any
+// downstream import sites that still reach into resolve-helpers.
+export {
+  scrubTrailingEllipsisImpl as scrubTrailingEllipsis,
+  ensureDescriptionTerminatorImpl as ensureDescriptionTerminator,
+};
 
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
 
@@ -57,35 +66,6 @@ const SEO_TITLE_FLOOR = SEO_TITLE_FLOOR_BY_SCRIPT.latin;
  * SERP-fill window.
  */
 const DESCRIPTION_SERP_FILL_FLOOR = { latin: 110, cjk: 55, rtl: 115 } as const;
-
-/**
- * Per-script sentence terminator regexes. A description that doesn't
- * end with one of these glyphs reads as a truncated fragment on the
- * SERP, so we ensure one is appended after enrichment.
- *
- * **Important**: `…` (and the ASCII `...` triplet) is deliberately
- * *NOT* in this set. The SEO extraction regression suite treats a
- * trailing ellipsis as a truncation cut (see
- * `title-rejection.ts::looksLikeEllipsisCut` and the description gate
- * in `executive-brief-seo-extraction.test.js`), so {@link ensureTerminator}
- * strips trailing ellipses defensively before deciding whether a real
- * terminator must be appended.
- */
-const TERMINATOR_RE = {
-  latin: /[.!?]$/u,
-  cjk: /[。．！？]$/u,
-  rtl: /[.!?؟]$/u,
-} as const;
-
-/**
- * Trailing ellipsis (Unicode `…` or ASCII `...`) optionally followed by
- * dangling separator punctuation. Used by {@link ensureTerminator} and
- * {@link scrubTrailingEllipsis} to strip truncation markers left behind
- * by upstream truncators (`truncateDescription`, `truncateTitle`, the
- * `clampForBudget` hard-cut path).
- */
-const TRAILING_ELLIPSIS_RE = /[\s,;:|—\-–·•]*(?:\u2026|\.{3,})[\s,;:|—\-–·•]*$/u;
-
 /**
  * Extract a manifest override value for a single language. Accepts either
  * a plain string (applied to every language) or a `LanguageMap` object.
@@ -537,173 +517,6 @@ export function hasLeakySeoToken(value: string): boolean {
   return value.toLowerCase().includes('analysis run') || LEAKY_RUNID_RE.test(value);
 }
 
-/**
- * Guarantee a script-appropriate sentence terminator at the end of a
- * resolved description. Without this, ~55-60% of Latin descriptions
- * synthesized from cleanly-segmented editorial fragments ended in
- * mid-clause prepositions (`and`, `for`, `of`) — the
- * `extracts SEO-grade title, description, and keywords` regression
- * suite enforces a ≥45% terminator ratio per locale to catch this.
- *
- * Latin / RTL → ASCII full stop.
- * CJK         → full-width ideographic full stop `。`.
- * RTL Arabic uses ASCII `.` (Hebrew already does the same), so a
- * single ASCII `.` is sufficient; Arabic-specific `؟` is already
- * preserved when present.
- *
- * @param text   - Already-clamped description
- * @param family - Script family (`latin` / `cjk` / `rtl`)
- * @returns Description ending in a terminator
- */
-/**
- * Terminator candidates per script family. Latin/RTL entries are 2-char
- * sequences (punct + trailing space) so we don't over-match mid-word
- * abbreviations like `e.g.`; the trailing space is dropped from the cut
- * index before slicing. CJK uses full-width punctuation only.
- */
-const TERMINATOR_CANDIDATES: Record<'latin' | 'cjk' | 'rtl', readonly string[]> = {
-  cjk: ['。', '！', '？', '．'],
-  rtl: ['. ', '! ', '? ', '؟ '],
-  latin: ['. ', '! ', '? '],
-};
-
-/**
- * Back-scan a description tail for the right-most sentence terminator
- * that sits inside the in-budget window. Returns -1 when no terminator
- * is found. Extracted from {@link ensureTerminator} to keep its
- * cognitive complexity below the project lint cap.
- *
- * @param tail - Trailing slice of the description being closed
- * @param family - Script family driving the terminator set
- * @returns Cut offset (relative to `tail`), or -1 when none found
- */
-function findTerminatorCutInTail(tail: string, family: 'latin' | 'cjk' | 'rtl'): number {
-  const terminators = TERMINATOR_CANDIDATES[family];
-  let bestRelIdx = -1;
-  for (const t of terminators) {
-    const idx = tail.lastIndexOf(t);
-    if (idx < 0) continue;
-    const cutAt = idx + (t.endsWith(' ') ? t.length - 1 : t.length);
-    if (cutAt > bestRelIdx) bestRelIdx = cutAt;
-  }
-  return bestRelIdx;
-}
-
-/**
- * Append a script-appropriate terminator to `trimmed`, shrinking the
- * body first when `maxLength` would otherwise be exceeded. The trim
- * preserves whole graphemes (Array.from) so CJK/RTL clusters are never
- * cut mid-codepoint, and trailing dangling separators are scrubbed
- * before stapling the terminator so we don't emit `… —.` artefacts.
- *
- * @param trimmed - Body without trailing whitespace
- * @param family - Script family (drives the terminator glyph)
- * @param maxLength - Optional total grapheme budget the result must fit in
- * @returns Body + terminator, never longer than `maxLength` when given
- */
-function appendTerminator(
-  trimmed: string,
-  family: 'latin' | 'cjk' | 'rtl',
-  maxLength: number | undefined
-): string {
-  const terminator = family === 'cjk' ? '。' : '.';
-  if (maxLength === undefined) return `${trimmed}${terminator}`;
-  const graphemes = Array.from(trimmed);
-  if (graphemes.length < maxLength) return `${trimmed}${terminator}`;
-  // No room for the terminator inside `maxLength` — drop trailing
-  // graphemes plus any dangling separator residue before stapling.
-  const headroom = Math.max(0, maxLength - 1);
-  const head = graphemes
-    .slice(0, headroom)
-    .join('')
-    .replace(/[\s|,;:—\-–]+$/u, '')
-    .trim();
-  return head ? `${head}${terminator}` : trimmed;
-}
-
-function ensureTerminator(
-  text: string,
-  family: 'latin' | 'cjk' | 'rtl',
-  maxLength?: number
-): string {
-  let trimmed = text.trim();
-  if (!trimmed) return trimmed;
-  // Defensive scrub: upstream truncators (text-truncate.ts and the
-  // `clampForBudget` hard-cut fallback in `seo-budgets.ts`) emit a
-  // trailing `…` when they have to cut mid-clause. The SEO extraction
-  // regression suite rejects those snippets as truncation cuts, so we
-  // strip the ellipsis here and re-close on a real sentence boundary.
-  trimmed = trimmed.replace(TRAILING_ELLIPSIS_RE, '').trim();
-  if (!trimmed) return trimmed;
-  if (TERMINATOR_RE[family].test(trimmed)) return trimmed;
-  // Back-scan for the most recent in-budget sentence terminator. If
-  // one sits within the trailing ~35 chars (CJK: ~20), cut there so we
-  // recover a clean close instead of stapling a period onto a
-  // mid-clause word fragment. This turns
-  //   "...영향을 추적하는 독자를 위" → "...영향을 추적합니다."
-  // when the prior sentence already ended in a terminator.
-  const scanLen = family === 'cjk' ? 20 : 35;
-  const scanStart = Math.max(0, trimmed.length - scanLen);
-  const tail = trimmed.slice(scanStart);
-  const bestRelIdx = findTerminatorCutInTail(tail, family);
-  if (bestRelIdx > 0 && scanStart + bestRelIdx >= Math.floor(trimmed.length * 0.55)) {
-    return trimmed.slice(0, scanStart + bestRelIdx).trim();
-  }
-  return appendTerminator(trimmed, family, maxLength);
-}
-
-/**
- * Strip a trailing ellipsis (Unicode `…` or ASCII `...`) plus any
- * dangling separator punctuation left over by {@link clampForBudget}'s
- * hard-cut fallback. Titles must never end in `…`: the SEO extraction
- * regression suite (`looksLikeEllipsisCut`) rejects those as truncation
- * cuts. Unlike {@link ensureTerminator}, this helper does NOT append a
- * sentence terminator — titles read better as noun-phrase headlines
- * without a trailing period.
- *
- * Example:
- *   `"활동 개요 — 1분기 입법 파이프라인 (속보) | 2…"` →
- *   `"활동 개요 — 1분기 입법 파이프라인 (속보)"`
- *
- * @param value - Already-clamped title
- * @returns Title with trailing ellipsis and dangling separators removed
- */
-export function scrubTrailingEllipsis(value: string): string {
-  const stripped = value.replace(TRAILING_ELLIPSIS_RE, '').trim();
-  // Remove residual dangling separators (em-dash, colon, pipe) that
-  // were leading into the truncated fragment.
-  return stripped.replace(/[\s|,;:—\-–]+$/u, '').trim();
-}
-
-/**
- * Public finalizer for SEO meta-descriptions: strips trailing ellipses
- * emitted by {@link clampForBudget}'s hard-cut path, then guarantees the
- * snippet closes with a script-appropriate sentence terminator (`.` for
- * Latin/RTL, `。` for CJK). Wraps the module-private {@link ensureTerminator}
- * with language-to-script classification so callers in `article-metadata.ts`
- * don't need to know about the per-script terminator tables.
- *
- * When `maxLength` is supplied, the finalizer reserves space for the
- * terminator before stapling it — never returning a string longer than
- * the caller's budget. Without this, `clampForBudget(_, lang,
- * 'metaDescription')` returns a string at exactly the budget, the
- * stapled terminator pushes it 1 grapheme over, and the second clamp in
- * the HTML shell drops the terminator and cuts mid-word (live
- * regression in `news/2026-05-26-breaking-fr.html`).
- *
- * @param lang - Language code (drives Latin/CJK/RTL classification)
- * @param value - Already-clamped meta-description
- * @param maxLength - Optional grapheme budget the result must fit in
- * @returns Description with trailing ellipsis stripped and a real
- *   terminator guaranteed
- */
-export function ensureDescriptionTerminator(
-  lang: LanguageCode,
-  value: string,
-  maxLength?: number
-): string {
-  return ensureTerminator(value, classifyScript(lang), maxLength);
-}
 
 /**
  * Extract a run number from a runId like `committee-reports-run47`,
@@ -822,89 +635,6 @@ export function containsNormalized(haystack: string, needle: string): boolean {
   const cleanNeedle = needle.toLowerCase().replace(/\s+/g, ' ');
   return cleanNeedle.length > 0 && cleanHaystack.includes(cleanNeedle);
 }
-
-/**
- * Build a stable, localized keyword list from the article type plus the
- * resolved title/description context.
- *
- * @param lang - Target language code
- * @param articleType - Article type slug
- * @param date - ISO article date
- * @param runId - Optional run id
- * @param title - Resolved title
- * @param description - Resolved description
- * @returns De-duplicated keywords for `<meta name="keywords">`
- */
-export function buildSeoKeywords(
-  lang: LanguageCode,
-  articleType: string,
-  date: string,
-  runId: string,
-  title: string,
-  description: string
-): readonly string[] {
-  // `runId` is intentionally unused: the previous implementation
-  // emitted `run <runId>` as a synthetic keyword, which surfaced
-  // opaque tokens like `run propositions-run261-1779431162` in
-  // `<meta name="keywords">`. The argument is preserved for callsite
-  // backward compatibility.
-  void runId;
-  const localized = getLocalizedString(LOCALIZED_KEYWORDS, lang);
-  const base = Object.getOwnPropertyDescriptor(localized, articleType)?.value as
-    | readonly string[]
-    | undefined;
-  const fallback = ['EU Parliament', 'European Parliament', 'political intelligence'];
-  const candidates = [
-    // Always-on cross-site portfolio keywords lead the list so they
-    // are guaranteed to survive the 16-entry budget cap.
-    ...CROSS_SITE_KEYWORDS,
-    ...(base ?? fallback),
-    humanizeSlug(articleType),
-    date,
-    ...extractKeywordTerms(`${title} ${description}`),
-  ];
-  return dedupeKeywords(candidates).slice(0, 16);
-}
-
-/**
- * Extract short keyword terms from resolved SEO copy.
- *
- * Filters out tokens that look like UUID hex fragments, run-id slugs,
- * or digit-dominated noise (see {@link isNoiseKeywordToken}) so the
- * keyword list never leaks internal aggregator identifiers into
- * `<meta name="keywords">`.
- *
- * @param text - Title and description text
- * @returns Candidate terms
- */
-function extractKeywordTerms(text: string): string[] {
-  return text
-    .split(/[^\p{L}\p{N}]+/u)
-    .map((token) => token.trim())
-    .filter((token) => token.length >= 4 && !isNoiseKeywordToken(token))
-    .slice(0, 18);
-}
-
-/**
- * De-duplicate keywords case-insensitively while preserving original order.
- *
- * @param candidates - Raw keyword candidates
- * @returns De-duplicated keyword list
- */
-function dedupeKeywords(candidates: readonly string[]): string[] {
-  const seen = new Set<string>();
-  const out: string[] = [];
-  for (const candidate of candidates) {
-    const trimmed = candidate.trim();
-    if (!trimmed) continue;
-    const key = trimmed.toLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    out.push(trimmed);
-  }
-  return out;
-}
-
 /**
  * Return the first non-empty, trimmed entry from a candidate list, or
  * the empty string when every entry is blank.
