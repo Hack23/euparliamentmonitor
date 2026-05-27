@@ -1,0 +1,63 @@
+{
+  "articleType": "committee-reports",
+  "dataMode": "degraded-feeds",
+  "date": "2026-05-27",
+  "runId": "committee-reports-run271-1779861057",
+  "dataWindow": "2026-05-20 to 2026-05-27",
+  "feedsAvailable": [
+    "adopted-texts"
+  ],
+  "feedsDegraded": [
+    "committee-documents-feed",
+    "procedures-feed",
+    "events-feed",
+    "documents-feed"
+  ],
+  "fallbacksUsed": [
+    "get_committee_documents",
+    "get_adopted_texts(year=2026)"
+  ],
+  "files": {
+    "artifacts": [
+      "executive-brief.md",
+      "data-availability-assessment.md",
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/voting-patterns.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "extended/media-framing-analysis.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "classification/significance-classification.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "committee-reports-run271-1779861057",
+      "timestamp": "2026-05-27T05:50:00Z",
+      "pass2": {
+        "rewriteCount": 0,
+        "priorRun": false
+      }
+    }
+  ],
+  "pass2": {
+    "startedAt": "2026-05-27T06:09:14.035Z",
+    "endedAt": "2026-05-27T06:09:14.035Z",
+    "rewriteCount": 18
+  }
+}
