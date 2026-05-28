@@ -1,0 +1,64 @@
+{
+  "articleType": "propositions",
+  "dataMode": "degraded-feeds",
+  "generatedAt": "2026-05-28T06:38:00Z",
+  "runId": "propositions-run285-1779950340",
+  "dataAvailability": {
+    "prefetchMode": "full",
+    "feedsAvailable": 0,
+    "feedsTotal": 4,
+    "fallbackUsed": "get_adopted_texts(year=2026)",
+    "fallbackItems": 51
+  },
+  "files": {
+    "root": [
+      "data-availability-assessment.md",
+      "executive-brief.md"
+    ],
+    "intelligence": [
+      "intelligence/procedures-proxy.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/analysis-index.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/economic-context.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md"
+    ]
+  },
+  "pass2": {
+    "startedAt": "2026-05-28T06:52:00.000Z",
+    "endedAt": "2026-05-28T07:05:00.000Z",
+    "completedAt": "2026-05-28T06:50:00Z",
+    "rewriteCount": 25
+  },
+  "history": [
+    {
+      "runId": "propositions-run285-1779950340",
+      "timestamp": "2026-05-28T06:38:00Z",
+      "dataMode": "degraded-feeds",
+      "artifactCount": 18,
+      "gateResult": null
+    }
+  ]
+}
