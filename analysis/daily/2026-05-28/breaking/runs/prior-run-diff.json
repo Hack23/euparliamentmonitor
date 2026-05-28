@@ -1,0 +1,277 @@
+
+> euparliamentmonitor@0.9.26 prior-run-diff
+> node scripts/aggregator/prior-run-diff.js analysis/daily/2026-05-28/breaking
+
+{
+  "enabled": true,
+  "mode": "improve-and-extend",
+  "runDir": "analysis/daily/2026-05-28/breaking",
+  "articleType": "breaking",
+  "priorRunId": "breaking-run265-1779932393",
+  "carryForward": [
+    {
+      "relativePath": "classification/significance-classification.md",
+      "lines": 126,
+      "priorLines": 126,
+      "floor": 105,
+      "extendFloor": 146,
+      "source": "extend-from-prior:breaking-run265-1779932393"
+    },
+    {
+      "relativePath": "intelligence/coalition-dynamics.md",
+      "lines": 153,
+      "priorLines": 153,
+      "floor": 135,
+      "extendFloor": 173,
+      "source": "extend-from-prior:breaking-run265-1779932393"
+    }
+  ],
+  "rewrite": [
+    {
+      "relativePath": "classification/actor-mapping.md",
+      "lines": 98,
+      "floor": 30,
+      "reason": "mermaid:missing"
+    },
+    {
+      "relativePath": "classification/forces-analysis.md",
+      "lines": 125,
+      "floor": 30,
+      "reason": "mermaid:missing"
+    },
+    {
+      "relativePath": "classification/impact-matrix.md",
+      "lines": 118,
+      "floor": 30,
+      "reason": "mermaid:missing"
+    },
+    {
+      "relativePath": "data-availability-assessment.md",
+      "lines": 56,
+      "floor": 80,
+      "reason": "short:56<80"
+    },
+    {
+      "relativePath": "documents/document-analysis-index.md",
+      "lines": 65,
+      "floor": 95,
+      "reason": "short:65<95"
+    },
+    {
+      "relativePath": "executive-brief.md",
+      "lines": 116,
+      "floor": 180,
+      "reason": "short:116<180"
+    },
+    {
+      "relativePath": "extended/coalition-mathematics.md",
+      "lines": 93,
+      "floor": 200,
+      "reason": "short:93<200"
+    },
+    {
+      "relativePath": "extended/comparative-international.md",
+      "lines": 81,
+      "floor": 200,
+      "reason": "short:81<200"
+    },
+    {
+      "relativePath": "extended/cross-reference-map.md",
+      "lines": 69,
+      "floor": 150,
+      "reason": "short:69<150"
+    },
+    {
+      "relativePath": "extended/data-download-manifest.md",
+      "lines": 57,
+      "floor": 160,
+      "reason": "short:57<160"
+    },
+    {
+      "relativePath": "extended/devils-advocate-analysis.md",
+      "lines": 79,
+      "floor": 250,
+      "reason": "short:79<250"
+    },
+    {
+      "relativePath": "extended/executive-brief.md",
+      "lines": 57,
+      "floor": 180,
+      "reason": "short:57<180"
+    },
+    {
+      "relativePath": "extended/forward-indicators.md",
+      "lines": 52,
+      "floor": 180,
+      "reason": "short:52<180"
+    },
+    {
+      "relativePath": "extended/historical-parallels.md",
+      "lines": 99,
+      "floor": 220,
+      "reason": "short:99<220"
+    },
+    {
+      "relativePath": "extended/implementation-feasibility.md",
+      "lines": 84,
+      "floor": 200,
+      "reason": "short:84<200"
+    },
+    {
+      "relativePath": "extended/intelligence-assessment.md",
+      "lines": 50,
+      "floor": 220,
+      "reason": "short:50<220"
+    },
+    {
+      "relativePath": "extended/media-framing-analysis.md",
+      "lines": 185,
+      "floor": 270,
+      "reason": "short:185<270"
+    },
+    {
+      "relativePath": "extended/voter-segmentation.md",
+      "lines": 94,
+      "floor": 200,
+      "reason": "short:94<200"
+    },
+    {
+      "relativePath": "intelligence/analysis-index.md",
+      "lines": 148,
+      "floor": 160,
+      "reason": "short:148<160"
+    },
+    {
+      "relativePath": "intelligence/cross-run-diff.md",
+      "lines": 89,
+      "floor": 100,
+      "reason": "short:89<100"
+    },
+    {
+      "relativePath": "intelligence/cross-session-intelligence.md",
+      "lines": 68,
+      "floor": 150,
+      "reason": "short:68<150"
+    },
+    {
+      "relativePath": "intelligence/economic-context.fallback.md",
+      "lines": 61,
+      "floor": 185,
+      "reason": "short:61<185"
+    },
+    {
+      "relativePath": "intelligence/economic-context.md",
+      "lines": 109,
+      "floor": 185,
+      "reason": "short:109<185"
+    },
+    {
+      "relativePath": "intelligence/historical-baseline.md",
+      "lines": 102,
+      "floor": 190,
+      "reason": "short:102<190"
+    },
+    {
+      "relativePath": "intelligence/mcp-reliability-audit.md",
+      "lines": 230,
+      "floor": 385,
+      "reason": "short:230<385"
+    },
+    {
+      "relativePath": "intelligence/methodology-reflection.md",
+      "lines": 145,
+      "floor": 220,
+      "reason": "short:145<220"
+    },
+    {
+      "relativePath": "intelligence/pestle-analysis.md",
+      "lines": 167,
+      "floor": 250,
+      "reason": "short:167<250"
+    },
+    {
+      "relativePath": "intelligence/political-threat-landscape.md",
+      "lines": 49,
+      "floor": 90,
+      "reason": "short:49<90"
+    },
+    {
+      "relativePath": "intelligence/procedures-proxy.md",
+      "lines": 38,
+      "floor": 60,
+      "reason": "short:38<60"
+    },
+    {
+      "relativePath": "intelligence/reference-analysis-quality.md",
+      "lines": 115,
+      "floor": 190,
+      "reason": "short:115<190"
+    },
+    {
+      "relativePath": "intelligence/scenario-forecast.md",
+      "lines": 192,
+      "floor": 280,
+      "reason": "short:192<280"
+    },
+    {
+      "relativePath": "intelligence/significance-scoring.md",
+      "lines": 71,
+      "floor": 105,
+      "reason": "short:71<105"
+    },
+    {
+      "relativePath": "intelligence/stakeholder-map.md",
+      "lines": 159,
+      "floor": 305,
+      "reason": "short:159<305"
+    },
+    {
+      "relativePath": "intelligence/synthesis-summary.md",
+      "lines": 157,
+      "floor": 205,
+      "reason": "short:157<205"
+    },
+    {
+      "relativePath": "intelligence/threat-model.md",
+      "lines": 154,
+      "floor": 250,
+      "reason": "short:154<250"
+    },
+    {
+      "relativePath": "intelligence/voting-patterns.degraded.md",
+      "lines": 41,
+      "floor": 150,
+      "reason": "short:41<150"
+    },
+    {
+      "relativePath": "intelligence/voting-patterns.md",
+      "lines": 111,
+      "floor": 150,
+      "reason": "short:111<150"
+    },
+    {
+      "relativePath": "intelligence/wildcards-blackswans.md",
+      "lines": 125,
+      "floor": 275,
+      "reason": "short:125<275"
+    },
+    {
+      "relativePath": "intelligence/workflow-audit.md",
+      "lines": 71,
+      "floor": 100,
+      "reason": "short:71<100"
+    },
+    {
+      "relativePath": "risk-scoring/quantitative-swot.md",
+      "lines": 127,
+      "floor": 140,
+      "reason": "short:127<140"
+    },
+    {
+      "relativePath": "risk-scoring/risk-matrix.md",
+      "lines": 119,
+      "floor": 150,
+      "reason": "short:119<150"
+    }
+  ]
+}

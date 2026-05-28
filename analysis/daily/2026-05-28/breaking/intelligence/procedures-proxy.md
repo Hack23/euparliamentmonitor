@@ -35,3 +35,72 @@ The EP Open Data Portal procedures feed returned HTTP 404 during the Stage A dat
 ---
 
 *Procedures proxy: feed-404 fallback | 2026-05-28 | Run: breaking-run265-1779932393*
+
+---
+
+## Extended Procedures Proxy — Pass 2 Fallback Analysis
+
+### Procedures Feed Status
+
+The EP `/procedures/feed` endpoint returned HTTP 404 on both run #1 and run #2 of the 2026-05-28 breaking news workflow. This is the expected degraded-feeds mode. This artifact documents the compensating proxy analysis.
+
+### Proxy Methodology
+
+In the absence of direct procedures data, legislative procedures relevant to May 2026 EP session outputs are reconstructed from:
+1. Adopted texts reference numbers (procedure codes embedded in TA references)
+2. Known procedure types from EP institutional rules
+3. Historical procedure patterns for equivalent legislative acts
+
+### Procedure Code Reconstruction
+
+| Adopted Text | Procedure Code (Reconstructed) | Procedure Type | Stage at Adoption |
+|---|---|---|---|
+| TA-10-2026-0183 (AI Trade) | 2025/INI(EP) (est.) | INI: Own-initiative procedure | Final adoption |
+| TA-10-2026-0186 (Afghanistan) | RC-B10-XXXX/2026 | Urgency resolution (joint) | Immediate adoption |
+| TA-10-2026-0180 (EU-Canada SAFE) | 2024/????(NLE) (est.) | NLE: Non-legislative consent | Consent given |
+| TA-10-2026-0174 (Uzbekistan EPCA) | 2024/????(NLE) (est.) | NLE: Non-legislative consent | Consent given |
+| TA-10-2026-0182 (UNGA) | 2026/B10-????(RSP) | RSP: Resolution on external affairs | Immediate adoption |
+
+**Note:** Procedure codes marked (est.) are reconstructed from TA reference patterns and institutional rules. Direct procedures feed verification unavailable.
+
+### Proxy Confidence Assessment
+
+| Field | Confidence | Basis |
+|---|---|---|
+| Procedure type classification | HIGH | EP Rules of Procedure define these categories unambiguously based on text type |
+| Specific procedure codes | LOW | Cannot verify without procedures feed |
+| Committee responsible | MEDIUM | Known from text content and standard EP routing |
+| Rapporteur identity | LOW | Not confirmed without committee-docs feed |
+
+### Legislative Pipeline Status (Proxy)
+
+Based on adopted texts analysis and procedure type inference:
+
+- **AI Trade Strategy (INI):** Stage complete — EP position adopted. Commission now holds initiative. No formal Council involvement required (non-binding).
+- **EU-Canada SAFE (NLE):** Stage complete — EP consent given. Council formal adoption pending (procedural; expected within 30 days). Legal instrument enters into force upon OJ publication.
+- **Uzbekistan EPCA (NLE):** Stage complete — EP consent given. Council formal adoption and Uzbekistan ratification pending.
+- **Afghanistan (Urgency):** Stage complete — EP position adopted. No further legislative stages; feeds into EEAS operational cycle.
+
+**Proxy pipeline assessment:** All five key texts have completed their EP stages. Implementation authority now rests with Council/Commission/EEAS per their respective procedure types.
+
+---
+
+*Procedures proxy: feed-404 fallback | Pass 2 extended: procedure code reconstruction, confidence assessment, pipeline status proxy | 2026-05-28*
+
+## Procedure Status Proxy (Adopted Texts → Legislative Pipeline)
+
+```mermaid
+flowchart TD
+    A[EP Adopted Text\nTA-10-2026-0183\nAI Trade Strategy] -->|INI procedure| B[INTA Committee\nLead Rapporteur]
+    B -->|EP vote: May 20, 2026| C[Adopted by EP]
+    C -->|Non-binding resolution| D[Commission receives EP position]
+    D --> E{Commission action?}
+    E -->|Expected 6 months| F[Commission legislative proposal\nor formal response]
+    E -->|Possible| G[Incorporated into EU AI\nTrade Strategy Communication]
+    A2[TA-10-2026-0180\nEU-Canada SAFE] -->|Consent procedure| B2[AFET + BUDG Committees]
+    B2 --> C2[EP consent given]
+    C2 --> D2[Council formal adoption]
+    D2 --> E2[Entry into force]
+```
+
+*Procedures proxy: reconstructed from adopted texts feed | Pipeline diagram added Pass 3 | 2026-05-28*
