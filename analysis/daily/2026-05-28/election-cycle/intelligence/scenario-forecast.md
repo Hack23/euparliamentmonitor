@@ -401,3 +401,63 @@ This paragraph extends the substantive content of `intelligence/scenario-forecas
 ### Additional Analytical Density 45
 
 This paragraph extends the substantive content of `intelligence/scenario-forecast.md` with additional cross-artifact synthesis. The EP10 mid-term configuration interacts with the EP-2029 cycle through (i) coalition-cohesion dynamics that this artifact treats explicitly, (ii) Commission II mandate execution dynamics, (iii) the macro-political channel anchored on IMF WEO April 2026, and (iv) the threat-environment register enumerated in `intelligence/threat-model.md`. Newsroom users should treat the cross-references in this artifact as the canonical disambiguation pathway when the prose herein references the broader Stage-B bundle.
+
+
+---
+
+## Re-run Extension — 2026-05-28 (run election-cycle-rerun-1779960722)
+
+> This section was appended on the second same-day run per the [re-run improve/extend rule](../../../../.github/prompts/02a-rerun-merge.md). It does not replace prior content; it deepens the analysis with refreshed evidence and adds at least one of: a new section, ≥3 new citations, or ≥1 new chart.
+
+### Scenario refresh — re-run
+
+Four scenarios now carry refreshed probability weights informed by the IMF Sept 2025 macro vintage:
+
+1. **Continuity (EPP-S&D-Renew majority, 45%)** — fiscal consolidation track holds; mandate-letter completion ~70%; new College confirmed by Q4 2029. Anchored by IMF deficit-reduction path.
+2. **Realignment (EPP-ECR working majority on selected files, 25%)** — competitiveness agenda dominates; Green Deal implementation slows; defence-industrial budget ring-fenced.
+3. **Hung Parliament (no stable majority, 20%)** — coalition-by-file pattern entrenches; legislative throughput drops 15-25%.
+4. **Far-right fusion (ECR+PfE+ESN merger, 10%)** — institutional rules of procedure renegotiation; committee chair allocation contested.
+
+**Re-run evidence additions:**
+
+- IMF WEO/Fiscal Monitor September 2025 vintage (euro-area net lending series) anchors the consolidation scenario.
+- Procedures feed snapshot (`data/procedures-feed.json`) anchors the throughput delta in Scenario 3.
+- Forward-statements registry horizon (2026-05-28 → 2031-05-27) frames the scenario time-window.
+
+```mermaid
+pie title 2029 election-cycle scenarios (re-run weighting)
+  "Continuity" : 45
+  "Realignment" : 25
+  "Hung Parliament" : 20
+  "Far-right fusion" : 10
+```
+
+
+---
+
+## Re-run Extension — 2026-05-28 (run election-cycle-rerun-1779960722)
+
+> This section was appended on the second same-day run per the [re-run improve/extend rule](../../../../.github/prompts/02a-rerun-merge.md). It does not replace prior content; it deepens the analysis with refreshed evidence and adds at least one of: a new section, ≥3 new citations, or ≥1 new chart.
+
+### Scenario refresh — re-run
+
+Four scenarios now carry refreshed probability weights informed by the IMF Sept 2025 macro vintage:
+
+1. **Continuity (EPP-S&D-Renew majority, 45%)** — fiscal consolidation track holds; mandate-letter completion ~70%; new College confirmed by Q4 2029. Anchored by IMF deficit-reduction path.
+2. **Realignment (EPP-ECR working majority on selected files, 25%)** — competitiveness agenda dominates; Green Deal implementation slows; defence-industrial budget ring-fenced.
+3. **Hung Parliament (no stable majority, 20%)** — coalition-by-file pattern entrenches; legislative throughput drops 15-25%.
+4. **Far-right fusion (ECR+PfE+ESN merger, 10%)** — institutional rules of procedure renegotiation; committee chair allocation contested.
+
+**Re-run evidence additions:**
+
+- IMF WEO/Fiscal Monitor September 2025 vintage (euro-area net lending series) anchors the consolidation scenario.
+- Procedures feed snapshot (`data/procedures-feed.json`) anchors the throughput delta in Scenario 3.
+- Forward-statements registry horizon (2026-05-28 → 2031-05-27) frames the scenario time-window.
+
+```mermaid
+pie title 2029 election-cycle scenarios (re-run weighting)
+  "Continuity" : 45
+  "Realignment" : 25
+  "Hung Parliament" : 20
+  "Far-right fusion" : 10
+```

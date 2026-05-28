@@ -1,11 +1,11 @@
 {
   "date": "2026-05-28",
   "articleType": "election-cycle",
-  "runId": "election-cycle-run-26545766277",
+  "runId": "election-cycle-rerun-1779960746",
   "gateResult": "PENDING",
   "slug": "2026-05-28-election-cycle",
   "articlePath": "analysis/daily/2026-05-28/election-cycle/article.md",
-  "topFinding": "| # | Judgement | WEP | Horizon | Confidence | Source | | --- | --- | --- | --- | --- | --- | | J1 | Metsola re-elected EP President | Likely (55-80%) | Jan 2027 | Moderate | [S2 · A1] | | J2 | Grand bargain survives intact | Roughly Even (45-55%) | to Jun 2029 | Moderate | [S1 · A2] | | J3 | EPP retains first place…",
+  "topFinding": "At T-1105 from the next European Parliament election, the dominant fact is fiscal envelope, not political vibes.",
   "keyTakeaways": [
     "Best evidence: EP plenary minutes, `get_meps` baseline, IMF WEO (April 2026), EP RoP.",
     "Weakest evidence: 2029 vote-intent polls (national variance high; second-order EP-election bias).",
@@ -27,7 +27,9 @@
   ],
   "keyDates": [
     "IMF WEO April 2026 is the sole authoritative macro source for any economic figure cited in this bundle; non-IMF macro data are excluded by editorial policy.",
-    "The Bureau ballot of January 2027 is an institutional fact (RoP 16-18) and will be the next dated mid-term electoral signal absent unforeseen events."
+    "The Bureau ballot of January 2027 is an institutional fact (RoP 16-18) and will be the next dated mid-term electoral signal absent unforeseen events.",
+    "IMF WEO/Fiscal Monitor September 2025 vintage (euro-area net lending series) anchors the consolidation scenario.",
+    "Forward-statements registry horizon (2026-05-28 → 2031-05-27) frames the scenario time-window."
   ],
   "keyActors": [
     "H1: *Yes, intact* — driven by external shocks (Ukraine, US tariff war) forcing centrist consolidation. **WEP:** Likely (55-80%) [S1 · A2].",
@@ -42,6 +44,7 @@
   "macroContext": "All figures sourced from IMF WEO April 2026 ([S4 · A2]).",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "extended/forward-indicators.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",

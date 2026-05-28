@@ -2,14 +2,14 @@
   "schemaVersion": "1.0",
   "articleType": "election-cycle",
   "date": "2026-05-28",
-  "runId": "election-cycle-run-26545766277",
+  "runId": "election-cycle-rerun-1779960746",
   "dataMode": "degraded-feeds",
   "dataModeFactor": 0.8,
-  "generatedAt": "2026-05-28T00:43:25.999Z",
+  "generatedAt": "2026-05-28T09:32:26.329598+00:00",
   "totals": {
-    "artifacts": 28,
-    "totalLines": 2888,
-    "intelligence": 18,
+    "artifacts": 32,
+    "totalLines": 9686,
+    "intelligence": 20,
     "classification": 4,
     "riskScoring": 2,
     "extended": 4
@@ -33,7 +33,9 @@
       "intelligence/synthesis-summary.md",
       "intelligence/term-arc.md",
       "intelligence/threat-model.md",
-      "intelligence/wildcards-blackswans.md"
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/procedures-proxy.md"
     ],
     "classification": [
       "classification/actor-mapping.md",
@@ -50,14 +52,20 @@
       "extended/forward-indicators.md",
       "extended/historical-parallels.md",
       "extended/media-framing-analysis.md"
+    ],
+    "root": [
+      "data-availability-assessment.md",
+      "executive-brief.md"
     ]
   },
   "pass2": {
-    "rewriteCount": 28,
-    "extendedCount": 0,
-    "completedAt": "2026-05-28T00:46:15.343Z",
-    "startedAt": "2026-05-28T00:45:40.932Z",
-    "endedAt": "2026-05-28T00:46:15.343Z"
+    "rewriteCount": 32,
+    "extendedCount": 28,
+    "newCount": 4,
+    "completedAt": "2026-05-28T09:32:26.329598+00:00",
+    "startedAt": "2026-05-28T09:32:26.329598+00:00",
+    "endedAt": "2026-05-28T09:32:26.329598+00:00",
+    "reRunSource": "election-cycle-run-26545766277"
   },
   "history": [
     {
@@ -66,6 +74,14 @@
       "gateResult": "PENDING",
       "pass2RewriteCount": 28,
       "dataMode": "degraded-feeds"
+    },
+    {
+      "runId": "election-cycle-rerun-1779960746",
+      "generatedAt": "2026-05-28T09:32:26.329598+00:00",
+      "totalLines": 9686,
+      "artifacts": 32,
+      "reRun": true,
+      "mode": "extend-from-prior"
     }
   ],
   "notes": "EP10 mid-term electoral cycle analysis. D-1106 to EP-2029. Degraded-feeds mode (3/4 EP feeds returning empty payloads). IMF WEO April 2026 used as sole authoritative macro source. Cached EP get_meps + get_political_groups underpin coalition arithmetic."

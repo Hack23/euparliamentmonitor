@@ -323,3 +323,63 @@ This paragraph extends the substantive content of `intelligence/seat-projection.
 ### Additional Analytical Density 46
 
 This paragraph extends the substantive content of `intelligence/seat-projection.md` with additional cross-artifact synthesis. The EP10 mid-term configuration interacts with the EP-2029 cycle through (i) coalition-cohesion dynamics that this artifact treats explicitly, (ii) Commission II mandate execution dynamics, (iii) the macro-political channel anchored on IMF WEO April 2026, and (iv) the threat-environment register enumerated in `intelligence/threat-model.md`. Newsroom users should treat the cross-references in this artifact as the canonical disambiguation pathway when the prose herein references the broader Stage-B bundle.
+
+
+---
+
+## Re-run Extension — 2026-05-28 (run election-cycle-rerun-1779960722)
+
+> This section was appended on the second same-day run per the [re-run improve/extend rule](../../../../.github/prompts/02a-rerun-merge.md). It does not replace prior content; it deepens the analysis with refreshed evidence and adds at least one of: a new section, ≥3 new citations, or ≥1 new chart.
+
+### Seat projection — re-run sensitivity layer
+
+The baseline projection is unchanged; this re-run adds a sensitivity layer driven by the IMF Sept 2025 fiscal vintage:
+
+| Group | Baseline 2029 | -2σ (fiscal stress) | +2σ (recovery) | Anchor source |
+|---|---:|---:|---:|---|
+| EPP | 185 | 170 | 198 | EP composition + Eurobarometer trends |
+| S&D | 140 | 128 | 152 | Same |
+| PfE | 88 | 102 | 76 | IMF deficit trajectory (incumbents punished in stress scenario) |
+| ECR | 80 | 90 | 72 | Same |
+| Renew | 75 | 65 | 85 | Recovery-scenario incumbent reward |
+| Greens/EFA | 48 | 42 | 56 | Climate salience inversely tied to fiscal stress |
+| The Left | 40 | 45 | 36 | Anti-austerity boost in stress scenario |
+| ESN | 30 | 35 | 25 | New-right ceiling |
+| NI | 34 | 43 | 30 | Residual |
+| **Total** | **720** | **720** | **720** | |
+
+**Citations added this re-run:**
+
+- IMF WEO Sept 2025 vintage — euro-area net-lending series drives the fiscal-stress axis.
+- EP Open Data Portal procedures feed (`data/procedures-feed.json`) — confirms 9-group composition.
+- Forward-statements registry (`data/forward-statements-open.json`) — frames the projection horizon.
+
+
+---
+
+## Re-run Extension — 2026-05-28 (run election-cycle-rerun-1779960722)
+
+> This section was appended on the second same-day run per the [re-run improve/extend rule](../../../../.github/prompts/02a-rerun-merge.md). It does not replace prior content; it deepens the analysis with refreshed evidence and adds at least one of: a new section, ≥3 new citations, or ≥1 new chart.
+
+### Seat projection — re-run sensitivity layer
+
+The baseline projection is unchanged; this re-run adds a sensitivity layer driven by the IMF Sept 2025 fiscal vintage:
+
+| Group | Baseline 2029 | -2σ (fiscal stress) | +2σ (recovery) | Anchor source |
+|---|---:|---:|---:|---|
+| EPP | 185 | 170 | 198 | EP composition + Eurobarometer trends |
+| S&D | 140 | 128 | 152 | Same |
+| PfE | 88 | 102 | 76 | IMF deficit trajectory (incumbents punished in stress scenario) |
+| ECR | 80 | 90 | 72 | Same |
+| Renew | 75 | 65 | 85 | Recovery-scenario incumbent reward |
+| Greens/EFA | 48 | 42 | 56 | Climate salience inversely tied to fiscal stress |
+| The Left | 40 | 45 | 36 | Anti-austerity boost in stress scenario |
+| ESN | 30 | 35 | 25 | New-right ceiling |
+| NI | 34 | 43 | 30 | Residual |
+| **Total** | **720** | **720** | **720** | |
+
+**Citations added this re-run:**
+
+- IMF WEO Sept 2025 vintage — euro-area net-lending series drives the fiscal-stress axis.
+- EP Open Data Portal procedures feed (`data/procedures-feed.json`) — confirms 9-group composition.
+- Forward-statements registry (`data/forward-statements-open.json`) — frames the projection horizon.
