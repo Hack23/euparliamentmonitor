@@ -1,0 +1,84 @@
+{
+  "articleType": "committee-reports",
+  "dataMode": "degraded-feeds",
+  "runId": "committee-reports-run265-1779946997",
+  "date": "2026-05-28",
+  "generatedAt": "2026-05-28T05:44:00Z",
+  "dataWindow": "2026-05-21 to 2026-05-28",
+  "primarySources": [
+    "get_committee_documents (live, 51 AFCO documents)",
+    "get_adopted_texts (live, 50 EP10 2026 items)",
+    "adopted-texts-feed.json (prefetched, 500 items including 186 EP10-2026)",
+    "get_plenary_sessions (live, degraded - 0 sessions returned for date range)",
+    "get_procedures (live, historical-tail warning - 1972-1988 data)"
+  ],
+  "feedStatus": {
+    "committee-documents-feed": "error (API error response)",
+    "procedures-feed": "error (empty 0 items)",
+    "events-feed": "error (empty 0 items)",
+    "documents-feed": "error (empty 0 items)",
+    "adopted-texts-feed": "partial (prefetched 500 items, non-standard format)"
+  },
+  "artifactSources": {
+    "data-availability-assessment.md": "fresh",
+    "intelligence/analysis-index.md": "fresh",
+    "intelligence/synthesis-summary.md": "fresh",
+    "intelligence/historical-baseline.md": "fresh",
+    "intelligence/economic-context.md": "fresh",
+    "intelligence/pestle-analysis.md": "fresh",
+    "intelligence/stakeholder-map.md": "fresh",
+    "intelligence/scenario-forecast.md": "fresh",
+    "intelligence/threat-model.md": "fresh",
+    "intelligence/wildcards-blackswans.md": "fresh",
+    "intelligence/mcp-reliability-audit.md": "fresh",
+    "intelligence/reference-analysis-quality.md": "fresh",
+    "intelligence/procedures-proxy.md": "fresh",
+    "intelligence/methodology-reflection.md": "fresh",
+    "risk-scoring/risk-matrix.md": "fresh",
+    "risk-scoring/quantitative-swot.md": "fresh",
+    "extended/media-framing-analysis.md": "fresh",
+    "existing/committee-productivity.md": "fresh"
+  },
+  "files": {
+    "stageA": [],
+    "stageB": [
+      "data-availability-assessment.md",
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/methodology-reflection.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "extended/media-framing-analysis.md",
+      "executive-brief.md",
+      "existing/committee-productivity.md",
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/voting-patterns.md"
+    ]
+  },
+  "headline": "EP Committees Drive Trade-Defence Nexus and Digital Governance Agenda as May 2026 Plenary Session Concludes",
+  "articleFocus": "Committee outputs from May 2026 plenary: AI trade strategy, EU-Canada defence procurement, fisheries partnerships, immunity proceedings, and 2027 budget groundwork",
+  "history": [
+    {
+      "runId": "committee-reports-run265-1779946997",
+      "generatedAt": "2026-05-28T05:44:00Z",
+      "pass1CompletedAt": "2026-05-28T05:55:00Z",
+      "pass2CompletedAt": "2026-05-28T06:05:00Z",
+      "rewriteCount": 18,
+      "dataMode": "degraded-feeds"
+    }
+  ]
+}
