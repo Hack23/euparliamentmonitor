@@ -1,7 +1,7 @@
 {
   "articleType": "breaking",
   "dataMode": "degraded-feeds",
-  "runId": "breaking-run265-1779932393",
+  "runId": "breaking-run275-1779977880",
   "date": "2026-05-28",
   "headline": "European Parliament Adopts AI Trade Strategy and Afghanistan Women's Rights Resolution in Strasbourg Plenary",
   "generatedAt": "2026-05-28T01:45:00Z",
@@ -73,6 +73,18 @@
       "pass2": {
         "rewriteCount": 38
       }
+    },
+    {
+      "runId": "breaking-run275-1779977880",
+      "timestamp": "2026-05-28T14:53:25Z",
+      "dataMode": "degraded-feeds",
+      "gateResult": "ANALYSIS_ONLY",
+      "pass2": {
+        "rewriteCount": 44,
+        "method": "extend-from-prior",
+        "approach": "carryForward+rewrite per prior-run-diff"
+      },
+      "stageC": "RED-pass1->ANALYSIS_ONLY-elapsed-tripwire"
     }
   ]
 }

@@ -116,3 +116,50 @@ quadrantChart
 ---
 
 *KAC: Assumptions driving risk scores documented | ACH: Multiple risk hypotheses evaluated | What-If Analysis: compounded risks modelled | Admiralty grading added | 2026-05-28*
+
+---
+
+## Risk Matrix Addendum — Pass 2 Compounded Risk Analysis
+
+### Compounded Risk Scenarios
+
+**Compounded Risk 1: AI Trade + WTO Challenge + US Withdrawal From TTC**
+- Individual probabilities: AI Trade challenge (15%) × US TTC withdrawal (10%) = 1.5% joint probability
+- Compounded impact: VERY HIGH — EU AI trade governance framework derailed; Commission forced to withdraw EP-aligned positions
+- Residual risk: 🟡 LOW PROBABILITY but HIGH IMPACT — requires monitoring
+
+**Compounded Risk 2: SAFE EDTIB Dilution + French Council Veto on Expansion**
+- Individual probabilities: EDTIB dilution evidence (25%) × French veto on UK extension (35%) = 9% joint probability for both materialising simultaneously
+- Compounded impact: MEDIUM — SAFE remains narrow instrument; UK-EU integration delayed
+- Residual risk: 🟡 MEDIUM
+
+**Compounded Risk 3: ICC Witness Intimidation + Taliban Jurisdiction Denial + US ICC Non-Cooperation**
+- Individual probabilities: Witness intimidation (40%) × Taliban denial (10%) × US non-cooperation (25%) = 1% joint probability for all three
+- Compounded impact: VERY HIGH — gender apartheid ICC process effectively stalled
+- Residual risk: 🟡 LOW PROBABILITY; HIGH IMPACT
+
+### Risk Score Calibration (Pass 2 Update)
+
+| Risk | Pass 1 Score | Pass 2 Score | Delta | Reason |
+|---|---|---|---|---|
+| AI Trade WTO challenge | 3.5/10 | 3.0/10 | -0.5 | Devil's advocate test lowered probability |
+| SAFE EDTIB dilution | 3.0/10 | 3.2/10 | +0.2 | Added French factor |
+| Afghanistan ICC delay | 4.5/10 | 4.0/10 | -0.5 | Historical parallels suggest 65% determination probability; risk lower than pass 1 |
+| Implementation capture (AI Trade) | 5.0/10 | 5.5/10 | +0.5 | Red Team identified as underweighted in pass 1 |
+| Taliban witness intimidation | 4.0/10 | 4.5/10 | +0.5 | Wild card analysis identified as underweighted |
+
+### Risk Heatmap (Qualitative)
+
+| | Low Probability | Medium Probability | High Probability |
+|---|---|---|---|
+| **Very High Impact** | WTO challenge (compound) | AI Trade capture | — |
+| **High Impact** | SAFE EDTIB dilution | ICC delay | Taliban non-change |
+| **Medium Impact** | US TTC withdrawal | EEAS contradiction | MEP feed degradation |
+| **Low Impact** | UNGA follow-up gap | Minor procedural delays | Data availability (managed) |
+
+**Overall risk assessment:** 🟡 MODERATE — No single risk scenario is highly probable AND very-high-impact simultaneously. The risk environment is manageable with appropriate monitoring.
+
+---
+
+*KAC applied | Pass 2 addendum: compounded risk scenarios, score calibration, risk heatmap | 2026-05-28*
+[EXTEND-FROM-PRIOR: risk-scoring/risk-matrix.md prior=118L → new=151L (+33)]

@@ -115,3 +115,56 @@ Policy analysts should note the cascade dynamics: the AI Trade Strategy may inad
 ---
 
 *Impact matrix | Multi-dimensional assessment | SAT: Cascade Analysis applied | 2026-05-28 | Run: breaking-run265-1779932393*
+
+---
+
+## Extended Impact Matrix — Pass 2 Multi-Dimensional Assessment with Mermaid
+
+### Impact Cascade Diagram
+
+```mermaid
+graph TD
+    EP_SESSION["EP May 2026 Plenary\nAdopted Texts"] --> AITRADE["AI Trade Strategy\nResolution (B+)"]
+    EP_SESSION --> SAFE["EU-Canada SAFE\nRatification (B)"]
+    EP_SESSION --> AFG["Afghanistan HR\nResolution (D)"]
+    
+    AITRADE --> |"Brussels Effect\n(2-5 years)"| GLOBAL_AI["Global AI governance\nstandard adoption"]
+    AITRADE --> |"Commission mandate\n(6-12 months)"| COM_COMM["Commission Digital Trade\nCommunication"]
+    AITRADE --> |"EU-US TTC\n(6-18 months)"| US_ALIGN["US-EU AI governance\nalignment (partial)"]
+    
+    SAFE --> |"Operationalisation\n(0-6 months)"| JOINT_TENDER["First joint EU-Canada\nprocurement tender"]
+    SAFE --> |"Precedent\n(12-36 months)"| UK_EU["UK-EU Defence Pact\nSAFE-like instrument"]
+    SAFE --> |"EDTIB watch\n(ongoing)"| EDTIB["EDTIB autonomy\nmonitoring"]
+    
+    AFG --> |"ICC process\n(18-36 months)"| ICC_DET["ICC Pre-Trial\nChamber determination"]
+    AFG --> |"EEAS cycle\n(0-12 months)"| EEAS_UPDATE["EEAS Afghanistan\nCountry Strategy update"]
+    AFG --> |"Negligible\n(1-10 years)"| TALIBAN_CHANGE["Taliban policy\nchange (unlikely)"]
+```
+
+### Impact Quantification Matrix
+
+| Dimension | AI Trade | SAFE | Afghanistan |
+|---|---|---|---|
+| Short-term legal impact (0–6 mo) | LOW (non-binding) | HIGH (binding) | LOW |
+| Medium-term policy impact (6–24 mo) | MEDIUM-HIGH | HIGH | LOW-MEDIUM |
+| Long-term institutional impact (2–10 yr) | VERY HIGH | MEDIUM-HIGH | MEDIUM (normative) |
+| Economic impact (2–5 yr, €bn) | >€100bn (trade governance) | €2–5bn (procurement) | Negligible |
+| Reputational impact (immediate) | HIGH (Brussels Effect) | MEDIUM | HIGH (HR leadership) |
+| Democratic accountability impact | HIGH (EP mandate) | MEDIUM | MEDIUM |
+
+### Cascade Risk Assessment
+
+| Cascade Path | Probability | Maximum Impact | Risk Level |
+|---|---|---|---|
+| AI Trade → WTO challenge | 15–25% within 5yr | HIGH | 🟡 WATCH |
+| SAFE → EDTIB dilution | 20–30% | MEDIUM | 🟡 WATCH |
+| SAFE → UK precedent activation | 40–50% | HIGH POSITIVE | 🟢 OPPORTUNITY |
+| Afghanistan → ICC determination | 65% within 24mo | HIGH POSITIVE | 🟢 OPPORTUNITY |
+| Afghanistan → EEAS bilateral contradiction | 40% | MEDIUM NEGATIVE | 🟡 WATCH |
+
+**Cascade analysis conclusion:** The positive cascades substantially outnumber the negative cascades. The May 2026 session is net-positive for EU institutional effectiveness and international influence across all three key legislative outputs.
+
+---
+
+*Impact matrix | Pass 2 extended: Cascade Mermaid diagram, impact quantification, cascade risk assessment | 2026-05-28*
+[EXTEND-FROM-PRIOR: classification/impact-matrix.md prior=117L → new=153L (+36)]

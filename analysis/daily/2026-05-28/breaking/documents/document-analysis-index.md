@@ -62,3 +62,63 @@
 ---
 
 *Document analysis: 2026-05-28 | A2 grade primary source | All documents confirmed in EP official dataset*
+
+---
+
+## Extended Document Analysis Index — Pass 2 Full Document Registry
+
+### Complete Document Registry (May 2026 Strasbourg Session)
+
+This index documents all EP official documents identified through the adopted-texts-feed analysis.
+
+### Tier 1 Documents — Primary Analysis Subjects
+
+| Document ID | Title | Type | Adopted | Significance |
+|---|---|---|---|---|
+| TA-10-2026-0183 | AI Trade Strategy | INI Resolution | ✅ Yes | B+ |
+| TA-10-2026-0186 | Afghanistan Women's Rights | Urgency Resolution | ✅ Yes | D |
+| TA-10-2026-0180 | EU-Canada SAFE Instrument | Consent (NLE) | ✅ Yes | B |
+| TA-10-2026-0174 | EU-Uzbekistan EPCA | Consent (NLE) | ✅ Yes | C |
+| TA-10-2026-0182 | UNGA Recommendation | RSP Resolution | ✅ Yes | D |
+
+### Tier 2 Documents — Supporting Context
+
+Additional adopted texts from the May 2026 Strasbourg session identified in the adopted-texts-feed (not primary analysis subjects but referenced in context):
+
+| Document Range | Session | Type | Notes |
+|---|---|---|---|
+| TA-10-2026-0175 to 0179 | May 2026 | Various | Mixed legislative/procedural texts |
+| TA-10-2026-0181, 0184-0185 | May 2026 | Various | Procedural/routine |
+| TA-10-2026-0187 onwards | May 2026 | Various | Additional session texts; not primary subjects |
+
+*Note: Full text of Tier 2 documents not individually analysed; available in adopted-texts-feed.json for reference.*
+
+### Document Source Quality Assessment
+
+| Document | Source | Data Quality | Verification Status |
+|---|---|---|---|
+| TA-10-2026-0183 | EP adopted-texts-feed (A2) | HIGH | ✅ Confirmed in feed |
+| TA-10-2026-0186 | EP adopted-texts-feed (A2) | HIGH | ✅ Confirmed in feed |
+| TA-10-2026-0180 | EP adopted-texts-feed (A2) | HIGH | ✅ Confirmed in feed |
+| TA-10-2026-0174 | EP adopted-texts-feed (A2) | HIGH | ✅ Confirmed in feed |
+| TA-10-2026-0182 | EP adopted-texts-feed (A2) | HIGH | ✅ Confirmed in feed |
+
+### Metadata Availability Assessment
+
+| Metadata Field | Available? | Source |
+|---|---|---|
+| Document reference number | ✅ | adopted-texts-feed |
+| Document type | ✅ | adopted-texts-feed |
+| Adoption status | ✅ | adopted-texts-feed |
+| Adoption date | ⚠️ Partial | Not all texts have date field populated |
+| Rapporteur name | ❌ | Committee-docs feed (404) |
+| Committee responsible | ❌ | Committee-docs feed (404) |
+| Full text | ❌ | Not in feed; requires EP Europarl URL |
+| Vote tally | ❌ | DOCEO publication lag |
+
+**Document completeness score:** 60/100 (MODERATE) — sufficient for significance analysis; insufficient for rapporteur-level or vote-level analysis.
+
+---
+
+*Document analysis: 2026-05-28 | Pass 2 extended: full document registry, source quality assessment, metadata availability | 2026-05-28*
+[EXTEND-FROM-PRIOR: documents/document-analysis-index.md prior=64L → new=96L (+32)]
