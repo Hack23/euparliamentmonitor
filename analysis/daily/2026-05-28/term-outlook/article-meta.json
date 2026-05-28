@@ -1,0 +1,55 @@
+{
+  "date": "2026-05-28",
+  "articleType": "term-outlook",
+  "runId": "term-outlook-run347-1779926654",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-05-28-term-outlook",
+  "articlePath": "analysis/daily/2026-05-28/term-outlook/article.md",
+  "topFinding": "Likely 55-75%, central ~65% WP25 mandate completion (76.5% salience-weighted MFS scorecard target).",
+  "keyTakeaways": [
+    "**Analysis of Competing Hypotheses (ACH)** — the three-scenario tree",
+    "**Key Assumptions Check (KAC)** — every assumption is enumerated in",
+    "**What-If Analysis** — wildcard inventory in",
+    "**Quality of Information Check (QoI)** — `data-availability-assessment`",
+    "**Bayesian Update** — the headline prior of 0.50 (50% completion baseline",
+    "**Devil's Advocacy** — the pessimistic scenario explicitly stress-tests",
+    "**Indicators of Change** — `extended/forward-indicators.md` lists 18"
+  ],
+  "topRisks": [
+    "**High-exposure cluster** (P×I ≥ 0.35): R1, R2, R4, R5, R6 — five",
+    "**Medium-exposure cluster** (P×I 0.15-0.34): R3, R7, R8, R9 — four",
+    "**Low-exposure cluster** (P×I < 0.15): R10, R11 — two risks accepted",
+    "**Risk Matrix** — formal P×I quadrant analysis.",
+    "**Premortem** — pessimistic-scenario risk inventory.",
+    "**What-If Analysis** — risk × scenario mapping.",
+    "Risk identification: 🟢 HIGH (covers wildcards + threats), A2.",
+    "Probability × impact scoring: 🟡 MEDIUM, B3."
+  ],
+  "keyDates": [
+    "**Defence Union signal**: Council conclusions adopted Q2 2027.",
+    "Semi-annual cron — next: 2026-07-01."
+  ],
+  "keyActors": [
+    "**Treaty authority** — institutional roles defined in TEU/TFEU.",
+    "**EP rules authority** — political-group standing under EP Rules of",
+    "**Soft authority** — non-formal influence (lobby, media, civil",
+    "**Anchor**: holds working-majority arithmetic together. EPP, S&D,",
+    "**Conditional partner**: aligns selectively. Greens/EFA, ECR,",
+    "**Cordon-sanitaire-out**: excluded from working majority by cross-",
+    "**Strategic-agenda setter**: EUCO.",
+    "**Co-legislator**: EP + Council."
+  ],
+  "macroContext": "The headline reading of the IMF Oct-2025 vintage is **subdued but recovering",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
