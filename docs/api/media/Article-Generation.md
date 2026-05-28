@@ -19,8 +19,8 @@
   <a href="#"><img src="https://img.shields.io/badge/Render-Deterministic-2E7D32?style=for-the-badge" alt="Deterministic Render"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-05-05 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-05 | **🏷️ Classification:** Public
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-05-28 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-28 | **🏷️ Classification:** Public
 
 ---
 
@@ -146,6 +146,7 @@ Each workflow declares the operational envelope used by gh-aw:
 | Concern | Current pattern |
 |---|---|
 | Runtime | Node.js 26. |
+| AI model | `claude-opus-4.8` for the 14 article workflows; `claude-sonnet-4.6` for `news-translate.md`. |
 | MCP gateway | `features.mcp-gateway: true`, sandbox MCP port `8080`. |
 | Network allowlist | GitHub, EP data domains, IMF data services, World Bank, Hack23 sites, project domains, defaults. |
 | Safe output | `create-pull-request.max: 1` for article workflows. |
@@ -440,6 +441,7 @@ The aggregator package is split into seven bounded contexts under `src/aggregato
 | `src/aggregator/clean-artifact.ts` | Strips front matter, banners, H1s, SPDX tags, artifact-metadata preambles (`**Run:**`, `**Window:**`, etc.), demotes headings, rewrites links, deduplicates Mermaid bodies. Re-exports `githubBlobUrl`/`githubRawUrl` from `infra/` for back-compat. |
 | `src/aggregator/markdown-renderer.ts` | Configures `markdown-it`, headings, footnotes, attrs, definition lists, table wrappers, and Mermaid fence rendering. |
 | `src/aggregator/article-html.ts` | Wraps rendered body in full HTML5 document, metadata, JSON-LD (with `isBasedOn` provenance list), hreflang links, header, language switcher, TOC, footer, theme toggle. |
+| `src/aggregator/reader-friendly-transform.ts` | Post-processes rendered article HTML for public readability: first-use acronym `<abbr>` expansion, WEP/admiralty plain-English labels, EP adopted-text (`TA-*`) auto-linking to DOCEO, and contextualization of internal pipeline markers before final shell emission. |
 | `src/aggregator/article-metadata.ts` | Resolves title and description through the 5-tier editorial-highlight ladder. |
 | `src/aggregator/lead-extractor.ts` | **NEW** — pure module that distils a one-sentence executive lead from `executive-brief.md` (preferred) → `intelligence/synthesis-summary.md` → fallback paragraph. Caps at 320 chars with ellipsis. Pure and unit-tested. |
 | `src/aggregator/key-takeaways.ts` | **NEW** — deterministic 3–7 bullet "Key Takeaways" synthesiser harvesting `## Top Findings` / `## Key Judgments` / `## BLUF` from `intelligence/synthesis-summary.md` and `intelligence/intelligence-assessment.md`. Folds near-duplicates with a Jaccard-≥-0.7 dedupe pass so overlapping artifacts do not stutter. Returns `''` below the 3-bullet floor so the section is simply omitted. |
@@ -814,11 +816,17 @@ The article shell includes:
 - `.article-toc-summary`
 - `.article-toc-list`
 - `.article-body`
+- `.article-reading-times`
+- `.article-layer--quick` (always visible)
+- `.article-layer--analysis` (`<details>` collapsed by default)
+- `.article-layer--intelligence` (`<details>` collapsed by default)
 - `.article-source-md`
 - `.table-scroll`
 - `.artifact-source`
 
-The TOC is derived from canonical H2 sections emitted by `analysis-aggregator.ts`; it is not manually authored.
+The TOC is derived from canonical H2 sections emitted by `analysis-aggregator.ts`; it is not manually authored. Each TOC row now carries an `L1`/`L2`/`L3` layer badge so readers can see whether the destination is in quick-read, analysis, or full-intelligence depth.
+
+Progressive disclosure uses semantic HTML (`<section>` + `<details>/<summary>`) for WCAG-compatible keyboard and screen-reader navigation. `js/article-runtime.js` auto-opens the relevant disclosure layer when a hash anchor is visited (direct URL or TOC click) and persists layer open/closed state in `sessionStorage` per article path.
 
 ### Footer
 
