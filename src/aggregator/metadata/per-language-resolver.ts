@@ -290,6 +290,12 @@ function synthesizeFallbackTitle(
   topFindingSource: string,
   contextualFallback: string
 ): string {
+  // The synthesized shape (`EP <Article Type>: <Top Finding> — <Mon YYYY>`)
+  // and its `Intl.DateTimeFormat('en', …)` month label are Latin/English by
+  // construction. Emitting it on a non-Latin locale would ship a pure-ASCII
+  // `<title>`, violating the locale-glyph contract (Gate 4a). For those
+  // locales we defer to the localized contextual fallback instead.
+  if (classifyScript(input.lang) !== 'latin') return contextualFallback;
   const topFinding = sanitizeTitleCandidate(deriveHeadlineFromSummary(topFindingSource));
   const articleTypeLabel = humanizeArticleTypeLabel(input.articleType);
   const monthYear = formatMonthYear(input.date);

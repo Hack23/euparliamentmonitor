@@ -13,7 +13,7 @@ const RUN_NUMBER_RE = /(?:^|[\s—–\-(,;:|/])Run\s+\d+/u;
 /** Pipeline-jargon and internal-token patterns that must never leak into SEO copy. */
 const SEO_PIPELINE_PATTERNS = Object.freeze([
     /\bStage\s*[A-E]\b/iu,
-    /\bprefetch(?:ed|ing)?\b/iu,
+    /\bpre-?fetch(?:ed|ing)?\b/iu,
     /\bfeeds?\s+were\s+pre-?fetched\b/iu,
     /\bscripts\//iu,
     /#\d+\b/u,
@@ -28,7 +28,7 @@ const ANALYSIS_RUN_STRIP_RE = /\banalysis\s+run\s*\d*[\s,;:|/]*/giu;
 /** Word-level strip for Stage A-E pipeline markers. */
 const STAGE_TOKEN_STRIP_RE = /\bStage\s*[A-E]\b[\s,;:|/\\-]*/giu;
 /** Word-level strip for "prefetch"/"pre-fetched" pipeline jargon. */
-const PREFETCH_TOKEN_STRIP_RE = /\bprefetch(?:ed|ing)?\b[\s,;:|/\\-]*/giu;
+const PREFETCH_TOKEN_STRIP_RE = /\bpre-?fetch(?:ed|ing)?\b[\s,;:|/\\-]*/giu;
 /** Strip explicit "feeds were pre-fetched" sentence fragments. */
 const PREFETCH_FEEDS_STRIP_RE = /\bfeeds?\s+were\s+pre-?fetched\b[\s,;:|/\\-]*/giu;
 /** Strip leaked internal script paths. */

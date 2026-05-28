@@ -153,6 +153,40 @@ interface SeoClampedSurfaces {
 }
 
 /**
+ * Trailing separator characters (whitespace + editorial punctuation) that
+ * may dangle after a `Published …` tail has been removed.
+ */
+const TRAILING_SEPARATOR_CHARS = new Set(['\u2014', '\u2013', '|', ':', ';', ',', '-']);
+
+/**
+ * Linear-time trailing trim of whitespace and editorial separator
+ * punctuation. Avoids the polynomial backtracking that an unanchored
+ * `/[\s…]+$/` character-class quantifier exhibits on adversarial input.
+ *
+ * @param value - Text whose trailing separators should be removed
+ * @returns `value` without trailing whitespace/separator characters
+ */
+function trimTrailingSeparators(value: string): string {
+  let end = value.length;
+  while (end > 0) {
+    const ch = value.charAt(end - 1);
+    if (TRAILING_SEPARATOR_CHARS.has(ch) || /\s/u.test(ch)) {
+      end -= 1;
+    } else {
+      break;
+    }
+  }
+  return value.slice(0, end);
+}
+
+/**
+ * Anchored `Published YYYY-MM-DD` tail matcher. The leading `Published`
+ * literal keeps the match deterministic (no ambiguous leading-whitespace
+ * quantifier), so it is linear on uncontrolled input.
+ */
+const PUBLISHED_DATE_TAIL_RE = /Published\s+\d{4}-\d{2}-\d{2}\.?\s*$/iu;
+
+/**
  * Remove leaked `Published YYYY-MM-DD` tails from social descriptions.
  *
  * @param value - Raw description candidate
@@ -160,10 +194,23 @@ interface SeoClampedSurfaces {
  */
 function stripPublishedDateTail(value: string): string {
   if (!value) return '';
-  return value
-    .replace(/(?:\s*[—–-]?\s*)Published\s+\d{4}-\d{2}-\d{2}\.?\s*$/iu, '')
-    .replace(/[\s—–|:;,-]+$/u, '')
-    .trim();
+  const withoutTail = value.replace(PUBLISHED_DATE_TAIL_RE, '');
+  return trimTrailingSeparators(withoutTail).trim();
+}
+
+/**
+ * Resolve a publish-date-safe description: prefer the stripped value, and
+ * only fall back to the original when no `Published …` tail was present.
+ * When the original was *only* a publish-date tail, stripping yields an
+ * empty string and we must not re-introduce the leaked tail.
+ *
+ * @param value - Raw description candidate
+ * @returns Stripped description, or empty when the original was tail-only
+ */
+function safeDescriptionWithoutPublishedTail(value: string): string {
+  const stripped = stripPublishedDateTail(value);
+  if (stripped) return stripped;
+  return PUBLISHED_DATE_TAIL_RE.test(value) ? '' : value;
 }
 
 /**
@@ -200,7 +247,7 @@ function computeSeoClamps(
   lang: LanguageCode,
   siteTitle: string
 ): SeoClampedSurfaces {
-  const safeMetaDescription = stripPublishedDateTail(options.description) || options.description;
+  const safeMetaDescription = safeDescriptionWithoutPublishedTail(options.description);
   const pageTitle = buildPageTitle(options.title, lang, siteTitle);
   const ogTitleClamped = clampForBudget(options.title, lang, 'ogTitle');
   const twitterTitleClamped = clampForBudget(options.title, lang, 'twitterTitle');

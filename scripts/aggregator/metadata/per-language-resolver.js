@@ -139,7 +139,12 @@ function shouldEnrichDescription(rawDescription, lang) {
         return false;
     return ASCII_ONLY_RE.test(rawDescription);
 }
-/** Humanize an article-type slug for fallback metadata synthesis. */
+/**
+ * Humanize an article-type slug for fallback metadata synthesis.
+ *
+ * @param articleType - Canonical article-type slug
+ * @returns Title-cased label with spaces instead of hyphens
+ */
 function humanizeArticleTypeLabel(articleType) {
     return articleType
         .split('-')
@@ -147,7 +152,12 @@ function humanizeArticleTypeLabel(articleType) {
         .map((token) => token.charAt(0).toUpperCase() + token.slice(1))
         .join(' ');
 }
-/** Format `YYYY-MM-DD` into `Mon YYYY`; falls back to the raw date when invalid. */
+/**
+ * Format `YYYY-MM-DD` into `Mon YYYY`; falls back to the raw date when invalid.
+ *
+ * @param date - ISO article date
+ * @returns Month/year label suitable for fallback titles
+ */
 function formatMonthYear(date) {
     const parsed = new Date(`${date}T00:00:00Z`);
     if (Number.isNaN(parsed.getTime()))
@@ -161,8 +171,20 @@ function formatMonthYear(date) {
 /**
  * Hard fallback title synthesizer when all resolved candidates are contaminated.
  * Shape: `EP <Article Type>: <Top Finding> — <Mon YYYY>`.
+ *
+ * @param input - Per-language resolver inputs
+ * @param topFindingSource - Best available finding/summary source text
+ * @param contextualFallback - Last-resort contextual fallback title
+ * @returns Reader-facing synthesized fallback title
  */
 function synthesizeFallbackTitle(input, topFindingSource, contextualFallback) {
+    // The synthesized shape (`EP <Article Type>: <Top Finding> — <Mon YYYY>`)
+    // and its `Intl.DateTimeFormat('en', …)` month label are Latin/English by
+    // construction. Emitting it on a non-Latin locale would ship a pure-ASCII
+    // `<title>`, violating the locale-glyph contract (Gate 4a). For those
+    // locales we defer to the localized contextual fallback instead.
+    if (classifyScript(input.lang) !== 'latin')
+        return contextualFallback;
     const topFinding = sanitizeTitleCandidate(deriveHeadlineFromSummary(topFindingSource));
     const articleTypeLabel = humanizeArticleTypeLabel(input.articleType);
     const monthYear = formatMonthYear(input.date);
@@ -175,6 +197,9 @@ function synthesizeFallbackTitle(input, topFindingSource, contextualFallback) {
 /**
  * Hard fallback description synthesizer when the resolved description leaks
  * pipeline jargon.
+ *
+ * @param input - Per-language resolver inputs
+ * @returns Reader-facing synthesized fallback description
  */
 function synthesizeFallbackDescription(input) {
     const templateSubtitle = sanitizeDescriptionCandidate(input.template.subtitle);
