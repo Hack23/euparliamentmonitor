@@ -22,7 +22,7 @@ const ACRONYM_EXPANSIONS: Readonly<Record<string, string>> = {
 
 const WEP_PHRASES: Readonly<Record<string, string>> = {
   ALMOSTCERTAINLY: 'almost certainly',
-  HIGHLYLIKELY: 'almost certainly',
+  HIGHLYLIKELY: 'highly likely',
   VERYLIKELY: 'very likely',
   LIKELY: 'likely',
   PROBABLE: 'probably',
@@ -155,7 +155,7 @@ function replaceFirstAdmiraltyGrade(input: string, state: TransformState): strin
 function linkEpAdoptedTextRefs(input: string): string {
   return input.replace(/\b(TA-(\d+)-(\d+)-(\d+))\b/g, (_match, full, term, year, serial) => {
     const href = `https://www.europarl.europa.eu/doceo/document/TA-${term}-${year}-${serial}_EN.html`;
-    return `<a href="${href}" rel="noopener noreferrer">${full}</a>`;
+    return `<a href="${href}" rel="noopener external" target="_blank">${full}</a>`;
   });
 }
 

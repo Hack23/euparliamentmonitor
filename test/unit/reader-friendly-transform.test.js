@@ -24,7 +24,7 @@ describe('reader-friendly-transform', () => {
 
   it('adds natural-language wording for first WEP band usage', () => {
     const out = applyReaderFriendlyTransform('<p>WEP: Highly Likely (85–95%)</p>');
-    expect(out).toContain('almost certainly (WEP: 85–95%)');
+    expect(out).toContain('highly likely (WEP: 85–95%)');
     expect(out).toContain('data-wep-band="HIGHLYLIKELY"');
   });
 

@@ -17,7 +17,7 @@ const ACRONYM_EXPANSIONS = {
 };
 const WEP_PHRASES = {
     ALMOSTCERTAINLY: 'almost certainly',
-    HIGHLYLIKELY: 'almost certainly',
+    HIGHLYLIKELY: 'highly likely',
     VERYLIKELY: 'very likely',
     LIKELY: 'likely',
     PROBABLE: 'probably',
@@ -136,7 +136,7 @@ function replaceFirstAdmiraltyGrade(input, state) {
 function linkEpAdoptedTextRefs(input) {
     return input.replace(/\b(TA-(\d+)-(\d+)-(\d+))\b/g, (_match, full, term, year, serial) => {
         const href = `https://www.europarl.europa.eu/doceo/document/TA-${term}-${year}-${serial}_EN.html`;
-        return `<a href="${href}" rel="noopener noreferrer">${full}</a>`;
+        return `<a href="${href}" rel="noopener external" target="_blank">${full}</a>`;
     });
 }
 function injectFirstUseAbbr(input, expandedAcronyms) {
