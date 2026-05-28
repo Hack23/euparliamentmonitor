@@ -47,7 +47,6 @@ import {
   composeContextualDescription,
   composeContextualExtendedDescription,
   composeContextualTitle,
-  appendEditionQualifier,
   deriveHeadlineFromSummary,
   ensureDescriptionTerminator,
   hasLeakySeoToken,
@@ -245,6 +244,88 @@ function shouldEnrichDescription(rawDescription: string, lang: LanguageCode): bo
   if (lang === 'en') return false;
   if (classifyScript(lang) === 'latin') return false;
   return ASCII_ONLY_RE.test(rawDescription);
+}
+
+/**
+ * Humanize an article-type slug for fallback metadata synthesis.
+ *
+ * @param articleType - Canonical article-type slug
+ * @returns Title-cased label with spaces instead of hyphens
+ */
+function humanizeArticleTypeLabel(articleType: string): string {
+  return articleType
+    .split('-')
+    .filter(Boolean)
+    .map((token) => token.charAt(0).toUpperCase() + token.slice(1))
+    .join(' ');
+}
+
+/**
+ * Format `YYYY-MM-DD` into `Mon YYYY`; falls back to the raw date when invalid.
+ *
+ * @param date - ISO article date
+ * @returns Month/year label suitable for fallback titles
+ */
+function formatMonthYear(date: string): string {
+  const parsed = new Date(`${date}T00:00:00Z`);
+  if (Number.isNaN(parsed.getTime())) return date;
+  return new Intl.DateTimeFormat('en', {
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(parsed);
+}
+
+/**
+ * Hard fallback title synthesizer when all resolved candidates are contaminated.
+ * Shape: `EP <Article Type>: <Top Finding> — <Mon YYYY>`.
+ *
+ * @param input - Per-language resolver inputs
+ * @param topFindingSource - Best available finding/summary source text
+ * @param contextualFallback - Last-resort contextual fallback title
+ * @returns Reader-facing synthesized fallback title
+ */
+function synthesizeFallbackTitle(
+  input: PerLanguageInputs,
+  topFindingSource: string,
+  contextualFallback: string
+): string {
+  const topFinding = sanitizeTitleCandidate(deriveHeadlineFromSummary(topFindingSource));
+  const articleTypeLabel = humanizeArticleTypeLabel(input.articleType);
+  const monthYear = formatMonthYear(input.date);
+  const synthesized = topFinding
+    ? `EP ${articleTypeLabel}: ${topFinding} — ${monthYear}`
+    : `EP ${articleTypeLabel} — ${input.date}`;
+  const candidate = truncateTitle(synthesized) || synthesized;
+  return !candidate || hasLeakySeoToken(candidate) ? contextualFallback : candidate;
+}
+
+/**
+ * Hard fallback description synthesizer when the resolved description leaks
+ * pipeline jargon.
+ *
+ * @param input - Per-language resolver inputs
+ * @returns Reader-facing synthesized fallback description
+ */
+function synthesizeFallbackDescription(input: PerLanguageInputs): string {
+  const templateSubtitle = sanitizeDescriptionCandidate(input.template.subtitle);
+  const articleTypeLabel = humanizeArticleTypeLabel(input.articleType);
+  const base =
+    templateSubtitle && !hasLeakySeoToken(templateSubtitle)
+      ? templateSubtitle
+      : `EP ${articleTypeLabel} update for ${input.date}.`;
+  const synthesized = composeContextualDescription(
+    input.lang,
+    base,
+    { headline: '', summary: '' },
+    input.date,
+    ''
+  );
+  const clamped = clampForBudget(synthesized, input.lang, 'metaDescription');
+  return padDescriptionToFloor(
+    ensureDescriptionTerminator(input.lang, clamped, budgetFor(input.lang, 'metaDescription')),
+    input.lang
+  );
 }
 
 /**
@@ -467,12 +548,19 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
     input.date,
     input.lang
   );
-  const truncatedTitle = pickResolvedTitle(input, {
+  let truncatedTitle = pickResolvedTitle(input, {
     explicitTitle,
     resolvedTitleCandidate,
     summaryDerivedTitle,
     contextualFallback,
   });
+  if (hasLeakySeoToken(truncatedTitle)) {
+    truncatedTitle = synthesizeFallbackTitle(
+      input,
+      safeEditorial.summary || normalizedRawDescription,
+      contextualFallback
+    );
+  }
   // Per-script SEO title clamp + ellipsis scrub + run-number disambiguation.
   // See `clampForBudget` (seo-budgets.ts), `scrubTrailingEllipsis`
   // (resolve-helpers.ts), and `appendRunNumberSuffix` (above) for the
@@ -480,9 +568,6 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
   const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
   let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
   seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');
-  // Cross-run uniqueness: append compact edition qualifier (#N) post-clamping
-  // Budget-aware: only append when it fits within the per-script title budget
-  seoTitle = appendEditionQualifier(seoTitle, input.runId ?? '', budgetFor(input.lang, 'title'));
   // Final SERP-floor recovery on the resolved title (see `padTitleToFloor`
   // in resolve-helpers.ts for the (EP) suffix rationale).
   seoTitle = padTitleToFloor(seoTitle, input.lang, budgetFor(input.lang, 'title'));
@@ -542,10 +627,13 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
   // must use that ceiling, not the 78/150 tight budget, or the terminator
   // step would over-trim the description.
   const terminatorBudget = useTightBudget ? budgetFor(input.lang, 'metaDescription') : undefined;
-  const truncatedDescription = padDescriptionToFloor(
+  let truncatedDescription = padDescriptionToFloor(
     ensureDescriptionTerminator(input.lang, clampedDescription, terminatorBudget),
     input.lang
   );
+  if (hasLeakySeoToken(truncatedDescription)) {
+    truncatedDescription = synthesizeFallbackDescription(input);
+  }
 
   const extendedSource = sanitizeDescriptionCandidate(
     manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription

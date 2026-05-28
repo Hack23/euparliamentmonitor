@@ -153,6 +153,35 @@ interface SeoClampedSurfaces {
 }
 
 /**
+ * Remove leaked `Published YYYY-MM-DD` tails from social descriptions.
+ *
+ * @param value - Raw description candidate
+ * @returns Description with trailing publication-date boilerplate removed
+ */
+function stripPublishedDateTail(value: string): string {
+  if (!value) return '';
+  return value
+    .replace(/(?:\s*[—–-]?\s*)Published\s+\d{4}-\d{2}-\d{2}\.?\s*$/iu, '')
+    .replace(/[\s—–|:;,-]+$/u, '')
+    .trim();
+}
+
+/**
+ * Strip numbered list prefixes from JSON-LD mention labels.
+ *
+ * @param name - Raw mention label
+ * @returns Mention label without leading numeric hierarchy markers
+ */
+function sanitizeMentionName(name: string): string {
+  let cleaned = name.trim();
+  while (/^\d+\./u.test(cleaned)) {
+    cleaned = cleaned.replace(/^\d+\./u, '').trimStart();
+  }
+  cleaned = cleaned.replace(/^\d+\s+/u, '').replace(/^\.\s*/u, '');
+  return cleaned.trim();
+}
+
+/**
  * Compute the per-surface SEO-budget-clamped variants of the article
  * title and description for a single render. See
  * `analysis/methodologies/seo-headers-policy.md` § 1.1 for the
@@ -171,18 +200,20 @@ function computeSeoClamps(
   lang: LanguageCode,
   siteTitle: string
 ): SeoClampedSurfaces {
+  const safeMetaDescription = stripPublishedDateTail(options.description) || options.description;
   const pageTitle = buildPageTitle(options.title, lang, siteTitle);
   const ogTitleClamped = clampForBudget(options.title, lang, 'ogTitle');
   const twitterTitleClamped = clampForBudget(options.title, lang, 'twitterTitle');
-  const metaDescriptionClamped = clampForBudget(options.description, lang, 'metaDescription');
+  const metaDescriptionClamped = clampForBudget(safeMetaDescription, lang, 'metaDescription');
   // og:description and twitter:description prefer the longer BLUF
   // paragraph (extendedDescription) so social-card previews show the
   // full lede; fall back to the short meta description when the
   // extended one is empty.
-  const socialSource =
+  const socialSourceRaw =
     options.extendedDescription && options.extendedDescription.length > 0
       ? options.extendedDescription
-      : options.description;
+      : safeMetaDescription;
+  const socialSource = stripPublishedDateTail(socialSourceRaw) || safeMetaDescription;
   const ogDescriptionClamped = clampForBudget(socialSource, lang, 'ogDescription');
   const twitterDescriptionClamped = clampForBudget(socialSource, lang, 'twitterDescription');
   const imageAltClamped = clampForBudget(
@@ -305,6 +336,9 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
       height: 630,
     },
   ];
+  const sanitizedMentions = (options.mentions ?? [])
+    .map((name) => sanitizeMentionName(name))
+    .filter(Boolean);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -348,9 +382,9 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
           isBasedOn: options.isBasedOn.map((url) => ({ '@type': 'CreativeWork', url })),
         }
       : {}),
-    ...(options.mentions && options.mentions.length > 0
+    ...(sanitizedMentions.length > 0
       ? {
-          mentions: options.mentions.map((name) => ({
+          mentions: sanitizedMentions.map((name) => ({
             '@type': 'Organization',
             name,
           })),

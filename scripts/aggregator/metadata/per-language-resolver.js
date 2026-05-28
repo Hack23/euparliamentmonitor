@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { budgetFor, classifyScript, clampForBudget } from './seo-budgets.js';
-import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, appendEditionQualifier, deriveHeadlineFromSummary, ensureDescriptionTerminator, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
+import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, deriveHeadlineFromSummary, ensureDescriptionTerminator, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
 import { buildSeoKeywords } from './seo-keywords.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
 const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
@@ -138,6 +138,53 @@ function shouldEnrichDescription(rawDescription, lang) {
     if (classifyScript(lang) === 'latin')
         return false;
     return ASCII_ONLY_RE.test(rawDescription);
+}
+/** Humanize an article-type slug for fallback metadata synthesis. */
+function humanizeArticleTypeLabel(articleType) {
+    return articleType
+        .split('-')
+        .filter(Boolean)
+        .map((token) => token.charAt(0).toUpperCase() + token.slice(1))
+        .join(' ');
+}
+/** Format `YYYY-MM-DD` into `Mon YYYY`; falls back to the raw date when invalid. */
+function formatMonthYear(date) {
+    const parsed = new Date(`${date}T00:00:00Z`);
+    if (Number.isNaN(parsed.getTime()))
+        return date;
+    return new Intl.DateTimeFormat('en', {
+        month: 'short',
+        year: 'numeric',
+        timeZone: 'UTC',
+    }).format(parsed);
+}
+/**
+ * Hard fallback title synthesizer when all resolved candidates are contaminated.
+ * Shape: `EP <Article Type>: <Top Finding> — <Mon YYYY>`.
+ */
+function synthesizeFallbackTitle(input, topFindingSource, contextualFallback) {
+    const topFinding = sanitizeTitleCandidate(deriveHeadlineFromSummary(topFindingSource));
+    const articleTypeLabel = humanizeArticleTypeLabel(input.articleType);
+    const monthYear = formatMonthYear(input.date);
+    const synthesized = topFinding
+        ? `EP ${articleTypeLabel}: ${topFinding} — ${monthYear}`
+        : `EP ${articleTypeLabel} — ${input.date}`;
+    const candidate = truncateTitle(synthesized) || synthesized;
+    return !candidate || hasLeakySeoToken(candidate) ? contextualFallback : candidate;
+}
+/**
+ * Hard fallback description synthesizer when the resolved description leaks
+ * pipeline jargon.
+ */
+function synthesizeFallbackDescription(input) {
+    const templateSubtitle = sanitizeDescriptionCandidate(input.template.subtitle);
+    const articleTypeLabel = humanizeArticleTypeLabel(input.articleType);
+    const base = templateSubtitle && !hasLeakySeoToken(templateSubtitle)
+        ? templateSubtitle
+        : `EP ${articleTypeLabel} update for ${input.date}.`;
+    const synthesized = composeContextualDescription(input.lang, base, { headline: '', summary: '' }, input.date, '');
+    const clamped = clampForBudget(synthesized, input.lang, 'metaDescription');
+    return padDescriptionToFloor(ensureDescriptionTerminator(input.lang, clamped, budgetFor(input.lang, 'metaDescription')), input.lang);
 }
 /**
  * Pick the SEO `<title>` from the candidate ladder. Skips the
@@ -309,12 +356,15 @@ export function resolveOneLanguage(input) {
     // the duplicate-title gate in `scripts/validate-article-seo.js`
     // would (correctly) fail CI.
     const contextualFallback = composeContextualTitle(input.template.title, '', input.runId, input.date, input.lang);
-    const truncatedTitle = pickResolvedTitle(input, {
+    let truncatedTitle = pickResolvedTitle(input, {
         explicitTitle,
         resolvedTitleCandidate,
         summaryDerivedTitle,
         contextualFallback,
     });
+    if (hasLeakySeoToken(truncatedTitle)) {
+        truncatedTitle = synthesizeFallbackTitle(input, safeEditorial.summary || normalizedRawDescription, contextualFallback);
+    }
     // Per-script SEO title clamp + ellipsis scrub + run-number disambiguation.
     // See `clampForBudget` (seo-budgets.ts), `scrubTrailingEllipsis`
     // (resolve-helpers.ts), and `appendRunNumberSuffix` (above) for the
@@ -322,9 +372,6 @@ export function resolveOneLanguage(input) {
     const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
     let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
     seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');
-    // Cross-run uniqueness: append compact edition qualifier (#N) post-clamping
-    // Budget-aware: only append when it fits within the per-script title budget
-    seoTitle = appendEditionQualifier(seoTitle, input.runId ?? '', budgetFor(input.lang, 'title'));
     // Final SERP-floor recovery on the resolved title (see `padTitleToFloor`
     // in resolve-helpers.ts for the (EP) suffix rationale).
     seoTitle = padTitleToFloor(seoTitle, input.lang, budgetFor(input.lang, 'title'));
@@ -383,7 +430,10 @@ export function resolveOneLanguage(input) {
     // must use that ceiling, not the 78/150 tight budget, or the terminator
     // step would over-trim the description.
     const terminatorBudget = useTightBudget ? budgetFor(input.lang, 'metaDescription') : undefined;
-    const truncatedDescription = padDescriptionToFloor(ensureDescriptionTerminator(input.lang, clampedDescription, terminatorBudget), input.lang);
+    let truncatedDescription = padDescriptionToFloor(ensureDescriptionTerminator(input.lang, clampedDescription, terminatorBudget), input.lang);
+    if (hasLeakySeoToken(truncatedDescription)) {
+        truncatedDescription = synthesizeFallbackDescription(input);
+    }
     const extendedSource = sanitizeDescriptionCandidate(manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription);
     // Two-tier extended-description resolution:
     // 1. Direct truncation — preferred when the editorial source paragraph

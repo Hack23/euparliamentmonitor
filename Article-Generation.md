@@ -287,9 +287,9 @@ mirror this contract:
 4. **description-length** — each description is 60–200 characters
    (CJK locales legitimately pack the same payload into ~60–80 characters).
 5. **forbidden-prefix** — neither titles nor descriptions begin with
-   reserved Stage-B preamble labels (`Run:`, `Purpose:`, `BLUF:`,
-   `Classification:`, `Window:`, etc.) that previously leaked into
-   SEO surfaces.
+   reserved Stage-A→E preamble labels (`Run:`, `Purpose:`, `BLUF:`,
+   `Stage A`…`Stage E`, `scripts/...`, `Classification:`, `Window:`,
+   etc.) that previously leaked into SEO surfaces.
 6. **english-fallthrough** — when a non-English value duplicates the
    English value verbatim, `manifest.metadataFallback[<lang>] = "en"`
    must be declared so the static-site layer can surface a
