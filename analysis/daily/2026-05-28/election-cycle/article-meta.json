@@ -1,0 +1,54 @@
+{
+  "date": "2026-05-28",
+  "articleType": "election-cycle",
+  "runId": "election-cycle-run-26545766277",
+  "gateResult": "PENDING",
+  "slug": "2026-05-28-election-cycle",
+  "articlePath": "analysis/daily/2026-05-28/election-cycle/article.md",
+  "topFinding": "| # | Judgement | WEP | Horizon | Confidence | Source | | --- | --- | --- | --- | --- | --- | | J1 | Metsola re-elected EP President | Likely (55-80%) | Jan 2027 | Moderate | [S2 · A1] | | J2 | Grand bargain survives intact | Roughly Even (45-55%) | to Jun 2029 | Moderate | [S1 · A2] | | J3 | EPP retains first place…",
+  "keyTakeaways": [
+    "Best evidence: EP plenary minutes, `get_meps` baseline, IMF WEO (April 2026), EP RoP.",
+    "Weakest evidence: 2029 vote-intent polls (national variance high; second-order EP-election bias).",
+    "Degraded-feed flag: 3 of 4 EP feed probes returned 404 / empty payloads this run [S5 · C3]. Baseline composition still verifiable from `get_meps` snapshot; voting-cohesion claims rely on Q4-2025 `analyze_voting_patterns` cached run.",
+    "**Lead with the mandate-execution story.** 75% Commission file landing is the visible \"delivers\" frame [S9 · A2].",
+    "**Track the Bureau election.** January 2027 is the first inflection point.",
+    "**Watch Q4 2026 cohesion data.** This is the falsification window for the grand-bargain assumption.",
+    "**Connect macro to politics.** IMF EU27 growth tracking is the under-reported salience driver [S4 · A2]."
+  ],
+  "topRisks": [
+    "**R1 assumes** the EPP holds the centre. Falsified by any single EPP-Patriots-ECR majority on a flagship Commission file (>3 occurrences = trigger).",
+    "**R2 assumes** IMF projections are non-recessionary. Falsified by IMF WEO October-2026 or April-2027 cutting EU27 GDP below 1.0%.",
+    "**R3 assumes** Ukraine peace process remains in current bracket. Falsified by either (a) sudden cease-fire reducing AFET salience, or (b) major escalation forcing emergency summits.",
+    "H1: Yes, intact and intact-pattern (grand bargain holds). Evidence-fit: Strong. **WEP:** Likely.",
+    "H2: Yes, but transactional / file-by-file. Evidence-fit: Strong. **WEP:** Roughly Even.",
+    "H3: No, replaced by right-wing majority. Evidence-fit: Weak (Ukraine consensus blocks Patriots). **WEP:** Unlikely.",
+    "H4: No, ad-hoc majorities only. Evidence-fit: Moderate (precedent: 2014-2019 fragmentation). **WEP:** Unlikely.",
+    "**What if R1 + R6 both trip Q2 2027?** Outcome: EPP forced to choose; **WEP:** Likely (55-80%) chooses centrist axis on institutional votes, ECR/Patriots on migration. System bifurcates."
+  ],
+  "keyDates": [
+    "IMF WEO April 2026 is the sole authoritative macro source for any economic figure cited in this bundle; non-IMF macro data are excluded by editorial policy.",
+    "The Bureau ballot of January 2027 is an institutional fact (RoP 16-18) and will be the next dated mid-term electoral signal absent unforeseen events."
+  ],
+  "keyActors": [
+    "H1: *Yes, intact* — driven by external shocks (Ukraine, US tariff war) forcing centrist consolidation. **WEP:** Likely (55-80%) [S1 · A2].",
+    "H2: *Yes, but transactional* — EPP defects on selected files (migration, Green Deal rollback) while preserving institutional votes. **WEP:** Roughly Even (45-55%).",
+    "H3: *No, replaced by EPP+ECR+Patriots majority* — requires Patriots to accept Ukraine consensus, which 2024-2026 record contradicts. **WEP:** Unlikely (20-45%).",
+    "H4: *Collapse into ad-hoc majorities* — would render the 2027 Bureau ballot chaotic. **WEP:** Highly Unlikely (5-20%).",
+    "Court of Justice (EUCJ): cases on rule-of-law conditionality may bind Commission hand pre-2029.",
+    "National constitutional courts (DE, FR, IT, PL): treaty-revision blockers.",
+    "ECB Governing Council: monetary stance shapes economic backdrop (Lagarde term to 2027).",
+    "Big Tech platforms (DSA enforcement): salience driver for digital-rights MEPs."
+  ],
+  "macroContext": "All figures sourced from IMF WEO April 2026 ([S4 · A2]).",
+  "sources": [
+    "classification/actor-mapping.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
