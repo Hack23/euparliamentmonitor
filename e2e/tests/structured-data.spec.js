@@ -46,6 +46,9 @@ function collectJsonLdTypes(value, types = []) {
 test.describe('Structured Data (JSON-LD)', () => {
   for (const { lang, path: pagePath } of PI_PAGES) {
     test(`${lang}: has valid JSON-LD structured data`, async ({ page }) => {
+      // PI pages are ~6-7 MB — opt in to a longer budget so this test
+      // doesn't flake under CI load (see also horizon-nav.spec.js).
+      test.setTimeout(60_000);
       const response = await page.goto(pagePath);
 
       // A missing page is a regression — fail, don't skip

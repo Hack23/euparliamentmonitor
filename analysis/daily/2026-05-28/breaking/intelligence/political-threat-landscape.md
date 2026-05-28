@@ -1,113 +1,48 @@
-<!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
-# 🎭 Political Threat Landscape — EU Parliament Breaking News
-**Date:** 2026-05-28 | **Article Type:** Breaking | **Data Mode:** degraded-feeds
-**Admiralty Grade:** B2 | **Confidence:** 🟡 MEDIUM-HIGH
+# Political Threat Landscape — EP Breaking News May 2026
+**Date:** 2026-05-28 | **SATs:** Key Assumptions Check, Red Team, Indicators
 
 ---
 
-## 🔭 Political Threat Landscape Overview
+## Active Political Threats
 
-The May 2026 EP plenary legislative cluster faces a distinctive political threat environment. Three intersecting threat axes define this landscape: (1) the far-right/sovereigntist opposition axis, (2) the unanimity requirement as a structural veto axis, and (3) the external actor interference axis.
+### Threat 1: AI Governance Fragmentation (HIGH)
+**WEP:** Likely (65–80%) within 18 months
+EU AI governance leadership is under competitive threat from US executive AI strategy and China's regulatory-lite AI development approach. EP's AI Trade Strategy, while a milestone, faces the risk of being outflanked if the US or China establish competing AI trade standards through bilateral agreements with key trade partners (India, ASEAN, Latin America) before EU standards gain multilateral traction.
 
----
+**Indicators to watch:**
+- US-India AI governance MOU negotiations (reported ongoing May 2026)
+- WTO JSI e-commerce negotiations progress
+- G7 AI governance framework development (next G7 May 2026 — possible counter-narrative)
 
-## 🏛️ Axis 1: Far-Right/Sovereigntist Opposition
+### Threat 2: Far-Right Coalition Challenge to EP Agenda (MEDIUM)
+**WEP:** Possible (35–55%)
+PfE (84 seats) + ECR (78 seats) + ESN (25 seats) = 187 seats — insufficient to block majority legislation but sufficient to create procedural friction, amendment battles, and political noise that slows agenda implementation. The AI Trade Strategy's regulatory ambition is a natural target for a "regulatory overreach" counter-narrative.
 
-**Primary actors:** Patriots for Europe (Orbán/Fidesz-led), ESN, parts of ECR
+**Indicators to watch:**
+- ECR/PfE joint procedural motions in June 2026 plenary
+- PfE alternative AI trade paper (if drafted)
+- ECR group cohesion on AI regulatory votes (DOCEO data when available)
 
-**Characteristic behavior:**
-- Voting AGAINST strategic autonomy measures (SAFE/Canada, EU-Uzbekistan)
-- Using European institutions to delegitimize themselves (attacking EP via EP floor)
-- Protecting "in-group" members from accountability (Vilimsky immunity vote)
-- Coordinating across national governments (Orbán-Meloni-Le Pen axis)
+### Threat 3: Commission-EP Tension on AI Trade Strategy Scope (LOW-MEDIUM)
+**WEP:** Unlikely but possible (25–40%)
+The Commission's AI Office has its own implementation roadmap for AI Act. An EP INI resolution's scope may exceed what the Commission considers legally feasible under existing treaty competences for trade (Article 207 TFEU) vs. AI regulation (Article 114 TFEU). Turf tension between INTA competence (trade) and IMCO competence (internal market/AI Act) may emerge.
 
-**Current threat level:** 🟡 MEDIUM-HIGH
-- Patriots' ~84 seats = 11.7% of Parliament — not a majority-blocking force in plenary
-- BUT: Patriots' ability to leverage Council/European Council blocking power is high
-- Vilimsky case activates far-right media ecosystem → reputational threat
-
-**Specific political threats from this axis:**
-1. **Narrative attack:** "EP is weaponizing legal proceedings against patriotic politicians"
-2. **Ratification obstruction:** Hungary blocking SAFE Instrument and Uzbekistan EPCA
-3. **AI regulation resistance:** Framing EU AI Act as Brussels overreach killing innovation
-
-**Counter-force:** Cross-group consensus (EPP+S&D+Renew = 55.7% of seats) provides structural majority against sovereigntist obstruction in EP votes.
-
----
-
-## 🔐 Axis 2: Unanimity Requirement as Structural Veto
-
-**Structural threat:** EU treaty law requires unanimous member state ratification for most of the May 2026 legislative cluster:
-- SAFE/Canada: Mixed agreement → all 27 states ratify
-- Uzbekistan EPCA: Mixed agreement → all 27 states ratify
-- Lebanon/Eurojust: International agreement → likely simplified procedure
-- Fisheries (both): International agreements → Council qualified majority possible
-
-**Key veto actors:**
-1. **Hungary (Orbán):** Systematically blocks Ukraine-adjacent and NATO-aligned decisions
-2. **Slovakia (Fico):** Has aligned with Orbán on Russia-related blocking since 2023
-3. **Austria (FPÖ):** With FPÖ now governing, Austria's Council vote now aligns with Orbán more frequently
-
-**Threat escalation timeline:**
-- Months 1–6: Political consensus-building; vetoes latent
-- Months 6–18: Formal ratification process begins; vetoes activated
-- Months 18–36: Enhanced cooperation mechanism potentially triggered
-
-**Political threat level:** 🔴 HIGH for SAFE/Canada ratification
+### Threat 4: Taliban Legal Codification Acceleration (HIGH — External)
+**WEP:** Highly Likely (85–95%) that Taliban legal consolidation continues
+The Criminal Procedure Code adoption signals accelerated legal institutionalisation of Taliban governance. If additional legal instruments follow (e.g., a comprehensive "code of conduct" for women in public spaces), EP's urgency resolution framework becomes reactive rather than preventive.
 
 ---
 
-## 🌐 Axis 3: External Actor Interference
+## Political Risk Heatmap
 
-**Russia:**
-- Primary threat: Information operations against EU-Uzbekistan EPCA
-- Secondary: Disinformation about SAFE Instrument as "NATO expansion"
-- Tertiary: Supporting Hungarian and Slovak pro-Russia domestic narratives
-- **Level:** 🟠 HIGH (active, documented pattern)
-
-**China:**
-- Primary threat: Framing EU AI Act trade requirements as protectionism in G20/WTO forums
-- Secondary: Using Belt and Road leverage in Uzbekistan to delay EPCA implementation
-- **Level:** 🟡 MEDIUM (indirect channels)
-
-**US (potential):**
-- Tech industry pressure on USTR to challenge EU AI Act requirements
-- Not a threat per se; rather a policy divergence friction point
-- **Level:** 🟢 LOW-MEDIUM (partnership framing dominant)
+| Threat | Likelihood | Impact | Risk Level |
+|---|---|---|---|
+| AI governance fragmentation | HIGH | HIGH | 🔴 CRITICAL |
+| Far-right coalition challenge | MEDIUM | MEDIUM | 🟡 MODERATE |
+| Commission-EP tension | LOW | MEDIUM | 🟢 LOW-MEDIUM |
+| Taliban legal acceleration | HIGH | LOW (EP agency) | 🟡 MODERATE |
+| EU-Canada SAFE ratification delay | LOW | HIGH | 🟡 MODERATE |
 
 ---
 
-## 📊 Political Threat Heat Map
-
-| Threat | Origin | Target | Probability | Impact | Heat |
-|--------|--------|--------|------------|--------|------|
-| Hungary veto | Orbán/Fidesz | SAFE/Canada ratification | HIGH | VERY HIGH | 🔴 |
-| FPÖ/Patriots media campaign | Far-right bloc | EP credibility | VERY HIGH | MEDIUM | 🟠 |
-| Russia disinformation | Kremlin | Uzbekistan EPCA | HIGH | HIGH | 🟠 |
-| China AI trade pushback | Beijing | EU AI trade strategy | MEDIUM | HIGH | 🟡 |
-| Slovakia alignment with Orbán | Fico | Additional veto risk | MEDIUM | HIGH | 🟡 |
-| US tech WTO challenge | USTR | EU AI Act trade link | LOW-MED | HIGH | 🟡 |
-
----
-
-## ✅ Political Threat Landscape Confidence
-
-- **Structural analysis:** 🟢 HIGH — Treaty law unanimity requirement is certain
-- **Actor behavioral prediction:** 🟡 MEDIUM — Based on historical pattern + ideological profiling
-- **External actor threat assessment:** 🟡 MEDIUM — Structural logic; no signals intelligence
-
----
-
-## 📊 Political Threat Axes
-
-```mermaid
-graph TD
-    A[Political Threats] --> B[Axis 1: Far-Right Opposition\n🟡 MEDIUM-HIGH]
-    A --> C[Axis 2: Unanimity Veto\n🔴 HIGH]
-    A --> D[Axis 3: External Actors\n🟠 HIGH Russia / 🟡 Medium China]
-    B --> E[Patriots 84 seats\nNarrative attacks]
-    C --> F[Hungary veto\nSlovakia alignment]
-    D --> G[Russia disinformation\nChina BRI pressure]
-```
+*KAC applied | Red Team findings | Indicators documented | 2026-05-28*

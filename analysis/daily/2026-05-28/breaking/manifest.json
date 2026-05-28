@@ -1,228 +1,77 @@
 {
   "articleType": "breaking",
-  "date": "2026-05-28",
-  "runId": "breaking-run264-1779957632",
   "dataMode": "degraded-feeds",
-  "floorFactor": 0.8,
-  "generatedAt": "2026-05-28T09:15:00Z",
-  "headline": "EU Parliament Approves Defense Procurement Pact with Canada and AI Trade Strategy in Landmark May Plenary",
+  "runId": "breaking-run265-1779932393",
+  "date": "2026-05-28",
+  "headline": "European Parliament Adopts AI Trade Strategy and Afghanistan Women's Rights Resolution in Strasbourg Plenary",
+  "generatedAt": "2026-05-28T01:45:00Z",
+  "prefetchMode": "degraded-feeds",
+  "stageACompleted": true,
   "files": {
-    "executive-brief.md": {
-      "path": "executive-brief.md",
-      "lines": 86
-    },
-    "data-availability-assessment.md": {
-      "path": "data-availability-assessment.md",
-      "lines": 66
-    },
-    "manifest.json": {
-      "path": "manifest.json",
-      "lines": 217
-    },
-    "intelligence/stakeholder-map.md": {
-      "path": "intelligence/stakeholder-map.md",
-      "lines": 245
-    },
-    "intelligence/reference-analysis-quality.md": {
-      "path": "intelligence/reference-analysis-quality.md",
-      "lines": 220
-    },
-    "intelligence/historical-baseline.md": {
-      "path": "intelligence/historical-baseline.md",
-      "lines": 171
-    },
-    "intelligence/mcp-reliability-audit.md": {
-      "path": "intelligence/mcp-reliability-audit.md",
-      "lines": 322
-    },
-    "intelligence/pestle-analysis.md": {
-      "path": "intelligence/pestle-analysis.md",
-      "lines": 204
-    },
-    "intelligence/significance-scoring.md": {
-      "path": "intelligence/significance-scoring.md",
-      "lines": 128
-    },
-    "intelligence/political-threat-landscape.md": {
-      "path": "intelligence/political-threat-landscape.md",
-      "lines": 113
-    },
-    "intelligence/threat-model.md": {
-      "path": "intelligence/threat-model.md",
-      "lines": 200
-    },
-    "intelligence/wildcards-blackswans.md": {
-      "path": "intelligence/wildcards-blackswans.md",
-      "lines": 180
-    },
-    "intelligence/synthesis-summary.md": {
-      "path": "intelligence/synthesis-summary.md",
-      "lines": 165
-    },
-    "intelligence/economic-context.fallback.md": {
-      "path": "intelligence/economic-context.fallback.md",
-      "lines": 87
-    },
-    "intelligence/scenario-forecast.md": {
-      "path": "intelligence/scenario-forecast.md",
-      "lines": 224
-    },
-    "intelligence/voting-patterns.degraded.md": {
-      "path": "intelligence/voting-patterns.degraded.md",
-      "lines": 148
-    },
-    "intelligence/methodology-reflection.md": {
-      "path": "intelligence/methodology-reflection.md",
-      "lines": 177
-    },
-    "intelligence/workflow-audit.md": {
-      "path": "intelligence/workflow-audit.md",
-      "lines": 123
-    },
-    "intelligence/cross-session-intelligence.md": {
-      "path": "intelligence/cross-session-intelligence.md",
-      "lines": 110
-    },
-    "intelligence/analysis-index.md": {
-      "path": "intelligence/analysis-index.md",
-      "lines": 128
-    },
-    "intelligence/cross-run-diff.md": {
-      "path": "intelligence/cross-run-diff.md",
-      "lines": 66
-    },
-    "intelligence/procedures-proxy.md": {
-      "path": "intelligence/procedures-proxy.md",
-      "lines": 85
-    },
-    "intelligence/coalition-dynamics.md": {
-      "path": "intelligence/coalition-dynamics.md",
-      "lines": 152
-    },
-    "risk-scoring/quantitative-swot.md": {
-      "path": "risk-scoring/quantitative-swot.md",
-      "lines": 187
-    },
-    "risk-scoring/risk-matrix.md": {
-      "path": "risk-scoring/risk-matrix.md",
-      "lines": 167
-    },
-    "documents/document-analysis-index.md": {
-      "path": "documents/document-analysis-index.md",
-      "lines": 160
-    },
-    "extended/intelligence-assessment.md": {
-      "path": "extended/intelligence-assessment.md",
-      "lines": 48
-    },
-    "extended/devils-advocate-analysis.md": {
-      "path": "extended/devils-advocate-analysis.md",
-      "lines": 63
-    },
-    "extended/comparative-international.md": {
-      "path": "extended/comparative-international.md",
-      "lines": 51
-    },
-    "extended/implementation-feasibility.md": {
-      "path": "extended/implementation-feasibility.md",
-      "lines": 53
-    },
-    "extended/cross-reference-map.md": {
-      "path": "extended/cross-reference-map.md",
-      "lines": 70
-    },
-    "extended/forward-indicators.md": {
-      "path": "extended/forward-indicators.md",
-      "lines": 62
-    },
-    "extended/coalition-mathematics.md": {
-      "path": "extended/coalition-mathematics.md",
-      "lines": 62
-    },
-    "extended/executive-brief.md": {
-      "path": "extended/executive-brief.md",
-      "lines": 109
-    },
-    "extended/media-framing-analysis.md": {
-      "path": "extended/media-framing-analysis.md",
-      "lines": 186
-    },
-    "extended/historical-parallels.md": {
-      "path": "extended/historical-parallels.md",
-      "lines": 39
-    },
-    "extended/data-download-manifest.md": {
-      "path": "extended/data-download-manifest.md",
-      "lines": 58
-    },
-    "extended/voter-segmentation.md": {
-      "path": "extended/voter-segmentation.md",
-      "lines": 117
-    },
-    "classification/significance-classification.md": {
-      "path": "classification/significance-classification.md",
-      "lines": 166
-    },
-    "classification/actor-mapping.md": {
-      "path": "classification/actor-mapping.md",
-      "lines": 64
-    },
-    "classification/forces-analysis.md": {
-      "path": "classification/forces-analysis.md",
-      "lines": 57
-    },
-    "classification/impact-matrix.md": {
-      "path": "classification/impact-matrix.md",
-      "lines": 60
-    },
-    "data/prefetch-status.json": {
-      "path": "data/prefetch-status.json",
-      "lines": 1
-    },
-    "data/committee-documents-feed.json": {
-      "path": "data/committee-documents-feed.json",
-      "lines": 1
-    },
-    "data/events-feed.json": {
-      "path": "data/events-feed.json",
-      "lines": 1
-    },
-    "data/meps-feed.json": {
-      "path": "data/meps-feed.json",
-      "lines": 1
-    },
-    "data/adopted-texts-feed.json": {
-      "path": "data/adopted-texts-feed.json",
-      "lines": 1
-    },
-    "data/procedures-feed.json": {
-      "path": "data/procedures-feed.json",
-      "lines": 1
-    },
-    "data/documents-feed.json": {
-      "path": "data/documents-feed.json",
-      "lines": 1
-    },
-    "runs/thresholds-cache.json": {
-      "path": "runs/thresholds-cache.json",
-      "lines": 209
-    }
+    "root": [
+      "data-availability-assessment.md",
+      "executive-brief.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "intelligence": [
+      "intelligence/pestle-analysis.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/analysis-index.md",
+      "intelligence/significance-scoring.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/cross-session-intelligence.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/threat-model.md",
+      "intelligence/political-threat-landscape.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/voting-patterns.degraded.md"
+    ],
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/significance-classification.md",
+      "classification/impact-matrix.md",
+      "classification/forces-analysis.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md",
+      "extended/intelligence-assessment.md",
+      "extended/data-download-manifest.md",
+      "extended/coalition-mathematics.md",
+      "extended/devils-advocate-analysis.md",
+      "extended/cross-reference-map.md",
+      "extended/voter-segmentation.md",
+      "extended/implementation-feasibility.md",
+      "extended/forward-indicators.md",
+      "extended/comparative-international.md",
+      "extended/historical-parallels.md",
+      "extended/executive-brief.md"
+    ],
+    "documents": [
+      "documents/document-analysis-index.md"
+    ]
   },
   "history": [
     {
-      "runId": "breaking-run264-1779957632",
-      "timestamp": "2026-05-28T09:15:00Z",
+      "runId": "breaking-run265-1779932393",
+      "timestamp": "2026-05-28T01:45:00Z",
       "dataMode": "degraded-feeds",
+      "gateResult": "GREEN",
       "pass2": {
-        "rewriteCount": 41,
-        "extendCount": 0
-      },
-      "stageTimings": {
-        "A": 2,
-        "B": 33,
-        "C": null,
-        "D": null,
-        "E": null
+        "rewriteCount": 38
       }
     }
   ]

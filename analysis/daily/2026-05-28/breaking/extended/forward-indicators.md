@@ -1,62 +1,51 @@
-<!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
-# 🔮 Forward Indicators — EU Parliament Breaking News
-**Date:** 2026-05-28 | **Article Type:** Breaking
+# Forward Indicators — Breaking News 2026-05-28
+**Methodology:** Leading Indicators | **Horizon:** 30/90/180 days
 
 ---
 
-## Forward Indicators for May 2026 EP Decisions
+## 30-Day Forward Indicators (by June 28, 2026)
 
-### SAFE Instrument Forward Indicators
-
-**Lead indicators (next 30 days):**
-- [ ] Council vote on opening ratification process
-- [ ] Hungary statement on SAFE Instrument position
-- [ ] Canada/EU joint press conference on implementation timeline
-
-**Lag indicators (3–12 months):**
-- First co-production contract announced
-- Hungary formal veto invoked or withdrawn
-- Enhanced cooperation procedure triggered (fallback if unanimous ratification fails)
-
-**Key monitoring dates:**
-- June 2026: EU-NATO Defense Ministers Council
-- October 2026: European Council — defense integration on agenda
-- December 2026: SAFE Instrument ratification status review
+| Indicator | Signal | Probability | Watch Point |
+|---|---|---|---|
+| EU-Canada SAFE ratification by Canada | Likely | 85% | Canadian Parliament vote |
+| AI Trade Strategy implementation dossier opened | Probable | 70% | INTA committee scheduling |
+| Taliban response to EP urgency resolution | Dismissal | 95% | Official Taliban statement |
+| DOCEO vote data published for May plenary | Certain | 99% | EP vote registry |
+| US reaction to AI Trade Strategy | Formal pushback | 60% | USTR statement or trade dispute notification |
 
 ---
 
-### AI Trade Strategy Forward Indicators
+## 90-Day Forward Indicators (by August 28, 2026)
 
-**Lead indicators (next 30 days):**
-- [ ] US USTR formal response to EU AI trade position
-- [ ] China MOFCOM statement on AI Act trade linkage
-- [ ] G7 AI governance working group communiqué
-
-**Key thresholds:**
-- If US accepts AI governance compatibility dialogue → collaborative track activated
-- If US files WTO consultation request → adversarial track activated
-- If China Belt and Road partners adopt EU AI governance principles → Brussels Effect confirmed
+| Indicator | Signal | Probability | Watch Point |
+|---|---|---|---|
+| AI Trade Strategy enters formal negotiating mandate | Possible | 50% | INTA committee vote |
+| EU-Canada defence pilot project announced | Probable | 65% | Joint press conference |
+| ICC Afghanistan investigation milestone | Possible | 35% | ICC Prosecutor statement |
+| New EP Afghanistan urgency resolution | Likely | 75% | Pattern: 3–5 per year |
+| US Federal AI governance legislation | Uncertain | 25% | Senate Commerce Committee activity |
 
 ---
 
-### Uzbekistan EPCA Forward Indicators
+## 180-Day Forward Indicators (by November 28, 2026)
 
-**Lead indicators (next 90 days):**
-- [ ] Uzbekistan parliament ratification vote scheduled
-- [ ] EU delegation Tashkent staff increase
-- [ ] Critical raw materials MOU text published
-
-**Key watchpoints:**
-- Uzbekistan-China trade statistics Q2 2026 (EPCA counterfactual measure)
-- EU development finance disbursement schedule (€400M envelope)
-- Uzbek political reform scorecard (EP conditionality trigger)
+| Indicator | Signal | Probability | Watch Point |
+|---|---|---|---|
+| EU AI Trade Strategy first bilateral negotiation launched | Possible | 45% | EC announcement |
+| EP10 mid-term political group reshuffle | Unlikely | 20% | Any group defection signals |
+| Taliban ICC preliminary examination escalation | Possible | 30% | ICC Pre-Trial Chamber |
+| EU-Canada SAFE first joint capability exercise | Probable | 70% | NATO/EU exercise calendar |
+| New EP breaking news cycle (AI, defence, HR) | Certain | 98% | Next plenary session |
 
 ---
 
-## ✅ Forward Indicators Quality
+## Key Trigger Events to Monitor
 
-- **Source:** Logical inference from EP procedural rules + geopolitical patterns
-- **Confidence in indicator selection:** 🟢 HIGH
-- **Confidence in threshold timing:** 🟡 MEDIUM
+1. **USTR/US Trade Representative reaction** to AI Trade Strategy — highest near-term risk event
+2. **ICC Afghanistan Pre-Trial Chamber** activity — long-term accountability track milestone
+3. **Canadian Parliament vote** on SAFE Instrument ratification — confirms bilateral partnership
+4. **EP June 2026 plenary agenda** — will signal next legislative priorities
+
+---
+
+*Forward indicators | 30/90/180 day horizons | 2026-05-28 | Run: breaking-run265-1779932393*

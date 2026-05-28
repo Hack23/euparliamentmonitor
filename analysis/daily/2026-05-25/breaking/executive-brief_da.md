@@ -1,4 +1,4 @@
-# Executive Brief — EP Breaking News (Pass 2 Extended)
+# AI-handelsstrategi og retlig styring — EP maj 2026
 **Dato**: 2026-05-25 | **Artikeltype**: breaking | **Løbenummer**: breaking-run266-1779673155
 **WEP-band**: Sandsynligt (55–80%) | **Tidshorisont**: Umiddelbar (0–7 dage) | **Admiralitetsgrad**: B2
 

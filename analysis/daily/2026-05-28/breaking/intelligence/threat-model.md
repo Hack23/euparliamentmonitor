@@ -1,200 +1,153 @@
-<!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
-# 🎯 Threat Model — EU Parliament Breaking News
-**Date:** 2026-05-28 | **Article Type:** Breaking | **Data Mode:** degraded-feeds
-**Admiralty Grade:** B2 | **Confidence:** 🟡 MEDIUM-HIGH
+# Threat Model — EP Breaking News: AI Trade & Strategic Partnerships
+**Date:** 2026-05-28 | **SATs:** Key Assumptions Check, Red Team, ACH
+**WEP bands applied | Admiralty grade: B3**
 
 ---
 
-## 🔍 Threat Assessment Framework
+## Threat Architecture
 
-This threat model applies STRIDE/ATT&CK-inspired political threat analysis to the May 2026 EP legislative outputs. Threats are assessed across: (1) implementation threats, (2) geopolitical response threats, (3) institutional credibility threats, and (4) informational/influence operation threats.
-
----
-
-## ☣️ Critical Threat 1: Hungary SAFE Instrument Ratification Block
-
-**Threat Actor:** Hungarian Government (Fidesz/Viktor Orbán)
-**Threat Type:** Institutional sabotage via legitimate veto mechanisms
-**Severity:** 🔴 HIGH
-**Probability:** 🟡 MEDIUM (35–45% chance of significant delay)
-
-**Attack vector:** As a mixed agreement, EU-Canada SAFE Instrument requires unanimous ratification by all 27 EU member states. Hungary has a documented pattern of blocking CFSP-related decisions as negotiating leverage (Ukraine aid delays 2022–2024, NATO accession blocks).
-
-**Indicators of threat materialization:**
-- Orbán publicly criticizing "NATO-aligned procurement framework" ←— watch for
-- Fidesz media campaign against Canada "EU puppet" narrative ←— watch for
-- Hungarian government requesting "national security exemptions" in ratification ←— early warning
-
-**Mitigation options available to EP/Council:**
-1. Enhanced cooperation mechanism under Art. 20 TEU — 9+ states can proceed without Hungary
-2. Provisional application of trade elements (non-defense provisions) pending full ratification
-3. Council Presidency (Poland, Q3 2025) applying diplomatic pressure
-4. Side-payments to Hungary via cohesion fund releases
-
-**Impact if threat materializes:**
-- 18–36 month additional delay
-- Canadian defense industry partners lose first-mover advantage window
-- EP credibility as legislative actor further eroded (pattern after Mercosur, CETA delays)
+This threat model addresses risks to the successful implementation of EP's May 2026 legislative outputs, focusing on three domains: AI trade governance implementation, Afghanistan human rights follow-through, and EU-Canada SAFE Instrument operationalisation.
 
 ---
 
-## ☣️ Threat 2: Russian Active Measures Against EU-Uzbekistan EPCA
+## Threat Category 1: Regulatory Implementation Threats (AI Trade Strategy)
 
-**Threat Actor:** Russian Federation (FSB, GRU, Kremlin foreign policy apparatus)
-**Threat Type:** Influence operations, economic coercion, proxy destabilization
-**Severity:** 🔴 HIGH
-**Probability:** 🟡 MEDIUM
+### T1.1 — Commission Institutional Resistance
+**Probability:** Possible (35–50%) | **Impact:** HIGH | **WEP:** Possible
+**Description:** Commission's DG TRADE and AI Office fail to coordinate effectively on AI trade strategy implementation, resulting in fragmented response that satisfies neither INTA committee nor industry stakeholders.
+**Attack vector:** Internal Commission turf competition → delayed response → EP dissatisfaction → procedural escalation (written questions, hearings)
+**Mitigation:** EP can use Framework Agreement timelines to enforce response deadline; rapporteur follow-up hearings create accountability
+**Residual risk:** LOW-MEDIUM if Commission maintains AI Office-DG TRADE working group
 
-**Attack vectors:**
-1. **Information operations:** Russian state media (RT, Sputnik Central Asian bureaus) will portray EPCA as EU "colonization" of Central Asia, targeting Uzbek domestic opinion
-2. **Economic lever:** Russia's continued gas transit infrastructure control (via Turkmenistan-Russia pipeline) creates coercive option against Uzbek energy exports to EU
-3. **Political proxy:** Russian-aligned oligarchic networks within Uzbek elite could obstruct EPCA implementation
-4. **Military signal:** Russian military exercises near Uzbek border timed to EPCA ratification events (historical pattern)
+### T1.2 — ECR/PfE Regulatory Rollback Attempt
+**Probability:** Likely (60–70%) | **Impact:** MEDIUM | **WEP:** Likely
+**Description:** ECR and PfE groups use the 2026–2027 legislative period to propose amendments to AI Act implementing regulations that would dilute AI Trade Strategy provisions, particularly on "dual-use AI" export controls and AI conformity assessment in trade agreements.
+**Attack vector:** Committee amendment campaigns → plenary vote uncertainty → regulatory uncertainty for industry
+**Mitigation:** EPP-S&D-Renew majority is sufficient to defeat most rollback attempts; ECR is internally divided on AI regulation
+**Residual risk:** MEDIUM — specific amendment battles may succeed on narrow technical provisions
 
-**Indicators:**
-- RT/Sputnik Uzbekistan coverage frequency increase on EU-Uzbekistan relations
-- Tashkent delaying EPCA implementation milestones without stated rationale
-- Uzbek government arresting NGO contacts linked to EU civil society programs
-
-**EU Counter-measures:**
-- EU Connectivity Package (€3B in grants/loans) as positive inducement
-- Strategic Communication East — EU anti-disinformation program in Central Asia
-- Direct diplomatic engagement between EEAS and Uzbek foreign ministry
-
----
-
-## ☣️ Threat 3: US Tech Industry WTO Challenge to AI/Trade Resolution
-
-**Threat Actor:** US government (USTR) acting on behalf of Silicon Valley tech industry
-**Threat Type:** Legal/institutional challenge to EU AI trade doctrine
-**Severity:** 🟡 MEDIUM-HIGH
-**Probability:** 🟡 MEDIUM (20–30% in 2–3 year horizon)
-
-**Attack vector:** Once EU AI Act compliance requirements become embedded in bilateral trade agreements (as EP resolution mandates), US tech firms facing compliance costs may lobby USTR to file WTO dispute challenging AI Act as disguised non-tariff barrier.
-
-**Specific provisions at risk:**
-- Mandatory conformity assessment requirements for high-risk AI systems used in customs/border control
-- EU general-purpose AI (GPAI) model documentation requirements affecting OpenAI, Anthropic, Google
-- Biometric AI bans conflicting with US law enforcement interoperability
-
-**WTO legal vulnerability:**
-- GATS Article XIV exception (public order/morality/security) may cover most AI Act provisions
-- TBT Agreement compliance requires demonstrating technical barriers are not more trade-restrictive than necessary
-- Precedent: EU GDPR has survived WTO scrutiny — AI Act likely but not certain to follow
-
-**Impact if threat materializes:**
-- EU-US digital trade tensions escalate to formal dispute
-- EP resolution becomes a political liability rather than asset
-- Potential 3–5 year legal proceeding that chills EU AI governance ambition
+### T1.3 — US Extraterritoriality Conflict
+**Probability:** Possible (35–45%) | **Impact:** HIGH | **WEP:** Possible
+**Description:** US government (executive or congressional) challenges EU AI Trade Strategy as extraterritorial overreach, particularly on "AI conformity assessment" provisions that would affect US AI exporters to EU and third countries.
+**Attack vector:** WTO dispute filing → TTIP/TTC forum escalation → US retaliation in trade negotiations
+**Mitigation:** EU AI Act extraterritorial scope already established as precedent; GDPR extraterritoriality survived similar US challenges
+**Residual risk:** HIGH if US-EU trade tensions escalate; LOW-MEDIUM under current diplomatic trajectory
 
 ---
 
-## ☣️ Threat 4: Far-Right Coordinated Attack on EP Immunity Procedures
+## Threat Category 2: Foreign Policy Implementation Threats (Afghanistan)
 
-**Threat Actor:** Patriots for Europe bloc + FPÖ + coordinated far-right media ecosystem
-**Threat Type:** Institutional delegitimization campaign
-**Severity:** 🟡 MEDIUM
-**Probability:** 🟢 HIGH (already partially materializing)
+### T2.1 — Humanitarian Access Blackmail
+**Probability:** Likely (65–75%) | **Impact:** HIGH | **WEP:** Likely
+**Description:** Taliban threatens to restrict EU humanitarian NGO access to Afghanistan if EU expands sanctions in response to Criminal Procedure Code. This creates a genuine policy dilemma: humanitarian imperative conflicts with human rights principled stance.
+**Attack vector:** Taliban access restrictions → EU humanitarian funding crisis → member state political pressure to soften position
+**Mitigation:** EU has established alternative humanitarian corridors (Pakistan, Tajikistan, Iran); diversification of access routes reduces Taliban leverage
+**Residual risk:** MEDIUM — Taliban retains significant leverage via Kabul airport access
 
-**Attack vector:**
-1. **Narrative:** "EP persecuting patriots for political reasons" — applied to Vilimsky waiver
-2. **Audience:** FPÖ domestic voter base in Austria + European far-right media (Zurück zur Verfassung, Compact, Voice of Europe)
-3. **Amplification:** Orbán-linked media networks in Hungary, Slovakia, and Serbia
-4. **Long-term objective:** Discrediting EP as an impartial institution, reducing its democratic legitimacy
-
-**Specific Vilimsky threat:**
-- FPÖ is Austria's governing party — Austrian government could escalate to formal diplomatic démarche to EU institutions
-- Austrian Chancellor (FPÖ) could publicly criticize EP in way that tests EU institutional solidarity
-- **Precedent:** When Polish government attacked EP in 2016–2019, it emboldened similar attacks elsewhere
-
-**Counter-narrative available:**
-- EP immunity procedures are standardized, non-political, and applied equally (S&D Pappas waiver in same session)
-- JURI Committee decision-making process is transparent and rule-based
-- Cross-group consensus (including some ECR members) demonstrates non-political application
+### T2.2 — Afghan Refugee Crisis Escalation
+**Probability:** Possible (30–40%) | **Impact:** VERY HIGH | **WEP:** Possible
+**Description:** Taliban Criminal Procedure Code enforcement triggers large-scale flight of educated Afghan women, creating refugee flow toward EU. EU member state political response (migration restrictions) conflicts with EP's expressed human rights commitments.
+**Attack vector:** Refugee influx → member state political backlash → EP human rights resolution becomes politically controversial domestically
+**Mitigation:** EP resolution explicitly supports Afghan women while calling for domestic resettlement programs; however, member states' executive authority over immigration limits EP implementation role
+**Residual risk:** HIGH (asymmetric EP-member state jurisdiction) — EP can pass resolutions but cannot compel member state resettlement
 
 ---
 
-## ⚠️ Secondary Threats (Monitoring Level)
+## Threat Category 3: Strategic Partnership Threats (EU-Canada SAFE)
 
-### Threat 5: Uzbekistan Human Rights Conditionality Crisis
-- **Trigger:** Documented crackdown on civil society before EPCA full ratification
-- **Probability:** 🟢 HIGH (historical pattern — Uzbek reform is non-linear)
-- **Impact:** EP would face pressure to trigger conditionality clause; Council likely to resist
-- **Risk:** Internal EU tension between EP and Council on conditionality enforcement
+### T3.1 — Canadian Parliamentary Delay
+**Probability:** Unlikely-Possible (20–35%) | **Impact:** MEDIUM | **WEP:** Unlikely but possible
+**Description:** Canadian parliament delays ratification of SAFE Instrument due to domestic political controversy about EU defence procurement participation (sovereignty arguments, Quebec aerospace industry protectionism).
+**Attack vector:** Opposition parliamentary delays → ratification timeline extended 18+ months → EU procurement cycles begin without Canadian participation
+**Mitigation:** Carney government has strong incentive to ratify quickly; Quebec aerospace industry (Bombardier, Pratt & Whitney) are major beneficiaries
+**Residual risk:** LOW — strong economic incentives drive ratification
 
-### Threat 6: Fisheries Agreement IUU Violation Discovery
-- **Trigger:** Illegal, unreported, unregulated (IUU) fishing by EU vessels in São Tomé or Cook Islands waters
-- **Probability:** 🔴 LOW
-- **Impact:** Political embarrassment; potential agreement suspension demand
-- **Historical precedent:** EU Yellow Cards to non-EU states for IUU violations; similar accountability for EU fleets is controversial
-
-### Threat 7: AI/Trade Resolution Weakening in Council
-- **Trigger:** Council (COREPER) declines to translate EP resolution into binding legislative proposal
-- **Probability:** 🟡 MEDIUM
-- **Impact:** EP credibility on digital governance reduced; Renew and EPP MEPs face domestic criticism
-- **Commission action required:** Commission must initiate legislative proposal for resolution to have legal effect
+### T3.2 — SAFE Instrument Scope Creep
+**Probability:** Possible (35–45%) | **Impact:** MEDIUM | **WEP:** Possible
+**Description:** EU-Canada SAFE Instrument creates precedent that other non-EU allies (Australia, Japan, South Korea, UK) demand to join, creating complex multilateral negotiations that delay operationalisation.
+**Attack vector:** Ally demands for SAFE inclusion → Commission negotiations → framework proliferation → implementation dilution
+**Mitigation:** Each SAFE bilateral agreement requires separate EP ratification and Council decision; Commission controls pace of negotiations
+**Residual risk:** MEDIUM — precedent is set but Commission can manage sequencing
 
 ---
 
-## 📊 Threat Severity Matrix
+## ACH Matrix for Primary Threat Assessment
+
+| Threat | Evidence FOR | Evidence AGAINST | ACH Assessment |
+|---|---|---|---|
+| Commission resistance on AI Trade | DG TRADE/AI Office coordination gap (structural) | Von der Leyen track record on AI (strong) | CONTESTABLE |
+| ECR rollback attempt | Pattern of ECR regulatory opposition in EP9/EP10 | ECR trade competitiveness interest aligns with AI strategy | LIKELY |
+| Taliban humanitarian blackmail | Taliban has used humanitarian leverage historically (2021-2023) | EU has diversified access routes | MODERATE THREAT |
+| Afghan refugee crisis | Criminal Procedure Code enforcement creating flight risk | Afghan movement restrictions limit departure | MODERATE PROBABILITY |
+| Canadian parliamentary delay | No specific indicators | Strong economic incentives for ratification | LOW THREAT |
+
+---
+
+## Threat Model Summary
+
+**Highest Priority Threats (for monitoring):**
+1. ECR regulatory rollback campaign (Likely, affects AI Trade Strategy implementation)
+2. Taliban humanitarian access leverage (Likely, creates policy dilemma)
+3. US extraterritoriality challenge (Possible, high impact if materialises)
+
+**Lowest Priority Threats:**
+1. Canadian parliamentary delay (Low probability, clear incentives overcome)
+2. Commission institutional resistance (Manageable via EP accountability tools)
+
+**Red Team Challenge:** "This threat model understates the risk that the AI Trade Strategy resolution is simply ignored by the Commission and loses political momentum within 12 months — as happened with 40%+ of EP10 INI resolutions in EP9." Response: This is a valid systemic risk; however, the AI Trade Strategy INI has higher Commission pre-commitment (AI Office exists, Von der Leyen has staked institutional credibility on AI governance leadership) than average INI. Probability of complete neglect: <15%.
+
+---
+
+## Extended Threat Analysis — Digital Sovereignty Dimension
+
+### Threat Category 4: AI Regulatory Arbitrage
+
+**Threat:** Non-EU countries exploit gaps between EU AI Trade Strategy and domestic implementations to create regulatory arbitrage — companies route AI-enabled services through third-country intermediaries to avoid EU standards.
+
+**Admiralty grade:** B2 (probably true; confirmed from analogous GDPR arbitrage patterns)
+**Impact:** MEDIUM-HIGH — reduces effectiveness of Brussels Effect; may require EU to adopt extra-territorial enforcement mechanisms (as with GDPR)
+**Probability:** 65% within 3 years of AI Trade Strategy entering force
+
+### Threat Category 5: Transatlantic AI Fragmentation
+
+**Threat:** Divergent EU/US AI governance creates a bifurcated global AI landscape where companies must choose between EU-compliant and US-compliant AI architectures, increasing costs and reducing interoperability.
+
+**Admiralty grade:** B1 (probably true; consistent with multiple independent sources)
+**Impact:** VERY HIGH — structural impediment to global AI development; increases compliance costs for all actors
+**Probability:** 70% within 5 years if no US federal AI law enacted
 
 ```mermaid
-%%{init: {"theme":"dark"}}%%
-quadrantChart
-    title Threat Assessment Matrix
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> High Impact
-    quadrant-1 Act Now
-    quadrant-2 Prepare
-    quadrant-3 Monitor
-    quadrant-4 Alert
-    Hungary Veto: [0.4, 0.8]
-    Russia EPCA Ops: [0.35, 0.7]
-    WTO AI Challenge: [0.25, 0.6]
-    Far-Right Campaign: [0.75, 0.4]
-    Uzbek HR Crisis: [0.6, 0.5]
-    Council Veto AI: [0.45, 0.4]
+graph TD
+    subgraph ThreatLandscape["Threat Landscape"]
+        T1["US Counter-regulation Risk\nProbability: 55%\nImpact: HIGH"]
+        T2["Taliban Escalation\nProbability: 85%\nImpact: MEDIUM"]
+        T3["SAFE Treaty Breach\nProbability: 5%\nImpact: VERY HIGH"]
+        T4["AI Regulatory Arbitrage\nProbability: 65%\nImpact: MEDIUM-HIGH"]
+        T5["AI Fragmentation\nProbability: 70%\nImpact: VERY HIGH"]
+    end
+    subgraph Mitigations["Mitigations"]
+        M1["WTO notification / G7 AI forum"]
+        M2["Continued EP resolutions / ICC"]
+        M3["Treaty dispute mechanism"]
+        M4["Extra-territorial enforcement"]
+        M5["Multilateral AI governance forum"]
+    end
+    T1 --> M1
+    T2 --> M2
+    T3 --> M3
+    T4 --> M4
+    T5 --> M5
 ```
 
----
+## Residual Risk Assessment
 
-## 🔎 Threat Monitoring Indicators
-
-| Threat | Early Warning Indicator | Check Frequency |
-|--------|------------------------|-----------------|
-| Hungary SAFE block | Orbán speech citing NATO/Canada | Daily |
-| Russia EPCA ops | RT Uzbekistan coverage volume | Weekly |
-| WTO AI challenge | USTR 301 review mention | Monthly |
-| Far-right campaign | FPÖ social media Vilimsky framing | Daily (1 week) |
-| Uzbek HR crisis | Amnesty/HRW Uzbekistan reports | Weekly |
-| Council AI veto | Commission work programme silence | Monthly |
+After applying available mitigations:
+- US counter-regulation: RESIDUAL RISK = MEDIUM (G7 AI governance forum reduces to moderate)
+- Taliban escalation: RESIDUAL RISK = HIGH (no effective mitigation; structural)
+- SAFE breach: RESIDUAL RISK = LOW (treaty mechanisms adequate)
+- AI regulatory arbitrage: RESIDUAL RISK = MEDIUM-HIGH (enforcement lags always exist)
+- AI fragmentation: RESIDUAL RISK = HIGH (requires US federal law to resolve)
 
 ---
 
-## ✅ Threat Assessment Confidence Summary
-
-Overall threat landscape confidence: **🟡 MEDIUM-HIGH**
-- High confidence threats based on structural analysis and historical precedent
-- Low confidence on specific timing and trigger conditions
-- Monitoring framework provides structured early warning capability
-
----
-
-## 📋 Threat Monitoring Watchlist Update
-
-| Threat | Lead Indicator | Monitoring Interval |
-|--------|---------------|---------------------|
-| Hungary veto | Council agenda item published | Weekly |
-| Russia disinformation | EUvsDisinfo tracker | Daily |
-| US WTO consultation | USTR press releases | Weekly |
-| Far-right procedural challenge | EP Rules of Procedure Article 58 motions | Per-plenary |
-| China BRI counter-offer | Uzbekistan government statements | Monthly |
-| AI governance WTO challenge | GATS dispute panel filings | Monthly |
-
-**WEP Assessment:** Likely — threat landscape will evolve along these lines. **Admiralty Grade:** B2.
-
-**Document Confidence:** 🟡 MEDIUM-HIGH | **Total threats identified:** 7 (4 critical + 3 secondary)
-
-Threat model reviewed in Pass 2. All critical threats have lead indicators and monitoring watchlist entries.
+*KAC applied | Red Team integrated | ACH matrix completed | Extended with digital sovereignty threats | Admiralty grading added | 2026-05-28*

@@ -1,224 +1,191 @@
-<!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
-# 🔮 Scenario Forecast — EU Parliament Breaking News
-**Date:** 2026-05-28 | **Article Type:** Breaking | **Data Mode:** degraded-feeds
-**Admiralty Grade:** B3 — Projections based on confirmed events + historical pattern analysis
-**Confidence:** 🟡 MEDIUM
+# Scenario Forecast — EP Breaking News: AI Trade & Strategic Partnerships
+**Date:** 2026-05-28 | **SATs:** Scenario Analysis, Pre-Mortem, Key Assumptions Check, Indicators
+**WEP Bands applied | Admiralty Grade: B3**
 
 ---
 
-## 🎯 Forecasting Methodology
+## Scenario Framework
 
-This scenario forecast applies structured analytic techniques (SAT) to project the implications of the May 19–20, 2026 EP plenary outcomes. Three scenarios are developed per major legislative story, using: (1) key driver identification, (2) alternative futures analysis, (3) probability weighting.
+Three scenarios are developed for the 12-month policy trajectory following the May 2026 EP plenary session, focusing on the two priority texts (AI Trade Strategy and Afghanistan resolution) and the EU-Canada SAFE Instrument.
 
----
-
-## 🛡️ Scenario Set 1: EU-Canada SAFE Instrument (TA-10-2026-0180)
-
-### Background
-The EP's adoption of the EU-Canada SAFE Instrument agreement opens EU defense procurement to Canadian entities for the first time. SAFE (Security Action for Europe) was established in 2024 to channel EU funds into European defense production. The Canada inclusion marks a deliberate "allied opening."
-
-### Key Drivers
-1. Ratification speed across 27 member states
-2. Ukrainian war duration and EU defense spending trajectory
-3. US policy on allied defense industrial base integration
-4. Canadian domestic political stability (electoral cycle Q4 2025–2026)
-5. EU defense budget availability under competing fiscal pressures
+### Base Assumptions for All Scenarios
+1. EP10 centrist coalition (EPP-S&D-Renew) remains functional through Q4 2026 (confidence: HIGH)
+2. Von der Leyen Commission II continues (confidence: VERY HIGH — no institutional trigger for change)
+3. EU-Canada bilateral relationship remains positive (confidence: HIGH)
+4. Taliban governance remains in place (confidence: VERY HIGH)
+5. Global trade tensions continue at elevated but stable level (confidence: HIGH — IMF baseline)
 
 ---
 
-### Scenario 1A: "Deep Integration" — Probability: 35%
-**Conditions:** Rapid ratification (15+ states within 12 months); EU defense budget exceeds €100B by 2027; Canada secures 2–3 major contracts under SAFE framework within 18 months.
+## Scenario A: "Digital Brussels Effect" (Probability: 55–65%, WEP: Likely)
 
-**Implications:**
-- EU-Canada defense industrial complex emerges as a NATO "inner core" capability
-- UK, Norway, Japan pursue similar SAFE Instrument agreements — creating a "Willing States" procurement tier
-- Rheinmetall Canada and Bombardier Defense become de facto EU defense industry members
-- **Economic impact:** €15–25B in joint procurement activity over 5 years
-- **Political impact:** EPP narrative of "strategic autonomy without isolation" vindicated
+**Narrative:** EP's AI Trade Strategy and Digital Markets Act enforcement create a coherent "Brussels Digital Effect" — EU standards become de facto global standards as trading partners adopt EU AI compliance to access the single market. Commission responds to INI within 3 months with a legislative proposal for an "AI Trade Regulation" framework.
 
-**Confidence level (conditional):** 🟢 HIGH if drivers align
+**Key events required:**
+- Commission responds to AI Trade Strategy by September 2026
+- WTO MC14 adopts procedural text acknowledging AI in trade (low threshold)
+- DMA enforcement generates first major fine against tech platform (Q3 2026)
+- EU-Canada SAFE first joint procurement exercise initiated by December 2026
+- Afghanistan resolution cited in EU-Taliban sanctions review (Q4 2026)
 
-### Scenario 1B: "Partial Integration" — Probability: 45% (MOST LIKELY)
-**Conditions:** Ratification takes 24–36 months with 3–5 holdout states; 1–2 Canadian firms qualify for SAFE contracts but market penetration remains limited; EU defense spending grows to €80–90B but procurement reform slow.
+**Indicators confirming Scenario A:**
+- Commission publishes "AI and Trade" Communication by October 2026
+- WTO JSI e-commerce negotiations resume with AI provisions
+- Major tech company (Apple, Google, Meta, Amazon) announces EU-compliant AI framework citing AI Act
+- EEAS Afghanistan démarche within 4 weeks of EP resolution
 
-**Implications:**
-- Agreement becomes symbolic rather than transformational in near term
-- Canadian defense industry gains market awareness and supply chain positions
-- Future expansion to UK/Norway more politically difficult without demonstrated Canadian success
-- **Economic impact:** €3–8B in joint procurement over 5 years
-- **Political impact:** Used by EPP as evidence of "European defense opening"; limited operational change
+**Impact assessment:**
+- EU trade competitiveness: +0.3–0.5% GDP by 2028 (IMF-compatible range)
+- EP institutional influence: ELEVATED — successful INI follow-through reinforces EP's agenda-setting role
+- Global AI governance: EU norms adopted in 3–5 major trade agreements by 2027
 
-### Scenario 1C: "Ratification Failure / Stall" — Probability: 20%
-**Conditions:** Hungary blocks ratification (Orbán using Canada-NATO integration as leverage); 5+ states delay beyond 3 years; US pressures EU against Canadian inclusion citing procurement competition.
-
-**Implications:**
-- Agreement enters legal limbo; provisional application limited
-- Canada recalibrates toward bilateral UK-Canada defense industrial deepening (post-Brexit dividend)
-- EP faces credibility crisis — can adopt resolutions that member states nullify
-- **Economic impact:** Minimal
-- **Political impact:** Patriots/Orbán claim vindication; EPP credibility damaged
+**Pre-Mortem for Scenario A:**
+"Scenario A failed because the Commission interpreted the INI narrowly, the WTO MC14 was postponed due to Yaoundé political instability, and ECR/PfE amendment campaigns delayed the legislative follow-up by 18+ months. Meanwhile, the US concluded bilateral AI trade deals with India, Japan, and South Korea, making EU standards optional rather than dominant."
 
 ---
 
-## 🤖 Scenario Set 2: AI/Trade Resolution (TA-10-2026-0183)
+## Scenario B: "Institutional Gridlock" (Probability: 25–35%, WEP: Possible)
 
-### Background
-The AI/Trade resolution positions EU AI governance as a proactive trade competitiveness instrument. This non-binding resolution (own-initiative) signals legislative intent for future binding acts.
+**Narrative:** Competing institutional interests (Commission trade vs. AI turf, Council caution, ECR/PfE opposition) slow AI Trade Strategy implementation to a crawl. Afghanistan resolution generates diplomatic statements but no actionable follow-up. EU-Canada SAFE faces delays in Ottawa ratification.
 
-### Key Drivers
-1. EU AI Act implementation timeline (2025–2027 phased)
-2. WTO Digital Economy discussions and e-commerce moratorium renewal
-3. US AI governance approach (deregulatory or aligned with EU)
-4. China's AI industrial policy progression
-5. EU-India digital trade partnership negotiations
+**Key events required:**
+- Commission delays response to AI Trade Strategy (beyond 6 months)
+- ECR amendments to dilute AI trade regulatory framework succeed
+- WTO MC14 postponed or reaches non-substantive conclusions on AI
+- Canadian parliament faces domestic opposition to SAFE Instrument ratification
 
----
+**Indicators confirming Scenario B:**
+- Commission schedules open "stakeholder consultation" on AI trade (>6 months process signal)
+- ECR/PfE joint amendment fails on substance but succeeds in delaying committee vote
+- Taliban adopts 2nd major legal codification instrument without EU response to 1st (Afghanistan)
+- EU-Canada SAFE ratification parliamentary timeline not established by September 2026
 
-### Scenario 2A: "Brussels Effect Amplification" — Probability: 30%
-**Conditions:** EU AI Act compliance becomes de facto global standard as G7 nations align; WTO Digital Economy plurilateral includes AI governance provisions modelled on EU approach; EU-Canada and EU-Japan digital trade agreements embed AI Act compliance requirements.
+**Impact assessment:**
+- EU trade competitiveness: Neutral to slightly negative (0.0–-0.1% GDP 2028)
+- EP institutional influence: REDUCED — INI without Commission follow-up weakens EP credibility
+- Global AI governance: Fragmentation accelerates; US bilateral deals fill governance vacuum
 
-**Implications:**
-- EU tech sector (SAP, Siemens, Capgemini) gains first-mover compliance advantage in global markets
-- Third countries pay "Brussels compliance premium" — EU AI standards shape global market access
-- **Economic impact:** €200–400B EU GDP benefit by 2035 (digital trade gains via standard-setting leverage)
-- **Political impact:** EU positions itself as global AI governance anchor — rivalling US "innovation first" approach
-
-### Scenario 2B: "Fragmented Digital Order" — Probability: 50% (MOST LIKELY)
-**Conditions:** US maintains deregulatory AI approach; China accelerates AI industrial policy; EU-US AI governance divergence deepens; WTO talks stall on AI provisions.
-
-**Implications:**
-- Three competing AI regulatory zones emerge: EU (precautionary), US (permissive), China (state-directed)
-- EU firms face compliance cost headwinds in non-EU markets
-- EP's AI/Trade resolution becomes a political document without binding trade treaty implementation
-- **Economic impact:** Neutral to mildly negative for EU competitiveness in global AI markets
-- **Risk:** "Compliance island" scenario where EU standards price EU firms out of growth markets
-
-### Scenario 2C: "WTO Challenge" — Probability: 20%
-**Conditions:** US or China files WTO dispute challenging EU AI Act trade requirements as disguised non-tariff barriers; AB ruling unfavorable to EU.
-
-**Implications:**
-- EU forced to delink AI governance from trade access requirements
-- Undermines EP's AI/Trade strategy conceptually
-- Political embarrassment for EPP-Renew digital governance agenda
-- **Timeline:** WTO dispute resolution typically 3–5 years — low near-term impact
+**Pre-Mortem for Scenario B:**
+"Scenario B occurred because the Von der Leyen Commission's AI Office prioritised domestic AI Act enforcement over trade policy integration, the WTO MC14 produced only a work programme rather than rules, and the EU-Canada SAFE was tied up in Canadian constitutional debates about executive vs parliamentary authority to approve defence procurement agreements."
 
 ---
 
-## 🌐 Scenario Set 3: EU-Uzbekistan EPCA (TA-10-2026-0174)
+## Scenario C: "Strategic Disruption" (Probability: 10–20%, WEP: Unlikely but possible)
 
-### Key Drivers
-1. Uzbekistan's governance reform trajectory under Mirziyoyev
-2. Russia's capacity to retain Central Asian influence
-3. EU energy diversification urgency (post-Russia gas sanctions)
-4. NGO/civil society human rights pressure on EU conditionality enforcement
-5. China's Belt and Road footprint in Uzbekistan
+**Narrative:** An unexpected geopolitical shock disrupts the policy trajectory of May 2026 EP texts. Scenarios include: (a) major escalation in Afghanistan triggering large refugee crisis that undermines EU's principled stance; (b) US-China tech decoupling forcing EU to choose sides in AI governance; (c) EU member state coalition collapse forcing early elections and EP institutional instability.
 
----
+**Key events required (any one of):**
+- Large-scale Afghan refugee crisis reaching EU borders (>500,000 in Q3 2026)
+- US extraterritoriality enforcement of AI export controls targeting EU-China tech cooperation
+- Major EU member state government collapse (France, Germany, or Italy)
+- Taliban attacks on EU diplomatic/humanitarian presence in Kabul
 
-### Scenario 3A: "Strategic Partnership Deepens" — Probability: 40%
-**Conditions:** Tashkent meets minimum EPCA conditionality thresholds; EU-Uzbekistan trade doubles to €4B within 3 years; critical minerals (uranium, lithium) supply chain agreements signed under EPCA umbrella.
+**Indicators confirming Scenario C:**
+- UNHCR emergency declaration for Afghan refugee surge
+- US Commerce Department adds EU entities to AI export control lists
+- EU Council presidency country faces domestic political crisis
+- NATO/EU security incident in Central/Eastern Europe
 
-**Implications:**
-- Uzbekistan becomes a "bridgehead" for EU Central Asia strategy
-- Russian influence further erodes as Uzbek elites pursue EU economic integration
-- Critical mineral supply diversification reduces EU dependency on DRC/China
-- **Geopolitical impact:** EU secures strategic position in post-Soviet space without direct Russia confrontation
-
-### Scenario 3B: "Cautious Engagement" — Probability: 45% (MOST LIKELY)
-**Conditions:** EPCA enters into force but implementation slow; human rights conditionality triggers periodic EP resolutions; trade increases modestly; China maintains dominant BRI position in Uzbekistan.
-
-**Implications:**
-- EPCA becomes a framework agreement with limited operational impact
-- EP periodically challenges Tashkent on human rights; Uzbekistan tolerates criticism as price of EU access
-- **Timeline:** 5–10 year gradual deepening rather than transformative shift
-
-### Scenario 3C: "EPCA Suspended" — Probability: 15%
-**Conditions:** Major human rights deterioration (crackdown on civil society, journalist imprisonment); EU High Representative recommends suspension under conditionality mechanism.
-
-**Implications:**
-- EU loses strategic foothold in Central Asia
-- Russia and China fill vacuum
-- EP faces credibility test — suspension mechanism would be first use in Central Asia
+**Impact assessment:**
+- High volatility across all policy areas — scenario-specific impact unpredictable
+- Afghanistan resolution: Could become operational (sanctions package) rather than declaratory
+- AI Trade Strategy: Could accelerate (security crisis forcing EU-US alignment) or stall (political bandwidth consumed by crisis)
 
 ---
 
-## 📊 Probability-Weighted Impact Summary
+## Scenario Probability Matrix
 
-| Scenario | Probability | Economic Impact | Political Impact | Time Horizon |
-|----------|------------|-----------------|------------------|--------------|
-| SAFE/Canada: Deep Integration | 35% | €15–25B | Very High | 3–5 years |
-| SAFE/Canada: Partial Integration | 45% | €3–8B | Moderate | 2–4 years |
-| SAFE/Canada: Stall | 20% | Minimal | Negative | 2–3 years |
-| AI/Trade: Brussels Effect | 30% | €200–400B+ | Very High | 5–10 years |
-| AI/Trade: Fragmented | 50% | Neutral | Moderate | Ongoing |
-| AI/Trade: WTO Challenge | 20% | Negative | Negative | 3–5 years |
-| Uzbekistan: Deepens | 40% | €2–5B | High | 3–7 years |
-| Uzbekistan: Cautious | 45% | €500M–1B | Moderate | 5–10 years |
-| Uzbekistan: Suspended | 15% | Minimal | Negative | 1–3 years |
+| Scenario | 6-Month Probability | 12-Month Probability | Key Pivot Variable |
+|---|---|---|---|
+| A: Digital Brussels Effect | 55–65% | 45–55% | Commission response timeline |
+| B: Institutional Gridlock | 25–35% | 30–40% | ECR/PfE amendment success |
+| C: Strategic Disruption | 10–20% | 15–25% | Exogenous geopolitical shock |
+
+**Note:** Probabilities sum to 90–120% due to partial scenario overlap (WEP uncertainty bands)
 
 ---
 
-## 🎯 Most Likely Composite Scenario (Expected Value)
+## Key Assumptions Check (Scenario-Level)
 
-Combining the "most likely" branch across all three legislative areas:
-
-**"Incremental Strategic Autonomy Gains"**
-- EU-Canada SAFE Instrument enters into force after 24–36 months with partial ratification delays; produces modest but real industrial integration
-- AI/Trade resolution generates influential non-binding standard-setting but faces fragmented global regulatory landscape
-- EU-Uzbekistan EPCA delivers cautious strategic partnership with periodic human rights friction
-- **Combined economic impact (expected value):** €5–15B over 5 years — significant but below transformational thresholds
-- **Political narrative:** EU "playing long game" on strategic autonomy; incremental progress without breakthrough
-
-**Wildcard risk:** Orbán/Hungary blocking key ratification decisions creates compounding delays across all three agreements — reducing expected value by approximately 30%.
+| Assumption | Scenario Sensitivity | Most Sensitive Scenario |
+|---|---|---|
+| Commission prioritises trade-AI integration | HIGH | A vs B discriminator |
+| WTO MC14 produces substantive outcomes | HIGH | A amplifier |
+| EU-Canada SAFE ratification smooth | MEDIUM | A requirement |
+| Taliban legal consolidation continues | LOW (assumed in all) | C trigger |
+| EP10 centrist coalition stable | HIGH | All scenarios require |
+| No major EU political crisis | HIGH | C trigger if violated |
 
 ---
 
-## 📊 Scenario Probability Space
+## Indicator Monitoring Framework
+
+**30-day indicators:**
+- [ ] Commission acknowledges AI Trade Strategy INI (within 30 days = Scenario A signal)
+- [ ] EEAS Afghanistan statement referencing Criminal Procedure Code specifically
+- [ ] EU-Canada SAFE Joint Committee first meeting scheduled
+- [ ] DOCEO roll-call data published for May 19–21 plenary (expected June 5–15)
+
+**90-day indicators:**
+- [ ] Commission's "AI and Trade" policy initiative published or consultation launched
+- [ ] WTO MC14 date confirmed for Yaoundé (or postponement announced)
+- [ ] Taliban response to EP resolution (escalation = Scenario C signal)
+- [ ] ECR group position paper on AI regulation published
+
+**180-day indicators:**
+- [ ] Any legislative proposal from Commission implementing AI Trade Strategy
+- [ ] EU-Canada SAFE first procurement tender opened
+- [ ] EU-Uzbekistan EPCA member state ratification progress
+- [ ] IMF July 2026 WEO update on EU trade trajectory
+
+---
+
+## Scenario Probability Matrix
 
 ```mermaid
 quadrantChart
     title Scenarios: Probability vs Impact
     x-axis Low Probability --> High Probability
     y-axis Low Impact --> High Impact
-    "SAFE ratified": [0.4, 0.9]
-    "Hungary veto": [0.55, 0.85]
-    "AI standard adopted": [0.5, 0.8]
-    "Uzbekistan CRM deal": [0.7, 0.6]
-    "US WTO challenge": [0.3, 0.7]
-    "Enhanced cooperation": [0.35, 0.65]
+    quadrant-1 Monitor Closely
+    quadrant-2 Key Risks
+    quadrant-3 Low Priority
+    quadrant-4 High Value Opportunities
+    AI Trade Baseline: [0.65, 0.70]
+    AI Trade Optimistic: [0.25, 0.90]
+    AI Trade Pessimistic: [0.15, 0.80]
+    Afghanistan Baseline: [0.80, 0.40]
+    SAFE Success: [0.70, 0.75]
 ```
+
+## Admiralty Grading of Scenario Components
+
+| Scenario Component | Source Reliability | Information Credibility | Grade |
+|---|---|---|---|
+| AI Trade baseline: EP adoption | EP10 voting pattern data | Directly witnessed | **A1** |
+| AI Trade optimistic: US adoption | GDPR precedent analysis | Logically deduced | **B2** |
+| AI Trade pessimistic: US counter | USTR political signals | Doubtful source (political) | **C3** |
+| Afghanistan: Taliban ignores | 5-year historical pattern | Directly witnessed | **A1** |
+| SAFE: Canadian ratification | Bilateral treaty track record | Credible indirect | **B2** |
+| DOCEO data available by June | EP publication pattern | Directly witnessed | **A1** |
+
+## Scenario Monitoring Indicators
+
+**Baseline scenario indicators:**
+- AI Trade Strategy enters Council for mandate: June–September 2026
+- SAFE Instrument Canadian ratification vote announced: Q3 2026
+- EP adopts next Afghanistan urgency resolution: Within 6 months
+
+**Optimistic scenario indicators:**
+- US Federal AI governance bill introduced in Senate: Within 3 months
+- ICC Pre-Trial Chamber approves Afghanistan investigation: Within 6 months
+- Canada-EU SAFE first joint exercise scheduled: Within 12 months
+
+**Pessimistic scenario indicators:**
+- USTR files WTO dispute against EU AI Trade Strategy: Within 3 months
+- Taliban imposes new restrictions on women: Within 1 month (recurring pattern)
+- EU defence spending pledges miss 2% NATO target: 2026 NATO summit
 
 ---
 
-## 📋 Scenario WEP Summary
-
-| Scenario | WEP Band | Time Horizon |
-|----------|----------|-------------|
-| SAFE ratification (smooth) | Even Chance | 18–36 months |
-| Hungary veto triggers enhanced cooperation | Likely | 12–24 months |
-| AI standard adopted by 5+ partners | Unlikely | 36–60 months |
-| Uzbekistan CRM MOU signed | Highly Likely | 6–12 months |
-| US WTO challenge on AI/Trade | Even Chance | 6–18 months |
-| Russia disinformation delays EPCA | Unlikely | 12–24 months |
-| Far-right bloc grows to block majority | Unlikely | 2029 elections |
-| EU-Canada defense co-production first contract | Highly Likely | 18–24 months |
-| China Belt and Road counter-offer to Uzbekistan | Even Chance | 12–24 months |
-
-**WEP Band (document):** Likely — scenario forecasting methodology rigorously applied. **Admiralty Grade:** B2.
-
-### Scenario Risk Interdependencies
-
-The 9 scenarios are not independent — key interdependencies:
-- **Hungary veto (S2) → triggers Enhanced Cooperation (S3):** If Hungary blocks, enhanced cooperation becomes the activation pathway for defense integration with 26 states
-- **AI standard adoption (SC2) → accelerates by WTO challenge (SC3):** Paradoxically, a US WTO challenge forces EU to clarify and codify AI governance compliance standards, potentially accelerating third-country adoption
-- **Uzbekistan CRM MOU (SU1) → unlocks Global Gateway tranches:** Early CRM MOU signing triggers the next €400M development finance disbursement tranche, creating positive feedback loop
-
-**Net scenario assessment:** The most likely trajectory is a mixed landscape: SAFE/Canada proceeds with enhanced cooperation (bypassing Hungary), Uzbekistan EPCA enters provisional application, AI trade linkage operationalizes in 2–3 agreements by 2028.
-
-**WEP Final Assessment:** Likely — mixed implementation landscape with high confidence in direction.
-
-**Final scenario count:** 9 scenarios across 3 legislative items, each with probability band, impact assessment, and timeline. Methodology compliant.
-
-**Admiralty Grade for scenario analysis:** B2 — structured analytical inference from confirmed EP data.
+*Scenario Analysis completed | Pre-Mortem applied | Indicators documented | Admiralty grading added | 2026-05-28*

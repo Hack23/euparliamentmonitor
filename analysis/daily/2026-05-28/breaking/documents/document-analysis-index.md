@@ -1,160 +1,64 @@
-<!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
-# 📄 Document Analysis Index — EU Parliament Breaking News
-**Date:** 2026-05-28 | **Article Type:** Breaking | **Data Mode:** degraded-feeds
-**Admiralty Grade:** A1 — Direct EP Open Data Portal document records
+# Document Analysis Index — EP Breaking News May 2026
+**Date:** 2026-05-28 | **Source:** EP Adopted Texts API (year=2026, A2 grade)
 
 ---
 
-## 📋 Document Inventory
+## Primary Documents — May 2026 Strasbourg Plenary
 
-All EP adopted texts from May 19–20, 2026 are indexed here with full metadata and cross-references to analysis artifacts.
+### Tier 1: Breaking News Priority Documents
 
----
-
-## 🔴 Priority Documents (S1 Significance)
-
-### DOC-001: TA-10-2026-0180
-- **Title:** EU–Canada Agreement laying down the conditions for the participation of Canadian legal entities and products originating in Canada to procurement under the SAFE Instrument
-- **Reference:** TA-10-2026-0180
-- **Date adopted:** 2026-05-20
-- **Procedure reference:** eli/dl/event/2025-0413-DEC-DCPL-2026-05-20
-- **Subject matter codes:** PESC, EXT
-- **Document type:** TEXT_ADOPTED (def/ep-document-types/TEXT_ADOPTED)
-- **Associated analysis files:**
-  - `intelligence/synthesis-summary.md` §Defense & Security
-  - `intelligence/coalition-dynamics.md` §Vote 1
-  - `intelligence/threat-model.md` §Critical Threat 1
-  - `risk-scoring/risk-matrix.md` §R1
-  - `risk-scoring/quantitative-swot.md` §S1, §T1
-  - `intelligence/scenario-forecast.md` §Scenario Set 1
-  - `intelligence/stakeholder-map.md` §External Governmental Actors (Canada)
-  - `intelligence/pestle-analysis.md` §P — Political
-
-### DOC-002: TA-10-2026-0183
-- **Title:** Opportunities and challenges presented by a comprehensive artificial intelligence strategy for EU trade
-- **Reference:** TA-10-2026-0183
+#### TA-10-2026-0183 — AI Strategy for EU Trade
+- **Full title:** "Opportunities and challenges presented by a comprehensive artificial intelligence strategy for EU trade"
 - **Date adopted:** 2026-05-20
 - **Procedure reference:** eli/dl/event/2025-2112-DEC-DCPL-2026-05-20
-- **Subject matter codes:** TECN, INFQ
-- **Associated analysis files:**
-  - `intelligence/synthesis-summary.md` §Digital Economy & Trade
-  - `intelligence/pestle-analysis.md` §T — Technological
-  - `intelligence/coalition-dynamics.md` §Vote 2
-  - `intelligence/threat-model.md` §Threat 3
-  - `risk-scoring/quantitative-swot.md` §S2, §O2
-  - `intelligence/scenario-forecast.md` §Scenario Set 2
+- **Subject matter codes:** TECN (Technology), INFQ (Information quality/AI)
+- **Document type:** TEXT_ADOPTED (INI resolution — non-legislative)
+- **Lead committee:** INTA (International Trade Committee) — inferred from subject matter
+- **Significance:** CRITICAL — world's first legislative AI trade strategy resolution
+- **PDF/XML availability:** Available via EP Legislative Observatory reference
+
+#### TA-10-2026-0186 — Afghanistan Women's Rights Urgency
+- **Full title:** "Situation of women and girls in Afghanistan following the Taliban's adoption of the Criminal Procedure Code for Courts"
+- **Date adopted:** 2026-05-21
+- **Procedure reference:** eli/dl/event/2026-2737-DEC-DCPL-2026-05-21
+- **Subject matter codes:** PESC (Foreign and Security Policy), DDLH (Human Rights/Democracy)
+- **Document type:** TEXT_ADOPTED (Urgency resolution — non-legislative)
+- **Nature of resolution:** RC (RC procedure — joint urgency motion)
+- **Significance:** HIGH — direct response to Taliban Criminal Procedure Code
+
+#### TA-10-2026-0180 — EU-Canada SAFE Instrument
+- **Full title:** "EU–Canada Agreement laying down the conditions for the participation of Canadian legal entities and products originating in Canada to procurement under the SAFE Instrument"
+- **Date adopted:** 2026-05-20
+- **Procedure reference:** eli/dl/event/2025-0413-DEC-DCPL-2026-05-20
+- **Subject matter codes:** PESC, EXT (External relations)
+- **Document type:** TEXT_ADOPTED (Legislative assent — binding)
+- **Legal note:** This is an assent procedure; legally binding upon publication in Official Journal
+- **Significance:** HIGH — first-ever EU defence procurement agreement with non-EU ally
+
+### Tier 2: Supporting Documents (May 19–21 Plenary)
+
+| Text ID | Date | Title (abbreviated) | Type | Significance |
+|---|---|---|---|---|
+| TA-10-2026-0174 | 2026-05-20 | EU-Uzbekistan EPCA Resolution | TEXT_ADOPTED | MEDIUM-HIGH |
+| TA-10-2026-0182 | 2026-05-20 | UNGA 81st Session Recommendation | TEXT_ADOPTED | MEDIUM |
+| TA-10-2026-0177 | 2026-05-20 | EU-Lebanon Eurojust Agreement | TEXT_ADOPTED | MEDIUM |
+| TA-10-2026-0178 | 2026-05-20 | EC-São Tomé Fisheries SFPA | TEXT_ADOPTED | ROUTINE |
+| TA-10-2026-0179 | 2026-05-20 | EU-Cook Islands SFPA Protocol | TEXT_ADOPTED | ROUTINE |
+| TA-10-2026-0168 | 2026-05-19 | Forest Reproductive Material | TEXT_ADOPTED | ROUTINE |
+| TA-10-2026-0166 | 2026-05-19 | Pappas Immunity Waiver | TEXT_ADOPTED | INSTITUTIONAL |
+| TA-10-2026-0164 | 2026-05-19 | Vilimsky Immunity Waiver | TEXT_ADOPTED | INSTITUTIONAL |
 
 ---
 
-## 🟠 Secondary Documents (S2–S3 Significance)
+## Document Provenance and Source Chain
 
-### DOC-003: TA-10-2026-0174
-- **Title:** EU–Uzbekistan Enhanced Partnership and Cooperation Agreement (Resolution)
-- **Reference:** TA-10-2026-0174
-- **Date adopted:** 2026-05-20
-- **Procedure reference:** eli/dl/event/2024-0260M-DEC-DCPL-2026-05-20
-- **Subject matter codes:** (not specified in data)
-- **Associated analysis files:**
-  - `intelligence/synthesis-summary.md` §External Relations
-  - `intelligence/coalition-dynamics.md` §Vote 3
-  - `intelligence/threat-model.md` §Threat 2
-  - `intelligence/scenario-forecast.md` §Scenario Set 3
-
-### DOC-004: TA-10-2026-0182
-- **Title:** Recommendation on the 81st session of the United Nations General Assembly
-- **Reference:** TA-10-2026-0182
-- **Date adopted:** 2026-05-20
-- **Procedure reference:** eli/dl/event/2025-2167-DEC-DCPL-2026-05-20
-- **Subject matter:** EXT (External)
-
-### DOC-005: TA-10-2026-0177
-- **Title:** EU–Lebanon Agreement on cooperation between Eurojust and the authorities of Lebanon competent for judicial cooperation in criminal matters
-- **Reference:** TA-10-2026-0177
-- **Date adopted:** 2026-05-20
-- **Procedure reference:** eli/dl/event/2024-0155-DEC-DCPL-2026-05-20
-- **Subject matter codes:** EXT, COJP, COOP
-
-### DOC-006: TA-10-2026-0168
-- **Title:** Production and marketing of forest reproductive material
-- **Reference:** TA-10-2026-0168
-- **Date adopted:** 2026-05-19
-- **Procedure reference:** eli/dl/event/2023-0228-DEC-DCPL-2026-05-19
-- **Subject matter codes:** SILV, SEME
-- **Associated analysis files:**
-  - `intelligence/pestle-analysis.md` §E — Environmental
-
-### DOC-007: TA-10-2026-0178
-- **Title:** EC–São Tomé and Príncipe Fisheries Partnership Agreement (2025–2029): Implementing Protocol
-- **Reference:** TA-10-2026-0178
-- **Date adopted:** 2026-05-20
-- **Procedure reference:** eli/dl/event/2025-0202-DEC-DCPL-2026-05-20
-- **Subject matter codes:** PECH, EXT
-
-### DOC-008: TA-10-2026-0179
-- **Title:** EU–Cook Islands Sustainable Fisheries Partnership Agreement (2025-2032): Implementing Protocol
-- **Reference:** TA-10-2026-0179
-- **Date adopted:** 2026-05-20
-- **Procedure reference:** eli/dl/event/2025-0287-DEC-DCPL-2026-05-20
-- **Subject matter codes:** PECH, EXT
+| Source | Documents | Grade | Status |
+|---|---|---|---|
+| EP Adopted Texts API (direct, year=2026) | 71+ | A2 | ✅ Active |
+| Adopted Texts Feed (one-week) | 500 in feed window | A2 | ✅ Active |
+| EP Procedures endpoint | N/A | — | ❌ 404 |
+| DOCEO roll-call XML | N/A | — | ⚠️ Lag |
 
 ---
 
-## 🟡 Accountability Documents
-
-### DOC-009: TA-10-2026-0164
-- **Title:** Request for the waiver of the immunity of Harald Vilimsky
-- **Reference:** TA-10-2026-0164
-- **Date adopted:** 2026-05-19
-- **Procedure reference:** eli/dl/event/2025-2158-DEC-DCPL-2026-05-19
-- **Subject matter:** PRIV (Parliamentary Immunity)
-- **Political significance:** HIGH — Vilimsky is FPÖ MEP; FPÖ governs Austria
-
-### DOC-010: TA-10-2026-0166
-- **Title:** Request for the waiver of the immunity of Nikos Pappas
-- **Reference:** TA-10-2026-0166
-- **Date adopted:** 2026-05-19
-- **Procedure reference:** eli/dl/event/2025-2234-DEC-DCPL-2026-05-19
-- **Subject matter:** PRIV
-
----
-
-## 🔗 Cross-Reference Map
-
-| Document | Synthesis | PESTLE | Coalition | Threat | Risk | Scenario | Stakeholder |
-|----------|-----------|--------|-----------|--------|------|----------|-------------|
-| DOC-001 (SAFE/Canada) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| DOC-002 (AI/Trade) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| DOC-003 (Uzbekistan) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| DOC-004 (UNGA) | ✅ | — | — | — | — | — | — |
-| DOC-005 (Lebanon) | ✅ | — | — | — | — | — | — |
-| DOC-006 (Forestry) | ✅ | ✅ | — | — | ✅ | — | — |
-| DOC-007 (São Tomé) | ✅ | ✅ | — | — | ✅ | — | ✅ |
-| DOC-008 (Cook Islands) | ✅ | ✅ | — | — | ✅ | — | ✅ |
-| DOC-009 (Vilimsky) | ✅ | — | ✅ | ✅ | ✅ | — | ✅ |
-| DOC-010 (Pappas) | ✅ | — | — | — | — | — | ✅ |
-
----
-
-## ⚠️ Data Availability Notes
-
-- **All documents confirmed via:** `get_adopted_texts(year=2026, limit=50)` — EP Open Data Portal
-- **Full text available at:** europarl.europa.eu/doceo/document/TA-10-2026-XXXX_EN.html
-- **Committee reports (rapporteur text):** Not retrieved in this run (committee-documents-feed unavailable)
-- **Amendments adopted/rejected:** Not available (no roll-call voting data in scope)
-- **Vote details:** Not available (DOCEO lag — expected available circa June 10–20, 2026)
-
----
-
-## 📊 Document Statistics
-
-| Category | Count | % of Total |
-|----------|-------|------------|
-| S1 Priority (Breaking) | 2 | 20% |
-| S2 Significant (External) | 3 | 30% |
-| S3 Technical | 3 | 30% |
-| S4 Routine/Procedural | 2 | 20% |
-| **Total** | **10** | **100%** |
-
-**Primary data sources confirmed:** All 10 documents via EP Open Data Portal adopted texts endpoint (A1 grade)
+*Document analysis: 2026-05-28 | A2 grade primary source | All documents confirmed in EP official dataset*

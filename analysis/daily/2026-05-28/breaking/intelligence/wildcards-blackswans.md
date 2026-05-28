@@ -1,180 +1,124 @@
-<!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
-# 🦢 Wildcards & Black Swans — EU Parliament Breaking News
-**Date:** 2026-05-28 | **Article Type:** Breaking | **Data Mode:** degraded-feeds
-**Admiralty Grade:** C3 — Speculative analysis; possible but unconfirmed drivers
-**Confidence:** 🟡 MEDIUM (wildcards are inherently uncertain; structural logic sound)
+# Wildcards and Black Swans — EP Breaking News May 2026
+**Date:** 2026-05-28 | **SATs:** High-Impact, Indicators, What-If Analysis
+**WEP bands applied | Admiralty grade: C3 (analytical inference)**
 
 ---
 
-## ⚡ Wildcard Analysis Framework
+## Wildcard Framework
 
-Black swans are high-impact, low-probability events not captured in conventional scenario forecasting. Wildcards are higher-probability-than-expected disruptors. This analysis identifies both categories specifically relevant to the May 2026 EP legislative cluster.
-
----
-
-## 🦢 Black Swan 1: Catastrophic AI Safety Incident Before AI/Trade Implementation
-
-**Probability:** Very Low (2–5% over 5 years)
-**Impact if materializes:** 🔴 CATASTROPHIC
-
-**Scenario:** A high-profile AI system failure — autonomous weapons misfire, financial AI cascade, medical AI mass misdiagnosis — occurs in a G7 country before the EU-embedded AI trade requirements take effect. Global political panic demands immediate international AI governance action.
-
-**EP Resolution impact:**
-- EP AI/Trade resolution would be cited as prescient — creates political mandate for accelerated binding legislation
-- Alternatively: if the incident involves an EU-regulated AI system, it could discredit the regulatory framework entirely
-- GPAI model operators face immediate liability crisis
-
-**Why relevant now:** The resolution (TA-10-2026-0183) comes at a pivotal moment in GPAI model capability growth. GPT-5 class models (Q3 2025 deployment) are beginning to show autonomous action capabilities that regulatory frameworks have not caught up with.
-
-**Monitoring signal:** Any large-scale AI-related security incident in financial markets or military systems.
+Wildcards are high-impact events with moderate probability (10–35%); Black Swans are high-impact events with very low but non-zero probability (<10%). Both are analytically valuable for stress-testing policy frameworks.
 
 ---
 
-## 🦢 Black Swan 2: FPÖ Government Collapse Triggered by Vilimsky Proceedings
+## Category 1: AI Governance Wild Cards
 
-**Probability:** Very Low (3–8%)
-**Impact if materializes:** 🟡 MEDIUM-HIGH
+### W1.1 — Global AI Governance Breakthrough (WILDCARD, 20–30%)
+**WEP:** Unlikely-Possible
+**Scenario:** The G7 Hiroshima AI Code of Conduct evolves into a binding multilateral AI governance framework by end 2026, making EP's AI Trade Strategy the de facto template for the global standard.
+**Trigger:** G7 Italian Presidency (2026) prioritises AI governance breakthrough at June 2026 summit
+**Impact if occurs:** TRANSFORMATIVE — EP's INI resolution becomes the founding legislative reference for global AI trade governance; EU moves from "regulatory power" to "global governance architect"
+**Indicators:**
+- G7 AI governance agenda items (May–June 2026 preparatory meetings)
+- WTO MC14 agenda publication (AI provisions signalling)
+- US administration signals on multilateral AI frameworks
 
-**Scenario:** Austrian legal proceedings against Vilimsky, now enabled by the EP waiver, uncover evidence of broader FPÖ financial or intelligence links (Russian money, organized crime) that triggers a coalition collapse in Austria. FPÖ Chancellor Herbert Kickl forced to resign. Austria's EU Council position shifts dramatically.
+### W1.2 — Major AI Incident Triggering Emergency Regulation (WILDCARD, 15–25%)
+**WEP:** Unlikely
+**Scenario:** A significant AI-related incident (financial market AI manipulation causing flash crash, or AI-generated disinformation campaign in major EU member state election) triggers emergency EP/Commission response that accelerates AI Trade Strategy implementation beyond expected timeline.
+**Trigger:** AI system failure event with clear EU political consequences
+**Impact if occurs:** ACCELERATING — AI Trade Strategy fast-tracked from INI to legislative proposal within 3 months
+**What-If Analysis:** In this scenario, the Afghan resolution and EU-Canada SAFE would drop to secondary news priority; AI governance emergency dominates EP calendar. EP's established AI trade framework would be ready for rapid legislative implementation.
 
-**Why this isn't purely theoretical:**
-- FPÖ has historical connections to Russian-aligned networks (Strache affair, 2019)
-- Vilimsky as long-time FPÖ official may have knowledge of controversial financial flows
-- Austrian legal system is known for thorough asset-tracing investigations
-
-**EU systemic impact:**
-- Austria under new government would unblock several EU foreign policy positions currently stalled by FPÖ
-- Ukraine aid would increase; SAFE Instrument ratification would accelerate
-- EP's assertiveness on immunity waivers would be retroactively validated as systemic risk reduction
-
----
-
-## ⚡ Wildcard 1: Canada Snap Election Delays SAFE Instrument Ratification
-
-**Probability:** Medium-Low (15–20%)
-**Impact if materializes:** 🟡 MEDIUM
-
-**Scenario:** Canadian federal election (expected by Q4 2025 constitutional deadline — potentially called earlier) produces a Conservative government under Pierre Poilievre (who has expressed skepticism about EU regulatory models). New government delays or renegotiates SAFE Instrument terms.
-
-**Current political context:**
-- Liberal-NDP confidence-and-supply agreement expired Q1 2025
-- Conservative lead in polls as of May 2026 (18–22 points in some surveys)
-- Poilievre's "Canada First" framing creates uncertainty about EU defense alignment
-
-**EP implications:**
-- Agreement already adopted by EP — Canadian domestic politics creates ratification uncertainty outside EU control
-- EU may need to offer renegotiation of terms to satisfy Conservative government
-- Precedent risk: other third-country partners observe Canada's leverage
+### W1.3 — US-China Tech Decoupling Forces EU Choice (BLACK SWAN, 5–10%)
+**WEP:** Remote
+**Scenario:** US-China technology war escalates to point where EU companies must choose US-compatible or China-compatible AI systems, making EU's "third-way" AI Trade Strategy obsolete before implementation.
+**Trigger:** US executive order prohibiting joint EU-China AI development; China retaliatory restrictions on EU AI market access
+**Impact if occurs:** DESTABILISING — EU's digital strategic autonomy narrative collapses; EP forced to revise AI Trade Strategy dramatically
+**Indicators:** US Commerce Department AI export controls expansion to EU-China joint ventures; China's "secure AI" certification blocking EU AI imports
 
 ---
 
-## ⚡ Wildcard 2: Uzbekistan Tashkent Bombings / Security Crisis
+## Category 2: Afghanistan Black Swans
 
-**Probability:** Low-Medium (8–12%)
-**Impact if materializes:** 🔴 HIGH
+### W2.1 — International Criminal Court Taliban Indictment (WILDCARD, 15–20%)
+**WEP:** Possible
+**Scenario:** ICC Prosecutor (following ICC jurisdiction assertion over Afghanistan) issues arrest warrant for senior Taliban officials specifically citing Criminal Procedure Code's gender apartheid provisions. EP's Afghanistan resolution becomes cited evidence in ICC proceedings.
+**Trigger:** ICC Office of the Prosecutor accelerates Afghanistan gender apartheid investigation (reported active since 2023)
+**Impact if occurs:** HIGH — transforms EP's symbolic urgency resolution into a founding document of a concrete international legal process; significantly raises EP's foreign policy effectiveness narrative
+**What-If Analysis:** If ICC indictments issued, EU member states face a choice: enforce ICC warrants (blocking Taliban diplomatic travel) or maintain humanitarian pragmatism. EP would be leading voice for enforcement.
 
-**Scenario:** Islamist insurgency (potentially ISKP — Islamic State Khorasan Province) launches coordinated attacks in Tashkent, destabilizing Mirziyoyev government. EU-Uzbekistan EPCA implementation suspended as Uzbek government imposes emergency measures.
+### W2.2 — Taliban Regime Fracture (BLACK SWAN, 5–8%)
+**WEP:** Remote
+**Scenario:** Internal Taliban power struggle (Supreme Leader succession, regional commander competition) leads to governance crisis and potential negotiated transition opening.
+**Trigger:** Health or political crisis affecting Taliban Supreme Leader Haibatullah Akhundzada
+**Impact if occurs:** TRANSFORMATIVE for Afghanistan policy; EP's resolution would need urgent revision from "sanctions pressure" to "transition support" framing
 
-**Context:**
-- ISKP has been conducting cross-border attacks in Central Asia (Afghanistan-Tajikistan, Kyrgyzstan border)
-- Uzbekistan's historical cotton labor exploitation created social grievances that Islamist groups exploit
-- Russian intelligence has played both sides — covertly supporting ISKP as destabilization tool while publicly condemning terrorism
-
-**EU implications:**
-- EPCA suspended; EU faces moral dilemma — maintain engagement to support stability or enforce conditionality?
-- Energy diversification plans (Uzbek gas) disrupted
-- Refugee flows toward Europe via Turkey-transit routes
-
----
-
-## ⚡ Wildcard 3: Greenland/Arctic Dimension Opens New EU-Canada-NATO Space
-
-**Probability:** Low-Medium (10–15% over 2 years)
-**Impact if materializes:** 🟡 MEDIUM-HIGH
-
-**Scenario:** US under a future administration moves aggressively on Greenland territorial claims. Canada, as an Arctic nation with direct interests, becomes a natural EU partner for Arctic governance. The SAFE Instrument agreement acquires a second dimension: Arctic/Greenland defense cooperation.
-
-**Context:**
-- Arctic shipping routes opening due to climate change create strategic competition
-- EU's Greenland Strategy (2023) established framework but lacks defense component
-- Canada-EU-Greenland natural resources triangle (critical minerals) creates compelling integration logic
-
-**EP implications:**
-- AI/Trade resolution's digital twin provisions could include Arctic infrastructure monitoring
-- SAFE Instrument's Canada component becomes foundation for EU Arctic defense posture
-- ECR's Polish and Baltic members strongly supportive of NATO Arctic coherence
+### W2.3 — Large-Scale Afghan Women's Flight (WILDCARD, 20–30%)
+**WEP:** Unlikely-Possible (elevated by Criminal Procedure Code)
+**Scenario:** Criminal Procedure Code enforcement triggers visible exodus of educated Afghan women toward Pakistan/Iran/Central Asia, creating international pressure for resettlement that overwhelms EU member state political appetite.
+**Trigger:** Specific Criminal Procedure Code court convictions creating high-profile cases
+**What-If Analysis:** EU would be forced to operationalise its human rights commitment through a concrete resettlement framework — highly politically contested in multiple member states.
 
 ---
 
-## ⚡ Wildcard 4: ECR Dissolution / Major Group Restructuring Before 2029
+## Category 3: EU Institutional Black Swans
 
-**Probability:** Medium (25–35% over 3 years)
-**Impact if materializes:** 🟡 MEDIUM-HIGH
+### W3.1 — EP10 Coalition Collapse (BLACK SWAN, 3–5%)
+**WEP:** Remote
+**Scenario:** Major EP10 coalition fracture — S&D or Renew leaves the working majority following a high-stakes vote (AI Act implementation, migration, or rule of law in member states), requiring EPP to seek ECR support and shifting EP's political centre of gravity rightward.
+**Trigger:** High-stakes vote where S&D or Renew faces existential political pressure from domestic parties
+**Impact if occurs:** DESTABILISING for May 2026 texts' follow-through. AI Trade Strategy implementation could be delayed or diluted; Afghanistan urgency resolution approach could shift toward migration-restriction framing
+**Indicators:** Any formal statement of "coalition red lines" by S&D or Renew groups; extraordinary EPP-ECR bilateral meetings
 
-**Scenario:** ECR's internal contradictions (Poland "Atlanticist" vs. Italy "sovereigntist") prove irreconcilable. Italian delegation (Fratelli d'Italia) merges with Patriots; Polish PiS moves closer to EPP. New group configuration reshapes EP majority dynamics.
-
-**Coalition mathematics impact:**
-- If Polish PiS joins EPP: EPP approaches 220 seats — near-absolute majority possible without S&D
-- If Italian FdI joins Patriots: Patriots approach 110 seats — but isolated from governing coalitions
-- AI/Trade and SAFE Instrument votes would be easier to pass without ECR splitting dynamics
-
-**EP historical precedent:** Major group restructurings have occurred after each election (EFDD dissolution, Brexit), and can occur mid-term following major political events.
-
----
-
-## 📊 Wildcard/Black Swan Summary Matrix
-
-| Event | Probability | Magnitude | Lead Time | EP Response Option |
-|-------|------------|-----------|-----------|-------------------|
-| AI safety incident | 2–5% | Catastrophic | Weeks | Accelerate AI Act |
-| FPÖ collapse | 3–8% | Medium-High | Months | Monitor; maintain waiver |
-| Canada election shift | 15–20% | Medium | 12–18 months | Provisional application |
-| Uzbekistan crisis | 8–12% | High | Months | Conditionality trigger |
-| Arctic dimension opens | 10–15% | Medium-High | 12–24 months | Expand SAFE scope |
-| ECR restructuring | 25–35% | Medium-High | 12–36 months | Coalition re-mapping |
+### W3.2 — Von der Leyen Commission Confidence Vote (BLACK SWAN, 2–4%)
+**WEP:** Remote
+**Scenario:** A major Commission failure (AI Act enforcement crisis, pandemic-level external shock, or institutional scandal) triggers EP motion of censure that passes, forcing Commission resignation.
+**Impact if occurs:** All pending legislative follow-up (AI Trade Strategy, SAFE Instrument) put on hold for 6+ months during Commission reconstitution
 
 ---
 
-## 🔍 Monitoring Watchlist
+## Category 4: Geopolitical Black Swans
 
-**Priority 1 (weekly monitoring):**
-- Orbán statements on SAFE Instrument ratification
-- Austrian media coverage of Vilimsky proceedings
-- Canadian polling and Liberal government stability
+### W4.1 — NATO/EU-Russia Escalation (BLACK SWAN, 3–7%)
+**WEP:** Remote but increased by Ukraine conflict trajectory
+**Scenario:** Russia-Ukraine conflict escalates to direct Russia-NATO confrontation, immediately making EU-Canada SAFE Instrument a live operational framework rather than a long-term procurement mechanism.
+**Impact if occurs:** TRANSFORMATIVE — SAFE Instrument fast-tracked; Canada immediately integrated into EU defence operational planning; AI Trade Strategy subordinated to defence-industrial mobilisation agenda
 
-**Priority 2 (monthly monitoring):**
-- Uzbekistan human rights indices (Freedom House, HRW)
-- ISKP threat assessment for Central Asia
-- ECR internal communications / public group statements on Poland-Italy relations
-
-**Priority 3 (quarterly monitoring):**
-- AI safety incidents (AISI, NIST AI reports)
-- Arctic shipping route utilization + US Arctic policy signals
-- EU defense budget trajectory vs. Article 3% NATO commitment debates
+### W4.2 — China Taiwan Action (BLACK SWAN, 4–8%)
+**WEP:** Remote
+**Scenario:** China military action against Taiwan triggers EU sanctions package, immediately affecting EU-China AI technology cooperation and making EP's AI Trade Strategy's "dual-use AI export controls" provisions immediately relevant.
+**Impact if occurs:** AI Trade Strategy fast-tracked; potential EU-China tech decoupling that reshapes EP's digital sovereignty calculations; EU-Canada SAFE elevated as part of coordinated democratic allies response
 
 ---
 
-## ✅ Wildcard Analysis Confidence
+## Wildcard/Black Swan Monitoring Indicators
 
-**Structural reasoning:** 🟢 SOUND — events are logically derivable from current system state
-**Probability estimates:** 🟡 UNCERTAIN — inherently imprecise for rare events
-**Monitoring framework:** 🟢 ACTIONABLE — specific lead indicators identified for each wildcard
+**Weekly monitoring triggers:**
+- [ ] G7 summit AI communiqué language (signals W1.1)
+- [ ] ICC prosecutor Afghanistan statements (signals W2.1)
+- [ ] EU Council extraordinary sessions (signals W3.x or W4.x)
+- [ ] Taliban Supreme Leader health reports (signals W2.2)
+- [ ] US-China technology export control escalation (signals W1.3, W4.2)
+
+**Monthly monitoring:**
+- [ ] IMF Financial Stability Report (AI financial sector risk — signals W1.2)
+- [ ] UNHCR Afghanistan border crossing data (signals W2.3)
+- [ ] EP coalition vote margin trends (signals W3.1)
 
 ---
 
-## 📊 Risk-Surprise Space
+## High-Impact Summary
 
-```mermaid
-quadrantChart
-    title Wildcards and Black Swans
-    x-axis Expected --> Unexpected
-    y-axis Low Impact --> High Impact
-    "Hungary veto reversal": [0.7, 0.6]
-    "EP dissolution": [0.9, 0.9]
-    "Russia-Ukraine ceasefire": [0.7, 0.8]
-    "US AI Act adoption": [0.8, 0.7]
-    "China EPCA counter-offer": [0.65, 0.55]
-    "Far-right procedural coup": [0.85, 0.85]
-```
+| Event | Probability | Impact | WEP | Priority |
+|---|---|---|---|---|
+| G7 AI governance breakthrough | 20–30% | TRANSFORMATIVE | Possible | MONITOR |
+| AI major incident (emergency reg.) | 15–25% | HIGH | Unlikely | WATCH |
+| ICC Taliban indictment | 15–20% | HIGH | Possible | WATCH |
+| Afghan women's flight | 20–30% | HIGH | Possible | MONITOR |
+| US-China tech decoupling | 5–10% | DESTABILISING | Remote | WATCH |
+| NATO/Russia escalation | 3–7% | TRANSFORMATIVE | Remote | BACKGROUND |
+| EP10 coalition collapse | 3–5% | DESTABILISING | Remote | BACKGROUND |
+
+---
+
+*High-Impact analysis complete | What-If scenarios applied | Indicators documented | 2026-05-28*

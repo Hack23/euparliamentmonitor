@@ -1,58 +1,56 @@
-<!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
-# 📦 Data Download Manifest — EU Parliament Breaking News
-**Date:** 2026-05-28 | **Article Type:** Breaking | **Run ID:** breaking-run264-1779957632
+# Data Download Manifest — Breaking News 2026-05-28
+**Run ID:** breaking-run265-1779932393 | **Stage A Data Inventory**
 
 ---
 
-## Data Files Downloaded This Run
+## Pre-fetched Data Files
 
-### EP Open Data Portal — Downloaded Data
-
-| File | Source | Items | Date Range | Format |
-|------|--------|-------|------------|--------|
-| adopted-texts-2026 | get_adopted_texts(year=2026) | 51 | Jan–May 2026 | JSON-LD |
-| adopted-texts-feed-1w | get_adopted_texts_feed(one-week) | 248 | Mixed | JSON-LD |
-| plenary-sessions-probe | get_plenary_sessions(2026-05-14) | 0 filtered | N/A | JSON-LD |
-| procedures-feed-probe | get_procedures_feed(one-week) | 50 (1972–1990) | Historical | JSON-LD |
-
-### Pre-Fetched Data (All Degraded)
-
-| File | Path | Status | Items |
-|------|------|--------|-------|
-| adopted-texts-feed.json | data/ | ❌ placeholder (0 items) | 0 |
-| committee-documents-feed.json | data/ | ❌ error response | 0 |
-| documents-feed.json | data/ | ❌ empty | 0 |
-| events-feed.json | data/ | ❌ HTTP 404 | 0 |
-| meps-feed.json | data/ | ❌ placeholder | 0 |
-| procedures-feed.json | data/ | ❌ STALENESS_WARNING | 0 useful |
-
-### Key Documents Analyzed (From get_adopted_texts)
-
-| Reference | Title Summary | Date | Grade |
-|-----------|--------------|------|-------|
-| TA-10-2026-0180 | EU-Canada SAFE Instrument | 2026-05-20 | A1 |
-| TA-10-2026-0183 | AI and International Trade | 2026-05-20 | A1 |
-| TA-10-2026-0174 | EU-Uzbekistan EPCA | 2026-05-20 | A1 |
-| TA-10-2026-0164 | Immunity waiver #1 | 2026-05-19 | A1 |
-| TA-10-2026-0166 | Immunity waiver #2 | 2026-05-19 | A1 |
-| TA-10-2026-0182 | UNGA Recommendation | 2026-05-20 | A1 |
-| TA-10-2026-0177 | EU-Lebanon/Eurojust | 2026-05-20 | A1 |
-| TA-10-2026-0168 | Forest reproductive material | 2026-05-20 | A1 |
-| TA-10-2026-0178 | Fisheries (São Tomé) | 2026-05-20 | A1 |
-| TA-10-2026-0179 | Fisheries (Cook Islands) | 2026-05-20 | A1 |
+| File | Source | Size | Status | MCP Tool |
+|---|---|---|---|---|
+| data/adopted-texts-feed.json | EP Open Data Portal /adopted-texts/feed | ~76KB | ✅ SUCCESS | get_adopted_texts_feed |
+| data/meps-feed.json | EP Open Data Portal /meps/feed | ~7MB | ✅ SUCCESS | get_meps_feed |
+| data/events-feed.json | EP Open Data Portal /events/feed | — | ❌ 404 | get_events_feed |
+| data/procedures-feed.json | EP Open Data Portal /procedures/feed | — | ❌ 404 | get_procedures_feed |
+| data/committee-documents-feed.json | EP Open Data Portal /committee-docs | — | ❌ 404 | get_committee_documents_feed |
+| data/documents-feed.json | EP Open Data Portal /documents | ~2KB | ⚠️ EMPTY | get_documents_feed |
+| data/prefetch-status.json | Internal manifest | ~1KB | ✅ CREATED | — |
 
 ---
 
-## IMF / World Bank Data
+## Live MCP Calls (during Stage A)
 
-No IMF SDMX or World Bank API calls made this run. Economic context from published IMF WEO Spring 2026 data.
+| Call# | Tool | Parameters | Records | Status |
+|---|---|---|---|---|
+| 1 | get_adopted_texts | year=2026, limit=50 | 51 texts | ✅ SUCCESS |
+| 2 | get_plenary_sessions | dateFrom=2026-05-14 | 11 total, 0 filtered | ⚠️ PARTIAL |
+| 3 | get_adopted_texts_feed | timeframe=one-week | Large payload | ✅ SUCCESS |
+| 4 | get_latest_votes | (default) | 0 records | ⚠️ DOCEO-LAG |
+| 5 | get_adopted_texts | year=2026, offset=50 | 20 texts | ✅ SUCCESS |
 
 ---
 
-## ✅ Data Download Manifest Quality
+## Total Data Inventory
 
-- **Completeness:** All MCP calls and pre-fetched files inventoried
-- **Provenance:** Every key document traceable to specific API call
-- **Confidence:** 🟢 HIGH (direct observation)
+- **Adopted texts available:** 71 (51 + 20 from paginated calls)
+- **Most recent text:** TA-10-2026-0186 (May 21, 2026 — Afghanistan)
+- **Gap:** No texts from May 22–28, 2026 (inter-plenary gap — expected)
+- **DOCEO votes:** 0 records available (2–4 week publication lag — expected)
+- **MEP data:** 7MB feed available (not indexed in this run)
+- **Data mode:** degraded-feeds (3/6 feeds 404, 0.80 line-floor factor)
+
+---
+
+## Data Quality Summary
+
+| Data Type | Quality | Grade | Notes |
+|---|---|---|---|
+| Adopted texts | HIGH | A2 | 71 records, up-to-date through May 21 |
+| Plenary sessions | PARTIAL | B3 | Date filter lag; session confirmed by text timestamps |
+| DOCEO votes | UNAVAILABLE | — | Expected lag; proxy analysis applied |
+| Procedures | UNAVAILABLE | — | Feed 404; proxy analysis from adopted texts |
+| Events | UNAVAILABLE | — | Feed 404 |
+| MEP data | AVAILABLE | A2 | Large payload; not used in this analysis |
+
+---
+
+*Data download manifest | Stage A inventory | 2026-05-28 | Run: breaking-run265-1779932393*
