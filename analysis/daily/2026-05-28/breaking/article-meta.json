@@ -1,8 +1,8 @@
 {
   "date": "2026-05-28",
   "articleType": "breaking",
-  "runId": "breaking-run265-1779932393",
-  "gateResult": "GREEN",
+  "runId": "breaking-run275-1779977880",
+  "gateResult": "ANALYSIS_ONLY",
   "slug": "2026-05-28-breaking",
   "articlePath": "analysis/daily/2026-05-28/breaking/article.md",
   "topFinding": "BREAKING: European Parliament Adopts Landmark AI Trade Strategy and Afghanistan Women's Rights Resolution in Strasbourg Plenary (May 19–21, 2026)",
@@ -26,14 +26,14 @@
     "Afghan women flight EU backlash (12) — pre-positioning required"
   ],
   "keyDates": [
-    "Commission responds to AI Trade Strategy by September 2026",
-    "DMA enforcement generates first major fine against tech platform (Q3 2026)",
-    "EU-Canada SAFE first joint procurement exercise initiated by December 2026",
-    "Afghanistan resolution cited in EU-Taliban sanctions review (Q4 2026)",
-    "Commission publishes \"AI and Trade\" Communication by October 2026",
-    "EU-Canada SAFE ratification parliamentary timeline not established by September 2026",
-    "Large-scale Afghan refugee crisis reaching EU borders (>500,000 in Q3 2026)",
-    "[ ] IMF July 2026 WEO update on EU trade trajectory"
+    "🔵 Watch: EU-US TTC meeting (scheduled Q2 2026) — AI governance on agenda",
+    "🔵 Watch: EEAS Human Rights Country Strategy update — Afghanistan section expected Q2 2026",
+    "🟡 Indicator: If Canada's Parliament ratifies in parallel → operationalisation accelerates to Q3 2026",
+    "🔵 Watch: Commission Digital Trade Communication (expected Q3 2026 according to work programme)",
+    "🔵 Watch: First joint procurement tender under SAFE (expected Q3 2026 per defence ministry comms)",
+    "🔵 Watch: EP September 2026 plenary — AI Act review, SAFE second-wave, Afghanistan follow-up expected",
+    "Commission publishes AI trade communication before September 2026",
+    "Commission AI trade consultation delayed past Q1 2027"
   ],
   "keyActors": [
     "**European Parliament:** Direct legislative authority — adopts all three texts",

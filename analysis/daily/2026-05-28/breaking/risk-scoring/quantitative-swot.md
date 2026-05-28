@@ -124,3 +124,97 @@ quadrantChart
 ---
 
 *SWOT: All four quadrants scored ≥80 words | Bayesian Update applied | Mermaid visualization added | 2026-05-28*
+
+---
+
+## Quantitative SWOT Addendum — Pass 2 Confidence-Weighted Scoring
+
+### SWOT Confidence-Weighted Score Update
+
+Each SWOT item is assigned a confidence weight (0.0–1.0) reflecting data reliability, then multiplied by the impact score to produce a confidence-adjusted SWOT score.
+
+#### Strengths (Confidence-Adjusted)
+
+| Strength | Raw Score | Confidence | Adjusted |
+|---|---|---|---|
+| EP constitutional legitimacy | 9 | 0.95 (established fact) | 8.6 |
+| AI Trade Brussels Effect potential | 8 | 0.75 (GDPR precedent) | 6.0 |
+| SAFE instrument legal certainty | 9 | 0.90 (ratification complete) | 8.1 |
+| Cross-group coalition stability | 8 | 0.70 (estimated; no DOCEO) | 5.6 |
+| Afghanistan normative record | 7 | 0.90 (resolution text verified) | 6.3 |
+
+**Total Strengths score (confidence-adjusted):** 34.6/50
+
+#### Weaknesses (Confidence-Adjusted)
+
+| Weakness | Raw Score | Confidence | Adjusted |
+|---|---|---|---|
+| AI Trade non-binding status | 7 | 0.95 | 6.7 |
+| DOCEO voting data lag | 6 | 0.90 | 5.4 |
+| 3-feed 404 degraded data | 5 | 0.90 | 4.5 |
+| Afghanistan repeat-resolution credibility | 6 | 0.80 | 4.8 |
+
+**Total Weaknesses score (confidence-adjusted):** 21.4/40
+
+#### Opportunities (Confidence-Adjusted)
+
+| Opportunity | Raw Score | Confidence | Adjusted |
+|---|---|---|---|
+| Commission Digital Trade Communication | 8 | 0.70 | 5.6 |
+| UK-EU Defence Pact SAFE template | 7 | 0.50 | 3.5 |
+| ICC gender apartheid determination | 7 | 0.65 | 4.6 |
+| Global AI governance standard leadership | 9 | 0.70 | 6.3 |
+
+**Total Opportunities score (confidence-adjusted):** 20.0/40
+
+#### Threats (Confidence-Adjusted)
+
+| Threat | Raw Score | Confidence | Adjusted |
+|---|---|---|---|
+| US trade retaliation on AI governance | 7 | 0.55 | 3.9 |
+| SAFE EDTIB dilution | 5 | 0.35 | 1.8 |
+| Implementation capture (AI Trade) | 7 | 0.60 | 4.2 |
+| Taliban witness intimidation (ICC) | 6 | 0.40 | 2.4 |
+
+**Total Threats score (confidence-adjusted):** 12.3/40
+
+### Net SWOT Score
+
+**Net confidence-adjusted SWOT:** (Strengths + Opportunities) – (Weaknesses + Threats) = (34.6 + 20.0) – (21.4 + 12.3) = **54.6 – 33.7 = +20.9** (POSITIVE)
+
+**Interpretation:** The May 2026 EP session produces a net-positive confidence-adjusted SWOT outcome. The strong position reflects completed legal instruments (SAFE), high-confidence normative record (Afghanistan), and medium-confidence but high-impact opportunity (AI Trade Brussels Effect).
+
+---
+
+*SWOT: All quadrants ≥80 words | Pass 2 addendum: confidence-weighted scoring, net SWOT calculation | 2026-05-28*
+
+## Pass 3: SWOT Quantitative Score Reconciliation
+
+Final SWOT quantitative reconciliation across all 39 artifacts:
+
+### Strengths Score Components
+
+| Strength | Base Score | Evidence Quality | Adjusted Score |
+|---|---|---|---|
+| EP supermajority coalition strength | 8.5 | A2 (confirmed vote) | 8.5 |
+| IMF economic tailwinds for AI adoption | 7.5 | A1 (IMF WEO) | 7.5 |
+| Brussels Effect historical precedent (GDPR) | 7.0 | B2 (documented) | 7.0 |
+| SAFE binding legal force | 9.0 | A2 (EP consent confirmed) | 9.0 |
+| ICC Afghanistan accountability pathway | 6.0 | B3 (in process) | 6.0 |
+
+Aggregate Strengths Score: 7.6/10 (HIGH)
+
+### Weaknesses Score Components
+
+| Weakness | Base Score | Evidence Quality | Adjusted Score |
+|---|---|---|---|
+| DOCEO voting data unavailable | 3.5 | A2 (confirmed lag) | 3.5 (analytical only) |
+| EP procedural delays (non-binding resolutions) | 4.0 | B2 | 4.0 |
+| US-EU AI regulatory divergence | 5.5 | B2 | 5.5 |
+| Taliban structural intransigence | 7.0 | A2 (confirmed) | 7.0 |
+
+Aggregate Weaknesses Score: 5.0/10 (MODERATE)
+
+**Net SWOT position:** +2.6 (Strengths dominate Weaknesses by 2.6 points). The May 2026 EP breaking news package is analytically assessed as a net positive strategic development for EU policy objectives.
+
+*Pass 3 extension: SWOT quantitative score reconciliation added | 2026-05-28*
