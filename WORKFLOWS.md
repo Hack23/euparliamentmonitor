@@ -16,8 +16,8 @@
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.5 | **📅 Last Updated:** 2026-05-08 (UTC) | **📦 Release:** v0.8.60  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-06
+**📋 Document Owner:** CEO | **📄 Version:** 4.6 | **📅 Last Updated:** 2026-05-28 (UTC) | **📦 Release:** v0.9.26  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-28
 
 ---
 
@@ -125,7 +125,7 @@ EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflow
 | 8 | **Deploy S3** | Production deployment to AWS S3 + CloudFront (OIDC, egress: block) | Push to main | Infrastructure as Code |
 | 9 | **REUSE Compliance** | License and copyright verification (REUSE 3.3) | On PR/push + weekly Monday | Open Source Policy |
 | 10 | **SLSA Provenance** | Build provenance attestation (integrated in release.yml) | On release + manual | Supply chain security (SLSA L3) |
-| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.71.4`) | Manual dispatch | Automation governance |
+| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.77.0`) | Manual dispatch | Automation governance |
 | 12 | **Agentics Maintenance** | Housekeeping for agentic workflows (stale lock cleanup, health probes) | Scheduled | Automation governance |
 | 13 | **Labeler** | Automatic PR labeling | On pull_request_target | Workflow governance |
 | 14 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
@@ -224,7 +224,7 @@ flowchart TB
 
 ### 1. Agentic News Workflows (×15)
 
-**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-sonnet-4.6` model
+**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot. The 14 unified `news-<type>.md` article workflows run on the `claude-opus-4.8` model; the `news-translate.md` translation helper runs on `claude-sonnet-4.6`.
 **📁 Architecture:** 15 markdown source files (14 unified `news-<type>.md` covering 14 article types + 1 `news-translate.md` helper) compiled to 15 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)
 **🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 **📜 Horizon registry:** Every horizon's data window, cadence, mandatory artifacts, stage budgets, scenario depth and electoral overlay is defined in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) — the single source of truth consumed by the aggregator, the forward-statements registry, and the drift-guard tests.
@@ -277,7 +277,7 @@ All 15 agentic workflows share a common architecture. The 14 article workflows r
 graph TD
     A[🕐 Schedule / Manual Trigger] --> B[🔑 Activation Job]
     B --> C{Conditions Met?}
-    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-sonnet-4.6]
+    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-4.8<br/>translate: claude-sonnet-4.6]
     C -->|❌ No| E[⏭️ Skip]
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 26]
@@ -352,7 +352,7 @@ import { hasPlaceholders, computeEffectiveMinLines } from './workflows/completen
 |----------|-------|
 | **Source format** | Markdown (`.md`) compiled by `gh aw compile` |
 | **Lock format** | YAML (`.lock.yml`) — auto-generated, do not edit directly |
-| **AI Model** | `claude-sonnet-4.6` via GitHub Copilot CLI |
+| **AI Model** | `claude-opus-4.8` (14 article workflows) / `claude-sonnet-4.6` (`news-translate.md`) via GitHub Copilot CLI |
 | **Top-level permissions** | `{}` (empty — no default permissions) |
 | **Activation job permissions** | `contents: read` |
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
@@ -401,13 +401,13 @@ imports:
   `mcp-servers:` block (EP, World Bank, IMF, MCP Gateway mounts). Editing it
   propagates to every importing workflow on next compile.
 - `.github/agents/news-generation.agent.md` contributes **body-only** content
-  (confirmed against gh-aw v0.71.4, 2026-04-21: imported agent frontmatter is
+  (confirmed against gh-aw v0.77.0, 2026-05-28: imported agent frontmatter is
   not merged into workflow frontmatter). It appends the canonical Required
   Reading order and the 5-stage Stage Contract to every importing prompt.
 - Both files are tracked; any change triggers a recompile of every importing
   `.lock.yml` by [`compile-agentic-workflows.yml`](.github/workflows/compile-agentic-workflows.yml).
 
-#### safeoutputs semantics (gh-aw v0.71.4)
+#### safeoutputs semantics (gh-aw v0.77.0)
 
 Every `news-*.md` declares:
 
@@ -1166,18 +1166,18 @@ created during the build step and attached to the immutable GitHub Release in a 
 ### 11. Compile Agentic Workflows
 
 **📄 File:** `.github/workflows/compile-agentic-workflows.yml`  
-**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.71.4`)  
+**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.77.0`)  
 **⏰ Trigger:** Manual dispatch only (`workflow_dispatch`)  
 **📊 Status:** [![Compile Agentic Workflows](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml)
 
-> **Version pin contract**: `GH_AW_VERSION: v0.71.4` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 15 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
+> **Version pin contract**: `GH_AW_VERSION: v0.77.0` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 15 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
 
 #### Compilation Pipeline
 
 ```mermaid
 graph LR
     A[Manual Trigger] --> B[Checkout Repository]
-    B --> C["Install gh-aw CLI<br/>(pinned v0.71.4)"]
+    B --> C["Install gh-aw CLI<br/>(pinned v0.77.0)"]
     C --> D["Run gh aw compile --validate<br/>Validates frontmatter + safe-outputs"]
     D --> E["Commit & Push<br/>.lock.yml Files"]
 
@@ -1204,7 +1204,7 @@ graph LR
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
 | **Manual Trigger Only** | `workflow_dispatch` — no automatic runs | Change control |
-| **Version Pin** | `GH_AW_VERSION: v0.71.4` pinned at workflow env | Supply chain integrity |
+| **Version Pin** | `GH_AW_VERSION: v0.77.0` pinned at workflow env | Supply chain integrity |
 | **Token Fallback** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with `GITHUB_TOKEN` fallback | Credential management |
 | **Write Permissions** | `contents: write`, `pull-requests: write`, `actions: write`, `issues: write` | Least privilege for compilation |
 
@@ -1266,7 +1266,7 @@ graph LR
 ### 15. Agentics Maintenance
 
 **📄 File:** `.github/workflows/agentics-maintenance.yml`  
-**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.71.4` is in effect.  
+**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.77.0` is in effect.  
 **⏰ Trigger:** Scheduled (weekly) + manual dispatch  
 
 #### Security Controls
@@ -2164,7 +2164,7 @@ flowchart LR
     end
 
     subgraph "🤖 Agent Layer"
-        Agent["GitHub Copilot<br/>claude-sonnet-4.6"]
+        Agent["GitHub Copilot<br/>claude-opus-4.8 (articles)<br/>claude-sonnet-4.6 (translate)"]
         Analyze["Analysis Pipeline<br/>11 methodology assets<br/>39 templates"]
     end
 
@@ -2529,4 +2529,4 @@ See [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) for:
 
 ---
 
-*Last updated: 2026-05-06 by Documentation Architect / Security Architect (EU Parliament Monitor v0.8.59)*
+*Last updated: 2026-05-28 by Documentation Architect / Security Architect (EU Parliament Monitor v0.9.26)*
