@@ -31,6 +31,79 @@ export const PUBLISHER_NAME = 'Hack23 AB';
 /** Site name used across meta tags and structured data. */
 export const SITE_NAME = 'EU Parliament Monitor';
 /**
+ * Trailing separator characters (whitespace + editorial punctuation) that
+ * may dangle after a `Published …` tail has been removed.
+ */
+const TRAILING_SEPARATOR_CHARS = new Set(['\u2014', '\u2013', '|', ':', ';', ',', '-']);
+/**
+ * Linear-time trailing trim of whitespace and editorial separator
+ * punctuation. Avoids the polynomial backtracking that an unanchored
+ * `/[\s…]+$/` character-class quantifier exhibits on adversarial input.
+ *
+ * @param value - Text whose trailing separators should be removed
+ * @returns `value` without trailing whitespace/separator characters
+ */
+function trimTrailingSeparators(value) {
+    let end = value.length;
+    while (end > 0) {
+        const ch = value.charAt(end - 1);
+        if (TRAILING_SEPARATOR_CHARS.has(ch) || /\s/u.test(ch)) {
+            end -= 1;
+        }
+        else {
+            break;
+        }
+    }
+    return value.slice(0, end);
+}
+/**
+ * Anchored `Published YYYY-MM-DD` tail matcher. The leading `Published`
+ * literal keeps the match deterministic (no ambiguous leading-whitespace
+ * quantifier), so it is linear on uncontrolled input.
+ */
+const PUBLISHED_DATE_TAIL_RE = /Published\s+\d{4}-\d{2}-\d{2}\.?\s*$/iu;
+/**
+ * Remove leaked `Published YYYY-MM-DD` tails from social descriptions.
+ *
+ * @param value - Raw description candidate
+ * @returns Description with trailing publication-date boilerplate removed
+ */
+function stripPublishedDateTail(value) {
+    if (!value)
+        return '';
+    const withoutTail = value.replace(PUBLISHED_DATE_TAIL_RE, '');
+    return trimTrailingSeparators(withoutTail).trim();
+}
+/**
+ * Resolve a publish-date-safe description: prefer the stripped value, and
+ * only fall back to the original when no `Published …` tail was present.
+ * When the original was *only* a publish-date tail, stripping yields an
+ * empty string and we must not re-introduce the leaked tail.
+ *
+ * @param value - Raw description candidate
+ * @returns Stripped description, or empty when the original was tail-only
+ */
+function safeDescriptionWithoutPublishedTail(value) {
+    const stripped = stripPublishedDateTail(value);
+    if (stripped)
+        return stripped;
+    return PUBLISHED_DATE_TAIL_RE.test(value) ? '' : value;
+}
+/**
+ * Strip numbered list prefixes from JSON-LD mention labels.
+ *
+ * @param name - Raw mention label
+ * @returns Mention label without leading numeric hierarchy markers
+ */
+function sanitizeMentionName(name) {
+    let cleaned = name.trim();
+    while (/^\d+\./u.test(cleaned)) {
+        cleaned = cleaned.replace(/^\d+\./u, '').trimStart();
+    }
+    cleaned = cleaned.replace(/^\d+\s+/u, '').replace(/^\.\s*/u, '');
+    return cleaned.trim();
+}
+/**
  * Compute the per-surface SEO-budget-clamped variants of the article
  * title and description for a single render. See
  * `analysis/methodologies/seo-headers-policy.md` § 1.1 for the
@@ -45,17 +118,19 @@ export const SITE_NAME = 'EU Parliament Monitor';
  * @returns One {@link SeoClampedSurfaces} record per article render
  */
 function computeSeoClamps(options, lang, siteTitle) {
+    const safeMetaDescription = safeDescriptionWithoutPublishedTail(options.description);
     const pageTitle = buildPageTitle(options.title, lang, siteTitle);
     const ogTitleClamped = clampForBudget(options.title, lang, 'ogTitle');
     const twitterTitleClamped = clampForBudget(options.title, lang, 'twitterTitle');
-    const metaDescriptionClamped = clampForBudget(options.description, lang, 'metaDescription');
+    const metaDescriptionClamped = clampForBudget(safeMetaDescription, lang, 'metaDescription');
     // og:description and twitter:description prefer the longer BLUF
     // paragraph (extendedDescription) so social-card previews show the
     // full lede; fall back to the short meta description when the
     // extended one is empty.
-    const socialSource = options.extendedDescription && options.extendedDescription.length > 0
+    const socialSourceRaw = options.extendedDescription && options.extendedDescription.length > 0
         ? options.extendedDescription
-        : options.description;
+        : safeMetaDescription;
+    const socialSource = stripPublishedDateTail(socialSourceRaw) || safeMetaDescription;
     const ogDescriptionClamped = clampForBudget(socialSource, lang, 'ogDescription');
     const twitterDescriptionClamped = clampForBudget(socialSource, lang, 'twitterDescription');
     const imageAltClamped = clampForBudget(`${options.title}${getTitleSeparator(lang)}${siteTitle}`, lang, 'imageAlt');
@@ -160,6 +235,9 @@ export function wrapArticleHtml(options) {
             height: 630,
         },
     ];
+    const sanitizedMentions = (options.mentions ?? [])
+        .map((name) => sanitizeMentionName(name))
+        .filter(Boolean);
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
@@ -202,9 +280,9 @@ export function wrapArticleHtml(options) {
                 isBasedOn: options.isBasedOn.map((url) => ({ '@type': 'CreativeWork', url })),
             }
             : {}),
-        ...(options.mentions && options.mentions.length > 0
+        ...(sanitizedMentions.length > 0
             ? {
-                mentions: options.mentions.map((name) => ({
+                mentions: sanitizedMentions.map((name) => ({
                     '@type': 'Organization',
                     name,
                 })),

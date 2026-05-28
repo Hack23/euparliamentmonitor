@@ -175,13 +175,16 @@ export function resolveEditorialContent(opts) {
  *
  * When falling back to the localized template (no editorial headline
  * available), append an ISO date suffix so two runs of the same
- * article type on different dates do not produce identical titles.
- * For same-date re-runs, a localized "Edition N" qualifier is appended
- * to ensure cross-run uniqueness without using the banned `Run N` token.
+ * article type on different dates do not produce identical titles, plus
+ * an `(EP)` SERP-floor pad when the result falls below the per-script
+ * reader floor. No run-number or "Edition N" disambiguator is appended:
+ * `scripts/validate-article-seo.js` forbids run-number / edition tokens
+ * in reader-facing titles, so same-date collisions are expected to be
+ * resolved through editorial / content-based differentiation instead.
  *
  * @param fallbackTitle - Localized article-type template title
  * @param editorialHeadline - Editorial headline (localized or English)
- * @param _runId - Optional run id used for edition qualifier disambiguation
+ * @param _runId - Unused; retained for call-site signature compatibility
  * @param date - Optional ISO date appended when no editorial headline exists
  * @param lang - Optional language code; drives per-script floor/budget classification
  * @returns SEO title candidate

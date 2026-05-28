@@ -123,6 +123,15 @@ describe('detectForbiddenPrefix', () => {
   it('returns null for editorial prose', () => {
     expect(detectForbiddenPrefix('Banking union pact narrows ECON deadlines')).toBeNull();
   });
+  it('flags Stage-A→E preambles', () => {
+    expect(detectForbiddenPrefix('Stage A — 2026-05-28 (#265)')).toBe('stage a');
+    expect(detectForbiddenPrefix('stage d: finalize article metadata')).toBe('stage d');
+  });
+  it('flags leaked internal scripts/ path prefixes', () => {
+    expect(detectForbiddenPrefix('scripts/prefetch-ep-feeds.sh generated this output')).toBe(
+      'scripts/'
+    );
+  });
   it('tolerates non-string input', () => {
     expect(detectForbiddenPrefix(null)).toBeNull();
     expect(detectForbiddenPrefix(42)).toBeNull();
@@ -167,6 +176,15 @@ describe('detectLeakyRunIdOrJargon', () => {
     const result = detectLeakyRunIdOrJargon('Breaking — 2026-05-16 — Run 255');
     expect(result).not.toBeNull();
     expect(result).toContain('Run 255');
+  });
+  it('flags leaked scripts/ path tokens', () => {
+    const result = detectLeakyRunIdOrJargon('Five feeds were pre-fetched by scripts/prefetch.sh.');
+    expect(result).not.toBeNull();
+    expect(result).toContain('scripts/');
+  });
+  it('flags leaked internal timestamps (HH:MM:SSZ)', () => {
+    const result = detectLeakyRunIdOrJargon('Pipeline completed at 05:40:10Z with staged output.');
+    expect(result).toBe('05:40:10Z');
   });
 });
 
