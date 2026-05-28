@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's April 28–30 (#393)"
+title: "The European Parliament's April 28–30"
 description: "The European Parliament's April 28–30, 2026 Strasbourg plenary delivered a dense legislative agenda that simultaneously advanced digital rights."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-11", "European", "Parliament", "April"]
 date: 2026-05-11

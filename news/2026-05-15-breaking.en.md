@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's April 28–30 (#343)"
+title: "The European Parliament's April 28–30"
 description: "The European Parliament's April 28–30, 2026 plenary session produced six significant legislative and political actions that collectively signal three."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-15", "European", "Parliament", "April"]
 date: 2026-05-15

@@ -1,7 +1,7 @@
 ---
-title: "Stage A — 2026-05-28 (#265)"
-description: "Five feeds were pre-fetched by scripts/prefetch-ep-feeds.sh at 05:40:10Z. Published 2026-05-28 for democratic-accountability readers tracking EU institutional consequences."
-keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-28", "Stage", "Five", "feeds"]
+title: "EU Parliament Committee Activity Report"
+description: "Analysis of recent legislative output, effectiveness metrics, and key committee activities Published 2026-05-28."
+keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-28", "Parliament", "Committee", "Activity"]
 date: 2026-05-28
 article_type: committee-reports
 slug: 2026-05-28-committee-reports

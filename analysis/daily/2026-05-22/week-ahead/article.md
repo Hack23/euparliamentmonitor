@@ -1,5 +1,5 @@
 ---
-title: "SAFE Regulation (ReArm Europe) — AFET/BUDG committees (#270)"
+title: "SAFE Regulation (ReArm Europe) — AFET/BUDG committees"
 description: "SAFE Regulation (ReArm Europe) — AFET/BUDG committees advancing joint procurement framework. Published 2026-05-22."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "week ahead", "committee meetings", "plenary debate", "legislation", "2026-05-22", "SAFE", "Regulation", "ReArm"]
 date: 2026-05-22

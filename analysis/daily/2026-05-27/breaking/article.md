@@ -1,5 +1,5 @@
 ---
-title: "The EP plenary week of 19–21 May 2026 represented (#266)"
+title: "The EP plenary week of 19–21 May 2026 represented"
 description: "The EP plenary week of 19–21 May 2026 represented high-intensity legislative output on five structurally significant fronts."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-27", "plenary", "week", "represented"]
 date: 2026-05-27

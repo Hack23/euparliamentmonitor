@@ -1,6 +1,6 @@
 ---
 title: "is a T-2 pre-Tariff-activation motions-track positioning run"
-description: "Run 39 is a T-2 pre-Tariff-activation motions-track positioning run. Published 2026-04-13 for democratic-accountability readers tracking EU institutional consequences."
+description: "Recent plenary votes, adopted texts, party cohesion analysis, and detected voting anomalies in the European Parliament Published 2026-04-13."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-13", "Tariff", "activation", "track"]
 date: 2026-04-13
 article_type: motions

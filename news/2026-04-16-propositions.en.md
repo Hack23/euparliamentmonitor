@@ -1,6 +1,6 @@
 ---
 title: "documents that the European Parliament has entered the 27"
-description: "Run 44 documents that the European Parliament has entered the 27 March – 26 April inter-session gap carrying the most ambitious legislative portfolio of."
+description: "Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament Published 2026-04-16."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-16", "documents", "that", "European"]
 date: 2026-04-16
 article_type: propositions

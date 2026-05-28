@@ -1,5 +1,5 @@
 ---
-title: "EPP broker role tested by 2027 election ground game (#297)"
+title: "EPP broker role tested by 2027 election ground game"
 description: "Election cycle (2026-05-09): EPP's 185-seat broker role measured against the 2027 election ground game for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "election cycle", "elections", "political landscape", "2026-05-09", "broker", "role", "tested", "election"]
 date: 2026-05-09

@@ -1,5 +1,5 @@
 ---
-title: "Political Architecture (EP10 — May 2026) (#375)"
+title: "Political Architecture (EP10 — May 2026)"
 description: "Key coalition math: EPP + S&D = 319 (below 360); EPP + S&D + Renew = 396 (working majority for most votes) for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-13", "Political", "Architecture", "EP10"]
 date: 2026-05-13
