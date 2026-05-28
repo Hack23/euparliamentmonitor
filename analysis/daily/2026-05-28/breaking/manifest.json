@@ -1,0 +1,78 @@
+{
+  "articleType": "breaking",
+  "dataMode": "degraded-feeds",
+  "runId": "breaking-run265-1779932393",
+  "date": "2026-05-28",
+  "headline": "European Parliament Adopts AI Trade Strategy and Afghanistan Women's Rights Resolution in Strasbourg Plenary",
+  "generatedAt": "2026-05-28T01:45:00Z",
+  "prefetchMode": "degraded-feeds",
+  "stageACompleted": true,
+  "files": {
+    "root": [
+      "data-availability-assessment.md",
+      "executive-brief.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "intelligence": [
+      "intelligence/pestle-analysis.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/analysis-index.md",
+      "intelligence/significance-scoring.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/cross-session-intelligence.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/threat-model.md",
+      "intelligence/political-threat-landscape.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/voting-patterns.degraded.md"
+    ],
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/significance-classification.md",
+      "classification/impact-matrix.md",
+      "classification/forces-analysis.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md",
+      "extended/intelligence-assessment.md",
+      "extended/data-download-manifest.md",
+      "extended/coalition-mathematics.md",
+      "extended/devils-advocate-analysis.md",
+      "extended/cross-reference-map.md",
+      "extended/voter-segmentation.md",
+      "extended/implementation-feasibility.md",
+      "extended/forward-indicators.md",
+      "extended/comparative-international.md",
+      "extended/historical-parallels.md",
+      "extended/executive-brief.md"
+    ],
+    "documents": [
+      "documents/document-analysis-index.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "breaking-run265-1779932393",
+      "timestamp": "2026-05-28T01:45:00Z",
+      "dataMode": "degraded-feeds",
+      "gateResult": "GREEN",
+      "pass2": {
+        "rewriteCount": 38
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "date": "2026-05-28",
+  "articleType": "breaking",
+  "runId": "breaking-run265-1779932393",
+  "gateResult": "GREEN",
+  "slug": "2026-05-28-breaking",
+  "articlePath": "analysis/daily/2026-05-28/breaking/article.md",
+  "topFinding": "BREAKING: European Parliament Adopts Landmark AI Trade Strategy and Afghanistan Women's Rights Resolution in Strasbourg Plenary (May 19–21, 2026)",
+  "keyTakeaways": [
+    "TA-10-2026-0183 (AI trade): Positions EP ahead of G7 Hiroshima AI Code of Conduct follow-up; Commission's AI Office (established under AI Act) will need to engage with EP's trade-specific AI concerns",
+    "TA-10-2026-0186 (Afghanistan): Part of EP's consistent human rights urgency resolution pattern; 2025 saw 11 urgency resolutions, 2026 on pace for similar output",
+    "TA-10-2026-0180 (EU-Canada SAFE): Critical political signal — Canada's inclusion in European defence procurement marks a qualitative shift in the concept of \"European strategic autonomy\" toward \"allied strategic autonomy\"",
+    "AI Trade Strategy: EPP-S&D-Renew-ECR likely coalition (trade competitiveness frame); GUE/NGL likely opposed or abstaining; Greens likely supporting with amendments on environmental AI impact",
+    "Afghanistan urgency: Near-consensus expected (80%+ support); only far-right PfE/ESN groups may diverge",
+    "EU-Canada SAFE: EPP-S&D-Renew-ECR coalition (defence consensus); GUE/NGL opposed; Greens split",
+    "TA-10-2026-0045 (Feb 12): Uganda post-election (opposition leader Bobi Wine)"
+  ],
+  "topRisks": [
+    "1–5: LOW | 6–12: MEDIUM | 13–19: HIGH | 20–25: CRITICAL",
+    "Taliban humanitarian access restriction (20) — most serious near-term risk",
+    "None currently assessed at HIGH",
+    "Commission delay on AI Trade Strategy (12) — manageable through accountability mechanisms",
+    "ECR/PfE AI trade amendment campaign (12) — majority arithmetic sufficient",
+    "AI Act-trade coherence fragmentation (12) — coordination mandate exists",
+    "Taliban legal acceleration (12) — proactive monitoring required",
+    "Afghan women flight EU backlash (12) — pre-positioning required"
+  ],
+  "keyDates": [
+    "Commission responds to AI Trade Strategy by September 2026",
+    "DMA enforcement generates first major fine against tech platform (Q3 2026)",
+    "EU-Canada SAFE first joint procurement exercise initiated by December 2026",
+    "Afghanistan resolution cited in EU-Taliban sanctions review (Q4 2026)",
+    "Commission publishes \"AI and Trade\" Communication by October 2026",
+    "EU-Canada SAFE ratification parliamentary timeline not established by September 2026",
+    "Large-scale Afghan refugee crisis reaching EU borders (>500,000 in Q3 2026)",
+    "[ ] IMF July 2026 WEO update on EU trade trajectory"
+  ],
+  "keyActors": [
+    "**European Parliament:** Direct legislative authority — adopts all three texts",
+    "**European Commission:** Implementation authority for AI Trade Strategy and SAFE",
+    "**United States:** External veto-player potential on AI Trade Strategy via WTO/trade disputes",
+    "Canada: Co-signatory on SAFE — ratification required for entry into force",
+    "ICC: Legal authority over Afghanistan prosecution (when triggered)",
+    "Taliban: Targeted by resolution but effectively beyond EU enforcement reach",
+    "NGOs: Agenda-setting influence; not decision-making authority",
+    "DG TRADE Commissioner: Shapes EC position on AI Trade Strategy mandate"
+  ],
+  "macroContext": "Source: IMF WEO April 2026, Tables A1, A2, A10.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
