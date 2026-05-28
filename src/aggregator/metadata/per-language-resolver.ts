@@ -263,13 +263,18 @@ function humanizeArticleTypeLabel(articleType: string): string {
 /**
  * Format `YYYY-MM-DD` into `Mon YYYY`; falls back to the raw date when invalid.
  *
+ * Formats with the target language (falling back to `en`) so the synthesized
+ * fallback title stays locale-appropriate for Latin non-EN locales (e.g.
+ * `sv`/`fr`) instead of emitting an English month label on every page.
+ *
  * @param date - ISO article date
+ * @param lang - Target language code driving the month-label locale
  * @returns Month/year label suitable for fallback titles
  */
-function formatMonthYear(date: string): string {
+function formatMonthYear(date: string, lang: string): string {
   const parsed = new Date(`${date}T00:00:00Z`);
   if (Number.isNaN(parsed.getTime())) return date;
-  return new Intl.DateTimeFormat('en', {
+  return new Intl.DateTimeFormat([lang, 'en'], {
     month: 'short',
     year: 'numeric',
     timeZone: 'UTC',
@@ -291,14 +296,14 @@ function synthesizeFallbackTitle(
   contextualFallback: string
 ): string {
   // The synthesized shape (`EP <Article Type>: <Top Finding> — <Mon YYYY>`)
-  // and its `Intl.DateTimeFormat('en', …)` month label are Latin/English by
-  // construction. Emitting it on a non-Latin locale would ship a pure-ASCII
-  // `<title>`, violating the locale-glyph contract (Gate 4a). For those
-  // locales we defer to the localized contextual fallback instead.
+  // is Latin/English by construction (the `EP <Article Type>` lead-in and
+  // colon punctuation). Emitting it on a non-Latin locale would ship a
+  // pure-ASCII `<title>`, violating the locale-glyph contract (Gate 4a). For
+  // those locales we defer to the localized contextual fallback instead.
   if (classifyScript(input.lang) !== 'latin') return contextualFallback;
   const topFinding = sanitizeTitleCandidate(deriveHeadlineFromSummary(topFindingSource));
   const articleTypeLabel = humanizeArticleTypeLabel(input.articleType);
-  const monthYear = formatMonthYear(input.date);
+  const monthYear = formatMonthYear(input.date, input.lang);
   const synthesized = topFinding
     ? `EP ${articleTypeLabel}: ${topFinding} — ${monthYear}`
     : `EP ${articleTypeLabel} — ${input.date}`;
@@ -541,11 +546,12 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
   // blank `<title>`.
   //
   // The fallback path passes the template title back through
-  // {@link composeContextualTitle} (with an empty editorial headline)
-  // so `withRunQualifier` re-appends the `— Run N` suffix. Without
-  // this, two same-date / same-articleType runs (republish, hot-fix
-  // re-run) would collapse to byte-identical `<title>` strings, and
-  // the duplicate-title gate in `scripts/validate-article-seo.js`
+  // {@link composeContextualTitle} (with an empty editorial headline) so it
+  // appends an ISO date suffix (and, for same-date re-runs, a localized
+  // "Edition N" qualifier) for cross-run uniqueness — never the banned
+  // `Run N` token. Without this, two same-date / same-articleType runs
+  // (republish, hot-fix re-run) would collapse to byte-identical `<title>`
+  // strings, and the duplicate-title gate in `scripts/validate-article-seo.js`
   // would (correctly) fail CI.
   const contextualFallback = composeContextualTitle(
     input.template.title,
