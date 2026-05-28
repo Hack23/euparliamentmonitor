@@ -38,6 +38,8 @@ export { buildArticleSlug, sanitizeRunSuffix, extractDefaultDescription, } from 
 export { discoverAnalysisRuns, groupRunsForCollision, } from './generator/discovery.js';
 // Reader guide insertion
 export { insertReaderGuideAfterExecutiveBrief } from './generator/reader-guide-insertion.js';
+// Progressive disclosure reading-time helpers
+export { estimateReadingMinutes, buildLayerReadingTimes, splitBodyIntoDisclosureLayers, } from './progressive-disclosure.js';
 // Single-run + batch orchestrators
 export { generateArticle } from './generator/render-one.js';
 export { generateAllArticles } from './generator/render-batch.js';

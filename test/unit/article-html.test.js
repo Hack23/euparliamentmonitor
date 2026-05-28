@@ -129,6 +129,7 @@ describe('wrapArticleHtml', () => {
     const html = wrapArticleHtml(baseOptions);
     expect(html).toContain('class="article-hero"');
     expect(html).toContain('class="article-dek"');
+    expect(html).toContain('class="article-reading-times"');
     expect(html).toContain('Short description of the test article.');
   });
 
@@ -319,10 +320,10 @@ describe('buildArticleToc', () => {
     // Each entry now wraps its title in a `<span class="article-toc-text">`
     // and prefixes it with a contextual emoji icon.
     expect(html).toMatch(
-      /<li><a href="#synthesis"><span class="article-toc-icon" aria-hidden="true">[^<]+<\/span> <span class="article-toc-text">Synthesis Summary<\/span><\/a><\/li>/
+      /<li data-layer="analysis"><a href="#synthesis"><span class="article-toc-icon" aria-hidden="true">[^<]+<\/span> <span class="article-toc-text">Synthesis Summary<\/span><span class="article-toc-layer article-toc-layer--analysis" aria-label="Layer L2">L2<\/span><\/a><\/li>/
     );
     expect(html).toMatch(
-      /<li><a href="#risk"><span class="article-toc-icon" aria-hidden="true">[^<]+<\/span> <span class="article-toc-text">Risk Assessment<\/span><\/a><\/li>/
+      /<li data-layer="analysis"><a href="#risk"><span class="article-toc-icon" aria-hidden="true">[^<]+<\/span> <span class="article-toc-text">Risk Assessment<\/span><span class="article-toc-layer article-toc-layer--analysis" aria-label="Layer L2">L2<\/span><\/a><\/li>/
     );
   });
 
@@ -361,6 +362,59 @@ describe('buildArticleToc', () => {
     expect(sv).toContain('Innehållsförteckning');
     const de = buildArticleToc([{ id: 'x', title: 'X' }], 'de');
     expect(de).toContain('Inhaltsverzeichnis');
+  });
+});
+
+describe('progressive disclosure article layers', () => {
+  const baseOptions = {
+    lang: 'en',
+    articleSlug: '2026-01-15-breaking',
+    body: [
+      '<h2 id="section-executive-brief">Executive Brief</h2>',
+      '<p>Quick words one two three.</p>',
+      '<h2 id="section-key-takeaways">Key Takeaways</h2>',
+      '<p>Quick findings and highlights.</p>',
+      '<h2 id="section-synthesis">Synthesis Summary</h2>',
+      '<p>Analysis depth appears here.</p>',
+      '<h2 id="section-risk">Risk Assessment</h2>',
+      '<p>Further analysis and implications.</p>',
+      '<h2 id="section-threat">Threat Landscape</h2>',
+      '<p>Full intelligence detail.</p>',
+    ].join('\n'),
+    title: 'Disclosure Test Article',
+    description: 'Short description of the disclosure test article.',
+    date: '2026-01-15',
+    articleType: 'breaking',
+    toc: [
+      { id: 'section-executive-brief', title: 'Executive Brief' },
+      { id: 'section-synthesis', title: 'Synthesis Summary' },
+      { id: 'section-threat', title: 'Threat Landscape' },
+    ],
+  };
+
+  it('wraps content into quick, analysis, and intelligence disclosure layers', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('article-layer--quick');
+    expect(html).toContain('article-layer--analysis');
+    expect(html).toContain('article-layer--intelligence');
+    expect(html).toContain('id="article-layer-analysis"');
+    expect(html).toContain('id="article-layer-intelligence"');
+  });
+
+  it('keeps quick-read content visible while deeper layers remain in <details>', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toMatch(
+      /<section class="article-layer article-layer--quick"[\s\S]*section-executive-brief[\s\S]*section-key-takeaways/
+    );
+    expect(html).toMatch(/<details class="article-layer article-layer--analysis[\s\S]*section-synthesis/);
+    expect(html).toMatch(/<details class="article-layer article-layer--intelligence[\s\S]*section-threat/);
+  });
+
+  it('renders estimated reading-time text for all three disclosure levels', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('⏱️ Quick read:');
+    expect(html).toContain('Full analysis:');
+    expect(html).toContain('Complete intelligence:');
   });
 });
 
