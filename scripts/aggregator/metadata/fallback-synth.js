@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 /**
- * @fileoverview Hard fallback metadata synthesizers for the per-language SEO
+ * @file Hard fallback metadata synthesizers for the per-language SEO
  * resolver. These run only when every resolved title/description candidate is
  * contaminated with pipeline jargon, producing reader-facing, search-safe copy
  * from article context instead of leaking internal pipeline artifacts.
