@@ -1,0 +1,57 @@
+{
+  "date": "2026-05-28",
+  "articleType": "breaking",
+  "runId": "breaking-run264-1779957632",
+  "gateResult": "PENDING",
+  "slug": "2026-05-28-breaking",
+  "articlePath": "analysis/daily/2026-05-28/breaking/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**TA-10-2026-0180**: EU-Canada SAFE Instrument Agreement — defense procurement partnership",
+    "**TA-10-2026-0183**: AI strategy for EU trade (opportunities and challenges)",
+    "**TA-10-2026-0174**: EU-Uzbekistan Enhanced Partnership and Cooperation Agreement (EPCA)",
+    "**TA-10-2026-0182**: Recommendation on 81st UN General Assembly session",
+    "**TA-10-2026-0164**: Waiver of immunity — Harald Vilimsky (FPÖ/ID Group)",
+    "**TA-10-2026-0166**: Waiver of immunity — Nikos Pappas (SYRIZA/S&D)",
+    "**TA-10-2026-0168**: Production and marketing of forest reproductive material"
+  ],
+  "topRisks": [
+    "🔴 20–25: CRITICAL — immediate action required",
+    "🟠 15–19: HIGH — monitoring and contingency planning",
+    "🟡 10–14: MEDIUM — structured monitoring",
+    "🟢 5–9: LOW — awareness only",
+    "⚪ 1–4: NEGLIGIBLE",
+    "**Description:** Hungary (and potentially Slovakia) blocks SAFE Instrument ratification, creating a two-tier EU on defense procurement",
+    "**Driver:** Orbán's systemic use of ratification veto as political leverage",
+    "**Timeline:** 12–18 months post-agreement (ratification process)"
+  ],
+  "keyDates": [
+    "June 2026: EU-NATO Defense Ministers Council",
+    "October 2026: European Council — defense integration on agenda",
+    "December 2026: SAFE Instrument ratification status review",
+    "Uzbekistan-China trade statistics Q2 2026 (EPCA counterfactual measure)"
+  ],
+  "keyActors": [
+    "**Now (May 2026):** EP consent given; Commission + Council in driving seat",
+    "**June 2026:** Council votes on opening ratification; Hungary position crystallizes",
+    "**Q3–Q4 2026:** National parliaments briefed on ratification timeline",
+    "**2027:** First ratification completed (smaller states typically first)",
+    "**2029+:** Full ratification or enhanced cooperation triggered",
+    "**Coverage:** All major institutional, parliamentary, external, and industry actors",
+    "**Position confidence:** HIGH for EU institutions and parliamentary groups; MEDIUM for external actors",
+    "**Monitoring requirement:** Hungary Council vote is the critical watchpoint"
+  ],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
