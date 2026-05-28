@@ -54,6 +54,19 @@ describe('wrapArticleHtml', () => {
     expect(html).toContain('Body content.');
   });
 
+  it('applies reader-friendly transforms by default but allows explicit opt-out', () => {
+    const sourceBody = '<h1>Test Article</h1><p>BLUF: See TA-10-2026-0183.</p>';
+    const transformed = wrapArticleHtml({ ...baseOptions, body: sourceBody });
+    expect(transformed).toContain('<abbr title="Bottom Line Up Front">BLUF</abbr>');
+    expect(transformed).toContain(
+      'href="https://www.europarl.europa.eu/doceo/document/TA-10-2026-0183_EN.html"'
+    );
+
+    const raw = wrapArticleHtml({ ...baseOptions, body: sourceBody, readerFriendly: false });
+    expect(raw).toContain('BLUF: See TA-10-2026-0183.');
+    expect(raw).not.toContain('<abbr title="Bottom Line Up Front">BLUF</abbr>');
+  });
+
   it('includes the skip-link and theme toggle button for a11y parity', () => {
     const html = wrapArticleHtml(baseOptions);
     expect(html).toContain('class="skip-link"');

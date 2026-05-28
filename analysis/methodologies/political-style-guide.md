@@ -610,6 +610,8 @@ WEP bands are not horizon-agnostic: the threshold to call something *Likely* at 
 - Never hide probabilistic language in footnotes. If the claim matters enough to make, it matters enough to grade inline.
 - Prefer "judge" / "assess" (ICD-203 verbs) over "think" / "believe" / "feel" when stating analytic positions.
 - Any claim that uses a number (%, count, Euro, seat share) MUST either (a) cite an EP / Eurostat / ECB / WB / IMF source with Admiralty grade, or (b) be flagged as an estimate with the confidence level and the estimation basis.
+- Public-facing HTML MUST render first-use reader help for specialist notation: expand intelligence acronyms with `<abbr title="…">`, translate first WEP/admiralty markers into plain-English wording, and auto-link `TA-<term>-<year>-<id>` references to official DOCEO URLs.
+- Internal pipeline-state markers (for example `degraded-feeds mode`, `KB-ESTIMATE`) MUST NOT be emitted verbatim in public article prose; they must be removed or replaced with reader-safe wording.
 
 ### Pass-2 Reviewer Checklist
 

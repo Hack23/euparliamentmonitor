@@ -25,6 +25,7 @@ import { clampForBudget } from '../metadata/seo-budgets.js';
 import { getArticleFilename, buildArticleHreflangLinks, buildLanguageSwitcher, } from './hreflang.js';
 import { buildArticleToc } from './toc.js';
 import { blobUrl } from '../infra/github-urls.js';
+import { applyReaderFriendlyTransform } from '../reader-friendly-transform.js';
 /** Publisher organization name used in JSON-LD, meta tags. */
 export const PUBLISHER_NAME = 'Hack23 AB';
 /** Site name used across meta tags and structured data. */
@@ -109,13 +110,14 @@ export function wrapArticleHtml(options) {
         : '';
     const tocHtml = buildArticleToc(options.toc ?? [], safeLang);
     const articleMainClass = tocHtml.length > 0 ? 'article-main--with-toc' : 'article-main--no-toc';
+    const transformedBody = options.readerFriendly === false ? options.body : applyReaderFriendlyTransform(options.body);
     const articleSectionLabel = getLocalizedArticleTypePlain(options.articleType, safeLang);
     // Count words from the rendered body for the JSON-LD `wordCount`
     // field (Google's NewsArticle structured-data validator emits a
     // warning when this is missing). Done by stripping HTML tags from
     // the rendered body then splitting on whitespace — fast and
     // CodeQL-safe.
-    const bodyText = stripHtmlTags(options.body);
+    const bodyText = stripHtmlTags(transformedBody);
     const wordCount = bodyText.split(/\s+/u).filter((w) => w.length > 0).length;
     // Pre-compute the per-surface SEO-budget-clamped variants of title
     // and description. Each surface gets its own clamp tuned to the
@@ -309,7 +311,7 @@ ${tocHtml}    <article class="article-body" lang="${safeLang}">
         <p class="article-meta"><time datetime="${options.date}">${options.date}</time> · EU Parliament Monitor</p>
       </header>
       ${sourceMdLink}
-      ${options.body}
+      ${transformedBody}
     </article>
   </main>
 

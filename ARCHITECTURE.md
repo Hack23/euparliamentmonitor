@@ -1258,6 +1258,7 @@ src/aggregator/
 ├── analysis-aggregator.ts   aggregateAnalysisRun() — manifest discovery + .md filter
 ├── artifact-order.ts        ARTIFACT_SECTIONS — canonical 19-section order
 ├── article-html.ts          HTML5 wrapper: header, language switcher, TOC, JSON-LD
+├── reader-friendly-transform.ts Post-render terminology transform for public HTML
 ├── article-meta.ts          buildArticleMeta() — deterministic article-meta.json
 ├── article-metadata.ts      5-tier editorial-highlight resolver public API
 ├── clean-artifact.ts        Top-level clean-pipeline barrel

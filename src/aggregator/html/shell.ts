@@ -55,6 +55,7 @@ import {
 } from './hreflang.js';
 import { buildArticleToc, type ArticleTocEntry } from './toc.js';
 import { blobUrl } from '../infra/github-urls.js';
+import { applyReaderFriendlyTransform } from '../reader-friendly-transform.js';
 
 export type { ArticleTocEntry } from './toc.js';
 
@@ -75,6 +76,11 @@ export interface WrapArticleOptions {
   readonly articleSlug: string;
   /** Pre-rendered HTML body fragment (from `renderMarkdown`). */
   readonly body: string;
+  /**
+   * Enable reader-friendly post-processing for rendered HTML body text.
+   * Defaults to `true` for public HTML output.
+   */
+  readonly readerFriendly?: boolean;
   /** Article title — shown in `<title>`, breadcrumb, OG/Twitter meta. */
   readonly title: string;
   /** Article description — shown in `<meta name="description">` and OG. */
@@ -248,6 +254,8 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
     : '';
   const tocHtml = buildArticleToc(options.toc ?? [], safeLang);
   const articleMainClass = tocHtml.length > 0 ? 'article-main--with-toc' : 'article-main--no-toc';
+  const transformedBody =
+    options.readerFriendly === false ? options.body : applyReaderFriendlyTransform(options.body);
 
   const articleSectionLabel = getLocalizedArticleTypePlain(options.articleType, safeLang);
 
@@ -256,7 +264,7 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   // warning when this is missing). Done by stripping HTML tags from
   // the rendered body then splitting on whitespace — fast and
   // CodeQL-safe.
-  const bodyText = stripHtmlTags(options.body);
+  const bodyText = stripHtmlTags(transformedBody);
   const wordCount = bodyText.split(/\s+/u).filter((w) => w.length > 0).length;
 
   // Pre-compute the per-surface SEO-budget-clamped variants of title
@@ -469,7 +477,7 @@ ${tocHtml}    <article class="article-body" lang="${safeLang}">
         <p class="article-meta"><time datetime="${options.date}">${options.date}</time> · EU Parliament Monitor</p>
       </header>
       ${sourceMdLink}
-      ${options.body}
+      ${transformedBody}
     </article>
   </main>
 
