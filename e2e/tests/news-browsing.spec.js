@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { test, expect } from '@playwright/test';
+import fs from 'fs';
 
 /**
  * News Browsing E2E Tests
@@ -171,5 +172,43 @@ test.describe('News Browsing', () => {
 
       expect(foundContent).toBeTruthy();
     }
+  });
+
+  test('keyboard navigation expands disclosure layers', async ({ page }) => {
+    await page.setContent(`
+      <div class="reading-progress" aria-hidden="true"></div>
+      <main>
+        <aside class="article-toc-container">
+          <details class="article-toc-details" open>
+            <summary class="article-toc-summary">Contents</summary>
+            <ol class="article-toc-list">
+              <li><a href="#section-synthesis">Synthesis</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="article-body">
+          <section class="article-layer article-layer--quick">
+            <h2 id="section-executive-brief">Executive Brief</h2>
+          </section>
+          <details class="article-layer article-layer--analysis article-layer-details" data-disclosure-layer="analysis" id="article-layer-analysis">
+            <summary class="article-layer-summary"><span class="article-layer-summary__title">Read full analysis ↓</span></summary>
+            <section class="article-layer-content">
+              <h2 id="section-synthesis">Synthesis</h2>
+              <p>Detailed analysis section.</p>
+            </section>
+          </details>
+        </article>
+      </main>
+    `);
+    await page.addScriptTag({ content: fs.readFileSync('js/article-runtime.js', 'utf8') });
+
+    const details = page.locator('#article-layer-analysis');
+    await expect(details).not.toHaveAttribute('open', '');
+
+    await page.locator('.article-toc-list a[href="#section-synthesis"]').focus();
+    await page.keyboard.press('Enter');
+
+    await expect(details).toHaveAttribute('open', '');
+    await expect(page.locator('#section-synthesis')).toBeVisible();
   });
 });

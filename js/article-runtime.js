@@ -53,6 +53,70 @@
   }
 
   var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.article-toc-list a[href^="#"]'));
+  var disclosureDetails = Array.prototype.slice.call(
+    document.querySelectorAll('.article-layer-details[data-disclosure-layer]')
+  );
+  var disclosureStorageKey = 'ep-article-disclosure:' + window.location.pathname;
+  function persistDisclosureState() {
+    if (!disclosureDetails.length) return;
+    var state = {};
+    disclosureDetails.forEach(function (details) {
+      var layer = details.getAttribute('data-disclosure-layer');
+      if (layer) state[layer] = details.hasAttribute('open');
+    });
+    try {
+      sessionStorage.setItem(disclosureStorageKey, JSON.stringify(state));
+    } catch (_err) {
+      /* sessionStorage disabled — continue without persistence */
+    }
+  }
+  function restoreDisclosureState() {
+    if (!disclosureDetails.length) return;
+    var raw = null;
+    try {
+      raw = sessionStorage.getItem(disclosureStorageKey);
+    } catch (_err) {
+      raw = null;
+    }
+    if (!raw) return;
+    try {
+      var state = JSON.parse(raw);
+      disclosureDetails.forEach(function (details) {
+        var layer = details.getAttribute('data-disclosure-layer');
+        if (!layer || typeof state[layer] !== 'boolean') return;
+        if (state[layer]) details.setAttribute('open', '');
+        else details.removeAttribute('open');
+      });
+    } catch (_err) {
+      /* ignore malformed state */
+    }
+  }
+  function openContainingDisclosures(node) {
+    var current = node;
+    while (current) {
+      if (current.tagName && current.tagName.toLowerCase() === 'details') {
+        current.setAttribute('open', '');
+      }
+      current = current.parentElement;
+    }
+    persistDisclosureState();
+  }
+  function expandFromHash(hash) {
+    if (!hash || hash.length < 2) return;
+    var targetId = decodeURIComponent(hash.slice(1));
+    if (!targetId) return;
+    var target = document.getElementById(targetId);
+    if (!target) return;
+    openContainingDisclosures(target);
+  }
+  restoreDisclosureState();
+  disclosureDetails.forEach(function (details) {
+    details.addEventListener('toggle', persistDisclosureState);
+  });
+  expandFromHash(window.location.hash);
+  window.addEventListener('hashchange', function () {
+    expandFromHash(window.location.hash);
+  });
   if (tocLinks.length) {
     var tocById = Object.create(null);
     tocLinks.forEach(function (link) {
@@ -61,6 +125,9 @@
       if (id) {
         tocById[id] = link;
       }
+      link.addEventListener('click', function () {
+        expandFromHash(href);
+      });
     });
     var tocHeadings = Object.keys(tocById)
       .map(function (id) {

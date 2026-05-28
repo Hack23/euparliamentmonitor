@@ -27,6 +27,7 @@ import { blobUrl } from '../infra/github-urls.js';
 import { buildArticleSlug } from './slug.js';
 import { discoverAnalysisRuns } from './discovery.js';
 import { insertReaderGuideAfterExecutiveBrief } from './reader-guide-insertion.js';
+import { buildLayerReadingTimes, splitBodyIntoDisclosureLayers, } from '../progressive-disclosure.js';
 /**
  * Escape a string for a conservative double-quoted YAML scalar.
  *
@@ -138,6 +139,7 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
     bodyHtml = localizeArticleBody(bodyHtml, lang);
     bodyHtml = enhanceTradecraftCards(bodyHtml, lang);
     bodyHtml = enhanceAnalysisIndexCards(bodyHtml, lang);
+    const readingTimes = buildLayerReadingTimes(splitBodyIntoDisclosureLayers(bodyHtml).wordCounts);
     const entry = getMetadataEntry(chromeOptions.metadata, lang);
     const perLangDescription = lang !== 'en' && metaSource !== aggregated.markdown
         ? extractStrongProseLine(metaSource) || entry.description
@@ -157,6 +159,7 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
         articleCount: chromeOptions.articleCount,
         isBasedOn: aggregated.includedArtifacts.map((a) => blobUrl(a.repoRelPath)),
         mentions: chromeOptions.mentions,
+        readingTimes,
     });
     const filename = getArticleFilename(slug, lang);
     fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');

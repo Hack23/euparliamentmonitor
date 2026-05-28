@@ -16,7 +16,6 @@ import { ALL_LANGUAGES, PAGE_TITLES, SKIP_LINK_TEXTS, ARTICLE_NAV_LABELS, BACK_T
 import { buildOgLocaleTags } from '../../constants/og-locales.js';
 import { ORG_SAME_AS, buildTwitterAttributionTags } from '../../constants/social-handles.js';
 import { escapeHTML } from '../../utils/file-utils.js';
-import { stripHtmlTags } from '../../utils/html-sanitize.js';
 import { buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
 import { getPoliticalIntelligenceFilename } from '../../generators/political-intelligence.js';
 import { getSitemapFilename } from '../../generators/sitemap/index.js';
@@ -25,6 +24,7 @@ import { clampForBudget } from '../metadata/seo-budgets.js';
 import { getArticleFilename, buildArticleHreflangLinks, buildLanguageSwitcher, } from './hreflang.js';
 import { buildArticleToc } from './toc.js';
 import { blobUrl } from '../infra/github-urls.js';
+import { buildLayerReadingTimes, buildProgressiveDisclosureBody, } from '../progressive-disclosure.js';
 /** Publisher organization name used in JSON-LD, meta tags. */
 export const PUBLISHER_NAME = 'Hack23 AB';
 /** Site name used across meta tags and structured data. */
@@ -110,13 +110,17 @@ export function wrapArticleHtml(options) {
     const tocHtml = buildArticleToc(options.toc ?? [], safeLang);
     const articleMainClass = tocHtml.length > 0 ? 'article-main--with-toc' : 'article-main--no-toc';
     const articleSectionLabel = getLocalizedArticleTypePlain(options.articleType, safeLang);
+    const disclosureBody = buildProgressiveDisclosureBody(options.body);
     // Count words from the rendered body for the JSON-LD `wordCount`
     // field (Google's NewsArticle structured-data validator emits a
     // warning when this is missing). Done by stripping HTML tags from
     // the rendered body then splitting on whitespace — fast and
     // CodeQL-safe.
-    const bodyText = stripHtmlTags(options.body);
-    const wordCount = bodyText.split(/\s+/u).filter((w) => w.length > 0).length;
+    const wordCount = disclosureBody.wordCounts.quick +
+        disclosureBody.wordCounts.analysis +
+        disclosureBody.wordCounts.intelligence;
+    const readingTimes = options.readingTimes ?? buildLayerReadingTimes(disclosureBody.wordCounts);
+    const readingTimeLine = `⏱️ Quick read: ${readingTimes.quickRead} min · Full analysis: ${readingTimes.fullAnalysis} min · Complete intelligence: ${readingTimes.completeIntelligence} min`;
     // Pre-compute the per-surface SEO-budget-clamped variants of title
     // and description. Each surface gets its own clamp tuned to the
     // documented platform envelope (Google/Bing SERP, Facebook/LinkedIn
@@ -306,10 +310,11 @@ ${tocHtml}    <article class="article-body" lang="${safeLang}">
         <p class="article-kicker">${escapeHTML(getLocalizedArticleType(options.articleType, safeLang))}</p>
         <h1>${escapeHTML(options.title)}</h1>
         <p class="article-dek">${escapeHTML(options.description)}</p>
+        <p class="article-reading-times" aria-label="Estimated reading time">${escapeHTML(readingTimeLine)}</p>
         <p class="article-meta"><time datetime="${options.date}">${options.date}</time> · EU Parliament Monitor</p>
       </header>
       ${sourceMdLink}
-      ${options.body}
+      ${disclosureBody.bodyHtml}
     </article>
   </main>
 
