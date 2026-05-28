@@ -44,6 +44,9 @@ test.describe('Hreflang Link Graph', () => {
 
   for (const { lang, path: pagePath } of SAMPLED_PI_PAGES) {
     test(`${lang}: page has full 14-language hreflang set + x-default`, async ({ page }) => {
+      // PI pages are ~6-7 MB — opt in to a longer budget so this test
+      // doesn't flake under CI load (see also horizon-nav.spec.js).
+      test.setTimeout(60_000);
       const response = await page.goto(pagePath);
 
       // A missing page is a regression — fail, don't skip
