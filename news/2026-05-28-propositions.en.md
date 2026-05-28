@@ -1,5 +1,5 @@
 ---
-title: "European Parliament Advances AI-Trade Doctrine and (#285)"
+title: "European Parliament Advances AI-Trade Doctrine and"
 description: "European Parliament Advances AI-Trade Doctrine and Ratifies Seven International Agreements in Landmark Spring Session."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-28", "European", "Parliament", "Advances"]
 date: 2026-05-28

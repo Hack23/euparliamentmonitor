@@ -1,5 +1,5 @@
 ---
-title: "DMA Enforcement Gap — 2026-05-07 (#540)"
+title: "DMA Enforcement Gap — 2026-05-07"
 description: "Parliament's motion demands the Commission complete ongoing DMA investigations within 6 months. Published 2026-05-07."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-07", "Enforcement", "Parliament", "motion"]
 date: 2026-05-07

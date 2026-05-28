@@ -1,5 +1,5 @@
 ---
-title: "need one more line — 2026-05-15 (#1778822323)"
+title: "need one more line — 2026-05-15"
 description: "need one more line Published 2026-05-15. for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-15", "need", "more", "line"]
 date: 2026-05-15

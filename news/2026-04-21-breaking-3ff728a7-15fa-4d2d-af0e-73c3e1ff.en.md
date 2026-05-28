@@ -1,6 +1,6 @@
 ---
 title: "Combined with completion of the March 26 plenary"
-description: "Run 193 (afternoon probe) crossed the 20/50 significance threshold at 22/50 and produced the first ARTICLEGENERATED gate result since the API outage."
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-21 for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-21", "Combined", "with", "completion"]
 date: 2026-04-21
 article_type: breaking

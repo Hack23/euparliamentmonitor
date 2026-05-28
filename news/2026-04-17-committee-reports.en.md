@@ -1,6 +1,6 @@
 ---
 title: "is a recess-window analytical run that re-scores the March"
-description: "Run 53 is a recess-window analytical run that re-scores the March 2026 Strasbourg multi-domain legislative sprint across five committee jurisdictions."
+description: "Analysis of recent legislative output, effectiveness metrics, and key committee activities Published 2026-04-17."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-17", "recess", "window", "analytical"]
 date: 2026-04-17
 article_type: committee-reports

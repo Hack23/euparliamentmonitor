@@ -1,5 +1,5 @@
 ---
-title: "Parliament returns from Easter recess on April 27, 2026 (#5)"
+title: "Parliament returns from Easter recess on April 27, 2026"
 description: "Parliament returns from Easter recess on April 27, 2026 — Day 14 of the recess — to face the densest post-break legislative programme since the first."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-19", "Parliament", "returns", "from", "Easter"]
 date: 2026-04-19

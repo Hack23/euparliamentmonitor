@@ -1,6 +1,6 @@
 ---
 title: "is a recess-window propositions analytical run anchored on"
-description: "Run 45 is a recess-window propositions analytical run anchored on the EP10 Year-3 peak-velocity sprint thesis."
+description: "Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament Published 2026-04-17."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-04-17", "recess", "window", "analytical"]
 date: 2026-04-17
 article_type: propositions

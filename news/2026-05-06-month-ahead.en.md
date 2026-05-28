@@ -1,5 +1,5 @@
 ---
-title: "Overall confidence: 🟡 MEDIUM (EP API 502 errors limit (#261)"
+title: "Overall confidence: 🟡 MEDIUM (EP API 502 errors limit"
 description: "Overall confidence: 🟡 MEDIUM (EP API 502 errors limit real-time data; structural/contextual analysis applied)."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-05-06", "Overall", "confidence", "MEDIUM", "errors"]
 date: 2026-05-06

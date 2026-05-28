@@ -1,6 +1,6 @@
 ---
 title: "Forward Projection — EU Parliament Year Ahead 2026-2027"
-description: "This artifact synthesises all data collected in Stage A into a forward-facing projection covering the May 2026 – May 2027 horizon."
+description: "European Parliament annual strategic outlook — Commission Work Programme, Trio Presidency for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year ahead", "annual outlook", "legislative agenda", "2026-05-14", "Forward", "Projection", "Parliament", "Year"]
 date: 2026-05-14
 article_type: year-ahead

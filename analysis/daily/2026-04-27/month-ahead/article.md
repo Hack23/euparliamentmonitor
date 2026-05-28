@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament is now in session (#1777304697)"
+title: "The European Parliament is now in session"
 description: "The European Parliament is now in session — the April 27–30 Strasbourg plenary opened today as the first full legislative week after the March 26 vote on."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "month ahead", "legislative agenda", "plenary session", "2026-04-27", "European", "Parliament", "session", "April"]
 date: 2026-04-27

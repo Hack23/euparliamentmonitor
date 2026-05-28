@@ -1,6 +1,6 @@
 ---
 title: "is the T-3 pre-activation consolidation probe"
-description: "Run 163 is the T-3 pre-activation consolidation probe — three days before TA-0096 / TA-0097 statutory operative status."
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-12 for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-12", "activation", "consolidation", "probe"]
 date: 2026-04-12
 article_type: breaking
@@ -61,7 +61,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/api-outage-diagnostic.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -678,6 +678,487 @@ The five identified threats interact in dangerous ways:
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
+### Executive Brief Ar
+
+### BLUF
+
+التقرير 163 هو **مسبار تدمير ما قبل التفعيل T-3** — ثلاثة أيام قبل الوضع التشغيلي القانوني لـ TA-0096 / TA-0097. يُدمج التقرير النتائج عبر خمس فئات تحليلية (التصنيف، تقييم التهديدات، تقييم المخاطر، الاستخبارات، الوثائق) استناداً إلى EP MCP و264K حرف من الإحصائيات المُحسَّبة مسبقاً. مستوى الثقة: 🟡 متوسط (إحصائيات مُحسَّبة مسبقاً + ذاكرة تحريرية). *المعرّفة الأميرالية: B2.*
+
+### Three Decisions
+
+1. **التعامل مع تدمير T-3 كمرتكز التموضع التشغيلي المسبق لـ 72 ساعة القادمة.** مع التفعيل على بُعد 72 ساعة، يُؤسّس التدمير الخط الأساسي المؤسسي لقياس الانحرافات في يوم التفعيل. *مستوى الثقة: HIGH.*
+2. **إرساء البنية الخماسية الفئات (التصنيف / التهديد / المخاطر / الاستخبارات / الوثائق) باعتبارها التفكيك التحليلي الأساسي.** تستخدم التقارير الأخرى مجموعات فئات مؤقتة؛ البنية الخماسية هي التفكيك الفردي الأكثر فائدةً من الناحية التشغيلية. *مستوى الثقة: MEDIUM-HIGH.*
+3. **توثيق نمط الإحصائيات المُحسَّبة مسبقاً والذاكرة التحريرية باعتباره مرتكز الثقة لتجميع فترة الاستراحة.** عندما تكون الخلاصات المباشرة غير متاحة، يُشكّل الخط الأساسي للإحصائيات المُحسَّبة مسبقاً المؤلَّف من 264K حرف مع الذاكرة التحريرية المتراكمة الأساس التشغيلي الذي يُعطي قيمة للثقة. *مستوى الثقة: MEDIUM.*
+
+### 60-Second Read
+
+تُرسي تقارير تدمير T-3 التفكيك التحليلي الأساسي لما قبل التفعيل. البنية الخماسية الفئات (التصنيف / التهديد / المخاطر / الاستخبارات / الوثائق) هي التفكيك الأكثر فائدةً تشغيلياً للمستهلكين في المراحل اللاحقة. يُمثّل مزيج الإحصائيات المُحسَّبة مسبقاً مع الذاكرة التحريرية قاعدة الثقة الأساس التحليلي لتجميع فترة الاستراحة.
+
+### Risk Snapshot
+
+| المخاطرة | الاحتمالية | التأثير |
+|---|---:|---:|
+| عدم استخدام البنية الخماسية في تقارير ما بعد T-0 | MED | LOW–MED |
+| انتهاء صلاحية الخط الأساسي للإحصائيات المُحسَّبة مسبقاً | LOW–MED | MED |
+| تعارض الذاكرة التحريرية مع الأدلة ما بعد التفعيل | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K إحصائيات مُحسَّبة مسبقاً: **B2**
+- البنية الخماسية: **B2** (مُشكَّلة)
+
+### Provenance
+
+- التقرير: `breaking-run163` (2026-04-12, T-3)
+- الامتثال: خلاصات بوابة EP Open Data + إحصائيات مُحسَّبة مسبقاً. متوافق مع اللائحة العامة لحماية البيانات.
+
+---
+*الحياد التحليلي: تأطير T-N مُعلَّم.*
+
+### Executive Brief Da
+
+### BLUF
+
+Rapport 163 er **T-3 forudgående aktiveringsanalysen** — tre dage før TA-0096 / TA-0097 træder i kraft. Rapporten konsoliderer resultater på tværs af fem analysekategorier (klassifikation, trusselsvurdering, risikovurdering, efterretning, dokumenter) baseret på EP MCP og 264K tegn af forudberegnet statistik. Konfidensniveau: 🟡 Medium (forudberegnet statistik + redaktionel hukommelse). *Admiralitet: B2.*
+
+### Three Decisions
+
+1. **Behandl T-3-konsolideringen som det operative forudpositioneringsankerpunkt for de næste 72 timer.** Med aktivering 72 timer væk etablerer konsolideringen den institutionelle baseline for at måle afvigelser på aktiveringsdagen. *Konfidensniveau: HIGH.*
+2. **Forankr femkategoristrukturen (klassifikation / trussel / risiko / efterretning / dokumenter) som den kanoniske analytiske dekomposition.** Andre rapporter bruger ad hoc-kategorisæt; femkategoristrukturen er den operativt mest nyttige enkeltdekomposition. *Konfidensniveau: MEDIUM-HIGH.*
+3. **Dokumentér den forudberegnede-statistik-og-redaktionel-hukommelse-tilstand som recessionsklyngens konfidenssankerpunkt.** Når direkte feeds er utilgængelige, er den 264K-tegn store forudberegnede statistikbaseline plus akkumuleret redaktionel hukommelse det operativt meningsfulde konfidengrundlag. *Konfidensniveau: MEDIUM.*
+
+### 60-Second Read
+
+T-3-konsolideringsrapporter etablerer den kanoniske forudanalysedekomposition. Femkategoristrukturen (klassifikation / trussel / risiko / efterretning / dokumenter) er den operativt mest nyttige dekomposition for downstream-forbrugere. Den forudberegnede-statistik-plus-redaktionel-hukommelse-konfidensbasis er recessionsklyngens analytiske fundament.
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| Femkategoristrukturen bruges ikke af post-T-0-rapporter | MED | LOW–MED |
+| Forudberegnet statistikbaseline forældes | LOW–MED | MED |
+| Redaktionel hukommelse modsiges af post-aktiveringsbevis | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K forudberegnet statistik: **B2**
+- Femkategoristruktur: **B2** (konstrueret)
+
+### Provenance
+
+- Rapport: `breaking-run163` (2026-04-12, T-3)
+- Overholdelse: EP Open Data Portal-feeds + forudberegnet statistik. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: T-N-framing mærket.*
+
+### Executive Brief De
+
+### BLUF
+
+Bericht 163 ist die **T-3 Voraktivierungs-Konsolidierungsanalyse** — drei Tage vor dem operativen Status von TA-0096 / TA-0097. Der Bericht konsolidiert die Erkenntnisse aus fünf Analysekategorien (Klassifikation, Bedrohungsbewertung, Risikobewertung, Nachrichtendienst, Dokumente) auf Basis des EP MCP und 264K Zeichen vorberechneter Statistiken. Konfidenz: 🟡 Mittel (vorberechnete Statistiken + redaktionelles Gedächtnis). *Admiralität: B2.*
+
+### Three Decisions
+
+1. **Die T-3-Konsolidierung als operativen Vorpositionierungsanker für die nächsten 72 Stunden behandeln.** Da die Aktivierung 72 Stunden entfernt ist, etabliert die Konsolidierung die institutionelle Baseline für die Messung von Abweichungen am Aktivierungstag. *Konfidenz: HIGH.*
+2. **Die Fünf-Kategorien-Struktur (Klassifikation / Bedrohung / Risiko / Nachrichtendienst / Dokumente) als kanonische analytische Dekomposition verankern.** Andere Berichte verwenden ad hoc-Kategoriemengen; die Fünf-Kategorien-Struktur ist die operativ nützlichste Einzeldekomposition. *Konfidenz: MEDIUM-HIGH.*
+3. **Den Modus aus vorberechneten Statistiken und redaktionellem Gedächtnis als Konfidenzanker des Auszeit-Clusters dokumentieren.** Wenn Live-Feeds nicht verfügbar sind, ist die 264K-Zeichen große vorberechnete Statistikbaseline plus akkumuliertes redaktionelles Gedächtnis die operativ sinnvolle Konfidenzgrundlage. *Konfidenz: MEDIUM.*
+
+### 60-Second Read
+
+T-3-Konsolidierungsberichte etablieren die kanonische Voraktivierungs-Analysedekomposition. Die Fünf-Kategorien-Struktur (Klassifikation / Bedrohung / Risiko / Nachrichtendienst / Dokumente) ist die operativ nützlichste Dekomposition für nachgelagerte Nutzer. Die Konfidenzgrundlage aus vorberechneten Statistiken plus redaktionellem Gedächtnis ist das analytische Fundament des Auszeit-Clusters.
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| Fünf-Kategorien-Struktur wird von Post-T-0-Berichten nicht verwendet | MED | LOW–MED |
+| Vorberechnete Statistikbaseline wird veraltet | LOW–MED | MED |
+| Redaktionelles Gedächtnis wird durch Post-Aktivierungsbeweise widerlegt | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K vorberechnete Statistiken: **B2**
+- Fünf-Kategorien-Struktur: **B2** (konstruiert)
+
+### Provenance
+
+- Bericht: `breaking-run163` (2026-04-12, T-3)
+- Konformität: EP Open Data Portal-Feeds + vorberechnete Statistiken. DSGVO-konform.
+
+---
+*Analytische Neutralität: T-N-Framing gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+El informe 163 es la **sonda de consolidación de preactivación T-3** — tres días antes del estado operativo estatutario de TA-0096 / TA-0097. El informe consolida los hallazgos a través de cinco categorías analíticas (clasificación, evaluación de amenazas, puntuación de riesgos, inteligencia, documentos) basándose en PE MCP y 264K caracteres de estadísticas precomputadas. Confianza: 🟡 Medio (estadísticas precomputadas + memoria editorial). *Almirantazgo: B2.*
+
+### Three Decisions
+
+1. **Tratar la consolidación T-3 como el ancla de preposicionamiento operacional para las próximas 72 horas.** Con la activación a 72 horas de distancia, la consolidación establece la línea base institucional para medir las desviaciones el día de activación. *Confianza: HIGH.*
+2. **Anclar la estructura de cinco categorías (clasificación / amenaza / riesgo / inteligencia / documentos) como la descomposición analítica canónica.** Otros informes utilizan conjuntos de categorías ad hoc; la estructura de cinco categorías es la descomposición única más útil operacionalmente. *Confianza: MEDIUM-HIGH.*
+3. **Documentar el modo de estadísticas-precomputadas-y-memoria-editorial como el ancla de confianza del clúster de receso.** Cuando los flujos en directo no están disponibles, la línea base de 264K caracteres de estadísticas precomputadas más la memoria editorial acumulada es la base de confianza operacionalmente significativa. *Confianza: MEDIUM.*
+
+### 60-Second Read
+
+Los informes de consolidación T-3 establecen la descomposición analítica canónica previa a la activación. La estructura de cinco categorías (clasificación / amenaza / riesgo / inteligencia / documentos) es la descomposición más útil operacionalmente para los consumidores posteriores. La base de confianza de estadísticas precomputadas más memoria editorial es el fundamento analítico del clúster de receso.
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| Estructura de cinco categorías no utilizada por informes post-T-0 | MED | LOW–MED |
+| La línea base de estadísticas precomputadas queda obsoleta | LOW–MED | MED |
+| Memoria editorial contradicha por evidencia post-activación | LOW | MED |
+
+### Source Quality
+
+- PE MCP + 264K estadísticas precomputadas: **B2**
+- Estructura de cinco categorías: **B2** (construida)
+
+### Provenance
+
+- Informe: `breaking-run163` (2026-04-12, T-3)
+- Cumplimiento: Flujos del portal PE Open Data + estadísticas precomputadas. Conforme al RGPD.
+
+---
+*Neutralidad analítica: Encuadre T-N indicado.*
+
+### Executive Brief Fi
+
+### BLUF
+
+Raportti 163 on **T-3 aktivointia edeltävä tiivistelyanalyysi** — kolme päivää ennen kuin TA-0096 / TA-0097 tulee voimaan. Raportti tiivistää havainnot viiden analyysikategorian (luokittelu, uhka-arvio, riskipisteytys, tiedustelu, asiakirjat) poikki EP MCP:n ja 264K merkin esilakettujen tilastojen pohjalta. Luottamusaste: 🟡 Keskitaso (esilaketut tilastot + toimituksellinen muisti). *Admiraliteetti: B2.*
+
+### Three Decisions
+
+1. **Kohtele T-3-tiivistelmää operatiivisena esiasemointiankurina seuraavalle 72 tunnille.** Aktivoinnin ollessa 72 tunnin päässä tiivistelmä luo institutionaalisen lähtötason aktivointipäivän poikkeamien mittaamista varten. *Luottamusaste: HIGH.*
+2. **Ankkuroi viisikategoriajärjestelmä (luokittelu / uhka / riski / tiedustelu / asiakirjat) kanoniseksi analyyttiseksi hajotelmaraksi.** Muut raportit käyttävät ad hoc -kategorioita; viisikategoriarakenne on toiminnallisesti hyödyllisin yksittäinen hajotelma. *Luottamusaste: MEDIUM-HIGH.*
+3. **Dokumentoi esilakettu-tilastot-ja-toimituksellinen-muisti -tila loma-tiivistelyalueen luottamusankurina.** Kun suorat syötteet ovat käyttämättömiä, 264K merkin esilakettu tilastolähtötaso ja kertynyt toimituksellinen muisti on toiminnallisesti merkittävä luottamusperusta. *Luottamusaste: MEDIUM.*
+
+### 60-Second Read
+
+T-3-tiivistelyraportit luovat kanonisen aktivointia edeltävän analyyttisen hajotelman. Viisikategoriarakenne (luokittelu / uhka / riski / tiedustelu / asiakirjat) on toiminnallisesti hyödyllisin hajotelma jatkokäyttäjille. Esilakettu tilastot ja toimituksellinen muisti luottamusperustana on loma-tiivistelyalueen analyyttinen perusta.
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| Viisikategoriarakennetta ei käytetä T-0 jälkeisissä raporteissa | MED | LOW–MED |
+| Esilakettu tilastolähtötaso vanhentuu | LOW–MED | MED |
+| Toimituksellinen muisti kumotaan aktivoinnin jälkeisellä todistusaineistolla | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K esilaketut tilastot: **B2**
+- Viisikategoriarakenne: **B2** (rakennettu)
+
+### Provenance
+
+- Raportti: `breaking-run163` (2026-04-12, T-3)
+- Vaatimustenmukaisuus: EP Open Data Portal -syötteet + esilaketut tilastot. GDPR-yhteensopiva.
+
+---
+*Analyyttinen puolueettomuus: T-N-kehystys merkitty.*
+
+### Executive Brief Fr
+
+### BLUF
+
+Le rapport 163 est la **sonde de consolidation de pré-activation T-3** — trois jours avant le statut opératif statutaire de TA-0096 / TA-0097. La synthèse consolide les résultats à travers cinq catégories analytiques (classification, évaluation des menaces, notation des risques, renseignement, documents) en s'appuyant sur le PE MCP et 264K caractères de statistiques précalculées. Confiance : 🟡 Moyen (statistiques précalculées + mémoire éditoriale). *Amirauté : B2.*
+
+### Three Decisions
+
+1. **Traiter la consolidation T-3 comme l'ancre de pré-positionnement opérationnel pour les 72 heures à venir.** À 72 heures de l'activation, la consolidation établit la baseline institutionnelle pour mesurer les écarts le jour de l'activation. *Confiance : HIGH.*
+2. **Ancrer la structure à cinq catégories (classification / menace / risque / renseignement / documents) comme la décomposition analytique canonique.** D'autres rapports utilisent des ensembles de catégories ad hoc ; la structure à cinq catégories est la décomposition unique la plus utile opérationnellement. *Confiance : MEDIUM-HIGH.*
+3. **Documenter le mode statistiques-précalculées-et-mémoire-éditoriale comme ancre de confiance de l'agrégat de pause.** Lorsque les flux en direct sont indisponibles, la baseline de 264K caractères de statistiques précalculées plus la mémoire éditoriale accumulée constitue la base de confiance opérationnellement significative. *Confiance : MEDIUM.*
+
+### 60-Second Read
+
+Les rapports de consolidation T-3 établissent la décomposition analytique canonique de pré-activation. La structure à cinq catégories (classification / menace / risque / renseignement / documents) est la décomposition la plus utile opérationnellement pour les consommateurs en aval. La base de confiance composée de statistiques précalculées et de mémoire éditoriale est le fondement analytique de l'agrégat de pause.
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| Structure à cinq catégories non utilisée par les rapports post-T-0 | MED | LOW–MED |
+| Baseline de statistiques précalculées devient obsolète | LOW–MED | MED |
+| Mémoire éditoriale contredite par les preuves post-activation | LOW | MED |
+
+### Source Quality
+
+- PE MCP + 264K statistiques précalculées : **B2**
+- Structure à cinq catégories : **B2** (construite)
+
+### Provenance
+
+- Rapport : `breaking-run163` (2026-04-12, T-3)
+- Conformité : Flux du portail PE Open Data + statistiques précalculées. Conforme au RGPD.
+
+---
+*Neutralité analytique : Cadrage T-N indiqué.*
+
+### Executive Brief He
+
+### BLUF
+
+דוח 163 הוא **גשושית איחוד טרום-הפעלה T-3** — שלושה ימים לפני מעמד TA-0096 / TA-0097 התפעולי הסטטוטורי. הדוח מאחד ממצאים על פני חמש קטגוריות ניתוח (סיווג, הערכת איומים, ניקוד סיכונים, מודיעין, מסמכים) המסתמכים על EP MCP ו-264K תווים של סטטיסטיקות מחושבות מראש. ביטחון: 🟡 בינוני (סטטיסטיקות מחושבות מראש + זיכרון עריכה). *אדמירליות: B2.*
+
+### Three Decisions
+
+1. **לטפל באיחוד T-3 כעוגן המיצוב המוקדם התפעולי לשעות 72 הבאות.** עם הפעלה 72 שעות קדימה, האיחוד מבסס את הבסיס המוסדי למדידת סטיות ביום ההפעלה. *ביטחון: HIGH.*
+2. **לעגן את מבנה חמש הקטגוריות (סיווג / איום / סיכון / מודיעין / מסמכים) כפירוק האנליטי הקאנוני.** דוחות אחרים משתמשים במערכות קטגוריות אד-הוק; מבנה חמש הקטגוריות הוא הפירוק הבודד המועיל ביותר מבחינה תפעולית. *ביטחון: MEDIUM-HIGH.*
+3. **לתעד את מצב הסטטיסטיקות-המחושבות-מראש-וזיכרון-עריכה כעוגן הביטחון של אשכול ההפסקה.** כשהזנות חיות אינן זמינות, בסיס הסטטיסטיקות המחושבות מראש של 264K תווים בתוספת זיכרון עריכה מצטבר הוא בסיס הביטחון התפעולי המשמעותי. *ביטחון: MEDIUM.*
+
+### 60-Second Read
+
+דוחות איחוד T-3 מבססים את הפירוק האנליטי הקאנוני לפני ההפעלה. מבנה חמש הקטגוריות (סיווג / איום / סיכון / מודיעין / מסמכים) הוא הפירוק המועיל ביותר תפעולית לצרכני קצה. בסיס הביטחון של סטטיסטיקות מחושבות מראש בתוספת זיכרון עריכה הוא הבסיס האנליטי של אשכול ההפסקה.
+
+### Risk Snapshot
+
+| סיכון | סבירות | השפעה |
+|---|---:|---:|
+| מבנה חמש הקטגוריות לא בשימוש בדוחות אחרי T-0 | MED | LOW–MED |
+| בסיס הסטטיסטיקות המחושבות מראש מתיישן | LOW–MED | MED |
+| זיכרון עריכה מופרך על ידי ראיות לאחר ההפעלה | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K סטטיסטיקות מחושבות מראש: **B2**
+- מבנה חמש הקטגוריות: **B2** (מובנה)
+
+### Provenance
+
+- דוח: `breaking-run163` (2026-04-12, T-3)
+- עמידה בתקנות: הזנות פורטל EP Open Data + סטטיסטיקות מחושבות מראש. תואם GDPR.
+
+---
+*ניטרליות אנליטית: תיוג T-N מסומן.*
+
+### Executive Brief Ja
+
+### BLUF
+
+報告163号は**T-3活性化前集約プローブ**である。TA-0096 / TA-0097の法定運用状態まで3日前の時点の分析。EP MCPと264K文字の事前計算統計を用いて、5つの分析カテゴリー（分類・脅威評価・リスクスコアリング・インテリジェンス・文書）にわたる知見を集約している。信頼度：🟡 中程度（事前計算統計＋編集メモリ）。*アドミラルティ：B2。*
+
+### Three Decisions
+
+1. **T-3集約を今後72時間の作戦的事前配置アンカーとして扱う。** 活性化まで72時間の時点で、集約は活性化当日の偏差を測定するための制度的ベースラインを確立する。*信頼度：HIGH。*
+2. **5カテゴリー構造（分類 / 脅威 / リスク / インテリジェンス / 文書）を標準的な分析分解として確立する。** 他の報告書はアドホックなカテゴリーセットを使用するが、5カテゴリー構造は作戦上最も有用な単一の分解である。*信頼度：MEDIUM-HIGH。*
+3. **事前計算統計＋編集メモリモードをレセスクラスターの信頼度アンカーとして文書化する。** ライブフィードが利用不可の場合、264K文字の事前計算統計ベースライン＋蓄積された編集メモリが作戦上意味のある信頼度基盤となる。*信頼度：MEDIUM。*
+
+### 60-Second Read
+
+T-3集約報告書は活性化前の標準的な分析分解を確立する。5カテゴリー構造（分類 / 脅威 / リスク / インテリジェンス / 文書）は下流の消費者に対して作戦上最も有用な分解である。事前計算統計＋編集メモリの信頼度基盤はレセスクラスターの分析的基礎である。
+
+### Risk Snapshot
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| 5カテゴリー構造がT-0後の報告書で使用されない | MED | LOW–MED |
+| 事前計算統計ベースラインが陳腐化する | LOW–MED | MED |
+| 編集メモリが活性化後の証拠と矛盾する | LOW | MED |
+
+### Source Quality
+
+- EP MCP ＋ 264K事前計算統計：**B2**
+- 5カテゴリー構造：**B2**（構築）
+
+### Provenance
+
+- 報告書：`breaking-run163`（2026-04-12、T-3）
+- コンプライアンス：EP Open Data Portalフィード＋事前計算統計。GDPR準拠。
+
+---
+*分析的中立性：T-Nフレーミングを明示。*
+
+### Executive Brief Ko
+
+### BLUF
+
+보고서 163호는 **T-3 활성화 전 집약 탐지보고**이다. TA-0096 / TA-0097 법정 운용 상태까지 3일 전의 분석. 보고서는 EP MCP와 264K 글자의 사전 계산 통계를 활용하여 다섯 가지 분석 범주(분류, 위협 평가, 위험 점수화, 정보, 문서)에 걸친 결과를 집약한다. 신뢰도: 🟡 중간 (사전 계산 통계 + 편집 메모리). *해군 등급: B2.*
+
+### Three Decisions
+
+1. **T-3 집약을 향후 72시간에 대한 작전적 사전 배치 기준점으로 취급한다.** 활성화까지 72시간인 시점에서, 집약은 활성화 당일 편차를 측정하기 위한 제도적 기준선을 수립한다. *신뢰도: HIGH.*
+2. **다섯 범주 구조(분류 / 위협 / 위험 / 정보 / 문서)를 정규적 분석 분해로 확립한다.** 다른 보고서는 임시 범주 집합을 사용하지만, 다섯 범주 구조가 작전상 가장 유용한 단일 분해이다. *신뢰도: MEDIUM-HIGH.*
+3. **사전 계산 통계 + 편집 메모리 방식을 휴회기 클러스터의 신뢰도 기준점으로 문서화한다.** 실시간 피드가 이용 불가할 때, 264K 글자의 사전 계산 통계 기준선과 누적된 편집 메모리가 작전상 의미 있는 신뢰도 기반이 된다. *신뢰도: MEDIUM.*
+
+### 60-Second Read
+
+T-3 집약 보고서는 활성화 전 정규 분석 분해를 수립한다. 다섯 범주 구조(분류 / 위협 / 위험 / 정보 / 문서)는 하위 소비자에게 작전상 가장 유용한 분해이다. 사전 계산 통계 + 편집 메모리 신뢰도 기반은 휴회기 클러스터의 분석적 토대이다.
+
+### Risk Snapshot
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| 다섯 범주 구조가 T-0 이후 보고서에 사용되지 않음 | MED | LOW–MED |
+| 사전 계산 통계 기준선이 낡아짐 | LOW–MED | MED |
+| 편집 메모리가 활성화 이후 증거로 반박됨 | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K 사전 계산 통계: **B2**
+- 다섯 범주 구조: **B2** (구축됨)
+
+### Provenance
+
+- 보고서: `breaking-run163` (2026-04-12, T-3)
+- 준수: EP Open Data Portal 피드 + 사전 계산 통계. GDPR 준수.
+
+---
+*분석적 중립성: T-N 프레이밍 표기됨.*
+
+### Executive Brief Nl
+
+### BLUF
+
+Rapport 163 is de **T-3 pre-activeringsconsolidatiesonde** — drie dagen voor de operationele status van TA-0096 / TA-0097 van kracht wordt. Het rapport consolideert bevindingen over vijf analysecategorieën (classificatie, dreigingevaluatie, risicobeoordeling, inlichtingen, documenten) op basis van EP MCP en 264K tekens voorberekende statistieken. Betrouwbaarheid: 🟡 Gemiddeld (voorberekende statistieken + redactioneel geheugen). *Admiraliteit: B2.*
+
+### Three Decisions
+
+1. **De T-3-consolidatie behandelen als het operationele voorpositioneringsanker voor de komende 72 uur.** Met de activering 72 uur verwijderd, stelt de consolidatie de institutionele baseline vast voor het meten van afwijkingen op de activeringsdatum. *Betrouwbaarheid: HIGH.*
+2. **De vijfcategoriestructuur (classificatie / bedreiging / risico / inlichtingen / documenten) verankeren als de canonieke analytische decompositie.** Andere rapporten gebruiken ad hoc-categorieset; de vijfcategoriestructuur is de operationeel meest nuttige enkele decompositie. *Betrouwbaarheid: MEDIUM-HIGH.*
+3. **De modus van voorberekende statistieken en redactioneel geheugen documenteren als betrouwbaarheidsanker van het recessiecluster.** Wanneer live feeds niet beschikbaar zijn, is de voorberekende statistiekenbaseline van 264K tekens plus geaccumuleerd redactioneel geheugen de operationeel zinvolle betrouwbaarheidsbasis. *Betrouwbaarheid: MEDIUM.*
+
+### 60-Second Read
+
+T-3-consolidatierapporten stellen de canonieke pre-activeringsanalytische decompositie vast. De vijfcategoriestructuur (classificatie / bedreiging / risico / inlichtingen / documenten) is de operationeel meest nuttige decompositie voor downstream-gebruikers. De betrouwbaarheidsbasis van voorberekende statistieken plus redactioneel geheugen is het analytisch fundament van het recessiecluster.
+
+### Risk Snapshot
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| Vijfcategoriestructuur niet gebruikt door post-T-0-rapporten | MED | LOW–MED |
+| Voorberekende statistiekenbaseline wordt verouderd | LOW–MED | MED |
+| Redactioneel geheugen tegengesproken door post-activeringsbewijzen | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K voorberekende statistieken: **B2**
+- Vijfcategoriestructuur: **B2** (geconstrueerd)
+
+### Provenance
+
+- Rapport: `breaking-run163` (2026-04-12, T-3)
+- Naleving: EP Open Data Portal-feeds + voorberekende statistieken. GDPR-conform.
+
+---
+*Analytische neutraliteit: T-N-framing aangeduid.*
+
+### Executive Brief No
+
+### BLUF
+
+Rapport 163 er **T-3 forutgående aktiveringsanalysen** — tre dager før TA-0096 / TA-0097 trer i kraft. Rapporten konsoliderer funn på tvers av fem analysekategorier (klassifisering, trusselvurdering, risikovurdering, etterretning, dokumenter) basert på EP MCP og 264K tegn forhåndsberegnet statistikk. Konfidensnivå: 🟡 Medium (forhåndsberegnet statistikk + redaksjonell hukommelse). *Admiralitet: B2.*
+
+### Three Decisions
+
+1. **Behandle T-3-konsolideringen som det operative forutposisjoneringsankeret for de neste 72 timene.** Med aktivering 72 timer unna etablerer konsolideringen den institusjonelle basislinja for å måle avvik på aktiveringsdagen. *Konfidensnivå: HIGH.*
+2. **Forankre femkategoristrukturen (klassifisering / trussel / risiko / etterretning / dokumenter) som den kanoniske analytiske dekomposisjonen.** Andre rapporter bruker ad hoc-kategorisett; femkategoristrukturen er den operativt mest nyttige enkeltdekomposisjonen. *Konfidensnivå: MEDIUM-HIGH.*
+3. **Dokumentere den forhåndsberegnede-statistikk-og-redaksjonell-hukommelse-modusen som konfidensankeret for opphørsklyngen.** Når direktestrømmer er utilgjengelige, er den 264K-tegn store forhåndsberegnede statistikkbasislinja pluss akkumulert redaksjonell hukommelse det operativt meningsfulle konfidengrunnlaget. *Konfidensnivå: MEDIUM.*
+
+### 60-Second Read
+
+T-3-konsolideringsrapporter etablerer den kanoniske forutgående analytiske dekomposisjonen. Femkategoristrukturen (klassifisering / trussel / risiko / etterretning / dokumenter) er den operativt mest nyttige dekomposisjonen for etterfølgende forbrukere. Den forhåndsberegnede statistikken pluss redaksjonell hukommelse som konfidensbasis er opphørsklyngens analytiske fundament.
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| Femkategoristrukturen brukes ikke av rapporter etter T-0 | MED | LOW–MED |
+| Forhåndsberegnet statistikkbasislinje blir foreldet | LOW–MED | MED |
+| Redaksjonell hukommelse motsies av bevis etter aktivering | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K forhåndsberegnet statistikk: **B2**
+- Femkategoristruktur: **B2** (konstruert)
+
+### Provenance
+
+- Rapport: `breaking-run163` (2026-04-12, T-3)
+- Samsvar: EP Open Data Portal-strømmer + forhåndsberegnet statistikk. GDPR-kompatibel.
+
+---
+*Analytisk nøytralitet: T-N-framing merket.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Rapport 163 är **T-3 förpositioneringsanalysen** — tre dagar innan TA-0096 / TA-0097 träder i kraft. Rapporten konsoliderar slutsatser från fem analyskategorier (klassificering, hotbedömning, riskbedömning, underrättelse, dokument) baserat på EP MCP och 264K tecken av förberäknad statistik. Konfidensgrad: 🟡 Medium (förberäknad statistik + redaktionellt minne). *Admiralitet: B2.*
+
+### Three Decisions
+
+1. **Behandla T-3-konsolideringen som operativt förpositioneringsankare för de kommande 72 timmarna.** Med aktivering 72 timmar bort etablerar konsolideringen den institutionella baslinjen för att mäta avvikelser på aktiveringsdagen. *Konfidensgrad: HIGH.*
+2. **Förankra femkategoristrukturen (klassificering / hot / risk / underrättelse / dokument) som den kanoniska analytiska dekompositionen.** Andra rapporter använder ad hoc-kategorisystem; femkategoristrukturen är den operativt mest användbara enskilda dekompositionen. *Konfidensgrad: MEDIUM-HIGH.*
+3. **Dokumentera förberäknad statistik och redaktionellt minnessätt som konfidenssankare vid uppehållskluster.** När direktflöden är otillgängliga är den 264K-tecken stora förberäknade statistikbaslinjen plus ackumulerat redaktionellt minne det operativt meningsfulla konfidensunderlaget. *Konfidensgrad: MEDIUM.*
+
+### 60-Second Read
+
+T-3-konsolideringsrapporter etablerar den kanoniska föranalysdekompositionen inför aktivering. Femkategoristrukturen (klassificering / hot / risk / underrättelse / dokument) är den operativt mest användbara dekompositionen för konsumenter i senare led. Förberäknad statistik plus redaktionellt minneskonfidensunderlag är uppehållsklustrets analytiska grundval.
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| Femkategoristrukturen används inte av rapporter efter T-0 | MED | LOW–MED |
+| Förberäknad statistikbaslinje blir inaktuell | LOW–MED | MED |
+| Redaktionellt minne motsägs av bevis efter aktivering | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K förberäknad statistik: **B2**
+- Femkategoristruktur: **B2** (konstruerad)
+
+### Provenance
+
+- Rapport: `breaking-run163` (2026-04-12, T-3)
+- Efterlevnad: EP Open Data Portal-flöden + förberäknad statistik. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: T-N-framing märkt.*
+
+### Executive Brief Zh
+
+### BLUF
+
+报告163号是**T-3活性化前整合探测报告**——TA-0096 / TA-0097 法定运作状态前三天。报告整合了五个分析类别（分类、威胁评估、风险评分、情报、文件）的发现，依据EP MCP和264K字符的预计算统计数据。置信度：🟡 中等（预计算统计数据 + 编辑记忆）。*海军评级：B2。*
+
+### Three Decisions
+
+1. **将T-3整合视为未来72小时的作战预置锚点。** 距活性化72小时，整合确立了衡量活性化日偏差的制度基准线。*置信度：HIGH。*
+2. **将五类别结构（分类 / 威胁 / 风险 / 情报 / 文件）确立为规范分析分解方式。** 其他报告使用临时类别集；五类别结构是作战上最有效的单一分解方式。*置信度：MEDIUM-HIGH。*
+3. **将预计算统计 + 编辑记忆模式记录为休会期集群的置信度锚点。** 当实时数据流不可用时，264K字符的预计算统计基准线加上积累的编辑记忆是作战上有意义的置信度基础。*置信度：MEDIUM。*
+
+### 60-Second Read
+
+T-3整合报告确立了活性化前的规范分析分解方式。五类别结构（分类 / 威胁 / 风险 / 情报 / 文件）是对下游消费者最有作战价值的分解方式。预计算统计加编辑记忆置信度基础是休会期集群的分析基础。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 五类别结构未被T-0后报告采用 | MED | LOW–MED |
+| 预计算统计基准线变得过时 | LOW–MED | MED |
+| 编辑记忆被活性化后证据所反驳 | LOW | MED |
+
+### Source Quality
+
+- EP MCP + 264K预计算统计：**B2**
+- 五类别结构：**B2**（构建）
+
+### Provenance
+
+- 报告：`breaking-run163`（2026-04-12，T-3）
+- 合规：EP Open Data Portal数据流 + 预计算统计。符合GDPR要求。
+
+---
+*分析中立性：T-N框架已标注。*
+
 ### Api Outage Diagnostic
 
 > **articleType**: breaking
@@ -1067,6 +1548,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [api-outage-diagnostic](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/existing/api-outage-diagnostic.md) | `existing/api-outage-diagnostic.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/intelligence/deep-analysis.md) | `intelligence/deep-analysis.md` |
 
