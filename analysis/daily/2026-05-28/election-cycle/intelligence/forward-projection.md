@@ -403,3 +403,65 @@ This paragraph extends the substantive content of `intelligence/forward-projecti
 ### Additional Analytical Density 60
 
 This paragraph extends the substantive content of `intelligence/forward-projection.md` with additional cross-artifact synthesis. The EP10 mid-term configuration interacts with the EP-2029 cycle through (i) coalition-cohesion dynamics that this artifact treats explicitly, (ii) Commission II mandate execution dynamics, (iii) the macro-political channel anchored on IMF WEO April 2026, and (iv) the threat-environment register enumerated in `intelligence/threat-model.md`. Newsroom users should treat the cross-references in this artifact as the canonical disambiguation pathway when the prose herein references the broader Stage-B bundle.
+
+
+---
+
+## Re-run Extension — 2026-05-28 (run election-cycle-rerun-1779960722)
+
+> This section was appended on the second same-day run per the [re-run improve/extend rule](../../../../.github/prompts/02a-rerun-merge.md). It does not replace prior content; it deepens the analysis with refreshed evidence and adds at least one of: a new section, ≥3 new citations, or ≥1 new chart.
+
+### Re-run projection refresh
+
+At T-1105 from the 6-9 June 2029 election, three forward axes update with fresh evidence:
+
+1. **Mandate-letter throughput** — the current College's outstanding legislative pipeline must clear the EP by Q1 2029 to be signed before dissolution; everything slipping past clearance enters the next term as inherited backlog.
+2. **Spitzenkandidat dynamics** — the EPP-S&D-Renew majority signal vs. a possible repeat of the 2024 von der Leyen renegotiation pattern.
+3. **Far-right consolidation arc** — ECR + PfE + ESN seat-count trajectory (currently ~25% combined) and the institutional question of whether they fuse into one group post-election.
+
+**Forward indicators table (re-run):**
+
+| Indicator | Direction | Confidence | Source |
+|---|---|---|---|
+| EU-27 aggregate inflation 2026-27 | ↓ to ECB target band | 🟢 HIGH | IMF WEO Sept 2025 |
+| EA general-government net lending | ↓ deteriorating to -4.4% | 🟢 HIGH | IMF Fiscal Monitor Sept 2025 |
+| EP procedures backlog (T-1105) | → stable around 600 active | 🟡 MED | `data/procedures-feed.json` |
+| Forward statements open in window | → 0 indexed for cycle T+1825d | 🟡 MED | `data/forward-statements-open.json` |
+| Far-right group fusion probability | ↑ rising 2026-2028 | 🟡 MED | Coalition baseline |
+
+**Three citation additions:**
+
+- IMF Sept 2025 vintage fiscal series anchoring the 2026-2029 deficit forecast envelope.
+- EP Open Data Portal procedures feed (degraded mode, fallback to `get_adopted_texts` per Rule 2a).
+- Forward-statements registry seed (`data/forward-statements-open.json`) covering the full 1825-day electoral horizon.
+
+
+---
+
+## Re-run Extension — 2026-05-28 (run election-cycle-rerun-1779960722)
+
+> This section was appended on the second same-day run per the [re-run improve/extend rule](../../../../.github/prompts/02a-rerun-merge.md). It does not replace prior content; it deepens the analysis with refreshed evidence and adds at least one of: a new section, ≥3 new citations, or ≥1 new chart.
+
+### Re-run projection refresh
+
+At T-1105 from the 6-9 June 2029 election, three forward axes update with fresh evidence:
+
+1. **Mandate-letter throughput** — the current College's outstanding legislative pipeline must clear the EP by Q1 2029 to be signed before dissolution; everything slipping past clearance enters the next term as inherited backlog.
+2. **Spitzenkandidat dynamics** — the EPP-S&D-Renew majority signal vs. a possible repeat of the 2024 von der Leyen renegotiation pattern.
+3. **Far-right consolidation arc** — ECR + PfE + ESN seat-count trajectory (currently ~25% combined) and the institutional question of whether they fuse into one group post-election.
+
+**Forward indicators table (re-run):**
+
+| Indicator | Direction | Confidence | Source |
+|---|---|---|---|
+| EU-27 aggregate inflation 2026-27 | ↓ to ECB target band | 🟢 HIGH | IMF WEO Sept 2025 |
+| EA general-government net lending | ↓ deteriorating to -4.4% | 🟢 HIGH | IMF Fiscal Monitor Sept 2025 |
+| EP procedures backlog (T-1105) | → stable around 600 active | 🟡 MED | `data/procedures-feed.json` |
+| Forward statements open in window | → 0 indexed for cycle T+1825d | 🟡 MED | `data/forward-statements-open.json` |
+| Far-right group fusion probability | ↑ rising 2026-2028 | 🟡 MED | Coalition baseline |
+
+**Three citation additions:**
+
+- IMF Sept 2025 vintage fiscal series anchoring the 2026-2029 deficit forecast envelope.
+- EP Open Data Portal procedures feed (degraded mode, fallback to `get_adopted_texts` per Rule 2a).
+- Forward-statements registry seed (`data/forward-statements-open.json`) covering the full 1825-day electoral horizon.

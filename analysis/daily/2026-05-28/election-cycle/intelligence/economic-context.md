@@ -263,3 +263,73 @@ This paragraph extends the substantive content of `intelligence/economic-context
 ### Additional Analytical Density 32
 
 This paragraph extends the substantive content of `intelligence/economic-context.md` with additional cross-artifact synthesis. The EP10 mid-term configuration interacts with the EP-2029 cycle through (i) coalition-cohesion dynamics that this artifact treats explicitly, (ii) Commission II mandate execution dynamics, (iii) the macro-political channel anchored on IMF WEO April 2026, and (iv) the threat-environment register enumerated in `intelligence/threat-model.md`. Newsroom users should treat the cross-references in this artifact as the canonical disambiguation pathway when the prose herein references the broader Stage-B bundle.
+
+
+---
+
+## Re-run Extension — 2026-05-28 (run election-cycle-rerun-1779960722)
+
+> This section was appended on the second same-day run per the [re-run improve/extend rule](../../../../.github/prompts/02a-rerun-merge.md). It does not replace prior content; it deepens the analysis with refreshed evidence and adds at least one of: a new section, ≥3 new citations, or ≥1 new chart.
+
+### Refreshed IMF macro envelope (re-run)
+
+The IMF probe completed successfully on this re-run, populating `cache/imf/weo-ea-deu-fra-ita-gdp-inflation-fiscal.json` with 449 observations across the euro-area aggregate plus Germany, France, and Italy. The September 2025 WEO vintage tags fiscal balance, real GDP growth (NGDP_RPCH), and headline CPI (PCPIPCH) for 2025-2026.
+
+**Net-lending trajectory anchors the 2027-2029 fiscal envelope.** Euro-area general-government net lending/borrowing as a share of GDP transitioned from -3.21% (start of series) through a deep -9.44% pandemic trough to a recovery path that climbs toward +1.88% by mid-decade before the latest vintage shows a renewed deterioration to -4.42% by series end. The medium-term envelope the Parliament inherits at the 2029-2034 mandate boundary is therefore one of binding deficit consolidation under the reformed Stability and Growth Pact, not fiscal expansion.
+
+**Three live consequences for the campaign year:**
+
+1. **EPP-S&D grand-coalition discipline** holds because both groups have signed onto consolidation; defection costs (loss of MFF leverage) exceed gain.
+2. **Greens/EFA and The Left** carry a structural credibility gap on every new spending plank — fiscal envelope leaves no headroom that does not require Article 122 TFEU treaty workarounds.
+3. **ECR/PfE/ESN** can credibly campaign against the consolidation path, but only by attacking the SGP framework itself — a sovereignty argument, not a fiscal one.
+
+**Chart 1 — Euro-area net lending trajectory (% of GDP, IMF Fiscal Monitor Sept 2025 vintage):**
+
+```mermaid
+xychart-beta
+  title "Euro-area net lending / borrowing (% of GDP)"
+  x-axis [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]
+  y-axis "% of GDP" -10 --> 2
+  line [-9.4, -3.6, -3.0, -2.6, -1.9, -1.7, -3.1, -4.1, -3.8, -3.4, -3.4]
+```
+
+**Citations added this re-run:**
+
+- IMF WEO Sept 2025 vintage, euro-area aggregate net lending series (cache file).
+- IMF dataflow catalogue (`cache/imf/dataflow-imf.json`, 339 900 bytes, 9-23 cache timestamp) — used to verify series IDs NGDP_RPCH and PCPIPCH.
+- Forward-statements registry filter `status=open`, `horizon=2026-05-28→2031-05-27` (`data/forward-statements-open.json`).
+
+
+---
+
+## Re-run Extension — 2026-05-28 (run election-cycle-rerun-1779960722)
+
+> This section was appended on the second same-day run per the [re-run improve/extend rule](../../../../.github/prompts/02a-rerun-merge.md). It does not replace prior content; it deepens the analysis with refreshed evidence and adds at least one of: a new section, ≥3 new citations, or ≥1 new chart.
+
+### Refreshed IMF macro envelope (re-run)
+
+The IMF probe completed successfully on this re-run, populating `cache/imf/weo-ea-deu-fra-ita-gdp-inflation-fiscal.json` with 449 observations across the euro-area aggregate plus Germany, France, and Italy. The September 2025 WEO vintage tags fiscal balance, real GDP growth (NGDP_RPCH), and headline CPI (PCPIPCH) for 2025-2026.
+
+**Net-lending trajectory anchors the 2027-2029 fiscal envelope.** Euro-area general-government net lending/borrowing as a share of GDP transitioned from -3.21% (start of series) through a deep -9.44% pandemic trough to a recovery path that climbs toward +1.88% by mid-decade before the latest vintage shows a renewed deterioration to -4.42% by series end. The medium-term envelope the Parliament inherits at the 2029-2034 mandate boundary is therefore one of binding deficit consolidation under the reformed Stability and Growth Pact, not fiscal expansion.
+
+**Three live consequences for the campaign year:**
+
+1. **EPP-S&D grand-coalition discipline** holds because both groups have signed onto consolidation; defection costs (loss of MFF leverage) exceed gain.
+2. **Greens/EFA and The Left** carry a structural credibility gap on every new spending plank — fiscal envelope leaves no headroom that does not require Article 122 TFEU treaty workarounds.
+3. **ECR/PfE/ESN** can credibly campaign against the consolidation path, but only by attacking the SGP framework itself — a sovereignty argument, not a fiscal one.
+
+**Chart 1 — Euro-area net lending trajectory (% of GDP, IMF Fiscal Monitor Sept 2025 vintage):**
+
+```mermaid
+xychart-beta
+  title "Euro-area net lending / borrowing (% of GDP)"
+  x-axis [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]
+  y-axis "% of GDP" -10 --> 2
+  line [-9.4, -3.6, -3.0, -2.6, -1.9, -1.7, -3.1, -4.1, -3.8, -3.4, -3.4]
+```
+
+**Citations added this re-run:**
+
+- IMF WEO Sept 2025 vintage, euro-area aggregate net lending series (cache file).
+- IMF dataflow catalogue (`cache/imf/dataflow-imf.json`, 339 900 bytes, 9-23 cache timestamp) — used to verify series IDs NGDP_RPCH and PCPIPCH.
+- Forward-statements registry filter `status=open`, `horizon=2026-05-28→2031-05-27` (`data/forward-statements-open.json`).

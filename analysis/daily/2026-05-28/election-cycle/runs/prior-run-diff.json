@@ -1,0 +1,259 @@
+{
+  "enabled": true,
+  "mode": "improve-and-extend",
+  "runDir": "analysis/daily/2026-05-28/election-cycle",
+  "articleType": "election-cycle",
+  "priorRunId": "election-cycle-run-26545766277",
+  "carryForward": [
+    {
+      "relativePath": "classification/actor-mapping.md",
+      "lines": 220,
+      "priorLines": 220,
+      "floor": 30,
+      "extendFloor": 240,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "classification/forces-analysis.md",
+      "lines": 182,
+      "priorLines": 182,
+      "floor": 30,
+      "extendFloor": 202,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "classification/impact-matrix.md",
+      "lines": 197,
+      "priorLines": 197,
+      "floor": 30,
+      "extendFloor": 217,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "classification/significance-classification.md",
+      "lines": 145,
+      "priorLines": 145,
+      "floor": 140,
+      "extendFloor": 165,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "extended/comparative-international.md",
+      "lines": 285,
+      "priorLines": 285,
+      "floor": 280,
+      "extendFloor": 305,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "extended/forward-indicators.md",
+      "lines": 283,
+      "priorLines": 283,
+      "floor": 280,
+      "extendFloor": 303,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "extended/historical-parallels.md",
+      "lines": 283,
+      "priorLines": 283,
+      "floor": 280,
+      "extendFloor": 303,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "extended/media-framing-analysis.md",
+      "lines": 324,
+      "priorLines": 324,
+      "floor": 320,
+      "extendFloor": 344,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/analysis-index.md",
+      "lines": 184,
+      "priorLines": 184,
+      "floor": 180,
+      "extendFloor": 204,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/coalition-dynamics.md",
+      "lines": 282,
+      "priorLines": 282,
+      "floor": 280,
+      "extendFloor": 302,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/commission-wp-alignment.md",
+      "lines": 243,
+      "priorLines": 243,
+      "floor": 240,
+      "extendFloor": 263,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/economic-context.md",
+      "lines": 266,
+      "priorLines": 266,
+      "floor": 260,
+      "extendFloor": 286,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/forward-projection.md",
+      "lines": 406,
+      "priorLines": 406,
+      "floor": 400,
+      "extendFloor": 426,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/historical-baseline.md",
+      "lines": 286,
+      "priorLines": 286,
+      "floor": 280,
+      "extendFloor": 306,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/mandate-fulfilment-scorecard.md",
+      "lines": 364,
+      "priorLines": 364,
+      "floor": 360,
+      "extendFloor": 384,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/mcp-reliability-audit.md",
+      "lines": 243,
+      "priorLines": 243,
+      "floor": 240,
+      "extendFloor": 263,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/methodology-reflection.md",
+      "lines": 263,
+      "priorLines": 263,
+      "floor": 260,
+      "extendFloor": 283,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/pestle-analysis.md",
+      "lines": 324,
+      "priorLines": 324,
+      "floor": 320,
+      "extendFloor": 344,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/presidency-trio-context.md",
+      "lines": 245,
+      "priorLines": 245,
+      "floor": 240,
+      "extendFloor": 265,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/scenario-forecast.md",
+      "lines": 404,
+      "priorLines": 404,
+      "floor": 400,
+      "extendFloor": 424,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/seat-projection.md",
+      "lines": 326,
+      "priorLines": 326,
+      "floor": 320,
+      "extendFloor": 346,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/stakeholder-map.md",
+      "lines": 324,
+      "priorLines": 324,
+      "floor": 320,
+      "extendFloor": 344,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/synthesis-summary.md",
+      "lines": 322,
+      "priorLines": 322,
+      "floor": 320,
+      "extendFloor": 342,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/term-arc.md",
+      "lines": 364,
+      "priorLines": 364,
+      "floor": 360,
+      "extendFloor": 384,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/threat-model.md",
+      "lines": 286,
+      "priorLines": 286,
+      "floor": 280,
+      "extendFloor": 306,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "intelligence/wildcards-blackswans.md",
+      "lines": 326,
+      "priorLines": 326,
+      "floor": 320,
+      "extendFloor": 346,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "risk-scoring/quantitative-swot.md",
+      "lines": 185,
+      "priorLines": 185,
+      "floor": 180,
+      "extendFloor": 205,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    },
+    {
+      "relativePath": "risk-scoring/risk-matrix.md",
+      "lines": 184,
+      "priorLines": 184,
+      "floor": 180,
+      "extendFloor": 204,
+      "source": "extend-from-prior:election-cycle-run-26545766277"
+    }
+  ],
+  "rewrite": [
+    {
+      "relativePath": "data-availability-assessment.md",
+      "lines": 0,
+      "floor": 80,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "executive-brief.md",
+      "lines": 0,
+      "floor": 240,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "intelligence/economic-context.fallback.md",
+      "lines": 0,
+      "floor": 260,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "intelligence/procedures-proxy.md",
+      "lines": 0,
+      "floor": 60,
+      "reason": "missing"
+    }
+  ]
+}
