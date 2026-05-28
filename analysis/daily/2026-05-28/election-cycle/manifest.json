@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0",
+  "articleType": "election-cycle",
+  "date": "2026-05-28",
+  "runId": "election-cycle-run-26545766277",
+  "dataMode": "degraded-feeds",
+  "dataModeFactor": 0.8,
+  "generatedAt": "2026-05-28T00:43:25.999Z",
+  "totals": {
+    "artifacts": 28,
+    "totalLines": 2888,
+    "intelligence": 18,
+    "classification": 4,
+    "riskScoring": 2,
+    "extended": 4
+  },
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/commission-wp-alignment.md",
+      "intelligence/economic-context.md",
+      "intelligence/forward-projection.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/mandate-fulfilment-scorecard.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/presidency-trio-context.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/seat-projection.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/term-arc.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "classification/significance-classification.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md"
+    ],
+    "extended": [
+      "extended/comparative-international.md",
+      "extended/forward-indicators.md",
+      "extended/historical-parallels.md",
+      "extended/media-framing-analysis.md"
+    ]
+  },
+  "pass2": {
+    "rewriteCount": 28,
+    "extendedCount": 0,
+    "completedAt": "2026-05-28T00:46:15.343Z",
+    "startedAt": "2026-05-28T00:45:40.932Z",
+    "endedAt": "2026-05-28T00:46:15.343Z"
+  },
+  "history": [
+    {
+      "runId": "election-cycle-run-26545766277",
+      "timestamp": "2026-05-28T00:43:26.010Z",
+      "gateResult": "PENDING",
+      "pass2RewriteCount": 28,
+      "dataMode": "degraded-feeds"
+    }
+  ],
+  "notes": "EP10 mid-term electoral cycle analysis. D-1106 to EP-2029. Degraded-feeds mode (3/4 EP feeds returning empty payloads). IMF WEO April 2026 used as sole authoritative macro source. Cached EP get_meps + get_political_groups underpin coalition arithmetic."
+}
