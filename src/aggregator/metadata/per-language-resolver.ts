@@ -60,6 +60,7 @@ import {
   scrubTrailingEllipsis,
 } from './resolve-helpers.js';
 import { buildSeoKeywords } from './seo-keywords.js';
+import { synthesizeFallbackDescription, synthesizeFallbackTitle } from './fallback-synth.js';
 import {
   ENRICHMENT_TRIGGER_LENGTH,
   truncateDescription,
@@ -244,99 +245,6 @@ function shouldEnrichDescription(rawDescription: string, lang: LanguageCode): bo
   if (lang === 'en') return false;
   if (classifyScript(lang) === 'latin') return false;
   return ASCII_ONLY_RE.test(rawDescription);
-}
-
-/**
- * Humanize an article-type slug for fallback metadata synthesis.
- *
- * @param articleType - Canonical article-type slug
- * @returns Title-cased label with spaces instead of hyphens
- */
-function humanizeArticleTypeLabel(articleType: string): string {
-  return articleType
-    .split('-')
-    .filter(Boolean)
-    .map((token) => token.charAt(0).toUpperCase() + token.slice(1))
-    .join(' ');
-}
-
-/**
- * Format `YYYY-MM-DD` into `Mon YYYY`; falls back to the raw date when invalid.
- *
- * Formats with the target language (falling back to `en`) so the synthesized
- * fallback title stays locale-appropriate for Latin non-EN locales (e.g.
- * `sv`/`fr`) instead of emitting an English month label on every page.
- *
- * @param date - ISO article date
- * @param lang - Target language code driving the month-label locale
- * @returns Month/year label suitable for fallback titles
- */
-function formatMonthYear(date: string, lang: string): string {
-  const parsed = new Date(`${date}T00:00:00Z`);
-  if (Number.isNaN(parsed.getTime())) return date;
-  return new Intl.DateTimeFormat([lang, 'en'], {
-    month: 'short',
-    year: 'numeric',
-    timeZone: 'UTC',
-  }).format(parsed);
-}
-
-/**
- * Hard fallback title synthesizer when all resolved candidates are contaminated.
- * Shape: `EP <Article Type>: <Top Finding> — <Mon YYYY>`.
- *
- * @param input - Per-language resolver inputs
- * @param topFindingSource - Best available finding/summary source text
- * @param contextualFallback - Last-resort contextual fallback title
- * @returns Reader-facing synthesized fallback title
- */
-function synthesizeFallbackTitle(
-  input: PerLanguageInputs,
-  topFindingSource: string,
-  contextualFallback: string
-): string {
-  // The synthesized shape (`EP <Article Type>: <Top Finding> — <Mon YYYY>`)
-  // is Latin/English by construction (the `EP <Article Type>` lead-in and
-  // colon punctuation). Emitting it on a non-Latin locale would ship a
-  // pure-ASCII `<title>`, violating the locale-glyph contract (Gate 4a). For
-  // those locales we defer to the localized contextual fallback instead.
-  if (classifyScript(input.lang) !== 'latin') return contextualFallback;
-  const topFinding = sanitizeTitleCandidate(deriveHeadlineFromSummary(topFindingSource));
-  const articleTypeLabel = humanizeArticleTypeLabel(input.articleType);
-  const monthYear = formatMonthYear(input.date, input.lang);
-  const synthesized = topFinding
-    ? `EP ${articleTypeLabel}: ${topFinding} — ${monthYear}`
-    : `EP ${articleTypeLabel} — ${input.date}`;
-  const candidate = truncateTitle(synthesized) || synthesized;
-  return !candidate || hasLeakySeoToken(candidate) ? contextualFallback : candidate;
-}
-
-/**
- * Hard fallback description synthesizer when the resolved description leaks
- * pipeline jargon.
- *
- * @param input - Per-language resolver inputs
- * @returns Reader-facing synthesized fallback description
- */
-function synthesizeFallbackDescription(input: PerLanguageInputs): string {
-  const templateSubtitle = sanitizeDescriptionCandidate(input.template.subtitle);
-  const articleTypeLabel = humanizeArticleTypeLabel(input.articleType);
-  const base =
-    templateSubtitle && !hasLeakySeoToken(templateSubtitle)
-      ? templateSubtitle
-      : `EP ${articleTypeLabel} update for ${input.date}.`;
-  const synthesized = composeContextualDescription(
-    input.lang,
-    base,
-    { headline: '', summary: '' },
-    input.date,
-    ''
-  );
-  const clamped = clampForBudget(synthesized, input.lang, 'metaDescription');
-  return padDescriptionToFloor(
-    ensureDescriptionTerminator(input.lang, clamped, budgetFor(input.lang, 'metaDescription')),
-    input.lang
-  );
 }
 
 /**
@@ -547,12 +455,13 @@ export function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEn
   //
   // The fallback path passes the template title back through
   // {@link composeContextualTitle} (with an empty editorial headline) so it
-  // appends an ISO date suffix (and, for same-date re-runs, a localized
-  // "Edition N" qualifier) for cross-run uniqueness — never the banned
-  // `Run N` token. Without this, two same-date / same-articleType runs
-  // (republish, hot-fix re-run) would collapse to byte-identical `<title>`
-  // strings, and the duplicate-title gate in `scripts/validate-article-seo.js`
-  // would (correctly) fail CI.
+  // appends an ISO date suffix (plus an `(EP)` SERP-floor pad when needed)
+  // for cross-date uniqueness. It never appends a run-number or "Edition N"
+  // disambiguator: `scripts/validate-article-seo.js` forbids run-number /
+  // edition tokens in reader-facing titles. Two same-date / same-articleType
+  // runs (republish, hot-fix re-run) are expected to differ through
+  // editorial / content-based differentiation (distinct headlines derived
+  // from the day's findings), not through a synthetic title suffix.
   const contextualFallback = composeContextualTitle(
     input.template.title,
     '',
