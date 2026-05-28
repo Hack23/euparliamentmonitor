@@ -193,3 +193,4 @@ function injectReaderGlossary(html) {
 function buildReaderGlossary() {
     return `<details id="${GLOSSARY_ID}" class="reader-friendly-glossary"><summary>How to read this analysis</summary><p>This article uses confidence and source-quality notation. The guide below translates specialist shorthand into plain-English wording for general readers.</p><ul><li><strong>Source confidence:</strong> Admiralty grades are shown in reader-friendly text on first use.</li><li><strong>Probability language:</strong> WEP bands are translated to phrases like “likely” or “almost certainly”.</li><li><strong>Acronyms:</strong> first uses are expanded with abbreviations for accessibility.</li></ul></details>`;
 }
+//# sourceMappingURL=reader-friendly-transform.js.map

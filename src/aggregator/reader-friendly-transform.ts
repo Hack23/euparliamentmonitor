@@ -123,15 +123,18 @@ function contextualizeInternalMarkers(input: string): string {
 }
 
 function replaceFirstWepBand(input: string, state: TransformState): string {
-  return input.replace(/\bWEP:\s*([A-Za-z][A-Za-z -]+?)\s*\(([^)]+)\)/giu, (match, rawBand, range) => {
-    const band = String(rawBand ?? '').trim();
-    const key = normalizeBandKey(band);
-    const phrase = WEP_PHRASES[key];
-    if (!phrase || state.expandedWepBands.has(key)) return match;
-    state.expandedWepBands.add(key);
-    const wepRange = String(range ?? '').trim();
-    return `<span class="reader-friendly-wep" data-wep-band="${escapeHTML(key)}">${escapeHTML(phrase)} (WEP: ${escapeHTML(wepRange)})</span>`;
-  });
+  return input.replace(
+    /\bWEP:\s*([A-Za-z][A-Za-z -]+?)\s*\(([^)]+)\)/giu,
+    (match, rawBand, range) => {
+      const band = String(rawBand ?? '').trim();
+      const key = normalizeBandKey(band);
+      const phrase = WEP_PHRASES[key];
+      if (!phrase || state.expandedWepBands.has(key)) return match;
+      state.expandedWepBands.add(key);
+      const wepRange = String(range ?? '').trim();
+      return `<span class="reader-friendly-wep" data-wep-band="${escapeHTML(key)}">${escapeHTML(phrase)} (WEP: ${escapeHTML(wepRange)})</span>`;
+    }
+  );
 }
 
 function replaceFirstAdmiraltyGrade(input: string, state: TransformState): string {
@@ -163,10 +166,7 @@ function injectFirstUseAbbr(input: string, expandedAcronyms: Set<string>): strin
     const matcher = new RegExp(`\\b${acronym}\\b`, 'u');
     if (!matcher.test(text)) continue;
     expandedAcronyms.add(acronym);
-    text = text.replace(
-      matcher,
-      `<abbr title="${escapeHTML(full)}">${escapeHTML(acronym)}</abbr>`
-    );
+    text = text.replace(matcher, `<abbr title="${escapeHTML(full)}">${escapeHTML(acronym)}</abbr>`);
   }
   return text;
 }

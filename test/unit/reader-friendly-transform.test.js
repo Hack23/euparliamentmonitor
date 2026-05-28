@@ -13,6 +13,15 @@ describe('reader-friendly-transform', () => {
     expect(out).toContain('Later we still cite Admiralty A1.');
   });
 
+  it('expands Admiralty ranges and normalizes implied ranges to a single grade key', () => {
+    const explicit = applyReaderFriendlyTransform('<p>Admiralty B2-B3 reporting confirms.</p>');
+    expect(explicit).toContain('data-admiralty-grade="B2-B3"');
+    expect(explicit).toContain('Source: Multi-source reporting (moderate reliability)');
+
+    const implied = applyReaderFriendlyTransform('<p>Admiralty B2-3 reporting confirms.</p>');
+    expect(implied).toContain('data-admiralty-grade="B2-B3"');
+  });
+
   it('adds natural-language wording for first WEP band usage', () => {
     const out = applyReaderFriendlyTransform('<p>WEP: Highly Likely (85–95%)</p>');
     expect(out).toContain('almost certainly (WEP: 85–95%)');
