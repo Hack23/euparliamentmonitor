@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-28",
+  "articleType": "month-in-review",
+  "runId": "month-in-review-run268-1779967929",
+  "gateResult": "pending",
+  "slug": "2026-05-28-month-in-review",
+  "articlePath": "analysis/daily/2026-05-28/month-in-review/article.md",
+  "topFinding": "May 2026 marks a turning point in European parliamentary governance.",
+  "keyTakeaways": [
+    "EU-Uzbekistan Enhanced Partnership (TA-10-2026-0174)",
+    "EU-Lebanon Eurojust agreement (TA-10-2026-0177)",
+    "EC-São Tomé and Príncipe Fisheries Partnership (TA-10-2026-0178)",
+    "EU-Cook Islands Sustainable Fisheries Partnership (TA-10-2026-0179)",
+    "EU Parliament EP10 maintaining core majority through end 2026: **Likely (65–75%)**",
+    "SAFE expansion to UK/Norway by end 2026: **Roughly Even (45–55%)**",
+    "DMA final infringement decision issued before end 2026: **Unlikely (25–35%)**"
+  ],
+  "topRisks": [
+    "Evidence: Commission not yet issued final infringement decision after 26 months",
+    "Countervailing: EP resolution pressure + new Commission mandate",
+    "Dependent on Council implementing decisions, national procurement procedures",
+    "Historical base rate: EP-Council budget agreement reached in ~80% of years on time",
+    "If false: risk scores for budget political risk escalate to RED",
+    "Current assessment: 🟡 MEDIUM probability of maintaining majority"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "EPP: Largest group; provides rapporteurs on most major files; internal discipline shapes final text",
+    "S&D: Co-majority partner; drives social/external relations agenda; key for SAFE/Ukraine majorities",
+    "European Commission: Exclusive right of legislative initiative; controls enforcement pace (DMA)",
+    "Council Presidency: Determines trilogues timing and Council negotiating position",
+    "Renew: Pivotal on digital governance; provides swing votes when EPP-S&D diverge",
+    "ECR: Selective support (defence/security yes; regulation no); enlarges majority on security files",
+    "Committee Chairs: Control agenda and rapporteur assignments; significant agenda-setting power",
+    "PfE: Opposition rhetoric without sufficient seats; influence via amendment flood tactics"
+  ],
+  "macroContext": "and TA-10-2026-0034 (ECB Annual Report 2025) — both adopted by EP in the review period.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
