@@ -716,7 +716,7 @@ describe('agentic workflow threat detection policy', () => {
   // Phase 1 — Engine model allow-list
   //
   // Locks the currently-deployed engine.model per article workflow so a stray
-  // edit can't quietly downgrade Opus 4.7 slugs to Sonnet or upgrade Sonnet
+  // edit can't quietly downgrade Opus 4.8 slugs to Sonnet or upgrade Sonnet
   // slugs to Opus (both are runtime behaviour changes).
   //
   // The allow-list reflects what is on `main` at the start of the
@@ -728,14 +728,14 @@ describe('agentic workflow threat detection policy', () => {
     const APPROVED_MODELS = {
       'news-breaking.md': 'claude-sonnet-4.6',
       'news-committee-reports.md': 'claude-sonnet-4.6',
-      'news-election-cycle.md': 'claude-opus-4.7',
+      'news-election-cycle.md': 'claude-opus-4.8',
       'news-month-ahead.md': 'claude-sonnet-4.6',
       'news-month-in-review.md': 'claude-sonnet-4.6',
       'news-motions.md': 'claude-sonnet-4.6',
       'news-propositions.md': 'claude-sonnet-4.6',
       'news-quarter-ahead.md': 'claude-sonnet-4.6',
       'news-quarter-in-review.md': 'claude-sonnet-4.6',
-      'news-term-outlook.md': 'claude-opus-4.7',
+      'news-term-outlook.md': 'claude-opus-4.8',
       'news-translate.md': 'claude-sonnet-4.6',
       'news-week-ahead.md': 'claude-sonnet-4.6',
       'news-week-in-review.md': 'claude-sonnet-4.6',

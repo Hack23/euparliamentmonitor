@@ -77,7 +77,7 @@ to execute.
 | `week-in-review` / `month-in-review` | claude-sonnet-4.6 | 15 | 10 | ≤ 45 min |
 | `quarter-in-review` / `year-in-review` | claude-sonnet-4.6 | 18 | 12 | ≤ 45 min |
 | `quarter-ahead` / `year-ahead` | claude-sonnet-4.6 | 18 | 12 | ≤ 45 min |
-| `term-outlook` / `election-cycle` | claude-opus-4.7 | 22 | 15 | ≤ 47 min |
+| `term-outlook` / `election-cycle` | claude-opus-4.8 | 22 | 15 | ≤ 47 min |
 | `deep-analysis` | claude-sonnet-4.6 | 22 | 15 | ≤ 45 min |
 
 Authoritative per-slug horizons (and the `mandatoryArtifact` lists) live in
@@ -398,7 +398,7 @@ One pass is never sufficient. Pass 2 is where reference quality is achieved.
 4. Read the generated article HTML end-to-end. Every section must have ≥3 analytical paragraphs (not bullet lists), SWOT items with ≥80 words + severity badge, stakeholder perspectives with ≥150 words + evidence chain, a ≥200-word forward-outlook, and at least one Chart.js visualization with real data.
 5. Confirm the Analysis Sources footer was rendered by the aggregator. The post-purge pipeline emits the transparency footer from `manifest.files.*` via the [`src/aggregator/**` renderer](../../src/aggregator/article-html.ts); the legacy `renderAnalysisTransparencySection` helper in `src/templates/article-template.ts` was purged in the April-2026 aggregator-pipeline migration.
 6. Re-check color-coded Mermaid diagrams — every intelligence / classification / risk-scoring / threat-assessment artifact carries ≥1 diagram using the Hack23 colour palette from Step 2.
-7. Budget time: breaking / committee-reports / motions / propositions / week-ahead / month-ahead = ≥20 active minutes in Pass 1 + Pass 2 combined (≥12 Pass 1 + ≥8 Pass 2); week-in-review / month-in-review = ≥25 minutes (≥15 + ≥10); quarter-in-review / year-in-review / quarter-ahead / year-ahead / deep-analysis = ≥30 minutes (≥18 + ≥12); term-outlook / election-cycle (claude-opus-4.7) = ≥37 minutes (≥22 + ≥15). Finish the budget — there is always more depth to add.
+7. Budget time: breaking / committee-reports / motions / propositions / week-ahead / month-ahead = ≥20 active minutes in Pass 1 + Pass 2 combined (≥12 Pass 1 + ≥8 Pass 2); week-in-review / month-in-review = ≥25 minutes (≥15 + ≥10); quarter-in-review / year-in-review / quarter-ahead / year-ahead / deep-analysis = ≥30 minutes (≥18 + ≥12); term-outlook / election-cycle (claude-opus-4.8) = ≥37 minutes (≥22 + ≥15). Finish the budget — there is always more depth to add.
 
 **Product of Step 9:** every artifact meets its per-artifact depth floor and passes the quality signals in `per-artifact-methodologies.md`.
 
