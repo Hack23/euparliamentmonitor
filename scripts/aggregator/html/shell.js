@@ -24,6 +24,7 @@ import { clampForBudget } from '../metadata/seo-budgets.js';
 import { getArticleFilename, buildArticleHreflangLinks, buildLanguageSwitcher, } from './hreflang.js';
 import { buildArticleToc } from './toc.js';
 import { blobUrl } from '../infra/github-urls.js';
+import { applyReaderFriendlyTransform } from '../reader-friendly-transform.js';
 import { buildLayerReadingTimes, buildProgressiveDisclosureBody, } from '../progressive-disclosure.js';
 /** Publisher organization name used in JSON-LD, meta tags. */
 export const PUBLISHER_NAME = 'Hack23 AB';
@@ -111,6 +112,9 @@ export function wrapArticleHtml(options) {
     const articleMainClass = tocHtml.length > 0 ? 'article-main--with-toc' : 'article-main--no-toc';
     const articleSectionLabel = getLocalizedArticleTypePlain(options.articleType, safeLang);
     const disclosureBody = buildProgressiveDisclosureBody(options.body);
+    const transformedBodyHtml = options.readerFriendly === false
+        ? disclosureBody.bodyHtml
+        : applyReaderFriendlyTransform(disclosureBody.bodyHtml);
     // Count words from the rendered body for the JSON-LD `wordCount`
     // field (Google's NewsArticle structured-data validator emits a
     // warning when this is missing). Done by stripping HTML tags from
@@ -314,7 +318,7 @@ ${tocHtml}    <article class="article-body" lang="${safeLang}">
         <p class="article-meta"><time datetime="${options.date}">${options.date}</time> · EU Parliament Monitor</p>
       </header>
       ${sourceMdLink}
-      ${disclosureBody.bodyHtml}
+      ${transformedBodyHtml}
     </article>
   </main>
 

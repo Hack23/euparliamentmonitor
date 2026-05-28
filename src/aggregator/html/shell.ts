@@ -54,6 +54,7 @@ import {
 } from './hreflang.js';
 import { buildArticleToc, type ArticleTocEntry } from './toc.js';
 import { blobUrl } from '../infra/github-urls.js';
+import { applyReaderFriendlyTransform } from '../reader-friendly-transform.js';
 import {
   buildLayerReadingTimes,
   buildProgressiveDisclosureBody,
@@ -79,6 +80,11 @@ export interface WrapArticleOptions {
   readonly articleSlug: string;
   /** Pre-rendered HTML body fragment (from `renderMarkdown`). */
   readonly body: string;
+  /**
+   * Enable reader-friendly post-processing for rendered HTML body text.
+   * Defaults to `true` for public HTML output.
+   */
+  readonly readerFriendly?: boolean;
   /** Article title — shown in `<title>`, breadcrumb, OG/Twitter meta. */
   readonly title: string;
   /** Article description — shown in `<meta name="description">` and OG. */
@@ -257,6 +263,10 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
 
   const articleSectionLabel = getLocalizedArticleTypePlain(options.articleType, safeLang);
   const disclosureBody = buildProgressiveDisclosureBody(options.body);
+  const transformedBodyHtml =
+    options.readerFriendly === false
+      ? disclosureBody.bodyHtml
+      : applyReaderFriendlyTransform(disclosureBody.bodyHtml);
 
   // Count words from the rendered body for the JSON-LD `wordCount`
   // field (Google's NewsArticle structured-data validator emits a
@@ -481,7 +491,7 @@ ${tocHtml}    <article class="article-body" lang="${safeLang}">
         <p class="article-meta"><time datetime="${options.date}">${options.date}</time> · EU Parliament Monitor</p>
       </header>
       ${sourceMdLink}
-      ${disclosureBody.bodyHtml}
+      ${transformedBodyHtml}
     </article>
   </main>
 
