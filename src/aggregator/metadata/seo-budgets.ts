@@ -140,13 +140,19 @@ export function budgetFor(lang: LanguageCode | string, surface: SeoSurface): num
 /**
  * CJK full-width clause boundaries — the breakpoints CJK readers
  * expect a snippet to end at. Listed in preferred-break order: a
- * sentence-final mark beats a comma which beats a middle-dot.
+ * sentence-final mark beats a semicolon which beats a middle-dot.
+ *
+ * **Note**: `、` (U+3001, enumeration comma) is deliberately excluded.
+ * Cutting at an enumeration comma leaves a grammatically broken list
+ * fragment (e.g. "民主问责、") which downstream `ensureTerminator`
+ * closes with `。`, producing nonsensical "民主问责、。". The enumeration
+ * comma is semantically equivalent to Latin `,` — a list separator,
+ * not a sentence boundary.
  */
 const CJK_CLAUSE_BOUNDARIES: readonly string[] = [
   '。',
   '！',
   '？',
-  '、',
   '；',
   '：',
   '——',
@@ -175,11 +181,15 @@ const SOFT_MIN_RATIO = 0.55;
  * `text-utils.ts::TRAILING_PUNCT` but keeps full-width CJK marks
  * intact when they sit at a natural sentence boundary.
  *
+ * Includes `、` (U+3001, CJK enumeration comma) which should never
+ * appear at the end of a truncated snippet — it signals a list
+ * continuation that never arrives.
+ *
  * @param s - Input string to trim
  * @returns Input with trailing separator-class characters removed
  */
 function trimTrailingSeparators(s: string): string {
-  return s.replace(/[\s,;:—\-–·•…]+$/u, '');
+  return s.replace(/[\s,;:—\-–·•…、]+$/u, '');
 }
 
 /**
@@ -232,8 +242,14 @@ export function clampForBudget(
   // Reserve one char for the ellipsis we may append.
   const window = trimmed.slice(0, budget - 1);
 
-  const boundaries =
-    family === 'cjk'
+  // Korean uses Western-style punctuation (. ! ? ,) and inter-word
+  // spaces despite being classified as CJK for pixel-budget purposes.
+  // Use Latin clause boundaries and allow the whitespace fallback so we
+  // don't hard-cut mid-token (e.g. splitting "2026-04-26" → "2026-0").
+  const useLatinBoundaries = lang === 'ko';
+  const boundaries = useLatinBoundaries
+    ? HEADLINE_CLAUSE_BOUNDARIES
+    : family === 'cjk'
       ? CJK_CLAUSE_BOUNDARIES
       : family === 'rtl'
         ? RTL_CLAUSE_BOUNDARIES
@@ -245,9 +261,10 @@ export function clampForBudget(
     if (cleaned.length >= softMin) return cleaned;
   }
 
-  // Whitespace-aware fallback. CJK text often has no ASCII spaces, so
-  // skip this step for CJK and fall straight through to the hard cut.
-  if (family !== 'cjk') {
+  // Whitespace-aware fallback. Chinese and Japanese text often has no
+  // ASCII spaces, so skip this step for them and fall straight through
+  // to the hard cut. Korean is the exception — it uses inter-word spaces.
+  if (family !== 'cjk' || lang === 'ko') {
     const lastSpace = window.lastIndexOf(' ');
     if (lastSpace >= softMin) {
       const safe = trimTrailingSeparators(window.slice(0, lastSpace));
