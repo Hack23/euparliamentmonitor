@@ -1,0 +1,52 @@
+{
+  "date": "2026-05-28",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run265-1779946997",
+  "gateResult": "PENDING",
+  "slug": "2026-05-28-committee-reports",
+  "articlePath": "analysis/daily/2026-05-28/committee-reports/article.md",
+  "topFinding": "WEP Bands applied throughout | Admiralty Grades: Per claim",
+  "keyTakeaways": [
+    "Substantive legislative outputs: 10 items in May 2026 (last week available)",
+    "Own-initiative reports: 2 (AI/trade, UNGA recommendation)",
+    "Consent/approval of agreements: 6 (Uzbekistan, Lebanon, Cook Islands, São Tomé, Canada SAFE, Iceland PNR)",
+    "Own-initiative resolutions: 1 (Armenia, April session)",
+    "Immunity proceedings: 2",
+    "Regulatory legislation: 1 (forest reproductive material)",
+    "Non-partisan immunity processing (Vilimsky AND Pappas both waived) — non-politicised JURI function"
+  ],
+  "topRisks": [
+    "🔴 HIGH (Immediate action): R-D1, R-D2, R-L4",
+    "🟡 MEDIUM (Monitor actively): R-D3, R-P1, R-P3, R-P4, R-L1, R-P5",
+    "🟢 LOW (Background watch): R-D4, R-P2, R-L2, R-L3"
+  ],
+  "keyDates": [
+    "Commission 2027 budget proposal received in June 2026 (🟡 Watch)",
+    "**June 2026:** Emergency INTA resolution on US tariff response",
+    "**July 2026:** AFET/BUDG joint defence financing initiative",
+    "**September 2026:** SAFE Instrument budget revision",
+    "**October-November 2026:** US-EU tech governance crisis summit; EP position paper"
+  ],
+  "keyActors": [
+    "European Commission (will respond to AI OIR; implements SAFE/EPCA)",
+    "EPP and S&D Group leadership (coalition negotiation)",
+    "Council Presidency (agreement ratification pipeline)",
+    "Member state foreign ministries (external agreement ratification)",
+    "Uzbekistan civil society (EPCA rights monitoring)",
+    "EU fishing industry (fisheries protocol beneficiaries)",
+    "European defence industry (SAFE Instrument beneficiaries)",
+    "Third-country advocacy groups"
+  ],
+  "macroContext": "Live IMF SDMX probe was not performed this run.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
