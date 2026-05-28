@@ -1,0 +1,55 @@
+{
+  "date": "2026-05-28",
+  "articleType": "motions",
+  "runId": "motions-run272-1779954662",
+  "gateResult": "PENDING",
+  "slug": "2026-05-28-motions",
+  "articlePath": "analysis/daily/2026-05-28/motions/article.md",
+  "topFinding": "The European Parliament's Strasbourg session of May 19–22, 2026 adopted 10 legislative and non-legislative texts — below the EP10 weekly average of 18–24 — but produced decisions of above-average strategic weight.",
+  "keyTakeaways": [
+    "**Context:** Harald Vilimsky has been the FPÖ's lead MEP and Identity and Democracy group coordinator. A sitting Austrian MEP's immunity waiver by the EP marks a significant procedural moment. The PRIV (Privileges and Immunities) committee recommendation to proceed signals the JURI-assessed threshold for legal proceedings was met.",
+    "**Political significance:** 🔴 HIGH — FPÖ entered Austria's governing coalition in January 2026. An active judicial proceeding against a sitting MEP who also has a national-level political party connection creates a complex dual-accountability tension. The ID group's response would determine whether this becomes a broader group-solidarity narrative.",
+    "**Coalition dynamics:** The waiver requires a majority. That it passed indicates EPP + S&D + Renew + Greens/EFA coalition — the standard pro-rule-of-law bloc — voted to lift immunity. ECR and ID likely opposed or abstained.",
+    "**Context:** Pappas is a senior Syriza MEP, formerly a close aide to Alexis Tsipras. Greek prosecutors sought the waiver in a matter predating his EP tenure. The PRIV committee recommendation was consistent.",
+    "**Political significance:** 🟡 MEDIUM — The symmetric application of immunity waivers across the far-right (Vilimsky) and the left (Pappas) in the same plenary week demonstrates the EP's juridical consistency, which serves rule-of-law credibility. Syriza/The Left MEPs would face the same coalition mathematics: EPP + S&D + Renew passing both waivers in the same session.",
+    "**SAT — ACH (Analysis of Competing Hypotheses):** H1: Both waivers were routine JURI/PRIV committee outputs with cross-partisan majority. H2: Timing was politically managed to demonstrate balance. H1 is more likely given the independent committee track; H2 cannot be ruled out given the sensitivity of the Vilimsky case.",
+    "**Strategic significance:** 🟡 MEDIUM-HIGH — Uzbekistan represents the EU's most consequential Central Asian partnership upgrade since the 2019 strategy. Under President Shavkat Mirziyoyev, Uzbekistan has repositioned as a diplomatically open state willing to deepen EU ties, in part as a hedge against Russian and Chinese regional influence. The EP resolution accompanying ratification is significant because it conditions full partnership benefits on continued human rights improvements."
+  ],
+  "topRisks": [
+    "KA-R1: Risks are assessed from the perspective of EU institutional integrity and democratic legitimacy.",
+    "KA-R2: The primary risk landscape is political (narrative, coalition, precedent) not security or legal.",
+    "KA-R3: Risk timeframes are calibrated to 6–18 months given the legislative cycle.",
+    "Even if the PRIV committee process was legally impeccable, the FPÖ narrative of \"political persecution\" has the potential to:",
+    "Gap between EP ratification and Commission implementing acts creates a window where expectations are set but delivery is delayed",
+    "Canadian defence industry firms face uncertainty about when they can actually participate in SAFE procurement",
+    "Pattern of EU neighbourhood partnerships: economic benefits flow first, conditionality applied slowly",
+    "Reputational risk if Uzbek human rights benchmarks are not met but EU continues engagement"
+  ],
+  "keyDates": [
+    "EU-Canada SAFE Instrument implementing acts drafted by Commission within 6 months; first joint procurement cycle opens Q4 2026.",
+    "Uzbekistan EPCA enters provisional application; first joint committee meeting scheduled Q3 2026.",
+    "The EP, having just passed TA-10-2026-0008 (Mercosur CJEU opinion request) in January 2026, faces a demand to do the same for SAFE"
+  ],
+  "keyActors": [
+    "**Role in this session:** Dominant coalition anchor; co-proposer on SAFE Instrument, Uzbekistan EPCA",
+    "**Key voting pattern:** Likely supported all 10 texts (standard EPP position: support EU external relations + ratification + immunity waivers where prosecution is credible)",
+    "**Internal dynamics:** Manfred Weber (CSU) leadership continues to balance Christian Democratic tradition with pragmatic coalition management",
+    "**Influence score:** 9/10",
+    "**Role:** Second coalition pillar; AFET committee typically S&D-friendly on external relations",
+    "**Likely positions:** Supported Uzbekistan EPCA with human rights reservations; supported SAFE Instrument (European defence mainstream); ambivalent on Pappas (fellow Left-of-centre, but Syriza is in The Left, not S&D)",
+    "**Influence score:** 7/10",
+    "**Role:** Decisive swing bloc for EPP-led coalitions; Macron allies"
+  ],
+  "macroContext": "(which are primarily about political/legal process).",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

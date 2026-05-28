@@ -322,6 +322,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/comparative-international.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_da.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -9499,6 +9500,842 @@ The following SATs were applied in this run:
 - SAT-11 What-If Analysis — applied to scenario-forecast 7 scenarios
 - SAT-12 High-Impact / Low-Probability Analysis — applied to wildcards
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Da
+
+### 🎯 Headline Judgement
+
+Europa-Parlamentets EP10-mandatperiode (2024–2029) er gået ind i sit afgørende andet år med et strukturelt højreforskudt parlament, der navigerer en historisk konvergens af kriser: europæisk strategisk autonomi, forsvarsoprustning, stress på den økonomiske konkurrenceevne og demokratisk tilbagegang. Den EPP-ledede fleksible majoritetsmodel — der selektivt henter støtte fra ECR og PfE ved forsvars- og migrationsafstemninger, mens den stoler på S&D og Renew til lovgivningsarbejdet — er mandatperiodens mest definerende strukturelle træk. **Sandsynlighed: 70 % (Sandsynligt)** at det EPP-ledede center-højre-blok vil dominere lovgivningsresultaterne frem til 2027, inden valpres fragmenterer koalitionerne i optakten til valget. **Sandsynlighed: 60 % (Sandsynligt)** at den Rene Industriaftale og den Europæiske Forsvarsindustrielle Strategi vil være de to lovgivningsmæssige vartegn, der definerer EP10's arv.
+
+### 📊 EP10 Composition Snapshot (May 2026)
+
+| Gruppe | Mandater | Andel | Blok |
+|--------|----------|-------|------|
+| EPP | 185 | 25,7% | Center-højre |
+| S&D | 136 | 18,9% | Center-venstre |
+| PfE | 85 | 11,8% | Nationalsouveræn yderste højre |
+| ECR | 81 | 11,3% | Konservativt EU-skeptisk |
+| Renew | 77 | 10,7% | Liberalt-centristisk pro-EU |
+| Greens/EFA | 53 | 7,4% | Grønt-regionalistisk |
+| The Left | 45 | 6,3% | Yderste venstre |
+| NI | 30 | 4,2% | Ikke-tilknyttede (diverse) |
+| ESN | 27 | 3,8% | Nationalistisk yderste højre |
+| **TOTAL** | **719** | **100%** | |
+
+**Majoritetstærskel:** 361 mandater. Ingen to grupper kan danne et flertal; minimum tre grupper kræves til al lovgivning.
+
+### 🔑 Key Judgements (WEP-graded)
+
+1. **EPP forbliver dominerende mægler (Meget sandsynligt, 80 %):** Med 185 mandater kontrollerer EPP udvalgsformandsindstillinger, ordføreropgaver og dagsordensautoriteten i Formandskonferencen. Denne strukturelle fordel forøges i løbet af mandatperioden.
+
+2. **Storkoalition stadig funktionel men presset (Sandsynligt, 65 %):** EPP+S&D+Renew har 398 mandater — 37 over majoritetstærsklen. Denne koalition vil vedtage de fleste reguleringsretsakter, men risikerer afhopp ved suverænitetsfølsomme emner (migration, digitalt, energi).
+
+3. **Højre-vetoblok under opbygning (Realistisk mulighed, 45 %):** EPP+PfE+ECR+ESN udgør 378 mandater — lidt over majoritetsniveauet. Inden for forsvarsforbrug, grænse­kontrol og deregulering kan dette blok vedtage lovgivning uden progressiv støtte. Stigende sandsynlighed for anvendelse i 2026–2027.
+
+4. **Lovgivningsproduktion i rekordtempo (Meget sandsynligt, 85 %):** EP10 år 2 (2026) sporer 114 lovgivningsretsakter — op 46 % ift. 2025 og det dobbelte af valgårets produktion i 2024. Konsensus om forsvarsforbrug, Ren Industriaftale og AI Act's gennemførelsesforordninger driver volumen.
+
+5. **Mandatperioden slutter med omstridt klimatarv (Sandsynligt, 65 %):** Tilbagetrækning fra den Grønne Aftale under EPP+ECR-pres er i gang. Taxonomifortynding, den Rene Industriaftales kulstoflækagebestemmelser og svækkelse af metanregulering peger mod en mandatperiode defineret af konkurrencedygtig afkarbonisering frem for reguleringsambition.
+
+### 🏛️ The Three Structural Drivers
+
+#### Driver 1: Defence-Industrial Pivot
+Det mest konsekvensrige EP10-tema er europæisk strategisk autonomi og forsvarsoprustning. Vedtagelsen i 2026 af lånet til Ukraine (TA-10-2026-0010) og debatterne om den Europæiske Forsvarsindustrielle Strategi signalerer en parlamentarisk konsensus, der er sjælden i EP-historien — med EPP, S&D, Renew og endda visse ECR-medlemmer, der koordinerer om forsvarsforbrug, hvilket markerer et strukturelt skift fra efterkrigstids-fredsudbytte-æraen.
+
+#### Driver 2: Competitiveness-vs-Green Tension
+Den Rene Industriaftale (Konkurrenceevnekompasset) repræsenterer et styret tilbagetog fra den Grønne Aftales reguleringsambitioner. Kulstoflækagetilpasningsmekanismer, industriel dekarbonisering og sikkerhed for kritiske råmaterialer defineres nu som spørgsmål om erhvervsmæssig konkurrenceevne — ikke miljøspørgsmål. Denne indramningstransformation, drevet af EPP, har sikret ECR's stiltiende accept og låst en holdbar majoritet fast i hvert fald til 2027.
+
+#### Driver 3: Democratic Resilience Under Pressure
+Ungarns igangværende artikel 7-procedure, demokratisk tilbagegang i Slovakiet og trusler mod public service-uafhængighed (som i Litauen — TA-10-2026-0024) er vedvarende dagsordenspunkter. Parlamentet har konsekvent vedtaget beslutninger, der hævder retsstat-betingelserne. Lovgivningsinstrumentet forbliver dog svagt — parlamentet kan ikke selv pålægge sanktioner, men skaber de politiske betingelser for rådets handling.
+
+### 💶 Economic Context (World Bank/IMF-adjacent proxies; IMF direct access degraded)
+
+Bemærk: IMF SDMX 3.0-endepunkt utilgængeligt i denne kørsel (netværksbegrænsning). Økonomisk kontekst udledt af World Bank-data og EP's dokumentariske registrering.
+
+**BNP-vækst for EU's store økonomier (2024, World Bank):**
+- Tyskland: **−0,5 %** (kontraktion; afindustrialisering, energiomkostningsbyrde)
+- Frankrig: **+1,2 %** (beskeden; finanspolitisk konsolidering begrænser offentlige investeringer)
+- Italien: **+0,7 %** (svag; strukturel gældsbyrde, demografisk pres)
+- Spanien: **+3,5 %** (robust; turismestigning, Nextgen EU-udbetalinger)
+- Polen: **+3,0 %** (stærk; CEE-integration, stigende forsvarsforbrug)
+
+EP10's økonomiske kontekst er præget af **divergens**: en nordvestlig afindustrialiseringskorridor (Tyskland, Nederlandene, Belgien) kontrasterer med en sydøstlig vækstperifer (Spanien, Polen, Rumænien). Denne økonomiske geografi vil forme koalitionspolitikken — sydlige og østlige MEP'er vil modstå stramme finanspolitiske regler, mens nordlige MEP'er fremmer konkurrenceevne-dagsordener.
+
+### ⚠️ Term Risk Summary
+
+| Risiko | Sandsynlighed | Påvirkning | Horisont |
+|--------|---------------|-----------|---------|
+| Storkoalitionssammenbrud om migration | 55% | HØJ | 2026–2027 |
+| Hærdning af EPP-ECR-PfE-blokken | 45% | HØJ | 2026–2027 |
+| Grøn Aftale-tilbagetrækning accelererer | 70% | MIDDEL | 2026–2028 |
+| Forsvarskonsensuspres (fredsudbyttekoalition genopretter sig) | 35% | MIDDEL | 2027–2028 |
+| Retsstat-betingelse slår fejl | 50% | HØJ | løbende |
+| EP10 slutter uden succes med MFF-revision | 40% | HØJ | 2027–2028 |
+
+### 📅 Term Calendar Milestones
+
+| Dato | Begivenhed | Betydning |
+|------|-----------|-----------|
+| K3 2026 | MFF-midtvejsrevisionsafstemning | Strukturel finansiering af forsvar + industripolitik |
+| Jan 2027 | Polsk EU-rådsformandskab slutter → Danmark begynder | Koalitionsbyggedynamik |
+| Midt 2027 | EP10 midterm — toppe lovgivningsproduktion | Maksimal ordførerindflydelse |
+| 2028 | Nextgen EU-udbetalingers afslutning | Finanspolitisk klippe-risiko for samhørighedsstater |
+| K1 2029 | Lovgivningssprint inden valg | Sidste store retsakter inden opløsning |
+| Juni 2029 | EP10 Europaparlamentsvalg | Mandatperioden slutter; ny EP11-sammensætning usikker |
+
+### 🔮 Election Cycle: Most Likely Scenario
+
+EP10 vil blive husket som **"Forsvars- og konkurrenceevneparlamentet"** — den mandatperiode, hvor Europa strukturelt drejede fra civil reguleringsmagt til en halvt sikkerhedsgjort lovgivningsdagsorden. EPP vil tage æren for at have moderniseret EU's industrigrundlag, mens det progressive blok vil bestride svækkelsen af miljø- og sociale standarder. Den yderste højre (PfE/ECR/ESN) vil have opnået normalisering som politiske samtalepartnere inden for grænsesikkerhed og suverænitetsspørgsmål og omformer dermed fundamentalt EP's politiske kultur forud for EP11.
+
+---
+*Kilder: EP's Open Data Portal (data.europarl.europa.eu); World Bank Open Data; EP's vedtagne tekster TA-10-2026-serien; EP's plenumstatistik 2024–2026.*
+*Admiralitetsvurdering B2: Kilde generelt pålidelig; bekræftet af flere uafhængige EP API-datastrømme.*
+
+---
+
+### EP10 → EP11 Electoral-Cycle Context (Mid-Term Extension)
+
+Europa-Parlamentets tiende mandatperiode nåede sit politiske midtpunkt i maj 2026 — 23 måneder efter konstituering (16. juli 2024) og 37 måneder inden det næste direkte valg (juni 2029). Den cyklus, som denne analyse gennemkrydser, er usædvanlig på tre måder: (1) et skifte i den amerikanske administration i januar 2025, der strukturelt har nyprissatte europæisk forsvars- og handelspolitik; (2) en Bundesdag-opløsning i Tyskland i slutningen af 2025, der producerede den første CDU/CSU+SPD-storkoalition under Friedrich Merz med kaskadeeffekter på EPP-S&D-koordination på EU-niveau; (3) konsolideringen af Patriots for Europe (PfE) som tredjestørste gruppe, der fortrængte Renews afgørende koalitionsrolle for første gang i 30 år.
+
+#### A. Long-horizon (5-year) calendar anchors
+
+| Dato | Begivenhed | Cyklusfase | Valmæssig relevans |
+|------|-----------|-----------|-------------------|
+| 2026-07-16 | EP10 midterm | T-35 måneder | Halvtidsformandskabsrotation (Metsola → sandsynligvis S&D næstformandskabspakke genforhandling) |
+| 2026-K4 | MFF 2028-2034-forhandlinger begynder | T-30 til T-18 måneder | Definerende spørgsmål for Greens/Renew; PfE/ECR suverænistetstest |
+| 2027-01-01 | Cypriotisk rådsformandskab | T-29 måneder | Østmediterran / Tyrkiet / migrationsindramningsvindue |
+| 2027-K2 | Fransk præsidentvalg | T-24 måneder | Højeste enkelt nationale driver for 2029 EP-udfald |
+| 2027-K3 | EP10-budgetarvsafstemninger | T-22 måneder | Test af storkoalitionskohæsion under fragmentering |
+| 2028-K1 | Italienske parlamentsvalg (sandsynlige) | T-15 måneder | PfE/ECR national konsolideringstest |
+| 2028-09 | Spitzenkandidaten-nomineringer åbnes | T-9 måneder | Spidskandidatprocessen bestemmer kampagnerammen |
+| 2029-04 | Opløsning / kampagne begynder | T-2 måneder | National listevedtagelse; manifestlanceringer |
+| 2029-06-06 til 06-09 | EP11-valg | T-0 | 720 (eller 751 ved revideret fordeling) mandater på spil |
+| 2029-07-16 | EP11's konstituerende session | T+1 måned | Gruppekonstituering; opdagelse af flertal |
+| 2029-K4 | Kommission V-høringer | T+4-6 måneder | Porteføljeallokering; koalitionspagt-ratificering |
+| 2030-K2 | EP11's første store lovgivningscyklus | T+12 måneder | Test af post-2029 koalitionsbæredygtighed |
+| 2031-05 | EP11 midterm | T+24 måneder | Trajektøretest for den cyklus, som denne analyse projicerer ind i |
+
+#### B. Coalition-arithmetic baseline (May 2026)
+
+Storkoalitionen (EPP+S&D+Renew = 396) er intakt men stressfraktureret. von der Leyen II-kommissionen er afhængig af sag-for-sag-flertal: forsvars- og grænseafstemninger tilføjer rutinemæssigt ECR (og i stigende grad PfE om migration), mens sociale/miljø-/retsstat-afstemninger trækker Greens/EFA og The Left ind. Fragmenteringsindekset (HØJ) afspejler den strukturelle realitet, at ingen to-gruppekoalition når 360-mandatstærsklen, og den mindste levedygtige tre-gruppekoalition (EPP+S&D+Renew = 396) kun er 36 mandater over linjen — vel inden for afhopp-rækkevidde på kontroversielle sager.
+
+| Koalition | Størrelse | Margin ift. 360 | Anvendelse |
+|-----------|----------|----------------|-----------|
+| EPP+S&D+Renew | 396 | +36 | Standard storkoalition; institutionelle sager |
+| EPP+S&D+Renew+Greens | 449 | +89 | Klima/sociale/retsstat-sager |
+| EPP+ECR+Renew+PfE-partial | 380-410 | +20 til +50 | Forsvars-/grænse-/konkurrenceevnesager |
+| EPP+S&D+The Left+Greens | 417 | +57 | Sjælden; retsstatsbrud mod PfE-regeringer |
+| EPP+ECR+PfE | 349 | -11 | IKKE et flertal — symbolsk ved signalafstemninger |
+
+Det faktum at EPP+ECR+PfE mangler 11 mandater til flertal er det centrale **strukturelle anti-højreforskydningstræk** i EP10 — selv med fuld yderste-højre-konsolidering kan et EPP-ledet center-højre ikke regere uden enten S&D eller Renew. EP11 er den første cyklus, hvor denne begrænsning plausibelt kan lettes (PfE+ECR prognosticerede gevinster; mulig ESN-gruppekonsoli­dering).
+
+#### C. Electoral-cycle data confidence floor
+
+Jf. `01-data-collection.md` §6 er EP MCP-serverens per-MEP-afstemningsdata utilgængeligt opstrøms; koalitionskohæsionsestimater bruger gruppe-størrelses-sizeSimilarityScore-proxy frem for registrerede afstemnings-samforekomster. Mandatprojektioner aggregerer national opinion ved ±3,5 pp 95%-KI pr. gruppe over 27 medlemsstater; det resulterende EP-niveau ±15-mandatsband per stor gruppe er det strukturelle loft for præcision. IMF-makroinput (denne kørsel: dataMode=`degraded-imf`, faktor 0,85) begrænser den økonomiske kontekstkonfidensen til MEDIUM.
+
+#### D. Mobilisation arithmetic (turnout-adjusted)
+
+EP10-valgdeltagelse (51,0 %) markerede den næst højeste sats siden 1994 og var frontlastet i PfE/ECR-måldemografier (landlig suverænist, arbejderklasse antibesparings). Fremadprojektionen for EP11-valgdeltagelse (52-58 %) antager (1) fortsat mobilisering af yderste-højre-indramninger, (2) delvis modmobilisering af ungdoms-/klimaindramninger, hvis klimatilbagetræknings-narrativet konsolideres, (3) obligatoriske valglovreformer i Belgien, Grækenland, Bulgarien, Cypern, Luxembourg uændrede. Et 1 pp-valgdeltagelsesskift giver omtrent ±4-7 mandater omfordeling mellem bloksymmetriske parringer.
+
+#### E. National driver elections (2026 Q4 → 2029 Q2)
+
+| Land | Dato | Regeringstype | Påvirkning på EP-delegation |
+|------|------|--------------|----------------------------|
+| Tjekkiet | 2025-10 (afholdt) | ANO-ledet koalition (post-Babiš-tilbagevenden) | PfE +1 mandat MEP-delegationsomfordeling |
+| Ungarn | 2026-04 (afholdt) | Fidesz-KDNP fastholdt (54 % stemmer) | PfE +0 baselinje bevaret |
+| Sverige | 2026-09 | Tidö-koalitions stresstest | ECR ±2 mandater |
+| Tysk Forbundsdag | 2025-11 (afholdt) | CDU/CSU+SPD storkoalition | EPP +2 mandater EP-delegationsgenbalancering |
+| Spanien | 2027-K1-K2 (sandsynlige) | PSOE+Sumar mindretals-prekaritet | S&D ±3 mandater |
+| Frankrig | 2027-04/05 | Præsident + lovgivning | Renew ±10 mandater (højeste enkelt driver) |
+| Nederlandene | 2027 (sandsynlig) | PVV-VVD-NSC stresstest | PfE ±2 |
+| Polen | 2027 | Tusk-koalition vs. PiS | EPP/ECR ±4 |
+| Italien | 2028-K1 (sandsynlig) | Meloni FdI test | ECR/PfE genbalancering |
+| Grækenland | 2027-08 | Mitsotakis ND test | EPP ±2 |
+| Rumænien | 2028-K4 | PSD-PNL storkoalitionstest | S&D/EPP ±3 |
+| Tjekkiet | 2029-K2 | Forud-EP-test | PfE ±1 |
+
+Konvergensen af Frankrikes præsidentvalg (2027-K2), Italiens parlamentsvalg (2028-K1) og tyske Forbundsdag-afledte delstatsvalg i 2027-2028 betyder, at EU-niveau-valgcyklussen domineres af national turbulens i de tre største medlemsstatsdelegationer samtidigt — et usædvanlig høj-volatilitetsvindue for EP-niveau-prognoser.
+
+#### F. Confidence & WEP banding (electoral-cycle scope)
+
+| Påstandstype | WEP-bånd | Admiralitet | Bemærkninger |
+|--------------|----------|-------------|--------------|
+| Gruppesammensætning holder sig inden for ±15 mandater pr. stor gruppe til 2028-K4 | Sandsynligt (55-75%) | B2 | Standard midtcyklusskabelon |
+| EP11 producerer et fragmenteret parlament, der kræver multi-koalitionsaritmeti | Næsten sikkert (90-95%) | A2 | Strukturelt; intet 2024 → 2029 dynamik understøtter >35 % enkeltgruppe |
+| Højreblok (PfE+ECR+ESN) flertal opstår i EP11 | Fjern chance (5-15%) | C3 | Kræver PfE+9, ECR+5, ESN+2 alle rammer øvre bånd |
+| Renew forbliver afgørende koalitionspartner i EP11 | Realistisk mulighed (40-55%) | B3 | Afhænger af franske 2027-udfald |
+| Spitzenkandidaten-processen binder Rådet i 2029 | Fjern (10-20%) | C2 | Rådet modstod i 2024; ingen indikation på ændring |
+| MFF 2028-2034 indeholder et trinforøgelse i forsvarsforbrug | Sandsynligt (60-75%) | B2 | Tværbloks konsensus om retning |
+
+Disse konfidensskabeloner propagerer gennem alle artefakter i denne kørsel.
+
+#### G. Reader briefing
+
+For borgere, erhvervsliv og medlemsstatsforvaltninger, der følger EP10 → EP11-cyklussen: de næste tre år vil ikke være politik som sædvanlig. Forvent tre konvergerende stressvektorer — et fragmenteret parlament, en transaktionel amerikansk administration og en trinvis stigning i forsvarsforbrug — der tilsammen omskriver EU's policy-driftsmodel. Valget i juni 2029 vil være det politiske afgørelses­punkt for alle tre; den aktuelle analyse sigter mod at give to års forhåndsinformation om de mest sandsynlige afgørelseskurver.
+
+---
+
+### Dual-Track Electoral-Cycle Analysis (Track A retrospective + Track B forecast)
+
+#### Track A — EP10 Term Retrospective (July 2024 → May 2026, 23 months elapsed of 60)
+
+EP10-mandatperioden åbnede med et centristisk storkoalitionsflertal på 401 (EPP 188 + S&D 136 + Renew 77) og et formandskabspakke, der valgte Roberta Metsola (EPP, MT) uden konkurrence. Inden for 18 måneder har tre strukturelle skift omformet mandatperiodens politiske topologi:
+
+1. **PfE-konsolidering (jul 2024 → K4 2025)** — den nye yderste-højre-gruppe konsoliderede 84 → 85 mandater, fortrængte Renew som tredjestørste formation og indskød en parallel højreflanke-koalitionsmulighed i alle forsvars-/migrationsafgørelser.
+2. **Renew-kontraktion (84 → 77)** — afhopp til NI og én delegationsskift til EPP har undermineret det liberale omdrejningspunkts indflydelse; den franske Renaissance-delegations interne volatilitet efter præsidentvalget i 2027 vil være det næste brudpunkt.
+3. **EPP-S&D operationel koordination (post-Forbundsdag 2025-11)** — Merz-Scholz-overgangsregeringen i Tyskland formaliserede CDU/CSU-SPD-koordination på EU-niveau; EPP-S&D-Renew "majoritetsdisciplin"-mønstret er strammet på procedureafstemninger, mens det er løsnet på saglige ændringsforslag.
+
+##### Track A — Mandate-fulfilment scorecard (high-level)
+
+| Mandatområde | EP10-fremskridt til maj 2026 | Trajektorie til 2029 |
+|--------------|------------------------------|---------------------|
+| Grøn Aftale Fase 2 (CBAM-håndhævelse, taxonomi, metan) | 60 % — implementering sporer, svækket håndhævelse | Sandsynligvis delvis tilbagetrækning under EPP-ECR-pres |
+| Forsvarsunion / EDIS | 35 % — finansieringsinstrumenter vedtaget, kapacitetsgab forbliver | Accelereret under Trump-2-pres; EP-rolle begrænset |
+| Retsstat (Ungarn, Slovakiet, Slovenien) | 25 % — Artikel 7 fastlåst; betingelse anvendt selektivt | Usandsynligt at avancere inden 2029 |
+| Migrationspaktens implementering | 50 % — første-udplacerings-forsinkelser, returpolitik-ekspansion | Højreforskydning forventet; paktramme holder |
+| Industriel konkurrenceevne (Draghi/Letta-dagsorden) | 40 % — STEP-fonden operationel, Det Indre Markeds-loven fastlåst | Definerende EP11-sag |
+| Udvidelse (Ukraine, Moldova, Vestbalkan) | 30 % — tiltrædelsesforhandlinger åbne, ingen kapitelafslutninger mulige inden 2029 | Symbolisk momentum, strukturelt dødvande |
+| Socialpillar (mindsteløn, platformsarbejdere) | 70 % — direktiver transponeret i de fleste MS | Kun implementeringsgennemgang i EP11 |
+| Digitalt (DSA, DMA, AI Act) | 80 % — rammer operationelle, håndhævelses­testning | Forfining, ikke ny arkitektur, i EP11 |
+
+##### Track A — Coalition trajectory (cohesion proxy)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5d50c955) -->
+
+#### Track B — EP11 Forecast (June 2029 → 2031)
+
+##### Track B — Seat projection at four horizons
+
+| Gruppe | T+0 (jun 2029, valg) | T+6m | T+12m | T+24m (EP11 midterm) |
+|--------|----------------------|------|-------|----------------------|
+| EPP | 175-195 (185 ±10) | 185 | 184 | 183 |
+| S&D | 120-140 (130 ±10) | 130 | 129 | 128 |
+| PfE | 90-110 (100 ±10) | 100 | 102 | 105 |
+| ECR | 80-95 (87 ±8) | 87 | 88 | 89 |
+| Renew | 55-75 (65 ±10) | 65 | 64 | 62 |
+| Greens/EFA | 45-60 (52 ±8) | 52 | 51 | 50 |
+| The Left | 38-52 (45 ±7) | 45 | 45 | 44 |
+| NI | 25-40 (32 ±8) | 32 | 35 | 38 |
+| ESN | 25-40 (33 ±8) | 33 | 32 | 31 |
+| **Total** | **720** | **729** (ekstra Kroatien/Slovakiet-varians) | **730** | **730** |
+
+##### Track B — Coalition viability matrix (EP11 candidate majorities)
+
+| Koalition | Projiceret størrelse | Margin | Anvendelse | Sandsynlighed |
+|-----------|---------------------|--------|-----------|--------------|
+| EPP+S&D+Renew | 380 | +20 | Standard storkoalition; defensiv | 65% |
+| EPP+S&D+Renew+Greens | 432 | +72 | Klima/sociale/RoL-sager | 55% |
+| EPP+ECR+PfE | 372 | +12 | Forsvar/grænser; **første gang levedygtig** | 35% |
+| EPP+ECR+PfE+ESN | 405 | +45 | Yderste-højre-konkurrenceevnekoalition | 20% |
+| EPP+ECR+Renew+conditional-PfE | 402 | +42 | Pragmatisk center-højre | 40% |
+
+**35 %-sandsynligheden for EPP+ECR+PfE-bæredygtighed** er EP11's strukturelle hængsle: for første gang i Europa-Parlamentets historie ville et kun-højre-flertal aritmetisk være muligt. Dets politiske gennemførlighed afhænger af (a) PfE's villighed til at acceptere EPP's proceduremæssige disciplin, (b) EPP's villighed til at formalisere yderste-højre-afhængigehden, (c) Rådets ratificering af en Spitzenkandidat fra en sådan konfiguration.
+
+##### Track B — Spitzenkandidaten 2029 scenario
+
+| Spidskandidat | Gruppe | Nomineringssandsynlighed | Kommissionsformandssandsynlighed |
+|--------------|--------|-------------------------|----------------------------------|
+| Manfred Weber (nuværende EPP-leder) | EPP | 60% | 50% |
+| Roberta Metsola (institutionel leder) | EPP | 25% | 20% |
+| Iratxe García (PES-leder) | S&D | 70% | 25% |
+| Stéphane Séjourné eller efterfølger | Renew | 50% | 5% |
+| Bas Eickhout (klimatleder) | Greens | 60% | <5% |
+| Jordan Bardella (PfE-leder) | PfE | 55% | <5% |
+| Giorgia Meloni (ECR-galionsfigur) | ECR | 30% | 10% |
+
+---
+
+### Cross-Stakeholder Risk Map (Electoral-Cycle Lens)
+
+#### Stakeholder cohort table (multi-perspective)
+
+| Kohort | Primært EP10-udfald | Risiko under EP11-højreforskydning | Modstrategier i gang |
+|--------|---------------------|-----------------------------------|---------------------|
+| **EU-borgere** (generelt) | Blandet: forsvarsberoligelse, klimatilbagetrækning | Leveomkostningers saliency driver valgdeltagelse; retsstatserosion i 4-6 MS | Borgerregistreringskampagner, ePolitics-platforme, Eurobarometer-drevet narrativkorrektion |
+| **EU-institutionelt personale** (Kommissionen, EEAS, Rådsekretariatet) | Karrierestabilitet, nedsat Grøn Aftale | Politisering af seniorindstillinger; Spitzenkandidat-processens kollaps | Intern mobilitet, A1-gradreserver |
+| **Nationale regeringer** (27) | Asymmetrisk — Italien/Ungarn vinder; Frankrig/Tyskland pressede | MFF-2028 nettobidragyder-oprør; samhørighedsbetingelseskampe | Bilaterale aftaler, rådsside-ændringsforslag |
+| **Oppositionspartier i medlemsstater** | Mobilisering mod siddende EU-politik | Polarisering accelererer; koalitionsmuligheder indsnævres | Grænseoverskridende partikoordination |
+| **Erhvervsliv / industri** (fremstilling, energi, digitalt) | Blandet: deregulerings-drift, forsvarsforbrug-medvind | Reguleringsusikkerhed; handelskrigs-eksponering | Lobby-intensivering, dobbeltforsyningsstrategier |
+| **Civilsamfund / NGO'er** (klima, menneskerettigheder, socialt) | Defensiv holdning, finansieringsreduktioner | Skrumpende rum; SLAPP-stævnings-acceleration | Anti-SLAPP-direktiv, grænseoverskridende juridiske koalitioner |
+| **Fagforeninger** (ETUC og tilknyttede) | Blandet: mindstelønsgevinster, platformsarbejde-direktiv | Socialpillar-implementeringsomvending | National mobilisering, EU-niveau minimumsgulvsforsvar |
+| **Medier / journalistik** | EMFA-implementering, koncentrationsproblemer | Pressefriheds-erosion i 4 MS; redaktionelt pres | EMFA-håndhævelse, grænseoverskridende undersøgende konsortier |
+| **Akademi / forskning** (Horizon Europe-økosystemet) | Finansiering stabil; ERC-programmer sikrede | MFF-2028 omfordeling mod forsvar | Civil-forsvars-dobbeltanvendelses-repositionering |
+| **Eksterne partnere** (UK, Schweiz, Tyrkiet, Vestbalkan, Ukraine) | Asymmetrisk — Ukraine vinder, Tyrkiet stagnerer | EU strategisk autonomi-ambiguitet | Bilaterale rammeaftaler |
+| **Globale modparter** (USA, Kina, Indien, Brasilien) | Trump-2-pres, kinesisk teknologikonkurrence | Multi-bloks-fragmentering, EU-svækkelse | Selektiv gen-engagement, kapacitetshedging |
+
+#### Risk-priority matrix (electoral-cycle scope)
+
+| Risiko-ID | Risiko | Sandsynlighed (T+0 → T+24) | Påvirkning | Score | Ejer |
+|-----------|--------|---------------------------|-----------|-------|------|
+| R-EC-01 | EP11 højrebloks-flertal materialiseres | 0,35 | 0,85 | 0,30 | EP plenum; Rådet |
+| R-EC-02 | Franske præsidentvalg 2027 leverer yderste-højre-sejr | 0,30 | 0,80 | 0,24 | Franske vælgere; Renew |
+| R-EC-03 | Tysk storkoalition bryder sammen inden EP11 | 0,25 | 0,65 | 0,16 | Forbundsdagen; CDU/SPD |
+| R-EC-04 | Trump-2 indfører told > 15 % på EU-eksport | 0,55 | 0,65 | 0,36 | Amerikansk administration; Kommissionen DG TRADE |
+| R-EC-05 | Ukraine-krigeskalation kræver EU-landengagement | 0,10 | 0,95 | 0,10 | Rådet; medlemsstater |
+| R-EC-06 | MFF-2028-forhandlinger mislykkes (ingen aftale inden 2027-K4) | 0,20 | 0,75 | 0,15 | Rådet; EP BUDG |
+| R-EC-07 | Spitzenkandidaten-processen bryder sammen (rådsomgåelse) | 0,40 | 0,55 | 0,22 | Det Europæiske Råd |
+| R-EC-08 | Klimakatastrofe-sommer (>2 samtidige EU-stats-store begivenheder) | 0,55 | 0,45 | 0,25 | Medlemsstater; Kommissionen |
+| R-EC-09 | Cyberangreb på 2029-valgsinfrastruktur | 0,30 | 0,70 | 0,21 | ENISA; MS-CERTs |
+| R-EC-10 | AI-deepfake massedesinformationskampagne | 0,65 | 0,55 | 0,36 | Platforme; DSA-håndhævelse |
+| R-EC-11 | Medlemsstat artikel 7-eskalation til suspensionsafstemning | 0,10 | 0,50 | 0,05 | Rådet; EP |
+| R-EC-12 | Energiprisstød (2x baseline) | 0,25 | 0,65 | 0,16 | Markeder; Kommissionen |
+
+### Executive Brief No
+
+### 🎯 Headline Judgement
+
+Europaparlamentets EP10-periode (2024–2029) har gått inn i sitt avgjørende andre år med et strukturelt høyreforskjøvet parlament som navigerer en historisk konvergens av kriser: europeisk strategisk autonomi, forsvarsopprustning, stress på konkurranseevnen og demokratisk tilbakegang. Den EPP-ledede fleksible majoritetsmodellen — som selektivt henter støtte fra ECR og PfE ved forsvars- og migrasjonsavstemminger, mens den støtter seg på S&D og Renew for reguleringslovgivning — er mandatperiodens mest definerende strukturelle trekk. **Sannsynlighet: 70 % (Sannsynlig)** at det EPP-ledede sentrum-høyre-blokket vil dominere lovgivningsresultatene frem til 2027 før valgtrykk fragmenterer koalisjonene i opptakten til valget. **Sannsynlighet: 60 % (Sannsynlig)** at Den rene industriavtalen og den Europeiske forsvarsindustrielle strategien vil være de to lovgivnings-landemerkene som definerer EP10s arv.
+
+### 📊 EP10 Composition Snapshot (May 2026)
+
+| Gruppe | Mandater | Andel | Blokk |
+|--------|----------|-------|-------|
+| EPP | 185 | 25,7% | Sentrum-høyre |
+| S&D | 136 | 18,9% | Sentrum-venstre |
+| PfE | 85 | 11,8% | Nasjonalsouverænt ytterste høyre |
+| ECR | 81 | 11,3% | Konservativt EU-skeptisk |
+| Renew | 77 | 10,7% | Liberalt-sentristisk pro-EU |
+| Greens/EFA | 53 | 7,4% | Grønt-regionalistisk |
+| The Left | 45 | 6,3% | Ytterste venstre |
+| NI | 30 | 4,2% | Ikke-tilknyttede (diverse) |
+| ESN | 27 | 3,8% | Nasjonalistisk ytterste høyre |
+| **TOTALT** | **719** | **100%** | |
+
+**Majoritetsterskel:** 361 mandater. Ingen to grupper kan danne et flertall; minimum tre grupper kreves for all lovgivning.
+
+### 🔑 Key Judgements (WEP-graded)
+
+1. **EPP forblir dominerende megler (Meget sannsynlig, 80 %):** Med 185 mandater kontrollerer EPP utvalgsformandsinnstillinger, ordføreroppgaver og dagsordensautoriteten i Konferansen av presidentene. Denne strukturelle fordelen forsterkes gjennom mandatperioden.
+
+2. **Storkoalisjon fortsatt funksjonell, men presset (Sannsynlig, 65 %):** EPP+S&D+Renew har 398 mandater — 37 over majoritetsterskelen. Denne koalisjonen vil vedta de fleste reguleringsretsakter, men risikerer frafall ved suverenitetsfølsomme temaer (migrasjon, digitalt, energi).
+
+3. **Høyre-vetoblokk under oppbygging (Realistisk mulighet, 45 %):** EPP+PfE+ECR+ESN utgjør 378 mandater — rett over majoritetsnivået. Ved forsvarsforbrug, grensekontroll og deregulering kan denne blokken vedta lovgivning uten progressiv støtte. Stigende brukssannsynlighet i 2026–2027.
+
+4. **Lovgivningsproduksjon i rekordtempo (Meget sannsynlig, 85 %):** EP10 år 2 (2026) sporer 114 lovgivningsretsakter — opp 46 % sammenlignet med 2025 og det dobbelte av valgårets produksjon i 2024. Konsensus om forsvarsforbrug, Den rene industriavtalen og AI Acts gjennomføringsforordninger driver volumet.
+
+5. **Mandatperioden avsluttes med omstridt klimatarv (Sannsynlig, 65 %):** Tilbaketrekking fra den Grønne pakten under EPP+ECR-press pågår. Taksonomifortynning, Den rene industriavtalens karbonlekkasjebestemmelser og svekkelse av metanregulering peker mot en mandatperiode definert av konkurransedyktig dekarbonisering snarere enn reguleringsambisjon.
+
+### 🏛️ The Three Structural Drivers
+
+#### Driver 1: Defence-Industrial Pivot
+Det mest konsekvensrike EP10-temaet er europeisk strategisk autonomi og forsvarsopprustning. Vedtakelsen i 2026 av lånet til Ukraina (TA-10-2026-0010) og debattene om den Europeiske forsvarsindustrielle strategien signaliserer en parlamentarisk konsensus sjelden i EP-historien — der EPP, S&D, Renew og til og med noen ECR-medlemmer koordinerer om forsvarsforbrug, noe som markerer et strukturelt skifte fra etterkrigs-fredsdividende-æraen.
+
+#### Driver 2: Competitiveness-vs-Green Tension
+Den rene industriavtalen (Konkurranseevnekompasset) representerer en styrt tilbaketrekning fra den Grønne paktens reguleringsambitioner. Karbongrensejusteringsmekanismer, industriell dekarbonisering og sikkerhet for kritiske råmaterialer defineres nå som spørsmål om næringslivets konkurranseevne — ikke miljøspørsmål. Denne omrammingen, drevet frem av EPP, har sikret ECRs stilltiende aksept og låst fast et holdbart flertall i hvert fall til 2027.
+
+#### Driver 3: Democratic Resilience Under Pressure
+Ungarns pågående artikkel 7-prosedyre, demokratisk tilbakegang i Slovakia og trusler mot public service-uavhengighet (som i Litauen — TA-10-2026-0024) er vedvarende dagsordenpunkter. Parlamentet har konsekvent vedtatt resolusjoner som hevder rettsstatskondisjoner. Lovgivningsinstrumentet forblir imidlertid svakt — parlamentet kan ikke selv pålegge sanksjoner, men skaper politiske betingelser for rådshandling.
+
+### 💶 Economic Context (World Bank/IMF-adjacent proxies; IMF direct access degraded)
+
+Merk: IMF SDMX 3.0-endepunkt utilgjengelig i denne kjøringen (nettverksbegrensning). Økonomisk kontekst utledet fra World Bank-data og EPs dokumentariske registrering.
+
+**BNP-vekst for EUs store økonomier (2024, World Bank):**
+- Tyskland: **−0,5 %** (kontraksjon; avindustrialisering, energikostnadsbyrde)
+- Frankrike: **+1,2 %** (beskjeden; finanspolitisk konsolidering begrenser offentlige investeringer)
+- Italia: **+0,7 %** (svak; strukturell gjeldsbyrde, demografisk press)
+- Spania: **+3,5 %** (robust; turismegjeninnhenting, Nextgen EU-utbetalinger)
+- Polen: **+3,0 %** (sterk; CEE-integrering, økning i forsvarsforbrug)
+
+EP10s økonomiske kontekst er preget av **divergens**: en nordvestlig avindustrialiseringskorridor (Tyskland, Nederland, Belgia) kontrasterer med en sørøstlig vekstperiferi (Spania, Polen, Romania). Denne økonomiske geografien vil forme koalisjonspolitikken — sørlige og østlige MEPer vil motstå strenge finanspolitiske regler, mens nordlige MEPer fremmer konkurranseevnedagsordener.
+
+### ⚠️ Term Risk Summary
+
+| Risiko | Sannsynlighet | Påvirkning | Horisont |
+|--------|---------------|-----------|---------|
+| Storkoalisjonssammenbrudd om migrasjon | 55% | HØY | 2026–2027 |
+| Herding av EPP-ECR-PfE-blokken | 45% | HØY | 2026–2027 |
+| Grønn pakt-tilbaketrekning akselererer | 70% | MIDDELS | 2026–2028 |
+| Forsvarskonsensustrykk (fredsdividendekoalisjon gjenoppretter seg) | 35% | MIDDELS | 2027–2028 |
+| Rettsstatskondisjoner mislykkes | 50% | HØY | løpende |
+| EP10 avsluttes uten suksess med MFF-revisjon | 40% | HØY | 2027–2028 |
+
+### 📅 Term Calendar Milestones
+
+| Dato | Hendelse | Betydning |
+|------|---------|-----------|
+| K3 2026 | MFF-halvtidsrevisjonsavstemning | Strukturell finansiering av forsvar + industripolitikk |
+| Jan 2027 | Polsk EU-rådsformannskap avsluttes → Danmark begynner | Koalisjonsbyggedynamikk |
+| Midt 2027 | EP10 halvtid — topp lovgivningsproduksjon | Maksimal ordførerinnflytelse |
+| 2028 | Nextgen EU-utbetalingers avslutning | Finanspolitisk klippe-risiko for kohesjonsstater |
+| K1 2029 | Lovgivningssprint før valg | Siste store retsakter før oppløsning |
+| Juni 2029 | EP10 Europaparlamentvalg | Mandatperioden avsluttes; ny EP11-sammensetning usikker |
+
+### 🔮 Election Cycle: Most Likely Scenario
+
+EP10 vil bli husket som **"Forsvars- og konkurranseevneparlamentet"** — mandatperioden da Europa strukturelt dreide fra sivil reguleringsmakt til en halvt sikkerhetsorientert lovgivningsdagsorden. EPP vil ta æren for å ha modernisert EUs industrielle grunnlag, mens det progressive blokket vil bestride svekkelsen av miljø- og sosiale standarder. Den ytterste høyre (PfE/ECR/ESN) vil ha oppnådd normalisering som politiske samtalepartnere i grensesikkerhets- og suverænitetsspørsmål, og omformer dermed fundamentalt EPs politiske kultur forut for EP11.
+
+---
+*Kilder: EPs Open Data Portal (data.europarl.europa.eu); World Bank Open Data; EPs vedtatte tekster TA-10-2026-serien; EPs plenumstatistikk 2024–2026.*
+*Admiralitetsvurdering B2: Kilde generelt pålitelig; bekreftet av flere uavhengige EP API-datastrømmer.*
+
+---
+
+### EP10 → EP11 Electoral-Cycle Context (Mid-Term Extension)
+
+Europaparlamentets tiende mandatperiode nådde sitt politiske midtpunkt i mai 2026 — 23 måneder etter konstituering (16. juli 2024) og 37 måneder før det neste direktevalget (juni 2029). Syklusen som denne analysen krysser, er uvanlig på tre måter: (1) et skifte i den amerikanske administrasjonen i januar 2025 som strukturelt har nyprissatt europeisk forsvars- og handelspolitikk; (2) en Bundestag-oppløsning i Tyskland i slutten av 2025 som produserte den første CDU/CSU+SPD-storkoalisjonen under Friedrich Merz, med kaskadeeffekter på EPP-S&D-koordinasjon på EU-nivå; (3) konsolideringen av Patriots for Europe (PfE) som tredje største gruppe, som fortrengte Renews avgjørende koalisjonsrolle for første gang på 30 år.
+
+#### A. Long-horizon (5-year) calendar anchors
+
+| Dato | Hendelse | Syklusfase | Valgsmessig relevans |
+|------|---------|-----------|---------------------|
+| 2026-07-16 | EP10 halvtid | T-35 måneder | Halvtidsformannskapsrotasjon (Metsola → trolig S&D viseformannskapsforhanlingsrunde) |
+| 2026-K4 | MFF 2028-2034-forhandlinger begynner | T-30 til T-18 måneder | Definerende spørsmål for Greens/Renew; PfE/ECR suverenistetstest |
+| 2027-01-01 | Kypriotisk rådsformannskap | T-29 måneder | Østmediterrant / Tyrkia / migrasjonsrammingsvindu |
+| 2027-K2 | Fransk presidentvalg | T-24 måneder | Høyeste enkelt nasjonale driver for 2029 EP-utfall |
+| 2027-K3 | EP10-budsjettarvsavstemninger | T-22 måneder | Test av storkoalisjonssammenheng under fragmentering |
+| 2028-K1 | Italienske parlamentsvalg (sannsynlige) | T-15 måneder | PfE/ECR nasjonal konsolideringstest |
+| 2028-09 | Spitzenkandidaten-nomineringer åpnes | T-9 måneder | Toppkandidatprosessen bestemmer kampanjerammen |
+| 2029-04 | Oppløsning / kampanje begynner | T-2 måneder | Nasjonal listevedtakelse; manifestlanseringer |
+| 2029-06-06 til 06-09 | EP11-valg | T-0 | 720 (eller 751 ved revidert tildeling) mandater på spill |
+| 2029-07-16 | EP11s konstituerende sesjon | T+1 måned | Gruppekonstituering; oppdagelse av flertall |
+| 2029-K4 | Kommisjon V-høringer | T+4-6 måneder | Porteføljetildeling; koalisjonsavtale-ratifisering |
+| 2030-K2 | EP11s første store lovgivningssyklus | T+12 måneder | Test av post-2029 koalisjonslevedyktighet |
+| 2031-05 | EP11 halvtid | T+24 måneder | Trajetorietest for syklusen denne analysen projiserer inn i |
+
+#### B. Coalition-arithmetic baseline (May 2026)
+
+Storkoalisjonen (EPP+S&D+Renew = 396) er intakt men stressfrakturert. von der Leyen II-kommisjonen er avhengig av sak-for-sak-flertall: forsvars- og grenseafstemninger legger rutinemessig til ECR (og i stigende grad PfE ved migrasjon), mens sosiale/miljø-/rettsstatsafstemninger trekker inn Greens/EFA og The Left. Fragmenteringsindekset (HØY) gjenspeiler den strukturelle realiteten at ingen to-gruppekoalisjon når 360-mandatsterskelen, og den minste levedyktige tre-gruppekoalisjonen (EPP+S&D+Renew = 396) bare er 36 mandater over grensen — godt innenfor frafallsrekkevidde ved kontroversielle filer.
+
+| Koalisjon | Størrelse | Margin mot 360 | Brukstilfelle |
+|-----------|----------|---------------|--------------|
+| EPP+S&D+Renew | 396 | +36 | Standard storkoalisjon; institusjonelle filer |
+| EPP+S&D+Renew+Greens | 449 | +89 | Klima/sosiale/rettsstats-filer |
+| EPP+ECR+Renew+PfE-partial | 380-410 | +20 til +50 | Forsvars-/grense-/konkurranseevne-filer |
+| EPP+S&D+The Left+Greens | 417 | +57 | Sjelden; rettsstatsmisbruk mot PfE-regjeringer |
+| EPP+ECR+PfE | 349 | -11 | IKKE et flertall — symbolsk ved signalafstemninger |
+
+Det faktum at EPP+ECR+PfE mangler 11 mandater til flertall er det sentrale **strukturelle anti-høyreforskyvningstrekket** i EP10 — selv med fullstendig ytterste-høyre-konsolidering kan ikke et EPP-ledet sentrum-høyre regjerere uten enten S&D eller Renew. EP11 er den første syklusen der denne begrensningen rimelig kan lettes (PfE+ECR prognostiserte gevinster; mulig ESN-gruppekonsolidering).
+
+#### C. Electoral-cycle data confidence floor
+
+Ifl. `01-data-collection.md` §6 er EP MCP-serverens per-MEP-afstemningsdata utilgjengelig oppstrøms; koalisjonssammenhengstimater bruker gruppe-størrelses-sizeSimilarityScore-proxy snarere enn registrerte afstemnings-samforekomstrater. Mandatprojeksjoner aggregerer nasjonal meningsmåling ved ±3,5 pp 95%-KI per gruppe over 27 medlemsstater; det resulterende EP-nivå ±15-mandatbåndet per stor gruppe er det strukturelle taket på presisjon. IMF-makroinndata (denne kjøringen: dataMode=`degraded-imf`, faktor 0,85) begrenser den økonomiske kontekstkonfidenset til MEDIUM.
+
+#### D. Mobilisation arithmetic (turnout-adjusted)
+
+EP10-valgdeltagelse (51,0 %) markerte den nest høyeste satsen siden 1994 og var frontlastet i PfE/ECR-måldemografier (landlig suverenist, arbeiderklasse anti-innstramnings). Fremoverprosjeksjonen for EP11-valgdeltagelse (52-58 %) forutsetter (1) fortsatt mobilisering av ytterste-høyre-innramminger, (2) delvis motmobilisering av ungdoms-/klimainnramminger hvis klimatilbaketrekningsnarrativet konsolideres, (3) obligatoriske valgreformer i Belgia, Hellas, Bulgaria, Kypros, Luxemburg uendret. Et 1 pp-valgdeltagelsesskift gir omtrent ±4-7 mandater omfordeling mellom blokkssymmetriske par.
+
+#### E. National driver elections (2026 Q4 → 2029 Q2)
+
+| Land | Dato | Regjeringstype | Påvirkning på EP-delegasjon |
+|------|------|---------------|----------------------------|
+| Tsjekkia | 2025-10 (avholdt) | ANO-ledet koalisjon (post-Babiš-tilbakekomst) | PfE +1 mandat MEP-delegasjonsomfordeling |
+| Ungarn | 2026-04 (avholdt) | Fidesz-KDNP beholdt (54 % stemmer) | PfE +0 baslinje bevart |
+| Sverige | 2026-09 | Tidö-koalisjonsstresstest | ECR ±2 mandater |
+| Tysk Forbundsdag | 2025-11 (avholdt) | CDU/CSU+SPD storkoalisjon | EPP +2 mandater EP-delegasjonsgjennombalansering |
+| Spania | 2027-K1-K2 (sannsynlige) | PSOE+Sumar mindretalls-prekaritet | S&D ±3 mandater |
+| Frankrike | 2027-04/05 | Presidentvalg + lovgivning | Renew ±10 mandater (høyeste enkelt driver) |
+| Nederland | 2027 (sannsynlig) | PVV-VVD-NSC stresstest | PfE ±2 |
+| Polen | 2027 | Tusk-koalisjon vs. PiS | EPP/ECR ±4 |
+| Italia | 2028-K1 (sannsynlig) | Meloni FdI test | ECR/PfE gjennombalansering |
+| Hellas | 2027-08 | Mitsotakis ND test | EPP ±2 |
+| Romania | 2028-K4 | PSD-PNL storkoalisjonstest | S&D/EPP ±3 |
+| Tsjekkia | 2029-K2 | Forhånds-EP-test | PfE ±1 |
+
+Konvergensen av Frankrikes presidentvalg (2027-K2), Italias parlamentsvalg (2028-K1) og tyske Forbundsdag-avledede delstatsvalg i 2027-2028 betyr at EU-nivåets valgssyklus domineres av nasjonal turbulens i de tre største medlemsstatsdelegasjonene samtidig — et uvanlig høy-volatilitetsvindu for EP-nivåprognoser.
+
+#### F. Confidence & WEP banding (electoral-cycle scope)
+
+| Påstandstype | WEP-bånd | Admiralitet | Merknader |
+|--------------|----------|-------------|-----------|
+| Gruppesammensetning holder seg innen ±15 mandater per stor gruppe til 2028-K4 | Sannsynlig (55-75%) | B2 | Standard midtsyklusmal |
+| EP11 produserer et fragmentert parlament som krever multi-koalisjonsaritmetikk | Nesten sikkert (90-95%) | A2 | Strukturelt; ingen 2024 → 2029 dynamikk støtter >35% enkeltgruppe |
+| Høyreblokk (PfE+ECR+ESN) flertall oppstår i EP11 | Fjern sjanse (5-15%) | C3 | Krever PfE+9, ECR+5, ESN+2 alle treffer øvre bånd |
+| Renew forblir avgjørende koalisjonspartner i EP11 | Realistisk mulighet (40-55%) | B3 | Avhenger av franske 2027-utfall |
+| Spitzenkandidaten-prosessen binder Rådet i 2029 | Fjern (10-20%) | C2 | Rådet motstod i 2024; ingen indikasjon på endring |
+| MFF 2028-2034 inneholder et trinn-endring i forsvarsforbrug | Sannsynlig (60-75%) | B2 | Tverrblokkskonsensus om retning |
+
+Disse konfidensskabelonene propagerer gjennom alle artefakter i denne kjøringen.
+
+#### G. Reader briefing
+
+For innbyggere, næringsliv og medlemsstatsforvaltninger som følger EP10 → EP11-syklusen: de neste tre årene vil ikke være politikk som vanlig. Forvent tre konvergerende stressvektorer — et fragmentert parlament, en transaksjonell amerikansk administrasjon og en trinvis økning i forsvarsforbrug — som til sammen omskriver EUs policyoperasjonsmodell. Valget i juni 2029 vil være det politiske avgjørelsespunktet for alle tre; den aktuelle analysen tar sikte på å gi to års forhåndsvarsling om de mest sannsynlige avgjørelseskurvene.
+
+---
+
+### Dual-Track Electoral-Cycle Analysis (Track A retrospective + Track B forecast)
+
+#### Track A — EP10 Term Retrospective (July 2024 → May 2026, 23 months elapsed of 60)
+
+EP10-mandatperioden åpnet med et sentristisk storkoalisjonsflertall på 401 (EPP 188 + S&D 136 + Renew 77) og en presidentskapspaket som valgte Roberta Metsola (EPP, MT) uten konkurranse. Innen 18 måneder har tre strukturelle skift omformet mandatperiodens politiske topologi:
+
+1. **PfE-konsolidering (jul 2024 → K4 2025)** — den nye ytterste-høyre-gruppen konsoliderte 84 → 85 mandater, fortrengte Renew som tredje største formasjon og satte inn en parallell høyreflankkoalisjonsmulighet i alle forsvars-/migrasjonsavgjørelser.
+2. **Renew-kontraksjon (84 → 77)** — frafall til NI og én delegasjonsskift til EPP har undergravet det liberale omdreiningspunktets innflytelse; den franske Renaissance-delegasjonens interne volatilitet etter presidentvalget i 2027 vil være det neste bruddpunktet.
+3. **EPP-S&D operasjonell koordinasjon (post-Forbundsdag 2025-11)** — Merz-Scholz-overgangsregjeringen i Tyskland formaliserte CDU/CSU-SPD-koordinasjon på EU-nivå; EPP-S&D-Renew "majoritets­disiplin"-mønstret er strammet inn på prosedyreavstemminger, mens det er løsnet på saklige endringsforslag.
+
+##### Track A — Mandate-fulfilment scorecard (high-level)
+
+| Mandatområde | EP10-fremskritt til mai 2026 | Bane til 2029 |
+|--------------|------------------------------|--------------|
+| Grønn pakt Fase 2 (CBAM-håndhevelse, taksonomi, metan) | 60 % — gjennomføring sporer, svekket håndhevelse | Trolig delvis tilbaketrekning under EPP-ECR-press |
+| Forsvarsunion / EDIS | 35 % — finansieringsinstrumenter vedtatt, kapasitetsgap gjenstår | Akselerert under Trump-2-press; EP-rolle begrenset |
+| Rettsstat (Ungarn, Slovakia, Slovenia) | 25 % — Artikkel 7 fastlåst; kondisjon brukt selektivt | Usannsynlig å fremme seg før 2029 |
+| Migrasjonspaktens gjennomføring | 50 % — første-utplasserings-forsinkelser, returpolitikk-ekspansjon | Høyreforskyvning forventet; paktrammeverk holder |
+| Industriell konkurranseevne (Draghi/Letta-dagsorden) | 40 % — STEP-fondet operativt, Indre markeds-loven fastlåst | Definerende EP11-fil |
+| Utvidelse (Ukraina, Moldova, Vest-Balkan) | 30 % — tiltredelsesforhandlinger åpne, ingen kapittelavslutninger mulige før 2029 | Symbolsk fart, strukturelt dødvann |
+| Sosial pilar (minstelønn, plattformsarbeidere) | 70 % — direktiver transponert i de fleste MS | Kun gjennomgangsgjennomgang i EP11 |
+| Digitalt (DSA, DMA, AI Act) | 80 % — rammeverk operativt, håndhevelsesprøving | Forfining, ikke ny arkitektur, i EP11 |
+
+##### Track A — Coalition trajectory (cohesion proxy)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5d50c955) -->
+
+#### Track B — EP11 Forecast (June 2029 → 2031)
+
+##### Track B — Seat projection at four horizons
+
+| Gruppe | T+0 (jun 2029, valg) | T+6m | T+12m | T+24m (EP11 halvtid) |
+|--------|----------------------|------|-------|----------------------|
+| EPP | 175-195 (185 ±10) | 185 | 184 | 183 |
+| S&D | 120-140 (130 ±10) | 130 | 129 | 128 |
+| PfE | 90-110 (100 ±10) | 100 | 102 | 105 |
+| ECR | 80-95 (87 ±8) | 87 | 88 | 89 |
+| Renew | 55-75 (65 ±10) | 65 | 64 | 62 |
+| Greens/EFA | 45-60 (52 ±8) | 52 | 51 | 50 |
+| The Left | 38-52 (45 ±7) | 45 | 45 | 44 |
+| NI | 25-40 (32 ±8) | 32 | 35 | 38 |
+| ESN | 25-40 (33 ±8) | 33 | 32 | 31 |
+| **Totalt** | **720** | **729** (ekstra Kroatia/Slovakia-varians) | **730** | **730** |
+
+##### Track B — Coalition viability matrix (EP11 candidate majorities)
+
+| Koalisjon | Projisert størrelse | Margin | Brukstilfelle | Sannsynlighet |
+|-----------|---------------------|--------|--------------|--------------|
+| EPP+S&D+Renew | 380 | +20 | Standard storkoalisjon; defensiv | 65% |
+| EPP+S&D+Renew+Greens | 432 | +72 | Klima/sosiale/RoL-filer | 55% |
+| EPP+ECR+PfE | 372 | +12 | Forsvar/grenser; **første gang levedyktig** | 35% |
+| EPP+ECR+PfE+ESN | 405 | +45 | Ytterste-høyre-konkurranseevnekoalisjon | 20% |
+| EPP+ECR+Renew+conditional-PfE | 402 | +42 | Pragmatisk sentrum-høyre | 40% |
+
+**35 %-sannsynligheten for EPP+ECR+PfE-levedyktighet** er EP11s strukturelle hengsle: for første gang i Europaparlamentets historie ville et bare-høyre-flertall aritmetisk være mulig. Dens politiske gjennomførbarhetsavhenger av (a) PfEs vilje til å akseptere EPPs prosedyremessige disiplin, (b) EPPs vilje til å formalisere ytterste-høyre-avhengigheten, (c) Rådets ratifisering av en Spitzenkandidat fra en slik konfigurasjon.
+
+##### Track B — Spitzenkandidaten 2029 scenario
+
+| Toppkandidat | Gruppe | Nomineringssannsynlighet | Kommisjonspresidentsannsynlighet |
+|-------------|--------|--------------------------|----------------------------------|
+| Manfred Weber (nåværende EPP-leder) | EPP | 60% | 50% |
+| Roberta Metsola (institusjonell leder) | EPP | 25% | 20% |
+| Iratxe García (PES-leder) | S&D | 70% | 25% |
+| Stéphane Séjourné eller etterfølger | Renew | 50% | 5% |
+| Bas Eickhout (klimatleder) | Greens | 60% | <5% |
+| Jordan Bardella (PfE-leder) | PfE | 55% | <5% |
+| Giorgia Meloni (ECR-galionsfigur) | ECR | 30% | 10% |
+
+---
+
+### Cross-Stakeholder Risk Map (Electoral-Cycle Lens)
+
+#### Stakeholder cohort table (multi-perspective)
+
+| Kohort | Primært EP10-utfall | Risiko under EP11-høyreforskyvning | Motstrategier i gang |
+|--------|---------------------|-----------------------------------|---------------------|
+| **EU-borgere** (generelt) | Blandet: forsvarsbetrygning, klimatilbaketrekning | Levekostnadssaliency driver valgdeltagelse; rettsstats-erosjon i 4-6 MS | Borgerregistreringskampanjer, ePolitics-plattformer, Eurobarometer-drevet narrativkorrigering |
+| **EU-institusjonelt personale** (Kommisjonen, EEAS, Rådsekretariatet) | Karrierestabilitet, nedsatt Grønn pakt | Politisering av høye utnevnelser; Spitzenkandidat-prosessens kollaps | Intern mobilitet, A1-gradreserver |
+| **Nasjonale regjeringer** (27) | Asymmetrisk — Italia/Ungarn vinner; Frankrike/Tyskland pressede | MFF-2028 nettobidragsyteropprør; kohesjons-betingelseskamper | Bilaterale avtaler, råds-side endringsforslag |
+| **Opposisjonspartier i medlemsstater** | Mobilisering mot sittende EU-politikk | Polarisering akselererer; koalisjonsalternativer innsnevres | Grenseoverskridende partikoordinasjon |
+| **Næringsliv / industri** (produksjon, energi, digitalt) | Blandet: dereguleringsdrift, forsvarsforbrug-medvind | Regulerings-usikkerhet; handelskrig-eksponering | Lobbyintensivering, dobbeltforsyningsstrategier |
+| **Sivilsamfunn / NGOer** (klima, menneskerettigheter, sosialt) | Defensiv holdning, finansieringsreduksjoner | Krympende rom; SLAPP-stevnings-akselerasjon | Anti-SLAPP-direktiv, grenseoverskridende juridiske koalisjoner |
+| **Fagforeninger** (ETUC og tilknyttede) | Blandet: minstelønn-gevinster, plattformsarbeids-direktiv | Sosial pilar-gjennomføringsinversjon | Nasjonal mobilisering, EU-nivå minimumsgulvsforsvar |
+| **Medier / journalistikk** | EMFA-gjennomføring, konsentrasjonsproblemer | Pressefrihetserosjon i 4 MS; redaksjonelt press | EMFA-håndhevelse, grenseoverskridende undersøkende konsortier |
+| **Akademia / forskning** (Horizon Europe-økosystemet) | Finansiering stabil; ERC-programmer sikret | MFF-2028 omfordeling mot forsvar | Sivil-forsvars-dobbeltbruk-repositionering |
+| **Eksterne partnere** (UK, Sveits, Tyrkia, Vest-Balkan, Ukraina) | Asymmetrisk — Ukraina vinner, Tyrkia stagnerer | EU strategisk autonomiambiguitet | Bilaterale rammeavtaler |
+| **Globale motparter** (USA, Kina, India, Brasil) | Trump-2-press, kinesisk teknologikonkurranse | Multi-blokks-fragmentering, EU-svekkelse | Selektiv re-engasjement, kapasitetshedging |
+
+#### Risk-priority matrix (electoral-cycle scope)
+
+| Risiko-ID | Risiko | Sannsynlighet (T+0 → T+24) | Påvirkning | Poeng | Eier |
+|-----------|--------|---------------------------|-----------|-------|------|
+| R-EC-01 | EP11 høyreblokks-flertall materialiseres | 0,35 | 0,85 | 0,30 | EP plenum; Rådet |
+| R-EC-02 | Franske presidentvalg 2027 leverer ytterste-høyre-seier | 0,30 | 0,80 | 0,24 | Franske velgere; Renew |
+| R-EC-03 | Tysk storkoalisjon bryter sammen før EP11 | 0,25 | 0,65 | 0,16 | Forbundsdagen; CDU/SPD |
+| R-EC-04 | Trump-2 innfører toll > 15 % på EU-eksport | 0,55 | 0,65 | 0,36 | Amerikansk administrasjon; Kommisjonen DG TRADE |
+| R-EC-05 | Ukrainakrig-eskalasjon krever EU-landsengasjement | 0,10 | 0,95 | 0,10 | Rådet; medlemsstater |
+| R-EC-06 | MFF-2028-forhandlinger mislykkes (ingen avtale innen 2027-K4) | 0,20 | 0,75 | 0,15 | Rådet; EP BUDG |
+| R-EC-07 | Spitzenkandidaten-prosessen bryter sammen (rådsomgåelse) | 0,40 | 0,55 | 0,22 | Det europeiske råd |
+| R-EC-08 | Klimakatastrofe-sommer (>2 samtidige EU-stats-store hendelser) | 0,55 | 0,45 | 0,25 | Medlemsstater; Kommisjonen |
+| R-EC-09 | Cyberangrep på 2029-valginfrastruktur | 0,30 | 0,70 | 0,21 | ENISA; MS-CERTs |
+| R-EC-10 | AI-deepfake massedesinformasjonskampanje | 0,65 | 0,55 | 0,36 | Plattformer; DSA-håndhevelse |
+| R-EC-11 | Medlemsstat artikkel 7-eskalasjon til suspensjonsavstemning | 0,10 | 0,50 | 0,05 | Rådet; EP |
+| R-EC-12 | Energiprissjokk (2x baslinje) | 0,25 | 0,65 | 0,16 | Markeder; Kommisjonen |
+
+### Executive Brief Sv
+
+### 🎯 Headline Judgement
+
+Europaparlamentets EP10-mandatperiod (2024–2029) har inträtt i sitt avgörande andra år med ett strukturellt högerförskjutet parlament som navigerar en historisk konvergans av kriser: europeisk strategisk autonomi, upprustning inom försvaret, stress kring ekonomisk konkurrenskraft och demokratisk tillbakagång. Den EPP-ledda flexibla majoritetsmodellen — som selektivt hämtar stöd från ECR och PfE för försvars- och migrationsoröstningar medan den förlitar sig på S&D och Renew för lagstiftning — är mandatperiodens mest definitiva strukturella drag. **Sannolikhet: 70 % (Troligt)** att det EPP-ledda center-högerblocket kommer att dominera lagstiftningsresultaten till 2027 innan valtryck fragmenterar koalitionerna inför valperioden. **Sannolikhet: 60 % (Troligt)** att den Rena industriaffären och den Europeiska försvarsstrategin för industrin kommer att vara de två lagstiftninglandmärkena som definierar EP10:s arv.
+
+### 📊 EP10 Composition Snapshot (May 2026)
+
+| Grupp | Mandat | Andel | Block |
+|-------|--------|-------|-------|
+| EPP | 185 | 25,7% | Högercentrum |
+| S&D | 136 | 18,9% | Vänstercentrum |
+| PfE | 85 | 11,8% | Nationalsouveränt yttersta höger |
+| ECR | 81 | 11,3% | Konservativt EU-skeptiskt |
+| Renew | 77 | 10,7% | Liberalt-centristiskt pro-EU |
+| Greens/EFA | 53 | 7,4% | Grönt-regionalistiskt |
+| The Left | 45 | 6,3% | Yttersta vänster |
+| NI | 30 | 4,2% | Obundna (diverse) |
+| ESN | 27 | 3,8% | Nationalistiskt yttersta höger |
+| **TOTALT** | **719** | **100%** | |
+
+**Majoritetströskel:** 361 mandat. Inga två grupper kan bilda en majoritet; minst tre grupper krävs för all lagstiftning.
+
+### 🔑 Key Judgements (WEP-graded)
+
+1. **EPP förblir dominant mäklare (Mycket troligt, 80 %):** Med 185 mandat kontrollerar EPP utskottsordförandenomineringar, föredragandeskapen och dagordningens auktoritet i ordförandekonferensen. Denna strukturella fördel förstärks under mandatperioden.
+
+2. **Storkoalition fortfarande funktionell men spänd (Troligt, 65 %):** EPP+S&D+Renew har 398 mandat — 37 över majoritetströskeln. Denna koalition kommer att anta de flesta regleringslagar men riskerar avhopp i suveränitetskänsliga frågor (migration, digitalt, energi).
+
+3. **Högervetoblocket under uppbyggnad (Realistisk möjlighet, 45 %):** EPP+PfE+ECR+ESN uppgår till 378 mandat — precis över majoritetsgränsen. I frågor om försvarutgifter, gränskontroll och avreglering kan detta block anta lagstiftning utan progressivt stöd. Ökande användningssannolikhet under 2026–2027.
+
+4. **Lagstiftningsproduktionen i rekordtakt (Mycket troligt, 85 %):** EP10 år 2 (2026) spårar 114 lagstiftningsakter — upp 46 % jämfört med 2025 och dubbelt valårsproduktionen 2024. Konsensus om försvarsutgifter, Rena industriaffären och AI Act:s genomförandeförordningar driver volym.
+
+5. **Mandatperioden slutar med omtvistat klimatarv (Troligt, 65 %):** Grön giv-återtagning under EPP+ECR-tryck pågår. Taxonomiutspädning, Rena industriaffärens koldioxidläckagebestämmelser och försvagning av metanreglering pekar mot en mandatperiod definierad av konkurrenskraftig dekarbonisering snarare än regulatorisk ambition.
+
+### 🏛️ The Three Structural Drivers
+
+#### Driver 1: Defence-Industrial Pivot
+Det mest konsekvensrika EP10-temat är europeisk strategisk autonomi och upprustning inom försvaret. Antagandet 2026 av lånet till Ukraina (TA-10-2026-0010) och debatterna om den Europeiska försvarsstrategin för industrin signalerar en parlamentarisk konsensus sällsynt i EP-historien — med EPP, S&D, Renew, och till och med några ECR-ledamöter som samordnar sig kring försvarsutgifter, vilket markerar ett strukturellt skifte från den efterkalla fredsutdelningstiden.
+
+#### Driver 2: Competitiveness-vs-Green Tension
+Den Rena industriaffären (Konkurrenskraftskompass) representerar ett hanterat reträtt från den Gröna given:s regulatoriska ambitioner. Koldioxidgränsanpassningsmekanismer, stöd till dekarbonisering av industrin och säkerhet kring kritiska råmaterial definieras nu som ekonomiska konkurrenskraftsfrågor — inte miljömässiga. Denna omtolkning, framdriven av EPP, har säkrat ECR:s passiva acceptans och låst in en hållbar majoritet åtminstone till 2027.
+
+#### Driver 3: Democratic Resilience Under Pressure
+Ungerns fortsatta artikel 7-förfarande, demokratisk tillbakagång i Slovakien och hot mot public service-oberoende (som i Litauen — TA-10-2026-0024) är bestående dagordningspunkter. Parlamentet har konsekvent antagit resolutioner som hävdar rättsstatsbetingelse. Det lagstiftningsinstrumentet förblir dock svagt — parlamentet kan inte självt ålägga sanktioner men skapar politiska förutsättningar för rådsåtgärder.
+
+### 💶 Economic Context (World Bank/IMF-adjacent proxies; IMF direct access degraded)
+
+Obs.: IMF SDMX 3.0-endpoint otillgänglig i denna körning (nätverksbegränsning). Ekonomisk kontext härledd från World Bank-data och EP:s dokumentationsunderlag.
+
+**BNP-tillväxt för EU:s stora ekonomier (2024, World Bank):**
+- Tyskland: **−0,5 %** (kontraktion; avindustrialisering, energikostnadsbörda)
+- Frankrike: **+1,2 %** (modest; finanspolitisk konsolidering begränsar offentliga investeringar)
+- Italien: **+0,7 %** (svag; strukturell skuldbörda, demografiskt tryck)
+- Spanien: **+3,5 %** (robust; turismåterhämtning, Nextgen EU-utbetalningar)
+- Polen: **+3,0 %** (stark; CEE-integration, ökning av försvarsutgifter)
+
+EP10:s ekonomiska kontext präglas av **divergens**: en nordvästlig avindustrialiseringskorridor (Tyskland, Nederländerna, Belgien) kontrasterar med en sydöstlig tillväxtperiferi (Spanien, Polen, Rumänien). Denna ekonomiska geografi kommer att forma koalitionspolitiken — sydliga och östliga MEP:ar kommer att motstå strikta finanspolitiska regler medan nordliga MEP:ar driver konkurrenskraftsfokuserade dagordningar.
+
+### ⚠️ Term Risk Summary
+
+| Risk | Sannolikhet | Påverkan | Horisont |
+|------|-------------|----------|---------|
+| Storkoalitionens kollaps kring migration | 55% | HÖG | 2026–2027 |
+| Härdning av EPP-ECR-PfE-blocket | 45% | HÖG | 2026–2027 |
+| Grön giv-återtagning accelererar | 70% | MEDEL | 2026–2028 |
+| Försvarskonsensusspänning (fredsutdelningskoalition återhävdar sig) | 35% | MEDEL | 2027–2028 |
+| Rättsstatsbetingande misslyckas | 50% | HÖG | pågående |
+| EP10 avslutas utan framgång med MFF-revision | 40% | HÖG | 2027–2028 |
+
+### 📅 Term Calendar Milestones
+
+| Datum | Händelse | Betydelse |
+|-------|----------|-----------|
+| K3 2026 | MFF:s halvtidsöversyn omröstning | Strukturell finansiering av försvar + industripolitik |
+| Jan 2027 | Polskt EU-rådsordförandeskap slutar → Danmark börjar | Koalitionsbyggnadsdynamik |
+| Mitten 2027 | EP10 halvtid — topplagstiftningsproduktion | Maximal föredragandeleverage |
+| 2028 | Nextgen EU-utbetalningars slut | Finanspolitisk klipprisk för kohesionsstater |
+| K1 2029 | Lagstiftningssprint inför val | Sista stora akter innan upplösning |
+| Juni 2029 | EP10 Europaval | Mandatperioden slutar; ny EP11-sammansättning osäker |
+
+### 🔮 Election Cycle: Most Likely Scenario
+
+EP10 kommer att minnas som **"Försvars- och konkurrenskraftsparlamentet"** — mandatperioden då Europa strukturellt pivoterade från civil regulatorisk makt till en halvt säkerhetsorienterad lagstiftningsagenda. EPP kommer att göra anspråk på äran för att ha moderniserat EU:s industriella bas medan det progressiva blocket kommer att ifrågasätta försvagningen av miljömässiga och sociala standarder. Det yttersta höger (PfE/ECR/ESN) kommer att ha uppnått normalisering som politiska samtalsparter i gränssäkerhets- och suveränitetsfrågor, vilket fundamentalt omformar EP:s politiska kultur inför EP11.
+
+---
+*Källor: EP:s Open Data Portal (data.europarl.europa.eu); World Bank Open Data; EP:s antagna texter TA-10-2026-serien; EP:s plenaristatistik 2024–2026.*
+*Admiralitetsbetyg B2: Källan generellt tillförlitlig; bestyrkt av flera oberoende EP API-dataflöden.*
+
+---
+
+### EP10 → EP11 Electoral-Cycle Context (Mid-Term Extension)
+
+Europaparlamentets tionde mandatperiod nådde sin politiska mittlinje i maj 2026 — 23 månader efter konstitution (16 juli 2024) och 37 månader innan nästa direktval (juni 2029). Den cykel som denna analys genomkorsar är ovanlig på tre sätt: (1) ett byte av USA-administration i januari 2025 som strukturellt omprissatt europeisk försvars- och handelspolitik; (2) en Bundestagsupplösning i Tyskland i slutet av 2025 som producerade den första CDU/CSU+SPD-storkoalitionen under Friedrich Merz, med kaskadeffekter på EPP-S&D-koordination på EU-nivå; (3) konsolideringen av Patriots for Europe (PfE) som tredje största grupp, vilket trängde undan Renews pivotala koalitionsroll för första gången på 30 år.
+
+#### A. Long-horizon (5-year) calendar anchors
+
+| Datum | Händelse | Cykelfas | Valrelevans |
+|-------|----------|----------|-------------|
+| 2026-07-16 | EP10 halvtid | T-35 månader | Halvtidsordförandekapsrotation (Metsola → troligen S&D vice-ordförandepaket omförhandling) |
+| 2026-K4 | MFF 2028-2034-förhandlingar börjar | T-30 till T-18 månader | Definierande fråga för Greens/Renew; PfE/ECR-suverenigstetstest |
+| 2027-01-01 | Cypriotiskt rådsordförandeskap | T-29 månader | Östmediterrant / Turkiet / migrationsinramningsfönster |
+| 2027-K2 | Franskt presidentval | T-24 månader | Högsta enskilda nationella drivkraft för 2029 EP-utfall |
+| 2027-K3 | EP10 budgetarvsröster | T-22 månader | Test av storkoalitionskohesion under fragmentering |
+| 2028-K1 | Italienska allmänna val (troliga) | T-15 månader | PfE/ECR nationell konsolideringstest |
+| 2028-09 | Spitzenkandidaten-nominationer öppnas | T-9 månader | Ledarskapskandidatprocessen bestämmer kampanjramen |
+| 2029-04 | Upplösning / kampanj börjar | T-2 månader | Nationell listantagning; manifestlanseringar |
+| 2029-06-06 till 06-09 | EP11-val | T-0 | 720 (eller 751 vid reviderad fördelning) platser i spel |
+| 2029-07-16 | EP11:s konstitutiva session | T+1 månad | Gruppskonstitution; majoritetsupptäckt |
+| 2029-K4 | Kommission V-utfrågningar | T+4-6 månader | Portföljallokering; koalitionspaktratificering |
+| 2030-K2 | EP11:s första stora lagstiftningscykel | T+12 månader | Test av post-2029 koalitionshållbarhet |
+| 2031-05 | EP11 halvtid | T+24 månader | Trajetorietest för den cykel denna analys projicerar in i |
+
+#### B. Coalition-arithmetic baseline (May 2026)
+
+Storkoalitionen (EPP+S&D+Renew = 396) är intakt men stressfrakturerad. von der Leyen II-kommissionen förlitar sig på fall-för-fall-majoriteter: försvars- och gränsröstningar lägger regelmässigt till ECR (och allt mer PfE vid migration), medan sociala/miljömässiga/rättsstatliga röstningar drar in Greens/EFA och The Left. Fragmenteringsindex (HÖG) återspeglar strukturrealiteten att inga två-gruppkoalitioner når 360-platsgränsen, och den minsta hållbara tre-gruppkoalitionen (EPP+S&D+Renew = 396) ligger bara 36 platser över linjen — väl inom avhopp vid kontroversiella ärenden.
+
+| Koalition | Storlek | Marginal mot 360 | Användningsfall |
+|-----------|---------|-----------------|----------------|
+| EPP+S&D+Renew | 396 | +36 | Standardstorkoalition; institutionella ärenden |
+| EPP+S&D+Renew+Greens | 449 | +89 | Klimat/sociala/rättsstatliga ärenden |
+| EPP+ECR+Renew+PfE-partial | 380-410 | +20 till +50 | Försvars-/gräns-/konkurrenskraftsärenden |
+| EPP+S&D+The Left+Greens | 417 | +57 | Sällsynt; rättsstatsbrott mot PfE-regeringar |
+| EPP+ECR+PfE | 349 | -11 | INTE en majoritet — symbolisk på signaleringsröstningar |
+
+Det faktum att EPP+ECR+PfE saknar 11 mandat till majoritet är det centrala **strukturella anti-högerförskjutningsdraget** i EP10 — även med fullständig ytterst-höger-konsolidering kan inte ett EPP-lett center-höger-parti styra utan antingen S&D eller Renew. EP11 är den första cykeln där denna begränsning rimligtvis kan lättas (PfE+ECR prognostiserade vinster; möjlig ESN-gruppkonsolidering).
+
+#### C. Electoral-cycle data confidence floor
+
+Enligt `01-data-collection.md` §6 är EP MCP-serverns per-MEP röstningsdata otillgänglig uppströms; koalitionskohesionsestimeringar använder grupp-storleks-sizeSimilarityScore-proxy snarare än inspelade röst-sammanfallshastigheter. Platsprojektion aggregerar nationell opinionsundersökning vid ±3,5 pp 95%-KI per grupp, sammansatt över 27 medlemsstater; det resulterande EP-nivå ±15-platsbandet per stor grupp är det strukturella taket på precision. IMF-makroindata (denna körning: dataMode=`degraded-imf`, faktor 0,85) begränsar ekonomisk-kontextkonfidensen till MEDIUM.
+
+#### D. Mobilisation arithmetic (turnout-adjusted)
+
+EP10-valdeltagande (51,0 %) markerade den näst högsta siffran sedan 1994 och var frontlastat i PfE/ECR-måldemorafier (landsbygdssuveränistisk, arbetarklass anti-åtstramning). Framåtprojektionen för EP11-valdeltagande (52-58 %) förutsätter (1) fortsatt mobilisering av ytterst-höger-inramningar, (2) partiell motmobilisering av ungdoms-/klimatinramningar om klimatreträtts-narrativet konsolideras, (3) obligatoriska röstreformer i Belgien, Grekland, Bulgarien, Cypern, Luxemburg oförändrade. En 1 pp-valdeltagandeskiftning ger ungefär ±4-7 platser omallokering mellan blockssymmetriska parningar.
+
+#### E. National driver elections (2026 Q4 → 2029 Q2)
+
+| Land | Datum | Regeringstyp | Påverkan på EP-delegation |
+|------|-------|-------------|--------------------------|
+| Tjeckien | 2025-10 (hållet) | ANO-lett koalition (post-Babiš-återkomst) | PfE +1 plats MEP-delegationsomallokering |
+| Ungern | 2026-04 (hållet) | Fidesz-KDNP behöll (54 % röster) | PfE +0 baslinje bevarad |
+| Sverige | 2026-09 | Tidö-koalitionsstresstest | ECR ±2 platser |
+| Tyska Bundestag | 2025-11 (hållet) | CDU/CSU+SPD storkoalition | EPP +2 platser EP-delegationsombalansering |
+| Spanien | 2027-K1-K2 (troliga) | PSOE+Sumar minoritetsprekaritet | S&D ±3 platser |
+| Frankrike | 2027-04/05 | Presidentval + lagstiftning | Renew ±10 platser (högsta enskilda drivkraft) |
+| Nederländerna | 2027 (troliga) | PVV-VVD-NSC stresstest | PfE ±2 |
+| Polen | 2027 | Tusk-koalition vs. PiS | EPP/ECR ±4 |
+| Italien | 2028-K1 (troliga) | Meloni FdI test | ECR/PfE ombalansering |
+| Grekland | 2027-08 | Mitsotakis ND test | EPP ±2 |
+| Rumänien | 2028-K4 | PSD-PNL storkoalitionstest | S&D/EPP ±3 |
+| Tjeckien | 2029-K2 | Inför-EP-test | PfE ±1 |
+
+Konvergensen av Frankrikes presidentval (2027-K2), italienska allmänna val (2028-K1) och tyska Bundestag-härledda delstatsval 2027-2028 innebär att EU-nivåns valcykel domineras av nationell turbulens i de tre största medlemsstatsdelgationerna samtidigt — ett ovanligt hög-volatilitetsfönster för EP-nivåprognoser.
+
+#### F. Confidence & WEP banding (electoral-cycle scope)
+
+| Påståendetyp | WEP-band | Admiralitet | Anteckningar |
+|--------------|----------|-------------|--------------|
+| Gruppsammansättning håller sig inom ±15 platser per stor grupp till 2028-K4 | Troligt (55-75%) | B2 | Standardmittkyckelskuvert |
+| EP11 producerar ett fragmenterat parlament som kräver multi-koalitionsmatematik | Nästan Säkert (90-95%) | A2 | Strukturellt; inget 2024 → 2029 dynamik stödjer >35% enskild grupp |
+| Högerblock (PfE+ECR+ESN) majoritet uppstår i EP11 | Avlägsen chans (5-15%) | C3 | Kräver PfE+9, ECR+5, ESN+2 alla träffar övre band |
+| Renew förblir pivotal koalitionspartner i EP11 | Realistisk möjlighet (40-55%) | B3 | Beror på franskt 2027-utfall |
+| Spitzenkandidat-processen binder rådet 2029 | Avlägset (10-20%) | C2 | Rådet motstod 2024; ingen indikation på förändring |
+| MFF 2028-2034 innehåller stegförändring i försvarsutgifter | Troligt (60-75%) | B2 | Tvärblocks-konsensus om riktning |
+
+Dessa konfidensankare sprider sig genom varje artefakt i denna körning.
+
+#### G. Reader briefing
+
+För medborgare, näringsliv och medlemsstatsförvaltningar som följer EP10 → EP11-cykeln: de kommande tre åren blir inte politik som vanligt. Förvänta tre konvergerande stressvektorer — ett fragmenterat parlament, en transaktionell USA-administration och ett stegförändringsökning i försvarsutgifter — som tillsammans omskriver EU:s policyoperationsmodell. Valet i juni 2029 blir den politiska avgörelsepunkten för alla tre; den aktuella analysen syftar till att ge två års ledtid för de mest sannolika avgörelsekurvorna.
+
+---
+
+### Dual-Track Electoral-Cycle Analysis (Track A retrospective + Track B forecast)
+
+#### Track A — EP10 Term Retrospective (July 2024 → May 2026, 23 months elapsed of 60)
+
+EP10-mandatperioden öppnade med en centristisk storkoalitionsmajoritet på 401 (EPP 188 + S&D 136 + Renew 77) och ett ordförandeskapspaket som valde Roberta Metsola (EPP, MT) utan tävlan. Inom 18 månader har tre strukturella förskjutningar omformat mandatperiodens politiska topologi:
+
+1. **PfE-konsolidering (jul 2024 → K4 2025)** — den nya ytterst-höger-gruppen konsoliderade 84 → 85 platser, trängde undan Renew som tredje största formation och infogade en parallell högerflankkoalitionsmöjlighet på varje försvars-/migrationsärende.
+2. **Renew-kontraktion (84 → 77)** — avhopp till NI och en delegationsomkoppling till EPP har urholkat den liberala svängens leverage; den franska Renaissance-delegationens interna volatilitet efter presidentvalet 2027 blir nästa brytpunkt.
+3. **EPP-S&D operativ samordning (post-Bundestag 2025-11)** — den Merz-Scholz-övergångsregeringen i Tyskland formaliserade CDU/CSU-SPD-koordination på EU-nivå; EPP-S&D-Renew "majoritetsdisciplin"-mönstret har stramats åt på procedurröstningar medan det lösts upp på sakliga ändringsförslag.
+
+##### Track A — Mandate-fulfilment scorecard (high-level)
+
+| Mandatområde | EP10-framsteg till maj 2026 | Trajektorie till 2029 |
+|--------------|-----------------------------|-----------------------|
+| Grön Giv Fas 2 (CBAM-verkställande, taxonomi, metan) | 60 % — genomförande spårar, försvagad verkställighet | Troligen delvis återtagning under EPP-ECR-tryck |
+| Försvarsunion / EDIS | 35 % — finansieringsinstrument antagna, kapacitetsgap kvarstår | Accelererat under Trump-2-tryck; EP-roll begränsad |
+| Rättsstat (Ungern, Slovakien, Slovenien) | 25 % — Artikel 7 fast; betingelse tillämpad selektivt | Osannolikt att avancera innan 2029 |
+| Migrationspaktens genomförande | 50 % — första utplaceringsförseningar, returpolicyexpansion | Högerförskjutning förväntad; paktramverk håller |
+| Industriell konkurrenskraft (Draghi/Letta-agendan) | 40 % — STEP-fonden operativ, Inre marknadslagen stoppad | Definierande EP11-ärende |
+| Utvidgning (Ukraina, Moldavien, Västra Balkan) | 30 % — anslutningsförhandlingar öppna, inga kapitelstängningar möjliga innan 2029 | Symbolisk rörelse, strukturellt dödläge |
+| Socialpelare (minimilön, plattformsarbetare) | 70 % — direktiv transponerade i de flesta MS | Genomförandegranskning endast i EP11 |
+| Digitalt (DSA, DMA, AI Act) | 80 % — ramverk operativa, verkställighetstestning | Förfining, inte ny arkitektur, i EP11 |
+
+##### Track A — Coalition trajectory (cohesion proxy)
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=5d50c955) -->
+
+#### Track B — EP11 Forecast (June 2029 → 2031)
+
+##### Track B — Seat projection at four horizons
+
+| Grupp | T+0 (jun 2029, val) | T+6m | T+12m | T+24m (EP11 halvtid) |
+|-------|---------------------|------|-------|----------------------|
+| EPP | 175-195 (185 ±10) | 185 | 184 | 183 |
+| S&D | 120-140 (130 ±10) | 130 | 129 | 128 |
+| PfE | 90-110 (100 ±10) | 100 | 102 | 105 |
+| ECR | 80-95 (87 ±8) | 87 | 88 | 89 |
+| Renew | 55-75 (65 ±10) | 65 | 64 | 62 |
+| Greens/EFA | 45-60 (52 ±8) | 52 | 51 | 50 |
+| The Left | 38-52 (45 ±7) | 45 | 45 | 44 |
+| NI | 25-40 (32 ±8) | 32 | 35 | 38 |
+| ESN | 25-40 (33 ±8) | 33 | 32 | 31 |
+| **Totalt** | **720** | **729** (extra Kroatien/Slovakien varians) | **730** | **730** |
+
+##### Track B — Coalition viability matrix (EP11 candidate majorities)
+
+| Koalition | Projicerad storlek | Marginal | Användningsfall | Sannolikhet |
+|-----------|-------------------|----------|----------------|-------------|
+| EPP+S&D+Renew | 380 | +20 | Standardstorkoalition; defensiv | 65% |
+| EPP+S&D+Renew+Greens | 432 | +72 | Klimat/sociala/RoL-ärenden | 55% |
+| EPP+ECR+PfE | 372 | +12 | Försvar/gränser; **förstagångshållbar** | 35% |
+| EPP+ECR+PfE+ESN | 405 | +45 | Ytterst-höger-konkurrenskraftskoalition | 20% |
+| EPP+ECR+Renew+conditional-PfE | 402 | +42 | Pragmatiskt högercentrum | 40% |
+
+**35 %-sannolikheten för EPP+ECR+PfE-hållbarhet** är EP11:s strukturella gångjärn: för första gången i Europaparlamentets historia vore en höger-ensam-majoritet aritmetiskt möjlig. Dess politiska genomförbarhet beror på (a) PfE:s vilja att acceptera EPP:s proceduriella disciplin, (b) EPP:s vilja att formalisera ytterst-höger-beroendet, (c) Rådets ratificering av en Spitzenkandidat från en sådan konfiguration.
+
+##### Track B — Spitzenkandidaten 2029 scenario
+
+| Ledarskapskanditat | Grupp | Nomineringssannolikhet | Kommissionsordförandesannolikhet |
+|-------------------|-------|------------------------|----------------------------------|
+| Manfred Weber (nuvarande EPP-ledare) | EPP | 60% | 50% |
+| Roberta Metsola (institutionell ledare) | EPP | 25% | 20% |
+| Iratxe García (PES-ledare) | S&D | 70% | 25% |
+| Stéphane Séjourné eller efterträdare | Renew | 50% | 5% |
+| Bas Eickhout (klimatledare) | Greens | 60% | <5% |
+| Jordan Bardella (PfE-ledare) | PfE | 55% | <5% |
+| Giorgia Meloni (ECR-galjonsfigur) | ECR | 30% | 10% |
+
+---
+
+### Cross-Stakeholder Risk Map (Electoral-Cycle Lens)
+
+#### Stakeholder cohort table (multi-perspective)
+
+| Kohort | Primärt EP10-utfall | Risk under EP11-högerförskjutning | Motstrategier i gång |
+|--------|---------------------|-----------------------------------|---------------------|
+| **EU-medborgare** (allmänhet) | Blandat: försvarsreassurance, klimatreträtt | Levnadskostnadssaliency driver valdeltagande; rättsstatserosion i 4-6 MS | Medborgarregistreringskampanjer, ePolitics-plattformar, Eurobarometer-drivet narrativkorrigering |
+| **EU-institutionell personal** (Kommissionen, EEAS, Rådsekretariatet) | Karriärstabilitet, nedsaktat Grön Giv | Politisering av höga utnämningar; Spitzenkandidat-processkollapsen | Intern rörlighet, A1-gradsreserver |
+| **Nationella regeringar** (27) | Asymmetriskt — Italien/Ungern vinner; Frankrike/Tyskland ansträngs | MFF-2028 nettobidragsgivaropprör; kohesionsbetingelsebattal | Bilaterala avtal, rådssidiga ändringsförslag |
+| **Oppositionspartier i medlemsstaterna** | Mobilisering mot sittande EU-policy | Polarisering accelererar; koalitionsalternativ smalnar | Gränsöverskridande partikoordination |
+| **Näringsliv / industri** (tillverkning, energi, digitalt) | Blandat: avregleringsdrift, försvarsutgiftmedvind | Regulatorisk osäkerhet; handelskonfliktexponering | Lobbyintensifiering, dubbla försörjningsstrategier |
+| **Civilsamhälle / NGO:er** (klimat, mänskliga rättigheter, socialt) | Defensiv hållning, finansieringsminskningar | Krympande utrymme; SLAPP-stämningsacceleration | Anti-SLAPP-direktiv, gränsöverskridande juridiska koalitioner |
+| **Fackföreningar** (ETUC och anslutna) | Blandat: minimilönevinster, plattformsarbetsdirektiv | Socialpelargenom-förandereversering | Nationell mobilisering, EU-nivå minimiolverskydd |
+| **Media / journalistik** | EMFA-genomförande, koncentrationsproblem | Pressfrihetserosion i 4 MS; redaktionellt tryck | EMFA-verkställighet, gränsöverskridande utredarkonsortier |
+| **Akademi / forskning** (Horizon Europe-ekosystemet) | Finansiering stabil; ERC-program säkrade | MFF-2028 omallokering mot försvar | Civil-försvars-dubblanvändningsompositionering |
+| **Externa partners** (UK, Schweiz, Turkiet, Västra Balkan, Ukraina) | Asymmetriskt — Ukraina vinner, Turkiet stagnerar | EU strategisk autonomiambiguitet | Bilaterala ramavtal |
+| **Globala motsvarigheter** (USA, Kina, Indien, Brasilien) | Trump-2-tryck, kinesisk tekniktävling | Multiblocksfragmentering, EU-försvagning | Selektivt återengagemang, kapacitetshedging |
+
+#### Risk-priority matrix (electoral-cycle scope)
+
+| Risk-ID | Risk | Sannolikhet (T+0 → T+24) | Påverkan | Poäng | Ägare |
+|---------|------|--------------------------|----------|-------|-------|
+| R-EC-01 | EP11 högerblocksmajoritet materialiseras | 0,35 | 0,85 | 0,30 | EP plenum; Rådet |
+| R-EC-02 | Franskt presidentval 2027 levererar ytterst-höger-seger | 0,30 | 0,80 | 0,24 | Franska väljare; Renew |
+| R-EC-03 | Tysk storkoalition kollapsar inför EP11 | 0,25 | 0,65 | 0,16 | Bundestag; CDU/SPD |
+| R-EC-04 | Trump-2 inför tullar > 15 % på EU-export | 0,55 | 0,65 | 0,36 | USA-administration; Kommissionen DG TRADE |
+| R-EC-05 | Ukrainakrigets eskalation kräver EU-markengagemang | 0,10 | 0,95 | 0,10 | Rådet; medlemsstater |
+| R-EC-06 | MFF-2028-förhandlingar misslyckas (ingen överenskommelse till 2027-K4) | 0,20 | 0,75 | 0,15 | Rådet; EP BUDG |
+| R-EC-07 | Spitzenkandidat-processen kollapsar (rådsomgång) | 0,40 | 0,55 | 0,22 | Europeiska rådet |
+| R-EC-08 | Klimatkatastrofsommar (>2 simultana EU-statshandelser) | 0,55 | 0,45 | 0,25 | Medlemsstater; Kommissionen |
+| R-EC-09 | Cyberattack mot valinfrastruktur 2029 | 0,30 | 0,70 | 0,21 | ENISA; MS-CERTs |
+| R-EC-10 | AI-deepfake massdesinformationskampanj | 0,65 | 0,55 | 0,36 | Plattformar; DSA-verkställighet |
+| R-EC-11 | Medlemsstat artikel 7-eskalation till suspensionsomröstning | 0,10 | 0,50 | 0,05 | Rådet; EP |
+| R-EC-12 | Energiprisschock (2x baslinje) | 0,25 | 0,65 | 0,16 | Marknader; Kommissionen |
+
 > **Provenance & Audit**
 >
 > - **Article type:** `election-cycle`
@@ -9646,4 +10483,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/election-cycle/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/election-cycle/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/election-cycle/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/election-cycle/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/election-cycle/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/election-cycle/executive-brief_sv.md) | `executive-brief_sv.md` |
 

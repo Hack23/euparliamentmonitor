@@ -195,6 +195,500 @@ pie title EP10 Political Blocs - April 2026
 - Political SWOT Framework v2.2 - methodology reference
 - Official EP seat composition - HIGH confidence
 
+### Executive Brief Ar
+
+### BLUF
+
+الجولة 157 هي استطلاع **عطلة عيد الفصح اليوم 16، T-4** قبل تفعيل الرسوم الجمركية (T-0 = 15 أبريل). على الصعيد التشغيلي: لا تتوفر تغذيات مباشرة قابلة للاستخدام؛ تعمل التحليلات على 264,000 حرف من الإحصائيات المحسوبة مسبقاً. هذا هو **الوضع التشغيلي المتدهور في مطلع العطلة** — انقطاع كامل للتغذيات مع تشغيل خط التحليل على ركيزة مخزنة مؤقتاً/محسوبة فقط. *الثقة: LOW–MEDIUM للبيانات الحديثة؛ MEDIUM-HIGH للتحليل الهيكلي. Admiralty: B3.*
+
+### Three Decisions
+
+1. **التحقق من أن خط الأنابيب يُجري تحليلاً بجودة مرجعية على 264K إحصائية محسوبة مسبقاً + الذاكرة التحريرية وحدها.** هذا اختبار مرونة حرج — يجب أن ينتج خط الأنابيب تحليلاً مفيداً حتى بدون بيانات تغذية حديثة. قراءة اليوم دليل إيجابي. *الثقة: HIGH.*
+2. **توثيق حالة 0-تغذيات-مباشرة / 264K-إحصائيات كحد أدنى تشغيلي.** أي انقطاع مشترك مستقبلي (التغذيات المباشرة + الإحصائيات) سيكون مستوى أدنى من هذا الحد. *الثقة: HIGH.*
+3. **ترسيخ قراءة T-4 كخط أساس لنافذة منتصف فترة العطلة.** يوم العطلة 16 هو نقطة المنتصف التشغيلية؛ الجولات اللاحقة تقيس المسار نحو T-0. *الثقة: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+تكوين 0-تغذيات-مباشرة-لكن-264K-إحصائيات-محسوبة-مسبقاً هو التوقيع الأمثل للحالة المتدهورة لمجموعات العطلة. ينتج خط الأنابيب تحليلاً بجودة مرجعية على هذه الركيزة وحدها، مما يُثبت مرونة البنية التحتية تجاه انقطاع التغذية.
+
+### Risk Snapshot
+
+| المخاطر | الاحتمالية | التأثير |
+|---|---:|---:|
+| تبقى التغذيات المباشرة عند 0 حتى T-0 | LOW–MED | MED |
+| فشل تحديث الإحصائيات المحسوبة مسبقاً | LOW | MED–HIGH |
+| انجراف الذاكرة التحريرية خلال انقطاع متعدد الأيام | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- خط أساس إحصائيات محسوبة مسبقاً 264K: **B2**
+- حالة الذاكرة التحريرية المتراكمة: **C2**
+- إمكانية مراقبة التغذية المباشرة (0): **A2**
+
+### Provenance
+
+- الجولة: `breaking-run157` (2026-04-11، يوم العطلة 16، T-4)
+- الامتثال: بوابة البيانات المفتوحة للبرلمان الأوروبي + الإحصائيات المحسوبة مسبقاً. متوافق مع اللائحة العامة لحماية البيانات.
+
+---
+*الحياد التحليلي: قراءة الحالة المتدهورة مُصنَّفة صراحةً.*
+
+### Executive Brief Da
+
+### BLUF
+
+Kørsel 157 er **Påskeferie dag 16, T-4**-sonderingen forud for toldaktivering (T-0 = 15. april). Operationelt: 0 live-feeds anvendelige; analysen kører mod 264.000 tegn forudberegnede statistikker. Dette er den **tidlige ferieperiodes operationelle degraderede tilstand** — fuldstændig feed-afbrydelse med analytisk pipeline, der kører udelukkende på cachet/beregnet substrat. *Konfidens: LOW–MEDIUM for friske data; MEDIUM-HIGH for strukturel analyse. Admiralty: B3.*
+
+### Three Decisions
+
+1. **Validér at pipelinen kører referencekvalitetsanalyse på 264K forudberegnede statistikker + redaktionel hukommelse alene.** Dette er en kritisk resiliens-test — pipelinen skal producere brugbar analyse selv uden friske feed-data. Dagens aflæsning er positivt bevis. *Konfidens: HIGH.*
+2. **Dokumentér tilstanden 0-live-feeds / 264K-statistikker som operationelt gulv.** Fremtidigt kombineret udfald (live-feeds + statistikker) ville være et niveau under dette gulv. *Konfidens: HIGH.*
+3. **Forankr T-4-aflæsningen som referencelinje for ferieperiodens midvindue.** Feriedag 16 er det operationelle midtpunkt; efterfølgende kørsler måler banen mod T-0. *Konfidens: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+Konfigurationen 0-live-feeds-men-264K-forudberegnede-statistikker er den kanoniske degraderede-tilstands-signatur for ferieperiodeklynger. Pipelinen producerer referencekvalitetsanalyse udelukkende på dette substrat, hvilket validerer arkitekturens resiliens over for feed-afbrydelse.
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Indvirkning |
+|---|---:|---:|
+| Live-feeds forbliver på 0 gennem T-0 | LOW–MED | MED |
+| Opdatering af forudberegnede statistikker mislykkes | LOW | MED–HIGH |
+| Redaktionel hukommelsesdrift under flerdages udfald | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- 264K forudberegnede statistikker baselinje: **B2**
+- Akkumuleret redaktionel hukommelsestilstand: **C2**
+- Live-feed observerbarhed (0): **A2**
+
+### Provenance
+
+- Kørsel: `breaking-run157` (2026-04-11, Feriedag 16, T-4)
+- Overholdelse: EP's åbne dataportal + forudberegnede statistikker. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: degraderet-tilstand aflæsning eksplicit mærket.*
+
+### Executive Brief De
+
+### BLUF
+
+Lauf 157 ist die **Osterrecess Tag 16, T-4**-Sondierung vor der Zollaktivierung (T-0 = 15. April). Operativ: 0 Live-Feeds nutzbar; die Analyse läuft gegen 264.000 Zeichen vorberechneter Statistiken. Dies ist der **frühzeitige Rezess-operative degradierte Zustand** — vollständiger Feed-Ausfall mit analytischer Pipeline, die ausschließlich auf gecachtem/berechnetem Substrat läuft. *Konfidenz: LOW–MEDIUM für frische Daten; MEDIUM-HIGH für strukturelle Analyse. Admiralty: B3.*
+
+### Three Decisions
+
+1. **Validierung, dass die Pipeline auf 264K vorberechneten Statistiken + redaktionellem Gedächtnis allein Referenzqualitätsanalyse liefert.** Dies ist ein kritischer Resilienztest — die Pipeline muss auch ohne frische Feed-Daten nützliche Analysen produzieren. Die heutige Messung ist positiver Beweis. *Konfidenz: HIGH.*
+2. **Dokumentierung des 0-Live-Feeds / 264K-Statistiken-Zustands als operativen Boden.** Ein künftiger kombinierter Ausfall (Live-Feeds + Statistiken) wäre eine Stufe unterhalb dieses Bodens. *Konfidenz: HIGH.*
+3. **Verankerung der T-4-Messung als Basislinie des Rezess-Mittelfensters.** Recessstag 16 ist der operative Mittelpunkt; nachfolgende Läufe messen die Trajektorie zu T-0 hin. *Konfidenz: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+Die Konfiguration 0-Live-Feeds-aber-264K-vorberechnete-Statistiken ist die kanonische Degradierter-Zustand-Signatur für Rezesscluster. Die Pipeline produziert Referenzqualitätsanalyse auf diesem Substrat allein und validiert damit die Resilienz der Architektur gegenüber Feed-Ausfall.
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| Live-Feeds bleiben durch T-0 bei 0 | LOW–MED | MED |
+| Aktualisierung vorberechneter Statistiken schlägt fehl | LOW | MED–HIGH |
+| Redaktionelle Gedächtnisdrift während mehrtägigem Ausfall | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- 264K vorberechnete Statistiken Basislinie: **B2**
+- Akkumulierter redaktioneller Gedächtniszustand: **C2**
+- Live-Feed-Beobachtbarkeit (0): **A2**
+
+### Provenance
+
+- Lauf: `breaking-run157` (2026-04-11, Recesstag 16, T-4)
+- Konformität: EP Open Data Portal + vorberechnete Statistiken. DSGVO-konform.
+
+---
+*Analytische Neutralität: Degradierter-Zustand-Messung explizit gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+La ejecución 157 es el sondeo del **Receso de Semana Santa día 16, T-4** previo a la activación arancelaria (T-0 = 15 de abril). Operativamente: 0 flujos en vivo utilizables; el análisis se ejecuta contra 264.000 caracteres de estadísticas precalculadas. Este es el **estado operativo degradado del receso temprano** — interrupción total de flujos con el canal analítico ejecutándose únicamente sobre sustrato cacheado/calculado. *Confianza: LOW–MEDIUM para datos frescos; MEDIUM-HIGH para análisis estructural. Admiralty: B3.*
+
+### Three Decisions
+
+1. **Validar que el canal ejecuta análisis de calidad de referencia sobre 264K estadísticas precalculadas + memoria editorial solamente.** Esta es una prueba crítica de resiliencia — el canal debe producir análisis útil incluso sin datos de flujo frescos. La lectura de hoy es evidencia positiva. *Confianza: HIGH.*
+2. **Documentar el estado 0-flujos-en-vivo / 264K-estadísticas como piso operativo.** Cualquier interrupción combinada futura (flujos en vivo + estadísticas) sería un nivel por debajo de este piso. *Confianza: HIGH.*
+3. **Anclar la lectura T-4 como línea de base de la ventana media del período de receso.** El día de receso 16 es el punto operativo medio; las ejecuciones posteriores miden la trayectoria hacia T-0. *Confianza: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+La configuración 0-flujos-en-vivo-pero-264K-estadísticas-precalculadas es la firma canónica del estado degradado para clústeres de receso. El canal produce análisis de calidad de referencia sobre este sustrato solamente, validando la resiliencia de la arquitectura ante interrupciones de flujo.
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| Los flujos en vivo permanecen en 0 hasta T-0 | LOW–MED | MED |
+| La actualización de estadísticas precalculadas falla | LOW | MED–HIGH |
+| Deriva de la memoria editorial durante interrupción de varios días | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- Línea de base de estadísticas precalculadas 264K: **B2**
+- Estado acumulado de memoria editorial: **C2**
+- Observabilidad de flujo en vivo (0): **A2**
+
+### Provenance
+
+- Ejecución: `breaking-run157` (2026-04-11, Día de receso 16, T-4)
+- Cumplimiento: Portal de Datos Abiertos del PE + estadísticas precalculadas. Cumple con el RGPD.
+
+---
+*Neutralidad analítica: lectura en estado degradado etiquetada explícitamente.*
+
+### Executive Brief Fi
+
+### BLUF
+
+Ajo 157 on **Pääsiäisloma päivä 16, T-4** -luotaus ennen tullien aktivointia (T-0 = 15. huhtikuuta). Operatiivisesti: 0 reaaliaikaista syötettä käytettävissä; analyysi suoritetaan 264 000 merkin esilas ketun tilastoaineksen pohjalta. Tämä on **varhaisen lomakauden operatiivinen alennettu tila** — täydellinen syötteen katko analyyttisen putkilinjan ajaessa yksinomaan välimuistissä olevalla/lasketulla alustalla. *Luottamus: LOW–MEDIUM tuoreelle datalle; MEDIUM-HIGH rakenteelliselle analyysille. Admiralty: B3.*
+
+### Three Decisions
+
+1. **Vahvista, että putkilinja suorittaa viitelaadun analyysin 264K esilas ketun tilastoaineksen + toimituksellisen muistin pohjalta yksinomaan.** Tämä on kriittinen resilienssi testi — putkilinjan on tuotettava hyödyllistä analyysia myös ilman tuoreita syötetietoja. Tämänpäiväinen lukema on myönteistä näyttöä. *Luottamus: HIGH.*
+2. **Dokumentoi tila 0-reaaliaikaista syötettä / 264K-tilastot operatiiviseksi lattiaksi.** Tuleva yhdistetty katko (reaaliaikaiset syötteet + tilastot) olisi tason alempana tästä lattiasta. *Luottamus: HIGH.*
+3. **Ankkuroi T-4-lukema lomakauden keskivälin perustasoksi.** Lomapäivä 16 on operatiivinen keskipiste; myöhemmät ajot mittaavat suuntaa kohti T-0. *Luottamus: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+Konfiguraatio 0-reaaliaikaista-syötettä-mutta-264K-esilaskettua-tilastoa on kanoninen alennetun tilan allekirjoitus lomaklusterille. Putkilinja tuottaa viitelaadun analyysia yksinomaan tällä alustalla, mikä vahvistaa arkkitehtuurin resilienssin syötteen katkolle.
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| Reaaliaikaiset syötteet pysyvät 0:ssa läpi T-0:n | LOW–MED | MED |
+| Esilasketun tilastoaineksen päivitys epäonnistuu | LOW | MED–HIGH |
+| Toimituksellisen muistin ajautuminen usean päivän katkon aikana | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- 264K esilaskettu tilastoaineksen perustaso: **B2**
+- Kertynyt toimituksellinen muistitila: **C2**
+- Reaaliaikaisen syötteen havaittavuus (0): **A2**
+
+### Provenance
+
+- Ajo: `breaking-run157` (2026-04-11, Lomapäivä 16, T-4)
+- Vaatimustenmukaisuus: EP:n avoin dataportti + esilaskettu tilastoaines. GDPR-yhteensopiva.
+
+---
+*Analyyttinen puolueettomuus: alennetun tilan lukema on selkeästi merkitty.*
+
+### Executive Brief Fr
+
+### BLUF
+
+L'exécution 157 est le sondage **Vacances de Pâques jour 16, T-4** avant l'activation des droits de douane (T-0 = 15 avril). Opérationnellement : 0 flux en direct utilisables ; l'analyse s'exécute contre 264 000 caractères de statistiques précalculées. Il s'agit de **l'état opérationnel dégradé en début de vacances** — panne totale des flux, le pipeline analytique fonctionnant sur un substrat mis en cache/calculé uniquement. *Confiance : LOW–MEDIUM pour les données fraîches ; MEDIUM-HIGH pour l'analyse structurelle. Admiralty : B3.*
+
+### Three Decisions
+
+1. **Valider que le pipeline exécute une analyse de qualité de référence sur les 264K statistiques précalculées + la mémoire éditoriale seule.** Il s'agit d'un test de résilience critique — le pipeline doit produire une analyse utile même sans données de flux fraîches. La lecture d'aujourd'hui est une preuve positive. *Confiance : HIGH.*
+2. **Documenter l'état 0-flux-en-direct / 264K-statistiques comme plancher opérationnel.** Toute panne combinée future (flux en direct + statistiques) serait un niveau en dessous de ce plancher. *Confiance : HIGH.*
+3. **Ancrer la lecture T-4 comme référence de la fenêtre médiane de la période de vacances.** Le jour de vacances 16 est le point médian opérationnel ; les exécutions suivantes mesurent la trajectoire vers T-0. *Confiance : MEDIUM-HIGH.*
+
+### 60-Second Read
+
+La configuration 0-flux-en-direct-mais-264K-statistiques-précalculées est la signature canonique de l'état dégradé pour les clusters de vacances. Le pipeline produit une analyse de qualité de référence sur ce substrat seul, validant la résilience de l'architecture face aux pannes de flux.
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| Les flux en direct restent à 0 jusqu'à T-0 | LOW–MED | MED |
+| La mise à jour des statistiques précalculées échoue | LOW | MED–HIGH |
+| Dérive de la mémoire éditoriale pendant une panne de plusieurs jours | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- Référence des statistiques précalculées 264K : **B2**
+- État accumulé de la mémoire éditoriale : **C2**
+- Observabilité du flux en direct (0) : **A2**
+
+### Provenance
+
+- Exécution : `breaking-run157` (2026-04-11, Jour de vacances 16, T-4)
+- Conformité : Portail de données ouvertes du PE + statistiques précalculées. Conforme au RGPD.
+
+---
+*Neutralité analytique : lecture en état dégradé explicitement étiquetée.*
+
+### Executive Brief He
+
+### BLUF
+
+ריצה 157 היא בדיקת **חופשת פסחא יום 16, T-4** לפני הפעלת המכסים (T-0 = 15 באפריל). מבחינה תפעולית: 0 הזנות חיות שמישות; הניתוח רץ על פני 264,000 תווים של סטטיסטיקות מחושבות מראש. זהו **המצב התפעולי המושפל של תחילת החופשה** — הפסקת הזנה מוחלטת כשצינור הניתוח פועל אך ורק על ממצעה מאוחסנת/מחושבת. *ביטחון: LOW–MEDIUM לנתונים רעננים; MEDIUM-HIGH לניתוח מבני. Admiralty: B3.*
+
+### Three Decisions
+
+1. **אימות שהצינור מריץ ניתוח באיכות עיון על 264K סטטיסטיקות מחושבות מראש + זיכרון עריכה בלבד.** זהו מבחן חוסן קריטי — הצינור חייב לייצר ניתוח שימושי גם ללא נתוני הזנה רעננים. הקריאה של היום היא ראיה חיובית. *ביטחון: HIGH.*
+2. **תיעוד מצב 0-הזנות-חיות / 264K-סטטיסטיקות כרצפה תפעולית.** כשל משולב עתידי (הזנות חיות + סטטיסטיקות) יהיה רמה מתחת לרצפה זו. *ביטחון: HIGH.*
+3. **עיגון קריאת T-4 כקו בסיס לחלון האמצע של תקופת החופשה.** יום חופשה 16 הוא נקודת האמצע התפעולית; ריצות עוקבות מודדות את המסלול לקראת T-0. *ביטחון: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+תצורת 0-הזנות-חיות-אבל-264K-סטטיסטיקות-מחושבות-מראש היא חתימת המצב המושפל הקנונית לאשכולות חופשה. הצינור מייצר ניתוח באיכות עיון על ממצעה זו בלבד, ומאמת את חוסן הארכיטקטורה מול הפסקת הזנה.
+
+### Risk Snapshot
+
+| סיכון | הסתברות | השפעה |
+|---|---:|---:|
+| הזנות חיות נשארות ב-0 עד T-0 | LOW–MED | MED |
+| עדכון סטטיסטיקות מחושבות מראש נכשל | LOW | MED–HIGH |
+| סחף זיכרון עריכה במהלך הפסקה רב-יומית | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- קו בסיס סטטיסטיקות מחושבות מראש 264K: **B2**
+- מצב זיכרון עריכה מצטבר: **C2**
+- יכולת תצפית הזנה חיה (0): **A2**
+
+### Provenance
+
+- ריצה: `breaking-run157` (2026-04-11, יום חופשה 16, T-4)
+- ציות: פורטל נתונים פתוחים של הפרלמנט האירופי + סטטיסטיקות מחושבות מראש. תואם GDPR.
+
+---
+*ניטרליות אנליטית: קריאת מצב מושפל מתויגת במפורש.*
+
+### Executive Brief Ja
+
+### BLUF
+
+ラン157は、関税発動（T-0 = 4月15日）前の**復活祭休会16日目、T-4**探索的実行です。運用面では：使用可能なライブフィードは0件；分析は264,000文字の事前計算統計を対象に実行されます。これは**休会早期の運用劣化状態**であり、キャッシュ済み／計算済みの基盤のみで分析パイプラインが稼働する完全フィード停止を意味します。*信頼度：フレッシュデータに対してLOW–MEDIUM；構造分析に対してMEDIUM-HIGH。Admiralty: B3。*
+
+### Three Decisions
+
+1. **パイプラインが264K事前計算統計＋編集メモリのみで参照品質の分析を実行できることを検証します。** これは重大な耐障害性テストです——パイプラインはフレッシュなフィードデータがなくても有用な分析を生成できなければなりません。本日の測定値はその証拠です。*信頼度：HIGH。*
+2. **0ライブフィード／264K統計の状態を運用上の基準下限として文書化します。** 将来の複合的な障害（ライブフィード＋統計）はこの基準下限より1段階低いものとなります。*信頼度：HIGH。*
+3. **T-4の測定値を休会期間の中間ウィンドウの基準値として固定します。** 休会16日目は運用上の中間点であり、後続の実行はT-0に向けた軌跡を測定します。*信頼度：MEDIUM-HIGH。*
+
+### 60-Second Read
+
+0ライブフィードだが264K事前計算統計というこの構成は、休会クラスターの劣化状態の典型的なシグネチャです。パイプラインはこの基盤のみで参照品質の分析を生成し、フィード停止に対するアーキテクチャの耐障害性を実証しています。
+
+### Risk Snapshot
+
+| リスク | 発生可能性 | 影響度 |
+|---|---:|---:|
+| ライブフィードがT-0まで0のまま継続 | LOW–MED | MED |
+| 事前計算統計の更新失敗 | LOW | MED–HIGH |
+| 複数日間の停止中における編集メモリの乖離 | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- 264K事前計算統計ベースライン：**B2**
+- 蓄積された編集メモリ状態：**C2**
+- ライブフィード観測可能性（0）：**A2**
+
+### Provenance
+
+- ラン：`breaking-run157`（2026-04-11、休会16日目、T-4）
+- コンプライアンス：欧州議会オープンデータポータル＋事前計算統計。GDPR準拠。
+
+---
+*分析的中立性：劣化状態の測定値として明示的にラベル付け済み。*
+
+### Executive Brief Ko
+
+### BLUF
+
+런 157은 관세 발동(T-0 = 4월 15일) 전 **부활절 휴회 16일, T-4** 탐색 실행입니다. 운영 측면에서: 사용 가능한 라이브 피드 0개; 분석은 264,000자의 사전 계산 통계를 대상으로 실행됩니다. 이것은 **휴회 초기 운영 저하 상태**로, 캐시된/계산된 기반에서만 분석 파이프라인이 실행되는 완전한 피드 중단입니다. *신뢰도: 신선한 데이터에 LOW–MEDIUM; 구조적 분석에 MEDIUM-HIGH. Admiralty: B3.*
+
+### Three Decisions
+
+1. **파이프라인이 264K 사전 계산 통계 + 편집 메모리만으로 참조 품질 분석을 실행하는지 검증합니다.** 이것은 중요한 복원력 테스트입니다—파이프라인은 신선한 피드 데이터 없이도 유용한 분석을 생성해야 합니다. 오늘의 측정값은 긍정적인 증거입니다. *신뢰도: HIGH.*
+2. **0-라이브-피드 / 264K-통계 상태를 운영 기준 하한선으로 문서화합니다.** 향후 복합 중단(라이브 피드 + 통계)은 이 하한선보다 한 단계 낮을 것입니다. *신뢰도: HIGH.*
+3. **T-4 측정값을 휴회 기간 중간 창의 기준선으로 고정합니다.** 휴회 16일은 운영 중간 지점이며; 후속 실행은 T-0을 향한 궤적을 측정합니다. *신뢰도: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+0-라이브-피드-하지만-264K-사전-계산-통계 구성은 휴회 클러스터의 저하 상태에 대한 표준적인 서명입니다. 파이프라인은 이 기반만으로 참조 품질 분석을 생성하여 피드 중단에 대한 아키텍처의 복원력을 검증합니다.
+
+### Risk Snapshot
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| 라이브 피드가 T-0까지 0 유지 | LOW–MED | MED |
+| 사전 계산 통계 업데이트 실패 | LOW | MED–HIGH |
+| 다일 중단 중 편집 메모리 드리프트 | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- 264K 사전 계산 통계 기준선: **B2**
+- 누적된 편집 메모리 상태: **C2**
+- 라이브 피드 관측 가능성 (0): **A2**
+
+### Provenance
+
+- 런: `breaking-run157` (2026-04-11, 휴회 16일, T-4)
+- 규정 준수: 유럽의회 오픈 데이터 포털 + 사전 계산 통계. GDPR 준수.
+
+---
+*분석적 중립성: 저하 상태 측정값으로 명시적으로 레이블 지정.*
+
+### Executive Brief Nl
+
+### BLUF
+
+Uitvoering 157 is de **Paasreces dag 16, T-4**-sondering voorafgaand aan tariefactivering (T-0 = 15 april). Operationeel: 0 live-feeds bruikbaar; de analyse draait tegen 264.000 tekens voorberekende statistieken. Dit is de **operationeel gedegradeerde toestand van het vroege reces** — volledige feed-uitval met analytische pijplijn die uitsluitend op gecachede/berekende substantie draait. *Vertrouwen: LOW–MEDIUM voor verse data; MEDIUM-HIGH voor structurele analyse. Admiralty: B3.*
+
+### Three Decisions
+
+1. **Valideer dat de pijplijn referentiekwaliteitsanalyse levert op 264K voorberekende statistieken + redactioneel geheugen alleen.** Dit is een kritieke veerkrachttest — de pijplijn moet ook bruikbare analyse produceren zonder verse feeddata. De meting van vandaag is positief bewijs. *Vertrouwen: HIGH.*
+2. **Documenteer de toestand 0-live-feeds / 264K-statistieken als operationele vloer.** Een toekomstige gecombineerde uitval (live-feeds + statistieken) zou een niveau lager zijn dan deze vloer. *Vertrouwen: HIGH.*
+3. **Verankerd de T-4-meting als basislijn voor het middenvenster van de recesperiode.** Recesdag 16 is het operationele middelpunt; volgende uitvoeringen meten de koers richting T-0. *Vertrouwen: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+De configuratie 0-live-feeds-maar-264K-voorberekende-statistieken is de canonieke gedegradeerde-toestand-signatuur voor recesclusters. De pijplijn produceert referentiekwaliteitsanalyse op dit substraat alleen, wat de veerkracht van de architectuur tegen feed-uitval valideert.
+
+### Risk Snapshot
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| Live-feeds blijven op 0 tot en met T-0 | LOW–MED | MED |
+| Bijwerking van voorberekende statistieken mislukt | LOW | MED–HIGH |
+| Redactionele geheugenverval tijdens meerdaagse uitval | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- Basislijn 264K voorberekende statistieken: **B2**
+- Geaccumuleerde redactionele geheugenstand: **C2**
+- Live-feed waarneembaarheid (0): **A2**
+
+### Provenance
+
+- Uitvoering: `breaking-run157` (2026-04-11, Recesdag 16, T-4)
+- Naleving: EP Open Data Portal + voorberekende statistieken. AVG-conform.
+
+---
+*Analytische neutraliteit: gedegradeerde-toestand meting expliciet gelabeld.*
+
+### Executive Brief No
+
+### BLUF
+
+Kjøring 157 er **Påskeferie dag 16, T-4**-sonderingen før tollaktivering (T-0 = 15. april). Operasjonelt: 0 direktestrømmer brukbare; analysen kjøres mot 264 000 tegn forhåndsberegnede statistikker. Dette er den **tidlige ferieperiodens operasjonelt degraderte tilstand** — fullstendig strømsavbrudd med analytisk rørledning som kjører utelukkende på bufret/beregnet substrat. *Konfidens: LOW–MEDIUM for ferske data; MEDIUM-HIGH for strukturell analyse. Admiralty: B3.*
+
+### Three Decisions
+
+1. **Valider at rørledningen kjører referansekvalitetsanalyse på 264K forhåndsberegnede statistikker + redaksjonelt minne alene.** Dette er en kritisk resiliens-test — rørledningen må produsere nyttig analyse selv uten ferske strømdata. Dagens avlesning er positivt bevis. *Konfidens: HIGH.*
+2. **Dokumenter tilstanden 0-direktestrømmer / 264K-statistikker som operasjonelt gulv.** Fremtidig kombinert svikt (direktestrømmer + statistikker) ville være ett nivå under dette gulvet. *Konfidens: HIGH.*
+3. **Forankre T-4-avlesningen som referanselinje for ferieperiodens midtvindu.** Feriedag 16 er det operasjonelle midtpunktet; påfølgende kjøringer måler banen mot T-0. *Konfidens: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+Konfigurasjonen 0-direktestrømmer-men-264K-forhåndsberegnede-statistikker er den kanoniske degraderte-tilstands-signaturen for ferieperiodeklynger. Rørledningen produserer referansekvalitetsanalyse utelukkende på dette substratet, noe som validerer arkitekturens resiliens mot strømsavbrudd.
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Innvirkning |
+|---|---:|---:|
+| Direktestrømmer forblir på 0 gjennom T-0 | LOW–MED | MED |
+| Oppdatering av forhåndsberegnede statistikker mislykkes | LOW | MED–HIGH |
+| Redaksjonelt minnesdrift under flerdag-svikt | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- 264K forhåndsberegnede statistikker basislinje: **B2**
+- Akkumulert redaksjonell minnestilstand: **C2**
+- Direktestrøm observerbarhet (0): **A2**
+
+### Provenance
+
+- Kjøring: `breaking-run157` (2026-04-11, Feriedag 16, T-4)
+- Samsvar: EPs åpne dataportal + forhåndsberegnede statistikker. GDPR-kompatibel.
+
+---
+*Analytisk nøytralitet: degradert-tilstand avlesning eksplisitt merket.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Körning 157 är **Påskuppehåll dag 16, T-4**-sonderingen inför tullaktivering (T-0 = 15 april). Operativt: 0 direktflöden användbara; analysen körs mot 264 000 tecken förberäknad statistik. Detta är det **tidiga uppehållets operativa degraderade tillstånd** — fullständigt flödesavbrott med analytisk pipeline som kör på cachad/beräknad substrat enbart. *Konfidens: LOW–MEDIUM för färsk data; MEDIUM-HIGH för strukturell analys. Admiralty: B3.*
+
+### Three Decisions
+
+1. **Validera att pipelinen kör referenskvalitetsanalys på 264K förberäknad statistik + redaktionellt minne enbart.** Detta är ett kritiskt resiliensprov — pipelinen måste producera användbar analys även utan färska flödesdata. Dagens avläsning är positiva bevis. *Konfidens: HIGH.*
+2. **Dokumentera tillståndet 0-direktflöden / 264K-statistik som operativt golv.** Framtida kombinerat avbrott (direktflöden + statistik) skulle vara en nivå under detta golv. *Konfidens: HIGH.*
+3. **Förankra T-4-avläsningen som baslinje för uppehållsperiodens mittfönster.** Uppehållsdag 16 är det operativa mittpunkten; efterföljande körningar mäter banan mot T-0. *Konfidens: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+Konfigurationen 0-direktflöden-men-264K-förberäknad-statistik är den kanoniska degraderade-läges-signaturen för uppehållskluster. Pipelinen producerar referenskvalitetsanalys på denna substrat enbart, vilket validerar arkitekturens resiliens mot flödesavbrott.
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| Direktflöden förblir på 0 genom T-0 | LOW–MED | MED |
+| Uppdatering av förberäknad statistik misslyckas | LOW | MED–HIGH |
+| Redaktionellt minnesdrift under flerdag-avbrott | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- 264K förberäknad statistik baslinje: **B2**
+- Ackumulerat redaktionellt minnestillstånd: **C2**
+- Direktflödes observerbarhet (0): **A2**
+
+### Provenance
+
+- Körning: `breaking-run157` (2026-04-11, Uppehållsdag 16, T-4)
+- Efterlevnad: EP:s öppna dataportal + förberäknad statistik. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: degraderat-läge avläsning explicit märkt.*
+
+### Executive Brief Zh
+
+### BLUF
+
+运行157是关税发动（T-0 = 4月15日）前的**复活节休会第16天，T-4**探测运行。运营层面：可用直播源0个；分析针对264,000字符的预计算统计数据运行。这是**休会早期的运营降级状态**——直播源完全中断，分析管道仅在缓存/计算基础底层上运行。*置信度：新鲜数据为LOW–MEDIUM；结构性分析为MEDIUM-HIGH。Admiralty: B3。*
+
+### Three Decisions
+
+1. **验证管道仅凭264K预计算统计数据 + 编辑记忆即可运行参考质量分析。** 这是一项关键的韧性测试——管道即使在没有新鲜直播源数据的情况下也必须产出有用的分析。今日读数是积极的证据。*置信度：HIGH。*
+2. **将0-直播源 / 264K-统计状态记录为运营基准下限。** 未来任何复合中断（直播源 + 统计数据）将比此下限低一个等级。*置信度：HIGH。*
+3. **将T-4读数锚定为休会期中间窗口的基准线。** 休会第16天是运营中间点；后续运行将测量趋向T-0的轨迹。*置信度：MEDIUM-HIGH。*
+
+### 60-Second Read
+
+0-直播源-但-264K-预计算-统计数据配置是休会集群降级状态的典型特征信号。管道仅凭该底层即可产出参考质量分析，验证了架构在直播源中断情况下的韧性。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 直播源在T-0前持续为0 | LOW–MED | MED |
+| 预计算统计数据更新失败 | LOW | MED–HIGH |
+| 多日中断期间编辑记忆偏移 | LOW–MED | LOW–MED |
+
+### Source Quality
+
+- 264K预计算统计数据基准线：**B2**
+- 累积编辑记忆状态：**C2**
+- 直播源可观测性（0）：**A2**
+
+### Provenance
+
+- 运行：`breaking-run157`（2026-04-11，休会第16天，T-4）
+- 合规：欧洲议会开放数据门户 + 预计算统计数据。符合GDPR规定。
+
+---
+*分析中立性：降级状态读数已明确标记。*
+
 ### Political Risk Assessment
 
 > **Assessment ID:** RSK-2026-04-11-157
@@ -1174,6 +1668,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [coalition-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/coalition-intelligence.md) | `coalition-intelligence.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [political-risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/political-risk-assessment.md) | `political-risk-assessment.md` |
 | section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/significance-scoring.md) | `significance-scoring.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/swot-analysis.md) | `swot-analysis.md` |

@@ -392,7 +392,7 @@ re-classification trigger list.
 
 ### 2. Significance score (composite, 0–10)
 
-- **Stakeholder breadth**: 9 (all 27 MS + 705 MEPs + 27 Commissioners + ECB + ECA)
+- **Stakeholder breadth**: 9 (all 27 MS + 720 MEPs + 27 Commissioners + ECB + ECA)
 - **Policy domain breadth**: 8 (climate, defence, single-market, enlargement, fiscal, digital, migration)
 - **Decision irreversibility**: 7 (MFF / climate-2040 / defence-financing decisions taken in this window will set 2030–2034 baselines)
 - **Time-criticality**: 6 (no single trigger event; cumulative)
@@ -1452,14 +1452,14 @@ quadrantChart
 | Rank | # | Risk | P | I | P×I | Mitigation |
 |---|---|---|:---:|:---:|---:|---|
 | 1 | R1 | Climate-2040 fracture | 0.65 | 0.85 | 0.55 | Phased target negotiation |
-| 2 | R5 | Trilogue deadlock cascade | 0.55 | 0.75 | 0.41 | COREPER triage |
-| 3 | R2 | Migration shock | 0.55 | 0.80 | 0.44 | Pre-stage migration package |
+| 2 | R2 | Migration shock | 0.55 | 0.80 | 0.44 | Pre-stage migration package |
+| 3 | R5 | Trilogue deadlock cascade | 0.55 | 0.75 | 0.41 | COREPER triage |
 | 4 | R4 | vdL II reshuffle | 0.50 | 0.75 | 0.38 | Rapporteur continuity |
 | 5 | R6 | Council unanimity collapse | 0.45 | 0.80 | 0.36 | QMV alternative |
 | 6 | R9 | Lobby capture | 0.55 | 0.55 | 0.30 | Counter-balancing |
 | 7 | R8 | Snap MS election | 0.30 | 0.70 | 0.21 | Presidency handover |
-| 8 | R3 | Coalition cordon breach | 0.20 | 0.95 | 0.19 | S&D + Renew anchoring |
-| 9 | R7 | EA recession | 0.25 | 0.85 | 0.21 | MFF mid-term acceleration |
+| 8 | R7 | EA recession | 0.25 | 0.85 | 0.21 | MFF mid-term acceleration |
+| 9 | R3 | Coalition cordon breach | 0.20 | 0.95 | 0.19 | S&D + Renew anchoring |
 | 10 | R11 | MCP/EP data outage | 0.30 | 0.30 | 0.09 | Proxy reconstruction |
 | 11 | R10 | Treaty-change signal | 0.15 | 0.45 | 0.07 | Pre-positioning |
 
@@ -2750,12 +2750,12 @@ timeline
         Sep 27 : Italian national election (likely)
         Oct 27 : MFF negotiations open
         Dec 27 : EUCO conclusions
-    section 2028 H1 (Slovakia)
+    section 2028 H1 (Netherlands)
         Jan 28 : NL presidency
         Mar 28 : Defence Union package vote
         Apr 28 : MFF closure target
         Jun 28 : EUCO MFF endorsement
-    section 2028 H2 (Sweden)
+    section 2028 H2 (Slovakia)
         Jul 28 : SK presidency
         Oct 28 : MFF mid-term review H2
         Dec 28 : Pre-campaign window opens
@@ -2900,7 +2900,7 @@ gantt
 - `intelligence/presidency-trio-context.md` — presidency anchor detail.
 - `intelligence/seat-projection.md` — Phase E campaign-frame detail.
 
-### 12. Phase-level KPI tracking
+### 11. Phase-level KPI tracking
 
 | Phase | Lead KPI | Confirming KPI | Lagging KPI |
 |---|---|---|---|
@@ -2910,7 +2910,7 @@ gantt
 | D (consolidate) | Implementation regs | Member-state transposition | Policy-impact metrics |
 | E (campaign) | Manifesto drafts | National-poll convergence | EP-election turnout |
 
-### 13. Phase-transition triggers
+### 12. Phase-transition triggers
 
 Triggers that advance the term from one phase to the next:
 
@@ -2921,7 +2921,7 @@ Triggers that advance the term from one phase to the next:
 
 Each transition is documented in `extended/forward-indicators.md`.
 
-### 14. Phase-risk concentration
+### 13. Phase-risk concentration
 
 Risk concentration by phase (cross-ref `risk-scoring/risk-matrix.md`):
 
@@ -2931,7 +2931,7 @@ Risk concentration by phase (cross-ref `risk-scoring/risk-matrix.md`):
 - Phase D: R6, R8 (implementation drift, capability gap).
 - Phase E: R9 (election platform fragmentation).
 
-### 15. Re-evaluation cadence
+### 14. Re-evaluation cadence
 
 Term-arc refreshed at every semi-annual term-outlook cron. Per-phase
 metric targets refreshed quarterly via plenary roll-call patterns.
@@ -4779,36 +4779,36 @@ flowchart TB
 
 | # | Path | Purpose | Floor (effective) | Lines | Grade |
 |---|---|---|---:|---:|:---:|
-| 1 | `executive-brief.md` | C-suite TL;DR | 141 | TBD | B2 |
+| 1 | `executive-brief.md` | C-suite TL;DR | 141 | 143 | B2 |
 | 2 | `data-availability-assessment.md` | Feed health | 51 | 72 | A2 |
 | 3 | `intelligence/procedures-proxy.md` | Proxy reconstruction | 38 | 70 | B3 |
-| 4 | `intelligence/economic-context.md` | IMF macro envelope | 154 | TBD | A2 |
-| 5 | `intelligence/synthesis-summary.md` | Master synthesis | 179 | TBD | B2 |
-| 6 | `intelligence/scenario-forecast.md` | Three-scenario | 230 | TBD | B3 |
-| 7 | `intelligence/forward-projection.md` | LTI projection | 230 | TBD | B3 |
+| 4 | `intelligence/economic-context.md` | IMF macro envelope | 154 | 157 | A2 |
+| 5 | `intelligence/synthesis-summary.md` | Master synthesis | 179 | 179 | B2 |
+| 6 | `intelligence/scenario-forecast.md` | Three-scenario | 230 | 231 | B3 |
+| 7 | `intelligence/forward-projection.md` | LTI projection | 230 | 232 | B3 |
 | 8 | `intelligence/coalition-dynamics.md` | Coalition arith | 154 | 155 | B2 |
 | 9 | `intelligence/stakeholder-map.md` | 48-actor roster | 192 | 240 | B2 |
 | 10 | `intelligence/pestle-analysis.md` | PESTLE matrix | 179 | 208 | B3 |
 | 11 | `intelligence/wildcards-blackswans.md` | Tail-risk | 179 | 210 | B3 |
 | 12 | `intelligence/historical-baseline.md` | EP9 baseline | 154 | 165 | A2 |
 | 13 | `intelligence/threat-model.md` | STRIDE adaptation | 166 | 206 | B2 |
-| 14 | `intelligence/mcp-reliability-audit.md` | Tool reliability | 154 | TBD | A1 |
-| 15 | `intelligence/methodology-reflection.md` | 10-step compliance | 154 | TBD | A1 |
-| 16 | `intelligence/term-arc.md` | 36-month arc | 205 | TBD | A2 |
-| 17 | `intelligence/seat-projection.md` | 2029 projection | 179 | TBD | B3 |
-| 18 | `intelligence/mandate-fulfilment-scorecard.md` | MFS | 179 | TBD | B2 |
-| 19 | `intelligence/presidency-trio-context.md` | Council cadence | 141 | TBD | A2 |
-| 20 | `intelligence/commission-wp-alignment.md` | WP25 alignment | 141 | TBD | A1 |
+| 14 | `intelligence/mcp-reliability-audit.md` | Tool reliability | 154 | 167 | A1 |
+| 15 | `intelligence/methodology-reflection.md` | 10-step compliance | 154 | 165 | A1 |
+| 16 | `intelligence/term-arc.md` | 36-month arc | 205 | 213 | A2 |
+| 17 | `intelligence/seat-projection.md` | 2029 projection | 179 | 180 | B3 |
+| 18 | `intelligence/mandate-fulfilment-scorecard.md` | MFS | 179 | 181 | B2 |
+| 19 | `intelligence/presidency-trio-context.md` | Council cadence | 141 | 163 | A2 |
+| 20 | `intelligence/commission-wp-alignment.md` | WP25 alignment | 141 | 185 | A1 |
 | 21 | `classification/significance-classification.md` | Significance | 77 | 121 | B2 |
-| 22 | `classification/actor-mapping.md` | Actor map | 77 | TBD | B2 |
-| 23 | `classification/forces-analysis.md` | Forces | 77 | TBD | B2 |
-| 24 | `classification/impact-matrix.md` | Impact matrix | 77 | TBD | B3 |
-| 25 | `risk-scoring/risk-matrix.md` | Risk matrix | 102 | TBD | B3 |
-| 26 | `risk-scoring/quantitative-swot.md` | SWOT | 102 | TBD | B2 |
-| 27 | `extended/media-framing-analysis.md` | Media | 179 | TBD | B3 |
-| 28 | `extended/forward-indicators.md` | Indicators | 166 | TBD | B2 |
-| 29 | `extended/historical-parallels.md` | Parallels | 154 | TBD | C3 |
-| 30 | `extended/comparative-international.md` | International | 154 | TBD | C3 |
+| 22 | `classification/actor-mapping.md` | Actor map | 77 | 100 | B2 |
+| 23 | `classification/forces-analysis.md` | Forces | 77 | 143 | B2 |
+| 24 | `classification/impact-matrix.md` | Impact matrix | 77 | 114 | B3 |
+| 25 | `risk-scoring/risk-matrix.md` | Risk matrix | 102 | 135 | B3 |
+| 26 | `risk-scoring/quantitative-swot.md` | SWOT | 102 | 109 | B2 |
+| 27 | `extended/media-framing-analysis.md` | Media | 179 | 186 | B3 |
+| 28 | `extended/forward-indicators.md` | Indicators | 166 | 167 | B2 |
+| 29 | `extended/historical-parallels.md` | Parallels | 154 | 159 | C3 |
+| 30 | `extended/comparative-international.md` | International | 154 | 167 | C3 |
 
 ### 4. Inter-artifact dependency map
 
@@ -4951,7 +4951,7 @@ WEP Likely band given electoral uncertainty.
 | EP Open Data Portal procedures feeds | C5 (3-of-4 returned 404) | `procedures-proxy.md` reconstruction |
 | EP Open Data Portal text feeds | B2 | `data-availability-assessment.md` |
 | EP get_all_generated_stats | A2 | `historical-baseline.md` |
-| IMF SDMX WEO 2026-04 | A1 | `economic-context.md` |
+| IMF SDMX WEO Oct 2025 | A1 | `economic-context.md` |
 | Politico Poll-of-Polls | A2 | `seat-projection.md` |
 | EP plenary RCV (DOCEO) | A2 | `coalition-dynamics.md` |
 | Commission WP25 | A1 | `commission-wp-alignment.md` |
@@ -5138,8 +5138,8 @@ unconditionally enforced).
   baseline procedural pipeline for the 2025-2029 mandate; 51 priority files
   identified for the term.
 - **Council Presidency trio schedule** (publicly fixed through 2030) —
-  drives the legislative-pipeline rhythm: DK-CY-IE (H2 2025 – H2 2026),
-  LT-GR-LV (H1 2027 – H1 2028), NL-SK-SE (H2 2028 – H2 2029).
+  drives the legislative-pipeline rhythm: HU-PL-DK (H1 2025 – H2 2026),
+  CY-IE-NL (H1 2027 – H1 2028), SK-SE-LT (H2 2028 – H2 2029).
 
 ### Inferred in-flight procedure count
 
@@ -5196,8 +5196,8 @@ flowchart TB
 >
 > - **Article type:** `term-outlook`
 > - **Run date:** 2026-05-28
-> - **Run id:** `term-outlook-2026-05-28`
-> - **Gate result:** `pending`
+> - **Run id:** `term-outlook-run347-1779926654`
+> - **Gate result:** `PENDING`
 > - **Analysis tree:** [analysis/daily/2026-05-28/term-outlook](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-05-28/term-outlook)
 > - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/term-outlook/manifest.json)
 

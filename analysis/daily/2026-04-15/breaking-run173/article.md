@@ -57,9 +57,19 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
-| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `political-classification.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ko.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ko
+
+2026년 4월 15일, EU는 TA-10-2026-0096에 따른 자율 무역방어 행동을 발동했다. 이는 미-EU 지정학적 프레임워크 내에서 EU 최초의 독자적 무역방어 조치로, 3월 26일 본회의 채택 이후 21일 이행 기간이 종료됨에 따라 법적 효력을 갖게 된다.
+
+### 주요 동향
+
+- **관세 T-0**: TA-10-2026-0096 발동 — EU 최초의 자율 무역방어 행동
+- **법적 효력**: 이행 기간 종료 후 즉각 발효
+- **전략적 의미**: 미국-EU 무역 갈등에서 EU의 대응 역량 강화
 
 ### Political Classification
 
@@ -1697,6 +1707,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | Section | Artifact | Path |
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run173/executive-brief.md) | `executive-brief.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run173/executive-brief_ko.md) | `executive-brief_ko.md` |
 | section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run173/political-classification.md) | `political-classification.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run173/risk-assessment.md) | `risk-assessment.md` |
 | section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run173/significance-scoring.md) | `significance-scoring.md` |
