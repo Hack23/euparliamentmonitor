@@ -51,7 +51,10 @@ import type { CliOptions } from './cli.js';
 import { buildArticleSlug } from './slug.js';
 import { discoverAnalysisRuns } from './discovery.js';
 import { insertReaderGuideAfterExecutiveBrief } from './reader-guide-insertion.js';
-import { buildLayerReadingTimes, splitBodyIntoDisclosureLayers } from '../progressive-disclosure.js';
+import {
+  buildLayerReadingTimes,
+  splitBodyIntoDisclosureLayers,
+} from '../progressive-disclosure.js';
 
 /** Result summary returned by `generateArticle`. */
 export interface GenerateResult {

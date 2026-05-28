@@ -32,6 +32,8 @@ function splitSectionSlices(bodyHtml) {
     }
     for (let index = 0; index < matches.length; index += 1) {
         const match = matches[index];
+        if (!match)
+            continue;
         const start = match.index ?? 0;
         const end = matches[index + 1]?.index ?? bodyHtml.length;
         const id = match[2] ?? '';
