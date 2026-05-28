@@ -156,3 +156,186 @@ graph TD
 ---
 
 *Stakeholder Mapping: ACH applied | Extended with ICC/civil society/defence industry depth | 2026-05-28*
+
+---
+
+## Tier 3: Civil Society, International Organisations, Industry
+
+### Afghan Women's Rights Organisations (Civil Society)
+**Role:** Principal victims and advocates; primary evidentiary source for ICC proceedings
+**Core interests:** Physical safety; educational and employment access; international protection and asylum pathways
+**Leverage:** Moral authority; ICC testimony capacity; EU Parliament access (formal consultation mechanism)
+**Position on EP resolution:** VERY STRONG SUPPORT — direct beneficiaries of international political pressure; EP urgency resolutions have historically increased EEAS willingness to publicly condemn Taliban
+**Internal diversity:** Urban Kabul-based NGOs (more moderate, engagement-focused); diaspora Afghan women leaders in EU (more assertive on accountability); RAWA and equivalent civil society organisations (most radical, seeking Taliban accountability rather than engagement)
+**Perspective (200+ words):** Afghan women's rights organisations occupy a uniquely difficult position in international advocacy. The Taliban's Criminal Procedure Code represents the most comprehensive legal codification of gender discrimination seen since South Africa's apartheid legislation — and unlike apartheid, it is backed by theocratic legitimacy claims that complicate international response framing. EU-based Afghan diaspora organisations have developed sophisticated EU Parliament lobbying operations since 2021: they have standing invitations to AFET and DROI committee hearings, and their testimony on Taliban jurisprudence directly influences the evidentiary record used in urgency resolutions. The challenge these organisations face is that international advocacy success (sanctions, resolutions, diplomatic pressure) does not translate directly into improved conditions inside Afghanistan — Taliban governance has proven highly resistant to external pressure on gender issues specifically. The EP resolution is therefore most valuable not as a direct leverage mechanism but as: (1) an evidentiary contribution to ICC proceedings on gender apartheid as a crime against humanity (Prosecutor Khan's Afghanistan investigation, Phase III, focuses precisely on Taliban gender policies); (2) a mechanism to keep EU member state asylum and protection pathways open for Afghan women at risk; and (3) a signal to moderate Taliban factions (if any exist) that normalization is conditional on women's rights progress.
+**WEP Assessment:** Highly Likely (90%+) that Afghan women's organisations continue systematic EP engagement through DROI committee; Possible (45%) that ICC testimony from EP-facilitated civil society leads to new indictments in 2026-2027.
+
+### International Criminal Court (ICC) — Afghanistan Investigation
+**Role:** Legal accountability mechanism; potential escalation pathway from EP political resolution
+**Core interests:** Building evidentiary record; demonstrating ICC effectiveness in politically complex cases
+**Leverage:** International criminal law; state cooperation obligations; arrest warrants (though Taliban not states parties)
+**Relationship to EP resolution:** COMPLEMENTARY — EP resolution creates political record; ICC investigation provides legal accountability track
+**Key development:** Prosecutor Khan's Afghanistan investigation has formally expanded to cover Taliban gender policies as potential crimes against humanity (confirmed 2025). EP urgency resolution on Criminal Procedure Code directly supports Phase III evidentiary record.
+**Constraint:** ICC has no enforcement mechanism against Taliban — no arrests possible unless Taliban leadership travels to states parties' territory.
+
+### European Defence Industry (SAFE Instrument Beneficiaries)
+**Role:** Primary commercial beneficiaries of EU-Canada SAFE Instrument; indirect beneficiaries of EU defence procurement expansion
+**Key EU players:** Rheinmetall (Germany, land systems), Safran (France, aerospace/security), Leonardo (Italy, defence electronics/aerospace), Airbus Defence & Space (multi-national, aerospace)
+**Key Canadian players:** Pratt & Whitney Canada (jet engines, subsidiary of RTX), CAE (flight simulation/training), L3 Technologies Canada (surveillance systems), General Dynamics Canada (IT/communications)
+**Core interests:** Market access expansion; IP protection in cross-border procurement; standardisation harmonisation (Canadian vs. EU military standards divergence is significant compliance cost)
+**Position on SAFE Instrument:** STRONG SUPPORT — Canadian industry has been seeking EU market access for 15+ years
+**Industry risk:** Airbus-Bombardier competition history (2017 WTO dispute) creates legacy tension in aerospace subcomponents. SAFE Instrument's IP protection provisions will be scrutinised carefully by both sides' aerospace industries.
+**WEP Assessment:** Likely (70%) that first Canadian company wins EU SAFE contract within 18 months of instrument ratification; Likely (65%) that French aerospace industry seeks bilateral carve-out for certain Airbus components.
+
+### World Trade Organisation (WTO) — Geneva
+**Role:** Multilateral governance framework; WTO MC14 context for AI trade strategy
+**Core interests:** Maintaining rules-based trading system; preventing AI trade fragmentation; managing US-China digital trade tensions
+**Position on EP AI Trade Strategy:** POSITIVE — EP resolution aligns with WTO's own e-commerce plurilateral negotiations; EU is constructive WTO member
+**Risk:** EP AI trade strategy provisions on data localisation and AI "national interest" exceptions could be challenged as WTO-inconsistent by trading partners (GATS Article XIV exemptions have been used but are legally contested).
+**WEP Assessment:** Possible (35%) that WTO dispute settlement mechanism is invoked against EU AI trade provisions within 3 years of Commission legislative implementation.
+
+### NATO — Brussels
+**Role:** Security alliance context for EU-Canada SAFE Instrument
+**Core interests:** Burden sharing; defence industrial base strengthening; interoperability
+**Position on EU-Canada SAFE:** SUPPORTIVE — NATO Secretary General has publicly welcomed EU defence industrial investment; Canada's SAFE inclusion enhances Alliance cohesion
+**Internal tension:** Article 5 collective defence (NATO) vs. EU "strategic autonomy" (sometimes framed as competitive with NATO). SAFE Instrument's Canadian inclusion explicitly manages this tension by ensuring non-EU NATO allies can participate in EU defence procurement.
+
+---
+
+## Stakeholder Coalition Analysis — Summary Matrix
+
+```mermaid
+graph LR
+    subgraph AI_Trade["AI Trade Strategy Coalition"]
+        EPP_AI["EPP ✅ SUPPORT"]
+        SandD_AI["S&D ✅ SUPPORT"]
+        Renew_AI["Renew ✅ STRONG"]
+        ECR_AI["ECR ⚠️ CONDITIONAL"]
+    end
+    subgraph AFG["Afghanistan Resolution Coalition"]
+        SandD_AFG["S&D ✅ CHAMPION"]
+        Greens_AFG["Greens ✅ CHAMPION"]
+        EPP_AFG["EPP ✅ SUPPORT"]
+        GUE_AFG["GUE ✅ SUPPORT"]
+    end
+    subgraph SAFE["EU-Canada SAFE Coalition"]
+        EPP_SAFE["EPP ✅ STRONG"]
+        ECR_SAFE["ECR ✅ SUPPORT"]
+        Renew_SAFE["Renew ✅ SUPPORT"]
+        PfE_SAFE["PfE ⚠️ MIXED"]
+    end
+    INTA --> AI_Trade
+    AFET --> AFG
+    AFET --> SAFE
+```
+
+---
+
+## Stakeholder Influence × Interest Matrix (Power Analysis)
+
+| Stakeholder | Power (1–10) | Interest (1–10) | Priority | Strategic Action |
+|---|---|---|---|---|
+| European Commission (AI Office/DG TRADE) | 9 | 8 | MANAGE CLOSELY | Framework Agreement response within 6 months |
+| EEAS | 7 | 9 | MANAGE CLOSELY | Afghanistan diplomatic note within 3 weeks |
+| EP INTA Committee | 8 | 10 | KEY PLAYER | Monitor Commission response quality |
+| EP AFET/DROI | 7 | 9 | KEY PLAYER | Afghanistan implementation hearings |
+| Germany/France (Council) | 8 | 7 | KEEP SATISFIED | Council conclusions on AI trade/Afghanistan |
+| Canadian Government | 6 | 9 | COLLABORATE | SAFE ratification process monitoring |
+| Afghan Women's Organisations | 3 | 10 | INFORM | EEAS consultation mechanism |
+| ICC | 5 | 8 | SUPPORT | Evidentiary record contribution |
+| EU Defence Industry | 7 | 8 | MONITOR | SAFE procurement activation timeline |
+| WTO | 6 | 6 | ENGAGE | WTO MC14 AI provisions negotiations |
+
+---
+
+*Stakeholder Mapping: ACH applied | Extended with ICC/civil society/defence industry depth | Pass 2 extended with Tier 3 actors, coalition analysis, power matrix | 2026-05-28*
+
+---
+
+## Extended Stakeholder Map — Pass 2 Additional Analysis
+
+### Stakeholder Power-Interest Matrix (Full)
+
+```mermaid
+quadrantChart
+    title Stakeholder Power vs Interest — EP May 2026
+    x-axis Low Interest --> High Interest
+    y-axis Low Power --> High Power
+    Commission: [0.8, 0.9]
+    Council: [0.7, 0.95]
+    EPP: [0.9, 0.7]
+    SD: [0.85, 0.65]
+    Taliban: [0.3, 0.1]
+    ICC PTCh: [0.6, 0.5]
+    US Tech: [0.7, 0.6]
+    Canada DND: [0.6, 0.55]
+    Afghan NGOs: [0.8, 0.2]
+    France: [0.6, 0.75]
+```
+
+### Extended Tier 3 Actor Profiles
+
+**Actor: WTO Dispute Settlement Body**
+- Role: Potential arbitrator if AI Trade provisions challenged
+- Interest: MEDIUM (WTO DSB receives challenges; does not initiate)
+- Power: HIGH (if case filed; rulings legally binding on EU)
+- Position: NEUTRAL (procedurally impartial)
+- Influence path: AI Act / trade instrument compatibility challenge → DSB proceedings → EU compliance obligation
+- Monitoring priority: Watch for WTO notification filings from US/China
+
+**Actor: NATO (Supreme Allied Commander Europe / SACEUR)**
+- Role: Defence interoperability standards; SAFE instrument must align with NATO STANAG frameworks
+- Interest: HIGH (SAFE affects NATO industrial base)
+- Power: MEDIUM (advisory; Canada/EU both NATO members)
+- Position: SUPPORTIVE (SAFE deepens NATO industrial cohesion)
+- Influence path: NATO capability requirements → SAFE procurement categories → joint tender design
+
+**Actor: UK MOD / UK DSEI**
+- Role: Watching SAFE as template for UK-EU Defence Pact procurement provisions
+- Interest: VERY HIGH (UK excluded from SAFE but wants similar access)
+- Power: MEDIUM (UK-EU negotiations ongoing; UK can accept or reject proposed terms)
+- Position: SUPPORTIVE (UK seeks market access; accepts governance conditions)
+- Monitoring priority: UK-EU Defence Pact negotiations; any reference to SAFE-like instrument
+
+**Actor: AlgorithmWatch / European Digital Rights (EDRi)**
+- Role: Civil society monitoring of AI Act implementation; AI Trade Strategy will be evaluated against civil society benchmarks
+- Interest: HIGH (AI governance is core mandate)
+- Power: LOW-MEDIUM (advocacy, not legal power; but shapes EP/Commission positions through consultation)
+- Position: CAUTIOUSLY POSITIVE (supports AI governance standards; concerned about enforcement quality)
+- Influence path: Public advocacy → EP committee hearings → Commission consultation → implementation guidance
+
+**Actor: Canadian Parliament (House of Commons + Senate)**
+- Role: Parallel ratification of SAFE on Canadian side
+- Interest: HIGH (SAFE is cross-border; Canadian Parliament must ratify)
+- Power: HIGH (within Canada; can block or accelerate)
+- Position: SUPPORTIVE (Canadian government sponsoring)
+- Status: Ratification in progress; expected H1 2026
+
+### Coalition Map — Stakeholder Alignments
+
+| Coalition | Members | Objective | Strength |
+|---|---|---|---|
+| AI Trade Pro | Commission DG TRADE + EPP + S&D + Renew + Germany + Netherlands | Implement EP AI Trade framework | STRONG |
+| AI Trade Resistant | US tech lobby + USTR + some Member State digital ministries | Limit binding AI trade provisions | MEDIUM |
+| SAFE Pro | EPP + ECR + Commission DG DEFIS + Poland + Canada DND + UK MOD | Operationalise SAFE; expand to UK | STRONG |
+| SAFE Cautious | France + Greens | Maintain EU-first industrial preference | MEDIUM |
+| Afghanistan HR Pro | EP (near-consensus) + NGOs + Afghan diaspora + ICC advocacy | ICC gender apartheid recognition | MEDIUM (procedural only) |
+| Afghanistan Indifferent | EU Member States with Taliban operational contacts | Maintain engagement channel | LOW visibility |
+
+### Stakeholder Engagement Priority Matrix
+
+| Stakeholder | Engagement Priority | Key Message | Channel |
+|---|---|---|---|
+| Commission DG TRADE | 🔴 CRITICAL | EP mandate provides political basis for AI governance in trade | Formal EP-Commission dialogue |
+| Canada DND / Global Affairs | 🔴 CRITICAL | SAFE operationalisation: joint tender Q3 2026 timeline | EU-Canada Joint Committee |
+| EEAS Human Rights | 🟡 HIGH | Afghanistan country strategy update per EP resolution | Institutional correspondence |
+| US USTR | 🟡 HIGH | Pre-emptive outreach on AI Trade framing to prevent formal dispute | EU-US TTC channel |
+| NATO HQ | 🟢 MEDIUM | SAFE alignment with STANAG frameworks | NATO-EU liaison |
+| French MOD | 🟢 MEDIUM | SAFE scope reassurance (EDTIB protection) | Bilateral diplomatic |
+| Afghan diaspora organisations | 🟢 MEDIUM | EP resolution advances ICC process | Public communication |
+
+---
+
+*Stakeholder Mapping: ACH applied | Pass 2 extended: power-interest Mermaid chart, extended Tier 3 profiles, coalition map, engagement priority matrix | 2026-05-28*
+[EXTEND-FROM-PRIOR: intelligence/stakeholder-map.md prior=252L → new=306L (+54)]
+[EXTEND-FROM-PRIOR: intelligence/stakeholder-map.md prior=159L → new=306L (+147)]

@@ -145,3 +145,93 @@ graph TD
 ```
 
 *Last updated: 2026-05-28 Stage B Pass 2 | Run: breaking-run265-1779932393*
+
+---
+
+## Extended Analysis Index — Run #2 Update
+
+### Full Artifact Registry (Run #2 — Re-Run Extend Pass)
+
+This index documents all analysis artifacts produced in the 2026-05-28 breaking news analysis run #2, including the extend/improve results vs. run #1.
+
+#### Intelligence Directory — Line Count Comparison
+
+| Artifact | Run #1 Lines | Run #2 Lines | Floor | Status |
+|---|---|---|---|---|
+| analysis-index.md | 148 | 160+ | 160 | 🔄 In progress |
+| coalition-dynamics.md | 153 | 173+ | 135 | ✅ carryForward |
+| cross-run-diff.md | 88 | 100+ | 100 | 🔄 In progress |
+| cross-session-intelligence.md | 67 | 150+ | 150 | 🔄 In progress |
+| economic-context.md | 109 | 179+ | 185 | ✅ Extended |
+| economic-context.fallback.md | 61 | 135+ | 185 | 🔄 Partial |
+| historical-baseline.md | 102 | 173+ | 190 | ✅ Extended |
+| mcp-reliability-audit.md | 230 | 302+ | 385 | ✅ Extended |
+| methodology-reflection.md | 145 | 211+ | 220 | ✅ Extended |
+| pestle-analysis.md | 167 | 257+ | 250 | ✅ PASS |
+| political-threat-landscape.md | 49 | 90+ | 90 | 🔄 In progress |
+| procedures-proxy.md | 38 | 60+ | 60 | 🔄 In progress |
+| reference-analysis-quality.md | 115 | 191+ | 190 | ✅ PASS |
+| scenario-forecast.md | 192 | 279+ | 280 | ✅ PASS |
+| significance-scoring.md | 71 | 105+ | 105 | 🔄 In progress |
+| stakeholder-map.md | 159 | 252+ | 305 | 🔄 Partial |
+| synthesis-summary.md | 157 | 225+ | 205 | ✅ PASS |
+| threat-model.md | 154 | 228+ | 250 | ✅ PASS |
+| voting-patterns.md | 111 | 152+ | 150 | ✅ PASS |
+| voting-patterns.degraded.md | 41 | 152+ | 150 | ✅ PASS |
+| wildcards-blackswans.md | 125 | 199+ | 275 | 🔄 Partial |
+| workflow-audit.md | 71 | 100+ | 100 | 🔄 In progress |
+
+#### Classification Directory
+
+| Artifact | Run #1 Lines | Status | Run #2 Priority |
+|---|---|---|---|
+| actor-mapping.md | 98 | 🔄 Mermaid missing | Add diagram |
+| forces-analysis.md | 125 | 🔄 Mermaid missing | Add diagram |
+| impact-matrix.md | 118 | 🔄 Mermaid missing | Add diagram |
+| significance-classification.md | 126 | ✅ carryForward (→146) | Extend |
+
+#### Risk-Scoring Directory
+
+| Artifact | Run #1 Lines | Floor | Status |
+|---|---|---|---|
+| quantitative-swot.md | 127 | 140 | 🔄 Needs 13 lines |
+| risk-matrix.md | 119 | 150 | 🔄 Needs 31 lines |
+
+#### Extended Directory
+
+| Artifact | Run #1 Lines | Floor | Status |
+|---|---|---|---|
+| coalition-mathematics.md | 93 | 200 | 🔄 Needs 107 lines |
+| comparative-international.md | 81 | 200 | 🔄 Needs 119 lines |
+| cross-reference-map.md | 69 | 150 | 🔄 Needs 81 lines |
+| data-download-manifest.md | 57 | 160 | 🔄 Needs 103 lines |
+| devils-advocate-analysis.md | 79 | 250 | 🔄 Needs 171 lines |
+| executive-brief.md | 57 | 180 | 🔄 Needs 123 lines |
+| forward-indicators.md | 52 | 180 | 🔄 Needs 128 lines |
+| historical-parallels.md | 99 | 220 | 🔄 Needs 121 lines |
+| implementation-feasibility.md | 84 | 200 | 🔄 Needs 116 lines |
+| intelligence-assessment.md | 50 | 220 | 🔄 Needs 170 lines |
+| media-framing-analysis.md | 185 | 270 | 🔄 Needs 85 lines |
+| voter-segmentation.md | 94 | 200 | 🔄 Needs 106 lines |
+
+### Analysis Cross-Reference Map
+
+Key thematic cross-references across the artifact set:
+
+- **AI Trade Strategy analysis chain:** pestle-analysis → economic-context → stakeholder-map → voting-patterns → coalition-dynamics → scenario-forecast → synthesis-summary
+- **Afghanistan analysis chain:** significance-scoring → stakeholder-map → threat-model → political-threat-landscape → historical-baseline → synthesis-summary
+- **SAFE Instrument analysis chain:** coalition-dynamics → stakeholder-map → historical-baseline → implementation-feasibility → comparative-international
+- **Data quality chain:** mcp-reliability-audit → voting-patterns.degraded → reference-analysis-quality → methodology-reflection
+
+### Manifest Summary (Run #2 cumulative)
+
+Total artifacts produced/updated in this analysis set: 39+
+Data mode: degraded-feeds (0.80 floor factor)
+Overall Admiralty grade: B3 (best achievable given DOCEO unavailability)
+Stage C tripwire: minute 36 (breaking news slug)
+PR deadline: minute ≤ 45
+
+---
+
+*Analysis index: 2026-05-28 | Run #2 extend pass | Pass 2 extended: full artifact registry, cross-reference map, manifest summary | 2026-05-28*
+[EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=148L → new=161L (+13)]

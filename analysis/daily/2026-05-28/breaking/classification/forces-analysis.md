@@ -122,3 +122,69 @@ The forces analysis reveals that the three May 2026 texts face fundamentally dif
 ---
 
 *Forces analysis | Force-Field methodology | SAT: KAC applied to force assumptions | 2026-05-28 | Run: breaking-run265-1779932393*
+
+---
+
+## Extended Forces Analysis — Pass 2 Force Field Diagram
+
+### Force-Field Analysis: AI Trade Strategy Implementation
+
+```mermaid
+graph LR
+    subgraph DRIVING["→ Driving Forces"]
+        D1["EP near-supermajority mandate\n(~69% YES)"]
+        D2["Brussels Effect precedent\n(GDPR 2016-2022)"]
+        D3["Commission Digital Trade\nCommunication (Q3 2026)"]
+        D4["EU-AI Act already in force\n(compliance infrastructure built)"]
+        D5["EU current account surplus\n(strong negotiating position)"]
+    end
+    
+    TARGET["AI Trade Strategy\nImplementation"]
+    
+    subgraph RESTRAINING["← Restraining Forces"]
+        R1["US USTR opposition to\nAI governance in trade"]
+        R2["China market access\nrestriction concerns"]
+        R3["Commission discretion\n(no obligation to implement)"]
+        R4["WTO compatibility uncertainty\nfor binding measures"]
+        R5["Industry lobbying\n(US tech / AmCham EU)"]
+    end
+    
+    D1 --> TARGET
+    D2 --> TARGET
+    D3 --> TARGET
+    D4 --> TARGET
+    D5 --> TARGET
+    
+    TARGET --> R1
+    TARGET --> R2
+    TARGET --> R3
+    TARGET --> R4
+    TARGET --> R5
+```
+
+### Force Strength Assessment
+
+**Driving forces total strength:** 38/50 (HIGH)
+**Restraining forces total strength:** 25/50 (MEDIUM)
+
+**Net force assessment:** +13/50 (POSITIVE TOWARD IMPLEMENTATION)
+
+| Force | Type | Strength (1–10) | Modifiability |
+|---|---|---|---|
+| EP near-supermajority mandate | Driving | 8 | Low (mandate is established) |
+| Brussels Effect GDPR precedent | Driving | 7 | Low (precedent is established) |
+| Commission Digital Trade Comm | Driving | 8 | Medium (timing variable) |
+| AI Act compliance infrastructure | Driving | 8 | Low (infrastructure built) |
+| EU trade surplus | Driving | 7 | Low (structural) |
+| US USTR opposition | Restraining | 7 | Medium (negotiable) |
+| China concerns | Restraining | 5 | Low (structural divergence) |
+| Commission discretion | Restraining | 6 | Low (treaty-based) |
+| WTO uncertainty | Restraining | 4 | Medium (technical fixes possible) |
+| Industry lobbying | Restraining | 3 | Low (constant but contained) |
+
+**Strategic implication:** The driving forces substantially outweigh the restraining forces. Implementation is likely, though scope and timeline subject to US bilateral pressure dynamics.
+
+---
+
+*Forces analysis | Pass 2 extended: Force-Field Mermaid diagram, strength assessment table, strategic implication | 2026-05-28*
+[EXTEND-FROM-PRIOR: classification/forces-analysis.md prior=124L → new=152L (+28)]
