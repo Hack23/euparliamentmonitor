@@ -69,16 +69,16 @@ to execute.
 
 | Slug | Engine model | Pass 1 (min) | Pass 2 (min) | PR call by |
 |---|---|---:|---:|---:|
-| `breaking` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
-| `committee-reports` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
-| `motions` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
-| `propositions` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
-| `week-ahead` / `month-ahead` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
-| `week-in-review` / `month-in-review` | claude-sonnet-4.6 | 15 | 10 | ≤ 45 min |
-| `quarter-in-review` / `year-in-review` | claude-sonnet-4.6 | 18 | 12 | ≤ 45 min |
-| `quarter-ahead` / `year-ahead` | claude-sonnet-4.6 | 18 | 12 | ≤ 45 min |
+| `breaking` | claude-opus-4.8 | 12 | 8 | ≤ 42 min |
+| `committee-reports` | claude-opus-4.8 | 12 | 8 | ≤ 42 min |
+| `motions` | claude-opus-4.8 | 12 | 8 | ≤ 42 min |
+| `propositions` | claude-opus-4.8 | 12 | 8 | ≤ 42 min |
+| `week-ahead` / `month-ahead` | claude-opus-4.8 | 12 | 8 | ≤ 42 min |
+| `week-in-review` / `month-in-review` | claude-opus-4.8 | 15 | 10 | ≤ 45 min |
+| `quarter-in-review` / `year-in-review` | claude-opus-4.8 | 18 | 12 | ≤ 45 min |
+| `quarter-ahead` / `year-ahead` | claude-opus-4.8 | 18 | 12 | ≤ 45 min |
 | `term-outlook` / `election-cycle` | claude-opus-4.8 | 22 | 15 | ≤ 47 min |
-| `deep-analysis` | claude-sonnet-4.6 | 22 | 15 | ≤ 45 min |
+| `deep-analysis` | claude-opus-4.8 | 22 | 15 | ≤ 45 min |
 
 Authoritative per-slug horizons (and the `mandatoryArtifact` lists) live in
 [`src/config/article-horizons.ts`](../../src/config/article-horizons.ts) — the
