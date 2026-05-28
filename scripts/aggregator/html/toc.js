@@ -14,6 +14,7 @@ import { READER_GUIDE_SECTION_ID } from '../reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS, getReaderGuideSectionIcon, } from '../reader-intelligence-guide.js';
 import { TRADECRAFT_SECTION_ID, MANIFEST_SECTION_ID, SUPPLEMENTARY_SECTION_ID, } from '../artifact-order.js';
 import { KEY_TAKEAWAYS_SECTION_ID } from '../key-takeaways.js';
+import { resolveDisclosureLayer } from '../progressive-disclosure.js';
 /**
  * Resolve a localized title for a TOC entry based on its section ID.
  * Falls back to the original English title if no translation is available.
@@ -94,7 +95,9 @@ export function buildArticleToc(entries, lang) {
         .map((e) => {
         const displayTitle = getLocalizedTocTitle(e.id, e.title, lang);
         const icon = getTocSectionIcon(e.id);
-        return `        <li><a href="#${escapeHTML(e.id)}"><span class="article-toc-icon" aria-hidden="true">${icon}</span> <span class="article-toc-text">${escapeHTML(displayTitle)}</span></a></li>`;
+        const layer = resolveDisclosureLayer(e.id);
+        const layerBadge = layer === 'quick' ? 'L1' : layer === 'analysis' ? 'L2' : 'L3';
+        return `        <li data-layer="${layer}"><a href="#${escapeHTML(e.id)}"><span class="article-toc-icon" aria-hidden="true">${icon}</span> <span class="article-toc-text">${escapeHTML(displayTitle)}</span><span class="article-toc-layer article-toc-layer--${layer}" aria-label="Layer ${layerBadge}">${layerBadge}</span></a></li>`;
     })
         .join('\n');
     return [

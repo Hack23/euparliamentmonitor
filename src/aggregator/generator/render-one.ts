@@ -51,6 +51,10 @@ import type { CliOptions } from './cli.js';
 import { buildArticleSlug } from './slug.js';
 import { discoverAnalysisRuns } from './discovery.js';
 import { insertReaderGuideAfterExecutiveBrief } from './reader-guide-insertion.js';
+import {
+  buildLayerReadingTimes,
+  splitBodyIntoDisclosureLayers,
+} from '../progressive-disclosure.js';
 
 /** Result summary returned by `generateArticle`. */
 export interface GenerateResult {
@@ -211,6 +215,7 @@ function writeLanguageVariant(
   bodyHtml = localizeArticleBody(bodyHtml, lang);
   bodyHtml = enhanceTradecraftCards(bodyHtml, lang);
   bodyHtml = enhanceAnalysisIndexCards(bodyHtml, lang);
+  const readingTimes = buildLayerReadingTimes(splitBodyIntoDisclosureLayers(bodyHtml).wordCounts);
   const entry = getMetadataEntry(chromeOptions.metadata, lang);
   const perLangDescription =
     lang !== 'en' && metaSource !== aggregated.markdown
@@ -231,6 +236,7 @@ function writeLanguageVariant(
     articleCount: chromeOptions.articleCount,
     isBasedOn: aggregated.includedArtifacts.map((a) => blobUrl(a.repoRelPath)),
     mentions: chromeOptions.mentions,
+    readingTimes,
   });
   const filename = getArticleFilename(slug, lang);
   fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');

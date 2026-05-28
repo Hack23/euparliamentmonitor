@@ -32,6 +32,7 @@ import {
   SUPPLEMENTARY_SECTION_ID,
 } from '../artifact-order.js';
 import { KEY_TAKEAWAYS_SECTION_ID } from '../key-takeaways.js';
+import { resolveDisclosureLayer } from '../progressive-disclosure.js';
 
 /** One entry in the article-level TOC sidebar (mirrors `TocSection`). */
 export interface ArticleTocEntry {
@@ -121,7 +122,9 @@ export function buildArticleToc(entries: readonly ArticleTocEntry[], lang: Langu
     .map((e) => {
       const displayTitle = getLocalizedTocTitle(e.id, e.title, lang);
       const icon = getTocSectionIcon(e.id);
-      return `        <li><a href="#${escapeHTML(e.id)}"><span class="article-toc-icon" aria-hidden="true">${icon}</span> <span class="article-toc-text">${escapeHTML(displayTitle)}</span></a></li>`;
+      const layer = resolveDisclosureLayer(e.id);
+      const layerBadge = layer === 'quick' ? 'L1' : layer === 'analysis' ? 'L2' : 'L3';
+      return `        <li data-layer="${layer}"><a href="#${escapeHTML(e.id)}"><span class="article-toc-icon" aria-hidden="true">${icon}</span> <span class="article-toc-text">${escapeHTML(displayTitle)}</span><span class="article-toc-layer article-toc-layer--${layer}" aria-label="Layer ${layerBadge}">${layerBadge}</span></a></li>`;
     })
     .join('\n');
   return [

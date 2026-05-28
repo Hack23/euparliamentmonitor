@@ -814,11 +814,17 @@ The article shell includes:
 - `.article-toc-summary`
 - `.article-toc-list`
 - `.article-body`
+- `.article-reading-times`
+- `.article-layer--quick` (always visible)
+- `.article-layer--analysis` (`<details>` collapsed by default)
+- `.article-layer--intelligence` (`<details>` collapsed by default)
 - `.article-source-md`
 - `.table-scroll`
 - `.artifact-source`
 
-The TOC is derived from canonical H2 sections emitted by `analysis-aggregator.ts`; it is not manually authored.
+The TOC is derived from canonical H2 sections emitted by `analysis-aggregator.ts`; it is not manually authored. Each TOC row now carries an `L1`/`L2`/`L3` layer badge so readers can see whether the destination is in quick-read, analysis, or full-intelligence depth.
+
+Progressive disclosure uses semantic HTML (`<section>` + `<details>/<summary>`) for WCAG-compatible keyboard and screen-reader navigation. `js/article-runtime.js` auto-opens the relevant disclosure layer when a hash anchor is visited (direct URL or TOC click) and persists layer open/closed state in `sessionStorage` per article path.
 
 ### Footer
 
