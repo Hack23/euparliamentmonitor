@@ -64,36 +64,36 @@ flowchart TB
 
 | # | Path | Purpose | Floor (effective) | Lines | Grade |
 |---|---|---|---:|---:|:---:|
-| 1 | `executive-brief.md` | C-suite TL;DR | 141 | TBD | B2 |
+| 1 | `executive-brief.md` | C-suite TL;DR | 141 | 143 | B2 |
 | 2 | `data-availability-assessment.md` | Feed health | 51 | 72 | A2 |
 | 3 | `intelligence/procedures-proxy.md` | Proxy reconstruction | 38 | 70 | B3 |
-| 4 | `intelligence/economic-context.md` | IMF macro envelope | 154 | TBD | A2 |
-| 5 | `intelligence/synthesis-summary.md` | Master synthesis | 179 | TBD | B2 |
-| 6 | `intelligence/scenario-forecast.md` | Three-scenario | 230 | TBD | B3 |
-| 7 | `intelligence/forward-projection.md` | LTI projection | 230 | TBD | B3 |
+| 4 | `intelligence/economic-context.md` | IMF macro envelope | 154 | 157 | A2 |
+| 5 | `intelligence/synthesis-summary.md` | Master synthesis | 179 | 179 | B2 |
+| 6 | `intelligence/scenario-forecast.md` | Three-scenario | 230 | 231 | B3 |
+| 7 | `intelligence/forward-projection.md` | LTI projection | 230 | 232 | B3 |
 | 8 | `intelligence/coalition-dynamics.md` | Coalition arith | 154 | 155 | B2 |
 | 9 | `intelligence/stakeholder-map.md` | 48-actor roster | 192 | 240 | B2 |
 | 10 | `intelligence/pestle-analysis.md` | PESTLE matrix | 179 | 208 | B3 |
 | 11 | `intelligence/wildcards-blackswans.md` | Tail-risk | 179 | 210 | B3 |
 | 12 | `intelligence/historical-baseline.md` | EP9 baseline | 154 | 165 | A2 |
 | 13 | `intelligence/threat-model.md` | STRIDE adaptation | 166 | 206 | B2 |
-| 14 | `intelligence/mcp-reliability-audit.md` | Tool reliability | 154 | TBD | A1 |
-| 15 | `intelligence/methodology-reflection.md` | 10-step compliance | 154 | TBD | A1 |
-| 16 | `intelligence/term-arc.md` | 36-month arc | 205 | TBD | A2 |
-| 17 | `intelligence/seat-projection.md` | 2029 projection | 179 | TBD | B3 |
-| 18 | `intelligence/mandate-fulfilment-scorecard.md` | MFS | 179 | TBD | B2 |
-| 19 | `intelligence/presidency-trio-context.md` | Council cadence | 141 | TBD | A2 |
-| 20 | `intelligence/commission-wp-alignment.md` | WP25 alignment | 141 | TBD | A1 |
+| 14 | `intelligence/mcp-reliability-audit.md` | Tool reliability | 154 | 167 | A1 |
+| 15 | `intelligence/methodology-reflection.md` | 10-step compliance | 154 | 165 | A1 |
+| 16 | `intelligence/term-arc.md` | 36-month arc | 205 | 213 | A2 |
+| 17 | `intelligence/seat-projection.md` | 2029 projection | 179 | 180 | B3 |
+| 18 | `intelligence/mandate-fulfilment-scorecard.md` | MFS | 179 | 181 | B2 |
+| 19 | `intelligence/presidency-trio-context.md` | Council cadence | 141 | 163 | A2 |
+| 20 | `intelligence/commission-wp-alignment.md` | WP25 alignment | 141 | 185 | A1 |
 | 21 | `classification/significance-classification.md` | Significance | 77 | 121 | B2 |
-| 22 | `classification/actor-mapping.md` | Actor map | 77 | TBD | B2 |
-| 23 | `classification/forces-analysis.md` | Forces | 77 | TBD | B2 |
-| 24 | `classification/impact-matrix.md` | Impact matrix | 77 | TBD | B3 |
-| 25 | `risk-scoring/risk-matrix.md` | Risk matrix | 102 | TBD | B3 |
-| 26 | `risk-scoring/quantitative-swot.md` | SWOT | 102 | TBD | B2 |
-| 27 | `extended/media-framing-analysis.md` | Media | 179 | TBD | B3 |
-| 28 | `extended/forward-indicators.md` | Indicators | 166 | TBD | B2 |
-| 29 | `extended/historical-parallels.md` | Parallels | 154 | TBD | C3 |
-| 30 | `extended/comparative-international.md` | International | 154 | TBD | C3 |
+| 22 | `classification/actor-mapping.md` | Actor map | 77 | 100 | B2 |
+| 23 | `classification/forces-analysis.md` | Forces | 77 | 143 | B2 |
+| 24 | `classification/impact-matrix.md` | Impact matrix | 77 | 114 | B3 |
+| 25 | `risk-scoring/risk-matrix.md` | Risk matrix | 102 | 135 | B3 |
+| 26 | `risk-scoring/quantitative-swot.md` | SWOT | 102 | 109 | B2 |
+| 27 | `extended/media-framing-analysis.md` | Media | 179 | 186 | B3 |
+| 28 | `extended/forward-indicators.md` | Indicators | 166 | 167 | B2 |
+| 29 | `extended/historical-parallels.md` | Parallels | 154 | 159 | C3 |
+| 30 | `extended/comparative-international.md` | International | 154 | 167 | C3 |
 
 ## 4. Inter-artifact dependency map
 

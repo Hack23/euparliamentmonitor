@@ -33,14 +33,14 @@ quadrantChart
 | Rank | # | Risk | P | I | P×I | Mitigation |
 |---|---|---|:---:|:---:|---:|---|
 | 1 | R1 | Climate-2040 fracture | 0.65 | 0.85 | 0.55 | Phased target negotiation |
-| 2 | R5 | Trilogue deadlock cascade | 0.55 | 0.75 | 0.41 | COREPER triage |
-| 3 | R2 | Migration shock | 0.55 | 0.80 | 0.44 | Pre-stage migration package |
+| 2 | R2 | Migration shock | 0.55 | 0.80 | 0.44 | Pre-stage migration package |
+| 3 | R5 | Trilogue deadlock cascade | 0.55 | 0.75 | 0.41 | COREPER triage |
 | 4 | R4 | vdL II reshuffle | 0.50 | 0.75 | 0.38 | Rapporteur continuity |
 | 5 | R6 | Council unanimity collapse | 0.45 | 0.80 | 0.36 | QMV alternative |
 | 6 | R9 | Lobby capture | 0.55 | 0.55 | 0.30 | Counter-balancing |
 | 7 | R8 | Snap MS election | 0.30 | 0.70 | 0.21 | Presidency handover |
-| 8 | R3 | Coalition cordon breach | 0.20 | 0.95 | 0.19 | S&D + Renew anchoring |
-| 9 | R7 | EA recession | 0.25 | 0.85 | 0.21 | MFF mid-term acceleration |
+| 8 | R7 | EA recession | 0.25 | 0.85 | 0.21 | MFF mid-term acceleration |
+| 9 | R3 | Coalition cordon breach | 0.20 | 0.95 | 0.19 | S&D + Renew anchoring |
 | 10 | R11 | MCP/EP data outage | 0.30 | 0.30 | 0.09 | Proxy reconstruction |
 | 11 | R10 | Treaty-change signal | 0.15 | 0.45 | 0.07 | Pre-positioning |
 

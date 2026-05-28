@@ -26,12 +26,12 @@ timeline
         Sep 27 : Italian national election (likely)
         Oct 27 : MFF negotiations open
         Dec 27 : EUCO conclusions
-    section 2028 H1 (Slovakia)
+    section 2028 H1 (Netherlands)
         Jan 28 : NL presidency
         Mar 28 : Defence Union package vote
         Apr 28 : MFF closure target
         Jun 28 : EUCO MFF endorsement
-    section 2028 H2 (Sweden)
+    section 2028 H2 (Slovakia)
         Jul 28 : SK presidency
         Oct 28 : MFF mid-term review H2
         Dec 28 : Pre-campaign window opens
@@ -176,7 +176,7 @@ gantt
 - `intelligence/presidency-trio-context.md` — presidency anchor detail.
 - `intelligence/seat-projection.md` — Phase E campaign-frame detail.
 
-## 12. Phase-level KPI tracking
+## 11. Phase-level KPI tracking
 
 | Phase | Lead KPI | Confirming KPI | Lagging KPI |
 |---|---|---|---|
@@ -186,7 +186,7 @@ gantt
 | D (consolidate) | Implementation regs | Member-state transposition | Policy-impact metrics |
 | E (campaign) | Manifesto drafts | National-poll convergence | EP-election turnout |
 
-## 13. Phase-transition triggers
+## 12. Phase-transition triggers
 
 Triggers that advance the term from one phase to the next:
 
@@ -197,7 +197,7 @@ Triggers that advance the term from one phase to the next:
 
 Each transition is documented in `extended/forward-indicators.md`.
 
-## 14. Phase-risk concentration
+## 13. Phase-risk concentration
 
 Risk concentration by phase (cross-ref `risk-scoring/risk-matrix.md`):
 
@@ -207,7 +207,7 @@ Risk concentration by phase (cross-ref `risk-scoring/risk-matrix.md`):
 - Phase D: R6, R8 (implementation drift, capability gap).
 - Phase E: R9 (election platform fragmentation).
 
-## 15. Re-evaluation cadence
+## 14. Re-evaluation cadence
 
 Term-arc refreshed at every semi-annual term-outlook cron. Per-phase
 metric targets refreshed quarterly via plenary roll-call patterns.

@@ -15,8 +15,8 @@
   baseline procedural pipeline for the 2025-2029 mandate; 51 priority files
   identified for the term.
 - **Council Presidency trio schedule** (publicly fixed through 2030) —
-  drives the legislative-pipeline rhythm: DK-CY-IE (H2 2025 – H2 2026),
-  LT-GR-LV (H1 2027 – H1 2028), NL-SK-SE (H2 2028 – H2 2029).
+  drives the legislative-pipeline rhythm: HU-PL-DK (H1 2025 – H2 2026),
+  CY-IE-NL (H1 2027 – H1 2028), SK-SE-LT (H2 2028 – H2 2029).
 
 ## Inferred in-flight procedure count
 

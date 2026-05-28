@@ -69,7 +69,7 @@ WEP Likely band given electoral uncertainty.
 | EP Open Data Portal procedures feeds | C5 (3-of-4 returned 404) | `procedures-proxy.md` reconstruction |
 | EP Open Data Portal text feeds | B2 | `data-availability-assessment.md` |
 | EP get_all_generated_stats | A2 | `historical-baseline.md` |
-| IMF SDMX WEO 2026-04 | A1 | `economic-context.md` |
+| IMF SDMX WEO Oct 2025 | A1 | `economic-context.md` |
 | Politico Poll-of-Polls | A2 | `seat-projection.md` |
 | EP plenary RCV (DOCEO) | A2 | `coalition-dynamics.md` |
 | Commission WP25 | A1 | `commission-wp-alignment.md` |

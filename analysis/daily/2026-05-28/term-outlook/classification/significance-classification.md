@@ -16,7 +16,7 @@
 
 ## 2. Significance score (composite, 0–10)
 
-- **Stakeholder breadth**: 9 (all 27 MS + 705 MEPs + 27 Commissioners + ECB + ECA)
+- **Stakeholder breadth**: 9 (all 27 MS + 720 MEPs + 27 Commissioners + ECB + ECA)
 - **Policy domain breadth**: 8 (climate, defence, single-market, enlargement, fiscal, digital, migration)
 - **Decision irreversibility**: 7 (MFF / climate-2040 / defence-financing decisions taken in this window will set 2030–2034 baselines)
 - **Time-criticality**: 6 (no single trigger event; cumulative)

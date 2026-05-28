@@ -3,7 +3,7 @@
   "dataMode": "degraded-feeds",
   "date": "2026-05-28",
   "runDate": "2026-05-28",
-  "runId": "term-outlook-2026-05-28",
+  "runId": "term-outlook-run347-1779926654",
   "generator": "news-term-outlook.md",
   "files": {
     "intelligence": [
@@ -57,9 +57,9 @@
   },
   "history": [
     {
-      "runId": "term-outlook-2026-05-28",
+      "runId": "term-outlook-run347-1779926654",
       "timestamp": "2026-05-28T00:00:00Z",
-      "gateResult": "pending",
+      "gateResult": "PENDING",
       "dataMode": "degraded-feeds",
       "artifactCount": 31
     }
