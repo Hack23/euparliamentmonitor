@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Committee Activity Report"
-description: "Run 52 is the independent re-confirmation of the Q1 2026 record (104 adopted texts + 114 legislative acts; +46 % vs."
+description: "Analysis of recent legislative output, effectiveness metrics, and key committee activities Published 2026-04-16."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-16", "Parliament", "Committee", "Activity"]
 date: 2026-04-16
 article_type: committee-reports

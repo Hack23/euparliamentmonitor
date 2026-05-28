@@ -1,5 +1,5 @@
 ---
-title: "EP10 Term Synthesis Summary (#367)"
+title: "EP10 Term Synthesis Summary"
 description: "The European Parliament's tenth term (EP10) is proceeding through a structural transformation that will define European governance for the remainder of."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "term outlook", "parliamentary term", "strategic forecast", "2026-05-07", "EP10", "Term", "Synthesis", "Summary"]
 date: 2026-05-07

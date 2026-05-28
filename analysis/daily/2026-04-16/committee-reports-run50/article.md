@@ -1,6 +1,6 @@
 ---
 title: "documents the record Q1 2026 committee output"
-description: "Run 50 documents the record Q1 2026 committee output: 114 legislative acts adopted — a +46 % increase over the full-year 2025 total of 78 acts."
+description: "Analysis of recent legislative output, effectiveness metrics, and key committee activities Published 2026-04-16."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-04-16", "documents", "record", "committee"]
 date: 2026-04-16
 article_type: committee-reports

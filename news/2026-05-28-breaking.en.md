@@ -1,5 +1,5 @@
 ---
-title: "Analyst Attestation: This executive brief has been (#275)"
+title: "Analyst Attestation: This executive brief has been"
 description: "Analyst Attestation: This executive brief has been reviewed end-to-end. All key assumptions are explicitly stated. WEP bands applied throughout."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-05-28", "Analyst", "Attestation", "This"]
 date: 2026-05-28

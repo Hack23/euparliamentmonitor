@@ -1,6 +1,6 @@
 ---
 title: "establishes the T-8 countdown intelligence baseline to the"
-description: "Run 186 establishes the T-8 countdown intelligence baseline to the 27 April plenary return. Published 2026-04-19."
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-19 for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-19", "establishes", "countdown", "intelligence"]
 date: 2026-04-19
 article_type: breaking

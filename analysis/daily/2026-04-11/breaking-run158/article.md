@@ -1,6 +1,6 @@
 ---
 title: "(Easter Recess Final Weekend) extends with an additional"
-description: "Run 158 (Easter Recess Final Weekend) extends Run 157 with an additional 11.6K characters of coalition-dynamics analysis layered onto the 264K."
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-11 for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-11", "Easter", "Recess", "Final"]
 date: 2026-04-11
 article_type: breaking
@@ -215,6 +215,500 @@ No single coalition forms on tariff text. Multiple amendments create a patchwork
 External pressure from markets/media creates emergency consensus. All mainstream groups (EPP+S&D+Renew+ECR+Greens) unite on emergency tariff response. Historic cross-spectrum vote. Three-pole dynamic temporarily suspended.
 
 **Confidence in scenario probabilities:** LOW — no live feed data to assess weekend communications and pre-restart positioning.
+
+### Executive Brief Ar
+
+### BLUF
+
+تُوسِّع الجولة 158 (عطلة عيد القيامة، عطلة نهاية الأسبوع الأخيرة) الجولةَ 157 بإضافة **11,600 حرف إضافي من تحليل ديناميكيات الائتلاف** مُطبَّقًا فوق خط الأساس البالغ 264,000 حرف من الإحصاءات المُحسَبة مسبقًا. يُجسِّد الإطار — «عطلة نهاية الأسبوع الأخيرة» — حقيقةَ أن 11 أبريل هو آخر عطلة نهاية أسبوع قبل تقاطع التعريفة T-0 وعودة الدورة البرلمانية في 15 أبريل. المساهمة التحليلية: نمذجة ديناميكيات الائتلاف لدورة الجلسة العامة ما بعد العطلة، مُرتكِزةً على الائتلاف العملي المستقر لـ EP10 المؤلَّف من EPP + S&D + Renew (نحو 397 مقعدًا) الذي يصمد حتى نهاية العطلة. *مستوى الثقة: متوسط؛ درجة الأدميرالية: B2.*
+
+### Three Decisions
+
+1. **ترسيخ الطبقة التحليلية لديناميكيات الائتلاف بوصفها مُخرَجًا متكررًا لمجموعة العطلات.** يُمثِّل نمذجةُ 11,600 حرف من الائتلاف في يوم تراجَعت فيه تدفقات البيانات مساهمةً ذات نسبة إشارة إلى ضوضاء مرتفعة؛ ينبغي لجولات مجموعة العطلات اللاحقة تطبيع هذا المُخرَج. *مستوى الثقة: مرتفع.*
+2. **التعامل مع إطار «عطلة نهاية الأسبوع الأخيرة» بوصفه الإشارةَ الكنونية لنقطة نهاية العطلة.** تُرسِّخ أطر نهاية عطلة الأسبوع بطبيعتها نقطة تحول الانتقال المؤسسي نحو الدورة اللاحقة للعطلة. *مستوى الثقة: متوسط إلى مرتفع.*
+3. **التأكيد على استقرار الائتلاف العملي لـ EPP + S&D + Renew حتى نهاية العطلة.** يصمد الأغلبية العاملة البالغة 397 مقعدًا خلال نهاية العطلة — لا توجد أحداث انكسار أو تشقق ملحوظة. *مستوى الثقة: متوسط (لا توجد تأكيدات تصويت؛ استنتاج سلوكي فقط).*
+
+### 60-Second Read
+
+يُضيف استطلاع عطلة نهاية الأسبوع الأخيرة عمقًا في ديناميكيات الائتلاف إلى السجل التحليلي لمجموعة العطلات. يُمثِّل الاكتشاف الجوهري (استقرار الائتلاف العملي) دليلًا إيجابيًا على استمرارية العودة إلى الجلسة العامة، مع التحفظ المعتاد بأن الاستنتاج السابق للتصويت لا يُمكِّن من التأكيد القاطع على التماسك.
+
+### Risk Snapshot
+
+| المخاطر | الاحتمالية | التأثير |
+|---|---:|---:|
+| ظهور تشققات في الائتلاف العملي أثناء T-0 / عودة الجلسة العامة | منخفضة–متوسطة | مرتفع |
+| عدم الحفاظ على الطبقة التحليلية لديناميكيات الائتلاف بهذه الدقة | متوسطة | منخفضة–متوسطة |
+| انهيار إطار عطلة نهاية الأسبوع الأخيرة إلى سردية انتقال واحدة | منخفضة | منخفضة |
+
+### Source Quality
+
+- 264,000 حرف إحصاءات مُحسَبة مسبقًا: **B2**
+- 11,600 حرف تحليل ديناميكيات الائتلاف: **B2**
+- استنتاج استقرار الائتلاف العملي: **C2** (لا توجد تأكيدات تصويت)
+
+### Provenance
+
+- الجولة: `breaking-run158` (2026-04-11، عطلة نهاية الأسبوع الأخيرة للعطلة البرلمانية، T-4)
+- الامتثال: بوابة البيانات المفتوحة للبرلمان الأوروبي + إحصاءات مُحسَبة مسبقًا + نمذجة الائتلاف. متوافق مع اللائحة الأوروبية لحماية البيانات (GDPR).
+
+---
+*الحياد التحليلي: الاستنتاجات السابقة للتصويت مُصنَّفة بشكل صريح.*
+
+### Executive Brief Da
+
+### BLUF
+
+Kørsel 158 (Påskeferie Sidste Weekend) udvider kørsel 157 med yderligere **11.600 tegn koalitionsdynamikanalyse** lagt ovenpå 264.000 tegn forudberegnet statistikbaseline. Rammesætningen — "sidste weekend" — afspejler, at 11. april er den sidste weekend inden konvergensen mellem Toldsats T-0 og recessens tilbagevenden den 15. april. Det analytiske bidrag: koalitionsdynamisk modellering for plenarperioden efter recessens afslutning, forankret i EP10's stabile EPP + S&D + Renew arbejdskoalition (ca. 397 mandater), der holder igennem recessens afslutning. *Tillid: MEDIUM; Admiralitetsgrad: B2.*
+
+### Three Decisions
+
+1. **Forankre det koalitionsdynamiske analytiske lag som et tilbagevendende recessklusterresultat.** 11.600 tegns koalitionsmodellering på en dag med forringede datafeeds er et højt signal-støj-bidrag; efterfølgende recessklusterkørsler bør normalisere dette output. *Tillid: HØJ.*
+2. **Behandle "sidste weekend"-rammesætningen som det kanoniske signal for recessens slutpunkt.** Weekend-finale rammesætninger forankrer naturligt den institutionelle overgangspivot mod cyklussen efter recessens afslutning. *Tillid: MEDIUM-HØJ.*
+3. **Bekræfte stabiliteten i EPP + S&D + Renews arbejdskoalition igennem recessens afslutning.** Arbejdskoalitionens 397-mandatsmajoritet holder igennem recessens afslutning — ingen observerbare brud- eller splittelseshændelser. *Tillid: MEDIUM (ingen afstemningsbekræftelse; adfærdsinferens).*
+
+### 60-Second Read
+
+Sidste-weekend-undersøgelsen tilføjer koalitionsdynamisk dybde til recessklusterets analytiske register. Den substantielle konklusion (arbejdskoalitionsstabilitet) udgør positiv evidens for kontinuitet ved plenarsessionens tilbagevenden, med det standardforbehold, at forhåndsafstemningsinferens ikke kan bekræfte kohæsion endeligt.
+
+### Risk Snapshot
+
+| Risiko | Sandsynlighed | Påvirkning |
+|---|---:|---:|
+| Arbejdskoalitionsbrud opstår under T-0 / plenarreturnen | LAV–MED | HØJ |
+| Koalitionsdynamisk analytisk lag ikke opretholdt ved denne granularitet | MED | LAV–MED |
+| Sidste-weekend-rammesætningen kollapser til enkelt overgangsfortælling | LAV | LAV |
+
+### Source Quality
+
+- 264.000 tegns forudberegnet statistik: **B2**
+- 11.600 tegns koalitionsdynamikanalyse: **B2**
+- Arbejdskoalitionsstabilitetsinferns: **C2** (ingen afstemningsbekræftelse)
+
+### Provenance
+
+- Kørsel: `breaking-run158` (2026-04-11, Recessens Sidste Weekend, T-4)
+- Overholdelse: EP Open Data Portal + forudberegnet statistik + koalitionsmodellering. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: forhåndsafstemningsinferenser eksplicit mærket.*
+
+### Executive Brief De
+
+### BLUF
+
+Lauf 158 (Osterferien Letztes Wochenende) erweitert Lauf 157 um weitere **11.600 Zeichen Koalitionsdynamikanalyse**, die der 264.000 Zeichen umfassenden vorberechneten Statistikbasislinie überlagert werden. Die Rahmung — „letztes Wochenende" — erfasst, dass der 11. April das letzte Wochenende vor der Konvergenz von Zolltarif T-0 und Rezessrückkehr am 15. April ist. Der analytische Beitrag: Koalitionsdynamikmodellierung für den Plenarperiodenzyklus nach Ende der Rezess, verankert in EP10s stabiler EPP + S&D + Renew-Arbeitskoalition (ca. 397 Mandate), die durch das Ende der Rezess hält. *Vertrauen: MITTEL; Admiralitätsgrad: B2.*
+
+### Three Decisions
+
+1. **Verankerung der koalitionsdynamischen Analyseschicht als wiederkehrendes Rezesscluster-Ergebnis.** 11.600 Zeichen Koalitionsmodellierung an einem Tag mit beeinträchtigten Datenfeeds sind ein Beitrag mit hohem Signal-Rausch-Verhältnis; nachfolgende Rezesscluster-Läufe sollten dieses Ergebnis normalisieren. *Vertrauen: HOCH.*
+2. **Behandlung der „letztes Wochenende"-Rahmung als kanonisches Signal für den Rezess-Endpunkt.** Wochenende-abschließende Rahmungen verankern von Natur aus den institutionellen Übergangspunkt zum Zyklus nach dem Rezess-Ende. *Vertrauen: MITTEL-HOCH.*
+3. **Bestätigung der Stabilität der EPP + S&D + Renew-Arbeitskoalition durch das Rezess-Ende.** Die 397-Mandate-Arbeitsmehrheit hält durch das Rezess-Ende — keine beobachtbaren Bruch- oder Spaltereignisse. *Vertrauen: MITTEL (keine Abstimmungsbestätigung; Verhaltensschlussfolgerung).*
+
+### 60-Second Read
+
+Die Letztes-Wochenende-Sondierung fügt der analytischen Aufzeichnung des Rezessclusters koalitionsdynamische Tiefe hinzu. Der substantielle Befund (Arbeitskoalitionsstabilität) ist ein positiver Nachweis für die Kontinuität der Plenarsitzungsrückkehr, mit dem Standardvorbehalt, dass die Vor-Abstimmungs-Schlussfolgerung die Kohäsion nicht abschließend bestätigen kann.
+
+### Risk Snapshot
+
+| Risiko | Wahrscheinlichkeit | Auswirkung |
+|---|---:|---:|
+| Arbeitskoalitionsbrüche treten während T-0 / Plenarrückkehr auf | NIEDRIG–MITTEL | HOCH |
+| Koalitionsdynamische Analyseschicht nicht auf dieser Granularitätsebene gehalten | MITTEL | NIEDRIG–MITTEL |
+| Letztes-Wochenende-Rahmung kollabiert zu einfacher Übergangsschilderung | NIEDRIG | NIEDRIG |
+
+### Source Quality
+
+- 264.000 Zeichen vorberechnete Statistik: **B2**
+- 11.600 Zeichen Koalitionsdynamikanalyse: **B2**
+- Arbeitskoalitionsstabilitätsschlussfolgerung: **C2** (keine Abstimmungsbestätigung)
+
+### Provenance
+
+- Lauf: `breaking-run158` (2026-04-11, Letztes Wochenende des Rezess, T-4)
+- Konformität: EP Open Data Portal + vorberechnete Statistik + Koalitionsmodellierung. DSGVO-konform.
+
+---
+*Analytische Neutralität: Vor-Abstimmungs-Schlussfolgerungen explizit gekennzeichnet.*
+
+### Executive Brief Es
+
+### BLUF
+
+La ejecución 158 (Último Fin de Semana de Vacaciones de Semana Santa) amplía la ejecución 157 con **11.600 caracteres adicionales de análisis de dinámica coalicional** superpuestos a la línea base de 264.000 caracteres de estadísticas precalculadas. El encuadre — «último fin de semana» — captura que el 11 de abril es el último fin de semana antes de la convergencia entre el arancel T-0 y el regreso de la sesión parlamentaria el 15 de abril. La contribución analítica: modelización de la dinámica coalicional para el ciclo plenario posterior al receso, anclada en la estable coalición de trabajo PPE + S&D + Renew de EP10 (aproximadamente 397 escaños) que se mantiene hasta el final del receso. *Confianza: MEDIA; Grado de Almirantazgo: B2.*
+
+### Three Decisions
+
+1. **Anclar la capa analítica de dinámica coalicional como resultado recurrente del clúster de receso.** 11.600 caracteres de modelización coalicional en un día con flujos de datos degradados constituyen una contribución con alta relación señal-ruido; las ejecuciones posteriores del clúster de receso deberían normalizar este resultado. *Confianza: ALTA.*
+2. **Tratar el encuadre «último fin de semana» como la señal canónica del punto final del receso.** Los encuadres de fin de semana anclan naturalmente el pivote de transición institucional hacia el ciclo post-receso. *Confianza: MEDIA-ALTA.*
+3. **Confirmar la estabilidad de la coalición de trabajo PPE + S&D + Renew hasta el final del receso.** La mayoría de trabajo de 397 escaños se mantiene hasta el final del receso — sin eventos de ruptura u escisión observables. *Confianza: MEDIA (sin confirmación de votación; inferencia conductual únicamente).*
+
+### 60-Second Read
+
+El sondeo del último fin de semana añade profundidad de dinámica coalicional al registro analítico del clúster de receso. El hallazgo sustantivo (estabilidad de la coalición de trabajo) constituye evidencia positiva de continuidad en el retorno del pleno, con la salvedad estándar de que la inferencia pre-votación no puede confirmar de manera concluyente la cohesión.
+
+### Risk Snapshot
+
+| Riesgo | Probabilidad | Impacto |
+|---|---:|---:|
+| Fisuras en la coalición de trabajo emergen durante T-0 / regreso al pleno | BAJA–MEDIA | ALTA |
+| Capa analítica de dinámica coalicional no mantenida a esta granularidad | MEDIA | BAJA–MEDIA |
+| El encuadre del último fin de semana colapsa en una única narrativa de transición | BAJA | BAJA |
+
+### Source Quality
+
+- 264.000 caracteres de estadísticas precalculadas: **B2**
+- 11.600 caracteres de análisis de dinámica coalicional: **B2**
+- Inferencia de estabilidad de la coalición de trabajo: **C2** (sin confirmación de votación)
+
+### Provenance
+
+- Ejecución: `breaking-run158` (2026-04-11, Último Fin de Semana del Receso, T-4)
+- Cumplimiento: EP Open Data Portal + estadísticas precalculadas + modelización coalicional. Conforme con el RGPD.
+
+---
+*Neutralidad analítica: inferencias pre-votación explícitamente etiquetadas.*
+
+### Executive Brief Fi
+
+### BLUF
+
+Ajo 158 (Pääsiäisloma Viimeinen Viikonloppu) laajentaa ajoa 157 lisäämällä **11 600 merkkiä koalitiodynamiikka-analyysiä** 264 000 merkin esilaske­tun tilaston perustasolle. Viitekehys — "viimeinen viikonloppu" — kuvaa, että 11. huhtikuuta on viimeinen viikonloppu ennen tullimuutoksen T-0 ja loman päättymisen yhdistymistä 15. huhtikuuta. Analyyttinen panos: koalitiodynamiikan mallinnus loman jälkeiselle täysistuntokierrokselle, pohjautuen EP10:n vakaaseen EPP + S&D + Renew -työkoalitioon (noin 397 paikkaa), joka pitää loman läpi. *Luottamus: KESKITASO; Admiraliteettitaso: B2.*
+
+### Three Decisions
+
+1. **Ankkuroi koalitiodynamiikan analyyttinen kerros toistuvaksi lomaryhmän tuotokseksi.** 11 600 merkin koalitiomallinnusta heikentyneillä datavirroilla on korkea hyöty-kohinasuhde; myöhempien lomaryhmäajojen tulisi vakiinnuttaa tämä tuotos. *Luottamus: KORKEA.*
+2. **Käsittele "viimeinen viikonloppu" -kehystä kanonisena loman päättymispistesignaalina.** Viikonlopun lopun kehykset ankkuroivat luonnostaan institutionaalisen siirtymäkohdan loman jälkeiselle kierrokselle. *Luottamus: KESKITASO-KORKEA.*
+3. **Vahvista EPP + S&D + Renew:n työkoalition vakaus loman loppuun asti.** 397-paikkainen työkoalition enemmistö pitää loman läpi — ei havaittavia hajoamis- tai halkeamistapahtumia. *Luottamus: KESKITASO (ei äänestystietoja; käyttäytymispäätelmä).*
+
+### 60-Second Read
+
+Viimeisen viikonlopun koettelu lisää koalitiodynamiikan syvyyttä lomaryhmän analyyttiseen rekisteriin. Olennainen löydös (työkoalition vakaus) on positiivinen todiste täysistunnon palautumisen jatkuvuudelle, sillä varauksella, että ennakkoäänestys­päätelmä ei voi lopullisesti vahvistaa koheesiota.
+
+### Risk Snapshot
+
+| Riski | Todennäköisyys | Vaikutus |
+|---|---:|---:|
+| Työkoalition halkeamat ilmenevät T-0:n / täysistunnon paluun yhteydessä | MATALA–KESKI | KORKEA |
+| Koalitiodynamiikan analyyttistä kerrosta ei ylläpidetä tällä tarkkuudella | KESKI | MATALA–KESKI |
+| Viimeisen viikonlopun kehys romahtaa yksittäiseksi siirtymäkertomukseksi | MATALA | MATALA |
+
+### Source Quality
+
+- 264 000 merkin esilaske­ttu tilasto: **B2**
+- 11 600 merkin koalitiodynamiikka-analyysi: **B2**
+- Työkoalition vakauspäätelmä: **C2** (ei äänestystietoja)
+
+### Provenance
+
+- Ajo: `breaking-run158` (2026-04-11, Loman Viimeinen Viikonloppu, T-4)
+- Vaatimustenmukaisuus: EP Open Data Portal + esilaske­ttu tilasto + koalitiomallinnus. GDPR-yhteensopiva.
+
+---
+*Analyyttinen puolueettomuus: ennakkoäänestys­päätelmät merkitty selkeästi.*
+
+### Executive Brief Fr
+
+### BLUF
+
+L'exécution 158 (Dernier Week-end des Vacances de Pâques) prolonge l'exécution 157 avec **11 600 caractères supplémentaires d'analyse de dynamique coalitionnelle** superposés à la ligne de base de 264 000 caractères de statistiques précalculées. Le cadrage — « dernier week-end » — traduit le fait que le 11 avril est le dernier week-end avant la convergence entre le tarif T-0 et le retour de la session parlementaire le 15 avril. La contribution analytique : modélisation de la dynamique coalitionnelle pour le cycle plénaire post-session, ancrée dans la coalition de travail stable PPE + S&D + Renew d'EP10 (environ 397 sièges) qui se maintient jusqu'à la fin de la session. *Confiance : MOYENNE ; Grade Amirauté : B2.*
+
+### Three Decisions
+
+1. **Ancrer la couche analytique de dynamique coalitionnelle comme résultat récurrent du cluster de session.** 11 600 caractères de modélisation coalitionnelle lors d'une journée à flux de données dégradés constituent une contribution à rapport signal/bruit élevé ; les exécutions ultérieures du cluster de session devraient normaliser ce résultat. *Confiance : ÉLEVÉE.*
+2. **Traiter le cadrage « dernier week-end » comme le signal canonique du point final de la session.** Les cadrages de fin de week-end ancrent naturellement le pivot de transition institutionnelle vers le cycle post-session. *Confiance : MOYENNE-ÉLEVÉE.*
+3. **Confirmer la stabilité de la coalition de travail PPE + S&D + Renew jusqu'à la fin de la session.** La majorité de travail de 397 sièges se maintient jusqu'à la fin de la session — aucun événement de rupture ou de fissure observable. *Confiance : MOYENNE (aucune confirmation de vote ; inférence comportementale uniquement).*
+
+### 60-Second Read
+
+L'examen du dernier week-end apporte une profondeur de dynamique coalitionnelle au registre analytique du cluster de session. Le constat substantiel (stabilité de la coalition de travail) constitue une preuve positive de la continuité au retour de la session plénaire, avec la réserve standard que l'inférence pré-vote ne peut pas confirmer de manière concluante la cohésion.
+
+### Risk Snapshot
+
+| Risque | Probabilité | Impact |
+|---|---:|---:|
+| Des fissures dans la coalition de travail émergent lors du T-0 / retour en plénière | FAIBLE–MOY | ÉLEVÉ |
+| Couche analytique de dynamique coalitionnelle non maintenue à cette granularité | MOY | FAIBLE–MOY |
+| Le cadrage du dernier week-end s'effondre en un seul récit de transition | FAIBLE | FAIBLE |
+
+### Source Quality
+
+- 264 000 caractères de statistiques précalculées : **B2**
+- 11 600 caractères d'analyse de dynamique coalitionnelle : **B2**
+- Inférence de stabilité de la coalition de travail : **C2** (aucune confirmation de vote)
+
+### Provenance
+
+- Exécution : `breaking-run158` (2026-04-11, Dernier Week-end de Session, T-4)
+- Conformité : EP Open Data Portal + statistiques précalculées + modélisation coalitionnelle. Conforme au RGPD.
+
+---
+*Neutralité analytique : inférences pré-vote explicitement étiquetées.*
+
+### Executive Brief He
+
+### BLUF
+
+ריצה 158 (סוף שבוע אחרון של חגי פסחא) מרחיבה את ריצה 157 עם **11,600 תווים נוספים של ניתוח דינמיקת קואליציה** המונחים על בסיס הנתונים הסטטיסטיים המחושבים מראש בהיקף 264,000 תווים. המסגרת — «סוף שבוע אחרון» — מלכדת את העובדה שה-11 באפריל הוא סוף השבוע האחרון לפני התכנסות מכס T-0 וחזרת הפרלמנט ב-15 באפריל. התרומה האנליטית: מודלינג דינמיקת קואליציה עבור מחזור המושב המליאתי שלאחר ההפסקה, עוגן בקואליציית העבודה היציבה של EP10 — PPE + S&D + Renew (כ-397 מושבים) — הממשיכה לאורך סוף ההפסקה. *רמת ביטחון: בינונית; ציון אדמירליות: B2.*
+
+### Three Decisions
+
+1. **עגינת שכבת הניתוח האנליטי של דינמיקת הקואליציה כפלט חוזר של אשכול ההפסקה.** 11,600 תווים של מודלינג קואליציה ביום עם זרמי נתונים לקויים הם תרומה ביחס אות/רעש גבוה; ריצות אשכול הפסקה עוקבות צריכות לנרמל פלט זה. *רמת ביטחון: גבוהה.*
+2. **יחס להמסגרת «סוף השבוע האחרון» כאות הקנוני לנקודת הסיום של ההפסקה.** מסגרות סיום שבוע עוגנות באופן טבעי את ציר המעבר המוסדי לעבר מחזור שלאחר ההפסקה. *רמת ביטחון: בינונית-גבוהה.*
+3. **אישור יציבות קואליציית העבודה PPE + S&D + Renew לאורך סוף ההפסקה.** הרוב העובד בן 397 המושבים ממשיך לאורך סוף ההפסקה — ללא אירועי שבירה או התפצלות ניתנים לצפייה. *רמת ביטחון: בינונית (ללא אישור הצבעה; הסקה התנהגותית בלבד).*
+
+### 60-Second Read
+
+בדיקת סוף השבוע האחרון מוסיפה עומק דינמיקת קואליציה לרשומה האנליטית של אשכול ההפסקה. הממצא המהותי (יציבות קואליציית העבודה) הוא ראיה חיובית לרציפות בחזרת המליאה, עם ההסתייגות הסטנדרטית שהסקה לפני הצבעה אינה יכולה לאשר בוודאות מלאה את הלכידות.
+
+### Risk Snapshot
+
+| סיכון | הסתברות | השפעה |
+|---|---:|---:|
+| סדקים בקואליציית העבודה צומחים במהלך T-0 / חזרת המליאה | נמוכה–בינונית | גבוהה |
+| שכבת הניתוח האנליטי של דינמיקת הקואליציה לא נשמרת ברמת גרגיריות זו | בינונית | נמוכה–בינונית |
+| מסגרת סוף השבוע האחרון מתמוטטת לנרטיב מעבר בודד | נמוכה | נמוכה |
+
+### Source Quality
+
+- 264,000 תווים סטטיסטיקה מחושבת מראש: **B2**
+- 11,600 תווים ניתוח דינמיקת קואליציה: **B2**
+- הסקת יציבות קואליציית העבודה: **C2** (ללא אישור הצבעה)
+
+### Provenance
+
+- ריצה: `breaking-run158` (2026-04-11, סוף שבוע אחרון של ההפסקה, T-4)
+- תאימות: EP Open Data Portal + סטטיסטיקה מחושבת מראש + מודלינג קואליציה. תואם GDPR.
+
+---
+*ניטרליות אנליטית: הסקות לפני הצבעה מסומנות במפורש.*
+
+### Executive Brief Ja
+
+### BLUF
+
+実行158（復活祭休会最終週末）は、26万4,000文字の事前計算統計ベースラインに**1万1,600文字の連立ダイナミクス分析**を追加で重ねることにより、実行157を拡張する。「最終週末」という枠組みは、4月11日が4月15日の関税T-0と休会復帰の収束前の最後の週末であることを捉えたものである。分析上の貢献：休会後の本会議サイクルに向けた連立ダイナミクスモデリング。EP10の安定した EPP + S&D + Renew 作業連立（約397議席）が休会終了まで維持されることを基盤とする。*信頼度：中程度；提督評価：B2。*
+
+### Three Decisions
+
+1. **連立ダイナミクス分析層を休会クラスターの定期的な成果として定着させる。** データフィードが低下した日に1万1,600文字の連立モデリングを実施することは、高いシグナル対ノイズ比の貢献である；後続の休会クラスター実行では本成果を標準化すべきである。*信頼度：高。*
+2. **「最終週末」の枠組みを休会終点シグナルの標準的指標として扱う。** 週末最終の枠組みは、自然に制度的移行軸を休会後サイクルへと方向付ける。*信頼度：中-高。*
+3. **EPP + S&D + Renew 作業連立の安定性を休会終了まで確認する。** 397議席の作業過半数は休会終了まで維持される——観察可能な亀裂または分裂イベントなし。*信頼度：中程度（投票確認なし；行動推論のみ）。*
+
+### 60-Second Read
+
+最終週末の調査は、休会クラスターの分析記録に連立ダイナミクスの深みを加える。実質的な知見（作業連立の安定性）は本会議復帰の継続性に対する積極的な証拠であるが、事前投票推論では結束を決定的に確認できないという標準的な留保が伴う。
+
+### Risk Snapshot
+
+| リスク | 可能性 | 影響 |
+|---|---:|---:|
+| T-0 / 本会議復帰中に作業連立の亀裂が生じる | 低〜中 | 高 |
+| 連立ダイナミクス分析層がこの粒度で維持されない | 中 | 低〜中 |
+| 最終週末の枠組みが単一の移行物語に収束する | 低 | 低 |
+
+### Source Quality
+
+- 26万4,000文字の事前計算統計：**B2**
+- 1万1,600文字の連立ダイナミクス分析：**B2**
+- 作業連立安定性推論：**C2**（投票確認なし）
+
+### Provenance
+
+- 実行：`breaking-run158`（2026-04-11、休会最終週末、T-4）
+- 準拠：EP Open Data Portal + 事前計算統計 + 連立モデリング。GDPR 準拠。
+
+---
+*分析的中立性：事前投票推論は明示的に標記。*
+
+### Executive Brief Ko
+
+### BLUF
+
+실행 158(부활절 휴회 마지막 주말)은 264,000자의 사전계산 통계 기준선에 **11,600자의 연립 역학 분석**을 추가로 쌓아 실행 157을 확장합니다. "마지막 주말"이라는 프레임은 4월 11일이 4월 15일 관세 T-0과 휴회 복귀의 수렴 전 마지막 주말임을 포착합니다. 분석적 기여: 휴회 후 본회의 주기를 위한 연립 역학 모델링으로, 휴회 종료까지 유지되는 EP10의 안정적인 EPP + S&D + Renew 작업연립(약 397석)에 기반합니다. *신뢰도: 중간; 해군 등급: B2.*
+
+### Three Decisions
+
+1. **연립 역학 분석 계층을 휴회 클러스터의 반복 출력으로 정착시킵니다.** 데이터 피드가 저하된 날 11,600자의 연립 모델링은 높은 신호 대 잡음비 기여이며, 이후 휴회 클러스터 실행에서 이 출력을 표준화해야 합니다. *신뢰도: 높음.*
+2. **"마지막 주말" 프레임을 휴회 종점 신호의 표준 지표로 취급합니다.** 주말 최종 프레임은 자연스럽게 기관 전환 축을 휴회 후 주기 방향으로 고정합니다. *신뢰도: 중간-높음.*
+3. **휴회 종료까지 EPP + S&D + Renew 작업연립 안정성 확인.** 397석 작업 다수결이 휴회 종료까지 유지됨 — 관찰 가능한 균열 또는 분열 사건 없음. *신뢰도: 중간 (투표 확인 없음; 행동 추론만).*
+
+### 60-Second Read
+
+마지막 주말 탐색은 휴회 클러스터 분석 기록에 연립 역학 심층도를 추가합니다. 실질적 발견(작업연립 안정성)은 본회의 복귀 연속성에 대한 긍정적 증거이나, 사전 투표 추론이 결속을 결정적으로 확인할 수 없다는 표준 유보가 따릅니다.
+
+### Risk Snapshot
+
+| 위험 | 가능성 | 영향 |
+|---|---:|---:|
+| T-0 / 본회의 복귀 중 작업연립 균열 발생 | 낮음–중간 | 높음 |
+| 연립 역학 분석 계층이 이 수준의 세밀도로 유지되지 않음 | 중간 | 낮음–중간 |
+| 마지막 주말 프레임이 단일 전환 서사로 붕괴 | 낮음 | 낮음 |
+
+### Source Quality
+
+- 264,000자 사전계산 통계: **B2**
+- 11,600자 연립 역학 분석: **B2**
+- 작업연립 안정성 추론: **C2** (투표 확인 없음)
+
+### Provenance
+
+- 실행: `breaking-run158` (2026-04-11, 휴회 마지막 주말, T-4)
+- 준수: EP Open Data Portal + 사전계산 통계 + 연립 모델링. GDPR 준수.
+
+---
+*분석적 중립성: 사전 투표 추론 명시적으로 표시됨.*
+
+### Executive Brief Nl
+
+### BLUF
+
+Run 158 (Paasreces Laatste Weekend) breidt run 157 uit met **11.600 extra tekens coalitiedynamiekanalyse** bovenop de basisregel van 264.000 tekens voorberekende statistieken. De framing — «laatste weekend» — vaststelt dat 11 april het laatste weekend is voor de convergentie van tariefwijziging T-0 en de recessterugkeer op 15 april. De analytische bijdrage: coalitiedynamiekmodellering voor de plenaire cyclus na afloop van het reces, verankerd in EP10's stabiele EPP + S&D + Renew-werkingscoalitie (circa 397 zetels) die door het einde van het reces standhoudt. *Vertrouwen: GEMIDDELD; Admiraliteitsgraad: B2.*
+
+### Three Decisions
+
+1. **Verankering van de analytische coalitiedynamieklaag als terugkerend recessclusterresultaat.** 11.600 tekens coalitiemodellering op een dag met verslechterde datafeeds levert een hoge signaal-ruisverhouding op; volgende recessclusterruns moeten dit resultaat normaliseren. *Vertrouwen: HOOG.*
+2. **Behandel de «laatste weekend»-framing als het canonieke signaal voor het recesseindpunt.** Weekend-afsluitende framings verankeren van nature het institutionele transitiepivot naar de post-reces cyclus. *Vertrouwen: GEMIDDELD-HOOG.*
+3. **Bevestiging van de stabiliteit van de EPP + S&D + Renew-werkingscoalitie door het einde van het reces.** De 397-zetels-werkmeerderheid houdt stand door het einde van het reces — geen waarneembare breuk- of scheurgebeurtenissen. *Vertrouwen: GEMIDDELD (geen stembevestiging; gedragsinferentie).*
+
+### 60-Second Read
+
+De laatste-weekendverkenning voegt coalitiedynamiekdiepte toe aan het analytische register van het recesscluster. De substantiële bevinding (stabiliteit van de werkingscoalitie) vormt positief bewijs voor continuïteit bij plenaire terugkeer, met het standaardvoorbehoud dat pre-stem-inferentie de cohesie niet afdoende kan bevestigen.
+
+### Risk Snapshot
+
+| Risico | Waarschijnlijkheid | Impact |
+|---|---:|---:|
+| Werkingscoalitiebreuken treden op tijdens T-0 / plenaire terugkeer | LAAG–MED | HOOG |
+| Analytische coalitiedynamieklaag niet gehandhaafd op deze granulariteit | MED | LAAG–MED |
+| Laatste-weekend-framing collapst tot enkelvoudig transitieverhaal | LAAG | LAAG |
+
+### Source Quality
+
+- 264.000 tekens voorberekende statistieken: **B2**
+- 11.600 tekens coalitiedynamiekanalyse: **B2**
+- Werkingscoalitie-stabiliteitsinferentie: **C2** (geen stembevestiging)
+
+### Provenance
+
+- Run: `breaking-run158` (2026-04-11, Laatste Weekend Reces, T-4)
+- Naleving: EP Open Data Portal + voorberekende statistieken + coalitiemodellering. AVG-conform.
+
+---
+*Analytische neutraliteit: pre-stem-inferenties expliciet gemarkeerd.*
+
+### Executive Brief No
+
+### BLUF
+
+Kjøring 158 (Påskeferie Siste Helg) utvider kjøring 157 med ytterligere **11 600 tegn koalisjonsdynamikkanalyse** lagt oppå 264 000 tegn forhåndsberegnet statistikkbaseline. Rammeverket — "siste helg" — fanger at 11. april er den siste helgen før konvergensen mellom Toldsats T-0 og recessens tilbakekomst den 15. april. Det analytiske bidraget: koalisjonsdynamisk modellering for plenarsyklusen etter recessens avslutning, forankret i EP10s stabile EPP + S&D + Renew arbeidskoalisjon (ca. 397 mandater) som holder gjennom recessens avslutning. *Konfidens: MEDIUM; Admiralitetsgrad: B2.*
+
+### Three Decisions
+
+1. **Forankre det koalisjonsdynamiske analytiske laget som et tilbakevendende recessklusterresultat.** 11 600 tegns koalisjonsmodellering på en dag med forringede datastrømmer er et høyt signal-støy-bidrag; etterfølgende recessklusterkjøringer bør normalisere dette resultatet. *Konfidens: HØY.*
+2. **Behandle "siste helg"-rammeverket som det kanoniske signalet for recessens endepunkt.** Helge-finale rammeverk forankrer naturlig den institusjonelle overgangspivoten mot syklusen etter recessens avslutning. *Konfidens: MEDIUM-HØY.*
+3. **Bekrefte stabilitet i EPP + S&D + Renews arbeidskoalisjon gjennom recessens avslutning.** Arbeidskoalisjonens 397-mandatsmajoritet holder gjennom recessens avslutning — ingen observerbare brudd- eller splittelseshendelser. *Konfidens: MEDIUM (ingen avstemningsbekreftelse; atferdsinferens).*
+
+### 60-Second Read
+
+Siste-helgs-undersøkelsen tilfører koalisjonsdynamisk dybde til recessklusterets analytiske register. Det substansielle funnet (arbeidskoalisjonsstabilitet) utgjør positiv evidens for kontinuitet ved plenarretur, med standardforbeholdet om at forhåndsavstemningsinferens ikke kan bekrefte kohesjon endelig.
+
+### Risk Snapshot
+
+| Risiko | Sannsynlighet | Påvirkning |
+|---|---:|---:|
+| Arbeidskoalisjonssprekker oppstår under T-0 / plenarretur | LAV–MED | HØY |
+| Koalisjonsdynamisk analytisk lag ikke opprettholdt ved denne granulariteten | MED | LAV–MED |
+| Siste-helg-rammeverket kollapser til enkelt overgangsfortelling | LAV | LAV |
+
+### Source Quality
+
+- 264 000 tegns forhåndsberegnet statistikk: **B2**
+- 11 600 tegns koalisjonsdynamikkanalyse: **B2**
+- Arbeidskoalisjonsstabilitetsinferens: **C2** (ingen avstemningsbekreftelse)
+
+### Provenance
+
+- Kjøring: `breaking-run158` (2026-04-11, Recessens Siste Helg, T-4)
+- Samsvar: EP Open Data Portal + forhåndsberegnet statistikk + koalisjonsmodellering. GDPR-kompatibel.
+
+---
+*Analytisk nøytralitet: forhåndsavstemningsinferenser eksplisitt merket.*
+
+### Executive Brief Sv
+
+### BLUF
+
+Körning 158 (Påskrecessen Sista Helgen) utvidgar körning 157 med ytterligare **11 600 tecken koalitionsdynamikanalys** lagerlagd ovanpå 264 000 tecken förberäknad statistikbaslinje. Ramverket — "sista helgen" — fångar att 11 april är den sista helgen före konvergensen mellan Tull T-0 och recessen återkomst den 15 april. Det analytiska bidraget: koalitionsdynamisk modellering för plenarcykeln efter recessens slut, förankrad i EP10:s stabila EPP + S&D + Renew arbetskoalition (ca 397 mandat) som håller igenom recessens slut. *Konfidens: MEDIUM; Admiralitetsgrad: B2.*
+
+### Three Decisions
+
+1. **Förankra det koalitionsdynamiska analytiska lagret som ett återkommande recessklusterresultat.** 11 600 tecken koalitionsmodellering på en dag med försämrade dataflöden är ett högt signal-brus-bidrag; efterföljande recessklusterkörningar bör normalisera detta resultat. *Konfidens: HÖG.*
+2. **Behandla "sista helgen"-ramverket som den kanoniska signalen för recessens slutpunkt.** Helg-slutliga ramverk förankrar naturligen den institutionella övergångspivoten mot cykeln efter recessens slut. *Konfidens: MEDIUM-HÖG.*
+3. **Bekräfta stabilitet i EPP + S&D + Renews arbetskoalition genom recessens slut.** Den 397-mandatsstarka arbetskoalitionsmajoriteten håller igenom recessens slut — inga observerbara brott- eller sprickhändelser. *Konfidens: MEDIUM (ingen omröstningsbekräftelse; beteendeinferens).*
+
+### 60-Second Read
+
+Sista-helgs-undersökningen tillför koalitionsdynamiskt djup till recessklustrets analytiska register. Det substantiella fyndet (arbetskoalitionsstabilitet) utgör positiv evidens för plenarreturursprungskontinuitet, med standardförbehållet att förhandsomröstningsinferens inte kan bekräfta sammanhållning slutgiltigt.
+
+### Risk Snapshot
+
+| Risk | Sannolikhet | Påverkan |
+|---|---:|---:|
+| Arbetskoalitionsbrott uppstår under T-0 / plenaråterkomst | LÅG–MED | HÖG |
+| Koalitionsdynamiskt analytiskt lager ej underhållet vid denna granularitet | MED | LÅG–MED |
+| Sista-helgen-ramverket kollapsar till enskild övergångsberättelse | LÅG | LÅG |
+
+### Source Quality
+
+- 264 000 tecken förberäknad statistik: **B2**
+- 11 600 tecken koalitionsdynamikanalys: **B2**
+- Arbetskoalitionsstabilitetsinferns: **C2** (ingen omröstningsbekräftelse)
+
+### Provenance
+
+- Körning: `breaking-run158` (2026-04-11, Recessens Sista Helg, T-4)
+- Efterlevnad: EP Open Data Portal + förberäknad statistik + koalitionsmodellering. GDPR-kompatibel.
+
+---
+*Analytisk neutralitet: förhandsomröstningsinferenser explicit märkta.*
+
+### Executive Brief Zh
+
+### BLUF
+
+运行158（复活节休会最后一个周末）在264,000字预计算统计数据基准线的基础上，增加了**11,600字的联盟动态分析**，从而扩展了运行157。"最后一个周末"这一框架反映了4月11日是4月15日关税T-0与会期复归收敛前的最后一个周末。分析贡献：针对休会后全体会议周期的联盟动态建模，以EP10稳定的EPP + S&D + Renew工作联盟（约397席）持续至休会结束为基础。*信心水平：中等；海军部评级：B2。*
+
+### Three Decisions
+
+1. **将联盟动态分析层确立为休会集群的常规输出成果。** 在数据源受损的一天完成11,600字的联盟建模，具有高信噪比贡献价值；后续休会集群运行应将此输出标准化。*信心水平：高。*
+2. **将"最后一个周末"框架视为休会终点的标准信号。** 周末最终框架自然地将机构过渡支点锚定到休会后周期。*信心水平：中-高。*
+3. **确认EPP + S&D + Renew工作联盟在休会结束前的稳定性。** 397席的工作多数票在休会结束期间保持——未见可观察的裂缝或分裂事件。*信心水平：中等（无投票确认；行为推断）。*
+
+### 60-Second Read
+
+最后一个周末探测为休会集群分析记录增添了联盟动态深度。实质性发现（工作联盟稳定性）为全体会议复归的连续性提供了积极证据，同时附有标准保留意见：事前投票推断无法确定性地确认凝聚力。
+
+### Risk Snapshot
+
+| 风险 | 可能性 | 影响 |
+|---|---:|---:|
+| 工作联盟裂缝在T-0 / 全体会议复归期间出现 | 低-中 | 高 |
+| 联盟动态分析层未能保持此粒度级别 | 中 | 低-中 |
+| 最后一个周末框架坍缩为单一过渡叙事 | 低 | 低 |
+
+### Source Quality
+
+- 264,000字预计算统计数据：**B2**
+- 11,600字联盟动态分析：**B2**
+- 工作联盟稳定性推断：**C2**（无投票确认）
+
+### Provenance
+
+- 运行：`breaking-run158`（2026-04-11，休会最后一个周末，T-4）
+- 合规性：EP开放数据门户 + 预计算统计数据 + 联盟建模。符合GDPR规定。
+
+---
+*分析中立性：事前投票推断已明确标注。*
 
 ### Political Risk Assessment
 
@@ -1127,6 +1621,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [coalition-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/coalition-intelligence.md) | `coalition-intelligence.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [political-risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/political-risk-assessment.md) | `political-risk-assessment.md` |
 | section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/significance-scoring.md) | `significance-scoring.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/swot-analysis.md) | `swot-analysis.md` |

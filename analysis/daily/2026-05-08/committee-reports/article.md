@@ -1,5 +1,5 @@
 ---
-title: "2.1 Digital Markets Act Enforcement Escalation (#263)"
+title: "2.1 Digital Markets Act Enforcement Escalation"
 description: "The TA-10-2026-0160 resolution calls on the Commission to use Articles 26–27 DMA for structural separation orders against major gatekeepers."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "committee activity", "committee report", "legislation", "Committee Reports", "2026-05-08", "Digital", "Markets", "Enforcement"]
 date: 2026-05-08

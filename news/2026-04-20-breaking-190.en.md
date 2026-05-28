@@ -1,6 +1,6 @@
 ---
 title: "is the 11th consecutive ANALYSIS_ONLY run of the Easter"
-description: "Run 190 is the 11th consecutive ANALYSIS_ONLY run of the Easter Recess Series and the first probe on Easter Monday."
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-20 for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-20", "11th", "consecutive", "ANALYSIS"]
 date: 2026-04-20
 article_type: breaking

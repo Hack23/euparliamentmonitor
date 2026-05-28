@@ -1,6 +1,6 @@
 ---
 title: "(second motions-track run of 13 April) extends 's"
-description: "Run 40 (second motions-track run of 13 April) extends Run 39's positioning with continued cataloguing of the March 2026 motion cluster's institutional."
+description: "Recent plenary votes, adopted texts, party cohesion analysis, and detected voting anomalies in the European Parliament Published 2026-04-13."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-04-13", "second", "track", "April"]
 date: 2026-04-13
 article_type: motions

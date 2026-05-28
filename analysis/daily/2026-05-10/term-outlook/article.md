@@ -1,5 +1,5 @@
 ---
-title: "EU Parliament Term Outlook (2026 → 2031) (#294)"
+title: "EU Parliament Term Outlook (2026 → 2031)"
 description: "EP10 enters the second half of its mandate with a structurally constrained but operational grand coalition (EPP+S&D+Renew, 396 seats."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "term outlook", "parliamentary term", "strategic forecast", "2026-05-10", "Parliament", "Term", "Outlook", "EP10"]
 date: 2026-05-10

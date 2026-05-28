@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament faces its most consequential (#598)"
+title: "The European Parliament faces its most consequential"
 description: "The European Parliament faces its most consequential twelve months since the 2024 election. Published 2026-05-11."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "year ahead", "annual outlook", "legislative agenda", "2026-05-11", "European", "Parliament", "faces", "most"]
 date: 2026-05-11

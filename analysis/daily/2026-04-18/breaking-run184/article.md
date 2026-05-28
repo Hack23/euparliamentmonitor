@@ -1,6 +1,6 @@
 ---
 title: "records the first positive API recovery signal of the"
-description: "Run 184 records the first positive API recovery signal of the outage cluster (composite 18/50; mode ANALYSIS_ONLY)."
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-18 for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-18", "records", "first", "positive"]
 date: 2026-04-18
 article_type: breaking

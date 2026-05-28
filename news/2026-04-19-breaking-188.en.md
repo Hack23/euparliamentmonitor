@@ -1,6 +1,6 @@
 ---
-title: "(evening probe, Easter Recess Day 7 (#188)"
-description: "Run 188 (evening probe, Easter Recess Day 7, Series Run 10) records significance 18/50 for democratic-accountability readers tracking EU institutional consequences."
+title: "(evening probe, Easter Recess Day 7"
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-19 for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-19", "evening", "probe", "Easter"]
 date: 2026-04-19
 article_type: breaking

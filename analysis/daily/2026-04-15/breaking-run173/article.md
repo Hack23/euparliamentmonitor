@@ -1,6 +1,6 @@
 ---
 title: "marks Tariff T-0 — the activation of TA-10-2026-0096 as"
-description: "Run 173 marks Tariff T-0 — the activation of TA-10-2026-0096 as the EU's first autonomous trade-defence action under the current US-EU geopolitical."
+description: "Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities Published 2026-04-15 for democratic-accountability readers tracking EU institutional."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "breaking news", "legislation", "plenary vote", "Breaking", "2026-04-15", "marks", "Tariff", "activation"]
 date: 2026-04-15
 article_type: breaking

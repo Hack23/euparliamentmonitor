@@ -1,5 +1,5 @@
 ---
-title: "Plenary Votes & Resolutions: 2026-05-27 (#276)"
+title: "Plenary Votes & Resolutions: 2026-05-27"
 description: "The European Parliament's May 19–20, 2026 Strasbourg plenary adopted ten motions that collectively define the EU's strategic posture across four critical."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "plenary votes", "resolutions", "voting record", "Motions", "2026-05-27", "Plenary", "Votes", "European"]
 date: 2026-05-27

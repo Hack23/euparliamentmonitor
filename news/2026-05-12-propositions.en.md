@@ -1,5 +1,5 @@
 ---
-title: "Three landmark legislative measures reached final (#270)"
+title: "Three landmark legislative measures reached final"
 description: "Three landmark legislative measures reached final publication or adoption in the week of 5–12 May 2026 for democratic-accountability readers tracking EU institutional consequences."
 keywords: ["EU Parliament Monitor", "European Parliament", "European Commission", "political intelligence", "Riksdagsmonitor", "Riksdag", "Regeringen", "EU Parliament", "legislative procedures", "proposal", "regulation", "Propositions", "2026-05-12", "Three", "landmark", "legislative"]
 date: 2026-05-12

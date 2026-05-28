@@ -3998,6 +3998,876 @@ adopted during April 28 – May 28, 2026.
 3. Economic context sourced from World Bank developmental indicators and EU baseline
 4. Voting patterns declared degraded due to DOCEO XML publication lag (expected behaviour)
 
+### Executive Brief Ar
+
+**العنوان:** البرلمان الأوروبي مايو 2026: السيادة الدفاعية والحوكمة الرقمية والطموح الميزانياتي يُحددون شهراً محورياً  
+**التاريخ:** 2026-05-28 | **نوع المقال:** month-in-review | **مستوى الثقة:** 🟡 MEDIUM-HIGH
+
+---
+
+### الملخص الرئيسي
+
+يُمثّل مايو 2026 نقطة تحوّل في الحوكمة البرلمانية الأوروبية. في غضون شهر واحد، اعتمد البرلمان الأوروبي تشريعات تشمل الاستراتيجية الصناعية الدفاعية، والمساءلة الرقمية للمنصات، والهندسة المالية، وإصلاح رفاهية الحيوان، والإجراء الانتخابي. إن كثافة المخرجات التشريعية واتساعها — التي تدفعها أغلبية أساسية هشة لكنها وظيفية من EPP-S&D-Renew — تُشير إلى عزم البرلمان على توطيد الهوية العالمية للاتحاد الأوروبي بوصفه قوة تنظيمية وفاعلاً أمنياً في آنٍ واحد.
+
+الإنجاز الأبرز للشهر هو اتفاق أداة SAFE بين الاتحاد الأوروبي وكندا، الذي يُدمج للمرة الأولى رسمياً ديمقراطية من خارج الاتحاد الأوروبي والمنطقة الاقتصادية الأوروبية في مشتريات الدفاع الجماعية للاتحاد. بالتزامن مع انتقاد البرلمان الحاد لتراخي المفوضية الأوروبية في تطبيق قانون الأسواق الرقمية، تُصوّر جلسة مايو مؤسسةً استوعبت دروس الجيوسياسية ما بعد 2022 وتترجمها إلى قانون ملزم.
+
+---
+
+### خمسة محاور حدّدت الشهر
+
+#### المحور الأول: السيادة الدفاعية تعبر الأطلسي
+
+يُعدّ اتفاق SAFE-كندا (TA-10-2026-0180) الفعل الأعلى أثراً استراتيجياً خلال الشهر. تُصبح كندا أول دولة ثالثة تُدمج رسمياً في مشتريات الدفاع الأوروبية تحت إطار SAFE. يُنشئ الاتفاق تنويعاً في سلاسل التوريد لفئات المعدات العسكرية الحيوية، ويرسي سابقة قانونية لاتباع المملكة المتحدة واليابان والنرويج المسار ذاته.
+
+**القراءة الاستراتيجية:** يبني الاتحاد الأوروبي علاقات دفاعية تعمل باستقلالية عن الالتزامات السياسية الخارجية الأمريكية — استنتاج عملياتي حاسم مُستخلص من أربع سنوات من الغموض الجيوسياسي في أعقاب الأزمة الأوكرانية.
+
+#### المحور الثاني: المساءلة الرقمية — البرلمان يفقد صبره مع المفوضية
+
+قرار تطبيق DMA (TA-10-2026-0160) توبيخٌ برلماني رسمي لوتيرة تطبيق المفوضية. يُعرب البرلمان عن "أسفه العميق" لأنه مضت 26 شهراً على دخول DMA حيز التنفيذ دون إصدار قرار انتهاك نهائي واحد مصحوب بغرامة ضد أيٍّ من حراس البوابات الستة المُعيَّنين.
+
+**الأهمية التنظيمية:** يُعدّ تطبيق DMA الاختبار المحوري لمعرفة ما إذا كانت التنظيمات الأوروبية الطموحة لأسواق الرقمية تُفضي إلى تغيير سلوك شركات Big Tech. سيخلق قرار البرلمان ضغطاً سياسياً على خلف المفوضة فيستاغر للتسريع في التحقيقات المعلقة (Apple iOS، وGoogle Search، وقابلية التشغيل البيني لـ Meta).
+
+#### المحور الثالث: الهندسة الميزانياتية — البرلمان يُحدد موقفه مبكراً
+
+تُشكّل التوجيهات الميزانياتية لعام 2027 (TA-10-2026-0112) المُعتمَدة في 28 أبريل الموقف الافتتاحي للبرلمان في مفاوضات الميزانية للسنة الأخيرة من الإطار المالي متعدد السنوات 2027. خطوط البرلمان واضحة: الدفاع عن تمويل التماسك، والحفاظ على التكامل المناخي عند 30%، وزيادة اعتمادات الدفاع والأمن، ورفض مقترحات المرونة التي تقلّص الرقابة البرلمانية على إعادة التوزيع الميزانياتي.
+
+**الأهمية المالية:** ميزانية 2027 هي آخر سنة في إطار الإطار المالي متعدد السنوات 2021–2027. ستُشكّل مواقف البرلمان مفاوضات الإطار المالي متعدد السنوات 2028–2034 التي يُتوقع انطلاقها رسمياً عام 2027.
+
+#### المحور الرابع: تحديث البنية التحتية الديمقراطية — التصويت بالوكالة للأمومة
+
+تعديل قانون الانتخابات (TA-10-2026-0124) متواضع في نصه لكنه بالغ الدلالة رمزياً. يُعدّ التعديل الذاتي للبرلمان لإطاره الانتخابي بما يُتيح التصويت بالوكالة خلال إجازات الأمومة وما بعد الولادة أول تعديل ناجح لقانون الانتخابات الأوروبي منذ إصلاح 2018 (الذي لا يزال ينتظر التصديق). ويُشير إلى مؤسسة ناضجة تُحدّث قواعد عملها لتعكس القيم المعاصرة.
+
+#### المحور الخامس: منظومة المساءلة الأوكرانية
+
+يُضيف قرار البرلمان بشأن المساءلة عن الفظائع في أوكرانيا (TA-10-2026-0161) عموداً فقرياً سياسياً للبنية القانونية التي يُشيّدها البرلمان منذ 2022. مقروءاً بالتوازي مع اتفاقية لجنة المطالبات الدولية (TA-10-2026-0154)، والمساعدة المالية لأوكرانيا 2026–2027، وسابقة SAFE-كندا الدفاعية؛ أرسى البرلمان بنية دعم شاملة لأوكرانيا مُدمجة قانونياً في الإطار الأوروبي ومُقاوِمة للتراجع عنها دون إجراء تشريعي محدد.
+
+---
+
+### النصوص المُعتمَدة الرئيسية — لمحة سريعة
+
+| المرجع | الموضوع | الأهمية |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | التوجيهات الميزانياتية 2027 | 🔴 HIGH — الإطار المالي السنوي |
+| TA-10-2026-0160 | قرار تطبيق DMA | 🔴 HIGH — مساءلة المنصات |
+| TA-10-2026-0180 | اتفاق SAFE-كندا | 🔴 HIGH — السيادة الدفاعية |
+| TA-10-2026-0161 | مساءلة أوكرانيا | 🟡 MEDIUM-HIGH — سيادة القانون |
+| TA-10-2026-0183 | استراتيجية الذكاء الاصطناعي والتجارة | 🟡 MEDIUM-HIGH — الإطار المستقبلي |
+| TA-10-2026-0124 | التصويت بالوكالة في قانون الانتخابات | 🟡 MEDIUM — الإصلاح المؤسسي |
+| TA-10-2026-0115 | لائحة رفاهية الكلاب والقطط | 🟢 MEDIUM — المستهلك/الرفاه |
+| TA-10-2026-0139 | سوق الكربون ETS2 MSR | 🟢 MEDIUM — تمويل المناخ |
+
+---
+
+### ملاحظة جودة البيانات
+
+أُجري التحليل في ظل ظروف `degraded-feeds` (تغذية النصوص المُعتمَدة سليمة؛ تغذية الإجراءات/الأحداث/الوثائق HTTP 404). بيانات DOCEO على مستوى التصويت غير متاحة (تأخر النشر المعتاد). السياق الاقتصادي عبر الفصل الأوروبي والتقرير السنوي للبنك المركزي الأوروبي بوصفهما IMF-proxy. جميع مؤشرات الثقة مُعايَرة لتعكس هذه القيود.
+
+---
+
+### التوقعات
+
+يُتوقع أن تتناول الجلسة العامة في يونيو 2026 الحزمة النهائية لمراجعة الإطار المالي متعدد السنوات 2021–2027، والأعمال التفويضية لقانون الذكاء الاصطناعي (أول مراجعة برلمانية رسمية لتدابير تنفيذ المفوضية)، والنقاش الجاري بشأن شريحة المساعدة المالية لأوكرانيا. سيُولّد إطار SAFE مزيداً من الاتفاقيات الثنائية (المملكة المتحدة، النرويج) التي ستدخل قناة موافقة البرلمان في النصف الثاني من عام 2026.
+
+### Executive Brief Da
+
+### Resumé
+
+Maj 2026 markerer et vendepunkt i europæisk parlamentarisk styring. I løbet af en enkelt måned vedtog Europa-Parlamentet lovgivning inden for forsvarsindustriel strategi, digital platformsansvarlighed, finansarkitektur, dyrevelfærdsreform og valgprocedure. Tætheden og bredden af lovgivningsresultaterne — drevet af et skrøbeligt men funktionelt EPP-S&D-Renew-kerneflertallet — signalerer parlamentets beslutsomhed om at konsolidere EU's globale identitet som reguleringsmagt og sikkerhedsaktør på samme tid.
+
+Månedernes vigtigste præstation er EU-Canada SAFE-instrumentaftalen, som for første gang formelt integrerer et ikke-EU, ikke-EØS-demokrati i EU's kollektive forsvarsindkøb. Kombineret med parlamentets skarp kritik af Europa-Kommissionens langsomme håndhævelse af lov om digitale markeder giver majsessionens portræt billedet af en institution, der har absorberet lærdomme fra geopolitikken efter 2022 og omsætter dem til bindende lov.
+
+---
+
+### Fem temaer der definerede måneden
+
+#### Tema 1: Forsvarssouveränitet bliver transatlantisk
+
+SAFE-Canada-aftalen (TA-10-2026-0180) er månedets akt med den højeste strategiske betydning. Canada bliver det første tredjeland, der formelt integreres i EU's forsvarsindkøb under SAFE-rammen. Aftalen skaber forsyningskæde-diversificering for kritiske militærudstyrskategorier og etablerer en juridisk præcedens for, at UK, Japan og Norge kan følge trop.
+
+**Strategisk vurdering:** EU opbygger forsvarsrelationer, der fungerer uafhængigt af USA's udenrigspolitiske forpligtelser — en afgørende operationel konklusion draget fra fire års geopolitisk usikkerhed efter Ukraine.
+
+#### Tema 2: Digital ansvarlighed — Parlamentet mister tålmodighed med Kommissionen
+
+DMA-håndhævelsesresolutionen (TA-10-2026-0160) er en formel parlamentarisk irettesættelse af Kommissionens håndhævelsestempo. Parlamentet "beklager dybt", at 26 måneder efter at DMA trådte i kraft, er der endnu ikke udstedt en enkelt endelig overtrædelsesafgørelse med bøde mod nogen af de seks udpegede gatekeepere.
+
+**Regulatorisk betydning:** DMA-håndhævelse er den centrale test på, om EU's ambitiøse regulering af digitale markeder omsættes til ændret markedsadfærd fra Big Tech. Parlamentets resolution vil skabe politisk pres på kommissær Vestagers efterfølger om at gå hurtigere frem med igangværende undersøgelser (Apple iOS, Google Search, Meta-interoperabilitet).
+
+#### Tema 3: Budgetarkitektur — Parlamentet fastlægger sin position tidligt
+
+Budgetretningslinjerne for 2027 (TA-10-2026-0112) vedtaget den 28. april udgør parlamentets åbningsposition i MFF 2027 slutårsbudgetforhandlingen. Parlamentets linjer er klare: forsvare samhørighedsfinansieringen, oprethold klimaanpassning på 30%, øg forsvars- og sikkerhedsbevillinger, og afvis Kommissionens fleksibilitetsforslag, der ville reducere parlamentets tilsyn med budgetomfordelinger.
+
+**Fiskal betydning:** Budgettet for 2027 er det sidste år i MFF 2021–2027-rammen. Parlamentets positioner vil forme 2028–2034 MFF-forhandlingen, der forventes at begynde formelt i 2027.
+
+#### Tema 4: Opdatering af demokratisk infrastruktur — Fuldmagtsstemning ved barsel
+
+Valretsændringen (TA-10-2026-0124) er lille i tekst, men betydningsfuld i symbolik. Parlamentets selvændring af sit valgretlige ramme for at tillade fuldmagtsstemning under barsel og perioder efter fødsel er den første vellykkede ændring af EP's valglov siden 2018-reformen (som stadig afventer ratificering). Det signalerer en modnende institution, der opdaterer sine egne driftsregler for at afspejle nutidens værdier.
+
+#### Tema 5: Ukraines ansvarsøkosystem
+
+Parlamentets resolution om ansvar for forbrydelser i Ukraine (TA-10-2026-0161) tilføjer en politisk rygsøjle til den juridiske infrastruktur, som parlamentet har opbygget siden 2022. Læst sammen med konventionen om den internationale kravkommission (TA-10-2026-0154), den finansielle bistand til Ukraine 2026–2027 og SAFE-Canada-forsvarspræcedensen har parlamentet konstrueret en omfattende Ukraine-støttearkitektur, der er juridisk indlejret i EU's ramme og modstandsdygtig over for omstødelse uden specifik lovgivningsmæssig handling.
+
+---
+
+### Centrale vedtagne tekster — Oversigt
+
+| Reference | Emne | Betydning |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | Budgetretningslinjer 2027 | 🔴 HIGH — Årlig finansramme |
+| TA-10-2026-0160 | DMA-håndhævelsesresolution | 🔴 HIGH — Platformsansvarlighed |
+| TA-10-2026-0180 | SAFE-Canada-aftale | 🔴 HIGH — Forsvarssouveränitet |
+| TA-10-2026-0161 | Ukraine-ansvarlighed | 🟡 MEDIUM-HIGH — Retsstatsprincip |
+| TA-10-2026-0183 | AI-handelsstrategi | 🟡 MEDIUM-HIGH — Fremtidig ramme |
+| TA-10-2026-0124 | Fuldmagtsstemning valglov | 🟡 MEDIUM — Institutionel reform |
+| TA-10-2026-0115 | Hunde/katte velfærdsregulering | 🟢 MEDIUM — Forbruger/velfærd |
+| TA-10-2026-0139 | ETS2 MSR kulstofmarked | 🟢 MEDIUM — Klimafinansiering |
+
+---
+
+### Datakvalitetsbemærkning
+
+Analyse gennemført under `degraded-feeds`-vilkår (adopted-texts-feed sund; procedures/events/documents-feeds HTTP 404). DOCEO-data på stemmeniveau ikke tilgængeligt (standard publiceringsefterslæb). Økonomisk kontekst via det europæiske semester og ECB's årsrapport som IMF-proxy. Alle konfidensetiketter kalibreret for at afspejle disse begrænsninger.
+
+---
+
+### Udsigter
+
+Plenarmødet i juni 2026 forventes at behandle den endelige pakke til MFF 2021–2027-revisionen, delegerede retsakter for AI-loven (første formelle parlamentariske granskning af Kommissionens gennemførelsesforanstaltninger) og den igangværende debat om finansbistandstranschen til Ukraine. SAFE-rammen vil generere yderligere bilaterale aftaler (UK, Norge), der træder ind i EP's godkendelsespipeline i andet halvår af 2026.
+
+### Executive Brief De
+
+### Zusammenfassung
+
+Mai 2026 markiert einen Wendepunkt in der europäischen parlamentarischen Governance. In einem einzigen Monat verabschiedete das Europäische Parlament Rechtsvorschriften in den Bereichen Verteidigungsindustriestrategie, Rechenschaftspflicht digitaler Plattformen, Haushaltsarchitektur, Tierschutzreform und Wahlverfahren. Die Dichte und Breite der Gesetzgebungsergebnisse — getrieben von einer fragilen, aber funktionalen EPP-S&D-Renew-Kernmehrheit — signalisiert die Entschlossenheit des Parlaments, die globale Identität der EU als Regulierungsmacht und Sicherheitsakteur gleichzeitig zu festigen.
+
+Die bedeutendste Leistung des Monats ist das EU-Kanada SAFE-Instrumentabkommen, das zum ersten Mal formal eine Nicht-EU-, Nicht-EWR-Demokratie in die kollektive EU-Verteidigungsbeschaffung integriert. In Verbindung mit der pointierten Kritik des Parlaments an der langsamen Durchsetzung des Gesetzes über digitale Märkte durch die Europäische Kommission zeichnet das Porträt der Mai-Sitzung das Bild einer Institution, die die Lehren aus der Geopolitik nach 2022 verinnerlicht hat und sie in bindendes Recht umsetzt.
+
+---
+
+### Fünf Themen, die den Monat prägten
+
+#### Thema 1: Verteidigungssouveränität wird transatlantisch
+
+Das SAFE-Kanada-Abkommen (TA-10-2026-0180) ist der Akt des Monats mit der höchsten strategischen Bedeutung. Kanada wird das erste Drittland, das unter dem SAFE-Rahmen formal in die EU-Verteidigungsbeschaffung integriert wird. Das Abkommen schafft Lieferkettendiversifizierung für kritische Rüstungsgüterkategorien und schafft einen Rechtspräzedenzfall für Großbritannien, Japan und Norwegen zum Nachfolgen.
+
+**Strategische Einschätzung:** Die EU baut Verteidigungsbeziehungen auf, die unabhängig von den außenpolitischen Verpflichtungen der USA funktionieren — eine entscheidende operative Schlussfolgerung, die aus vier Jahren geopolitischer Unsicherheit nach der Ukraine gezogen wurde.
+
+#### Thema 2: Digitale Rechenschaftspflicht — Das Parlament verliert die Geduld mit der Kommission
+
+Die DMA-Durchsetzungsresolution (TA-10-2026-0160) ist ein formeller parlamentarischer Verweis für das Durchsetzungstempo der Kommission. Das Parlament „bedauert zutiefst", dass 26 Monate nach dem Inkrafttreten des DMA noch keine einzige endgültige Zuwiderhandlungsentscheidung mit Geldstrafe gegen einen der sechs benannten Gatekeeper erlassen wurde.
+
+**Regulatorische Bedeutung:** DMA-Durchsetzung ist der zentrale Test, ob die ambitionierte Regulierung der digitalen Märkte der EU in ein verändertes Marktverhalten von Big Tech umgesetzt wird. Die Resolution des Parlaments wird politischen Druck auf den Nachfolger von Kommissarin Vestager ausüben, bei laufenden Ermittlungen schneller voranzukommen (Apple iOS, Google Search, Meta-Interoperabilität).
+
+#### Thema 3: Haushaltsarchitektur — Das Parlament legt seine Position frühzeitig fest
+
+Die Haushaltsleitlinien 2027 (TA-10-2026-0112), die am 28. April angenommen wurden, bilden die Eröffnungsposition des Parlaments in den MFR-2027-Schlussjahrhaushaltverhandlungen. Die Linien des Parlaments sind klar: Kohäsionsfinanzierung verteidigen, Climate Mainstreaming bei 30% aufrechterhalten, Verteidigungs- und Sicherheitsmittel erhöhen und die Flexibilitätsvorschläge der Kommission ablehnen, die die parlamentarische Kontrolle über Haushaltsumlagerungen verringern würden.
+
+**Fiskalische Bedeutung:** Der Haushalt 2027 ist das letzte Jahr des MFR 2021–2027-Rahmens. Die Positionen des Parlaments werden die MFR-2028–2034-Verhandlungen gestalten, die voraussichtlich 2027 offiziell beginnen werden.
+
+#### Thema 4: Demokratische Infrastrukturaktualisierung — Stimmrechtsvollmacht bei Mutterschaft
+
+Die Wahlrechtsänderung (TA-10-2026-0124) ist klein im Text, aber bedeutsam in der Symbolik. Die Selbständerung des Parlaments seines Wahlrechtsrahmens zur Zulassung von Stimmrechtsvollmacht während der Mutterschaft und der postnatalen Perioden ist die erste erfolgreiche Änderung des EP-Wahlgesetzes seit der Reform von 2018 (die noch auf Ratifizierung wartet). Es signalisiert eine reifende Institution, die ihre eigenen Betriebsregeln aktualisiert, um zeitgenössischen Werten Rechnung zu tragen.
+
+#### Thema 5: Das ukrainische Rechenschaftspflicht-Ökosystem
+
+Die Resolution des Parlaments zur Rechenschaftspflicht für Gräueltaten in der Ukraine (TA-10-2026-0161) verleiht der rechtlichen Infrastruktur, die das Parlament seit 2022 aufgebaut hat, ein politisches Rückgrat. Zusammen mit dem Übereinkommen über die Internationale Anspruchskommission (TA-10-2026-0154), der Ukraine-Finanzhilfe 2026–2027 und dem SAFE-Kanada-Verteidigungspräzedenzfall hat das Parlament eine umfassende Ukraine-Unterstützungsarchitektur konstruiert, die rechtlich in den EU-Rahmen eingebettet und gegen eine Umkehrung ohne spezifische Gesetzgebungsmaßnahmen widerstandsfähig ist.
+
+---
+
+### Wichtige angenommene Texte — Auf einen Blick
+
+| Referenz | Thema | Bedeutung |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | Haushaltsleitlinien 2027 | 🔴 HIGH — Jährlicher Finanzrahmen |
+| TA-10-2026-0160 | DMA-Durchsetzungsresolution | 🔴 HIGH — Plattformrechenschaftspflicht |
+| TA-10-2026-0180 | SAFE-Kanada-Abkommen | 🔴 HIGH — Verteidigungssouveränität |
+| TA-10-2026-0161 | Ukraine-Rechenschaftspflicht | 🟡 MEDIUM-HIGH — Rechtsstaatlichkeit |
+| TA-10-2026-0183 | KI-Handelsstrategie | 🟡 MEDIUM-HIGH — Zukünftiger Rahmen |
+| TA-10-2026-0124 | Stimmrechtsvollmacht Wahlgesetz | 🟡 MEDIUM — Institutionelle Reform |
+| TA-10-2026-0115 | Hunde/Katzen-Wohlfahrtsverordnung | 🟢 MEDIUM — Verbraucher/Wohlfahrt |
+| TA-10-2026-0139 | ETS2 MSR Kohlenstoffmarkt | 🟢 MEDIUM — Klimafinanzierung |
+
+---
+
+### Datenqualitätshinweis
+
+Analyse unter `degraded-feeds`-Bedingungen durchgeführt (adopted-texts-Feed gesund; procedures/events/documents-Feeds HTTP 404). DOCEO-Daten auf Abstimmungsebene nicht verfügbar (Standard-Veröffentlichungsverzögerung). Wirtschaftlicher Kontext über das Europäische Semester und den EZB-Jahresbericht als IMF-Proxy. Alle Konfidenzbezeichnungen kalibriert, um diese Einschränkungen widerzuspiegeln.
+
+---
+
+### Ausblick
+
+Die Plenarsitzung im Juni 2026 wird voraussichtlich das abschließende Paket zur MFR-2021–2027-Überprüfung, delegierte Rechtsakte des KI-Gesetzes (erste formelle parlamentarische Prüfung der Durchführungsmaßnahmen der Kommission) und die laufende Debatte über die Ukraine-Finanzhilfetranche behandeln. Der SAFE-Rahmen wird weitere bilaterale Abkommen (UK, Norwegen) generieren, die im zweiten Halbjahr 2026 in die EP-Zustimmungspipeline eintreten.
+
+### Executive Brief Es
+
+### Resumen principal
+
+Mayo de 2026 marca un punto de inflexión en la gobernanza parlamentaria europea. En un solo mes, el Parlamento Europeo adoptó legislación en materia de estrategia industrial de defensa, responsabilidad de plataformas digitales, arquitectura presupuestaria, reforma de bienestar animal y procedimiento electoral. La densidad y amplitud de los resultados legislativos — impulsados por una mayoría central EPP-S&D-Renew frágil pero funcional — señala la determinación del Parlamento de consolidar simultáneamente la identidad global de la UE como potencia reguladora y actor de seguridad.
+
+El logro más destacado del mes es el acuerdo-instrumento SAFE UE-Canadá, que por primera vez integra formalmente una democracia no-UE, no-EEE en las contrataciones colectivas de defensa de la UE. Combinado con la crítica incisiva del Parlamento al lento ritmo de aplicación de la Ley de Mercados Digitales por parte de la Comisión Europea, el retrato de la sesión de mayo describe una institución que ha asimilado las lecciones de la geopolítica posterior a 2022 y las está traduciendo en derecho vinculante.
+
+---
+
+### Cinco temas que definieron el mes
+
+#### Tema 1: La soberanía defensiva se vuelve transatlántica
+
+El acuerdo SAFE-Canadá (TA-10-2026-0180) es el acto del mes con mayor impacto estratégico. Canadá se convierte en el primer tercer país formalmente integrado en la contratación de defensa de la UE bajo el marco SAFE. El acuerdo crea diversificación de cadenas de suministro para categorías críticas de equipos militares y establece un precedente jurídico para que el Reino Unido, Japón y Noruega sigan.
+
+**Lectura estratégica:** La UE está construyendo relaciones de defensa que funcionan independientemente de los compromisos de política exterior de Estados Unidos — una conclusión operacional decisiva extraída de cuatro años de incertidumbre geopolítica post-Ucrania.
+
+#### Tema 2: Responsabilidad digital — El Parlamento pierde la paciencia con la Comisión
+
+La resolución sobre la aplicación del DMA (TA-10-2026-0160) es una reprimenda parlamentaria formal al ritmo de aplicación de la Comisión. El Parlamento «lamenta profundamente» que 26 meses después de que el DMA entrase en vigor, no se haya dictado ni una sola decisión de infracción definitiva con multa contra ninguno de los seis guardianes de acceso designados.
+
+**Importancia regulatoria:** La aplicación del DMA es la prueba central de si la ambiciosa regulación de mercados digitales de la UE se traduce en un cambio de comportamiento de mercado por parte de las Big Tech. La resolución del Parlamento creará presión política sobre el sucesor de la comisaria Vestager para acelerar las investigaciones en curso (Apple iOS, Google Search, interoperabilidad de Meta).
+
+#### Tema 3: Arquitectura presupuestaria — El Parlamento establece su posición con antelación
+
+Las directrices presupuestarias para 2027 (TA-10-2026-0112), adoptadas el 28 de abril, constituyen la posición de apertura del Parlamento en la negociación del presupuesto del último año del MFP 2027. Las líneas del Parlamento son claras: defender la financiación de cohesión, mantener la integración climática en el 30 %, aumentar las asignaciones de defensa y seguridad, y rechazar las propuestas de flexibilidad de la Comisión que reducirían la supervisión parlamentaria sobre las reasignaciones presupuestarias.
+
+**Importancia fiscal:** El presupuesto de 2027 es el último año del marco MFP 2021–2027. Las posiciones del Parlamento conformarán la negociación del MFP 2028–2034, que se espera comience formalmente en 2027.
+
+#### Tema 4: Actualización de la infraestructura democrática — Voto por delegación para la maternidad
+
+La enmienda a la Ley Electoral (TA-10-2026-0124) es modesta en texto pero significativa en simbolismo. La autoenmienda del Parlamento a su marco electoral para permitir el voto por delegación durante los períodos de maternidad y posnatal es la primera enmienda exitosa a la Ley Electoral del PE desde la reforma de 2018 (que aún está pendiente de ratificación). Señala una institución que madura y actualiza sus propias reglas operativas para reflejar los valores contemporáneos.
+
+#### Tema 5: El ecosistema de responsabilidad por Ucrania
+
+La resolución del Parlamento sobre la responsabilidad por las atrocidades en Ucrania (TA-10-2026-0161) añade una columna vertebral política a la infraestructura jurídica que el Parlamento ha construido desde 2022. Leída junto con el convenio sobre la Comisión Internacional de Reclamaciones (TA-10-2026-0154), la asistencia financiera a Ucrania 2026–2027 y el precedente de defensa SAFE-Canadá, el Parlamento ha construido una arquitectura integral de apoyo a Ucrania jurídicamente integrada en el marco de la UE y resistente a su reversión sin una acción legislativa específica.
+
+---
+
+### Textos adoptados clave — De un vistazo
+
+| Referencia | Asunto | Importancia |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | Directrices presupuestarias 2027 | 🔴 HIGH — Marco financiero anual |
+| TA-10-2026-0160 | Resolución sobre aplicación del DMA | 🔴 HIGH — Responsabilidad de plataformas |
+| TA-10-2026-0180 | Acuerdo SAFE-Canadá | 🔴 HIGH — Soberanía defensiva |
+| TA-10-2026-0161 | Responsabilidad Ucrania | 🟡 MEDIUM-HIGH — Estado de derecho |
+| TA-10-2026-0183 | Estrategia IA-comercio | 🟡 MEDIUM-HIGH — Marco futuro |
+| TA-10-2026-0124 | Voto por delegación Ley Electoral | 🟡 MEDIUM — Reforma institucional |
+| TA-10-2026-0115 | Reglamento bienestar perros/gatos | 🟢 MEDIUM — Consumidor/bienestar |
+| TA-10-2026-0139 | ETS2 MSR mercado de carbono | 🟢 MEDIUM — Financiación climática |
+
+---
+
+### Nota sobre calidad de los datos
+
+Análisis realizado bajo condiciones `degraded-feeds` (flujo adopted-texts en buen estado; flujos procedures/events/documents HTTP 404). Datos DOCEO a nivel de votación no disponibles (retraso estándar de publicación). Contexto económico mediante el Semestre Europeo y el Informe Anual del BCE como proxy del IMF. Todos los indicadores de confianza calibrados para reflejar estas limitaciones.
+
+---
+
+### Perspectivas
+
+Se espera que el pleno de junio de 2026 aborde el paquete final de la revisión del MFP 2021–2027, los actos delegados de la Ley de IA (primer examen parlamentario formal de las medidas de ejecución de la Comisión) y el debate en curso sobre el tramo de asistencia financiera a Ucrania. El marco SAFE generará más acuerdos bilaterales (Reino Unido, Noruega) que entrarán en la cadena de consentimiento del PE en el segundo semestre de 2026.
+
+### Executive Brief Fi
+
+### Johtava yhteenveto
+
+Toukokuu 2026 merkitsee käännekohtaa eurooppalaisessa parlamentaarisessa hallinnossa. Yhden kuukauden aikana Euroopan parlamentti hyväksyi lainsäädäntöä, joka kattaa puolustusalan teollisuusstrategian, digitaalisen alustan vastuullisuuden, finanssiarkkitehtuurin, eläinsuojeluuudistuksen ja vaalimenettelyt. Lainsäädäntötulosten tiheys ja laajuus — jota ajaa hauras mutta toimiva EPP-S&D-Renew-ydinenenemmistö — signaloi parlamentin päättäväisyyttä vahvistaa EU:n globaalia identiteettiä samanaikaisesti säätelyvaltana ja turvallisuustoimijana.
+
+Kuukauden merkittävin saavutus on EU–Kanada SAFE-sopimusinstrumentti, joka ensimmäistä kertaa virallisesti integroi ei-EU-, ei-ETA-demokratian EU:n kollektiiviseen puolustushankintaan. Yhdistettynä parlamentin teräväksi kritiikiksi Euroopan komission hitaasta digitaalisia markkinoita koskevan lain täytäntöönpanosta toukokuun istunnon muotokuva kuvaa instituutiota, joka on omaksunut vuoden 2022 jälkeisen geopolitiikan opetukset ja kääntää ne sitovaksi lainsäädännöksi.
+
+---
+
+### Viisi teemaa, jotka määrittelivät kuukauden
+
+#### Teema 1: Puolustussuvereniteetti ylittää Atlantin
+
+SAFE-Kanada-sopimus (TA-10-2026-0180) on kuukauden strategisesti merkittävin toimi. Kanada tulee ensimmäiseksi kolmanneksi maaksi, joka virallisesti integroidaan EU:n puolustushankintaan SAFE-kehyksen alla. Sopimus luo toimitusketjun monimuotoistamista kriittisten sotilaslaitteiden kategorioille ja luo oikeudellisen ennakkotapauksen Iso-Britannialle, Japanille ja Norjalle seurata perässä.
+
+**Strateginen arvio:** EU rakentaa puolustussuhteita, jotka toimivat riippumatta Yhdysvaltojen ulkopoliittisista sitoumuksista — ratkaiseva operatiivinen johtopäätös, joka on vedetty neljän vuoden geopoliittisesta epävarmuudesta Ukrainan jälkeen.
+
+#### Teema 2: Digitaalinen vastuullisuus — parlamentti menettää kärsivällisyytensä komissioon
+
+DMA:n täytäntöönpanopäätöslauselma (TA-10-2026-0160) on muodollinen parlamentaarinen moite komission täytäntöönpanovauhdista. Parlamentti "pahoittelee syvästi", että 26 kuukautta DMA:n voimaantulon jälkeen ei ole annettu yhtään lopullista rikkomispäätöstä sakoineen yhdellekään kuudesta nimetystä portinvartijasta.
+
+**Sääntelyllinen merkitys:** DMA:n täytäntöönpano on keskeinen testi sille, muuttuuko EU:n kunnianhimoinen digitaalisten markkinoiden sääntely Big Techin muuttuneeksi markkina käyttäytymiseksi. Parlamentin päätöslauselma luo poliittista painetta komissaari Vestägerin seuraajalle edetä nopeammin vireillä olevissa tutkimuksissa (Apple iOS, Google Search, Metan yhteentoimivuus).
+
+#### Teema 3: Budjettiarkkitehtuuri — parlamentti asettaa kantansa varhain
+
+Vuoden 2027 budjettiohjeet (TA-10-2026-0112), jotka hyväksyttiin 28. huhtikuuta, muodostavat parlamentin avausaseman MFF 2027 loppuvuoden budjettineuvotteluissa. Parlamentin linjat ovat selkeät: puolusta koheesiorahoitusta, ylläpidä ilmastovaltavirtaistaminen 30%:ssa, lisää puolustus- ja turvallisuusmäärärahoja ja hylkää komission joustavuusehdotukset, jotka vähentäisivät parlamentin valvontaa budjettisiirtojen osalta.
+
+**Finanssipoliittinen merkitys:** Vuoden 2027 talousarvio on MFF 2021–2027-kehyksen viimeinen vuosi. Parlamentin kannat muovaavat 2028–2034 MFF-neuvottelua, jonka odotetaan alkavan virallisesti vuonna 2027.
+
+#### Teema 4: Demokraattisen infrastruktuurin päivitys — valtakirjaäänestys äitiyden aikana
+
+Vaalilakimuutos (TA-10-2026-0124) on tekstiltään pieni mutta symbolisesti merkittävä. Parlamentin itsensä tekemä muutos omaan vaalilainsäädäntökehykseensä äitiysloman ja synnytyksen jälkeisten jaksojen ajalle sallitun valtakirjaäänestyksen mahdollistamiseksi on ensimmäinen onnistunut EP:n vaalilakimuutos sitten vuoden 2018 uudistuksen (joka odottaa edelleen ratifiointia). Se osoittaa kypsyvää instituutiota, joka päivittää omia toimintasääntöjään nykypäivän arvojen mukaisesti.
+
+#### Teema 5: Ukrainan vastuuekosysteemi
+
+Parlamentin päätöslauselma Ukrainassa tehtyjen julmuuksien vastuusta (TA-10-2026-0161) lisää poliittisen selkärangan parlamentin vuodesta 2022 rakentamaan oikeudelliseen infrastruktuuriin. Luettuna yhdessä kansainvälisen vaatimustoimikunnan yleissopimuksen (TA-10-2026-0154), Ukrainan 2026–2027 rahoitustuen ja SAFE-Kanada-puolustusennakkotapauksen kanssa parlamentti on rakentanut kattavan Ukrainan tukiarkkitehtuurin, joka on oikeudellisesti upotettu EU:n kehykseen ja vastustuskykyinen kumoamiselle ilman erityistä lainsäädäntötoimia.
+
+---
+
+### Tärkeimmät hyväksytyt tekstit — Yhteenveto
+
+| Viite | Aihe | Merkitys |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | Budjettiohjeet 2027 | 🔴 HIGH — Vuotuinen rahoituskehys |
+| TA-10-2026-0160 | DMA:n täytäntöönpanopäätöslauselma | 🔴 HIGH — Alustava vastuullisuus |
+| TA-10-2026-0180 | SAFE-Kanada-sopimus | 🔴 HIGH — Puolustussuvereniteetti |
+| TA-10-2026-0161 | Ukrainan vastuullisuus | 🟡 MEDIUM-HIGH — Oikeusvaltioperiaate |
+| TA-10-2026-0183 | Tekoäly-kauppastrategia | 🟡 MEDIUM-HIGH — Tuleva kehys |
+| TA-10-2026-0124 | Valtakirjaäänestys vaalilaki | 🟡 MEDIUM — Institutionaalinen uudistus |
+| TA-10-2026-0115 | Koirien/kissojen hyvinvointiasetus | 🟢 MEDIUM — Kuluttaja/hyvinvointi |
+| TA-10-2026-0139 | ETS2 MSR hiilimarkkina | 🟢 MEDIUM — Ilmastorahoitus |
+
+---
+
+### Tietolaatuhuomio
+
+Analyysi suoritettu `degraded-feeds`-olosuhteissa (adopted-texts-syöte terve; procedures/events/documents-syötteet HTTP 404). DOCEO-data äänestystasolla ei saatavilla (vakiojulkaisuviive). Taloudellinen konteksti Euroopan lukukauden ja EKP:n vuosikertomuksen kautta IMF-välityksellä. Kaikki luottamusmerkinnät kalibroitu heijastamaan näitä rajoituksia.
+
+---
+
+### Näkymät
+
+Kesäkuun 2026 täysistunnon odotetaan käsittelevän MFF 2021–2027-tarkistuksen lopullisen paketin, tekoälylain delegoidut säädökset (ensimmäinen muodollinen parlamentaarinen tarkastelu komission täytäntöönpanotoimenpiteistä) ja Ukrainan rahoitustukierän käynnissä olevan keskustelun. SAFE-kehys tuottaa lisää kahdenvälisiä sopimuksia (UK, Norja), jotka astuvat EP:n hyväksymisprosessiin vuoden 2026 toisella puoliskolla.
+
+### Executive Brief Fr
+
+### Résumé principal
+
+Mai 2026 marque un tournant dans la gouvernance parlementaire européenne. En un seul mois, le Parlement européen a adopté une législation couvrant la stratégie industrielle de défense, la responsabilité des plateformes numériques, l'architecture budgétaire, la réforme de la protection animale et la procédure électorale. La densité et l'étendue des résultats législatifs — portés par une majorité centrale EPP-S&D-Renew fragile mais fonctionnelle — témoignent de la détermination du Parlement à consolider simultanément l'identité mondiale de l'UE en tant que puissance régulatrice et acteur de sécurité.
+
+La réalisation phare du mois est l'accord-instrument SAFE UE-Canada, qui intègre pour la première fois formellement une démocratie non-UE, non-EEE dans les marchés collectifs de défense de l'UE. Combiné avec la critique acerbe du Parlement à l'égard du rythme lent d'application de la loi sur les marchés numériques par la Commission européenne, le portrait de la session de mai décrit une institution qui a intégré les leçons de la géopolitique post-2022 et les traduit en droit contraignant.
+
+---
+
+### Cinq thèmes qui ont défini le mois
+
+#### Thème 1 : La souveraineté défensive devient transatlantique
+
+L'accord SAFE-Canada (TA-10-2026-0180) est l'acte du mois à l'impact stratégique le plus élevé. Le Canada devient le premier pays tiers formellement intégré dans les marchés publics de défense de l'UE dans le cadre du mécanisme SAFE. L'accord crée une diversification des chaînes d'approvisionnement pour les catégories d'équipements militaires critiques, tout en établissant un précédent juridique pour que le Royaume-Uni, le Japon et la Norvège suivent.
+
+**Lecture stratégique :** L'UE construit des relations de défense qui fonctionnent indépendamment des engagements de politique étrangère américains — une conclusion opérationnelle décisive tirée de quatre ans d'incertitude géopolitique post-Ukraine.
+
+#### Thème 2 : Responsabilité numérique — Le Parlement perd patience avec la Commission
+
+La résolution sur l'application du DMA (TA-10-2026-0160) est un blâme parlementaire formel pour le rythme d'application de la Commission. Le Parlement « regrette profondément » que 26 mois après l'entrée en vigueur du DMA, pas une seule décision finale de violation avec amende n'ait été prononcée contre l'un des six contrôleurs d'accès désignés.
+
+**Importance réglementaire :** L'application du DMA est le test central pour savoir si la réglementation ambitieuse de l'UE sur les marchés numériques se traduit par un changement de comportement de marché de la part des Big Tech. La résolution du Parlement créera une pression politique sur le successeur de la commissaire Vestager pour accélérer les enquêtes en cours (Apple iOS, Google Search, interopérabilité Meta).
+
+#### Thème 3 : Architecture budgétaire — Le Parlement fixe sa position en amont
+
+Les orientations budgétaires 2027 (TA-10-2026-0112) adoptées le 28 avril constituent la position d'ouverture du Parlement dans la négociation budgétaire de dernière année du CFP 2027. Les lignes du Parlement sont claires : défendre les financements de cohésion, maintenir l'intégration climatique à 30 %, augmenter les dotations pour la défense et la sécurité, et rejeter les propositions de flexibilité de la Commission qui réduiraient le contrôle parlementaire sur les réaffectations budgétaires.
+
+**Importance budgétaire :** Le budget 2027 est la dernière année du cadre CFP 2021–2027. Les positions du Parlement façonneront la négociation du CFP 2028–2034 qui devrait débuter formellement en 2027.
+
+#### Thème 4 : Mise à jour de l'infrastructure démocratique — Vote par procuration pour la maternité
+
+L'amendement à la loi électorale (TA-10-2026-0124) est modeste dans son texte mais significatif dans son symbolisme. L'auto-amendement par le Parlement de son cadre électoral pour autoriser le vote par procuration pendant les congés de maternité et les périodes post-natales est le premier amendement réussi à la loi électorale du PE depuis la réforme de 2018 (qui attend toujours ratification). Il témoigne d'une institution qui se transforme et met à jour ses propres règles de fonctionnement pour refléter les valeurs contemporaines.
+
+#### Thème 5 : L'écosystème de responsabilité pour l'Ukraine
+
+La résolution du Parlement sur la responsabilité pour les atrocités commises en Ukraine (TA-10-2026-0161) apporte un soutien politique à l'infrastructure juridique que le Parlement a construite depuis 2022. Lue aux côtés de la convention sur la Commission internationale des réclamations (TA-10-2026-0154), de l'assistance financière à l'Ukraine 2026–2027 et du précédent de défense SAFE-Canada, le Parlement a construit une architecture complète de soutien à l'Ukraine juridiquement ancrée dans le cadre de l'UE et résistante à toute annulation sans action législative spécifique.
+
+---
+
+### Textes adoptés clés — En bref
+
+| Référence | Sujet | Importance |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | Orientations budgétaires 2027 | 🔴 HIGH — Cadre financier annuel |
+| TA-10-2026-0160 | Résolution sur l'application du DMA | 🔴 HIGH — Responsabilité des plateformes |
+| TA-10-2026-0180 | Accord SAFE-Canada | 🔴 HIGH — Souveraineté défensive |
+| TA-10-2026-0161 | Responsabilité Ukraine | 🟡 MEDIUM-HIGH — État de droit |
+| TA-10-2026-0183 | Stratégie IA-commerce | 🟡 MEDIUM-HIGH — Cadre futur |
+| TA-10-2026-0124 | Vote par procuration loi électorale | 🟡 MEDIUM — Réforme institutionnelle |
+| TA-10-2026-0115 | Règlement bien-être chiens/chats | 🟢 MEDIUM — Consommateurs/bien-être |
+| TA-10-2026-0139 | ETS2 MSR marché carbone | 🟢 MEDIUM — Finance climatique |
+
+---
+
+### Note sur la qualité des données
+
+Analyse réalisée dans des conditions `degraded-feeds` (flux adopted-texts sain ; flux procedures/events/documents HTTP 404). Données DOCEO au niveau du vote non disponibles (délai de publication standard). Contexte économique via le Semestre européen et le Rapport annuel de la BCE en tant que proxy IMF. Tous les indicateurs de confiance calibrés pour refléter ces limites.
+
+---
+
+### Perspectives
+
+La session plénière de juin 2026 devrait porter sur le paquet final de la révision du CFP 2021–2027, les actes délégués de la loi sur l'IA (premier examen parlementaire formel des mesures d'exécution de la Commission) et le débat en cours sur la tranche d'assistance financière à l'Ukraine. Le cadre SAFE génèrera d'autres accords bilatéraux (Royaume-Uni, Norvège) entrant dans le pipeline de consentement du PE au second semestre 2026.
+
+### Executive Brief He
+
+**כותרת:** הפרלמנט האירופי מאי 2026: ריבונות ביטחונית, ממשל דיגיטלי ושאיפה תקציבית מגדירים חודש מכריע  
+**תאריך:** 2026-05-28 | **סוג המאמר:** month-in-review | **רמת ביטחון:** 🟡 MEDIUM-HIGH
+
+---
+
+### סיכום מוביל
+
+מאי 2026 מסמן נקודת מפנה בממשל הפרלמנטרי האירופי. בחודש אחד בלבד, הפרלמנט האירופי אימץ חקיקה המקיפה אסטרטגיה תעשייתית ביטחונית, אחריות פלטפורמות דיגיטליות, ארכיטקטורה תקציבית, רפורמת רווחת בעלי חיים והליך בחירות. צפיפות התפוקה החקיקתית ורוחבה — המונעת על ידי רוב ליבה שברירי אך תפקודי של EPP-S&D-Renew — מאותתת על נחישותו של הפרלמנט לגבש את זהות האיחוד האירופי הגלובלית כעוצמה רגולטורית וכשחקן ביטחוני בו-זמנית.
+
+ההישג המרכזי של החודש הוא הסכם מכשיר SAFE בין האיחוד האירופי לקנדה, המשלב לראשונה באופן רשמי דמוקרטיה שאינה חברה באיחוד ובאזור הכלכלי האירופי בהתקשרויות ביטחון קולקטיביות של האיחוד. בשילוב עם הביקורת החריפה של הפרלמנט על קצב האכיפה האטי של המפכ"ל האירופי של חוק השווקים הדיגיטליים, דיוקן מושב מאי מצייר מוסד שספג את לקחי הגיאופוליטיקה שלאחר 2022 ומתרגם אותם לחוק מחייב.
+
+---
+
+### חמישה נושאים שהגדירו את החודש
+
+#### נושא 1: הריבונות הביטחונית חוצה את האוקיינוס האטלנטי
+
+הסכם SAFE-קנדה (TA-10-2026-0180) הוא הפעולה בעלת ההשפעה האסטרטגית הגבוהה ביותר בחודש. קנדה הופכת למדינה השלישית הראשונה המשולבת רשמית בהתקשרויות הביטחון של האיחוד האירופי במסגרת SAFE. ההסכם יוצר גיוון שרשרת אספקה לקטגוריות ציוד צבאי קריטיות ומקים תקדים משפטי עבור בריטניה, יפן ונורווגיה לעקוב בעקבותיו.
+
+**קריאה אסטרטגית:** האיחוד האירופי בונה יחסי ביטחון הפועלים ללא תלות בהתחייבויות המדיניות החוץ-ניות של ארה"ב — מסקנה מבצעית מכרעת שנגזרת מארבע שנות אי-ודאות גיאופוליטית לאחר אוקראינה.
+
+#### נושא 2: אחריות דיגיטלית — הפרלמנט מאבד סבלנות מהנציבות
+
+החלטת האכיפה של DMA (TA-10-2026-0160) היא נזיפה פרלמנטרית רשמית על קצב האכיפה של הנציבות. הפרלמנט "מצר עמוקות" שחלפו 26 חודשים מאז שה-DMA נכנס לתפעול מבלי שהוצאה אפילו החלטת הפרה אחת סופית עם קנס כנגד אף אחד משישה שומרי הסף שיועדו.
+
+**משמעות רגולטורית:** אכיפת DMA היא המבחן המרכזי לשאלה האם הרגולציה הנועזת של האיחוד האירופי על שווקים דיגיטליים מתורגמת לשינוי התנהגות שוק אצל Big Tech. החלטת הפרלמנט תיצור לחץ פוליטי על יורשת הקומיסרית וסטאגר להתקדם מהר יותר בחקירות תלויות (Apple iOS, Google Search, יכולת פעולה הדדית של Meta).
+
+#### נושא 3: ארכיטקטורה תקציבית — הפרלמנט מגדיר עמדתו מוקדם
+
+הנחיות התקציב ל-2027 (TA-10-2026-0112) שאומצו ב-28 באפריל מהוות את עמדת הפתיחה של הפרלמנט במשא ומתן על תקציב שנת הסיום של MFF 2027. קווי הפרלמנט ברורים: הגנה על מימון לכידות, שמירת מיינסטרימינג אקלימי על 30%, הגדלת הקצאות ביטחון והגנה, ודחיית הצעות הגמישות של הנציבות שיצמצמו את הפיקוח הפרלמנטרי על העברות תקציביות.
+
+**משמעות פיסקלית:** תקציב 2027 הוא השנה האחרונה של מסגרת MFF 2021–2027. עמדות הפרלמנט יעצבו את מו"מ MFF 2028–2034 שצפוי להתחיל רשמית ב-2027.
+
+#### נושא 4: עדכון תשתיות דמוקרטיות — הצבעה בייפוי כוח לאמהות
+
+תיקון חוק הבחירות (TA-10-2026-0124) קטן בטקסט אך משמעותי בסמליות. תיקון עצמי של הפרלמנט למסגרתו הבחירתית כדי לאפשר הצבעה בייפוי כוח בתקופות לידה ולאחר לידה הוא התיקון הראשון המוצלח לחוק הבחירות של הפרלמנט האירופי מאז רפורמת 2018 (שעדיין ממתינה לאשרור). הוא מאותת על מוסד מתבגר המעדכן את כללי הפעולה שלו לשקף ערכים עכשוויים.
+
+#### נושא 5: מערכת האחריות של אוקראינה
+
+החלטת הפרלמנט בדבר אחריות על זוועות באוקראינה (TA-10-2026-0161) מוסיפה עמוד שדרה פוליטי לתשתית המשפטית שהפרלמנט בונה מאז 2022. קריאה לצד אמנת ועדת התביעות הבינלאומית (TA-10-2026-0154), סיוע פיננסי לאוקראינה 2026–2027 ותקדים ביטחון SAFE-קנדה, הפרלמנט בנה ארכיטקטורת תמיכה מקיפה לאוקראינה המוטמעת משפטית במסגרת האיחוד ועמידה בפני ביטול ללא פעולה חקיקתית ספציפית.
+
+---
+
+### טקסטים מרכזיים שאומצו — במבט אחד
+
+| מרשם | נושא | חשיבות |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | הנחיות תקציב 2027 | 🔴 HIGH — מסגרת פיסקלית שנתית |
+| TA-10-2026-0160 | החלטת אכיפת DMA | 🔴 HIGH — אחריות פלטפורמות |
+| TA-10-2026-0180 | הסכם SAFE-קנדה | 🔴 HIGH — ריבונות ביטחונית |
+| TA-10-2026-0161 | אחריות אוקראינה | 🟡 MEDIUM-HIGH — שלטון החוק |
+| TA-10-2026-0183 | אסטרטגיית AI-מסחר | 🟡 MEDIUM-HIGH — מסגרת עתידית |
+| TA-10-2026-0124 | הצבעה בייפוי כוח חוק בחירות | 🟡 MEDIUM — רפורמה מוסדית |
+| TA-10-2026-0115 | תקנת רווחת כלבים/חתולים | 🟢 MEDIUM — צרכן/רווחה |
+| TA-10-2026-0139 | שוק פחמן ETS2 MSR | 🟢 MEDIUM — מימון אקלים |
+
+---
+
+### הערת איכות נתונים
+
+הניתוח בוצע בתנאי `degraded-feeds` (הזנת טקסטים מאומצים תקינה; הזנות הליכים/אירועים/מסמכים HTTP 404). נתוני DOCEO ברמת הצבעה אינם זמינים (פיגור פרסום סטנדרטי). הקשר כלכלי דרך הסמסטר האירופי ודוח השנתי של ה-ECB כ-IMF-proxy. כל תוויות הביטחון כויילו לשקף מגבלות אלה.
+
+---
+
+### תחזיות
+
+מושב הפלנום ביוני 2026 צפוי לטפל בחבילה הסופית של סקירת MFF 2021–2027, בפעולות מואצלות של חוק ה-AI (הבחינה הפרלמנטרית הרשמית הראשונה של אמצעי הביצוע של הנציבות) ובדיון המתמשך על מנת הסיוע הפיננסי לאוקראינה. מסגרת SAFE תניב הסכמים דו-צדדיים נוספים (בריטניה, נורווגיה) הנכנסים לצינור ההסכמה של הפרלמנט בחציו השני של 2026.
+
+### Executive Brief Ja
+
+**見出し：** 欧州議会 2026年5月：防衛主権、デジタルガバナンス、予算的野心が決定的な月を規定する  
+**日付：** 2026-05-28 | **記事種別：** month-in-review | **信頼度：** 🟡 MEDIUM-HIGH
+
+---
+
+### リード・サマリー
+
+2026年5月は、欧州議会のガバナンスにおける転換点となった。わずか1か月の間に、欧州議会は防衛産業戦略、デジタルプラットフォームの説明責任、財政的枠組み、動物福祉改革、選挙手続きにわたる立法を採択した。立法成果の密度と広がりは、脆弱ではあるが機能的なEPP-S&D-Renewの中核多数派に支えられており、EU の国際的アイデンティティを規制大国かつ安全保障上の主体として同時に強化しようとする議会の決意を示している。
+
+今月最大の成果は、EU・カナダSAFE協定文書である。これにより、EU・欧州経済領域（EEA）以外の民主主義国が初めてEUの集団的な防衛調達に正式に組み込まれた。欧州委員会によるデジタル市場法（DMA）の執行遅延に対する議会の厳しい批判と相まって、5月の本会議はこの4年間の地政学的不確実性から教訓を吸収し、それを拘束力ある法律に落とし込んでいる欧州議会の姿を描いている。
+
+---
+
+### 月を規定した5つのテーマ
+
+#### テーマ1：防衛主権が大西洋を越える
+
+SAFE・カナダ協定（TA-10-2026-0180）は、今月最も戦略的意義の高い法的措置である。カナダは、SAFEの枠組みのもとでEUの防衛調達に正式に組み込まれた初の第三国となった。この協定は、重要軍事装備品カテゴリーのサプライチェーン多様化を実現するとともに、英国、日本、ノルウェーが後に続くための法的先例を確立している。
+
+**戦略的読み解き：** EUは、米国の外交政策上のコミットメントとは独立して機能する防衛関係を構築しつつある。これはウクライナ危機後4年間の地政学的不確実性から導き出された決定的な作戦上の結論である。
+
+#### テーマ2：デジタルの説明責任 — 議会が委員会への忍耐を失う
+
+DMA執行決議（TA-10-2026-0160）は、委員会の執行ペースに対する正式な議会の叱責である。議会はDMAが運用されてから26か月が経過するにもかかわらず、指定された6つのゲートキーパーのいずれに対しても罰金を伴う最終的な違反決定が一件も下されていないことを「深く遺憾に思う」と表明している。
+
+**規制上の意義：** DMAの執行は、EUの野心的なデジタル市場規制がBig Techの市場行動の変容につながるかを測る中心的な試金石である。議会の決議は、ヴェスタガー委員の後継者に対してApple iOS、Google Search、メタの相互運用性に関する進行中の調査をより速やかに進めるよう政治的圧力を生み出すだろう。
+
+#### テーマ3：予算的枠組み — 議会が早期に立場を確立する
+
+4月28日に採択された2027年予算指針（TA-10-2026-0112）は、MFF 2027の最終年度予算交渉における議会の出発点を構成する。議会の方針は明確である。結束資金の防衛、気候主流化30%の維持、防衛・安全保障配分の増額、そして予算再配分に対する議会の監視を弱めることになる欧州委員会の柔軟性提案の却下である。
+
+**財政的意義：** 2027年予算はMFF 2021–2027の枠組みの最終年度にあたる。議会の立場は2027年に正式に開始が予定されているMFF 2028–2034の交渉を形成することになる。
+
+#### テーマ4：民主的インフラの更新 — 産休中の代理投票
+
+選挙法改正（TA-10-2026-0124）はテキストとしては小規模だが、象徴的には重要な意義を持つ。産前産後休業期間中の代理投票を認めるための欧州議会による自己改正は、2018年改革（批准待ち）以来初めての欧州議会選挙法の改正に成功したものである。これは現代の価値観を反映するために自らの運営規則を更新する成熟しつつある機関の姿を示している。
+
+#### テーマ5：ウクライナの説明責任エコシステム
+
+ウクライナにおける残虐行為に対する説明責任に関する議会の決議（TA-10-2026-0161）は、2022年以来議会が構築してきた法的インフラに政治的支柱を加えるものである。国際賠償委員会条約（TA-10-2026-0154）、2026–2027年のウクライナへの財政支援、SAFE・カナダ防衛先例と組み合わせて読めば、議会はEU枠組みに法的に組み込まれ、特定の立法措置なしには撤回が困難な包括的なウクライナ支援枠組みを構築したことがわかる。
+
+---
+
+### 重要な採択テキスト — 一覧
+
+| 参照 | 主題 | 重要度 |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | 2027年予算指針 | 🔴 HIGH — 年次財政枠組み |
+| TA-10-2026-0160 | DMA執行決議 | 🔴 HIGH — プラットフォームの説明責任 |
+| TA-10-2026-0180 | SAFE・カナダ協定 | 🔴 HIGH — 防衛主権 |
+| TA-10-2026-0161 | ウクライナの説明責任 | 🟡 MEDIUM-HIGH — 法の支配 |
+| TA-10-2026-0183 | AI・貿易戦略 | 🟡 MEDIUM-HIGH — 将来の枠組み |
+| TA-10-2026-0124 | 選挙法代理投票 | 🟡 MEDIUM — 制度改革 |
+| TA-10-2026-0115 | 犬・猫の福祉規制 | 🟢 MEDIUM — 消費者・福祉 |
+| TA-10-2026-0139 | ETS2 MSR炭素市場 | 🟢 MEDIUM — 気候ファイナンス |
+
+---
+
+### データ品質に関する注記
+
+分析は`degraded-feeds`（劣化フィード）環境下で実施した（採択テキストフィードは正常；手続き・イベント・文書フィードはHTTP 404）。DOCEO投票データは未公開（標準的な公表タイムラグ）。経済的文脈はEUスタビリティプログラムとECB年次報告書をIMF-proxyとして活用。すべての信頼度ラベルはこれらの制約を反映するよう較正済み。
+
+---
+
+### 見通し
+
+2026年6月の本会議ではMFF 2021–2027中間見直しの最終パッケージ、AI法の委任立法（欧州委員会の施行措置に対する議会初の正式審査）、そしてウクライナへの財政支援の次のトランシェをめぐる議論が見込まれる。SAFEの枠組みは2026年下半期に英国・ノルウェーとの追加的な二国間協定を生み出し、欧州議会の同意手続きパイプラインに加わる見通しである。
+
+### Executive Brief Ko
+
+**헤드라인:** 유럽의회 2026년 5월: 방위 주권, 디지털 거버넌스, 예산 야망이 결정적인 한 달을 규정하다  
+**날짜:** 2026-05-28 | **기사 유형:** month-in-review | **신뢰도:** 🟡 MEDIUM-HIGH
+
+---
+
+### 주요 요약
+
+2026년 5월은 유럽 의회 거버넌스의 전환점이 되었다. 단 한 달 동안 유럽의회는 방위산업 전략, 디지털 플랫폼 책임, 재정 아키텍처, 동물복지 개혁, 선거 절차에 걸친 입법을 채택했다. 입법 성과의 밀도와 폭은 EPP-S&D-Renew 핵심 다수파의 취약하지만 기능적인 지지에 의해 이끌리며, EU의 글로벌 정체성을 규제 강국이자 안보 행위자로 동시에 강화하려는 의회의 결의를 보여준다.
+
+이달의 주요 성과는 EU-캐나다 SAFE 협정 문서로, 처음으로 비EU, 비EEA 민주주의 국가를 EU 집단 방위 조달에 공식적으로 통합했다. 유럽 집행위원회의 디지털 시장법(DMA) 집행 부진에 대한 의회의 날카로운 비판과 결합하여, 5월 회의의 초상은 2022년 이후 지정학의 교훈을 흡수하고 이를 구속력 있는 법으로 변환하는 기관을 그리고 있다.
+
+---
+
+### 한 달을 규정한 다섯 가지 주제
+
+#### 주제 1: 방위 주권이 대서양을 넘다
+
+SAFE-캐나다 협정(TA-10-2026-0180)은 이달 전략적 영향이 가장 높은 조치이다. 캐나다는 SAFE 프레임워크 하에서 EU 방위 조달에 공식적으로 통합된 최초의 제3국이 되었다. 협정은 핵심 군사 장비 범주에 대한 공급망 다각화를 실현하고, 영국, 일본, 노르웨이가 뒤따를 법적 선례를 수립한다.
+
+**전략적 판독:** EU는 미국의 대외정책 약속과 독립적으로 기능하는 방위 관계를 구축하고 있다. 이는 우크라이나 이후 4년간의 지정학적 불확실성에서 도출된 결정적인 작전상 결론이다.
+
+#### 주제 2: 디지털 책임 — 의회가 집행위원회에 대한 인내심을 잃다
+
+DMA 집행 결의(TA-10-2026-0160)는 집행위원회의 집행 속도에 대한 공식적인 의회의 질책이다. 의회는 DMA가 운영된 지 26개월이 지났음에도 6개의 지정 게이트키퍼 중 어느 하나에 대해서도 벌금을 수반한 최종 위반 결정이 한 건도 내려지지 않은 것을 "심히 유감스럽게 생각한다"고 밝혔다.
+
+**규제적 의의:** DMA 집행은 EU의 야심찬 디지털 시장 규제가 Big Tech의 시장 행동 변화로 이어지는지 여부를 측정하는 핵심 시험대이다. 의회의 결의는 베스타거 위원의 후임자에게 진행 중인 조사(Apple iOS, Google Search, Meta 상호운용성)를 더 신속히 진행하도록 정치적 압력을 가할 것이다.
+
+#### 주제 3: 예산 아키텍처 — 의회가 조기에 입장 확립
+
+4월 28일 채택된 2027년 예산 지침(TA-10-2026-0112)은 MFF 2027 최종 연도 예산 협상에서 의회의 출발 입장을 구성한다. 의회의 방침은 명확하다. 결속 자금 방어, 기후 주류화 30% 유지, 방위 및 안보 배정 증액, 그리고 예산 재배분에 대한 의회 감시를 약화시킬 집행위원회의 유연성 제안 거부이다.
+
+**재정적 의의:** 2027년 예산은 MFF 2021–2027 프레임워크의 마지막 해이다. 의회의 입장은 2027년에 공식 시작될 것으로 예상되는 MFF 2028–2034 협상을 형성할 것이다.
+
+#### 주제 4: 민주적 인프라 업데이트 — 출산 중 대리 투표
+
+선거법 개정(TA-10-2026-0124)은 텍스트로는 작지만 상징적으로는 중요하다. 출산 및 산후 기간 중 대리 투표를 허용하기 위한 의회의 선거 프레임워크 자기 개정은 2018년 개혁(아직 비준 대기 중) 이후 EP 선거법의 첫 번째 성공적인 개정이다. 이는 현대적 가치를 반영하기 위해 자체 운영 규칙을 업데이트하는 성숙한 기관의 모습을 보여준다.
+
+#### 주제 5: 우크라이나 책임 생태계
+
+우크라이나에서의 잔혹 행위에 대한 책임에 관한 의회 결의(TA-10-2026-0161)는 의회가 2022년 이후 구축해 온 법적 인프라에 정치적 뒷받침을 추가한다. 국제청구위원회 협약(TA-10-2026-0154), 2026–2027 우크라이나 재정 지원, SAFE-캐나다 방위 선례와 함께 읽으면, 의회는 EU 프레임워크에 법적으로 내재되어 특정 입법 조치 없이는 되돌리기 어려운 포괄적인 우크라이나 지원 아키텍처를 구축했음을 알 수 있다.
+
+---
+
+### 주요 채택 텍스트 — 일람
+
+| 참조 | 주제 | 중요도 |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | 2027년 예산 지침 | 🔴 HIGH — 연간 재정 프레임워크 |
+| TA-10-2026-0160 | DMA 집행 결의 | 🔴 HIGH — 플랫폼 책임 |
+| TA-10-2026-0180 | SAFE-캐나다 협정 | 🔴 HIGH — 방위 주권 |
+| TA-10-2026-0161 | 우크라이나 책임 | 🟡 MEDIUM-HIGH — 법치주의 |
+| TA-10-2026-0183 | AI-무역 전략 | 🟡 MEDIUM-HIGH — 미래 프레임워크 |
+| TA-10-2026-0124 | 선거법 대리투표 | 🟡 MEDIUM — 제도 개혁 |
+| TA-10-2026-0115 | 개/고양이 복지 규정 | 🟢 MEDIUM — 소비자/복지 |
+| TA-10-2026-0139 | ETS2 MSR 탄소 시장 | 🟢 MEDIUM — 기후 금융 |
+
+---
+
+### 데이터 품질 참고
+
+`degraded-feeds` 환경(채택 텍스트 피드 정상; 절차/이벤트/문서 피드 HTTP 404)에서 분석 수행. DOCEO 투표 수준 데이터 미공개(표준 발행 지연). 경제적 맥락은 유럽 학기와 ECB 연간 보고서를 IMF-proxy로 활용. 모든 신뢰도 레이블은 이러한 제한 사항을 반영하도록 보정됨.
+
+---
+
+### 전망
+
+2026년 6월 본회의에서는 MFF 2021–2027 검토의 최종 패키지, AI법의 위임 법령(집행위원회 시행 조치에 대한 최초의 공식 의회 검토), 그리고 우크라이나 재정 지원 분할금을 둘러싼 지속적인 토론이 다뤄질 것으로 예상된다. SAFE 프레임워크는 2026년 하반기에 EP의 동의 파이프라인에 진입할 추가 양자 협정(영국, 노르웨이)을 창출할 것이다.
+
+### Executive Brief Nl
+
+### Kernresuméé
+
+Mei 2026 markeert een keerpunt in de Europese parlementaire governance. In één enkele maand nam het Europees Parlement wetgeving aan op het gebied van defensie-industriële strategie, verantwoording van digitale platforms, begrotingsarchitectuur, dierenwelzijnshervorming en kiesprocedures. De dichtheid en breedte van de wetgevingsresultaten — gedreven door een broze maar functionele EPP-S&D-Renew-kernmeerderheid — signaleert de vastberadenheid van het Parlement om de mondiale identiteit van de EU als reguleringsmacht en veiligheidsactor tegelijkertijd te consolideren.
+
+De meest significante prestatie van de maand is het EU-Canada SAFE-instrumentakkoord, dat voor het eerst formeel een niet-EU-, niet-EER-democratie integreert in de collectieve EU-defensieaanbestedingen. Gecombineerd met de scherpe kritiek van het Parlement op het trage handhavingstempo van de Europese Commissie inzake de Wet digitale markten schetst het portret van de meisessie een beeld van een instituut dat de lessen van de geopolitiek na 2022 heeft verwerkt en deze vertaalt naar bindend recht.
+
+---
+
+### Vijf thema's die de maand definieerden
+
+#### Thema 1: Defensiesoevereiniteit wordt transatlantisch
+
+Het SAFE-Canada-akkoord (TA-10-2026-0180) is de daad van de maand met de hoogste strategische impact. Canada wordt het eerste derde land dat formeel wordt geïntegreerd in de EU-defensieaanbestedingen onder het SAFE-kader. Het akkoord creëert diversificatie van toeleveringsketens voor kritieke categorieën militaire uitrusting en schept een juridisch precedent voor het Verenigd Koninkrijk, Japan en Noorwegen om te volgen.
+
+**Strategische analyse:** De EU bouwt defensierelaties op die functioneren onafhankelijk van de buitenlandpolitieke verplichtingen van de VS — een beslissende operationele conclusie getrokken uit vier jaar geopolitieke onzekerheid na Oekraïne.
+
+#### Thema 2: Digitale verantwoording — Het Parlement verliest zijn geduld met de Commissie
+
+De DMA-handhavingsresolutie (TA-10-2026-0160) is een formele parlementaire berisping van het handhavingstempo van de Commissie. Het Parlement „betreurt ten zeerste" dat 26 maanden nadat de DMA operationeel werd, er nog geen enkel definitief inbreukbesluit met boete is uitgevaardigd tegen één van de zes aangewezen poortwachters.
+
+**Regulatoire betekenis:** DMA-handhaving is de centrale test of de ambitieuze regulering van digitale markten door de EU zich vertaalt in gewijzigd marktgedrag door Big Tech. De resolutie van het Parlement zal politieke druk uitoefenen op de opvolger van commissaris Vestager om sneller vooruitgang te boeken bij lopende onderzoeken (Apple iOS, Google Search, Meta-interoperabiliteit).
+
+#### Thema 3: Begrotingsarchitectuur — Het Parlement stelt zijn positie vroeg vast
+
+De begrotingsrichtsnoeren voor 2027 (TA-10-2026-0112), aangenomen op 28 april, vormen de openingspositie van het Parlement in de MFK-2027-eindjaarsonderhandeling. De lijnen van het Parlement zijn duidelijk: cohesiefinanciering verdedigen, klimaatintegratie op 30% handhaven, defensie- en veiligheidsuitgaven verhogen en de flexibiliteitsvoorstellen van de Commissie afwijzen die het parlementair toezicht op begrotingsherverdeling zouden verminderen.
+
+**Fiscale betekenis:** Het budget van 2027 is het laatste jaar van het MFK 2021–2027-kader. De posities van het Parlement zullen de MFK-2028–2034-onderhandeling vormgeven die naar verwachting in 2027 formeel zal beginnen.
+
+#### Thema 4: Actualisering democratische infrastructuur — Stemvolmacht bij moederschapsverlof
+
+De wijziging van de Kieswet (TA-10-2026-0124) is bescheiden in tekst maar veelbetekenend in symboliek. De zelfwijziging door het Parlement van zijn kieskader om stemvolmacht tijdens moederschaps- en postnatale periodes toe te staan, is de eerste succesvolle wijziging van de EP-kieswet sinds de hervorming van 2018 (die nog op ratificatie wacht). Het geeft een maturing instituut dat zijn eigen operationele regels aanpast om hedendaagse waarden te weerspiegelen.
+
+#### Thema 5: Het Oekraïense verantwoordingsecosysteem
+
+De resolutie van het Parlement over verantwoording voor gruweldaden in Oekraïne (TA-10-2026-0161) voegt een politieke ruggengraat toe aan de juridische infrastructuur die het Parlement sinds 2022 heeft opgebouwd. Gelezen naast de conventie over de Internationale Vorderingencommissie (TA-10-2026-0154), de financiële bijstand aan Oekraïne 2026–2027 en het SAFE-Canada-defensieprecedent heeft het Parlement een uitgebreide Oekraïne-ondersteuningsarchitectuur geconstrueerd die juridisch is ingebed in het EU-kader en bestand is tegen terugdraaiing zonder specifieke wetgevingsactie.
+
+---
+
+### Belangrijkste aangenomen teksten — In één oogopslag
+
+| Referentie | Onderwerp | Belang |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | Begrotingsrichtsnoeren 2027 | 🔴 HIGH — Jaarlijks financieel kader |
+| TA-10-2026-0160 | DMA-handhavingsresolutie | 🔴 HIGH — Platformverantwoording |
+| TA-10-2026-0180 | SAFE-Canada-akkoord | 🔴 HIGH — Defensiesoevereiniteit |
+| TA-10-2026-0161 | Oekraïne-verantwoording | 🟡 MEDIUM-HIGH — Rechtsstaat |
+| TA-10-2026-0183 | AI-handelsstrategie | 🟡 MEDIUM-HIGH — Toekomstig kader |
+| TA-10-2026-0124 | Stemvolmacht Kieswet | 🟡 MEDIUM — Institutionele hervorming |
+| TA-10-2026-0115 | Welzijnsregulering honden/katten | 🟢 MEDIUM — Consument/welzijn |
+| TA-10-2026-0139 | ETS2 MSR koolstofmarkt | 🟢 MEDIUM — Klimaatfinanciering |
+
+---
+
+### Opmerking over datakwaliteit
+
+Analyse uitgevoerd onder `degraded-feeds`-omstandigheden (adopted-texts-feed gezond; procedures/events/documents-feeds HTTP 404). DOCEO-gegevens op stemniveau niet beschikbaar (standaard publicatievertraging). Economische context via het Europees Semester en het ECB-jaarverslag als IMF-proxy. Alle betrouwbaarheidslabels gekalibreerd om deze beperkingen te weerspiegelen.
+
+---
+
+### Vooruitzichten
+
+De plenaire vergadering van juni 2026 zal naar verwachting het eindpakket van de MFK-2021–2027-herziening, gedelegeerde handelingen van de AI-wet (eerste formele parlementaire toetsing van de uitvoeringsmaatregelen van de Commissie) en het lopende debat over de financiële bijstandstranche aan Oekraïne behandelen. Het SAFE-kader zal meer bilaterale akkoorden (VK, Noorwegen) genereren die in het tweede halfjaar van 2026 de goedkeuringspipeline van het EP betreden.
+
+### Executive Brief No
+
+### Ledende sammendrag
+
+Mai 2026 markerer et vendepunkt i europeisk parlamentarisk styring. I løpet av en enkelt måned vedtok Europaparlamentet lovgivning innen forsvarsindustriell strategi, digital plattformsansvarlighet, finansarkitektur, dyrevelfærdsreform og valgprosedyre. Tettheten og bredden av lovgivningsresultatene — drevet av et skjørt men funksjonelt EPP-S&D-Renew-kjerneflertall — signaliserer parlamentets besluttsomhet om å konsolidere EUs globale identitet som reguleringsmakt og sikkerhetsaktør samtidig.
+
+Månedenes viktigste prestasjon er EU-Canada SAFE-avtaleinstrumentet, som for første gang formelt integrerer et ikke-EU, ikke-EØS-demokrati i EUs kollektive forsvarsinnkjøp. Kombinert med parlamentets skarpe kritikk av Europakommisjonens langsomme håndheving av lov om digitale markeder gir mai-sesjonens portrett bildet av en institusjon som har absorbert lærdommene fra geopolitikken etter 2022 og oversetter dem til bindende lov.
+
+---
+
+### Fem temaer som definerte måneden
+
+#### Tema 1: Forsvarssuverenitet blir transatlantisk
+
+SAFE-Canada-avtalen (TA-10-2026-0180) er månedets akt med høyest strategisk betydning. Canada blir det første tredjeland som formelt integreres i EUs forsvarsinnkjøp under SAFE-rammeverket. Avtalen skaper forsyningskjedejdiversifisering for kritiske militærutstyrskategorier og etablerer en juridisk presedens for at Storbritannia, Japan og Norge kan følge etter.
+
+**Strategisk vurdering:** EU bygger forsvarsrelasjoner som fungerer uavhengig av USAs utenrikspolitiske forpliktelser — en avgjørende operasjonell konklusjon trukket fra fire års geopolitisk usikkerhet etter Ukraina.
+
+#### Tema 2: Digital ansvarlighet — parlamentet mister tålmodigheten med kommisjonen
+
+DMA-håndhevelsesresolusjonen (TA-10-2026-0160) er en formell parlamentarisk irettesettelse av kommisjonens håndhevelsestempo. Parlamentet "beklager dypt" at 26 måneder etter at DMA trådte i kraft, er det ennå ikke utstedt en eneste endelig overtredelsesavgjørelse med bot mot noen av de seks utpekte portvakterne.
+
+**Regulatorisk betydning:** DMA-håndheving er den sentrale testen på om EUs ambisiøse regulering av digitale markeder omsettes til endret markedsadferd fra Big Tech. Parlamentets resolusjon vil skape politisk press på kommissær Vestagers etterfølger om å gå raskere frem med pågående undersøkelser (Apple iOS, Google Search, Meta-interoperabilitet).
+
+#### Tema 3: Budsjettarkitektur — parlamentet fastsetter sin posisjon tidlig
+
+Budsjettveiledningene for 2027 (TA-10-2026-0112) vedtatt 28. april utgjør parlamentets åpningsposisjon i MFF 2027 sluttårsbudsjettforhandlingen. Parlamentets linjer er klare: forsvare samhøringsfinansieringen, oppretthold klimatilpasning på 30%, øk forsvars- og sikkerhetsbevilgninger og avvis kommisjonens fleksibilitetsforslag som ville redusere parlamentets tilsyn med budsjettomfordelinger.
+
+**Fiskal betydning:** Budsjettet for 2027 er det siste året i MFF 2021–2027-rammen. Parlamentets posisjoner vil forme 2028–2034 MFF-forhandlingen som forventes å begynne formelt i 2027.
+
+#### Tema 4: Oppdatering av demokratisk infrastruktur — fullmaktsstemning ved foreldrepermisjon
+
+Vallovsendringen (TA-10-2026-0124) er liten i tekst men betydningsfull i symbolikk. Parlamentets selvending av sitt valgrettslige rammeverk for å tillate fullmaktsstemning under svangerskapspermisjon og perioder etter fødsel er den første vellykkede endringen av EPs valglov siden 2018-reformen (som fortsatt avventer ratifisering). Det signaliserer en modende institusjon som oppdaterer sine egne driftsregler for å gjenspeile samtidige verdier.
+
+#### Tema 5: Ukrainas ansvarsøkosystem
+
+Parlamentets resolusjon om ansvarlighet for grusomheter i Ukraina (TA-10-2026-0161) tilfører en politisk ryggrad til den juridiske infrastrukturen som parlamentet har bygget siden 2022. Lest sammen med konvensjonen om den internasjonale kravkommisjonen (TA-10-2026-0154), den finansielle bistanden til Ukraina 2026–2027 og SAFE-Canada-forsvarspresedensen har parlamentet konstruert en omfattende Ukraina-støttearchitektur som er juridisk innebygd i EUs rammeverk og motstandsdyktig mot omstøtelse uten spesifikk lovgivningsmessig handling.
+
+---
+
+### Sentrale vedtatte tekster — Oversikt
+
+| Referanse | Emne | Betydning |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | Budjettveiledninger 2027 | 🔴 HIGH — Årlig finansramme |
+| TA-10-2026-0160 | DMA-håndhevelsesresolusjon | 🔴 HIGH — Plattformsansvarlighet |
+| TA-10-2026-0180 | SAFE-Canada-avtale | 🔴 HIGH — Forsvarssuverenitet |
+| TA-10-2026-0161 | Ukraina-ansvarlighet | 🟡 MEDIUM-HIGH — Rettsstats prinsipp |
+| TA-10-2026-0183 | AI-handelsstrategi | 🟡 MEDIUM-HIGH — Fremtidig rammeverk |
+| TA-10-2026-0124 | Fullmaktsstemning valglov | 🟡 MEDIUM — Institusjonell reform |
+| TA-10-2026-0115 | Hund/katt velferdsregulering | 🟢 MEDIUM — Forbruker/velferd |
+| TA-10-2026-0139 | ETS2 MSR karbonmarked | 🟢 MEDIUM — Klimafinansiering |
+
+---
+
+### Datakvalitetsmerknad
+
+Analyse gjennomført under `degraded-feeds`-forhold (adopted-texts-feed frisk; procedures/events/documents-feeds HTTP 404). DOCEO-data på stemmenivå ikke tilgjengelig (standard publiseringsefterslep). Økonomisk kontekst via det europeiske semester og ECBs årsrapport som IMF-proxy. Alle konfidensmerker kalibrert for å gjenspeile disse begrensningene.
+
+---
+
+### Utsikter
+
+Plenarmøtet i juni 2026 forventes å behandle den endelige pakken for MFF 2021–2027-revisjonen, delegerte rettsakter for AI-loven (første formelle parlamentariske gjennomgang av kommisjonens gjennomføringsstiltak) og den pågående debatten om finansbistandstransjen til Ukraina. SAFE-rammeverket vil generere ytterligere bilaterale avtaler (UK, Norge) som trer inn i EPs godkjenningspipeline i andre halvår 2026.
+
+### Executive Brief Sv
+
+### Ledande sammanfattning
+
+Maj 2026 markerar en vändpunkt i europeisk parlamentarisk styrning. Under en enda månad antog Europaparlamentet lagstiftning inom försvarsindustriell strategi, digital plattformsansvarighet, finansarkitektur, djurskyddsreform och valförfarande. Tätheten och bredden av lagstiftningsresultaten — drivna av en bräcklig men funktionell EPP-S&D-Renew-kärnmajoritet — signalerar parlamentets beslutsamhet att konsolidera EU:s globala identitet som regleringskraft och säkerhetsaktör samtidigt.
+
+Månadens viktigaste prestation är EU-Kanada SAFE-avtalsinstrumentet, som för första gången formellt integrerar en icke-EU, icke-EES-demokrati i EU:s kollektiva försvarsupphandling. Kombinerat med parlamentets skarpa kritik av Europeiska kommissionens långsamma genomdrivande av lagen om digitala marknader ger majsessionens porträtt en bild av en institution som har absorberat lärdomarna från geopolitiken efter 2022 och översätter dem till bindande lag.
+
+---
+
+### Fem teman som definierade månaden
+
+#### Tema 1: Försvarssuveränitet blir transatlantisk
+
+SAFE-Kanada-avtalet (TA-10-2026-0180) är månadens mest strategiskt betydelsefulla akt. Kanada blir det första tredjeland som formellt integreras i EU:s försvarsupphandling under SAFE-ramverket. Avtalet skapar leveranskedjediversifiering för kritiska militärutrustningskategorier och etablerar ett rättsligt prejudikat för att Storbritannien, Japan och Norge ska följa efter.
+
+**Strategisk bedömning:** EU bygger försvarsrelationer som fungerar oberoende av USA:s utrikespolitiska åtaganden — en avgörande operativ slutsats dragen från fyra års geopolitisk osäkerhet efter Ukraina.
+
+#### Tema 2: Digital ansvarighet — parlamentet tappar tålamodet med kommissionen
+
+DMA-genomdrivningsresolutionen (TA-10-2026-0160) är ett formellt parlamentariskt tillrättavisande av kommissionens genomdrivaningstakt. Parlamentet "beklagar djupt" att 26 månader efter att DMA trädde i kraft har inte ett enda slutligt intrångsbeslut med böter utfärdats mot någon av de sex utsedda grindvakterna.
+
+**Regulatorisk betydelse:** DMA-genomdrivning är det centrala testet för om EU:s ambitiösa reglering av digitala marknader omsätts i förändrat marknadsbeteende från Big Tech. Parlamentets resolution kommer att skapa politiskt tryck på kommissionsmedlemmen Vestagers efterträdare att gå snabbare fram med pågående utredningar (Apple iOS, Google Search, Meta-driftskompatibilitet).
+
+#### Tema 3: Budgetarkitektur — parlamentet sätter sin ståndpunkt tidigt
+
+Budgetriktlinjerna för 2027 (TA-10-2026-0112) antagna den 28 april utgör parlamentets öppningsposition i MFF 2027 slutårbudgetförhandling. Parlamentets linjer är tydliga: försvara sammanhållningsfinansieringen, upprätthåll klimatanpassning på 30%, öka försvars- och säkerhetsanslag och avvisa kommissionens flexibilitetsförslag som skulle minska parlamentets tillsyn över budgetomfördelningar.
+
+**Fiskal betydelse:** Budgeten 2027 är det sista året i MFF 2021–2027-ramen. Parlamentets ståndpunkter kommer att forma 2028–2034 MFF-förhandlingen som förväntas inledas formellt 2027.
+
+#### Tema 4: Demokratisk infrastrukturuppdatering — fullmaktsröstning vid moderskap
+
+Valrättsändringen (TA-10-2026-0124) är liten i text men betydelsefull i symbolik. Parlamentets självändring av sitt valrättsliga ramverk för att tillåta fullmaktsröstning under moderskap och perioder efter förlossning är den första framgångsrika ändringen av EP:s vallag sedan 2018 års reform (som fortfarande inväntar ratificering). Det signalerar en mognande institution som uppdaterar sina egna driftsregler för att spegla samtida värden.
+
+#### Tema 5: Ukrainas ansvarsekosystem
+
+Parlamentets resolution om ansvarsskyldighet för grymheter i Ukraina (TA-10-2026-0161) tillför en politisk ryggrad till den juridiska infrastruktur som parlamentet har byggt sedan 2022. Läst tillsammans med konventionen om internationella skadeståndskommissionen (TA-10-2026-0154), det ekonomiska biståndet till Ukraina 2026–2027 och SAFE-Kanada-försvarspreceqentet har parlamentet konstruerat ett heltäckande Ukraina-stödarkitektur som är rättsligt inbäddad i EU:s ramverk och motståndskraftig mot upphävning utan specifik lagstiftningsåtgärd.
+
+---
+
+### Viktiga antagna texter — Översikt
+
+| Referens | Ämne | Betydelse |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | Budgetriktlinjer 2027 | 🔴 HIGH — Årlig finansram |
+| TA-10-2026-0160 | DMA-genomdrivningsresolution | 🔴 HIGH — Plattformsansvarighet |
+| TA-10-2026-0180 | SAFE-Kanada-avtal | 🔴 HIGH — Försvarssuveränitet |
+| TA-10-2026-0161 | Ukrainas ansvarsskyldighet | 🟡 MEDIUM-HIGH — Rättsstatsprincipen |
+| TA-10-2026-0183 | AI-handelsstrategi | 🟡 MEDIUM-HIGH — Framtida ramverk |
+| TA-10-2026-0124 | Fullmaktsröstning vallag | 🟡 MEDIUM — Institutionell reform |
+| TA-10-2026-0115 | Hunds-/kattvälfärdsreglering | 🟢 MEDIUM — Konsument/välfärd |
+| TA-10-2026-0139 | ETS2 MSR koldioxidmarknad | 🟢 MEDIUM — Klimatfinansiering |
+
+---
+
+### Datakvalitetsnotering
+
+Analys genomförd under `degraded-feeds`-förhållanden (adopted-texts-flöde friskt; procedures/events/documents-flöden HTTP 404). DOCEO-data på röstningsnivå inte tillgänglig (standard publiceringseftersläpning). Ekonomisk kontext via Europeiska terminen och ECB:s årsrapport som IMF-proxy. Alla konfidensmarkeringar kalibrerade för att återspegla dessa begränsningar.
+
+---
+
+### Utsikter
+
+Plenarsessionen i juni 2026 förväntas behandla det slutliga paketet för MFF 2021–2027-översynen, delegerade akter för AI-förordningen (första formella parlamentariska granskning av kommissionens genomförandeåtgärder) och den pågående debatten om ekonomistödstranschen till Ukraina. SAFE-ramverket kommer att generera ytterligare bilaterala avtal (UK, Norge) som träder in i EP:s godkännandeprocess under det andra halvåret 2026.
+
+### Executive Brief Zh
+
+**标题：** 欧洲议会2026年5月：防御主权、数字治理与预算抱负定义决定性的一个月  
+**日期：** 2026-05-28 | **文章类型：** month-in-review | **置信度：** 🟡 MEDIUM-HIGH
+
+---
+
+### 导言摘要
+
+2026年5月标志着欧洲议会治理的转折点。在短短一个月内，欧洲议会采纳了涵盖国防工业战略、数字平台责任、财政架构、动物福利改革和选举程序的立法。立法成果的密度与广度——由EPP-S&D-Renew脆弱但有效的核心多数派推动——彰显了议会同时巩固欧盟作为监管强权和安全行为体全球身份的决心。
+
+本月最重要的成就是欧盟-加拿大SAFE协定文件，这是首次将非欧盟、非欧经济区民主国家正式纳入欧盟集体防务采购体系。结合议会对欧盟委员会《数字市场法》执法迟缓的尖锐批评，5月全会的全貌描绘了一个吸收了2022年后地缘政治教训并将其转化为具有约束力法律的机构形象。
+
+---
+
+### 定义本月的五大主题
+
+#### 主题一：防御主权跨越大西洋
+
+SAFE-加拿大协定（TA-10-2026-0180）是本月战略影响最高的举措。加拿大成为首个在SAFE框架下正式纳入欧盟防务采购的第三国。协定为关键军事装备类别创造了供应链多元化，并为英国、日本和挪威跟进建立了法律先例。
+
+**战略解读：** 欧盟正在构建独立于美国外交政策承诺运作的防务关系——这是从乌克兰危机后四年地缘政治不确定性中得出的决定性作战结论。
+
+#### 主题二：数字责任——议会对委员会失去耐心
+
+DMA执法决议（TA-10-2026-0160）是对委员会执法节奏的正式议会谴责。议会"深切遗憾"DMA运行26个月后，六家被指定守门人中没有任何一家收到最终侵权决定及附带罚款。
+
+**监管意义：** DMA执法是检验欧盟雄心勃勃的数字市场监管能否转化为Big Tech市场行为改变的核心试验。议会的决议将向维斯塔格委员的继任者施加政治压力，要求加快推进苹果iOS、谷歌搜索和Meta互操作性等待决调查。
+
+#### 主题三：预算架构——议会提前确立立场
+
+4月28日通过的2027年预算准则（TA-10-2026-0112）构成议会在MFF 2027最终年度预算谈判中的初始立场。议会的方向明确：捍卫凝聚基金、将气候主流化维持在30%、增加国防与安全拨款，并拒绝委员会削减议会对预算重新分配监督权的灵活性提案。
+
+**财政意义：** 2027年预算是MFF 2021–2027框架的最后一年。议会立场将形塑预计于2027年正式启动的MFF 2028–2034谈判。
+
+#### 主题四：民主基础设施更新——产假代理投票
+
+选举法修正案（TA-10-2026-0124）文本篇幅小但象征意义重大。议会自我修订选举框架以允许产假和产后期间代理投票，是自2018年改革（仍待批准）以来欧洲议会首次成功修订选举法。这标志着一个正在成熟的机构——它正在更新自身运营规则以反映当代价值观。
+
+#### 主题五：乌克兰责任生态系统
+
+议会关于追究乌克兰暴行责任的决议（TA-10-2026-0161）为议会自2022年以来构建的法律基础设施增添了政治支柱。与国际索赔委员会公约（TA-10-2026-0154）、2026–2027年乌克兰财政援助及SAFE-加拿大防务先例合并阅读，议会构建了一套全面的乌克兰支持架构，在法律上嵌入欧盟框架，且若无特定立法行动则难以撤销。
+
+---
+
+### 关键采纳文本——一览
+
+| 参考 | 主题 | 重要性 |
+|-----------|---------|-------------|
+| TA-10-2026-0112 | 2027年预算准则 | 🔴 HIGH — 年度财政框架 |
+| TA-10-2026-0160 | DMA执法决议 | 🔴 HIGH — 平台责任 |
+| TA-10-2026-0180 | SAFE-加拿大协定 | 🔴 HIGH — 防御主权 |
+| TA-10-2026-0161 | 乌克兰责任 | 🟡 MEDIUM-HIGH — 法治 |
+| TA-10-2026-0183 | AI-贸易战略 | 🟡 MEDIUM-HIGH — 未来框架 |
+| TA-10-2026-0124 | 选举法代理投票 | 🟡 MEDIUM — 制度改革 |
+| TA-10-2026-0115 | 犬猫福利法规 | 🟢 MEDIUM — 消费者/福利 |
+| TA-10-2026-0139 | ETS2 MSR碳市场 | 🟢 MEDIUM — 气候融资 |
+
+---
+
+### 数据质量说明
+
+分析在`degraded-feeds`（降级数据流）条件下进行（采纳文本数据流正常；程序/事件/文件数据流返回HTTP 404）。DOCEO投票级别数据不可用（标准发布延迟）。经济背景通过欧洲学期和欧洲央行年度报告作为IMF替代参考。所有置信度标签已校准以反映上述限制。
+
+---
+
+### 展望
+
+预计2026年6月全会将处理MFF 2021–2027审查最终方案、《人工智能法》授权法规（欧盟委员会实施措施的首次正式议会审查）以及乌克兰财政援助款项的持续辩论。SAFE框架将在2026年下半期产生更多进入欧洲议会批准流程的双边协议（英国、挪威）。
+
 ### Economic Context.Fallback
 
   and baseline macroeconomic knowledge  
@@ -4363,6 +5233,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [economic-context.fallback](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/intelligence/economic-context.fallback.md) | `intelligence/economic-context.fallback.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 | section-supplementary-intelligence | [voting-patterns.degraded](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-28/month-in-review/intelligence/voting-patterns.degraded.md) | `intelligence/voting-patterns.degraded.md` |
