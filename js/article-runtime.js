@@ -103,7 +103,12 @@
   }
   function expandFromHash(hash) {
     if (!hash || hash.length < 2) return;
-    var targetId = decodeURIComponent(hash.slice(1));
+    var targetId = '';
+    try {
+      targetId = decodeURIComponent(hash.slice(1));
+    } catch (_err) {
+      return;
+    }
     if (!targetId) return;
     var target = document.getElementById(targetId);
     if (!target) return;

@@ -203,7 +203,7 @@ test.describe('News Browsing', () => {
     await page.addScriptTag({ content: fs.readFileSync('js/article-runtime.js', 'utf8') });
 
     const details = page.locator('#article-layer-analysis');
-    await expect(details).not.toHaveAttribute('open', '');
+    await expect(details).not.toHaveAttribute('open');
 
     await page.locator('.article-toc-list a[href="#section-synthesis"]').focus();
     await page.keyboard.press('Enter');

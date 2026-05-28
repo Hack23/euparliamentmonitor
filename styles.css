@@ -7605,6 +7605,18 @@ html[data-theme='dark'] .article-layer-summary__title {
   color: #d2e3ff;
 }
 
+html[data-theme='dark'] .article-toc-layer--quick {
+  color: #8ee28a;
+}
+
+html[data-theme='dark'] .article-toc-layer--analysis {
+  color: #8ec3ff;
+}
+
+html[data-theme='dark'] .article-toc-layer--intelligence {
+  color: #ffd28a;
+}
+
 html[data-theme='dark'] .article-meta,
 html[data-theme='dark'] .article-source-md {
   color: #8b949e;
@@ -8780,6 +8792,18 @@ html[data-theme='dark'] body {
 
   html:not([data-theme='light']) .article-layer-summary__title {
     color: #d2e3ff;
+  }
+
+  html:not([data-theme='light']) .article-toc-layer--quick {
+    color: #8ee28a;
+  }
+
+  html:not([data-theme='light']) .article-toc-layer--analysis {
+    color: #8ec3ff;
+  }
+
+  html:not([data-theme='light']) .article-toc-layer--intelligence {
+    color: #ffd28a;
   }
 
   html:not([data-theme='light']) .article-meta,
