@@ -122,3 +122,178 @@ Wildcards are high-impact events with moderate probability (10–35%); Black Swa
 ---
 
 *High-Impact analysis complete | What-If scenarios applied | Indicators documented | 2026-05-28*
+
+---
+
+## Extended Wild Cards — Pass 2 Deep Analysis
+
+### Wild Card 6: AI Consciousness/Sentience Declaration
+
+**Probability:** 1–3% | **Impact:** PARADIGM-SHIFTING | **WEP:** Almost Impossible (sub-1%)
+**Mechanism:** A major AI laboratory (OpenAI, Anthropic, DeepMind) publishes research claiming credible evidence of AI sentience or proto-consciousness in frontier models. This is not primarily an AI safety event — it is a legal and trade classification event: can an AI system be a "person" with legal standing? Does AI output constitute "intellectual property" that crosses borders as a trade good or a rights-bearing entity? EP's AI Trade Strategy would be instantly obsolete and require emergency amendment.
+**Relevance to May 2026 texts:** The AI Trade Strategy (TA-10-2026-0183) defines AI products/services as trade objects — a sentience declaration would require wholesale reclassification of the subject matter.
+**Leading Indicators:** Major AI lab safety announcements; Nature/Science publication on AI consciousness benchmarks; government AI safety agency emergency convocations.
+**Intelligence Assessment:** 🔴 MONITOR but do not act — the base rate is too low to warrant dedicated resources, but the impact magnitude (PARADIGM-SHIFTING) justifies inclusion in the wildcard portfolio for awareness.
+
+### Wild Card 7: Taliban Political Collapse / Internal Coup
+
+**Probability:** 5–10% | **Impact:** TRANSFORMATIVE (positive) | **WEP:** Unlikely (5–10%)
+**Mechanism:** Internal power struggle within Taliban leadership (Haqqani network vs. Kandahari faction) escalates to open conflict, destabilising Taliban governance. This could create a window for: (a) humanitarian access improvement, (b) re-establishment of Afghan civil society with EU support, (c) possible women's rights improvements under a successor faction.
+**Relevance to May 2026 EP resolution:** The EP urgency resolution on Afghanistan was timed to the Criminal Procedure Code adoption — a Taliban collapse would transform the resolution from advocacy tool to historical record. EEAS's response mechanism would shift from "diplomatic pressure on standing government" to "post-conflict engagement planning".
+**Leading Indicators:** Haqqani network public statements; Taliban interior ministry personnel changes; unexplained Taliban leader absences from public events; Pakistan ISI signalling.
+**Historical Parallel:** Taliban's 1994–1996 consolidation of power following internal Mujahideen conflict — the precedent suggests internal divisions can escalate rapidly when external pressure (in this case, sanctions, diplomatic isolation) compounds internal resource competition.
+
+### Wild Card 8: EU-US AI Trade War
+
+**Probability:** 8–15% | **Impact:** MAJOR (negative for EU trade strategy) | **WEP:** Unlikely-Possible (10–20%)
+**Mechanism:** Trump administration (or successor) declares EU AI Act an "unfair trade practice" under Section 301 of the Trade Act of 1974 and imposes retaliatory tariffs on EU digital service exports. The EU's extraterritorial application of AI Act to US companies (Google, Microsoft, Meta under the GPAI provisions) provides the legal pretext.
+**Precedent:** US Section 301 investigation against France's DST (Digital Services Tax) resulted in threatened tariffs on French exports (2020); EU backed down under US pressure. A similar dynamic on AI could undermine the EP's AI Trade Strategy ambition.
+**Relevance:** This is the single most significant near-term risk to the AI Trade Strategy's multilateral framework aspiration — not because it would prevent EU legislation, but because it would prevent the "Brussels Effect" from operating as expected if US decouples from EU AI regulatory standards.
+**WEP Assessment:** Unlikely-Possible (10–20%) — current US administration is focused on tariffs but has not yet targeted EU AI regulations specifically; risk increases if AI Act GPAI enforcement actions result in large US company fines.
+
+### Wild Card 9: Quantum Computing Breakthrough Invalidating AI Trade Framework
+
+**Probability:** 2–5% | **Impact:** TRANSFORMATIVE | **WEP:** Almost Impossible (2–3%)
+**Mechanism:** A quantum computing milestone (practical quantum advantage in AI training) changes the competitive dynamics of AI so fundamentally that EP's AI Trade Strategy (written for classical computing AI) becomes inapplicable. EU would be caught flatfooted: the Quantum Flagship programme exists but EU quantum computing is 3–5 years behind IBM/Google timelines.
+**Relevance:** Long-term wildcard only — practical quantum AI is unlikely before 2030 at earliest. However, the AI Trade Strategy's implementation timeline (2026–2030) overlaps with the critical quantum development window.
+
+### Wild Card 10: EP10 Parliamentary Majority Collapse
+
+**Probability:** 3–8% | **Impact:** DESTABILISING | **WEP:** Unlikely (3–8%)
+**Mechanism:** EPP-S&D-Renew centrist coalition loses working majority following defections or group realignment. ECR or PfE becomes kingmaker. This would immediately threaten the legislative programme that the May 2026 texts are part of — including Commission's AI trade legislative response.
+**Trigger scenarios:**
+- EPP decides to pivot to strategic partnership with ECR (Meloni model replication)
+- Greens/EFA defections following climate policy backsliding
+- Internal S&D group crisis following leadership succession
+**Historical precedent:** EP7 (2009–2014) operated with a more fragile majority; EP10 is actually more stable than EP9 (2019–2024) after initial centrist majority consolidation.
+**Confidence Assessment:** 🟡 LOW PROBABILITY but structural monitor — the stability of the centrist coalition is the single most important political variable underpinning all May 2026 legislative outputs.
+
+---
+
+## Wild Card Portfolio Summary
+
+| Wild Card | Probability | Impact | Monitoring Priority | Key Trigger |
+|---|---|---|---|---|
+| WC1: AI consciousness declaration | 1–3% | Paradigm-shifting | LOW | Lab safety publications |
+| WC2: Taliban internal collapse | 5–10% | Transformative (positive) | MEDIUM | Haqqani signals |
+| WC3: EU-US AI trade war | 8–15% | Major negative | HIGH | Section 301 investigations |
+| WC4: Quantum breakthrough | 2–5% | Transformative | LOW (2030+) | IBM/Google milestones |
+| WC5: EP10 coalition collapse | 3–8% | Destabilising | MEDIUM | EPP-ECR overtures |
+| WC6: China AI infrastructure lock-in | 25–35% | Significant negative | HIGH | Digital Silk Road expansion |
+| WC7: SAFE multilateral cascade | 15–25% | Significant positive | MEDIUM | UK/Norway/Japan requests |
+| WC8: DOCEO early release | 5% | MODERATE | LOW | EP plenary calendar |
+
+---
+
+## Admiralty Assessment of Wild Card Intelligence
+
+**Overall Wild Card Portfolio Grade:** B3 (Reliable source; possibly true)
+**Reasoning:** Wild cards are inherently speculative; B3 is the appropriate ceiling for structural extrapolation from verified political trends. No A-grade intelligence exists for wildcard-level scenarios by definition.
+
+**SAT Applied: What-If Analysis**
+All wild cards assessed using structured "What If?" scenario inversion: "What would have to be true for this scenario to occur?" — followed by probability assessment of those preconditions.
+
+---
+
+*High-Impact analysis complete | What-If scenarios applied | Indicators documented | 2026-05-28 | Pass 2: Extended with Wild Cards 6–10, summary matrix, Admiralty assessment, SAT documentation | 2026-05-28*
+
+---
+
+## Extended Wild Cards — Pass 2 Additional Scenarios (Wild Cards 6–10)
+
+### Wild Card #6: US Withdraws From ICC
+
+**Scenario:** The US formally withdraws from Rome Statute participation (it is not a member state but cooperates) and announces it will not extradite any US-based individuals to ICC custody. This occurs simultaneously with EP's Afghanistan gender apartheid referral.
+
+**Probability:** Low-Medium (20–30%) — Trump administration has de-emphasised ICC; formal non-cooperation possible
+**EP impact:** HIGH — creates precedent question for gender apartheid investigation; ICC Pre-Trial Chamber proceedings continue but enforcement mechanisms weakened
+**Monitoring signal:** State Department announcement; US Congress ICC Accountability Act revival
+**Residual risk:** 🟡 MEDIUM — ICC proceedings are legally independent of US political position; but enforcement risk increases
+
+---
+
+### Wild Card #7: AI Trade Strategy Triggers WTO Formal Challenge Within 12 Months
+
+**Scenario:** A WTO member (US, China, or India) files a formal dispute settlement request against the EU AI Act's trade provisions, citing violation of GATT Article III (national treatment) or TBT Agreement.
+
+**Probability:** Low (10–15%) within 12 months; Medium (30–40%) within 5 years
+**EP impact:** MEDIUM — would complicate Commission implementation of EP AI Trade Strategy; but EP resolution itself is not subject to WTO challenge
+**Monitoring signal:** WTO Dispute Settlement Body notifications; USTR annual NTE report section on EU digital trade
+**Residual risk:** 🟡 MEDIUM-LONG TERM
+
+---
+
+### Wild Card #8: Taliban Formally Denies ICC Jurisdiction
+
+**Scenario:** Taliban formally notifies ICC that it rejects ICC jurisdiction over Afghanistan territory, citing Article 127 withdrawal provisions (though Afghanistan signed pre-Taliban).
+
+**Probability:** Low (5–10%) — Taliban has not formally engaged ICC processes; denial is the de facto position but formal notification is legally complex
+**EP impact:** LOW-MEDIUM — ICC Pre-Trial Chamber proceedings use Afghan state party membership (pre-Taliban); Taliban denial does not automatically terminate jurisdiction
+**Legal complexity:** Afghanistan ICC membership status is legally contested — Taliban government not recognised by ICC's state party system
+**Monitoring signal:** ICC communications about Afghanistan state party status; Taliban foreign ministry statements
+
+---
+
+### Wild Card #9: EU-Canada SAFE Activates Unexpectedly Fast Due to Arctic Crisis
+
+**Scenario:** An Arctic maritime security incident (Russian harassment of Canadian Arctic shipping or EU-area vessels) triggers emergency invocation of EU-Canada SAFE provisions for joint rapid procurement of maritime surveillance capability.
+
+**Probability:** Very Low (5%) but salient given Arctic militarisation trends
+**EP impact:** VERY HIGH — SAFE would shift from "future procurement framework" to "active crisis instrument" within months of ratification; political visibility massively increases
+**Monitoring signal:** Arctic Council security incidents; NATO MARCOM alerts; Canadian DND emergency procurement signals
+
+---
+
+### Wild Card #10: EP Majority Coalition Fracture Over Uzbekistan Human Rights
+
+**Scenario:** Human rights NGOs disclose credible evidence of serious Uzbekistan government abuses post-EPCA ratification, causing S&D or Greens to demand suspension of the agreement and triggering coalition conflict with EPP (which prioritises Central Asia energy security).
+
+**Probability:** Low-Medium (25–35%) for disclosure; Very Low (5–10%) for actual suspension demand
+**EP impact:** MEDIUM — creates precedent debate about human rights conditionality in EPCAs; could affect future Central Asian partnership negotiations (Kyrgyzstan, Tajikistan)
+**Monitoring signal:** Human Rights Watch, Amnesty International Uzbekistan reports; OSCE Uzbekistan monitoring
+
+---
+
+### Updated Wild Card Summary Matrix (All 10)
+
+| # | Wild Card | Probability | EP Impact | Monitoring Priority |
+|---|---|---|---|---|
+| 1 | AI Act WTO challenge within 2y | 20–30% | HIGH | 🔴 ACTIVE |
+| 2 | Taliban gender apartheid policy reversal | <5% | VERY HIGH | 🟢 LOW |
+| 3 | EU-Canada SAFE UK precedent used | 40–50% | HIGH | 🟡 WATCH |
+| 4 | AI regulation leads to EU tech exodus | 15–25% | HIGH | 🟡 WATCH |
+| 5 | ICC Pre-Trial Chamber positive determination | 30–40% | VERY HIGH | 🔴 ACTIVE |
+| 6 | US withdraws ICC cooperation | 20–30% | MEDIUM | 🟡 WATCH |
+| 7 | WTO formal AI challenge within 12 mo | 10–15% | MEDIUM | 🟡 WATCH |
+| 8 | Taliban denies ICC jurisdiction formally | 5–10% | LOW-MEDIUM | 🟢 LOW |
+| 9 | SAFE Arctic crisis activation | 5% | VERY HIGH | 🟢 LOW |
+| 10 | Uzbekistan HR disclosure → EP coalition fracture | 5–10% | MEDIUM | 🟢 LOW |
+
+**Overall black swan risk environment:** 🟡 ELEVATED — multiple low-probability, high-impact scenarios active; primary monitoring priority on WTO/ICC pathways.
+
+---
+
+*High-Impact analysis complete | Wild Cards 1–10 documented | SAT methodology applied | Admiralty grades: wild cards 6–10: B3 | Pass 2 extended: Wild Cards 6–10, updated summary matrix | 2026-05-28*
+
+## Black Swan Event Probability vs. EP Impact
+
+```mermaid
+quadrantChart
+    title Wild Cards — Probability vs. EP Impact (May 2026)
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low EP Impact" --> "Very High EP Impact"
+    quadrant-1 "Critical Watch"
+    quadrant-2 "Contingency Required"
+    quadrant-3 "Background Monitor"
+    quadrant-4 "Routine Risk"
+    EU-Canada SAFE UK Precedent: [0.45, 0.75]
+    AI Act WTO Challenge: [0.25, 0.80]
+    ICC Pre-Trial Positive: [0.35, 0.90]
+    AI Leads Tech Exodus: [0.20, 0.75]
+    Taliban Policy Reversal: [0.05, 0.95]
+    US Withdraws ICC Cooperation: [0.25, 0.55]
+    SAFE Arctic Activation: [0.05, 0.95]
+    WTO Formal AI Challenge 12m: [0.12, 0.55]
+```
+
+*Wild cards documented | Black swan probability-impact quadrant added Pass 3 | 2026-05-28*

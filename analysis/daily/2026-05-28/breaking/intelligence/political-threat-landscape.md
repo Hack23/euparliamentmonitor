@@ -46,3 +46,75 @@ The Criminal Procedure Code adoption signals accelerated legal institutionalisat
 ---
 
 *KAC applied | Red Team findings | Indicators documented | 2026-05-28*
+
+---
+
+## Extended Pass 2 — Threat Landscape Deep Assessment
+
+### Strategic Threat Environment Overview (May 2026)
+
+The May 2026 Strasbourg plenary produced outputs across three distinct political threat dimensions: (1) AI governance regulatory arbitrage pressure, (2) the Afghanistan human rights credibility gap, and (3) EU-Anglosphere defence cooperation intra-EU tensions.
+
+### Threat Category 1 — AI Trade Governance Backlash
+
+**Threat actors:** US tech lobby (ITIF, US Chamber, Big Tech); US USTR; potential WTO complainants
+**Threat vector:** WTO DS challenge to AI Act provisions embedded in trade instruments; bilateral pressure via TTIP restart; Commission lobbying during implementation
+**Likelihood:** Medium-High (55–70% bilateral pressure; 15–25% formal WTO challenge within 5 years)
+**Impact if realised:** High — weakening of EP-aligned standards before Commission adoption
+
+**Mitigating factors:**
+- EP resolution is non-binding; Commission retains implementation discretion
+- EU AI Act WTO-compliant by design (Brussels Effect precedent)
+- EU-US TTC framework provides bilateral tension-management channel
+
+**Residual threat level:** 🟡 MEDIUM
+
+### Threat Category 2 — Afghanistan/Human Rights Credibility
+
+**Threat actors:** Taliban regime; states opposing feminist foreign policy; domestic EU sceptics
+**Threat vector:** Non-implementation of EP commitments; bilateral EU-Taliban normalisation despite EP condemnation
+**Likelihood:** High (80%+) Taliban continues trajectory; Medium (40%) EU bilateral normalisation within 2 years
+**Residual threat level:** 🟡 MEDIUM (process) to 🔴 HIGH (substantive impact)
+
+### Threat Category 3 — Defence Cooperation Tensions
+
+**Threat actors:** Non-participating EU Member States; French strategic autonomy advocates
+**Threat vector:** SAFE precedent diluting EU Defence Industrial Strategy; competing frameworks
+**Likelihood:** Medium (30–45%); Low (15%) for legal challenge
+**Residual threat level:** 🟡 MEDIUM
+
+### Aggregate Threat Summary
+
+| Threat Category | Likelihood | Impact | Level |
+|---|---|---|---|
+| AI Trade Governance | 55–70% | High | 🟡 MEDIUM |
+| Afghanistan Credibility | 80%+ | High | 🔴 HIGH |
+| Defence Cooperation | 30–45% | Medium | 🟡 MEDIUM |
+
+**Overall environment:** 🟡 ELEVATED | **Monitoring priority:** Afghanistan implementation tracking; AI Act WTO compatibility; SAFE precedent jurisprudence
+
+---
+
+*KAC applied | Red Team findings | Indicators documented | Pass 2 extended: threat categories, likelihood tables, aggregate summary | 2026-05-28*
+
+## Threat Likelihood vs. Impact Matrix
+
+```mermaid
+quadrantChart
+    title Political Threat Landscape — EP Breaking News May 2026
+    x-axis "Low Likelihood" --> "High Likelihood"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Critical: Monitor & Mitigate"
+    quadrant-2 "Contingency Planning"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Watch: Early Warning"
+    WTO AI Challenge: [0.35, 0.80]
+    EP-Council Stalemate on AI Trade: [0.45, 0.65]
+    Taliban ICC Defiance: [0.70, 0.55]
+    EU-Canada SAFE Ratification Risk: [0.30, 0.70]
+    Uzbekistan HR Backslash: [0.25, 0.40]
+```
+
+*Political threat landscape complete | Risk quadrant diagram added Pass 3 | 2026-05-28*
+
+**Admiralty Grade:** All threat assessments in this document are graded Admiralty B3 (probably true, based on analytical inference from confirmed EP legislative records). Specific threats with higher confidence (Taliban non-compliance: Admiralty A2; WTO challenge probability: Admiralty C3 given uncertainty). | Admiralty B3 overall | 2026-05-28

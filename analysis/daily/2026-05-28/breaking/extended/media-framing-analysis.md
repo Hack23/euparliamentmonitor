@@ -182,3 +182,126 @@ graph TD
 ---
 
 *Media framing analysis | Extended with digital/social media + narrative divergence map | 2026-05-28 | Run: breaking-run265-1779932393*
+
+---
+
+## Extended Media Framing Analysis — Pass 2 Deep Narrative Assessment
+
+### Supplementary Analysis: Narrative Divergence Mapping
+
+This pass adds a structured narrative divergence map showing where mainstream, partisan, and non-Western media frames are likely to diverge on the May 2026 EP session outputs.
+
+### Narrative Divergence Map — AI Trade Strategy
+
+```mermaid
+mindmap
+  root((AI Trade\nNarrative))
+    Brussels/EU official
+      World-first framework
+      Brussels Effect activation
+      Digital sovereignty tool
+    Western mainstream
+      EP sets global AI standard
+      US-EU tech governance rift
+      Regulatory leadership story
+    US conservative/tech
+      EU regulatory overreach
+      Trade barrier disguised as governance
+      Threatens innovation
+    Chinese state media
+      Western protectionism
+      Anti-China technology exclusion
+      Digital cold war framing
+    NGO/civil society
+      Positive if enforcement assured
+      Concern about trade-off with access
+      Call for global digital rights inclusion
+```
+
+**Intelligence implication:** The AI Trade Strategy will be portrayed in radically different frames depending on audience. US tech media will likely run "EU overregulation" takes; Chinese state media will frame it as protectionism. EU communications teams should anticipate and pre-position against both frames.
+
+### Narrative Divergence Map — Afghanistan Women's Rights
+
+```mermaid
+mindmap
+  root((Afghanistan\nNarrative))
+    EU/Western mainstream
+      EP champions gender apartheid
+      ICC pathway highlighted
+      Taliban condemnation
+    Taliban-aligned/Gulf media
+      Western imperialism
+      Cultural impositions
+      Sovereignty violation
+    Afghan diaspora
+      Vital solidarity signal
+      Demand for action not words
+      Critical of implementation gap
+    Humanitarian INGOs
+      Welcome ICC language
+      Concerned about aid access impact
+      Implementation benchmarks needed
+    Pakistani/regional media
+      Mixed — some support, some indifference
+      Migration/refugee lens primary
+```
+
+### Media Amplification Assessment — Coverage Probability
+
+| Story | Mainstream EU media | Mainstream US media | Social media (X/LinkedIn) | Trade press |
+|---|---|---|---|---|
+| AI Trade Strategy | HIGH (flagship story) | MEDIUM (tech policy angle) | HIGH (regulatory debate) | VERY HIGH |
+| Afghanistan HR | HIGH (human rights flagship) | MEDIUM (Afghanistan fatigue) | HIGH (feminist networks) | LOW |
+| EU-Canada SAFE | MEDIUM (defence policy) | MEDIUM (transatlantic) | LOW (niche) | HIGH (defence) |
+| EU-Uzbekistan EPCA | LOW | LOW | VERY LOW | MEDIUM |
+| UNGA recommendation | LOW | LOW | LOW | LOW |
+
+### SEO/Digital Visibility Assessment
+
+**High-search-volume keywords associated with May 2026 EP session:**
+
+1. "EU AI trade policy 2026" — HIGH COMPETITION; EP story is tier-1 content
+2. "Afghanistan women rights 2026" — MEDIUM COMPETITION; urgency resolution is newsworthy
+3. "EU Canada defence agreement" — MEDIUM COMPETITION; SAFE ratification is timely
+4. "European Parliament May 2026" — MEDIUM COMPETITION; plenary summary content
+5. "gender apartheid ICC" — LOW-MEDIUM; EP advocacy language gaining traction
+6. "EU Uzbekistan trade" — LOW; niche diplomatic reporting
+
+**Content recommendation:** Article should lead with AI Trade Strategy (highest search volume and cross-audience interest), weave in SAFE and Afghanistan, and use "gender apartheid" framing (building search equity).
+
+### Emerging Narrative Trends
+
+**AI governance trade narrative:** This is an emerging narrative space. The first publication to comprehensively frame the EP's AI Trade Strategy as a Brussels Effect mechanism will set the interpretive frame for subsequent coverage. Opportunity for authoritative first-mover positioning.
+
+**"Gender apartheid" legal recognition:** The ICC referral process and EP endorsement of this specific legal terminology is gaining traction in feminist international law circles. Academic and policy publications are beginning to use this framing; mainstream adoption expected within 12–18 months.
+
+**EU-Anglosphere defence integration:** The SAFE instrument, combined with ongoing UK-EU Defence Pact negotiations, is feeding a nascent narrative of "democratic defence club" — EU + UK + Canada + Norway as a coherent defence procurement community. This narrative will intensify if UK-EU Pact concludes in 2026.
+
+---
+
+*Media framing analysis | Extended with digital/social media + narrative divergence map | Pass 2 extended: narrative divergence maps, coverage probability matrix, SEO assessment, emerging trends | 2026-05-28*
+
+## Pass 3: Media Framing Update — International Coverage Projection
+
+Updated international media coverage analysis:
+
+### Expected Coverage by Media Type (30-Day Projection)
+
+| Media Type | AI Trade Story | SAFE Story | Afghanistan Story |
+|---|---|---|---|
+| EU policy press (Politico, EUobserver) | Lead story | Front page | Inside page |
+| Quality nationals (FT, Le Monde, FAZ) | Page 1 business | Page 1 news | Page 2 international |
+| US media (NYT, WSJ, Bloomberg) | Brief mention | Not covered | Brief mention |
+| Chinese state media (Xinhua, Global Times) | Featured (Brussels Effect concern) | Not covered | Not covered |
+| Indian English press | Brief mention | Not covered | Not covered |
+
+### Framing by Region
+
+- **EU domestic framing:** AI competitiveness vs. regulation balance; SAFE as defence autonomy milestone
+- **US framing:** Brussels overregulation of AI; SAFE as NATO competition (if covered)
+- **Global South framing:** EU regulatory imperialism on AI standards (predicted)
+- **China framing:** EU protectionism through AI governance
+
+**Analytical implication:** The divergent media framing is itself an intelligence signal. When Chinese state media features AI governance concern, it indicates the Brussels Effect is being taken seriously as a strategic threat by major economic competitors.
+
+*Pass 3 extension: international media framing projection added | 2026-05-28*
