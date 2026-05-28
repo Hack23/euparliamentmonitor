@@ -1,0 +1,67 @@
+{
+  "articleType": "term-outlook",
+  "dataMode": "degraded-feeds",
+  "date": "2026-05-28",
+  "runDate": "2026-05-28",
+  "runId": "term-outlook-run347-1779926654",
+  "generator": "news-term-outlook.md",
+  "files": {
+    "intelligence": [
+      "intelligence/term-arc.md",
+      "intelligence/seat-projection.md",
+      "intelligence/mandate-fulfilment-scorecard.md",
+      "intelligence/presidency-trio-context.md",
+      "intelligence/commission-wp-alignment.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/economic-context.md",
+      "intelligence/forward-projection.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/analysis-index.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md",
+      "extended/forward-indicators.md",
+      "extended/historical-parallels.md",
+      "extended/comparative-international.md"
+    ],
+    "root": [
+      "data-availability-assessment.md",
+      "executive-brief.md"
+    ]
+  },
+  "pass2": {
+    "rewriteCount": 31,
+    "extendCount": 0,
+    "startedAt": "2026-05-28T00:00:00Z",
+    "endedAt": "2026-05-28T00:30:00Z",
+    "completedAt": "2026-05-28T00:30:00Z"
+  },
+  "history": [
+    {
+      "runId": "term-outlook-run347-1779926654",
+      "timestamp": "2026-05-28T00:00:00Z",
+      "gateResult": "PENDING",
+      "dataMode": "degraded-feeds",
+      "artifactCount": 31
+    }
+  ]
+}
