@@ -128,4 +128,52 @@
 ---
 
 *Forward indicators | 30/90/180 day horizons | Pass 2 extended: 30/90/180-day horizon analysis, EWS dashboard | 2026-05-28*
-[EXTEND-FROM-PRIOR: extended/forward-indicators.md prior=51L → new=183L (+132)]
+
+## Forward Indicators: Monitoring Framework and Trigger Events
+
+### Quantitative Indicator Tracking System
+
+| Indicator | Baseline (May 2026) | 30-Day Target | 90-Day Target | 180-Day Target | Alert Threshold |
+|---|---|---|---|---|---|
+| Commission AI Trade consultation launched | ❌ No | ❌ Unlikely | 🟡 Possible | 🟢 Expected | Commission work programme update |
+| SAFE joint procurement tenders | 0 active | 0 | 1–2 pilot tenders | 3–5 tenders | First EDA tender notice |
+| ICC Afghanistan Pre-Trial filing | Filed 2023 | In process | In process | Pre-Trial hearing possible | ICC announcement |
+| Taliban criminal code global reactions | Initial | Follow-up UN HRC session | GA resolution | ICC decision | UN vote threshold |
+| EU-Canada SAFE entry into force | Pending Council | In force | In force | First meetings | Council formal adoption |
+
+### Scenario-Dependent Leading Indicators
+
+**Scenario 1: Brussels Effect Accelerates (30% probability)**
+Leading indicators (all must trigger within 90 days):
+- Three non-EU countries announce AI governance reviews citing EU model
+- Commission publishes AI trade communication before September 2026
+- WTO dispute on AI trade filed (any party)
+
+**Scenario 2: AI Trade Strategy Stalls (40% probability)**
+Leading indicators:
+- Commission AI trade consultation delayed past Q1 2027
+- EU-US Digital Trade Agreement negotiations break down on AI provisions
+- Major EU AI industry lobby publicly opposes trade strategy implementation
+
+**Scenario 3: SAFE Accelerates UK Inclusion (30% probability)**
+Leading indicators:
+- UK-EU Security Pact negotiation includes SAFE access clause
+- UK Defence Secretary mentions SAFE in parliamentary statement
+- EDA opens membership discussions with UK (indirect signal)
+
+```mermaid
+flowchart LR
+    A[EP May 2026 Plenary] --> B{Monitoring Horizon}
+    B -->|30 days| C[Council SAFE formal adoption\nICC Pre-Trial process]
+    B -->|90 days| D[Commission AI consultation launch\nFirst SAFE tenders\nUN HRC follow-up]
+    B -->|180 days| E[Brussels Effect measurable\nSAFE joint procurement active\nICC hearing possible]
+    C --> F{Alert triggered?}
+    D --> F
+    E --> F
+    F -->|YES| G[Update analysis\nRevise KJ confidence]
+    F -->|NO| H[Continue monitoring\nLog non-trigger]
+```
+
+---
+
+*Forward indicators complete | Pass 3: quantitative tracking table, scenario-dependent indicators, monitoring flowchart, EXTEND-FROM-PRIOR marker removed | 2026-05-28*

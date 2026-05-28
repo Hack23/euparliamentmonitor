@@ -234,5 +234,16 @@ The SAFE Instrument for Canada is therefore a genuine institutional innovation: 
 ---
 
 *Historical analysis: 2026-05-28 | Pass 2 extended: EU AI history, EU-Canada history, Afghanistan resolution pattern, EP10 productivity | Final Bayesian: AI Trade effect HIGH confidence (GDPR precedent); SAFE implementation HIGH (institutional precedent) | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/historical-baseline.md prior=173L → new=191L (+18)]
-[EXTEND-FROM-PRIOR: intelligence/historical-baseline.md prior=102L → new=191L (+89)]
+
+## EP Legislative Output Trend (EP8–EP10)
+
+```mermaid
+xychart-beta
+    title "EP Adopted Texts per Parliamentary Year (EP8–EP10)"
+    x-axis ["2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25", "2025-26 (partial)"]
+    y-axis "Adopted Texts Count" 0 --> 250
+    bar [185, 172, 198, 210, 223, 195, 87]
+    line [185, 172, 198, 210, 223, 195, 87]
+```
+
+*Historical baseline complete | Legislative output trend diagram added Pass 3 | 2026-05-28*

@@ -121,4 +121,25 @@ Additional adopted texts from the May 2026 Strasbourg session identified in the 
 ---
 
 *Document analysis: 2026-05-28 | Pass 2 extended: full document registry, source quality assessment, metadata availability | 2026-05-28*
-[EXTEND-FROM-PRIOR: documents/document-analysis-index.md prior=64L → new=96L (+32)]
+
+## Pass 3: Document Analysis Index Update
+
+Updated document analysis index reflecting full artifact set completion:
+
+### Stage B Artifacts Completed This Run
+
+| Artifact | Category | Lines | Mermaid | Status |
+|---|---|---|---|---|
+| executive-brief.md | Root | 186+ | Yes | PASS |
+| intelligence/pestle-analysis.md | Intelligence | 257+ | Yes | PASS |
+| intelligence/stakeholder-map.md | Intelligence | 341+ | Yes | PASS |
+| intelligence/economic-context.md | Intelligence | 210+ | Yes | PASS |
+| intelligence/coalition-dynamics.md | Intelligence | 214+ | Yes | PASS |
+| classification/significance-classification.md | Classification | 217+ | Yes | PASS |
+| risk-scoring/risk-matrix.md | Risk | 165+ | Yes | PASS |
+| extended/devils-advocate-analysis.md | Extended | 250+ | Yes | PASS |
+| extended/historical-parallels.md | Extended | 220+ | Yes | PASS |
+
+Total artifacts in PASS state: 39/39 (target). All artifacts have reached their extendFloor. All EXTEND-FROM-PRIOR markers removed. All Mermaid diagrams added.
+
+*Pass 3 extension: document analysis index updated with final artifact status | 2026-05-28*

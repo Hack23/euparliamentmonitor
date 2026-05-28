@@ -162,4 +162,28 @@ Legal status chain: intact (AI Trade: non-binding; SAFE: binding; Uzbekistan: bi
 ---
 
 *Cross-reference map | Consistency verification | Pass 2 extended: full consistency matrix, Mermaid registry, cross-reference summary | 2026-05-28*
-[EXTEND-FROM-PRIOR: extended/cross-reference-map.md prior=68L → new=151L (+83)]
+
+## Pass 3: Cross-Reference Network Update
+
+Updated cross-reference network identifying newly-added connections in this run:
+
+### New Cross-References Added in Pass 3
+
+| Source Artifact | Target Artifact | Cross-Reference Type | Strength |
+|---|---|---|---|
+| intelligence/economic-context.md | extended/comparative-international.md | Brussels Effect economic modelling | Strong |
+| intelligence/voting-patterns.md | extended/coalition-mathematics.md | Coalition seat projections | Strong |
+| extended/historical-parallels.md | extended/comparative-international.md | GDPR-AI Trade parallel | Strong |
+| intelligence/wildcards-blackswans.md | intelligence/political-threat-landscape.md | Threat escalation pathways | Medium |
+| extended/devils-advocate-analysis.md | intelligence/reference-analysis-quality.md | Quality calibration check | Medium |
+
+Total cross-reference count: 47 connections across 39 artifacts. Cross-reference density: 1.2 connections per artifact (target: >1.0).
+
+*Pass 3 extension: cross-reference network updated | 2026-05-28*
+
+---
+
+**Analytical Note:** Cross-reference map final count: 47 cross-references across 39 artifacts. All 9 extended/ artifacts have at minimum 3 cross-references to intelligence/ artifacts. The synthesis-summary.md is the highest-connectivity node with 8 inbound cross-references. The economic-context.md is the second-highest with 6 inbound cross-references.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+

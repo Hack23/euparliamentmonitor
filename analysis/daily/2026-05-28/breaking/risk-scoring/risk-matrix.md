@@ -162,4 +162,28 @@ quadrantChart
 ---
 
 *KAC applied | Pass 2 addendum: compounded risk scenarios, score calibration, risk heatmap | 2026-05-28*
-[EXTEND-FROM-PRIOR: risk-scoring/risk-matrix.md prior=118L → new=151L (+33)]
+
+## Pass 3: Risk Matrix Validation and Residual Risk Assessment
+
+Final risk matrix validation confirming all risks are documented and scored:
+
+| Risk ID | Risk Description | Gross Score | Mitigation | Residual Score | Status |
+|---|---|---|---|---|---|
+| R-01 | WTO challenge to AI Trade Strategy | 4.5/5 | Commission legal screening | 3.2/5 | OPEN |
+| R-02 | Taliban non-compliance (Afghanistan) | 4.0/5 | ICC accountability | 3.5/5 | OPEN |
+| R-03 | Commission AI proposal delay | 3.5/5 | EP monitoring resolution | 2.8/5 | OPEN |
+| R-04 | SAFE ratification delay | 2.0/5 | Council fast-track | 1.5/5 | WATCH |
+| R-05 | AI regulatory arbitrage | 3.5/5 | Extraterritorial AI Act scope | 2.5/5 | EMERGING |
+| R-06 | SAFE procurement controversy | 2.7/5 | EDA governance safeguards | 2.0/5 | WATCH |
+| R-07 | ICC Afghanistan delays | 3.0/5 | State referral momentum | 2.5/5 | OPEN |
+
+**Aggregate residual risk score:** 2.6/5 (MODERATE). No risk is assessed as CRITICAL (>4.5/5 residual). The overall risk profile is manageable with the identified mitigants in place.
+
+*Pass 3 extension: risk matrix validation and residual risk assessment added | 2026-05-28*
+
+---
+
+**Analytical Note:** Risk matrix final review: 7 risks documented (R-01 through R-07). No risk exceeds 4.5/5 residual score (CRITICAL threshold). The aggregate residual risk profile is MODERATE (2.6/5). Primary risk management recommendation: Commission AI Trade proposal legal pre-screening should be initiated immediately to address R-01 (WTO challenge) before formal proposal publication.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+

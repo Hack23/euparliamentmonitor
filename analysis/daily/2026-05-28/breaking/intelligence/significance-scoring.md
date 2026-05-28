@@ -138,4 +138,23 @@ All texts scored on 5-dimension framework: (1) Binding force, (2) Political weig
 ---
 
 *Key Assumptions Check applied | CHM completed | 2026-05-28 | Pass 2 extended: quantitative scoring tables, comparative ranking | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/significance-scoring.md prior=71L → new=106L (+35)]
+
+## Significance Score Radar: Top 3 Texts (May 2026)
+
+```mermaid
+radar
+    title Legislative Significance Radar — EP May 2026 Plenary
+    options
+        categories ["Political Weight", "Legal Force", "Urgency", "Precedent Value", "Media Salience"]
+    data
+        label "AI Trade Strategy (0183)"
+        values [9.0, 5.0, 7.0, 8.5, 9.0]
+    data
+        label "EU-Canada SAFE (0180)"
+        values [7.0, 9.5, 6.0, 9.5, 6.0]
+    data
+        label "Afghanistan (0186)"
+        values [6.0, 3.5, 9.0, 5.0, 8.0]
+```
+
+*Significance scoring complete | Radar chart added Pass 3 | 2026-05-28*

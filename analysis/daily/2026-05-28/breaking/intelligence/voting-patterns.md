@@ -181,4 +181,20 @@ Key divergence from average: PfE (former ID) has complex position on Afghanistan
 ---
 
 *ACH: Competing hypotheses on ECR AI trade vote evaluated | Bayesian Update applied | Degraded-mode attestation: DOCEO unavailable per 2–4 week publication lag | 2026-05-28 | Pass 2 extended: inference vote framework, AI Act retrospective, projected vote tables, ACH assessment | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/voting-patterns.md prior=111L → new=152L (+41)]
+
+## Projected Vote Distribution — AI Trade Strategy (TA-10-2026-0183)
+
+```mermaid
+pie title Projected Vote Distribution — TA-10-2026-0183 AI Trade Strategy
+    "FOR (EPP ~176)" : 176
+    "FOR (S&D ~136)" : 136
+    "FOR (Renew ~77)" : 77
+    "FOR (ECR ~45)" : 45
+    "FOR (Greens/EFA ~38)" : 38
+    "FOR (PfE ~28)" : 28
+    "AGAINST (ECR split ~23)" : 23
+    "AGAINST (ESN ~23)" : 23
+    "ABSTAIN (~74)" : 74
+```
+
+*Voting patterns analysis complete | Projected vote distribution pie chart added Pass 3 | DOCEO unavailable (2–4 week lag) | Admiralty B3 | 2026-05-28*

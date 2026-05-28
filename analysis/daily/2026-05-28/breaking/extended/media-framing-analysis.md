@@ -280,4 +280,28 @@ mindmap
 ---
 
 *Media framing analysis | Extended with digital/social media + narrative divergence map | Pass 2 extended: narrative divergence maps, coverage probability matrix, SEO assessment, emerging trends | 2026-05-28*
-[EXTEND-FROM-PRIOR: extended/media-framing-analysis.md prior=184L → new=271L (+87)]
+
+## Pass 3: Media Framing Update — International Coverage Projection
+
+Updated international media coverage analysis:
+
+### Expected Coverage by Media Type (30-Day Projection)
+
+| Media Type | AI Trade Story | SAFE Story | Afghanistan Story |
+|---|---|---|---|
+| EU policy press (Politico, EUobserver) | Lead story | Front page | Inside page |
+| Quality nationals (FT, Le Monde, FAZ) | Page 1 business | Page 1 news | Page 2 international |
+| US media (NYT, WSJ, Bloomberg) | Brief mention | Not covered | Brief mention |
+| Chinese state media (Xinhua, Global Times) | Featured (Brussels Effect concern) | Not covered | Not covered |
+| Indian English press | Brief mention | Not covered | Not covered |
+
+### Framing by Region
+
+- **EU domestic framing:** AI competitiveness vs. regulation balance; SAFE as defence autonomy milestone
+- **US framing:** Brussels overregulation of AI; SAFE as NATO competition (if covered)
+- **Global South framing:** EU regulatory imperialism on AI standards (predicted)
+- **China framing:** EU protectionism through AI governance
+
+**Analytical implication:** The divergent media framing is itself an intelligence signal. When Chinese state media features AI governance concern, it indicates the Brussels Effect is being taken seriously as a strategic threat by major economic competitors.
+
+*Pass 3 extension: international media framing projection added | 2026-05-28*

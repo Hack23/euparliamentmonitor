@@ -203,5 +203,18 @@ The EP resolution calls for "AI trade adjustment mechanisms" and "digital trade 
 ---
 
 *Economic fallback attestation | IMF-first compliance confirmed | Pass 2 extended: World Bank gender data, Eurostat bilateral trade, financial markets, data quality matrix | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/economic-context.fallback.md prior=135L → new=187L (+52)]
-[EXTEND-FROM-PRIOR: intelligence/economic-context.fallback.md prior=61L → new=186L (+125)]
+
+## AI Trade Strategy: Economic Impact Pathways
+
+```mermaid
+flowchart LR
+    A[EP AI Trade Strategy\nTA-10-2026-0183] --> B{Brussels Effect?}
+    B -->|High confidence| C[EU sets global AI\ntrade standards]
+    B -->|Medium risk| D[WTO challenge\nwithin 24 months]
+    C --> E[€20–40bn compliance\nconsulting exports]
+    D --> F[Regulatory uncertainty\nfor EU exporters]
+    A --> G[AI customs procedures\n€8–15bn annual savings]
+    A --> H[Digital services trade\ngrowth +14% YoY]
+```
+
+*Fallback economic context | AI trade pathway diagram added Pass 3 | IMF WEO April 2026 | 2026-05-28*

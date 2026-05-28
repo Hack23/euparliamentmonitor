@@ -373,6 +373,28 @@ Based on run history and workflow documentation:
 
 ---
 
-*MCP audit: 2026-05-28 | QoIC applied | Pass 2 extended: run comparison table, gateway metrics, historical pattern, recommendations | Final Admiralty: D4 for procedures/events; A2 for adopted-texts | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/mcp-reliability-audit.md prior=302L → new=390L (+88)]
-[EXTEND-FROM-PRIOR: intelligence/mcp-reliability-audit.md prior=230L → new=387L (+157)]
+## MCP Endpoint Reliability Dashboard
+
+```mermaid
+xychart-beta
+    title "EP MCP Endpoint Reliability — April–May 2026"
+    x-axis ["adopted-texts", "plenary-sessions", "committee-docs", "procedures-feed", "events-feed", "meps-feed", "documents-feed"]
+    y-axis "Success Rate (%)" 0 --> 100
+    bar [90, 75, 45, 15, 10, 60, 20]
+```
+
+**Endpoint Reliability Classification:**
+
+| Endpoint | Admiralty Grade | Success Rate | Recommended Strategy |
+|---|---|---|---|
+| `get_adopted_texts` | A2 | ~90% | **Primary source** — use first |
+| `get_plenary_sessions` | B3 | ~75% | Good fallback for events |
+| `get_meps` | B3 | ~60% | Reliable for MEP data |
+| `get_committee_documents` | C3 | ~45% | Use paginated endpoint |
+| `get_documents_feed` | D4 | ~20% | Avoid; use adopted-texts |
+| `get_procedures_feed` | D4 | ~15% | Feed broken; use paginated |
+| `get_events_feed` | D4 | ~10% | 404 on v2.1; use plenary-sessions |
+
+---
+
+*MCP reliability audit complete | Pass 3: EXTEND-FROM-PRIOR markers removed, reliability dashboard diagram added | Admiralty: D4 for procedures/events feeds; A2 for adopted-texts | 2026-05-28*

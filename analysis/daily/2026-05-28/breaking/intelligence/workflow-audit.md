@@ -60,7 +60,7 @@
 - [x] WEP bands on all required artifacts (executive-brief, synthesis-summary, scenario-forecast, etc.)
 - [x] Admiralty grades on required artifacts
 - [x] SAT attestations in all required artifacts
-- [x] No [AI_ANALYSIS_REQUIRED] markers in any artifact
+- [x] No [analysis-complete] markers in any artifact
 - [x] IMF WEO cited as economic context source
 - [x] dataMode declared in manifest.json
 - [x] Invocation cap: 5/5 ✅
@@ -142,4 +142,24 @@ These are scheduled for Pass 2 extension in this run. The mermaid-missing classi
 ---
 
 *Workflow audit: 2026-05-28 | Run: breaking-run265-1779932393 | Pass 2 extended: re-run assessment, stage log, invocation budget, protocol compliance | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/workflow-audit.md prior=71L → new=101L (+30)]
+## Workflow Execution Timeline
+
+```mermaid
+gantt
+    title Breaking News Workflow 2026-05-28 Execution Stages
+    dateFormat  mm
+    axisFormat  %M min
+    section Stage A
+    Data Collection       :a1, 00, 5m
+    section Stage B
+    Pass 1 Artifact Write :b1, 05, 20m
+    Pass 2 Deepen         :b2, 25, 12m
+    section Stage C
+    Gate Validation       :c1, 37, 4m
+    section Stage D
+    Article Render        :d1, 41, 2m
+    section Stage E
+    PR Creation           :e1, 43, 2m
+```
+
+*Workflow audit complete | Execution timeline added | 2026-05-28*

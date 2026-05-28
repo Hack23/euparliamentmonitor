@@ -195,4 +195,21 @@ The S&D internal division over digital industrial policy (Mediterranean protecti
 ---
 
 *Coalition mathematics | EP10 seat modelling | Pass 2 extended: seat distribution, majority thresholds, per-vote coalition analysis, Mermaid diagram, durability assessment | 2026-05-28*
-[EXTEND-FROM-PRIOR: extended/coalition-mathematics.md prior=92L → new=202L (+110)]
+
+## Coalition Stability: Seat Distribution Model
+
+```mermaid
+pie title EP10 Coalition Composition for AI Trade Strategy Vote (Projected)
+    "EPP (176 FOR)" : 176
+    "S&D (136 FOR)" : 136
+    "Renew (77 FOR)" : 77
+    "Greens/EFA (38 FOR)" : 38
+    "ECR partial (45 FOR)" : 45
+    "PfE partial (28 FOR)" : 28
+    "ECR/ESN AGAINST (46)" : 46
+    "Other/Abstain (74)" : 74
+```
+
+**Coalition Mathematics Conclusion:** The pro-majority coalition (EPP+S&D+Renew+Greens+partial ECR/PfE) likely commanded ~500 votes FOR — well above the simple majority threshold of ~361. This is a structurally stable supermajority outcome consistent with the 5 texts adopted in the May 2026 plenary. The SAFE consent procedure required an absolute majority of component members (361), comfortably exceeded by the EPP+S&D+Renew core alone (389).
+
+*Pass 3: EXTEND-FROM-PRIOR marker removed, coalition pie chart added, conclusion section added | 2026-05-28*

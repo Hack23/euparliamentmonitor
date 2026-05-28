@@ -96,4 +96,25 @@ The May 2026 Strasbourg plenary produced outputs across three distinct political
 ---
 
 *KAC applied | Red Team findings | Indicators documented | Pass 2 extended: threat categories, likelihood tables, aggregate summary | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/political-threat-landscape.md prior=49L → new=91L (+42)]
+
+## Threat Likelihood vs. Impact Matrix
+
+```mermaid
+quadrantChart
+    title Political Threat Landscape — EP Breaking News May 2026
+    x-axis "Low Likelihood" --> "High Likelihood"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Critical: Monitor & Mitigate"
+    quadrant-2 "Contingency Planning"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Watch: Early Warning"
+    WTO AI Challenge: [0.35, 0.80]
+    EP-Council Stalemate on AI Trade: [0.45, 0.65]
+    Taliban ICC Defiance: [0.70, 0.55]
+    EU-Canada SAFE Ratification Risk: [0.30, 0.70]
+    Uzbekistan HR Backslash: [0.25, 0.40]
+```
+
+*Political threat landscape complete | Risk quadrant diagram added Pass 3 | 2026-05-28*
+
+**Admiralty Grade:** All threat assessments in this document are graded Admiralty B3 (probably true, based on analytical inference from confirmed EP legislative records). Specific threats with higher confidence (Taliban non-compliance: Admiralty A2; WTO challenge probability: Admiralty C3 given uncertainty). | Admiralty B3 overall | 2026-05-28

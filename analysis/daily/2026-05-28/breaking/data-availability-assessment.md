@@ -104,4 +104,29 @@ The degraded-feeds mode affects the following analysis dimensions:
 ---
 
 *Data availability assessment | Pass 2 extended: complete feed registry, degraded-feeds declaration, coverage gap table, impact assessment | 2026-05-28*
-[EXTEND-FROM-PRIOR: data-availability-assessment.md prior=55L → new=82L (+27)]
+
+## Pass 3: Data Availability Confidence Matrix
+
+Final data availability confidence assessment for this run:
+
+| Source | Status | Items | Reliability Grade | Impact on Analysis |
+|---|---|---|---|---|
+| adopted-texts-feed.json | Empty (feed degraded) | 0 | D4 | Recovered via prior-run data |
+| procedures-feed.json | Empty (feed degraded) | 0 | D4 | Procedures-proxy artifact used |
+| events-feed.json | Empty (feed 404) | 0 | D4 | Plenary sessions endpoint available |
+| meps-feed.json | Empty (feed degraded) | 0 | C3 | MEP roster from prior runs |
+| documents-feed.json | Empty (feed degraded) | 0 | D4 | Adopted texts as proxy |
+| committee-documents-feed.json | Empty (feed 404) | 0 | D4 | Direct endpoint available |
+| Prior-run analysis artifacts | Available | 39+ artifacts | A2 | Primary analytical source |
+| IMF WEO April 2026 | Available (cached) | Full dataset | A1 | Economic context solid |
+
+Overall data mode: degraded-feeds | Analysis floor factor: 0.80 applied by validate-analysis.
+
+*Pass 3 extension: data availability confidence matrix added | 2026-05-28*
+
+---
+
+**Analytical Note:** Data availability final status: degraded-feeds mode confirmed for this run. The prefetch-status.json reports "full" (6 feeds fetched, 0 placeholders) but all feed files contain 0 items — a known EP API pattern where feeds return valid JSON structure with empty data arrays. The adopted texts from prior runs (A2 grade) provide the analytical floor. IMF data cached from prior run (A1 grade). Analysis is viable at degraded-feeds quality level.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+

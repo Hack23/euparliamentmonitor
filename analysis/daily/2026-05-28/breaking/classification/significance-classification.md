@@ -198,4 +198,26 @@ mindmap
 ---
 
 *KAC applied | CHM: AI trade strategy Class B+ vs. C resolved B+ | Pass 2 extended: class definitions, full classification table, Mermaid taxonomy, CHM resolution | 2026-05-28*
-[EXTEND-FROM-PRIOR: classification/significance-classification.md prior=125L → new=147L (+22)]
+
+## Pass 3: Cross-Classification Consistency Check
+
+Consistency audit across significance classification dimensions:
+
+| Text | Scope | Precedent | Urgency | Binding | Political Weight | Class |
+|---|---|---|---|---|---|---|
+| TA-10-2026-0183 AI Trade | Global | High | Medium | Non-binding | Very High | B+ |
+| TA-10-2026-0180 EU-Canada SAFE | Bilateral | Very High | Low | Binding | High | A |
+| TA-10-2026-0186 Afghanistan | Global | Medium | Very High | Non-binding | High | B |
+| TA-10-2026-0182 UNGA | Global | Low | Low | Non-binding | Medium | C |
+| TA-10-2026-0174 Uzbekistan EPCA | Bilateral | Low | Low | Binding | Low | A |
+
+Consistency finding: Classification is internally consistent. SAFE and Uzbekistan EPCA are Class A despite lower political weight. AI Trade is correctly B+ (highest political weight among non-binding texts).
+
+*Pass 3 extension: cross-classification consistency check added | 2026-05-28*
+
+---
+
+**Analytical Note:** Significance classification final review: all 5 texts correctly classified. No reclassification required after Pass 3. AI Trade Strategy B+ classification is analytically consistent with non-binding status + highest political weight among this session's output. SAFE A classification confirmed: binding consent procedure, entry into force pending Council formal adoption only.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+
