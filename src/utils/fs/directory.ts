@@ -74,7 +74,14 @@ export function resolveUniqueAnalysisDir(baseDir: string): string {
     suffix++;
   }
 
-  const candidate = `${baseDir}-${randomUUID().slice(0, 8)}`;
+  // Guarantee the UUID suffix contains at least one hex letter (a-f) so that
+  // it never looks like a pure numeric suffix and can't collide with the
+  // numeric range above.  The probability of retrying is ≈ (10/16)^8 < 0.025%.
+  let uuidSuffix: string;
+  do {
+    uuidSuffix = randomUUID().slice(0, 8);
+  } while (/^\d+$/.test(uuidSuffix));
+  const candidate = `${baseDir}-${uuidSuffix}`;
   fs.mkdirSync(candidate, { recursive: true });
   return candidate;
 }

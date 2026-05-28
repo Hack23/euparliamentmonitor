@@ -68,16 +68,7 @@ export function budgetFor(lang, surface) {
  * comma is semantically equivalent to Latin `,` — a list separator,
  * not a sentence boundary.
  */
-const CJK_CLAUSE_BOUNDARIES = [
-    '。',
-    '！',
-    '？',
-    '；',
-    '：',
-    '——',
-    '—',
-    '・',
-];
+const CJK_CLAUSE_BOUNDARIES = ['。', '！', '？', '；', '：', '——', '—', '・'];
 /**
  * RTL sentence punctuation. Arabic uses U+061F (؟) for question mark
  * and U+060C (،) for comma; full stop is the ASCII `.` (Hebrew uses
