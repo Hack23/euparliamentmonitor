@@ -145,6 +145,37 @@ describe('wrapArticleHtml', () => {
     expect(html).not.toMatch(/<\/script>[^<]*<\/script>/);
   });
 
+  it('strips numbered prefixes from JSON-LD mentions', () => {
+    const html = wrapArticleHtml({
+      ...baseOptions,
+      mentions: ['4. International Criminal Court', '2.1 EPP', 'European Commission'],
+    });
+    const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    expect(ldMatch).not.toBeNull();
+    const data = JSON.parse(ldMatch[1]);
+    const newsArticle = data.find((d) => d['@type'] === 'NewsArticle');
+    const mentionNames = (newsArticle?.mentions ?? []).map((entry) => entry.name);
+    expect(mentionNames).toHaveLength(3);
+    expect(mentionNames).toContain('International Criminal Court');
+    expect(mentionNames).toContain('EPP');
+    expect(mentionNames).toContain('European Commission');
+    expect(mentionNames.some((name) => /^\d/.test(name))).toBe(false);
+  });
+
+  it('never ends OG/Twitter descriptions with "Published YYYY-MM-DD"', () => {
+    const html = wrapArticleHtml({
+      ...baseOptions,
+      extendedDescription:
+        'Coalition pressure intensified across committees as negotiators converged on a revised package. Published 2026-05-28',
+    });
+    const og = html.match(/<meta property="og:description" content="([^"]*)">/);
+    const twitter = html.match(/<meta name="twitter:description" content="([^"]*)">/);
+    expect(og).not.toBeNull();
+    expect(twitter).not.toBeNull();
+    expect(og?.[1] ?? '').not.toMatch(/Published\s+\d{4}-\d{2}-\d{2}\s*$/);
+    expect(twitter?.[1] ?? '').not.toMatch(/Published\s+\d{4}-\d{2}-\d{2}\s*$/);
+  });
+
   it('emits the optional source-markdown link when provided', () => {
     const html = wrapArticleHtml({
       ...baseOptions,

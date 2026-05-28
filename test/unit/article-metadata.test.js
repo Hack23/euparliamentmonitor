@@ -959,6 +959,41 @@ describe('resolveArticleMetadata — priority ladder', () => {
     }
   });
 
+  it('rejects Stage-A pipeline jargon in titles and synthesizes a reader-facing fallback', () => {
+    const result = resolveArticleMetadata({
+      articleType: 'committee-reports',
+      date: '2026-05-28',
+      markdown: [
+        '# Committee Reports — 2026-05-28',
+        '',
+        'Committees advanced AI trade and defence partnership frameworks with cross-group support and accelerated timelines.',
+      ].join('\n'),
+      manifest: {
+        title: 'Stage A — 2026-05-28 (#265)',
+      },
+    });
+    const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+    expect(en.title).not.toMatch(/\bStage\s*A\b/i);
+    expect(en.title).not.toMatch(/#265/);
+    expect(en.title).toContain('Committees advanced AI trade');
+  });
+
+  it('rejects prefetch/scripts/timestamp jargon in descriptions', () => {
+    const result = resolveArticleMetadata({
+      articleType: 'committee-reports',
+      date: '2026-05-28',
+      markdown:
+        '# Committee Reports — 2026-05-28\n\nCommittees advanced AI trade and defence partnership frameworks.',
+      manifest: {
+        description: 'Five feeds were pre-fetched by scripts/prefetch-ep-feeds.sh at 05:40:10Z.',
+      },
+    });
+    const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+    expect(en.description).not.toMatch(/pre-?fetch/i);
+    expect(en.description).not.toMatch(/scripts\//i);
+    expect(en.description).not.toMatch(/\b05:40:10Z\b/);
+  });
+
   it('drops leaky follow-up sentences and keeps the clean opening sentence for SEO copy', () => {
     const result = resolveArticleMetadata({
       articleType: 'breaking',

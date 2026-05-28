@@ -10,12 +10,33 @@ import { findTitleRejectionReason } from './title-rejection.js';
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
 /** Matches workflow run-number patterns like "Run 271" or "— Run 42" in titles. */
 const RUN_NUMBER_RE = /(?:^|[\s—–\-(,;:|/])Run\s+\d+/u;
+/** Pipeline-jargon and internal-token patterns that must never leak into SEO copy. */
+const SEO_PIPELINE_PATTERNS = Object.freeze([
+    /\bStage\s*[A-E]\b/iu,
+    /\bpre-?fetch(?:ed|ing)?\b/iu,
+    /\bfeeds?\s+were\s+pre-?fetched\b/iu,
+    /\bscripts\//iu,
+    /#\d+\b/u,
+    /\b\d{2}:\d{2}:\d{2}Z\b/u,
+]);
 /** Word-level strip pattern for "Run N" tokens (with optional hyphenated suffix). */
 const RUN_TOKEN_STRIP_RE = /\bRun\s+\d[\d-]*/giu;
 /** Internal run-id slug strip (e.g. `breaking-run180-1779846371`). */
 const RUNID_TOKEN_STRIP_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}[\s,;:|/]*/giu;
 /** "analysis run" phrase strip. */
 const ANALYSIS_RUN_STRIP_RE = /\banalysis\s+run\s*\d*[\s,;:|/]*/giu;
+/** Word-level strip for Stage A-E pipeline markers. */
+const STAGE_TOKEN_STRIP_RE = /\bStage\s*[A-E]\b[\s,;:|/\\-]*/giu;
+/** Word-level strip for "prefetch"/"pre-fetched" pipeline jargon. */
+const PREFETCH_TOKEN_STRIP_RE = /\bpre-?fetch(?:ed|ing)?\b[\s,;:|/\\-]*/giu;
+/** Strip explicit "feeds were pre-fetched" sentence fragments. */
+const PREFETCH_FEEDS_STRIP_RE = /\bfeeds?\s+were\s+pre-?fetched\b[\s,;:|/\\-]*/giu;
+/** Strip leaked internal script paths. */
+const SCRIPTS_PATH_STRIP_RE = /\bscripts\/[^\s,;:|)\]]*/giu;
+/** Strip leaked issue/run-number tokens like "#265". */
+const HASH_NUMBER_STRIP_RE = /#\d+\b/gu;
+/** Strip leaked internal timestamps like "05:40:10Z". */
+const INTERNAL_TIME_STRIP_RE = /\b\d{2}:\d{2}:\d{2}Z\b/gu;
 /** All-caps document-reference prefix (e.g. "KJ-01: ", "SITUATION: "). */
 const DOC_REF_PREFIX_RE = /^[A-Z][A-Z0-9 -]{1,40}:\s+/u;
 /** Minimum title length below which a title is unusable. */
@@ -23,9 +44,14 @@ const SEO_TITLE_FLOOR = 20;
 export function hasLeakySeoToken(value) {
     if (!value)
         return false;
-    return (value.toLowerCase().includes('analysis run') ||
-        LEAKY_RUNID_RE.test(value) ||
-        RUN_NUMBER_RE.test(value));
+    const lower = value.toLowerCase();
+    if (lower.includes('analysis run'))
+        return true;
+    if (LEAKY_RUNID_RE.test(value))
+        return true;
+    if (RUN_NUMBER_RE.test(value))
+        return true;
+    return SEO_PIPELINE_PATTERNS.some((pattern) => pattern.test(value));
 }
 /**
  * Word-level strip of leaky workflow tokens from a single line of text.
@@ -39,7 +65,13 @@ export function stripLeakyRunTokens(value) {
     let cleaned = value
         .replace(RUNID_TOKEN_STRIP_RE, '')
         .replace(RUN_TOKEN_STRIP_RE, '')
-        .replace(ANALYSIS_RUN_STRIP_RE, '');
+        .replace(ANALYSIS_RUN_STRIP_RE, '')
+        .replace(STAGE_TOKEN_STRIP_RE, '')
+        .replace(PREFETCH_FEEDS_STRIP_RE, '')
+        .replace(PREFETCH_TOKEN_STRIP_RE, '')
+        .replace(SCRIPTS_PATH_STRIP_RE, '')
+        .replace(HASH_NUMBER_STRIP_RE, '')
+        .replace(INTERNAL_TIME_STRIP_RE, '');
     cleaned = cleaned
         .replace(/\(\s*[,;:|/\-—–]+\s*/gu, '(')
         .replace(/\s*[,;:|/\-—–]+\s*\)/gu, ')')

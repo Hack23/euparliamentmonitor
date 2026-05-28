@@ -27,7 +27,8 @@
  *   4. **description-length** — each description in the inclusive range
  *      `[DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH]`.
  *   5. **forbidden-prefix**  — title/description must not start with a
- *      Stage-B preamble label such as `Run:`, `Purpose:`, `BLUF:`, …
+ *      Stage-A→E preamble label such as `Run:`, `Purpose:`, `BLUF:`,
+ *      `Stage A`, `scripts/...`, …
  *   6. **leaky-runid**       — title/description must not contain
  *      internal run-id tokens (`<slug>-run<N>-<unix-ts>`) or the
  *      English jargon "analysis run". Added 2026-05 after a live-site
@@ -105,6 +106,12 @@ export const FORBIDDEN_PREFIXES = Object.freeze([
   'methodology:',
   'gate target:',
   'scope:',
+  'stage a',
+  'stage b',
+  'stage c',
+  'stage d',
+  'stage e',
+  'scripts/',
 ]);
 
 /**
@@ -138,6 +145,10 @@ export const FORBIDDEN_PATTERNS = Object.freeze([
   // Workflow run-number patterns like "— Run 271" or "Run 42" must never
   // appear in user-facing SEO surfaces (titles, descriptions, keywords).
   /(?:^|[\s—–-])Run\s+\d+/u,
+  // Internal pipeline timestamps (e.g. 05:40:10Z).
+  /\b\d{2}:\d{2}:\d{2}Z\b/u,
+  // Internal script paths leaked into public SEO copy.
+  /\bscripts\/[^\s,;:|)\]]+/iu,
 ]);
 
 /**

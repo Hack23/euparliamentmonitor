@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { budgetFor, classifyScript, clampForBudget } from './seo-budgets.js';
-import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, appendEditionQualifier, deriveHeadlineFromSummary, ensureDescriptionTerminator, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
+import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, deriveHeadlineFromSummary, ensureDescriptionTerminator, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
 import { buildSeoKeywords } from './seo-keywords.js';
+import { synthesizeFallbackDescription, synthesizeFallbackTitle } from './fallback-synth.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
 const LOCALIZED_BRIEF_SOURCE = 'localized-brief';
 const ENGLISH_BRIEF_SOURCE = 'english-brief';
@@ -302,19 +303,24 @@ export function resolveOneLanguage(input) {
     // blank `<title>`.
     //
     // The fallback path passes the template title back through
-    // {@link composeContextualTitle} (with an empty editorial headline)
-    // so `withRunQualifier` re-appends the `— Run N` suffix. Without
-    // this, two same-date / same-articleType runs (republish, hot-fix
-    // re-run) would collapse to byte-identical `<title>` strings, and
-    // the duplicate-title gate in `scripts/validate-article-seo.js`
-    // would (correctly) fail CI.
+    // {@link composeContextualTitle} (with an empty editorial headline) so it
+    // appends an ISO date suffix (plus an `(EP)` SERP-floor pad when needed)
+    // for cross-date uniqueness. It never appends a run-number or "Edition N"
+    // disambiguator: `scripts/validate-article-seo.js` forbids run-number /
+    // edition tokens in reader-facing titles. Two same-date / same-articleType
+    // runs (republish, hot-fix re-run) are expected to differ through
+    // editorial / content-based differentiation (distinct headlines derived
+    // from the day's findings), not through a synthetic title suffix.
     const contextualFallback = composeContextualTitle(input.template.title, '', input.runId, input.date, input.lang);
-    const truncatedTitle = pickResolvedTitle(input, {
+    let truncatedTitle = pickResolvedTitle(input, {
         explicitTitle,
         resolvedTitleCandidate,
         summaryDerivedTitle,
         contextualFallback,
     });
+    if (hasLeakySeoToken(truncatedTitle)) {
+        truncatedTitle = synthesizeFallbackTitle(input, safeEditorial.summary || normalizedRawDescription, contextualFallback);
+    }
     // Per-script SEO title clamp + ellipsis scrub + run-number disambiguation.
     // See `clampForBudget` (seo-budgets.ts), `scrubTrailingEllipsis`
     // (resolve-helpers.ts), and `appendRunNumberSuffix` (above) for the
@@ -322,9 +328,6 @@ export function resolveOneLanguage(input) {
     const seoTitleClamped = clampForBudget(truncatedTitle, input.lang, 'title');
     let seoTitle = scrubTrailingEllipsis(seoTitleClamped);
     seoTitle = appendRunNumberSuffix(seoTitle, input.lang, input.runId ?? '');
-    // Cross-run uniqueness: append compact edition qualifier (#N) post-clamping
-    // Budget-aware: only append when it fits within the per-script title budget
-    seoTitle = appendEditionQualifier(seoTitle, input.runId ?? '', budgetFor(input.lang, 'title'));
     // Final SERP-floor recovery on the resolved title (see `padTitleToFloor`
     // in resolve-helpers.ts for the (EP) suffix rationale).
     seoTitle = padTitleToFloor(seoTitle, input.lang, budgetFor(input.lang, 'title'));
@@ -383,7 +386,10 @@ export function resolveOneLanguage(input) {
     // must use that ceiling, not the 78/150 tight budget, or the terminator
     // step would over-trim the description.
     const terminatorBudget = useTightBudget ? budgetFor(input.lang, 'metaDescription') : undefined;
-    const truncatedDescription = padDescriptionToFloor(ensureDescriptionTerminator(input.lang, clampedDescription, terminatorBudget), input.lang);
+    let truncatedDescription = padDescriptionToFloor(ensureDescriptionTerminator(input.lang, clampedDescription, terminatorBudget), input.lang);
+    if (hasLeakySeoToken(truncatedDescription)) {
+        truncatedDescription = synthesizeFallbackDescription(input);
+    }
     const extendedSource = sanitizeDescriptionCandidate(manifestDescription || safeEditorial.extendedSummary || normalizedRawDescription);
     // Two-tier extended-description resolution:
     // 1. Direct truncation — preferred when the editorial source paragraph
