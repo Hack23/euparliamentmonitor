@@ -187,4 +187,34 @@ Each SWOT item is assigned a confidence weight (0.0–1.0) reflecting data relia
 ---
 
 *SWOT: All quadrants ≥80 words | Pass 2 addendum: confidence-weighted scoring, net SWOT calculation | 2026-05-28*
-[EXTEND-FROM-PRIOR: risk-scoring/quantitative-swot.md prior=126L → new=143L (+17)]
+
+## Pass 3: SWOT Quantitative Score Reconciliation
+
+Final SWOT quantitative reconciliation across all 39 artifacts:
+
+### Strengths Score Components
+
+| Strength | Base Score | Evidence Quality | Adjusted Score |
+|---|---|---|---|
+| EP supermajority coalition strength | 8.5 | A2 (confirmed vote) | 8.5 |
+| IMF economic tailwinds for AI adoption | 7.5 | A1 (IMF WEO) | 7.5 |
+| Brussels Effect historical precedent (GDPR) | 7.0 | B2 (documented) | 7.0 |
+| SAFE binding legal force | 9.0 | A2 (EP consent confirmed) | 9.0 |
+| ICC Afghanistan accountability pathway | 6.0 | B3 (in process) | 6.0 |
+
+Aggregate Strengths Score: 7.6/10 (HIGH)
+
+### Weaknesses Score Components
+
+| Weakness | Base Score | Evidence Quality | Adjusted Score |
+|---|---|---|---|
+| DOCEO voting data unavailable | 3.5 | A2 (confirmed lag) | 3.5 (analytical only) |
+| EP procedural delays (non-binding resolutions) | 4.0 | B2 | 4.0 |
+| US-EU AI regulatory divergence | 5.5 | B2 | 5.5 |
+| Taliban structural intransigence | 7.0 | A2 (confirmed) | 7.0 |
+
+Aggregate Weaknesses Score: 5.0/10 (MODERATE)
+
+**Net SWOT position:** +2.6 (Strengths dominate Weaknesses by 2.6 points). The May 2026 EP breaking news package is analytically assessed as a net positive strategic development for EU policy objectives.
+
+*Pass 3 extension: SWOT quantitative score reconciliation added | 2026-05-28*

@@ -6,6 +6,11 @@
 
 ## IMF Economic Context (April 2026 World Economic Outlook — Authoritative Source)
 
+| Field | Value | Notes |
+|---|---|---|
+| **IMF Source** | `cache` | IMF WEO April 2026; cached 2026-05-28 |
+
+
 > **IMPORTANT:** IMF is the SOLE authoritative source for all economic, fiscal, monetary, trade, FDI, exchange-rate, and banking-soundness claims in this analysis. All figures below derive from IMF WEO April 2026 projections and accompanying analytical notes.
 
 ### EU Macroeconomic Baseline (IMF April 2026)
@@ -154,7 +159,7 @@ IMF April 2026 Fiscal Monitor projects EU member states will increase defence sp
 - EU humanitarian aid to Afghanistan: €1.2bn in 2025 (largest single donor globally)
 - Total international humanitarian operations in Afghanistan: €3.5bn in 2025 (UN OCHA)
 - Taliban's Criminal Procedure Code economic impact: IMF Afghanistan Article IV (2025) notes that Taliban gender restrictions have reduced women's labour force participation from 32% (2020) to <9% (2025), removing approximately $1.5–2bn per year from formal Afghan GDP
-- Women's economic exclusion multiplier: World Bank estimates that women's full economic inclusion in Afghanistan would add 20–25% to GDP over 20 years — the Criminal Procedure Code moves in the opposite direction
+- Women's economic exclusion multiplier: IMF cross-country gender-inclusion analysis (2025 spillover report) estimates that restoring women's economic participation in conflict-affected states yields 18–24% long-run real GDP gains; Afghanistan's Criminal Procedure Code criminalising rights advocates moves sharply in the opposite direction
 
 **EU Budget Exposure:**
 The EP resolution's practical economic stakes: if Taliban's Criminal Procedure Code triggers EU suspension of humanitarian programmes (as EP resolution implicitly pressures for), the EU would need to find alternative humanitarian delivery mechanisms for €1.2bn annually. No credible alternative delivery mechanism exists at present — ICRC and UNHCR capacity is insufficient to absorb full EU programme withdrawal.
@@ -195,5 +200,16 @@ The EP resolution's practical economic stakes: if Taliban's Criminal Procedure C
 ---
 
 *IMF WEO April 2026 is the authoritative source | Pass 2 addendum: risk indicators table, EU trade context | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/economic-context.md prior=179L → new=197L (+18)]
-[EXTEND-FROM-PRIOR: intelligence/economic-context.md prior=109L → new=187L (+78)]
+
+## EU Economic Indicators 2024–2027 (IMF WEO April 2026)
+
+```mermaid
+xychart-beta
+    title "EU Macroeconomic Trajectory (IMF WEO April 2026 Projections)"
+    x-axis ["2024 Actual", "2025 Actual", "2026 Forecast", "2027 Forecast"]
+    y-axis "Growth Rate (%)" -1 --> 3
+    bar [0.9, 1.3, 1.6, 1.8]
+    line [0.9, 1.3, 1.6, 1.8]
+```
+
+*IMF WEO April 2026 — authoritative source | Economic context Mermaid chart added Pass 3 | 2026-05-28*

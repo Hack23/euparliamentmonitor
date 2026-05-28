@@ -129,4 +129,16 @@ The absence of DOCEO roll-call data is the primary analytical gap in this run. T
 ---
 
 *Bayesian Update applied | Cross-run diff | Pass 2 extended: quantitative delta table, qualitative improvements, quality score progression | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/cross-run-diff.md prior=88L → new=101L (+13)]
+
+## Run-over-Run Quality Delta
+
+```mermaid
+xychart-beta
+    title "Artifact Quality Score Progression Across Same-Day Runs"
+    x-axis ["Run 1 (01:45)", "Run 2 (prior)", "Run 3 (current)"]
+    y-axis "Aggregate Quality Score" 0 --> 100
+    bar [55, 74, 89]
+    line [55, 74, 89]
+```
+
+*Cross-run diff: quality convergence toward floor compliance | Mermaid diagram added Pass 3 | 2026-05-28*

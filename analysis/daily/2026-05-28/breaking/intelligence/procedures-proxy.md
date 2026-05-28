@@ -86,4 +86,21 @@ Based on adopted texts analysis and procedure type inference:
 ---
 
 *Procedures proxy: feed-404 fallback | Pass 2 extended: procedure code reconstruction, confidence assessment, pipeline status proxy | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/procedures-proxy.md prior=37L → new=61L (+24)]
+
+## Procedure Status Proxy (Adopted Texts → Legislative Pipeline)
+
+```mermaid
+flowchart TD
+    A[EP Adopted Text\nTA-10-2026-0183\nAI Trade Strategy] -->|INI procedure| B[INTA Committee\nLead Rapporteur]
+    B -->|EP vote: May 20, 2026| C[Adopted by EP]
+    C -->|Non-binding resolution| D[Commission receives EP position]
+    D --> E{Commission action?}
+    E -->|Expected 6 months| F[Commission legislative proposal\nor formal response]
+    E -->|Possible| G[Incorporated into EU AI\nTrade Strategy Communication]
+    A2[TA-10-2026-0180\nEU-Canada SAFE] -->|Consent procedure| B2[AFET + BUDG Committees]
+    B2 --> C2[EP consent given]
+    C2 --> D2[Council formal adoption]
+    D2 --> E2[Entry into force]
+```
+
+*Procedures proxy: reconstructed from adopted texts feed | Pipeline diagram added Pass 3 | 2026-05-28*

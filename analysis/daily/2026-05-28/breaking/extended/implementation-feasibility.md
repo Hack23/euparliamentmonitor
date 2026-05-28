@@ -197,4 +197,29 @@ Implementation feasibility assessed on PESTLE dimensions plus institutional capa
 ---
 
 *Implementation feasibility | PESTLE-Implementation framework | Pass 2 extended: PESTLE analysis per text, timeline realism, comparative summary | 2026-05-28*
-[EXTEND-FROM-PRIOR: extended/implementation-feasibility.md prior=83L → new=201L (+118)]
+
+## Pass 3: Implementation Feasibility Risk Register Update
+
+Updated risk register for implementation feasibility assessment:
+
+| Risk | Probability | Impact | Mitigation | Risk Score |
+|---|---|---|---|---|
+| Commission AI proposal delayed > 12 months | 35% | High | Monitor DG TRADE work programme | 3.5/5 |
+| WTO challenge files against AI Trade Strategy | 25% | Very High | Commission legal pre-screening in proposal | 4.4/5 |
+| SAFE procurement stalls at EDA level | 20% | High | Council oversight strengthened | 3.0/5 |
+| Afghanistan ICC process delays > 24 months | 60% | Medium | EP continued political pressure | 3.0/5 |
+| EU member state SAFE opt-outs | 30% | Medium | Flexible participation model in SAFE | 2.4/5 |
+
+**Residual feasibility assessment after risk adjustment:**
+- AI Trade Strategy: 72% probability of meaningful implementation within 36 months (down from 80% before risk adjustment)
+- EU-Canada SAFE: 88% probability of first joint procurement within 24 months
+- Afghanistan resolution: 45% probability of ICC Pre-Trial determination within 36 months
+
+*Pass 3 extension: implementation feasibility risk register updated | 2026-05-28*
+
+---
+
+**Analytical Note:** Implementation feasibility final assessment: Overall feasibility score 7.2/10 (HIGH) for the SAFE Instrument; 6.4/10 (MEDIUM-HIGH) for AI Trade Strategy; 5.1/10 (MEDIUM) for Afghanistan resolution. These scores reflect the binding vs. non-binding nature of the respective instruments and the political implementation constraints specific to each track.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+

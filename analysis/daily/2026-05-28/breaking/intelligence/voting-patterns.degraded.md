@@ -122,5 +122,34 @@ This voting patterns analysis (degraded mode) is compliant with the degraded-vot
 
 ---
 
-*Degraded-voting mode | 2026-05-28 | Run: breaking-run265-1779932393 | Pass 2 extended: degraded protocol, uncertainty bands, DOCEO timeline, confidence table, attestation | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/voting-patterns.degraded.md prior=41L → new=152L (+111)]
+## Degraded-Voting Mode: Analytical Framework
+
+```mermaid
+flowchart TD
+    A[DOCEO Roll-Call Data] -->|Expected 2–4 week lag| B{Data available?}
+    B -->|No - within 4-week window| C[degraded-voting mode declared]
+    B -->|Yes| D[Full voting analysis]
+    C --> E[Inference-based voting estimates]
+    E --> F[Historical group cohesion rates applied]
+    F --> G[Group size × cohesion = projected votes]
+    G --> H[Admiralty C2 grade assigned]
+    H --> I[WEP bands for uncertainty expression]
+    I --> J[DOCEO recovery: ~June 2026]
+```
+
+### DOCEO Recovery Timeline
+
+| Milestone | Expected Date | Status |
+|---|---|---|
+| EP publishes DOCEO RCV XML | ~June 3–7, 2026 | 🟡 PENDING |
+| Roll-call data available via EP API | ~June 10–14, 2026 | 🟡 PENDING |
+| Full vote-by-vote breakdown accessible | ~June 14–21, 2026 | 🟡 PENDING |
+
+When DOCEO data becomes available, analysts should:
+1. Cross-reference projected vote tables against actual roll-call data
+2. Update ACH assessments for ECR and PfE positions on AI Trade Strategy
+3. Recalibrate group cohesion models for EP10 first full year
+
+---
+
+*Degraded-voting mode documentation | Pass 3: EXTEND-FROM-PRIOR marker removed, DOCEO timeline diagram added, recovery framework expanded | Admiralty C2 | 2026-05-28*

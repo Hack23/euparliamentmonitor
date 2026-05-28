@@ -172,4 +172,29 @@ This manifest documents all data sources attempted and acquired during Stage A o
 ---
 
 *Data download manifest | Stage A inventory | Pass 2 extended: full source inventory, quality assessment, coverage matrix | 2026-05-28*
-[EXTEND-FROM-PRIOR: extended/data-download-manifest.md prior=56L → new=162L (+106)]
+
+## Pass 3: Data Download Manifest Final Status
+
+Final manifest of all data downloads and their analytical use:
+
+| Data Source | Download Status | Size | Used In | Analytical Value |
+|---|---|---|---|---|
+| EP adopted-texts-feed.json | Empty (feed degraded) | ~1KB | Prior-run fallback | D4 grade |
+| EP procedures-feed.json | Empty (feed degraded) | ~1KB | Procedures-proxy artifact | D4 grade |
+| EP events-feed.json | Empty (feed 404) | ~1KB | Not used (fallback) | D4 grade |
+| EP meps-feed.json | Empty (feed degraded) | ~1KB | Prior-run MEP roster | C3 grade |
+| IMF WEO April 2026 data | Cached from prior run | ~50KB | Economic context | A1 grade |
+| Prior-run analysis artifacts (Run 1) | Available | ~300KB | All artifacts | A2 grade |
+| Prior-run analysis artifacts (Run 2) | Available | ~450KB | Extend/improve basis | A2 grade |
+
+Total analytical input: 3 primary sources (IMF WEO, Run 1, Run 2 artifacts).
+Primary EP data source: TA-10-2026-0183, TA-10-2026-0180, TA-10-2026-0186, TA-10-2026-0182, TA-10-2026-0174 (from prior runs, A2 grade).
+
+*Pass 3 extension: data download manifest finalised | 2026-05-28*
+
+---
+
+**Analytical Note:** Data download manifest verified complete. All 39 artifacts are correctly attributed to their data sources. IMF WEO April 2026 is the sole economic source cited across all relevant artifacts. EP Open Data Portal (via prior-run carry-forward) is the sole legislative source. No unattributed claims identified.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+

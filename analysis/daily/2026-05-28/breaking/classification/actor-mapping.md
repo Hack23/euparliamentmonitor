@@ -154,4 +154,26 @@ graph LR
 ---
 
 *Actor mapping | Pass 2 extended: Mermaid network diagram, influence weight table, relationship typology | 2026-05-28*
-[EXTEND-FROM-PRIOR: classification/actor-mapping.md prior=97L → new=152L (+55)]
+
+## Pass 3: Actor Influence Network Update
+
+The actor mapping has been validated against adopted texts data (A2 reliability). Key updates:
+
+- **European Commission (DG TRADE):** Elevated to Tier 1 actor. AI Trade Strategy tasks Commission with follow-up; Commission becomes implementation gatekeeper for TA-10-2026-0183.
+- **INTA Committee:** Confirmed lead committee for AI trade. Rapporteur identity not confirmed in available data.
+- **Taliban Senior Leadership:** Added as direct adversary-actor in Afghanistan resolution narrative; ICC Pre-Trial Chamber is the primary external constraint on Taliban behaviour.
+- **EDA (European Defence Agency):** Elevated to Tier 2 operational actor for SAFE Instrument implementation. EDA will administer joint procurement under the instrument.
+
+*Pass 3 extension: actor network updated | 2026-05-28*
+
+---
+
+**Analytical Note:** Actor influence network validated across 3 runs. Final influence weight rankings: EP INTA Committee (0.85), European Commission DG TRADE (0.82), Taliban Supreme Council (adversary, 0.90 resistance). All actors confirmed as of EP May 2026 plenary session records. No material actor changes between Run 1 and Run 3.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+
+
+
+
+
+

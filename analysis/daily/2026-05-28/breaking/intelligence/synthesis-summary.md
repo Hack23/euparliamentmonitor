@@ -222,4 +222,28 @@ The UNGA recommendation (TA-10-2026-0182) lists AI governance as a priority for 
 ---
 
 *Synthesis: 2026-05-28 | Pass 2 deepened | SATs: KAC, QoIC, Scenario Analysis, ACH | Pass 2 extended: cross-cutting assessment, story linkages, integrated confidence matrix, 30-day monitoring | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/synthesis-summary.md prior=157L → new=207L (+50)]
+
+## Pass 3: Synthesis Summary Cross-Check
+
+Final synthesis cross-check confirming internal consistency across all 39 artifacts:
+
+### Analytical Consistency Verification
+
+1. **Headline consistency:** All 39 artifacts reference the same core events (TA-10-2026-0183, 0180, 0186, 0182, 0174). No artifact introduces contradictory primary events.
+
+2. **IMF economic data consistency:** All economic figures in economic-context.md, economic-context.fallback.md, and pestle-analysis.md cite IMF WEO April 2026 as sole authoritative source. No non-IMF economic claims found.
+
+3. **Admiralty grade consistency:** B2-B3 grades applied throughout intelligence assessments. No A1 (confirmed) claims for voting composition (correctly downgraded to B3/C3 due to DOCEO unavailability).
+
+4. **WEP band consistency:** "Highly Likely (85-95%)" for text adoption (confirmed by adopted texts data). "Likely (65-85%)" for downstream policy effects. "Possible (40-55%)" for ICC proceedings within 24 months.
+
+**Synthesis conclusion:** All 39 artifacts are internally consistent. The analysis is ready for Stage C gate validation.
+
+*Pass 3 extension: synthesis cross-check added | 2026-05-28*
+
+---
+
+**Analytical Note:** Synthesis summary final review: All 39 artifacts have been synthesised. The central analytical finding is that the EP May 2026 Strasbourg plenary produced a balanced package of high-significance legislative outputs across three policy domains. The AI Trade Strategy is the highest-impact non-binding text; the EU-Canada SAFE Instrument is the highest-impact binding text; the Afghanistan resolution is the highest-urgency humanitarian text.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+

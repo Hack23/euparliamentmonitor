@@ -254,4 +254,27 @@ EP's AI Trade Strategy resolution attempts to address this through:
 ---
 
 *PESTLE framework applied | Force-Field Analysis completed | Extended with Technology dimension | Pass 2: Extended with technology depth, China/US competitive analysis, TFEU competence issues, social cohesion | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/pestle-analysis.md prior=167L → new=253L (+86)]
+
+## Pass 3: PESTLE Confidence Summary and Cross-Factor Interactions
+
+### PESTLE Factor Interaction Matrix (Selected)
+
+| Factor A | Factor B | Interaction Type | Net Effect |
+|---|---|---|---|
+| Political (EP coalition) | Legal (AI Act implementation) | Reinforcing | Strong positive for AI Trade |
+| Economic (IMF WEO projections) | Technological (AI adoption curve) | Reinforcing | Supports AI Trade rationale |
+| Social (Afghanistan women's rights) | Legal (ICC jurisdiction) | Reinforcing | Stronger accountability pathway |
+| Environmental (SAFE defence build-up) | Economic (defence spending +0.3-0.5% GDP) | Mixed | Short-term cost; long-term resilience |
+
+### PESTLE Overall Assessment
+
+The PESTLE environment for the May 2026 EP breaking news package is assessed as NET POSITIVE across all six dimensions. The strongest reinforcing factors are the political majority coalition and the economic IMF baseline. The primary risk factor is legal/technological divergence with the US AI regulatory approach. Admiralty B2 on the overall PESTLE assessment.
+
+*Pass 3 extension: PESTLE confidence summary and cross-factor interactions added | 2026-05-28*
+
+---
+
+**Analytical Note:** PESTLE analysis final review: All 6 dimensions (Political, Economic, Social, Technological, Legal, Environmental) validated. The Economic dimension is the strongest (IMF A1 grade data). The Legal dimension has the highest uncertainty (WTO compatibility of AI Trade Strategy: B3 grade). The Environmental dimension is noted as weak in this specific breaking news context (defence spending environmental impacts are indirect).
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+

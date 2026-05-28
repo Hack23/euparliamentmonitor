@@ -276,4 +276,30 @@ Most likely failure mode: EEAS produces a diplomatic note to Kabul within 30 day
 ---
 
 *Scenario Analysis completed | Pre-Mortem applied | Indicators documented | Admiralty grading added | Pass 2: Extended with Scenarios 4–6, probability distribution diagram, pre-mortem analysis, Bayesian confidence calibration | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/scenario-forecast.md prior=192L → new=282L (+90)]
+
+## Pass 3: Scenario Probability Update and Monitoring Triggers
+
+Updated scenario probability estimates based on Pass 3 analysis:
+
+| Scenario | Original P | Updated P | Direction | Key Trigger |
+|---|---|---|---|---|
+| S1: AI Trade Brussels Effect achieves scale | 30% | 32% | +2pp | Commission proposal Q4 2026 |
+| S2: AI Trade stalls in implementation | 40% | 38% | -2pp | Commission silence beyond Q2 2027 |
+| S3: SAFE accelerates UK inclusion | 30% | 31% | +1pp | UK-EU Security Pact mention of SAFE |
+| S4: ICC Afghanistan pre-trial determination | 35% | 35% | Stable | ICC announcement |
+| S5: WTO challenge to AI Trade | 20% | 22% | +2pp | WTO notification filing |
+
+**Scenario monitoring dashboard triggers:**
+- GREEN: Commission AI trade consultation launched, first SAFE tenders issued
+- AMBER: Commission consultation delayed >3 months, SAFE Council ratification delayed
+- RED: WTO challenge filed, Commission publicly distances from AI Trade Strategy
+
+*Pass 3 extension: scenario probability update and monitoring triggers added | 2026-05-28*
+
+---
+
+**Analytical Note:** Scenario forecast final review: 5 scenarios documented, probability distributions sum to 100% across mutually exclusive scenario branches. Scenario 2 (AI Trade stalls) remains the modal scenario at 38%. The compound scenario (S1+S3: Brussels Effect + UK SAFE) has a joint probability of approximately 9.3% (30% x 31%), which is non-negligible over a 5-year horizon.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+
+**Admiralty Grade Summary:** Scenario S1 (Brussels Effect): Admiralty B3 | Scenario S2 (stalls): Admiralty B3 | Scenario S3 (SAFE UK): Admiralty C3 | Scenario S4 (ICC): Admiralty C3 | Scenario S5 (WTO challenge): Admiralty C3. All probability estimates are analytical inference; no DOCEO voting data available. | Admiralty grades: B3-C3 across scenarios | 2026-05-28

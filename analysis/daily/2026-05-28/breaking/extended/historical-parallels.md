@@ -189,4 +189,52 @@ The EU-Norway model suggests that once the SAFE legal architecture is in place, 
 ---
 
 *Historical parallels analysis | Admiralty grades applied | Pass 2 extended: 4 parallels with Admiralty grades, confidence-adjusted assessments, lessons table | 2026-05-28*
-[EXTEND-FROM-PRIOR: extended/historical-parallels.md prior=98L → new=221L (+123)]
+
+## Historical Parallel 5: EU-Canada SAFE vs. NATO Article 5 Extension Debates (1999–2002)
+
+**Parallel event:** The post-9/11 NATO Article 5 invocation (2001) and subsequent debate about whether collective defence could accommodate non-traditional security threats is the closest historical precedent to the EU-Canada SAFE Instrument's novel approach to "structured cooperation beyond alliance obligations."
+
+**Key similarities:**
+- Both involved extending established security frameworks to novel threat categories
+- Both raised sovereignty vs. collective security trade-offs among partner states
+- Both created asymmetric burden-sharing debates (US-heavy in NATO; EU-heavy in SAFE)
+
+**Key differences:**
+- SAFE is an EU-Commission instrument, not an intergovernmental treaty
+- NATO Article 5 covered military attack; SAFE covers procurement cooperation
+- SAFE includes Parliamentary oversight (EP consent); NATO invocation is executive
+
+**Admiralty:** B3 (probably valid parallel with significant differences)
+
+## Historical Parallel 6: GDPR as Brussels Effect Precedent for AI Trade Strategy
+
+**Parallel event:** The GDPR adoption (April 2016, application May 2018) and subsequent Brussels Effect — the process by which EU data protection regulation became de facto global standard.
+
+**Trajectory timeline:**
+
+| Year | GDPR Event | AI Trade Strategy Equivalent (projected) |
+|---|---|---|
+| 2016 | GDPR adopted | 2026: EP AI Trade Strategy resolution adopted |
+| 2018 | GDPR enters into force | 2027: Commission AI trade proposal (projected) |
+| 2018–2019 | First compliance wave (US tech companies) | 2028: Non-EU AI companies adapt to EU requirements |
+| 2021 | California CCPA (first US GDPR-equivalent) | 2029: First non-EU country AI trade governance law |
+| 2023 | 21+ countries with GDPR-equivalent laws | 2031: Brussels Effect for AI governance measurable |
+
+**Assessment:** The GDPR precedent suggests AI Trade Strategy can achieve meaningful international influence, but on a 5–8 year horizon, not 1–2 years. Admiralty B2.
+
+```mermaid
+timeline
+    title Historical Parallels: EU Regulatory Export Success Cases
+    2016 : GDPR adopted (parallel: AI Trade Strategy 2026)
+    2018 : GDPR in force; global compliance wave begins
+    2020 : GDPR global standard confirmed; 15+ country adoptions
+    2022 : GDPR: 18+ country adoptions; Brussels Effect documented
+    2026 : AI Trade Strategy adopted (start of new trajectory)
+    2028 : AI Trade Strategy: first trade agreement provisions (projected)
+    2030 : AI Trade Strategy: 5–10 country adoptions (projected)
+    2032 : Brussels Effect for AI governance: documented (projected)
+```
+
+---
+
+*Historical parallels complete | 6 parallels documented | Pass 3: Parallels 5–6 added, comparative trajectory timeline, EXTEND-FROM-PRIOR marker removed | 2026-05-28*

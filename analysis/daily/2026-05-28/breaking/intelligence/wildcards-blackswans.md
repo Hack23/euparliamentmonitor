@@ -274,5 +274,26 @@ All wild cards assessed using structured "What If?" scenario inversion: "What wo
 ---
 
 *High-Impact analysis complete | Wild Cards 1–10 documented | SAT methodology applied | Admiralty grades: wild cards 6–10: B3 | Pass 2 extended: Wild Cards 6–10, updated summary matrix | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/wildcards-blackswans.md prior=199L → new=277L (+78)]
-[EXTEND-FROM-PRIOR: intelligence/wildcards-blackswans.md prior=125L → new=276L (+151)]
+
+## Black Swan Event Probability vs. EP Impact
+
+```mermaid
+quadrantChart
+    title Wild Cards — Probability vs. EP Impact (May 2026)
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low EP Impact" --> "Very High EP Impact"
+    quadrant-1 "Critical Watch"
+    quadrant-2 "Contingency Required"
+    quadrant-3 "Background Monitor"
+    quadrant-4 "Routine Risk"
+    EU-Canada SAFE UK Precedent: [0.45, 0.75]
+    AI Act WTO Challenge: [0.25, 0.80]
+    ICC Pre-Trial Positive: [0.35, 0.90]
+    AI Leads Tech Exodus: [0.20, 0.75]
+    Taliban Policy Reversal: [0.05, 0.95]
+    US Withdraws ICC Cooperation: [0.25, 0.55]
+    SAFE Arctic Activation: [0.05, 0.95]
+    WTO Formal AI Challenge 12m: [0.12, 0.55]
+```
+
+*Wild cards documented | Black swan probability-impact quadrant added Pass 3 | 2026-05-28*

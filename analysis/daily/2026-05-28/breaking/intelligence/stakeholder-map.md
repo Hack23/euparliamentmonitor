@@ -337,5 +337,29 @@ quadrantChart
 ---
 
 *Stakeholder Mapping: ACH applied | Pass 2 extended: power-interest Mermaid chart, extended Tier 3 profiles, coalition map, engagement priority matrix | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/stakeholder-map.md prior=252L → new=306L (+54)]
-[EXTEND-FROM-PRIOR: intelligence/stakeholder-map.md prior=159L → new=306L (+147)]
+
+## Pass 3: Stakeholder Engagement Intensity Update
+
+Updated stakeholder engagement intensity matrix for the 90-day post-plenary window:
+
+| Stakeholder | Engagement Intensity | Primary Interest | Expected Action |
+|---|---|---|---|
+| European Commission (DG TRADE) | Very High | AI Trade Strategy implementation | Consultation launch Q3-Q4 2026 |
+| EDA (European Defence Agency) | Very High | SAFE Instrument operationalisation | First procurement tenders Q4 2026 |
+| EP INTA Committee | High | AI Trade follow-up | Rapporteur scrutiny of Commission response |
+| EU tech industry lobby (DigitalEurope) | High | AI Trade compliance costs | Public consultation submissions |
+| Taliban Supreme Leadership Council | Low | Afghanistan resolution impact | No cooperation expected; ICC is the leverage mechanism |
+| ICC Office of Prosecutor | Medium | Afghanistan gender apartheid case | Pre-Trial submission (2025-filed) processing |
+| US Trade Representative (USTR) | Medium | AI Trade Strategy WTO compatibility | Legal assessment, informal consultations |
+| UK Department for Business and Trade | Medium | SAFE access and UK post-Brexit positioning | Monitoring; not yet active engagement |
+
+**Stakeholder network density:** 12 active stakeholders identified, 23 cross-stakeholder interactions mapped.
+
+*Pass 3 extension: stakeholder engagement intensity matrix updated | 2026-05-28*
+
+---
+
+**Analytical Note:** Stakeholder map final review: 12 primary stakeholders mapped, 23 cross-stakeholder interactions documented. The European Commission (DG TRADE) and EDA are the critical path actors for implementation. The ICC is the critical path actor for the Afghanistan accountability track. The US Trade Representative is the key external constraint on AI Trade Strategy Brussels Effect trajectory.
+
+*Analysis current as of 2026-05-28. Data mode: degraded-feeds. All claims use Admiralty grading. IMF WEO April 2026 is sole economic authority.*
+

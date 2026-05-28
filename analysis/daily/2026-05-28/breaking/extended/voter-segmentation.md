@@ -192,4 +192,26 @@ EP decisions translate into public opinion vectors through five primary audience
 ---
 
 *Voter segmentation analysis | Political audience mapping | Pass 2 extended: 5-segment audience analysis, per-segment messaging assessment, Member State matrix | 2026-05-28*
-[EXTEND-FROM-PRIOR: extended/voter-segmentation.md prior=93L → new=202L (+109)]
+
+## Voter Segmentation: Political Audience Heat Map
+
+```mermaid
+quadrantChart
+    title Member State Audience Receptivity — EP May 2026 Package
+    x-axis "Low Support" --> "High Support"
+    y-axis "Low Political Salience" --> "High Political Salience"
+    quadrant-1 "Priority Constituencies"
+    quadrant-2 "Persuasion Targets"
+    quadrant-3 "Low-engagement"
+    quadrant-4 "Supporters at Risk"
+    Germany (AI Trade): [0.80, 0.85]
+    Netherlands (AI Trade): [0.75, 0.70]
+    Sweden (SAFE): [0.85, 0.80]
+    Poland (SAFE): [0.80, 0.75]
+    France (SAFE): [0.55, 0.90]
+    Hungary (SAFE): [0.25, 0.80]
+    Italy (AI Trade): [0.65, 0.75]
+    Spain (Afghanistan): [0.70, 0.60]
+```
+
+*Voter segmentation complete | Pass 3: EXTEND-FROM-PRIOR marker removed, heat map quadrant added | 2026-05-28*

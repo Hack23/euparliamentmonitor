@@ -315,5 +315,33 @@ The resulting operational compromise consistently under-delivers on EP political
 ---
 
 *KAC applied | Red Team integrated | Pass 2 extended: Threat Categories 5–8, red team blind spots, response matrix | Admiralty: B2 for structural threats, C3 for implementation threats | 2026-05-28*
-[EXTEND-FROM-PRIOR: intelligence/threat-model.md prior=228L → new=252L (+24)]
-[EXTEND-FROM-PRIOR: intelligence/threat-model.md prior=154L → new=252L (+98)]
+
+## Pass 3: Threat Model Update — Emerging Threats
+
+Updated threat model with Pass 3 emerging threats:
+
+### Threat T-10: AI Trade Strategy Regulatory Arbitrage
+
+**Description:** Non-EU AI developers establish subsidiaries in low-regulation jurisdictions to serve EU market with minimal AI Act compliance. This would hollow out the Brussels Effect.
+**Probability:** 30-40% (within 36 months if AI Trade Strategy implementation advances)
+**Impact:** HIGH — undermines entire AI Trade Strategy rationale
+**Mitigants:** EU AI Act extraterritorial scope (Art. 2); Commission enforcement capacity; WTO MFN constraints on regulatory arbitrage
+
+### Threat T-11: SAFE Procurement Political Controversy
+
+**Description:** First SAFE joint procurement triggers political controversy over EU defence industrial sovereignty (France), cost-sharing disputes, or exclusion concerns (Eastern European SMEs).
+**Probability:** 40-50% (for at least one controversy within 24 months)
+**Impact:** MEDIUM — operational delay risk; no structural SAFE collapse expected
+**Mitigants:** SAFE built-in governance safeguards; EDA coordination; EP oversight resolutions
+
+### Updated Threat Priority Matrix
+
+| Threat | Probability | Impact | Priority Score | Trend |
+|---|---|---|---|---|
+| T-1: WTO AI challenge | 20-30% | Very High | 4.5 | Rising |
+| T-2: Taliban non-compliance (Afghanistan) | 85% | Medium | 3.4 | Stable |
+| T-3: Commission AI proposal delay | 35% | High | 3.5 | Stable |
+| T-10: AI regulatory arbitrage | 35% | High | 3.5 | Emerging |
+| T-11: SAFE procurement controversy | 45% | Medium | 2.7 | Emerging |
+
+*Pass 3 extension: Threats T-10 and T-11 added, threat priority matrix updated | 2026-05-28*
