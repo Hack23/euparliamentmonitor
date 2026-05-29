@@ -29,6 +29,7 @@ export {
   SKIP_LINK_TEXTS,
   ARTICLE_TYPE_LABELS,
   READ_TIME_LABELS,
+  PROGRESSIVE_DISCLOSURE_LABELS,
   BACK_TO_NEWS_LABELS,
   ARTICLE_NAV_LABELS,
   RELATED_ARTICLES_NAV_LABELS,
@@ -135,6 +136,7 @@ export {
 } from './language-ui.js';
 
 export type { AISection, RelationshipLabels, RelatedAnalysisStrings } from './language-ui.js';
+export type { ProgressiveDisclosureStrings } from './language-ui.js';
 
 export {
   WEEK_AHEAD_TITLES,

@@ -14,6 +14,7 @@
  * - `article-category-labels.ts`     — `ARTICLE_TYPE_LABELS`, `ARTICLE_TYPE_ICONS`
  * - `accessibility.ts`               — `SKIP_LINK_TEXTS`, `TOC_ARIA_LABELS`, language-switcher / footer trust-badge ARIA labels
  * - `reading-time.ts`                — `READ_TIME_LABELS` (per-language pluralization)
+ * - `progressive-disclosure.ts`      — `PROGRESSIVE_DISCLOSURE_LABELS` (reading layers, expand CTAs, reading-time line, TOC layer badge)
  * - `ai-content.ts`                  — `AI_SECTION_CONTENT` + `AISection` interface
  * - `related-analysis.ts`            — `SECTION_TITLE_LABELS`, `RELATED_ANALYSIS_LABELS`
  * - `tradecraft-cards.ts`            — tradecraft / analysis-index card labels
@@ -87,6 +88,11 @@ export {
 } from './accessibility.js';
 
 export { READ_TIME_LABELS } from './reading-time.js';
+
+export {
+  PROGRESSIVE_DISCLOSURE_LABELS,
+  type ProgressiveDisclosureStrings,
+} from './progressive-disclosure.js';
 
 export { AI_SECTION_CONTENT, type AISection } from './ai-content.js';
 

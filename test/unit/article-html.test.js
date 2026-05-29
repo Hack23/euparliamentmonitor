@@ -394,6 +394,15 @@ describe('buildArticleToc', () => {
     const de = buildArticleToc([{ id: 'x', title: 'X' }], 'de');
     expect(de).toContain('Inhaltsverzeichnis');
   });
+
+  it('localises the layer-badge aria-label from PROGRESSIVE_DISCLOSURE_LABELS', () => {
+    const en = buildArticleToc([{ id: 'section-executive-brief', title: 'Executive Brief' }], 'en');
+    expect(en).toContain('aria-label="Layer L1"');
+    const sv = buildArticleToc([{ id: 'section-executive-brief', title: 'Executive Brief' }], 'sv');
+    expect(sv).toContain('aria-label="Nivå L1"');
+    const fr = buildArticleToc([{ id: 'section-executive-brief', title: 'Executive Brief' }], 'fr');
+    expect(fr).toContain('aria-label="Niveau L1"');
+  });
 });
 
 describe('progressive disclosure article layers', () => {
@@ -446,6 +455,29 @@ describe('progressive disclosure article layers', () => {
     expect(html).toContain('⏱️ Quick read:');
     expect(html).toContain('Full analysis:');
     expect(html).toContain('Complete intelligence:');
+  });
+
+  it('localises the reading-time line and aria-label for non-English languages', () => {
+    const sv = wrapArticleHtml({ ...baseOptions, lang: 'sv' });
+    expect(sv).toContain('⏱️ Snabbläsning:');
+    expect(sv).toContain('Fullständig analys:');
+    expect(sv).toContain('Komplett underrättelse:');
+    expect(sv).toContain('aria-label="Uppskattad lästid"');
+    const fr = wrapArticleHtml({ ...baseOptions, lang: 'fr' });
+    expect(fr).toContain('⏱️ Lecture rapide:');
+    expect(fr).toContain('Analyse complète:');
+    expect(fr).toContain('aria-label="Temps de lecture estimé"');
+    const ko = wrapArticleHtml({ ...baseOptions, lang: 'ko' });
+    expect(ko).toContain('빠른 읽기:');
+    expect(ko).toContain('전체 분석:');
+    expect(ko).toContain('완전한 인텔리전스:');
+    expect(ko).toMatch(/\d분/);
+  });
+
+  it('localises the disclosure summary CTAs for non-English languages', () => {
+    const sv = wrapArticleHtml({ ...baseOptions, lang: 'sv' });
+    expect(sv).toContain('Läs fullständig analys');
+    expect(sv).toContain('Öppna komplett underrättelse');
   });
 });
 
