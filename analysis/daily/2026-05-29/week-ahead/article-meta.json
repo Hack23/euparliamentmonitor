@@ -1,0 +1,51 @@
+{
+  "date": "2026-05-29",
+  "articleType": "week-ahead",
+  "runId": "week-ahead-run1780043323",
+  "gateResult": "PENDING",
+  "slug": "2026-05-29-week-ahead",
+  "articlePath": "analysis/daily/2026-05-29/week-ahead/article.md",
+  "topFinding": "WEP bands + horizons on judgements; Admiralty grades on sources.",
+  "keyTakeaways": [
+    "The week of **1–5 June 2026 is a committee + political-group week with no plenary** (🟢 HIGH confidence, EP A2). The European Parliament's last plenary sat 18–21 May; the next sits **15–18 June** in Strasbourg.",
+    "The week's significance is **forward-leaning**: it is the agenda-setting runway for the June plenary and, above all, for the **2027 budget procedure** now taking shape against a backdrop of widening member-state deficits (IMF A1).",
+    "**Net judgement:** a low-drama week with high preparatory leverage. 🟡 MODERATE-LOW intrinsic significance, 🟡 MODERATE forward leverage.",
+    "The week of **1–5 June 2026 is a committee + political-group week — no plenary sits.** 🟢 HIGH confidence (EP calendar, Admiralty A2).",
+    "The European Parliament's last plenary was **18–21 May**; the next is **15–18 June** (Strasbourg, confirmed A2).",
+    "The week's value is **preparatory**: it sets up the June plenary and, decisively, the **2027 budget procedure** now forming against widening member-state deficits (IMF WEO, A1).",
+    "**Overall judgement:** 🟡 MODERATE-LOW intrinsic significance, 🟡 MODERATE forward leverage. A quiet-floor, active-committee week."
+  ],
+  "topRisks": [
+    "**Highest combined exposure:** R2 (early budget draft) — medium likelihood × high impact.",
+    "**Most certain, lowest stakes:** R6 (feed outages) — operational, mitigated by fallbacks.",
+    "**Tail risk:** R4 (trade shock) — low likelihood, high impact, hits the least fiscally-resilient economies.",
+    "**R1/R5:** track committee amendment lines and group statements as leading indicators.",
+    "**R2:** monitor Commission communications calendar; pre-stage budget-context analysis.",
+    "**R3:** flag all agenda-based judgements as MEDIUM confidence; re-poll `MTG-PL-2026-06-15`.",
+    "**R4:** maintain IMF trade-exposure watch; cross-reference INTA trade-defence texts.",
+    "**R6:** route directly to `get_*` fallbacks; warm lifecycle cache out-of-band."
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**EPP (185)** — pivotal centre-right; budget discipline + competitiveness.",
+    "**S&D (136)** — social-investment counterweight in budget framing.",
+    "**PfE (85)** — sovereigntist right; net-contributor scepticism.",
+    "**ECR (81)** — fiscal-conservative, selectively cooperative.",
+    "**Renew (77)** — liberal hinge of the grand coalition.",
+    "**Greens/EFA (53)** — green-conditionality on spending.",
+    "**The Left (45)** — anti-austerity opposition.",
+    "**NI (30) / ESN (27)** — fragmented margins."
+  ],
+  "macroContext": "Real GDP growth (NGDPRPCH), average consumer-price inflation (PCPIPCH) and general-government net lending/borrowing as % of GDP (GGXCNLNGDP).",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
