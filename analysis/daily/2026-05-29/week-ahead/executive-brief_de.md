@@ -144,4 +144,4 @@ Dieses Dokument stützt sich auf folgende in Phase A gesammelte Datenquellen:
 - B3-Tagesordnungsgranularitätsdaten werden nur für abgesicherte, explizit vermerkte Zukunftsbehauptungen verwendet.
 - Herabgestufte Ereignis-/Verfahrensfeeds (404) wurden über die verabschiedeten Texte und Kalender-Reservequellen oben kompensiert.
 
-> Provenienzhinweis: Dieser Lauf wurde im `dataMode = degraded-feeds` ausgeführt; Untergrenzen wurden ×0,80 accordingly angepasst, und die zentrale Einschätzung ist robust gegenüber jeder erklärten Einschränkung.
+> Provenienzhinweis: Dieser Lauf wurde im `dataMode = degraded-feeds` ausgeführt; Untergrenzen wurden ×0,80 entsprechend angepasst, und die zentrale Einschätzung ist robust gegenüber jeder erklärten Einschränkung.

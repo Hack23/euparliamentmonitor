@@ -144,4 +144,4 @@ Dette dokumentet bygger på følgende datakilder samlet inn under fase A:
 - B3 dagsordengransksningsdata brukes bare for hedgede, eksplisitt flaggede fremtidsrettede påstander.
 - Nedgraderte hendelses-/prosedyrestrømmer (404) kompensert via vedtatte tekster og kalenderreservekilder ovenfor.
 
-> Proveniensnotat: denne kjøringen utført i `dataMode = degraded-feeds`; gulvnivåer justert ×0,80 accordingly, og den sentrale vurderingen er robust mot enhver erklært begrensning.
+> Proveniensnotat: denne kjøringen utført i `dataMode = degraded-feeds`; gulvnivåer justert ×0,80 tilsvarende, og den sentrale vurderingen er robust mot enhver erklært begrensning.

@@ -144,4 +144,4 @@ Detta dokument bygger på följande datakällor insamlade under fas A:
 - B3 dagordningsgranularitetsdata används endast för hedgade, explicit flaggade framtida påståenden.
 - Nedgraderade händelse-/procedurflöden (404) kompenserades via de antagna texterna och kalenderreservalternativen ovan.
 
-> Proveniensnot: denna körning genomfördes i `dataMode = degraded-feeds`; golvnivåer justerades ×0,80 accordingly och den centrala bedömningen är robust mot varje deklarerad begränsning.
+> Proveniensnot: denna körning genomfördes i `dataMode = degraded-feeds`; golvnivåer justerades ×0,80 i enlighet med detta och den centrala bedömningen är robust mot varje deklarerad begränsning.
