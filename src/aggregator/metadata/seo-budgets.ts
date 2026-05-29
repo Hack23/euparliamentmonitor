@@ -252,15 +252,18 @@ export function clampForBudget(
     if (cleaned.length >= softMin) return cleaned;
   }
 
-  // Whitespace-aware fallback. Chinese and Japanese text often has no
-  // ASCII spaces, so skip this step for them and fall straight through
-  // to the hard cut. Korean is the exception — it uses inter-word spaces.
-  if (family !== 'cjk' || lang === 'ko') {
-    const lastSpace = window.lastIndexOf(' ');
-    if (lastSpace >= softMin) {
-      const safe = trimTrailingSeparators(window.slice(0, lastSpace));
-      return `${safe}…`;
-    }
+  // Whitespace-aware fallback. Runs for every script: an ASCII space
+  // past the soft minimum is a safe break that drops a partial trailing
+  // segment whole rather than slicing it mid-token. Chinese and Japanese
+  // prose has no inter-word spaces, so `lastIndexOf(' ')` returns -1 and
+  // this is a no-op for them — but composed SEO snippets join clauses
+  // (body, dateline, reader label) with ASCII spaces, so honouring that
+  // boundary prevents hard-cutting the reader label mid-word. Korean
+  // uses inter-word spaces natively and benefits the same way.
+  const lastSpace = window.lastIndexOf(' ');
+  if (lastSpace >= softMin) {
+    const safe = trimTrailingSeparators(window.slice(0, lastSpace));
+    return `${safe}…`;
   }
 
   const hardCut = trimTrailingSeparators(window);
