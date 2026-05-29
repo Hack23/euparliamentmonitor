@@ -1,0 +1,58 @@
+{
+  "date": "2026-05-29",
+  "articleType": "propositions",
+  "runId": "propositions-run289-1780040667",
+  "gateResult": "GREEN",
+  "slug": "2026-05-29-propositions",
+  "articlePath": "analysis/daily/2026-05-29/propositions/article.md",
+  "topFinding": "European Parliament Advances AI-Trade Doctrine and Ratifies Seven International Agreements in Landmark Spring Session",
+  "keyTakeaways": [
+    "**Normative power** (Uzbekistan): Attaching human rights conditionality",
+    "**Hard power projection** (Canada SAFE): Defence industrial integration",
+    "**Rule-of-law export** (Lebanon Eurojust): Extending EU legal cooperation network",
+    "Exact texts adopted, their dates, and procedureReferences",
+    "The EU-Uzbekistan, EU-Canada, EU-Lebanon, and fisheries agreements are officially adopted",
+    "AI-trade resolution is officially adopted as EP position",
+    "Vote margins and coalition breakdowns (no DOCEO roll-call data)"
+  ],
+  "topRisks": [
+    "R01 (DMA enforcement) — gatekeeper legal challenges accumulating; Commission losing interim measures applications",
+    "R03 (US retaliation) — US USTR formal inquiry into DMA extraterritoriality documented in trade press",
+    "R02 (regulatory capture) — standard lobbying risk for any major EU legislation",
+    "R04 (EU-Mercosur) — CJ timeline unchanged; no new political developments",
+    "R05 (budget breakdown) — historical precedent strongly against; new Council Presidency (Denmark) pro-resolution",
+    "R07 (fisheries) — just adopted with sustainability conditions; 2025–2032 horizon buys time"
+  ],
+  "keyDates": [
+    "Commission formal legislative proposal incorporating AI Act standards in FTA digital chapters template (expected Q3 2026)",
+    "EU-India FTA digital chapter text incorporating AI Act compliance provisions (leaked drafts expected Q2 2026)",
+    "Budget 2027: EP-Council agreement reached by November 2026 within standard MFF envelope",
+    "US Treasury/USTR public statements on DMA enforcement (July 2026 onwards)",
+    "CJ ruling on EU-Mercosur timeline (typically 12–18 months from referral = December 2026–June 2027)",
+    "EU-India FTA digital chapter is closed with strong AI Act provisions (September 2026)",
+    "DMA produces first gatekeeper fine exceeding €5 billion (October 2026)",
+    "International agreement adoption reaches 12–15 agreements in H2 2026 (vs 7 in one week in May 2026 — suggesting this is already trending upward)"
+  ],
+  "keyActors": [
+    "**Rapporteur AI-Trade (EPP, DE)**: Primary architect of TA-10-2026-0183; drove EPP–Renew compromise on AI governance thresholds",
+    "**INTA Committee Chair (S&D, FR)**: Brokered seven-agreement INTL cluster ratification",
+    "**ITRE Committee Lead (Renew, NL)**: DMA enforcement framework author",
+    "**Housing Rapporteur (S&D, PT)**: First-ever EP housing resolution driver",
+    "**European Commission (DG TRADE)**: Principal on AI-Trade strategy; tabled original legislative proposal",
+    "**Council Presidency (Poland, rotating Q1-2026)**: Counterpart on INTL agreement ratifications",
+    "**Digital industry lobby (GAIA-X, DSA Forum)**: Active on AI-Trade and DMA frames",
+    "**Civil society (Housing Europe, FEANTSA)**: Mobilized on housing crisis resolution"
+  ],
+  "macroContext": "The legislative bundle of 2026-05-29 operates against a specific macroeconomic backdrop that materially shapes feasibility, political salience, and distributional outcomes of each file.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
