@@ -254,7 +254,12 @@ export function buildLegacyBackfillDescription(
   // carries the date — leaving it in would emit a redundant
   // "发布日期 / 게시일 YYYY-MM-DD." suffix (live regression in
   // `news/2026-04-01-breaking-zh.html` / `2026-03-31-breaking-ko.html`).
-  const body = stripRedundantDateLabel(stripDuplicatedLegacyPrefix(trimmedDescription, prefix), langCode, date) || label;
+  const body =
+    stripRedundantDateLabel(
+      stripDuplicatedLegacyPrefix(trimmedDescription, prefix),
+      langCode,
+      date
+    ) || label;
   const contextual = `${prefix} — ${body}`.replace(/\s+/g, ' ').trim();
   return capDescriptionLength(contextual);
 }
@@ -303,7 +308,11 @@ export function stripLegacyBackfillContext(
   const langCode = (lang || 'en').toLowerCase() as LanguageCode;
   const prefix = computeLegacyPrefix(date, slug, langCode);
   return stripTruncatedReaderLabel(
-    stripRedundantDateLabel(stripDuplicatedLegacyPrefix(description.trim(), prefix), langCode, date),
+    stripRedundantDateLabel(
+      stripDuplicatedLegacyPrefix(description.trim(), prefix),
+      langCode,
+      date
+    ),
     langCode
   );
 }
