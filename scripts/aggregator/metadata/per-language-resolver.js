@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { budgetFor, classifyScript, clampForBudget } from './seo-budgets.js';
 import { composeContextualDescription, composeContextualExtendedDescription, composeContextualTitle, deriveHeadlineFromSummary, ensureDescriptionTerminator, hasLeakySeoToken, isUsableResolvedTitle, manifestOverrideFor, padDescriptionToFloor, padTitleToFloor, pickFirstNonEmpty, sanitizeDescriptionCandidate, sanitizeTitleCandidate, scrubTrailingEllipsis, } from './resolve-helpers.js';
-import { ASCII_ONLY_RE, appendRunNumberSuffix, contentMatchesLocaleScript, pickResolvedTitle, pickResolvedTitleCandidate, shouldEnrichDescription, } from './resolve-script-utils.js';
+import { ASCII_ONLY_RE, appendRunNumberSuffix, composeNonLatinDistinctiveTitle, contentMatchesLocaleScript, pickResolvedTitle, pickResolvedTitleCandidate, shouldEnrichDescription, } from './resolve-script-utils.js';
 import { buildSeoKeywords } from './seo-keywords.js';
 import { synthesizeFallbackDescription, synthesizeFallbackTitle } from './fallback-synth.js';
 import { ENRICHMENT_TRIGGER_LENGTH, truncateDescription, truncateExtendedDescription, truncateTitle, } from './text-utils.js';
@@ -193,6 +193,33 @@ export function resolveOneLanguage(input) {
         summaryDerivedTitle,
         contextualFallback,
     });
+    // Content-based differentiator for non-Latin English-brief fallback.
+    // When the picked title is the date-suffixed template fallback (no
+    // manifest override, no usable resolved/summary candidate) two same-date
+    // re-runs collide on an identical localized `<title>`. Run-number /
+    // edition qualifiers are forbidden, so splice the run's own distinctive
+    // English topic into the localized template label (Gate 4a-safe mixed
+    // script). Falls back silently to the date-suffixed title when no clean,
+    // budget-fitting fragment can be derived. See
+    // {@link composeNonLatinDistinctiveTitle}.
+    const usedContextualFallback = truncatedTitle === truncateTitle(contextualFallback) ||
+        truncatedTitle === contextualFallback;
+    if (nonLatinFamily &&
+        perLanguage.source === ENGLISH_BRIEF_SOURCE &&
+        !explicitTitle &&
+        usedContextualFallback) {
+        const distinctiveTitle = composeNonLatinDistinctiveTitle({
+            lang: input.lang,
+            templateTitle: input.template.title,
+            englishCandidates: [
+                input.englishEditorial.headline,
+                input.englishEditorial.summary,
+                input.englishEditorial.extendedSummary,
+            ],
+        });
+        if (distinctiveTitle)
+            truncatedTitle = distinctiveTitle;
+    }
     if (hasLeakySeoToken(truncatedTitle)) {
         truncatedTitle = synthesizeFallbackTitle(input, safeEditorial.summary || normalizedRawDescription, contextualFallback);
     }
