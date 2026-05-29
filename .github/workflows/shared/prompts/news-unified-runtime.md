@@ -68,7 +68,7 @@ Banned:
 
 **`edit "No match found"` recovery**: re-read the file with `view`, copy the exact `oldText` (including leading whitespace) into a fresh `edit`, or rewrite the whole file with one `create`. Never escalate to a heredoc.
 
-Drift guards: `00-scope-and-ground-rules.md` §4; `02-analysis-protocol.md` §2a; `test/unit/news-translate-workflow-contract.test.js` and `test/unit/compile-workflow-no-patching.test.js`.
+Drift guards: `00-scope-and-ground-rules.md` §4; `02-analysis-protocol.md` §2a; `test/unit/news-translate-workflow-contract.test.js`.
 
 ### Rule 1 — Pre-fetched feed data is already on disk before Stage A
 

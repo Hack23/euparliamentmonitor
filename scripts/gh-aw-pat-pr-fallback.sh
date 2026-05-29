@@ -449,7 +449,23 @@ if git diff --cached --quiet; then
   exit 0
 fi
 
-git diff --cached --stat > "$stat_file"
+# Bound the embedded diffstat. Large fallbacks (e.g. a crash-recovery patch that
+# rescued thousands of files) can produce a diffstat of several thousand lines,
+# which alone pushes the PR body past GitHub's 65536-character limit and makes
+# `gh pr create` fail with "Body is too long". Cap the per-line width and the
+# number of file lines, keeping the trailing summary line ("N files changed …").
+stat_full=$(mktemp)
+git diff --cached --stat=200,160 > "$stat_full"
+STAT_MAX_LINES=200
+stat_total_lines=$(wc -l "$stat_full" | awk '{print $1}')
+if [ "${stat_total_lines:-0}" -gt "$STAT_MAX_LINES" ]; then
+  head -n "$STAT_MAX_LINES" "$stat_full" > "$stat_file"
+  printf '... (%d more files omitted) ...\n' "$((stat_total_lines - STAT_MAX_LINES - 1))" >> "$stat_file"
+  tail -n 1 "$stat_full" >> "$stat_file"
+else
+  cp "$stat_full" "$stat_file"
+fi
+rm -f "$stat_full"
 
 gate_result="UNKNOWN"
 manifest="$analysis_dir/manifest.json"
@@ -576,6 +592,20 @@ EOF_BODY
 
 git commit -m "news: publish $slug fallback output for $today"
 git push --force-with-lease origin "$branch"
+
+# Defensive guard: GitHub rejects pull-request bodies longer than 65536
+# characters. Even with the bounded diffstat above, headline/summary content
+# could in theory exceed the limit, so truncate on a byte budget that is safely
+# below 65536 characters (bytes >= characters) before calling the gh API.
+BODY_MAX_BYTES=60000
+body_bytes=$(wc -c "$body_file" | awk '{print $1}')
+if [ "${body_bytes:-0}" -gt "$BODY_MAX_BYTES" ]; then
+  log "PR body is ${body_bytes} bytes (> ${BODY_MAX_BYTES}); truncating to satisfy GitHub's 65536-character limit"
+  body_trunc=$(mktemp)
+  head -c "$BODY_MAX_BYTES" "$body_file" > "$body_trunc"
+  printf '\n\n> ⚠️ PR body truncated to stay within GitHub'"'"'s 65536-character limit. See the run logs and the diff for the complete inventory.\n' >> "$body_trunc"
+  mv "$body_trunc" "$body_file"
+fi
 
 existing_pr=$(gh pr list --repo "$repo" --head "$branch" --state open --json number --jq '.[0].number // ""')
 if [ -n "$existing_pr" ]; then

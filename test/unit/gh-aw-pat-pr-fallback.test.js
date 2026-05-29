@@ -133,6 +133,29 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
     expect(result.stdout).toContain('safe_outputs job reported success; fallback skipped');
   });
 
+  it('bounds the embedded diffstat and guards the PR body length against GitHub\'s 65536-char limit', () => {
+    // Regression guard for run #26633661094 (news-translate 2026-05-29): a
+    // crash-recovery patch rescued 2083 files, so the full `git diff --stat`
+    // embedded in the PR body exceeded GitHub's 65536-character limit and
+    // `gh pr create` failed with "Body is too long (maximum is 65536
+    // characters)". The script must (a) bound the embedded diffstat to a
+    // capped width + line count, and (b) defensively truncate the assembled
+    // PR body on a byte budget below 65536 before calling the gh API.
+    const script = fs.readFileSync(SCRIPT, 'utf8');
+    // (a) bounded diffstat: width-capped and line-capped.
+    expect(script).toMatch(/git diff --cached --stat=\d+,\d+/);
+    expect(script).toMatch(/STAT_MAX_LINES=\d+/);
+    expect(script).toMatch(/more files omitted/);
+    // (b) body-size guard applied to the same body file used by gh pr create/edit.
+    expect(script).toMatch(/BODY_MAX_BYTES=\d+/);
+    expect(script).toMatch(/wc -c "\$body_file"/);
+    expect(script).toMatch(/head -c "\$BODY_MAX_BYTES" "\$body_file"/);
+    // The byte budget must stay safely below GitHub's 65536-character ceiling.
+    const budgetMatch = script.match(/BODY_MAX_BYTES=(\d+)/);
+    expect(budgetMatch).not.toBeNull();
+    expect(Number(budgetMatch[1])).toBeLessThan(65536);
+  });
+
   it('is translate-aware: news-translate slug "translate-briefs" appears in the script body with the expected branch + analysis_dir', () => {
     // Regression guard for run #26005838669: the news-translate workflow
     // now imports shared/config/news-pat-pr-fallback.md, which routes
