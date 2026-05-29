@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7da3b1d25ecba5883e4667a4c7d6b8a5b67f5b9a",
-        "commitHash": "7da3b1d25ecba5883e4667a4c7d6b8a5b67f5b9a",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26568966601"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/4e83684d3e64b103cd9d33f9926f891fa7969c9b",
+        "commitHash": "4e83684d3e64b103cd9d33f9926f891fa7969c9b",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26611467356"
       },
       "gitCommit": {
-        "shortHash": "7da3b1d25e",
-        "hash": "7da3b1d25ecba5883e4667a4c7d6b8a5b67f5b9a",
+        "shortHash": "4e83684d3e",
+        "hash": "4e83684d3e64b103cd9d33f9926f891fa7969c9b",
         "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
-        "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26568496840\n",
+        "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26611184140\n",
         "author": {
           "name": "github-actions[bot]",
           "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1779963264000
+          "time": 1780016006000
         },
         "committer": {
           "name": "github-actions[bot]",
           "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1779963264000
+          "time": 1780016006000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7da3b1d25ecba5883e4667a4c7d6b8a5b67f5b9a",
-            "commitHash": "7da3b1d25ecba5883e4667a4c7d6b8a5b67f5b9a",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26568966601"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/4e83684d3e64b103cd9d33f9926f891fa7969c9b",
+            "commitHash": "4e83684d3e64b103cd9d33f9926f891fa7969c9b",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26611467356"
           },
           "gitCommit": {
-            "shortHash": "7da3b1d25e",
-            "hash": "7da3b1d25ecba5883e4667a4c7d6b8a5b67f5b9a",
+            "shortHash": "4e83684d3e",
+            "hash": "4e83684d3e64b103cd9d33f9926f891fa7969c9b",
             "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
-            "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26568496840\n",
+            "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26611184140\n",
             "author": {
               "name": "github-actions[bot]",
               "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1779963264000
+              "time": 1780016006000
             },
             "committer": {
               "name": "github-actions[bot]",
               "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1779963264000
+              "time": 1780016006000
             },
             "branch": "main"
           },
@@ -148,12 +148,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2385,
+                      "duration": 1453,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T10:30:36.897Z",
+                      "startTime": "2026-05-29T01:07:19.939Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,12 +182,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2220,
+                      "duration": 1178,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T10:30:36.886Z",
+                      "startTime": "2026-05-29T01:07:19.791Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -216,12 +216,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3871,
+                      "duration": 1211,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T10:30:36.890Z",
+                      "startTime": "2026-05-29T01:07:19.923Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -250,12 +250,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1431,
+                      "duration": 1484,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T10:30:39.377Z",
+                      "startTime": "2026-05-29T01:07:21.277Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -281,15 +281,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1707,
+                      "duration": 1135,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T10:30:39.535Z",
+                      "startTime": "2026-05-29T01:07:21.314Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -315,15 +315,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1161,
+                      "duration": 844,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T10:30:40.828Z",
+                      "startTime": "2026-05-29T01:07:21.563Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -343,8 +343,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-28T10:30:35.220Z",
-    "duration": 6834.147,
+    "startTime": "2026-05-29T01:07:18.221Z",
+    "duration": 4606.301,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

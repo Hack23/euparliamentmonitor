@@ -647,7 +647,19 @@
 <a name='L582'></a><a href='#L582'>582</a>
 <a name='L583'></a><a href='#L583'>583</a>
 <a name='L584'></a><a href='#L584'>584</a>
-<a name='L585'></a><a href='#L585'>585</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L585'></a><a href='#L585'>585</a>
+<a name='L586'></a><a href='#L586'>586</a>
+<a name='L587'></a><a href='#L587'>587</a>
+<a name='L588'></a><a href='#L588'>588</a>
+<a name='L589'></a><a href='#L589'>589</a>
+<a name='L590'></a><a href='#L590'>590</a>
+<a name='L591'></a><a href='#L591'>591</a>
+<a name='L592'></a><a href='#L592'>592</a>
+<a name='L593'></a><a href='#L593'>593</a>
+<a name='L594'></a><a href='#L594'>594</a>
+<a name='L595'></a><a href='#L595'>595</a>
+<a name='L596'></a><a href='#L596'>596</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -772,6 +784,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -783,6 +801,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -855,10 +877,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">329x</span>
-<span class="cline-any cline-yes">327x</span>
-<span class="cline-any cline-yes">327x</span>
-<span class="cline-any cline-yes">4540x</span>
+<span class="cline-any cline-yes">332x</span>
+<span class="cline-any cline-yes">330x</span>
+<span class="cline-any cline-yes">330x</span>
+<span class="cline-any cline-yes">6537x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">324x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -872,14 +894,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">332x</span>
-<span class="cline-any cline-yes">329x</span>
-<span class="cline-any cline-yes">329x</span>
-<span class="cline-any cline-yes">657x</span>
+<span class="cline-any cline-yes">334x</span>
+<span class="cline-any cline-yes">331x</span>
+<span class="cline-any cline-yes">331x</span>
+<span class="cline-any cline-yes">661x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">328x</span>
-<span class="cline-any cline-yes">654x</span>
-<span class="cline-any cline-yes">654x</span>
+<span class="cline-any cline-yes">330x</span>
+<span class="cline-any cline-yes">1311x</span>
+<span class="cline-any cline-yes">1311x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">325x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1260,7 +1282,8 @@
  *   4. **description-length** — each description in the inclusive range
  *      `[DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH]`.
  *   5. **forbidden-prefix**  — title/description must not start with a
- *      Stage-B preamble label such as `Run:`, `Purpose:`, `BLUF:`, …
+ *      Stage-A→E preamble label such as `Run:`, `Purpose:`, `BLUF:`,
+ *      `Stage A`, `scripts/...`, …
  *   6. **leaky-runid**       — title/description must not contain
  *      internal run-id tokens (`&lt;slug&gt;-run&lt;N&gt;-&lt;unix-ts&gt;`) or the
  *      English jargon "analysis run". Added 2026-05 after a live-site
@@ -1338,6 +1361,12 @@ export const FORBIDDEN_PREFIXES = Object.freeze([
   'methodology:',
   'gate target:',
   'scope:',
+  'stage a',
+  'stage b',
+  'stage c',
+  'stage d',
+  'stage e',
+  'scripts/',
 ]);
 &nbsp;
 /**
@@ -1371,6 +1400,10 @@ export const FORBIDDEN_PATTERNS = Object.freeze([
   // Workflow run-number patterns like "— Run 271" or "Run 42" must never
   // appear in user-facing SEO surfaces (titles, descriptions, keywords).
   /(?:^|[\s—–-])Run\s+\d+/u,
+  // Internal pipeline timestamps (e.g. 05:40:10Z).
+  /\b\d{2}:\d{2}:\d{2}Z\b/u,
+  // Internal script paths leaked into public SEO copy.
+  /\bscripts\/[^\s,;:|)\]]+/iu,
 ]);
 &nbsp;
 /**
@@ -1822,7 +1855,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-28T10:30:15.293Z
+                at 2026-05-29T01:06:57.695Z
             </div>
         <script src="../prettify.js"></script>
         <script>
