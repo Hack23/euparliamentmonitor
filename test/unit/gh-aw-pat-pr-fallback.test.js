@@ -148,7 +148,7 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
     expect(script).toMatch(/more files omitted/);
     // (b) body-size guard applied to the same body file used by gh pr create/edit.
     expect(script).toMatch(/BODY_MAX_BYTES=\d+/);
-    expect(script).toMatch(/wc -c < "\$body_file"/);
+    expect(script).toMatch(/wc -c "\$body_file"/);
     expect(script).toMatch(/head -c "\$BODY_MAX_BYTES" "\$body_file"/);
     // The byte budget must stay safely below GitHub's 65536-character ceiling.
     const budgetMatch = script.match(/BODY_MAX_BYTES=(\d+)/);

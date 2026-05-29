@@ -457,7 +457,7 @@ fi
 stat_full=$(mktemp)
 git diff --cached --stat=200,160 > "$stat_full"
 STAT_MAX_LINES=200
-stat_total_lines=$(wc -l < "$stat_full" | tr -d ' ')
+stat_total_lines=$(wc -l "$stat_full" | awk '{print $1}')
 if [ "${stat_total_lines:-0}" -gt "$STAT_MAX_LINES" ]; then
   head -n "$STAT_MAX_LINES" "$stat_full" > "$stat_file"
   printf '... (%d more files omitted) ...\n' "$((stat_total_lines - STAT_MAX_LINES - 1))" >> "$stat_file"
@@ -598,7 +598,7 @@ git push --force-with-lease origin "$branch"
 # could in theory exceed the limit, so truncate on a byte budget that is safely
 # below 65536 characters (bytes >= characters) before calling the gh API.
 BODY_MAX_BYTES=60000
-body_bytes=$(wc -c < "$body_file" | tr -d ' ')
+body_bytes=$(wc -c "$body_file" | awk '{print $1}')
 if [ "${body_bytes:-0}" -gt "$BODY_MAX_BYTES" ]; then
   log "PR body is ${body_bytes} bytes (> ${BODY_MAX_BYTES}); truncating to satisfy GitHub's 65536-character limit"
   body_trunc=$(mktemp)
