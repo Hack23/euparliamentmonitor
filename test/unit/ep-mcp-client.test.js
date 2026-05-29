@@ -2870,6 +2870,165 @@ describe('ep-mcp-client', () => {
     });
   });
 
+  describe('getMEPsFeed OVERSIZED_PAYLOAD detection (§11 row #10)', () => {
+    /** @type {EPMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should add oversizedPayload:true when upstream surfaces an OVERSIZED_PAYLOAD warning', async () => {
+      const payload = {
+        items: [{ id: 'mep-1' }],
+        dataQualityWarnings: ['OVERSIZED_PAYLOAD: 412 items returned by delta feed'],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(payload) }],
+      });
+      const result = await client.getMEPsFeed();
+
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.oversizedPayload).toBe(true);
+      expect(Array.isArray(parsed.dataQualityWarnings)).toBe(true);
+      expect(parsed.dataQualityWarnings.some((w) => w.includes('OVERSIZED_PAYLOAD'))).toBe(true);
+    });
+
+    it('should add oversizedPayload:true when items length exceeds the 200 threshold without a warning', async () => {
+      const payload = {
+        items: Array.from({ length: 201 }, (_, i) => ({ id: `mep-${i}` })),
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(payload) }],
+      });
+      const result = await client.getMEPsFeed();
+
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.oversizedPayload).toBe(true);
+      expect(parsed.dataQualityWarnings.some((w) => w.startsWith('OVERSIZED_PAYLOAD:'))).toBe(true);
+    });
+
+    it('should emit a 🟡 console warning on oversized detection', async () => {
+      const payload = {
+        items: Array.from({ length: 250 }, (_, i) => ({ id: `mep-${i}` })),
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(payload) }],
+      });
+      await client.getMEPsFeed();
+
+      const warnMessages = consoleOutput.warnings.filter((m) => m.includes('🟡'));
+      expect(warnMessages.length).toBeGreaterThan(0);
+      expect(warnMessages[0]).toContain('OVERSIZED_PAYLOAD');
+    });
+
+    it('should NOT set oversizedPayload on a small feed (regression guard)', async () => {
+      const payload = {
+        items: Array.from({ length: 5 }, (_, i) => ({ id: `mep-${i}` })),
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(payload) }],
+      });
+      const result = await client.getMEPsFeed();
+
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.oversizedPayload).toBeUndefined();
+    });
+
+    it('should NOT set oversizedPayload on an empty feed', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: '{"feed":[]}' }],
+      });
+      const result = await client.getMEPsFeed();
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.oversizedPayload).toBeUndefined();
+    });
+
+    it('should NOT record get_meps_feed as failed when oversized payload is detected', async () => {
+      const payload = {
+        items: Array.from({ length: 300 }, (_, i) => ({ id: `mep-${i}` })),
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(payload) }],
+      });
+      await client.getMEPsFeed();
+
+      expect(client.getFailedTools().has('get_meps_feed')).toBe(false);
+    });
+
+    it('should preserve existing dataQualityWarnings when appending OVERSIZED_PAYLOAD', async () => {
+      const payload = {
+        items: Array.from({ length: 201 }, (_, i) => ({ id: `mep-${i}` })),
+        dataQualityWarnings: ['SOME_OTHER_WARNING: existing'],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(payload) }],
+      });
+      const result = await client.getMEPsFeed();
+
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.dataQualityWarnings).toHaveLength(2);
+      expect(parsed.dataQualityWarnings[0]).toBe('SOME_OTHER_WARNING: existing');
+      expect(parsed.dataQualityWarnings[1]).toMatch(/^OVERSIZED_PAYLOAD:/);
+    });
+  });
+
+  describe('detectOversizedMEPsFeed helper function', () => {
+    let detectOversizedMEPsFeed;
+
+    beforeEach(async () => {
+      ({ detectOversizedMEPsFeed } = await import('../../scripts/mcp/ep-mcp-client.js'));
+    });
+
+    it('should return false for undefined payload', () => {
+      expect(detectOversizedMEPsFeed(undefined)).toBe(false);
+    });
+
+    it('should return false for an empty items array', () => {
+      expect(detectOversizedMEPsFeed({ items: [] })).toBe(false);
+    });
+
+    it('should return true when dataQualityWarnings include OVERSIZED_PAYLOAD', () => {
+      expect(
+        detectOversizedMEPsFeed({
+          items: [{ id: 'mep-1' }],
+          dataQualityWarnings: ['OVERSIZED_PAYLOAD: 412 items'],
+        })
+      ).toBe(true);
+    });
+
+    it('should return true when items length exceeds 200', () => {
+      expect(
+        detectOversizedMEPsFeed({ items: Array.from({ length: 201 }, () => ({})) })
+      ).toBe(true);
+    });
+
+    it('should return false at exactly 200 items (threshold boundary)', () => {
+      expect(
+        detectOversizedMEPsFeed({ items: Array.from({ length: 200 }, () => ({})) })
+      ).toBe(false);
+    });
+
+    it('should also detect via feed[] shape', () => {
+      expect(
+        detectOversizedMEPsFeed({ feed: Array.from({ length: 201 }, () => ({})) })
+      ).toBe(true);
+    });
+
+    it('should also detect via data[] shape', () => {
+      expect(
+        detectOversizedMEPsFeed({ data: Array.from({ length: 201 }, () => ({})) })
+      ).toBe(true);
+    });
+  });
+
   describe('getAdoptedTexts empty-string sentinel (upstream #369)', () => {
     /** @type {EPMCPClient} */
     let client;

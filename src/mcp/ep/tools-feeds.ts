@@ -29,7 +29,7 @@ import type {
 } from '../../types/index.js';
 import { PROCEDURE_EVENT_FALLBACK, SERVER_HEALTH_FALLBACK } from './fallbacks.js';
 import { _parseResultPayload } from './parse.js';
-import { classifyToolError, isFeedUnavailable } from './error-classifier.js';
+import { classifyToolError, isFeedUnavailable, detectOversizedMEPsFeed } from './error-classifier.js';
 import { detectProceduresFeedStaleTail } from './staleness.js';
 
 /** Fallback payload for feed tools */
@@ -97,7 +97,41 @@ EuropeanParliamentMCPClient.prototype.getMEPsFeed = async function (
   this: EuropeanParliamentMCPClient,
   options: GetMEPsFeedOptions = {}
 ): Promise<MCPToolResult> {
-  return _self(this).safeCallTool('get_meps_feed', options, FEED_FALLBACK);
+  const result = await _self(this).safeCallTool('get_meps_feed', options, FEED_FALLBACK);
+
+  const payload = _parseResultPayload(result);
+  if (detectOversizedMEPsFeed(payload)) {
+    console.warn(
+      '\ud83d\udfe1 get_meps_feed: OVERSIZED_PAYLOAD \u2014 delta-pagination fell back to a full-census dump (>200 items); treat as degraded and use get_meps({ active:true, limit:100 }) or assess_mep_influence for targeted roster lookups'
+    );
+    const existingWarnings = Array.isArray(payload?.['dataQualityWarnings'])
+      ? (payload['dataQualityWarnings'] as string[])
+      : [];
+    const alreadyFlagged = existingWarnings.some(
+      (w) => typeof w === 'string' && w.includes('OVERSIZED_PAYLOAD')
+    );
+    const augmented: Record<string, unknown> = {
+      ...(payload as Record<string, unknown>),
+      oversizedPayload: true,
+      dataQualityWarnings: alreadyFlagged
+        ? existingWarnings
+        : [
+            ...existingWarnings,
+            'OVERSIZED_PAYLOAD: meps-feed delta-pagination fell back to a full-census dump (>200 items) \u2014 degraded; fallback get_meps({ active:true, limit:100 }) or prior-run MEP roster',
+          ],
+    };
+    const augmentedText = JSON.stringify(augmented);
+    const originalContent = result.content;
+    const updatedContent: MCPContentItem[] =
+      Array.isArray(originalContent) && originalContent.length > 0
+        ? originalContent.map((item, index) =>
+            index === 0 ? { ...item, text: augmentedText } : item
+          )
+        : [{ type: 'text', text: augmentedText }];
+    return { ...result, content: updatedContent };
+  }
+
+  return result;
 };
 
 EuropeanParliamentMCPClient.prototype.getEventsFeed = async function (

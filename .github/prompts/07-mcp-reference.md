@@ -169,6 +169,12 @@ Use the results to identify which groups voted together on recent votes, then cr
 `get_speeches({ dateFrom, dateTo, limit:3 })`, `generate_political_landscape({})`,
 `analyze_coalition_dynamics({})`, `early_warning_system({ focusArea:"all" })`.
 
+> **`get_meps_feed` degraded mode:** the feed occasionally returns the full
+> ~720-MEP census dump (>200 items, ~7–9 MB) instead of a recent-changes delta.
+> The MCP client now flags this with `oversizedPayload: true` +
+> `OVERSIZED_PAYLOAD` in `dataQualityWarnings[]` (it does **not** fail the call);
+> fall back to `get_meps({ active:true, limit:100 })`. See §11 #10.
+
 **⏱️ Frequently slow (> 60s — use fallbacks):** `get_procedures_feed` →
 `get_procedures({ limit:20 })`; `get_events_feed` → `get_events({ limit:20 })`;
 `get_documents_feed` → `get_plenary_documents({ year, limit:20 })`;
@@ -330,7 +336,9 @@ Failures are skipped, not retried.
 > consult this table **before** classifying any tool finding as a
 > "defect" — items in categories 🟢 LIMITATION or 🔵 CALLING-PATTERN
 > are explicitly NOT defects and must be reported as "documented
-> behaviour" with the listed mitigation.
+> behaviour" with the listed mitigation. **Row #10 was added 2026-05-29** from
+> the agentic-PR data-availability assessments (recurring `get_meps_feed`
+> full-census-dump degradation) and follows the same triage rules.
 
 | # | Symptom | Tool(s) | Category | Disposition / Calling-pattern fix |
 |---|---------|---------|:--------:|-----------------------------------|
@@ -343,13 +351,14 @@ Failures are skipped, not retried.
 | 7 | `get_meeting_foreseen_activities` returns rows with empty `title` strings for future sessions | `get_meeting_foreseen_activities` | 🟢 LIMITATION | **Documented EP API behaviour** — OJQ agenda documents return 404 until publication date for future sessions; activity type and metadata available but titles are populated post-session. **Reliability audit note:** this 🟢-classified behaviour is **excluded from the success-rate denominator** per `analysis/templates/mcp-reliability-audit.md` §5 denominator-exclusion rule (only 🔴 REAL BUG rows count against the score). **Mitigation:** treat as "scheduled count only" data; use plenary calendar + topic context for forward-looking agenda framing. Do NOT file. |
 | 8 | `get_events_feed` times out / returns "EP API upstream error" | `get_events_feed` | 🟢 LIMITATION | **Documented slow feed** (30–120s+, see §7 latency table). Tool schema warns: `"events/feed endpoint is significantly slower than other feeds"`. **MCP client mitigation (v0.8.47+):** `getEventsFeed` now downgrades timeout errors to 🟡 `SLOW_FEED_WARNING` — the timeout is recorded in `getSlowFeedWarnings` (not in `getFailedTools`), excluded from the success-rate denominator, and a fallback `{ "feed": [], "slowFeedWarning": true }` is returned so Stage-A consumers can detect the condition and fall back to `get_plenary_sessions({ year })`. **Additional mitigation:** raise `EP_REQUEST_TIMEOUT_MS=120000` for the call. Already in §7. Do NOT file unless timeout exceeds 180 s with `EP_REQUEST_TIMEOUT_MS=120000` set. |
 | 9 | `world-bank get-country-info({ countryCode: "EU" })` returns `"Country not found"`; aggregates `EUU`/`EMU`/`ECS`/`OED`/`WLD` rejected | `worldbank-mcp` (any tool with `countryCode`) | 🟢 LIMITATION | **Documented WB MCP limitation** — aggregates not supported. Already in §9 above + [`01-data-collection.md` §4](01-data-collection.md). **Mitigation:** for EU-level economic context use **IMF** `EU`/`EA`/`G7`/`G20` aggregates (§8 — IMF is  primary economic source); for non-economic indicators use individual member-state codes (Big Four: `DE`/`FR`/`IT`/`ES`). Do NOT file. |
+| 10 | `get_meps_feed` returns a ~7–9 MB / >200-item payload (HTTP 200, valid JSON) that is the **full ~720-MEP census dump** rather than a recent-changes delta; `prefetch-status.json` may still report `full` | `get_meps_feed` | 🟢 LIMITATION | **Documented EP delta-pagination failure mode** — the `/meps/feed` endpoint occasionally falls back to a full-census dump instead of the updated-window slice; the tool schema surfaces this as an `OVERSIZED_PAYLOAD` entry in `dataQualityWarnings[]`. **MCP client mitigation (v0.9.28+):** `getMEPsFeed` now detects this (via the upstream `OVERSIZED_PAYLOAD` warning **or** an items/feed array longer than 200) and adds `oversizedPayload: true` plus an `OVERSIZED_PAYLOAD: …` entry to `dataQualityWarnings[]` **without** recording the tool as failed; Stage-A consumers should check for this flag and fall back to `get_meps({ active: true, limit: 100 })` (targeted roster) or `assess_mep_influence` for individual MEPs instead of treating the dump as a fresh delta. This 🟢-classified behaviour is **excluded from the success-rate denominator** per `analysis/templates/mcp-reliability-audit.md` §5. Do NOT file. |
 
 **How to use this table in Stage B (`mcp-reliability-audit.md`):**
 
 1. Build the per-tool scoreboard normally (every tool called gets a row).
 2. For every row marked degraded/failed, look it up in this table.
 3. If the row matches a 🟢 LIMITATION or 🔵 CALLING-PATTERN entry, set `Defect ID` to `"documented behaviour — see 07-mcp-reference.md §11 #N"` and skip the "Issues needing creation" subsection for that finding.
-4. **Denominator exclusion:** 🟢/🔵-classified items are **excluded from both numerator and denominator** when computing the success-rate component of the Reliability Index (§5 of `mcp-reliability-audit.md`). Similarly, 🟡 `SLOW_FEED_WARNING` entries for `get_events_feed` are excluded (timeout downgraded to warning by the MCP client — not a reliability failure).
+4. **Denominator exclusion:** 🟢/🔵-classified items are **excluded from both numerator and denominator** when computing the success-rate component of the Reliability Index (§5 of `mcp-reliability-audit.md`). Similarly, 🟡 `SLOW_FEED_WARNING` entries for `get_events_feed` are excluded (timeout downgraded to warning by the MCP client — not a reliability failure), as are 🟡 `OVERSIZED_PAYLOAD` entries for `get_meps_feed` (full-census dump downgraded to a degraded warning — see #10).
 5. Only 🔴 REAL BUG findings (or new symptoms not in this table) appear in §3 "Upstream Issues" with a fileable bug profile.
 6. Re-classify obsolete findings: item #1 is **resolved upstream in v1.2.15+** — the gateway is now pinned to v1.3.12, so it should no longer surface in audits. Item #2's alias-fragmentation symptom is similarly suppressed in v1.2.15+ but the canonical-short-code consumer rule remains the primary triage answer at every gateway version.
 
