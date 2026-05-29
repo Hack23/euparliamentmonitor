@@ -38,9 +38,9 @@ on:
   workflow_dispatch:
     inputs:
       max_briefs:
-        description: "Maximum number of source briefs to translate this run (1-4). Default 2."
+        description: "Maximum number of source briefs to translate this run (1-4). Default 1. NOTE: a single agent session accumulates every translated file in its context window, so 2 briefs × 13 languages overruns the Copilot CAPI 25M effective-token per-session cap (regression run #26641760920). Override to ≥2 only for short briefs / catch-up and watch the token budget."
         required: false
-        default: "2"
+        default: "1"
       max_age_days:
         description: "Skip executive-brief.md files older than this many days. Default 180."
         required: false
@@ -72,9 +72,14 @@ permissions:
   security-events: read
 
 # 60-minute hard cap. Per-run budget: MAX_BRIEFS × 13 languages × ~12 KB ≈
-# 26-39 markdown files / 300-450 KB of generated content. Comfortably inside
-# the gh-aw safe-outputs 10 MB patch ceiling and the model's invocation
-# budget. Time management: start preparing to commit after 40 min elapsed;
+# 13-19 markdown files / 150-230 KB of generated content per brief. The
+# binding constraint is NOT the 10 MB patch ceiling but the Copilot CAPI
+# 25M *effective-token* per-session cap: one agent session re-feeds every
+# already-translated file in its growing context on each turn, so a single
+# brief × 13 languages already approaches ~24M effective tokens. Two briefs
+# in one session crossed the cap and 429'd the run (#26641760920), which is
+# why MAX_BRIEFS defaults to 1. Time management: start preparing to commit
+# after 40 min elapsed;
 # emergency-flush fires at ≥ 40 min elapsed or ≤ 20 min remaining. This
 # leaves 20 min for the flush + safe-outputs bundle application. Root-cause
 # fixes for transient-API errors (model downgrade, retry-loop detection)
@@ -168,7 +173,7 @@ safe-outputs:
         fi
   create-pull-request:
     # Budget: 1 flush per fully-translated brief (13 files) + 1 final flush
-    # with the validator report. For max_briefs=2 (default) that's 3 calls;
+    # with the validator report. For max_briefs=1 (default) that's 2 calls;
     # for max_briefs=4 (catch-up) that's 5 calls. max:10 is the schema cap
     # and gives comfortable headroom for retry.
     max: 10
@@ -209,7 +214,7 @@ steps:
   - name: Discover untranslated executive briefs
     id: discover
     env:
-      MAX_BRIEFS: ${{ github.event.inputs.max_briefs || '2' }}
+      MAX_BRIEFS: ${{ github.event.inputs.max_briefs || '1' }}
       MAX_AGE_DAYS: ${{ github.event.inputs.max_age_days || '180' }}
       INCLUDE_EXTENDED: ${{ github.event.inputs.include_extended || 'false' }}
       DISCOVERY_MODE: ${{ github.event.inputs.mode || 'fresh-then-backlog' }}
