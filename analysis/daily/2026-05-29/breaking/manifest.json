@@ -1,0 +1,54 @@
+{
+  "articleType": "breaking",
+  "dataMode": "degraded-feeds",
+  "runId": "breaking-run290-1780018860",
+  "date": "2026-05-29",
+  "headline": "European Parliament's AI Trade Strategy Headlines Strasbourg Output as Roll-Call Data Lags and Core Feeds Stay Dark",
+  "generatedAt": "2026-05-29T01:45:00Z",
+  "prefetchMode": "degraded-feeds",
+  "stageACompleted": true,
+  "files": {
+    "root": [
+      "data-availability-assessment.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "intelligence": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/threat-model.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/analysis-index.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/procedures-proxy.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "breaking-run290-1780018860",
+      "timestamp": "2026-05-29T01:45:00Z",
+      "dataMode": "degraded-feeds",
+      "gateResult": "GREEN",
+      "pass2": {
+        "rewriteCount": 18,
+        "method": "fresh-day-folder",
+        "approach": "registry mandatory set sized to catalog floors over freshest EP corpus (19-20 May Strasbourg plenary)"
+      },
+      "stageC": "GREEN-pass1"
+    }
+  ]
+}
