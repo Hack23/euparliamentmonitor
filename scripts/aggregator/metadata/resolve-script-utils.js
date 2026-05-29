@@ -185,8 +185,7 @@ const LEADING_FILLER_WORDS = new Set([
  */
 function extractLocaleBaseLabel(templateTitle) {
     const colonIdx = templateTitle.indexOf(':');
-    const base = (colonIdx >= 0 ? templateTitle.slice(0, colonIdx) : templateTitle).trim();
-    return base;
+    return (colonIdx >= 0 ? templateTitle.slice(0, colonIdx) : templateTitle).trim();
 }
 /**
  * Drop leading filler / linking words from a salvaged fragment so it opens

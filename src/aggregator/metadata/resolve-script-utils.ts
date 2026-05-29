@@ -238,8 +238,7 @@ const LEADING_FILLER_WORDS: ReadonlySet<string> = new Set([
  */
 function extractLocaleBaseLabel(templateTitle: string): string {
   const colonIdx = templateTitle.indexOf(':');
-  const base = (colonIdx >= 0 ? templateTitle.slice(0, colonIdx) : templateTitle).trim();
-  return base;
+  return (colonIdx >= 0 ? templateTitle.slice(0, colonIdx) : templateTitle).trim();
 }
 
 /**

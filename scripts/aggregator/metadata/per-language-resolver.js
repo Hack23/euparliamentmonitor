@@ -68,6 +68,48 @@ export function resolvePerLanguageEditorial(input) {
         source: 'template',
     };
 }
+function resolveFinalTitle({ input, nonLatinFamily, perLanguageSource, explicitTitle, resolvedTitleCandidate, summaryDerivedTitle, contextualFallback, fallbackSummary, }) {
+    let truncatedTitle = pickResolvedTitle(input.lang, {
+        explicitTitle,
+        resolvedTitleCandidate,
+        summaryDerivedTitle,
+        contextualFallback,
+    });
+    const usedContextualFallback = truncatedTitle === truncateTitle(contextualFallback) || truncatedTitle === contextualFallback;
+    if (nonLatinFamily &&
+        perLanguageSource === ENGLISH_BRIEF_SOURCE &&
+        !explicitTitle &&
+        usedContextualFallback) {
+        const distinctiveTitle = composeNonLatinDistinctiveTitle({
+            lang: input.lang,
+            templateTitle: input.template.title,
+            englishCandidates: [
+                input.englishEditorial.headline,
+                input.englishEditorial.summary,
+                input.englishEditorial.extendedSummary,
+            ],
+        });
+        if (distinctiveTitle)
+            truncatedTitle = distinctiveTitle;
+    }
+    if (hasLeakySeoToken(truncatedTitle)) {
+        truncatedTitle = synthesizeFallbackTitle(input, fallbackSummary, contextualFallback);
+    }
+    return truncatedTitle;
+}
+function resolveTruncatedDescription(lang, normalizedRawDescription, description) {
+    const family = classifyScript(lang);
+    const sourceMatchesLocale = contentMatchesLocaleScript(normalizedRawDescription, lang);
+    const asciiOnlyEnrichment = family !== 'latin' &&
+        normalizedRawDescription.length >= ENRICHMENT_TRIGGER_LENGTH &&
+        ASCII_ONLY_RE.test(normalizedRawDescription);
+    const useTightBudget = sourceMatchesLocale || family === 'latin' || asciiOnlyEnrichment;
+    const clampedDescription = useTightBudget
+        ? clampForBudget(description, lang, 'metaDescription')
+        : truncateDescription(description);
+    const terminatorBudget = useTightBudget ? budgetFor(lang, 'metaDescription') : undefined;
+    return padDescriptionToFloor(ensureDescriptionTerminator(lang, clampedDescription, terminatorBudget), lang);
+}
 /**
  * Resolve `{title, description, keywords, source}` for one language.
  *
@@ -187,11 +229,15 @@ export function resolveOneLanguage(input) {
     // editorial / content-based differentiation (distinct headlines derived
     // from the day's findings), not through a synthetic title suffix.
     const contextualFallback = composeContextualTitle(input.template.title, '', input.runId, input.date, input.lang);
-    let truncatedTitle = pickResolvedTitle(input.lang, {
+    const truncatedTitle = resolveFinalTitle({
+        input,
+        nonLatinFamily,
+        perLanguageSource: perLanguage.source,
         explicitTitle,
         resolvedTitleCandidate,
         summaryDerivedTitle,
         contextualFallback,
+        fallbackSummary: safeEditorial.summary || normalizedRawDescription,
     });
     // Content-based differentiator for non-Latin English-brief fallback.
     // When the picked title is the date-suffixed template fallback (no
@@ -202,27 +248,6 @@ export function resolveOneLanguage(input) {
     // script). Falls back silently to the date-suffixed title when no clean,
     // budget-fitting fragment can be derived. See
     // {@link composeNonLatinDistinctiveTitle}.
-    const usedContextualFallback = truncatedTitle === truncateTitle(contextualFallback) ||
-        truncatedTitle === contextualFallback;
-    if (nonLatinFamily &&
-        perLanguage.source === ENGLISH_BRIEF_SOURCE &&
-        !explicitTitle &&
-        usedContextualFallback) {
-        const distinctiveTitle = composeNonLatinDistinctiveTitle({
-            lang: input.lang,
-            templateTitle: input.template.title,
-            englishCandidates: [
-                input.englishEditorial.headline,
-                input.englishEditorial.summary,
-                input.englishEditorial.extendedSummary,
-            ],
-        });
-        if (distinctiveTitle)
-            truncatedTitle = distinctiveTitle;
-    }
-    if (hasLeakySeoToken(truncatedTitle)) {
-        truncatedTitle = synthesizeFallbackTitle(input, safeEditorial.summary || normalizedRawDescription, contextualFallback);
-    }
     // Per-script SEO title clamp + ellipsis scrub + run-number disambiguation.
     // See `clampForBudget` (seo-budgets.ts), `scrubTrailingEllipsis`
     // (resolve-helpers.ts), and `appendRunNumberSuffix` (above) for the
@@ -272,23 +297,7 @@ export function resolveOneLanguage(input) {
     //
     // Latin locales: always use the tight budget (155) since their content
     // is Latin by definition.
-    const sourceMatchesLocale = contentMatchesLocaleScript(normalizedRawDescription, input.lang);
-    const family = classifyScript(input.lang);
-    const asciiOnlyEnrichment = family !== 'latin' &&
-        normalizedRawDescription.length >= ENRICHMENT_TRIGGER_LENGTH &&
-        ASCII_ONLY_RE.test(normalizedRawDescription);
-    const useTightBudget = sourceMatchesLocale || family === 'latin' || asciiOnlyEnrichment;
-    const clampedDescription = useTightBudget
-        ? clampForBudget(description, input.lang, 'metaDescription')
-        : truncateDescription(description);
-    // Only hand the per-script budget to `ensureDescriptionTerminator` when
-    // the tight budget was used — for English-content fallbacks in non-Latin
-    // locales the clamp is the universal 180-char cap (preserves the
-    // article-metadata.test.js ≥100/≥120 reader floor) and budget reservation
-    // must use that ceiling, not the 78/150 tight budget, or the terminator
-    // step would over-trim the description.
-    const terminatorBudget = useTightBudget ? budgetFor(input.lang, 'metaDescription') : undefined;
-    let truncatedDescription = padDescriptionToFloor(ensureDescriptionTerminator(input.lang, clampedDescription, terminatorBudget), input.lang);
+    let truncatedDescription = resolveTruncatedDescription(input.lang, normalizedRawDescription, description);
     if (hasLeakySeoToken(truncatedDescription)) {
         truncatedDescription = synthesizeFallbackDescription(input);
     }
