@@ -359,7 +359,7 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const readingTimes = options.readingTimes ?? buildLayerReadingTimes(disclosureBody.wordCounts);
   const disclosureLabels = getLocalizedString(PROGRESSIVE_DISCLOSURE_LABELS, safeLang);
   const min = disclosureLabels.minutesAbbr;
-  const readingTimeLine = `⏱️ ${disclosureLabels.quickRead}: ${readingTimes.quickRead} ${min} · ${disclosureLabels.fullAnalysis}: ${readingTimes.fullAnalysis} ${min} · ${disclosureLabels.completeIntelligence}: ${readingTimes.completeIntelligence} ${min}`;
+  const readingTimeLine = `⏱️ ${disclosureLabels.quickRead}: ${readingTimes.quickRead}${min} · ${disclosureLabels.fullAnalysis}: ${readingTimes.fullAnalysis}${min} · ${disclosureLabels.completeIntelligence}: ${readingTimes.completeIntelligence}${min}`;
 
   // Pre-compute the per-surface SEO-budget-clamped variants of title
   // and description. Each surface gets its own clamp tuned to the

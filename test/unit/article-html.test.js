@@ -467,6 +467,11 @@ describe('progressive disclosure article layers', () => {
     expect(fr).toContain('⏱️ Lecture rapide:');
     expect(fr).toContain('Analyse complète:');
     expect(fr).toContain('aria-label="Temps de lecture estimé"');
+    const ko = wrapArticleHtml({ ...baseOptions, lang: 'ko' });
+    expect(ko).toContain('빠른 읽기:');
+    expect(ko).toContain('전체 분석:');
+    expect(ko).toContain('완전한 인텔리전스:');
+    expect(ko).toMatch(/\d분/);
   });
 
   it('localises the disclosure summary CTAs for non-English languages', () => {
