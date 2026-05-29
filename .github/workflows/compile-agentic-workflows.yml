@@ -54,161 +54,26 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
-      - name: Delete existing lock files
-        run: find .github/workflows -name "*.lock.yml" -type f -delete
+      - name: Lint prompt sources
+        # Source-of-truth correctness lives in the original workflow/prompt
+        # Markdown — never in the generated lock files. This runs the same
+        # linter that CI exercises (scripts/lint-prompts.js: single-PR rule,
+        # banned heartbeat/keep-alive phrases, analysis-awareness, canonical
+        # import order) so a source error fails fast before compilation.
+        run: node scripts/lint-prompts.js
 
       - name: Compile all workflows
         # --validate runs the JSON-schema + actionlint checks at compile time
         # so a schema error (e.g. missing concurrency.group) fails fast here
         # instead of producing a broken lock file that only the scheduled
         # validate-agentic-workflows job catches hours later.
-        run: gh aw compile --validate
+        # --purge removes any orphaned .lock.yml whose source .md was deleted,
+        # replacing the old "delete every lock then recompile" workaround.
+        # The generated lock files are committed verbatim — this workflow does
+        # NOT post-process them.
+        run: gh aw compile --validate --purge
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-
-      # NOTE: This workflow intentionally does NOT mutate the generated
-      # `.lock.yml` files. The previous fetch-depth: 1 → 0 post-compile patch
-      # was replaced by the shared `news-safe-outputs-head.md` pre-step
-      # ("Fetch triggering commit for bundle prerequisites"), which fetches
-      # the exact GITHUB_SHA the bundle was built against and unshallows
-      # on demand only if that fetch fails. Bundle-apply then never has to
-      # auto-unshallow the whole repo (the 13-min stall that motivated the
-      # original patch). Drift-guarded by
-      # `test/unit/compile-workflow-no-patching.test.js`.
-      - name: Enforce prompt-module architecture
-        run: |
-          set -e
-          # news-translate.md is the sole legitimate exemption from the
-          # body-line and single-PR caps. It implements a scheduled multi-call
-          # flush translator (see scripts/lint-prompts.js EXEMPT_FROM_*),
-          # not the standard article pipeline. All other news workflows
-          # MUST stay within the single-PR / 200-body-line contract.
-          EXEMPT_NEWS="news-translate.md"
-          echo "🔍 Checking .github/prompts/ module line caps (≤ 550)…"
-          FAIL=0
-          for f in .github/prompts/*.md .github/prompts/ext/*.md; do
-            [ -f "$f" ] || continue
-            LINES=$(wc -l < "$f")
-            if [ "$LINES" -gt 550 ]; then
-              echo "  ❌ $f has $LINES lines (> 550)"
-              FAIL=1
-            else
-              echo "  ✅ $f ($LINES lines)"
-            fi
-          done
-          echo ""
-          echo "🔍 Checking .github/workflows/news-*.md body line caps (≤ 200 excluding frontmatter, news-translate.md exempt)…"
-          for f in .github/workflows/news-*.md; do
-            [ -f "$f" ] || continue
-            base=$(basename "$f")
-            if [ "$base" = "$EXEMPT_NEWS" ]; then
-              echo "  ⏭️  $f (exempt: multi-call flush translator)"
-              continue
-            fi
-            # Body = content after the second "^---$" line
-            BODY_LINES=$(awk 'BEGIN{c=0;out=0} /^---$/{c++;if(c==2){out=1;next}} out==1{print}' "$f" | wc -l)
-            if [ "$BODY_LINES" -gt 200 ]; then
-              echo "  ❌ $f has body of $BODY_LINES lines (> 200)"
-              FAIL=1
-            else
-              echo "  ✅ $f (body $BODY_LINES lines)"
-            fi
-          done
-          echo ""
-          echo "🔍 Enforcing safe-outputs.create-pull-request.max: 1 on all news workflows (source .md, news-translate.md exempt)…"
-          for f in .github/workflows/news-*.md; do
-            [ -f "$f" ] || continue
-            base=$(basename "$f")
-            if [ "$base" = "$EXEMPT_NEWS" ]; then
-              echo "  ⏭️  $f (exempt: multi-call flush translator uses max: 10)"
-              continue
-            fi
-            # Extract max value directly under create-pull-request block
-            MAX=$(awk '
-              /^  create-pull-request:/ {in_block=1; next}
-              in_block && /^  [a-zA-Z]/ {in_block=0}
-              in_block && /^    max:/ {print $2; exit}
-            ' "$f")
-            if [ -z "$MAX" ]; then
-              echo "  ❌ $f has no explicit create-pull-request.max (must be 1; default may change upstream)"
-              FAIL=1
-            elif [ "$MAX" != "1" ]; then
-              echo "  ❌ $f has create-pull-request.max: $MAX (must be 1)"
-              FAIL=1
-            else
-              echo "  ✅ $f (max: 1)"
-            fi
-          done
-          echo ""
-          echo "🔍 Enforcing create_pull_request.max: 1 on compiled .lock.yml (safe-outputs config, news-translate exempt)…"
-          # Repo-wide toolchain is Node.js (see .github/prompts/00-scope-and-ground-rules.md §4).
-          # The safe-outputs config appears in two places in each compiled lock:
-          #   (a) a plain-JSON block embedded in a prompt heredoc:
-          #         "create_pull_request":{...,"max":N,...}
-          #   (b) the runtime env var GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG, a
-          #       YAML-quoted JSON string with backslash-escaped quotes:
-          #         \"create_pull_request\":{...,\"max\":N,...}
-          # Both forms can contain `}` characters INSIDE string values (e.g.
-          # the `${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}` env reference),
-          # which broke the previous `[^}]*` grep regex. Use a non-greedy
-          # regex anchored on the first `"max":N` after the
-          # `"create_pull_request":{` opener — and exempt news-translate.lock.yml,
-          # which legitimately encodes max: 10.
-          if ! node -e '
-            const fs = require("node:fs");
-            const path = require("node:path");
-            const EXEMPT = new Set(["news-translate.lock.yml"]);
-            const PATTERN = /"create_pull_request"\s*:\s*\{[\s\S]*?"max"\s*:\s*(\d+)/g;
-            const dir = ".github/workflows";
-            const files = fs.readdirSync(dir)
-              .filter((f) => f.startsWith("news-") && f.endsWith(".lock.yml"))
-              .map((f) => path.join(dir, f))
-              .sort();
-            let fail = 0;
-            for (const lf of files) {
-              const base = path.basename(lf);
-              if (EXEMPT.has(base)) {
-                console.log("  ⏭️  " + lf + " (exempt: multi-call flush translator uses max: 10)");
-                continue;
-              }
-              const text = fs.readFileSync(lf, "utf8");
-              // Strip backslashes so the YAML-escaped JSON form matches the
-              // same regex as the plain JSON form.
-              const norm = text.replace(/\\/g, "");
-              const matches = Array.from(norm.matchAll(PATTERN), (m) => m[1]);
-              if (matches.length === 0) {
-                console.log("  ❌ " + lf + " has no create_pull_request config with max (plain or backslash-escaped JSON)");
-                fail = 1;
-                continue;
-              }
-              const bad = matches.filter((m) => m !== "1");
-              if (bad.length > 0) {
-                console.log("  ❌ " + lf + " has create_pull_request.max != 1 (found: " + matches.join(" ") + ")");
-                fail = 1;
-              } else {
-                console.log("  ✅ " + lf + " (create_pull_request.max: 1, " + matches.length + " occurrence(s))");
-              }
-            }
-            process.exit(fail);
-          '
-          then
-            FAIL=1
-          fi
-          echo ""
-          echo "🔍 Scanning for banned multi-PR / heartbeat / keep-alive strings…"
-          BANNED='Heartbeat|keep-alive pinger|post-heartbeat rebase|🫀'
-          if grep -rInE "$BANNED" .github/workflows/news-*.md .github/prompts/ 2>/dev/null; then
-            echo "  ❌ banned strings present"
-            FAIL=1
-          else
-            echo "  ✅ no banned strings"
-          fi
-          echo ""
-          if [ "$FAIL" -ne 0 ]; then
-            echo "❌ Prompt-module architecture check failed."
-            exit 1
-          fi
-          echo "✅ Prompt-module architecture checks passed."
 
       - name: Commit all generated files
         run: |
