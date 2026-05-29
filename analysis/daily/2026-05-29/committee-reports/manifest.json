@@ -1,0 +1,90 @@
+{
+  "articleType": "committee-reports",
+  "dataMode": "degraded-feeds",
+  "runId": "committee-reports-run283-1780035599",
+  "date": "2026-05-29",
+  "generatedAt": "2026-05-29T13:00:00Z",
+  "dataWindow": "2026-05-22 to 2026-05-29",
+  "primarySources": [
+    "get_committee_documents (live, 51 AFCO documents, metadata-only fallback)",
+    "adopted-texts-feed.json (prefetched, 500 items including 123 EP10-2026)",
+    "analyze_committee_activity ENVI (live, TIMEOUT - all sub-sources)",
+    "generate_political_landscape (live, TIMEOUT - no payload)"
+  ],
+  "feedStatus": {
+    "committee-documents-feed": "error (HTTP-404 error envelope)",
+    "procedures-feed": "error (empty 0 items placeholder)",
+    "events-feed": "error (HTTP-404 error envelope)",
+    "documents-feed": "error (HTTP-404 error envelope)",
+    "adopted-texts-feed": "partial (prefetched 500 items, non-standard data[] format, 123 EP10-2026)"
+  },
+  "artifactSources": {
+    "data-availability-assessment.md": "fresh",
+    "intelligence/analysis-index.md": "fresh",
+    "intelligence/synthesis-summary.md": "fresh",
+    "intelligence/historical-baseline.md": "fresh",
+    "intelligence/economic-context.md": "fresh",
+    "intelligence/pestle-analysis.md": "fresh",
+    "intelligence/stakeholder-map.md": "fresh",
+    "intelligence/scenario-forecast.md": "fresh",
+    "intelligence/threat-model.md": "fresh",
+    "intelligence/wildcards-blackswans.md": "fresh",
+    "intelligence/mcp-reliability-audit.md": "fresh",
+    "intelligence/reference-analysis-quality.md": "fresh",
+    "intelligence/procedures-proxy.md": "fresh",
+    "intelligence/methodology-reflection.md": "fresh",
+    "intelligence/coalition-dynamics.md": "fresh",
+    "intelligence/voting-patterns.md": "fresh",
+    "risk-scoring/risk-matrix.md": "fresh",
+    "risk-scoring/quantitative-swot.md": "fresh",
+    "extended/media-framing-analysis.md": "fresh",
+    "executive-brief.md": "fresh",
+    "existing/committee-productivity.md": "fresh",
+    "classification/significance-classification.md": "fresh",
+    "classification/actor-mapping.md": "fresh",
+    "classification/forces-analysis.md": "fresh",
+    "classification/impact-matrix.md": "fresh"
+  },
+  "files": {
+    "stageA": [],
+    "stageB": [
+      "data-availability-assessment.md",
+      "executive-brief.md",
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/voting-patterns.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "extended/media-framing-analysis.md",
+      "existing/committee-productivity.md",
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ]
+  },
+  "headline": "EP Committees Hold Trade-Defence and External-Relations Lines Through Inter-Session Week Ahead of June 2026 Part-Session",
+  "articleFocus": "Committee pipeline carry-over during the post-May-plenary inter-session week (2026-05-22 to 2026-05-29): INTA AI trade strategy, EU-Canada SAFE defence procurement, AFET external-relations agreements, and BUDG 2027 budget groundwork awaiting the June part-session",
+  "history": [
+    {
+      "runId": "committee-reports-run283-1780035599",
+      "generatedAt": "2026-05-29T13:00:00Z",
+      "pass1CompletedAt": "2026-05-29T13:10:00Z",
+      "pass2CompletedAt": "2026-05-29T13:20:00Z",
+      "rewriteCount": 25,
+      "dataMode": "degraded-feeds"
+    }
+  ]
+}
