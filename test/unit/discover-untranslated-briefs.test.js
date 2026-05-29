@@ -22,6 +22,8 @@ import {
   findExecutiveBriefSources,
   findMissingLangs,
   buildQueue,
+  buildTranslationRegister,
+  TRANSLATION_REGISTER,
   extractH2Titles,
   countFixedTokens,
   countLines,
@@ -532,6 +534,87 @@ describe('discover-untranslated-briefs', () => {
       }
       expect(entry.sourceFixedTokens.IMF).toBeGreaterThanOrEqual(4);
       expect(entry.sourceFixedTokens.WEO).toBeGreaterThanOrEqual(2);
+    });
+  });
+
+  describe('translationRegister (C2 — in-queue per-language register)', () => {
+    // Efficiency hardening: discovery emits the style register + EP
+    // terminology pairs the run needs ONCE into queue.json so the translator
+    // agent reads them inline instead of opening the ~18 KB translator guide
+    // on every turn. Bounding what enters the agent's context directly
+    // bounds the per-session effective-token accumulation that 429'd run
+    // #26641760920.
+    it('TRANSLATION_REGISTER covers every non-English target language', () => {
+      const keys = Object.keys(TRANSLATION_REGISTER).sort();
+      expect(keys).toEqual([...TARGET_LANGS].sort());
+    });
+
+    it('each register entry has name/family/register/fixedTokenNote/terms', () => {
+      for (const [lang, reg] of Object.entries(TRANSLATION_REGISTER)) {
+        expect(typeof reg.name, `${lang}.name`).toBe('string');
+        expect(['Nordic', 'EU-core', 'RTL', 'CJK'], `${lang}.family`).toContain(reg.family);
+        expect(reg.register.length, `${lang}.register`).toBeGreaterThan(0);
+        expect(reg.fixedTokenNote.length, `${lang}.fixedTokenNote`).toBeGreaterThan(0);
+        expect(reg.terms['European Parliament'], `${lang}.terms`).toBeTruthy();
+      }
+    });
+
+    it('anchors the canonical EP terminology pairs from guide § 5', () => {
+      // A few stable anchor values so the JSON register and the prose guide
+      // cannot silently diverge on the rows that matter most.
+      expect(TRANSLATION_REGISTER.sv.terms.Committee).toBe('utskott');
+      expect(TRANSLATION_REGISTER.de.terms['European Parliament']).toBe(
+        'Europäisches Parlament',
+      );
+      expect(TRANSLATION_REGISTER.fr.terms.Rapporteur).toBe('rapporteur');
+      expect(TRANSLATION_REGISTER.zh.terms.Resolution).toBe('决议');
+    });
+
+    it('fixedTokenNote encodes the high-risk localisation traps (gate #5)', () => {
+      // The Nordic / EU-core Latin-script languages are the recurring
+      // gate-#5 failure mode — the note must name the forbidden localised
+      // acronym so the agent does not localise IMF/WEO.
+      expect(TRANSLATION_REGISTER.no.fixedTokenNote).toMatch(/IPF|IMV/);
+      expect(TRANSLATION_REGISTER.fr.fixedTokenNote).toMatch(/FMI/);
+      expect(TRANSLATION_REGISTER.nl.fixedTokenNote).toMatch(/Wereldbank|IMV/);
+    });
+
+    it('buildTranslationRegister returns only requested langs in input order', () => {
+      const reg = buildTranslationRegister(['de', 'fr']);
+      expect(Object.keys(reg)).toEqual(['de', 'fr']);
+      expect(reg.de.family).toBe('EU-core');
+    });
+
+    it('buildTranslationRegister skips unknown codes defensively', () => {
+      const reg = buildTranslationRegister(['de', 'xx', 'en']);
+      expect(Object.keys(reg)).toEqual(['de']);
+    });
+
+    it('buildQueue emits translationRegister scoped to queued missing langs', () => {
+      // Two briefs: one missing only [de], one fully translated. The emitted
+      // register must contain exactly the languages the run will touch.
+      makeBrief('2026-05-15', 'breaking', {
+        existing: TARGET_LANGS.filter((l) => l !== 'de'),
+      });
+      makeBrief('2026-05-14', 'motions', { existing: [...TARGET_LANGS] });
+      const sources = findExecutiveBriefSources(tmpRoot, {
+        includeExtended: false,
+        maxAgeDays: 180,
+      });
+      const result = buildQueue(sources, 4);
+      expect(Object.keys(result.translationRegister)).toEqual(['de']);
+    });
+
+    it('main payload includes translationRegister', () => {
+      makeBrief('2026-05-15', 'breaking', { existing: [] });
+      const outPath = path.join(tmpRoot, 'queue.json');
+      main(['--repo-root', tmpRoot, '--max-briefs', '1', '--output', outPath]);
+      const payload = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+      expect(payload.translationRegister).toBeTruthy();
+      // All 13 langs missing on the single fresh brief.
+      expect(Object.keys(payload.translationRegister).sort()).toEqual(
+        [...TARGET_LANGS].sort(),
+      );
     });
   });
 
