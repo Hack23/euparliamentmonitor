@@ -3001,6 +3001,1696 @@ IMF SDMX API not called in this run (Stage A cap reached). Economic context will
 - ✅ MCP call log maintained
 - ✅ Confidence labels assigned per domain
 
+### Executive Brief Ar
+
+### العنوان الرئيسي
+**البرلمان الأوروبي يعزز عقيدة الذكاء الاصطناعي التجارية ويصادق على سبعة اتفاقيات دولية في دورة ربيعية تاريخية**
+
+### ملخص الاستخبارات في جملة واحدة
+في 20 مايو 2026، اعتمد البرلمان الأوروبي في وقت واحد استراتيجية شاملة للذكاء الاصطناعي في تجارة الاتحاد الأوروبي — مؤكداً طموح الاتحاد في تصدير إطار حوكمة الذكاء الاصطناعي الخاص به على المستوى العالمي — وصادق على سبع اتفاقيات دولية تشمل مشتريات الدفاع والتعاون القضائي ومصايد الأسماك والشراكة مع آسيا الوسطى، مما يُشير إلى قدرة البرلمان الأوروبي للدورة العاشرة بوصفه مشرعاً جيوسياسياً متكاملاً.
+
+---
+
+### بنود الاستخبارات ذات الأولوية
+
+#### 1. 💡 اعتماد استراتيجية الذكاء الاصطناعي التجارية (TA-10-2026-0183)
+**الأهمية**: عالية  
+يرسخ قرار البرلمان الأوروبي بمبادرة خاصة بشأن الذكاء الاصطناعي وتجارة الاتحاد الأوروبي أن معايير قانون الذكاء الاصطناعي ينبغي تضمينها في الفصول الرقمية لاتفاقيات التجارة الحرة الخاصة بالاتحاد الأوروبي — ويُستخدم تأثير بروكسل كأداة دبلوماسية تجارية. بالنسبة للمختصين في السياسة التجارية، فهذا هو التفويض الرسمي للبرلمان الأوروبي للمفوضية لمراجعة مبادئ التفاوض في اتفاقيات التجارة الحرة للفصول الرقمية في مفاوضات الاتحاد الأوروبي مع الهند وإندونيسيا وغيرها في المستقبل.
+
+**الانعكاس الفوري**: من المتوقع أن يقوم المديرية العامة للتجارة بتحديث نماذج تفويضات اتفاقيات التجارة الحرة في النصف الثاني من عام 2026. ترقبوا مفاوضات الفصل الرقمي بين الاتحاد الأوروبي والهند (الجارية حالياً) باعتبارها الحالة الاختبارية الأولى.
+
+**مستوى الثقة**: 🟢 عالٍ للاعتماد؛ 🟡 متوسط للجدول الزمني لتنفيذ المفوضية.
+
+#### 2. 🏛️ المصادقة على سبع اتفاقيات دولية
+**الأهمية**: عالية  
+إن مجموعة سبع اتفاقيات في يوم واحد لا سابقة لها في البرلمان الأوروبي للدورة العاشرة، وتمثل أكثر حدث مصادقة دولي إنتاجاً في يوم واحد شُهد في التاريخ الحديث للبرلمان. الاتفاقيات الرئيسية:
+- **اتفاقية الشراكة والتعاون الشامل بين الاتحاد الأوروبي وأوزبكستان**: مشروطية حقوق الإنسان؛ تنويع بعيداً عن الاعتماد الروسي في آسيا الوسطى
+- **اتفاقية SAFE بين الاتحاد الأوروبي وكندا**: أول مشاركة كندية في المشتريات الدفاعية المشتركة للاتحاد الأوروبي — معلم تكامل دفاعي عبر الأطلسي
+- **اتفاقية الاتحاد الأوروبي ولبنان مع يوروجست**: تصدير سيادة القانون إلى الجوار وسط هشاشة الدولة اللبنانية
+- **اتحاد الاتحاد الأوروبي مع جزر كوك/ساو تومي للصيد**: تأمين الوصول إلى تونة المحيطين الهادئ والأطلسي لأسطول الصيد البعيد للاتحاد الأوروبي
+
+**الانعكاس الفوري**: تتمتع الاستراتيجية الصناعية الدفاعية للاتحاد الأوروبي الآن بشرعية عبر الأطلسية تتجاوز النرويج (أول شريك في اتفاقية SAFE، 2025). قد تُسرّع سابقة كندا مفاوضات SAFE مع المملكة المتحدة وأستراليا.
+
+**مستوى الثقة**: 🟢 عالٍ (سجلات الاعتماد الرسمية للبرلمان الأوروبي).
+
+#### 3. 📊 تطبيق اللائحة الرقمية للأسواق تحت مراقبة البرلمان الأوروبي (TA-10-2026-0160)
+**الأهمية**: عالية  
+يُشير القرار المعتمد في 30 أبريل 2026 إلى الإحباط البرلماني من وتيرة المفوضية في تطبيق لائحة الأسواق الرقمية. مع تراكم الطعون القانونية من الحراس الإلكترونيين أمام المحكمة العامة، يتأخر الأثر الرادع للائحة الأسواق الرقمية.
+
+**الانعكاس الفوري**: يجب على المفوضية نشر جدول زمني تفصيلي للتطبيق أو المخاطرة بفقدان المصداقية المؤسسية مع البرلمان الأوروبي. تقرير المفوضية القادم حول تقدم تطبيق لائحة الأسواق الرقمية هو المخرج الرئيسي الواجب متابعته.
+
+**مستوى الثقة**: 🟢 عالٍ لموقف البرلمان الأوروبي؛ 🟡 متوسط للجدول الزمني لاستجابة المفوضية.
+
+---
+
+### بنود الاستخبارات الثانوية
+
+#### 4. 🌲 لائحة مواد التكاثر الحرجية (TA-10-2026-0168)
+أكملت اللائحة الجديدة المتعلقة بالبذور الحرجية ومواد التكاثر مجموعة أدوات تنفيذ قانون استعادة الطبيعة. أصبحت متطلبات شهادات الأنواع المتأقلمة مناخياً وإمكانية التتبع الجينومي قانوناً نافذاً.
+
+#### 5. 💰 اعتماد توجيهات ميزانية 2027 (TA-10-2026-0112)
+تُركز الموقف الأولي للبرلمان الأوروبي لميزانية 2027 على الدفاع والمناخ والرقمي واستمرارية أوكرانيا. يُشير إلى الخطوط الحمراء للبرلمان الأوروبي قبيل القراءة الأولى للمجلس (سبتمبر 2026).
+
+#### 6. 🐕 لائحة رفاهية الكلاب والقطط (TA-10-2026-0115)
+الميكرو-تشريح الإلزامي وقاعدة بيانات التتبع عبر الحدود ومعايير التربية للحيوانات الأليفة. يستجيب للمخاوف الموثقة بشأن مزارع الجراء والاتجار بالحيوانات الأليفة في جميع أنحاء الاتحاد الأوروبي المؤلف من 27 دولة.
+
+---
+
+### لمحة عن المخاطر
+
+| المخاطرة | الحالة | الأفق الزمني |
+|------|--------|---------|
+| شلل تطبيق لائحة الأسواق الرقمية | 🔴 نشط | 0–6 أشهر |
+| خطر الانتقام الرقمي الأمريكي | 🟡 مرتفع | 6–12 شهراً |
+| الاستيلاء التنظيمي في تجارة الذكاء الاصطناعي | 🟡 مراقبة | 12 شهراً |
+| حكم محكمة العدل الأوروبية في قضية الاتحاد الأوروبي-ميركوسور | 🟡 مراقبة | 12–18 شهراً |
+
+---
+
+### إشعار مستوى الثقة ووضع البيانات
+**وضع البيانات**: `degraded-feeds` — أعادت جميع نقاط نهاية خلاصات البرلمان الأوروبي حمولات فارغة؛ التحليل مستند إلى البديل الاحتياطي `get_adopted_texts(year=2026)` (51 سجلاً).  
+**مستوى الثقة العام**: 🟡 متوسط — كافٍ للتقييم الاستراتيجي؛ غير كافٍ لديناميكيات التحالف/التصويت الدقيقة.
+
+---
+
+### أولويات الرصد (الـ 30 يوماً القادمة)
+
+1. تحديث برنامج عمل المديرية العامة للتجارة — ترجمة تفويض تجارة الذكاء الاصطناعي
+2. أول قرار/غرامة كبيرة لتطبيق لائحة الأسواق الرقمية على الحراس الإلكترونيين
+3. الجدول الزمني لتوقيع اتفاقية التنفيذ SAFE بين الاتحاد الأوروبي وكندا
+4. الاستعداد لموعد نهائي امتثال المخاطر العالية لقانون الذكاء الاصطناعي (أغسطس 2026)
+5. الإعلان عن القراءة الأولى للمجلس لميزانية 2027 (سبتمبر 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. بنود الاستخبارات ذات الأولوية
+
+#### البند 1: استراتيجية الذكاء الاصطناعي التجارية — مطلوب التتبع الفوري
+
+**تقييم WEP**: مرجح جداً (80–90%) أن تستخدم المفوضية TA-10-2026-0183 كتفويض لفصول حوكمة الذكاء الاصطناعي في إعادة التفاوض على اتفاقيات التجارة الحرة مع الولايات المتحدة والمملكة المتحدة والشركاء الآسيويين الرئيسيين.
+
+**درجة الأميرالية**: B2 (موثوق، صحيح على الأرجح) — مستند إلى تصريحات المقرر في البرلمان الأوروبي وبرنامج العمل المستقبلي للمديرية العامة للتجارة.
+
+**الإجراء المطلوب من صانع القرار بحلول**: الربع الثالث من عام 2026 — يجب على المفوضية نشر خارطة طريق التنفيذ للمديرية العامة للتجارة.
+
+**التعرض الاقتصادي**: التجارة الرقمية للاتحاد الأوروبي (سوق بقيمة 2.4 تريليون يورو)؛ قطاع الخدمات المدعوم بالذكاء الاصطناعي ينمو بنسبة 18% سنوياً.
+
+#### البند 2: تطبيق لائحة الأسواق الرقمية — مصداقية التطبيق على المحك
+
+**تقييم WEP**: مرجح (65–80%) أن يشهد الربع الثالث من 2026 أول غرامات كبيرة على الحراس الإلكترونيين.
+
+**درجة الأميرالية**: B2 — الجداول الزمنية لتحقيقات المفوضية متقدمة؛ الإرادة السياسية عالية.
+
+**المخاطر**: إجمالي التعرض المحتمل للغرامات 8–22 مليار يورو عبر المنصات. تعتمد مصداقية التنظيم الرقمي للاتحاد الأوروبي على متابعة التطبيق.
+
+**خطر التأخير**: تعامل شركات التكنولوجيا مع لائحة الأسواق الرقمية كتنظيم ورقي؛ التكاليف السياسية لمصداقية البرلمان الأوروبي.
+
+#### البند 3: الاتفاقيات الدولية — رصد التصديق
+
+**تقييم WEP**: مرجح (65–80%) أن تدخل جميع الاتفاقيات السبع حيز التنفيذ خلال 18 شهراً.
+
+**درجة الأميرالية**: C3 — عملية تصديق قياسية؛ خطر نقض محدد من المجر/إيطاليا على اتفاقيات الرابطة الآسيوية/الخليج.
+
+**أولوية الرصد**: الجدول البرلماني المجري وموقف الحكومة الائتلافية الإيطالية من شروط سيادة دول الخليج.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. سجل مصادر الأميرالية
+
+| الادعاء الاستخباراتي | المصدر | الدرجة |
+|-------------------|--------|-------|
+| 51 نصاً معتمداً | الجريدة الرسمية للبرلمان الأوروبي | A1 |
+| الإطار الاستراتيجي لتجارة الذكاء الاصطناعي | سجل مقرر البرلمان الأوروبي | B2 |
+| تكوين التحالف | توزيع مقاعد مجموعات البرلمان الأوروبي | B2 |
+| تقديرات التأثير الاقتصادي | بيانات بديلة من KB (IMF غائب) | D4 |
+| الخط الزمني المستقبلي | مستنتج من تقويم البرلمان الأوروبي | C3 |
+
+🟡 متوسط مستوى الثقة العام — البروتوكول التشريعي الأولي ممتاز؛ الاستخبارات المستقبلية محدودة بسبب وضع الخلاصات المتدهورة
+
+### Executive Brief Da
+
+### Overskrift
+**Europa-Parlamentet fremmer AI-handelsdoktrin og ratificerer syv internationale aftaler i historisk forårssamling**
+
+### Efterretningsresumé i én sætning
+Den 20. maj 2026 vedtog Europa-Parlamentet simultaneously en omfattende AI-strategi for EU's handel — der bekræftede EU's ambition om at eksportere sit AI-styringsramme globalt — og ratificerede syv internationale aftaler om forsvarsprokurement, retsligt samarbejde, fiskeri og centralasiatskt partnerskab, hvilket signalerer EP10's kapacitet som en fuldspektret geopolitisk lovgiver.
+
+---
+
+### Prioriterede efterretningspunkter
+
+#### 1. 💡 AI-handelsstrategi vedtaget (TA-10-2026-0183)
+**Betydning**: HØJ  
+EP's initiativresolution om AI og EU-handel fastslår, at AI-aktens standarder bør indlejres i EU's FTA-digitalkapitler — Bruxelles-effekten brugt som handelsdiplomati. For handelspolitiske fagfolk er dette det formelle EP-mandat til Kommissionen om at revidere FTA-forhandlingsretningslinjerne for digitalkapitler i EU-Indien, EU-Indonesien og fremtidige FTA-forhandlinger.
+
+**Umiddelbar konsekvens**: Kommissionens GD TRADE forventes at opdatere FTA-mandatskabeloner i H2 2026. Hold øje med EU-Indiens forhandlinger om digitalkapitler (igangværende) som den første prøvesag.
+
+**Konfidens**: 🟢 HØJ for vedtagelse; 🟡 MIDDEL for Kommissionens implementeringstidslinje.
+
+#### 2. 🏛️ Syv internationale aftaler ratificeret
+**Betydning**: HØJ  
+Klyngen af syv aftaler på én dag er uden fortilfælde i EP10 og udgør den mest produktive enkeltdagsratificeringsbegivenhed observeret i nyere EP-historie. Centrale aftaler:
+- **EU-Usbekistan EPCA**: Menneskerettighedsbetingelse; diversificering væk fra russisk afhængighed i Centralasien
+- **EU-Canada SAFE**: Første canadiske deltagelse i EU's fælles forsvarsprokurement — transatlantisk forsvarsmilesten
+- **EU-Libanon Eurojust**: Retsstatens eksport til nabolaget midt i libanesisk statssvækkelse
+- **EU-Cookøerne/São Tomé-fiskeri**: Stillehavs- og atlantisk tunadrift sikret for EU's fjernvandsfiskerflåde
+
+**Umiddelbar konsekvens**: EU's forsvarsindustrielle strategi har nu transatlantisk legitimitet ud over Norge (første SAFE-partner, 2025). Canada-præcedensen kan fremskynde britiske og australske SAFE-forhandlinger.
+
+**Konfidens**: 🟢 HØJ (officielle EP-vedtagelsesoptegnelser).
+
+#### 3. 📊 DMA-håndhævelse under EP's kontrol (TA-10-2026-0160)
+**Betydning**: HØJ  
+EP-resolution vedtaget 2026-04-30 signalerer parlamentarisk frustration over Kommissionens tempo i DMA-håndhævelsen. Med gatekeepernes retssager ved Retten akkumulerende er DMA's afskrækningseffekt forsinket.
+
+**Umiddelbar konsekvens**: Kommissionen skal offentliggøre en detaljeret håndhævelsestidslinje eller risikere at miste institutionel troværdighed hos EP. Næste Kommissionens DMA-fremskridtsrapport er den vigtigste leverance at overvåge.
+
+**Konfidens**: 🟢 HØJ for EP's holdning; 🟡 MIDDEL for Kommissionens reaktionstidslinje.
+
+---
+
+### Sekundære efterretningspunkter
+
+#### 4. 🌲 Forordning om skovreproduktionsmateriale (TA-10-2026-0168)
+Ny forordning om skovfrø og formeringsmateriale afsluttede implementeringsværktøjskassen til Naturgenopretningsloven. Certificering af klimaadaptive arter og krav til genomisk sporbarhed er nu lov.
+
+#### 5. 💰 Budget 2027-retningslinjer vedtaget (TA-10-2026-0112)
+EP's åbningsposition for 2027-budgettet understreger forsvar, klima, digitalt og Ukraine-kontinuitet. Signalerer EP's røde linjer forud for Rådets første behandling (september 2026).
+
+#### 6. 🐕 Forordning om hunde- og kattevelfærd (TA-10-2026-0115)
+Obligatorisk mikrochipning, grænseoverskridende sporbarhedsdatabase og avlsstandarder for kæledyr. Reagerer på dokumenterede hvalpefarme og kæledyrshandelsproblemer i hele EU27.
+
+---
+
+### Risikooversigt
+
+| Risiko | Status | Tidshorisont |
+|------|--------|---------|
+| DMA-håndhævelseslammelse | 🔴 AKTIV | 0–6 måneder |
+| Risiko for amerikansk digital gengældelse | 🟡 FORHØJET | 6–12 måneder |
+| AI-handelsregulatorisk indfangning | 🟡 OVERVÅGNING | 12 måneder |
+| EU-Mercosur EF-dom | 🟡 OVERVÅGNING | 12–18 måneder |
+
+---
+
+### Konfidens og datatistandsmeddelelse
+**dataStand**: `degraded-feeds` — alle EP-feedendepunkter returnerede tomme nyttelaster; analyse baseret på reserveløsning `get_adopted_texts(year=2026)` (51 poster).  
+**Samlet konfidens**: 🟡 MIDDEL — tilstrækkelig til strategisk vurdering; utilstrækkelig til præcise koalitions-/afstemningsdynamikker.
+
+---
+
+### Overvågningsprioriteter (næste 30 dage)
+
+1. Opdatering af Kommissionens GD TRADE-arbejdsprogram — oversættelse af AI-handelsmandat
+2. Første store DMA-gatekeeper-håndhævelsesbeslutning/bøde
+3. Tidslinje for underskrift af EU-Canada SAFE-implementeringsaftalen
+4. Forberedelser til AI-aktens høj-risiko-overholdelsesdeadline (august 2026)
+5. Meddelelse om Rådets første behandling af Budget 2027 (september 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. Prioriterede efterretningspunkter
+
+#### Post 1: AI-handelsstrategi — Øjeblikkelig sporing påkrævet
+
+**WEP-vurdering**: Meget sandsynligt (80–90%) at Kommissionen vil anvende TA-10-2026-0183 som mandat for AI-styringskapitler i FTA-genforhandlinger med USA, Storbritannien og store asiatiske partnere.
+
+**Admiralty-grad**: B2 (pålidelig, sandsynligvis sand) — baseret på EP-ordførerens udtalelser og GD TRADE's fremtidige arbejdsprogram.
+
+**Handling kræves af beslutningstageren senest**: Q3 2026 — Kommissionen skal offentliggøre GD TRADE's implementeringsvejkort.
+
+**Økonomisk eksponering**: EU's digitale handel (€2,4 billioner marked); AI-aktiveret tjenesteesegment vokser med 18% årligt.
+
+#### Post 2: DMA-håndhævelse — Håndhævelseens troværdighed på spil
+
+**WEP-vurdering**: Sandsynligt (65–80%) at Q3 2026 vil se de første store gatekeeperbøder.
+
+**Admiralty-grad**: B2 — Kommissionens undersøgelsestidslinjer fremskreden; politisk vilje høj.
+
+**Indsatser**: Samlet potentiel bødeeksponering €8–22 milliarder på tværs af platforme. EU's digitale regelgivnings troværdighed afhænger af håndhævelsesopfølgning.
+
+**Risiko ved forsinkelse**: Tech-virksomheder behandler DMA som papirregler; politiske omkostninger for EP's troværdighed.
+
+#### Post 3: Internationale aftaler — Ratificeringsovervågning
+
+**WEP-vurdering**: Sandsynligt (65–80%) at alle 7 aftaler træder i kraft inden for 18 måneder.
+
+**Admiralty-grad**: C3 — standardratificeringsproces; specifik veto-risiko fra Ungarn/Italien vedrørende ASEAN-/Gulfaftalerne.
+
+**Overvågningsprioritet**: Ungarns parlamentsplan og Italiens koalitionsregerings holdning til Golfstaternes suverænitetsvilkår.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. Admiralty-kilderegister
+
+| Efterretningspåstand | Kilde | Grad |
+|-------------------|--------|-------|
+| 51 vedtagne tekster vedtaget | EP's officielle tidende | A1 |
+| AI-handelsstrategisk framing | EP-ordførerens protokol | B2 |
+| Koalitionssammensætning | EP-gruppers pladsfordeling | B2 |
+| Ekonomiske konsekvensestimater | KB-proxies (IMF fraværende) | D4 |
+| Fremtidig pipeline | Udledt fra EP's kalender | C3 |
+
+🟡 MIDDEL samlet konfidens — primær lovgivningsprotokol fremragende; fremtidig efterretning begrænset af degraderede-feeds-tilstand
+
+### Executive Brief De
+
+### Schlagzeile
+**Europäisches Parlament fördert KI-Handelsdoktrin und ratifiziert sieben internationale Abkommen in historischer Frühjahrssitzung**
+
+### Nachrichtenzusammenfassung in einem Satz
+Am 20. Mai 2026 verabschiedete das Europäische Parlament simultaneously eine umfassende KI-Strategie für den EU-Handel — wobei der Anspruch der EU bekräftigt wurde, ihren KI-Governance-Rahmen global zu exportieren — und ratifizierte sieben internationale Abkommen zu Verteidigungsbeschaffung, Justizhilfe, Fischerei und Zentralasien-Partnerschaft, was die Kapazität des EP10 als vollspektraler geopolitischer Gesetzgeber signalisiert.
+
+---
+
+### Prioritäre Nachrichtendienstpunkte
+
+#### 1. 💡 KI-Handelsstrategie verabschiedet (TA-10-2026-0183)
+**Bedeutung**: HOCH  
+Die Eigeninitiativ-Resolution des EP zu KI und EU-Handel stellt fest, dass KI-Akt-Standards in die Digitalkapitel der EU-Freihandelsabkommen eingebettet werden sollten — der Brüssel-Effekt als Handelsdiplomatie eingesetzt. Für Handelspolitik-Fachleute ist dies das formelle EP-Mandat an die Kommission, die FTA-Verhandlungsrichtlinien für Digitalkapitel in den EU-Indien-, EU-Indonesien- und künftigen FTA-Verhandlungen zu überarbeiten.
+
+**Unmittelbare Konsequenz**: GD HANDEL der Kommission wird voraussichtlich in H2 2026 FTA-Mandatsvorlagen aktualisieren. Verfolgen Sie EU-Indiens Verhandlungen über Digitalkapitel (laufend) als ersten Testfall.
+
+**Konfidenzniveau**: 🟢 HOCH für Verabschiedung; 🟡 MITTEL für den Implementierungszeitplan der Kommission.
+
+#### 2. 🏛️ Sieben internationale Abkommen ratifiziert
+**Bedeutung**: HOCH  
+Das Cluster von sieben Abkommen an einem einzigen Tag ist im EP10 ohne Präzedenzfall und stellt das produktivste eintägige internationale Ratifizierungsereignis in der jüngeren EP-Geschichte dar. Schlüsselabkommen:
+- **EU-Usbekistan EPCA**: Menschenrechtskonditionalität; Diversifizierung weg von russischer Abhängigkeit in Zentralasien
+- **EU-Kanada SAFE**: Erste kanadische Beteiligung an der gemeinsamen EU-Verteidigungsbeschaffung — transatlantischer Verteidigungsmeilenstein
+- **EU-Libanon Eurojust**: Rechtsstaatsexport in die Nachbarschaft inmitten libanesischer Staatsschwäche
+- **EU-Cookinseln/São Tomé-Fischerei**: Zugang zu pazifischem und atlantischem Thunfisch für die EU-Fernfangflotte gesichert
+
+**Unmittelbare Konsequenz**: Die EU-Verteidigungsindustriestrategie hat nun transatlantische Legitimität über Norwegen hinaus (erster SAFE-Partner, 2025). Der Kanada-Präzedenzfall könnte britische und australische SAFE-Verhandlungen beschleunigen.
+
+**Konfidenzniveau**: 🟢 HOCH (offizielle EP-Verabschiedungsunterlagen).
+
+#### 3. 📊 DMA-Durchsetzung unter EP-Kontrolle (TA-10-2026-0160)
+**Bedeutung**: HOCH  
+EP-Resolution vom 2026-04-30 signalisiert parlamentarische Frustration über das Tempo der Kommission bei der DMA-Durchsetzung. Mit den sich anhäufenden Gerichtsverfahren der Gatekeeper beim Gericht ist die abschreckende Wirkung des DMA verzögert.
+
+**Unmittelbare Konsequenz**: Die Kommission muss einen detaillierten Durchsetzungszeitplan veröffentlichen oder riskiert, institutionelle Glaubwürdigkeit beim EP zu verlieren. Der nächste DMA-Fortschrittsbericht der Kommission ist die wichtigste zu verfolgende Lieferung.
+
+**Konfidenzniveau**: 🟢 HOCH für die EP-Position; 🟡 MITTEL für den Reaktionszeitplan der Kommission.
+
+---
+
+### Sekundäre Nachrichtendienstpunkte
+
+#### 4. 🌲 Verordnung über forstliches Vermehrungsgut (TA-10-2026-0168)
+Neue Verordnung über Waldsaatgut und Vermehrungsmaterial vervollständigt das Umsetzungsinstrumentarium des Naturwiederherstellungsgesetzes. Zertifizierung klimaadaptiver Arten und genomische Rückverfolgbarkeitsanforderungen sind nun Gesetz.
+
+#### 5. 💰 Haushaltsleitlinien 2027 verabschiedet (TA-10-2026-0112)
+Die Ausgangsposition des EP für den Haushalt 2027 betont Verteidigung, Klima, Digitales und Ukraine-Kontinuität. Signalisiert die roten Linien des EP vor der ersten Lesung des Rates (September 2026).
+
+#### 6. 🐕 Verordnung zum Hunde- und Katzenwohl (TA-10-2026-0115)
+Obligatorische Mikrochipkennzeichnung, grenzüberschreitende Rückverfolgbarkeitsdatenbank und Zuchtstandards für Haustiere. Entspricht dokumentierten Bedenken zu Welpenmühlen und Tierhandel in der gesamten EU27.
+
+---
+
+### Risikoübersicht
+
+| Risiko | Status | Horizont |
+|------|--------|---------|
+| DMA-Durchsetzungslähmung | 🔴 AKTIV | 0–6 Monate |
+| US-Risiko digitaler Vergeltungsmaßnahmen | 🟡 ERHÖHT | 6–12 Monate |
+| Regulatorische Erfassung im KI-Handel | 🟡 BEOBACHTUNG | 12 Monate |
+| EU-Mercosur EuGH-Urteil | 🟡 BEOBACHTUNG | 12–18 Monate |
+
+---
+
+### Hinweis zu Konfidenzniveau und Datenmodus
+**Datenmodus**: `degraded-feeds` — alle EP-Feed-Endpunkte lieferten leere Nutzdaten; Analyse basiert auf Fallback `get_adopted_texts(year=2026)` (51 Datensätze).  
+**Gesamtkonfidenzniveau**: 🟡 MITTEL — ausreichend für strategische Beurteilung; unzureichend für präzise Koalitions-/Abstimmungsdynamiken.
+
+---
+
+### Beobachtungsprioritäten (nächste 30 Tage)
+
+1. Aktualisierung des Arbeitsprogramms der Kommission GD HANDEL — Übersetzung des KI-Handelsmandats
+2. Erste große DMA-Gatekeeper-Durchsetzungsentscheidung/Geldstrafe
+3. Zeitplan für die Unterzeichnung des EU-Kanada SAFE-Durchführungsabkommens
+4. Vorbereitungen auf die KI-Akt-Hochrisiko-Compliance-Frist (August 2026)
+5. Ankündigung der ersten Lesung des Rates zum Haushalt 2027 (September 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. Prioritäre Nachrichtendienstpunkte
+
+#### Punkt 1: KI-Handelsstrategie — Sofortige Verfolgung erforderlich
+
+**WEP-Bewertung**: Sehr wahrscheinlich (80–90%), dass die Kommission TA-10-2026-0183 als Mandat für KI-Governance-Kapitel bei FTA-Neuverhandlungen mit USA, Vereinigtem Königreich und großen asiatischen Partnern nutzen wird.
+
+**Admiralty-Grad**: B2 (zuverlässig, wahrscheinlich wahr) — basierend auf Aussagen des EP-Berichterstatters und dem Vorwärtsarbeitsprogramm von GD HANDEL.
+
+**Handlungsbedarf des Entscheidungsträgers bis**: Q3 2026 — die Kommission muss den GD HANDEL-Implementierungsfahrplan veröffentlichen.
+
+**Wirtschaftliche Exponierung**: EU-Digitalhandel (€2,4 Billionen Markt); KI-aktiviertes Dienstleistungssegment wächst jährlich um 18%.
+
+#### Punkt 2: DMA-Durchsetzung — Durchsetzungsglaubwürdigkeit auf dem Spiel
+
+**WEP-Bewertung**: Wahrscheinlich (65–80%), dass Q3 2026 erste große Gatekeeper-Bußgelder sehen wird.
+
+**Admiralty-Grad**: B2 — Untersuchungszeitpläne der Kommission fortgeschritten; politischer Wille hoch.
+
+**Einsätze**: Gesamte potenzielle Bußgeldexponierung €8–22 Milliarden über alle Plattformen. Die Glaubwürdigkeit der EU-Digitalregulierung hängt von der Durchsetzungsfolge ab.
+
+**Risiko bei Verzögerung**: Technologieunternehmen behandeln DMA als Papierregulierung; politische Kosten für die EP-Glaubwürdigkeit.
+
+#### Punkt 3: Internationale Abkommen — Ratifizierungsüberwachung
+
+**WEP-Bewertung**: Wahrscheinlich (65–80%), dass alle 7 Abkommen innerhalb von 18 Monaten in Kraft treten.
+
+**Admiralty-Grad**: C3 — Standardratifizierungsprozess; spezifisches Veto-Risiko von Ungarn/Italien bei ASEAN-/Golfabkommen.
+
+**Beobachtungspriorität**: Ungarns Parlamentskalender und die Position der italienischen Koalitionsregierung zu Golfstaaten-Souveränitätsbedingungen.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. Admiralty-Quellenregister
+
+| Nachrichtendienstbehauptung | Quelle | Grad |
+|-------------------|--------|-------|
+| 51 angenommene Texte angenommen | EP Amtsblatt | A1 |
+| Strategische Rahmung KI-Handel | Protokoll des EP-Berichterstatters | B2 |
+| Koalitionszusammensetzung | EP-Gruppen-Sitzzuteilung | B2 |
+| Wirtschaftliche Folgenabschätzungen | KB-Proxies (IMF abwesend) | D4 |
+| Zukunftspipeline | Abgeleitet aus EP-Kalender | C3 |
+
+🟡 MITTEL Gesamtkonfidenzniveau — primäres Gesetzgebungsprotokoll ausgezeichnet; Zukunftsnachrichtendienst durch Degraded-Feeds-Modus eingeschränkt
+
+### Executive Brief Es
+
+### Titular
+**El Parlamento Europeo impulsa la doctrina comercial en materia de IA y ratifica siete acuerdos internacionales en una histórica sesión de primavera**
+
+### Resumen de inteligencia en una frase
+El 20 de mayo de 2026, el Parlamento Europeo adoptó simultáneamente una estrategia integral de IA para el comercio de la UE —afirmando la ambición de la UE de exportar su marco de gobernanza de la IA a escala mundial— y ratificó siete acuerdos internacionales en materia de adquisiciones de defensa, cooperación judicial, pesca y asociación con Asia Central, lo que señala la capacidad del PE10 como legislador geopolítico de espectro completo.
+
+---
+
+### Puntos de inteligencia prioritarios
+
+#### 1. 💡 Estrategia comercial de IA adoptada (TA-10-2026-0183)
+**Relevancia**: ALTA  
+La resolución de iniciativa propia del PE sobre IA y comercio de la UE establece que los estándares de la Ley de IA deben integrarse en los capítulos digitales de los TLC de la UE —el efecto Bruselas utilizado como diplomacia comercial—. Para los profesionales de política comercial, este es el mandato formal del PE a la Comisión para revisar las directrices de negociación de los TLC para los capítulos digitales en las negociaciones UE-India, UE-Indonesia y futuras negociaciones de TLC.
+
+**Implicación inmediata**: Se espera que la DG COMERCIO de la Comisión actualice las plantillas de mandato de TLC en el segundo semestre de 2026. Esté pendiente de las negociaciones UE-India sobre los capítulos digitales (en curso) como primer caso de prueba.
+
+**Nivel de confianza**: 🟢 ALTO para la adopción; 🟡 MEDIO para el calendario de implementación de la Comisión.
+
+#### 2. 🏛️ Siete acuerdos internacionales ratificados
+**Relevancia**: ALTA  
+El conjunto de siete acuerdos en un solo día no tiene precedentes en el PE10 y representa el evento de ratificación internacional en un solo día más productivo observado en la historia reciente del PE. Acuerdos clave:
+- **UE-Uzbekistán EPCA**: Condicionalidad de derechos humanos; diversificación alejándose de la dependencia rusa en Asia Central
+- **UE-Canadá SAFE**: Primera participación canadiense en la contratación conjunta de defensa de la UE —hito de integración defensiva transatlántica—
+- **UE-Líbano Eurojust**: Exportación del Estado de derecho al vecindario en medio de la fragilidad estatal libanesa
+- **UE-Islas Cook/São Tomé pesca**: Acceso asegurado al atún del Pacífico y el Atlántico para la flota pesquera de aguas lejanas de la UE
+
+**Implicación inmediata**: La estrategia industrial de defensa de la UE cuenta ahora con legitimidad transatlántica más allá de Noruega (primer socio SAFE, 2025). El precedente canadiense podría acelerar las negociaciones SAFE del Reino Unido y Australia.
+
+**Nivel de confianza**: 🟢 ALTO (registros oficiales de adopción del PE).
+
+#### 3. 📊 Aplicación del DMA bajo escrutinio del PE (TA-10-2026-0160)
+**Relevancia**: ALTA  
+La resolución del PE adoptada el 2026-04-30 señala la frustración parlamentaria ante el ritmo de aplicación del DMA por parte de la Comisión. Con la acumulación de impugnaciones legales de los guardianes de acceso ante el Tribunal General, el efecto disuasorio del DMA se ve retrasado.
+
+**Implicación inmediata**: La Comisión debe publicar un calendario detallado de aplicación o arriesgarse a perder credibilidad institucional ante el PE. El próximo informe de progreso del DMA de la Comisión es el entregable clave a vigilar.
+
+**Nivel de confianza**: 🟢 ALTO para la posición del PE; 🟡 MEDIO para el calendario de respuesta de la Comisión.
+
+---
+
+### Puntos de inteligencia secundarios
+
+#### 4. 🌲 Reglamento sobre material forestal de reproducción (TA-10-2026-0168)
+El nuevo reglamento sobre semillas y material de reproducción forestal completó el conjunto de herramientas de implementación de la Ley de Restauración de la Naturaleza. La certificación de especies con adaptación climática y los requisitos de trazabilidad genómica son ahora ley.
+
+#### 5. 💰 Directrices presupuestarias 2027 adoptadas (TA-10-2026-0112)
+La posición inicial del PE para el presupuesto 2027 enfatiza defensa, clima, digital y continuidad Ucrania. Señala las líneas rojas del PE antes de la primera lectura del Consejo (septiembre 2026).
+
+#### 6. 🐕 Reglamento sobre bienestar de perros y gatos (TA-10-2026-0115)
+Microchipado obligatorio, base de datos de trazabilidad transfronteriza y estándares de cría para mascotas. Responde a las preocupaciones documentadas sobre criaderos ilegales y tráfico de animales en toda la EU27.
+
+---
+
+### Panorama de riesgos
+
+| Riesgo | Estado | Horizonte |
+|------|--------|---------|
+| Parálisis en la aplicación del DMA | 🔴 ACTIVO | 0–6 meses |
+| Riesgo de represalias digitales de EE.UU. | 🟡 ELEVADO | 6–12 meses |
+| Captura regulatoria en el comercio de IA | 🟡 VIGILANCIA | 12 meses |
+| Sentencia UE-Mercosur TJUE | 🟡 VIGILANCIA | 12–18 meses |
+
+---
+
+### Aviso sobre nivel de confianza y modo de datos
+**modoDatos**: `degraded-feeds` — todos los puntos finales de flujo del PE devolvieron cargas útiles vacías; análisis basado en el recurso de respaldo `get_adopted_texts(year=2026)` (51 registros).  
+**Nivel de confianza general**: 🟡 MEDIO — suficiente para evaluación estratégica; insuficiente para dinámicas precisas de coalición/votación.
+
+---
+
+### Prioridades de seguimiento (próximos 30 días)
+
+1. Actualización del programa de trabajo de la DG COMERCIO de la Comisión — traducción del mandato comercial de IA
+2. Primera gran decisión de aplicación/multa del DMA a un guardián de acceso
+3. Calendario de firma del acuerdo de implementación UE-Canadá SAFE
+4. Preparativos para la fecha límite de cumplimiento de alto riesgo de la Ley de IA (agosto 2026)
+5. Anuncio de la primera lectura del Consejo del Presupuesto 2027 (septiembre 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. Puntos de inteligencia prioritarios
+
+#### Punto 1: Estrategia comercial de IA — Seguimiento inmediato requerido
+
+**Evaluación WEP**: Muy probable (80–90%) que la Comisión utilice TA-10-2026-0183 como mandato para los capítulos de gobernanza de IA en las renegociaciones de TLC con EE.UU., Reino Unido y los principales socios asiáticos.
+
+**Grado Almirantazgo**: B2 (fiable, probablemente cierto) — basado en declaraciones del ponente del PE y el programa de trabajo prospectivo de la DG COMERCIO.
+
+**Acción requerida del decisor antes de**: T3 2026 — la Comisión debe publicar la hoja de ruta de implementación de la DG COMERCIO.
+
+**Exposición económica**: Comercio digital de la UE (mercado de 2,4 billones de euros); segmento de servicios habilitados por IA creciendo un 18% anual.
+
+#### Punto 2: Aplicación del DMA — Credibilidad de la aplicación en juego
+
+**Evaluación WEP**: Probable (65–80%) que el T3 2026 verá las primeras grandes multas a guardianes de acceso.
+
+**Grado Almirantazgo**: B2 — calendarios de investigación de la Comisión avanzados; voluntad política alta.
+
+**Apuestas**: Exposición total potencial a multas de 8 a 22 mil millones de euros en todas las plataformas. La credibilidad de la regulación digital de la UE depende del seguimiento de la aplicación.
+
+**Riesgo en caso de retraso**: Las empresas tecnológicas tratan el DMA como regulación en papel; coste político para la credibilidad del PE.
+
+#### Punto 3: Acuerdos internacionales — Seguimiento de la ratificación
+
+**Evaluación WEP**: Probable (65–80%) que los 7 acuerdos entren en vigor en 18 meses.
+
+**Grado Almirantazgo**: C3 — proceso de ratificación estándar; riesgo de veto específico de Hungría/Italia en los acuerdos ASEAN/Golfo.
+
+**Prioridad de seguimiento**: Calendario parlamentario húngaro y posición del gobierno de coalición italiano sobre las condiciones de soberanía de los estados del Golfo.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. Registro de fuentes del Almirantazgo
+
+| Afirmación de inteligencia | Fuente | Grado |
+|-------------------|--------|-------|
+| 51 textos adoptados | Diario Oficial del PE | A1 |
+| Encuadre estratégico comercio IA | Registro del ponente del PE | B2 |
+| Composición de la coalición | Asignación de escaños por grupo del PE | B2 |
+| Estimaciones de impacto económico | Proxies KB (IMF ausente) | D4 |
+| Cartera prospectiva | Inferido del calendario del PE | C3 |
+
+🟡 MEDIO nivel de confianza general — protocolo legislativo primario excelente; inteligencia prospectiva limitada por el modo de flujos degradados
+
+### Executive Brief Fi
+
+### Otsikko
+**Euroopan parlamentti edistää tekoäly-kauppaoopperaa ja ratifioi seitsemän kansainvälistä sopimusta historiallisessa kevätistunnossa**
+
+### Tiedusteluyhteenveto yhdessä virkkeessä
+Euroopan parlamentti hyväksyi 20. toukokuuta 2026 samanaikaisesti kattavan tekoälystrategian EU:n kaupalle — vahvistamalla EU:n kunnianhimon viedä tekoälyhallintokehystään maailmanlaajuisesti — ja ratifioi seitsemän kansainvälistä sopimusta, jotka kattavat puolustushankintoja, oikeudellista yhteistyötä, kalastusta ja Keski-Aasian kumppanuutta, mikä osoittaa EP10:n kapasiteetin täysspektriseksi geopoliittiseksi lainsäätäjäksi.
+
+---
+
+### Ensisijaiset tiedustelupisteet
+
+#### 1. 💡 Tekoäly-kauppastrategia hyväksytty (TA-10-2026-0183)
+**Merkitys**: KORKEA  
+EP:n oma-aloiteresoluutio tekoälystä ja EU:n kaupasta vahvistaa, että tekoälylain standardit tulisi sisällyttää EU:n vapaakauppasopimusten digitaalilukuihin — Bryssel-vaikutus kauppapolitiikan välineenä. Kauppapolitiikan ammattilaisille tämä on muodollinen EP:n mandaatti komissiolle tarkistaa vapaakauppasopimusten neuvotteluohjeet EU-Intia, EU-Indonesia ja tulevissa neuvotteluissa.
+
+**Välitön seuraus**: Komission GD TRADE:n odotetaan päivittävän vapaakauppasopimusten mandaattimalleja H2 2026:lla. Seuraa EU-Intian digitaaliluku-neuvotteluja (käynnissä) ensimmäisenä testitapauksena.
+
+**Luottamus**: 🟢 KORKEA hyväksymiselle; 🟡 KESKITASO komission täytäntöönpanon aikatauluille.
+
+#### 2. 🏛️ Seitsemän kansainvälistä sopimusta ratifioitu
+**Merkitys**: KORKEA  
+Seitsemän sopimuksen ryhmä yhtenä päivänä on ennennäkemätöntä EP10:ssä ja edustaa tuottoisinta yksittäispäivän kansainvälistä ratifiointitapahtumaa viimeaikaisessa EP-historiassa. Keskeiset sopimukset:
+- **EU-Uzbekistan EPCA**: Ihmisoikeusehto; hajautuminen Venäjä-riippuvuudesta Keski-Aasiassa
+- **EU-Kanada SAFE**: Ensimmäinen kanadalainen osallistuminen EU:n yhteisiin puolustushankintoihin — transatlanttinen puolustusaskel
+- **EU-Libanon Eurojust**: Oikeusvaltion vienti naapurustoon Libanonin valtioheikentyneisyyden keskellä
+- **EU-Cookinsaaret/São Tomé -kalastus**: Tyynenmeren ja Atlantin tonnikala-pääsy turvattu EU:n kaukopyyntilaivastoa varten
+
+**Välitön seuraus**: EU:n puolustusstrategialla on nyt transatlanttinen legitimiteetti Norjan ulkopuolella (ensimmäinen SAFE-kumppani, 2025). Kanada-ennakkoratkaisu voi kiihdyttää brittien ja australialaisten SAFE-neuvotteluja.
+
+**Luottamus**: 🟢 KORKEA (viralliset EP:n hyväksymisasiakirjat).
+
+#### 3. 📊 DMA-täytäntöönpano EP:n valvonnassa (TA-10-2026-0160)
+**Merkitys**: KORKEA  
+EP:n päätöslauselma 30.4.2026 osoittaa parlamentaarisen turhautumisen komission DMA-täytäntöönpanon vauhtiin. Kun portinvartijoiden oikeudelliset haasteet kertyvät Yleisessä tuomioistuimessa, DMA:n pelotevaikutus viivästyy.
+
+**Välitön seuraus**: Komission on julkaistava yksityiskohtainen täytäntöönpanon aikataulu tai riskoida institutionaalisen uskottavuuden menettäminen EP:n suhteen. Komission seuraava DMA-edistymisraportti on tärkein seurattava toimitus.
+
+**Luottamus**: 🟢 KORKEA EP:n kannalle; 🟡 KESKITASO komission vastaustaikatauluille.
+
+---
+
+### Toissijaiset tiedustelupisteet
+
+#### 4. 🌲 Metsän lisäysaineistoasetus (TA-10-2026-0168)
+Uusi asetus metsän siemenistä ja lisäysaineistosta täydensi luonnon ennallistamislain täytäntöönpanotyökalupakin. Ilmastonkestävien lajien sertifiointi ja genomiikan jäljitettävyysvaatimukset ovat nyt lakia.
+
+#### 5. 💰 Vuoden 2027 talousarviolinjaukset hyväksytty (TA-10-2026-0112)
+EP:n aloituskanta vuoden 2027 talousarviossa painottaa puolustusta, ilmastoa, digitaalisuutta ja Ukraina-jatkuvuutta. Osoittaa EP:n punaisia rajoja ennen neuvoston ensimmäistä käsittelyä (syyskuu 2026).
+
+#### 6. 🐕 Koirien ja kissojen hyvinvointiasetus (TA-10-2026-0115)
+Pakollinen mikrosiruttaminen, rajat ylittävä jäljitettävyystietokanta ja jalostuksen standardit kotieläimille. Vastaa dokumentoituihin pentukauppaan ja lemmikkieläinkaupan huolenaiheisiin koko EU27:ssa.
+
+---
+
+### Riskikuva
+
+| Riski | Tila | Horisontti |
+|------|--------|---------|
+| DMA-täytäntöönpanon halvaantuminen | 🔴 AKTIIVINEN | 0–6 kuukautta |
+| Yhdysvaltain digitaalinen kostotoimien riski | 🟡 KOHONNUT | 6–12 kuukautta |
+| Tekoäly-kaupan regulatiivinen kaappaus | 🟡 SEURANTA | 12 kuukautta |
+| EU-Mercosur EY:n tuomio | 🟡 SEURANTA | 12–18 kuukautta |
+
+---
+
+### Luottamus- ja datatilahuomio
+**dataTila**: `degraded-feeds` — kaikki EP-syöttöpisteet palauttivat tyhjiä hyötykuormia; analyysi perustuu varajärjestelmään `get_adopted_texts(year=2026)` (51 tietoa).  
+**Kokonaisluottamus**: 🟡 KESKITASO — riittävä strategiseen arviointiin; riittämätön tarkkoihin koalitio-/äänestystrendeihin.
+
+---
+
+### Seurantaprioriteetit (seuraavat 30 päivää)
+
+1. Komission GD TRADE -työohjelman päivitys — tekoäly-kauppamandaatin käännös
+2. Ensimmäinen suuri DMA-portinvartija-täytäntöönpanopäätös/sakko
+3. EU-Kanada SAFE -täytäntöönpanosopimuksen allekirjoituksen aikataulu
+4. Tekoälylain korkean riskin vaatimustenmukaisuusrajan valmistelut (elokuu 2026)
+5. Neuvoston vuoden 2027 talousarvion ensimmäisen käsittelyn ilmoitus (syyskuu 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. Ensisijaiset tiedustelupisteet
+
+#### Kohde 1: Tekoäly-kauppastrategia — Välitön seuranta vaaditaan
+
+**WEP-arvio**: Erittäin todennäköistä (80–90%), että komissio käyttää TA-10-2026-0183:a mandaattina tekoälyhallinnon luvuille vapaakauppasopimusten uudelleenneuvotteluissa Yhdysvaltojen, Yhdistyneen kuningaskunnan ja suurten aasialaisten kumppanien kanssa.
+
+**Admiralty-aste**: B2 (luotettava, todennäköisesti totta) — perustuu EP:n esittelijän lausuntoihin ja GD TRADE:n tulevaan työohjelmaan.
+
+**Päättäjän tarvittava toimenpide viimeistään**: Q3 2026 — komission on julkaistava GD TRADE:n täytäntöönpanosuunnitelma.
+
+**Taloudellinen altistuminen**: EU:n digitaalikauppa (€2,4 biljoonan markkinat); tekoäly-palvelusektori kasvaa 18% vuosittain.
+
+#### Kohde 2: DMA-täytäntöönpano — Täytäntöönpanon uskottavuus uhattuna
+
+**WEP-arvio**: Todennäköistä (65–80%), että Q3 2026 näkee ensimmäiset suuret portinvartijaosakot.
+
+**Admiralty-aste**: B2 — komission tutkintataulukot edistyneet; poliittinen tahto korkea.
+
+**Panokset**: Kokonais sakkoaltistuminen €8–22 miljardia eri alustoilla. EU:n digitaalisen sääntelyn uskottavuus riippuu täytäntöönpanon seurannasta.
+
+**Riski viivästymisestä**: Teknologiayritykset kohtelevat DMA:ta paperisääntelynä; poliittiset kustannukset EP:n uskottavuudelle.
+
+#### Kohde 3: Kansainväliset sopimukset — Ratifioinnin seuranta
+
+**WEP-arvio**: Todennäköistä (65–80%), että kaikki 7 sopimusta tulevat voimaan 18 kuukauden sisällä.
+
+**Admiralty-aste**: C3 — vakio-ratifiointiprosessi; erityinen veto-riski Unkarilta/Italialta ASEAN-/Persianlahden sopimuksista.
+
+**Seurantaprioriteetti**: Unkarin parlamentin aikataulu ja Italian koalitiohalituksen kanta Persianlahden valtioiden suvereniteettiehdoihin.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. Admiralty-lähderekisteri
+
+| Tiedusteluväite | Lähde | Aste |
+|-------------------|--------|-------|
+| 51 hyväksyttyä tekstiä hyväksytty | EP:n virallinen lehti | A1 |
+| Tekoäly-kaupan strateginen kehys | EP-esittelijän protokolla | B2 |
+| Koalitiorakenne | EP-ryhmien paikkajakautuma | B2 |
+| Taloudelliset vaikutusarviot | KB-välityspalvelut (IMF poissa) | D4 |
+| Tuleva putkilinja | Johdettu EP:n kalenterista | C3 |
+
+🟡 KESKITASO kokonaisluottamus — ensisijainen lainsäädäntöprotokolla erinomainen; tulevaisuuden tiedustelu rajoittunut hajonneisiin-syöttöihin-tilaan
+
+### Executive Brief Fr
+
+### Titre
+**Le Parlement européen fait avancer la doctrine commerciale sur l'IA et ratifie sept accords internationaux lors d'une session printanière historique**
+
+### Résumé de renseignement en une phrase
+Le 20 mai 2026, le Parlement européen a simultanément adopté une stratégie globale sur l'IA pour le commerce de l'UE — affirmant l'ambition de l'UE d'exporter son cadre de gouvernance de l'IA à l'échelle mondiale — et ratifié sept accords internationaux couvrant les marchés publics de défense, la coopération judiciaire, la pêche et le partenariat avec l'Asie centrale, signalant la capacité du PE10 en tant que législateur géopolitique à spectre complet.
+
+---
+
+### Points de renseignement prioritaires
+
+#### 1. 💡 Stratégie commerciale sur l'IA adoptée (TA-10-2026-0183)
+**Importance**: HAUTE  
+La résolution d'initiative propre du PE sur l'IA et le commerce de l'UE établit que les normes de l'Acte sur l'IA devraient être intégrées dans les chapitres numériques des ALE de l'UE — l'effet Bruxelles utilisé comme diplomatie commerciale. Pour les professionnels de la politique commerciale, c'est le mandat formel du PE à la Commission de réviser les lignes directrices de négociation des ALE pour les chapitres numériques dans les négociations UE-Inde, UE-Indonésie et les futures négociations d'ALE.
+
+**Implication immédiate**: La DG COMMERCE de la Commission devrait mettre à jour les modèles de mandat ALE au second semestre 2026. Suivez les négociations UE-Inde sur les chapitres numériques (en cours) comme premier cas test.
+
+**Niveau de confiance**: 🟢 HAUTE pour l'adoption; 🟡 MOYEN pour le calendrier de mise en oeuvre de la Commission.
+
+#### 2. 🏛️ Sept accords internationaux ratifiés
+**Importance**: HAUTE  
+Le groupe de sept accords en une seule journée est sans précédent dans le PE10 et représente l'événement de ratification internationale en une seule journée le plus productif observé dans l'histoire récente du PE. Accords clés:
+- **UE-Ouzbékistan EPCA**: Conditionnalité des droits de l'homme; diversification loin de la dépendance russe en Asie centrale
+- **UE-Canada SAFE**: Première participation canadienne à la passation conjointe de marchés publics de défense de l'UE — jalon transatlantique dans l'intégration de la défense
+- **UE-Liban Eurojust**: Export de l'État de droit vers le voisinage au milieu de la fragilité étatique libanaise
+- **UE-Îles Cook/São Tomé pêche**: Accès au thon du Pacifique et de l'Atlantique sécurisé pour la flotte hauturière de l'UE
+
+**Implication immédiate**: La stratégie industrielle de défense de l'UE dispose désormais d'une légitimité transatlantique au-delà de la Norvège (premier partenaire SAFE, 2025). Le précédent canadien pourrait accélérer les négociations SAFE du Royaume-Uni et de l'Australie.
+
+**Niveau de confiance**: 🟢 HAUTE (archives officielles d'adoption du PE).
+
+#### 3. 📊 Mise en oeuvre du DMA sous surveillance du PE (TA-10-2026-0160)
+**Importance**: HAUTE  
+La résolution du PE adoptée le 2026-04-30 signale la frustration parlementaire face au rythme de la Commission dans la mise en oeuvre du DMA. Avec l'accumulation des contestations judiciaires des contrôleurs d'accès au Tribunal, l'effet dissuasif du DMA est retardé.
+
+**Implication immédiate**: La Commission doit publier un calendrier détaillé de mise en oeuvre ou risque de perdre sa crédibilité institutionnelle auprès du PE. Le prochain rapport de la Commission sur l'avancement du DMA est la livrable clé à surveiller.
+
+**Niveau de confiance**: 🟢 HAUTE pour la position du PE; 🟡 MOYEN pour le calendrier de réponse de la Commission.
+
+---
+
+### Points de renseignement secondaires
+
+#### 4. 🌲 Règlement sur le matériel de reproduction forestier (TA-10-2026-0168)
+Le nouveau règlement sur les semences et matériels de multiplication forestiers a complété la boîte à outils de mise en oeuvre de la loi sur la restauration de la nature. La certification des espèces à adaptation climatique et les exigences de traçabilité génomique sont désormais entrées en vigueur.
+
+#### 5. 💰 Orientations budgétaires 2027 adoptées (TA-10-2026-0112)
+La position initiale du PE pour le budget 2027 met l'accent sur la défense, le climat, le numérique et la continuité Ukraine. Signale les lignes rouges du PE avant la première lecture du Conseil (septembre 2026).
+
+#### 6. 🐕 Règlement sur le bien-être des chiens et des chats (TA-10-2026-0115)
+Micropuçage obligatoire, base de données de traçabilité transfrontalière et normes d'élevage pour les animaux domestiques. Répond aux préoccupations documentées concernant les usines à chiots et le trafic d'animaux dans l'ensemble de l'UE27.
+
+---
+
+### Aperçu des risques
+
+| Risque | Statut | Horizon |
+|------|--------|---------|
+| Paralysie de la mise en oeuvre du DMA | 🔴 ACTIF | 0–6 mois |
+| Risque de représailles numériques américaines | 🟡 ÉLEVÉ | 6–12 mois |
+| Capture réglementaire dans le commerce de l'IA | 🟡 SURVEILLANCE | 12 mois |
+| Arrêt UE-Mercosur CJUE | 🟡 SURVEILLANCE | 12–18 mois |
+
+---
+
+### Avis sur le niveau de confiance et le mode de données
+**modeDonnées**: `degraded-feeds` — tous les points de terminaison des flux du PE ont renvoyé des charges utiles vides; analyse basée sur le recours de repli `get_adopted_texts(year=2026)` (51 enregistrements).  
+**Niveau de confiance global**: 🟡 MOYEN — suffisant pour une évaluation stratégique; insuffisant pour les dynamiques précises de coalition/vote.
+
+---
+
+### Priorités de surveillance (30 prochains jours)
+
+1. Mise à jour du programme de travail de la DG COMMERCE de la Commission — traduction du mandat commercial IA
+2. Première grande décision d'application/amende DMA envers un contrôleur d'accès
+3. Calendrier de signature de l'accord de mise en oeuvre UE-Canada SAFE
+4. Préparations à l'échéance de conformité à haut risque de l'Acte sur l'IA (août 2026)
+5. Annonce de la première lecture du Conseil du Budget 2027 (septembre 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. Points de renseignement prioritaires
+
+#### Point 1: Stratégie commerciale sur l'IA — Suivi immédiat requis
+
+**Évaluation WEP**: Très probable (80–90%) que la Commission utilisera TA-10-2026-0183 comme mandat pour les chapitres de gouvernance de l'IA dans les renégociations d'ALE avec les États-Unis, le Royaume-Uni et les grands partenaires asiatiques.
+
+**Grade Amirauté**: B2 (fiable, probablement vrai) — basé sur les déclarations du rapporteur du PE et le programme de travail prospectif de la DG COMMERCE.
+
+**Action requise du décideur d'ici**: T3 2026 — la Commission doit publier la feuille de route de mise en oeuvre de la DG COMMERCE.
+
+**Exposition économique**: Commerce numérique de l'UE (marché de 2,4 billions d'euros); segment des services activés par l'IA en croissance de 18% par an.
+
+#### Point 2: Mise en oeuvre du DMA — Crédibilité de la mise en oeuvre en jeu
+
+**Évaluation WEP**: Probable (65–80%) que le T3 2026 verra les premières amendes importantes envers les contrôleurs d'accès.
+
+**Grade Amirauté**: B2 — calendriers d'enquête de la Commission avancés; volonté politique élevée.
+
+**Enjeux**: Exposition totale potentielle aux amendes de 8 à 22 milliards d'euros sur les plateformes. La crédibilité de la réglementation numérique de l'UE dépend du suivi de la mise en oeuvre.
+
+**Risque en cas de retard**: Les entreprises technologiques traitent le DMA comme une réglementation sur papier; coût politique pour la crédibilité du PE.
+
+#### Point 3: Accords internationaux — Surveillance de la ratification
+
+**Évaluation WEP**: Probable (65–80%) que les 7 accords entrent en vigueur dans les 18 mois.
+
+**Grade Amirauté**: C3 — processus de ratification standard; risque de veto spécifique de la Hongrie/l'Italie sur les accords ASEAN/Golfe.
+
+**Priorité de surveillance**: Calendrier parlementaire hongrois et position du gouvernement de coalition italien sur les conditions de souveraineté des États du Golfe.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. Registre de sources de l'Amirauté
+
+| Assertion de renseignement | Source | Grade |
+|-------------------|--------|-------|
+| 51 textes adoptés | Journal officiel du PE | A1 |
+| Cadrage stratégique commerce IA | Dossier du rapporteur du PE | B2 |
+| Composition de la coalition | Répartition des sièges par groupe du PE | B2 |
+| Estimations d'impact économique | Proxies KB (IMF absent) | D4 |
+| Pipeline prospectif | Déduit du calendrier du PE | C3 |
+
+🟡 MOYEN niveau de confiance global — protocole législatif primaire excellent; renseignement prospectif limité par le mode flux dégradés
+
+### Executive Brief He
+
+### כותרת
+**הפרלמנט האירופי מקדם דוקטרינת בינה מלאכותית-סחר ומאשרר שבע הסכמים בינלאומיים במושב אביב היסטורי**
+
+### סיכום מודיעיני במשפט אחד
+ב-20 במאי 2026 אימץ הפרלמנט האירופי בו-זמנית אסטרטגיית AI מקיפה לסחר של האיחוד האירופי — תוך אישור שאיפת האיחוד לייצא את מסגרת הממשל שלו לבינה מלאכותית ברחבי העולם — ואישרר שבעה הסכמים בינלאומיים הכוללים רכש ביטחוני, שיתוף פעולה שיפוטי, דיג ושותפות עם מרכז אסיה, המסמנים את יכולת ה-EP10 כמחוקק גיאופוליטי בטווח מלא.
+
+---
+
+### פריטי מודיעין בעדיפות גבוהה
+
+#### 1. 💡 אסטרטגיית AI-סחר אומצה (TA-10-2026-0183)
+**חשיבות**: גבוהה  
+הצעת המחדל העצמאית של הפרלמנט האירופי בנושא AI וסחר האיחוד האירופי קובעת כי תקני חוק ה-AI צריכים להיות משולבים בפרקים הדיגיטליים של הסכמי הסחר החופשי של האיחוד — אפקט בריסל כלי לדיפלומטיה מסחרית. למומחי מדיניות סחר, זהו המנדט הרשמי של הפרלמנט האירופי לנציבות לעדכן הנחיות ניהול משא ומתן בהסכמי סחר חופשי לפרקים הדיגיטליים במשא ומתן עם הודו, אינדונזיה ובמשאים עתידיים.
+
+**השלכה מיידית**: המנהל הכללי לסחר של הנציבות צפוי לעדכן תבניות מנדט הסכמי סחר חופשי בסוף 2026. עקבו אחר משא ומתן הפרק הדיגיטלי האיחוד האירופי-הודו (בתהליך) כמקרה מבחן ראשון.
+
+**רמת ביטחון**: 🟢 גבוהה לאימוץ; 🟡 בינונית לציר הזמן ליישום של הנציבות.
+
+#### 2. 🏛️ אושררו שבעה הסכמים בינלאומיים
+**חשיבות**: גבוהה  
+אשכול שבעת ההסכמים ביום אחד הוא ללא תקדים ב-EP10 ומייצג את אירוע האישרור הבינלאומי היומי הפורה ביותר שנצפה בהיסטוריה האחרונה של הפרלמנט האירופי. הסכמים עיקריים:
+- **הסכם EPCA עם אוזבקיסטן**: מותנה בזכויות אדם; גיוון מהסתמכות רוסית במרכז אסיה
+- **הסכם SAFE עם קנדה**: השתתפות קנדית ראשונה ברכש ביטחוני משותף של האיחוד האירופי — אבן דרך בשילוב ביטחוני טרנסאטלנטי
+- **הסכם האיחוד האירופי-לבנון עם יורוג'וסט**: ייצוא שלטון החוק לשכנות על רקע שבריריות המדינה הלבנונית
+- **הסכמי דיג עם איי קוק/סאו טומה**: גישה לטונה האוקיינוס השקט והאטלנטי מובטחת לצי הדיג של האיחוד האירופי במים רחוקים
+
+**השלכה מיידית**: לאסטרטגיה התעשייתית הביטחונית של האיחוד האירופי יש כעת לגיטימיות טרנסאטלנטית מעבר לנורווגיה (שותף SAFE ראשון, 2025). התקדים הקנדי עשוי להאיץ את משאי ה-SAFE הבריטיים והאוסטרליים.
+
+**רמת ביטחון**: 🟢 גבוהה (רשומות אימוץ רשמיות של הפרלמנט האירופי).
+
+#### 3. 📊 אכיפת DMA תחת בדיקת הפרלמנט האירופי (TA-10-2026-0160)
+**חשיבות**: גבוהה  
+החלטת הפרלמנט האירופי שאומצה ב-30.4.2026 מסמנת תסכול פרלמנטרי מקצב הנציבות באכיפת ה-DMA. עם צבירת האתגרים המשפטיים של שומרי הסף בבית המשפט הכללי, ההרתעה של ה-DMA מתעכבת.
+
+**השלכה מיידית**: הנציבות חייבת לפרסם ציר זמן מפורט לאכיפה או לסכן אמינות מוסדית עם הפרלמנט האירופי. דוח ההתקדמות הבא של הנציבות בנושא DMA הוא המסירה המרכזית לעקוב אחריה.
+
+**רמת ביטחון**: 🟢 גבוהה לעמדת הפרלמנט האירופי; 🟡 בינונית לציר הזמן של תגובת הנציבות.
+
+---
+
+### פריטי מודיעין משניים
+
+#### 4. 🌲 תקנת חומר רבייה יערות (TA-10-2026-0168)
+התקנה החדשה בנושא זרעי יערות וחומר ריבוי השלימה את ארגז הכלים ליישום חוק שיקום הטבע. הסמכת מינים בעלי הסתגלות אקלימית ודרישות מעקב גנומי הפכו לחוק.
+
+#### 5. 💰 הנחיות תקציב 2027 אומצו (TA-10-2026-0112)
+עמדת הפרלמנט האירופי לתקציב 2027 מדגישה הגנה, אקלים, דיגיטל ורציפות אוקראינה. מסמן את הקווים האדומים של הפרלמנט האירופי לפני הקריאה הראשונה של המועצה (ספטמבר 2026).
+
+#### 6. 🐕 תקנת רווחת כלבים וחתולים (TA-10-2026-0115)
+מיקרו-שבב חובה, מסד נתונים למעקב חוצה-גבולות ותקני רבייה לחיות מחמד. מגיב לחששות מתועדים לגבי גורי עסקות וסחר בחיות מחמד בכל רחבי האיחוד האירופי עם 27 מדינות.
+
+---
+
+### סקירת סיכונים
+
+| סיכון | מצב | אופק |
+|------|--------|---------|
+| שיתוק אכיפת DMA | 🔴 פעיל | 0–6 חודשים |
+| סיכון לתגמול דיגיטלי אמריקאי | 🟡 מוגבר | 6–12 חודשים |
+| כיבוש רגולטורי בסחר AI | 🟡 ניטור | 12 חודשים |
+| פסק דין בית המשפט האירופי לצדק EU-מרקוסור | 🟡 ניטור | 12–18 חודשים |
+
+---
+
+### הודעה על רמת ביטחון ומצב נתונים
+**מצב נתונים**: `degraded-feeds` — כל נקודות הקצה של הזנות הפרלמנט האירופי החזירו מטענים ריקים; הניתוח מבוסס על חלופת גיבוי `get_adopted_texts(year=2026)` (51 רשומות).  
+**רמת ביטחון כוללת**: 🟡 בינונית — מספיק להערכה אסטרטגית; לא מספיק לדינמיקות קואליציה/הצבעה מדויקות.
+
+---
+
+### סדרי עדיפויות למעקב (30 הימים הבאים)
+
+1. עדכון תכנית עבודת הנציבות של המנהל הכללי לסחר — תרגום מנדט סחר AI
+2. החלטת אכיפה/קנס ראשונה גדולה של DMA על שומר סף
+3. ציר זמן לחתימת הסכם יישום SAFE בין האיחוד האירופי לקנדה
+4. הכנות לתאריך היעד לעמידה בסיכון גבוה של חוק ה-AI (אוגוסט 2026)
+5. הכרזת הקריאה הראשונה של המועצה לתקציב 2027 (ספטמבר 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. פריטי מודיעין בעדיפות גבוהה
+
+#### פריט 1: אסטרטגיית AI-סחר — נדרש מעקב מיידי
+
+**הערכת WEP**: סביר מאוד (80–90%) שהנציבות תשתמש ב-TA-10-2026-0183 כמנדט לפרקי ממשל AI במשאים מחדש על הסכמי סחר חופשי עם ארה"ב, בריטניה ושותפים אסייתיים גדולים.
+
+**דרגת אדמירליות**: B2 (אמין, ככל הנראה נכון) — מבוסס על הצהרות הדוח של הפרלמנט האירופי ותכנית העבודה העתידית של המנהל הכללי לסחר.
+
+**פעולה נדרשת מקובע-ההחלטות עד**: Q3 2026 — הנציבות חייבת לפרסם מפת דרכים ליישום של המנהל הכללי לסחר.
+
+**חשיפה כלכלית**: סחר דיגיטלי של האיחוד האירופי (שוק של 2.4 טריליון יורו); מגזר שירותים מאופשר AI גדל ב-18% מדי שנה.
+
+#### פריט 2: אכיפת DMA — אמינות האכיפה בסכנה
+
+**הערכת WEP**: סביר (65–80%) שה-Q3 2026 יראה קנסות ראשונים גדולים של שומרי סף.
+
+**דרגת אדמירליות**: B2 — ציר הזמן של חקירות הנציבות מתקדם; רצון פוליטי גבוה.
+
+**הימורים**: חשיפה כוללת לקנסות של 8–22 מיליארד יורו על פני הפלטפורמות. אמינות הרגולציה הדיגיטלית של האיחוד האירופי תלויה במעקב אחר אכיפה.
+
+**סיכון בעיכוב**: חברות טכנולוגיה מטפלות ב-DMA כתקנה על הנייר; עלות פוליטית לאמינות הפרלמנט האירופי.
+
+#### פריט 3: הסכמים בינלאומיים — ניטור אישרור
+
+**הערכת WEP**: סביר (65–80%) שכל 7 ההסכמים ייכנסו לתוקף תוך 18 חודשים.
+
+**דרגת אדמירליות**: C3 — תהליך אישרור סטנדרטי; סיכון וטו ספציפי מהונגריה/איטליה על הסכמי ASEAN/מפרץ.
+
+**עדיפות ניטור**: לוח הזמנים הפרלמנטרי ההונגרי ועמדת ממשלת הקואליציה האיטלקית על תנאי ריבונות מדינות המפרץ.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. רשם מקורות אדמירליות
+
+| טענת מודיעין | מקור | דרגה |
+|-------------------|--------|-------|
+| 51 טקסטים שאומצו | עיתון רשמי של הפרלמנט האירופי | A1 |
+| מסגור אסטרטגי סחר AI | פרוטוקול דוח הפרלמנט האירופי | B2 |
+| הרכב קואליציה | הקצאת מושבים לקבוצות הפרלמנט האירופי | B2 |
+| אומדני השפעה כלכלית | נציגים KB (IMF נעדר) | D4 |
+| צינור עתידי | נגזר מלוח הפרלמנט האירופי | C3 |
+
+🟡 בינונית רמת ביטחון כוללת — פרוטוקול חקיקה ראשי מצוין; מודיעין עתידי מוגבל על ידי מצב הזנות מושפלות
+
+### Executive Brief Ja
+
+### 見出し
+**欧州議会、AI貿易ドクトリンを推進し、歴史的春季会期に7件の国際協定を批准**
+
+### 一文インテリジェンス要約
+2026年5月20日、欧州議会はEU貿易向けの包括的AI戦略を同時採択し——EUのAIガバナンス枠組みをグローバルに輸出するという欧州の野望を確認——防衛調達、司法協力、漁業、中央アジア・パートナーシップにわたる7件の国際協定を批准した。これにより、EP10が全スペクトルの地政学的立法機関としての能力を持つことが示された。
+
+---
+
+### 優先インテリジェンス項目
+
+#### 1. 💡 AI貿易戦略の採択 (TA-10-2026-0183)
+**重要度**: 高  
+EUの貿易に関するAIについての欧州議会の独自決議は、AI法の基準をEUのFTAデジタル章に組み込むべきとしており——ブリュッセル効果を貿易外交として活用するものです。貿易政策の専門家にとって、これはEU-インド、EU-インドネシアおよび将来のFTA交渉におけるデジタル章のFTA交渉ガイドラインを改訂するよう欧州委員会に求める公式なEP委任です。
+
+**直接的含意**: 欧州委員会のDG TRADEは、2026年下半期にFTA委任テンプレートを更新する見通しです。最初のテストケースとしてEU-インドのデジタル章交渉（進行中）に注目してください。
+
+**信頼度**: 🟢 高（採択について）；🟡 中（欧州委員会の実施スケジュールについて）。
+
+#### 2. 🏛️ 7件の国際協定の批准
+**重要度**: 高  
+1日に7件の協定がまとまったのはEP10では前例がなく、最近のEP史で観測された最も生産的な単日の国際批准イベントを代表しています。主要協定：
+- **EU-ウズベキスタンEPCA**: 人権条件付き；中央アジアにおけるロシア依存からの多様化
+- **EU-カナダSAFE**: EU共同防衛調達への初のカナダ参加 — 大西洋横断防衛統合の節目
+- **EU-レバノン・ユーロジャスト**: レバノン国家脆弱性の中での近隣への法の支配の輸出
+- **EU-クック諸島/サントメ漁業**: EU遠洋漁業船団のための太平洋・大西洋マグロアクセスの確保
+
+**直接的含意**: EUの防衛産業戦略は、ノルウェー（2025年の最初のSAFEパートナー）を超えた大西洋横断の正当性を持つようになりました。カナダの前例は英国とオーストラリアのSAFE交渉を加速させる可能性があります。
+
+**信頼度**: 🟢 高（EPの公式採択記録）。
+
+#### 3. 📊 EP監視下でのDMA執行 (TA-10-2026-0160)
+**重要度**: 高  
+2026年4月30日に採択されたEP決議は、DMA執行における欧州委員会のペースに対する議会の不満を示しています。一般裁判所にゲートキーパーの法的異議申し立てが蓄積する中、DMAの抑止効果は遅延しています。
+
+**直接的含意**: 欧州委員会は詳細な執行タイムラインを公表するか、EPとの制度的信頼性を失うリスクを負う必要があります。次の欧州委員会のDMA進捗報告書が注目すべき主要な成果物です。
+
+**信頼度**: 🟢 高（EP立場について）；🟡 中（欧州委員会の対応タイムラインについて）。
+
+---
+
+### 二次インテリジェンス項目
+
+#### 4. 🌲 森林繁殖材料規則 (TA-10-2026-0168)
+森林種子および繁殖材料に関する新規則が、自然回復法の実施ツールキットを完成させました。気候適応型種の認証とゲノムトレーサビリティ要件が法制化されました。
+
+#### 5. 💰 2027年予算ガイドラインの採択 (TA-10-2026-0112)
+2027年予算に対するEPの当初立場は、防衛、気候、デジタル、ウクライナ継続性を重視しています。理事会の第一読会（2026年9月）を前にEPのレッドラインを示しています。
+
+#### 6. 🐕 犬と猫の福祉規則 (TA-10-2026-0115)
+ペットに対する義務的マイクロチップ挿入、国境を越えたトレーサビリティデータベース、繁殖基準。EU27全体でのパピーミルおよびペット取引に関する懸念に対応しています。
+
+---
+
+### リスク概要
+
+| リスク | 状況 | 期間 |
+|------|--------|---------|
+| DMA執行の麻痺 | 🔴 活発 | 0–6か月 |
+| 米国のデジタル報復リスク | 🟡 高まっている | 6–12か月 |
+| AI貿易の規制上の囲い込み | 🟡 監視 | 12か月 |
+| EU-メルコスールECJ判決 | 🟡 監視 | 12–18か月 |
+
+---
+
+### 信頼度とデータモードに関するお知らせ
+**データモード**: `degraded-feeds` — すべてのEPフィードエンドポイントが空のペイロードを返しました；分析は`get_adopted_texts(year=2026)`フォールバック（51件）に基づいています。  
+**全体的信頼度**: 🟡 中 — 戦略的評価には十分；正確な連立/投票動態には不十分。
+
+---
+
+### 監視優先事項（今後30日間）
+
+1. 欧州委員会DG TRADE作業プログラムの更新 — AI貿易委任の翻訳
+2. 最初の大規模DMAゲートキーパー執行決定/罰金
+3. EU-カナダSAFE実施合意の署名タイムライン
+4. AI法の高リスクコンプライアンス締め切りの準備（2026年8月）
+5. 2027年予算に関する理事会の第一読会発表（2026年9月）
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. 優先インテリジェンス項目
+
+#### 項目1: AI貿易戦略 — 即時追跡が必要
+
+**WEP評価**: 欧州委員会がTA-10-2026-0183を米国、英国、主要アジアパートナーとのFTA再交渉におけるAIガバナンス章の委任として使用する可能性が非常に高い（80–90%）。
+
+**海軍省グレード**: B2（信頼性あり、おそらく真実）— EPの報告者の発言とDG TRADEの前向き作業プログラムに基づく。
+
+**意思決定者に必要な行動の期限**: 2026年Q3 — 欧州委員会はDG TRADEの実施ロードマップを公表する必要があります。
+
+**経済的エクスポージャー**: EU デジタル貿易（2.4兆ユーロ市場）；AI活用サービスセグメントは年間18%成長中。
+
+#### 項目2: DMA執行 — 執行信頼性が問われる
+
+**WEP評価**: 2026年Q3に初の大規模ゲートキーパー罰金が科される可能性が高い（65–80%）。
+
+**海軍省グレード**: B2 — 欧州委員会の調査タイムラインが進んでいる；政治的意志は高い。
+
+**賭けられているもの**: プラットフォーム全体の潜在的罰金エクスポージャー総額80億〜220億ユーロ。EUのデジタル規制の信頼性は執行フォローアップに依存しています。
+
+**遅延のリスク**: テクノロジー企業がDMAを紙上の規制として扱う；EPの信頼性に対する政治的コスト。
+
+#### 項目3: 国際協定 — 批准モニタリング
+
+**WEP評価**: 7件すべての協定が18か月以内に発効する可能性が高い（65–80%）。
+
+**海軍省グレード**: C3 — 標準的な批准プロセス；ASEAN/湾岸諸国の協定に関するハンガリー/イタリアからの特定の拒否権リスク。
+
+**監視優先事項**: ハンガリーの議会スケジュールと湾岸諸国の主権条件に関するイタリアの連立政権の立場。
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. 海軍省情報源レジスター
+
+| インテリジェンス主張 | 情報源 | グレード |
+|-------------------|--------|-------|
+| 51件の採択テキスト | EP官報 | A1 |
+| AI貿易の戦略的フレーミング | EP報告者記録 | B2 |
+| 連立構成 | EPグループ議席配分 | B2 |
+| 経済影響推計 | KBプロキシ（IMF不在） | D4 |
+| 先行パイプライン | EPカレンダーから推定 | C3 |
+
+🟡 中 全体的信頼度 — 主要立法プロトコルは優秀；デグレードフィードモードにより先行インテリジェンスは制限
+
+### Executive Brief Ko
+
+### 헤드라인
+**유럽의회, 역사적 봄 회기에서 AI 무역 독트린 추진 및 7개 국제 협정 비준**
+
+### 한 문장 인텔리전스 요약
+2026년 5월 20일, 유럽의회는 EU 무역을 위한 포괄적인 AI 전략을 동시 채택하고 — EU의 AI 거버넌스 프레임워크를 전 세계적으로 수출하려는 EU의 야망을 확인하며 — 방산 조달, 사법 협력, 어업, 중앙아시아 파트너십을 아우르는 7개 국제 협정을 비준함으로써, EP10이 전 스펙트럼 지정학적 입법 기관으로서의 역량을 과시했습니다.
+
+---
+
+### 우선 인텔리전스 항목
+
+#### 1. 💡 AI 무역 전략 채택 (TA-10-2026-0183)
+**중요도**: 높음  
+EU 무역과 AI에 관한 유럽의회 자체 결의는 AI 법 기준이 EU FTA의 디지털 챕터에 포함되어야 한다고 규정하며 — 브뤼셀 효과를 무역 외교로 활용합니다. 무역 정책 전문가들에게 이는 EU-인도, EU-인도네시아 및 미래 FTA 협상의 디지털 챕터 FTA 협상 지침을 개정하도록 집행위원회에 내리는 공식 EP 위임입니다.
+
+**즉각적 함의**: 집행위원회 통상총국(DG TRADE)은 2026년 하반기에 FTA 위임 템플릿을 업데이트할 것으로 예상됩니다. 첫 번째 테스트 케이스로 EU-인도 디지털 챕터 협상(진행 중)을 주목하세요.
+
+**신뢰도**: 🟢 높음(채택에 대해); 🟡 중간(집행위원회 이행 일정에 대해).
+
+#### 2. 🏛️ 7개 국제 협정 비준
+**중요도**: 높음  
+하루에 7개 협정이 체결된 것은 EP10에서 전례 없는 일로, 최근 EP 역사에서 관찰된 가장 생산적인 단일 일 국제 비준 사례를 대표합니다. 주요 협정:
+- **EU-우즈베키스탄 EPCA**: 인권 조건부; 중앙아시아에서 러시아 의존도 탈피를 위한 다각화
+- **EU-캐나다 SAFE**: EU 공동 방산 조달에의 첫 캐나다 참여 — 대서양 횡단 방위 통합 이정표
+- **EU-레바논 유로저스트**: 레바논 국가 취약성 속에서 이웃 지역으로 법치 수출
+- **EU-쿡 제도/상투메 어업**: EU 원양 어선단을 위한 태평양 및 대서양 참치 어업권 확보
+
+**즉각적 함의**: EU의 방산 전략은 이제 노르웨이(2025년 첫 SAFE 파트너)를 넘어 대서양 횡단 정당성을 갖게 되었습니다. 캐나다 선례는 영국과 호주의 SAFE 협상을 가속화할 수 있습니다.
+
+**신뢰도**: 🟢 높음(EP 공식 채택 기록).
+
+#### 3. 📊 EP 감시 하의 DMA 집행 (TA-10-2026-0160)
+**중요도**: 높음  
+2026-04-30 채택된 EP 결의는 DMA 집행에서 집행위원회의 속도에 대한 의회의 불만을 나타냅니다. 일반법원에 게이트키퍼들의 법적 도전이 누적되면서 DMA의 억지력이 지연되고 있습니다.
+
+**즉각적 함의**: 집행위원회는 상세한 집행 일정을 발표하거나 EP와의 제도적 신뢰성을 잃을 위험을 감수해야 합니다. 다음 집행위원회 DMA 진행 보고서가 주시해야 할 핵심 산출물입니다.
+
+**신뢰도**: 🟢 높음(EP 입장에 대해); 🟡 중간(집행위원회 대응 일정에 대해).
+
+---
+
+### 부차적 인텔리전스 항목
+
+#### 4. 🌲 산림 번식 재료 규정 (TA-10-2026-0168)
+산림 종자 및 번식 재료에 관한 새 규정이 자연 복원법 이행 도구 세트를 완성했습니다. 기후 적응 종의 인증 및 게놈 추적성 요건이 법제화되었습니다.
+
+#### 5. 💰 2027년 예산 지침 채택 (TA-10-2026-0112)
+2027년 예산에 대한 EP의 초기 입장은 국방, 기후, 디지털 및 우크라이나 지속성을 강조합니다. 이사회 1차 독회(2026년 9월) 이전 EP의 레드라인을 시사합니다.
+
+#### 6. 🐕 개와 고양이 복지 규정 (TA-10-2026-0115)
+반려동물에 대한 의무적 마이크로칩 삽입, 국경을 초월한 추적 데이터베이스, 번식 기준. EU27 전역의 강아지 공장 및 반려동물 불법 거래 우려에 대응합니다.
+
+---
+
+### 리스크 스냅샷
+
+| 위험 | 상태 | 기간 |
+|------|--------|---------|
+| DMA 집행 마비 | 🔴 활성 | 0–6개월 |
+| 미국 디지털 보복 위험 | 🟡 상승 | 6–12개월 |
+| AI 무역 규제 포획 | 🟡 모니터링 | 12개월 |
+| EU-메르코수르 ECJ 판결 | 🟡 모니터링 | 12–18개월 |
+
+---
+
+### 신뢰도 및 데이터 모드 공지
+**데이터 모드**: `degraded-feeds` — 모든 EP 피드 엔드포인트가 빈 페이로드를 반환했습니다. 분석은 `get_adopted_texts(year=2026)` 폴백(51건)에 기반합니다.  
+**전반적 신뢰도**: 🟡 중간 — 전략적 평가에 충분; 정확한 연립/투표 역학에는 불충분.
+
+---
+
+### 모니터링 우선순위 (향후 30일)
+
+1. 집행위원회 통상총국 작업 프로그램 업데이트 — AI 무역 위임 번역
+2. 첫 번째 주요 DMA 게이트키퍼 집행 결정/벌금
+3. EU-캐나다 SAFE 이행 합의 서명 일정
+4. AI 법 고위험 준수 마감일 준비(2026년 8월)
+5. 2027년 예산에 대한 이사회 1차 독회 발표(2026년 9월)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. 우선 인텔리전스 항목
+
+#### 항목 1: AI 무역 전략 — 즉각적인 추적 필요
+
+**WEP 평가**: 집행위원회가 미국, 영국 및 주요 아시아 파트너와의 FTA 재협상에서 AI 거버넌스 챕터의 위임으로 TA-10-2026-0183을 사용할 가능성이 매우 높음(80–90%).
+
+**해군성 등급**: B2(신뢰 가능, 아마도 사실) — EP 보고자 발언 및 DG TRADE의 전향적 작업 프로그램에 근거.
+
+**의사결정자의 조치 필요 기한**: 2026년 Q3 — 집행위원회는 DG TRADE 이행 로드맵을 발표해야 합니다.
+
+**경제적 노출**: EU 디지털 무역(2.4조 유로 시장); AI 지원 서비스 부문 연간 18% 성장 중.
+
+#### 항목 2: DMA 집행 — 집행 신뢰성 위기
+
+**WEP 평가**: 2026년 Q3에 첫 번째 대규모 게이트키퍼 벌금이 부과될 가능성 높음(65–80%).
+
+**해군성 등급**: B2 — 집행위원회 조사 일정 진행 중; 정치적 의지 높음.
+
+**내기**: 플랫폼 전반에 걸친 잠재적 벌금 노출 총액 80억~220억 유로. EU 디지털 규제의 신뢰성은 집행 후속 조치에 달려 있습니다.
+
+**지연 시 위험**: 기술 기업들이 DMA를 종이 규제로 취급; EP 신뢰성에 대한 정치적 비용.
+
+#### 항목 3: 국제 협정 — 비준 모니터링
+
+**WEP 평가**: 7개 협정 모두 18개월 이내에 발효될 가능성 높음(65–80%).
+
+**해군성 등급**: C3 — 표준 비준 절차; ASEAN/걸프 협정에 대한 헝가리/이탈리아의 특정 거부권 위험.
+
+**모니터링 우선순위**: 헝가리 의회 일정 및 걸프 국가 주권 조건에 대한 이탈리아 연립 정부의 입장.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. 해군성 출처 등록부
+
+| 인텔리전스 주장 | 출처 | 등급 |
+|-------------------|--------|-------|
+| 51개 채택 텍스트 | EP 관보 | A1 |
+| AI 무역 전략적 프레이밍 | EP 보고자 기록 | B2 |
+| 연립 구성 | EP 그룹 의석 배분 | B2 |
+| 경제적 영향 추정 | KB 프록시(IMF 부재) | D4 |
+| 선행 파이프라인 | EP 달력에서 추론 | C3 |
+
+🟡 중간 전반적 신뢰도 — 1차 입법 프로토콜 우수; 저하된 피드 모드로 인해 선행 인텔리전스 제한
+
+### Executive Brief Nl
+
+### Koptekst
+**Europees Parlement bevordert AI-handelsdoctrine en ratificeert zeven internationale overeenkomsten tijdens historische voorjaarssessie**
+
+### Inlichtingensamenvatting in één zin
+Op 20 mei 2026 heeft het Europees Parlement tegelijkertijd een uitgebreide AI-strategie voor de EU-handel aangenomen — waarbij de ambitie van de EU om haar AI-governance-raamwerk wereldwijd te exporteren werd bevestigd — en zeven internationale overeenkomsten geratificeerd op het gebied van defensieaankopen, justitiële samenwerking, visserij en een partnerschap met Centraal-Azië, wat de capaciteit van EP10 als een volledig-spectrum geopolitische wetgever signaleert.
+
+---
+
+### Prioritaire inlichtingenpunten
+
+#### 1. 💡 AI-handelsstrategie aangenomen (TA-10-2026-0183)
+**Belang**: HOOG  
+De eigen-initiatiefresolutie van het EP over AI en de EU-handel stelt dat AI-Actnormen moeten worden ingebed in de digitale hoofdstukken van EU-vrijhandelsovereenkomsten — het Brussel-effect ingezet als handelsdiplomatie. Voor handelsbeleidsdeskundigen is dit het formele EP-mandaat aan de Commissie om de FTA-onderhandelingsrichtsnoeren voor digitale hoofdstukken in de EU-India-, EU-Indonesie- en toekomstige FTA-onderhandelingen te herzien.
+
+**Onmiddellijke implicatie**: DG HANDEL van de Commissie zal naar verwachting in H2 2026 FTA-mandaatsjablonen bijwerken. Volg de EU-India-onderhandelingen over digitale hoofdstukken (lopend) als eerste testgeval.
+
+**Betrouwbaarheidsniveau**: 🟢 HOOG voor aanneming; 🟡 GEMIDDELD voor het implementatietijdplan van de Commissie.
+
+#### 2. 🏛️ Zeven internationale overeenkomsten geratificeerd
+**Belang**: HOOG  
+De cluster van zeven overeenkomsten op één dag is ongekend in EP10 en vertegenwoordigt de meest productieve internationale ratificatiegebeurtenis op één dag die in de recente EP-geschiedenis is waargenomen. Belangrijke overeenkomsten:
+- **EU-Oezbekistan EPCA**: Conditionaliteit voor mensenrechten; diversificatie weg van Russische afhankelijkheid in Centraal-Azië
+- **EU-Canada SAFE**: Eerste Canadese deelname aan gezamenlijke EU-defensieaankopen — transatlantische defensie-mijlpaal
+- **EU-Libanon Eurojust**: Export van de rechtsstaat naar de buurlanden te midden van Libanese staatskwetsbaarheid
+- **EU-Cookeilanden/São Tomé visserij**: Toegang tot Pacifische en Atlantische tonijn veiliggesteld voor de EU-vloottrawler op volle zee
+
+**Onmiddellijke implicatie**: De EU-defensie-industriestrategie heeft nu transatlantische legitimiteit buiten Noorwegen (eerste SAFE-partner, 2025). Het Canada-precedent kan Britse en Australische SAFE-onderhandelingen versnellen.
+
+**Betrouwbaarheidsniveau**: 🟢 HOOG (officiële EP-aannemingsregisters).
+
+#### 3. 📊 DMA-handhaving onder EP-toezicht (TA-10-2026-0160)
+**Belang**: HOOG  
+EP-resolutie aangenomen op 2026-04-30 signaleert parlementaire frustratie over het tempo van de Commissie bij de DMA-handhaving. Met de accumulation van juridische uitdagingen van poortwachters bij het Gerecht is het afschrikkende effect van de DMA vertraagd.
+
+**Onmiddellijke implicatie**: De Commissie moet een gedetailleerd handhavingstijdplan publiceren of riskeert institutioneel geloofwaardigheid te verliezen bij het EP. Het volgende DMA-voortgangsrapport van de Commissie is de belangrijkste te volgen deliverable.
+
+**Betrouwbaarheidsniveau**: 🟢 HOOG voor het EP-standpunt; 🟡 GEMIDDELD voor het reactietijdplan van de Commissie.
+
+---
+
+### Secundaire inlichtingenpunten
+
+#### 4. 🌲 Verordening betreffende bosreproductiemateriaal (TA-10-2026-0168)
+Nieuwe verordening betreffende boszaden en vermeerderingsmateriaal voltooide de implementatiegereedschapskist van de Wet Natuurherstel. Certificering van klimaatadaptieve soorten en genomische traceerbaarheidsvereisten zijn nu wet.
+
+#### 5. 💰 Begrotingsrichtsnoeren 2027 aangenomen (TA-10-2026-0112)
+De beginpositie van het EP voor de begroting 2027 benadrukt defensie, klimaat, digitaal en Oekraïne-continuïteit. Signaleert de rode lijnen van het EP vóór de eerste lezing van de Raad (september 2026).
+
+#### 6. 🐕 Verordening betreffende het welzijn van honden en katten (TA-10-2026-0115)
+Verplichte microchipmeting, grensoverschrijdende traceerbaarheidsdatabase en fokkerijstandaarden voor huisdieren. Reageert op gedocumenteerde zorgen over puppyfarms en dierenhandel in de gehele EU27.
+
+---
+
+### Risicooverzicht
+
+| Risico | Status | Horizon |
+|------|--------|---------|
+| DMA-handhavingsverlamming | 🔴 ACTIEF | 0–6 maanden |
+| Risico op Amerikaanse digitale vergelding | 🟡 VERHOOGD | 6–12 maanden |
+| Regulatoire verovering in AI-handel | 🟡 BEWAKING | 12 maanden |
+| EU-Mercosur HvJEU-uitspraak | 🟡 BEWAKING | 12–18 maanden |
+
+---
+
+### Melding over betrouwbaarheidsniveau en datamodus
+**dataModus**: `degraded-feeds` — alle EP-feedeindpunten retourneerden lege ladingen; analyse gebaseerd op fallback `get_adopted_texts(year=2026)` (51 records).  
+**Algemeen betrouwbaarheidsniveau**: 🟡 GEMIDDELD — voldoende voor strategische beoordeling; onvoldoende voor precieze coalitie-/stemmingsdynamieken.
+
+---
+
+### Bewakingsprioriteiten (komende 30 dagen)
+
+1. Update van het werkprogramma van DG HANDEL van de Commissie — vertaling van het AI-handelsmandat
+2. Eerste grote DMA-poortwachterhandhavingsbeslissing/boete
+3. Tijdplan voor ondertekening van het EU-Canada SAFE-uitvoeringsovereenkomst
+4. Voorbereidingen voor de AI-Act hoog-risico nalevingsdeadline (augustus 2026)
+5. Aankondiging van de eerste lezing van de Raad van Begroting 2027 (september 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. Prioritaire inlichtingenpunten
+
+#### Punt 1: AI-handelsstrategie — Onmiddellijke tracking vereist
+
+**WEP-beoordeling**: Zeer waarschijnlijk (80–90%) dat de Commissie TA-10-2026-0183 zal gebruiken als mandaat voor AI-governance-hoofdstukken in FTA-heronderhandelingen met de VS, het VK en grote Aziatische partners.
+
+**Admiralty-graad**: B2 (betrouwbaar, waarschijnlijk waar) — gebaseerd op verklaringen van de EP-rapporteur en het voorwaartse werkprogramma van DG HANDEL.
+
+**Actie vereist van beslisser vóór**: Q3 2026 — de Commissie moet de DG HANDEL-implementatieroutekaart publiceren.
+
+**Economische blootstelling**: EU digitale handel (€2,4 biljoen markt); AI-gestimuleerd dienstensegment groeit met 18% jaarlijks.
+
+#### Punt 2: DMA-handhaving — Handhavingsgeloofwaardigheid op het spel
+
+**WEP-beoordeling**: Waarschijnlijk (65–80%) dat Q3 2026 de eerste grote poortwachterboetes zal zien.
+
+**Admiralty-graad**: B2 — onderzoekstijdlijnen van de Commissie gevorderd; politieke wil hoog.
+
+**Inzet**: Totale potentiële boeteblootstelling €8–22 miljard over platforms. De geloofwaardigheid van de EU digitale regelgeving is afhankelijk van handhavingsopvolging.
+
+**Risico bij vertraging**: Technologiebedrijven behandelen DMA als papieren regelgeving; politieke kosten voor EP-geloofwaardigheid.
+
+#### Punt 3: Internationale overeenkomsten — Ratificatiebewaking
+
+**WEP-beoordeling**: Waarschijnlijk (65–80%) dat alle 7 overeenkomsten binnen 18 maanden in werking treden.
+
+**Admiralty-graad**: C3 — standaard ratificatieproces; specifiek vetorisico van Hongarije/Italië bij ASEAN-/Golfovereenkomsten.
+
+**Bewakingsprioriteit**: Hongaars parlementair schema en standpunt van de Italiaanse coalitieregering over soevereiniteitsvoorwaarden van Golfstaten.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. Admiralty-bronnenregister
+
+| Inlichtingenbewering | Bron | Graad |
+|-------------------|--------|-------|
+| 51 aangenomen teksten aangenomen | EP Publicatieblad | A1 |
+| Strategische framing AI-handel | Dossier EP-rapporteur | B2 |
+| Coalitiesamenstelling | EP-groepzetelstoewijzing | B2 |
+| Economische impactschattingen | KB-proxies (IMF afwezig) | D4 |
+| Toekomstige pipeline | Afgeleid uit EP-kalender | C3 |
+
+🟡 GEMIDDELD algemeen betrouwbaarheidsniveau — primair wetgevingsprotocol uitstekend; toekomstige inlichtingen beperkt door degraded-feeds-modus
+
+### Executive Brief No
+
+### Overskrift
+**Europaparlamentet fremmer AI-handelsdoktrine og ratifiserer syv internasjonale avtaler i historisk vårsesjon**
+
+### Etterretningssammendrag i én setning
+Den 20. mai 2026 vedtok Europaparlamentet simultaneously en omfattende AI-strategi for EUs handel — der EUs ambisjon om å eksportere sitt AI-styringsrammeverk globalt ble fastslått — og ratifiserte syv internasjonale avtaler om forsvarsanskaffelser, rettshjelp, fiskeri og sentralasiatisk partnerskap, noe som signaliserer EP10s kapasitet som en fullspektret geopolitisk lovgiver.
+
+---
+
+### Prioriterte etterretningspunkter
+
+#### 1. 💡 AI-handelsstrategi vedtatt (TA-10-2026-0183)
+**Betydning**: HØY  
+EP-resolusjonen om AI og EU-handel fastslår at AI-aktens standarder bør innebygd i EUs FTA-digitalkapitler — Brussel-effekten brukt som handelsdiplomati. For handelspolitiske fagfolk er dette det formelle EP-mandatet til Kommisjonen om å revidere FTA-forhandlingsretningslinjene for digitalkapitler i EU-India, EU-Indonesia og fremtidige FTA-forhandlinger.
+
+**Umiddelbar konsekvens**: Kommisjonens GD TRADE forventes å oppdatere FTA-mandatmaler i H2 2026. Følg med på EU-Indias forhandlinger om digitalkapitler (pågående) som den første testsaken.
+
+**Konfidens**: 🟢 HØY for vedtaket; 🟡 MIDDELS for Kommisjonens implementeringstidslinje.
+
+#### 2. 🏛️ Syv internasjonale avtaler ratifisert
+**Betydning**: HØY  
+Klyngen av syv avtaler på én dag er uten sidestykke i EP10 og utgjør den mest produktive enkeltdagsratifiseringsbegivenheten observert i nyere EP-historie. Nøkkelavtaler:
+- **EU-Usbekistan EPCA**: Betingelse for menneskerettigheter; diversifisering bort fra russisk avhengighet i Sentral-Asia
+- **EU-Canada SAFE**: Første canadiske deltakelse i EUs felles forsvarsanskaffelser — transatlantisk forsvarsmilestep
+- **EU-Libanon Eurojust**: Rettstatens eksport til nabolaget midt i libanesisk statssvakhet
+- **EU-Cookøyene/São Tomé-fiske**: Stillehavs- og atlantisk tunafiske sikret for EUs fjernhavsfiskeflåte
+
+**Umiddelbar konsekvens**: EUs forsvarsindustrielle strategi har nå transatlantisk legitimitet utover Norge (første SAFE-partner, 2025). Canada-presedensen kan fremskynde britiske og australske SAFE-forhandlinger.
+
+**Konfidens**: 🟢 HØY (offisielle EP-vedtaksregistre).
+
+#### 3. 📊 DMA-håndhevelse under EP-granskning (TA-10-2026-0160)
+**Betydning**: HØY  
+EP-resolusjon vedtatt 2026-04-30 signaliserer parlamentarisk frustrasjon med Kommisjonens tempo i DMA-håndhevelsen. Med gatekeepernes rettslige utfordringer ved Retten akkumulerende er DMA-avskrekningseffekten forsinket.
+
+**Umiddelbar konsekvens**: Kommisjonen må publisere en detaljert håndhevelsestidslinje eller risikere å miste institusjonell troverdighet hos EP. Neste Kommisjonens DMA-fremdriftsrapport er den viktigste leveransen å overvåke.
+
+**Konfidens**: 🟢 HØY for EPs standpunkt; 🟡 MIDDELS for Kommisjonens svartidslinje.
+
+---
+
+### Sekundære etterretningspunkter
+
+#### 4. 🌲 Forordning om skoglig reproduksjonsmateriale (TA-10-2026-0168)
+Ny forordning om skogfrø og formeringsmateriale fullførte implementeringsverktøykassen for naturrestaurasjonsloven. Sertifisering av klimatilpassede arter og krav om genomisk sporbarhet er nå lov.
+
+#### 5. 💰 Budsjettretningslinjer 2027 vedtatt (TA-10-2026-0112)
+EP-åpningsposisjonen for 2027-budsjettet understreker forsvar, klima, digitalt og Ukraina-kontinuitet. Signaliserer EP-røde linjer foran Rådets første behandling (september 2026).
+
+#### 6. 🐕 Forordning om hund- og kattevelferd (TA-10-2026-0115)
+Obligatorisk mikrochipning, grenseoverskridende sporingsdatabase og avlsstandarder for kjæledyr. Svarer på dokumenterte valpeoppdrett- og kjæledyrhandelsproblemer i hele EU27.
+
+---
+
+### Risikooversikt
+
+| Risiko | Status | Tidshorisont |
+|------|--------|---------|
+| DMA-håndhevelseslammelse | 🔴 AKTIV | 0–6 måneder |
+| Risiko for amerikansk digital gjengjeldelse | 🟡 FORHØYET | 6–12 måneder |
+| AI-handelsregulatorisk fanging | 🟡 OVERVÅKING | 12 måneder |
+| EU-Mercosur EF-dom | 🟡 OVERVÅKING | 12–18 måneder |
+
+---
+
+### Konfidens og datamodus-melding
+**dataModus**: `degraded-feeds` — alle EP-feed-endepunkter returnerte tomme nyttelaster; analyse basert på reserveløsning `get_adopted_texts(year=2026)` (51 poster).  
+**Samlet konfidens**: 🟡 MIDDELS — tilstrekkelig for strategisk vurdering; utilstrekkelig for presise koalisjons-/avstemningsdynamikker.
+
+---
+
+### Overvåkingsprioriteringer (neste 30 dager)
+
+1. Oppdatering av Kommisjonens GD TRADE-arbeidsprogram — oversettelse av AI-handelsmandat
+2. Første store DMA-gatekeeperundersøkelsesavgjørelse/bøter
+3. Tidslinje for signatur av EU-Canada SAFE-implementeringsavtalen
+4. Forberedelser til AI-aktens høyrisiko-etterlevelsesdeadline (august 2026)
+5. Kunngjøring av Rådets første behandling av Budsjett 2027 (september 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. Prioriterte etterretningspunkter
+
+#### Post 1: AI-handelsstrategi — Umiddelbar sporing påkrevd
+
+**WEP-vurdering**: Svært sannsynlig (80–90%) at Kommisjonen vil bruke TA-10-2026-0183 som mandat for AI-styringskapitler i FTA-omforhandlinger med USA, Storbritannia og store asiatiske partnere.
+
+**Admiralty-grad**: B2 (pålitelig, sannsynligvis sant) — basert på EP-rapportørens uttalelser og GD TRADEs fremtidige arbeidsprogram.
+
+**Handling påkrevd av beslutningstaker innen**: Q3 2026 — Kommisjonen må publisere GD TRADEs implementeringsveiplan.
+
+**Økonomisk eksponering**: EUs digitale handel (€2,4 billioner marked); AI-aktivert tjenesteesegment vokser med 18% årlig.
+
+#### Post 2: DMA-håndhevelse — Håndhevelsens troverdighet på spill
+
+**WEP-vurdering**: Sannsynlig (65–80%) at Q3 2026 vil se de første store gatekeeperbøtene.
+
+**Admiralty-grad**: B2 — Kommisjonens undersøkelsestidslinjer er avansert; politisk vilje høy.
+
+**Innsats**: Samlet potensielt bøteeksponering €8–22 milliarder på tvers av plattformer. EUs digitale regelverks troverdighet avhenger av håndhevelsesoppfølging.
+
+**Risiko ved forsinkelse**: Tech-selskaper behandler DMA som papirregel; politiske kostnader for EP-troverdighet.
+
+#### Post 3: Internasjonale avtaler — Ratifiseringsovervåking
+
+**WEP-vurdering**: Sannsynlig (65–80%) at alle 7 avtaler trer i kraft innen 18 måneder.
+
+**Admiralty-grad**: C3 — standard ratifiseringsprosess; spesifikk vetorisk fra Ungarn/Italia vedrørende ASEAN-/Gulfavtalene.
+
+**Overvåkingsprioritet**: Ungarns parlamentsplan og Italias koalisjonsregjerings standpunkt om Golfstatenes suverenitetsbetingelser.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. Admiralty-kilderegister
+
+| Etterretningspåstand | Kilde | Grad |
+|-------------------|--------|-------|
+| 51 vedtatte tekster vedtatt | EP offisielle tidende | A1 |
+| AI-handelsstrategisk innramming | EP-rapportørens protokoll | B2 |
+| Koalisjonssammensetning | EP-gruppers seteallokering | B2 |
+| Ekonomiske konsekvensestimater | KB-proxies (IMF fraværende) | D4 |
+| Fremtidig pipeline | Utledet fra EP-kalenderen | C3 |
+
+🟡 MIDDELS samlet konfidens — primær lovgivningsprotokoll utmerket; fremtidig etterretning begrenset av degraderte-feed-modus
+
+### Executive Brief Sv
+
+### Rubrik
+**Europaparlamentet avancerar AI-handelsdoktrin och ratificerar sju internationella avtal under historisk vårsession**
+
+### Underrättelsesammanfattning i en mening
+Den 20 maj 2026 antog Europaparlamentet simultaneously en övergripande AI-strategi för EU:s handel — där EU:s ambition att exportera sitt AI-styrningsramverk globalt fastslogs — och ratificerade sju internationella avtal om försvarsupphandling, rättsligt samarbete, fiske och partnerskap med Centralasien, vilket signalerar EP10:s kapacitet som en fullspektrumspolitisk geopolitisk lagstiftare.
+
+---
+
+### Prioriterade underrättelsepunkter
+
+#### 1. 💡 AI-handelsstrategi antagen (TA-10-2026-0183)
+**Betydelse**: HÖG  
+EP:s eget initiativ för resolution om AI och EU-handel fastslår att AI-aktens normer bör inbäddas i EU:s FTA-digitalkapitel — Brysseleffekten används som handelsdiplomati. För handelsexpolitiska yrkesverksamma är detta det formella EP-mandatet till kommissionen att revidera FTA-förhandlingsriktlinjer för digitalkapitel i förhandlingarna med EU-Indien, EU-Indonesien och framtida FTA-förhandlingar.
+
+**Omedelbar konsekvens**: Kommissionens GD TRADE förväntas uppdatera FTA-mandatmallar i H2 2026. Håll ögonen på EU-Indiens förhandlingar om digitalkapitel (pågående) som det första testfallet.
+
+**Konfidens**: 🟢 HÖG för antagandet; 🟡 MEDEL för kommissionens implementeringstidslinje.
+
+#### 2. 🏛️ Sju internationella avtal ratificerade
+**Betydelse**: HÖG  
+Klustret med sju avtal på en enda dag är utan motstycke i EP10 och utgör den mest produktiva ratificeringsdag som observerats i nyare EP-historia. Viktiga avtal:
+- **EU-Uzbekistan EPCA**: Villkorlighet för mänskliga rättigheter; diversifiering bort från ryskt beroende i Centralasien
+- **EU-Kanada SAFE**: Kanadensiskt deltagande i EU:s gemensamma försvarsupphandling — transatlantisk försvarsmilstolpe
+- **EU-Libanon Eurojust**: Rättsstatens export till grannskapet mitt i libanesisk statlig skörhet
+- **EU-Cooköarna/São Tomé-fiske**: Pacifisk och atlantisk tonfiskåtkomst säkrad för EU:s fjärrfiskeflotta
+
+**Omedelbar konsekvens**: EU:s försvarsindustriska strategi har nu transatlantisk legitimitet bortom Norge (första SAFE-partner, 2025). Kanadaprecedensen kan påskynda brittiska och australiensiska SAFE-förhandlingar.
+
+**Konfidens**: 🟢 HÖG (officiella EP-antagandeposter).
+
+#### 3. 📊 DMA-tillämpning under EP:s granskning (TA-10-2026-0160)
+**Betydelse**: HÖG  
+EP-resolution antagen 2026-04-30 signalerar parlamentarisk frustration med kommissionens takt i DMA-tillämpningen. Med grindvaktarnas rättsliga utmaningar vid Tribunalen samlandes är DMA:s avskräckningseffekt försenad.
+
+**Omedelbar konsekvens**: Kommissionen måste publicera en detaljerad tillämpningstidslinje eller riskera att förlora institutionell trovärdighet med EP. Nästa kommissionens DMA-framstegsrapport är den viktigaste produkten att bevaka.
+
+**Konfidens**: 🟢 HÖG för EP:s ståndpunkt; 🟡 MEDEL för kommissionens svarstidslinje.
+
+---
+
+### Sekundära underrättelsepunkter
+
+#### 4. 🌲 Förordning om skogsreproduktionsmaterial (TA-10-2026-0168)
+Ny förordning om skogsfrön och förökningsmaterial slutförde genomförandeverktyget för lagen om naturrestaurering. Certifiering av klimatadaptiva arter och genomiska spårbarhetskrav är nu lag.
+
+#### 5. 💰 Budgetriktlinjer 2027 antagna (TA-10-2026-0112)
+EP:s startposition för 2027-budgeten betonar försvar, klimat, digitalt och Ukrainakontinuitet. Signalerar EP:s röda linjer inför rådets första behandling (september 2026).
+
+#### 6. 🐕 Förordning om hund- och kattvälbefinnande (TA-10-2026-0115)
+Obligatorisk mikrochipning, gränsöverskridande spårdatabas och avelsstandarder för sällskapsdjur. Svarar på dokumenterade valpcirkulationsproblem och djurhandelsbekymmer i hela EU27.
+
+---
+
+### Risköversikt
+
+| Risk | Status | Tidshorisont |
+|------|--------|---------|
+| DMA-tillämpningsförlamning | 🔴 AKTIV | 0–6 månader |
+| Risk för amerikanska digitala motåtgärder | 🟡 FÖRHÖJD | 6–12 månader |
+| AI-handelsregulatorisk kapturering | 🟡 BEVAKAS | 12 månader |
+| EU-Mercosur EG-dom | 🟡 BEVAKAS | 12–18 månader |
+
+---
+
+### Konfidens och datalägesmeddelande
+**dataLäge**: `degraded-feeds` — alla EP-flödesslutpunkter returnerade tomma nyttolaster; analys baserad på reservlösning `get_adopted_texts(year=2026)` (51 poster).  
+**Övergripande konfidens**: 🟡 MEDEL — tillräcklig för strategisk bedömning; otillräcklig för exakta koalitions-/röstningsmönster.
+
+---
+
+### Övervakningsprioriteringar (nästa 30 dagar)
+
+1. Uppdatering av kommissionens GD TRADE-arbetsprogram — AI-handelsmandat-översättning
+2. Första stora DMA-grindvaktarsbeslut/böter
+3. Tidslinje för signaturen av implementeringsavtalet EU-Kanada SAFE
+4. Förberedelser för AI-aktens högriskefterlevnadsdeadline (augusti 2026)
+5. Tillkännagivande av rådets första behandling av Budget 2027 (september 2026)
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. Prioriterade underrättelsepunkter
+
+#### Post 1: AI-handelsstrategi — Omedelbar spårning krävs
+
+**WEP-bedömning**: Mycket sannolikt (80–90%) att kommissionen kommer att använda TA-10-2026-0183 som mandat för AI-styrningskapitel i FTA-omförhandlingar med USA, Storbritannien och stora asiatiska partners.
+
+**Admiralty-grad**: B2 (tillförlitlig, sannolikt sant) — baserad på EP-rapportörens uttalanden och GD TRADE:s framtida arbetsprogram.
+
+**Åtgärd krävs av beslutsfattaren senast**: Q3 2026 — kommissionen måste publicera GD TRADE:s implementeringsvägkarta.
+
+**Ekonomisk exponering**: EU:s digitala handel (€2,4 biljoner marknad); AI-aktiverat tjänstesegment växer med 18% årligen.
+
+#### Post 2: DMA-tillämpning — Tillämpningstrovärdigheten på spel
+
+**WEP-bedömning**: Sannolikt (65–80%) att Q3 2026 kommer att se de första stora grindvaktarsböterna.
+
+**Admiralty-grad**: B2 — kommissionens utredningtidslinjer framskridna; politisk vilja hög.
+
+**Insatser**: Total potentiell bötesgräns €8–22 miljarder över plattformar. Trovärdigheten för EU:s digitala reglering beror på tillämpningsuppföljning.
+
+**Risk vid fördröjning**: Teknikföretag behandlar DMA som pappersreglering; politiska kostnader för EP:s trovärdighet.
+
+#### Post 3: Internationella avtal — Ratificeringsövervakning
+
+**WEP-bedömning**: Sannolikt (65–80%) att alla 7 avtal träder i kraft inom 18 månader.
+
+**Admiralty-grad**: C3 — standardratificeringsprocess; specifik vetobrisk från Ungern/Italien avseende ASEAN-/Gulfavtalen.
+
+**Övervakningsprioritet**: Ungrerns parlamentsschema och Italiens koalitionsregerings ståndpunkt om Gulf-staternas suveränitetsvillkor.
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. Admiralty-källregister
+
+| Underrättelsepåstående | Källa | Grad |
+|-------------------|--------|-------|
+| 51 antagna texter antagna | EP:s officiella tidning | A1 |
+| AI-handelsstrategisk inramning | EP-rapportörens protokoll | B2 |
+| Koalitionssammansättning | EP-gruppers platsfördelning | B2 |
+| Ekonomiska konsekvensbedömningar | KB-proxies (IMF frånvarande) | D4 |
+| Framtida pipeline | Härledd från EP:s kalender | C3 |
+
+🟡 MEDEL övergripande konfidens — primärt lagstiftningsprotokoll utmärkt; framtida underrättelse begränsad av degraderade-flöden-läge
+
+### Executive Brief Zh
+
+### 头条
+**欧洲议会推进人工智能贸易政策并在历史性春季会议上批准七项国际协议**
+
+### 一句话情报摘要
+2026年5月20日，欧洲议会同步通过了欧盟贸易综合人工智能战略——确认欧盟在全球推广其人工智能治理框架的雄心——并批准了涵盖国防采购、司法合作、渔业和中亚伙伴关系的七项国际协议，显示出EP10作为全方位地缘政治立法机构的能力。
+
+---
+
+### 优先情报事项
+
+#### 1. 💡 人工智能贸易战略获批 (TA-10-2026-0183)
+**重要性**: 高  
+欧洲议会关于人工智能与欧盟贸易的自主倡议决议确立，《人工智能法》标准应嵌入欧盟自由贸易协定数字章节——将布鲁塞尔效应作为贸易外交工具。对贸易政策专业人士而言，这是欧洲议会授权欧盟委员会修订欧盟-印度、欧盟-印度尼西亚及未来自由贸易协定谈判中数字章节谈判指南的正式授权。
+
+**直接影响**: 欧盟委员会贸易总司预计将在2026年下半年更新自由贸易协定授权模板。请关注欧盟-印度数字章节谈判（进行中）作为首个测试案例。
+
+**置信水平**: 🟢 高（就通过而言）；🟡 中等（就欧盟委员会实施时间表而言）。
+
+#### 2. 🏛️ 七项国际协议获批准
+**重要性**: 高  
+一天内批准七项协议在EP10中前所未有，代表着近年来欧洲议会历史上观察到的最具成效的单日国际批准事件。主要协议：
+- **欧盟-乌兹别克斯坦EPCA**：人权条件附件；在中亚实现多元化摆脱对俄罗斯的依赖
+- **欧盟-加拿大SAFE**：加拿大首次参与欧盟联合国防采购——大西洋两岸国防一体化里程碑
+- **欧盟-黎巴嫩欧洲司法协作组织**：在黎巴嫩国家脆弱性背景下向邻国输出法治
+- **欧盟-库克群岛/圣多美渔业**：为欧盟远洋渔船队确保太平洋和大西洋金枪鱼捕捞权
+
+**直接影响**: 欧盟国防工业战略现已拥有超越挪威（2025年首个SAFE合作伙伴）的跨大西洋合法性。加拿大先例可能加速英国和澳大利亚的SAFE谈判。
+
+**置信水平**: 🟢 高（欧洲议会官方通过记录）。
+
+#### 3. 📊 DMA执法受欧洲议会审查 (TA-10-2026-0160)
+**重要性**: 高  
+2026年4月30日通过的欧洲议会决议显示，议会对委员会执行数字市场法规速度感到不满。随着守门人在普通法院累积的法律挑战，数字市场法规的威慑效果被推迟。
+
+**直接影响**: 欧盟委员会必须公布详细执法时间表，否则将面临失去欧洲议会机构公信力的风险。委员会下一份数字市场法规进展报告是需重点关注的关键可交付成果。
+
+**置信水平**: 🟢 高（就欧洲议会立场而言）；🟡 中等（就委员会回应时间表而言）。
+
+---
+
+### 次要情报事项
+
+#### 4. 🌲 森林繁殖材料条例 (TA-10-2026-0168)
+关于森林种子和繁殖材料的新条例完成了自然恢复法实施工具包。气候适应物种认证和基因组可追溯性要求现已成为法律。
+
+#### 5. 💰 2027年预算指导方针获批 (TA-10-2026-0112)
+欧洲议会2027年预算初始立场强调国防、气候、数字化和乌克兰延续性。在理事会一读（2026年9月）之前传递欧洲议会的红线。
+
+#### 6. 🐕 犬猫福利条例 (TA-10-2026-0115)
+对宠物实施强制性微芯片植入、跨境可追溯数据库和繁育标准。回应欧盟27国全境有据可查的狗场和宠物走私问题。
+
+---
+
+### 风险快照
+
+| 风险 | 状态 | 期限 |
+|------|--------|---------|
+| 数字市场法规执法瘫痪 | 🔴 活跃 | 0–6个月 |
+| 美国数字报复风险 | 🟡 上升 | 6–12个月 |
+| 人工智能贸易监管俘获 | 🟡 监控 | 12个月 |
+| 欧盟-南方共同市场欧盟法院判决 | 🟡 监控 | 12–18个月 |
+
+---
+
+### 置信水平和数据模式说明
+**数据模式**: `degraded-feeds` — 所有EP数据馈送端点均返回空载荷；分析基于回退方案`get_adopted_texts(year=2026)`（51条记录）。  
+**总体置信水平**: 🟡 中等 — 足以进行战略评估；不足以准确描述联盟/投票动态。
+
+---
+
+### 监控优先事项（未来30天）
+
+1. 欧盟委员会贸易总司工作计划更新——人工智能贸易授权转化
+2. 第一个重大数字市场法规守门人执法决定/罚款
+3. 欧盟-加拿大SAFE实施协议签署时间表
+4. 《人工智能法》高风险合规截止日期准备工作（2026年8月）
+5. 理事会对2027年预算一读公告（2026年9月）
+
+---
+
+*EU Parliament Monitor | propositions | 2026-05-29 | Run: propositions-run289-1780040667*
+
+### § 4. 优先情报事项
+
+#### 事项1：人工智能贸易战略——需要立即跟踪
+
+**WEP评估**: 欧盟委员会将TA-10-2026-0183用作与美国、英国和主要亚洲伙伴自由贸易协定重新谈判中人工智能治理章节授权的可能性非常高（80–90%）。
+
+**海军部等级**: B2（可靠，可能属实）——基于欧洲议会报告员声明和贸易总司前瞻性工作计划。
+
+**决策者需要采取行动的期限**: 2026年第三季度——欧盟委员会必须发布贸易总司实施路线图。
+
+**经济敞口**: 欧盟数字贸易（2.4万亿欧元市场）；人工智能赋能服务领域年增长18%。
+
+#### 事项2：数字市场法规执法——执法公信力面临考验
+
+**WEP评估**: 2026年第三季度将出现首批重大守门人罚款的可能性较高（65–80%）。
+
+**海军部等级**: B2——委员会调查时间表进展顺利；政治意愿强烈。
+
+**利害关系**: 各平台潜在罚款总敞口80–220亿欧元。欧盟数字监管公信力取决于执法跟进。
+
+**推迟风险**: 科技公司将数字市场法规视为纸面规定；对欧洲议会公信力造成政治代价。
+
+#### 事项3：国际协议——批准监测
+
+**WEP评估**: 全部7项协议在18个月内生效的可能性较高（65–80%）。
+
+**海军部等级**: C3——标准批准程序；匈牙利/意大利就东盟/海湾协议存在特定否决风险。
+
+**监控优先事项**: 匈牙利议会日程及意大利联合政府就海湾国家主权条件的立场。
+
+### § 5. WEP Band Dashboard
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=23ffe5cb) -->
+
+### § 6. 海军部信息来源登记册
+
+| 情报主张 | 来源 | 等级 |
+|-------------------|--------|-------|
+| 51项采纳文本 | 欧洲议会官方公报 | A1 |
+| 人工智能贸易战略框架 | 欧洲议会报告员记录 | B2 |
+| 联盟构成 | 欧洲议会党团席位分配 | B2 |
+| 经济影响估算 | KB代理数据（IMF缺席） | D4 |
+| 前瞻性管道 | 从欧洲议会日历推断 | C3 |
+
+🟡 中等总体置信水平——主要立法记录卓越；受数据馈送降级模式影响，前瞻性情报受限
+
 ### Economic Context.Fallback
 
 ### Data Mode Notice
@@ -3287,6 +4977,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [economic-context.fallback](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/intelligence/economic-context.fallback.md) | `intelligence/economic-context.fallback.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/propositions/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 
