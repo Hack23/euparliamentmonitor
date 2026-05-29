@@ -8,7 +8,7 @@
  * that mirrors the Reader Intelligence Guide so the two navigation
  * surfaces share a single visual vocabulary.
  */
-import { TOC_ARIA_LABELS, TRADECRAFT_HEADING_LABELS, ANALYSIS_INDEX_HEADING_LABELS, KEY_TAKEAWAYS_HEADING_LABELS, SUPPLEMENTARY_HEADING_LABELS, SECTION_TITLE_LABELS, getLocalizedString, } from '../../constants/languages.js';
+import { TOC_ARIA_LABELS, TRADECRAFT_HEADING_LABELS, ANALYSIS_INDEX_HEADING_LABELS, KEY_TAKEAWAYS_HEADING_LABELS, SUPPLEMENTARY_HEADING_LABELS, SECTION_TITLE_LABELS, PROGRESSIVE_DISCLOSURE_LABELS, getLocalizedString, } from '../../constants/languages.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { READER_GUIDE_SECTION_ID } from '../reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS, getReaderGuideSectionIcon, } from '../reader-intelligence-guide.js';
@@ -91,13 +91,15 @@ export function buildArticleToc(entries, lang) {
     if (entries.length === 0)
         return '';
     const label = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
+    const layerBadgeWord = getLocalizedString(PROGRESSIVE_DISCLOSURE_LABELS, lang).layerBadge;
     const items = entries
         .map((e) => {
         const displayTitle = getLocalizedTocTitle(e.id, e.title, lang);
         const icon = getTocSectionIcon(e.id);
         const layer = resolveDisclosureLayer(e.id);
         const layerBadge = layer === 'quick' ? 'L1' : layer === 'analysis' ? 'L2' : 'L3';
-        return `        <li data-layer="${layer}"><a href="#${escapeHTML(e.id)}"><span class="article-toc-icon" aria-hidden="true">${icon}</span> <span class="article-toc-text">${escapeHTML(displayTitle)}</span><span class="article-toc-layer article-toc-layer--${layer}" aria-label="Layer ${layerBadge}">${layerBadge}</span></a></li>`;
+        const layerAria = escapeHTML(`${layerBadgeWord} ${layerBadge}`);
+        return `        <li data-layer="${layer}"><a href="#${escapeHTML(e.id)}"><span class="article-toc-icon" aria-hidden="true">${icon}</span> <span class="article-toc-text">${escapeHTML(displayTitle)}</span><span class="article-toc-layer article-toc-layer--${layer}" aria-label="${layerAria}">${layerBadge}</span></a></li>`;
     })
         .join('\n');
     return [

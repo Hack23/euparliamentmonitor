@@ -23,6 +23,7 @@ import {
   VIEW_SOURCE_MARKDOWN_LABELS,
   FOOTER_SITEMAP_LABELS,
   FOOTER_POLITICAL_INTELLIGENCE_LABELS,
+  PROGRESSIVE_DISCLOSURE_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../../constants/languages.js';
@@ -340,7 +341,7 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const articleMainClass = tocHtml.length > 0 ? 'article-main--with-toc' : 'article-main--no-toc';
 
   const articleSectionLabel = getLocalizedArticleTypePlain(options.articleType, safeLang);
-  const disclosureBody = buildProgressiveDisclosureBody(options.body);
+  const disclosureBody = buildProgressiveDisclosureBody(options.body, safeLang);
   const transformedBodyHtml =
     options.readerFriendly === false
       ? disclosureBody.bodyHtml
@@ -356,7 +357,9 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
     disclosureBody.wordCounts.analysis +
     disclosureBody.wordCounts.intelligence;
   const readingTimes = options.readingTimes ?? buildLayerReadingTimes(disclosureBody.wordCounts);
-  const readingTimeLine = `⏱️ Quick read: ${readingTimes.quickRead} min · Full analysis: ${readingTimes.fullAnalysis} min · Complete intelligence: ${readingTimes.completeIntelligence} min`;
+  const disclosureLabels = getLocalizedString(PROGRESSIVE_DISCLOSURE_LABELS, safeLang);
+  const min = disclosureLabels.minutesAbbr;
+  const readingTimeLine = `⏱️ ${disclosureLabels.quickRead}: ${readingTimes.quickRead} ${min} · ${disclosureLabels.fullAnalysis}: ${readingTimes.fullAnalysis} ${min} · ${disclosureLabels.completeIntelligence}: ${readingTimes.completeIntelligence} ${min}`;
 
   // Pre-compute the per-surface SEO-budget-clamped variants of title
   // and description. Each surface gets its own clamp tuned to the
@@ -568,7 +571,7 @@ ${tocHtml}    <article class="article-body" lang="${safeLang}">
         <p class="article-kicker">${escapeHTML(getLocalizedArticleType(options.articleType, safeLang))}</p>
         <h1>${escapeHTML(options.title)}</h1>
         <p class="article-dek">${escapeHTML(options.description)}</p>
-        <p class="article-reading-times" aria-label="Estimated reading time">${escapeHTML(readingTimeLine)}</p>
+        <p class="article-reading-times" aria-label="${escapeHTML(disclosureLabels.readingTimeAria)}">${escapeHTML(readingTimeLine)}</p>
         <p class="article-meta"><time datetime="${options.date}">${options.date}</time> · EU Parliament Monitor</p>
       </header>
       ${sourceMdLink}

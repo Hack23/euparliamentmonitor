@@ -13,6 +13,7 @@
  * - `article-category-labels.ts`     — `ARTICLE_TYPE_LABELS`, `ARTICLE_TYPE_ICONS`
  * - `accessibility.ts`               — `SKIP_LINK_TEXTS`, `TOC_ARIA_LABELS`, language-switcher / footer trust-badge ARIA labels
  * - `reading-time.ts`                — `READ_TIME_LABELS` (per-language pluralization)
+ * - `progressive-disclosure.ts`      — `PROGRESSIVE_DISCLOSURE_LABELS` (reading layers, expand CTAs, reading-time line, TOC layer badge)
  * - `ai-content.ts`                  — `AI_SECTION_CONTENT` + `AISection` interface
  * - `related-analysis.ts`            — `SECTION_TITLE_LABELS`, `RELATED_ANALYSIS_LABELS`
  * - `tradecraft-cards.ts`            — tradecraft / analysis-index card labels
@@ -26,6 +27,7 @@ export { FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LIN
 export { ARTICLE_TYPE_LABELS, ARTICLE_TYPE_ICONS, HE_DEEP_ANALYSIS, } from './article-category-labels.js';
 export { SKIP_LINK_TEXTS, TOC_ARIA_LABELS, LANGUAGE_SELECTION_ARIA_LABELS, FOOTER_TRUST_BADGES_ARIA_LABELS, } from './accessibility.js';
 export { READ_TIME_LABELS } from './reading-time.js';
+export { PROGRESSIVE_DISCLOSURE_LABELS, } from './progressive-disclosure.js';
 export { AI_SECTION_CONTENT } from './ai-content.js';
 export { SECTION_TITLE_LABELS, RELATED_ANALYSIS_LABELS, } from './related-analysis.js';
 export { TRADECRAFT_HEADING_LABELS, TRADECRAFT_INTRO_LABELS, TRADECRAFT_METHODOLOGIES_LABELS, TRADECRAFT_TEMPLATES_LABELS, ANALYSIS_INDEX_HEADING_LABELS, ANALYSIS_INDEX_INTRO_LABELS, ANALYSIS_INDEX_COL_SECTION_LABELS, ANALYSIS_INDEX_COL_ARTIFACT_LABELS, ANALYSIS_INDEX_COL_PATH_LABELS, VIEW_SOURCE_LABELS, VIEW_SOURCE_MARKDOWN_LABELS, OPEN_SOURCE_NOTE_LABELS, } from './tradecraft-cards.js';

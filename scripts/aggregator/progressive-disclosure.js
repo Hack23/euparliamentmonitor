@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { stripHtmlTags } from '../utils/html-sanitize.js';
+import { PROGRESSIVE_DISCLOSURE_LABELS } from '../constants/languages.js';
+import { getLocalizedString } from '../constants/language-core.js';
 export const QUICK_LAYER_SECTION_IDS = new Set([
     'executive-brief',
     'key-takeaways',
@@ -87,18 +89,19 @@ export function buildLayerReadingTimes(words) {
         completeIntelligence: estimateReadingMinutes(complete),
     };
 }
-export function buildProgressiveDisclosureBody(bodyHtml) {
+export function buildProgressiveDisclosureBody(bodyHtml, lang = 'en') {
+    const labels = getLocalizedString(PROGRESSIVE_DISCLOSURE_LABELS, lang);
     const layers = splitBodyIntoDisclosureLayers(bodyHtml);
     const output = [
-        `<section class="article-layer article-layer--quick" data-disclosure-layer="quick" aria-label="Quick read">`,
+        `<section class="article-layer article-layer--quick" data-disclosure-layer="quick" aria-label="${labels.quickRead}">`,
         layers.quickHtml,
         `</section>`,
     ];
     if (layers.analysisHtml.trim().length > 0) {
-        output.push(`<details class="article-layer article-layer--analysis article-layer-details" data-disclosure-layer="analysis" id="article-layer-analysis">`, `<summary class="article-layer-summary"><span class="article-layer-summary__title">Read full analysis ↓</span></summary>`, `<section class="article-layer-content" aria-label="Full analysis">`, layers.analysisHtml, `</section>`, `</details>`);
+        output.push(`<details class="article-layer article-layer--analysis article-layer-details" data-disclosure-layer="analysis" id="article-layer-analysis">`, `<summary class="article-layer-summary"><span class="article-layer-summary__title">${labels.expandAnalysis} ↓</span></summary>`, `<section class="article-layer-content" aria-label="${labels.fullAnalysis}">`, layers.analysisHtml, `</section>`, `</details>`);
     }
     if (layers.intelligenceHtml.trim().length > 0) {
-        output.push(`<details class="article-layer article-layer--intelligence article-layer-details" data-disclosure-layer="intelligence" id="article-layer-intelligence">`, `<summary class="article-layer-summary"><span class="article-layer-summary__title">Open complete intelligence ↓</span></summary>`, `<section class="article-layer-content" aria-label="Complete intelligence">`, layers.intelligenceHtml, `</section>`, `</details>`);
+        output.push(`<details class="article-layer article-layer--intelligence article-layer-details" data-disclosure-layer="intelligence" id="article-layer-intelligence">`, `<summary class="article-layer-summary"><span class="article-layer-summary__title">${labels.expandIntelligence} ↓</span></summary>`, `<section class="article-layer-content" aria-label="${labels.completeIntelligence}">`, layers.intelligenceHtml, `</section>`, `</details>`);
     }
     return { bodyHtml: output.join('\n'), wordCounts: layers.wordCounts };
 }
