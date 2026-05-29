@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { stripHtmlTags } from '../utils/html-sanitize.js';
+import { escapeHTML } from '../utils/file-utils.js';
 import { PROGRESSIVE_DISCLOSURE_LABELS } from '../constants/languages.js';
 import { getLocalizedString } from '../constants/language-core.js';
 import type { LanguageCode } from '../types/index.js';
@@ -135,7 +136,7 @@ export function buildProgressiveDisclosureBody(
   const labels = getLocalizedString(PROGRESSIVE_DISCLOSURE_LABELS, lang);
   const layers = splitBodyIntoDisclosureLayers(bodyHtml);
   const output: string[] = [
-    `<section class="article-layer article-layer--quick" data-disclosure-layer="quick" aria-label="${labels.quickRead}">`,
+    `<section class="article-layer article-layer--quick" data-disclosure-layer="quick" aria-label="${escapeHTML(labels.quickRead)}">`,
     layers.quickHtml,
     `</section>`,
   ];
@@ -143,8 +144,8 @@ export function buildProgressiveDisclosureBody(
   if (layers.analysisHtml.trim().length > 0) {
     output.push(
       `<details class="article-layer article-layer--analysis article-layer-details" data-disclosure-layer="analysis" id="article-layer-analysis">`,
-      `<summary class="article-layer-summary"><span class="article-layer-summary__title">${labels.expandAnalysis} ↓</span></summary>`,
-      `<section class="article-layer-content" aria-label="${labels.fullAnalysis}">`,
+      `<summary class="article-layer-summary"><span class="article-layer-summary__title">${escapeHTML(labels.expandAnalysis)} ↓</span></summary>`,
+      `<section class="article-layer-content" aria-label="${escapeHTML(labels.fullAnalysis)}">`,
       layers.analysisHtml,
       `</section>`,
       `</details>`
@@ -154,8 +155,8 @@ export function buildProgressiveDisclosureBody(
   if (layers.intelligenceHtml.trim().length > 0) {
     output.push(
       `<details class="article-layer article-layer--intelligence article-layer-details" data-disclosure-layer="intelligence" id="article-layer-intelligence">`,
-      `<summary class="article-layer-summary"><span class="article-layer-summary__title">${labels.expandIntelligence} ↓</span></summary>`,
-      `<section class="article-layer-content" aria-label="${labels.completeIntelligence}">`,
+      `<summary class="article-layer-summary"><span class="article-layer-summary__title">${escapeHTML(labels.expandIntelligence)} ↓</span></summary>`,
+      `<section class="article-layer-content" aria-label="${escapeHTML(labels.completeIntelligence)}">`,
       layers.intelligenceHtml,
       `</section>`,
       `</details>`

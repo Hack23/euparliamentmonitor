@@ -95,6 +95,15 @@
  *         { "lang": "zh", "count": 92 }
  *       ]
  *     },
+ *     "translationRegister": {
+ *       "sv": {
+ *         "name": "Swedish", "family": "Nordic",
+ *         "register": "Formal, impersonal …",
+ *         "fixedTokenNote": "IMF/WEO verbatim — never IVF …",
+ *         "terms": { "European Parliament": "Europaparlamentet", … }
+ *       },
+ *       ...
+ *     },
  *     "queue": [
  *       {
  *         "date": "2026-05-15",
@@ -427,6 +436,276 @@ const FIXED_TOKEN_CLASSES = Object.freeze([
 ]);
 
 /**
+ * Machine-readable mirror of the per-language register the translator agent
+ * needs on every run — the style register (§ 4) and canonical EP terminology
+ * pairs (§ 5) of `analysis/methodologies/executive-brief-translation-guide.md`.
+ *
+ * Emitted ONCE into the discovery queue payload (as `translationRegister`,
+ * filtered to the languages the run actually touches) so the agent reads the
+ * rows it needs inline from `queue.json` instead of opening the full ~18 KB
+ * guide in-session on every turn. Bounding what enters the agent's context
+ * directly bounds the per-session effective-token accumulation that is the
+ * binding constraint on this workflow (see news-translate.md frontmatter and
+ * regression run #26641760920).
+ *
+ * Each entry:
+ *   - `name`           — endonym/English name of the language (operator-facing)
+ *   - `family`         — register family (Nordic | EU-core | RTL | CJK)
+ *   - `register`       — one-line style-register reminder (guide § 4)
+ *   - `fixedTokenNote` — one-line FIXED-TOKEN preservation trap (guide § 4,
+ *                        validator gate #5); the highest-frequency failure mode
+ *   - `terms`          — canonical EN→target EP terminology pairs (guide § 5)
+ *
+ * This is a deliberate, reviewed duplication of the prose guide: when § 4 / § 5
+ * change, update this constant in the same PR. The drift-guard test
+ * `discover-untranslated-briefs.test.js` asserts the shape and a few anchor
+ * values so the two cannot silently diverge on the fields that matter.
+ *
+ * @type {Readonly<Record<string, { name: string, family: string, register: string, fixedTokenNote: string, terms: Record<string, string> }>>}
+ */
+export const TRANSLATION_REGISTER = Object.freeze({
+  sv: {
+    name: 'Swedish',
+    family: 'Nordic',
+    register: 'Formal, impersonal (man / Europaparlamentet); avoid du-tilltal.',
+    fixedTokenNote:
+      "IMF/WEO verbatim — never IVF or 'Internationella valutafonden'. World Bank/Fiscal Monitor verbatim.",
+    terms: {
+      'European Parliament': 'Europaparlamentet',
+      'Plenary session': 'plenarsammanträde',
+      Committee: 'utskott',
+      Rapporteur: 'föredragande',
+      'Legislative procedure': 'lagstiftningsförfarande',
+      Resolution: 'resolution',
+      'Adopted text': 'antagen text',
+      Vote: 'omröstning',
+    },
+  },
+  da: {
+    name: 'Danish',
+    family: 'Nordic',
+    register: 'Formal, indicative mood; official EP designations.',
+    fixedTokenNote:
+      "IMF/WEO verbatim — never IMV or 'Den Internationale Valutafond'. World Bank/Fiscal Monitor verbatim.",
+    terms: {
+      'European Parliament': 'Europa-Parlamentet',
+      'Plenary session': 'plenarmøde',
+      Committee: 'udvalg',
+      Rapporteur: 'ordfører',
+      'Legislative procedure': 'lovgivningsprocedure',
+      Resolution: 'beslutning',
+      'Adopted text': 'vedtaget tekst',
+      Vote: 'afstemning',
+    },
+  },
+  no: {
+    name: 'Norwegian',
+    family: 'Nordic',
+    register: 'Formal, indicative mood; official EP designations.',
+    fixedTokenNote:
+      "IMF/WEO verbatim — never IPF/IMV/'Det internasjonale valutafondet'/Pengefondet/'Verdens økonomiske utsikter'. World Bank/Fiscal Monitor verbatim.",
+    terms: {
+      'European Parliament': 'Europaparlamentet',
+      'Plenary session': 'plenumsmøte',
+      Committee: 'komité',
+      Rapporteur: 'ordfører',
+      'Legislative procedure': 'lovgivningsprosedyre',
+      Resolution: 'resolusjon',
+      'Adopted text': 'vedtatt tekst',
+      Vote: 'avstemning',
+    },
+  },
+  fi: {
+    name: 'Finnish',
+    family: 'Nordic',
+    register: 'Formal; partitive + case agreement non-negotiable.',
+    fixedTokenNote:
+      "IMF/WEO verbatim — never KVR or 'Kansainvälinen valuuttarahasto'. World Bank/Fiscal Monitor verbatim.",
+    terms: {
+      'European Parliament': 'Euroopan parlamentti',
+      'Plenary session': 'täysistunto',
+      Committee: 'valiokunta',
+      Rapporteur: 'esittelijä',
+      'Legislative procedure': 'lainsäädäntömenettely',
+      Resolution: 'päätöslauselma',
+      'Adopted text': 'hyväksytty teksti',
+      Vote: 'äänestys',
+    },
+  },
+  de: {
+    name: 'German',
+    family: 'EU-core',
+    register:
+      "Formal (Sie); capitalise nouns; 'Europäisches Parlament' not 'EU-Parlament' in titles.",
+    fixedTokenNote:
+      'IMF/WEO/World Bank/Fiscal Monitor verbatim — never IWF.',
+    terms: {
+      'European Parliament': 'Europäisches Parlament',
+      'Plenary session': 'Plenarsitzung',
+      Committee: 'Ausschuss',
+      Rapporteur: 'Berichterstatter',
+      'Legislative procedure': 'Gesetzgebungsverfahren',
+      Resolution: 'Entschließung',
+      'Adopted text': 'angenommener Text',
+      Vote: 'Abstimmung',
+    },
+  },
+  fr: {
+    name: 'French',
+    family: 'EU-core',
+    register:
+      'Formal (vous); Académie française register; avoid Anglicisms unless source uses one as a fixed token.',
+    fixedTokenNote:
+      'IMF/WEO/World Bank/Fiscal Monitor verbatim — never FMI.',
+    terms: {
+      'European Parliament': 'Parlement européen',
+      'Plenary session': 'séance plénière',
+      Committee: 'commission',
+      Rapporteur: 'rapporteur',
+      'Legislative procedure': 'procédure législative',
+      Resolution: 'résolution',
+      'Adopted text': 'texte adopté',
+      Vote: 'vote',
+    },
+  },
+  es: {
+    name: 'Spanish',
+    family: 'EU-core',
+    register: 'Peninsular es-ES; formal; avoid Latin-American vocabulary.',
+    fixedTokenNote:
+      'IMF/WEO/World Bank/Fiscal Monitor verbatim — never FMI.',
+    terms: {
+      'European Parliament': 'Parlamento Europeo',
+      'Plenary session': 'sesión plenaria',
+      Committee: 'comisión',
+      Rapporteur: 'ponente',
+      'Legislative procedure': 'procedimiento legislativo',
+      Resolution: 'resolución',
+      'Adopted text': 'texto aprobado',
+      Vote: 'votación',
+    },
+  },
+  nl: {
+    name: 'Dutch',
+    family: 'EU-core',
+    register: 'Formal (u-form); prefer impersonal constructions.',
+    fixedTokenNote:
+      "IMF/WEO/World Bank/Fiscal Monitor verbatim — never IMV/'Internationaal Monetair Fonds'/Wereldbank.",
+    terms: {
+      'European Parliament': 'Europees Parlement',
+      'Plenary session': 'plenaire vergadering',
+      Committee: 'commissie',
+      Rapporteur: 'rapporteur',
+      'Legislative procedure': 'wetgevingsprocedure',
+      Resolution: 'resolutie',
+      'Adopted text': 'aangenomen tekst',
+      Vote: 'stemming',
+    },
+  },
+  ar: {
+    name: 'Arabic',
+    family: 'RTL',
+    register:
+      'Modern Standard Arabic, formal political register; Western Arabic numerals 0–9; no RLM unless disambiguating a Latin token.',
+    fixedTokenNote:
+      'Keep IMF/WEO/World Bank/Fiscal Monitor and EP acronyms in Latin script; data-vintage/TA-id/procedure-id verbatim.',
+    terms: {
+      'European Parliament': 'البرلمان الأوروبي',
+      'Plenary session': 'الجلسة العامة',
+      Committee: 'اللجنة',
+      Rapporteur: 'المقرر',
+      'Legislative procedure': 'الإجراء التشريعي',
+      Resolution: 'قرار',
+      Vote: 'تصويت',
+    },
+  },
+  he: {
+    name: 'Hebrew',
+    family: 'RTL',
+    register: 'Formal modern Hebrew; no nikud unless the source carries it.',
+    fixedTokenNote:
+      'Keep IMF/WEO/World Bank/Fiscal Monitor and EP acronyms in Latin script; data-vintage/TA-id/procedure-id verbatim.',
+    terms: {
+      'European Parliament': 'הפרלמנט האירופי',
+      'Plenary session': 'מליאה',
+      Committee: 'ועדה',
+      Rapporteur: 'מדווח',
+      'Legislative procedure': 'הליך חקיקה',
+      Resolution: 'החלטה',
+      Vote: 'הצבעה',
+    },
+  },
+  ja: {
+    name: 'Japanese',
+    family: 'CJK',
+    register: 'です・ます polite register; full-width punctuation 。、「」.',
+    fixedTokenNote:
+      'Keep proper nouns (IMF, WEO, World Bank, EP body names) in Latin script; data-vintage/TA-id/procedure-id verbatim.',
+    terms: {
+      'European Parliament': '欧州議会',
+      'Plenary session': '本会議',
+      Committee: '委員会',
+      Rapporteur: '報告者',
+      'Legislative procedure': '立法手続き',
+      Resolution: '決議',
+      Vote: '採決',
+    },
+  },
+  ko: {
+    name: 'Korean',
+    family: 'CJK',
+    register: '합쇼체 formal polite; half-width , . ; spaces between eojeol.',
+    fixedTokenNote:
+      'Keep proper nouns (IMF, WEO, World Bank, EP body names) in Latin script; data-vintage/TA-id/procedure-id verbatim.',
+    terms: {
+      'European Parliament': '유럽의회',
+      'Plenary session': '본회의',
+      Committee: '위원회',
+      Rapporteur: '보고자',
+      'Legislative procedure': '입법절차',
+      Resolution: '결의',
+      Vote: '표결',
+    },
+  },
+  zh: {
+    name: 'Chinese',
+    family: 'CJK',
+    register: 'Simplified zh-CN only; full-width punctuation 。，「」/“”.',
+    fixedTokenNote:
+      'Keep proper nouns (IMF, WEO, World Bank, EP body names) in Latin script; data-vintage/TA-id/procedure-id verbatim.',
+    terms: {
+      'European Parliament': '欧洲议会',
+      'Plenary session': '全体会议',
+      Committee: '委员会',
+      Rapporteur: '报告员',
+      'Legislative procedure': '立法程序',
+      Resolution: '决议',
+      Vote: '表决',
+    },
+  },
+});
+
+/**
+ * Build the per-language register block emitted into the discovery payload.
+ * Returns only the entries for `langs` (the languages the run actually
+ * touches), so the agent's in-context copy stays as small as possible.
+ * Unknown codes are skipped silently — the caller derives `langs` from the
+ * canonical TARGET_LANGS union, so this is defensive only.
+ *
+ * @param {Iterable<string>} langs
+ * @returns {Record<string, (typeof TRANSLATION_REGISTER)[string]>}
+ */
+export function buildTranslationRegister(langs) {
+  const out = {};
+  for (const lang of langs) {
+    if (Object.prototype.hasOwnProperty.call(TRANSLATION_REGISTER, lang)) {
+      out[lang] = TRANSLATION_REGISTER[lang];
+    }
+  }
+  return out;
+}
+
+/**
  * Count the number of lines in a markdown source file. Returns 0 if the
  * file is missing. Used by `buildQueue` to populate `sourceLineCount` and
  * the derived `largeSource` flag — the translator agent uses these
@@ -640,6 +919,20 @@ export function buildQueue(sources, options) {
   }
   const queuedTranslations = queue.reduce((sum, item) => sum + item.missingCount, 0);
 
+  // Per-language register the run actually needs: the union of every queued
+  // brief's missing languages, in canonical TARGET_LANGS order. Emitting this
+  // once (rather than per-entry) lets the translator agent read the style
+  // register + EP terminology pairs inline from queue.json and skip opening
+  // the ~18 KB translator guide in-session — bounding the per-session
+  // effective-token accumulation (see news-translate.md frontmatter budget).
+  const queuedLangs = new Set();
+  for (const item of queue) {
+    for (const lang of item.missingLangs) queuedLangs.add(lang);
+  }
+  const translationRegister = buildTranslationRegister(
+    TARGET_LANGS.filter((lang) => queuedLangs.has(lang)),
+  );
+
   // Top 3 most-blocked target languages across the entire backlog. Operators
   // skim this to spot e.g. "Japanese keeps falling behind" without parsing
   // the full queue. Sort by count desc, then language code asc for stable
@@ -675,6 +968,7 @@ export function buildQueue(sources, options) {
       largeSourceCount,
       maxSourceLines: opts.maxSourceLines,
     },
+    translationRegister,
     queue,
   };
 }
@@ -689,7 +983,7 @@ export function main(argv) {
     includeExtended: opts.includeExtended,
     maxAgeDays: opts.maxAgeDays,
   });
-  const { totals, queue } = buildQueue(sources, {
+  const { totals, translationRegister, queue } = buildQueue(sources, {
     maxBriefs: opts.maxBriefs,
     mode: opts.mode,
     runNumber: opts.runNumber,
@@ -708,6 +1002,7 @@ export function main(argv) {
       targetBrief: opts.targetBrief,
     },
     totals,
+    translationRegister,
     queue,
   };
   const out = `${JSON.stringify(payload, null, 2)}\n`;
