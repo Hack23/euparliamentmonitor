@@ -2741,6 +2741,1813 @@ All raw captures are committed under `analysis/daily/2026-05-29/week-ahead/data/
 
 Until then, this run stands on the two highest-grade sources available — the EP plenary calendar (A2) and IMF WEO (A1) — which is sufficient to support every HIGH-confidence judgement made downstream.
 
+### Executive Brief Ar
+
+### النافذة الزمنية: 1–5 يونيو 2026 | تاريخ الإنتاج: 2026-05-29 | الجولة: week-ahead-run1780043323
+
+**التصنيف:** غير سري // للنشر العام
+**أدوات SAT المطبقة:** فحص الافتراضات الرئيسية، فحص جودة المعلومات.
+**نطاقات WEP + الآفاق الزمنية** على التقديرات؛ **درجات Admiralty** على المصادر.
+
+### 🎯 الخلاصة مباشرة
+
+- أسبوع **1–5 يونيو 2026 هو أسبوع لجان ومجموعات سياسية — لا تعقد أي جلسة عامة.** 🟢 ثقة عالية (تقويم البرلمان الأوروبي، Admiralty A2).
+- كانت آخر جلسة عامة للبرلمان الأوروبي في **18–21 مايو**؛ والقادمة في **15–18 يونيو** (ستراسبورغ، مؤكدة A2).
+- قيمة الأسبوع **تحضيرية**: تُرسي جدول أعمال الجلسة العامة لشهر يونيو وعلى نحو حاسم **إجراء ميزانية 2027** الذي يتشكل الآن في مواجهة العجز المتنامي لدى الدول الأعضاء (IMF WEO، A1).
+- **التقييم الإجمالي:** 🟡 أهمية ذاتية منخفضة بشكل معتدل، 🟡 نفوذ مستقبلي معتدل. أسبوع هادئ مع عمل لجاني نشط.
+
+### 📊 ما يستحق المتابعة (مرتب بحسب الأولوية)
+
+1. **التموضع المسبق لميزانية 2027 (الموضوع الرئيسي).** المبادئ التوجيهية مُعتمدة بالفعل (TA-10-2026-0112، A2)؛ مسودة المفوضية متوقعة منتصف يونيو. يُميل الضغط المالي الإطار نحو التقشف. 🟡 مرجّح (60–70%)، الأفق 2–4 أسابيع.
+2. **التجارة والتنافسية.** الذكاء الاصطناعي للتجارة (TA-10-2026-0183) وتطبيق قانون الأسواق الرقمية DMA (TA-10-2026-0160) يُبقيان INTA/IMCO نشطتين. 🟡 مرجّح (60%)، الأفق 2–6 أسابيع.
+3. **معاهدات العمل الخارجي.** اتفاقية EPCA لأوزبكستان (TA-10-2026-0174)، لبنان–Eurojust (TA-10-2026-0177) تتقدمان. 🟡 أهمية متوسطة.
+
+### 🌍 الخلفية الاقتصادية (IMF WEO، A1)
+
+- 🇩🇪 ألمانيا: نمو الناتج المحلي الإجمالي +0.79%، التضخم 2.65%، العجز **−3.78%** (فوق خط 3% لاتفاق الاستقرار والنمو SGP).
+- 🇫🇷 فرنسا: نمو الناتج المحلي الإجمالي +0.86%، التضخم 1.84%، العجز −4.94% (متأخر هيكلي).
+- 🇮🇹 إيطاليا: نمو الناتج المحلي الإجمالي +0.52%، التضخم 2.64%، العجز −2.82% (الموحِّد المنضبط).
+- **التفسير:** يتضيق هامش المرونة المالية بأسرع ما يكون حيث كان الأوسع (ألمانيا)، مما يُحدّد المعركة الميزانياتية القادمة.
+
+### 🤝 التكوين السياسي
+
+- البرلمان الأوروبي EP10: 719 مقعدا، تسع مجموعات. الائتلاف الكبير EPP+S&D+Renew = **398** (العتبة 361) — مستقر لكنه غير ساحق؛ ENP ≈ 6.55.
+- الديناميكية المركزية: مفاوضات ميزانية الائتلاف الكبير (الانضباط مقابل الدفاع عن الإنفاق، Renew كتلة محورية). 🟢 مرجّح جدا (80%) أن يصمد الائتلاف حتى يونيو.
+
+### 🔭 السيناريو الأساسي
+
+- أسبوع لجاني منظم ← جدول أعمال يونيو أكثر صلابة ← جلسة عامة وفق الجدول ← المواجهة الميزانياتية تفتح أواخر يونيو. 🟢 مرجّح (60–65%).
+- أكبر مخاطر الهبوط: تأخر مسودة ميزانية المفوضية (انظر `scenario-forecast.md`).
+
+### 🔑 الافتراضات الرئيسية
+
+- لا جلسة عامة مفاجئة (A2)؛ تركيبة مستقرة؛ مسودة الميزانية في يونيو (يتحكم فيها المفوضية)؛ انقطاعات التغذية مستمرة (مُخففة).
+
+### 🧪 مستوى الثقة والتحفظات
+
+- 🟢 عالٍ على التقويم والماكرو (A1/A2)؛ 🟡 متوسط على توقيت اللجان (جداول أعمال غير منشورة، B3).
+- وضع البيانات `degraded-feeds`: ثلاثة تغذيات معطلة، تعافت تماما عبر الحلول البديلة؛ لم يُنتهَك أي حد تحليلي أدنى.
+
+### 🧭 الزاوية التحريرية
+
+- قصة الأسبوع هي **الهدوء قبل عاصفة الميزانية** — أسبوع لجاني هادئ تُرسم فيه بصمت خطوط المعركة المالية لعام 2027.
+
+**الخلاصة:** دراما منخفضة الآن، مخاطر عالية قادمة. رصد مسار الميزانية نحو الجلسة العامة 15–18 يونيو.
+
+### 🗺️ من الأسبوع إلى الجلسة العامة: سلسلة العمل
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 السياق التقويمي
+
+| المعلم | التاريخ | الحالة | المصدر |
+| --- | --- | --- | --- |
+| آخر جلسة عامة | 18–21 مايو | اختُتمت | EP A2 |
+| الأسبوع الحالي | 1–5 يونيو | أسبوع لجان/مجموعات (بلا جلسة عامة) | EP A2 |
+| الجلسة العامة القادمة | 15–18 يونيو | مؤكدة، ستراسبورغ | EP A2 |
+| مسودة ميزانية المفوضية | منتصف يونيو (متوقع) | في الانتظار | النمط التاريخي |
+
+### 🧾 خلفية النصوص المعتمدة (إنتاج الربيع، A2)
+
+- TA-10-2026-0112 — توجيهات ميزانية 2027 (القسم الثالث): المرساة الإجرائية للمعركة القادمة.
+- TA-10-2026-0183 — استراتيجية الذكاء الاصطناعي لتجارة الاتحاد الأوروبي: تُبقي INTA/ITRE نشطتين في مجال التنافسية.
+- TA-10-2026-0160 — تطبيق DMA: يُديم جدول أعمال الأسواق الرقمية لـ IMCO.
+- TA-10-2026-0174 / 0177 — اتفاقية EPCA الأوزبكية / لبنان–Eurojust: إنتاج مستقر لمعالجة موافقات العمل الخارجي.
+- اتفاقيات SFPA للصيد (ساو توميه، جزر كوك): ملفات سياسة بحرية روتينية لكنها نشطة.
+
+### 🔭 ما يعنيه هذا للقارئ
+
+- يتواجد البرلمان الأوروبي بين فصلين: أُغلق الموسم التشريعي الربيعي في 21 مايو، وموسم ميزانية الصيف يفتح في 15 يونيو.
+- هذا الأسبوع هو **البروفة** — اللجان والمجموعات تضع بصمت الخطوط التي ستدافع عنها في قاعة الجلسات.
+- المتغير الخارجي الأهم هو **مسودة ميزانية 2027 للمفوضية**، المتوقعة منتصف يونيو في مواجهة أضيق خلفية مالية منذ سنوات.
+
+### 🧮 معايرة الأهمية
+
+- القيمة الإخبارية الذاتية: 🟡 منخفضة بشكل معتدل (لا تصويتات، لا جلسة عامة).
+- النفوذ المستقبلي: 🟡 معتدل (يُهيئ يونيو عالي المخاطر).
+- القيمة التحريرية الصافية: موجز *استشرافي*، ليس ملخصا للأحداث.
+
+### ⚠️ مستوى الثقة مكرراً
+
+- 🟢 عالٍ على وقائع التقويم والماكرو (A1/A2).
+- 🟡 متوسط على التفاصيل الخاصة بمستوى اللجان (جداول أعمال غير منشورة، B3).
+
+### 📎 الملحق — نقاط المراقبة ونقاط الحوار
+
+#### محطات مسار الميزانية (1–5 يونيو)
+- نشر مسودة جدول أعمال الجلسة العامة 15–18 يونيو (متوقع في 8–12 يونيو).
+- أي بيانات من لجنة BUDG/ECON تُشير مسبقا إلى الخط الميزانياتي لعام 2027.
+- تقويم اتصالات المفوضية لموعد مسودة الميزانية.
+- اجتماعات منسقي المجموعات لتحديد المواقف من الإنفاق.
+- تعيينات المقررين أو مواعيد تقديم التعديلات على الملفات الميزانياتية.
+
+#### نقاط حوار اقتصادية كلية (IMF A1)
+- عجز ألمانيا عند −3.78% هو أحد أكبر التحولات بين الدول الثلاث الكبرى.
+- فرنسا عند −4.94% لديها أوسع عجز مطلق — المتأخر الهيكلي.
+- إيطاليا عند −2.82% هي الأكثر انضباطا من الثلاثة في هذه الدورة.
+- النمو إيجابي لكنه ضعيف (DE +0.79%، FR +0.86%، IT +0.52%).
+- تطبّعت معدلات التضخم (2.6–2.7% DE/IT، 1.84% FR) — تزول وسادة النقد السهل.
+
+#### نقاط حوار الائتلاف
+- الائتلاف الكبير يمتلك 398 من 719 مقعدا (عتبة الأغلبية 361).
+- لا ائتلاف جناحي يبلغ الأغلبية وحده — المركز حاسم هيكليا.
+- Renew (77) هي الكتلة المحورية لمراقبتها في الإنفاق.
+
+#### التوجيه التحريري
+- تأطير الأسبوع إلى الأمام: موسم الميزانية لا السطح الهادئ.
+- نسب كل إطار حزبي؛ الاستناد إلى بيانات IMF المحايدة.
+- الاعتراف بصدق بغموض جداول الأعمال بدلا من اختراع تفاصيل لجانية.
+
+#### سجل الثقة
+- 🟢 عالٍ: التقويم، أرقام الماكرو، حسابيات المقاعد.
+- 🟡 متوسط: نوايا مستوى اللجان والدقة الزمنية.
+- 🔴 منخفض: لا يوجد حمل أساسي في هذه الجولة.
+
+### 🔗 المصادر والمصدر MCP
+
+يعتمد هذا المستند على مصادر البيانات التالية التي جُمعت خلال المرحلة A:
+
+- **`get_plenary_sessions`** (EP Open Data، Admiralty A2) — أكد عدم انعقاد جلسة عامة في 1–5 يونيو؛ الجلسة العامة القادمة 15–18 يونيو في ستراسبورغ.
+- **`get_adopted_texts`** (EP Open Data، A2) — 41 نصا معتمدا في 2026، منها TA-10-2026-0112 (توجيهات ميزانية 2027)، 0160 (DMA)، 0183 (ذكاء اصطناعي-تجارة)، 0174 (EPCA أوزبكستان)، 0177 (لبنان–Eurojust).
+- **`get_meeting_foreseen_activities`** (EP Open Data، B3) — حجوزات مؤقتة للجلسة العامة ليونيو؛ جدول الأعمال غير نهائي (تم الإشارة إلى الغموض).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`، A1) — ماكرو DE/FR/IT: العجوزات −3.78% / −4.94% / −2.82%؛ النمو +0.79% / +0.86% / +0.52%.
+- **`generate_political_landscape`** (EP Open Data، A2) — تكوين EP10: 719 عضوا في 9 مجموعات؛ الائتلاف الكبير 398 مقابل العتبة 361.
+
+#### ملخص موثوقية المصادر
+- تستند التقديرات الجوهرية على مصادر A1 (IMF) وA2 (تقويم البرلمان الأوروبي، النصوص المعتمدة، التكوين).
+- بيانات تفاصيل جداول الأعمال B3 تُستخدم فقط للادعاءات المستقبلية المتحوطة والمشار إليها صراحة.
+- تغذيات الأحداث/الإجراءات المتدهورة (404) عُوّضت عبر النصوص المعتمدة ومصادر تقويم احتياطية أعلاه.
+
+> ملاحظة المصدر: نُفّذت هذه الجولة في `dataMode = degraded-feeds`؛ جُرت الحدود الدنيا ×0.80 وفقا لذلك، والتقدير المركزي قوي في مواجهة كل قيد معلن.
+
+### Executive Brief Da
+
+### Vindue: 1.–5. juni 2026 | Produceret: 2026-05-29 | Kørsel: week-ahead-run1780043323
+
+**Klassificering:** UKLASSIFICERET // TIL OFFENTLIG OFFENTLIGGØRELSE
+**Anvendte SAT'er:** Kontrol af nøgleantagelser, Kontrol af informationskvalitet.
+**WEP-bånd + horisonter** på vurderinger; **Admiralty**-karakterer på kilder.
+
+### 🎯 Konklusion direkte
+
+- Ugen **1.–5. juni 2026 er en udvalgs- og politisk gruppes uge — ingen plenarmøde afholdes.** 🟢 HØJ konfidensgrad (EP-kalender, Admiralty A2).
+- Europa-Parlamentets seneste plenarmøde var **18.–21. maj**; det næste er **15.–18. juni** (Strasbourg, bekræftet A2).
+- Ugens værdi er **forberedende**: den sætter dagsordenen for juniplenarmødet og, afgørende, **budgetproceduren for 2027**, der nu tager form mod baggrund af voksende underskud i medlemsstaterne (IMF WEO, A1).
+- **Samlet vurdering:** 🟡 MODERAT LAV iboende relevans, 🟡 MODERAT fremadrettet løftestang. En stille gulvuge med aktivt udvalgsarbejde.
+
+### 📊 Hvad man bør følge (rangordnet)
+
+1. **Forhåndspositionering til budget 2027 (ledende).** Retningslinjer allerede vedtaget (TA-10-2026-0112, A2); Kommissionens udkast forventes medio juni. Finanspolitisk pres vinkler rammen mod tilbageholdenhed. 🟡 SANDSYNLIGT (60–70%), horisont 2–4 uger.
+2. **Handel og konkurrenceevne.** AI til handel (TA-10-2026-0183) og DMA-håndhævelse (TA-10-2026-0160) holder INTA/IMCO aktive. 🟡 SANDSYNLIGT (60%), horisont 2–6 uger.
+3. **Traktater om ekstern handling.** Usbekistans EPCA (TA-10-2026-0174), Libanon–Eurojust (TA-10-2026-0177) skrider frem. 🟡 MEDIUM relevans.
+
+### 🌍 Økonomisk baggrund (IMF WEO, A1)
+
+- 🇩🇪 Tyskland: BNP +0,79%, inflation 2,65%, underskud **−3,78%** (over 3% SGP-grænsen).
+- 🇫🇷 Frankrig: BNP +0,86%, inflation 1,84%, underskud −4,94% (strukturel efterslæber).
+- 🇮🇹 Italien: BNP +0,52%, inflation 2,64%, underskud −2,82% (den disciplinerede konsolidator).
+- **Tolkning:** det finanspolitiske råderum strammes hurtigst der, hvor det var størst (Tyskland), og skærper den kommende budgetkamp.
+
+### 🤝 Politisk konfiguration
+
+- EP10: 719 pladser, ni grupper. Stor koalition EPP+S&D+Renew = **398** (tærskel 361) — stabil men ikke overvældende; ENP ≈ 6,55.
+- Central dynamik: stor-koalitionens budgetforhandlinger (disciplin mod udgiftsforsvar, Renew som svingblok). 🟢 MEGET SANDSYNLIGT (80%) at koalitionen holder frem i juni.
+
+### 🔭 Basisscenarie
+
+- Ordentlig udvalgsuge → fastere junidagsorden → plenarmøde efter tidsplan → budgetkonfrontation åbner sent i juni. 🟢 SANDSYNLIGT (60–65%).
+- Største nedsiderisiko: forsinkelse af Kommissionens budgetudkast (se `scenario-forecast.md`).
+
+### 🔑 Nøgleantagelser
+
+- Ingen overraskelsesplenar (A2); stabil sammensætning; budgetudkast i juni (Kommissionskontrolleret); feedforstyrrelser vedvarer (afhjulpet).
+
+### 🧪 Konfidensgrad og forbehold
+
+- 🟢 HØJ for kalender og makro (A1/A2); 🟡 MEDIUM for udvalgstiming (uoffentliggjorte dagsordener, B3).
+- Datatilstand `degraded-feeds`: tre feeds nede, fuldt genoprettet via reserveløsninger; ingen analytisk gulvstandard overskredet.
+
+### 🧭 Redaktionel indgang
+
+- Ugens historie er **stilheden inden budgetsstormen** — en stille udvalgsuge, hvor linjerne for det finanspolitiske slag om 2027 stille trækkes op.
+
+**Konklusion:** Lav dramatik nu, høje indsatser på vej. Følg budgetsporet frem til plenarmødet 15.–18. juni.
+
+### 🗺️ Uge til plenarmøde: pipeline
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 Kalenderkontekst
+
+| Markør | Dato | Status | Kilde |
+| --- | --- | --- | --- |
+| Seneste plenarmøde | 18.–21. maj | Afsluttet | EP A2 |
+| Indeværende uge | 1.–5. jun | Udvalgs-/gruppeuge (ingen plenar) | EP A2 |
+| Næste plenarmøde | 15.–18. jun | Bekræftet, Strasbourg | EP A2 |
+| Kommissionens budgetudkast | Medio juni (forventet) | Afventes | Historisk mønster |
+
+### 🧾 Baggrund for vedtagne tekster (forårsproduktion, A2)
+
+- TA-10-2026-0112 — Retningslinjer for budget 2027 (afsnit III): det proceduremæssige anker for den kommende kamp.
+- TA-10-2026-0183 — AI-strategi for EU-handel: holder INTA/ITRE aktive på konkurrenceevne.
+- TA-10-2026-0160 — DMA-håndhævelse: opretholder IMCO's digitale markedsdagsorden.
+- TA-10-2026-0174 / 0177 — Usbekistans EPCA / Libanon–Eurojust: stabil gennemstrømning af ekstern samtykkebehandling.
+- Fiskeri-SFPA'er (São Tomé, Cookøerne): rutinepræget men aktive havpolitikfiler.
+
+### 🔭 Hvad dette betyder for læseren
+
+- Europa-Parlamentet befinder sig mellem akter: den lovgivende forårsperiode afsluttedes den 21. maj, og den finanspolitiske sommersæson åbner den 15. juni.
+- Denne uge er **prøven** — udvalg og grupper sætter stille de linjer, de vil forsvare i salen.
+- Den vigtigste eksterne variabel er **Kommissionens budgetudkast for 2027**, forventet medio juni mod den strammeste finanspolitiske baggrund i årevis.
+
+### 🧮 Relevanskalibrering
+
+- Iboende nyhedsværdi: 🟡 MODERAT LAV (ingen afstemninger, ingen plenar).
+- Fremadrettet løftestang: 🟡 MODERAT (sætter scene for en juni med høje indsatser).
+- Netto redaktionel værdi: et *fremadskuende* kortdokument, ikke et begivenhedsresumé.
+
+### ⚠️ Konfidensgrad gentaget
+
+- 🟢 HØJ for kalender- og makrofakta (A1/A2).
+- 🟡 MEDIUM for udvalgsniveauspecifikke detaljer (uoffentliggjorte dagsordener, B3).
+
+### 📎 Bilag — Overvågningspunkter og samtalepunkter
+
+#### Budgetsporets signalposter (1.–5. juni)
+- Offentliggørelse af den foreløbige dagsorden for plenarmødet 15.–18. juni (forventet 8.–12. juni).
+- Eventuelle udtalelser fra BUDG/ECON-udvalget om 2027-budgetlinjen.
+- Kommissionens kommunikationskalender for datoen for budgetudkastet.
+- Gruppers koordinatormøder for at fastlægge udgiftspositioner.
+- Ordførerens udnævnelser eller ændringsfrister for budgetfiler.
+
+#### Makrosamtalepunkter (IMF A1)
+- Tysklands underskud på −3,78% er det skarpeste skift i de tre store.
+- Frankrig på −4,94% har det bredeste absolutte underskud — den strukturelle efterslæber.
+- Italien på −2,82% er den mest disciplinerede af de tre i denne cyklus.
+- Væksten er positiv men tynd (DE +0,79%, FR +0,86%, IT +0,52%).
+- Inflationen er normaliseret (2,6–2,7% DE/IT, 1,84% FR) — fjerner den lette pengepude.
+
+#### Koalitionssamtalepunkter
+- Stor koalitionen holder 398 af 719 pladser (flertalsgrænse 361).
+- Ingen flankkoalition når et flertal alene — midten er strukturelt afgørende.
+- Renew (77) er svingblokken at holde øje med på udgifter.
+
+#### Redaktionel vejledning
+- Ram ugen fremad: budgetsæsonen, ikke den stille overflade.
+- Tilskriv enhver partipolitisk ramme; forankr i neutrale IMF-data.
+- Anerkend dagsordensopacitet ærligt frem for at opfinde udvalgsdetaljer.
+
+#### Konfidensregister
+- 🟢 HØJ: kalender, makrotal, pladsaritmektik.
+- 🟡 MEDIUM: udvalgsniveauintentioner og tidspræcision.
+- 🔴 LAV: intet bærende i denne kørsel.
+
+### 🔗 Kilder og MCP-proveniens
+
+Dette dokument trækker på følgende datakilder indsamlet under fase A:
+
+- **`get_plenary_sessions`** (EP Open Data, Admiralty A2) — bekræftede ingen plenar 1.–5. juni; næste plenarmøde 15.–18. juni Strasbourg.
+- **`get_adopted_texts`** (EP Open Data, A2) — 41 vedtagne tekster i 2026, inkl. TA-10-2026-0112 (retningslinjer for budget 2027), 0160 (DMA), 0183 (AI-handel), 0174 (Usbekistans EPCA), 0177 (Libanon–Eurojust).
+- **`get_meeting_foreseen_activities`** (EP Open Data, B3) — foreløbige pladsholdere for juniplenarmødet; dagsorden ikke færdiggjort (opacitet flagget).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — DE/FR/IT makro: underskud −3,78% / −4,94% / −2,82%; vækst +0,79% / +0,86% / +0,52%.
+- **`generate_political_landscape`** (EP Open Data, A2) — EP10-sammensætning: 719 MEP'er i 9 grupper; stor koalition 398 mod tærsklen 361.
+
+#### Opsummering af kildetilpålidelighed
+- Belastende vurderinger hviler på A1 (IMF) og A2 (EP-kalender, vedtagne tekster, sammensætning) kilder.
+- B3 dagsordensgranskningsdata bruges kun til hedgede, eksplicit flaggede fremtidige påstande.
+- Nedgraderede hændelses-/procedurefeeds (404) kompenseret via vedtagne tekster og kalenderreservekilder ovenfor.
+
+> Proveniensnotat: denne kørsel udført i `dataMode = degraded-feeds`; gulvniveauer justeret ×0,80 tilsvarende, og den centrale vurdering er robust over for enhver erklæret begrænsning.
+
+### Executive Brief De
+
+### Fenster: 1.–5. Juni 2026 | Erstellt: 2026-05-29 | Lauf: week-ahead-run1780043323
+
+**Einstufung:** NICHT KLASSIFIZIERT // ZUR ÖFFENTLICHEN VERÖFFENTLICHUNG
+**Angewandte SAT:** Überprüfung der Schlüsselannahmen, Überprüfung der Informationsqualität.
+**WEP-Bänder + Horizonte** bei Einschätzungen; **Admiralty**-Noten bei Quellen.
+
+### 🎯 Fazit direkt
+
+- Die Woche **1.–5. Juni 2026 ist eine Ausschuss- und Fraktionswoche — es findet keine Plenarsitzung statt.** 🟢 HOHES Konfidenzniveau (EP-Kalender, Admiralty A2).
+- Die letzte Plenarsitzung des Europäischen Parlaments war **18.–21. Mai**; die nächste ist **15.–18. Juni** (Straßburg, bestätigt A2).
+- Der Wert der Woche ist **vorbereitend**: Sie legt die Agenda für die Juni-Plenarsitzung fest und — entscheidend — die **Haushaltsprozedur 2027**, die sich nun vor dem Hintergrund wachsender Haushaltsdefizite der Mitgliedstaaten herausbildet (IMF WEO, A1).
+- **Gesamteinschätzung:** 🟡 MÄSSIG GERING innere Relevanz, 🟡 MODERATE Hebelwirkung für die Zukunft. Eine ruhige Grundlagenwoche mit aktiver Ausschussarbeit.
+
+### 📊 Was zu beobachten ist (priorisiert)
+
+1. **Vorpositionierung für Haushalt 2027 (Leitthema).** Leitlinien bereits verabschiedet (TA-10-2026-0112, A2); Kommissionsentwurf Mitte Juni erwartet. Fiskaldruck lenkt den Rahmen in Richtung Haushaltsdisziplin. 🟡 WAHRSCHEINLICH (60–70%), Horizont 2–4 Wochen.
+2. **Handel und Wettbewerbsfähigkeit.** KI für Handel (TA-10-2026-0183) und DMA-Durchsetzung (TA-10-2026-0160) halten INTA/IMCO aktiv. 🟡 WAHRSCHEINLICH (60%), Horizont 2–6 Wochen.
+3. **Verträge zu Außenmaßnahmen.** Usbekistans EPCA (TA-10-2026-0174), Libanon–Eurojust (TA-10-2026-0177) schreiten voran. 🟡 MITTLERE Relevanz.
+
+### 🌍 Wirtschaftlicher Hintergrund (IMF WEO, A1)
+
+- 🇩🇪 Deutschland: BIP +0,79%, Inflation 2,65%, Defizit **−3,78%** (über der 3%-SGP-Grenze).
+- 🇫🇷 Frankreich: BIP +0,86%, Inflation 1,84%, Defizit −4,94% (struktureller Nachzügler).
+- 🇮🇹 Italien: BIP +0,52%, Inflation 2,64%, Defizit −2,82% (der disziplinierte Konsolidator).
+- **Bewertung:** Der fiskalische Spielraum verengt sich am schnellsten dort, wo er am größten war (Deutschland), was den bevorstehenden Haushaltsstreit verschärft.
+
+### 🤝 Politische Konfiguration
+
+- EP10: 719 Sitze, neun Fraktionen. Große Koalition EVP+S&D+Renew = **398** (Schwelle 361) — stabil, aber nicht überwältigend; ENP ≈ 6,55.
+- Zentrale Dynamik: Haushaltsverhandlungen der Großen Koalition (Disziplin vs. Ausgabenverteidigung, Renew als Scharnierblock). 🟢 SEHR WAHRSCHEINLICH (80%), dass die Koalition bis Juni hält.
+
+### 🔭 Basisszenario
+
+- Geordnete Ausschusswoche → festgelegte Juni-Tagesordnung → planmäßige Plenarsitzung → Haushaltskonfrontation eröffnet Ende Juni. 🟢 WAHRSCHEINLICH (60–65%).
+- Größtes Abwärtsrisiko: Verzögerung des Kommissionsentwurfs für den Haushalt (siehe `scenario-forecast.md`).
+
+### 🔑 Schlüsselannahmen
+
+- Keine überraschende Plenarsitzung (A2); stabile Zusammensetzung; Haushaltsentwurf im Juni (Kommissionskontrolliert); Datenfeedausfälle bestehen fort (abgemildert).
+
+### 🧪 Konfidenzniveau und Vorbehalte
+
+- 🟢 HOCH für Kalender und Makro (A1/A2); 🟡 MITTEL für Ausschusstiming (unveröffentlichte Tagesordnungen, B3).
+- Datenmodus `degraded-feeds`: drei Feeds ausgefallen, vollständig über Notlösungen wiederhergestellt; keine analytische Untergrenze unterschritten.
+
+### 🧭 Redaktioneller Einstieg
+
+- Die Geschichte der Woche ist **die Stille vor dem Haushaltssturm** — eine ruhige Ausschusswoche, in der die Fronten des fiskalpolitischen Kampfes um 2027 still gezogen werden.
+
+**Fazit:** Geringe Dramatik jetzt, hohe Einsätze in Vorbereitung. Den Haushaltspfad bis zur Plenarsitzung 15.–18. Juni verfolgen.
+
+### 🗺️ Von der Woche zur Plenarsitzung: Pipeline
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 Kalenderkontext
+
+| Marker | Datum | Status | Quelle |
+| --- | --- | --- | --- |
+| Letzte Plenarsitzung | 18.–21. Mai | Abgeschlossen | EP A2 |
+| Aktuelle Woche | 1.–5. Jun | Ausschuss-/Fraktionswoche (kein Plenum) | EP A2 |
+| Nächste Plenarsitzung | 15.–18. Jun | Bestätigt, Straßburg | EP A2 |
+| Kommissions-Haushaltsentwurf | Mitte Juni (erwartet) | Ausstehend | Historisches Muster |
+
+### 🧾 Hintergrund zu verabschiedeten Texten (Frühjahrsproduktion, A2)
+
+- TA-10-2026-0112 — Leitlinien für Haushalt 2027 (Abschnitt III): der prozedurale Anker für den bevorstehenden Kampf.
+- TA-10-2026-0183 — KI-Strategie für den EU-Handel: hält INTA/ITRE bei Wettbewerbsfähigkeit aktiv.
+- TA-10-2026-0160 — DMA-Durchsetzung: erhält IMCO's Agenda für digitale Märkte aufrecht.
+- TA-10-2026-0174 / 0177 — Usbekistans EPCA / Libanon–Eurojust: stabile Durchsatzrate externer Zustimmungsverfahren.
+- Fischerei-SFPA (São Tomé, Cookinseln): routinemäßige, aber aktive meeresbezogene Politikdateien.
+
+### 🔭 Was dies für den Leser bedeutet
+
+- Das Europäische Parlament befindet sich zwischen den Akten: die legislative Frühjahrsperiode endete am 21. Mai, die haushaltspolitische Sommersaison beginnt am 15. Juni.
+- Diese Woche ist die **Generalprobe** — Ausschüsse und Fraktionen ziehen still die Linien, die sie im Plenum verteidigen werden.
+- Die wichtigste externe Variable ist der **Kommissionsentwurf für den Haushalt 2027**, der Mitte Juni vor dem straffsten fiskalpolitischen Hintergrund seit Jahren erwartet wird.
+
+### 🧮 Bedeutungskalibrierung
+
+- Innerer Nachrichtenwert: 🟡 MÄSSIG GERING (keine Abstimmungen, kein Plenum).
+- Hebelwirkung für die Zukunft: 🟡 MODERAT (bereitet einen Juni mit hohen Einsätzen vor).
+- Redaktioneller Nettowert: ein *vorausschauendes* Kurzdokument, kein Ereignisbericht.
+
+### ⚠️ Konfidenzniveau wiederholt
+
+- 🟢 HOCH bei Kalender- und Makrofakten (A1/A2).
+- 🟡 MITTEL bei ausschussspezifischen Details (unveröffentlichte Tagesordnungen, B3).
+
+### 📎 Anhang — Beobachtungspunkte und Gesprächsleitfäden
+
+#### Signalpunkte des Haushaltspfades (1.–5. Juni)
+- Veröffentlichung der vorläufigen Tagesordnung für die Plenarsitzung 15.–18. Juni (erwartet 8.–12. Juni).
+- Etwaige Statements des BUDG/ECON-Ausschusses zur Haushaltslinie 2027.
+- Kommunikationskalender der Kommission für das Datum des Haushaltsentwurfs.
+- Koordinatorsitzungen der Fraktionen zur Festlegung von Ausgabenpositionen.
+- Berichterstatterernennungen oder Änderungsfristen für Haushaltsdateien.
+
+#### Makro-Gesprächsleitfäden (IMF A1)
+- Deutschlands Defizit von −3,78% ist der schärfste Schwenk unter den drei Großen.
+- Frankreich mit −4,94% hat das breiteste absolute Defizit — der strukturelle Nachzügler.
+- Italien mit −2,82% ist der disziplinierteste der drei in diesem Zyklus.
+- Das Wachstum ist positiv, aber dünn (DE +0,79%, FR +0,86%, IT +0,52%).
+- Die Inflation hat sich normalisiert (2,6–2,7% DE/IT, 1,84% FR) — das Kissen des leichten Geldes entfällt.
+
+#### Koalitions-Gesprächsleitfäden
+- Die Große Koalition hält 398 von 719 Sitzen (Mehrheitsschwelle 361).
+- Keine Flügelkoalition erreicht alleine eine Mehrheit — die Mitte ist strukturell entscheidend.
+- Renew (77) ist der Scharnierblock, den es bei Ausgaben zu beobachten gilt.
+
+#### Redaktionelle Hinweise
+- Die Woche vorausschauend einrahmen: die Haushaltssaison, nicht die ruhige Oberfläche.
+- Jede parteipolitische Rahmung zuschreiben; auf neutrale IMF-Daten stützen.
+- Tagesordnungsopazität ehrlich einräumen, anstatt Ausschussdetails zu erfinden.
+
+#### Konfidenzregister
+- 🟢 HOCH: Kalender, Makrozahlen, Sitzarithmetik.
+- 🟡 MITTEL: ausschussebenen Absichten und Zeitpräzision.
+- 🔴 GERING: nichts Tragendes in diesem Lauf.
+
+### 🔗 Quellen und MCP-Provenienz
+
+Dieses Dokument stützt sich auf folgende in Phase A gesammelte Datenquellen:
+
+- **`get_plenary_sessions`** (EP Open Data, Admiralty A2) — bestätigte kein Plenum 1.–5. Juni; nächste Plenarsitzung 15.–18. Juni Straßburg.
+- **`get_adopted_texts`** (EP Open Data, A2) — 41 verabschiedete Texte 2026, darunter TA-10-2026-0112 (Leitlinien Haushalt 2027), 0160 (DMA), 0183 (KI-Handel), 0174 (Usbekistans EPCA), 0177 (Libanon–Eurojust).
+- **`get_meeting_foreseen_activities`** (EP Open Data, B3) — vorläufige Platzhalter für die Juni-Plenarsitzung; Tagesordnung noch nicht abgeschlossen (Opazität vermerkt).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — DE/FR/IT Makro: Defizite −3,78% / −4,94% / −2,82%; Wachstum +0,79% / +0,86% / +0,52%.
+- **`generate_political_landscape`** (EP Open Data, A2) — EP10-Zusammensetzung: 719 Abgeordnete in 9 Fraktionen; Große Koalition 398 gegenüber Schwelle 361.
+
+#### Zusammenfassung der Quellenzuverlässigkeit
+- Tragende Einschätzungen beruhen auf A1 (IMF) und A2 (EP-Kalender, verabschiedete Texte, Zusammensetzung) Quellen.
+- B3-Tagesordnungsgranularitätsdaten werden nur für abgesicherte, explizit vermerkte Zukunftsbehauptungen verwendet.
+- Herabgestufte Ereignis-/Verfahrensfeeds (404) wurden über die verabschiedeten Texte und Kalender-Reservequellen oben kompensiert.
+
+> Provenienzhinweis: Dieser Lauf wurde im `dataMode = degraded-feeds` ausgeführt; Untergrenzen wurden ×0,80 entsprechend angepasst, und die zentrale Einschätzung ist robust gegenüber jeder erklärten Einschränkung.
+
+### Executive Brief Es
+
+### Ventana: 1–5 de junio de 2026 | Producido: 2026-05-29 | Ejecución: week-ahead-run1780043323
+
+**Clasificación:** NO CLASIFICADO // PARA PUBLICACIÓN PÚBLICA
+**SAT aplicadas:** Verificación de hipótesis clave, Control de calidad de la información.
+**Bandas WEP + horizontes** en las valoraciones; **Admiralty** en las fuentes.
+
+### 🎯 Conclusión directa
+
+- La semana **del 1 al 5 de junio de 2026 es una semana de comisiones y grupos políticos — no hay pleno.** 🟢 ALTA confianza (calendario PE, Admiralty A2).
+- El último pleno del Parlamento Europeo fue el **18–21 de mayo**; el próximo es el **15–18 de junio** (Estrasburgo, confirmado A2).
+- El valor de la semana es **preparatorio**: establece la agenda de la sesión plenaria de junio y, de manera decisiva, el **procedimiento presupuestario de 2027**, que ahora se está formando ante el creciente déficit de los Estados miembros (IMF WEO, A1).
+- **Valoración general:** 🟡 MODERADAMENTE BAJA relevancia intrínseca, 🟡 MODERADA influencia prospectiva. Una semana de tranquilidad de base con activo trabajo en comisiones.
+
+### 📊 Qué observar (por orden de importancia)
+
+1. **Posicionamiento previo para el presupuesto 2027 (tema principal).** Directrices ya adoptadas (TA-10-2026-0112, A2); borrador de la Comisión previsto para mediados de junio. La presión fiscal orienta el marco hacia la austeridad. 🟡 PROBABLE (60–70%), horizonte 2–4 semanas.
+2. **Comercio y competitividad.** IA para el comercio (TA-10-2026-0183) y aplicación del DMA (TA-10-2026-0160) mantienen activas a INTA/IMCO. 🟡 PROBABLE (60%), horizonte 2–6 semanas.
+3. **Tratados de acción exterior.** AMCO de Uzbekistán (TA-10-2026-0174), Líbano–Eurojust (TA-10-2026-0177) avanzan. 🟡 RELEVANCIA MEDIA.
+
+### 🌍 Contexto económico (IMF WEO, A1)
+
+- 🇩🇪 Alemania: PIB +0,79%, inflación 2,65%, déficit **−3,78%** (por encima de la línea del 3% del PEC).
+- 🇫🇷 Francia: PIB +0,86%, inflación 1,84%, déficit −4,94% (rezagado estructural).
+- 🇮🇹 Italia: PIB +0,52%, inflación 2,64%, déficit −2,82% (el consolidador disciplinado).
+- **Lectura:** el margen fiscal se estrecha más rápido donde era más amplio (Alemania), agudizando la próxima batalla presupuestaria.
+
+### 🤝 Configuración política
+
+- PE10: 719 escaños, nueve grupos. Gran coalición PPE+S&D+Renew = **398** (umbral 361) — estable pero no abrumadora; ENP ≈ 6,55.
+- Dinámica central: negociaciones presupuestarias de la gran coalición (disciplina frente a defensa del gasto, Renew como bloque bisagra). 🟢 MUY PROBABLE (80%) que la coalición aguante hasta junio.
+
+### 🔭 Escenario base
+
+- Semana de comisiones ordenada → agenda de junio más firme → pleno en plazo → confrontación presupuestaria se abre a finales de junio. 🟢 PROBABLE (60–65%).
+- Principal riesgo a la baja: retraso en el borrador de presupuesto de la Comisión (véase `scenario-forecast.md`).
+
+### 🔑 Hipótesis clave
+
+- Sin pleno sorpresa (A2); composición estable; borrador de presupuesto en junio (bajo control de la Comisión); las interrupciones de flujo persisten (atenuadas).
+
+### 🧪 Nivel de confianza y advertencias
+
+- 🟢 ALTO en calendario y macro (A1/A2); 🟡 MEDIO en calendario de comisiones (agendas no publicadas, B3).
+- Modo de datos `degraded-feeds`: tres flujos caídos, completamente recuperados mediante alternativas; ningún suelo analítico incumplido.
+
+### 🧭 Enfoque editorial
+
+- La historia de la semana es **la calma antes de la tormenta presupuestaria** — una tranquila semana de comisiones en la que se trazan silenciosamente las líneas del combate fiscal de 2027.
+
+**Conclusión:** Poca dramaticidad ahora, altas apuestas en preparación. Seguir la pista presupuestaria hasta el pleno del 15–18 de junio.
+
+### 🗺️ De la semana al pleno: flujo de trabajo
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 Contexto del calendario
+
+| Hito | Fecha | Estado | Fuente |
+| --- | --- | --- | --- |
+| Último pleno | 18–21 de mayo | Concluido | PE A2 |
+| Semana actual | 1–5 de junio | Semana de comisiones/grupos (sin pleno) | PE A2 |
+| Próximo pleno | 15–18 de junio | Confirmado, Estrasburgo | PE A2 |
+| Borrador de presupuesto de la Comisión | Mediados de junio (previsto) | Pendiente | Pauta histórica |
+
+### 🧾 Contexto de textos adoptados (producción primaveral, A2)
+
+- TA-10-2026-0112 — Directrices presupuestarias 2027 (sección III): el ancla procedimental para la próxima batalla.
+- TA-10-2026-0183 — Estrategia de IA para el comercio de la UE: mantiene activas a INTA/ITRE en competitividad.
+- TA-10-2026-0160 — Aplicación del DMA: sostiene la agenda del mercado digital de IMCO.
+- TA-10-2026-0174 / 0177 — AMCO de Uzbekistán / Líbano–Eurojust: flujo estable de procedimientos de consentimiento de acción exterior.
+- APPCP de pesca (Santo Tomé, Islas Cook): archivos de política marina rutinarios pero activos.
+
+### 🔭 Lo que esto significa para el lector
+
+- El Parlamento Europeo se encuentra entre actos: la temporada legislativa de primavera cerró el 21 de mayo, y la temporada presupuestaria de verano abre el 15 de junio.
+- Esta semana es el **ensayo** — las comisiones y los grupos trazan silenciosamente las líneas que defenderán en el hemiciclo.
+- La variable externa más importante es el **borrador de presupuesto 2027 de la Comisión**, previsto para mediados de junio en el contexto fiscal más ajustado en años.
+
+### 🧮 Calibración de la relevancia
+
+- Valor periodístico intrínseco: 🟡 MODERADAMENTE BAJO (sin votaciones, sin pleno).
+- Influencia prospectiva: 🟡 MODERADA (prepara un junio de altas apuestas).
+- Valor editorial neto: un documento breve *prospectivo*, no un resumen de eventos.
+
+### ⚠️ Nivel de confianza reiterado
+
+- 🟢 ALTO en hechos de calendario y macro (A1/A2).
+- 🟡 MEDIO en especificidades a nivel de comisiones (agendas no publicadas, B3).
+
+### 📎 Anexo — Puntos de seguimiento y argumentarios
+
+#### Hitos de la pista presupuestaria (1–5 de junio)
+- Publicación del borrador de agenda del pleno del 15–18 de junio (prevista para el 8–12 de junio).
+- Eventuales declaraciones de la comisión BUDG/ECON anticipando la línea de 2027.
+- Calendario de comunicaciones de la Comisión para la fecha del borrador de presupuesto.
+- Reuniones de coordinadores de grupos para fijar posiciones de gasto.
+- Nombramientos de ponentes o plazos de enmienda para los archivos presupuestarios.
+
+#### Argumentarios macroeconómicos (IMF A1)
+- El déficit de Alemania en −3,78% es el giro más pronunciado entre los tres grandes.
+- Francia con −4,94% registra el mayor déficit absoluto — el rezagado estructural.
+- Italia con −2,82% es la más disciplinada de las tres en este ciclo.
+- El crecimiento es positivo pero débil (DE +0,79%, FR +0,86%, IT +0,52%).
+- La inflación se ha normalizado (2,6–2,7% DE/IT, 1,84% FR) — eliminando el colchón del dinero fácil.
+
+#### Argumentarios sobre la coalición
+- La gran coalición controla 398 de 719 escaños (umbral de mayoría 361).
+- Ninguna coalición de flanco alcanza la mayoría sola — el centro es estructuralmente decisivo.
+- Renew (77) es el bloque bisagra a seguir en materia de gasto.
+
+#### Orientación editorial
+- Enmarcar la semana hacia el futuro: la temporada presupuestaria, no la tranquila superficie.
+- Atribuir cada encuadre partidista; anclar en los datos neutrales del IMF.
+- Reconocer honestamente la opacidad de las agendas en lugar de inventar detalles de comisión.
+
+#### Registro de confianza
+- 🟢 ALTO: calendario, cifras macro, aritmética de escaños.
+- 🟡 MEDIO: intenciones a nivel de comisión y precisión temporal.
+- 🔴 BAJO: nada relevante en esta ejecución.
+
+### 🔗 Fuentes y procedencia MCP
+
+Este documento se basa en las siguientes fuentes de datos recopiladas durante la fase A:
+
+- **`get_plenary_sessions`** (PE Open Data, Admiralty A2) — confirmó la ausencia de pleno del 1 al 5 de junio; próximo pleno 15–18 de junio en Estrasburgo.
+- **`get_adopted_texts`** (PE Open Data, A2) — 41 textos adoptados en 2026, incluidos TA-10-2026-0112 (directrices presupuesto 2027), 0160 (DMA), 0183 (IA-comercio), 0174 (AMCO Uzbekistán), 0177 (Líbano–Eurojust).
+- **`get_meeting_foreseen_activities`** (PE Open Data, B3) — marcadores de posición provisionales para el pleno de junio; agenda aún no finalizada (opacidad señalada).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — macro DE/FR/IT: déficits −3,78% / −4,94% / −2,82%; crecimiento +0,79% / +0,86% / +0,52%.
+- **`generate_political_landscape`** (PE Open Data, A2) — composición PE10: 719 eurodiputados en 9 grupos; gran coalición 398 frente al umbral de 361.
+
+#### Resumen de fiabilidad de fuentes
+- Las valoraciones decisivas se basan en fuentes A1 (IMF) y A2 (calendario PE, textos adoptados, composición).
+- Los datos de granularidad B3 de agendas se usan solo para afirmaciones prospectivas cubiertas y explícitamente señaladas.
+- Los flujos degradados de eventos/procedimientos (404) se compensaron mediante los textos adoptados y las fuentes alternativas del calendario indicadas arriba.
+
+> Nota de procedencia: esta ejecución se realizó en `dataMode = degraded-feeds`; los suelos se ajustaron ×0,80 en consecuencia y la valoración central es robusta frente a cada limitación declarada.
+
+### Executive Brief Fi
+
+### Ikkuna: 1.–5. kesäkuuta 2026 | Tuotettu: 2026-05-29 | Ajo: week-ahead-run1780043323
+
+**Luokitus:** LUOKITTELEMATON // JULKISEEN JULKAISUUN
+**Sovelletut SAT:t:** Keskeisten oletusten tarkistus, Tiedon laadun tarkistus.
+**WEP-kaistot + horisontti** arvioissa; **Admiralty**-luokitukset lähteille.
+
+### 🎯 Johtopäätös suoraan
+
+- Viikko **1.–5. kesäkuuta 2026 on valiokunta- ja poliittisen ryhmän viikko — täysistuntoa ei pidetä.** 🟢 KORKEA luotettavuus (EP-kalenteri, Admiralty A2).
+- Euroopan parlamentin viimeisin täysistunto oli **18.–21. toukokuuta**; seuraava on **15.–18. kesäkuuta** (Strasbourg, vahvistettu A2).
+- Viikon arvo on **valmisteleva**: se asettaa kesäkuun täysistunnon asialistan ja ratkaisevasti **vuoden 2027 budjettiprosessin**, joka nyt muotoutuu jäsenvaltioiden kasvavien alijäämien taustaa vasten (IMF WEO, A1).
+- **Kokonaisarvio:** 🟡 KOHTALAISESTI MATALA sisäinen merkitys, 🟡 KOHTALAINEN eteenpäin suuntautuva vaikutus. Hiljainen pohjatasoviikko, aktiivinen valiokuntavaihe.
+
+### 📊 Mitä seurata (järjestyksessä)
+
+1. **Esiasemointi vuoden 2027 budjettia varten (johtava).** Suuntaviivat jo hyväksytty (TA-10-2026-0112, A2); komission luonnos odotettavissa kesäkuun puolivälissä. Finanssipoliittinen paine kallistaa kehystä pidättyvyyteen. 🟡 TODENNÄKÖINEN (60–70%), horisontti 2–4 viikkoa.
+2. **Kauppa ja kilpailukyky.** Tekoäly kaupalle (TA-10-2026-0183) ja DMA:n toimeenpano (TA-10-2026-0160) pitävät INTA/IMCO:n aktiivisena. 🟡 TODENNÄKÖINEN (60%), horisontti 2–6 viikkoa.
+3. **Ulkoisia toimia koskevat sopimukset.** Uzbekistanin EPCA (TA-10-2026-0174), Libanon–Eurojust (TA-10-2026-0177) etenevät. 🟡 KESKITASOINEN merkitys.
+
+### 🌍 Taloudellinen tausta (IMF WEO, A1)
+
+- 🇩🇪 Saksa: BKT +0,79%, inflaatio 2,65%, alijäämä **−3,78%** (yli 3% SGP-rajan).
+- 🇫🇷 Ranska: BKT +0,86%, inflaatio 1,84%, alijäämä −4,94% (rakenteellinen jälkijättäinen).
+- 🇮🇹 Italia: BKT +0,52%, inflaatio 2,64%, alijäämä −2,82% (kurinalaisesti tasapainottava).
+- **Tulkinta:** finanssipoliittinen liikkumavara kiristyy nopeimmin siellä, missä se oli laajin (Saksa), mikä terävöittää tulevaa budjettikiistaa.
+
+### 🤝 Poliittinen kokoonpano
+
+- EP10: 719 paikkaa, yhdeksän ryhmää. Suuri koalitio EPP+S&D+Renew = **398** (kynnys 361) — vakaa muttei ylivoimainen; ENP ≈ 6,55.
+- Keskeinen dynamiikka: suurkoalition budjettineuvottelut (kurinalaisuus vs. menojen puolustus, Renew heiluri-blokkina). 🟢 ERITTÄIN TODENNÄKÖINEN (80%) koalition pitävän kesäkuuhun.
+
+### 🔭 Perusskenaario
+
+- Järjestäytynyt valiokunnan viikko → tiiviimpi kesäkuun asialista → täysistunto aikataulun mukaisesti → budjettikonfrontaatio avautuu kesäkuun lopulla. 🟢 TODENNÄKÖINEN (60–65%).
+- Suurin laskupuolen riski: komission budjettiehdotuksen viivästyminen (katso `scenario-forecast.md`).
+
+### 🔑 Keskeisimmät oletukset
+
+- Ei yllätystäysistuntoa (A2); vakaa kokoonpano; budjettiehdotus kesäkuussa (komission hallinnassa); syötehäiriöt jatkuvat (lievennetty).
+
+### 🧪 Luotettavuustaso ja varaukset
+
+- 🟢 KORKEA kalenterin ja makron osalta (A1/A2); 🟡 KESKITASOINEN valiokuntien aikataulutuksessa (julkaisemattomat asialistat, B3).
+- Datatila `degraded-feeds`: kolme syötettä alhaalla, täysin palautunut varajärjestelmillä; mikään analyyttinen lattiataso ei alittunut.
+
+### 🧭 Toimituksellinen kulma
+
+- Viikon tarina on **tyyneys ennen budjettimyrskyä** — hiljainen valiokunnan viikko, jossa vuoden 2027 finanssipoliittisen taistelun linjat vedetään hiljaa.
+
+**Johtopäätös:** Alhainen dramaattisuus nyt, korkeat panokset tulossa. Seuraa budjettipolkua täysistuntoon 15.–18. kesäkuuta.
+
+### 🗺️ Viikosta täysistuntoon: putkilinja
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 Kalenterikonteksti
+
+| Merkki | Päivämäärä | Status | Lähde |
+| --- | --- | --- | --- |
+| Viimeisin täysistunto | 18.–21. toukokuuta | Päättynyt | EP A2 |
+| Kuluva viikko | 1.–5. kesäkuuta | Valiokunta-/ryhmäviikko (ei täysistuntoa) | EP A2 |
+| Seuraava täysistunto | 15.–18. kesäkuuta | Vahvistettu, Strasbourg | EP A2 |
+| Komission budjettiehdotus | Kesäkuun puoliväli (odotettu) | Odottaa | Historiallinen kaava |
+
+### 🧾 Hyväksyttyjen tekstien tausta (kevättuotanto, A2)
+
+- TA-10-2026-0112 — Vuoden 2027 talousarvion suuntaviivat (jakso III): tulossa olevan taistelun menettelyllinen ankkuri.
+- TA-10-2026-0183 — Tekoälystrategia EU:n kaupalle: pitää INTA/ITRE:n aktiivisena kilpailukyvyssä.
+- TA-10-2026-0160 — DMA:n toimeenpano: ylläpitää IMCO:n digitaalisten markkinoiden agendaa.
+- TA-10-2026-0174 / 0177 — Uzbekistanin EPCA / Libanon–Eurojust: vakaa ulkoisen suostumuksen läpäisy.
+- Kalastus-SFPA:t (São Tomé, Cookinsaaret): rutiinimaiset mutta aktiiviset merellisten asioiden politiikkatiedostot.
+
+### 🔭 Mitä tämä tarkoittaa lukijalle
+
+- Euroopan parlamentti on näytösten välissä: kevään lainsäädäntökausi päättyi 21. toukokuuta, ja kesän budjettisessonki avautuu 15. kesäkuuta.
+- Tämä viikko on **kenraaliharjoitus** — valiokunnat ja ryhmät asettavat hiljaa linjat, joita ne puolustavat täysistunnossa.
+- Tärkein ulkoinen muuttuja on **komission budjettiehdotus vuodelle 2027**, jota odotetaan kesäkuun puolivälissä tiukimman finanssipoliittisen taustan paineissa vuosiin.
+
+### 🧮 Merkityskalibrointi
+
+- Sisäinen uutisarvo: 🟡 KOHTALAISESTI MATALA (ei äänestyksiä, ei täysistuntoa).
+- Eteenpäin suuntautuva vaikutus: 🟡 KOHTALAINEN (valmistautuminen kesäkuun korkeisiin panoksiin).
+- Toimituksellinen nettohyöty: *eteenpäinsuuntautuva* tiivistelmä, ei tapahtumayhteenveto.
+
+### ⚠️ Luotettavuustaso toistettuna
+
+- 🟢 KORKEA kalenterin ja makrotietojen osalta (A1/A2).
+- 🟡 KESKITASOINEN valiokuntatasoisten erityiskohtien osalta (julkaisemattomat asialistat, B3).
+
+### 📎 Liite — Seurantapisteet ja puheenpiteet
+
+#### Budjettipolun signaalipisteet (1.–5. kesäkuuta)
+- Täysistunnon 15.–18. kesäkuuta alustavan asialistan julkaiseminen (odotetaan 8.–12. kesäkuuta).
+- BUDG/ECON-valiokunnan mahdolliset lausunnot vuoden 2027 budjettilinjasta.
+- Komission viestintäkalenteri budjettiehdotuksen päivämäärää varten.
+- Ryhmäkoordinaattorien kokoukset menoasemien määrittämiseksi.
+- Esittelijöiden nimitykset tai muutosaikataulut budjettitiedostoille.
+
+#### Makrotaloudelliset puheenpiteet (IMF A1)
+- Saksan alijäämä −3,78% on suurin muutos kolmesta suuresta.
+- Ranska −4,94%:lla on laajin absoluuttinen alijäämä — rakenteellinen jälkijättäinen.
+- Italia −2,82%:lla on kurinalaisin kolmesta tällä syklillä.
+- Kasvu on positiivinen mutta heikko (DE +0,79%, FR +0,86%, IT +0,52%).
+- Inflaatio on normalisoitunut (2,6–2,7% DE/IT, 1,84% FR) — helpon rahan tyyny poistuu.
+
+#### Koalitiopuheenpiteet
+- Suuri koalitio hallitsee 398 paikkaa 719:sta (enemmistökynnys 361).
+- Mikään siipikoalitio ei yksinään saa enemmistöä — keskusta on rakenteellisesti ratkaiseva.
+- Renew (77) on heiluriblokin seurattava menojen osalta.
+
+#### Toimituksellinen ohje
+- Kehystä viikko eteenpäin: budjettisesonki, ei hiljainen pinta.
+- Kohdista jokainen puoluepoliittinen kehystys; ankkuroi neutraaleihin IMF-tietoihin.
+- Tunnusta asialistojen läpinäkymättömyys rehellisesti sen sijaan, että keksitään valiokuntayksityiskohtia.
+
+#### Luotettavuusrekisteri
+- 🟢 KORKEA: kalenteri, makroluvut, paikka-aritmetiikka.
+- 🟡 KESKITASOINEN: valiokuntatason aikomukset ja ajankohdan tarkkuus.
+- 🔴 MATALA: ei kantavaa tässä ajossa.
+
+### 🔗 Lähteet ja MCP-provenanssi
+
+Tämä asiakirja nojaa seuraaviin vaiheen A aikana kerättyihin tietolähteisiin:
+
+- **`get_plenary_sessions`** (EP Open Data, Admiralty A2) — vahvisti, ettei täysistuntoa 1.–5. kesäkuuta; seuraava täysistunto 15.–18. kesäkuuta Strasbourgissa.
+- **`get_adopted_texts`** (EP Open Data, A2) — 41 hyväksyttyä tekstiä vuonna 2026, ml. TA-10-2026-0112 (vuoden 2027 budjetin suuntaviivat), 0160 (DMA), 0183 (tekoäly-kauppa), 0174 (Uzbekistanin EPCA), 0177 (Libanon–Eurojust).
+- **`get_meeting_foreseen_activities`** (EP Open Data, B3) — kesäkuun täysistunnon väliaikaiset paikanpitimet; asialista ei vielä valmis (läpinäkymättömyys merkitty).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — DE/FR/IT makro: alijäämät −3,78% / −4,94% / −2,82%; kasvu +0,79% / +0,86% / +0,52%.
+- **`generate_political_landscape`** (EP Open Data, A2) — EP10-kokoonpano: 719 europarlamentaarikkoa 9 ryhmässä; suuri koalitio 398 kynnyksen 361 suhteen.
+
+#### Lähteen luotettavuuden yhteenveto
+- Kuormittavat arviot perustuvat A1 (IMF)- ja A2 (EP-kalenteri, hyväksytyt tekstit, kokoonpano) -lähteisiin.
+- B3-asialistayksityiskohtaista tietoa käytetään vain suojattuihin, eksplisiittisesti merkittyihin tulevaisuuden väitteisiin.
+- Alennetut tapahtuma-/menettelysyötteet (404) kompensoitiin hyväksyttyjen tekstien ja kalenterivaralähteillä edellä.
+
+> Provenienssihuomio: tämä ajo suoritettu `dataMode = degraded-feeds`; lattiat säädetty ×0,80 accordingly ja keskeinen arvio on kestävä jokaista julistettua rajoitusta vastaan.
+
+### Executive Brief Fr
+
+### Fenêtre : 1er–5 juin 2026 | Produite : 2026-05-29 | Exécution : week-ahead-run1780043323
+
+**Classification :** NON CLASSIFIÉ // POUR DIFFUSION PUBLIQUE
+**SAT appliquées :** Vérification des hypothèses clés, Contrôle de la qualité de l'information.
+**Bandes WEP + horizons** sur les appréciations ; **Admiralty** sur les sources.
+
+### 🎯 Conclusion directe
+
+- La semaine **du 1er au 5 juin 2026 est une semaine de commissions et de groupes politiques — aucune session plénière ne siège.** 🟢 HAUTE confiance (calendrier PE, Admiralty A2).
+- La dernière séance plénière du Parlement européen était le **18–21 mai** ; la prochaine est le **15–18 juin** (Strasbourg, confirmé A2).
+- La valeur de la semaine est **préparatoire** : elle établit l'ordre du jour de la plénière de juin et, de manière décisive, la **procédure budgétaire 2027** qui se forme désormais dans un contexte de déficits croissants des États membres (IMF WEO, A1).
+- **Appréciation globale :** 🟡 MODÉRÉMENT FAIBLE pertinence intrinsèque, 🟡 MODÉRÉ effet de levier prospectif. Une semaine de plancher tranquille, de commissions actives.
+
+### 📊 Points à surveiller (classés par ordre de priorité)
+
+1. **Prépositionnement pour le budget 2027 (en tête de liste).** Lignes directrices déjà adoptées (TA-10-2026-0112, A2) ; projet de la Commission attendu mi-juin. La pression budgétaire oriente le cadre vers la rigueur. 🟡 PROBABLE (60–70%), horizon 2–4 semaines.
+2. **Commerce et compétitivité.** L'IA pour le commerce (TA-10-2026-0183) et l'application du DMA (TA-10-2026-0160) maintiennent INTA/IMCO actives. 🟡 PROBABLE (60%), horizon 2–6 semaines.
+3. **Traités d'action extérieure.** CPCA de l'Ouzbékistan (TA-10-2026-0174), Liban–Eurojust (TA-10-2026-0177) avancent. 🟡 IMPORTANCE MOYENNE.
+
+### 🌍 Contexte économique (IMF WEO, A1)
+
+- 🇩🇪 Allemagne : PIB +0,79 %, inflation 2,65 %, déficit **−3,78 %** (au-dessus de la ligne SGP des 3 %).
+- 🇫🇷 France : PIB +0,86 %, inflation 1,84 %, déficit −4,94 % (retardataire structurel).
+- 🇮🇹 Italie : PIB +0,52 %, inflation 2,64 %, déficit −2,82 % (le consolidateur discipliné).
+- **Lecture :** la marge budgétaire se resserre le plus vite là où elle était la plus large (Allemagne), ce qui aiguise la bataille budgétaire à venir.
+
+### 🤝 Configuration politique
+
+- PE10 : 719 sièges, neuf groupes. Grande coalition PPE+S&D+Renew = **398** (seuil 361) — stable mais non écrasante ; ENP ≈ 6,55.
+- Dynamique centrale : négociations budgétaires de la grande coalition (discipline vs défense des dépenses, Renew comme bloc pivot). 🟢 TRÈS PROBABLE (80%) que la coalition tienne jusqu'en juin.
+
+### 🔭 Scénario de base
+
+- Semaine de commissions ordonnée → ordre du jour de juin plus ferme → session plénière dans les délais → confrontation budgétaire s'ouvre fin juin. 🟢 PROBABLE (60–65 %).
+- Principal risque baissier : glissement du projet de budget de la Commission (voir `scenario-forecast.md`).
+
+### 🔑 Hypothèses clés
+
+- Pas de session plénière surprise (A2) ; composition stable ; projet de budget en juin (sous contrôle de la Commission) ; pannes de flux persistent (atténuées).
+
+### 🧪 Niveau de confiance et réserves
+
+- 🟢 HAUT sur le calendrier et les données macroéconomiques (A1/A2) ; 🟡 MOYEN sur le calendrier des commissions (ordres du jour non publiés, B3).
+- Mode de données `degraded-feeds` : trois flux hors service, entièrement récupérés via des solutions de substitution ; aucun plancher analytique non satisfait.
+
+### 🧭 Angle éditorial
+
+- L'histoire de la semaine est **le calme avant la tempête budgétaire** — une semaine de commissions discrète où les lignes de la bataille fiscale 2027 se tracent en silence.
+
+**Conclusion :** Peu de dramatique maintenant, enjeux importants en préparation. Suivre la piste budgétaire jusqu'à la plénière des 15–18 juin.
+
+### 🗺️ De la semaine à la plénière : pipeline
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 Contexte calendaire
+
+| Repère | Date | Statut | Source |
+| --- | --- | --- | --- |
+| Dernière plénière | 18–21 mai | Achevée | PE A2 |
+| Semaine en cours | 1–5 juin | Semaine de commissions/groupes (pas de plénière) | PE A2 |
+| Prochaine plénière | 15–18 juin | Confirmée, Strasbourg | PE A2 |
+| Projet de budget de la Commission | Mi-juin (prévu) | En attente | Tendance historique |
+
+### 🧾 Contexte des textes adoptés (production printanière, A2)
+
+- TA-10-2026-0112 — Lignes directrices budgétaires 2027 (section III) : l'ancre procédurale pour la bataille à venir.
+- TA-10-2026-0183 — Stratégie IA pour le commerce de l'UE : maintient INTA/ITRE actives sur la compétitivité.
+- TA-10-2026-0160 — Application du DMA : soutient le programme des marchés numériques d'IMCO.
+- TA-10-2026-0174 / 0177 — CPCA Ouzbékistan / Liban–Eurojust : débit stable de consentements d'action extérieure.
+- APPCP pêche (São Tomé, îles Cook) : dossiers de politique maritime courants mais actifs.
+
+### 🔭 Ce que cela signifie pour le lecteur
+
+- Le Parlement européen est entre deux actes : la saison législative du printemps s'est clôturée le 21 mai, la saison budgétaire d'été ouvre le 15 juin.
+- Cette semaine est la **répétition** — les commissions et les groupes tracent silencieusement les lignes qu'ils défendront en séance plénière.
+- La variable externe la plus importante est le **projet de budget 2027 de la Commission**, attendu mi-juin dans le contexte budgétaire le plus tendu depuis des années.
+
+### 🧮 Calibrage de l'importance
+
+- Valeur journalistique intrinsèque : 🟡 MODÉRÉMENT FAIBLE (pas de votes, pas de plénière).
+- Effet de levier prospectif : 🟡 MODÉRÉ (prépare un juin à forts enjeux).
+- Valeur éditoriale nette : une note *prospective*, non un résumé d'événements.
+
+### ⚠️ Niveau de confiance répété
+
+- 🟢 HAUT sur les faits calendaires et macroéconomiques (A1/A2).
+- 🟡 MOYEN sur les spécificités au niveau des commissions (ordres du jour non publiés, B3).
+
+### 📎 Annexe — Points de surveillance et éléments de langage
+
+#### Jalons de la piste budgétaire (1–5 juin)
+- Publication du projet d'ordre du jour de la plénière des 15–18 juin (attendue 8–12 juin).
+- Éventuelles déclarations de la commission BUDG/ECON préfigurant la ligne 2027.
+- Calendrier de communication de la Commission pour la date du projet de budget.
+- Réunions des coordinateurs de groupes pour définir les positions de dépenses.
+- Nominations de rapporteurs ou délais d'amendements pour les dossiers budgétaires.
+
+#### Éléments de langage macroéconomiques (IMF A1)
+- Le déficit de l'Allemagne à −3,78 % est le retournement le plus marqué parmi les trois grands.
+- La France à −4,94 % affiche le déficit absolu le plus large — le retardataire structurel.
+- L'Italie à −2,82 % est la plus disciplinée des trois au cours de ce cycle.
+- La croissance est positive mais mince (DE +0,79 %, FR +0,86 %, IT +0,52 %).
+- L'inflation s'est normalisée (2,6–2,7 % DE/IT, 1,84 % FR) — retirant l'amortisseur de l'argent facile.
+
+#### Éléments de langage sur la coalition
+- La grande coalition détient 398 des 719 sièges (seuil de majorité 361).
+- Aucune coalition de flanc n'atteint seule une majorité — le centre est structurellement décisif.
+- Renew (77) est le bloc pivot à surveiller sur les dépenses.
+
+#### Conseils éditoriaux
+- Cadrer la semaine vers l'avant : la saison budgétaire, non la surface tranquille.
+- Attribuer chaque cadrage partisan ; s'ancrer sur les données neutres de l'IMF.
+- Reconnaître honnêtement l'opacité des ordres du jour plutôt que d'inventer des détails de commission.
+
+#### Registre de confiance
+- 🟢 HAUT : calendrier, chiffres macroéconomiques, arithmétique des sièges.
+- 🟡 MOYEN : intentions au niveau des commissions et précision temporelle.
+- 🔴 BAS : rien de structurant lors de cette exécution.
+
+### 🔗 Sources et provenance MCP
+
+Ce document s'appuie sur les sources de données suivantes collectées durant la phase A :
+
+- **`get_plenary_sessions`** (PE Open Data, Admiralty A2) — confirmé l'absence de plénière du 1er au 5 juin ; prochaine plénière 15–18 juin Strasbourg.
+- **`get_adopted_texts`** (PE Open Data, A2) — 41 textes adoptés en 2026, dont TA-10-2026-0112 (lignes directrices budget 2027), 0160 (DMA), 0183 (IA-commerce), 0174 (CPCA Ouzbékistan), 0177 (Liban–Eurojust).
+- **`get_meeting_foreseen_activities`** (PE Open Data, B3) — libellés provisoires pour la plénière de juin ; ordre du jour non finalisé (opacité signalée).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — macroéconomie DE/FR/IT : déficits −3,78 % / −4,94 % / −2,82 % ; croissance +0,79 % / +0,86 % / +0,52 %.
+- **`generate_political_landscape`** (PE Open Data, A2) — composition PE10 : 719 deputés répartis en 9 groupes ; grande coalition 398 face au seuil 361.
+
+#### Synthèse de la fiabilité des sources
+- Les appréciations décisives reposent sur des sources A1 (IMF) et A2 (calendrier PE, textes adoptés, composition).
+- Les données de granularité B3 des ordres du jour ne sont utilisées que pour des affirmations prospectives couvertes et explicitement signalées.
+- Les flux événements/procédures dégradés (404) ont été compensés via les textes adoptés et les sources de substitution calendaires ci-dessus.
+
+> Note de provenance : cette exécution s'est déroulée en `dataMode = degraded-feeds` ; les planchers ont été ajustés ×0,80 en conséquence et l'appréciation centrale est robuste face à chaque limitation déclarée.
+
+### Executive Brief He
+
+### חלון זמן: 1–5 ביוני 2026 | הופק: 2026-05-29 | ריצה: week-ahead-run1780043323
+
+**סיווג:** לא מסווג // לפרסום ציבורי
+**SAT שיושמו:** בדיקת הנחות מפתח, בדיקת איכות מידע.
+**רצועות WEP + אופקים** על הערכות; **ציוני Admiralty** על מקורות.
+
+### 🎯 מסקנה ישירה
+
+- השבוע **1–5 ביוני 2026 הוא שבוע ועדות וקבוצות פוליטיות — אין מושב מליאה.** 🟢 אמינות גבוהה (לוח שנה של PE, Admiralty A2).
+- המושב האחרון של הפרלמנט האירופי היה ב**18–21 במאי**; הבא הוא **15–18 ביוני** (שטרסבורג, אושר A2).
+- ערך השבוע הוא **הכנה**: הוא מגדיר את סדר היום של מליאת יוני ובאופן מכריע את **הליך התקציב לשנת 2027** המתגבש כעת על רקע גירעונות גדלים של מדינות החברות (IMF WEO, A1).
+- **הערכה כוללת:** 🟡 רלוונטיות פנימית נמוכה-בינונית, 🟡 מינוף עתידי בינוני. שבוע רגוע עם עבודת ועדות פעילה.
+
+### 📊 מה לעקוב אחריו (לפי סדר עדיפות)
+
+1. **מיצוב מוקדם לקראת תקציב 2027 (נושא מוביל).** הנחיות כבר אומצו (TA-10-2026-0112, A2); טיוטת הנציבות צפויה באמצע יוני. לחץ פיסקלי מטה את המסגרת לכיוון ריסון. 🟡 סביר (60–70%), אופק 2–4 שבועות.
+2. **סחר ותחרותיות.** AI למסחר (TA-10-2026-0183) ואכיפת DMA (TA-10-2026-0160) שומרים על INTA/IMCO פעילות. 🟡 סביר (60%), אופק 2–6 שבועות.
+3. **אמנות לפעולה חיצונית.** EPCA של אוזבקיסטן (TA-10-2026-0174), לבנון–Eurojust (TA-10-2026-0177) מתקדמות. 🟡 חשיבות בינונית.
+
+### 🌍 הקשר כלכלי (IMF WEO, A1)
+
+- 🇩🇪 גרמניה: תוצר +0.79%, אינפלציה 2.65%, גירעון **−3.78%** (מעל קו 3% של SGP).
+- 🇫🇷 צרפת: תוצר +0.86%, אינפלציה 1.84%, גירעון −4.94% (מפגר מבני).
+- 🇮🇹 איטליה: תוצר +0.52%, אינפלציה 2.64%, גירעון −2.82% (המאחד המשמעתי).
+- **קריאה:** מרחב המדיניות הפיסקלית מתכווץ מהר ביותר שם שהיה הרחב ביותר (גרמניה), ומחמיר את קרב התקציב הבא.
+
+### 🤝 הרכב פוליטי
+
+- EP10: 719 מושבים, תשע קבוצות. קואליציה גדולה EPP+S&D+Renew = **398** (סף 361) — יציבה אך לא מוחצת; ENP ≈ 6.55.
+- דינמיקה מרכזית: מו"מ תקציבי של הקואליציה הגדולה (משמעת מול הגנת הוצאות, Renew כגוש ציר). 🟢 סביר מאוד (80%) שהקואליציה תחזיק עד יוני.
+
+### 🔭 תרחיש בסיס
+
+- שבוע ועדות מסודר ← סדר יום יוני מוגדר יותר ← מליאה לפי לוח הזמנים ← עימות תקציבי נפתח סוף יוני. 🟢 סביר (60–65%).
+- סיכון עיקרי כלפי מטה: התמשכות טיוטת התקציב של הנציבות (ראו `scenario-forecast.md`).
+
+### 🔑 הנחות מפתח
+
+- אין מושב מפתיע (A2); הרכב יציב; טיוטת תקציב ביוני (בשליטת הנציבות); תקלות בהזנת נתונים נמשכות (מופחתות).
+
+### 🧪 רמת אמינות והסתייגויות
+
+- 🟢 גבוהה על לוח שנה ומאקרו (A1/A2); 🟡 בינונית על עיתוי הוועדות (סדרי יום שלא פורסמו, B3).
+- מצב נתונים `degraded-feeds`: שלוש הזנות מושבתות, שוחזרו לחלוטין דרך פתרונות חלופיים; לא הופר אף רצפה אנליטית.
+
+### 🧭 זווית עריכה
+
+- הסיפור של השבוע הוא **השקט לפני סערת התקציב** — שבוע ועדות שקט שבו נמתחים בשקט הקווים של קרב הפיסק של 2027.
+
+**מסקנה:** דרמה נמוכה כעת, סיכונים גבוהים מתגבשים. לעקוב אחר מסלול התקציב עד למליאה 15–18 ביוני.
+
+### 🗺️ מהשבוע למליאה: צינור עבודה
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 הקשר לוח שנה
+
+| סמן | תאריך | סטטוס | מקור |
+| --- | --- | --- | --- |
+| מושב אחרון | 18–21 במאי | הסתיים | EP A2 |
+| השבוע הנוכחי | 1–5 ביוני | שבוע ועדות/קבוצות (ללא מליאה) | EP A2 |
+| המושב הבא | 15–18 ביוני | מאושר, שטרסבורג | EP A2 |
+| טיוטת תקציב הנציבות | אמצע יוני (צפוי) | ממתין | דפוס היסטורי |
+
+### 🧾 רקע טקסטים שאומצו (תפוקת האביב, A2)
+
+- TA-10-2026-0112 — הנחיות תקציב 2027 (סעיף III): עוגן הפרוצדורה לקרב הבא.
+- TA-10-2026-0183 — אסטרטגיית AI לסחר האיחוד האירופי: שומר INTA/ITRE פעילות בתחרותיות.
+- TA-10-2026-0160 — אכיפת DMA: מקיים את סדר היום של שוקי הדיגיטל של IMCO.
+- TA-10-2026-0174 / 0177 — EPCA אוזבקיסטן / לבנון–Eurojust: תפוקה יציבה של עיבוד הסכמות לפעולה חיצונית.
+- SFPA דיג (סאו טומה, איי קוק): תיקי מדיניות ימית שגרתיים אך פעילים.
+
+### 🔭 מה זה אומר לקורא
+
+- הפרלמנט האירופי נמצא בין מערכות: עונת החקיקה האביבית נסגרה ב-21 במאי, ועונת התקציב הקיצית נפתחת ב-15 ביוני.
+- השבוע הזה הוא **החזרה הכללית** — ועדות וקבוצות מוצבות בשקט את הקווים שיגנו עליהם במליאה.
+- המשתנה החיצוני החשוב ביותר הוא **טיוטת התקציב לשנת 2027 של הנציבות**, צפויה באמצע יוני על רקע הקשר פיסקלי ההדוק ביותר מזה שנים.
+
+### 🧮 כיול חשיבות
+
+- ערך חדשותי פנימי: 🟡 נמוך-בינוני (ללא הצבעות, ללא מליאה).
+- מינוף עתידי: 🟡 בינוני (מכין יוני עתיר-סיכון).
+- ערך עריכה נטו: תקציר *צופה קדימה*, לא סיכום אירועים.
+
+### ⚠️ רמת אמינות שחוזרת
+
+- 🟢 גבוהה על עובדות לוח שנה ומאקרו (A1/A2).
+- 🟡 בינונית על פרטים ברמת הוועדות (סדרי יום שלא פורסמו, B3).
+
+### 📎 נספח — נקודות מעקב ונקודות שיחה
+
+#### עמדות ציון למסלול התקציב (1–5 ביוני)
+- פרסום טיוטת סדר יום המליאה 15–18 ביוני (צפוי 8–12 ביוני).
+- הצהרות אפשריות של ועדת BUDG/ECON המקדימות את הקו לשנת 2027.
+- לוח תקשורת הנציבות לתאריך טיוטת התקציב.
+- ישיבות מתאמי קבוצות לקביעת עמדות הוצאה.
+- מינויי דוחים או מועדי תיקונים לתיקי תקציב.
+
+#### נקודות שיחה מאקרו-כלכליות (IMF A1)
+- גירעון גרמניה ב-−3.78% הוא השינוי החד ביותר בין שלוש הגדולות.
+- צרפת ב-−4.94% היא בעלת הגירעון המוחלט הרחב ביותר — המפגר המבני.
+- איטליה ב-−2.82% היא המשמעתית ביותר מבין השלוש במחזור זה.
+- הצמיחה חיובית אך דלה (DE +0.79%, FR +0.86%, IT +0.52%).
+- האינפלציה התנרמלה (2.6–2.7% DE/IT, 1.84% FR) — מסיר את כרית הכסף הקל.
+
+#### נקודות שיחה על הקואליציה
+- הקואליציה הגדולה מחזיקה 398 מתוך 719 מושבים (סף רוב 361).
+- שום קואליציית כנף אינה מגיעה לרוב לבד — המרכז הוא מכריע מבנית.
+- Renew (77) הוא גוש הציר לעקוב אחריו בנושא הוצאות.
+
+#### הנחיות עריכה
+- למסגר את השבוע קדימה: עונת התקציב, לא הפני השקטים.
+- לייחס כל מסגרת מפלגתית; לעגן בנתוני IMF ניטרליים.
+- להכיר בכנות בחוסר שקיפות סדרי היום במקום להמציא פרטי ועדות.
+
+#### רישום אמינות
+- 🟢 גבוהה: לוח שנה, נתוני מאקרו, חשבון מושבים.
+- 🟡 בינונית: כוונות ברמת הוועדות ודיוק בזמן.
+- 🔴 נמוכה: אין נטל-בסיס בריצה זו.
+
+### 🔗 מקורות ומקור MCP
+
+מסמך זה נשען על מקורות נתונים הבאים שנאספו במהלך שלב A:
+
+- **`get_plenary_sessions`** (EP Open Data, Admiralty A2) — אישר אין מליאה 1–5 ביוני; המושב הבא 15–18 ביוני שטרסבורג.
+- **`get_adopted_texts`** (EP Open Data, A2) — 41 טקסטים שאומצו ב-2026, כולל TA-10-2026-0112 (הנחיות תקציב 2027), 0160 (DMA), 0183 (AI-מסחר), 0174 (EPCA אוזבקיסטן), 0177 (לבנון–Eurojust).
+- **`get_meeting_foreseen_activities`** (EP Open Data, B3) — מחזיקי מקום זמניים למליאת יוני; סדר יום לא הסתיים (אי-שקיפות מסומנת).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — מאקרו DE/FR/IT: גירעונות −3.78% / −4.94% / −2.82%; צמיחה +0.79% / +0.86% / +0.52%.
+- **`generate_political_landscape`** (EP Open Data, A2) — הרכב EP10: 719 חברים ב-9 קבוצות; קואליציה גדולה 398 מול סף 361.
+
+#### סיכום אמינות המקורות
+- הערכות מהותיות נשענות על מקורות A1 (IMF) ו-A2 (לוח שנה של PE, טקסטים שאומצו, הרכב).
+- נתוני פרטי סדרי יום B3 משמשים רק לטענות עתידיות מגודרות ומסומנות במפורש.
+- הזנות אירועים/הליכים מושפלות (404) פוצו דרך הטקסטים שאומצו ומקורות לוח השנה החלופיים לעיל.
+
+> הערת מקור: ריצה זו בוצעה ב-`dataMode = degraded-feeds`; רצפות הותאמו ×0.80 בהתאם לכך, וההערכה המרכזית חזקה כנגד כל מגבלה שהוצהרה.
+
+### Executive Brief Ja
+
+### 対象期間：2026年6月1日〜5日 | 作成日：2026-05-29 | 実行ID：week-ahead-run1780043323
+
+**分類：** 非機密 // 一般公開用
+**適用SAT：** 主要仮定チェック、情報品質チェック。
+**WEPバンド＋地平線** は判断に付記。**Admiralty**グレードは情報源に付記。
+
+### 🎯 結論（直接）
+
+- **2026年6月1日〜5日の週は委員会・政治グループ週であり、本会議は開催されない。** 🟢 高信頼度（EP暦、Admiralty A2）。
+- 欧州議会の最終本会議は**5月18〜21日**。次回は**6月15〜18日**（ストラスブール、A2確認済み）。
+- 今週の価値は**準備的**：6月本会議の議題を固め、決定的には加盟国の財政赤字拡大を背景に形成中の**2027年予算手続**に影響を与える（IMF WEO、A1）。
+- **総合判断：** 🟡 固有の重要性は中低程度、🟡 将来的なレバレッジは中程度。静かな基盤週に委員会は活発に活動。
+
+### 📊 注目すべき事項（優先順位順）
+
+1. **2027年予算への事前ポジショニング（主要テーマ）。** 指針はすでに採択済み（TA-10-2026-0112、A2）。欧州委員会草案は6月中旬予定。財政的プレッシャーがフレームを緊縮方向に傾ける。🟡 可能性あり（60〜70%）、期間2〜4週間。
+2. **貿易と競争力。** 貿易向けAI（TA-10-2026-0183）とDMA執行（TA-10-2026-0160）がINTA/IMCOを活性化。🟡 可能性あり（60%）、期間2〜6週間。
+3. **対外行動条約。** ウズベキスタンEPCA（TA-10-2026-0174）、レバノン–Eurojust（TA-10-2026-0177）が前進。🟡 中程度の重要性。
+
+### 🌍 経済的背景（IMF WEO、A1）
+
+- 🇩🇪 ドイツ：GDP成長率+0.79%、インフレ2.65%、財政赤字**−3.78%**（SGP3%ラインを超過）。
+- 🇫🇷 フランス：GDP成長率+0.86%、インフレ1.84%、財政赤字−4.94%（構造的な遅延国）。
+- 🇮🇹 イタリア：GDP成長率+0.52%、インフレ2.64%、財政赤字−2.82%（規律ある財政再建国）。
+- **解釈：** 財政的余地はかつて最も広かった国（ドイツ）で最も速く縮小しており、来る予算闘争を鋭くする。
+
+### 🤝 政治的構成
+
+- EP10：719議席、9会派。大連立EPP+S&D+Renew = **398**議席（過半数361）— 安定しているが圧倒的ではない。ENP ≈ 6.55。
+- 中心的ダイナミクス：大連立の予算交渉（財政規律対歳出防衛、Renewがスイング・ブロック）。🟢 大変可能性が高い（80%）連立が6月まで維持される。
+
+### 🔭 基本シナリオ
+
+- 秩序立った委員会週 → 6月議題固定 → 予定通りの本会議 → 6月下旬に予算対立が開始。🟢 可能性あり（60〜65%）。
+- 主要なダウンサイドリスク：委員会予算草案の遅延（`scenario-forecast.md`参照）。
+
+### 🔑 主要な仮定
+
+- 本会議の突然の招集なし（A2）。安定した構成。6月に予算草案（欧州委員会管理下）。データフィードの障害は継続（軽減済み）。
+
+### 🧪 信頼性レベルと留意点
+
+- 🟢 高：暦とマクロ（A1/A2）。🟡 中：委員会スケジュール（未公開の議題、B3）。
+- データモード `degraded-feeds`：3フィードが停止中、代替手段で完全回復。分析的最低ラインは未達なし。
+
+### 🧭 編集上の視点
+
+- 今週の物語は**予算の嵐の前の静けさ**—静かな委員会週に2027年財政闘争の戦線が静かに引かれる。
+
+**結論：** 今は劇的なことは少ないが、高い賭けが形成中。6月15〜18日本会議に向けて予算トラックを追う。
+
+### 🗺️ 今週から本会議へ：パイプライン
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 暦的コンテキスト
+
+| マーカー | 日程 | 状況 | 出典 |
+| --- | --- | --- | --- |
+| 最後の本会議 | 5月18〜21日 | 終了 | EP A2 |
+| 今週 | 6月1〜5日 | 委員会・グループ週（本会議なし） | EP A2 |
+| 次の本会議 | 6月15〜18日 | 確認済み、ストラスブール | EP A2 |
+| 委員会予算草案 | 6月中旬（予定） | 待機中 | 歴史的パターン |
+
+### 🧾 採択テキストの背景（春季産出、A2）
+
+- TA-10-2026-0112 — 2027年予算指針（セクションIII）：来たる闘争の手続的アンカー。
+- TA-10-2026-0183 — EU貿易向けAI戦略：INTA/ITREを競争力分野で活性化。
+- TA-10-2026-0160 — DMA執行：IMCOのデジタル市場アジェンダを維持。
+- TA-10-2026-0174 / 0177 — ウズベキスタンEPCA / レバノン–Eurojust：対外行動同意手続の安定した処理。
+- 漁業SFPA（サントメ、クック諸島）：定型的だが現役の海洋政策ファイル。
+
+### 🔭 読者にとっての意味
+
+- 欧州議会は幕間にある：春の立法シーズンは5月21日に終了し、夏の予算シーズンは6月15日に開始。
+- 今週は**リハーサル**—委員会とグループが本会議の場で守る立場を静かに設定する。
+- 最も重要な外部変数は、数年ぶりに最も厳しい財政状況の中、6月中旬に予定される**欧州委員会の2027年予算草案**。
+
+### 🧮 重要性の調整
+
+- 固有のニュース価値：🟡 中低（投票なし、本会議なし）。
+- 将来的なレバレッジ：🟡 中（高い賭けの6月を準備）。
+- 編集的純価値：出来事の要約ではなく、*前向き*なブリーフ。
+
+### ⚠️ 信頼性レベルの再確認
+
+- 🟢 高：暦とマクロの事実（A1/A2）。
+- 🟡 中：委員会レベルの詳細（未公開議題、B3）。
+
+### 📎 付録 — 注目点と会話のポイント
+
+#### 予算トラックの道標（6月1〜5日）
+- 6月15〜18日本会議の暫定議題公開（6月8〜12日予定）。
+- BUDG/ECON委員会による2027年予算ラインの先取り声明。
+- 予算草案日程に関する欧州委員会のコミュニケーション暦。
+- 歳出ポジション設定のためのグループ・コーディネーター会合。
+- 予算ファイルに関する報告者の任命または修正期限。
+
+#### マクロ経済の会話ポイント（IMF A1）
+- ドイツの赤字−3.78%は大国3カ国中最大の変化。
+- フランスの−4.94%は最も広い絶対赤字—構造的遅延国。
+- イタリアの−2.82%は今サイクルで3カ国中最も規律ある国。
+- 成長はプラスだが薄い（DE +0.79%、FR +0.86%、IT +0.52%）。
+- インフレは正常化（2.6〜2.7% DE/IT、1.84% FR）—低金利の緩衝材が消える。
+
+#### 連立の会話ポイント
+- 大連立は719議席中398議席を保有（過半数ライン361）。
+- フランク連立だけでは過半数に届かない—中央が構造的に決定的。
+- Renew（77議席）は歳出面で注目すべきスウィング・ブロック。
+
+#### 編集上のガイダンス
+- 週を前向きに枠組みする：予算シーズン、静かな表面ではなく。
+- 各政党のフレームを帰属させる；中立的なIMFデータに錨を打つ。
+- 委員会の詳細を作り上げるのではなく、議題の不透明さを正直に認める。
+
+#### 信頼性台帳
+- 🟢 高：暦、マクロ数値、議席計算。
+- 🟡 中：委員会レベルの意図と時間的精度。
+- 🔴 低：この実行では本質的なものはなし。
+
+### 🔗 情報源とMCPプロベナンス
+
+このドキュメントはフェーズAで収集された以下のデータソースに基づく：
+
+- **`get_plenary_sessions`**（EP Open Data、Admiralty A2）— 6月1〜5日の本会議なし確認。次回本会議6月15〜18日、ストラスブール。
+- **`get_adopted_texts`**（EP Open Data、A2）— 2026年に採択された41テキスト。TA-10-2026-0112（2027年予算指針）、0160（DMA）、0183（AI-貿易）、0174（ウズベキスタンEPCA）、0177（レバノン–Eurojust）含む。
+- **`get_meeting_foreseen_activities`**（EP Open Data、B3）— 6月本会議の暫定プレースホルダー。議題は未確定（不透明性を注記）。
+- **IMF WEO via SDMX 3.0**（`IMF.RES/WEO`、A1）— DE/FR/ITマクロ：赤字−3.78% / −4.94% / −2.82%；成長+0.79% / +0.86% / +0.52%。
+- **`generate_political_landscape`**（EP Open Data、A2）— EP10構成：9グループに719議員。大連立398対閾値361。
+
+#### 情報源の信頼性概要
+- 核心的判断はA1（IMF）とA2（EP暦、採択テキスト、構成）の情報源に基づく。
+- B3の議題粒度データは明示的に注記されたヘッジされた将来主張にのみ使用。
+- 劣化したイベント/手続フィード（404）は上記の採択テキストと暦代替ソースで補完。
+
+> プロベナンスノート：この実行は `dataMode = degraded-feeds` で実施。フロアは×0.80で調整され、中心的判断はすべての宣言された制約に対して頑健である。
+
+### Executive Brief Ko
+
+### 대상 기간: 2026년 6월 1일–5일 | 작성일: 2026-05-29 | 실행 ID: week-ahead-run1780043323
+
+**분류:** 비기밀 // 공개 배포용
+**적용된 SAT:** 핵심 가정 검토, 정보 품질 검토.
+**WEP 밴드 + 지평선** 판단에 적용. **Admiralty** 등급은 출처에 적용.
+
+### 🎯 핵심 결론
+
+- **2026년 6월 1일–5일 주는 위원회 및 정치 그룹 주로, 본회의는 열리지 않습니다.** 🟢 높은 신뢰도 (EP 달력, Admiralty A2).
+- 유럽의회의 마지막 본회의는 **5월 18–21일**이었으며, 다음 본회의는 **6월 15–18일** (스트라스부르, A2 확인).
+- 이번 주의 가치는 **준비적**입니다. 6월 본회의 의제를 구체화하고, 결정적으로는 회원국들의 재정 적자 확대를 배경으로 형성 중인 **2027년 예산 절차**에 영향을 미칩니다 (IMF WEO, A1).
+- **종합 평가:** 🟡 내재적 중요도 중간-낮음, 🟡 미래 레버리지 보통. 위원회가 활발히 활동하는 조용한 기반 주.
+
+### 📊 주목해야 할 사항 (우선순위 순)
+
+1. **2027년 예산 사전 포지셔닝 (주요 의제).** 지침은 이미 채택됨 (TA-10-2026-0112, A2). 유럽위원회 초안은 6월 중순 예정. 재정 압박이 프레임을 긴축 방향으로 유도. 🟡 가능성 있음 (60–70%), 기간 2–4주.
+2. **무역 및 경쟁력.** 무역 AI (TA-10-2026-0183)와 DMA 집행 (TA-10-2026-0160)이 INTA/IMCO를 활성화. 🟡 가능성 있음 (60%), 기간 2–6주.
+3. **대외 행동 조약.** 우즈베키스탄 EPCA (TA-10-2026-0174), 레바논–Eurojust (TA-10-2026-0177) 진전. 🟡 중간 중요도.
+
+### 🌍 경제적 배경 (IMF WEO, A1)
+
+- 🇩🇪 독일: GDP +0.79%, 인플레이션 2.65%, 재정 적자 **−3.78%** (안정성장협약 3% 기준선 초과).
+- 🇫🇷 프랑스: GDP +0.86%, 인플레이션 1.84%, 재정 적자 −4.94% (구조적 후발국).
+- 🇮🇹 이탈리아: GDP +0.52%, 인플레이션 2.64%, 재정 적자 −2.82% (규율 있는 재정 통합국).
+- **해석:** 재정 여력이 가장 넓었던 곳(독일)에서 가장 빠르게 축소되고 있어 다가오는 예산 싸움을 날카롭게 만들고 있습니다.
+
+### 🤝 정치적 구성
+
+- EP10: 719석, 9개 원내 그룹. 대연정 EPP+S&D+Renew = **398**석 (과반 기준 361) — 안정적이지만 압도적이지는 않음. ENP ≈ 6.55.
+- 핵심 역학: 대연정의 예산 협상 (재정 규율 대 지출 방어, Renew가 스윙 블록). 🟢 매우 가능성 높음 (80%) 연정이 6월까지 유지.
+
+### 🔭 기본 시나리오
+
+- 질서 있는 위원회 주 → 6월 의제 확정 → 예정된 본회의 → 6월 말 예산 대립 개시. 🟢 가능성 있음 (60–65%).
+- 주요 하방 리스크: 유럽위원회 예산 초안 지연 (`scenario-forecast.md` 참조).
+
+### 🔑 핵심 가정
+
+- 예상치 못한 본회의 없음 (A2). 안정적 구성. 6월 예산 초안 (유럽위원회 통제). 데이터 피드 장애 지속 (완화됨).
+
+### 🧪 신뢰도 수준 및 주의 사항
+
+- 🟢 높음: 달력과 거시경제 (A1/A2). 🟡 중간: 위원회 일정 (미공개 의제, B3).
+- 데이터 모드 `degraded-feeds`: 3개 피드 다운, 대체 수단으로 완전 복구. 분석적 최저선 미달 없음.
+
+### 🧭 편집적 관점
+
+- 이번 주의 이야기는 **예산 폭풍 전의 고요함**—조용한 위원회 주에 2027년 재정 전투의 선들이 조용히 그어지고 있습니다.
+
+**결론:** 지금은 드라마가 적지만, 높은 위기가 형성 중. 6월 15–18일 본회의를 향해 예산 트랙을 추적하십시오.
+
+### 🗺️ 이번 주에서 본회의까지: 파이프라인
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 달력 맥락
+
+| 마커 | 날짜 | 상태 | 출처 |
+| --- | --- | --- | --- |
+| 마지막 본회의 | 5월 18–21일 | 종료 | EP A2 |
+| 이번 주 | 6월 1–5일 | 위원회/그룹 주 (본회의 없음) | EP A2 |
+| 다음 본회의 | 6월 15–18일 | 확인됨, 스트라스부르 | EP A2 |
+| 유럽위원회 예산 초안 | 6월 중순 (예정) | 대기 중 | 역사적 패턴 |
+
+### 🧾 채택된 텍스트 배경 (봄 산출물, A2)
+
+- TA-10-2026-0112 — 2027년 예산 지침 (섹션 III): 다가오는 싸움의 절차적 닻.
+- TA-10-2026-0183 — EU 무역 AI 전략: INTA/ITRE를 경쟁력 분야에서 활성화.
+- TA-10-2026-0160 — DMA 집행: IMCO의 디지털 시장 의제 유지.
+- TA-10-2026-0174 / 0177 — 우즈베키스탄 EPCA / 레바논–Eurojust: 대외 행동 동의 절차의 안정적 처리.
+- 어업 SFPA (상투메, 쿡 제도): 일상적이지만 현역 해양 정책 파일.
+
+### 🔭 독자에게 의미하는 바
+
+- 유럽의회는 막간에 있습니다. 봄 입법 시즌은 5월 21일 종료되었고, 여름 예산 시즌은 6월 15일 개막.
+- 이번 주는 **리허설**—위원회와 그룹들이 본회의에서 지킬 노선을 조용히 설정.
+- 가장 중요한 외부 변수는 수년만에 가장 타이트한 재정 상황 속에 6월 중순 예상되는 **유럽위원회의 2027년 예산 초안**.
+
+### 🧮 중요도 교정
+
+- 고유 뉴스 가치: 🟡 중간-낮음 (투표 없음, 본회의 없음).
+- 미래 레버리지: 🟡 보통 (높은 위기의 6월 준비).
+- 편집 순 가치: 사건 요약이 아닌 *전망적* 브리핑.
+
+### ⚠️ 신뢰도 수준 재확인
+
+- 🟢 높음: 달력 및 거시경제 사실 (A1/A2).
+- 🟡 중간: 위원회 수준 세부 사항 (미공개 의제, B3).
+
+### 📎 부록 — 모니터링 포인트 및 대화 포인트
+
+#### 예산 트랙 신호 (6월 1–5일)
+- 6월 15–18일 본회의 임시 의제 공개 (6월 8–12일 예상).
+- BUDG/ECON 위원회의 2027년 예산 라인 예고 발표.
+- 예산 초안 날짜에 대한 유럽위원회 커뮤니케이션 일정.
+- 지출 포지션 설정을 위한 그룹 코디네이터 회의.
+- 예산 파일 보고관 임명 또는 수정안 마감.
+
+#### 거시경제 대화 포인트 (IMF A1)
+- 독일의 적자 −3.78%는 3대 국가 중 가장 큰 변화.
+- 프랑스 −4.94%는 가장 넓은 절대 적자 — 구조적 후발국.
+- 이탈리아 −2.82%는 이번 사이클에서 3국 중 가장 규율 있음.
+- 성장은 긍정적이지만 약함 (DE +0.79%, FR +0.86%, IT +0.52%).
+- 인플레이션 정상화 (2.6–2.7% DE/IT, 1.84% FR) — 저금리 완충재 소멸.
+
+#### 연정 대화 포인트
+- 대연정은 719석 중 398석 보유 (과반 기준 361).
+- 어느 측면 연정도 단독으로 과반에 도달하지 못함 — 중도가 구조적으로 결정적.
+- Renew (77석)는 지출 면에서 주시해야 할 스윙 블록.
+
+#### 편집 지침
+- 주를 앞을 향해 프레임화: 예산 시즌, 조용한 표면이 아닌.
+- 모든 당파적 프레임 귀속. 중립적 IMF 데이터에 고정.
+- 위원회 세부 사항을 만들어내는 대신 의제 불투명성을 솔직하게 인정.
+
+#### 신뢰도 원장
+- 🟢 높음: 달력, 거시경제 수치, 의석 계산.
+- 🟡 중간: 위원회 수준 의도 및 시간 정확도.
+- 🔴 낮음: 이번 실행에서 부하 없음.
+
+### 🔗 출처 및 MCP 프로베넌스
+
+이 문서는 A단계에서 수집된 다음 데이터 소스를 기반으로 합니다:
+
+- **`get_plenary_sessions`** (EP Open Data, Admiralty A2) — 6월 1–5일 본회의 없음 확인. 다음 본회의 6월 15–18일 스트라스부르.
+- **`get_adopted_texts`** (EP Open Data, A2) — 2026년 채택 텍스트 41건. TA-10-2026-0112 (2027년 예산 지침), 0160 (DMA), 0183 (AI-무역), 0174 (우즈베키스탄 EPCA), 0177 (레바논–Eurojust) 포함.
+- **`get_meeting_foreseen_activities`** (EP Open Data, B3) — 6월 본회의 임시 플레이스홀더. 의제 미확정 (불투명성 표시).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — DE/FR/IT 거시: 적자 −3.78% / −4.94% / −2.82%; 성장 +0.79% / +0.86% / +0.52%.
+- **`generate_political_landscape`** (EP Open Data, A2) — EP10 구성: 9개 그룹에 719명. 대연정 398 대 기준선 361.
+
+#### 출처 신뢰성 요약
+- 핵심 판단은 A1 (IMF)과 A2 (EP 달력, 채택 텍스트, 구성) 출처에 기반.
+- B3 의제 세부 데이터는 명시적으로 표시된 헤지된 미래 주장에만 사용.
+- 저하된 이벤트/절차 피드 (404)는 위의 채택 텍스트와 달력 대체 소스로 보완.
+
+> 프로베넌스 노트: 이 실행은 `dataMode = degraded-feeds`에서 수행되었습니다. 최저선은 ×0.80 조정되었으며, 핵심 판단은 모든 선언된 제약에 대해 강건합니다.
+
+### Executive Brief Nl
+
+### Venster: 1–5 juni 2026 | Geproduceerd: 2026-05-29 | Uitvoering: week-ahead-run1780043323
+
+**Classificatie:** NIET GERUBRICEERD // VOOR OPENBARE VERSPREIDING
+**Toegepaste SAT's:** Verificatie van kernassumpties, Kwaliteitscontrole informatie.
+**WEP-banden + horizonten** bij beoordelingen; **Admiralty**-kwalificaties bij bronnen.
+
+### 🎯 Conclusie direct
+
+- De week van **1–5 juni 2026 is een commissie- en politieke-groepweek — er is geen plenaire vergadering.** 🟢 HOGE betrouwbaarheid (EP-kalender, Admiralty A2).
+- De laatste plenaire vergadering van het Europees Parlement was op **18–21 mei**; de volgende is op **15–18 juni** (Straatsburg, bevestigd A2).
+- De waarde van de week is **voorbereidend**: zij stelt de agenda van de juniplenaire vast en, beslissend, de **begrotingsprocedure 2027** die zich nu aftekent tegen de achtergrond van groeiende tekorten van lidstaten (IMF WEO, A1).
+- **Algehele beoordeling:** 🟡 MATIG LAAG intrinsieke relevantie, 🟡 MATIGE prospectieve hefboomwerking. Een rustige basisweek met actief commissiewerk.
+
+### 📊 Wat te volgen (gerangschikt)
+
+1. **Voorpositionering voor begroting 2027 (leidend thema).** Richtlijnen al aangenomen (TA-10-2026-0112, A2); ontwerp van de Commissie verwacht medio juni. Begrotingsdruk stuurt het kader naar terughoudendheid. 🟡 WAARSCHIJNLIJK (60–70%), horizon 2–4 weken.
+2. **Handel en concurrentievermogen.** AI voor handel (TA-10-2026-0183) en DMA-handhaving (TA-10-2026-0160) houden INTA/IMCO actief. 🟡 WAARSCHIJNLIJK (60%), horizon 2–6 weken.
+3. **Verdragen inzake extern optreden.** EPCA van Oezbekistan (TA-10-2026-0174), Libanon–Eurojust (TA-10-2026-0177) vorderen. 🟡 GEMIDDELDE relevantie.
+
+### 🌍 Economische achtergrond (IMF WEO, A1)
+
+- 🇩🇪 Duitsland: bbp +0,79%, inflatie 2,65%, tekort **−3,78%** (boven de 3% SGP-grens).
+- 🇫🇷 Frankrijk: bbp +0,86%, inflatie 1,84%, tekort −4,94% (structurele achterblijver).
+- 🇮🇹 Italië: bbp +0,52%, inflatie 2,64%, tekort −2,82% (de gedisciplineerde consolidator).
+- **Interpretatie:** de begrotingsruimte krimpt het snelst waar zij het grootst was (Duitsland), wat de aankomende begrotingsstrijd verscherpt.
+
+### 🤝 Politieke configuratie
+
+- EP10: 719 zetels, negen fracties. Grote coalitie EVP+S&D+Renew = **398** (drempel 361) — stabiel maar niet overweldigend; ENP ≈ 6,55.
+- Centrale dynamiek: begrotingsonderhandelingen van de grote coalitie (discipline versus verdediging van uitgaven, Renew als scharnierfractie). 🟢 ZEER WAARSCHIJNLIJK (80%) dat de coalitie tot in juni standhoudt.
+
+### 🔭 Basisscenario
+
+- Ordentelijke commissieweek → vastere junidagorde → plenaire conform schema → begrotingsconfrontatie opent eind juni. 🟢 WAARSCHIJNLIJK (60–65%).
+- Grootste neerwaarts risico: vertraging van het begrotingsontwerp van de Commissie (zie `scenario-forecast.md`).
+
+### 🔑 Kernassumpties
+
+- Geen verrassende plenaire (A2); stabiele samenstelling; begrotingsontwerp in juni (Commissiegecontroleerd); storingen in dataprikken bestaan voort (gedempt).
+
+### 🧪 Betrouwbaarheidsniveau en voorbehouden
+
+- 🟢 HOOG voor kalender en macro (A1/A2); 🟡 GEMIDDELD voor commissietiming (niet gepubliceerde agenda's, B3).
+- Datamodus `degraded-feeds`: drie feeds uitgevallen, volledig hersteld via noodoplossingen; geen analytisch minimum niet gehaald.
+
+### 🧭 Redactionele invalshoek
+
+- Het verhaal van de week is **de stilte voor de begrotingsstorm** — een rustige commissieweek waarin de lijnen van de begrotingsstrijd 2027 stilletjes worden getrokken.
+
+**Conclusie:** Weinig dramatiek nu, hoge inzet in aanbouw. Het begrotingsspoor volgen tot de plenaire van 15–18 juni.
+
+### 🗺️ Van de week naar de plenaire: pijplijn
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 Kalendercontext
+
+| Markering | Datum | Status | Bron |
+| --- | --- | --- | --- |
+| Laatste plenaire | 18–21 mei | Afgerond | EP A2 |
+| Huidige week | 1–5 jun | Commissie-/fractieweek (geen plenaire) | EP A2 |
+| Volgende plenaire | 15–18 jun | Bevestigd, Straatsburg | EP A2 |
+| Begrotingsontwerp Commissie | Medio juni (verwacht) | Afwachtend | Historisch patroon |
+
+### 🧾 Achtergrond aangenomen teksten (voorjaarsproductie, A2)
+
+- TA-10-2026-0112 — Begrotingsrichtsnoeren 2027 (sectie III): het procedurele ankerpunt voor de aankomende strijd.
+- TA-10-2026-0183 — AI-strategie voor EU-handel: houdt INTA/ITRE actief op concurrentievermogen.
+- TA-10-2026-0160 — DMA-handhaving: onderhoudt de digitale-marktagenda van IMCO.
+- TA-10-2026-0174 / 0177 — EPCA Oezbekistan / Libanon–Eurojust: stabiele doorstroom van externe toestemmingsprocedures.
+- Visserij-SVOA's (São Tomé, Cookeilanden): routinematige maar actieve maritieme beleidsdossiers.
+
+### 🔭 Wat dit voor de lezer betekent
+
+- Het Europees Parlement bevindt zich tussen twee bedrijven: het wetgevende voorjaarseizoen sloot op 21 mei, het budgettaire zomereizoen opent op 15 juni.
+- Deze week is de **generale repetitie** — commissies en fracties trekken stilletjes de lijnen die zij in de plenaire zaal zullen verdedigen.
+- De enige belangrijkste externe variabele is het **begrotingsontwerp 2027 van de Commissie**, verwacht medio juni, te midden van de strakste begrotingsachtergrond in jaren.
+
+### 🧮 Relevantiekalibratie
+
+- Intrinsieke nieuwswaarde: 🟡 MATIG LAAG (geen stemmingen, geen plenaire).
+- Prospectieve hefboomwerking: 🟡 MATIG (bereidt een juni met hoge inzet voor).
+- Redactionele nettwaarde: een *toekomstgericht* kort document, geen evenementenoverzicht.
+
+### ⚠️ Betrouwbaarheidsniveau herhaald
+
+- 🟢 HOOG voor kalender- en macrofeiten (A1/A2).
+- 🟡 GEMIDDELD voor commissieniveauspecificaties (niet gepubliceerde agenda's, B3).
+
+### 📎 Bijlage — Bewakingspunten en gespreksargumenten
+
+#### Signaalpunten begrotingsspoor (1–5 juni)
+- Publicatie van de voorlopige agenda van de plenaire op 15–18 juni (verwacht 8–12 juni).
+- Eventuele verklaringen van de BUDG/ECON-commissie over de begrotingslijn 2027.
+- Communicatiekalender van de Commissie voor de datum van het begrotingsontwerp.
+- Coördinatorvergaderingen van fracties om bestedingsposities vast te stellen.
+- Benoeming van rapporteurs of amendementstermijnen voor begrotingsdossiers.
+
+#### Macro-gespreksargumenten (IMF A1)
+- Duitslands tekort van −3,78% is de scherpste omslag bij de drie groten.
+- Frankrijk met −4,94% heeft het grootste absolute tekort — de structurele achterblijver.
+- Italië met −2,82% is de meest gedisciplineerde van de drie in deze cyclus.
+- De groei is positief maar gering (DE +0,79%, FR +0,86%, IT +0,52%).
+- De inflatie is genormaliseerd (2,6–2,7% DE/IT, 1,84% FR) — het kussen van gemakkelijk geld verdwijnt.
+
+#### Coalitie-gespreksargumenten
+- De grote coalitie bezit 398 van de 719 zetels (meerderheidsdrempel 361).
+- Geen flankcoalitie bereikt alleen een meerderheid — het centrum is structureel bepalend.
+- Renew (77) is het scharnierfractie om in de gaten te houden bij uitgaven.
+
+#### Redactionele aanbevelingen
+- De week vooruit kaderen: het begrotingsseizoen, niet het rustige oppervlak.
+- Elk partijpolitiek kader toeschrijven; ankeren op neutrale IMF-gegevens.
+- Agendaopaciteit eerlijk erkennen in plaats van commissiedetails te verzinnen.
+
+#### Betrouwbaarheidsregister
+- 🟢 HOOG: kalender, macrocijfers, zetelrekenkunde.
+- 🟡 GEMIDDELD: commissieniveauintenties en tijdprecisie.
+- 🔴 LAAG: niets dragends in deze uitvoering.
+
+### 🔗 Bronnen en MCP-herkomst
+
+Dit document maakt gebruik van de volgende gegevensbronnen die tijdens fase A zijn verzameld:
+
+- **`get_plenary_sessions`** (EP Open Data, Admiralty A2) — bevestigd geen plenaire 1–5 juni; volgende plenaire 15–18 juni Straatsburg.
+- **`get_adopted_texts`** (EP Open Data, A2) — 41 aangenomen teksten in 2026, waaronder TA-10-2026-0112 (begrotingsrichtsnoeren 2027), 0160 (DMA), 0183 (AI-handel), 0174 (EPCA Oezbekistan), 0177 (Libanon–Eurojust).
+- **`get_meeting_foreseen_activities`** (EP Open Data, B3) — voorlopige plaatshouders voor de juniplenaire; agenda nog niet definitief (opaciteit gemarkeerd).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — macro DE/FR/IT: tekorten −3,78% / −4,94% / −2,82%; groei +0,79% / +0,86% / +0,52%.
+- **`generate_political_landscape`** (EP Open Data, A2) — EP10-samenstelling: 719 leden in 9 fracties; grote coalitie 398 ten opzichte van drempel 361.
+
+#### Samenvatting betrouwbaarheid bronnen
+- Dragende beoordelingen rusten op A1 (IMF) en A2 (EP-kalender, aangenomen teksten, samenstelling) bronnen.
+- B3-agendagranulariteitsgegevens worden alleen gebruikt voor afgedekte, expliciet gemarkeerde toekomstgerichte claims.
+- Gedegradeerde gebeurtenis-/procedureprikken (404) zijn gecompenseerd via de aangenomen teksten en kalenderreservebronnen hierboven.
+
+> Herkomstnotitie: deze uitvoering liep in `dataMode = degraded-feeds`; vloeren zijn aangepast met ×0,80 dienovereenkomstig en de centrale beoordeling is robuust ten aanzien van elke gedeclareerde beperking.
+
+### Executive Brief No
+
+### Vindu: 1.–5. juni 2026 | Produsert: 2026-05-29 | Kjøring: week-ahead-run1780043323
+
+**Klassifisering:** UGRADERT // FOR OFFENTLIG PUBLISERING
+**Anvendte SAT-er:** Kontroll av nøkkelantagelser, Kontroll av informasjonskvalitet.
+**WEP-bånd + horisonter** på vurderinger; **Admiralty**-karakterer på kilder.
+
+### 🎯 Konklusjon direkte
+
+- Uken **1.–5. juni 2026 er en utvalgs- og politisk gruppes uke — ingen plenumsesjon avholdes.** 🟢 HØY konfidensnivå (EP-kalender, Admiralty A2).
+- Europaparlamentets siste plenumssesjon var **18.–21. mai**; den neste er **15.–18. juni** (Strasbourg, bekreftet A2).
+- Ukens verdi er **forberedende**: den setter dagsordenen for juniplenumssesjonen og, avgjørende, **budsjettprosedyren for 2027** som nå tar form mot bakgrunn av voksende underskudd i medlemsstatene (IMF WEO, A1).
+- **Samlet vurdering:** 🟡 MODERAT LAV iboende relevans, 🟡 MODERAT fremtidsrettet innflytelse. En stille grunnuke med aktivt utvalgsarbeid.
+
+### 📊 Hva man bør følge (rangert)
+
+1. **Forhåndsposisjonering for budsjett 2027 (ledende).** Retningslinjer allerede vedtatt (TA-10-2026-0112, A2); Kommisjonens utkast forventes medio juni. Finanspolitisk press vinkler rammen mot tilbakeholdenhet. 🟡 SANNSYNLIG (60–70%), horisont 2–4 uker.
+2. **Handel og konkurranseevne.** AI for handel (TA-10-2026-0183) og DMA-håndhevelse (TA-10-2026-0160) holder INTA/IMCO aktive. 🟡 SANNSYNLIG (60%), horisont 2–6 uker.
+3. **Traktater om ekstern handling.** Usbekistans EPCA (TA-10-2026-0174), Libanon–Eurojust (TA-10-2026-0177) skrider frem. 🟡 MEDIUM relevans.
+
+### 🌍 Økonomisk bakgrunn (IMF WEO, A1)
+
+- 🇩🇪 Tyskland: BNP +0,79%, inflasjon 2,65%, underskudd **−3,78%** (over 3% SGP-grensen).
+- 🇫🇷 Frankrike: BNP +0,86%, inflasjon 1,84%, underskudd −4,94% (strukturell sinker).
+- 🇮🇹 Italia: BNP +0,52%, inflasjon 2,64%, underskudd −2,82% (den disiplinerte konsolideringen).
+- **Tolkning:** det finanspolitiske rommet strammes raskest der det var størst (Tyskland), og skjerper den kommende budsjettkampen.
+
+### 🤝 Politisk konfigurasjon
+
+- EP10: 719 seter, ni grupper. Stor koalisjon EPP+S&D+Renew = **398** (terskel 361) — stabil men ikke overveldende; ENP ≈ 6,55.
+- Sentral dynamikk: stor-koalisjonens budsjettforhandlinger (disiplin mot utgiftsforsvar, Renew som svingeblokk). 🟢 SVÆRT SANNSYNLIG (80%) at koalisjonen holder inn i juni.
+
+### 🔭 Basisscenario
+
+- Ordnet utvalgsuke → fastere junidagsorden → plenumssesjon etter plan → budsjettkonfrontasjon åpner sent i juni. 🟢 SANNSYNLIG (60–65%).
+- Største nedsiderisiko: forsinkelse av Kommisjonens budsjettsutkast (se `scenario-forecast.md`).
+
+### 🔑 Nøkkelantagelser
+
+- Ingen overraskelseplenum (A2); stabil sammensetning; budsjettsutkast i juni (kommisjonskontrollert); strømmingsavbrudd vedvarer (avhjulpet).
+
+### 🧪 Konfidensnivå og forbehold
+
+- 🟢 HØY for kalender og makro (A1/A2); 🟡 MEDIUM for utvalgstiming (uoffentliggjorte dagsordener, B3).
+- Datatilstand `degraded-feeds`: tre strømmer nede, fullt gjenopprettet via reserveløsninger; ingen analytisk gulvstandard overskredet.
+
+### 🧭 Redaksjonell innfallsvinkel
+
+- Ukens historie er **stillheten før budsjettsstormen** — en stille utvalgsuke der linjene for det finanspolitiske slaget om 2027 stille trekkes opp.
+
+**Konklusjon:** Lav dramatikk nå, høye innsatser underveis. Følg budsjettsporet frem til plenumssesjonen 15.–18. juni.
+
+### 🗺️ Uke til plenumsesjon: pipeline
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 Kalenderkontekst
+
+| Markør | Dato | Status | Kilde |
+| --- | --- | --- | --- |
+| Siste plenumsesjon | 18.–21. mai | Avsluttet | EP A2 |
+| Inneværende uke | 1.–5. jun | Utvalgs-/gruppeuke (ingen plenum) | EP A2 |
+| Neste plenumsesjon | 15.–18. jun | Bekreftet, Strasbourg | EP A2 |
+| Kommisjonens budsjettsutkast | Medio juni (forventet) | Avventes | Historisk mønster |
+
+### 🧾 Bakgrunn for vedtatte tekster (vårproduksjon, A2)
+
+- TA-10-2026-0112 — Retningslinjer for budsjett 2027 (avsnitt III): det prosedyremessige ankeret for den kommende kampen.
+- TA-10-2026-0183 — AI-strategi for EU-handel: holder INTA/ITRE aktive på konkurranseevne.
+- TA-10-2026-0160 — DMA-håndhevelse: opprettholder IMCO's digitale markedsagenda.
+- TA-10-2026-0174 / 0177 — Usbekistans EPCA / Libanon–Eurojust: stabil gjennomstrømning av ekstern samtykkebehandling.
+- Fiskeri-SFPA-er (São Tomé, Cookøyene): rutinepregede men aktive havpolitikkfiler.
+
+### 🔭 Hva dette betyr for leseren
+
+- Europaparlamentet befinner seg mellom akter: den lovgivende vårperioden ble avsluttet 21. mai, og den finanspolitiske sommerssesongen åpner 15. juni.
+- Denne uken er **prøven** — utvalg og grupper setter stille de linjene de vil forsvare i salen.
+- Den viktigste eksterne variabelen er **Kommisjonens budsjettsutkast for 2027**, forventet medio juni mot den strammeste finanspolitiske bakgrunnen på år.
+
+### 🧮 Relevanskalibrering
+
+- Iboende nyhetsverdi: 🟡 MODERAT LAV (ingen avstemninger, ingen plenum).
+- Fremtidsrettet innflytelse: 🟡 MODERAT (setter opp en juni med høye innsatser).
+- Netto redaksjonell verdi: et *fremtidsrettet* kortdokument, ikke et hendelsesresumé.
+
+### ⚠️ Konfidensnivå gjentatt
+
+- 🟢 HØY for kalender- og makrofakta (A1/A2).
+- 🟡 MEDIUM for utvalgs nivåspesifikke detaljer (uoffentliggjorte dagsordener, B3).
+
+### 📎 Vedlegg — Overvåkningspunkter og samtalepunkter
+
+#### Budsjettsporets signalposter (1.–5. juni)
+- Publisering av den foreløpige dagsordenen for plenumssesjonen 15.–18. juni (forventet 8.–12. juni).
+- Eventuelle uttalelser fra BUDG/ECON-utvalget om 2027-budsjettlinjen.
+- Kommisjonens kommunikasjonskalender for datoen for budsjettsutkastet.
+- Gruppers koordinatormøter for å fastsette utgiftsposisjoner.
+- Ordfører-utnevnelser eller endringsfrister for budsjettfiler.
+
+#### Makrosamtalepunkter (IMF A1)
+- Tysklands underskudd på −3,78% er det skarpeste skiftet blant de tre store.
+- Frankrike på −4,94% har det bredeste absolutte underskuddet — den strukturelle sinkeren.
+- Italia på −2,82% er den mest disiplinerte av de tre i denne syklusen.
+- Veksten er positiv men tynn (DE +0,79%, FR +0,86%, IT +0,52%).
+- Inflasjonen har normalisert seg (2,6–2,7% DE/IT, 1,84% FR) — fjerner den lette pengeputen.
+
+#### Koalisjonssamtalepunkter
+- Stor koalisjonen holder 398 av 719 seter (flertallsterskel 361).
+- Ingen flankekoalisjon når flertall alene — midten er strukturelt avgjørende.
+- Renew (77) er svingeblokken å holde øye med for utgifter.
+
+#### Redaksjonell veiledning
+- Ram inn uken fremover: budsjettsesongen, ikke den stille overflaten.
+- Tilskrive enhver partipolitisk ramme; forankre i nøytrale IMF-data.
+- Erkjenn dagsordensopasitet ærlig fremfor å finne på utvalgsdetaljer.
+
+#### Konfidensregister
+- 🟢 HØY: kalender, makrotall, setearitmetikk.
+- 🟡 MEDIUM: utvalgsintensjonsnivå og tidspresisjon.
+- 🔴 LAV: ingen bærende i denne kjøringen.
+
+### 🔗 Kilder og MCP-proveniens
+
+Dette dokumentet bygger på følgende datakilder samlet inn under fase A:
+
+- **`get_plenary_sessions`** (EP Open Data, Admiralty A2) — bekreftet ingen plenum 1.–5. juni; neste plenumsesjon 15.–18. juni Strasbourg.
+- **`get_adopted_texts`** (EP Open Data, A2) — 41 vedtatte tekster i 2026, inkl. TA-10-2026-0112 (retningslinjer for budsjett 2027), 0160 (DMA), 0183 (AI-handel), 0174 (Usbekistans EPCA), 0177 (Libanon–Eurojust).
+- **`get_meeting_foreseen_activities`** (EP Open Data, B3) — foreløpige plassholdere for juniplenumssesjonen; dagsorden ikke ferdigstilt (opasitet flagget).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — DE/FR/IT makro: underskudd −3,78% / −4,94% / −2,82%; vekst +0,79% / +0,86% / +0,52%.
+- **`generate_political_landscape`** (EP Open Data, A2) — EP10-sammensetning: 719 MEP-er i 9 grupper; stor koalisjon 398 mot terskelen 361.
+
+#### Oppsummering av kildetilpålitelighet
+- Belastende vurderinger hviler på A1 (IMF) og A2 (EP-kalender, vedtatte tekster, sammensetning) kilder.
+- B3 dagsordengransksningsdata brukes bare for hedgede, eksplisitt flaggede fremtidsrettede påstander.
+- Nedgraderte hendelses-/prosedyrestrømmer (404) kompensert via vedtatte tekster og kalenderreservekilder ovenfor.
+
+> Proveniensnotat: denne kjøringen utført i `dataMode = degraded-feeds`; gulvnivåer justert ×0,80 tilsvarende, og den sentrale vurderingen er robust mot enhver erklært begrensning.
+
+### Executive Brief Sv
+
+### Fönster: 1–5 juni 2026 | Producerad: 2026-05-29 | Körning: week-ahead-run1780043323
+
+**Klassificering:** OKLASSIFICERAD // FÖR OFFENTLIG PUBLICERING
+**Tillämpade SAT:** Granskning av nyckelantaganden, Granskning av informationskvalitet.
+**WEP-band + horisonter** för bedömningar; **Admiralty**-betyg för källor.
+
+### 🎯 Slutsats direkt
+
+- Veckan **1–5 juni 2026 är en utskotts- och politisk grupps vecka — ingen plenarsession äger rum.** 🟢 HÖG konfidensgrad (EP-kalender, Admiralty A2).
+- Europaparlamentets senaste plenarsession var **18–21 maj**; nästa är **15–18 juni** (Strasbourg, bekräftat A2).
+- Veckans värde är **förberedande**: det sätter agendan för juniplenarsessionen och, avgörande, **budgetproceduren för 2027** som nu tar form mot bakgrund av växande underskott i medlemsstaterna (IMF WEO, A1).
+- **Övergripande bedömning:** 🟡 MÅTTLIGT LÅG inneboende relevans, 🟡 MÅTTLIG framåtriktad hävstång. En lugn golvvecka med aktivt utskottsarbete.
+
+### 📊 Vad man bör bevaka (rangordnat)
+
+1. **Förpositionering inför budget 2027 (ledande).** Riktlinjerna redan antagna (TA-10-2026-0112, A2); kommissionens utkast förväntas i mitten av juni. Finanspolitiskt tryck lutar inramningen mot återhållsamhet. 🟡 TROLIGT (60–70%), horisont 2–4 veckor.
+2. **Handel och konkurrenskraft.** AI för handel (TA-10-2026-0183) och DMA-genomförande (TA-10-2026-0160) håller INTA/IMCO aktiva. 🟡 TROLIGT (60%), horisont 2–6 veckor.
+3. **Fördrag om externa åtgärder.** Uzbekistans EPCA (TA-10-2026-0174), Libanon–Eurojust (TA-10-2026-0177) fortskrider. 🟡 MEDIUM relevans.
+
+### 🌍 Ekonomisk bakgrund (IMF WEO, A1)
+
+- 🇩🇪 Tyskland: BNP +0,79%, inflation 2,65%, underskott **−3,78%** (över 3% SGP-gränsen).
+- 🇫🇷 Frankrike: BNP +0,86%, inflation 1,84%, underskott −4,94% (strukturell eftersläpare).
+- 🇮🇹 Italien: BNP +0,52%, inflation 2,64%, underskott −2,82% (den disciplinerade konsolidatorn).
+- **Tolkning:** det finanspolitiska utrymmet minskar snabbast där det var störst (Tyskland), vilket skärper den kommande budgetstriden.
+
+### 🤝 Politisk konfiguration
+
+- EP10: 719 platser, nio grupper. Stor koalition EPP+S&D+Renew = **398** (tröskelvärde 361) — stabil men inte överväldigande; ENP ≈ 6,55.
+- Central dynamik: stor-koalitionens budgetförhandlingar (disciplin kontra utgiftsförsvar, Renew som svängblock). 🟢 MYCKET TROLIGT (80%) att koalitionen håller in i juni.
+
+### 🔭 Basscenario
+
+- Ordnad utskottsvecka → fastare junidagordning → plenarsession enligt schema → budgetkonfrontation öppnar sent i juni. 🟢 TROLIGT (60–65%).
+- Största risken: försenat budgetutkast från kommissionen (se `scenario-forecast.md`).
+
+### 🔑 Nyckelantaganden
+
+- Ingen överraskningsplenar (A2); stabil sammansättning; budgetutkast i juni (kommissionskontrollerat); flödesavbrott kvarstår (åtgärdade).
+
+### 🧪 Konfidensgrad och förbehåll
+
+- 🟢 HÖG för kalender och makro (A1/A2); 🟡 MEDIUM för utskottstiming (opublicerade dagordningar, B3).
+- Dataläge `degraded-feeds`: tre flöden nere, fullt återhämtade via reservlösningar; inget analytiskt golv underskridet.
+
+### 🧭 Redaktionell ingång
+
+- Veckans historia är **stillheten inför budgetstormen** — en lugn utskottsvecka där linjerna för det finanspolitiska slag som väntar för 2027 tyst dras upp.
+
+**Slutsats:** Låg dramatik nu, höga insatser på väg. Bevaka budgetspåret inför plenarsessionen 15–18 juni.
+
+### 🗺️ Vecka till plenarsession: pipeline
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 Kalenderkontext
+
+| Markör | Datum | Status | Källa |
+| --- | --- | --- | --- |
+| Senaste plenarsession | 18–21 maj | Avslutad | EP A2 |
+| Innevarande vecka | 1–5 jun | Utskotts-/gruppvecka (ingen plenar) | EP A2 |
+| Nästa plenarsession | 15–18 jun | Bekräftad, Strasbourg | EP A2 |
+| Kommissionens budgetutkast | Mitten av juni (förväntat) | Inväntas | Historiskt mönster |
+
+### 🧾 Antagna-text-bakgrund (vårproduktion, A2)
+
+- TA-10-2026-0112 — Riktlinjer för budget 2027 (avsnitt III): det processuella ankaret för den kommande striden.
+- TA-10-2026-0183 — AI-strategi för EU-handel: håller INTA/ITRE aktiva på konkurrenskraft.
+- TA-10-2026-0160 — DMA-genomförande: uppehåller IMCO:s digitala marknadsagenda.
+- TA-10-2026-0174 / 0177 — Uzbekistans EPCA / Libanon–Eurojust: stabil genomströmning av externt samtyckesarbete.
+- Fiskeri-SFPA:er (São Tomé, Cooköarna): rutinmässiga men aktiva marina politikfiler.
+
+### 🔭 Vad detta innebär för läsaren
+
+- Europaparlamentet befinner sig mellan akter: den lagstiftande vårperioden avslutades den 21 maj, och budgetsommarsäsongen öppnar den 15 juni.
+- Denna vecka är **repetitionen** — utskott och grupper sätter tyst de linjer de kommer att försvara i kammaren.
+- Den enskilt viktigaste externa variabeln är **kommissionens budgetutkast för 2027**, förväntat i mitten av juni mot den strammaste finanspolitiska bakgrunden på år.
+
+### 🧮 Relevanskalibering
+
+- Inneboende nyhetsvärde: 🟡 MÅTTLIGT LÅG (inga omröstningar, ingen plenar).
+- Framåtriktad hävstång: 🟡 MÅTTLIG (sätter upp en juni med höga insatser).
+- Nettovärde för redaktionen: ett *framåtblickande* kortdokument, inte en händelsesammanfattning.
+
+### ⚠️ Konfidensgrad upprepas
+
+- 🟢 HÖG för kalender- och makrofakta (A1/A2).
+- 🟡 MEDIUM för utskottsnivåspecifika uppgifter (opublicerade dagordningar, B3).
+
+### 📎 Bilaga — Bevakningspunkter och samtalsunderlag
+
+#### Budgetspårets signalposter (1–5 juni)
+- Publicering av preliminär dagordning för plenarsessionen 15–18 juni (förväntat 8–12 juni).
+- Eventuella uttalanden från BUDG/ECON-utskottet om budgetlinjen 2027.
+- Kommissionens kommunikationskalender för tidpunkten för budgetutkastet.
+- Gruppers koordinatormöten för att fastställa utgiftspositioner.
+- Föredragandens utnämningar eller ändringsfrister för budgetfiler.
+
+#### Makrosamtalsunderlag (IMF A1)
+- Tysklands underskott på −3,78% är den kraftigaste förändringen bland de tre stora.
+- Frankrike på −4,94% har det bredaste absoluta underskottet — den strukturella eftersläparen.
+- Italien på −2,82% är den mest disciplinerade av de tre under detta konjunkturcykeln.
+- Tillväxten är positiv men tunn (DE +0,79%, FR +0,86%, IT +0,52%).
+- Inflationen har normaliserats (2,6–2,7% DE/IT, 1,84% FR) — undanröjer den lätta pengakudden.
+
+#### Koalitionssamtalsunderlag
+- Stor koalitionen håller 398 av 719 platser (majoritetssgräns 361).
+- Ingen flankskoalition når en majoritet på egen hand — mitten är strukturellt avgörande.
+- Renew (77) är det svängblock att bevaka för utgifter.
+
+#### Redaktionell vägledning
+- Rama in veckan framåt: budgetsäsongen, inte den lugna ytan.
+- Tillskriva varje partipolitisk inramning; förankra i neutrala IMF-data.
+- Erkänn öppenhetsproblem kring dagordningen ärligt snarare än att hitta på utskottsdetaljer.
+
+#### Konfidensregister
+- 🟢 HÖG: kalender, makrotal, platsaritmektik.
+- 🟡 MEDIUM: utskottsnivåavsikter och tidsprecision.
+- 🔴 LÅG: inget lastbärande under denna körning.
+
+### 🔗 Källor och MCP-proveniens
+
+Detta dokument bygger på följande datakällor insamlade under fas A:
+
+- **`get_plenary_sessions`** (EP Open Data, Admiralty A2) — bekräftade att ingen plenar hålls 1–5 juni; nästa plenarsession 15–18 juni Strasbourg.
+- **`get_adopted_texts`** (EP Open Data, A2) — 41 antagna texter 2026, inkl. TA-10-2026-0112 (budget 2027-riktlinjer), 0160 (DMA), 0183 (AI-handel), 0174 (Uzbekistans EPCA), 0177 (Libanon–Eurojust).
+- **`get_meeting_foreseen_activities`** (EP Open Data, B3) — preliminära platshållare för juniplenarsessionen; dagordningen ej slutgiltig (opacitet flaggad).
+- **IMF WEO via SDMX 3.0** (`IMF.RES/WEO`, A1) — DE/FR/IT makro: underskott −3,78% / −4,94% / −2,82%; tillväxt +0,79% / +0,86% / +0,52%.
+- **`generate_political_landscape`** (EP Open Data, A2) — EP10-sammansättning: 719 ledamöter i 9 grupper; stor koalition 398 mot tröskelvärdet 361.
+
+#### Sammanfattning av källornas tillförlitlighet
+- Belastande bedömningar vilar på A1 (IMF) och A2 (EP-kalender, antagna texter, sammansättning) källor.
+- B3 dagordningsgranularitetsdata används endast för hedgade, explicit flaggade framtida påståenden.
+- Nedgraderade händelse-/procedurflöden (404) kompenserades via de antagna texterna och kalenderreservalternativen ovan.
+
+> Proveniensnot: denna körning genomfördes i `dataMode = degraded-feeds`; golvnivåer justerades ×0,80 i enlighet med detta och den centrala bedömningen är robust mot varje deklarerad begränsning.
+
+### Executive Brief Zh
+
+### 时间窗口：2026年6月1日—5日 | 制作日期：2026-05-29 | 运行编号：week-ahead-run1780043323
+
+**分类：** 非保密 // 公开发布
+**应用SAT：** 关键假设核查、信息质量核查。
+**WEP区间+时间跨度** 适用于判断；**Admiralty** 等级适用于来源。
+
+### 🎯 直接结论
+
+- **2026年6月1日—5日为委员会及政治小组工作周，不举行全体会议。** 🟢 高置信度（欧洲议会日历，Admiralty A2）。
+- 欧洲议会上次全体会议为**5月18—21日**，下次为**6月15—18日**（斯特拉斯堡，A2确认）。
+- 本周价值在于**准备性**：确立6月全体会议议程，并对当前在成员国赤字扩大背景下形成的**2027年预算程序**产生决定性影响（IMF WEO，A1）。
+- **综合判断：** 🟡 固有重要性中低程度，🟡 前瞻性杠杆适中。平静的基础周，委员会工作活跃。
+
+### 📊 值得关注的事项（按优先级排列）
+
+1. **为2027年预算提前布局（主要议题）。** 指导方针已获通过（TA-10-2026-0112，A2）；欧洲委员会草案预计6月中旬发布。财政压力将框架向紧缩方向倾斜。🟡 可能（60—70%），时间跨度2—4周。
+2. **贸易与竞争力。** 贸易AI（TA-10-2026-0183）和DMA执法（TA-10-2026-0160）使INTA/IMCO保持活跃。🟡 可能（60%），时间跨度2—6周。
+3. **对外行动条约。** 乌兹别克斯坦EPCA（TA-10-2026-0174）、黎巴嫩—Eurojust（TA-10-2026-0177）推进。🟡 中等重要性。
+
+### 🌍 经济背景（IMF WEO，A1）
+
+- 🇩🇪 德国：GDP增长+0.79%，通胀2.65%，赤字**−3.78%**（超过稳定与增长公约3%红线）。
+- 🇫🇷 法国：GDP增长+0.86%，通胀1.84%，赤字−4.94%（结构性落后国）。
+- 🇮🇹 意大利：GDP增长+0.52%，通胀2.64%，赤字−2.82%（有纪律的整合国）。
+- **解读：** 财政空间在原本最宽松的地方（德国）收紧最快，令即将到来的预算之争更为尖锐。
+
+### 🤝 政治格局
+
+- EP10：719席，九个议会党团。大联合欧洲人民党+社民党+复兴欧洲 = **398**席（门槛361）——稳定但非压倒性；ENP ≈ 6.55。
+- 核心动态：大联合的预算谈判（财政纪律对阵支出捍卫，复兴欧洲作为关键摆动集团）。🟢 非常可能（80%）联合在6月前维持。
+
+### 🔭 基准情景
+
+- 有序的委员会周 → 6月议程趋于明确 → 本会议按期举行 → 预算摊牌于6月下旬开启。🟢 可能（60—65%）。
+- 主要下行风险：欧洲委员会预算草案推迟（参见`scenario-forecast.md`）。
+
+### 🔑 关键假设
+
+- 无突发全体会议（A2）；构成稳定；6月发布预算草案（欧洲委员会管控）；数据馈送中断持续（已缓解）。
+
+### 🧪 置信度与注意事项
+
+- 🟢 高：日历与宏观经济（A1/A2）；🟡 中：委员会时间安排（未公布议程，B3）。
+- 数据模式 `degraded-feeds`：三路馈送中断，通过备用方案完全恢复；无分析底线缺失。
+
+### 🧭 编辑角度
+
+- 本周故事是**预算风暴前的平静**——平静的委员会周，2027年财政争夺的战线正悄然划定。
+
+**结论：** 当下戏剧性低，高风险正在积聚。追踪预算走向至6月15—18日全体会议。
+
+### 🗺️ 从本周到全体会议：流程图
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=bd3628d1) -->
+
+### 📊 日历背景
+
+| 标志 | 日期 | 状态 | 来源 |
+| --- | --- | --- | --- |
+| 上次全体会议 | 5月18—21日 | 已结束 | EP A2 |
+| 本周 | 6月1—5日 | 委员会/小组周（无全体会议） | EP A2 |
+| 下次全体会议 | 6月15—18日 | 已确认，斯特拉斯堡 | EP A2 |
+| 欧洲委员会预算草案 | 6月中旬（预期） | 待定 | 历史规律 |
+
+### 🧾 已通过文本背景（春季产出，A2）
+
+- TA-10-2026-0112 — 2027年预算指导方针（第三部分）：即将到来的斗争的程序锚。
+- TA-10-2026-0183 — 欧盟贸易AI战略：使INTA/ITRE在竞争力领域保持活跃。
+- TA-10-2026-0160 — DMA执法：维持IMCO的数字市场议程。
+- TA-10-2026-0174 / 0177 — 乌兹别克斯坦EPCA / 黎巴嫩—Eurojust：对外行动同意程序稳定推进。
+- 渔业可持续伙伴协议SFPA（圣多美、库克群岛）：常规但活跃的海洋政策文件。
+
+### 🔭 对读者意味着什么
+
+- 欧洲议会正处于两幕之间：立法春季于5月21日结束，预算夏季于6月15日开启。
+- 本周是**彩排**——各委员会和党团悄然确立他们将在全体会议上捍卫的立场。
+- 最重要的外部变量是预计6月中旬发布的**欧洲委员会2027年预算草案**，背景是多年来最紧张的财政状况。
+
+### 🧮 重要性校准
+
+- 固有新闻价值：🟡 中低（无投票，无全体会议）。
+- 前瞻性杠杆：🟡 适中（为高风险的6月做准备）。
+- 编辑净价值：*前瞻性*摘要，非事件回顾。
+
+### ⚠️ 置信度重申
+
+- 🟢 高：日历与宏观经济事实（A1/A2）。
+- 🟡 中：委员会级别具体事项（未公布议程，B3）。
+
+### 📎 附件 — 观察点与话语要点
+
+#### 预算走向信号点（6月1—5日）
+- 发布6月15—18日全体会议暂定议程（预计6月8—12日）。
+- BUDG/ECON委员会就2027年预算方向的任何声明。
+- 欧洲委员会关于预算草案日期的沟通日历。
+- 各党团协调员会议确定支出立场。
+- 预算文件报告员任命或修正案截止日期。
+
+#### 宏观经济话语要点（IMF A1）
+- 德国赤字−3.78%，是三大国中变化最大的。
+- 法国−4.94%，绝对赤字最广——结构性落后国。
+- 意大利−2.82%，本轮是三国中最有纪律的。
+- 增长为正但薄弱（DE +0.79%，FR +0.86%，IT +0.52%）。
+- 通胀已正常化（2.6—2.7% DE/IT，1.84% FR）——宽松货币的缓冲垫消失。
+
+#### 联合话语要点
+- 大联合拥有719席中的398席（过半门槛361）。
+- 没有任何侧翼联合能单独取得多数——中间力量在结构上具有决定性。
+- 复兴欧洲（77席）是支出方面需密切观察的摆动集团。
+
+#### 编辑指引
+- 向前框定本周：预算季，而非平静的表象。
+- 归因每一个党派框架；以中立的IMF数据为锚。
+- 诚实承认议程不透明，而非凭空捏造委员会细节。
+
+#### 置信度台账
+- 🟢 高：日历，宏观数字，席位算术。
+- 🟡 中：委员会级别意图和时间精确度。
+- 🔴 低：本次运行中无关键性内容。
+
+### 🔗 来源与MCP溯源
+
+本文件基于A阶段收集的以下数据来源：
+
+- **`get_plenary_sessions`**（EP Open Data，Admiralty A2）——确认6月1—5日无全体会议；下次全体会议6月15—18日，斯特拉斯堡。
+- **`get_adopted_texts`**（EP Open Data，A2）——2026年41项已通过文本，包括TA-10-2026-0112（2027年预算指导方针）、0160（DMA）、0183（AI-贸易）、0174（乌兹别克斯坦EPCA）、0177（黎巴嫩—Eurojust）。
+- **`get_meeting_foreseen_activities`**（EP Open Data，B3）——6月全体会议临时占位符；议程尚未确定（已标注不透明性）。
+- **IMF WEO via SDMX 3.0**（`IMF.RES/WEO`，A1）——DE/FR/IT宏观：赤字−3.78% / −4.94% / −2.82%；增长+0.79% / +0.86% / +0.52%。
+- **`generate_political_landscape`**（EP Open Data，A2）——EP10构成：9个党团共719名议员；大联合398席对应门槛361。
+
+#### 来源可靠性摘要
+- 核心判断依托A1（IMF）和A2（欧洲议会日历、已通过文本、构成）来源。
+- B3议程细节数据仅用于明确标注的、有对冲的前瞻性声明。
+- 降级的事件/程序馈送（404）通过上述已通过文本和日历备用来源进行补偿。
+
+> 溯源说明：本次运行在 `dataMode = degraded-feeds` 模式下执行；底线按×0.80调整，核心判断对每一项声明的限制均具有稳健性。
+
 ### Procedures Proxy
 
 ### Window: 1–5 June 2026 | Produced: 2026-05-29
@@ -2938,5 +4745,18 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-29/week-ahead/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 
