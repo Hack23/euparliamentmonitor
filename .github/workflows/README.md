@@ -90,6 +90,7 @@ Each workflow renders articles using `npm run generate-article -- --run "${ANALY
 
 The workflow runs on cron 3×/day at 06:30 / 12:30 / 18:30 UTC (staggered against article-generation slots).
 Each run translates **2 source briefs × 13 languages = 26 markdown files by default** (operator can override `max_briefs` up to 4 via `workflow_dispatch`).
+The default of 2 is enabled by the prompt's bounded per-turn context — batched once-per-brief checks (one H2-parity block + one self-validate instead of per-language), verbose tool output redirected to side files, and the per-language register pre-extracted into `queue.json` so the translator guide is not read in-session. These keep one agent session under the Copilot CAPI 25M effective-token per-session cap that previously forced `max_briefs=1` (regression run #26641760920).
 Steady-state throughput: **78 translations/day**, which clears the typical ~1 100-file backlog in ~14 days and then catches every newly-landed brief same-day.
 
 Pipeline components (bounded contexts, single-purpose):

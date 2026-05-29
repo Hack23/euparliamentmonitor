@@ -72,8 +72,13 @@ describe('news-translate workflow contract', () => {
     // after the skeleton-cascade failure #26235374860, (b) the Python-
     // heredoc ban and edit-recovery guidance, (c) the 60-min Time Budget
     // table with the transient-API-error mitigation strategy paragraph.
+    // Cap LOWERED 55 KB → 48 KB after the token-efficiency restructure
+    // (B/C/D): per-language interleaved bash collapsed into one batched
+    // per-brief H2 check + one self-validate, verbose output redirected to
+    // side files, register pre-extracted into queue.json, and historical
+    // regression rationale trimmed from the agent-visible body.
     expect(workflow.length).toBeGreaterThan(2000);
-    expect(workflow.length).toBeLessThan(55000);
+    expect(workflow.length).toBeLessThan(48000);
   });
 
   it('runs 3×/day on cron and is workflow_dispatch-enabled', () => {
@@ -223,22 +228,27 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/create[\s\S]*?tool[\s\S]*?exclusively|exclusively[\s\S]*?create[\s\S]*?tool/i);
   });
 
-  it('requires a per-language H2 spot-check immediately after each file creation', () => {
+  it('requires a batched H2 parity check after all sibling files are written', () => {
     // Regression hardening for run #25994653245 — the agent systematically
     // dropped the last H2 (`## IMF Economic Context — May 2026 Update`) in
     // all 13 sibling translations before the final self-validate caught it.
-    // The prompt MUST include an inline bash spot-check that fires after
-    // EACH individual language file is created so the error is caught
-    // before moving to the next language (not after all 13 are done).
+    // The prompt MUST include an inline bash H2-parity check. Token
+    // efficiency (B1): this now runs ONCE per brief, looping over every
+    // sibling after all languages are written, instead of one interleaved
+    // bash turn per language (which inflated per-session effective tokens).
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
-    // A per-language H2 count check bash block must be present.
-    expect(workflow).toMatch(/H2 spot.check/i);
+    // A batched H2-parity check bash block must be present.
+    expect(workflow).toMatch(/H2 parity|H2 MISMATCH/i);
     // The variables src_h2 and out_h2 must be populated via grep for ## headings.
     // Allow for optional whitespace between grep flags/pattern components.
     expect(workflow).toMatch(/src_h2\s*=.*grep.*\^\s*##/s);
     expect(workflow).toMatch(/out_h2\s*=.*grep.*\^\s*##/s);
     // The check must compare source vs translation count.
     expect(workflow).toMatch(/src_h2.*out_h2|out_h2.*src_h2/s);
+    // It must iterate every sibling (batched), not target a single $lang file.
+    expect(workflow).toMatch(/for f in .*executive-brief_\*\.md/);
+    // A failing check must exit non-zero so a dropped section blocks the flush.
+    expect(workflow).toMatch(/H2 MISMATCH[\s\S]*?exit 1/);
   });
 
   it('makes the in-agent self-validator a hard pre-flush gate', () => {
@@ -358,7 +368,7 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/echo "\$\{WORKFLOW_START_EPOCH\}" > \/tmp\/gh-aw\/workflow-start-epoch/);
   });
 
-  it('contains a pre-write existence check to break transient-API-error retry loops', () => {
+  it('contains a resume scan that breaks transient-API-error retry loops', () => {
     // Regression hardening for run #26166719293 (and similar runs
     // #26148044780, #26033025615, #26030252646, #26027101797): the agent
     // repeatedly re-announced "I'll write Swedish first" and hit the same
@@ -370,28 +380,23 @@ describe('news-translate workflow contract', () => {
     // actually written. Without an explicit on-disk existence check the
     // agent enters an infinite retry loop producing zero output.
     //
-    // The fix: a per-language pre-write bash block that checks if the
-    // target file already exists on disk before calling `create`. If it
-    // does, the agent skips the `create` call and proceeds to the H2
-    // spot-check. This breaks the loop on any retry.
+    // The fix (token-efficient, B3): a single per-brief resume scan that
+    // lists the languages already written to disk, with an instruction to
+    // skip any `lang` already present — instead of one interleaved bash
+    // turn per language. This breaks the loop on any retry while keeping
+    // the per-session effective-token accumulation bounded.
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
-    // The workflow must instruct the agent to check for an existing file
-    // before calling the create tool — using the exact heading from the
-    // workflow so this cannot silently pass on an unrelated substring.
-    expect(workflow).toContain('Per-language pre-write check');
-    // The bash block must reference the exact target file path so it actually
-    // guards the right file (not just any markdown).
-    expect(workflow).toMatch(/executive-brief_.*\.md/);
-    // The check must tell the agent to skip the create call when the file is
-    // already on disk — match the explicit echo written in the bash block.
-    expect(workflow).toContain('skip_create=true');
-    // There must also be a brief-level pre-loop scan that surfaces already-
-    // written siblings so the agent can resume mid-brief after a retry.
-    // Match the exact heading text from the workflow.
-    expect(workflow).toContain('Pre-loop: scan existing translations');
+    // The brief-level setup must capture the languages already on disk so
+    // the agent can resume mid-brief after a retry.
+    expect(workflow).toContain('on-disk-langs.txt');
+    // The bash block must reference the sibling glob so it actually guards
+    // the right files (not just any markdown).
+    expect(workflow).toMatch(/executive-brief_\*\.md/);
+    // The agent must be told to skip any language already on disk.
+    expect(workflow).toMatch(/skip any `?lang`? that is already on disk/i);
   });
 
-  it('contains an emergency partial-flush safety net (Step 4b wall-clock guard)', () => {
+  it('contains an emergency partial-flush safety net (Step 4 wall-clock guard)', () => {
     // Same regression: the workflow MUST instruct the agent to flush
     // whatever is on disk when wall-clock budget is exhausted, even if
     // the current brief is only partially translated. A partial-brief
