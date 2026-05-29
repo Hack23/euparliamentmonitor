@@ -872,7 +872,7 @@ jobs:
                       },
                       "max_briefs": {
                         "default": "2",
-                        "description": "Maximum number of source briefs to translate this run (1-4). Default 2.",
+                        "description": "Maximum number of source briefs to translate this run (1-4). Default 2. The prompt now bounds per-turn context (batched per-brief checks, side-file output, register pre-extracted into queue.json), so two briefs × 13 languages stays under the Copilot CAPI 25M effective-token per-session cap that previously limited this to 1 (regression run #26641760920). Override to 3-4 only for short-brief catch-up and watch the token budget.",
                         "type": "string"
                       },
                       "max_source_lines": {
