@@ -158,6 +158,17 @@ const BARE_INSTITUTIONAL_HEADINGS = [
     'briefing',
     'intelligence brief',
     'intelligence briefing',
+    // CJK / localized translations of generic headings
+    'エグゼクティブ・ブリーフィング',
+    'エグゼクティブブリーフィング',
+    'エグゼクティブ・ブリーフ',
+    'ブリーフィング',
+    '행정 브리핑',
+    '브리핑',
+    '执行简报',
+    '简报',
+    '執行簡報',
+    '簡報',
 ];
 /**
  * Return `true` when the heading is one of {@link BARE_INSTITUTIONAL_HEADINGS}
