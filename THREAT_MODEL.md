@@ -11,15 +11,15 @@
 
 <p align="center">
   <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a><img src="https://img.shields.io/badge/Version-2.2-555?style=for-the-badge" alt="Version"/></a>
-  <a><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a><img src="https://img.shields.io/badge/Version-2.4-555?style=for-the-badge" alt="Version"/></a>
+  <a><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:**
-2026-05-03 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
+**📋 Document Owner:** CEO | **📄 Version:** 2.4 | **📅 Last Updated:**
+2026-05-30 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -66,7 +66,7 @@ Platform)
 
 Establish a comprehensive threat model for the EU Parliament Monitor
 multi-language transparency platform (European Parliament data, automated news
-generation, GitHub Pages deployment). This systematic threat analysis integrates
+generation, AWS S3 + CloudFront deployment). This systematic threat analysis integrates
 multiple threat modeling frameworks to ensure proactive security through
 structured analysis.
 
@@ -139,7 +139,7 @@ mindmap
   he, ja, ko, zh)
 - 🔄 News generation scripts (Node.js 26, European Parliament MCP integration)
 - 🤖 GitHub Actions CI/CD (daily automation, HTML validation, deployment)
-- 📄 GitHub Pages hosting (static content delivery)
+- 📄 AWS S3 + CloudFront hosting (primary static content delivery via OIDC deploy; GitHub Pages fallback mirror)
 - 🔌 European Parliament MCP Server integration (MEP data, committees, sessions)
 
 **Out of Scope:**
@@ -168,7 +168,7 @@ Following [Hack23 AB Threat Landscape Integration](https://github.com/Hack23/ISM
 | 2 | **📡 Malware** | Low — No executable downloads, no user uploads, CDN-delivered static HTML | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](CLASSIFICATION.md) | CSP headers, Subresource Integrity, no dynamic content execution | [T1059](https://attack.mitre.org/techniques/T1059/) |
 | 3 | **🎣 Social Engineering** | Medium — Contributor account targeting, maintainer impersonation | [![Medium](https://img.shields.io/badge/Risk-Medium-yellow?style=flat-square)](CLASSIFICATION.md) | MFA enforcement, branch protection, required reviews, CODEOWNERS | [T1566](https://attack.mitre.org/techniques/T1566/) |
 | 4 | **📊 Data Threats** | Medium — EP parliamentary data integrity, multi-language content accuracy | [![Medium](https://img.shields.io/badge/Risk-Medium-yellow?style=flat-square)](CLASSIFICATION.md) | Schema validation, source verification, automated testing | [T1565](https://attack.mitre.org/techniques/T1565/) |
-| 5 | **⚡ Availability Threats** | Low — GitHub Pages CDN resilience, 24h RTO acceptable | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](CLASSIFICATION.md) | GitHub infrastructure, static site caching, manual deployment backup | [T1499](https://attack.mitre.org/techniques/T1499/) |
+| 5 | **⚡ Availability Threats** | Low — AWS CloudFront edge resilience, 24h RTO acceptable | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](CLASSIFICATION.md) | AWS CloudFront + S3 multi-AZ, static site caching, GitHub Pages fallback deployment | [T1499](https://attack.mitre.org/techniques/T1499/) |
 | 6 | **📰 Information Manipulation** | High — Democratic transparency platform, political data integrity critical | [![High](https://img.shields.io/badge/Risk-High-red?style=flat-square)](CLASSIFICATION.md) | Official EP API source, schema validation, multi-language consistency checks | [T1491](https://attack.mitre.org/techniques/T1491/) |
 | 7 | **🔗 Supply Chain Attacks** | Medium — npm dependency chain, GitHub Actions supply chain | [![Medium](https://img.shields.io/badge/Risk-Medium-yellow?style=flat-square)](CLASSIFICATION.md) | Minimal deps (0 prod), SHA-pinned actions, SBOM, Dependabot, package-lock | [T1195](https://attack.mitre.org/techniques/T1195/) |
 
@@ -225,7 +225,7 @@ quadrantChart
 | **🇪🇺 GDPR**                          | Minimal               | No PII collection, HTTPS-only, data minimization                       |
 | **🇪🇺 NIS2 Directive**                | Low baseline          | Risk management, incident handling procedures                          |
 | **🇪🇺 CRA (EU Cyber Resilience Act)** | Low baseline          | Non–safety-critical transparency platform; secure development controls |
-| **📊 SLA Targets (Internal)**        | 99.5%                 | GitHub Pages infrastructure reliability                                |
+| **📊 SLA Targets (Internal)**        | 99.5%                 | AWS CloudFront + S3 infrastructure reliability                         |
 | **🔄 RPO / RTO**                     | RPO ≤ 24h / RTO ≤ 24h | Acceptable for daily news updates                                      |
 
 ---
@@ -318,8 +318,6 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
   - Medium: 4 (T-003, T-007, T-013 P1; T-030 P2)
   - Low-Medium: 10 (Monitored with existing controls)
   - Low: 7 (Managed with existing controls)
-  - 2026-04-20 refresh: 8 threats (T-021…T-028) covering LLM/agentic, OIDC, and toolchain risks
-  - 2026-05-06 refresh: 2 threats (T-029, T-030) covering shell-safety bypass and MCP gateway impersonation
 - **Primary Security Focus:** Data integrity, supply chain security, information manipulation, agentic workflow sandboxing
 - **Defense Posture:** Multi-layer defense-in-depth with 30+ security controls
 - **ENISA Alignment:** 7/7 ENISA TL 2024 threat categories mapped
@@ -337,7 +335,7 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
 
 ---
 
-## 🔒 Trust Boundaries (2026-04-20 refresh)
+## 🔒 Trust Boundaries
 
 The platform's attack surface is decomposed into **8 trust boundaries** (TB-1 through TB-8) reflecting the full supply chain from citizen reader to release distribution. Each boundary enforces a distinct protocol/control stack, and threats are mapped to the boundary they cross.
 
@@ -403,14 +401,14 @@ graph TB
 
 ## 📋 STRIDE × Trust Boundary Matrix
 
-Each row identifies the most-relevant threat IDs (current catalog T-001…T-028) for each STRIDE category at each trust boundary, with a one-line mitigation summary.
+Each row identifies the most-relevant threat IDs (current catalog T-001…T-030) for each STRIDE category at each trust boundary, with a one-line mitigation summary.
 
 | Boundary | **S**poofing | **T**ampering | **R**epudiation | **I**nfo Disclosure | **D**enial of Service | **E**levation of Privilege |
 |----------|--------------|---------------|------------------|---------------------|-----------------------|-----------------------------|
 | **TB-1** Reader↔CloudFront | — · TLS server cert | T-009 · integrity via Git-backed deploy | — · CloudFront + GitHub audit logs | — · no PII, public content | T-004 · CloudFront edge + failover | — · static content, no auth |
 | **TB-2** CloudFront↔S3 | T-011 · OAC signed requests | T-020 · S3 versioning + object lock | — · S3 access logs | — · private bucket, no listing | T-004 · S3 regional redundancy | — · least-privilege IAM |
 | **TB-3** Runner↔AWF↔Internet | T-007 · TLS pinning via allowlist | T-013, T-023 · schema validation + sanitize | — · JSONL stdio audit | T-010 · no secrets in egress | T-007, T-023 · OR-gate + fallback envelope | T-023 · Docker sandbox |
-| **TB-4** Container↔MCP | T-006 · localhost stdio only | T-023 · tool-list drift tests (IMF+WB) | — · JSONL stdio audit | — · local-only, no network | T-006 · MCP restart + fallback | T-024, T-028 · compile-gate + v0.71.3 pin |
+| **TB-4** Container↔MCP | T-006 · localhost stdio only | T-023 · tool-list drift tests (IMF+WB) | — · JSONL stdio audit | — · local-only, no network | T-006 · MCP restart + fallback | T-024, T-028 · compile-gate + v0.77.3 pin |
 | **TB-5** Container↔LLM | — · tenant-scoped tokens | T-021, T-022 · validator gate + 2-pass review | — · JSONL prompt/response log | T-010, T-021 · prompt-scrub + AWF | T-028 · engine-switch fallback | T-021, T-025 · safe-outputs + patch-size cap |
 | **TB-6** Maintainer↔GitHub | T-015 · 2FA + signed commits | T-005 · required reviews + branch protection | — · GitHub audit log | T-010 · GitHub secret scanning | — · GitHub SOC 2 | T-005, T-015 · CODEOWNERS |
 | **TB-7** Release↔npm | T-011 · OIDC subject claims | T-002, T-012 · provenance + gh-advisory gate | — · npm audit log | — · public package | T-019 · npm registry redundancy | T-026 · least-privilege publish scope |
@@ -445,9 +443,9 @@ flowchart TB
         USER[👤 Public Users<br/>14 Languages]
     end
 
-    subgraph TRUST_BOUNDARY_2["🛡️ GitHub Infrastructure Boundary"]
+    subgraph TRUST_BOUNDARY_2["🛡️ Build & Delivery Infrastructure Boundary"]
         ACTIONS[🤖 GitHub Actions]
-        PAGES[📄 GitHub Pages CDN]
+        PAGES[🌐 AWS CloudFront CDN]
     end
 
     subgraph TRUST_BOUNDARY_3["🔒 Application Trust Boundary"]
@@ -480,8 +478,8 @@ flowchart TB
 
 | Element                   | S                | T                      | R              | I                   | D                  | E                    | Notable Mitigations                         |
 | ------------------------- | ---------------- | ---------------------- | -------------- | ------------------- | ------------------ | -------------------- | ------------------------------------------- |
-| **🌐 GitHub Pages Entry** | DNS spoof        | Header tamper          | Limited        | TLS downgrade       | CDN DDoS           | —                    | TLS 1.3, GitHub CDN protection              |
-| **📄 Static HTML**        | —                | Script injection (XSS) | —              | DOM manipulation    | —                  | —                    | CSP headers, Handlebars auto-escaping       |
+| **🌐 CloudFront CDN Entry** | DNS spoof        | Header tamper          | Limited        | TLS downgrade       | CDN DDoS           | —                    | TLS 1.3, AWS Shield + CloudFront protection |
+| **📄 Static HTML**        | —                | Script injection (XSS) | —              | DOM manipulation    | —                  | —                    | CSP headers, branded `SafeHtmlString` escaping |
 | **📰 News Generator**     | —                | Data tampering         | Log forging    | EP data corruption  | Process failure    | Code injection       | Input validation, schema checks             |
 | **🔌 EP MCP Server**      | Impersonation    | Response manipulation  | Request replay | Data poisoning      | Connection failure | Local exploit        | Localhost-only binding, ephemeral execution |
 | **🤖 GitHub Actions**     | Actor spoof (PR) | Workflow tamper        | Action denial  | Secret exposure     | Runner exhaustion  | Escalated perms      | SHA-pinned actions, branch protection       |
@@ -501,7 +499,7 @@ methodology:
 
 | Phase                    | Technique                  | ID                                                  | EP Monitor Context                  | Control                             | Detection                          |
 | ------------------------ | -------------------------- | --------------------------------------------------- | ----------------------------------- | ----------------------------------- | ---------------------------------- |
-| **🔍 Initial Access**    | Exploit Public-Facing App  | [T1190](https://attack.mitre.org/techniques/T1190/) | Static site, no server-side code    | Static architecture, CSP headers    | GitHub Pages monitoring            |
+| **🔍 Initial Access**    | Exploit Public-Facing App  | [T1190](https://attack.mitre.org/techniques/T1190/) | Static site, no server-side code    | Static architecture, CSP headers    | CloudFront/CDN monitoring          |
 | **🔍 Initial Access**    | Supply Chain Compromise    | [T1195](https://attack.mitre.org/techniques/T1195/) | npm dependencies, GitHub Actions    | Minimal deps, SHA-pinned actions    | Dependabot, SBOM scanning          |
 | **⚡ Execution**         | Command/Script Interpreter | [T1059](https://attack.mitre.org/techniques/T1059/) | Node.js news generation scripts     | ESLint security rules, code review  | CodeQL SAST scanning               |
 | **🔄 Persistence**       | Valid Accounts             | [T1078](https://attack.mitre.org/techniques/T1078/) | GitHub repository access            | MFA requirement, access review      | GitHub audit logs                  |
@@ -513,7 +511,7 @@ methodology:
 | **🔍 Initial Access**    | External Remote Services   | [T1133](https://attack.mitre.org/techniques/T1133/) | Unauthorized EP API access attempts         | Allowlist-only MCP access, public API only  | EP API access logs, rate monitoring        |
 | **🔍 Initial Access**    | Implant Internal Image     | [T1525](https://attack.mitre.org/techniques/T1525/) | Dependency confusion in npm registry        | package-lock.json, SHA verification         | Dependabot, SBOM integrity checks          |
 | **🔍 Discovery**         | Network Service Discovery  | [T1046](https://attack.mitre.org/techniques/T1046/) | Port scanning, MCP service enumeration      | Localhost-only MCP binding, firewall rules  | Network connection monitoring              |
-| **📦 Collection**        | Data from Cloud Storage    | [T1530](https://attack.mitre.org/techniques/T1530/) | GitHub Pages content scraping/access        | Public by design, no secrets in Pages       | Traffic monitoring, rate limiting          |
+| **📦 Collection**        | Data from Cloud Storage    | [T1530](https://attack.mitre.org/techniques/T1530/) | CloudFront/S3 content scraping/access       | Public by design, no secrets in delivery    | Traffic monitoring, rate limiting          |
 | **📦 Collection**        | Data from Configuration Repository | [T1602](https://attack.mitre.org/techniques/T1602/) | package.json, workflow config access | No secrets in config files, SBOM tracking   | Repository access auditing                 |
 | **🔄 Persistence**       | Services File Permissions Weakness | [T1574.010](https://attack.mitre.org/techniques/T1574/010/) | GitHub Actions workflow tampering | SHA-pinned actions, branch protection rules | Workflow change alerts, PR review required |
 | **📡 Command & Control** | Application Layer Protocol | [T1071](https://attack.mitre.org/techniques/T1071/) | MCP HTTP/HTTPS communication to EP API      | TLS enforcement, strict hostname allowlist  | Outbound traffic monitoring                |
@@ -601,13 +599,13 @@ flowchart LR
     MCP[🔌 EP MCP Server\nephemeral process]
     EPA[🇪🇺 EP Open Data API\ndata.europarl.europa.eu]
     NG[📰 News Generator\nNode.js scripts]
-    GHP[🌐 GitHub Pages\nStatic Site]
+    GHP[🌐 AWS CloudFront\nStatic Site]
 
     GHA -->|"spawn localhost:stdio"| MCP
     MCP -->|"HTTPS / TLS 1.3"| EPA
     EPA -->|"JSON responses\n(schema-validated)"| MCP
     MCP -->|"Sanitized data"| NG
-    NG -->|"HTML articles\n(Handlebars escaped)"| GHP
+    NG -->|"HTML articles\n(SafeHtmlString escaped)"| GHP
 
     style GHA fill:#e8f5e9,stroke:#388e3c,color:#000
     style MCP fill:#fff3e0,stroke:#f57c00,color:#000
@@ -624,7 +622,7 @@ flowchart LR
 | **Network binding** | Localhost stdio only (no TCP port) | ✅ No remote attack surface |
 | **Authentication** | None required (EP public API) | ✅ No credentials to steal or leak |
 | **Data direction** | Read-only inbound from EP API | ✅ Cannot write back to EP systems |
-| **Output escaping** | Handlebars auto-escape + CSP headers | ✅ XSS injection from data poisoning blocked |
+| **Output escaping** | Branded `SafeHtmlString` HTML-entity escaping (`escapeHTML`) + markdown-it rendering + CSP headers | ✅ XSS injection from data poisoning blocked |
 | **Package provenance** | npm SHA lock + Dependabot monitoring | ✅ Dependency confusion monitored |
 | **SLSA attestation** | SLSA Level 3 via GitHub Actions | ✅ Build provenance verified end-to-end |
 
@@ -682,7 +680,7 @@ Following [Hack23 AB Kill Chain Analysis](https://github.com/Hack23/ISMS-PUBLIC/
 | **1. Reconnaissance** | Public repository scanning, dependency enumeration, EP API discovery | Transparency by design (public data), no sensitive endpoints exposed | GitHub audit logs, repository traffic analytics | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Minimal attack surface |
 | **2. Weaponization** | Crafting malicious npm packages, preparing XSS payloads for EP data | N/A (attacker-side phase) | Threat intelligence feeds, npm advisory monitoring | [![Medium](https://img.shields.io/badge/Effectiveness-Medium-yellow?style=flat-square)](#) — External phase |
 | **3. Delivery** | Malicious PR submission, dependency confusion, EP data poisoning | Branch protection, required reviews, schema validation, package-lock.json | CodeQL SAST on PRs, Dependabot alerts, EP data schema checks | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Multiple gates |
-| **4. Exploitation** | XSS via injected EP data, command injection in build scripts | CSP headers, Handlebars auto-escaping, ESLint security rules, TypeScript strict mode | CodeQL scanning, unit tests, HTML validation | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Defense-in-depth |
+| **4. Exploitation** | XSS via injected EP data, command injection in build scripts | CSP headers, branded `SafeHtmlString` escaping, ESLint security rules, TypeScript strict mode | CodeQL scanning, unit tests, HTML validation | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Defense-in-depth |
 | **5. Installation** | Persistent backdoor in codebase, modified GitHub Actions workflow | SHA-pinned actions, CODEOWNERS enforcement, branch protection | Workflow change alerts, PR diff review, SBOM integrity checks | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Strong access control |
 | **6. Command & Control** | Exfiltrating data via MCP channel, covert communication via build logs | Localhost-only MCP binding, no outbound network from static site, TLS enforcement | GitHub Actions log monitoring, network connection auditing | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Minimal C2 surface |
 | **7. Actions on Objectives** | Content manipulation, democratic process disruption, defacement | Multi-layer validation, automated testing, schema checks, SLSA attestation | Visual diff review, automated content verification, monitoring | [![Medium](https://img.shields.io/badge/Effectiveness-Medium-yellow?style=flat-square)](#) — Detection gap for subtle manipulation |
@@ -733,7 +731,7 @@ methodology:
 | **3** | **🔑 Repository Credential Compromise** | [Credential Access](https://attack.mitre.org/tactics/TA0006/) | System-wide access                | Low        | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)        | MFA, branch protection, reviews         | Annual security review               |
 | **4** | **🔌 EP MCP Server Data Poisoning**     | [Impact](https://attack.mitre.org/tactics/TA0040/)            | Parliamentary data integrity      | Low        | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)        | Localhost-only, ephemeral execution     | Monitor EP API changes               |
 | **5** | **⚡ GitHub Infrastructure Downtime**   | [Impact](https://attack.mitre.org/tactics/TA0040/)            | Service availability              | Low        | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)        | GitHub CDN, static architecture         | 24h RTO acceptable                   |
-| **6** | **💻 Cross-Site Scripting (XSS)**       | [Initial Access](https://attack.mitre.org/tactics/TA0001/)    | User trust damage                 | Low        | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)        | CSP, Handlebars escaping, validation    | Quarterly security review            |
+| **6** | **💻 Cross-Site Scripting (XSS)**       | [Initial Access](https://attack.mitre.org/tactics/TA0001/)    | User trust damage                 | Low        | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)        | CSP, `SafeHtmlString` escaping, validation | Quarterly security review            |
 
 ### **⚖️ Risk Heat Matrix**
 
@@ -790,7 +788,7 @@ Following [Hack23 AB Scenario-Centric Threat Modeling](https://github.com/Hack23
 |---|---|---|---|---|---|
 | **WI-001** | What if the European Parliament changes its open data API format? | Medium | News generation fails until adaptation; stale content served | Schema validation catches errors; cached content remains available | Monitor EP API changelog; implement API version detection; maintain fallback templates |
 | **WI-002** | What if a zero-day vulnerability is found in Node.js 26? | Low | Build pipeline compromised during news generation | GitHub Actions auto-updates runners; Dependabot monitors dependencies | Pin Node.js version; implement container-based builds; maintain rollback capability |
-| **WI-003** | What if GitHub Pages experiences a multi-day outage? | Very Low | Site unavailable; no news updates for > 24h RTO | Static content cached by CDN; manual deployment possible | Maintain backup deployment target; document manual recovery; accept 24h RTO per classification |
+| **WI-003** | What if the AWS CloudFront/S3 delivery edge experiences a multi-day outage? | Very Low | Site unavailable; no news updates for > 24h RTO | Static content cached by CDN; GitHub Pages fallback deployment possible | Maintain GitHub Pages fallback target; document manual recovery; accept 24h RTO per classification |
 | **WI-004** | What if a contributor's GitHub account is compromised? | Low | Potential unauthorized code changes or content manipulation | MFA required; branch protection; required reviews; CODEOWNERS | Quarterly access reviews; monitor for anomalous commits; incident response plan |
 | **WI-005** | What if politically motivated content manipulation goes undetected? | Low-Medium | Gradual erosion of platform credibility and democratic trust | Schema validation; automated testing; public source code | Implement automated fact-checking pipeline (P1); add confidence scoring; cross-reference with official EP records |
 | **WI-006** | What if the EP MCP Server package is deprecated or abandoned? | Medium | Loss of data integration capability; news generation stops | Version pinning; local fallback data | Monitor package health; maintain fork capability; implement direct EP API fallback |
@@ -859,7 +857,7 @@ Following [Hack23 AB Risk-Centric Threat Modeling](https://github.com/Hack23/ISM
 | **T-017** | MEP Data Integrity Failure | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
 | **T-018** | Information Manipulation Campaign | 1 | 5 | 5 | 🟡 Low-Medium | Monitor |
 | **T-019** | Node.js Runtime Vulnerability | 1 | 3 | 3 | 🟢 Low | Accept |
-| **T-020** | GitHub Pages CDN Compromise | 1 | 3 | 3 | 🟢 Low | Accept |
+| **T-020** | CDN/Edge Delivery Compromise | 1 | 3 | 3 | 🟢 Low | Accept |
 | **T-021** | Prompt Injection via EP Debate Content | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
 | **T-022** | Reference Hallucination | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
 | **T-023** | MCP Data Poisoning (EP/WB/IMF) | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
@@ -867,7 +865,7 @@ Following [Hack23 AB Risk-Centric Threat Modeling](https://github.com/Hack23/ISM
 | **T-025** | Max-Patch-Size Bypass | 1 | 3 | 3 | 🟢 Low | Accept |
 | **T-026** | AWS / npm OIDC Policy Bypass | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
 | **T-027** | Translation Pipeline Weaponization | 2 | 4 | **8** | 🟠 **Medium** | Reduce |
-| **T-028** | gh-aw Toolchain Break (v0.71.3 pin) | 2 | 2 | 4 | 🟡 Low-Medium | Monitor |
+| **T-028** | gh-aw Toolchain Break (v0.77.3 pin) | 2 | 2 | 4 | 🟡 Low-Medium | Monitor |
 
 ### **🎯 Risk Distribution Summary**
 
@@ -897,7 +895,7 @@ Following [Hack23 AB Risk-Centric Threat Modeling](https://github.com/Hack23/ISM
 **Existing Controls:**
 
 - ✅ Content Security Policy (CSP) headers
-- ✅ Handlebars auto-escaping
+- ✅ Branded `SafeHtmlString` HTML-entity escaping (markdown-it renderer)
 - ✅ Input validation for EP data
 - ✅ ESLint security plugin
 - ✅ Code review required
@@ -1126,7 +1124,7 @@ already secured)
 - ✅ Branch protection with required reviews
 - ✅ MFA enforcement for all contributors
 - ✅ Automated deployment (no manual HTML changes)
-- ✅ GitHub Pages CDN caching
+- ✅ AWS CloudFront CDN caching
 
 **Residual Risk:** Low - Multiple access control layers
 
@@ -1305,7 +1303,7 @@ already secured)
 
 **Existing Controls:**
 
-- ✅ GitHub Pages CDN (DDoS protection)
+- ✅ AWS CloudFront CDN (DDoS protection)
 - ✅ Static site architecture (no dynamic endpoints)
 - ✅ robots.txt configured
 - ✅ No authentication endpoints to brute-force
@@ -1394,7 +1392,7 @@ already secured)
 
 ---
 
-### Threat T-020: GitHub Pages CDN Compromise
+### Threat T-020: CDN/Edge Delivery Compromise (CloudFront primary, GitHub Pages fallback)
 
 | Attribute           | Value                                                              |
 | ------------------- | ------------------------------------------------------------------ |
@@ -1528,7 +1526,7 @@ already secured)
 
 **Existing Controls:**
 
-- ✅ `.github/workflows/compile-agentic-workflows.yml` validates `GH_AW_VERSION=v0.71.3` pin (manual `workflow_dispatch` — run before merging agentic-workflow changes)
+- ✅ `.github/workflows/compile-agentic-workflows.yml` validates `GH_AW_VERSION=v0.77.3` pin (manual `workflow_dispatch` — run before merging agentic-workflow changes)
 - ✅ Branch protection prevents merge when compile check fails (when manually triggered)
 - ✅ `.lock.yml` MUST match `{{#runtime-import}}` directive in the source `.md`
 - ✅ Branch protection prevents merge when compile check fails
@@ -1627,7 +1625,7 @@ already secured)
 
 ---
 
-### Threat T-028: gh-aw Toolchain Break (v0.71.3 pin)
+### Threat T-028: gh-aw Toolchain Break (v0.77.3 pin)
 
 | Attribute           | Value                                                              |
 | ------------------- | ------------------------------------------------------------------ |
@@ -1644,7 +1642,7 @@ already secured)
 
 **Existing Controls:**
 
-- ✅ `GH_AW_VERSION: v0.71.3` pinned in `.github/workflows/compile-agentic-workflows.yml`
+- ✅ `GH_AW_VERSION: v0.77.3` pinned in `.github/workflows/compile-agentic-workflows.yml`
 - ✅ `actions-lock.json` tracked in VCS
 - ✅ BCP Scenario 11 documents git-revert rollback procedure if bump fails
 - ✅ Drift detection via CI compile job on every PR (catches incompatible bumps early)
@@ -1652,7 +1650,7 @@ already secured)
 
 **Residual Risk:** Low-Medium — Pin + rollback procedure limits outage window to <24h RTO
 
-**Risk Treatment:** Monitor — Watch gh-aw release notes for v0.69.x and test-bump in fork before production
+**Risk Treatment:** Monitor — Watch gh-aw release notes beyond the current v0.77.3 pin and test-bump in fork before production
 
 ---
 
@@ -1975,7 +1973,7 @@ quadrantChart
 flowchart TB
     subgraph LAYER_1["🌐 Layer 1: Perimeter"]
         direction LR
-        L1A[🌍 GitHub Pages CDN]
+        L1A[🌍 AWS CloudFront CDN]
         L1B[🔒 TLS 1.3 Enforcement]
         L1C[🛡️ DDoS Protection]
     end
@@ -1990,7 +1988,7 @@ flowchart TB
     subgraph LAYER_3["🖥️ Layer 3: Application"]
         direction LR
         L3A[✅ Input Validation]
-        L3B[🎨 Handlebars Escaping]
+        L3B[🎨 SafeHtmlString Escaping]
         L3C[📋 Schema Validation]
     end
 
@@ -2028,19 +2026,19 @@ flowchart TB
 | **T — Tampering** | Branch protection, required reviews, SHA-pinned actions, schema validation | SLSA Level 3 attestation, package-lock.json integrity, CSP headers | CodeQL SAST scanning, Dependabot alerts, automated testing, diff review | T-001, T-002, T-003, T-007, T-008, T-013, T-014, T-020 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#tampering) |
 | **R — Repudiation** | GitHub audit logs, commit history, Git signed commits | SLSA provenance attestation, SBOM tracking, workflow logging | CodeQL logs, GitHub Actions run history, PR review trail | T-005, T-011, T-018 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#repudiation) |
 | **I — Information Disclosure** | Secret scanning, no PII collection, public data only, environment-scoped secrets | Workflow permission minimization (least privilege), no secrets in config | GitHub secret scanning alerts, repository traffic monitoring | T-010 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#disclosure) |
-| **D — Denial of Service** | GitHub Pages CDN (DDoS protection), static site architecture, manual workflow triggers | Retry logic with backoff, cached content persistence, 24h RTO alignment | GitHub status monitoring, workflow failure alerts, deployment health checks | T-004, T-016, T-020 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#dos) |
+| **D — Denial of Service** | AWS CloudFront CDN (AWS Shield DDoS protection), static site architecture, manual workflow triggers | Retry logic with backoff, cached content persistence, 24h RTO alignment | AWS + GitHub status monitoring, workflow failure alerts, deployment health checks | T-004, T-016, T-020 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#dos) |
 | **E — Elevation of Privilege** | MFA enforcement, CODEOWNERS, workflow permissions (least privilege) | Branch protection rules, required status checks, role-based access | Quarterly access reviews, workflow change alerts, PR approval audit | T-005, T-009, T-012, T-015, T-019 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#privilege) |
 
 ### **🔐 Comprehensive Control Catalog**
 
 | Layer                 | Control                       | Threats Mitigated                   | Status         |
 | --------------------- | ----------------------------- | ----------------------------------- | -------------- |
-| **1. Perimeter**      | GitHub Pages CDN              | T-004 (DoS)                         | ✅ Implemented |
+| **1. Perimeter**      | AWS CloudFront CDN            | T-004 (DoS)                         | ✅ Implemented |
 | **1. Perimeter**      | TLS 1.3 Enforcement           | T-006 (MITM)                        | ✅ Implemented |
 | **2. Network**        | HTTPS-Only                    | T-001 (XSS), T-006 (MITM)           | ✅ Implemented |
 | **2. Network**        | Content Security Policy (CSP) | T-001 (XSS)                         | ✅ Implemented |
 | **2. Network**        | HSTS Headers                  | T-006 (Protocol Downgrade)          | ✅ Implemented |
-| **3. Application**    | Handlebars Auto-Escaping      | T-001 (XSS)                         | ✅ Implemented |
+| **3. Application**    | Branded `SafeHtmlString` Escaping | T-001 (XSS)                         | ✅ Implemented |
 | **3. Application**    | Input Validation              | T-001 (XSS), T-003 (Data Integrity) | ✅ Implemented |
 | **3. Application**    | HTML Validation               | T-001 (XSS), T-003 (Data Integrity) | ✅ Implemented |
 | **3. Application**    | ESLint Security Rules         | T-001 (Code Injection)              | ✅ Implemented |
@@ -2078,7 +2076,7 @@ flowchart TB
 | **A.8.16** | Monitoring activities | CodeQL SAST, Dependabot, GitHub audit logs, workflow monitoring | ✅ Implemented |
 | **A.8.25** | Secure development lifecycle | Automated CI/CD, code review, SAST, SCA, SBOM generation | ✅ Implemented |
 | **A.8.26** | Application security requirements | CSP headers, input validation, schema validation, TypeScript strict | ✅ Implemented |
-| **A.8.28** | Secure coding | ESLint security rules, CodeQL, Handlebars auto-escaping | ✅ Implemented |
+| **A.8.28** | Secure coding | ESLint security rules, CodeQL, branded `SafeHtmlString` escaping | ✅ Implemented |
 
 ### **🔒 NIST CSF 2.0 Function Mapping**
 
@@ -2093,7 +2091,7 @@ flowchart TB
 | **DE (Detect)** | DE.CM — Continuous Monitoring | CodeQL scanning, Dependabot alerts, secret scanning | T-001, T-002, T-010 |
 | **DE (Detect)** | DE.AE — Adverse Event Analysis | GitHub audit logs, workflow monitoring, anomaly detection | T-005, T-009 |
 | **RS (Respond)** | RS.AN — Incident Analysis | SECURITY.md disclosure policy, incident response procedures | All high-impact threats |
-| **RC (Recover)** | RC.RP — Recovery Planning | BCPPlan.md, 24h RTO/RPO, GitHub Pages CDN caching | T-004, T-007 |
+| **RC (Recover)** | RC.RP — Recovery Planning | BCPPlan.md, 24h RTO/RPO, AWS CloudFront CDN caching | T-004, T-007 |
 
 ### **🛡️ CIS Controls v8.1 Mapping**
 
@@ -2548,15 +2546,22 @@ V.Low │            │               │                │ T-015             
 
 | Role                   | Name          | Date       | Signature |
 | ---------------------- | ------------- | ---------- | --------- |
-| **Security Architect** | Security Team | 2026-02-26 | Approved  |
-| **Product Owner**      | Product Team  | 2026-02-26 | Approved  |
-| **CEO / CISO**         | CEO           | 2026-02-26 | Approved  |
+| **Security Architect** | Security Team | 2026-05-30 | Approved  |
+| **Product Owner**      | Product Team  | 2026-05-30 | Approved  |
+| **CEO / CISO**         | CEO           | 2026-05-30 | Approved  |
 
 ### **🔄 Review Schedule**
 
-- **Current Review:** 2026-02-26
-- **Next Quarterly Review:** 2026-05-26
-- **Annual Comprehensive Review:** 2027-02-26
+- **Current Review:** 2026-05-30
+- **Next Quarterly Review:** 2026-08-30
+- **Annual Comprehensive Review:** 2027-05-30
+
+### **📝 Version History**
+
+| Version | Date       | Author        | Changes                                                                                                                                                                                                                                                       |
+| ------- | ---------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **2.4** | 2026-05-30 | Security Team | Deep-review refresh: corrected templating reference (Handlebars → `SafeHtmlString` branded types), aligned delivery model (GitHub Pages → CloudFront/S3 with GitHub Pages fallback), catalogued threat **T-030**, realigned T-028 risk treatment to the current `v0.77.3` gh-aw pin, and refreshed the approval/review cycle to the 2026-05-30 quarterly cadence. |
+| **2.3** | 2026-02-26 | Security Team | Quarterly review: STRIDE-per-element coverage, MITRE ATT&CK mapping, ENISA TL 2024 integration, and quantitative risk treatment plan.                                                                                                                          |
 
 ### **📊 Review Criteria**
 
@@ -2575,46 +2580,6 @@ V.Low │            │               │                │ T-015             
 - ✅ Maturity level progression evaluation
 - ✅ Strategic alignment with Hack23 ISMS policies
 - ✅ European Parliament transparency requirements review
-
-### **📝 Change Log**
-
-| Version | Date       | Author        | Changes                                                                       |
-| ------- | ---------- | ------------- | ----------------------------------------------------------------------------- |
-| 2.0     | 2026-02-26 | Security Team | Comprehensive ISMS conformance upgrade — expanded from 58% to full compliance |
-|         |            |               | - **Expanded threats from 6 → 20** (T-001 to T-020) with quantitative scoring |
-|         |            |               | - Added 🌐 ENISA Threat Landscape 2024 Integration (7 priority categories)     |
-|         |            |               | - Added 🎯 Multi-Strategy Integration Mindmap (5-strategy visualization)       |
-|         |            |               | - Added 🔗 Kill Chain Disruption Analysis (7-phase defensive mapping)          |
-|         |            |               | - Added 🎯 Scenario-Centric Threat Analysis (6 misuse cases, 6 what-if, 3 personas) |
-|         |            |               | - Added ⚖️ Quantitative Risk Assessment with formal Likelihood×Impact matrix  |
-|         |            |               | - Expanded 👥 Threat Agent Classification with 5 detailed agent profiles       |
-|         |            |               | - Enhanced 🎭 STRIDE → Control Mapping with Primary/Secondary/Monitoring columns |
-|         |            |               | - Added 📋 Compliance Framework Mapping (ISO 27001, NIST CSF 2.0, CIS v8.1)  |
-|         |            |               | - Enhanced 🔄 Continuous Validation with PRE→ENUM→THREATS→MAP→PLAN→VALIDATE→MONITOR |
-|         |            |               | - Updated Risk Treatment Plan with 20-threat prioritization                    |
-|         |            |               | - Created FUTURE_THREAT_MODEL.md for planned security evolution               |
-| 1.1     | 2026-02-25 | Security Team | EP MCP Server attack surface expansion and ATT&CK coverage enhancement        |
-|         |            |               | - Expanded 🎖️ MITRE ATT&CK coverage to 18 techniques (2.3% coverage)         |
-|         |            |               | - Added T1133, T1525, T1046, T1530, T1602, T1574.010, T1071, T1071.001, T1553.002 |
-|         |            |               | - Added 🔌 EP MCP Server Attack Surface Analysis section with 7 attack vectors |
-|         |            |               | - Added MCP server security posture summary and data flow diagram              |
-|         |            |               | - Updated ATT&CK Coverage Heat Map (Initial Access: 18.2%, Collection: 4.9%)  |
-|         |            |               | - Added npm Package Lock and SLSA controls to ATT&CK mitigation mapping        |
-|         |            |               | - Added NIST CSF 2.0 GV.OC alignment note in Framework Integration section    |
-| 1.0     | 2026-02-18 | Security Team | Initial comprehensive threat model per Hack23 ISMS standards                  |
-|         |            |               | - Added 🎯 Purpose & Scope with framework integration                         |
-|         |            |               | - Added 📊 System Classification & Operating Profile                          |
-|         |            |               | - Added 💎 Critical Assets & Protection Goals with Crown Jewel Analysis       |
-|         |            |               | - Added 🌐 Data Flow & Architecture Analysis with STRIDE per element          |
-|         |            |               | - Added 🎖️ MITRE ATT&CK Framework Integration (9 techniques, 1.3% coverage)   |
-|         |            |               | - Added 🏛️ European Parliament-Specific Threats (democratic transparency)     |
-|         |            |               | - Added 🌍 Multi-Language Content Manipulation (14 languages)                 |
-|         |            |               | - Added 📊 Comprehensive Threat Agent Analysis                                |
-|         |            |               | - Added 🛡️ Comprehensive Security Control Framework (25+ controls)            |
-|         |            |               | - Added 🔄 Continuous Validation & Assessment with workshop framework         |
-|         |            |               | - Added 🎯 Threat Modeling Maturity Framework (5 levels)                      |
-|         |            |               | - Added 🌟 Security Best Practices for parliamentary platforms                |
-|         |            |               | - Integrated existing 6 threats (T-001 to T-006) into comprehensive structure |
 
 ---
 
@@ -2675,8 +2640,8 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 
 1. **Q3 2026:** Implement T-003, T-007, T-013 mitigations (automated fact-checking, API monitoring, cross-reference validation)
 2. **Q3 2026:** Advance to Maturity Level 3 (Democratic Analysis Excellence)
-3. **2026-08-03:** Conduct next quarterly threat model review
-4. **2027-05-03:** Annual comprehensive threat model update
+3. **2026-08-30:** Conduct next quarterly threat model review
+4. **2027-05-30:** Annual comprehensive threat model update
 
 ### 🔗 Related ISMS-PUBLIC Policies
 

@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
-2026-05-06 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
+**📋 Document Owner:** CEO | **📄 Version:** 1.5 | **📅 Last Updated:**
+2026-05-30 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -90,16 +90,16 @@ planning and resource allocation.
 - **Market**: European civic technology, political transparency platforms
 - **Competitive Position**: Open source, automated news generation,
   multi-language support
-- **Timeline**: Current state as of v0.8.54 (2026-05-03)
+- **Timeline**: Current state as of v0.9.29 (2026-05-30)
 - **Scope**: Technical, operational, strategic, and compliance dimensions
 
 ### Current State Snapshot (May 2026)
 
-- **1894+ HTML articles** in **14 languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
+- **5231+ HTML articles** in **14 languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 - **14 article types**: breaking, week-ahead, week-in-review, month-ahead, month-in-review, quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle, committee-reports, motions, propositions
 - **15 unified gh-aw workflows** (`.github/workflows/news-*.md` → `.lock.yml`): 14 unified `news-<type>.md` (Stage A→E in one ~45-min session, single PR; per-slug stage budgets from `src/config/article-horizons.ts`) + `news-translate.md` (manual 14-language helper)
 - **Aggregator pipeline**: deterministic Markdown→HTML rendering via `src/aggregator/**` (5 modules) — no per-type strategies, no AI-authored HTML, no runtime content-validator
-- **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
+- **5933+ automated tests** across **153 test files** (Vitest 4.1.7 + Playwright 1.60.0 + @axe-core/playwright 4.11.3)
 - **Stack**: Node 26, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
 - **Data sources**: `european-parliament-mcp-server@1.3.12+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
 - **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback runbook
@@ -413,13 +413,13 @@ public security evidence.
 
 ### 🆕 2026-04-20 Refresh — Strengths S8–S17
 
-- **S8: Industrial-Scale Multilingual Output** — 1,894 HTML articles generated across 14 languages with zero manual editorial overhead via the gh-aw agentic pipeline; demonstrates throughput far beyond human editorial capacity. *Impact: 9/10.*
+- **S8: Industrial-Scale Multilingual Output** — 5,231 HTML articles generated across 14 languages with zero manual editorial overhead via the gh-aw agentic pipeline; demonstrates throughput far beyond human editorial capacity. *Impact: 9/10.*
 - **S9: AI-First 2-Pass Quality Regime** — enforced gates: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers at merge. *Impact: 8/10.*
 - **S10: Article-Type-Specific Reference Thresholds** — `mcp-reliability-audit` ≥200 words (breaking ≥385); `reference-analysis-quality` ≥140 (breaking ≥190); enforced per article type in `scripts/utils/validate-analysis-completeness.js` (compiled from `src/utils/validate-analysis-completeness.ts`). *Impact: 8/10.*
 - **S11: Triple Supply-Chain Attestation** — SLSA Level 3 build attestations + npm provenance + OpenSSF Scorecard + [OpenSSF Best Practices #12068](https://www.bestpractices.dev/projects/12068). *Impact: 9/10.*
-- **S12: Test Depth** — 3,061+ tests across 52 files: Vitest 4.1.4 (unit+integration), Playwright 1.59.1 + @axe-core/playwright (WCAG 2.1 AA E2E), HTMLHint, ESLint 10.2.1 + sonarjs + security + jsdoc plugins. *Impact: 8/10.*
+- **S12: Test Depth** — 5,933+ tests across 153 files: Vitest 4.1.7 (unit+integration), Playwright 1.60.0 + @axe-core/playwright (WCAG 2.1 AA E2E), HTMLHint, ESLint 10.4.1 + sonarjs + security + jsdoc plugins. *Impact: 8/10.*
 - **S13: Dual Economic-Context Surfaces** — IMF SDMX 3.0 REST (primary economic source: WEO + Fiscal Monitor + IFS + BOP + ER + PCPS) + World Bank Open Data MCP (non-economic context). Stage-C completeness review enforces IMF citation for policy articles, with WB satisfying as fallback when IMF is unavailable for a topic. *Impact: 7/10.*
-- **S14: Hardened Agentic Pipeline** — 15 gh-aw agentic workflows (14 unified `news-<type>.md` + manual `news-translate.md`) with 5-layer security: AWF Squid firewall egress allowlist, Docker sandbox, safe-outputs caps, JSONL stdio audit, lock-file compile-gate pinned to `v0.71.3`. *Impact: 9/10.*
+- **S14: Hardened Agentic Pipeline** — 15 gh-aw agentic workflows (14 unified `news-<type>.md` + manual `news-translate.md`) with 5-layer security: AWF Squid firewall egress allowlist, Docker sandbox, safe-outputs caps, JSONL stdio audit, lock-file compile-gate pinned to `v0.77.3`. *Impact: 9/10.*
 - **S15: Typed Public npm API** — `scripts/**/*.d.ts` declarations enable downstream reuse by other civic-tech projects; positions the package as reusable infrastructure. *Impact: 6/10.*
 - **S16: AWS Primary + GitHub Pages Fallback** — AWS S3+CloudFront primary distribution with OIDC federation (no long-lived keys) + documented GitHub Pages fallback runbook for BCP. *Impact: 8/10.*
 - **S17: Canonical MCP Tool-List Drift Tests** — `EP_MCP_TOOLS`, `IMF_MCP_TOOLS` and `WORLD_BANK_MCP_TOOLS` asserted in `test/integration/mcp/*` detect upstream API drift at CI time. All three MCP clients export canonical tool lists. *Impact: 8/10.*
@@ -676,7 +676,7 @@ builds | 50-70% |
 - **W7: Sole LLM-Provider Dependency** — full pipeline relies on Copilot/Claude/Codex availability; the engine-switch feature mitigates single-vendor outage but still requires at least one functioning LLM provider. *Risk: 🟡 Medium.*
 - **W8: EP MCP Single Technical Source** — the EP MCP server is the sole upstream for European Parliament data; it is Hack23-owned (reducing third-party risk) but remains a single technical source with no redundant parliamentary data surface. *Risk: 🟡 Medium.*
 - **W9: IMF+WB Indicator Curation Burden** — indicator mapping between committee topics and WB/IMF indicators requires ongoing curation in `analysis/methodologies/imf-indicator-mapping.md` and `src/constants/committee-indicator-map.ts`. *Risk: 🟢 Low.*
-- **W10: gh-aw v0.69.0 Pin Fragility** — upstream breaking changes to gh-aw require a manual bump plus recompilation of 10 `.lock.yml` files; centralized compile job helps but the pin itself is a fragility point. *Risk: 🟡 Medium.*
+- **W10: gh-aw v0.77.3 Pin Fragility** — upstream breaking changes to gh-aw require a manual bump plus recompilation of the `.lock.yml` files; centralized compile job helps but the pin itself is a fragility point. *Risk: 🟡 Medium.*
 - **W11: Deliberately Minimal Engagement Surface** — the static site intentionally omits search, personalization, and comments; this reduces attack surface and GDPR exposure but also limits user engagement metrics and retention. *Risk: 🟢 Low (by design).*
 - **W12: Bus Factor 1–2 at Hack23** — no external community contributors yet; knowledge concentration remains in a small Hack23 team. *Risk: 🔴 High (long-term).*
 - **W13: Monolingual Source-of-Truth** — English is the sole authoritative source; 13 translation targets pass the pre-translation validator gate but are not line-by-line human reviewed, creating potential for drift across locales. *Risk: 🟡 Medium.*
@@ -1353,7 +1353,7 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 - **W16: EP MCP 1.3.12 Skeleton Coverage** — pinned `european-parliament-mcp-server@1.3.12` exposes 60+ tools but several endpoints (committee-documents, plenary-session-document-items, controlled-vocabularies feed) remain fixed-window with no timeframe filtering, limiting historical-query precision. *Risk: 🟢 Low.*
 - **W17: IMF Probe Degradation Modes** — when `cache/imf/imf-probe-summary.json` reports failure, manifest `dataMode` falls back to `degraded-imf` (-15% line floor) or `minimal` (-35%); WB satisfies the OR-gate but tradecraft on monetary/fiscal claims still relies on IMF as primary. *Risk: 🟡 Medium.*
 - **W18: Single-Session 60-Min Workflow Timeout** — every unified `news-<type>.md` workflow runs Stages A→E in one 60-min session and creates exactly one PR. The hard PR deadline minute ≤ 45 (target ≤ 42 standard slugs, ≤ 47 electoral) leaves no margin if upstream MCP latency spikes mid-run. *Risk: 🟡 Medium.*
-- **W19: MCP Gateway Keepalive Issues** — gh-aw v0.71.3 advertises `engine.mcp.session-timeout` but the bundled gateway image v0.3.1 rejects the field (run #25275823699 fingerprint). Pipeline relies on the upstream-default keepalive. *Risk: 🟡 Medium.*
+- **W19: MCP Gateway Keepalive Issues** — the current `v0.77.3` pin still relies on the upstream-default gateway keepalive; the `engine.mcp.session-timeout` field first advertised in gh-aw v0.71.3 was rejected by the bundled gateway image v0.3.1 (run #25275823699 fingerprint) and remains unverified on the current pin. *Risk: 🟡 Medium.*
 
 **Opportunities (O15–O17):**
 
@@ -1367,6 +1367,15 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 - **T17: AI Quality Consistency Across 14 Languages** — `news-translate.md` fan-outs from authoritative EN to 13 target languages with a pre-translation completeness gate, but per-language line-by-line human review is not feasible at current throughput. Drift in idiomatic-political-vocabulary across languages (especially RTL: ar, he and East Asian: ja, ko, zh) is a recurring risk. *Risk: 🟠 Medium–High.*
 - **T18: Shell-Safety Filter False Positives** — the sandbox shell-safety filter occasionally blocks legitimate constructs (whitespace-trim idioms, default-with-command-substitution patterns) and the agent burns the remaining 60-min budget on workarounds. Authoritative safe replacements documented in `.github/prompts/08-infrastructure.md` §177-181 mitigate but do not eliminate the risk. See failed run #24773038606. *Risk: 🟡 Medium.*
 
+### 🆕 2026-05-30 Refresh — Maintenance & Version Alignment
+
+This refresh is a deep-review consistency pass (no new S/W/O/T items); it realigns the analysis with the current platform state and removes version drift from earlier refresh blocks.
+
+- **Current-state anchor** advanced to **v0.9.29 (2026-05-30)**; the Executive Summary timeline and Current State Snapshot reflect the live `src/aggregator/**` deterministic pipeline, 14 unified `news-<type>.md` workflows + `news-translate.md`, and AWS S3 + CloudFront primary delivery with a GitHub Pages fallback runbook.
+- **gh-aw pin drift corrected** to the live **`v0.77.3`** pin (`.github/workflows/compile-agentic-workflows.yml`): **W10** (pin fragility), **W19** (MCP gateway keepalive), and **TOWS WT1** previously referenced superseded pins (v0.69.0 / v0.71.3). S14 already tracked `v0.77.3` and is unchanged.
+- **Companion documents** kept in lock-step: see [`THREAT_MODEL.md`](THREAT_MODEL.md) v2.4 (T-028 risk treatment realigned to the `v0.77.3` pin; approval/review cycle refreshed to 2026-05-30) for the security-control view of the same agentic-pipeline weaknesses.
+
+
 ---
 
 ## 🔀 TOWS Strategic Matrix (Current State)
@@ -1376,7 +1385,7 @@ The TOWS matrix maps internal Strengths/Weaknesses against external Opportunitie
 |                                     | **Opportunities (O)**                                                                                                                                                      | **Threats (T)**                                                                                                                                                       |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Strengths (S)** — *SO Maxi-Maxi*  | **SO1**: Pair S22 (tradecraft) with O15 (long-horizon analysis) → publish term-outlook and election-cycle articles with full ICD-203 + ACH + WEP discipline as a market differentiator. **SO2**: Pair S19 (60-artifact baseline) + S18 (deterministic aggregator) with O17 (real-time DOCEO votes) → make `news-breaking.md` the fastest credible breaking-vote intelligence in EU civic tech. | **ST1**: Use S21 (shell-safety enforcement) to neutralize T18 (filter false positives) by expanding `test/unit/shell-safety.test.js` patterns. **ST2**: Use S11 (SLSA L3) + S14 (5-layer security) to pre-empt T11 (supply-chain attack vectors). |
-| **Weaknesses (W)** — *WO Mini-Maxi* | **WO1**: Use O17 (DOCEO votes) to compensate for W16 (EP MCP fixed-window feeds). **WO2**: Use O16 (IMF + Eurostat triangulation) to mitigate W17 (IMF probe degradation modes). | **WT1**: W18 (60-min session) × T16 (MCP gateway reliability) is the highest-priority risk pair — mitigation: extend gh-aw keepalive (when v0.71.3+ ships a working `session-timeout`) or split heavy slugs into Stage A+B / Stage D+E pairs. **WT2**: W13 (monolingual source-of-truth) × T17 (AI quality across 14 languages) — mitigation: targeted human spot-checks on RTL and East Asian languages every quarter. |
+| **Weaknesses (W)** — *WO Mini-Maxi* | **WO1**: Use O17 (DOCEO votes) to compensate for W16 (EP MCP fixed-window feeds). **WO2**: Use O16 (IMF + Eurostat triangulation) to mitigate W17 (IMF probe degradation modes). | **WT1**: W18 (60-min session) × T16 (MCP gateway reliability) is the highest-priority risk pair — mitigation: extend gh-aw keepalive (when v0.77.3+ ships a working `session-timeout`) or split heavy slugs into Stage A+B / Stage D+E pairs. **WT2**: W13 (monolingual source-of-truth) × T17 (AI quality across 14 languages) — mitigation: targeted human spot-checks on RTL and East Asian languages every quarter. |
 
 ### TOWS Action Priority
 
@@ -1576,17 +1585,6 @@ Comprehensive view of strategic position.
 
 ---
 
-## 📅 Document Revision History
-
-| Version | Date       | Author | Changes                                                       |
-| ------- | ---------- | ------ | ------------------------------------------------------------- |
-| 1.3     | 2026-05-06 | CEO    | Full review: added 2026-05-06 refresh extending Strengths (S18–S22: deterministic aggregator, 60-artifact baseline, branded type safety, shell-safety enforcement, professional intelligence tradecraft), Weaknesses (W16–W19: EP MCP 1.3.0 fixed-window feeds, IMF probe degradation, 60-min single-session timeout, gateway keepalive), Opportunities (O15–O17: long-horizon political intelligence, IMF+Eurostat triangulation, real-time DOCEO votes), Threats (T16–T18: gateway reliability, 14-language quality consistency, shell-safety filter false positives); added TOWS Strategic Matrix and Political Intelligence Competitive Positioning sections; refreshed SWOT Summary Matrix counts (22S/19W/17O/18T) |
-| 1.2     | 2026-05-03 | CEO    | v0.8.54 Look-Ahead epic refresh: expanded to 14 article types (added quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle), 15 unified gh-aw workflows (14 article + translate), gh-aw pin v0.71.3, EP MCP 1.3.0, ISMS-PUBLIC policy footer added |
-| 1.1     | 2026-04-20 | CEO    | v0.8.40 state refresh: 1894 articles / 14 languages / 8 article types / 3061+ tests / 52 test files / dual economic context (WB+IMF) / AWS S3+CloudFront primary delivery / SLSA L3 + npm provenance / gh-aw 5-layer security model |
-| 1.0     | 2025-02-17 | CEO    | Initial SWOT analysis with comprehensive strategic assessment |
-
----
-
 ## 📝 Footer
 
 **Document Classification**: Public  
@@ -1594,7 +1592,7 @@ Comprehensive view of strategic position.
 **Technology Stack**: Node.js 26, GitHub Actions, GitHub Pages, European
 Parliament MCP Server  
 **Architecture Pattern**: Static Site Generator with Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-08-03
+**Review Status**: Active, next review 2026-08-30
 
 ### 🔗 Related ISMS-PUBLIC Policies
 

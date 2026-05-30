@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
-2026-05-06 (UTC) | **📦 Release:** v0.8.59  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-06
+**📋 Document Owner:** CEO | **📄 Version:** 1.5 | **📅 Last Updated:**
+2026-05-30 (UTC) | **📦 Release:** v0.9.26  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30
 
 ---
 
@@ -655,15 +655,15 @@ The thresholds JSON exposes four top-level surfaces:
 | `degraded-voting` | 0.85 | EP roll-call voting data is empty in both MCP and the EP Open Data fallback |
 | `minimal` | 0.65 | Multiple Stage-A waves failed; the run proceeded with skeleton evidence only |
 
-**Schema changelog** (most recent first):
-
-| Version | Change |
-|---|---|
-| `1.4.0` | Additive: `dataMode` support in `manifest.json` and `DATA_MODE_REDUCTION` factors |
-| `1.3.0` | Additive: `forward-projection.md` line floors for `week-ahead` (80) and `month-ahead` (120) |
-| `1.2.0` | Additive: thresholds for the four long-horizon and electoral types; line floors for the eight new analysis artifacts (`forward-projection`, `legislative-pipeline-forecast`, `parliamentary-calendar-projection`, `term-arc`, `seat-projection`, `mandate-fulfilment-scorecard`, `presidency-trio-context`, `commission-wp-alignment`) |
-| `1.1.0` | Additive: `manifest.json` may carry `artifactSources` (`fresh` / `carry-forward-from:<runId>`) emitted by `scripts/aggregator/prior-run-diff.js` |
-| `1.0.0` | Initial release |
+The active schema version is `1.4.0`: `manifest.json` carries `articleType`,
+`dataMode` (with `DATA_MODE_REDUCTION` factors), `artifactSources` (`fresh` /
+`carry-forward-from:<runId>` emitted by `scripts/aggregator/prior-run-diff.js`),
+`history`, and `files`; reference-quality floors cover the four long-horizon and
+electoral types plus the eight forward-looking analysis artifacts
+(`forward-projection`, `legislative-pipeline-forecast`,
+`parliamentary-calendar-projection`, `term-arc`, `seat-projection`,
+`mandate-fulfilment-scorecard`, `presidency-trio-context`,
+`commission-wp-alignment`).
 
 **Worked examples** of canonical floors (full extract is in the JSON file):
 
@@ -763,7 +763,7 @@ interface ArticleMetadata {
 }
 ```
 
-As of 2026-04-20: **1,894 HTML articles** live under `news/` (~135 article runs × 14 languages).
+As of 2026-05-30: **5,231 HTML articles** live under `news/` (~377 article runs × 14 languages).
 
 ---
 
@@ -1591,21 +1591,6 @@ timeline
                        : Redis for caching
 ```
 
-### Version History
-
-| Version | Release Date | Key Changes | Diagrams Added |
-|---------|--------------|-------------|----------------|
-| **v1.0** | 2026-02-01 | Initial release, basic article generation | 1 (Main ER diagram) |
-| **v1.1** | 2026-03-19 | Multi-language support, MCP integration, ISMS alignment | 4 (MEP, MCP, Multi-language, Sitemap models) + 1 (EP data flow) |
-| **v1.4** | 2026-05-06 | Architecture documentation full review (current state, post-aggregator era): manifest schema fully documented (`articleType`, `dataMode`, `artifactSources`, `history`, `files`); Reference Quality Thresholds expanded to cover all four JSON surfaces (per-artifact floors, tradecraft signals, structural requirements, `dataMode` reduction factors per schema 1.4.0); `epMcpVersion` pinned to `1.3.12`; `ghAwVersion` pinned to `v0.71.6`; `ArticleMetadata.type` correctly enumerates 14 production types | Schema unchanged — coverage refresh |
-| **v1.3** | 2026-05-03 | Refresh for v0.8.54 + Look-Ahead epic completion: 14 article types (added `quarter-ahead`, `quarter-in-review`, `year-ahead`, `year-in-review`, `term-outlook`, `election-cycle`), 15 unified gh-aw workflows (14 `news-<type>.md` + `news-translate.md`), centralised horizon registry in `src/config/article-horizons.ts` (ADR-007), `ghAwVersion` pinned to `v0.71.3`, isolation rule restated for the post-aggregator pipeline | Schema unchanged — taxonomic refresh |
-| **v1.2** | 2026-04-20 | TypeScript type system coverage, FeedBaseOptions vs FixedWindowFeedOptions split (EP MCP v1.2.13), IMF/WB dual economic context, AnalysisManifest schema, 8 article types correctly enumerated, 14 languages from `language-core.ts::ALL_LANGUAGES`, `buildSiteFooter()` single source of truth, reference quality thresholds | Same set — content updates |
-| **v2.0** | 2026-Q4 (Planned) | Real-time updates, expanded intelligence types | TBD |
-
-### Breaking Changes Log
-
-No breaking changes to date. All schema changes backward-compatible.
-
 ---
 
 ## ✅ Data Validation and Integrity
@@ -1794,6 +1779,6 @@ const sourceHash = crypto.createHash('sha256')
 ---
 
 **Document Status**: Active  
-**Last Updated**: 2026-05-06 (EU Parliament Monitor v0.8.59)  
-**Next Review**: 2026-08-06  
+**Last Updated**: 2026-05-30 (EU Parliament Monitor v0.9.26)  
+**Next Review**: 2026-08-30  
 **Owner**: Development Team, Hack23 AB

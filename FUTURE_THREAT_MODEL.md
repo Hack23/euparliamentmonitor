@@ -559,31 +559,6 @@ The following developments should trigger a threat model update:
 | **Product Owner**      | Product Team  | 2026-03-19 | Approved  |
 | **CEO / CISO**         | CEO           | 2026-03-19 | Approved  |
 
-### **📝 Change Log**
-
-| Version | Date       | Author        | Changes                                                |
-| ------- | ---------- | ------------- | ------------------------------------------------------ |
-| 1.0     | 2026-02-26 | Security Team | Initial future threat model document                   |
-|         |            |               | - AI/LLM threat analysis (OWASP LLM Top 10 alignment) |
-|         |            |               | - API gateway and dynamic content threats              |
-|         |            |               | - Community feature threat analysis                    |
-|         |            |               | - Multi-parliament federation threats                  |
-|         |            |               | - Planned security controls roadmap (Phase 2-4)        |
-|         |            |               | - Emerging threat indicator monitoring plan            |
-| 2.0     | 2026-03-19 | Security Team | Major expansion per ISMS Threat Modeling Policy        |
-|         |            |               | - Added architecture documentation map                 |
-|         |            |               | - Added STRIDE categorization to all threats           |
-|         |            |               | - Added MITRE ATT&CK future coverage analysis          |
-|         |            |               | - Added future attack trees with Mermaid diagrams      |
-|         |            |               | - Added threat agent evolution analysis                |
-|         |            |               | - Added quantitative risk scoring                      |
-|         |            |               | - Added scenario-centric analysis (misuse cases)       |
-|         |            |               | - Added what-if analysis                               |
-|         |            |               | - Added future compliance framework mapping            |
-|         |            |               | - Added crown jewel analysis for future state          |
-|         |            |               | - Added threat modeling maturity progression           |
-|         |            |               | - Added attack surface evolution diagram               |
-
 ---
 
 **📋 Document Control:**  

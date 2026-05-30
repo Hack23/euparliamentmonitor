@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
-2026-05-06 (UTC) | **🏷️ Platform Release:** v0.8.54  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
+**📋 Document Owner:** CEO | **📄 Version:** 1.5 | **📅 Last Updated:**
+2026-05-30 (UTC) | **🏷️ Platform Release:** v0.9.26  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -1765,25 +1765,13 @@ Per
 
 ---
 
-## 📅 Document Revision History
-
-| Version | Date       | Author | Changes                                                               |
-| ------- | ---------- | ------ | --------------------------------------------------------------------- |
-| 1.4     | 2026-05-06 | CEO    | Full review: added unified `news-<type>.md` Stage A→E run state machine, manifest `dataMode` state machine (`full` / `degraded-imf` / `degraded-voting` / `title-only` / `minimal` per `src/workflows/types.ts`), six-state analysis-artifact lifecycle (Empty → Draft → Pass-1 → Pass-2 → Validated → Committed), and political-intelligence artifact state machine (Admiralty grading → ACH → WEP banding → SAT attestation → publication) per `osint-tradecraft-standards.md` |
-| 1.3     | 2026-05-03 | CEO    | v0.8.54 refresh: long-horizon expansion (term-outlook, election-cycle), 14 unified news workflows, gh-aw pin v0.71.3 |
-| 1.2     | 2026-04-20 | CEO    | Added Pipeline-Stage, Validator-Gate, and Translation state machines for v0.8.40 (5-stage pipeline, validator gate with fallback-leak scan, news-translate fan-out across 13 languages with 10240 KB max-patch-size); refreshed article-types note to 7 types; updated review cadence |
-| 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy                |
-| 1.0     | 2025-02-17 | CEO    | Initial state diagram documentation with comprehensive state machines |
-
----
-
 ## 📝 Footer
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
-**Technology Stack**: Node.js 26, TypeScript 6.0.3, gh-aw v0.71.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.3.12, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 26, TypeScript 6.0.3, gh-aw v0.77.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.3.12, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-08-03
+**Review Status**: Active, next review 2026-08-30
 
 ### 🔗 Related ISMS-PUBLIC Policies
 
