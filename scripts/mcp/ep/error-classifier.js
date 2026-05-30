@@ -89,4 +89,53 @@ export function isFeedUnavailable(result) {
     }
     return false;
 }
+/**
+ * Item-count threshold above which a `get_meps_feed` response is treated as an
+ * oversized full-census dump rather than a recently-updated delta.
+ *
+ * The EP MCP server's delta-pagination for `/meps/feed` has a known failure
+ * mode (documented in the `get_meps_feed` tool schema and surfaced as an
+ * `OVERSIZED_PAYLOAD` entry in `dataQualityWarnings`) where it falls back to a
+ * full ~720-MEP census dump (~7–9 MB) instead of the recent-changes window.
+ * Such a payload is structurally valid (HTTP 200, parseable JSON) but is
+ * effectively useless as a "what changed recently" signal and bloats the
+ * agent's prefetch / patch budget. `200` is the server's own documented
+ * trigger boundary.
+ */
+export const MEPS_FEED_OVERSIZED_ITEM_THRESHOLD = 200;
+/**
+ * Detect whether a `get_meps_feed` response is an oversized full-census dump.
+ *
+ * Two detection signals (either is sufficient):
+ *
+ * 1. **Mechanical (primary).** The EP MCP server surfaces an
+ *    `OVERSIZED_PAYLOAD` entry in `dataQualityWarnings[]` when the
+ *    delta-pagination falls back to a full-census dump (> 200 items). This is
+ *    the authoritative, version-stable signal.
+ * 2. **Item-count (defense-in-depth).** When the warning is absent (e.g. an
+ *    older pinned server build, or a future regression that drops the
+ *    warning), a populated `items`/`data` array longer than
+ *    {@link MEPS_FEED_OVERSIZED_ITEM_THRESHOLD} is treated as oversized.
+ *
+ * Returning `true` lets {@link EuropeanParliamentMCPClient.getMEPsFeed} augment
+ * the payload with `oversizedPayload: true` and an `OVERSIZED_PAYLOAD: …`
+ * `dataQualityWarnings` entry so Stage-A consumers can mechanically detect the
+ * condition and fall back to a targeted `get_meps({ active: true, limit: 100 })`
+ * roster lookup instead of treating the dump as a fresh delta.
+ *
+ * @param payload - Parsed `get_meps_feed` payload (or `undefined`)
+ * @returns `true` when the response is an oversized full-census dump
+ */
+export function detectOversizedMEPsFeed(payload) {
+    if (!payload)
+        return false;
+    const rawWarnings = payload['dataQualityWarnings'];
+    if (Array.isArray(rawWarnings) &&
+        rawWarnings.some((w) => typeof w === 'string' && w.includes('OVERSIZED_PAYLOAD'))) {
+        return true;
+    }
+    const rawItems = payload['items'] ?? payload['data'] ?? payload['feed'];
+    const items = Array.isArray(rawItems) ? rawItems : [];
+    return items.length > MEPS_FEED_OVERSIZED_ITEM_THRESHOLD;
+}
 //# sourceMappingURL=error-classifier.js.map
