@@ -264,8 +264,13 @@ export function stripLegacyBackfillContext(date, slug, lang, description) {
     return stripTruncatedReaderLabel(stripRedundantDateLabel(stripDuplicatedLegacyPrefix(description.trim(), prefix), langCode, date), langCode);
 }
 /**
- * Detect whether a legacy `<meta description>` ends with a truncated
- * reader label once its dateline prefix and redundant date-label are removed.
+ * Detect whether a legacy `<meta description>` ends with a truncated reader
+ * label once its dateline prefix and redundant date-label are removed.
+ * @param date - Article date string (YYYY-MM-DD)
+ * @param slug - Article slug identifier
+ * @param lang - Language code (e.g. 'en', 'sv')
+ * @param description - Meta description to check
+ * @returns True if the description ends with a truncated reader label
  */
 function hasLegacyTruncatedReaderLabel(date, slug, lang, description) {
     if (!description)
@@ -448,13 +453,8 @@ function requireFsRead(filepath) {
 }
 /**
  * Apply SEO meta tag replacements to a complete article HTML document.
- *
  * Exported for the regression test in
- * `test/unit/news-indexes-jsonld-description-regex.test.js`, which
- * locks in the JSON-LD description regex against the duplicate-tail
- * bug (the legacy `"description":"[^"]*"` pattern terminated at the
- * first JSON-escaped quote `\"` and left the previous description's
- * tail in place, accumulating duplicates on every prebuild run).
+ * `test/unit/news-indexes-jsonld-description-regex.test.js`.
  *
  * @param html - Existing article HTML
  * @param description - Backfilled meta description
@@ -490,6 +490,5 @@ export function applyArticleSeoBackfill(html, description, keywords) {
     next = next.replace(/("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u, '$1$2');
     return next;
 }
-// Hreflang backfill logic extracted to ./backfill-hreflang.ts for file-size compliance.
 export { backfillArticleHreflang } from './backfill-hreflang.js';
 //# sourceMappingURL=backfill.js.map

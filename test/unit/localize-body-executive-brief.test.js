@@ -87,6 +87,34 @@ describe('replaceExecutiveBriefSection', () => {
     expect(out).toContain('<p>tradecraft</p>');
   });
 
+  it('handles brief followed by analysis-index appendix', () => {
+    const html = [
+      '<h2 id="section-executive-brief">Executive Brief</h2>',
+      '<p>English summary.</p>',
+      '<h2 id="aggregator-analysis-index">Analysis Index</h2>',
+      '<p>index content</p>',
+    ].join('\n');
+    const out = replaceExecutiveBriefSection(html, 'Résumé', '<p>French text.</p>');
+    expect(out).toContain('<h2 id="section-executive-brief">Résumé</h2>');
+    expect(out).toContain('<p>French text.</p>');
+    expect(out).not.toContain('English summary');
+    expect(out).toContain('<h2 id="aggregator-analysis-index">Analysis Index</h2>');
+  });
+
+  it('handles brief followed by supplementary-intelligence appendix', () => {
+    const html = [
+      '<h2 id="section-executive-brief">Executive Brief</h2>',
+      '<p>English summary.</p>',
+      '<h2 id="supplementary-intelligence">Supplementary Intelligence</h2>',
+      '<p>supplementary content</p>',
+    ].join('\n');
+    const out = replaceExecutiveBriefSection(html, 'Yhteenveto', '<p>Finnish text.</p>');
+    expect(out).toContain('<h2 id="section-executive-brief">Yhteenveto</h2>');
+    expect(out).toContain('<p>Finnish text.</p>');
+    expect(out).not.toContain('English summary');
+    expect(out).toContain('supplementary content');
+  });
+
   it('does not treat the brief’s own internal H2 sub-headings as a boundary', () => {
     // The translated brief renders `## BLUF` etc. as `<h2 id="bluf">`
     // (slugified, no `section-` prefix). Those internal sub-headings of the
