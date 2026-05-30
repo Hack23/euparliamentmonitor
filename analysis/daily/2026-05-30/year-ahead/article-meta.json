@@ -1,0 +1,63 @@
+{
+  "date": "2026-05-30",
+  "articleType": "year-ahead",
+  "runId": "year-ahead-run277-1780158268",
+  "gateResult": "PENDING",
+  "slug": "2026-05-30-year-ahead",
+  "articlePath": "analysis/daily/2026-05-30/year-ahead/article.md",
+  "topFinding": "The European Parliament enters the second half of its EP10 term (2024–2029) as a structurally stable but politically congested institution, where the centrist grand coalition (EPP–S&D–Renew, ~401 of 720 seats) still owns the institutional and budgetary machinery, yet the EPP increasingly assembles ad-hoc…",
+  "keyTakeaways": [
+    "✅ Active substantive agenda (banking union, digital enforcement, defence, Ukraine)",
+    "✅ Stable centrist arithmetic for institutional files",
+    "⚠️ MFF/CAP fiscal contest with no near-term resolution",
+    "⚠️ Mercosur and migration files exposed to ad-hoc right majorities",
+    "⚠️ Forward plenary calendar not yet published (`get_plenary_sessions` empty)",
+    "**A1 — EPP cohesion holds.** The EPP votes as a bloc on institutional files. If it fractured internally (eastern vs western wing on Ukraine; economic vs values wing on environment), the dual-majority model breaks. 🟢 HIGH that it holds.",
+    "**A2 — No recession in the core.** IMF's positive (if anaemic) growth path holds; a slide into recession would harden fiscal positions and tip Scenario C. 🟡 MEDIUM-HIGH."
+  ],
+  "topRisks": [
+    "**Likelihood scale:** 1 (Almost No Chance) → 5 (Almost Certain).",
+    "**Impact scale:** 1 (Negligible) → 5 (Catastrophic).",
+    "**Risk score:** Likelihood × Impact (max 25). Threshold: **≥12 HIGH**, **8–11 MEDIUM**, **<8 LOW**.",
+    "**WEP bands:** Almost Certain (≥90%) / Highly Likely (75–89%) / Likely (60–74%) / Roughly Even (45–59%) / Even Chance (≈50%) / Unlikely (25–44%) / Highly Unlikely (10–24%) / Almost No Chance (<10%).",
+    "**Source reliability: B (usually reliable)** — EP institutional data, adopted texts, IMF WEO, historical precedent.",
+    "**Information reliability: 2 (probably true)** — likelihoods are structural estimates; WEP bands are analytical, not actuarial.",
+    "**Overall: B2** for the five HIGH structural risks; **C3** for tail risks (DMA retaliation, asset-loan legal challenge) and third-order cascades. Reliability is degraded this run by the procedures/events feed outage (404), so timeline-sensitive likelihoods carry wider error bars.",
+    "🔴 **MFF deadlock is the top risk** (score 15) despite an *Unlikely* (40%) central estimate, because its impact is catastrophic. Watch the autumn 2026 budget first reading for early-warning friction."
+  ],
+  "keyDates": [
+    "EP budget guidelines resolution (June 2026)",
+    "Budget 2027 first reading, conciliation, final vote (Oct-Dec 2026)",
+    "Commission 2027 work programme debate (Jan 2027)",
+    "Mercosur consent vote (Apr-May 2027, if CJEU opinion and safeguards align)",
+    "Presidency changeover joint debates (each six-month cycle: Ireland → Lithuania handover, Jan 2027)",
+    "EP10 mid-term review (Mar-May 2027)",
+    "**1 July 2026:** Cyprus → Ireland handover (priorities debate in July/September plenary)",
+    "**1 January 2027:** Ireland → Lithuania handover (priorities debate in January plenary)"
+  ],
+  "keyActors": [
+    "**Roberta Metsola (EPP)** — EP President; agenda gatekeeper, plenary scheduler, inter-institutional face of Parliament.",
+    "**Ursula von der Leyen (EPP)** — Commission President (second term); owns the work-programme to which Parliament reacts, including the MFF post-2027 proposal and the competitiveness omnibus.",
+    "**Council presidency trio** — Cyprus (H1-2026), Ireland (H2-2026), Lithuania (H1-2027), Greece (H2-2027). 🟡 MEDIUM — unverified this run (**C3**). Ireland's H2-2026 chair coincides with peak MFF and Mercosur friction; Dublin's farm sensitivities matter.",
+    "**Key rapporteurs** — BUDG co-rapporteurs on the 2027 budget and MFF guidelines; INTA rapporteur on Mercosur safeguards; ECON rapporteur on the ECB Annual Report 2025; the LIBE hand on \"safe third country\" asylum reform; the first-ever EP housing own-initiative rapporteur.",
+    "**Member-state principals** — Friedrich Merz (Germany, net-contributor discipline), Emmanuel Macron (France, weakened but pivotal on Mercosur/defence), Giorgia Meloni (Italy, ECR bridge to the mainstream), Viktor Orbán (Hungary, unanimity spoiler on enlargement and Ukraine).",
+    "🟢 **The EPP is the fulcrum.** If you track one actor, track EPP whip behaviour: a shift from grand-centrist to right-stretch majorities on a budget file would signal a structural realignment.",
+    "🟡 **Ireland's H2-2026 Council chair** lands at the MFF/Mercosur crunch; Dublin's farm exposure could slow ratification.",
+    "🟡 **Watch the France paradox** — Paris pushes defence bonds while resisting Mercosur; that tension fractures both Renew and PfE."
+  ],
+  "macroContext": "These three economies represent roughly half of euro-area GDP; their trajectories anchor the",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/legislative-pipeline-forecast.md",
+    "intelligence/parliamentary-calendar-projection.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

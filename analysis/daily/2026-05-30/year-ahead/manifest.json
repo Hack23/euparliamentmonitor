@@ -1,0 +1,75 @@
+{
+  "articleType": "year-ahead",
+  "date": "2026-05-30",
+  "slug": "year-ahead",
+  "runId": "year-ahead-run277-1780158268",
+  "workflowRunId": "26688582665",
+  "generatedAt": "2026-05-30T16:49:01.681Z",
+  "dataMode": "degraded-feeds",
+  "history": [
+    {
+      "runId": "year-ahead-run277-1780158268",
+      "timestamp": "2026-05-30T16:49:01.681Z",
+      "passCount": 2,
+      "artifactCount": 27,
+      "rewriteCount": 27,
+      "notes": "First run today; full 2-pass authorship under degraded-feeds (procedures/events/documents feeds 404). IMF WEO live."
+    }
+  ],
+  "pass2": {
+    "startedAt": "2026-05-30T16:49:01.681Z",
+    "endedAt": "2026-05-30T16:49:01.681Z",
+    "rewriteCount": 27
+  },
+  "dataWindow": {
+    "from": "2026-05-30",
+    "to": "2027-05-30",
+    "horizonDays": 365
+  },
+  "dataSources": {
+    "adoptedTextsCount": 51,
+    "imfWeoVintage": "2025-09-23",
+    "imfSource": "live",
+    "politicalGroupsAvailable": true,
+    "proceduresFeed": "degraded-404",
+    "eventsFeed": "degraded-404",
+    "documentsFeed": "degraded-404"
+  },
+  "qualityFlags": {
+    "imfContext": true,
+    "votingRecordsAvailable": false,
+    "eventsDataAvailable": false,
+    "prefetchFilesEmpty": true
+  },
+  "files": {
+    "all": [
+      "executive-brief.md",
+      "data-availability-assessment.md",
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/threat-model.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/analysis-index.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/forward-projection.md",
+      "intelligence/legislative-pipeline-forecast.md",
+      "intelligence/parliamentary-calendar-projection.md",
+      "intelligence/presidency-trio-context.md",
+      "intelligence/commission-wp-alignment.md",
+      "extended/media-framing-analysis.md",
+      "extended/forward-indicators.md"
+    ]
+  }
+}
