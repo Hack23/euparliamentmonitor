@@ -10,14 +10,6 @@
  * `test/unit/news-indexes-*.test.js` keep importing from the barrel.
  */
 import path from 'path';
-<<<<<<< HEAD
-import { NEWS_DIR, BASE_URL } from '../../constants/config.js';
-import { ALL_LANGUAGES, ARTICLE_TYPE_LABELS, getLocalizedString, } from '../../constants/languages.js';
-import { formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomicWrite, } from '../../utils/file-utils.js';
-import { detectCategory } from '../../utils/article-category.js';
-import { buildSeoKeywords, resolveArticleMetadata } from '../../aggregator/article-metadata.js';
-import { computeLegacyPrefix, stripLegacyBackfillContext, capDescriptionLength, stripRedundantDateLabel, stripDuplicatedLegacyPrefix, readArticleHtml, hasTruncatedReaderLabel, descriptionHasLeakyToken, shouldBackfillDescription, buildBackfillManifest, MIN_ARTICLE_DESCRIPTION_LENGTH, } from './backfill-strip.js';
-=======
 import fs from 'fs';
 import { NEWS_DIR } from '../../constants/config.js';
 import { ARTICLE_TYPE_LABELS, getLocalizedString } from '../../constants/languages.js';
@@ -53,7 +45,6 @@ const LEGACY_LANGUAGE_LABELS = {
  * `FORBIDDEN_PATTERNS` in `scripts/validate-manifest-seo.js`.
  */
 const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
->>>>>>> origin/main
 /**
  * Backfill SEO metadata for legacy article HTML files that pre-date the
  * current article generator. This keeps historic pages from carrying short
@@ -234,8 +225,6 @@ export function buildLegacyBackfillDescription(date, slug, lang, description, op
     return capDescriptionLength(contextual);
 }
 /**
-<<<<<<< HEAD
-=======
  * Compute the localized dateline prefix
  * (`${date} — ${languageLabel} — ${categoryLabel}[ — ${qualifier}]`)
  * prepended to short / placeholder legacy descriptions.
@@ -463,7 +452,6 @@ function requireFsRead(filepath) {
     return fs.readFileSync(filepath, 'utf8');
 }
 /**
->>>>>>> origin/main
  * Apply SEO meta tag replacements to a complete article HTML document.
  * Exported for the regression test in
  * `test/unit/news-indexes-jsonld-description-regex.test.js`.

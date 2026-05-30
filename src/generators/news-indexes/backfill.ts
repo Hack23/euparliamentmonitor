@@ -12,18 +12,9 @@
  */
 
 import path from 'path';
-<<<<<<< HEAD
-import { NEWS_DIR, BASE_URL } from '../../constants/config.js';
-import {
-  ALL_LANGUAGES,
-  ARTICLE_TYPE_LABELS,
-  getLocalizedString,
-} from '../../constants/languages.js';
-=======
 import fs from 'fs';
 import { NEWS_DIR } from '../../constants/config.js';
 import { ARTICLE_TYPE_LABELS, getLocalizedString } from '../../constants/languages.js';
->>>>>>> origin/main
 import {
   formatSlug,
   parseArticleFilename,
@@ -33,28 +24,43 @@ import {
 } from '../../utils/file-utils.js';
 import { detectCategory } from '../../utils/article-category.js';
 import { buildSeoKeywords, resolveArticleMetadata } from '../../aggregator/article-metadata.js';
-<<<<<<< HEAD
-import {
-  computeLegacyPrefix,
-  stripLegacyBackfillContext,
-  capDescriptionLength,
-  stripRedundantDateLabel,
-  stripDuplicatedLegacyPrefix,
-  readArticleHtml,
-  hasTruncatedReaderLabel,
-  descriptionHasLeakyToken,
-  shouldBackfillDescription,
-  buildBackfillManifest,
-  MIN_ARTICLE_DESCRIPTION_LENGTH,
-} from './backfill-strip.js';
-=======
 import { SEO_CONTEXT_LABELS } from '../../aggregator/metadata/template-fallback.js';
 import {
   stripTruncatedReaderLabel,
   hasTruncatedReaderLabelInBody,
 } from './backfill-reader-label.js';
->>>>>>> origin/main
 import type { ArticleCategoryLabels, LanguageCode } from '../../types/index.js';
+
+const MIN_ARTICLE_DESCRIPTION_LENGTH = 120;
+
+/** Language labels used only in forced legacy backfill prefixes. */
+const LEGACY_LANGUAGE_LABELS: Record<LanguageCode, string> = {
+  en: 'English',
+  sv: 'Svenska',
+  da: 'Dansk',
+  no: 'Norsk',
+  fi: 'Suomi',
+  de: 'Deutsch',
+  fr: 'Français',
+  es: 'Español',
+  nl: 'Nederlands',
+  ar: 'العربية',
+  he: 'עברית',
+  ja: '日本語',
+  ko: '한국어',
+  zh: '中文',
+};
+
+/**
+ * Regex pattern that flags internal artefact identifiers
+ * (`<slug>-run<N>-<unix-ts>`). Used by
+ * {@link descriptionHasLeakyToken} to force backfill of legacy articles
+ * whose `<meta description>` was authored before the resolver started
+ * stripping run-ids and "analysis run" jargon. Mirrors
+ * `FORBIDDEN_PATTERNS` in `scripts/validate-manifest-seo.js`.
+ */
+const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
+
 /**
  * Backfill SEO metadata for legacy article HTML files that pre-date the
  * current article generator. This keeps historic pages from carrying short
@@ -259,8 +265,6 @@ export function buildLegacyBackfillDescription(
 }
 
 /**
-<<<<<<< HEAD
-=======
  * Compute the localized dateline prefix
  * (`${date} — ${languageLabel} — ${categoryLabel}[ — ${qualifier}]`)
  * prepended to short / placeholder legacy descriptions.
@@ -528,7 +532,6 @@ function requireFsRead(filepath: string): string {
 }
 
 /**
->>>>>>> origin/main
  * Apply SEO meta tag replacements to a complete article HTML document.
  * Exported for the regression test in
  * `test/unit/news-indexes-jsonld-description-regex.test.js`.
