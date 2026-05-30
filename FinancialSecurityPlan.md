@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-04-20  
+**📋 Document Owner:** CEO | **📄 Version:** 2.3 | **📅 Last Updated:** 2026-05-30 (UTC) | **🏷️ Platform Release:** v0.9.26  
+**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-05-30  
 **🏷️ Classification:** Public (Open Source European Parliament Intelligence Platform)
 
 ---
@@ -46,7 +46,7 @@
 
 ## 🎯 Financial Strategy Overview
 
-EU Parliament Monitor (v0.8.54) achieves **maximum democratic transparency value at near-zero infrastructure cost** through a fully open-source architecture deployed to **AWS S3 + CloudFront** (per [ADR-002](ARCHITECTURE.md)) with GitHub-hosted CI/CD, GitHub Copilot-metered AI inference (`gh aw`), and security tooling. The platform produces 1,894+ HTML articles across 14 languages and 14 article types (breaking, week-ahead, week-in-review, month-ahead, month-in-review, quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle, committee-reports, motions, propositions) with roughly 3,061 automated tests on each PR. This Financial Security Plan demonstrates how strategic use of free-tier, low-cost platform services, and AI-metered workflow minutes keeps total operating cost below $30/yr while maintaining enterprise-grade security posture aligned with [Hack23 AB ISMS](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md).
+EU Parliament Monitor (v0.9.26) achieves **maximum democratic transparency value at near-zero infrastructure cost** through a fully open-source architecture deployed to **AWS S3 + CloudFront** (per [ADR-002](ARCHITECTURE.md)) with GitHub-hosted CI/CD, GitHub Copilot-metered AI inference (`gh aw`), and security tooling. The platform produces 5,231+ HTML articles across 14 languages and 14 article types (breaking, week-ahead, week-in-review, month-ahead, month-in-review, quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle, committee-reports, motions, propositions) with roughly 5,933 automated tests on each PR. This Financial Security Plan demonstrates how strategic use of free-tier, low-cost platform services, and AI-metered workflow minutes keeps total operating cost below $30/yr while maintaining enterprise-grade security posture aligned with [Hack23 AB ISMS](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md).
 
 ### 🏷️ Business Impact Classification
 
@@ -90,7 +90,7 @@ pie title EU Parliament Monitor Annual Cost Distribution
 | **🤖 Dependabot Security** | $0 | $0 | Free, built into GitHub |
 | **🛡️ OpenSSF Scorecard** | $0 | $0 | Free service for open-source projects |
 | **📊 SonarCloud (Planned)** | $0 | $0 | Planned optional integration; not yet configured in CI |
-| **🧪 Vitest + Playwright + axe-core Testing** | $0 | $0 | 3,061+ automated tests across 52 files; open-source frameworks |
+| **🧪 Vitest + Playwright + axe-core Testing** | $0 | $0 | 5,933+ automated tests across 153 files; open-source frameworks |
 | **🇪🇺 EP MCP Server (`european-parliament-mcp-server@1.3.2`)** | $0 | $0 | Hack23-maintained open-source data source |
 | **🌍 World Bank MCP (`worldbank-mcp@1.0.1`, optional)** | $0 | $0 | Optional biannual WDI source for economic context OR-gate |
 | **💹 IMF REST (native `IMFMCPClient`)** | $0 | $0 | Public SDMX 3.0 endpoint (WEO + FM forecasts +5y); no MCP server required |
@@ -232,7 +232,7 @@ The platform enforces cost bounds at multiple layers to prevent runaway spend fr
 | **Max patch size (translate)** | `safe-outputs.create-pull-request.max-patch-size: 10240` (KB) in `news-translate.md` | ≤10 MB PR diff | 13-language fan-out requires larger envelope |
 | **AWF Squid firewall allowlist** | Egress proxy restricts outbound HTTP to known hosts | Closed-world network | Prevents data exfil + unbounded API spend |
 | **Docker sandbox** | Each agentic step runs in an isolated rootless container | No host escape | Contains supply-chain compromise blast radius |
-| **Compile-gate** | `.lock.yml` files compiled by `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.71.3` | Reviewed lock file per workflow | Prevents frontmatter drift at runtime |
+| **Compile-gate** | `.lock.yml` files compiled by `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.77.3` | Reviewed lock file per workflow | Prevents frontmatter drift at runtime |
 | **Concurrency limits** | Per-workflow `concurrency` groups in `.github/workflows/` | One active run per type | Blocks parallel duplicate spend |
 
 ### Infrastructure-Level Safeguards (AWS)
@@ -344,7 +344,7 @@ pie title Security Budget Allocation (All Free)
 
 ```
 2025-2026    ~$17/yr           — Domain (~$12) + AWS S3 + CloudFront hosting (~$5), all infra security tools free
-2026-2027    ~$17 + $228/yr    — Same infra + 1 GitHub Copilot Business seat (~$228) for `gh aw` AI inference (v0.8.x platform)
+2026-2027    ~$17 + $228/yr    — Same infra + 1 GitHub Copilot Business seat (~$228) for `gh aw` AI inference (v0.9.x platform)
 2027-2028    ~$17 + $228/yr    — Continued operations on domain + AWS hosting baseline; Node.js 27 migration (no cost impact)
 2028-2029    ~$17-55 + seats   — Potential custom domain SSL, enhanced CDN, or second Copilot seat if growth warrants
 2029-2030    ~$17-255 + seats  — Evaluate enterprise features if contributor team grows
@@ -362,7 +362,7 @@ pie title Security Budget Allocation (All Free)
 | Dependency updates | Daily (automated) | $0 | Dependabot handles automatically |
 | Security patching | As needed | $0 | Automated via CI/CD pipeline |
 | Documentation updates | Monthly | $0 | Copilot-assisted generation |
-| Test suite maintenance | Per change | $0 | 3,061+ tests (Vitest unit/integration + Playwright+axe-core E2E) across 52 test files, maintained in CI |
+| Test suite maintenance | Per change | $0 | 5,933+ tests (Vitest unit/integration + Playwright+axe-core E2E) across 153 test files, maintained in CI |
 | Node.js version upgrade | Annual | $0 | Developer time only (volunteer) |
 | BCP/EOL plan review | Semi-annual/Annual | $0 | Internal review process |
 

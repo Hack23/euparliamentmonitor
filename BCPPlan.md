@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Semi_Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
-**🔄 Review Cycle:** Semi-Annual | **⏰ Next Review:** 2026-10-20
+**📋 Document Owner:** CEO | **📄 Version:** 2.3 | **📅 Last Updated:** 2026-05-30 (UTC) | **🏷️ Platform Release:** v0.9.26  
+**🔄 Review Cycle:** Semi-Annual | **⏰ Next Review:** 2026-11-30
 
 ---
 
@@ -362,7 +362,7 @@ flowchart TD
 | **Impact** | All 15 agentic news workflows blocked (breaking, week-ahead/in-review, month-ahead/in-review, quarter-ahead/in-review, year-ahead/in-review, term-outlook, election-cycle, committee-reports, motions, propositions, translate fan-out); deployment paused |
 | **Probability** | Low |
 | **Recovery** | Manual local runs possible via `npm run generate-article:all` + `npm run generate-news-indexes`; push generated artifacts directly to `main` for `deploy-s3.yml` to pick up when runners recover |
-| **Mitigation** | 15 agentic workflows compiled into deterministic `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.71.3`) — locally reproducible; static build fully scriptable |
+| **Mitigation** | 15 agentic workflows compiled into deterministic `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.77.3`) — locally reproducible; static build fully scriptable |
 
 ### Scenario 9: Copilot / Claude / Codex Quota Exhaustion
 
@@ -382,7 +382,7 @@ flowchart TD
 | **Recovery** | Activate GitHub Pages fallback per [`runbooks/github-pages-failover.md`](runbooks/github-pages-failover.md); repoint DNS CNAME if extended |
 | **Mitigation** | Static artifacts in `main` are host-agnostic; GitHub Pages deploy path preserved; identical content served |
 
-### Scenario 11: gh-aw Toolchain Break (v0.71.3 Incompatibility)
+### Scenario 11: gh-aw Toolchain Break (v0.77.3 Incompatibility)
 
 | 📋 **Aspect** | 📊 **Detail** |
 |---------------|--------------|
@@ -456,8 +456,8 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 ### Phase 3: Full Recovery (4-24 hours)
 
 **Sustained Operations:**
-1. ✅ Verify all 14 language versions are serving correctly (1,894 HTML articles in `news/`)
-2. 🧪 Run full test suite (`npm run lint && npm run test`) — 3,061+ Vitest tests across 52 test files
+1. ✅ Verify all 14 language versions are serving correctly (5,231 HTML articles in `news/`)
+2. 🧪 Run full test suite (`npm run lint && npm run test`) — 5,933+ Vitest tests across 153 test files
 3. 📰 Re-run affected agentic workflows to regenerate news + indexes + sitemap (`npm run build` / `npm run generate-article:all` / `npm run generate-news-indexes` / `npm run generate-sitemap`)
 4. 🔍 Validate E2E tests pass (`npm run test:e2e`) — Playwright + axe-core WCAG 2.1 AA
 5. 📋 Document incident and lessons learned in GitHub Issue
@@ -485,7 +485,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 | **World Bank MCP (`worldbank-mcp@1.0.1`)** | Biannual WDI data — **non-economic indicators** (health, education, social, environment, demographics, defence, agriculture, innovation, governance) | Medium | Article continues without WB cross-refs; non-economic claims relax to "data unavailable for current vintage" with explicit caveat | N/A (graceful degrade) |
 | **IMF REST (SDMX 3.0, native `IMFMCPClient`)** | WEO + FM forecasts (sole authoritative economic source) | High | Cached `cache/imf/*.json` reused on transient outage; if no cache and live IMF down, Stage-C blocks article (`imf-cache:missing`); `IMF_API_TIMEOUT_MS` configurable. | Defer article to next run |
 | **npm Registry**            | Dependency + Publish  | High            | GitHub Packages mirror; npm cache + `npm ci`; SLSA 3 attestations verifiable | 2 hours |
-| **gh-aw toolchain (v0.71.3)** | Agentic workflow compiler | High         | Pinned version; rollback via git; sibling repos as cross-reference | 4 hours |
+| **gh-aw toolchain (v0.77.3)** | Agentic workflow compiler | High         | Pinned version; rollback via git; sibling repos as cross-reference | 4 hours |
 | **GitHub Dependabot**       | Security Scanning     | Medium          | Manual `npm audit`; CodeQL          | Low priority |
 | **GitHub CodeQL**           | SAST Scanning         | Medium          | ESLint security plugin fallback    | Low priority |
 
@@ -576,7 +576,7 @@ Quarterly exercises validate recovery procedures without production impact:
 | **Recovery Validation** | Monthly | GitHub Actions pipeline validates full rebuild |
 | **Backup Verification** | Monthly | Verify `git clone` produces working site |
 | **Contact Verification** | Quarterly | Verify all contact information current |
-| **Test Suite Health** | Per commit | Automated via CI (3,061+ Vitest unit/integration tests across 52 files + Playwright+axe-core E2E) |
+| **Test Suite Health** | Per commit | Automated via CI (5,933+ Vitest unit/integration tests across 153 files + Playwright+axe-core E2E) |
 | **Dependency Security** | Daily | Automated via Dependabot + CodeQL |
 
 ---
@@ -652,7 +652,7 @@ gantt
     
     section Phase 2: Enhancement (Complete)
     Multi-Language Content (14 langs)  :done, 2025-03, 2025-06
-    Comprehensive Test Suite (3061+ tests) :done, 2025-06, 2026-01
+    Comprehensive Test Suite (5933+ tests) :done, 2025-06, 2026-01
     Security Scanning Integration      :done, 2025-09, 2026-01
     Enhanced BCP v2.0                  :done, 2026-02, 2026-04
     
