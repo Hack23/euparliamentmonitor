@@ -16,11 +16,7 @@
  */
 
 import { BASE_URL } from '../../constants/config.js';
-import {
-  getLocalizedString,
-  PAGE_TITLES,
-  PAGE_DESCRIPTIONS,
-} from '../../constants/languages.js';
+import { getLocalizedString, PAGE_TITLES, PAGE_DESCRIPTIONS } from '../../constants/languages.js';
 import type { LanguageCode } from '../../types/index.js';
 import { escapeXML } from './xml-utils.js';
 import { getRssFilename } from '../../templates/sections/rss-discovery.js';
@@ -30,10 +26,7 @@ import { getRssFilename } from '../../templates/sections/rss-discovery.js';
 // discovery links without an aggregator→generators import. They are
 // re-exported here to keep the sitemap RSS module's public surface stable
 // (consumed by the `generators/sitemap/index.ts` barrel and unit tests).
-export {
-  getRssFilename,
-  buildRssAlternateLink,
-} from '../../templates/sections/rss-discovery.js';
+export { getRssFilename, buildRssAlternateLink } from '../../templates/sections/rss-discovery.js';
 
 /**
  * Single RSS feed entry.

@@ -32,7 +32,7 @@ function extractJsonLdGraph(html) {
   const blocks = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g);
   if (!blocks) return [];
   return blocks.flatMap((block) => {
-    const m = block.match(/<script[^>]*>([\s\S]*?)<\/script>/);
+    const m = block.match(/<script[^>]*>([\s\S]*?)<\/script\s*>/i);
     if (!m) return [];
     try {
       const parsed = JSON.parse(m[1].trim());

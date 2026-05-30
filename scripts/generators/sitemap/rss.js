@@ -14,7 +14,7 @@
  * JSON-Feed, news-specific RSS) reuses the same item shape and escaping.
  */
 import { BASE_URL } from '../../constants/config.js';
-import { getLocalizedString, PAGE_TITLES, PAGE_DESCRIPTIONS, } from '../../constants/languages.js';
+import { getLocalizedString, PAGE_TITLES, PAGE_DESCRIPTIONS } from '../../constants/languages.js';
 import { escapeXML } from './xml-utils.js';
 import { getRssFilename } from '../../templates/sections/rss-discovery.js';
 // `getRssFilename` and `buildRssAlternateLink` live in the shared
@@ -22,7 +22,7 @@ import { getRssFilename } from '../../templates/sections/rss-discovery.js';
 // discovery links without an aggregator→generators import. They are
 // re-exported here to keep the sitemap RSS module's public surface stable
 // (consumed by the `generators/sitemap/index.ts` barrel and unit tests).
-export { getRssFilename, buildRssAlternateLink, } from '../../templates/sections/rss-discovery.js';
+export { getRssFilename, buildRssAlternateLink } from '../../templates/sections/rss-discovery.js';
 /**
  * English brand channel — also the default envelope used when
  * {@link generateRssFeed} is called without an explicit channel. Kept as
