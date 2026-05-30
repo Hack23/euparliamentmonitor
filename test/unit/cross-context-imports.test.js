@@ -40,6 +40,8 @@ const KNOWN_BASELINE = new Set([
   'aggregator/html/tradecraft-cards.ts::../../generators/political-intelligence-descriptions.js',
   'aggregator/html/analysis-index-cards.ts::../../generators/political-intelligence-descriptions.js',
   'generators/news-indexes/backfill.ts::../../aggregator/article-metadata.js',
+  'generators/news-indexes/backfill.ts::../../aggregator/metadata/template-fallback.js',
+  'generators/news-indexes/backfill-reader-label.ts::../../aggregator/metadata/template-fallback.js',
   'generators/political-intelligence/html.ts::../../aggregator/infra/github-urls.js',
 ]);
 

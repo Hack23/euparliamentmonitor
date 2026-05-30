@@ -10,12 +10,50 @@
  * `test/unit/news-indexes-*.test.js` keep importing from the barrel.
  */
 import path from 'path';
+<<<<<<< HEAD
 import { NEWS_DIR, BASE_URL } from '../../constants/config.js';
 import { ALL_LANGUAGES, ARTICLE_TYPE_LABELS, getLocalizedString, } from '../../constants/languages.js';
 import { formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomicWrite, } from '../../utils/file-utils.js';
 import { detectCategory } from '../../utils/article-category.js';
 import { buildSeoKeywords, resolveArticleMetadata } from '../../aggregator/article-metadata.js';
 import { computeLegacyPrefix, stripLegacyBackfillContext, capDescriptionLength, stripRedundantDateLabel, stripDuplicatedLegacyPrefix, readArticleHtml, hasTruncatedReaderLabel, descriptionHasLeakyToken, shouldBackfillDescription, buildBackfillManifest, MIN_ARTICLE_DESCRIPTION_LENGTH, } from './backfill-strip.js';
+=======
+import fs from 'fs';
+import { NEWS_DIR } from '../../constants/config.js';
+import { ARTICLE_TYPE_LABELS, getLocalizedString } from '../../constants/languages.js';
+import { formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomicWrite, } from '../../utils/file-utils.js';
+import { detectCategory } from '../../utils/article-category.js';
+import { buildSeoKeywords, resolveArticleMetadata } from '../../aggregator/article-metadata.js';
+import { SEO_CONTEXT_LABELS } from '../../aggregator/metadata/template-fallback.js';
+import { stripTruncatedReaderLabel, hasTruncatedReaderLabelInBody, } from './backfill-reader-label.js';
+const MIN_ARTICLE_DESCRIPTION_LENGTH = 120;
+/** Language labels used only in forced legacy backfill prefixes. */
+const LEGACY_LANGUAGE_LABELS = {
+    en: 'English',
+    sv: 'Svenska',
+    da: 'Dansk',
+    no: 'Norsk',
+    fi: 'Suomi',
+    de: 'Deutsch',
+    fr: 'Français',
+    es: 'Español',
+    nl: 'Nederlands',
+    ar: 'العربية',
+    he: 'עברית',
+    ja: '日本語',
+    ko: '한국어',
+    zh: '中文',
+};
+/**
+ * Regex pattern that flags internal artefact identifiers
+ * (`<slug>-run<N>-<unix-ts>`). Used by
+ * {@link descriptionHasLeakyToken} to force backfill of legacy articles
+ * whose `<meta description>` was authored before the resolver started
+ * stripping run-ids and "analysis run" jargon. Mirrors
+ * `FORBIDDEN_PATTERNS` in `scripts/validate-manifest-seo.js`.
+ */
+const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
+>>>>>>> origin/main
 /**
  * Backfill SEO metadata for legacy article HTML files that pre-date the
  * current article generator. This keeps historic pages from carrying short
@@ -90,7 +128,7 @@ function backfillOneLegacyArticleSeo(filename, descriptions) {
         return false;
     const hasKeywords = /<meta name="keywords" content="[^"]+"/u.test(html);
     const needsDescription = shouldBackfillDescription(meta.description, descriptions) ||
-        hasTruncatedReaderLabel(parsed.date, parsed.slug, parsed.lang, meta.description);
+        hasLegacyTruncatedReaderLabel(parsed.date, parsed.slug, parsed.lang, meta.description);
     if (hasKeywords && !needsDescription)
         return false;
     // Suppress leaky tokens (run-ids, "analysis run" jargon) from both
@@ -196,14 +234,239 @@ export function buildLegacyBackfillDescription(date, slug, lang, description, op
     return capDescriptionLength(contextual);
 }
 /**
- * Apply SEO meta tag replacements to a complete article HTML document.
+<<<<<<< HEAD
+=======
+ * Compute the localized dateline prefix
+ * (`${date} — ${languageLabel} — ${categoryLabel}[ — ${qualifier}]`)
+ * prepended to short / placeholder legacy descriptions.
  *
+ * @param date - Article date (ISO YYYY-MM-DD)
+ * @param slug - Article slug (used to derive the category + qualifier)
+ * @param langCode - Article language code
+ * @returns Em-dash-joined dateline prefix
+ */
+function computeLegacyPrefix(date, slug, langCode) {
+    const category = detectCategory(slug);
+    const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, langCode);
+    const label = categoryLabels[category] ?? formatSlug(slug);
+    const qualifier = buildLegacySlugQualifier(slug, label);
+    const languageLabel = legacyLanguageLabel(langCode);
+    return [date, languageLabel, label, qualifier].filter((part) => part.length > 0).join(' — ');
+}
+/**
+ * Strip the legacy dateline prefix **and** the redundant localized
+ * date-label clause from a candidate description, returning the
+ * reader-facing body in isolation. Used to clean a previously-backfilled
+ * `<meta description>` before it is re-fed to the per-language SEO
+ * resolver — without this, the resolver re-clamps the prefixed buffer
+ * against the CJK metaDescription budget and truncates the reader label
+ * mid-clause (live regression in `news/2026-04-26-week-ahead-ko.html`,
+ * a dangling "추적하는." participle).
+ *
+ * @param date - Article date (ISO YYYY-MM-DD)
+ * @param slug - Article slug
+ * @param lang - Article language code
+ * @param description - Candidate description (possibly already prefixed)
+ * @returns Reader-facing body with prefix + date label removed
+ */
+export function stripLegacyBackfillContext(date, slug, lang, description) {
+    const langCode = (lang || 'en').toLowerCase();
+    const prefix = computeLegacyPrefix(date, slug, langCode);
+    return stripTruncatedReaderLabel(stripRedundantDateLabel(stripDuplicatedLegacyPrefix(description.trim(), prefix), langCode, date), langCode);
+}
+/**
+ * Detect whether a legacy `<meta description>` ends with a truncated reader
+ * label once its dateline prefix and redundant date-label are removed.
+ * @param date - Article date string (YYYY-MM-DD)
+ * @param slug - Article slug identifier
+ * @param lang - Language code (e.g. 'en', 'sv')
+ * @param description - Meta description to check
+ * @returns True if the description ends with a truncated reader label
+ */
+function hasLegacyTruncatedReaderLabel(date, slug, lang, description) {
+    if (!description)
+        return false;
+    const langCode = (lang || 'en').toLowerCase();
+    const prefix = computeLegacyPrefix(date, slug, langCode);
+    const body = stripRedundantDateLabel(stripDuplicatedLegacyPrefix(description.trim(), prefix), langCode, date);
+    return hasTruncatedReaderLabelInBody(body, langCode);
+}
+/**
+ * Strip one or more leading copies of the legacy backfill prefix from a
+ * description candidate to keep {@link buildLegacyBackfillDescription}
+ * idempotent. The prefix may be followed by the canonical ` — `
+ * separator **or** a bare space — older passes joined a duplicated
+ * prefix to the body with a single space (live corruption in
+ * `news/2026-04-17-committee-reports-zh.html`), so both separators are
+ * tolerated and the strip repeats until the leading prefix is gone.
+ *
+ * @param trimmedDescription - Trimmed candidate description
+ * @param prefix - Prefix that would be prepended by this backfill pass
+ * @returns Description with any leading legacy prefix removed
+ */
+function stripDuplicatedLegacyPrefix(trimmedDescription, prefix) {
+    if (!trimmedDescription || !prefix)
+        return trimmedDescription;
+    const escaped = prefix.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+    const leadingPrefix = new RegExp(`^${escaped}(?:\\s*—\\s*|\\s+)`, 'u');
+    let out = trimmedDescription.trim();
+    let previous = null;
+    while (out !== previous) {
+        previous = out;
+        out = out.replace(leadingPrefix, '').trim();
+    }
+    return out;
+}
+/**
+ * Remove the localized `${labels.date} ${date}[.]` clause emitted by the
+ * per-language SEO resolver. In the legacy-backfill path the dateline
+ * prefix already carries the date, so leaving the resolver's date label
+ * in place produces a redundant "Published / 发布日期 / 게시일 YYYY-MM-DD."
+ * suffix.
+ *
+ * @param description - Candidate description (resolver output)
+ * @param langCode - Article language code
+ * @param date - Article date (ISO YYYY-MM-DD)
+ * @returns Description with the redundant date-label clause removed
+ */
+function stripRedundantDateLabel(description, langCode, date) {
+    if (!description)
+        return description;
+    const labels = getLocalizedString(SEO_CONTEXT_LABELS, langCode);
+    const escapedLabel = labels.date.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+    const dateLabelClause = new RegExp(`\\s*${escapedLabel}\\s*${date}\\.?`, 'gu');
+    return description.replace(dateLabelClause, '').replace(/\s+/g, ' ').trim();
+}
+/**
+ * Resolve the human language label used to make otherwise-identical
+ * cross-locale legacy descriptions unique.
+ *
+ * @param lang - Language code
+ * @returns Local language name, or the raw code if unknown
+ */
+function legacyLanguageLabel(lang) {
+    const descriptor = Object.getOwnPropertyDescriptor(LEGACY_LANGUAGE_LABELS, lang);
+    return typeof descriptor?.value === 'string' ? descriptor.value : lang;
+}
+/**
+ * Build an optional slug-derived qualifier for legacy pages that share the
+ * same date and article category (for example same-day `*-run2` variants).
+ *
+ * @param slug - Article slug without date/language suffix
+ * @param localizedLabel - Localized category label already present in prefix
+ * @returns Human-readable qualifier, or empty when it would duplicate label
+ */
+function buildLegacySlugQualifier(slug, localizedLabel) {
+    const formatted = formatSlug(slug).trim();
+    if (!formatted)
+        return '';
+    const normalizedFormatted = normalizeLegacyQualifier(formatted);
+    const normalizedLabel = normalizeLegacyQualifier(localizedLabel);
+    if (!normalizedFormatted || normalizedFormatted === normalizedLabel)
+        return '';
+    return formatted;
+}
+/**
+ * Normalize a prefix component for duplicate detection.
+ *
+ * @param value - Candidate text
+ * @returns Lower-case alphanumeric text
+ */
+function normalizeLegacyQualifier(value) {
+    return value
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}]+/gu, ' ')
+        .trim();
+}
+/**
+ * Clamp a description to the 180-character SERP-friendly cap with a
+ * trailing ellipsis when truncated. Extracted from
+ * {@link buildLegacyBackfillDescription} so both the prefix-free and
+ * prefixed branches share identical clamping behaviour.
+ *
+ * @param text - Candidate description
+ * @returns Description ≤180 chars, ending with `…` on truncation
+ */
+function capDescriptionLength(text) {
+    if (text.length <= 180)
+        return text;
+    return `${text.slice(0, 177).replace(/[.,;:—\s-]+$/u, '')}…`;
+}
+/**
+ * Detect whether a legacy article description contains the run-id or
+ * "analysis run" jargon that was prevalent in pre-aggregator brief
+ * authorship. These tokens are deemed unfit for `<meta description>`
+ * regardless of length and force a backfill rewrite.
+ *
+ * @param description - Current description value
+ * @returns True when the description contains a forbidden internal token
+ */
+function descriptionHasLeakyToken(description) {
+    if (!description)
+        return false;
+    const lower = description.toLowerCase();
+    if (lower.includes('analysis run'))
+        return true;
+    return LEAKY_RUNID_RE.test(description);
+}
+/**
+ * Determine whether a meta description needs backfilling.
+ *
+ * @param description - Current description
+ * @param descriptions - Description frequency map
+ * @returns True when the description is missing, short, duplicated, or
+ *   contains internal run-id tokens that must not appear in SEO surfaces
+ */
+function shouldBackfillDescription(description, descriptions) {
+    return (!description ||
+        description.length < MIN_ARTICLE_DESCRIPTION_LENGTH ||
+        (descriptions.get(description) ?? 0) > 1 ||
+        descriptionHasLeakyToken(description));
+}
+/**
+ * Build the manifest projection for legacy SEO backfill.
+ *
+ * @param runId - Stable slug/run id
+ * @param title - Current article title
+ * @param description - Current article description
+ * @param includeDescription - Whether to use the current description as a manifest override
+ * @returns Manifest projection accepted by `resolveArticleMetadata`
+ */
+function buildBackfillManifest(runId, title, description, includeDescription) {
+    return {
+        runId,
+        title,
+        ...(includeDescription ? { description } : {}),
+    };
+}
+/**
+ * Read an article HTML file, returning an empty string when unavailable.
+ *
+ * @param filepath - Absolute HTML file path
+ * @returns File content or empty string
+ */
+function readArticleHtml(filepath) {
+    try {
+        return path.isAbsolute(filepath) ? requireFsRead(filepath) : '';
+    }
+    catch {
+        return '';
+    }
+}
+/**
+ * Isolated file read helper to keep try/catch bodies small.
+ *
+ * @param filepath - Absolute file path
+ * @returns File text
+ */
+function requireFsRead(filepath) {
+    return fs.readFileSync(filepath, 'utf8');
+}
+/**
+>>>>>>> origin/main
+ * Apply SEO meta tag replacements to a complete article HTML document.
  * Exported for the regression test in
- * `test/unit/news-indexes-jsonld-description-regex.test.js`, which
- * locks in the JSON-LD description regex against the duplicate-tail
- * bug (the legacy `"description":"[^"]*"` pattern terminated at the
- * first JSON-escaped quote `\"` and left the previous description's
- * tail in place, accumulating duplicates on every prebuild run).
+ * `test/unit/news-indexes-jsonld-description-regex.test.js`.
  *
  * @param html - Existing article HTML
  * @param description - Backfilled meta description
@@ -239,89 +502,5 @@ export function applyArticleSeoBackfill(html, description, keywords) {
     next = next.replace(/("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u, '$1$2');
     return next;
 }
-/**
- * Build hreflang `<link rel="alternate">` tags for an article slug.
- * Produces one tag per supported language plus an `x-default` pointing at
- * the English variant, all using absolute URLs.
- *
- * @param articleSlug - Slug without language suffix (e.g. `2026-02-24-propositions`)
- * @returns Newline-joined `<link>` tags
- */
-function buildArticleHreflang(articleSlug) {
-    const entries = ALL_LANGUAGES.map((code) => `  <link rel="alternate" hreflang="${code}" href="${BASE_URL}/news/${articleSlug}-${code}.html">`);
-    entries.push(`  <link rel="alternate" hreflang="x-default" href="${BASE_URL}/news/${articleSlug}-en.html">`);
-    return entries.join('\n');
-}
-/**
- * Inject hreflang links into an article that has none.
- *
- * @param html - Article HTML content
- * @param hreflangBlock - Pre-built hreflang link block
- * @returns Updated HTML, or original if no change needed
- */
-function injectHreflangLinks(html, hreflangBlock) {
-    return html.replace(/(<\/head>)/u, `${hreflangBlock}\n$1`);
-}
-/**
- * Replace existing relative hreflang links with absolute URLs.
- *
- * @param html - Article HTML content
- * @param hreflangBlock - Pre-built hreflang link block with absolute URLs
- * @returns Updated HTML, or original if no change needed
- */
-function fixRelativeHreflangLinks(html, hreflangBlock) {
-    const stripped = html.replace(/\s*<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="[^"]*">\n?/gu, '');
-    return stripped.replace(/(<\/head>)/u, `${hreflangBlock}\n$1`);
-}
-/**
- * Backfill hreflang alternate links for all article HTML files.
- *
- * Handles three cases:
- * 1. Articles with no hreflang links at all → inject the full block before `</head>`
- * 2. Articles with relative hreflang URLs → replace with absolute URLs
- * 3. Articles already correct → skip
- *
- * @param filenames - News article filenames
- * @returns Number of HTML files updated
- */
-export function backfillArticleHreflang(filenames) {
-    let updated = 0;
-    for (const filename of filenames) {
-        if (backfillOneArticleHreflang(filename))
-            updated++;
-    }
-    return updated;
-}
-/**
- * Backfill hreflang for a single article file.
- *
- * @param filename - News article filename
- * @returns True when the file was updated
- */
-function backfillOneArticleHreflang(filename) {
-    const parsed = parseArticleFilename(filename);
-    if (!parsed)
-        return false;
-    const filepath = path.join(NEWS_DIR, filename);
-    const html = readArticleHtml(filepath);
-    if (!html)
-        return false;
-    const articleSlug = `${parsed.date}-${parsed.slug}`;
-    const hreflangBlock = buildArticleHreflang(articleSlug);
-    const hasHreflang = /<link\s+rel="alternate"\s+hreflang="/u.test(html);
-    let next;
-    if (!hasHreflang) {
-        next = injectHreflangLinks(html, hreflangBlock);
-    }
-    else {
-        const hasRelative = /<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="(?!https?:\/\/)/u.test(html);
-        if (!hasRelative)
-            return false;
-        next = fixRelativeHreflangLinks(html, hreflangBlock);
-    }
-    if (next === html)
-        return false;
-    atomicWrite(filepath, next);
-    return true;
-}
+export { backfillArticleHreflang } from './backfill-hreflang.js';
 //# sourceMappingURL=backfill.js.map
