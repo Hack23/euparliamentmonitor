@@ -29,6 +29,7 @@ import { detectCategory } from '../../utils/article-category.js';
 import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, } from '../../constants/language-ui.js';
 import { buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
 import { getPoliticalIntelligenceFilename } from '../political-intelligence.js';
+import { buildRssAlternateLink } from './rss.js';
 import { SITEMAP_TITLES, SITEMAP_SECTIONS, DOCS_LABELS, CATEGORY_ORDER, DEFAULT_SITEMAP_TITLE, getSitemapCopy, } from './copy.js';
 /**
  * Get the sitemap HTML filename for a given language code.
@@ -302,7 +303,7 @@ ${items}
   <meta http-equiv="Content-Language" content="${lang}">
   <link rel="canonical" href="${canonicalUrl}">
 ${hreflangLinks}
-  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
+  ${buildRssAlternateLink(lang)}
   <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHTML(sitemapTitle)}">

@@ -54,6 +54,7 @@ import {
   buildPageBanner,
 } from '../../templates/section-builders.js';
 import { getPoliticalIntelligenceFilename } from '../political-intelligence.js';
+import { buildRssAlternateLink } from './rss.js';
 import {
   SITEMAP_TITLES,
   SITEMAP_SECTIONS,
@@ -393,7 +394,7 @@ ${items}
   <meta http-equiv="Content-Language" content="${lang}">
   <link rel="canonical" href="${canonicalUrl}">
 ${hreflangLinks}
-  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
+  ${buildRssAlternateLink(lang)}
   <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHTML(sitemapTitle)}">

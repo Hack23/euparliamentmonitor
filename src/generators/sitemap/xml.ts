@@ -28,6 +28,7 @@ import type { SitemapUrl } from '../../types/index.js';
 import { getPoliticalIntelligenceFilename } from '../political-intelligence.js';
 import { escapeXML } from './xml-utils.js';
 import { getSitemapFilename, getIndexFilename } from './html.js';
+import { getRssFilename } from './rss.js';
 
 /**
  * Extended sitemap URL with optional `xhtml:link` alternate-language
@@ -93,12 +94,7 @@ export function generateSitemap(articles: string[], docsFiles: string[] = []): s
     ...buildIndexUrls(today),
     ...buildSitemapHtmlUrls(today),
     ...buildPoliticalIntelligenceUrls(today),
-    {
-      loc: `${BASE_URL}/rss.xml`,
-      lastmod: today,
-      changefreq: 'daily',
-      priority: '0.5',
-    },
+    ...buildRssFeedUrls(today),
     ...buildArticleUrls(articles),
     ...buildDocsUrls(docsFiles, today),
   ];
@@ -230,6 +226,26 @@ function buildSitemapHtmlUrls(today: string): SitemapUrlWithAlternates[] {
     changefreq: 'daily',
     priority: '0.5',
     alternates: full,
+  }));
+}
+
+/**
+ * Build the `<url>` entries for the per-language RSS feeds — `rss.xml`
+ * for English and `rss_<lang>.xml` for every other language. Feeds are
+ * not translated HTML pages, so (like the docs URLs) they carry no
+ * hreflang alternates; each is a standalone document. The generator
+ * always writes one feed file per language, so every advertised feed URL
+ * resolves to an existing document.
+ *
+ * @param today - ISO date string for `<lastmod>`
+ * @returns Sitemap URL entries
+ */
+function buildRssFeedUrls(today: string): SitemapUrlWithAlternates[] {
+  return ALL_LANGUAGES.map((lang) => ({
+    loc: `${BASE_URL}/${getRssFilename(lang)}`,
+    lastmod: today,
+    changefreq: 'daily',
+    priority: '0.5',
   }));
 }
 

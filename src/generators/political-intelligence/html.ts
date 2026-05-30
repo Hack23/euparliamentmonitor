@@ -49,6 +49,7 @@ import {
 } from '../political-intelligence-descriptions.js';
 import { pickDocumentIcon } from './icons.js';
 import { getPICopy, type PICopy } from './copy.js';
+import { buildRssAlternateLink } from '../sitemap/rss.js';
 import { getPoliticalIntelligenceSeo } from '../seo-copy.js';
 import type { PIDocument, PIDailyDateGroup, PIDailyRun, PIPageData } from './types.js';
 
@@ -467,7 +468,7 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
   <meta name="publisher" content="Hack23 AB">
   <link rel="canonical" href="${canonicalUrl}">
 ${hreflangLinks}
-  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
+  ${buildRssAlternateLink(safeLang)}
   <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHTML(copy.title)}">

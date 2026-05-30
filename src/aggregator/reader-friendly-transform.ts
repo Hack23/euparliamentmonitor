@@ -61,7 +61,7 @@ interface TransformState {
 export function applyReaderFriendlyTransform(html: string): string {
   const state = createInitialState(html);
   const withGlossary = injectReaderGlossary(html);
-  const parts = withGlossary.split(/(<[^>]+>)/g);
+  const parts = withGlossary.split(/(<[^<>]+>)/g);
   for (let i = 0; i < parts.length; i++) {
     const part = parts[i] ?? '';
     if (part.startsWith('<')) {
