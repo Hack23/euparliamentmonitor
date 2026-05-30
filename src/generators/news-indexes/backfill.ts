@@ -14,10 +14,7 @@
 import path from 'path';
 import fs from 'fs';
 import { NEWS_DIR } from '../../constants/config.js';
-import {
-  ARTICLE_TYPE_LABELS,
-  getLocalizedString,
-} from '../../constants/languages.js';
+import { ARTICLE_TYPE_LABELS, getLocalizedString } from '../../constants/languages.js';
 import {
   formatSlug,
   parseArticleFilename,
