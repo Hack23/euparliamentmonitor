@@ -85,15 +85,19 @@ test.describe('RSS Feed', () => {
     expect(text).toContain('dc:language');
   });
 
-  test('should contain articles in multiple languages', async ({ request }) => {
-    const response = await request.get('/rss.xml');
-    const text = await response.text();
-
-    // Verify items covering multiple languages exist
-    const languages = ['en', 'de', 'fr', 'es', 'sv'];
+  test('should publish per-language feeds each tagged with their own language', async ({
+    request,
+  }) => {
+    // `rss.xml` is English-only; every other locale gets its own
+    // `rss_<lang>.xml` so readers subscribe to a single-language stream.
+    // Verify several localized feeds resolve and declare their own language.
+    const languages = ['de', 'fr', 'es', 'sv'];
     let foundLanguages = 0;
     for (const lang of languages) {
-      if (text.includes(`>${lang}<`) || text.includes(`"${lang}"`)) {
+      const response = await request.get(`/rss_${lang}.xml`);
+      if (response.status() !== 200) continue;
+      const text = await response.text();
+      if (text.includes(`<language>${lang}</language>`)) {
         foundLanguages++;
       }
     }
