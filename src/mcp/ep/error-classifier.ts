@@ -144,9 +144,7 @@ export const MEPS_FEED_OVERSIZED_ITEM_THRESHOLD = 200;
  * @param payload - Parsed `get_meps_feed` payload (or `undefined`)
  * @returns `true` when the response is an oversized full-census dump
  */
-export function detectOversizedMEPsFeed(
-  payload: Record<string, unknown> | undefined
-): boolean {
+export function detectOversizedMEPsFeed(payload: Record<string, unknown> | undefined): boolean {
   if (!payload) return false;
 
   const rawWarnings = payload['dataQualityWarnings'];

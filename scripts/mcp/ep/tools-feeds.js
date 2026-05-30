@@ -9,7 +9,7 @@
 import { EuropeanParliamentMCPClient } from './client.js';
 import { PROCEDURE_EVENT_FALLBACK, SERVER_HEALTH_FALLBACK } from './fallbacks.js';
 import { _parseResultPayload } from './parse.js';
-import { classifyToolError, isFeedUnavailable, detectOversizedMEPsFeed } from './error-classifier.js';
+import { classifyToolError, isFeedUnavailable, detectOversizedMEPsFeed, } from './error-classifier.js';
 import { detectProceduresFeedStaleTail } from './staleness.js';
 /** Fallback payload for feed tools */
 const FEED_FALLBACK = '{"feed": []}';
