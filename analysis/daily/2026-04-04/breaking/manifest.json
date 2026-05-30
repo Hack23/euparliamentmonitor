@@ -89,5 +89,8 @@
     "fourPassRefinement": true,
     "multiFrameworkAnalysis": true,
     "confidenceLevelsAssigned": true
+  },
+  "title": {
+    "ja": "速報：連立力学分析 — 2026年4月4日"
   }
 }

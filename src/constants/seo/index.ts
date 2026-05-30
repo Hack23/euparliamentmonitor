@@ -28,3 +28,5 @@ export {
   ORG_SAME_AS,
   buildTwitterAttributionTags,
 } from './social-handles.js';
+
+export { SEO_CONTEXT_LABELS } from './context-labels.js';

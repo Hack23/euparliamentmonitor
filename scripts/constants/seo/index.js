@@ -20,4 +20,5 @@
  */
 export { OG_LOCALES, getOgLocale, buildOgLocaleTags } from './og-locales.js';
 export { TWITTER_SITE_HANDLE, TWITTER_CREATOR_HANDLE, ORG_SAME_AS, buildTwitterAttributionTags, } from './social-handles.js';
+export { SEO_CONTEXT_LABELS } from './context-labels.js';
 //# sourceMappingURL=index.js.map
