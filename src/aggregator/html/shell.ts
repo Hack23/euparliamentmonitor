@@ -40,7 +40,7 @@ import {
 } from '../../templates/section-builders.js';
 import { getPoliticalIntelligenceFilename } from '../../generators/political-intelligence.js';
 import { getSitemapFilename } from '../../generators/sitemap/index.js';
-import { buildRssAlternateLink } from '../../generators/sitemap/rss.js';
+import { buildRssAlternateLink } from '../../templates/sections/rss-discovery.js';
 import {
   truncateHeadline,
   getTitleSeparator,

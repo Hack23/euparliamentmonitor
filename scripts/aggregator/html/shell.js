@@ -19,7 +19,7 @@ import { escapeHTML } from '../../utils/file-utils.js';
 import { buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
 import { getPoliticalIntelligenceFilename } from '../../generators/political-intelligence.js';
 import { getSitemapFilename } from '../../generators/sitemap/index.js';
-import { buildRssAlternateLink } from '../../generators/sitemap/rss.js';
+import { buildRssAlternateLink } from '../../templates/sections/rss-discovery.js';
 import { truncateHeadline, getTitleSeparator, buildPageTitle, getLocalizedArticleType, getLocalizedArticleTypePlain, } from './headline.js';
 import { clampForBudget } from '../metadata/seo-budgets.js';
 import { getArticleFilename, buildArticleHreflangLinks, buildLanguageSwitcher, } from './hreflang.js';

@@ -14,9 +14,15 @@
  * JSON-Feed, news-specific RSS) reuses the same item shape and escaping.
  */
 import { BASE_URL } from '../../constants/config.js';
-import { getLocalizedString, PAGE_TITLES, PAGE_DESCRIPTIONS, FOOTER_RSS_LABELS, } from '../../constants/languages.js';
-import { escapeHTML } from '../../utils/file-utils.js';
+import { getLocalizedString, PAGE_TITLES, PAGE_DESCRIPTIONS, } from '../../constants/languages.js';
 import { escapeXML } from './xml-utils.js';
+import { getRssFilename } from '../../templates/sections/rss-discovery.js';
+// `getRssFilename` and `buildRssAlternateLink` live in the shared
+// `templates/` zone so the aggregator article shell can build feed
+// discovery links without an aggregator→generators import. They are
+// re-exported here to keep the sitemap RSS module's public surface stable
+// (consumed by the `generators/sitemap/index.ts` barrel and unit tests).
+export { getRssFilename, buildRssAlternateLink, } from '../../templates/sections/rss-discovery.js';
 /**
  * English brand channel — also the default envelope used when
  * {@link generateRssFeed} is called without an explicit channel. Kept as
@@ -29,16 +35,6 @@ export const DEFAULT_RSS_CHANNEL = {
     language: 'en',
     selfUrl: `${BASE_URL}/rss.xml`,
 };
-/**
- * Resolve the feed filename for a language. English publishes to the
- * canonical `rss.xml`; every other language gets `rss_<lang>.xml`.
- *
- * @param lang - Language code
- * @returns Feed filename (e.g. `rss.xml`, `rss_sv.xml`)
- */
-export function getRssFilename(lang) {
-    return lang === 'en' ? 'rss.xml' : `rss_${lang}.xml`;
-}
 /**
  * Build the localized channel envelope for a language's feed. English
  * reuses {@link DEFAULT_RSS_CHANNEL} (the established brand channel);
@@ -57,23 +53,6 @@ export function buildRssChannel(lang) {
         language: lang,
         selfUrl: `${BASE_URL}/${getRssFilename(lang)}`,
     };
-}
-/**
- * Build the `<head>` discovery `<link rel="alternate" type="application/rss+xml">`
- * tag for a page, pointing feed-autodiscovery at the language-matched
- * feed (`rss.xml` for English, `rss_<lang>.xml` otherwise) with a
- * localized title.
- *
- * @param lang - Page language code
- * @param pathPrefix - Prefix prepended to the relative feed filename
- *   (`''` for root pages, `'../'` for pages under `news/`, or an absolute
- *   `${BASE_URL}/` to emit an absolute href).
- * @returns A complete `<link>` element string
- */
-export function buildRssAlternateLink(lang, pathPrefix = '') {
-    const href = `${pathPrefix}${getRssFilename(lang)}`;
-    const title = `EU Parliament Monitor — ${getLocalizedString(FOOTER_RSS_LABELS, lang)}`;
-    return `<link rel="alternate" type="application/rss+xml" title="${escapeHTML(title)}" href="${escapeHTML(href)}">`;
 }
 /**
  * Generate an RSS 2.0 XML feed for a single language.
